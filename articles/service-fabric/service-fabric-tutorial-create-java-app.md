@@ -12,15 +12,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a8522dbe20f302a1819b89eaea92562a2dcf43a5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: e4552157cab846356c57a135d4e273f5a545bce9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114134"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667226"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Öğretici: Service Fabric üzerinde Java web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti olan uygulama oluşturma
 
@@ -55,13 +55,13 @@ Bu öğreticiye başlamadan önce:
 
 İlk olarak, Oylama uygulamasının web ön ucunu oluşturun. Durum bilgisi olmayan Java hizmeti, AngularJS tarafından desteklenen bir web kullanıcı arabirimini barındıran basit bir HTTP sunucusu anlamına gelir. Bir kullanıcıdan gelen istekler, bu durum bilgisi olmayan hizmet tarafından işlenir ve oyları depolamak için durum bilgisi olan hizmete uzak yordam çağrısı olarak gönderilir. 
 
-1. Eclipse başlatma
+1. Eclipse'i başlatın.
 
-2. **Dosya**->**Yeni**->**Diğer**->**Service Fabric**->**Service Fabric Projesi** seçeneğini kullanarak bir proje oluşturun
+2. **Dosya**->**Yeni**->**Diğer**->**Service Fabric**->**Service Fabric Projesi** seçeneğini kullanarak bir proje oluşturun.
 
     ![Eclipse’te Yeni proje iletişim kutusu](./media/service-fabric-tutorial-create-java-app/create-sf-proj-wizard.png)
 
-3. **ServiceFabric Project Wizard** iletişim kutusunda Projeye **Oylama** adını verin ve **İleri** düğmesine basın
+3. **ServiceFabric Project Wizard** iletişim kutusunda Projeye **Oylama** adını verin ve **İleri** düğmesine basın.
 
     ![Yeni hizmet iletişim kutusunda durum bilgisi olmayan Java hizmetini seçme](./media/service-fabric-tutorial-create-java-app/name-sf-proj-wizard.png) 
 
@@ -89,9 +89,9 @@ Durum bilgisi olmayan hizmet tarafından işlenebilen kullanıcı arabirimi ekle
 
 1. *VotingApplication/VotingWebPkg/Code* dizinine ulaşmak için *VotingApplication* dizinini genişletin.
 
-2. *Kod* dizinine sağ tıklayın ve **Yeni**->**Diğer** seçeneklerine tıklayın
+2. *Kod* dizinine sağ tıklayın ve **Yeni**->**Klasör** seçeneklerine tıklayın.
 
-3. *wwwroot* adlı bir klasör oluşturun ve **Son**’a tıklayın
+3. Klasöre *wwwroot* adını verin ve **Son**'a tıklayın.
 
     ![Eclipse wwwroot klasörü oluşturma](./media/service-fabric-tutorial-create-java-app/create-wwwroot-folder.png)
 
@@ -205,9 +205,9 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 </html>
 ```
 
-### <a name="update-the-votingwebservicejava-file"></a>VotingWebService.java dosyasını güncelleştirme
+### <a name="update-the-votingwebjava-file"></a>VotingWeb.java dosyasını güncelleştirme
 
-**VotingWeb** alt projesinde *VotingWeb/src/statelessservice/VotingWebService.java* dosyasını açın. **VotingWebService**, durum bilgisi olmayan hizmete yönelik ağ geçididir ve ön uç API’si için iletişim dinleyicisini ayarlamaktan sorumludur.
+**VotingWeb** alt projesinde *VotingWeb/src/statelessservice/VotingWeb.java* dosyasını açın. **VotingWeb** hizmeti, durum bilgisi olmayan hizmete yönelik ağ geçididir ve ön uç API’si için iletişim dinleyicisini ayarlamaktan sorumludur.
 
 Dosyada **createServiceInstanceListeners** yönteminin içeriklerini aşağıdakiyle değiştirin ve değişikliklerinizi kaydedin.
 
@@ -226,7 +226,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>HTTPCommunicationListener.java dosyası ekleme
 
-HTTP iletişim dinleyicisi, HTTP sunucusunu ayarlayan bir denetleyici olarak hareket eder ve oylama eylemlerini tanımlayan API’leri gösterir. *VotingWeb/src/statelessservice* klasöründe *statelessservice* paketine sağ tıklayın, ardından **Yeni->Diğer...->Genel->Dosya** seçeneklerini belirleyin ve **İleri**’ye tıklayın.  Dosyaya *HttpCommunicationListener.java* adını verin ve **Son**’a tıklayın.
+HTTP iletişim dinleyicisi, HTTP sunucusunu ayarlayan bir denetleyici olarak hareket eder ve oylama eylemlerini tanımlayan API’leri gösterir. *VotingWeb/src/statelessservice* klasöründe *statelessservice* paketine sağ tıklayın, ardından **Yeni->Dosya**'ya tıklayın.  Dosyaya *HttpCommunicationListener.java* adını verin ve **Son**’a tıklayın.
 
 Dosyanın içeriğini aşağıdakilerle değiştirin, sonra değişikliklerinizi kaydedin.  Daha sonra, [HttpCommunicationListener.java dosyasını güncelleştirme](#updatelistener_anchor) bölümünde bu dosya, arka uç hizmetinden oylama verilerini işleyecek, okuyacak ve yazacak şekilde değiştirilir.  Şimdilik dinleyici yalnızca Oylama uygulaması için statik HTML'i döndürür.
 
@@ -387,7 +387,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 
 ### <a name="configure-the-listening-port"></a>Dinleme bağlantı noktasını yapılandırma
 
-VotingWebService ön uç hizmeti oluşturulduğunda Service Fabric, hizmetin dinlemesi için bir bağlantı noktası seçer.  VotingWebService, bu uygulama için ön uç işlevi görür ve dış trafiği kabul eder; bu nedenle şimdi bu hizmeti sabit ve iyi tanınan bir bağlantı noktasına bağlayalım. Paket Gezgini’nde *VotingWebService/VotingWebServicePkg/ServiceManifest.xml* dosyasını açın.  **Kaynaklar** bölümünde **Uç Nokta** kaynağını bulun ve **Bağlantı Noktası** değerini 8080 numaralı veya başka bir bağlantı noktasıyla değiştirin. Uygulamayı yerel olarak dağıtmak ve çalıştırmak için, uygulama dinleme bağlantı noktasının bilgisayarınızda açık ve kullanılabilir olması gerekir. **ServiceManifest** etiketinin altına aşağıdaki kod parçacığını yapıştırın.
+VotingWeb hizmeti ön uç hizmeti oluşturulduğunda Service Fabric, hizmetin dinlemesi için bir bağlantı noktası seçer.  VotingWeb hizmeti bu uygulama için ön uç işlevi görür ve dış trafiği kabul eder; bu nedenle şimdi bu hizmeti sabit ve iyi tanınan bir bağlantı noktasına bağlayalım. Paket Gezgini’nde *VotingApplication/VotingWebPkg/ServiceManifest.xml* dosyasını açın.  **Kaynaklar** bölümünde **Uç Nokta** kaynağını bulun ve **Bağlantı Noktası** değerini 8080 numaralı veya başka bir bağlantı noktasıyla değiştirin. Uygulamayı yerel olarak dağıtmak ve çalıştırmak için, uygulama dinleme bağlantı noktasının bilgisayarınızda açık ve kullanılabilir olması gerekir. Aşağıdaki kod parçacığını **ServiceManifest** öğesinin içine (```<DataPackage>``` öğesinin altına) yapıştırın.
 
 ```xml
 <Resources>
@@ -408,9 +408,7 @@ Service Fabric, güvenilir koleksiyonlar kullanarak verileri doğrudan hizmetini
 
 1. Paket Gezgini'nde, uygulama projesinin içindeki **Oylama**'ya sağ tıklayın ve **Service Fabric > Service Fabric Hizmeti Ekle**’yi seçin.
 
-2. **Hizmet Ekle** iletişim kutusunda **Durum Bilgisi Olan Hizmet**'i seçin, hizmete **VotingData** adını verin ve **Hizmet Ekle**'ye tıklayın.
-
-    ![Mevcut bir uygulamaya yeni hizmet ekleme](./media/service-fabric-tutorial-create-java-app/addstatefuljava.png)
+2. **Hizmet Ekle** iletişim kutusunda **Durum Bilgisi Olan Hizmet**'i seçin, hizmete **VotingDataService** adını verin ve **Hizmet Ekle**'ye tıklayın.
 
     Hizmet projeniz oluşturulduktan sonra, uygulamanızda iki hizmet olacaktır. Uygulamanızı oluşturmaya devam ederken, aynı yöntemle başka hizmetler de ekleyebilirsiniz. Bunlardan her birinin bağımsız olarak sürümü oluşturulabilir ve yükseltilebilir.
 
@@ -420,7 +418,7 @@ Service Fabric, güvenilir koleksiyonlar kullanarak verileri doğrudan hizmetini
 
 ### <a name="add-the-votingdataservicejava-file"></a>VotingDataService.java dosyası ekleme
 
-*VotingDataService.java* dosyası, güvenilir koleksiyonlardan oyları alma, ekleme ve kaldırma mantığını içeren yöntemleri içerir. Oluşturulan *VotingDataService/src/statefulservice/VotingDataService.java* dosyasında **VotingDataService** sınıfına aşağıdaki yöntemleri ekleyin.
+*VotingDataService.java* dosyası, güvenilir koleksiyonlardan oyları alma, ekleme ve kaldırma mantığını içeren yöntemleri içerir. Aşağıdaki **VotingDataService** sınıfı metotlarını *VotingDataService/src/statefulservice/VotingDataService.java* dosyasına ekleyin.
 
 ```java
 package statefulservice;
@@ -553,9 +551,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 Şimdi ön uç durum bilgisi olmayan hizmetin çatısı ve arka uç hizmeti oluşturulur. Sonraki adım, iki hizmetin bağlanmasıdır. Ön uç ve arka uç hizmetleri, Oylama uygulamasının işlemlerini tanımlayan VotingRPC adlı bir arabirim kullanır. Bu arabirim, iki hizmet arasında uzak yordam çağrılarını (RPC) etkinleştirmek için hem ön uç hem de arka uç hizmetleri tarafından uygulanır. Eclipse, Gradle alt projelerinin eklenmesini desteklemediğinden, bu arabirimi içeren paketin el ile eklenmesi gerekir.
 
-1. Paket Gezgini’nde **Oylama** projesine sağ tıklayın ve **Yeni -> Diğer ...** seçeneklerine tıklayın.
-
-2. Sihirbazda **Genel -> Klasör** seçeneğine tıklayın ve **VotingRPC/src/rpcmethods** klasörünü adlandırın 
+1. Paket Gezgini’nde **Oylama** projesine sağ tıklayın ve **Yeni -> Klasör**'e tıklayın. Klasöre **VotingRPC/src/rpcmethods** adını verin.
 
     ![VotingRPC Paketi oluşturma](./media/service-fabric-tutorial-create-java-app/createvotingrpcpackage.png)
 
@@ -580,7 +576,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
     }
     ``` 
 
-4. *Voting/VotingRPC* dizininin altında *build.gradle* adlı bir dosya oluşturun ve dosyanın içine aşağıdakileri yapıştırın. Bu gradle dosyası, diğer hizmetler tarafından içeri aktarılan jar dosyasını derlemek ve oluşturmak için kullanılır. 
+4. *Voting/VotingRPC* dizininde *build.gradle* adlı bir dosya oluşturun ve dosyanın içine aşağıdakileri yapıştırın. Bu gradle dosyası, diğer hizmetler tarafından içeri aktarılan jar dosyasını derlemek ve oluşturmak için kullanılır. 
 
     ```gradle
     apply plugin: 'java'
@@ -632,7 +628,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
     include ':VotingRPC'
     ```
 
-6. *Voting/VotingWebService/src/statelessservice/HttpCommunicationListener.java* dosyasında açıklama bloğunun yerine şunu getirin.  
+6. *Voting/VotingWeb/src/statelessservice/HttpCommunicationListener.java* dosyasında açıklama bloğunun yerine şunu getirin.  
 
     ```java
     server.createContext("/getStatelessList", new HttpHandler() {
@@ -746,7 +742,7 @@ Bu bölümde, proje için Gradle betikleri yapılandırılır.
     defaultTasks 'clean', 'jar', 'copyDeps'
     ```
 
-2. *Voting/VotingWeb/build.gradle* dosyasının içeriklerini değiştirin.
+2. *Voting/VotingWeb/build.gradle* dosyasının içeriklerini aşağıdaki kodla değiştirin.
 
     ```gradle
     apply plugin: 'java'
@@ -816,7 +812,7 @@ Bu bölümde, proje için Gradle betikleri yapılandırılır.
     defaultTasks 'clean', 'jar', 'copyDeps'
     ``` 
 
-3. *Voting/VotingData/build.gradle* dosyasının içeriklerini değiştirin. 
+3. *Voting/VotingDataService/build.gradle* dosyasının içeriklerini değiştirin. 
 
     ```gradle
     apply plugin: 'java'

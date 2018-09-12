@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919230"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702553"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanızda yeni bir cihaz türü tanımlama
 
@@ -280,22 +280,22 @@ Operatörün cihaza yapılandırma verilerini gönderebilmesini sağlamak için 
 
 ## <a name="use-properties--device-properties"></a>Özellikler / cihaz özellikleri kullanma
 
-*Özellikleri*, cihazınız hakkındaki bilgileri uygulamada depolamak için kullanırsınız. Bu bölümde, cihaz seri numarasını ve üretici yazılımı sürümünü depolamak için **Bağlı Klima** cihaz şablonunuza cihaz özellikleri eklersiniz. Bu iki özelliğin cihaz tarafından bildirilen salt okunur özellikler olduğunu unutmayın; bunlara değer atayamazsınız. Kullanabileceğiniz, değer atanabilen özellikler cihazın konumu, sahiplik bilgileri ve son hizmet tarihi/saatidir.
+*Özellikleri*, cihazınız hakkındaki bilgileri uygulamada depolamak için kullanırsınız. Bu bölümde, cihazın konumu ve son hizmet tarihini depolamak için **Bağlı Klima** cihaz şablonunuza bulut özellikleri eklersiniz. Bunların ikisinin de cihazın değiştirilebilir özellikleri olduğuna dikkat edin. Ayrıca cihaz tarafından bildirilen cihaz seri numarası ve ürün yazılımı sürümü gibi değiştirilemeyen salt okunur özelikler vardır.
  
 1. **Bağlı Klima** cihaz şablonunuzun **Özellikler** sayfasına gidin:
 
     ![Özellik eklemeye hazırlanma](./media/tutorial-define-device-type/deviceaddproperty.png)
 
-    Sayılar veya metinler gibi farklı türlerde cihaz özellikleri oluşturabilirsiniz. Cihaz şablonunuza seri numarası özelliği eklemek için **Metin**'i seçin.
+    Sayılar veya metinler gibi farklı türlerde cihaz özellikleri oluşturabilirsiniz. Cihaz şablonunuza konum özelliği eklemek için **Konum**'u seçin.
 
-2. Seri numarası özelliğinizi yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
+2. Konum özelliğinizi yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
     | Alan                | Değer                |
     | -------------------- | -------------------- |
-    | Görünen Ad         | Seri numarası        |
-    | Alan Adı           | serialNumber         |
-    | İlk Değer        | cac00001             |
-    | Açıklama          | Cihaz seri numarası |
+    | Görünen Ad         | Konum             |
+    | Alan Adı           | location             |
+    | İlk Değer        | Seattle, WA          |
+    | Açıklama          | Cihaz konumu      |
 
     Diğer alanları varsayılan değerlerinde bırakın.
 
@@ -303,16 +303,16 @@ Operatörün cihaza yapılandırma verilerini gönderebilmesini sağlamak için 
 
     **Kaydet**'i seçin.
 
-3. Cihaz şablonunuz için cihaz özelliklerine üretici yazılımı sürümü eklemek için **Metin**'i seçin.
+3. Cihaz şablonunuza son hizmet tarihi özelliği eklemek için **Tarih**'i seçin.
 
-4. Üretici yazılımı sürümü cihaz özelliğinizi yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
+4. Son hizmet tarihi özelliğinizi yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
     | Alan                | Değer                   |
     | -------------------- | ----------------------- |
-    | Görünen Ad         | Üretici yazılımı sürümü        |
-    | Alan Adı           | firmwareVersion         |
-    | İlk Değer        | 0.1                     |
-    | Açıklama          | Cihaz üretici yazılımı sürümü |
+    | Görünen Ad         | Son Hizmet Tarihi       |
+    | Alan Adı           | serviceDate             |
+    | İlk Değer        | 1.1.2018                |
+    | Açıklama          | Son hizmet tarihi           |
 
     ![Cihaz özelliklerini yapılandırma](./media/tutorial-define-device-type/configureproperties2.png)
 

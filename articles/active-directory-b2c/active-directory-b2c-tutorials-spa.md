@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4953cb0db428de19268cdd90661f7818b06b6945
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591576"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343871"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C’yi kullanan hesaplarla tek sayfalı uygulama kimlik doğrulamasını etkinleştirme
 
@@ -24,24 +24,24 @@ Bu öğreticide, bir tek sayfalı uygulamada kullanıcı oturumu açmak ve kulla
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Azure AD B2C kiracınızda örnek bir tek sayfalı uygulama kaydedin.
+> * Azure AD B2C dizininizde örnek bir tek sayfalı uygulama kaydedin.
 > * Kullanıcı kaydı, oturum açma, profil düzenleme ve parola sıfırlama işlemleri için ilkeler oluşturma.
-> * Azure AD B2C kiracınızı kullanmak için örnek uygulamayı yapılandırma.
+> * Azure AD B2C dizininizi kullanmak için örnek uygulamayı yapılandırma.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Kendi [Azure AD B2C Kiracınızı](active-directory-b2c-get-started.md) oluşturun
+* Kendi [Azure AD B2C Dizininizi](active-directory-b2c-get-started.md) oluşturun
 * **ASP.NET ve web geliştirme** iş yüküyle [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi yükleyin.
 * [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) veya üzeri
 * [Node.js](https://nodejs.org/en/download/)’yi yükleme
 
 ## <a name="register-single-page-app"></a>Tek sayfalı uygulamayı kaydet
 
-Uygulamaların Azure Active Directory’den [erişim belirteçlerini](../active-directory/develop/developer-glossary.md#access-token) alabilmesi için öncelikle kiracınızda [kayıtlı](../active-directory/develop/developer-glossary.md#application-registration) olması gerekir. Uygulama kaydı, kiracınızda uygulama için bir [uygulama kimliği](../active-directory/develop/developer-glossary.md#application-id-client-id) oluşturur. 
+Uygulamaların Azure Active Directory’den [erişim belirteçlerini](../active-directory/develop/developer-glossary.md#access-token) alabilmesi için öncelikle dizininizde [kayıtlı](../active-directory/develop/developer-glossary.md#application-registration) olması gerekir. Uygulama kaydı, dizininizde uygulama için bir [uygulama kimliği](../active-directory/develop/developer-glossary.md#application-id-client-id) oluşturur. 
 
-[Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
+[Azure portalında](https://portal.azure.com/) Azure AD B2C dizininizin genel yöneticisi olarak oturum açın.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -49,7 +49,7 @@ Uygulamaların Azure Active Directory’den [erişim belirteçlerini](../active-
 
 2. B2C ayarlarında **Uygulamalar**’a ve ardından  **Ekle**’ye tıklayın. 
 
-    Örnek web uygulamasını kiracınıza kaydetmek için aşağıdaki ayaları kullanın:
+    Örnek web uygulamasını dizininize kaydetmek için aşağıdaki ayaları kullanın:
     
     ![Yeni uygulama ekle](media/active-directory-b2c-tutorials-spa/spa-registration.png)
     
@@ -63,7 +63,7 @@ Uygulamaların Azure Active Directory’den [erişim belirteçlerini](../active-
     
 3. Uygulamanızı kaydetmek için **Oluştur**’a seçeneğine tıklayın.
 
-Kayıtlı uygulamalar Azure AD B2C kiracısı için uygulamalar listesinde görüntülenir. Listeden tek sayfalı uygulamanızı seçin. Kayıtlı tek sayfalı uygulamanın özellik bölmesinde görüntülenir.
+Kayıtlı uygulamalar Azure AD B2C dizini için uygulamalar listesinde görüntülenir. Listeden tek sayfalı uygulamanızı seçin. Kayıtlı tek sayfalı uygulamanın özellik bölmesinde görüntülenir.
 
 ![Tek sayfalı uygulama özellikleri](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
@@ -127,25 +127,25 @@ Uygulamanızda parola sıfırlama özelliği sunmak için bir **parola sıfırla
 
 ## <a name="update-single-page-app-code"></a>Tek sayfalı uygulama kodunu güncelleştir
 
-Artık bir uygulama kaydettiğinize ve ilkeleri oluşturduğunuza göre, uygulamanızı Azure AD B2C kiracınızı kullanacak şekilde yapılandırmanız gerekir. Bu öğreticide, GitHub’dan indirebileceğiniz örnek bir SPA JavaScript uygulaması yapılandırırsınız. 
+Artık bir uygulama kaydettiğinize ve ilkeleri oluşturduğunuza göre, uygulamanızı Azure AD B2C dizininizi kullanacak şekilde yapılandırmanız gerekir. Bu öğreticide, GitHub’dan indirebileceğiniz örnek bir SPA JavaScript uygulaması yapılandırırsınız. 
 
 GitHub’dan [zip dosyasını indirin](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) veya örnek web uygulamasını kopyalayın.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-Örnek uygulama, bir tek sayfalı uygulamanın kullanıcıyı kaydetme, kullanıcının oturumunu açma ve korumalı bir web API’sini çağırma işlemleri için Azure AD B2C’yi nasıl kullanabileceğini gösterir. Kiracınızda uygulama kaydını kullanmak için uygulamayı değiştirmeniz ve oluşturduğunuz ilkeleri yapılandırmanız gerekir. 
+Örnek uygulama, bir tek sayfalı uygulamanın kullanıcıyı kaydetme, kullanıcının oturumunu açma ve korumalı bir web API’sini çağırma işlemleri için Azure AD B2C’yi nasıl kullanabileceğini gösterir. Dizininizde uygulama kaydını kullanmak için uygulamayı değiştirmeniz ve oluşturduğunuz ilkeleri yapılandırmanız gerekir. 
 
 Uygulama ayarlarını değiştirmek için:
 
 1. Node.js tek sayfalı uygulama örneğinde `index.html` dosyasını açın.
-2. Örneği Azure AD B2C kiracı kayıt bilgileriyle yapılandırın. Aşağıdaki kod satırlarını değiştirin:
+2. Örneği Azure AD B2C dizin kayıt bilgileriyle yapılandırın. Aşağıdaki kod satırlarını değiştirin (değerlerin yerine dizininizin ve API'lerin adını yazmayı unutmayın):
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C tenant.
+    // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
@@ -185,20 +185,20 @@ Uygulama ayarlarını değiştirmek için:
 
     ![Kaydolma iş akışı](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. Azure AD B2C kiracısında yerel bir hesap oluşturmak için **Oluştur**’a tıklayın.
+4. Azure AD B2C dizininde yerel bir hesap oluşturmak için **Oluştur**’a tıklayın.
 
 Artık kullanıcı, oturum açmak ve SPA uygulamasını kullanmak için e-posta adresini kullanabilir.
 
 > [!NOTE]
-> Oturum açtıktan sonra, uygulama bir “yetersiz izinler” hatası görüntülüyor. Bu hatayı, tanıtım kiracısındaki bir kaynağa erişmeye çalıştığınız için alırsınız. Erişim belirteci yalnızca Azure AD kiracınız için geçerli olduğundan, API çağrısı yetkilendirilmez. Kiracınız için korumalı bir web API’si oluşturmak amacıyla sonraki öğreticiye geçin. 
+> Oturum açtıktan sonra, uygulama bir “yetersiz izinler” hatası görüntülüyor. Bu hatayı, tanıtım dizinindeki bir kaynağa erişmeye çalıştığınız için alırsınız. Erişim belirteci yalnızca Azure AD dizininiz için geçerli olduğundan, API çağrısı yetkilendirilmez. Dizininiz için korumalı bir web API’si oluşturmak amacıyla sonraki öğreticiye geçin. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Diğer Azure AD B2C öğreticilerini denemeyi planlıyorsanız Azure AD B2C kiracınızı kullanabilirsiniz. Artık ihtiyaç duymuyorsanız [Azure AD B2C kiracınızı silebilirsiniz](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+Diğer Azure AD B2C öğreticilerini denemeyi planlıyorsanız Azure AD B2C dizininizi kullanabilirsiniz. Artık ihtiyaç duymuyorsanız [Azure AD B2C dizininizi silebilirsiniz](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide bir Azure AD B2C kiracısı oluşturmayı, ilkeleri oluşturmayı ve Azure AD B2C kiracınızı kullanmak için örnek tek sayfalı uygulamayı güncelleştirmeyi öğrendiniz. Bir masaüstü uygulamasındaki korumalı bir web API’sini kaydetmeyi, yapılandırmayı ve çağırmayı öğretmek için sonraki öğreticiye geçin.
+Bu öğreticide bir Azure AD B2C dizini oluşturmayı, ilkeleri oluşturmayı ve Azure AD B2C dizininizi kullanmak için örnek tek sayfalı uygulamayı güncelleştirmeyi öğrendiniz. Bir masaüstü uygulamasındaki korumalı bir web API’sini kaydetmeyi, yapılandırmayı ve çağırmayı öğretmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
 > 

@@ -1,78 +1,73 @@
 ---
-title: Çağrı ve yanıt - Azure Bilişsel hizmetler, Bing Web arama API için PHP hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Bing Web arama API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: 'Hızlı Başlangıç: Bing Web Araması API’sini çağırmak için PHP kullanma'
+description: Bu hızlı başlangıçta, PHP kullanarak ilk Bing Web Araması API'si çağrınızı yapmayı ve bir JSON yanıtı almayı öğreneceksiniz.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 2e54db4ba59d89271077d243589243768bf8b7fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: ef5263ce65efccdab0fb461165e66156dd4fce52
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352384"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888438"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-php"></a>Çağrı ve yanıt: PHP, ilk Bing Web arama sorgusu
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web Araması API’sini çağırmak için PHP kullanma  
 
-Bing Web arama API Bing belirler arama sonuçları kullanıcının sorgu ile ilgili döndürerek Bing.com/Search için benzer bir deneyim sağlar. Sonuçları, Web sayfaları, resim, video, haber ve varlıklar, ilgili arama sorguları, yazım düzeltmeleri, saat dilimleri, birim dönüştürme, çeviri ve hesaplamalar birlikte içerebilir. Tür sonuç elde ilgileri ve abone olduğunuz Bing arama API'leri katmanını temel alır.
+10 dakikadan daha kısa bir sürede ilk Bing Web Araması API'si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın.  
 
-Bu makalede bir Bing Web arama API sorgu gerçekleştirir ve JSON biçiminde döndürülen ham arama sonuçlarını görüntüleyen basit bir konsol uygulaması içerir. Bu uygulama, PHP ile yazılmış olsa da, HTTP isteği yapmak ve JSON ayrıştırma programlama dili ile uyumlu bir RESTful Web hizmeti API'dir. 
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Gereksinim duyduğunuz [PHP 5.6.x](http://php.net/downloads.php) bu kodu çalıştırmak için.
+Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız olacaktır:
 
-Bilmeniz gereken bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir.
+* [PHP 5.6.x](http://php.net/downloads.php) veya üzeri
+* Abonelik anahtarı  
 
-## <a name="running-the-application"></a>Uygulamayı çalıştırma
+## <a name="enable-secure-http-support"></a>Güvenli HTTP desteğini etkinleştirme
 
-Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin.
+Başlamadan önce `php.ini` dosyasını bulun ve şu satırın açıklamasını kaldırın:
 
-1. Güvenli HTTP desteği etkinleştirildiğinden emin olun, `php.ini` kod açıklamada açıklandığı gibi. Bu dosyanın bulunduğu Windows üzerinde `C:\windows`.
-2. Sık kullanılan IDE veya Düzenleyicisi içinde yeni bir PHP projesi oluşturun.
-3. Sağlanan kod ekleyin.
-4. Değiştir `accessKey` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-5. Programını çalıştırın.
+```
+;extension=php_openssl.dll
+```
+
+## <a name="create-a-project-and-define-variables"></a>Proje oluşturma ve değişkenleri tanımlama  
+
+Sık kullandığınız IDE veya düzenleyicide yeni bir PHP projesi oluşturun. `<?php` ve `?>` açılış ve kapanış etiketlerini eklemeyi unutmayın.
+
+Devam etmeden önce birkaç değişkeni ayarlamamız gerekir. `$endpoint` öğesinin geçerli olduğunu doğrulayın ve `$accesskey` değerini Azure hesabınızdan geçerli bir abonelik anahtarı ile değiştirin. `$term` için değeri değiştirerek arama sorgusunu değiştirebilirsiniz.
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
 $accessKey = 'enter key here';
-
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this value against
-// the endpoint for your Bing Web search instance in your Azure dashboard.
 $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
-
 $term = 'Microsoft Cognitive Services';
+```
 
+## <a name="construct-a-request"></a>İstek oluşturma
+
+Bu kod, Bing Web Araması API'sine gönderilecek istekleri oluşturmak için kullanılan `BingWebSearch` işlevini tanımlar. Üç bağımsız değişken alır: `$url`, `$key` ve `$query`.
+
+```php
 function BingWebSearch ($url, $key, $query) {
-    // Prepare HTTP request
-    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    /* Prepare the HTTP request.
+     * NOTE: Use the key 'http' even if you are making an HTTPS request.
+     * See: http://php.net/manual/en/function.stream-context-create.php.
+     */
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
                           'header' => $headers,
                            'method' => 'GET'));
 
-    // Perform the Web request and get the JSON response
+    // Perform the request and get a JSON response.
     $context = stream_context_create($options);
     $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
 
-    // Extract Bing HTTP headers
+    // Extract Bing HTTP headers.
     $headers = array();
     foreach ($http_response_header as $k => $v) {
         $h = explode(":", $v, 2);
@@ -83,18 +78,25 @@ function BingWebSearch ($url, $key, $query) {
 
     return array($headers, $result);
 }
+```
 
+## <a name="make-a-request-and-print-the-response"></a>İstekte bulunma ve yanıtı yazdırma
+
+Bu kod abonelik anahtarını doğrular, istekte bulunur ve yanıtı yazdırır.
+
+```php
+// Validates the subscription key.
 if (strlen($accessKey) == 32) {
 
     print "Searching the Web for: " . $term . "\n";
-    
+    // Makes the request.
     list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
-    
+
     print "\nRelevant Headers:\n\n";
     foreach ($headers as $k => $v) {
         print $k . ": " . $v . "\n";
     }
-    
+    // Prints JSON encoded response.
     print "\nJSON Response:\n\n";
     echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
@@ -104,12 +106,55 @@ if (strlen($accessKey) == 32) {
     print("Please paste yours into the source code.\n");
 
 }
+```
+
+## <a name="put-it-all-together"></a>Hepsini bir araya getirin
+
+Son adım kodunuzu doğrulayıp çalıştırmaktır! Kodunuzu bizimkiyle karşılaştırmak isterseniz, tam program aşağıdadır:
+
+```php
+<?php
+$accessKey = 'enter key here';
+$endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
+$term = 'Microsoft Cognitive Services';
+
+function BingWebSearch ($url, $key, $query) {
+    $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
+    $options = array ('http' => array (
+                          'header' => $headers,
+                           'method' => 'GET'));
+    $context = stream_context_create($options);
+    $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
+    $headers = array();
+    foreach ($http_response_header as $k => $v) {
+        $h = explode(":", $v, 2);
+        if (isset($h[1]))
+            if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
+                $headers[trim($h[0])] = trim($h[1]);
+    }
+    return array($headers, $result);
+}
+
+if (strlen($accessKey) == 32) {
+    print "Searching the Web for: " . $term . "\n";
+    list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
+    print "\nRelevant Headers:\n\n";
+    foreach ($headers as $k => $v) {
+        print $k . ": " . $v . "\n";
+    }
+    print "\nJSON Response:\n\n";
+    echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
+
+} else {
+    print("Invalid Bing Search API subscription key!\n");
+    print("Please paste yours into the source code.\n");
+}
 ?>
 ```
 
-## <a name="json-response"></a>JSON yanıtı
+## <a name="sample-response"></a>Örnek yanıt
 
-Örnek yanıt izler. JSON uzunluğunu sınırlamak için yalnızca tek bir sonuç gösterilir ve diğer bölümleri yanıtının kesildi. 
+Bing Web Araması API'si yanıtları JSON biçiminde döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.  
 
 ```json
 {
@@ -236,11 +281,6 @@ if (strlen($accessKey) == 32) {
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing Web arama tek sayfa uygulaması Öğreticisi](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web araması tek sayfalı uygulama öğreticisi](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>Ayrıca bkz. 
-
-[Bing Web araması genel bakış](../overview.md)  
-[Deneyin](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Ücretsiz deneme erişim anahtarı alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Bing Web arama API Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

@@ -1,100 +1,102 @@
 ---
-title: Yönetilen hizmet kimliği ile Terraform Linux sanal makine oluşturmak için Azure Market görüntü kullanın
-description: Market görüntüsü kolayca kaynakları Azure'a dağıtmak için Yönetilen hizmet kimliği ve uzak durum yönetimi ile Terraform Linux sanal makine oluşturmak için kullanın.
-keywords: terraform, devops, MSI, sanal makine, uzak durumu, azure
-author: VaijanathB
-manager: rloutlaw
+title: Azure Market görüntüsü kullanarak Yönetilen Hizmet Kimliği özelliğine sahip bir Terraform Linux sanal makinesi oluşturma
+description: Bir Market görüntüsü kullanarak Yönetilen Hizmet Kimliği ve Uzak Durum Yönetimi özelliklerine sahip bir Terraform Linux sanal makinesi oluşturabilir ve Azure'a kolayca kaynak dağıtımı gerçekleştirebilirsiniz.
+services: terraform
+ms.service: terraform
+keywords: terraform, devops, MSI, sanal makine, uzak durum, azure
+author: tomarcher
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 3/12/2018
-ms.topic: article
-ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413805"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669396"
 ---
-# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Yönetilen hizmet kimliği ile Terraform Linux sanal makine oluşturmak için Azure Market görüntü kullanın
+# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Azure Market görüntüsü kullanarak Yönetilen Hizmet Kimliği özelliğine sahip bir Terraform Linux sanal makinesi oluşturma
 
-Bu makalede nasıl kullanılacağı gösterilmektedir bir [Terraform Market görüntüsü](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) bir Ubuntu Linux VM oluşturmak için (16.04 LTS) en son [Terraform](https://www.terraform.io/intro/index.html) sürümü yüklü ve kullanılarak yapılandırılan [yönetilen Hizmet kimliği (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Bu görüntü da etkinleştirmek için uzak bir arka uç yapılandırır [uzak durumu](https://www.terraform.io/docs/state/remote.html) Terraform kullanarak yönetimi. 
+Bu makalede bir [Terraform Market görüntüsünü](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) kullanarak [Yönetilen Hizmet Kimliği (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) ile yüklenmiş ve yapılandırılmış en son [Terraform](https://www.terraform.io/intro/index.html) sürümüne sahip bir Ubuntu Linux VM (16.04 LTS) oluşturmayı öğreneceksiniz. Bu görüntü ayrıca Terraform ile [uzak durum](https://www.terraform.io/docs/state/remote.html) yönetimi sağlamak için bir uzak arka uç da yapılandıracaktır. 
 
-Terraform Market görüntüsü Terraform Azure üzerinde yüklemek ve Terraform el ile yapılandırmak zorunda kalmadan kullanmaya başlamak kolaylaştırır. 
+Terraform Market görüntüsü, Terraform'u el ile yükleme ve yapılandırmanıza gerek kalmadan Terraform'u Azure'da kullanmaya başlamanızı kolaylaştırır. 
 
-Bu Terraform VM görüntüsü için yazılım harcamanız yok. Sağlanan sanal makine boyutuna göre uygunluk Azure donanım kullanım ücretleri ödersiniz. İşlem ücretleri hakkında daha fazla bilgi için bkz: [Linux sanal makineleri fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Bu Terraform VM görüntüsü için yazılım ücreti alınmaz. Yalnızca sağlanan sanal makinenin boyutuna göre belirlenen Azure donanımı kullanım ücretlerini ödersiniz. İşlem ücretleri hakkında daha fazla bilgi için bkz. [Linux sanal makineleri fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="prerequisites"></a>Önkoşullar
-Bir Linux Terraform sanal makine oluşturmadan önce bir Azure aboneliğinizin olması gerekir. Zaten yoksa, bkz: [ücretsiz Azure hesabınızı bugün oluşturmak](https://azure.microsoft.com/free/).  
+## <a name="prerequisites"></a>Ön koşullar
+Linux Terraform sanal makinesi oluşturmak için bir Azure aboneliğine sahip olmanız gerekir. Henüz yoksa [ücretsiz Azure hesabınızı hemen oluşturun](https://azure.microsoft.com/free/).  
 
-## <a name="create-your-terraform-virtual-machine"></a>Terraform sanal makine oluşturma 
+## <a name="create-your-terraform-virtual-machine"></a>Terraform sanal makinenizi oluşturma 
 
-Bir Linux Terraform sanal makine örneği oluşturmak için adımlar şunlardır: 
+Linux Terraform sanal makinesi örneği oluşturma adımları aşağıda verilmiştir: 
 
-1. Azure portalında Git [kaynak oluşturma](https://ms.portal.azure.com/#create/hub) listesi.
+1. Azure portalda [Kaynak oluştur](https://ms.portal.azure.com/#create/hub) bölümüne gidin.
 
-2. İçinde **Market arama** arama çubuğu, arama **Terraform**. Seçin **Terraform** şablonu. 
+2. **Market içinde ara** arama çubuğundan **Terraform** araması yapın. **Terraform** şablonunu seçin. 
 
-3. Sağ alt köşesinde Terraform Ayrıntılar sekmesinde seçin **oluşturma** düğmesi.
+3. Terraform ayrıntıları sekmesinin sağ alt bölümünde **Oluştur** düğmesini seçin.
 
-    ![Terraform sanal makine oluşturma](media\terraformmsi.png)
+    ![Terraform sanal makinesi oluşturma](media\terraformmsi.png)
 
-4. Aşağıdaki bölümler girişleri her Terraform Linux sanal makine oluşturmak için sihirbazın adımlarını sağlar. Aşağıdaki bölümde bu adımların her biri yapılandırmak için gereken girişleri listelenmektedir.
+4. Aşağıdaki bölümlerde Terraform Linux sanal makinesini oluşturmak için sihirbaza girmeniz gereken değerler verilmiştir. Aşağıdaki bölümde bu adımları yapılandırmak için gerekli olan değerler belirtilmiştir.
 
-## <a name="details-on-the-create-terraform-tab"></a>Oluşturma Terraform sekmesindeki Ayrıntılar
+## <a name="details-on-the-create-terraform-tab"></a>Terraform Oluştur sekmesindeki ayrıntılar
 
-Aşağıdaki ayrıntıları girin **oluşturma Terraform** sekmesi:
+**Terraform Oluştur** sekmesine aşağıdaki bilgileri girin:
 
 1. **Temel Bilgiler**
     
-   * **Ad**: Terraform sanal makinenin adı.
-   * **Kullanıcı adı**: ilk hesap oturum açma kimliği.
-   * **Parola**: ilk hesap parolası. (Parola yerine bir SSH ortak anahtarı kullanabilirsiniz.)
-   * **Abonelik**: Makine olduğu oluşturulur ve fatura için abonelik. Bu abonelik için kaynak oluşturma ayrıcalıkları olmalıdır.
-   * **Kaynak grubu**: yeni veya var olan kaynak grubu.
-   * **Konum**: en uygun olan veri merkezi. Genellikle verilerinizden en iyi veya en yakın fiziksel konumunuza en hızlı ağ erişimi için bir veri merkezi olur.
+   * **Ad**: Terraform sanal makinenizin adı.
+   * **Kullanıcı Adı**: İlk hesabın oturum açma kimliği.
+   * **Parola**: İlk hesabın parolası. (Parola yerine SSH ortak anahtarı kullanabilirsiniz.)
+   * **Abonelik**: Makinenin oluşturulacağı ve fatura için kullanacağı abonelik. Bu abonelikte kaynak oluşturma ayrıcalıklarına sahip olmanız gerekir.
+   * **Kaynak grubu**: Yeni veya var olan bir kaynak grubu.
+   * **Konum**: Size en uygun veri merkezi. Bu genellikle verilerinizin çoğunun bulunduğu veya en hızlı ağ erişimi için fiziksel konumunuza en yakın olan veri merkezidir.
 
-2. **Ek ayarları**
+2. **Ek ayarlar**
 
-   * **Boyutu**: sanal makine boyutu. 
+   * **Boyut**: Sanal makinenin boyutu. 
    * **VM disk türü**: SSD veya HDD.
 
-3. **Özet Terraform**
+3. **Terraform Özeti**
 
-   * Girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın. 
+   * Girdiğiniz tüm bilgilerin doğru olduğunu onaylayın. 
 
-4. **Satın alma**
+4. **Satın Al**
 
-   * Sağlama işlemini başlatmak için **satın**. Bağlantı işlem koşullarını sağlanır. VM boyutu adımda seçtiğiniz sunucu boyutu işlem ötesinde herhangi bir ek ücret yok.
+   * Sağlama işlemini başlatmak için **Satın Al**'ı seçin. İşlemin koşullarının bağlantısı sunulur. Boyut adımında seçtiğiniz sunucu boyutu için işlem ücretlerinin dışında VM için herhangi bir ücret alınmaz.
 
 Terraform VM görüntüsü aşağıdaki adımları gerçekleştirir:
 
-* Ubuntu 16.04 LTS görüntüyü temel alarak sistem atanan kimliğe sahip bir VM oluşturur.
-* OAuth belirteçleri için Azure kaynaklarını verilmesine izin vermek için VM'de MSI uzantısı yükler.
-* Kaynak grubu için sahiplik hakları verme yönetilen kimliğine RBAC izinleri atar.
+* Ubuntu 16.04 LTS görüntüsünü temel alan ve sistem tarafından atanmış olan kimliğe sahip olan bir VM oluşturur.
+* Azure kaynakları için OAuth belirteçlerinin oluşturulmasına izin verme amacıyla VM üzerine MSI uzantısını yükler.
+* Yönetilen kimliğe RBAC izinleri atayarak kaynak grubunda sahip hakları verir.
 * Bir Terraform şablon klasörü (tfTemplate) oluşturur.
-* Azure yedekleme Terraform uzak durumuyla önceden yapılandırır son.
+* Bir Terraform uzak durumu için Azure arka ucuyla ön yapılandırma gerçekleştirir.
 
-## <a name="access-and-configure-a-linux-terraform-virtual-machine"></a>Erişim ve Linux Terraform sanal makine yapılandırma
+## <a name="access-and-configure-a-linux-terraform-virtual-machine"></a>Linux Terraform sanal makinesi erişim ve yapılandırma adımları
 
-VM oluşturduktan sonra kendisine SSH kullanarak oturum açabilirsiniz. Adım 3 metin kabuk arabirimi için "Temel" bölümünde oluşturduğunuz hesap kimlik bilgilerini kullanın. Windows, bir SSH istemcisi aracı gibi indirebilirsiniz [Putty](http://www.putty.org/).
+VM'yi oluşturduktan sonra SSH kullanarak oturum açabilirsiniz. Metin kabuk arabirimi için 3. adımın "Temel Bilgiler" bölümünde oluşturduğunuz hesap kimlik bilgilerini kullanın. Windows'da [Putty](http://www.putty.org/) gibi bir SSH istemcisi aracı indirebilirsiniz.
 
-Sanal makineye bağlanmak için SSH kullandıktan sonra yönetilen hizmet kimliği için sanal makinedeki tüm abonelik katkıda bulunan izinleri vermeniz gerekir. 
+SSH kullanarak sanal makineye bağlandıktan sonra sanal makine üzerindeki Yönetilen Hizmet Kimliğine aboneliğin tamamında katkıda bulunan izni vermeniz gerekir. 
 
-Katkıda bulunan izni Terraform VM kaynak grubu dışındaki kaynaklar oluşturmak üzere kullanmak için VM'de MSI yardımcı olur. Bu eylem bir komut dosyası bir kez çalıştırarak kolayca elde edebilirsiniz. Aşağıdaki komutu kullanın:
+Katkıda bulunan izinleri sayesinde VM üzerindeki MSI, Terraform'u kullanarak VM kaynak grubu dışında kaynak oluşturabilirsiniz. Bu işlemi gerçekleştirmek için aşağıdaki betiği bir kez çalıştırmanız yeterlidir. Aşağıdaki komutu kullanın:
 
 `. ~/tfEnv.sh`
 
-Önceki komut dosyası kullanan [AZ CLI v 2.0 etkileşimli oturum açma](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) Azure kimlik doğrulaması ve sanal makine yönetilen hizmet kimliği katkıda bulunan tüm abonelik izinlerini atamak için bir mekanizma. 
+Yukarıdaki betikte [AZ CLI v 2.0 etkileşimli oturum açma](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) mekanizması kullanılarak Azure kimlik doğrulaması gerçekleştirilir ve sanal makine Yönetilen Hizmet Kimliğine aboneliğin tamamında katkıda bulunan izni atanır. 
 
- VM Terraform uzak durumu arka uç vardır. Terraform dağıtımınızı etkinleştirmek için remoteState.tf dosyasını tfTemplate dizininden Terraform betikleri kök dizinine kopyalayın.  
+ VM, Terraform uzak durum arka ucuna sahiptir. Bunu Terraform dağıtımınızda etkinleştirmek için tfTemplate dizinindeki remoteState.tf dosyasını Terraform betiklerinin kök dizinine kopyalayın.  
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- Uzak durum yönetimi hakkında daha fazla bilgi için bkz: [bu sayfa Terraform uzak durumu hakkında](https://www.terraform.io/docs/state/remote.html). Depolama erişim tuşu bu dosyada sunulur ve teslim etme Terraform yapılandırma dosyalarını önce kaynak denetimine hariç tutulacak gerekiyor.
+ Uzak Durum Yönetimi hakkında daha fazla bilgi için [bu Terraform uzak durum sayfasını inceleyin](https://www.terraform.io/docs/state/remote.html). Depolama erişim anahtarı bu dosyada gösterilmektedir ve Terraform yapılandırma dosyalarını kaynak denetimine göndermeden önce kaldırılmalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, Azure üzerinde Terraform Linux sanal makine ayarlama öğrendiniz. Azure üzerinde Terraform hakkında daha fazla bilgi edinmenize yardımcı olması için bazı ek kaynaklar aşağıda verilmiştir: 
+Bu makalede Azure'da bir Terraform Linux sanal makinesi oluşturmayı öğrendiniz. Aşağıdaki kaynaklardan Azure'da Terraform kullanımı hakkında daha fazla bilgi edinebilirsiniz: 
 
- [Microsoft.com Terraform Hub](https://docs.microsoft.com/azure/terraform/)  
+ [Microsoft.com Terraform Hub'ı](https://docs.microsoft.com/azure/terraform/)  
  [Terraform Azure sağlayıcı belgeleri](http://aka.ms/terraform)  
  [Terraform Azure sağlayıcı kaynağı](http://aka.ms/tfgit)  
  [Terraform Azure modülleri](http://aka.ms/tfmodules)

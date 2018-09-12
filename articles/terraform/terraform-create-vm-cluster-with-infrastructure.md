@@ -1,50 +1,50 @@
 ---
-title: VM kümesinin Terraform ve HCL ile oluşturma
-description: Azure yük dengeleyici ile Linux sanal makine kümesi oluşturmak için Terraform ve HashiCorp yapılandırma dili (HCL) kullanın
+title: Terraform ve HCL ile VM kümesi oluşturma
+description: Terraform ve HashiCorp Yapılandırma Dili (HCL) ile Azure'da yük dengeleyiciye sahip bir Linux sanal makine kümesi oluşturma
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, sanal makine, ağ, modüller
 author: tomarcher
-manager: routlaw
-ms.service: virtual-machines-linux
-ms.custom: devops
-ms.topic: article
-ms.date: 11/13/2017
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 2435d694e6a1671a234d02f90860e5cafe98c2df
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 11/13/2017
+ms.openlocfilehash: fffaf275a98791885b87ee8ffdc275e911b26341
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
-ms.locfileid: "24518809"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667609"
 ---
-# <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>VM kümesinin Terraform ve HCL ile oluşturma
+# <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Terraform ve HCL ile VM kümesi oluşturma
 
-Bu öğretici kullanılarak küçük bilgi işlem küme oluşturma gösterir [HashiCorp yapılandırma dil](https://www.terraform.io/docs/configuration/syntax.html) (HCL). İki Linux VM'ler için bir yük dengeleyici yapılandırması oluşturur bir [kullanılabilirlik kümesi](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)ve tüm gerekli ağ kaynaklarına.
+Bu öğreticide [HashiCorp Yapılandırma Dili](https://www.terraform.io/docs/configuration/syntax.html) (HCL) ile küçük bir işlem kümesi oluşturma adımları gösterilmiştir. Yapılandırma yük dengeleyici, bir [kullanılabilirlik kümesinde](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) iki Linux VM ve gerekli tüm ağ kaynaklarını oluşturur.
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Azure kimlik doğrulamasını kurma
+> * Azure kimlik doğrulamasını ayarlama
 > * Terraform yapılandırma dosyası oluşturma
-> * Terraform başlatma
-> * Bir Terraform yürütme planı oluşturma
-> * Terraform yürütme planı Uygula
+> * Terraform'u başlatma
+> * Terraform yürütme planı oluşturma
+> * Terraform yürütme planını uygulama
 
-## <a name="1-set-up-azure-authentication"></a>1. Azure kimlik doğrulamasını kurma
+## <a name="1-set-up-azure-authentication"></a>1. Azure kimlik doğrulamasını ayarlama
 
 > [!NOTE]
-> Varsa, [Terraform ortam değişkenlerini kullanma](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), ya da Bu öğretici Çalıştır [Azure bulut Kabuk](terraform-cloud-shell.md), bu bölüm atlayın.
+> [Terraform ortam değişkenlerini kullanıyorsanız](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) veya bu [Azure Cloud Shell](terraform-cloud-shell.md) öğreticisini çalıştırdıysanız bu bölümü atlayın.
 
-Bu bölümde, bir Azure hizmet sorumlusu ve güvenlik sorumlusu kimlik bilgilerini içeren iki Terraform yapılandırma dosyaları oluşturur.
+Bu bölümde bir Azure hizmet sorumlusu ve hizmet sorumlusu kimlik bilgilerini içeren iki Terraform yapılandırma dosyası oluşturacaksınız.
 
-1. [Bir Azure AD hizmet sorumlusu ayarlamak](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) Terraform sağlama kaynaklara Azure'da etkinleştirmek için. Asıl oluşturulurken, abonelik kimliği, Kiracı, AppID ve parola değerlerini not edin.
+1. Terraform'un Azure'da kaynak sağlaması için bir [Azure AD hizmet sorumlusu ayarlayın](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure). Hizmet sorumlusunu oluştururken abonelik kimliği, kiracı, uygulama kimliği ve parola değerlerini not edin.
 
 2. Bir komut istemi açın.
 
-3. Terraform dosyalarınızı depolamak boş bir dizin oluşturun.
+3. Terraform dosyalarınızı depolamak için boş bir dizin oluşturun.
 
-4. Değişkenleri bildirimlerinizde tutan yeni bir dosya oluşturun. Bu dosya ile gibi herhangi bir şey adlandırabilirsiniz bir `.tf` uzantısı.
+4. Değişkenlerinizin bildirimleri için yeni bir dosya oluşturun. Bu dosyaya istediğiniz adı verebilirsiniz ancak sonuna `.tf` uzantısını eklemeniz gerekir.
 
-5. Değişken bildirimi dosyanıza aşağıdaki kodu kopyalayın:
+5. Aşağıdaki kodu değişken bildirim dosyanıza kopyalayın:
 
   ```tf
   variable subscription_id {}
@@ -60,9 +60,9 @@ Bu bölümde, bir Azure hizmet sorumlusu ve güvenlik sorumlusu kimlik bilgileri
   }
   ```
 
-6. Terraform değişkenleri için değerleri içeren yeni bir dosya oluşturun. Terraform değişken dosyanızın adı yaygındır `terraform.tfvars` Terraform adına sahip tüm dosyaları otomatik olarak yükler gibi `terraform.tfvars` (veya bir düzeni aşağıdaki `*.auto.tfvars`) varsa, geçerli dizin. 
+6. Terraform değişkenlerinin değerlerini için yeni bir dosya oluşturun. Terraform değişken dosyaları genellikle `terraform.tfvars` olarak adlandırılır. Bunun nedeni Terraform'un geçerli dizinde bulunan `terraform.tfvars` adlı (veya `*.auto.tfvars` düzenine sahip) tüm dosyaları otomatik olarak yüklemesidir. 
 
-7. Aşağıdaki kod, değişkenleri dosyasına kopyalayın. Yer tutucuları şu şekilde değiştirdiğinizden emin olun: için `subscription_id`, çalıştırıldığında, belirtilen Azure abonelik kimliği kullanmak `az account set`. İçin `tenant_id`, kullanın `tenant` döndürülen değer `az ad sp create-for-rbac`. İçin `client_id`, kullanın `appId` döndürülen değer `az ad sp create-for-rbac`. İçin `client_secret`, kullanın `password` döndürülen değer `az ad sp create-for-rbac`.
+7. Aşağıdaki kodu değişken dosyanıza kopyalayın. Yer tutucuları şu şekilde değiştirdiğinizden emin olun: `subscription_id` için `az account set` komutunu çalıştırdığınızda belirttiğiniz Azure abonelik kimliğini kullanın. `tenant_id` için `az ad sp create-for-rbac` komutunun döndürdüğü `tenant` değerini kullanın. `client_id` için `az ad sp create-for-rbac` komutunun döndürdüğü `appId` değerini kullanın. `client_secret` için `az ad sp create-for-rbac` komutunun döndürdüğü `password` değerini kullanın.
 
   ```tf
   subscription_id = "<azure-subscription-id>"
@@ -73,11 +73,11 @@ Bu bölümde, bir Azure hizmet sorumlusu ve güvenlik sorumlusu kimlik bilgileri
 
 ## <a name="2-create-a-terraform-configuration-file"></a>2. Terraform yapılandırma dosyası oluşturma
 
-Bu bölümde, kaynak tanımlarında altyapınızı içeren bir dosya oluşturun.
+Bu bölümde altyapınız için kaynak tanımlarını içeren dosyayı oluşturacaksınız.
 
-1. Adlı yeni bir dosya oluşturun `main.tf`. 
+1. `main.tf` adlı yeni bir dosya oluşturun. 
 
-2. Örnek kaynak tanımları yeni oluşturulan aşağıdaki kopyalama `main.tf` dosyası: 
+2. Aşağıdaki örnek kaynak tanımlarını yeni oluşturduğunuz `main.tf` dosyasına kopyalayın: 
 
   ```tf
   resource "azurerm_resource_group" "test" {
@@ -218,38 +218,38 @@ Bu bölümde, kaynak tanımlarında altyapınızı içeren bir dosya oluşturun.
   }
   ```
 
-## <a name="3-initialize-terraform"></a>3. Terraform başlatma 
+## <a name="3-initialize-terraform"></a>3. Terraform'u başlatma 
 
-[Terraform init komutu](https://www.terraform.io/docs/commands/init.html) Terraform yapılandırma dosyalarını - önceki bölümlerde ile oluşturulan dosyaları içeren bir dizin başlatmak için kullanılır. Her zaman çalışması gerektiğini `terraform init` yeni Terraform yapılandırması yazdıktan sonra komutu. 
+[terraform init komutu](https://www.terraform.io/docs/commands/init.html), önceki bölümlerde oluşturduğunuz Terraform yapılandırma dosyalarını içeren bir dizin başlatmak için kullanılır. Yeni bir Terraform yapılandırması yazdıktan sonra `terraform init` komutunu çalıştırmanız önerilir. 
 
 > [!TIP]
-> `terraform init` Komuttur ıdempotent, art arda aynı sonucu üretilirken çağrılabilir anlamına gelir. Bu nedenle, ortak bir ortamda çalışıyorsanız ve yapılandırma dosyalarını değiştirildiğini düşünüyorsanız, bu her zaman çağırmak için iyi bir fikirdir `terraform init` çalıştırma veya bir planı uygulamadan önce komutu.
+> `terraform init` komutu bir kere etkilidir ve tekrar tekrar çağrılarak aynı sonuç elde edilebilir. Bu nedenle bir işbirliğine dayalı bir ortamda çalışıyorsanız ve yapılandırma dosyalarınızın değiştirilmiş olabileceğini düşünüyorsanız planı yürütmeden veya uygulamadan önce `terraform init` komutunu çalıştırmanız yararlı olacaktır.
 
-Terraform başlatmak için aşağıdaki komutu çalıştırın:
+Terraform'u başlatmak için şu komutu çalıştırın:
 
   ```cmd
   terraform init
   ```
 
-  ![Terraform başlatılıyor](media/terraform-create-vm-cluster-with-infrastructure/terraform-init.png)
+  ![Terraform'u başlatma](media/terraform-create-vm-cluster-with-infrastructure/terraform-init.png)
 
-## <a name="4-create-a-terraform-execution-plan"></a>4. Bir Terraform yürütme planı oluşturma
+## <a name="4-create-a-terraform-execution-plan"></a>4. Terraform yürütme planı oluşturma
 
-[Terraform planı komutu](https://www.terraform.io/docs/commands/plan.html) yürütme planı oluşturmak için kullanılır. Yürütme planı oluşturmak için Terraform tüm toplayan `.tf` geçerli dizindeki dosyaları. 
+[terraform plan komutu](https://www.terraform.io/docs/commands/plan.html), yürütme planı oluşturmak için kullanılır. Terraform, yürütme planı oluşturmak için geçerli dizindeki tüm `.tf` dosyalarını toplar. 
 
-Burada yapılandırma değişebilir yürütme planı oluşturduğunuz zaman ve saat arasında ortak bir ortamda çalışıyorsanız yürütme planı uygulamak için kullanmanız gereken [terraform planı komutunun-çıkış parametresi](https://www.terraform.io/docs/commands/plan.html#out-path)yürütme planı bir dosyaya kaydetmek için. Bir tek kişi ortamında çalışıyorsanız, aksi takdirde atlayabilirsiniz `-out` parametresi.
+İşbirliğine dayalı bir ortamda çalışıyorsanız ve yürütme planını oluşturduğunuz zamanla yürütme planını uyguladığınız zaman arasında yapılandırmanın değişmiş olma ihtimali varsa [terraform plan komutunun -out parametresini](https://www.terraform.io/docs/commands/plan.html#out-path) kullanarak yürütme planını dosyaya kaydetmeniz gerekir. Tek kişilik bir ortamda çalışıyorsanız `-out` parametresini kullanmanız gerekmez.
 
-Terraform değişkenleri dosyanızın adı olup olmadığını `terraform.tfvars` ve onu IU `*.auto.tfvars` desenini kullanarak dosya adı belirtmeniz gerekir [terraform planı komutunun - var dosya parametresi](https://www.terraform.io/docs/commands/plan.html#var-file-foo) çalışırken`terraform plan`komutu.
+Terraform değişkenleri dosyanızın adı `terraform.tfvars` değilse ve `*.auto.tfvars` düzenini kullanmıyorsa `terraform plan` komutunu çalıştırırken [terraform plan komutunun -var-file parametresini](https://www.terraform.io/docs/commands/plan.html#var-file-foo) kullanarak dosya adını belirtmeniz gerekir.
 
-İşleme sırasında `terraform plan` komutu, Terraform bir yenileme gerçekleştirir ve hangi eylemleri Yapılandırma dosyalarınızda belirtilen istenen durumu elde etmek gerekli olduğunu belirler.
+Terraform, `terraform plan` komutunu işlerken yenileme gerçekleştirir ve yapılandırma dosyalarınızda belirtilen istenen duruma ulaşmak için gerekli olan eylemleri belirler.
 
-Yürütme planınız kaydetmek ihtiyacınız yoksa, aşağıdaki komutu çalıştırın:
+Yürütme planınızı kaydetmenize gerek yoksa şu komutu çalıştırın:
 
   ```cmd
   terraform plan
   ```
 
-Yürütme planınız kaydetmek gerekiyorsa, aşağıdaki komutu çalıştırın (değiştirme &lt;yolu > istenen çıkış yolu ile yer tutucu):
+Yürütme planınızı kaydetmeniz gerekiyorsa şu komutu çalıştırın (&lt;path> yer tutucusunun yerine istediğiniz çıkış yolunu yazın):
 
   ```cmd
   terraform plan -out=<path>
@@ -257,25 +257,25 @@ Yürütme planınız kaydetmek gerekiyorsa, aşağıdaki komutu çalıştırın 
 
 ![Terraform yürütme planı oluşturma](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
-## <a name="5-apply-the-terraform-execution-plan"></a>5. Terraform yürütme planı Uygula
+## <a name="5-apply-the-terraform-execution-plan"></a>5. Terraform yürütme planını uygulama
 
-Bu öğreticinin son adımı kullanmaktır [terraform Uygula komutu](https://www.terraform.io/docs/commands/apply.html) tarafından oluşturulan eylemler kümesi uygulamak için `terraform plan` komutu.
+Bu öğreticinin son adımı [terraform apply komutunu](https://www.terraform.io/docs/commands/apply.html) kullanarak `terraform plan` komutuyla oluşturulan eylem kümesini uygulamaktır.
 
-En son yürütme planı uygulamak istiyorsanız, aşağıdaki komutu çalıştırın:
+En güncel yürütme planını uygulamak istiyorsanız şu komutu çalıştırın:
 
   ```cmd
   terraform apply
   ```
 
-Daha önce kaydettiğiniz yürütme planı uygulamak istiyorsanız, aşağıdaki komutu çalıştırın (değiştirme &lt;yolu > kaydedilmiş yürütme planı içeren yolu ile yer tutucu):
+Önceden kaydedilen bir yürütme planını uygulamak istiyorsanız şu komutu çalıştırın (&lt;path> yer tutucusunun yerine kaydedilen yürütme planınızın bulunduğu yolu yazın):
 
   ```cmd
   terraform apply <path>
   ```
 
-![Terraform yürütme planı uygulama](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
+![Terraform yürütme planını uygulama](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Listesine göz [Azure Terraform modülleri](https://registry.terraform.io/modules/Azure)
-- Oluşturma bir [sanal makine ölçek kümesi ile Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+- [Azure Terraform modülleri](https://registry.terraform.io/modules/Azure) listesine göz atma
+- [Terraform ile sanal makine ölçek kümesi](terraform-create-vm-scaleset-network-disks-hcl.md) oluşturma

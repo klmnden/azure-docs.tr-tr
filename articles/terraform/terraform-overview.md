@@ -1,50 +1,52 @@
 ---
-title: Azure ile Terraform kullanma
-description: Terraform için vesion kullanmaya giriş ve Azure altyapısı dağıtın.
-ms.service: virtual-machines-linux
-keywords: terraform, devops, genel bakış, planlama, uygulamak, otomatikleştirme
-author: binderjoe
-ms.author: jbinder
-ms.date: 10/19/2017
-ms.topic: article
-ms.openlocfilehash: 5d313bda6a1067e6d023f62fb26704f9aee5c7bf
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: MT
+title: Terraform'u Azure ile birlikte kullanma
+description: Azure altyapısında sürüm oluşturmak ve dağıtım yapmak için Terraform'u kullanmaya başlama.
+services: terraform
+ms.service: terraform
+keywords: terraform, devops, genel bakış, planlama, uygulama, otomatikleştirme
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 08/31/2018
+ms.openlocfilehash: dd340238f8a70c1dd0cfc172976bef6b1ad282b1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114481"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665638"
 ---
-# <a name="terraform-with-azure"></a>Azure ile Terraform
+# <a name="terraform-with-azure"></a>Terraform ve Azure
 
-[Hashicorp Terraform](https://www.terraform.io/) sağlama ve bulut altyapısını yönetmek için bir açık kaynaklı bir araçtır. Bu, sanal makineler, depolama hesapları ve ağ arabirimleri gibi bulut kaynaklarını topoloji açıklayan yapılandırma dosyalarını altyapısında kod oluşturur. Terraform'ın komut satırı arabirimi (CLI) dağıtmak için basit bir mekanizma ve sürüm Azure veya desteklenen herhangi bir bulut yapılandırma dosyaları sağlar.
+[Hashicorp Terraform](https://www.terraform.io/), bulut altyapısı sağlamak ve yönetmek için kullanılan bir açık kaynak araçtır. Bu hizmet altyapıyı sanal makineler, depolama hesapları ve ağ arabirimleri gibi bulut kaynaklarının topolojisini anlatan yapılandırma dosyaları olarak kodlar. Terraform'un komut satırı arabirimi (CLI), yapılandırma dosyalarını Azure'a veya diğer desteklenen bulutlara dağıtmak ve sürüm oluşturmak için basit bir mekanizma sunar.
 
-Bu makalede Azure altyapısını yönetmek için Terraform kullanmanın avantajları açıklanmıştır.
+Bu makalede Azure altyapısını yönetmek için Terraform'u kullanmanın avantajları anlatılmaktadır.
 
-## <a name="automate-infrastructure-management"></a>Altyapı Yönetimi otomatikleştirin.
+## <a name="automate-infrastructure-management"></a>Altyapı yönetimini otomatikleştirin.
 
-Terraform'ın şablon tabanlı yapılandırma dosyaları tanımlamak, sağlamak ve Azure kaynaklarını yinelenebilir ve tahmin edilebilir bir şekilde yapılandırmanıza olanak sağlar. Otomatik otomatikleştirme altyapı çeşitli avantajları vardır:
+Terraform'un şablon tabanlı yapılandırma dosyaları Azure kaynaklarını yinelenebilir ve tahmin edilebilir bir şekilde tanımlamanızı, sağlamanızı ve yapılandırmanızı sağlar. Altyapıyı otomatikleştirmek birçok avantaja sahiptir:
 
-- Dağıtma ve altyapısını yönetme insan hataları olasılığını düşürür.
-- Aynı şablonu birden çok kez aynı geliştirme, test ve üretim ortamları oluşturma dağıtır.
-- İsteğe bağlı oluşturarak geliştirme ve test ortamları maliyetini azaltır.
+- Altyapıyı dağıtma ve yönetme aşamalarındaki insan hatası ihtimalini azaltır.
+- Birbirinin aynı geliştirme, test ve üretim ortamları oluşturmak için aynı şablonu birçok kez dağıtabilir.
+- Geliştirme ve test ortamlarını istek üzerine oluşturarak geliştirme maliyetini azaltır.
 
-## <a name="understand-infrastructure-changes-before-they-are-applied"></a>Altyapı değişiklikleri uygulanmadan önce anlama 
+## <a name="understand-infrastructure-changes-before-they-are-applied"></a>Altyapı değişikliklerini uygulanmadan önce anlama 
 
-Bir kaynak olarak topoloji anlamı anlama karmaşık hale gelir ve altyapı değişikliklerin etkisini zor olabilir.
+Kaynak topolojisi araçları daha karmaşık hale geldikçe altyapıda gerçekleştirilen değişikliklerin anlamının ve etkisinin anlaşılması zor olabilir.
 
-Terraform bir komut satırı dağıtılmadan önce önizleme altyapı değişiklikleri ve doğrulamak kullanıcı arabirimi (CLI) sağlar. Bir kasada altyapı değişiklikleri Önizleme, verimli bir şekilde çeşitli avantajları vardır:
-- Takım üyeleri önerilen değişikliklerin ve etkilerini hızla anlayarak daha etkili bir şekilde işbirliği yapabilir.
-- İstenmeyen değişiklikleri geliştirme sürecin başında Yakalanacak
+Terraform, kullanıcıların altyapı değişikliklerini dağıtılmadan önce doğrulamasını ve önizlemesini sağlayan bir komut satırı arabirimi (CLI) sunar. Altyapı değişikliklerini güvenli ve üretken bir şekilde gerçekleştirmenin birçok avantajı vardır:
+- Ekip üyeleri önerilen değişiklikleri ve etkisini daha hızlı anlayarak daha verimli bir şekilde çalışabilir.
+- İstenmeden yapılan değişiklikler geliştirme sürecinin erken dönemlerinde fark edilebilir
 
 
-## <a name="deploy-infrastructure-to-multiple-clouds"></a>Birden çok bulut altyapısı dağıtın
+## <a name="deploy-infrastructure-to-multiple-clouds"></a>Altyapı birden fazla buluta dağıtılabilir
 
-Terraform çok bulut senaryolarında, benzer altyapı Azure ve ek bulut sağlayıcılarının veya şirket içi veri merkezleri dağıtıldığı bir popüler aracı seçimdir. Birden çok bulut sağlayıcıları altyapısını yönetmek için aynı araçları ve yapılandırma dosyalarını kullanmak geliştiricilere sağlar.
+Terraform, benzer yapıların Azure'a ve ek bulut sağlayıcılarına veya şirket içi veri merkezlerine dağıtıldığı çoklu bulut senaryoları için popüler bir araçtır. Bu araç geliştiricilerin aynı araçları ve yapılandırma dosyalarını kullanarak birden fazla bulut sunucusundaki altyapıyı yönetmesini sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Terraform ve onun avantajlarını genel bir bakış sahip olduğunuza göre önerilen sonraki adımlar şunlardır:
+Terraform ve avantajlarına genel bir bakış elde ettiğinize göre, aşağıdaki önerilen adımlara geçebilirsiniz:
 
-- İle çalışmaya başlama [Terraform yükleme ve Azure kullanacak şekilde yapılandırma](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure).
-- [Terraform kullanarak bir Azure sanal makine oluşturun](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm)
-- Araştır [Terraform için Azure Resource Manager modülü](https://www.terraform.io/docs/providers/azurerm/) 
+- [Terraform'u yükleyip Azure'u kullanacak şekilde yapılandırarak](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure) başlayın.
+- [Terraform'u kullanarak bir Azure sanal makinesi oluşturma](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm)
+- [Terraform için Azure Resource Manager modülünü](https://www.terraform.io/docs/providers/azurerm/) keşfedin 

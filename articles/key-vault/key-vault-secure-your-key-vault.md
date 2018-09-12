@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: df577222fb8f9d13bd33c5705e6234362519d351
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 9b8b0da6e1572ab79ffb369497f64aad2cd249b9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919605"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343471"
 ---
 # <a name="secure-your-key-vault"></a>Anahtar kasanızın güvenliğini sağlama
 Azure Anahtar Kasası, bulut uygulamalarınıza ait şifreleme anahtarlarını ve parolaları (sertifikalar, bağlantı dizeleri, parolalar gibi) koruyan bir bulut hizmetidir. Bu veriler hassas ve iş için önemli olduğundan, anahtar kasalarınıza erişimi yalnızca yetkili uygulamaların ve kullanıcıların erişebileceği şekilde güvenli hale getirmek istersiniz. Bu makalede anahtar kasası erişim modeline genel bakış sunulmakta, kimlik doğrulaması ve yetkilendirme açıklanmakta ve bulut uygulamalarınız için anahtar kasasına erişimin güvenliğini sağlama işlemi bir örnekle anlatılmaktadır.
@@ -94,8 +94,8 @@ Key Vault erişim ilkeleri, anahtarlara, parolalara ve sertifikalara ayrı ayrı
 
 > [!IMPORTANT]
 > Anahtar kasası erişim ilkelerinin kasa düzeyinde geçerli olduğunu unutmayın. Örneğin, bir kullanıcıya anahtar oluşturma ve silme izni verildiğinde kullanıcı bu işlemleri ilgili anahtar kasasındaki tüm anahtarlar üzerinde gerçekleştirebilir.
-> 
-> 
+
+Erişim ilkelerinin yanı sıra, ek güvenlik katmanı için [Güvenlik duvarları ve sanal ağ kuralları](key-vault-network-security.md)’nı yapılandırılarak [Azure Key Vault için Sanal Ağ Hizmet Uç Noktaları](key-vault-overview-vnet-service-endpoints.md) ile veri düzlemi erişimi de kısıtlanabilir.
 
 ## <a name="example"></a>Örnek
 SSL için sertifika, verileri depolamak için Azure depolama ve imzalama işlemleri için RSA 2048 bit anahtarı kullanan bir uygulama geliştirdiğinizi varsayalım. Bu uygulamanın bir VM (veya VM Ölçek Kümesi) içinde çalıştığını kabul edelim. Tüm uygulama parolalarını depolamak için bir anahtar kasa kullanabilir ve anahtar kasasını kullanarak, uygulamanın Azure Active Directory kimlik doğrulaması için kullandığı önyükleme sertifikasını depolayabilirsiniz.
@@ -201,8 +201,8 @@ Bu örnekte basit bir senaryo gösterilmektedir. Gerçek yaşam senaryoları dah
 
 > [!NOTE]
 > Not: Bu örnekte, üretim sırasında anahtar kasası erişiminin nasıl kilitleneceği gösterilmektedir. Geliştiriciler uygulamayı geliştirdikleri kasalar, VM’ler ve depolama hesabını yönetmek için tam izinlerinin olduğu aboneliklere veya kaynak grubuna sahip olmalıdır.
-> 
-> 
+
+[Key Vault güvenlik duvarlarını ve sanal ağları yapılandırarak](key-vault-network-security.md) anahtar kasanıza erişimi daha güvenli hale getirmeniz şiddetle önerilir.
 
 ## <a name="resources"></a>Kaynaklar
 * [Azure Active Directory Rol Tabanlı Erişim Denetimi](../role-based-access-control/role-assignments-portal.md)
@@ -243,6 +243,8 @@ Bu örnekte basit bir senaryo gösterilmektedir. Gerçek yaşam senaryoları dah
   Anahtar kasası erişim ilkesini yönetmeye yönelik PowerShell cmdlet’lerinin başvuru belgesi bağlantıları.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
+[Key Vault güvenlik duvarlarını ve sanal ağları yapılandırma](key-vault-network-security.md)
+
 Bir yöneticiye yönelik başlama öğreticisi için bkz. [Azure anahtar kasası ile çalışmaya başlama](key-vault-get-started.md).
 
 Anahtar Kasası'na yönelik kullanım günlüğü hakkında daha fazla bilgi için bkz. [Azure anahtar kasası günlüğü](key-vault-logging.md).

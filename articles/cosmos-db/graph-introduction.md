@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Graph API’lere Giriş | Microsoft Belgeleri
+title: Azure Cosmos DB Gremlin API'sine giriş | Microsoft Docs
 description: Düşük gecikme süresine sahip yoğun grafikleri Apache TinkerPop’un Gremlin grafik sorgu dilini kullanarak depolamak, sorgulamak ve dolaştırmak için Azure Cosmos DB’yi nasıl kullanabileceğinizi öğrenin.
 services: cosmos-db
 author: LuisBosquez
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 333bb4074ac741e854ff56c7c397b0e3be247f1b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: a0eec8aec315eefcbcc859828fa68ea0ccee6190
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857159"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695359"
 ---
-# <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB’ye Giriş: Graph API
+# <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB: Gremlin API'sine giriş
 
 [Azure Cosmos DB](introduction.md), Microsoft'un görev açısından kritik uygulamalar için sunduğu, genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB, [sektörün en iyi SLA’sıyla](https://azure.microsoft.com/support/legal/sla/cosmos-db/) desteklenen şu özellikleri sunar:
 
@@ -29,13 +29,7 @@ ms.locfileid: "37857159"
 
 Azure Cosmos DB, şema ve dizin yönetimiyle ilgilenmenize gerek kalmadan [otomatik olarak verilerin dizinini oluşturur](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Çok modelli olan bu hizmet belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler.
 
-Kirill Gavrylyuk'un Azure Cosmos DB’de grafiklerle çalışmaya başlama konulu aşağıdaki videosunu izlemenizi öneririz:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Graphs-with-Azure-Cosmos-DB-Gremlin-API/player]
-> 
-> 
-
-Azure Cosmos DB Graph API şunları sağlar:
+Azure Cosmos DB Gremlin API şunları sağlar:
 
 - Grafik modelleme.
 - Dolaşma API’si.
@@ -47,7 +41,7 @@ Azure Cosmos DB Graph API şunları sağlar:
 
 Azure Cosmos DB'yi sorgulamak için [Apache TinkerPop](http://tinkerpop.apache.org) grafik içinde dolaşma dilini veya [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)'i kullanabilirsiniz.
 
-Bu makale, Azure Cosmos DB Graph API'ye genel bir bakış sağlar ve milyarlarca köşesi ve kenarı olan yoğun grafikleri depolamak için bunu nasıl kullanabileceğinizi açıklar. Grafikleri milisaniyelik gecikme süresi ile sorgulayabilir, grafik yapısını ve şemasını kolayca geliştirebilirsiniz.
+Bu makale, Azure Cosmos DB Gremlin API'ye genel bir bakış sağlar ve milyarlarca köşesi ve kenarı olan yoğun grafikleri depolamak için bunu nasıl kullanabileceğinizi açıklar. Grafikleri milisaniyelik gecikme süresi ile sorgulayabilir, grafik yapısını ve şemasını kolayca geliştirebilirsiniz.
 
 ## <a name="graph-database"></a>Grafik veritabanı
 Gerçek dünyada görünen veriler doğal olarak bağlıdır. Geleneksel veri modelleme, varlıklara odaklanır. Birçok uygulamada aynı zamanda modelleme veya hem varlıkları hem de ilişkileri doğal olarak modelleme gereksinimi söz konusudur.
@@ -102,7 +96,7 @@ Azure Cosmos DB pazardaki diğer grafik veritabanlarıyla karşılaştırıldı�
 Azure Cosmos DB, aynı kapsayıcıların/veritabanlarının içinde belge ve grafik gibi birden çok modeli de kullanabilir. Grafik verilerini belgelerle yan yana depolamak için bir belge kapsayıcısı kullanabilirsiniz. Aynı verileri grafik olarak sorgulamak için JSON üzerinden SQL sorgularını ve Gremlin sorgularını kullanabilirsiniz.
 
 ## <a name="get-started"></a>başlarken
-Azure Cosmos DB hesabı oluşturmak için Azure komut satırı arabirimini (CLI), Azure PowerShell’i veya grafik API’si desteği sunan Azure portalı kullanabilirsiniz. Hesapları oluşturduktan sonra Azure portal `https://<youraccount>.gremlin.cosmosdb.azure.com` gibi bir hizmet uç noktası sunar ve bu da Gremlin için bir WebSocket ön ucu sağlar. Uç noktasına bağlanmak ve Java, Node.js veya herhangi bir Gremlin istemci sürücüsünde uygulama oluşturmak için [Gremlin Konsolu](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) gibi TinkerPop ile uyumlu araçlarınızı yapılandırabilirsiniz.
+Azure Cosmos DB hesapları oluşturmak için Azure komut satırı arabirimini (CLI), Azure PowerShell’i veya Gremlin API’si desteği sunan Azure portalı kullanabilirsiniz. Hesapları oluşturduktan sonra Azure portal `https://<youraccount>.gremlin.cosmosdb.azure.com` gibi bir hizmet uç noktası sunar ve bu da Gremlin için bir WebSocket ön ucu sağlar. Uç noktasına bağlanmak ve Java, Node.js veya herhangi bir Gremlin istemci sürücüsünde uygulama oluşturmak için [Gremlin Konsolu](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) gibi TinkerPop ile uyumlu araçlarınızı yapılandırabilirsiniz.
 
 Aşağıdaki tabloda Azure Cosmos DB’ye karşı kullanabileceğiniz popüler Gremlin sürücüleri gösterilir:
 

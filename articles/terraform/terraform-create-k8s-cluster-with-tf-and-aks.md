@@ -1,76 +1,78 @@
 ---
-title: Azure Kubernetes hizmet (AKS) ve Terraform Kubernetes kümesi oluşturma
-description: Azure Kubernetes hizmeti ve Terraform ile Kubernetes kümesi oluşturmayı gösteren öğretici
+title: Azure Kubernetes Service (AKS) ve Terraform ile bir Kubernetes kümesi oluşturma
+description: Azure Kubernetes Service ve Terraform ile Kubernetes Kümesi oluşturmayı gösteren öğretici
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, sanal makine, azure, kubernetes
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 06/11/2018
-ms.topic: article
-ms.openlocfilehash: bd00a0cc8446802a03570edd58949a46c0769101
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: MT
+ms.openlocfilehash: 8a997c88943b0273d3136dbf02a784fbdb982527
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35304201"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666816"
 ---
-# <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes hizmeti ve Terraform ile Kubernetes kümesi oluşturma
-[Azure Kubernetes hizmet (AKS)](/azure/aks/) kapsayıcı orchestration uzmanlık olmadan kapsayıcılı uygulamaları dağıtmak ve yönetmek kolay ve hızlı hale barındırılan Kubernetes ortamınıza yönetir. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır.
+# <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service ve Terraform ile bir Kubernetes kümesi oluşturma
+[Azure Kubernetes Service (AKS)](/azure/aks/), barındırılan Kubernetes ortamınızı yöneterek kapsayıcılı uygulamaları, kapsayıcı yönetimi uzmanlığı gerekmeden hızla ve kolayca dağıtma olanağı sunar. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır.
 
-Bu öğreticide, oluşturma şu görevleri gerçekleştirmek öğrenin bir [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) kullanarak küme [Terraform](http://terraform.io) ve AKS:
+Bu öğreticide aşağıdaki [Terraform](http://terraform.io) ve AKS'yi kullanarak [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) kümesi oluşturma görevlerini gerçekleştirmeyi öğreneceksiniz:
 
 > [!div class="checklist"]
-> * HCL (HashiCorp dil) bir Kubernetes kümesi tanımlamak için kullanın
-> * Terraform ve AKS Kubernetes küme oluşturmak için kullanın
-> * Kubernetes küme kullanılabilirliğini test etmek için kubectl aracını kullanma
+> * HCL (HashiCorp Language) ile Kubernetes kümesi tanımlama
+> * Terraform ve AKS ile Kubernetes kümesi oluşturma
+> * kubectl aracıyla bir Kubernetes kümesinin kullanılabilirlik durumunu test etme
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 - **Azure aboneliği**: Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 
-- **Terraform yapılandırma**: makalesindeki yönergeleri izleyin [Terraform ve Azure erişimi yapılandırma](/azure/virtual-machines/linux/terraform-install-configure)
+- **Terraform'u yapılandırma**: [Terraform'u yükleme ve Azure erişimini yapılandırma](/azure/virtual-machines/linux/terraform-install-configure) makalesindeki yönergeleri izleyin
 
-- **Azure hizmet sorumlusu**: bölümündeki yönergeleri izleyin **hizmet sorumlusu oluşturma** makalenin bölümünde [Azure, Azure CLI 2.0 ile hizmet sorumlusu oluşturmak](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). AppID, displayName, şifresi ve Kiracı değerlerini not edin.
+- **Azure hizmet sorumlusu**: [Azure CLI 2.0 ile Azure hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) makalesinin **Hizmet sorumlusunu oluşturma** bölümündeki yönergeleri izleyin. appId, displayName, password ve tenant değerlerini not edin.
 
-## <a name="create-the-directory-structure"></a>Dizin yapısını oluşturun
-İlk adım alıştırma için Terraform yapılandırma dosyalarını tutan dizinin oluşturmaktır.
+## <a name="create-the-directory-structure"></a>Dizin yapısını oluşturma
+İlk adım, bu alıştırmadaki Terraform yapılandırma dosyalarınızı barındıracak olan dizini oluşturmaktır.
 
-1. Gözat [Azure portal](http://portal.azure.com).
+1. [Azure portala](http://portal.azure.com) gidin.
 
-1. Açık [Azure bulut Kabuk](/azure/cloud-shell/overview). Bir ortam önceden seçmediyseniz, seçin **Bash** ortamınız olarak.
+1. [Azure Cloud Shell](/azure/cloud-shell/overview)'i açın. Önceden bir ortam seçmediyseniz **Bash** ortamını seçin.
 
-    ![Bulut Kabuk isteminde](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
+    ![Cloud Shell istemi](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
 
-1. Değiştirme dizinleri `clouddrive` dizin.
+1. `clouddrive` dizinine geçin.
 
     ```bash
     cd clouddrive
     ```
 
-1. Adlı bir dizin oluşturun `terraform-aks-k8s`.
+1. `terraform-aks-k8s` adlı bir dizin oluşturun.
 
     ```bash
     mkdir terraform-aks-k8s
     ```
 
-1. Dizinleri yeni dizine değiştirin:
+1. Dizinleri yeni dizinle değiştirin:
 
     ```bash
     cd terraform-aks-k8s
     ```
 
-## <a name="declare-the-azure-provider"></a>Azure sağlayıcı bildirme
-Azure sağlayıcı bildirir Terraform yapılandırma dosyası oluşturun.
+## <a name="declare-the-azure-provider"></a>Azure sağlayıcısını tanımlama
+Azure sağlayıcısını tanımlayan Terraform yapılandırma dosyasını yapılandırın.
 
-1. Bulut Kabuğu'nda adlı bir dosya oluşturun `main.tf`.
+1. Cloud Shell'de `main.tf` adlı bir dosya oluşturun.
 
     ```bash
     vi main.tf
     ```
 
-1. Ekleme modu seçerek t anahtarı girin.
+1. I tuşunu seçerek ekleme moduna geçin.
 
-1. Aşağıdaki kod düzenleyicisine yapıştırın:
+1. Aşağıdaki kodu düzenleyiciye yapıştırın:
 
     ```JSON
     provider "azurerm" {
@@ -83,26 +85,26 @@ Azure sağlayıcı bildirir Terraform yapılandırma dosyası oluşturun.
 
     ```
 
-1. Seçerek Ekle modundan çık **Esc** anahtarı.
+1. **Esc** tuşuna basarak ekleme modundan çıkın.
 
-1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyiciden çıkın:
+1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyicisini kapatın:
 
     ```bash
     :wq
     ```
 
-## <a name="define-a-kubernetes-cluster"></a>Kubernetes küme tanımlayın
-Kubernetes küme kaynaklarını bildirir Terraform yapılandırma dosyası oluşturun.
+## <a name="define-a-kubernetes-cluster"></a>Kubernetes kümesi tanımlama
+Kubernetes kümesinin kaynaklarını tanımlayan Terraform yapılandırma dosyasını oluşturun.
 
-1. Bulut Kabuğu'nda adlı bir dosya oluşturun `k8s.tf`.
+1. Cloud Shell'de `k8s.tf` adlı bir dosya oluşturun.
 
     ```bash
     vi k8s.tf
     ```
 
-1. Ekleme modu seçerek t anahtarı girin.
+1. I tuşunu seçerek ekleme moduna geçin.
 
-1. Aşağıdaki kod düzenleyicisine yapıştırın:
+1. Aşağıdaki kodu düzenleyiciye yapıştırın:
 
     ```JSON
     resource "azurerm_resource_group" "k8s" {
@@ -143,31 +145,31 @@ Kubernetes küme kaynaklarını bildirir Terraform yapılandırma dosyası oluş
     }
     ```
 
-    Önceki kod, küme, konum ve resource_group_name adını ayarlar. Ayrıca, -, kümeye erişmek için kullanılan tam etki alanı adı (FQDN) bir parçası forms - dns_prefix değer ayarlanır.
+    Yukarıdaki kod kümenin adını, konumunu ve resource_group_name değerini belirler. Ayrıca kümeye erişmek için kullanılan tam etki alanı adının (FQDN) bir bölümünü oluşturan dns_prefix değeri de ayarlanır.
 
-    **Linux_profile** kayıt SSH kullanarak alt düğümlerin içine imzalamayı etkinleştirmek ayarlarını yapılandırmanıza olanak sağlar.
+    **linux_profile** kaydı, SSH kullanarak çalışan düğümlerinde oturum açmanızı sağlayan ayarları yapılandırmanızı sağlar.
 
-    AKS ile yalnızca çalışan düğümleri için ücret ödersiniz. **Agent_pool_profile** kayıt ayrıntıları bu çalışan düğümleri için yapılandırır. **Agent_pool_profile kaydı** oluşturmak için çalışan düğüm sayısı ve çalışan düğümleri türünü içerir. Yukarı veya küme gelecekte ölçeklendirme gerekiyorsa, değişiklik **sayısı** bu kayıt değeri.
+    AKS ile yalnızca çalışan düğümleri için ödeme yaparsınız. **agent_pool_profile** kaydı bu çalışan düğümlerinin ayrıntılarını yapılandırmanızı sağlar. **agent_pool_profile record** ile oluşturulacak çalışan düğümü sayısı ve çalışan düğümlerinin türü belirtilir. İleride kümenin ölçeğini artırmanız veya azaltmanız gerekirse bu kaydın içindeki **count** değerini değiştirebilirsiniz.
 
-1. Seçerek Ekle modundan çık **Esc** anahtarı.
+1. **Esc** tuşuna basarak ekleme modundan çıkın.
 
-1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyiciden çıkın:
+1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyicisini kapatın:
 
     ```bash
     :wq
     ```
 
-## <a name="declare-the-variables"></a>Değişkenleri bildirme
+## <a name="declare-the-variables"></a>Değişkenleri tanımlama
 
-1. Bulut Kabuğu'nda adlı bir dosya oluşturun `variables.tf`.
+1. Cloud Shell'de `variables.tf` adlı bir dosya oluşturun.
 
     ```bash
     vi variables.tf
     ```
 
-1. Ekleme modu seçerek t anahtarı girin.
+1. I tuşunu seçerek ekleme moduna geçin.
 
-1. Aşağıdaki kod düzenleyicisine yapıştırın:
+1. Aşağıdaki kodu düzenleyiciye yapıştırın:
 
     ```JSON
     variable "client_id" {}
@@ -198,26 +200,26 @@ Kubernetes küme kaynaklarını bildirir Terraform yapılandırma dosyası oluş
     }
     ```
 
-1. Seçerek Ekle modundan çık **Esc** anahtarı.
+1. **Esc** tuşuna basarak ekleme modundan çıkın.
 
-1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyiciden çıkın:
+1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyicisini kapatın:
 
     ```bash
     :wq
     ```
 
 ## <a name="create-a-terraform-output-file"></a>Terraform çıkış dosyası oluşturma
-[Terraform çıkarır](https://www.terraform.io/docs/configuration/outputs.html) Terraform bir planı uygulanır ve aracılığıyla sorgulanabilir vurgulanır değerleri kullanıcıya tanımlamanıza izin `terraform output` komutu. Bu bölümde, kümeye erişimine izin veren bir çıkış dosyası oluşturma [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
+[Terraform çıkışları](https://www.terraform.io/docs/configuration/outputs.html), Terraform bir plan uyguladığında kullanıcı için vurgulanabilecek değerleri tanımlamanızı sağlar. Bu değerler `terraform output` komutuyla sorgulanabilir. Bu bölümde [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) ile kümeye erişmenizi sağlayan bir çıkış dosyası oluşturacaksınız.
 
-1. Bulut Kabuğu'nda adlı bir dosya oluşturun `output.tf`.
+1. Cloud Shell'de `output.tf` adlı bir dosya oluşturun.
 
     ```bash
     vi output.tf
     ```
 
-1. Ekleme modu seçerek t anahtarı girin.
+1. I tuşunu seçerek ekleme moduna geçin.
 
-1. Aşağıdaki kod düzenleyicisine yapıştırın:
+1. Aşağıdaki kodu düzenleyiciye yapıştırın:
 
     ```JSON
     output "client_key" {
@@ -249,80 +251,80 @@ Kubernetes küme kaynaklarını bildirir Terraform yapılandırma dosyası oluş
     }
     ```
 
-1. Seçerek Ekle modundan çık **Esc** anahtarı.
+1. **Esc** tuşuna basarak ekleme modundan çıkın.
 
-1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyiciden çıkın:
+1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyicisini kapatın:
 
     ```bash
     :wq
     ```
 
 ## <a name="set-up-azure-storage-to-store-terraform-state"></a>Terraform durumunu depolamak için Azure depolama alanı ayarlama
-Terraform parçaları durumu yerel olarak aracılığıyla `terraform.tfstate` dosya. Bu desen bir tek kişi ortamda iyi çalışır. Ancak, daha kullanışlı bir çok kişili ortamında durumu kullanarak sunucu üzerinde izlemeniz gereken [Azure depolama](/azure/storage/). Bu bölümde, gerekli depolama hesabı bilgilerini (hesap adı ve hesap anahtarı) almak ve Terraform durum bilgilerini depolanacağı bir depolama kapsayıcısı oluşturun.
+Terraform, durumu `terraform.tfstate` dosyasıyla yerel olarak izler. Bu model tek kişilik bir ortamda iyi çalışır. Ancak birden çok kişinin bulunduğu bir ortamda [Azure depolamayı](/azure/storage/) kullanarak durumu sunucuda izlemeniz gerekebilir. Bu bölümde gerekli depolama hesabı bilgilerini (hesap adı ve hesap anahtarı) alacak ve Terraform durum bilgilerinin depolanacağı bir depolama kapsayıcısı oluşturacaksınız.
 
-1. Azure portalında seçin **tüm hizmetleri** soldaki menüde.
+1. Azure portalda sol taraftaki menüden **Tüm hizmetler**'i seçin.
 
-1. Seçin **depolama hesapları**.
+1. **Depolama hesapları**’nı seçin.
 
-1. Üzerinde **depolama hesapları** sekmesinde, Terraform olduğu durumunu depolamak için depolama hesabının adını seçin. Örneğin, bulut Kabuk ilk kez açıldığında oluşturulan depolama hesabı kullanabilirsiniz.  Genellikle bulut Kabuk tarafından oluşturulan depolama hesabı adı ile başlayan `cs` sayılardan ve harflerden oluşan rastgele bir dize tarafından izlenen. **Daha sonra gerektikçe seçin, depolama hesabının adını unutmayın.**
+1. **Depolama hesapları** sekmesinde Terraform durum bilgilerinin depolanacağı depolama hesabının adını seçin. Örneğin Cloud Shell'i ilk açtığınızda oluşturulmuş olan depolama hesabını kullanabilirsiniz.  Cloud Shell tarafından oluşturulan depolama hesabı genellikle `cs` ile başlar ve sonrasında rastgele sayı ve harf dizesi bulunur. **Daha sonra ihtiyacınız olacağından seçtiğiniz depolama hesabının adını not edin.**
 
-1. Depolama hesabı sekmesinde seçin **erişim anahtarları**.
+1. Depolama hesabı sekmesinde **Erişim anahtarları**'nı seçin.
 
-    ![Depolama hesap menüsü](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account.png)
+    ![Depolama hesabı adı](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account.png)
 
-1. Not **key1** **anahtar** değeri. (Anahtar sağındaki simgesini seçerek değeri panoya kopyalar.)
+1. **key1** **anahtar** değerini not edin. (Anahtarın sağ tarafındaki simgeyi seçtiğinizde değer panoya kopyalanır.)
 
-    ![Depolama hesabı erişim tuşları](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
+    ![Depolama hesabı erişim anahtarları](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 
-1. Bulut Kabuğu'nda Azure depolama hesabınızdaki bir kapsayıcı oluşturmak (Değiştir &lt;YourAzureStorageAccountName > ve &lt;YourAzureStorageAccountAccessKey > yer tutucularını Azure depolama hesabınız için uygun değerlerle ).
+1. Cloud Shell'de Azure depolama hesabınızda bir kapsayıcı oluşturun (&lt;YourAzureStorageAccountName> ve &lt;YourAzureStorageAccountAccessKey> yer tutucularının yerine Azure depolama hesabınıza ait değerleri girin).
 
     ```bash
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
 ## <a name="create-the-kubernetes-cluster"></a>Kubernetes kümesi oluşturma
-Bu bölümde, nasıl kullanacağınızı öğrenin `terraform init` kaynak oluşturmak için komutu tanımlanan önceki kısımlarında oluşturduğunuz yapılandırma dosyaları.
+Bu bölümde `terraform init` komutunu kullanarak önceki bölümlerde oluşturduğunuz yapılandırma dosyalarında tanımlanan kaynakları oluşturmayı öğreneceksiniz.
 
-1. Bulut Kabuğu'nda Terraform başlatılamıyor (Değiştir &lt;YourAzureStorageAccountName > ve &lt;YourAzureStorageAccountAccessKey > Azure depolama hesabınız için uygun değerlerle yer tutucular).
+1. Cloud Shell'de Terraform'u başlatın (&lt;YourAzureStorageAccountName> ve &lt;YourAzureStorageAccountAccessKey> yer tutucularının yerine Azure depolama hesabınıza ait değerleri girin).
 
     ```bash
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
     ```
     
-    `terraform init` Komut arka ve sağlayıcı eklentisi başlatma başarısını görüntüler:
+    `terraform init` komutu arka uç ve sağlayıcı eklentisinin başarıyla başlatıldığını gösterir:
 
-    !["Terraform init" sonuçları örneği](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
+    !["terraform init" komutunun sonuçları](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Çalıştırma `terraform plan` altyapı öğeleri tanımlar Terraform planı oluşturmak için komutu. Komut iki değeri ister: **var.client_id** ve **var.client_secret**. İçin **var.client_id** değişkeni girin **AppID** , hizmet sorumlusu ile ilişkili değer. İçin **var.client_secret** değişkeni girin **parola** , hizmet sorumlusu ile ilişkili değer.
+1. `terraform plan` komutunu çalıştırarak altyapı öğelerini tanımlayan Terraform planını oluşturun. Komut için iki değer gerekir: **var.client_id** ve **var.client_secret**. **var.client_id** değişkeni için hizmet sorumlunuzla ilişkilendirilmiş olan **appId** değerini girin. **var.client_secret** değişkeni için hizmet sorumlunuzla ilişkilendirilmiş olan **password** değerini girin.
 
     ```bash
     terraform plan -out out.plan
     ```
 
-    `terraform plan` Komutu çalıştırdığınızda, oluşturulacak kaynakları görüntüler `terraform apply` komutu:
+    `terraform plan` komutu, `terraform apply` komutunu çalıştırdığınızda oluşturularak kaynakları gösterir:
 
-    !["Terraform planı" sonuçları örneği](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
+    !["terraform plan" komutunun sonuçları](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
 
-1. Çalıştırma `terraform apply` Kubernetes küme oluşturmak için plana uygulamak için komutu. Kubernetes küme oluşturma işlemi bulut Kabuk oturum zaman aşımına uğramadan bunun sonucunda, birkaç dakika sürebilir. Bulut kabuk oturumu zaman aşımına uğrarsa bölümündeki adımları takip edebilirsiniz ["bir bulut Kabuk zaman aşımı kurtarmak"](#recover-from-a-dloud-shell-timeout) , öğreticiyi tamamlamak etkinleştirmek için.
+1. Kubernetes kümesini oluşturma planını uygulamak için `terraform apply` komutunu çalıştırın. Kubernetes kümesi oluşturma işlemi birkaç dakika sürebilir ve bu durum Cloud Shell oturumunun zaman aşımına uğramasına neden olabilir. Cloud Shell oturumu zaman aşımına uğrarsa öğreticiyi tamamlamak için ["Zaman aşımına uğrayan Cloud Shell oturumunu kurtarma"](#recover-from-a-dloud-shell-timeout) bölümündeki adımları izleyin.
 
     ```bash
     terraform apply out.plan
     ```
 
-    `terraform apply` Komut yapılandırma dosyalarında tanımlanan kaynakları oluşturma sonuçlarını görüntüler:
+    `terraform apply` komutu, yapılandırma dosyalarınızda tanımlı kaynakların oluşturulmasının sonuçlarını gösterir:
 
-    !["Terraform uygulamak" sonuçları örneği](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
+    !["terraform apply" komutunun sonuçları](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
-1. Azure portalında seçin **tüm hizmetleri** yeni Kubernetese kümeniz için oluşturulan kaynakları görmek için soldaki menüde.
+1. Azure portalda soldaki menüden **Tüm hizmetler**'i seçerek yeni Kubernetes kümeniz için oluşturulan kaynakları görebilirsiniz.
 
-    ![Bulut Kabuk isteminde](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
+    ![Cloud Shell istemi](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 
-## <a name="recover-from-a-cloud-shell-timeout"></a>Bir bulut Kabuk zaman aşımı Kurtar
-Bulut kabuk oturumu zaman aşımına uğrarsa kurtarmak için aşağıdaki adımları gerçekleştirebilirsiniz:
+## <a name="recover-from-a-cloud-shell-timeout"></a>Zaman aşımına uğrayan Cloud Shell oturumunu kurtarma
+Cloud Shell oturumu zaman aşımına uğrarsa kurtarmak için aşağıdaki adımları gerçekleştirebilirsiniz:
 
-1. Bir bulut kabuk oturumu başlatın.
+1. Cloud Shell oturumu başlatın.
 
-1. Terraform yapılandırma dosyalarını içeren dizini değiştirin.
+1. Terraform yapılandırma dosyalarınızı içeren dizine geçin.
 
     ```bash
     cd /clouddrive/terraform-aks-k8s
@@ -334,35 +336,35 @@ Bulut kabuk oturumu zaman aşımına uğrarsa kurtarmak için aşağıdaki adım
     export KUBECONFIG=./azurek8s
     ```
     
-## <a name="test-the-kubernetes-cluster"></a>Kubernetes küme test
-Kubernetes Araçlar, yeni oluşturulan bir küme doğrulamak için kullanılabilir.
+## <a name="test-the-kubernetes-cluster"></a>Kubernetes kümesini test etme
+Yeni oluşturulan kümeyi doğrulamak için Kubernetes araçlarını kullanabilirsiniz.
 
-1. Terraform durumundan Kubernetes yapılandırmasını almak ve bu kubectl bir dosyada saklayabilir okuyabilirsiniz.
+1. Terraform durumundaki Kubernetes yapılandırmasını alın ve kubectl tarafından okunabilecek bir dosyaya kaydedin.
 
     ```bash
     echo "$(terraform output kube_config)" > ./azurek8s
     ```
 
-1. Bir ortam değişkeni doğru config kubectl Çekmeleri şekilde ayarlayın.
+1. kubectl aracının doğru yapılandırmayı alabilmesi için bir ortam değişkeni ayarlayın.
 
     ```bash
     export KUBECONFIG=./azurek8s
     ```
 
-1. Küme durumunu doğrulayın.
+1. Kümenin durumunu doğrulayın.
 
     ```bash
     kubectl get nodes
     ```
 
-    Çalışan düğümü ayrıntılarını görmeniz gerekir ve tüm durumuna sahip olmalıdır **hazır**aşağıdaki görüntüde gösterildiği gibi:
+    Çalışan düğümlerinin ayrıntılarını görmeniz ve bu düğümlerin durumunun aşağıdaki görüntüde olduğu gibi **Ready** (Hazır) olması gerekir:
 
-    ![Kubectl aracı Kubernetes kümenizi durumunu doğrulamak sağlar](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
+    ![kubectl aracı, Kubernetes kümenizin durumunu doğrulamanızı sağlar](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, Terraform ve AKS Kubernetes küme oluşturmak için nasıl kullanılacağı hakkında bilgi edindiniz. Azure üzerinde Terraform hakkında daha fazla bilgi edinmenize yardımcı olması için bazı ek kaynaklar aşağıda verilmiştir: 
+Bu makalede Terraform ve AKS ile Kubernetes kümesi oluşturmayı öğrendiniz. Aşağıdaki kaynaklardan Azure'da Terraform kullanımı hakkında daha fazla bilgi edinebilirsiniz: 
 
- [Microsoft.com Terraform Hub](https://docs.microsoft.com/azure/terraform/)  
+ [Microsoft.com Terraform Hub'ı](https://docs.microsoft.com/azure/terraform/)  
  [Terraform Azure sağlayıcı belgeleri](http://aka.ms/terraform)  
  [Terraform Azure sağlayıcı kaynağı](http://aka.ms/tfgit)  
  [Terraform Azure modülleri](http://aka.ms/tfmodules)

@@ -1,53 +1,48 @@
 ---
-title: 'Öğretici: JavaScript kullanarak bir LUIS uygulamasına konuşma ekleme | Microsoft Docs'
-description: Bu öğreticide JavaScript kullanarak bir LUIS uygulamasını çağırmayı öğreneceksiniz.
+title: 'Hızlı başlangıç: JavaScript kullanarak bir LUIS uygulamasına konuşma eklemeyi öğrenme - Azure Bilişsel Hizmetler | Microsoft Docs'
+description: Bu hızlı başlangıçta JavaScript kullanarak bir LUIS uygulamasını çağırmayı öğreneceksiniz.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/18/2017
-ms.author: v-geberr
-ms.openlocfilehash: b6d021dcfdddb5449aa989c6aa06d7faf326befb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: ffc19d12c1d3fbb24c514ac87f298d1a52d23eb8
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265468"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43772573"
 ---
-# <a name="tutorial-add-utterances-to-app-using-javascript"></a>Öğretici: JavaScript kullanarak uygulamaya konuşma ekleme
-Bu öğreticide amaca konuşma eklemek için JavaScript içindeki Authoring API'lerini kullanarak bir program yazacaksınız.
+# <a name="quickstart-change-model-using-javascript"></a>Hızlı Başlangıç: JavaScript kullanarak model değiştirme
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Visual Studio konsol projesi oluşturma 
-> * Konuşma eklemek için LUIS API'sini çağırma yöntemi ekleme ve uygulamayı eğitme
-> * BookFlight amacı için örnek konuşmaları içeren JSON dosyası ekleme
-> * Konsolu çalıştırma ve konuşmalar için eğitim durumunu görme
-
-Daha fazla bilgi için [amaca örnek konuşma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) ve [eğitim durumu](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) API'lerinin teknik belgelerini inceleyin.
-
-Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS][LUIS] hesabına ihtiyacınız olacak.
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
-* LUIS [**yazma anahtarınız**](luis-concept-keys.md#authoring-key). 
-* Mevcut LUIS **uygulama kimliğiniz** ve **sürüm kimliğiniz**. 
-* VSCode içinde `add-utterances.html` projesi adlı yeni bir dosya.
 
-> [!NOTE] 
-> `add-utterances.html` dosyasının tamamı [**LUIS-Samples** Github deposunda](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/javascript/add-utterance.html) mevcuttur.
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+* [Visual Studio Code](https://code.visualstudio.com/).
+
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+
+## <a name="example-utterances-json-file"></a>Örnek konuşmalar JSON dosyası
+
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
 
-## <a name="write-the-code"></a>Kodu yazma
+## <a name="create-quickstart-code"></a>Hızlı başlangıç kodu oluşturma
+
 `add-utterances.html` oluşturup aşağıdaki kodu ekleyin:
 
-   [!code-javascript[Java Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/javascript/add-utterance.html "Java Dependencies")]
+   [!code-html[Html code](~/samples-luis/documentation-samples/quickstarts/change-model/javascript/add-utterance.html "Javascript code")]
 
-## <a name="view-in-browser"></a>Tarayıcıda görüntüleme
+## <a name="run-code"></a>Kodu çalıştırma
+
 1. Dosyayı herhangi bir tarayıcıda açın.
 
-2. LUIS yazma kimliğinizi ve LUIS uygulama kimliğinizi ekleyip sürüm farklıysa `0.1` olarak değiştirin
+2. LUIS yazma kimliğinizi ve LUIS uygulama kimliğinizi ekleyin.
 
 3. Uygulamanıza eklenecek **konuşma dizisini** değiştirin. Bunlar utteranceJSON değişkeninde depolanır. Bu değişkeni kendi alanınıza ve konuşma ihtiyaçlarınıza göre değiştirin. 
 
@@ -80,13 +75,11 @@ Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS][L
 
 6. Eğitim durumunu görmek için `Train Status` düğmesini seçin. 
 
-![Add-utterances.html](./media/luis-quickstart-javascript-add-utterance/add-utterance.png)
+    ![Add-utterances.html](./media/luis-quickstart-javascript-add-utterance/add-utterance.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Bu öğreticiyi tamamladıktan sonra ihtiyacınız yoksa Visual Studio'yu ve konsol uygulamasını kaldırabilirsiniz. 
+Hızlı başlangıçla işiniz bittiğinde, bu hızlı başlangıçta oluşturulan tüm dosyaları kaldırın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
 > [LUIS’i bir bot ile tümleştirme](luis-csharp-tutorial-build-bot-framework-sample.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

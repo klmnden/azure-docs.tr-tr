@@ -1,39 +1,39 @@
 ---
-title: Azure üzerinde bir VM küme oluşturmak için Terraform modülleri kullanın
-description: Azure'da Windows sanal makine küme oluşturmak için Terraform modülleri kullanmayı öğrenin
+title: Terraform modüllerini kullanarak Azure'da VM kümesi oluşturma
+description: Terraform modüllerini kullanarak Azure'da Windows sanal makine kümesi oluşturmayı öğrenin
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, sanal makine, ağ, modüller
-author: rloutlaw
-ms.service: virtual-machines-linux
-ms.topic: article
-ms.workload: infrastructure
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/19/2017
-ms.custom: devops
-ms.author: routlaw
-ms.openlocfilehash: e33aef252413eeb243b03543f171d5f1e2385b48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 03c09e190fce9cbbd98cea3565dd2437f79dadf1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29952226"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666642"
 ---
-# <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Modül Kayıt Defteri'ni kullanarak Terraform ile VM küme oluşturma
+# <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Modül Kayıt Defterini kullanarak Terraform ile VM kümesi oluşturma
 
-Bu makalede küçük bir VM küme ile Terraform oluşturmada size anlatılmaktadır [Azure işlem Modülü](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz: 
+Bu makalede Terraform [Azure işlem modülü](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2) ile küçük bir VM kümesi oluşturma adımları gösterilmektedir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz: 
 
 > [!div class="checklist"]
-> * Azure ile kimlik doğrulaması ayarlama
-> * Terraform şablonu oluşturma
-> * Plan değişikliklerle Görselleştirme
-> * VM küme oluşturmak için yapılandırmasını Uygula
+> * Azure ile kimlik doğrulamasını ayarlama
+> * Terraform şablonunu oluşturma
+> * Plan ile değişiklikleri görselleştirme
+> * VM kümesini oluşturmak için yapılandırmayı uygulama
 
-Terraform hakkında daha fazla bilgi için bkz: [Terraform belgelerine](https://www.terraform.io/docs/index.html).
+Terraform hakkında daha fazla bilgi için [Terraform belgelerini](https://www.terraform.io/docs/index.html) inceleyin.
 
-## <a name="set-up-authentication-with-azure"></a>Azure ile kimlik doğrulaması ayarlama
+## <a name="set-up-authentication-with-azure"></a>Azure ile kimlik doğrulamasını ayarlama
 
 > [!TIP]
-> Varsa, [Terraform ortam değişkenlerini kullanma](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) veya Bu öğretici Çalıştır [Azure bulut Kabuk](/azure/cloud-shell/overview), bu adımı atlayın.
+> [Terraform ortam değişkenlerini kullanıyorsanız](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) veya bu [Azure Cloud Shell](/azure/cloud-shell/overview) öğreticisini çalıştırdıysanız bu adımı atlayın.
 
- Gözden geçirme [Terraform yükleyin ve Azure erişimi yapılandırma](/azure/virtual-machines/linux/terraform-install-configure) bir Azure hizmet sorumlusu oluşturmak için. Yeni bir dosya doldurmak için bu hizmet asıl adı kullanmasını `azureProviderAndCreds.tf` aşağıdaki kod ile boş bir dizinde:
+ Azure hizmet sorumlusu oluşturmak için [Terraform'u yükleyin ve Azure erişimini yapılandırın](/azure/virtual-machines/linux/terraform-install-configure) sayfasını inceleyin. Aşağıdaki kodla boş bir dizinde yeni bir `azureProviderAndCreds.tf` dosyası oluşturmak için bu hizmet sorumlusunu kullanın:
 
 ```tf
 variable subscription_id {}
@@ -51,7 +51,7 @@ provider "azurerm" {
 
 ## <a name="create-the-template"></a>Şablonu oluşturma
 
-Adlı yeni bir Terraform şablonu oluşturma `main.tf` aşağıdaki kod ile:
+Aşağıdaki kodu kullanarak `main.tf` adlı yeni bir Terraform şablonu oluşturun:
 
 ```tf
 module mycompute {
@@ -85,24 +85,24 @@ output "vm_private_ips" {
 }
 ```
 
-Çalıştırma `terraform init` yapılandırma dizininizde. En az 0.10.6 Terraform sürümünü kullanarak aşağıdaki çıkış şunları gösterir:
+Yapılandırma dizininizde `terraform init` komutunu çalıştırın. Terraform 0.10.6 sürümü ve sonrası aşağıdaki çıktıyı gösterir:
 
-![Terraform başlatma](media/terraformInitWithModules.png)
+![Terraform Init](media/terraformInitWithModules.png)
 
-## <a name="visualize-the-changes-with-plan"></a>Plan değişikliklerle Görselleştirme
+## <a name="visualize-the-changes-with-plan"></a>Plan ile değişiklikleri görselleştirme
 
-Çalıştırma `terraform plan` şablonu tarafından oluşturulan sanal makine altyapısı önizlemek için.
+Şablon tarafından oluşturulan sanal makine altyapısını önizlemek için `terraform plan` komutunu çalıştırın.
 
 ![Terraform Plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
 
-## <a name="create-the-virtual-machines-with-apply"></a>Sanal makineler Uygula ile oluşturma
+## <a name="create-the-virtual-machines-with-apply"></a>apply ile sanal makineleri oluşturma
 
-Çalıştırma `terraform apply` Azure Vm'lerinde sağlamak için.
+VM'leri Azure'da sağlamak için `terraform apply` komutunu çalıştırın.
 
-![Terraform Uygula](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
+![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Listesine göz [Azure Terraform modülleri](https://registry.terraform.io/modules/Azure)
-- Oluşturma bir [sanal makine ölçek kümesi ile Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+- [Azure Terraform modülleri](https://registry.terraform.io/modules/Azure) listesine göz atma
+- [Terraform ile sanal makine ölçek kümesi](terraform-create-vm-scaleset-network-disks-hcl.md) oluşturma

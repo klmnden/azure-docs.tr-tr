@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 924269e16ab09cfd144955d3bd462cab7b37aaaf
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917144"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381763"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure'da Active Directory Federasyon Hizmetlerini dağıtma
 AD FS basitleştirilmiş, güvenli kimlik federasyonu ve Web’de çoklu oturum açma (SSO) özellikleri sağlar. Azure AD veya O365 ile federasyon, kullanıcıların şirket içi kimlik bilgilerini kullanarak kimlik doğrulaması yapmasını ve buluttaki tüm kaynaklara erişmesini sağlar. Sonuç olarak, hem şirket içindeki hem de buluttaki kaynaklara erişimi sağlamak için yüksek oranda kullanılabilir bir AD FS altyapısına sahip olunması önemlidir. AD FS'nin Azure’da dağıtılması en az çaba ile yüksek kullanılabilirlik elde etmeye yardımcı olabilir.
@@ -187,12 +187,14 @@ Yeni oluşturulan ILB’yi Yük Dengeleyiciler panelinden seçin. Ayarlar paneli
 
 **6.3. Araştırmayı yapılandırma**
 
-ILB ayarları panelinde Araştırmalar’ı seçin.
+ILB ayarları panelinde Durum araştırmaları’nı seçin.
 
 1. Ekle'ye tıklayın
-2. Araştırmanın ayrıntılarını belirtin a. **Ad**: Araştırmanın adı b. **Protokol**: TCP c. **Bağlantı noktası**: 443 (HTTPS) d. **Aralık**: 5 (varsayılan değer) – ILB’nin arka uç havuzunda makineleri araştıracağı aralıktır. **Sağlıksız eşik sınırı**: 2 (varsayılan değer) – Aşıldığında ILB’nin arka uç havuzundaki bir makineyi duyarsız olarak duyuracağı ve trafik göndermeyi durduracağı ardışık araştırma hataları eşiğidir.
+2. Araştırmanın ayrıntılarını belirtin a. **Ad**: Araştırmanın adı b. **Protokol**: HTTP c. **Bağlantı noktası**: 80 (HTTP) d. **Yol**: /adfs/probe e. **Aralık**: 5 (varsayılan değer) – ILB’nin arka uç havuzunda makineleri araştıracağı aralıktır f. **Sağlıksız eşik sınırı**: 2 (varsayılan değer) – Aşıldığında ILB’nin arka uç havuzundaki bir makineyi duyarsız olarak duyuracağı ve trafik göndermeyi durduracağı ardışık araştırma hataları eşiğidir.
 
 ![ILB araştırmasını yapılandırma](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+Tam bir HTTPS yol denetiminin gerçekleşemeyeceği bir AD FS ortamında açık bir şekilde durum denetimleri için oluşturulmuş /adfs/probe uç noktasını kullanıyoruz.  Temel bir 443 numaralı bağlantı noktası denetimi, modern bir AD FS dağıtımının durumunu doğru bir şekilde yansıtmadığından bu denetim çok daha iyidir.  Bu konuyla ilgili daha fazla bilgiye https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/ adresinden ulaşabilirsiniz.
 
 **6.4. Yük dengeleme kuralları oluşturma**
 

@@ -1,307 +1,309 @@
 ---
-title: Azure Terraform VS Code uzantısı | Microsoft Docs
-description: Bu makalede, yükleyip Visual Studio Code'da Terraform uzantısını kullanmayı öğrenin.
-keywords: terraform, devops, sanal makine, azure
-author: v-mavick
-ms.author: v-mavick
-ms.date: 08/14/2018
-ms.topic: article
-ms.prod: vs-code
-ms.openlocfilehash: 0c88879faae100372055479ad4edb8c36d8f557d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: MT
+title: Azure Terraform Visual Studio Code uzantısını yükleme ve kullanma
+description: Visual Studio Code'a Azure Terraform uzantısını yüklemeyi ve kullanmayı öğrenin.
+services: terraform
+ms.service: terraform
+keywords: terraform, azure, devops, visual studio code, uzantı
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
+ms.date: 08/31/2018
+ms.openlocfilehash: ad042525ead23959be57a5dd2d5735bcedfedb1b
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190358"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668334"
 ---
-# <a name="azure-terraform-vs-code-extension"></a>Azure Terraform VS Code uzantısı
+# <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Azure Terraform Visual Studio Code uzantısını yükleme ve kullanma
 
-Microsoft Azure Terraform Visual Studio Code (VS Code) uzantısı, Terraform ile Azure kullanarak geliştirme ve test ederken Geliştirici üretkenliğini artırmak için tasarlanmıştır. Uzantı, Terraform komut desteği, Kaynak grafiğin Görselleştirme ve VS Code'un içindeki CloudShell tümleştirme sağlar.
+Microsoft Azure Terraform Visual Studio Code uzantısı Azure'da kod yazma, test yapma ve Terraform kullanma aşamalarında geliştirici üretkenliğini artırmak üzere tasarlanmıştır. Uzantı Visual Studio Code içinde Terraform komut desteği, kaynak grafiği görselleştirmesi ve CloudShell tümleştirmesi sağlar.
 
-## <a name="what-you-do"></a>Neler
+Bu makalede şunları öğreneceksiniz:
+> [!div class="checklist"]
+> * Terraform'u kullanarak Azure hizmetlerini otomatikleştirmeyi ve sağlamayı kolaylaştırma.
+> * Azure hizmetleri için Microsoft Terraform Visual Studio Code uzantısını yükleme ve kullanma.
+> * Visual Studio Code kullanarak Terraform planlarını yazma, planlama ve yürütme.
 
-- Açık kaynak HashiCorp Terraform yürütülebilir dosyayı makinenize yükleyin.
-- Azure Terraform VS kod uzantısı yerel VS Code yüklemenizi yükleyin.
+## <a name="prerequisites"></a>Ön koşullar
+- **Azure aboneliği**: Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 
-## <a name="what-you-learn"></a>Öğrenecekleriniz
+- **Terraform**: [Terraform’u yükleyin ve yapılandırın](/azure/virtual-machines/linux/terraform-install-configure).
 
-Bu öğreticide şunları öğrenirsiniz:
+- **Visual Studio Code**: Ortamınız için uygun [Visual Studio Code](https://code.visualstudio.com/download) sürümünü yükleyin.
 
-- Nasıl Terraform otomatikleştirin ve basitleştirin Azure hizmetleri sağlama.
-- Yükleme ve Azure Hizmetleri için Microsoft Terraform VS Code uzantısı kullanma nasıl.
-- Yazmayı, planlama ve Terraform planları yürütmek için VS Code kullanma
-
-## <a name="what-you-need"></a>Ne gerekiyor
-
-- Windows 10, Linux veya macOS 10.10 + çalıştıran bir bilgisayar.
-- [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US).
-- Etkin bir Azure aboneliği. [Ücretsiz 30 günlük deneme Microsoft Azure hesabı etkinleştirme](https://azure.microsoft.com/free/).
-- Yüklemesini [Terraform](https://www.terraform.io/) yerel makinenizde açık kaynak araçtır.
-  
 ## <a name="prepare-your-dev-environment"></a>Geliştirme ortamınızı hazırlama
 
-### <a name="install-git"></a>Git'i yükleyin
+### <a name="install-git"></a>Git’i yükleme
 
-Makaleyi alıştırmalarda tamamlanması için gereken [Git yükleme](https://git-scm.com/).
+Bu makaledeki alıştırmaları tamamlamak için [Git'i yüklemeniz](https://git-scm.com/) gerekir.
 
 ### <a name="install-hashicorp-terraform"></a>HashiCorp Terraform'u yükleme
 
-HashiCorp yönergeleri [yükleme Terraform](https://www.terraform.io/intro/getting-started/install.html) kapsayan Web sayfası:
+HashiCorp [Install Terraform](https://www.terraform.io/intro/getting-started/install.html) (Terraform'u Yükleme) web sayfasındaki yönergeleri izleyerek şu adımları gerçekleştirin:
 
-- Terraform indiriliyor
+- Terraform'u indirme
 - Terraform'u yükleme
-- Terraform doğru yüklü olduğu doğrulanıyor
+- Terraform'un gereken şekilde yüklendiğini doğrulama
 
 >[!Tip]
->Yönergeleri izlediğinizden emin olun, PATH sistem değişkeni ayarlama ile ilgili.
+>PATH sistem değişkeninizi ayarlamayla ilgili yönergeleri izlediğinizden emin olun.
 
 ### <a name="install-nodejs"></a>Node.js yükleme
 
-Terraform Cloud Shell'de kullanmak için yapmanız [Node.js yükleme](https://nodejs.org/) 6.0 ve üstü.
+Terraform'u Cloud Shell'de kullanabilmek için [Node.js](https://nodejs.org/) 6.0+ sürümünü yüklemeniz gerekir.
 
 >[!NOTE]
->Node.js yüklü olup olmadığını doğrulamak için bir terminal penceresi açıp: `node -v`
+>Node.js uygulamasının yüklü olup olmadığını belirlemek için bir terminal penceresi açıp `node -v` yazın.
 
-### <a name="install-graphviz"></a>GraphViz yükleyin
+### <a name="install-graphviz"></a>GraphViz'i yükleme
 
-Terraform kullanılacak işlevi görselleştirin, yapmanız [GraphViz yükleme](http://graphviz.org/).
+Terraform'un görselleştirme işlevini kullanmak için [GraphViz'i yüklemeniz gerekir](http://graphviz.org/).
 
 >[!NOTE]
->GraphViz yüklü olup olmadığını doğrulamak için bir terminal penceresi açıp: `dot -V`
+>GraphViz uygulamasının yüklü olup olmadığını belirlemek için bir terminal penceresi açıp `dot -V` yazın.
 
-### <a name="install-the-azure-terraform-vs-code-extension"></a>Azure Terraform VS Code uzantısı yükleyin:
+### <a name="install-the-azure-terraform-visual-studio-code-extension"></a>Azure Terraform Visual Studio Code uzantısını yükleme
 
-1. VS Code'u başlatın.
-2. Tıklayarak **uzantıları** simgesi.
+1. Visual Studio Code'u başlatın.
+
+1. **Uzantılar**'ı seçin.
 
     ![Uzantılar düğmesi](media/terraform-vscode-extension/tf-vscode-extensions-button.png)
 
-3. Kullanım **Market'te arama uzantıları** Azure Terraform uzantısı aramak için metin kutusunu:
+1. **Market'te Uzantı Ara** metin kutusunu kullanarak Azure Terraform uzantısını arayın:
 
-    ![VS Code uzantılarını Market içinde Ara](media/terraform-vscode-extension/tf-search-extensions.png)
+    ![Market'te Visual Studio Code uzantılarını arama](media/terraform-vscode-extension/tf-search-extensions.png)
 
-4. **Yükle**'ye tıklayın.
+1. **Yükle**’yi seçin.
 
     >[!NOTE]
-    >Tıkladığınızda **yükleme** Azure Terraform uzantısı için VS Code otomatik olarak Azure hesabı uzantısını yükler. Azure hesabı, Azure abonelik kimlik doğrulama ve Azure ile ilgili kod uzantıları gerçekleştirmek için kullandığı Azure Terraform uzantısı için bir bağımlılık dosyasıdır.
+    >Azure Terraform uzantısı için **Yükle**'yi seçtiğinizde Visual Studio Code otomatik olarak Azure Account uzantısını yükler. Azure Account, Azure Terraform uzantısı için yüklenmesi gereken bir dosyadır ve Azure aboneliği kimlik doğrulaması işlemleri ile Azure ile ilgili kod uzantıları bu dosya kullanılarak gerçekleştirilir.
 
-#### <a name="verify-the-terraform-extension-is-installed-in-visual-studio-code"></a>Terraform uzantı Visual Studio Code'da yüklendiğini doğrulayın
+#### <a name="verify-the-terraform-extension-is-installed-in-visual-studio-code"></a>Terraform uzantısının Visual Studio Code'a yüklendiğini doğrulama
 
-1. Uzantıları simgesine tıklayın.
-2. Tür `@installed` arama metin kutusuna.
+1. **Uzantılar**'ı seçin.
+
+1. Arama metin kutusuna `@installed` yazın.
 
     ![Yüklü uzantılar](media/terraform-vscode-extension/tf-installed-extensions.png)
 
-Azure Terraform uzantısı yüklü uzantılar listesinde görünür.
+Azure Terraform uzantısı yüklü uzantıların arasında görünür.
 
-![Terraform yüklü uzantılar](media/terraform-vscode-extension/tf-installed-terraform-extension-button.png)
+![Yüklü Terraform uzantıları](media/terraform-vscode-extension/tf-installed-terraform-extension-button.png)
 
-Artık, VS Code'un içindeki Cloud Shell ortamınızdaki tüm desteklenen Terraform komutları çalıştırabilirsiniz.
+Artık desteklenen tüm Terraform komutlarını Visual Studio Code içinde Cloud Shell ortamınızda çalıştırabilirsiniz.
 
-## <a name="exercise-1-basic-terraform-commands-walk-through"></a>Alıştırma 1: Temel Terraform komutları gözden geçirme
+## <a name="exercise-1-basic-terraform-commands-walk-through"></a>Alıştırma 1: Temel Terraform komutlarını kullanma adımları
 
-Bu alıştırmada, oluşturma ve yeni bir Azure kaynak grubu sağlayan bir temel Terraform yapılandırma dosyasını yürütün.
+Bu alıştırmada yeni bir Azure kaynak grubu sağlayan basit bir Terraform yapılandırma dosyası oluşturup yürüteceksiniz.
 
-### <a name="prepare-a-test-plan-file"></a>Bir test planı hazırlayın
+### <a name="prepare-a-test-plan-file"></a>Test planı dosyası hazırlama
 
-1. VS Code'da seçin **Dosya > yeni dosya** menü çubuğundan.
-2. Gidin [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) ve kodda kopyalayın **örnek kullanım** kod bloğu:
-3. Kopyalanan kodun VS Code'da oluşturduğunuz yeni dosyasına yapıştırın.
+1. Visual Studio Code menü çubuğundan **Dosya > Yeni Dosya**'yı seçin.
 
-    ![Örnek kullanım kodu yapıştırın](media/terraform-vscode-extension/tf-paste-example-usage-code.png)
+1. [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) dosyasına gidin ve **Örnek Kullanım** kod bloğu içindeki kodu kopyalayın:
 
-    >[!NOTE]
-    >Değişebilir **adı** değerini kaynak grubunu, ancak Azure aboneliğiniz için benzersiz olmalıdır.
+1. Kopyalanan kodu Visual Studio Code'da oluşturduğunuz yeni dosyaya yapıştırın.
 
-4. Menü çubuğundan seçin **Dosya > Farklı Kaydet**.
-5. İçinde **Kaydet** iletişim kutusunda, seçtiğiniz bir konuma gidin ve ardından **yeni klasör**. (Yeni klasörün adını daha açıklayıcı bir şey değiştirmek *yeni klasör*.)
+    ![Örnek Kullanım kodunu yapıştırma](media/terraform-vscode-extension/tf-paste-example-usage-code.png)
 
     >[!NOTE]
-    >Bu örnekte, TERRAFORM-TEST-planı klasör olarak adlandırılır.
+    >Kaynak grubunun **name** değerini değiştirebilirsiniz ancak bu değerin Azure aboneliğinizde benzersiz olması gerekir.
 
-6. Yeni klasör vurgulanana emin olun (Seçili) ve ardından **açık**.
-7. İçinde **Kaydet** iletişim kutusunda, dosya için varsayılan adı değiştirmek *main.tf*.
+1. Menü çubuğundan **Dosya > Farklı Kaydet**'i seçin.
 
-    ![Main.tf Kaydet](media/terraform-vscode-extension/tf-save-as-main.png)
+1. **Farklı Kaydet** iletişim kutusunda istediğiniz konuma gidin ve **Yeni klasör**'ü seçin. (Yeni klasör için *Yeni klasör* yerine daha açıklayıcı bir ad seçmeniz önerilir.)
 
-8. **Kaydet**’e tıklayın.
-- Menü çubuğunda **Dosya > Klasör Aç**. Gidin ve oluşturduğunuz yeni bir klasör seçin.
+    >[!NOTE]
+    >Bu örnekte klasöre TERRAFORM-TEST-PLAN adı verilmiştir.
 
-### <a name="run-terraform-init-command"></a>Terraform çalıştırma *init* komutu
+1. Yeni klasörünüzün vurgulandığından (seçildiğinden) emin olun ve ardından **Aç**'ı seçin.
+
+1. **Farklı Kaydet** iletişim kutusunda dosyanın varsayılan adını *main.tf* olarak değiştirin.
+
+    ![main.tf olarak kaydedin](media/terraform-vscode-extension/tf-save-as-main.png)
+
+1. **Kaydet**’i seçin.
+- Menü çubuğundan **Dosya > Klasör Aç**'ı seçin. Yeni oluşturduğunuz klasöre gidin ve seçin.
+
+### <a name="run-terraform-init-command"></a>Terraform *init* komutunu çalıştırma
 
 1. Visual Studio Code'u başlatın.
-2. VS Code menü çubuğundan seçin **Dosya > Klasör Aç...**  bulun ve seçin, *main.tf* dosya.
 
-    ![Main.tf dosyası](media/terraform-vscode-extension/tf-main-tf.png)
+1. Visual Studio Code menü çubuğundan **Dosya > Klasör Aç...** öğesini ve ardından *main.tf* dosyanızı seçin.
 
-3. Menü çubuğundan seçin **Görüntüle > komut paleti... > Azure Terraform: Init**.
-4. Birkaç dakika sonra sorulduğunda *Cloud Shell'i açmak istiyor musunuz?* **Tamam** düğmesine tıklayın.
+    ![main.tf dosyası](media/terraform-vscode-extension/tf-main-tf.png)
+
+1. Menü çubuğundan **Görünüm > Komut Paleti... > Azure Terraform: Init** öğesini seçin.
+
+1. Onay göründüğünde **Tamam**'ı seçin.
 
     ![Cloud Shell'i açmak istiyor musunuz?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
 
-5. İlk kez yeni bir klasör Cloud Shell'den başlatıldığında web uygulamasını ayarlama istenir. Tıklayın **açık**.
+1. Cloud Shell'i yeni bir klasörden başlattığınızda web uygulaması kurulumunu yapmanız istenir. **Aç**'ı seçin.
 
-    ![Cloud Shell ilk kez başlatıldığında](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
+    ![Cloud Shell'i ilk kez başlatma](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
 
-6. Hoş Geldiniz Azure Cloud Shell sayfası açılır. Bash veya PowerShell'i seçin.
+1. Azure Cloud Shell'e hoş geldiniz sayfası açılır. Bash veya PowerShell'i seçin.
 
     ![Azure Cloud Shell'e hoş geldiniz](media/terraform-vscode-extension/tf-welcome-to-azure-cloud-shell.png)
 
     >[!NOTE]
-    >Bu örnekte, Bash (Linux) seçildi.
+    >Bu örnekte Bash (Linux) seçilmiştir.
 
-7. Zaten bir Azure depolama hesabı ayarlamadıysanız, aşağıdaki ekran görünür. Tıklayın **depolama oluşturma**.
+1. Azure depolama hesabı oluşturmadıysanız aşağıdaki ekran açılır. **Depolama oluştur**'u seçin.
 
     ![Hiçbir depolama takılı değil](media/terraform-vscode-extension/tf-you-have-no-storage-mounted.png)
 
-1. Azure Cloud Shell, önceden seçili ve sizin için oluşturulan bulut sürücüsü bilgilerini görüntüler Kabuğu'nda başlatılır.
+1. Azure Cloud Shell, seçtiğiniz kabukta başlatılır ve sizin adınıza oluşturulan bulut sunucusuna ait bilgiler gösterilir.
 
-    ![Bulut drive'ınızdaki oluşturuldu](media/terraform-vscode-extension/tf-your-cloud-drive-has-been-created-in.png)
+    ![Bulut sürücünüz oluşturuldu](media/terraform-vscode-extension/tf-your-cloud-drive-has-been-created-in.png)
 
-9. Artık Cloud Shell sonlandırılabilir
-10. Menü çubuğundan seçin **görünümü** > **komut paleti** > **Azure Terraform: init**.
+1. Artık Cloud Shell'i kapatabilirsiniz
+
+1. Menü çubuğundan **Görünüm** > **Komut Paleti** > **Azure Terraform: init** öğesini seçin.
 
     ![Terraform başarıyla başlatıldı](media/terraform-vscode-extension/tf-terraform-has-been-successfully-initialized.png)
 
-### <a name="visualize-the-plan"></a>Plan görselleştirin
+### <a name="visualize-the-plan"></a>Planı görselleştirme
 
-Bu öğreticide daha önce GraphViz yüklü. Terraform GraphViz yapılandırma veya yürütme planı görsel bir temsilini oluşturmak için kullanabilirsiniz. Bu özelliği aracılığıyla Azure Terraform VS Code uzantısını uygulayan *görselleştirme* komutu.
+Bu öğreticinin önceki bölümlerinde GraphViz'i yüklemiştiniz. Terraform, GraphViz'i kullanarak bir yapılandırmanın veya yürütme planının görsel temsilini oluşturabilir. Azure Terraform Visual Studio Code uzantısı bu özelliği *visualize* komutuyla kullanır.
 
-- Gelen **menü çubuğu**seçin**Görüntüle > komut paleti > Azure Terraform: Görselleştirme**.
+- Menü çubuğundan **Görünüm > Komut Paleti > Azure Terraform: Visualize** öğesini seçin.
 
-    ![Plan görselleştirin](media/terraform-vscode-extension/tf-graph.png)
+    ![Planı görselleştirme](media/terraform-vscode-extension/tf-graph.png)
 
-### <a name="run-terraform-plan-command"></a>Terraform çalıştırma *planı* komutu
+### <a name="run-terraform-plan-command"></a>Terraform *plan* komutunu çalıştırma
 
-Terraform *planı* komutu, istenen bir değişiklik kümesini için yürütme planı yapıp yapmayacağını denetlemek için kullanılır.
+Terraform *plan* komutu, belirli bir değişiklik kümesine ait yürütme planının istediğiniz işlemleri gerçekleştirip gerçekleştirmeyeceğini denetlemek için kullanılır.
 
 >[!NOTE]
->Terraform *planı* gerçek Azure kaynaklarınıza herhangi bir değişiklik yapmaz. Terraform kullanırız gerçekte, planınızda yer alan değişiklik yapmak için *uygulamak* komutu.
+>Terraform *plan* komutu, Azure kaynaklarınızda değişiklik yapmaz. Planınızdaki değişiklikleri gerçekleştirmek için Terraform *apply* komutunu kullanmanız gerekir.
 
-- Menü çubuğundan seçin **görünümü** > **komut paleti** > **Azure Terraform: plan**.
+- Menü çubuğundan **Görünüm** > **Komut Paleti** > **Azure Terraform: plan** öğesini seçin.
 
-    ![Terraform planı](media/terraform-vscode-extension/tf-terraform-plan.png)
+    ![Terraform plan](media/terraform-vscode-extension/tf-terraform-plan.png)
 
-### <a name="run-terraform-apply-command"></a>Terraform çalıştırma *uygulamak* komutu
+### <a name="run-terraform-apply-command"></a>Terraform *apply* komutunu uygulama
 
-Terraform'un Sonuçlardan memnun sonra *planı*, çalıştırabileceğiniz *uygulamak* komutu.
+Terraform *plan* komutunun sonucundan memnunsanız *apply* komutunu çalıştırabilirsiniz.
 
-1. Menü çubuğundan seçin **görünümü** > **komut paleti** > **Azure Terraform: uygulama**.
+1. Menü çubuğundan **Görünüm** > **Komut Paleti** > **Azure Terraform: apply** öğesini seçin.
 
-    ![Terraform Uygula](media/terraform-vscode-extension/tf-terraform-apply.png)
+    ![Terraform apply](media/terraform-vscode-extension/tf-terraform-apply.png)
 
-2. Tür *Evet*.
+1. `yes` yazın.
 
-    ![Terraform Evet Uygula](media/terraform-vscode-extension/tf-terraform-apply-yes.png)
+    ![Terraform apply yes](media/terraform-vscode-extension/tf-terraform-apply-yes.png)
 
-### <a name="verify-your-terraform-plan-was-executed"></a>Terraform planınızı yürütülmesi doğrulayın
+### <a name="verify-your-terraform-plan-was-executed"></a>Terraform planınızın yürütüldüğünü doğrulama
 
-Yeni Azure kaynak grubunuz başarıyla oluşturulup oluşturulmadığını görmek için:
+Yeni Azure kaynak grubunuzun başarıyla oluşturulup oluşturulmadığını görmek için:
 
 1. Azure portalı açın.
-2. Seçin **kaynak grupları** sol gezinti bölmesinde.
 
-    ![Yeni kaynak doğrulayın](media/terraform-vscode-extension/tf-verify-resource-group-created.png)
+1. Soldaki gezinti bölmesinden **Kaynak grupları**'nı seçin.
 
-Yeni kaynak grubunuz yer alması **adı** sütun.
+    ![Yeni kaynağınızı doğrulama](media/terraform-vscode-extension/tf-verify-resource-group-created.png)
+
+Yeni kaynak grubunuzun **NAME** sütununda listelenmesi gerekir.
 
 >[!NOTE]
->Azure portalı pencereniz şu an için açık bıraktığınız; sonraki adımda size bu kullanacaklardır.
+>Azure portal pencerenizi açık bırakabilirsiniz. Bir sonraki adımda kullanıyor olacağız.
 
-### <a name="run-terraform-destroy-command"></a>Terraform çalıştırma *yok* komutu
+### <a name="run-terraform-destroy-command"></a>Terraform *destroy* komutunu çalıştırma
 
-1. Menü çubuğundan seçin **görünümü** > **komut paleti** > **Azure Terraform: yok**.
+1. Menü çubuğundan **Görünüm** > **Komut Paleti** > **Azure Terraform: destroy** öğesini seçin.
 
-    ![Terraform yok](media/terraform-vscode-extension/tf-terraform-destroy.png)
+    ![Terraform destroy](media/terraform-vscode-extension/tf-terraform-destroy.png)
 
-2. Tür *Evet*.
+1. *yes* yazın.
 
-    ![Terraform Evet yok](media/terraform-vscode-extension/tf-terraform-destroy-yes.png)
+    ![Terraform destroy yes](media/terraform-vscode-extension/tf-terraform-destroy-yes.png)
 
-### <a name="verify-your-resource-group-was-destroyed"></a>Kaynak grubunuz yok edildi doğrulayın
+### <a name="verify-your-resource-group-was-destroyed"></a>Kaynak grubunuzun yok edildiğini doğrulama
 
-Terraform başarıyla yeni kaynak grubunuz yok doğrulamak için:
+Terraform'un yeni kaynak grubunuzu başarıyla yok ettiğini doğrulamak için:
 
-1. Tıklayın **Yenile** Azure portalında *kaynak grupları* sayfası.
-2. Kaynak grubunuz artık listelenir.
+1. Azure portalın **Kaynak grupları** sayfasından **Yenile**'yi seçin.
 
-    ![Kaynak grubu yok edildi doğrulayın](media/terraform-vscode-extension/tf-refresh-resource-groups-button.png)
+1. Kaynak grubunuzun listelenmediğini göreceksiniz.
 
-## <a name="exercise-2-terraform-compute-module"></a>Alıştırma 2: Terraform *işlem* Modülü
+    ![Kaynak grubunuzun yok edildiğini doğrulama](media/terraform-vscode-extension/tf-refresh-resource-groups-button.png)
 
-Bu alıştırmada, Terraform yükleme hakkında bilgi edinmek *işlem* VS Code ortamına modülü.
+## <a name="exercise-2-terraform-compute-module"></a>Alıştırma 2: Terraform *compute* modülü
 
-### <a name="clone-the-terraform-azurerm-compute-module"></a>Terraform azurerm işlem modülü kopyalama
+Bu alıştırmada Terraform *compute* modülünü Visual Studio Code ortamına yüklemeyi öğreneceksiniz.
 
-1. Kullanım [bu bağlantıyı](https://github.com/Azure/terraform-azurerm-compute) GitHub üzerinde Terraform Azure Rm işlem modülü erişmek için.
-2. Tıklayın **Kopyala veya indir**.
+### <a name="clone-the-terraform-azurerm-compute-module"></a>terraform-azurerm-compute modülünü kopyalama
+
+1. [Bu bağlantıyı](https://github.com/Azure/terraform-azurerm-compute) kullanarak GitHub'daki Terraform Azure Rm Compute modülüne erişin.
+
+1. **Clone or download**'u (Kopyala veya indir) seçin.
 
     ![Kopyala veya indir](media/terraform-vscode-extension/tf-clone-with-https.png)
 
     >[!NOTE]
-    >Bu örnekte, bizim klasör olarak adlandırılıyordu *terraform azurerm işlem*.
+    >Bu örnekte klasörümüze *terraform-azurerm-compute* adını vermiştik.
 
-### <a name="open-the-folder-in-vs-code"></a>VS Code'da klasörü açın
+### <a name="open-the-folder-in-visual-studio-code"></a>Visual Studio Code’da klasörü açın
 
 1. Visual Studio Code'u başlatın.
-2. Gelen **menü çubuğu**seçin **Dosya > Klasör Aç** gidin ve önceki adımda oluşturduğunuz klasörü seçin.
 
-    ![terraform azurerm işlem klasörü](media/terraform-vscode-extension/tf-terraform-azurerm-compute-folder.png)
+1. Menü çubuğundan **Dosya > Klasör Aç**'ı seçip bir önceki adımda oluşturduğunuz klasöre gidin ve seçin.
 
-### <a name="initialize-terraform"></a>Terraform Başlat
+    ![terraform-azurerm-compute klasörü](media/terraform-vscode-extension/tf-terraform-azurerm-compute-folder.png)
 
-VS Code'un içindeki Terraform komutlarını kullanarak başlamadan önce eklentiler için iki Azure sağlayıcı indirin: rastgele hem de azurerm.
+### <a name="initialize-terraform"></a>Terraform'u başlatma
 
-1. VS Code IDE'nin Terminal bölmesine yazın: `terraform init`
+Terraform komutlarını Visual Studio Code'da kullanmaya başlamak için iki Azure sağlayıcısı eklentisini indirmeniz gerekir: random ve azurerm.
+
+1. Visual Studio Code IDE ortamının Terminal bölmesinde `terraform init` yazın.
 
     ![terraform init komutu](media/terraform-vscode-extension/tf-terraform-init-command.png)
 
-2. Tür `az login` ve ekrandaki yönergeleri.
+1. `az login` yazın ve, **Enter** tuşuna basın ve ekrandaki yönergeleri izleyin.
 
-### <a name="module-test-lint"></a>Modül test: *lint*
+### <a name="module-test-lint"></a>Modül testi: *lint*
 
-1. Gelen **menü çubuğu**seçin **Görüntüle > komut paleti > Azure Terraform: Test yürütme**.
-2. Test türü seçeneklerini listeden seçin **lint**.
+1. Menü çubuğundan **Görünüm > Komut Paleti > Azure Terraform: Execute Test** öğesini seçin.
 
-    ![Test türü seçin](media/terraform-vscode-extension/tf-select-type-of-test-lint.png)
+1. Test türü seçeneklerinin arasından **lint** öğesini seçin.
 
-3. Sorulduğunda *CloudShell açmak istiyor musunuz?* tıklayın **Tamam** ve ekrandaki yönergeleri.
+    ![Test türünü seçme](media/terraform-vscode-extension/tf-select-type-of-test-lint.png)
 
-    ![CloudShell açmak istiyor musunuz?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloudshell-small.png)
+1. Onay ekranı açıldığında **Tamam**'ı seçin ve ekrandaki yönergeleri izleyin.
+
+    ![Cloud Shell'i açmak istiyor musunuz?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloudshell-small.png)
 
 >[!NOTE]
->Yürüttüğünüzde ya da **lint** veya **uçtan uca** test, Azure kapsayıcı hizmeti gerçek testi gerçekleştirmek için bir test makinesi sağlama için kullanır. Bu nedenle, test sonuçlarınızı genellikle döndürülmesi birkaç dakika sürebilir.
+>**lint** veya **end to end** testini yürüttüğünüzde Azure bir kapsayıcı hizmetini kullanarak gerçek testi gerçekleştirecek bir test makinesi sağlar. Bu nedenle test sonuçlarınızın döndürülmesi genellikle birkaç dakika sürebilir.
 
-Birkaç dakika sonra Terminal bölmesinde bu örnektekine benzer bir liste görürsünüz:
+Biraz bekledikten sonra Terminal bölmesinde şu örneğe benzer bir giriş görürsünüz:
 
 ![Lint test sonuçları](media/terraform-vscode-extension/tf-lint-test-results.png)
 
-### <a name="module-test-end-to-end"></a>Modül test: *uçtan uca*
+### <a name="module-test-end-to-end"></a>Modül testi: *end-to-end*
 
-1. Gelen **menü çubuğu**seçin **Görüntüle > komut paleti > Azure Terraform: Test yürütme**.
-2. Test türü seçeneklerini listeden seçin **uçtan uca**.
+1. Menü çubuğundan **Görünüm > Komut Paleti > Azure Terraform: Execute Test** öğesini seçin.
 
-    ![Test türü seçin](media/terraform-vscode-extension/tf-select-type-of-test-end-to-end.png)
+1. Test türü seçeneklerinin arasından **end to end** öğesini seçin.
 
-3. Sorulursa *CloudShell açmak istiyor musunuz?* tıklayın **Tamam** ve ekrandaki yönergeleri.
+    ![Test türünü seçme](media/terraform-vscode-extension/tf-select-type-of-test-end-to-end.png)
 
-    ![CloudShell açmak istiyor musunuz?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloudshell-small.png)
+1. Onay ekranı açıldığında **Tamam**'ı seçin ve ekrandaki yönergeleri izleyin.
+
+    ![Cloud Shell'i açmak istiyor musunuz?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloudshell-small.png)
 
 >[!NOTE]
->Yürüttüğünüzde ya da **lint** veya **uçtan uca** test, Azure kapsayıcı hizmeti gerçek testi gerçekleştirmek için bir test makinesi sağlama için kullanır. Bu nedenle, test sonuçlarınızı genellikle döndürülmesi birkaç dakika sürebilir.
+>**lint** veya **end to end** testini yürüttüğünüzde Azure bir kapsayıcı hizmetini kullanarak gerçek testi gerçekleştirecek bir test makinesi sağlar. Bu nedenle test sonuçlarınızın döndürülmesi genellikle birkaç dakika sürebilir.
 
-Birkaç dakika sonra Terminal bölmesinde bu örnektekine benzer bir liste görürsünüz:
+Biraz bekledikten sonra Terminal bölmesinde şu örneğe benzer bir giriş görürsünüz:
 
-![Baştan sona test sonuçları](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
+![End-to-end test sonuçları](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Visual Studio Code içinde Azure hizmetlerinden birini sağlama Terraform basitleştirebilirsiniz yollardan bazılarını gördünüz. Şimdi bu kaynaklardan bazıları, gözden geçirmek isteyebilirsiniz:
-- [Terraform modülü kayıt defteri](https://registry.terraform.io/) için desteklenen sağlayıcılar Azure ve diğer tüm kullanılabilir Terraform modüllerini listeler.
-
-Bu modüllerin her biri için aşağıdaki bilgileri sağlanır:
-
-- Modülün genel özellikleri ve özellikleri açıklaması
-- Kullanım örneği
-- Test çalıştırması nasıl oluşturacağınızı gösteren yapılandırmaları ve yerel geliştirme makinenizdeki her modülü test
-- Bir modülü geliştirme ortamını yerel olarak oluşturup çalıştırmak için izin vermek için bir Dockerfile.
+> [!div class="nextstepaction"]
+> [Azure'da (ve desteklenen diğer sağlayıcılarda) kullanılabilecek Terraform düğümlerinin listesi](https://registry.terraform.io/)

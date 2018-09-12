@@ -1,118 +1,81 @@
 ---
-title: 'Öğretici: PHP kullanarak bir LUIS uygulamasına konuşma ekleme | Microsoft Docs'
-description: Bu öğreticide PHP kullanarak bir LUIS uygulamasını çağırmayı öğreneceksiniz.
+title: 'Hızlı Başlangıç: PHP kullanarak model değiştirme ve LUIS uygulamasını eğitme - Azure Bilişsel Hizmetler | Microsoft Docs'
+description: Bu PHP hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin. Örnek konuşmalar, bir amaçla eşleşmiş kullanıcı konuşma metinleridir. Amaçlar için örnek konuşmalar sağlayarak, LUIS’e kullanıcı tarafından sağlanan hangi tür metinlerin hangi amaca ait olduğunu öğretirsiniz.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 59150b7ed6782c28f243041be2ed6aa17e69cc01
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: ae2d3624cb3f8314a613af356730fb1d8b5d4b29
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263789"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43772565"
 ---
-# <a name="tutorial-add-utterances-to-app-using-php"></a>Öğretici: PHP kullanarak uygulamaya konuşma ekleme 
-Bu öğreticide amaca konuşma eklemek için PHP'deki Authoring API'lerini kullanarak bir program yazacaksınız.
+# <a name="quickstart-change-model-using-php"></a>Hızlı Başlangıç: PHP kullanarak model değiştirme 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Visual Studio konsol projesi oluşturma 
-> * Konuşma eklemek için LUIS API'sini çağırma yöntemi ekleme ve uygulamayı eğitme
-> * BookFlight amacı için örnek konuşmaları içeren JSON dosyası ekleme
-> * Konsolu çalıştırma ve konuşmalar için eğitim durumunu görme
-
-Daha fazla bilgi için [amaca örnek konuşma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) ve [eğitim durumu](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) API'lerinin teknik belgelerini inceleyin.
-
-Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS][LUIS] hesabına ihtiyacınız olacak.
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
 
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * En son [**PHP**](http://php.net/) sürümü.
 * PHP için openssl bağımlılığının mevcut olduğundan emin olun.  
-* LUIS **[yazma anahtarınız](luis-concept-keys.md#authoring-key)**. Bu anahtarı [LUIS](luis-reference-regions.md) web sitesinin Account Settings (Hesap Ayarları) bölümünde bulabilirsiniz.
-* Mevcut LUIS [**uygulama kimliğiniz**](./luis-get-started-create-app.md). Uygulama kimliği, uygulama panosunda gösterilir. `utterances.json` dosyasında kullanılan amaçlara ve varlıklara sahip LUIS uygulamasının, kod `add-utterances.php` içinde çalıştırılmadan önce mevcut olması gerekir. Bu makaledeki kod, amaçları ve varlıkları oluşturmaz. Yalnızca konuşmaları var olan amaçlara ve varlıklara ekler. 
-* Konuşmaları alan uygulamanın içindeki **sürüm kimliği**. Varsayılan kimlik: "0.1"
-* VSCode içinde `add-utterances.php` projesi adlı yeni bir dosya oluşturun.
 
-> [!NOTE] 
-> `add-utterances.cs` dosyasının tamamı ve örnek bir `utterances.json` dosyası [**LUIS-Samples** Github deposunda](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/php/) mevcuttur.
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
+## <a name="example-utterances-json-file"></a>Örnek konuşmalar JSON dosyası
 
-## <a name="write-the-php-code"></a>PHP kodunu yazma
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
-Bağımlılıkları dosyaya ekleyin.
+## <a name="create-quickstart-code"></a>Hızlı başlangıç kodu oluşturma 
 
-   [!code-php[PHP and LUIS Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=10-29 "PHP and LUIS Dependencies")]
+Bağımlılıkları `add-utterances.php` adlı dosyaya ekleyin.
+
+   [!code-php[PHP and LUIS Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=1-22 "PHP and LUIS Dependencies")]
 
 Eğitim durumu için kullanılan GET isteğini ekleyin.
 
-   [!code-php[SendGet](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=31-50 "SendGet")]
+   [!code-php[SendGet](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=24-43 "SendGet")]
 
 Konuşmaları oluşturmak veya eğitimi başlatmak için kullanılan POST isteğini ekleyin. 
 
-   [!code-php[SendPost](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=52-72 "SendPost")]
+   [!code-php[SendPost](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=45-65 "SendPost")]
 
 `AddUtterances` işlevini ekleyin.
 
-   [!code-php[AddUtterances method](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=74-79 "AddUtterances method")]
+   [!code-php[AddUtterances method](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=67-72 "AddUtterances method")]
 
 
 `Train` işlevini ekleyin. 
 
-   [!code-php[Train](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=81-88 "Train")]
+   [!code-php[Train](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=74-81 "Train")]
 
 `Status` işlevini ekleyin.
 
-   [!code-php[Status](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=90-94 "Status")]
+   [!code-php[Status](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=83-87 "Status")]
 
 Komut satırı bağımsız değişkenlerini yönetmek için ana kod bloğunu ekleyin.
 
-   [!code-php[Main code](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=96-120 "Main code")]
+   [!code-php[Main code](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=89-93 "Main code")]
 
-## <a name="specify-utterances-to-add"></a>Eklenecek konuşmaları belirtme
-LUIS uygulamasına eklemek istediğiniz **konuşma dizisini** belirtmek için `utterances.json` dosyasını oluşturup düzenleyin. Amacın ve varlıkların LUIS uygulamasında mevcut olması **gerekir**.
-
-> [!NOTE]
-> `utterances.json` dosyasında kullanılan amaçlara ve varlıklara sahip LUIS uygulamasının, kod `add-utterances.php` içinde çalıştırılmadan önce mevcut olması gerekir. Bu makaledeki kod, amaçları ve varlıkları oluşturmaz. Yalnızca konuşmaları var olan amaçlara ve varlıklara ekler.
-
-`text` alanı, konuşma metnini içerir. `intentName` alanı, LUIS uygulaması içindeki bir amacın adına karşılık gelmelidir. `entityLabels` alanı gereklidir. Varlıkları etiketlemek istemiyorsanız, aşağıdaki örnekte gösterildiği gibi boş bir liste sağlayın:
-
-entityLabels listesi boş değilse `startCharIndex` ve `endCharIndex` öğelerinin `entityName` alanında başvurulan varlığın işaretlenmesi gerekir. İki dizin de sıfırdan başlar. Başka bir deyişle üst örnekteki 6 rakamı büyük S harfinden önceki boşluğu değil Seattle kelimesinin "S" harfini niteler.
-
-```json
-[
-    {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
-    {
-        "text": "book a flight",
-        "intentName": "BookFlight",
-        "entityLabels": []
-    }
-]
-```
-
-## <a name="add-an-utterance-from-the-command-line"></a>Komut satırından konuşma ekleme
+## <a name="run-code"></a>Kodu çalıştırma
 
 Uygulamayı PHP ile komut satırından çalıştırın.
 
-`add-utterances.php` öğesini yalnızca utterance.json bağımsız değişkeniyle çağırmanız durumunda yeni konuşmalar eklenir ancak LUIS bu konuda eğitilmez.
-````
-> php add-utterances.php ./utterances.json
-````
+### <a name="add-an-utterance-from-the-command-line"></a>Komut satırından konuşma ekleme
+
+Uygulamayı PHP ile komut satırından çalıştırın.
+
+`add-utterances.php` komutunu çağırmak konuşmaları ekler, eğitir ve eğitim durumunu alır.
+
+```CMD
+> php add-utterances.php 
+```
 
 Aşağıdaki JSON, konuşma ekleme API çağrısından döndürülür. `response` alanı, eklenen konuşmalar için bu biçimdedir. `hasError` false değere sahiptir ve konuşmanın eklendiğini belirtir.  
 
@@ -135,17 +98,8 @@ Aşağıdaki JSON, konuşma ekleme API çağrısından döndürülür. `response
     ]
 ```
 
-## <a name="add-an-utterance-and-train-from-the-command-line"></a>Komut satırından konuşma ekleme ve eğitme
-Eğitim isteği göndermek için `add-utterance.php` öğesini `-train` bağımsız değişkeniyle birlikte çağırın. 
-
-````
-> php add-utterances.php ./utterances.json -train
-````
-
-> [!NOTE]
-> Yinelenen konuşmalar tekrar eklenmez ancak hataya da neden olmaz. `response`, özgün konuşmanın kimliğini içerir.
-
 Aşağıda başarılı bir eğitim isteğinin sonucu gösterilmiştir:
+
 ```json
 {
     "request": null,
@@ -156,16 +110,8 @@ Aşağıda başarılı bir eğitim isteğinin sonucu gösterilmiştir:
 }
 ```
 
-Eğitim isteğinin sıraya alındıktan sonra tamamlanması zaman alabilir.
 
-## <a name="get-training-status-from-the-command-line"></a>Komut satırından eğitim durumunu alma
-Eğitim durumunu kontrol etmek ve durumla ilgili ayrıntılı bilgileri görüntülemek için uygulamayı `-status` bağımsız değişkeniyle çağırın.
-
-````
-> php add-utterances.php -status
-````
-
-```
+```JSON
 Requested training status.
 [
    {
@@ -262,10 +208,9 @@ Requested training status.
 ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Bu öğreticiyi tamamladıktan sonra ihtiyacınız yoksa Visual Studio'yu ve konsol uygulamasını kaldırabilirsiniz. 
+
+Hızlı başlangıçla işiniz bittiğinde, bu hızlı başlangıçta oluşturulan tüm dosyaları kaldırın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"] 
 > [Programlama yoluyla bir LUIS uygulaması oluşturma](luis-tutorial-node-import-utterances-csv.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

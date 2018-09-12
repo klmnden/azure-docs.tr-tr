@@ -9,14 +9,23 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: b70a16c2f4c17a8cee008bee342a9c3693d1eb4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0bd3a00e643965a7bc2e79e1af4712705940ecfd
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34614501"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698834"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Xamarin ve Azure Cosmos DB ile mobil uygulamalar derleme
+
+> [!div class="op_single_selector"]
+> * [.NET](sql-api-dotnet-application.md)
+> * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js- v2](sql-api-nodejs-application-preview.md)
+> * [Python](sql-api-python-application.md)
+> * [Xamarin](mobile-apps-with-xamarin.md)
+> 
 
 Çoğu mobil uygulamanın bulutta veri depolaması gerekir ve Azure Cosmos DB mobil uygulamalar için bir bulut veritabanıdır. Mobil geliştiricinin ihtiyacı olan her şeyi sunar. İsteğe bağlı olarak ölçeklenen, tam olarak yönetilen bir hizmet olarak veritabanıdır. Kullanıcılarınız dünyada nerede bulunursa bulunsun verilerinizi uygulamanızda saydam bir şekilde kullanıma sunabilirsiniz. [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)’yi kullanarak Xamarin mobil uygulamalarının orta katman olmadan Azure Cosmos DB ile doğrudan etkileşim kurmasını sağlayabilirsiniz.
 

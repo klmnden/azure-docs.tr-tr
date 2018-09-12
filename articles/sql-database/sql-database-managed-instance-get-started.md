@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/13/2018
+ms.date: 08/31/2018
 ms.author: jovanpop-msft
-ms.openlocfilehash: cb378c2d2773096992ef688653fd77b2625f8754
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4271f0cef31b0e028ed1f9408166c37d4cbbe109
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022714"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382007"
 ---
 # <a name="create-an-azure-sql-managed-instance"></a>Azure SQL Yönetilen Örnek oluşturma
 
@@ -60,7 +60,7 @@ Aşağıdaki adımlar, önizlemeniz onaylandıktan sonra Yönetilen Örneğinizi
 2. **Yönetilen Örnek**’i bulup **Azure SQL Veritabanı Yönetilen Örneği (önizleme)** öğesini seçin.
 3. **Oluştur**’a tıklayın.
 
-   ![Yönetilen örnek oluşturma](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![Yönetilen örnek oluşturma](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
 4. Aboneliğinizi seçin ve önizleme koşullarında **Kabul Edildi** ifadesinin gösterildiğini doğrulayın.
 
@@ -77,26 +77,21 @@ Aşağıdaki adımlar, önizlemeniz onaylandıktan sonra Yönetilen Örneğinizi
    |**Konum**|Daha önce seçtiğiniz konum|Bölgeler hakkında bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/).|
    |**Sanal ağ**|Daha önce oluşturduğunuz sanal ağ| Önceki adımda adını değiştirmediyseniz **MyNewVNet/ManagedInstances** öğesini seçin. Aksi takdirde önceki bölümde girdiğiniz sanal ağ adını ve yönetilen örnek alt ağını seçin. **Yönetilen Örnekleri barındıracak şekilde yapılandırılmadığından varsayılan alt ağı kullanmayın**. |
 
-   ![yönetilen örnek oluşturma formu](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
+   ![yönetilen örnek oluşturma formu](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
 6. İşlem ve depolama kaynaklarını boyutlandırmaya ek olarak fiyatlandırma katmanı seçeneklerini gözden geçirmek için **Fiyatlandırma katmanı**’na tıklayın. Varsayılan olarak, örneğiniz ücretsiz 32 GB depolama alanı alır ancak **bu boyut uygulamalarınız için yeterli olmayabilir**.
 7. Depolama miktarını ve sanal çekirdek sayısını belirtmek için kaydırıcıları veya metin çubuklarını kullanın. 
-   ![yönetilen örnek fiyatlandırma katmanı](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+   ![yönetilen örnek fiyatlandırma katmanı](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
 
 8. Tamamlandığında, seçiminizi kaydetmek için **Uygula**’ya tıklayın.  
 9. Yönetilen Örneği dağıtmak için **Oluştur**’a tıklayın.
 10. Dağıtım durumunu görüntülemek için **Bildirimler** simgesine tıklayın.
- 
-   ![dağıtım ilerleme durumu](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
-
 11. Dağıtımın ilerleme durumunu daha ayrıntılı izlemek üzere Yönetilen Örnek penceresini açmak için **Dağıtım sürüyor**’a tıklayın.
- 
-   ![dağıtım ilerleme durumu 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
 Dağıtım gerçekleşirken sonraki yordama geçin.
 
 > [!IMPORTANT]
-> Bir alt ağdaki ilk örnek için dağıtım süresi genellikle sonraki örneklerden çok daha uzundur, bazen tamamlanması 24 saatten uzun sürer. Dağıtım işlemini beklediğinizden daha uzun sürdüğü için iptal etmeyin. İlk örneğinizi dağıtma süresinin uzunluğu geçici bir durumdur. Genel önizlemenin başlamasından kısa süre sonra dağıtım süresinde önemli bir azalma olmasını bekleyebilirsiniz. Alt ağda ikinci Yönetilen Örneğin oluşturulması birkaç dakika sürer.
+> Bir alt ağdaki ilk örnek için dağıtım süresi genellikle sonraki örneklerden çok daha uzundur. Dağıtım işlemini beklediğinizden daha uzun sürdüğü için iptal etmeyin. Alt ağda ikinci Yönetilen Örneğin oluşturulması birkaç dakika sürer.
 
 ## <a name="prepare-client-machine"></a>İstemci makinesini hazırlama
 

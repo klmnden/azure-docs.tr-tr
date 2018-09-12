@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: jasonh
 ms.reviewer: jasonh
-ms.openlocfilehash: 1d33c3f0a4c36dc681aaa42bc68ae56eec234401
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0408ea6ead1ddf482ce0a07c21859af80ab6ca43
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416032"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697824"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics işlerinden Azure İşlevleri’ni çalıştırma 
 
@@ -166,7 +166,7 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
 
 3. Çıktı diğer adı için bir ad belirtin. Bu öğreticide bu adı **saop1** olarak belirttik (tercih ettiğiniz herhangi bir adı kullanabilirsiniz). Diğer ayrıntıları girin.  
 
-4. Stream Analytics işinizi açın ve sorguyu aşağıdaki gibi güncelleştirin. (Çıktı havuzunu farklı şekilde adlandırdıysanız “saop1” ifadesini değiştirmeyi unutmayın.)  
+4. Stream Analytics işinizi açın ve sorguyu aşağıdaki gibi güncelleştirin. (Çıktı havuzunu farklı şekilde adlandırdıysanız “saop1” metnini değiştirmeyi unutmayın.)  
 
    ```sql
     SELECT 

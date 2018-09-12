@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 2b393a5b60ba534fba8115ab3ef0f35a26ad3ed4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143509"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300362"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Öğretici: SQL Server veritabanları ile uç cihazlarda veri depolama
 
@@ -176,7 +176,11 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Edge uzantısını ku
 
 1. Visual Studio Code gezgininde **deployment.template.json** dosyasını açın. 
 2. **moduleContent.$edgeAgent.properties.desired.modules** bölümünü bulun. Listede iki modül bulunmalıdır: Simülasyon verilerini oluşturan **tempSensor** ve **sqlFunction** modülünüz.
-3. Üçüncü bir modül bildirmek için aşağıdaki kodu ekleyin:
+3. Windows kapsayıcılarını kullanıyorsanız, **sqlFunction.settings.image** bölümünü değiştirin.
+    ```json
+    "image": "${MODULES.sqlFunction.windows-amd64}"
+    ```
+4. Üçüncü bir modül bildirmek için aşağıdaki kodu ekleyin. sqlFunction bölümünden sonra bir virgül ekleyip aşağıdakileri ekleyin:
 
    ```json
    "sql": {
@@ -191,16 +195,18 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Edge uzantısını ku
    }
    ```
 
-4. IoT Edge cihazınızın işletim sistemine bağlı olarak **sql.settings** parametrelerini aşağıdaki kodla güncelleştirin:
+   Burada bir JSON öğesi ile eklemeyle ilgili karışıklıklara karşı bir örnek verilmiştir. ![SQL Server kapsayıcısı ekleme](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-   * Windows:
+5. IoT Edge cihazınızdaki Docker kapsayıcılarının türüne bağlı olarak **sql.settings** parametrelerini aşağıdaki kodla güncelleştirin:
+
+   * Windows kapsayıcıları:
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-   * Linux:
+   * Linux kapsayıcıları:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
@@ -210,28 +216,20 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Edge uzantısını ku
    >[!Tip]
    >Üretim ortamında bir SQL Server kapsayıcısı oluşturduğunuzda [varsayılan sistem yöneticisi parolasını değiştirmeniz gerekir](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
-5. **deployment.template.json** dosyasını kaydedin. 
+6. **deployment.template.json** dosyasını kaydedin.
 
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge çözümünüzü derleyin
 
 Önceki bölümlerde tek modüle sahip bir çözüm oluşturdunuz ve dağıtım bildirimi şablonuna başka bir modül daha eklediniz. Şimdi çözümü derlemeniz, modüller için kapsayıcı görüntülerini oluşturmanız ve görüntüleri kapsayıcı kayıt defterinize göndermeniz gerekir. 
 
-1. deployment.template.json dosyasında modül görüntülerinize erişebilmesi için IoT Edge çalışma zamanına kayıt defteri kimlik bilgilerinizi girin. **moduleContent.$edgeAgent.properties.desired.runtime.settings** bölümünü bulun. 
-2. Aşağıdaki JSON kodunu **loggingOptions** bölümünün altına ekleyin:
+1. .env dosyasında modül görüntülerinize erişebilmesi için IoT Edge çalışma zamanına kayıt defteri kimlik bilgilerinizi girin. **CONTAINER_REGISTRY_USERNAME** ve **CONTAINER_REGISTRY_PASSWORD** bölümlerini bulun ve eşittir işaretinden sonra kimlik bilgilerinizi ekleyin: 
 
-   ```JSON
-   "registryCredentials": {
-       "myRegistry": {
-           "username": "",
-           "password": "",
-           "address": ""
-       }
-   }
+   ```env
+   CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
+   CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
-
-3. **username**, **password** ve **address** alanlarına kayıt defteri kimlik bilgilerinizi ekleyin. Öğreticinin başında, Azure Container Registry girişini oluşturduğunuzda kopyaladığınız değerleri kullanın.
-4. **deployment.template.json** dosyasını kaydedin.
-5. Görüntüleri kayıt defterinize gönderebilmeniz için kapsayıcı kayıt defterinizi Visual Studio Code'a ekleyin. Az önce dağıtım bildirimine eklediğiniz kimlik bilgilerini kullanın. Tümleşik terminale aşağıdaki komutu girin: 
+2. .env dosyasını kaydedin.
+3. Görüntüleri kayıt defterinize gönderebilmeniz için kapsayıcı kayıt defterinizi Visual Studio Code'a ekleyin. .env dosyasına eklediğiniz kimlik bilgilerini kullanın. Tümleşik terminale aşağıdaki komutu girin:
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -243,7 +241,7 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Edge uzantısını ku
     Login Succeeded
     ```
 
-6. VS Code gezgininde **deployment.template.json** dosyasına sağ tıklayıp **Build IoT Edge solution** (IoT Edge çözümü oluştur) öğesini seçin. 
+4. VS Code gezgininde **deployment.template.json** dosyasına sağ tıklayıp **Build and Push IoT Edge solution** (IoT Edge Çözümü Oluştur ve Gönder) öğesini seçin. 
 
 ## <a name="deploy-the-solution-to-a-device"></a>Çözümü bir cihaza dağıtma
 
@@ -287,7 +285,7 @@ Bu bölüm, sıcaklık verilerini depolamak için kullanılacak SQL veritabanın
    * Windows kapsayıcısı:
 
       ```cmd
-      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
       ```
 
    * Linux kapsayıcısı: 
