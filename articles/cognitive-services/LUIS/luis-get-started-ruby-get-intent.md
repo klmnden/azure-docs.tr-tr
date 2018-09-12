@@ -9,16 +9,16 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 08/23/2018
 ms.author: diberry
-ms.openlocfilehash: 7344d0e4d649134b7d928daec99fa79d0644a7e4
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 0909c1dd056570a275b3042674d251c637413cae
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "43772547"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157710"
 ---
 # <a name="quickstart-analyze-text-using-ruby"></a>Hızlı Başlangıç: Ruby kullanarak metin analiz etme
 
-[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -27,17 +27,17 @@ ms.locfileid: "43772547"
 * Genel uygulama kimliği: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 <a name="create-luis-subscription-key"></a>
 
 ## <a name="get-luis-key"></a>LUIS anahtarını alma
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
 ## <a name="analyze-text-with-browser"></a>Tarayıcı ile metin analiz etme
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
 ## <a name="analyze-text-with-ruby"></a>Ruby ile metin analiz etme 
 
