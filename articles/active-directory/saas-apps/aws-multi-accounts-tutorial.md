@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 55a271e49977feb6d8e5c188f1724b66db4cb4f5
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: a7d77df4d6be1572d2076684cfa4702cb32b5ed6
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055182"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Öğretici: Azure Active Directory Tümleştirme ile birden çok Amazon Web Services (AWS) hesapları
 
@@ -317,6 +317,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
 27. Grup oluşturulduktan sonra grubu seçin ve uygulamayı atayın.
 
     ![Çoklu oturum açmayı yapılandırma Ekle](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
+
+> [!Note]
+> Grupları atarken iç içe geçmiş gruplar desteklenmez.
 
 28. Rol gruba atamak için rolü seçin ve tıklayın **atama** sayfanın düğmesi.
 

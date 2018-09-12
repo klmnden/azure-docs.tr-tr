@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 017ac3214046b812ce003ab7a190f2f2b3f4f2e2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 3517114d5bc267aa32cea49161d0d34156a2ed1e
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697950"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390918"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL kaynak sağlayıcısını güncelle
 
@@ -49,7 +49,9 @@ Sonra *UpdateSQLProvider.ps1* betik yeni bir VM oluşturur, betik aşağıdaki a
 
 ### <a name="update-script-powershell-example"></a>PowerShell örnek betiği güncelleştir
 
-Düzenle ve yükseltilmiş bir PowerShell ISE'den aşağıdaki betiği çalıştırın. Ortamınız için gerektiği şekilde parola ve hesap bilgilerini değiştirmeyi unutmayın.
+<a name="you-can-edit-and-run-the-following-script-from-an-elevated-powershell-ise"></a>Düzenle ve yükseltilmiş bir PowerShell ISE'den aşağıdaki betiği çalıştırın. 
+-  
+- Ortamınız için gerektiği şekilde parola ve hesap bilgilerini değiştirmeyi unutmayın.
 
 > [!NOTE]
 > Bu güncelleştirme işlemi, yalnızca Azure Stack tümleşik sistemleri için geçerlidir.

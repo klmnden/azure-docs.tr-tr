@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric parametrelerini kullanarak bir hizmet bağlantı noktası sayısını belirtmek nasıl | Microsoft Docs
-description: Service Fabric bir uygulama için bağlantı noktası belirtmek için parametreleri kullanmayı gösterir
+title: Azure Service Fabric'te parametrelerini kullanarak bir hizmet bağlantı noktası numarasını belirtme | Microsoft Docs
+description: Service Fabric'te uygulama bağlantı noktasını belirtmek için parametreleri kullanmayı gösterir
 documentationcenter: .net
 author: mikkelhegn
 manager: markfuss
@@ -12,28 +12,28 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 06cfb375c6c18082a0d0316cfcb742a7779fc8a8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d69e02126564388bf045693b9960e6e574307641
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206387"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391343"
 ---
-# <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Service Fabric parametrelerini kullanarak bir hizmet bağlantı noktası sayısını belirtme
+# <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Service Fabric'te parametrelerini kullanarak bir hizmet bağlantı noktası numarasını belirtme
 
-Bu makale, Service Fabric parametrelerini kullanarak bir hizmet bağlantı noktası sayısını belirtmek Visual Studio kullanarak gösterilmiştir.
+Bu makalede, Visual Studio kullanarak Service Fabric'te parametrelerini kullanarak bir hizmet bağlantı noktası numarasını belirtin işlemini göstermektedir.
 
 ## <a name="procedure-for-specifying-the-port-number-of-a-service-using-parameters"></a>Yordam parametreleri kullanarak bir hizmet bağlantı noktası sayısını belirtmek için
 
-Bu örnekte, asp.net çekirdek web API kullanarak bir parametre için bağlantı noktası numarasını ayarlayın.
+Bu örnekte, asp.net core web API'niz bir parametre kullanarak bağlantı noktası numarasını ayarlayın.
 
 1. Visual Studio'yu açın ve yeni bir Service Fabric uygulaması oluşturma.
-1. Durum bilgisiz ASP.NET Core şablonu seçin.
-1. Web API'ı seçin.
+1. Durum bilgisi olmayan ASP.NET Core şablonu seçin.
+1. Web API'nizi seçin.
 1. ServiceManifest.xml dosyasını açın.
-1. Hizmet için belirtilen uç noktası adını not edin. `ServiceEndpoint` varsayılan değerdir.
+1. Hizmetiniz için belirtilen bitiş noktası adını not edin. `ServiceEndpoint` varsayılan değerdir.
 1. ApplicationManifest.xml dosyasını açın
-1. İçinde `ServiceManifestImport` öğesi, yeni bir ekleme `RessourceOverrides` ServiceManifest.xml dosyanızı uç başvuru öğesi.
+1. İçinde `ServiceManifestImport` öğesi, yeni bir `RessourceOverrides` öğeyle uç ServiceManifest.xml dosyanıza bir başvuru.
 
     ```xml
       <ServiceManifestImport>
@@ -47,7 +47,7 @@ Bu örnekte, asp.net çekirdek web API kullanarak bir parametre için bağlantı
       </ServiceManifestImport>
     ```
 
-1. İçinde `Endpoint` öğesi, bir parametre kullanarak herhangi bir öznitelik şimdi kılabilirsiniz. Bu örnekte, belirttiğiniz `Port` ve köşeli ayraç - Örneğin, kullanarak bir parametre adı olarak ayarlayın `[MyWebAPI_PortNumber]`
+1. İçinde `Endpoint` öğesi, bir parametre kullanarak herhangi bir öznitelik şimdi geçersiz. Bu örnekte, belirttiğiniz `Port` kullanarak köşeli ayraç - Örneğin, bir parametre adı ayarlayın `[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -61,7 +61,7 @@ Bu örnekte, asp.net çekirdek web API kullanarak bir parametre için bağlantı
       </ServiceManifestImport>
     ```
 
-1. Hala ApplicationManifest.xml dosyasında sonra parametresinde belirttiğiniz `Parameters` öğesi
+1. ApplicationManifest.xml dosyasının hala, ardından parametresinde belirttiğiniz `Parameters` öğesi
 
     ```xml
       <Parameters>
@@ -77,18 +77,18 @@ Bu örnekte, asp.net çekirdek web API kullanarak bir parametre için bağlantı
       </Parameters>
     ```
 
-1. ApplicationParameters klasörünü açın ve `Cloud.xml` dosyası
-1. Uzak bir kümeye yayımlarken kullanılacak farklı bir bağlantı noktası belirtmek için bu dosyaya bağlantı noktası numarasıyla parametresini ekleyin.
+1. ApplicationParameters klasörü açın ve `Cloud.xml` dosyası
+1. Uzak bir kümeye yayımlama sırasında kullanılacak farklı bir bağlantı noktası belirtmek için bu dosyaya bağlantı noktası numarası ile parametre ekleyin.
 
     ```xml
       <Parameters>
-        <Parameter Name="MyWebAPI_PortNumber" DefaultValue="80" />
+        <Parameter Name="MyWebAPI_PortNumber" Value="80" />
       </Parameters>
     ```
 
-Profil uygulamanızı Cloud.xml kullanarak Visual Studio'dan yayımlamak yayımladığınızda, hizmetiniz 80 numaralı bağlantı noktasını kullanacak şekilde yapılandırılır. Uygulama MyWebAPI_PortNumber parametresini belirtmeden dağıtırsanız, hizmet bağlantı noktası 8080 kullanır.
+Profili Visual Studio'dan myfirstcontainer kullanarak uygulamanızı yayımlama yayımlanması sırasında hizmetiniz 80 numaralı bağlantı noktasını kullanmak üzere yapılandırılır. MyWebAPI_PortNumber parametresini belirtmeden bir uygulamayı dağıtırsanız, hizmet bağlantı noktası 8080 kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede açıklanan kavramları bazıları hakkında daha fazla bilgi için bkz: [birden çok ortamları makaleler için uygulamaları yönetmek](service-fabric-manage-multiple-environment-app-configuration.md).
+Bu makalede açıklanan kavramları bazıları hakkında daha fazla bilgi için bkz: [birden çok ortamları makaleler için uygulamaları yönetme](service-fabric-manage-multiple-environment-app-configuration.md).
 
-Visual Studio'da kullanılabilir olan diğer uygulama yönetim özellikleri hakkında daha fazla bilgi için bkz: [Visual Studio'da, Service Fabric uygulamaları yönetmek](service-fabric-manage-application-in-visual-studio.md).
+Visual Studio içinde kullanılabilir olan diğer uygulama yönetim özellikleri hakkında daha fazla bilgi için bkz: [Visual Studio'da Service Fabric uygulamalarınızı yönetmek](service-fabric-manage-application-in-visual-studio.md).

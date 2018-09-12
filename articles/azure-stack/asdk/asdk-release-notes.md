@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: fe6be5a041b87af2323c7978c5371e326b3cd3d6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c1b88518f9e27093ff00ad020e470fa5670dfcd6
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051281"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391955"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack Geliştirme Seti sürüm notları  
 Bu makalede, geliştirmeleri, düzeltmeler ve Azure Stack geliştirme Seti'ni'de bilinen sorunlar hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -44,7 +44,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 - <!-- 2489570 | IS ASDK--> **Özel IPSec/IKE İlkesi yapılandırmalarını desteği** için [Azure Stack hizmetinde VPN ağ geçitlerinin](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
 
-### <a name="fixed-issues"></a>Giderilen sorunlar
+### <a name="fixed-issues"></a>Düzeltilen sorunlar
 - <!-- IS ASDK--> Bir kullanılabilirlik kümesi Portal'da bulunan ve bir hata etki alanı ve 1 güncelleştirme etki alanına sahip kümesinde sonuçlandı oluşturmaya yönelik bir sorunu düzelttik.
 
 - <!-- IS ASDK --> Sanal makine ölçek kümeleri ölçeklendirme ayarları Portalı'nda kullanıma sunulmuştur.  
@@ -60,6 +60,8 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 - <!-- 1697698  | IS, ASDK --> *Hızlı Başlangıç öğreticileri* Kullanıcı Portalı Panosu şimdi bağlantıda ilgili makaleleri çevrimiçi Azure Stack belgeleri.
 
 - <!-- 2515955   | IS ,ASDK--> *Tüm hizmetler* değiştirir *diğer hizmetler* Azure Stack yönetici ve Kullanıcı Portalı'nda. Artık *tüm hizmetleri* Azure portallarında yaptığınız gibi Azure Stack portallarında gezinmek için alternatif olarak.
+
+- <!-- TBD | IS, ASDK --> **+ Kaynak Oluştur** değiştirir **+ yeni** Azure Stack yönetici ve Kullanıcı Portalı'nda.  Artık *+ kaynak Oluştur* Azure portallarında yaptığınız gibi Azure Stack portallarında gezinmek için alternatif olarak. 
 
 - <!--  TBD – IS, ASDK --> *Temel A* sanal makine boyutları için devre dışı [sanal makine ölçek kümeleri oluşturma](.\.\azure-stack-compute-add-scalesets.md) (VMSS) portal üzerinden. Bu boyut ile bir VMSS oluşturmak için PowerShell ya da bir şablon kullanın. 
 
@@ -207,7 +209,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
  
 - <!-- 2536808 IS ASDK --> **VM oluşturma zamanı geliştirilmiş** görüntüleri Azure Market'te indir ile oluşturulan sanal makineleri için.
 
-### <a name="fixed-issues"></a>Giderilen sorunlar
+### <a name="fixed-issues"></a>Düzeltilen sorunlar
 
 - <!-- TBD | ASDK, IS --> Çeşitli iyileştirmeler, daha güvenilir hale getirmek için güncelleştirme işlemi için yapılmıştır. Ayrıca, düğüm boşaltma, böylece güncelleştirme sırasında iş yükleri için olası kapalı kalma süresini en aza artıran altyapının düzeltmeler yapılmıştır.
 
@@ -375,7 +377,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
   Bu özellik Önizleme aşamasında olduğu sürece, bu bağlı üretim ortamlarında dayanan olmamalıdır.   
 
 
-### <a name="fixed-issues"></a>Giderilen sorunlar
+### <a name="fixed-issues"></a>Düzeltilen sorunlar
 - Sorunu engellenen düzelttik [açılan listeden yeni bir destek isteği açma](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen Yönetici portalındaki. Artık bu seçenek, beklendiği gibi çalışır.
 
 - <!--  TBD ASDK --> Ayrıcalıklı uç noktasını (CESARETLENDİRİCİ) barındıran sanal makine için 4 GB arttı. ASDK bu sanal makine AzS-ERCS01 olarak adlandırılır.

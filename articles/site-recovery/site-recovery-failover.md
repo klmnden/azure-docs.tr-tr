@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: 3ef52030f694b0f9ccf2bd10545918a4fae9f2ee
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918314"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391326"
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery'de yük devretme
 Bu makalede nasıl yük devretme sanal makinelere ve fiziksel Site Recovery tarafından korunan sunucular açıklanır.
@@ -31,14 +31,14 @@ Azure Site Recovery tarafından sağlanan yük devretme seçenekleri hakkında b
 
 
 ## <a name="run-a-failover"></a>Yük devretme çalıştırma
-Bu yordam, bir yük devretme için çalıştırma işlemi açıklanır bir [kurtarma planı](site-recovery-create-recovery-plans.md). Alternatif olarak, tek sanal makineleri veya fiziksel sunucudan için yük devretme çalıştırabilirsiniz **çoğaltılan öğeler** sayfası
+Bu yordam, bir yük devretme için çalıştırma işlemi açıklanır bir [kurtarma planı](site-recovery-create-recovery-plans.md). Alternatif olarak, tek sanal makineleri veya fiziksel sunucudan için yük devretme çalıştırabilirsiniz **çoğaltılan öğeler** sayfasında açıklandığı gibi [burada](vmware-azure-tutorial-failover-failback.md#run-a-failover-to-azure).
 
 
 ![Yük devretme](./media/site-recovery-failover/Failover.png)
 
 1. Seçin **kurtarma planları** > *recoveryplan_name*. Tıklayın **yük devretme**
 2. Üzerinde **yük devretme** ekranındayken bir **kurtarma noktası** Yük Devretmesini. Şu seçeneklerden birini kullanabilirsiniz:
-    1.  **En son** (varsayılan): Bu seçenek, Site Recovery hizmetine gönderilen tüm verileri işleyerek işi başlatır. Veri işleme, her sanal makine için bir kurtarma noktası oluşturur. Bu kurtarma noktasını sanal makine için yük devretme sırasında kullanılır. Bu seçenek en düşük RPO (kurtarma noktası hedefi) sanal yük devretme tüm verilere sahip sonra oluşturulan yük devretme tetiklendiğinde Site Recovery hizmetine çoğaltılan makineyi sağlar.
+    1.  **En son**: Bu seçenek, Site Recovery hizmetine gönderilen tüm verileri işleyerek işi başlatır. Veri işleme, her sanal makine için bir kurtarma noktası oluşturur. Bu kurtarma noktasını sanal makine için yük devretme sırasında kullanılır. Bu seçenek en düşük RPO (kurtarma noktası hedefi) sanal yük devretme tüm verilere sahip sonra oluşturulan yük devretme tetiklendiğinde Site Recovery hizmetine çoğaltılan makineyi sağlar.
     1.  **En son işlenen**: Bu seçenek tüm sanal makineler kurtarma planının Site Recovery hizmeti tarafından zaten işlenmiş en son kurtarma noktasına devreder. Bir sanal makinenin yük devretme Testi gerçekleştirirken, en son işlenen kurtarma noktasının zaman damgası da gösterilir. Bir kurtarma planı yük devretme yapıyorsanız, tek tek sanal makineye gidin ve bakmak **en son kurtarma noktaları** bu bilgileri almak için bir kutucuk. İşlenmemiş verileri işlemek için zaman harcanmadığından gibi bu seçenek, düşük bir RTO (Kurtarma süresi hedefi) yük devretme seçeneği sağlar.
     1.  **Uygulamayla tutarlı olan sonuncu**: Bu seçeneği, tüm sanal makineler kurtarma planının Site Recovery hizmeti tarafından zaten işlenmiş en son uygulamayla tutarlı kurtarma noktasına devreder. Bir sanal makinenin yük devretme Testi gerçekleştirirken, en son uygulamayla tutarlı kurtarma noktası zaman damgasını da gösterilir. Bir kurtarma planı yük devretme yapıyorsanız, tek tek sanal makineye gidin ve bakmak **en son kurtarma noktaları** bu bilgileri almak için bir kutucuk.
     1.  **En son işlenen VM'li**: Bu seçenek yalnızca en az bir sanal makine ile çoklu VM tutarlılığı bulunan kurtarma planları için kullanılabilir. Çoğaltma grubu yük devretme için en son genel çoklu VM tutarlı kurtarma parçası olan sanal makineleri işaret edin. Diğer sanal makinelerin yük devretme, işlenen en son kurtarma noktasına.  
@@ -104,18 +104,19 @@ Bazı durumlarda, sanal makinelerin yük devretmesi, genellikle tamamlanması ya
 
 Diğer tüm durumlarda, bu ara adım gerekli değildir ve yük devretme için geçen süre düşüktür.
 
-
-
-
-
 ## <a name="using-scripts-in-failover"></a>Yük devretme kümesinde komut dosyalarını kullanma
 Bir yük devretme yaparken belirli eylemleri otomatikleştirmek isteyebilirsiniz. Komut dosyalarını kullanabilirsiniz veya [Azure Otomasyonu runbook'ları](site-recovery-runbook-automation.md) içinde [kurtarma planları](site-recovery-create-recovery-plans.md) Bunu yapmak için.
 
 ## <a name="post-failover-considerations"></a>Yük devretme konuları gönderin
 Aşağıdaki önerileri göz önünde bulundurun isteyebileceğiniz yük devretme sonrası:
 ### <a name="retaining-drive-letter-after-failover"></a>Yük devretmeden sonra sürücü harfi korunuyor
-Yük devretmeden sonra sanal makinelerde sürücü harfini korumak için ayarlayabileceğiniz **SAN ilkesinin** sanal makine için **OnlineAll**. [Daha fazla bilgi edinin](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Yük devretmeden sonra sanal makinelerde sürücü harfini korumak için ayarlayabileceğiniz **SAN ilkesinin** sanal makine için **OnlineAll**. [Daha fazla bilgi edinin](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma
+
+Yük devretmeden sonra RDP/SSH'yi kullanarak Azure Vm'lerine bağlanmak isterseniz tabloda özetlenen gereksinimleri izleyin [burada](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Açıklanan adımları izleyin [burada](site-recovery-failover-to-azure-troubleshoot.md) herhangi bir bağlantı sorunlarını gidermek için yük devretme sorunları gönderin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

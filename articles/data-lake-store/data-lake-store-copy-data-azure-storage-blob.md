@@ -1,6 +1,6 @@
 ---
-title: Verileri Azure Storage Bloblarından Data Lake Store kopyalamak | Microsoft Docs
-description: Azure Storage Bloblarından Data Lake Store'a veri kopyalamak için AdlCopy aracını kullanın
+title: Azure Data Lake depolama Gen1 Azure depolama Bloblarından veri kopyalama | Microsoft Docs
+description: Azure Data Lake depolama Gen1 için Azure depolama Bloblarından veri kopyalamak için AdlCopy aracını kullanın
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,68 +12,69 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 19657030c69d9d62fbbe0a8058e50238b2afa67f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0cf5ace29dabd3a55524fe38403a07e3916ea7d6
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750125"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390901"
 ---
-# <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Azure Depolama Bloblarından Data Lake Store’a veri kopyalama
+# <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 için Azure depolama Bloblarından veri kopyalama
 > [!div class="op_single_selector"]
 > * [DistCp’yi kullanma](data-lake-store-copy-data-wasb-distcp.md)
 > * [AdlCopy’yi kullanma](data-lake-store-copy-data-azure-storage-blob.md)
 >
 >
 
-Azure Data Lake Store sağlayan bir komut satırı aracı [AdlCopy](http://aka.ms/downloadadlcopy), aşağıdaki kaynaklardan verileri kopyalamak için:
+Azure Data Lake depolama Gen1 sağlayan bir komut satırı aracı [AdlCopy](http://aka.ms/downloadadlcopy), aşağıdaki kaynaklardan gelen verileri kopyalamak için:
 
-* Data Lake Store içinde Azure Storage Bloblarından. Verileri Azure Storage bloblarında Data Lake Deposu'ndan veri kopyalamak için AdlCopy kullanamazsınız.
-* İki Azure Data Lake Store hesapları arasında.
+* Data Lake depolama Gen1 içine Azure depolama Bloblarından. Azure depolama BLOB'ları için Data Lake depolama Gen1 verileri kopyalamak için AdlCopy kullanamazsınız.
+* İki Azure Data Lake depolama Gen1 hesapları arasında.
 
 Ayrıca, iki farklı modda AdlCopy Aracı'nı kullanabilirsiniz:
 
-* **Tek başına**, burada aracı görevi gerçekleştirmek için Data Lake Store kaynakları kullanır.
-* **Bir Data Lake Analytics hesabı kullanarak**, Data Lake Analytics hesabınızı atanan birim kopyalama işlemi gerçekleştirmek için kullanıldığı. Bu seçenek tahmin edilebilir bir biçimde kopyalama görevleri gerçekleştirmek için ararken kullanmak isteyebilirsiniz.
+* **Tek başına**, burada aracı görevi gerçekleştirmek için Data Lake depolama Gen1 kaynaklarını kullanır.
+* **Bir Data Lake Analytics hesabı kullanarak**kopyalama işlemini gerçekleştirmek için Data Lake Analytics hesabınıza atanmış birimleri nerede kullanılır. Bu seçenek, tahmin edilebilir bir biçimde kopyalama görevleri gerçekleştirmek için ararken kullanmak isteyebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure Storage Bloblarında** bazı verileri içeren kapsayıcı.
-* **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
-* **Azure Data Lake Analytics hesabı (isteğe bağlı)** -bkz [Azure Data Lake Analytics ile çalışmaya başlama](../data-lake-analytics/data-lake-analytics-get-started-portal.md) bir Data Lake Store hesabı oluşturma hakkında yönergeler için.
-* **AdlCopy aracı**. AdlCopy aracından yüklemek [ http://aka.ms/downloadadlcopy ](http://aka.ms/downloadadlcopy).
+* **Azure depolama BLOB'ları** bazı verileri içeren kapsayıcı.
+* **Bir Azure Data Lake depolama Gen1 hesap**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake depolama Gen1 ile çalışmaya başlama](data-lake-store-get-started-portal.md)
+* **(İsteğe bağlı) Azure Data Lake Analytics hesabı** -bkz [Azure Data Lake Analytics ile çalışmaya başlama](../data-lake-analytics/data-lake-analytics-get-started-portal.md) bir Data Lake Analytics hesabı oluşturmak yönergeler.
+* **AdlCopy aracı**. AdlCopy aracını yükleme [ http://aka.ms/downloadadlcopy ](http://aka.ms/downloadadlcopy).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>AdlCopy aracının sözdizimi
-AdlCopy aracı ile çalışmak için aşağıdaki sözdizimini kullanın
+AdlCopy aracı ile çalışmak için aşağıdaki sözdizimini kullanın.
 
-    AdlCopy /Source <Blob or Data Lake Store source> /Dest <Data Lake Store destination> /SourceKey <Key for Blob account> /Account <Data Lake Analytics account> /Units <Number of Analytics units> /Pattern
+    AdlCopy /Source <Blob or Data Lake Storage Gen1 source> /Dest <Data Lake Storage Gen1 destination> /SourceKey <Key for Blob account> /Account <Data Lake Analytics account> /Units <Number of Analytics units> /Pattern
 
-Sözdizimi parametrelerinde aşağıda açıklanmıştır:
+Söz dizimi parametrelerinde aşağıda açıklanmıştır:
 
 | Seçenek | Açıklama |
 | --- | --- |
-| Kaynak |Azure depolama blobunu kaynak verilerin konumunu belirtir. Kaynak, bir blob kapsayıcı, blob veya başka bir Data Lake Store hesabı olabilir. |
-| Hedef |Kopyalamak için Data Lake Store hedef belirtir. |
-| SourceKey |Azure storage blobu kaynağı için depolama erişim tuşu belirtir. Bu, yalnızca kaynak blob kapsayıcısı veya bir blobu ise gereklidir. |
-| Hesap |**İsteğe bağlı**. Kopyalama işini çalıştırmak için Azure Data Lake Analytics hesabı kullanmak istiyorsanız, bunu kullanın. ApplicationTier/account seçeneği söz dizimi kullanın, ancak bir Data Lake Analytics hesabı belirtmezseniz, AdlCopy işi çalıştırmak için varsayılan hesabını kullanır. Bu seçeneği kullanırsanız, ayrıca, kaynak (Azure depolama Blob) ve hedef (Azure Data Lake Store) veri kaynakları olarak Data Lake Analytics hesabınız için eklemeniz gerekir. |
-| Birimler |Kopyalama işlemi için kullanılacak Data Lake Analytics birim sayısını belirtir. Bu seçeneği kullanırsanız, zorunlu **/hesabını** Data Lake Analytics hesabı belirtmek için seçeneği. |
-| Desen |Hangi BLOB veya kopyalanacak dosyaların gösteren bir regex düzenidir belirtir. Büyük küçük harfe duyarlı eşleşen AdlCopy kullanır. Hiçbir düzeni belirtildiğinde kullanılan varsayılan düzen tüm öğeleri kopyalamaktır. Birden çok dosya desenlerinin belirtilmesi desteklenmiyor. |
+| Kaynak |Azure depolama blobunda kaynak verilerin konumu belirtir. Kaynak, bir blob kapsayıcı, blob veya başka bir Data Lake depolama Gen1 hesabı olabilir. |
+| Hedef |Kopyalamak için Data Lake depolama Gen1 hedef belirtir. |
+| SourceKey |Azure depolama blob kaynağı için depolama erişim anahtarını belirtir. Bu, yalnızca kaynak blob bir kapsayıcı veya blob ise gereklidir. |
+| Hesap |**İsteğe bağlı**. Kopyalama işini çalıştırmak için Azure Data Lake Analytics hesabı kullanmak istiyorsanız bunu kullanın. / Account seçeneği sözdiziminde kullanın, ancak bir Data Lake Analytics hesabı belirtmeyin AdlCopy işi çalıştırmak için bir varsayılan hesabı kullanır. Bu seçeneği kullanırsanız, ayrıca, kaynak (Azure Blob Depolama) hem de hedef (Azure Data Lake depolama Gen1) veri kaynakları olarak Data Lake Analytics hesabınız için eklemeniz gerekir. |
+| Birimler |Kopyalama işlemi için kullanılacak olan Data Lake Analytics birimi sayısını belirtir. Bu seçeneği kullanırsanız zorunludur **/hesabı** Data Lake Analytics hesabı belirtmek için seçeneği. |
+| Desen |Hangi BLOB veya kopyalanacak dosyaları belirten bir normal ifade desenini belirtir. AdlCopy büyük küçük harf duyarlı eşleme kullanır. Tüm öğeleri herhangi bir desen belirtildiğinde kullanılan varsayılan düzen kopyalamaktır. Birden çok dosya desenlerinin belirtilmesi desteklenmiyor. |
 
-## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>AdlCopy (bağımsız) bir Azure Storage blobundan verileri kopyalamak için kullanın.
-1. Bir komut istemi açın ve AdlCopy yüklü olduğu, genellikle dizinine gidin `%HOMEPATH%\Documents\adlcopy`.
-2. Belirli bir blobu bir Data Lake Store'a kaynak kapsayıcıdan kopyalamak için aşağıdaki komutu çalıştırın:
+## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>AdlCopy (tek başına) bir Azure depolama blobu'ndan veri kopyalamak için kullanın.
+1. Bir komut istemi açın ve AdlCopy yüklü olduğu, genellikle dizine gidin `%HOMEPATH%\Documents\adlcopy`.
+2. Belirli bir blobu kaynak kapsayıcıdan bir Data Lake depolama Gen1 klasörüne kopyalamak için aşağıdaki komutu çalıştırın:
 
-        AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
+        AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
     Örneğin:
 
-        AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+        AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-    >[AZURE.NOTE] Aşağıdaki söz dizimini Data Lake Store hesabındaki bir klasöre kopyalanacak dosyayı belirtir. Belirtilen klasör adı yoksa, AdlCopy aracı bir klasör oluşturur.
+    >[!NOTE] 
+    >Aşağıdaki söz dizimini Data Lake depolama Gen1 hesabındaki bir klasöre kopyalanacak dosyasını belirtir. Belirtilen klasör adı yoksa, AdlCopy aracı bir klasör oluşturur.
 
-    Data Lake Store hesabınızın altında elinizde Azure aboneliği için kimlik bilgilerini girmeniz istenir. Aşağıdakine benzer bir çıktı görürsünüz:
+    Data Lake depolama Gen1 hesabınızın sahip olması için Azure aboneliği kimlik bilgilerini girmeniz istenir. Aşağıdakine benzer bir çıktı görürsünüz:
 
         Initializing Copy.
         Copy Started.
@@ -81,103 +82,103 @@ Sözdizimi parametrelerinde aşağıda açıklanmıştır:
         Finishing Copy.
         Copy Completed. 1 file copied.
 
-1. Ayrıca aşağıdaki komutu kullanarak Data Lake Store hesabına bir kapsayıcıdan tüm BLOB'lar kopyalayabilirsiniz:
+1. Ayrıca, tüm bloblar bir kapsayıcıdan aşağıdaki komutu kullanarak Data Lake depolama Gen1 hesaba kopyalayabilirsiniz:
 
-        AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>        
+        AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>        
 
     Örneğin:
 
-        AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+        AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
 ### <a name="performance-considerations"></a>Performansla ilgili önemli noktalar
 
-Bir Azure Blob Depolama hesabından kopyalıyorsanız blob depolama tarafında kopyalama sırasında kısıtlanan. Bu, kopyalama işini performansını bozar. Azure Blob Depolama sınırları hakkında daha fazla bilgi için bkz: Azure Storage sınırlarını adresindeki [Azure aboneliği ve hizmet sınırları](../azure-subscription-service-limits.md).
+Bir Azure Blob Depolama hesabından kopyalanıyorsa, blob depolama tarafında kopyalama sırasında kısıtlanmış. Bu, kopyalama işinizin performansını bozar. Azure Blob Depolama sınırları hakkında daha fazla bilgi için Azure depolama sınırları görmek [Azure aboneliği ve hizmet sınırlamaları](../azure-subscription-service-limits.md).
 
-## <a name="use-adlcopy-as-standalone-to-copy-data-from-another-data-lake-store-account"></a>AdlCopy (bağımsız) başka bir Data Lake Store hesabından veri kopyalamak için kullanın.
-AdlCopy, iki Data Lake Store hesapları arasında veri kopyalamak için de kullanabilirsiniz.
+## <a name="use-adlcopy-as-standalone-to-copy-data-from-another-data-lake-storage-gen1-account"></a>AdlCopy (tek başına) başka bir Data Lake depolama Gen1 hesabından veri kopyalamak için kullanın.
+Data Lake depolama Gen1 iki hesap arasında veri kopyalamak için AdlCopy de kullanabilirsiniz.
 
-1. Bir komut istemi açın ve AdlCopy yüklü olduğu, genellikle dizinine gidin `%HOMEPATH%\Documents\adlcopy`.
-2. Belirli bir dosya bir Data Lake Store hesabından diğerine kopyalamak için aşağıdaki komutu çalıştırın.
+1. Bir komut istemi açın ve AdlCopy yüklü olduğu, genellikle dizine gidin `%HOMEPATH%\Documents\adlcopy`.
+2. Belirli bir dosyayı başka bir Data Lake depolama Gen1 hesabından diğerine kopyalamak için aşağıdaki komutu çalıştırın.
 
-        AdlCopy /Source adl://<source_adls_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adls_account>.azuredatalakestore.net/<path>/
+        AdlCopy /Source adl://<source_adlsg1_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adlsg1_account>.azuredatalakestore.net/<path>/
 
     Örneğin:
 
-        AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
+        AdlCopy /Source adl://mydatastorage.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestorage.azuredatalakestore.net/mynewfolder/
 
    > [!NOTE]
-   > Aşağıdaki söz dizimini Data Lake Store hesabı hedef klasöre kopyalanacak dosyayı belirtir. Belirtilen klasör adı yoksa, AdlCopy aracı bir klasör oluşturur.
+   > Aşağıdaki söz dizimini Data Lake depolama Gen1 hesabı hedef bir klasöre kopyalanacak dosyasını belirtir. Belirtilen klasör adı yoksa, AdlCopy aracı bir klasör oluşturur.
    >
    >
 
-    Data Lake Store hesabınızın altında elinizde Azure aboneliği için kimlik bilgilerini girmeniz istenir. Aşağıdakine benzer bir çıktı görürsünüz:
+    Data Lake depolama Gen1 hesabınızın sahip olması için Azure aboneliği kimlik bilgilerini girmeniz istenir. Aşağıdakine benzer bir çıktı görürsünüz:
 
         Initializing Copy.
         Copy Started.|
         100% data copied.
         Finishing Copy.
         Copy Completed. 1 file copied.
-3. Aşağıdaki komutu bir Data Lake Store hesabı hedef klasöre Data Lake Store hesabı kaynak belirli bir klasördeki tüm dosyaları kopyalar.
+3. Aşağıdaki komutu tüm dosyaları kaynak Data Lake depolama Gen1 hesabını belirli bir klasörde Data Lake depolama Gen1 hesabı hedef bir klasöre kopyalar.
 
-        AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/ /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
+        AdlCopy /Source adl://mydatastorage.azuredatalakestore.net/mynewfolder/ /dest adl://mynewdatalakestorage.azuredatalakestore.net/mynewfolder/
 
 ### <a name="performance-considerations"></a>Performansla ilgili önemli noktalar
 
-AdlCopy ayrı bir araç olarak kullanırken, kopya paylaşılan çalıştırıldığı, yönetilen Azure kaynakları. Bu ortamda alabilirsiniz performans sistem yükü ve kullanılabilir kaynakları bağlıdır. Bu mod, en iyi geçici düzenli olarak küçük aktarımlar için kullanılır. Hiçbir parametre AdlCopy ayrı bir araç olarak kullanırken ayarlanması gerekir.
+AdlCopy bağımsız bir araç olarak kullanırken, kopya paylaşılan çalıştırıldığı, Azure yönetilen kaynakları. Bu ortamda alabilirsiniz performans sistem yüküne ve kullanılabilir kaynaklar bağlıdır. Bu mod, en iyi geçici olarak küçük aktarımları için kullanılır. Parametresiz AdlCopy bağımsız bir araç olarak kullanılırken ayarlanması gerekir.
 
-## <a name="use-adlcopy-with-data-lake-analytics-account-to-copy-data"></a>AdlCopy (Data Lake Analytics hesabıyla) verileri kopyalamak için kullanın.
-Data Lake Analytics hesabı, Azure storage bloblarından Data Lake Store'a veri kopyalamak için AdlCopy işi çalıştırmak için de kullanabilirsiniz. Taşınacak veri gigabayt ve terabayt aralıkta olduğunda bu seçenek genellikle kullanırsınız ve daha iyi ve tahmin edilebilir performans verimlilik istiyor.
+## <a name="use-adlcopy-with-data-lake-analytics-account-to-copy-data"></a>Veri kopyalama (Data Lake Analytics hesabı ile) AdlCopy kullanma
+Data Lake Analytics hesabınızı, Data Lake depolama Gen1 için Azure depolama bloblarından veri kopyalamak için AdlCopy işi çalıştırmak için de kullanabilirsiniz. Genellikle taşınacak veri gigabayt ve terabayt aralığında olduğunda bu seçeneği kullanırsınız ve daha iyi ve öngörülebilir performans verimliliği istiyorsunuz.
 
-Bir Azure Storage Blobundan kopyalamak için Data Lake Analytics hesabınızı AdlCopy ile kullanmak için kaynak (Azure depolama Blob), Data Lake Analytics hesabı için bir veri kaynağı olarak eklenmelidir. Data Lake Analytics hesabınızı ek veri kaynaklarını ekleme ile ilgili yönergeler için bkz: [yönetmek Data Lake Analytics hesabı veri kaynaklarını](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-data-sources).
+Data Lake Analytics hesabınızı bir Azure Storage Blobundan kopyalamak için AdlCopy ile kullanmak için (Azure depolama blobu) kaynak Data Lake Analytics hesabınız için bir veri kaynağı olarak eklenmiş olması gerekir. Data Lake Analytics hesabınıza ek veri kaynaklarını ekleme ile ilgili yönergeler için bkz: [yönetme Data Lake Analytics hesabı veri kaynaklarını](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-data-sources).
 
 > [!NOTE]
-> Bir Data Lake Analytics hesabı kullanarak kaynağı olarak bir Azure Data Lake Store hesabından kopyalıyorsanız, Data Lake Store hesabını Data Lake Analytics hesabıyla ilişkilendirmek gerekmez. Yalnızca kaynak bir Azure Storage hesabı olduğunda kaynak deposu Data Lake Analytics hesabıyla ilişkilendirmek için gereksinimdir.
+> Bir Data Lake Analytics hesabı kullanarak kaynağı olarak bir Azure Data Lake depolama Gen1 hesabından kopyalıyorsanız Data Lake depolama Gen1 hesabını Data Lake Analytics hesabı ile ilişkilendirmek gerekmez. Kaynak deposu Data Lake Analytics hesabıyla ilişkilendirmek için gereksinim yalnızca kaynak bir Azure depolama hesabı olur.
 >
 >
 
-Bir Azure Storage blobundan Data Lake Analytics hesabı kullanarak bir Data Lake Store hesabına kopyalamak için aşağıdaki komutu çalıştırın:
+Bir Azure depolama blobundan Data Lake Analytics hesabı kullanarak bir Data Lake depolama Gen1 hesabına kopyalamak için aşağıdaki komutu çalıştırın:
 
-    AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Units <number_of_data_lake_analytics_units_to_be_used>
+    AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Units <number_of_data_lake_analytics_units_to_be_used>
 
 Örneğin:
 
-    AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
+    AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
-Benzer şekilde, Data Lake Store hesabı kaynak belirli bir klasördeki tüm dosyaları hedef Data Lake Store hesabını Data Lake Analytics hesabı kullanarak bir klasöre kopyalamak için aşağıdaki komutu çalıştırın:
+Benzer şekilde, kaynak Data Lake depolama Gen1 hesabını belirli bir klasörde tüm dosyaları hedef Data Lake depolama Gen1 hesabını kullanarak Data Lake Analytics hesabı bir klasöre kopyalamak için aşağıdaki komutu çalıştırın:
 
-    AdlCopy /Source adl://mysourcedatalakestore.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastore.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
+    AdlCopy /Source adl://mysourcedatalakestorage.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastorage.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
 
 ### <a name="performance-considerations"></a>Performansla ilgili önemli noktalar
 
-Veri terabayt aralığında kopyalarken, kendi Azure Data Lake Analytics hesabıyla AdlCopy kullanarak daha iyi ve daha tahmin edilebilir performans sağlar. Ayarlanması parametresi için kopyalama işini kullanmak için Azure Data Lake Analytics birimleri sayısıdır. Birim sayısını artırmayı kopyalama işini performansını artırır. Kopyalanacak her dosya en fazla bir birimi kullanabilirsiniz. Kopyalanan dosyalar sayısından daha fazla birimi belirtme performans da artar.
+Veri terabayt aralığında kopyalarken, kendi Azure Data Lake Analytics hesabınızla AdlCopy kullanarak daha iyi ve daha öngörülebilir bir performans sağlar. Ayarlanmalıdır parametresi için bir kopyalama işi kullanmak için Azure Data Lake analiz birimi sayısıdır. Birimi sayısını artırabilir, kopya işinizin performansını artırır. Kopyalanacak her dosya en fazla bir birimi kullanabilirsiniz. Kopyalanan dosyalar sayısından daha fazla birimi belirtme performans artırmaz.
 
-## <a name="use-adlcopy-to-copy-data-using-pattern-matching"></a>Desen eşleştirme kullanarak verileri kopyalamak için AdlCopy kullanın
-Bu bölümde, bir kaynaktan veri kopyalamak için AdlCopy kullanmayı öğrenin (Bizim örneğimizde Azure Storage Blobuna kullanırız) desen eşleştirme kullanarak bir hedef Data Lake Store hesabına. Örneğin, hedef kaynak blobundan .csv uzantısına sahip tüm dosyaları kopyalamak için aşağıdaki adımları kullanabilirsiniz.
+## <a name="use-adlcopy-to-copy-data-using-pattern-matching"></a>Desen eşleştirme kullanarak verileri kopyalamak için AdlCopy kullanma
+Bu bölümde, bir kaynaktan veri kopyalamak için AdlCopy kullanma konusunda bilgi edinin (Bizim örneğimizde biz, Azure depolama Blob'kullanın) desen eşleştirme kullanarak Data Lake depolama Gen1 hedef hesabı için. Örneğin, .csv uzantılı tüm dosyaları kaynak blob bir hedefe kopyalamak için aşağıdaki adımları kullanabilirsiniz.
 
-1. Bir komut istemi açın ve AdlCopy yüklü olduğu, genellikle dizinine gidin `%HOMEPATH%\Documents\adlcopy`.
-2. Kaynak kapsayıcısından belirli bir blobu bir Data Lake Store'a *.csv uzantılı tüm dosyaları kopyalamak için aşağıdaki komutu çalıştırın:
+1. Bir komut istemi açın ve AdlCopy yüklü olduğu, genellikle dizine gidin `%HOMEPATH%\Documents\adlcopy`.
+2. Belirli bir kaynak kapsayıcı blobundan Data Lake depolama Gen1 klasöre *.csv uzantılı tüm dosyaları kopyalamak için aşağıdaki komutu çalıştırın:
 
-        AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
+        AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 
     Örneğin:
 
-        AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
+        AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 
 ## <a name="billing"></a>Faturalandırma
-* Tek başına olarak AdlCopy Aracı'nı kullanırsanız, Azure depolama hesabı kaynağı Data Lake Store ile aynı bölgede değilse, veri taşıma çıkışı maliyeti için Fatura edilecek.
-* Data Lake Analytics ile AdlCopy aracı kullanırsanız, standart hesap [Data Lake Analytics oranları faturalama](https://azure.microsoft.com/pricing/details/data-lake-analytics/) uygulanır.
+* Tek başına olarak AdlCopy aracı kullanırsanız, kaynak Azure depolama hesabını, Data Lake depolama Gen1 hesabıyla aynı bölgede değil, verileri taşımak için kullanım maliyetleri için faturalandırılırsınız.
+* AdlCopy Aracı'nı kullanarak Data Lake Analytics ile kullanırsanız, standart hesap [Data Lake Analytics ücretler fatura](https://azure.microsoft.com/pricing/details/data-lake-analytics/) uygulanır.
 
 ## <a name="considerations-for-using-adlcopy"></a>AdlCopy kullanma konuları
-* AdlCopy (için sürüm 1.0.5), topluca binlerce dosyaları ve klasörleri birden fazla sahip kaynaklardan veri kopyalamayı destekler. Ancak, büyük bir veri kümesini kopyalama sorunlarla karşılaşırsanız, dosyaların/klasörlerin farklı alt klasörler halinde dağıtabilir ve yolun bu alt klasörleri kaynağı olarak kullanın.
+* AdlCopy (için sürüm 1.0.5), birden çok dosya ve klasörleri binlerce topluca sahip kaynaklardan veri kopyalamayı destekler. Ancak, büyük bir veri kümesi kopyalama sorunlarla karşılaşırsanız, dosyaların/klasörlerin farklı alt klasörler halinde dağıtın ve kaynak olarak bu alt klasörleri için yol yerine kullanın.
 
-## <a name="performance-considerations-for-using-adlcopy"></a>Başarım Değerlendirmeleri AdlCopy kullanma
+## <a name="performance-considerations-for-using-adlcopy"></a>AdlCopy kullanma performansla ilgili önemli noktalar
 
-AdlCopy binlerce dosyaları ve klasörleri içeren veri kopyalamayı destekler. Ancak, büyük bir veri kümesini kopyalama sorunlarla karşılaşırsanız, daha küçük alt klasörler halinde dosyaların/klasörlerin dağıtabilirsiniz. AdlCopy için geçici kopya oluşturuldu. Yinelenen aralıklarla verileri kopyalamak çalışıyorsanız kullanmayı düşünmelisiniz [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) kopyalama işlemleri geçici tam yönetim sağlar.
+AdlCopy binlerce dosya ve klasörleri içeren veri kopyalamayı destekler. Ancak, büyük bir veri kümesi kopyalama sorunlarla karşılaşırsanız, daha küçük bir alt klasörler halinde dosyaların/klasörlerin dağıtabilirsiniz. AdlCopy geçici kopya için oluşturulmuştur. Yinelenen bir düzende veri kopyalamak çalışıyorsanız kullanmayı düşünmelisiniz [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) kopyalama işlemleri geçici olarak tam yönetim sağlar.
 
 ## <a name="release-notes"></a>Sürüm notları
-* 1.0.13 - birden çok adlcopy komutları arasında aynı Azure Data Lake Store hesabına veri kopyalıyorsanız gerektirmeyen her çalışma için kimlik bilgilerinizi yeniden girmek artık. Adlcopy artık birden çok çalıştırmaları arasında bu bilgileri önbelleğe alır.
+* 1.0.13 - birden çok adlcopy komutları arasında aynı Azure Data Lake depolama Gen1 hesaba veri kopyalıyorsanız gerektirmeyen her çalıştırma için kimlik bilgilerinizi yeniden girmeniz artık. Adlcopy artık birden fazla çalıştırma sonucunda bu bilgileri önbelleğe alır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
-* [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Azure Data Lake Analytics'i Data Lake depolama Gen1 ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Azure HDInsight ile Data Lake depolama Gen1 kullanın](data-lake-store-hdinsight-hadoop-use-portal.md)

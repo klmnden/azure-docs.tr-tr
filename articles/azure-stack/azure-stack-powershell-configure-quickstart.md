@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 70c1fd72df437ade3bc12cd23db923f6d449e7fb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5d988e8a8a32924b8424a07cf20c75f0e8f8cf4d
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465752"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391083"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Azure stack'teki PowerShell ile çalışmaya Al
 
@@ -27,12 +26,14 @@ ms.locfileid: "38465752"
 
 Bu hızlı başlangıçta, yükleme ve PowerShell ile bir Azure Stack ortamı yapılandırma yardımcı olur. Bu makalede sunuyoruz. komut dosyası için kapsama **Azure Stack operatörü** yalnızca.
 
-Bu makalede açıklanan adımları sıkıştırılmış sürümüdür [PowerShell yükleme]( azure-stack-powershell-install.md), [araçları indirme]( azure-stack-powershell-download.md), ve [Azure Stack işlecin PowerShell ortamınıyapılandırma]( azure-stack-powershell-configure-admin.md) makaleler. Bu konudaki komut dosyalarını kullanarak, Azure Active Directory veya Active Directory Federasyon Hizmetleri (AD FS) ile dağıtılan Azure Stack ortamlar için PowerShell'i ayarlayabilirsiniz.  
+Bu makalede açıklanan adımları sıkıştırılmış sürümüdür [PowerShell yükleme]( azure-stack-powershell-install.md), [araçları indirme]( azure-stack-powershell-download.md), ve [Azure Stack işlecin PowerShell ortamınıyapılandırma]( azure-stack-powershell-configure-admin.md) makaleler. Bu makalede komut dosyalarını kullanarak, Azure Active Directory veya Active Directory Federasyon Hizmetleri (AD FS) ile dağıtılan Azure Stack ortamlar için PowerShell'i ayarlayabilirsiniz.  
 
 
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Azure Active Directory tabanlı dağıtımlar için PowerShell'i ayarlayın
 
-VPN birbirine bağlandıysa, Azure Stack geliştirme Seti'ni veya Windows tabanlı bir dış istemci için oturum açın. Yükseltilmiş bir PowerShell ISE oturumu açın ve ardından aşağıdaki betiği çalıştırın. Güncelleştirdiğinizden emin olun **Kiracıadı**, **ArmEndpoint**, ve **GraphAudience** ortamınızdaki yapılandırmayı için gerekirse değişkenleri:
+<a name="sign-in-to-your-azure-stack-development-kit-or-a-windows-based-external-client-if-you-are-connected-through-vpn-open-an-elevated-powershell-ise-session-and-then-run-the-following-script"></a>VPN birbirine bağlandıysa, Azure Stack geliştirme Seti'ni veya Windows tabanlı bir dış istemci için oturum açın. Yükseltilmiş bir PowerShell ISE oturumu açın ve ardından aşağıdaki betiği çalıştırın. 
+-  
+- Güncelleştirdiğinizden emin olun **Kiracıadı**, **ArmEndpoint**, ve **GraphAudience** ortamınızdaki yapılandırmayı için gerekirse değişkenleri:
 
 ```powershell
 # Specify Azure Active Directory tenant name.

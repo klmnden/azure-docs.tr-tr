@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c1696fc373975eb9857c40366829fbe6a535911
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056352"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391887"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure Active Directory kullanarak Azure API Management'ta Geliştirici hesaplarını yetkilendirme
 
@@ -79,7 +79,10 @@ Bu makalede Azure Active Directory'den (Azure AD) kullanıcıları için gelişt
 
     ![İzinler için onay kutularını](./media/api-management-howto-aad/api-management-with-aad005.png)
 
+1. Seçin **izinleri verin** uygulama izinleri onay verme.
+
     Uygulama izinlerini ve temsilci izinleri hakkında daha fazla bilgi için bkz: [Graph API'sine erişim][Accessing the Graph API].
+    
 1. Sol bölmede, kopyalamak **uygulama kimliği** değeri.
 
     !["Uygulama kimliği" değeri](./media/api-management-howto-aad/application-id.png)
@@ -98,6 +101,7 @@ Bu makalede Azure Active Directory'den (Azure AD) kullanıcıları için gelişt
     > Bu anahtarı not edin. Azure AD yapılandırma bölmesinde kapattıktan sonra anahtarı yeniden görüntülenemiyor.
     > 
     > 
+
 1. API Management uygulamanıza geri geçiş yapın. 
 
     İçinde **Ekle kimlik sağlayıcısı** penceresinde anahtar yapıştırın **gizli** metin kutusu.
@@ -106,6 +110,7 @@ Bu makalede Azure Active Directory'den (Azure AD) kullanıcıları için gelişt
     > Lütfen güncelleştirdiğinizden emin olun **gizli** anahtarın süresi dolmadan önce. 
     >  
     >
+
 1. **Ekle kimlik sağlayıcısı** penceresi de içeren **izin verilen kiracılar** metin kutusu. Burada, API Management hizmet örneği API'ler için erişim vermek istediğiniz Azure AD örneğinde etki alanları belirtin. Birden çok etki alanı, satır başı, boşluk veya virgül ile ayırabilirsiniz.
 
     Birden çok etki alanında belirtebilirsiniz **izin verilen kiracılar** bölümü. Farklı bir etki alanı genel Yöneticisi, uygulamayı kaydedildiği özgün etki alanı farklı bir etki alanından herhangi bir kullanıcı oturum açabilmek uygulama dizini verilere erişmek için izin vermeniz gerekir. İzin vermek için genel yönetici gerekir:

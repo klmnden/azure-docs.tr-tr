@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
-ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e1d6f2d6181e70fde75907191664dcf6cd0b7252
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698392"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391768"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Görevler ve düğümleri duruma göre sayma tarafından Batch çözümlerini izleme
 
@@ -53,11 +53,9 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 
 Görev sayıları için bir işi almak için REST için benzer bir desen ve diğer desteklenen dilleri kullanabilirsiniz. 
 
-### <a name="counts-for-large-numbers-of-tasks"></a>Çok sayıda görevler için sayıları
-
-Görev sayıları alma işlemi Görev durumlarının sayısını zamanda sistemdeki bir noktada döndürür. İşinizi çok sayıda görev olduğunda, görev alma sayar tarafından döndürülen sayıları tarafından gerçek görev durumlarının kadar birkaç saniye lag. Toplu İşlem sonuçlarını Al görevi sayar (Bu liste görevleri API aracılığıyla sorgulayabilirsiniz) gerçek görev durumlarının arasındaki son tutarlılık sağlar. Ancak, işiniz bir çok sayıda görev varsa (> 200.000), listesi görevleri API'sini kullanmanız önerilir ve [filtrelenmiş sorgu](batch-efficient-list-queries.md) sağlayan bunun yerine, daha fazla güncel bilgi. 
-
-Batch hizmeti API sürümleri de 2018-08-01.7.0 döndürmeden önce bir `validationStatus` özellik alma görev sayıları yanıt. Bu özellik, Batch durumu listesi görevleri API'SİNDE rapor durumları ile tutarlılık açısından sayar işaretli olup olmadığını gösterir. Değerini `validated` yalnızca toplu işi için en az bir kez tutarlılık için iade gösterir. Değerini `validationStatus` özellik alma görev sayıları döndürür sayıları şu anda güncel olup olmadığını belirtmez.
+> [!NOTE]
+> Batch hizmeti API sürümleri de 2018-08-01.7.0 döndürmeden önce bir `validationStatus` özellik alma görev sayıları yanıt. Bu özellik, Batch durumu listesi görevleri API'SİNDE rapor durumları ile tutarlılık açısından sayar işaretli olup olmadığını gösterir. Değerini `validated` yalnızca toplu işi için en az bir kez tutarlılık için iade gösterir. Değerini `validationStatus` özellik alma görev sayıları döndürür sayıları şu anda güncel olup olmadığını belirtmez.
+>
 
 ## <a name="node-state-counts"></a>Düğüm durumu sayar
 

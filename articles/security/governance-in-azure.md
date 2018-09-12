@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 579e900ee6616af8fd197e501364acd8e18d3e37
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 6e5b6fac25c8c7f76991a58fbcab363c6fc20f12
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970532"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380361"
 ---
 # <a name="governance-in-azure"></a>Azure’da idare
 
@@ -70,7 +70,7 @@ Bir kurumsal anlaşma kapsamında olan kuruluşlar için Azure abonelikleri dör
 
 1. Kuruluş kayıt Yöneticisi
 
-2. Bölüm Yöneticisi
+2. Bölüm yöneticisi
 
 3. Hesap sahibi
 

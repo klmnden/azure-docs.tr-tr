@@ -5,15 +5,15 @@ services: backup
 author: markgalioto
 ms.service: backup
 ms.topic: include
-ms.date: 2/7/2018
+ms.date: 9/10/2018
 ms.author: trinadhk;sogup
 ms.custom: include file
-ms.openlocfilehash: 1f41567f7d5dcc9b6536b47ef639ba53abff8ec4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 64101ea5a3bbaac4a6b2e349a04d06ea84a87081
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756019"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44381109"
 ---
 Azure Backup için aşağıdaki sınırlar geçerlidir.
 
@@ -24,7 +24,7 @@ Azure Backup için aşağıdaki sınırlar geçerlidir.
 | Her bir Azure aboneliği için oluşturulan yedekleme kasalarının sayısı |Bölge başına 500 kurtarma Hizmetleri kasası |
 | Günlük yedekleme zamanlanabilir sayısı |Windows Server/istemcisi için günde 3 <br/> SCDPM için günde 2 <br/> Iaas VM'ler için günde bir kez |
 | Bir Azure sanal makinesine bağlı veri diskleri |16 |
-| Bir Azure sanal makinesine bağlı tek tek veri disk boyutu| 4095 GB <sup>2</sup>|
+| Bir Azure sanal makinesine bağlı tek tek veri disk boyutu| 4095 GB|
 
 * <sup>1</sup>54400 GB sınırına Iaas VM yedekleme için geçerli değildir.
  

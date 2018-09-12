@@ -1,83 +1,83 @@
 ---
-title: Yedekleme ve geri yükleme Azure veritabanı için MySQL
-description: Otomatik yedekleme ve Azure veritabanınızı MySQL sunucusu için geri yükleme hakkında bilgi edinin.
+title: Yedekleme ve MySQL için Azure veritabanı'nda geri yükleme
+description: Otomatik yedeklemeler ve MySQL için Azure veritabanı sunucunuza geri yükleme hakkında bilgi edinin.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: bdc9a0ef393b55563691d7a52f8fa074eacc4594
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 21d6ed8a21e4c9273446eff6b0057214c715873f
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264485"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391734"
 ---
-# <a name="backup-and-restore-in-azure-database-for-mysql"></a>Yedekleme ve geri yükleme Azure veritabanı için MySQL
+# <a name="backup-and-restore-in-azure-database-for-mysql"></a>Yedekleme ve MySQL için Azure veritabanı'nda geri yükleme
 
-Azure veritabanı MySQL için otomatik olarak sunucu yedeklemelerini oluşturur ve bunları yapılandırılan kullanıcı yerel olarak yedekli veya coğrafi olarak yedekli depolama alanında depolar. Yedeklemeleri sunucunuz bir nokta zaman için geri yüklemek için kullanılabilir. Verilerinizin yanlışlıkla Bozulması veya silinmesi korunmasına olduğundan yedekleme ve geri yükleme tüm iş sürekliliği stratejinizin önemli bir parçası değil.
+MySQL için Azure veritabanı, otomatik olarak sunucu yedeklemelerini oluşturur ve bunları yapılandırılan kullanıcı yerel olarak yedekli veya coğrafi olarak yedekli depolama alanında depolar. Yedeklemeler, sunucunuz bir-belirli bir noktaya için geri yüklemek için kullanılabilir. Bunlar yanlışlıkla Bozulması veya silinmesi, verilerinizi korumak için yedekleme ve geri yükleme herhangi bir iş devamlılığı stratejinizin önemli bir parçası olan.
 
 ## <a name="backups"></a>Yedeklemeler
 
-Azure veritabanı MySQL için tam, fark ve işlem günlüğü yedeklemeleri alır. Bu yedeklemeler bir sunucuya yapılandırılan yedekleme saklama süresi içinde tüm noktası zaman için geri yüklemenize olanak sağlar. Varsayılan yedekleme bekletme süresi yedi gündür. İsteğe bağlı olarak yukarı 35 gün olarak yapılandırabilirsiniz. Tüm yedeklemeler AES 256 bit şifreleme kullanılarak şifrelenir.
+MySQL için Azure veritabanı, tam, değişiklik yedeklemelerinin ve işlem günlüğü yedeklemeleri alır. Bu yedeklemeler bir sunucuya yapılandırılan yedekleme saklama döneminizin tüm-belirli bir noktaya için geri yüklemenize olanak sağlar. Varsayılan yedekleme bekletme süresi yedi gündür. İsteğe bağlı olarak ayarlamak için 35 gün yapılandırabilirsiniz. Tüm yedeklemeler, AES 256 bit şifreleme kullanılarak şifrelenir.
 
 ### <a name="backup-frequency"></a>Yedekleme sıklığı
 
-Genellikle, tam yedekleme haftalık olarak ortaya yedekleri günde iki kez oluşur ve işlem günlüğü yedeklemeleri beş dakikada bir gerçekleşir. Bir sunucu hemen oluşturulduktan sonra ilk tam yedeklemede zamanlanır. İlk yedekleme büyük geri yüklenen sunucuda daha uzun sürebilir. Yeni bir sunucu geri yüklenebilir zaman içinde erken bir nokta ilk tam yedekleme tam olduğu zamanı gelmiştir.
+Genellikle tam yedekleme haftalık olarak ortaya farklı yedeklemeler günde iki kez oluşur ve işlem günlüğü yedeklemeleri beş dakikada bir gerçekleşir. Hemen bir sunucu oluşturulduktan sonra ilk tam yedeklemede zamanlanır. İlk yedeklemeyi büyük geri yüklenen sunucuda daha uzun sürebilir. En erken bir noktada yeni bir sunucuya geri yüklenebilir zamanlı ilk tam yedekleme tam olduğu zamandır.
 
-### <a name="backup-redundancy-options"></a>Yedekleme artıklık seçenekleri
+### <a name="backup-redundancy-options"></a>Fazladan yedek seçenekleri
 
-Azure veritabanı MySQL için genel amaçlı ve bellek için iyileştirilmiş katmanlarında yedekleme yerel olarak yedekli veya coğrafi olarak yedekli depolama arasında seçim yapma esnekliği sağlar. Yedeklemeler, coğrafi olarak yedekli yedekleme deposunda depolanır, bunlar yalnızca, sunucunuzun barındırılan, ancak aynı zamanda çoğaltılır bölge içinde depolanmaz bir [eşleştirilmiş veri merkezi](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Bu, daha iyi koruma ve sunucunuz farklı bir bölgede bir olağanüstü durumda geri yükleme yeteneği sağlar. Temel katman yalnızca yerel olarak yedekli yedekleme depolama sunar.
+MySQL için Azure veritabanı genel amaçlı ve bellek için iyileştirilmiş katmanlarındaki yedekleme yerel olarak yedekli veya coğrafi olarak yedekli depolama arasında seçim yapma esnekliği sağlar. Yedeklemelerin yedekleme coğrafi olarak yedekli depolamada saklanan, bunlar yalnızca, sunucunuzun barındırılan, ancak de çoğaltılır bölge içinde depolanmaz bir [eşleştirilmiş veri merkezine](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Bu, daha iyi koruma ve olağanüstü bir durumda farklı bir bölgede sunucunuz geri yükleme olanağı sağlar. Temel katman yalnızca yerel olarak yedekli yedek depolama alanı sunar.
 
 > [!IMPORTANT]
-> Yerel olarak yapılandırma artık ya da coğrafi olarak yedekli depolama, yedekleme sırasında sunucusu yalnızca izin için oluşturun. Sunucu sağlandıktan sonra yedekleme depolama artıklığı seçeneği değiştirilemiyor.
+> Yerel olarak yapılandırma yedekli veya coğrafi olarak yedekli depolama, yedekleme sırasında sunucusu yalnızca sunulduğunu oluşturun. Sunucu oluşturulduktan sonra yedekleme depolama yedekliliği seçeneği değiştiremezsiniz.
 
 ### <a name="backup-storage-cost"></a>Yedekleme depolama maliyeti
 
-Azure veritabanı MySQL için % 100 sağlanan sunucu deponuzda hiçbir ek ücret ödemeden yedekleme depolama sağlar. Genellikle, bu yedekleme bir yedi gün bekletme için uygundur. Kullanılan tüm ek yedekleme depolama GB ayında ücretlendirilir.
+MySQL için Azure veritabanı, en fazla % 100'ünü sağlanan sunucu depolama alanınızın hiçbir ek ücret ödemeden yedekleme depolama alanı olarak sağlar. Genellikle, bu, yedi gün yedekleme bekletme için uygundur. Tüm ek yedek depolama kullanılan GB-ay üzerinden ücretlendirilir.
 
-Örneğin, 250 GB Kapasiteli bir sunucuyla sağladıysanız, ek ücret ödemeden 250 GB yedekleme depolama sahip. 250 GB aşan depolama ücretlendirilir.
+Örneğin, bir sunucu ile 250 GB sağladıysa, ek ücret ödemeden 250 GB yedekleme alanı vardır. Depolama aşan 250 GB üzerinden ücretlendirilir.
 
 ## <a name="restore"></a>Geri Yükleme
 
-MySQL için Azure veritabanı'nda bir geri yükleme gerçekleştirilmeden yeni bir sunucu özgün sunucunun yedeklemelerden oluşturur.
+MySQL için Azure veritabanı'nda bir geri yükleme işlemi yeni bir sunucu özgün sunucunun yedeklerden oluşturur.
 
 Geri yükleme iki tür vardır:
 
-- **Zaman içinde nokta geri yükleme** ya da yedekleme artıklığı seçeneği ile kullanılabilir ve özgün sunucunuz ile aynı bölgede yeni bir sunucu oluşturur.
-- **Coğrafi geri yükleme** kullanılabilir yalnızca coğrafi olarak yedekli depolama sunucunuz yapılandırılmış ve sunucunuz farklı bir bölgeye geri yüklemenize olanak sağlar.
+- **Belirli bir noktaya geri yükleme** ya da fazladan yedek seçeneği ile kullanılabilir ve özgün sunucunuzla aynı bölgede yeni bir sunucu oluşturur.
+- **Coğrafi geri yükleme** kullanılabilir yalnızca sunucunuz coğrafi olarak yedekli depolama için yapılandırılmış ve sunucunuz farklı bir bölgeye geri yüklemenize olanak sağlar.
 
-Tahmini süre, Kurtarma veritabanı boyutları, işlem günlüğü boyutu, ağ bant genişliğini ve aynı anda aynı bölgede kurtarma veritabanı toplam sayısı dahil olmak üzere birçok faktöre bağlıdır. Kurtarma süresi genellikle değerinden 12 saattir.
+Tahmini kurtarma süresi, veritabanı boyutu, işlem günlüğü boyutu, ağ bant genişliğini ve aynı anda aynı bölgede kurtarılan veri tabanı toplam sayısı dahil olmak üzere birçok faktöre bağlıdır. Kurtarma zamanı, genellikle daha az 12 saati geçmez.
 
 > [!IMPORTANT]
-> Sunucu silerseniz, sunucuya ait tüm veritabanlarının da silinir ve kurtarılamaz. Silinen bir sunucuya geri yükleyemezsiniz.
+> Silinen sunucuları **olamaz** geri yüklenemiyor. Sunucu silerseniz sunucusuna ait tüm veritabanlarını da silinir ve kurtarılamaz. 
 
 ### <a name="point-in-time-restore"></a>Belirli bir noktaya geri yükleme
 
-Yedekleme artıklık seçeneğinizi bağımsız, yedekleme saklama dönemi içinde zamanında herhangi bir noktaya geri yükleme gerçekleştirebilirsiniz. Yeni bir sunucu, aynı Azure bölgesinde özgün sunucusu olarak oluşturulur. Özgün sunucunun yapılandırması fiyatlandırma katmanı ile oluşturulan, oluşturma, vCores, depolama boyutu, yedekleme saklama dönemi ve yedekleme artıklığı seçeneği sayısı işlem.
+Bağımsız, fazladan yedek seçenek olarak, zaman Yedekleme saklama döneminizin herhangi bir noktaya geri yükleme gerçekleştirebilirsiniz. Özgün sunucu ile aynı Azure bölgesinde yeni bir sunucu oluşturulur. Fiyatlandırma katmanı için özgün sunucunun yapılandırması ile oluşturulan, işlem nesli, sanal çekirdek, depolama boyutu, yedekleme bekletme süresi ve fazladan yedek seçenek sayısı.
 
-Zaman içinde nokta geri yükleme, birden çok durumda yararlıdır. Örneğin, bir kullanıcı yanlışlıkla verileri sildiğinde, önemli tablo veya veritabanı yok sayar veya uygulamanın yanlışlıkla iyi verilerin bir uygulama hatası nedeniyle hatalı verilerle üzerine yazar.
+Belirli bir noktaya geri yükleme, birden çok senaryoda kullanışlıdır. Bir kullanıcı yanlışlıkla veri sildiğinde, örneğin, bir önemli bir tabloya veya veritabanına, keser veya bir uygulama yanlışlıkla iyi bir uygulama, hata nedeniyle hatalı verilerle verinin üzerine yazar.
 
 Son beş dakika içinde zaman içinde bir noktaya geri yüklemeden önce gerçekleştirilecek bir sonraki işlem günlüğü yedeklemesi için beklemeniz gerekebilir.
 
 ### <a name="geo-restore"></a>Coğrafi Geri Yükleme
 
-Coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırdıysanız, bir sunucu hizmeti kullanılabilir olduğu başka bir Azure bölgesine geri yükleyebilirsiniz. Sunucunuz, sunucunun barındırıldığı bölgede bir olay nedeniyle kullanılamaz duruma geldiğinde coğrafi geri yükleme varsayılan kurtarma seçeneğidir. Büyük ölçekli olay durumunda olmadığından, veritabanı uygulamanızın bir bölge sonuçları, bir sunucu coğrafi olarak yedekli yedeklemelerden başka bir bölgede bulunan bir sunucuya geri yükleyebilirsiniz. Bir yedeklemenin ne zaman ve ne zaman farklı bir bölgeye çoğaltılır arasında bir gecikme olur. Bu gecikme en çok bir saat, bu nedenle, olağanüstü bir durum oluşursa, olabilir yukarı bir saat veri kaybı olabilir.
+Coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırdıysanız, hizmetin kullanılabildiği başka bir Azure bölgesine bir sunucuya geri yükleyebilirsiniz. Sunucunuz sunucu barındırıldığı bölgedeki bir olay nedeniyle kullanılamaz olduğunda varsayılan kurtarma seçeneğini coğrafi geri yükleme olduğu. Büyük ölçekli olay kullanılamazlık veritabanı uygulamanızın bir bölge sonucu, bir sunucu coğrafi olarak yedekli yedeklemelerden başka bir bölgede bir sunucuya geri yükleyebilirsiniz. Yedekleme zaman alınır ve ne zaman farklı bir bölgeye çoğaltılır arasında bir gecikme olur. Bu gecikme, bir saat, bu nedenle, bir olağanüstü durum oluşursa, olabilir yukarı bir saatlik veri kaybı için en fazla olabilir.
 
 ### <a name="perform-post-restore-tasks"></a>Gerçekleştirmek geri yükleme sonrası görevler
 
-Bir geri yükleme ya da kurtarma mekanizması öğesinden sonra kullanıcılarınızın almak için aşağıdaki görevleri gerçekleştirmeniz gerekir ve uygulamalar geri hazır ve çalışır:
+Sonra bu iki kurtarma sisteminden bir geri yükleme, kullanıcılarınızın almak için aşağıdaki görevleri gerçekleştirmeniz gerekir ve uygulamalar çalışır duruma geri:
 
-- Özgün sunucunun değiştirmek için yeni sunucu istediyseniz, istemcileri ve yeni sunucuya istemci uygulamaları yeniden yönlendirme
-- Uygun sunucu düzeyinde güvenlik duvarı kuralları bağlanacak kullanıcılar için yerinde olduğundan emin olun
-- Uygun oturum açma ve veritabanı düzeyi izinleri yerinde olduğundan emin olun
+- Yeni sunucunun özgün sunucunun değiştirilecek geliyorsa, istemcilerin ve istemci uygulamalarının yeni sunucuya yeniden yönlendirme
+- Uygun sunucu düzeyinde güvenlik duvarı kuralları, kullanıcıların bağlanması yerinde olduğundan emin olun
+- Uygun giriş bilgilerinin ve veritabanı düzeyi izinlerin mevcut olduğunu doğrulama
 - Uyarıları uygun şekilde yapılandırma
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - İş sürekliliği hakkında daha fazla bilgi için bkz: [iş sürekliliğine genel bakış](concepts-business-continuity.md).
-- Azure portalını kullanarak zaman içinde bir noktaya geri yüklemenizi bkz [veritabanı Azure portalını kullanarak zaman içinde bir noktaya geri](howto-restore-server-portal.md).
-- Azure CLI kullanarak zaman içinde bir noktaya geri yüklemenizi bkz [veritabanı CLI kullanarak zaman içinde bir noktaya geri](howto-restore-server-cli.md).
+- Azure portalını kullanarak bir noktaya geri yüklemek için bkz: [veritabanını Azure portalını kullanarak bir noktaya geri yükleme](howto-restore-server-portal.md).
+- Azure CLI kullanarak bir noktaya geri yüklemek için bkz: [veritabanı CLI kullanarak bir noktaya geri yükleme](howto-restore-server-cli.md).

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 74a4066e3d30b1e91fe558fcfeb6f39220e41c02
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 08ba5e7cbdc041a41f1d006d69980bf6efc00101
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887353"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380307"
 ---
-# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Azure bir ölçüm uyarısında Web kancası yapılandırma
+# <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Web kancası kullanarak bir Azure sistem bilgisini Klasik ölçüm uyarısı sahip
 İşlem Sonrası veya özel eylemler için diğer sistemlere Azure bir uyarı bildirimine yönlendirmek için Web kancaları kullanabilirsiniz. Sohbet veya Mesajlaşma Hizmetleri aracılığıyla veya diğer çeşitli eylemler için bir takıma bildirin hataları oturum, SMS iletileri göndermek Hizmetleri yönlendirmek için bir uyarısında Web kancası kullanabilirsiniz. 
 
 Bu makalede, Azure bir ölçüm uyarısında Web kancası ayarlama açıklanır. Ayrıca, bir Web kancası HTTP POST yükü nasıl göründüğünü gösterir. Azure etkinlik için şema ve kurulumu hakkında bilgi için günlük uyarı (uyarı) olaylarına bakın [bir Azure etkinlik günlüğü uyarısında Web kancası çağırma](insights-auditlog-to-webhook-email.md).
@@ -72,20 +72,20 @@ GÖNDERME işlemi, tüm ölçüm tabanlı uyarılar için şema ve aşağıdaki 
 | Alan | Zorunlu | Sabit değer kümesi | Notlar |
 |:--- |:--- |:--- |:--- |
 | durum |E |Etkin, çözülmüş |Belirlediğiniz koşullara göre uyarı durumu. |
-| bağlam |E | |Uyarı bağlamı. |
+| Bağlam |E | |Uyarı bağlamı. |
 | timestamp |E | |Uyarının tetiklenme zamanı. |
 | id |E | |Her uyarı kuralı benzersiz bir kimliğe sahiptir. |
 | ad |E | |Uyarı adı. |
 | açıklama |E | |Uyarı açıklaması. |
 | Koşul türü |E |Ölçüm, olay |İki uyarı türleri desteklenir: ölçüm ve olay. Ölçüm uyarıları, bir ölçüm koşuluyla ilgili temel alır. Olay uyarıları bir etkinlik günlüğü olayında temel alır. Uyarı bir ölçüm veya olaya göre denetlemek için bu değeri kullanın. |
 | koşul |E | |Denetlenecek belirli alanları temel **koşul türü** değeri. |
-| metricName |Ölçüm uyarıları | |Ne kuralı izler tanımlayan ölçüm adı. |
+| MetricName |Ölçüm uyarıları | |Ne kuralı izler tanımlayan ölçüm adı. |
 | metricUnit |Ölçüm uyarıları |Bayt cinsinden BytesPerSecond, Count, CountPerSecond, yüzde, saniye |Ölçümde izin birimi. Bkz: [izin verilen değerler](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Ölçüm uyarıları | |Uyarıya neden ölçümü gerçek değeri. |
 | Eşik |Ölçüm uyarıları | |Eşik değeri, uyarı etkinleştirilir. |
 | pencereboyutu |Ölçüm uyarıları | |Süre, eşiğine dayalı uyarı etkinliğini izlemek için kullanılır. Değer 5 dakika ile 1 gün arasında olmalıdır. Değer ISO 8601 süre biçiminde olmalıdır. |
 | timeAggregation |Ölçüm uyarıları |Ortalama, en son, maksimum, Minimum, yok, toplam |Toplanan veriler, zaman içinde nasıl birleştirilmelidir. Ortalama varsayılan değerdir. Bkz: [izin verilen değerler](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| işleci |Ölçüm uyarıları | |Geçerli ölçüm verileri için ayarlanan eşik ile karşılaştırmak için kullanılan işleç. |
+| İşleci |Ölçüm uyarıları | |Geçerli ölçüm verileri için ayarlanan eşik ile karşılaştırmak için kullanılan işleç. |
 | subscriptionId |E | |Azure abonelik kimliği |
 | resourceGroupName |E | |Etkilenen kaynak kaynak grubunun adı. |
 | resourceName |E | |Etkilenen kaynak kaynak adı. |

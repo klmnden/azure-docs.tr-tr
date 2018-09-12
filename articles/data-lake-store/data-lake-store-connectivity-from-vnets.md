@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store'a sanal ağlara bağlanma | Microsoft Docs
-description: Azure sanal ağları Azure Data Lake Store'a bağlama
+title: Ait sanal ağlar için Azure Data Lake depolama Gen1 bağlayın | Microsoft Docs
+description: Azure Data Lake depolama Gen1 için Azure sanal ağları birbirine bağlama
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: esung22
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 4086ef6ce2a95e0467eda61116ac002cf53610b5
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 130d0154fc0558ae7284e8407ba88fda3a2a53d5
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300820"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391309"
 ---
-# <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Erişim Azure Data Lake Store bir Azure sanal içinde vm'lerden
-Azure Data Lake Store genel Internet IP adresleri üzerinde çalışan bir PaaS hizmetidir. Genel Internet'e bağlanabilir herhangi bir sunucu genellikle de Azure Data Lake Store Uç noktalara bağlanabilir. Varsayılan olarak, Azure Vnet'lerde olan tüm sanal makineleri Internet erişebilir ve bu nedenle Azure Data Lake Store erişebilir. Ancak, Internet erişimi için bir VNET içindeki sanal makineleri yapılandırmak mümkündür. Bu tür VM'ler için Azure Data Lake Store erişimi de sınırlıdır. Azure sanal ağlar VM'ler için genel Internet erişimi engelleme yapılabilir aşağıdaki yaklaşımlardan birini kullanarak:
+# <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Bir Azure sanal ağ içindeki vm'lerden erişim Azure Data Lake depolama Gen1
+Azure Data Lake depolama Gen1 genel Internet IP adreslerinde çalıştırılan bir PaaS hizmetidir. Genel Internet'e bağlanabilen herhangi bir sunucu genellikle de Azure Data Lake depolama Gen1 Uç noktalara bağlanabilirsiniz. Varsayılan olarak, Azure sanal ağ tüm VM'lerin İnternet'e erişebilir ve bu nedenle Azure Data Lake depolama Gen1 erişebilir. Ancak, internet erişimi olmaması için bir vnet'teki VM'ler yapılandırmak mümkündür. Bu tür VM'ler için Azure Data Lake depolama Gen1 erişimi de sınırlıdır. Azure sanal ağlardaki sanal makineler için genel Internet erişimini engelleyen yapılabilir aşağıdaki yaklaşımlardan birini kullanarak:
 
 * Ağ güvenlik grupları (NSG) yapılandırarak
-* Kullanıcı tanımlı yolları (UDR) yapılandırarak
+* Kullanıcı tanımlı yollar (UDR) yapılandırarak
 * Yollar BGP (endüstri standardı dinamik yönlendirme protokolü) üzerinden değiştirerek ExpressRoute kullanıldığında, bu erişimi engelleme Internet'e
 
-Bu makalede, Azure Data Lake Store için daha önce listelenen üç yöntemden birini kullanarak kaynaklarına erişmek için sınırlandı Azure vm'lerden erişmesini öğreneceksiniz.
+Bu makalede, Azure Data Lake depolama Gen1 için daha önce listelenen üç yöntemden birini kullanarak kaynaklara erişim için sınırlandı Azure sanal erişmesini öğreneceksiniz.
 
-## <a name="enabling-connectivity-to-azure-data-lake-store-from-vms-with-restricted-connectivity"></a>Etkinleştirme bağlantıyı Azure Data Lake Store'a vm'lerden sınırlı
-Azure Data Lake Store böyle Vm'lerden erişmek için Azure Data Lake Store hesabı kullanılabilir olduğu IP adresi erişmeleri için yapılandırmanız gerekir. Hesaplarınızı DNS adlarını çözülerek Data Lake Store hesapları için IP adreslerini tanımlayabilirsiniz (`<account>.azuredatalakestore.net`). Hesaplarınız DNS adlarını çözümlemek için Araçlar gibi kullanabilir **nslookup**. Bilgisayarınızı bir komut istemi açın ve aşağıdaki komutu çalıştırın:
+## <a name="enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity"></a>Bağlantı için Azure Data Lake depolama Gen1 sanal makinelerinden kısıtlı bağlantısı ile etkinleştirme
+Azure Data Lake depolama Gen1 gibi Vm'lerden erişmek için Azure Data Lake depolama Gen1 hesabı kullanılabilir olduğu IP adresine erişmek için bunları yapılandırmanız gerekir. Hesaplarınızı DNS adlarını çözerek, Data Lake depolama Gen1 hesaplarınız için IP adreslerini tanımlayabilirsiniz (`<account>.azuredatalakestore.net`). Hesaplarınızı DNS adlarını çözümlemek için Araçlar gibi kullanabilirsiniz **nslookup**. Bilgisayarınızda bir komut istemi açın ve aşağıdaki komutu çalıştırın:
 
     nslookup mydatastore.azuredatalakestore.net
 
-Çıktı aşağıdakine benzer. Değerin karşı **adresi** özelliği, Data Lake Store hesabınızla ilişkili IP adresidir.
+Çıktı aşağıdakine benzer. Değeri ile karşılaştırarak **adresi** özelliği, Data Lake depolama Gen1 hesabınızla ilişkili IP adresidir.
 
     Non-authoritative answer:
     Name:    1434ceb1-3a4b-4bc0-9c69-a0823fd69bba-mydatastore.projectcabostore.net
@@ -41,16 +41,16 @@ Azure Data Lake Store böyle Vm'lerden erişmek için Azure Data Lake Store hesa
     Aliases:  mydatastore.azuredatalakestore.net
 
 
-### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>NSG kullanarak sınırlı vm'lerden bağlantıyı etkinleştirme
-Daha sonra Internet erişimi engellemek için bir NSG kuralı kullanıldığında, veri Gölü deposu IP adresi erişimine izin veren başka bir NSG oluşturabilirsiniz. NSG kuralları hakkında daha fazla bilgi için bkz: [ağ güvenlik gruplarını genel bakış](../virtual-network/security-overview.md). Nsg'ler oluşturma hakkında yönergeler için bkz: [bir ağ güvenlik grubu oluşturmak nasıl](../virtual-network/tutorial-filter-network-traffic.md).
+### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>NSG kullanarak kısıtlı vm'lerden bağlantıyı etkinleştirme
+Bir NSG kuralı, Internet erişimi engellemek için kullanıldığında, Data Lake depolama Gen1 IP adresine erişime izin veren başka bir NSG oluşturabilirsiniz. NSG kuralları hakkında daha fazla bilgi için bkz: [ağ güvenlik gruplarına genel bakış](../virtual-network/security-overview.md). Nsg'leri oluşturma hakkında yönergeler için bkz: [bir ağ güvenlik grubu oluşturma](../virtual-network/tutorial-filter-network-traffic.md).
 
-### <a name="enabling-connectivity-from-vms-restricted-by-using-udr-or-expressroute"></a>UDR veya ExpressRoute kullanılarak kısıtlanmış VM'ler bağlantısını etkinleştirme
-Yollar, Udr'ler ya da BGP alınıp yolları, Internet erişimi engellemek için kullanıldığında, özel bir rota bu tür alt VM'ler Data Lake Store uç noktaları erişebilmesi için yapılandırılması gerekir. Daha fazla bilgi için bkz: [kullanıcı tanımlı yollar genel bakış](../virtual-network/virtual-networks-udr-overview.md). Udr'ler oluşturma ile ilgili yönergeler için bkz: [oluşturma Udr'ler Kaynak Yöneticisi'nde](../virtual-network/tutorial-create-route-table-powershell.md).
+### <a name="enabling-connectivity-from-vms-restricted-by-using-udr-or-expressroute"></a>UDR ya da ExpressRoute kullanarak kısıtlı vm'lerden bağlantıyı etkinleştirme
+Yollar, Udr veya yollar BGP değişimi, Internet erişimi engellemek için kullanıldığında, bir özel yol VM'ler gibi alt ağlarda Data Lake depolama Gen1 uç noktaları erişebilmesi için yapılandırılması gerekir. Daha fazla bilgi için [kullanıcı tanımlı yollara genel bakış](../virtual-network/virtual-networks-udr-overview.md). Udr'ler oluşturma ile ilgili yönergeler için bkz: [Udr oluşturun Kaynak Yöneticisi'nde](../virtual-network/tutorial-create-route-table-powershell.md).
 
-### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>ExpressRoute kullanarak sınırlı vm'lerden bağlantıyı etkinleştirme
-Bir expressroute bağlantı hattı yapılandırıldığında, şirket içi sunucular ortak eşleme aracılığıyla Data Lake Store erişebilir. Bunun için ortak eşleme adresinde Expressroute'u yapılandırma hakkında daha fazla ayrıntı [ExpressRoute SSS](../expressroute/expressroute-faqs.md).
+### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>ExpressRoute kullanarak kısıtlı vm'lerden bağlantıyı etkinleştirme
+Bir ExpressRoute bağlantı hattı yapılandırıldığında, şirket içi sunucular genel eşdüzey hizmet sağlama ile Data Lake depolama Gen1 erişebilirsiniz. Kullanılabilir genel eşdüzey hizmet sağlama için Expressroute'u yapılandırma hakkında daha fazla ayrıntı [ExpressRoute SSS](../expressroute/expressroute-faqs.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Azure Data Lake Store'a Genel Bakış](data-lake-store-overview.md)
-* [Azure Data Lake Store içinde depolanan verilerin güvenliğini sağlama](data-lake-store-security-overview.md)
+* [Azure Data Lake depolama Gen1 genel bakış](data-lake-store-overview.md)
+* [Azure Data Lake depolama Gen1 depolanan verilerin güvenliğini sağlama](data-lake-store-security-overview.md)
 

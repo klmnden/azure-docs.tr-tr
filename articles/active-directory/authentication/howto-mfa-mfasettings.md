@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: da5905af4a861502f190cd873033923d8fd0bfa7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 890a6b9dd1ef63fcc59984686b2d6dec773cdb52
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349101"
+ms.locfileid: "44391853"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-Factor Authentication ayarlarını yapılandırma
 
@@ -180,7 +180,7 @@ Güvenilen IP'ler özellik etkinleştirilip etkinleştirilmediği bağımsız ol
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Sol tarafta, seçin **Azure Active Directory** > **koşullu erişim** > **adlandırılmış Konumlar**.
 3. Seçin **MFA güvenilen Ip'lerini Yapılandır**.
-4. Üzerinde **hizmet ayarları** sayfasındaki **güvenilen IP'ler**, aşağıdaki iki seçeneklerden birini seçin:
+4. Üzerinde **hizmet ayarları** sayfasındaki **güvenilen IP'ler**, aşağıdaki iki seçenekten birini seçin:
    
    * **Benim intranet bağlantısı intranetimden gelen Federasyon kullanıcılarının istekleri için**: Bu seçeneği için onay kutusunu seçin. Tüm kullanıcılar, Kurumsal ağda oturum açma AD FS tarafından verilen bir talep kullanarak iki aşamalı doğrulamayı atlama sürümüyle federasyona eklenenler. AD FS uygun trafiği intranet talep eklemek için bir kuralı olduğundan emin olun. Kural yoksa, aşağıdaki kural AD FS'de oluşturun:<br/>
 
@@ -203,7 +203,7 @@ Güvenilen IP'ler özellik etkinleştirilip etkinleştirilmediği bağımsız ol
 2. Sol tarafta, seçin **Azure Active Directory** > **kullanıcılar**.
 3. Seçin **çok faktörlü kimlik doğrulaması**.
 4. Multi-Factor Authentication'ın altında seçin **hizmet ayarları**.
-5. Üzerinde **hizmet ayarları** sayfasındaki **güvenilen IP'ler**, aşağıdaki iki seçeneklerden birini seçin:
+5. Üzerinde **hizmet ayarları** sayfasındaki **güvenilen IP'ler**, aşağıdaki iki seçenekten birini (veya her ikisi de) seçin:
    
    * **İntranetimde bulunan Federasyon kullanıcılardan gelen istekleri için**: Bu seçeneği için onay kutusunu seçin. Tüm kullanıcılar, Kurumsal ağda oturum açma AD FS tarafından verilen bir talep kullanarak iki aşamalı doğrulamayı atlama sürümüyle federasyona eklenenler. AD FS uygun trafiği intranet talep eklemek için bir kuralı olduğundan emin olun. Kural yoksa, aşağıdaki kural AD FS'de oluşturun:<br/>
 

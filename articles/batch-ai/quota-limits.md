@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: e4b6d115aebfd96d127e0d72c0c99188bedd93e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cade124cefbd4e2e63ab4cb6fa4f22b3bd672ad0
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057274"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391819"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Batch AI hizmet kotaları ve limitleri
 
@@ -33,22 +33,7 @@ Batch AI üretim iş yükleri çalıştırmayı planlıyorsanız, bir veya daha 
 
 ## <a name="resource-quotas"></a>Kaynak kotaları
 
-Batch AI çekirdek sayısı ve bir abonelikte bölge başına izin verilen küme sayısı varsayılan bir kota sınırı yoktur.
-
-| **Kaynak** | **Varsayılan sınır** | **Üst sınırı** |
-| --- | --- | --- |
-| Bölge başına adanmış çekirdekler | 10 - 24 | N/A<sup>1</sup> |
-| Bölge başına düşük öncelikli çekirdekler | 10 - 24 | YOK<sup>2</sup> |
-| Bölge başına | 20 | 200<sup>3</sup> |
-
-> [!NOTE]
-> Varsayılan sınırları, sahip olduğunuz abonelik türüne bağlı olarak değişir.
-
-<sup>1</sup> Batch AI abonelik başına adanmış çekirdekler sayısı artırılabilir, ancak en büyük sayı belirtilmemiş. Artırma seçeneklerini görüşmek için Azure desteğine başvurun.
-
-<sup>2</sup> Batch AI abonelik başına düşük öncelikli çekirdek sayısı artırılabilir, ancak en büyük sayı belirtilmemiş. Artırma seçeneklerini görüşmek için Azure desteğine başvurun.
-
-<sup>3</sup> istediğinizde bu sınırı aşan miktarda bir artış istemek Azure desteğine başvurun.
+[!INCLUDE [azure-batch-ai-limits](../../includes/azure-batch-ai-limits.md)]
 
 ## <a name="other-limits"></a>Diğer sınırlamaları
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 67144407b078a30c521201cbc31c6087c839fa26
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 4aa4809c57eaf26b10053d432f9191580ec143a0
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39029975"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44381096"
 ---
 Veri Fabrikası yerde müşteri aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için aşağıdaki varsayılan sınırlara sahip çok kiracılı bir hizmettir. Çoğu sınırlarını kolayca sınırına kadar aboneliğinizin destekle iletişim kurarak yükseltilebilir.
 
@@ -28,7 +28,7 @@ Veri Fabrikası yerde müşteri aboneliklerini birbirlerinin iş yüklerini koru
 | Veri Fabrikası eşzamanlı işlem hattını çalışır | 10,000  | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | (Kapsayıcılar için iç etkinlikler dahil) işlem hattı başına en fazla etkinlikleri | 40 | 40 |
 | İşlem hattı başına en fazla parametreleri | 50 | 50 |
-| ForEach öğeleri | 100,000 | 100,000 |
+| ForEach öğeleri | 100.000 | 100.000 |
 | ForEach paralelliği | 20 | 50 |
 | Karakter başına ifadesi | 8,192 | 8,192 |
 | En düşük atlayan pencere tetikleyicisi aralığı | 15 dakika | 15 dakika |
@@ -38,6 +38,8 @@ Veri Fabrikası yerde müşteri aboneliklerini birbirlerinin iş yüklerini koru
 | Kopyalama etkinliği çalıştırma başına veri tümleştirme birimi <sup>3</sup> | 256 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | API çağrıları yazma | 2500/SA<br/><br/> Azure Resource Manager, Azure Data Factory tarafından bu sınırı uygulanmaktadır. | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Okuma API çağrıları | 12.500/SA<br/><br/> Azure Resource Manager, Azure Data Factory tarafından bu sınırı uygulanmaktadır. | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Dakika başına sorguları izleme | 1000 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Dakika başına varlık CRUD işlemleri | 50 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
 
 ### <a name="version-1"></a>Sürüm 1

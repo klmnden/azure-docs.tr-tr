@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: e74a5a431144c303b0301c8b7a22417784ecb65b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300515"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380004"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Gelişmiş güvenlikten yararlanmaya başlamak için Azure Güvenlik Merkezi standart ekleme
 Gelişmiş güvenlik yönetimi ve tehdit koruması için hibrit bulut iş yüklerinizi yararlanmak için Güvenlik Merkezi standart yükseltin.  Standart 60 gün boyunca ücretsiz deneyebilirsiniz. Güvenlik Merkezi'ni [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/) daha fazla bilgi için.
@@ -103,7 +103,7 @@ Mevcut çalışma alanınız varsa bunlar altında listelenen **yeni Azure olmay
 
    ![Bilgisayar ekleme][7]
 
- **Doğrudan aracı** dikey penceresini bir Windows veya Linux aracı yükleme için bir bağlantı sağlar ve anahtarları aracının yapılandırılmasında kullanılacak çalışma alanı Kimliğiniz için.   
+ **Doğrudan aracı** dikey penceresinde çalışma alanı kimliği yanı sıra, Windows veya Linux aracı yükleme için bir bağlantı sağlar ve anahtarları aracının yapılandırılmasında kullanılacak.   
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede öğrendiğiniz yerleşik Azure Güvenlik Merkezi'nin Gelişmiş güvenlik için Azure dışı kaynakları nasıl.  Daha fazlasını yapmak için eklenen kaynaklarınızı bakın.

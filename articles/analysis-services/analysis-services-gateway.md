@@ -5,18 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ba46223f0d0a4db7615bc94fe8a1bbfa18e57f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9ed2614969952eab90dfec572d9b61071981c4bf
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442347"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391632"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Azure şirket içi veri ağ geçidi ile şirket içi veri kaynaklarına bağlanma
-Şirket içi veri ağ geçidi, şirket içi veri kaynakları ile bulutta, Azure Analysis Services sunucuları arasında güvenli veri aktarımı sağlar bir köprü görevi görür. Aynı bölgede birden fazla Azure Analysis Services sunucuları ile çalışma ek olarak, ağ geçidinin en son sürümünü de Azure Logic Apps, Power BI, Power Apps ve Microsoft Flow ile çalışır. Tek bir ağ geçidi ile aynı bölgede birden çok hizmet ilişkilendirebilirsiniz. 
+Şirket içi veri ağ geçidi, şirket içi veri kaynakları ile bulutta, Azure Analysis Services sunucuları arasında güvenli veri aktarımı sağlar bir köprü görevi görür. Aynı bölgede birden fazla Azure Analysis Services sunucuları ile çalışma ek olarak, ağ geçidinin en son sürümünü de Azure Logic Apps, Power BI, Power Apps ve Microsoft Flow ile çalışır. Tek bir ağ geçidi ile aynı abonelik ve aynı bölgede birden çok hizmet ilişkilendirebilirsiniz. 
 
 Ağ geçidi ile Kurulum ilk kez alma dört kısımlı bir işlemdir:
 
@@ -26,7 +26,7 @@ Ağ geçidi ile Kurulum ilk kez alma dört kısımlı bir işlemdir:
 
 - **Azure'da bir ağ geçidi kaynağı oluşturmak** -Bu adımda, Azure aboneliğinizde bir ağ geçidi kaynağı oluşturun.
 
-- **Ağ geçidi kaynağınıza sunucularınızın bağlanmak** -aboneliğinizde bir ağ geçidi kaynağına sahip olduğunuzda, sunucularınızı bağlamadan başlayabilirsiniz. İçin birden çok sunucu ve diğer kaynaklara bağlanabilir.
+- **Ağ geçidi kaynağınıza sunucularınızın bağlanmak** -aboneliğinizde bir ağ geçidi kaynağına sahip olduğunuzda, sunucularınızı bağlamadan başlayabilirsiniz. Aynı abonelik ve aynı bölgede olması koşuluyla birden çok sunucu ve diğer kaynaklara bağlanabilir.
 
 Hemen kullanmaya başlamak için bkz: [yükleyin ve şirket içi veri ağ geçidinin yapılandırılması](analysis-services-gateway-install.md).
 
