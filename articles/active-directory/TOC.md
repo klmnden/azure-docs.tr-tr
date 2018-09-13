@@ -232,11 +232,11 @@
 
 
 #### Uygulama kaydı
-##### [Uygulama nesnesi için alan girme](application-dev-registration-config-specific-application-property-how-to.md)
-##### [Belirteç ömrü varsayılanlarını değiştirme](application-dev-registration-config-change-token-lifetime-how-to.md)
+##### [Uygulama nesnesi için alan girme](develop/registration-config-specific-application-property-how-to.md)
+##### [Belirteç ömrü varsayılanlarını değiştirme](develop/registration-config-change-token-lifetime-how-to.md)
 
 #### Kimlik Doğrulaması
-##### [Uç noktaları yapılandırma](application-dev-registration-config-how-to.md)
+##### [Uç noktaları yapılandırma](develop/registration-config-how-to.md)
 
 #### Koşullu Erişim
 ##### [Müşteri Cihaz Kaydı önkoşullarına uymadı](active-directory-conditional-access.md)
@@ -248,7 +248,7 @@
 ##### [Koşullu erişim ile desteklenen uygulamalar](active-directory-conditional-access-supported-apps.md)
 
 #### API bulma
-##### [API bulma](application-dev-api-find-an-api-how-to.md)
+##### [API bulma](develop/api-find-an-api-how-to.md)
 
 #### Erişimi yönetme
 ##### [Uygulamaya kullanıcı ve grup atama](manage-apps/methods-for-assigning-users-and-groups.md)
@@ -258,14 +258,14 @@
 ##### [Uygulamalar listesinde beklenmeyen uygulama](manage-apps/application-types.md)
 
 #### Çok kiracılı uygulamalar
-##### [Yeni bir uygulama yapılandırma](application-dev-setup-multi-tenant-app.md)
-##### [Uygulama galerisine ekleme](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+##### [Yeni bir uygulama yapılandırma](develop/setup-multi-tenant-app.md)
+##### [Uygulama galerisine ekleme](develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md)
 
 #### İzinler
-##### [API için izinleri seçme](application-dev-perms-for-given-api.md)
-##### [Uygulamama izin verme](application-dev-registration-config-grant-permissions-how-to.md)
-##### [Temsilci izinleri ile uygulama izinlerini karşılaştırması](application-dev-delegated-and-app-perms.md)
-##### [Uygulama onayı](application-dev-consent-framework.md)
+##### [API için izinleri seçme](develop/perms-for-given-api.md)
+##### [Uygulamama izin verme](develop/registration-config-grant-permissions-how-to.md)
+##### [Temsilci izinleri ile uygulama izinlerini karşılaştırması](develop/delegated-and-app-perms.md)
+##### [Uygulama onayı](develop/consent-framework.md)
 
 #### Sağlama
 ##### [Gereken süre](manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)
@@ -278,7 +278,7 @@
 
 #### Çoklu oturum açma
 ##### [Yöntem seçme](manage-apps/single-sign-on-modes.md)
-##### [Yapılandırma](application-dev-registration-config-sso-how-to.md)
+##### [Yapılandırma](develop/registration-config-sso-how-to.md)
 ##### [Federasyon yapılandırma - galeri uygulamaları](manage-apps/configure-federated-single-sign-on-gallery-applications.md)
 ##### [Federasyon yapılandırmayla ilgili yaygın sorunlar - galeri uygulamaları](manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md)
 ##### [Federasyon yapılandırma - galeri dışındaki uygulamalar](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
@@ -303,7 +303,7 @@
 ##### [Şirket içi uygulamayla ilgili sorun - Uygulama Ara Sunucusu](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
 ### [Uygulama geliştirme](active-directory-applications-guiding-developers-for-lob-applications.md)
-### [Belge kitaplığı](active-directory-apps-index.md)
+
 
 ## Dizininizi yönetme
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
