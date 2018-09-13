@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: d17b5967519bc51e4fb33a410149d17c82c28d10
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347996"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720132"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?
 Çoklu oturum açma tüm uygulamalar ve yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak iş yapmanız gereken kaynaklara erişmeye çalıştığında anlamına gelir. Oturum açtıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örneğin, bir parola yazmak) ikinci kez.
@@ -191,7 +191,6 @@ Yetkili bir kullanıcı bu uygulamaya özgü bağlantılardan birini tıkladığ
 Bu bağlantıları erişim panelinde ve Office 365 olarak aynı erişim denetimi mekanizmaları kullanın ve yalnızca bu kullanıcılar veya gruplar, Azure portalında uygulamanıza atanan kimliğini başarıyla doğrulamak mümkün olacaktır. Ancak, yetkilendirilmemiş herhangi bir kullanıcı, erişim verilmemiş ve erişim sahip oldukları mevcut uygulamaları görüntülemek için erişim paneli yüklemek için bir bağlantı verilen açıklayan bir ileti görürsünüz.
 
 ## <a name="related-articles"></a>İlgili makaleler
-* [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../active-directory-apps-index.md)
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](../saas-apps/tutorial-list.md)
 * [Cloud discovery'yi ayarlama](/cloud-app-security/set-up-cloud-discovery)
 * [Uygulamalara erişimi yönetme giriş](what-is-access-management.md)

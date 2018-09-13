@@ -1,6 +1,6 @@
 ---
-title: Yönetilen hizmet kimliği App Service ve Azure işlevleri'nde | Microsoft Docs
-description: Azure App Service ve Azure işlevleri yönetilen hizmet kimliği desteği için kavramsal başvurusu ve Kurulum Kılavuzu
+title: App Service ve Azure işlevleri kimliklerini yönetilen | Microsoft Docs
+description: Azure App Service ve Azure işlevleri yönetilen kimlikleri için kavramsal başvurusu ve Kurulum Kılavuzu
 services: app-service
 author: mattchenderson
 manager: cfowler
@@ -11,22 +11,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: c7a819f987de41ba7705d21bb6de95475cd3f9c8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 5d058059f523d3567817cad8ac11e837fb4a0a49
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027195"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714265"
 ---
-# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Azure yönetilen hizmet kimliği App Service ve Azure işlevleri'ni kullanma
+# <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service ve Azure işlevleri için yönetilen kimliklerini kullanma
 
 > [!NOTE] 
-> App Service'in Linux'ta ve kapsayıcılar için Web uygulaması şu anda desteklemediği yönetilen hizmet kimliği.
+> App Service'in Linux'ta ve kapsayıcılar için Web uygulaması şu anda desteklemediği yönetilen kimlikleri.
 
 > [!Important] 
-> App Service ve Azure işlevleri için Yönetilen hizmet kimliği, uygulamanızı abonelikleri/kiracılar genelinde geçirdiyseniz beklendiği gibi davranmaz. Uygulamayı devre dışı bırakıp yeniden özelliğini etkinleştirerek yapılabilir yeni bir kimliği edinmeniz gerekir. Bkz: [Kimlikteki kaldırma](#remove) aşağıda. Aşağı Akış kaynakları da erişim ilkelerini yeni bir kimlik kullanacak şekilde güncelleştirilmiş olması gerekir.
+> App Service ve Azure işlevleri için yönetilen kimlikleri, uygulamanızı abonelikleri/kiracılar genelinde geçirdiyseniz beklendiği gibi davranmaz. Uygulamayı devre dışı bırakıp yeniden özelliğini etkinleştirerek yapılabilir yeni bir kimliği edinmeniz gerekir. Bkz: [Kimlikteki kaldırma](#remove) aşağıda. Aşağı Akış kaynakları da erişim ilkelerini yeni bir kimlik kullanacak şekilde güncelleştirilmiş olması gerekir.
 
-Bu konu, uygulamaları App Service ve Azure işlevleri için bir yönetilen uygulama kimliği oluşturma ve diğer kaynaklarına erişmek için kullanma gösterilmektedir. Yönetilen hizmet kimliği Azure Active Directory'den Azure Key Vault gibi diğer AAD korumalı kaynakları kolayca erişmek için uygulamanızı sağlar. Kimlik Azure platformu tarafından yönetilir ve sağlama veya herhangi bir gizli anahtar döndürme gerektirmez. Yönetilen hizmet kimliği hakkında daha fazla bilgi için bkz. [yönetilen hizmet Kimliği'ne genel bakış](../active-directory/managed-identities-azure-resources/overview.md).
+Bu konuda, App Service ve Azure işlevleri uygulamaları için yönetilen bir kimlik oluşturma ve diğer kaynaklarına erişmek için kullanma gösterilmektedir. Azure Key Vault gibi diğer AAD korumalı kaynakları kolayca erişmek için uygulamanızı Azure Active Directory'den yönetilen bir kimlik sağlar. Kimlik Azure platformu tarafından yönetilir ve sağlama veya herhangi bir gizli anahtar döndürme gerektirmez. Aad'de yönetilen kimlikleri hakkında daha fazla bilgi için bkz. [kimliklerini Azure kaynakları için yönetilen](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Bir kimlik ile uygulama oluşturma
 
@@ -34,21 +34,21 @@ Bir kimlik ile uygulama oluşturma, uygulama üzerinde ayarlamak için ek bir ö
 
 ### <a name="using-the-azure-portal"></a>Azure portalını kullanma
 
-Portalda bir yönetilen hizmet kimliği ayarlamak için ilk olarak normal bir uygulama oluşturun ve ardından özelliği etkinleştirmek.
+Portalda yönetilen bir kimlik ayarlamak için ilk olarak normal bir uygulama oluşturun ve ardından özelliği etkinleştirmek.
 
 1. Normalde yaptığınız gibi Portalı'nda bir uygulama oluşturun. İçin portalda gidin.
 
 2. Bir işlev uygulaması kullanıyorsanız gidin **Platform özellikleri**. Diğer uygulama türleri için aşağı kaydırarak **ayarları** sol gezinti grubu.
 
-3. Seçin **yönetilen hizmet kimliği**.
+3. Seçin **yönetilen kimliği**.
 
 4. Anahtar **Azure Active Directory ile kayıt** için **üzerinde**. **Kaydet**’e tıklayın.
 
-![Yönetilen hizmet kimliği App Service'te](media/app-service-managed-service-identity/msi-blade.png)
+![App Service içindeki yönetilen kimlik](media/app-service-managed-service-identity/msi-blade.png)
 
 ### <a name="using-the-azure-cli"></a>Azure CLI kullanma
 
-Azure CLI kullanarak bir yönetilen hizmet kimliği ayarlamak için kullanmanız gerekecektir `az webapp identity assign` mevcut bir uygulamaya göre komutu. Bu bölümdeki örnekler çalıştırmak için üç seçeneğiniz vardır:
+Azure CLI kullanarak bir yönetilen kimlik için kullanmanız gerekecektir `az webapp identity assign` mevcut bir uygulamaya göre komutu. Bu bölümdeki örnekler çalıştırmak için üç seçeneğiniz vardır:
 
 - Kullanım [Azure Cloud Shell](../cloud-shell/overview.md) Azure portalından.
 - Katıştırılmış Azure Cloud Shell aracılığıyla her kod bloğunun sağ üst köşesinde bulunan "Try It" düğmesini kullanın.
@@ -151,13 +151,13 @@ Burada `<TENANTID>` ve `<PRINCIPALID>` GUID'lerini aşağıdaki ile değiştiril
 Uygulama kimliğini, Azure Key Vault gibi bir AAD tarafından korunan diğer kaynaklara belirteçlerini almak için kullanabilirsiniz. Bu belirteçler kaynağı ve belirli hiçbir kullanıcı uygulamanın erişen uygulamada temsil eder. 
 
 > [!IMPORTANT]
-> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç isteği, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğinizden emin olun gerekir. Belirteç içeriyorsa bile Aksi takdirde, aramalarınız için Key Vault, reddedilir. Yönetilen hizmet kimliği belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
+> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç isteği, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğinizden emin olun gerekir. Belirteç içeriyorsa bile Aksi takdirde, aramalarınız için Key Vault, reddedilir. Azure Active Directory belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
 
 App Service ve Azure işlevleri, bir belirteç almak için basit bir REST protokolü yoktur. .NET uygulamaları için Microsoft.Azure.Services.AppAuthentication kitaplığını, bu protokolü üzerinden bir Özet sağlar ve bir yerel geliştirme deneyimini destekler.
 
 ### <a name="asal"></a>.NET için Microsoft.Azure.Services.AppAuthentication kitaplığını kullanma
 
-.NET uygulamaları ve işlevleri için Yönetilen hizmet kimliği ile çalışmak için en basit yolu Microsoft.Azure.Services.AppAuthentication paketidir. Bu kitaplık, Visual Studio, kullanıcı hesabını kullanarak yerel olarak geliştirme makinenizde, kodunuzu test etmek de sağlayacak [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), ya da Active Directory tümleşik kimlik doğrulaması. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz. [Microsoft.Azure.Services.AppAuthentication başvurusu]. Bu bölümde, kitaplığı kodunuza kullanmaya başlama işlemini göstermektedir.
+.NET uygulamaları ve işlevleri için yönetilen bir kimlik ile çalışmak için en basit yolu Microsoft.Azure.Services.AppAuthentication paketidir. Bu kitaplık, Visual Studio, kullanıcı hesabını kullanarak yerel olarak geliştirme makinenizde, kodunuzu test etmek de sağlayacak [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), ya da Active Directory tümleşik kimlik doğrulaması. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz. [Microsoft.Azure.Services.AppAuthentication başvurusu]. Bu bölümde, kitaplığı kodunuza kullanmaya başlama işlemini göstermektedir.
 
 1. Başvuruları Ekle [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) ve [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) uygulamanıza NuGet paketleri.
 
@@ -168,7 +168,7 @@ using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.KeyVault;
 // ...
 var azureServiceTokenProvider = new AzureServiceTokenProvider();
-string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
 // OR
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
@@ -177,7 +177,7 @@ Microsoft.Azure.Services.AppAuthentication ve kullanıma sunduğu işlemleri hak
 
 ### <a name="using-the-rest-protocol"></a>REST protokolü kullanarak
 
-Yönetilen hizmet kimliği ile bir uygulama tanımlı iki ortam değişkenleri vardır:
+Yönetilen bir kimlik ile bir uygulama tanımlı iki ortam değişkenleri vardır:
 - MSI_ENDPOINT
 - MSI_SECRET
 
@@ -205,7 +205,7 @@ Başarılı 200 Tamam yanıtı bir JSON gövdesi aşağıdaki özellikleri içer
 Bu yanıt aynıdır [AAD hizmetten hizmete erişim belirteci isteği için yanıt](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE] 
-> Ortam değişkenlerini ayarlandığı işlemi ilk kez başlatıldığında, yönetilen hizmet kimliği için uygulamanızı etkinleştirdikten sonra uygulamanızı yeniden başlatın ya da kendi kod önce dağıtmanız gerekebilir şekilde `MSI_ENDPOINT` ve `MSI_SECRET` kodunuz için kullanılabilir.
+> Ortam değişkenlerini ayarlandığı işlemi ilk kez başlatıldığında, böylece uygulamanız için bir yönetilen kimlik etkinleştirdikten sonra uygulamanızı yeniden başlatın ya da kendi kod önce dağıtmanız gerekebilir `MSI_ENDPOINT` ve `MSI_SECRET` kodunuz için kullanılabilir.
 
 ### <a name="rest-protocol-examples"></a>REST Protokolü örnekleri
 Bir örnek istek aşağıdaki gibi görünebilir:
@@ -276,11 +276,11 @@ Bir kimlik, oluşturulduğu aynı şekilde portal, PowerShell veya CLI kullanara
 Bu şekilde kimlik kaldırma da asıl AAD'den silinir. Uygulama kaynağı silindiğinde sistem tarafından atanan kimlikleri AAD'den otomatik olarak kaldırılır.
 
 > [!NOTE] 
-> Ayarlanabilen, bir uygulama ayarı yalnızca yerel belirteç hizmeti devre dışı bırakan WEBSITE_DISABLE_MSI yoktur. Ancak, yerinde kimlik bırakır ve araçları MSI olarak "on" veya "etkin" hala Göster Sonuç olarak, bu seçeneğin önerilen değil.
+> Ayarlanabilen, bir uygulama ayarı yalnızca yerel belirteç hizmeti devre dışı bırakan WEBSITE_DISABLE_MSI yoktur. Ancak, yerinde kimlik bırakır ve araçları yönetilen kimlik olarak "on" veya "etkin" hala Göster Sonuç olarak, bu seçeneğin önerilen değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Yönetilen hizmet kimliğini kullanarak SQL Veritabanına güvenli bir şekilde erişme](app-service-web-tutorial-connect-msi.md)
+> [Yönetilen kimlik kullanarak güvenli bir şekilde erişim SQL veritabanı](app-service-web-tutorial-connect-msi.md)
 
 [Microsoft.Azure.Services.AppAuthentication başvurusu]: https://go.microsoft.com/fwlink/p/?linkid=862452

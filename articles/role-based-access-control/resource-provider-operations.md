@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7e66f9a0f22103c01e947c028a5c8355cb4d0e15
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: dc362dba62e8fd41b33e10368483577d8166f300
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095581"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722342"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -846,11 +846,11 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ClassicCompute/domainNames/serviceCertificates/operationStatuses/read | Etki alanı adları hizmet sertifikaları için işlem durumunu okur. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/serviceCertificates/read | Kullanılan hizmet sertifikalarını döndürür. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/serviceCertificates/write | Kullanılan hizmet sertifikalarını ekleyin veya değiştirin. |
-> | Eylem | Microsoft.ClassicCompute/domainNames/slots/abortMigration/action | Dağıtım yuvası geçişini durdurur. |
-> | Eylem | Microsoft.ClassicCompute/domainNames/slots/commitMigration/action | Dağıtım yuvası geçişini yürütür. |
+> | Eylem | Microsoft.ClassicCompute/domainNames/slots/abortMigration/action | Bir dağıtım yuvasının geçişini durdurur. |
+> | Eylem | Microsoft.ClassicCompute/domainNames/slots/commitMigration/action | Bir dağıtım yuvasının geçişini yürütür. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/slots/delete | Bir dağıtım yuvasını siler. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/slots/operationStatuses/read | Etki alanı adı yuvaları için işlem durumunu okur. |
-> | Eylem | Microsoft.ClassicCompute/domainNames/slots/prepareMigration/action | Dağıtım yuvası geçişini hazırlar. |
+> | Eylem | Microsoft.ClassicCompute/domainNames/slots/prepareMigration/action | Bir dağıtım yuvasının geçişini hazırlar. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/slots/read | Dağıtım yuvalarını gösterir. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/delete | Dağıtım yuvası rolüne ait uzantı başvurusunu kaldırın. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/operationStatuses/read | Etki alanı adı yuvaları uzantı başvuruları için işlem durumunu okur. |
@@ -876,7 +876,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ClassicCompute/domainNames/slots/state/stop/write | Dağıtım yuvası durumunu başlatıldı olarak değiştirir. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/slots/stop/action | Dağıtım yuvasını askıya alır. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/slots/upgradeDomain/write | Etki alanını yükseltir. |
-> | Eylem | Microsoft.ClassicCompute/domainNames/slots/validateMigration/action | Dağıtım yuvası geçişini doğrular. |
+> | Eylem | Microsoft.ClassicCompute/domainNames/slots/validateMigration/action | Bir dağıtım yuvasının geçişini doğrular. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/slots/write | Dağıtımı oluşturur veya güncelleştirir. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/swap/action | Hazırlama yuvasını üretim yuvasıyla değiştirir. |
 > | Eylem | Microsoft.ClassicCompute/domainNames/write | Kaynaklar için etki alanı adlarını ekleyin veya değiştirin. |
@@ -1271,8 +1271,8 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ContainerRegistry/registries/listPolicies/read | Belirtilen kapsayıcı kayıt defteri için ilkelerini listeler |
 > | Eylem | Microsoft.ContainerRegistry/registries/listUsages/read | Belirtilen kapsayıcı kayıt defteri kota kullanımları listeler. |
 > | Eylem | Microsoft.ContainerRegistry/registries/operationStatuses/read | Bir kayıt defteri zaman uyumsuz işlem durumunu alır |
-> | Eylem | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read | Kaynak için tanılama ayarını alır |
-> | Eylem | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
+> | Eylem | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read | Kaynağın tanılama ayarını alır |
+> | Eylem | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read | Microsoft ContainerRegistry için kullanılabilir ölçümleri alır |
 > | Eylem | Microsoft.ContainerRegistry/registries/pull/read | Çektiğinizde ya da kapsayıcı kayıt defterinden görüntüleri alın. |
 > | Eylem | Microsoft.ContainerRegistry/registries/push/write | Anında iletme veya görüntüleri bir kapsayıcı kayıt defterine yazma. |
@@ -1404,8 +1404,8 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.CustomerInsights/hubs/profiles/operations/read | Tüm Azure müşteri öngörüleri profili işlem sonucunu okuyun |
 > | Eylem | Microsoft.CustomerInsights/hubs/profiles/read | Tüm Azure müşteri öngörüleri profilini okuma |
 > | Eylem | Microsoft.CustomerInsights/hubs/profiles/write | Herhangi bir Azure müşterisi Insights profil yazma |
-> | Eylem | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/diagnosticSettings/read | Kaynak için tanılama ayarını alır |
-> | Eylem | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
+> | Eylem | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/diagnosticSettings/read | Kaynağın tanılama ayarını alır |
+> | Eylem | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/logDefinitions/read | Kaynak için kullanılabilir günlükleri alır |
 > | Eylem | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/metricDefinitions/read | Kaynak için kullanılabilir ölçümleri alır |
 > | Eylem | Microsoft.CustomerInsights/hubs/read | Azure müşteri öngörüleri hub'ı okuyun |
@@ -1513,8 +1513,8 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.DataFactory/datafactories/linkedServices/delete | Herhangi bir bağlı hizmeti siler. |
 > | Eylem | Microsoft.DataFactory/datafactories/linkedServices/read | Herhangi bir bağlı hizmeti okur. |
 > | Eylem | Microsoft.DataFactory/datafactories/linkedServices/write | Oluşturur veya güncelleştirir herhangi bir bağlı hizmeti. |
-> | Eylem | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/diagnosticSettings/read | Kaynak için tanılama ayarını alır |
-> | Eylem | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
+> | Eylem | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/diagnosticSettings/read | Kaynağın tanılama ayarını alır |
+> | Eylem | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/metricDefinitions/read | Datafactories için kullanılabilir ölçümleri alır |
 > | Eylem | Microsoft.DataFactory/datafactories/read | Data Factory okur. |
 > | Eylem | Microsoft.DataFactory/datafactories/runs/loginfo/read | Günlükleri içeren bir blob kapsayıcısı için SAS URI'si okur. |
@@ -1556,8 +1556,8 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.DataFactory/factories/pipelines/pipelineruns/read | İşlem hattı çalıştırmasını okur. |
 > | Eylem | Microsoft.DataFactory/factories/pipelines/read | İşlem hattı okur. |
 > | Eylem | Microsoft.DataFactory/factories/pipelines/write | İşlem hattı güncelle |
-> | Eylem | Microsoft.DataFactory/factories/providers/Microsoft.Insights/diagnosticSettings/read | Kaynak için tanılama ayarını alır |
-> | Eylem | Microsoft.DataFactory/factories/providers/Microsoft.Insights/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
+> | Eylem | Microsoft.DataFactory/factories/providers/Microsoft.Insights/diagnosticSettings/read | Kaynağın tanılama ayarını alır |
+> | Eylem | Microsoft.DataFactory/factories/providers/Microsoft.Insights/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.DataFactory/factories/providers/Microsoft.Insights/logDefinitions/read | Fabrikaları için mevcut günlükleri alır |
 > | Eylem | Microsoft.DataFactory/factories/providers/Microsoft.Insights/metricDefinitions/read | Fabrikaları için kullanılabilir ölçümleri alır |
 > | Eylem | Microsoft.DataFactory/factories/querypipelineruns/action | İşlem hattı çalıştırmaları sorgular. |
@@ -1688,7 +1688,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.DBforMySQL/servers/firewallRules/read | Güvenlik Duvarı listesini bir sunucu için kuralları veya özellikleri için belirtilen güvenlik duvarı kuralı alır döndürür. |
 > | Eylem | Microsoft.DBforMySQL/servers/firewallRules/write | Belirtilen parametreleri ya da mevcut bir kuralı güncelleştirme güvenlik duvarı kuralı oluşturur. |
 > | Eylem | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Kaynağın disagnostic ayarını alır |
-> | Eylem | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
+> | Eylem | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/metricDefinitions/read | Dönüş türleri veritabanları için kullanılabilir ölçümleri |
 > | Eylem | Microsoft.DBforMySQL/servers/read | Sunucuları veya belirtilen sunucunun özelliklerini alır listesini döndürür. |
 > | Eylem | Microsoft.DBforMySQL/servers/recoverableServers/read | Kurtarılabilir MySQL sunucusu bilgileri |
@@ -1714,7 +1714,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.DBforPostgreSQL/servers/firewallRules/read | Güvenlik Duvarı listesini bir sunucu için kuralları veya özellikleri için belirtilen güvenlik duvarı kuralı alır döndürür. |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/firewallRules/write | Belirtilen parametreleri ya da mevcut bir kuralı güncelleştirme güvenlik duvarı kuralı oluşturur. |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Kaynağın disagnostic ayarını alır |
-> | Eylem | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
+> | Eylem | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | Postgres sunucuları için kullanılabilir günlükleri alır |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/metricDefinitions/read | Dönüş türleri veritabanları için kullanılabilir ölçümleri |
 > | Eylem | Microsoft.DBforPostgreSQL/servers/queryTexts/action | Sorgu metni döndürün |
@@ -1737,16 +1737,16 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | --- | --- | --- |
 > | Eylem | Microsoft.Devices/checkNameAvailability/Action | Varsa Iothub adı kullanılabilir olup olmadığını denetleyin |
 > | Eylem | Microsoft.Devices/checkProvisioningServiceNameAvailability/Action | Hizmet adı, sağlama kullanılabilir olup olmadığını denetleyin |
-> | Eylem | Microsoft.Devices/ElasticPools/diagnosticSettings/read | Kaynak için tanılama ayarını alır |
-> | Eylem | Microsoft.Devices/ElasticPools/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
+> | Eylem | Microsoft.Devices/ElasticPools/diagnosticSettings/read | Kaynağın tanılama ayarını alır |
+> | Eylem | Microsoft.Devices/ElasticPools/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.Devices/elasticPools/iotHubTenants/certificates/Delete | Sertifika siler |
 > | Eylem | Microsoft.Devices/elasticPools/iotHubTenants/certificates/generateVerificationCode/Action | Doğrulama kodu oluştur |
 > | Eylem | Microsoft.Devices/elasticPools/iotHubTenants/certificates/Read | Sertifikayı alır |
 > | Eylem | Microsoft.Devices/elasticPools/iotHubTenants/certificates/verify/Action | Sertifika kaynak doğrulayın |
 > | Eylem | Microsoft.Devices/elasticPools/iotHubTenants/certificates/Write | Sertifika güncelle |
 > | Eylem | Microsoft.Devices/elasticPools/iotHubTenants/Delete | Iothub Kiracı kaynağı silme |
-> | Eylem | Microsoft.Devices/ElasticPools/IotHubTenants/diagnosticSettings/read | Kaynak için tanılama ayarını alır |
-> | Eylem | Microsoft.Devices/ElasticPools/IotHubTenants/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
+> | Eylem | Microsoft.Devices/ElasticPools/IotHubTenants/diagnosticSettings/read | Kaynağın tanılama ayarını alır |
+> | Eylem | Microsoft.Devices/ElasticPools/IotHubTenants/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.Devices/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Delete | EventHub tüketici grubunu sil |
 > | Eylem | Microsoft.Devices/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Read | EventHub tüketici gruplarını Al |
 > | Eylem | Microsoft.Devices/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Write | EventHub tüketici grubu oluşturun |
@@ -1771,8 +1771,8 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Devices/iotHubs/certificates/verify/Action | Sertifika kaynak doğrulayın |
 > | Eylem | Microsoft.Devices/iotHubs/certificates/Write | Sertifika güncelle |
 > | Eylem | Microsoft.Devices/iotHubs/Delete | Iothub'ı kaynağını Sil |
-> | Eylem | Microsoft.Devices/IotHubs/diagnosticSettings/read | Kaynak için tanılama ayarını alır |
-> | Eylem | Microsoft.Devices/IotHubs/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
+> | Eylem | Microsoft.Devices/IotHubs/diagnosticSettings/read | Kaynağın tanılama ayarını alır |
+> | Eylem | Microsoft.Devices/IotHubs/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.Devices/iotHubs/eventGridFilters/Delete | Olay Kılavuzu filtresini siler |
 > | Eylem | Microsoft.Devices/iotHubs/eventGridFilters/Read | Olay Kılavuzu filtresini alır |
 > | Eylem | Microsoft.Devices/iotHubs/eventGridFilters/Write | Yeni veya mevcut bir olay Kılavuzu filtresini güncelleştir |
@@ -1804,8 +1804,8 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Devices/provisioningServices/certificates/verify/Action | Sertifika kaynak doğrulayın |
 > | Eylem | Microsoft.Devices/provisioningServices/certificates/Write | Sertifika güncelle |
 > | Eylem | Microsoft.Devices/provisioningServices/Delete | IotDps kaynağı silme |
-> | Eylem | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Kaynak için tanılama ayarını alır |
-> | Eylem | Microsoft.Devices/provisioningServices/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
+> | Eylem | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Kaynağın tanılama ayarını alır |
+> | Eylem | Microsoft.Devices/provisioningServices/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.Devices/provisioningServices/keys/listkeys/Action | Anahtar adı için IotDps anahtarları alma |
 > | Eylem | Microsoft.Devices/provisioningServices/listkeys/Action | Tüm IotDps anahtarları alma |
 > | Eylem | Microsoft.Devices/provisioningServices/logDefinitions/read | Sağlama hizmeti için kullanılabilir günlük tanımlarını alır |
@@ -1954,8 +1954,8 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.DocumentDB/databaseAccounts/percentile/read | Çoğaltma gecikmeleri yüzdebirliklerini okuyun |
 > | Eylem | Microsoft.DocumentDB/databaseAccounts/percentile/sourceRegion/targetRegion/metrics/read | Belirli bir kaynak ve hedef bölge için gecikme süresi ölçümlerini okuma |
 > | Eylem | Microsoft.DocumentDB/databaseAccounts/percentile/targetRegion/metrics/read | Belirli hedef bölge için gecikme süresi ölçümlerini okuma |
-> | Eylem | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Kaynak için tanılama ayarını alır |
-> | Eylem | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Kaynak için tanılama ayarını oluşturur veya güncelleştirir |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Kaynağın tanılama ayarını alır |
+> | Eylem | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Kaynağın tanılama ayarını oluşturur veya güncelleştirir |
 > | Eylem | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/logDefinitions/read | Veritabanı hesabı için kullanılabilir günlük catageries alır |
 > | Eylem | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/metricDefinitions/read | Veritabanı hesabı için kullanılabilir ölçümleri alır |
 > | Eylem | Microsoft.DocumentDB/databaseAccounts/read | Bir veritabanı hesabı okur. |
@@ -4455,7 +4455,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Sql/managedInstances/delete | Mevcut bir yönetilen örnek siler. |
 > | Eylem | Microsoft.Sql/managedInstances/encryptionProtector/read | Sunucu şifreleme koruyucusu listesini döndürür veya özellikleri için belirtilen sunucu şifreleme koruyucusu alır. |
 > | Eylem | Microsoft.Sql/managedInstances/encryptionProtector/write | Belirtilen sunucu şifreleme koruyucusu için özelliklerini güncelleştirir. |
-> | Eylem | Microsoft.Sql/managedInstances/keys/delete | Mevcut bir Azure SQL yönetilen örneği anahtarı siler. |
+> | Eylem | Microsoft.Sql/managedInstances/keys/delete | Mevcut bir Azure SQL veritabanı yönetilen örneği anahtarı siler. |
 > | Eylem | Microsoft.Sql/managedInstances/keys/read | Dönüş yönetilen örnek listesi, anahtarlar veya belirtilen yönetilen örnek anahtarı için özellikleri alır. |
 > | Eylem | Microsoft.Sql/managedInstances/keys/write | Belirtilen parametrelerle bir anahtar oluşturur veya özellikleri veya etiketleri belirtilen yönetilen örnek anahtarı için güncelleştirin. |
 > | Eylem | Microsoft.Sql/managedInstances/metricDefinitions/read | Yönetilen örnek ölçüm tanımlarını Al |
