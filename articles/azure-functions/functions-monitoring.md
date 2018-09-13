@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 9c39d621bfc8df338a4556fd412ae54489982074
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 89f222d28a284abff50e60b12c691be2f8691255
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092776"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718959"
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
@@ -234,7 +234,7 @@ Bu örnekte, aşağıdaki kurallar ayarlar:
 
 Kategori değeri *host.json* günlük kaydı için aynı değeri ile başlayan tüm kategorileri denetler. Örneğin, "içinde ana bilgisayar" *host.json* "Host.General", "Host.Executor", "Host.Results" ve benzeri için günlüğe kaydetmeyi denetler.
 
-Varsa *host.json* aynı dize ile başlayan birden çok kategori içeren uzun olanlarla ilk eşleştirilir. Örneğin, çalışma zamanı günlüğe kaydetmek için "Host.Aggregator" dışında her şeyi istediğinizi varsayalım `Error` düzeyi "Host.Aggregator" günlüklerine çalışırken `Information` düzeyi:
+Varsa *host.json* aynı dize ile başlayan birden çok kategori içeren uzun olanlarla ilk eşleştirilir. Örneğin, çalışma zamanı günlüğe kaydetmek için "Host.Aggregator" dışında her şeyi istediğinizi varsayalım `Error` düzeyi, ancak isterseniz "Host.Aggregator günlüğe kaydetmek için" `Information` düzeyi:
 
 ```json
 {
@@ -298,7 +298,7 @@ Günlükleri, işlev kodunuzun tarafından yazılan, "İşlev" kategorisi olan v
 
 ## <a name="configure-sampling"></a>Örnekleme yapılandırma
 
-Application Insights'ı olan bir [örnekleme](../application-insights/app-insights-sampling.md) zamanlarda, yoğun yük çok fazla telemetri verileri üreten gelen Koruyabileceğiniz özelliği. Application Insights telemetri öğelerinin sayısını belirtilen hızdan rastgele bazı gelen öğeleri yoksay başlar. 5 saniye başına öğe sayısı için varsayılan ayardır. Örnekleme yapılandırabileceğiniz *host.json*.  Bir örneği aşağıda verilmiştir:
+Application Insights'ı olan bir [örnekleme](../application-insights/app-insights-sampling.md) zamanlarda, yoğun yük çok fazla telemetri verileri üreten gelen Koruyabileceğiniz özelliği. Gelen telemetri oranı belirtilen eşiği aşarsa, rastgele gelen öğelerden bazıları yok saymak Application ınsights'ı başlatır. 5 saniye başına öğe sayısı için varsayılan ayardır. Örnekleme yapılandırabileceğiniz *host.json*.  Bir örneği aşağıda verilmiştir:
 
 ```json
 {
@@ -457,11 +457,6 @@ namespace functionapp0915
                 };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
-            
-            return name == null
-                ? req.CreateResponse(HttpStatusCode.BadRequest, 
-                    "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
         
         // This correllates all telemetry with the current Function invocation
@@ -499,18 +494,6 @@ module.exports = function (context, req) {
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
     client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
     context.done();
 };
 ```

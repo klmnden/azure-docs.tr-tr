@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: rebeccaz
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: feb187101ec02d6e765d6b025f518dc416f55b8b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: cc52b9ee290ca362c51f7a30cc09056e66df3c55
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043972"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719826"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell kullanarak bir saydam veri şifrelemesi (TDE) koruyucusu Kaldır
 ## <a name="prerequisites"></a>Önkoşullar
@@ -41,7 +41,7 @@ Unutmayın, bir kez TDE koruyucusu, anahtar Kasası'nda silinir **sunucunun alt�
 
 Bu nasıl yapılır kılavuzunda sonra olay yanıtı istenen sonuca bağlı olarak iki yaklaşım üzerinden geçer:
 - Azure SQL veritabanlarını korumak için / Data Warehouses **erişilebilir**
-- Azure SQL veritabanları yapma / Data Warehouses **erişilemez**
+- Azure SQL veritabanı olmak için / Data Warehouses **erişilemez**
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Şifrelenmiş kaynakları erişilebilir tutmak için
 1. Oluşturma bir [anahtar Kasası'nda yeni anahtar](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Erişim denetimi bir kasa düzeyinde sağlandığı bu yeni anahtar riskli olabilecek TDE koruyucusuna'ndan ayrı bir anahtar kasasındaki oluşturulduğundan emin olun. 

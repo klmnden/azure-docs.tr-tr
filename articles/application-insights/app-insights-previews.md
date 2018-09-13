@@ -1,39 +1,40 @@
 ---
-title: "Azure Application Insights için Önizleme tercihleri ayarlama | Microsoft Docs"
-description: "Azure Application Insights geliştirme ekibi yeni deneyimler yapar. Azure portalında önizleme yapmak istediğiniz hangi yeni deneyimler ayarlayabilirsiniz."
+title: Azure Application ınsights Önizleme tercihlerini ayarlama | Microsoft Docs
+description: Azure Application Insights geliştirme ekibinin yeni deneyimler yapar. Azure portalında önizleme yapmak istediğiniz hangi yeni deneyimler ayarlayabilirsiniz.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-ms.assetid: 
+ms.assetid: ''
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: f39ed880003c6ead0e720b730e6b70a4287b5f3f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4d3e7a28e2a57cfeae4e48719dbc17533a856016
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651169"
 ---
 # <a name="preview-upcoming-changes-to-azure-application-insights"></a>Azure Application Insights yaklaşan Değişiklikleri Önizle 
 
-Application Insights sık yeni özellikler serbest bırakır. Bu geliştirmeler önizlemesini görmek istiyorsanız, uygulama Öngörüler Önizleme dikey penceresinde kaydolabilir.  Geliştirme ekibi yeni özelliklerin önizlemeleri sınırlı bir temelde tüm kullanıcılara serbest bırakmadan önce kullanılabilmesini sağlar. 
+Application Insights sık yeni özellikler serbest bırakır. Bu geliştirmeler önizlemelerini görmek istiyorsanız, Application Insights önizlemesi dikey penceresinde kaydolabilirsiniz.  Geliştirme ekibi yeni özelliklerin önizlemeler kısıtlı bir kapsamla tüm kullanıcılara bırakmadan önce kullanılabilmesini sağlar. 
 
-Aşağıdaki resimde, Önizleme tercihlerinizi belirlemek göstermektedir.
+Aşağıdaki görüntüde, Önizleme tercihlerinizi nasıl oluşturulduğunu gösterir.
 
-![Uygulama Öngörüler Önizleme dikey penceresi](./media/app-insights-preview/preview.png)
+![Application Insights Önizleme dikey penceresi](./media/app-insights-preview/preview.png)
 
 ## <a name="set-preferences"></a>Tercihlerini ayarlama
 
-Önizleme dikey penceresinde önizlemeleri gördüğünüzde için aşağıdaki seçenekler arasından seçim yapabilirsiniz.
+Önizleme dikey penceresinde, önizlemeler görmeniz için aşağıdaki seçenekler arasından seçim yapabilirsiniz.
 
-- Her zaman: Kullanılabilir duruma geldiğinde Önizleme karşılaştığında bakın.
-- Otomatik: Microsoft hesabınız için önerir Önizleme karşılaştığında bakın. 
-- Asla: Yalnızca seçtiğiniz Önizleme deneyimleri görürsünüz. 
+- Her zaman: Kullanılabilir olduğu anda, Önizleme deneyimleri bakın.
+- Otomatik: Microsoft hesabınız için önerdiği alanı Önizleme deneyimleri bakın. 
+- Hiçbir zaman: Yalnızca seçtiğiniz Önizleme deneyimleri göreceksiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -4,18 +4,18 @@ description: Azure SQL veritabanı veri bulma & sınıflandırma
 services: sql-database
 author: giladmit
 manager: craigg
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: giladm
-ms.openlocfilehash: 6ef9a701f3a228e4c40da94f83310ef2884a3f59
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a69142ebabc4af8b8543dc5dd276b99130620470
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42059663"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714981"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı veri bulma ve sınıflandırma
 Veri bulma & sınıflandırma (şu anda önizlemede), Azure SQL veritabanı için gelişmiş özellikler sunar **keşfetme**, **sınıflandırma**, **etiketleme**  &  **koruma** veritabanlarınızı hassas verileri.

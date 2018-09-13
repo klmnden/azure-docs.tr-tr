@@ -1,6 +1,6 @@
 ---
-title: "İzleme günlüklerini Azure Application Insights'ta Java keşfetme | Microsoft Docs"
-description: Application Insights arama Log4J veya Logback izlemeleri
+title: İzleme günlükleri Azure Application Insights Java keşfedin | Microsoft Docs
+description: Application ınsights arama Log4J veya Logback izlemeleri
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -10,29 +10,30 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: fae3269e21d0f760ae77a70333047306c07c2961
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 57c57f481138c6592056900fd5b002949006a37e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647100"
 ---
-# <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights izleme günlüklerini Java keşfedin
-Logback veya Log4J kullanıyorsanız (1.2 sürümü veya v2.0) için izlemeyi, izleme günlüklerinizi uygulama burada keşfedin ve bunlar üzerinde arama Öngörüler otomatik olarak gönderilen sahip olabilir.
+# <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights izleme günlükleri Java keşfedin
+Logback veya Log4J kullanıyorsanız (v1.2 veya v2.0) için izleme, otomatik olarak burada keşfedin ve bunlar üzerinde arama Application ınsights'a gönderilen izleme günlüklerinizi sahip olabilir.
 
-## <a name="install-the-java-sdk"></a>Java'yı yükleme SDK
+## <a name="install-the-java-sdk"></a>Java'yı yükleme SDK'sı
 
-Yüklemek için yönergeleri izleyin [Java için Application Insights SDK][java], size, bu işlemi yapmadıysanız.
+Yüklemek için yönergeleri izleyin [Java için Application Insights SDK'sı][java], zaten, yapmadınız.
 
-## <a name="add-logging-libraries-to-your-project"></a>Günlüğe kaydetme kitaplıklarını projenize ekleyin
+## <a name="add-logging-libraries-to-your-project"></a>Günlüğe kaydetme kitaplıklarını projenize ekleyin.
 *Projeniz için uygun yolu seçin.*
 
 #### <a name="if-youre-using-maven"></a>Maven kullanıyorsanız...
-Projeniz zaten Maven derleme için kullanmak üzere ayarlanmışsa, aşağıdaki kod parçacıkları birini pom.xml dosyanızla birleştirin.
+Projeniz Maven derleme için kullanılacak ayarladıysanız, aşağıdaki kod parçacıkları birini pom.xml dosyanıza kopyalayıp birleştirin.
 
-Daha sonra proje bağımlılıklarını ikili dosyaları almak için yenileyin.
+Ardından Proje bağımlılıklarını, ikili dosyaları indirmek için yenileyin.
 
 *Logback*
 
@@ -74,9 +75,9 @@ Daha sonra proje bağımlılıklarını ikili dosyaları almak için yenileyin.
 ```
 
 #### <a name="if-youre-using-gradle"></a>Gradle kullanıyorsanız...
-Projeniz zaten Gradle için derleme kullanmak üzere ayarlanmışsa, aşağıdaki satırları ekleyin `dependencies` build.gradle dosyanızla grubu:
+Projeniz zaten Gradle derleme için kullanılacak ayarlanıp ayarlanmadığını, aşağıdaki satırları ekleyin `dependencies` build.gradle dosyanıza grubu:
 
-Daha sonra proje bağımlılıklarını ikili dosyaları almak için yenileyin.
+Ardından Proje bağımlılıklarını, ikili dosyaları indirmek için yenileyin.
 
 **Logback**
 
@@ -98,17 +99,17 @@ Daha sonra proje bağımlılıklarını ikili dosyaları almak için yenileyin.
 ```
 
 #### <a name="otherwise-"></a>Aksi taktirde...
-El ile Application Insights Java SDK'sı (Maven Merkezi sayfasında ariving tıklattıktan sonra yükleme bölümünde 'jar' bağlantısında) jar için uygun appender karşıdan yükleyin ve indirilen appender jar projeye eklemek için yönergeleri izleyin.
+El ile Application Insights Java SDK'sı (Maven Merkezi sayfasında ariving tıkladıktan sonra yükleme bölümünde 'jar' bağlantısına) jar için uygun ekleyici karşıdan yükleyin ve indirilen ekleyici jar projeye eklemek için yönergeleri izleyin.
 
 | Günlükçü | İndirme | Kitaplık |
 | --- | --- | --- |
-| Logback |[Logback appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationınsights günlük logback |
-| Log4J v2.0 |[Log4J v2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
-| Log4j v1.2 |[Log4J 1.2 sürümü appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+| Logback |[Jar Logback ekleyici](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationınsights günlük logback |
+| Log4J v2.0 |[Log4J v2 ekleyici Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationınsights günlük log4j2 |
+| Log4j v1.2 |[Log4J v1.2 ekleyici Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationınsights günlük log4j1_2 |
 
 
-## <a name="add-the-appender-to-your-logging-framework"></a>Günlüğe kaydetme framework appender Ekle
-İzlemeler alma başlatmak için ilgili Log4J veya Logback yapılandırma dosyası için kod parçacığını birleştirin: 
+## <a name="add-the-appender-to-your-logging-framework"></a>İçin günlüğe kaydetme çerçevesi ekleyici ekleyin
+İzlemeleri başlamanız için ilgili Log4J veya Logback yapılandırma dosyası için kod parçacığı birleştirme: 
 
 *Logback*
 
@@ -151,17 +152,17 @@ El ile Application Insights Java SDK'sı (Maven Merkezi sayfasında ariving tık
     </root>
 ```
 
-Application Insights appenders (Yukarıdaki kod örnekleri gösterildiği gibi) yapılandırılmış tüm Günlükçü ve mutlaka kök Günlükçü tarafından başvurulabilir.
+Application Insights appenders (Yukarıdaki kod örnekleri gösterildiği gibi) tüm yapılandırılmış Günlükçü ve mutlaka kök Günlükçü tarafından başvurulabilir.
 
-## <a name="explore-your-traces-in-the-application-insights-portal"></a>Application Insights portalında, izlemeleri keşfedin
-Projenizi izlemeleri Application Insights'a gönderme yapılandırdıktan, görüntüleyin ve bu izlemelerin Application Insights portalında arama [arama] [ diagnostic] dikey.
+## <a name="explore-your-traces-in-the-application-insights-portal"></a>Application Insights portalında, izlemeleri keşfet
+Projenize Application Insights izlemelerini göndermek için yapılandırmış olduğunuz, görüntüleyebilir ve bu izlemelerin Application Insights portalında arama [arama] [ diagnostic] dikey penceresi.
 
-Özel durumlar submited günlükçüleri aracılığıyla özel durum Telemetrisi portalda görüntülenir.
+Özel durumlar gönderildiği konum: günlükçüleri aracılığıyla özel durum Telemetrisi portalda görüntülenir.
 
 ![Application Insights portalında arama açın](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Tanılama arama][diagnostic]
+[Tanılama araması][diagnostic]
 
 <!--Link references-->
 

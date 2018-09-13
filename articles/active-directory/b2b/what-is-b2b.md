@@ -1,90 +1,90 @@
 ---
 title: Azure Active Directory B2B işbirliği nedir? | Microsoft Docs
-description: Azure Active Directory B2B işbirliği Kurumsal uygulamalarınıza seçmeli olarak erişmek için iş ortaklarıyla etkinleştirerek, şirketler arası ilişkilerinizi destekler.
+description: Azure Active Directory B2B işbirliği iş ortaklarının Kurumsal uygulamalarınıza erişmesini olanaklı kılarak şirketler arası ilişkilerinizi destekler.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 04/26/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 2bc405e6356113e0423f833868c86890c0c3d5d2
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 51a969ae215583a0be8d75ff1de11173e0696a22
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260138"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651016"
 ---
 # <a name="what-is-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliği nedir?
 
-Azure Active Directory (Azure AD) işletmeden işletmeye (B2B) işbirliği özelliklerinden herhangi diğer kuruluştan, küçük veya büyük kullanıcılarla güvenle ve güvenli bir şekilde çalışması için Azure AD kullanan herhangi bir kuruluş etkinleştirin. Bu kuruluşlardan ile veya olmadan Azure AD olabilir ve hatta bir BT departmanının olması gerekmez.
+Azure Active Directory (Azure AD) işletmeler arası (B2B) işbirliği özelliklerinden herhangi diğer kuruluşun kullanıcıları, küçük veya büyük güvenli bir şekilde ve güvenli bir şekilde çalışmak için Azure AD kullanarak herhangi bir kuruluştaki etkinleştirin. Kuruluşlar ile veya olmadan Azure AD olabilir ve hatta bir BT departmanının ihtiyacınız yoktur.
 
-Azure AD kullanarak kuruluşlar kendi şirket verileri üzerinde tam denetimi korurken belgeleri, kaynakları ve ortakları, uygulamalara erişim sağlayabilir. Geliştiriciler, Azure AD-işletmeler kullanabileceğiniz iki kuruluş birlikte daha güvenli bir şekilde Getir uygulamalar yazmak üzere API'ler. Ayrıca, son kullanıcıların gitmek kolaydır.
+Azure AD kullanan kuruluşlar, kendi şirket verileri üzerinde tam denetimini elde tutarak belgelerin, kaynakları ve bunların iş ortakları için uygulamalar için erişim sağlayabilir. Geliştiriciler, Azure AD-işletmeler kullanabileceğiniz iki kuruluş daha güvenli bir şekilde bir araya uygulamalar yazmak üzere API'ler. Ayrıca, son kullanıcıların gitmek kolaydır.
 
-Aşağıdaki video yararlı bir genel bakış sağlar.
+Aşağıdaki video, kullanışlı bir genel bakış sağlar.
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
-## <a name="key-benefits-of-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliği kilit yararları
+## <a name="key-benefits-of-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliği önemli avantajları
 
-### <a name="work-with-any-user-from-any-partner"></a>Herhangi bir ortaktan herhangi bir kullanıcı ile çalışma
+### <a name="work-with-any-user-from-any-partner"></a>Herhangi bir kullanıcının herhangi bir iş ortağı ile çalışma
 
 - İş ortakları kendi kimlik bilgilerini kullan
-- Azure AD kullanmak iş ortakları için gereksinimi yoktur
-- Hiçbir dış dizinleri veya karmaşık Kurulum gerekli
+- Hiçbir gereksinim iş ortakları, Azure AD kullanmak için
+- Herhangi bir dış dizinlere veya karmaşık Kurulum gerekli
 
 ### <a name="simple-and-secure-collaboration"></a>Basit ve güvenli işbirliği
 
-- Gelişmiş, Azure AD destekli Yetkilendirme İlkeleri uygulanırken herhangi bir şirket uygulamasını veya veri erişim sağlamak
-- Kullanıcılar için kolay
+- Gelişmiş, Azure AD tarafından sağlanan Yetkilendirme İlkeleri uygulanırken herhangi bir şirket uygulamasını veya veri erişim sağlar.
+- Kullanıcılar daha kolay
 - Uygulamalar ve veriler için kurumsal düzeyde güvenlik
 
-### <a name="no-management-overhead"></a>Yönetim yükü
+### <a name="no-management-overhead"></a>Hiçbir yönetim yükü
 
 - Dış bir hesap veya parola yönetimi
 - Hiçbir eşitleme veya el ile hesap yaşam döngüsü yönetimi
-- Hiçbir dış yönetim yükü
+- Dış yönetim zahmetine
 
-## <a name="easily-add-b2b-collaboration-users"></a>B2B işbirliği kullanıcılar ekleyin
+## <a name="easily-add-b2b-collaboration-users"></a>B2B işbirliği kullanıcıları kolayca ekleyin
 
-Yönetici olarak, kolayca B2B işbirliği (konuk) kullanıcıların, kuruluşunuzda ekleyebileceğiniz [Azure portal](https://portal.azure.com).
+Bir yönetici olarak kolayca B2B işbirliği (konuk) kullanıcıları kuruluşunuza ekleyebileceğiniz [Azure portalında](https://portal.azure.com).
 
-![Konuk kullanıcı ekleme](media/what-is-b2b/adding-b2b-users-admin.png)
+![Konuk kullanıcıları ekleme](media/what-is-b2b/adding-b2b-users-admin.png)
 
-### <a name="enable-your-collaborators-to-bring-their-own-identity"></a>Kendi kimliğini getirmek, ortak etkinleştir
+### <a name="enable-your-collaborators-to-bring-their-own-identity"></a>Ortak Çalışanlar kendi kimlik getirmeyi etkinleştir
 
-B2B Ortak Çalışanlar kendi seçtikleri kimlik bilgilerinizle oturum açabilirsiniz. Kullanıcının bir Microsoft hesabı veya bir Azure AD hesabı – yoksa, bunlar için sorunsuz bir şekilde teklif kullanım için anda oluşturulur.
+B2B ortak çalışanlar istedikleri kimlik bilgilerinizle oturum açabilirsiniz. Kullanıcının bir Microsoft hesabı veya bir Azure AD hesabı – yoksa biri kendileri için sorunsuz bir şekilde teklif kullanım için zaman oluşturulur.
 
 ### <a name="delegate-to-application-and-group-owners"></a>Uygulama ve Grup sahipleri için temsilci seçme
 
-Bir Microsoft uygulaması olup olmadığını belirten bir uygulama veya grup sahibi, B2B kullanıcıların doğrudan, ilgilendiğiniz her uygulama ekleyebilirsiniz. Yöneticiler, yönetici olmayanların için B2B kullanıcılar ekleme izni devredebilirsiniz. Yönetici olmayanlar kullanabileceğiniz [Azure AD uygulama erişim Paneli'ne](https://myapps.microsoft.com) B2B işbirliği kullanıcılar uygulamaları veya grupları eklemek için.
+Bir Microsoft uygulaması olup olmadığına bakılmaksızın bir uygulama veya grup sahibi B2B kullanıcıları doğrudan, önem verdiğiniz her uygulama ekleyebilirsiniz. Yöneticileri, yönetici olmayanlar için B2B kullanıcıları ekleme izni atayabilirler. Yönetici olmayan kullanıcılar kullanabilir [Azure AD uygulama erişim panelinde](https://myapps.microsoft.com) B2B işbirliği kullanıcıları uygulamaları veya gruplara eklemek için.
 
-![erişim paneli](media/what-is-b2b/access-panel.png)
+![Erişim paneli](media/what-is-b2b/access-panel.png)
 
-![üye ekleme](media/what-is-b2b/add-member.png)
+![Üye Ekle](media/what-is-b2b/add-member.png)
 
-### <a name="authorization-policies-protect-your-corporate-content"></a>Yetkilendirme İlkeleri, şirket içeriğini koruyun
+### <a name="authorization-policies-protect-your-corporate-content"></a>Yetkilendirme İlkeleri Kurumsal içeriğinizi koruyun
 
-Koşullu erişim ilkeleri, çok faktörlü kimlik doğrulaması gibi uygulanabilir:
+Çok faktörlü kimlik doğrulaması gibi koşullu erişim ilkeleri uygulanabilir:
 - Kiracı düzeyinde
 - Uygulama düzeyinde
-- Belirli kullanıcıların şirket uygulamaları ve verileri koruma
+- Belirli kullanıcılar için şirket uygulamalarını ve verilerini koruma
 
-### <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>API'leri kullanan ve kolayca yerleşik uygulamaları oluşturmak için kod örneği
+### <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>API'leri kullanan ve örnek kod, dahili uygulamalara kolayca oluşturmak için
 
-Dış ortaklarınız karttaki kuruluşunuzun gereksinimlerine göre özelleştirilmiş yolları duruma getirin.
+Karttaki dış iş ortaklarınızı kuruluşunuzun ihtiyaçlarına göre özelleştirilmiş şekilde taşıyın.
 
-Kullanım [B2B İşbirliği davetini API'leri](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) , onboarding özelleştirmek için Self Servis kaydolma portalları oluşturma dahil karşılaştığında. Bir Self Servis portalı için örnek kod sağladığımız [github'da](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
+Kullanım [B2B işbirliği davet API'leri](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) ekleme özelleştirmek için Self Servis kaydolma Portal oluşturma gibi karşılaşır. Bir Self Servis portalı için örnek kodu sağlarız [github'da](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
 ![Kayıt portalı](media/what-is-b2b/sign-up-portal.png)
 
-Azure AD B2B işbirliği ile iş ortağı ilişkileri, son kullanıcıların kolay ve sezgisel Bul şekilde korumak için Azure ad tam güç elde edebilirsiniz.
+Azure AD B2B işbirliğiyle iş ortağı ilişkilerinizi son kullanıcılar kolay ve sezgisel bulabileceğiniz bir şekilde korumak için Azure AD'ye tam gücünü alabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Active Directory yöneticileri B2B işbirliği kullanıcıların nasıl eklenir?](add-users-administrator.md)
-- [Bilgi çalışanları B2B işbirliği kullanıcıların nasıl eklenir?](add-users-information-worker.md)
-- [B2B işbirliği davet kullanım](redemption-experience.md)
+- [Azure Active Directory yöneticileri B2B işbirliği kullanıcılarını nasıl ekleyebilir?](add-users-administrator.md)
+- [Bilgi çalışanları B2B işbirliği kullanıcılarını nasıl ekleyebilir?](add-users-information-worker.md)
+- [B2B işbirliği Davetiyesi kullanımı](redemption-experience.md)
 - [Azure AD B2B işbirliği lisanslama](licensing-guidance.md)
-- Ve her zaman olduğu gibi tüm geri bildirim, tartışmalara ve üzerinden öneriler için ürün ekibi bağlamak bizim [Microsoft teknik topluluk](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
+- Ve ürün ekibine geri bildirim, tartışmalar ve öneriler aracılığıyla her zaman olduğu gibi bağlanmak bizim [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).

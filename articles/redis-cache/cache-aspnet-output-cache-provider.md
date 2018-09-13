@@ -1,6 +1,6 @@
 ---
-title: Önbelleği ASP.NET çıktı önbelleği sağlayıcısı
-description: ASP.NET sayfası Azure Redis önbelleği kullanılarak çıktı önbellek öğrenin
+title: Cache ASP.NET çıktı önbelleği sağlayıcısı
+description: ASP.NET sayfasını kullanarak Azure Redis Cache çıktı önbellek hakkında bilgi edinin
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: wesmc
-ms.openlocfilehash: 81c95949971d54833ca7a15ec5148116c94767f7
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 3cf906830965959709a8c7e8dc7d2acc3f3a6f32
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27909831"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35982874"
 ---
-# <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>ASP.NET çıktı önbelleği sağlayıcısı Azure Redis önbelleği
-Redis çıkış önbelleği sağlayıcısı, çıktı önbelleği veriler için bir işlem dışı depolama mekanizmasıdır. Bu veriler için özellikle tam HTTP yanıtları edinilebilir (sayfa çıkış önbelleğe alma). Sağlayıcı, ASP.NET 4'te tanıtılan yeni çıkış önbelleği sağlayıcısı genişletilebilirlik noktası içine takılan.
+# <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>ASP.NET çıktı önbelleği sağlayıcısı için Azure Redis önbelleği
+Redis çıktı önbelleği sağlayıcısı, çıkış verileri önbelleğe almak için bir işlem dışı depolama mekanizmasıdır. Özellikle tam HTTP yanıtları için bu verilerdir (çıkış önbelleğe alma sayfası). ASP.NET 4'te kullanılmaya başlanan yeni çıktı önbelleği sağlayıcısı genişletilebilirlik noktasına sağlayıcı yararlanmanıza imkan sağlar.
 
-Çıktı önbelleği Redis sağlayıcısını kullanmak için ilk önbelleğiniz yapılandırın ve Redis çıkış önbelleği sağlayıcısı NuGet paketi kullanarak ASP.NET uygulamanızı yapılandırmak için. Bu konu, uygulamanızı Redis çıkış önbelleği sağlayıcısı kullanacak şekilde yapılandırma hakkında yönergeler sağlar. Oluşturma ve bir Azure Redis önbelleği örneği yapılandırma hakkında daha fazla bilgi için bkz: [bir önbellek oluşturma](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+Redis çıktı önbelleği sağlayıcısı kullanmak için önbelleğinizi önce yapılandırın ve ardından Redis çıktı önbelleği sağlayıcısı NuGet paketini kullanarak ASP.NET uygulamanızı yapılandırın. Bu konu, uygulamanızı Redis çıktı önbelleği sağlayıcısı kullanacak şekilde yapılandırma hakkında rehberlik sağlar. Oluşturma ve bir Azure Redis Cache örneği yapılandırma hakkında daha fazla bilgi için bkz. [bir önbellek oluşturma](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-## <a name="store-aspnet-page-output-in-the-cache"></a>ASP.NET sayfası çıktı önbelleğinde depolamak
-Redis önbelleği oturum durumu NuGet paketini kullanarak Visual Studio'da bir istemci uygulamasını yapılandırmak için tıklatın **NuGet Paket Yöneticisi**, **Paket Yöneticisi Konsolu** gelen **Araçları** menüsü.
+## <a name="store-aspnet-page-output-in-the-cache"></a>Önbellekte ASP.NET sayfa çıktısını Store
+Redis Cache oturum durumu NuGet paketini kullanarak Visual Studio'da bir istemci uygulamasını yapılandırmak için tıklayın **NuGet Paket Yöneticisi**, **Paket Yöneticisi Konsolu** gelen **Araçları**menüsü.
 
 `Package Manager Console` penceresinden aşağıdaki komutu çalıştırın.
     
@@ -35,21 +35,24 @@ Redis önbelleği oturum durumu NuGet paketini kullanarak Visual Studio'da bir i
 Install-Package Microsoft.Web.RedisOutputCacheProvider
 ```
 
-Redis çıkış önbelleği sağlayıcısı NuGet paketi StackExchange.Redis.StrongName paketi bir bağımlılığa sahiptir. StackExchange.Redis.StrongName paket projenizde mevcut değilse, yüklenir. Redis çıkış önbelleği sağlayıcısı NuGet paketi hakkında daha fazla bilgi için bkz: [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet sayfası.
+Redis çıktı önbelleği sağlayıcısı NuGet paketini StackExchange.Redis.StrongName paketinde bağımlılık vardır. StackExchange.Redis.StrongName paket, projenizde mevcut değilse yüklenir. Redis çıktı önbelleği sağlayıcısı NuGet paketi hakkında daha fazla bilgi için bkz. [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet sayfası.
 
 >[!NOTE]
->Tanımlayıcı adlı StackExchange.Redis.StrongName paket ek olarak, ayrıca olmayan-tanımlayıcı adlı StackExchange.Redis sürümü vardır. Projenizi kaldırmalısınız olmayan-tanımlayıcı adlı StackExchange.Redis sürümünü kullanıyorsanız, aksi takdirde, projenizde adlandırma çakışmaları alın. Bu paketleri hakkında daha fazla bilgi için bkz: [yapılandırma .NET önbellek istemcilerinin](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+>Tanımlayıcı adlı StackExchange.Redis.StrongName paket yanı sıra de olmayan-tanımlayıcı adlı StackExchange.Redis sürümü mevcuttur. Projenizi kaldırmalısınız olmayan-tanımlayıcı adlı StackExchange.Redis sürümü kullanıyorsanız, aksi takdirde, projenizde adlandırma çakışmaları alın. Bu paketler hakkında daha fazla bilgi için bkz. [önbellek istemcilerini yapılandırma .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 >
 >
 
-NuGet paketi indirir ve gerekli derleme başvurularını ekler ve aşağıdaki bölümü web.config dosyasına ekler. Bu bölüm Redis çıkış önbelleği sağlayıcısı kullanmak, ASP.NET uygulamanız için gerekli yapılandırmayı içerir.
+NuGet paketi indirir ve gerekli derleme başvurularını ekler ve aşağıdaki bölümde, web.config dosyasına ekler. Bu bölümde Redis çıktı önbelleği sağlayıcısı kullanmak ASP.NET uygulamanız için gerekli yapılandırmayı içerir.
 
 ```xml
 <caching>
   <outputCachedefault Provider="MyRedisOutputCache">
     <providers>
+      <!-- For more details check https://github.com/Azure/aspnet-redis-providers/wiki -->
+      <!-- Either use 'connectionString' OR 'settingsClassName' and 'settingsMethodName' OR use 'host','port','accessKey','ssl','connectionTimeoutInMilliseconds' and 'operationTimeoutInMilliseconds'. -->
+      <!-- 'databaseId' and 'applicationName' can be used with both options. -->
       <!--
-      <add name="MyRedisOutputCache"
+      <add name="MyRedisOutputCache" 
         host = "127.0.0.1" [String]
         port = "" [number]
         accessKey = "" [String]
@@ -57,39 +60,47 @@ NuGet paketi indirir ve gerekli derleme başvurularını ekler ve aşağıdaki b
         databaseId = "0" [number]
         applicationName = "" [String]
         connectionTimeoutInMilliseconds = "5000" [number]
-        operationTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "1000" [number]
+        connectionString = "<Valid StackExchange.Redis connection string>" [String]
+        settingsClassName = "<Assembly qualified class name that contains settings method specified below. Which basically return 'connectionString' value>" [String]
+        settingsMethodName = "<Settings method should be defined in settingsClass. It should be public, static, does not take any parameters and should have a return type of 'String', which is basically 'connectionString' value.>" [String]
+        loggingClassName = "<Assembly qualified class name that contains logging method specified below>" [String]
+        loggingMethodName = "<Logging method should be defined in loggingClass. It should be public, static, does not take any parameters and should have a return type of System.IO.TextWriter.>" [String]
+        redisSerializerType = "<Assembly qualified class name that implements Microsoft.Web.Redis.ISerializer>" [String]
       />
       -->
-      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-    </providers>
+      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider"
+           host=""
+           accessKey=""
+           ssl="true" />
   </outputCache>
 </caching>
 ```
 
-Açıklamalı bölüm öznitelikleri ve örnek ayarlarını her özniteliği için bir örnek sağlar.
+Açıklamalı bölüm öznitelikleri ve her bir öznitelik için örnek ayarlarını örneği sağlar.
 
-Microsoft Azure Portal'da önbellek dikey pencerenizin değerlerle öznitelikleri yapılandırma ve diğer değerleri istediğiniz gibi yapılandırın. Önbellek özelliklerine erişme ile ilgili yönergeler için bkz: [Redis önbelleği ayarlarını yapılandırma](cache-configure.md#configure-redis-cache-settings).
+Microsoft Azure Portal'da önbellek dikey pencerenize değerlerle öznitelikleri yapılandırma ve diğer değerleri istediğiniz gibi yapılandırın. Önbellek özelliklerinizi erişme ile ilgili yönergeler için bkz: [Redis önbelleği ayarlarını yapılandırma](cache-configure.md#configure-redis-cache-settings).
 
-* **ana bilgisayar** – önbellek uç noktasını belirtin.
-* **bağlantı noktası** – SSL olmayan bağlantı noktası veya ssl ayarlarına bağlı olarak, SSL bağlantı noktası kullanın.
+* **konak** –, önbellek uç noktasını belirtin.
+* **bağlantı noktası** – SSL olmayan bağlantı noktası ya da ssl ayarlarına bağlı olarak, SSL bağlantı noktasını kullanın.
 * **accessKey** – önbelleğiniz için birincil veya ikincil anahtarı kullanın.
-* **SSL** – önbelleği/istemci iletişimleri ssl ile güvenli hale getirmek istiyorsanız True, aksi takdirde false. Doğru bağlantı noktasına belirttiğinizden emin olun.
-  * SSL olmayan bağlantı noktasın yeni önbellekler için varsayılan olarak devre dışı bırakılmıştır. SSL bağlantı noktası kullanmak üzere bu ayarı TRUE belirtin. SSL olmayan bağlantı noktası etkinleştirme hakkında daha fazla bilgi için bkz: [erişim bağlantı noktaları](cache-configure.md#access-ports) bölümüne [bir önbellek yapılandırma](cache-configure.md) konu.
-* **Databaseıd** – belirtilen önbelleğe yönelik kullanmak için hangi veritabanı çıkış verileri. Belirtilmezse, varsayılan değer 0 kullanılır.
-* **applicationName** – anahtarları redis depolanır `<AppName>_<SessionId>_Data`. Bu adlandırma şeması aynı anahtarı paylaşmak birden çok uygulama sağlar. Bu parametre isteğe bağlıdır ve onu belirtmezseniz, varsayılan değer kullanılır.
-* **connectionTimeoutInMilliseconds** – Bu ayar, StackExchange.Redis istemcisi connectTimeout ayarında geçersiz kılmanıza olanak sağlar. Belirtilmezse, varsayılan connectTimeout ayarını 5000 kullanılır. Daha fazla bilgi için bkz: [StackExchange.Redis yapılandırma modeli](http://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** – Bu ayar, StackExchange.Redis istemcisi syncTimeout ayarında geçersiz kılmanıza olanak sağlar. Belirtilmezse, varsayılan syncTimeout ayarı 1000 kullanılır. Daha fazla bilgi için bkz: [StackExchange.Redis yapılandırma modeli](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **SSL** – önbellek/istemci iletişimleri ssl ile güvenli hale getirmek istiyorsanız true; Aksi takdirde false. Doğru bağlantı noktasını belirttiğinizden emin olun.
+  * SSL olmayan bağlantı noktasın yeni önbellekler için varsayılan olarak devre dışı bırakılmıştır. SSL bağlantı noktası kullanmak üzere bu ayarı TRUE belirtin. SSL olmayan bağlantı noktası etkinleştirme hakkında daha fazla bilgi için bkz: [erişim bağlantı noktaları](cache-configure.md#access-ports) konusundaki [bir önbellek yapılandırma](cache-configure.md) konu.
+* **Databaseıd** – belirtilen hangi veritabanı önbelleğe yönelik kullanmak için veri çıktı. Belirtilmezse, varsayılan değer olan 0 kullanılır.
+* **applicationName** – anahtarları redis depolanır `<AppName>_<SessionId>_Data`. Bu adlandırma şeması aynı anahtarı paylaşan birden çok uygulamaların sağlar. Bu parametre isteğe bağlıdır ve onu belirtmezseniz varsayılan değer kullanılır.
+* **connectionTimeoutInMilliseconds** – Bu ayar, StackExchange.Redis istemcisi connectTimeout ayarında geçersiz kılmanıza olanak sağlar. Belirtilmezse, varsayılan connectTimeout ayar 5000 kullanılır. Daha fazla bilgi için [StackExchange.Redis yapılandırma modeli](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** – Bu ayar, StackExchange.Redis istemcisi syncTimeout ayarında geçersiz kılmanıza olanak sağlar. Belirtilmezse varsayılan syncTimeout olarak 1000 kullanılır. Daha fazla bilgi için [StackExchange.Redis yapılandırma modeli](http://go.microsoft.com/fwlink/?LinkId=398705).
 
-Bir OutputCache yönergesi, çıktıyı önbelleğe istediğiniz her sayfasına ekleyin.
+OutputCache yönergesi çıkışı önbelleğe almak istediğiniz her sayfaya ekleyin.
 
 ```
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-Önceki örnekte, önbelleğe alınmış bir sayfa verileri kalır önbellekte 60 saniye boyunca ve sayfayı farklı bir sürümünü her parametre birleşimi için önbelleğe alınır. OutputCache yönergesi hakkında daha fazla bilgi için bkz: [ @OutputCache ](http://go.microsoft.com/fwlink/?linkid=320837).
+Önceki örnekte, önbelleğe alınan sayfa verileri kalır önbellekte 60 saniye ve sayfayı farklı bir sürümünü her parametre bileşimi için önbelleğe alınır. OutputCache yönergesi hakkında daha fazla bilgi için bkz: [ @OutputCache ](http://go.microsoft.com/fwlink/?linkid=320837).
 
-Bu adımları gerçekleştirdikten sonra uygulamanızı Redis çıkış önbelleği sağlayıcısı kullanacak şekilde yapılandırılır.
+Bu adımların sonra uygulamanızı Redis çıktı önbelleği sağlayıcısı kullanmak üzere yapılandırılmış.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kullanıma [Azure Redis önbelleği için ASP.NET oturum durumu sağlayıcısı](cache-aspnet-session-state-provider.md).
+Kullanıma [Azure Redis Cache için ASP.NET oturum durumu sağlayıcısı](cache-aspnet-session-state-provider.md).
 

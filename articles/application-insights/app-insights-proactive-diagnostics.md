@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights algılama akıllı | Microsoft Docs
-description: Application Insights uygulama telemetrinin otomatik derin çözümleme yapar ve olası sorunları sizi uyarır.
+title: Akıllı algılama Azure Application ınsights | Microsoft Docs
+description: Application Insights, uygulama telemetrinizde gerçekleştirilen derin analizden otomatik gerçekleştirir ve olası sorunları sizi uyarır.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -10,56 +10,57 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 38a7c5be98440a717eb54092bf7ce0d412619017
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: f2261334c25de4429060ed502e70aae50f3b707f
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651054"
 ---
-# <a name="smart-detection-in-application-insights"></a>Application ınsights'ta akıllı algılama
- Akıllı algılama, web uygulamanızın olası performans sorunları otomatik olarak sizi uyarır. Uygulamanızı gönderdiği telemetriyi öngörülü analizini gerçekleştirir [Application Insights](app-insights-overview.md). Başarısızlık oranları ani bir artışa veya istemci veya sunucu performans anormal desenlerini ise bir uyarı alırsınız. Bu özellik, herhangi bir yapılandırma gerekir. Uygulamanız yeterli telemetri gönderirse çalışır.
+# <a name="smart-detection-in-application-insights"></a>Application Insights, akıllı algılama
+ Akıllı algılama, web uygulamanızdaki olası performans sorunlarını otomatik olarak sizi uyarır. Uygulamanızın gönderdiği telemetri öngörülü analiz gerçekleştirir [Application Insights](app-insights-overview.md). Hata oranları ani bir artış ya da istemci veya sunucu performans anormal desenleri ise bir uyarı alırsınız. Bu özellik, herhangi bir yapılandırma gerekir. Uygulamanızı yeterli telemetri gönderiyorsa çalışır.
 
-Akıllı algılama uyarıları hem aldığınız e-postalar ve akıllı algılama dikey penceresinden erişebilirsiniz.
+Akıllı algılama uyarıları, hem aldığınız e-postaları ve akıllı algılama dikey penceresinden erişebilirsiniz.
 
-## <a name="review-your-smart-detections"></a>Akıllı algılamaların gözden geçirin
-İki yolla algılamaların bulabilir:
+## <a name="review-your-smart-detections"></a>Gözden geçirin, akıllı algılama
+Algılamalar iki yolla bulabilir:
 
-* **Bir e-posta aldığınız** Application Insights gelen. Aşağıda, genel bir örnek verilmiştir:
+* **E-posta aldığınız** Application ınsights'tan. Tipik bir örnek aşağıda verilmiştir:
   
     ![E-posta uyarısı](./media/app-insights-proactive-diagnostics/03.png)
   
-    Daha fazla ayrıntı Portalı'nda açmak için büyük düğmesini tıklatın.
-* **Akıllı algılama döşeme** uygulamanızın bir genel bakış dikey son uyarıların sayısını gösterir. Son uyarıları listesini görmek için kutucuğa tıklayın.
+    Daha fazla ayrıntı Portalı'nda açmak için büyük düğmesine tıklayın.
+* **Akıllı algılama kutucuk** uygulamanızın genel bakış dikey penceresinde son uyarıların sayısını gösterir. En son uyarıların bir listesi görmek için kutucuğa tıklayın.
 
-![Görünümü en son algılama](./media/app-insights-proactive-diagnostics/04.png)
+![Görünümü son algılamalar](./media/app-insights-proactive-diagnostics/04.png)
 
 Ayrıntılarını görmek için bir uyarı seçin.
 
-## <a name="what-problems-are-detected"></a>Hangi sorunlar algılandığında?
+## <a name="what-problems-are-detected"></a>Algılanan sorunları?
 Algılama üç tür vardır:
 
-* [Algılama - hatası anormallikleri akıllı](app-insights-proactive-failure-diagnostics.md). Yük ve diğer etkenlere bağlı ile ilişkilendirerek machine learning, uygulamanız için başarısız istekleri beklenen oranını ayarlamak kullanırız. Hata oranı beklenen zarfının dışında kalırsa, size bir uyarı göndereceğiz.
-* [Algılama - performans Anormalliklerini akıllı](app-insights-proactive-performance-diagnostics.md). Yanıt süresi bir işlem veya bağımlılık süresi geçmiş taban çizgisine göre yavaşlamadan veya yanıt süresi veya sayfa yükleme süresi anormal bir desen tanımlamak bildirimler alın.   
-* [Akıllı algılama - Azure bulut hizmeti sorunları](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Uygulamanızı Azure bulut Hizmetleri'nde barındırılan ve rol örneği başlatma hataları, sık sık geri dönüştürülüyor veya çalışma zamanı çökme (Crash) varsa, uyarılar alırsınız.
+* [Akıllı algılama - hata Anomalileri](app-insights-proactive-failure-diagnostics.md). Yük ve diğer faktörlere ile ilişkilendirmek, uygulamanız için başarısız isteklerin beklenen oranını ayarlamak için machine learning kullanırız. Hata oranı beklenen zarfının dışında kalırsa bir uyarı göndereceğiz.
+* [Akıllı algılama - performans Anomalileri](app-insights-proactive-performance-diagnostics.md). Yanıt süresi bir işlemi ya da bağımlılık süresi geçmiş taban çizgisine göre yavaşlamasıdır veya yanıt süresi veya sayfa yükleme süresi anormal bir düzen tanımlamanız durumunda bildirim alın.   
+* [Akıllı algılama - Azure bulut hizmeti sorunları](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Uygulamanızı Azure Cloud Services'da barındırılan ve rol örneği başlatma hataları, sık geri dönüştürme veya çalışma zamanı kilitlenmeleri varsa uyarı alın.
 
-(Her bir bildirim Yardım bağlantıları ilgili makaleler için atmanız.)
+(Her bildirim Yardım bağlantıları için ilgili makaleleri göz önüne almanız.)
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu tanılama araçları, uygulamanızdan alınan telemetri incelemek yardımcı olur:
+Bu tanılama araçları, uygulamanızdan alınan telemetri incelemenize yardımcı:
 
 * [Ölçüm Gezgini](app-insights-metrics-explorer.md)
 * [Arama Gezgini](app-insights-diagnostic-search.md)
-* [Analizi - güçlü sorgu dili](app-insights-analytics-tour.md)
+* [Analytics - güçlü sorgu dili](app-insights-analytics-tour.md)
 
-Akıllı algılama tamamen otomatik olarak yapılır. Ancak, belki de daha fazla bazı uyarıları ayarlamak ister misiniz?
+Akıllı algılama tamamen otomatik olarak gerçekleşir. Ancak belki de daha fazla bazı uyarıları ayarlamak ister misiniz?
 
-* [El ile yapılandırılmış ölçüm uyarıları](app-insights-alerts.md)
+* [El ile yapılandırılan ölçüm uyarıları](app-insights-alerts.md)
 * [Kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) 
 

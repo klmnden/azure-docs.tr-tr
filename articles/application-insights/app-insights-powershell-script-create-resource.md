@@ -1,6 +1,6 @@
 ---
-title: Application Insights kaynağı oluşturmak için PowerShell betiğini | Microsoft Docs
-description: Application Insights kaynakların oluşturulmasını otomatik hale getirme.
+title: Application Insights kaynağı oluşturmak için PowerShell Betiği | Microsoft Docs
+description: Application Insights kaynaklarını oluşturulmasını otomatikleştirin.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -10,31 +10,32 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
-ms.openlocfilehash: d06b44246b694c0d2a83503ecd1ae0cedfadd9ec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c6ef869bd211b156ba17d2aa8f384d15269b6d59
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646740"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Application Insights kaynağı oluşturmak için PowerShell betiği
 
 
-Ne zaman yeni bir uygulama - veya bir uygulamanın yeni sürümü - izlemek istediğiniz ile [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), Microsoft Azure içinde yeni bir kaynak ayarlayın. Bu, burada, uygulamanızın telemetri verilerini analiz görüntülenir ve kaynaktır. 
+Ne zaman yeni bir uygulama - veya bir uygulamanın yeni bir sürümü - izlemek istediğiniz ile [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), Microsoft azure'da yeni bir kaynak ayarlayabilirsiniz. Bu, burada uygulamanızdan alınan telemetri verilerini analiz görüntülenir ve kaynaktır. 
 
 PowerShell kullanarak yeni bir kaynak oluşturulmasını otomatik hale getirebilirsiniz.
 
-Örneğin, bir mobil cihaz uygulama geliştiriyorsanız, herhangi bir zamanda olacaktır, birçok yayımlanan sürümü uygulamanızı müşterilerinizin tarafından kullanılıyor olabilir. Karma farklı sürümlerdeki telemetri sonuçlar almak istemiyorum. Bu nedenle, her yapı için yeni bir kaynak oluşturmak için yapı işleminizin alırsınız.
+Örneğin, bir mobil aygıt uygulaması geliştiriyorsanız herhangi bir zamanda olacağını, birkaç yayımlanan sürümü uygulamanızın müşterileriniz tarafından kullanılıyor olabilir. Karışmış farklı sürümlerine ait telemetriyi sonuçlarını almak istemiyorum. Bu nedenle, her derleme için yeni bir kaynak oluşturmak için yapı işleminizi alırsınız.
 
 > [!NOTE]
-> Tümü aynı anda bir kaynak kümesi oluşturmak istiyorsanız, göz önünde bulundurun [bir Azure şablonu kullanarak kaynak oluşturma](app-insights-powershell.md).
+> Tümü aynı anda bir kaynak kümesi oluşturmak istiyorsanız, göz önünde bulundurun [Azure şablonu kullanarak kaynak oluşturma](app-insights-powershell.md).
 > 
 > 
 
-## <a name="script-to-create-an-application-insights-resource"></a>Application Insights kaynağı oluşturmak için komut dosyası
-İlgili cmdlet özelliklerine göz atın:
+## <a name="script-to-create-an-application-insights-resource"></a>Application Insights kaynağı oluşturmak için betiği
+İlgili cmdlet özelliklerine bakın:
 
 * [New-AzureRmResource](https://msdn.microsoft.com/library/mt652510.aspx)
 * [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
@@ -99,9 +100,9 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
 ```
 
 ## <a name="what-to-do-with-the-ikey"></a>İle iKey yapmanız gerekenler
-Her kaynak kendi izleme anahtarını (iKey) tarafından tanımlanır. İKey kaynak oluşturma komut çıktısı ' dir. Derleme betiğinizin uygulamanıza Application Insights SDK'sı için iKey sağlamalıdır.
+Her kaynak kendi izleme anahtarını (iKey) tarafından tanımlanır. Bir kaynak oluşturma betiği çıktısını iKey var. Derleme betiğinizin uygulamanıza Application Insights SDK'sı için ikey değerini sağlamanız gerekir.
 
-İKey SDK kullanılabilir yapmak için iki yol vardır:
+SDK iKey kullanılabilir hale getirmek için iki yol vardır:
 
 * İçinde [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md): 
   * `<instrumentationkey>`*ikey*`</instrumentationkey>`
@@ -110,7 +111,7 @@ Her kaynak kendi izleme anahtarını (iKey) tarafından tanımlanır. İKey kayn
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Application Insights ve web test kaynakları Şablondan Oluştur](app-insights-powershell.md)
+* [Application ınsights'ı ve web testi kaynakları şablonlardan oluşturma](app-insights-powershell.md)
 * [PowerShell ile Azure Tanılama izleme işlevini ayarlama](app-insights-powershell-azure-diagnostics.md) 
 * [PowerShell kullanarak Uyarıları Ayarla](app-insights-powershell-alerts.md)
 

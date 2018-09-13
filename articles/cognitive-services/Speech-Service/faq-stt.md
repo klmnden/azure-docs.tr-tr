@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 31515d6867fc5524df1b081932dd2a28b0cf989c
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0a30cce92de4b96b7dc0d29ce12f409df3e895df
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022167"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721889"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Konuşmayı metne dönüştürme hakkında sık sorulan sorular
 
@@ -71,6 +71,10 @@ Daha yüksek ölçek ihtiyacınız varsa bizimle iletişim kurun.
 **S: oturum isteklerim misiniz?**
 
 **A**: izlemeyi devre dışı geçiş yapmak için bir dağıtım oluşturduğunuzda vardır. Bu noktada, hiçbir ses ve dökümler günlüğe kaydedilir. Aksi takdirde, istekleri Azure'da genellikle güvenli depolama veritabanında kaydedilir. 
+
+**S: kısıtlanan isteklerim misiniz?**
+
+**A**: REST API istekleri 5 saniye başına 25 sınırlar. Ayrıntılar için sayfalarımızın bulunabilir [Konuşmayı metne dönüştürme](speech-to-text.md). 
 
 Daha fazla özel konuşma hizmeti kullanmaları yasaktır Gizlilik sorunları varsa, destek kanallarını başvurun.
 

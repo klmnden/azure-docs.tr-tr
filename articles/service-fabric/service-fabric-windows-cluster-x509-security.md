@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b32e9628b80705a99a2a8cf77534ed37a47515c8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8383d6afa4b6029aca3978c53eec1865d1d8c8ea
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669105"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721849"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>X.509 sertifikaları kullanarak Windows üzerinde tek başına küme güvenliğini sağlama
 Bu makalede, çeşitli, tek başına Windows küme düğümleri arasındaki iletişimin güvenliğini sağlamak açıklar. Ayrıca, bu kümeye X.509 sertifikaları kullanarak bağlanan istemcilerin kimliğini doğrulamak nasıl açıklar. Kimlik doğrulaması, yalnızca yetkili kullanıcıların küme ve dağıtılan uygulamalar erişim ve yönetim görevlerini gerçekleştirme sağlar. Küme oluşturulduğunda, sertifika güvenliği kümede etkinleştirilmelidir.  
@@ -88,7 +88,7 @@ Düğümden düğüme güvenlik istemci düğümü güvenlik ve rol tabanlı eri
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint": "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]",
                 "IsAdmin": true
             }
         ],

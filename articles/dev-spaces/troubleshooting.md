@@ -6,17 +6,17 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 09/11/2018
 ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: c6ca3003c1338f3e057c76d9e04d8b0cbd2210c7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841618"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721203"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -26,9 +26,13 @@ Bu kılavuz, Azure geliştirme alanları kullanılırken olabilir sık karşıla
 
 Sorunları daha etkili bir şekilde gidermek için ayrıntılı günlükleri gözden geçirme oluşturmak için yardımcı.
 
-Visual Studio uzantısı için ayarlayarak bunu yapabilirsiniz `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` ortam değişkeni 1. Visual Studio ortam değişkeni için etkili olması için yeniden emin olun. Etkinleştirildikten sonra ayrıntılı günlükler yazılır, `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` dizin.
+Visual Studio uzantısı için `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` ortam değişkeni 1. Visual Studio ortam değişkeni için etkili olması için yeniden emin olun. Etkinleştirildikten sonra ayrıntılı günlükler yazılır, `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` dizin.
 
 CLI, komut yürütme sırasında daha fazla bilgi kullanarak çıkarabilirsiniz `--verbose` geçin.
+
+## <a name="debugging-services-with-multiple-instances"></a>Birden çok örnek ile hata ayıklama Hizmetleri
+
+Şu anda, Azure geliştirme alanları yalnızca tek bir örneği üzerinde (pod) hata ayıklamayı destekler. Bir ayar, hizmetiniz için çalıştırılan örnek sayısını gösteren replicaCount azds.yaml dosya içerir. Belirli bir hizmet için birden çok örneğini çalıştırmak için uygulamanızı yapılandırma replicaCount değiştirirseniz, hata ayıklayıcı davranışını beklendiği gibi olmayabilir.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>'Azure geliştirme alanları denetleyicisi oluşturmak için başarısız' hatası
 
@@ -67,14 +71,14 @@ Kullanırken _azds.exe_, kullanın verbose komut satırı seçeneğini kullanıp
 
 Visual Studio'da:
 
-1. Açık **Araçlar > Seçenekler** altında **projeler ve çözümler**, seçin ve **derleme ve çalıştırma**.
+1. Açık **Araçlar > Seçenekler** altında **projeler ve çözümler**, seçin **derleme ve çalıştırma**.
 2. Ayarlarını değiştirmek için **MSBuild proje oluşturması çıkış ayrıntısı** için **ayrıntılı** veya **tanılama**.
 
     ![Ekran Araçlar, Seçenekler iletişim kutusu](media/common/VerbositySetting.PNG)
     
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Geliştirme alanları hizmeti ile ilişkilendirilen genel bir URL için DNS adı çözümlemesi başarısız olur
 
-Bu durumda, görebileceğiniz bir "Sayfası görüntülenemiyor" veya "Bu site erişilemiyor" hatası web tarayıcınızda genel URL'ye bağlanmaya geliştirme alanları hizmeti ile ilişkili olduğunda.
+DNS ad çözümlemesi başarısız olduğunda, görebileceğiniz bir "Sayfası görüntülenemiyor" veya "Bu site erişilemiyor" hatası web tarayıcınızda genel URL'ye bağlanmaya geliştirme alanları hizmeti ile ilişkili olduğunda.
 
 ### <a name="try"></a>Deneyin:
 
@@ -84,7 +88,7 @@ Geliştirme alanları hizmetlerinizle ilişkili tüm URL'lerin listesini aşağ�
 azds list-uris
 ```
 
-Bir URL ise *bekleyen* geliştirme alanları tamamlamak için DNS kaydı için hala bekliyor anlamına gelen durumu. Bazı durumlarda, bunun gerçekleşmesi için birkaç dakika sürer. Geliştirme alanları localhost tünel DNS kaydında beklenirken kullanabileceğiniz her hizmet için de açılır.
+Bir URL ise *bekleyen* geliştirme alanları tamamlamak için DNS kaydı için hala bekliyor anlamına gelen durumu. Bazı durumlarda, kayıt tamamlanması birkaç dakika sürer. Geliştirme alanları localhost tünel DNS kaydında beklenirken kullanabileceğiniz her hizmet için de açılır.
 
 Bir URL kalırsa *bekleyen* durum 5 dakikadan fazla, dış DNS pod'u genel bir uç nokta oluşturan ve/veya genel bir uç nokta edinme ngınx giriş denetleyicisine pod ile ilgili bir sorun olduğunu gösteriyor. Bu pod'ları silmek için aşağıdaki komutları kullanabilirsiniz. Bunlar otomatik olarak yeniden oluşturulur.
 
@@ -121,7 +125,7 @@ Azure geliştirme alanları, C# ve Node.js için yerel destek sağlar. Çalışt
 Diğer dillerde yazılmış kod ile Azure geliştirme alanları kullanmaya devam edebilirsiniz, ancak Dockerfile çalıştırılmadan önce kendiniz oluşturmanız gerekecektir *yukarı azds* ilk kez.
 
 ### <a name="try"></a>Deneyin:
-Uygulamanızı Azure geliştirme alanları tarafından yerel olarak desteklenmeyen bir dilde yazılan kodunuzu çalıştıran bir kapsayıcı görüntüsünü oluşturmak için uygun bir Dockerfile sağlamak gerekir. Docker sağlayan bir [dockerfile'ları yazmak için en iyi uygulamalar listesini](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) yanı [Dockerfile başvurusunu](https://docs.docker.com/engine/reference/builder/) yardımcı olan, bunu.
+Uygulamanızı Azure geliştirme alanları tarafından yerel olarak desteklenmeyen bir dilde yazılan kodunuzu çalıştıran bir kapsayıcı görüntüsünü oluşturmak için uygun bir Dockerfile sağlamak gerekir. Docker sağlayan bir [dockerfile'ları yazmak için en iyi uygulamalar listesini](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) yanı [Dockerfile başvurusunu](https://docs.docker.com/engine/reference/builder/) yardımcı olan, gereksinimlerinize uyan bir Dockerfile yazma.
 
 Uygun bir Dockerfile sağlandıktan çalışır durumda geçebilirsiniz *yukarı azds* Azure geliştirme alanlarında uygulamanızı çalıştırmak için.
 
@@ -152,7 +156,7 @@ Kapsayıcı bağlantı noktası kullanılamaz. Bu sorun nedeniyle oluşabilir:
 1. Yoksa bir _azds.yaml_ çalıştırın kod klasörü dosyasında `azds prep` Docker, Kubernetes ve Azure Dev alanları varlıklar oluşturmak için.
 
 ## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Hata: 'kanal programına '126 koduyla beklenmedik bir şekilde çıkıldı azds'.'
-VS Code hata ayıklayıcı başlatılıyor, bazen bu hataya neden olabilir. Bu bilinen bir sorundur.
+VS Code hata ayıklayıcı başlatılıyor, bazen bu hataya neden olabilir.
 
 ### <a name="try"></a>Deneyin:
 1. VS Code kapatıp yeniden açın.
@@ -162,7 +166,7 @@ VS Code hata ayıklayıcı başlatılıyor, bazen bu hataya neden olabilir. Bu b
 VS Code hata ayıklayıcısı çalıştırma, hata raporları: `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Neden
-C# hata ayıklama için.Net Core desteği içeren, geliştirme makinenizde yüklü VS Code uzantısı olmayan (CoreCLR).
+C# geliştirme makinenizde yüklü VS Code uzantı yoktur. C# uzantısı hata ayıklama için.Net Core desteği içerir (CoreCLR).
 
 ### <a name="try"></a>Deneyin:
 Yükleme [C# için VS Code uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 43955cd516e9779200b66608270797a66565f53b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 105c1d97a812841e82a0c364ec7dda097c0dd399
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378474"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717378"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -38,7 +38,7 @@ Bu makalede, desteklenen yapılandırmalar ve çoğalttığınızda bileşenleri
 --- | --- | ---
 **Kasa kaynak grupları arasında taşıma** | Desteklenmiyor<br/><br/> Kurtarma Hizmetleri kasası kaynak grupları arasında taşıyamazsınız.
 **İşlem/depolama/ağ kaynakları kaynak grupları arasında taşıma** | Desteklenmiyor.<br/><br/> Bir VM veya depolama/ağ gibi ilişkili bileşenleri taşırsanız, bu çoğaltma sonra çoğaltmayı devre dışı bırakın ve sanal makine için çoğaltmayı etkinleştirmeniz gerekir.
-**İçin olağanüstü durum kurtarma için başka bir aboneliği Azure Vm'lerini çoğaltma** | 'Resource manager dağıtım modeli' VM'ler için aynı Azure Active Directory kiracısı içinde desteklenir. 'Klasik dağıtım modelini' VM'ler için desteklenmez.
+**İçin olağanüstü durum kurtarma için başka bir aboneliği Azure Vm'lerini çoğaltma** | Aynı Azure Active Directory kiracısı içinde desteklenir. Klasik VM'ler için desteklenmiyor.
 **Bölge içinde desteklenen coğrafi kümeleri (içinde ve abonelikler arasında) arasında sanal makineleri geçirme** | 'Resource manager dağıtım modeli' VM'ler için aynı Azure Active Directory kiracısı içinde desteklenir. 'Klasik dağıtım modelini' VM'ler için desteklenmez.
 **Aynı bölge içinde sanal makineleri geçirme** | Desteklenmiyor.
 
@@ -207,7 +207,7 @@ Kimliği doğrulanmış Proxy | Desteklenmiyor | VM için giden bağlantı kimli
 Siteden siteye VPN ile şirket içi (ile veya olmadan ExpressRoute)| Desteklenen | Udr ve Nsg'ler Site kurtarma trafiği şirket içi yönlendirilmemesidir şekilde yapılandırıldığından emin olun. Başvurmak [ağ rehberi belgesi.](site-recovery-azure-to-azure-networking-guidance.md)  
 VNET'ten VNET'e bağlantı | Desteklenen | Başvurmak [ağ rehberi belgesi.](site-recovery-azure-to-azure-networking-guidance.md)  
 Sanal Ağ Hizmeti Uç Noktaları | Desteklenen | Azure depolama güvenlik duvarlarını sanal ağlar için desteklenmez. Önbellek depolama hesaplarına çoğaltılan verileri depolamak için kullanılan belirli bir Azure sanal ağları erişimine desteklenmiyor.
-Hızlandırılmış Ağ | Desteklenmiyor | Hızlandırılmış ağ etkin olan bir VM çoğaltılabilir ancak yük devretme VM hızlandırılmış ağ etkin olmayacaktır. Hızlandırılmış ağ Ayrıca kaynak VM üzerinde yeniden çalışma için devre dışı bırakılır.
+Hızlandırılmış Ağ | Desteklenen | Kaynak VM üzerinde hızlandırılmış ağ etkin olması gerekir. [Daha fazla bilgi edinin](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

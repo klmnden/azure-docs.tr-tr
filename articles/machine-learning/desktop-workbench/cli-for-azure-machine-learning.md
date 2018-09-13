@@ -1,58 +1,58 @@
 ---
-title: Yükleme ve en önemli görevler - Azure Machine Learning CLI kullanma
-description: Azure Machine Learning görevlerinde öğrenme en yaygın makine için CLI yükleyip öğrenin.
+title: Yükleme ve üst görevler - Azure Machine Learning CLI'yi kullanma
+description: Azure Machine Learning görevlerinde öğrenme en yaygın makine için CLI'yı yükleyip kullanmayı öğrenin.
 services: machine-learning
 author: haining
 ms.author: haining
 manager: cgronlun
 ms.reviewer: mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2018
-ms.openlocfilehash: 4b6ed5c70201b918a5bfa252719b2673303b38e9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0e37e1839d2248507a30de08e2ac4c975bd3b859
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830869"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648286"
 ---
-# <a name="install-and-use-the-machine-learning-cli-for-top-tasks-in-azure-machine-learning"></a>Yükleme ve Azure Machine Learning üst görevler için CLI öğrenme makine kullanma
+# <a name="install-and-use-the-machine-learning-cli-for-top-tasks-in-azure-machine-learning"></a>Yükleme ve Azure Machine Learning, üst görev için CLI öğrenme machine kullanma
 
-Azure Machine Learning services, tümleşik, uçtan uca veri bilimi ve Gelişmiş analiz çözümü. Profesyonel veri bilimcilerine Azure Machine Learning Hizmetleri verileri hazırlama, denemeler geliştirmek ve bulut ölçeğinde modelleri dağıtmak için kullanabilirsiniz. 
+Azure Machine Learning Hizmetleri, tümleşik, uçtan uca veri bilimi ve Gelişmiş analiz çözümüdür. Uzman veri bilimcilerinin veri hazırlamasını, deney geliştirmesini ve bulut ölçeğinde modeller dağıtmak için Azure Machine Learning hizmetlerini kullanabilirsiniz. 
 
-Azure Machine Learning hangi yapabilecekleriniz ile komut satırı arabirimi (CLI) sağlar:
-+ Çalışma alanı ve projeleri yönetme
+Azure Machine Learning komut satırı arabirimi (CLI) olan yapabilecekleriniz ile sağlar:
++ Çalışma alanı ve projelerinizi yönetme
 + İşlem hedefleri ayarlayın
-+ Eğitim denemeleri çalıştırın
-+ Geçmişini görüntüleme ve geçmiş çalışmaları için ölçümleri
-+ Web Hizmetleri olarak üretime modelleri dağıtma
-+ Üretim modelleri ve hizmetlerini yönetebilir
++ Eğitim denemeleri çalıştırmak
++ Geçmişi Görüntüle ve son çalıştırmalar için ölçümleri
++ Modellerinizi web Hizmetleri olarak üretime dağıtın
++ Üretim modelleri ve hizmetleri yönetmek
 
-Bu makale size kolaylık sağlamak için en kullanışlı CLI komutlarının bazıları gösterir. 
+Bu makale size kolaylık sağlamak için en kullanışlı CLI komutları bazılarını gösterir. 
 
 ![Azure Machine Learning CLI](media/cli-for-azure-machine-learning/flow.png)
 
 ## <a name="what-you-need-to-get-started"></a>Başlamak için ihtiyacınız olanlar
 
-Bir Azure aboneliği veya burada Modellerinizi dağıtabilmeniz için bir kaynak grubu için katkıda bulunan erişmeniz gerekir. Ayrıca, CLI çalıştırmak için Azure Machine Learning çalışma ekranı yüklemeniz gerekir. 
+Bir Azure aboneliği veya Modellerinizi dağıtabileceğiniz bir kaynak grubu için katkıda bulunan erişmeniz gerekir. Ayrıca, Azure Machine Learning Workbench CLI'yı çalıştırmak için yüklemeniz gerekir. 
 
 >[!IMPORTANT]
->Azure Machine Learning hizmetleriyle teslim CLI farklıdır [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), hangi Azure kaynaklarını yönetmek için kullanılır.
+>Azure Machine Learning Hizmetleri ile sunulan CLI farklıdır [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), Azure kaynaklarını yönetmek için kullanılır.
 
 ## <a name="get-and-start-cli"></a>Alın ve CLI başlayın
 
-Bu CLI almak için buradan yüklenebilir Azure Machine Learning çalışma yükleyin:
+Bu CLI almak için buradan indirilebilir Azure Machine Learning Workbench'i yükleyin:
     + Windows - https://aka.ms/azureml-wb-msi 
     + MacOS- https://aka.ms/azureml-wb-dmg 
 
-CLI başlatmak için:
-+ Azure Machine Learning çalışma içinde menüsünde CLI başlatma **Dosya -> komut istemini açın.**
+CLI'yı başlatmak için:
++ Azure Machine Learning Workbench'te Başlat menüsünden CLI **Dosya -> komut istemini açın.**
 
-## <a name="get-command-help"></a>Komut için Yardım alın 
+## <a name="get-command-help"></a>Komut Yardımı alın 
 
-CLI komutları kullanarak hakkında ek bilgi alabileceğiniz `--debug` veya `--help` gibi komutları sonra `az ml <xyz> --debug` burada `<xyz>` komutu adı. Örneğin:
+CLI komutlarını kullanma hakkında ek bilgi alabileceğiniz `--debug` veya `--help` gibi komutlar sonra `az ml <xyz> --debug` burada `<xyz>` komut adı. Örneğin:
 ```azurecli
 az ml computetarget --debug 
 
@@ -61,42 +61,42 @@ az ml experiment --help
 
 ## <a name="common-cli-tasks-for-azure-machine-learning"></a>Azure Machine Learning için ortak CLI görevleri 
 
-Bu bölümde, CLI ile gerçekleştirebileceğiniz en yaygın görevleri hakkında bilgi de dahil olmak üzere:
+Bu bölümde, CLI ile gerçekleştirebileceğiniz en yaygın görevler hakkında bilgi dahil olmak üzere:
 + [İşlem hedeflerini ayarlama](#target)
-+ [Uzaktan yürütme işleri gönderme](#jobs)
++ [Uzaktan yürütme için iş gönderme](#jobs)
 + [Jupyter not defterleri ile çalışma](#jupyter)
-+ [Çalıştırma geçmişlerini ile etkileşim kurma](#history)
-+ [Faaliyete ortamınızı yapılandırma](#o16n)
++ [Çalıştırma geçmişleri ile etkileşim kurma](#history)
++ [Kullanıma hazır hale getirmek için ortamınızı yapılandırma](#o16n)
 
 <a name="target"></a>
 
-### <a name="set-up-a-compute-target"></a>Bir işlem hedefi ayarlama
+### <a name="set-up-a-compute-target"></a>Bir işlem hedefine ayarlayın
 
-Farklı hedefler dahil, modelde öğrenme makinenizi hesaplayabilirsiniz:
+Makine öğrenimi modeli de dahil olmak üzere farklı hedefler hesaplayabilirsiniz:
 + Yerel modda
-+ bir veri bilimi VM (DSVM)
-+ bir Hdınsight kümesine
++ bir veri bilimi sanal makinesi (DSVM) içinde
++ bir HDInsight kümesi üzerinde
 
-Bir veri bilimi VM hedef eklemek için:
+Bir veri bilimi sanal makinesi hedefi eklemek için:
 ```azurecli
 az ml computetarget attach remotedocker -n <target name> -a <ip address or FQDN> -u <username> -w <password>
 ``` 
 
-Bir Hdınsight hedef eklemek için:
+Bir HDInsight hedefi eklemek için:
 ```azurecli
 az ml computetarget attach cluster -n <target name> -a <cluster name, e.g. myhdicluster-ssh.azurehdinsight.net> -u <ssh username> -w <ssh password>
 ```
 
-İçinde **aml_config** klasörünü conda bağımlılıkları değiştirebilirsiniz. 
+İçinde **aml_config** klasöründe conda bağımlılıklarını değiştirebilirsiniz. 
 
-Ayrıca, PySpark, Python veya Python GPU DSVM içinde çalışabilir. 
+Ayrıca, PySpark, Python veya Python'da bir GPU DSVM ile çalışabilir. 
 
 Python çalışma modu tanımlamak için:
 + Python için ekleme `Framework:Python` içinde `<target name>.runconfig` 
 
 + PySpark için ekleme `Framework:PySpark` içinde `<target name>.runconfig` 
 
-+ GPU DSVM, Python için
++ GPU DSVM Python için
     1. Ekleme `Framework:Python` içinde `<target name>.runconfig` 
 
     1. Ayrıca, ekleme `baseDockerImage: microsoft/mmlspark:plus-gpu-0.9.9 and nvidiaDocker:true` içinde `<target name>.compute`
@@ -115,9 +115,9 @@ az ml experiment prepare -c <target name>
 
 <a name="jobs"></a>
 
-### <a name="submit-remote-jobs"></a>Uzak işleri gönderme
+### <a name="submit-remote-jobs"></a>Uzak işlerini gönderme
 
-Uzak hedefe işi göndermek için:
+Bir uzak hedefi için bir iş göndermek için:
 ```azurecli
 az ml experiment submit -c <target name> myscript.py
 ```
@@ -131,59 +131,59 @@ Jupyter not defteri başlatmak için:
 az ml notebook start
 ```
 
-Bu komut localhost Jupyter not defteri başlatır. Yerel Python 3 Çekirdek seçerek iş veya çekirdek seçerek uzak VM'nizi iş `<target name>`.
+Bu komut localhost Jupyter not defteri başlatır. Yerel Python 3 Çekirdek seçerek çalışma veya uzaktan, sanal çekirdek seçerek çalışma `<target name>`.
 
 <a name="history"></a>
 
-### <a name="interact-with-and-explore-the-run-history"></a>Etkileşim ve çalıştırma geçmişi keşfedin
+### <a name="interact-with-and-explore-the-run-history"></a>Etkileşim kurma ve çalıştırma geçmişini keşfedin
 
-Çalıştırma geçmişi listelemek için:
+Çalıştırma geçmişini listelemek için:
 ```azurecli
 az ml history list -o table
 ```
 
-Tüm tamamlanan çalıştırır listelemek için:
+Tüm tamamlanan çalıştırmalar listelemek için:
 ```azurecli
 az ml history list --query "[?status=='Completed']" -o table
 ```
 
-Bulmak için en iyi doğruluk ile çalışır:
+Bulunacak en yüksek doğruluk oranıyla çalıştırır:
 ```azurecli
 az ml history list --query "@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy"
 ```
 
-Ayrıca, her çalıştırmayı tarafından oluşturulan dosyalar indirebilirsiniz. 
+Her çalıştırma tarafından oluşturulan dosyaların da indirebilirsiniz. 
 
-Klasör çıktılarında kaydedilmiş bir modeli yükseltmek için:
+Klasörüne yapılandırma çıkışları kaydedilmiş bir modeli yükseltmek için:
 ```azurecli
 az ml history promote -r <run id> -ap outputs/model.pkl -n <model name>
 ```
 
-Bu model karşıdan yüklemek için:
+Bu model indirmek için:
 ```azurecli
 az ml asset download -l assets/model.pkl.link -d <model folder path>
 ```
 
 <a name="o16n"></a>
 
-### <a name="configure-your-environment-to-operationalize"></a>Ortamınızı faaliyete şekilde yapılandırma
+### <a name="configure-your-environment-to-operationalize"></a>Kullanıma hazır hale getirmek için ortamınızı yapılandırma
 
-Operationalization ortamınızı ayarlamak için oluşturmanız gerekir:
+Kullanıma hazır hale getirme ortamınızı ayarlamak için oluşturmanız gerekir:
 
 > [!div class="checklist"]
 > * Bir kaynak grubu 
-> * bir depolama hesabı
-> * Bir Azure kapsayıcı kayıt defteri (ACR)
-> * Bir uygulama Insight hesabı
-> * Bir Azure kapsayıcı Hizmeti'ni (ACS) küme üzerinde Kubernetes dağıtımı
+> * Bir depolama hesabı
+> * Azure Container Registry (ACR)
+> * Bir Application Insight hesap
+> * Azure Container Service (ACS) kümesinde Kubernetes dağıtımı
 
 
-Docker kapsayıcısı içinde test etmek için yerel bir dağıtım ayarlamak için:
+Bir Docker kapsayıcısında test etmek için yerel bir dağıtımı ayarlamak için:
 ```azurecli
 az ml env setup -l <region, e.g. eastus2> -n <env name> -g <resource group name>
 ```
 
-Bir ACS küme Kubernetes ile ayarlamak için:
+Kubernetes ile ACS kümesini ayarlamak için:
 ```azurecli
 az ml env setup -l <region, e.g. eastus2> -n <env name> -g <resource group name> --cluster
 ```
@@ -193,16 +193,16 @@ Dağıtım durumunu izlemek için:
 az ml env show -n <environment name> -g <resource group name>
 ```
 
-Kullanılması gereken ortam ayarlamak için:
+Kullanılması gereken ortamı için:
 ```azurecli
 az ml env set -n <environment name> -g <resource group name>
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makaleler biri ile başlayın: 
-+ [Yükleyin ve Azure Machine Learning kullanmaya başlama](../service/quickstart-installation.md)
+Bu makalelerin biri ile başlayın: 
++ [Yükleme ve Azure Machine Learning'i kullanmaya başlayın](../service/quickstart-installation.md)
 + [Sınıflandırma Iris veri öğretici: Bölüm 1](tutorial-classifying-iris-part-1.md)
 
-Bu makaleler biriyle derinliklerine:
-+ [Modelleri yönetmek için CLI komutları](model-management-cli-reference.md)
+Şu makalelerden birini daha derinlemesine inceleyelim:
++ [Model Yönetimi CLI komutları](model-management-cli-reference.md)

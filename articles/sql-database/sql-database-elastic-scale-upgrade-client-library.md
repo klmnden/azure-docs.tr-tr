@@ -1,6 +1,6 @@
 ---
-title: En son esnek veritabanı istemci kitaplığına yükseltme | Microsoft Docs
-description: Nuget yükseltme esnek veritabanı istemci kitaplığına kullanın.
+title: En son elastik veritabanı istemci kitaplığını yükseltme | Microsoft Docs
+description: Nuget yükseltme elastik veritabanı istemci kitaplığını kullanın.
 services: sql-database
 manager: craigg
 author: stevestein
@@ -9,48 +9,48 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 56500a21822f7c7122a20cb676b9ad307de49c87
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c91650000400d3564a6d42aecdfb0974c4a64022
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647019"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715933"
 ---
-# <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>En son esnek veritabanı istemci kitaplığı kullanmak için bir uygulama yükseltme
-Yeni sürümlerini [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) NuGetand Visual Studio NuGetPackage Yöneticisi arabiriminde aracılığıyla kullanılabilir. Yükseltmeler istemci kitaplığı yeni özellikler için destek ve hata düzeltmeleri içerir.
+# <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>En yeni elastik veritabanı istemci kitaplığı kullanmak için bir uygulamayı yükseltme
+Yeni sürümlerini [elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) NuGetand Visual Studio'daki NuGetPackage Yöneticisi arabirimi aracılığıyla kullanılabilir. Yükseltmeleri hata düzeltmelerini içeren ve istemci Kitaplığı'nın yeni özelliklerini destekler.
 
-**En son sürümü için:** Git [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+**En son sürümü:** Git [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
-Uygulamanızı yeni kitaplığı ile yeniden gibi yeni özellikleri desteklemek için Azure SQL veritabanlarının depolanan parça eşleme Yöneticisi meta verileriniz varolan değiştirin.
+Yeni kitaplığıyla uygulamanızı yeniden gibi yeni özellikleri desteklemek için Azure SQL veritabanlarınızda depolanan parça eşleme Yöneticisi meta verilerinizi mevcut değiştirin.
 
-Adımları sırayla gerçekleştirilmesi meta veri nesnesi güncelleştirildiğinde, istemci kitaplığının eski sürümleri artık eski sürümü meta veri nesnelerinin yükseltmeden sonra oluşturulmaz anlamına gelir, ortamınızda mevcut olmasını sağlar.   
+Adımları sırayla gerçekleştirilmesi meta veri nesnesi güncelleştirildiğinde, istemci Kitaplığı'nın eski sürümleri artık eski sürümü meta veri nesnelerinin yükseltmeden sonra oluşturulmaz anlamına gelir, ortamınızda mevcut olmasını sağlar.   
 
 ## <a name="upgrade-steps"></a>Yükseltme adımları
-**1. Uygulamalarınızı yükseltin.** Visual Studio'da karşıdan yükle ve en son istemci kitaplığı sürümü tüm kitaplığı kullanarak geliştirme projelerinizi başvuru; Daha sonra yeniden oluşturun ve dağıtın. 
+**1. Uygulamalarınızı yükseltin.** Visual Studio'da indirin ve tüm kitaplığını kullanan geliştirme projelerinizi en son istemci kitaplığı sürümü başvuru; Daha sonra yeniden oluşturun ve dağıtın. 
 
-* Visual Studio çözümünüzde seçin **Araçları** --> **NuGet Paket Yöneticisi** -->  **çözüm için NuGet paketlerini Yönet**. 
-* (Visual Studio 2013) Sol panelinde seçin **güncelleştirmeleri**ve ardından **güncelleştirme** paket düğmesinde **Azure SQL Database esnek ölçek istemci Kitaplığı** penceresinde görünür.
-* (Visual Studio 2015) Filtre kutusuna kümesine **kullanılabilir yükseltme**. Güncelleştirme ve tıklatın istediğiniz paketi seçin **güncelleştirme** düğmesi.
-* (Visual Studio 2017) İletişim kutusunun üstündeki seçin **güncelleştirmeleri**. Güncelleştirme ve tıklatın istediğiniz paketi seçin **güncelleştirme** düğmesi.
-* Derleme ve dağıtma. 
+* Visual Studio çözümünüzü seçin **Araçları** --> **NuGet Paket Yöneticisi** -->  **çözüm için NuGet paketlerini Yönet**. 
+* (Visual Studio 2013) Sol bölmede bulunan seçin **güncelleştirmeleri**ve ardından **güncelleştirme** paket düğmesinde **Azure SQL veritabanı elastik ölçeklendirme istemci kitaplığını** penceresinde görünür.
+* (Visual Studio 2015) Filtre kutusunun kümesine **kullanılabilir yükseltme**. Güncelleştirmek ve paketi seçin **güncelleştirme** düğmesi.
+* (Visual Studio 2017) İletişim kutusunun üstündeki seçin **güncelleştirmeleri**. Güncelleştirmek ve paketi seçin **güncelleştirme** düğmesi.
+* Oluşturun ve dağıtın. 
 
-**2. Komut dosyalarınızı yükseltin.** Kullanıyorsanız **PowerShell** parça, yönetmek için betikler [yeni kitaplık sürümü yüklemek](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ve kendisinden, yürütme komut dosyaları dizinine kopyalayın. 
+**2. Komut dosyalarınızı yükseltin.** Kullanıyorsanız **PowerShell** parçalar yönetmek için betikleri [yeni kitaplık sürümünü indirin](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ve kendisinden betikleri yürüttüğünüz dizinine kopyalayın. 
 
-**3. Bölünmüş birleştirme hizmetinizi yükseltin.** Parçalı veriler yeniden düzenlemek için esnek veritabanı bölünmüş birleştirme aracını kullanırsanız [indirin ve aracının en son sürümünü dağıtmak](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Hizmet bulunabilir yükseltme adımlarını ayrıntılı [burada](sql-database-elastic-scale-overview-split-and-merge.md). 
+**3. Ayırma-birleştirme hizmetinizi yükseltin.** Parçalı verileri, elastik veritabanı bölme-birleştirme aracını kullanırsanız [indirin ve aracının en son sürümünü dağıtmak](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Hizmet bulunabilir yükseltme adımları ayrıntılı [burada](sql-database-elastic-scale-overview-split-and-merge.md). 
 
-**4. Parça eşleme Yöneticisi veritabanlarınızı yükseltme**. Azure SQL veritabanı'nda, parça eşlemeleri destekleme meta verileri yükseltin.  Bu, PowerShell veya C# kullanarak gerçekleştirmenin iki yolu vardır. Her iki seçenek aşağıda verilmiştir.
+**4. Parça eşleme Yöneticisi veritabanlarınızı yükseltme**. Azure SQL veritabanı'nda, parça eşlemesi destekleyici meta veriler yükseltin.  PowerShell veya C# kullanarak Bunu gerçekleştirmenin iki yolu vardır. Her iki seçenek aşağıda gösterilmektedir.
 
-***Seçenek 1: Meta veri PowerShell kullanarak yükseltme***
+***1. seçenek: PowerShell kullanarak meta verileri yükseltme***
 
-1. Son komut satırı yardımcı programı Nuget'ten için karşıdan [burada](http://nuget.org/nuget.exe) ve bir klasöre kaydedin. 
-2. Bir komut istemi açın, aynı klasöre gidin ve komutu yürütün: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
-3. Yalnızca, örneğin yüklediğiniz yeni istemci DLL sürümü içeren alt klasöre gidin: `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
-4. Esnek veritabanı istemci yükseltme Resimli'nden indirin [Komut Merkezi](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)ve dll dosyasını içeren klasöre kaydedin.
-5. Bu klasörü "PowerShell.\upgrade.ps1" komut isteminden çalıştırın ve yönergeleri izleyin.
+1. Nuget'ten en yeni komut satırı yardımcı programını indirin [burada](http://nuget.org/nuget.exe) ve bir klasöre kaydedin. 
+2. Bir komut istemi açın ve sonra da aynı klasöre gidin, komutu Yürüt: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
+3. Az önce örneğin indirdiğiniz yeni istemci DLL sürümü içeren alt klasörüne gidin: `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
+4. Esnek veritabanı istemci yükseltme scriptlet'dan indirin [betik Merkezi](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9), DLL içeren klasöre kaydedin.
+5. Bu klasördeki "PowerShell.\upgrade.ps1" Komut İstemi'nden çalıştırın ve yönergeleri izleyin.
 
-***Seçenek 2: C# kullanarak meta verileri yükseltme***
+***2. seçenek: C# kullanarak meta verileri yükseltme***
 
-Alternatif olarak, meta veri yükseltme yöntemlerini çağırarak gerçekleştirir, ShardMapManager açar ve tüm parça tekrarlanan bir Visual Studio uygulaması oluşturma [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) ve [UpgradeGlobalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) Bu örnekte olduğu gibi: 
+Alternatif olarak, ShardMapManager açar, tüm parçalar yinelenir ve yöntemleri çağırarak meta veri yükseltmesi gerçekleştiren bir Visual Studio uygulama oluşturma [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) ve [UpgradeGlobalStore ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) Bu örnekte olduğu gibi: 
 
     ShardMapManager smm =
        ShardMapManagerFactory.GetSqlShardMapManager
@@ -63,11 +63,11 @@ Alternatif olarak, meta veri yükseltme yöntemlerini çağırarak gerçekleşti
        smm.UpgradeLocalStore(loc); 
     } 
 
-Bu teknikler meta verileri yükseltmeler için birden çok kez zarar uygulanabilir. Örneğin, eski bir sürüm zaten güncelleştirdikten sonra yanlışlıkla bir parça oluşturur, yükseltme son meta veri sürümü, altyapınız mevcut olduğundan emin olmak için tüm parça genelinde yeniden komutunu çalıştırabilirsiniz. 
+Bu teknikler meta verileri yükseltme için birden çok kez zarar uygulanabilir. Eski bir sürüm zaten güncelleştirdikten sonra yanlışlıkla bir parça oluşturur, örneğin, yükseltmeyi yeniden en son meta veri sürümü altyapınız mevcut olduğundan emin olmak için tüm parçalar arasında çalıştırabilirsiniz. 
 
-**Not:** istemci Kitaplığı'nın yeni sürümleri yayımlanan tarih için Azure SQL DB ve tam tersini parça eşleme Yöneticisi meta verileri önceki sürümleri ile çalışmaya devam eder.   Ancak, en son istemcisinde bazı yeni özelliklerden yararlanmak için meta veri yükseltilmesi gerekiyor.   Meta veri yükseltme tüm kullanıcı verileri ve uygulamaya özgü verileri, oluşturulan ve parça eşleme Yöneticisi tarafından kullanılan nesneler yalnızca etkilemez unutmayın.  Ve uygulamaları aracılığıyla yukarıda açıklanan yükseltme sırası çalışmaya devam eder. 
+**Not:** istemci Kitaplığı'nın yeni sürümleri yayımlanan tarih Azure SQL DB ve tam tersini parça eşleme Yöneticisi meta verileri'nın önceki sürümleriyle çalışmaya devam eder.   Ancak, en son istemci bazı yeni özelliklerden yararlanmak için meta verileri yükseltilmesi gerekiyor.   Meta verileri yükseltme herhangi bir kullanıcı verileri veya uygulamaya özgü verileri, oluşturulan ve parça eşleme Yöneticisi tarafından kullanılan yalnızca nesneleri etkilemez unutmayın.  Ve uygulamaları aracılığıyla yukarıda açıklanan yükseltme sırasını çalışmaya devam eder. 
 
-## <a name="elastic-database-client-version-history"></a>Esnek veritabanı istemci sürüm geçmişi
+## <a name="elastic-database-client-version-history"></a>Elastik veritabanı istemci sürüm geçmişi
 Sürüm geçmişi için Git [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

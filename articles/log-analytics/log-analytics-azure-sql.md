@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 82845f475857f9a911febd496e86eb2a60f69c25
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: b8d8acda4ff1dee0643227c3fa2375c634c1b4a4
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782252"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717429"
 ---
-# <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanlarını izleme
+# <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
 ![Azure SQL Analytics simgesi](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
@@ -30,7 +30,7 @@ Azure SQL Analytics, izleme çözümü, uygun ölçekte ve birden çok aboneliğ
 
 Topladığınız ölçümleri çözümle birlikte kullanarak, özel izleme kuralları ve uyarılar oluşturabilirsiniz. Çözüm, uygulama yığınının her katmanında sorunları tanımlamanıza yardımcı olur. Log Analytics görünümleri yanı sıra Azure tanılama ölçümleri tek bir Log Analytics çalışma alanında yönetilen örnekler tüm, Azure SQL veritabanları, elastik havuzları ve veritabanlarını ilgili verileri sunmak için kullanır. Log Analytics, toplamanıza, ilişkilendirmenize ve yapılandırılmış ve yapılandırılmamış verileri görselleştirmenize yardımcı olur.
 
-Şu anda bu Önizleme çözüm 200.000 Azure SQL veritabanları ve SQL elastik havuzları 5.000 çalışma alanı başına en fazla destekler.
+En çok 200.000 Azure SQL veritabanları ve çalışma alanı başına 5.000 SQL elastik havuzlar, şu anda bu Önizleme çözümünü destekler.
 
 Azure SQL Analytics çözümünü kullanma uygulamalı bir genel bakış ve tipik kullanım senaryoları için katıştırılmış video bakın:
 
@@ -39,7 +39,7 @@ Azure SQL Analytics çözümünü kullanma uygulamalı bir genel bakış ve tipi
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 
-Azure SQL Analytics çözümünü destekleyen tanılama telemetrisi Azure SQL veritabanları, elastik havuzlar ve yönetilen örnekler için akış yalnızca izleme bir buluttur. Log Analytics hizmetine bağlanmak için aracıları kullanmaz gibi çözümü değil veya şirket içi SQL Server Vm'leri izlemeyi destekler, uyumluluk tabloya bakın.
+Azure SQL Analytics, Azure SQL veritabanları, elastik havuzlar ve yönetilen örnekler için tanılama telemetri çözümü destekleyen akış yalnızca izleme bir buluttur. Log Analytics hizmetine bağlanmak için aracıları kullanmaz gibi çözümü değil veya şirket içi SQL Server Vm'leri izlemeyi destekler, uyumluluk tabloya bakın.
 
 | Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
@@ -62,7 +62,7 @@ Azure SQL Analytics çözümünü çalışma alanınıza eklemek için aşağıd
 5. İçinde **yeni çözüm oluşturma** alanında, yeni ya da çözüme ekleyin ve ardından istediğiniz mevcut bir çalışma alanını seçin **Oluştur**.  
     ![çalışma alanına ekleme](./media/log-analytics-azure-sql/add-to-workspace.png)
 
-### <a name="configure-azure-sql-databases-and-elastic-pools-to-stream-diagnostics-telemetry"></a>Azure SQL veritabanları ve elastik havuzlar için akış tanılama telemetrisi yapılandırın
+### <a name="configure-azure-sql-databases-and-elastic-pools-to-stream-diagnostics-telemetry"></a>Azure SQL veritabanları ve elastik havuzlar akışı tanılama telemetrisi için yapılandırma
 
 Azure SQL Analytics çözümünü çalışma alanınızda oluşturduktan sonra Azure SQL veritabanı ve/veya elastik havuzları performansını izlemek için gerekir **her yapılandırma** Azure SQL veritabanı ve elastik havuz kaynak istediğiniz Çözüm için kendi tanılama telemetrisi akışını izlemek için.
 
@@ -123,7 +123,7 @@ Elastik havuzlar ve veritabanları hem kaynak için belirtilen süre içinde top
 
 ![Azure SQL Analytics veritabanı](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
-![Azure SQL Analytics elastik havuz](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
+![Azure SQL esnek havuzu](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
 
 ### <a name="query-reports"></a>Sorgu raporları
 

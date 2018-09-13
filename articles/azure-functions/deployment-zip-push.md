@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347129"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717227"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure işlevleri için zip dağıtım
 
@@ -89,9 +89,6 @@ Yerel bilgisayarınızda Azure CLI'yı kullanırken `<zip_file_path>` bilgisayar
 ## <a name="run-functions-from-the-deployment-package"></a>Dağıtım paketinden işlevleri çalıştırma
 
 İşlevlerinizi doğrudan dağıtım paket dosyasından çalıştırmayı seçebilirsiniz. Bu yöntem paketi dosyaları kopyalama dağıtım adımı atlanıyor `wwwroot` işlev uygulamanızın dizin. Bunun yerine, paket dosyası işlevler çalışma zamanı ve içeriğini takılı `wwwroot` dizin salt okunur hale gelir.  
-
-> [!NOTE]
-> İşlev uygulamanızın dağıtım paketinden çalıştırma olanağı Önizleme aşamasındadır.
 
 Zip dağıtım tümleşen işlev uygulama ayarını etkinleştirebilirsiniz. Bu özellik ile `WEBSITE_RUN_FROM_PACKAGE` değerini `1`. Daha fazla bilgi için [bir dağıtım paketi dosyasından işlevlerinizin çalıştığı](run-functions-from-deployment-package.md).
 

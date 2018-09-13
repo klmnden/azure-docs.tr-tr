@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 097eba4f5bcbb74d4158cc8d4135255d31e03ebd
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 4e1456064e35b55871638e9eeb34859194cb869b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027019"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714913"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Uzaktan izleme çözüm hızlandırıcısına genel bakış
 
@@ -50,7 +50,7 @@ Fiziksel cihazlar çözüm portalında panodan sağlayabilir.
 
 ### <a name="device-simulation-microservice"></a>Cihaz benzetimi mikro hizmet
 
-Çözümde [cihaz benzetimi mikro hizmet](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) çözümde uçtan uca akışı test etmek için çözüm panosundan sanal cihazlarla bir havuz yönetmenize imkan sağlar. Sanal cihazlar:
+Çözümde [cihaz benzetimi mikro hizmet](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) sanal cihazlarla bir havuz çözümde uçtan uca akışı test etmek için çözüm portalından yönetmenize imkan sağlar. Sanal cihazlar:
 
 * CİHAZDAN buluta telemetri oluşturun.
 * Bulut-cihaz yöntem çağrıları için IOT Hub'ından yanıt.
@@ -87,9 +87,9 @@ Bu hizmet, kullanıcı tanımlı gruba ait olan cihazları almak için sorgular�
 
 Mikro hizmet, cihazları ve cihaz ikizlerini yönetme, çağırma yöntemlerinin ve IOT hub'ı sorguları çalıştırmak için bir RESTful uç noktası sağlar.
 
-### <a name="telemetry-microservice"></a>Telemetri mikro hizmet
+### <a name="device-telemetry-microservice"></a>Cihazın telemetri mikro hizmet
 
-[Telemetri mikro hizmet](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) depolama alanından okuma erişimi cihaz telemetrisi, kuralları ve uyarı tanımları için okuma/yazma erişimi CRUD işlemleri için bir RESTful uç noktası sağlar.
+[Cihaz telemetrisi mikro hizmet](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) yönelik okuma erişimi cihaz telemetrisi Time Series Insights içinde depolanan bir RESTful uç noktası sağlar. RESTful uç noktası, kuralları ve okuma/yazma erişimi için depolama uyarısı tanımlarından CRUD işlemleri de sağlar.
 
 ### <a name="storage-adapter-microservice"></a>Depolama bağdaştırıcısı mikro hizmet
 
@@ -99,21 +99,27 @@ Değerler, koleksiyonlar düzenlenir. Tüm koleksiyonlar getirme ya da tek tek d
 
 Hizmet, anahtar-değer çiftleri CRUD işlemleri için bir RESTful uç noktası sağlar. Değerleri
 
-### <a name="cosmos-db"></a>Cosmos DB
+### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Çözüm Hızlandırıcısını standart dağıtımının kullandığı [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) kendi ana depolama hizmeti.
+Çözüm Hızlandırıcı dağıtımları kullanın [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) kuralları, alarmlar, yapılandırma ayarlarını ve diğer tüm soğuk depolama depolamak için.
 
 ### <a name="azure-stream-analytics-manager-microservice"></a>Azure Stream Analytics Yöneticisi mikro hizmet
 
 [Azure Stream Analytics Yöneticisi mikro hizmet](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/asa-manager) başlatma ve bunları durduruluyor ve durumlarını İzleme yapılandırmalarını ayarlama dahil olmak üzere, Azure Stream Analytics (ASA) işleri yönetir.
 
-ASA işi iki başvuru veri kümesi tarafından desteklenir. Kuralları tek bir veri kümesini tanımlar ve bir cihaz gruplarını tanımlar. Kuralları başvuru verilerini telemetri mikro hizmet tarafından yönetilen bilgileri oluşturulur. Azure Stream Analytics Yöneticisi mikro hizmet telemetri kuralları işleme mantığı bir akışa dönüştürür.
+ASA işi iki başvuru veri kümesi tarafından desteklenir. Kuralları tek bir veri kümesini tanımlar ve bir cihaz gruplarını tanımlar. Kuralları başvuru verilerini cihaz telemetrisi mikro hizmet tarafından yönetilen bilgileri oluşturulur. Azure Stream Analytics Yöneticisi mikro hizmet telemetri kuralları işleme mantığı bir akışa dönüştürür.
 
 Cihaz grupları başvuru verilerini kuralları için gelen bir telemetri iletisi uygulamak grubunu tanımlamak için kullanılır. Cihaz gruplarını yapılandırma mikro hizmet tarafından yönetilen ve Azure IOT Hub cihaz çifti sorguları kullanın.
+
+ASA işleri telemetri, bağlı cihazlardan depolama ve analiz için zaman serisi öngörüleri sunun.
 
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) , yüksek hacimli verileri cihazlardan akışı incelemenize olanak sağlayan bir olay işleme altyapısıdır.
+
+### <a name="azure-time-series-insights"></a>Azure Zaman Serisi Görüşleri
+
+[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) cihazlardaki telemetri bağlı çözüm hızlandırıcısına depolar. Ayrıca cihaz telemetrisi çözüm Web kullanıcı Arabiriminde sorgulama ve görselleştirme sağlar.
 
 ### <a name="configuration-microservice"></a>Yapılandırma mikro hizmet
 
@@ -125,7 +131,7 @@ Cihaz grupları başvuru verilerini kuralları için gelen bir telemetri iletisi
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Çözüm Hızlandırıcısını standart dağıtımının kullandığı [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Openıd Connect sağlayıcısı olarak. Azure Active Directory, kullanıcı bilgilerini depolar ve JWT doğrulamak için sertifikaları imzaları belirteci sağlar. 
+Çözüm Hızlandırıcı dağıtımları kullanın [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) Openıd Connect sağlayıcısı olarak. Azure Active Directory, kullanıcı bilgilerini depolar ve JWT doğrulamak için sertifikaları imzaları belirteci sağlar.
 
 ## <a name="presentation"></a>Sunum
 
@@ -142,13 +148,15 @@ Kullanıcı arabirimi tüm çözüm Hızlandırıcı işlevselliği sunar ve ile
 * Kullanıcı verilerini korumak için kimlik doğrulama ve yetkilendirme mikro hizmet.
 * Listelemek ve IOT cihazları yönetmek için IOT Hub Yöneticisi mikro hizmet.
 
+Kullanıcı arabirimi, sorgulama ve cihaz telemetrisi analizini etkinleştirmek için Azure Time Series Insights gezgininin birleştirir.
+
 Yapılandırma mikro hizmet depolamak ve yapılandırma ayarlarını almak kullanıcı arabirimi sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Kaynak kodu ve geliştirici belgeleri araştırmak istiyorsanız, iki GitHub depoları biriyle başlayın:
 
-* [Azure IOT (.NET) ile Uzaktan izleme çözüm Hızlandırıcısını](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Azure IOT (.NET) ile Uzaktan izleme çözüm Hızlandırıcısını](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 * [(Java) Azure IOT ile Uzaktan izleme çözüm Hızlandırıcısını](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
 Mimari diyagramları ayrıntılı çözümü:

@@ -1,6 +1,6 @@
 ---
-title: Sorgu farklı şemasıyla bulut veritabanları arasında | Microsoft Docs
-description: veritabanları arası sorgulamalarını dikey bölümleri ayarlama
+title: Farklı şemalı bulut veritabanlarında Sorgu | Microsoft Docs
+description: Çapraz veritabanı sorguları dikey bölümler üzerinde ayarlama
 services: sql-database
 manager: craigg
 author: MladjoA
@@ -9,35 +9,35 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: 6b4dd9017c336c2034bac81ba92d219b511a38a4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29f477a5f6c8583f6224cb216356606129fedb81
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645764"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647263"
 ---
-# <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Bulut veritabanları farklı şemaları (Önizleme) ile sorgulama
-![Farklı veritabanı tablolarında sorgulama][1]
+# <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Farklı şemalarla (Önizleme) bulut veritabanlarında sorgulama yapma
+![Farklı veritabanlarındaki tabloları sorgulama][1]
 
-Veritabanlarını dikey olarak bölümlenmiş tabloları kümesi farklı farklı veritabanlarını kullanır. Şema farklı veritabanlarında farklı olduğu anlamına gelir. Örneğin, tüm hesap ilişkili tabloları ikinci bir veritabanı üzerinde çalışırken tüm tablolar için stok bir veritabanında ' dir. 
+Dikey olarak bölümlenmiş veritabanları farklı veritabanları üzerinde tablolar farklı kümesini kullanın. Şema farklı veritabanları üzerinde farklı olduğu anlamına gelir. Hesap oluşturma ile ilgili tüm tabloları üzerinde ikinci bir veritabanı örneği için envanteri için tüm tabloları bir veritabanında bağlıdır. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Kullanıcı ALTER ANY dış veri KAYNAĞINA iznine sahip olması gerekir. Bu izin ALTER DATABASE izniyle dahil edilir.
+* Kullanıcı, ALTER ANY dış veri kaynağı iznine sahip olması gerekir. Bu izne ALTER DATABASE izni dahil edilir.
 * Temel alınan veri kaynağına başvurmak için ALTER ANY dış veri kaynağı izinleri gereklidir.
 
 ## <a name="overview"></a>Genel Bakış
 
 > [!NOTE]
-> Farklı yatay bölümleme bu DDL deyimleri parça eşlemesiyle esnek veritabanı istemci kitaplığı aracılığıyla veri katmanı tanımlama güvenmeyin.
+> Farklı yatay bölümleme Bu deyimler bir parça eşlemesi elastik veritabanı istemci kitaplığı aracılığıyla veri katmanıyla tanımlama üzerinde bağımlı değildir.
 >
 
-1. [ANA ANAHTAR OLUŞTURMA](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [VERİTABANI KAPSAMLI OLUŞTURMAK KİMLİK BİLGİSİ](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [DIŞ VERİ KAYNAĞI OLUŞTURUN](https://msdn.microsoft.com/library/dn935022.aspx)
+1. [ANA ANAHTAR OLUŞTURUN](https://msdn.microsoft.com/library/ms174382.aspx)
+2. [OLUŞTURMA VERİTABANI KAPSAMLI KİMLİK BİLGİLERİ](https://msdn.microsoft.com/library/mt270260.aspx)
+3. [DIŞ VERİ KAYNAĞI OLUŞTURMA](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [DIŞ TABLO OLUŞTURMA](https://msdn.microsoft.com/library/dn935021.aspx) 
 
-## <a name="create-database-scoped-master-key-and-credentials"></a>Kapsamlı veritabanı ana anahtarı ve kimlik bilgileri oluşturun
-Kimlik bilgisi esnek sorgu tarafından uzak veritabanlarına bağlanmak için kullanılır.  
+## <a name="create-database-scoped-master-key-and-credentials"></a>Kapsamlı bir veritabanı ana anahtarı ve kimlik bilgileri oluşturma
+Kimlik bilgisi tarafından esnek sorgu, uzak veritabanlarına bağlanmak için kullanılır.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
@@ -45,10 +45,10 @@ Kimlik bilgisi esnek sorgu tarafından uzak veritabanlarına bağlanmak için ku
     [;]
 
 > [!NOTE]
-> Emin `<username>` içermez **"@servername"** soneki. 
+> Emin `<username>` içermez **"\@servername"** soneki. 
 >
 
-## <a name="create-external-data-sources"></a>Dış veri kaynakları oluşturun
+## <a name="create-external-data-sources"></a>Dış veri kaynakları oluşturma
 Sözdizimi:
 
     <External_Data_Source> ::=
@@ -64,7 +64,7 @@ Sözdizimi:
 >
 
 ### <a name="example"></a>Örnek
-Aşağıdaki örnek, dış veri kaynakları için CREATE deyimi kullanımını gösterir. 
+Aşağıdaki örnek, dış veri kaynakları için oluşturma deyimi kullanımını gösterir. 
 
     CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
     WITH 
@@ -75,7 +75,7 @@ Aşağıdaki örnek, dış veri kaynakları için CREATE deyimi kullanımını g
         CREDENTIAL= SqlUser 
     ); 
 
-Geçerli dış veri kaynakları listesini almak için: 
+Geçerli bir dış veri kaynakları listesini almak için: 
 
     select * from sys.external_data_sources; 
 
@@ -107,33 +107,33 @@ Sözdizimi:
            DATA_SOURCE = RemoteReferenceData 
     ); 
 
-Aşağıdaki örnek, geçerli veritabanından dış tablolar listesini almak gösterilmektedir: 
+Aşağıdaki örnek, geçerli veritabanından dış tabloların listesini almak gösterilmektedir: 
 
     select * from sys.external_tables; 
 
 ### <a name="remarks"></a>Açıklamalar
-Esnek sorgu türü RDBMS dış veri kaynaklarını kullanmak dış tablolara tanımlamak için var olan dış tablo sözdizimi genişletir. Dikey bölümleme için bir dış tablo tanımındaki aşağıdaki konuları içerir: 
+Esnek sorgu RDBMS türündeki dış veri kaynakları kullanan dış tablolar tanımlamak için var olan dış tablo sözdizimi genişletir. Dikey bölümleme için bir dış tablo tanımındaki aşağıdaki konuları içerir: 
 
-* **Şema**: dış tablo DDL sorgularınızı kullanabileceğiniz bir şema tanımlar. Dış tablo tanımında belirtilen şema gerçek verilerinin depolandığı Uzak veritabanı tablolarında şeması ile eşleşmesi gerekir. 
-* **Uzak veritabanı başvuru**: dış tablo DDL bir dış veri kaynağına başvuruyor. Dış veri kaynağı mantıksal sunucu adını ve gerçek tablo verilerinin depolandığı uzak veritabanının veritabanı adını belirtir. 
+* **Şema**: dış tablo DDL sorgularınızı kullanabileceğiniz bir şema tanımlar. Dış tablo Tanımınızda belirtilen şema, gerçek verilerin depolandığı Uzak veritabanı tablo şema ile eşleşmesi gerekiyor. 
+* **Uzak veritabanı başvurusu**: dış tablo DDL bir dış veri kaynağına başvuruyor. Dış veri kaynağı mantıksal sunucu adını ve gerçek tablo verilerinin nerede depolanacağını Uzak veritabanı için veritabanı adını belirtir. 
 
-Bir dış veri kaynağı önceki bölümde özetlendiği gibi kullanarak, dış tablo oluşturma için söz dizimi aşağıdaki gibidir: 
+Önceki bölümde açıklandığı gibi bir dış veri kaynağı kullanarak dış tablolar oluşturmak için sözdizimi aşağıdaki gibidir: 
 
-DATA_SOURCE yan tümcesi, dış tablo için kullanılan dış veri kaynağı (dikey bölümleme durumunda yani Uzak veritabanı) tanımlar.  
+DATA_SOURCE yan tümcesi için dış tablo kullanılan dış veri kaynağı (dikey bölümleme durumunda yani Uzak veritabanı) tanımlar.  
 
-SCHEMA_NAME ve OBJECT_NAME yan tümcelerini dış tablo tanımındaki bir tablodaki bir uzak veritabanı farklı bir şema veya farklı bir ada sahip bir tablo sırasıyla eşlemek için olanağı sunar. Bu, bir dış tablo katalog görünümünü veya DMV uzak veritabanınızı - veya burada uzak tablo adı zaten yerel olarak alınmış diğer durum tanımlamak istiyorsanız kullanışlıdır.  
+SCHEMA_NAME ve OBJECT_NAME yan tümceleri bir tablodaki bir uzak veritabanı farklı bir şema veya farklı bir ada sahip bir tablo için dış tablo tanımındaki sırasıyla eşleme özelliğini sağlar. Bu, Uzak veritabanı - veya burada uzak tablo adı zaten yerel olarak alınmış durumda bir dış tablo Katalog görünümü veya DMV tanımlamak istiyorsanız kullanışlıdır.  
 
-Aşağıdaki DDL deyimi var olan bir dış tablo tanımındaki yerel Kataloğu'ndan bırakır. Uzak veritabanı etkilemez. 
+Aşağıdaki DDL deyimi var olan bir dış tablo tanımındaki yerel katalogdan bırakır. Uzak veritabanı etkilemez. 
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**CREATE/DROP dış tablo izinlerini**: dış tablo, ayrıca temel alınan veri kaynağına başvurmak için gerekli olan DDL için ALTER ANY dış veri kaynağı izinleri gerekiyor.  
+**Dış tablo oluşturma/bırakma izinlerini**: dış tablo ayrıca temel alınan veri kaynağına başvurmak için gerekli olan DDL için ALTER ANY dış veri kaynağı izinleri gerekiyor.  
 
 ## <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
-Dış tablo erişimi olan kullanıcılar otomatik olarak temel uzak tablolar dış veri kaynağı tanımında belirtilen kimlik bilgileri altında erişim kazanır. Dış veri kaynağının kimlik bilgisi aracılığıyla istenmeyen ayrıcalık önlemek için dış tabloya erişim dikkatle yönetmelisiniz. Normal SQL izinleri VERMEK veya yalnızca dizinindeymiş gibi olağan bir tablo bir dış tablo erişimi iptal etmek için kullanılabilir.  
+Dış tablo erişimi olan kullanıcılar temel alınan uzak tablolar dış veri kaynağı tanımına verilen kimlik bilgisi altında otomatik olarak erişin. Dış veri kaynağının kimlik bilgisi üzerinden istenmeyen ayrıcalık önlemek için dış tablo erişim dikkatli bir şekilde yönetmeniz gerekir. Normal SQL izinleri VERMEK veya yalnızca işlevmiş gibi olağan bir tablo bir dış tablo erişimi iptal etmek için kullanılabilir.  
 
-## <a name="example-querying-vertically-partitioned-databases"></a>Örnek: dikey sorgulama veritabanları bölümlenmiş
-Aşağıdaki sorgu müşteriler için siparişleri ve sipariş satırlarını iki yerel tablolara ve uzak tablo arasında üç yönlü birleştirme gerçekleştirir. Bu, esnek bir sorgu için başvuru verileri kullanım örneği örneğidir: 
+## <a name="example-querying-vertically-partitioned-databases"></a>Örnek: sorgulama dikey olarak bölümlenmiş veritabanları
+Aşağıdaki sorgu, müşteriler için siparişleri ve satış siparişi için iki yerel tabloları ve uzak tablo arasında üç yönlü birleştirme gerçekleştirir. Bu, başvuru veri kullanım örneği için esnek sorgu örneğidir: 
 
     SELECT      
      c_id as customer,
@@ -150,15 +150,15 @@ Aşağıdaki sorgu müşteriler için siparişleri ve sipariş satırlarını ik
     WHERE c_id = 100
 
 
-## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Saklı yordamı uzaktan T-SQL yürütmesi için: sp\_execute_remote
-Esnek sorgu aynı zamanda uzak veritabanına doğrudan erişim sağlayan bir saklı yordam sunar. Saklı yordam adlı [sp\_yürütme \_uzak](https://msdn.microsoft.com/library/mt703714) ve Uzak veritabanı üzerinde uzak saklı yordam veya T-SQL kodunu yürütmek için kullanılabilir. Aşağıdaki parametreleri alır: 
+## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Saklı yordamı uzaktan T-SQL yürütme için: sp\_execute_remote
+Esnek sorgu, uzak veritabanına doğrudan erişim sağlayan bir saklı yordam da tanıtılmaktadır. Saklı yordamı çağrılır [sp\_yürütme \_uzak](https://msdn.microsoft.com/library/mt703714) ve Uzak veritabanı üzerinde uzak saklı yordamları ya da T-SQL kodunu çalıştırmak için kullanılabilir. Bunu, aşağıdaki parametreleri alır: 
 
-* Veri kaynağı adı (nvarchar): türü RDBMS dış veri kaynağının adı. 
-* Sorgu (nvarchar): Uzak veritabanı yürütülmek üzere T-SQL sorgusu. 
-* Parametre bildirimi (nvarchar) - isteğe bağlı: dize veri türü tanımları (gibi sp_executesql) Sorgu parametresinde kullanılan parametreler için. 
-* Parametre değeri listesi - isteğe bağlı: parametre değerleri (gibi sp_executesql) virgülle ayrılmış listesi.
+* Veri kaynağı adı (nvarchar): RDBMS türündeki dış veri kaynağının adı. 
+* Sorgu (nvarchar): T-SQL sorgusu Uzak veritabanı üzerinde yürütülür. 
+* Parametre bildirimi (nvarchar) - isteğe bağlı: dize verileri (gibi sp_executesql) sorgu parametresi olarak kullanılan parametreler için tür tanımları ile. 
+* Parametre değeri listesi - isteğe bağlı: parametre değerleri (örneğin, sp_executesql) virgülle ayrılmış listesi.
 
-Sp\_yürütme\_uzaktan çağırma parametreleri sağlanan dış veri kaynağı üzerinde Uzak veritabanı verilen T-SQL deyimi yürütmek için kullanır. Uzak veritabanına bağlanmak için dış veri kaynağının kimlik bilgilerini kullanır.  
+Sp\_yürütme\_uzaktan Uzak veritabanı üzerinde belirli T-SQL deyimi yürütmek için çağırma parametreleri sağlanan dış veri kaynağı kullanır. Dış veri kaynağının kimlik bilgisi uzak veritabanına bağlanmak için kullanır.  
 
 Örnek: 
 
@@ -168,20 +168,20 @@ Sp\_yürütme\_uzaktan çağırma parametreleri sağlanan dış veri kaynağı �
 
 
 
-## <a name="connectivity-for-tools"></a>Bağlantı için araçları
-BI ve veri tümleştirme araçlarınızı etkin esnek sorgu ve dış tablolara tanımlı olduğu SQL DB sunucusunda veritabanlarına bağlanmak için normal SQL Server bağlantı dizelerini kullanabilirsiniz. SQL Server, aracı için bir veri kaynağı olarak desteklendiğinden emin olun. Esnek sorgu veritabanını ve aracı ile bağlanacağı yalnızca herhangi diğer SQL Server veritabanı gibi dış tabloları başvurun. 
+## <a name="connectivity-for-tools"></a>Bağlantı için Araçlar
+Elastik sorgu etkin ve tanımladığınız dış tablolar içeren SQL DB sunucudaki veritabanlarını, BI ve veri tümleştirme araçları bağlanmak için normal SQL Server bağlantı dizelerini kullanabilirsiniz. SQL Server'ın aracınız için bir veri kaynağı olarak desteklendiğinden emin olun. Ardından Esnek sorgu veritabanı ve aracınızla bağlanacağı yalnızca herhangi diğer SQL Server veritabanı gibi dış tablolara bakın. 
 
 ## <a name="best-practices"></a>En iyi uygulamalar
-* Esnek sorgu uç veritabanı erişim uzak veritabanına erişim için Azure Services SQL DB güvenlik duvarı yapılandırmasıyla etkinleştirerek verildiğinden emin olun. Ayrıca Dış veri kaynak tanımı'nda sağlanan kimlik bilgileri uzak veritabanına başarıyla oturum açabilir ve uzak tablo erişim izni olduğundan emin olun.  
-* Esnek sorgu hesaplama çoğunu uzak veritabanlarına burada yapılabilir sorguları için en iyi şekilde çalışır. Genellikle en iyi sorgu performansını uzak veritabanları veya tamamen Uzak veritabanı üzerinde gerçekleştirilebilir birleştirmeler hesaplanan seçmeli filtre koşulları ile alırsınız. Diğer sorgu desenlerine kötü gerçekleştirebilir ve büyük miktarlarda verinin uzak veritabanından yüklemek gerekebilir. 
+* Esnek sorgu bitiş noktası veritabanı erişim uzak veritabanına SQL DB güvenlik duvarı yapılandırması içinde Azure Hizmetleri için erişim sağlayarak verildiğinden emin olun. Ayrıca Dış veri kaynağı tanımında sağlanan kimlik bilgileri uzak veritabanına başarıyla oturum açabilir ve uzak tabloya erişim izni olduğundan emin olun.  
+* Esnek sorgu uzak veritabanlarında hesaplama çoğunu burada yapılabilir sorgular için en iyi şekilde çalışır. Normalde en iyi sorgu performansını uzak veritabanları veya tamamen Uzak veritabanı üzerinde gerçekleştirilebilir birleştirmeler değerlendirilen seçmeli filtre koşullarla alabilirsiniz. Diğer sorgu desenleri sonlanmayacağından ve büyük miktarlarda verinin uzak veritabanından yüklemek gerekebilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Esnek sorgu genel bakış için bkz: [esnek sorgu genel bakış](sql-database-elastic-query-overview.md).
-* Dikey bölümleme öğretici için bkz: [(dikey bölümleme) veritabanları arası sorgusu ile çalışmaya başlama](sql-database-elastic-query-getting-started-vertical.md).
-* Yatay bölümleme (parçalama) bir öğretici için bkz: [yatay (parçalama) bölümleme için esnek sorgu ile çalışmaya başlama](sql-database-elastic-query-getting-started.md).
-* Yatay olarak bölümlenmiş verilere ilişkin söz dizimi ve örnek sorgular için bkz: [yatay sorgulama bölümlenmiş veri)](sql-database-elastic-query-horizontal-partitioning.md)
-* Bkz: [sp\_yürütme \_uzak](https://msdn.microsoft.com/library/mt703714) tek uzaktan Azure SQL veritabanı ya da yatay bölümleme düzenindeki parça olarak hizmet veren bir veritabanları kümesi üzerinde bir Transact-SQL deyimini yürütür bir saklı yordam için.
+* Esnek sorgu genel bakış için bkz. [esnek sorgu genel bakış](sql-database-elastic-query-overview.md).
+* Dikey bölümleme öğreticisi için bkz. [(dikey bölümlendirme) veritabanları arası sorgu ile çalışmaya başlama](sql-database-elastic-query-getting-started-vertical.md).
+* Yatay bölümleme (parçalama) bir öğretici için bkz. [yatay bölümleme (parçalama) için esnek sorgu kullanmaya başlama](sql-database-elastic-query-getting-started.md).
+* Yatay olarak bölümlenmiş veriler için söz dizimi ve örnek sorgular için bkz. [sorgulama yatay olarak bölümlenmiş veriler)](sql-database-elastic-query-horizontal-partitioning.md)
+* Bkz: [sp\_yürütme \_uzak](https://msdn.microsoft.com/library/mt703714) parçalarda bir yatay bölümleme düzeni olarak hizmet veren bir veritabanları kümesi veya bir uzak tek Azure SQL veritabanı Transact-SQL deyimini yürütür bir saklı yordam için.
 
 
 <!--Image references-->

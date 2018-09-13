@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: eb290dffd7bdd86b9776d4f30b6fd09a2a952a46
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600345"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720030"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Cosmos DB için veya veri kopyalama
 
@@ -34,10 +34,14 @@ Azure Cosmos DB'den tüm desteklenen havuz veri deposuna veri kopyalamak ya da A
 
 Özellikle, bu Azure Cosmos DB Bağlayıcısı destekler:
 
-- Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Veri kopyalama/Cosmos DB'ye [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Cosmos DB ekleme ya da UPSERT olarak içine yazıyor.
 - JSON belgeleri olarak alma/verme- ya da veri kopyalama/tablo dataset ör. SQL veritabanı, CSV dosyaları, vb. Kopyalamak için belgeler olarak-olduğu için/JSON dosyaları veya başka bir Cosmos DB koleksiyonu bkz [içeri/dışarı aktarma JSON belgelerini](#importexport-json-documents).
 
 Veri Fabrikası ile tümleştirilir [Cosmos DB toplu Yürütücü Kitaplığı](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) Cosmos DB'ye yazma en iyi performansı sağlamak için.
+
+>[!TIP]
+>İzleme [bu videoyu](https://www.youtube.com/watch?v=5-SRNiC_qOU&t=760s) Cosmos DB için Azure Blob depolamadan veri kopyalama aracılığıyla size yol gösterir ve performans konuları Cosmos DB'ye genel veri alma ayarlama açıklanmaktadır.
 
 ## <a name="getting-started"></a>Başlarken
 

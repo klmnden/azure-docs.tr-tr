@@ -6,58 +6,58 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: e53bac5bca199fe08d53f232416a1c6432148f34
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: a41eadaecc203f9371da3eee05367a4f77747253
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260258"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647166"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B işbirliği API ve özelleştirme
 
-Sizi davet işlemi kuruluşları için en iyi şekilde özelleştirmek istedikleri bize birçok müşteri karşılaşmışsınız. Bizim API'si ile tam olarak bunu yapabilirsiniz. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Biz, birçok müşteri, kuruluşları için en iyi şekilde davet sürecini özelleştirmek istedikleri bize vardı. API ile bunu yapabilirsiniz. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
-## <a name="capabilities-of-the-invitation-api"></a>API davet özellikleri
-API aşağıdaki özellikleri sunar:
+## <a name="capabilities-of-the-invitation-api"></a>Davet API özellikleri
+API, aşağıdaki özellikleri sunar:
 
-1. Bir dış kullanıcı ile davet *herhangi* e-posta adresi.
+1. İle bir dış kullanıcıyı davet *herhangi* e-posta adresi.
 
     ```
     "invitedUserDisplayName": "Sam"
     "invitedUserEmailAddress": "gsamoogle@gmail.com"
     ```
 
-2. Bunlar, daveti kabul ettikten sonra güden kullanıcılarınıza istediğiniz özelleştirin.
+2. Bunlar, davetini kabul ettikten sonra kavuşmak kullanıcılarınıza istediğiniz özelleştirin.
 
     ```
     "inviteRedirectUrl": "https://myapps.microsoft.com/"
     ```
 
-3. Bize aracılığıyla standart davet posta göndermeyi seçin
+3. Standart bir davet e-posta yoluyla bize gönderebilirsiniz
 
     ```
     "sendInvitationMessage": true
     ```
 
-  içeren bir ileti özelleştirebileceğiniz alıcısına
+  özelleştirebileceğiniz alıcı ile bir ileti
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
     ```
 
-4. Ve cc seçin: Bu ortak çalışanı davet hakkında Döngüdeki tutmak istediğiniz kişilerin.
+4. Kime seçin: kişiler bu ortak çalışanı davet hakkında döngüsünde tutmak istediğinizi.
 
-5. Veya Azure AD aracılığıyla bildirimleri göndermek seçerek daveti ve hazırlama iş akışı tamamen özelleştirebilirsiniz.
+5. Veya Azure AD üzerinden bildirim göndermek seçerek daveti ve ekleme iş akışı tamamen özelleştirebilirsiniz.
 
     ```
     "sendInvitationMessage": false
     ```
 
-  Bu durumda, bir kullanım URL bir e-posta şablonu, anlık ileti veya tercih ettiğiniz başka bir dağıtım yöntem katıştırma API'sinden ulaşırsınız.
+  Bu durumda, bir kullanım URL, bir e-posta şablonu, anlık ileti veya diğer dağıtım yöntemini seçeceğiniz katıştırabilirsiniz API'sinden ulaşırsınız.
 
 6. Son olarak, bir yönetici, üye olarak kullanıcı davet seçebilirsiniz.
 
@@ -67,19 +67,19 @@ API aşağıdaki özellikleri sunar:
 
 
 ## <a name="authorization-model"></a>Yetkilendirme modeli
-API şu yetkilendirme modlarında çalıştırabilirsiniz:
+API aşağıdaki yetkilendirme modu çalıştırabilirsiniz:
 
 ### <a name="app--user-mode"></a>Uygulama + kullanıcı modu
-Bu modda, aktaranın B2B davetleri olması oluşturma izinlerine sahip olmasını API gereksinimlerini kullanıyor.
+Bu modda, kişi B2B davetleri olması oluşturma izinlerine sahip API gereksinimlerini kullanıyor.
 
-### <a name="app-only-mode"></a>Uygulama yalnızca modu
-Uygulama yalnızca bağlamda uygulamanın başarılı olması davet User.Invite.All kapsamın gerekir.
+### <a name="app-only-mode"></a>Tek uygulama modu
+Uygulama yalnızca bağlamında, uygulamanın, başarılı olması davet User.Invite.All kapsamını gerekir.
 
 Daha fazla bilgi için bkz: https://graph.microsoft.io/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
-Şimdi, ekleme ve bir kuruluş için dış kullanıcılar kolayca davet etmek için PowerShell kullanmak da mümkündür. Cmdlet'ini kullanarak bir davet oluşturun:
+Artık, ekleme ve bir kuruluşun dış kullanıcılara bir kolayca davet PowerShell kullanmak da mümkündür. Cmdlet'ini kullanarak bir davet oluşturun:
 
 ```
 New-AzureADMSInvitation
@@ -92,12 +92,12 @@ Aşağıdaki seçenekleri kullanabilirsiniz:
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-Ayrıca daveti API Başvurusu'nda uğradı kontrol edebilirsiniz [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Ayrıca davet API Başvurusu'nda kullanıma denetleyebilirsiniz [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure AD B2B işbirliği nedir?](what-is-b2b.md)
 - [B2B işbirliği davet e-posta öğeleri](invitation-email-elements.md)
-- [B2B işbirliği davet kullanım](redemption-experience.md)
-- [B2B işbirliği kullanıcıları davet olmadan ekleme](add-user-without-invite.md)
+- [B2B işbirliği Davetiyesi kullanımı](redemption-experience.md)
+- [B2B işbirliği kullanıcıları davet etmeden ekleme](add-user-without-invite.md)
 

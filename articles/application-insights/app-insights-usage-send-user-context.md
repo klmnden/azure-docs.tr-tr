@@ -1,6 +1,6 @@
 ---
-title: Kullanıcı bağlamı kullanımını etkinleştirmek için kimlikleri karşılaştığında Azure Application Insights'ta gönderme | Microsoft Docs
-description: Bunların her biri benzersiz, kalıcı bir kimlik dizesi Application ınsights'ta atayarak kullanıcıların hizmeti aracılığıyla nasıl hareket izler.
+title: Kullanıcı bağlamı kimlikleri kullanımını etkinleştirmek için Azure Application Insights'ta deneyimleri gönderme | Microsoft Docs
+description: Bunların her biri benzersiz, kalıcı bir kimlik dizesi Application ınsights'ta atayarak hizmetinizi kullanıcıları nasıl taşımak izleyin.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,48 +9,50 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/02/2017
-ms.author: mbullwin;abgreg
-ms.openlocfilehash: 196eeb7b5a817ff932f99c7db86ead5625b5f206
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: abgreg
+ms.author: mbullwin
+ms.openlocfilehash: 14322162d3f78f0cb90ecaf077d1d85f7cbba581
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651144"
 ---
-#  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Kullanıcı bağlamı Azure Application Insights kullanımı deneyimleri etkinleştirmek için kimlikleri Gönder
+#  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application ınsights'ta kullanım deneyimlerini etkinleştirmelerine olanak kimlikleri kullanıcı bağlamı gönderme
 
-## <a name="tracking-users"></a>Kullanıcıları izleme
+## <a name="tracking-users"></a>Kullanıcılar izleme
 
-Application Insights izleme ve kullanıcılarınızın ürün kullanım araçlar aracılığıyla izlemenize olanak sağlar: 
+Application Insights izlemek ve ürün kullanım araçlar kümesi yoluyla kullanıcılarınıza izlemenize olanak sağlar: 
 * [Kullanıcılar, Oturumlar, Etkinlikler](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
 * [Huniler](https://docs.microsoft.com/azure/application-insights/usage-funnels)
 * [Bekletme](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)
 * Kohortlar
 * [Çalışma kitapları](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
-Zaman içinde bir kullanıcının ne yaptığını izlemek için her kullanıcı veya oturum için bir kimlik Application Insights gerekir. Aşağıdaki kimlikleri her özel olay veya sayfa görünümünde içerir.
-- Kullanıcılar, Funnels, bekletme ve Cohorts: kullanıcı kimliğini de ekleyin.
-- Oturumlar: oturum kimliğini de ekleyin.
+Zaman içinde bir kullanıcı ne yaptığını izlemek için her bir kullanıcı veya oturum için Application Insights bir kimliği gerekir. Aşağıdaki kimlikler her özel olay veya sayfa görünümünde içerir.
+- Kullanıcılar, Huniler, bekletme ve Kohortlar: kullanıcı kimliğini içerir
+- Oturumlarının: oturum kimliği Ekle
 
-Uygulamanız ile tümleşik çalışıyorsa [JavaScript SDK'sı](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), kullanıcı Kimliğini otomatik olarak izlenir.
+Uygulamanız ile tümleşikse [JavaScript SDK'sı](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), kullanıcı kimliği otomatik olarak izlenir.
 
 ## <a name="choosing-user-ids"></a>Kullanıcı kimliklerini seçme
 
-Kullanıcı kimliklerini kullanıcılar zaman içinde nasıl davranacağını izlemek için kullanıcı oturumları arasında kalıcı olması. Kimliği sürdürmek için çeşitli yaklaşım vardır
-- Hizmetinizi zaten bir kullanıcı tanımı.
-- Hizmet bir tarayıcı erişimi varsa, tarayıcı bir Kimliğe sahip bir tanımlama bilgisi içinde geçirebilirsiniz. Kullanıcının tarayıcıda tanımlama bilgisi kaldığı sürece kimliği için korunur.
-- Gerekirse, yeni bir kimliği her oturum kullanabilirsiniz, ancak kullanıcılar hakkında sonuçları sınırlı olacaktır. Örneğin, bir kullanıcının davranışına zamanla nasıl değiştiğini görmek mümkün olmayacaktır.
+Kullanıcı kimliklerini kullanıcıları zaman içinde nasıl davranacağını izlemek için kullanıcı oturumları arasında kalıcı olması. Kimliği kalıcı hale getirmeniz için çeşitli yaklaşımlar bulunmaktadır.
+- Zaten sahip olduğunuz hizmetinizde kullanıcı tanımı.
+- Hizmet, bir tarayıcı erişimi varsa, bu tarayıcı bir tanımlama bilgisi kimliği içine geçirebilirsiniz. Tanımlama bilgisi kullanıcının tarayıcısında kaldığı sürece kimliği için açık kalır.
+- Gerekirse, yeni bir kimliği her oturumda kullanabilirsiniz, ancak kullanıcılar hakkında sonuçları sınırlı olacaktır. Örneğin, bir kullanıcının davranışını zamanla nasıl değiştiğini görmek mümkün olmayacaktır.
 
-Kimliği bir GUID veya başka bir dize yeterince karmaşık her kullanıcının benzersiz şekilde tanımlamak için olmalıdır. Örneğin, uzun rastgele bir sayı olabilir.
+Kimliği bir GUID veya başka bir dize yeterince karmaşık her kullanıcıyı benzersiz şekilde tanımlamak için olmalıdır. Örneğin, uzun rastgele bir sayı olabilir.
 
-Kimliği kullanıcıyla ilgili kişisel tanımlama bilgileri içeriyorsa, bu Application Insights bir kullanıcı kimliği olarak göndermek için uygun bir değer değil Böyle bir kimlik olarak gönderdiğiniz bir [kimliği doğrulanmış kullanıcı kimliği](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), ancak kullanım senaryoları için kullanıcı kimliği gereksinimi yerine getirmiyor.
+Kimliği kullanıcıyla ilgili kişisel tanımlama bilgileri içeriyorsa, bu Application ınsights'ı bir kullanıcı kimliği olarak göndermek için uygun bir değer değil Böyle bir kimlik olarak gönderdiğiniz bir [kimliği doğrulanmış kullanıcı kimliği](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), ancak kullanım senaryoları için kullanıcı kimliği gereksinimi karşılamıyordur.
 
-## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET uygulamaları: kullanıcı bağlamı bir ITelemetryInitializer ayarlama
+## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET uygulamaları: kullanıcı bağlamı içinde bir ITelemetryInitializer ayarlama
 
-Ayrıntılı olarak açıklandığı gibi bir telemetri Başlatıcı oluşturun [burada](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer), Context.User.Id ve Context.Session.Id ve ayarlayın.
+Ayrıntılı olarak açıklandığı bir telemetri Başlatıcısı oluşturma [burada](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer), Context.User.Id ve Context.Session.Id ayarlayın.
 
-Bu örnek, sonra oturum süresinin sona bir tanımlayıcı için kullanıcı Kimliğini ayarlar. Mümkünse, oturumlar arasında devam eden bir kullanıcı kimliği kullanın.
+Bu örnek, süresi dolan sonra oturumun tanımlayıcı kullanıcı Kimliğini ayarlar. Mümkünse, oturumu arasında kalıcıdır bir kullanıcı kimliği kullanın.
 
 ```csharp
 
@@ -88,10 +90,10 @@ Bu örnek, sonra oturum süresinin sona bir tanımlayıcı için kullanıcı Kim
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Kullanımı deneyimleri etkinleştirmek için göndermeye Başla [özel olaylar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) veya [sayfa görünümleri](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Özel olaylar veya sayfa görünümleri zaten gönderirseniz, kullanıcıların hizmetinizin kullanımını öğrenmek için kullanım araçları keşfedin.
+- Kullanım deneyimlerini etkinleştirmek için göndermeye başlayın [özel olaylar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) veya [sayfa görünümleri](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Özel olay veya sayfa görüntülemesi zaten gönderirseniz, kullanıcıların hizmetinizin nasıl öğrenmek için kullanım araçları keşfedin.
     * [Kullanıma genel bakış](app-insights-usage-overview.md)
-    * [Kullanıcıları, oturumlar ve olaylar](app-insights-usage-segmentation.md)
+    * [Kullanıcılar, oturumlar ve olaylar](app-insights-usage-segmentation.md)
     * [Huniler](usage-funnels.md)
     * [Bekletme](app-insights-usage-retention.md)
     * [Çalışma kitapları](app-insights-usage-workbooks.md)

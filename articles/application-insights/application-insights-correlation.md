@@ -1,6 +1,6 @@
 ---
-title: Azure uygulama Insights Telemetri bağıntı | Microsoft Docs
-description: Uygulama Insights telemetri bağıntı
+title: Azure Application Insights Telemetri bağıntısı | Microsoft Docs
+description: Application Insights telemetri bağıntısı
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -9,41 +9,43 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 12b46b4abaa17fe9dd0e9055bca5463312bbd15d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 057e47c19f6405bec9e1fa80dd7097476876baa9
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650835"
 ---
-# <a name="telemetry-correlation-in-application-insights"></a>Application ınsights'ta telemetri bağıntı
+# <a name="telemetry-correlation-in-application-insights"></a>Application ınsights telemetri bağıntısı
 
-Mikro hizmetler dünyanın her mantıksal işlem hizmet çeşitli bileşenlerinin işlerini gerektirir. Bu bileşenlerin her birini tarafından ayrı olarak izlenebilir [Application Insights](app-insights-overview.md). Web uygulaması bileşeni, kullanıcı kimlik bilgilerini doğrulamak için kimlik doğrulama sağlayıcısı bileşeniyle ve görselleştirme için verileri almak için API bileşeni ile iletişim kurar. API bileşeni, dönüş diğer hizmetlerden verileri sorgulamak ve önbellek sağlayıcısı bileşenlerini kullanabilir ve fatura bileşeni bu çağrıyı hakkında bildirim. Uygulama Öngörüler destekler dağıtılmış telemetri bağıntı. Hangi bileşenin hatalar veya performans düşüşü sorumlu algılamasını sağlar.
+Mikro hizmetler dünyasında, hizmetin çeşitli bileşenlerinin çalışmanın her mantıksal işlemi gerektirir. Bu bileşenlerin her birini ayrı olarak tarafından izlenebilir [Application Insights](app-insights-overview.md). Web uygulaması bileşeni, kullanıcı kimlik bilgilerini doğrulamak için kimlik doğrulama sağlayıcısı bileşeniyle ve görselleştirme için verileri almak için API bileşeni ile iletişim kurar. API bileşen kendi sırasını, diğer hizmetlerden veri sorgulamak ve önbelleği sağlayıcısı bileşenlerini kullanın ve fatura bileşeni bu çağrı hakkında bilgilendir. Application ınsights'ı destekleyen dağıtılmış telemetri bağıntısı. Hangi hatalarının veya performans düşüşü sorumlu bir bileşendir algılamak olanak tanır.
 
-Bu makalede, birden çok bileşen tarafından gönderilen telemetriyi ilişkilendirmek için Application Insights tarafından kullanılan veri modelini açıklanmaktadır. Bağlam yayma teknikleri ve protokolleri kapsar. Uygulama farklı diller ve platformlarda bağıntı kavramlarını ele alınmaktadır.
+Bu makalede, birden çok bileşen tarafından gönderilen telemetrinin bağıntısını kurmanızı Application Insights tarafından kullanılan veri modeli açıklanmaktadır. Bağlam yayma teknikleri ve protokolleri ele alınmaktadır. Ayrıca, farklı diller ve platformlarda bağıntı kavramları uygulanması da kapsar.
 
-## <a name="telemetry-correlation-data-model"></a>Telemetri bağıntı veri modeli
+## <a name="telemetry-correlation-data-model"></a>Telemetri bağıntısı veri modeli
 
-Application Insights tanımlayan bir [veri modeli](application-insights-data-model.md) dağıtılmış telemetri bağıntı için. Telemetri mantıksal işlemiyle ilişkilendirmek için her telemetri öğenin adlı bir bağlam alan sahip `operation_Id`. Bu tanımlayıcı, dağıtılmış izlemede her telemetri öğesi tarafından paylaşılır. Bu nedenle bile telemetri tek bir katmandan kaybı ile hala diğer bileşenler tarafından bildirilen telemetri ilişkilendirebilirsiniz.
+Application Insights'ı tanımlayan bir [veri modeli](application-insights-data-model.md) dağıtılmış telemetri bağıntısı için. Telemetri mantıksal işlemi ile ilişkilendirilecek adlı bir bağlam alan her telemetri öğesine sahip `operation_Id`. Bu tanımlayıcı dağıtılmış izlemede her telemetri öğesinin tarafından paylaşılır. Böylece tek bir katman alınan telemetri kaybı ile hala diğer bileşenleri tarafından raporlanan telemetri ilişkilendirebilirsiniz.
 
-Dağıtılmış mantıksal işlemi genellikle daha küçük işlemleri - bileşenlerden biri tarafından işlenen isteklerin kümesi oluşur. Bu işlemler tarafından tanımlanan [isteği telemetri](application-insights-data-model-request-telemetry.md). Her istek telemetri kendi sahip `id` , genel olarak benzersiz şekilde tanımlar. Ve tüm telemetri - izlemeleri, özel durumlar, bu istekle ilişkili vb. ayarlamalısınız `operation_parentId` isteği değerine `id`.
+Dağıtılmış bir mantıksal işlemi genellikle bir dizi daha küçük işlemlerini - bileşenlerinden biri tarafından işlenen isteklerin oluşur. Bu işlemler tarafından tanımlanan [istek telemetri](application-insights-data-model-request-telemetry.md). Her istek telemetrisi kendi bölümüne sahiptir `id` , küresel olarak benzersiz şekilde tanımlar. Ve tüm telemetri - izlemelerini, özel durumlar, bu istekle ilişkili vb. ayarlamalısınız `operation_parentId` istek değerine `id`.
 
-Her giden işlem başka bir bileşen tarafından temsil edilen http çağrısı gibi [bağımlılık telemetrisi](application-insights-data-model-dependency-telemetry.md). Bağımlılık telemetrisi ayrıca tanımlar kendi `id` genel olarak benzersiz. Bu bağımlılık çağrısı tarafından başlatılan isteği telemetri olarak kullanan `operation_parentId`.
+Başka bir bileşen tarafından temsil edilen http çağrısı gibi her giden işlem [bağımlılık telemetrisi](application-insights-data-model-dependency-telemetry.md). Bağımlılık telemetrisi ayrıca tanımlar kendi `id` genel olarak benzersiz. Bu bağımlılık çağrısının tarafından başlatılan istek telemetrisi, olarak kullandığı `operation_parentId`.
 
-Dağıtılmış mantıksal işlemi kullanarak görünümünü oluşturabilirsiniz `operation_Id`, `operation_parentId`, ve `request.id` ile `dependency.id`. Bu alanlar aynı zamanda telemetri çağrıları causality sırasını tanımlar.
+Dağıtılmış bir mantıksal işlemi kullanarak görünümü oluşturabilirsiniz `operation_Id`, `operation_parentId`, ve `request.id` ile `dependency.id`. Bu alanlar da nedensellik ilişkilerini çağrı sırasını, telemetri tanımlayın.
 
-Mikro Hizmetleri ortamında bileşenleri izlemeler farklı depolarını gidebilir. Her bileşen, kendi izleme anahtarını Application Insights'ta olabilir. Mantıksal işlem için telemetri almak için her depolama alanından verileri sorgulamak gerekir. Depoları sayısı çok büyük olduğunda, sonraki ara nerede ipucu olması gerekir.
+Mikro hizmetler ortamında izlemelerinden bileşenleri için farklı Pano'yu gidebilir. Her bileşen kendi izleme anahtarı, Application Insights'ta sahip olabilir. Mantıksal işlem için telemetri almak için her depolama alanından verileri sorgulamak gerekir. Pano'yu sayısı çok büyük olduğunda, sonraki ara nerede ipucu olması gerekir.
 
-Veri modeli tanımlayan bu sorunu çözmek için iki alan application Insights: `request.source` ve `dependency.target`. İlk alan bağımlılık istek başlatılan bileşen tanımlar ve hangi bileşenin bağımlılık çağrının bir yanıt döndürdü ikinci tanımlar.
+Application Insights veri modeli, bu sorunu çözmek için iki alan tanımlar: `request.source` ve `dependency.target`. İlk alanı, bağımlılık istek başlatılan bileşeni belirtir ve saniye bileşeni bağımlılık çağrısının bir yanıt döndürdü tanımlar.
 
 
 ## <a name="example"></a>Örnek
 
-Geçerli Piyasa fiyatı hisse API adlı harici API kullanarak hisse senedi gösteren bir uygulama hisse SENEDİ FİYATLARI örneği atalım. Bir sayfa hisse SENEDİ FİYATLARI uygulamasına sahip `Stock page` istemci web tarayıcısı kullanarak açılan `GET /Home/Stock`. Bir HTTP çağrısı kullanarak stok API uygulaması sorgular `GET /api/stock/value`.
+Geçerli pazar fiyat STOCKS API olarak adlandırılan harici API kullanarak bir hisse senedi gösteren bir uygulama hisse SENEDİ FİYATLAR örneği ele alalım. Hisse SENEDİ FİYATLARINI uygulamaya sahip bir sayfa `Stock page` istemci web tarayıcısı kullanılarak açılan `GET /Home/Stock`. HTTP çağrısı kullanarak stok API uygulama sorgular `GET /api/stock/value`.
 
-Bir sorgu çalıştırılarak elde edilen telemetri çözümleyebilirsiniz:
+Çalışan bir sorgu elde edilen telemetri çözümleyebilirsiniz:
 
 ```
 (requests | union dependencies | union pageViews) 
@@ -51,70 +53,70 @@ Bir sorgu çalıştırılarak elde edilen telemetri çözümleyebilirsiniz:
 | project timestamp, itemType, name, id, operation_ParentId, operation_Id
 ```
 
-Tüm telemetri öğelerini kök paylaşma sonuç görünümü notta `operation_Id`. Ajax çağırdığınızda sayfasından - yeni benzersiz kimlik yapılan `qJSXU` bağımlılık telemetrisi atanır ve sayfa görünümü'nın kimliği olarak kullanılan `operation_ParentId`. Sunucu isteği ajax'ın kimliği olarak sırayla kullanan `operation_ParentId`, vb.
+Tüm telemetri öğelerinin kök paylaşmak sonucu görünümü notta `operation_Id`. Ajax çağırdığınızda sayfası - yeni benzersiz kimliği yapılan `qJSXU` bağımlılık telemetrisi için atanan ve sayfa görüntülemesi'nın kimliği olarak kullanılan `operation_ParentId`. Sunucu isteği ajax'ın kimliği olarak sırayla kullanan `operation_ParentId`, vb.
 
-| itemType   | ad                      | id           | operation_ParentId | operation_Id |
+| Itemtype   | ad                      | id           | operation_ParentId | operation_ıd |
 |------------|---------------------------|--------------|--------------------|--------------|
 | Sayfa görünümü   | Stok sayfası                |              | STYz               | STYz         |
 | bağımlılık | GET /Home/stok           | qJSXU        | STYz               | STYz         |
-| İstek    | GET Home/stok            | KqKwlrSt9PA = | qJSXU              | STYz         |
+| istek    | GET Home/stok            | KqKwlrSt9PA = | qJSXU              | STYz         |
 | bağımlılık | /Api/Stock/Value Al      | bBrf2L7mm2g= | KqKwlrSt9PA =       | STYz         |
 
-Şimdi, çağrı `GET /api/stock/value` sunucu kimliğinin bilinmesi istediğiniz bir dış hizmet yapılan. Böylece, ayarlayabilirsiniz `dependency.target` uygun şekilde alan. Dış hizmet izleme - desteklemediğinde `target` gibi hizmet ana bilgisayar adı olarak ayarlanmış `stock-prices-api.com`. Ancak bu hizmetin kendisi önceden tanımlanmış bir döndürerek tanımlarsa HTTP üstbilgisi - `target` telemetri bu hizmetinden sorgulayarak dağıtılmış izleme oluşturmak Application Insights sağlayan hizmet kimliği içerir. 
+Şimdi, çağrı `GET /api/stock/value` yapılan sunucu kimliğini bilmek isteyeceğiniz bir dış hizmet. Böylece, ayarlayabilirsiniz `dependency.target` uygun şekilde alanı. Dış hizmet izleme - desteklemediğinde `target` gibi hizmet konak adını ayarlayın `stock-prices-api.com`. Ancak, hizmeti önceden tanımlanmış bir döndürerek kendisini tanımlar, HTTP üst bilgisi - `target` Application Insights'ın dağıtılmış izleme telemetrisi, hizmetten sorgulayarak oluşturmanızı sağlayan bir hizmet kimliği içeriyor. 
 
 ## <a name="correlation-headers"></a>Bağıntı üstbilgileri
 
-RFC teklifi için üzerinde çalıştığımız [bağıntı HTTP Protokolü](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Bu teklif iki üstbilgi tanımlar:
+RFC teklifi için üzerinde çalıştığımız [bağıntı HTTP Protokolü](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Bu teklif, iki üstbilgi tanımlar:
 
-- `Request-Id` çağrı genel benzersiz kimliğini Yürüt
-- `Correlation-Context` -Dağıtılmış izleme özellikleri ad değer çifti koleksiyonu Yürüt
+- `Request-Id` çağrı genel olarak benzersiz kimliğini Yürüt
+- `Correlation-Context` -Dağıtılmış izleme özellikleri ad değer çiftleri koleksiyonu Yürüt
 
-Standart iki şemaları, ayrıca tanımlar `Request-Id` oluşturma - düz ve hiyerarşik. Düz şemasıyla yoktur iyi bilinen `Id` için tanımlanmış anahtar `Correlation-Context` koleksiyonu.
+Standart Ayrıca iki şemaları tanımlar `Request-Id` oluşturma - düz ve hiyerarşik. Düz şemasıyla yoktur iyi bilinen `Id` için tanımlanan anahtar `Correlation-Context` koleksiyonu.
 
-Application Insights tanımlar [uzantısı](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) bağıntı HTTP protokolü için. Kullandığı `Request-Context` anında arayanlar veya Aranan tarafından kullanılan özelliklerinin koleksiyonunu yaymak için değer çiftleri olarak adlandırın. Application Insights SDK'sı ayarlamak için bu üstbilgiyi kullanır `dependency.target` ve `request.source` alanları.
+Application Insights tanımlar [uzantısı](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) bağıntı HTTP protokolü için. Kullandığı `Request-Context` ad değer çiftleri koleksiyonu şu anki çağırıcı veya Aranan tarafından kullanılan özellikleri yaymak için. Application Insights SDK'sını ayarlamak için bu üstbilgiyi kullanır `dependency.target` ve `request.source` alanları.
 
 ## <a name="open-tracing-and-application-insights"></a>Açık izleme ve Application Insights
 
-[İzleme açık](http://opentracing.io/) ve Application Insights veri modelleri görünüyor 
+[İzlemeyi Aç](http://opentracing.io/) ve Application Insights'ın veri modelleri görünüyor 
 
-- `request`, `pageView` eşlendiği **aralık** ile `span.kind = server`
-- `dependency` eşlendiği **aralık** ile `span.kind = client`
+- `request`, `pageView` eşlendiği **yayılma** ile `span.kind = server`
+- `dependency` eşlendiği **yayılma** ile `span.kind = client`
 - `id` bir `request` ve `dependency` eşlendiği **Span.Id**
 - `operation_Id` eşlendiği **TraceId**
 - `operation_ParentId` eşlendiği **başvuru** türü `ChildOf`
 
-Bkz: [veri modeli](application-insights-data-model.md) Application Insights türleri ve veri modeli için.
+Bkz: [veri modeli](application-insights-data-model.md) için Application Insights türleri ve veri modeli.
 
 Bkz: [belirtimi](https://github.com/opentracing/specification/blob/master/specification.md) ve [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) açık izleme kavramları tanımları için.
 
 
-## <a name="telemetry-correlation-in-net"></a>.NET içinde telemetri bağıntı
+## <a name="telemetry-correlation-in-net"></a>. NET'te telemetri bağıntısı
 
-Zaman içinde .NET telemetri ve tanılama günlüklerini ilişkilendirmek için çeşitli yöntemler tanımlanır. Yoktur `System.Diagnostics.CorrelationManager` izlemek için izin verme [LogicalOperationStack ve ActivityID](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` ve Windows ETW yöntemi tanımlayın [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` kullanan [günlük kapsamları](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). WCF ve Http kablo "geçerli" bağlam yayma ayarlama.
+Zaman içinde telemetri ve tanılama günlüklerini ilişkilendirmek için çeşitli yöntemler .NET tanımlanır. Var. `System.Diagnostics.CorrelationManager` izlemek için izin verme [LogicalOperationStack ve ActivityID](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` ve Windows ETW yöntemi tanımlayabilirsiniz [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` kullanan [günlük kapsamları](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). WCF ve Http kablo "geçerli" bağlam yayma ayarlama.
 
-Ancak bu yöntemleri otomatik dağıtılmış İzleme desteğini etkinleştirin alamadık. `DiagnosticsSource` desteklemek için bir yol makine bağıntı otomatik olarak yapılır. .NET kitaplıklarına tanılama kaynak desteklemek ve http gibi aktarım aracılığıyla bağıntı bağlam makine yayılmasını çapraz otomatik sağlar.
+Ancak bu yöntemleri otomatik dağıtılmış izleme desteği etkinleştirmeniz kaydetmedi. `DiagnosticsSource` Makine bağıntı desteklemek için bir yol otomatiktir. .NET kitaplıkları tanılama kaynak desteği ve taşıma gibi http üzerinden bağıntı bağlam makine yayılmasını çapraz otomatik izin.
 
-[Etkinlikleri kılavuza](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) tanılama kaynağında etkinlikleri izleme temellerini açıklar. 
+[Etkinlikleri kılavuza](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) tanılama kaynakta izleme etkinliklerin temellerini açıklar. 
 
-ASP.NET Core 2.0 Http üstbilgileri ve yeni etkinlik başlangıç ayıklama destekler. 
+ASP.NET Core 2.0 Http üst bilgileri ve yeni etkinlik başlangıç ayıklama destekler. 
 
-`System.Net.HttpClient` Başlangıç sürümünden `4.1.0` http çağrısı bir etkinlik olarak izleme ve Http üstbilgileri bağıntı otomatik eklenmesine destekler.
+`System.Net.HttpClient` Başlangıç sürümü `4.1.0` bağıntı Http üst bilgilerini otomatik ekleme destekler ve http çağrısı bir etkinlik olarak izleme.
 
-Yeni bir Http modülü yok [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) ASP.NET Classic için. Bu modül telemetri bağıntı DiagnosticsSource kullanarak uygular. Gelen istek üstbilgileri göre etkinlik başlatır. İstek işleme farklı aşamalarını telemetrisinden hatalarla ilintilidir. Her IIS aşaması farklı Yönet iş parçacığı üzerinde çalıştığında bile durumlar için.
+Yeni bir Http Modülü [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) ASP.NET Klasik için. Bu modül, telemetri bağıntısı DiagnosticsSource kullanarak uygular. Gelen istek üst bilgilere göre etkinlik başlar. İsteğin işlenmesinin farklı aşamalar alınan telemetri hatalarla ilintilidir. Her IIS aşaması farklı Yönet iş parçacıklarında çalıştırdığında bile durumlarda.
 
-Uygulama Insights SDK'sı başlangıç sürümü `2.4.0-beta1` DiagnosticsSource ve etkinlik telemetri toplamak ve geçerli etkinliğin ile ilişkilendirmek için kullanır. 
+Application Insights SDK'sı başlangıç sürümü `2.4.0-beta1` DiagnosticsSource ve etkinlik telemetri toplamak ve geçerli etkinliği ile ilişkilendirmek için kullanır. 
 
 <a name="java-correlation"></a>
-## <a name="telemetry-correlation-in-the-java-sdk"></a>Java SDK'sındaki telemetri bağıntı
-[Application Insights Java SDK'sı](app-insights-java-get-started.md) telemetri başlayan sürümüyle otomatik bağıntı destekleyen `2.0.0`. Otomatik olarak doldurur `operation_id` için bir istek kapsamı içinde yayınlanan tüm telemetri (izlemeler, özel durumlar, özel olaylar, vb.). Bu ayrıca (HTTP üzerinden hizmet çağrıları için yukarıda) bağıntı üstbilgileri yayılıyor varsa mvc'deki [Java SDK'sı Aracısı](app-insights-java-agent.md) yapılandırılır. Not: Yalnızca Apache HTTP istemcisi yapılan çağrılar bağıntı özelliği için desteklenir. Yay Rest şablon veya Feign kullanıyorsanız, her ikisi de başlık altında Apache HTTP istemci ile kullanılabilir.
+## <a name="telemetry-correlation-in-the-java-sdk"></a>Java SDK telemetri bağıntısı
+[Application Insights Java SDK'sı](app-insights-java-get-started.md) otomatik sürümü itibarıyla telemetri bağıntısı destekler `2.0.0`. Otomatik olarak doldurulur `operation_id` istek kapsamında verilen tüm telemetri (izlemelerini, özel durumlar, özel olaylar, vb.). Bu da (HTTP aracılığıyla hizmet çağrıları için yukarıda) bağıntı üst bilgileri yayma varsa üstlenir [Java SDK'sı aracı](app-insights-java-agent.md) yapılandırılır. Not: Yalnızca Apache HTTP istemcisi yapılan çağrılar bağıntı özelliği için desteklenir. Spring Rest şablonu veya Feign kullanıyorsanız, her ikisi de bileşenler Apache HTTP istemci ile kullanılabilir.
 
-Şu anda, otomatik bağlam yayma (örneğin Kafka, RabbitMQ, Azure Service Bus) Mesajlaşma teknolojilerde desteklenmiyor. Ancak, mümkündür el ile kullanarak bu senaryolara kod `trackDependency` ve `trackRequest` alınabildiği bir bağımlılık telemetrisi bir üretici tarafından sıraya alınan olan bir ileti temsil eder ve bir tüketici tarafından işlenen bir ileti isteğini temsil eder API. Bu durumda, her ikisi de `operation_id` ve `operation_parentId` ileti özelliklerinde yayılır.
+Mesajlaşma teknolojilerinin (örneğin, Kafka, RabbitMQ, Azure Service Bus) arasında bağlamı otomatik yayma şu anda desteklenmiyor. Ancak, mümkündür kullanarak bu senaryolara el ile kod `trackDependency` ve `trackRequest` verebileceğiniz bir bağımlılık telemetrisi olan bir üretici tarafından sıraya bir ileti ve bir ileti tüketicisi tarafından işlenmekte olan isteği temsil eder API. Bu durumda, her ikisi de `operation_id` ve `operation_parentId` ileti özelliklerinde yayılır.
 
 <a name="java-role-name"></a>
 ### <a name="role-name"></a>Rol Adı
-Bazen bileşen adlarına görüntülenir şekilde özelleştirmek isteyebilirsiniz [uygulama eşlemesi](app-insights-app-map.md). Bunu yapmak için el ile ayarlayabilirsiniz `cloud_roleName` aşağıdakilerden birini yaparak:
+Bazen, bileşen adları görüntülenir şekilde özelleştirmek isteyebilirsiniz [Uygulama Haritası](app-insights-app-map.md). Bunu yapmak için el ile ayarlayabileceğiniz `cloud_roleName` aşağıdakilerden birini yaparak:
 
-(Tüm telemetri öğeleri etiketlenir) bir telemetri Başlatıcı
+(Tüm telemetri öğelerinin etiketlenir) bir telemetri Başlatıcısı
 ```Java
 public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
 
@@ -124,14 +126,14 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-Aracılığıyla [aygıt bağlam sınıfını](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (yalnızca bu telemetri öğe etiketli)
+Aracılığıyla [cihaz bağlamı sınıfının](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (yalnızca bu telemetri öğesinin etiketli)
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Özel telemetri yazın](app-insights-api-custom-events-metrics.md)
-- Yerleşik mikro hizmetinizde Application Insights'ın tüm bileşenleri. Kullanıma [desteklenen platformlar](app-insights-platforms.md).
-- Bkz: [veri modeli](application-insights-data-model.md) Application Insights türleri ve veri modeli için.
-- Bilgi edinmek için nasıl [genişletmek ve filtre telemetri](app-insights-api-filtering-sampling.md).
+- [Özel telemetri yazma](app-insights-api-custom-events-metrics.md)
+- Yerleşik mikro hizmet Application Insights'ın tüm bileşenleri. Kullanıma [desteklenen platformlar](app-insights-platforms.md).
+- Bkz: [veri modeli](application-insights-data-model.md) için Application Insights türleri ve veri modeli.
+- Bilgi edinmek için nasıl [genişletmek ve telemetri filtreleme](app-insights-api-filtering-sampling.md).

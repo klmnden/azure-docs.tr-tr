@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: sethm
-ms.openlocfilehash: 91035f84d02810d838127ecf6a2f6424ef5df6cf
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 51c04a567ff953c4e84930e3feae448f78627683
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055611"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713944"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Anahtar Kasası'nda Azure Stack portalını kullanarak yönetme
 
@@ -33,7 +33,7 @@ Azure Key Vault hizmetini içeren bir teklife abone olması gerekir.
 
 1. Oturum [kullanıcı portalı](https://portal.local.azurestack.external).
 
-2. Panoda **yeni** > **güvenlik + kimlik** > **Key Vault**.
+2. Panoda **+ kaynak Oluştur** > **güvenlik + kimlik** > **Key Vault**.
 
     ![Key Vault ekran](media/azure-stack-kv-manage-portal/image1.png)
 
@@ -41,7 +41,7 @@ Azure Key Vault hizmetini içeren bir teklife abone olması gerekir.
 
 4. Seçin bir **abonelik** kullanılabilir abonelikler listesinden. Key Vault hizmetinin sunduğu tüm abonelikler, aşağı açılan listede görüntülenir.
 
-5. Mevcut bir seçin **kaynak grubu** veya yeni bir tane oluşturun.
+5. Yeni bir **Kaynak Grubu** seçin ya da yeni bir tane oluşturun.
 
 6. Seçin **fiyatlandırma katmanı**.
     >[!NOTE]

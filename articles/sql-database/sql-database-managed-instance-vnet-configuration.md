@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 09/12/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 748489785241c0eab6022e3585164974f330d6f9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1ec4a6033fad643c75cdf9f7ebc5cdb1f4bab9c3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049682"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717157"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma
 
@@ -38,31 +38,31 @@ Bir yönetilen örneği'nde aşağıdaki sorulara verdiğiniz yanıtlar kullanar
 
 ## <a name="requirements"></a>Gereksinimler
 
-Yönetilen örnek oluşturmak için aşağıdaki gereksinimlere uygun sanal ağ içindeki bir alt ağı ayırmanız gerekir:
-- **Ayrılmış alt**: alt ağ ile ilişkili diğer bulut hizmeti içermemelidir ve ağ geçidi alt ağı olmamalıdır. Yönetilen örnek dışındaki kaynaklar içeren bir alt ağa yönetilen örneği oluşturma veya diğer kaynakları daha sonra alt ağ içinde eklemek mümkün olmayacaktır.
-- **Hiçbir NSG**: alt ağ ile ilişkilendirilmiş bir ağ güvenlik grubu olmaması gerekir. 
-- **Belirli bir yol tablonuz**: alt ağı olarak atanmış tek yolu 0.0.0.0/0 sonraki atlama Internet ile kullanıcı rota tablosu (UDR) olması gerekir. Daha fazla bilgi için [gerekli yol tablosu oluşturun ve ilişkilendirin](#create-the-required-route-table-and-associate-it)
-3. **İsteğe bağlı bir özel DNS**: Azure'nın yinelemeli Çözümleyicileri IP adresi (168.63.129.16 gibi) VNet üzerinde özel DNS belirtilirse, listeye eklenmelidir. Daha fazla bilgi için [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md).
-4. **Hizmet uç noktası yok**: alt ağ ile ilişkili bir hizmet uç noktası olmaması gerekir. Hizmet uç noktaları seçeneğini sanal ağ oluştururken devre dışı emin olun.
-5. **Yeterli IP adresi**: alt ağın en az 16 IP adresi olmalıdır (en az 32 IP adresleri önerilir). Daha fazla bilgi için [yönetilen örnekler için alt ağ boyutunu belirler](#determine-the-size-of-subnet-for-managed-instances)
+Bir yönetilen örnek oluşturmak için aşağıdaki gereksinimlere uygun bir sanal ağ içinde ayrılmış bir alt ağ (yönetilen örnek alt) oluşturun:
+- **Ayrılmış alt**: yönetilen örnek alt kendisiyle ilişkilendirilmiş diğer bulut hizmeti içermemelidir ve bir ağ geçidi alt ağı olmamalıdır. Yönetilen örnek haricinde kaynaklar içeren bir alt ağdaki bir yönetilen örnek oluşturma mümkün olmayacaktır ve daha sonra diğer kaynaklar alt ağdaki ekleyebilirsiniz değil.
+- **Uyumlu ağ güvenlik grubu (NSG)**: bir yönetilen örnek alt ağ ile ilişkilendirilmiş bir NSG kuralları önüne başka kurallar aşağıdaki tablolarda (zorunlu gelen güvenlik kuralları ve zorunlu giden güvenlik kuralları) gösterilen içermesi gerekir. 1433 numaralı bağlantı noktasında trafiği filtreleyerek, tam olarak yönetilen örnek veri uç noktası erişimi denetlemek için bir NSG kullanabilirsiniz. 
+- **Uyumlu kullanıcı tanımlı yol tablosu (UDR)**: yönetilen örnek alt, bir kullanıcı rota tablosuyla olmalıdır **0.0.0.0/0 sonraki atlama Internet** atanmış zorunlu UDR olarak. Ayrıca, bir hedef sanal ağ geçidi veya sanal ağ Gereci (NVA) üzerinden şirket içi özel IP aralıklarına sahip bu trafiği yönlendirir UDR ekleyebilirsiniz. 
+- **İsteğe bağlı bir özel DNS**: Azure'nın yinelemeli çözümleyici IP adresi (168.63.129.16 gibi) özel bir DNS thevirtual ağ üzerinde belirtilirse, listeye eklenmesi gerekir. Daha fazla bilgi için [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md). Özel DNS sunucusunun ana bilgisayar adlarını aşağıdaki etki alanları ve bunların alt çözümleyebilmesi gerekir: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, ve *microsoftonline-p.com*. 
+- **Hizmet uç noktası yok**: yönetilen örnek alt ilişkili bir hizmet uç noktası değil olmalıdır. Hizmet uç noktaları seçeneğini sanal ağ oluştururken, devre dışı emin olun.
+- **Yeterli IP adresi**: yönetilen örnek alt en az 16 IP adresi olmalıdır (en az 32 IP adresleri önerilir). Daha fazla bilgi için [yönetilen örnekler için alt ağ boyutunu belirler](#determine-the-size-of-subnet-for-managed-instances)
 
 > [!IMPORTANT]
-> Hedef alt tüm önceki gereksinimleri ile uyumlu değilse, yeni yönetilen örneği dağıtmak mümkün olmayacaktır. Herhangi bir ihlali örneği hatalı durumuna girmek ve kullanılamaz duruma neden olabileceğinden ' % s'hedef sanal ağ ve alt ağı Bu yönetilen örneği gereksinimlerine uyacak şekilde (önce ve dağıtım sonrasında) tutulması gerekir. Gelen durumuna, uyumlu ağ ilkeleri ile bir sanal ağda yeni bir örneğini oluşturmak ihtiyaç duyduğu kurtarma, örnek düzeyi verileri yeniden oluşturmanız ve veritabanlarınızı geri yüklemek. Bu, uygulamalarınız için önemli kapalı kalma süresi sunar.
+> Hedef alt ağ, tüm bu gereksinimler ile uyumlu değilse, yeni bir yönetilen örnek dağıtmak mümkün olmayacaktır. Yönetilen bir örneği oluşturulduğunda bir *Ağ hedefi İlkesi* alt ağ yapılandırmasını uyumlu değişiklikleri önlemek için uygulanır. Son örnek bir alt ağdan kaldırıldıktan sonra *Ağ hedefi İlkesi* de kaldırılır
 
-Giriş ile _Ağ hedefi İlkesi_, yönetilen örneği oluşturulduktan sonra bir yönetilen örnek alt ağında bir ağ güvenlik grubu (NSG) ekleyebilirsiniz.
-
-Bir NSG artık, uygulamaları sorgulayın ve kullanıcıları 1433 bağlantı noktasına giden ağ trafiğini filtreleme yaparak verileri yönetmek IP aralıklarını daraltmak için de kullanabilirsiniz. 
-
-> [!IMPORTANT]
-> 1433 numaralı bağlantı noktasına erişim restrain NSG kurallarını yapılandırırken, aynı zamanda gelen kuralları aşağıdaki tabloda görüntülenen en yüksek öncelikli eklemeniz gerekir. Aksi halde Ağ hedefi ilkesi değişikliği uyumlu olmayan olarak engeller.
+### <a name="mandatory-inbound-security-rules"></a>Zorunlu bir gelen güvenlik kuralları 
 
 | AD       |BAĞLANTI NOKTASI                        |PROTOKOLÜ|KAYNAK           |HEDEF|EYLEM|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|yönetim  |9000, 9003, 1438, 1440, 1452|Herhangi biri     |Herhangi biri              |Herhangi biri        |İzin Ver |
+|yönetim  |9000, 9003, 1438, 1440, 1452|TCP     |Herhangi biri              |Herhangi biri        |İzin Ver |
 |mi_subnet   |Herhangi biri                         |Herhangi biri     |MI ALT AĞ        |Herhangi biri        |İzin Ver |
 |health_probe|Herhangi biri                         |Herhangi biri     |AzureLoadBalancer|Herhangi biri        |İzin Ver |
 
-0.0.0.0/0 sonraki atlama türü yanı sıra Internet yolu, UDR, şirket içi özel IP aralıkları ile sanal ağ geçidi veya sanal ağ Gereci (NVA) doğrultusunda trafiği yönlendirmek için artık ekleyebilmeniz yönlendirme deneyimi de geliştirilmiştir.
+### <a name="mandatory-outbound-security-rules"></a>Zorunlu giden güvenlik kuralları 
+
+| AD       |BAĞLANTI NOKTASI          |PROTOKOLÜ|KAYNAK           |HEDEF|EYLEM|
+|------------|--------------|--------|-----------------|-----------|------|
+|yönetim  |80, 443, 12000|TCP     |Herhangi biri              |Herhangi biri        |İzin Ver |
+|mi_subnet   |Herhangi biri           |Herhangi biri     |Herhangi biri              |MI ALT AĞ  |İzin Ver |
 
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Yönetilen örnek için alt ağ boyutunu belirler
 

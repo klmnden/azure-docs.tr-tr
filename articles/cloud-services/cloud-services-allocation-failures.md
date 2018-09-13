@@ -1,5 +1,5 @@
 ---
-title: Bulut hizmeti ayırma hatası sorunlarını giderme | Microsoft Docs
+title: Bulut hizmeti ayırma hatalarıyla ilgili sorunları giderme | Microsoft Docs
 description: Azure’da Cloud Services dağıtımı sırasında oluşan ayırma hatalarını giderme
 services: azure-service-management, cloud-services
 documentationcenter: ''
@@ -13,62 +13,62 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 33d017d0e09e9b288b0514e85c8865f83a8a2fa1
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 22888c76b27d287a8d7fb0f0f1f0a0d39d92375d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
-ms.locfileid: "23984125"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35982870"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Azure’da Cloud Services dağıtımı sırasında oluşan ayırma hatalarını giderme
 ## <a name="summary"></a>Özet
-Örnek bir bulut hizmetine dağıtma veya yeni web veya çalışan rolü örnekleri eklediğinizde, Microsoft Azure işlem kaynakları ayırır. Zaman zaman bile Azure abonelik limitleri düşmeden önce bu işlemleri yaparken hatalar alabilirsiniz. Bu makalede, bazı ortak ayırma hatalarının nedenlerini açıklar ve olası düzeltme önerir. Hizmetlerinizin dağıtımını planlarken bilgiler de yararlı olabilir.
+Örnek bir bulut hizmetine dağıtın veya yeni bir web veya çalışan rolü örnekleri eklemek, Microsoft Azure işlem kaynakları ayırır. Azure abonelik limitleri geçebilmek bu işlemleri yaparken ara sıra hatalar alabilirsiniz. Bu makalede, ortak bir ayırma hatalarının bazı nedenleri açıklanır ve olası düzeltmeler önerir. Hizmetlerinizi dağıtımını planlarken bilgiler de yararlı olabilir.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ### <a name="background--how-allocation-works"></a>Arka plan – ayırma nasıl çalışır?
-Sunucuları Azure veri merkezlerinde kümeler halinde bölümlenir. Yeni bir bulut hizmeti ayırma isteği birden çok kümelerde denenir. İlk örneği, bulut hizmeti bir bulut hizmetinde için (hazırlama ya da üretim), dağıtıldığında bir kümeye sabitlenmiş. Bulut hizmeti için diğer tüm dağıtımlar aynı kümede gerçekleşir. Bu makalede, biz bu için "bir kümeye sabitlenmiş gibi" başvuruyor. Aşağıdaki diyagram 1, birden çok kümelerde denenir normal bir ayırma durumunun gösterir; Diyagram 2 bir ayırma durumunun gösterir, var olan bulut hizmeti CS_1 barındırıldığı olduğu için küme 2'ye sabitlenmiş.
+Azure veri merkezlerindeki sunucular kümelere bölünmüştür. Yeni bir bulut hizmeti ayırma isteği birden fazla kümede denenir. İlk örneği bulut hizmeti bulut hizmeti için (içinde hazırlama veya üretim) dağıtıldığında bir kümeye sabitlenebilir. Bulut hizmeti için diğer tüm dağıtımlar, aynı kümede gerçekleşir. Bu makalede, bu "bir kümeye sabitlenebilir gibi" diyoruz. Aşağıdaki diyagramda 1 birden fazla kümede denenir, normal bir ayırma durumu gösterir; Diyagram 2 ayırma durumunu gösterir, var olan bulut hizmeti CS_1 barındırıldığı olduğu için kümeye 2'ye sabitlenmiş.
 
 ![Ayırma diyagramı](./media/cloud-services-allocation-failure/Allocation1.png)
 
 ### <a name="why-allocation-failure-happens"></a>Ayırma hatası neden olur
-Ayırma isteği bir kümeye sabitlenmiş, kullanılabilir kaynak havuzu bir kümeye sınırlı olduğundan boş kaynakları bulmak başarısız olan, daha yüksek bir fırsat yok. Küme ücretsiz kaynağa sahip olsa bile Ayrıca, bir kümeye ayırma isteği sabitlenmiş ancak, istenen kaynak türü, küme tarafından desteklenmiyor, isteğiniz başarısız olur. Aşağıdaki diyagram 3 yalnızca adayı küme kaynakları serbest bırakmak olmadığından burada Sabitlenmiş ayırma başarısız durumda gösterir. Diyagram 4 yalnızca adayı küme istenen VM boyutu desteklemediği için küme kaynakları serbest bırakmak sahip olsa bile burada Sabitlenmiş ayırma başarısız durumda gösterir.
+Ayırma isteği için bir küme sabitlenmiş olduğunda daha yüksek kullanılabilir bir kaynak havuzu bir kümeye sınırlı olduğundan ücretsiz kaynakları bulmak başarısız olan kaybedilebilir. Ayrıca, küme ücretsiz kaynağa sahip olsa bile, ayırma isteğinin bir kümeye sabitlenmiş, ancak istediğiniz kaynak türünü, küme tarafından desteklenmiyor, isteği reddeder. Aşağıdaki diyagramda 3 yalnızca aday küme kaynakları serbest bırakmak olmadığından burada sabitlenmiş bir ayırma başarısız durum gösterilmektedir. Diyagram 4 yalnızca aday küme istenen VM boyutu desteklemediği için küme ücretsiz kaynaklara sahip olsa da burada bir Sabitlenmiş ayırma başarısız durumda gösterir.
 
 ![Sabitlenmiş ayırma hatası](./media/cloud-services-allocation-failure/Allocation2.png)
 
-## <a name="troubleshooting-allocation-failure-for-cloud-services"></a>Bulut Hizmetleri için sorun giderme ayırma hatası
-### <a name="error-message"></a>Hata iletisi
+## <a name="troubleshooting-allocation-failure-for-cloud-services"></a>Bulut Hizmetleri için oluşan ayırma hatalarını giderme
+### <a name="error-message"></a>Hata İletisi
 Aşağıdaki hata iletisini görebilirsiniz:
 
     "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
 
 ### <a name="common-issues"></a>Yaygın Sorunlar
-Tek bir küme için sabitlenmelidir ayırma isteği neden ortak ayırma senaryolar verilmiştir.
+Tek bir küme için sabitlenmelidir ayırma isteği neden ortak bir ayırma senaryoları aşağıda verilmiştir.
 
-* Bir bulut hizmeti her iki yuvada bir dağıtım varsa hazırlama yuvası - dağıtma, ardından tüm bulut hizmeti için belirli bir kümeyi sabitlendi.  Bu, zaten bir dağıtım üretim yuvasında zaten varsa, ardından yeni bir hazırlama dağıtımı yalnızca üretim yuvasına aynı kümedeki ayrılabilen olduğunu anlamına gelir. Küme kapasitesine yaklaşıyor isteği başarısız olabilir.
-* Ölçeklendirme - yeni örnekleri olan bir bulut hizmetini ekleme aynı kümede ayırmanız gerekir.  Küçük istekleri ölçekleme genellikle ayrılan, ancak her zaman değil. Küme kapasitesine yaklaşıyor isteği başarısız olabilir.
-* Bulut hizmeti bir benzeşim grubuna sabitlenmiş sürece benzeşim grubu - bu bölgedeki herhangi bir küme yapıda tarafından boş bir bulut hizmetinde için yeni bir dağıtım ayrılabilir. Aynı benzeşim grubuna dağıtımları aynı kümede denenir. Küme kapasitesine yaklaşıyor isteği başarısız olabilir.
-* Benzeşim grubu vNet - eski sanal ağları bölgeleri yerine benzeşim grupları için bağlı ve bu sanal ağlar bulut Hizmetleri'nde benzeşim grubu kümeye sabitlenmiş. Bu sanal ağ türü için dağıtımlar sabitlenmiş kümede denenir. Küme kapasitesine yaklaşıyor isteği başarısız olabilir.
+* Bir bulut hizmeti ya da yuvasında bir dağıtım varsa - hazırlama yuvasına dağıtma, ardından tüm bulut hizmeti için belirli bir küme sabitlenir.  Diğer bir deyişle, üretim yuvasında bir dağıtım zaten varsa, yeni bir hazırlama dağıtımı yalnızca üretim yuvası ile aynı kümede ayrılabilir. Kümenin kapasitesine yaklaşıyor istek başarısız.
+* Ölçeklendirme - mevcut bir bulut hizmeti için yeni örnekler ekleniyor, aynı kümede ayırmanız gerekir.  Küçük ölçeklendirme istekleri her zaman olmasa da genellikle ayrılabilir. Kümenin kapasitesine yaklaşıyor istek başarısız.
+* Bulut hizmeti bir benzeşim grubuna Sabitlenen sürece benzeşim grubu - bu bölgedeki herhangi bir küme dokusunda tarafından boş bir bulut hizmetinde yeni bir dağıtım ayrılabilir. Dağıtımları için aynı benzeşim grubu, aynı kümede denenecek. Kümenin kapasitesine yaklaşıyor istek başarısız.
+* Benzeşim grubu vNet - eski sanal ağları benzeşim grupları yerine bölge için bağlı ve bulut hizmetlerini bu sanal ağlardaki benzeşim grubu kümeye sabitlenmiş. Bu sanal ağ türü için dağıtımlar sabitlenmiş kümede denenecek. Kümenin kapasitesine yaklaşıyor istek başarısız.
 
 ## <a name="solutions"></a>Çözümler
-1. Yeni bir bulut hizmeti yeniden - bu bölgedeki tüm kümelerin aralarından seçim yapabileceğiniz platform verdiğinden en başarılı olması bu çözüm olasıdır.
+1. Yeni bir bulut hizmetine yeniden dağıtın: Bu platform bu bölgedeki tüm kümeler aralarından seçim yapabileceğiniz sağladığından en başarılı olma olasılığı bir çözümdür.
 
-   * Yeni bir bulut hizmeti için iş yükü dağıtma  
-   * CNAME veya bir kayıt trafiği yeni bulut hizmetine işaret edecek şekilde güncelleştirme
-   * Sıfır trafiği eski siteye geçiyor sonra eski bulut hizmeti silebilirsiniz. Bu çözüm, sıfır kapalı kalma süresi maruz.
-2. Üretim ve hazırlama yuvası delete - Bu çözüm, var olan DNS adınızı korur ancak uygulamanıza kesinti süresine neden olacak.
+   * İş yükü için yeni bir bulut hizmeti dağıtma  
+   * CNAME veya bir kayıt trafiği yeni bulut hizmetine işaret edecek şekilde güncelleştirin
+   * Sıfır trafiği, eski siteye gitmesini sonra eski bulut hizmeti silebilirsiniz. Bu çözüm, sıfır kapalı kalma süresi tabi.
+2. Hem üretim hem de hazırlık yuvalarını silin: Bu çözüm, mevcut bir DNS adını korur, ancak uygulamanız için kesintiye neden.
 
-   * Üretim ve bulut hizmeti boş, böylece var olan bir bulut hizmetini yuvaları hazırlama silin ve ardından
-   * Yeni bir dağıtım varolan bulut hizmeti oluşturun. Bu bölgedeki tüm kümelerde ayırma yeniden dener. Bulut hizmeti bir benzeşim grubuna bağlı değildir emin olun.
-3. Ayrılmış IP - Bu çözüm korumak, var olan IP adresi, ancak uygulamanıza kesinti süresine neden olacak.  
+   * Üretim ve bulut hizmeti boş, böylece yuvası var olan bir bulut hizmetinin hazırlık silin ve ardından
+   * Var olan bir bulut hizmetinde yeni bir dağıtımını oluşturun. Bu bölgedeki tüm kümelerde ayırma yeniden dener. Bulut hizmeti bir benzeşim grubuna bağlı değildir emin olun.
+3. Ayrılmış IP - Bu çözüm korumak, mevcut IP adresi, ancak uygulamanız için kesintiye neden.  
 
-   * Powershell kullanarak, varolan dağıtım için bir ReservedIP oluşturma
+   * Powershell kullanarak mevcut dağıtımınız için bir ReservedIP oluşturma
 
      ```
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
      ```
-   * Yukarıdaki, hizmetin CSCFG yeni ReservedIP belirtmek emin #2 izleyin.
-4. Yeni dağıtımlar - benzeşim grubunun benzeşim grupları artık önerilen kaldırın. #1 yeni bir bulut hizmeti dağıtmak için yukarıdaki adımları izleyin. Bulut hizmeti bir benzeşim grubunda değil emin olun.
-5. Bir bölgesel sanal ağa - bakın Dönüştür [benzeşim grupları bölgesel bir sanal ağa (VNet) geçirmek nasıl](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+   * Yukarıdaki hizmetin CSCFG içinde yeni ReservedIP belirtmek sağlamaktan #2 izleyin.
+4. -Yeni dağıtımlar için benzeşim grubu, benzeşim grupları artık önerilen kaldırın. Yeni bir bulut hizmeti dağıtmak için yukarıdaki #1 için adımları izleyin. Bulut hizmeti bir benzeşim grubunda olmadığından emin olun.
+5. Bir bölgesel sanal ağa - bakın dönüştürme [benzeşim grupları bir bölgesel sanal ağa (VNet) geçirme](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).

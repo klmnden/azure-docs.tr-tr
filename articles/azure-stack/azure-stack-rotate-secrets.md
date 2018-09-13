@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: dacfa738a99eb2d580d825957d09b2b1a3111e93
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051406"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722019"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack gizli Döndür
 
@@ -110,6 +110,8 @@ Her iki dış iç bir gizli dizi döndürmek için:
     Tüm oluşturulan pfx sertifika dosyaları için kullanılan parolayı güvenli bir dize.
 4. Gizli anahtarlarınız döndürme bekleyin.  
 Gizli anahtar döndürme işlemi başarıyla tamamlandığında, Konsolunuzda görüntülenir **genel eylem durumu: başarılı**. 
+    > [!note]  
+    > Gizli döndürme başarısız olursa hata iletisindeki yönergeleri izleyin ve başlangıç secretrotation ile yeniden çalıştırın **-yeniden** parametresi. Gizli anahtar döndürme hataları yaşıyorsanız desteğe başvurun yinelenir. 
 5. Başarılı tamamlama gizli döndürme sonra öncesi adımda oluşturduğunuz paylaşımından sertifikalarınızı ve güvenli yedekleme konumlarında depolayabilirsiniz. 
 
 ## <a name="walkthrough-of-secret-rotation"></a>İzlenecek yol gizli döndürme
@@ -136,6 +138,10 @@ Yalnızca Azure Stack'ın iç gizli döndürmek için:
 
 1. Bir PowerShell oturumu oluşturma [ayrıcalıklı uç nokta](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. Ayrıcalıklı uç nokta oturumda çalıştırılan **başlangıç SecretRotation** bağımsız değişken olmadan.
+3. Gizli anahtarlarınız döndürme bekleyin.  
+Gizli anahtar döndürme işlemi başarıyla tamamlandığında, Konsolunuzda görüntülenir **genel eylem durumu: başarılı**. 
+    > [!note]  
+    > Gizli anahtar döndürme başarısız olursa hata iletisindeki yönergeleri izleyin ve başlangıç secretrotation ile yeniden **-yeniden** parametresi. Gizli anahtar döndürme hataları yaşıyorsanız desteğe başvurun yinelenir. 
 
 ## <a name="start-secretrotation-reference"></a>Başlangıç SecretRotation başvurusu
 

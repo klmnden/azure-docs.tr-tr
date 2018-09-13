@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/11/18
+ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 2e74e45761a2f21c522f80d453da48948e17de58
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1caf69ee822ec11e8797ca23c9c163d36344edc7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347759"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719996"
 ---
 # <a name="what-is-the-myapps-portal"></a>MyApps portalında nedir?
 
@@ -200,7 +200,7 @@ Uygulamanın AD FS 2.0 kullanarak kullanıcıların kimlik doğrulaması için y
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Uygulama yönetimiyle ilgili tüm konularda listesini görüntülemek için bkz: [Azure Active Directory'de uygulama yönetimi için makale dizini](../active-directory-apps-index.md).
+- Uygulama Yönetimi hakkında bilgi edinmek için [Azure Active Directory'de uygulama yönetimi](../manage-apps/what-is-application-management.md).
  
 - Bir SaaS uygulaması, Azure AD ile tümleştirme konusunda bilgi almak için bkz: [SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](../saas-apps/tutorial-list.md).
  

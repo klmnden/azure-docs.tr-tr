@@ -1,5 +1,5 @@
 ---
-title: Bir Azure uygulama ağ geçidi - Azure CLI 1.0 oluşturma | Microsoft Docs
+title: Azure CLI 1.0 - Azure uygulama ağ geçidi oluşturma | Microsoft Docs
 description: Resource Manager'da Azure CLI 1.0 kullanarak bir uygulama ağ geçidi oluşturmayı öğrenin
 services: application-gateway
 documentationcenter: na
@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 3d67e896da5e616e443fc4e1edd9aaafb0f0e2f9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 29eec4ad1883db9d824b416bdfc7e984a5af4fbe
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650924"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Azure CLI kullanarak bir uygulama ağ geçidi oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
+> * [Azure portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Klasik PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
@@ -33,31 +34,31 @@ ms.lasthandoff: 05/04/2018
 > 
 > 
 
-Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar. Uygulama ağ geçidi şu uygulama teslim özelliklerine sahiptir: HTTP Yük Dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi ve Güvenli Yuva Katmanı (SSL) yük boşaltma, özel sistem durumu araştırmalarının ve desteklemek için çok siteli.
+Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar. Application gateway şu uygulama teslim özelliklerine sahiptir: HTTP Yük Dengeleme, tanımlama bilgilerine dayalı oturum benzeşimi ve Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları ve çok siteli için destek.
 
-## <a name="prerequisite-install-the-azure-cli"></a>Önkoşul: Azure CLI'yı yükleme
+## <a name="prerequisite-install-the-azure-cli"></a>Önkoşul: Azure CLI yükleme
 
-Bu makaledeki adımları gerçekleştirmek için gerek [Mac, Linux ve Windows (Azure CLI) için Azure komut satırı arabirimini yükleyin](../xplat-cli-install.md) ve gerek [Azure oturumunu](/cli/azure/authenticate-azure-cli). 
+Bu makaledeki adımları gerçekleştirmek için yapmanız [Azure komut satırı arabirimi için Mac, Linux ve Windows (Azure CLI) yükleme](../xplat-cli-install.md) ve gerekiyorsa [Azure oturum](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
-> Bir Azure hesabınız yoksa, biri gerekir. [Buradaki ücretsiz deneme sürümüyle](../active-directory/sign-up-organization.md) kaydolun.
+> Bir Azure hesabınız yoksa, bir gerekir. [Buradaki ücretsiz deneme sürümüyle](../active-directory/fundamentals/sign-up-organization.md) kaydolun.
 
 ## <a name="scenario"></a>Senaryo
 
-Bu senaryoda, Azure portalını kullanarak bir uygulama ağ geçidi oluşturmayı öğrenin.
+Bu senaryoda, Azure portalını kullanarak bir uygulama ağ geçidi oluşturma konusunda bilgi edinin.
 
-Bu senaryo aşağıdakileri yapar:
+Bu senaryo olur:
 
 * Orta uygulama ağ geçidi ile iki örnek oluşturun.
-* Bir ayrılmış 10.0.0.0/16 CIDR bloğu ile ContosoVNET adlı bir sanal ağ oluşturun.
+* Ayrılmış 10.0.0.0/16 CIDR bloğu ile ContosoVNET adlı bir sanal ağ oluşturun.
 * CIDR bloğu 10.0.0.0/28 kullanan subnet01 adlı bir alt ağ oluşturun.
 
 > [!NOTE]
-> Özel durumu da dahil olmak üzere uygulama ağ geçidinin ek yapılandırma araştırmaları, arka uç havuzu adresleri ve ek kurallar uygulama ağ geçidi yapılandırıldıktan sonra ve ilk dağıtım sırasında değil yapılandırılır.
+> Ek yapılandırma özel durumu dahil olmak üzere uygulama ağ geçidinin araştırmaları, arka uç havuzu adresleri ve ek kurallar uygulama ağ geçidi yapılandırıldıktan sonra ve ilk dağıtım sırasında değil yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Azure uygulama ağ geçidi, kendi alt gerektirir. Bir sanal ağ oluştururken, birden çok alt ağa sahip için yeterli adres alanı bıraktığınızdan emin olun. Bir alt ağ için bir uygulama ağ geçidi dağıttığınızda, yalnızca ek uygulama ağ geçidi alt ağına eklemek kullanabilirsiniz.
+Azure Application Gateway, kendi alt ağına gerektirir. Bir sanal ağ oluştururken, birden çok alt ağ için yeterli adres alanı bırakın emin olun. Bir alt ağ için bir uygulama ağ geçidi dağıttığınızda, yalnızca ek uygulama ağ geçidi alt ağa eklenmesi olanağına sahip olursunuz.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -67,15 +68,15 @@ Açık **Microsoft Azure komut istemi**ve oturum açın.
 azure login
 ```
 
-Önceki örnekte yazın sonra bir kod sağlanır. Gidin https://aka.ms/devicelogin oturum açma işlemine devam etmek için bir tarayıcıda.
+Yukarıdaki örnekte yazın sonra bir kod sağlanır. Gidin https://aka.ms/devicelogin bir tarayıcıda oturum açma işlemine devam etmek için.
 
 ![cmd gösteren cihaz oturum açma][1]
 
-Tarayıcıda, aldığınız kodu girin. Bir oturum açma sayfasına yönlendirilir.
+Tarayıcıda aldığınız kodu girin. Bir oturum açma sayfasına yönlendirilirsiniz.
 
-![Tarayıcı kodu girin][2]
+![kodu girmek için tarayıcı][2]
 
-Kod girildikten sonra oturum açtığınızdan, üzerinde senaryoyla devam etmek için tarayıcıyı kapatın.
+Kod girildikten sonra oturumunuz, üzerinde bir senaryoyla devam etmek için tarayıcınızı kapatın.
 
 ![başarıyla oturum açıldı][3]
 
@@ -87,7 +88,7 @@ azure config mode arm
 
 ## <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
 
-Uygulama ağ geçidi oluşturmadan önce bir kaynak grubu, uygulama ağ geçidi içerecek şekilde oluşturulur. Aşağıda, komut gösterilmektedir.
+Uygulama ağ geçidi oluşturmadan önce uygulama ağ geçidi içerecek bir kaynak grubu oluşturulur. Aşağıda, komut gösterilmektedir.
 
 ```azurecli-interactive
 azure group create \
@@ -97,7 +98,7 @@ azure group create \
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-Kaynak grubu oluşturulduktan sonra bir sanal ağ uygulama ağ geçidi için oluşturulur.  Aşağıdaki örnekte, önceki senaryo notları tanımlanan adres alanı 10.0.0.0/16 oluştu.
+Kaynak grubu oluşturulduktan sonra uygulama ağ geçidi için bir sanal ağ oluşturulur.  Aşağıdaki örnekte, yukarıdaki senaryo notları tanımlanan 10.0.0.0/16 adres alanı oluştu.
 
 ```azurecli-interactive
 azure network vnet create \
@@ -109,7 +110,7 @@ azure network vnet create \
 
 ## <a name="create-a-subnet"></a>Alt ağ oluşturma
 
-Sanal ağ oluşturulduktan sonra bir alt ağ için uygulama ağ geçidi eklenir.  Uygulama ağ geçidiyle aynı sanal ağ içinde barındırılan bir web uygulaması ile uygulama ağ geçidi kullanmayı planlıyorsanız, başka bir alt ağ için yeterli alan olduğundan emin olun.
+Sanal ağ oluşturulduktan sonra uygulama ağ geçidi için bir alt ağ eklenir.  Uygulama ağ geçidiyle aynı sanal ağda barındırılan bir web uygulaması ile uygulama ağ geçidini kullanmayı planlıyorsanız, başka bir alt ağ için yeterli alan bırakın emin olun.
 
 ```azurecli-interactive
 azure network vnet subnet create \
@@ -121,7 +122,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Sanal ağ ve alt ağ oluşturulduktan sonra uygulama ağ geçidi için ön koşullar tamamlandı. Ayrıca daha önce dışarı aktarılan .pfx sertifika ve sertifika için parola için aşağıdaki adım gereklidir: arka uç için kullanılan IP adresleri arka uç sunucusu için IP adresleridir. Bu değerler, sanal ağ içinde kullanılabilecek özel IP, genel IP'ler veya arka uç sunucuları için tam etki alanı adları olabilir.
+Sanal ağ ve alt ağ oluşturulduktan sonra uygulama ağ geçidi için ön koşullar tamamlandı. Ayrıca daha önce dışarı aktarılan .pfx sertifika ve sertifika için parola için aşağıdaki adım gereklidir: arka uç için kullanılan IP adresleri, arka uç sunucusu için IP adresleridir. Bu değerler, sanal ağ özel IP'ler, genel IP'ler veya, arka uç sunucuları için tam etki alanı adları olabilir.
 
 ```azurecli-interactive
 azure network application-gateway create \
@@ -143,16 +144,16 @@ azure network application-gateway create \
 ```
 
 > [!NOTE]
-> Aşağıdaki komutu çalıştırın oluşturma sırasında sağlanan parametrelerin listesi için: **azure ağ uygulama ağ geçidi oluşturma--Yardım**.
+> Aşağıdaki komutu çalıştırarak oluşturma sırasında sağlanan parametrelerin listesi için: **azure ağı application-gateway create--yardımcı**.
 
-Bu örnek, dinleyicisi, arka uç havuzu, arka uç http ayarları ve kuralları için varsayılan ayarlarla temel uygulama ağ geçidi oluşturur. Bu ayarları sağlama başarılı olduktan sonra dağıtımınızı uyacak şekilde değiştirebilirsiniz.
-Web uygulamanızın arka uç havuzu oluşturulduktan sonra önceki adımlarda tanımlanan zaten varsa, Yük Dengeleme başlar.
+Bu örnekte, dinleyici, arka uç havuzu, arka uç http ayarları ve kuralları için varsayılan ayarlarla temel uygulama ağ geçidi oluşturur. Bu ayarlar, sağlama başarılı olduktan sonra dağıtımınız uyacak şekilde değiştirebilirsiniz.
+Web uygulamanız oluşturulduktan sonra önceki adımlarda, arka uç havuzu ile tanımlanan zaten varsa, Yük Dengeleme başlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Özel sistem durumu araştırmalarının ziyaret ederek oluşturmayı öğrenin [bir özel durum araştırması oluştur](application-gateway-create-probe-portal.md)
+Ziyaret ederek özel sistem durumu araştırmaları oluşturma konusunda bilgi edinin [özel durum araştırması oluşturun](application-gateway-create-probe-portal.md)
 
-SSL boşaltma yapılandırmak ve web sunucularınızın kapalı maliyetli SSL şifre çözme ziyaret ederek ele öğrenin [SSL boşaltma yapılandırın](application-gateway-ssl-arm.md)
+SSL boşaltma yapılandırmak ve ziyaret ederek maliyetli SSL şifre çözme web sunucularınızın kapalı olması öğrenin [SSL yük boşaltma yapılandırın](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: Bir Azure AD uygulaması oluştur ve Azure Media Services API erişimini yapılandırmak için CLI 2.0 kullanın | Microsoft Docs
-description: Bu konu, CLI 2.0 bir Azure AD uygulaması oluşturmak ve bunu Azure Media Services API erişmek için yapılandırmak için nasıl kullanılacağını gösterir.
+title: Bir Azure AD uygulamanızı oluşturma ve Azure Media Services API'sine erişmek için yapılandırmak için Azure CLI kullanma | Microsoft Docs
+description: Bu konuda, bir Azure AD uygulamanızı oluşturma ve bunu Azure Media Services API'sine erişmek için yapılandırmak üzere Azure CLI kullanma gösterilmektedir.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,32 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 7685be97213f0b298499d474c0a6a772ca608fb2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fcd0ea10bd39f9e7252e114e8d6401a4fe0ecadb
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788182"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35970211"
 ---
-# <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Bir AAD uygulaması oluşturma ve Azure Media Services API erişimini yapılandırmak için CLI 2.0 kullanın
+# <a name="use-azure-cli-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>AAD uygulamasını oluşturmak ve bunu Azure Media Services API'sine erişmek için yapılandırmak için Azure CLI kullanma
 
-Bu konu, CLI 2.0 Azure Media Services kaynaklara erişmek için bir Azure Active Directory (Azure AD) uygulama ve hizmet sorumlusu oluşturmak için nasıl kullanılacağını gösterir. 
+Bu konu Azure Media Services kaynaklarına erişmek için bir Azure Active Directory (Azure AD) uygulama ve hizmet sorumlusu oluşturmak için Azure CLI'yı kullanmayı gösterir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
-- Bir Media Services hesabı. Daha fazla bilgi için bkz: [Azure portalını kullanarak Azure Media Services hesabı oluşturma](media-services-portal-create-account.md).
+- Bir Media Services hesabı. Daha fazla bilgi için [Azure portalını kullanarak bir Azure Media Services hesabı oluşturma](media-services-portal-create-account.md).
 
-## <a name="use-the-azure-cloud-shell"></a>Azure bulut kabuğunu kullanın
+## <a name="use-the-azure-cloud-shell"></a>Azure Cloud Shell kullanma
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Portalın üst gezinti bölmesinden bulut Kabuğu'nu başlatın.
+2. Portalın üst gezinti bölmesinden Cloud Shell'i başlatın.
 
     ![Cloud Shell](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 
 
-Daha fazla bilgi için bkz: [Azure bulut Kabuk genel bakış](../../cloud-shell/overview.md).
+Daha fazla bilgi için [Azure Cloud shell'e genel bakış](../../cloud-shell/overview.md).
 
-## <a name="create-an-azure-ad-app-and-configure-access-to-the-media-account-with-cli-20"></a>Bir Azure AD uygulaması oluşturma ve medya hesabına erişim izni CLI 2.0 ile yapılandırma
+## <a name="create-an-azure-ad-app-and-configure-access-to-the-media-account-with-azure-cli"></a>Bir Azure AD uygulamanızı oluşturma ve Azure CLI ile medya hesabına erişimi yapılandırma
  
 ```azurecli
 az login
@@ -52,17 +52,17 @@ az role assignment create --assignee < user/app id> --role Contributor --scope <
 az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role Contributor --scope /subscriptions/0b65e280-7917-4874-9fed-1307f2615ea2/resourceGroups/Default-AzureBatch-SouthCentralUS/providers/microsoft.media/mediaservices/sbbash
 ```
 
-Bu örnekte, **kapsam** tam kaynak media services hesabı yoludur. Ancak, **kapsam** herhangi bir düzeyde olabilir.
+Bu örnekte, **kapsam** tam kaynak medya hizmetleri hesabı yoludur. Ancak, **kapsam** herhangi bir düzeyde olabilir.
 
-Örneğin, aşağıdaki düzeyleri biri olabilir:
+Örneğin, aşağıdaki düzeylerde biri olabilir:
  
 * **Abonelik** düzeyi.
 * **Kaynak grubu** düzeyi.
-* **Kaynak** düzeyi (örneğin, bir ortam hesabı).
+* **Kaynak** düzeyi (örneğin, bir medya hesabı).
 
-Daha fazla bilgi için bkz: [bir Azure hizmet sorumlusu Azure CLI 2.0 ile oluşturun.](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
+Daha fazla bilgi için [Azure, Azure CLI ile hizmet sorumlusu oluşturma](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
-Ayrıca bkz. [Manage Role-Based erişim denetimini Azure komut satırı arabirimi ile](../../role-based-access-control/role-assignments-cli.md). 
+Ayrıca bkz: [Manage Role-Based erişim denetimini Azure komut satırı arabirimi ile](../../role-based-access-control/role-assignments-cli.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

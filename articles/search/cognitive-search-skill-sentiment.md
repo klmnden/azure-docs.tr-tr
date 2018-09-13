@@ -1,11 +1,9 @@
 ---
-title: Düşünceleri bilişsel arama nitelik (Azure Search) | Microsoft Docs
-description: Bir Azure Search iyileştirmesini ardışık düzeninde metinden düşünceleri ayıklayın.
+title: Yaklaşım bilişsel arama beceri (Azure Search) | Microsoft Docs
+description: Bir Azure Search zenginleştirme ardışık metinden yaklaşım ayıklayın.
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,44 +11,44 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ddbba5b881cd05a997cd24a9396d5b722376e6f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f6a0214ce9bc1cdf6aefbd9cde86e72b7cf7b0f2
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33791003"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35971929"
 ---
-#   <a name="sentiment-cognitive-skill"></a>Düşünceleri bilişsel nitelik
+#   <a name="sentiment-cognitive-skill"></a>Yaklaşım bilişsel beceri
 
-**Düşünceleri** yetenek yapılandırılmamış metin pozitif negatif sürekliliği ve her kayıt için hesaplar, 0 ile 1 arasında bir sayısal puan döndürür. Puanın 1’e yakın olması yaklaşımın olumlu olduğunu, 0’a yakın olması ise olumsuz olduğunu gösterir.
+**Yaklaşım** beceri yapılandırılmamış metinleri pozitif ve negatif sürekliliği ve her kayıt için değerlendirir, 0 ile 1 arasında bir sayısal puan döndürür. Puanın 1’e yakın olması yaklaşımın olumlu olduğunu, 0’a yakın olması ise olumsuz olduğunu gösterir.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="data-limits"></a>Veri sınırları
-Bir kayıt en büyük boyutuna göre ölçülen 5000 karakter olmalıdır `String.Length`. Kullanım, düşünceleri Çözümleyicisi göndermeden önce verilerinizi bölün gerekiyorsa [metin bölünmüş yetenek](cognitive-search-skill-textsplit.md).
+Bir kaydın en büyük boyutu tarafından ölçülen 5000 karakter arasında olmalıdır `String.Length`. Kullanım, yaklaşım Çözümleyicisi göndermeden önce verileri bölün gerekiyorsa [metin bölme beceri](cognitive-search-skill-textsplit.md).
 
 
 ## <a name="skill-parameters"></a>Yetenek parametreleri
 
-Parametreleri büyük/küçük harfe duyarlıdır.
+Parametreler büyük/küçük harfe duyarlıdır.
 
 | Parametre Adı |                      |
 |----------------|----------------------|
-| defaultLanguageCode | (isteğe bağlı) Dil açıkça belirtmeyin belgelerine uygulamak için dil kodu. <br/> Bkz: [tam desteklenen dillerin listesi](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
+| defaultLanguageCode | (isteğe bağlı) Dil açıkça belirtmeyin belgelerine uygulamak için dil kodu. <br/> Bkz: [desteklenen dillerin tam listesini](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
 
-## <a name="skill-inputs"></a>Yetenek girişleri 
+## <a name="skill-inputs"></a>Beceri girişleri 
 
-| Giriş adı | Açıklama |
+| Adı girin | Açıklama |
 |--------------------|-------------|
-| Metin | Çözümlenecek metin.|
-| languageCode  |  (İsteğe bağlı) Kayıtları dilinin gösteren bir dize. Bu parametre belirtilmezse, varsayılan değer "tr" dir. <br/>Bkz: [tam desteklenen dillerin listesi](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
+| metin | Analiz edilecek metin.|
+| languageCode  |  (İsteğe bağlı) Kayıt dili belirten bir dize. Bu parametre belirtilmezse, varsayılan değer "en" dir. <br/>Bkz: [desteklenen dillerin tam listesini](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
 
-## <a name="skill-outputs"></a>Yetenek çıkışları
+## <a name="skill-outputs"></a>Beceri çıkışları
 
-| Çıktı adı | Açıklama |
+| Çıkış adı | Açıklama |
 |--------------------|-------------|
-| Puan | 0 ve 1 arasında bir değer, analiz edilen metin düşünceleri temsil eder. Negatif düşünceleri değerleri 0 yakın olan, nötr düşünceleri 0,5 yakın olması ve pozitif düşünceleri 1 yakın değerlere sahip.|
+| puan | 0 ve 1 arasında bir değer çözümlenmiş metin duyarlılığını temsil eder. Olumsuz 0 değerine sahip, nötr yaklaşım 0,5 yakın olması ve pozitif yaklaşımı 1 değerine sahip.|
 
 
 ##  <a name="sample-definition"></a>Örnek tanımı
@@ -110,12 +108,12 @@ Parametreleri büyük/küçük harfe duyarlıdır.
 ```
 
 ## <a name="notes"></a>Notlar
-Boş ise, bir düşünceleri puan kayıtları için döndürülmez.
+Boş ise, yaklaşım puanını kayıtları için döndürülmez.
 
 ## <a name="error-cases"></a>Hata durumları
-Bir dil desteklenmiyorsa, bir hata oluşturulur ve hiçbir düşünceleri puan döndürülür.
+Bir dil desteklenmiyorsa, bir hata oluşturulur ve hiçbir yaklaşım puanı döndürülür.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-+ [Önceden tanımlanmış yetenekleri](cognitive-search-predefined-skills.md)
-+ [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
++ [Önceden tanımlanmış beceriler](cognitive-search-predefined-skills.md)
++ [Bir beceri kümesi tanımlama](cognitive-search-defining-skillset.md)

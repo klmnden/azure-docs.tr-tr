@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 114413d65bb8b1d70bad21badb9508c5f942845c
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 72bc0408ed1eba2d959d246a55677ee9964ef106
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391122"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718823"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 erişim denetimi
 
@@ -69,10 +69,10 @@ Dosya sistemi nesnesi üzerinde **Okuma**, **Yazma** ve **Yürütme** izinleri b
 
 | Sayısal biçim | Kısa biçim |      Anlamı     |
 |--------------|------------|------------------------|
-| 7            | RWX        | Okuma + Yazma + Yürütme |
-| 5            | R-X        | Okuma + Yürütme         |
-| 4            | R--        | Okuma                   |
-| 0            | ---        | İzin yok         |
+| 7            | `RWX`        | Okuma + Yazma + Yürütme |
+| 5            | `R-X`        | Okuma + Yürütme         |
+| 4            | `R--`        | Okuma                   |
+| 0            | `---`        | İzin yok         |
 
 
 ### <a name="permissions-do-not-inherit"></a>İzinler devralınmaz
@@ -85,13 +85,13 @@ Bir Data Lake depolama Gen1 hesabı üzerinde belirli işlemlerin gerçekleştir
 
 |    İşlem             |    /    | Seattle / | Portland / | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
-| Data.txt okuyun            |   --X   |   --X    |  --X      | R--          |
-| Data.txt için ekleme       |   --X   |   --X    |  --X      | RW-          |
-| Data.txt Sil          |   --X   |   --X    |  -WX      | ---          |
-| Data.txt oluşturma          |   --X   |   --X    |  -WX      | ---          |
-| Liste /                   |   R-X   |   ---    |  ---      | ---          |
-| Liste /Seattle/           |   --X   |   R-X    |  ---      | ---          |
-| Liste /Seattle/Portland /  |   --X   |   --X    |  R-X      | ---          |
+| Data.txt okuyun            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Data.txt için ekleme       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Data.txt Sil          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Data.txt oluşturma          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Liste /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Liste /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Liste /Seattle/Portland /  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -99,25 +99,6 @@ Bir Data Lake depolama Gen1 hesabı üzerinde belirli işlemlerin gerçekleştir
 >
 >
 
-### <a name="permissions-needed-to-enumerate-a-folder"></a>Bir klasörü listelemek için gereken izinler
-
-![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
-
-* Listelenecek klasör için çağıranın **Okuma + Yürütme** izinlerine sahip olması gerekir.
-* Tüm üst klasörler için çağıranın **Yürütme** izinlerine sahip olması gerekir.
-
-
-Gelen **Veri Gezgini** Data Lake depolama Gen1 hesabı dikey penceresine tıklayın **erişim** dosya veya veri Gezgini'nde görüntülenmekte olan klasörün ACL'lerini görebilirsiniz. Tıklayın **erişim** ACL'leri görmek için **Kataloğu** klasörü altında **mydatastorage** hesabı.
-
-![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
-
-Bu dikey pencerenin üst kısmında sahiplerin izinleri gösterilir. (Ekran görüntüsünde Bob sahip olan kullanıcıdır.) Bunun ardından atanan Erişim ACL’leri gösterilir. 
-
-![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-Varsayılan ACL’ler, maske ve süper kullanıcıların açıklamasının gösterildiği daha gelişmiş görünümü görmek için **Gelişmiş Görünüm**’e tıklayın.  Bu dikey pencere, geçerli klasörün izinlerine dayalı olarak alt dosyalar ve klasörler için yinelemeli olarak Erişim ve Varsayılan ACL’leri ayarlamanın bir yolunu sunar.
-
-![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## <a name="the-super-user"></a>Süper kullanıcı
 
@@ -127,13 +108,8 @@ Süper kullanıcı Data Lake depolama Gen1 hesaptaki tüm kullanıcılar arasın
 * Herhangi bir dosya veya klasörün izinlerini değiştirebilir.
 * Herhangi bir dosya veya klasörün sahibi olan kullanıcıyı ya da grubu değiştirebilir.
 
-Azure'da bir Data Lake depolama Gen1 hesabının birkaç Azure rolü vardır:
+Bir parçası olan tüm kullanıcılar **sahipleri** rol bir Data Lake depolama Gen1 hesap için de otomatik olarak süper kullanıcı.
 
-* Sahipler
-* Katkıda Bulunanlar
-* Okuyucular
-
-Herkes **sahipleri** rolü bir Data Lake depolama Gen1 hesabı için otomatik olarak o hesabın Süper kullanıcısıdır. Daha fazla bilgi için bkz. [Rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 Süper kullanıcı izinlerine sahip özel bir rol tabanlı erişim denetimi (RBAC) rolü oluşturmak isterseniz şu izinleri vermeniz gerekir:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -153,11 +129,16 @@ Süper kullanıcı izinlerine sahip özel bir rol tabanlı erişim denetimi (RBA
 
 ## <a name="the-owning-group"></a>Sahip olan grup
 
+**Arka plan**
+
 POSIX ACL’lerinde her kullanıcı bir "birincil grup" ile ilişkilendirilir. Örneğin, "gamze" adlı kullanıcı "finans" grubuna ait olabilir. Gamze ayrıca birden fazla gruba ait olabilir, ancak bir grup her zaman birincil grubu olarak atanır. POSIX’te Gamze bir dosya oluşturduğunda o dosyanın sahibi olan grup birincil grubu olarak ayarlanır (bu örnekte "finans" grubudur). Aksi takdirde sahip olan grup, diğer kullanıcılar/gruplar için atanan izinlere benzer şekilde davranır.
 
-Satıcıya sahip olan grup için yeni bir dosya veya klasör:
+**Satıcıya yeni dosya veya klasör için sahip olan Grup**
+
 * **Olay 1**: Kök klasör "/". Bir Data Lake depolama Gen1 hesabı oluşturulduğunda bu klasör oluşturulur. Bu durumda sahip olan grup, hesabı oluşturan kullanıcıya ayarlanır.
 * **Olay 2** (Diğer her olay): Yeni bir olay oluşturulduğunda sahip olan grup üst klasörden kopyalanır.
+
+**Sahip olan Grup değiştirme**
 
 Sahip olan grup aşağıdakiler tarafından değiştirilebilir:
 * Herhangi bir süper kullanıcı.
@@ -179,30 +160,32 @@ def access_check( user, desired_perms, path ) :
   # path is the file or folder
   # Note: the "sticky bit" is not illustrated in this algorithm
   
-# Handle super users
-    if (is_superuser(user)) :
-      return True
+# Handle super users.
+  if (is_superuser(user)) :
+    return True
 
-  # Handle the owning user. Note that mask is not used.
-    if (is_owning_user(path, user))
-      perms = get_perms_for_owning_user(path)
-      return ( (desired_perms & perms) == desired_perms )
+  # Handle the owning user. Note that mask IS NOT used.
+  entry = get_acl_entry( path, OWNER )
+  if (user == entry.identity)
+      return ( (desired_perms & e.permissions) == desired_perms )
 
-  # Handle the named user. Note that mask is used.
-  if (user in get_named_users( path )) :
-      perms = get_perms_for_named_user(path, user)
-      mask = get_mask( path )
-      return ( (desired_perms & perms & mask ) == desired_perms)
+  # Handle the named users. Note that mask IS used.
+  entries = get_acl_entries( path, NAMED_USERS )
+  for entry in entries:
+      if (user == entry.identity ) :
+          mask = get_mask( path )
+          return ( (desired_perms & entry.permmissions & mask) == desired_perms)
 
   # Handle groups (named groups and owning group)
-  belongs_to_groups = [g for g in get_groups(path) if is_member_of(user, g) ]
-  if (len(belongs_to_groups)>0) :
-    group_perms = [get_perms_for_group(path,g) for g in belongs_to_groups]
-    perms = 0
-    for p in group_perms : perms = perms | p # bitwise OR all the perms together
-    mask = get_mask( path )
-    return ( (desired_perms & perms & mask ) == desired_perms)
-
+  member_count = 0
+  perms = 0
+  for g in get_groups(path) :
+    if (user_is_member_of_group(user, g)) :
+      member_count += 1
+      perms | =  get_perms_for_group(path,g)
+  if (member_count>0) :
+    return ((desired_perms & perms & mask ) == desired_perms)
+ 
   # Handle other
   perms = get_perms_for_other(path)
   mask = get_mask( path )
@@ -218,7 +201,7 @@ Erişim denetimi algoritması'içinde gösterildiği gibi erişim maskesi sını
 >
 >
 
-#### <a name="the-sticky-bit"></a>Yapışkan bit
+### <a name="the-sticky-bit"></a>Yapışkan bit
 
 Yapışkan bit POSIX dosya sisteminin daha gelişmiş bir özelliğidir. Data Lake depolama Gen1 bağlamında Yapışkan bitin gerekli olması düşüktür. Özet olarak, bir klasörde, Yapışkan bitin etkinse, bir alt öğesi yalnızca silinebilir veya alt öğenin sahip olan kullanıcı tarafından yeniden adlandırıldı.
 
@@ -239,9 +222,9 @@ Azure Data Lake depolama Gen1 bir sabit değeri için umask 007 için ayarlayın
 
 | umask bileşeni     | Sayısal biçim | Kısa biçim | Anlamı |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   ---      | Sahip olan kullanıcı için üst öğenin varsayılan ACL'si için alt öğenin erişim ACL'si kopyalayın | 
-| umask.owning_group  |    0         |   ---      | Sahip olan Grup üst öğenin varsayılan ACL'si kopyalamak için alt öğenin erişim ACL'si | 
-| umask.Other         |    7         |   RWX      | Diğer için alt öğenin erişim ACL'si üzerindeki tüm izinleri Kaldır |
+| umask.owning_user   |    0         |   `---`      | Sahip olan kullanıcı için üst öğenin varsayılan ACL'si için alt öğenin erişim ACL'si kopyalayın | 
+| umask.owning_group  |    0         |   `---`      | Sahip olan Grup üst öğenin varsayılan ACL'si kopyalamak için alt öğenin erişim ACL'si | 
+| umask.Other         |    7         |   `RWX`      | Diğer için alt öğenin erişim ACL'si üzerindeki tüm izinleri Kaldır |
 
 Etkili bir şekilde Azure Data Lake depolama Gen1 tarafından kullanılan umask değer değeri için başka hangi varsayılan ACL gösterir bağımsız olarak yeni alt - varsayılan olarak hiçbir zaman iletilmez anlamına gelir. 
 

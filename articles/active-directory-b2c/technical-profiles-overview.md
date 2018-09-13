@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4dc88abda0f19896b8f1ed6465fe0fc39ac81b72
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: aad6aa788e9d7c7ca2c438bdeb63e77e91e4791a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381774"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714488"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C özel ilkeleri teknik profilleri hakkında
 
@@ -37,7 +37,6 @@ Teknik profili, bu tür senaryolar sağlar:
 - [RESTful sağlayıcısı](restful-technical-profile.md) -REST API hizmetlerini, kullanıcı girişini doğrulama gibi çağrısına kullanıcı veri zenginleştirme veya satır iş kolu uygulamaları ile tümleştirin.
 - [SAML2](saml-technical-profile.md) -tüm SAML Protokolü kimlik sağlayıcısı ile Federasyon.
 - [Kendi kendine onaylanan](self-asserted-technical-profile.md) -kullanıcıyla etkileşim. Örneğin, oturum açmak için kullanıcının kimlik bilgileri toplamak, kayıt sayfasını işlemek veya parola sıfırlama.
-- [Belirteci veren](jwt-issuer-technical-profile.md) -bir erişim belirteci vermektir.
 - **WsFed** -tüm WsFed Protokolü kimlik sağlayıcısı ile Federasyon. 
 - **Oturum yönetimi** -işlemek oturumları farklı türde. 
 - **Kullanıcı yolculuğu içeriği sağlayıcısı**

@@ -1,54 +1,54 @@
 ---
-title: Azure Active Directory B2B işbirliği için davet temsilci | Microsoft Docs
+title: Temsilci davetleri Azure Active Directory B2B işbirliği | Microsoft Docs
 description: Azure Active Directory B2B işbirliği kullanıcı özellikleri yapılandırılabilir
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0c7b0e3dd4d2ab98bc0f0bedc06424b7838fcf9e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 40f6d3cdd3ab8926e48463beaae15b2580458cc1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267519"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647094"
 ---
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B işbirliği için temsilci davetleri
 
-Azure Active Directory (Azure AD) işletmeden işletmeye (B2B) işbirliğiyle Davetleri Gönder için genel yönetici olmanız gerekmez. Bunun yerine, ilkeleri kullanın ve kullanıcıları, rolleri Davetleri Gönder izin davetleri atayabilirsiniz. Konuk kullanıcı davetleri temsilci için önemli bir yeni yol Konuk davet eden rolüdür.
+Azure Active Directory (Azure AD) ile işletmeden işletmeye (B2B) işbirliği, davet göndermek için genel yönetici olması gerekmez. Bunun yerine, ilkeleri kullanın ve temsilci davetleri kullanıcıları, rolleri davet göndermek izin vermek için. Konuk kullanıcı davetlerini temsilci seçmek için önemli bir yeni yol ile Konuk davet eden rolüdür.
 
 ## <a name="guest-inviter-role"></a>Konuk davet eden rolü
-Biz kullanıcı davet göndermek için konuk davet eden rolüne atayabilirsiniz. Davetiye göndermek için genel yönetici rolünün üyesi olması gerekmez. Varsayılan olarak, genel yönetici davetleri normal kullanıcılar için devre dışı bırakılmamışsa normal kullanıcıların davet API de çalıştırabilirsiniz. Bir kullanıcı Azure portal veya PowerShell kullanarak API de çalıştırabilirsiniz.
+Biz, kullanıcı davet göndermek için konuk davet eden rolü atayabilirsiniz. Davet göndermek için genel yönetici rolünün üyesi olmanız gerekmez. Varsayılan olarak, normal kullanıcı genel yönetici davetleri normal kullanıcılar için devre dışı bırakılmamışsa davet API de çağırabilirsiniz. Bir kullanıcı, Azure portal veya PowerShell kullanarak API de çağırabilirsiniz.
 
-PowerShell Konuk davet eden role bir kullanıcı eklemek için nasıl kullanılacağını gösteren örnek aşağıda verilmiştir:
+Konuk davet eden rolüne kullanıcı eklemek için PowerShell'i kullanmayı gösteren bir örnek aşağıda verilmiştir:
 
 ```
 Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
 ```
 
-## <a name="control-who-can-invite"></a>Davet edebilirsiniz denetimi
+## <a name="control-who-can-invite"></a>Davet edebilir denetimi
 
 ![Davet etme denetleme](media/delegate-invitations/control-who-to-invite.png)
 
 Azure AD B2B işbirliği ile bir kiracı Yöneticisi aşağıdaki davet ilkeleri ayarlayabilirsiniz:
 
-- Davetiye devre dışı bırakma
-- Yalnızca Yöneticiler ve kullanıcılar Konuk davet eden rolündeki davet edebilirsiniz
-- Yöneticiler, Konuk davet eden rolü ve üyeleri davet edebilirsiniz
-- Konuklar, dahil tüm kullanıcıları davet edebilir
+- Davet Kapat
+- Yalnızca Yöneticiler ve Konuk davet eden rolündeki kullanıcılar davet edebilir
+- Yöneticiler, Konuk davet eden rolü ve üyeler davet edebilir
+- Konuklar, dahil olmak üzere tüm kullanıcıları davet edebilir
 
-Varsayılan olarak, kiracılar #4'e ayarlanır. (Tüm kullanıcılar, Konuklar, dahil B2B kullanıcıları davet edebilirsiniz.)
+Varsayılan olarak, kiracılar #4'e ayarlanır. (Tüm kullanıcılar, Konuklar, dahil olmak üzere B2B kullanıcıları davet edebilirsiniz.)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure AD B2B işbirliği aşağıdaki makalelere bakın:
+Azure AD B2B işbirliği hakkında aşağıdaki makalelere bakın:
 
 - [Azure AD B2B işbirliği nedir?](what-is-b2b.md)
-- [Davetiye olmayan B2B işbirliği Konuk kullanıcılar ekleme](add-user-without-invite.md)
-- [Bir role B2B işbirliği kullanıcı ekleme](add-guest-to-role.md)
+- [B2B işbirliği Konuk kullanıcıları davet etmeden ekleme](add-user-without-invite.md)
+- [Bir role B2B işbirliği kullanıcısı ekleme](add-guest-to-role.md)
 
 

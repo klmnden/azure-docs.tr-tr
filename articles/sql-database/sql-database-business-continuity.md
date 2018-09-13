@@ -12,12 +12,12 @@ ms.workload: On Demand
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ce0684f9ab06b5362ccdf25aeaff15ea668ce96c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: c653f1f5366e7dac43f51d5daf1f0b13d93674ce
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444157"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722002"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -101,7 +101,7 @@ Bu özellik, bir veri merkezi kesintisi yaşanırsa veya uygulama yükseltme sı
 * Veri değişiklik oranı yüksekse ve bir saatlik değişiklik kaybı kabul edilebilir değilse.
 * Etkin coğrafi çoğaltma ek maliyeti, olası mali yükümlülükten veya ilgili iş kaybından daha düşükse.
 
-Eylem gerçekleştirmeniz ne zaman bunu, kurtarılır ne kadar sürdüğü ve ücretler ne kadar veri kaybını nasıl, uygulamanızda bu iş sürekliliği özelliklerini kullanma şeklinize bağlıdır. Aslında, veritabanı yedeklemeleri ve uygulama gereksinimlerinize bağlı olarak active geografickou replikaci kullanmayı tercih edebilirsiniz. Bu iş sürekliliği özelliklerini kullanan bağımsız veritabanları ve elastik havuzlarla ilgili dikkate alınacak uygulama tasarımı noktaları hakkında ayrıntılı bilgi için bkz. [Bulutta olağanüstü durum kurtarma için uygulama tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md) ve [Elastik havuz olağanüstü durum kurtarma stratejileri](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Eylem gerçekleştirmeniz ne zaman bunu, kurtarılır ne kadar sürdüğü ve ücretler ne kadar veri kaybını nasıl, uygulamanızda bu iş sürekliliği özelliklerini kullanma şeklinize bağlıdır. Aslında, veritabanı yedeklemeleri ve uygulama gereksinimlerinize bağlı olarak active geografickou replikaci kullanmayı tercih edebilirsiniz. Uygulama tasarımı noktaları hakkında bağımsız veritabanları ve elastik havuzlar için bu iş sürekliliği özelliklerini kullanan bir tartışma için bkz [bulutta olağanüstü durum kurtarma için uygulama tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md) ve [esnek Havuz olağanüstü durum kurtarma stratejileri](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 Aşağıdaki bölümlerde veritabanı yedeklerini veya etkin coğrafi çoğaltmayı kullanarak kurtarma adımlarını genel bir bakış sağlar. Planlama gereksinimleri, Kurtarma sonrası adımlar ve kesinti simülasyonu yapma hakkında bilgi olağanüstü durum kurtarma tatbikatı gerçekleştirme dahil olmak üzere ayrıntılı adımlar için bkz: [bir SQL veritabanını kesintiden kurtarma](sql-database-disaster-recovery.md).
 
@@ -142,4 +142,4 @@ Bu iki kurtarma sisteminden herhangi biriyle gerçekleştirilen kurtarma işlemi
 Bazen bir uygulama bir uygulamanın yükseltme gibi planlı bakım nedeniyle çevrimdışına alınmalıdır. [Uygulama yükseltmelerini yönetme](sql-database-manage-application-rolling-upgrade.md) etkin coğrafi çoğaltma, yükseltme sırasında kapalı kalma süresini en aza indirmek ve bir sorun yaşanırsa kurtarma yolu sağlama amacıyla bulut uygulamanızın sıralı yükseltmelerini etkinleştirmek için nasıl kullanılacağını açıklar. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bağımsız veritabanları ve elastik havuzlarla ilgili dikkate alınacak uygulama tasarımı noktaları hakkında ayrıntılı bilgi için bkz. [Bulutta olağanüstü durum kurtarma için uygulama tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md) ve [Elastik havuz olağanüstü durum kurtarma stratejileri](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Uygulama tasarımı noktaları hakkında tek başına veritabanları ve elastik havuzlar için bkz [bulutta olağanüstü durum kurtarma için uygulama tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md) ve [elastik havuz olağanüstü durum kurtarma stratejileri](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure uygulama Insights Telemetri veri modeli - özel durum Telemetrisi | Microsoft Docs
-description: Özel durum telemetrisi için uygulama Öngörüler veri modeli
+title: Azure Application Insights Telemetri veri modeli - özel durum Telemetrisi | Microsoft Docs
+description: Özel durum telemetrisi için Application Insights veri modeli
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -9,28 +9,30 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 036670c46a0ff40dd7b20a03c90f10513395cd71
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 88e521a04d69d4ca169e33a80ac15620568c5282
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646734"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Özel durum telemetrisi: Application Insights veri modeli
 
-İçinde [Application Insights](app-insights-overview.md), izlenen uygulama yürütülmesi sırasında oluşan bir işlenen veya işlenmeyen özel durum örneğini temsil eder.
+İçinde [Application Insights](app-insights-overview.md), izlenen uygulamanın yürütülmesi sırasında oluşan bir işlenen veya işlenmeyen özel durum bir özel durumun örneğini temsil eder.
 
 ## <a name="problem-id"></a>Sorun kimliği
 
-Burada kodda özel durum oluştu tanımlayıcısı. Gruplandırma özel durumlar için kullanılır. Genellikle bir özel durum türü ve birleşimi bir işleve çağrı yığını.
+Burada kodda özel durum oluştu, tanımlayıcısı'ı tıklatın. Özel durumları gruplandırmak için kullanılır. Genellikle bir özel durum türü ve birleşim çağrı yığınındaki bir işleve.
 
 En fazla uzunluk: 1024 karakter
 
 ## <a name="severity-level"></a>Önem derecesi
 
-Önem düzeyi izleme. Değeri olabilir `Verbose`, `Information`, `Warning`, `Error`, `Critical`.
+İzleme önem düzeyi. Değeri olabilir `Verbose`, `Information`, `Warning`, `Error`, `Critical`.
 
 ## <a name="exception-details"></a>Özel durum ayrıntıları
 
@@ -40,12 +42,12 @@ En fazla uzunluk: 1024 karakter
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 
-## <a name="custom-measurements"></a>Özel ölçümleri
+## <a name="custom-measurements"></a>Özel ölçümler
 
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bkz: [veri modeli](application-insights-data-model.md) Application Insights türleri ve veri modeli için.
-- Bilgi edinmek için nasıl [web uygulamalarınızı Application Insights ile özel durumları tanılamak](app-insights-asp-net-exceptions.md).
+- Bkz: [veri modeli](application-insights-data-model.md) için Application Insights türleri ve veri modeli.
+- Bilgi edinmek için nasıl [Application Insights ile web uygulamalarınızda özel durumları tanılama](app-insights-asp-net-exceptions.md).
 - Kullanıma [platformları](app-insights-platforms.md) Application Insights tarafından desteklenir.

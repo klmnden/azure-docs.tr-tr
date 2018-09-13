@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights Telemetri Data Model - Telemetri isteği | Microsoft Docs
-description: İstek telemetri için uygulama Öngörüler veri modeli
+title: Azure Application Insights Telemetri veri modeli - Telemetri isteği | Microsoft Docs
+description: İstek telemetrisi için Application Insights veri modeli
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -9,32 +9,34 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: e0bdaf132474d8e5eaac6a9c65093d27d673d343
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 3d2607fe154b599d818738ddddd12983255a1470
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647232"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetri isteği: Application Insights veri modeli
 
-Bir istek telemetri öğesi (içinde [Application Insights](app-insights-overview.md)) uygulamanız için bir dış istek tarafından tetiklenen yürütme mantıksal dizisini temsil eder. Her istek yürütme benzersiz tarafından tanımlanan `ID` ve `url` tüm yürütme parametreleri içeren. İsteği mantıksal olarak gruplayabilirsiniz `name` ve tanımlayın `source` bu isteğin. Kod yürütmeyi sonuçlanabilir `success` veya `fail` ve belirli bir sahip `duration`. Başarı ve başarısızlık yürütmeleri gruplandırılmış tarafından daha fazla `resultCode`. Zarf düzeyinde tanımlanan istek telemetri için başlangıç saati.
+Bir istek telemetri öğesinin (içinde [Application Insights](app-insights-overview.md)) mantıksal uygulamanız için bir dış istek tarafından tetiklenen yürütme sırası temsil eder. Her istek yürütme benzersiz tarafından tanımlanır `ID` ve `url` yürütme parametreleri içeren. İstekler mantıksal olarak gruplayabilirsiniz `name` ve tanımlama `source` bu isteği. Kod yürütmeyi sonuçlanabilir `success` veya `fail` ve belirli bir `duration`. Hem başarılı hem de hata yürütme gruplandırılmış tarafından daha fazla `resultCode`. Başlangıç saati Zarf düzeyinde tanımlanan istek telemetrisi.
 
-Telemetri özel kullanarak standart genişletilebilirlik modelini destekleyen isteği `properties` ve `measurements`.
+İstek telemetri destekleyen özel kullanarak standart genişletilebilirlik modeli `properties` ve `measurements`.
 
 ## <a name="name"></a>Ad
 
-İstek adının isteğinin işlenmesi için geçen kod yolu temsil eder. Daha iyi isteklerinin gruplandırma izin vermek için düşük önem düzeyi değeri. HTTP istekleri için URL yolu şablonu gibi ve HTTP yöntemi temsil eden `GET /values/{id}` gerçek olmadan `id` değeri.
+İstek adının isteği işlemek için geçen kod yolu temsil eder. Daha iyi isteklerinin gruplandırma izin vermek için düşük kardinalite değeri. HTTP istekleri için HTTP yöntemi ve gibi URL yolu şablonunu temsil eden `GET /values/{id}` gerçek olmadan `id` değeri.
 
-Uygulama Insights web SDK "olduğu gibi" isteği adı harf göre gönderir. UI gruplandırılması büyük küçük harfe duyarlı şekilde `GET /Home/Index` gelen ayrı olarak sayılır `GET /home/INDEX` rağmen çoğunlukla bunlar aynı denetleyici ve eylem yürütme sonucu. Bu URL'leri genel olduğunu nedeni [büyük küçük harfe duyarlı](http://www.w3.org/TR/WD-html40-970708/htmlweb.html). Tüm görmek isteyebilirsiniz `404` büyük yazılan URL'ler için oldu. ASP.Net Web SDK'sı tarafından üzerinde daha fazla isteği adı koleksiyonu okuyabilirsiniz [blog gönderisi](http://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Application Insights web SDK "olduğu gibi" istek adı harf bakımından gönderir. Kullanıcı arabiriminde gruplandırma küçük harfe duyarlı şekilde `GET /Home/Index` alanından ayrı olarak sayılır `GET /home/INDEX` genellikle bunlar aynı denetleyici ve eylem yürütülmesine neden olsa bile. Bu URL'leri genel olduğunu sebebi [büyük/küçük harfe](http://www.w3.org/TR/WD-html40-970708/htmlweb.html). Tüm görmek isteyebilirsiniz `404` harfle yazılmış URL'ler için oldu. ASP.Net Web SDK'sı tarafından üzerinde daha fazla istek adı koleksiyonunu edinebilirsiniz [blog gönderisi](http://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 En fazla uzunluk: 1024 karakter
 
 ## <a name="id"></a>Kimlik
 
-Bir istek çağrısı örneği tanımlayıcısı. İstek ve diğer telemetri öğeleri arasında bağıntı için kullanılır. Kimliği küresel olarak benzersiz olmalıdır. Daha fazla bilgi için bkz: [bağıntı](application-insights-correlation.md) sayfası.
+Bir istek çağrısını örneği tanımlayıcısı. İstek ve diğer telemetri öğeleri arasında bağıntı kullanılır. Kimliği'nın, genel olarak benzersiz olması. Daha fazla bilgi için [bağıntı](application-insights-correlation.md) sayfası.
 
 En fazla uzunluk: 128 karakter
 
@@ -42,45 +44,45 @@ En fazla uzunluk: 128 karakter
 
 Tüm sorgu dizesi parametreleri ile istek URL'si.
 
-En fazla uzunluk: 2048 karakter
+En fazla uzunluğu: 2048 karakter
 
 ## <a name="source"></a>Kaynak
 
-İstek kaynağı. Arayanın izleme anahtarı veya IP adresi arayanın örnektir. Daha fazla bilgi için bkz: [bağıntı](application-insights-correlation.md) sayfası.
+İstek kaynağı. Arayanın izleme anahtarını veya IP adresini arayanın verilebilir. Daha fazla bilgi için [bağıntı](application-insights-correlation.md) sayfası.
 
 En fazla uzunluk: 1024 karakter
 
 ## <a name="duration"></a>Süre
 
-Süre biçimde istek: `DD.HH:MM:SS.MMMMMM`. Pozitif ve daha az olmalıdır daha `1000` gün. İstek telemetri başında ve sonunda işlemi temsil eden gibi bu gerekli bir alandır.
+İstek süresi biçimde: `DD.HH:MM:SS.MMMMMM`. Pozitif ve daha az olmalıdır daha `1000` gün. İstek telemetrisi başında ve sonunda işlemi temsil ettiğinden bu gerekli bir alandır.
 
 ## <a name="response-code"></a>Yanıt kodu
 
-Bir istek yürütme sonucu. HTTP isteklerini HTTP durum kodu. Bu olabilir `HRESULT` diğer istek türleri için değer veya özel durum türü.
+İstek yürütme sonucu. HTTP isteklerini HTTP durum kodu. Olabilir `HRESULT` diğer istek türleri için değer ya da özel durum türü.
 
 En fazla uzunluk: 1024 karakter
 
 ## <a name="success"></a>Başarılı
 
-Başarılı veya başarısız çağrının gösterimi. Bu alan gereklidir. Açıkça ayarlandığında değil `false` -istek kabul başarılı olması için. Bu değer ayarlanırsa `false` işlemi özel durum nedeniyle kesildi veya bir hata sonucu kodu döndürdü.
+Başarılı veya başarısız çağrı göstergesi. Bu alan zorunludur. Açıkça ayarlandığında değil `false` -isteği kabul başarılı olması için. Bu değer kümesine `false` işlemi özel durum tarafından kesildi veya hata sonuç kodunu döndürdü.
 
-Web uygulamaları için Application Insights istek yanıt kodu daha küçük olduğunda başarısız olarak tanımlamak `400` veya buna eşit `401`. Ancak bu varsayılan eşleme anlamsal uygulamanın eşleşmediğinde durumlar vardır. Yanıt kodu `404` "Normal akışının parçası olabilen hiç kayıt" gösteriyor olabilir. Bozuk bir bağlantı da işaret edebilir. Bozuk bağlantıları için daha gelişmiş mantık bile uygulayabilirsiniz. Yalnızca bu bağlantıları aynı sitede url başvuran çözümleyerek bulunduğunda bağlantıların hataları olarak işaretleyebilirsiniz. Ya da onları şirketin mobil uygulamadan erişildiğinde hataları olarak işaretleyin. Benzer şekilde `301` ve `302` yeniden yönlendirme desteklemiyor istemciden erişildiğinde başarısız olduğunu gösterir.
+Web uygulamaları için Application Insights istek yanıt kodu daha az olduğunda başarısız olarak tanımlamak `400` veya buna eşit `401`. Ancak bu varsayılan eşleme anlam uygulamanın eşleşmediğinde durumlar vardır. Yanıt kodu `404` "normal bir akışın parçası olabilecek hiç kayıt" gösterebilir. Bozuk bağlantı da işaret edebilir. Bozuk bağlantılar için bile daha gelişmiş mantığı uygulayabilir. Yalnızca bu bağlantıları aynı sitede url başvuran analiz ederek bulunduğunda bağlantıların hatalar olarak işaretleyebilirsiniz. Veya bunları şirketin mobil uygulamasından erişildiğinde hatası olarak işaretleyin. Benzer şekilde `301` ve `302` yeniden yönlendirme desteği olmayan istemciden erişildiğinde başarısız olduğunu gösterir.
 
-Kısmen, içerik kabul `206` genel bir istek bir hata göstergesi olabilir. Örneğin, Application Insights endpoint telemetri öğeleri toplu tek bir istek alır. Döndürdüğü `206` zaman toplu işleminde bazı öğeler değil başarıyla işlendi. Artan oranını `206` araştırılması gereken bir sorun olduğunu gösterir. Benzer mantığı uygular `207` burada başarılı olabilir ayrı yanıt kodları en kötü birden fazla durum.
+İçerik'kısmen kabul `206` genel bir istek bir hata gösterebilir. Örneğin, Application Insights uç nokta telemetri öğelerini toplu tek bir istek alır. Döndürür `206` olduğunda toplu işlem kümesindeki bazı öğeler değil başarıyla işlendi. Artan oranını `206` araştırılması gereken bir sorun olduğunu gösterir. Benzer bir mantık uygular `207` başarı ayrı yanıt kodları en kötü olabilir burada birden fazla durum.
 
-Daha fazla üzerinde istek sonucu okuyabilir kodu ve durum kodunu [blog gönderisi](http://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
+Daha fazla üzerinde istek sonucu okuyabilirsiniz kodu ve durum kodunu [blog gönderisi](http://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
 
 ## <a name="custom-properties"></a>Özel Özellikler
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 
-## <a name="custom-measurements"></a>Özel ölçümleri
+## <a name="custom-measurements"></a>Özel ölçümler
 
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Özel bir istek telemetri yazma](app-insights-api-custom-events-metrics.md#trackrequest)
-- Bkz: [veri modeli](application-insights-data-model.md) Application Insights türleri ve veri modeli için.
-- Bilgi edinmek için nasıl [ASP.NET Core yapılandırmak](app-insights-asp-net.md) Application Insights ile uygulama.
+- Bkz: [veri modeli](application-insights-data-model.md) için Application Insights türleri ve veri modeli.
+- Bilgi edinmek için nasıl [ASP.NET Core yapılandırma](app-insights-asp-net.md) Application Insights ile uygulama.
 - Kullanıma [platformları](app-insights-platforms.md) Application Insights tarafından desteklenir.

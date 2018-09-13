@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 4e08abedf9b60f229865bf935d50443782bd928c
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 330acf3e1258951f0129a1ba47f03c5140c30adf
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024474"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719061"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Metin okuma hakkında sık sorulan sorular
 
@@ -55,6 +55,10 @@ Kayıt için betikler hazırlanmanıza yardımcı olması için ek hizmetler sa�
 **S: Ben my modeli indirebilir ve yerel olarak çalıştırma?**
 
 **A**: modelleri indirilir ve yerel olarak yürütülür.
+
+**S: kısıtlanan isteklerim misiniz?**
+
+**A**: REST API istekleri 5 saniye başına 25 sınırlar. Ayrıntılar için sayfalarımızın bulunabilir [metin okuma](text-to-speech.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

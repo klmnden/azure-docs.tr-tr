@@ -1,48 +1,48 @@
 ---
-title: Yerel olarak yönetilen ortağı hesapları erişim Azure AD B2B kullanıcılar bulut kaynaklarına | Microsoft Docs
-description: Yerel olarak yönetilen dış iş ortakları ve Azure AD B2B işbirliği ile aynı kimlik bilgilerini kullanarak bulut kaynaklarına hem yerel erişim verin.
+title: Yerel olarak yönetilen bir iş ortağı hesapları bulut kaynaklarını Azure AD B2B kullanıcıları olarak erişim verme | Microsoft Docs
+description: Yerel olarak yönetilen dış iş ortakları, hem yerel erişim ve Azure AD B2B işbirliği ile aynı kimlik bilgilerini kullanarak bulut kaynaklarını sağlar.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 04/24/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 71d5ce8728d876740d6ef00b55ecdc9232a06f80
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 84d967dfc8ce09500aec2dfc7a10b4b42cadf4b1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267530"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647830"
 ---
-# <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliği kullanarak bulut kaynaklarına iş ortağı yerel olarak yönetilen hesapları erişim izni ver
+# <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliğini kullanarak bulut kaynaklarına erişime yerel olarak yönetilen bir iş ortağı hesapları
 
-Azure Active Directory (Azure AD), kuruluşların şirket içi kimlik sistemlerinin ile kendi şirket içi dizin geleneksel yönetilen ortağı hesapları vardır. Bu tür bir kuruluşta, Azure AD ile uygulamaları taşımak başlattığınızda ortaklarınızdan kaynaklara erişim sağlayabildiğinizden emin olun istiyor. Şirket içi kaynakları olup olmadığına veya bulutta önemli döndürmemelidir. Ayrıca, iş ortağı kullanıcılarınızın aynı oturum açma kimlik bilgilerini hem şirket içi hem de Azure AD kaynaklarını kullanabilmek istiyorsunuz. 
+Azure Active Directory önce (Azure AD), kuruluşların şirket içi kimlik sistemlerinin ile kendi şirket içi dizininde geleneksel olarak yönetilen bir iş ortağı hesapları vardır. Böyle bir kuruluşta, uygulamaları Azure AD'ye geçmeye başlattığınızda, iş ortaklarınızı ihtiyaç duyduğu kaynakları erişebildiğinden emin olun istersiniz. Şirket içi kaynakları olup olmadığını veya buluttaki önemli olmamalıdır. Ayrıca, iş ortağı kullanıcılarınızın aynı oturum açma kimlik bilgilerini hem şirket içi hem de Azure AD kaynaklarını kullanabilmek istiyorsunuz. 
 
-Şirket içi dizininizdeki dış, iş ortakları için hesapları oluşturursanız (örneğin, bir hesap oturum açma adıyla bir dış kullanıcı "wmoran partners.contoso.com etki alanınızdaki Gülşen Moran adlı" oluşturduğunuz), bu hesaplar için Şimdi Eşitle bulut. Özellikle, bulut iş ortağı hesapları Azure AD B2B kullanıcılar olarak eşitleme için Azure AD Connect kullanabilirsiniz (diğer bir deyişle, UserType kullanıcılarla konuk =). Bu gereksinim duydukları daha fazla erişimi vermeden yerel hesaplarını aynı kimlik bilgilerini kullanarak bulut kaynaklarına erişmek iş ortağı kullanıcılarınızın sağlar. 
+Şirket içi dizininizdeki dış, iş ortakları için hesapları oluşturmak istiyorsanız (örneğin, bir hesap için bir dış kullanıcının "wmoran Gülşen Moran partners.contoso.com etki alanınızda adlı" oturum açma adı ile oluşturduğunuz), bu hesaplar için Şimdi Eşitle bulut. Özellikle, bulut iş ortağı hesapları olarak Azure AD B2B kullanıcıları eşitleme için Azure AD Connect kullanabilirsiniz (diğer bir deyişle, UserType kullanıcılarla konuk =). Bu, iş ortağı kullanıcılarınızın ihtiyaç duydukları daha fazla erişimi vermeden yerel hesapları, aynı kimlik bilgilerini kullanarak bulut kaynaklarını sağlar. 
 
-## <a name="identify-unique-attributes-for-usertype"></a>Benzersiz öznitelikleri için UserType tanımlayın
+## <a name="identify-unique-attributes-for-usertype"></a>UserType için benzersiz bir öznitelik tanımlayın
 
-Temel alınan UserType özniteliği eşitlenmesi etkinleştirmeden önce şirket içi Active Directory'den UserType özniteliği çıkarmaya nasıl karar vermeniz gerekir. Diğer bir deyişle, şirket içi ortamınızda hangi parametreler, dış ortak çalışanlarla benzersiz misiniz? Bu dış ortak veya kendi kuruluşunuzdaki üyelerinden ayıran bir parametre belirler.
+Temel alınan UserType özniteliği eşitlenmesi etkinleştirmeden önce şirket içi Active Directory'den temel alınan UserType özniteliği türetmek nasıl karar vermeniz gerekir. Diğer bir deyişle, şirket içi ortamınızda hangi parametrelerin, dış ortak çalışanlarla benzersiz misiniz? Bu dış Ortak Çalışanlar kendi kuruluş üyelerinden ayırt eden bir parametre belirler.
 
-Bu iki genel yaklaşım vardır:
+Bunun için iki ortak yaklaşım vardır:
 
 - Kaynak özniteliği olarak kullanmak için kullanılmayan şirket içi Active Directory öznitelik (örneğin, extensionAttribute1) belirleyin. 
-- Alternatif olarak, temel alınan UserType özniteliği değeri diğer özelliklerinden türetilir. Örneğin, kendi şirket içi Active Directory UserPrincipalName özniteliğinin etki alanı ile bitiyorsa tüm kullanıcılar konuk olarak eşitlemek için istediğiniz *@partners.contoso.com*.
+- Alternatif olarak, temel alınan UserType özniteliği için değer, diğer özelliklerden türetilir. Örneğin, kendi şirket içi Active Directory UserPrincipalName özniteliğinin etki alanı ile bitiyorsa, konuk olarak tüm kullanıcılar eşitlemek istediğiniz *@partners.contoso.com*.
  
-Ayrıntılı öznitelik gereksinimleri için bkz: [UserType eşitlemeyi etkinleştirme](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype). 
+Ayrıntılı öznitelik gereksinimleri için bkz [UserType, eşitlemeyi etkinleştirme](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype). 
 
-## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>Azure AD Connect eşitleme kullanıcıları buluta için yapılandırma
+## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>Azure AD Connect eşitleme kullanıcılara bulut yapılandırma
 
-Benzersiz özniteliği tanımladıktan sonra bu kullanıcılara bulut Azure AD B2B kullanıcılar olarak eşitlemek için Azure AD Connect yapılandırabilirsiniz (diğer bir deyişle, UserType kullanıcılarla konuk =). Bir yetkilendirme açısından bakıldığında, bu kullanıcılar Azure AD B2B işbirliği davet işlemi boyunca oluşturulan B2B kullanıcılardan ayırt edilemez.
+Benzersiz öznitelik tanımladıktan sonra bu kullanıcılara bulut Azure AD B2B kullanıcıları olarak eşitleme için Azure AD Connect'i yapılandırabilirsiniz (diğer bir deyişle, UserType kullanıcılarla konuk =). Bir yetkilendirme açısından bakıldığında, bu kullanıcılar B2B kullanıcıları Azure AD B2B işbirliği davet işlemi oluşturulan döndürsün.
 
-Uygulama yönergeleri için bkz: [UserType eşitlemeyi etkinleştirme](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype).
+Uygulama yönergeleri için bkz. [UserType, eşitlemeyi etkinleştirme](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Karma kuruluşlar için Azure Active Directory B2B işbirliği](hybrid-organizations.md)
-- [Şirket içi uygulamalarınıza Azure AD erişim ver B2B kullanıcılar](hybrid-cloud-to-on-premises.md)
-- Azure AD Connect genel bakış için bkz: [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../connect/active-directory-aadconnect.md).
+- [Hibrit kuruluşlar için Azure Active Directory B2B işbirliği](hybrid-organizations.md)
+- [GRANT B2B kullanıcıları Azure AD'de, şirket içi uygulamalarınıza erişim](hybrid-cloud-to-on-premises.md)
+- Azure AD Connect genel bakış için bkz. [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../connect/active-directory-aadconnect.md).
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6d8e9245e95c08aad69cd05f338b6260e554469b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5732293510a75a3c40df5cf3d31978c5ce599791
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337799"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720166"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Twitter hesabıyla kaydolma ve oturum açma ayarlama
 
@@ -24,27 +24,23 @@ ms.locfileid: "43337799"
 Azure Active Directory (Azure AD) B2C'de kimlik sağlayıcısı olarak Twitter hesabıyla kullanmak için kiracınızda temsil ettiği bir uygulama oluşturmak gerekir. Twitter hesabıyla yoksa adresinden edinebilirsiniz [ https://twitter.com/signup ](https://twitter.com/signup).
 
 1. Oturum [Twitter uygulamaları](https://apps.twitter.com/) Twitter kimlik bilgilerinizle.
-2. Seçin **yeni uygulama oluştur**.
-3. Girin **adı**, **açıklama**, ve **Web sitesi**.
-4. Girin `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp` içinde **geri çağırma URL'leri**. Değiştirin **{tenant}** kiracınızın adı (örneğin, contosob2c) ile ve **{Policyıd}** ilke kimliğinizle (örneğin, b2c_1_policy). Twitter hesabı kullanan tüm ilkeleri için bir geri çağırma URL'si eklemeniz gerekir. 
-5. Kabul **Geliştirici sözleşmesi** seçip **kendi Twitter uygulamanızı oluşturun**.
+2. Seçin **uygulama oluşturma**.
+3. Girin **uygulama adı**, **uygulama açıklaması**, ve **Web sitesi URL'si**.
+4. Girin `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy-name/oauth1/authresp` içinde **geri çağırma URL'leri**. Değiştirin `your-tenant-name` kiracınızın adını ve `your-policy-name` ilkenizin adını. Örneğin, `b2c_1_signupsignin`. Tüm harfleri büyük harflerle Azure AD B2C ile tanımlanan bile kiracınızın adı, ilke adı girerken kullanmanız gerekir.
+5. Kabul **Geliştirici sözleşmesi** seçip **Oluştur**.
 7. Seçin **anahtarlar ve erişim belirteçleri** sekmesi.
-8. Değerini kopyalayın **tüketici anahtarı** ve **tüketici gizli**. Her ikisi de kiracınızdaki bir kimlik sağlayıcısı olarak Twitter hesabı yapılandırmak için gerekir.
+8. Değerlerini kopyalamayı **API anahtarı** ve **API gizli anahtarı**. Her ikisi de kiracınızdaki bir kimlik sağlayıcısı olarak Twitter hesabı yapılandırmak için gerekir.
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>Kiracınızdaki bir kimlik sağlayıcısı olarak twitter'ı yapılandırma
 
 1. Oturum [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel Yöneticisi olarak.
-2. Azure AD B2C kiracınızı içeren dizini kullandığınızdan emin olmak için Azure portalın sağ üst köşesinde bu dizine geçin. Abonelik bilgilerinizi ve ardından **Dizin Değiştir**’i seçin. 
+2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.  
 
     ![Azure AD B2C kiracınıza geçiş yapma](./media/active-directory-b2c-setup-twitter-app/switch-directories.png)
-
-    Kiracınızı içeren dizini seçin.
-
-    ![Dizin seçme](./media/active-directory-b2c-setup-twitter-app/select-directory.png)
 
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.
 5. Sağlayan bir **adı**. Örneğin, *Twitter*.
 6. Seçin **kimlik sağlayıcısı türü**seçin **Twitter**, tıklatıp **Tamam**.
-7. Seçin **bu kimlik sağlayıcısını ayarlama** tüketici anahtarını girebilirsiniz **istemci kimliği** ve **tüketici gizli** için **gizli**.
+7. Seçin **bu kimlik sağlayıcısını ayarlama** ve API anahtarını girin **istemci kimliği** ve API gizli anahtarınızı **gizli**.
 8. Tıklayın **Tamam**ve ardından **Oluştur** Twitter yapılandırmanızı kaydetmek için.

@@ -1,6 +1,6 @@
 ---
-title: Uzun vadeli yedekleme bekletme - Azure SQL veritabanı yapılandırma | Microsoft Docs
-description: Azure kurtarma Hizmetleri kasasına otomatik yedeklemelerini depolamak ve Azure kurtarma Hizmetleri Kasası'nı geri yükleme hakkında bilgi edinin
+title: Uzun süreli yedek saklama - Azure SQL veritabanı yapılandırma | Microsoft Docs
+description: Otomatik yedekleri Azure kurtarma Hizmetleri kasasında saklama ve Azure kurtarma Hizmetleri kasasından geri yükleme hakkında bilgi edinin
 services: sql-database
 author: anosov1960
 manager: craigg
@@ -10,30 +10,30 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: feefe68fbe6681ee4b450503606ac8c4f25d5a39
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: c908e73a225f90227f09a8bb806a62c690de7632
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130269"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718857"
 ---
-# <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Yapılandırma ve Azure kurtarma Hizmetleri kasası kullanarak Azure SQL veritabanı uzun vadeli yedekleme bekletme geri yükleme
+# <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Yapılandırma ve Azure kurtarma Hizmetleri kasası kullanarak Azure SQL veritabanı uzun süreli yedek saklamadan geri yükleme
 
-Azure SQL veritabanı yedeklemelerini depolamak ve Azure portal veya PowerShell kullanarak kasaya korunur yedekleri kullanarak bir veritabanını kurtarmak için Azure kurtarma Hizmetleri kasası yapılandırabilirsiniz.
+Azure kurtarma Hizmetleri kasası, Azure SQL veritabanı yedeklemelerini depolamak ve ardından Azure portal veya PowerShell kullanarak kasada korunan Yedekleme kullanarak bir veritabanını kurtarmak için yapılandırabilirsiniz.
 
 > [!NOTE]
-> Ekim 2016 uzun vadeli yedekleme bekletme önizlemesini ilk sürümünü bir parçası olarak, Azure kurtarma Hizmetleri kasasına yedekleme depolandı. Bu güncelleştirme bu bağımlılığı kaldırır, ancak geriye dönük uyumluluk için özgün API'si 31 May 2018 kadar desteklenir. Azure Hizmetleri kurtarma kasasında yedeklemeleri etkileşimde gerekiyorsa, bkz: [Azure kurtarma Hizmetleri kasası kullanılarak uzun vadeli yedekleme bekletme](sql-database-long-term-backup-retention-configure-vault.md). 
+> Ekim 2016'daki uzun süreli yedek saklama Önizleme'nin ilk sürümünden bir parçası olarak, yedekleri Azure kurtarma Hizmetleri Kasası'nda depolanır. Bu güncelleştirme bu bağımlılığı kaldırır, ancak geriye dönük uyumluluk için 31 Mayıs 2018'e kadar özgün API desteklenir. Azure Hizmetleri Recovery kasasındaki yedekleri ile etkileşim kurmak gerekiyorsa bkz [Azure kurtarma Hizmetleri Kasası'nı kullanarak uzun süreli yedek saklama](sql-database-long-term-backup-retention-configure-vault.md). 
 
 
-## <a name="azure-portal"></a>Azure portalına
+## <a name="azure-portal"></a>Azure portal
 
-Aşağıdaki bölümlerde, Azure portalında Azure kurtarma Hizmetleri kasası yapılandırmak, yedekleme kasası ve geri yükleme Kasası'ndan görüntülemek için nasıl kullanıldığını gösterir.
+Aşağıdaki bölümlerde, Azure portalında Azure kurtarma Hizmetleri kasasını yapılandırarak, yedekleme kasası ve kasasından geri yükleme görüntülemek nasıl kullanılacağını gösterir.
 
-### <a name="configure-the-vault-register-the-server-and-select-databases"></a>Kasa yapılandırmak, sunucuyu kaydetmek ve veritabanlarını seçin
+### <a name="configure-the-vault-register-the-server-and-select-databases"></a>Kasa yapılandırma sunucusunu kaydetmek ve veritabanlarını seçin
 
-Bir Azure kurtarma Hizmetleri kasası yapılandırma [otomatik yedeklemelerini Beklet](sql-database-long-term-retention.md) hizmet katmanı için saklama süresinden daha uzun bir süre. 
+Bir Azure kurtarma Hizmetleri kasasına yapılandırmak [otomatik yedekleri tutma](sql-database-long-term-retention.md) hizmet katmanınızın saklama süresinden daha uzun bir süre. 
 
-1. Açık **SQL Server** sunucunuz için sayfa.
+1. Açık **SQL Server** sunucunuzun sayfası.
 
    ![SQL server sayfası](./media/sql-database-get-started-portal/sql-server-blade.png)
 
@@ -41,25 +41,25 @@ Bir Azure kurtarma Hizmetleri kasası yapılandırma [otomatik yedeklemelerini B
 
    ![uzun süreli yedek saklama bağlantısı](./media/sql-database-get-started-backup-recovery/long-term-backup-retention-link.png)
 
-3. Üzerinde **uzun vadeli yedekleme bekletme** sayfasında sunucunuz için gözden geçirin ve önizleme koşullarına (bunu - yapmış olduğunuz veya bu özellik artık Önizleme sürümünde olduğu sürece) kabul edin.
+3. Üzerinde **uzun süreli yedek saklama** sayfasında sunucunuz için gözden geçirin ve (, zaten yapmadıysanız veya bu özellik artık Önizleme aşamasında olduğu sürece) önizleme koşullarını kabul edin.
 
    ![önizleme koşullarını kabul edin](./media/sql-database-get-started-backup-recovery/accept-the-preview-terms.png)
 
-4. Uzun vadeli yedekleme bekletme yapılandırmak için kılavuzdaki bu veritabanını seçin ve ardından **yapılandırma** araç çubuğunda.
+4. Uzun süreli yedek saklamayı yapılandırmak için kılavuz o veritabanını seçin ve ardından **yapılandırma** araç.
 
    ![uzun süreli yedek saklama için veritabanı seçme](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
 
-5. Üzerinde **yapılandırma** sayfasında, **gerekli ayarları Yapılandır** altında **kurtarma hizmeti kasasının**.
+5. Üzerinde **yapılandırma** sayfasında **gerekli ayarları Yapılandır** altında **kurtarma Hizmetleri kasası**.
 
    ![kasayı yapılandırma bağlantısı](./media/sql-database-get-started-backup-recovery/configure-vault-link.png)
 
 6. Üzerinde **kurtarma Hizmetleri kasası** sayfasında, varsa mevcut bir kasayı seçin. Aboneliğinize ait kurtarma hizmetleri kasası yoksa akıştan çıkın ve kurtarma hizmetleri kasası oluşturun.
 
-   ![Kasa bağlantı oluşturma](./media/sql-database-get-started-backup-recovery/create-new-vault-link.png)
+   ![Kasa oluşturma bağlantısı](./media/sql-database-get-started-backup-recovery/create-new-vault-link.png)
 
-7. Üzerinde **kurtarma Hizmetleri kasaları** sayfasında, **Ekle**.
+7. Üzerinde **kurtarma Hizmetleri kasaları** sayfasında **Ekle**.
 
-   ![Kasa bağlantısı ekleme](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
+   ![Kasa ekleme bağlantısı](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
    
 8. Üzerinde **kurtarma Hizmetleri kasası** sayfasında, Kurtarma Hizmetleri kasası için geçerli bir ad sağlayın.
 
@@ -67,26 +67,26 @@ Bir Azure kurtarma Hizmetleri kasası yapılandırma [otomatik yedeklemelerini B
 
 9. Aboneliğinizi ve kaynak grubunu seçtikten sonra kasa için bir konum belirleyin. İşiniz bittiğinde **Oluştur**'a tıklayın.
 
-   ![Kasa oluşturma](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
+   ![Kasa oluştur](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
    > [!IMPORTANT]
    > Kasanın Azure SQL mantıksal sunucusuyla aynı bölgede olması ve mantıksal sunucuyla aynı kaynak grubunu kullanması gerekir.
    >
 
-10. Yeni kasa oluşturulduktan sonra geri dönmek için gerekli adımları yürütün **kurtarma Hizmetleri kasası** sayfası.
+10. Yeni kasayı oluşturduktan sonra geri dönmek için gerekli adımları gerçekleştirerek **kurtarma Hizmetleri kasası** sayfası.
 
-11. Üzerinde **kurtarma Hizmetleri kasası** sayfasında, kasaya tıklayın ve ardından **seçin**.
+11. Üzerinde **kurtarma Hizmetleri kasası** sayfası, kasaya tıklayın ve ardından **seçin**.
 
    ![var olan kasayı seçme](./media/sql-database-get-started-backup-recovery/select-existing-vault.png)
 
-12. Üzerinde **yapılandırma** sayfasında, yeni bir bekletme ilkesi için geçerli bir ad, varsayılan saklama ilkeyi uygun şekilde değiştirin ve ardından **Tamam**.
+12. Üzerinde **yapılandırma** sayfasında, yeni bir bekletme ilkesi için geçerli bir ad belirtin, varsayılan saklama ilkesini gerekli şekilde değiştirin ve ardından **Tamam**.
 
    ![saklama ilkesi tanımlama](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
    
    >[!NOTE]
-   >Bekletme İlkesi adları, boşluk dahil olmak üzere bazı karakterler izin vermez.
+   >Saklama ilkesi adları boşluk da dahil olmak üzere, bazı karakterler izin vermez.
 
-13. Üzerinde **uzun vadeli yedekleme bekletme** sayfasında veritabanınız için **kaydetmek** ve ardından **Tamam** uzun vadeli yedekleme bekletme ilkesi seçilen tüm veritabanlarına uygulanacak.
+13. Üzerinde **uzun süreli yedek saklama** sayfasında Veritabanınızı **Kaydet** ve ardından **Tamam** uzun süreli yedek saklama ilkesini seçilen tüm veritabanlarına uygulanacak.
 
    ![saklama ilkesi tanımlama](./media/sql-database-get-started-backup-recovery/save-retention-policy.png)
 
@@ -98,33 +98,33 @@ Bir Azure kurtarma Hizmetleri kasası yapılandırma [otomatik yedeklemelerini B
 > Yapılandırma yapıldıktan sonra yedekler sonraki yedi gün içinde kasada görünür. Bu öğreticiye devam etmek için yedeklerin kasada görünmesini bekleyin.
 >
 
-### <a name="view-backups-in-long-term-retention-using-azure-portal"></a>Azure portalını kullanarak uzun vadeli bekletme içinde yedekleri görüntüle
+### <a name="view-backups-in-long-term-retention-using-azure-portal"></a>Azure portalını kullanarak uzun süreli saklama kapsamındaki yedekleri görüntüleme
 
-Veritabanı yedeklerinizi hakkındaki bilgileri görüntüleyin [uzun vadeli yedekleme bekletme](sql-database-long-term-retention.md). 
+Veritabanı Yedekleriniz hakkındaki bilgileri görüntüleyin [uzun süreli yedek saklama](sql-database-long-term-retention.md). 
 
-1. Azure portalında Azure kurtarma Hizmetleri kasanız için veritabanı yedeklerinizi açın (Git **tüm kaynakları** ve aboneliğinize ilişkin kaynaklar listesinden seçin) veritabanı yedeklerinizi tarafından kullanılan depolama alanı miktarı görüntülemek için Kasa.
+1. Azure portalında Azure kurtarma Hizmetleri kasanız için veritabanı Yedekleriniz Aç (Git **tüm kaynakları** ve aboneliğinizin kaynak listesinden seçin) veritabanı Yedekleriniz tarafından kullanılan depolama miktarını görüntülemek için Kasa.
 
    ![kurtarma hizmetleri kasasını ve yedekleri görüntüleme](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault-with-data.png)
 
-2. Açık **SQL veritabanı** veritabanınız için sayfa.
+2. Açık **SQL veritabanı** veritabanınıza sayfası.
 
-   ![Yeni örnek db sayfası](./media/sql-database-get-started-portal/new-sample-db-blade.png)
+   ![Yeni örnek veritabanı sayfası](./media/sql-database-get-started-portal/new-sample-db-blade.png)
 
 3. Araç çubuğunda **Geri yükle**'ye tıklayın.
 
    ![geri yükleme araç çubuğu](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
-4. Geri yükleme sayfasında, tıklatın **uzun vadeli**.
+4. Geri yükleme sayfasında tıklayın **uzun vadeli**.
 
 5. Azure kasası yedeklemelerinin altında **Bir yedekleme seçin**'e tıklayarak uzun süreli saklama kapsamındaki kullanılabilir veritabanı yedeklerini görüntüleyebilirsiniz.
 
    ![kasadaki yedekler](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
 
-### <a name="restore-a-database-from-a-backup-in-long-term-backup-retention-using-the-azure-portal"></a>Azure portalını kullanarak uzun vadeli yedekleme bekletme içinde bir yedekten bir veritabanını geri yükleyin
+### <a name="restore-a-database-from-a-backup-in-long-term-backup-retention-using-the-azure-portal"></a>Bir veritabanını Azure portalını kullanarak uzun süreli yedek saklama bir yedekten geri yükleme
 
-Azure kurtarma Hizmetleri kasasında bir yedekten yeni bir veritabanı için veritabanı geri.
+Azure kurtarma Hizmetleri kasasındaki bir yedekten yeni bir veritabanı için veritabanı geri.
 
-1. Üzerinde **Azure kasası yedeklemeleri** sayfasında, yedekleme geri yükleyin ve ardından **seçin**.
+1. Üzerinde **Azure kasası yedeklemelerinin** sayfasında, yedekleme geri yükleyin ve ardından **seçin**.
 
    ![kasadaki bir yedeği seçme](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
 
@@ -138,7 +138,7 @@ Azure kurtarma Hizmetleri kasasında bir yedekten yeni bir veritabanı için ver
 
    ![kasadan geri yükleme işi ilerleme durumu](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
-5. Geri yükleme işi tamamlandığında açmak **SQL veritabanları** yeni geri yüklenen veritabanı görüntülemek için sayfa.
+5. Geri yükleme işi tamamlandığında açın **SQL veritabanları** yeni geri yüklenen veritabanını görüntülemek için sayfa.
 
    ![kasadan geri yüklenen veritabanı](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
@@ -148,11 +148,11 @@ Azure kurtarma Hizmetleri kasasında bir yedekten yeni bir veritabanı için ver
 
 ## <a name="powershell"></a>PowerShell
 
-Aşağıdaki bölümlerde, PowerShell Azure kurtarma Hizmetleri kasası yapılandırmak, yedekleme kasası ve geri yükleme Kasası'ndan görüntülemek için nasıl kullanıldığını gösterir.
+Aşağıdaki bölümlerde, PowerShell'in Azure kurtarma Hizmetleri kasasını yapılandırarak, yedekleme kasası ve kasasından geri yükleme görüntülemek için nasıl kullanılacağı gösterilmektedir.
 
 ### <a name="create-a-recovery-services-vault"></a>Kurtarma hizmetleri kasası oluşturma
 
-Kullanım [yeni AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) bir kurtarma Hizmetleri kasası oluşturmak için.
+Kullanım [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) bir kurtarma Hizmetleri kasası oluşturmak için.
 
 > [!IMPORTANT]
 > Kasanın Azure SQL mantıksal sunucusuyla aynı bölgede olması ve mantıksal sunucuyla aynı kaynak grubunu kullanması gerekir.
@@ -169,9 +169,9 @@ $vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -Resou
 Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
 ```
 
-### <a name="set-your-server-to-use-the-recovery-vault-for-its-long-term-retention-backups"></a>Kurtarma kasası, uzun vadeli bekletme yedeklemeleri için kullanmak için sunucunuzu ayarlayın
+### <a name="set-your-server-to-use-the-recovery-vault-for-its-long-term-retention-backups"></a>Sunucunuzu, uzun süreli saklama yedeklerini için kurtarma kasasını kullanacak şekilde ayarlama
 
-Kullanım [kümesi AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) cmdlet'ini daha önce oluşturulan kurtarma Hizmetleri kasası belirli bir Azure SQL sunucusu ile ilişkilendirin.
+Kullanım [Set-AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) daha önce oluşturulan kurtarma Hizmetleri kasası belirli bir Azure SQL sunucusuyla ilişkilendirmek için cmdlet'i.
 
 ```PowerShell
 # Set your server to use the vault to for long-term backup retention 
@@ -181,10 +181,10 @@ Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGro
 
 ### <a name="create-a-retention-policy"></a>Saklama ilkesi tanımlama
 
-Saklama ilkesi, bir veritabanı yedeğinin saklanacağı süreyi belirlediğiniz yerdir. Kullanmak [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet'ini ilkeleri oluşturmak için şablon olarak kullanmak için varsayılan saklama ilkesini alır. Bu şablonda saklama süresi için 2 yıl ayarlanır. Ardından, çalıştırın [yeni AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) son olarak bir ilke oluşturmak için. 
+Saklama ilkesi, bir veritabanı yedeğinin saklanacağı süreyi belirlediğiniz yerdir. Kullanma [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) ilkeleri oluşturmak için şablon olarak kullanmak için varsayılan saklama ilkesini almak için cmdlet. Bu şablonda 2 yıl boyunca saklama dönemi ayarlanmadı. Ardından, çalıştırma [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) son ilkesi oluşturmak için. 
 
 > [!NOTE]
-> Bazı cmdlet'leri çalıştırmadan önce kasası bağlamını ayarlayın gerektirir ([kümesi AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) birkaç ilgili parçacıkları Bu cmdlet görürsünüz. İlke kasaya parçası olduğundan bağlamını ayarlayın. Her kasa için birden fazla saklama ilkesi oluşturabilir ve ardından belirli veritabanlarına istediğiniz ilkeyi uygulayabilirsiniz. 
+> Bazı cmdlet'ler için çalıştırmadan önce kasa bağlamını ayarlamanız gerekir ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) Bu cmdlet'i ilgili birkaç kod görürsünüz. İlke, kasanın bir parçası olduğundan bağlamı ayarlayın. Her kasa için birden fazla saklama ilkesi oluşturabilir ve ardından belirli veritabanlarına istediğiniz ilkeyi uygulayabilirsiniz. 
 
 
 ```PowerShell
@@ -206,7 +206,7 @@ $policy
 
 ### <a name="configure-a-database-to-use-the-previously-defined-retention-policy"></a>Bir veritabanını önceden tanımlanan saklama ilkesini kullanacak şekilde yapılandırma
 
-Kullanım [kümesi AzureRmSqlDatabaseBackupLongTermRetentionPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabasebackuplongtermretentionpolicy) belirli bir veritabanına yeni ilkeyi uygulamak için cmdlet.
+Kullanım [Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabasebackuplongtermretentionpolicy) belirli bir veritabanına yeni ilkeyi uygulamak için cmdlet'i.
 
 ```PowerShell
 # Enable long-term retention for a specific SQL database
@@ -216,7 +216,7 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resource
 
 ### <a name="view-backup-info-and-backups-in-long-term-retention"></a>Uzun süreli saklama kapsamındaki yedekleme bilgilerini ve yedekleri görüntüleme
 
-Veritabanı yedeklerinizi hakkındaki bilgileri görüntüleyin [uzun vadeli yedekleme bekletme](sql-database-long-term-retention.md). 
+Veritabanı Yedekleriniz hakkındaki bilgileri görüntüleyin [uzun süreli yedek saklama](sql-database-long-term-retention.md). 
 
 Yedekleme bilgilerini görüntülemek için aşağıdaki cmdlet'leri kullanın:
 
@@ -247,7 +247,7 @@ $availableBackups
 
 ### <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>Bir veritabanını uzun süreli yedek saklama kapsamındaki bir yedekten geri yükleme
 
-Uzun vadeli yedekleme bekletme geri kullanan [geri yükleme-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet'i.
+Uzun süreli yedek saklama kullanan [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet'i.
 
 ```PowerShell
 # Restore the most recent backup: $availableBackups[0]
@@ -264,11 +264,11 @@ $restoredDb
 
 
 > [!NOTE]
-> Buradan, gerekli görevleri gerçekleştirmek için SQL Server Management Studio'yu kullanarak geri yüklenen veritabanına bağlanmak, geri yüklenen veritabanından var olan veritabanına kopyalamak için veya varolan silmek için bir bit veri ayıklamak gibi veritabanı ve geri yüklenen yeniden adlandırın Varolan bir veritabanı adı veritabanı. Bkz: [geri yükleme noktası](sql-database-recovery-using-backups.md#point-in-time-restore).
+> Buradan, görevleri gerçekleştirmek için SQL Server Management Studio kullanarak geri yüklenen veritabanına bağlanabilirsiniz, geri yüklenen veritabanından var olan veritabanına kopyalamak için veya var olan silmek için veri ayıklama gibi veritabanı ve geri yüklenen yeniden adlandır veritabanı için varolan bir veritabanı adı. Bkz: [noktaya geri yükleme noktası](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Kurtarma Hizmetleri kasası temizleme yedeklemelerin nasıl
+## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Kurtarma Hizmetleri kasasındaki yedekleri temizleme nasıl
 
-1 Temmuz 2018 itibariyle LTR V1 API kullanım dışıdır ve tüm mevcut Yedeklemelerinizin kurtarma hizmeti kasa içinde SQL veritabanı tarafından yönetilen LTR depolama kapsayıcıları geçirdiğiniz. Özgün yedeklemeler için artık ücretlendirilen emin olmak için kasalarını geçişten sonra kaldırılmış. Ancak, kasanız üzerinde bir kilit yerleştirdiyseniz yedeklemeleri var. devam edecektir. Gereksiz maliyetleri önlemek için eski yedeklemeleri aşağıdaki betiği kullanarak kurtarma hizmeti kasadan el ile kaldırabilirsiniz. 
+1 Temmuz 2018'den itibaren LTR V1 API kullanım dışıdır ve SQL veritabanı tarafından yönetilen LTR depolama kapsayıcıları için kurtarma hizmeti kasası, tüm mevcut yedeklemeler geçirilmiş olması gerekir. Artık özgün yedeklemeleri için ücretlendirilir emin olmak için kasaları geçişten sonra kaldırılmış. Ancak, kilit kasanızdaki yerleştirdiyseniz yedeklemeleri var. devam edecektir. Gereksiz ücretlerden kaçınmak için eski yedeklemeleri aşağıdaki betiği kullanarak kurtarma Hizmetleri kasasından el ile kaldırabilirsiniz. 
 
 ```PowerShell
 <#

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: cea59d061dadfa3e10330cbce7b6005a286524cc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 975c5c2c5f0da7a6db946c6d1032b485947134d2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024175"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717718"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Azure Stack'te Yönetici portalını kullanma
 
@@ -70,7 +70,7 @@ Yönetici ve Kullanıcı Portalı, Azure Resource Manager'ın ayrı örnekleri t
 
 ### <a name="customize-the-dashboard"></a>Panoyu özelleştirin
 
-Pano, bir dizi varsayılan kutucukla içerir. Seçebileceğiniz **panoyu Düzenle** varsayılan pano değiştirmek veya **yeni Pano** özel bir pano eklemek için. Kutucukları bir panoya kolayca ekleyebilirsiniz. Örneğin, seçebileceğiniz **yeni**, sağ **sunar + planlar**seçip **panoya Sabitle**.
+Pano, bir dizi varsayılan kutucukla içerir. Seçebileceğiniz **panoyu Düzenle** varsayılan pano değiştirmek veya **yeni Pano** özel bir pano eklemek için. Kutucukları bir panoya kolayca ekleyebilirsiniz. Örneğin, seçebileceğiniz **+ kaynak Oluştur**, sağ **sunar + planlar**seçip **panoya Sabitle**.
 
 ### <a name="quick-access-to-online-documentation"></a>Hızlı erişim için çevrimiçi belgeleri
 

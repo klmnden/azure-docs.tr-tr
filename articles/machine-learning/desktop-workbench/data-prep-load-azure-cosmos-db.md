@@ -1,31 +1,31 @@
 ---
-title: Azure Machine Learning çalışma ekranındaki Azure Cosmos DB veri kaynağı olarak bağlanma | Microsoft Docs
-description: Bu belge, Azure Cosmos DB Azure Machine Learning çalışma ekranı aracılığıyla bağlanma hakkında bir örnek sağlar.
+title: Azure cosmos DB veri kaynağı olarak Azure Machine Learning workbench'te bağlanma | Microsoft Docs
+description: Bu belge, Azure Cosmos DB, Azure Machine Learning Workbench ile bağlanmak nasıl bir örnek sağlar.
 services: machine-learning
 author: cforbe
 ms.author: cforbe
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 20e23f41310b90c62eacb7279ea3da0eec376683
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2d9562582a94b7c7aac5b972a7ef57b84eb9aa9e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830699"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651474"
 ---
-# <a name="connecting-to-azure-cosmos-db-as-a-data-source"></a>Bir veri kaynağı olarak Azure Cosmos Veritabanına bağlanma
-Bu makalede bir python içeren örnek Azure Machine Learning çalışma ekranı Cosmos DB'de bağlanmanıza olanak sağlar.
+# <a name="connecting-to-azure-cosmos-db-as-a-data-source"></a>Veri kaynağı olarak Azure Cosmos DB'ye bağlanma
+Bu makale, bir python içerir, Azure Machine Learning workbench'te Cosmos DB'ye bağlanmak örnek olanak sağlar.
 
-## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>Veri hazırlama Azure Cosmos DB veri yükleme
+## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>Veri hazırlama ile Azure Cosmos DB veri yükleme
 
-Yeni bir komut dosyası tabanlı veri akışı oluşturun ve ardından Azure Cosmos DB'den verileri yüklemek için aşağıdaki komut dosyasını kullanın. 
+Yeni bir komut dosyası tabanlı veri akışı oluşturun ve ardından Azure Cosmos DB'den verileri yüklemek için aşağıdaki betiği kullanın. 
 
 ```python
 import pydocumentdb

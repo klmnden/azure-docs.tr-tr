@@ -1,6 +1,6 @@
 ---
-title: Eğitim konuşma transkripsiyonu yönergeleri
-description: Akustik özelleştirmek için metin ve dil modellerini ve ses tiplerini konuşma hizmeti için hazırlamayı öğrenin.
+title: Konuşma hizmeti eğitim transkripsiyonu yönergeleri
+description: Akustik ve dil modellerini ve ses tiplerini yönelik Konuşma hizmeti özelleştirmek için metin hazırlamayı öğrenin.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
@@ -9,42 +9,42 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: db324b6c5444955debdc6a3e09906a0de47ff819
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41988460"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721832"
 ---
-# <a name="transcription-guidelines-for-using-speech-service"></a>Konuşma hizmeti kullanarak transkripsiyonu yönergeleri
+# <a name="transcription-guidelines-for-using-the-speech-service"></a>Konuşma hizmeti kullanarak transkripsiyonu yönergeleri
 
-Özelleştirme için **Konuşmayı metne dönüştürme** veya **metin okuma**, konuşma yanı sıra metin sağlamanız gerekir. Metnin her satır için tek bir utterance karşılık gelir. Metni konuşma gibi tam olarak eşleşmelidir mümkün olduğunca. Metin adlı bir *döküm*, belirli bir biçimde oluşturmanız gerekir.
+Özelleştirme için **Konuşmayı metne dönüştürme** veya **metin okuma**, konuşma yanı sıra metin sağlamanız gerekir. Metnin her satır için tek bir utterance karşılık gelir. Metni konuşma mümkün olduğunca eşleşmelidir. Metin adlı bir *döküm*, belirli bir biçimde oluşturmanız gerekir.
 
 Konuşma hizmeti, girdi metin tutarlı tutmak normalleştirir. 
 
 Bu makalede her iki türdeki normalizations açıklanır. Yönergeler, çeşitli diller için biraz farklılık gösterir.
 
-## <a name="us-english-en-us"></a>ABD İngilizce (en-US)
+## <a name="us-english-en-us"></a>ABD İngilizce (en-us)
 
 Metin veri her satıra bir utterance yalnızca ASCII karakter kümesi kullanılarak düz metin olarak yazılması gerekir.
 
-Genişletilmiş (Latin-1) veya Unicode noktalama karakterleri kullanmaktan kaçının. Bu karakterler yanlışlıkla bir sözcük program veya web sayfalarından veri değiştirilene verileri hazırlanırken dahil edilebilir. Bu karakterler uygun ASCII değişimler ile değiştirin. Örneğin:
+Genişletilmiş (Latin-1) veya Unicode noktalama karakterleri kullanmaktan kaçının. Bir sözcük program uygulamasında veri hazırlama ya da veri sayfalarından scrape şu karakterleri yanlışlıkla dahil edilebilir. Karakterleri uygun ASCII değişimler ile değiştirin. Örneğin:
 
 | Önlemek için karakter | Değiştirme |
 |----- | ----- |
-| "Hello world" (açın ve çift tırnak kapatma) | "Hello world" (çift tırnak) |
+| "(Açma ve kapama çift tırnak işareti) Merhaba Dünya" | "Hello world" (çift tırnak) |
 | Can'ın gün (sağ tek tırnak işareti) | Can'ın gün (kesme işareti) |
 | iyi — Hayır, harika! (em dash) | en iyi--, harika! (kısa) |
 
 ### <a name="text-normalization-rules-for-english"></a>İngilizce için metin normalleştirme kuralları
 
-Konuşma hizmeti aşağıdaki normalleştirme kurallarını taşır.
+Konuşma hizmeti aşağıdaki normalleştirme kurallarını taşır:
 
-*   Küçük büyük/küçük harf tüm metni
-*   Tüm noktalama dışında sözcük iç kesme kaldırılıyor
-*   Tutarlara dahil olmak üzere, konuşulan forma sayı genişletme
+* Küçük harfler kullanarak tüm metni
+* Tüm noktalama dışında sözcük iç kesme kaldırılıyor
+* Sayı konuşulan forma tutarlara dahil olmak üzere genişletme
 
-Bazı örnekleri aşağıda verilmiştir
+İşte bazı örnekler:
 
 | Orijinal metni | Normalleştirme sonra |
 |----- | ----- |
@@ -57,13 +57,13 @@ Bazı örnekleri aşağıda verilmiştir
 | PI hakkında 3,14 olan | Pi yaklaşık üç noktası bir dört olduğu |
 | $3.14 maliyetleri | üç on dört maliyetleri |
 
-Aşağıdaki normalleştirme, metin dökümleri için geçerlidir.
+Aşağıdaki normalleştirme, metin dökümleri için geçerlidir:
 
-*   Kısaltmalar sözcük yazılır
-*   Standart sayısal dizeler (örneğin, bazı tarih veya hesap formlar) sözcükleri yazılır
-*   -Alfabetik olmayan karakterler veya karma alfasayısal karakterler ile sözcükleri belirgin olarak transcribed
-*   Sözcükler olarak tanınmıyor telaffuz kısaltmalar bırakın. Örneğin, radar Lazer, RAM, NATO.
-*   Boşluklarla ayırarak harflerle ayrı harf olarak telaffuz kısaltmalar yazın. Örneğin, IBM, CPU, FBI, TBD, NaN. 
+* Kısaltmalar sözcük yazılır.
+* Standart sayısal dizeler (örneğin, bazı tarih veya hesap formlar) sözcük yazılır.
+* -Alfabetik olmayan karakterler veya karma alfasayısal karakterler ile sözcükleri belirgin olarak transcribed.
+* Sözcükler olarak tanınmıyor telaffuz kısaltmalar bırakın (örneğin, "radar" "Lazer," "RAM" veya "NATO").
+* Boşluklarla ayırarak harf ile ayrı olarak telaffuz kısaltmalar harflerini yazın (örneğin, "IBM" "CPU," "FBI," "TBD" veya "NaN"). 
 
 İşte bazı örnekler:
 
@@ -80,27 +80,27 @@ Aşağıdaki normalleştirme, metin dökümleri için geçerlidir.
 | Van Halen tarafından OU812 Yürüt | O U Van Halen 8 1 2 Yürüt |
 | BOM ile UTF-8 | BOM ile U T F 8 |
 
-## <a name="chinese-zh-cn"></a>Çince (zh-CN)
+## <a name="chinese-zh-cn"></a>Çince (zh-cn)
 
-Metin veri özel konuşma hizmeti için karşıya yüklenen bayt sırası işareti ile UTF-8 kodlamasını kullanmanız gerekir. Dosya her satırda bir utterance yazılması gerekir.
+Özel konuşma hizmeti için karşıya yüklenen metin verileri, bir bayt sırası işareti UTF-8 kodlamasını kullanmanız gerekir. Dosya her satırda bir utterance yazılması gerekir.
 
-Yarım genişlikteki noktalama karakterleri kullanmaktan kaçının. Bu karakterler yanlışlıkla bir sözcük program veya web sayfalarından veri değiştirilene verileri hazırlanırken dahil edilebilir. Bunları uygun tam genişlikli değişimler ile değiştirin. Örneğin:
+Yarım genişlikteki noktalama karakterleri kullanmaktan kaçının. Bir sözcük program uygulamasında veri hazırlama ya da veri sayfalarından scrape şu karakterleri yanlışlıkla dahil edilebilir. Bunları uygun tam genişlikli değişimler ile değiştirin. Örneğin:
 
 | Önlemek için karakter | Değiştirme |
 |----- | ----- |
-| "你好" (açma ve kapama çift tırnak) | "你好" (çift tırnak) |
+| "(Açma ve kapama çift tırnak işareti) 你好" | "你好" (çift tırnak) |
 | 需要什么帮助? (soru işareti) | 需要什么帮助? |
 
 ### <a name="text-normalization-rules-for-chinese"></a>Çince için metin normalleştirme kuralları
 
-Konuşma hizmeti aşağıdaki normalleştirme kurallarını taşır.
+Konuşma hizmeti aşağıdaki normalleştirme kurallarını taşır:
 
-*   Tüm noktalama işaretleri kaldırılıyor
-*   Konuşulan forma sayı genişletme
-*   Tam genişlikli harf yarım genişlikteki harfe dönüştürme
-*   Üst büyük/küçük harf tüm sözcükleri, İngilizce
+* Tüm noktalama işaretleri kaldırılıyor
+* Konuşulan forma sayı genişletme
+* Tam genişlikli harf yarım genişlikteki harfe dönüştürme
+* Büyük harfler için tüm Türkçe kelimeler kullanarak
 
-Bazı örnekler aşağıda verilmiştir.
+İşte bazı örnekler:
 
 | Orijinal metni | Normalleştirme sonra |
 |----- | ----- |
@@ -112,12 +112,12 @@ Bazı örnekler aşağıda verilmiştir.
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
-Aşağıdaki normalleştirme, içeri aktarmadan önce metne uygulayın.
+Metninizi içeri aktarmadan önce aşağıdaki normalleştirme uygulayabilir:
 
-*   Kısaltmalar (olduğu gibi konuşulan formu) sözcüklerdeki yazılır
-*   Sayısal dizeler sözlü biçimde dışarı yazın.
+* (Olduğu gibi konuşulan formu) sözcüklerdeki kısaltmalar yazılır.
+* Sayısal dizeler sözlü biçimde dışarı yazın.
 
-Bazı örnekler aşağıda verilmiştir.
+İşte bazı örnekler:
 
 | Orijinal metni | Normalleştirme sonra |
 |----- | ----- |
@@ -126,22 +126,22 @@ Bazı örnekler aşağıda verilmiştir.
 
 ## <a name="other-languages"></a>Diğer diller
 
-Metin veri tabanına **Konuşmayı metne dönüştürme** hizmet UTF-8 kodlamasını bayt sırası işareti ile kullanmanız gerekir. Dosya her satırda bir utterance yazılması gerekir.
+Metin veri tabanına **Konuşmayı metne dönüştürme** hizmeti bir bayt sırası işareti ile UTF-8 kodlamasını kullanmanız gerekir. Dosya her satırda bir utterance yazılması gerekir.
 
 > [!NOTE]
-> Bu örnekler, Almanca kullanın. Ancak, ABD İngilizcesi veya Çince olmayan tüm diller için bu yönergeleri uygulayın.
+> Aşağıdaki örnekler, Almanca kullanın. Ancak, ABD İngilizcesi veya Çince olmayan tüm diller için yönergeleri uygulayın.
 
 ### <a name="text-normalization-rules-for-german"></a>Almanca için metin normalleştirme kuralları
 
-Konuşma hizmeti aşağıdaki normalleştirme kurallarını taşır.
+Konuşma hizmeti aşağıdaki normalleştirme kurallarını taşır:
 
-*   Küçük büyük/küçük harf tüm metni
-*   Çeşitli tırnak işaretleri dahil olmak üzere tüm noktalama işaretleri kaldırma ("test", 'test', "test" veya «test» Tamam)
-*   Satır kümesi ¢ herhangi bir özel karakterin ile atılıyor ¤ ¥ ¦ m © ª ¬® ° ± ² µ × ÿ Ø¬¬
-*   Dolar veya avro miktarları dahil olmak üzere word forma sayı genişletme
-*   Umlaut o yalnızca için kabul edilir; u diğerleri "th" değiştirilir veya iptal edilecek
+* Küçük harfler kullanarak tüm metni
+* Çeşitli tırnak işaretleri dahil olmak üzere tüm noktalama kaldırma ("test", 'test', "test" ve «test» edilir)
+* Satır kümesi ¢ herhangi bir özel karakterin ile atılıyor ¤ ¥ ¦ m © ª ¬® ° ± ² µ × ÿ Ø¬¬
+* Genişleyen sayılara dolar veya Euro miktarları dahil olmak üzere, sözcük formu
+* Kabul umlaut o yalnızca için ve; diğerleri "th" değiştirilir veya iptal edilecek
 
-Bazı örnekleri aşağıda verilmiştir
+İşte bazı örnekler:
 
 | Orijinal metni | Normalleştirme sonra |
 |----- | ----- |
@@ -149,25 +149,25 @@ Bazı örnekleri aşağıda verilmiştir
 | ¡Eine Frage! | eine frage |
 | WIR, haben | WIR haben |
 
-Aşağıdaki normalleştirme, içeri aktarmadan önce metne uygulayın.
+Metninizi içeri aktarmadan önce aşağıdaki normalleştirme uygulayabilir:
 
-*   Ondalık nokta olmalıdır ","ve"."
-*   Zaman ayırıcı saat ve dakika arasında olmalıdır. ":"ve".": 12:00 Uhr
-*   Kısaltmalar gibi 'ca.' Değiştirilen değildir. Tam biçimini kullanmanızı öneririz.
-*   Dört ana matematik işleçleri kaldırılır: +, -, \*, /. Değişmez değer formlarına değiştirmeden öneririz: artı eksi, mal, geteilt.
-*   Aynı durum geçerlidir (=, <>,) Karşılaştırma işleçleri - gleich, kleiner als, grösser als
-*   3/4 gibi kesirler sözcük formu (örneğin, 'drei viertel' ¾ yerine) kullanın
-*   € Sembol sözcük formu "Euro" ile değiştirin.
+* Ondalık basamak olmalıdır ","ve".".
+* Saat ayırıcısı saat ve dakika arasında olmalıdır. ":"ve"." (örneğin, 12:00 Uhr).
+* Kısaltmalar gibi "ca". Değiştirilen değildir. Tam biçimini kullanmanızı öneririz.
+* Dört ana matematik işleçleri (+, -, \*, ve /) kaldırılır. Değişmez değer formlarına değiştirmeden öneririz: "Ayrıca," "eksi," "kötü" ve "geteilt."
+* Karşılaştırma işleçleri için aynı kural uygular (=, <, ve >). "Gleich ile" değiştirmeden öneririz "kleiner als," ve "grösser als."
+* 3/4 gibi kesirler sözcük formu (örneğin, "drei viertel" ¾ yerine) kullanın.
+* € Sembol sözcük formu "Euro." ile değiştirin.
 
-Bazı örnekler aşağıda verilmiştir.
+İşte bazı örnekler:
 
 | Orijinal metni | Kullanıcının normalleştirme sonra | Sistem normalleştirme sonra
 |--------  | ----- | -------- |
-| ES ist 12.23Uhr | ES ist 12:23Uhr | ES ist zwölf uhr drei çizili zwanzig uhr |
+| ES ist 12.23 Uhr | ES ist 12:23 Uhr | ES ist zwölf uhr drei çizili zwanzig uhr |
 | {12.45} | {12,45} | zwölf komma vier fünf ||
 | 2 + 3-4 | 2 ve 3 4 eksi | zwei artı eksi vier drei|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+- [Konuşma hizmeti deneme aboneliğinizi Al](https://azure.microsoft.com/try/cognitive-services/)
 - [C# ' de Konuşma tanıma](quickstart-csharp-dotnet-windows.md)

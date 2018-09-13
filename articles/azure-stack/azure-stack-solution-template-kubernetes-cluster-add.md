@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 9287eb0925556d382410f95caf16a9ca478ca2da
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c9429f5909e5ba3fd66681fa62cf16125922d075
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054426"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721781"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Bir Kubernetes kümesi için Azure Stack Marketini Ekle
 
@@ -48,7 +48,7 @@ Bir plan, teklif ve Kubernetes küme Market öğesi için bir abonelik oluşturu
 
 1. Seçin **durumunu değiştir**. Seçin **genel**.
 
-1. Seçin **+ yeni** > **sunar ve planları** > **abonelik** yeni bir abonelik oluşturmak için.
+1. Seçin **+ kaynak Oluştur** > **sunar ve planları** > **abonelik** yeni bir abonelik oluşturmak için.
 
     a. Girin bir **görünen ad**.
 
@@ -70,7 +70,7 @@ Ubuntu Server aşağıda Market'te ekleyin:
 
 1. Seçin **+ Azure'dan Ekle**.
 
-1. Girin `UbuntuServer`.
+1. `UbuntuServer` yazın.
 
 1. Aşağıdaki profil ile bir sunucu seçin:
     - **Yayımcı**: Canonical
@@ -93,7 +93,7 @@ Kubernetes kümesini marketten ekleyin:
 
 1. Seçin **+ Azure'dan Ekle**.
 
-1. Girin `Custom Script for Linux`.
+1. `Custom Script for Linux` yazın.
 
 1. Aşağıdaki profil komut dosyasını seçin:
     - **Teklif**: Linux 2.0 için özel betik
@@ -114,7 +114,7 @@ Kubernetes kümesini marketten ekleyin:
 
 1. Seçin **+ Azure'dan Ekle**.
 
-1. Girin `Kubernetes Cluster`.
+1. `Kubernetes Cluster` yazın.
 
 1. `Kubernetes Cluster` öğesini seçin.
 

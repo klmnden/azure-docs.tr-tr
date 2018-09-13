@@ -1,6 +1,6 @@
 ---
-title: Sertifika ortak adı kullanmak için bir Azure Service Fabric kümesi güncelleştirme | Microsoft Docs
-description: Sertifika ortak adı kullanarak sertifika parmak izlerini kullanarak bir Service Fabric kümesi geçiş öğrenin.
+title: Sertifika ortak adını kullanmak için Azure Service Fabric kümesi güncelleştirmesi | Microsoft Docs
+description: Sertifika ortak adını kullanarak için sertifika parmak izleri kullanarak bir Service Fabric kümesine nasıl değiştireceğinizi öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 39dc5800edd743cdc950c7a96f7633fb4c0a7c45
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 043b823fe9e2bc272e6f66f7edee396ea52b92e5
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210350"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720353"
 ---
-# <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Sertifika parmak izi değişiklik kümeden ortak adı
-İki sertifika küme sertifika geçişine veya yönetim zorlaştırır aynı parmak olabilir. Birden çok sertifika, ancak aynı ortak adı veya konu sahip olabilir.  Sertifika ortak adları kullanarak sertifika parmak izlerini kullanarak dağıtılan bir küme geçişi sertifika yönetimini daha kolay hale getirir. Bu makalede, sertifikanın ortak adı yerine sertifika parmak izi kullanmak için çalışan bir Service Fabric kümesi güncelleştirme açıklar.
+# <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Küme sertifikası parmak izini ortak ad olarak değiştirme
+İki sertifika küme sertifika geçişi veya yönetim zorlaştırır aynı parmak olabilir. Ancak, aynı ortak adı veya konu birden çok sertifika sahip olabilir.  Sertifika ortak adları kullanarak sertifika parmak izleri kullanarak dağıtılan bir kümenin geçiş sertifika yönetimi çok daha kolay hale getirir. Bu makalede, sertifika ortak adına sertifika parmak izi yerine kullanmak için çalışan bir Service Fabric kümesinin güncelleştirileceğini açıklar.
  
 ## <a name="get-a-certificate"></a>Sertifika alma
-İlk olarak, bir sertifika alın bir [sertifika yetkilisi (CA)](https://wikipedia.org/wiki/Certificate_authority).  Sertifikanın ortak adı, küme ana bilgisayar adı olmalıdır.  Örneğin, "myclustername.southcentralus.cloudapp.azure.com".  
+İlk olarak, bir sertifika alın bir [sertifika yetkilisi (CA)](https://wikipedia.org/wiki/Certificate_authority).  Sertifikanın ortak adı, kümenin ana bilgisayar adı olmalıdır.  Örneğin, "myclustername.southcentralus.cloudapp.azure.com".  
 
-Test amacıyla, boş veya açık bir sertifika yetkilisinden CA imzalı bir sertifika alabilir.
+Test amacıyla, ücretsiz veya açık bir sertifika yetkilisinden bir CA imzalı bir sertifika alabilir.
 
 > [!NOTE]
-> Azure portalında bir Service Fabric kümesi dağıtırken oluşturulan dahil olmak üzere otomatik olarak imzalanan sertifikalar desteklenmez.
+> Azure portalında bir Service Fabric küme dağıtılırken oluşturulan dahil olmak üzere otomatik olarak imzalanan sertifikalar desteklenmiyor.
 
-## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Sertifikayı karşıya yüklemek ve ölçek kümesinde yükleyin
-Azure üzerinde bir sanal makine ölçek kümesi üzerinde bir Service Fabric kümesi dağıtılır.  Bir anahtar kasası ve sertifikayı karşıya yüklemek ve küme çalışan sanal makine ölçek kümesini yükleyin.
+## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Sertifikayı karşıya yüklemek ve ölçek kümesindeki yükleyin
+Azure'da bir sanal makine ölçek kümesi üzerinde bir Service Fabric kümesine dağıtılır.  Bir anahtar kasasına sertifikayı karşıya yüklemek ve kümeyi çalıştıran sanal makine ölçek kümesi yüklemelisiniz.
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -56,12 +56,14 @@ $VmssName                  = "prnninnxj"
 New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Create the new key vault
-$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
+$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName `
+    -Location $region -EnabledForDeployment 
 $resourceId = $newKeyVault.ResourceId 
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
+$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName `
+    -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
 $CertificateURL = $KVSecret.SecretId
@@ -82,73 +84,77 @@ $certConfig = New-AzureRmVmssVaultCertificateConfig -CertificateUrl $Certificate
 $vmss = Get-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
 
 # Add new secret to the VM scale set.
-$vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault -VaultCertificate $certConfig
+$vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault `
+    -VaultCertificate $certConfig
 
 # Update the VM scale set 
-Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
+Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
+    -Name $VmssName -VirtualMachineScaleSet $vmss 
 ```
 
-## <a name="download-and-update-the-template-from-the-portal"></a>Karşıdan yükle ve portal şablonu güncelleştirme
-Sertifika temel ölçek kümesinde yüklendi, ancak Ayrıca, sertifika ve ortak adı kullanmak için Service Fabric kümesi güncelleştirmeniz gerekir.  Şimdi, Küme dağıtımı için şablonu indirin.  Oturum [Azure portal](https://portal.azure.com) ve küme barındırma kaynak grubuna gidin.  İçinde **ayarları**seçin **dağıtımları**.  En son dağıtım tıklatıp **şablonu görüntüleme**.
+## <a name="download-and-update-the-template-from-the-portal"></a>İndirin ve Portalı'ndan şablonunu güncelleştirme
+Sertifika temel ölçek kümesi üzerinde yüklü, ancak Ayrıca, sertifika ve ortak adı kullanmak için Service Fabric küme güncelleştirmeniz gerekir.  Şimdi, küme dağıtım için şablonu indirin.  Oturum [Azure portalında](https://portal.azure.com) ve küme barındırma kaynak grubuna gidin.  İçinde **ayarları**seçin **dağıtımları**.  En son dağıtım seçip tıklayın **görünüm şablonu**.
 
 ![Görünüm şablonları][image1]
 
-Şablonu ve parametre JSON dosyalarını yerel bilgisayarınıza indirin.
+Şablon ve parametreleri JSON dosyaları yerel bilgisayarınıza indirin.
 
-İlk olarak, parametreleri dosyasını bir metin düzenleyicisinde açın ve aşağıdaki parametre değerini ekleyin:
+İlk olarak, parametre dosyasını bir metin düzenleyicisinde açın ve aşağıdaki parametreyi ekleyin:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
 },
 ```
 
-Ardından, şablon dosyasını bir metin düzenleyicisinde açın ve sertifika ortak adı desteklemek için üç güncelleştirmeler yapabilir.
+Ardından, şablon dosyasını bir metin düzenleyicisinde açın ve sertifika ortak adına desteklemek için üç güncelleştirmeleri yapın.
 
-1. İçinde **parametreleri** bölümünde bir *certificateCommonName* parametre:
+1. İçinde **parametreleri** bölümünde, eklemek bir *certificateCommonName* parametresi:
     ```json
     "certificateCommonName": {
-      "type": "string",
-      "metadata": {
-        "description": "Certificate Commonname"
-      }
+        "type": "string",
+        "metadata": {
+            "description": "Certificate Commonname"
+        }
     },
     ```
 
     Ayrıca kaldırmayı düşünün *certificateThumbprint*, artık gerekli.
 
-2. İçinde **Microsoft.Compute/virtualMachineScaleSets** kaynak, sertifika parmak izini ayarlarında ortak adı kullanmak için sanal makine uzantısını güncelleştirin.  İçinde **virtualMachineProfile**->**extenstionProfile**->**uzantıları**->**özellikleri** -> **ayarları**->**sertifika**, ekleme `"commonNames": ["[parameters('certificateCommonName')]"],` kaldırıp `"thumbprint": "[parameters('certificateThumbprint')]",`.
+2. İçinde **Microsoft.Compute/virtualMachineScaleSets** kaynağın ortak adı yerine parmak izi sertifika ayarlarını kullanmak için sanal makine uzantısını güncelleştirin.  İçinde **virtualMachineProfile**->**extenstionProfile**->**uzantıları**->**özellikleri** -> **ayarları**->**sertifika**, ekleme `"commonNames": ["[parameters('certificateCommonName')]"],` kaldırıp `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json
-    "virtualMachineProfile": {
-              "extensionProfile": {
-                "extensions": [
-                  {
+        "virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
                     "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
                     "properties": {
-                      "type": "ServiceFabricNode",
-                      "autoUpgradeMinorVersion": true,
-                      "protectedSettings": {
-                        "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
-                        "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
-                      },
-                      "publisher": "Microsoft.Azure.ServiceFabric",
-                      "settings": {
-                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-                        "nodeTypeRef": "[variables('vmNodeType0Name')]",
-                        "dataPath": "D:\\SvcFab",
-                        "durabilityLevel": "Bronze",
-                        "enableParallelJobs": true,
-                        "nicPrefixOverride": "[variables('subnet0Prefix')]",
-                        "certificate": {
-                          "commonNames": ["[parameters('certificateCommonName')]"],                          
-                          "x509StoreName": "[parameters('certificateStoreValue')]"
-                        }
-                      },
-                      "typeHandlerVersion": "1.0"
+                        "type": "ServiceFabricNode",
+                        "autoUpgradeMinorVersion": true,
+                        "protectedSettings": {
+                            "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+                            "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                        },
+                        "publisher": "Microsoft.Azure.ServiceFabric",
+                        "settings": {
+                            "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                            "nodeTypeRef": "[variables('vmNodeType0Name')]",
+                            "dataPath": "D:\\SvcFab",
+                            "durabilityLevel": "Bronze",
+                            "enableParallelJobs": true,
+                            "nicPrefixOverride": "[variables('subnet0Prefix')]",
+                            "certificate": {
+                                "commonNames": [
+                                    "[parameters('certificateCommonName')]"
+                                ],
+                                "x509StoreName": "[parameters('certificateStoreValue')]"
+                            }
+                        },
+                        "typeHandlerVersion": "1.0"
                     }
-                  },
+                },
     ```
 
-3.  İçinde **Microsoft.ServiceFabric/clusters** kaynak, güncelleştirme API'sı sürüm "2018-02-01" olarak.  Ayrıca bir **certificateCommonNames** ayarı bir **commonNames** özellik ekleme ve kaldırma **sertifika** (parmak izi özelliğiyle) aşağıdaki gibi ayar Örnek:
+3.  İçinde **Microsoft.ServiceFabric/clusters** kaynak, "2018-02-01" için güncelleştirme API sürümü.  Ayrıca bir **certificateCommonNames** ayarı bir **commonNames** özelliği ekleme ve kaldırma **sertifika** (parmak izi özelliğiyle) şu şekilde ayarlama Örnek:
     ```json
     {
         "apiVersion": "2018-02-01",
@@ -156,27 +162,27 @@ Ardından, şablon dosyasını bir metin düzenleyicisinde açın ve sertifika o
         "name": "[parameters('clusterName')]",
         "location": "[parameters('clusterLocation')]",
         "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+            "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
         ],
         "properties": {
-        "addonFeatures": [
-            "DnsService",
-            "RepairManager"
-        ],        
-        "certificateCommonNames": {
-            "commonNames": [
-            {
-                "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": ""
-            }
+            "addonFeatures": [
+                "DnsService",
+                "RepairManager"
             ],
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
+            "certificateCommonNames": {
+                "commonNames": [
+                    {
+                        "certificateCommonName": "[parameters('certificateCommonName')]",
+                        "certificateIssuerThumbprint": ""
+                    }
+                ],
+                "x509StoreName": "[parameters('certificateStoreValue')]"
+            },
         ...
     ```
 
 ## <a name="deploy-the-updated-template"></a>Güncelleştirilmiş şablonu dağıtma
-Güncelleştirilmiş şablonu değişiklikleri yaptıktan sonra yeniden dağıtın.
+Güncelleştirilmiş şablonu, değişiklikleri yaptıktan sonra yeniden dağıtın.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
@@ -184,12 +190,13 @@ $clusterloc="southcentralus"
 
 New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" -Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
+    -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [küme güvenlik](service-fabric-cluster-security.md).
-* Bilgi edinmek için nasıl [rollover küme sertifika](service-fabric-cluster-rollover-cert-cn.md)
-* [Güncelleştirme ve küme sertifikaları yönetme](service-fabric-cluster-security-update-certs-azure.md)
+* Bilgi edinmek için nasıl [geçişi bir küme sertifikası](service-fabric-cluster-rollover-cert-cn.md)
+* [Küme sertifikalarını yönetme ve güncelleştirme](service-fabric-cluster-security-update-certs-azure.md)
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

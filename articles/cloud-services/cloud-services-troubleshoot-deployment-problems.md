@@ -1,6 +1,6 @@
 ---
-title: Bulut hizmeti dağıtım sorunlarını giderme | Microsoft Docs
-description: Bir bulut hizmeti Azure'a dağıtırken çalışabilir bazı yaygın sorunlar vardır. Bu makale, bunlardan bazıları çözümleri sağlar.
+title: Cloud service dağıtım sorunlarını giderme | Microsoft Docs
+description: Bir bulut hizmeti, Azure'a dağıtırken çalışabilir bazı yaygın sorunlar vardır. Bu makalede, bunlardan bazıları için çözümler sağlar.
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -13,76 +13,76 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 3c56a5750c9f8a6c59ea07c01c101f358331174b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7f0e65b1de1df48603cab29148c7f4c6fb909714
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26408188"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35980545"
 ---
-# <a name="troubleshoot-cloud-service-deployment-problems"></a>Bulut hizmeti dağıtım sorunlarını giderme
-Azure için bir bulut hizmeti uygulama paketini dağıtırken dağıtımından hakkında bilgi edinebilirsiniz **özellikleri** Azure portalında bölmesi. Bu bilgiler Azure desteklemek için yeni bir destek isteği açarken sağlayabilir ve bulut hizmetinin ilgili sorunları gidermenize yardımcı olması için bu bölmede ayrıntıları kullanabilirsiniz.
+# <a name="troubleshoot-cloud-service-deployment-problems"></a>Cloud service dağıtım sorunlarını giderme
+Azure'a bir bulut hizmeti uygulama paketini dağıttığınızda, dağıtımdan hakkında bilgi edinebilirsiniz **özellikleri** bölmesinde Azure portalında. Bulut hizmeti sorunları gidermenize yardımcı olması için bu bölmede ayrıntılarını kullanabilirsiniz ve, bu bilgiler Azure desteği için yeni bir destek isteği açma sağlayabilirsiniz.
 
-Bulabileceğiniz **özellikleri** şekilde bölmesi:
+Bulabilirsiniz **özellikleri** bölmesinde gösterildiği gibi:
 
-* Azure portalında, bulut hizmeti dağıtımının tıklatın, **tüm ayarları**ve ardından **özellikleri**.
+* Azure Portalı'nda bulut hizmetinizin dağıtımını tıklatın, **tüm ayarlar**ve ardından **özellikleri**.
 
 > [!NOTE]
-> İçeriğini kopyaladığınız **özellikleri** bölmesi sağ üst köşesindeki simgesini tıklatarak panoya bölmesi.
+> İçeriğini kopyaladığınız **özellikleri** bölmesinin sağ üst köşedeki simgeye tıklayarak panoya bölmesi.
 >
 >
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Sorun: my Web sitesi dosyasına erişemiyor, ancak my dağıtım başlatılır ve tüm rol örneklerini hazır
-Portalda gösterilen Web sitesi URL'si bağlantı bağlantı noktası içermez. Web siteleri için varsayılan bağlantı noktası 80'dir. Uygulamanız farklı bir bağlantı noktası çalıştırmak için yapılandırılmışsa, doğru bağlantı noktası numarasını URL için Web sitesi erişirken eklemelisiniz.
+## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Sorun: Web sitemi erişemiyorum ancak dağıtımım başlatılır ve tüm rol örneklerinin hazır
+Portalda gösterilen Web sitesi URL'si bağlantı bağlantı noktası içermez. Web siteleri için varsayılan bağlantı noktası 80'dir. Uygulamanız içinde farklı bir bağlantı noktası çalıştırmak için yapılandırılmışsa, doğru bağlantı noktasını URL'ye Web sitesi erişirken eklemelisiniz.
 
-1. Azure portalında, bulut hizmeti dağıtımının'ı tıklatın.
-2. İçinde **özellikleri** bölmesinde Azure portal'ın rol örnekleri için bağlantı noktalarını denetleyin (altında **giriş uç noktaları**).
-3. Bağlantı noktası 80 değilse, doğru bağlantı noktası değeri uygulama eriştiğinde URL'sini ekleyin. Varsayılan olmayan bağlantı noktası belirtmek için bağlantı noktası numarasıyla boşluk ve ardından iki nokta (:) ve ardından URL'yi yazın.
+1. Azure Portalı'nda bulut hizmetinizin dağıtım'ı tıklatın.
+2. İçinde **özellikleri** bölmesinde Azure Portalı'nın rol örnekleri için bağlantı noktalarını denetleyin (altında **giriş uç noktaları**).
+3. Bağlantı noktası 80 değilse, doğru bağlantı noktası değeri uygulamaya eriştiğinde URL'sini ekleyin. Varsayılan olmayan bağlantı noktasını belirlemek için boşluk olmayan bir bağlantı noktası numarası ardından bir iki nokta üst üste (:), ardından URL'yi yazın.
 
-## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Sorun: hiçbir şey bana geri dönüşüm My rol örnekleri
-Azure sorun düğümleri algılar ve bu nedenle rol örnekleri için yeni düğümler taşır iyileştirme hizmeti otomatik olarak oluşur. Bu durumda, rolü örneklerinizi otomatik olarak geri dönüştürme görebilirsiniz. Hizmet onarma oluştu olmadığını öğrenmek için:
+## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Sorun: Rol Örneklerim bana hiçbir şey geri dönüştürüldü
+Azure sorun düğümleri algılar ve bu nedenle rol örnekleri için yeni düğümler taşır iyileştirme hizmeti otomatik olarak gerçekleşir. Böyle bir durumda otomatik olarak geri dönüşüm rolü örneklerinizi görebilirsiniz. Hizmet onarma oluşup olmadığını öğrenmek için:
 
-1. Azure portalında, bulut hizmeti dağıtımının'ı tıklatın.
-2. İçinde **özellikleri** Azure portal'ın bölmesinde bilgileri gözden geçirin ve hizmet onarma geri dönüştürme rolleri gözlemlenen süre boyunca oluşup oluşmadığını belirleyin.
+1. Azure Portalı'nda bulut hizmetinizin dağıtım'ı tıklatın.
+2. İçinde **özellikleri** Azure portal'ın bölmesinde bilgileri gözden geçirin ve hizmet onarımı olanaklarından yararlanarak rollerinin geri dönüşüme uğramasının gözlemlenen süre boyunca oluşup oluşmadığını belirleyin.
 
-Rolleri aynı zamanda kabaca ayda bir kez ana bilgisayar işletim sistemi ve konuk işletim sistemi güncelleştirmeleri sırasında geri.  
-Daha fazla bilgi için blog gönderisine bakın [rol örneği yeniden son işletim sistemi yükseltme](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+Roller ayrıca kabaca ayda bir kez ana bilgisayar işletim sistemi ve konuk işletim sistemi güncelleştirmeleri sırasında geri dönüşüm.  
+Daha fazla bilgi için bkz. blog gönderisine [rol örneği yeniden nedeniyle işletim sistemi yükseltmeleri](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
-## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Sorun: t olamaz bir VIP takası yapın ve bir hata alıyorsunuz
-Dağıtım güncelleştirme işlemi devam ediyorsa bir VIP takası izin verilmiyor. Dağıtım güncelleştirmeleri otomatik olarak oluşabilir zaman:
+## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Sorun: Ben olamaz bir VIP takası yapmak ve bir hata alıyorum
+Dağıtım güncelleştirme devam ediyor durumunda bir VIP takası izin verilmez. Dağıtım güncelleştirmeleri otomatik olarak gerçekleşebilir olduğunda:
 
-* Yeni bir konuk işletim sistemi kullanılabilir ve otomatik güncelleştirmeler için yapılandırılır.
-* Hizmet iyileştirme oluşur.
+* Yeni konuk işletim sistemi kullanılabilir ve otomatik güncelleştirmeler için yapılandırılır.
+* Hizmet onarma gerçekleşir.
 
-Bir otomatik güncelleştirme bir VIP takası engel engellemediğini öğrenmek için:
+Bir otomatik güncelleştirme yapmasını bir VIP takası engellemediğini öğrenmek için:
 
-1. Azure portalında, bulut hizmeti dağıtımının'ı tıklatın.
-2. İçinde **özellikleri** bölmesinde değeri, Azure portalında, Ara **durum**. Eğer öyleyse **hazır**, ardından denetleyin **son işlem** biri son meydana geldiği olmadığını görmek için VIP takas engel olabilir.
-3. Adım 1 ve 2 üretim dağıtımı için yineleyin.
-4. Bir otomatik güncelleştirme işlemi varsa, VIP takas yapmak denemeden önce tamamlanmasını bekleyin.
+1. Azure Portalı'nda bulut hizmetinizin dağıtım'ı tıklatın.
+2. İçinde **özellikleri** bölmesinde değerinde Azure Portal'da, Ara **durumu**. İse **hazır**, ardından **son işlem** biri son meydana geldiği varsa görmek için VIP takas engel olabilir.
+3. Üretim dağıtımı için 1 ve 2 numaralı adımları tekrarlayın.
+4. Bir otomatik güncelleştirme işlemi varsa, VIP takası yapmak denemeden önce kurulumun tamamlanmasını bekleyin.
 
-## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Sorun: Rol örneği başlatıldı, başlatılıyor, meşgul ve durdurulmuş arasında döngü
-Bu durum, uygulama kodunuz, paketiniz veya yapılandırma dosyanızla ilgili bir sorundan kaynaklanıyor olabilir. Bu durumda, birkaç dakikada değiştirme durum görmeye olmalıdır ve Azure portalını şöyle gözükebilir **geri dönüştürme**, **meşgul**, veya **başlatılıyor**. Bu olduğunu rol örneği çalışmasını engelliyor uygulamayla yanlış bir şeyler gösterir.
+## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Sorun: Bir rol örneği başlatıldı, başlatılıyor, meşgul ve durduruldu arasında döngü
+Bu durum, uygulama kodunuz, paketiniz veya yapılandırma dosyanızla ilgili bir sorundan kaynaklanıyor olabilir. Bu durumda, birkaç dakikada değiştirme durum görmeye olmalı ve Azure portalı gibi gözükebilir **geri dönüştürme**, **meşgul**, veya **başlatılıyor**. Bu olduğunu bir şey yanlış bir rol örneği çalışmasını engelliyor uygulamayla gösterir.
 
-Bu sorun için sorun giderme hakkında daha fazla bilgi için blog gönderisine bakın [Azure PaaS işlem tanılama verilerini](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) ve [rollerin geri dönüştürülmesine neden sık karşılaşılan sorunları](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Bu sorunu gidermeye ilişkin daha fazla bilgi için blog gönderisine bakın [Azure PaaS işlem Tanılama verileri](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) ve [rollerin geri dönüştürülmesine neden olan yaygın sorunlar](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
-## <a name="problem-my-application-stopped-working"></a>Sorun: Uygulamam durdu
-1. Azure portalında rol örneği'ı tıklatın.
+## <a name="problem-my-application-stopped-working"></a>Sorun: Uygulamam çalışmıyor
+1. Azure portalında rol örneğine tıklayın.
 2. İçinde **özellikleri** bölmesinde Azure portal'ın, sorununuzu çözmek için aşağıdaki koşulları göz önünde bulundurun:
-   * Rol örneği yakın zamanda durdurulmuşsa (değerini kontrol edebilirsiniz **Abort sayısı**), dağıtım güncelleştirme. Rol örneği, kendi işlevine devam olmadığını görmek için bekleyin.
-   * Rol örneği ise **meşgul**, uygulama kodunuz olup olmadığını denetleyin [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) olayı işlenir. Eklemek veya bu olayını işler biraz kod düzeltmek gerekebilir.
-   * Tanılama verilerine gidin ve sorun giderme senaryoları blog postasında [Azure PaaS işlem tanılama verilerini](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+   * Rol örneği yakın zamanda durursa (değerini kontrol edebilirsiniz **durdurma sayısı**), dağıtım güncelleştiriliyor. Rol örneği kendi üzerinde çalışmayı sürdürür, görmek için bekleyin.
+   * Rol örneği ise **meşgul**, uygulama kodunuz için denetleyin [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) olayı işlenir. Ekleme veya bu olayı işleyen kod düzeltme gerekebilir.
+   * Tanılama verilerine gidin ve sorun giderme senaryoları blog gönderisinde [Azure PaaS işlem Tanılama verileri](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 > [!WARNING]
-> Bulut hizmetinizi Geri Dönüşüm, etkili bir şekilde özgün sorun bilgilerini silme dağıtım özelliklerini sıfırlayın.
+> Bulut hizmetinize Geri Dönüşüm, özelliklerini dağıtımı için etkili bir şekilde özgün sorun bilgilerini silme sıfırlayın.
 >
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi görüntülemek [sorun giderme makalelerini](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) bulut Hizmetleri için.
+Daha fazlasını görüntüle [sorun giderme makaleleri](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) bulut Hizmetleri için.
 
 Azure PaaS bilgisayar tanılama verilerini kullanarak bulut hizmeti rolü sorunlarını giderme konusunda bilgi almak için bkz: [Kevin Williamson'ın blog dizisini](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

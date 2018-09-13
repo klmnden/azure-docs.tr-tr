@@ -1,57 +1,57 @@
 ---
-title: İş sürekliliği PostgreSQL için Azure veritabanıyla genel bakış
-description: İş sürekliliği PostgreSQL için Azure veritabanıyla genel bakış.
+title: PostgreSQL için Azure veritabanı'nda iş sürekliliğine genel bakış
+description: PostgreSQL için Azure veritabanı'nda iş sürekliliğine genel bakış.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 1b981b650d75556f4521aaf0f089443bb88d064a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a0ff57037d6639f5778e27d6cf697b90038ab3b3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29693413"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717072"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>İş sürekliliği PostgreSQL için Azure veritabanıyla genel bakış
+# <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda iş sürekliliğine genel bakış
 
-Bu genel bakışta Azure veritabanı PostgreSQL için iş devamlılığı ve olağanüstü durum kurtarma için sağlayan özellikleri açıklanmaktadır. Veri kaybına neden ya da veritabanı ve uygulamanızın kullanılamaz hale gelmesine neden kesintiye uğratan olaylarından kurtarma seçenekleri hakkında bilgi edinin. Bir kullanıcı veya uygulama hatası veri bütünlüğü etkiler, bir Azure bölgesinin bir kesinti veya bakım uygulamanızın gerektirdiği olmadığında yapmanız gerekenler hakkında bilgi edinin.
+Bu genel bakışta, PostgreSQL için Azure veritabanı iş sürekliliği ve olağanüstü durum kurtarma sağlayan özellikleri açıklar. Veri kaybına neden veya veritabanı ve uygulama kullanılamaz hale gelmesine neden olaylardan kurtarmak için seçenekler hakkında bilgi edinin. Bir kullanıcı veya uygulama hatası veri bütünlüğünü etkileyen, bir Azure bölgesinde kesinti yaşandığında veya uygulamanız zaman bakıma gerek duyacağını ne yapılacağını öğrenin.
 
-## <a name="features-that-you-can-use-to-provide-business-continuity"></a>İş sürekliliği sağlamak için kullanabileceğiniz özellikler
+## <a name="features-that-you-can-use-to-provide-business-continuity"></a>İş sürekliliği sağlamak için kullanabileceğiniz özellikleri
 
-Azure veritabanı PostgreSQL için otomatik yedeklemeler ve kullanıcılara coğrafi geri yükleme başlatmasını dahil iş sürekliliği özellikleri sağlar. Tahmini kurtarma süresi (Ekle) ve olası veri kaybı her farklı özelliklere sahip. Bu seçenekler anladığınızda, bunlar arasında seçin ve bunları farklı senaryolar için birlikte kullanın. İş sürekliliği planınızın geliştirdikçe kesintiye uğratan olayından sonra uygulama tamamen kurtarır - bu kurtarma süresi hedefi (RTO) önce maksimum kabul edilebilir süreyi anlamanız gerekir. Ayrıca en fazla son veri miktarı anlamak ihtiyacınız uygulama güncelleştirmeleri (zaman aralığı) tolerans kesintiye uğratan olayından sonra kurtarırken kaybetme - bu kurtarma noktası hedefi (RPO).
+PostgreSQL için Azure veritabanı, otomatik yedeklemeler ve kullanıcıların coğrafi geri yükleme başlatmak için iş sürekliliği özellikleri sunar. Tahmini kurtarma süresi (ERT) ve olası veri kaybı her farklı özelliklere sahiptir. Bu seçenekleri kavradıktan sonra bunlar arasında seçin ve bunları birlikte farklı senaryolar için kullanın. İş sürekliliği planınızı geliştirirken, uygulamanın kesintiden sonra tamamen kurtarır.-Bu, Kurtarma süresi hedefi (RTO) önce kabul edilebilen maksimum süre anlamanız gerekir. Ayrıca en son veri miktarını anlamanıza gerek güncelleştirmelerinin (zaman aralığı) uygulama edilebilecek kesintiden sonra kurtarılırken - Bu, kurtarma noktası hedefi (RPO).
 
-Aşağıdaki tabloda Ekle ve RPO için kullanılabilen özellikleri karşılaştırılır:
+Aşağıdaki tabloda kullanılabilir özellikleri için ERT ve RPO değerleri karşılaştırılmaktadır:
 
 | **Özelliği** | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 | :------------: | :-------: | :-----------------: | :------------------: |
-| Yedekten belirli bir noktaya geri yükleme | Saklama dönemi içinde herhangi bir geri yükleme noktası | Saklama dönemi içinde herhangi bir geri yükleme noktası | Saklama dönemi içinde herhangi bir geri yükleme noktası |
-| Coğrafi olarak çoğaltılmış yedeklerden coğrafi geri yükleme | Desteklenmiyor | Ekle < 12 h<br/>RPO < 1 h | Ekle < 12 h<br/>RPO < 1 h |
+| Yedekten belirli bir noktaya geri yükleme | Bekletme dönemi içinde herhangi bir geri yükleme noktası | Bekletme dönemi içinde herhangi bir geri yükleme noktası | Bekletme dönemi içinde herhangi bir geri yükleme noktası |
+| Coğrafi çoğaltmalı yedeklerden coğrafi geri yükleme | Desteklenmiyor | ERT < 12 sa.<br/>RPO < 1 saat | ERT < 12 sa.<br/>RPO < 1 saat |
 
 > [!IMPORTANT]
-> Sunucu silerseniz, sunucuya ait tüm veritabanlarının da silinir ve kurtarılamaz. Silinen bir sunucuya geri yükleyemezsiniz.
+> Silinen sunucuları **olamaz** geri yüklenemiyor. Sunucu silerseniz sunucusuna ait tüm veritabanlarını da silinir ve kurtarılamaz.
 
-## <a name="recover-a-server-after-a-user-or-application-error"></a>Bir sunucuyu kurtardıktan sonra bir kullanıcı veya uygulama hatası
+## <a name="recover-a-server-after-a-user-or-application-error"></a>Bir kullanıcı veya uygulama hatasından sonra bir sunucusunu kurtarma
 
-Hizmetin yedeklemeler, bir sunucu çeşitli kesintiye uğratan olaylarından kurtarmak için kullanabilirsiniz. Bir kullanıcı yanlışlıkla bazı verileri silmek, yanlışlıkla önemli bir tablo bırakma veya bile tüm veritabanını bırakın. Bir uygulama yanlışlıkla iyi veri bir uygulama hatası nedeniyle hatalı verilerle üzerine ve benzeri.
+Hizmetin yedeklemeler çeşitli kesintilerden bir sunucuya kurtarmak için kullanabilirsiniz. Bir kullanıcı yanlışlıkla veri silebilir, istemeden önemli bir tabloyu bırakın veya hatta bir veritabanının tamamını bırakabilir. Bir uygulama yanlışlıkla bir uygulama, hata nedeniyle hatalı verilerle iyi verilerin üzerine ve benzeri.
 
-Bir noktayı-içinde--zamanında bilinen iyi bir noktaya sunucunuza bir kopyasını oluşturmak için geri yükleme gerçekleştirebilirsiniz. Bu noktaya sunucunuz için yapılandırdığınız yedekleme saklama dönemi içinde olmalıdır. Verileri yeni bir sunucuya geri yüklendikten sonra özgün sunucunun yeni geri yüklenen sunucuyla değiştirebilir veya gerekli verileri geri yüklenen sunucudan özgün sunucuya kopyalayın.
+Bir nokta,-zaman-zamanında bilinen iyi bir noktaya sunucunuza bir kopyasını oluşturmak için geri yükleme gerçekleştirebilirsiniz. Bu noktada, sunucunuz için yapılandırdığınız yedekleme Bekletme dönemi içinde olmalıdır. Verileri yeni sunucuya geri yüklendikten sonra özgün sunucunun yeni geri yüklenen sunucu ile değiştirin veya gerekli verileri özgün sunucuya geri yüklenen sunucudan kopyalayabilirsiniz.
 
 ## <a name="recover-from-an-azure-regional-data-center-outage"></a>Bir Azure bölgesel veri merkezi kesintisinden kurtarma
 
-Çok sık olmasa da Azure veri merkezlerinde kesintiler yaşanabilir. Kesinti oluştuğunda, yalnızca birkaç dakika son, ancak saat boyunca en son iş kesintiye neden olur.
+Çok sık olmasa da Azure veri merkezlerinde kesintiler yaşanabilir. Bir kesinti oluştuğunda, yalnızca birkaç dakika sürebilecek, ancak son saat için iş kesintisi neden olur.
 
-Veri Merkezi kesintisinden üzerinden olduğunda tekrar çevrimiçi duruma sunucunuz için bir seçenek beklenir. Bu, belirli bir süre, örneğin bir geliştirme ortamı için sunucu çevrimdışı olmasını destekleyebilir uygulamalar için çalışır. Veri merkezi bir kesinti olduğunda, böylece bir süredir sunucunuz gerekmiyorsa, bu seçenek yalnızca çalışır, ne kadar süreyle kesinti son, bilmezsiniz.
+Sunucunuz, veri merkezi kesintisi sona erdiğinde tekrar çevrimiçi duruma gelmesini bekleyin bir seçenektir. Bu zaman, örneğin bir geliştirme ortamı belirli bir süre için çevrimdışı olması kabul edilebildiği uygulamalar için çalışır. Veri merkezinde bir kesinti varsa sunucunuza bir süredir ihtiyacınız yoksa bu seçenek yalnızca çalışır böylece, kesinti ne kadar sürebilecek, bilmezsiniz.
 
-Diğer seçeneği, coğrafi olarak yedekli yedeklemeler kullanarak sunucuya yükler PostgreSQL'ın coğrafi geri yükleme özelliği için Azure veritabanı kullanmaktır. Sunucunuz içinde barındırılan bölge çevrimdışı olduğunda bile bu yedeklemeler erişilebilir olur. Başka bir bölgeye bu yedeklerden geri yükleme ve sunucunuzu yeniden çevrimiçi duruma getirin.
+Diğer seçenek, coğrafi olarak yedekli yedeklemeler kullanarak sunucuya geri yükleyen PostgreSQL'ın coğrafi geri yükleme özelliği için Azure veritabanı'nı kullanmaktır. Sunucunuz barındırılan bölgeyi çevrimdışı olsa bile bu yedeklemeler erişilebilir olur. Bu yedeklemeleri geri yüklemek için başka bir bölgede ve sunucunuzun çevrimiçi duruma getirin.
 
 > [!IMPORTANT]
-> Coğrafi olarak yedekli yedekleme depolama sunucusuyla sağlanan, coğrafi geri yükleme yalnızca mümkündür.
+> Sunucu yedekleme coğrafi olarak yedekli depolama ile sağladıysanız coğrafi geri yükleme yalnızca mümkündür. Mevcut bir sunucu için coğrafi olarak yedekli yedeklemeleri yerel olarak yedekli geçiş yapmak istiyorsanız, mevcut sunucunuzun mysqldump kullanarak bir döküm almak ve coğrafi olarak yedekli yedeklemelerde yapılandırılmış yeni oluşturulan geri gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Otomatik yedekleme hakkında daha fazla bilgi için bkz: [PostgreSQL için Azure veritabanı yedeklemeleri](concepts-backup.md). 
-- Azure portalını kullanarak zaman içinde bir noktaya geri yüklemenizi bkz [veritabanı Azure portalını kullanarak zaman içinde bir noktaya geri](howto-restore-server-portal.md).
-- Azure CLI kullanarak zaman içinde bir noktaya geri yüklemenizi bkz [veritabanı CLI kullanarak zaman içinde bir noktaya geri](howto-restore-server-cli.md).
+- Otomatik yedeklemeler hakkında daha fazla bilgi için bkz: [PostgreSQL için Azure veritabanı yedekleme](concepts-backup.md). 
+- Azure portalını kullanarak bir noktaya geri yüklemek için bkz: [veritabanını Azure portalını kullanarak bir noktaya geri yükleme](howto-restore-server-portal.md).
+- Azure CLI kullanarak bir noktaya geri yüklemek için bkz: [veritabanı CLI kullanarak bir noktaya geri yükleme](howto-restore-server-cli.md).

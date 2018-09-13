@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 2f18840802a39f03659792a4d5b33ad3a73c5961
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051451"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722223"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB ile ilgili SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB ile ilgili temel bilgiler
@@ -118,6 +118,10 @@ Kapsayıcı ve veritabanı düzeyi aktarım hızı sağlama ayrı teklifleri ve 
 
 Bir bölüm anahtarı aktarım hızı ile kullanarak koleksiyon şu anda oluşturabilirsiniz [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) yöntemi kullanarak veya .net SDK'sı [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Azure portalını kullanarak bir sabit koleksiyon oluşturma, şu anda desteklenen değil.  
 
+### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB, zaman serisi analizini destekliyor mu? 
+Azure CosmosDB zaman serisi analiz Evet destekler, burada bir örnek için [zaman serisi deseni](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). Bu örnek, değişiklik akışı zaman serisi verilerinde toplu görünümler oluşturmak için kullanmayı gösterir. Bu yaklaşım, spark akışı veya başka bir akış veri işlemcisi'ni kullanarak genişletebilirsiniz.
+
+
 ## <a name="sql-api"></a>SQL API’si
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>SQL API'si ile programlama geliştirmeye nasıl başlarım?
@@ -208,6 +212,10 @@ Ek olarak ortak MongoDB hata kodları, MongoDB API'sini kendi belirli hata kodla
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | İstek birimleri tüketilen toplam sayısı, koleksiyon için sağlanan istek birimi oranını aşmış ve kısıtlanan. | Bir kapsayıcı veya bir dizi kapsayıcılar için Azure portal veya deneniyor yeniden atanan aktarım hızını ölçeklendirmeyi düşünün. |
 | ExceededMemoryLimit | 16501 | Çok kiracılı bir hizmet, istemcinin bellek tahsisat işlem eşiğini aştı. | Destek ile iletişime geçin veya daha kısıtlayıcı bir sorgu ölçütü ile bir işlem kapsamını azaltın [Azure portalında](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Örnek:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {adı: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {yaş: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+
+### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>Azure CosmosDB MongoDB API'si ile kullanmak için desteklenen mongodb Simba sürücü mı?
+Evet, Azure CosmosDB MongoDB API'si ile Simba'nın Mongo ODBC sürücüsü kullanabilirsiniz.
+
 
 ## <a id="table"></a>Tablo API'si
 
@@ -458,7 +466,7 @@ Azure Cosmos DB kullanır [yatay bölümleme](partition-data.md) otomatik olarak
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Gremlin sürücüleri kullanarak ekleme saldırılarına karşı nasıl koruyabilirim? 
 
-En yerel Tinkerpop Gremlin sürücüleri, sorgu yürütme için parametre sözlüğü sağlama seçeneği sağlar. Bu, bunun nasıl yapılacağı örneğidir [Gremlin.Net]() ve [Gremlin Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+En yerel Tinkerpop Gremlin sürücüleri, sorgu yürütme için parametre sözlüğü sağlama seçeneği sağlar. Bu, bunun nasıl yapılacağı örneğidir [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) ve [Gremlin Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Neden iletisi alıyorum "Gremlin sorgu derleme hatası: herhangi bir yöntem bulunamadı" hatası?
 

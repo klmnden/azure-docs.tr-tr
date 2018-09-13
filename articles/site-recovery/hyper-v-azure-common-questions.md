@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 42e8f8bd3f921686c3ba13f4c752d52e3067fbbe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 16c4ab4601dbe57e014bfcb06ff9b35d02c60cfa
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177664"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721917"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Sık sorulan sorular - Hyper-V'den Azure'a çoğaltma
 
@@ -64,7 +64,7 @@ Evet, hem şifreleme-aktarım sırasında ve [azure'da şifreleme](https://docs.
 
 ### <a name="what-do-i-need-on-premises"></a>Ne şirket içi gerekiyor?
 
-Bir veya daha fazla Vm'niz olmalıdır bir veya daha fazla tek başına veya kümelenmiş Hyper-V konakları üzerinde çalışır. Ayrıca, System Center Virtual Machine Manager (VMM) tarafından yönetilen konaklarda çalışan sanal makineleri çoğaltabilirsiniz. Ayrıca, System Center Virtual Machine Manager (VMM) tarafından yönetilen konaklarda çalışan sanal makineleri çoğaltabilirsiniz.
+Bir veya daha fazla Vm'niz olmalıdır bir veya daha fazla tek başına veya kümelenmiş Hyper-V konakları üzerinde çalışır. Ayrıca, System Center Virtual Machine Manager (VMM) tarafından yönetilen konaklarda çalışan sanal makineleri çoğaltabilirsiniz.
     - Site Recovery dağıtımı sırasında VMM, çalıştırmıyorsanız, Hyper-V konakları ve kümeleri Hyper-V sitelerinde bir araya toplayın. Her Hyper-V konağında'de Site Recovery aracıları (Azure Site Recovery sağlayıcısı ve kurtarma Hizmetleri Aracısı) yükleyin.
     - Vmm'de çoğaltma, Hyper-V konaklarını bir VMM bulutunda yer alıyorsa düzenleyin. Site kurtarma sağlayıcısı VMM sunucusunu ve her Hyper-V konağında kurtarma Hizmetleri aracısını yükleyin. VMM mantıksal/VM ağları ve Azure sanal ağlar eşleme.
     - 
@@ -166,11 +166,6 @@ Site kurtarma seçeneğini Vm'lerini çoğaltmak için Hyper-V konakları erişm
 ### <a name="what-does-site-recovery-install-on-hyper-v-vms"></a>Hangi Site kurtarma Hyper-V Vm'lerinde yüklüyor?
 
 Site Recovery açıkça herhangi Hyper-V sanal makinesi, çoğaltma için etkinleştirilmiş bir yükleme yapmaz.
-- Çoğaltma sırasında VM'ler gibi Site Recovery ile iletişim:
-    - VM'ler, çoğaltma yönetimi için HTTPS 443 numaralı bağlantı noktasındaki yapılandırma sunucusuyla iletişim kurar.
-    - Vm'leri çoğaltma verilerini HTTPS 9443 gelen bağlantı (değiştirilebilir) işlem sunucusu gönderin.
-    - Çoklu VM tutarlılığını etkinleştirirseniz, VM'ler birbiriyle 20004 bağlantı noktası üzerinden iletişim kurar.
-
 
 
 
@@ -211,7 +206,7 @@ Azure esneklik için tasarlanmıştır. Site kurtarma, ikincil bir Azure veri me
 5. İş yüklerini geri başarısız olduktan sonra yeniden şirket içi Vm'leri Azure'a çoğaltmak için çoğaltmayı tersine çevirme etkinleştirin.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Ben, farklı bir konuma başarısız olabilir?
-Evet, Azure'a yük devretmesi, ilkinin kullanılamıyorsa farklı bir konuma başarısız olabilir. [Daha fazla bilgi edinin](concepts-types-of-failback.md#alternate-location-recovery-alr).
+Evet, Azure'a yük devretmesi, ilkinin kullanılamıyorsa farklı bir konuma başarısız olabilir. [Daha fazla bilgi edinin](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
 
 
 

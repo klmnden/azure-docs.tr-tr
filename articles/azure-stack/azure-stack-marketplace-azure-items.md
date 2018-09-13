@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: bb2dc0d5500778372de674c749b44267fb512a2e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 406d5965c02ceddc617c8729bad95ac7819af30e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701162"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722070"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack için kullanılabilir olan Azure Market öğeleri
 
@@ -101,6 +101,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 
 |  | Öğe adı | Açıklama | Yayımcı |
 | --- | --- | --- | --- |
+| ![Arista vEOS yönlendirici](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS yönlendirici](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Yönlendirici Arista vEOS özellik zengin çoklu Bulut ve kurum ve tutarlı, yüksek güvenlikli oluşturmak için bulut sağlayıcıları güçlendirir çok hipervizörlü sanal yönlendirici ve ölçeklenebilir hibrit ağlar ' dir. | Arista ağlar |
 | ![AbanteCart](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.abantecart) | Açık kaynak e-ticaret alışveriş sepeti. | Bitnami |
 | ![ActiveMQ](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.activemq) | Java'da açık kaynaklı ileti Aracısı. | Bitnami |
 | ![Akeneo](media/azure-stack-marketplace-azure-items/akeneo.png) | [Akeneo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.akeneo) | Güçlü PIM yönetim sürecini basitleştirmek üzere tasarlanmıştır. | Bitnami |
@@ -156,6 +157,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![Memcached birden çok örneği](media/azure-stack-marketplace-azure-items/memcached.png) | [Memcached birden çok örneği](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.memcached-multipleinstances) | Memcached, sistem önbelleğe alma yüksek performanslı ve dağıtılmış bellek nesne değildir. Bu çözüm, yüksek performanslı, uygulamanız için hata dayanıklı dağıtılmış önbellek oluşturmak için birden çok Memcached düğümleri sağlar. **Bu çözüm şablonu ayrıca Debian 8 ve özel betik için Linux 2.0 uzantısı gerektirir.** | Bitnami |
 | ![MODX](media/azure-stack-marketplace-azure-items/modx.png) | [MODX](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.modx) | Sezgisel Web CMS. | Bitnami |
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | C++ programında yazılan yüksek performanslı açık kaynaklı NoSQL veritabanı. | Bitnami |
+| ![Çoğaltma ile MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [Çoğaltma ile MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | C++ programında yazılan yüksek performanslı açık kaynaklı NoSQL veritabanı. **Bu çözüm şablonu 1807 veya üzeri sürümde olacak şekilde, Azure Stack ve Debian 8 ve özel betik için Linux 2.0 uzantısı da gerektirir.** | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | Etkili CMS çevrimiçi öğrenme topluluklar için tasarlanmıştır. | Bitnami |
 | ![Multicraft](media/azure-stack-marketplace-azure-items/multicraft.png) | [Multicraft](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multicraft) | Minecraft sunucusu çözümü ve Denetim Masası barındırma. | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | Ücretsiz ve açık kaynaklı Forum yazılımı. | Bitnami |
@@ -194,6 +196,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![RabbitMQ küme](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ küme](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ uygulamalarınızın iletileri ve alınan kadar Canlı için bir güvenli yer iletilerinizi göndermek ve almak için ortak bir platform sağlayan bir Mesajlaşma Aracısı var. Bu çözüm, tek bir mantıksal aracısı oluşturmak için RabbitMQ kümedeki birden çok düğüm sağlamak için birden çok VM kullanır. **Bu çözüm şablonu ayrıca Debian 8 ve özel betik için Linux 2.0 uzantısı gerektirir.** | Bitnami |
 | ![Re:dash](media/azure-stack-marketplace-azure-items/redash.png) | [Re:dash](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redash) | Açık kaynak veri Görselleştirme ve işbirliği platformudur. | Bitnami |
 | ![Redis](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis) | Güçlü açık kaynak anahtar-değer deposudur. | Bitnami |
+| ![Yüksek kullanılabilirlik redis](media/azure-stack-marketplace-azure-items/redis.png) | [Yüksek kullanılabilirlik redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-redis) | Güçlü açık kaynak anahtar-değer deposudur. **Bu çözüm şablonu 1807 veya üzeri sürümde olacak şekilde, Azure Stack ve Debian 8 ve özel betik için Linux 2.0 uzantısı da gerektirir.** | Bitnami |
 | ![Redmine](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmine) | Güçlü proje yönetimi web uygulaması | Bitnami |
 | ![Redmine + Çevik](media/azure-stack-marketplace-azure-items/redmineagile.png) | [Redmine + Çevik](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmineplusagile) | Agile eklentisi ile önceden yapılandırılmış bir proje yönetim uygulaması. | Bitnami |
 | ![ReportServer topluluk](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer topluluk](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | Açık kaynak iş zekası platformu. | Bitnami |

@@ -1,5 +1,5 @@
 ---
-title: Azure Automation'ı kullanarak Azure SQL Database'leri yönetme | Microsoft Docs
+title: Azure Otomasyonu'nu kullanarak Azure SQL veritabanlarını yönetme | Microsoft Docs
 description: Nasıl Azure Otomasyonu uygun ölçekte Azure SQL veritabanlarını yönetmek için kullanılabilir hakkında bilgi edinin.
 services: sql-database, automation
 author: CarlRabeler
@@ -9,14 +9,14 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: c68a493f439b5bc54cb04162de88ef31058d25f3
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 43476cfcae2035c3b8e94b4a5e264a0c8ff424e0
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054545"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715457"
 ---
-# <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure Otomasyonu'nu kullanarak Azure SQL Database'leri yönetme
+# <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure Automation'ı kullanarak Azure SQL database'leri yönetme
 Bu kılavuzda Azure Otomasyonu ve nasıl, Azure SQL veritabanlarınızı yönetimini basitleştirmek için kullanılabileceğini başlatacaktır.
 
 ## <a name="what-is-azure-automation"></a>Azure Otomasyonu Nedir?

@@ -1,6 +1,6 @@
 ---
 title: Azure InfoBox UI öğesi | Microsoft Docs
-description: Azure portalı için Microsoft.Common.TextBlock kullanıcı Arabirimi öğesi açıklar.
+description: Azure portalına yönelik Microsoft.Common.TextBlock UI öğesi açıklar.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -11,17 +11,21 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9507280bf5df1e63c81f0b2488b9676784c69812
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: abd1329f2ebac90bf846dfd5fc5b307ddb5e52bd
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260883"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35982044"
 ---
-# <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox UI öğesi
-Bir bilgi kutusu ekler denetimi.
+# <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox kullanıcı Arabirimi öğesi
+Bir bilgi kutusu ekler denetimi. Önemli bir metin kutusu içeren veya bunlar sunuyorsunuz değerleri, iş kullanıcılarının yardımcı uyarıları anlıyor. Daha fazla bilgi için bir URI da bağlayabilirsiniz.
+
+## <a name="ui-sample"></a>Örnek kullanıcı Arabirimi
+![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft.common.infobox.png)
+
 
 ## <a name="schema"></a>Şema
 ```json
@@ -40,7 +44,7 @@ Bir bilgi kutusu ekler denetimi.
 ## <a name="remarks"></a>Açıklamalar
 
 * İçin `icon`, kullanın **hiçbiri**, **bilgisi**, **uyarı**, veya **hata**.
-* `uri` Özelliği isteğe bağlıdır.
+* `uri` Özelliği, isteğe bağlıdır.
 
 ## <a name="sample-output"></a>Örnek çıktı
 
@@ -49,5 +53,5 @@ Bir bilgi kutusu ekler denetimi.
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
-* Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).
+* UI tanımları oluşturma, bir giriş için bkz. [createuidefinition dosyasını kullanmaya başlama](create-uidefinition-overview.md).
+* Ortak Özellikler UI öğelerinin açıklaması için bkz. [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

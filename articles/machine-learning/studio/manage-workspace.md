@@ -1,6 +1,6 @@
 ---
-title: Machine Learning çalışma alanını yönetme | Microsoft Docs
-description: Azure Machine Learning çalışma alanları, erişimini yönetmek ve dağıtmak ve ML API web hizmetleri yönetme
+title: Machine Learning çalışma alanı yönetme | Microsoft Docs
+description: Azure Machine Learning çalışma alanları, erişimi yönetmek ve dağıtmak ve ML API web hizmetlerini yönetme
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,43 +15,43 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 8c8e65d5fd7efd1f9212b76e1a72b91a0ea07272
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6e1febfff211dd92f8990d1880562e64382de5f0
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835075"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651018"
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Bir Azure Machine Learning çalışma alanını yönetme
 
 > [!NOTE]
-> Machine Learning Web Hizmetleri portalında Web hizmetlerini yönetme hakkında daha fazla bilgi için bkz: [Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir Web hizmetini yönetmek](manage-new-webservice.md).
+> Machine Learning Web Hizmetleri portalında Web hizmetlerini yönetme hakkında daha fazla bilgi için bkz. [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md).
 > 
 > 
 
-Machine Learning çalışma alanları Azure portalında yönetebilir.
+Azure Portal'da Machine Learning çalışma alanlarını yönetebilirsiniz.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="use-the-azure-portal"></a>Azure portalı kullanma
 
-Bir çalışma alanı Azure portalında yönetmek için:
+Azure portalında bir çalışma alanı yönetmek için:
 
-1. Oturum [Azure portal](https://portal.azure.com/) Azure aboneliği yönetici hesabı kullanarak.
+1. Oturum [Azure portalında](https://portal.azure.com/) bir Azure aboneliğinde yönetici hesabını kullanarak.
 2. Sayfanın üst kısmındaki arama kutusuna "machine learning çalışma alanları" girin ve ardından **Machine Learning çalışma alanları**.
 3. Yönetmek istediğiniz çalışma alanına tıklayın.
 
-Standart kaynak yönetimi bilgileri ve seçenekleri ek olarak, şunları yapabilirsiniz:
+Standart kaynak yönetim bilgilerine ve seçeneklerin yanı sıra şunları yapabilirsiniz:
 
-- Görünüm **özellikleri** - çalışma ve kaynak bilgileri bu sayfada görüntülenir ve bu çalışma alanı ile bağlantılı abonelik ve kaynak grubunu değiştirebilirsiniz.
-- **Depolama anahtarlarını yeniden eşitleme** -çalışma depolama hesabı anahtarları korur. Depolama hesabı anahtarları değişiklikleri sonra tıklayabilirsiniz **anahtarları yeniden eşitleme** anahtarları workspace ile eşitlemek için.
+- Görünüm **özellikleri** - bu sayfa çalışma alanını ve kaynak bilgilerini görüntüler ve bu çalışma alanı ile bağlı abonelik ve kaynak grubunda değiştirebilirsiniz.
+- **Depolama anahtarlarını yeniden eşitleme** -çalışma alanı depolama hesabı anahtarları tutar. Depolama hesabı anahtarı değiştirir sonra tıklayabilirsiniz **anahtarları yeniden eşitleme** anahtarları çalışma alanı ile eşitlenecek.
 
-Bu çalışma alanıyla ilişkili web hizmetleri yönetmek için Machine Learning Web Hizmetleri Portalı'nı kullanın. Bkz: [Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir Web hizmetini yönetmek](manage-new-webservice.md) tam bilgi için.
+Bu çalışma alanıyla ilişkili web hizmetleri yönetmek için Machine Learning Web Hizmetleri portalını kullanın. Bkz: [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md) eksiksiz bilgi.
 
 > [!NOTE]
-> Dağıtma veya yeni web hizmetleri yönetmek için bir web hizmeti dağıtıldığı abonelik katkıda bulunan veya yönetici rolü atanmalıdır. Machine learning çalışma alanı için başka bir kullanıcı davet, dağıtmak veya web hizmetleri yönetmek için önce bir abonelik katkıda bulunan veya yönetici rolü atamanız gerekir. 
+> Yeni web hizmetleri ve dağıtımı, web hizmeti dağıtıldığı abonelik üzerinde katkıda bulunan veya yönetici rol atanması gerekir. Machine learning çalışma alanı için başka bir kullanıcı davet, dağıtmak veya web hizmetlerini yönetme önce bir abonelik üzerinde katkıda bulunan veya yönetici rolü atamanız gerekir. 
 > 
->Erişim izinlerini ayarlama hakkında daha fazla bilgi için bkz: [kullanıcılar ve gruplar Azure portalında için erişim atamalarını görüntüle](../../role-based-access-control/role-assignments-users.md).
+>Erişim izinleri ayarlama hakkında daha fazla bilgi için bkz. [RBAC ve Azure portalını kullanarak erişimini yönetme](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinmek [Machine Learning Azure Resource Manager şablonları ile dağıtma](deploy-with-resource-manager-template.md). 
+* Daha fazla bilgi edinin [Azure Resource Manager şablonları ile Machine Learning'i dağıtma](deploy-with-resource-manager-template.md). 

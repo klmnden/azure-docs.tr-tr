@@ -1,58 +1,58 @@
 ---
-title: Bir IDE ile çalışmak için Azure Machine Learning çalışma ilkesi nasıl yapılandırılır?  | Microsoft Docs
-description: IDE ile çalışmak için Azure Machine Learning çalışma yapılandırma için bir kılavuz.
+title: Azure Machine Learning Workbench bir IDE ile çalışacak şekilde yapılandırmak nasıl?  | Microsoft Docs
+description: Azure Machine Learning Workbench, IDE ile çalışacak şekilde yapılandırmak için bir kılavuz.
 services: machine-learning
 author: svankam
 ms.author: svankam
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 1b43671b40e3244690371669fb60796f75174df0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 18692fe631a7e1349ead6bc68a87934e6d030913
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834915"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651014"
 ---
-# <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>Azure Machine Learning çalışma'ekranı bir IDE ile çalışmak için yapılandırma 
+# <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>Azure Machine Learning Workbench bir IDE ile çalışacak şekilde yapılandırma 
 
-Azure Machine Learning çalışma ekranı popüler Python IDE (tümleşik geliştirme ortamı) ile çalışmak için yapılandırılabilir. Veri hazırlama, kod yazma, çalıştırma izleme ve operationalization arasında taşıma bir kesintisiz veri bilimi geliştirme deneyimi sağlar. Şu anda desteklenen IDE şunlardır:
-- Microsoft Visual Studio Code 
+Azure Machine Learning Workbench, popüler Python IDE (tümleşik geliştirme ortamı) ile çalışacak şekilde yapılandırılabilir. Bu veri hazırlama, kod yazma, çalıştırma, izleme ve kullanıma hazır hale getirme arasında taşıma sorunsuz veri bilimi geliştirme deneyimi sağlar. Şu anda desteklenen IDE'ler şunlardır:
+- Microsoft Visual Studio kodu 
 - JetBrain PyCharm 
 
-## <a name="configure-workbench"></a>Çalışma ekranı yapılandırın
-1. Tıklayın **dosya** üst menüde sol köşe uygulamanın. 
-2. Seçin **yapılandırma proje IDE** çıkma seçeneği 
-3. Yazın `VS Code` veya `PyCharm` içinde **adı** (adı olan rastgele) alanı
-4. IDE yürütülebilir dosya (yürütülebilir dosya adı ve uzantısı ile tamamlanan) için konumu girin **yürütme yolu**
+## <a name="configure-workbench"></a>Workbench yapılandırın
+1. Tıklayarak **dosya** üst menü sol üst köşedeki uygulama. 
+2. Seçin **yapılandırma proje IDE** seçeneğinden açılır öğesi 
+3. Yazın `VS Code` veya `PyCharm` içinde **adı** (adı: isteğe bağlı) alanı
+4. IDE yürütülebilir dosya (yürütülebilir adını ve uzantısını tam) için konumu girin **yürütme yolu**
 
 ### <a name="default-install-path-for-visual-studio-code"></a>Visual Studio Code için varsayılan yükleme yolu  
 
 * Windows 32-bit- `C:\Program Files (x86)\Microsoft VS Code\Code.exe`
 * Windows 64-bit- `C:\Program Files\Microsoft VS Code\Code.exe`
-* macOS - .app yol örneğin seçin `/Applications/Visual Studio Code.app`, ve yolun geri kalanı, uygulama ekler. Varsayılan yürütülebilir dosyanın tam yolu `/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code`. Yürütülürse `Shell Command: Install 'code' command in PATH` VS Code komut başvurusu yapabilir sonra VS Code'da komutu `/usr/local/bin/code`
+* macOS - seçin .app yol, örneğin `/Applications/Visual Studio Code.app`, ve yolun geri kalanı, uygulama ekler. Varsayılan olarak yürütülebilir dosyanın tam yolu `/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code`. Çalıştırıldığında `Shell Command: Install 'code' command in PATH` VS Code komut de başvurabilirsiniz sonra VS Code'da komutu `/usr/local/bin/code`
 
-### <a name="default-install-path-for-pycharm"></a>PyCharm için varsayılan yükleme yolu 
+### <a name="default-install-path-for-pycharm"></a>Varsayılan yükleme yolunu PyCharm 
 
 * Windows 32-bit - `C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2017.2.1\bin\pycharm.exe`. 
 * Windows 64-bit - `C:\Program Files\JetBrains\PyCharm Community Edition 2017.2.1\bin\pycharm64.exe`.
-* macOS - örneğin "/ uygulamalar/PyCharm CE.app".app yol seçin ve yolun geri kalanı, uygulama ekler. Varsayılan yürütülebilir dosyanın tam yolu `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`. Ayrıca, bin klasörü adresindeki PyCharm bulabilirsiniz, `/usr/local/bin/charm`
+* macOS - örneğin "/ Applications/PyCharm CE.app".app yolunu seçin ve yolun geri kalanı, uygulama ekler. Varsayılan olarak yürütülebilir dosyanın tam yolu `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`. Ayrıca, PyCharm bin klasöründe bulabilirsiniz, `/usr/local/bin/charm`
 
-## <a name="open-project-in-ide"></a>IDE içinde bir açık projeye 
-Yapılandırma tamamlandıktan sonra Azure Machine Learning projesinde açarak açabilirsiniz **dosya** Azure Machine Learning çalışma ekranı, menüde ardından **Proje Aç (< IDE_Name >)**. Bu eylem geçerli etkin proje yapılandırılmış IDE'de açar. _Not: bir projede değilse **Proje Aç (< IDE_Name >)** devre dışı bırakılır._
+## <a name="open-project-in-ide"></a>IDE projeyi açma 
+Yapılandırma tamamlandıktan sonra bir Azure Machine Learning projesi açarak açabilirsiniz **dosya** Azure Machine Learning Workbench, menüde ardından **Proje Aç (< IDE_Name >)**. Bu eylem geçerli etkin proje yapılandırılmış IDE içinde açılır. _Not: bir projede değilse **Proje Aç (< IDE_Name >)** devre dışı bırakılır._
 
-## <a name="configuring-the-integrated-terminal-in-visual-studio-code"></a>Visual Studio kodda tümleşik terminal yapılandırma
+## <a name="configuring-the-integrated-terminal-in-visual-studio-code"></a>Visual Studio Code'da tümleşik Terminalini yapılandırma
 
 ### <a name="windows"></a>Windows 
-Biz yerine PowerShell cmd olmasını varsayılan kabuğunu geçersiz. Tıklayarak üzerinde **Proje Aç (< IDE_Name >)**, bir uyarı görürsünüz: 
+Biz yerine PowerShell cmd olmasını varsayılan kabuğunu silmiş. Tıklayarak üzerinde **Proje Aç (< IDE_Name >)**, bir istem göreceksiniz: 
 
-_Kabuk izin verme: `C:\windows\System32\cmd.exe` (çalışma ayarı olarak tanımlanan) terminale başlatılacak?_
+_Kabuk izin: `C:\windows\System32\cmd.exe` (bir çalışma ayarı olarak tanımlanır) terminalde başlatılacak?_
 
-Yanıt `yes` Azure ML çalışma ekranı komut satırı arabirimi ile sorunsuz çalışması için kabuk yapılandırma izin vermek için.
+Yanıt `yes` Kabuk Azure ML Workbench komut satırı arabirimi ile sorunsuz çalışacak şekilde yapılandırma izin vermek için.
 
 ### <a name="mac"></a>Mac
-Çalıştırmak için bir `az` Visual Studio kodun kullanarak komutu tümleşik Mac terminalde, el ile ayarlamanız gerekir `PATH` aynı değere olmasını `PATH` projenin `.vscode/settings.json` anahtarı altındaki dosya `terminal.integrated.env.osx`. Terminale aşağıdaki komutu çalıştırarak bunu yapabilirsiniz: `PATH=<PATH in .vscode/settings>`
+Çalıştırılacak bir `az` komutu kullanarak Visual Studio Code'nın tümleşik terminal Mac üzerinde el ile ayarlamanız gerekir `PATH` aynı değere sahip için `PATH` projenin `.vscode/settings.json` anahtarı altındaki dosya `terminal.integrated.env.osx`. Terminalde aşağıdaki komutu çalıştırarak bunu yapabilirsiniz: `PATH=<PATH in .vscode/settings>`

@@ -1,6 +1,6 @@
 ---
-title: Resource Manager şablonu kullanarak bir Azure uygulama hizmeti ortamı oluşturma
-description: Bir Resource Manager şablonu kullanarak bir dış veya ILB Azure uygulama hizmeti ortamı oluşturma açıklanmaktadır
+title: Resource Manager şablonu kullanarak bir Azure App Service ortamı oluşturma
+description: Resource Manager şablonu kullanarak bir dış veya ILB Azure App Service ortamı oluşturma açıklanır
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,46 +13,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 69ead9e6dae400ce16cb2442c7b1c13e348d1572
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 92422a254bcfd5b31731dda6d1790cc85f467860
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651154"
 ---
-# <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir ana oluşturma
+# <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir ASE oluşturma
 
 ## <a name="overview"></a>Genel Bakış
-Azure uygulama hizmeti ortamları (ASEs), internet'ten erişilebilen bir uç nokta veya bir Azure sanal ağı (VNet) bir iç adresi noktadaki oluşturulabilir. Bir Azure tarafından bir iç yük dengeleyici (ILB) bileşeni olarak adlandırılan bir iç uç nokta oluşturulduktan sonra Bu uç sağlanır. ANA iç IP adresi üzerinde bir ILB ana adı verilir. Genel bir uç nokta ile ana bir dış ana adı verilir. 
+Azure App Service ortamları (ase), İnternet'ten erişilebilen bir uç nokta veya bir iç adresi bir Azure sanal ağı (VNet) içinde bir noktadaki ile oluşturulabilir. Bir iç uç nokta ile oluşturduğunuzda tarafından bir Azure iç yük dengeleyici (ILB) bileşeni olarak adlandırılan bu uç noktaya bulunur. Bir iç IP adresi üzerindeki ASE, ILB ASE olarak adlandırılır. ASE bir genel uç noktası ile dış ASE olarak adlandırılır. 
 
-Azure portal veya bir Azure Resource Manager şablonu kullanarak bir ana oluşturulabilir. Bu makalede bir dış ana veya ILB ana Resource Manager şablonları oluşturmak için gereken sözdizimi ve adımları anlatılmaktadır. Azure portalında bir ana oluşturmayı öğrenmek için bkz: [bir dış ana olun] [ MakeExternalASE] veya [bir ILB ana olun][MakeILBASE].
+Azure portal veya Azure Resource Manager şablonu kullanarak bir ASE oluşturulabilir. Bu makalede Resource Manager şablonları ile bir dış ASE veya ILB ASE oluşturmak için ihtiyacınız olan sözdizimini ve adımları gösterilmektedir. Azure portalında bir ASE oluşturmayı öğrenmek için bkz: [dış ASE olun] [ MakeExternalASE] veya [ILB ASE olun][MakeILBASE].
 
-Azure portalında bir ana oluşturduğunuzda, sanal ağınızı aynı anda oluşturmak veya uygulamasına dağıtmak için önceden var olan bir sanal ağı seçin. Bir şablondan bir ana oluşturduğunuzda ile başlamanız gerekir: 
+Azure portalında bir ASE oluşturduğunuzda, sanal ağınızı aynı anda oluşturmak ya da uygulamasına dağıtmak için önceden var olan bir VNet seçin. Şablondan ASE oluşturma zaman ile başlaması gerekir: 
 
-* Resource Manager Vnet'i.
-* Bu VNet içindeki bir alt ağ. Bir ana alt ağ boyutunu öneririz `/25` karşılık Gelecekteki büyümeyi barındırmak için 128 adreslerine sahip. Ana oluşturulduktan sonra boyutu değiştiremezsiniz.
-* Sanal ağınızı kaynak kimliği. Sanal ağ özellikleri altında Azure portalından, bu bilgiler alabilirsiniz.
-* Uygulamasına dağıtmak istediğiniz aboneliği.
+* Bir Resource Manager sanal ağı.
+* Bu sanal ağ içindeki alt ağ. Bir ASE alt ağ boyutunu öneririz `/24` gelecekteki büyümeye ve ölçekleme gereksinimlerine uyum sağlamak için 256 adreslerine sahip. ASE oluşturulduktan sonra boyutunu değiştiremezsiniz.
+* Ağınızdan kaynak kimliği. Bu bilgiler, sanal ağ özellikleri altında Azure portalından alabilirsiniz.
+* Uygulamasına dağıtmak istediğiniz abonelik.
 * Uygulamasına dağıtmak istediğiniz konum.
 
-Ana oluşturmayı otomatikleştirmek için:
+ASE oluşturma işleminiz otomatik hale getirmek için:
 
-1. ANA şablon oluşturun. Bir dış ana oluşturursanız, bu adımdan sonra tamamlandı. Bir ILB ana oluşturursanız, yapmak için birkaç şey daha vardır.
+1. Şablondan ASE oluşturma. Dış ASE oluşturma, bu adımdan sonra işiniz bittiğinde. ILB ASE oluşturma, yapmak için birkaç şey daha vardır.
 
-2. ILB ana oluşturulduktan sonra ILB ana etki alanı ile eşleşen bir SSL sertifikası yüklenir.
+2. ILB ASE'nizi oluşturulduktan sonra ILB ASE etki alanıyla eşleşen bir SSL sertifikası karşıya yüklendi.
 
-3. Karşıya yüklenen SSL sertifikası ILB ana "varsayılan" SSL sertifikasını atanır.  Ana için atanan ortak kök etki alanı kullandığınızda, bu sertifika SSL trafiği ILB ana uygulamalar için kullanılır (örneğin, https://someapp.mycustomrootdomain.com).
+3. Karşıya yüklenmiş SSL sertifikasını, ILB ASE için "varsayılan" SSL sertifikasını atanır.  ASE için atanan ortak kök etki alanı kullanıldığında, bu sertifika uygulamalara ILB ASE üzerinde SSL trafiği için kullanılır (örneğin, https://someapp.mycustomrootdomain.com).
 
 
-## <a name="create-the-ase"></a>Ana oluşturma
-Bir ana ve onun ilişkili parametreler dosyası oluşturur bir Resource Manager şablonu kullanılabilir [bir örnekte] [ quickstartasev2create] github'da.
+## <a name="create-the-ase"></a>ASE oluşturma
+Bir ASE ve ilişkili parametreler dosyası oluşturan Resource Manager şablonu kullanılabilir [bir örnekte] [ quickstartasev2create] GitHub üzerinde.
 
-Bir ILB ana yapmak istiyorsanız, bu Resource Manager şablonu kullanmak [örnekler][quickstartilbasecreate]. Bunlar için kullanım gereksinimini karşılamak. İçindeki parametrelerden biri çoğu *azuredeploy.parameters.json* dosyasının oluşturulmasını ILB ASEs ve dış ASEs için ortak. Aşağıdaki listede out özel not parametreleri çağıran veya bir ILB ana oluşturduğunuzda, benzersiz:
+ILB ASE yapmak istiyorsanız, bu Resource Manager şablonu kullanma [örnekler][quickstartilbasecreate]. Bunlar için kullanım örneği yararlanılır. Parametrelerin çoğu *azuredeploy.parameters.json* dosya dış ase, ILB ase oluşturma için ortak. Aşağıdaki listede out Parametreleri özel notun çağırır veya ILB ASE oluşturma zaman benzersiz olan:
 
-* *internalLoadBalancingMode*: Çoğu durumda, bu kanal bağlantı noktası 80/443 numaralı bağlantı noktasındaki HTTP/HTTPS trafiğini hem denetim/verileri anlamına gelir 3 kulak için ana FTP hizmeti tarafından kümesi bağlı bir ILB ayrılan sanal ağa iç adresi. Bu özellik 2 olarak ayarlanırsa, FTP hizmeti ile ilgili bağlantı noktaları (Denetim ve veri kanalı) bir ILB adresine bağlanır. HTTP/HTTPS trafiğini ortak VIP kalır.
-* *Dnssuffıx*: Bu parametre için ana atanmış varsayılan kök etki alanını tanımlar. Tüm web uygulamaları için Azure App Service ortak çeşitlemesi varsayılan kök etki alanıdır *azurewebsites.net*. Bir ILB Ana Müşteri'nin sanal ağa iç olduğundan, ortak hizmetin varsayılan kök etki alanını kullanmak için doesn't make Sense. Bunun yerine, bir ILB ana şirketin iç sanal ağ içinde kullanmak için anlamlı bir varsayılan kök etki alanı olmalıdır. Örneğin, Contoso Corporation bir varsayılan kök etki alanı kullanabilirsiniz *contoso.com iç* uygulamalar için çözümlenebilir ve yalnızca Contoso sanal ağ içinde erişilebilir olacak şekilde tasarlanmıştır. 
-* *ipSslAddressCount*: Bu parametre için 0 değerini otomatik olarak varsayılan *azuredeploy.json* ILB ASEs yalnızca tek bir ILB adresine sahip olmadığından dosya. Hiçbir açık bir ILB ana IP SSL adresleri vardır. Bu nedenle, bir ILB ana için IP SSL adres havuzu sıfır olarak ayarlanması gerekir. Aksi halde, bir sağlama hatası oluşur. 
+* *Internalloadbalancingmode*: Çoğu durumda, bu kanal bağlantı noktası 80/443 numaralı bağlantı noktasındaki HTTP/HTTPS trafiğini hem denetim/veri anlamına gelir ve 3 dinledik için ASE üzerinde FTP hizmeti tarafından kümesi bağımlı bir ILB ayrılan sanal ağına iç adresi. Bu özelliği 2 olarak ayarlanırsa yalnızca FTP hizmeti ile ilgili bağlantı noktaları (Denetim hem de veri kanalı) için bir ILB adresini bağlıdır. HTTP/HTTPS trafiğini, genel VIP üzerinde kalır.
+* *Dnssuffıx*: Bu parametre için ASE atanmış varsayılan kök etki alanı tanımlar. Tüm web uygulamaları için Azure App Service'in genel varyasyonu varsayılan kök etki alanıdır *azurewebsites.net*. ILB ASE, müşterinin sanal ağa iç olduğundan, bu ortak hizmetin varsayılan kök etki alanını kullanmak için anlam ifade etmez. Bunun yerine, ILB ASE şirketin iç sanal ağ içinde kullanmak için anlamlı varsayılan kök etki alanı olmalıdır. Örneğin, Contoso Corporation bir varsayılan kök etki alanını kullanabilir *contoso.com iç* çözümlenebilir ve yalnızca Contoso sanal ağ içinde erişilebilir olacak şekilde tasarlanmıştır uygulamalar için. 
+* *ipSslAddressCount*: Bu parametre, 0 değerini otomatik olarak varsayılan *azuredeploy.json* ILB ase yalnızca tek bir ILB adresini olduğundan dosya. ILB ASE için açık IP SSL adres yok. Bu nedenle, ILB ASE için IP SSL adresi havuzu, sıfır olarak ayarlanmalıdır. Aksi takdirde, bir sağlama hatası oluşur. 
 
-Sonra *azuredeploy.parameters.json* dosya doldurulur, ana PowerShell kod parçacığını kullanarak oluşturun. Dosya yolları makinenizde Resource Manager şablonu dosya konumlarını eşleşecek şekilde değiştirin. Resource Manager dağıtım adını ve kaynak grubu adı için kendi değerlerinizi sağlamayı unutmayın:
+Sonra *azuredeploy.parameters.json* PowerShell kod parçacığını kullanarak ASE oluşturma, dosya doldurulur. Dosya yolları, Resource Manager şablon dosyası konumları makinenizde eşleşecek şekilde değiştirin. Resource Manager dağıtım adı ve kaynak grubu adı için kendi değerlerinizi sağlamanız unutmayın:
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -61,28 +62,28 @@ $parameterPath="PATH\azuredeploy.parameters.json"
 New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
-Yaklaşık bir saat oluşturulması ana alır. Ardından ana ASEs listesi dağıtım tetiklenen abonelik için portalda görüntülenir.
+Bu işlem yaklaşık bir saat ASE, oluşturulmaya götürür. Ardından ASE Ase'ler listesi için dağıtım tetiklenen abonelik portalında gösterilir.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Karşıya yükleme ve "varsayılan" SSL sertifikası yapılandırma
-Uygulamalar için SSL bağlantıları kurmak için kullanılan "varsayılan" SSL sertifikası bir SSL sertifikası ana ile ilişkilendirilmiş olması gerekir. Ana'nın varsayılan DNS son eki ise *contoso.com iç*, bağlantı https://some-random-app.internal-contoso.com için geçerli bir SSL sertifikası gerektirir **.internal contoso.com*. 
+Uygulamalar için SSL bağlantıları kurmak için kullanılan "varsayılan" SSL sertifikası olarak bir SSL sertifikası ASE ile ilişkilendirilmiş olması gerekir. ASE'ın varsayılan DNS son eki ise *contoso.com iç*, bağlantı https://some-random-app.internal-contoso.com için geçerli bir SSL sertifikası gerektirir **.internal contoso.com*. 
 
-İç sertifika yetkilileri kullanarak, bir dış veren bir sertifika satın veya otomatik olarak imzalanan bir sertifika kullanarak geçerli bir SSL sertifikası alın. SSL sertifikası kaynak bağımsız olarak, aşağıdaki sertifika öznitelikleri düzgün şekilde yapılandırılmalıdır:
+İç sertifika yetkililerini kullanarak harici bir verenden sertifika satın alma veya otomatik olarak imzalanan bir sertifika kullanarak geçerli bir SSL sertifikası alın. SSL sertifikası kaynağı ne olursa olsun, aşağıdaki sertifika özniteliklerinin doğru şekilde yapılandırılması gerekir:
 
-* **Konu**: Bu öznitelik ayarlamak **kök etki alanı here.com .your*.
-* **Konu alternatif adı**: Bu öznitelik her ikisini de içermelidir **kök etki alanı here.com .your* ve **.scm.your-kök-etki-here.com*. SSL bağlantıları her uygulamayla ilişkili SCM/Kudu siteye kullanma biçiminde bir adresi *your-app-name.scm.your-root-domain-here.com*.
+* **Konu**: Bu öznitelik ayarlanmalıdır **kök etki alanı here.com .your*.
+* **Konu alternatif adı**: Bu öznitelik her ikisini de içermelidir **kök etki alanı here.com .your* ve **.Your-kök-etki-here.com*. Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantılarını biçiminde bir adres kullanın *your-app-name.scm.your-root-domain-here.com*.
 
-Elle içinde geçerli bir SSL sertifikası ile iki ek hazırlık adımları gereklidir. SSL sertifikasını .pfx dosyası olarak dönüştürün/kaydedin. .Pfx dosyasını gerekir ve dahil tüm ara sertifikaların kök unutmayın. Bir parola ile güvenli hale getirin.
+Geçerli bir SSL sertifikası ile elle, iki ek hazırlık adımları gereklidir. SSL sertifikasını .pfx dosyası olarak dönüştürün/kaydedin. .Pfx dosyası olmalıdır tüm ara ve kök sertifikaları içermelidir olduğunu unutmayın. Bir parola ile güvenli hale getirin.
 
-.Pfx dosyasını SSL sertifikası bir Resource Manager şablonu kullanarak yüklendiği bir base64 dizeye dönüştürülmesi gerekiyor. Resource Manager şablonları metin dosyaları olduğundan, .pfx dosyasını bir base64 dizeye dönüştürülmesi gerekir. Bu şekilde bir şablon parametresi olarak dahil edilebilir.
+.Pfx dosyası, SSL sertifikasını bir Resource Manager şablonu kullanarak yüklendiği base64 dizesine dönüştürülmesi gerekiyor. Resource Manager şablonları, metin dosyaları olduğundan, .pfx dosyasını base64 dizesine dönüştürülmesi gerekir. Bu şekilde bir şablon parametresi olarak dahil edilebilir.
 
 Aşağıdaki PowerShell kod parçacığını kullanın:
 
 * Otomatik olarak imzalanan bir sertifika oluşturun.
-* Sertifika bir .pfx dosyası olarak dışarı aktarın.
-* .Pfx dosyası base64 ile kodlanmış bir dizeye dönüştürün.
+* Sertifika .pfx dosyası olarak dışarı aktarın.
+* .Pfx dosyası base64 ile kodlanmış dizeye Dönüştür.
 * Base64 ile kodlanmış dize ayrı bir dosyaya kaydedin. 
 
-Base64 kodlaması için bu PowerShell kodu gelen uyarlanmıştır [PowerShell komut dosyası blog][examplebase64encoding]:
+Bu PowerShell kodu base64 kodlaması için gelen uyarlanmış [PowerShell betikleri blog][examplebase64encoding]:
 
 ```powershell
 $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
@@ -98,18 +99,18 @@ $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 $fileContentEncoded | set-content ($fileName + ".b64")
 ```
 
-SSL sertifikası başarıyla oluşturulur ve Base64 ile kodlanmış bir dize olarak dönüştürülen sonra örnek Resource Manager şablonu kullanmak [varsayılan SSL sertifikası yapılandırma] [ quickstartconfiguressl] github'da. 
+SSL sertifikası başarıyla oluşturuldu ve base64 ile kodlanmış dizeye dönüştürülür sonra örnek Resource Manager şablonu kullanma [varsayılan SSL sertifikasını yapılandırma] [ quickstartconfiguressl] GitHub üzerinde. 
 
-Parametrelerde *azuredeploy.parameters.json* dosya burada listelenir:
+Parametrelerinde *azuredeploy.parameters.json* dosya burada listelenir:
 
-* *appServiceEnvironmentName*: ILB yapılandırılan ana adı.
-* *existingAseLocation*: ILB ana burada dağıtılan Azure bölgesi içeren metin dizesi.  Örneğin: "Orta Güney ABD".
-* *pfxBlobString*: .pfx dosyasını based64 kodlanmış bir dize gösterimi. Daha önce gösterilen kod parçacığını kullanın ve "exportedcert.pfx.b64" içinde yer alan dizesini kopyalayın. Değeri olarak yapıştırmak *pfxBlobString* özniteliği.
+* *appServiceEnvironmentName*: yapılandırılmakta ILB ASE adı.
+* *existingAseLocation*: Burada ILB ASE dağıtıldığı Azure bölgesi içeren metin dizesi.  Örneğin: "Güney Orta ABD".
+* *pfxBlobString*: .pfx dosyasını based64 kodlu bir dize gösterimi. Daha önce gösterilen kod parçacığını kullanın ve yer alan "içinde exportedcert.pfx.b64" dizesini kopyalayın. Değeri olarak yapıştırın *pfxBlobString* özniteliği.
 * *Parola*: .pfx dosyasını güvenliğini sağlamak için kullanılan parola.
-* *certificateThumbprint*: sertifikanın parmak izi. Bu değer Powershell'den alırsanız (örneğin, *$certificate. Parmak izi* önceki kod parçacığını gelen), değeri olarak kullanabilirsiniz. Windows sertifika iletişim kutusundan değeri kopyalarsanız, gereksiz boşluklar Şerit unutmayın. *CertificateThumbprint* AF3143EB61D43F6727842115BB7F17BBCECAECAE gibi görünmelidir.
-* *certificateName*: kendi seçme kolay dize tanımlayıcı kimliği için kullanılan sertifikanın. Resource Manager tanımlayıcısı için bir parçası olarak kullanılan adı *Microsoft.Web/certificates* SSL sertifikası temsil eden varlık. Adı *gerekir* aşağıdaki sonekiyle sona: \_yourASENameHere_InternalLoadBalancingASE. Azure portal bu soneki bir göstergesi olarak kullanır. sertifika ILB özellikli ana güvenliğini sağlamak için kullanılır.
+* *certificateThumbprint*: sertifikanın parmak izi. Bu değer Powershell'den alıyorsanız (örneğin, *$certificate. Parmak izi* önceki kod parçacığında), değeri olduğu gibi kullanabilirsiniz. Fazla boşlukları atmak Windows sertifika iletişim kutusundan değeri kopyalarsanız, unutmayın. *CertificateThumbprint* AF3143EB61D43F6727842115BB7F17BBCECAECAE gibi görünmelidir.
+* *certificateName*: sertifika kimlik için kullanılan kendi seçtiğiniz bir kolay dize tanımlayıcısı. Ad, kaynak yöneticisi tanımlayıcısı için bir parçası olarak kullanılıyor *Microsoft.Web/certificates* SSL sertifikası temsil eden varlık. Adı *gerekir* bitiş şu sonekle: \_yourASENameHere_InternalLoadBalancingASE. Azure portalında bu son ek bir gösterge kullanır. sertifikanın ILB özellikli bir ASE'nin güvenliğini sağlamak için kullanılır.
 
-Kısaltılmış örneği *azuredeploy.parameters.json* burada gösterilir:
+Kısaltılmış örneği *azuredeploy.parameters.json* şurada gösterilmiştir:
 
 ```json
 {
@@ -138,7 +139,7 @@ Kısaltılmış örneği *azuredeploy.parameters.json* burada gösterilir:
 }
 ```
 
-Sonra *azuredeploy.parameters.json* dosya doldurulur, PowerShell kod parçacığını kullanarak varsayılan SSL sertifikası yapılandırın. Dosya yolları Resource Manager şablonu dosyaları makinenizde bulunduğu eşleşecek şekilde değiştirin. Resource Manager dağıtım adını ve kaynak grubu adı için kendi değerlerinizi sağlamayı unutmayın:
+Sonra *azuredeploy.parameters.json* dosya doldurulur, PowerShell kod parçacığını kullanarak varsayılan SSL sertifikasını yapılandırın. Dosya yolları, Resource Manager şablonu dosyalarını makinenizde bulunduğu eşleşecek şekilde değiştirin. Resource Manager dağıtım adı ve kaynak grubu adı için kendi değerlerinizi sağlamanız unutmayın:
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -147,20 +148,20 @@ $parameterPath="PATH\azuredeploy.parameters.json"
 New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
-Değişikliği uygulamak için ana ön uç başına kabaca 40 dakika sürer. Örneğin, iki ön uçlar kullanan bir varsayılan boyutlu ana için tamamlanması yaklaşık bir saat ve 20 dakika şablonunu alır. Şablon çalışırken, ana ölçeklendirme olamaz.  
+Değişikliği uygulamak için ön uç ASE başına yaklaşık 40 dakika sürer. Örneğin, iki ön uçlar kullanan bir varsayılan boyutlu ASE'yi için tamamlanması yaklaşık bir saat ve 20 dakika şablonunu alır. Şablon çalışırken, ASE ölçeklendirilemez.  
 
-Şablon tamamlandıktan sonra ILB ana uygulamaları HTTPS üzerinden erişilebilir. Bağlantıları varsayılan SSL sertifikası kullanılarak güvenli hale getirilir. Uygulama adına ve varsayılan ana bilgisayar adı bir bileşimini kullanarak ILB ana uygulamaları ele varsayılan SSL sertifikası kullanılır. Örneğin, https://mycustomapp.internal-contoso.com için varsayılan SSL sertifikası kullanır **.internal contoso.com*.
+Şablon tamamlandıktan sonra ILB ASE apps'de HTTPS üzerinden erişilebilir. Bağlantılar, varsayılan SSL sertifikasını kullanarak güvenli hale getirilir. Uygulama adı ve varsayılan ana bilgisayar adını bir bileşimini kullanarak ILB ASE apps'de ele varsayılan SSL sertifikasını kullanılır. Örneğin, https://mycustomapp.internal-contoso.com için varsayılan SSL sertifikasını kullanan **.internal contoso.com*.
 
-Ancak, ortak çok müşterili hizmeti Çalıştır yalnızca gibi uygulamalar, geliştiriciler özel ana bilgisayar adları tek tek uygulamalar için yapılandırabilirsiniz. Bunlar benzersiz SNI SSL sertifikası bağlamaları tek tek uygulamalar için de yapılandırabilirsiniz.
+Ancak, genel çok kiracılı bir hizmet üzerinde çalışan yeni uygulamalar gibi geliştiriciler tek tek uygulamalar için özel bir ana bilgisayar adları yapılandırabilirsiniz. Bunlar, benzersiz SNI SSL sertifikası bağlamaları tek tek uygulamalar için de yapılandırabilirsiniz.
 
 ## <a name="app-service-environment-v1"></a>App Service Ortamı v1 ##
 App Service Ortamının iki sürümü vardır: ASEv1 ve ASEv2. Yukarıdaki bilgiler ASEv2’yi temel alır. Bu bölümde ASEv1 ile ASEv2 arasındaki farklar gösterilmektedir.
 
-ASEv1 içinde tüm kaynakları el ile yönetin. Buna ön uçlar, çalışanlar ve IP tabanlı SSL için kullanılan IP adresleri dahildir. Uygulama hizmeti planınızı ölçeklendirebilirsiniz önce da barındırmak istediğiniz çalışan havuzunda Ölçeklendirmesi gerekir.
+ASEv1'de, tüm kaynakları el ile yönetin. Buna ön uçlar, çalışanlar ve IP tabanlı SSL için kullanılan IP adresleri dahildir. App Service planınızın ölçeğini önce sitemi barındırmak istediğiniz çalışan havuzu Ölçeklendirmesi gerekir.
 
-ASEv1, ASEv2’den farklı bir fiyatlandırma modeli kullanır. ASEv1’de ayrılmış her vCPU için ücret ödersiniz. Ön Uçları veya tüm iş yükleri barındıran olmayan çalışanlar için kullanılan Vcpu'lar dahildir. ASEv1’de bir ASE’nin varsayılan en büyük ölçek boyutu toplam 55 konaktır. Buna çalışanlar ve ön uçlar dahildir. ASEv1’in bir avantajı, klasik bir sanal ağa ve bir Resource Manager sanal ağına dağıtılabilmesidir. ASEv1 hakkında daha fazla bilgi için bkz. [App Service Ortamı v1’e giriş][ASEv1Intro].
+ASEv1, ASEv2’den farklı bir fiyatlandırma modeli kullanır. ASEv1’de ayrılmış her vCPU için ücret ödersiniz. Ön uçlar veya herhangi bir iş yükünü çalışanlar için kullanılan Vcpu'lar dahildir. ASEv1’de bir ASE’nin varsayılan en büyük ölçek boyutu toplam 55 konaktır. Buna çalışanlar ve ön uçlar dahildir. ASEv1’in bir avantajı, klasik bir sanal ağa ve bir Resource Manager sanal ağına dağıtılabilmesidir. ASEv1 hakkında daha fazla bilgi için bkz. [App Service Ortamı v1’e giriş][ASEv1Intro].
 
-Resource Manager şablonu kullanarak bir ASEv1 oluşturmak için bkz: [Resource Manager şablonu ile bir ILB ana v1 oluşturma][ILBASEv1Template].
+Resource Manager şablonu kullanarak bir ASEv1 oluşturma için bkz: [Resource Manager şablonu ile bir ILB ASE v1 oluşturmak][ILBASEv1Template].
 
 
 <!--Links-->

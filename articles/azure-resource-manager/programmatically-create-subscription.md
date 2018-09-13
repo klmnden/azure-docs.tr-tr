@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 2bfa9944d85fde65ad8dbd73ddda11fa405df2f8
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 90823eded03f298dd912735fb0170fd8002328f3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358376"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715899"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Program aracılığıyla Azure Kurumsal abonelikler (Önizleme) oluşturma
 
@@ -176,7 +176,7 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 | `EnrollmentAccountObjectId`      | Evet       | Dize | Kayıt hesabı abonelik altında oluşturulur ve için faturalandırılır, nesne kimliği. Bu değer aldığınız bir GUID'dir `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Hayır       | Dize | Nesne oluşturulduğunda bir abonelik RBAC sahip olarak eklemek istediğiniz herhangi bir kullanıcı kimliği.  |
 | `OwnerSignInName`    | Hayır       | Dize | Abonelik bir RBAC sahip olarak oluşturulduğunda eklemek istediğiniz herhangi bir kullanıcı e-posta adresi. Bu parametre yerine kullanabileceğiniz `OwnerObjectId`.|
-| `OwnerApplicationId` | Hayır       | Dize | Abonelik bir RBAC sahip olarak oluşturulduğunda eklemek istediğiniz herhangi bir hizmet sorumlusu uygulama kimliği. Bu parametre yerine kullanabileceğiniz `OwnerObjectId`.| 
+| `OwnerApplicationId` | Hayır       | Dize | Abonelik bir RBAC sahip olarak oluşturulduğunda eklemek istediğiniz herhangi bir hizmet sorumlusu uygulama kimliği. Bu parametre yerine kullanabileceğiniz `OwnerObjectId`. Bu parametreyi kullanırken, hizmet sorumlusu olmalıdır [dizine okuma erişimi](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
 Tüm parametreler tam listesini görmek için bkz: [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview).
 
@@ -197,7 +197,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `enrollment-account-object-id`      | Evet       | Dize | Kayıt hesabı abonelik altında oluşturulur ve için faturalandırılır, nesne kimliği. Bu değer aldığınız bir GUID'dir `az billing enrollment-account list`. |
 | `owner-object-id`      | Hayır       | Dize | Nesne oluşturulduğunda bir abonelik RBAC sahip olarak eklemek istediğiniz herhangi bir kullanıcı kimliği.  |
 | `owner-upn`    | Hayır       | Dize | Abonelik bir RBAC sahip olarak oluşturulduğunda eklemek istediğiniz herhangi bir kullanıcı e-posta adresi. Bu parametre yerine kullanabileceğiniz `owner-object-id`.|
-| `owner-spn` | Hayır       | Dize | Abonelik bir RBAC sahip olarak oluşturulduğunda eklemek istediğiniz herhangi bir hizmet sorumlusu uygulama kimliği. Bu parametre yerine kullanabileceğiniz `owner-object-id`.| 
+| `owner-spn` | Hayır       | Dize | Abonelik bir RBAC sahip olarak oluşturulduğunda eklemek istediğiniz herhangi bir hizmet sorumlusu uygulama kimliği. Bu parametre yerine kullanabileceğiniz `owner-object-id`. Bu parametreyi kullanırken, hizmet sorumlusu olmalıdır [dizine okuma erişimi](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
 Tüm parametreler tam listesini görmek için bkz: [az hesabı oluşturma](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 

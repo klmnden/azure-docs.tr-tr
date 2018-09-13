@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: c8d7f1f5b793fcb684e9896bb93213a23d489860
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 163972329161f90ad364b25e7e60e9e5a04324d5
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448552"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720013"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD ile hesapları paylaşma
 ## <a name="overview"></a>Genel Bakış
@@ -71,7 +71,7 @@ Bir hesabı paylaşmak için Azure AD kullanmak için yapmanız:
 Da paylaşılan hesabınız multi-Factor Authentication (MFA) ile daha güvenli hale getirebilirsiniz (daha fazla bilgi edinin [Azure AD ile uygulamaları güvenli hale getirme](authentication/concept-mfa-whichversion.md)) ve kullanarakuygulamayakimlerinerişebildiğiniyönetmeolanağıdevredebilirsiniz.[ Azure AD Self Servis](users-groups-roles/groups-self-service-management.md) Grup Yönetimi.
 
 ## <a name="related-articles"></a>İlgili makaleler
-* [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
+* [Azure Active Directory'de uygulama yönetimi](manage-apps/what-is-application-management.md)
 * [Koşullu erişim ile uygulamaları koruma](active-directory-conditional-access-azure-portal.md)
 * [Self Servis Grup Yönetimi/SSAA](users-groups-roles/groups-self-service-management.md)
 

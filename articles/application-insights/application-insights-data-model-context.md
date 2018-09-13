@@ -1,6 +1,6 @@
 ---
-title: Azure uygulama Insights Telemetri veri modeli - Telemetri bağlamı | Microsoft Docs
-description: Uygulama Insights telemetri bağlamı veri modeli
+title: Azure Application Insights Telemetri veri modeli - Telemetri bağlam | Microsoft Docs
+description: Application Insights telemetri bağlam veri modeli
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -9,111 +9,113 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: sergkanz; mbullwin
-ms.openlocfilehash: f6654dc869b6c1a3f91ee8dee44dcdbf4bdfc5fd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: b6cfae20f09b19a57cf411777e78abb1dbbf0484
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651145"
 ---
-# <a name="telemetry-context-application-insights-data-model"></a>Telemetri bağlamı: Application Insights veri modeli
+# <a name="telemetry-context-application-insights-data-model"></a>Telemetri Bağlam: Application Insights veri modeli
 
-Her telemetri öğeyi kesin türü belirtilmiş bağlam alanları olabilir. Her alan belirli bir izleme senaryosu sağlar. Özel özellikler koleksiyonu veya uygulamaya özgü özel bağlamsal bilgileri depolamak için kullanın.
+Her telemetri öğesine bir türü kesin belirlenmiş bağlam alanları olabilir. Her alan, belirli bir izleme senaryosu sağlar. Özel veya uygulamaya özgü bağlamsal bilgi depolamak için özel özellikler koleksiyonu kullanın.
 
 
 ## <a name="application-version"></a>Uygulama sürümü
 
-Uygulama bağlamı alanları her zaman telemetri gönderiyor uygulama hakkındaki bilgilerdir. Uygulama sürümü, uygulama davranışına ve dağıtımları için kendi bağıntı eğilimi değişiklikleri analiz etmek için kullanılır.
+Uygulama bağlamı alanları her zaman telemetri gönderdiği uygulama hakkındaki bilgilerdir. Uygulama sürümü, uygulama davranışını ve dağıtımları kendi bağıntı eğilim değişiklikleri analiz etmek için kullanılır.
 
 En fazla uzunluk: 1024
 
 
 ## <a name="client-ip-address"></a>İstemci IP adresi
 
-İstemci cihazının IP adresi. IPv4 ve IPv6 desteklenir. Telemetri bir hizmetten gönderildiğinde, konum bağlam işlemi hizmetinde başlatılan kullanıcı hakkındadır. Application Insights coğrafi konum bilgilerini istemci IP ayıklayın ve ardından kesme. Bu nedenle istemci IP kendisi tarafından son kullanıcı bilgilerinizle kullanılamaz. 
+İstemci cihazının IP adresi. IPv4 ve IPv6 desteklenir. Bir hizmetten telemetri gönderildiğinde, konum bağlam işlemi hizmetinde başlatılan kullanıcı hakkındadır. Application Insights, istemci IP coğrafi konum bilgileri ayıklayın ve ardından kesecek. Bu nedenle istemci IP'si kendisi tarafından son kullanıcı olarak tanımlanabilir bilgiler kullanılamaz. 
 
 En fazla uzunluk: 46
 
 
 ## <a name="device-type"></a>Cihaz türü
 
-İlk olarak bu alan, uygulamanın son kullanıcı kullanarak aygıt türünü belirtmek için kullanıldı. Bugün öncelikle cihaz türü ile JavaScript telemetri ayırt etmek için kullanılan sunucu tarafı telemetri aygıtla ' tarayıcıdan' 'PC' yazın.
+İlk olarak bu alan, uygulamanın son kullanıcı kullanarak cihaz türünü belirtmek için kullanıldı. Bugün öncelikle JavaScript telemetri cihaz türü ile ayırt etmek için kullanılan sunucu tarafı telemetri cihaz ' tarayıcıdan' 'PC' yazın.
 
 En fazla uzunluk: 64
 
 
 ## <a name="operation-id"></a>İşlem kimliği
 
-Kök işlemi benzersiz tanıtıcısı. Bu tanımlayıcı arasında birden çok bileşen grubu telemetri sağlar. Bkz: [telemetri bağıntı](application-insights-correlation.md) Ayrıntılar için. İşlem kimliği, bir istek veya bir sayfa görünümü tarafından oluşturulur. Diğer tüm telemetri bu alanı içeren istek veya sayfa görünümü değerine ayarlar. 
+Kök işlemin benzersiz bir tanımlayıcı. Bu tanımlayıcı arasında birden çok bileşen grubu telemetri sağlar. Bkz: [telemetri bağıntısı](application-insights-correlation.md) Ayrıntılar için. İşlem kimliği, bir istek veya sayfa görünümü tarafından oluşturulur. Diğer tüm telemetri Bu alan içeren bir istek veya sayfa görüntüleme değerini ayarlar. 
 
 En fazla uzunluk: 128
 
 
 ## <a name="parent-operation-id"></a>Üst işlem kimliği
 
-Telemetri öğesi'nin en yakın üst benzersiz tanımlayıcısı. Bkz: [telemetri bağıntı](application-insights-correlation.md) Ayrıntılar için.
+İlk üst öğe telemetri öğesinin benzersiz tanımlayıcısı. Bkz: [telemetri bağıntısı](application-insights-correlation.md) Ayrıntılar için.
 
 En fazla uzunluk: 128
 
 
 ## <a name="operation-name"></a>İşlem adı
 
-(Grup) işlemin adı. İşlem adı, bir istek veya bir sayfa görünümü tarafından oluşturulur. Diğer tüm telemetri öğeleri bu alanını içeren istek veya sayfa görünümü için değer ayarlayın. İşlem adı işlemlerini (örneğin ' GET Home/Index') grubu için tüm telemetri öğeleri bulmak için kullanılır. Bu bağlam özellik yanıtlamak için kullanılır gibi soruları "Bu sayfada oluşturulan tipik özel durumları nelerdir."
+(Grup) olan işlemin adı. İşlem adı, bir istek veya sayfa görünümü tarafından oluşturulur. Diğer tüm telemetri öğeleri bu alan içeren bir istek veya sayfa görüntüleme değerini ayarlayın. İşlem adı (örneğin ' GET Home/Index') işlem grubu için tüm telemetri öğeleri bulmak için kullanılır. Bu bağlam özelliği yanıtlamak için kullanılan "Bu sayfada oluşturulan tipik özel durumları nelerdir." gibi sorular sorun
 
 En fazla uzunluk: 1024
 
 
 ## <a name="synthetic-source-of-the-operation"></a>Yapay işlem kaynağı
 
-Yapay kaynağının adı. Birkaç telemetri uygulamadan yapay trafiği temsil edebilir. Web sitesi, site kullanılabilirlik testleri veya Application Insights SDK kendisini gibi tanılama kitaplıklarından izlemeleri dizinini web Gezgini olabilir.
+Yapay kaynağının adı. Yapay trafik uygulama alınan bazı telemetri temsil edebilir. Web sitesi, site kullanılabilirlik testleri veya Application Insights SDK kendisi gibi tanılama kitaplıkları izlemelerinden dizin web Gezgini olabilir.
 
 En fazla uzunluk: 1024
 
 
 ## <a name="session-id"></a>Oturum kimliği
 
-Oturum kimliği - kullanıcının uygulamayla etkileşimi örneği. Oturum bağlamı alanları her zaman son kullanıcı bilgilerdir. Telemetri bir hizmetten gönderildiğinde, hizmet işlemi başlatan kullanıcı oturum bağlamı hakkındadır.
+Oturum kimliği - kullanıcının uygulamayla etkileşimi örneği. Oturum bağlamı alanları her zaman son kullanıcı bilgilerdir. Oturum bağlamı, hizmetten telemetri gönderildiğinde, işlemi hizmetinde başlatılan kullanıcı hakkındadır.
 
 En fazla uzunluk: 64
 
 
 ## <a name="anonymous-user-id"></a>Anonim kullanıcı kimliği
 
-Anonim kullanıcı kimliği. Son kullanıcı uygulamanın temsil eder. Telemetri bir hizmetten gönderildiğinde, kullanıcı bağlamı hizmet işlemi başlatan kullanıcı hakkındadır.
+Anonim kullanıcı kimliği. Son kullanıcı uygulamasının temsil eder. Bir hizmetten telemetri gönderildiğinde, kullanıcı bağlamı hizmetinde işlemi başlatan kullanıcı hakkındadır.
 
-[Örnekleme](app-insights-sampling.md) toplanan telemetri en aza indirmek için kullanılan teknikleri biridir. Her iki örnek veya tüm ilişkili telemetri uzaklaştırma örnekleme algoritması dener. Anonim kullanıcı kimliği, puan nesil örnekleme için kullanılır. Bu nedenle anonim kullanıcı kimliği yeterince rastgele bir değeri olmalıdır. 
+[Örnekleme](app-insights-sampling.md) toplanan telemetri miktarını en aza indirmek için teknikleri biridir. Her iki örnek veya tüm ilişkili telemetri dışa örnekleme algoritması dener. Anonim kullanıcı kimliği, puan nesil örnekleme için kullanılır. Bu nedenle anonim kullanıcı kimliği yeterince rastgele bir değer olmalıdır. 
 
-Kullanıcı adı depolamak için anonim kullanıcı kimliği'ni kullanarak kötüye alanının değildir. Kimliği doğrulanmış kullanıcı kimliği kullanın.
+Anonim kullanıcı kimliği kullanıcı adı depolamak için bir alan b.internet kullanmaktır. Kimliği doğrulanmış kullanıcı kimliği kullanın.
 
 En fazla uzunluk: 128
 
 
 ## <a name="authenticated-user-id"></a>Kimliği doğrulanmış kullanıcı kimliği
 
-Kimliği doğrulanmış kullanıcı kimliği. Anonim kullanıcı kimliği karşıtı, bu alan bir kolay ad kullanıcıyla temsil eder. PII bilgilerini bu yana çoğu SDK'sı tarafından varsayılan olarak toplanmaz.
+Kimliği doğrulanmış kullanıcı kimliği. Anonim kullanıcı kimliği tersine, bu alanın kolay adı ile kullanıcı temsil eder. PII bilgilerini beri çoğu SDK'sı tarafından varsayılan olarak toplanmaz.
 
 En fazla uzunluk: 1024
 
 
 ## <a name="account-id"></a>Hesap kimliği
 
-Çok kiracılı uygulamalara hesap kimliği veya kullanıcı ile hareket adı budur. Örnekler, abonelik kimliği için Azure portal veya blog adı blog platformu olabilir.
+Çok kiracılı uygulamalarda hesap kimliği veya adı, kullanıcı ile çalışan budur. Örnekler, abonelik kimliği için Azure portalı ya da blogda adı blog oluşturma platformu olabilir.
 
 En fazla uzunluk: 1024
 
 
 ## <a name="cloud-role"></a>Bulut rolü
 
-Uygulama rolü adı bir parçasıdır. Azure rol adını doğrudan eşleşir. Ayrıca tek bir uygulamanın parçası olan mikro hizmetler ayırt etmek için kullanılabilir.
+Uygulama rolü adıyla bir parçasıdır. Azure rol adını doğrudan eşleşir. Ayrıca tek bir uygulamanın parçası olan mikro hizmetler ayırt etmek için kullanılabilir.
 
 En fazla uzunluk: 256
 
 
 ## <a name="cloud-role-instance"></a>Bulut rol örneği
 
-Uygulamanın çalıştığı örneğinin adı. Bilgisayar adı şirket içi, Azure için örnek adı.
+Uygulamanın çalıştığı örneğinin adı. Bilgisayar adı'için şirket içi, Azure için örnek adı.
 
 En fazla uzunluk: 256
 
@@ -127,13 +129,13 @@ En fazla uzunluk: 64
 
 ## <a name="internal-node-name"></a>Dahili: Düğüm adı
 
-Bu alan, fatura amacıyla kullanılan düğüm adı temsil eder. Standart algılama düğümlerinin geçersiz kılmak için kullanın.
+Bu alan, faturalandırma için kullanılan düğüm adı temsil eder. Standart algılama düğümlerinin geçersiz kılmak için kullanın.
 
 En fazla uzunluk: 256
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi edinmek için nasıl [genişletmek ve filtre telemetri](app-insights-api-filtering-sampling.md).
-- Bkz: [veri modeli](application-insights-data-model.md) Application Insights türleri ve veri modeli için.
-- Standart bağlam özellikleri koleksiyonunu denetleyin [yapılandırma](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
+- Bilgi edinmek için nasıl [genişletmek ve telemetri filtreleme](app-insights-api-filtering-sampling.md).
+- Bkz: [veri modeli](application-insights-data-model.md) için Application Insights türleri ve veri modeli.
+- Standart bağlam özellikleri koleksiyonunu kontrol [yapılandırma](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).

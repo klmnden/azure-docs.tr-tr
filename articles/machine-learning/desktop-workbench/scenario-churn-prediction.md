@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning kullanarak müşteri karmaşıklığı tahmin | Microsoft Docs
-description: Azure ML çalışma ekranı kullanarak karmaşası analytics gerçekleştirme.
+title: Azure Machine Learning ile müşteri karmaşıklığı tahmini | Microsoft Docs
+description: Azure ML Workbench kullanarak karmaşıklığı analizi gerçekleştirme.
 services: machine-learning
 documentationcenter: ''
 author: miprasad
@@ -9,101 +9,101 @@ editor: miprasad
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: a4e3441e4b7512d60be8ce5433822a95732cd802
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7c7b50098cfd1bcac534156dd905b37affab80bd
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832399"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648222"
 ---
-# <a name="customer-churn-prediction-using-azure-machine-learning"></a>Azure Machine Learning kullanarak müşteri karmaşası tahmin
+# <a name="customer-churn-prediction-using-azure-machine-learning"></a>Azure Machine Learning ile müşteri karmaşıklığı tahmini
 
-Ortalama, var olan müşteriler tutma beş kez yenilerini işe alma maliyetini ucuz. Sonuç olarak, pazarlama yöneticiler genellikle kendilerini müşteri karmaşası olasılığını tahmin etmeyi deneyerek ve karmaşıklık oranı en aza indirmek için gerekli olan eylemleri bulma bulun.
+Ortalama olarak, mevcut müşterilerin beş kat daha yeni bir tane işe alma maliyetini. Sonuç olarak, Pazarlama yöneticileri genellikle kendilerini müşteri dalgalanması olasılığını tahmin etmeye ve dalgalanma oranını en aza indirmek için gerekli eylemleri bulmaya çalışır bulun.
 
-Bu çözüm amacı, Azure Machine Learning çalışma ekranı kullanarak Tahmine dayalı karmaşası analytics göstermektir. Bu çözüm için perakende karmaşası Tahmine dayalı veri ardışık geliştirmek için kullanımı kolay bir şablonu sağlar. Şablon, farklı veri kümelerini ve karmaşıklığı farklı tanımları ile kullanılabilir. Uygulamalı örnek amacı şunlardır:
+Amacı, bu çözüm, Azure Machine Learning Workbench'i kullanarak Tahmine dayalı karmaşası analytics göstermektir. Bu çözüm, değişim sıklığı Tahmine dayalı veri işlem hatları için Perakendeciler geliştirmek için kullanımı kolay bir şablonu sağlar. Şablonu farklı veri kümelerini ve değişim farklı tanımları ile kullanılabilir. Uygulamalı örnek amacı şudur:
 
-1. Azure Machine Learning çalışma ekranı'nın veri hazırlığı araçları temizleyin ve karmaşıklığı analiz için müşteri ilişkileri verileri alma anlayın.
+1. Temiz ve müşteri karmaşıklığı analizi için ilişki veri almak için Azure Machine Learning Workbench'in veri hazırlama araçları anlayın.
 
-2. Gürültülü heterojen verileri işlemek için özellik dönüşümünü gerçekleştirin.
+2. Gürültülü fazla heterojen veri işlemek için özellik dönüşüm gerçekleştirin.
 
-3. Üçüncü taraf kitaplıklar tümleştirme (gibi `scikit-learn` ve `azureml`) Bayesian ve karmaşıklığı tahmin etmeye yönelik sınıflandırıcı ağaç tabanlı geliştirilir.
+3. Üçüncü taraf kitaplıklar tümleştirme (gibi `scikit-learn` ve `azureml`) Bayes ve ağaç tabanlı sınıflandırıcılar, değişim sıklığı tahmin etmeye yönelik geliştirme.
 
 4. Dağıtın.
 
-## <a name="link-of-the-gallery-github-repository"></a>Galeri GitHub deposunun bağlantı
-Tüm kod barındırıldığı genel GitHub depo bağlantısını aşağıdadır:
+## <a name="link-of-the-gallery-github-repository"></a>Galeri GitHub deposunun bağlantısı
+Tüm kod barındırıldığı ortak GitHub deposu bağlantısı aşağıda verilmiştir:
 
 [https://github.com/Azure/MachineLearningSamples-ChurnPrediction](https://github.com/Azure/MachineLearningSamples-ChurnPrediction)
 
-## <a name="use-case-overview"></a>Kullanım örneği'ne genel bakış
-Şirketler, müşteri karmaşası yönetmek için etkili bir strateji gerekir. Müşteri karmaşası hizmet kullanımını durdurmak, bir rakip hizmetine geçiş yapma, alt katmanlı deneyimini hizmetinde yapma veya katılım hizmetiyle azaltma müşterileri içerir.
+## <a name="use-case-overview"></a>Kullanım örneği genel bakış
+Şirketler, müşteri kaybını yönetmek için bir etkin stratejisine ihtiyaç duyar. Müşteri karmaşası müşteriler bir hizmet kullanımını durdurmak, rakip bir hizmete geçme, hizmetinde bir daha düşük katmanlı deneyime geçiş veya hizmetle etkileşimini azaltmayı içerir.
 
-Bu kullanım örneğinde şirketten hizmeti geliştirmek ve müşterileri Yardım özel destek hizmetleri kampanyalar oluşturmak için yakın vadede karmaşıklığı olasılığı olan müşterileri belirlemek için Fransızca telekomünikasyon turuncu veri arayın.
+Bu kullanım örneğinde önleyecek özel destek hizmetleri kampanyaları oluşturun ve hizmeti geliştirmek için vadede olasılığı müşterileri belirlemek için Fransız bir telekomünikasyon şirketinin turuncu gelen verileri arayın.
 
-Telekomünikasyon şirketler rekabet Pazar karşılaşıyor. Çok sayıda hizmet sağlayıcılar karmaşıklığı için postpaid müşterilerden gelir kaybedersiniz. Bu nedenle özelliği müşteri karmaşası doğru bir şekilde tanımlamak için çok büyük bir rekabet avantajı olabilir.
+Telekom şirketlerinden rekabetçi olan bir pazarda karşı karşıyadır. Birçok operatörler olasılığı kaybederek müşterilerden gelir kaybedersiniz. Bu nedenle müşteri dalgalanması doğru bir şekilde belirleyebilmek büyük bir rekabet üstünlüğü olabilir.
 
-Telekomünikasyon müşteri karmaşası katkıda bulunan Etkenler bazıları şunlardır:
+Telekomünikasyon müşteri kaybı faktörlerini bazıları şunlardır:
 
-* Algılanan sık hizmet kesilmelerini
-* Çevrimiçi/perakende mağazaları kötü müşteri hizmeti deneyimleri
-* (Daha iyi ailesi planı, veri planı, vb.) rakip diğer hizmet sağlayıcılar önerileri.
+* Algılanan sıklıkla yaşanan servis kesintileri
+* Çevrimiçi/perakende mağazalarda yetersiz müşteri hizmeti deneyimleri
+* Rakip operatörlerden (daha iyi bir aile planı, veri planı, vb.) alınan sunar.
 
-Bu çözümde Tahmine dayalı bir müşteri telekomünikasyon şirketler için karmaşası model oluşturmanın somut bir örnek kullanacağız.
+Bu çözümde Tahmine dayalı bir müşteri karmaşıklığı modeli için Telekom şirketlerinden oluşturmanın somut bir örnek kullanacağız.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz deneme kullanılabilir)
+* Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz denemeler kullanılabilir)
 
-* Yüklü bir kopyasını [Azure Machine Learning çalışma ekranı](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](../service/quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturmak için
+* Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](../service/quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturmak için
 
-* Yüklü ve yerel olarak çalışan Docker altyapısına varsa operationalization için en iyisidir. Aksi durumda, küme seçeneğini kullanır ancak Azure kapsayıcı Hizmeti'ni (ACS) çalıştıran pahalı olabileceğini unutmayın.
+* Docker altyapısı yüklü ve yerel olarak çalışan varsa getirmek için en iyisidir. Aksi takdirde küme seçeneğini kullanın ancak bir Azure Container Service (ACS) çalıştıran pahalı olabileceğini unutmayın.
 
-* Bu çözüm, Azure Machine Learning çalışma ekranı Docker altyapısına yerel olarak yüklü Windows 10'çalıştığını varsayar. MacOS kullanıyorsanız talimat büyük ölçüde aynıdır.
+* Bu çözüm, Azure Machine Learning Workbench ile Docker altyapısının yerel olarak yüklü Windows 10'da çalıştığını varsayar. MacOS kullanıyorsanız, yönerge büyük ölçüde aynıdır.
 
-## <a name="create-a-new-workbench-project"></a>Yeni bir çalışma ekranı projesi oluşturma
+## <a name="create-a-new-workbench-project"></a>Workbench yeni bir proje oluşturun
 
-Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
-1.  Açık Azure Machine Learning çalışma ekranı
-2.  Üzerinde **projeleri** sayfasında, **+** oturum ve seçin **yeni proje**
-3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun
-4.  İçinde **arama proje şablonları** arama kutusu, "Müşteri karmaşıklığı tahmin" yazın ve şablonu seçin
+Bu örnekte, şablon olarak kullanarak yeni bir proje oluşturun:
+1.  Açık bir Azure Machine Learning Workbench'i
+2.  Üzerinde **projeleri** sayfasında **+** açıp seçmek **yeni proje**
+3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri girin
+4.  İçinde **proje şablonlarında Ara** arama kutusuna, "Customer Churn Prediction" yazın ve şablonu seçin
 5.  **Oluştur**'a tıklayın
 
 ## <a name="data-description"></a>Veri açıklaması
 
-Veri çözümde kullanılan SIDKDD 2009 rekabet kümesidir. Çağrılır `CATelcoCustomerChurnTrainingSample.csv` ve bulunan [ `data` ](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/tree/master/data) klasör. Dataset turuncu Fransızca telekomünikasyon şirketten heterojen gürültülü veriler (sayısal/kategorik değişkenler) oluşur ve anonim.
+Çözümde kullanılan veri kümesi tarafından SIDKDD 2009 rekabet ' dir. Çağrıldığı `CATelcoCustomerChurnTrainingSample.csv` ve bulunan [ `data` ](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/tree/master/data) klasör. Veri kümesi anonimleştirilmiştir ve daha heterojen gürültülü veri (/ kategorik sayısal değişkenler) Fransızca Telekom şirketten turuncu oluşur.
 
-Yakala değişkenleri müşteri demografik bilgileri, çağrı istatistikleri (örneğin, Ortalama çağrı süresi, çağrı hata oranı, vb.), bilgi, uyumlu istatistikleri sözleşme. Karmaşası değişken ikili (0 - değil karmaşıklığı, 1 - karmaşıklığı).
+Yakala değişkenleri müşteri demografik bilgiler, çağrı istatistikleri (örneğin, ortalama çağırma süresi çağrısı hata oranı, vb.), bilgi, uyumlu istatistikleri sözleşme. Değişim sıklığı değişkendir ikili (0 - değil değişim sıklığı, 1 - karmaşıklığı).
 
 ## <a name="scenario-structure"></a>Senaryo yapısı
 
-Klasör yapısı şu şekilde düzenlenir:
+Klasör yapısı aşağıdaki gibi düzenlenir:
 
-__veri__: çözümde kullanılan veri kümesi içerir  
+__veri__: çözümde kullanılan veri kümesini içeren  
 
-__belgeleri__: tüm uygulamalı labs içerir
+__docs__: uygulamalı laboratuvarların tümünü içerir
 
-Çözüm taşımak için uygulamalı Labs sırasını aşağıdaki gibidir:
-1. Veri hazırlama:, veri hazırlığı veri klasöründe ilgili ana dosyasıdır `CATelcoCustomerChurnTrainingSample.csv`
-2. Model oluşturma ve değerlendirme: Model oluşturma ve değerlendirme kök klasöründe ilgili ana dosyasıdır `CATelcoCustomerChurnModeling.py`
-3. Model oluşturma ve değerlendirme .dprep olmadan: kök klasöründe bu görev için ana dosyasıdır `CATelcoCustomerChurnModelingWithoutDprep.py`
-4. Operationalization: Ana deloyment için model dosyalardır (`model.pkl`) ve `churn_schema_gen.py`
+Çözümü yürütmek için uygulamalı laboratuvarlar sırası aşağıdaki gibidir:
+1. Veri hazırlama:, veri hazırlama veri klasöründeki ilgili ana dosyasıdır `CATelcoCustomerChurnTrainingSample.csv`
+2. Modelleme ve değerlendirme: Model oluşturma ve değerlendirme Kök klasörde ilgili ana dosyasıdır `CATelcoCustomerChurnModeling.py`
+3. Modelleme ve değerlendirme .dprep olmadan: kök klasöründe bu görev için ana dosyasıdır `CATelcoCustomerChurnModelingWithoutDprep.py`
+4. Kullanıma hazır hale getirme:, Sık karşılaşılan için ana dosyaları modeline (`model.pkl`) ve `churn_schema_gen.py`
 
-| Sıra| Dosya Adı | Realted dosyaları |
+| Sipariş verme| Dosya Adı | Kullanıcılarla ilgili dosyalar |
 |--|-----------|------|
 | 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | 'data/CATelcoCustomerChurnTrainingSample.csv' |
 | 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | 'CATelcoCustomerChurnModeling.py' |
 | 3 | [`ModelingAndEvaluationWithoutDprep.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationWithoutDprep.md) | 'CATelcoCustomerChurnModelingWithoutDprep.py' |
 | 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | 'model.pkl'<br>'churn_schema_gen.py' |
 
-Yukarıda açıklanan sıralı şekilde Labs izleyin.
+Laboratuvarlar yukarıda açıklanan sıralı bir şekilde izleyin.
 
 ## <a name="conclusion"></a>Sonuç
-Bu aktarır senaryo Azure Machine Learning çalışma ekranı kullanarak karmaşası tahmin gerçekleştirme gösterilmektedir. Biz öncelikle veri veri hazırlığı araçlarını kullanarak özellik mühendislik tarafından izlenen gürültülü ve heterojen verileri işlemek için temizleme gerçekleştirilir. Biz açık kaynaklı makine öğrenimi araçları oluşturmak ve bir sınıflandırma modeli değerlendirmek için kullanılan, sonra yerel docker kapsayıcısı üretim için hazır hale getirme modeli dağıtmak için kullanılır.
+Bu uygulamalı karmaşıklığı tahmini Azure Machine Learning Workbench'i kullanarak gerçekleştirme senaryosu gösterilmiştir. İlk veri veri hazırlama araçlarını kullanarak özellik Mühendisliği tarafından izlenen gürültülü ve heterojen veri işlemek için temizleme gerçekleştirdiğimiz. Biz açık kaynak machine learning araçları oluşturun ve bir sınıflandırma modeli değerlendirmek için kullanılan, sonra yerel bir docker kapsayıcısı üretim için hazır hale getirme modeli dağıtmak için kullanılır.

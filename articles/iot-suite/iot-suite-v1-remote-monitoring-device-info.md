@@ -1,5 +1,5 @@
 ---
-title: Uzaktan izleme çözümü cihaz bilgileri meta verilerde | Microsoft Docs
+title: Uzaktan izleme çözümündeki cihaz bilgileri meta | Microsoft Docs
 description: Azure IOT önceden yapılandırılmış çözümü uzaktan izlemenin ve mimarisinin açıklaması.
 services: ''
 suite: iot-suite
@@ -15,51 +15,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 80f03a4cef1d79e819c59ca68a786776a5c4edb7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4efea316c05f566add3e175bc5bb18842225ede3
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636105"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35758170"
 ---
-# <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>Önceden yapılandırılmış Uzaktan izleme çözümü cihaz bilgileri meta veriler
+# <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>Cihaz önceden yapılandırılmış Uzaktan izleme çözümünü bilgi meta veriler
 
-Azure IOT paketi Uzaktan izleme çözümü cihaz meta verilerini yönetmek için bir yaklaşım gösterir. Bu makalede, bu çözüm anlamak etkinleştirmeniz için gereken bir yaklaşım özetlenmektedir:
+Azure IOT paketi Uzaktan izleme çözümü, cihaz meta verilerini yönetmek için bir yaklaşımı gösterir. Bu makalede, bu çözüm anlamanız için için gereken bir yaklaşım özetlenmektedir:
 
 * Çözüm hangi cihaz meta verilerini depolar.
-* Nasıl çözüm cihaz meta verilerini yönetir.
+* Nasıl bir çözümü, cihaz meta verilerini yönetir.
 
 ## <a name="context"></a>Bağlam
 
-Çözüm kullanan önceden yapılandırılmış Uzaktan izleme [Azure IOT Hub] [ lnk-iot-hub] aygıtlarınızı buluta veri göndermesini sağlamak için. Çözümü üç farklı konumlarda cihazlarla ilgili bilgileri depolar:
+Uzaktan izleme önceden yapılandırılmış çözümün kullandığı [Azure IOT hub'ı] [ lnk-iot-hub] cihazlarınızı buluta veri göndermesini sağlamak. Çözüm, üç farklı konumlarda cihazlar hakkındaki bilgileri depolar:
 
 | Konum | Depolanan bilgileri | Uygulama |
 | -------- | ------------------ | -------------- |
-| Kimlik kayıt defteri | Cihaz kimliği, kimlik doğrulaması anahtarları, durumu etkin | IOT Hub'ına yerleşik |
-| Cihaz çiftlerini | Meta veriler: bildirilen özellikleri, istenen özellikleri, etiketler | IOT Hub'ına yerleşik |
-| Cosmos DB | Komut ve yöntemi geçmişi | Özel çözüm için |
+| Kimlik kayıt defteri | Cihaz kimliği, kimlik doğrulaması anahtarları, durum etkin | IOT Hub'ına yerleşik |
+| Cihaz ikizlerini | Meta veri: bildirilen özellikler, istenen özellikleri, etiketler | IOT Hub'ına yerleşik |
+| Cosmos DB | Komut ve yöntem geçmişi | Özel çözüm için |
 
-IOT hub'ında bir [cihaz kimlik kayıt defteri] [ lnk-identity-registry] IOT hub'ı ve kullanım erişimini yönetmek için [cihaz çiftlerini] [ lnk-device-twin] cihaz meta verilerini yönetmek için. Ayrıca bir uzaktan izleme çözümü özgü olan *cihaz kayıt defteri* komutu ve yöntemi geçmişini saklar. Uzaktan izleme çözümü kullanan bir [Cosmos DB] [ lnk-docdb] komut ve yöntemi geçmişi için özel bir depo uygulamak için veritabanı.
-
-> [!NOTE]
-> Önceden yapılandırılmış Uzaktan izleme çözümü cihaz kimlik kayıt defteri Cosmos DB veritabanında bilgilerle eşitlenmiş tutar. Her ikisi de aynı cihaz kimliği IOT hub'ına bağlı her cihazın benzersiz şekilde tanımlamak için kullanın.
-
-## <a name="device-metadata"></a>Cihaz meta veriler
-
-IOT hub'ı tutan bir [cihaz çifti] [ lnk-device-twin] her sanal ve fiziksel cihaz için bir uzaktan izleme çözümüne bağlı. Çözüm, aygıtlar ile ilişkili meta verileri yönetmek için cihaz çiftlerini kullanır. Cihaz çifti IOT Hub tarafından korunan bir JSON belgesinin ve çözüm cihaz çiftlerini ile etkileşim kurmak için IOT Hub API kullanır.
-
-Cihaz çifti üç tür meta verileri depolar:
-
-- *Özellikler bildirilen* IOT hub'a bir cihaz tarafından gönderilir. Uzaktan izleme çözümünde başlatma ve yanıt olarak bildirilen özellikleri sanal cihazlar Gönder **cihaz durumunu değiştir** komutlar ve yöntemleri. Bildirilen özelliklerinde görüntüleyebilirsiniz **cihaz listesi** ve **cihaz ayrıntıları** çözüm Portalı'nda. Bildirilen özellikleri salt okunurdur.
-- *Özellikler istenen* IOT hub'ından cihazlar tarafından alınır. Tüm gerekli yapılandırma cihazda değişikliği yapmak için cihaz sorumluluğundadır. Bu ayrıca değişikliği geri hub'ı bildirilen bir özellik olarak rapor aygıta sorumluluğundadır. İstenen özellik değeri çözüm Portalı aracılığıyla ayarlayabilirsiniz.
-- *Etiketler* yalnızca cihaz çiftine mevcut ve hiçbir zaman bir aygıt ile eşitlenir. Çözüm portalında etiket değerleri ayarlamak ve cihaz listesini filtre bunları kullanın. Çözüm bir etiket çözüm portalında bir aygıt için görüntülemek için bu simgeyi tanımlamak için de kullanır.
-
-Sanal cihazlar özelliklerinden üreticisini, model numarası, enlem ve boylam dahil örnek bildirdi. Sanal cihazlar, ayrıca bildirilen bir özellik olarak desteklenen yöntemlerin listesi döndürür.
+IOT hub'ı içeren bir [cihaz kimliği kayıt defteri] [ lnk-identity-registry] bir IOT hub'ı ve kullanımları erişimi yönetmek için [cihaz ikizlerini] [ lnk-device-twin] cihaz meta verilerini yönetmek için. Ayrıca bir uzaktan izleme çözümü özgü olan *cihaz kayıt defteri* , komut ve yöntem geçmişi saklar. Uzaktan izleme çözümünü kullanan bir [Cosmos DB] [ lnk-docdb] komut ve yöntem geçmişi için özel bir depo uygulamak için veritabanı.
 
 > [!NOTE]
-> Sanal cihaz kodu, IoT Hub’ına geri gönderilen bildirilen özellikleri güncelleştirmek üzere yalnızca istenen **Desired.Config.TemperatureMeanValue** ve **Desired.Config.TelemetryInterval** özelliklerini kullanır. Diğer tüm istenen özelliği değişiklik isteklerini göz ardı edilir.
+> Önceden yapılandırılmış Uzaktan izleme çözümüne cihaz kimliği kayıt defteri Cosmos DB veritabanında bilgi ile uyumlu kalmasını sağlar. Hem IOT hub'ınıza bağlı olan her cihazın benzersiz olarak tanımlanabilmesi için aynı cihaz kimliği kullanın.
 
-Cihaz kayıt defteri Cosmos DB veritabanında depolanan bir aygıt bilgileri meta verileri JSON belgesi aşağıdaki yapıya sahiptir:
+## <a name="device-metadata"></a>Cihaz meta verileri
+
+IOT hub'ı tutan bir [cihaz ikizi] [ lnk-device-twin] her sanal ve fiziksel cihaz için bir uzaktan izleme çözümüne bağlı. Çözüm, cihazlar ile ilişkili meta verileri yönetmek için cihaz ikizlerini kullanır. Cihaz ikizi IOT Hub tarafından tutulan bir JSON belgesidir ve çözüm, cihaz çiftleri ile etkileşim kurmak için IOT hub'ı API kullanır.
+
+Cihaz ikizi üç tür meta verileri depolar:
+
+- *Bildirilen özellikler* IOT hub'a bir cihaz tarafından gönderilir. Uzaktan izleme çözümünde, sanal cihazlar bildirilen özellikleri başlatma ve yanıt olarak Gönder **cihaz durumunu değiştir** komutları ve yöntemleri. Bildirilen özellikler görüntüleyebileceğiniz **cihaz listesi** ve **cihaz ayrıntıları** çözüm portalında. Bildirilen özellikler salt okunur.
+- *İstenen özellikleri* cihazlar tarafından IOT hub'ından alınır. Tüm gerekli yapılandırma cihazda değişikliği yapmak için cihazın sorumluluğundadır. Ayrıca değişikliği bildirilen özellik olarak hub'a geri bildirmek için cihazın sorumluluğundadır. Çözüm Portalı aracılığıyla istenen özellik değerini ayarlayabilirsiniz.
+- *Etiketleri* yalnızca cihaz ikizinde bulunan ve hiçbir zaman bir cihaz ile eşitlenir. Çözüm portalında etiket değerlerini ayarlamak ve cihaz listesini filtreleme bunları kullanın. Çözüm ayrıca çözüm portalındaki bir cihaz için görüntülenecek simge tanımlamak için bir etiket kullanır.
+
+Örnek, sanal cihazlar özelliklerinden üreticisini, model numarası, enlem ve boylam dahil bildirdi. Sanal cihaz, bildirilen özellik olarak da desteklenen yöntemlerin listesi döndürür.
+
+> [!NOTE]
+> Sanal cihaz kodu, IoT Hub’ına geri gönderilen bildirilen özellikleri güncelleştirmek üzere yalnızca istenen **Desired.Config.TemperatureMeanValue** ve **Desired.Config.TelemetryInterval** özelliklerini kullanır. Diğer tüm istenen özellik değişiklik istekleri göz ardı edilir.
+
+Cihaz kayıt defteri Cosmos DB veritabanında depolanan bir cihaz bilgi meta verileri JSON belgesi aşağıdaki yapıya sahiptir:
 
 ```json
 {
@@ -81,38 +81,38 @@ Cihaz kayıt defteri Cosmos DB veritabanında depolanan bir aygıt bilgileri met
 ```
 
 > [!NOTE]
-> Aygıt bilgileri aygıt IOT Hub'ına gönderir telemetri açıklamak için meta verileri de içerir. Uzaktan izleme çözümü, Pano biçimini özelleştirmek için bu telemetri meta veri kullanan [dinamik telemetri][lnk-dynamic-telemetry].
+> Cihaz bilgilerini, IOT Hub'ına CİHAZDAN gönderilen telemetri açıklamak için meta verileri de içerebilir. Uzaktan izleme çözümü, panoyu biçimini özelleştirmek için bu telemetri meta verileri kullanır. [dinamik telemetri][lnk-dynamic-telemetry].
 
 ## <a name="lifecycle"></a>Yaşam döngüsü
 
-Çözüm Portalı'nda bir cihaz ilk oluşturduğunuzda, çözüm komut ve yöntemi geçmişini depolamak için Cosmos DB veritabanında bir giriş oluşturur. Bu noktada, çözüm Ayrıca aygıtı için bir giriş aygıtın IOT Hub ile kimlik doğrulaması için kullandığı anahtarları oluşturur cihaz kimliği kayıt oluşturur. Ayrıca, bir cihaz çifti oluşturur.
+Çözüm portalında bir cihaz ilk oluşturduğunuzda, çözümü komut ve yöntem geçmişi depolamak için Cosmos DB veritabanında bir giriş oluşturur. Bu noktada, çözüm ayrıca cihaz için bir giriş cihazı IOT Hub ile kimlik doğrulaması için kullandığı anahtarları oluşturan cihaz kimliği kayıt defterinde oluşturur. Ayrıca, cihaz ikizi oluşturur.
 
-Bir cihaz ilk çözüme bağlandığında, bildirilen özellikleri ve bir cihaz bilgi iletisi gönderir. Bildirilen özellik değerlerini otomatik olarak cihaz çiftine kaydedilir. Bildirilen özellikleri aygıt üreticisi, model numarası, seri numarası ve desteklenen yöntemlerin listesi içerir. Cihaz bilgi iletisi komut parametreleri hakkında bilgiler dahil olmak üzere cihaz destekler komutların listesini içerir. Bu iletiyi çözümünün aldığında, aygıt bilgileri Cosmos DB veritabanında güncelleştirir.
+Bir cihaz çözüme ilk kez bağlandığında, bildirilen özellikleri ve bir cihaz bilgi iletisi gönderir. Bildirilen özellik değerleri, cihaz ikizinde otomatik olarak kaydedilir. Bildirilen özellikler, cihaz üreticisi, model numarası, seri numarası ve desteklenen yöntemlerin listesini içerir. Komut parametreleri hakkında bilgiler dahil olmak üzere, cihazın desteklediği komutların listesini cihaz bilgi iletisini içerir. Çözüm bu ileti aldığında, Cosmos DB veritabanındaki cihaz bilgilerini güncelleştirir.
 
-### <a name="view-and-edit-device-information-in-the-solution-portal"></a>Çözüm portalında aygıt bilgileri görüntüleyin ve düzenleyin
+### <a name="view-and-edit-device-information-in-the-solution-portal"></a>Çözüm portalında cihaz bilgilerini görüntüleyin ve düzenleyin
 
-Çözüm portalı aygıt listesinde aşağıdaki cihaz özelliklerini sütunları olarak varsayılan olarak görüntüler: **durum**, **DeviceID**, **üretici**, **modeli Sayı**, **seri numarası**, **bellenim**, **Platform**, **İşlemci**, ve  **RAM yüklü**. Tıklayarak sütunları özelleştirebilirsiniz **sütun düzenleyicisini**. Cihaz özellikleri **enlem** ve **boylam** Bing harita konumda Panoda sürücü.
+Çözüm portalında cihaz listesini aşağıdaki cihaz özelliklerini sütunlar halinde varsayılan olarak görüntüler: **durumu**, **DeviceID**, **üretici**, **modeli Sayı**, **seri numarası**, **bellenim**, **Platform**, **İşlemci**, ve  **Yüklü RAM**. Tıklayarak sütunları özelleştirebilirsiniz **sütun Düzenleyicisi**. Cihaz özellikleri **enlem** ve **boylam** konumu Bing Haritası'nda Panoda sürücü.
 
-![Aygıt listesinde sütun Düzenleyicisi][img-device-list]
+![Cihaz listesinde sütun Düzenleyicisi][img-device-list]
 
-İçinde **cihaz ayrıntıları** bölmesi çözüm Portalı'nda, istenen özelliklerini ve etiketleri düzenleyebilirsiniz (özellikleri salt okunur bildirilen).
+İçinde **cihaz ayrıntıları** bölmesinde çözüm portalında istenen özellikleri ve etiketleri düzenleyebilirsiniz (bildirilen özellikler yalnızca okunur).
 
 ![Cihaz ayrıntıları bölmesi][img-device-edit]
 
-Bir aygıtı çözümünüzden kaldırmak için çözüm Portalı'nı kullanabilirsiniz. Bir aygıt kaldırdığınızda, çözüm aygıt girişi kimlik kayıt defterinden kaldırır ve cihaz çifti siler. Çözüm Cosmos DB veritabanından cihaza ilgili bilgileri de kaldırır. Bir aygıt kaldırabilmeniz için önce devre dışı bırakmalısınız.
+Çözümünüze ait bir cihazı kaldırmak için çözüm portalı kullanabilirsiniz. Bir cihazı kaldırmak, çözüm cihaz girişi kimlik kayıt defterinden kaldırır ve ardından cihaz ikizinde siler. Çözüm, Cosmos DB veritabanı cihazla ilgili bilgileri de kaldırır. Bir cihaz kaldırabilmeniz için önce devre dışı bırakmalısınız.
 
-![Aygıt kaldırma][img-device-remove]
+![Cihazı Kaldır][img-device-remove]
 
 ## <a name="device-information-message-processing"></a>Cihaz bilgi iletisi işleme
 
-Bir aygıt tarafından gönderilen cihaz bilgileri iletilerini telemetri iletilerini farklıdır. Cihaz bilgileri iletilerini bir aygıtı yanıt verebileceği komutları ve komut geçmişini içerir. IOT Hub kendisini bir cihaz bilgi iletisi bulunan meta veriler olanağıyla sahiptir ve iletiyi herhangi bir cihaz bulut iletisini işler aynı şekilde işler. Uzaktan izleme çözümünde bir [Azure akış analizi] [ lnk-stream-analytics] (ASA) işini IOT Hub'ından iletileri okur. **Deviceınfo** stream analytics iş filtreleri içeren iletileri için **"ObjectType": "Deviceınfo"** ve bunlara iletir **EventProcessorHost** ana bilgisayar örneği bir web işi çalıştırır. Mantık **EventProcessorHost** örneği için belirli bir aygıtı Cosmos DB kayıt bulmak ve kaydı güncelleştirmek için cihaz kimliği kullanır.
+Bir cihaz tarafından gönderilen cihaz bilgileri iletilerini telemetri iletilerini farklıdır. Cihaz bilgileri iletilerini, bir cihazın yanıt verebildiği komutların ve herhangi bir komut geçmişi içerir. Kendisini IOT hub'a bir cihaz bilgi iletisini içinde bulunan meta veriler hakkında bilgiye sahip ve iletiyi herhangi bir CİHAZDAN buluta ileti işler aynı şekilde işler. Uzaktan izleme çözümünde bir [Azure Stream Analytics] [ lnk-stream-analytics] (ASA) işini iletileri IOT hub'dan okur. **Deviceınfo** stream analytics iş filtreleri içeren iletileri için **"ObjectType": "Deviceınfo"** ve bunlara iletir **EventProcessorHost** ana bilgisayar örneği bir web işi çalıştırır. Mantık **EventProcessorHost** örneği söz konusu cihaz için Cosmos DB kaydı bulun ve kaydı güncelleştirmek için cihaz Kimliğini kullanır.
 
 > [!NOTE]
-> Cihaz bilgi iletisi, bir standart cihaz bulut iletisidir. Çözüm, ASA sorguları kullanarak cihaz bilgileri iletilerini ve telemetri iletilerini arasında ayırır.
+> Bir cihaz bilgi iletisini standart bir CİHAZDAN buluta ileti ' dir. Çözüm, ASA sorguları kullanarak cihaz bilgileri iletilerini ve telemetri iletilerini arasında ayırır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Önceden yapılandırılmış çözümler nasıl özelleştirebileceğiniz öğrenme bitirdikten sonra artık, bazı diğer özellikler ve yetenekler IOT paketi önceden yapılandırılmış çözümleri gözden geçirebilirsiniz:
+Önceden yapılandırılmış çözümleri nasıl özelleştirebileceğiniz öğrenme bitirdikten sonra bazı diğer özelliklerini ve yeteneklerini IOT paketi önceden yapılandırılmış çözümleri keşfedin:
 
 * [Önceden yapılandırılmış Tahmine dayalı bakım çözümüne genel bakış][lnk-predictive-overview]
 * [IoT Paketi için sık sorulan sorular][lnk-faq]
@@ -132,4 +132,4 @@ Bir aygıt tarafından gönderilen cihaz bilgileri iletilerini telemetri iletile
 
 [lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
 [lnk-faq]: iot-suite-v1-faq.md
-[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up

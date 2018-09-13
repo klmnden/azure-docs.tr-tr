@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 6643db7b732cc5b01ce7602eb3d679c130c46720
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972205"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721339"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikler
 
@@ -43,7 +43,7 @@ Microsoft Azure ile şunları yapabilirsiniz:
 
 ## <a name="scope"></a>Kapsam
 
-Bu teknik incelemede, odak noktası, güvenlik özellikleri ve işlevleri, Microsoft Azure'nın temel bileşenleri, yani destekleyen ilgilidir [Microsoft Azure depolama](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL veritabanları](https://docs.microsoft.com/azure/sql-database/), [ Microsoft Azure'nın sanal makine modeli](https://docs.microsoft.com/azure/virtual-machines/), araçları ve tüm bunları yönetebileceğiniz bir altyapı. Bu güvenlik ve gizlilik verilerini koruma konusunda kendi rolleri yerine getirebilmesi için Microsoft Azure teknik özellikleri müşteriler incelemeyi odaklanır.
+Bu teknik incelemede, odak noktası, güvenlik özellikleri ve işlevleri, Microsoft Azure'nın temel bileşenleri, yani destekleyen ilgilidir [Microsoft Azure depolama](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/), [ Microsoft Azure'nın sanal makine modeli](https://docs.microsoft.com/azure/virtual-machines/), araçları ve tüm bunları yönetebileceğiniz bir altyapı. Bu güvenlik ve gizlilik verilerini koruma konusunda kendi rolleri yerine getirebilmesi için Microsoft Azure teknik özellikleri müşteriler incelemeyi odaklanır.
 
 Bu paylaşılan Sorumluluklar modelini anlama önemini, buluta geçiş müşterileri için önemlidir. Bulut sağlayıcıları için güvenlik ve uyumluluk çalışmalarını önemli avantajlar sunar, ancak bu avantajlar, kullanıcılar, uygulamalar ve hizmet teklifleri koruma gelen müşteri muaf olmasını değil.
 
@@ -63,7 +63,7 @@ Azure kullanıcı kimliklerini ve kimlik bilgilerini yönetmek ve erişimi denet
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Microsoft kimlik ve erişim yönetimi çözümlerini Yardımı BT ek çok faktörlü kimlik doğrulama ve koşullu erişim gibi doğrulama düzeylerini etkinleştirme kurumsal veri merkezi ve bulut uygulamalarına ve kaynaklarına erişimi koruma ilkeleri. Şüpheli etkinlik üzerinden raporlama, Denetim ve yardımcı olur, olası güvenlik sorunlarını azaltma uyarı Gelişmiş Güvenlik İzleme. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) , şirket içi web uygulamalarına erişim ve çoklu oturum açma için binlerce bulut (SaaS) uygulamaları sağlar.
+Microsoft kimlik ve erişim yönetimi çözümlerini Yardımı BT ek çok faktörlü kimlik doğrulama ve koşullu erişim gibi doğrulama düzeylerini etkinleştirme kurumsal veri merkezi ve bulut uygulamalarına ve kaynaklarına erişimi koruma ilkeleri. Gelişmiş güvenlik raporlaması, denetim ve uyarı özellikleriyle şüpheli etkinliklerin izlenmesi, olası güvenlik sorunlarının önlenmesine yardımcı olur. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) , şirket içi web uygulamalarına erişim ve çoklu oturum açma için binlerce bulut (SaaS) uygulamaları sağlar.
 
 Azure Active Directory (Azure AD) güvenlik avantajlarından yeteneği şunlardır:
 

@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/12/2017
+ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: bdc8754253ce2567d957b4d6240fe52242aea2ea
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d84c3b556f27366c249382a37e0a8227726110cf
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450268"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714693"
 ---
 # <a name="managing-owners-for-a-group"></a>Bir grubun sahiplerini yönetme
 Kaynak sahibi Azure AD grubundaki bir kaynağa erişim atandıktan sonra grubun üyeliğini Grup sahibi tarafından yönetilir. Kaynak sahibi etkili bir şekilde kaynak grubun sahibine kullanıcıları atama izni verilir.
@@ -42,6 +42,6 @@ Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
 * [Azure Active Directory grupları ile kaynaklara erişimi yönetme](active-directory-manage-groups.md)
 * [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-cmdlets.md)
-* [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../active-directory-apps-index.md)
+* [Azure Active Directory'de uygulama yönetimi](../manage-apps/what-is-application-management.md)
 * [Azure Active Directory nedir?](active-directory-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../connect/active-directory-aadconnect.md)

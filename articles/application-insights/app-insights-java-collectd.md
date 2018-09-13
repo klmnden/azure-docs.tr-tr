@@ -1,6 +1,6 @@
 ---
-title: Linux - Azure Java web uygulaması performans izleme | Microsoft Docs
-description: Uygulama izleme için Application Insights performans eklenti CollectD ile Java Web sitenizin genişletilmiş.
+title: Linux - Azure üzerinde Java web uygulaması performansını izleme | Microsoft Docs
+description: Uygulama izleme için Application Insights performans toplanan eklentisi ile Java Web sitenizin, genişletilmiş.
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -10,43 +10,43 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 56e30ff4ee7765cd0950293999d93a9cf1fe5d36
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 61260674639a351a01cfea9dd695ce32795aa8c0
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32152427"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650922"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights Linux performans ölçümlerini
+# <a name="collectd-linux-performance-metrics-in-application-insights"></a>toplanan: Application ınsights Linux performans ölçümleri
 
 
-Linux sistem performans ölçümlerini keşfetmek için [Application Insights](app-insights-overview.md), yükleme [collectd](http://collectd.org/), eklenti, Application Insights ile birlikte. Bu açık kaynak çözümü çeşitli sistem ve ağ istatistiklerini toplar.
+İçindeki Linux sistem performans ölçümlerini keşfetmek için [Application Insights](app-insights-overview.md), yükleme [toplanan](http://collectd.org/)eklentisi, Application Insights ile birlikte. Bu açık kaynaklı çözüm çeşitli sistem ve ağ istatistiklerini toplar.
 
-Genellikle, zaten varsa collectd kullanacağınız [Application Insights ile Java web hizmetiniz izlenmiş][java]. Bu, uygulamanızın performansını artırmak veya sorunları tanılamak için yardımcı olması için daha fazla veri verir. 
+Genellikle zaten varsa, toplanan kullanacağınız [Application Insights ile Java web hizmetinizin izleme eklenmiş][java]. Uygulamanızın performansını geliştirmek veya sorunları tanılamak için yardımcı olacak daha fazla veri sağlar. 
 
 ![Örnek grafikler](./media/app-insights-java-collectd/sample.png)
 
-## <a name="get-your-instrumentation-key"></a>İzleme anahtarı edinme
-İçinde [Microsoft Azure portal](https://portal.azure.com), açık [Application Insights](app-insights-overview.md) verinin görünmesini istediğiniz yere kaynak. (Veya [yeni bir kaynak oluşturmak](app-insights-create-new-resource.md).)
+## <a name="get-your-instrumentation-key"></a>İzleme anahtarınızı alın
+İçinde [Microsoft Azure Portal'da](https://portal.azure.com)açın [Application Insights](app-insights-overview.md) verilerin görünmesini istediğiniz kaynak. (Veya [yeni kaynak Oluştur](app-insights-create-new-resource.md).)
 
 Kaynağı tanımlayan izleme anahtarını bir kopyasını alın.
 
-![Tümüne Gözat, kaynak açın ve ardından Essentials açılan listeyi seçin ve izleme anahtarını kopyalama](./media/app-insights-java-collectd/02-props.png)
+![Tümüne Gözat, kaynağınızı açın ve ardından temel bileşenler açılan listeyi seçin ve izleme anahtarını kopyalama](./media/app-insights-java-collectd/02-props.png)
 
-## <a name="install-collectd-and-the-plug-in"></a>Collectd ve eklenti yükleme
-Linux sunucusu makineleri üzerinde:
+## <a name="install-collectd-and-the-plug-in"></a>Toplanan ve eklenti yükleme
+Linux sunucusu makinelerinizde:
 
-1. Yükleme [collectd](http://collectd.org/) sürüm 5.4.0 veya sonraki bir sürümü.
-2. Karşıdan [Application Insights collectd yazıcı eklentisi](https://aka.ms/aijavasdk). Sürüm numarasını not edin.
+1. Yükleme [toplanan](http://collectd.org/) sürüm 5.4.0 ya da daha sonra.
+2. İndirme [Application Insights toplanan yazan eklentisi](https://aka.ms/aijavasdk). Sürüm numarasını not edin.
 3. Eklenti JAR içine kopyalama `/usr/share/collectd/java`.
 4. Düzen `/etc/collectd/collectd.conf`:
    * Emin [Java eklentisi](https://collectd.org/wiki/index.php/Plugin:Java) etkinleştirilir.
-   * Aşağıdaki JAR içerecek şekilde JVMArg java.class.path için güncelleştirin. Sürüm numarası indirdiğiniz olanla eşleşecek şekilde güncelleştirin:
+   * Aşağıdaki JAR içerecek şekilde JVMArg java.class.path için güncelleştirin. Sürüm numarasını indirdiğiniz olanla eşleşecek şekilde güncelleştirin:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
-   * Kaynağınız araçları anahtarından kullanarak bu parçacığını ekleyin:
+   * Kaynağınızın izleme anahtarını kullanarak, bu kod parçacığını ekleyin:
 
 ```XML
 
@@ -56,7 +56,7 @@ Linux sunucusu makineleri üzerinde:
      </Plugin>
 ```
 
-Örnek bir yapılandırma dosyası parçası şöyledir:
+Örnek bir yapılandırma dosyası bir bölümü aşağıda verilmiştir:
 
 ```XML
 
@@ -89,49 +89,49 @@ Linux sunucusu makineleri üzerinde:
     ...
 ```
 
-Diğer yapılandırma [collectd eklentileri](https://collectd.org/wiki/index.php/Table_of_Plugins), hangi çeşitli verilerini toplayabilir farklı kaynaklardan.
+Diğer yapılandırma [toplanan eklentileri](https://collectd.org/wiki/index.php/Table_of_Plugins), hangi çeşitli verilerini toplayabilir farklı kaynaklardan gelen.
 
-Collectd göre yeniden kendi [el ile](https://collectd.org/wiki/index.php/First_steps).
+Toplanan göre yeniden kendi [el ile](https://collectd.org/wiki/index.php/First_steps).
 
-## <a name="view-the-data-in-application-insights"></a>Application Insights'ta verileri görüntüleme
-Application Insights kaynağınıza açmak [ölçüm Gezgini ve grafikler ekleyin][metrics], özel kategoriden görmek istediğiniz ölçümleri seçme.
+## <a name="view-the-data-in-application-insights"></a>Application Insights'ta verileri görüntüleyin
+Application Insights kaynağınızı açın [ölçüm Gezgini ve grafikler ekleyin][metrics], özel kategori görmek istediğiniz ölçümleri seçme.
 
 ![](./media/app-insights-java-collectd/result.png)
 
-Varsayılan olarak, ölçümleri ölçümleri toplanmış olan tüm ana bilgisayar makine genelinde toplanır. Ölçümleri ana bilgisayar başına grafik ayrıntıları dikey penceresinde görüntülemek için gruplandırma'yı açın ve ardından tarafından CollectD konak grubu seçin.
+Varsayılan olarak, kendisinden ölçümleri toplanmış olan tüm konak makinelerde ölçümleri toplanır. Grafik ayrıntıları dikey penceresinde, konak başına ölçümleri görüntülemek için gruplandırma'yı açın ve tarafından toplanan konak grubu seçin.
 
-## <a name="to-exclude-upload-of-specific-statistics"></a>Karşıya yükleme belirli istatistik dışlamak için
-Varsayılan olarak, Application Insights eklentisiyle 'eklentileri okuma' tüm etkin collectd tarafından toplanan tüm verileri gönderir. 
+## <a name="to-exclude-upload-of-specific-statistics"></a>Karşıya yükleme belirli İstatistikler dışlamak için
+Varsayılan olarak, Application Insights eklentisi 'eklentileri okuma' tüm etkin toplanan tarafından toplanan tüm verileri gönderir. 
 
-Belirli eklentileri ya da veri kaynağından veri dışlamak için:
+Özel eklentiler ya da veri kaynağından verileri dışlamak için:
 
 * Yapılandırma dosyasını düzenleyin. 
 * İçinde `<Plugin ApplicationInsightsWriter>`, böyle yönerge satırları ekleyin:
 
 | Yönergesi | Etki |
 | --- | --- |
-| `Exclude disk` |Tarafından toplanan tüm veriler hariç `disk` eklentisi |
-| `Exclude disk:read,write` |Adlı kaynaklarını Dışla `read` ve `write` gelen `disk` eklentisi. |
+| `Exclude disk` |Tarafından toplanan tüm verileri dışlamak `disk` eklentisi |
+| `Exclude disk:read,write` |Adlı kaynaklarını hariç tutma `read` ve `write` gelen `disk` eklentisi. |
 
-Bir satır başı karakteri ile ayrı yönergeleri.
+Yeni bir satır ile ayrı yönergeleri.
 
 ## <a name="problems"></a>Sorunlarınız mı var?
-*Veri portalında görmüyorum*
+*Verileri portalında görmüyorum*
 
-* Açık [arama] [ diagnostic] ham olayları ulaşmış olan görmek için. Bazı durumlarda bunlar ölçümleri Explorer'da görünen daha uzun sürer.
-* İçin gerekebilecek [ayarlamak giden veriler için güvenlik duvarı özel durumlar](app-insights-ip-addresses.md)
-* Application Insights eklentisiyle izlemeyi etkinleştirin. İçinde bu satırı ekleyin `<Plugin ApplicationInsightsWriter>`:
+* Açık [arama] [ diagnostic] ham olaylar gelmiş görmek için. Bazen, ölçüm Gezgini'nde görünür daha uzun sürer.
+* Gerekebilir [giden veriler için güvenlik duvarı özel durumlarını ayarlama](app-insights-ip-addresses.md)
+* Application Insights eklentisi içinde izlemeyi etkinleştirin. İçinde bu satırı ekleyin `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
-* Bir Terminali açın ve raporlama herhangi bir sorunla görmek için ayrıntılı modda collectd başlatın:
+* Bir terminal açın ve raporlama tüm sorunları görmek için ayrıntılı modda toplanan başlayın:
   * `sudo collectd -f`
 
-## <a name="known-issue"></a>Bilinen bir sorun
+## <a name="known-issue"></a>Bilinen sorun
 
-Uygulama Öngörüler yazma eklentisi belirli okuma eklentileri ile uyumlu değil. Bazı eklentiler bazen "NaN burada Application Insights eklentisiyle bir kayan noktalı sayı bekliyor" gönderin.
+Application Insights yazma eklentisi, belirli okuma eklenti ile uyumlu değil. Bazı eklentiler, bazen "NaN burada bir kayan noktalı sayı olan Application Insights eklentisi bekliyor" gönderin.
 
-Belirti: Collectd günlük "AI:... dahil hataları gösterir. SyntaxError: beklenmeyen bir belirteç N ".
+Belirti: Toplanan günlük içeren "AI:... hataları gösterir. SyntaxError: beklenmeyen belirteç N ".
 
-Geçici çözüm: sorunu yazma eklentileri tarafından toplanan verileri dışlayın. 
+Geçici çözüm: sorun yazma eklentileri tarafından toplanan veriler hariç tutun. 
 
 <!--Link references-->
 

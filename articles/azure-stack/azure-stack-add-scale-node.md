@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: thoroet
-ms.openlocfilehash: 02602243bcb4e426ebf4984e387da8e8c148232e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 0899b1784c796e5f6265dda842ca8955615a1584
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057745"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718109"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Azure Stack'te ek ölçek birimi düğümleri Ekle
 
@@ -64,7 +64,7 @@ Yeni bir düğüm eklemek için yönetim portalını veya PowerShell'i kullanabi
 ### <a name="use-the-admin-portal"></a>Yönetici portalını kullanma
 
 1. Azure Stack operatörü Azure Stack Yönetici portalında oturum açın.
-2. Gidin **yeni** > **kapasite** > **ölçek birimi düğüm**.
+2. Gidin **+ kaynak Oluştur** > **kapasite** > **ölçek birimi düğüm**.
    ![Ölçek birimi düğümü](media/azure-stack-add-scale-node/select-node1.png)
 3. Üzerinde **Ekle düğüm** bölmesinde *bölge*ve ardından *ölçek birimi* düğüme eklemek istediğiniz. Ayrıca belirtin *BMC IP adresi* eklemekte olduğunuz ölçek birimi düğüm. Bu gibi durumlarda, bir düğüm yalnızca bir kerede ekleyebilirsiniz.
    ![Düğüm ayrıntıları ekleyin](media/azure-stack-add-scale-node/select-node2.png)

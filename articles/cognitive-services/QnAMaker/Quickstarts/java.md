@@ -3,19 +3,19 @@ title: "Hızlı Başlangıç: Soru-cevap Oluşturucu API'si (v4) Java"
 titleSuffix: Azure Cognitive Services
 description: Microsoft Translator metin çevirisi API'si, Azure üzerinde Microsoft Bilişsel hizmetler kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
 services: cognitive-services
-author: nitinme
+author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: b436cbc1efde2e28b388e6bfc1843af1808ea993
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 48876a9cc1e79b99a94e99ced2ad823e7c368a60
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346682"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721679"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Hızlı Başlangıç için Microsoft soru-cevap Oluşturucu API'si ile Java 
 <a name="HOLTop"></a>
@@ -39,19 +39,19 @@ Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturu
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-İhtiyacınız olacak [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) derlemek ve bu kodu çalıştırmak için. Sık kullanılan varsa, ancak bir metin düzenleyicisi ucun yetip Java IDE kullanabilirsiniz.
+Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)’e ihtiyacınız olacak. Sık kullanılan varsa, ancak bir metin düzenleyicisi ucun yetip Java IDE kullanabilirsiniz.
 
-Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Microsoft soru-cevap Oluşturucu API'si**. Ücretli aboneliğe anahtarından gerekir, [Azure panosuna](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+**Microsoft Soru-Cevap Oluşturma API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Azure panonuzdan](https://portal.azure.com/#create/Microsoft.CognitiveServices) ücretli bir abonelik anahtarına ihtiyacınız olacak.
 
 <a name="Create"></a>
 
-## <a name="create-knowledge-base"></a>Bilgi Bankası oluşturma
+## <a name="create-knowledge-base"></a>Bilgi bankası oluşturma
 
-Aşağıdaki kod temel kullanarak yeni bir Bilgi Bankası oluşturur [Oluştur](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) yöntemi.
+Aşağıdaki kod, [Oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) yöntemini kullanarak yeni bir bilgi bankası oluşturur.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```java
@@ -297,11 +297,11 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="update-knowledge-base"></a>Bilgi Bankası güncelleştirme
 
-Aşağıdaki kodu kullanarak temel bir mevcut bilgi güncelleştirmeleri [güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) yöntemi.
+Aşağıdaki kod, [Güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) yöntemini kullanarak mevcut bir bilgi bankasını güncelleştirir.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```java
@@ -597,9 +597,9 @@ Press any key to continue.
 
 <a name="Status"></a>
 
-## <a name="get-request-status"></a>İstek durumunu Al
+## <a name="get-request-status"></a>İstek alma durumu
 
-Çağırabilirsiniz [işlemi](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) oluşturmak ya da bir Bilgi Bankası güncelleştirme isteği durumunu denetlemek için yöntemi. Bu yöntem nasıl kullanıldığını görmek için örnek kod için bkz: [Oluştur](#Create) veya [güncelleştirme](#Update) yöntemi.
+Bilgi bankası oluşturma veya güncelleştirme isteğinin durumunu denetlemek için [İşlem](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) yöntemini çağırabilirsiniz. Bu yöntemin nasıl kullanıldığını görmek için lütfen [Oluşturma](#Create) veya [Güncelleştirme](#Update) yönteminin örnek koduna bakın.
 
 [Başa dön](#HOLTop)
 
@@ -607,11 +607,11 @@ Press any key to continue.
 
 ## <a name="publish-knowledge-base"></a>Bilgi Bankası yayımlama
 
-Aşağıdaki kodu kullanarak temel bir mevcut bilgi yayımlar [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) yöntemi.
+Aşağıdaki kod, [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) yöntemini kullanarak mevcut bir bilgi bankasını yayımlar.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```java
@@ -739,8 +739,8 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 Aşağıdaki kodu kullanarak, temel belirtilen bilgi içeriğini değiştirir [değiştirin](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) yöntemi.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```java
@@ -909,8 +909,8 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 Aşağıdaki kod temel kullanarak belirtilen bilgi içeriğini indirir [indirme Bilgi Bankası](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) yöntemi.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```java
@@ -1053,7 +1053,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 Aşağıdaki kodu kullanarak, belirtilen Bilgi Bankası'nı kullanarak bir sorusunun yanıtlarını alır **yanıtları oluşturmak** yöntemi.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-1. Aşağıda sağlanan kod ekleyin.
+1. Aşağıda sağlanan kodu ekleyin.
 1. Değiştirin `host` soru-cevap Oluşturucu aboneliğiniz için Web sitesi adı değeri. Daha fazla bilgi için [soru-cevap Oluşturucu hizmeti oluşturma](../How-To/set-up-qnamaker-service-azure.md).
 1. Değiştirin `endpoint_key` aboneliğiniz için geçerli uç nokta anahtar ile değeri. Bu abonelik anahtarınız ile aynı olmadığını unutmayın. Uç nokta anahtarlarınızı kullanarak alabileceğiniz [uç nokta anahtarları alma](#GetKeys) yöntemi.
 1. Değiştirin `kb` yanıtları sorgulamak istediğiniz Bilgi Bankası kimliği değeri. Bu Bilgi Bankası gerekir zaten yayınlandı kullanarak Not [Yayımla](#Publish) yöntemi.
@@ -1196,8 +1196,8 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 Aşağıdaki kodu belirtilen bilgi hakkındaki bilgileri kullanarak, temel alır [Bilgi Bankası ayrıntıları alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) yöntemi.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```java
@@ -1323,8 +1323,8 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 Aşağıdaki kod, belirtilen bir kullanıcı için tüm bilgi bankalarından hakkında bilgi alır kullanarak [alma bilgi bankaları için kullanıcı](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) yöntemi.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```java
@@ -1463,8 +1463,8 @@ Press any key to continue.
 Aşağıdaki kodu kullanarak, temel belirtilen bilgi siler [Sil Bilgi Bankası](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) yöntemi.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```java
@@ -1584,8 +1584,8 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 Aşağıdaki kodu kullanarak geçerli uç nokta anahtarlarını alır [uç nokta anahtarları alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) yöntemi.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```java
@@ -1697,8 +1697,8 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 Aşağıdaki kodu kullanarak geçerli uç nokta anahtarlarını yeniden oluşturur [uç nokta anahtarlarını yenileme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) yöntemi.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```java
@@ -1861,8 +1861,8 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 Aşağıdaki kodu kullanarak geçerli sözcüğü değişiklikleri alır [indirme değişiklikleri](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) yöntemi.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```java
@@ -1980,8 +1980,8 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 Aşağıdaki kodu kullanarak geçerli sözcüğü değişiklikleri değiştirir [değiştirin değişiklikleri](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) yöntemi.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```java
@@ -2126,8 +2126,8 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Soru-cevap Oluşturucu (V4) REST API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Soru-Cevap Oluşturma (V4) REST API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
-[Soru-cevap Oluşturucu genel bakış](../Overview/overview.md)
+[Soru-Cevap Oluşturma’ya genel bakış](../Overview/overview.md)

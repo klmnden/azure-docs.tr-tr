@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d111a9f852b849df15dbd056a7210fac82cee190
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: eebe41ea879ad34defadd08ce3095f7f6edca4d8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324264"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719809"
 ---
 # <a name="about-the-text-to-speech-api"></a>Metin okuma hakkında API'si
 
@@ -37,6 +37,21 @@ Konuşmanın oluşturulacağı uygulamanızı konuşma hizmeti için HTTP POST i
 Microsoft **metin okuma** hizmeti, birden fazla 75 seslerle 45'den fazla dil ve yerel ayar sunar. Bu standart "ses tipi" kullanmak için yalnızca hizmetin REST API çağrısı ile diğer bazı parametreler ses adı belirtmeniz gerekir. Desteklenen sesi ayrıntıları için bkz: [desteklenen diller](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech). 
 
 Uygulamanız için benzersiz bir ses isterseniz oluşturabileceğiniz [özel ses tipi](how-to-customize-voice-font.md) gelen kendi konuşma örnekleri.
+
+## <a name="api-capabilities"></a>API özellikleri
+
+Çok sayıda yeteneklerini **metin okuma** - özellikle çevresinde özelleştirmesi - API REST kullanılabilir. Aşağıdaki tabloda, her API erişimi yöntemi yeteneklerini özetler. Özellikler ve API tam listesini consult Lütfen ayrıntıları [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+
+| Kullanım örneği | REST | SDK’lar |
+|-----|-----|-----|----|
+| Ses uyarlama için veri kümelerini karşıya yükleme | Evet | Hayır |
+| Ses yazı tipi modelleri Yönet & Oluştur | Evet | Hayır |
+| Ses yazı tipi dağıtımları yönetmek & Oluştur | Evet | Hayır |
+| Ses yazı tipi testleri yönetmek & Oluştur| Evet | Hayır |
+| Abonelikleri Yönetme | Evet | Hayır |
+
+> [!NOTE]
+> API, API isteklerinin 5 saniye başına 25 sınırlayan azaltma uygular. İleti hearders sınırlarını bilgilendirecektir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c5621d5e16e31104ee28cc521386a5c0ca290a8b
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 66494ca6bd9b4d8276469e85f4c6bb435ae245f7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187708"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716409"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IOT Çözüm Hızlandırıcıları için sık sorulan sorular
 
@@ -73,10 +73,6 @@ Elli. Oluşturabileceğiniz bir [Azure destek bileti](https://portal.azure.com/#
 > DreamSpark için Microsoft Azure artık Öğrenciler için Microsoft Imagine da bilinir.
 
 Şu anda bir çözüm Hızlandırıcı ile oluşturamazsınız. bir [DreamSpark için Microsoft Azure](https://azure.microsoft.com/pricing/member-offers/imagine/) hesabı. Ancak, oluşturabileceğiniz bir [ücretsiz deneme hesabı için Azure](https://azure.microsoft.com/free/) çözüm Hızlandırıcısını sağlayan yalnızca birkaç dakika içinde oluşturun.
-
-### <a name="can-i-create-a-solution-accelerator-if-i-have-cloud-solution-provider-csp-subscription"></a>Çözüm Hızlandırıcısı, bulut çözümü sağlayıcısı (CSP) aboneliği varsa oluşturabilir miyim?
-
-Şu anda bir bulut çözümü sağlayıcısı (CSP) aboneliğiyle çözüm Hızlandırıcısını oluşturamazsınız. Ancak, oluşturabileceğiniz bir [ücretsiz deneme hesabı için Azure](https://azure.microsoft.com/free/) çözüm Hızlandırıcısını sağlayan yalnızca birkaç dakika içinde oluşturun.
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>Bir AAD kiracısını nasıl silerim?
 

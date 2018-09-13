@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 41870f4f3cf4a0aba461021b4787e1ba004e5ead
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: eef84e8c5fb67faef99beec934f29e55365ce811
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095122"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715967"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure işlevleri HTTP ve Web kancası bağlamaları
 
-Bu makalede, Azure işlevleri'nde HTTP bağlamaları ile nasıl çalışılacağı açıklanmaktadır. Azure işlevleri desteklediği HTTP Tetikleyicileri ve çıkış bağlamaları.
+Bu makalede, HTTP Tetikleyicileri ve Azure işlevleri'nde çıkış bağlamaları ile nasıl çalışılacağı açıklanmaktadır. Azure işlevleri desteklediği HTTP Tetikleyicileri ve çıkış bağlamaları.
 
 Yanıt için HTTP tetikleyicisi özelleştirilebilir [Web kancaları](https://en.wikipedia.org/wiki/Webhook). Bir Web kancası tetikleyici yalnızca bir JSON yükü kabul eder ve JSON doğrular. GitHub ve Slack gibi bazı Sağlayıcılarda, gelen Web kancaları işlemek kolaylaştırmak özel Web kancası tetikleyicisine sürümü vardır.
 
@@ -276,7 +276,7 @@ module.exports = function(context, req) {
 
 ### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
 
-Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.json* dosyası ve bir [Java işlevi](functions-reference-java.md) bağlama kullanan. İşlev bir "Hello" ile tetikleme istek gövdesi Karşılama ön ekleri arequest gövdesi ile HTTP durum kodu 200 yanıtının döndürür.
+Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.json* dosyası ve bir [Java işlevi](functions-reference-java.md) bağlama kullanan. İşlev bir "Hello" ile tetikleme istek gövdesi Karşılama ön ek bir istek gövdesi ile bir HTTP durum kodu 200 yanıtı döndürür.
 
 
 İşte *function.json* dosyası:
@@ -504,7 +504,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
 
-C# ve F # işlevleri için ya da giriş, tetikleyici türü bildirebilirsiniz `HttpRequestMessage` veya özel bir tür. Seçerseniz `HttpRequestMessage`, istek nesnesi tam erişim elde edersiniz. Özel bir tür için işlevleri çalışır nesne özelliklerini ayarlamak için JSON isteği gövdesi ayrıştırılamadı. 
+C# ve F # işlevleri için ya da giriş, tetikleyici türü bildirebilirsiniz `HttpRequestMessage` veya özel bir tür. Seçerseniz `HttpRequestMessage`, istek nesnesi tam erişim elde edersiniz. Özel bir tür için çalışma zamanı nesne özelliklerini ayarlamak için JSON istek gövdesini ayrıştırmak çalışır.
 
 JavaScript işlevleri için istek gövdesi istek nesnesi yerine işlevler çalışma zamanı sağlar. Daha fazla bilgi için [JavaScript tetikleyicisi örneğinde](#trigger---javascript-example).
 
@@ -603,47 +603,70 @@ Varsayılan olarak, tüm işlevi yollar ile ön ekli *API*. Ayrıca özelleştir
 
 ### <a name="authorization-keys"></a>Yetkilendirme anahtarları
 
-HTTP Tetikleyicileri ek güvenlik için anahtarları kullanmanıza izin verir. Standart bir HTTP tetikleyicisi anahtar istekte mevcut olmasını gerektiren bir API anahtarı olarak kullanabilirsiniz. Web kancaları, çeşitli yollarla, sağlayıcı neyi desteklediğine bağlı olarak istekleri yetkilendirmek için tuşlarını kullanabilirsiniz.
+İşlevler geliştirme sırasında HTTP işlevi uç noktalarınıza erişmek daha zor hale getirmek için anahtarları kullanmanıza imkan tanır.  Standart bir HTTP tetikleyicisi, böyle bir API anahtarı istekteki gerektirebilir. Web kancaları, çeşitli yollarla, sağlayıcı neyi desteklediğine bağlı olarak istekleri yetkilendirmek için anahtarları kullanabilir.
 
-> [!NOTE]
-> İşlevleri yerel olarak çalışan, yetkilendirme olursa olsun devre dışı bırakılır `authLevel` kümesinde `function.json`. Azure işlevleri'ne yayımlama hemen sonra `authLevel` hemen etkinleşir.
-
-Anahtarlar, azure'daki işlev uygulamanızın bir parçası olarak depolanır ve bekleme sırasında şifrelenir. Anahtarlarınızı görüntülemek için yeni etiketler oluşturabilir veya yeni değerler için anahtarları alma, işlevlerinizin portalında birine gidin ve "Yönet"'i seçin 
+> [!IMPORTANT]
+> Anahtarlar, geliştirme sırasında HTTP uç noktalarınızı karartmak yardımcı olabilir, ancak bunlar üretimde HTTP tetikleyicisi güvenliğini sağlamak için bir yol olarak amaçlanmamıştır. Daha fazla bilgi için bkz. [üretimde bir HTTP uç noktası güvenli](#secure-an-http-endpoint-in-production).
 
 İki tür anahtarlar vardır:
 
-- **Ana bilgisayar anahtarları**: Bu anahtarlar işlev uygulamasında tüm işlevleri tarafından paylaşılır. Bir API anahtarı kullanıldığında, bu işlev uygulaması içinde herhangi bir işlev erişime izin verin.
-- **İşlev anahtarları**: Bu anahtarları altında tanımlı yalnızca belirli işlevler için geçerlidir. Bunlar yalnızca, bir API anahtarı kullanıldığında, bu işlev erişim sağlar.
+* **Ana bilgisayar anahtarları**: Bu anahtarlar işlev uygulamasında tüm işlevleri tarafından paylaşılır. Bir API anahtarı kullanıldığında, bu işlev uygulaması içinde herhangi bir işlev erişime izin verin.
+* **İşlev anahtarları**: Bu anahtarları altında tanımlı yalnızca belirli işlevler için geçerlidir. Bunlar yalnızca, bir API anahtarı kullanıldığında, bu işlev erişim sağlar.
 
 Her anahtar için başvuru olarak adlandırılır ve işlevi ve ana bilgisayar düzeyinde ("varsayılan" adlı) bir varsayılan anahtar yoktur. İşlev tuşları, ana bilgisayar anahtarlarını önceliklidir. İki anahtar da aynı ada sahip tanımlandığında, işlev anahtarı her zaman kullanılır.
 
-**Ana anahtarı** her işlev uygulaması için varsayılan ana bilgisayar anahtarı tanımlanan "ana" olarak adlandırılır. Bu anahtar iptal edilemiyor. Çalışma zamanı API'leri yönetimsel erişim sağlar. Kullanarak `"authLevel": "admin"` herhangi bir tuşa JSON gerektirir; istek sunulması için bu anahtarı bağlamasında Yetkilendirme hatası oluşur.
+Her işlev uygulaması, ayrıca özel bir sahip **ana anahtarı**. Bu anahtar adlı bir konak anahtardır `_master`, çalışma zamanı API'leri yönetimsel erişim sağlar. Bu anahtar iptal edilemiyor. Ayarlarsanız bir yetkilendirme düzeyini `admin`, istekleri, ana anahtarı; kullanmalıdır herhangi bir tuşa Yetkilendirme hatası oluşur.
 
-> [!IMPORTANT]  
-> Ana anahtar ile yükseltilmiş izinler nedeniyle, bu anahtarı üçüncü taraflarla paylaşan veya gerekir yerel istemci uygulamaları dağıtın. Yönetici yetki düzeyi seçerken dikkatli olun.
+> [!CAUTION]  
+> İşlev uygulamanızın ana anahtar ile verilen yükseltilmiş izinler nedeniyle değil üçüncü taraflarla bu anahtarı paylaşan veya yerel istemci uygulamaları dağıtabilirsiniz. Yönetici yetki düzeyi seçerken dikkatli olun.
+
+### <a name="obtaining-keys"></a>Anahtarları alma
+
+Anahtarlar, azure'daki işlev uygulamanızın bir parçası olarak depolanır ve bekleme sırasında şifrelenir. Anahtarlarınızı görüntülemek için yeni değerler oluşturmak veya yeni değerler için anahtarları alma, HTTP ile tetiklenen işlevlerde birine gidin [Azure portalında](https://portal.azure.com) seçip **Yönet**.
+
+![Portalda işlev tuşlarını yönetin.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+
+Program aracılığıyla işlev tuşlarını almak için hiçbir desteklenen API yoktur.
 
 ### <a name="api-key-authorization"></a>API anahtarı kimlik doğrulama
 
-Varsayılan olarak HTTP tetikleyicisi HTTP isteği bir API anahtarı gerektirir. Bu nedenle, HTTP isteği normalde aşağıdaki gibi görünür:
+Çoğu HTTP tetikleyici şablonları, istekteki bir API anahtarı gerektirir. Bu nedenle, HTTP isteği normalde şu URL gibi görünür:
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-Adlı bir sorgu dizesi değişkeni anahtar eklenebilir `code`, yukarıdaki gibi veya içinde eklenebilir bir `x-functions-key` HTTP üstbilgisi. Anahtarın değeri, işlev için tanımlanan herhangi bir işlev tuşu veya herhangi bir ana bilgisayar anahtarı olabilir.
+Adlı bir sorgu dizesi değişkeni anahtar eklenebilir `code`, yukarıdaki gibi. Olarak da eklenebilir bir `x-functions-key` HTTP üstbilgisi. Anahtarın değeri, işlev için tanımlanan herhangi bir işlev tuşu veya herhangi bir ana bilgisayar anahtarı olabilir.
 
 Anahtarları gerektirmeyen anonim isteklere izin verebilirsiniz. Ayrıca ana anahtarı kullanılması gerekebilir. Kullanarak varsayılan yetkilendirme düzeyi değiştirme `authLevel` JSON bağlama bir özellik. Daha fazla bilgi için [tetikleyici - yapılandırma](#trigger---configuration).
 
+> [!NOTE]
+> İşlevleri yerel olarak çalışırken, yetkilendirme bakılmaksızın belirtilen kimlik doğrulama düzeyi ayarı devre dışı bırakıldı. Azure'a yayımlama sonrasında `authLevel` tetikleyicinize ayarı zorunlu tutulur.
+
 ### <a name="keys-and-webhooks"></a>Anahtarlar ve Web kancaları
 
-Web kancası yetkilendirme Web kancası alıcı bileşeni tarafından HTTP tetikleyicisi bir parçası olarak işlenir ve mekanizması Web kancası türüne göre değişir. Her mekanizması yapar, ancak bir anahtar kullanır. Varsayılan olarak, "varsayılan" adlı işlev anahtarı kullanılır. Farklı bir anahtar kullanmak için aşağıdaki yollardan biriyle anahtar adı ile istek göndermek için Web kancası sağlayıcı yapılandırın:
+Web kancası yetkilendirme Web kancası alıcı bileşeni tarafından HTTP tetikleyicisi bir parçası olarak işlenir ve mekanizması Web kancası türüne göre değişir. Her mekanizmasının bir anahtara bağlıdır. Varsayılan olarak, "varsayılan" adlı işlev anahtarı kullanılır. Farklı bir anahtar kullanmak için aşağıdaki yollardan biriyle anahtar adı ile istek göndermek için Web kancası sağlayıcı yapılandırın:
 
-- **Sorgu dizesi**: sağlayıcı anahtar adı geçen `clientid` gibi sorgu dizesi parametresi, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-- **İstek üstbilgisi**: sağlayıcı anahtar adı geçen `x-functions-clientid` başlığı.
+* **Sorgu dizesi**: sağlayıcı anahtar adı geçen `clientid` gibi sorgu dizesi parametresi, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **İstek üstbilgisi**: sağlayıcı anahtar adı geçen `x-functions-clientid` başlığı.
+
+Bir anahtar ile güvenli bir Web kancası örneği için bkz: [bir GitHub Web kancası tarafından tetiklenen bir işlev oluşturma](functions-create-github-webhook-triggered-function.md).
+
+### <a name="secure-an-http-endpoint-in-production"></a>Bir HTTP uç noktası üretimde güvenliğini sağlama
+
+Tam olarak üretim ortamında işlevi uç noktalarınızı güvenliğini sağlamak için uygulama aşağıdaki işlevi uygulama düzeyinde güvenlik seçeneklerden birini dikkate almanız gerekir:
+
+* App Service yetkilendirme/kimlik doğrulama işlev uygulamanız için etkinleştirin. App Service platformu, kullanıcıların kimliklerini doğrulamak için güvenilen bir üçüncü taraf kimlik sağlayıcıları Azure Active Directory (AAD) ve hizmet sorumlusu kimlik doğrulaması kullanmak sağlar. Bu özellik etkinleştirildiğinde, işlev uygulamanızı yalnızca kimliği doğrulanmış kullanıcılar erişebilir. Daha fazla bilgi için bkz. [App Service uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+
+* Azure API Management (APIM) isteklerinin kimliğini doğrulamak için kullanın. APIM API'si güvenlik seçenekleri gelen istekler için çeşitli sağlar. Daha fazla bilgi için bkz. [API Management kimlik doğrulama ilkeleri](../api-management/api-management-authentication-policies.md). Yerinde APIM ile işlev uygulamanızı APIM Örneğinize PI adresini yalnızca gelen istekleri kabul edecek şekilde yapılandırabilirsiniz. Daha fazla bilgi için bkz. [IP adresi sınırlamaları](ip-addresses.md#ip-address-restrictions).
+
+* Bir Azure App Service ortamı (ASE) için işlev uygulamanızı dağıtın. ASE işlevlerinizi çalıştırmak için adanmış bir barındırma ortamı sağlar. ASE gelen tüm istekleri kimliğini doğrulamak için kullanabileceğiniz tek bir ön uç ağ geçidi yapılandırmanızı sağlar. Daha fazla bilgi için [App Service ortamı için bir Web uygulaması Güvenlik Duvarı (WAF) yapılandırma](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
+
+Bu işlev uygulama düzeyinde güvenlik yöntemlerden birini kullanarak, HTTP ile tetiklenen işlev kimlik doğrulama düzeyini ayarlamalısınız `anonymous`.
 
 ## <a name="trigger---limits"></a>Tetikleyici - sınırları
 
 HTTP isteği uzunluğu (104,857,600 bayt) 100 MB ile sınırlıdır ve URL uzunluğu (bayt 4.096) 4 KB sınırlıdır. Bu sınırlar tarafından belirtilen `httpRuntime` çalışma zamanının öğesinin [Web.config dosyasını](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
-Kullanan bir işlev, HTTP tetikleyicisi yaklaşık 2,5 dakika içinde ağ geçidi işlem zaman aşımı tamamlamak değil ve HTTP 502 hata döndürür. İşlev çalışmaya devam eder, ancak bir HTTP yanıtının geri dönmek mümkün olmayacaktır. Uzun süre çalışan işlevler için zaman uyumsuz desenleri izleyin ve burada isteğinin durumu ping atabilirsiniz bir konum döndürür öneririz. Bir işlev ne kadar çalıştırabilirsiniz hakkında daha fazla bilgi için bkz: [tüketim ölçeklendirme ve barındırma - planı](functions-scale.md#consumption-plan). 
+Kullanan bir işlev, HTTP tetikleyicisi olmayan tamamlamak yaklaşık 2,5 dakika içinde ağ geçidi zaman aşımına uğrar ve HTTP 502 hata döndürür. İşlev çalışmaya devam eder, ancak bir HTTP yanıtının geri dönmek mümkün olmayacaktır. Uzun süre çalışan işlevler için zaman uyumsuz desenleri izleyin ve burada isteğinin durumu ping atabilirsiniz bir konum döndürür öneririz. Bir işlev ne kadar çalıştırabilirsiniz hakkında daha fazla bilgi için bkz: [tüketim ölçeklendirme ve barındırma - planı](functions-scale.md#consumption-plan). 
 
 ## <a name="trigger---hostjson-properties"></a>Tetikleyici - host.json özellikleri
 
@@ -657,7 +680,7 @@ HTTP isteği gönderene yanıt bağlama HTTP çıkış kullanın. Bu bağlama, b
 
 ## <a name="output---configuration"></a>Çıkış - yapılandırma
 
-Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya. İçin C# sınıf kitaplıkları var. Bu karşılık gelen hiçbir öznitelik özellikleri vardır ve *function.json* özellikleri. 
+Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya. C# sınıf kitaplıkları için bunlar için karşılık gelen öznitelik özellikleri yoktur *function.json* özellikleri. 
 
 |Özellik  |Açıklama  |
 |---------|---------|

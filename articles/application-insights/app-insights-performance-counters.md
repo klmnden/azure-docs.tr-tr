@@ -1,8 +1,8 @@
 ---
-title: "Performans sayaçları Application Insights | Microsoft Docs"
-description: "Sistem ve Application Insights özel .NET performans sayaçları izleyin."
+title: Performans sayaçlarını Application ınsights | Microsoft Docs
+description: Sistem ve Application ınsights'ta özel .NET performans sayaçları izleyin.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
@@ -10,47 +10,48 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 40821d32c5bdfe51bb3cb205660d6f25b2c3fadc
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 7ac0a5c00e0badf8882010ae0643f8ead98b56e0
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651001"
 ---
-# <a name="system-performance-counters-in-application-insights"></a>Application Insights sistem performans sayaçları
-Windows, çok çeşitli sağlar [performans sayaçları](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) CPU doluluğu, bellek, disk ve ağ kullanımı gibi. Ayrıca kendi tanımlayabilirsiniz. [Application Insights](app-insights-overview.md) bu performans sayaçlarını bir şirket içi ana bilgisayar veya sanal makinede yönetici erişimi için elinizde uygulamanız IIS altında çalışıp çalışmadığını gösterebilir. Grafikler, Canlı uygulamanızın kullanılabilir kaynakları belirtmek ve sunucu örnekleri arasında dengesiz yük belirlemenize yardımcı olabilir.
+# <a name="system-performance-counters-in-application-insights"></a>Application ınsights'ta sistem performans sayaçları
+Windows sağlayan çok çeşitli [performans sayaçları](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) CPU doluluğu, bellek, disk ve ağ kullanımı gibi. Ayrıca kendi tanımlayabilirsiniz. [Application Insights](app-insights-overview.md) bu performans sayaçlarını bir şirket içi konak veya sanal makinede yönetimsel erişim sahibi uygulamanızı IIS altında çalışıp çalışmadığını gösterebilir. Grafik Canlı uygulamanızın kullanabileceği kaynakları belirtmek ve sunucu örnekleri arasında dengesiz yük belirlemenize yardımcı olabilir.
 
-Performans sayaçları tablo sunucu örneği tarafından bu parçaları içeren sunucuları dikey penceresinde görünür.
+Performans sayaçları, bir tablo, sunucu örneği tarafından bu parçaları içerir sunucuları dikey penceresinde görünür.
 
-![Application Insights'ta bildirilen performans sayaçları](./media/app-insights-performance-counters/counters-by-server-instance.png)
+![Uygulama anlayışları'nda bildirilen performans sayaçları](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(Performans sayaçlarını Azure Web uygulamaları için kullanılabilir değil. Ancak [Application Insights'a Azure Tanılama verileri gönderme](app-insights-azure-diagnostics.md).)
+(Performans sayaçları Azure Web Apps için kullanılamaz. Ancak [Application Insights'a Azure Tanılama verileri gönderme](app-insights-azure-diagnostics.md).)
 
 ## <a name="view-counters"></a>Sayaçları görüntüleyin
-Sunucuları dikey penceresine varsayılan bir performans sayaçlarını gösterir. 
+Sunucu dikey penceresinde varsayılan birtakım performans sayaçlarını gösterir. 
 
-Diğer sayaçları görmek için sunucuları dikey penceresine grafiklerde düzenleyin veya yeni bir [ölçüm Gezgini](app-insights-metrics-explorer.md) dikey ve yeni grafikler ekleyin. 
+Diğer sayaçları görmek için sunucu dikey penceresinde grafikleri düzenlemek veya yeni bir [ölçüm Gezgini](app-insights-metrics-explorer.md) dikey penceresinde ve yeni bir grafik ekleyin. 
 
-Bir grafiği düzenlediğinizde kullanılabilir sayaçlar ölçümleri listelenir.
+Bir grafik düzenlerken kullanılabilir sayaçları ölçümler olarak listelenir.
 
-![Application Insights'ta bildirilen performans sayaçları](./media/app-insights-performance-counters/choose-performance-counters.png)
+![Uygulama anlayışları'nda bildirilen performans sayaçları](./media/app-insights-performance-counters/choose-performance-counters.png)
 
-Tek bir yerde tüm en yararlı grafikleri görmek için oluşturma bir [Pano](app-insights-dashboards.md) ve bunları sabitleyebilirsiniz.
+Tek bir yerde tüm faydalı grafikleri görmek için oluşturun bir [Pano](app-insights-dashboards.md) ve bunları sabitleyin.
 
-## <a name="add-counters"></a>Sayaç ekleme
-İstediğiniz performans sayacı ölçümleri listesinde gösterilen değil, Application Insights SDK'sı web sunucunuz toplama değil çünkü olmasıdır. Bunu yapmak için yapılandırabilirsiniz.
+## <a name="add-counters"></a>Sayaçları ekleme
+Performans sayacı, istediğiniz ölçümleri listesinde gösterilmiyor, Application Insights SDK'sı web sunucunuza toplama değildir çünkü olmasıdır. Bunu yapmak için yapılandırabilirsiniz.
 
-1. Hangi sayaçları sunucuda bu PowerShell komutunu kullanarak sunucunuzun kullanılabilir olduğunu bulabilirsiniz:
+1. Hangi sayaç sunucuda bu PowerShell komutunu kullanarak sunucunuzun kullanılabilir olduğunu bulun:
    
     `Get-Counter -ListSet *`
    
     (Bkz [ `Get-Counter` ](https://technet.microsoft.com/library/hh849685.aspx).)
-2. Applicationınsights.config açın.
+2. Applicationınsights.config dosyasını açın.
    
-   * Geliştirme sırasında uygulamanıza Application Insights eklediyseniz, projenizde Applicationınsights.config düzenlemek ve sunucularınıza yeniden dağıtın.
-   * Çalışma zamanında bir web uygulaması izleme için Durum İzleyicisi kullandıysanız, IIS'de uygulamanızın kök dizininde Applicationınsights.config bulun. Var. her sunucu örneğinde güncelleştirin.
+   * Geliştirme sırasında uygulamanıza Application Insights eklediyseniz, projenizde applicationınsights.config dosyasını düzenleyin ve sunucularınıza yeniden dağıtın.
+   * Çalışma zamanında bir web uygulaması izleme için Durum İzleyicisi'ni kullandıysanız, IIS uygulama kök dizinindeki applicationınsights.config dosyasını bulun. Öğeyi bir var her sunucu örneğinde güncelleştirin.
 3. Performans Toplayıcı yönergesi düzenleyin:
    
 ```XML
@@ -64,16 +65,16 @@ Tek bir yerde tüm en yararlı grafikleri görmek için oluşturma bir [Pano](ap
 
 ```
 
-Standart sayaçları hem olanlar kendiniz uyguladık yakalayabilirsiniz. `\Objects\Processes`Standart bir sayaç örneği tüm Windows sistemlerinde kullanılabilir. `\Sales(photo)\# Items Sold`bir web hizmeti uygulanan özel bir sayaç örneğidir. 
+Standart sayaçları hem bunları kendiniz uyguladıysanız yakalayabilirsiniz. `\Objects\Processes` Standart bir sayaç örneği olan tüm Windows sistemlerinde kullanılabilir. `\Sales(photo)\# Items Sold` bir web hizmetinde uygulanan özel bir sayaç örneğidir. 
 
-Biçim `\Category(instance)\Counter"`, veya örnekleri yok kategoriler, sadece `\Category\Counter`.
+Biçim `\Category(instance)\Counter"`, veya örnekleri için kategorileri, sadece `\Category\Counter`.
 
-`ReportAs`Eşleşmeyen sayaç adları için gerekli olan `[a-zA-Z()/-_ \.]+` -diğer bir deyişle, aşağıdaki kümelerinde olmayan karakter içerir: harfler, köşeli ayraçlar, eğik çizgi, tire, alt çizgi, boşluk, yuvarlak nokta.
+`ReportAs` Eşleşmeyen sayaç adları için gerekli olan `[a-zA-Z()/-_ \.]+` -diğer bir deyişle, bunlar aşağıdaki kümelerinde olmayan karakterler içeren: harf, yuvarlak köşeli ayraçlar, eğik çizgi, tire, alt çizgi, boşluk, nokta.
 
-Bir örnek belirtirseniz, boyut olarak bildirilen ölçüsünün "CounterInstanceName" toplanacaktır.
+Bir örnek belirtirseniz, boyut bildirilen ölçümün "CounterInstanceName" toplanmayacak.
 
-### <a name="collecting-performance-counters-in-code"></a>Kodda performans sayaçlarını toplama
-Sistem performans sayaçları toplamak ve Application Insights'a gönderme için aşağıdaki kod parçacığında uyum sağlayabilir:
+### <a name="collecting-performance-counters-in-code"></a>Koddaki performans sayaçlarını toplama
+Sistem performans sayaçları toplamak ve bunları Application Insights'a gönderme hakkında bilgi için aşağıdaki kod parçacığında uyum sağlayabilir:
 
 
 ``` C#
@@ -83,7 +84,7 @@ Sistem performans sayaçları toplamak ve Application Insights'a gönderme için
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
-Veya, oluşturduğunuz özel ölçümleri ile aynı şey yapabilirsiniz:
+Veya, oluşturduğunuz özel ölçümler ile aynı şeyi yapmak için:
 
 ``` C#
     var perfCollectorModule = new PerformanceCollectorModule();
@@ -92,34 +93,34 @@ Veya, oluşturduğunuz özel ölçümleri ile aynı şey yapabilirsiniz:
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
 
-## <a name="performance-counters-in-analytics"></a>Analytics performans sayaçları
+## <a name="performance-counters-in-analytics"></a>Analytics'te performans sayaçları
 Arama ve performans sayacı raporlarda görüntüleme [Analytics](app-insights-analytics.md).
 
-**PerformanceCounters** şeması sunan `category`, `counter` adı ve `instance` her performans sayacı adı.  Her uygulama için telemetri yalnızca bu uygulama için sayaçları görürsünüz. Örneğin, görmek için hangi sayaçları kullanılabilir: 
+**PerformanceCounters** şema sunan `category`, `counter` adı ve `instance` her performans sayacının adı.  Her uygulama için telemetriyi yalnızca bu uygulama için sayaçları görürsünüz. Örneğin, görmek için hangi sayaçları kullanılabilir: 
 
 ![Application Insights analytics performans sayaçları](./media/app-insights-performance-counters/analytics-performance-counters.png)
 
-('Instance' burada başvuruyor performans sayacı örneği için değil rol veya sunucu makine örneği. Performans sayacı örneği adı genellikle sayaçları işlemci zamanı gibi işlem ya da uygulama adıyla kesim.)
+('İnstance' burada performans sayacı örneğine başvurur değil rol veya sunucu makine örneği. Performans sayacı örneği adı genellikle sayaçları işlemci zamanı gibi işlem veya uygulama adıyla ayırır.)
 
-Bir grafik, kullanılabilir belleğin son süresi içinde almak için: 
+Son dönem boyunca kullanılabilir belleğin bir grafik almak için: 
 
-![Application Insights analytics'te bellek timechart](./media/app-insights-performance-counters/analytics-available-memory.png)
+![Application Insights Analytics bellek zaman grafiğini](./media/app-insights-performance-counters/analytics-available-memory.png)
 
-Gibi diğer telemetri **performanceCounters** de bir sütuna sahip `cloud_RoleInstance` uygulamanızı çalıştıran ana bilgisayar sunucu örneğinin kimliğini gösterir. Örneğin, uygulamanızın performansı ile farklı makinelerde karşılaştırmak için şunu yazın: 
+Gibi diğer telemetri **performanceCounters** bir sütunda da `cloud_RoleInstance` uygulamanızın üzerinde çalıştığı ana bilgisayar sunucu örneğinin kimliğini belirtir. Örneğin, farklı makinelerde uygulamanızın performansını karşılaştırmak için şunu yazın: 
 
-![Performans rol örneğinde Application Insights tarafından analiz bölümlenmiş.](./media/app-insights-performance-counters/analytics-metrics-role-instance.png)
+![Application Insights Analytics rol örneği ile bölümlenmiş performans](./media/app-insights-performance-counters/analytics-metrics-role-instance.png)
 
-## <a name="aspnet-and-application-insights-counts"></a>ASP.NET ve Application Insights sayılar
-*Özel durum oranı ve özel durumları ölçümleri arasındaki fark nedir?*
+## <a name="aspnet-and-application-insights-counts"></a>ASP.NET ve Application Insights sayıları
+*Özel durum oranı ve özel durumlar ölçümleri arasındaki fark nedir?*
 
-* *Özel durum oranı* bir sistem performans sayacı. CLR oluşturulan ve toplam bir örnekleme aralığı içinde aralık uzunluğu ile böler tüm işlenen ve işlenmeyen özel durumları sayar. Application Insights SDK'sı bu sonucu toplar ve portala gönderir.
-* *Özel durumlar* grafiğin örnekleme aralığı portalında tarafından alınan TrackException raporları sayısıdır. Burada yazdığınız TrackException kodunuzda çağırır ve tüm içermeyen yalnızca işlenmiş özel durumları içerir [işlenmeyen özel durumlar](app-insights-asp-net-exceptions.md). 
+* *Özel durum oranı* bir sistem performans sayacı. CLR atılır ve toplam aralığı uzunluğu tarafından bir örnekleme aralığındaki böler tüm işlenen ve yakalanamayan özel durumları sayar. Application Insights SDK'sı, bu sonuç toplar ve portala gönderir.
+* *Özel durumlar* grafiğin örnekleme aralığı portalda tarafından alınan TrackException raporlarının sayısı. Burada yazdığınız TrackException kodunuzda çağırır ve tüm içermez yalnızca işlenen özel durumları içerir [işlenmeyen özel durumları](app-insights-asp-net-exceptions.md). 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>Asp.Net Core uygulamaları performans sayaçları
-Performans sayaçları, yalnızca uygulamanın tam .NET Framework hedefliyorsa desteklenir. .Net için performans sayaçlarını toplama yeteneği yoktur çekirdek uygulamalar.
+## <a name="performance-counters-in-aspnet-core-applications"></a>Asp.Net Core uygulamalarında performans sayaçları
+Performans sayaçları, uygulamanın tam .NET Framework yalnızca hedeflediği ise desteklenir. .Net Core için performans sayaçlarını toplama yeteneği yoktur uygulamalar.
 
 ## <a name="alerts"></a>Uyarılar
-Diğer ölçümleri gibi aşağıdakileri yapabilirsiniz [bir uyarı ayarlamak](app-insights-alerts.md) bir performans sayacı belirttiğiniz bir sınır dışında giderilmediğine sizi uyarır. Uyarıları dikey penceresini açın ve eklemek uyarı'ı tıklatın.
+Diğer ölçümler gibi yapabilecekleriniz [uyarı ayarlama](app-insights-alerts.md) bir performans sayacı belirttiğiniz sınırı dışında aşması durumunda sizi uyarır. Uyarılar dikey penceresini açın ve eklemek uyarı tıklayın.
 
 ## <a name="next"></a>Sonraki adımlar
 * [Bağımlılık izleme](app-insights-asp-net-dependencies.md)

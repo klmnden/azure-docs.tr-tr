@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 753c48665bb3b0e59928b114860e89a9b7d10eae
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1635d0fa51fb56f30dc7cf5864e49000d30cc25d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294555"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719792"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarlarını Kaydet
 
@@ -106,14 +106,13 @@ Hızlı bir prototip yazma ve Azure kaynaklarını hazırlayacak istemiyorsanız
 2. İzleme için benzer bir dosya oluşturun. Altındaki proje klasörünüzün dışında bir konuma kaydedin.
 
     ```xml
-
-       <root>
-              <secrets ver="1.0">
-                     <secret name="secret1" value="foo_one" />
-                        <secret name="secret2" value="foo_two" />
-                       </secrets>
-      </root>
-      ```
+    <root>
+        <secrets ver="1.0">
+            <secret name="secret1" value="foo_one" />
+            <secret name="secret2" value="foo_two" />
+        </secrets>
+    </root>
+    ```
 
 3. Bir yapılandırma Oluşturucu, Web.config dosyasında olmasını gizli dizi dosyasını tanımlayın. Bu bölümde önce yerleştirin *appSettings* bölümü.
 

@@ -1,25 +1,25 @@
 ---
-title: Azure Machine Learning modeli yönetim komut satırı arabirimi başvurusu | Microsoft Docs
-description: Azure Machine Learning modeli yönetim komut satırı arabirimi başvurusu.
+title: Azure Machine Learning Model yönetimi komut satırı arabirimi başvurusu | Microsoft Docs
+description: Azure Machine Learning Model yönetimi komut satırı arabirimi başvurusu.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 540f22e38201ec488d8e2c1d7494bc83d7b83a7e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9e69f2e71cce6d689669838785ce992fbbcfa940
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831930"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651482"
 ---
-# <a name="model-management-command-line-interface-reference"></a>Model yönetim komut satırı arabirimi başvurusu
+# <a name="model-management-command-line-interface-reference"></a>Model yönetimi komut satırı arabirimi başvurusu
 
 ## <a name="base-cli-concepts"></a>Temel CLI Kavramları:
 
@@ -30,8 +30,8 @@ ms.locfileid: "34831930"
     model   : Manage operationalization models.
     service : Manage operationalized services.
 
-## <a name="account-commands"></a>Hesap komutları
-Bir model yönetim hesabı dağıtmak ve modelleri yönetmek izin hizmetleri kullanmak için gereklidir. Kullanım `az ml account modelmanagement -h` aşağıdaki listesini görmek için:
+## <a name="account-commands"></a>Hesabı komutları
+Model Yönetimi hesabı model dağıtıp yönetmek izin hizmetlerini kullanacak biçimde gereklidir. Kullanım `az ml account modelmanagement -h` için aşağıdaki listeye bakın:
 
     create: Create a Model Management Account.
     delete: Delete a specified Model Management Account.
@@ -40,13 +40,13 @@ Bir model yönetim hesabı dağıtmak ve modelleri yönetmek izin hizmetleri kul
     show  : Show a Model Management Account.
     update: Update an existing Model Management Account.
 
-**Model yönetim hesabı oluşturun**
+**Model Yönetimi hesabı oluşturma**
 
-Fatura aşağıdaki komutu kullanarak bir model yönetim hesabı oluşturun:
+Faturalandırma aşağıdaki komutu kullanarak bir model Yönetimi hesabı oluşturun:
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
-Yerel değişkenleri:
+Yerel bağımsız değişkenleri:
 
     --location -l       [Required]: Resource location.
     --name -n           [Required]: Name of the model management account.
@@ -70,15 +70,15 @@ Yerel değişkenleri:
     show           : Show an MLC resource; if resource_group or cluster_name are not provided, shows
                      the active MLC env.
 
-**Dağıtım ortamını ayarlama**
+**Dağıtım ortamı ayarlayın**
 
-Kurulum komutu katkıda bulunan abonelik erişimi gerektirir. Bu erişiminiz yoksa, en azından içine dağıtım yaptığınız kaynak grubu üzerinde Katkıda Bulunan erişime ihtiyacınız vardır. İkincisini yapmak için, kurulum komutunun içinde `-g` bayrağını kullanıp kaynak grubunu adını belirtmelisiniz. 
+Kurulum komutu aboneliğe katkıda bulunan erişimine sahip olmanız gerekir. Bu erişiminiz yoksa, en azından içine dağıtım yaptığınız kaynak grubu üzerinde Katkıda Bulunan erişime ihtiyacınız vardır. İkincisini yapmak için, kurulum komutunun içinde `-g` bayrağını kullanıp kaynak grubunu adını belirtmelisiniz. 
 
-Dağıtımı için iki seçenek vardır: *yerel* ve *küme*. Ayarı `--cluster` (veya `-c`) bayrağı ACS küme hazırlar Küme dağıtımı sağlar. Temel kurulum söz dizimi aşağıdaki gibidir:
+Dağıtım için iki seçenek vardır: *yerel* ve *küme*. Ayarı `--cluster` (veya `-c`) bayrağı, bir ACS kümesi sağlayan Küme dağıtımı sağlar. Temel kurulum söz dizimi aşağıdaki gibidir:
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
-Bu komut bir depolama hesabı, ACR kayıt defteri ve App Insights hizmeti, aboneliğinizde oluşturuldu ortamıyla öğrenme makinenizi Azure başlatır. Bayrak belirtilmezse varsayılan olarak, ortamın yerel dağıtımları için yalnızca (ACS yok) başlatıldı. Hizmeti ölçeklendirmek gerekiyorsa, belirtin `--cluster` (veya `-c`) bir ACS küme oluşturmak için bayrak.
+Bu komut Azure makine öğrenimi bir depolama hesabı, ACR kayıt defteri ve App Insights hizmetini aboneliğinizde oluşturduğunuz ortamı başlatır. Bayrak belirtilmezse varsayılan olarak, yerel dağıtımlar için yalnızca (ACS yok) ortamı başlatılır. Hizmet ölçeklendirme gerekiyorsa belirtin `--cluster` (veya `-c`) bir ACS kümesi oluşturmak için bayrak.
 
 Komut ayrıntıları:
 
@@ -98,7 +98,7 @@ Komut ayrıntıları:
     --storage -s                   : ARM ID of storage account to associate with this environment.
     --yes -y                       : Flag to answer 'yes' to any prompts. Command fails if user is not logged in.
 
-Genel bağımsız değişkenler
+Genel bağımsız değişkenleri
 ```
     --debug                        : Increase logging verbosity to show all debug logs.
     --help -h                      : Show this help message and exit.
@@ -112,9 +112,9 @@ Genel bağımsız değişkenler
     register
     show
 
-**Bir model Kaydet**
+**Bir modeli kaydedin**
 
-Model kaydetmek için komutu.
+Modeli kaydetmeyi komutu.
 
 `az ml model register --model [path to model file] --name [model name]`
 
@@ -126,7 +126,7 @@ Komut ayrıntıları:
     --tag -t             : Tags for the model. Multiple tags can be specified with additional -t arguments.
     -v                   : Verbosity flag.
 
-Genel bağımsız değişkenler
+Genel bağımsız değişkenleri
 
     --debug              : Increase logging verbosity to show all debug logs.
     --help -h            : Show this help message and exit.
@@ -145,7 +145,7 @@ Genel bağımsız değişkenler
 
 **Bildirimi oluşturma**
 
-Aşağıdaki komut modeli için bir bildirim dosyası oluşturur. 
+Aşağıdaki komut, modeli için bir bildirim dosyası oluşturur. 
 
 `az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]`
 
@@ -162,17 +162,17 @@ Komut ayrıntıları:
     -p                           : A pip requirements.txt file needed by the code file.
     -v                           : Verbosity flag.
 
-Kayıtlı modeli bağımsız değişkenler
+Kayıtlı modeli bağımsız değişkenleri
 
     --model-id -i                : [Required] Id of previously registered model to add to manifest.
                                    Multiple models can be specified with additional -i arguments.
 
-Kaydı modeli bağımsız değişkenler
+Kaydedilmemiş modeli bağımsız değişkenleri
 
     --model-file -m              : [Required] Model file to register. If used, must be combined with
                                    model name.
 
-Genel bağımsız değişkenler
+Genel bağımsız değişkenleri
 
     --debug                      : Increase logging verbosity to show all debug logs.
     --help -h                    : Show this help message and exit.
@@ -193,11 +193,11 @@ Genel bağımsız değişkenler
 
 **Görüntü oluşturma**
 
-Önce kendi bildirimi oluşturduktan seçeneği bir görüntü oluşturabilirsiniz. 
+Önce bildirim oluşturulduktan sonra seçeneğiyle bir görüntü oluşturabilirsiniz. 
 
 `az ml image create -n [image name] --manifest-id [the manifest ID]`
 
-Veya bildirimi oluşturma ve tek bir komutla görüntü. 
+Bildirim oluşturmak ve tek bir komutla görüntü. 
 
 `az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]`
 
@@ -208,11 +208,11 @@ Komut ayrıntıları:
     --image-type              : The image type to create. Defaults to "Docker".
     -v                        : Verbosity flag.
 
-Kayıtlı bildirim bağımsız değişkenler
+Kayıtlı bildirim bağımsız değişkenleri
 
     --manifest-id             : [Required] Id of previously registered manifest to use in image creation.
 
-Kaydı bildirim bağımsız değişkenler
+Bildirim kaydı bağımsız değişkenleri
 
     --conda-file -c           : Path to Conda Environment file.
     --dependency -d           : Files and directories required by the service. Multiple dependencies can
@@ -225,7 +225,7 @@ Kaydı bildirim bağımsız değişkenler
 
 
 ## <a name="service-commands"></a>Hizmeti komutları
-Aşağıdaki komutları hizmeti için desteklenir. Her komut parametreleri görmek için -h seçeneğini kullanın. Örneğin, `az ml service create realtime -h` görmek için komutu ayrıntıları oluşturun.
+Aşağıdaki komutlar, hizmet için desteklenir. Her komut için parametreler görmek için -h seçeneğini kullanın. Örneğin, `az ml service create realtime -h` görmek için komut ayrıntıları oluşturun.
 
     create
     delete
@@ -239,11 +239,11 @@ Aşağıdaki komutları hizmeti için desteklenir. Her komut parametreleri görm
 
 **Hizmet oluşturma**
 
-Önceden oluşturulmuş bir görüntüyle bir hizmet oluşturmak için aşağıdaki komutu kullanın:
+Önceden oluşturulmuş bir görüntü ile bir hizmet oluşturmak için aşağıdaki komutu kullanın:
 
 `az ml service create realtime --image-id [image to deploy] -n [service name]`
 
-Bir hizmet oluşturmak için bildirim ve tek bir komut görüntüsüyle aşağıdaki komutu kullanın:
+Bir hizmet oluşturmak için bildirim ve görüntü tek bir komutla aşağıdaki komutu kullanın:
 
 `az ml service create realtime --model-file [path to model file(s)] -f [path to model scoring file, e.g. score.py] -n [service name] -r [run time included in the image, e.g. spark-py]`
 
@@ -264,11 +264,11 @@ Komutları ayrıntıları:
     -v                                : Verbosity flag.
     -z                                : Number of replicas for a Kubernetes service.  Default: 1.
 
-Kayıtlı görüntü bağımsız değişkenler
+Kayıtlı görüntü bağımsız değişkenleri
 
     --image-id                        : [Required] Image to deploy to the service.
 
-Kaydı görüntü bağımsız değişkenler
+Kaydı görüntü bağımsız değişkenleri
 
     --conda-file -c                   : Path to Conda Environment file.
     --image-type                      : The image type to create. Defaults to "Docker".
@@ -280,7 +280,7 @@ Kaydı görüntü bağımsız değişkenler
     -r                                : [Required] Runtime of the web service. Valid runtimes are python|spark-py.
     -s                                : Input and output schema of the web service.
 
-Genel bağımsız değişkenler
+Genel bağımsız değişkenleri
 
     --debug                           : Increase logging verbosity to show all debug logs.
     --help -h                         : Show this help message and exit.
@@ -289,13 +289,13 @@ Genel bağımsız değişkenler
     --verbose                         : Increase logging verbosity. Use --debug for full debug logs.
 
 
-Üzerinde Not `-d` bağımlılıkları ekleme bayrağı: adını geçirirseniz zaten bir dizin paketlenmiş (ZIP, tar, vb.), bu dizine otomatik olarak tar'ed alır ve bunların sonra otomatik olarak diğer tarafta unbundled geçirilir. 
+Not alın `-d` bağımlılıkları ekleme bayrağı: henüz bir dizin adını geçirirseniz paket (zip, hedefi, vb.), bu dizine otomatik olarak tar'ed alır ve bunların sonra otomatik olarak diğer tarafta unbundled geçirilir. 
 
-Zaten paketlenmiş bir dizinde geçirirseniz, dizin bir dosya olarak kabul edilir ve boyunca olarak geçirildi. Otomatik olarak unbundled; Kodunuzda işleyen beklenir.
+Önceden paketlenmiş bir dizinde geçirirseniz, dizine bir dosya olarak kabul edilir ve boyunca olarak geçirilen. Otomatik olarak unbundled; Kodunuzda işleyecek beklenir.
 
-**Hizmet Ayrıntıları**
+**Hizmet ayrıntılarını Al**
 
-URL, kullanımı (bir şema oluşturduysanız örnek veriler dahil) dahil olmak üzere hizmet ayrıntıları alın.
+URL (bir şema oluşturulduysa örnek veriler dahil) kullanımı dahil olmak üzere hizmet ayrıntıları alın.
 
 `az ml service show realtime --name [service name]`
 
@@ -305,7 +305,7 @@ Komut ayrıntıları:
     --name -n  : Webservice name.
     -v         : Verbosity flag.
 
-Genel bağımsız değişkenler
+Genel bağımsız değişkenleri
 
     --debug    : Increase logging verbosity to show all debug logs.
     --help -h  : Show this help message and exit.
@@ -313,7 +313,7 @@ Genel bağımsız değişkenler
     --query    : JMESPath query string. See http://jmespath.org/ for more information and examples.
     --verbose  : Increase logging verbosity. Use --debug for full debug logs.
 
-**Hizmetin çalıştırılması**
+**Hizmet çalıştırma**
 
 `az ml service run realtime -n [service name] -d [input_data]`
 
@@ -323,7 +323,7 @@ Komut ayrıntıları:
     --name -n  : Webservice name.
     -v         : Verbosity flag.
 
-Genel bağımsız değişkenler
+Genel bağımsız değişkenleri
 
     --debug    : Increase logging verbosity to show all debug logs.
     --help -h  : Show this help message and exit.
@@ -335,11 +335,11 @@ Komut
 
     az ml service run realtime
 
-Bağımsız değişkenler--kimliği -i: [gerekli] karşı Puanlama amacıyla hizmet kimliği.
+Bağımsız değişkenler--kimliği -i: [gerekli] karşı puanlamak için hizmet kimliği.
 -d: web hizmetini çağırmak için kullanılacak veri.
 -v: ayrıntı bayrağı.
 
-Genel bağımsız değişkenler
+Genel bağımsız değişkenleri
 
     --debug    : Increase logging verbosity to show all debug logs.
     --help -h  : Show this help message and exit.

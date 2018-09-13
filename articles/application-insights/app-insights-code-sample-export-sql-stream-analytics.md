@@ -1,6 +1,6 @@
 ---
-title: Dışarı aktarmak için SQL Azure Application Insights | Microsoft Docs
-description: Sürekli olarak Application Insights verileri kullanarak Stream Analytics SQL verin.
+title: SQL Azure Application Insights'tan dışarı aktarma | Microsoft Docs
+description: Stream Analytics kullanarak SQL'ye sürekli olarak Application Insights verilerini dışarı aktarın.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -11,92 +11,92 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/06/2015
+ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d4bf0c5beeba22569e0000b28b007fb5b0ff68f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 70086cdff3ed313d2b6851139ca8c8a937426aab
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294185"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716800"
 ---
-# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>İzlenecek yol: Uygulama kullanarak Stream Analytics ilişkin bilgiler için SQL dışarı aktarma
-Bu makalede, telemetri verilerini taşıma gösterilmektedir [Azure Application Insights] [ start] kullanarak bir Azure SQL veritabanına [sürekli verme] [ export] ve [Azure akış analizi](https://azure.microsoft.com/services/stream-analytics/). 
+# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>İzlenecek yol: Stream Analytics kullanarak Application Insights'tan SQL'e aktarma
+Bu makale, telemetri verilerini taşıma [Azure Application Insights] [ start] kullanarak bir Azure SQL veritabanı'na [sürekli dışarı aktarma] [ export] ve [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
-Sürekli verme telemetri verileri JSON biçiminde Azure depolama alanına taşır. Biz Azure akış analizi kullanarak JSON nesneleri ayrıştırabilir ve bir veritabanı tablosundaki satırları oluşturmak.
+Sürekli dışarı aktarma, telemetri verilerinizi Azure Depolama'ya JSON biçiminde taşır. Biz, Azure Stream Analytics'i kullanarak JSON nesneleri ve bir veritabanı tablosundaki satırları oluşturun.
 
-(Daha genellikle sürekli verme kendi uygulamalarınızı Application Insights'a gönderme telemetri analizi yapmak için yoludur. Dışarı aktarılan telemetriyle veri toplama gibi başka işlemler yapmak için bu kod örneği uyarlayabilirsiniz.)
+(Daha genel olarak, sürekli dışarı aktarma kendi uygulamalarınızı Application Insights'a gönderdiği telemetriyi çözümlemesi yoludur. Veri toplama gibi dışarı aktarılan telemetri ile diğer işlemler yapmak üzere bu kod örneği uyarlayabilirsiniz.)
 
-İzlemek istediğiniz uygulamayı zaten sahip varsayımıyla başlayacağız.
+İzlemek istediğiniz uygulamanın sahip olduğunuz varsayılarak da başlayacağız.
 
-Bu örnekte, biz sayfası görünüm verilerini kullanarak, ancak aynı düzeni özel etkinlikler ve özel durumlar gibi diğer veri türleri için kolayca genişletilebilir. 
+Bu örnekte, biz sayfanın görünüm verilerini kullanarak, ancak aynı düzeni diğer veri türlerine özel olayları ve özel durumlar gibi kolayca genişletilebilir. 
 
 ## <a name="add-application-insights-to-your-application"></a>Uygulamanıza Application Insights ekleyin
 Kullanmaya başlamak için:
 
-1. [Web sayfalarınız için Application Insights'ı ayarlamak](app-insights-javascript.md). 
+1. [Web sayfalarınız için Application ınsights'ı ayarlama](app-insights-javascript.md). 
    
-    (Bu örnekte, istemci tarayıcıları sayfa görünümü verileri işleme biz odaklanmak, ancak Application Insights'ı için sunucu tarafı ayarlayabilir, [Java](app-insights-java-get-started.md) veya [ASP.NET](app-insights-asp-net.md) uygulama ve istek işleme, bağımlılık ve diğer sunucu telemetri.)
-2. Uygulamanızı yayımlayın ve telemetri verilerini Application Insights kaynağınıza görünmesini izleyin.
+    (Bu örnekte, istemci tarayıcıları uygulamanızdan sayfa görüntüleme verileri işleme odaklanacağız, ancak Application ınsights'ı için sunucu tarafı ayarlayabilirsiniz, [Java](app-insights-java-get-started.md) veya [ASP.NET](app-insights-asp-net.md) uygulama ve işlem isteği bağımlılık ve diğer sunucu telemetrisi.)
+2. Uygulamanızı yayımlayın ve telemetri verilerini Application Insights kaynağınıza görüntülenmesini izleyin.
 
-## <a name="create-storage-in-azure"></a>Depolama oluşturma
-Depolama oluşturmanız gerekir böylece sürekli verme verileri Azure depolama hesabı her zaman çıkarır.
+## <a name="create-storage-in-azure"></a>Azure'da depolama oluşturma
+Depolama oluşturmanız gerekir. böylece sürekli dışarı aktarmayı her zaman bir Azure depolama hesabı'ına verileri çıkarır.
 
-1. Aboneliğinizde depolama hesabı oluşturma [Azure portal][portal].
+1. Aboneliğinize bir depolama hesabı oluşturun [Azure portalında][portal].
    
-    ![Azure portalında yeni, verileri depolama birimi seçin. Klasik seçin, oluşturun. Depolama adı sağlayın.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
+    ![Azure portalında yeni, veri, depolama birimi seçin. Klasik seçin, oluşturun. Depolama adı sağlayın.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 2. Bir kapsayıcı oluşturma
    
-    ![Yeni depolama kapsayıcıları seçin, kapsayıcıları döşeme tıklatın ve ardından Ekle](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
-3. Depolama erişim tuşu kopyalama
+    ![Yeni depolama kapsayıcıları seçin, kapsayıcıları kutucuk tıklatın ve ardından Ekle](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+3. Depolama erişim tuşunu kopyalamak
    
-    Akış analizi hizmetine giriş yakında ayarlamak için gerekir.
+    Stream analytics hizmetine giriş yakında ayarlamanız gerekir.
    
-    ![Depolama ayarlarını, anahtarları, açın ve birincil erişim tuşunu bir kopyasını alın](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
+    ![Depolama ayarları, anahtarları, açın ve bir kopya birincil erişim anahtarını Al](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## <a name="start-continuous-export-to-azure-storage"></a>Azure depolama alanına sürekli verme Başlat
-1. Azure portalında, uygulamanız için oluşturduğunuz Application Insights kaynağı göz atın.
+## <a name="start-continuous-export-to-azure-storage"></a>Azure depolama alanına sürekli dışarı aktarmayı Başlat
+1. Azure portalında, uygulamanız için oluşturduğunuz Application Insights kaynağına göz atın.
    
-    ![Gözat, Application Insights, uygulamanızı seçin](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
-2. Sürekli verme oluşturun.
+    ![Application Insights, uygulamanızın Gözat'ı seçin](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
+2. Sürekli dışarı aktarma oluşturun.
    
-    ![Ayarları, sürekli verme ekleme seçin](./media/app-insights-code-sample-export-sql-stream-analytics/070-export.png)
+    ![Sürekli dışarı aktarma ayarları Ekle öğesini seçin](./media/app-insights-code-sample-export-sql-stream-analytics/070-export.png)
 
-    Daha önce oluşturduğunuz depolama hesabı seçin:
+    Daha önce oluşturduğunuz depolama hesabını seçin:
 
-    ![Dışa aktarma hedefi ayarlama](./media/app-insights-code-sample-export-sql-stream-analytics/080-add.png)
+    ![Dışarı aktarma hedefi ayarlama](./media/app-insights-code-sample-export-sql-stream-analytics/080-add.png)
 
     Görmek istediğiniz olay türlerini ayarlayın:
 
-    ![Olay türlerini seçin](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
+    ![Olay türü seçin](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Accumulate bazı veriler sağlar. Arkanıza yaslanın ve kişilere uygulamanızın biraz kullanın. Telemetri geldikçe ve istatistiksel grafiklerde görürsünüz [ölçüm Gezgini](app-insights-metrics-explorer.md) ve olayları tek tek [tanılama arama](app-insights-diagnostic-search.md). 
+1. Accumulate bazı veriler sağlar. Arkanıza yaslanın ve insanların uygulamanızı bir süredir kullanın. Telemetri vardır ve istatistiksel grafikte gördüğünüz [ölçüm Gezgini](app-insights-metrics-explorer.md) ve olayları tek tek [tanılama araması](app-insights-diagnostic-search.md). 
    
-    Ve ayrıca, verileri depolama alanınızın dışa aktarır. 
-2. Dışarı aktarılan verileri, ya da portal - Seç **Gözat**, depolama hesabınızı seçin ve ardından **kapsayıcıları** - ya da Visual Studio. Visual Studio'da, **görüntülemek / Cloud Explorer**ve Azure açın / depolama. (Bu menü seçeneği yoksa, Azure SDK'yı yüklemeniz gerekir: Yeni Proje iletişim kutusunu açın ve Visual C# açın / bulut / .NET için Microsoft Azure SDK'sını alın.)
+    Ve ayrıca, veri depolama dışarı aktarır. 
+2. Dışarı aktarılan verileri, portaldaki ya da inceleyin - seçme **Gözat**, depolama hesabınızı seçin ve ardından **kapsayıcıları** - ya da Visual Studio'da. Visual Studio'da **görüntülemek / Cloud Explorer**ve Azure / depolama. (Bu menü seçeneği yoksa, Azure SDK'yı yüklemeniz gerekir: Yeni Proje iletişim kutusunu açın ve Visual C# açın / bulut / .NET için Microsoft Azure SDK'sını edinme.)
    
-    ![Visual Studio'da açın Server Browser, Azure, depolama](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+    ![Visual Studio'da açık sunucu tarayıcısı, Azure, depolama](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
    
-    Uygulama adı ve araçları anahtarından türetilen yol adı, ortak parçası not edin. 
+    Uygulama adı ve izleme anahtarından türetilen yol adı ortak kısmını not edin. 
 
-JSON biçiminde dosyaları blob yazılır. Her dosya bir veya daha fazla olaylar içerebilir. Bu nedenle olay verileri okumak ve istiyoruz alanları filtrelemek isteriz. Her türlü verilerle yapabileceğimiz bir şey vardır, ancak bizim planı bugün Stream Analytics verileri bir SQL veritabanını taşımak için kullanmaktır. Bu, çok sayıda ilginç sorguları çalıştırmak kolay hale getirir.
+Olayları JSON biçimindeki dosyaları blob yazılır. Her dosya, bir veya daha fazla olaylar içerebilir. Bu nedenle olay verileri okumak ve filtrelemek istediğimiz alanları istiyoruz. Her türden veri ile yapabileceğimiz şeyler vardır ancak planımız bugün Stream Analytics verileri bir SQL veritabanı'na taşımak için kullanmaktır. Bu çok ilgi çekici sorguları çalıştırmak kolaylaştıracak.
 
 ## <a name="create-an-azure-sql-database"></a>Bir Azure SQL veritabanı oluşturma
-Bir kez daha, aboneliğinizde başlayarak [Azure portal][portal], veritabanı oluşturma (ve yeni bir sunucu zaten bir olduğuna sürece) verileri yazacak şekilde.
+Aboneliğinize yeniden başlayarak [Azure portalı][portal], veritabanını oluşturmak (ve yeni bir sunucu zaten bir kendinizi sürece) için veri yazacaksınız.
 
-![Yeni, verileri, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
+![Yeni, veri, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
 
-Veritabanı sunucusu Azure hizmetlerine erişime izin verdiğinden emin olun:
+Veritabanı sunucusu, Azure hizmetlerine erişime izin verdiğinden emin olun:
 
-![Gözat, sunucuları, sunucunuz, ayarları, güvenlik duvarı, Azure erişime izin ver](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
+![Göz atma, sunucuları, sunucunuzun, ayarlar, güvenlik duvarı, Azure için erişime izin ver](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
-## <a name="create-a-table-in-azure-sql-db"></a>Azure SQL DB tablosu oluşturma
-Tercih edilen Yönetim aracınızla önceki bölümde oluşturulan veritabanına bağlanın. Bu kılavuzda, biz kullanacağınız [SQL Server Yönetim Araçları](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
+## <a name="create-a-table-in-azure-sql-db"></a>Azure SQL DB'de tablosu oluşturma
+Tercih edilen Yönetim aracınızla önceki bölümde oluşturduğunuz veritabanına bağlanın. Bu kılavuzda, biz kullanacaklardır [SQL Server yönetim araçlarını](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/31-sql-table.png)
 
-Yeni bir sorgu oluşturun ve aşağıdaki T-SQL Yürüt:
+Yeni bir sorgu oluşturun ve aşağıdaki T-SQL yürütme:
 
 ```SQL
 
@@ -138,51 +138,51 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
-Bu örnekte, sayfa görünümleri verilerden kullanıyoruz. Kullanılabilir diğer verileri görmek için JSON çıktısını inceleyin ve bakın [veri modeli verme](app-insights-export-data-model.md).
+Bu örnekte, sayfa görüntüleme verileri kullanıyoruz. Kullanılabilir diğer verileri görmek için uygulamanızın JSON çıktısını inceleyin ve bkz [veri modelini dışarı aktarma](app-insights-export-data-model.md).
 
-## <a name="create-an-azure-stream-analytics-instance"></a>Bir Azure akış analizi örneği oluşturma
-Gelen [Azure portal](https://portal.azure.com/), Azure Stream Analytics hizmeti seçin ve yeni bir Stream Analytics işi oluştur:
+## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics örnek oluşturma
+Gelen [Azure portalında](https://portal.azure.com/), Azure Stream Analytics hizmeti seçin ve yeni bir Stream Analytics işi oluşturun:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
+![Stream analytics ayarları](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-Yeni iş oluşturulduğunda seçin **kaynağa gidin**.
+Yeni proje oluşturulduğunda seçin **kaynağa Git**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
+![Stream analytics ayarları](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
 #### <a name="add-a-new-input"></a>Yeni giriş Ekle
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+![Stream analytics ayarları](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
 
-Sürekli verme blobundan giriş gerçekleştirecek şekilde ayarlayın:
+Sürekli dışarı aktarma blobunuz giriş gerçekleştirecek şekilde ayarlayın:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
+![Stream analytics ayarları](./media/app-insights-code-sample-export-sql-stream-analytics/SA0005.png)
 
 Şimdi, depolama, daha önce not ettiğiniz hesabınızdan, birincil erişim anahtarı gerekir. Bu depolama hesabı anahtarı ayarlayın.
 
-#### <a name="set-path-prefix-pattern"></a>Set yol önek deseni
+#### <a name="set-path-prefix-pattern"></a>Set yol ön eki deseni
 
-**Tarih biçimi YYYY-AA-GG (tire ile) ayarladığınızdan emin olun.**
+**YYYY-AA-GG tarih biçimini (kısa çizgi ile) ayarladığınızdan emin olun.**
 
-Önek yol deseni Stream Analytics girdi dosyaları depolama alanına nasıl bulacağını belirler. Bunu sürekli verme verileri nasıl depolar karşılık gelecek şekilde ayarlamanız gerekir. Aşağıdaki gibi ayarlayın:
+Yol ön eki deseni Stream Analytics'e giriş dosyaları depolamada nasıl bulacağını belirler. Sürekli dışarı aktarma verileri nasıl depoladı karşılık olarak ayarlamanız gerekir. Şöyle ayarlayın:
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 Bu örnekte:
 
-* `webapplication27` Application Insights kaynağı adı **tüm alt durumda**. 
-* `1234...` Application Insights kaynağı izleme anahtarını olan **kaldırılan çizgilerle**. 
-* `PageViews` Analiz etmek istiyoruz veri türüdür. Kullanılabilir türler filtresi sürekli dışarı aktarma ile Ayarla bağlıdır. Diğer kullanılabilir türleri görmek ve görmek için dışarı aktarılan verileri incelemek [veri modeli verme](app-insights-export-data-model.md).
+* `webapplication27` Application Insights kaynak adı **küçük da**. 
+* `1234...` Application Insights kaynağına ait izleme anahtarı **kaldırıldı çizgilerle**. 
+* `PageViews` veri çözümleme için istediğimiz türüdür. Kullanılabilir türler, sürekli dışarı aktarma ayarladığınız filtre bağlıdır. Diğer kullanılabilir türlerini görmek ve görmek için dışarı aktarılan verileri incelemek [veri modelini dışarı aktarma](app-insights-export-data-model.md).
 * `/{date}/{time}` bir desen tam anlamıyla yazılır.
 
-Application Insights kaynağınıza iKey ve adını almak için genel bakış sayfasında Essentials açın veya ayarları'nı açın.
+Application Insights kaynağınıza ait iKey ve adını almak için kendi genel bakış sayfasında Essentials açın veya ayarlarını açın.
 
 > [!TIP]
-> Giriş yolu doğru şekilde ayarladığınızdan emin denetlemek için örnek işlevini kullanın. Başarısız olursa: olup olmadığını veri depolama alanı için seçtiğiniz örnek zaman aralığı içinde denetleyin. Giriş tanımı düzenleyin ve ayarlayın depolama hesabı, yol öneki ve tarih biçimi doğru denetleyin.
+> Örnek işlevi, Giriş yolu doğru şekilde ayarladığınızdan emin denetlemek için kullanın. Başarısız olursa: ilgili veri depolama alanı için seçtiğiniz örnek zaman aralığı içinde emin olun. Giriş tanımını düzenleyin ve depolama hesabı, yol ön eki ayarlayın ve tarih biçimi doğru denetleyin.
 > 
 > 
-## <a name="set-query"></a>Set sorgu
+## <a name="set-query"></a>Sorgu kümesi
 Sorgu bölümünü açın:
 
 Varsayılan sorguyla değiştirin:
@@ -223,36 +223,36 @@ Varsayılan sorguyla değiştirin:
 
 ```
 
-İlk birkaç Özellikleri Sayfası görünüm verilerini belirli olduğuna dikkat edin. Dışarı aktarma diğer telemetri türlerinin farklı özelliklere sahip olur. Bkz: [ayrıntılı özellik türleri ve değerleri için veri modeli başvurusu.](app-insights-export-data-model.md)
+İlk birkaç özelliği sayfa görüntüleme verileri için belirli olduğuna dikkat edin. Dışarı aktarmalar diğer telemetri türleri farklı özelliklere sahip olur. Bkz: [ayrıntılı özellik türleri ve değerleri için veri modeli başvurusu.](app-insights-export-data-model.md)
 
-## <a name="set-up-output-to-database"></a>Veritabanı için çıktı ayarlama
-SQL çıktısı olarak seçin.
+## <a name="set-up-output-to-database"></a>Çıkış veritabanı ayarlama
+SQL çıktı olarak seçin.
 
-![Çıkış akış analizleri seçin](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
+![Stream analytics'te çıkışları seçin](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 SQL veritabanı belirtin.
 
-![Veritabanınızın ayrıntıları doldurun](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
+![Veritabanınızın ayrıntıları girin](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
-Sihirbazı kapatmak ve çıktı ayarlanmış bir bildirim bekler.
+Sihirbazı kapatmak ve çıkış ayarlanmış olan bir bildirim bekler.
 
 ## <a name="start-processing"></a>İşlemini Başlat
-İş eylemi çubuğundan başlatın:
+Eylem çubuğu'ndan işi başlatın:
 
-![Akış analizi Başlat'ı tıklatın.](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
+![Stream analytics'te Başlat'a tıklayın.](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
-Şimdi veya başlamak eski veri başlatmayı veri işlemeye başlaması seçebilirsiniz. İkincisi verme sürekli bir süredir çalışıyor olsaydı yararlıdır.
+Şimdi veya başlamak önceki veri başlatma verilerini işlemeye başlamak seçebilirsiniz. İkinci bir süre çalışmakta sürekli dışarı aktarma olsaydı yararlı olur.
 
-Birkaç dakika sonra SQL Server Yönetim Araçları için geri dönün ve içinde akan verilere izleyin. Örneğin, şöyle bir sorguyu kullanın:
+Birkaç dakika sonra SQL Server Yönetim Araçları için geri dönün ve veri içinde akışını izleyin. Örneğin, bu gibi bir sorguda kullanın:
 
     SELECT TOP 100 *
     FROM [dbo].[PageViewsTable]
 
 
 ## <a name="related-articles"></a>İlgili makaleler
-* [Akış analizi kullanarak Powerbı dışarı aktarma](app-insights-export-power-bi.md)
-* [Ayrıntılı veri özellik türleri ve değerleri için başvuru modeli.](app-insights-export-data-model.md)
-* [Application ınsights'ta sürekli dışarı aktarma](app-insights-export-telemetry.md)
+* [Stream Analytics kullanarak Power BI için dışarı aktarma](app-insights-export-power-bi.md)
+* [Ayrıntılı veri özellik türleri ve değerleri için başvuru model.](app-insights-export-data-model.md)
+* [Application Insights içinde sürekli dışarı aktarma](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 
 <!--Link references-->

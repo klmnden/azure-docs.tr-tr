@@ -1,6 +1,6 @@
 ---
-title: Azure VM yedekleme oluşturma sırasında etkinleştir
-description: Azure sanal makine yedeklemesi oluşturma işlemi sırasında etkinleştirme adımları bakın.
+title: Oluşturma sırasında Azure VM yedeklemeyi etkinleştirme
+description: Oluşturma işlemi sırasında Azure sanal makine yedeklemeyi etkinleştirmek için adımlara bakın.
 services: backup, virtual-machines
 author: markgalioto
 manager: carmonm
@@ -9,77 +9,77 @@ ms.service: backup, virtual-machines
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 928481f07875286a21f68dae6556f04eb2b6ae5c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9fd4707a201163002cc15cc9cf97e544e76cf7c6
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606129"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35756286"
 ---
-# <a name="enable-backup-during-azure-virtual-machine-creation"></a>Azure sanal makine oluşturma sırasında yedeklemeyi etkinleştirme 
+# <a name="enable-backup-during-azure-virtual-machine-creation"></a>Azure sanal makine oluşturma işlemi sırasında yedeklemeyi etkinleştirme 
 
-Azure Backup hizmeti oluşturmak ve bulut yedeklemeler yapılandırmak için bir arabirim sağlar. Yedeklemeler, Kurtarma noktaları, düzenli aralıklarla adlı gerçekleştirerek verilerinizi koruyun. Azure Backup, coğrafi olarak yedekli kurtarma kasalarında saklanabilecek kurtarma noktaları oluşturur. Bu makalede, Azure portalında yedekleme bir sanal makine (VM) oluşturulurken etkinleştirme ayrıntıları verilmektedir.  
+Azure Backup hizmeti oluşturmak ve bulutta yedeklemeleri yapılandırmak için bir arabirim sağlar. Yedekleme, Kurtarma noktalarının düzenli aralıklarla adlı yararlanarak verilerinizi koruyun. Azure Backup, coğrafi olarak yedekli kurtarma kasalarında saklanabilecek kurtarma noktaları oluşturur. Bu makalede, Azure portalında sanal makine (VM) oluştururken yedeklemeyi etkinleştirmek nasıl açıklanmaktadır.  
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma 
 
-Zaten hesabınızda oturum içinde değilse, oturum [Azure portal](http://portal.azure.com).
+Zaten hesabınızda oturum içinde kök kullanıcı değilseniz, oturum [Azure portalında](http://portal.azure.com).
  
 ## <a name="create-virtual-machine-with-backup-configured"></a>Yedekleme ile yapılandırılmış sanal makine oluşturma 
 
-1. Azure portalında sol üst köşesinde tıklatın **yeni**. 
+1. Azure portalının sol alt köşesinde, tıklayın **yeni**. 
 
-2. Seçin **işlem**ve ardından sanal makine görüntüsü seçin.   
+2. Seçin **işlem**ve ardından sanal makinenin bir görüntüsünü seçin.   
 
-3. Sanal makine bilgilerini girin. Kullanıcı adı ve parolası, sanal makinede oturum açmak için kullanılır. İşlem tamamlandığında **Tamam**’a tıklayın. 
+3. Sanal makine bilgilerini girin. Kullanıcı adı ve parolası, sanal makineye oturum açmak için kullanılır. İşlem tamamlandığında **Tamam**’a tıklayın. 
 
 4. VM için bir boyut seçin.  
 
-5. Altında **ayarlar > Yedekleme**, tıklatın **etkin** yedekleme yapılandırma ayarlarını getirmek için. Varsayılan değerleri kabul edip tıklatın **Tamam** VM'yi oluşturmak için Özet sayfasına gitmek için Ayarları sayfasında. Değerleri değiştirmek istiyorsanız, sonraki adımları izleyin.  
+5. Altında **ayarlar > Yedekleme**, tıklayın **etkin** yedekleme yapılandırma ayarlarını getirilecek. Varsayılan değerleri kabul edin ve tıklayın **Tamam** VM oluşturmak için Özet sayfasına gitmek için Ayarları sayfasında. Değerleri değiştirmek isterseniz, sonraki adımları izleyin.  
 
-6. Oluşturun veya sanal makine yedeklerini tutan bir kurtarma Hizmetleri kasası seçin. Bir kurtarma Hizmetleri kasası oluşturuyorsanız, kasa için bir kaynak grubu seçebilirsiniz.  
+6. Oluşturun veya sanal makine yedeklemelerini barındıran bir kurtarma Hizmetleri Kasası'nı seçin. Bir kurtarma Hizmetleri kasası oluşturuyorsanız bu kasa için bir kaynak grubu seçebilirsiniz.  
 
-    ![Vm yedekleme yapılandırmasında sayfa oluşturma](./media/backup-during-vm-creation/create-vm-backup-config.png) 
+    ![Sanal makinede yedekleme yapılandırması oluşturma sayfası](./media/backup-during-vm-creation/create-vm-backup-config.png) 
 
     > [!NOTE] 
-    > Kaynak grubu için kurtarma Hizmetleri kasası kaynak grubu sanal makine için farklı olabilir.  
+    > Kurtarma Hizmetleri kasasının kaynak grubu, kaynak grubunu sanal makine için farklı olabilir.  
     > 
     > 
 
-7. Varsayılan olarak, bir yedekleme İlkesi VM hızlı bir şekilde korumak için seçilir. Bir yedekleme İlkesi sık yedekleme anlık görüntüsünü nasıl belirtir ve bu yedek kopyaları korumak için ne kadar süre. Varsayılan ilkeyi kabul edebilir veya oluşturun veya farklı bir yedekleme ilkesi seçin. Yedekleme ilkesini düzenlemek için seçin **yedekleme İlkesi** ve ilke değerleri değiştirin.  
+7. Varsayılan olarak, bir yedekleme İlkesi hızlı bir şekilde sanal Makineyi korumak için seçilir. Sık sık yedekleme anlık görüntüleri almak nasıl bir yedekleme İlkesi belirler ve bu yedek kopyaların ne kadar. Varsayılan ilkeyi kabul edebilir veya oluşturabilir veya farklı bir yedekleme İlkesi'ni seçin. Yedekleme ilkesini düzenlemek için seçin **yedekleme İlkesi** ve ilke değerlerini değiştirin.  
 
-8. Yedekleme yapılandırması değerlerle ayar sayfasında, hazır olduğunuzda tıklatın **Tamam**.  
+8. Yedekleme yapılandırması değerlerle ayar sayfasında hazır olduğunuzda tıklayın **Tamam**.  
 
-9. Özet sayfasında, doğrulamayı geçtikten sonra tıklayın **oluşturma** yapılandırılmış yedekleme ayarları kullanan bir sanal makine oluşturmak için. 
+9. Özet sayfasında, doğrulamayı geçtikten sonra tıklayın **Oluştur** yapılandırılan yedekleme ayarları kullanan bir sanal makine oluşturmak için. 
 
 ## <a name="initiate-a-backup-after-creating-the-vm"></a>VM oluşturduktan sonra bir yedekleme başlatmak 
 
-Yedekleme İlkesi oluşturuldu ancak ilk yedeği oluşturmak iyi bir uygulamadır. Sanal bir kez VM oluşturma şablonu sonlandığında gelen makine için yedekleme ayrıntılarını görüntülemek için **Operations** sol menüde ayarı tıklatın **yedekleme**. Bu, bir isteğe bağlı yedeklemeyi tetikleyin, tam bir VM veya tüm diskleri geri yüklemek, dosyaları VM yedekten geri yükleyin veya sanal makine ile ilişkili yedekleme ilkesini değiştirmek için kullanabilirsiniz.  
+Yedekleme İlkesi oluşturuldu ancak ilk yedekleme oluşturmak iyi bir uygulamadır. Sanal bir kez VM oluşturma şablon tamamlandığında, gelen makine için yedekleme ayrıntılarını görüntülemek için **işlemleri** sol taraftaki menüden ayarını tıklayın **yedekleme**. İsteğe bağlı bir yedeklemeyi tetikleyin, tam bir VM veya tüm diskleri geri yükleme, dosyaları VM yedekten geri yükleyin veya sanal makineyle ilişkilendirilmiş yedekleme ilkesini değiştirmek için kullanabilirsiniz.  
 
-## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>Korumalı VM dağıtmak için bir Resource Manager şablonu kullanma
+## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>Korunan bir sanal makine dağıtmak için Resource Manager şablonu kullanma
 
-Önceki adımları Azure portalında bir sanal makine oluşturun ve bir kurtarma Hizmetleri kasası korumak için nasıl kullanılacağı açıklanmaktadır. Hızlı bir şekilde bir veya daha fazla sanal makine dağıtmak ve bir kurtarma Hizmetleri kasası korumak istiyorsanız, şablon bkz [Windows VM dağıtmak ve yedeklemeyi etkinleştirme](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
+Önceki adımlarda, bir sanal makine oluşturun ve bir kurtarma Hizmetleri kasasına korumak için Azure portalını kullanma açıklanmaktadır. Hızlı bir şekilde bir veya daha fazla sanal makine dağıtma ve bir kurtarma Hizmetleri kasasına korumak istiyorsanız, şablonu görmek [Windows VM dağıtma ve yedeklemeyi etkinleştirme](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular 
 
-### <a name="which-vm-images-enable-backup-at-the-time-of-vm-creation"></a>Hangi VM görüntüleri VM oluşturma sırasında yedekleme etkinleştirilsin mi? 
+### <a name="which-vm-images-enable-backup-at-the-time-of-vm-creation"></a>Hangi VM görüntüleri, VM oluşturma sırasında yedekleme etkinleştirilsin mi? 
 
-Microsoft tarafından yayımlanan çekirdek görüntülerinin aşağıdaki listede, VM oluşturma sırasında yedekleme etkinleştirmek için desteklenir. Diğer VM'ler için VM oluşturulduktan sonra yedekleme etkinleştirebilirsiniz. Daha fazla bilgi edinin [VM oluşturulduktan sonra yedeklemeyi etkinleştir](quick-backup-vm-portal.md) 
+Aşağıdaki listede yer alan Microsoft tarafından yayımlanan temel görüntüleri, yedekleme sırasında VM oluşturmayı etkinleştirmek için desteklenir. VM oluşturulduktan sonra diğer sanal makineler için yedeklemeyi etkinleştirebilirsiniz. Daha fazla bilgi edinin [VM oluşturulduktan sonra yedeklemeyi etkinleştir](quick-backup-vm-portal.md) 
 
-- **Windows** -Windows Server 2016 veri merkezi, Windows Server 2016 veri merkezi çekirdek, Windows Server 2012 DataCenter, Windows Server 2012 R2 DataCenter, Windows Server 2008 R2 SP1 
-- **Ubuntu** -Ubuntu Server 1710, Ubuntu Server 1704, UUbuntu sunucu 1604(LTS), Ubuntu Server 1404(LTS) 
-- **RedHat** -RHEL 6.7, 6,8 6.9, 7.2, 7.3, 7.4 
-- **SUSE** -SUSE Linux Enterprise Server 11 SP4'ü, 12 SP2, 12 SP3 
+- **Windows** -Windows Server 2016 veri merkezi, Windows Server 2016 veri merkezi core, Windows Server 2012 DataCenter, Windows Server 2012 R2 DataCenter, Windows Server 2008 R2 SP1 
+- **Ubuntu** -Ubuntu Server 1710, Ubuntu Server 1704, UUbuntu sunucu 1604(LTS) Ubuntu Server 1404(LTS) 
+- **Red Hat** -RHEL 6.7, 6,8 6.9, 7.2 7.3, 7.4 
+- **SUSE** -SUSE Linux Enterprise Server 11 SP4, 12 SP2, 12 SP3 
 - **Debian** -Debian 8, Debian 9 
 - **CentOS** -CentOS 6.9, CentOS 7.3 
-- **Oracle Linux** -Oracle Linux 6.7, 6,8 6.9, 7.2, 7.3 
+- **Oracle Linux** -Oracle Linux 6.7, 6,8, 6.9, 7.2, 7.3 
  
-### <a name="is-backup-cost-included-in-the-vm-cost"></a>VM maliyet dahil yedekleme Maliyet mi? 
+### <a name="is-backup-cost-included-in-the-vm-cost"></a>Yedekleme maliyeti VM maliyeti dahil mi? 
 
-Hayır, yedekleme maliyetleri ayrı ya da ayrı, sanal makineleri maliyetleri. Yedekleme fiyatlandırma hakkında daha fazla bilgi için bkz: [yedekleme fiyatlandırma site](https://azure.microsoft.com/pricing/details/backup/).
+Hayır, ayrı ve farklı, sanal makineler maliyetleri yedekleme maliyetleri aşağıda sunulmuştur. Yedekleme fiyatlandırması hakkında daha fazla bilgi için bkz. [site yedekleme fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/).
  
-### <a name="which-permissions-are-required-to-enable-backup-on-a-vm"></a>Hangi izinlerin bir VM üzerinde yedekleme etkinleştirmek için gerekli olan? 
+### <a name="which-permissions-are-required-to-enable-backup-on-a-vm"></a>Bir sanal makinede yedeklemeyi etkinleştirmek için hangi izinler gereklidir? 
 
-Bir sanal makine Katılımcısı olmanız durumunda VM yedekleme etkinleştirebilirsiniz. Özel bir rol kullanıyorsanız, VM Yedekleme başarıyla etkinleştirmek için aşağıdaki izinler gerekir. 
+Bir sanal makine Katılımcısı, sanal makine yedeklemeyi etkinleştirebilirsiniz. Özel bir rol kullanıyorsanız, VM Yedekleme başarıyla etkinleştirmek için aşağıdaki izinler gerekir. 
 
 - Microsoft.RecoveryServices/Vaults/write 
 - Microsoft.RecoveryServices/Vaults/read 
@@ -91,11 +91,11 @@ Bir sanal makine Katılımcısı olmanız durumunda VM yedekleme etkinleştirebi
 - Microsoft.RecoveryServices/Vaults/backupPolicies/read 
 - Microsoft.RecoveryServices/Vaults/backupPolicies/write 
  
-Kurtarma Hizmetleri kasası ve sanal makineyi farklı bir kaynak gruplarınız varsa, Kurtarma Hizmetleri kasası kaynak grubunda yazma izinlerine sahip olduğundan emin olun.  
+Kurtarma Hizmetleri kasası ve sanal makine farklı kaynak grupları varsa, Kurtarma Hizmetleri kasası kaynak grubu içinde yazma izinlerine sahip olduğunuzdan emin olun.  
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 
-VM korumalı, VM yönetim görevleri ve sanal makineleri geri yükleme hakkında bilgi edinmek için aşağıdaki makalelere bakın. 
+Sanal makinenizin koruduktan sonra VM yönetimi görevlerini ve Vm'leri geri yükleme hakkında bilgi edinmek için aşağıdaki makalelere bakın. 
 
 - [Sanal makinelerinizi yönetme ve izleme](backup-azure-manage-vms.md) 
 - [Sanal makineleri geri yükleme](backup-azure-arm-restore-vms.md) 

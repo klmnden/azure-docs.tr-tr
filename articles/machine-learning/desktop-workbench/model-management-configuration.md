@@ -1,46 +1,46 @@
 ---
-title: Azure Machine Learning modeli Yönetim Kurulumu ve yapılandırması | Microsoft Docs
-description: Bu belgede adımları ve kavramları açıklamaktadır ayarlama ve Azure Machine Learning modeli yönetimini yapılandırma katılan.
+title: Azure Machine Learning Model Yönetimi Kurulumu ve yapılandırması | Microsoft Docs
+description: Bu belgede adımlar ve kavramlar açıklanır ayarlama ve Azure Machine Learning'de Model yönetimi yapılandırma katılan.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 6802d1dfc360a48d8085ff07a8d4488ee1751e33
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 883e3d2c5945a38c8fbca5c9f0f5e8a1e4093be1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832110"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651218"
 ---
 # <a name="model-management-setup"></a>Model Yönetimi Kurulumu
 
 ## <a name="overview"></a>Genel Bakış
-Bu belge, Azure ML model yönetim dağıtmak ve yönetmek, machine learning web Hizmetleri olarak modelleri için kullanmaya alır. 
+Bu belge, dağıtmak ve makine öğrenimi Modellerinizi web Hizmetleri olarak yönetmek için Azure ML model Yönetimi kullanmaya başlamanıza yardımcı olur. 
 
-Azure ML model Yönetimi'ni kullanarak verimli bir şekilde dağıtın ve çerçeveleri SparkML, Keras, TensorFlow, Microsoft Bilişsel Araç Seti veya Python dahil olmak üzere çeşitli kullanılarak oluşturulan Machine Learning modellerini yönetin. 
+Azure ML model Yönetimi'ni kullanarak, verimli bir şekilde dağıtın ve birkaç SparkML, Keras, TensorFlow, Microsoft Bilişsel Araç Seti veya Python gibi çerçeveler kullanılarak oluşturulan makine öğrenimi modellerini yönetin. 
 
-Bu belgenin sonuna ayarlayabilir ve hazır, machine learning modellerini dağıtmak için model yönetim ortamına sahip yapabiliyor olmanız gerekir.
+Bu belgenin sonunda, model yönetim ortamınızı ayarlama ve makine öğrenimi Modellerinizi dağıtmak için hazır olması mümkün olması gerekir.
 
 ## <a name="what-you-need-to-get-started"></a>Başlamak için ihtiyacınız olanlar
-Bu kılavuzun en dışında almak için Modellerinizi için dağıtabileceğiniz bir Azure aboneliğine sahip erişiminiz olması.
-CLI Azure Machine Learning çalışma ekranı ve üzerinde önceden yüklü olarak gelen [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+Bu kılavuzun dışına en elde etmek için Modellerinizi için dağıttığınız bir Azure aboneliğine sahip erişimi olmalıdır.
+CLI'yı Azure Machine Learning Workbench ve üzerinde önceden yüklü olarak gelen [Azure Dsvm'leri](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>CLI kullanarak
-Çalışma ekranı komut satırı arabirimlerinden (CLIs) kullanmak için tıklatın **dosya** -] **açık komut satırı arabirimi**. 
+Workbench'ten komut satırı arabirimi (Clı'ler) kullanmak için **dosya** -] **açık komut satırı arabirimi**. 
 
-Üzerinde veri bilimi sanal makine, bağlanın ve komut istemini açın. Tür `az ml -h` seçenekleri görmek için. Komutlar hakkında daha fazla ayrıntı için kullanmak Yardım bayrağı.
+Üzerinde bir veri bilimi sanal makinesi, bağlanın ve komut istemini açın. Tür `az ml -h` seçenekleri görmek için. Komutlara ilişkin daha fazla ayrıntı için kullanın help bayrağı.
 
-Diğer tüm sistemlerde CLIs yüklemeniz gerekir.
+Diğer tüm sistemlerde Clı'yi yüklemek gerekir.
 
-### <a name="installing-or-updating-on-windows"></a>Yükleme (veya güncelleştirme) Windows
+### <a name="installing-or-updating-on-windows"></a>Yükleme (veya güncelleştirme) Windows üzerinde
 
-Gelen Python yüklemek https://www.python.org/. PIP yüklemek için seçtiğinizden emin olun.
+Python'dan yükleme https://www.python.org/. Instalace pip SE seçtiğinizden emin olun.
 
 Yönetici olarak çalıştır'ı kullanarak bir komut istemi açın ve aşağıdaki komutları çalıştırın:
 
@@ -50,15 +50,15 @@ pip install azure-cli-ml
 ```
  
 >[!NOTE]
->Önceki bir sürümü varsa, önce aşağıdaki komutu kullanarak kaldırın:
+>Önceki bir sürümü varsa, bunu önce aşağıdaki komutu kullanarak kaldırın:
 >
 
 ```cmd
 pip uninstall azure-cli-ml
 ```
 
-### <a name="installing-or-updating-on-linux"></a>Yükleme (veya güncelleştirme) Linux
-Komut satırından şu komutu çalıştırın ve yönergeleri izleyin:
+### <a name="installing-or-updating-on-linux"></a>Yükleme (veya güncelleştirme) Linux'ta
+Komut satırından aşağıdaki komutu çalıştırın ve yönergeleri izleyin:
 
 ```bash
 sudo -i
@@ -73,42 +73,42 @@ sudo /opt/microsoft/azureml/initial_setup.sh
 ```
 
 >[!NOTE]
->Oturumu kapatın ve değişikliklerin etkili olması SSH oturumunuzun oturum geri dönün.
->Yukarıdaki komutları DSVM üzerinde CLIs önceki bir sürümünü güncelleştirmek için kullanabilirsiniz.
+>Oturumu Kapat ve değişikliklerin etkili olması SSH oturumunuz için yeniden oturum açın.
+>Yukarıdaki komutları Clı'leri DSVM üzerinde daha önceki bir sürümünü güncelleştirmek için kullanabilirsiniz.
 >
 
 ## <a name="deploying-your-model"></a>Model dağıtma
-CLIs modelleri web Hizmetleri olarak dağıtmak için kullanın. Web Hizmetleri, yerel olarak veya bir küme dağıtılabilir.
+Clı'yi Modellerinizi web Hizmetleri olarak dağıtmak için kullanın. Web hizmetleri yerel olarak veya bir kümeye dağıtabilirsiniz.
 
-Yerel bir dağıtımı ile'ı başlatın, modeli ve kod, ardından çalıştığını doğrulamak üretim ölçeği kullanmak için bir kümeye dağıtın.
+İle yerel bir dağıtımı başlatın, model ve koda, ardından çalıştığını doğrulama üretim ölçek kullanmak için bir kümeye dağıtın.
 
-Başlatmak için dağıtım ortamı kurmanız gerekir. Bir ortamı kurulması saat görevi. Kurulum tamamlandıktan sonra ortam sonraki dağıtımlar için yeniden kullanabilirsiniz. Daha fazla ayrıntı için aşağıdaki bölüme bakın.
+Başlamak için dağıtım ortamı oluşturmanız gerekir. Bir ortam Kurulumu olduğu zaman görev. Kurulum tamamlandıktan sonra ortamı sonraki dağıtımlar için yeniden kullanabilirsiniz. Daha fazla ayrıntı için aşağıdaki bölüme bakın.
 
 Ortam Kurulumu tamamlanırken:
-- Azure'da oturum açın istenir. Oturum açmak için sayfayı açmak için bir web tarayıcısı kullanın https://aka.ms/devicelogin ve kimlik doğrulaması için sağlanan kod girin.
-- Kimlik doğrulama işlemi sırasında kimlik doğrulaması yapmak bir hesap istenir. Önemli: geçerli bir Azure aboneliğinizin ve kaynakları hesabı oluşturmak için yeterli izinlere sahip bir hesap seçin - oturum aç tamamlandığında, abonelik bilgilerinizi sunulur ve devam etmek istiyor olup olmadığını istenir Seçilen hesap.
+- Azure'da oturum açmanız istenir. Oturum açmak için bir web tarayıcısı kullanarak https://aka.ms/devicelogin ve kimlik doğrulaması için sağlanan kod girin.
+- Kimlik doğrulama işlemi sırasında kimlik doğrulaması yapmak bir hesap istenir. Önemli: geçerli bir Azure aboneliği ve kaynak hesabı oluşturulamadı. yeterli izinlere sahip bir hesap seçin - oturum açma tamamlandıktan sonra abonelik bilgilerinizi sunulur ve ile devam etmek istiyor olup isteniyor Seçili hesap.
 
 ### <a name="environment-setup"></a>Ortam Kurulumu
-Kurulum işlemi başlatmak için aşağıdaki komutu girerek ortamı sağlayıcısı kaydetmeniz gerekir:
+Kurulum işlemini başlatmak için aşağıdaki komutu girerek ortam sağlayıcısını kaydetmeniz gerekir:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
 ```
 
 #### <a name="local-deployment"></a>Yerel dağıtım
-Dağıtma ve web hizmetinizi yerel makine üzerinde test etmek için aşağıdaki komutu kullanarak yerel bir ortamı ayarlayın:
+Dağıtma ve web hizmetinizi yerel makinede test etmek için aşağıdaki komutu kullanarak yerel bir ortam ayarlayın:
 
 ```azurecli
 az ml env setup -l [location of Azure Region, e.g. eastus2] -n [your environment name] [-g [existing resource group]]
 ```
 >[!NOTE] 
->Yerel web hizmeti dağıtımı gerektirir, Docker yerel makineye yüklemek için. 
+>Yerel web hizmeti dağıtımı gerektirir, yerel makinede Docker yüklemek için. 
 >
 
-Yerel ortamdaki Kurulum komutu aşağıdaki kaynaklar, aboneliğinizde oluşturur:
+Yerel ortam Kurulum komutu aboneliğinizde aşağıdaki kaynakları oluşturur:
 - Bir kaynak grubu (sağlanmadığında)
-- bir depolama hesabı
-- Bir Azure kapsayıcı kayıt defteri (ACR)
+- Bir depolama hesabı
+- Azure Container Registry (ACR)
 - Application Insights
 
 Kurulum başarıyla tamamlandıktan sonra aşağıdaki komutu kullanarak kullanılacak ortamı ayarlayın:
@@ -118,19 +118,19 @@ az ml env set -n [environment name] -g [resource group]
 ```
 
 #### <a name="cluster-deployment"></a>Küme dağıtımı
-Küme dağıtımı, büyük ölçekli üretim senaryoları için kullanın. Bu Kubernetes ACS kümeyle orchestrator ayarlar. ACS küme, web hizmeti çağrıları için büyük verimi işlemek için genişletilebilir.
+Küme dağıtımı, yüksek ölçekli üretim senaryoları için kullanın. Bu ACS Kubernetes kümesine düzenleyicisi olarak ayarlar. ACS kümesi, web hizmeti çağrıları için daha büyük bir aktarım hızı işlemek için genişletilebilir.
 
-Web hizmetiniz için bir üretim ortamında dağıtmak için önce aşağıdaki komutu kullanarak ortamını ayarlarken ayarlayın:
+Web hizmetiniz bir üretim ortamına dağıtmak için öncelikle aşağıdaki komutu kullanarak ortamı ayarlayın:
 
 ```azurecli
 az ml env setup -c --name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
 ```
 
-Küme ortamı Kurulum komutu aşağıdaki kaynaklar, aboneliğinizde oluşturur:
+Küme ortamı Kurulum komutu aboneliğinizde aşağıdaki kaynakları oluşturur:
 - Bir kaynak grubu (sağlanmadığında)
-- bir depolama hesabı
-- Bir Azure kapsayıcı kayıt defteri (ACR)
-- Bir Azure kapsayıcı Hizmeti'ni (ACS) küme üzerinde Kubernetes dağıtımı
+- Bir depolama hesabı
+- Azure Container Registry (ACR)
+- Azure Container Service (ACS) kümesinde Kubernetes dağıtımı
 - Application Insights
 
 Kaynak grubu, depolama hesabı ve ACR hızlı bir şekilde oluşturulur. ACS dağıtımı 20 dakikaya kadar sürebilir. 
@@ -142,14 +142,14 @@ az ml env set -n [environment name] -g [resource group]
 ```
 
 >[!NOTE] 
-> Sonraki dağıtımları için ortamı oluşturulduktan sonra yalnızca onu tekrar için yukarıdaki kümesi komutunu kullanmanız gerekir.
+> Sonraki dağıtımlarda, ortam oluşturulduktan sonra yalnızca yeniden kullanmak için yukarıdaki kümesi komutunu kullanmanız gerekir.
 >
 
 >[!NOTE] 
->Bir HTTPS uç noktası oluşturmak için bir SSL sertifikası kullanarak bir küme oluştururken belirtin az ml env Kurulum sertifika adı ve--cert pem seçenekleri. Bu küme güvenliği sağlanan sertifika kullanılarak https üzerinde isteklere yanıt ayarlar. Kurulum tamamlandıktan sonra kümenin FQDN işaret eden bir CNAME DNS kaydı oluşturun.
+>Bir HTTPS uç noktası oluşturmak için bir SSL sertifikası kullanarak bir küme oluşturma sırasında belirtin az ml env Kurulum sertifika adı ve--sertifika pem seçenekleri. Bu küme belirtilen sertifika kullanılarak güvenli https üzerinde isteklerine hizmet vermeye ayarlar. Kurulum tamamlandıktan sonra küme FQDN için bir CNAME DNS kaydı oluşturun.
 
 ### <a name="create-an-account"></a>Hesap oluşturun
-Bir hesap modelleri dağıtmak için gereklidir. Hesap başına bu bir kez yapmanız gerekir ve birden çok dağıtım aynı hesapta yeniden kullanabilirsiniz.
+Modelleri dağıtmak için bir hesap gereklidir. Hesap başına bir kez gerçekleştirmeniz gereken ve birden çok dağıtımlarında aynı hesabı kullanabilirsiniz.
 
 Yeni bir hesap oluşturmak için aşağıdaki komutu kullanın:
 
@@ -157,17 +157,17 @@ Yeni bir hesap oluşturmak için aşağıdaki komutu kullanın:
 az ml account modelmanagement create -l [Azure region, e.g. eastus2] -n [your account name] -g [resource group name] --sku-instances [number of instances, e.g. 1] --sku-name [Pricing tier for example S1]
 ```
 
-Var olan bir hesap kullanmak için aşağıdaki komutu kullanın:
+Var olan bir hesap için aşağıdaki komutu kullanın:
 ```azurecli
 az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
 ```
 
-### <a name="deploy-your-model"></a>Model dağıtma
-Artık kaydedilmiş modelinizi bir web hizmeti olarak dağıtmaya hazır olursunuz. 
+### <a name="deploy-your-model"></a>Modelinizi dağıtma
+Şimdi kaydedilmiş modelinizi bir web hizmeti olarak dağıtmaya hazırsınız. 
 
 ```azurecli
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
 ### <a name="next-steps"></a>Sonraki Adımlar
-Galeri birçok örneklerinde birini deneyin.
+Galerideki birçok örneklerinden birini deneyin.

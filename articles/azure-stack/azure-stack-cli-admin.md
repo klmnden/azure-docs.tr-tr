@@ -1,6 +1,6 @@
 ---
-title: Azure CLI için Azure yığın kullanıcıları etkinleştir | Microsoft Docs
-description: Platformlar arası komut satırı arabirimi (CLI) yönetmek ve kaynakları Azure yığında dağıtmak için nasıl kullanılacağını öğrenin
+title: Azure Stack kullanıcıları için Azure CLI'yi etkinleştirme | Microsoft Docs
+description: Platformlar arası komut satırı arabirimi (CLI) yönetmek ve Azure Stack'te kaynakları dağıtmak için kullanmayı öğrenin
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,30 +12,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/11/2018
 ms.author: mabrigg
-ms.openlocfilehash: d0103d211608514848da7d789d32d37d8385f33f
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 09c551ea7196ae20a60a5dd34c1cda889ff5df46
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247865"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650923"
 ---
-# <a name="enable-azure-cli-for-azure-stack-users"></a>Azure CLI için Azure yığın kullanıcıları etkinleştir
+# <a name="enable-azure-cli-for-azure-stack-users"></a>Azure Stack kullanıcıları için Azure CLI'yi etkinleştirme
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure CLI kullanarak gerçekleştirebilirsiniz herhangi bir Azure yığın işleci özgü görevi değil. Ancak, kullanıcıların kaynaklara CLI aracılığıyla yönetebilmeniz için önce Azure yığın işleçleri bunları aşağıdakilerle sağlamanız gerekir:
+Böylece kendi geliştirme makinelerinde Azure CLI'yi kullanabilirsiniz, Azure Stack kullanıcıları için CA kök sertifikasını sağlayabilirsiniz. Kullanıcılarınızın CLI aracılığıyla kaynaklarını yönetmek için sertifika gerekir.
 
-* **Azure yığın CA kök sertifikasını** kullanıcılar Azure yığın Geliştirme Seti dışında bir iş istasyonundan CLI kullanıyorsanız gereklidir.  
+* **Azure Stack CA kök sertifikasını** kullanıcılar Azure Stack geliştirme Seti'ni dışında bir iş istasyonundan CLI kullanıyorsanız gereklidir.  
 
-* **Sanal makine diğer adlar uç noktası** "UbuntuLTS" veya "bir görüntü Yayımlayıcı, teklif, SKU ve sürümü VM'ler dağıtırken tek bir parametre başvuran Win2012Datacenter," gibi bir diğer ad sağlar.  
+* **Sanal makine diğer uç nokta** "UbuntuLTS" veya "bir görüntü yayımcısı, teklif, SKU ve sürüm Vm'leri dağıtırken tek bir parametre başvuran Win2012Datacenter," gibi bir diğer ad sağlar.  
 
-Aşağıdaki bölümlerde bu değerleri almak nasıl açıklanmaktadır.
+Aşağıdaki bölümlerde, bu değerleri almak nasıl açıklanmaktadır.
 
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Azure yığın CA kök sertifikasını dışarı aktarma
+## <a name="export-the-azure-stack-ca-root-certificate"></a>Azure Stack CA kök sertifikasını dışarı aktarma
 
-Azure yığın CA kök sertifikasını Geliştirme Seti ve Geliştirme Seti ortamında çalışan bir kiracı sanal makinede kullanılabilir. PEM biçimine Azure yığın kök sertifikayı dışarı aktarmak için Geliştirme Seti veya Kiracı sanal makine için oturum açın ve aşağıdaki komut dosyasını çalıştırın:
+Azure Stack CA kök sertifikasını Geliştirme Seti ve Geliştirme Seti ortamında çalışan bir kiracı sanal makine bulabilirsiniz. PEM biçiminde Azure Stack kök sertifikasını dışarı aktarmak için Geliştirme Seti veya Kiracı sanal makine için oturum açın ve aşağıdaki betiği çalıştırın:
 
 ```powershell
 $label = "AzureStackSelfSignedRootCert"
@@ -56,19 +56,19 @@ certutil -encode root.cer root.pem
 
 ## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Sanal makine diğer uç nokta ayarlamayı
 
-Azure yığın işleçleri, sanal makine diğer dosyasını barındıran bir genel olarak erişilebilir uç nokta ayarlamayı ayarlamanız gerekir. Sanal makine diğer dosyası bir görüntü için ortak bir ad sağlayan bir JSON dosyasıdır. Bir Azure CLI parametresi olarak bir VM dağıtıldığında bu adı daha sonra belirtilir.  
+Azure Stack operatörlerinin sanal makine diğer dosyasını barındıran bir genel olarak erişilebilir uç ayarlamanız gerekir. Sanal makine diğer dosyasının bir görüntü için ortak bir ad sağlar bir JSON dosyasıdır. Bir Azure CLI parametresi olarak bir sanal makine dağıtıldığında bu adı daha sonra belirtilir.  
 
-Bir diğer ad dosyasına bir giriş eklemeden önce emin olun, [görüntüleri Azure Marketi'nden karşıdan](azure-stack-download-azure-marketplace-item.md), veya [kendi özel görüntünüzü yayımlanan](azure-stack-add-vm-image.md). Özel görüntü yayımlarsanız, yayımlama sırasında belirtilen yayımcı, teklif, SKU ve sürüm bilgileri not edin. Marketten bir görüntü varsa kullanarak bilgileri görüntüleyebilirsiniz ```Get-AzureVMImage``` cmdlet'i.  
+Bir diğer ad dosyasına bir giriş eklemeden önce emin olun, [görüntüleri Azure Market'te indirme](azure-stack-download-azure-marketplace-item.md), veya [kendi özel görüntünüzü yayımlanan](azure-stack-add-vm-image.md). Özel bir görüntü yayımlarsanız, yayımlama sırasında belirtilen yayımcı, teklif, SKU ve sürüm bilgileri not edin. Marketten bir görüntü varsa kullanarak bilgileri görüntüleyebilir ```Get-AzureVMImage``` cmdlet'i.  
 
-A [örnek diğer dosyası](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) birçok ortak görüntüsüyle diğer adları kullanılabilir. Bir başlangıç noktası olarak kullanabilirsiniz. Bu dosyada CLI istemcileriniz, burada ulaşabileceği bir alanı ana bilgisayar. Bir blob storage hesabı dosyasında barındırmak ve URL, kullanıcılarla paylaşmak için yoludur:
+A [örnek diğer ad dosyası](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) birçok ortak görüntü ile diğer adları kullanılabilir. Bu bir başlangıç noktası olarak kullanabilirsiniz. Bu dosyada burada CLI istemcilerinize erişebileceği bir boşluk barındırın. Bir dosyayı blob depolama hesabında barındırmak ve URL'yi Kullanıcılarınızla paylaşın yoludur:
 
-1. Karşıdan [örnek dosya](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) github'dan.
-2. Yeni bir depolama hesabı Azure yığınında oluşturun. Tamamlandığında, yeni blob kapsayıcı oluşturun. "Genel" için erişim ilkesi ayarlama  
-3. JSON dosyasını yeni kapsayıcı karşıya yükleyin. Bu yapıldığında, blob adı seçtikten sonra URL blob özelliklerinden seçerek blob URL'si görüntüleyebilirsiniz.
+1. İndirme [örnek dosyası](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) github'dan.
+2. Azure Stack'te yeni bir depolama hesabı oluşturun. Tamamlandığında, yeni bir blob kapsayıcı oluşturun. "Genel" erişim ilkesi ayarlayın  
+3. JSON dosyasını yeni kapsayıcısına yükleyin. Tamamlandığında, blobun URL'sini blob adı seçerek ve ardından URL'yi blob özelliklerini görüntüleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure CLI ile şablonlarını dağıtma](azure-stack-deploy-template-command-line.md)
+- [Şablonları Azure CLI ile dağıtma](azure-stack-deploy-template-command-line.md)
 
 - [PowerShell ile bağlanma](azure-stack-connect-powershell.md)
 

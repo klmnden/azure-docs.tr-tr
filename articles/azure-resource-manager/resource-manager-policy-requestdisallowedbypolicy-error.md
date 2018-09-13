@@ -1,6 +1,6 @@
 ---
-title: Azure kaynak İlkesi RequestDisallowedByPolicy hatasıyla | Microsoft Docs
-description: RequestDisallowedByPolicy hatanın nedenini açıklar.
+title: RequestDisallowedByPolicy hatası ile bir Azure kaynak ilkesinden | Microsoft Docs
+description: RequestDisallowedByPolicy hatası nedenini açıklar.
 services: azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: genli
-ms.openlocfilehash: 474400d92660b68fd7fef906216b8e37c6e8c94d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a9993942c20f2c33d944b74fb124a363d0663ced
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647678"
 ---
-# <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure kaynak ilkesiyle RequestDisallowedByPolicy hata
+# <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure kaynak İlkesi ile RequestDisallowedByPolicy hatası
 
-RequestDisallowedByPolicy hatanın nedeni, bu makalede, ayrıca bu hata için çözüm sağlar.
+RequestDisallowedByPolicy hatası nedenini bu makalede, ayrıca bu hata için çözüm sağlar.
 
 ## <a name="symptom"></a>Belirti
 
-Dağıtım sırasında alabileceğiniz bir **RequestDisallowedByPolicy** kaynaklar oluşturmanızı engeller hata. Aşağıdaki örnek, hatayı gösterir:
+Dağıtım sırasında alabileceğiniz bir **RequestDisallowedByPolicy** kaynaklar oluşturmanızı engeller hata. Aşağıdaki örnekte, hatayı gösterir:
 
 ```json
 {
@@ -38,11 +39,11 @@ Dağıtım sırasında alabileceğiniz bir **RequestDisallowedByPolicy** kaynakl
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Dağıtımınızı engellenen İlkesi hakkındaki ayrıntıları almak için aşağıdaki yöntemlerden birini kullanın:
+Dağıtımınızı engellenen ilke ayrıntılarını almak için yöntemlerden birini kullanın:
 
 ### <a name="powershell"></a>PowerShell
 
-Bu ilke tanımlayıcısı olarak PowerShell'de sağlamak `Id` dağıtımınızı engellenen İlkesi hakkındaki ayrıntıları almak için parametre.
+PowerShell'de, bu ilke tanımlayıcısı olarak sağlamak `Id` dağıtımınızı engellenen ilke ayrıntılarını almak için parametre.
 
 ```PowerShell
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
@@ -50,7 +51,7 @@ Bu ilke tanımlayıcısı olarak PowerShell'de sağlamak `Id` dağıtımınızı
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI 2. 0'ilke tanımı adını sağlayın:
+Azure CLI, ilke tanımı adını sağlayın:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -58,10 +59,10 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Çözüm
 
-Güvenlik veya uyumluluk için abonelik yöneticilerinizi kaynakları nasıl dağıtıldığını sınırlama ilkeleri atayabilirsiniz. Örneğin, aboneliğiniz genel IP adresleri, ağ güvenlik grupları, kullanıcı tanımlı yollar oluşturma önleyen bir ilke, veya olabilir tabloları rota. Hata iletisinde **Belirtiler** bölüm ilkesinin adını gösterir.
-Bu sorunu gidermek için kaynak ilkelerini gözden geçirin ve bu ilkelerle kaynakları dağıtma belirleyin.
+Güvenlik veya uyumluluk için abonelik yöneticileri kaynakları nasıl dağıtılacağını sınırlama ilkeleri atayabilirsiniz. Örneğin, aboneliğiniz, genel IP adresleri, ağ güvenlik grupları, kullanıcı tanımlı yollar oluşturma engelleyen bir ilke veya rota tabloları. Hata iletisinde **belirtileri** bölüm ilkesinin adını gösterir.
+Bu sorunu çözmek için kaynak ilkelerini gözden geçirin ve bu ilkeleri ile uyumlu kaynakları dağıtma konusunda bilgi.
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-- [Azure ilke nedir?](../azure-policy/azure-policy-introduction.md)
-- [Uyumluluğu zorlamak üzere ilkeleri oluşturun ve yönetin](../azure-policy/create-manage-policy.md)
+- [Azure İlkesi nedir?](../azure-policy/azure-policy-introduction.md)
+- [Uyumluluğu zorlamak için ilkeleri oluşturma ve yönetme](../azure-policy/create-manage-policy.md)

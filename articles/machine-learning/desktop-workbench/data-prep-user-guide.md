@@ -1,118 +1,118 @@
 ---
-title: Azure Machine Learning veriler hazırlıkları kullanma hakkında ayrıntılı kılavuz | Microsoft Docs
-description: Bu belge, genel bir bakış ve Azure Machine Learning veriler hazırlıkları ile veri sorunları hakkında ayrıntılı bilgi sağlar.
+title: Azure Machine Learning veri hazırlıkları kullanma hakkında ayrıntılı kılavuz | Microsoft Docs
+description: Bu belge, bir genel bakış ve Azure Machine Learning veri hazırlıkları veri sorunları çözmek hakkında ayrıntılı bilgi sağlar.
 services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: f0ba579ab204e6636a986b054555ff431438d0a5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e4db8d70d2a96fe3ad24797d7a32d75e1a792e32
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830682"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647559"
 ---
-# <a name="data-preparations-user-guide"></a>Veriler hazırlıkları Kullanıcı Kılavuzu 
-Azure Machine Learning veriler hazırlıkları deneyimi çok zengin işlevsellik sağlar. Bu makale deneyimi derin bölümlerini içermektedir.
+# <a name="data-preparations-user-guide"></a>Veri hazırlıkları Kullanıcı Kılavuzu 
+Azure Machine Learning veri hazırlıkları deneyimi çok zengin işlevsellik sağlar. Bu makale deneyimi en derin bölümlerini içermektedir.
 
-### <a name="step-execution-history-and-caching"></a>Adım yürütme, geçmiş ve önbelleğe alma 
-Veriler hazırlıkları adım Geçmiş bir dizi performans nedenleriyle önbellekleri tutar. Bir adımı seçin ve bir Önbelleği İsabetli Okuma, yeniden yürütmez. Son adım geçmişinin yazma bloğundaki varsa ve adımları ileri ve geri çevirme, ancak hiçbir değişiklik yazma sonra ilk kez tetiklenen değil. Yeni bir yazma oluşur ve varsa eskisinin üzerine yazılır:
+### <a name="step-execution-history-and-caching"></a>Adım yürütme geçmişini ve önbelleğe alma 
+Bir dizi önbellek Performans nedeniyle veri hazırlıkları adım geçmişini tutar. Bir adım seçin ve bir önbellek isabet, yeniden yürütülmez. Bir yazma blok adım geçmişi sonunda varsa ve adımları ileri ve geri çevirme, ancak hiçbir değişiklik yazma sonra ilk kez tetiklenmez. Yeni bir yazma oluşur ve eskisinin üzerine yazar:
 
-- Değişiklikleri yazma bloğuna yapın.
-- Yeni bir dönüştürme blok ekleyin ve önbellek geçersiz kılma oluşturur yazma blok üstüne taşıyın.
-- Bir blok önbellek geçersiz kılma oluşturur yazma blok üstüne özelliklerini değiştirin.
-- Yenileme (Bu nedenle geçersiz kılmalarını tüm önbellekleri) olan bir örneği seçin.
+- Yazma blokla değişiklikleri yapın.
+- Yeni bir dönüştürme bloğu ekleyin ve önbellekte geçersiz kılma oluşturur yazma blok üstüne taşıyın.
+- Bir blok önbellekte geçersiz kılma oluşturur yazma blok üstüne özelliklerini değiştirin.
+- (Bu nedenle tüm önbellekleri geçersiz kılmalarını) örnek üzerinde Yenile'yi seçin.
 
-### <a name="error-values"></a>Hata değerleri
+### <a name="error-values"></a>Hata değerlerini
 
-Bu değer uygun şekilde işlenemiyor çünkü veri dönüşümleri için bir giriş değerinin başarısız olabilir. Örneğin, giriş dizesi değerini belirtilen hedef türüne yayınlanamıyor, türü zorlama işlemleri söz konusu olduğunda, zorlama başarısız olur. Tür zorlama işlemi dize türünde bir sütun bir sayısal ya da Boole türüne dönüştürme veya yinelenen mevcut olmayan bir sütun çalışılıyor. (Bu hatayı taşıma sonucu olarak ortaya çıkar *sütun X Sil* işlemi tamamlanmadan *yinelenen sütun X* işlemi.)
+Bu değeri uygun şekilde işlenemez çünkü veri dönüşümleri giriş değeri için başarısız olabilir. Örneğin, giriş dizesi değerini belirtilen hedef türüne yayınlanamıyor, türü zorlama işlemleri söz konusu olduğunda, zorlama başarısız olur. Bir tür zorlama işlemi dize türünde bir sütun bir sayısal veya Boolean türüne dönüştürme veya var olmayan bir sütunu yinelenen çalışılıyor. (Bu geçişin sonucu olarak arıza *X sütununu Sil* işlemden önce *yinelenen sütun X* işlemi.)
 
-Bu durumlarda, veriler hazırlıkları bir hata değeri çıktı olarak üretir. Hata değerlerini önceki bir işlem için belirtilen değer başarısız olduğunu gösterir. Dahili olarak, birinci sınıf değer türü olarak kabul, ancak bir sütun tamamen hata değerden oluşur olsa bile varlıklarını bir sütunun temel alınan tür değiştirmez.
+Bu durumlarda, veri hazırlıkları çıktı olarak bir hata değeri oluşturur. Hata değeri için belirtilen değer bir önceki işlemin başarısız olduğunu gösterir. Dahili olarak, bunlar bir birinci sınıf bir değer türü kabul, ancak bir sütun değerlerini tamamen Hata oluşsa bile varlıklarını bir sütunun temel alınan türü değiştirmez.
 
-Hata değerleri tanımlamak kolaydır. Kırmızı ile vurgulanan ve okuma "Hatası." Hatanın nedenini belirlemek için hata metni açıklamasını görmek için bir hata değeri üzerine gelerek.
+Hata değerlerini tanımlamak kolaydır. Kırmızı renkte vurgulanmış ve okuma "Hatası." Hatanın nedenini belirlemek için hatanın metin açıklamasını görmek için bir hata değeri üzerine gelin.
 
-Hata değerlerini yayılır. Bir hatanın ardından değeri oluşur, çoğu işlemleri üzerinden hata olarak çoğu durumda yayar. Değiştirin veya bunları kaldırmak için üç yolu vardır:
+Hata değerlerini yayar. Bir hatanın ardından değeri ortaya çıkar, çoğu durumda çoğu işlemi aracılığıyla hata olarak yayar. Değiştirin veya bunları kaldırmak için üç yol vardır:
 
 * Değiştir
-    -  Bir sütunu sağ tıklatın ve seçin **hata değerlerini değiştirmek**. Sonra bir değiştirme değeri sütununda bulunan her hata değerinin seçebilirsiniz.
+    -  Bir sütuna sağ tıklayın ve seçin **hata değerleri Değiştir**. Sonra bir değiştirme değeri sütununda bulunan her bir hata değeri için seçebilirsiniz.
 
 * Kaldır
-    - Veriler hazırlıkları korumak veya hata değerlerini kaldırmak için etkileşimli filtreler içerir.
-    - Bir sütunu sağ tıklatın ve seçin **filtre sütunu**. Korumak veya hata değerlerini kaldırmak için bir koşullu koşulu ile oluşturma *"hata olduğu"* veya *"hata değil."*
+    - Veri hazırlıkları korumak veya hata değerlerini kaldırmak için etkileşimli bir filtre içerir.
+    - Bir sütuna sağ tıklayın ve seçin **filtre sütunu**. Korumak ya da hata değerlerini kaldırmak için koşulunu sağlayacak bir koşullu oluşturma *"hata olduğu"* veya *"hata değil."*
 
-* Koşullu hata değerlerini üzerinde çalışması için bir Python deyimi kullanın. Daha fazla bilgi için bkz: [Python Uzantıları bölümüne](data-prep-python-extensibility-overview.md).
+* Hata değerlerini koşullu olarak çalışmak için Python ifade kullanın. Daha fazla bilgi için [Python uzantıları bölümünde](data-prep-python-extensibility-overview.md).
 
 ### <a name="sampling"></a>Örnekleme
-Bir veri kaynakları dosyayı yerel dosya sistemine veya uzak bir konumdaki bir veya daha fazla kaynaklardan gelen ham verileri alır. Örnek blok mi örnekleri oluşturarak verilerinin bir kısmını çalışmaya belirtmenize olanak tanır. Daha sonraki adımlarda işlemleri gerçekleştirdiğinizde örneği büyük bir veri kümesi yerine verileri genellikle işletim daha iyi performans için yol gösterir.
+Bir veri kaynağı dosyası ya da yerel dosya sistemine veya uzak bir konumdan bir veya daha fazla kaynaktan alınan ham verileri alır. Örnek blok örnekleri oluşturarak bir veri alt kümesi ile çalışmak etkinleştirilip etkinleştirilmeyeceğini belirtmenizi sağlar. Sonraki adımlarda işlemleri gerçekleştirdiğinizde örneği büyük bir veri kümesi yerine verileri genellikle işletim daha iyi performansa neden olur.
 
-Her veri kaynakları dosyası için birden fazla örnek oluşturulur ve depolanır. Ancak, yalnızca bir örnek etkin örnek olarak ayarlanabilir. Oluşturmak, düzenlemek veya veri kaynağı Sihirbazı'nda veya örnek blok düzenleyerek örneklerini silin. Bir veri kaynağına kendiliğinden başvuran herhangi bir veriler hazırlıkları dosya veri kaynaklarını dosyasında belirtilen örnek kullanın.
+Her veri kaynağı dosyası için birden fazla örnek oluşturulur ve depolanır. Ancak, tek örnek etkin örnek olarak ayarlanabilir. Oluşturmak, düzenlemek veya veri kaynağı Sihirbazı'nda veya örnek blok düzenleyerek örneklerini silin. Veri kaynakları dosyasında belirtilen örnek doğası gereği bir veri kaynağına başvuran veri hazırlıkları dosyaları kullanın.
 
-Bir dizi örnekleme stratejileri kullanılabilir, her farklı yapılandırılabilir parametrelerle vardır.
+Bir dizi örnekleme stratejileri kullanılabilir, her biri farklı yapılandırılabilir parametreler vardır.
 
 #### <a name="top"></a>Üst
-Bu strateji, yerel veya uzak dosyalara uygulanabilir. Veri kaynağında (sayısı tarafından belirtilen) ilk N satırları sürer.
+Bu strateji, yerel veya uzak dosyalara uygulanabilir. İşlem veri kaynağının ilk N satırları (sayısı tarafından belirtilen) alır.
 
 #### <a name="random-n"></a>Rastgele N 
-Bu strateji, yalnızca yerel dosyalara uygulanabilir. İşlem, veri kaynağında rastgele N satırları (sayısı tarafından belirtilen) alır. Aynı örnek oluşturulan koşuluyla sayısı da aynı olduğundan emin olmak için belirli bir çekirdek sağlayabilir.
+Bu strateji, yalnızca yerel dosyalar için uygulanabilir. İşlem, veri kaynağında (sayısı tarafından belirtilen) rastgele N satırları alır. Sayısı da aynı olması şartıyla, aynı örnek oluşturulan emin olmak için belirli bir çekirdek sağlayabilir.
 
 #### <a name="random-"></a>Rastgele % 
-Bu strateji, yerel veya uzak dosyalara uygulanabilir. Her iki durumda da, bir olasılık ve çekirdek olmalıdır sağlanan rastgele N stratejisi benzer.
+Bu strateji, yerel veya uzak dosyalara uygulanabilir. Her iki durumda da bir olasılık ve çekirdek olmalıdır belirtilmezse, rastgele N stratejisi benzer.
 
-Uzak dosyaları örnekler için ek parametreler sağlanması gerekir:
+Uzak dosyaları örnekleri için ek parametreler sağlanması gerekir:
 
 - Örnek oluşturucusu 
-  - Spark kümesi seçin veya uzak Docker işlem örnek oluşturma için kullanılacak hedef. Projenin önceden bu listesinde görünmesi için işlem hedef oluşturulması gerekir. Bölümündeki adımları "oluşturma yeni bir işlem hedef" içinde izleyin [GPU Azure Machine Learning kullanma](how-to-use-gpu.md) işlem hedeflerini oluşturmak için.
+  - Bir Spark kümesi seçin veya uzak bir Docker örnek oluşturmak için kullanılacak hedef işlem. İşlem hedef projenin bu listede görünmesini için önceden oluşturulmuş olması gerekir. Aşağıdaki bölümde yer alan adımları "oluşturma yeni bir işlem hedefine" içinde [Azure Machine Learning'de GPU kullanmayı](how-to-use-gpu.md) işlem hedeflerini oluşturmak için.
 - Örnek Depolama 
-  - Uzak örnek depolamak için bir ara depolama konumu belirtin. Bu yol giriş dosyası konumundan farklı bir dizin olmalıdır.
+  - Uzak örneği depolamak için bir ara depolama konumunu belirtin. Bu yol, giriş dosyası konumundan farklı bir dizin olmalıdır.
 
 #### <a name="full-file"></a>Tam dosya 
-Bu strateji, veri kaynağında tam dosya alma yalnızca yerel dosyalara uygulanabilir. Dosya çok büyük ise, bu seçeneği uygulamayı gelecekteki işlemlerde aşağı yavaşlatabilir. Farklı örnekleme stratejisi kullanmak daha uygun bulabilirsiniz.
+Bu strateji veri kaynağının tam dosya alma yalnızca yerel dosyalara uygulanabilir. Dosya çok büyük ise, bu seçeneği uygulamayı gelecekteki işlemlerde aşağı yavaşlatabilir. Farklı bir örnekleme stratejisi kullanmak daha uygun bulabilirsiniz.
 
 
-### <a name="fork-merge-and-append"></a>Çatallaştırma, birleştirme ve ekleme
+### <a name="fork-merge-and-append"></a>Çatal, birleştirme ve ekleme
 
-Bir veri kümesi üzerinde filtre uyguladığınızda işlemi verileri iki sonuç kümeleri halinde ayırır.: bir küme filtresinde başarılı kayıtları temsil eder ve başarısız olan kayıtları için başka bir kümesidir. Her iki durumda da, kullanıcının görüntülemek için hangi sonuç kümesini seçebilirsiniz. Kullanıcı, diğer veri kümesi atmak ya da yeni bir veri akışı yerleştirin. İkinci seçeneği forking olarak adlandırılır.
+Bir veri kümesi üzerinde bir filtre uyguladığınızda, işlemi verileri iki sonuç kümeleri halinde böler.: bir küme filtresinde başarılı kayıtlar temsil eder ve başarısız olan kayıtları için başka bir kümesidir. Her iki durumda da, kullanıcının görüntülemek için hangi sonuç kümesini seçebilirsiniz. Kullanıcı, başka bir veri kümesi atmak ya da yeni bir veri akışı yerleştirin. İkinci seçeneği çatal olarak adlandırılır.
 
-Çatallaştırma için: 
-1. Sütun, sağ tıklatın ve seçin seçin **filtre** sütun.
+Çatal için: 
+1. Bir sütun, sağ tıklatın ve seçin seçin **filtre** sütun.
 
-2. Altında **t istediğiniz**seçin **tutmak satırları** filtresini geçen sonuç kümesini görüntülemek için.
+2. Altında **istiyorum**seçin **satırları tutmak** filtrenin geçirir sonuç kümesini görüntülemek için.
 
-3. Seçin **satırları Kaldır** başarısız kümesini görüntülemek için.
+3. Seçin **satırları Kaldır** ayarlanamadı görüntülenecek.
 
-4. Sonra **koşullar**seçin **çıkışı filtre satırları içeren Oluştur veri akışı** görüntü olmayan sonuç kümesinde yeni bir veri akışına dizisinde çatallaştırmak için.
+4. Sonra **koşullar**seçin **Oluştur veri akışı dışarı filtrelenen satırlar içeren** görünen olmayan sonuç yeni bir veri akışına kümesini dizisinde çatallaştırmak için.
 
 
-Bu yöntem, genellikle bir ek hazırlık gerektirir veri kümesi ayırmak için kullanılır. Forked dataset hazırlandıktan sonra sonuç özgün veri akışı kümesi ile verileri birleştirmek için yaygın bir sorundur. Bir birleştirme (çatalı işlemi ters) gerçekleştirmek için aşağıdaki eylemlerden birini kullanın:
+Bu yöntem, genellikle bir ek hazırlık gerektirir veri kümesini ayırmak için kullanılır. Çatalı oluşturulan veri kümesi hazır sonra veriler özgün veri akışı sonuç birleştirmek için yaygındır. Bir birleştirme (Çatal işlemi tersine) gerçekleştirmek için aşağıdaki eylemlerden birini kullanın:
 
-- **Satır sona**. İki veya daha fazla veri akışları dikey birleştirme (row-wise). 
-- **Sütunlar ekleme**. İki veya daha fazla veri akışları yatay birleştirme (column-wise).
+- **Satırlar ekleme**. İki veya daha fazla veri akışları dikey birleştirme (row-wise). 
+- **Sütunlar ekleme**. Yatay olarak iki veya daha fazla veri akışları Birleştir (column-wise).
 
 
 >[!NOTE]
->Bir sütun çakışma olursa sütunları başarısız ekleyin.
+>Bir sütun çakışma oluşursa sütunları başarısız ekleyin.
 
 
-Birleştirme işleminden sonra bir veya daha fazla veri akışları kaynak veri akışı tarafından başvurulur. Veriler hazırlıkları simgesiyle sizi uyarır adımlarının listesi altında uygulamanın sağ alt köşesinde bir bildirim.
+Sonra bir birleştirme işlemi, bir veya daha fazla veri akışı, bir kaynak veri akışı tarafından başvurulur. Veri hazırlıkları bildirir, adımları listesi altına uygulamanın sağ üst köşedeki bildirimi.
 
 
-Başvurulan veri akışı üzerinde herhangi bir işlemi başvurulan veri akışından kullanılan örnek yenilemek için ana veri akışı gerektirir. Bu olay, bir onay iletişim kutusunda sağ alt köşedeki veri akışı başvuru bildirimi yerini alır. Bu iletişim kutusu, hiçbir bağımlılık veri akışları yapılan değişiklikler ile eşitlemek için veri akışı yenilemeleri gerektiğini doğrular.
+Başvurulan veri akışından kullanılan örnek yenilemek için ana veri akışı başvurulan veri akışı üzerinde herhangi bir işlem gerektirir. Bu olay, onay iletişim kutusunda sağ alt köşedeki veri akışı başvuru bildirim değiştirir. Bu iletişim kutusu herhangi bir bağımlılık veri akışı değişiklikler ile eşitlemek için veri akışı yenilemeleri gerektiğini doğrular.
 
-### <a name="list-of-appendices"></a>Ekler listesi 
+### <a name="list-of-appendices"></a>Eklerin listesi 
 * [Desteklenen veri kaynakları](data-prep-appendix2-supported-data-sources.md)  
 * [Desteklenen dönüşümler](data-prep-appendix3-supported-transforms.md)  
 * [Desteklenen denetçiler](data-prep-appendix4-supported-inspectors.md)  
 * [Desteklenen hedefleri](data-prep-appendix5-supported-destinations.md)  
-* [Python örnek filtre ifadelerinde](data-prep-appendix6-sample-filter-expressions-python.md)  
-* [Örnek dönüştürme veri akışı Python ifadelerde](data-prep-appendix7-sample-transform-data-flow-python.md)  
-* [Örnek veri kaynaklarında Python](data-prep-appendix8-sample-source-connections-python.md)  
-* [Python örnek hedef bağlantıları](data-prep-appendix9-sample-destination-connections-python.md)  
-* [Örnek sütun Python içinde dönüştürür](data-prep-appendix10-sample-custom-column-transforms-python.md)  
+* [Python'da filtre ifadeleri örneği](data-prep-appendix6-sample-filter-expressions-python.md)  
+* [Python'da örnek dönüşüm veri akışı ifadeleri](data-prep-appendix7-sample-transform-data-flow-python.md)  
+* [Python örnek veri kaynakları](data-prep-appendix8-sample-source-connections-python.md)  
+* [Python'da hedef bağlantıları örneği](data-prep-appendix9-sample-destination-connections-python.md)  
+* [Python örnek sütun dönüşümleri](data-prep-appendix10-sample-custom-column-transforms-python.md)  

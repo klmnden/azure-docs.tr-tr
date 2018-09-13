@@ -1,25 +1,25 @@
 ---
-title: Azure AD B2B işbirliği kullanıcı belirteçleri anlama | Microsoft Docs
+title: Azure AD B2B işbirliği içinde çalışan kullanıcı belirteçleri anlama | Microsoft Docs
 description: Azure Active Directory B2B işbirliği için kullanıcı belirteci başvurusu
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: efbadf877a38f1ab553e1c376e3084d00f606a31
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: ff28943ba4f7b0eda5733783a14d1cc2f025f01b
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260274"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647250"
 ---
-# <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliği kullanıcı belirteçleri anlama
+# <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliği içinde çalışan kullanıcı belirteçleri anlama
 
-Belirteç nasıl B2B işbirliği kullanıcıdan göründüğünü bilmek istiyorsanız, aşağıda verilmiştir belirteci içerik için bir Azure Active Directory (Azure AD) Konuk ve kaynak Kiracı (için tenantıd bir Microsoft hesabı Konuk ve taşıyıcı belirteç ayrıntıları 04dcc6ab-388a-4559-b527-fbec656300ea). JSON Web Token (JWT) içeriği görmek için [ https://jwt.io/ ](https://jwt.io/) veya [ https://jwt.ms/ ](https://jwt.ms/).
+Belirteç B2B işbirliği kullanıcısı için nasıl göründüğüne bilmek istiyorsanız, burada, taşıyıcı belirteç ayrıntıları ve bir Azure Active Directory (Azure AD) Konuk ve kaynak Kiracı (Kiracı kimliği için bir Microsoft hesabı Konuk için belirteç içeriği 04dcc6ab-388a-4559-b527-fbec656300ea). JSON Web Token (JWT) içeriği görmek için [ https://jwt.io/ ](https://jwt.io/) veya [ https://jwt.ms/ ](https://jwt.ms/).
 
 ## <a name="azure-ad-guest-token"></a>Azure AD Konuk belirteci
 ```

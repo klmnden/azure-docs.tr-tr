@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: cbfbe02926907ca3ca5b6c13932c8b67862c8456
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 4c5bb0ab3431fa951871e64d7bdd8a3a313f480f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842032"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721509"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuzları oluşturma ve yönetme
 
@@ -102,7 +102,7 @@ SQL veritabanı elastik havuzları ve havuza alınan veritabanları oluşturmak 
 |[Elastik havuzlar - oluştur veya güncelleştir](/rest/api/sql/elasticpools/createorupdate)|Yeni bir elastik havuz oluşturur veya mevcut bir elastik havuz güncelleştirir.|
 |[Elastik havuzlar - Sil](/rest/api/sql/elasticpools/delete)|Esnek havuz siler.|
 |[Elastik havuzlar - Get](/rest/api/sql/elasticpools/get)|Elastik havuz alır.|
-|[Elastik havuzlar - sunucu listesi](/rest/api/sql/elasticpools/listbyserver)|Bir sunucu elastik havuzları listesini döndürür.|
+|[Elastik havuzlar - sunucusu listesi](/rest/api/sql/elasticpools/listbyserver)|Bir sunucu elastik havuzları listesini döndürür.|
 |[Elastik havuzlar - güncelleştirme](/rest/api/sql/elasticpools/update)|Var olan bir esnek havuzun güncelleştirir.|
 |[Elastik havuz etkinlikleri](/rest/api/sql/elasticpoolactivities)|Elastik havuz etkinlikleri döndürür.|
 |[Elastik havuz veritabanı etkinlikleri](/rest/api/sql/elasticpooldatabaseactivities)|İçinde bir elastik havuzdaki veritabanları üzerinde etkinlik döndürür.|

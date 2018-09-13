@@ -10,13 +10,13 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: mireks
-ms.reviewer: carlrab
-ms.openlocfilehash: a648071d4d98f500e70557b330d5c79dba747a1f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.reviewer: vanto
+ms.openlocfilehash: d123cb2d272f1c360d12e9d71eec6dc5ca508ebd
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345202"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718755"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Yapılandırma ve SQL veritabanı, yönetilen örneği veya SQL veri ambarı ile Azure Active Directory kimlik doğrulamasını Yönet
 
@@ -189,7 +189,7 @@ Aşağıdaki örnek, bir Azure AD Yöneticisi kaldırır:
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-Azure Active Directory Yöneticisi REST API'lerini kullanarak da sağlayabilirsiniz. Daha fazla bilgi için [Hizmet Yönetimi REST API Başvurusu ve Azure SQL veritabanları için Azure SQL veritabanı işlemleri için işlemler](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+Azure Active Directory Yöneticisi REST API'lerini kullanarak da sağlayabilirsiniz. Daha fazla bilgi için [Hizmet Yönetimi REST API Başvurusu ve Azure SQL veritabanı için Azure SQL veritabanı işlemleri için işlemler](https://msdn.microsoft.com/library/azure/dn505719.aspx)
 
 ### <a name="cli"></a>CLI  
 Aşağıdaki CLI komutları çağırarak, bir Azure AD Yöneticisi ayrıca sağlayabilirsiniz:

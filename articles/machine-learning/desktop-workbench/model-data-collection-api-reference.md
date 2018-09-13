@@ -1,33 +1,33 @@
 ---
-title: Azure Machine Learning modeli veri toplama API Başvurusu | Microsoft Docs
-description: Azure Machine Learning modeli veri toplama API'si başvurusu.
+title: Azure Machine Learning Model veri koleksiyonu API Başvurusu | Microsoft Docs
+description: Azure Machine Learning Model veri koleksiyonu API Başvurusu.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: ff80130ebb9c4095d4a20202cdfabd9aaf1b1992
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d9fee56d7748cdfd34f982fe79467f7d61c54926
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832015"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646825"
 ---
-# <a name="azure-machine-learning-model-data-collection-api-reference"></a>Azure Machine Learning modeli veri toplama API'si başvurusu
+# <a name="azure-machine-learning-model-data-collection-api-reference"></a>Azure Machine Learning Model veri koleksiyonu API Başvurusu
 
-Model veri koleksiyonu, model girişleri ve web hizmeti öğrenme bir makineden tahminleri arşivlemek olanak sağlar. Bkz: [model veri toplama nasıl yapılır Kılavuzu](how-to-use-model-data-collection.md) nasıl yükleneceği anlamak için `azureml.datacollector` , Windows ve Linux makinenizde.
+Model veri koleksiyonu, model girişlerini ve tahminlerini bir machine learning web hizmeti'den arşiv olanak tanır. Bkz: [model veri koleksiyonu yapılır kılavuzunda](how-to-use-model-data-collection.md) nasıl yükleneceğini anlamak için `azureml.datacollector` Windows ve Linux makinenizde.
 
-Bu API başvuru kılavuzu modeli girişleri ve tahminleri web hizmeti öğrenme bir makineden toplamak konusunda adım adım bir yaklaşım kullanın.
+Bu API Başvurusu Kılavuzu'nda bir machine learning web hizmetini model girişlerini ve tahminlerini toplamak konusunda adım adım bir yaklaşım kullanın.
 
-## <a name="enable-model-data-collection-in-azure-ml-workbench-environment"></a>Azure ML çalışma ekranı ortamında model veri toplamayı etkinleştir
+## <a name="enable-model-data-collection-in-azure-ml-workbench-environment"></a>Azure ML Workbench ortamında model verisi toplamayı etkinleştir
 
- Conda için Ara\_dependencies.yml dosya aml_config klasörü altında projenizdeki ve, conda sahip\_dependencies.yml dosya PIP bölümünde azureml.datacollector modülü aşağıda gösterildiği gibi ekleyin. Bu yalnızca bir tam conda alt olduğuna dikkat edin\_dependencies.yml dosyası:
+ Aramak için conda\_dependencies.yml dosya aml_config klasörü altında projenizdeki ve, conda sahip\_dependencies.yml dosya aşağıda gösterildiği gibi pip bölümünde azureml.datacollector modülü içerir. Bu, yalnızca tam conda alt olduğunu unutmayın\_dependencies.yml dosyası:
 
     dependencies:
       - python=3.5.2
@@ -35,42 +35,42 @@ Bu API başvuru kılavuzu modeli girişleri ve tahminleri web hizmeti öğrenme 
         - azureml.datacollector==0.1.0a13
 
 >[!NOTE] 
->Şu anda, docker modunda çalıştırarak Azure ML çalışma ekranı veri toplayıcı modülünü kullanabilirsiniz. Yerel mod tüm ortamlar için çalışmayabilir.
+>Şu anda docker modunda çalıştırarak Azure ML Workbench uygulamasında veri toplayıcı modülü kullanabilirsiniz. Yerel mod için tüm ortamlarını çalışmayabilir.
 
 
 
 
-## <a name="enable-model-data-collection-in-the-scoring-file"></a>Puanlama dosyasında model veri toplamayı etkinleştir
+## <a name="enable-model-data-collection-in-the-scoring-file"></a>Puanlama dosyası, model verisi toplamayı etkinleştir
 
-Operationalization için kullanılan Puanlama dosyasında ModelDataCollector sınıfı ve veri toplayıcı modülü içeri aktarın:
+Kullanıma hazır hale getirme için kullanılan Puanlama dosyasında veri toplayıcı modülü ve ModelDataCollector sınıfını içeri aktarın:
 
     from azureml.datacollector import ModelDataCollector
 
 
-## <a name="model-data-collector-instantiation"></a>Model Veri Toplayıcı örnek oluşturma
-Bir ModelDataCollector yeni bir örneğini örneği:
+## <a name="model-data-collector-instantiation"></a>Model Veri Toplayıcı örneklemesi
+Bir yeni bir ModelDataCollector örneği:
 
     dc = ModelDataCollector(model_name, identifier='default', feature_names=None, model_management_account_id='unknown', webservice_name='unknown', model_id='unknown', model_version='unknown')
 
-Sınıf ve parametre ayrıntıları bakın:
+Sınıf ve parametre ayrıntılarını bakın:
 
 ### <a name="class"></a>Sınıf
 | Ad | Açıklama |
 |--------------------|--------------------|
-| ModelDataCollector | Bir sınıf azureml.datacollector ad. Bu sınıf örneği, model verileri toplamak için kullanılır. Tek bir Puanlama dosyası birden çok ModelDataCollectors içerebilir. Her bir örnek toplanan verileri şeması tutarlı kalmayacak şekilde Puanlama dosyasındaki bir ayrık konumdaki verilerinin toplanması için kullanılması gereken (diğer bir deyişle, girişleri ve tahmin)|
+| ModelDataCollector | Bir sınıf içinde azureml.datacollector ad alanı. Bu sınıfın bir örneği, model verileri toplamak için kullanılır. Tek bir Puanlama dosyası, birden çok ModelDataCollectors içerebilir. Her örnek, toplanan veri şeması tutarlı kalması Puanlama dosyası farklı bir konumda verilerinin toplanması için kullanılmalıdır (yani, giriş ve tahmin)|
 
 
 ### <a name="parameters"></a>Parametreler
 
 | Ad | Tür | Açıklama |
 |-------------|------------|-------------------------|
-| model_adı | dize | hangi verilerin toplanan modelinin adı |
-| Tanımlayıcı | dize | Bu veriler, yani tanımlayan kod konumu 'RawInput' veya 'Tahmin' |
-| feature_names | dize listesi | sağlandığında csv başlığı hale özellik adlarının listesi |
-| model_management_account_id | dize | Bu model depolandığı model yönetim hesabı tanımlayıcısı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
-| webservice_name | dize | Bu model şu anda dağıtıldığı webservice adı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
-| model_id | dize | Bir model yönetim hesabı bağlamında bu model için benzersiz tanımlayıcı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
-| model_version | dize | Bu modelin model yönetim hesabı bağlamında sürüm numarası. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
+| model_adı | dize | hangi veri toplanan model adı |
+| tanımlayıcı | dize | Bu veriler, yani tanımlayan kod konumu 'RawInput' veya 'Tahmin' |
+| feature_names | dize listesi | sağlandığında csv üst bilgisi haline özellik adları listesi |
+| model_management_account_id | dize | Bu model depolandığı model Yönetimi hesabı için tanımlayıcı. Modelleri AML Çalıştır duruma getirdiniz, bu otomatik olarak doldurulur |
+| webservice_name | dize | Bu model şu anda dağıtılmış olan Web hizmeti adı. Modelleri AML Çalıştır duruma getirdiniz, bu otomatik olarak doldurulur |
+| model_id | dize | Model Yönetimi hesabı bağlamında bu model için benzersiz tanımlayıcı. modelleri AML Çalıştır duruma getirdiniz, bu otomatik olarak doldurulur |
+| model_version | dize | Bu modelin model Yönetimi hesabı bağlamında sürüm numarası. Modelleri AML Çalıştır duruma getirdiniz, bu otomatik olarak doldurulur |
 
 
 
@@ -78,7 +78,7 @@ Sınıf ve parametre ayrıntıları bakın:
 
 ## <a name="collecting-the-model-data"></a>Model verileri toplama
 
-Yukarıda oluşturduğunuz ModelDataCollector örneği kullanarak model verileri toplayabilir.
+Yukarıda oluşturulan ModelDataCollector örneği kullanarak model verileri toplayabilir.
 
     dc.collect(input_data, user_correlation_id="")
 
@@ -94,6 +94,6 @@ Yöntem ve parametre ayrıntıları bakın:
 
 | Ad | Tür | Açıklama |
 |-------------|------------|-------------------------|
-| input_data | birden çok tür | Toplanacak veri (şu anda kabul türleri listesi, numpy.array pandas. DataFrame, pyspark.sql.DataFrame). Üstbilgi özellik adları ile varsa dataframe türleri için bu bilgiler veri hedef (açıkça özellik adları ModelDataCollector oluşturucuda geçmesi gerek kalmadan) dahil edilir |
-| user_correlation_id | dize | Bu tahmin ilişkilendirmek için kullanıcı tarafından sağlanan bir isteğe bağlı bağıntı kimliği |
+| input_data | birden çok tür | Toplanacak verileri (şu anda kabul türleri listesi, numpy.array pandas. Veri çerçevesi, pyspark.sql.DataFrame). Özellik adları ile bir üstbilgi varsa, veri türleri için bu bilgiler verilerin hedef (açıkça özellik adları ModelDataCollector oluşturucuda geçirmek zorunda kalmadan) dahil edilir |
+| user_correlation_id | dize | Bu tahmin ilişkilendirmek için kullanıcı tarafından sağlanan bir isteğe bağlı bir bağıntı kimliği |
 

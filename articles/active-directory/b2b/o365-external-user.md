@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7e0a65e4a5807cb9a6b39feecfd2d5b2643ea4a9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1ab7518ff5a9524dbfe1b258a51b7ad0ef5c9765
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331113"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716783"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Office 365 dış paylaşım ve Azure Active Directory B2B işbirliği
 
@@ -38,9 +38,14 @@ Dış OneDrive/SharePoint Online ile Azure AD B2B işbirliği paylaşımını y�
 
 ![OneDrive/SharePoint Online paylaşımı ayarı dış](media/o365-external-user/odsp-sharing-setting.png)
 
+Dış paylaşım etkinleştirdikten sonra SharePoint Online (SPO) Kişi Seçici var olan konuk kullanıcılar için arama yapma, eski davranışı eşleştirmek için varsayılan olarak OFF durumda.
+
+'ShowPeoplePickerSuggestionsForGuestUsers' ayarı Kiracı ve site koleksiyonu düzeyinde kullanarak bu özelliği etkinleştirebilirsiniz. Üyelerinin dizindeki tüm mevcut Konuk kullanıcıları aramak Set-SPOTenant ve Set-SPOSite cmdlet'lerini kullanarak özelliğini ayarlayabilirsiniz. Değişiklikler Kiracı kapsamında zaten sağlanan SPO site etkilemez.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure AD B2B işbirliği nedir?](what-is-b2b.md)
 * [Bir role B2B işbirliği kullanıcısı ekleme](add-guest-to-role.md)
 * [Temsilci B2B işbirliği davetleri](delegate-invitations.md)
 * [Dinamik gruplar ve B2B işbirliği](use-dynamic-groups.md)
+* [Azure Active Directory B2B işbirliği sorunlarını giderme](troubleshoot.md)

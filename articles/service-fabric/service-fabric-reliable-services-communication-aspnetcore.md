@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/29/2018
 ms.author: vturecek
-ms.openlocfilehash: afd682625d7bb74f9a4b726a534508b805562e7f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 384d0fa32b64706c9d9d9baa0e2e0bbb2ac3c522
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701543"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719605"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core Service Fabric güvenilir hizmetler
 
@@ -54,12 +54,12 @@ Genellikle, şirket içinde barındırılan ASP.NET Core uygulamaları bir Web b
 
 Bu hizmet türünün örneklerini oluşturabilir, böylece uygulama giriş noktası yalnızca bir hizmet türü Service Fabric çalışma zamanı ile kaydetmek için kullanılır çünkü ancak uygulama giriş noktası bir WebHost güvenilir bir hizmet oluşturmak için doğru yer değildir. WebHost kendisi bir güvenilir hizmet olarak oluşturulmalıdır. Hizmet barındırma işlemi içinde birden çok yaşam döngüleri hizmet örnekleri ve/veya çoğaltmaları gidebilirsiniz. 
 
-Bir güvenilir hizmet örneği öğesinden türetme, hizmet sınıfı tarafından temsil edilen `StatelessService` veya `StatefulService`. Bir hizmet için iletişim yığını bulunan bir `ICommunicationListener` uygulamasında, hizmet sınıfı. `Microsoft.ServiceFabric.Services.AspNetCore.*` NuGet paketlerini içeren uygulamaları `ICommunicationListener` başlatın ve ASP.NET Core WebHost Kestrel ya da güvenilir bir hizmet içinde HttpSys yönetin.
+Bir güvenilir hizmet örneği öğesinden türetme, hizmet sınıfı tarafından temsil edilen `StatelessService` veya `StatefulService`. Bir hizmet için iletişim yığını bulunan bir `ICommunicationListener` uygulamasında, hizmet sınıfı. `Microsoft.ServiceFabric.AspNetCore.*` NuGet paketlerini içeren uygulamaları `ICommunicationListener` başlatın ve ASP.NET Core WebHost Kestrel ya da güvenilir bir hizmet içinde HttpSys yönetin.
 
 ![ASP.NET Core güvenilir hizmeti barındırma][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ASP.NET Core ICommunicationListeners
-`ICommunicationListener` Kestrel ve içinde HttpSys uygulamaları `Microsoft.ServiceFabric.Services.AspNetCore.*` NuGet paketlerini benzer kullanım desenleri sahip ancak her bir web sunucusuna belirli biraz farklı eylemleri gerçekleştirin. 
+`ICommunicationListener` Kestrel ve içinde HttpSys uygulamaları `Microsoft.ServiceFabric.AspNetCore.*` NuGet paketlerini benzer kullanım desenleri sahip ancak her bir web sunucusuna belirli biraz farklı eylemleri gerçekleştirin. 
 
 Her iki iletişim dinleyicileri aşağıdaki bağımsız değişken alan bir oluşturucu sağlar:
  - **`ServiceContext serviceContext`**`ServiceContext` Çalışan hizmeti hakkında bilgi içeren nesne.
@@ -67,7 +67,7 @@ Her iki iletişim dinleyicileri aşağıdaki bağımsız değişken alan bir olu
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: bir lambda, oluşturduğunuz ve dönüş uygulayan bir `IWebHost`. Bu sayede yapılandırmak `IWebHost` bir ASP.NET Core uygulaması normalde olduğu gibi. Service Fabric tümleştirmesi bağlı olarak, seçenekleri için oluşturulan bir URL kullanın, lambda sağlar ve `Endpoint` sağladığınız yapılandırma. URL daha sonra değiştirilebilir veya olarak kullanılan,-web sunucusu başlamaktır.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric tümleştirme ara yazılımı
-`Microsoft.ServiceFabric.Services.AspNetCore` NuGet paketini içeren `UseServiceFabricIntegration` genişletme yöntemini `IWebHostBuilder` , Service Fabric algılayan ara yazılımı ekler. Bu ara yazılımın Kestrel veya HttpSys yapılandırır `ICommunicationListener` benzersiz bir hizmet URL'si Service Fabric adlandırma hizmetine kaydetmek için ve ardından istemcileri için doğru hizmet bağlama emin olmak için istemci istekleri doğrular. Bu, birden çok web uygulamaları burada aynı fiziksel veya sanal makinede çalıştırabilirsiniz ancak istemciler yanlışlıkla yanlış hizmete bağlanmasını önlemek için benzersiz bir ana bilgisayar adları kullanmayın, Service Fabric gibi paylaşılan konak ortamında gereklidir. Bu senaryo, sonraki bölümde daha ayrıntılı açıklanmıştır.
+`Microsoft.ServiceFabric.AspNetCore` NuGet paketini içeren `UseServiceFabricIntegration` genişletme yöntemini `IWebHostBuilder` , Service Fabric algılayan ara yazılımı ekler. Bu ara yazılımın Kestrel veya HttpSys yapılandırır `ICommunicationListener` benzersiz bir hizmet URL'si Service Fabric adlandırma hizmetine kaydetmek için ve ardından istemcileri için doğru hizmet bağlama emin olmak için istemci istekleri doğrular. Bu, birden çok web uygulamaları burada aynı fiziksel veya sanal makinede çalıştırabilirsiniz ancak istemciler yanlışlıkla yanlış hizmete bağlanmasını önlemek için benzersiz bir ana bilgisayar adları kullanmayın, Service Fabric gibi paylaşılan konak ortamında gereklidir. Bu senaryo, sonraki bölümde daha ayrıntılı açıklanmıştır.
 
 ### <a name="a-case-of-mistaken-identity"></a>Hatalı kimliğinin servis talebi
 Protokol, bağımsız olarak, hizmet çoğaltmaları üzerindeki bir benzersiz IP: BağlantıNoktası birleşimini dinleyin. Bir hizmet çoğaltması, bir IP: BağlantıNoktası uç noktası üzerinde dinleme başlatıldıktan sonra Service Fabric adlandırma Burada, istemcileri veya diğer hizmetler tarafından bulunabileceğini hizmeti için bu uç nokta adresi bildirir. Hizmetleri dinamik olarak atanan uygulama bağlantı noktası kullanıyorsanız, bir hizmet çoğaltması tesadüfen aynı fiziksel veya sanal makine üzerinde önceden başka bir hizmet aynı IP: BağlantıNoktası uç noktasına kullanabilir. Bu bir istemciye mistakely neden yanlış hizmete bağlanın. Aşağıdaki olaylar dizisi gerçekleşir. Bu durum ortaya çıkabilir:

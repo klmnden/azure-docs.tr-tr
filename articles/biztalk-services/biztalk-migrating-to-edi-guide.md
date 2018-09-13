@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 001dc4d5057767191003697c5fb819e53a8658f2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365596"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719945"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI çözümlerini BizTalk Services'a Geçirme: teknik Kılavuzu
 
@@ -55,7 +55,7 @@ Bir BizTalk Server EDI çözüm flow'da ve BizTalk Hizmetleri arasındaki benzer
   
     BizTalk hizmetleri de EDI aldıktan sonra köprüsü EDI ileti işleme, dış işleme iletisi yönlendirir. Dış işlem Microsoft Azure'da veya şirket içi üzerinde çalışıyor olabilir. Dış işleme iletisi EDI gönderme köprüsü için yönlendirmek; Gönderme köprüsü ileti kendiliğinden çekmez. İleti işlendikten sonra EDI gönderme köprüsü için ticari ortak ileti yönlendirir.
 
-BizTalk Hizmetleri, hızla oluşturun ve tüm Microsoft Azure işlem yapılandırma örnekleri (Web veya çalışan rolleri) olmadan ticaret iş ortakları, herhangi bir Microsoft Azure SQL veritabanına veya herhangi bir B2B sözleşmedir dağıtmak için bir kolay kullanımlı yapılandırma deneyimi sağlar. Microsoft Azure depolama hesabı. Daha karmaşık senaryolarda, iş akışları veya başka bir hizmet işleme bağlamadan gerektirecek "köşelerindeki" diğer bir deyişle, bir ticaret iş ortağı sözleşmesi önce veya sonra iş ortağı sözleşmesi EDI ticari köprüsü işleme. Ayrıntılı olarak, aşağıdaki olaylar dizisi bir EDI iletisi BizTalk Services'da işleme sırasında oluşur.
+BizTalk Hizmetleri, hızla oluşturun ve tüm Microsoft Azure bilgi işlem örnekleri (Web veya çalışan rolleri), herhangi bir Microsoft Azure SQL veritabanını veya yapılandırma olmadan ticari ortaklar arasında bir B2B sözleşmesi dağıtmak için bir kolay kullanımlı yapılandırma deneyimi sağlar. Microsoft Azure depolama hesabı. Daha karmaşık senaryolarda, iş akışları veya başka bir hizmet işleme bağlamadan gerektirecek "köşelerindeki" diğer bir deyişle, bir ticaret iş ortağı sözleşmesi önce veya sonra iş ortağı sözleşmesi EDI ticari köprüsü işleme. Ayrıntılı olarak, aşağıdaki olaylar dizisi bir EDI iletisi BizTalk Services'da işleme sırasında oluşur.
 
 1. İş ortağı, Fabrikam alım-satım EDI iletisi aldı.  BizTalk Hizmetleri gibi FTP, SFTP, AS2 ve HTTP/s aktarım protokolünü destekleyen ticari iş ortaklarının sunduğu EDI iletilerini almak için
 2. Ticari ortak sözleşmesi alma tarafı işleme XML biçimine EDI iletisi ayrıştırır.  Service Bus uç noktalarına bir Service Bus geçişi uç noktası, Service Bus konusu, hizmet veri yolu kuyruğu ya da BizTalk Hizmetleri köprü gibi ayrıştırılmış EDI iletisi (XML biçimi) yönlendirebilirsiniz.

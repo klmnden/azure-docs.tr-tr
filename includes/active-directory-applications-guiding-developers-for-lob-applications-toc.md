@@ -3,5 +3,5 @@
 * [Uygulamaya kullanıcı atama](../articles/active-directory/active-directory-applications-guiding-developers-assigning-users.md)
 * [Uygulamaya grup atama](../articles/active-directory/active-directory-applications-guiding-developers-assigning-groups.md)
 * [Uygulamaları Azure Active Directory ile tümleştirme](../articles/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
-* [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../articles/active-directory/active-directory-apps-index.md)
+* [Azure Active Directory'de uygulama yönetimi](../articles/active-directory/manage-apps/what-is-application-management.md)
 

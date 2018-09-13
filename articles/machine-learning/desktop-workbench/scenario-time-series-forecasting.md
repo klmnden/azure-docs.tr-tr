@@ -1,6 +1,6 @@
 ---
-title: Enerji talep zaman serisi tahmin | Microsoft Docs
-description: Azure Machine Learning çalışma ekranındaki enerji talep zaman serisi tahmin etmek öğrenme makine uygulamak nasıl.
+title: Enerji talebi zaman serileri tahmini | Microsoft Docs
+description: Azure Machine Learning workbench'te enerji talebi zaman serileri tahmini için makine öğrenimini uygulamak nasıl.
 services: machine-learning
 documentationcenter: ''
 author: anta
@@ -9,188 +9,188 @@ editor: anta
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 19e62364599ec9f1d0571e6f6e35205b0bb93b4b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3f32c9048c4b2002e7672b46a4f39e86ffa7b98e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832542"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647615"
 ---
-# <a name="energy-demand-time-series-forecasting"></a>Enerji talep zaman serisi tahmin
+# <a name="energy-demand-time-series-forecasting"></a>Enerji talebi zaman serileri tahmini
 
 
-Zaman serisi tahmin gözlemleri zaman sıralı bir dizi gelecekteki değerleri tahmin etmeye görevdir. Sık karşılaşılan bir sorundur ve birçok sektörün uygulamalar vardır. Örneğin, perakende şirketler talebi karşılamak üzere kendi tedarik zinciri etkili bir şekilde düzenleyebilirsiniz şekilde gelecekteki ürün satış tahmin gerekir. Benzer şekilde, paket teslim şirketler iş gücü gereksinimlerini ve teslimat rotaları önceden planlayabilirsiniz şekilde hizmetlerini talep tahmin etmeniz gerekir. Çoğu durumda, yanlış tahminleri finansal risklerini önemli olabilir. Bu nedenle, tahmin işlemi genellikle bir iş kritik etkinliğidir.
+Zaman serisi tahmin sonraki değerleri gözlemler zamana göre sıralı bir dizisi içindeki bir görevdir. Sık karşılaşılan bir sorundur ve sektörlerde birçok uygulama vardır. Örneğin, talebi karşılamak üzere, tedarik zinciri etkili bir şekilde düzenleyebilirsiniz için gelecekteki ürün satış tahmini perakende şirketlerin gerekir. Benzer şekilde, paket teslim şirketlerin iş gücü gereksinimleri ve teslimat rotaları önceden planlayabilmemiz hizmetlerini talep tahmin etmek gerekir. Çoğu durumda, finansal risk yanlış tahminleri önemli olabilir. Bu nedenle tahmini genellikle iş kritik bir etkinlik gereklidir.
 
-Bu örnek, ne zaman serisi tahmin machine learning tekniklerini uygulayarak aracılığıyla gerçekleştirilebilir gösterir. Modelleme her adımda kılavuzluk edilir işlemi dahil olmak üzere:
-- Veri hazırlama'temizleyin ve verilerin biçimlendirilmesi için;
-- Ham zaman serisi veri modelinden öğrenme makinenin özelliklerini oluşturma;
-- Çeşitli makine öğrenimi modellerini eğitim;
-- Modelleri tutulan çıkış sınama veri kümesi üzerinde kendi performansını karşılaştırarak değerlendirme; ve
-- İsteğe bağlı tahminleri oluşturmak için bir web hizmeti üzerinden kullanılabilir hale getirme en iyi modeli faaliyete geçirmeye yönelik.
+Bu örnek, ne zaman serisi tahmini makine öğrenme teknikleri uygulayarak aracılığıyla gerçekleştirilebilir gösterir. Her bir modelleme adımlayın kılavuzluk edilir işlemi dahil olmak üzere:
+- Veri hazırlama; temiz ve verileri biçimlendirme
+- Makine öğrenimi modellerinden ham zaman serisi verilerinin özelliklerini oluşturma;
+- Çeşitli makine öğrenimi modelleri eğitim;
+- Performanslarını tutulan genişletme sınama veri kümesinde karşılaştırarak değerlendirme modelleri; ve
+- İsteğe bağlı tahminler üretmek için web hizmeti aracılığıyla kullanılabilir hale getirme en iyi modeli faaliyete.
 
-Azure Machine Learning çalışma ekranı her adım modelleme işlemi yardımları: 
-- Örnek çalışma ekranı - kullanılabilir doğrudan Jupyter not defteri ortam - nasıl yapabilirsiniz gösterir Python kodu daha kolay geliştirme. Model geliştirme sürecinin daha net bir şekilde markdown ek açıklamalar ve grafikler kullanarak başkalarına açıklanabilir. Bu dizüstü bilgisayarlar, düzenlenmesi ve doğrudan çalışma ekranından yürütülen görüntülenebilir.
-- Eğitilmiş modeller kalıcı ve blob depolama alanına yüklenir. Bu, eğitilen model nesneleri izlemek ve saklama ve gerektiğinde alınabilir olduklarından emin olmak için veri Bilimcisi yardımcı olur.
-- Ölçümleri modeli performans puanları kaydını tutmak veri Bilimcisi etkinleştirme bir Python betiği yürütülürken kaydedilebilir.
-- Çalışma ekranı kolayca modeli performans ölçümleri karşılaştırmak veri Bilimcisi izin vererek oturum ölçümleri özelleştirilebilir tablolar oluşturur. Model gerçekleştirme en iyi kolayca belirlenebilir şekilde grafikler otomatik olarak görüntülenir.
-- Son olarak, nasıl bir modeli gerçek zamanlı web hizmetinde dağıtarak operationalized örnek göstermektedir.
+Azure Machine Learning Workbench, her adımda modelleme işlemi kolaylık sağlar: 
+- Workbench - kullanılabilir doğrudan Jupyter not defteri ortam - nasıl yapabilirsiniz örnek gösterir. Python kodu daha kolay geliştirme. Model geliştirme süreci daha net bir şekilde markdown ek açıklamalar ve grafikler kullanarak başkalarına açıklanabilir. Bu not defterlerini görüntülenebilir, düzenlenebilir ve doğrudan Workbench'ten yürütülür.
+- Eğitilen modelleri kalıcı yapılabilir ve blob depolama alanına yüklenir. Bu, eğitilen model nesneleri izler ve tutulan ve gerektiğinde alınabilir olduklarından emin olmak için veri uzmanı yardımcı olur.
+- Ölçümleri etkinleştirme modeli performans puanları kaydını tutmak için veri uzmanı bir Python betiği yürütülürken kaydedilebilir.
+- Workbench oturum ölçüm kolayca modeli performans ölçümleri karşılaştırmak veri uzmanı sağlayan özelleştirilebilir tablolar oluşturur. En iyi performansa sahip model bir kolayca belirlenebilir için grafikler otomatik olarak görüntülenir.
+- Son olarak, nasıl eğitilen bir modelin bir gerçek zamanlı web hizmeti dağıtma tarafından kullanıma hazır hale getirdiniz örnek gösterir.
 
 ## <a name="link-to-the-gallery-github-repository"></a>Galeri GitHub deponuza bağlayın
-Bu gerçek dünya senaryoları için ortak GitHub depo kod örnekleri, bu örnek için gerekli dahil olmak üzere tüm malzemeleri içerir:
+Bu örnek için gerekli, kod örnekleri dahil olmak üzere tüm malzemeler, bu gerçek dünya senaryosu için ortak GitHub deposu içerir:
 
 [https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting](https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting)
 
 
-## <a name="use-case-overview"></a>Kullanım örneği'ne genel bakış
+## <a name="use-case-overview"></a>Kullanım örneği genel bakış
 
-Bu senaryo, bir enerji kılavuz gelecekteki yükü tahmin etmek için hedef olduğu tahmin enerji isteğe bağlı odaklanır. İşleçler hakkında bir kılavuz tüketilen enerji ve kendisine sağlanan enerji arasındaki iyi dengeyi bulundurması gerekecek enerji kesimdeki şirketler için önemli iş işlemi olur. Kılavuza sağlanan çok fazla güç enerji veya teknik hataları kaybı neden olabilir. Ancak, çok az güç sağlanırsa, müşterilerin güç olmadan bırakarak blackouts yol açabilir. Genellikle, kılavuz işleçler kılavuzuna enerji kaynağı yönetmek ve yük bakiyeye tutmak için kısa vadeli kararları alabilir. Enerji isteğe bağlı olarak doğru bir kısa vadeli tahmin, bu nedenle işleci güvenle bu kararlar almak gereklidir.
+Enerji talebini tahmin gelecekteki enerji şebekesi yükü tahmin etmek için hedef olduğu Bu senaryoda odaklanır. İşleçler bir kılavuzda kullanılan enerji ve kendisine sağlanan enerji arasındaki hassas dengeyi sürdürmeniz gerekir, enerji sektörü şirket için bir iş açısından kritik işlem aynıdır. Kılavuza verilen çok güç enerji veya teknik hatalar atık neden olabilir. Ancak, çok az güç sağlanmazsa blackouts bırakarak power olmayan müşteriler, açabilir. Genellikle, kılavuz işleçler kılavuzuna enerji tedariğini yönetmek ve yük dengesi tutmak için kısa vadeli kararlar alabilir. Bir doğru kısa süreli bir enerji talebini tahmin, bu nedenle bu kararları güvenle operatör için önemlidir.
 
-Bu senaryo bir machine learning çözüm tahmin enerji talep yapımı ayrıntılarını verir. Çözüm, ortak bir veri kümesinden alınan üzerinde eğitildi [New York bağımsız sistem işleci (NYISO)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument), New York durumu için güç kılavuz çalışır. Veri kümesi, beş yıl döneminde saatlik New York şehrinde güç talep verilerini içerir. Saatlik aynı saat diliminde New York şehrinde hava koşulları içeren ek bir veri kümesini alındığı [darksky.net](https://darksky.net).
+Bu senaryo, bir makine öğrenimi enerji talebini tahmin çözümü oluşumu ayrıntıları. Çözüm üzerinde ortak bir veri kümesinden eğitilir [New York bağımsız sistem işleci (benzetim yöntemiyle NYISO'nun)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument), New York durumu için güç kılavuz çalışır. Veri kümesi, beş yıllık bir dönem boyunca saatlik New York City power istek verilerini içerir. Hava koşulları da oturan aynı süre boyunca saatlik içeren ek bir veri kümesi alındığı [darksky.net](https://darksky.net).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz deneme kullanılabilir).
-- Yüklü bir kopyasını [Azure Machine Learning çalışma ekranı](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](../service/quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturmak için.
-- Bu örnek, Windows 10 ile Azure ML çalışma ekranı çalıştığını varsayar [Docker altyapısına](https://www.docker.com/) yerel olarak yüklü. MacOS kullanıyorsanız, büyük ölçüde aynı yönergelerdir.
-- Bu konuda açıklandığı gibi Azure Machine Learning ayarlanmış bir yerel dağıtım ortamı ve bir model yönetim hesabı ile yüklü Operationalization oluşturulan [Kılavuzu](./model-management-configuration.md).
-- Bu örnek 0.20.3 sürüme Pandas yükleme güncelleştirmenin gerektirdiği veya üstü ve matplotlib yükleyin. Tıklatın *komut istemini açın* gelen *dosya* menüde çalışma ekranı ve bu bağımlılıklar yüklemek için aşağıdaki komutları çalıştırın:
+- Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz denemeler kullanılabilir).
+- Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](../service/quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturun.
+- Bu örnek, Windows 10 ile Azure ML Workbench çalıştığını varsayar [Docker altyapısı](https://www.docker.com/) yerel olarak yüklü. MacOS kullanıyorsanız, yönergeleri büyük ölçüde aynıdır.
+- Azure Machine Learning model Yönetimi hesabı ile ayarlanmış bir yerel dağıtım ortamı ile yüklü kullanıma hazır hale getirme oluşturulan açıklandığı [Kılavuzu](./model-management-configuration.md).
+- Bu örnek Pandas yükleme 0.20.3 sürüme güncelleştirme gerektirir ya da daha yüksek ve girerek matplotlib kitaplığını yükleyin. Tıklayın *komut istemini Aç* gelen *dosya* menüde Workbench ve bu bağımlılıkları yüklemek için aşağıdaki komutları çalıştırın:
 
     ```
     conda install "pandas>=0.21.1"
     ```
     
-## <a name="create-a-new-workbench-project"></a>Yeni bir çalışma ekranı projesi oluşturma
+## <a name="create-a-new-workbench-project"></a>Workbench yeni bir proje oluşturun
 
-Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
-1.  Açık Azure Machine Learning çalışma ekranı
-2.  Üzerinde **projeleri** sayfasında, **+** oturum ve seçin **yeni proje**
-3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun
-4.  İçinde **arama proje şablonları** arama kutusu, "Enerji talep zaman serisi tahmin" yazın ve şablonu seçin
+Bu örnekte, şablon olarak kullanarak yeni bir proje oluşturun:
+1.  Açık bir Azure Machine Learning Workbench'i
+2.  Üzerinde **projeleri** sayfasında **+** açıp seçmek **yeni proje**
+3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri girin
+4.  İçinde **proje şablonlarında Ara** arama kutusuna "Enerji talebi zaman serisi tahmin" yazın ve şablonu seçin
 5.  **Oluştur**'a tıklayın
 
 
 ## <a name="data-description"></a>Veri açıklaması
 
-İki veri kümesi ile bu örnek sağlanır ve kullanılarak yüklenen `1-data-preparation.ipynb` Not: `nyc_demand.csv` ve `nyc_weather.csv`.
+İki veri kümesi kullanılarak indirilir ve bu örnekle sağlanan `1-data-preparation.ipynb` Not: `nyc_demand.csv` ve `nyc_weather.csv`.
 
-**nyc_demand.csv** saatlik 2012 2017 yıldır New York şehrinde enerji talep değerlerini içerir. Verileri aşağıdaki basit yapıya sahiptir:
+**nyc_demand.csv** saatlik 2012-2017 yılları için New York City enerji talebi değerlerini içerir. Veriler aşağıdaki basit bir yapıya sahiptir:
 
-| zaman damgası | İsteğe bağlı |
+| Zaman damgası | İsteğe bağlı |
 | --- | --- |
 | 2012-01-01 00:00:00 | 4937.5 |
 | 2012-01-01 01:00:00 | 4752.1 |
 | 2012-01-01 02:00:00 | 4542.6 |
 | 2012-01-01 03:00:00 | 4357.7 |
 
-İsteğe bağlı, megawatt-saat (MWh) değerlerdir. Bir grafik Temmuz 2017 7 günlük sürede üzerinden enerji talebin aşağıdadır:
+İsteğe bağlı, megawatt-saat içinde (MWh) değerlerdir. Enerji talebini Temmuz 2017'de bir 7 günlük dönemdeki bir grafiğini aşağıdadır:
 
-![Enerji isteğe bağlı](./media/scenario-time-series-forecasting/energy_demand.png  "enerji isteğe bağlı")
+![Enerji talebi](./media/scenario-time-series-forecasting/energy_demand.png  "enerji talebi")
 
-**nyc_weather.csv** saatlik 2012 2017 yıllar içinde New York şehrinde hava durumu değerlerini içerir:
+**nyc_weather.csv** saatlik 2012-2017 yıllar içinde New York City hava durumu değerlerini içerir:
 
-| zaman damgası | precip | Temp
+| Zaman damgası | precip | Temp
 | --- | --- | --- |
 | 2012-01-01 00:00:00 | 0.0 | 46.13 |
 | 2012-01-01 01:00:00 | 0.01 | 45.89 |
 | 2012-01-01 02:00:00 | 0.05 | 45.04 |
 | 2012-01-01 03:00:00 | 0.02 | 45.03 |
 
-*precip* precipitation düzeyini yüzde ölçüsüdür. *Temp* (sıcaklık) değerleri boyutlandırılan sağlayacak şekilde tüm değerler [0, 100] aralığındaki ayrılır.
+*precip* Yağış düzeyini yüzdesi ölçüsüdür. *Temp* (sıcaklık) değerleri boyutlandırılan tüm değerler [0, 100] aralığında kalan şekilde.
 
 ## <a name="scenario-structure"></a>Senaryo yapısı
 
-Azure Machine Learning çalışma ekranındaki ilk kez bu projeyi açtığınızda gidin *dosyaları* sol taraftaki bölmesi. Aşağıdaki kod dosyaları ile bu örnek verilmiştir:
-- `1-data-preparation.ipynb` -Bu Jupyter not defteri indirir ve modelleme için hazırlamak için verileri işler. Bu, çalışacak ilk dizüstü bilgisayardır.
-- `2-linear-regression.ipynb` -Bu Not eğitim verileri bir doğrusal regresyon modeli eğitir.
-- `3-ridge.ipynb` -çıkıntı regresyon modeli eğitir.
-- `4-ridge-poly2.ipynb` -derece 2 polinom özelliklerini bir çıkıntı regresyon modeli eğitir.
+Bu proje, Azure Machine Learning Workbench uygulamasında ilk kez açtığınızda, gitmek *dosyaları* bölmesi sol tarafta. Aşağıdaki kod dosyaları ile bu örnek verilmiştir:
+- `1-data-preparation.ipynb` -Bu Jupyter not defteri indirir ve modelleme için hazırlamak için verileri işler. Çalıştırılacak ilk not defteri budur.
+- `2-linear-regression.ipynb` -Bu not defteri eğitim verileri bir doğrusal regresyon modeli eğitir.
+- `3-ridge.ipynb` -bir ridge regresyon modeli eğitir.
+- `4-ridge-poly2.ipynb` -bir polinom özellikleri biri derece 2 ridge regresyon modeli eğitir.
 - `5-mlp.ipynb` -çok katmanlı perceptron sinir ağı eğitir.
-- `6-dtree.ipynb` -karar ağacı modeli eğitir.
-- `7-gbm.ipynb` -Gradyan boosted makine modeli eğitir.
-- `8-evaluate-model.py` -Bu komut dosyası eğitilen modelini yükler ve tutulan çıkış test veri kümesinde tahminlerde için kullanır. Farklı modelleri performansını karşılaştırılabilir şekilde modeli değerlendirme ölçümleri üretir.
-- `9-forecast-output-exploration.ipynb` -Bu Dizüstü modelleri öğrenme makinesi tarafından oluşturulan tahminleri görselleştirmeleri üretir.
-- `10-deploy-model.ipynb` -eğitilmiş bir tahmin modeli gerçek zamanlı web hizmetinde nasıl operationalized bu not gösterir.
-- `evaluate-all-models.py` -Bu komut tüm eğitilmiş modeller değerlendirir. Çalışan bir alternatif sunar `8-evaluate-model.py` ayrı ayrı her biri için eğitilmiş model.
+- `6-dtree.ipynb` -bir karar ağacı modeli eğitir.
+- `7-gbm.ipynb` -Gradyan artırmalı makine modeli eğitir.
+- `8-evaluate-model.py` -Bu betik, eğitilen modeli yükler ve tutulan genişletme test veri kümesinde tahminlerde bulunmak üzere kullanır. Farklı modellerdeki performansını karşılaştırılabilir için model değerlendirme ölçümleri üretir.
+- `9-forecast-output-exploration.ipynb` -Bu not defteri görselleştirmeleri, makine öğrenimi modellerini tarafından oluşturulan tahminlerin üretir.
+- `10-deploy-model.ipynb` -nasıl eğitilen bir tahmin modeli bir gerçek zamanlı web hizmetinde kullanıma hazır hale getirdiniz bu not defteri gösterir.
+- `evaluate-all-models.py` -Bu komut tüm eğitilen modelleri değerlendirir. Çalışan bir alternatif sunar `8-evaluate-model.py` eğitilen her biri için ayrı ayrı modeli.
 
 ### <a name="1-data-preparation-and-cleaning"></a>1. Veri hazırlama ve temizleme
 
-Örnek çalıştıran başlatmak için önce tıklayın `1-data-preparation.ipynb` not defteri önizleme modunda açın. Tıklayın ***Start not defteri Server*** Jupyter not defteri sunucu ve Python çekirdek makinenizde başlatmak için. Çalışma ekranının içinden defterlerinden ya da çalıştırabilir veya tarayıcınızı giderek kullanabileceğiniz [ http://localhost:8888 ](http://localhost:8888). Çekirdek ile değiştirmelisiniz Not *PROJECT_NAME yerel*. Bunu yapmak *çekirdek* not defterinin altında menüde *değişiklik çekirdek*. Tuşuna ***üst karakter + Enter*** tıklayın veya tek tek not defteri hücrelerde kodu çalıştırmak *tümünü Çalıştır* içinde *hücre* tüm not çalıştırmak için menüsü.
+Örnek çalıştırmaya başlamak için önce tıklayarak `1-data-preparation.ipynb` önizleme modunda not defterini açın. Tıklayarak ***Başlat Notebook sunucusu*** Jupyter notebook sunucusu ve Python çekirdek makinenizde başlatmak için. Defterlerinden workbench'teki çalıştırabilir ya da veya tarayıcınızı giderek kullanabileceğiniz [ http://localhost:8888 ](http://localhost:8888). Çekirdek değiştiğine dikkat edin *PROJECT_NAME yerel*. Bu işlemi yapabileceğiniz *çekirdek* menüsü altında not defterinde *değişiklik çekirdek*. Tuşuna ***shift + Enter*** kodu ayrı bir not defteri hücrelerde çalıştırmak veya *tümünü Çalıştır* içinde *hücre* tüm not defterlerini çalıştırmak için menü.
 
-Not defteri verileri Azure üzerinde barındırılan bir blob depolama kapsayıcısını gelen ilk yükler. Veri sonra makinenizde depolanan `AZUREML_NATIVE_SHARE_DIRECTORY`. Bu konumda herhangi defterlerinden erişilebilir veya çalışma ekranından Çalıştır komut dosyaları bu nedenle veri ve eğitilmiş modeller depolamak için uygun bir yerdir.
+Not defterini ilk verileri Azure üzerinde barındırılan bir blob depolama kapsayıcısına indirir. Veriler makinenizde depolanır `AZUREML_NATIVE_SHARE_DIRECTORY`. Bu konumda hiçbir Not defterlerinden erişilebilir veya Workbench'ten çalıştırılan betikler kadar veri ve eğitilen modelleri depolamak için iyi bir yerdir.
 
-Veriler yüklendikten sonra not defteri verileri zaman serisinde aralıkları doldurma ve eksik değerleri ilişkilendirme tarafından girerek temizler. Bu şekilde zaman serisi veri temizleme modeli eğitmek için kullanılabilir veri miktarını en üst düzeye çıkarır.
+Veriler yüklendikten sonra not defterini verileri zaman serisi boşlukları doldurma ve eksik değerleri ilişkilendirme girerek temizler. Bu şekilde zaman serisi verilerini temizleme modellerin eğitimi için kullanılabilir veri miktarını en üst düzeye çıkarır.
 
-Birkaç modeli özelliklerini Temizlenen ham verilerden oluşturulur. Bu özellikler iki gruba kategorilere ayrılabilir:
+Bazı model özellikleri, temizlenen ham verilerden oluşturulur. Bu özellikler, iki gruplar halinde kategorilere ayrılabilir:
 
-- **Özellikler güdümlü zaman** türetilmiş *zaman damgası* değişkeni örneğin *ay*, *dayofweek* ve *saat*.
-- **Özellikler lagged** gerçek isteğe bağlı veya sıcaklık değerlerin gölgeye zaman değerlerdir. Modeldeki ardışık dönemleri arasındaki koşullu bağımlılıkları yakalamak için bu özellikleri hedefleyin.
+- **Özellik temelli zaman** türetilmiştir *zaman damgası* değişkeni örn *ay*, *dayofweek* ve *saat*.
+- **Özellikleri geciktirmiştir** gerçek isteğe bağlı veya sıcaklık değerlerinin saat kaydırılacağı uzaklık değerleri. Bu özellikler arasındaki art arda süreler modelinde koşullu bağımlılıkları yakalamak için hedeflenir.
 
-Sonuçta elde edilen özelliği dataset tahmin modelleri geliştirirken kullanılabilir.
+Sonuçta elde edilen özelliği veri kümesi, tahmin modellerinin geliştirirken kullanılabilir.
 
 ### <a name="2-model-development"></a>2. Model geliştirme
 
-İlk modelleme yaklaşım Basit doğrusal regresyon modelini olabilir. `2-linear-regression.ipynb` Not defteri gelecekteki enerji isteğe bağlı bir doğrusal regresyon tahmin modeli eğitmek nasıl gösterir. Özellikle, model enerji isteğe bağlı bir saat tahmin etmek için Eğitilecek (*t + 1*) geçerli süre öncesinde (*t*). Biz gelecekteki zaman aralıkları için tahminleri oluşturmak için test zaman bu 'tek adımlı' model yinelemeli ancak uygulayabilirsiniz *t + n*.
+İlk bir modelleme yaklaşımı, bir Basit doğrusal regresyon modeli olabilir. `2-linear-regression.ipynb` Not defteri için gelecekteki enerji talebini tahmin doğrusal regresyon modeli eğitmek nasıl gösterir. Özellikle, model bir saat enerji talebini tahmin etmek için Eğitilecek (*t + 1*) geçerli süre önüne (*t*). Biz, gelecekteki zaman dönemlerinde tahminler üretmek için test zaman bu 'tek adımlı' model yinelemeli olarak ancak uygulayabilirsiniz *t + n*.
 
-Bir modeli eğitmek için üç ayrı adımdan oluşur, Tahmine dayalı bir ardışık düzen oluşturulur:
+Bir modeli eğitmek için üç ayrı adımdan oluşur, Tahmine dayalı bir işlem hattı oluşturulur:
 
-- **Bir veri dönüşümünün**: giriş verileri için gerekli biçimleri makine öğrenme algoritmasını bağlı olarak değişebilir. Bu durumda, doğrusal regresyon modeli bir hot kodlanacak kategorik değişkenler gerektirir.
-- **Çapraz doğrulama yordamı A**: Makine öğrenimi modeli deneme ayarlanması gereken bir veya daha fazla hyperparameters genellikle sahip olur. Çapraz doğrulama en iyi parametre değerleri kümesi bulmak için kullanılabilir. Model art arda eğitilmiş ve veri kümesi farklı Katlama üzerinde değerlendirilir. En iyi da arasında çapraz doğrulama Katlama ortalaması çalışırken en iyi modeli performansı elde etmek parametreleridir. Bu işlem daha ayrıntılı olarak anlatılmıştır `2-linear-regression.ipynb`.
-- **Son model eğitim**: model hyperparameters en iyi kümesini kullanarak tüm veri kümesi üzerinde eğitildi.
+- **Veri dönüştürme**: gerekli biçimleri giriş verileri için makine öğrenme algoritmasını bağlı olarak değişebilir. Bu durumda, doğrusal regresyon modelinin bir seyrek kodlanacak kategorik değişkenler gerektirir.
+- **Çapraz doğrulama yordamı bir**: Makine öğrenme modeli deneme ayarlanması gereken bir veya daha fazla hiperparametreleri genellikle olacaktır. Çapraz doğrulama, parametre değerlerini en uygun kümesini bulmak için kullanılabilir. Model sürekli eğitim ve veri kümesinin farklı hatları üzerinde değerlendirilir. En iyi parametreleri arasında çapraz doğrulama hatları ortalama, en iyi bir model performansı elde etmek olanlardır. Bu işlem daha ayrıntılı olarak açıklanan `2-linear-regression.ipynb`.
+- **Son modelin eğitim**: model hiperparametreleri en iyi kümesini kullanarak tüm veri kümesinde çalıştırılır.
 
-Biz 6 farklı modelleri bir dizi not defterlerini numaralı 2-7'de kullanıma sunuyoruz. Her dizüstü bilgisayar farklı bir model eğitir ve depolar `AZUREML_NATIVE_SHARE_DIRECTORY` konumu. Bu senaryo için geliştirilen tüm modelleri eğitilmiş sonra biz değerlendirmek ve bunları sonraki bölümde decribed olarak karşılaştırır.
+Not defterlerini numaralı 2-7'de bir dizi 6 farklı modeller ekledik. Her bir dizüstü bilgisayar farklı bir model eğitir ve depolar `AZUREML_NATIVE_SHARE_DIRECTORY` konumu. Bu senaryo için geliştirilen tüm modelleri eğitim almış sonra biz değerlendirmek ve sonraki bölümde decribed olarak karşılaştırın.
 
 ### <a name="3-model-evaluation-and-comparison"></a>3. Model değerlendirme ve karşılaştırma
 
-Gelecekteki zaman aralıkları için tahminleri yapmak için size bir modeli kullanabilirsiniz. Bu modeller tutulan çıkış sınama veri kümesi üzerinde değerlendirmek en iyisidir. Aynı görünmeyen veri farklı modellerde değerlendirerek size oldukça kendi performansını karşılaştırır ve en iyi modeli tanımlamak. Bu senaryoda, gelecekte birden çok zaman adımları tahmin etmek için eğitilen model yinelemeli olarak uygulanır. Özellikle, biz tahminleri altı saate kadar Oluştur *t + 6* geçerli saatte öncesinde *t*. Bu Öngörüler her zaman aralığında gözlemlenen gerçek talebe göre değerlendirilir.
+Gelecekteki zaman dönemlerinde tahminleri yapmak için eğitilen bir modelin kullanabiliriz. Bu modeller tutulan genişletme sınama veri kümesinde değerlendirmek idealdir. Aynı görünmeyen bir veri kümesini farklı modelleri değerlendirerek oldukça performanslarını karşılaştırma ve en iyi modeli belirleyin. Bu senaryoda, biz gelecekte birden çok zaman adımı tahmin etmek için eğitilen modeli yinelemeli olarak uygulanır. Tahminleri altı saate kadar özellikle, oluşturduğumuz *t + 6* geçerli saatte önüne *t*. Bu tahminler, her bir zaman aralığı için gözlemlenen gerçek talebe göre değerlendirilir.
 
-Bir model değerlendirmek için açık `8-evaluate-model.py` betikten *dosyaları* çalışma ekranı bölmesinde. Denetleyin *yapılandırma Çalıştır* ayarlanır **yerel** ve model ad alanının içine yazın *bağımsız değişkenleri* alan. Model adı tam olarak eşleşmesi gerekiyor *model_adı* değişkenini model eğitilmiş dizüstü bilgisayar başlangıcında. Örneğin, eğitilen doğrusal regresyon modeli değerlendirmek için "linear_regression" girin. Tüm modelleri eğitilen sonra alternatif olarak, bunları bir komutla çalıştırarak değerlendirebilmeniz `evaluate-all-models.py`. Bu komut dosyasını çalıştırmak için çalışma ekranından bir komut istemi açın ve aşağıdaki komutu yürütün:
+Bir model değerlendirilecek açın `8-evaluate-model.py` gelen betik *dosyaları* Workbench bölmesinde. Bu maddeyi *yapılandırmayı Çalıştır* ayarlanır **yerel** ve model adını yazın *bağımsız değişkenleri* alan. Model adı tam olarak eşleşmesi gerekiyor *model_adı* değişkenini modeli Eğitimi, dizüstü bilgisayar başında. Örneğin, eğitilen doğrusal regresyon modelinin değerlendirilecek "linear_regression" girin. Tüm modelleri eğitilen sonra alternatif olarak, bunları bir komutla çalıştırarak değerlendirebilirsiniz `evaluate-all-models.py`. Bu betik çalıştırmak için Workbench uygulamasını bir komut istemi açın ve aşağıdaki komutu yürütün:
 
 ```
 python evaluate-all-models.py
 ```
 `8-evaluate-model.py` Komut dosyası, aşağıdaki işlemleri gerçekleştirir:
 
-- Disk, eğitilen model ardışık düzen yükler
-- Test veri kümesinde tahminleri yapar
-- Model performans ölçümleri hesaplar ve bunları günlüğe kaydeder
-- Veri kümesi tahminleri test kaydeder `AZUREML_NATIVE_SHARE_DIRECTORY` sonraki denetleme ve analiz için
-- Eğitilen model ardışık düzene kaydeder *çıkarır* klasör.
+- Eğitilen modelin işlem hattı diskten yükler.
+- Test veri kümesinde tahminlerde
+- Model performansı ölçümlerini hesaplar ve bunları günlüğe kaydeder
+- Test veri kümesini Öngörüler için kaydeder `AZUREML_NATIVE_SHARE_DIRECTORY` sonraki inceleme ve çözümleme
+- Eğitilen modelin işlem hattına kaydeder *çıkarır* klasör.
 
 > [!Note]
-> Modele kaydetme *çıkarır* klasörü otomatik olarak kopyalar model nesnesi, deneme hesabınızla ilişkilendirilmiş Azure Blob Storage hesaba. Bu, her zaman makine değiştirin veya içeriği işlem olsa bile kaydedilmiş model nesnesi blobundan alamadı anlamına gelir.
+> Modele kaydetme *çıkarır* klasörü otomatik olarak kopyalar model nesnesi, deneme hesabınızla ilişkili Azure Blob Depolama hesabına. Başka bir deyişle, her zaman bile makine değiştirin veya işlem bağlamında blobundan kaydedilmiş model nesnesi almak mümkün olacaktır.
 
-Gidin *çalıştırma geçmişi* bölmesinde ve tıklayarak `8-evaluate-model.py`. Grafikleri birkaç modeli performans ölçümleri görüntüleme görürsünüz:
+Gidin *çalıştırma geçmişi* bölmesi ve tıklayarak `8-evaluate-model.py`. Birkaç model performansı ölçümlerini görüntüleme grafikleri görürsünüz:
 
-- **BANA**: tahmin hata anlamına gelir. Bu tahmini ortalama sapması yorumlanacak.
-- **MPE**: [ortalama yüzdesini hata](https://en.wikipedia.org/wiki/Mean_percentage_error) (ME gerçek isteğe bağlı bir yüzdesi olarak ifade edilen)
+- **BANA**: hata tahminin anlamına gelir. Bu tahmini ortalama sapması yorumlanabilir.
+- **MPE**: [ortalama yüzdesi hata](https://en.wikipedia.org/wiki/Mean_percentage_error) (BANA gerçek isteğe bağlı bir yüzdesi olarak ifade edilen)
 - **MSE**: [karesi alınmış hata anlama](https://en.wikipedia.org/wiki/Mean_squared_error)
 - **RMSE**: kök ortalama karesi alınmış hata (MSE kare kökünü)
 - **MAPE**: [mutlak yüzdesi hata anlama](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
 - **sMAPE**: [simetrik ortalama mutlak yüzdesi hata](https://en.wikipedia.org/wiki/Symmetric_mean_absolute_percentage_error)
-- **MAPE_base**: MAPE temelinin tahmin tahmin son bilinen talep değeri eşittir.
-- **MdRAE**: ORTANCA göreli mutlak hata. Tahmin hatası taban Medyan oranını hata tahmin. Bir değer değerinden tahmin taban daha iyi gerçekleştiriyor 1 anlamına gelir.
+- **MAPE_base**: temelinin MAPE tahmin tahmin son bilinen bir isteğe bağlı değerin değerine eşittir.
+- **MdRAE**: ORTANCA göreli mutlak hata. ORTANCA taban tahmin hata oranı hata tahmin. Yüksek bir değer daha az tahmin temel daha iyi gerçekleştiriyor 1 anlamına gelir.
 
-Yukarıdaki tüm ölçümleri başvurmak *t + 1* tahmin. Yukarıdaki ölçümlerin yanı sıra ile ilgili ölçümleri kümesi de görürsünüz *_horizon* soneki. Bu süre tahmin aralığındaki tüm nokta üzerinden ortalaması ölçümüdür *t + 1* süresini *t + 6*.
+Yukarıdaki tüm ölçümler başvurmak *t + 1* tahmin edin. Yukarıdaki ölçümlerin yanı sıra, bir dizi ile ilgili ölçümleri de görürsünüz *_horizon* soneki. Tüm dönem dönem tahmin aralığında üzerinden ortalaması alınan ölçüm budur *t + 1* dönemle *t + 6*.
 
-Ölçümleri grafik alanında görüntülenmiyor, sağ üst köşesindeki dişli simgenin tıklayın. İlgilendiğiniz modeli performans ölçümleri seçildiğinden emin olun. Ölçümleri de grafikleri bir tabloda görüntülenir. Bu tablo yeniden özelleştirilebilir tıklatarak dişli takımından olabilir. Tablo en iyi modeli tanımlamak için bir performans ölçümü göre sıralayın. Tahmin performansın dönemden nasıl değişeceğini görmeniz ilginizi *t + 1* için *t + 6*, tablonun modelde girişini tıklatın. Grafikler, MAPE görüntüleme MPE ve MdRAE ölçümleri tahmin dönemi boyunca altında gösterilen *görselleştirmeleri*.
+Ölçümler, grafik alanında görüntülenmiyor, sağ üst köşedeki dişli simgesine tıklayın. İlgilendiğiniz model performansı ölçümlerini işaretli olduğundan emin olun. Ölçüm grafikleri aşağıda tabloda de görüntülenir. Bu tablo yeniden özelleştirilebilir üzerinde dişli simgesine tıklayarak olabilir. Bir performans ölçümü tarafından en iyi modeli belirleyin kullanılarak tablo sıralanır. Tahmini performans dönemden nasıl değişeceğini görmeniz ilgilenen *t + 1* için *t + 6*, tablonun modelde girdiye tıklayın. Altında gösterilen MAPE görüntüleyen grafikleri, tahmin dönemi boyunca MPE ve MdRAE ölçümleri *görselleştirmeler*.
 
-Tahmin modelleri değerlendirirken, çıktı tahminleri görselleştirmek çok kullanışlı olabilir. Bu, üretilen tahmin gerçekçi görünür olup olmadığını belirlemek için veri Bilimcisi yardımcı olur. Örneğin, tahmin kötü belirli dönemlerde gerçekleştirirse, tahmin sorunlarını tanımlamak için de yardımcı olabilir. `9-forecast-output-exploration.ipynb` Not defteri sınama veri kümesi için oluşturulan tahminleri görselleştirmeleri oluşturacak.
+Tahmin modellerini değerlendirirken, çıkış Öngörüler görselleştirmek çok kullanışlı olabilir. Bu, üretilen tahmin gerçekçi görünür olup olmadığını belirlemek için veri uzmanı yardımcı olur. Örneğin, hava durumu tahminini kötü belirli süreler uyguluyorsa, hava durumu tahminini sorunlarını tanımlamak için de yardımcı olabilir. `9-forecast-output-exploration.ipynb` Not Defteri, test veri kümesi için oluşturulan tahminlerin görselleştirmeler üretir.
 
 ### <a name="4-deployment"></a>4. Dağıtım
 
-En iyi modeli gerçek zamanlı web hizmeti olarak dağıtarak operationalized. Bu web Hizmeti'nin, ardından yeni veriler kullanılabilir olduğunda isteğe bağlı tahminleri oluşturmak için çağrılabilir. Bu senaryoda, yeni bir tahmini enerji isteğe bağlı sonraki bir saat içinde tahmin etmek için her saat oluşturulacak gerekir. Bu görevi gerçekleştirmek için bir web hizmeti olabilir dağıtılan belirli bir saat süre giriş olarak bir dizi özelliklerin alır ve tahmin edilen talep çıktısı olarak döndürür.
+En iyi modeli dağıtarak gerçek zamanlı web hizmeti olarak kullanıma hazır hale getirdiniz. Bu web hizmetini, ardından yeni veriler kullanılabilir olduğunda isteğe bağlı tahminlerini oluşturmak için çağrılabilir. Bu senaryoda, yeni bir tahmini saatte sonraki bir saat içinde enerji talebini tahmin etmek için oluşturulması gereken. Bu görevi gerçekleştirmek için bir web hizmeti olabilir özellikleri bir dizi belirli bir saat süre girdi olarak alır ve tahmin edilen talep çıktı olarak verir.
 
-Bu örnekte, bir web hizmeti bir Windows 10 makineye dağıtılır. Bu konuda ayarlanan yerel dağıtım için önkoşul adımlarını tamamladığınızdan emin olun [Başlangıç Kılavuzu](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md) Operationalization CLI için. Yerel ortamınıza ve model yönetim hesabı oluşturduktan sonra çalıştırmak `10-deploy-model.ipynb` web hizmeti dağıtmak için dizüstü bilgisayar.
+Bu örnekte, bir web hizmeti için bir Windows 10 makinesi dağıtılır. Bu ayarla, yerel dağıtım için önkoşul adımlarını tamamladığınızdan emin olun [Başlangıç Kılavuzu](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md) kullanıma hazır hale getirme CLI. Yerel ortamınıza ve model Yönetimi hesabı ayarladığınızda, çalıştırılır `10-deploy-model.ipynb` web hizmeti dağıtmak için Not Defteri.
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu örnek nasıl çözüm tahmin enerji talep tahmin amacıyla bir uçtan uca zaman serisi oluşturulacağını gösterir. Bu örnekte incelediniz ilkeleri birçoğu, diğer tahmin senaryoları ve sektörlerde genişletilebilir.
+Bu örnek nasıl tahmin çözümü enerji talebini tahmin amacıyla bir uçtan uca zaman serisi oluşturulacağını gösterir. Bu örnekte incelediniz ilkelerin çoğunu diğer tahmin senaryoları ve sektörler için genişletilebilir.
 
-Bu senaryoda, nasıl Azure Machine Learning çalışma ekranı veri Bilimcisi ölçüm günlüğe kaydetme özellikleri ve Jupyter not defteri ortamı gibi yararlı özellikleri ile gerçek dünya çözümleri geliştirirken yardımcı olabilecek gösterir. Örnek ayrıca okuyucu nasıl bir model operationalized ve Azure Machine Learning Operationalization CLI kullanarak dağıtılmış size rehberlik eder. Dağıtıldığında, web hizmeti API'sine geliştiriciler veya veri mühendisleri tahmin modeli daha geniş bir veri ardışık düzenine tümleştirmenize olanak sağlar.
+Bu senaryoda, nasıl Azure Machine Learning Workbench bir veri Bilimcisi ölçüm günlüğe kaydetme özellikleri ve Jupyter not defteri ortamı gibi yararlı özellikleri ile gerçek dünya çözümleri geliştirmenize yardımcı olabilecek gösterilmektedir. Örnek ayrıca okuyucu nasıl bir modeli kullanıma hazır hale getirdiniz ve Azure Machine Learning operasyonel hale getirme CLI kullanılarak dağıtılan size yol gösterir. Dağıtıldıktan sonra geliştiriciler veya veri mühendisleri tahmin modelini daha geniş bir veri işlem hattı ile tümleştirmek web hizmeti API'si sağlar.

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f3cf1232861239069894a8e5fa60c911053f038d
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 41d27b9a173cc019549f1dea0c66ffcaa51fbb10
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841990"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719452"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack dağıtım planlama konuları
 Azure Stack geliştirme Seti'ni (ASDK) dağıtmadan önce Geliştirme Seti ana bilgisayarınız bu makalede açıklanan gereksinimleri karşıladığından emin olun.
@@ -93,6 +93,8 @@ Azure Stack, Azure AD hesabı kullanarak dağıtmak için dağıtım PowerShell 
    | Geçerli Genel Azure Aboneliğine sahip Microsoft Hesabı |Evet |
    | Geçerli Çin Azure aboneliğine sahip iş veya Okul hesabı |Evet |
    | Geçerli ABD Azure aboneliğine sahip iş veya Okul hesabı |Evet |
+
+Dağıtımdan sonra Azure Active Directory genel yönetici izni gerekli değildir. Ancak, bazı işlemler, genel yönetici kimlik bilgileri gerektirebilir. Örneğin, bir kaynak sağlayıcısı yükleyicisi betiği veya izin verilecek gerektiren yeni bir özelliktir. Geçici olarak hesap genel yönetici izinleri yeniden geri veya sahiplerinden biri olan ayrı bir genel yönetici hesabı kullanın *varsayılan sağlayıcı aboneliği*.
 
 ## <a name="network"></a>Ağ
 ### <a name="switch"></a>Anahtar

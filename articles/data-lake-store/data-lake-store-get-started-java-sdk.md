@@ -1,24 +1,23 @@
 ---
 title: "Java SDK: Azure Data Lake Store'daki dosya sistemi işlemleri | Microsoft Docs"
-description: "Data Lake Store'da klasör oluşturma gibi dosya sistemi işlemlerini gerçekleştirmek için Azure Data Lake Store Java SDK'sını kullanın."
+description: Data Lake Store'da klasör oluşturma gibi dosya sistemi işlemlerini gerçekleştirmek için Azure Data Lake Store Java SDK'sını kullanın.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: fdae36c3cbdda16f9392a113502c7c6c62b25534
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: 8f2dd4d001ae7322a351844146925c23b90f0916
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651219"
 ---
 # <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Data Lake Store'da Java SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
 > [!div class="op_single_selector"]

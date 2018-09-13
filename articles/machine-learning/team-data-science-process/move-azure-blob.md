@@ -1,5 +1,5 @@
 ---
-title: Verileri için Azure Blob depolama biriminden getirip | Microsoft Docs
+title: İçin ve Azure Blob depolamadan/depolamaya veri taşıma | Microsoft Docs
 description: Azure Blob Depolamadan/Depolamaya Veri Taşıma
 services: machine-learning,storage
 documentationcenter: ''
@@ -15,39 +15,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 40ec20765bf7874f245d3e37800b0b38dcda475d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
-ms.translationtype: HT
+ms.openlocfilehash: 854c671d4db6cdca2b019ed9adb0475e588281b1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838056"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35622560"
 ---
-# <a name="move-data-to-and-from-azure-blob-storage"></a>Azure Blob Storage gelen ve veri taşıma
+# <a name="move-data-to-and-from-azure-blob-storage"></a>İçin ve Azure Blob Depolama'dan veri taşıma
 [!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
 <!-- just in case, adding this to separate these two include references -->
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-Hangi sizin için en iyi bir yöntemdir, senaryoya bağlıdır. [Senaryoları Azure Machine Learning, gelişmiş analizler için](plan-sample-scenarios.md) makale gelişmiş analizler işleminde kullanılan veri bilimi iş akışları çeşitli için ihtiyacınız olan kaynakları belirlemenize yardımcı olur.
+Hangi sizin için en iyi bir yöntemdir, senaryoya bağlıdır. [Azure Machine learning'de Gelişmiş analiz senaryoları](plan-sample-scenarios.md) makale Gelişmiş analiz işleminde kullanılan veri bilimi iş akışları çeşitli için ihtiyacınız olan kaynakları belirlemenize yardımcı olur.
 
 > [!NOTE]
-> Azure blob depolama tam bir giriş için bkz [Azure Blob Temelleri](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) ve [Azure Blob hizmeti](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Azure blob depolama için bir tam giriş için başvurmak [Azure Blob Temelleri](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) ve [Azure Blob hizmeti](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
 Alternatif olarak, kullandığınız [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) için: 
 
-* oluşturun ve veriler Azure blob depolama alanından yükler ardışık zamanlama 
-* yayımlanan bir Azure Machine Learning web hizmetine geçirmek, 
+* oluşturun ve Azure blob depolamadan veri yükleyen işlem hattı zamanlama 
+* yayımlanan bir Azure Machine Learning web hizmeti ile geçirin, 
 * Tahmine dayalı analiz sonuçlarını almak ve 
-* Sonuçları depolama alanına yükleme. 
+* Sonuçları depolama alanına yükleyin. 
 
-Daha fazla bilgi için bkz: [Azure Data Factory ve Azure Machine Learning kullanarak Tahmine dayalı işlem hatlarını oluşturmak](../../data-factory/v1/data-factory-azure-ml-batch-execution-activity.md).
+Daha fazla bilgi için [Azure Data Factory ve Azure Machine Learning kullanarak öngörülebilir komut zincirleri oluşturma](../../data-factory/transform-data-using-machine-learning.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu belge, Azure aboneliği, bir depolama hesabı ve o hesap için karşılık gelen depolama anahtarı sahip olduğunuzu varsayar. Karşıya yükleme/veri yüklemeden önce Azure depolama hesabı adı ve hesap anahtarınızın bilmeniz gerekir.
+Bu belge, bir Azure aboneliği, bir depolama hesabı ve karşılık gelen depolama anahtarını ilgili hesabın sahibi olduğunuzu varsayar. Karşıya yükleme/veri indirmeden önce Azure depolama hesabı adını ve hesap anahtarınızı bilmeniz gerekir.
 
-* Bir Azure aboneliği ayarlamak için bkz: [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).
-* Bir depolama hesabı oluşturma hakkında yönergeler ve hesabı ve anahtarı bilgilerini almak için bkz: [Azure storage hesapları hakkında](../../storage/common/storage-create-storage-account.md).
+* Bir Azure aboneliğini ayarlama hakkında bilgi için bkz: [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).
+* Bir depolama hesabı oluşturma hakkında yönergeler için ve hesap ve anahtar bilgilerini almak için bkz: [Azure depolama hesapları hakkında](../../storage/common/storage-create-storage-account.md).
 

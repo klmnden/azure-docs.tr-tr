@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: c033a465bb6e8e03c909ac7bc5a233f6b8b4cd76
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d1e73af69d3220c0719bd05e3f160e20f8c02858
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298095"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715610"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure işlevleri için Zamanlayıcı tetikleyicisi 
 
@@ -132,7 +132,7 @@ Veri bağlama işte *function.json* dosyası:
 }
 ```
 
-JavaScript kodu şu şekildedir:
+JavaScript kod aşağıdaki gibidir:
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -140,9 +140,9 @@ module.exports = function (context, myTimer) {
 
     if(myTimer.isPastDue)
     {
-        context.log('Node.js is running late!');
+        context.log('Node is running late!');
     }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log('Node timer trigger function ran!', timeStamp);   
 
     context.done();
 };

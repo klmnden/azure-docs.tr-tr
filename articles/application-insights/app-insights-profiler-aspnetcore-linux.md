@@ -1,6 +1,6 @@
 ---
-title: Profil ASP.NET Core Azure Linux web uygulamalarını uygulama Öngörüler Profil Oluşturucu ile | Microsoft Docs
-description: Kavramsal genel bakış ve uygulama Öngörüler profil oluşturucu kullanma hakkında adım adım öğretici.
+title: Application Insights Profiler ile ASP.NET Core Azure Linux web uygulamalarının profilini | Microsoft Docs
+description: Kavramsal genel bakış ve Application Insights Profiler ' ı kullanma hakkında adım adım öğretici.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,34 +9,35 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5596c4efeba14e9d2bfdadd7ce92bb6b2c9fcbf0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6fcc11b0120c9d19cfc1482100ac68d04c9d625d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647862"
 ---
-# <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Uygulama Öngörüler Profil Oluşturucu ile profil ASP.NET Core Azure Linux web uygulamaları
+# <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler ile ASP.NET Core Azure Linux web app'ler profil
 
 Bu özellik şu anda önizleme sürümündedir.
 
-Ne kadar süre canlı web uygulamanızın her bir yöntemin kullanırken harcanan Bul [Application Insights](app-insights-overview.md). Uygulama Öngörüler profil oluşturucu artık Linux Azure App Service üzerinde barındırılan ASP.NET Core web uygulamaları için kullanılabilir. Bu kılavuz, profil oluşturucu izlemeleri ASP.NET Core Linux web uygulamaları için toplanabilir nasıl adım adım yönergeler sağlar.
+Ne kadar zaman canlı web uygulamanızın her bir yöntemin kullanırken harcandığını Bul [Application Insights](app-insights-overview.md). Application Insights Profiler, artık Linux'ta Azure App Service üzerinde barındırılan ASP.NET Core web uygulamaları için kullanılabilir. Bu kılavuz, Profiler izlemeleri ASP.NET Core Linux web apps için toplanabilir nasıl adım adım yönergeler sağlar.
 
-Bu kılavuzu tamamladıktan sonra uygulamanızı profil oluşturucu izlemeleri görüntüde gösterilen izlemeleri gibi toplayabilirsiniz. Bu örnekte profil oluşturucu izleme belirli web isteği nedeniyle harcanan süre bekleme yavaş gösterir. *Etkin yolunuzda* uygulama yavaşlamasının kodda bir yangın simgesiyle işaretlenir. **Hakkında** yönteminde **HomeController** bölüm yöntemi çağırmak için web uygulaması yavaşlamasının **Thread.Sleep** işlevi.
+Bu kılavuzu tamamladıktan sonra uygulamanızı Profiler izlemeleri izlemeler görüntüde gösterildiği gibi toplayabilirsiniz. Bu örnekte, Profiler izlemesi, belirli bir web isteği harcanan süre bekleme nedeniyle yavaş olduğunu gösterir. *Etkin yolu* uygulama yavaşlatıyor kodda bir Ateş simgesiyle işaretlenir. **Hakkında** yönteminde **HomeController** bölümü yöntemini çağırmak için web uygulaması yavaşlatmasını **net_thread_sleep** işlevi.
 
-![Profil Oluşturucu izlemeleri](./media/app-insights-profiler-aspnetcore-linux/profiler-traces.png)
+![Profiler izlemeleri](./media/app-insights-profiler-aspnetcore-linux/profiler-traces.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
-Tüm Windows, Linux ve Mac geliştirme ortamlar için aşağıdaki yönergeleri uygulayın:
+Aşağıdaki yönergeler, tüm Windows, Linux ve Mac geliştirme ortamları için geçerlidir:
 
-* Yükleme [.NET Core SDK 2.1.2 ya da daha sonra](https://www.microsoft.com/net/download/windows/build).
-* Kısmındaki yönergeleri izleyerek Git yükleyin [Git yükleme Başlarken -](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+* Yükleme [.NET Core SDK'sı 2.1.2'yi veya üzeri](https://www.microsoft.com/net/download/windows/build).
+* Yönergeleri izleyerek Git yükleme [Git'i yükledikten Başlarken -](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-## <a name="set-up-the-project-locally"></a>Projeyi yerel olarak ayarlayın
+## <a name="set-up-the-project-locally"></a>Yerel olarak projesi kurun
 
-1. Makinenizde bir komut istemi penceresi açın. Aşağıdaki yönergeler için tüm Windows, Linux ve Mac geliştirme ortamlarında çalışır.
+1. Makinenizde bir komut istemi penceresi açın. Aşağıdaki yönergeler için tüm Windows, Linux ve Mac geliştirme ortamlarında çalışın.
 
 2. Bir ASP.NET Core MVC web uygulaması oluşturun:
 
@@ -44,15 +45,15 @@ Tüm Windows, Linux ve Mac geliştirme ortamlar için aşağıdaki yönergeleri 
     dotnet new mvc -n LinuxProfilerTest
     ```
 
-3. Proje için kök klasör için çalışma dizini değiştirin.
+3. Çalışma dizini, proje kök klasörüne değiştirin.
 
-4. Profil Oluşturucu izlemeleri toplamak için NuGet paketini ekleyin:
+4. Profiler izlemeleri toplamak için NuGet paketini ekleyin:
 
     ```
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-5. Kod satırını ekleyin **HomeController.cs** birkaç saniye rastgele gecikme için bölümü:
+5. Bir kod satırını ekleyin **HomeController.cs** birkaç saniye rastgele gecikme bölümü:
 
     ```csharp
         using System.Threading;
@@ -67,7 +68,7 @@ Tüm Windows, Linux ve Mac geliştirme ortamlar için aşağıdaki yönergeleri 
             }
     ```
 
-6. Kaydet ve yerel depo, değişiklikleri uygulayın:
+6. Kaydet ve yaptığınız değişiklikleri yerel depoya kaydedin:
 
     ```
         git init
@@ -77,33 +78,33 @@ Tüm Windows, Linux ve Mac geliştirme ortamlar için aşağıdaki yönergeleri 
 
 ## <a name="create-the-linux-web-app-to-host-your-project"></a>Projenizi barındırmak için Linux web uygulaması oluşturma
 
-1. Web uygulama ortamı Linux'ta uygulama hizmeti kullanarak oluşturun:
+1. Linux üzerinde App Service kullanarak web uygulama ortamı oluşturun:
 
     ![Linux web uygulaması oluşturma](./media/app-insights-profiler-aspnetcore-linux/create-linux-appservice.png)
 
-2. Dağıtım kimlik bilgileri oluşturun:
+2. Dağıtım kimlik bilgilerini oluşturun:
 
     > [!NOTE]
-    > Parolanızı daha sonra web uygulamanızın dağıtırken kullanmak üzere kaydedin.
+    > Web uygulamanızı dağıtırken daha sonra kullanmak üzere parolanızı kaydedin.
 
-    ![Dağıtım kimlik bilgileri oluşturun](./media/app-insights-profiler-aspnetcore-linux/create-deployment-credentials.png)
+    ![Dağıtım kimlik bilgileri oluşturma](./media/app-insights-profiler-aspnetcore-linux/create-deployment-credentials.png)
 
-3. Dağıtım seçenekleri seçin. Azure Portal'da yönergeleri izleyerek yerel bir Git deposu web uygulamasında ayarlayın. Bir Git deposu otomatik olarak oluşturulur.
+3. Dağıtım seçenekleri seçin. Azure portalında yönergeleri izleyerek web uygulamasına yerel Git deposunda ayarlayın. Git deposunu otomatik olarak oluşturulur.
 
     ![Git deposu ayarlama](./media/app-insights-profiler-aspnetcore-linux/setup-git-repo.png)
 
-Daha fazla dağıtım seçenekleri için bkz [bu makalede](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type).
+Daha fazla dağıtım seçeneği için bkz: [bu makalede](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type).
 
-## <a name="deploy-your-project"></a>Projenizi dağıtma
+## <a name="deploy-your-project"></a>Projenizi dağıtın
 
-1. Komut İstemi penceresinde, projeniz için kök klasöre göz atın. Uygulama hizmeti havuzda işaret etmek için bir Git uzak deponuza ekleyin:
+1. Komut İstemi penceresinde, projenizin kök klasörüne göz atın. App Service'te depoyu işaret etmek için bir Git uzak deposu ekleyin:
 
     ```
     git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
     ```
 
-    * Kullanım **kullanıcıadı** dağıtım kimlik bilgileri oluşturmak için kullanılır.
-    * Kullanım **uygulama adı** Linux'ta uygulama hizmetini kullanarak web uygulaması oluşturmak için kullanılır.
+    * Kullanım **kullanıcıadı** dağıtım kimlik bilgilerini oluşturmak için kullanılır.
+    * Kullanım **uygulama adı** Linux üzerinde App Service kullanarak web uygulamasını oluşturmak için kullanılan.
 
 2. Projeyi Azure'a değişiklikleri ileterek dağıtın:
 
@@ -134,44 +135,44 @@ Aşağıdaki örneğe benzer bir çıktı görmeniz gerekir:
 
     ```
 
-## <a name="add-application-insights-to-monitor-your-web-apps"></a>Web uygulamalarınızı izlemek için Application Insights Ekle
+## <a name="add-application-insights-to-monitor-your-web-apps"></a>Web uygulamalarınızı izlemek için Application Insights ekleme
 
-1. [Application Insights kaynağı oluşturma](./app-insights-create-new-resource.md).
+1. [Bir Application Insights kaynağı oluşturma](./app-insights-create-new-resource.md).
 
-2. Kopya **iKey** Application Insights kaynağı değerini ve web uygulamalarınızı aşağıdaki ayarları ayarlayın:
+2. Kopyalama **iKey** Application Insights kaynağının değeri ve web uygulamalarınızda aşağıdaki ayarlar:
 
     ```
     APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
     ASPNETCORE_HOSTINGSTARTUPASSEMBLIES: Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-    ![Uygulama ayarlarını yapılandırın](./media/app-insights-profiler-aspnetcore-linux/set-appsettings.png)
+    ![Uygulama ayarlarını yapılandırma](./media/app-insights-profiler-aspnetcore-linux/set-appsettings.png)
 
-    Uygulama ayarları değiştirildiğinde, sitenin otomatik olarak yeniden başlatılır. Yeni ayarları uyguladıktan sonra Profil Oluşturucu iki dakika hemen çalıştırır. Profil Oluşturucu sonra iki dakika saatte çalışır.
+    Uygulama ayarları değiştiğinde, siteyi otomatik olarak yeniden başlatır. Yeni ayarları uyguladıktan sonra Profiler hemen için iki dakikada bir çalışır. Profiler sonra iki dakika başı çalıştırır.
 
-3. Bazı trafiği Web sitenize oluşturur. Site yenileyerek trafiği oluşturabilir **hakkında** sayfa birkaç kez.
+3. Bazı Web trafiği oluşturur. Site yenileyerek trafik oluşturabilir **hakkında** sayfa birkaç kez.
 
-4. Olaylara iki için beş dakika bekleyin Application Insights toplama.
+4. Olaylara iki ila beş dakika bekleyin Application ınsights'a toplama.
 
-5. Application ınsights'a **performans** Azure portalında bölmesi. Profil Oluşturucu izlemeleri bölmesinin sağ alt köşede görüntüleyebilirsiniz.
+5. Uygulama anlayışları'na göz atın **performans** bölmesinde Azure portalında. Profiler izlemeleri bölmenin sağ alt köşede görüntüleyebilirsiniz.
 
-    ![Profil Oluşturucu izlemeleri görüntüleme](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+    ![Profiler izlemeleri görüntüleme](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
-### <a name="the-enable-action-in-the-profiler-configuration-pane-doesnt-work"></a>Profil Oluşturucu yapılandırma bölmesinde etkinleştir eylemi çalışmıyor
+### <a name="the-enable-action-in-the-profiler-configuration-pane-doesnt-work"></a>Profiler yapılandırma bölmesinde etkinleştir eylemi çalışmıyor
 
 > [!NOTE]
-> Uygulama hizmeti Linux'ta kullanarak uygulamanızı barındırıyorsanız, Profil Oluşturucusu'nda yeniden etkinleştirmeniz gerekmez **performans** Application Insights portalındaki bölmesinde. NuGet paketini projenize eklemek ve Application ınsights **iKey** profil oluşturucu etkinleştirmek için web uygulaması ayarları değeri.
+> Linux üzerinde App Service'ı kullanarak uygulamanızı barındırın, Profiler içinde yeniden etkinleştirmeniz gerekmez **performans** Application Insights portalında bölmesinde. NuGet paketini projenize eklemek ve Application ınsights'ı **iKey** Profiler'ı etkinleştirmek için web app ayarlarınız içindeki değer.
 
-Etkinleştirme iş akışını izlerseniz [için Application Insights profil oluşturucu Windows](./app-insights-profiler.md) seçip **etkinleştirmek** içinde **yapılandırma profil oluşturucu** bölmesinde, bir hata alıyorsunuz. Linux ortamda Profil Oluşturucu aracı Windows sürümünü yüklemek etkinleştir eylemine çalışır.
+Etkinleştirme iş akışını izleyin [için Application Insights Profiler Windows](./app-insights-profiler.md) seçip **etkinleştirmek** içinde **Profiler yapılandırma** bölmesinde, bir hata alırsınız. Linux ortamında Profiler Aracısı Windows sürümünü yüklemek etkinleştir eylemine çalışır.
 
-Bu sorun için çözüm üzerinde çalışıyoruz.
+Bu sorun için bir çözüm üzerinde çalışıyoruz.
 
-![Profil Oluşturucu performans bölmesinde yeniden etkinleştirmeyi deneyin yok](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+![Profiler performans bölmesinde yeniden etkinleştirmeyi deneyin yok](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure App Service tarafından barındırılan özel kapsayıcılar kullanırsanız, içindeki yönergeleri izleyin [ kapsayıcılı ASP.NET Core uygulama için hizmet profil oluşturucu etkinleştirmek](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) uygulama Öngörüler profil oluşturucu etkinleştirmek için.
+Azure App Service tarafından barındırılan özel kapsayıcılar kullanırsanız, içindeki yönergeleri izleyin [ kapsayıcılı bir ASP.NET Core uygulaması Service Profiler'ı etkinleştirme](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) Application Insights Profiler ' ı etkinleştirmek için.
 
-Herhangi bir probleminiz ya da uygulama Öngörüler GitHub deposuna önerileri Rapor: [Applicationınsights profil oluşturucu AspNetCore: sorunları](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
+Herhangi bir probleminiz ya da Application Insights GitHub deposunu önerileri bildirmek: [Applicationınsights Profiler AspNetCore: sorunları](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).

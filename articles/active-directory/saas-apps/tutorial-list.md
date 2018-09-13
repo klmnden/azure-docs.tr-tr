@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/20/2018
+ms.date: 09/11/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: b0e6e764fe44dc5216a6b75453f0be6c35af2d11
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8bc0d0170172d7022d15ad5e07cde3ef8584da36
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161603"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722257"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Azure Active Directory ile SaaS uygulama tümleştirmesi
 
@@ -643,4 +643,4 @@ Azure AD ile önceden tümleştirilmiş olan esnek kapsamlı listesi için bkz [
 
 ## <a name="related-articles"></a>İlgili makaleler
 
-[Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../active-directory-apps-index.md)
+[Azure Active Directory'de uygulama yönetimi](../manage-apps/what-is-application-management.md)

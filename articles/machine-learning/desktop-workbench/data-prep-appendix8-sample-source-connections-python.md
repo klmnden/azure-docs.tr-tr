@@ -1,53 +1,53 @@
 ---
-title: Örnek ek kaynak veri bağlantıları Azure Machine Learning ile veri hazırlama olası | Microsoft Docs
-description: Bu belgede Azure Machine Learning ile veri hazırlama olası kaynak veri bağlantıları örnekleri kümesi sağlar
+title: Örnek ek kaynak veri bağlantıları ile Azure Machine Learning veri hazırlama olası | Microsoft Docs
+description: Bu belge, Azure Machine Learning veri hazırlama ile olası kaynak veri bağlantıları örnekleri sunmaktadır
 services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: b87d88a5bb7846894c425e701a073707ddd1f3be
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 89a30c070abe3b10414c7284bb33f2c8216ee0c8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831198"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648415"
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Özel kaynak bağlantıları (Python) örneği 
 Bu ekte okumadan önce okuma [Python genişletilebilirlik genel bakış](data-prep-python-extensibility-overview.md).
 
-## <a name="load-data-from-dataworld"></a>Data.world yük verileri
+## <a name="load-data-from-dataworld"></a>Data.world'den veri yükleme
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-#### <a name="register-yourself-at-dataworld"></a>Kendiniz data.world kaydetme
-Bir API belirteci data.world Web sitesinden gerekir.
+#### <a name="register-yourself-at-dataworld"></a>Kendinize data.world kaydetme
+API belirteci data.world Web sitesinden ihtiyacınız vardır.
 
 #### <a name="install-dataworld-library"></a>Data.World kitaplığını yükle
 
-Azure Machine Learning çalışma ekranı komut satırı arabirimini seçerek açın **dosya** > **açık komut satırı arabirimi**.
+Azure Machine Learning Workbench'te komut satırı arabirimi seçerek açın **dosya** > **açık komut satırı arabirimi**.
 
 ```console
 pip install git+git://github.com/datadotworld/data.world-py.git
 ```
 
-Ardından, çalıştırın `dw configure` komut satırında, sizden belirtecinizi için. Ne zaman bir .dw belirtecinizi girin veya dizin giriş dizininize ve belirtecinizi oluşturulur orada saklanır.
+Ardından, çalıştırma `dw configure` komut satırında, sizden belirtecinizin. Ne zaman bir .dw belirtecinizi girin / directory giriş dizininizin ve belirtecinizi oluşturulan burada depolanır.
 
 ```
 API token (obtained at: https://data.world/settings/advanced): <enter API token here>
 ```
 Artık data.world kitaplıkları içeri aktarma mümkün olması gerekir.
 
-#### <a name="load-data-into-data-preparation"></a>Veri hazırlama içine veri yükleme
+#### <a name="load-data-into-data-preparation"></a>Veri hazırlama ile veri yükleme
 
-Bir dönüştürme veri akışı (komut) dönüştürme oluşturun. Ardından data.world verileri yüklemek için aşağıdaki komut dosyasını kullanın.
+Dönüşüm veri akışı (betik) dönüşüm oluşturun. Ardından verileri Data.world'den yüklemek için aşağıdaki betiği kullanın.
 
 ```python
 #paths = df['Path'].tolist()
@@ -61,5 +61,5 @@ lds = dw.load_dataset('data-society/the-simpsons-by-the-data')
 df = lds.dataframes['simpsons_episodes']
 
 ```
-## <a name="azure-cosmos-db-as-a-data-source-connection"></a>Bir veri kaynağı bağlantısı olarak Azure Cosmos DB
-Bir veri bağlantısı olarak Azure Cosmos DB örneği için okuma [yük Azure Cosmos DB kaynak veri bağlantısı olarak](data-prep-load-azure-cosmos-db.md)
+## <a name="azure-cosmos-db-as-a-data-source-connection"></a>Azure Cosmos DB veri kaynağı bağlantısı olarak
+Azure Cosmos DB'nin bir veri bağlantısı olarak Örneğin, okuma [yük Azure Cosmos DB veri kaynağı bağlantısı olarak](data-prep-load-azure-cosmos-db.md)

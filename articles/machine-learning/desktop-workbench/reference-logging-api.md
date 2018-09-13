@@ -1,28 +1,28 @@
 ---
 title: Azure ML günlüğü API Başvurusu | Microsoft Docs
-description: API Başvurusu günlüğü.
+description: API Başvurusu günlüğe kaydetme.
 services: machine-learning
 author: akshaya-a
 ms.author: akannava
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.openlocfilehash: b9ea51139fded3d55f0a73024163b7fa943c0ebb
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 101c47f4916ca3fab56800eaf012c55150769302
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834701"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651300"
 ---
 # <a name="logging-api-reference"></a>API Başvurusu günlüğe kaydetme
 
-Azure ML'ın günlük kitaplığı programın ölçümleri ve daha sonraki analizler için geçmiş hizmeti tarafından izlenen dosyaları yayma olanak verir. Şu anda ölçümleri dosyaların ve birkaç temel türleri desteklenir ve desteklenen türlerden kümesi Python paket gelecekteki sürümleriyle büyüyecektir.
+Azure ML'ın günlük kitaplığı, Ölçümler ve daha sonraki analizler için geçmiş hizmet tarafından izlenen dosyaları göstermek program sağlar. Şu anda, Ölçümler ve dosyaları birkaç temel türleri desteklenir ve desteklenen türleri Python paketini gelecek yayınlarla büyüyecektir.
 
-## <a name="uploading-metrics"></a>Ölçümleri karşıya yükleme
+## <a name="uploading-metrics"></a>Ölçümler yükleniyor
 
 ```python
 # import logging API package
@@ -41,7 +41,7 @@ logger.log("simple string value", "this is a string metric")
 logger.log("chart data points", [1, 3, 5, 10, 6, 4])
 ```
 
-Varsayılan olarak, böylece gönderme program yürütme dönüşü değil tüm ölçümleri zaman uyumsuz olarak gönderilir. Birden çok ölçümleri kenar durumlarda gönderildiğinde bu sıralama sorunlara neden olabilir. Buna örnek olarak, kullanıcının tam sıralama korunur tercih ettiğiniz herhangi bir nedenle yanı sıra, aynı anda oturum açmış iki ölçümleri olacaktır. Bazı kodları çalıştıran olası hızlı başarısız olduğu bilinen önce ölçüm izlenmesi gerekir, başka bir durumdur. Her iki durumda da için çözümdür _bekleyin_ kadar ölçüm devam etmeden önce tam olarak günlüğe kaydedilir:
+Varsayılan olarak, böylece programın yürütülmesi gönderim engellemeyen tüm ölçümler zaman uyumsuz olarak gönderilir. Çoklu ölçümler edge durumlarda gönderildiğinde bu sıralama sorunlara neden olabilir. Buna örnek olarak, aynı zamanda, ancak kullanıcı tam sıralama muhafaza edilir tercih ettiğiniz herhangi bir nedenle günlüğe iki ölçüm olacaktır. Önce bazı kodları çalıştıran potansiyel olarak hızlı başarısız olma bilinmektedir ölçüyü izlenmesini, başka bir durumdur. Her iki durumda da çözümdür _bekleyin_ kadar ölçüm devam etmeden önce tam olarak günlüğe kaydedilir:
 
 ```python
 # blocking call
@@ -51,7 +51,7 @@ logger.log("my metric 2", 2).wait()
 
 ## <a name="consuming-metrics"></a>Ölçümleri kullanma
 
-Ölçümleri geçmişi hizmeti tarafından depolanır ve bunları üretilen Çalıştır bağlanır. Hem çalıştırma geçmişi sekmesini hem de aşağıdaki CLI komutu Çalıştır tamamlandıktan sonra bunları (ve yapıları aşağıdaki) almanıza olanak sağlar.
+Ölçümler geçmişi hizmeti tarafından depolanan ve bunları üretilen Çalıştır bağlanır. Hem çalıştırma geçmişi sekmesi hem de aşağıdaki CLI komutunu çalıştırma tamamlandıktan sonra bunları (ve yapıtları aşağıdaki) almanıza olanak tanır.
 
 ```azurecli
 # show the last run
@@ -64,9 +64,9 @@ $ az ml history list
 $ az ml history info -r <runid>
 ```
 
-## <a name="artifacts-files"></a>Yapılar (dosyaları)
+## <a name="artifacts-files"></a>Yapıtları (dosyalar)
 
-Ölçümleri yanı sıra, AzureML dosyaları da izlemesine olanak verir. Varsayılan olarak, içine yazılan tüm dosyaları `outputs` klasörüne görelidir programın çalışma dizini (işlem bağlamı proje klasöründe) geçmişi hizmete karşıya ve sonra analiz etmek için izlenir. Uyarısıyla tek tek dosya boyutu 512 MB daha küçük olur.
+Ek ölçümler, dosyaları da izlemek kullanıcının AzureML sağlar. Varsayılan olarak, tüm dosyalar halinde yazılmış `outputs` programın çalışma dizini (işlem bağlamı proje klasöründe) klasörüyle geçmişi hizmetine yüklenir ve sonra analiz etmek için izlenir. Uyarı, tek tek dosya boyutu 512 MB değerinden daha küçük olur.
 
 
 ```Python
@@ -76,7 +76,7 @@ logger.upload("artifact/path", "This should be the contents of artifact/path in 
 
 ## <a name="consuming-artifacts"></a>Yapıları kullanma
 
-İzlenen artifact içeriğini yazdırmak için kullanıcı çalıştırmak geçmiş sekmesinde verilen çalıştırma için kullanabilirsiniz **karşıdan** veya **Yükselt** yapı ya da kullanım aynı sonucu elde etmek için CLI komutları aşağıda.
+İzlenen bir yapıt içeriği yazdırmak için kullanıcı çalıştırma geçmişi sekmesi için belirtilen çalıştırma için kullanabilirsiniz **indirme** veya **Yükselt** Yapıt veya kullanımı aşağıdaki CLI komutları aynı etkiyi elde etmek için.
 
 ```azurecli
 # show all artifacts generated by a run
@@ -86,5 +86,5 @@ $ az ml history info -r <runid> -a <artifact/path>
 $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to create>
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-- İzlenecek yol [iris tutoria Sınıflandırma, bölüm 2](tutorial-classifying-iris-part-2.md) eylem günlüğü API görmek için.
-- Gözden geçirme [kullanım çalıştırma geçmişi ve Azure Machine Learning çalışma ekranı modeli ölçümlerini](how-to-use-run-history-model-metrics.md) nasıl API'leri günlüğü çalıştırmak geçmişinde kullanılabilir daha derin anlamak için.
+- İzlenecek yol [tutoria Iris Sınıflandırma, bölüm 2](tutorial-classifying-iris-part-2.md) günlüğe kaydetme API'si iş başında görmek için.
+- Gözden geçirme [kullanım çalıştırma geçmişi ve Model ölçümlerini Azure Machine Learning workbench'te](how-to-use-run-history-model-metrics.md) API'leri günlüğü çalıştırma geçmişinde kullanma hakkında daha kapsamlı anlamak için.

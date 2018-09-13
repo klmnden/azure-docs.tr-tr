@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/09/2017
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: 7bae891bd16ecd3fbbad88022fbbffd32ff41eae
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d7a5bf23f2855b43c4a2e4022568028d852c094b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577558"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719588"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Federasyon çoklu oturum açma için Azure Active Directory'de sertifikaları yönetme
 Bu makalede, yaygın soruları ve Azure Active Directory (Azure AD), SaaS uygulamaları için Federasyon çoklu oturum açma (SSO) kurmaya oluşturur sertifikalarla ilgili bilgiler yer almaktadır. Uygulamaları Azure AD uygulama galerisinde veya galeri dışı uygulama şablonu kullanarak ekleyin. Federasyon SSO seçeneği kullanarak uygulamayı yapılandırın.
@@ -86,6 +86,6 @@ Aşağıdaki yenileme adımları sonucunda, kullanıcılarınızın önemli kapa
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](../saas-apps/tutorial-list.md)
-* [Azure Active Directory'de uygulama yönetimi için makale dizini](../active-directory-apps-index.md)
+* [Azure Active Directory'de uygulama yönetimi](what-is-application-management.md)
 * [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma](what-is-single-sign-on.md)
 * [SAML tabanlı çoklu oturum açma sorunlarını giderme](../develop/howto-v1-debug-saml-sso-issues.md)

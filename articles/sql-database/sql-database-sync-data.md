@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: ba1fdcf64592bdfe23195e781a21d7a2db693325
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: ab5d042517716ee2b155d99803f4058772622036
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056087"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721458"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
@@ -47,7 +47,7 @@ Bir eşitleme grubu, aşağıdaki özelliklere sahiptir:
 
 ## <a name="when-to-use-data-sync"></a>Veri Eşitleme kullanıldığı durumlar
 
-Veri eşitleme veri burada birkaç Azure SQL veritabanları veya SQL Server veritabanlarını güncel tutulması gereken durumlarda yararlıdır. Veri eşitleme için ana kullanım örnekleri şunlardır:
+Veri eşitleme veri burada birkaç Azure SQL veritabanı veya SQL Server veritabanlarını güncel tutulması gereken durumlarda yararlıdır. Veri eşitleme için ana kullanım örnekleri şunlardır:
 
 -   **Karma veri eşitleme:** Data Sync ile verileri şirket içi veritabanlarınıza ve karma uygulamalar'ı etkinleştirmek için Azure SQL veritabanları arasında eşitlenmiş kalmasını sağlayabilirsiniz. Bu özellik, buluta geçiş düşünüyorsanız ve bazı uygulamalarını Azure'da koymak istediğiniz müşterileri itiraz.
 

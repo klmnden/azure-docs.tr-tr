@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: ronitr
-ms.openlocfilehash: 714fe94d295157f0d4d90139da98254f46794731
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: c4d9eb5f7105e0e1b16ad994d397885b9232a0ea
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42062111"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719537"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL veritabanı dinamik veri maskeleme
 
@@ -52,5 +52,5 @@ DDM hizmetinin öneriler motoru, veritabanınızdaki belirli alanları maskeleme
 Bkz: [Azure SQL veritabanı cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Dinamik veri maskelemeyi REST API kullanarak veritabanınızı ayarlayın
-Bkz: [Azure SQL veritabanları için işlem](https://msdn.microsoft.com/library/dn505719.aspx).
+Bkz: [işlemleri için Azure SQL veritabanı](https://msdn.microsoft.com/library/dn505719.aspx).
 

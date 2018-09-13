@@ -1,6 +1,6 @@
 ---
-title: Çok kiracılı uygulamalarla RLS ve esnek veritabanı araçlarını | Microsoft Docs
-description: Yüksek oranda ölçeklenebilir veri katmanı ile bir uygulama oluşturmak için satır düzeyi güvenlik ile esnek veritabanı araçlarını kullanın.
+title: RLS ve esnek veritabanı araçları ile çok kiracılı uygulamalar | Microsoft Docs
+description: Esnek veritabanı araçlarını satır düzeyi güvenlik ile yüksek oranda ölçeklenebilir bir veri katmanı ile bir uygulama oluşturmak için kullanın.
 metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
 manager: craigg
@@ -10,60 +10,60 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: thmullan
-ms.openlocfilehash: 02ad01185a86aa5a975be2a66b54a214029dd73f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 96093ea65452693a999363f6bbad26a4a1904f60
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645819"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714964"
 ---
-# <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Çok kiracılı uygulamalarla esnek veritabanı araçlarını ve satır düzeyi güvenlik
+# <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Esnek veritabanı araçlarını ve satır düzeyi güvenlik ile çok kiracılı uygulamalar
 
-[Esnek veritabanı araçlarını](sql-database-elastic-scale-get-started.md) ve [satır düzeyi güvenlik (RLS)] [ rls] Azure SQL veritabanı olan bir çok kiracılı uygulama veri katmanı ölçeklendirmeyi etkinleştirmek üzere işbirliği yapar. Birlikte bu teknolojiler, yüksek düzeyde ölçeklenebilir veri katmanı olan bir uygulama oluşturmanıza yardımcı olur. Veri katmanı çok kiracılı parça destekler ve kullandığı **ADO.NET SqlClient** veya **Entity Framework**. Daha fazla bilgi için bkz: [Azure SQL veritabanı ile çok kiracılı SaaS uygulamaları için Tasarım desenleri](saas-tenancy-app-design-patterns.md).
+[Esnek veritabanı araçlarını](sql-database-elastic-scale-get-started.md) ve [satır düzeyi güvenlik (RLS)] [ rls] Azure SQL veritabanı ile çok kiracılı bir uygulama için veri katmanını ölçeklendirmeyi etkinleştirmek üzere işbirliği yapar. Birlikte bu teknolojiler bir yüksek oranda ölçeklenebilir bir veri katmanı olan bir uygulama oluşturmanıza yardımcı olur. Veri katmanı, çok kiracılı parçaları destekleyen ve kullandığı **ADO.NET SqlClient** veya **Entity Framework**. Daha fazla bilgi için [Azure SQL veritabanı ile çok kiracılı SaaS uygulamaları için Tasarım desenleri](saas-tenancy-app-design-patterns.md).
 
-- **Esnek veritabanı araçlarını** .NET kitaplıkları ve Azure hizmet şablonlarını kullanarak veri katmanı standart parçalama uygulamalar ile genişletmek, geliştiricilerin. Parça kullanarak yönetme [esnek veritabanı istemci Kitaplığı] [ s-d-elastic-database-client-library] otomatikleştirmek ve genellikle parçalama ile ilişkili infrastructural görevlerin çoğunu akıcı hale getirmesine yardımcı olur.
-- **Satır düzeyi güvenlik** güvenli bir şekilde aynı veritabanında birden çok Kiracı için verileri depolamak için geliştiricilere olanak sağlar. RLS güvenlik ilkeleri bir sorgu yürütülürken kiracıya ait değil satırları filtreler. Veritabanı içinde filtre mantığı merkezileştirme bakım basitleştirir ve bir güvenlik hatası riskini azaltır. Tüm istemci kodu enfore güvenlik güvenmek alternatif risklidir.
+- **Esnek veritabanı araçlarını** geliştiricilerin .NET kitaplıkları ve Azure hizmet şablonları kullanarak veri katmanı ile standart parçalara ayırma uygulamaları, ölçeği genişletme. Parçalar kullanarak yönetme [elastik veritabanı istemci Kitaplığı] [ s-d-elastic-database-client-library] otomatikleştirmek ve genellikle parçalama yöntemiyle ilişkili altyapısal görevlerin çoğunu kolaylaştırmaya yardımcı olur.
+- **Satır düzeyi güvenlik** geliştiricilerin güvenli bir şekilde aynı veritabanının birden fazla Kiracı için veri depolama sağlar. Sorguyu yürüten kiracıya ait olmayan satırları RLS güvenlik ilkeleri filtreleyin. Veritabanı içinde filtre mantığının merkezileştirerek, bakım basitleştirir ve bir güvenlik hatası riskini azaltır. Tüm istemci kodu enfore güvenlik bağlı alternatif risklidir.
 
-Bu özellikleri birlikte kullanarak, bir uygulama, aynı parça veritabanında birden çok Kiracı için veri depolayabilirsiniz. Kiracılar bir veritabanını paylaştığında daha az Kiracı başına maliyetleri. Henüz aynı uygulama için kendi özel tek Kiracı parça ödeme seçeneğiniz de premium kiracılar sunabilir. Tek Kiracı yalıtımı bir yararı firmer performans garanti ' dir. Bir tek Kiracı veritabanında kaynakları için rekabete diğer Kiracı yoktur.
+Bu özellikler birlikte kullanarak, bir uygulama, aynı parça veritabanının birden fazla Kiracı için veri depolayabilir. Kiracılar bir veritabanını paylaştığında daha az Kiracı başına maliyeti. Henüz aynı uygulama için adanmış kendi tek kiracılı parça ödeme seçeneği ayrıca, premium kiracılar sunabilir. Tek tek kiracılı yalıtım firmer performans garantileri avantajdır. Bir tek kiracılı veritabanında kaynakları için rekabete hiçbir Kiracı yoktur.
 
-Esnek veritabanı istemci kitaplığını kullanma hedeftir [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) otomatik olarak verilen her Kiracı doğru parça veritabanına bağlanmak için API'ler. Yalnızca bir parça belirli Tenantıd değerinin verilen bir kiracı için içerir. Tenantıd olan *parçalama anahtar*. Bağlantı kurulduktan sonra veritabanını bir RLS güvenlik ilkesinde belirtilen Kiracı kendi Tenantıd içeren veri satırları erişebilmesini sağlar.
+Elastik veritabanı istemci kitaplığını kullanma olmaktır [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) otomatik olarak her bir kiracı doğru parça veritabanına bağlanmak için API'leri. Tek parça belirli kiracısı için belirli Tenantıd değerini içerir. Tenantıd olduğu *parçalama anahtarı*. Bağlantı kurulduktan sonra bir veritabanı içinde RLS güvenlik ilkesi belirli kiracısı, Tenantıd içeren veri satırları erişebilmesini sağlar.
 
 > [!NOTE]
-> Kiracı tanımlayıcısı birden fazla sütunu oluşabilir. Bu tartışma kolaylık sağlamak için basit bir tek sütunlu Tenantıd varsayıyoruz.
+> Kiracı tanımlayıcısı, birden fazla sütunun oluşabilir. Kolaylık bu tartışma için basit bir tek sütunlu Tenantıd varsayıyoruz.
 
-![Blog uygulama mimarisi][1]
+![Uygulama Mimarisi Web günlüğü][1]
 
-## <a name="download-the-sample-project"></a>Örnek Proje yükle
+## <a name="download-the-sample-project"></a>Örnek projeyi indirin
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-- Visual Studio (2012 veya sonraki sürümlerini) kullanın 
+- Visual Studio (2012 veya üzeri) kullanın 
 - Üç Azure SQL veritabanı oluşturma 
-- Örnek projesini indirin: [Azure SQL - çok Kiracılı parça için esnek veritabanı araçları](http://go.microsoft.com/?linkid=9888163)
+- Örnek projeyi indirin: [Azure SQL - çok Kiracılı parça için elastik veritabanı araçları](http://go.microsoft.com/?linkid=9888163)
   - Veritabanlarınızı başındaki bilgileri doldurun **Program.cs** 
 
-Bu proje açıklandığı bir genişletir [Azure SQL - Entity Framework tümleştirme için esnek DB Araçları](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) çok kiracılı parça veritabanları için destek ekleyerek düzenleyin. Bloglar ve gönderileri oluşturmak için basit bir konsol uygulaması projesi oluşturur. Proje dört kiracılar yanı sıra, iki çok kiracılı parça veritabanları içeriyor. Bu yapılandırma önceki diyagramda gösterilmiştir. 
+Bu proje bir genişletir [Azure SQL - Entity Framework tümleştirmesi için elastik veritabanı araçları](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) çok kiracılı parça veritabanlarına yönelik destek ekleyerek. Blog ve gönderi oluşturmaya yönelik basit bir konsol uygulaması projesi oluşturur. Proje, dört Kiracı yanı sıra, iki çok kiracılı parça veritabanı içerir. Bu yapılandırma, önceki şemada gösterilmiştir. 
 
-Derleme ve uygulamayı çalıştırın. Bu farklı çalıştır esnek veritabanı araçlarını parça eşleme Yöneticisi bootstraps ve aşağıdaki sınama gerçekleştirir: 
+Derleme ve uygulamayı çalıştırın. Bu çalıştırmada esnek veritabanı araçlarını parça eşleme Yöneticisi bootstraps ve aşağıdaki testler gerçekleştirir: 
 
-1. Entity Framework ve LINQ kullanarak yeni bir blog oluşturun ve ardından her bir kiracı için tüm Web Günlüklerini Görüntüle
-2. ADO.NET SqlClient kullanarak, bir kiracı için tüm Web Günlüklerini Görüntüle
-3. Bir hata atılır doğrulamak yanlış Kiracı için bir blog eklemeyi deneyin  
+1. Entity Framework ve LINQ kullanarak yeni bir blog oluşturma ve ardından her Kiracı için tüm Web günlüklerini görüntüleme
+2. ADO.NET SqlClient kullanarak, bir kiracı için tüm blogları görüntüleme
+3. Bir hata oluşturulur doğrulamak yanlış kiracının blog eklemeyi deneyin  
 
-RLS parça veritabanlarında henüz etkinleştirilmemiş olduğundan, bu testler, her bir sorun ortaya dikkat edin: kiracılar kendilerine ait değil bloglar görmeye ve uygulama yanlış Kiracı için bir blog ekleme engellenemez. Bu makalenin sonraki bölümlerinde, Kiracı yalıtımı RLS ile zorlayarak bu sorunları gidermek açıklar. İki adımı vardır: 
+RLS parça veritabanlarında henüz etkinleştirilmemiş olduğundan, bu testler, her bir sorun ortaya dikkat edin: kiracılar kendilerine ait olmayan blogları görebilirsiniz ve uygulama için yanlış kiracıya eklemesi blog engellenmez. Bu makalenin geri kalanında, Kiracı yalıtımı ile RLS zorunlu tutarak bu sorunları gidermek açıklar. İki adımı vardır: 
 
-1. **Uygulama katmanı**: her zaman geçerli Tenantıd OTURUMDA ayarlamak için uygulama kodu değiştirmeniz\_bir bağlantı açarak sonra BAĞLAMI. Örnek Proje Tenantıd zaten bu şekilde ayarlar. 
-2. **Veri katmanı**: OTURUMUNDA depolanan Tenantıd göre filtre satırlara her parça veritabanındaki bir RLS güvenlik ilkesi oluşturma\_BAĞLAMI. Her bir parça veritabanı için bir ilke oluşturmak, aksi takdirde çok kiracılı parça satırlarda değil olması filtrelenir. 
+1. **Uygulama katmanı**: her zaman geçerli Tenantıd OTURUMU ayarlamak için uygulama kodunu değiştirmeniz\_bir bağlantı açmak sonra BAĞLAMI. Örnek Proje, Tenantıd zaten bu şekilde ayarlar. 
+2. **Veri katmanı**: her parça veritabanında depolanan OTURUMUNDA Tenantıd göre filtre satırları bir RLS güvenlik ilkesi oluşturma\_BAĞLAMI. Her parça veritabanlarınızın bir ilke oluşturun, aksi takdirde çok kiracılı parça satırlarda olduğu tablolarda filtreleme yapılmaz. 
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Uygulama katmanı: kümesi Tenantıd oturumunda\_BAĞLAMI
+## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Uygulama katmanı: oturumunda Set Tenantıd\_BAĞLAMI
 
-Önce bir parça veritabanına esnek veritabanı istemci kitaplığının veri bağımlı yönlendirme API'lerini kullanarak bağlanın. Uygulamayı hangi Tenantıd hala veritabanı söylemelisiniz bağlantı kullanıyor. Tenantıd hangi satırların diğer kiracılar ait olarak filtre olmalıdır RLS güvenlik ilkesi söyler. Geçerli Tenantıd depolamak [oturum\_BAĞLAMI](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) bağlantı.
+Önce bir parça veritabanı için elastik veritabanı istemci Kitaplığı'nın verilere bağımlı yönlendirme API'lerini kullanarak bağlanın. Uygulamanın hangi Tenantıd hala veritabanı söylemelisiniz bağlantı kullanıyor. Tenantıd, hangi satırların diğer kiracılara ait olarak filtrelendi gerekir, RLS güvenlik ilkesi söyler. Geçerli bir Tenantıd içinde Store [OTURUMU\_bağlam](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) bağlantı.
 
-Alternatif oturum\_BAĞLAMI kullanmaktır [BAĞLAMI\_bilgisi](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Ancak oturum\_BAĞLAMI daha iyi bir seçenek değil. OTURUMU\_BAĞLAMI kullanmak daha kolay, varsayılan değer olarak NULL döndürür ve anahtar-değer çiftleri destekler.
+Alternatif oturum\_bağlam kullanmaktır [bağlam\_bilgisi](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Ancak OTURUMU\_bağlam daha iyi bir seçenektir. OTURUM\_bağlamıdır kullanımı daha kolay, varsayılan olarak NULL döndürür ve anahtar-değer çiftleri destekler.
 
 ### <a name="entity-framework"></a>Entity Framework
 
-Entity Framework kullanan uygulamalar için en kolay yaklaşım oturum ayarlamaktır\_BAĞLAMI içinde açıklanan ElasticScaleContext geçersiz kılma [veri bağımlı EF DbContext kullanarak yönlendirme](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Oluşturma ve yürütme Tenantıd OTURUMDA ayarlar SqlCommand\_bağlantı için belirtilen shardingKey BAĞLAMI. Ardından verileri bağımlı Yönlendirme aracılığıyla aracılı bağlantı döndür. Bu şekilde, yalnızca kod bir kez oturum ayarlamak için yazmanız gereken\_BAĞLAMI. 
+Entity Framework kullanan uygulamalar için OTURUMU için kolay bir yaklaşım olan\_BAĞLAMI içinde açıklanan ElasticScaleContext geçersiz kılma [verilere bağımlı yönlendirme EF DbContext kullanma](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Oluşturma ve oturum sırasında Kiracı kimliği ayarlayan SqlCommand yürütme\_bağlantı için belirtilen shardingKey için bağlam. Verilere bağımlı Yönlendirme aracılığıyla aracılı bağlantı ardından dönün. Bu şekilde, yalnızca kod kez OTURUMU için yazmanız gereken\_BAĞLAMI. 
 
 ```csharp
 // ElasticScaleContext.cs 
@@ -121,7 +121,7 @@ public static SqlConnection OpenDDRConnection(
 // ... 
 ```
 
-Şimdi oturum\_ElasticScaleContext çağrılan her BAĞLAMI ile belirtilen Tenantıd otomatik olarak ayarlayın: 
+Şimdi OTURUMU\_ElasticScaleContext çağrılan her BAĞLAMINI belirtilen Tenantıd ile otomatik olarak ayarlayın: 
 
 ```csharp
 // Program.cs 
@@ -145,7 +145,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### <a name="adonet-sqlclient"></a>ADO.NET SqlClient
 
-ADO.NET SqlClient kullanan uygulamalar için yöntemi ShardMap.OpenConnectionForKey çevresinde bir sarmalayıcı işlev oluşturun. Otomatik olarak Tenantıd OTURUMDA ayarlanan sarmalayıcı sahip\_bağlantı dönmeden önce geçerli Tenantıd BAĞLAMI. Emin olmak için OTURUMU\_BAĞLAMI Ayarla her zaman, yalnızca bu sarmalayıcı işlevi kullanarak bağlantı açmanız gerekir.
+ADO.NET SqlClient kullanan uygulamalar için yöntemi ShardMap.OpenConnectionForKey çevresinde bir sarmalayıcı işlevi oluşturun. Otomatik olarak Tenantıd OTURUMDA ayarlanan sarmalayıcı üretilmesini\_bağlantı döndürmeden önce geçerli bir Tenantıd için bağlam. Emin olmak için OTURUMU\_içerik her zaman ayarlanır, bu sarmalayıcı işlevi kullanarak bağlantıları yalnızca açmanız gerekir.
 
 ```csharp
 // Program.cs
@@ -213,20 +213,20 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ## <a name="2-data-tier-create-row-level-security-policy"></a>2. Veri katmanı: satır düzeyi güvenlik ilkesi oluşturma
 
-### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Her Kiracı erişebileceği satırları filtrelemek için bir güvenlik ilkesi oluşturma
+### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Her Kiracı erişebileceği satırlar filtrelemek için bir güvenlik ilkesi oluşturma
 
-Uygulama oturumunu ayarlama göre\_sorgulama önce geçerli Tenantıd BAĞLAMIYLA RLS güvenlik ilkesi filtre sorguları ve farklı bir Tenantıd dışlama satırları uygulayabilirsiniz.  
+Uygulamanın, oturum ayarı göre\_sorgulama önce geçerli bir Tenantıd BAĞLAMIYLA bir RLS güvenlik ilkesi sorgular ve farklı bir Tenantıd dışlama satırları filtreleyebilirsiniz.  
 
-RLS, Transact-SQL uygulanır. Kullanıcı tanımlı bir işlev erişim mantığı tanımlar ve bir güvenlik ilkesi bu işlev tabloları herhangi bir sayıda bağlar. Bu proje için:
+RLS, Transact-SQL uygulanır. Bir kullanıcı tanımlı işlev erişim mantığı tanımlar ve bir güvenlik ilkesi bu işlev tablolar herhangi bir sayıda bağlar. Bu proje için:
 
-1. Uygulama veritabanına bağlı olduğundan ve Tenantıd OTURUMDA depolanan işlevi doğrular\_BAĞLAMI belirli bir satırın Tenantıd eşleşir.
-    - Uygulama, başka bir SQL kullanıcı yerine bağlandı.
+1. İşlev uygulaması veritabanına bağlıysa ve Tenantıd OTURUMDA depolanan doğrular\_bağlam belirli bir satırın Tenantıd eşleşir.
+    - Uygulama, başka bir SQL kullanıcı yerine bağlıdır.
 
-2. Bir FİLTRE koşulu seçin, GÜNCELLEŞTİRMEYİ geçmesine Tenantıd filtre karşılamak ve sorguları silmek satırları sağlar.
+2. Bir FİLTRE koşulu seçin, GÜNCELLEŞTİRMEYİ geçmesine Tenantıd filtre karşılayan ve sorguları silmek satırları sağlar.
     - Bir ENGELLEME koşuluna eklenen veya güncelleştirilen engeller filtre başarısız satırları engeller.
     - Varsa oturum\_görünür veya eklenmesi için hiçbir satır BAĞLAMI ayarlanmamış ve işlev NULL döndürür. 
 
-RLS tüm parça üzerinde etkinleştirmek için aşağıdaki T-SQL Visual Studio (SSDT), SSMS veya projeye dahil PowerShell komut dosyası kullanarak yürütün. Veya kullanıyorsanız [esnek veritabanı iş](sql-database-elastic-jobs-overview.md), bu T-SQL tüm parça yürütülmesi otomatik hale getirebilirsiniz.
+Tüm parçalar üzerinde RLS'yi etkinleştirmek için Visual Studio (SSDT), SSMS veya projeye dahil PowerShell betiğini kullanarak aşağıdaki T-SQL yürütme. Veya kullanıyorsanız [elastik veritabanı işleri](sql-database-elastic-jobs-overview.md), tüm parçalar üzerinde bu T-SQL yürütülmesi otomatik hale getirebilirsiniz.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
@@ -252,11 +252,11 @@ GO
 ```
 
 > [!TIP]
-> Koşul tabloları yüzlerce üzerinde eklemeniz gerekebilir karmaşık bir projede hangi can sıkıcı olabilir. Otomatik olarak bir güvenlik ilkesi oluşturur ve bir şemadaki tüm tablolarda bir koşul ekler bir yardımcı depolanan yordamı yok. Konumundaki için blog daha fazla bilgi için bkz: [geçerli satır düzeyi güvenlik tüm tablolara - Yardımcısı komut dosyası (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> Koşul tabloları yüzlerce üzerinde eklemeniz gerekebilir karmaşık bir projede, can sıkıcı olabilir. Otomatik olarak bir güvenlik ilkesi oluşturur ve bir koşul, bir şema tüm tablolarda ekler Yardımcısı depolanan yordam yoktur. Daha fazla bilgi için blog gönderisine bakın [geçerli satır düzeyi güvenlik tüm tablolara - yardımcı betik (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
-Şimdi örnek uygulamayı yeniden çalıştırın, kiracılar kendilerine ait satır konusuna bakın. Ayrıca, uygulama şu anda parça veritabanına bağlı bir diğer kiracılar ait satır eklenemiyor. Ayrıca, uygulama Tenantıd görebileceğiniz herhangi bir satır olarak güncelleştirilemiyor. Uygulamanın, aşağıdakilerden birini kullanmaya çalışırsa, bir DbUpdateException tetiklenir.
+Artık örnek uygulamayı yeniden çalıştırırsanız, kiracılar yalnızca kendisine ait satırları görebilirsiniz. Ayrıca, uygulama şu anda parça veritabanına bağlı diğer kiracılara ait satır eklenemiyor. Ayrıca, uygulamayı görmek herhangi bir satır içinde Tenantıd güncelleştirilemiyor. Uygulamanın aşağıdakilerden çalışırsa, bir DbUpdateException ortaya çıkar.
 
-Yeni bir tablo daha sonra eklerseniz, yeni tabloda FİLTRE ve ENGELLEME koşulları eklemek için güvenlik ilkesi değiştirin.
+Daha sonra yeni bir tablo eklerseniz, yeni tabloda FİLTRE ve BLOK koşullar eklemek için güvenlik ilkesi DEĞİŞTİRİR.
 
 ```sql
 ALTER SECURITY POLICY rls.tenantAccessPolicy     
@@ -265,9 +265,9 @@ ALTER SECURITY POLICY rls.tenantAccessPolicy
 GO 
 ```
 
-### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>Ekler için Tenantıd otomatik olarak doldurulması için varsayılan kısıtlamalar ekleme
+### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>Otomatik olarak Tenantıd için ekler doldurulması için varsayılan kısıtlama Ekle
 
-OTURUMDA şu anda depolanan değerle Tenantıd otomatik olarak doldurulması için her bir tabloda bir default kısıtlaması koyabilirsiniz\_satır eklerken BAĞLAMI. Bir örnek aşağıda verilmiştir. 
+Tenantıd OTURUMDA şu anda depolanan değeri otomatik olarak doldurmak üzere her bir tabloda bir default kısıtlaması koyabilirsiniz\_satırları eklerken BAĞLAMI. Bir örnek aşağıda verilmiştir. 
 
 ```sql
 -- Create default constraints to auto-populate TenantId with the
@@ -283,7 +283,7 @@ ALTER TABLE Posts
 GO 
 ```
 
-Şimdi uygulamayı satır eklerken bir Tenantıd belirtmek gerekmez: 
+Şimdi uygulamayı satır ekleme yaparken bir Tenantıd belirtmek gerekmez: 
 
 ```csharp
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
@@ -300,14 +300,14 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 > [!NOTE]
-> Bir Entity Framework projesi için varsayılan kısıtlamalar kullanırsanız, önerilen aldığınız *değil* EF veri modelinizi Tenantıd sütun içerir. Bu öneri Entity Framework oturum kullanmak T-SQL ile oluşturulan varsayılan kısıtlamalar geçersiz kılma tedarik varsayılan değerleri otomatik olarak sorgular çünkü\_BAĞLAMI.
-> Varsayılan kısıtlamalar örnek projesinde kullanmak için örneği için Tenantıd DataClasses.cs (ve çalışma Add-Migration Paket Yöneticisi konsolunda) kaldırın ve T-SQL alanın yalnızca veritabanı tablolarında var olduğundan emin olmak için kullanmanız gerekir. Bu şekilde EF otomatik olarak yanlış varsayılan değerler veri eklerken sağlayın.
+> Bir Entity Framework projesi için varsayılan kısıtlamalar kullanmanız önerilir, *değil* EF veri modelinizde Tenantıd sütun içerir. Entity Framework kullanma OTURUMU T-SQL ile oluşturulan varsayılan kısıtlamaları geçersiz kılma kaynağı varsayılan değerleri otomatik olarak sorgular çünkü bu öneriyi\_BAĞLAMI.
+> Varsayılan kısıtlamalar örnek projesinde kullanmak için örneği için Tenantıd DataClasses.cs (ve çalışma Ekle-Paket Yöneticisi konsolunda geçiş) kaldırın ve gerekir alanı yalnızca veritabanı tablolarında var olduğundan emin olmak için T-SQL kullanın. Bu şekilde EF otomatik olarak hatalı varsayılan değerler veri girilirken sağlayın.
 
 ### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(İsteğe bağlı) Etkinleştirme bir *süper kullanıcı* tüm satırları erişmek için
 
-Bazı uygulamalar oluşturmak istediğiniz bir *süper kullanıcı* kullanan tüm satırları erişebilir. Süper kullanıcı tüm parça tüm kiracılar arasında raporlama sağlayabilir. Veya bir süper kullanıcı Kiracı satırları veritabanları arasında taşınması parça bölünmüş birleştirme işlemleri gerçekleştirebilir.
+Bazı uygulamalar oluşturmak istediğiniz bir *süper kullanıcı* olan tüm satırları erişebilir. Bir süper kullanıcı, tüm parçalar üzerinde tüm kiracılar genelinde raporlama sağlayabilir. Veya bir süper kullanıcı Kiracı satırlar arasında veritabanları taşınması parçalara ayırma-birleştirme işlemleri gerçekleştirebilir.
 
-Süper kullanıcı etkinleştirmek için yeni bir SQL kullanıcısı oluşturun (`superuser` Bu örnekte) her parça veritabanında. Ardından bu kullanıcının tüm satırları erişmesine imkan tanıyan yeni bir koşul işlevi güvenlik ilkesiyle değiştirin. Bu tür bir işlevi sonraki verilir.
+Bir süper kullanıcı etkinleştirmek için yeni bir SQL kullanıcısı oluşturun (`superuser` Bu örnekte) parça her bir veritabanındaki. Ardından bu kullanıcının tüm satırları erişmesine izin veren yeni bir koşul işlevi güvenlik ilkesiyle değiştirir. Böyle bir işlevi sonraki verilir.
 
 ```sql
 -- New predicate function that adds superuser logic.
@@ -339,16 +339,16 @@ GO
 
 ### <a name="maintenance"></a>Bakım
 
-- **Yeni parça ekleme**: tüm yeni parça üzerinde RLS etkinleştirmek için T-SQL komut dosyası yürütme, aksi takdirde bu parça sorgulamaları değil olması filtrelenir.
-- **Yeni tablo ekleme**: yeni bir tablo oluşturulduğunda tüm bölümler için güvenlik ilkesini bir FİLTRE ve ENGELLEME koşulu ekleyin. Aksi halde yeni bir tablo sorgularında değil olması filtrelenir. Bu ek bir DDL tetikleyicisi kullanarak açıklandığı gibi otomatikleştirilebilir [yeni oluşturulan tabloları (blog) otomatik olarak Uygula satır düzeyi güvenlik](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Yeni parça ekleme**: RLS herhangi bir yeni parçalar üzerinde etkinleştirmek için T-SQL betiği yürütün, aksi takdirde bu parçalardaki sorgular olan tablolarda filtreleme yapılmaz.
+- **Yeni tablo ekleme**: yeni bir tablo oluşturulduğunda bir FİLTRE ve BLOK koşul tüm parçalar güvenlik ilkesine ekleyin. Aksi halde yeni bir tablo sorguları olan tablolarda filtreleme yapılmaz. Bu ekleme bir DDL tetikleyicisi kullanarak açıklandığı gibi otomatikleştirilebilir [yeni oluşturulan tablolar (blog) otomatik olarak satır düzeyi güvenlik uygulamak](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Özet
 
-Esnek veritabanı araçlarını ve satır düzeyi güvenlik genişleme yapmak bir uygulamanın veri katmanı hem çok müşterili desteği ile birlikte kullanılan ve tek Kiracı parça olabilir. Çok kiracılı parça, verileri daha verimli bir şekilde depolamak için kullanılabilir. Bu verimliliği, çok sayıda kiracılar yalnızca birkaç satır veri sahip olduğu belirgin olur. Tek Kiracı parça daha sıkı performans ve yalıtım gereksinimleri olan premium kiracılar destekleyebilir.  Daha fazla bilgi için bkz: [satır düzeyi güvenlik başvurusu][rls].
+Esnek veritabanı araçlarını ve satır düzeyi güvenlik için ölçek genişletme bir uygulamasının veri katmanının hem çok kiracılı desteği ile birlikte kullanılır ve tek kiracılı parça olabilir. Çok kiracılı parça, verileri daha verimli bir şekilde depolamak için kullanılabilir. Bu verimlilik, çok sayıda kiracılar yalnızca birkaç satır veri olduğu belirgin olur. Tek kiracılı parça katı performans ve yalıtımı gereksinimlerine sahip premium kiracılar destekleyebilir.  Daha fazla bilgi için [satır düzeyi güvenlik başvurusu][rls].
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-- [Bir Azure esnek havuz nedir?](sql-database-elastic-pool.md)
+- [Azure elastik havuzu nedir?](sql-database-elastic-pool.md)
 - [Azure SQL Veritabanı ile ölçek genişletme](sql-database-elastic-scale-introduction.md)
 - [Azure SQL Veritabanı ile Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri](saas-tenancy-app-design-patterns.md)
 - [Azure AD ve OpenID Connect kullanarak çok müşterili uygulamalarda kimlik doğrulama](../guidance/guidance-multitenant-identity-authenticate.md)
@@ -356,7 +356,7 @@ Esnek veritabanı araçlarını ve satır düzeyi güvenlik genişleme yapmak bi
 
 ## <a name="questions-and-feature-requests"></a>Sorular ve özellik istekleri
 
-Üzerinde başvuracaklarını soruları için [SQL veritabanı Forumu](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Tüm özellik istekleri ekleyin [SQL veritabanı geri bildirim Forumunda](https://feedback.azure.com/forums/217321-sql-database/).
+Sorular için bize ulaşın [SQL veritabanının Forumu](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Tüm özellik isteklerini ekleyin [SQL veritabanı geri bildirim Forumu](https://feedback.azure.com/forums/217321-sql-database/).
 
 
 <!--Image references-->

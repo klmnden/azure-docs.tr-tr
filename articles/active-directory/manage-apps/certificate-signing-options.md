@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2017
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: c7f2892586dd78f3e4b102deb8c51b9979ed07e2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e7488abb3e82f90f63fa338b84a6516202e504ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348183"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714539"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Gelişmiş seçenekleri, Azure Active Directory'de galeri uygulamalar için SAML belirtecinde imzalama sertifikası
 Bugün Azure Active Directory (Azure AD), Azure Active Directory Uygulama galerisinde önceden tümleştirilmiş binlerce uygulamasına destekler. Bu sayı SAML 2.0 protokolünü kullanarak çoklu oturum açmayı destekleyen 500'den fazla uygulamalar içerir. SAML kullanarak bir kullanıcının bir uygulamayı Azure AD üzerinden kimlik, Azure AD belirteç (bir HTTP POST) aracılığıyla uygulamaya gönderir. Ardından, uygulamayı doğrular ve yerine bir kullanıcı adı ve parola bilgilerini isteyen kullanıcının oturum belirteci kullanır. Bu SAML belirteçlerini, Azure AD'de ve belirli standart algoritmalarda tarafından oluşturulan benzersiz sertifika ile imzalanmış.
@@ -35,7 +35,7 @@ Azure AD, gelişmiş sertifika imzalama ayarlarını destekler. Bu seçenekleri 
 
 Bu onay kutusunu işaretledikten sonra sertifika imzalama seçenekleri ve sertifika imzalama algoritmasını en ayarlayabilirsiniz.
 
-## <a name="certificate-signing-options"></a>Sertifika İmzalama Seçenekleri
+## <a name="certificate-signing-options"></a>Sertifika imzalama seçenekleri
 
 Azure AD'ye üç sertifika imzalama seçenekleri destekler:
 
@@ -45,7 +45,7 @@ Azure AD'ye üç sertifika imzalama seçenekleri destekler:
 
 * **SAML yanıtını ve onayını imzala**. Bu seçenek belirlenirse, bir IDP olarak Azure AD ile X509 tüm SAML belirteci imzalar. uygulama sertifikası. Ayrıca, seçili imzalama algoritması kullanır **imzalama algoritması** aşağı açılan listesi.
 
-    ![Sertifika İmzalama Seçenekleri](./media/certificate-signing-options/saml-signing-options.png)
+    ![Sertifika imzalama seçenekleri](./media/certificate-signing-options/saml-signing-options.png)
 
 ## <a name="certificate-signing-algorithms"></a>Sertifika imzalama algoritmaları
 
@@ -60,7 +60,6 @@ Azure AD, SAML yanıtını oturum açmak için iki imzalama algoritmaları deste
     ![SHA-1 sertifika imza algoritması](./media/certificate-signing-options/saml-signing-algo-sha1.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Active Directory'de uygulama yönetimi için makale dizini](../active-directory-apps-index.md)
 * [Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırma](configure-federated-single-sign-on-non-gallery-applications.md)
 * [SAML tabanlı çoklu oturum açma sorunlarını giderme](../develop/howto-v1-debug-saml-sso-issues.md)
 

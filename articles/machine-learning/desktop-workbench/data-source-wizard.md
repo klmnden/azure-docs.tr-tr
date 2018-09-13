@@ -1,81 +1,81 @@
 ---
-title: Azure veri kaynağı Sihirbazı'nı Azure Machine Learning için | Microsoft Docs
-description: Veri kaynağı Sihirbazı AML ekranının açıklar
+title: Azure veri kaynağı Sihirbazı'nı Azure Machine Learning | Microsoft Docs
+description: Veri kaynağı Sihirbazı'nın AML workbench açıklar
 services: machine-learning
 author: cforbe
 ms.author: cforbe
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: dcf064817f2ad9855cfeef8fec6775d32ee992ec
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c74229504a43179673cc99ccff321b65e3f6ed4f
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831148"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651362"
 ---
 # <a name="data-source-wizard"></a>Veri kaynağı Sihirbazı #
 
-Veri kaynağı Sihirbazı'nı, bir veri kümesi kodu olmadan Azure ML çalışma ekranına aktardığınız getirmek için hızlı ve kolay bir yoludur. Bu, aynı zamanda bir örnek stratejisi her sütun için veri kümesi ve veri türleri için seçebileceğiniz olur. 
+Veri kaynağı Sihirbazı, bir veri kümesi, kodu olmadan Azure ML Workbench getirmek için hızlı ve kolay bir yoludur. Bu, ayrıca bir örnek stratejisi her sütun için veri kümesi ve veri türleri için seçebileceğiniz olur. 
 
-## <a name="step-1-trigger-the-data-source-wizard"></a>1. adım: veri kaynağı Sihirbazı'nı tetikler ## 
+## <a name="step-1-trigger-the-data-source-wizard"></a>1. adım: veri kaynağı Sihirbazı tetikleyin ## 
 
-Veri kaynağı Sihirbazı'nı kullanarak bir projeye verileri getirmek için. Seçin **+** düğmesini Veri Görünümü'ndeki arama kutusunun yanında ve veri kaynağı Ekle'i seçin. 
+Veri kaynağı Sihirbazı'nı kullanarak bir projeye verileri getirmek için. Seçin **+** düğmesini veri görünümünde arama kutusunun yanındaki ve veri kaynağı Ekle öğesini seçin. 
 
 ![Veri kaynağı ekleme](media/data-source-wizard/add-data-source.png)
 
-## <a name="step-2-select-where-data-is-stored"></a>2. adım: verilerinin nerede depolanacağını belirleyin ##
-İlk olarak, verilerinizin nasıl halen belirtin. Düz dosya veya dizin, bir parquet dosyası, bir Excel dosyasını veya bir veritabanı depolanabilir. Daha fazla bilgi için bkz: [desteklenen veri kaynakları](data-prep-appendix2-supported-data-sources.md).
+## <a name="step-2-select-where-data-is-stored"></a>2. adım: verilerinin nerede depolanacağını belirleyin. ##
+İlk olarak verilerinizi nasıl şu anda belirtin. Düz dosya veya dizin, bir parquet dosyasına, bir Excel dosyasına veya bir veritabanı depolanabilir. Daha fazla bilgi için [desteklenen veri kaynakları](data-prep-appendix2-supported-data-sources.md).
 
 ![1. adım](media/data-source-wizard/step1.png)
 
-## <a name="step-3-select-data-file"></a>3. adım: veri dosyası seçin ##
-Bir dosya/dizin için dosya yolunu belirtin. Aşağı açılır listeden verilerin konumu seçin – bir yerel dosya yolu veya Azure Blob Storage olabilir. 
+## <a name="step-3-select-data-file"></a>3. adım: verileri dosyası seçin ##
+Bir dosya/dizin için dosya yolunu belirtin. Açılan listeden veri konumunu seçin: bir yerel dosya yolu veya Azure Blob Depolama olabilir. 
 
-İçine yazarak veya tıklayarak yolunu belirtin **Gözat...** Bunun için gözatmak için düğmeyi. Bir dizin veya bir veya daha fazla göz atabilirsiniz.
+Yazmak veya tıklayarak yolunu belirtin **Gözat...** Bunun için Gözat düğmesini. Bir dizin veya bir veya daha fazla dosya için göz atabilirsiniz.
 
-Tıklatın **son** adımları geri kalanı için Varsayılanları kabul etmek için veya sonraki bir sonraki adıma devam etmek için.
+Tıklayın **son** adımları geri kalanı için Varsayılanları kabul edin veya sonraki sonraki adıma geçin.
 
 
 ![4. adım](media/data-source-wizard/step2.png)
 
-## <a name="step-4-choose-file-parameters"></a>Adım 4: dosya parametreleri seçin ##
+## <a name="step-4-choose-file-parameters"></a>4. adım: dosya parametreleri seçin ##
 
-Veri kaynağı Sihirbazı'nı otomatik olarak dosyayı algılayabilir türü, ayırıcılar ve kodlama. Ayrıca verileri nasıl görüneceğini örneği göster. Ayrıca bu parametrelerden birini el ile değiştirebilirsiniz. 
+Veri kaynağı Sihirbazı dosyayı otomatik olarak algılayabilir türü, ayırıcılar ve kodlama. Ayrıca, verileri nasıl görüneceğini gösteren bir örnek de gösterebilir. Ayrıca bu parametrelerden herhangi birini el ile değiştirebilirsiniz. 
 
 ![5. adım](media/data-source-wizard/step3.png)
 
-## <a name="step-5-set-data-types-for-columns"></a>5. adım: sütunların veri türleri ayarlama ##
+## <a name="step-5-set-data-types-for-columns"></a>5. adım: sütunlar için veri türleri ayarlama ##
 
-Veri kaynağı Sihirbazı'nı veri kümesi'nin sütunların veri türlerini otomatik olarak algılar. Bir İsabetsiz Okuma ya da bir veri türü zorlamak istiyorsanız, veri türü el ile değiştirebilirsiniz. **Örnek çıktı verilerini** sütun örnekleri veri nasıl göründüğünü gösterir.
+Veri kaynağı Sihirbazı veri kümesinin sütunların veri türlerini otomatik olarak algılar. Bir kaçan ya da bir veri türü uygulamak istediğiniz veri türünü el ile değiştirebilirsiniz. **Örnek çıktı verilerini** sütun verilerin görünmesi örnekleri gösterir.
 
-Tarihleri içeren için veri hazırlığı oluşturur sütunlar için tarih biçiminde ay ve gün sırasını seçmek için istenebilir. Örneğin, 1/2/2013 Ocak 2 temsil edebilir (Bunun için seçin *gün ay*) veya Feburary 1 (seçin *ay gün*).
+Tarihleri içeren Data Prep çıkarsar sütunlar için tarih biçiminde ay ve gün sırasını seçmek için istenebilir. Örneğin, 1/2/2013 2 Ocak gösterebilecek (Bunun için seçin *gün aylık*) veya Feburary 1 (seçin *ayın günü*).
 
 ![6. adım](media/data-source-wizard/step4.png)
 
-## <a name="step-6-choose-sampling-strategy-for-data"></a>6. adım: veri örnekleme stratejisi seçme ##
+## <a name="step-6-choose-sampling-strategy-for-data"></a>6. adım: veri örnekleme stratejisi seçin ##
 
-Veri kümesi için bir veya daha fazla örnekleme stratejileri belirtin ve etkin stratejisi olarak seçin. Üst 10000 satırları yüklemek için varsayılandır. Bu örnek tıklayarak düzenleyebilirsiniz **Düzenle** araç çubuğu düğmesini veya yeni bir strateji tıklayarak + yeni tarafından ekleyin. Şu anda destek stratejiler verilmiştir
+Veri kümesi için bir veya daha fazla örnekleme stratejileri belirtin ve etkin strateji olarak seçin. İlk 10000 satır Yükleme varsayılandır. Bu örnek tıklayarak düzenleyebilirsiniz **Düzenle** düğme araç çubuğunda veya yeni bir strateji tıklayarak + yeni Ekle. Şu anda destek stratejiler şunlardır
 
--     İlk satır sayısı
+-     Üst satır sayısı
 -     Rastgele satır sayısı
--     Satır rastgele yüzdesi
+-     Satırlar rastgele yüzdesi
 -     Tam dosya
 
-İstediğiniz, ancak yalnızca bir tane verilerinizi hazırlanırken etkin ayarlanabilecek sayıda örnekleme stratejileri belirtebilirsiniz. Stratejisi seçerek etkin olması için tüm stratejisini ayarlamak ve araç çubuğundaki etkin olarak Ayarla'yı tıklatın.
+İstediğiniz, ancak yalnızca bir verilerinizi hazırlanırken etkin ayarlanabilen çok örnekleme stratejileri belirtebilirsiniz. Tüm strateji etkin stratejisine seçerek olacak şekilde ayarlayın ve araç çubuğundaki etkin olarak Ayarla'yı tıklatın.
 
-Burada verilerin geldiği bağlı olarak, bazı örnek stratejileri desteklenmiyor olabilir. Örnekleme hakkında daha fazla bilgi için örnekleme bölümünde bakın [bu belgede](data-prep-user-guide.md) 
+Burada verilerin geldiği bağlı olarak, bazı örnek stratejileri desteklenmeyebilir. Örnekleme hakkında daha fazla bilgi için örnekleme bölümünde bakın [bu belge](data-prep-user-guide.md) 
 
 ![6. adım](media/data-source-wizard/step5.png)
 
-## <a name="step-7-path-column-handling"></a>7. adım: Yolu sütun işleme ##
+## <a name="step-7-path-column-handling"></a>7. adım: Yol sütunu işleme ##
 
-Dosya yolu önemli veri içeriyorsa, ilk sütun kümesindeki olarak dahil etmeyi seçebilirsiniz. Bu seçeneği birden çok dosyada getiren varsa yararlı olacaktır. Aksi takdirde, içermeyecek şekilde seçebilirsiniz.
+Önemli verilerin dosya yolu içeriyorsa, ilk sütunda veri kümesi olarak eklemek seçebilirsiniz. Bu seçenek birden çok dosyalarında olan çerçevesinde yararlı olabilir. Aksi takdirde, içermeyecek şekilde seçebilirsiniz.
 
 ![7. adım](media/data-source-wizard/step6.png)
 
-Son'a tıkladıktan sonra yeni bir veri kaynağı projeye eklenir. Bu veri kaynaklarını grubu altında veri görünümü'ndeki veya dsource dosyası olarak bulabileceğiniz **dosya görünümü**.
+Son'a tıkladıktan sonra yeni bir veri kaynağı projeye eklenir. Bu veri kaynakları grubu altında veri görünümünde veya dsource dosyasında bulabilirsiniz **dosya görünümü**.

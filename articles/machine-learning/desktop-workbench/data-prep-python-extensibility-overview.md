@@ -1,38 +1,38 @@
 ---
-title: Azure Machine Learning veri hazırlıklar ile Python genişletilebilirlik kullanın | Microsoft Docs
-description: Bu belge genel bir bakış ve Python kodu veri hazırlığı işlevselliğini genişletmek için nasıl kullanılacağını ayrıntılı bazı örnekleri sağlar
+title: Azure Machine Learning veri hazırlıkları ile Python genişletilebilirlik kullanın | Microsoft Docs
+description: Bu belgede bir genel bakış ve veri hazırlama genişletmek için Python kodu kullanmak ayrıntılı bazı örnekler sağlar.
 services: machine-learning
 author: euangMS
 ms.author: euang
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
-ms.openlocfilehash: e91d3e4bfb1cba6f45b0106b3fabe5bef7e0e079
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a713f5fcde31e0e25de080a65b71209011ef551d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831433"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651129"
 ---
-# <a name="data-preparations-python-extensions"></a>Veriler hazırlıkları Python uzantıları
-Yerleşik özellikleri arasında işlevselliği aralıklar doldurma bir yolu olarak Azure Machine Learning veriler hazırlıkları birçok düzeyde genişletilebilirlik içerir. Bu belgede, Python komut dosyası aracılığıyla genişletilebilirlik verilmiştir. 
+# <a name="data-preparations-python-extensions"></a>Veri hazırlıkları Python uzantıları
+Yerleşik özellikler arasındaki işlev eksikliklerini doldurarak bir yolu olarak, Azure Machine Learning veri hazırlıkları farklı düzeylere genişletilebilirlik içerir. Bu belgede, biz Python betiği aracılığıyla genişletilebilirlik özetler. 
 
 ## <a name="custom-code-steps"></a>Özel kod adımları 
-Veriler hazırlıkları kullanıcılar kod burada yazabilirsiniz aşağıdaki özel adımlar vardır:
+Veri hazırlıkları kullanıcılar kod burada yazabilirsiniz özel aşağıdakileri içerir:
 
-* Sütun ekleme
+* Sütun Ekle
 * Gelişmiş Filtre
-* Veri akışı dönüştürme
+* Veri akışını dönüştürme
 * Bölüm dönüştürme
 
-## <a name="code-block-types"></a>Kod bloğu türleri 
-Bu adımların her biri için iki kod bloğunun türü destekliyoruz. İlk olarak, olarak yürütülen tam bir Python ifadesi destekliyoruz. İkinci olarak, bilinen bir imza ile belirli bir işlev sağladığınız kodda burada diyoruz bir Python modülü destekler.
+## <a name="code-block-types"></a>Kod bloğu türü 
+Bu adımların her biri için iki kod bloğu türü destekliyoruz. İlk olarak, olduğu gibi yürütülür çıplak bir Python ifade destekliyoruz. İkinci olarak, bilinen bir imza ile belirli bir işleve girdiğiniz kod burada diyoruz bir Python modülü destekliyoruz.
 
-Örneğin, aşağıdaki iki yolla başka bir sütuna günlük hesaplar yeni bir sütun ekleyebilirsiniz:
+Örneğin, aşağıdaki iki şekilde başka bir sütuna günlüğü hesaplar yeni bir sütun ekleyebilirsiniz:
 
 İfade 
 
@@ -48,12 +48,12 @@ def newvalue(row):
 ```
 
 
-Adlı bir işlev bulmak Sütun Ekle dönüştürme modülü modunda bekliyor `newvalue` satır değişkeni kabul eder ve sütununun değeri döndürür. Bu modül herhangi diğer işlevleri, içeri aktarmalar, vb. ile Python kodu miktarını içerebilir.
+Çağrılan işlev bulmak modül modu Sütun Ekle dönüşüm bekliyor `newvalue` satır değişkeni kabul eder ve sütun değeri döndürür. Bu modül, diğer işlevleri, içeri aktarımlar vb. ipucuyla Python kodunda herhangi bir miktarın dahil edebilirsiniz.
 
-Her bir uzantı noktası Ayrıntılar aşağıdaki bölümlerde ele alınmıştır. 
+Her bir uzantı noktası ayrıntılarını aşağıdaki bölümlerde ele alınmıştır. 
 
 ## <a name="imports"></a>İçeri aktarmalar 
-İfade blok türü kullanıyorsanız, yine de ekleyebilirsiniz **alma** kodunuzu deyimlerini. Bunların tümü kodunuzu üst satırlarında gruplandırılmalıdır.
+İfade blok türü kullanıyorsanız, eklemeye devam edebilirsiniz **alma** kodunuzda deyimleri. Bunların tümü, kodunuzun üst satırları gruplandırılmalıdır.
 
 Düzeltin 
 
@@ -73,10 +73,10 @@ import numpy
 ```
  
  
-Modül blok türü kullanırsanız, kullanarak tüm normal Python kuralları takip edebilirsiniz **alma** deyimi. 
+Modül blok türü kullanıyorsanız kullanarak tüm normal Python kurallarını takip edebilirsiniz **alma** deyimi. 
 
-## <a name="default-imports"></a>Varsayılan içeri aktarmalar
-Aşağıdaki içeri aktarmaları her zaman dahil ve kodunuzda kullanılabilir. Bunları yeniden içe aktarmanız gerekmez. 
+## <a name="default-imports"></a>Varsayılan içeri aktarmalara
+Aşağıdaki içeri aktarmaları her zaman dahil edilen ve kodunuzun içinde kullanılabilir. Bunları yeniden içe aktarmanız gerekmez. 
 
 ```python
 import math  
@@ -89,13 +89,13 @@ import scipy as sp
 ```
   
 
-## <a name="install-new-packages"></a>Yeni paket yüklemek için
-Varsayılan olarak yüklü olmayan bir paket kullanmak için ilk veriler hazırlıkları kullanan ortamlara yüklemeniz gerekir. Bu yükleme yerel makinenizde ve çalıştırmak istediğiniz herhangi bir işlem hedefleri yapılmalıdır.
+## <a name="install-new-packages"></a>Yeni paket yükleme
+Varsayılan olarak yüklü olmayan bir paket kullanılacak ilk veri hazırlıkları kullanan ortamlara yüklemeniz gerekir. Bu yükleme, hem yerel makinenizde hem de çalıştırmak istediğiniz herhangi bir işlem hedeflerde yapılması gerekir.
 
-Bir işlem hedef paketlerinizi yüklemek için projenizi kökü altındaki aml_config klasöründe bulunan conda_dependencies.yml dosyasını değiştirmeniz gerekir.
+Paketlerinizi işlem hedefte yüklemek için projenizin kökü altındaki aml_config klasöründe bulunan conda_dependencies.yml dosyasını değiştirmeniz gerekir.
 
 ### <a name="windows"></a>Windows 
-Windows konumu bulmak için uygulamaya özgü yüklemeyi Python ve komut dosyaları dizinini bulun. Varsayılan konumu şudur:  
+Windows konumu bulmak için uygulamaya özgü yüklemeyi Python ve betikleri dizinini bulun. Varsayılan konumu şudur:  
 
 `C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
@@ -108,7 +108,7 @@ or
 `pip install <libraryname> `
 
 ### <a name="mac"></a>Mac 
-Mac'te konumunu bulmak için uygulamaya özgü yüklemeyi Python ve komut dosyaları dizinini bulun. Varsayılan konumu şudur: 
+Mac'te konumu bulmak için uygulamaya özgü yüklemeyi Python ve betikleri dizinini bulun. Varsayılan konumu şudur: 
 
 `/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
@@ -121,7 +121,7 @@ or
 `./pip install <libraryname>`
 
 ## <a name="use-custom-modules"></a>Özel modüller kullanın
-Dönüştürme veri akışı içinde (komut), aşağıdaki Python kodu yazma
+Dönüşüm veri akışı (betik), aşağıdaki Python kodu yazma
 
 ```python
 import sys
@@ -131,7 +131,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-Kod bloğunun türü ekleme sütununda (komut) ayarlayın modülü = ve aşağıdaki Python kodu yazma
+Kod bloğu türü ekleme sütununda (betik) ayarlayın modülü = ve aşağıdaki Python kodu yazma
 
 ```python 
 import sys
@@ -142,11 +142,11 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-Farklı bir yürütme bağlamı (yerel, Docker, Spark), mutlak yolu doğru yerde işaret eder. "Os.getcwd() + relativePath" bulmak için kullanmak isteyebilirsiniz.
+Farklı yürütme bağlamları (yerel, Docker, Spark), doğru yere mutlak yolu noktası. "Os.getcwd() + relativePath" bulmak için kullanmak isteyebilirsiniz.
 
 
 ## <a name="column-data"></a>Sütun verileri 
-Sütun veri satırdan noktalı gösterim veya anahtar-değer gösterim kullanılarak erişilebilir. Boşluk veya özel karakterler içeren sütun adları noktalı gösterim kullanılarak erişilemez. `row` Değişkeni Python Uzantıları (modülü ve ifade) her iki modda her zaman tanımlanmalıdır. 
+Sütun verileri satırdan nokta gösterimi veya anahtar-değer gösterimi kullanılarak erişilebilir. Boşluk veya özel karakterler içeren sütun adları nokta gösterimi kullanılarak erişilemez. `row` Değişkeni Python Uzantıları (modülü ve ifade) her iki modda her zaman tanımlanmalıdır. 
 
 Örnekler 
 
@@ -155,12 +155,12 @@ Sütun veri satırdan noktalı gösterim veya anahtar-değer gösterim kullanıl
     row["ColumnA"] + row["ColumnB"]
 ```
 
-## <a name="add-column"></a>Sütun ekleme 
+## <a name="add-column"></a>Sütun Ekle 
 ### <a name="purpose"></a>Amaç
-Sütun Ekle uzantı noktası yeni bir sütun hesaplamak için Python yazmanızı sağlar. Yazdığınız kodları tam satır erişebilir. Her satır için yeni bir sütun değer döndürmesi gerekir. 
+Sütun Ekle uzantı noktası yeni bir sütun hesaplamak için Python yazmanızı sağlar. Yazdığınız kod tam satır erişebilir. Bu, her satır için yeni bir sütun değeri döndürmesi gerekir. 
 
 ### <a name="how-to-use"></a>Nasıl kullanılır
-Sütun Ekle (komut) blok kullanarak bu uzantı noktası ekleyebilirsiniz. Üst düzey üzerinde kullanılabilir **dönüşümleri** menüsünde, üzerinde de olarak **sütun** bağlam menüsü. 
+Sütun Ekle (betik) blok kullanarak bu uzantı noktası ekleyebilirsiniz. Üst düzey üzerinde kullanılabilir **dönüşümleri** menüsünden de itibariyle **sütun** bağlam menüsü. 
 
 ### <a name="syntax"></a>Sözdizimi
 İfade
@@ -179,10 +179,10 @@ def newvalue(row):
 
 ## <a name="advanced-filter"></a>Gelişmiş Filtre
 ### <a name="purpose"></a>Amaç 
-Gelişmiş Filtre uzantı noktası bir özel filtre yazmanızı sağlar. Tüm satırı erişimi ve kodunuzu True döndürmesi gerekir (satırı ekleyin) ya da False (dışlamak satır). 
+Gelişmiş Filtre uzantı noktası özel filtre yazmanızı sağlar. Tüm satırı erişiminiz ve kodunuzu True döndürmelidir (satırı dahil) ya da False (satır hariç). 
 
 ### <a name="how-to-use"></a>Nasıl kullanılır
-Gelişmiş Filtre (komut) blok kullanarak bu uzantı noktası ekleyebilirsiniz. Üst düzey üzerinde kullanılabilir **dönüşümleri** menüsü. 
+Gelişmiş Filtre (betik) blok kullanarak bu uzantı noktası ekleyebilirsiniz. Üst düzey üzerinde kullanılabilir **dönüşümleri** menüsü. 
 
 ### <a name="syntax"></a>Sözdizimi
 
@@ -200,17 +200,17 @@ def includerow(row):
 ```
  
 
-## <a name="transform-dataflow"></a>Veri akışı dönüştürme
+## <a name="transform-dataflow"></a>Veri akışını dönüştürme
 ### <a name="purpose"></a>Amaç 
-Veri akışı dönüştürme uzantı noktası tamamen veri akışı dönüştürme olanak sağlar. Tüm işleme satırları ve sütunları içeren bir Pandas dataframe erişebilirsiniz. Kodunuzu yeni verilerle Pandas dataframe döndürmesi gerekir. 
+Dönüşüm veri akışı uzantı noktası tamamen veri akışını dönüştürme sağlar. Tüm işlemekte satırları ve sütunları içeren bir Pandas dataframe erişebilirsiniz. Kodunuzu yeni verilerle bir Pandas dataframe döndürmesi gerekir. 
 
 >[!NOTE]
->Python içinde belleğe yüklenmiş tüm verilerin ise bir Pandas dataframe bu uzantısı kullanılır. 
+>Python'da, tüm verilerin belleğe yüklenmesi olup bir Pandas dataframe içinde bu uzantısı kullanılır. 
 >
->Spark, tüm verilerin tek çalışan düğüme toplanır. Veriler çok büyükse, bir çalışan bellek yetersiz çalıştırabilirsiniz. Dikkatli kullanın.
+>Spark, tüm verilerin bir tek bir çalışan düğümü toplanır. Veriler çok büyükse, bir çalışan bellek yetersiz çalışabilir. Dikkatli kullanın.
 
 ### <a name="how-to-use"></a>Nasıl kullanılır 
-Dönüştürme veri akışı (komut) blok kullanarak bu uzantı noktası ekleyebilirsiniz. Üst düzey üzerinde kullanılabilir **dönüşümleri** menüsü. 
+Bu uzantı noktası dönüşüm veri akışı (betik) blok kullanarak ekleyebilirsiniz. Üst düzey üzerinde kullanılabilir **dönüşümleri** menüsü. 
 ### <a name="syntax"></a>Sözdizimi 
 
 İfade
@@ -233,14 +233,14 @@ def transform(df):
 
 ## <a name="transform-partition"></a>Bölüm dönüştürme  
 ### <a name="purpose"></a>Amaç 
-Dönüştürme bölüm uzantı noktası bir bölüm veri akışının dönüştürme olanak sağlar. Tüm sütunları ve satırları Bu bölüm için içeren bir Pandas dataframe erişebilirsiniz. Kodunuzu yeni verilerle Pandas dataframe döndürmesi gerekir. 
+Veri akışına ilişkin bir bölüm dönüştürme dönüştürme bölüm genişletme noktası sağlar. Tüm sütunları ve satırları için bu bölümü içeren bir Pandas dataframe erişebilirsiniz. Kodunuzu yeni verilerle bir Pandas dataframe döndürmesi gerekir. 
 
 >[!NOTE]
->Python içinde tek bir bölüm veya veri boyutuna bağlı olarak birden çok bölüm şunun. Spark, verilen çalışan düğümünde bir bölüm için veri tutan bir dataframe çalıştığınız. Her iki durumda da, tüm veri kümesinin erişimi varsayalım olamaz. 
+>Python, tek bir bölüm veya verilerinizin boyutuna bağlı olarak birden çok bölüm çıkabilir. Spark, verilen çalışan düğümündeki bir bölüm için verileri tutan bir veri çerçevesi ile çalışıyoruz. Her iki durumda da, tüm veri kümesini erişiminiz varsayamazsınız. 
 
 
 ### <a name="how-to-use"></a>Nasıl kullanılır
-Dönüştürme bölüm (komut) blok kullanarak bu uzantı noktası ekleyebilirsiniz. Üst düzey üzerinde kullanılabilir **dönüşümleri** menüsü. 
+Bu uzantı noktası dönüştürme bölüm (betik) blok kullanarak ekleyebilirsiniz. Üst düzey üzerinde kullanılabilir **dönüşümleri** menüsü. 
 
 ### <a name="syntax"></a>Sözdizimi 
 
@@ -265,10 +265,10 @@ def transform(df, index):
 
 
 ## <a name="datapreperror"></a>DataPrepError  
-### <a name="error-values"></a>Hata değerleri  
-Veriler hazırlıkları içinde hata değerlerini kavramı bulunmaktadır. 
+### <a name="error-values"></a>Hata değerlerini  
+Veri hazırlıkları içinde hata değerlerini kavramı var. 
 
-Özel Python kodda hata değerlerini karşılaştığınız mümkündür. Adlı bir Python sınıfın örnekleri olan `DataPrepError`. Bu sınıf bir Python özel sarmalar ve birkaç özellikleri vardır. Özellikleri özgün değeri yanı sıra, özgün değeri işlenirken oluşan hata hakkında bilgi içerir. 
+Özel bir Python kodunda hata değerlerini karşılaşmak mümkündür. Adlı bir Python sınıf örnekleridir `DataPrepError`. Bu sınıf, bir Python özel durumu sarmalar ve birkaç özellik vardır. Özellikleri özgün değerin yanı sıra, özgün değer işlenirken oluşan hata hakkında bilgi içerir. 
 
 
 ### <a name="datapreperror-class-definition"></a>DataPrepError sınıf tanımı
@@ -277,7 +277,7 @@ class DataPrepError(Exception):
     def __bool__(self): 
         return False 
 ``` 
-Veriler hazırlıkları Python Framework'te DataPrepError oluşturulmasını genellikle şu şekildedir: 
+Veri hazırlıkları Python Framework'te bir DataPrepError oluşturulmasını genellikle şu şekilde görünür: 
 ```python 
 DataPrepError({ 
    'message':'Cannot convert to numeric value', 
@@ -287,7 +287,7 @@ DataPrepError({
 }) 
 ``` 
 #### <a name="how-to-use"></a>Nasıl kullanılır 
-Python önceki oluşturma yöntemini kullanarak DataPrepErrors dönüş değeri olarak oluşturmak için bir uzantı noktada çalıştığında mümkündür. Bir uzantı noktada veri işlendiğinde DataPrepErrors karşılaşılan çok daha yüksektir. Bu noktada, DataPrepError geçerli bir veri türü olarak işlemek özel Python kodu gerekir.
+Python DataPrepErrors dönüş değerleri önceki oluşturma yöntemini kullanarak oluşturmak için bir uzantı noktada çalıştığında mümkündür. Bir uzantı noktada veri işlendiğinde DataPrepErrors karşılaşılan çok daha yüksektir. Bu noktada, bir DataPrepError geçerli bir veri türü olarak işlemek özel bir Python kodu gerekiyor.
 
 #### <a name="syntax"></a>Sözdizimi 
 İfade 

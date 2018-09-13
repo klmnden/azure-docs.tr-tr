@@ -1,61 +1,61 @@
 ---
-title: Azure Machine Learning Önizleme özellikleri kavramsal genel bakış | Microsoft Docs
-description: Azure Machine Learning, Önizleme özellikleri abonelikler, hesaplar, çalışma alanları, projeler, vb. gibi kavramsal genel bakış.
+title: Azure Machine Learning Önizleme özelliklerinde kavramsal genel bakış | Microsoft Docs
+description: Azure Machine Learning Önizleme özellikleri abonelikler, hesaplar, çalışma alanları, projeler, vb. gibi kavramsal genel bakış.
 services: machine-learning
 author: serinakaye
 ms.author: serinak
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: d448e1c464ed966cd9e742516adebe963acf13b7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f63b9c077e64b642adfd8c7eed5026563eb6319a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832300"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647202"
 ---
 # <a name="azure-machine-learning---concepts"></a>Azure Machine Learning - kavramları
 
-Bu makalede tanımlar ve Azure Machine Learning kullanmak için bilmeniz gereken kavramlar açıklanmaktadır. 
+Bu makalede, tanımlar ve Azure Machine Learning kullanmak için bilmeniz gereken kavramlar açıklanır. 
 
 ![Hiyerarşi kavramları](media/overview-general-concepts/hierarchy.png)
 
-- **Abonelik:** bir Azure aboneliği kaynaklara erişim verir. Azure Machine Learning iç işlem, depolama ve birçok diğer Azure kaynaklarını ve Hizmetleri ile tümleşik olduğundan, çalışma ekranı her kullanıcı erişimi geçerli bir Azure aboneliğinizin olmasını gerektirir. Kullanıcılar ayrıca bu abonelik içindeki kaynaklara oluşturmak için yeterli izinlere sahip olmalıdır.
+- **Abonelik:** Azure aboneliğinin Azure kaynaklarına erişim verir. Azure Machine Learning işlem, depolama ve birçok diğer Azure kaynaklarını ve Hizmetleri ile tamamen tümleşik olduğundan, Workbench, her kullanıcının geçerli bir Azure aboneliğine erişiminiz olduğunu gerektirir. Kullanıcıların, bu Abonelikteki kaynakları oluşturmak için yeterli izinlere de olmalıdır.
 
 
-- **Deneme hesabı:** deneme hesabıdır Azure ML ve fatura araç tarafından gerekli bir Azure kaynağı. Sırayla projeleri içeren, çalışma alanlarını içerir. Olarak adlandırılan birden fazla kullanıcı ekleyebilirsiniz _kişilik_, bir deneme hesabı. Azure ML çalışma ekranı denemeleri çalıştırmak için kullanmak üzere bir deneme hesabına erişiminiz olması gerekir. 
+- **Deneme hesabı:** deneme hesabı, Azure ML ve fatura araç tarafından gereken bir Azure kaynağı. Bu sırayla projeleri içeren, çalışma alanlarını içerir. Olarak adlandırılan birden fazla kullanıcı ekleyebilirsiniz _kişilik_, bir deneme hesabına. Denemeleri çalıştırmak için Azure ML Workbench'i kullanabilmeniz için bir deneme hesabına erişiminiz olması gerekir. 
 
 
-- **Model yönetim hesabı** bir model yönetim ayrıca Azure ML tarafından modelleri yönetmek için gerekli bir Azure kaynağı hesabıdır. Modelleri ve bildirimleri kaydetme, kapsayıcılı web hizmetleri oluşturmak ve bunları yerel olarak veya bulutta dağıtmak için kullanabilirsiniz. Bu ayrıca diğer fatura Azure ML, araçtır.
+- **Model Yönetimi hesabı** model Yönetimi hesabı da tarafından Azure ML modelleri yönetmek için gereken bir Azure kaynağıdır. Kaydetme modelleri ve bildirimleri, kapsayıcılı web hizmetleri oluşturmak ve yerel olarak veya bulutta dağıtmak için kullanabilirsiniz. Azure ML, fatura diğer araç da sağlar.
 
 
-- **Çalışma alanı:** bir çalışma alanı paylaşımı ve Azure ML işbirliği için birincil bir bileşendir. Projeleri bir çalışma alanı içinde gruplandırılır. Bir çalışma alanı sonra deneme hesabı için eklenene birden çok kullanıcıyla paylaşılabilir.
+- **Çalışma alanı:** birincil bileşen paylaşım ve işbirliği Azure ML için bir çalışma alanıdır. Projeleri, bir çalışma alanı içinde gruplandırılır. Bir çalışma alanı deneme hesabına eklenen birden çok kullanıcıya sahip ardından paylaşılabilir.
 
 
-- **Proje:** Azure Machine Learning ile bir proje mantıksal bir sorunu çözmek için gerçekleştirilen tüm iş için bir kapsayıcısıdır. Yerel diskinizde tek bir dosya klasörüne eşlenir ve buna istediğiniz tüm dosyaları veya alt klasörleri ekleyebilirsiniz. Bir proje isteğe bağlı olarak kaynak denetimi ve işbirliği için bir Git deposu ile ilişkili olabilir.  
+- **Proje:** Azure Machine Learning'de proje bir sorunu çözmek için yapılan tüm çalışmanın mantıksal kapsayıcısıdır. Yerel diskinizde tek bir dosya klasörüne eşlenir ve buna istediğiniz tüm dosyaları veya alt klasörleri ekleyebilirsiniz. İsteğe bağlı olarak bir proje kaynak denetimi ve işbirliği için bir Git deposu ile ilişkili olabilir.  
 
-- **Deneme:** Azure ML içinde bir denemeyi tek giriş noktasından yürütülen bir veya daha fazla kaynak kodu dosyaları değil. Veri alımı, özellik Mühendisliği, model eğitim veya model değerlendirme gibi görevleri içerebilir. Şu anda Python Azure ML destekler veya PySpark yalnızca denemelerini.
-
-
-- **Model:** Azure Machine Learning'de modelleri bir makine öğrenimi denemesinin ürününe bakın. Tarif olduklarından, doğru verilere uygulandığında tahmin edilen değerler oluşturur. Modelleri olabilir test veya üretim ortamları dağıtılan ve yeni veri Puanlama için kullanılır. Bir kez üretimde modelleri için performans ve veri kayması izlenir ve gerektiği gibi retrained. 
-
-- **İşlem Hedefi:** işlem hedef denemelerinizi yürütmek için yapılandırdığınız işlem kaynaktır. Bu, yerel bilgisayar (Windows veya macOS), yerel bilgisayarınızda veya bir Linux VM Azure veya Hdınsight Spark kümesinde çalışan Docker kapsayıcısı olabilir.
+- **Deneme:** Azure ML bir tek giriş noktası yürütülebilir bir veya daha fazla kaynak kodu dosyaları bir deneme olduğunu. Veri alımı, özellik Mühendisliği, model eğitiminin ve model değerlendirme gibi görevleri içerebilir. Şu anda, Azure ML, Python destekler veya PySpark yalnızca denemeleri görüntüleyebilir.
 
 
-- **Çalıştır:** işlem hedef bir deneme yürütme süresi olarak çalıştır deneme hizmetini tanımlar. Azure ML her çalıştırmayı bilgilerini otomatik olarak yakalar ve belirli bir deneme çalıştırma geçmişi biçiminde tüm geçmişini gösterir.
+- **Modeli:** Azure Machine Learning modelleri çarpımını bir makine öğrenimi denemesi için başvurun. Tarif olduklarından, doğru verilere uygulandığında, tahmin edilen değerler oluşturur. Modeller test veya üretim ortamları dağıtılan ve yeni veri Puanlama için kullanılır. Bir kez üretimde modelleri için performans ve veri değişikliklerini izlenir ve gerektiği şekilde retrained. 
 
-- **Ortam:** Azure Machine Learning ile bir ortamda dağıtmak ve Modellerinizi yönetmek için kullanılan belirli bir bilgisayar kaynağına gösterir. Yerel bilgisayarınızda, azure'da bir Linux VM veya içerik ve yapılandırma bağlı olarak Azure kapsayıcı Hizmeti'nde çalışan Kubernetes küme olabilir. Modelinizi bu ortamlarda çalışan bir Docker kapsayıcısı içinde barındırılan ve REST API uç noktası olarak gösteriliyor.
-
-
-- **Yönetilen modeli:** Model yönetim modelleri web Hizmetleri olarak dağıtmak, Modellerinizi çeşitli sürümlerini yönetmek ve kendi performansını ve ölçümleri izleme olanak sağlar. Yönetilen modelleri bir Azure Machine Learning modeli yönetim hesabı ile kaydedilir.
-
-- **Bildirimleri:** Model yönetim sistemi üretime bir model dağıtırken, model, bağımlılıkları, Puanlama komut dosyası, örnek veri ve şema kapsayan bir bildirimi içerir. Docker kapsayıcısı görüntüsünü oluşturmak için kullanılan tarif bildirimidir. Model Yönetimi'ni kullanarak bildirimleri otomatik oluşturma, farklı sürümlerini oluşturun ve bu bildirimleri yönetin. 
+- **İşlem Hedefi:** işlem hedefi denemelerinizi yürütmek için yapılandırdığınız işlem kaynağıdır. Yerel bilgisayar (Windows veya Mac OS x), yerel bilgisayarınızda veya bir Linux VM, Azure veya bir HDInsight Spark kümesinde çalışan Docker kapsayıcısını olabilir.
 
 
-- **Resimler:** oluştur (ve yeniden oluşturmak için) bildirimleri kullanabilirsiniz Docker görüntüler. Bunları bulutta, IOT cihaz veya yerel makine üzerinde çalıştırmak için esneklik kapsayıcılı Docker yansımaları oluşturun. Görüntüleri kendi içinde bulunan ve yeni veri modelleri ile Puanlama için gerekli tüm bağımlılıkları içerir. 
+- **Çalıştır:** işlem hedefi bir deneme yürütme ömrünü olarak bir deneme hizmeti tanımlar. Azure ML, her çalıştırma bilgileri otomatik olarak yakalar ve belirli bir deneme çalıştırma geçmişi biçiminde tüm geçmişini gösterir.
 
-- **Hizmetleri:** Model yönetim modelleri web Hizmetleri olarak dağıtmanızı sağlar. Web hizmeti mantığı ve bağımlılıkları görüntüye kapsüllenir. Her Web hizmeti, hizmet isteklerini belirli bir URL için görüntü hazır göre kapsayıcıları kümesidir. Bir web hizmeti tek bir dağıtım kabul edilir.
+- **Ortam:** Azure Machine Learning'de bir ortama dağıtma ve Modellerinizi yönetmek için kullanılan belirli bir bilgisayar kaynağına gösterir. Yerel bilgisayarınızda, azure'da bir Linux VM veya içerik ve yapılandırma bağlı olarak Azure Container Service'te çalışan bir Kubernetes kümesi olabilir. Modelinizi bu ortamlarda çalışan bir Docker kapsayıcısında barındırılan ve kullanıma sunulan bir REST API uç noktası olarak.
+
+
+- **Yönetilen model:** Model Yönetimi Modellerinizi web Hizmetleri olarak dağıtmanıza, modellerin çeşitli sürümlerini yönetmek ve performans ve ölçümleri izleme olanak sağlar. Yönetilen modeller bir Azure Machine Learning Model Yönetimi hesabı ile kaydedilir.
+
+- **Bildirimleri:** Model yönetimi sistemi üretime model dağıttığında, bu model, bağımlılıkları, Puanlama betik, örnek veri ve şema kapsayabilir bir bildirim içerir. Bir Docker kapsayıcı görüntüsü oluşturmak için kullanılan tarif bildirimidir. Model Yönetimi'ni kullanarak bildirimler otomatik olarak oluşturmak, farklı sürümler oluşturmayı ve bu bildirimleri yönetme. 
+
+
+- **Resimler:** bildirimleri oluşturmak (ve yeniden oluşturmak için) kullanabileceğiniz Docker görüntüleri. Bulutta, IOT cihaz veya yerel makine üzerinde çalışması için esneklik kapsayıcılı Docker görüntüleri oluşturun. Görüntüleri müstakil ve modelleri yeni verilerle Puanlama için gereken tüm bağımlılıkları içerir. 
+
+- **Hizmetler:** Model yönetimi, Modellerinizi web Hizmetleri olarak dağıtmanızı sağlar. Web hizmeti mantık ve bağımlılıkları görüntüye kapsüllenir. Her Web hizmeti, kapsayıcı görüntüsü hazır hizmet isteklerini belirli bir URL'ye göre kümesidir. Bir web hizmeti, tek bir dağıtım olarak kabul edilir.

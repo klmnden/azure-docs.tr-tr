@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 39745991f7ab3b181f892bbaa59283d92737ecf3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 63213e38dab5ef2edd5150fe0adb620fecb2041c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093882"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714454"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio kullanarak Azure işlevleri geliştirme  
 
@@ -96,7 +96,7 @@ Depolama hesabı bağlantı dizesi ayarlamak için:
 
 3. Benzersiz anahtarlar için eklemek için önceki adımı yineleyin **değerleri** işlevleriniz tarafından gerekli herhangi bir bağlantı için bir dizi.
 
-## <a name="create-a-function"></a>İşlev oluşturma
+## <a name="add-a-function-to-your-project"></a>Bir işlev projenize ekleyin.
 
 Önceden derlenmiş işlevleri'nde kod öznitelikleri uygulayarak işlev tarafından kullanılan bağlamaları tanımlanır. İşlevlerinizi sağlanan şablonları oluşturmak için Azure işlevleri Araçları'nı kullandığınızda, bu öznitelikler uygulanır. 
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 7948b54bd6402cf238c5709d270087746ed4fa95
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 7cd5fc965a57052323d4b916f0f2b7dbc0feb7b3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380378"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715423"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration Runtime (IR) Azure Data Factory tarafından farklı ağ ortamları veri tümleştirme özellikleri sağlamak için kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -57,7 +57,7 @@ Kendinden konak IR ile kopyalama için adımların özeti için üst düzey veri
 
 ## <a name="considerations-for-using-self-hosted-ir"></a>Kendinden konak IR kullanma konuları
 
-- Tek şirket içinde barındırılan tümleştirme çalışma zamanının birden çok şirket içi veri kaynakları için kullanılabilir. Ancak, bir **tek şirket içinde barındırılan tümleştirme çalışma zamanı yalnızca bir Azure data factory'ye bağlı** ve başka bir data factory ile paylaşılamaz.
+- Tek şirket içinde barındırılan tümleştirme çalışma zamanının birden çok şirket içi veri kaynakları için kullanılabilir. A **tek şirket içinde barındırılan tümleştirme çalışma zamanı için** aynı Azure Active Directory kiracısı içinde başka bir data factory ile paylaşılabilir. Daha fazla ayrıntı için [şirket içinde barındırılan tümleştirme çalışma zamanı paylaşımı](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
 - Sahip olduğunuz **şirket içinde barındırılan tümleştirme çalışma zamanı yalnızca bir örneğini** tek bir makinede yüklü. Şirket içi veri kaynaklarına erişmesi gereken iki veri fabrikaları sahip varsayalım, şirket içinde barındırılan tümleştirme çalışma zamanı iki şirket içi bilgisayarlara yüklemeniz gerekir. Diğer bir deyişle, şirket içinde barındırılan tümleştirme çalışma zamanı için belirli bir veri fabrikası bağlıdır
 - **Şirket içinde barındırılan tümleştirme çalışma zamanı veri kaynağı ile aynı makinede olması gerekmez**. Ancak, şirket içinde barındırılan tümleştirme çalışma zamanı daha yakın veri kaynağına veri kaynağına bağlanmak şirket içinde barındırılan tümleştirme çalışma zamanı için süreyi azaltır. Şirket içinde barındırılan tümleştirme çalışma zamanı olandan farklı bir makinede ana şirket içi veri kaynağına yüklemenizi öneririz. Şirket içinde barındırılan tümleştirme çalışma zamanı ve veri kaynağını farklı makinelerde olduğunda, şirket içinde barındırılan tümleştirme çalışma zamanı veri kaynağı ile kaynaklar için rekabet edemez.
 - Sahip olduğunuz **farklı makinelerde aynı şirket içi veri kaynağına bağlanan birden çok şirket içinde barındırılan tümleştirme çalışma zamanları**. Örneğin, iki veri fabrikaları hizmet veren iki şirket içinde barındırılan tümleştirme çalışma zamanı olabilir ancak aynı şirket içi veri kaynağı ile veri fabrikaları hem kayıtlı.

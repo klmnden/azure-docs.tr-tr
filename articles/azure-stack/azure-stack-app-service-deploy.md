@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9e868788d0cf3b3c0f2f30095388046f64ced71c
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ae742bbe1e5b751a8a8cabf378afd049728c3b8a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378549"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717514"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack'e bir App Service kaynak sağlayıcısı ekleme
 
@@ -228,7 +228,7 @@ Dağıtma ve App Service kaynak sağlayıcısı kaydetme sonra kullanıcılar, w
 
 Web uygulaması oluşturmak için aşağıdaki adımları izleyin:
 
-1. Azure Stack Kiracı portalında **yeni** > **Web + mobil** > **Web uygulaması**.
+1. Azure Stack Kullanıcı Portalı'nda seçin **+ kaynak Oluştur** > **Web + mobil** > **Web uygulaması**.
 
 2. Altında **Web uygulaması**, bir ad girin **Web uygulaması**.
 

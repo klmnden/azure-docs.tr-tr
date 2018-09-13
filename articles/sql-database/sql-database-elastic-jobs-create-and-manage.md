@@ -9,14 +9,14 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: b367ddafc659db4dc4b8d658ac9dc007c4671b8c
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 8c83513838170d18cfc2f1d4f7cd42df2ec617e1
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093167"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717497"
 ---
-# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Oluşturma ve elastik işleri (Önizleme) kullanarak Azure SQL Database'leri ölçeği yönetme
+# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Oluşturma ve elastik işleri (Önizleme) kullanarak Azure SQL veritabanlarına ölçeği yönetme
 
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]

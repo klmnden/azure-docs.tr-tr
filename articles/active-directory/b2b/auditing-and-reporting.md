@@ -1,32 +1,32 @@
 ---
-title: Denetim ve bir Azure Active Directory B2B işbirliği kullanıcı raporlama | Microsoft Docs
-description: Konuk kullanıcı özelliklerini Azure Active Directory B2B işbirliği yapılandırılabilir
+title: Denetim ve bir Azure Active Directory B2B işbirliği kullanıcısı raporlama | Microsoft Docs
+description: Azure Active Directory B2B işbirliği Konuk kullanıcı özelliklerini yapılandırılamaz
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 64f15095bd260cd5f83e0e834607cd64bb3a47ee
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 50f6a1ee7486918869342f032818d587c99f4cac
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267500"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647806"
 ---
-# <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Denetim ve B2B işbirliği kullanıcı raporlama
-Konuk kullanıcılar, üye kullanıcılarla denetim özelliklerine benzer sahip. Davet edilene Sam Oogle daveti ve kullanım geçmişinin bir örneği burada verilmiştir:
+# <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>B2B işbirliği kullanıcısı raporlama ve denetleme
+Konuk kullanıcılar, denetim özelliklerine benzer şekilde üye kullanıcılarla sahip. Davetli Sam Oogle daveti ve kullanım geçmişini örneği aşağıda verilmiştir:
 
 ![denetleme günlüğü](./media/auditing-and-reporting/audit-log.png)
 
-Ayrıntılı bilgi almak için bu olayların her biri başlayabilirsiniz. Örneğin, kabul ayrıntıları bakalım.
+Ayrıntılı bilgi edinmek için bu olayların her biri içinde kullanmaya başlayabilirsiniz. Örneğin, kabul ayrıntıları bakalım.
 
 ![Etkinlik ayrıntıları](./media/auditing-and-reporting/activity-details.png)
 
-Ayrıca, Azure AD'den Bu günlükleri dışarı aktarmak ve özelleştirilmiş raporlarla almak için tercih ettiğiniz raporlama aracını kullanın.
+Ayrıca, Azure AD'den Bu günlükleri dışarı aktarmak ve özelleştirilmiş raporlar almak için raporlama aracını kullanabilirsiniz.
 
 ### <a name="next-steps"></a>Sonraki adımlar
 

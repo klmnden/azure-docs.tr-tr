@@ -1,6 +1,6 @@
 ---
 title: Yük Dengeleyici için Azure CLI örnekleri | Microsoft Docs
-description: Azure CLI örnekleri
+description: Azure CLI Örnekleri
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/17/2018
+ms.date: 06/14/2018
 ms.author: kumud
-ms.openlocfilehash: 86dbce55bcafdd63271143145069116db9664b52
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 41e80e04051a24fd32086c61c65bc3eec1564c57
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182482"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35971999"
 ---
 # <a name="azure-cli-samples-for-load-balancer"></a>Yük Dengeleyici için Azure CLI örnekleri
 
@@ -28,7 +28,9 @@ Aşağıdaki tablo, Azure CLI’si kullanılarak oluşturulan bash komut dosyala
 
 | | |
 |-|-|
-| [Yük trafiği dengelemek için sanal makineleri yüksek oranda kullanılabilirlik için](./scripts/load-balancer-linux-cli-sample-nlb.md) | Birkaç yüksek oranda kullanılabilir sanal makineleri ve yükü dengelenmiş yapılandırma oluşturur. |
-| [Yük Dengelemesi birden çok Web sitesi vm'lerinde](./scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md) | Bir Azure kullanılabilirlik kümesi, bir Azure yük dengeleyici erişilebilir katılmış birden fazla IP yapılandırması ile iki VM'ler oluşturur. |
+| [Yüksek kullanılabilirlik için Vm'lere Yük Dengeleme trafiği](./scripts/load-balancer-linux-cli-sample-nlb.md) | Birden çok yüksek oranda kullanılabilir sanal makineler ve yük dengeli küme yapılandırması oluşturur. |
+| [Kullanılabilirlik bölgelerindeki VM’lerde yük dengeleme](./scripts/load-balancer-linux-cli-sample-zone-redundant-frontend.md) | Bölgesel olarak yedekli ön uç IP adresine sahip bir bölge ve Standard Load Balancer içinde farklı kullanılabilirlik alanlarında üç VM oluşturur. Bu yük dengeleyici yapılandırması bir KAYBEDİLMESİNDEN veya veri merkezinin tamamı kaybı uygulamalarınızın ve verilerinizin korunmasına yardımcı olur. |
+|[Belirli bir kullanılabilirlik bölgesi içinde VM yüklerini dengeleme](./scripts/load-balancer-linux-cli-sample-zonal-frontend.md)|Üç sanal makineleri, veri yolu ve belirli bir bölgedeki tek bir bölgedeki kaynakları hizalamaya yardımcı bölgesel ön uç IP'si ile standart yük dengeleyici oluşturur.|
+| [Birden fazla Web sitesi vm'lerde Yük Dengeleme](./scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md) | Azure kullanılabilirlik kümesi, Azure Load Balancer erişilebilen katılmış birden fazla IP yapılandırması ile iki VM oluşturur. |
 | | |
 

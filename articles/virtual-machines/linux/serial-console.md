@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: ceaa61832212093ac52225fc34db1ed7f4571a18
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 8a4b29cf8f2a5a79c68bad3631a54449d3ada09a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380310"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717871"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makinenin seri konsol (Önizleme) 
 
@@ -172,7 +172,7 @@ Sorun                           |   Risk azaltma
 :---------------------------------|:--------------------------------------------|
 Ulaşmaktan bağlantı başlık satırında bir günlük göstermez sonra girin | Lütfen şu sayfaya bakın: [Hitting girin hiçbir şey yapmaz](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Özel VM, sağlamlaştırılmış gereç veya Linux düzgün bir şekilde seri bağlantı noktasına bağlanmak başarısız olmasına neden olan GRUB yapılandırma çalıştırıyorsanız, bu durum oluşabilir.
 Bu sanal makinenin önyükleme tanılaması depolama hesabı erişirken 'Yasak' yanıt karşılaşıldı. | Bu önyükleme tanılama hesabı bir güvenlik duvarı bulunmadığından emin olun. İşleve seri konsol için bir erişilebilir önyükleme tanılaması depolama hesabı gereklidir.
-Yalnızca seri konsol metin (genellikle bir metin düzenleyicisi kullanarak sonra) ekran boyutu bir kısmını alır | Seri bağlantı üzerinden Bilinmeyen ekran boyutu ile ilgili bilinen bir sorun budur. İnstaling xterm ya da 'boyutlandırma' komutu veren bazı diğer benzer bir yardımcı programını öneririz. 'Yeniden boyutlandırma' çalıştıran bu düzeltir.
+Yalnızca seri konsol metin (genellikle bir metin düzenleyicisi kullanarak sonra) ekran boyutu bir kısmını alır | Seri konsol penceresi boyutu hakkında anlaşması desteklemez ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)) SIGWINCH sinyali yok olacak anlamına gönderilen ekran boyutu güncelleştirilecek ve VM terminalinizi 's boyutu olanağıyla olacaktır. İnstaling xterm ya da 'boyutlandırma' komutu veren bazı diğer benzer bir yardımcı programını öneririz. 'Yeniden boyutlandırma' çalıştıran bu düzeltir.
 
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular 

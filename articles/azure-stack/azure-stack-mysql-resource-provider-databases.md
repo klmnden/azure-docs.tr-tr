@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 77dca29b0c60726f0a072dd662aba0d12730502a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 650fead700afcc1f6d1d18c7356324074fb9365b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413697"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716460"
 ---
 # <a name="create-mysql-databases"></a>MySQL veritabanı oluşturma
 
@@ -28,7 +28,7 @@ Oluşturun ve Kullanıcı Portalı'nda, Self Servis veritabanlarını yönetme. 
 ## <a name="test-your-deployment-by-creating-a-mysql-database"></a>Bir MySQL veritabanı oluşturma dağıtımınızı test edin
 
 1. Azure Stack kullanıcı portalında oturum açın.
-2. Seçin **+ yeni** > **veri + depolama** > **MySQL veritabanı** > **ekleme**.
+2. Seçin **+ kaynak Oluştur** > **veri + depolama** > **MySQL veritabanı** > **Ekle**.
 3. Altında **MySQL veritabanı oluşturma**, veritabanı adını girin ve ortamınız için gerektiği gibi diğer ayarları yapılandırın.
 
     ![Test MySQL veritabanı oluşturma](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)

@@ -1,6 +1,6 @@
 ---
-title: Azure Application ınsights'ta Java web uygulamaları için performans izleme | Microsoft Docs
-description: Genişletilmiş performans ve Application Insights ile Java Web sitenizin kullanım izleme.
+title: Azure Application ınsights Java web uygulamaları için performans izleme | Microsoft Docs
+description: Performans ve kullanım izleme Application Insights ile Java Web sitenizi genişletilmiş.
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -10,45 +10,45 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3a771da2a1ef0333d49e1d83530b3d3032a550d2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 366e79e7a58f45f5a5eeb318d3dd08427fbec0b0
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151639"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647149"
 ---
-# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Bağımlılıklar, yakalanan özel durumlar ve yöntemi yürütme kez Java web uygulamalarını izleme
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Bağımlılıklar, yakalanan özel durumların ve yöntemi yürütme sürelerini Java web uygulamalarını izleme
 
 
-Varsa [Java web uygulamanıza Application Insights ile işaretlenir][java], kod değişiklikleri olmadan daha ayrıntılı Öngörüler almak için Java Agent kullanabilirsiniz:
+Varsa [Java web uygulamanızı Application Insights ile izleme eklenmiş][java], hiçbir kod değişikliği yapmadan daha ayrıntılı Öngörüler almak için Java aracı kullanabilirsiniz:
 
-* **Bağımlılıklar:** verileri de dahil olmak üzere diğer bileşenler için uygulamanızın yaptığı çağrıları hakkında:
-  * **REST çağrılarını** HttpClient yapılan, OkHttp ve RestTemplate (yay) yakalanır.
-  * **Redis** Jedis istemci yapılan çağrılar yakalanır.
-  * **[JDBC çağrıları](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server ve Oracle DB komutları otomatik olarak yakalanır. Çağrı 10'luk uzun sürerse, MySQL için sorgu planı aracı bildirir.
+* **Bağımlılıkları:** dahil olmak üzere diğer bileşenler için uygulamanızın yaptığı çağrılar hakkında veri:
+  * **REST çağrılarını** HttpClient yapılan OkHttp ve RestTemplate (Spring) yakalanır.
+  * **Redis** Jedis istemcisi aracılığıyla yapılan çağrılar yakalanır.
+  * **[JDBC çağrıları](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server ve Oracle DB komutları otomatik olarak yakalanır. MySQL için sorgu planı aracının rapor göndereceği çağrı 10s uzun sürerse.
 * **Özel durum yakalandı:** kodunuz tarafından işlenen özel durumlar hakkında bilgi.
-* **Yöntem yürütme süresi:** zaman hakkında bilgi alır belirli yöntemler yürütülecek.
+* **Yöntem yürütme süresi:** süresi hakkında bilgi alması belirli bir yöntem yürütülemez için.
 
-Java Aracısı'nı kullanmak için sunucunuzda yüklemeniz gerekir. Web uygulamalarınızı ile işaretlenir gerekir [Application Insights Java SDK'sı][java]. 
+Java aracı kullanmak için bunu sunucunuza yüklemeniz gerekir. Web apps ile gerçekleştirilmeyecek [Application Insights Java SDK'sı][java]. 
 
-## <a name="install-the-application-insights-agent-for-java"></a>Java için Application Insights aracısı yükleyin
-1. Java sunucunuz makinede çalışan [Aracısı'nı indirme](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Java Agent aynı verson Application Insights Java SDK'sı çekirdek ve web paketleri olarak indirmek için lütfen emin olun.
-2. Uygulama sunucusu başlangıç komut dosyasını düzenleyin ve aşağıdaki JVM ekleyin:
+## <a name="install-the-application-insights-agent-for-java"></a>Java için Application Insights aracıyı yükleme
+1. Java sunucunuz makine üzerinde çalışan [aracıyı indirin](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Java Agent'ın aynı verson Application Insights Java SDK'sı core ve web paketleri olarak indirmek için lütfen emin olun.
+2. Uygulama sunucu başlangıç komut dosyasını düzenleyin ve aşağıdaki JVM ekleyin:
    
     `javaagent:`*Aracı JAR dosyasının tam yolu*
    
-    Örneğin, Tomcat'te bir Linux makinesinde:
+    Örneğin, Tomcat'te Linux makinesinde:
    
     `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
 3. Uygulama sunucunuzu yeniden başlatın.
 
-## <a name="configure-the-agent"></a>Aracısı'nı yapılandırma
+## <a name="configure-the-agent"></a>Aracıyı yapılandırın
 Adlı bir dosya oluşturun `AI-Agent.xml` ve aracı JAR dosyasını aynı klasöre yerleştirin.
 
-Xml dosyasının içeriğini ayarlarsınız. İstediğiniz dahil etmek veya özellikleri atlamak için aşağıdaki örnek düzenleyin.
+Xml dosyasının içeriği ayarlayın. İstediğiniz dahil etmek veya özelliklerini atlamak için aşağıdaki örnek düzenleyin.
 
 ```XML
 
@@ -87,19 +87,19 @@ Xml dosyasının içeriğini ayarlarsınız. İstediğiniz dahil etmek veya öze
 
 ```
 
-Raporları özel durumu ve yöntemi zamanlama tek tek yöntemleri için etkinleştirmeniz gerekir.
+Raporlar özel durumu ve her bir yöntem yöntemi zamanlamasını etkinleştirmek zorunda.
 
-Varsayılan olarak, `reportExecutionTime` geçerlidir ve `reportCaughtExceptions` false olur.
+Varsayılan olarak, `reportExecutionTime` true'dur ve `reportCaughtExceptions` false'tur.
 
 ## <a name="view-the-data"></a>Verileri görüntüleme
-Application Insights kaynağını toplanmış uzak bağımlılık ve yöntemi yürütme sürelerinin görünür [performans bölmesi altında][metrics].
+Application Insights kaynağını toplanan uzaktan bağımlılık ve Yöntem yürütme sürelerini görünür [performans bölmesi altında][metrics].
 
-Bağımlılık, özel durum ve yöntemi raporları tek tek örneklerini aramak için açık [arama][diagnostic].
+Bağımlılık ve özel durum yöntemi raporlar ayrı örneklerini aramak için açık [arama][diagnostic].
 
-[Tanılama bağımlılık sorunları - daha fazla bilgi](app-insights-asp-net-dependencies.md#diagnosis).
+[Bağımlılık sorunlarını tanılama - daha fazla bilgi edinin](app-insights-asp-net-dependencies.md#diagnosis).
 
 ## <a name="questions-problems"></a>Sorularınız mı var? Sorunlarınız mı var?
-* Veri yok mu? [Set güvenlik duvarı özel durumlar](app-insights-ip-addresses.md)
+* Veri yok mu? [Küme güvenlik duvarı özel durumları](app-insights-ip-addresses.md)
 * [Java Sorun Giderme](app-insights-java-troubleshoot.md)
 
 <!--Link references-->

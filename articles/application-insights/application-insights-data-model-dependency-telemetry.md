@@ -1,6 +1,6 @@
 ---
-title: Azure uygulama Insights Telemetri veri modeli - bağımlılık Telemetrisi | Microsoft Docs
-description: Bağımlılık telemetrisi için uygulama Öngörüler veri modeli
+title: Azure Application Insights Telemetri veri modeli - bağımlılık Telemetrisi | Microsoft Docs
+description: Bağımlılık telemetrisi için Application Insights veri modeli
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -9,56 +9,58 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2017
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 019b24839c20e7f8f46eeccf4a7b9622d18b0ad6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 71634b8f321cb898fb648f94953b2880d8d6b597
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646758"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Bağımlılık telemetrisi: Application Insights veri modeli
 
-Bağımlılık Telemetrisi (içinde [Application Insights](app-insights-overview.md)) izlenen bileşenin SQL ya da bir HTTP uç noktası gibi uzak bir bileşeni ile etkileşim temsil eder.
+Bağımlılık Telemetrisi (içinde [Application Insights](app-insights-overview.md)) etkileşim SQL ya da bir HTTP uç noktası gibi uzak bir bileşen ile izlenen bileşenin temsil eder.
 
 ## <a name="name"></a>Ad
 
-Bu bağımlılık çağrısı ile başlatılan komut adı. Düşük önem düzeyi değeri. Saklı yordam adı ve URL yolu şablonunu örnektir.
+İle bu bağımlılık çağrısının başlattığı komut adı. Düşük önem düzeyi değeri. Saklı yordam adı ve URL yolu şablonunu verilebilir.
 
 ## <a name="id"></a>Kimlik
 
-Bir bağımlılık çağrısı örneği tanımlayıcısı. Bu bağımlılık çağrısına karşılık gelen istek telemetri öğesi ile bağıntı için kullanılır. Daha fazla bilgi için bkz: [bağıntı](application-insights-correlation.md) sayfası.
+Bağımlılık çağrısı örneği tanımlayıcısı. Bu bağımlılık çağrısının için karşılık gelen istek telemetri öğesinin ile bağıntı için kullanılır. Daha fazla bilgi için [bağıntı](application-insights-correlation.md) sayfası.
 
 ## <a name="data"></a>Veriler
 
-Bu bağımlılık çağrısı tarafından başlatılan komutu. SQL deyimi ve HTTP URL içeren tüm sorgu parametrelerini örnektir.
+Bu bağımlılık çağrısı tarafından başlatılan komutu. SQL deyimi ve HTTP URL'si ile tüm sorgu parametreleri verilebilir.
 
 ## <a name="type"></a>Tür
 
-Bağımlılık türü adı. Bağımlılıklar mantıksal gruplandırmasını ve commandName ve resultCode gibi diğer alanlar yorumu düşük önem düzeyi değeri. SQL Azure tablo ve HTTP örnektir.
+Bağımlılık türü adı. Bağımlılıkları mantıksal gruplandırmasını ve diğer alanlar gibi commandName ve resultCode yorumu düşük kardinalite değeri. SQL, Azure tablosu ve HTTP verilebilir.
 
 ## <a name="target"></a>Hedef
 
-Hedef site bağımlılık çağrısı. Sunucu adı, ana bilgisayar adresi olarak gösterilebilir. Daha fazla bilgi için bkz: [bağıntı](application-insights-correlation.md) sayfası.
+Hedef site bir bağımlılık çağrısının. Sunucu adı, ana bilgisayar adresi verilebilir. Daha fazla bilgi için [bağıntı](application-insights-correlation.md) sayfası.
 
 ## <a name="duration"></a>Süre
 
-Süre biçimde istek: `DD.HH:MM:SS.MMMMMM`. Olmalıdır değerinden `1000` gün.
+İstek süresi biçimde: `DD.HH:MM:SS.MMMMMM`. Olmalıdır küçüktür `1000` gün.
 
 ## <a name="result-code"></a>Sonuç kodu
 
-Bir bağımlılık araması Sonuç kodu. SQL hata kodu ve HTTP durum kodu örnektir.
+Bağımlılık çağrısı Sonuç kodu. SQL hata kodu ve HTTP durum kodu verilebilir.
 
 ## <a name="success"></a>Başarılı
 
-Başarılı veya başarısız çağrının gösterimi.
+Başarılı veya başarısız çağrı göstergesi.
 
 ## <a name="custom-properties"></a>Özel Özellikler
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 
-## <a name="custom-measurements"></a>Özel ölçümleri
+## <a name="custom-measurements"></a>Özel ölçümler
 
 [!INCLUDE [application-insights-data-model-measurements](../../includes/application-insights-data-model-measurements.md)]
 
@@ -67,6 +69,6 @@ Başarılı veya başarısız çağrının gösterimi.
 
 - Bağımlılık izleme ayarlama [.NET](app-insights-asp-net-dependencies.md).
 - Bağımlılık izleme ayarlama [Java](app-insights-java-agent.md).
-- [Özel bağımlılık telemetrisi yazma](app-insights-api-custom-events-metrics.md#trackdependency)
-- Bkz: [veri modeli](application-insights-data-model.md) Application Insights türleri ve veri modeli için.
+- [Özel bağımlılık telemetri yazma](app-insights-api-custom-events-metrics.md#trackdependency)
+- Bkz: [veri modeli](application-insights-data-model.md) için Application Insights türleri ve veri modeli.
 - Kullanıma [platformları](app-insights-platforms.md) Application Insights tarafından desteklenir.

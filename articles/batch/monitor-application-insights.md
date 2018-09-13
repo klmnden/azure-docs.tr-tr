@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights ile toplu izleme | Microsoft Docs
-description: Azure Application Insights kitaplığını kullanarak bir Azure Batch .NET uygulama izleme öğrenin.
+title: Batch Azure Application Insights ile izleme | Microsoft Docs
+description: Azure Application Insights Kitaplığı'nı kullanarak bir Azure Batch .NET uygulama izleme hakkında bilgi edinin.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -11,62 +11,62 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 9f989ada01a2ffced509b42df9e46aa001386ab6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5e0358ebf525c39c09df4268971fa71c02457821
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077403"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35972224"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>İzleme ve Application Insights ile bir Azure Batch .NET uygulama hatalarını ayıklama
 
-[Application Insights](../application-insights/app-insights-overview.md) Azure hizmetlerine dağıtılan izleme ve hata ayıklama uygulamaları için geliştiricilere yönelik zarif ve güçlü bir yol sağlar. Application Insights izleme performans sayaçları ve özel durumları yanı sıra gereç özel ölçümleri ve izleme kodunuzu kullanın. Application Insights Azure Batch uygulamanızla tümleştirmek davranışları ayrıntılı Öngörüler elde ve yakın gerçek zamanlı olarak sorunları araştırmak sağlar.
+[Application Insights](../application-insights/app-insights-overview.md) geliştiriciler Azure Hizmetleri için dağıtılan izleme ve hata ayıklama uygulamaları için zarif ve güçlü bir yol sağlar. Application Insights izleme performans sayaçları ve özel durumların yanı sıra gereç özel Ölçümler ve izleme ile kodunuzu kullanın. Application Insights ile Azure toplu işlem uygulamanızı tümleştirme davranışları derin Öngörüler elde edin ve sorunları neredeyse gerçek zamanlı olarak araştırmak sağlar.
 
-Bu makalede, Ekle, Application Insights kitaplığı Azure Batch .NET çözümünüze yapılandırmak ve uygulama kodunuz izleme gösterilmektedir. Ayrıca, uygulamanızı Azure Portalı aracılığıyla izlemek ve özel panolar derleme yolu gösterir. Application Insights diğer dillerde desteği için bakmak [diller, platformlar ve tümleştirmeler belgeleri](../application-insights/app-insights-platforms.md).
+Bu makalede, ekleme, Azure Batch .NET çözümünüze Application Insights Kitaplığı'nı yapılandırma ve uygulama kodunuz izleme gösterilmektedir. Ayrıca, uygulamanızı Azure portal aracılığıyla izlemek ve özel panolar oluşturmak için yol gösterir. Application Insights'ı diğer dillerde desteği sağlamak için bakmak [dilleri, platformlar ve tümleştirmeler belgeleri](../application-insights/app-insights-platforms.md).
 
-Örnek C# çözümü bu makalede eşlik koduyla kullanılabilir [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). Bu örnek için Application Insights araçları kod ekler [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) örnek. Bu örnekle bilmiyorsanız, oluşturma ve çalıştırma TopNWords ilk deneyin. Bunun yapılması, bir dizi giriş BLOB'ları birden çok işlem düğümlerinde paralel işleme temel toplu iş akışı anlamanıza yardımcı olur. 
+Bu makalede eşlik eden kodunu içeren bir örnek C# çözüm edinilebilir [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). Bu örnek için Application Insights izleme kodu ekler [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) örnek. Bu örnek oluşturma ve TopNWords ilk çalıştırma deneyin bilmiyorsanız. Bunun yapılması, bir dizi bir giriş bloblarını birden çok işlem düğümlerinde paralel işleme temel bir Batch workflow anlamanıza yardımcı olur. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 veya daha yeni bir sürüm)
+* [Visual Studio 2017](https://www.visualstudio.com/vs)
 
-* [Toplu işlem hesabı ile bağlantılı depolama hesabı](batch-account-create-portal.md)
+* [Batch hesabı ve bağlı depolama hesabı](batch-account-create-portal.md)
 
-* [Uygulama Insights kaynağı](../application-insights/app-insights-create-new-resource.md)
+* [Application Insights kaynağı](../application-insights/app-insights-create-new-resource.md)
   
-   * Application Insights oluşturmak için Azure portal'ı kullanmanızı *kaynak*. Seçin *genel* **uygulama türü**.
+   * Bir Application Insights'ı oluşturmak için Azure portal'ı kullanmanızı *kaynak*. Seçin *genel* **uygulama türü**.
 
-   * Kopya [izleme anahtarını](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) portalından. Bu makalenin sonraki bölümlerinde gereklidir.
+   * Kopyalama [izleme anahtarını](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) portalından. Bu makalenin sonraki bölümlerinde gerekir.
   
   > [!NOTE]
-  > Olabilir [ücret](https://azure.microsoft.com/pricing/details/application-insights/) Application Insights'ta depolanan veriler için. Bu tanılama ve izleme bu makalede ele alınan verileri içerir.
+  > Olabilir [ücret](https://azure.microsoft.com/pricing/details/application-insights/) uygulama anlayışları'nda depolanan veriler için. Bu, tanılama ve izleme bu makalede ele alınan verileri içerir.
   > 
 
 ## <a name="add-application-insights-to-your-project"></a>Projenize Application Insights ekleyin
 
-**Microsoft.ApplicationInsights.WindowsServer** NuGet paketi ve bağımlılıklarını projeniz için gerekli. Ekleyin veya onları uygulamanızın projeye geri yükleyin. Paketi yüklemek için kullandığınız `Install-Package` komut veya NuGet Paket Yöneticisi.
+**Microsoft.applicationınsights.windowsserver** NuGet paketi ve bağımlılıkları projeniz için gerekli. Ekleme veya bunları, uygulamanızın projesine geri yükleyin. Paketi yüklemek için kullanmak `Install-Package` komut veya NuGet Paket Yöneticisi.
 
 ```powershell
 Install-Package Microsoft.ApplicationInsights.WindowsServer
 ```
-Başvuru Application Insights .NET uygulamanızdan kullanarak **Microsoft.ApplicationInsights** ad alanı.
+Başvuru Application Insights .NET uygulamanızı kullanarak **Microsoft.applicationınsights** ad alanı.
 
 ## <a name="instrument-your-code"></a>Kodunuzu izleme
 
-Kodunuzu izleme için çözümünüzün bir Application Insights oluşturmak için gerek duyduğu [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). Örnekte, TelemetryClient yapılandırmasını yükler [Applicationınsights.config](../application-insights/app-insights-configuration-with-applicationinsights-config.md) dosya. Applicationınsights.config aşağıdaki projelerde Application Insights araçları anahtarınızla güncelleştirdiğinizden emin olun: Microsoft.Azure.Batch.Samples.TelemetryStartTask ve TopNWordsSample.
+Kodunuzu izleme için Application Insights'ı oluşturmak, çözümünüzün gerekir [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). Bu örnekte TelemetryClient yapılandırmasını yükler [Applicationınsights.config](../application-insights/app-insights-configuration-with-applicationinsights-config.md) dosya. Applicationınsights.config dosyasını aşağıdaki projeleri ile Application Insights izleme anahtarınızı güncelleştirdiğinizden emin olun: Microsoft.Azure.Batch.Samples.TelemetryStartTask ve TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
-Ayrıca izleme anahtarını TopNWords.cs dosyasında ekleyin.
+Ayrıca dosyasında TopNWords.cs izleme anahtarını ekleyin.
 
-Aşağıdaki örnekte, TopNWords.cs kullanır [araçları çağrıları](../application-insights/app-insights-api-custom-events-metrics.md) Application Insights API'si gelen:
-* `TrackMetric()` -Ne kadar süreyle, ortalama olarak bir işlem düğümünde gerekli metin dosyasını karşıdan yüklemek için gereken izler.
-* `TrackTrace()` -Kodunuzu hata ayıklama çağrıları ekler.
-* `TrackEvent()` -Olaylarını yakalamak için ilginç izler.
+Aşağıdaki örnekte TopNWords.cs içinde [izleme çağrıları](../application-insights/app-insights-api-custom-events-metrics.md) Application Insights API'si:
+* `TrackMetric()` -Nasıl uzun, ortalama, gerekli bir metin dosyasını indirmek için bir işlem düğümünde alan izler.
+* `TrackTrace()` -Kodunuzda hata ayıklama çağrıları ekler.
+* `TrackEvent()` -Olayları yakalamak için ilgi çekici izler.
 
-Bu örnek, özel durum işleme çıkışı kasıtlı olarak bırakır. Bunun yerine, Application Insights raporlarını otomatik olarak işlenmeyen özel durumlar, hata ayıklama deneyimini önemli ölçüde iyileştirir. 
+Bu örnekte, bilerek kullanıma özel durum işleme bırakır. Bunun yerine, Application Insights raporlarını otomatik olarak işlenmeyen özel durumları, hata ayıklama deneyimini önemli ölçüde artırır. 
 
-Aşağıdaki kod parçacığında bu yöntemlerinin nasıl kullanılacağını gösterir.
+Aşağıdaki kod parçacığı bu yöntemlerin nasıl kullanılacağını gösterir.
 
 ```csharp
 public void CountWords(string blobName, int numTopN, string storageAccountName, string storageAccountKey)
@@ -120,8 +120,8 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 }
 ```
 
-### <a name="azure-batch-telemetry-initializer-helper"></a>Azure Batch telemetri Başlatıcı Yardımcısı
-Verilen sunucu ve örnek için telemetri raporlama Application Insights Azure VM rolü ve VM adı varsayılan değerleri kullanır. Azure Batch bağlamında örnek havuz adı ve düğüm adı bunun yerine işlem nasıl kullanılacağı gösterilir. Kullanım bir [telemetri Başlatıcı](../application-insights/app-insights-api-filtering-sampling.md#add-properties) varsayılan değerleri geçersiz kılmak için. 
+### <a name="azure-batch-telemetry-initializer-helper"></a>Azure Batch telemetri başlatıcısını Yardımcısı
+Verilen sunucu ve örneği için telemetri raporlama, Application Insights Azure VM rolü ve VM adını için varsayılan değerleri kullanır. Azure Batch bağlamında örnek havuz adı ve bunun yerine işlem düğümü adı nasıl kullanılacağını gösterir. Kullanım bir [telemetri başlatıcısını](../application-insights/app-insights-api-filtering-sampling.md#add-properties) varsayılan değerlerini geçersiz kılması için. 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -170,7 +170,7 @@ namespace Microsoft.Azure.Batch.Samples.TelemetryInitializer
 }
 ```
 
-Telemetri Başlatıcısı etkinleştirmek için TopNWordsSample proje Applicationınsights.config dosyasında aşağıdakileri içerir:
+Telemetri başlatıcısını etkinleştirileceği TopNWordsSample proje Applicationınsights.config dosyasında aşağıdakileri içerir:
 
 ```xml
 <TelemetryInitializers>
@@ -178,11 +178,11 @@ Telemetri Başlatıcısı etkinleştirmek için TopNWordsSample proje Applicatio
 </TelemetryInitializers>
 ``` 
 
-## <a name="update-the-job-and-tasks-to-include-application-insights-binaries"></a>Güncelleştirme işi ve görevleri Application Insights ikili dosyaları eklemek için
+## <a name="update-the-job-and-tasks-to-include-application-insights-binaries"></a>İş ve görevleri Application Insights ikili dosyalarını içerecek şekilde güncelleştirin
 
-Application Insights'ın doğru işlem düğümlerinde çalışması için sırayla ikili dosyaları doğru yerleştirilir emin olun. Böylece göreviniz yürütür zaman yükleneceğini gerekli ikili dosyaları, görevin kaynak dosyaları koleksiyona ekleyin. Aşağıdaki kod parçacıkları Job.cs kodda benzerdir.
+Application Insights'ın doğru şekilde, işlem düğümleri üzerinde çalışmak için sırada ikili dosyaları doğru şekilde yerleştirildiğinden emin olun. Göreviniz yürütür anda indirilen, böylece gerekli ikili dosyaları, görevin kaynak dosyaları koleksiyonuna ekleyin. Aşağıdaki kod parçacıklarının Job.cs kodda benzer.
 
-İlk olarak, statik karşıya yüklemek için Application Insights dosyaların listesini oluşturun.
+İlk olarak, Application Insights dosyaları karşıya yüklemek için statik bir liste oluşturur.
 
 ```csharp
 private static readonly List<string> AIFilesToUpload = new List<string>()
@@ -202,7 +202,7 @@ private static readonly List<string> AIFilesToUpload = new List<string>()
 ...
 ```
 
-Ardından, görev tarafından kullanılan basamak dosyaları oluşturun.
+Ardından, görev tarafından kullanılan hazırlama dosyalarını oluşturun.
 ```csharp
 ...
 // create file staging objects that represent the executable and its dependent assembly to run as the task.
@@ -219,7 +219,7 @@ foreach (string aiFile in AIFilesToUpload)
 ...
 ```
 
-`FileToStage` Yardımcı işlevini kolayca bir dosyaya yerel diskten bir Azure Storage blobu karşıya yüklemenize olanak sağlayan kod örneğinde bir yöntemdir. Her dosya daha sonra bir işlem düğümünde indirilir ve bir görev tarafından başvurulan.
+`FileToStage` Kod örneğinde, bir Azure depolama blobu bir dosyaya yerel diskten kolayca karşıya yüklemenize olanak sağlayan bir yardımcı işlevini yöntemidir. Her dosya daha sonra bir işlem düğümüne yüklenecek ve bir görev tarafından başvurulan.
 
 Son olarak, işe görev ekleme ve gerekli Application Insights ikili dosyalarını içerir.
 ```csharp
@@ -255,52 +255,52 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 }
 ```
 
-## <a name="view-data-in-the-azure-portal"></a>Görünüm verilerini Azure portalında
+## <a name="view-data-in-the-azure-portal"></a>Azure portalında görünümü verileri
 
-Application Insights kullanmak için görevleri ve iş yapılandırdıktan, örnek işi havuzunuzdaki çalıştırın. Azure Portalı'na gidin ve sağladığınız Application Insights kaynağı açın. Havuz sağlandıktan sonra veri akışının ve günlüğe görmeye başlamanız gerekir. Bu makalenin geri kalanında yalnızca birkaç Application Insights özellikleri dokunur, ancak tam özellik kümesi keşfetmek çekinmeyin.
+İş ve görevleri Application Insights'ı kullanmak için yapılandırmış olduğunuz, havuzunuzdaki örnek işi çalıştırın. Azure portalına gidin ve sağladığınız Application Insights kaynağını açın. Havuzu sağlandıktan sonra veri akışını ve günlüğe görmeye başlamanız gerekir. Bu makalenin geri kalanında yalnızca birkaç Application Insights özellikleri ele alınır, ancak tüm özellikleri keşfedin çekinmeyin.
 
-### <a name="view-live-stream-data"></a>Canlı akış verilerini görüntüleme
+### <a name="view-live-stream-data"></a>Canlı akış verileri görüntüle
 
-Uygulamaları Insights kaynağınıza izleme günlükleri görüntülemek için **canlı akış**. Aşağıdaki ekran görüntüsünde, örneğin işlem düğümü başına CPU kullanımı havuzdaki işlem düğümleri'ten gelen canlı verileri görüntülemek gösterilmiştir.
+Uygulamaları Insights kaynağınızın izleme günlüklerini görüntülemek için tıklayın **Canlı Stream**. Aşağıdaki ekran görüntüsünde, örneğin işlem düğümü başına CPU kullanımı havuzdaki işlem düğümlerinden gelen canlı verileri görüntülemek gösterilmektedir.
 
-![Canlı akış işlem düğümü veri](./media/monitor-application-insights/applicationinsightslivestream.png)
+![Canlı akış işlem düğümünde verileri](./media/monitor-application-insights/applicationinsightslivestream.png)
 
 ### <a name="view-trace-logs"></a>İzleme günlüklerini görüntüle
 
-Uygulamaları Insights kaynağınıza izleme günlükleri görüntülemek için **arama**. Bu görünüm izlemelerini, olaylar ve özel durumlar dahil olmak üzere Application Insights tarafından yakalanan Tanılama verileri listesini gösterir. 
+Uygulamaları Insights kaynağınızın izleme günlüklerini görüntülemek için tıklayın **arama**. Bu görünüm, izlemeler, olaylar ve özel durumlar dahil olmak üzere Application Insights tarafından yakalanan Tanılama verileri listesini gösterir. 
 
-Aşağıdaki ekran görüntüsünde, nasıl bir görev için tek bir izleme oturumu ve hata ayıklama amacıyla daha sonra sorgulanan gösterir.
+Aşağıdaki ekran görüntüsünde, nasıl bir görev için tek bir izleme günlüğe kaydedilir ve daha sonra hata ayıklama amacıyla sorgulanan gösterir.
 
 ![İzleme günlükleri görüntüsü](./media/monitor-application-insights/tracelogsfortask.png)
 
-### <a name="view-unhandled-exceptions"></a>İşlenmeyen özel durumlarını görüntülemek
+### <a name="view-unhandled-exceptions"></a>İşlenmeyen özel durumları görüntüleyin
 
-Aşağıdaki ekran görüntüleri, Application Insights uygulamanızdan oluşturulan özel durumları nasıl günlüğe yazacağını gösterir. Bu durumda, özel durum atma uygulama saniye içinde belirli bir özel durum incelemek ve sorunu tanılamak.
+Aşağıdaki ekran görüntüleri, Application Insights, uygulamanızdan oluşturulan özel durumları nasıl günlüğe yazacağını gösterir. Bu durumda, özel durumu oluşturan uygulama saniye içinde belirli bir özel durum ayrıntıya ve sorunu tanılayın.
 
-![İşlenmeyen özel durumlar](./media/monitor-application-insights/exception.png)
+![İşlenmeyen özel durumları](./media/monitor-application-insights/exception.png)
 
 ### <a name="measure-blob-download-time"></a>Ölçü blob karşıdan yükleme süresi
 
-Özel ölçümleri ayrıca portalında değerli bir araç değildir. Örneğin, her işlem düğümü işlemekte olan gerekli metin dosyasını karşıdan yüklemek için geçen ortalama süre görüntüleyebilirsiniz.
+Özel ölçümler de portalında değerli bir araç olan. Örneğin, her işlem düğümü işlemekte olan gerekli bir metin dosyasını indirmek için geçen ortalama süreyi görüntüleyebilirsiniz.
 
-Bir örnek grafik oluşturmak için:
-1. Application Insights kaynağınıza tıklatın **ölçüm Gezgini** > **Ekle grafik**.
-2. Tıklatın **Düzenle** eklendi grafik.
-2. Grafik ayrıntıları şu şekilde güncelleştirin:
+Örnek bir grafik oluşturmak için:
+1. Application Insights kaynağınıza tıklayın **ölçüm Gezgini** > **Ekle grafik**.
+2. Tıklayın **Düzenle** grafikte eklendi.
+2. Grafik ayrıntıları aşağıdaki gibi güncelleştirin:
    * Ayarlama **grafik türü** için **kılavuz**.
    * Ayarlama **toplama** için **ortalama**.
-   * Ayarlama **Group by** için **nodeId**.
-   * İçinde **ölçümleri**seçin **özel** > **Blob yükleme saniye cinsinden**.
-   * Görüntü ayarlama **renk paletini** tercih ettiğiniz için. 
+   * Ayarlama **gruplandırma ölçütü** için **nodeId**.
+   * İçinde **ölçümleri**seçin **özel** > **saniyeler içinde Blob indirme**.
+   * Görüntü ayarlama **renk paletini** seçiminiz için. 
 
 ![Düğüm başına BLOB karşıdan yükleme süresi](./media/monitor-application-insights/blobdownloadtime.png)
 
 
-## <a name="monitor-compute-nodes-continuously"></a>Sürekli olarak İzleyici işlem düğümleri
+## <a name="monitor-compute-nodes-continuously"></a>Sürekli izleme işlem düğümleri
 
-Görevler çalışırken performans sayaçları dahil olmak üzere tüm ölçümleri yalnızca kaydedilir fark etmiş olabilirsiniz. Bu davranış, Application Insights günlüklerini veri miktarını sınırlar için yararlıdır. Bununla birlikte, her zaman işlem düğümleri izlemek istediğiniz zaman durumlar vardır. Örneğin, bunlar değil zamanlanan arka plan çalışması Batch hizmeti ile çalışıyor olabilir. Bu durumda, bir izleme işlemini işlem düğümü ömrü için çalışacak şekilde ayarlayın. 
+Görevler çalıştırılırken performans sayaçları da dahil olmak üzere tüm ölçümleri yalnızca kaydedilir fark etmiş olabilirsiniz. Bu davranış, Application Insights günlükleri veri miktarını sınırlar için yararlıdır. Ancak, her zaman işlem düğümlerine izlemek istediğiniz durumlar vardır. Örneğin, bunlar değil zamanlanan arka plan iş Batch hizmeti ile çalışıyor olabilir. Bu durumda, işlem düğümü ömrü için çalıştırılacak bir izleme işlemini ayarlayın. 
 
-Bu davranış elde etmek için bir Application Insights kitaplığı yükleyen ve arka planda çalışan bir işlem oluşturma yoludur. Örnekte, başlangıç görevi makinedeki ikilileri yükler ve süresiz olarak çalışan bir işlemi tutar. Bu işlem, performans sayaçları gibi ilgilendiğiniz ek veri yayma için Application Insights yapılandırma dosyası yapılandırın.
+Bu davranışı elde etmek için bir Application Insights kitaplığı yükleyen ve arka planda çalışan bir işlemin üretme yoludur. Örnekte, başlangıç görevi, ikili dosyaları makineye yükler ve süresiz olarak çalışan bir işlemin tutar. Bu işlemin, performans sayaçları gibi ilgilendiğiniz ek veri yaymak Application Insights yapılandırma dosyasını yapılandırın.
 
 ```csharp
 ...
@@ -312,8 +312,8 @@ private const string BatchStartTaskTelemetryRunnerAIConfig = "ApplicationInsight
 CloudPool pool = client.PoolOperations.CreatePool(
     topNWordsConfiguration.PoolId,
     targetDedicated: topNWordsConfiguration.PoolNodeCount,
-    virtualMachineSize: "small",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+    virtualMachineSize: "standard_d1_v2",
+    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 ...
 
 // Create a start task which will run a dummy exe in background that simply emits performance
@@ -329,17 +329,17 @@ pool.StartTask = new StartTask()
 ```
 
 > [!TIP]
-> Çözümünüzü yönetilebilirliğini artırmak için bütünleştirilmiş kodunda paketleyebilirsiniz bir [uygulama paketi](./batch-application-packages.md). Ardından, uygulama paketi otomatik olarak, havuzlarınızı dağıtmak için bir uygulama paketi başvurusu havuzu yapılandırması için ekleyin.
+> Çözümünüzün yönetilebilirlik artırmak için derleme içinde gruplandırabilirsiniz bir [uygulama paketi](./batch-application-packages.md). Ardından, uygulama paketi havuzlarınızı için otomatik olarak dağıtmak için havuz yapılandırmasına bir uygulama paketi başvurusu ekleyin.
 >
 
-## <a name="throttle-and-sample-data"></a>Azaltma ve örnek veri 
+## <a name="throttle-and-sample-data"></a>Azaltma ve örnek veriler 
 
-Azure Batch uygulamalar üretimde çalışan büyük ölçekli yapısı nedeniyle, maliyetleri yönetmek için Application Insights tarafından toplanan veri miktarını sınırlamak isteyebilirsiniz. Bkz: [Application Insights'ta örnekleme](../application-insights/app-insights-sampling.md) Bunu başarmak bazı mekanizmalar için.
+Azure Batch uygulamalarıyla üretimde çalışan büyük ölçekli yapısı nedeniyle, maliyetleri yönetmek için Application Insights tarafından toplanan veri miktarını sınırlamak isteyebilirsiniz. Bkz: [Application Insights'ta örnekleme](../application-insights/app-insights-sampling.md) Bunu başarmak bazı mekanizmalar için.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinmek [Application Insights](../application-insights/app-insights-overview.md).
+* Daha fazla bilgi edinin [Application Insights](../application-insights/app-insights-overview.md).
 
-* Application Insights diğer dillerde desteği için bakmak [diller, platformlar ve tümleştirmeler belgeleri](../application-insights/app-insights-platforms.md).
+* Application Insights'ı diğer dillerde desteği sağlamak için bakmak [dilleri, platformlar ve tümleştirmeler belgeleri](../application-insights/app-insights-platforms.md).
 
 

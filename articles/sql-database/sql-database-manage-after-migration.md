@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 133cba72a93d692851043f1c66d6a4a38e18b324
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d82cc3ee1074e326c9e4dee7fd65e338cb95e19f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379477"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722240"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – veritabanınızı Azure SQL veritabanı'nda yönetme
 
@@ -209,7 +209,7 @@ Bu grafikte, kaynak tarafından uyarıları da yapılandırabilirsiniz. Bu uyar�
 
    ![Sorgu Performansı İçgörüleri](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-- **Azure SQL Analytics (Önizleme) Log analytics'te**: [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md) destekleyen en fazla 150.000 SQL veritabanları ve başına 5.000 SQL esnek havuzları toplamanıza ve anahtar Azure SQL Azure performans ölçümleri görselleştirmenize olanak tanır Çalışma alanı. İzleme ve bildirimler almak için kullanabilirsiniz. Bir uygulama yığınının her katmanında sorunları belirlemek için kullanılabilir ve SQL veritabanı ve elastik havuz ölçümleri birden çok Azure abonelikleri ve elastik havuzlar arasında izleyebilirsiniz.
+- **Azure SQL Analytics (Önizleme) Log analytics'te**: [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md) destekleyen en fazla 150.000 SQL veritabanları ve başına 5.000 SQL elastik havuzları toplamanıza ve anahtar Azure SQL Azure performans ölçümleri görselleştirmenize olanak tanır Çalışma alanı. İzleme ve bildirimler almak için kullanabilirsiniz. Bir uygulama yığınının her katmanında sorunları belirlemek için kullanılabilir ve SQL veritabanı ve elastik havuz ölçümleri birden çok Azure abonelikleri ve elastik havuzlar arasında izleyebilirsiniz.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Performans sorunlarını tercihinize: my SQL veritabanı sorun giderme Metodoloji farkı SQL Server'dan?
 Sorun giderme teknikleri önemli bir kısmı, sorgu tanılamak için kullanacağınız ve veritabanı performans sorunlarını aynı kalır. Sonra tüm aynı SQL Server, bulut altyapısı çalıştırır. Ancak, platform - Azure SQL DB 'zekası' oluşturdu. Bu, hatta daha kolay performans sorunlarını tanılama ve giderme yardımcı olabilir. Bu da bu düzeltici eylemler bazılarını sizin adınıza ve bazı durumlarda gerçekleştirmek, proaktif olarak bunları - otomatik olarak düzeltin. 

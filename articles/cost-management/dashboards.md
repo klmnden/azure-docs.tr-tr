@@ -1,297 +1,300 @@
 ---
-title: Azure maliyeti yönetim panolarında önemli metrikleri görüntüleyin | Microsoft Docs
-description: Bu makalede nasıl Azure maliyeti Yönetimi'nde panolarla önemli metrikleri görüntüleyin.
+title: Azure maliyet Yönetimi Pano Ana ölçümleri görüntüleme | Microsoft Docs
+description: Bu makalede ana ölçümleri Panolar ile Azure maliyet Yönetimi'nde görüntülemekten.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/05/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b1dc2e2eca900ca0ae72329c3c373b2d24f1b2e0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4f51598dd2b026f1c3a4b0d763b1547a44eedc7b
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35304097"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647142"
 ---
-# <a name="view-key-cost-metrics-with-dashboards"></a>Panolarla ölçümleri maliyet anahtarını görüntüle
+# <a name="view-key-cost-metrics-with-dashboards"></a>Ölçümleri panolarla maliyet anahtarını görüntüle
 
-Cloudyn panolarında raporlar üst düzey bir görünümünü sağlar. Panolar, anahtar maliyet ölçümleri tek bir görünümde olanak tanır. Ayrıca, önemli iş kararları almanıza yardımcı olmak için iş eğilimi vurgular sağlarlar.
+Cloudyn panoları, raporları üst düzey bir görünümünü sağlar. Panolar, önemli maliyet ölçümleri tek bir görünümde olanak tanır. Ayrıca, önemli iş kararları almanıza yardımcı olmak için iş eğilim vurgular sağlarlar.
 
-Panolar ayrıca farklı sorumlulukları içerebilir, kuruluşunuzdaki kişiler için görünümleri oluşturmak için kullanılır:
+Panolar için farklı sorumluluklara içerebilir, kuruluşunuzdaki kişilerle görünümleri oluşturmak için de kullanılır:
 
 - Finansal denetleyicisi
 - Uygulama veya proje sahibi
-- DevOps mühendislik
+- DevOps mühendisi
 - Yöneticiler
 
-Pano pencere öğeleri yapılır ve her bir pencere aslında bir rapor küçük resim olur. Kendi raporu açmak için bir pencere öğesini tıklatın. Raporları özelleştirme raporlarım için Kaydet ve panoya eklenir.
+Pano pencere öğelerinizi yapılır ve aslında bir rapor küçük resim her pencere öğesi ise. Bir pencere öğesi, bir raporu açmak için tıklayın. Raporları'nı özelleştirdiğinizde raporlarım için Kaydet ve panonuza.
 
-Pano sürümleri Yönetimi (MSP), kurumsal ve Premium Cloudyn kullanıcılar için farklı. Farkları varlık erişim düzeyleri tarafından belirlenir. Erişim düzeyleri hakkında daha fazla bilgi için bkz: [varlık erişim düzeyleri](tutorial-user-access.md#entity-access-levels).
+Pano sürüm Yönetimi (MSP), Enterprise ve Premium Cloudyn kullanıcılar için farklı. Farklar varlık erişim düzeyleri tarafından belirlenir. Erişim düzeyleri hakkında daha fazla bilgi için bkz. [varlık erişim düzeyleri](tutorial-user-access.md#entity-access-levels).
 
-Pano kullanılabilirlik panolar görüntülenirken kullanılan bulut hizmeti sağlayıcısı hesap türüne göre değişir. Kullanılabilir ve Cloudyn tarafından toplanan bilgiler türü panolar raporlarda etkiler. Örneğin, bir AWS hesabınız yoksa S3 İzleyicisi panoyu görmezsiniz. Benzer şekilde, Azure Resource Manager erişimi Cloudyn etkinleştirmezseniz iyileştirici Pano pencere öğeleri herhangi bir Azure özgü bilgi göremezsiniz.
+Pano kullanılabilirlik panolar görüntülenirken kullanılan bulut hizmet sağlayıcısı hesabı türüne bağlıdır. Panolar, raporlar kullanılabilir ve Cloudyn tarafından toplanan bilgi türünü etkiler. Örneğin, bir AWS hesabınız yoksa S3 İzleyicisi panoyu görmezsiniz. Benzer şekilde, Azure Resource Manager Cloudyn'e erişim izni etkinleştirmezseniz iyileştirici Pano pencere öğeleri herhangi bir Azure özel bilgi görmezsiniz.
 
-Hazır panolar birini kullanabilirsiniz veya özelleştirilmiş raporlarla kendi Pano oluşturabilirsiniz. Cloudyn raporlarla emin değilseniz bkz [maliyet yönetimini kullanma raporları](use-reports.md).
+Önceden hazırlanmış panolar dilediğinizi kullanabilirsiniz veya kendi panonuzu ile özelleştirilmiş raporlar oluşturabilirsiniz. Cloudyn raporlarla bilmiyorsanız bkz [kullanım maliyet Yönetimi raporlarını](use-reports.md).
 
-## <a name="create-a-custom-dashboard"></a>Özel bir pano oluşturun
+## <a name="create-a-custom-dashboard"></a>Özel bir pano oluşturma
 
-Özel bir pano ile hızlı bir şekilde başlamak için özelliklerini kullanmak için mevcut bir çoğaltabilirsiniz. Ardından, gereksinimlerinize uyacak şekilde değiştirebilirsiniz. Kopyalamak istediğiniz Panoda tıklatın **Kaydet**. Özelleştirilmiş Panolar yalnızca çoğaltabilirsiniz — Cloudyn ile birlikte panolar aynı olamaz.
+Özel bir pano ile hızla çalışmaya başlamak için özelliklerini kullanmak için mevcut bir çoğaltabilirsiniz. Ardından, gereksinimlerinize uyacak şekilde değiştirebilirsiniz. Kopyalamak istediğiniz panosunda **Kaydet**. Özelleştirilmiş Panolar yalnızca çoğaltabilirsiniz — Cloudyn'e dahil olan panoları yineleyemez.
 
 Özel bir Pano oluşturmak için:
 
-1. Giriş sayfasında tıklatın **yeni Ekle +**. My Pano sayfası görüntülenir.  
-    ![Benim Panom](./media/dashboards/my-dashboard.png)
-2. Tıklatın **yeni bir rapor eklemek**. Rapor Ekle kutusu görüntülenir.
-3. Pano pencere öğesi için eklemek istediğiniz raporu seçin. Pencere öğesi panoya eklenir.
-4. Pano tamamlanana kadar önceki adımları yineleyin.
-5. Panonun adını değiştirmek için Pano giriş sayfası Panoda adına tıklayın ve yeni bir ad yazın.
+1. Giriş sayfasında tıklayın **yeni Ekle +**. Panom'u sayfası görüntülenir.  
+    ![Panom](./media/dashboards/my-dashboard.png)
+2. Tıklayın **yeni bir rapor eklemek**. Rapor Ekle kutusu görüntülenir.
+3. Pano pencere öğesine eklemek istediğiniz raporu seçin. Pencere öğesinin panoya eklendi.
+4. Pano tamamlanana kadar yukarıdaki adımları yineleyin.
+5. Panonun adını değiştirmek için Pano giriş sayfası panonun adına tıklayın ve yeni adı yazın.
 
 ## <a name="modify-a-custom-dashboard"></a>Özel bir Pano değiştirme
 
-Özel bir pano oluşturma gibi ile Cloudyn dahil panolar değiştiremezsiniz. Özel Pano raporu değiştirmek için:
+Özel bir pano oluşturma gibi Cloudyn'e dahil panolar değiştiremezsiniz. Özel Pano raporunu değiştirmek için:
 
-1. Panosunda, önce değiştirmek istediğiniz raporu Bul **Düzenle**. Rapor görüntülenir.
-2. Raporu istediğiniz değişiklikleri yapın **kaydetmek**. Rapor güncelleştirilir ve değişikliklerinizi görüntüler.
+1. Panoda tıklayın ve değiştirmek istediğiniz raporu Bul **Düzenle**. Rapor görüntülenir.
+2. Raporu istediğiniz değişiklikleri yapın **Kaydet**. Rapor güncelleştirilir ve yaptığınız değişiklikleri görüntüler.
 
-## <a name="share-a-custom-dashboard"></a>Özel bir pano paylaşımı
+## <a name="share-a-custom-dashboard"></a>Özel bir panoyu paylaşma
 
-Özel bir Pano için başkalarıyla paylaşabilirsiniz _ortak_ veya _My varlık_. Ortak olarak paylaştığınızda, tüm kullanıcıların Pano görüntüleyebilirsiniz. My varlığa paylaştığınızda yalnızca geçerli varlık erişimi olan kullanıcılar Pano görüntüleyebilirsiniz. Özel bir pano paylaşımı ortak ve My varlık için adımları benzerdir.
+Özel bir Pano için diğer kişilerle paylaşabilirsiniz _genel_ veya _My varlık_. Tüm kullanıcılar, ortak paylaştığınızda panoyu görüntüleyebilirsiniz. Yalnızca geçerli varlık erişimi olan kullanıcılar, My varlığa paylaştığınızda panoyu görüntüleyebilirsiniz. My varlık ve genel ile özel bir pano paylaşma adımları benzerdir.
 
-Ortak için özel bir panoyu paylaşmak için:
+Kamu için özel bir panoyu paylaşmak için:
 
-1. Bir Panoda tıklatın **Pano ayarları**. Pano ayarları kutusu görüntülenir.  
+1. Bir Panoda tıklayın **Pano ayarları**. Pano ayarları kutusu görüntülenir.  
     ![Pano Seçenekleri](./media/dashboards/dashboard-options.png)
-2. Pano ayarları kutusunda OK simgesine tıklayın ve ardından **ortak**. Ortak Pano onay iletişim kutusu görüntülenir.
-3. Tıklatın **Evet**. Pano başkalarına kullanıma sunulmuştur.
+2. Pano Ayarları iletişim kutusunda, ok simgesine tıklayın ve ardından **genel**. Genel Pano onay iletişim kutusunda görüntülenir.
+3. Tıklayın **Evet**. Panoyu başkalarının kullanıma sunuldu.
 
-## <a name="delete-a-custom-dashboard-report"></a>Özel Pano raporu silin
+## <a name="delete-a-custom-dashboard-report"></a>Özel Pano raporu Sil
 
-Panodan bir özel rapor bileşeni silebilirsiniz. Panodan raporu silmek raporu Raporlar listesinden silmez. Bunun yerine, rapor silme yalnızca panodan kaldırır.
+Panodan bir özel rapor bileşeni silebilirsiniz. Panodan raporu sildiğinizde raporun raporlar listesinden silinmesine neden olmaz. Bunun yerine, raporu sildiğinizde yalnızca panodan kaldırır.
 
-Bir Pano bileşende Pano bileşeni silmek için tıklatın **silmek**. Tıklatarak **silmek** hemen Panosu bileşenleri siler.
+Pano bileşen üzerinde bir Pano bileşeni silmek için tıklayın **Sil**. Tıklayarak **Sil** hemen Pano bileşenleri siler.
 
-## <a name="share-a-dashboard-enterprise"></a>Pano (Kurumsal) paylaşma
+## <a name="share-a-dashboard-enterprise"></a>(Kurumsal) pano paylaşma
 
-Tüm kullanıcılar için özel panolar, kuruluşunuzda veya geçerli varlığın kullanıcılarıyla paylaşabilirsiniz. Bir pano paylaşımı başkalarının KPI hızlı üst düzey bir görünümünü verebilirsiniz. Bir Pano paylaştığınızda, otomatik olarak tüm Cloudyn varlıklar/müşterileriniz için panoyu çoğaltır. Paylaşılan Pano değişiklikler otomatik olarak güncelleştirilir.
+Tüm kullanıcılar için özel panolar, kuruluşunuzdaki veya geçerli varlık kullanıcılarla paylaşabilirsiniz. Pano paylaşımını diğerleri KPI'niz hızlı üst düzey bir görünümünü verebilir. Bir panoyu paylaştığınızda otomatik olarak tüm Cloudyn varlık/müşterileriniz için panoya çoğaltır. Paylaşılan panonun değişiklikler otomatik olarak güncelleştirilir.
 
-Bir Pano subentities dahil olmak üzere tüm kullanıcılarla paylaşmak için:
+Bir panoyu subentities dahil olmak üzere tüm kullanıcılarla paylaşmak için:
 
-1. Pano giriş sayfasında, tıklatın **Düzenle**.
-2. Tıklatın **paylaşımı** ve ardından **ortak**.
-3. Genel ortak Pano onay kutusu görüntülenir.
-4. Tıklatın **Evet** Pano genel ortak Pano olarak ayarlamak için.
+1. Pano giriş sayfasında tıklayın **Düzenle**.
+2. Tıklayın **paylaşımı** seçip **genel**.
+3. Genel genel Pano onay kutusu görüntülenir.
+4. Tıklayın **Evet** Pano genel genel Pano olarak ayarlamak için.
 
-Bir Pano geçerli bir varlık tüm kullanıcılarla paylaşmak için:
+Geçerli bir varlığın tüm kullanıcılarla pano paylaşma için:
 
-1. Pano giriş sayfasından tıklatın **Düzenle**.
-2. Tıklatın **paylaşımı** ve ardından **My varlık**.
-3. Tıklatın **Evet** Pano ortak bir pano olarak ayarlamak için.
+1. Pano giriş sayfasından tıklayın **Düzenle**.
+2. Tıklayın **paylaşımı** seçip **My varlık**.
+3. Tıklayın **Evet** Pano genel bir pano olarak ayarlamak için.
 
-## <a name="duplicate-a-custom-dashboard"></a>Özel bir Pano Çoğalt
+## <a name="duplicate-a-custom-dashboard"></a>Özel bir panoyu Yinele
 
-Yeni bir Pano oluşturduğunuzda, varolan bir panoyu benzer özelliklerinden kullanmak isteyebilirsiniz. Yeni bir tane oluşturmak için panoyu çoğaltabilirsiniz.
+Yeni bir Pano oluşturduğunuzda, mevcut bir panoya benzer özellikleri kullanmak isteyebilirsiniz. Panoda yeni bir tane oluşturabilirsiniz yineleyebilirsiniz.
 
-Yalnızca özel panolar çoğaltabilirsiniz. Standart panolar aynı olamaz.
+Yalnızca özel panolar çoğaltabilirsiniz. Standart panolar yineleyemez.
 
-(Kopya) özel bir Pano çoğaltmak için:
+Yinelenen (kopya) özel bir Pano için:
 
-1. Çoğaltmak istediğiniz Panoda tıklatın **Kaydet**. Yeni bir Pano aynı ada ve bir numara ile açılır.
-2. Yinelenen Panoyu yeniden adlandırın ve istediğiniz gibi değiştirebilirsiniz.
+1. Çoğaltmak istediğiniz panosunda **Kaydet**. Yeni bir pano, aynı ada ve bir sayı ile açılır.
+2. Yinelenen Panoyu yeniden adlandırma ve istediğiniz gibi değiştirin.
 
 -Veya-
 
-1. Pano ayarlar'ı **Kaydet** çoğaltmak istediğiniz panonun satırındaki.
-2. Yinelenen panosu açılır.
-3. Panoyu yeniden adlandırın ve istediğiniz gibi değiştirebilirsiniz.
+1. Pano Ayarları'nda tıklatın **Kaydet** çoğaltmak istediğiniz panonun satırında.
+2. Yinelenen Pano açılır.
+3. Panoyu yeniden adlandırma ve istediğiniz gibi değiştirin.
 
-## <a name="set-a-default-dashboard"></a>Varsayılan Pano ayarlama
+## <a name="set-a-default-dashboard"></a>Varsayılan bir Pano Ayarla
 
-Varsayılan olarak herhangi bir pano ayarlayabilirsiniz. Varsayılan ayarı Pano sekmesi listesi en sol sekmede olarak görünmesini sağlar. Varsayılan Pano ne zaman görüntüler Cloudyn Portalı'nı açın.
+Varsayılan olarak, herhangi bir panoyu ayarlayabilirsiniz. İçin varsayılan ayar, Pano sekmesi listenin en sol sekmede görünür hale getirir. Varsayılan Pano ne zaman görüntüler Cloudyn portalını açın.
 
-- İstediğiniz varsayılan olarak ayarlayın ve ardından Pano sekmesini **varsayılan** sağdaki.
+- Varsayılan olarak ayarlayın ve ardından istediğiniz Pano sekmesini **varsayılan** sağ.
 
 -Veya-
 
-1. Tıklatın **Pano ayarları** kullanılabilir panolar listesini görmek ve varsayılan olarak ayarlamak istediğiniz Pano seçin.  
+1. Tıklayın **Pano ayarları** kullanılabilir durumdaki panoların listesini görmek ve varsayılan olarak ayarlamak istediğiniz panoyu seçin.  
     ![Pano Seçenekleri](./media/dashboards/dashboard-options.png)
-2. Tıklatın **varsayılan** Pano satırında. Varsayılan Pano onay kutusu görüntülenir.
+2. Tıklayın **varsayılan** satırında Pano. Varsayılan Pano onay kutusu görüntülenir.
 3. **Evet**'e tıklayın. Pano, varsayılan olarak ayarlanır.
 
 ## <a name="management-dashboard"></a>Yönetim panosu
-Yönetim (veya MSP Pano MSP kullanıcılar için) Pano vurgular ana rapor türleri içerir.  
+Yönetim (veya MSP Pano MSP kullanıcılar için) Pano Ana rapor türleri en önemli özellikleri içerir.  
 ![Yönetim panosu](./media/dashboards/management-dash.png)
 
-### <a name="cost-entity-summary-enterprise-only"></a>Maliyet varlık özeti (yalnızca Kurumsal)
-Bu pencere öğesi varlıkların sayısı ve hesap sayısı dahil olmak üzere yönetilen maliyet varlıklar özetler.
-- Kuruluş Ayrıntıları raporu açmak için pencere öğesini tıklatın.
+### <a name="cost-entity-summary-enterprise-only"></a>Maliyet varlığı örneği (yalnızca Kurumsal)
+Bu pencere öğesi varlıkların sayısı ve hesap sayısı dahil olmak üzere yönetilen maliyet varlıkları özetler.
+- Pencere öğesi, kuruluş Ayrıntıları raporu açmak için tıklayın.
 
-### <a name="cost-over-time"></a>Zaman içinde maliyet
-Bu pencere öğesi maliyet eğilimleri yardımcı olabilir. Son 30 gün eğilimini temel maliyeti son gündür vurgular.
-- Pencere öğesini görüntülemek için gerçek zamanlı maliyeti raporu açmak için tıklayın ve filtre ek ayrıntılar.
+### <a name="cost-over-time"></a>Zaman temelinde maliyet
+Bu pencere öğesi maliyet eğilimleri yardımcı olabilir. Son günün maliyeti eğilimini ve hataların son 30 gün üzerinde temel vurgular.
+- Pencere öğesi görüntülemek için zaman içinde gerçek maliyet raporu açmak için tıklayın ve filtre ek ayrıntılar.
 
 ### <a name="asset-controller"></a>Varlık denetleyicisi
-Bu pencere öğesini son 30 gün içinde kullanım eğilim yukarıda önceki günden örnekleri çalışan sayısı vurgular.
-- Varlık denetleyicisi panosunu açmak için pencere öğesini tıklatın.
+Bu pencere öğesini son 30 gün içinde kullanım eğilim yukarıda önceki günden itibaren örnekleri çalışan sayısını vurgular.
+- Pencere denetleyicisi varlık panoyu açmak için tıklayın.
 
-### <a name="unused-ri-detector"></a>Kullanılmayan RI algılayıcısı
-Bu pencere öğesi Amazon EC2 sayısı vurgular kullanılmayan ayırmaları.
-- Pencere öğesi görüntüleyebileceğiniz kullanılmayan şu anda kullanılmayan ayırmaları raporu açmak için tıklatın ayırmaları değiştirebilirsiniz.
+### <a name="unused-ri-detector"></a>Kullanılmamış RI algılayıcısı
+Amazon EC2 sayısı bu pencere öğesini vurgular kullanılmamış durumdaki ayırmalar.
+- Pencere öğesi görüntüleyebileceğiniz kullanılmayan şu anda kullanılmamış durumdaki ayırmalar raporu açmak için tıklayın ayırmaları değiştirebilirsiniz.
 
-### <a name="cost-by-service"></a>Hizmeti tarafından maliyet
-Bu pencere, son 30 gün için hizmeti tarafından amortized maliyetleri vurgular. Her hizmet maliyetleri görmek için pasta grafiğin üzerine gelin.
-- Gerçek maliyet analiz raporu açmak için pencere öğesini tıklatın.
+### <a name="cost-by-service"></a>Hizmete göre maliyet
+Bu pencere öğesi, son 30 gün için hizmete göre amorti edilmiş maliyet vurgular. Hizmet başına maliyetleri görmek için pasta grafiği üzerine gelin.
+- Pencere öğesi gerçek maliyet analizi raporu açmak için tıklayın.
 
-### <a name="potential-savings"></a>Olası tasarrufları
-Bu pencere öğesi örneği türü önerileri Amazon EC2 ve Amazon RDS için fiyatlandırma gösterir
-- Tasarruf analiz raporu pencere aç'ı tıklatın. Maliyetlerinizi örneği türleriyle olası tasarrufları göre listeler.
+### <a name="potential-savings"></a>Olası tasarruf
+Bu pencere öğesi örnek türü fiyatlandırma önerileri Amazon EC2 ve Amazon RDS'yi gösterir
+- Tasarruf analiz raporu pencere öğesi Aç'a tıklayın. Olası tasarruf ile örnek türlerine göre maliyetlerinizi listeler.
 
-### <a name="compute-instances---daily-trend"></a>İşlem örnekleri - günlük eğilimi
-Bu pencere etkin örnekler için son 30 gün türüne göre görüntüler.
-- Son 30 gün içinde çalışan tüm örneği dökümünü görüntüleyebileceğiniz zaman içinde örnekleri raporu açmak için pencere öğesini tıklatın.
+### <a name="compute-instances---daily-trend"></a>İşlem örnekleri - günlük eğilim
+Bu pencere öğesi, son 30 gün boyunca etkin örnekler türüne göre görüntüler.
+- Pencere öğesinin son 30 gün içinde çalışan tüm örneklerinin dökümünü görüntüleyebileceğiniz zamana göre örnekler raporu açmak için tıklayın.
 
-### <a name="storage-by-department"></a>Depolama Birimi departmanı tarafından
-Bu pencere öğesi Departmanlar tarafından kullanılan depolama hizmetleri görüntüler. Depolama tüketim bölümünüzün görmek için pasta grafiğin üzerine gelin.
-- S3 İzleyicisi panoyu açmak için pencere öğesini tıklatın.
+### <a name="storage-by-department"></a>Departmana göre depolama
+Bu pencere öğesi departmanları tarafından kullanılan depolama hizmetleri görüntüler. Departmana göre depolama tüketiminiz görmek için pasta grafiğin üzerine gelin.
+- Pencere öğesi S3 İzleyicisi panoyu açmak için tıklayın.
 
 ## <a name="cost-controller-dashboard"></a>Maliyet denetleyicisi Panosu
-Maliyet denetleyicisi Panosu, önceden ayarlanmış maliyet ayırma vurgular gösterir.  
+Maliyet denetleyicisi Panosu, önceden ayarlanmış maliyet ayırma öne çıkan özellikleri gösterir.  
 ![Maliyet denetleyicisi Panosu](./media/dashboards/cost-controller-dashboard.png)
 
-### <a name="cost-over-time"></a>Zaman içinde maliyet
-Bu pencere öğesi maliyet eğilimleri yardımcı olur. Son 30 gün eğilimini temel maliyeti son gündür vurgular.
-- Pencere öğesini görüntülemek için gerçek zamanlı maliyeti raporu açmak için tıklayın ve filtre ek ayrıntılar.
+### <a name="cost-over-time"></a>Zaman temelinde maliyet
+Bu pencere öğesi maliyet eğilimleri yardımcı olur. Son günün maliyeti eğilimini ve hataların son 30 gün üzerinde temel vurgular.
+- Pencere öğesi görüntülemek için zaman içinde gerçek maliyet raporu açmak için tıklayın ve filtre ek ayrıntılar.
 
 ### <a name="monthly-cost-trends"></a>Aylık maliyet eğilimleri
-Bu pencere öğesi tahmini amortized harcama vurgular ve ayın başlangıcını itibaren gerçek harcamanızı.
-- Özet bir ay tarih maliyeti sağlar geçerli ay tahmini maliyet raporu açmak için pencere öğesini tıklatın.
+Amorti edilmiş harcama tahmini Bu pencere öğesini vurgular ve gerçek itibaren ayın başlangıcını ayırabilirsiniz.
+- Pencere öğesi, bir ay başından bu yana maliyet özeti sağlar geçerli ay öngörülen maliyet raporu açmak için tıklayın.
 
-Bu rapor, ay, önceki ayın maliyet ve geçerli ay tahmini maliyet başından itibaren maliyet gösterir. Geçerli ay tahmini maliyet güncel aylık maliyeti ve projeksiyon ekleyerek hesaplanır. Projeksiyon son 30 gün içinde izlenen maliyeti temel alır.
+Bu rapor, ay, önceki ay maliyeti ve geçerli ay öngörülen maliyet başına maliyeti gösterir. Geçerli ay öngörülen maliyet yansıtma ve güncel aylık maliyet ekleyerek hesaplanır. Son 30 gün içindeki izlenen Maliyet Yansıtma dayanır.
 
 ### <a name="12-month-planner"></a>12 aylık Planlayıcısı
-Bu pencere öğesi, bir sonraki 12 ay ve olası tasarrufları üzerinden tahmini maliyetleri vurgular.
-- Yıllık tahmini maliyet raporu açmak için pencere öğesini tıklatın.
+Bu pencere öğesi, sonraki 12 ay ve olası tasarruf üzerinden tahmini maliyetleri vurgular.
+- Pencere öğesi yıllık öngörülen maliyet raporu açmak için tıklayın.
 
-### <a name="cost-by-service"></a>Hizmeti tarafından maliyet
-Bu pencere, son 30 gün için hizmeti tarafından amortized maliyetleri vurgular.
-- Her hizmet maliyetleri görmek için pasta grafiğin üzerine gelin.
-- Gerçek maliyet analiz raporu açmak için pencere öğesini tıklatın.
+### <a name="cost-by-service"></a>Hizmete göre maliyet
+Bu pencere öğesi, son 30 gün için hizmete göre amorti edilmiş maliyet vurgular.
+- Hizmet başına maliyetleri görmek için pasta grafiği üzerine gelin.
+- Pencere öğesi gerçek maliyet analizi raporu açmak için tıklayın.
 
 ### <a name="cost-by-account"></a>Hesaba göre maliyet
-Bu pencere öğesi amortized maliyetleri hesabı tarafından son 30 gün boyunca vurgular.
-- Hesap başına maliyetleri görmek için pasta grafiğin üzerine gelin.
-- Gerçek maliyet analiz raporu açmak için pencere öğesini tıklatın.
+Bu pencere öğesi, son 30 güne ait hesaba göre amorti edilmiş maliyet vurgular.
+- Hesap başına maliyetleri görmek için pasta grafiği üzerine gelin.
+- Pencere öğesi gerçek maliyet analizi raporu açmak için tıklayın.
 
-### <a name="cost-trend-by-day"></a>Gün bazında maliyet eğilimi
-Vurgular harcamanız son 30 gün içinde bu pencere öğesi.
-- Gün başına maliyetleri görmek için çubuk grafik üzerine gelerek.
-- Gerçek zamanlı maliyeti raporu açmak için pencere öğesini tıklatın.
+### <a name="cost-trend-by-day"></a>Günlük maliyet eğilimi
+Bu pencere öğesini vurgular son 30 gün içindeki ayırın.
+- Günlük maliyetleri görmek üzere çubuk grafik üzerine gelin.
+- Pencere öğesi, zaman içinde gerçek maliyet raporunu açmak için tıklayın.
 
-### <a name="cost-trend-by-month---last-6-months"></a>Ay - Son 6 ay bazında maliyet eğilimi
+### <a name="cost-trend-by-month---last-6-months"></a>Maliyet ay - son 6 aya göre edinme miktarı eğilimi
 
-Vurgular harcamanız son altı ay içinde bu pencere öğesi.
-- Aylık maliyetleri görmek için çubuk grafik üzerine gelerek.
-- Gerçek zamanlı maliyeti raporu açmak için pencere öğesini tıklatın.
+Bu pencere öğesini vurgular son altı ay içinde harcama.
+- Aylık maliyetleri görmek üzere çubuk grafik üzerine gelin.
+- Pencere öğesi, zaman içinde gerçek maliyet raporunu açmak için tıklayın.
 
-## <a name="asset-controller-dashboard"></a>Varlık denetleyicisi Panosu
+## <a name="asset-controller-dashboard"></a>Varlık denetleyici Panosu
 
-Bu panoyu çalışan örnekleri, kullanılabilir ve kullanımdaki diskler, dağıtım örnek türleri ve depolama bilgilerini sayısını görüntüler.  
-![Varlık denetleyicisi Panosu](./media/dashboards/asset-controller-dashboard.png)
+Bu pano, örnekler, kullanılabilir ve kullanımdaki diskleri, örnek türleri ve Depolama bilgileri dağıtım çalışan sayısını görüntüler.  
+![Varlık denetleyici Panosu](./media/dashboards/asset-controller-dashboard.png)
 
 ### <a name="compute-instances"></a>İşlem örnekleri
-Bu pencere öğesi örnek son 30 gün içinde kullanım eğilim göre çalışan sayısını görüntüler.
-- Zaman içinde örnekleri raporu açmak için pencere öğesini tıklatın.
+Bu pencere öğesi son 30 gün içindeki kullanım eğilim üzerindeki göre örnek çalışan sayısını görüntüler.
+- Pencere öğesinin örnekleri zaman içinde bir raporu açmak için tıklayın.
 
 ### <a name="disks"></a>Diskler
-Bu pencere öğesi sayısı ve kullanımdaki ve kullanılabilir diskler, hacmi vurgular.
-- Etkin diskleri raporu açmak için pencere öğesini tıklatın.
+Bu pencere öğesi, toplam sayısı ve kullanımdaki ve kullanılabilir olan diskler hacmi vurgular.
+- Pencere etkin diskleri raporu açmak için tıklayın.
 
-### <a name="instance-type-distribution"></a>Örnek türü dağıtım
-Bu pencere öğesi pasta grafik örneği türlerinde vurgular.
-- Pencere öğesi tarafından seçilen toplama etkin örneği dökümünü sağlar örnek dağıtım raporu açmak için tıklayın.
+### <a name="instance-type-distribution"></a>Örnek türü dağılımı
+Bu pencere öğesi örnek türleri bir pasta grafiğinin vurgular.
+- Pencere öğesi tarafından seçilen toplama etkin örneklerinizin dökümünü sağlar örnek dağıtım raporu açmak için tıklayın.
 
-### <a name="compute-instances---daily-trend"></a>İşlem örnekleri - günlük eğilimi
-Bu pencere öğesini son 30 gün için günlük işlem örnekleri (nokta, ayrılmış ve isteğe bağlı) vurgular.
-- Gün başına tür başına işlem örneklerinin sayısını görüntülemek için grafiği üzerine gelerek.
-- Zaman içinde örnekleri raporu açmak için pencere öğesini tıklatın.
+### <a name="compute-instances---daily-trend"></a>İşlem örnekleri - günlük eğilim
+Son 30 gün için günde bir bilgi işlem örnekleri (nokta, ayrılmış ve isteğe bağlı) Bu pencere öğesini vurgular.
+- Günlük türü başına işlem örneği sayısını görüntülemek için grafik üzerinde gezdirin.
+- Pencere öğesinin örnekleri zaman içinde bir raporu açmak için tıklayın.
 
-### <a name="all-buckets-s3"></a>Tüm demet (S3)
-Bu pencere öğesi depolanan nesneler sayısı ve toplam S3 depolama vurgular.
-- S3 İzleyicisi panoyu açmak için pencere öğesini tıklatın. Pano bulmak, çözümlemek ve geçerli depolama alanı kullanımı ve eğilimleri görüntülemek yardımcı olur.
+### <a name="all-buckets-s3"></a>Tüm demetleri (S3 için)
+Bu pencere öğesi, depolanan nesnelerin sayısı ve toplam S3 depolama vurgular.
+- Pencere öğesi S3 İzleyicisi panoyu açmak için tıklayın. Pano geçerli depolama kullanım ve eğilimleri görüntülemek, çözümlemek ve yardımcı olur.
 
 ### <a name="sql-db-instances-rds"></a>SQL DB örnekleri (RDS)
-Bu pencere öğesi Amazon RDS örnek son 30 gün eğilimini göre çalışan sayısı vurgular.
-- Zaman içinde RDS örnek raporu açmak için pencere öğesini tıklatın.
+Bu pencere öğesi, Amazon RDS örneği son 30 gün eğilimini üzerinde çalışan sayısını vurgular.
+- Pencere öğesi RDS örnek zaman içinde bir raporu açmak için tıklayın.
 
 ## <a name="optimizer-dashboard"></a>İyileştirici Panosu
-Bu panoyu downsizing öneriler, kullanılmayan kaynaklar ve olası tasarrufları görüntüler.  
+Bu Pano downsizing öneriler, kullanılmamış kaynakları ve olası tasarruf görüntüler.  
 ![İyileştirici Panosu](./media/dashboards/optimizer-dashboard.png)
 
-### <a name="ri-calculator"></a>RI hesaplayıcısı
-Bu pencere öğesi RI satın alma önerileri sayısını görüntüler ve olası yıllık tasarruflar vurgulanmaktadır.
-- Fiyatlandırma planı ayrılmış ne zaman isteğe bağlı karşılaştırması kullanılacağını belirleme burada ayrılmış örnek hesaplayıcı açmak için pencere öğesini tıklatın.
+### <a name="ri-calculator"></a>RI hesaplayıcı
+Bu pencere öğesi, RI satın alma önerileri sayısını görüntüler ve olası yıllık tasarrufları vurgular.
+- Fiyatlandırma planı ayrılmış pencere öğesinin ayrılmış örneği ne zaman isteğe bağlı ve kullanılacağını belirleme burada Hesap Makinesi'ni açmak için tıklayın.
 
 ### <a name="sizing"></a>Boyutlandırma
-Bu pencere öğesi uygulanırsa, önerilen boyutlandırma ve olası tasarrufları vurgular.
-- Pencere öğesi EC2 maliyet etkili boyutlandırma önerileri raporu açmak için tıklatın.
+Uygulanırsa, önerilen boyutlandırma ve olası tasarruf Bu pencere öğesini vurgular.
+- Pencere öğesi EC2 uygun maliyetli boyutlandırma önerileri raporu açmak için tıklayın.
 
-### <a name="unused-ri-detector"></a>Kullanılmayan RI algılayıcısı
-Bu pencere öğesi Amazon EC2 sayısı vurgular kullanılmayan ayırmaları.
-- Pencere öğesi değiştirebileceğiniz kullanılmayan ayırmaları görüntüleyebileceğiniz şu anda kullanılmayan ayırmaları raporu açmak için tıklatın.
+### <a name="unused-ri-detector"></a>Kullanılmamış RI algılayıcısı
+Amazon EC2 sayısı bu pencere öğesini vurgular kullanılmamış durumdaki ayırmalar.
+- Pencere öğesi görüntüleyebileceğiniz ve değiştirebileceğiniz kullanılmamış durumdaki ayırmalar şu anda kullanılmamış durumdaki ayırmalar raporu açmak için tıklayın.
 
 ###  <a name="available-disks"></a>Kullanılabilir diskler
-Bu pencere öğesi dağıtımınızdaki eklenmemiş disk sayısı vurgular.
-- Pencere öğesi eklenmemiş diskleri raporu açmak için tıklatın.
+Bu pencere öğesi, dağıtımınızdaki eklenmemiş disk sayısını vurgular.
+- Pencere öğesi eklenmemiş disk raporu açmak için tıklayın.
 
-### <a name="rds-ri-calculator"></a>RDS RI hesaplayıcısı
-Bu pencere öğesi Amazon RDS örneklerinizi ve olası tasarruf için ayırma önerileri sayısı vurgular.
-- Ayrılmış örnekler isteğe bağlı örnekleri yerine kullanılacak Cloudyn önerileri görebileceğiniz RDS RI satın önerileri raporu açmak için pencere öğesini tıklatın.
+### <a name="rds-ri-calculator"></a>RDS RI hesaplayıcı
+Bu pencere öğesi, Amazon RDS örneklerinizin ve olası tasarruf için öneriler ayırma sayısını vurgular.
+- Pencere öğesi ayrılmış örnekler isteğe bağlı örnekleri yerine kullanılacak Cloudyn önerileri görebileceğiniz RDS RI satın alma önerileri raporu açmak için tıklayın.
 
 ### <a name="rds-sizing"></a>RDS boyutlandırma
-Bu pencere öğesi boyutlandırma önerileri ve olası tasarrufları sayısını gösterir.
-- Amazon önerileri boyutlandırma RDS ayrıntılı hangi görüntüler RDS boyutlandırma önerileri raporu açmak için pencere öğesini tıklatın.
+Bu pencere öğesi boyutlandırma önerileri ve olası tasarruf sayısını gösterir.
+- Pencere öğesi görüntüleyen Amazon boyutlandırma önerileri RDS ayrıntılı RDS boyutlandırma önerileri raporu açmak için tıklayın.
 
-En iyi duruma getirme önerileri son bir ayda izlenen kullanım ve performans verilerini temel alır.
+Geçen ay izlenen kullanım ve performans verilerini iyileştirme önerileri temel alır.
 
-## <a name="s3-tracker-dashboard"></a>S3 İzleyicisi Panosu
-S3 İzleyicisi panoyu bulmak, çözümlemek ve geçerli depolama alanı kullanımı ve eğilimleri görüntülemek yardımcı olur.  
-![S3 İzleyicisi Panosu](./media/dashboards/s3-tracker-dashboard.png)
+## <a name="s3-tracker-dashboard"></a>S3 İzleyici Panosu
+S3 İzleyicisi panoyu geçerli depolama kullanım ve eğilimleri görüntülemek, çözümlemek ve yardımcı olur.  
+![S3 İzleyici Panosu](./media/dashboards/s3-tracker-dashboard.png)
 
-### <a name="all-buckets"></a>Tüm demet
-Bu pencere öğesi GB, tüm, demet ve, demet nesnelerinin toplam sayısı toplam boyutu vurgular.
-- S3 boyutu dağıtım raporu açmak için pencere öğesini tıklatın. Raporun S3 boyutunuz demet, en üst düzey klasörü, depolama sınıfı ve sürüm oluşturma durumu tarafından analiz etmenize yardımcı olur.
+### <a name="all-buckets"></a>Tüm demetleri
+Bu pencere öğesi, tüm, demet GB ve toplam sayısı, demet nesnelerin toplam boyutu vurgular.
+- Pencere öğesi S3 dağıtım boyutunu bir raporu açmak için tıklayın. Rapor S3 boyutunuz sepet, üst düzey klasör, depolama sınıfı ve sürüm oluşturma durumu tarafından analiz etmenize yardımcı olur.
 
 ### <a name="bucket-properties"></a>Demet özellikleri
-Bu pencere öğesi toplam sayısı depolama vurgular.
-- S3 Demetini özellikleri raporu görüntülemek için pencere öğesini tıklatın.
+Bu pencere öğesi, toplam depolama demet sayısını vurgular.
+- Pencere öğesi S3 Demetini özellikleri raporu görüntülemek için tıklayın.
 
-### <a name="scan-status"></a>Durum tarama
-Bu pencere öğesi son S3 tarama bittiğinde ve bir sonraki başlayacağını vurgular.
-- S3 tarama durum raporunu açmak için pencere öğesini tıklatın.
+### <a name="scan-status"></a>Tarama durumu
+Bu pencere öğesinin son S3 tarama bittiğinde ve bir sonraki başlayacak vurgular.
+- Pencere öğesi S3 tarama durumu raporu açmak için tıklayın.
 
-### <a name="storage-by-bucket"></a>Demet tarafından depolama
-Bu pencere öğesi her demet depolama sınıfı kullanarak yüzdesi vurgular.
-- S3 boyutu dağıtım raporu açmak için pencere öğesini tıklatın. Raporun S3 boyutunuz demet, en üst düzey klasörü, depolama sınıfı ve sürüm oluşturma durumu tarafından analiz etmenize yardımcı olur.
+### <a name="storage-by-bucket"></a>Sepet olarak depolama
+Bu pencere öğesi her demet depolama sınıfı kullanarak yüzde vurgular.
+- Pencere öğesi S3 dağıtım boyutunu bir raporu açmak için tıklayın. Rapor S3 boyutunuz sepet, üst düzey klasör, depolama sınıfı ve sürüm oluşturma durumu tarafından analiz etmenize yardımcı olur.
 
 ### <a name="number-of-objects-by-bucket"></a>Nesne tarafından demet sayısı
-Bu pencere öğesi nesne başına gerçek sayısını ve yüzdesini demet sayısı vurgular. Toplam nesneleri görmek için demet gelin.
-- (Temel tarama) S3 boyutu dağıtım raporu açmak için pencere öğesini tıklatın.
+Bu pencere öğesi gerçek sayısı ve yüzdesi, demet başına nesne sayısını vurgular. Toplam nesne görmek için demet gelin.
+- Pencere öğesi (temel tarama) S3 boyutu dağıtım raporu açmak için tıklayın.
 
 ## <a name="cloud-comparison-dashboard"></a>Bulut karşılaştırma Panosu
-Bulut karşılaştırma Pano fiyatlandırma, CPU türü ve RAM boyutu göre farklı bulut sağlayıcılardan maliyetleri karşılaştırmanıza yardımcı olur.  
+Bulut karşılaştırma Pano maliyetleri fiyatlandırması, CPU türü ve RAM boyutu olmak üzere göre farklı bulut sağlayıcılardan karşılaştırmanıza yardımcı olur.  
 ![Bulut karşılaştırma Panosu](./media/dashboards/cloud-comparison-dashboard.png)
 
-### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Azure örneği türü maliyeti
-Bu pencere öğesini son 30 gün isteğe bağlı oranları kullanımının vurgular. Bu comares geçerli Amazon EC2 maliyetle Maliyet vs olası Azure'da maliyet.
-- Örnek türü başına maliyet Karşılaştırılacak çubukları üzerine gelerek.
-- Bağlantı noktası oluşturma dağıtımınızı – maliyet analiz raporu açmak için pencere öğesini tıklatın.
+### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Azure örnek türü maliyeti
+Bu pencere öğesi, isteğe bağlı oranları kullanımı son 30 Günün vurgular. Bu, Azure'da olası maliyet geçerli Amazon EC2 maliyet ve maliyetle karşılaştırır.
+- Örnek türü başına maliyeti Karşılaştırılacak çubukların üzerinde gezdirin.
+- Pencere öğesi taşıma dağıtımınızı – maliyet analizi raporunu açmak için tıklayın.
 
-### <a name="ec2-cost-in-azure"></a>EC2 Azure maliyeti
-Bu pencere öğesi geçerli Amazon EC2 maliyetleriniz gösterir ve bunları Azure'a karşılaştırır. Karşılaştırma isteğe bağlı oranları kullanımı son 30 gün temel alır.
-- Bağlantı noktası oluşturma dağıtımınızı - maliyet analiz raporu açmak için pencere öğesini tıklatın.
+### <a name="ec2-cost-in-azure"></a>EC2 Azure'da maliyeti
+Bu pencere öğesi, geçerli Amazon EC2 maliyetlerinizi gösterir ve bunları Azure'a karşılaştırır. Karşılaştırma kullanımı isteğe bağlı oranları, son 30 gün temel alır.
+- Pencere öğesi taşıma dağıtımınızı - maliyet analizi raporunu açmak için tıklayın.
 
-### <a name="ec2azure-instance-type-mapping"></a>EC2/Azure örneğinin türü eşlemesi
-Bu pencere öğesi esnek işlem birimleri Amazon EC2 ve Azure arasında en iyi Eşleştirme vurgular.
-- Pencere öğesi türü örnekleri eşleme raporu açmak için tıklatın.
+### <a name="ec2azure-instance-type-mapping"></a>EC2/Azure örneği tür eşlemesi
+Bu pencere öğesi, Amazon EC2 ile Azure arasında esnek işlem birimleri en iyi Eşleştirme vurgular.
+- Pencere öğesi örnekleri eşleme türü bir raporu açmak için tıklayın.
+
+## <a name="next-steps"></a>Sonraki adımlar
+- Okuma [kullanım maliyet Yönetimi raporlarını](use-reports.md) raporlar hakkında daha fazla bilgi için makale.

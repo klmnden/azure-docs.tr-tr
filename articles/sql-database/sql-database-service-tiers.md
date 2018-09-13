@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 5fcdf02fe75905fb3e492671ba44adb65dfd0da7
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: a4bf21f972da1aa92d6f127e8cbabb89a9c31489
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056270"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719962"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL veritabanı'nı modelleri ve kaynakları satın alma 
 

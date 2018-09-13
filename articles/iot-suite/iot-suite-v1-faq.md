@@ -15,52 +15,52 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 77b9fab68b66fe8998733a8f890acb9dd6b97899
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7e7c4affee64a945900c02b6375ba4df5d085183
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702383"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35757813"
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Paketi için sık sorulan sorular
 
-Ayrıca bkz.: bağlı Fabrika özel [SSS](../iot-accelerators/iot-accelerators-faq-cf.md).
+Ayrıca, bağlı Fabrika belirli bkz [SSS](../iot-accelerators/iot-accelerators-faq-cf.md).
 
-### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Önceden yapılandırılmış çözümleri için kaynak kodunu nereden bulabilirim?
+### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Önceden yapılandırılmış çözümler için kaynak kodu nerede bulabilirim?
 
-Kaynak kodu aşağıdaki GitHub depolarının depolanır:
+Kaynak kodu, aşağıdaki GitHub depolarında depolanır:
 * [Önceden yapılandırılmış Uzaktan izleme çözümü][lnk-remote-monitoring-github]
 * [Önceden yapılandırılmış Tahmine dayalı bakım çözümü][lnk-predictive-maintenance-github]
-* [Bağlı Fabrika önceden yapılandırılmış çözümü](https://github.com/Azure/azure-iot-connected-factory)
+* [Önceden yapılandırılmış bağlı Fabrika çözümü](https://github.com/Azure/azure-iot-connected-factory)
 
-### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>IOT Hub cihaz yönetimi özellikleri kullanan Uzaktan izleme önceden yapılandırılmış çözümü en son sürümüne nasıl güncelleştiririm?
+### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>IOT Hub cihaz yönetimi özellikleri kullanan Uzaktan izleme önceden yapılandırılmış çözümün en son sürüme nasıl güncelleştirebilirim?
 
-* Önceden yapılandırılmış bir çözüm dağıtırsanız https://www.azureiotsuite.com/ site, her zaman çözüm en son sürümünü yeni bir örneğini dağıtır.
-* Komut satırını kullanarak önceden yapılandırılmış bir çözüm dağıtırsanız, yeni kodu ile var olan bir dağıtıma güncelleştirebilirsiniz. Bkz: [bulut dağıtımı] [ lnk-cloud-deployment] github'da [deposu][lnk-remote-monitoring-github].
+* Önceden yapılandırılmış bir çözüm dağıtırsanız https://www.azureiotsuite.com/ site, her zaman en son sürümünü çözüm yeni bir örneğini dağıtır.
+* Komut satırını kullanarak önceden yapılandırılmış çözümü dağıttığınızda, yeni kodu ile mevcut bir dağıtımı güncelleştirebilirsiniz. Bkz: [bulut dağıtımı] [ lnk-cloud-deployment] github'da [depo][lnk-remote-monitoring-github].
 
-### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Uzaktan izleme önceden yapılandırılmış çözümü için yeni bir cihaz yöntemi desteğini nasıl ekleyebilirim?
+### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Uzaktan izleme önceden yapılandırılmış çözüme yeni bir cihaz yöntemi desteği nasıl ekleyebilirim?
 
-Bölümüne bakın [simulator için yeni bir yöntem için destek eklemek] [ lnk-add-method] içinde [önceden yapılandırılmış çözümü özelleştirme] [ lnk-customize] makalesi.
+Bölümüne bakın [simülatöre yeni bir yöntem için destek ekleme] [ lnk-add-method] içinde [önceden yapılandırılmış çözümü özelleştirme] [ lnk-customize] makalesi.
 
-### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>Sanal cihaz my istenen özellik değişiklikleri neden yoksayılıyor?
-Uzaktan izleme önceden yapılandırılmış çözümde sanal cihaz kod yalnızca **Desired.Config.TemperatureMeanValue** ve **Desired.Config.TelemetryInterval** bildirilen özellikleri güncelleştirmek için özellikler istenen. Diğer tüm istenen özelliği değişiklik isteklerini göz ardı edilir.
+### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>Sanal cihaz, istenen özellik Değişikliklerimi neden yoksayılıyor?
+Uzaktan izleme önceden yapılandırılmış çözümde sanal cihaz kodu yalnızca kullandığı **Desired.Config.TemperatureMeanValue** ve **Desired.config.telemetryınterval** istenen özellikleri için bildirilen özellikleri güncelleştirin. Diğer tüm istenen özellik değişiklik istekleri göz ardı edilir.
 
-### <a name="my-device-does-not-appear-in-the-list-of-devices-in-the-solution-dashboard-why"></a>Cihazımı çözüm panosunda aygıtların listesi görünmez neden?
+### <a name="my-device-does-not-appear-in-the-list-of-devices-in-the-solution-dashboard-why"></a>Çözüm panosundaki cihaz listesinden Cihazınızı görünmüyor neden?
 
-Çözüm panosunda aygıtların listesi, cihaz listesini döndürmek için bir sorgu kullanır. Şu anda bir sorgu en fazla 10 K aygıtları döndüremez. Arama ölçütlerini sorgunuza daha kısıtlayıcı yapmayı deneyin.
+Çözüm panosundaki cihaz listesini, cihazların listesini döndürmek için bir sorgu kullanır. Şu anda, bir sorgu en fazla 10 bin cihazları döndüremez. Sorgunuz için arama ölçütlerini daha kısıtlayıcı içermemesini sağlamayı deneyin.
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Azure portalında bir kaynak grubunu silmek ile azureiotsuite.com'da önceden yapılandırılmış bir çözüm için silmeye tıklama arasındaki fark nedir?
 
-* Önceden yapılandırılmış çözümü silerseniz [azureiotsuite.com][lnk-azureiotsuite], önceden yapılandırılmış çözümü oluşturduğunuzda sağlanan tüm kaynakları silin. Kaynak grubuna ek kaynaklar eklediyseniz, bu kaynakları da silinir. 
-* Kaynak grubunu silerseniz [Azure portal][lnk-azure-portal], yalnızca bu kaynak grubundaki kaynakları silersiniz. Ayrıca önceden yapılandırılmış Çözümle ilişkili Azure Active Directory Uygulama silmenize gerek [Azure portal][lnk-azure-portal].
+* Önceden yapılandırılmış çözümü silerseniz [azureiotsuite.com][lnk-azureiotsuite], önceden yapılandırılmış çözümü oluşturduğunuzda sağlanan tüm kaynakları silin. Bir kaynak grubuna ek kaynaklar eklediyseniz, bu kaynaklar da silinir. 
+* Kaynak grubunu silerseniz [Azure portalında][lnk-azure-portal], yalnızca bu kaynak grubundaki kaynakları silin. Ayrıca önceden yapılandırılmış Çözümle ilişkili Azure Active Directory uygulamasını silmek gerekir [Azure portalında][lnk-azure-portal].
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Bir abonelikte kaç IoT Hub örneği sağlayabilirim?
 
-Varsayılan olarak, sağlayabilirsiniz [10 IOT hub'ları abonelik başına][link-azuresublimits]. Oluşturabileceğiniz bir [Azure destek bileti] [ link-azuresupportticket] bu sınırı artırmak için. Sonuç olarak, önceden yapılandırılmış her çözüm yeni bir IOT hub'ı hazırlar olduğundan, yalnızca belirli bir aboneliğe en fazla 10 önceden yapılandırılmış çözümü sağlayabilirsiniz. 
+Varsayılan olarak, sağlayabilirsiniz [10 IOT hub'ı abonelik başına][link-azuresublimits]. Oluşturabileceğiniz bir [Azure destek bileti] [ link-azuresupportticket] Bu limiti yükseltmek için. Sonuç olarak, önceden yapılandırılmış her çözüm yeni bir IOT Hub hazırladığından belirli bir abonelikte en fazla 10 önceden yapılandırılmış Çözümler yalnızca sağlayabilirsiniz. 
 
-### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Bir abonelikte kaç Azure Cosmos DB örneği sağlayabilirim?
+### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Bir abonelikte kaç tane Azure Cosmos DB örneği sağlayabilirim?
 
-Elli. Oluşturabileceğiniz bir [Azure destek bileti] [ link-azuresupportticket] bu sınırı artırmak için ancak varsayılan olarak, abonelik başına 50 Cosmos DB örnekleri yalnızca sağlayabilirsiniz. 
+Elli. Oluşturabileceğiniz bir [Azure destek bileti] [ link-azuresupportticket] Bu limiti yükseltmek için ancak varsayılan olarak, yalnızca abonelik başına 50 Cosmos DB örnekleri sağlayabilirsiniz. 
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Bir abonelikte kaç tane Ücretsiz Bing Haritaları API'si sağlayabilirim?
 
@@ -68,37 +68,37 @@ Elli. Oluşturabileceğiniz bir [Azure destek bileti] [ link-azuresupportticket]
 
 ### <a name="i-have-a-remote-monitoring-solution-deployment-with-a-static-map-how-do-i-add-an-interactive-bing-map"></a>Statik haritaya sahip bir uzaktan izleme çözümü dağıtımım var; etkileşimli bir Bing haritasını nasıl eklerim?
 
-1. Kurumsal QueryKey için Bing haritaları API'nizi almak [Azure portal][lnk-azure-portal]: 
+1. Kurumsal QueryKey için Bing haritaları API'nizi edinin [Azure portalında][lnk-azure-portal]: 
    
-   1. Kurumsal için Bing haritaları API'nizi olduğu kaynak grubuna gidin [Azure portal][lnk-azure-portal].
-   2. Tıklatın **tüm ayarları**, ardından **anahtar yönetimi**. 
-   3. İki anahtar görebilirsiniz: **MasterKey** ve **QueryKey**. Değeri kopyalama **QueryKey**.
+   1. Kurumsal için Bing haritaları API'nizi olduğu kaynak grubuna gidin [Azure portalında][lnk-azure-portal].
+   2. Tıklayın **tüm ayarlar**, ardından **anahtar yönetimi**. 
+   3. İki anahtar görebilirsiniz: **MasterKey** ve **QueryKey**. Değeri kopyalamak **QueryKey**.
       
       > [!NOTE]
-      > Kurumsal için Bing Haritaları API'si hesabınız yok mu? Oluşturun [Azure portal] [ lnk-azure-portal] göre tıklayarak + yeni, Kurumsal için Bing haritaları API'si için arama ve oluşturmak için istemleri izleyin.
+      > Kurumsal için Bing Haritaları API'si hesabınız yok mu? Oluşturacağınızı [Azure portalında] [ lnk-azure-portal] göre tıklayarak + yeni, Kurumsal için Bing Haritalar API'si için arama ve oluşturmak için istemleri takip edin.
       > 
       > 
-2. En son koddan aşağı çekmek [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
-3. Depodaki /docs/ klasöründe komut satırı dağıtım rehberini izleyerek dağıtım Bulut veya yerel çalıştırın. 
+2. Aşağı en son kodu çekin [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
+3. Yerel çalıştırma veya depodaki /docs/ klasöründe komut satırı dağıtım yönergeleri izleyerek dağıtım bulut. 
 4. Yerel bir dağıtım veya bir bulut dağıtımını çalıştırdıktan sonra, kök klasörünüzde dağıtım sırasında oluşturulan *.user.config file dosyanızı arayın. Bu dosyayı bir metin düzenleyicisinde açın. 
-5. Kopyaladığınız değeri eklemek için aşağıdaki satırı değiştirin, **QueryKey**: 
+5. Kopyaladığınız değeri eklemek için şu satırı değiştirin, **QueryKey**: 
    
    `<setting name="MapApiQueryKey" value="" />`
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>DreamSpark için Microsoft Azure'a sahipsem önceden yapılandırılmış bir çözüm oluşturabilir miyim?
 
 > [!NOTE]
-> DreamSpark için Microsoft Azure artık Öğrenciler için Microsoft Imagine bilinir.
+> DreamSpark için Microsoft Azure artık Öğrenciler için Microsoft Imagine da bilinir.
 
-Şu anda önceden yapılandırılmış bir çözüm oluşturamazsınız bir [DreamSpark için Microsoft Azure](https://azure.microsoft.com/pricing/member-offers/imagine/) hesabı. Ancak, oluşturabileceğiniz bir [ücretsiz deneme hesabı için Azure](https://azure.microsoft.com/free/) sağlayan yalnızca birkaç dakika içinde önceden yapılandırılmış bir çözüm oluşturun.
+Şu anda bir önceden yapılandırılmış çözüm oluşturamazsınız. bir [DreamSpark için Microsoft Azure](https://azure.microsoft.com/pricing/member-offers/imagine/) hesabı. Ancak, oluşturabileceğiniz bir [için Azure ücretsiz deneme hesabınızı](https://azure.microsoft.com/free/) önceden yapılandırılmış bir çözüm sağlayan yalnızca birkaç dakika içinde oluşturun.
 
-### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>Önceden yapılandırılmış bir çözüm, bulut çözümü sağlayıcısı (CSP) aboneliğiniz varsa oluşturabilir miyim?
+### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>Bulut çözümü sağlayıcısı (CSP) abonelik sahipsem önceden yapılandırılmış bir çözüm oluşturabilir miyim?
 
-Şu anda bir bulut çözümü sağlayıcısı (CSP) aboneliğiyle önceden yapılandırılmış bir çözüm oluşturamazsınız. Ancak, oluşturabileceğiniz bir [ücretsiz deneme hesabı için Azure] [ lnk-30daytrial] sağlayan yalnızca birkaç dakika içinde önceden yapılandırılmış bir çözüm oluşturun.
+Şu anda bir bulut çözümü sağlayıcısı (CSP) aboneliği ile önceden yapılandırılmış bir çözüm oluşturamazsınız. Ancak, oluşturabileceğiniz bir [için Azure ücretsiz deneme hesabınızı] [ lnk-30daytrial] önceden yapılandırılmış bir çözüm sağlayan yalnızca birkaç dakika içinde oluşturun.
 
-### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Azure AD kiracısı nasıl silebilirim?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Azure AD kiracısını nasıl silerim?
 
-Bkz. Eric Golpe'un blog gönderisi [bir Azure AD Kiracısını silme Kılavuzu][lnk-delete-aad-tennant].
+Eric Golpe'un blog gönderisini inceleyin [bir Azure AD Kiracısını silme Kılavuzu][lnk-delete-aad-tennant].
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
@@ -109,7 +109,7 @@ Bkz. Eric Golpe'un blog gönderisi [bir Azure AD Kiracısını silme Kılavuzu][
 * [Baştan sona IoT güvenliği][lnk-security-groundup]
 
 [lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
-[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits

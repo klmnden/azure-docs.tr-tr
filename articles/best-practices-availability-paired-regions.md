@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 6eb28ad918f9d95c26d91c05d8ee9556ef768bd3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c500a1ecc817e4d95e39ca0ac985e1d90ffc8a78
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125861"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721272"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş sürekliliği ve olağanüstü durum kurtarma (BCDR): eşleştirilmiş Azure bölgeleri
 
@@ -73,7 +73,7 @@ Tablo 1 - Azure bölgesel çiftler eşleme
 
 ![Depolama](./media/best-practices-availability-paired-regions/2Green.png) **Azure depolama** -coğrafi olarak yedekli depolama (GRS), Azure depolama hesabınız oluşturulduğunda varsayılan olarak yapılandırılır. GRS ile verileriniz otomatik olarak üç kez birincil bölge içinde ve üç kez eşleştirilmiş bölge içinde çoğaltılır. Daha fazla bilgi için [Azure depolama Yedekliliği seçenekleri](storage/common/storage-redundancy.md).
 
-![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL veritabanları** – ile Azure SQL standart coğrafi çoğaltma, zaman uyumsuz çoğaltma işlemlerinin eşleştirilmiş bir bölge için yapılandırabilirsiniz. Premium coğrafi çoğaltma, dünyanın herhangi bir bölgeye çoğaltma yapılandırabilirsiniz; Ancak, bu kaynakların çoğu olağanüstü durum kurtarma senaryoları için eşleştirilmiş bir bölge içinde dağıttığınız öneririz. Daha fazla bilgi için [coğrafi çoğaltma, Azure SQL veritabanı'nda](sql-database/sql-database-geo-replication-overview.md).
+![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL veritabanı** – ile Azure SQL veritabanı coğrafi çoğaltma, dünyanın herhangi bir bölgesine işlemlerin zaman uyumsuz çoğaltma yapılandırabilirsiniz; ancak, bu kaynakları dağıtma öneririz bir Çoğu olağanüstü durum kurtarma senaryoları için eşleştirilmiş bölge. Daha fazla bilgi için [coğrafi çoğaltma, Azure SQL veritabanı'nda](sql-database/sql-database-geo-replication-overview.md).
 
 ![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** -Resource Manager kendiliğinden bölgeler arasında Hizmet Yönetim bileşenleri mantıksal yalıtım sağlar. Başka bir deyişle, bir bölgede mantıksal hataları başka bir etkisi daha düşüktür.
 

@@ -1,49 +1,49 @@
 ---
-title: Azure Active Directory B2B işbirliği kullanıcılar için koşullu erişim | Microsoft Docs
-description: Azure Active Directory B2B işbirliği, şirket uygulamalarınıza seçmeli erişim için çok faktörlü kimlik doğrulaması (MFA) destekler.
+title: Azure Active Directory B2B işbirliği kullanıcıları için koşullu erişim | Microsoft Docs
+description: Azure Active Directory B2B işbirliği, Kurumsal uygulamalarınıza seçmeli erişim için çok faktörlü kimlik doğrulaması (MFA) destekler.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 196fa9e4b6e3ac805f9ae7ce7d53a3d12b250142
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 8e8e73b9206cf2134e96e609dfe5558c54e4289c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267512"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651093"
 ---
-# <a name="conditional-access-for-b2b-collaboration-users"></a>B2B işbirliği kullanıcılar için koşullu erişim
+# <a name="conditional-access-for-b2b-collaboration-users"></a>B2B işbirliği kullanıcıları için koşullu erişim
 
-## <a name="multi-factor-authentication-for-b2b-users"></a>B2B kullanıcılar için çok faktörlü kimlik doğrulaması
-Azure AD B2B işbirliği ile kuruluşlar B2B kullanıcılar için çok faktörlü kimlik doğrulaması (MFA) ilkeleri uygulayabilirsiniz. Bu ilkeler Kiracı, uygulama veya bireysel kullanıcı düzeyinde tam zamanlı çalışanlar ve kuruluşun üyeleri için etkinleştirilen aynı şekilde zorunlu tutulabilir. Kaynak kuruluşta MFA ilkeleri uygulanır.
+## <a name="multi-factor-authentication-for-b2b-users"></a>B2B kullanıcıları için multi-Factor authentication
+Azure AD B2B işbirliği, kuruluşların, B2B kullanıcıları için çok faktörlü kimlik doğrulaması (MFA) İlkeleri zorunlu kılabilir. Bu ilkeler Kiracı, uygulama veya tek tek kullanıcı düzeyinde, tam zamanlı çalışanlar ve kuruluş için etkinleştirilir aynı şekilde zorunlu tutulabilir. Kaynak kuruluşta MFA ilkeleri uygulanır.
 
 Örnek:
-1. Yönetici veya bilgi çalışanı şirketindeki başvurulmasını Şirket B kullanıcıdan uygulamaya *Foo* A. şirketteki
-2. Uygulama *Foo* şirkette A erişimi MFA gerektirecek şekilde yapılandırılmış.
-3. Şirket B kullanıcıdan uygulamaya erişmeye çalıştığında *Foo* şirket bir kiracı, bunlar bir MFA testini tamamlamanız istenir.
-4. Kullanıcı kendi MFA Şirket A ile ayarlayabilirsiniz ve bunların MFA seçeneğini seçer.
-5. Bu senaryo için herhangi bir kimlik çalışır (Azure AD veya örneğin, kullanıcıların şirket b sosyal kimliği kullanarak kimlik doğrulaması MSA)
-6. Şirket A MFA desteği yeterli Azure AD Premium lisansı olması gerekir. Bu lisans A. şirketten Şirket B kullanıcıdan kullanır
+1. Bir şirket yöneticisi veya bilgi çalışanı Şirket B kullanıcıdan uygulamaya davet *Foo* şirkette A.
+2. Uygulama *Foo* şirketteki A erişimi MFA gerektirecek şekilde yapılandırılmış.
+3. Çalıştığında kullanıcıdan Şirket B uygulamaya erişmek *Foo* şirket bir kiracı, kullanıcıdan MFA testini tamamlamanız istenir.
+4. Kullanıcı kendi MFA şirketi ile ayarlayabilirsiniz ve bunların MFA seçeneğini seçer.
+5. Bu senaryo için herhangi bir kimliğe çalışır (Azure AD veya MSA, örneğin, kullanıcılar şirket b sosyal Kimliğini kullanarak kimlik doğrulaması)
+6. Şirketi, mfa'yı destekleyen yeterli Azure AD Premium lisansına sahip olması gerekir. A. şirketten bu lisans kullanıcının şirketten B kullanır
 
-İş ortağı kuruluşun MFA yetenekleri olsa bile davet kiralama her zaman MFA için iş ortağı kuruluştan kullanıcılar sorumludur.
+İş ortağı kuruluşun MFA özelliklerine sahip olsa bile davet eden Kiracı her zaman MFA için kullanıcılar iş ortağı kuruluştan sorumludur.
 
-### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>B2B işbirliği kullanıcılar için MFA'yı ayarlama
-B2B işbirliği kullanıcılar için MFA'yı ayarlama ne kadar kolay olduğunu öğrenmek için bkz aşağıdaki videoda nasıl:
+### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>B2B işbirliği kullanıcıları için mfa'yı ayarlama
+B2B işbirliği kullanıcıları için mfa'yı ayarlamak için ne kadar kolay olduğunu öğrenmek için bkz: aşağıdaki videoda nasıl:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
-### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Kullanım B2B kullanıcılar için MFA deneyimi sunar
+### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>B2B kullanıcıları MFA deneyimi için kullanım sunar.
 Kullanım görmek için aşağıdaki animasyonu kullanıma alın deneyimi:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
-### <a name="mfa-reset-for-b2b-collaboration-users"></a>MFA B2B işbirliği kullanıcılar için Sıfırla
-Şu anda, yöneticinin B2B işbirliği kanıt kullanıcılara yukarı yeniden aşağıdaki PowerShell cmdlet'lerini kullanarak yalnızca gerektirebilir:
+### <a name="mfa-reset-for-b2b-collaboration-users"></a>Sıfırlama B2B işbirliği kullanıcıları için MFA
+Şu anda yönetici B2B işbirliği kullanıcıları için kavram yukarı yeniden aşağıdaki PowerShell cmdlet'lerini kullanarak yalnızca gerektirebilir:
 
 1. Azure AD'ye Bağlanma
 
@@ -51,7 +51,7 @@ Kullanım görmek için aşağıdaki animasyonu kullanıma alın deneyimi:
   $cred = Get-Credential
   Connect-MsolService -Credential $cred
   ```
-2. Tüm kullanıcılara sağlama yöntemleri ile Al
+2. Tüm kullanıcılar yöntemleri'kurmak kavram alın
 
   ```
   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
@@ -62,47 +62,47 @@ Kullanım görmek için aşağıdaki animasyonu kullanıma alın deneyimi:
   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
   ```
 
-3. Güçlü yöntemlerini yeniden ayarlama B2B işbirliği kullanıcının gerektiren belirli bir kullanıcı için MFA yöntemi sıfırlayın. Örnek:
+3. Kavram yukarı yöntemlerini yeniden ayarlama B2B işbirliği gerektirmek belirli bir kullanıcı için mfa'yı yöntemi sıfırlayın. Örnek:
 
   ```
   Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
   ```
 
-### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Neden şu kaynak kiralama MFA gerçekleştiriyorsunuz?
+### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>MFA kaynak kiralama neden gerçekleştiririz?
 
-Geçerli sürümde MFA kaynak Kiracı öngörülebilirlik nedenleri için her zaman kullanılıyor. Örneğin, Contoso kullanıcı (değiştirmemesi) Fabrikam için davet ettiğiniz ve Fabrikam B2B kullanıcılar için MFA etkinleştirilmiş varsayalım.
+Geçerli sürümde, MFA öngörülebilirlik nedenlerini için kaynak kiralama her zaman bulunduğu. Örneğin, Contoso kullanıcısı (Sally) için Fabrikam davet edilmesi ve Fabrikam B2B kullanıcıları için mfa'yı etkinleştirilmiş varsayalım.
 
-Contoso etkin App1 ancak değil App2 için MFA ilkesi varsa, biz Contoso MFA talep belirteci bakarsanız sonra biz aşağıdaki sorunları görebilirsiniz:
+Contoso App1 ancak değil App2 etkin MFA ilkesi varsa, Contoso MFA talebi belirteci baktığımızda ardından biz aşağıdaki sorunları görebilirsiniz:
 
-* 1. güne: Bir kullanıcının Contoso ağında MFA varsa ve App1 sonra hiçbir ek MFA erişme istemi Fabrikam ' gösterilir.
+* 1. günü: Kullanıcı MFA Contoso ağında olan ve App1'i, ardından hiçbir ek MFA erişme istemi Fabrikam'da gösterilir.
 
-* 2 gün: Kullanıcı, Fabrikam erişirken artık Contoso, uygulama 2 eriştiğini, var. MFA için kaydolması gerekir.
+* 2. gün: Kullanıcı, Fabrikam erişirken şimdi contoso'da, uygulama 2 eriştiğini, MFA için orada kaydetmelisiniz.
 
-Bu işlem kafa karıştırıcı olabilir ve oturum açma tamamlamalar içinde bırakmasına neden olabilir.
+Bu işlem, kafa karıştırıcı olabilir ve oturum açma tamamlamaları drop neden olabilir.
 
-Contoso MFA yeteneği olsa bile, ayrıca, her zaman çalışması Fabrikam güven Contoso MFA İlkesi değildir.
+Contoso MFA özelliği olsa bile, ayrıca, her zaman çalışması Fabrikam Contoso MFA ilkesini güven değildir.
 
-Son olarak, kaynak Kiracı MFA ayarladığınız MFA olmayan iş ortağı kuruluşu ve Msa'lar ve sosyal kimlikleri için çalışır.
+Son olarak, kaynak Kiracı MFA Msa'lar ve sosyal kimlikleri ve mfa'yı ayarlama izniniz yok, iş ortağı kuruluşlar için çalışır.
 
-Bu nedenle, mfa B2B kullanıcılar için her zaman davet kiracısında MFA gerektirecek şekilde önerilir. Bu gereksinim bazı durumlarda çift MFA neden olabilir, ancak davet Kiracı erişimi olduğunda, son kullanıcıların deneyimini tahmin edilebilir: değiştirmemesi MFA için davet Kiracı ile kaydetmeniz gerekir.
+Bu nedenle, mfa B2B kullanıcıları için mfa'yı davet eden Kiracı her zaman gerekli önerilir. Bu gereksinim bazı durumlarda, çift mfa'yı neden olabilir, ancak davet eden Kiracı erişimi olduğunda, son kullanıcıların deneyimini tahmin edilebilir: sally'nin satış MFA için davet eden kiracısı ile kaydetmeniz gerekir.
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>B2B kullanıcılar için cihaz, konum ve risk tabanlı koşullu erişim
+### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>B2B kullanıcıları için cihaz, konum ve risk tabanlı koşullu erişim
 
-Contoso şirket verilerini için cihaz temelli koşullu erişim ilkeleri etkinleştirdiğinde, Contoso tarafından yönetilen ve Contoso cihaz ilkeleriyle uyumlu olmayan cihazlar üzerinden erişimi engelledi.
+Contoso Kurumsal verileri cihaz tabanlı koşullu erişim ilkelerini etkinleştirdiğinde, Contoso tarafından yönetilen ve Contoso cihaz ilkeleriyle uyumlu olmayan cihazlar üzerinden erişimi engelledi.
 
-B2B kullanıcının cihaz tarafından Contoso yönetilen değil, bu ilkeleri zorunlu herhangi bir bağlamı içinde iş ortağı kuruluşlardan B2B kullanıcıların erişim engellendi. Ancak, Contoso cihaz temelli koşullu erişim ilkesinden hariç tutulacak belirli iş ortağı kullanıcıları içeren bir dışlama listesi oluşturabilirsiniz.
+B2B kullanıcı cihazına Contoso tarafından yönetilmiyorsa, bu ilkeleri zorunlu hangi bağlamda iş ortağı kuruluşlardan B2B kullanıcıları erişimi engellenir. Ancak, Contoso bunları cihaz tabanlı koşullu erişim ilkesinden hariç tutmak için belirli bir iş ortağı kullanıcıları içeren bir dışlama listesi oluşturabilirsiniz.
 
-#### <a name="location-based-conditional-access-for-b2b"></a>Konum temelli B2B için koşullu erişim
+#### <a name="location-based-conditional-access-for-b2b"></a>Konum tabanlı koşullu erişim için B2B
 
-Davet kuruluşun kendi ortak kuruluşlar tanımlayan güvenilir bir IP adresi aralığı oluşturmak mümkün ise B2B kullanıcılar için konum temelli koşullu erişim ilkeleri uygulanabilir.
+Davet eden kuruluştan iş ortağı kuruluşları tanımlayan bir güvenilen IP adresi aralığı oluşturma erişebiliyorsa B2B kullanıcıları için konum tabanlı koşullu erişim ilkelerini zorunlu tutulabilir.
 
-#### <a name="risk-based-conditional-access-for-b2b"></a>Risk tabanlı B2B için koşullu erişim
+#### <a name="risk-based-conditional-access-for-b2b"></a>B2B için risk tabanlı koşullu erişim
 
-Şu anda, risk değerlendirmesine B2B kullanıcının ev kuruluştan yapıldığından risk tabanlı oturum açma ilkeleri B2B kullanıcılara uygulanamaz.
+Şu anda, risk değerlendirmesine B2B kullanıcının ev kuruluştan gerçekleştirildiği için oturum açma risk tabanlı ilkeler B2B kullanıcıları için uygulanamaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure AD B2B işbirliği aşağıdaki makalelere bakın:
+Azure AD B2B işbirliği hakkında aşağıdaki makalelere bakın:
 
 * [Azure AD B2B işbirliği nedir?](what-is-b2b.md)
 * [Azure AD B2B işbirliği lisanslama](licensing-guidance.md)

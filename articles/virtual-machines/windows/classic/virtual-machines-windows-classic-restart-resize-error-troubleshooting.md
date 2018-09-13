@@ -1,6 +1,6 @@
 ---
-title: Yeniden başlatmadan veya sorunları yeniden boyutlandırma VM | Microsoft Docs
-description: Yeniden başlatmadan veya mevcut bir Windows sanal makine azure'da yeniden boyutlandırma Klasik dağıtım sorunlarını giderme
+title: Başlatma veya yeniden boyutlandırmayla sorunları VM | Microsoft Docs
+description: Başlatma veya varolan bir Windows sanal makinesini azure'da yeniden boyutlandırmayla ilgili Klasik dağıtım sorunlarını giderme
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -12,24 +12,24 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: required
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.devlang: na
 ms.author: delhan
-ms.openlocfilehash: bed5da25042d29983bad9a80cd44bdd7df261c2e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 400b20e474257650a22e04c89ddde581bf0552f4
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23989303"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35989190"
 ---
-# <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Yeniden başlatmadan veya mevcut bir Windows sanal makine azure'da yeniden boyutlandırma Klasik dağıtım sorunlarını giderme
+# <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Başlatma veya varolan bir Windows sanal makinesini azure'da yeniden boyutlandırmayla ilgili Klasik dağıtım sorunlarını giderme
 > [!div class="op_single_selector"]
 > * [Klasik](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 > * [Resource Manager](../restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 > 
 > 
 
-Durdurulmuş bir Azure sanal makine (VM) Başlat veya mevcut bir Azure VM'yi yeniden boyutlandırmak çalıştığınızda karşılaştığınız ortak bir ayırma hatası hatadır. Küme veya bölgede kullanılabilir kaynak yok veya istenen VM boyutu destekleyemez olduğunda bu hata oluşur.
+Durdurulmuş bir Azure sanal makine (VM) Başlat veya mevcut bir Azure VM'yi yeniden boyutlandırma çalıştığınızda, karşılaştığınız ortak bir ayırma hatası hatadır. Küme veya bölge kullanılabilir kaynak yok veya istenen VM boyutu desteklemez, bu hata oluşur.
 
 > [!IMPORTANT]
 > Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md).  Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
@@ -38,50 +38,50 @@ Durdurulmuş bir Azure sanal makine (VM) Başlat veya mevcut bir Azure VM'yi yen
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Toplama denetim günlüklerini
-Sorun giderme başlatmak için sorunu ile ilişkili hata tanımlamak için denetim günlüklerini toplayın.
+## <a name="collect-audit-logs"></a>Toplama denetim günlükleri
+Sorun gidermeye başlamak için sorunla ilişkili hatanın tanımlamak için denetim günlüklerini toplayın.
 
-Azure portalında tıklatın **Gözat** > **sanal makineleri** > *Windows sanal makinenizi* > **ayarları** > **denetim günlüklerini**.
+Azure portalında **Gözat** > **sanal makineler** > *Windows sanal makinenizi*  >   **Ayarları** > **denetim günlükleri**.
 
-## <a name="issue-error-when-starting-a-stopped-vm"></a>Sorun: durmuş bir VM'yi başlatma sırasında hata
-Durmuş bir VM'yi Başlat ancak alma ayırma hatası deneyin.
+## <a name="issue-error-when-starting-a-stopped-vm"></a>Sorun: bir VM'yi durdurduğunuzda başlatılırken hata
+Bir VM'yi durdurduğunuzda, ancak bir ayırma hatası alma deneyin.
 
 ### <a name="cause"></a>Nedeni
-Bulut hizmeti barındıran özgün kümesine denenmesi durdurulmuş VM başlatmak için bir istek aldı. Ancak, Küme isteği gerçekleştirmek kullanılabilir boş disk alanı yok.
+VM'yi durdurduğunuzda isteğine bulut hizmetini barındıran konumundaki özgün küme denenmesi gerekir. Ancak, Küme isteği gerçekleştirmek kullanılabilir boş alan yok.
 
 ### <a name="resolution"></a>Çözüm
-* Yeni bir bulut hizmeti oluşturup bir bölge veya bölge tabanlı bir sanal ağ, ancak bir benzeşim grubu ile ilişkilendirin.
-* Durdurulan VM silin.
-* Yeni bulut hizmeti VM diskleri kullanarak yeniden oluşturun.
-* Yeniden oluşturulan VM başlatın.
+* Yeni bir bulut hizmeti oluşturma ve bir bölgesi veya bölge tabanlı bir sanal ağ, ancak bir benzeşim grubu ile ilişkilendirin.
+* VM durduruldu silin.
+* Yeni bir bulut hizmeti VM diskleri kullanarak yeniden oluşturun.
+* Yeniden oluşturulan bir VM'yi başlatın.
 
-Yeni bir bulut hizmeti oluşturmaya çalışırken bir hata alırsanız, daha sonra yeniden deneyin veya Bulut hizmeti için bölgeyi değiştirin.
+Yeni bir bulut hizmeti oluşturulmaya çalışılırken bir hata alırsanız, daha sonra yeniden deneyin veya Bulut hizmeti için bölge değiştirin.
 
 > [!IMPORTANT]
-> Bu bilgi için bu bilgileri mevcut bulut hizmeti için kullandığınız tüm bağımlılıkları değiştirmeniz gerekir böylece yeni bulut hizmeti yeni bir ad ve VIP, gerekir.
+> Mevcut bulut hizmeti için bu bilgileri kullanan tüm bağımlılıklar için bu bilgileri değiştirmeye ihtiyacınız olacak şekilde yeni bir bulut hizmeti, yeni bir ad ve VIP, gerekir.
 > 
 > 
 
-## <a name="issue-error-when-resizing-an-existing-vm"></a>Sorun: mevcut bir VM'yi yeniden boyutlandırılırken hata
-Mevcut bir VM'yi yeniden boyutlandırın, ancak bir ayırma hatası almak deneyin.
+## <a name="issue-error-when-resizing-an-existing-vm"></a>Sorun: varolan bir VM'yi yeniden boyutlandırma sırasında hata oluştu
+Varolan bir VM'yi yeniden boyutlandırma, ancak bir ayırma hatası alma deneyin.
 
 ### <a name="cause"></a>Nedeni
-Bulut hizmeti barındıran özgün kümesine denenmesi VM yeniden boyutlandırmak için bir istek aldı. Ancak, küme istenen VM boyutu desteklemez.
+Bulut hizmetini barındıran konumundaki özgün küme denenmesi VM yeniden boyutlandırmak için bir istek aldı. Ancak, küme, istenen VM boyutu desteklemez.
 
 ### <a name="resolution"></a>Çözüm
-İstenen VM boyutu azaltın ve yeniden boyutlandırma isteği yeniden deneyin.
+İstenen VM boyutunu azaltın ve yeniden boyutlandırma isteği yeniden deneyin.
 
-* Tıklatın **tümüne Gözat** > **sanal makineleri (Klasik)** > *sanal makineniz* > **ayarları** > **boyutu**. Ayrıntılı adımlar için bkz: [sanal makine yeniden boyutlandırma](https://msdn.microsoft.com/library/dn168976.aspx).
+* Tıklayın **tümüne Gözat** > **sanal makineler (Klasik)** > *sanal makinenizi* > **ayarları**  >  **Boyutu**. Ayrıntılı adımlar için bkz. [sanal makine](https://msdn.microsoft.com/library/dn168976.aspx).
 
-VM boyutunu azaltmak mümkün değilse, aşağıdaki adımları izleyin:
+VM boyutunu küçültmek mümkün değilse, aşağıdaki adımları izleyin:
 
-* Bir benzeşim grubuna bağlı değil ve bir benzeşim grubuna bağlı bir sanal ağ ile ilişkilendirilmemiş sağlayarak yeni bir bulut hizmeti oluşturun.
-* Yeni, büyük ölçekli bir VM içinde oluşturun.
+* Bir benzeşim grubuna bağlı olmayan ve bir benzeşim grubuna bağlı bir sanal ağ ile ilişkili olmayan yeni bir bulut hizmeti oluşturun.
+* Yeni, daha büyük boyutta bir VM oluşturun.
 
-Aynı bulut hizmetindeki tüm Vm'leriniz birleştirebilir. Mevcut bulut hizmetiniz bir bölge tabanlı sanal ağ ile ilişkili ise, yeni bulut hizmeti varolan bir sanal ağa bağlanabilir.
+Aynı bulut hizmetindeki tüm sanal makinelerinizi birleştirebilir. Mevcut bulut hizmetiniz bölge tabanlı sanal ağ ile ilişkili ise, yeni bir bulut hizmeti mevcut bir sanal ağa bağlanabilir.
 
-Mevcut bulut hizmeti bir bölge tabanlı sanal ağ ile ilişkili değilse, mevcut bulut hizmetindeki sanal makineleri silin ve bunları kendi disklerden yeni bulut hizmeti yeniden sahip. Ancak, bunlar şu anda mevcut bulut hizmeti için bu bilgileri kullanan tüm bağımlılıkları için güncelleştirmeniz gerekir böylece yeni bulut hizmeti yeni bir ad ve VIP, olacaktır unutmamak önemlidir.
+Mevcut bulut hizmetine bölge tabanlı sanal ağ ile ilişkili değilse, var olan bulut hizmetindeki sanal makineleri silmek ve bunları kendi disklerden yeni bulut hizmetinde yeniden vardır. Ancak, bunlar şu anda mevcut bulut hizmeti için bu bilgileri kullanan tüm bağımlılıklar için güncelleştirmeniz gerekir için yeni bir bulut hizmeti yeni bir ad ve VIP, sahip olacağını unutmayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure üzerinde bir Windows VM oluşturduğunuzda sorunlarıyla karşılaşırsanız bkz [Azure'da Windows sanal makine oluşturma ile dağıtım sorunlarını giderme](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Azure'da Windows VM oluşturduğunuz sırada bir sorunla karşılaşırsanız bkz [Azure'da Windows sanal makine oluştururken dağıtım sorunlarını giderme](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

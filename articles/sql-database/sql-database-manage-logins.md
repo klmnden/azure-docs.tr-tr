@@ -3,20 +3,20 @@ title: Azure SQL oturumları ve kullanıcıları | Microsoft Docs
 description: SQL veritabanı ve SQL veri ambarı güvenlik yönetimi hakkında bilgi edinin özellikle sunucu düzeyindeki asıl hesap aracılığıyla veritabanı erişimini ve oturum açma güvenliğini yönetmek nasıl.
 keywords: sql veritabanı güvenliği,veritabanı güvenliği yönetimi,oturum açma güvenliği,veritabanı güvenliği,veritabanı erişimi
 services: sql-database
-author: CarlRabeler
+author: VanMSFT
 manager: craigg
 ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.author: carlrab
-ms.openlocfilehash: 4abdbac44f4730d15c36d587190db1f95ea54d19
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.author: vanto
+ms.openlocfilehash: d3f2e190dd2f3f29dc70e0d635fd1f8ef5b0bbf9
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050742"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717637"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Denetleme ve SQL veritabanı ve SQL veri ambarı veritabanına erişim izni verme
 

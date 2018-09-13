@@ -1,6 +1,6 @@
 ---
-title: Azure kapsayıcı kayıt defteri Web kancası şema başvurusu
-description: Azure kapsayıcı kayıt defteri için Web kancası isteği JSON yükü başvurusu.
+title: Azure kapsayıcı kayıt defteri Web kancası Şeması Başvurusu
+description: Azure Container Registry için Web kancası isteği JSON yükü başvurusu.
 services: container-registry
 author: mmacy
 manager: jeconnoc
@@ -8,31 +8,32 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 87fe978416c29b50abeef0e0a6624d7440dd87ef
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646759"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure kapsayıcı kayıt defteri Web kancası başvurusu
 
-Yapabilecekleriniz [Web kancalarını yapılandırma](container-registry-webhook.md) kapsayıcı kaydınız belirli eylemleri karşı gerçekleştirildiğinde olayları oluşturmak için. Örneğin, kapsayıcı görüntüde tetiklenen Web kancalarını etkinleştirebilirsiniz `push` ve `delete` işlemleri. Bir Web kancası tetiklendiğinde, Azure kapsayıcı kayıt defteri belirttiğiniz bir uç nokta için olay hakkında bilgi içeren bir HTTP veya HTTPS isteği gönderir. Uç noktanız sonra Web kancası işlem ve buna göre hareket.
+Yapabilecekleriniz [Web kancalarını yapılandırma](container-registry-webhook.md) belirli eylemleri karşı gerçekleştirildiğinde olay oluşturan kapsayıcı kayıt defterinizin. Örneğin, kapsayıcı görüntüsü üzerinde tetiklenen Web kancaları etkinleştirebilirsiniz `push` ve `delete` operations. Azure Container Registry, bir Web kancası tetiklendiğinde belirttiğiniz bir uç noktaya olayla ilgili bilgileri içeren bir HTTP veya HTTPS isteğini verir. Uç noktanız Web kancası işlemek ve buna göre hareket.
 
-Aşağıdaki bölümlerde desteklenen olaylar tarafından oluşturulan Web kancası istekler şeması ayrıntılı olarak açıklanmaktadır. Olay bölümler olay türü, bir örnek istek yükü ve Web kancası tetikleyecek bir veya daha fazla örnek komutlar için yükü şeması içerir.
+Aşağıdaki bölümlerde desteklenen olaylar tarafından oluşturulan Web kancası isteği şemasını ayrıntılı olarak açıklanmaktadır. Olay, olay türü, bir örnek istek yükü ve Web kancasını tetikleyip bir veya daha fazla örnek komutlar için yükü şema bölümler.
 
-Web kancası Azure kapsayıcı kayıt için yapılandırma hakkında daha fazla bilgi için bkz: [kullanarak Azure kapsayıcı defterini kancalarını](container-registry-webhook.md).
+Azure kapsayıcı kayıt defteriniz için Web kancalarını yapılandırma hakkında daha fazla bilgi için bkz: [kullanarak Azure kapsayıcı kayıt defteri Web kancaları](container-registry-webhook.md).
 
-## <a name="webhook-requests"></a>Web kancası istekleri
+## <a name="webhook-requests"></a>Web kancası isteği
 
 ### <a name="http-request"></a>HTTP isteği
 
-Bir HTTP tetiklenen bir Web kancası yapar `POST` belirtilen Web kancası yapılandırdığınızda URL uç noktasına istek.
+Tetiklenmiş bir Web kancası HTTP yapar `POST` Web kancasını yapılandırırken belirttiğiniz URL uç noktasına istek.
 
 ### <a name="http-headers"></a>HTTP üstbilgileri
 
-Web kancası istekler dahil bir `Content-Type` , `application/json` belirtilmemiş durumunda bir `Content-Type` , Web kancası için özel üstbilgi.
+Web kancası istekler dahil bir `Content-Type` , `application/json` belirtilmemiş durumunda bir `Content-Type` özel üst bilgi, Web kancası için.
 
-Diğer bir üstbilgi isteğin Web kancası için belirtilen bu özel üstbilgi dışında eklenir.
+Diğer bir üst bilgi yok, bu özel üst bilgiler için Web kancası belirtilen ötesine isteğine eklenir.
 
 ## <a name="push-event"></a>Olay gönderme
 
@@ -43,30 +44,30 @@ Bir kapsayıcı görüntüsü bir depoya gönderildiğinde tetiklenen bir Web ka
 |Öğe|Tür|Açıklama|
 |-------------|----------|-----------|
 |`id`|Dize|Web kancası olay kimliği.|
-|`timestamp`|DateTime|Hangi Web kancası olay tetiklendi süre.|
-|`action`|Dize|Web kancası olayı tetikleyen bir eylem.|
-|[Hedef](#target)|Karmaşık Tür|Web kancası olay tetikleyen olayı hedefi.|
+|`timestamp`|DateTime|Saat, Web kancası olayı tetiklendi.|
+|`action`|Dize|Web kancası olayı tetikleyen eylemi.|
+|[Hedef](#target)|Karmaşık Tür|Web kancası olayı tetikleyen olayı hedefi.|
 |[İstek](#request)|Karmaşık Tür|Web kancası olayı oluşturan istek.|
 
-### <a name="target"></a>Hedef
+### <a name="target"></a>hedef
 
 |Öğe|Tür|Açıklama|
 |------------------|----------|-----------|
 |`mediaType`|Dize|Başvurulan nesnenin MIME türü.|
 |`size`|Int32|İçeriğin bayt sayısı. Uzunluk alanı ile aynıdır.|
-|`digest`|Dize|Kayıt defteri V2 HTTP API belirtimine göre tanımlanan içerik, Özet.|
-|`length`|Int32|İçeriğin bayt sayısı. Boyut alanı ile aynıdır.|
-|`repository`|Dize|Havuz adı.|
+|`digest`|Dize|Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet.|
+|`length`|Int32|İçeriğin bayt sayısı. Boyut alanına ile aynıdır.|
+|`repository`|Dize|Depo adı.|
 |`tag`|Dize|Görüntü etiketi adı.|
 
-### <a name="request"></a>İstek
+### <a name="request"></a>istek
 
 |Öğe|Tür|Açıklama|
 |------------------|----------|-----------|
-|`id`|Dize|Olay başlatılan isteği kimliği.|
-|`host`|Dize|Gelen istekleri üzerinde HTTP ana bilgisayar üstbilgisi tarafından belirtilen kayıt defteri örneği dışarıdan erişilebilir konak adı.|
+|`id`|Dize|Olayı başlatan isteği kimliği.|
+|`host`|Dize|Harici olarak erişilebilen ana bilgisayar adını HTTP ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği.|
 |`method`|Dize|Olayı oluşturan istek yöntemi.|
-|`useragent`|Dize|İstek Kullanıcı Aracısı üstbilgisi.|
+|`useragent`|Dize|İsteğin kullanıcı aracısını üstbilgisi.|
 
 ### <a name="payload-example-push-event"></a>Yükü örnek: anında iletme olay
 
@@ -92,24 +93,24 @@ Bir kapsayıcı görüntüsü bir depoya gönderildiğinde tetiklenen bir Web ka
 }
 ```
 
-Örnek [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/) tetikler komutu **itme** olay Web kancası:
+Örnek [Docker CLI'yı](https://docs.docker.com/engine/reference/commandline/cli/) tetikler komut **anında iletme** olay Web kancası:
 
 ```bash
 docker push myregistry.azurecr.io/hello-world:v1
 ```
 
-## <a name="delete-event"></a>Olay silme
+## <a name="delete-event"></a>Etkinliği sil
 
-Web kancası depo harekete veya bildirimi silinir. Bir etiketi silindiğinde tetiklenen değil.
+Web kancası depo veya bildirimi silindiğinde tetiklenir. Bir etiketi silindiğinde tetiklenir değil.
 
 ### <a name="delete-event-payload"></a>Olay yükü Sil
 
 |Öğe|Tür|Açıklama|
 |-------------|----------|-----------|
 |`id`|Dize|Web kancası olay kimliği.|
-|`timestamp`|DateTime|Hangi Web kancası olay tetiklendi süre.|
-|`action`|Dize|Web kancası olayı tetikleyen bir eylem.|
-|[Hedef](#delete_target)|Karmaşık Tür|Web kancası olay tetikleyen olayı hedefi.|
+|`timestamp`|DateTime|Saat, Web kancası olayı tetiklendi.|
+|`action`|Dize|Web kancası olayı tetikleyen eylemi.|
+|[Hedef](#delete_target)|Karmaşık Tür|Web kancası olayı tetikleyen olayı hedefi.|
 |[İstek](#delete_request)|Karmaşık Tür|Web kancası olayı oluşturan istek.|
 
 ### <a name="delete_target"></a> Hedef
@@ -117,19 +118,19 @@ Web kancası depo harekete veya bildirimi silinir. Bir etiketi silindiğinde tet
 |Öğe|Tür|Açıklama|
 |------------------|----------|-----------|
 |`mediaType`|Dize|Başvurulan nesnenin MIME türü.|
-|`digest`|Dize|Kayıt defteri V2 HTTP API belirtimine göre tanımlanan içerik, Özet.|
-|`repository`|Dize|Havuz adı.|
+|`digest`|Dize|Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet.|
+|`repository`|Dize|Depo adı.|
 
 ### <a name="delete_request"></a> İstek
 
 |Öğe|Tür|Açıklama|
 |------------------|----------|-----------|
-|`id`|Dize|Olay başlatılan isteği kimliği.|
-|`host`|Dize|Gelen istekleri üzerinde HTTP ana bilgisayar üstbilgisi tarafından belirtilen kayıt defteri örneği dışarıdan erişilebilir konak adı.|
+|`id`|Dize|Olayı başlatan isteği kimliği.|
+|`host`|Dize|Harici olarak erişilebilen ana bilgisayar adını HTTP ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği.|
 |`method`|Dize|Olayı oluşturan istek yöntemi.|
-|`useragent`|Dize|İstek Kullanıcı Aracısı üstbilgisi.|
+|`useragent`|Dize|İsteğin kullanıcı aracısını üstbilgisi.|
 
-### <a name="payload-example-delete-event"></a>Yükü örnek: olay silme
+### <a name="payload-example-delete-event"></a>Yükü örnek: olayı Sil
 
 ```JSON
 {
@@ -150,7 +151,7 @@ Web kancası depo harekete veya bildirimi silinir. Bir etiketi silindiğinde tet
   }
 ```
 
-Örnek [Azure CLI 2.0](/cli/azure/acr) komutları tetikleyicisi bir **silmek** olay Web kancası:
+Örnek [Azure CLI](/cli/azure/acr) komutları tetikleyicisi bir **Sil** olay Web kancası:
 
 ```azurecli
 # Delete repository
@@ -162,4 +163,4 @@ az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --m
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure kapsayıcı kayıt defteri Web kancalarını kullanarak](container-registry-webhook.md)
+[Azure Container Registry Web kancalarını kullanma](container-registry-webhook.md)

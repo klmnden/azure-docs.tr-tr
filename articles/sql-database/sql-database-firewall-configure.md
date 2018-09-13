@@ -3,20 +3,20 @@ title: Azure SQL veritabanı ve veri ambarı güvenlik duvarı kuralları | Micr
 description: SQL veritabanı ve SQL veri ambarı güvenlik duvarı erişimini yönetmek ve SQL veritabanı için veritabanı düzeyinde güvenlik duvarı kuralları yapılandırma için sunucu düzeyinde güvenlik duvarı kuralları ile yapılandırmayı öğrenin.
 keywords: sunucu veritabanı güvenlik duvarı
 services: sql-database
-author: CarlRabeler
+author: VanMSFT
 manager: craigg
 ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.author: carlrab
-ms.openlocfilehash: 51b7a42e5b08c0fb40b3c9407d6da345db494214
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.author: vanto
+ms.openlocfilehash: 118911687326bfa938c7276337377e3d3cb66bf2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057294"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715406"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL veritabanı ve SQL veri ambarı güvenlik duvarı kuralları 
 
@@ -43,7 +43,7 @@ Azure SQL sunucunuzdaki veritabanlarından yalnızca birine seçmeli olarak eri�
    ![Güvenlik duvarı yapılandırmasını açıklayan diyagram.][1]
 
 * **Sunucu düzeyinde güvenlik duvarı kuralları:** Bu kurallar istemcilerin tüm Azure SQL sunucusuna, yani aynı mantıksal sunucu içindeki tüm veritabanlarına erişmesini sağlar. Bu kurallar **ana** veritabanına depolanır. Sunucu düzeyinde güvenlik duvarı kuralları, portal ya da Transact-SQL deyimleri kullanılarak yapılandırılabilir. Azure portalı veya PowerShell kullanarak sunucu düzeyinde güvenlik duvarı kuralları oluşturmak için abonelik sahibi veya abonelik katkıda bulunanı olmanız gerekir. Transact-SQL kullanarak sunucu düzeyinde güvenlik duvarı kuralı oluşturmak için SQL Veritabanı örneğine sunucu düzeyi asıl oturum açma bilgileriyle veya Azure Active Directory yöneticisi olarak bağlanmanız gerekir (başka bir deyişle, sunucu düzeyi güvenlik duvarı kuralının önce Azure düzeyi izinlere sahip bir kullanıcı tarafından oluşturulması gerekir).
-* **Veritabanı düzeyinde güvenlik duvarı kuralları:** bu kurallar istemcilerin aynı mantıksal sunucu içindeki bazı (güvenli) veritabanlarına erişim sağlar. Her veritabanı için kurallar oluşturabilirsiniz (dahil olmak üzere **ana** veritabanı) ve bunlar tek veritabanlarına depolanır. Ana ve kullanıcı veritabanları için veritabanı düzeyinde güvenlik duvarı kuralları yalnızca oluşturulur ve yalnızca ilk sunucu düzeyinde Güvenlik Duvarı'nı yapılandırdıktan sonra ve Transact-SQL deyimleri kullanılarak yönetilir. Veritabanı düzeyinde güvenlik kuralı için, sunucu düzeyinde güvenlik duvarı kuralında belirtilen aralığın dışındaki bir IP adresi aralığını belirtirseniz, yalnızca veritabanı düzeyi aralığındaki IP adreslerine sahip istemciler veritabanına erişebilir. Bir veritabanı için en fazla 128 veritabanı düzeyinde güvenlik duvarı kuralınız olabilir. Veritabanı düzeyinde güvenlik duvarı kuralları yapılandırma hakkında daha fazla bilgi için makale ve bkz örnek ilerleyen bölümlerinde bkz [sp_set_database_firewall_rule (Azure SQL veritabanları)](https://msdn.microsoft.com/library/dn270010.aspx).
+* **Veritabanı düzeyinde güvenlik duvarı kuralları:** bu kurallar istemcilerin aynı mantıksal sunucu içindeki bazı (güvenli) veritabanlarına erişim sağlar. Her veritabanı için kurallar oluşturabilirsiniz (dahil olmak üzere **ana** veritabanı) ve bunlar tek veritabanlarına depolanır. Ana ve kullanıcı veritabanları için veritabanı düzeyinde güvenlik duvarı kuralları yalnızca oluşturulur ve yalnızca ilk sunucu düzeyinde Güvenlik Duvarı'nı yapılandırdıktan sonra ve Transact-SQL deyimleri kullanılarak yönetilir. Veritabanı düzeyinde güvenlik kuralı için, sunucu düzeyinde güvenlik duvarı kuralında belirtilen aralığın dışındaki bir IP adresi aralığını belirtirseniz, yalnızca veritabanı düzeyi aralığındaki IP adreslerine sahip istemciler veritabanına erişebilir. Bir veritabanı için en fazla 128 veritabanı düzeyinde güvenlik duvarı kuralınız olabilir. Veritabanı düzeyinde güvenlik duvarı kuralları yapılandırma hakkında daha fazla bilgi için makale ve bkz örnek ilerleyen bölümlerinde bkz [sp_set_database_firewall_rule (Azure SQL veritabanı)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 **Öneri:** Microsoft, güvenliği artırmak ve veritabanınızı daha taşınabilir hale getirmek açısından, mümkün olan durumlarda veritabanı düzeyinde güvenlik duvarı kurallarının kullanılmasını önerir. Aynı erişim gereksinimlerine sahip birçok veritabanınız varsa ve her veritabanını ayrı ayrı yapılandırmaya zaman harcamak istemiyorsanız sunucu düzeyinde güvenlik duvarı kurallarını yöneticiler için kullanabilirsiniz.
 

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fb820d124fd9b5e882cad538ad436532d7865fbc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: f1899817ee2d0efec4ab561a64f24e49cb173c29
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921545"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720778"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Şirket içi Hyper-V sunucularını azure'a olağanüstü durum kurtarmaya hazırlama
 
@@ -60,13 +60,15 @@ VMM, aşağıdaki gibi ağ eşlemesi için hazırlık:
 ## <a name="verify-internet-access"></a>İnternet erişimi doğrulayın
 
 1. Öğreticinin amacı doğrultusunda, Hyper-V konaklarını ve VMM sunucusunu kullanarak bir ara sunucu olmadan doğrudan internet erişimini sağlamak en basit yapılandırmadır içindir. 
-2. Bu Hyper-V konaklarını ve VMM sunucusu varsa, bu URL'lere erişebildiğinden emin olun: 
-
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
+2. Bu Hyper-V konaklarını ve VMM sunucusu varsa, aşağıdaki gerekli URL'lere erişebildiğinden emin olun.   
 3. IP adresine göre erişimi denetleme, emin olun:
     - IP adresi tabanlı güvenlik duvarı kuralları bağlanabilir [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)ve HTTPS (443) bağlantı noktası.
     - Aboneliğinizin Azure bölgesi için IP adresi aralıklarına izin verin.
+    
+### <a name="required-urls"></a>Gerekli URL
+
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: fccdc4ac40878060b94d495b8895e2a128c9477c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886319"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716120"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm hızlandırıcısının rol tabanlı erişim denetimlerini yapılandırın
 
@@ -134,11 +134,11 @@ Aşağıdaki adımları, Azure Active Directory'de bir uygulamaya bir rol ekleme
 
 ### <a name="define-a-policy-for-the-new-role"></a>Yeni rol için ilke tanımlama
 
-Azure Portalı'nda uygulama rolü eklemek için bir ilke tanımlamanız gerekir sonra [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/pcs-auth/Services/data/policies/roles.json) cihazları yönetmek için gereken izinleri atar rolü için.
+Azure Portalı'nda uygulama rolü eklemek için bir ilke tanımlamanız gerekir sonra [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) cihazları yönetmek için gereken izinleri atar rolü için.
 
-1. Kopya [kimlik doğrulama ve yetkilendirme mikro hizmet](https://github.com/Azure/pcs-auth-dotnet) github deposunu yerel makinenize.
+1. Kopya [Uzaktan izleme mikro Hizmetler](https://github.com/Azure/remote-monitoring-services-dotnet) github deposunu yerel makinenize.
 
-1. Düzen **Services/data/policies/roles.json** ilkesi eklemek için dosya **ManageDevices** aşağıdaki kod parçacığında gösterildiği gibi rol. **Kimliği** ve **rol** değerlerini önceki bölümde uygulama bildirimindeki rol tanımı eşleşmesi gerekir. Biri izin verilen eylemlerin listesini sağlayan **ManageDevices** oluşturmak, güncelleştirmek ve çözüme bağlı cihazları silmek için rolü:
+1. Düzen **auth/Services/data/policies/roles.json** ilkesi eklemek için dosya **ManageDevices** aşağıdaki kod parçacığında gösterildiği gibi rol. **Kimliği** ve **rol** değerlerini önceki bölümde uygulama bildirimindeki rol tanımı eşleşmesi gerekir. Biri izin verilen eylemlerin listesini sağlayan **ManageDevices** oluşturmak, güncelleştirmek ve çözüme bağlı cihazları silmek için rolü:
 
     ```json
     {
@@ -184,7 +184,7 @@ Azure Portalı'nda uygulama rolü eklemek için bir ilke tanımlamanız gerekir 
 
 ### <a name="how-the-web-ui-enforces-permissions"></a>Web kullanıcı Arabirimi izinleri nasıl zorunlu kılar
 
-Kullanıcı Arabirimi kullanan web [kimlik doğrulama ve yetkilendirme mikro hizmet](https://github.com/Azure/pcs-auth-dotnet) hangi eylemleri belirlemek için bir kullanıcının Al ve hangi denetimlerin kullanıcı Arabiriminde görünür izin verilir. Örneğin, çözümünüz çağrılırsa **contoso rm4**, web kullanıcı Arabirimi aşağıdaki isteği göndererek geçerli kullanıcı için izin verilen eylemlerin bir listesini alır:
+Kullanıcı Arabirimi kullanan web [kimlik doğrulama ve yetkilendirme mikro hizmet](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) hangi eylemleri belirlemek için bir kullanıcının Al ve hangi denetimlerin kullanıcı Arabiriminde görünür izin verilir. Örneğin, çözümünüz çağrılırsa **contoso rm4**, web kullanıcı Arabirimi aşağıdaki isteği göndererek geçerli kullanıcı için izin verilen eylemlerin bir listesini alır:
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -226,7 +226,7 @@ Daha fazla bilgi için [korumalı bileşenleri](https://github.com/Azure/pcs-rem
 
 Mikro hizmetler, ayrıca yetkisiz API istekleri karşı korumak için izinleri denetleyin. Bir mikro hizmet, bir API isteği aldığında, kodunu çözer ve kullanıcı kimliği ve kullanıcı rolüyle ilişkilendirilen izinleri almak için JWT belirtecini doğrular.
 
-Alınan aşağıdaki kod [DevicesController.cs](https://github.com/Azure/iothub-manager-dotnet/blob/master/WebService/v1/Controllers/DevicesController.cs) dosyası [IoTHub Yöneticisi mikro hizmet](https://github.com/Azure/iothub-manager-dotnet), izinleri nasıl zorlanır gösterir:
+Alınan aşağıdaki kod [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) dosyası [IoTHub Yöneticisi mikro hizmet](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager), izinleri nasıl zorlanır gösterir:
 
 ```csharp
 [HttpDelete("{id}")]

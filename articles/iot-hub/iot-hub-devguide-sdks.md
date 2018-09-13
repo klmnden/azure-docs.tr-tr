@@ -8,20 +8,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: dobett
-ms.openlocfilehash: 710de8021abfa5b1fc17491af6b8b9f2bdd3a19f
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: b57a448459101150363d595910cefcde991f1f92
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919046"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721829"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Anlama ve Azure IOT Hub SDK'ları kullanın
 
 IOT Hub ile çalışmaya yönelik yazılım geliştirme setleri (SDK'lar) iki kategorisi vardır:
 
-* **Cihaz SDK'ları** , IOT cihazlarınızı üzerinde çalışan uygulamalar oluşturmanıza olanak tanır. Bu uygulamalar, IOT hub'ına telemetri gönderme ve isteğe bağlı olarak, IOT hub'ından iletiler, iş, yöntemi veya ikizi güncelleştirmeleri alırsınız.
+* **Cihaz SDK'ları** , cihaz istemcisi veya modül istemcisi kullanarak IOT cihazlarında çalışan uygulamalar oluşturmanıza olanak tanır. Bu uygulamalar, IOT hub'ına telemetri gönderme ve isteğe bağlı olarak, IOT hub'ından iletiler, iş, yöntemi veya ikizi güncelleştirmeleri alırsınız.  Modül istemci yazmak için kullanabileceğiniz [modülleri](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) için [Azure IOT Edge çalışma zamanı](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge).
 
-* **Hizmet SDK'ları** IOT hub'ınızı yönetme ve isteğe bağlı olarak ileti göndermek, zamanlama işleri, doğrudan metotları çağırma veya istenen özellik güncelleştirmeleri göndermek için IOT cihazlarınızı olanak sağlar.
+* **Hizmet SDK'ları** IOT hub'ınızı yönetme ve isteğe bağlı olarak ileti göndermek, zamanlama işleri, doğrudan metotları çağırma veya istenen özellik güncelleştirmeleri, IOT cihazları veya modülleri Gönder olanak sağlar.
 
 Azure IOT SDK'larını kullanarak geliştirme avantajları hakkında bilgi [burada][lnk-benefits-blog].
 
@@ -35,21 +35,25 @@ Microsoft Azure IOT cihaz SDK'ları oluşturma aygıtlar ve bağlanın ve Azure 
 * Yüklersiniz [Nuget][lnk-nuget-csharp-device]
 * [Kaynak kodu][lnk-dotnet-sdk]
 * [API Başvurusu][lnk-dotnet-ref]
+* [Modül başvurusu] [https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet]
 
 Taşınabilirlik ve geniş platform uyumluluğu için ANSI C (C99) yazılmış için Azure IOT Hub cihaz SDK'sı
 * Yüklersiniz [apt-get, MBED, Arduino IDE veya Nuget][lnk-c-package]
 * [Kaynak kodu][lnk-c-sdk]
 * [API Başvurusu][lnk-c-ref]
+* [Modül başvurusu] [https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h]
 
 Java için Azure IOT Hub cihazı SDK'sı: 
 * Ekleme [Maven] [ lnk-maven-device] proje
 * [Kaynak kodu][lnk-java-sdk]
 * [API Başvurusu][lnk-java-ref]
+* [Modül başvurusu] [https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable]
 
 Node.js için Azure IOT Hub cihazı SDK'sı: 
 * Yüklersiniz [npm][lnk-npm-device]
 * [Kaynak kodu][lnk-node-sdk]
 * [API Başvurusu][lnk-node-ref]
+* [Modül başvurusu] [https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest]
 
 Python için Azure IOT Hub cihazı SDK'sı: 
 * Yüklersiniz [pip][lnk-pip-device]

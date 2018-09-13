@@ -1,8 +1,8 @@
 ---
-title: "Application Insights'ta uyarıları ayarlamak için PowerShell kullanma | Microsoft Docs"
-description: "Ölçüm değişiklikler hakkında e-postaları almak için Application Insights yapılandırmasını otomatikleştirin."
+title: Application Insights uyarıları ayarlamak için PowerShell kullanma | Microsoft Docs
+description: Ölçüm değişiklikler hakkında e-postaları almak için Application Insights yapılandırmasını otomatikleştirin.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
@@ -10,29 +10,30 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b90a540afd1c2815db8f5a99ee210ce21ea4d874
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8e317d44b7fdff1ef244e2e549fbbebf3f829740
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647583"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Application Insights uyarıları ayarlamak için PowerShell kullanma
-Yapılandırmasını otomatikleştirebilirsiniz [uyarıları](app-insights-alerts.md) içinde [Application Insights](app-insights-overview.md).
+Yapılandırılmasını otomatikleştirebilirsiniz [uyarılar](app-insights-alerts.md) içinde [Application Insights](app-insights-overview.md).
 
-Buna ek olarak, şunları yapabilirsiniz [ayarlamak yanıtınız bir uyarıya otomatik hale getirmek için Web kancası](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Ayrıca, aşağıdakileri yapabilirsiniz [ayarlanmış bir uyarı yanıtları otomatik hale getirmek için Web kancaları](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
 > [!NOTE]
-> Aynı anda kaynakları ve Uyarıları oluşturmak istiyorsanız, göz önünde bulundurun [bir Azure Resource Manager şablonu kullanarak](app-insights-powershell.md).
+> Kaynaklar ve uyarılar aynı anda oluşturmak isterseniz, göz önünde bulundurun [bir Azure Resource Manager şablonu kullanarak](app-insights-powershell.md).
 >
 >
 
-## <a name="one-time-setup"></a>Tek seferlik Kurulumu
-Önce Azure aboneliğinizle PowerShell kullanmadıysanız:
+## <a name="one-time-setup"></a>Bir kerelik Kurulum
+Azure aboneliğiniz önce PowerShell kullanmadıysanız:
 
-Komut dosyalarını çalıştırmak istediğiniz Azure Powershell modülünü yükleyin.
+Azure Powershell modülü, komut dosyalarını çalıştırmak istediğiniz makineye yükleyin.
 
 * Yükleme [Microsoft Web Platformu Yükleyicisi (v5 veya üzeri)](http://www.microsoft.com/web/downloads/platform.aspx).
 * Microsoft Azure PowerShell'i yüklemek için kullanın
@@ -46,10 +47,10 @@ Azure PowerShell'i başlatın ve [aboneliğinize bağlanma](/powershell/azure/ov
 ```
 
 
-## <a name="get-alerts"></a>Uyarıları alma
+## <a name="get-alerts"></a>Uyarılar alın
     Get-AzureAlertRmRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
-## <a name="add-alert"></a>Uyarı ekleme
+## <a name="add-alert"></a>Uyarı ekle
     Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
@@ -65,9 +66,9 @@ Azure PowerShell'i başlatın ve [aboneliğinize bağlanma](/powershell/azure/ov
 
 
 ## <a name="example-1"></a>Örnek 1
-Sunucu yanıtı üzerinde 5 dakika ortalaması HTTP isteklerine 1 saniyeden daha yavaş ise bana e-posta. My Application Insights kaynağı IceCreamWebApp denir ve Fabrikam kaynak grubunda bulunuyor. Azure aboneliğinin sahibi ben.
+HTTP isteklerini, üzerinde 5 dakika ortalama sunucu yanıtı 1 saniye yavaş ise bana e-posta. My Application Insights kaynağı IceCreamWebApp denir ve Fabrikam kaynak grubunda bulunuyor. Azure aboneliğinin sahibi ortağıyım.
 
-Abonelik kimliği (değil uygulamanın izleme anahtarı) GUID'dir.
+Abonelik kimliği (değil uygulamanızın izleme anahtarını) GUID'dir.
 
     Add-AlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
@@ -81,7 +82,7 @@ Abonelik kimliği (değil uygulamanın izleme anahtarı) GUID'dir.
      -Location "East US" -RuleType Metric
 
 ## <a name="example-2"></a>Örnek 2
-Bir uygulama içinde kullanmam sahip [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) "salesPerHour." adlı bir ölçüm bildirmek için "SalesPerHour" 100 düşerse bir e-posta my arkadaşlarınıza üzerinde 24 saat ortalaması gönderin.
+Bir uygulama içinde kullanmam sahibim [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) "salesPerHour." adlı bir ölçüm bildirmek için "SalesPerHour" 100 düşerse bir e-posta arkadaşlarım 24 saat içinde ortalama gönderin.
 
     Add-AlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -94,48 +95,48 @@ Bir uygulama içinde kullanmam sahip [TrackMetric()](app-insights-api-custom-eve
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
      -Location "East US" -RuleType Metric
 
-Aynı kural kullanılarak bildirilen ölçümü için kullanılabilir [ölçüm parametresi](app-insights-api-custom-events-metrics.md#properties) TrackEvent veya trackPageView gibi başka bir izleme çağrısı.
+Aynı kural kullanılarak bildirilen ölçüm için kullanılabilir [ölçüm parametresi](app-insights-api-custom-events-metrics.md#properties) TrackEvent veya trackPageView gibi başka bir izleme çağrısı.
 
 ## <a name="metric-names"></a>Ölçüm adları
 | Ölçüm adı | Ekran adı | Açıklama |
 | --- | --- | --- |
-| `basicExceptionBrowser.count` |Tarayıcı özel durumları |Tarayıcıda oluşturulan Yakalanmayan Özel durumların sayısı. |
-| `basicExceptionServer.count` |Sunucu özel durumları |Uygulama tarafından oluşturulan işlenmemiş özel durum sayısı |
-| `clientPerformance.clientProcess.value` |İstemci işlem süresi |DOM yüklenene kadar belgeyi son baytını alma arasındaki süre. Zaman uyumsuz isteği hala işliyor olabilir. |
-| `clientPerformance.networkConnection.value` |Sayfa yükleme ağ bağlantı süresi |Tarayıcı ağa bağlanmak için gereken süreyi. Önbelleğe alınmış 0 olabilir. |
-| `clientPerformance.receiveRequest.value` |Alıcı yanıt süresi |Yanıt almayı başlatma isteği gönderilirken tarayıcı arasındaki süre. |
-| `clientPerformance.sendRequest.value` |İstek süresi Gönder |İsteği göndermek için tarayıcı tarafından harcanan süre. |
-| `clientPerformance.total.value` |Tarayıcı sayfa yükleme süresi |DOM, stil sayfaları, betikler ve görüntüleri yüklenene kadar kullanıcı isteği süresi. |
-| `performanceCounter.available_bytes.value` |Kullanılabilir bellek |Bir işlem veya sistem kullanımı için hemen kullanılabilir fiziksel bellek. |
-| `performanceCounter.io_data_bytes_per_sec.value` |İşlemin g/ç hızı |Okunabilir ve yazılabilir dosyaları, ağ ve aygıtlar için saniye başına toplam bayt sayısı. |
-| `performanceCounter.number_of_exceps_thrown_per_sec.value` |özel durum oranı |Saniye başına oluşturulan özel durumları. |
-| `performanceCounter.percentage_processor_time.value` |İşlem CPU |Tüm işlem iş parçacıklarının yönergeleri yürütmek için işlemciyi tarafından uygulamaları işlemi için kullanılan geçen sürenin yüzdesi. |
-| `performanceCounter.percentage_processor_total.value` |İşlemci zamanı |İşlemcinin boşta olmayan iş parçacıklarında harcadığı zamanı yüzdesi. |
-| `performanceCounter.process_private_bytes.value` |İşlem özel bayt sayısı |Özel olarak izlenen uygulamanın işlemlere atanan bellek. |
-| `performanceCounter.request_execution_time.value` |ASP.NET isteği yürütme süresi |En son isteği yürütme süresi. |
-| `performanceCounter.requests_in_application_queue.value` |ASP.NET isteklerini yürütme kuyruğundaki |Uygulama istek sırası uzunluğu. |
-| `performanceCounter.requests_per_sec.value` |ASP.NET isteği hızı |Saniye başına uygulamaya ASP.NET gelen tüm isteklerin oranı. |
-| `remoteDependencyFailed.durationMetric.count` |Bağımlılık hataları |Sunucu uygulaması için dış kaynak tarafından yapılan başarısız çağrı sayısı. |
-| `request.duration` |Sunucu yanıt süresi |Bir HTTP isteği alma ve yanıtı göndermeyi bitirmeden arasındaki süre. |
-| `request.rate` |İstek oranı |Saniye başına uygulama için tüm istekleri oranı. |
-| `requestFailed.count` |Başarısız istekler |Bir yanıt kodu ile sonuçlandı sayısı, HTTP isteklerini > = 400 |
-| `view.count` |Sayfa görünümleri |Bir web sayfası için istemci kullanıcı isteklerini sayısı. Yapay trafiği filtrelenmelidir. |
-| {, özel ölçüm adı} |{Ölçüm adı} |Ölçüm değeri tarafından bildirilen [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) veya [izleme çağrı ölçümleri parametresinin](app-insights-api-custom-events-metrics.md#properties). |
+| `basicExceptionBrowser.count` |Tarayıcı özel durumları |Tarayıcıda oluşan yakalanmayan özel durum sayısı. |
+| `basicExceptionServer.count` |Sunucu özel durumları |Uygulama tarafından oluşturulan yakalanamayan özel durum sayısı |
+| `clientPerformance.clientProcess.value` |İstemci işlem süresi |DOM'un yüklenmesi arasında bir belgenin son bayt alma süresi. Zaman uyumsuz istekler hala işleniyor. |
+| `clientPerformance.networkConnection.value` |Sayfa yükleme ağ bağlantı süresi |Ağa bağlanmak için tarayıcıya geçen süre. Önbelleğe alınmış 0 olabilir. |
+| `clientPerformance.receiveRequest.value` |Yanıt süresi alınıyor |Yanıt almak başlatma isteği gönderilirken tarayıcı arasındaki süre. |
+| `clientPerformance.sendRequest.value` |İstek gönderme süresi |İsteği göndermek için tarayıcı tarafından harcanan süre. |
+| `clientPerformance.total.value` |Tarayıcı sayfa yükleme süresi |Kullanıcı isteğinden DOM, stil sayfaları, betikler ve resimler yüklenene kadar geçen süre. |
+| `performanceCounter.available_bytes.value` |Uygun bellek |Bir işlem veya sistem kullanımı için hemen kullanılabilir fiziksel bellek. |
+| `performanceCounter.io_data_bytes_per_sec.value` |İşlem GÇ Hızı |Dosyalar, ağ ve cihazlar üzerinde saniyede okunan ve yazılan toplam bayt. |
+| `performanceCounter.number_of_exceps_thrown_per_sec.value` |özel durum oranı |Saniye başına oluşturulan bir özel durumlar. |
+| `performanceCounter.percentage_processor_time.value` |İşlem CPU'su |Tüm işlem iş parçacıklarının yönergeleri yürütmek için işlemciyi tarafından uygulama işlemi için kullanılan geçen süre yüzdesi. |
+| `performanceCounter.percentage_processor_total.value` |İşlemci zamanı |İşlemcinin Boşta olmayan iş parçacıklarında geçirdiği sürenin yüzdesi. |
+| `performanceCounter.process_private_bytes.value` |İşleme özel bayt sayısı |İzlenen uygulama işlemleri için özel olarak atanan bellek. |
+| `performanceCounter.request_execution_time.value` |ASP.NET isteği yürütme süresi |En son isteğin yürütülme süresi. |
+| `performanceCounter.requests_in_application_queue.value` |ASP.NET isteklerini yürütme sırası |Uygulama istek kuyruğunun uzunluğu. |
+| `performanceCounter.requests_per_sec.value` |ASP.NET isteği hızı |Saniyede ASP.NET'ten uygulamaya yapılan tüm isteklerin oranı. |
+| `remoteDependencyFailed.durationMetric.count` |Bağımlılık hataları |Sunucu uygulama tarafından dış kaynaklara yapılan başarısız çağrıların sayısı. |
+| `request.duration` |Sunucu yanıt süresi |Bir HTTP isteğinin alınmasıyla yanıtın gönderilmesi arasında geçen süre. |
+| `request.rate` |İstek oranı |Saniyede uygulamaya yapılan tüm isteklerin oranı. |
+| `requestFailed.count` |Başarısız istekler |Bir yanıt kodunda sonuçlanan HTTP isteği sayısı > 400 = |
+| `view.count` |Sayfa görünümleri |Bir web sayfası için istemci kullanıcı isteklerini sayısı. Yapay trafik filtrelendi. |
+| {, özel ölçüm adı} |{Ölçüm adı} |Ölçüm, değer tarafından bildirilen [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) veya [ölçümleri parametresi bir izleme çağrısının](app-insights-api-custom-events-metrics.md#properties). |
 
-Ölçümleri farklı telemetri modülleri tarafından gönderilir:
+Ölçümler, farklı telemetri modülleri tarafından gönderilir:
 
 | Ölçüm grubu | Toplayıcı Modülü |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>görünüm |[Tarayıcı JavaScript](app-insights-javascript.md) |
-| performanceCounter |[Performans](app-insights-configuration-with-applicationinsights-config.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>görünüm |[JavaScript tarayıcı](app-insights-javascript.md) |
+| PerformanceCounter |[Performans](app-insights-configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Bağımlılık](app-insights-configuration-with-applicationinsights-config.md) |
-| isteği<br/>requestFailed |[Sunucu isteği](app-insights-configuration-with-applicationinsights-config.md) |
+| İstek,<br/>requestFailed |[Sunucu isteği](app-insights-configuration-with-applicationinsights-config.md) |
 
-## <a name="webhooks"></a>Web kancaları
-Yapabilecekleriniz [bir uyarı yanıtınızı otomatikleştirmek](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Bir uyarı ortaya çıktığında azure tercih ettiğiniz bir web adresini çağırır.
+## <a name="webhooks"></a>Web Kancaları
+Yapabilecekleriniz [yanıtınızı bir uyarıya](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Bir uyarı oluşturulduğunda azure, tercih ettiğiniz bir web adresini çağırır.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Application Insights yapılandırmak için komut dosyası](app-insights-powershell-script-create-resource.md)
-* [Application Insights ve web test kaynakları Şablondan Oluştur](app-insights-powershell.md)
-* [Microsoft Azure tanılama Application Insights'a Kuplaj otomatikleştirme](app-insights-powershell-azure-diagnostics.md)
-* [Bir uyarı yanıtınızı otomatikleştirme](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Application Insights'ı yapılandırmak için komut dosyası](app-insights-powershell-script-create-resource.md)
+* [Application ınsights'ı ve web testi kaynakları şablonlardan oluşturma](app-insights-powershell.md)
+* [Application ınsights'ı Microsoft Azure tanılama eşlenmesiyle otomatikleştirin](app-insights-powershell-azure-diagnostics.md)
+* [Bir uyarıya yanıt otomatikleştirin](../monitoring-and-diagnostics/insights-webhooks-alerts.md)

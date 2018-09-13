@@ -1,6 +1,6 @@
 ---
-title: Azure vm'lerinde yerel Linux parola sıfırlama | Microsoft Docs
-description: Azure VM'de yerel Linux parola sıfırlama adım tanıtır
+title: Azure sanal makinelerinde yerel Linux parola sıfırlama | Microsoft Docs
+description: Azure sanal makinesinde yerel Linux parola sıfırlama adım Ekle
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
@@ -13,100 +13,99 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: b9182ec2a974de06c2bd45928b9964f253653bf6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: dfc35f217a6822e13e45c2ce3faf73081a822a7a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
-ms.locfileid: "27578371"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35971941"
 ---
-# <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Azure vm'lerinde yerel Linux parola sıfırlama
+# <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Azure sanal makinelerinde yerel Linux parola sıfırlama
 
-Bu makalede, yerel Linux sanal makine (VM) parola sıfırlama için çeşitli yöntemler sunar. Kullanıcı hesabının süresinin dolduğunu veya yalnızca yeni bir hesap oluşturmak istiyorsanız, yeni bir yerel yönetici hesabı oluşturun ve VM erişimi yeniden kazanmak için aşağıdaki yöntemleri kullanabilirsiniz.
+Bu makalede, yerel Linux sanal makine (VM) parola sıfırlama için çeşitli yöntemler sunar. Kullanıcı hesabının süresi doldu veya yalnızca yeni bir hesap oluşturmak istiyorsanız, yeni bir yerel yönetici hesabı oluşturmak ve VM erişimi yeniden kazanmak için aşağıdaki yöntemleri kullanabilirsiniz.
 
 ## <a name="symptoms"></a>Belirtiler
 
-VM oturum açamıyor ve kullandığınız parola yanlış olduğunu belirten bir ileti alırsınız. Ayrıca, Azure Portal'da, parolanızı sıfırlamak için VMAgent kullanamazsınız. 
+VM'de oturum açamaz ve parolayı yanlış olduğunu belirten bir ileti alırsınız. Ayrıca, Azure portalında parola sıfırlama için VMAgent kullanamazsınız.
 
-## <a name="manual-password-reset-procedure"></a>El ile parola sıfırlama yordamı
+## <a name="manual-password-reset-procedure"></a>Yordam el ile parola sıfırlama
 
-1.  VM silme ve kullanıma açılan diskler tutun.
+1.  VM'yi silin ve kullanıma açılan diskler tutun.
 
-2.  İşletim sistemi sürücüsü zamana bağlı başka bir VM ile aynı konumda bir veri diski iliştirin.
+2.  İşletim sistemi sürücüsünü aynı konumdaki başka bir geçici sanal makineye veri diski olarak ekleyin.
 
-3.  Aşağıdaki SSH komutu süper kullanıcı olmasını zamana bağlı VM üzerinde çalıştırın.
+3.  Süper kullanıcı olacak zamana bağlı sanal makinede aşağıdaki SSH komutunu çalıştırın.
 
-
-    ~~~~
+    ```bash
     sudo su
-    ~~~~
+    ```
 
-4.  Çalıştırma **fdisk -l** ya da yeni eklenen disk bulmak için sistem günlüklerine bakın. Bağlama için sürücü adını bulun. Ardından zamana bağlı VM ilgili günlük dosyasına bakın.
+4.  Çalıştırma **fdisk -l** ya da yeni eklenen diski bulmak için sistem günlüklerine bakın. Bağlama için sürücü adını bulun. Ardından zamana bağlı sanal makinede, ilgili günlük dosyasına bakın.
 
-    ~~~~
+    ```bash
     grep SCSI /var/log/kern.log (ubuntu)
     grep SCSI /var/log/messages (centos, suse, oracle)
-    ~~~~
+    ```
 
-    Örnek çıktı grep komut verilmiştir:
+    Grep komut örnek çıktısı aşağıdaki gibidir:
 
-    ~~~~
+    ```bash
     kernel: [ 9707.100572] sd 3:0:0:0: [sdc] Attached SCSI disk
-    ~~~~
+    ```
 
 5.  Adlı bir bağlama noktası oluşturma **tempmount**.
 
-    ~~~~
+    ```bash
     mkdir /tempmount
-    ~~~~
+    ```
 
-6.  İşletim sistemi diski bağlama noktasında bağlayın. Bağlama sdc1 veya sdc2 için genellikle olması gerekir. Bu barındırma/etc dizin bozuk makine diskten bölümünde bağlıdır.
+6.  İşletim sistemi diskini bağlama noktasında bağlayın. Genellikle bağlama gerek *sdc1* veya *sdc2*. Bu bölümde barındırma bağlıdır */etc* bozuk makine diskten dizin.
 
-    ~~~~
+    ```bash
     mount /dev/sdc1 /tempmount
-    ~~~~
+    ```
 
-7.  Herhangi bir değişiklik yapmadan önce bir yedekleme gerçekleştirin:
+7.  Çekirdek kopyasını, herhangi bir değişiklik yapmadan önce kimlik bilgisi dosyaları oluşturun:
 
-    ~~~~
+    ```bash
     cp /etc/passwd /etc/passwd_orig    
     cp /etc/shadow /etc/shadow_orig    
     cp /tempmount/etc/passwd /etc/passwd
     cp /tempmount/etc/shadow /etc/shadow 
     cp /tempmount/etc/passwd /tempmount/etc/passwd_orig
     cp /tempmount/etc/shadow /tempmount/etc/shadow_orig
-    ~~~~
+    ```
 
-8.  Gereksinim duyduğunuz kullanıcının parolasını sıfırlama:
+8.  İhtiyacınız olan kullanıcının parolasını sıfırlama:
 
-    ~~~~
+    ```bash
     passwd <<USER>> 
-    ~~~~
+    ```
 
-9.  Değiştirilen Dosyalar bozuk makinenin diskte doğru konuma taşıyın.
+9.  Değiştirilen dosyaları bozuk makinenin diskte doğru konuma taşıyın.
 
-    ~~~~
+    ```bash
     cp /etc/passwd /tempmount/etc/passwd
     cp /etc/shadow /tempmount/etc/shadow
     cp /etc/passwd_orig /etc/passwd
     cp /etc/shadow_orig /etc/shadow
-    ~~~~
+    ```
 
-10. Kök geri dönün ve disk çıkarın.
+10. Kök geri dönün ve diski çıkarın.
 
-    ~~~~
+    ```bash
     cd /
     umount /tempmount
-    ~~~~
+    ```
 
-11. Yönetim Portalı diski kullanımdan çıkarın.
+11. Yönetim Portalı'ndan diski çıkarın.
 
 12. VM yeniden oluşturun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Başka bir Azure VM için işletim sistemi diski ekleyerek Azure VM sorun giderme](http://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
+* [Azure sanal makinesinin işletim sistemi diskini başka bir Azure sanal makineye ekleyerek sorunlarını giderme](http://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
-* [Azure CLI: silin ve yeniden VHD'den VM dağıtmak nasıl](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Azure CLI: nasıl silin ve VHD'den VM yeniden dağıtma](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

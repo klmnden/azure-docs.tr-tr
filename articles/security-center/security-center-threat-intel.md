@@ -1,6 +1,6 @@
 ---
-title: Azure Güvenlik Merkezi'ndeki tehdit bilgileri | Microsoft Docs
-description: Azure Güvenlik Merkezi'ndeki tehdit bilgilerini kullanarak VM'lerinizdeki ve bilgisayarlarınızdaki potansiyel tehditleri tanımlamayı öğrenin.
+title: Tehdit zekası ve Azure Güvenlik Merkezi'nde Güvenlik Uyarısı harita | Microsoft Docs
+description: Kullanarak Vm'lerinizdeki ve bilgisayarlarınızdaki potansiyel tehditleri belirlemek için Azure Güvenlik Merkezi'nde yayınladık uyarı harita ve tehdit zekası yeteneği kullanmayı öğrenin.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: a3988575074708a46138b5e550bfc0014ca3bd15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d82d52e05d85fbd5197f84f032a55dd9c74f9d1f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44293941"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714437"
 ---
-# <a name="security-alerts-map-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik uyarılarını eşleme
+# <a name="security-alerts-map-and-threat-intelligence"></a>Güvenlik Uyarıları Haritası ve tehdit bilgileri
 Bu makalede Azure Güvenlik Merkezi'nde güvenlik uyarıları harita ve güvenlik olay-tabanlı tehdit bilgileri Haritası güvenlikle ilgili sorunları gidermek üzere kullanmanıza yardımcı olur.
 
 ## <a name="how-the-security-alerts-map-works"></a>Güvenlik uyarıları nasıl eşleştiği çalışır
@@ -49,7 +49,8 @@ Geçerli ortamınızı tehditler görselleştirmek için güvenlik uyarıları h
 Güvenlik Uyarıları eşleme ile ilgili uyarılar temel alır. Bu uyarılar için hangi ağ iletişimi bilinen bir riskli IP adresi (örneğin, bilinen bir cryptominer) IP adresi olup olmadığını başarıyla çözümlendi, bir IP adresi veya tanınmayan bir IP adresi ile ilişkili etkinlikleri temel alan daha önce riskli olarak. Harita, Azure'da daha önce seçtiğiniz tüm Aboneliklerdeki uyarılar sağlar. 
 
 Burada kaynaklanan olarak algılanır ve bunların önem derecesine göre renk kodludur coğrafi konuma göre harita üzerinde uyarılar görüntülenir. 
- 
+    ![Tehdit bilgileri](./media/security-center-threat-intel/security-center-alert-map.png)
+
 ## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Olay tabanlı tehdit zekası panosunu görüntüleme
 Tehdit bilgileri Haritası ham güvenlik etkinliklere göre görüntülemek için bu yordamı takip edebilirsiniz. Bu harita risk, örneğin bilinen bir botnet IP adresi olarak kabul edilir bir IP adresi içeren olayları görüntüler.
 

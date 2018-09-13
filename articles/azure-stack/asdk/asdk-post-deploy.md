@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 24f237a04d19d03ab7357db6fb9c7ab60036f3d2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4eadbe38eede505a3339d4b6090d0a34c12a5fc2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391002"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721968"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK yükleme sonrası yapılandırma görevleri
 
@@ -162,6 +162,11 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ![Grup İlkesi Yönetim Konsolu](media/asdk-post-deploy/gpmc.png)
 
+## <a name="enable-multi-tenancy"></a>Çok kiracılı modeli etkinleştirme
+Azure AD kullanarak dağıtımları için şunları yapmanız [çok kiracılı modeli etkinleştirme](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy) ASDK yüklemenizin.
+
+> [!NOTE]
+> Yönetici veya kullanıcı hesaplarından farklı Azure Stack kaydetmek için kullanılan etki alanları, bir Azure Stack Portal'da oturum açmak için kullanıldığında, Azure Stack kaydetmek için kullanılan etki alanı adı portala eklenmesi gereken url. Örneğin, Azure Stack ile Fabrikam.onmicrosoft.com adresli kayıtlı olup olmadığını ve oturum açma kullanıcı hesabı olan admin@contoso.com, kullanıcı portalında oturum açmak için kullanılacak url şu şekilde olacaktır: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure ile ASDK kaydedin](asdk-register.md)

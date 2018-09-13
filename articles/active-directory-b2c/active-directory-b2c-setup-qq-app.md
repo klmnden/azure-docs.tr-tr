@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11bb5bf132103bed9e154a12c0e628177ca6a57a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7abe86d49ec62460f4bfe039cbd935efe21caba8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344933"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716341"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir h hesabı ile kaydolma ve oturum açma ayarlama
 
@@ -40,7 +40,7 @@ H hesabı bir Azure Active Directory (Azure AD) B2C kimlik sağlayıcısı olara
 1. [https://connect.qq.com/index.html](https://connect.qq.com/index.html) kısmına gidin.
 2. Seçin**应用管理**(Uygulama Yönetimi).
 5. Seçin**创建应用**(Uygulama Oluştur) ve gerekli bilgileri girin.
-7. Girin `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` içinde**授权回调域**(geri çağırma URL'si). Örneğin, varsa, `tenant_name` olan contoso, olması için URL'yi ayarlayın `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+7. Girin `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` içinde**授权回调域**(geri çağırma URL'si). Örneğin, varsa, `tenant_name` olan contoso, olması için URL'yi ayarlayın `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 8. Seçin**创建应用**(uygulama oluşturma).
 9. Onay sayfasında, seçin**应用管理**(uygulama yönetimi sayfasına geri dönmek için uygulama yönetimi).
 10. Seçin**查看**(görüntüleme), oluşturduğunuz uygulamanın yanında.
@@ -50,13 +50,9 @@ H hesabı bir Azure Active Directory (Azure AD) B2C kimlik sağlayıcısı olara
 ## <a name="configure-qq-as-an-identity-provider"></a>Kimlik sağlayıcısı olarak h yapılandırın
 
 1. Oturum [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel Yöneticisi olarak.
-2. Azure AD B2C kiracınızı içeren dizini kullandığınızdan emin olmak için Azure portalın sağ üst köşesinde bu dizine geçin. Abonelik bilgilerinizi ve ardından **Dizin Değiştir**’i seçin. 
+2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.  
 
     ![Azure AD B2C kiracınıza geçiş yapma](./media/active-directory-b2c-setup-qq-app/switch-directories.png)
-
-    Kiracınızı içeren dizini seçin.
-
-    ![Dizin seçme](./media/active-directory-b2c-setup-qq-app/select-directory.png)
 
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 931c3d8beb9f2ed12228c74f09f84bbdee1798b8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b2f4fbca2dcbdd537302746c7b6109e467ea31d7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055883"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720234"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Şablonları Azure Stack portalını kullanarak dağıtma
 
@@ -30,7 +30,7 @@ Portal, Azure Stack için Azure Resource Manager şablonlarını dağıtmak içi
 
 ## <a name="to-deploy-a-template"></a>Bir şablonu dağıtmak için
 
-1. Portal, select oturum **yeni**ve ardından **özel**.
+1. Portal, select oturum **+ kaynak Oluştur**ve ardından **özel**.
 2. Seçin **şablon dağıtımı**.
 3. Seçin **şablonu Düzen**ve ardından JSON şablon kodunuz kod penceresine yapıştırın. **Kaydet**’i seçin.
 4. Seçin **parametreleri Düzenle**, gösterilir ve ardından bu parametrelerin değerlerini sağlamasını **Tamam**.

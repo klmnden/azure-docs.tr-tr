@@ -1,81 +1,81 @@
 ---
-title: Örnek Azure Machine Learning çalışma ekranı kullanarak dönüştürme tarafından sütunu birleştirme
-description: Başvuru belge 'Örneğe göre sütunları birleştirmek' dönüştürme için
+title: Örnek Azure Machine Learning Workbench'i kullanarak dönüştürme sütunları Birleştir
+description: Başvuru belgesini 'Birleştirmek sütunları örneğe göre' dönüştürme için
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: ecd2232dcf77715fdccd4e5518674500231f67ca
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 621601ad3576aad13f2f71062ee2351cf1a394c8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830287"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35650856"
 ---
-# <a name="combine-columns-by-example-transformation"></a>Örnek dönüştürme tarafından sütunu birleştirme
-Bu dönüşümü yeni bir sütun birden çok sütun değerlerinden birleştirerek eklemesine izin verir. Kullanıcı bir ayırıcı belirtin veya bu dönüştürme gerçekleştirmek için birleştirilmiş değer örnekleri sağlayın. Kullanıcı örnekleri birleşimi sağladığında, dönüşüm aynı tarafından işlenir **örnek tarafından** kullanılan altyapısı **türetilen sütun örneğe göre** Dönüştür.
+# <a name="combine-columns-by-example-transformation"></a>Örnek dönüştürme tarafından sütunları Birleştir
+Bu dönüştürme birden fazla sütundaki değerleri birleştiren yeni bir sütun eklemesine izin verir. Kullanıcı, bir ayırıcı belirtin veya bu dönüştürme işlemini gerçekleştirmek için birleşik değerleri örnekleri sağlar. Kullanıcı örnekleri birleşimi sağladığında dönüşümü aynı tarafından işlenir **örnek tarafından** kullanılan altyapısı **sütunu örneğe göre türet** dönüştürün.
 
-## <a name="how-to-perform-this-transformation"></a>Bu dönüştürme gerçekleştirme
+## <a name="how-to-perform-this-transformation"></a>Bu dönüşüm gerçekleştirme
 
-Bu dönüştürme gerçekleştirmek için şu adımları izleyin:
+Bu dönüştürme işlemini gerçekleştirmek için şu adımları izleyin:
 1. Tek bir sütunda birleştirmek istediğiniz iki veya daha fazla sütun seçin. 
-2. Seçin **birleştirmek sütunları örneğe göre** gelen **dönüştüren** menüsü. Veya herhangi seçin ve seçili sütun başlığına sağ tıklayın **birleştirmek sütunları örneğe göre** ve bağlam menüsünden. Dönüştürme Düzenleyicisi açılır ve yeni bir sütun yanındaki sağ en seçilen sütuna eklenir. Yeni bir sütun tarafından varsayılan ayırıcıyı ayrılmış birleşik değerlerini içerir. Seçili sütunları sütun başlıklarını adresindeki onay kutularını tanımlanabilir. Ekleme ve kaldırma seçimden sütunların yapılabilir onay kutularını kullanarak.
-3. Yeni oluşturulan sütunundaki değeri güncelleştirebilirsiniz. Güncelleştirilmiş değere örnek olarak dönüştürme öğrenmek için kullanılır.
-4. Tıklatın **Tamam** dönüştürme kabul etmek için.
+2. Seçin **birleştirmek sütunları örneğe göre** gelen **dönüştüren** menüsü. Ya da seçin ve seçili sütunların hiçbirinin başlığına sağ tıklayın **birleştirmek sütunları örneğe göre** bağlam menüsünden. Dönüştürme Düzenleyicisi açılır ve sağ en seçili olan sütunda yanındaki yeni bir sütun eklenir. Yeni bir sütun bir varsayılan ayırıcıyla ayrılmış birleşik değerleri içerir. Seçili sütunları sütun başlıkları, onay kutularını belirlenebilir. Eklenmesini ve kaldırılmasını sütun seçimi yapılabilir onay kutularını kullanarak.
+3. Yeni oluşturulan sütundaki değeri güncelleştirebilirsiniz. Güncelleştirilmiş değeri, dönüştürmeyi öğrenmek için örnek olarak kullanılır.
+4. Tıklayın **Tamam** dönüştürmeyi kabul etmek için.
 
-### <a name="transform-editor-advanced-mode"></a>Düzenleyici Dönüştür: Gelişmiş mod
+### <a name="transform-editor-advanced-mode"></a>Düzenleyici dönüştürme: Gelişmiş mod
 
-Gelişmiş mod sütunları birleştirmek için daha zengin bir deneyim sağlar. 
+Gelişmiş mod sütunların birleştirilmesi için daha zengin bir deneyim sağlar. 
 
-Seçme **ayırıcı** altında **birleştirmek sütunlara göre** kullanıcının dizelerde belirtmesine olanak tanır **ayırıcı** metin kutusu. Öğesinden dışarı sekmesinde **ayırıcı** veri gird sonuçlarında önizlemek için metin kutusu. Tuşuna **Tamam** dönüştürme kaydedilemedi.
+Seçme **ayırıcı** altında **birleştirmek sütunlara göre** kullanıcının dizelerde belirtmesine olanak tanır **ayırıcı** metin kutusu. Çıkış sekmesinden **ayırıcı** veri gird sonuçları önizlemesini görmek için metin kutusu. Tuşuna **Tamam** dönüşümü tamamlanamadı.
 
-Seçme **örnekler** altında **birleştirmek sütunlara göre** örnek birleşik değerler sağlamak kullanıcının sağlar. Örnek olarak bir satır yükseltmek için ızgaradaki satırların çift tıklayın. Beklenen çıktı yükseltilen satır karşı metin kutusuna yazın. Öğesinden dışarı sekmesinde **ayırıcı** veri gird sonuçlarında önizlemek için metin kutusu. Tuşuna **Tamam** dönüştürme kaydedilemedi. 
+Seçme **örnekler** altında **birleştirmek sütunlara göre** birleşik değer örnekleri sağlamak kullanıcının sağlar. Örnek olarak bir satır yükseltmek için ızgaradaki satırların çift tıklayın. Beklenen çıktıyı karşı yükseltilen satır metin kutusuna yazın. Çıkış sekmesinden **ayırıcı** veri gird sonuçları önizlemesini görmek için metin kutusu. Tuşuna **Tamam** dönüşümü tamamlanamadı. 
 
-Kullanıcı arasında geçiş yapmak **temel mod** ve **Gelişmiş mod** bağlantıları dönüştürme Düzenleyicisi'ni tıklatarak.
+Kullanıcı arasında geçiş yapmak **temel mod** ve **Gelişmiş mod** dönüştürme Düzenleyicisi bağlantıları tıklayarak.
 
-### <a name="transform-editor-send-feedback"></a>Düzenleyici Dönüştür: geri bildirim gönder
+### <a name="transform-editor-send-feedback"></a>Düzenleyici dönüştürme: geri bildirim gönder
 
-Tıklayarak **geri bildirim gönder** bağlantı açar **geri bildirim** örnekler kullanıcıyla önceden doldurulmaz açıklamaları kutusuyla iletişim sağlanan. Kullanıcı, açıklama kutusunun içeriğini gözden geçirin ve sorunu anlamasına yardımcı olmak için daha fazla ayrıntı sağlar. Kullanıcı, verileri Microsoft ile paylaşmak istiyorsanız değil, kullanıcı önceden doldurulmuş örnek veri tıklatmadan önce silmelisiniz **geri bildirim gönder** düğmesi. 
+Tıklayarak **geri bildirim gönder** bağlantı açar **geri bildirim** örnekler kullanıcıyla önceden doldurulmuş açıklamaları kutusu iletişim sağlanan. Kullanıcı yorumları kutunun içeriğini gözden geçirmeniz ve sorunu anlamanıza yardımcı olmak için daha fazla ayrıntı sağlanır. Kullanıcı verilerini Microsoft ile paylaşmak istemediği, kullanıcı önceden doldurulmuş bir örnek veri tıklamadan önce silmelisiniz **geri bildirim gönder** düğmesi. 
 
-### <a name="editing-existing-transformation"></a>Varolan dönüştürme düzenleme
+### <a name="editing-existing-transformation"></a>Var olan dönüştürme düzenleme
 
-Var olan bir kullanıcı düzenleyebilir **sütun örnekle birleştirmek** dönüştürme seçerek **Düzenle** dönüştürme adımının seçeneği. Tıklayarak **Düzenle** dönüştürme Düzenleyicisi'nde açar **temel mod**. Kullanıcının girebileceği **Gelişmiş mod** üstbilgi bağlantıya tıklayarak. Dönüştürme oluşturma sırasında sağlanan tüm örnekler var. gösterilir.
+Varolan bir kullanıcı düzenleyebilir **sütun örneği ile birleştirme** Dönüştür seçip **Düzenle** dönüştürme adımı seçeneği. Tıklayarak **Düzenle** dönüştürme Düzenleyicisi'nde açılır **temel modu**. Kullanıcının girebileceği **Gelişmiş mod** üst bilgisindeki bağlantısına tıklayarak. Dönüştürme, oluşturma sırasında sağlanan tüm örnekleri var. gösterilmektedir.
 
-## <a name="example-using-separators"></a>Ayırıcılar kullanma örneği
+## <a name="example-using-separators"></a>Örnek ayırıcılar kullanma
 
-Birleştirmek için bu örnek ayırıcı olarak virgül bir boşluk bırakarak kullanılan *Sokak*, *Şehir*, *durumu*, ve *ZIP* sütun.
+Birleştirmek için bu örnekteki ayırıcı olarak virgül ardından bir boşluk kullanılan *Sokak*, *Şehir*, *durumu*, ve *ZIP* sütunları.
 
 |Cadde|Şehir|Durum|ZIP|Sütun|
 |:----|:----|:----|:----|:----|
-|16011 N.E. 36th yolu|REDMOND|WA|98052|16011 N.E. 36th yolu, REDMOND, Washington, 98052|
-|16021 N.E. 36th yolu|REDMOND|WA|98052|16021 N.E. 36th yolu, REDMOND, Washington, 98052|
-|16031 N.E. 36th yolu|REDMOND|WA|98052|16031 N.E. 36th yolu, REDMOND, Washington, 98052|
-|16041 N.E. 36th yolu|REDMOND|WA|98052|16041 N.E. 36th yolu, REDMOND, Washington, 98052|
-|16051 N.E. 36th yolu|REDMOND|WA|98052|16051 N.E. 36th yolu, REDMOND, Washington, 98052|
-|16061 N.E. 36th yolu|REDMOND|WA|98052|16061 N.E. 36th yolu, REDMOND, Washington, 98052|
-|3460 157th avenue NE|REDMOND|WA|98052|3460 157th avenue NE, REDMOND, Washington, 98052|
-|3350 157th Ave N.E.|REDMOND|WA|98052|3350 157th Ave N.E., REDMOND, Washington, 98052|
-|3240 157th avenue N.E.|REDMOND|WA|98052|3240 157th avenue N.E., REDMOND, Washington, 98052|
+|16011 N.E. 36th yolu|REDMOND|WA|98052|16011 N.E. 36th way, REDMOND, WA, 98052|
+|16021 N.E. 36th yolu|REDMOND|WA|98052|16021 N.E. 36th way, REDMOND, WA, 98052|
+|16031 N.E. 36th yolu|REDMOND|WA|98052|16031 N.E. 36th way, REDMOND, WA, 98052|
+|16041 N.E. 36th yolu|REDMOND|WA|98052|16041 N.E. 36th way, REDMOND, WA, 98052|
+|16051 N.E. 36th yolu|REDMOND|WA|98052|16051 N.E. 36th way, REDMOND, WA, 98052|
+|16061 N.E. 36th yolu|REDMOND|WA|98052|16061 N.E. 36th way, REDMOND, WA, 98052|
+|3460 157th. Cadde No: NE|REDMOND|WA|98052|3460 157th. Cadde No: NE, REDMOND, WA, 98052|
+|3350 157th Ave N.E.|REDMOND|WA|98052|3350 157th Ave N.E., REDMOND, WA, 98052|
+|3240 157th. Cadde No: N.E.|REDMOND|WA|98052|3240 157th. Cadde No: N.E., REDMOND, WA, 98052|
 
-## <a name="example-using-by-example"></a>Örnek tarafından kullanma örneği
+## <a name="example-using-by-example"></a>Örnek tarafından kullanma örnek
 
 Değer **kalın** örnek olarak sağlandı.
 
-|Tarih|Ay|Yıl|Saat|Dakika|Saniye|Birleşik sütun|
+|Tarih|Ay|Yıl|Saat|Dakika|Saniye|Birleştirilmiş sütun|
 |:----|:----|:----|:----|:----|:----|:----|
-|13|Eki|2016|15|01|23|**13 Eki 2016 15:01:23 saati**|
-|16|Eki|2016|16|22|33|16 Eki 2016 15:01:33 saati|
-|17|Eki|2016|12|43|12|17 Eki 2016 15:01:12 saati|
-|12|Kas|2016|14|22|44|12 Kas 2016 15:01:44 saati|
-|23|Kas|2016|01|52|45|23 Kas 2016 15:01:45 saati|
-|16|Oca|2017|22|34|56|16 Ocak 2016 15:01:56 saati|
-|23|Mar|2017|01|55|25|23 Mar 2016 15:01:25 saati|
-|16|Nis|2017|11|34|36|16 Apr 2016 15:01:36 saati|
+|13|Eki|2016|15|01|23|**13 Ekim 2016 15:01:23 PDT**|
+|16|Eki|2016|16|22|33|16 Ekim 2016 15:01:33 PDT|
+|17|Eki|2016|12|43|12|17 Ekim 2016 15:01:12 PDT|
+|12|Kas|2016|14|22|44|12 Kasım 2016 15:01:44 PDT|
+|23|Kas|2016|01|52|45|23 Kasım 2016 15:01:45 PDT|
+|16|Oca|2017|22|34|56|16 Ocak 2016 15:01:56 PDT|
+|23|Mar|2017|01|55|25|23 Mart 2016 15:01:25 PDT|
+|16|Nis|2017|11|34|36|16 Apr 2016 15:01:36 PDT|
 

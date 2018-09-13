@@ -1,41 +1,41 @@
 ---
-title: B2B işbirliği kullanıcılar davetsiz Azure Active Directory'ye ekleme | Microsoft Docs
-description: Azure Active Directory B2B işbirliği daveti redeeming olmadan diğer Konuk kullanıcılar için Azure AD eklemek Konuk kullanıcı izin verebilirsiniz.
+title: B2B işbirliği kullanıcıları, davetiye Azure Active Directory'ye ekleme | Microsoft Docs
+description: Diğer Konuk kullanıcıları davet Azure Active Directory B2B işbirliği içinde çalışan kuponumu kullanmakta olmadan Azure AD'nize ekleyin. Konuk kullanıcı izin verebilirsiniz.
 services: active-directory
 documentationcenter: ''
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 50c64386f1eab07c299112617283b1d8d7295295
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 3d18f3751be1ce2b00d83ecae0eebb27f240b53c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591060"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35647172"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Davetiye olmayan B2B işbirliği Konuk kullanıcılar ekleme
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>B2B işbirliği Konuk kullanıcıları davet etmeden ekleme
 
-Ayrıca, paylaşılan bir uygulamaya doğrudan bağlantı göndererek Konuk kullanıcılar artık davet edebilirsiniz. Bu yöntemde, Konuk kullanıcılar artık davet e-posta dışında bazı özel durumlarda kullanmanız gerekir. Konuk kullanıcı uygulama bağlantıya tıklar, gözden geçirir ve gizlilik koşullarını kabul eder ve uygulama sorunsuz bir şekilde erişir. Daha fazla bilgi için bkz: [B2B işbirliği davet kullanım](redemption-experience.md).   
+Artık paylaşılan bir uygulamanın doğrudan bağlantısını göndererek Konuk kullanıcılar davet edebilirsiniz. Bu yöntem ile Konuk kullanıcılar artık davet e-posta dışında bazı özel durumlarda kullanmanız gerekir. Konuk kullanıcı uygulama bağlantıya tıklar, inceler ve gizlilik koşullarını kabul eder ve uygulama sorunsuz bir şekilde erişir. Daha fazla bilgi için [B2B işbirliği Davetiyesi kullanımı](redemption-experience.md).   
 
-Bu yeni yöntemin bulunmamaktaydı önce bir davet eden (kuruluşunuzun veya iş ortağı kuruluş) ekleyerek davet e-posta gerek kalmadan Konuk kullanıcıları davet **Konuk davet eden** dizin rolünü ve ardından Dizin, grupları veya kullanıcı arabirimini veya PowerShell aracılığıyla uygulamaları Konuk kullanıcılar eklemek davet eden sahip. (PowerShell kullanıyorsanız davet e-posta tamamen gizleyebilirsiniz). Örneğin:
+Bu yeni bir yöntem yoktu önce bir davet eden (Kuruluşunuz veya bir iş ortağı kuruluş) ekleyerek davet e-posta gerek kalmadan Konuk kullanıcıları davet **Konuk davet eden** dizin rolü ve ardından Dizin, grupları ve uygulamaları kullanıcı Arabirimi veya PowerShell aracılığıyla Konuk kullanıcıları eklemek davet eden sahip. (PowerShell kullanıyorsanız, davet e-posta bütünüyle gizleyebilirsiniz). Örneğin:
 
-1. İş ortağı kuruluştan bir kullanıcı bir kullanıcı ana bilgisayar kuruluştaki (örneğin, WoodGrove) başvurulmasını (örneğin, Sam@litware.com) konuk olarak.
-2. Konak kuruluş yönetici [ilkelerini ayarlar](delegate-invitations.md) tanımlamak ve iş ortağı kuruluştan (Lıtware) diğer kullanıcıları eklemek Sam izin verin. (Sam eklenmelidir **Konuk davet eden** rol.)
-3. Artık, Sam diğer kullanıcıların Lıtware WoodGrove dizini, grupları veya uygulamalar için kullanılan için davet gerek kalmadan ekleyebilirsiniz. SAM Lıtware içinde uygun numaralandırma ayrıcalıkları varsa, otomatik olarak gerçekleşir.
+1. İş ortağı kuruluştan bir kullanıcı (örneğin, WoodGrove) konak kuruluşunuzdaki bir kullanıcı davet eder (örneğin, Sam@litware.com) konuk olarak.
+2. Konak kuruluşun Yöneticisi [ilkeleri ayarlar](delegate-invitations.md) Sam tanımlamak ve iş ortağı kuruluştan (Litware) diğer kullanıcıları eklemek izin verin. (Sam eklenmelidir **Konuk davet eden** rol.)
+3. Artık, Sam diğer kullanıcıların Litware WoodGrove dizini, grupları veya uygulamalar için davet kullanılamadı gerek kalmadan ekleyebilirsiniz. SAM Litware uygun numaralandırma ayrıcalıkları varsa, otomatik olarak gerçekleşir.
  
-Bu özgün yöntemi hala çalışmaktadır. Ancak, davranış küçük bir fark yoktur. PowerShell'i kullanırsanız, bir davet edilen Konuk hesabı artık olduğunu fark edeceksiniz bir **PendingAcceptance** hemen gösteren yerine durumu **kabul edilen**. Durum Beklemede olsa da, Konuk kullanıcı hala oturum açın ve bir e-posta daveti bağlantı tıklatıldığında olmadan uygulama erişebilir. Kullanıcı henüz geçtiğini değil, bekleme durumu anlamına gelir [deneyimi onayı](redemption-experience.md#privacy-policy-agreement)burada bu bunlar davet kuruluşun gizlilik koşullarını kabul edin. Bunlar ilk kez oturum açtığında Konuk kullanıcıya bu izni ekran görür. 
+Bu özgün yöntem çalışır. Bununla birlikte, küçük bir davranışı fark yoktur. PowerShell kullanıyorsanız, davet edilen Konuk hesabı artık olduğunu fark edeceksiniz bir **PendingAcceptance** durumu hemen gösteren yerine **kabul edilen**. Durum bekleyen olsa da, Konuk kullanıcı hala oturum açabilir ve bir e-posta davetiyesi bağlantıya tıklamak olmadan uygulamayı erişebilir. Kullanıcı henüz geçtiğini değil, bekleme durumu anlamına gelir [deneyimi onay](redemption-experience.md#privacy-policy-agreement), burada bu kullanıcılar davet eden kuruluştan gizlilik koşullarını kabul edin. İlk kez oturum açtığında Konuk kullanıcı, bu onay ekranında görür. 
 
-Dizine kullanıcı davet varsa, Konuk kullanıcıya kaynak Kiracı özgü Azure portalına erişmek gerekir doğrudan URL (gibi https://portal.azure.com/ *resourcetenant*. onmicrosoft.com) görüntüleyip gizlilik koşullarını kabul ediyorsunuz.
+Dizine kullanıcı davet et varsa Konuk kullanıcı kaynak kiracıya özgü Azure portalına erişmek gerekir doğrudan URL (gibi https://portal.azure.com/ *resourcetenant*. onmicrosoft.com) görüntüleyebilir ve gizlilik koşullarını kabul etmiş olursunuz.
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure AD B2B işbirliği nedir?](what-is-b2b.md)
-- [B2B işbirliği davet kullanım](redemption-experience.md)
+- [B2B işbirliği Davetiyesi kullanımı](redemption-experience.md)
 - [Azure Active Directory B2B işbirliği için temsilci davetleri](delegate-invitations.md)
-- [Bilgi çalışanları B2B işbirliği kullanıcıların nasıl eklenir?](add-users-information-worker.md)
+- [Bilgi çalışanları B2B işbirliği kullanıcılarını nasıl ekleyebilir?](add-users-information-worker.md)
 

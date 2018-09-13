@@ -1,6 +1,6 @@
 ---
-title: Genel veri merkezinde tümleştirme konuları Azure yığınının tümleşik sistemleri | Microsoft Docs
-description: Şimdi planlamak ve çok düğümlü Azure yığını ile veri merkezi tümleştirme için hazırlanmak için yapabileceğinizi öğrenin.
+title: Genel veri merkezi tümleştirme konuları için Azure Stack tümleşik sistemleri | Microsoft Docs
+description: Artık planlamak ve çok düğümlü Azure Stack ile veri merkezi tümleştirmesi için hazırlanmak için neler yapabileceğinizi öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,194 +12,191 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 0c43b66a9d6210ea951af3fae5eca8bc6d47c3d9
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9e5a8cf59d4f1dc47495c5889f8ed4aae64f7ff7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261228"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720455"
 ---
-# <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure tümleşik yığını sistemler için veri merkezi tümleştirme konuları
-Bir Azure tümleşik yığını sistemde düşünüyorsanız, bazı önemli planlama konuları dağıtım ve sistem merkeziniz nasıl uyduğunu etrafında anlamanız gerekir. Bu makalede, Azure yığını çok düğümlü sisteminiz için önemli altyapı kararları almanıza yardımcı olmak için bu noktalar üst düzey bir genel bakış sağlar. Bu noktalar anlaşılması veri merkeziniz için Azure yığın dağıtırken OEM donanım satıcınızla çalışırken yardımcı olur.  
+# <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack tümleşik sistemleri için veri merkezi tümleştirme konuları
+Bir Azure Stack tümleşik sisteminde ilgileniyorsanız, bazı önemli planlama konuları dağıtım ve sistem Merkezinizde nasıl uyduğunu anlamanız gerekir. Bu makalede, Azure Stack çok düğümlü sisteminiz için önemli altyapısı kararları vermenize yardımcı olmak için bu konuları üst düzey bir genel bakış sağlar. Bu noktalar anlaşılması, veri merkezinizi Azure Stack dağıtırken OEM donanım satıcınız ile çalışırken yardımcı olur.  
 
 > [!NOTE]
-> Azure yığını çok düğümlü sistemleri yalnızca yetkili donanım satıcıları tarafından alınabilir. 
+> Azure Stack çok düğümlü sistemleri, yalnızca yetkili donanım satıcıları tarafından alınabilir. 
 
-Azure yığın dağıtmak için hızlı ve sorunsuz Git işlem yardımcı olmak dağıtım başlamadan önce çözüm sağlayıcınızda planlama bilgilerini sağlamanız gerekir. Bilgi aralıkları ağı, güvenlik ve birçok farklı alanlara ve karar alıcılar bilgi gerektirebilir birçok önemli kararları ile kimlik bilgileri gereklidir. Bu nedenle, dağıtım başlamadan önce gerekli tüm bilgileri hazır olmasını sağlamak için birden çok ekibin kuruluşunuzdaki kişilerin çekme gerekebilir. Bu bilgi toplarken, donanım satıcınıza öneriler kararları için yararlı olabilir gibi konuşun yardımcı olabilir.
+Azure Stack dağıtmak için hızlı ve sorunsuz bir şekilde Git işlemi yardımcı olmak dağıtım başlamadan önce çözümü sağlayıcınız için planlama bilgileri vermeniz gerekir. Bilgiler, ağ, güvenlik ve kimlik bilgileri ile birçok farklı alanlarını ve karar alıcılar gerektirebilecek birçok önemli kararlar aralıkları gereklidir. Bu nedenle, çekme dağıtım başlamadan önce gerekli tüm bilgileri hazır olmasını sağlamak için birden çok ekiplerinden kuruluşunuzdaki kişilerin gerekebilir. Bunlar öneri kararları için yararlı olabilir bu bilgiler toplanırken donanım satıcınızla iletişim kurmasına yardımcı olabilir.
 
-Araştırma ve gerekli bilgileri toplama sırasında ağ ortamınıza bazı dağıtım öncesi yapılandırma değişiklikleri yapmanız gerekebilir. Bu IP adresi alanlarını, yönlendiriciler, anahtarlar ve yeni Azure yığın çözüm anahtarları bağlantıyı hazırlamak için güvenlik duvarlarını yapılandırma Azure yığın çözüm ayırma içerebilir. Planlama ile Yardım kadar çizgili konu alanında Uzman bulunduğundan emin olun.
+Araştırma ve gerekli bilgileri toplama sırasında ağ ortamınıza bazı dağıtım öncesi yapılandırma değişikliklerini yapmak gerekebilir. Bu, yönlendiriciler, anahtarlar ve yeni Azure Stack çözüm anahtarları bağlantısını için hazırlamak için güvenlik duvarlarını yapılandırma Azure Stack çözüm için IP adresi alanları ayırma içerebilir. Planlama ile yardımcı kadar çizgili konu alanında Uzman yüklü olduğundan emin olun.
 
-## <a name="capacity-planning-considerations"></a>Kapasite planlama konuları
-Azure yığın çözümünü edinme için değerlendirirken, donanım yapılandırma seçeneklerinin kendi Azure yığın çözümünü genel kapasitesini üzerinde doğrudan etkisi olan yapılması gerekir. Bunlar, CPU, bellek yoğunluğu, depolama yapılandırması ve genel çözüm Ölçek (örneğin sunucuları sayısı) Klasik seçimleri içerir. Geleneksel sanallaştırma çözümü farklı olarak, kullanılabilir kapasitesini belirlemek için bu bileşenlerin basit aritmetik geçerli değildir. İlk Azure yığını çözüm içinde altyapı veya yönetim bileşenleri barındırmak için geliştirilmiştir nedenidir. Çözümün kapasite bazıları ayrılmış, dayanıklılık desteklenmesi amacıyla ikinci sebebi; Kiracı İş yükleri çalışmasının en aza indirir şekilde çözümün yazılımların güncelleştiriliyor. 
+## <a name="capacity-planning-considerations"></a>Kapasite planlaması konuları
+Azure Stack çözümünü edinme için değerlendirirken, donanım yapılandırma seçenekleri ve bunların Azure Stack çözüm genel kapasite üzerinde doğrudan etkisi olan yapılmalıdır. Bunlar, CPU, bellek yoğunluğu, depolama yapılandırması ve genel çözüm Ölçek (örneğin sunucuları sayısı) Klasik seçimleri içerir. Geleneksel bir sanallaştırma çözümü, kullanılabilir kapasitesini belirlemek için bu bileşenlerin basit aritmetik geçerli değildir. Azure Stack altyapısını veya yönetim bileşenleri çözüm içinde barındırmak için geliştirilmiştir ilk nedenidir. Çözümün kapasite bazıları ayrılır, dayanıklılık desteklemek üzere ikinci sebebi; Kiracı iş yüklerini bir kesintiyi en aza indiren bir yolla çözümün yazılım güncelleştiriliyor. 
 
-[Azure yığın kapasite Planlayıcısı elektronik](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) yaptığınız yardımcı haberdar iki yolla kapasite planlamasına göre kararları: ya da bir donanım teklifinin seçerek ve kaynakların veya bir birleşimini uyacak şekilde çalışırken tanımlayarak Azure yığın iş yükü kullanılabilir donanım destekleyebileceği SKU'ları görüntülemek için çalıştırmak için tasarlanmıştır. Son olarak, elektronik tablo kararların verilmesi konusunda yardımcı olacak bir kılavuz Azure yığın planlama ve yapılandırma ile ilgili olarak tasarlanmıştır. 
+[Azure Stack kapasite Planlayıcısı elektronik](https://aka.ms/azstackcapacityplanner) yaptığınız yardımcı haberdar iki yolla kapasite planlaması ile ilgili kararlar: ya da donanım teklifi seçerek ve kaynakların veya bir birleşimini uyacak şekilde çalışmadan tanımlayarak Azure Stack iş yükü kullanılabilir donanım destekleyebiliyorsa SKU'ları görüntülemek için çalışmaya yöneliktir. Son olarak, Azure Stack planlama ve yapılandırma kararları vermekte yardımcı olacak bir kılavuz ilgili olarak elektronik yöneliktir. 
 
-Elektronik tablo, kendi araştırma ve analiz için bir yedek olarak hizmet için tasarlanmamıştır.  Microsoft hiçbir taahhütte veya garantide, açık veya zımni elektronik tablo içinde sağlanan bilgilere göre yapar.
+Elektronik yerine kendi araştırma ve analiz için hizmet vermek için tasarlanmamıştır.  Microsoft, hiçbir taahhütte veya garantide, açık veya zımni, elektronik tabloda sağlanan bilgilere göre yapar.
 
 
 
 ## <a name="management-considerations"></a>Yönetim değerlendirmeleri
-Azure yığın burada altyapısı hem de bir izin kilitlenmiştir korumalı bir sistem olduğundan ve ağ açısından. Ağ erişim denetimi listeleri (ACL'ler) yetkisiz tüm gelen trafiği ve altyapı bileşenler arasındaki tüm gereksiz iletişim engellemek için uygulanır. Bu sisteme erişmek yetkisiz kullanıcıların zorlaştırır.
+Azure Stack, izole edilmiş bir sistem burada altyapı hem de bir izin kilitli ve ağ açısından. Ağ erişim denetim listeleri (ACL'ler), yetkisiz gelen tüm trafiği ve altyapı bileşenleri arasındaki tüm gereksiz iletişimler engellemek için uygulanır. Bu, yetkisiz kullanıcıların sisteme erişmek zorlaştırır.
 
-Günlük yönetimi ve işlemleri için altyapısına Kısıtlanmamış yönetici erişimi yoktur. Azure yığın operatörleri sistem Yönetici portalı üzerinden veya Azure Resource Manager (aracılığıyla, PowerShell veya REST API) aracılığıyla yönetmeniz gerekir. Hyper-V Yöneticisi'ni veya yük devretme kümesi Yöneticisi gibi diğer yönetim araçları tarafından sisteme erişimi yoktur. Sistem korunmasına yardımcı olmak için üçüncü taraf yazılım (örneğin, aracıları) Azure yığın altyapısının bileşenleri içinde yüklenemez. Dış yönetim ve güvenlik yazılım ile birlikte çalışabilirlik PowerShell veya REST API oluşur.
+Günlük yönetimi ve işlemleri için altyapı için Kısıtlanmamış yönetici erişimi yoktur. Azure Stack operatörleri sistem Yönetici portalı üzerinden veya Azure Resource Manager (aracılığıyla, PowerShell veya REST API) aracılığıyla yönetmeniz gerekir. Hyper-V Yöneticisi'ni veya yük devretme kümesi Yöneticisi gibi diğer yönetim araçlarını sisteme erişimi yoktur. Üçüncü taraf yazılım (örn. aracılar), sistemin korunmasına yardımcı olmak için Azure Stack altyapısının bileşenleri içinde yüklenemez. Dış yönetim ve güvenlik yazılımı ile birlikte çalışabilirlik, PowerShell veya REST API gerçekleşir.
 
-Uyarı aracı adımlara çözülmüş olmayan sorunlarını gidermek için erişimi daha yüksek düzeyde gerekli olduğunda, Microsoft Support çalışmanız gerekir. Destek daha gelişmiş işlemleri gerçekleştirmek için sistem geçici tam yönetici erişimi sağlamak için bir yöntem yoktur. 
+Uyarı dolayımlama adımlarla çözülebilecek olmayan sorunlarını gidermek için daha yüksek bir erişim düzeyi gerekli olmadığında, Microsoft Support çalışmalıdır. Desteği, daha gelişmiş bir işlemi gerçekleştirmeye sistemin geçici tam yönetici erişimi sağlamak için bir yöntem yoktur. 
 
 ## <a name="identity-considerations"></a>Kimlik konuları
 
 ### <a name="choose-identity-provider"></a>Kimlik sağlayıcısı seçin
-Ya da Azure AD veya AD FS Azure yığın dağıtım için kullanmak istediğiniz hangi kimlik sağlayıcısı göz önüne almanız gerekir. Tam bir sistem yeniden dağıtım olmadan dağıtımdan sonra kimlik sağlayıcıları geçemezsiniz. Azure AD hesabının sahibi olmadığınız ve bulut hizmeti sağlayıcısı tarafından sağlanmış bir hesap kullanıyorsanız ve sağlayıcı geçin ve farklı bir Azure AD'yi kullanmaya karar verirseniz hesap, bu noktada f çözümü yeniden dağıtmak için çözüm sağlayıcınıza başvurun gerekecektir veya, maliyet.
+Azure Stack dağıtımı, ya da Azure AD veya AD FS için kullanmak istediğiniz hangi kimlik sağlayıcısına göz önünde bulundurmanız gerekir. Kimlik sağlayıcıları, tam bir sistem yeniden dağıtım olmadan dağıtımdan sonra geçiş yapamazsınız. Azure AD hesabı sahibi olmadığınız ve size, bulut hizmet sağlayıcısı tarafından sağlanan bir hesap kullanıyorsanız ve sağlayıcı geçmek ve farklı bir Azure AD kullanmak karar verirseniz hesap, bu noktada f çözümü yeniden dağıtmak için çözüm sağlayıcınıza başvurun gerekecektir veya, ücret ödemeden.
 
 
 
-Katılmak bir Active Directory etki alanı, vb. Kimlik sağlayıcısı seçiminizi şifrelemeyle Kiracı sanal makineleri, kimlik sistemi ve kullandıkları, hesapları vardır. Bu ayrıdır.
+Katılabilmesi için bir Active Directory etki alanı, vb. olup kimlik sağlayıcısı seçtiğiniz Kiracı sanal makineleri, kimlik sistemi ve kullandıkları, hesapları ilgisi yoktur. Ayrı budur.
 
-Bir kimlik sağlayıcısı seçme hakkında daha fazla bilgi edinebilirsiniz [Azure yığın tümleşik sistemleri bağlantı modelleri makale](.\azure-stack-connection-models.md).
+Bir kimlik sağlayıcısı seçme hakkında daha fazla bilgi [Azure Stack tümleşik sistemleri bağlantı modelleri makale](.\azure-stack-connection-models.md).
 
-### <a name="ad-fs-and-graph-integration"></a>AD FS ve grafik tümleştirme
-Azure AD FS kimlik sağlayıcısı olarak kullanarak yığın dağıtmak isterseniz var olan bir AD FS örneği bir federasyon güveni üzerinden ile Azure yığında AD FS örneğini tümleştirmeniz gerekir. Bu kaynakları Azure yığınında kimlik doğrulaması yapmak için var olan bir Active Directory ormanında kimlikleri sağlar.
+### <a name="ad-fs-and-graph-integration"></a>AD FS ve graf tümleştirme
+Kimlik sağlayıcısı olarak AD FS kullanarak Azure Stack dağıtmayı tercih ederseniz, Azure Stack üzerinde AD FS örneği ile bir federasyon güveni mevcut bir AD FS örneği ile tümleştirmeniz gerekir. Bu, Azure Stack kaynakları ile kimlik doğrulaması yapmak için var olan bir Active Directory ormanında kimlikleri sağlar.
 
-Ayrıca, mevcut Active Directory ile Azure yığın grafik hizmetinde tümleştirebilirsiniz. Bu rol tabanlı erişim denetimi (RBAC) Azure yığınında yönetmenize olanak sağlar. Bir kaynağa erişim yetkisi aktarıldığında LDAP protokolünü kullanarak var olan Active Directory ormanındaki kullanıcı hesabı grafik bileşeni arar.
+Ayrıca, Azure Stack Graph hizmeti mevcut Active Directory ile tümleştirebilirsiniz. Bu rol tabanlı erişim denetimi (RBAC) Azure Stack'te yönetmenize olanak sağlar. Bir kaynağa erişim yetkisi aktarıldığında LDAP protokolünü kullanarak mevcut Active Directory ormanındaki kullanıcı hesabını grafik bileşeni arar.
 
-Aşağıdaki diyagramda tümleşik AD FS ve grafik trafik akışı gösterilmektedir.
-![AD FS ve grafik trafik akışını gösteren diyagram](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
+Aşağıdaki diyagramda, tümleşik AD FS ve graf trafik akışını gösterir.
+![AD FS ve graf trafik akışını gösteren diyagram](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
-## <a name="licensing-model"></a>Lisans modeli
-Kullanmak istediğiniz hangi lisans modeli karar vermeniz gerekir. Kullanılabilir seçenekler, Azure yığın Internet'e bağlı olup olmadığına dağıtmak bağlıdır:
-- İçin bir [bağlı dağıtım](azure-stack-connected-deployment.md), ödeme olarak-size-kullanım ve kapasite tabanlı lisans seçebilirsiniz. Ödeme olarak,-kullanımlı Azure bağlantısı Azure ticaret sonra faturalandırılır rapor kullanımını gerektirir. 
-- Kapasite tabanlı yalnızca lisans desteklenir varsa, [dağıtmak bağlantısı kesilmiş](azure-stack-disconnected-deployment.md) internet'ten. 
+## <a name="licensing-model"></a>Lisanslama modeli
+Hangi lisans modeli kullanmak istediğiniz karar vermeniz gerekir. Kullanılabilir seçenekler, Azure Stack internet'e bağlı olup olmadığını dağıtma bağlıdır:
+- İçin bir [bağlı dağıtım](azure-stack-connected-deployment.md),-,-kullandıkça veya kapasite tabanlı lisanslama seçebilirsiniz. ,-Kullandıkça, ardından Azure ticaret faturalandırılır rapor kullanımına ve bir Azure bağlantısı gerektirir. 
+- Yalnızca kapasite tabanlı lisanslama desteklenen varsa, [dağıtma bağlantısı kesildi](azure-stack-disconnected-deployment.md) internet'ten. 
 
-Lisans modelleri hakkında daha fazla bilgi için bkz: [Microsoft Azure paketleme ve fiyatlandırma yığını](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+Lisans modelleri hakkında daha fazla bilgi için bkz. [paketleme ve fiyatlandırma Microsoft Azure Stack](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
 
 
 ## <a name="naming-decisions"></a>Adlandırma kararları
 
-Azure yığın ad alanınız, özellikle bölge adını ve dış etki alanı adını planlama istediğiniz şekli hakkında düşünmek gerekir. Dış tam etki alanı adını (FQDN) Azure yığın dağıtımınız genel kullanıma yönelik uç noktalar için bu iki ad birleşimidir: &lt; *bölge*&gt;.&lt; *fqdn*&gt;. Örneğin, *east.cloud.fabrikam.com*. Bu örnekte, Azure yığın portalları aşağıdaki URL'lere kullanılabilir olur:
+Azure Stack ad, bölge adını ve dış etki alanı adı özellikle planlamak istediğiniz hakkında düşünmek gerekir. Azure Stack dağıtımınıza genel kullanıma yönelik uç noktalar için dış tam etki alanı adını (FQDN) bu iki ad birleşimidir: &lt; *bölge*&gt;.&lt; *fqdn*&gt;. Örneğin, *east.cloud.fabrikam.com*. Bu örnekte, Azure Stack portalı aşağıdaki URL'lere kullanılabilir olur:
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
 
 > [!IMPORTANT]
-> Azure yığın dağıtımınız için seçtiğiniz bölge adı benzersiz olmalıdır ve portal adresler görüntülenir. 
+> Azure Stack dağıtımınız için seçtiğiniz bölge adı benzersiz olmalıdır ve portal adresi görünür. 
 
-Aşağıdaki tabloda, bu etki alanı adlandırma kararlar özetlenmektedir.
+Aşağıdaki tabloda, bu etki alanı adlandırma kararlar özetler.
 
 | Ad | Açıklama | 
 | -------- | ------------- | 
-|Bölge adı | İlk Azure yığın bölgenizi adı. Bu ad, Azure yığın yöneten ortak sanal IP adreslerinin (VIP) FQDN bir parçası olarak kullanılır. Genelde, bölge adı bir veri merkezi konum gibi bir fiziksel konum tanımlayıcısı olacaktır. | 
-| Dış etki alanı adı | Dışa dönük VIP'ler ile uç noktaları için etki alanı adı sistemi (DNS) dilimi adı. FQDN ile bu ortak VIP'ler için kullanılır. | 
-| Özel (iç) etki alanı adı | Altyapı yönetimi için Azure yığında oluşturulan etki alanı (ve iç DNS bölgesi) adı. 
+|Bölge adı | İlk Azure Stack bölgenizdeki adı. Bu ad, FQDN bir parçası olarak Azure Stack yöneten genel sanal IP adreslerinin (VIP) kullanılır. Genelde, bölge adını, bir veri merkezi konumu gibi bir fiziksel konum tanımlayıcısı olacaktır.<br><br>Bölge adı yalnızca harf ve sayı 0-9 arasında oluşması gerekir. Gibi hiçbir özel karakterler "-" veya "#", vb. izin verilir.| 
+| Dış etki alanı adı | Etki alanı adı sistemi (DNS) bölge adı ile VIP'ler dönük uç noktalar için. Bu genel VIP için FQDN kullanılır. | 
+| Özel (iç) etki alanı adı | Altyapı yönetimi için Azure Stack üzerinde oluşturulan etki alanı (ve iç DNS bölgesi) adı. 
 | | |
 
 ## <a name="certificate-requirements"></a>Sertifika gereksinimleri
 
-Dağıtım için genel kullanıma yönelik uç noktalar için Güvenli Yuva Katmanı (SSL) sertifikalar sağlaması gerekir. Yüksek bir düzeyde sertifikalar aşağıdaki gereksinimlere sahiptir:
+Dağıtım için genel kullanıma yönelik uç noktalar için Güvenli Yuva Katmanı (SSL) sertifikalar sağlaması gerekir. Yüksek düzeyde, sertifikaların aşağıdaki gereksinimlere sahiptir:
 
-- Tek joker sertifikası kullanabilir veya özel sertifika kümesi kullanın ve yalnızca depolama ve anahtar kasası gibi bitiş noktası için joker karakter kullan.
-- Sertifika ortak güvenilen sertifika yetkilisi (CA) tarafından verilmiş veya müşteri tarafından yönetilen bir CA.
+- Tek bir joker sertifikası kullanabilirsiniz veya bir özel sertifikaları kullanacak ve yalnızca uç noktaları için depolama ve Key Vault gibi joker karakterler kullanın.
+- Sertifika, ortak bir güvenilen sertifika yetkilisi (CA) tarafından verilebilir veya müşteri tarafından yönetilen bir CA.
 
-Hangi PKI hakkında daha fazla bilgi için sertifikaları Azure yığını ve bunları elde etmek için bkz: nasıl dağıtmak için gereken [Azure yığın ortak anahtar altyapısı sertifika gereksinimleri](azure-stack-pki-certs.md).  
+Hangi PKI hakkında daha fazla bilgi için sertifikaları Azure Stack ve onları edinmek bkz, nasıl dağıtmak için gerekli olan [Azure Stack ortak anahtar altyapısı sertifika gereksinimleri](azure-stack-pki-certs.md).  
 
 
 > [!IMPORTANT]
-> Sağlanan PKI sertifika bilgilerini genel bir yönerge olarak kullanılmalıdır. Azure yığını için herhangi bir PKI sertifika elde önce OEM donanım ortağınızla birlikte çalışır. Bunlar daha ayrıntılı sertifika yönerge ve gereksinimleri sağlar.
+> Sağlanan PKI sertifika bilgileri, genel bir yönerge olarak kullanılmalıdır. Azure Stack için PKI sertifikalarını edinmeden önce OEM donanım ortağınızla birlikte çalışır. Bunlar daha ayrıntılı sertifika yönerge ve gereksinimlerin sağlar.
 
 
 ## <a name="time-synchronization"></a>Zaman eşitleme
-Sunucuyla Azure yığın eşitlemek için kullanılan belirli bir zaman seçmelisiniz.  İç Hizmetleri birbirleri ile kimlik doğrulama için kullanılan Kerberos anahtarları oluşturmak için kullanılan zaman symbolization Azure yığını ve altyapı rollerinden önemlidir.
+Azure Stack eşitlenecek sunucuyla birlikte kullanılan belirli bir zaman seçmelisiniz.  İç Hizmetleri birbirleri ile kimlik doğrulaması için kullanılan Kerberos bileti oluşturmak için kullanılan zaman symbolization Azure Stack ve kendi altyapısı rollerinin için önemlidir.
 
-Altyapı bileşenlerinde çoğunu bir URL çözebilirsiniz saat eşitleme sunucusu için bir IP bazı yalnızca IP adresleri destekleyebilir ancak belirtmeniz gerekir. Kullanıcısıysanız olan bağlantısı kesilmiş dağıtım seçeneğini kullanarak, Şirket ağınızdaki olduğunuz zaman sunucusu emin ulaşılabilir Azure yığınında altyapı ağdan belirtmelisiniz.
+Altyapı bileşenleri çoğunu bir URL çözümlemek için zaman eşitleme sunucusu için bir IP bazı yalnızca IP adresleri destekleyebilir ancak belirtmeniz gerekir. Size olan bağlantısı kesilmiş dağıtım seçeneğini kullanarak, bir saat sunucusu olduğunuz Kurumsal ağınızdaki emin ulaşılabilir Azure Stack'te altyapı ağdan belirtmelisiniz.
 
-## <a name="connect-azure-stack-to-azure"></a>Azure yığın Azure'a bağlanma
+## <a name="connect-azure-stack-to-azure"></a>Azure Stack Azure'a bağlanma
 
-Karma bulut senaryosu için nasıl Azure yığın Azure'a bağlanmak istediğiniz planlamanız gerekir. Azure'da sanal ağlar Azure yığınında sanal ağlara bağlanmak için desteklenen iki yöntem vardır: 
-- **Siteden siteye**. Bir sanal özel ağ (VPN) bağlantısı üzerinden IPSec (IKE v1 ve IKE v2). Bu tür bir bağlantı, bir VPN cihazı veya Yönlendirme ve Uzaktan Erişim hizmeti (RRAS) gerektirir. Azure VPN ağ geçitleri hakkında daha fazla bilgi için bkz: [VPN Gateway hakkında](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Bu Tünel üzerinden iletişim şifrelenir ve güvenlidir. Ancak, bant genişliği (100-200 MB/sn) tüneli en yüksek verimlilik ile sınırlıdır.
-- **Giden NAT**. Varsayılan olarak, Azure yığın tüm sanal makinelerin giden NAT aracılığıyla dış ağlara bağlantı gerekir Azure yığınında oluşturulan her sanal ağ kendisine atanmış bir ortak IP adresi alır. Sanal makine doğrudan bir ortak IP adresi atanır, bir ortak IP adresine sahip yük dengeleyici arkasında olup, sanal ağ VIP kullanarak giden NAT aracılığıyla giden erişime sahip olacaktır. Bu, sanal makine tarafından başlatılan ve dış ağları için (internet veya intranet) hedefleyen iletişimi için çalışır. Dışında sanal makine ile iletişim kurmak için kullanılamaz.
+Hibrit bulut senaryoları için Azure Stack Azure'a bağlanmak istediğiniz planlamanız gerekir. Azure Stack sanal ağlarda azure'daki sanal ağlara bağlanmak için desteklenen iki yöntem vardır: 
+- **Siteden siteye**. Bir sanal özel ağ (VPN) bağlantısı IPSec üzerinden (IKE v1 ve IKE v2). Bu tür bir bağlantı bir VPN cihazı ya da Yönlendirme ve Uzaktan Erişim hizmeti (RRAS) gerektirir. Azure VPN ağ geçitleri hakkında daha fazla bilgi için bkz. [VPN Gateway hakkında](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Bu Tünel üzerinden iletişim şifrelenir ve güvenlidir. Ancak, bant genişliği (100-200 MB/sn) tüneli en fazla üretilen iş ile sınırlıdır.
+- **Giden NAT**. Varsayılan olarak, Azure Stack tüm sanal makinelerin dış ağlara giden NAT aracılığıyla bağlantı sahibi olacağını Azure Stack'te oluşturulan her bir sanal ağ, kendisine atanmış bir genel IP adresi alır. Sanal makinenin doğrudan bir genel IP adresi atanmış bir genel IP adresine sahip yük dengeleyici arkasında olan ister, bu sanal ağın VIP kullanarak giden NAT aracılığıyla giden erişime sahip olacaktır. Bu sanal makine tarafından başlatılan ve dış ağlar için (internet veya intranet) giden iletişim için çalışır. Dışında sanal makine ile iletişim kurmak için kullanılamaz.
 
 ### <a name="hybrid-connectivity-options"></a>Karma bağlantı seçenekleri
 
-Karma bağlantı için sunmak istediğiniz dağıtım türlerini ve onu dağıtılacağı dikkate almak önemlidir. Bir intranet veya internet dağıtım elde edersiniz ve Kiracı başına ağ trafiğini yalıtmak ihtiyacınız olup olmadığı göz önüne almanız gerekir.
+Karma bağlantı için sunmak istediğiniz dağıtım türüne ve nereye dağıtılacağını göz önünde bulundurmanız önemlidir. Kiracı başına ağ trafiğini yalıtmak ihtiyacınız olup olmadığı ve bir intranet veya internet dağıtım sahip olacaksınız göz önünde bulundurmanız gerekir.
 
-- **Tek Kiracı Azure yığın**. Bir kiracı ise gibi görünen, en az bir ağ iletişimi açısından bakıldığında, bir Azure yığın dağıtımı. Olabilir birçok abonelikleri Kiracı, ancak tüm intranet hizmeti gibi tüm trafiğin aynı ağlar üzerinden geçen. Bir abonelik gelen ağ trafiğinin başka bir abonelik olarak aynı ağ bağlantısı üzerinden geçen ve şifreli bir tünel üzerinden yalıtılmış olması gerekmez.
+- **Tek kiracılı Azure Stack**. Bir kiracı yoksa gibi görünen, en az bir ağ açısından bakıldığında, bir Azure Stack dağıtımı. Olabilir çok abonelikleri Kiracı, ancak herhangi bir intranet hizmeti gibi tüm trafik aynı ağlar üzerinden geçen. Bir abonelik gelen ağ trafiğini başka bir abonelik olarak aynı ağ bağlantısı üzerinden geçer ve şifrelenmiş bir tünel yalıtılmış olması gerekmez.
 
-- **Çok kiracılı Azure yığın**. Bir Azure yığın dağıtımına burada Azure yığınına dış ağlara bağlanan her Kiracı aboneliğinin trafiği diğer kiracılar ağ trafiğinden yalıtılmış olması gerekir.
+- **Çok kiracılı Azure Stack**. Bir Azure Stack dağıtımı burada Azure Stack'e dış ağlara bağlanan her Kiracı aboneliğin trafik diğer kiracılardan gelen ağ trafiğini yalıtılmış olması gerekir.
  
-- **İntranet dağıtımı**. Kurumsal intranet üzerinde genellikle özel IP adres alanı ve bir veya daha fazla güvenlik duvarı arkasında bulunur Azure yığın dağıtımı. Ortak Internet üzerinden doğrudan yönlendirilemiyor gibi ortak IP adresleri gerçekten ortak değildir.
+- **İntranet dağıtım**. Kurumsal bir intranet üzerinde genellikle özel IP adres alanı ve bir veya daha fazla güvenlik duvarlarının arkasında yer alan bir Azure Stack dağıtımı. Genel internet üzerinden doğrudan yönlendirilemiyor gibi genel IP adreslerini gerçekten ortak değildir.
 
-- **Internet dağıtım**. Ortak ağa bağlı bir Azure yığın dağıtımına genel VIP aralığının Internet ve kullandığı Internet yönlendirilebilir ortak IP adresleri. Dağıtımı hala bir güvenlik duvarının arkasında kalmaya devam, ancak genel VIP aralığı ortak Internet ve Azure doğrudan erişilebilir değil.
+- **Internet dağıtım**. Ortak ağa bağlı bir Azure Stack dağıtımı, genel VIP aralığının Internet ve kullandığı Internet yönlendirilebilir genel IP adresleri. Dağıtımı yine de bir güvenlik duvarının arkasında kaplayabilir, ancak genel VIP aralığının genel İnternet'e ve Azure doğrudan erişilebilir değil.
  
-Aşağıdaki tabloda uzmanları, simgeler ve kullanım durumları ile karma bağlantı senaryolar özetlenmiştir.
+Aşağıdaki tabloda, karma bağlantı senaryoları uzmanları, simgeler ve kullanım örnekleri özetlenmektedir.
 
-| Senaryo | Bağlantı yöntemi | Uzmanları | Simgeler | İyi için |
+| Senaryo | Bağlantı yöntemi | Uzmanları | Simgeler | İçin iyi |
 | -- | -- | --| -- | --|
-| Kiracı Azure yığını, intranet dağıtımı tek | Giden NAT | Daha hızlı aktarımları için daha iyi bant genişliği. Uygulaması kolaydır; ağ geçitleri gerekir. | Şifrelenmemiş trafik; yalıtım veya yığın dışında şifrelemesi yok. | Tüm kiracılar eşit derecede güvenilen nerede Kurumsal dağıtımlar.<br><br>Azure Azure expressroute bağlantı hattına sahip kuruluşlar. |
-| Çok kiracılı Azure yığını, intranet dağıtımı | Konumdan konuma VPN | VNet Kiracı trafiğinden hedef için güvenlidir. | Bant genişliği, siteden siteye VPN tüneli ile sınırlıdır.<br><br>Sanal ağ ve hedef ağ üzerindeki bir VPN cihazı bir ağ geçidi gerektirir. | Burada bazı Kiracı trafiği Kurumsal dağıtımlar diğer kiracılardan güvenli hale getirilmelidir. |
-| Kiracı Azure yığınının Internet dağıtım tek | Giden NAT | Daha hızlı aktarımları için daha iyi bant genişliği. | Şifrelenmemiş trafik; yalıtım veya yığın dışında şifrelemesi yok. | Barındırma senaryolarında nerede Kiracı kendi Azure yığın dağıtımına ve Azure yığın ortamına ayrılmış bir hattı alır. Örneğin, ExpressRoute ve çok protokollü etiket anahtarlama (MPLS).
-| Çok kiracılı Azure yığınının Internet dağıtım | Konumdan konuma VPN | VNet Kiracı trafiğinden hedef için güvenlidir. | Bant genişliği, siteden siteye VPN tüneli ile sınırlıdır.<br><br>Sanal ağ ve hedef ağ üzerindeki bir VPN cihazı bir ağ geçidi gerektirir. | Barındırma sağlayıcı burada bir çok kiracılı bulut teklifi istediği senaryolarında, kiracılar birbirine ve trafik burada güvenmediğiniz şifrelenmelidir.
+| Tek bir kiracı Azure Stack, intranet dağıtımı | Giden NAT | Daha hızlı aktarımları için daha iyi bant genişliği. Uygulaması kolaydır; ağ geçitleri gerekir. | Trafik; şifreli yalıtım veya yığın dışında şifrelemesi yok. | Tüm kiracılar eşit güvenilir olduğu kurumsal dağıtımlar.<br><br>Azure'da bir Azure ExpressRoute devresi kurumlar. |
+| Çok kiracılı Azure Stack, intranet dağıtımı | Konumdan konuma VPN | Hedef VNet kiracısı giden trafik güvenlidir. | Bant genişliği, siteden siteye VPN tüneli ile sınırlıdır.<br><br>Bir ağ geçidi sanal ağ ve hedef ağ üzerindeki bir VPN cihazı gerektirir. | Burada bazı Kiracı trafiğine Kurumsal dağıtımlar diğer kiracılardan güvenli hale getirilmelidir. |
+| Tek bir kiracı Azure Stack, internet dağıtım | Giden NAT | Daha hızlı aktarımları için daha iyi bant genişliği. | Trafik; şifreli yalıtım veya yığın dışında şifrelemesi yok. | Barındırma senaryolarında nerede Kiracı kendi Azure Stack dağıtımı ve Azure Stack ortamına ayrılmış bir bağlantı hattı alır. Örneğin, ExpressRoute ve çok protokollü etiket anahtarlama (MPLS).
+| Çok kiracılı Azure Stack, internet dağıtım | Konumdan konuma VPN | Hedef VNet kiracısı giden trafik güvenlidir. | Bant genişliği, siteden siteye VPN tüneli ile sınırlıdır.<br><br>Bir ağ geçidi sanal ağ ve hedef ağ üzerindeki bir VPN cihazı gerektirir. | Burada çok kiracılı bir bulut sunmak için sağlayıcı istediği senaryoları barındırma, kiracılar birbirleriyle ve trafik burada güvenmediğiniz şifrelenmelidir.
 |  |  |  |  |  |
 
 ### <a name="using-expressroute"></a>ExpressRoute kullanarak
 
-Azure üzerinden Azure yığın bağlanabileceği [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) tek Kiracı intranet ve çok kiracılı senaryoları için. Sağlanan bir expressroute bağlantı hattı üzerinden gerekir [bağlantı sağlayıcı](https://docs.microsoft.com/azure/expressroute/expressroute-locations).
+Azure Stack Azure üzerinden bağlanabilirsiniz [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) hem tek kiracılı intranet hem de çok kiracılı senaryolarda. Sağlanan bir ExpressRoute bağlantı hattı üzerinden ihtiyacınız olacak [bağlantı sağlayıcı](https://docs.microsoft.com/azure/expressroute/expressroute-locations).
 
-Aşağıdaki diyagramda bir tek Kiracı senaryo için ExpressRoute gösterir (burada "Müşteri'nin bağlantısı" ExpressRoute devresi).
+Aşağıdaki diyagramda, tek kiracılı senaryo için ExpressRoute gösterilmektedir (burada "Müşterinin bağlantısı" ExpressRoute bağlantı hattı).
 
-![Gösteren tek Kiracı ExpressRoute senaryosu diyagramı](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
+![Tek kiracılı ExpressRoute senaryoyu gösteren diyagram](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
-Aşağıdaki diyagramda bir çok kiracılı senaryo için ExpressRoute gösterir.
+Aşağıdaki diyagramda, ExpressRoute için çok kiracılı senaryo gösterilmektedir.
 
-![Gösteren çok kiracılı ExpressRoute senaryosu diyagramı](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
+![Çok kiracılı ExpressRoute senaryoyu gösteren diyagram](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>Dış izleme
-Azure yığın dağıtımına ve cihazlardan tüm uyarıları, tek bir görünümünü almak için ve raporlama için var olan BT Hizmet Yönetimi iş akışlarını içine uyarıları tümleştirmek için yapabileceğiniz [Azure yığın çözümleriniİzlemedışverimerkeziiletümleştirme](azure-stack-integrate-monitor.md).
+Azure Stack dağıtımı ve cihazlardan tüm uyarıları tek bir görünümünü elde etmek ve uyarılar bilet oluşturma için mevcut BT Hizmet Yönetimi iş akışlarını tümleştirileceği [Azure Stack'i izleme çözümleridışverimerkeziiletümleştirin](azure-stack-integrate-monitor.md).
 
-Azure yığın çözümüne eklenmiş, donanım yaşam döngüsü konak donanım için OEM satıcı tarafından sağlanan Yönetim Araçları'nı çalıştıran Azure yığın dışında bilgisayardır. Bu araçlar ya da var olan bir izleme çözümü, veri merkezinizdeki doğrudan tümleştirileceğini diğer çözümleri kullanabilirsiniz.
+Azure Stack çözümüyle dahil, donanım yaşam döngüsü konak donanımlara yönelik OEM satıcısı tarafından sağlanan Yönetim Araçları'nı çalıştıran bir Azure Stack dışında bilgisayardır. Bu araçlar veya doğrudan, veri merkezinizdeki mevcut izleme çözümleriyle tümleştirme diğer çözümleri kullanabilirsiniz.
 
-Aşağıdaki tablo şu anda kullanılabilir seçeneklerinin listesini özetler.
+Şu anda kullanılabilir seçeneklerin listesini aşağıdaki tabloda özetlenmiştir.
 
 | Alan | Dış izleme çözümü |
 | -- | -- |
-| Azure yığın yazılım | [Operations Manager için Azure yığın yönetim paketi](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios eklentisi](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST tabanlı API çağrıları | 
-| Fiziksel sunucuları (Bmc'ler IPMI aracılığıyla) | OEM donanım - Operations Manager satıcı Yönetim Paketi<br>OEM donanım satıcısı tarafından sağlanan çözümü<br>Donanım satıcısı Nagios eklentileri | OEM ortağı destekli izleme çözümü (dahil) | 
-| Ağ aygıtlarını (SNMP) | Operations Manager ağ aygıtı bulma<br>OEM donanım satıcısı tarafından sağlanan çözümü<br>Nagios anahtar eklentisi |
-| Kiracı abonelik durumunu izleme | [Windows Azure için System Center Yönetim Paketi](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Azure Stack yazılımı | [Azure Stack Operations Manager için Yönetim Paketi](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios eklentisi](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST tabanlı API çağrıları | 
+| Fiziksel sunucuları (Bmc'ler IPMI aracılığıyla) | OEM donanım - Operations Manager satıcı Yönetim Paketi<br>OEM donanım satıcısı tarafından sağlanan çözümü<br>Donanım satıcısı Nagios eklentileri | OEM iş ortağı destekli izleme çözümü (dahil) | 
+| Ağ cihazlarını (SNMP) | Operations Manager ağ cihazı bulma<br>OEM donanım satıcısı tarafından sağlanan çözümü<br>Nagios anahtarı eklentisi |
+| Kiracı abonelik durumu izleme | [Windows Azure için System Center Yönetim Paketi](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
-Aşağıdaki gereksinimleri dikkate alın:
-- Kullandığınız çözüm aracısız olması gerekir. Azure yığın bileşenleri içindeki üçüncü taraf aracılar yükleyemezsiniz. 
-- System Center Operations Manager kullanmak istiyorsanız, Operations Manager 2012 R2 veya Operations Manager 2016 gereklidir.
+Aşağıdaki gereksinimleri göz önünde bulundurun:
+- Kullandığınız çözüm aracısız olması gerekir. Azure Stack bileşenleri içindeki üçüncü taraf aracılar yükleyemezsiniz. 
+- System Center Operations Manager'ı kullanmak istiyorsanız, Operations Manager 2012 R2 veya Operations Manager 2016 gereklidir.
 
 ## <a name="backup-and-disaster-recovery"></a>Yedekleme ve olağanüstü durum kurtarma
 
-Yedekleme ve olağanüstü durum kurtarma için planlama Iaas sanal makineleri ve PaaS hizmetlerini barındıran her iki temel Azure yığın altyapı ve Kiracı uygulamalar ve veriler için planlama içerir. Bunlar için ayrı ayrı planlamanız gerekir.
+Yedekleme ve olağanüstü durum kurtarma için planlama, Iaas sanal makinelerini ve PaaS hizmetlerini barındıran hem de temel alınan Azure Stack altyapı ve Kiracı uygulamalarınız ve verileriniz için planlama içerir. Bunları ayrı ayrı planlamanız gerekir.
 
-### <a name="protect-infrastructure-components"></a>Altyapı bileşenlerine koruma
+### <a name="protect-infrastructure-components"></a>Altyapı bileşenlerini koruyun
 
-Yapabilecekleriniz [Azure yığın yedekleme](azure-stack-backup-back-up-azure-stack.md) altyapı bileşenlerini bir SMB paylaşımı, belirttiğiniz:
+Yapabilecekleriniz [Azure Stack yedekleme](azure-stack-backup-back-up-azure-stack.md) altyapı bileşenleri için bir SMB paylaşımı belirttiğiniz:
 
-- Bir dış SMB dosya paylaşımında var olan bir Windows tabanlı bir dosya sunucusu veya bir üçüncü taraf cihaz gerekir.
-- Ağ anahtarları ve donanım yaşam döngüsü konak yedekleme için aynı bu paylaşım kullanmanız gerekir. OEM donanım satıcınıza Azure yığınına dış bunlar gibi yedekleme ve geri yükleme bu bileşenlerin kılavuzluk yardımcı olur. OEM satıcının öneriye dayalı yedekleme iş akışları çalıştırmaktan sorumludur.
+- Mevcut bir Windows tabanlı dosya sunucusu veya bir üçüncü taraf cihaz harici bir SMB dosya paylaşımına gerekir.
+- Ağ anahtarları ve donanım yaşam döngüsü konak yedekleme için aynı Bu paylaşımı kullanmanız gerekir. OEM donanım satıcınız, bu Azure Stack için dış olarak yedekleme ve geri yükleme bu bileşenlerin rehberlik yardımcı olur. OEM satıcının öneriler temel alınarak backup iş akışları çalıştırmaktan sorumludur.
 
-Geri dönülemez veri kaybı meydana gelirse, dağıtım girişleri ve tanımlayıcıları, hizmet hesapları, CA kök sertifikasını, Federasyon kaynaklarında (bağlantısı kesilmiş dağıtımlar), planları, teklifleri gibi veri yeniden çekirdek oluşturma dağıtımı için altyapı yedekleme kullanabilirsiniz, Abonelikler, kotalar, RBAC İlkesi ve rol atamalarını ve anahtar kasası gizli.
+Geri dönülemez veri kaybı meydana gelirse, dağıtım girişleri ve tanımlayıcıları, hizmet hesapları, CA kök sertifikasını, Federasyon kaynaklarında (bağlantısı kesilmiş dağıtımlar), planlar, teklifler gibi veri yeniden çekirdek oluşturma dağıtımı için altyapı yedeklemeyi kullanabilirsiniz, Abonelikler, kotalar, RBAC İlkesi ve rol atamalarını ve Key Vault gizli dizileri.
  
-### <a name="protect-tenant-applications-on-iaas-virtual-machines"></a>Iaas sanal makinelerdeki Kiracı uygulamaları koruma
+### <a name="protect-tenant-applications-on-iaas-virtual-machines"></a>Iaas sanal makinelerinde Kiracı uygulamaları koruyun
 
-Azure yığın geri değil Kiracı uygulamaları ve verileri. Yedekleme ve olağanüstü durum kurtarma koruması için bir hedef Azure yığınına dış planlamanız gerekir. Kiracı koruma Kiracı güdümlü bir etkinliktir. Iaas sanal makineler için kiracılar, dosya klasörler, uygulama verilerini ve sistem durumunu korumak için konuk teknolojileri kullanabilirsiniz. Ancak, bir kuruluş ya da hizmet sağlayıcısı olarak, aynı veri merkezinde veya harici bir bulutta bir yedekleme ve kurtarma çözümü sunmak isteyebilirsiniz.
+Azure Stack yedekleme değil Kiracı uygulamaları ve verileri. Yedekleme ve olağanüstü durum kurtarma koruması için bir hedef Azure Stack için dış planlamanız gerekir. Kiracı koruma Kiracı temelli bir etkinliktir. Iaas sanal makineleri için kiracılar, dosya klasörleri, uygulama verilerini ve sistem durumunu korumak için konuk içi teknolojileri kullanabilirsiniz. Ancak, bir kuruluş veya hizmet sağlayıcısı olarak, aynı veri merkezinde veya bulutta harici olarak bir yedekleme ve kurtarma çözümü sunmak isteyebilirsiniz.
 
-Linux veya Windows Iaas sanal makineleri yedeklemek için yedekleme ürünleri konuk işletim sistemine erişimi olan dosya, klasör, işletim sistemi durumunu ve uygulama verilerini korumak için kullanmanız gerekir. Üçüncü taraf ürünleri desteklenen veya Azure Backup, System Center Data Center Protection Manager, kullanabilirsiniz.
+Linux veya Windows Iaas sanal makinelerini yedeklemek için yedekleme ürünleri konuk işletim sistemine erişimi olan dosya, klasör, işletim sistemi durumunu ve uygulama verilerini korumak için kullanmanız gerekir. Desteklenen üçüncü taraf ürünleri veya Azure Backup, System Center Data Center Protection Manager kullanabilirsiniz.
 
-İkincil bir konuma veri çoğaltabilir ve olağanüstü bir durum oluşursa, uygulama yük devretme düzenlemek için Azure Site Recovery veya desteklenen üçüncü taraf ürünleri kullanabilirsiniz. (Tümleşik sistemlerin ilk sürümünü Azure Site Recovery geri dönme desteği olmaz. Ancak, yeniden çalışma işlemini elle aracılığıyla elde edebilirsiniz.) Ayrıca, yerel çoğaltma (örneğin, Microsoft SQL Server) destekleyen uygulamalar, uygulamanın çalıştığı başka bir konuma veri çoğaltabilirsiniz.
-
-> [!IMPORTANT]
-> Bir Iaas sanal makine Konuk düzeyinde çalışır koruma teknolojileri tümleşik sistemlerin ilk sürümünü destekliyoruz. Temel alınan altyapı sunucularındaki aracılar yükleyemezsiniz.
+İkincil bir konuma veri çoğaltma ve olağanüstü bir durum oluşursa uygulama yük devretmelerini düzenlemek için Azure Site Recovery veya desteklenen üçüncü taraf ürünler kullanabilirsiniz. Ayrıca, Microsoft SQL Server gibi yerel çoğaltma destekleyen uygulamalar verilerini uygulamanın çalıştığı başka bir konuma çoğaltabilirsiniz.
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 
-- Kullanım örnekleri, satın alma, iş ortakları ve OEM donanım satıcıları hakkında daha fazla bilgi için bkz: [Azure yığın](https://azure.microsoft.com/overview/azure-stack/) ürün sayfası.
-- Tümleşik sistemleri Azure yığını için yol haritası ve coğrafi kullanılabilirlik hakkında bilgi için teknik incelemesine bakın: [Azure yığın: Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Kullanım örnekleri, satın alma, iş ortakları ve OEM donanım satıcıları hakkında daha fazla bilgi için bkz. [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) ürün sayfası.
+- Tümleşik sistemler, Azure Stack için yol haritası ve coğrafi kullanılabilirlik hakkında bilgi teknik incelemesine bakın: [Azure Stack: bir Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure yığın dağıtım bağlantı modeli](azure-stack-connection-models.md)
+[Azure Stack dağıtım bağlantı modelleri](azure-stack-connection-models.md)

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 09/11/2018
 ms.author: patricka
-ms.openlocfilehash: e61b4457cd88c236145ce7595ee7db4340538465
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 0a10662e359379356ecc8d82af1b7d6331c41a65
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331062"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720064"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack'te çok kiracılılık
 
@@ -101,6 +101,18 @@ Register-AzSWithMyDirectoryTenant `
 > Azure Stack yöneticinize yeni hizmetlerin veya güncelleştirmelerin gelecekte yüklerse, bu komut dosyasını yeniden çalıştırmanız gerekebilir.
 >
 > Bu betik dizininizdeki Azure Stack uygulamalarının durumunu denetlemek için dilediğiniz zaman yeniden çalıştırın.
+
+
+### <a name="activate-the-administrator-and-tenant-portals"></a>Yönetici ve Kiracı portalları etkinleştirme
+Azure AD kullanan dağıtımlar sonra Azure Stack yönetici ve Kiracı portalı etkinleştirmeniz gerekir. Bu etkinleştirme Azure Stack portal ve Azure Resource Manager (onay sayfasında listelenmiştir) doğru tüm kullanıcılar için izinleri dizinin vermenizi toplanmasına onay verir.
+
+- Yönetici portalı için gidin https://adminportal.local.azurestack.external/guest/signupbilgileri okuyun ve kabul et'ye tıklayın. Kabul ettikten sonra aynı zamanda dizin Kiracı yönetici olmayan hizmet yöneticileri ekleyebilir.
+- Kiracı portalı için gidin https://portal.local.azurestack.external/guest/signupbilgileri okuyun ve kabul et'ye tıklayın. Kabul ettikten sonra kullanıcılar dizininde Kiracı portalında oturum açabilir. 
+ 
+> [!NOTE] 
+> Portalları etkin değil, yalnızca dizin Yöneticisi oturum açın ve portallarını birlikte kullanmanız gerekir. Başka bir kullanıcı oturum açtığında, yönetici izinleri diğer kullanıcılara vermemiş bildiren bir hata görürsünüz. Yöneticinin yerel olarak Azure Stack için kayıtlı dizine ait değil, Azure Stack directory etkinleştirme URL eklenmesi gerekir. Örneğin, Azure Stack, Fabrikam.onmicrosoft.com adresli ve yönetici kullanıcı için kayıtlı ise admin@contoso.com, gitmek https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com portal'ı etkinleştirmek için.
+
+
 
 ### <a name="direct-users-to-sign-in"></a>Doğrudan kullanıcılar oturum açabilir
 

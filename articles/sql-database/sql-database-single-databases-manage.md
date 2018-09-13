@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 20039c32ed7bb740ba5d1185d195d7590cff39e2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: bb0efe83cb18f25317911361de79378298e591b7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051264"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717639"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Mantıksal sunucuları ve Azure SQL veritabanı'nda tek veritabanları oluşturma ve yönetme 
 

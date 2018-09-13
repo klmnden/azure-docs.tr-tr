@@ -1,6 +1,6 @@
 ---
-title: Azure yığın yönetim temel kavramları | Microsoft Docs
-description: Azure yığın yönetmek için bilmeniz gerekenleri öğrenin.
+title: Azure Stack yönetim temel bilgileri | Microsoft Docs
+description: Azure Stack yönetmek için bilmeniz gerekenleri öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,37 +12,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/08/2018
 ms.author: mabrigg
-ms.openlocfilehash: 283d1c2a7ef3484cb4fd4d9a53b543a093e9baf8
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 39dc48b1357b07932efbccaf002f54ca58edae24
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850312"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35971940"
 ---
-# <a name="azure-stack-administration-basics"></a>Azure yığın Yönetimi temelleri
-Azure yığın yönetim yeni bilmeniz gereken birkaç nokta vardır. Bu kılavuz, rol Azure yığın işleç olarak genel bir bakış ve hızlı bir şekilde üretken olmak için bunları kullanıcılarınıza söylemeniz gerekenler sağlar.
+# <a name="azure-stack-administration-basics"></a>Azure Stack yönetim temel bilgileri
+Azure Stack Yönetim için yeni bilmeniz gereken birkaç şey vardır. Bu kılavuz, Azure Stack operatörü olarak sizin rolünüze genel bir bakış ve hızlı bir şekilde üretken olmak için bunları kullanıcılarınıza söylemeniz gerekenler sağlar.
 
-## <a name="understand-the-builds"></a>Derlemeleri anlama
+## <a name="understand-the-builds"></a>Yapıları anlama
 
 ### <a name="integrated-systems"></a>Tümleşik sistemler
 
-Bir Azure tümleşik yığını sistemi kullanıyorsanız, Azure yığın güncelleştirilmiş sürümlerini güncelleştirme paketleri dağıtılır. Bu paketleri içeri aktarmak ve bunları Yönetici portalı'nda güncelleştirmeleri döşeme kullanarak uygulayabilirsiniz.
+Bir Azure Stack tümleşik sistemi kullanıyorsanız, Azure Stack güncelleştirilmiş sürümlerini güncelleştirme paketleri dağıtılır. Bu paketleri içeri aktarmak ve güncelleştirmeleri kutucuk Yönetici portalı'nda kullanarak uygulayabilirsiniz.
  
 ### <a name="development-kit"></a>Geliştirme Seti
 
-Azure yığın Geliştirme Seti kullanıyorsanız, gözden [Azure yığın nedir?](.\asdk\asdk-what-is.md) makale amacını Geliştirme Seti ve onun kısıtlamaları anladığınızdan emin olun. "Burada Azure yığın değerlendirmek ve geliştirmek ve uygulamalarınızı bir üretim dışı ortamda test etmek bir korumalı alan," olarak Geliştirme Seti kullanmanız gerekir. (Dağıtım bilgileri için bkz: [Azure yığın Geliştirme Seti dağıtım](.\asdk\asdk-install.md) makale.)
+Azure Stack geliştirme Seti'ni kullanıyorsanız, gözden [Azure Stack nedir?](.\asdk\asdk-what-is.md) makalenin amacı, Geliştirme Seti ve kısıtlamalarını anladığınızdan emin olun. ", Azure Stack'i değerlendirin ve geliştirme ve üretim dışı ortamda uygulamalarınızı test etmek bir korumalı alan," olarak Geliştirme Seti kullanmanız gerekir. (Dağıtım bilgileri için bkz. [Azure Stack geliştirme Seti'ni dağıtım](.\asdk\asdk-install.md) makale.)
 
-Azure gibi biz hızlı bir şekilde yenilik. Biz düzenli olarak yeni yayın derlemeleri. Geliştirme Seti çalıştırıyorsanız ve taşımak en son sürüme için yapmanız gerekenler istediğiniz [Azure yığın dağıtmanız](.\asdk\asdk-redeploy.md). Güncelleştirme paketleri uygulanamıyor. Bu işlem zaman alır, ancak en son özellikleri deneyebilirsiniz avantajdır. Bizim Web sitesi Geliştirme Seti belgelerine en son sürüm yapı yansıtır.
+Azure'da olduğu gibi biz yenilikleri hızlıca sunun. Biz yeni derlemeler düzenli olarak kullanıma sunarız. Geliştirme Seti çalıştırıyorsanız ve taşımak en son sürüme gerekir istediğiniz [Azure Stack'i yeniden dağıtma](.\asdk\asdk-redeploy.md). Güncelleştirme paketleri uygulanamıyor. Bu işlem zaman alır, ancak en son özellikleri deneyin avantajdır. Web Geliştirme Seti belgelerine en son sürüm yapısı yansıtır.
 
-## <a name="learn-about-available-services"></a>Kullanılabilir hizmetler hakkında bilgi edinin
+## <a name="learn-about-available-services"></a>Kullanılabilir hizmetleri hakkında bilgi edinin
 
-Hangi hizmetlerin, kullanıcılarınız için kullanılabilir duruma getirebilirsiniz tanıma gerekir. Azure yığını, Azure hizmetleri kümesini destekler. Desteklenen hizmetlerin listesini gelişmeye devam eder.
+Hangi Hizmetleri, kullanıcılarınıza sunabileceğiniz bir farkındalık gerekir. Azure Stack, Azure hizmetlerin bir alt kümesini destekler. Desteklenen hizmet listesini gelişmeye devam eder.
 
 **Temel Hizmetleri**
 
-Varsayılan olarak, aşağıdaki "temel Hizmetleri" Azure yığın içerir dağıttığınızda Azure yığını:
+Varsayılan olarak, Azure Stack şu "temel" Hizmetleri Azure Stack dağıtırken:
 
 - İşlem
 - Depolama
@@ -59,91 +59,91 @@ Bu temel hizmetlerle minimal yapılandırma ile kullanıcılarınıza-olarak-hiz
 - Azure İşlevleri
 - SQL ve MySQL veritabanları
 
-Bu hizmetler, bunları kullanılabilir kullanıcılarınıza hale getirmeden önce ek yapılandırma gerektirir. Daha fazla bilgi için "Öğreticileri" ve Azure yığın işleci Belgelerimizi "nasıl yapılır guides\Offer Hizmetleri" bölümlerine bakın.
+Bu hizmetler, bunları kullanıcılarınıza sunabileceğiniz önce ek yapılandırma gerektirir. Daha fazla bilgi için "Öğreticiler" ve müşterilerimizin Azure Stack operatör belgeleri "nasıl yapılır guides\Offer Hizmetleri" bölümlerine bakın.
 
 **Hizmet yol haritası**
 
-Azure yığını, Azure Hizmetleri için destek eklemek devam eder. Tahmini yol haritası için bkz: [Azure yığın: Azure uzantısı](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) teknik incelemesi. Da izleyebilirsiniz [Azure yığın blog gönderileri](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) yeni duyuruları için.
+Azure Stack, Azure Hizmetleri için destek eklemeye devam edeceğiz. Gelecekteki yol haritası için bkz. [Azure Stack: bir Azure uzantısı](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) teknik incelemesi. Ayrıca izleyebilirsiniz [Azure Stack blog gönderilerini](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) yeni duyuruları.
 
 ## <a name="what-account-should-i-use"></a>Hangi hesabı kullanmalıyım?
-Azure yığın yönetirken bilmeniz gereken birkaç hesabında dikkate alınacak noktalar vardır. Özellikle dağıtımlarda, kimlik sağlayıcısı Azure Active Directory (Azure AD) yerine Windows Server Active Directory Federasyon Hizmetleri (AD FS) kullanarak. Aşağıdaki hesabında dikkate alınacak noktalar hem Azure tümleşik yığını sistemleri hem de ASDK dağıtımları için geçerlidir:
+Azure Stack yönetirken bilmeniz gereken birkaç hesabında dikkate alınacak noktalar vardır. Dağıtımlarda özellikle Windows Server Active Directory Federasyon Hizmetleri (ADFS) yerine Azure Active Directory (Azure AD) kimlik sağlayıcısı olarak kullanma. Azure Stack tümleşik sistemleri ve ASDK dağıtımları için aşağıdaki hesabı maddeler geçerlidir:
 
 
 |Hesap|Azure AD|AD FS|
 |-----|-----|-----|
-|Yerel yönetici (. \Administrator)|ASDK ana bilgisayar yöneticisi|ASDK ana bilgisayar yöneticisi|
-|AzureStack\AzureStackAdmin|ASDK ana bilgisayar yöneticisi<br><br>Azure yığın Yönetim Portalı'nda oturum için kullanılabilir<br><br>Görüntülemek ve Service Fabric çalma yönetmek için erişim|ASDK ana bilgisayar yöneticisi<br><br>Azure yığın yönetim portalı için erişim yok<br><br>Görüntülemek ve Service Fabric çalma yönetmek için erişim<br><br>Artık sahibi varsayılan sağlayıcı abonelik (DPS)|
-|AzureStack\CloudAdmin|Erişebilir ve ayrıcalıklı Endpoint içinde izin verilen komutlarını çalıştırın|Erişebilir ve ayrıcalıklı Endpoint içinde izin verilen komutlarını çalıştırın<br><br>ASDK ana bilgisayara oturum değil<br><br>Varsayılan sağlayıcı aboneliğin (DPS) sahibi|
-|Azure AD genel Yöneticisi|Yükleme sırasında kullanılan<br><br>Varsayılan sağlayıcı aboneliğin (DPS) sahibi|Uygulanamaz|
+|Yerel yönetici (. \Administrator)|ASDK konak yönetici|ASDK konak yönetici|
+|AzureStack\AzureStackAdmin|ASDK konak yönetici<br><br>Azure Stack yönetim portalında oturum açmak için kullanılabilir<br><br>Service Fabric halkaları yönetmek ve görüntülemek için erişim|ASDK konak yönetici<br><br>Azure Stack yönetim portalına erişim yok<br><br>Service Fabric halkaları yönetmek ve görüntülemek için erişim<br><br>Artık sahibi varsayılan sağlayıcı aboneliği (DPS)|
+|AzureStack\CloudAdmin|Erişebilir ve ayrıcalıklı uç nokta içinde izin verilen komutları çalıştırın|Erişebilir ve ayrıcalıklı uç nokta içinde izin verilen komutları çalıştırın<br><br>ASDK ana bilgisayara oturum yok<br><br>Varsayılan sağlayıcı aboneliği (yu DPS) sahibi|
+|Azure AD genel Yöneticisi|Yükleme sırasında kullanılan<br><br>Varsayılan sağlayıcı aboneliği (yu DPS) sahibi|Uygulanamaz|
 |
 
-## <a name="what-tools-do-i-use-to-manage"></a>Yönetmek için hangi Araçlar kullanıyor?
+## <a name="what-tools-do-i-use-to-manage"></a>Yönetmek için hangi araçları kullanabilir?
  
-Kullanabileceğiniz [Yönetici portalı](azure-stack-manage-portals.md) veya Azure yığın yönetmek için PowerShell. Portalı aracılığıyla temel kavramları öğrenmeniz en kolay yoludur. PowerShell kullanmak istiyorsanız, hazırlık adımları vardır. Gerekir [yüklemek](azure-stack-powershell-install.md) PowerShell [karşıdan](azure-stack-powershell-download.md) ek modüller ve [yapılandırmak](azure-stack-powershell-configure-admin.md) PowerShell.
+Kullanabileceğiniz [Yönetici portalı](azure-stack-manage-portals.md) veya Azure Stack yönetmek için PowerShell'i. Temel kavramları öğrenmenin en kolay yolu portalı kullanmaktır. PowerShell kullanmak istiyorsanız, hazırlık adımları vardır. Gerekir [yükleme](azure-stack-powershell-install.md) PowerShell [indirme](azure-stack-powershell-download.md) ek modüller ve [yapılandırma](azure-stack-powershell-configure-admin.md) PowerShell.
 
-Azure yığın Azure Resource Manager, temel alınan dağıtım, yönetim ve kuruluş mekanizması olarak kullanır. Azure yığın yönetmek ve kullanıcıların desteklemeye yardımcı olmak için kullanacaksanız, Resource Manager hakkında bilgi edinin. Bkz: [Azure Resource Manager ile Başlarken](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) teknik incelemesi.
+Azure Stack, Azure Resource Manager, temel alınan dağıtımı, yönetimi ve kuruluş mekanizması olarak kullanır. Azure Stack yönetmek ve kullanıcıların desteklemeye yardımcı olmak için kullanacaksanız, Resource Manager hakkında bilgi edinin. Bkz: [Azure Resource Manager ile Başlarken](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) teknik incelemesi.
 
 ## <a name="your-typical-responsibilities"></a>Tipik sizin Sorumluluklarınız
 
-Kullanıcılarınızın hizmetleri kullanmak istiyorsunuz. Kendi açısından, ana hizmetlerin bunları kullanılabilir hale getirmek için rolüdür. Sunmak için hangi hizmetlerin karar ve bu hizmetleri planları, teklifleri ve kotalar oluşturarak kullanılabilmesi gerekir. Daha fazla bilgi için bkz: [Azure yığınında hizmetleri sunan genel bakış](azure-stack-offer-services-overview.md). 
+Kullanıcıların hizmetleri kullanmak istiyorsunuz. Kendi bakış açısına ana rolünüz hizmetlerin kullanılabilir olmasını sağlamaktır. Hangi Hizmetleri sunmaya karar verin ve planlar, teklifler ve kotalar oluşturarak bu hizmetleri kullanılabilir yapın. Daha fazla bilgi için [Azure Stack'te hizmetleri sunan genel bakış](azure-stack-offer-services-overview.md). 
 
-Öğeleri Ekle gerekecektir [Market](azure-stack-marketplace.md), sanal makine görüntüleri gibi. En kolay yolu [Market öğesi Azure'dan Azure yığınına karşıdan](azure-stack-download-azure-marketplace-item.md).
+Öğe ekleme gerekecektir [Market](azure-stack-marketplace.md), sanal makine görüntüleri gibi. En kolay yolu [Azure Stack için Azure Market öğelerini indirme](azure-stack-download-azure-marketplace-item.md).
 
 > [!NOTE]
-> Test planları, teklifleri ve Hizmetleri istiyorsanız, kullanması gereken [kullanıcı portalı](azure-stack-manage-portals.md); değil Yönetici portalı.
+> Planlar, teklifler ve Hizmetleri test etmek isterseniz, kullanması gereken [kullanıcı portalı](azure-stack-manage-portals.md); olmayan Yönetici portalı.
 
-Hizmetleri sağlamaya ek olarak, bir işleç tüm normal görevleri Azure yığın hazır ve çalışır tutmak için gerçekleştirmeniz gerekir. Bu görevleri şunlardır:
+Hizmetleri sağlamaya ek olarak, bir işlecin tüm normal görevlerini Azure Stack'te çalışır tutmak için gerçekleştirmeniz gerekir. Bu görevler aşağıdakileri içerir:
 
 - Kullanıcı hesaplarını ekleyin (için [Azure Active Directory](azure-stack-add-new-user-aad.md) dağıtım veya [Active Directory Federasyon Hizmetleri](azure-stack-add-users-adfs.md) dağıtım)
-- [Rol tabanlı erişim denetimi (RBAC) Rolleri Ata](azure-stack-manage-permissions.md) (Bu yöneticilere sınırlı değildir.)
-- [İzleyici altyapı durumu](azure-stack-monitor-health.md)
+- [Rol tabanlı erişim denetimi (RBAC) Rolleri Ata](azure-stack-manage-permissions.md) (Bu yöneticilerin sınırlı değildir.)
+- [Altyapı sistem durumunu izleme](azure-stack-monitor-health.md)
 - Yönetme [ağ](azure-stack-viewing-public-ip-address-consumption.md) ve [depolama](azure-stack-manage-storage-accounts.md) kaynakları
-- Hatalı donanım, örneğin yerine [hatalı bir diski değiştirmek](azure-stack-replace-disk.md).
+- Hatalı donanım değiştirin; örneğin [hatalı bir diski değiştirme](azure-stack-replace-disk.md).
 
 ## <a name="what-to-tell-your-users"></a>Kullanıcılarınıza söylemeniz gerekenler
 
-Kullanıcılarınıza Azure yığınında Hizmetleri ile nasıl çalışılacağını, ortama bağlanma ve tekliflerini abone olma bilmeniz gerekir. Tüm özel belge yanı sıra, kullanıcılarınızın sağlamak isteyebilirsiniz, kullanıcıları Azure yığın kullanıcıların belgeleri sitesine yönlendirebilirsiniz.
+Azure Stack'te hizmetler ile nasıl çalışılacağını ve ortamına bağlanmak nasıl tekliflere abone olma, kullanıcılarınıza gerekecektir. Özel belgeler yanı sıra kullanıcılara sağlamak istediğiniz kullanıcıları Azure Stack kullanıcı belgeleri sitesine yönlendirebilir.
 
-**Azure yığınında Hizmetleri ile nasıl çalışılacağını anlama**
+**Azure Stack'te hizmetler ile nasıl çalışılacağını anlama**
 
-Hizmetleri kullanın ve Azure yığınında uygulamalar oluşturmak için önce kullanıcılarınızın anlamalısınız bilgisi yoktur. Örneğin, belirli PowerShell ve API sürümü gereksinimleri vardır. Ayrıca, bir hizmet olarak Azure yığınında eşdeğer hizmeti arasındaki bazı özellik farkları vardır. Kullanıcılarınızın aşağıdaki makaleleri gözden emin olun:
+Hizmetleri kullanın ve Azure Stack'te uygulamalar oluşturmak için önce kullanıcılarınızın anlamalısınız bilgisi yoktur. Örneğin, belirli PowerShell ve API sürüm gereksinimleri vardır. Ayrıca, bir Azure hizmeti ve Azure stack'teki eşdeğer hizmeti arasında bazı özellik farkları vardır. Kullanıcılarınızın aşağıdaki makaleleri gözden emin olun:
 
-- [Anahtar dikkat edilecek noktalar: hizmetlerini kullanarak ya da uygulamaları için Azure yığın oluşturma](user/azure-stack-considerations.md)
-- [Sanal makineler Azure yığınında dikkate alınacak noktalar](user/azure-stack-vm-considerations.md)
-- [Depolama: farklar ve ilgili önemli noktalar](user/azure-stack-acs-differences.md)
+- [Anahtar dikkat edilmesi gerekenler: hizmetlerini kullanarak veya Azure Stack için uygulamalar oluşturma](user/azure-stack-considerations.md)
+- [Azure Stack'te sanal makineler için dikkat edilmesi gerekenler](user/azure-stack-vm-considerations.md)
+- [Depolama: farklılıklar ve dikkat edilmesi gerekenler](user/azure-stack-acs-differences.md)
 
-Bu makaleler bilgileri Azure hizmetinde ve Azure yığını arasındaki farklar özetlenmektedir. Bir Azure hizmeti genel Azure belgelerinde kullanılabilir bilgi tamamlar.
+Bilgiler Bu makaleler, bir Azure hizmeti ve Azure Stack arasındaki farklar özetlenmektedir. Bu, genel Azure belgeleri bir Azure hizmeti için kullanılabilir olan bilgileri sağlar.
 
-**Azure yığınına kullanıcı olarak bağlanma**
+**Bir kullanıcı olarak Azure Stack'e bağlanma**
 
-Bir kullanıcının Geliştirme Seti barındırmak için Uzak Masaüstü erişimi yoksa, Azure yığın erişebilmeniz için önce bir geliştirme seti ortamında, bunlar bir sanal özel ağ (VPN) bağlantısı yapılandırmanız gerekir. Bkz: [Azure yığınına bağlanmak](azure-stack-connect-azure-stack.md). 
+Bir kullanıcının Geliştirme Seti barındırmak için Uzak Masaüstü erişimi yoksa, Azure Stack erişebilmeniz için önce bir geliştirme seti ortamında, sanal özel ağ (VPN) bağlantısı yapılandırmanız gerekir. Bkz: [Azure Stack'e bağlanma](azure-stack-connect-azure-stack.md). 
 
-Kullanıcılarınızın bilmek isteyeceksiniz nasıl [Kullanıcı Portalı erişim ](user/azure-stack-use-portal.md) veya PowerShell aracılığıyla bağlanma. Tümleşik sistemleri ortamında dağıtım başına kullanıcı portalı adresi değişir. Kullanıcılarınızın doğru URL sağlamak gerekir.
+Kullanıcılarınızın kattığını bilmek isteyecektir nasıl [kullanıcı portalı ](user/azure-stack-use-portal.md) veya PowerShell üzerinden bağlanma. Tümleşik sistemleri ortamında dağıtım Kullanıcı Portalı adresi değişir. Kullanıcılarınızın doğru URL ile sağlamanız gerekir.
 
-PowerShell kullanarak, kullanıcılar Hizmetleri kullanabilmeniz için önce kaynak sağlayıcıları kaydetmek zorunda kalabilirsiniz. (Bir hizmet bir kaynak sağlayıcısı yönetir. For example, ağ kaynak sağlayıcısı sanal ağlar, ağ arabirimleri ve yük Dengeleyiciler gibi kaynakları yönetir.) Bunlar gerekir [yüklemek](user/azure-stack-powershell-install.md) PowerShell [karşıdan](user/azure-stack-powershell-download.md) ek modüller ve [yapılandırma](user/azure-stack-powershell-configure-user.md) (kaynak Sağlayıcısı kaydı içerir) PowerShell.
+PowerShell kullanarak, kullanıcıların Hizmetleri kullanabilmeniz için önce kaynak sağlayıcılarını kaydetme gerekebilir. (Bir kaynak sağlayıcısı, bir hizmet yönetir. For example, ağ kaynak sağlayıcısı sanal ağlar, ağ arabirimleri ve yük Dengeleyiciler gibi kaynakları yönetir.) Bunlar gerekir [yükleme](user/azure-stack-powershell-install.md) PowerShell [indirme](user/azure-stack-powershell-download.md) ek modüller ve [yapılandırma](user/azure-stack-powershell-configure-user.md) (kaynak Sağlayıcısı kaydı içeren) PowerShell.
 
 **Bir teklife abone olma**
 
-Bir kullanıcı Hizmetleri erişmeden önce bunlar gerekir [teklife abone](azure-stack-subscribe-plan-provision-vm.md) bir operatör olarak oluşturduğunuz.
+Bir kullanıcı Hizmetleri erişebilmeniz için önce bunlar gerekir [teklife abone olma](azure-stack-subscribe-plan-provision-vm.md) operatör oluşturduğunuz.
 
-## <a name="where-to-get-support"></a>Destek almak nereye
+## <a name="where-to-get-support"></a>Nereden destek
 
 ### <a name="integrated-systems"></a>Tümleşik sistemler
 
-Tümleşik bir sistem için Eşgüdümlü sorun giderme ve çözümleme işlemi Microsoft ve özgün donanım üreticisi (OEM) donanım ortaklarımızın arasındaki yoktur.
+Tümleşik bir sistem için Eşgüdümlü yükseltme ve özgün ekipman üreticisi (OEM) donanım iş ortaklarımız ile Microsoft arasındaki çözümleme işlemi yoktur.
 
-Bulut Hizmetleri sorun varsa, destek Microsoft Müşteri Destek Hizmetleri'ne (CSS) aracılığıyla sunulur. Yönetici portalı'nı sağ üst köşesinde Yardım ve Destek (soru işareti) simgesine tıklayın ve ardından, **yeni destek isteği**, burada doğrudan açabilirsiniz bir destek isteği bir site açılır.
+Bulut Hizmetleri sorun varsa, Microsoft Müşteri Destek Hizmetleri (CSS) aracılığıyla destek sunulur. Yönetici portalının sağ üst köşedeki Yardım ve Destek (soru işareti) simgesine tıklayın ve ardından **yeni destek isteği**, bu site burada doğrudan açabileceğiniz bir destek isteği açar.
 
-Dağıtım ile ilgili bir sorun varsa, düzeltme ve güncelleştirme, (alan değiştirebilen birim dahil) donanım ve donanım markalı yazılımları, donanım yaşam döngüsü konakta çalışan yazılımı gibi ilk OEM donanım satıcınıza başvurun.
+Dağıtım ile ilgili bir sorun varsa, düzeltme eki ve güncelleştirme, donanım (alan değiştirebilen birim dahil) ve donanım markalı yazılımları, donanım yaşam döngüsü konak üzerinde çalışan yazılımı gibi ilk OEM donanım satıcınıza başvurun.
 
-Başka bir şey için Microsoft CSS başvurun.
+Diğer her şey için Microsoft CSS ile iletişime geçin.
 
 ### <a name="development-kit"></a>Geliştirme Seti
 
-Geliştirme Seti için destek ilgili sorular sorabilirsiniz [Microsoft forumları](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Yönetici portalı'nı sağ üst köşesinde Yardım ve Destek (soru işareti) simgesine tıklayın ve ardından, **yeni destek isteği**, forumlar sitenin doğrudan açılır. Bu forumları düzenli olarak izlenir. Geliştirme Seti bir değerlendirme ortamı olduğundan, Microsoft CSS sunulan resmi desteği yoktur.
+Geliştirme Seti için destek ile ilgili sorular sorabilirsiniz [Microsoft forumları](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Yönetici portalının sağ üst köşedeki Yardım ve Destek (soru işareti) simgesine tıklayın ve ardından **yeni destek isteği**, doğrudan bu forum sitesini açar. Bu Forum düzenli olarak izlenir. Geliştirme Seti değerlendirme ortamı olduğundan, Microsoft CSS sunulan resmi desteği yoktur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure yığınında bölge Yönetimi](azure-stack-region-management.md)
+- [Azure stack'teki bölge Yönetimi](azure-stack-region-management.md)
 
 

@@ -1,53 +1,53 @@
 ---
 title: Azure Machine Learning deneme hizmeti yapılandırma dosyaları
-description: Bu belgede Azure ML deneme hizmeti için yapılandırma ayarlarını ayrıntılarını verir.
+description: Bu belge, Azure ML deneme hizmeti için yapılandırma ayarlarını ayrıntıları.
 services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 1a4b6b803687b2c433ad94a54f076f23fe63c350
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 43bee297b917143c9014b28049c6dfa28727b757
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831321"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651387"
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning deneme hizmeti yapılandırma dosyaları
 
-Azure Machine Learning (Azure ML) çalışma ekranı bir komut çalıştırdığınızda yürütme davranışını dosyalarında denetlenir **aml_config** klasör. Bu klasör, proje klasörünü kök altında bulunur. İstenen sonuca, yürütme için bir en iyi şekilde yararlanmak için bu dosyaların içeriğini anlamak önemlidir.
+Bir betiği Azure Machine Learning (Azure ML) Workbench'te çalıştırdığınızda, yürütme davranışını dosyalarında denetlenir **aml_config** klasör. Bu klasör proje klasörü kökünde bulunur. İstenen sonuca, yürütme için iyi bir şekilde elde etmek için bu dosyaların içeriğini anlamak önemlidir.
 
 Bu klasör altındaki ilgili dosyalar şunlardır:
 - conda_dependencies.yml
 - spark_dependencies.yml
-- hedef dosyalar işlem
+- Hedef dosya işlem
     - \<Hedef adı işlem > .compute
 - yapılandırma dosyalarını çalıştır
-    - \<Yapılandırma adı Çalıştır > .runconfig
+    - \<Yapılandırma adı çalıştırın > .runconfig
 
 >[!NOTE]
->Genellikle bir işlem hedef dosya varsa ve oluşturduğunuz her işlem hedef için yapılandırma dosyasını çalıştırın. Ancak, bu dosyaları bağımsız olarak oluşturmak ve aynı işlem hedefe işaret eden birden çok çalışma yapılandırma dosyalarının sahip.
+>Genellikle işlem hedef dosya varsa ve oluşturduğunuz her işlem hedefi için yapılandırma dosyasını çalıştırın. Ancak, bağımsız olarak bu dosyaların oluşturulması ve birden fazla çalıştırma yapılandırma dosyası aynı işlem hedefe işaret eden sahip.
 
 ## <a name="condadependenciesyml"></a>conda_dependencies.yml
-Bu dosya bir [conda ortam dosya](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) kodunuzu bağımlı paketler ve Python çalışma zamanı sürümü belirtir. Azure ML çalışma ekranı bir Docker kapsayıcısı veya Hdınsight kümesinde bir komut dosyası yürütüldüğünde, oluşturduğu bir [conda ortam](https://conda.io/docs/using/envs.html) çalıştırmak komut dosyanızı için. 
+Bu dosya bir [conda ortam dosyası](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) kodunuzu bağımlı paketler ve Python çalışma zamanı sürümünü belirtir. Azure ML Workbench bir Docker kapsayıcısı veya HDInsight küme içinde bir kod yürütüldüğünde, oluşturduğu bir [conda ortam](https://conda.io/docs/using/envs.html) çalıştırılacak betiği için. 
 
-Bu dosyada, komut dosyası yürütme için gereken Python paketlerini belirtin. Azure ML deneme hizmeti bağımlılıkları listenize göre conda ortamının oluşturur. Burada listelenen paketler gibi kanalları üzerinden yürütme altyapısı tarafından erişilebilir olması gerekir:
+Bu dosyada, komut dosyanız için gereken Python paketlerini belirtin. Azure ML deneme hizmeti listenize göre bağımlılıklar conda ortamı oluşturur. Burada listelenen paketleri gibi kanallar aracılığıyla yürütme altyapısı tarafından erişilebilir olmalıdır:
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
-* Genel olarak erişilebilen bir uç noktası (URL)
-* veya bir yerel dosya yolu
-* Başkalarının yürütme altyapısı tarafından erişilebilir
+* Genel olarak erişilebilen bir uç noktaya (URL)
+* ya da yerel dosya yolu
+* diğerleri yürütme altyapısı tarafından erişilebilir
 
 >[!NOTE]
->Hdınsight küme üzerinde çalışan Azure ML çalışma ekranı belirli çalıştırma için bir conda ortamı oluşturur. Bu, farklı kullanıcıların farklı python ortamları aynı küme üzerinde çalışan olanak tanır.  
+>HDInsight küme üzerinde çalışan, Azure ML Workbench belirli çalıştırmak için bir conda ortamı oluşturur. Bu, farklı kullanıcılar aynı küme üzerindeki farklı python ortamları çalışmasını sağlar.  
 
-Tipik bir örneği burada verilmiştir **conda_dependencies.yml** dosya.
+İşte bir örnek tipik bir **conda_dependencies.yml** dosya.
 ```yaml
 name: project_environment
 dependencies:
@@ -70,13 +70,13 @@ dependencies:
      - C:\temp\my_private_python_pkg.whl
 ```
 
-Azure ML çalışma ekranı kullandığı aynı conda ortamı sürece derlenmeden **conda_dependencies.yml** aynı kalır. Bağımlılıklarınız değiştirirseniz, ortamınızı yeniden oluşturur.
+Azure ML Workbench kullandığı aynı conda ortamı sürece derlenmeden **conda_dependencies.yml** aynı kalır. Bağımlılıklarınızı değiştirirseniz ortamınızı yeniden oluşturur.
 
 >[!NOTE]
->Yürütme karşı hedefliyorsanız _yerel_ bağlamı, işlem **conda_dependencies.yml** dosyası **değil** kullanılır. Paket bağımlılıklarını yerel Azure ML çalışma ekranı Python ortamınız için elle yüklenmesi gerekir.
+>Yürütmeyi hedefliyorsanız _yerel_ işlem bağlamında, **conda_dependencies.yml** dosyasıdır **değil** kullanılır. Azure ML Workbench'i Python ortamınız için Paket bağımlılıklarını elle yüklenmesi gerekir.
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-Bir PySpark komut dosyası ve yüklenmesi gereken Spark paketleri gönderdiğinizde bu dosyayı Spark uygulama adını belirtir. Ayrıca, bu Maven depoları bulunabilir Spark paketlerinin yanı sıra genel bir Maven depo da belirtebilirsiniz.
+Bir PySpark betiği ve yüklenmesi gereken Spark paketleri gönderdiğinizde bu dosya, Spark uygulaması adını belirtir. Ayrıca, bir ortak Maven deposu ve bunun yanı sıra bu Maven depolarında bulunabilir Spark paketlerini de belirtebilirsiniz.
 
 Örnek aşağıda verilmiştir:
 
@@ -105,13 +105,13 @@ packages:
 ```
 
 >[!NOTE]
->Çalışan boyutu ve çekirdek gibi parametreleri ayarlama küme spark_dependecies.yml dosyasındaki "yapılandırma" bölümünde gitmesi 
+>Çalışan boyutu ve çekirdek gibi parametreleri ayarlama küme spark_dependecies.yml dosyasındaki "yapılandırma" bölümüne gidin 
 
 >[!NOTE]
->Python ortamında, komut dosyası yürütme, *spark_dependencies.yml* dosya göz ardı edilir. Yalnızca Spark (ya da Docker veya Hdınsight kümesinde) karşı çalıştırıyorsanız kullanılır.
+>Python ortamında, komut dosyası yürütme, *spark_dependencies.yml* dosya göz ardı edilir. Yalnızca Spark (Docker veya HDInsight kümesindeki ya) karşı çalıştırıyorsanız kullanılır.
 
-## <a name="run-configuration"></a>Çalışma yapılandırması
-Belirli bir çalıştırma yapılandırmasını belirtmek için bir .compute dosyası ve bir .runconfig dosyası gerekir. Bunlar genellikle CLI komutu kullanılarak oluşturulur. Ayrıca olanları çıkma kopyalama, onları yeniden adlandırın ve bunları düzenleyin.
+## <a name="run-configuration"></a>Çalıştırma yapılandırma
+Belirli bir çalıştırma yapılandırma belirtmek için .compute dosyası ve .runconfig dosyası gerekir. Bunlar genellikle bir CLI komutu kullanarak oluşturulur. Ayrıca, olanları çıkmadan kopyalama, yeniden adlandırmak ve düzenleyebilir.
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
@@ -121,43 +121,43 @@ $ az ml computetarget attach remotedocker -n <compute target name> -a <IP addres
 $ az ml computetarget attach cluster -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> 
 ```
 
-Bu komut, belirtilen işlem hedefi göre dosyalar çifti oluşturur. İşlem hedef adlı düşünelim _foo_. Bu komut oluşturur _foo.compute_ ve _foo.runconfig_ içinde **aml_config** klasör.
+Bu komut dosyalarının belirtilen işlem hedef bir çift oluşturur. İşlem hedef adlı varsayalım _foo_. Bu komut oluşturur _foo.compute_ ve _foo.runconfig_ içinde **aml_config** klasör.
 
 >[!NOTE]
-> _yerel_ veya _docker_ çalıştırma yapılandırma dosyalarını rasgele için adları. Azure ML çalışma ekranı size kolaylık olması için boş bir proje oluşturduğunuzda, bu iki yapılandırmaları çalıştırma ekler. Yeniden adlandırabilirsiniz "<run configuration name>.runconfig" proje şablonu ile gelir veya yenilerini istediğiniz herhangi bir ad ile oluşturduğunuz dosyaları.
+> _yerel_ veya _docker_ çalıştırma yapılandırma dosyalarının rastgele için adları. Azure ML Workbench, size kolaylık olması için boş bir proje oluşturduğunuzda, bu iki yapılandırmaları Çalıştır ekler. Yeniden adlandırabilir miyim "<run configuration name>.runconfig" dosyaları ile proje şablonu yayımlamayın veya istediğiniz adla yeni bir tane oluşturun.
 
 ### <a name="compute-target-namecompute"></a>\<Hedef adı işlem > .compute
-_\<Hedef adı işlem > .compute_ dosyasını işlem hedef bağlantı ve yapılandırma bilgilerini belirtir. Ad-değer çifti listesidir. Desteklenen ayarlar aşağıda verilmiştir:
+_\<Hedef adı işlem > .compute_ bağlantı ve yapılandırma bilgileri için işlem hedef dosyayı belirtir. Ad-değer çifti listesidir. Desteklenen ayarlar şunlardır:
 
-**tür**: işlem ortam türü. Desteklenen değerler şunlardır:
+**tür**: işlem ortamını türü. Desteklenen değerler şunlardır:
   - yerel
   - Uzak
   - Docker
   - remotedocker
   - küme
 
-**baseDockerImage**: Python/PySpark komut dosyasını çalıştırmak için kullanılan Docker görüntüsü. Varsayılan değer _microsoft/mmlspark:plus-0.7.91_. Ayrıca başka bir görüntü destekliyoruz: _microsoft/mmlspark:plus-gpu-0.7.91_, hangi size GPU erişim için ana bilgisayar makinesi (GPU mevcut değilse).
+**baseDockerImage**: Python/PySpark betiğini çalıştırmak için kullanılan bir Docker görüntüsü. Varsayılan değer _microsoft/mmlspark:plus-0.7.91_. Ayrıca başka bir görüntü destekliyoruz: _microsoft/mmlspark:plus-gpu-0.7.91_, size sağlayan GPU erişimi ana bilgisayarın (GPU mevcutsa).
 
-**Adres**: IP adresi veya FQDN (tam etki alanı adı) sanal makinenin veya Hdınsight küme baş düğümü.
+**adresi**: IP adresi veya FQDN (tam etki alanı adı) sanal makinesi veya HDInsight küme baş düğüm.
 
-**Kullanıcı adı**: sanal makine ya da Hdınsight baş düğüm erişmek için SSH kullanıcı adı.
+**Kullanıcı adı**: sanal makine ya da HDInsight baş düğüm erişmek için SSH kullanıcı adı.
 
-**Parola**: SSH bağlantısı için şifrelenmiş parola.
+**Parola**: SSH bağlantısını için şifreli parola.
 
-**sharedVolumes**: Bu yürütme altyapısı, Docker kullanması gereken sinyal bayrağı paylaşılan proje dosyalarını geri ve İleri sevk etmek için Toplu özellik. Docker projeleri kopyalamak zorunda kalmadan doğrudan erişmek için bu yana açık olduğunda bu bayrak sahip yürütmesini kurma hızlandırabilir. Ayarlamak en iyisidir _false_ Docker Windows anormal için birimi paylaşan itibaren Docker altyapısına Windows üzerinde çalışıp çalışmadığını. Ayarlamak _true_ macOS ya da Linux üzerinde çalışıyorsa.
+**sharedVolumes**: Bu yürütme altyapısı, Docker kullanması gereken sinyal bayrağı paylaşılan proje dosyaları sürekli teslim için Toplu özellik. Bu bayrağı açık olan Docker erişip bunları kopyalamak zorunda kalmadan doğrudan projeleri olduğundan yürütme hızlandırabilirsiniz. Ayarlamak en iyi _false_ Windows üzerindeki Docker güvenilir olmayan için birimi paylaşan beri Docker altyapısı Windows üzerinde çalışıp çalışmadığını. Ayarlayın _true_ macOS veya Linux üzerinde çalışıyorsa.
 
-**nvidiaDocker**: ayarlandığında bu bayrak, _true_, kullanılacak Azure ML deneme hizmeti söyler _NVIDIA docker_ komutu normal aksine _docker_Docker görüntü başlatmak için komutu. _NVIDIA docker_ altyapısı erişim GPU donanım için Docker kapsayıcısı sağlar. GPU yürütme Docker kapsayıcısı içinde çalıştırmak istiyorsanız gerekli bir ayardır. Yalnızca Linux ana destekleyen _NVIDIA docker_. Örneğin, Linux tabanlı DSVM Azure ile birlikte _NVIDIA docker_. _NVIDIA docker_ şimdi itibariyle Windows üzerinde desteklenmiyor.
+**nvidiaDocker**: Bu bayrak ayarlandığında, _true_, kullanılacak Azure ML deneme hizmeti söyler _NVIDIA docker_ komutu normal aksine _docker_Docker görüntüsünü başlatmak için komutu. _NVIDIA docker_ GPU donanım erişimi için Docker kapsayıcı sağlar. GPU yürütme Docker kapsayıcısında çalıştırmak istiyorsanız gerekli bir ayardır. Yalnızca Linux ana destekler _NVIDIA docker_. Örneğin, azure'da Linux tabanlı DSVM ile birlikte gelen _NVIDIA docker_. _NVIDIA docker_ şu andan itibaren Windows üzerinde desteklenmiyor.
 
-**nativeSharedDirectory**: Bu özellik, temel dizin belirtir (örneğin: _~/.azureml/share/_) dosyaları arasında paylaşılması için kaydedilebileceği aynı işlem hedef çalıştırır. Bu ayar bir Docker kapsayıcısı üzerinde çalışırken kullandıysanız _sharedVolumes_ ayarlanmalıdır true. Aksi takdirde yürütme başarısız olur.
+**nativeSharedDirectory**: Bu özellik, temel dizin belirtir (örneğin: _~/.azureml/share/_) dosyaları arasında paylaşılması için kaydedilebileceği aynı işlem hedefi üzerinde çalışır. Bu ayar, bir Docker kapsayıcısı üzerinde çalışırken kullanılıyorsa _sharedVolumes_ ayarlanmalıdır true. Aksi takdirde, yürütme başarısız olur.
 
-**userManagedEnvironment**: Bu özellik bu işlem hedef kullanıcı tarafından doğrudan yönetilen veya deneme hizmeti aracılığıyla yönetilen olup olmadığını belirtir.  
+**userManagedEnvironment**: Bu özellik bu işlem hedef doğrudan kullanıcı tarafından yönetilen veya deneme hizmeti yönetilen olup olmadığını belirtir.  
 
-**pythonLocation**: Bu özellik işlem hedef kullanıcının programı çalıştırmak için kullanılmak üzere python çalışma zamanı konumunu belirtir. 
+**pythonLocation**: Bu özellik işlem hedef kullanıcının programı çalıştırmak için kullanılacak python çalışma zamanını konumunu belirtir. 
 
-### <a name="run-configuration-namerunconfig"></a>\<Yapılandırma adı Çalıştır > .runconfig
-_\<Yapılandırma adı Çalıştır > .runconfig_ Azure ML denemeler yürütme davranışını belirtir. Ne yanı sıra diğer birçok kullanmak için hedef işlem veya izleme çalıştırma geçmişi gibi yürütme davranışını yapılandırabilirsiniz. Çalışma yapılandırması dosyaların adlarını Azure ML çalışma ekranı masaüstü uygulaması yürütme bağlamı açılır doldurmak için kullanılır.
+### <a name="run-configuration-namerunconfig"></a>\<Yapılandırma adı çalıştırın > .runconfig
+_\<Yapılandırma adı çalıştırın > .runconfig_ Azure ML deneme yürütme davranışını belirtir. Çalıştırma geçmişini izleme gibi yürütme davranışını yapılandırabilir veya ne yanı sıra diğer birçok kullanmak için hedef işlem. Çalıştırma yapılandırma dosyalarının adlarını Azure ML Workbench masaüstü uygulamasında yürütme bağlamı açılan listeyi doldurmak için kullanılır.
 
-**ArgumentVector**: Bu bölümde bu yürütme ve komut dosyası için parametreleri parçası olarak çalıştırmak için komut dosyasını belirtir. Örneğin, aşağıdaki kod parçacığında varsa, "<run configuration name>.runconfig" dosyası 
+**ArgumentVector**: Bu bölümde bu yürütme ve betik parametreleri için bir parçası olarak çalıştırılacak betiği belirtir. Örneğin, aşağıdaki kod parçacığı varsa, "<run configuration name>.runconfig" dosyası 
 
 ```
  "ArgumentVector":[
@@ -166,37 +166,37 @@ _\<Yapılandırma adı Çalıştır > .runconfig_ Azure ML denemeler yürütme d
   - "-v" 
  ] 
 ```
-_"az ml deneme gönderme foo.runconfig"_ komutuyla otomatik olarak çalışır _myscript.py_ 234 bir parametre ve kümeleri geçirme dosya ayrıntılı bayrağı.
+_"az ml denemeyi gönderme foo.runconfig"_ komutuyla otomatik olarak çalıştırır _myscript.py_ 234 bir parametre ve kümeleri geçirerek dosya verbose bayrağı.
 
-**Hedef**: Bu parametre adıdır _.compute_ dosya _runconfig_ dosya başvuruları. Genellikle işaret _foo.compute_ dosyası, ancak düzenleyebilir, farklı işlem hedefe işaret edecek şekilde.
+**Hedef**: Bu parametrenin adıdır _.compute_ dosya _runconfig_ dosya başvuruları. Genel olarak işaret _foo.compute_ dosya ancak düzenleyebilir, farklı işlem hedefe işaret edecek şekilde.
 
-**Ortam değişkenleri**: Bu bölümde, ortam değişkenleri, çalışmalarına bir parçası olarak ayarlamak kullanıcıların sağlar. Kullanıcı şu biçimde ad-değer çiftleri kullanarak ortam değişkenleri belirtebilirsiniz:
+**Ortam değişkenlerini**: Bu bölümde, çalışmalarına bir parçası olarak ortam değişkenlerini ayarlamak kullanıcıların sağlar. Kullanıcı ortam değişkenlerini şu biçimde ad-değer çiftleri kullanarak belirtebilirsiniz:
 ```
 EnvironmentVariables:
   "EXAMPLE_ENV_VAR1": "Example Value1"
   "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-Bu ortam değişkenleri kullanıcının kodda erişilebilir. Örneğin, "EXAMPLE_ENV_VAR" adlı ortam değişkeni bu Python kodu yazdırır
+Bu ortam değişkenleri, kullanıcı kodunda erişilebilir. Örneğin, bu Python kodu "EXAMPLE_ENV_VAR" adlı ortam değişkeni yazdırır
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```
 
-**Framework**: Bu özellik, Azure ML çalışma ekranı komut dosyasını çalıştırmak için bir Spark oturum başlatma belirtir. Varsayılan değer _PySpark_. Ayarlamak _Python_ iş yükü daha azdır ile daha hızlı başlatma yardımcı olabilecek PySpark kod çalıştırmıyorsanız.
+**Framework**: Bu özellik, Azure ML Workbench betiği çalıştırmak için bir Spark oturumu açması gereken belirtir. Varsayılan değer _PySpark_. Ayarlayın _Python_ işi daha az ek yük ile daha hızlı başlatma yardımcı olabilecek PySpark kodu çalıştırıyorsanız değil.
 
-**CondaDependenciesFile**: Bu özellik conda ortamı bağımlılıkları belirtir dosyasını işaret *aml_config* klasör. Varsa kümesine _null_, varsayılan işaret **conda_dependencies.yml** dosya.
+**CondaDependenciesFile**: Bu özellik conda ortam bağımlılıkları belirtir bir dosyaya işaret *aml_config* klasör. Varsa kümesine _null_, varsayılan işaret **conda_dependencies.yml** dosya.
 
-**SparkDependenciesFile**: Bu özellik Spark bağımlılıkları belirtir dosyasını işaret **aml_config** klasör. Ayarlanır _null_ varsayılan ve bu işaret varsayılan **spark_dependencies.yml** dosya.
+**SparkDependenciesFile**: Bu özellik Spark bağımlılıkları belirtir bir dosyaya işaret **aml_config** klasör. Ayarlanmış _null_ varsayılan ve onu işaret varsayılan **spark_dependencies.yml** dosya.
 
-**PrepareEnvironment**: ayarlandığında bu özellik, _doğru_, ilk çalıştırma bir parçası olarak belirtilen conda bağımlılıkları göre conda ortamını hazırlamak için deneme hizmet söyler. Bu özellik, yalnızca bir Docker ortamında yürüttüğünüzde etkilidir. Karşı çalıştırıyorsanız, bu ayar etkisizdir bir _yerel_ ortamı. 
+**PrepareEnvironment**: ayarlandığında, bu özellik _true_, ilk çalıştırma bir parçası olarak belirtilen conda bağımlılıklarını göre conda ortamı hazırlama deneme hizmeti söyler. Bu özellik etkin ise yalnızca, bir Docker ortamında yürütme. Karşı çalıştırıyorsanız, bu ayarın hiçbir etkisi bir _yerel_ ortam. 
 
-**TrackedRun**: Bu bayrağı deneme hizmeti Azure ML geçmişi altyapısında çalışma ekranı Çalıştır izlemek gerekip gerekmediğini işaret eder. Varsayılan değer _doğru_. 
+**TrackedRun**: Bu bayrağı deneme hizmeti Azure ML Workbench çalıştırma geçmişi altyapı çalıştırmasında izlemek gerekip gerekmediğini gösterir. Varsayılan değer _true_. 
 
-**UseSampling**: _UseSampling_ veri kaynakları için etkin örnek veri kümesi çalıştırmak için kullanılıp kullanılmayacağını belirtir. Varsa kümesine _yanlış_, veri kaynaklarını alma ve veri deposundan okuma tam veri kullanın. Varsa kümesine _doğru_, etkin örnekleri kullanılır. Kullanıcılar **DataSourceSettings** etkin örnek devre dışı bırakmak isterseniz kullanmak için hangi belirli örnek veri kümesi belirtmek için. 
+**UseSampling**: _UseSampling_ veri kaynakları için etkin örnek veri kümelerini çalıştırmak için kullanılıp kullanılmayacağını belirtir. Varsa kümesine _false_, veri kaynakları alma ve veri deposundan okuma tam verileri kullanabilirsiniz. Varsa kümesine _true_, etkin örnekleri kullanılır. Kullanıcılar **DataSourceSettings** etkin örnek geçersiz kılmak isterseniz kullanmak için hangi belirli örnek veri kümesi belirtmek için. 
 
-**DataSourceSettings**: Bu yapılandırma bölümü veri kaynağı ayarlarını belirtir. Bu bölümde, kullanıcı belirli bir veri kaynağı için mevcut hangi veri örneği Çalıştır bir parçası olarak kullanıldığını belirtir. 
+**DataSourceSettings**: Bu yapılandırma bölümü, veri kaynağı ayarlarını belirtir. Bu bölümde, kullanıcı, belirli bir veri kaynağı için mevcut hangi veri örneği çalıştırma bir parçası olarak kullanıldığını belirtir. 
 
-Şu yapılandırma ayarı "MySample" adlı bu örnek "gelen veriKaynağım ' a" adlı veri kaynağı için kullanıldığını belirtir
+Şu yapılandırma ayarı "MySample" adlı bu örnek "gelen veriKaynağım ' a" adlı bir veri kaynağı için kullanıldığını belirtir
 ```
 DataSourceSettings:
     MyDataSource.dsource:
@@ -204,18 +204,18 @@ DataSourceSettings:
     Sample: MySample
 ```
 
-**DataSourceSubstitutions**: kullanıcı bir veri kaynağından kendi kodunu değiştirmeden diğerine geçmek istediğinde, veri kaynağı değişimler kullanılabilir. Örneğin, kullanıcıların Azure Blob veri kaynağı başvurusu değiştirerek depolanan özgün, büyük veri kümesi için bir örneklenen aşağı, yerel dosyadan geçiş yapabilirsiniz. Bir değiştirme kullanıldığında, Azure ML çalışma ekranı veri kaynakları ve veri hazırlık paketleri, alternatif veri kaynağı başvurarak çalışır.
+**DataSourceSubstitutions**: kullanıcı bir veri kaynağından diğerine kendi kodunda değişiklik yapmadan geçin istediğinde, veri kaynağı değişimler kullanılabilir. Örneğin, kullanıcılar örneklenen aşağı, yerel bir dosyadan veri kaynağı başvurusu değiştirerek Azure Blobu'nda depolanan özgün, büyük veri kümesine geçiş yapabilirsiniz. Bir değiştirme'kullanıldığında, Azure ML Workbench veri kaynakları ve veri hazırlık paketlerini, alternatif veri kaynağı başvurarak çalıştırır.
 
-Aşağıdaki örnek Azure ML veri kaynakları ve veri hazırlık paketleri "mylocal.datasource" başvurularında "myremote.dsource" ile değiştirir. 
+Aşağıdaki örnekte Azure ML veri kaynakları ve veri hazırlık paketlerini "mylocal.datasource" başvuru "myremote.dsource" ile değiştirir. 
  
 ```
 DataSourceSubstitutions:
     mylocal.dsource: myremote.dsource
 ```
 
-Yukarıdaki değiştirme bağlı olarak, aşağıdaki kod örneği şimdi "myremote.dsource" "mylocal.dsource" yerine kendi kodunu değiştirme kullanıcılar okur.
+Yukarıdaki değiştirme bağlı olarak, aşağıdaki kod örneği artık "myremote.dsource" "mylocal.dsource yerine" kullanıcılar kendi kodunda değişiklik okur.
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinmek [Deneme hizmet yapılandırmasını](experimentation-service-configuration.md).
+Daha fazla bilgi edinin [deneme hizmeti yapılandırması](experimentation-service-configuration.md).

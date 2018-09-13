@@ -3,14 +3,14 @@ title: VMware-Azure Site recovery'de Azure'a çoğaltma mimarisi | Microsoft Doc
 description: Bu makalede şirket içi VMware Vm'leri, Azure Site Recovery ile azure'a çoğaltırken kullanılan bileşenlere ve genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 08/29/2018
+ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 4a97c44226d875a08f81a6306fc9ddd4ee29c409
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 498c41324bfc85f6f91acc8000df4c34856cf428
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288150"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715763"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Vmware'den Azure'a çoğaltma mimarisi
 
@@ -36,16 +36,23 @@ Aşağıdaki tablo ve grafik azure'a VMware çoğaltması için kullanılan bile
 
 ## <a name="replication-process"></a>Çoğaltma işlemi
 
-1. Bir sanal makine için çoğaltmayı etkinleştirdiğinizde, bu çoğaltma ilkesine uygun olarak çoğaltmaya başlar. 
+1. Bir sanal makine için çoğaltmayı etkinleştirdiğinizde, belirtilen çoğaltma ilkesini kullanarak Azure depolama için ilk çoğaltma başlar. Şunlara dikkat edin:
+    - VMware Vm'leri için çoğaltma blok düzeyinde, yakın sürekli, sanal makinede çalışan Mobility Hizmeti Aracısı kullanılarak yapılır.
+    - Herhangi bir çoğaltma ilkesi ayarı uygulanır:
+        - **RPO eşiği**. Bu ayar, çoğaltma etkilemez. İzleme ile yardımcı olur. Bir olay tetiklenir ve geçerli RPO, belirttiğiniz eşik sınırını aşarsa, isteğe bağlı olarak bir e-posta, gönderdi.
+        - **Kurtarma noktası bekletme**. Bu ayar, bir kesinti oluştuğunda gitmek için istediğiniz zaman içinde ne kadar geriye belirtir. Premium depolama maksimum bekletme 24 saattir. Standart depolama alanında, değer 72 saattir. 
+        - **Uygulamayla tutarlı anlık görüntüleri**. Uygulamayla tutarlı anlık görüntü olması gerçekleştirebileceğiniz her 1 uygulama gereksinimlerinize bağlı olarak 12 saat. Anlık görüntü, standart Azure blob anlık görüntüleridir. Bir VM'de çalışan Mobility Aracısı, bu ayar ve -belirli bir noktaya tutarlı bir uygulama olarak çoğaltma akışında noktası yer işaretleri uygun olarak bir VSS anlık görüntüsünün ister.
+
 2. Trafik, internet üzerinden genel uç noktaları Azure depolama alanına çoğaltır. Alternatif olarak, Azure ExpressRoute ile kullanabileceğiniz [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). Trafiği bir siteden siteye sanal özel ağ (VPN) bir şirket içi siteden Azure'a çoğaltılması desteklenmez.
-3. VM verilerin ilk bir kopyası Azure depolamaya çoğaltılır.
-4. Delta değişikliklerinin azure'a çoğaltılması ilk çoğaltma sonlandırıldıktan sonra başlar. Bir makine için izlenen değişiklikler bir .hrl dosyasında saklanır.
-5. İletişim şu şekilde olur:
+3. Delta değişikliklerinin azure'a çoğaltılması ilk çoğaltma sonlandırıldıktan sonra başlar. Bir makine için izlenen değişiklikler işlem sunucusuna gönderilir.
+4. İletişim şu şekilde olur:
 
     - Vm'leri şirket içi yapılandırma Sunucusu'ndaki HTTPS 443 numaralı bağlantı noktasında gelen çoğaltma yönetimi için iletişim.
     - Yapılandırma sunucusu Azure çoğaltması HTTPS 443 giden bağlantı noktası üzerinden düzenler.
     - Vm'leri, gelen çoğaltma verilerini HTTPS 9443 numaralı bağlantı noktasında (yapılandırma sunucusu makinesinde çalışan) işlem sunucusuna gönderir. Bu bağlantı noktası değiştirilebilir.
     - İşlem sunucusu çoğaltma verilerini alıp, en iyi duruma getirir ve şifreler ve Azure depolamaya bağlantı noktası 443 üzerinden giden gönderir.
+
+
 
 
 **Vmware'den Azure'a çoğaltma işlemi**
@@ -65,7 +72,7 @@ Gerektiği şekilde çoğaltma ayarlandıktan sonra her şeyin beklendiği gibi 
     * **Azure'da geçici işlem sunucusu**: Azure'dan yeniden çalışma için bir Azure VM'yi azure'dan çoğaltmayı düzenlemek için bir işlem sunucusu olarak davranacak şekilde ayarlarsınız. Yeniden çalışma sona erdikten sonra bu VM'yi silebilirsiniz.
     * **VPN bağlantısı**: yeniden çalışma için bir VPN bağlantısı (veya ExpressRoute) Azure ağından şirket içi siteye gerekir.
     * **Ayrı bir ana hedef sunucusu**: varsayılan olarak, şirket içi VMware VM üzerindeki yapılandırma sunucusu ile yüklenen ana hedef sunucusu yeniden çalışma işler. Geri büyük hacimli trafikte başarısız gerekiyorsa, bu amaç için ayrı şirket içi ana hedef sunucusu ayarlamanız ayarlayın.
-    * **Yeniden çalışma ilkesi**: Şirket içi sitenize geri çoğaltmak için bir yeniden çalışma ilkeniz olmalıdır. Şirket içinden Azure'a çoğaltma ilkenizi oluşturduğunuzda bu ilke otomatik olarak oluşturulur.
+    * **Yeniden çalışma ilkesi**: Şirket içi sitenize geri çoğaltmak için bir yeniden çalışma ilkeniz olmalıdır. Şirket içinden Azure'a çoğaltma ilkesi oluşturduğunuzda bu ilke otomatik olarak oluşturulur.
 4. Bileşenleri hazır olduktan sonra yeniden çalışma üç eylemler gerçekleşir:
 
     - 1. Aşama: Azure Vm'lerini yeniden koruma, böylece bunlar Azure'dan çoğaltmak şirket içi VMware Vm'lerini geri dönün.

@@ -1,6 +1,6 @@
 ---
-title: Azure Kubernetes küme - Sysdig izleme
-description: Kubernetes Sysdig kullanarak Azure kapsayıcı hizmeti kümesinde izleme
+title: Azure Kubernetes kümesi - Sysdig ile izleme
+description: Sysdig kullanarak Azure Container Service Kubernetes kümesini izleme
 services: container-service
 author: bburns
 manager: jeconnoc
@@ -9,18 +9,19 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 275e71ce054b83c16b9f9cbfe621c6a7e31f79c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bbf59a35f420b5bbf292fbdaa5a8bbc173e4ee24
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651070"
 ---
-# <a name="monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>Sysdig kullanarak Azure kapsayıcı hizmeti Kubernetes küme izleme
+# <a name="monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>Sysdig kullanarak bir Azure Container Service Kubernetes kümesini izleme
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu kılavuz, sahibi olduğunuzu varsayar [Azure kapsayıcı hizmeti kullanarak Kubernetes küme oluşturulan](container-service-kubernetes-walkthrough.md).
+Bu izlenecek yol, sahibi olduğunuzu varsayar [Azure Container Service kullanan bir Kubernetes kümesi oluşturuldu](container-service-kubernetes-walkthrough.md).
 
 Ayrıca, azure CLI ve kubectl araçlarının yüklü olduğunu varsayar.
 
@@ -30,7 +31,7 @@ Varsa, test edebilirsiniz `az` çalıştırarak yüklü aracı:
 $ az --version
 ```
 
-Sahip değilseniz `az` yüklü, aracı yönergeler vardır [burada](https://github.com/azure/azure-cli#installation).
+Öğeniz yoksa `az` yüklü aracı yönergeler sunulmaktadır [burada](https://github.com/azure/azure-cli#installation).
 
 Varsa, test edebilirsiniz `kubectl` çalıştırarak yüklü aracı:
 
@@ -38,40 +39,40 @@ Varsa, test edebilirsiniz `kubectl` çalıştırarak yüklü aracı:
 $ kubectl version
 ```
 
-Sahip değilseniz `kubectl` yüklü çalıştırabilirsiniz:
+Öğeniz yoksa `kubectl` yüklü çalıştırabilirsiniz:
 
 ```console
 $ az acs kubernetes install-cli
 ```
 
 ## <a name="sysdig"></a>Sysdig
-Bir dış Azure'da çalışan Kubernetes kümenizi kapsayıcılarında izleyebilirsiniz bir hizmet şirket olarak izleme Sysdig olur. Sysdig kullanarak etkin bir Sysdig hesabı gerektirir.
+Sysdig, bir dış hizmet şirket, bir Kubernetes kümenize Azure'da çalışan kapsayıcılar izleyebilirsiniz İzleme ' dir. Sysdig kullanarak etkin bir Sysdig hesabınızın gerektirir.
 İçin bir hesap üzerinde kaydolabilirsiniz kendi [site](https://app.sysdigcloud.com).
 
 Sysdig bulut web sitesinde oturum açtıktan sonra kullanıcı adınıza tıklayın, sayfada “Erişim Anahtarınızı” göreceksiniz. 
 
 ![Sysdig API anahtarı](./media/container-service-kubernetes-sysdig/sysdig2.png)
 
-## <a name="installing-the-sysdig-agents-to-kubernetes"></a>Kubernetes için Sysdig aracılarını yükleme
-Sysdig kapsayıcılarınızı izlemek için bir Kubernetes kullanarak her makine üzerinde bir işlemi çalıştırılan `DaemonSet`.
-DaemonSets bir kapsayıcı makine başına tek bir örneğini çalıştıran Kubernetes API nesneleridir.
-Bunlar Sysdig'ın İzleme Aracısı gibi araçları yüklemek için mükemmel.
+## <a name="installing-the-sysdig-agents-to-kubernetes"></a>Kubernetes için Sysdig aracıları yükleme
+Sysdig kapsayıcılarınızı izleyecek şekilde bir Kubernetes kullanarak her bir makinede bir işlem çalıştırır `DaemonSet`.
+DaemonSets kapsayıcı makine başına tek bir örneğini çalıştıran Kubernetes API nesneleridir.
+Bunlar Sysdig'ın İzleme Aracısı gibi araçları yüklemek için mükemmeldir.
 
-Sysdig daemonset yüklemek için önce yüklemelisiniz [şablon](https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/kubernetes/sysdig-daemonset.yaml) sysdig gelen. Bu dosya olarak kaydetmek `sysdig-daemonset.yaml`.
+Sysdig daemonset yüklemek için indirmeniz [şablon](https://github.com/draios/sysdig-cloud-scripts/tree/master/agent_deploy/kubernetes) sysdig öğesinden. Bu dosyayı farklı Kaydet `sysdig-daemonset.yaml`.
 
-Linux ve OS X çalıştırabilirsiniz:
+Linux ve OS X üzerinde çalıştırabilirsiniz:
 
 ```console
 $ curl -O https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/kubernetes/sysdig-daemonset.yaml
 ```
 
-PowerShell içinde:
+PowerShell'de:
 
 ```console
 $ Invoke-WebRequest -Uri https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/kubernetes/sysdig-daemonset.yaml | Select-Object -ExpandProperty Content > sysdig-daemonset.yaml
 ```
 
-Sonraki erişim Sysdig hesabınızdan aldığınız anahtarınız, eklemek için bu dosyayı düzenleyin.
+Sonra Sysdig hesabınızdan aldığınız erişim anahtarına, eklemek için bu dosyayı düzenleyin.
 
 Son olarak, DaemonSet oluşturun:
 
@@ -79,7 +80,7 @@ Son olarak, DaemonSet oluşturun:
 $ kubectl create -f sysdig-daemonset.yaml
 ```
 
-## <a name="view-your-monitoring"></a>İzlemenizi görüntüleyin
-Yüklü ve çalışan sonra aracılar verileri Sysdig pompa.  Geri dönerek [sysdig Pano](https://app.sysdigcloud.com) ve kapsayıcıları hakkında bilgiler görmeniz gerekir.
+## <a name="view-your-monitoring"></a>İzleme işleminiz görüntüleyin
+Yüklü ve çalışır sonra aracılar verileri Sysdig pompa.  Geri Git [sysdig Pano](https://app.sysdigcloud.com) ve kapsayıcılarınızı hakkında bilgiler görmeniz gerekir.
 
-Kubernetes özel panolar aracılığıyla da yükleyebilirsiniz [yeni pano Sihirbazı'nı](https://app.sysdigcloud.com/#/dashboards/new).
+Ayrıca Kubernetes özel panoları da yükleyebilirsiniz [yeni pano sihirbazıyla](https://app.sysdigcloud.com/#/dashboards/new).

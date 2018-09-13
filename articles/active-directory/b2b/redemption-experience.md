@@ -1,62 +1,62 @@
 ---
-title: B2B işbirliği - Azure Active Directory içinde davet kullanım | Microsoft Docs
-description: Gizlilik koşullarını anlaşmasına dahil olmak üzere son kullanıcılar için Azure AD B2B işbirliği davet kullanım deneyimi açıklanır.
+title: B2B işbirliği - Azure Active Directory içinde Davetiyesi kullanımı | Microsoft Docs
+description: Gizlilik koşulları sözleşmesini dahil olmak üzere, son kullanıcılar için Azure AD B2B işbirliği davet kullanım deneyimi açıklanmıştır.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0a0c900bbfbb2778d8fabcbb71e339fd3dabcf47
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 0dbf4a15817ae55f573640196020263428d4c817
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260257"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651057"
 ---
-# <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B işbirliği davet kullanım
+# <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B işbirliği Davetiyesi kullanımı
 
-Azure Active Directory (Azure AD) B2B işbirliği ile iş ortağı kuruluşlardan kullanıcılarla işbirliği yapmak için paylaşılan uygulamalara erişmek için konuk kullanıcıları davet edebilirsiniz. Kullanıcı arabirimi aracılığıyla dizinine Konuk kullanıcı eklenir veya PowerShell aracılığıyla kullanıcı davet sonra konuk kullanıcılar nerede kullanıcının kabul etmesi için ilk kez onay işlemiyle gitmeniz gerekir [gizlilik koşullarını](#privacy-policy-agreement). Bu işlem aşağıdaki yollardan biriyle gerçekleşir:
+Azure Active Directory (Azure AD) B2B işbirliği aracılığıyla iş ortağı kuruluşlardan kullanıcılarla işbirliği yapmak için paylaşılan uygulamalara erişmek için konuk kullanıcılar davet edebilirsiniz. Konuk kullanıcı, kullanıcı arabirimi aracılığıyla dizinine eklenir veya PowerShell aracılığıyla kullanıcı davet sonra konuk kullanıcılar burada kullanıcının kabul etmesi için ilk kez onay sürecinde gitmelidir [gizlilik koşulları](#privacy-policy-agreement). Bu işlem aşağıdaki yollardan biriyle olur:
 
-- Konuk davet eden paylaşılan bir uygulamaya doğrudan bağlantı gönderir. Davet edilene oturum açmak için bağlantıya tıklar, gizlilik koşullarını kabul eder ve sorunsuz bir şekilde paylaşılan kaynağa erişir. (Konuk kullanıcıya bir davet e-posta kullanım URL ile hala alır, ancak bazı özel durumlar dışında artık davet e-posta kullanmak için gerekli olan.)  
-- Konuk kullanıcıya bir davet e-posta alır ve kullanım URL tıklar. Kapsamında ilk kez oturum açma, bunlar gizlilik koşullarını kabul etmeniz istenir.
+- Konuk davet eden, paylaşılan bir uygulamanın doğrudan bağlantısını gönderir. Davetli oturum açmak için bağlantıya tıklar, gizlilik koşullarını kabul eder ve sorunsuz bir şekilde paylaşılan kaynağa erişir. (Konuk kullanıcı hala kullanım URL içeren bir davet e-posta alır, ancak bazı özel durumlar dışında artık davet e-postayı kullanmanız zorunludur.)  
+- Konuk kullanıcı davet e-posta alır ve kullanım URL tıklar. İlk kez oturum açma işleminin bir parçası olarak bunlar gizlilik koşullarını kabul etmeniz istenir.
 
-## <a name="redemption-through-a-direct-link"></a>Doğrudan bir bağlantı üzerinden kullanım
+## <a name="redemption-through-a-direct-link"></a>Doğrudan bağlantı üzerinden kullanma
 
-Bir konuk davet eden, paylaşılan bir uygulamaya doğrudan bağlantı göndererek Konuk kullanıcı davet edebilirsiniz. Konuk kullanıcı için kullanım deneyimi bunlarla paylaşıldı uygulama oturum açma kadar kolaydır. Bunlar bir uygulamanın bağlantısını tıklatın, gözden geçirin ve gizlilik koşullarını kabul ve uygulamaya sorunsuz bir şekilde erişmek. Çoğu durumda, Konuk kullanıcılar artık kullanım URL davet e tıklamanız gerekir.
+Konuk davet eden, paylaşılan bir uygulamanın doğrudan bağlantısını göndererek Konuk kullanıcı davet edebilirsiniz. Konuk kullanıcı için kullanım deneyimi kendileriyle paylaşılan uygulamasında kadar kolaydır. Bunlar uygulama bağlantısını tıklayın, gözden geçirin ve gizlilik koşullarını kabul edin ve uygulamaya sorunsuz bir şekilde erişmek. Çoğu durumda, Konuk kullanıcıları davet e-posta iletisinde kullanım URL'yi artık gerekir.
 
-Konuk kullanıcılar kullanıcı arabirimi aracılığıyla davet ya da PowerShell davet deneyimi bir parçası olarak davet e-posta göndermek seçtiğiniz davet edilen kullanıcı hala bir davet e-posta alır. Bu e-posta, aşağıdaki özel durumlar için yararlıdır:
+Kullanıcı arabirimi aracılığıyla Konuk kullanıcılar davet ya da PowerShell davet deneyiminin bir parçası davet e-posta göndermek seçtiğiniz, davet edilen kullanıcı yine de bir davet e-posta alır. Bu e-posta, aşağıdaki özel durumlar için kullanışlıdır:
 
-- Kullanıcı, bir Azure AD hesabı veya bir Microsoft hesabı (MSA) sahip değil. Bu durumda, kullanıcı bir MSA bağlantıya tıklayın ya da kullanım URL davet e-postayla kullanabileceklerini önce oluşturmanız gerekir. Alma işlemi otomatik olarak bir MSA oluşturmak için kullanıcıya sorar.
-- Bazen davet edilen kullanıcı nesnesinin bir e-posta adresi kişi nesnesi (örneğin, bir Outlook ilgili kişi nesnesi) ile bir çakışma olduğundan olmayabilir. Bu durumda, kullanıcı davet e-posta kullanım URL'de tıklatmalısınız.
-- Kullanıcı Davet edilen e-posta adresini diğer ad ile oturum. (Diğer bir e-posta hesabıyla ilişkili bir ek e-posta adresidir.) Bu durumda, kullanıcı davet e-posta kullanım URL'de tıklatmalısınız.
+- Kullanıcı, bir Azure AD hesabı veya Microsoft hesabı (MSA) sahip değil. Bu durumda, kullanıcı bir MSA önce bunların bağlantısını tıklattığınızda veya kullanım URL'sini davet e-postada kullanabilirsiniz oluşturmanız gerekir. Alma işlemi, otomatik olarak bir MSA oluşturmak için kullanıcıya sorar.
+- Bazen davet edilen kullanıcı nesnesi bir kişi nesnesi (örneğin, bir Outlook ilgili nesne) ile çakışması nedeniyle bir e-posta adresi olmayabilir. Bu durumda, kullanıcı davet e-posta kullanım URL'de tıklamanız gerekir.
+- Kullanıcı, davet edilen e-posta adresi diğer ad ile oturum açabilirsiniz. (Diğer bir e-posta hesabıyla ilişkili bir ek e-posta adresidir.) Bu durumda, kullanıcı davet e-posta kullanım URL'de tıklamanız gerekir.
 
-Bu özel durumlar, kuruluşunuz için önemliyse davet e-posta göndermeye devam yöntemleri kullanarak kullanıcıları davet öneririz. Bir kullanıcı bu özel durumlar biri altında kalan değil, ayrıca, bunlar hala erişmek için bir davet e-posta URL'de tıklatabilirsiniz.
+Bu özel durumlar, kuruluşunuz için önemliyse, davet e-posta göndermeye devam yöntemleri kullanarak kullanıcıları davet öneririz. Bir kullanıcı bu özel durumlarından biri altında kalan değil, ayrıca, bunlar yine de erişim elde etmek için bir davet e-posta URL'de tıklayabilirsiniz.
 
-## <a name="redemption-through-the-invitation-email"></a>Davet e-postayla kullanım
+## <a name="redemption-through-the-invitation-email"></a>Davet e-posta ile kullanma
 
-Bir davet e-posta gönderen bir yöntem davet, kullanıcılar ayrıca bir davet davet e-posta yoluyla almak. Davet edilen kullanıcı e-posta, kullanım URL'yi tıklatın ve sonra gözden geçirin ve gizlilik koşullarını kabul edin. İşlem aşağıda ayrıntılı olarak açıklanmıştır:
+Davet e-posta gönderen bir yöntem aracılığıyla davet, kullanıcılar ayrıca bir davet e-posta davetini. Davet edilen kullanıcıları e-posta, kullanım URL'yi tıklayın ve sonra gözden geçirin ve gizlilik koşullarını kabul edin. İşlem, aşağıda daha ayrıntılı olarak açıklanmıştır:
 
-1.  Davet sonra davet edilene davetiye gönderilen e-posta aracılığıyla alan **Microsoft Invitations**.
-2.  Davet edilene seçer **Get Started** e-posta.
-3.  Davet edilene bir Azure AD hesabı veya bir MSA yoksa, bunlar bir MSA oluşturmanız istenir.
-4.  Davet edilene yönlendireceği **gözden izinleri** burada bunlar davet kuruluşunuzun gizlilik bildirimini gözden geçirebilir ve koşulları kabul ekran.
+1.  Davet sonra davetli davetiye gönderildiği e-posta aracılığıyla alan **Microsoft Invitations**.
+2.  Davetli seçer **Başlarken** e-posta.
+3.  Davetli bir Azure AD hesabı veya bir MSA yoksa, bunlar bir MSA oluşturmanız istenir.
+4.  Davetli yönlendireceği **izinleri gözden** ekran, burada, davet eden kuruluşun gizlilik bildirimini gözden geçirebilir ve koşullarını kabul edin.
 
-## <a name="privacy-policy-agreement"></a>Gizlilik İlkesi Sözleşmesi
+## <a name="privacy-policy-agreement"></a>Gizlilik İlkesi sözleşmesini
 
-İlk kez bir iş ortağı kuruluşunda bulunan kaynaklara erişmek herhangi bir Konuk kullanıcı oturum açtıktan sonra gördükleri bir **gözden izinleri** ekran. Burada, davet kuruluşunuzun gizlilik bildirimini gözden geçirebilirsiniz. Bir kullanıcı devam etmek için davet kuruluşunuzun gizlilik ilkelerini uygun kendi bilgilerinin kullanılmasını kabul etmeniz gerekir.
+İlk kez bir iş ortağı kuruluşunda bulunan kaynaklara erişmek herhangi bir Konuk kullanıcı oturum açtıktan sonra göreceği bir **izinleri gözden** ekran. Burada, davet eden kuruluşun gizlilik bildirimini gözden geçirebilirsiniz. Bir kullanıcı kendi bilgilerinin anlaşmalara uygun şekilde devam etmek için davet eden bir kuruluşun gizlilik ilkelerini kabul etmelidir.
 
-![Kullanıcı ayarlarını erişim panelinde gösteren ekran görüntüsü](media/redemption-experience/ConsentScreen.png) 
+![Erişim panelinde kullanıcı ayarları gösteren ekran görüntüsü](media/redemption-experience/ConsentScreen.png) 
 
-Kiracı Yöneticisi olarak size, kuruluşunuzun gizlilik bildirimine nasıl bağlantı hakkında daha fazla bilgi için bkz: [nasıl yapılır: Azure Active Directory'de, kuruluşunuzun gizlilik bilgisi eklemek](https://aka.ms/adprivacystatement).
+Kiracı Yöneticisi olarak, kuruluşunuzun gizlilik bildirimini oluşturmak için nasıl bağlantı hakkında daha fazla bilgi için bkz. [nasıl yapılır: Azure Active Directory'de, kuruluşunuzun gizlilik bilgisi eklemek](https://aka.ms/adprivacystatement).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure AD B2B işbirliği nedir?](what-is-b2b.md)
-- [Azure portalında Azure Active Directory B2B işbirliği kullanıcı ekleme](add-users-administrator.md)
-- [Bilgi çalışanları nasıl Azure Active Directory B2B işbirliği kullanıcılar eklenir?](add-users-information-worker.md)
-- [PowerShell kullanarak Azure Active Directory B2B işbirliği kullanıcı ekleme](customize-invitation-api.md#powershell)
-- [Kuruluş Konuk kullanıcı olarak bırakın](leave-the-organization.md)
+- [Azure portalında Azure Active Directory B2B işbirliği kullanıcıları ekleme](add-users-administrator.md)
+- [Bilgi çalışanları B2B işbirliği kullanıcıları için Azure Active Directory nasıl eklerim?](add-users-information-worker.md)
+- [PowerShell kullanarak Azure Active Directory B2B işbirliği kullanıcıları ekleme](customize-invitation-api.md#powershell)
+- [Konuk kullanıcı olarak kuruluştan Ayrıl](leave-the-organization.md)

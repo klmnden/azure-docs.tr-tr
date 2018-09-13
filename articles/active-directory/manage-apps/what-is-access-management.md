@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: barbkess
-ms.openlocfilehash: d39df136c6c81e380ccbe7fa2c050d906dc4c182
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: cec1b3089403966cbf738b372a4380bdacf264b7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367054"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718307"
 ---
 # <a name="managing-access-to-apps"></a>Uygulamalara erişimi yönetme
 Devam eden erişim yönetimi, kullanım değerlendirme ve raporlama bir uygulama, kuruluşunuzun kimlik sistemine tümleştirildikten sonra bir mücadele haline devam edin. Çoğu durumda, BT yöneticileri veya Yardım Masası sahip devam eden etkin bir rol, uygulamalara erişimi yönetme gerçekleştirilecek. Bazı durumlarda, atama, genel veya bölümsel BT ekibi tarafından gerçekleştirilir. Atama karar BT kolaylaştırır önce onay gerektiren iş karar mercii Devredilmiş olması sık yöneliktir atama.  Tümleştirme mevcut otomatik kimlik ve erişim yönetimi sistemi kullanarak, rol tabanlı erişim denetimi (RBAC) veya öznitelik tabanlı erişim denetimi (ABAC) gibi diğer kuruluşlar yaparlar. Tümleştirme ve kural geliştirme özelleştirilmiş ve pahalı olma eğilimindedir. İzleme veya her iki Yönetim yaklaşımını üzerinde raporlama kendi ayrı, yüksek maliyetli ve karmaşık bir yatırımdır.
@@ -54,7 +54,5 @@ Bu durumda, kendi rol ataması Salesforce'ta güncelleştirilecek farklı grupla
 Yöneticiler görevlendirmek [Azure AD koşullu erişim](../active-directory-conditional-access-azure-portal.md) belirli rolleri için erişim ilkeleri ayarlamak için. Bu ilkeler çeşitli durumlarda erişim elde etmek için bile çok faktörlü kimlik doğrulaması veya cihaz gereksinimleri ve kurumsal bir ortamı dışında erişimine izin olup olmadığını içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-* [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../active-directory-apps-index.md)
 * [Koşullu erişim ile uygulamaları koruma](../active-directory-conditional-access-azure-portal.md)
 * [Self Servis Grup Yönetimi/SSAA](../users-groups-roles/groups-self-service-management.md)

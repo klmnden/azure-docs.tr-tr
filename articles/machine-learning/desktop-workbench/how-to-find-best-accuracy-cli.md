@@ -1,30 +1,30 @@
 ---
-title: En iyi doğruluk ve Azure Machine Learning çalışma ekranındaki en düşük süre ile çalışır Bul | Microsoft Docs
-description: Azure Machine Learning çalışma ekranı kullanarak en iyi doğruluğu CLI aracılığıyla bulmak için bir uçtan uca kullanım örneği
+title: En yüksek doğruluğa ve Azure Machine Learning Workbench uygulamasında en düşün süreye sahip çalıştırmaları bulun | Microsoft Docs
+description: Azure Machine Learning Workbench'i kullanarak en yüksek doğruluğa CLI aracılığıyla bulmak için bir uçtan uca kullanım örneği
 services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
 ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: 077af8b5d3367dd2188cbd6e5d76aaf52512a1e8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d2fe951a97b18c95e647b45d799843a982100367
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830808"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35980642"
 ---
-# <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>En iyi doğruluk ve en düşük süre Bul çalıştırır
-Birden çok çalıştırır göz önüne alındığında, bir kullanım örneği çalıştırır ile en iyi doğruluğu bulmaktır. İle komut satırı arabirimi (CLI) kullanmak üzere bir yaklaşım ise bir [JMESPath](http://jmespath.org/) sorgu. Azure CLI JMESPath kullanma hakkında daha fazla bilgi için bkz: [Azure CLI 2.0 kullanmak JMESPath sorgularıyla](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). Aşağıdaki örnekte, dört çalıştırır 0, 0,98, 1 ve 1 doğruluğu değerlerle oluşturulur. Çalıştırır aralığında olmaları durumunda filtrelenir `[MaxAccuracy-Threshold, MaxAccuracy]` burada `Threshold = .03`.
+# <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>En yüksek doğruluğa ve en düşün süreye çalıştırmaları bulma
+Birden çok çalıştırma göz önünde bulundurulduğunda, bir kullanım durumu en yüksek doğruluk oranıyla çalıştırmaları bulma olmaktır. İle komut satırı arabirimi (CLI) kullanmak üzere bir yaklaşım ise bir [JMESPath](http://jmespath.org/) sorgu. JMESPath Azure CLI kullanma hakkında daha fazla bilgi için bkz. [Azure CLI ile kullanma JMESPath sorgularını](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). Aşağıdaki örnekte, dört çalıştırmaları 0, 0,98, 1 ve 1 doğruluğu değerlerle oluşturulur. Çalıştırmaları aralığında olmaları durumunda filtrelenir `[MaxAccuracy-Threshold, MaxAccuracy]` nerede `Threshold = .03`.
 
 ## <a name="sample-data"></a>Örnek veriler
-İle varolan çalışır yoksa bir `Accuracy` değeri, aşağıdaki adımları oluşturmak sorgulamak için çalışır.
+Mevcut çalıştırmalarla yoksa bir `Accuracy` değer, aşağıdaki adımları oluşturmak, sorgulamak için çalışır.
 
-İlk olarak, Azure Machine Learning çalışma ekranı bir Python dosyası oluşturun, adlandırın `log_accuracy.py`, aşağıdaki kodu yapıştırın:
+İlk olarak, Azure Machine Learning Workbench uygulamasında Python dosyası oluşturun, adlandırın `log_accuracy.py`, aşağıdaki kodu yapıştırın:
 ```python
 from azureml.logging import get_azureml_logger
 
@@ -47,22 +47,22 @@ for value in accuracy_values:
     os.system('az ml experiment submit -c local ./log_accuracy.py {}'.format(value))
 ```
 
-Son olarak, çalışma ekranı aracılığıyla CLI açın ve şu komutu çalıştırın `python run.py` dört denemeler göndermek için. Komut dosyası tamamlandıktan sonra dört çalıştırmalar görmelisiniz `Run History` sekmesi.
+Son olarak, Workbench aracılığıyla CLI'yı açın ve şu komutu çalıştırın `python run.py` dört denemeleri göndermek için. Betik bittikten sonra dört çalıştırmalar görmelisiniz `Run History` sekmesi.
 
 ## <a name="query-the-run-history"></a>Sorgu çalıştırma geçmişi
-İlk komut max doğruluk değeri bulur.
+İlk komut, en yüksek doğruluk değeri bulur.
 ```powershell
 az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
 ```
 
-Bu max doğruluk değeri kullanılarak `1` ve bir eşik değerini `0.03`, ikinci komutu filtreleri çalıştıran kullanarak `Accuracy` ve sıralar çalıştırır tarafından `duration` artan.
+Bu en yüksek doğruluk değeri kullanılarak `1` ve bir eşik değerini `0.03`, ikinci komut filtreler çalıştırır kullanarak `Accuracy` ve ardından sıralar çalıştırır `duration` artan.
 ```powershell
 az ml history list --query '@[?Accuracy >= sum(`[1, -0.03]`)] | sort_by(@, &duration)'
 ```
 > [!NOTE]
-> Kesin bir üst sınır onay istiyorsanız, sorgu biçimidir ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
+> Kesin bir üst sınır denetim istiyorsanız sorgu biçimidir ``@[?Accuracy >= sum(`[$max_accuracy_value, -$threshold]`) && Accuracy <= `$max_accuracy_value`]``
 
-PowerShell'i kullanırsanız, aşağıdaki kod yerel değişkenler eşik ve max doğruluğu depolamak için kullanır:
+PowerShell kullanıyorsanız, aşağıdaki kod eşiği ve en yüksek doğruluk depolamak için yerel değişkenleri kullanır:
 ```powershell
 $threshold = 0.03
 $max_accuracy_value = az ml history list --query '@[?Accuracy != null] | max_by(@, &Accuracy).Accuracy'
@@ -71,4 +71,4 @@ az ml history list --query $find_runs_query
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Günlüğe kaydetme hakkında daha fazla bilgi için bkz: [çalıştırma geçmişi ve model ölçümleri Azure Machine Learning çalışma ekranı içinde nasıl kullanılacağını](how-to-use-run-history-model-metrics.md).    
+Günlüğe kaydetme hakkında daha fazla bilgi için bkz. [çalıştırma geçmişini ve model ölçümlerini Azure Machine Learning Workbench'te kullanmayı](how-to-use-run-history-model-metrics.md).    

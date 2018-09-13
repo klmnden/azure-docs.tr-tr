@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services ile bulutta kodlama | Microsoft Docs
-description: Bu konu Azure Media Services kullanırken kodlama işlemi açıklar
+description: Bu konuda Azure Media Services'ı kullanarak kodlama işlemi açıklanmaktadır
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,43 +11,43 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: juliako
-ms.openlocfilehash: e1c7536c59b110ae3dd753ff5f4b01195f8dadca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 69c5516ee503d774b143bb2d83f09ea863a00b31
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655783"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35982017"
 ---
 # <a name="encoding-with-azure-media-services"></a>Azure Media Services ile kodlama
 
-Azure Media Services, çok çeşitli tarayıcılar ve cihazlar üzerinde çalınabilir biçimlere yüksek kaliteli dijital medya dosyalarınızın kodlanacak sağlar. Örneğin, içeriğiniz Apple'nın HLS ya da MPEG DASH biçimleri akışına isteyebilirsiniz. Media Services Ayrıca, video ve ses içeriklerini analiz etmenize olanak tanır. Bu konu size rehberlik içeriğinizi Media Services v3 ile kodlama.
+Azure Media Services, çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimleri dijital yüksek kaliteli medya dosyalarınızın kodlayın sağlar. Örneğin, içeriğinizi Apple'ın HLS veya MPEG DASH biçimlerinde akışla göndermek isteyebilirsiniz. Media Services Ayrıca, video veya ses içeriğini analiz etmenize olanak tanır. Bu konuda size rehberlik içeriğinizi Media Services v3 ile kodlama.
 
-Media Services v3 ile kodlamak için bir dönüşüm ve bir iş oluşturmanız gerekir. Tarif kodlama ayarlarınızı ve çıkış için bir dönüşüm tanımlar ve iş tarif örneğidir. Daha fazla bilgi için bkz: [dönüştüren ve işleri](transform-concept.md)
+Media Services v3 ile kodlanacak, Dönüşüm ve bir iş oluşturmanız gerekir. Dönüşüm kodlama ayarları ve çıktılar için tarif tanımlar ve iş tarif örneğidir. Daha fazla bilgi için [dönüşümler ve işler](transform-concept.md)
 
-Azure Media Services ile kodlama, giriş medya dosyalarınızın nasıl işleneceğini Kodlayıcı bildirmek için hazır kullanın. Örneğin, kodlanmış içeriği ekran çözünürlüğü ve/veya istediğiniz ses kanal sayısını belirtebilirsiniz. 
+Azure Media Services ile kodlarken Kodlayıcı giriş medya dosyalarını nasıl işlenmesi gerektiğini söylemek için hazır kullanın. Örneğin, kodlanmış içeriği görüntü çözünürlüğünü ve/veya istediğiniz ses kanal sayısını belirtebilirsiniz. 
 
-Hızlı bir şekilde endüstri en iyi uygulamalarına göre önerilen yerleşik hazır ayarlarından birini kullanmaya veya özel bir senaryo veya aygıt gereksinimlerinizi hedeflemek için önceden oluşturmak seçebilirsiniz. 
+Sektördeki en iyi uygulamalarına göre önerilen yerleşik hazır biri ile hızlıca başlayabilirsiniz veya senaryonuz ya da cihaz belirli gereksinimlerinizi hedeflemek için önceden belirlenmiş bir özel bir yapı seçebilirsiniz. 
 
-Kodlayıcı hakkındaki ayrıntıları edinmenize [OpenAPI belirtimi](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview). 
+Encoder'da hakkındaki ayrıntıları bulabilirsiniz [Openapı belirtimi](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview). 
 
 ## <a name="built-in-presets"></a>Yerleşik hazır
 
-Media Services şu anda aşağıdaki yerleşik kodlama hazır destekler:  
+Media Services şu anda aşağıdaki yerleşik kodlama Önayarları destekler:  
 
 |**Önceden tanımlı ayar adı**|**Senaryo**|**Ayrıntılar**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Ses analiz etme|Önceden ayarlanmış AI çözümleme işlemleri konuşma transcription dahil olmak üzere, önceden tanımlanmış bir dizi geçerlidir. Şu anda, önceden ayarlanmış tek bir ses parçası olan içeriği işlenmesini destekler.<br/>Ses yükü dilini 'dil etiketi bölge' BCP 47 biçimi kullanarak girişinde belirtebilirsiniz (örneğin, ' en-US'). Desteklenen dillerin listesi olan, 'en-US', 'tr-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.|
-|**VideoAnalyzerPreset**|Ses ve video analiz etme|Hem ses ve video gelen Öngörüler (zengin meta verileri) ayıklar ve bir JSON biçim dosyası çıkarır. Yalnızca bir video dosyasını işlerken ses öngörüleri ayıklamak isteyip istemediğinizi belirtebilirsiniz. Daha fazla bilgi için bkz: [Çözümle video](analyze-videos-tutorial-with-api.md).|
-|**BuiltInStandardEncoderPreset**|Akış|Standart Kodlayıcı ile giriş video kodlama için önceden belirlenmiş bir yerleşik ayarlamak için kullanılır. <br/>Aşağıdaki hazır şu anda desteklenir:<br/>**EncoderNamedPreset.AdaptiveStreaming** (önerilen). Daha fazla bilgi için bkz: [bit hızı Merdiveni otomatik olarak oluşturmak](autogen-bitrate-ladder.md).<br/>**EncoderNamedPreset.AACGoodQualityAudio** -yalnızca 192 Kb/sn ile kodlanmış stereo ses içeren tek bir MP4 dosyası oluşturur.<br/>**EncoderNamedPreset.H264MultipleBitrate1080p** -6000 kbps ila 400 kbps ve stereo AAC ses arasında değişen 8 GOP hizalı MP4 dosyaları kümesi üretir. Çözümleme sırasında 1080 p başlatır ve aşağıya doğru 360 p geçer.<br/>**EncoderNamedPreset.H264MultipleBitrate720p** -400 kbps ve stereo AAC ses 3400 kbps ila arasında değişen 6 GOP hizalı MP4 dosyaları kümesi üretir. Çözümleme sırasında 720 p başlatır ve aşağıya doğru 360 p geçer.<br/>**EncoderNamedPreset.H264MultipleBitrateSD** -400 kbps ve stereo AAC ses 1600 kbps ila arasında değişen 5 GOP hizalı MP4 dosyaları kümesi üretir. Çözümleme sırasında 480 p başlatır ve aşağıya doğru 360 p geçer.<br/><br/>Daha fazla bilgi için bkz: [kodlama ve akış dosyalarını Uploading](stream-files-tutorial-with-api.md).|
-|**StandardEncoderPreset**|Akış|Standart Kodlayıcı ile giriş video kodlama sırasında kullanılacak ayarları açıklanmaktadır. <br/>Bu dönüştürme hazır özelleştirirken önceden kullanın. Daha fazla bilgi için bkz: [dönüştürme hazır özelleştirmek nasıl](customize-encoder-presets-how-to.md).|
+|**AudioAnalyzerPreset**|Ses analizi|Yapay ZEKA tabanlı analiz işlemleri konuşma transkripsiyonu dahil olmak üzere, önceden tanımlı bir dizi hazır geçerlidir. Şu anda hazır içerik tek bir ses kaydı ile işlenmesini destekler.<br/>Ses yükü dilini girişinde 'dil etiketi-region' BCP-47 biçimi kullanarak belirtebilirsiniz (örneğin, ' en-US'). Desteklenen dillerin listesi olduğundan, 'en-US', 'en-GB', 'es-ES', "es-MX", "fr-FR", 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.|
+|**VideoAnalyzerPreset**|Ses ve video analiz etme|Ses hem video öngörüleri (zengin meta veriler) ayıklar ve çıkaran bir JSON biçim dosyası. Yalnızca ses video dosyası işlenirken içgörü isteyip istemediğinizi belirtebilirsiniz. Daha fazla bilgi için [Çözümle video](analyze-videos-tutorial-with-api.md).|
+|**BuiltInStandardEncoderPreset**|Akış|Standart Kodlayıcı ile giriş video kodlama için önceden belirlenmiş bir yerleşik ayarlamak için kullanılır. <br/>Şu anda desteklenen aşağıdaki hazır:<br/>**EncoderNamedPreset.AdaptiveStreaming** (önerilir). Daha fazla bilgi için [hızı Merdivenini otomatik oluşturma](autogen-bitrate-ladder.md).<br/>**EncoderNamedPreset.AACGoodQualityAudio** -yalnızca 192 Kb/sn ile kodlanmış stereo ses içeren tek bir MP4 dosyası üretir.<br/>**EncoderNamedPreset.H264MultipleBitrate1080p** -400 KB/sn ve stereo AAC ses 6000 KB/sn arasında 8 GOP hizalı MP4 dosyaları kümesini oluşturur. Çözüm, 1080 p başlar ve aşağı 360 p geçer.<br/>**EncoderNamedPreset.H264MultipleBitrate720p** -400 KB/sn ve stereo AAC ses 3400 KB/sn arasında değişen 6 GOP hizalı MP4 dosyaları kümesini oluşturur. Çözüm, 720 p başlar ve aşağı 360 p geçer.<br/>**EncoderNamedPreset.H264MultipleBitrateSD** -400 KB/sn ve stereo AAC ses 1600 KB/sn arasında değişen 5 GOP hizalı MP4 dosyaları kümesini oluşturur. Çözüm, 480 p başlar ve aşağı 360 p geçer.<br/><br/>Daha fazla bilgi için [kodlama ve akış dosyalarını karşıya yükleniyor,](stream-files-tutorial-with-api.md).|
+|**StandardEncoderPreset**|Akış|Standart Kodlayıcı ile giriş video kodlama, kullanılacak ayarları açıklanır. <br/>Bu dönüşüm hazır özelleştirirken önceden kullanın. Daha fazla bilgi için [nasıl dönüşüm önayarlarını özelleştirme](customize-encoder-presets-how-to.md).|
 
-## <a name="custom-presets"></a>Özel hazır
+## <a name="custom-presets"></a>Özel önayarların kullanılmasına
 
-Media Services, belirli kodlama ihtiyaçları ve gereksinimleri karşılamak üzere hazır içindeki tüm değerleri özelleştirme tam olarak destekler. Kullandığınız **StandardEncoderPreset** dönüştürme hazır özelleştirirken hazır. İçin bir ayrıntılı açıklamaları ve örnek bkz [encoder hazır ayarlarını özelleştirmek nasıl](customize-encoder-presets-how-to.md).
+Media Services kodlama özgü ihtiyaçları ve gereksinimleri karşılamak için hazır olarak tüm değerleri özelleştirme tam olarak destekler. Kullandığınız **StandardEncoderPreset** dönüştürme hazır özelleştirirken hazır. İçin bir ayrıntılı açıklamaları ve örnek için bkz. [Kodlayıcı önayarlarını özelleştirme](customize-encoder-presets-how-to.md).
 
-## <a name="scaling-encoding-in-v3"></a>V3 kodlama ölçeklendirme
+## <a name="scaling-encoding-in-v3"></a>V3 sürümünde kodlama ölçeklendirme
 
-Müşteriler şu anda, RUs ayarlamak için Azure portal veya AMS v2 API'leri kullanmak zorunda (açıklandığı gibi [medyayı işleme ölçeklendirme](../previous/media-services-scale-media-processing-overview.md). 
+Şu anda, RU ayarlamak için Azure portalı veya AMS v2 API'leri kullanmayı imajlarını (açıklandığı [medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -56,20 +56,20 @@ Müşteriler şu anda, RUs ayarlamak için Azure portal veya AMS v2 API'leri kul
 Aşağıdaki tutorals içeriğinizi Media Services ile kodlama göster:
 
 * [Karşıya yükleme, kodlama ve Azure Media Services'i kullanarak akış](stream-files-tutorial-with-api.md)
-* [Azure Media Services ile video Çözümle](analyze-videos-tutorial-with-api.md)
+* [Azure Media Services ile videoları analiz etme](analyze-videos-tutorial-with-api.md)
 
 ### <a name="code-samples"></a>Kod örnekleri
 
 Aşağıdaki kod örnekleri, Media Services ile kodlama gösteren kod içerir:
 
 * [.NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore)
-* [CLI 2.0](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
+* [Azure CLI](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
 
 ### <a name="sdks"></a>SDK’lar
 
-İçeriğinizi kodlamak için aşağıdaki desteklenen Media Services v3 SDK'ları birini kullanabilirsiniz.
+İçeriğinizi kodlamak için aşağıdaki desteklenen Media Services v3 Sdk'lardan birini kullanabilirsiniz.
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [REST](https://docs.microsoft.com/rest/api/media/transforms)
 * [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)

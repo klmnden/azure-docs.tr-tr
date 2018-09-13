@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/03/2018
+ms.date: 09/12/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298123"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722000"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blok zinciri çözüm şablonları
 
@@ -50,7 +50,7 @@ Bu çözüm şablonu, tek veya çok üye Ethereum Konsorsiyum ağı dağıtabili
 Consortium lider şablonu ağ ilk üyenin ayak izini yapılandırır. 
 
 1. İndirme [lider şablonunu github'dan](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)
-2. Azure Stack yönetim portalında **yeni > şablon dağıtımı** özel bir şablondan dağıtma.
+2. Azure Stack yönetim portalında **+ kaynak Oluştur > şablon dağıtımı** özel bir şablondan dağıtma.
 3. Seçin **şablonu Düzen** yeni bir özel şablon düzenlenecek.
 4. Düzenleme bölmesinde sağ taraftaki kopyalayın ve daha önce indirdiğiniz JSON lider şablon yapıştırın.
     
@@ -105,7 +105,7 @@ Lider'ın dağıtımı doğrulamak için lider'ın yönetici sitesi göz atın. 
 ### <a name="joining-consortium-member-deployment"></a>Consortium üye dağıtım katılma
 
 1. İndirme [github'dan consortium üye şablonu](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)
-2. Azure Stack yönetim portalında **yeni > şablon dağıtımı** özel bir şablondan dağıtma.
+2. Azure Stack yönetim portalında **+ kaynak Oluştur > şablon dağıtımı** özel bir şablondan dağıtma.
 3. Seçin **şablonu Düzen** yeni bir özel şablon düzenlenecek.
 4. Düzenleme bölmesinde sağ taraftaki kopyalayın ve daha önce indirdiğiniz JSON lider şablon yapıştırın.
 5. **Kaydet**’i seçin.
@@ -157,7 +157,7 @@ Resimde gösterildiği gibi üyenin düğüm durumu: **çalışmıyor**. Üye li
 Bu şablon, uzak bir üyesine öncü bir bağlantı oluşturur. 
 
 1. İndirme [üyesi ve öncü şablonunu Github'dan bağlanma](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
-2. Azure Stack yönetim portalında **yeni > şablon dağıtımı** özel bir şablondan dağıtma.
+2. Azure Stack yönetim portalında **+ kaynak Oluştur > şablon dağıtımı** özel bir şablondan dağıtma.
 3. Seçin **şablonu Düzen** yeni bir özel şablon düzenlenecek.
 4. Düzenleme bölmesinde sağ taraftaki kopyalayın ve daha önce indirdiğiniz JSON lider şablon yapıştırın.
     

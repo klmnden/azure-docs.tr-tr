@@ -1,7 +1,7 @@
 ---
-title: Linux VM Azure ile ilgili en iyi duruma getirme | Microsoft Docs
-description: Azure ile ilgili en iyi performans için Linux VM oluşturdunuz emin olmak için bazı en iyi duruma getirme ipuçlarını öğrenin
-keywords: Linux sanal makine, sanal makine linux ubuntu sanal makine
+title: Azure'da Linux VM'nizi iyileştirme | Microsoft Docs
+description: Linux VM'niz Azure ile ilgili en iyi performans için ayarlamış olduğunuz emin olmak için bazı en iyi duruma getirme ipuçlarını öğrenin
+keywords: Linux sanal makinesi, sanal makine linux ubuntu sanal makinesi
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -16,57 +16,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 75bba953a7a5737f0388e53a9f6f38dd8324eb83
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 10e39a205950d50794169e9bedaa65f480f1e9b5
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944550"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35756048"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure’da Linux VM’nizi iyileştirme
-Linux sanal makine (VM) oluşturma komut satırından veya portalından yapmak kolaydır. Bu öğreticide, Microsoft Azure platformu üzerinde performansı iyileştirmek için ayarladığınız emin olmak nasıl gösterir. Bu konuda bir Ubuntu Server VM kullanır, ancak, Linux kullanarak sanal makine oluşturabilirsiniz [kendi görüntü şablonları olarak](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
+Bir Linux sanal makinesini (VM) oluşturma, komut satırından veya portalından yapmak kolaydır. Bu öğreticide, Microsoft Azure platformunda performansı iyileştirmek için ayarlamış olduğunuz emin olmak nasıl gösterir. Bu konuda bir Ubuntu Server VM kullanır, ancak Linux kullanarak sanal makine oluşturabilirsiniz [şablonları olarak kendi görüntülerinizi](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu konu çalışan bir Azure aboneliği zaten sahip varsayar ([ücretsiz deneme sürenizde](https://azure.microsoft.com/pricing/free-trial/)) ve bir VM Azure aboneliğinizde zaten sağlanmış. En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve Azure aboneliğinizle oturum açmış [az oturum açma](/cli/azure/reference-index#az_login) , önce [bir VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Bu konu, çalışan bir Azure aboneliği zaten sahip olduğunuzu varsayar ([ücretsiz denemeye kaydolmayla](https://azure.microsoft.com/pricing/free-trial/)) ve Azure Aboneliğinize bir VM zaten sağladınız. En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve Azure aboneliğinizde oturum [az login](/cli/azure/reference-index#az_login) , önce [VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure işletim sistemi diski
-Azure'da bir Linux VM oluşturduktan sonra kendisiyle ilişkilendirilmiş iki disk var. **/ dev/sda** , işletim sistemi disk **/dev/sdb** geçici disktir.  Ana işletim sistemi diski kullanmayın (**/dev/sda**) olarak işletim sistemi dışındaki her şey için optimize edilen için hızlı VM önyükleme süresi ve iş yükleriniz için iyi bir performans sağlamaz. Kalıcı almak için VM için bir veya daha fazla disk eklemek için kullanmak istediğiniz ve depolama verileriniz için en iyi duruma getirilmiş. 
+Azure'da bir Linux VM oluşturduktan sonra onunla ilişkili iki disk var. **/ dev/sda** , işletim sistemi diski **/dev/sdb** , geçici disk.  Ana işletim sistemi diski kullanmayın (**/dev/sda**) olarak işletim sistemi dışındaki her şey için optimize için hızlı VM önyükleme saati ve iş yükleriniz için iyi bir performans sağlamaz. VM'nize kalıcı almak için bir veya daha fazla disk eklemek istediğiniz ve depolama için verilerinizi en iyi duruma getirilmiş. 
 
-## <a name="adding-disks-for-size-and-performance-targets"></a>Disk boyutu ve performans hedefleri için ekleme
-VM boyutuna göre en fazla 16 ek A Series, D-serisi 32 disklerde disklerde iliştirebilirsiniz ve G serisi 64 disklerde makine - boyutu 1 TB'ye kadar her. Ek disk alanı ve IOPS gereksinimlerini gerektiği gibi ekleyin. Her diskin 500 IOPS performans hedefinin Premium Storage için standart depolama ve disk başına 5000 Iops'yi kadar vardır.  Premium depolama diskler hakkında daha fazla bilgi için bkz: [Premium Storage: Azure VM'ler için yüksek performanslı depolama](../windows/premium-storage.md)
+## <a name="adding-disks-for-size-and-performance-targets"></a>Boyut ve performans hedefleri için disk ekleme
+VM boyutuna göre A serisi, D serisi 32 disklerde en fazla 16 ek disklerde ekleyebilirsiniz ve G serisi 64 disklerde makine - boyutu 1 TB'ye kadar her. Ek disk IOPS gereksinimleri ve alan gerektiği gibi ekleyin. Her disk için Premium depolama standart depolama ve disk başına 5000 Iops'yi kadar 500 IOPS performans hedefinin sahiptir.  Premium depolama diskler hakkında daha fazla bilgi için bkz. [Premium Depolama: Azure sanal makineler için yüksek performanslı depolama](../windows/premium-storage.md)
 
-Burada kendi önbellek ayarlarını ayarlanmış olarak Premium depolama disklerde yüksek IOPS elde etmek için **ReadOnly** veya **hiçbiri**, devre dışı bırakmalısınız **engelleri** bağlama sırasında Linux dosya sisteminde. Premium yedeklenen depolama diskleri yazma işlemleri için bu önbellek ayarlarını dayanıklı olduğundan engelleri gerekmez.
+Burada kendi önbellek ayarlarını ayarlanan olarak Premium depolama diskleri üzerinde en yüksek IOPS elde etmek için **salt okunur** veya **hiçbiri**, devre dışı bırakmanız gerekir **engelleri** bağlama sırasında Linux'ta dosya sistemi. Desteklenen Premium depolama diskleri yazma işlemleri için bu önbellek ayarlarını dayanıklı olduğundan engelleri gerekmez.
 
-* Kullanırsanız **reiserFS**, bağlama seçeneği kullanılarak devre dışı bırak engelleri `barrier=none` (engelleri etkinleştirmek için kullanın `barrier=flush`)
-* Kullanırsanız **ext3/ext4**, bağlama seçeneği kullanılarak devre dışı bırak engelleri `barrier=0` (engelleri etkinleştirmek için kullanın `barrier=1`)
-* Kullanırsanız **XFS**, bağlama seçeneği kullanılarak devre dışı bırak engelleri `nobarrier` (engelleri etkinleştirmek için seçeneği kullanın `barrier`)
+* Kullanırsanız **reiserFS**, bağlama seçeneği kullanılarak devre dışı bırakma engelleri `barrier=none` (engellerini etkinleştirmek için kullanın `barrier=flush`)
+* Kullanırsanız **ext3/ext4**, bağlama seçeneği kullanılarak devre dışı bırakma engelleri `barrier=0` (engellerini etkinleştirmek için kullanın `barrier=1`)
+* Kullanırsanız **XFS**, bağlama seçeneği kullanılarak devre dışı bırakma engelleri `nobarrier` (engellerini etkinleştirmek için seçeneği kullanın `barrier`)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Yönetilmeyen depolama hesabında dikkate alınacak noktalar
-Bir VM ile Azure CLI 2.0 oluşturduğunuzda, varsayılan eylem Azure yönetilen diskleri kullanmaktır.  Bu diskleri Azure platformu tarafından işlenir ve hazırlık veya konum depolamaya gerektirmez.  Yönetilmeyen diskler bir depolama hesabı gerektirir ve bazı ek performans konuları vardır.  Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Disklere genel bakış](../windows/managed-disks-overview.md).  Yalnızca yönetilmeyen diskleri kullandığınızda aşağıdaki bölümde performans özetlemektedir.  Yeniden, varsayılan ve önerilen bir depolama çözümü, yönetilen diskleri kullanmaktır.
+Azure CLI 2.0 ile bir VM oluşturduğunuzda, varsayılan eylem Azure yönetilen diskler kullanmaktır.  Bu diskler Azure platformu tarafından işlenir ve depolanması için hazırlık veya konum gerektirmez.  Yönetilmeyen diskler bir depolama hesabı gerektirir ve bazı ek performansla ilgili önemli noktalar vardır.  Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Disklere genel bakış](../windows/managed-disks-overview.md).  Aşağıdaki bölümde, yalnızca yönetilmeyen diskler kullandığınızda performansla ilgili önemli noktalar özetlenmektedir.  Yine, varsayılan ve önerilen depolama çözümü olan yönetilen diskleri kullanma.
 
-Yönetilmeyen disklerle VM oluşturursanız, yakınında olun ve ağ gecikmesini en aza indirmek için VM ile aynı bölgede bulunan depolama hesaplarından diskleri bağladığınızdan emin olun.  Her standart depolama hesabının en fazla 20 sahip k IOPS ve 500 TB boyutu kapasitesi.  İşletim sistemi diski ve oluşturduğunuz herhangi bir veri diski dahil olmak üzere 40 yoğun olarak kullanılan diskler için bu sınır üretir. Premium depolama hesapları için maksimum IOPS sınırı yoktur ancak 32 TB boyut sınırı yoktur. 
+Yönetilmeyen disklerle bir VM oluşturursanız, yakınında olun ve ağ gecikmesini en aza indirmek için VM ile aynı bölgede bulunan depolama hesaplarından diskleri bağladığınızdan emin olun.  Her standart depolama hesabı, en fazla 20 sahiptir IOPS k ve 500 TB boyut kapasite.  Bu sınır hem işletim sistemi diski hem de oluşturduğunuz herhangi bir veri diskleri dahil olmak üzere yaklaşık 40 yoğun olarak kullanılan diskler için üretir. Premium depolama hesapları için maksimum IOPS sınırı yoktur ancak 32 TB boyut sınırı yoktur. 
 
-Yüksek IOPS iş yükleri ve postalarla seçtiniz, standart depolama diskleriniz için standart depolama hesapları için 20.000 IOPS sınırına ulaşıp değil emin olmak için birden çok depolama hesapları arasında diskleri bölme gerekebilir. VM'yi farklı depolama hesapları ve en iyi yapılandırmanızı elde etmek için depolama hesabı türleri arasında disklerden bir karışımını içerebilir.
+Diskleriniz için standart depolama yüksek IOPS kullanan iş yüklerinin ve uğraşmanızı seçtiniz zaman, disklerin 20.000 IOPS sınırı standart depolama hesapları için isabet değil emin olmak için birden çok depolama hesapları arasında bölmek gerekebilir. Sanal makinenize farklı depolama hesapları ve en iyi yapılandırmanızı elde etmek için depolama hesabı türleri arasında disklerden bir karışımını içerebilir.
  
 
-## <a name="your-vm-temporary-drive"></a>VM geçici sürücünüze
-Bir VM oluşturduğunuzda varsayılan olarak Azure, bir işletim sistemi diski ile sağlar (**/dev/sda**) ve geçici bir disk (**/dev/sdb**).  Eklediğiniz Göster yukarı olarak tüm ek diskleri **/dev/sdc**, **/dev/sdd**, **/dev/sde** ve benzeri. Geçici diskteki tüm verileri (**/dev/sdb**) sağlam değildir ve Bakım VM'yi yeniden başlatılmasını zorlar veya belirli olaylar gibi VM yeniden boyutlandırma, yeniden dağıtım, kaybolmuş olabilir.  Geçici disk türü ve boyutu ilgili dağıtım sırasında seçtiğiniz VM boyutu. Premium tümünün boyutu en fazla 48 k ek performans için yerel bir SSD tarafından desteklenen geçici sürücü VM'ler (DS, G ve DS_V2 serisi) IOPS. 
+## <a name="your-vm-temporary-drive"></a>Sanal makine geçici drive'ınızdaki
+Bir VM oluşturduğunuzda varsayılan olarak Azure, bir işletim sistemi diski ile sağlar (**/dev/sda**) ve geçici bir diskle (**/dev/sdb**).  Tüm ek diskler, ekleme Göster olarak **/dev/sdc**, **/dev/sdd**, **/dev/sde** ve benzeri. Geçici diskteki tüm verilerin (**/dev/sdb**) kalıcı değildir ve Bakım, sanal Makinenizin yeniden başlatılmasını zorlar veya belirli olayları gibi VM yeniden boyutlandırma, yeniden dağıtım, kayıp olabilir.  Geçici, disk türü ve boyutu, dağıtım sırasında seçtiğiniz VM boyutuna ilgilidir. Geçici sürücü en fazla 48 k ek performans için bir yerel SSD destekli Vm'leri (DS, G ve DS_V2 serisi) tüm premium boyut IOPS. 
 
 ## <a name="linux-swap-file"></a>Linux takas dosyası
-Azure VM Ubuntu veya CoreOS görüntüden ise, bir bulut-config bulut başlatma göndermek için CustomData kullanabilirsiniz. Varsa, [özel Linux görüntü karşıya](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) bulut init kullanan, aynı zamanda bulut init kullanarak takas bölümleri yapılandırın.
+Azure VM, Ubuntu veya CoreOS görüntüden ise, bir bulut yapılandırma için cloud-init göndermek için CustomData kullanabilirsiniz. Varsa, [özel bir Linux görüntüsü karşıya](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) cloud-init kullanan, cloud-init kullanarak takas bölümleri de yapılandırın.
 
-Ubuntu bulut görüntülerinde takas bölümü yapılandırmak için bulut init kullanmanız gerekir. Daha fazla bilgi için bkz: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+Ubuntu görüntülerinde Cloud takas bölümü yapılandırmak için cloud-init kullanmanız gerekir. Daha fazla bilgi için [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
-Bulut init desteği olmadan görüntüler için Azure Marketi'nden dağıtılan VM görüntüleri bir VM Linux işletim sistemiyle tümleştirilmiş aracısına sahip. Bu aracı VM'nin çeşitli Azure Hizmetleri ile etkileşimde bulunmasına izin veren. Azure Marketi'nden standart bir görüntü dağıttığınız varsayıldığında, doğru Linux takas dosyası ayarlarınızı yapılandırmak için aşağıdakileri yapmanız gerekir:
+Cloud-init desteği olmadan görüntüler için VM görüntüleri Azure Marketi'nden dağıtılan işletim sistemiyle tümleştirilmiş bir VM Linux Aracısı var. Bu aracı, çeşitli Azure Hizmetleri ile etkileşim kurmak VM sağlar. Standart bir Azure Market görüntüsünden dağıttığınız varsayıldığında, doğru bir şekilde Linux takas dosyası ayarlarınızı yapılandırmak için aşağıdakileri yapmanız gerekir:
 
-Bulun ve iki giriş değiştirme **/etc/waagent.conf** dosya. Bunlar, ayrılmış takas dosyası varlığını ve takas dosyası boyutunu denetler. Değiştirilecek arayan parametreleri `ResourceDisk.EnableSwap=N` ve `ResourceDisk.SwapSizeMB=0` 
+Bulun ve iki giriş değiştirme **/etc/waagent.conf** dosya. Bunlar, bir adanmış takas dosyanın varlığını ve takas dosyası boyutunu denetler. Değiştirilecek aradığınız parametreler `ResourceDisk.EnableSwap=N` ve `ResourceDisk.SwapSizeMB=0` 
 
-Parametreleri aşağıdaki ayarları değiştirin:
+Parametreler için aşağıdaki ayarları değiştirin:
 
 * ResourceDisk.EnableSwap=Y
-* ResourceDisk.SwapSizeMB={size gereksinimlerinizi karşılayacak şekilde MB} 
+* İhtiyaçlarınızı karşılamak için MB cinsinden ResourceDisk.SwapSizeMB={size} 
 
-Değişikliği yaptıktan sonra waagent yeniden başlatın veya bu değişiklikleri yansıtacak şekilde, Linux VM yeniden başlatma gerekir.  Değişiklikler uygulanmamış olabilir ve kullandığınız takas dosyası oluşturulan bildiğiniz `free` boş alan görüntülemek için komutu. Aşağıdaki örnek değiştirme sonucu olarak oluşturulan 512 MB takas dosyası sahip **waagent.conf** dosyası:
+Değişikliği yaptıktan sonra waagent yeniden başlatabilir veya bu değişiklikleri yansıtacak şekilde Linux VM yeniden başlatma gerekir.  Değişiklikleri uygulanmıştır ve kullandığınızda takas dosyası oluşturuldu bildiğiniz `free` boş alan görmek için komutu. Aşağıdaki örnek değiştirme sonucu olarak oluşturulan 512 MB takas dosyası sahip **waagent.conf** dosyası:
 
 ```bash
 azuseruser@myVM:~$ free
@@ -77,22 +77,22 @@ Swap:       524284          0     524284
 ```
 
 ## <a name="io-scheduling-algorithm-for-premium-storage"></a>Premium depolama g/ç zamanlama algoritması
-2.6.18 ile Linux çekirdek, algoritma zamanlama g/ç CFQ (tamamen Orta Sıralama algoritması) son değiştirildiği varsayılan. Rasgele erişim g/ç modelleri için CFQ ve son tarih arasındaki performans farklar düşünülerek fark yoktur.  SSD tabanlı diskler disk g/ç düzeni daha sıralı olduğu için geri SEKMEYİ veya son algoritmasına geçme daha iyi g/ç performansı elde edebilirsiniz.
+2.6.18 ile Linux çekirdek algoritması zamanlama g/ç son değiştirildiği CFQ (tamamen adil Sıralama algoritması) için varsayılan. Rastgele erişim g/ç modelleri için göz ardı edilebilir performans farklarını CFQ ve son tarih arasındaki farkı yoktur.  SSD tabanlı diskler disk g/ç deseni genellikle sıralı olduğu için geri NOOP veya son algoritmaya geçiş daha iyi g/ç performansı elde edebilirsiniz.
 
-### <a name="view-the-current-io-scheduler"></a>Geçerli g/ç Zamanlayıcı görüntüleyin
+### <a name="view-the-current-io-scheduler"></a>Geçerli g/ç Zamanlayıcısını görüntüleyin
 Aşağıdaki komutu kullanın:  
 
 ```bash
 cat /sys/block/sda/queue/scheduler
 ```
 
-Geçerli Zamanlayıcı gösteren çıktı bakın.  
+Geçerli Zamanlayıcı gösteren çıktı görürsünüz.  
 
 ```bash
 noop [deadline] cfq
 ```
 
-### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>Algoritma zamanlama g/ç geçerli cihaz (/ dev/sda) değiştirme
+### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>Geçerli cihaz algoritması zamanlama g/ç (/ dev/sda) değiştirme
 Aşağıdaki komutları kullanın:  
 
 ```bash
@@ -103,9 +103,9 @@ root@myVM:~# update-grub
 ```
 
 > [!NOTE]
-> Bu ayar için uygulama **/dev/sda** tek başına kullanışlı değildir. Tüm veri disklerde burada sıralı g/ç g/ç düzeni dominates ayarlayın.  
+> Bu ayar için uygulama **/dev/sda** tek başına kullanışlı değildir. Tüm veri disklerinde, sıralı g/ç g/ç deseni burada kaplamaktadır ayarlayın.  
 
-Gösteren aşağıdaki çıktı görmeniz gerekir **grub.cfg** başarıyla yeniden oluşturuldu ve varsayılan Zamanlayıcı SEKMEYİ için güncelleştirilmiştir.  
+Gösteren aşağıdaki çıktıyı görmelisiniz **grub.cfg** başarıyla yeniden oluşturuldu ve varsayılan Zamanlayıcı için NOOP güncelleştirildi.  
 
 ```bash
 Generating grub configuration file ...
@@ -118,21 +118,21 @@ Found memtest86+ image: /memtest86+.bin
 done
 ```
 
-Redhat dağıtım ailesi için aşağıdaki komut yalnızca gerekir:   
+Red Hat dağıtım ailesi için aşağıdaki komut yalnızca gerekir:   
 
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
-## <a name="using-software-raid-to-achieve-higher-iops"></a>Yazılım RAID elde etmek için daha yüksek g kullanarak / Ops
-İş yüklerinizi tek bir disk sunabileceğinden daha fazla IOPS gerektiriyorsa, birden çok disk, yazılım RAID yapılandırmasını kullanmak gerekir. Azure disk dayanıklılık yerel doku katmanında gerçekleştirdiğinden, yüksek düzeyde bir RAID-0 şeritleme yapılandırmadan performans elde edersiniz.  Sağlamak ve Azure ortamında diskleri oluşturun ve bunları bölümlendirme, biçimlendirme ve sürücüleri takma önce Linux VM'ye ekleyin.  Yazılım RAID kurulumu, Linux VM'de Azure yapılandırma hakkında daha fazla ayrıntı bulunabilir **[yapılandırma yazılım RAID Linux'ta](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** belge.
+## <a name="using-software-raid-to-achieve-higher-iops"></a>Yazılım RAID elde etmek için daha yüksek miyim kullanarak / Ops
+İş yüklerinizi tek bir diske sunabileceğinden daha yüksek IOPS gerekiyorsa, bir yazılım RAID yapılandırma birden çok disk kullanmanız gerekir. Azure disk dayanıklılık yerel fabric katmanında gerçekleştirdiğinden, en üst düzey bir RAID-0 şeritleme yapılandırmasından performans elde edin.  Sağlama ve diskler Azure ortamında oluşturmak ve bunları bölümleme, biçimlendirme ve sürücüleri bağlama önce Linux VM'nize ekleyebilirsiniz.  Azure'da Linux vm'nize yazılım RAID Kurulumu yapılandırma hakkında ayrıntılı bilgi bulunabilir **[Linux'ta yazılım RAID yapılandırma](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** belge.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Önce ve değişiklik olan etkisini ölçmek için her bir değişiklikten sonra testleri gerçekleştirmek gereken tüm en iyi duruma getirme tartışmalarını unutmayın.  En iyi duruma getirme, ortamınızdaki farklı makinelerde farklı sonuçlar olan bir adım adım işlemidir.  Bir yapılandırma ile ilgili ne çalışacağı başkaları için çalışmayabilir.
+Önce ve değişikliğin etkisini ölçmek için her değişiklikten sonra testleri gerçekleştirmek gereken tüm en iyi duruma getirme tartışmaların unutmayın.  En iyi duruma getirme farklı sonuçlar ortamınızdaki farklı makineler arasında olan bir adım adım işlemidir.  Bir yapılandırma için neyin işe yaradığını başkaları için çalışmayabilir.
 
-Ek kaynaklar için bazı yararlı bağlantılar: 
+Ek kaynaklar için yararlı olabilecek bağlantıları: 
 
 * [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](premium-storage.md)
-* [Azure Linux Aracısı Kullanıcı Kılavuzu](../extensions/agent-linux.md)
-* [Azure Linux VM'ler MySQL performansı en iyi duruma getirme](classic/optimize-mysql.md)
-* [Yazılım RAID Linux üzerinde yapılandırma](configure-raid.md)
+* [Azure Linux Aracısı Kullanım Kılavuzu](../extensions/agent-linux.md)
+* [Azure Linux vm'lerde MySQL performansını iyileştirme](classic/optimize-mysql.md)
+* [Linux'ta yazılım RAID yapılandırma](configure-raid.md)

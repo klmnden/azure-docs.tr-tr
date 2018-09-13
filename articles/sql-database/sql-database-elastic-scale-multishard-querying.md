@@ -1,6 +1,6 @@
 ---
-title: Sorgu parçalı Azure SQL veritabanları | Microsoft Docs
-description: Esnek veritabanı istemci kitaplığı kullanılarak parça sorgular çalıştırın.
+title: Azure SQL veritabanlarını parçalı sorgulama | Microsoft Docs
+description: Elastik veritabanı istemci kitaplığını kullanarak parçalar arasında sorguları çalıştırın.
 services: sql-database
 manager: craigg
 author: stevestein
@@ -9,26 +9,26 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 17fb937dc24cbf2fa1630a26ea6876fa56a384f5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 759ef7bfca118434c36044ff490ff3d2735b11c9
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646856"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719181"
 ---
-# <a name="multi-shard-querying"></a>Çok parça sorgulama
+# <a name="multi-shard-querying"></a>Çok parçalı sorgulama
 ## <a name="overview"></a>Genel Bakış
-İle [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md), parçalı veritabanı çözümleri oluşturabilirsiniz. **Çok parça sorgulama** koleksiyonu/bir sorgu çalıştırılarak gerektiren raporlama verilerini birden fazla parça uzatır gibi görevler için kullanılır. (Bu Karşıtlık [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md), tek bir parça tüm çalışma gerçekleştirir.) 
+İle [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md), parçalı veritabanı çözümleri oluşturabilirsiniz. **Çok parçalı sorgulama** koleksiyon/çalışan bir sorgu gerektiren raporlama verilerini birden fazla parçaya uzatır gibi görevler için kullanılır. (Bu Karşıtlık [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md), tek bir parçanın tüm çalışma gerçekleştirir.) 
 
-1. Alma bir **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) veya **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET ](https://msdn.microsoft.com/library/azure/dn807370.aspx)) kullanarak **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), **TryGetListShardMap** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), veya **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) yöntemi. Bkz: **[bir ShardMapManager oluşturma](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)** ve  **[RangeShardMap veya ListShardMap almak](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**.
-2. Oluşturma bir **MultiShardConnection** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_connection), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)) nesnesi.
+1. Alma bir **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) veya **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET ](https://msdn.microsoft.com/library/azure/dn807370.aspx)) kullanarak **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), **TryGetListShardMap** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), veya **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) yöntemi. Bkz: **[bir ShardMapManager oluşturmak](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)** ve  **[RangeShardMap veya ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**.
+2. Oluşturma bir **MultiShardConnection** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_connection), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)) nesne.
 3. Oluşturma bir **MultiShardStatement veya MultiShardCommand** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)). 
-4. Ayarlama **CommandText özelliği** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)) bir T-SQL komutu.
-5. Çağırarak komutu yürütün **ExecuteQueryAsync veya ExecuteReader** ([Java](), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)) yöntemi.
+4. Ayarlama **CommandText özelliğinin** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)) için bir T-SQL komutu.
+5. Çağırarak bağlamını **ExecuteQueryAsync veya ExecuteReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement.executeQueryAsync), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)) yöntemi.
 6. Kullanarak sonuçları görüntülemek **MultiShardResultSet veya MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)) sınıfı. 
 
 ## <a name="example"></a>Örnek
-Aşağıdaki kodu kullanarak sorgulama yapmayı çok parça kullanımını göstermektedir bir verilen **ShardMap** adlı *myShardMap*. 
+Aşağıdaki kodu kullanarak sorgulama çok parçalı kullanımını bir verilen **ShardMap** adlı *myShardMap*. 
 
 ```csharp
 using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards(), myShardConnectionString)) 
@@ -53,14 +53,14 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 } 
 ```
 
-En önemli fark, çok parça bağlantılarının yapıdır. Burada **SqlConnection** tek bir veritabanı üzerinde çalışır **MultiShardConnection** geçen bir ***parça koleksiyonunu*** giriş olarak. Parça parça eşlemesinden koleksiyonunu doldurun. Sorgu kullanarak parça koleksiyonunu yürütülür **UNION ALL** semantiği tek bir genel sonuç birleştirin. İsteğe bağlı olarak, satırın kaynaklandığı parça adını kullanarak çıktı eklenebilir **ExecutionOptions** özelliği komutu. 
+Önemli bir fark bağlantı çok parçalı bir yapıdır. Burada **SqlConnection** tek bir veritabanı üzerinde çalışır **MultiShardConnection** götüren bir ***parçalar koleksiyonu*** giriş olarak. Parça parça eşlemesinden koleksiyonunu doldurur. Sorgu kullanarak parçalar koleksiyonu üzerinde yürütülür **UNION ALL** semantiği tek bir genel sonuç derlemek için. İsteğe bağlı olarak satır kaynaklandığı parça adını kullanarak çıkış eklenebilir **ExecutionOptions** özelliği komutu. 
 
-Çağrı Not **myShardMap.GetShards()**. Bu yöntem tüm parça parça eşlemesinden alır ve tüm ilgili veritabanları arasında bir sorgu çalıştırmak için kolay bir yol sağlar. Parça koleksiyonunu çok parça sorgu Gelişmiş için daha fazla koleksiyon üzerinde bir LINQ sorgusu gerçekleştirerek sağlayıcıdan döndürülen çağrısı **myShardMap.GetShards()**. Kısmi sonuçlar İlkesi ile birlikte, çok parça sorgulama içinde geçerli yetenek parça yüzlerce kadar onlarca için iyi çalışmak üzere tasarlanmıştır.
+Çağrı Not **myShardMap.GetShards()**. Bu yöntem, tüm parça parça eşlemesinden alır ve tüm ilgili veritabanları arasında sorgu çalıştırmak için kolay bir yol sağlar. Parçalar koleksiyonu çok parçalı sorgu daraltılmış olabilir. daha fazla koleksiyon üzerinde bir LINQ Sorgu gerçekleştirerek döndürülen çağrısından **myShardMap.GetShards()**. Kısmi sonuçlar İlkesi ile birlikte, çok parçalı sorgulama geçerli özellik parçalar yüzlerce en fazla on için iyi çalışacak şekilde tasarlanmıştır.
 
-Çok parça sorgulama ile bir sınırlama şu anda doğrulama parça ve sorgulanır shardlets yetersizliğidir. Veri bağımlı yönlendirme sorgulama sırasında verilen parça parça eşleme parçası olduğunu doğrularken çok parça sorguları bu denetimi gerçekleştirme. Bu parça eşlemesinden kaldırılan veritabanları üzerinde çalışan çok parça sorguları neden olabilir.
+Çok parçalı sorgulama ile bir şu anda doğrulama parçalar ve sorgulanır parçacıklarda eksikliği sınırlamasıdır. Verilere bağımlı yönlendirme sorgulama sırasında verilen parça parça eşlemesinin bir parçası olduğunu doğrular, ancak çok parçalı sorgular, bu onay gerçekleştirmeyin. Bu çok parçalı sorgular parça eşlemesinden kaldırılmış olan veritabanlarında çalışan neden olabilir.
 
-## <a name="multi-shard-queries-and-split-merge-operations"></a>Çok parça sorgular ve bölünmüş birleştirme işlemleri
-Çok parça sorguları shardlets sorgulanan veritabanı üzerinde devam eden bölünmüş birleştirme işlemleri katılan olup olmadığını denetlemez. (Bkz [esnek veritabanı bölünmüş birleştirme aracını kullanarak ölçeklendirme](sql-database-elastic-scale-overview-split-and-merge.md).) Burada aynı çok parça sorguda birden çok veritabanları için aynı shardlet satırları göster bu tutarsızlıklar için yol açabilir. Bu sınırlamalara dikkat edin ve boşaltma devam eden bölünmüş birleştirme işlemleri ve parça eşleme değişiklikler çok parça sorguları gerçekleştirirken göz önünde bulundurun.
+## <a name="multi-shard-queries-and-split-merge-operations"></a>Çok parçalı sorgular ve ayırma-birleştirme işlemleri
+Çok parçalı sorgular parçacıklara sorgulanan veritabanı üzerinde devam eden bölme-birleştirme işlemleri katılan olup olmadığını doğrulamayın. (Bkz [elastik veritabanı bölme-birleştirme aracını kullanarak ölçeklendirme](sql-database-elastic-scale-overview-split-and-merge.md).) Burada aynı çok parçalı sorguda birden çok veritabanları için aynı parçacık satırları göster bu tutarsızlıklara yol açabilir. Bu sınırlamaları unutmayın ve boşaltma bölme-birleştirme işlemleri ve parça eşlemesi değişiklikler çok parçalı sorgular gerçekleştirirken göz önünde bulundurun.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

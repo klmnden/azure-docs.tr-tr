@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory'de yeni bir Azure yığın Kiracı hesap eklemek | Microsoft Docs
-description: Microsoft Azure yığın Geliştirme Seti dağıttıktan sonra Kiracı portalı gözatabilirsiniz en az bir Kiracı Kullanıcı hesabı oluşturmanız gerekir.
+title: Yeni bir Azure Stack Kiracı hesabı Azure Active Directory'ye ekleme | Microsoft Docs
+description: Microsoft Azure Stack geliştirme Seti'ni dağıttıktan sonra Kiracı portalında keşfedebilirsiniz için en az bir Kiracı Kullanıcı hesabı oluşturmanız gerekir.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -15,46 +15,46 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 590426563936c66b1353f769be138759bb53f58c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c312658750c1e9ef024a837ccc16e5cd5be8a5ef
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29553214"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35979978"
 ---
-# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Azure Active Directory'de yeni bir Azure yığın Kiracı hesabı Ekle
-Sonra [Azure yığın Geliştirme Seti dağıtma](azure-stack-run-powershell-script.md), Kiracı Portalı'nı keşfedin ve test sunar ve planları için bir Kiracı Kullanıcı hesabınızın olması gerekir. Bir kiracı hesap tarafından oluşturabilirsiniz [Azure portalını kullanarak](#create-an-azure-stack-tenant-account-using-the-azure-portal) veya [PowerShell kullanarak](#create-an-azure-stack-tenant-account-using-powershell).
+# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Azure Active Directory'de yeni bir Azure Stack Kiracı hesabı Ekle
+Sonra [Azure Stack geliştirme Seti'ni dağıtma](azure-stack-run-powershell-script.md), Kiracı portalında keşfedin ve test teklifleri ve planları için bir Kiracı Kullanıcı hesabı gerekir. Bir kiracı hesabı ile oluşturabileceğiniz [Azure portalını kullanarak](#create-an-azure-stack-tenant-account-using-the-azure-portal) ya da [PowerShell kullanarak](#create-an-azure-stack-tenant-account-using-powershell).
 
-## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir Azure yığın Kiracı hesabı oluşturma
-Azure Portalı'nı kullanmak için bir Azure aboneliğinizin olması gerekir.
+## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Azure portalını kullanarak bir Azure Stack Kiracı hesabı oluşturun
+Azure portalını kullanmak üzere bir Azure aboneliğine sahip olmalıdır.
 
 1. Oturum [Azure](https://portal.azure.com).
-2. Microsoft Azure sol gezinti çubuğunda, **Active Directory**.
-3. Dizin listesinde Azure yığını için kullanmak istediğiniz dizini tıklatın veya yeni bir tane oluşturun.
-4. Bu dizin sayfasında, tıklatın **kullanıcılar**.
-5. Tıklatın **Kullanıcı Ekle**.
-6. İçinde **Kullanıcı Ekle** sihirbazında **kullanıcı türünü** listesinde, seçin **kuruluşunuzdaki yeni kullanıcı**.
+2. Microsoft Azure sol gezinti çubuğunda **Active Directory**.
+3. Dizin listesinde, Azure Stack için kullanmak istediğiniz dizine tıklayın veya yeni bir tane oluşturun.
+4. Bu dizin sayfasında **kullanıcılar**.
+5. **Kullanıcı ekle**'ye tıklayın.
+6. İçinde **Kullanıcı Ekle** sihirbazında **kullanıcı türünü** listesinde **kuruluşunuzdaki yeni kullanıcı**.
 7. İçinde **kullanıcı adı** kullanıcı için bir ad yazın.
-8. İçinde  **@**  kutusunda, uygun girişi seçin.
+8. İçinde **@** kutusunda, uygun girdiyi seçin.
 9. İleri okuna tıklayın.
-10. İçinde **kullanıcı profili** sihirbaz sayfasında bir **ad**, **Soyadı**, ve **görünen adı**.
-11. İçinde **rol** listesinde, seçin **kullanıcı**.
+10. İçinde **kullanıcı profili** sihirbazının bir **ad**, **Soyadı**, ve **görünen ad**.
+11. İçinde **rol** listesinde **kullanıcı**.
 12. İleri okuna tıklayın.
-13. Üzerinde **Get geçici parola** sayfasında, **oluşturma**.
-14. Kopya **yeni parola**.
-15. Microsoft Azure için yeni hesabıyla oturum açın. İstendiğinde parolayı değiştirin.
-16. Oturum `https://portal.local.azurestack.external` Kiracı Portalı'nı görmek için yeni hesabı ile.
+13. Üzerinde **Get geçici parola** sayfasında **Oluştur**.
+14. Kopyalama **yeni parola**.
+15. Microsoft Azure'da yeni bir hesapla oturum açın. İstendiğinde parolayı değiştirin.
+16. Oturum `https://portal.local.azurestack.external` Kiracı portalında görmek için yeni bir hesap ile.
 
-## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>PowerShell kullanarak bir Azure yığın Kiracı hesabı oluşturma
-Bir Azure aboneliğiniz yoksa, bir Kiracı Kullanıcı hesabı eklemek için Azure Portalı'nı kullanamazsınız. Bu durumda, bunun yerine Azure Active Directory için Windows PowerShell modülü kullanabilirsiniz.
+## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>PowerShell kullanarak bir Azure Stack Kiracı hesabı oluşturma
+Azure aboneliğiniz yoksa, bir Kiracı Kullanıcı hesabı eklemek için Azure portal'ı kullanamazsınız. Bu durumda, bunun yerine Azure Active Directory için Windows PowerShell modülü kullanabilirsiniz.
 
 > [!NOTE]
-> Azure yığın Geliştirme Seti dağıtmak için Microsoft Account (Live ID) kullanıyorsanız, Kiracı hesap oluşturmak için AAD PowerShell kullanamazsınız. 
+> Azure Stack geliştirme Seti'ni dağıtmak için Microsoft Account (Live ID) kullanıyorsanız, Kiracı hesabı oluşturmak için AAD PowerShell kullanamazsınız. 
 > 
 > 
 
-1. Yükleme [Microsoft Online Services oturum açma Yardımcısı BT uzmanları RTW için](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Yükleme [Azure Active Directory için Windows PowerShell Modülü (64-bit sürümü)](http://go.microsoft.com/fwlink/p/?linkid=236297) ve açın.
+1. Yükleme [Microsoft Çevrimiçi Hizmetler oturum açma Yardımcısı BT uzmanları RTW için](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
+2. Yükleme [Azure Active Directory için Windows PowerShell Modülü (64-bit sürüm)](http://go.microsoft.com/fwlink/p/?linkid=236297) ve açın.
 3. Aşağıdaki cmdlet'leri çalıştırın:
 
     ```powershell
@@ -70,6 +70,6 @@ Bir Azure aboneliğiniz yoksa, bir Kiracı Kullanıcı hesabı eklemek için Azu
 
     ```
 
-1. Microsoft Azure için yeni hesabıyla oturum açın. İstendiğinde parolayı değiştirin.
-2. Oturum `https://portal.local.azurestack.external` Kiracı Portalı'nı görmek için yeni hesabı ile.
+1. Microsoft Azure'da yeni bir hesapla oturum açın. İstendiğinde parolayı değiştirin.
+2. Oturum `https://portal.local.azurestack.external` Kiracı portalında görmek için yeni bir hesap ile.
 

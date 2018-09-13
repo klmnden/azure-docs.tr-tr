@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/1/2018
+ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 441469e24de5324fb5bed40c75f9a6b26f85bcc5
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325065"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717684"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -33,9 +33,9 @@ Eylem grupları yapılandırmak için Azure Resource Manager şablonlarını kul
 1. İçinde [portalı](https://portal.azure.com)seçin **İzleyici**. **İzleyici** dikey penceresinde, tüm izleme ayarlarınızı ve tek bir görünümde verileri birleştirir.
 
     !["İzleme" hizmeti](./media/monitoring-action-groups/home-monitor.png)
-1. İçinde **ayarları** bölümünden **Eylem grupları**.
+1. Seçin **uyarılar** seçip **Eylem grupları yönetme**.
 
-    !["Eylem grupları" sekmesi](./media/monitoring-action-groups/action-groups-blade.png)
+    ![Eylem grupları düğmesi yönetme](./media/monitoring-action-groups/manage-action-groups.png)
 1. Seçin **eylem grubu Ekle**ve alanları doldurun.
 
     !["Eylem Grup Ekle" komutu](./media/monitoring-action-groups/add-action-group.png)
@@ -97,6 +97,17 @@ Eylem grupları yapılandırmak için Azure Resource Manager şablonlarını kul
 <dt>Web kancası</dt>
 <dd>10 adede kadar Web kancası eylemleri bir eylem grubu içinde olabilir
 <dd>Yanıt 10 saniyedir logic - zaman aşımı süresi yeniden deneyin. Web kancası çağrısı olacaktır, 2 katı şu HTTP durum kodları, döndürülen en fazla yeniden deneme: 408, 429, 503, 504 veya HTTP uç noktasına yanıt vermiyor. İlk yeniden deneme 10 saniye sonra gerçekleşir. İkinci ve son yeniden deneme 100 saniye sonra gerçekleşir.</dd>
+<dd>Kaynak IP adresi aralıkları
+<ul>
+    <li>13.106.57.181</li>
+    <li>13.106.54.3</li>
+    <li>13.106.54.19</li>
+    <li>13.106.38.142</li>
+    <li>13.106.38.148</li>
+    <li>13.106.57.196</li>
+</ul>
+Değişiklikler yapılandırdığınız öneririz bu IP adresleri için güncelleştirmeleri almak için bir [hizmet durumu Uyarısı](./monitoring-service-notifications.md) Eylem grupları hizmeti hakkında bilgi veren bildirimleri için izler.
+</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>Eylem grupları yönetme ##

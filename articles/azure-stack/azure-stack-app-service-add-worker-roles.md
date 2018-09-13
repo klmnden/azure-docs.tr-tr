@@ -1,6 +1,6 @@
 ---
-title: Uygulama Hizmetleri - Azure yığın çalışan rollerinde genişletme | Microsoft Docs
-description: Azure yığın uygulama hizmetleri ölçeklendirme için ayrıntılı kılavuz
+title: Ölçek genişletme uygulama hizmetleri - Azure Stack çalışan rolleri | Microsoft Docs
+description: Azure Stack App Services ölçeklendirmeye yönelik ayrıntılı kılavuz
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,41 +12,41 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 04a93bc841d553296dca7635151c14892970121c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: abfc75e40e146b1cf7cb237f18a1ff08626e5be1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357801"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35979857"
 ---
-# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure yığın uygulama hizmeti: daha fazla altyapı veya çalışan rolleri Ekle
+# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack üzerinde App Service'te: daha fazla altyapı veya çalışan rolü ekleme
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*  
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*  
 
-Bu belge, Azure yığın altyapı ve çalışan rolleri uygulama hizmeti ölçeklendirme hakkında yönergeler sağlar. Herhangi bir boyuttaki uygulamaları desteklemek için ek çalışan rolleri oluşturmak için adımları içerir.
+Bu belge, Azure Stack altyapısını ve çalışan rolleri App Service'ı ölçeklendirme hakkında yönergeler sağlar. Bu, her boyuttaki uygulamaları desteklemek için ek çalışan rolleri oluşturmak için adımları içerir.
 
 > [!NOTE]
-> Azure yığın ortamınıza en fazla 96 GB RAM yoksa, ek kapasite ekleme ilgili sorunlar olabilir.
+> Azure Stack ortamınıza en fazla 96 GB RAM yoksa, ek kapasite ekleme sorunlar olabilir.
 
-Varsayılan olarak, Azure yığın uygulama hizmeti ücretsiz ve paylaşılan çalışan katmanları destekler. Diğer çalışan katmanı eklemek için daha fazla çalışan rolleri eklemeniz gerekir.
+Varsayılan olarak, Azure Stack üzerinde App Service, ücretsiz ve paylaşılan çalışan katmanları destekler. Diğer çalışan katmanları eklemek için daha fazla çalışan rolü eklemeniz gerekir.
 
-Hangi Azure yığın yüklemede varsayılan uygulama hizmeti ile dağıtılan emin değilseniz, ek bilgileri gözden geçirebilirsiniz [genel bakış Azure yığın uygulama hizmeti](azure-stack-app-service-overview.md).
+Hangi Azure Stack yükleme varsayılan App Service ile dağıtılan emin değilseniz, ek bilgileri gözden geçirebilirsiniz [genel Azure Stack üzerinde App Service'te](azure-stack-app-service-overview.md).
 
-Azure uygulama hizmeti Azure yığında sanal makine ölçekleme kümeleri kullanarak tüm rolleri dağıtır ve bu nedenle bu iş yükünün ölçeklendirme özelliklerinden yararlanır. Bu nedenle, tüm ölçeklendirme çalışan katmanı uygulama Hizmet Yöneticisi yapılır
+Azure Stack'te Azure App Service, sanal makine ölçek kümeleri kullanarak tüm rolleri dağıtır ve bu nedenle bu iş yükünü ölçeklendirme özelliklerinden yararlanır. Bu nedenle, tüm çalışan katmanlarını ölçeklendirme uygulama Hizmet Yöneticisi yapılır
 
 > [!IMPORTANT]
-> Şu anda Azure yığın Sürüm Notları'nda tanımlanan portalında sanal makine ölçek kümeleri ölçeklendirme, bu nedenle ölçeği genişletme PowerShell örneği kullanmak mümkün değil.
+> Şu anda Azure Stack sürüm notlarındaki tanımlanan portalında sanal makine ölçek kümeleri ölçeklendirme, ölçeği genişletmek için bu nedenle PowerShell örneğini kullanın mümkün değildir.
 >
 >
 
-## <a name="add-additional-workers-with-powershell"></a>PowerShell ile ek çalışanları ekleme
+## <a name="add-additional-workers-with-powershell"></a>Ek çalışan PowerShell ile ekleme
 
-1. [PowerShell'de Azure yığın yönetim ortamı Kurulumu](azure-stack-powershell-configure-admin.md)
+1. [PowerShell'de Azure Stack yönetici ortamını ayarlama](azure-stack-powershell-configure-admin.md)
 
-2. Ölçek kümesi ölçeklendirmek için bu örneği kullanın:
+2. Bu örnek, Ölçek kümesini ölçeklendirme kullanın:
    ```powershell
    
     ##### Scale out the AppService Role instances ######
@@ -73,46 +73,46 @@ Azure uygulama hizmeti Azure yığında sanal makine ölçekleme kümeleri kulla
    ```    
 
    > [!NOTE]
-   > Bu adım, rolün türü ve örnek sayısına bağlı olarak tamamlamak için saat sayısını alabilir.
+   > Bu adım, birkaç rol türü ve örneği sayısını bağlı olarak saat sürebilir.
    >
    >
 
-3. Yeni Uygulama Hizmeti Yönetimi rol örneklerinin durumunu izlemek, tek rol örneğini durumunu denetlemek için listede rol türü'ı tıklatın.
+3. App Service yönetim yeni rol örneklerini durumunu izleme, tek tek rol örneği durumunu denetlemek için rol türü listesinde tıklayın.
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Uygulama hizmeti kaynak sağlayıcısı yönetici doğrudan içinde ek çalışanları ekleme
+## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>App Service kaynak sağlayıcısı yönetici doğrudan içinde ek çalışanları ekleme
 
-1. Azure yığın yönetim portalına Hizmet Yöneticisi olarak oturum açın.
+1. Azure Stack yönetim portalında Hizmet Yöneticisi olarak oturum açın.
 
 2. Gözat **uygulama hizmetleri**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Tıklatın **rolleri**. Burada, dağıtılan tüm uygulama hizmeti rolleri dökümünü görürsünüz.
+3. Tıklayın **rolleri**. Burada, dağıtılan tüm App Service rolleri dökümünü görürsünüz.
 
-4. Ölçek ve ardından istediğiniz türü satırındaki sağ tıklayın **ScaleSet**.
+4. Ölçeklendirme ve ardından istediğiniz tür satırına tıklayın sağ **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Tıklatın **ölçeklendirme**, üzere ölçek ve ardından istediğiniz örneklerinin sayısını seçin **kaydetmek**.
+5. Tıklayın **ölçeklendirme**, ölçeklendirme ve ardından istediğiniz örnek sayısını seçin **Kaydet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. Azure yığın uygulama hizmeti şimdi ilave VM'ler eklemek, bunları yapılandırmanız, tüm gerekli yazılımları yüklemek ve bu işlem tamamlandıktan sonra bunları hazır olarak işaretlemek. Bu işlem yaklaşık 80 dakika sürebilir.
+6. Azure Stack üzerinde App Service'te şimdi ek VM'ler eklemek, bunları yapılandırmak, tüm gerekli yazılımları yüklemek ve bu işlem tamamlandığında, bunları hazır işaretleyin. Bu işlem yaklaşık 80 dakika sürebilir.
 
-7. Çalışanlar görüntüleyerek yeni rolleri hazırlık ilerlemesini izleyebilirsiniz **rolleri** dikey.
+7. Çalışanlar görüntüleyerek yeni roller hazır olma ilerlemesini izleyebilirsiniz **rolleri** dikey penceresi.
 
 ## <a name="result"></a>Sonuç
 
-Tam olarak dağıtılan ve hazır olduktan sonra çalışan kullanıcılar bunlara kendi iş yükü dağıtmak için kullanılabilir hale gelir. Aşağıdaki varsayılan olarak kullanılabilir birden çok fiyatlandırma katmanlarına örneği gösterir. Kullanılabilir hiçbir çalışanları belirli çalışan katmanı için varsa, karşılık gelen fiyatlandırma katmanını seçmesine izin seçeneği kullanılamaz.
+Tam olarak dağıtıldıktan ve kullanıma hazır olduktan sonra çalışan kullanıcıların bunlara iş yükünü dağıtmak kullanılabilir hale gelir. Aşağıda, varsayılan olarak kullanılabilir birden fazla fiyatlandırma katmanında bir örnek gösterilmektedir. Belirli bir çalışan katmanı için kullanılabilir çalışanlar varsa, karşılık gelen bir fiyatlandırma katmanı seçme seçeneği kullanılamaz.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Management'ı ölçeklendirmek için karşılık gelen rol türü ölçeklendirme ön uç veya yayımcı rolü ekleyin. 
+> Management ölçeklendirmek için karşılık gelen rol türünün Ölçeklendirmesi gerekir ön uç veya yayımcı rolü ekleyin. 
 >
 >
 
-Yönetim, ön uç veya yayımcı rollerini ölçeklendirmek için uygun rol türü seçme aynı adımları izleyin. Denetleyicileri ölçek kümeleri olarak dağıtılmaz ve bu nedenle iki tüm üretim dağıtımları için yükleme zamanında dağıtılmalıdır.
+Yönetim, ön uç veya yayımcı rollerini ölçeklendirmek için uygun rol türü seçme aynı adımları izleyin. Denetleyicileri ölçek kümeleri dağıtılmaz ve bu nedenle iki tüm üretim dağıtımları için yükleme zamanında dağıtılmalıdır.
 
 ### <a name="next-steps"></a>Sonraki adımlar
 

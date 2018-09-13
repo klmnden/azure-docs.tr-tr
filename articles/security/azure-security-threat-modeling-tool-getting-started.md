@@ -1,6 +1,6 @@
 ---
-title: "-Microsoft tehdit modelleme aracı - Azure Başlarken | Microsoft Docs"
-description: "Bu eylem tehdit modelleme aracı vurgulama daha derin bir genel bakıştır."
+title: Çalışmaya başlama - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs
+description: Bu eylem tehdit modelleme aracı vurgulama daha ayrıntılı bir genel bakıştır.
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,132 +14,133 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35648430"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Tehdit modelleme aracı ile çalışmaya başlama
 
-Bulut ve kurumsal güvenlik araçları takım tehdit modelleme aracı Önizleme bu yıl ücretsiz olarak yayımlanan  **[tıklatın indirme](https://aka.ms/tmtpreview)**. Teslim mekanizması değişikliği en son geliştirmeleri ve hata düzeltmeleri müşterilere Bakımı ve kullanımı kolay duruma aracı, her açışlarında itme olanak tanır.
-Bu makalede yaklaşım modelleme Microsoft SDL tehdidin Başlarken sürecinde alır ve aracının güvenlik işleminin omurga olarak harika bir tehdit modeli geliştirmek için nasıl kullanılacağı gösterilmektedir.
+Bulut ve kurumsal güvenlik araçları takım tehdit modelleme aracı Önizleme bu yıl ücretsiz olarak sunulan  **[tıklatın indirme](https://aka.ms/tmtpreview)**. Teslim mekanizması değişiklik müşteriler için en son geliştirmeleri ve hata düzeltmeleri, Bakımı ve kullanımı kolay duruma aracın her açtığınızda anında iletme olanak sağlıyor.
+Bu makalede, Microsoft SDL tehdit modelleme yaklaşımı ile çalışmaya başlama işlemi boyunca size yol gösterir ve aracının güvenlik işleminin temel öğesi olarak harika tehdit modelleri geliştirmek için nasıl kullanılacağını gösterir.
 
-Bu makalede, mevcut bir yaklaşım modelleme SDL tehdit bilgilerini üzerinde oluşturur. Hızlı bir gözden geçirme için başvurmak  **[tehdit modelleme Web uygulamaları](https://msdn.microsoft.com/library/ms978516.aspx)**  ve arşivlenen bir sürümünü  **[ortaya çıkarmaya güvenlik açıkları kullanarak STRIDE yaklaşım](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)**  MSDN makalesine 2006'yayımladı.
+Bu makalede, var olan modelleme yaklaşımı SDL tehdit bilgisi üzerinde oluşturur. Hızlı bir inceleme için başvurmak **[tehdit modelleme Web uygulamaları](https://msdn.microsoft.com/library/ms978516.aspx)** ve arşivlenmiş bir sürümünü **[ortaya çıkarmaya güvenlik açıkları kullanarak adım yaklaşım](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN makalesi, 2006'yayımladı.
 
-Hızlı bir şekilde özetlemek için bir diyagram oluşturma, tehditleri tanımlamak, bunları Azaltıcı ve her azaltma doğrulama yaklaşım içerir. Bu işlem vurgular bir diyagram şöyledir:
+Hızlı bir şekilde özetlemek için bir diyagram oluşturma, tehditleri tanımlama, bunları azaltma ve her risk azaltma doğrulanıyor yaklaşım gerektirir. Bu işlem vurgular bir diyagramda şu şekildedir:
 
 ![SDL işlemi](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
-## <a name="starting-the-threat-modeling-process"></a>İşlem modelleme tehdit başlatılıyor
+## <a name="starting-the-threat-modeling-process"></a>Tehdit modelleme işlemi başlatılıyor
 
-Tehdit modelleme Aracı'nı başlatın, aşağıdaki resimde görüldüğü gibi birkaç şeyi görürsünüz:
+Tehdit modelleme Aracı'nı başlattığınızda resimde görüldüğü gibi birkaç şeyi fark edeceksiniz:
 
-![Boş başlangıç sayfası](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
+![Boş bir başlangıç sayfası](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### <a name="threat-model-section"></a>Tehdit modeli bölümü
 
 | Bileşen                                   | Ayrıntılar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Geri bildirim, öneriler ve sorunları düğmesi** | Sizi götürür  **[MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)**  her şey SDL için. Diğer kullanıcıların, geçici çözümler ve öneriler birlikte gerçekleştirdiği aracılığıyla okumak için bir fırsat sunar. Aradığınızı hala bulamıyorsanız, e-posta tmtextsupport@microsoft.com yardımcı olması destek ekibimiz için                                                                                                                            |
-| **Bir Model oluşturma**                          | Size, diyagram çizmek boş bir tuvalde açar. Modeliniz için kullanmak istediğiniz şablonun seçtiğinizden emin olun                                                                                                                                                                                                                                                                                                                                                                       |
-| **Yeni modelleri için şablonu**                 | Bir modeli oluşturmadan önce kullanılacak şablonunu seçmelisiniz. Azure özel şablonlar, tehditleri ve bunları azaltmanın yollarını içeren Azure tehdit modeli şablonu bizim ana şablonudur. Genel modellerini SDL TM Bilgi Bankası aşağı açılan menüsünden seçin. Kendi şablonunuzu oluşturun veya tüm kullanıcılar için yeni bir tane göndermek istiyorsunuz? Kullanıma bizim  **[şablonu deposu](https://github.com/Microsoft/threat-modeling-templates)**  daha fazla bilgi için GitHub sayfası                              |
-| **Bir Model açın**                            | <p>Açılır tehdit modelleri önceden kaydedilmiş. En son dosyalarınızı açmanız gerekirse harika son açılan modelleri özelliğidir. Seçimin üzerine geldiğinizde, modelleri açma 2 yolları bulabilirsiniz:</p><p><ul><li>Açık bu bilgisayardan – yerel depolama kullanarak bir dosyayı açma Klasik yolu</li><li>Açık OneDrive üzerinden –, kaydedin ve tüm tehdit modellerini üretkenliği ve işbirliği artırmaya yardımcı olmak için tek bir konumda paylaşmak için OneDrive klasörlerde takımlar kullanabilirsiniz</li></ul></p> |
-| **Başlarken Kılavuzu**                   | Açılır  **[Microsoft tehdit modelleme aracı](./azure-security-threat-modeling-tool.md)**  ana sayfası                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Geribildirim, öneri ve sorunları düğmesi** | Sizi **[MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)** ilgili SDL her şey. Diğer kullanıcıların, geçici çözümlere ve öneriler birlikte yaptığı aracılığıyla okumak için bir fırsat sunar. Aradığınızı hala bulamıyorsanız, e-posta tmtextsupport@microsoft.com yardımcı olması destek ekibimize için                                                                                                                            |
+| **Model oluşturma**                          | Diyagram çizmek boş bir tuval açılır. Modeliniz için kullanmak istediğiniz şablonun seçtiğinizden emin olun                                                                                                                                                                                                                                                                                                                                                                       |
+| **Yeni modeller için şablon**                 | Bir modeli oluşturmadan önce kullanılacak şablonunu seçmelisiniz. Azure'a özel şablonlar, tehditleri ve risk azaltma işlemleri içeren Azure tehdit modeli şablonu, bizim ana şablonudur. Genel modelleri için SDL TM Bilgi Bankası aşağı açılan menüden seçim yapın. Kendi şablonunuzu oluşturun veya tüm kullanıcılar için yeni bir tane göndermek mi istiyorsunuz? Kullanıma sunduğumuz **[şablon deposu](https://github.com/Microsoft/threat-modeling-templates)** daha fazla bilgi için GitHub sayfası                              |
+| **Model açma**                            | <p>Açılır, tehdit modelleri daha önce kaydedildi. En son dosyaları açmak gerekirse harika son açılan modelleri özelliğidir. Seçimin üzerine geldiğinizde, modelleri açmak için 2 yolu bulabilirsiniz:</p><p><ul><li>Açık bu bilgisayardan-yerel depolamayı kullanarak bir dosyayı açma Klasik yolu</li><li>Açık Onedrive'dan –, kaydetme ve paylaşma üretkenliği ve işbirliğini artırmak için tek bir konumda, tüm tehdit modelleri için OneDrive klasörlerinde takımlar kullanabilir</li></ul></p> |
+| **Başlangıç Kılavuzu**                   | Açılır **[Microsoft tehdit modelleme aracı](./azure-security-threat-modeling-tool.md)** ana sayfası                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ### <a name="template-section"></a>Şablon bölümü
 
 | Bileşen               | Ayrıntılar                                                                                                                                                          |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Yeni şablon oluşturun** | Oluşturmanızı boş bir şablon açar. Sıfırdan şablonları oluşturmanın kapsamlı bilgi olmadığı sürece, mevcut olanlardan oluşturmanızı öneririz |
-| **Şablonunu Aç**       | Şablonlar, değişiklikler yapmak var olan açar                                                                                                              |
+| **Yeni şablon oluşturma** | Boş bir şablon oluşturmak size açılır. Şablonları sıfırdan oluşturmanın kapsamlı bilgi yoksa, mevcut olanlardan oluşturmanızı öneririz |
+| **Açık şablon**       | Değişiklik yapmak şablonlar varolan açar                                                                                                              |
 
-Tehdit modelleme araç takımı, aracı işlevselliğini geliştirmek ve denemek için sürekli çalışmaktadır. Birkaç küçük değişiklikler yıl boyunca gerçekleşmesi, ancak yeniden yazdırmaya Kılavuzu'ndaki tüm önemli değişiklikler gerektirir. Genellikle son Duyurular alma emin olmak için bakın.
+Tehdit modelleme aracı ekibi, deneyimi ve araç işlevselliğini geliştirmek için sürekli çalışmaktadır. Birkaç küçük değişiklikler, yıl boyunca yer alabilir, ancak yeniden Kılavuzu'ndaki tüm önemli değişiklikler gerektirir. Genellikle, en yeni Duyurular alın emin olmak için başvurun.
 
 ## <a name="building-a-model"></a>Bir model oluşturma
 
 Bu bölümde, biz izleyin:
 
-- Cristina (Geliştirici)
-- Attila (program Yöneticisi) ve
-- (Bir tester) olan Ashish
+- Cristina (Geliştirme)
+- Ricardo (program Yöneticisi) ve
+- Olan Ashish (test edici)
 
-Bunlar ilk kendi tehdit modeli geliştirmek sürecinde adımıdır.
+Bunlar, ilk tehdit modeli geliştirme sürecinde oluşturacaksınız.
 
-> Attila: Merhaba Cristina, tehdit modeli diyagramı çalışılan ve emin olmak için istedik biz ayrıntıları sağ aldı. Beni Ara onu yardımcı olabilir?
-> Cristina: kesinlikle. Bir göz atalım.
-> Attila aracı açılır ve kendi ekran Cristina ile paylaşır.
+> Ricardo: Merhaba Cristina, tehdit modeli diyagram üzerinde çalıştım ve sana haber vermek istedik ayrıntıları sağ aldık. Bana kuruluşumuzun da yardımcı olabilir?
+> Cristina: kesinlikle. Şimdi bir göz atalım.
+> Ricardo aracı açılır ve Cristina ile kendi ekranını paylaşır.
 
-![Temel tehdit modeli](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
+![Temel bir tehdit modeli](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-> Cristina: Tamam, sonucunun görünüyor, ancak, bana üzerinden yol?
-> Attila: emin! Çözümleme şöyledir:
-> - Bizim insan kullanıcı dışında bir varlık olarak çizilir — kare
-> - Bizim Web sunucusuna komutları gönderiyorsanız — daire
-> - Web sunucusu (iki paralel satırları) veritabanı danışmanlık
+> Cristina: Tamam, doğrudan görünüyor ancak, bana üzerinden inceleyebileceğiniz?
+> Ricardo: emin! Dökümü aşağıda verilmiştir:
+> - İnsan kullanıcı Dış varlık olarak çizilir; bir kare
+> - Web Sunucumuz komutları gönderiyorsanız — daire
+> - Web sunucusu, bir veritabanı (paralel satırlarını) danışmanlığı
 
-Ne Attila Cristina yalnızca gösterdi DFD, kısaltması olan  **[veri akış diyagramı](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Tehdit modelleme aracı kullanıcıların kırmızı noktalı farklı varlıkları denetiminde nerede göstermek için satırlar tarafından belirtilen güven sınırları belirtmesine izin verir. Örneğin, Active Directory kendi denetimi dışında olacak şekilde BT yöneticilerinin kimlik doğrulama amacıyla bir Active Directory sistemi gerektirir.
+Hangi Ricardo Cristina yalnızca gösterdi VAD, kısaltması olduğundan  **[veri akış diyagramı](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Tehdit modelleme aracı kırmızı noktalı farklı varlıklar denetiminde nerede göstermek için satırlar tarafından belirtilen güven sınırları belirtme olanağı sağlar. Örneğin, Active Directory denetimi dışında bu nedenle BT yöneticilerinin kimlik doğrulama amacıyla bir Active Directory sistemi gerektirir.
 
-> Cristina: benim için en uygun arar. Tehditler hakkında neler?
-> Attila: bana, Göster olanak tanır.
+> Cristina: benim için en uygun arar. Tehditler hakkında neler diyeceksiniz?
+> Ricardo: size göstermek istiyorum.
 
-## <a name="analyzing-threats"></a>Tehditler analiz etme
+## <a name="analyzing-threats"></a>Tehditleri çözümleme
 
-Adlı SDL yaklaşım kullanan simgesi menü seçimi (varsayılan şablona göre oluşturulan tehditleri tehdit modelleme bulunan aracı listesine alınır kendisinin dosyasıyla Büyüteç), analiz görünümünden üzerinde tıklatır sonra  **[ STRIDE (, oynama, bilgi açıklama, hizmet reddi ve ayrıcalıkların kimlik sahtekarlığı)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Yazılım bu 6 kategorileri kullanarak bulunabilir tehditleri tahmin edilebilir bir kümesi altında geldiğini olur.
+Adlandırılan SDL yaklaşım kullanan simgesi menü seçimini (kendisi için varsayılan şablonu temel alan bir listesi oluşturulan tehditleri tehdit modelleme aracı bulunamadı alınır dosyasıyla Büyüteç) analiz görünümünden tıklatır sonra  **[ (Kimlik sahtekarlığı, kurcalama, bilgi İfşası, Red, hizmet reddi ve ayrıcalıkların) STRIDE](https://en.wikipedia.org/wiki/STRIDE_(security))**. Yazılım tahmin edilebilir bir 6 kategorilerine kullanarak bulunan tehditleri kümesi altında geldiğini olur.
 
-Her kapı ve pencere sağlayarak evinizde güvenliğini sağlama kilitleme mekanizması bir alarm sistemi ekleme ya da sonra hırsız birleştirme önce olduğu gibi bu yaklaşımdır.
+Bu yaklaşım, her kapı ve pencere sağlayarak evinizde güvenli hale getirme kilitleme mekanizması bir alarm sistemi ekleme veya arama sonra hırsız önce var gibidir.
 
-![Temel tehditleri](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
+![Temel tehditler](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
-Listesindeki ilk öğeyi seçerek Attila başlar. Şunlar olur:
+Listedeki ilk öğeyi seçerek Ricardo başlar. Şunlar olur:
 
 İlk olarak, iki şablonlar arasındaki etkileşimi geliştirilmiştir
 
-![Etkileşim](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
+![Etkileşimi](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
-İkinci, ek bilgiler tehdit hakkında tehdit Özellikleri penceresinde görüntülenir
+Tehdit hakkında ikinci, ek bilgi tehdit Özellikler penceresinde görünür.
 
-![Etkileşim bilgisi](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
+![Etkileşim bilgileri](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
-Oluşturulan tehdit ona olası tasarım açıkları anlamanıza yardımcı olur. Ek açıklama onu tam olarak ne yanı sıra olası yolları bunu azaltmak için yanlış olduğunu söyler sırada STRIDE kategori ona olası saldırı vektörlerinin hakkında bir fikir verir. Düzeltme ayrıntıları notları yazmak veya öncelik kuruluşunun hata çubuğu bağlı olarak derecelendirmeleri değiştirmek için kendisine düzenlenebilir alanları kullanabilirsiniz.
+Oluşturulan tehdit ona olası tasarım fabrikadan anlamanıza yardımcı olur. Ek açıklama ona tam olarak bunu azaltmak için olası yollarla birlikte nerede olduğunu söyler. sırada STRIDE kategori ona olası saldırı vektörlerinin hakkında bir fikir sunar. Gerekçe ayrıntıları notları yazmak veya kuruluşunun hata çubuğu bağlı olarak öncelik derecelendirmeleri değiştirmek için o düzenlenebilir alanları kullanabilirsiniz.
 
-Azure şablonları yalnızca sorunun ne olduğunu, ancak ayrıca Azure özgü belgeleri açıklamaları, örnekler ve köprüleri ekleyerek gidermeye yönelik anlamalarına yardımcı olmak için ek ayrıntılar vardır.
+Azure şablonları, kullanıcıların yalnızca sorun nedir, aynı zamanda Azure özgü belgelere açıklamaları, örnekleri ve köprüler ekleyerek bu sorunun nasıl anlamalarına yardımcı olmak için ek ayrıntılar sahiptir.
 
-Açıklama yapılan ona sahte kullanıcıların önlemek için bir kimlik doğrulama mekanizması ekleme önemini fark üzerinde çalışılacak ilk tehdit ortaya. Birkaç dakika ile Cristina, tartışma içine bunlar erişim denetimi ve rolleri uygulama önemini anladım. Attila bu uygulanan emin olmak için bazı hızlı notlar doldurulur.
+Açıklama yapılan ona sahte kullanıcıların önlemek için bir kimlik doğrulama mekanizması ekleme önemini fark üzerinde çalışılması gereken ilk tehdit açıklayacak. Birkaç dakika ile Cristina, tartışma içine, uygulama erişimi ve rolleri önemini anladım. Ricardo bunlar uygulandığına emin olmak için bazı hızlı notları doldurulur.
 
-Bilgilerin açığa çıkmasına altında tehditleri içine Attila oluştu olarak kendisine erişim denetimi planı bazı salt okunur hesapları denetleme ve rapor oluşturma için gerekli gerçekleşmiş. Ki bu yeni bir tehdit olmalıdır, ancak kendisine tehdit uygun şekilde belirtildiği şekilde Azaltıcı aynı olan olup olmadığını hiç merak ettiniz.
-Kendisi ayrıca bilgilerin açığa çıkmasına biraz daha zorlayıcı ve yedekleme bantlarını şifrelemesi, işletim ekibi için bir işi gerek giderek gerçekleşmiş.
+Bilgilerin açığa çıkması altında tehditleri içine Ricardo oluştu gibi kendisine erişim denetimi planı denetim ve rapor oluşturma için gerekli bazı salt okunur hesapları gerçekleşmiş. He bu yeni tehdit olmalıdır, ancak kendisine uygun şekilde tehdit belirtildiği şekilde azaltmaları aynı olan olup olmadığını hiç merak ettiniz.
+Kendisi ayrıca hakkında bilgilerin açığa çıkması biraz daha düşündük ve yedekleme bantlarının şifreleme, operasyon ekibinin iş gerek giderek gerçekleşmiş.
 
-Tehditler tasarım varolan Azaltıcı Etkenler ya da güvenlik nedeniyle geçerli değil durumu açılan listeden garanti "İçin geçerli değil" olarak değiştirilebilir. Diğer üç seçenek vardır: başlamadı – varsayılan seçim, araştırma – gerekiyor tam olarak üzerinde çalıştığı bir kez öğeleri ve Mitigated – takip etmek için kullanılır.
+Tehditleri tasarımı mevcut bir risk azaltma işlemleri ya da güvenlik nedeniyle uygulanamaz durumu açılan listeden garanti "Uygulanamaz" değiştirilebilir. Üç seçeneğiniz vardır: başlamadı – varsayılan seçimi, araştırma gerekir – tam olarak üzerinde çalıştığı sonra öğeleri ve Mitigated – izlemek için kullanılan.
 
-## <a name="reports--sharing"></a>Raporlar ve paylaşma
+## <a name="reports--sharing"></a>Rapor & Paylaşımı
 
-Attila Cristina listesiyle geçer ve önemli notlar, Azaltıcı Etkenler/justifications, öncelik ve durum değişikliklerini ekler sonra he seçer raporlar tam raporu -> arkadaşlarınızla geçtikleri kendisine için iyi bir raporu yazdırır Kaydet Rapor Oluştur ->. uygun güvenlik çalışmasını sağlamak için uygulanır.
+Ricardo Cristina listesiyle geçer ve önemli notlar, risk azaltma işlemleri/Gerekçeleri, öncelik ve durum değişikliklerini ekler. sonra he seçer raporlar oluşturma tam raporu iş arkadaşlarınızla geçtikleri kendisine için kullanışlı bir raporda dışarı yazdırır Kaydet rapor -> ->. uygun güvenlik iş emin olmak için uygulanır.
 
-![Etkileşim bilgisi](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
+![Etkileşim bilgileri](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
-Bunun yerine dosya paylaşımı Attila istiyorsa, kendisinin kolayca kuruluşunun OneDrive hesabınıza kaydederek bunu yapabilirsiniz. Kendisine yapan sonra kendisi belgeyi bağlantıyı Kopyala ve kendi iş arkadaşlarınızla paylaşın. 
+Ricardo dosyayı yerine paylaşmak isterse, kendisinin kolayca kuruluşunun OneDrive hesabınıza kaydederek bunu yapabilirsiniz. Gerçekleştirir Müşterinizle sonra o belge bağlantıya Kopyala ve arkadaşları ile paylaşma. 
 
-## <a name="threat-modeling-meetings"></a>Tehdit modelleme toplantılar
+## <a name="threat-modeling-meetings"></a>Tehdit modelleme toplantıları
 
-Attila OneDrive, Ashish, Sınayıcısı'nı kullanarak kendi iş arkadaşı kendi tehdit modeli gönderildiğinde underwhelmed. Atlanan kolayca tehlikeye girebilir oldukça birkaç önemli köşe durumlarda Attila ve Cristina gibi seemed. Kendi skepticism tehdit modelleri tamamlayan ' dir.
+Ricardo OneDrive, Ashish Sınayıcısı'nı kullanarak iş arkadaşı için kendi tehdit modeli gönderildiğinde, underwhelmed. Gibi kolayca tehlikeye girebilir oldukça önemli köşe durumlarda, atlanan Ricardo ve Cristina olduğu görülüyor. Bu stratejiyle tamamlayan bir tehdit modelleri ' dir.
 
-Tehdit modeli Ashish sürdü sonra bu senaryoda, kendisinin iki tehdit modelleme toplantılar için çağrılır: üzerinde işlem eşitlemek ve diyagramları yol için bir toplantı ve tehdit için ikinci bir toplantı gözden geçirin ve oturumu kapatma.
+Ashish tehdit modeli geçen sonra bu senaryoda, he iki tehdit modelleme toplantılar için çağrılır: işlemi eşitlemek ve diyagramları yol için bir toplantı sonra ikinci bir toplantı tehdit için gözden geçirin ve kabul.
 
-İlk toplantıya Ashish herkes işlem modelleme SDL tehdit aracılığıyla taramasını 10 dakika harcanan. Kendisi bu tehdit modeli diyagram çekilen ve ayrıntılı olarak açıklayan başlatıldı. Beş dakika içinde önemli bir bileşen eksik tanımlanmış.
+İlk toplantıda Ashish 10 dakika işlem modelleme SDL tehdit üzerinden herkese walking ayırıyor. Kendisi bu tehdit modeli diyagram çekilir ve ayrıntılı olarak açıklayan başlatıldı. Beş dakika içinde önemli eksik bir bileşen tanımlanmış.
 
-Birkaç dakika daha sonra Ashish ve Attila Web sunucusuna nasıl oluşturulmuş bir genişletilmiş tartışma aldı. Devam etmek bir toplantı için ideal yöntem değil, ancak herkes sonunda bunları gelecekte zaman tutarsızlık erken keşfetme yüklemesiyle kabul ediyorum.
+Birkaç dakika daha sonra Ashish ve Ricardo Web sunucusuna nasıl oluşturulmuş bir genişletilmiş tartışma alındı. İdeal bir şekilde devam etmek bir toplantı için değil, ancak bunları gelecekte zaman tutarsızlık erken keşfetme yüklemesiyle herkesin sonunda kabul.
 
-İkinci toplantı takım tehditleri gitti, bunları ele almak için bazı yollar ele alınan ve tehdit model üzerinde imzalı devre dışı. Bunlar, belge kaynak denetimine iade ve geliştirmeye devam etti.
+İkinci toplantı, takım tehditlerine öğrendiniz, onları adreslemek için bazı yollar ele alınan ve tehdit modeli üzerinde arındırıldıktan. Bunlar belge kaynak denetimine iade ve geliştirme ile devam eder.
 
 ## <a name="thinking-about-assets"></a>Varlıkları hakkında düşünmeye
 
-Modellenen tehdit olan bazı okuyucular, biz varlıkları hakkında bilgileri hiç açıklandı henüz olduğunu fark edebilirsiniz. Biz, birçok yazılım mühendisleri yazılımlarını varlıklar kavramı anlamaları ve hangi varlıkları saldırgan ilginizi çekebilir çok daha iyi anlamak keşfettiniz.
+Modellenmiş tehdit sahip bazı okuyucuların varlıkları hakkında hiç konuştuk henüz olduğunu fark edebilirsiniz. Birçok yazılım mühendisleri yazılımlarını bunlar varlıklar kavramı anlamak ve hangi varlıkları bir saldırganın ilginizi çekebilir daha iyi anlamak keşfettiğinize göre.
 
-Bir ev tehdit modeli için kullanacaksanız, aile, yerine yenisi konulamayacak fotoğraf ya da değerli çizim hakkında düşünerek başlayabilir. Belki de göz önünde bulundurulması kimin kesilebilir ve geçerli bir güvenlik sistemi tarafından başlayabilir. Veya havuza veya ön porch gibi fiziksel özellikleri dikkate alarak başlayabilir. Bunlar, varlıklar, saldırganlar veya yazılım tasarımı düşünmek için benzer. Bu üç yaklaşımlardan birini çalışır.
+Bir ev tehdit modeli kullanacaksanız, tarafından ailesi, yerine yenisi konulamayacak fotoğraf ya da değerli çizim hakkında düşünmeye başlayabilir. Belki de tarafından kimin bozulabilir ve geçerli güvenlik sistemi hakkında düşünmeye başlayabilir. Veya havuzu veya ön porch gibi fiziksel özelliklerini dikkate alarak başlayabilir. Bu varlıklar, saldırganlar veya yazılım tasarımı hakkında düşünmeye benzer. Bu üç yaklaşımlardan herhangi bir iş.
 
-İş parçacığı biz Burada sunulan modelleme ne Microsoft geçmişte daha önemli ölçüde daha basit yaklaşımdır. Yazılım tasarım yaklaşımı birçok ekipler için iyi çalışır bulduk. Sizinki içeren umuyoruz.
+Biz Burada sunulan modelleme tehdit ne Microsoft geçmişte yapmış daha önemli ölçüde daha basit yaklaşımdır. Yazılım tasarımı yaklaşımı birçok takım için düzgün çalıştığını bulduk. Sizinki içeren umuyoruz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Sorularınızı, açıklamalar ve sorunları için Gönder tmtextsupport@microsoft.com. **[Karşıdan](https://aka.ms/tmtpreview)**  başlamak için tehdit modelleme aracı.
+Soru, yorum ve konuları tmtextsupport@microsoft.com. **[İndirme](https://aka.ms/tmtpreview)**  kullanmaya başlamak için tehdit modelleme aracı.

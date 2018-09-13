@@ -1,6 +1,6 @@
 ---
-title: İşlerini ve işlem düğümlerinde - Azure Batch tam işleri hazırlamak için Görevler oluşturun | Microsoft Docs
-description: Azure toplu işlem düğümleri için veri aktarımını en aza indirmek için iş düzeyinde hazırlama görevleri kullanın ve iş tamamlanma düğümü temizleme görevleri bırakın.
+title: İşler ve işlem düğümlerinde - Azure Batch tam işlerini hazırlamak için görevler oluştur | Microsoft Docs
+description: Azure Batch işlem düğümleri için veri aktarımını en aza indirmek için proje düzeyinde hazırlama görevleri kullanın ve sürüm görevleriniz düğümün temizleme iş tamamlanma için.
 services: batch
 documentationcenter: .net
 author: dlepow
@@ -15,71 +15,71 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 543c03c22b31389c3d6e048cc9f13c24add5aae7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: da69cc22fbb071ce3fa4b2c53aaf0b1ec4ba5e46
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314730"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35982055"
 ---
-# <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>İş hazırlama ve iş sürüm görevleri toplu işlem düğümleri
+# <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>İş hazırlama ve iş sürüm görevleri batch işlem düğümleri
 
- Bir Azure toplu işlem, genellikle görevlerinin yürütülür ve Bakım görevlerinin tamamlandığında sonrası iş önce kurulum çeşit gerektirir. Ortak görev giriş verileri, işlem düğümlerinizi indirme veya işi tamamlandıktan sonra görev çıktı verileri Azure depolama alanına yükleme gerekebilir. Kullanabileceğiniz **iş hazırlama** ve **iş yayın** bu işlemleri gerçekleştirmek için görevler.
+ Azure Batch işi, genellikle görevlerinin yürütülür ve Bakım görevlerinin tamamlandığında sonrası iş önce kurulum çeşit gerektirir. İşlem düğümleri için yaygın görev giriş verilerini indirin veya iş tamamlandıktan sonra görev çıktı verilerini Azure Depolama'ya yüklemek gerekebilir. Kullanabileceğiniz **iş hazırlama** ve **iş yayın** bu işlemleri gerçekleştirmek için görevler.
 
-## <a name="what-are-job-preparation-and-release-tasks"></a>Hangi iş hazırlama ve görevleri?
-Bir iş görevlerinin çalıştırmadan önce en az bir görev çalıştırmak için zamanlanan tüm işlem düğümlerinde iş hazırlama görevini çalıştırır. İş tamamlandığında iş bırakma görevi havuzun en az bir görev yürütmüş her düğümünde çalıştırılır. Normal toplu görevler gibi bir iş hazırlık veya yayın görevi çalıştırıldığında çağrılacak komut satırını belirtebilirsiniz.
+## <a name="what-are-job-preparation-and-release-tasks"></a>Hangi iş hazırlama ve sürüm görevleriniz mı?
+Bir işteki görevleri çalıştırmadan önce en az bir görevi çalıştırmak için zamanlanan tüm işlem düğümlerinde iş hazırlama görevini çalıştırır. İş tamamlandığında iş bırakma görevi havuzun en az bir görev yürütmüş her düğümünde çalışır. Normal Batch görevleriniz olduğu gibi iş hazırlama veya sürüm görevi çalıştırıldığında çağrılacak komut satırını belirtebilirsiniz.
 
-İş hazırlama ve bırakma görevleri dosya indirme gibi bilinen toplu görev özellikler sunar ([kaynak dosyaları][net_job_prep_resourcefiles]), yükseltilmiş yürütme, özel ortam değişkenleri, maksimum yürütme süresi, yeniden deneme sayısı ve dosyayı elde tutma süresi.
+İş hazırlama ve bırakma görevleri, dosya indirme gibi tanıdık Batch görev özellikler sunar ([kaynak dosyaları][net_job_prep_resourcefiles]), yükseltilmiş yürütme, özel ortam değişkenleri, en uzun yürütme süresi, yeniden deneme sayısı ve dosyayı elde tutma süresi.
 
-Aşağıdaki bölümlerde, nasıl kullanılacağını öğreneceksiniz [JobPreparationTask] [ net_job_prep] ve [JobReleaseTask] [ net_job_release] sınıfları bulundu [Batch .NET] [ api_net] kitaplığı.
+Aşağıdaki bölümlerde, nasıl kullanılacağını öğreneceksiniz [JobPreparationTask] [ net_job_prep] ve [JobReleaseTask] [ net_job_release] sınıfları içindebulunamadı[ Batch .NET] [ api_net] kitaplığı.
 
 > [!TIP]
-> İş hazırlama ve bırakma görevleri "havuzu paylaşılan" ortamlarda, işlem düğümleri havuzu iş çalıştırmaları arasında devam ederse ve birçok iş tarafından kullanılan özellikle yararlı olur.
+> İş hazırlama ve bırakma görevleri, işlem düğümleri havuzu iş çalıştırmaları arasında devam ediyorsa ve birçok iş tarafından kullanılan "havuzu paylaşılan" ortamlarda, özellikle yararlı olur.
 > 
 > 
 
-## <a name="when-to-use-job-preparation-and-release-tasks"></a>İş hazırlama kullanın ve görevleri yayın zamanı
-İş hazırlama ve iş sürüm görevleri aşağıdaki durumlar için iyi bir tercihtir şunlardır:
+## <a name="when-to-use-job-preparation-and-release-tasks"></a>İş hazırlama ve sürüm görevleriniz ne zaman
+Aşağıdaki durumlarda uygun iş hazırlama ve iş sürüm görevleri şunlardır:
 
-**Ortak görev verileri indirin**
+**Genel görev verileri indirme**
 
-Toplu veri ortak bir dizi iş görevleri için giriş olarak genellikle gerektirir. Örneğin, günlük risk analizi hesaplamalarda Pazar veri işi özgü, işteki tüm görevlerin henüz ortak. Bu Pazar veriler, genellikle birkaç gigabayt cinsinden boyutu, düğüm üzerinde çalışan herhangi bir görev kullanabilmesi için her işlem düğümü yalnızca bir kez indirilmelidir. Kullanım bir **iş hazırlama görevi** işinin yürütülmesi diğer görevleri kullanıcının önce bu verileri her düğüme karşıdan yüklemek için.
+Toplu işleri genellikle iş görevlerinin için giriş olarak ortak bir veri kümesini gerektirir. Örneğin, günlük risk analizi hesaplamalarda verilerini işe özgü, işteki tüm görevler için ortak henüz. Bu verilerini, genellikle birkaç gigabayt boyutunda düğüm üzerinde çalışan herhangi bir görev kullanabilmesi için her bir işlem düğümünde yalnızca bir kez indirilmelidir. Kullanım bir **iş hazırlama görevi** işinin yürütülmesi diğer görevleri kullanıcının önce her düğüm için bu verileri indirmek için.
 
-**İş ve Görev çıkış Sil**
+**İş ve görev çıktılarını Sil**
 
-Burada bir havuzun işlem düğümleri işleri arasında yetkisi olmayan, bir "havuzu paylaşılan" ortamında çalıştırmaları arasında iş veri silmeniz gerekebilir. Düğümlerde disk alanından tasarruf etmek ya da kuruluşunuzun güvenlik ilkelerine uygun gerekebilir. Kullanım bir **iş bırakma görevi** iş hazırlama görevi tarafından indirilen veya görev yürütme sırasında oluşturulan verilerini silmek için.
+Bir havuzun işlem düğümleri arasında işleri yetkisi olmadığı, bir "havuzu paylaşılan" ortamında çalıştırma arasında iş verilerini silmeniz gerekebilir. Düğümler üzerinde disk alanından tasarruf etmek ya da kuruluşunuzun güvenlik ilkelerine uygun gerekebilir. Kullanım bir **iş bırakma görevi** , iş hazırlama görevi tarafından indirilen veya oluşturulan görev yürütme sırasında verilerini silmek için.
 
 **Günlük tutma**
 
-Görevlerinizin oluşturduğu günlük dosyalarının bir kopyasını saklamak veya belki de başarısız uygulamalar tarafından üretilen döküm dosyalarını çökme isteyebilirsiniz. Kullanım bir **iş bırakma görevi** sıkıştırır ve bu verileri karşıya yüklemek için bu gibi durumlarda bir [Azure Storage] [ azure_storage] hesabı.
+Görevlerinizin oluşturduğu günlük dosyalarının bir kopyasını tutmak veya belki de başarısız uygulamalar tarafından oluşturulmuş döküm dosyalarını kilitlenme isteyebilirsiniz. Kullanım bir **iş bırakma görevi** sıkıştırma ve bu verileri karşıya yüklemek için bu gibi durumlarda bir [Azure depolama] [ azure_storage] hesabı.
 
 > [!TIP]
-> Günlükleri ve diğer iş ve görev devam etmek için başka bir yol çıkış veri kullanmak için [Azure toplu işlem dosyası kuralları](batch-task-output.md) kitaplığı.
+> Günlükleri ve diğer iş ve görev kalıcı hale getirmek için başka bir şekilde çıkış veri olarak kullanmak için [Azure Batch dosya kuralları](batch-task-output.md) kitaplığı.
 > 
 > 
 
 ## <a name="job-preparation-task"></a>İş hazırlama görevi
-Bir iş görevlerinin çalışmaya başlamadan önce toplu bir görevi çalıştırmak için zamanlanan her işlem düğümü üzerinde iş hazırlama görevi yürütür. Varsayılan olarak, Batch hizmeti düğüm üzerinde yürütmek için zamanlanmış görevler çalıştırmadan önce tamamlanması gereken iş hazırlama görevi bekler. Ancak, beklememek hizmetini yapılandırabilirsiniz. Düğümü yeniden başlatılırsa, iş hazırlama görevi yeniden çalışır, ancak aynı zamanda bu davranışı devre dışı bırakabilirsiniz.
+İş görevlerinin yürütülmesini önce toplu iş hazırlama görevi bir görev çalışacak şekilde zamanlanmış her işlem düğümünde yürütür. Varsayılan olarak, Batch hizmeti iş hazırlama görevi bir düğümde yürütülmek için zamanlandığı görevleri çalıştırmadan önce tamamlanması için bekler. Ancak, beklememeyi hizmeti yapılandırabilirsiniz. Düğümü yeniden başlatılırsa, iş hazırlama görevi tekrar çalışır, ancak aynı zamanda bu davranışı devre dışı bırakabilirsiniz.
 
-İş hazırlama görevi görevi çalıştırmak için zamanlanan düğümlerinde yürütülür. Bir düğüm görev atanmamış durumunda bu hazırlık görevi gereksiz yürütme önler. Bir iş için görevleri sayısı bir havuzdaki düğümlerin sayısından daha az olduğunda bu durum oluşabilir. Ne zaman da uygulanır [eşzamanlı görev yürütme](batch-parallel-node-tasks.md) olduğu etkin görev sayısı, bazı düğümler boşta IF bırakır toplam olası eş zamanlı görevleri düşüktür. İş hazırlama görevi boşta düğümlerinde çalıştırarak değil, veri aktarımı ücretlerine üzerinde daha az para harcamanız.
+İş hazırlama görevi, bir görevi çalıştırmak için zamanlanan düğümlerinde yürütülür. Bir düğüm göreve atanmaz durumunda bu hazırlık görevi gereksiz yürütülmesini engeller. Bir iş için görevleri sayısı bir havuzdaki düğümlerin sayısından daha az olduğunda bu durum oluşabilir. Ne zaman da geçerlidir [eşzamanlı görev yürütme](batch-parallel-node-tasks.md) olan etkin görev sayısı bazı düğümler boşta if bırakan toplam olası eş zamanlı görevleri düşüktür. İş hazırlama görevi boşta düğüm üzerinde çalıştırarak değil, veri aktarım ücretleri üzerinde daha az para harcamanız.
 
 > [!NOTE]
-> [JobPreparationTask] [ net_job_prep_cloudjob] farklıdır [CloudPool.StartTask] [ pool_starttask] JobPreparationTask ancak her bir iş başlangıcında yürütür, StartTask yalnızca zaman bir işlem düğümünde önce bir havuz birleştirir yürütür veya yeniden başlatır.
+> [JobPreparationTask] [ net_job_prep_cloudjob] farklıdır [CloudPool.StartTask] [ pool_starttask] ise her bir iş başında JobPreparationTask yürütür, StartTask yalnızca ne zaman bir işlem düğümünde önce bir havuza katıldığında yürütür veya yeniden başlatır.
 > 
 > 
 
 ## <a name="job-release-task"></a>İş bırakma görevi
-Bir işi tamamlandı olarak işaretlendikten sonra iş bırakma görevi havuzun en az bir görev yürütmüş her düğümünde çalıştırılır. Bir iş, bir sonlandırma isteği vererek tamamlanan olarak işaretleyin. Batch hizmeti sonra iş durumu ayarlar *sonlandırma*işle ilişkili etkin ya da çalışan görevleri sonlandırır ve iş bırakma görevini çalıştırır. İş sonra taşır *tamamlandı* durumu.
+Bir işin tamamlandı olarak işaretlendikten sonra iş bırakma görevi havuzun en az bir görev yürütmüş her düğümünde çalıştırılır. Bir iş, bir sonlandırma isteği göndererek tamamlandı olarak işaretleyin. Batch hizmeti daha sonra iş durumu ayarlar *sonlandırma*işle ilişkili etkin ya da çalışmayan görevler sonlandırır ve iş bırakma görevini çalıştırır. Taşınır ardından işi *tamamlandı* durumu.
 
 > [!NOTE]
-> İş silme ayrıca iş bırakma görevi yürütür. Bir iş zaten sona erdi, işi daha sonra silinirse, ancak sürüm görev ikinci kez çalıştırılmaz.
+> Proje silme, ayrıca iş bırakma görevi yürütür. Bir iş zaten sona erdi, işi daha sonra silinirse, ancak bırakma görevi ikinci kez çalıştırılmaz.
 > 
 > 
 
-## <a name="job-prep-and-release-tasks-with-batch-net"></a>Hazırlığı işi ve görevleri Batch .NET ile bırakın
-İş hazırlama görevi kullanmak için Ata bir [JobPreparationTask] [ net_job_prep] , iş nesnesine [CloudJob.JobPreparationTask] [ net_job_prep_cloudjob] özelliği. Benzer şekilde, başlatma bir [JobReleaseTask] [ net_job_release] ve, işin atayın [CloudJob.JobReleaseTask] [ net_job_prep_cloudjob] iş bırakma görevi ayarlamak için özellik.
+## <a name="job-prep-and-release-tasks-with-batch-net"></a>İş hazırlığı ve görevleri Batch .NET ile yayın
+İş hazırlama görevi kullanmak için Ata bir [JobPreparationTask] [ net_job_prep] işinizin nesnesine [CloudJob.JobPreparationTask] [ net_job_prep_cloudjob] özelliği. Benzer şekilde, başlatmak bir [JobReleaseTask] [ net_job_release] ve işinizin için atama [CloudJob.JobReleaseTask] [ net_job_prep_cloudjob] işin ayarlamak için özellik bırakma görevi.
 
-Bu kod parçacığında bulunan `myBatchClient` örneği [BatchClient][net_batch_client], ve `myPool` toplu işlem hesabı içinde varolan bir havuzu.
+Bu kod parçacığında `myBatchClient` örneğidir [BatchClient][net_batch_client], ve `myPool` Batch hesabında var olan bir havuzu.
 
 ```csharp
 // Create the CloudJob for CloudPool "myPool"
@@ -105,7 +105,7 @@ myJob.JobReleaseTask =
 await myJob.CommitAsync();
 ```
 
-Bir işi sona erdi veya silindiğinde daha önce belirtildiği gibi bırakma görevi yürütülür. Bir işin sonlandırmak [JobOperations.TerminateJobAsync][net_job_terminate]. Bir işin silme [JobOperations.DeleteJobAsync][net_job_delete]. Genellikle sonlandırma veya bir iş görevlerinin tamamlandığında veya tanımladığınız bir zaman aşımı erişildiğinde silin.
+Bir işi sona erdi ya da silindiğinde bırakma görevi daha önce bahsedildiği gibi yürütülür. İle bir işlemi sonlandırmak [JobOperations.TerminateJobAsync][net_job_terminate]. Bir işi şununla silin [JobOperations.DeleteJobAsync][net_job_delete]. Genellikle sonlandırma veya iş görevlerinin tamamlandığında veya sizin tanımladığınız bir zaman aşımı ulaşıldığında Sil.
 
 ```csharp
 // Terminate the job to mark it as Completed; this will initiate the
@@ -115,23 +115,23 @@ Bir işi sona erdi veya silindiğinde daha önce belirtildiği gibi bırakma gö
 await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
-## <a name="code-sample-on-github"></a>Github'daki kod örneği
-İş hazırlama görmek ve eylem görevlerinde yayın için kullanıma [JobPrepRelease] [ job_prep_release_sample] örnek proje github'da. Bu konsol uygulamasını şunları yapar:
+## <a name="code-sample-on-github"></a>GitHub üzerinde örnek kod
+İş hazırlama görmek ve sürüm görevleriniz uygulamada kullanıma [JobPrepRelease] [ job_prep_release_sample] GitHub üzerinde örnek proje. Bu konsol uygulaması şunları yapar:
 
-1. Bir havuz ile iki "küçük" düğümü oluşturur.
-2. Bir işi, iş hazırlama, sürüm ve standart görevler oluşturur.
-3. İlk düğüm kimliği bir düğümün "paylaşılan" dizininde bir metin dosyasına yazan iş hazırlama görevini çalıştırır.
-4. Görev Kimliğine aynı metin dosyasına yazan her bir düğümde bir görev çalıştırır.
+1. İki düğümleri havuzu oluşturur.
+2. İş hazırlama, sürüm ve standart görevler, bir iş oluşturur.
+3. İlk düğüm kimliği bir düğümün "paylaşılan" dizininde bir metin dosyasına yazan iş hazırlama görevi çalıştırır.
+4. Bir görev alt görev kimliği aynı metin dosyasına yazan her düğümünde çalıştırılır.
 5. Tüm görevler tamamlandığında (veya zaman aşımı ulaşıldıktan sonra), konsola her düğümün metin dosyasının içeriğini yazdırır.
-6. İş tamamlandığında düğümden dosyayı silmek için iş bırakma görevini çalıştırır.
+6. İş tamamlandığında iş bırakma görevi düğümden dosyayı silmek için çalışır.
 7. İş hazırlama ve bırakma görevleri üzerinde yürütülen her düğüm için çıkış kodlarını yazdırır.
-8. Duraklatır yürütme'işinin ve/veya havuzu silme onayı izin vermek için.
+8. İşinin ve/veya havuzu silme onayı izin vermek için yürütme duraklatır.
 
-Örnek uygulamasının çıktısının aşağıdakine benzer:
+Örnek uygulama çıktısı aşağıdakine benzer:
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
-Created pool JobPrepReleaseSamplePool with 2 small nodes
+Created pool JobPrepReleaseSamplePool with 2 nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
 Submitting tasks and awaiting completion...
@@ -173,27 +173,27 @@ Sample complete, hit ENTER to exit...
 ```
 
 > [!NOTE]
-> Değişken oluşturma ve başlangıç saatini (bazı düğümler diğerlerinden önce görevler için hazır) yeni bir havuzdaki düğümlerin nedeniyle, farklı çıkış görebilirsiniz. Özellikle, görevleri hızlı bir şekilde tamamlamak için havuzdaki düğümlerin birinde tüm iş görevleri yürütür. Bu meydana gelirse, iş prep görürsünüz ve bırakma görevleri hiçbir görev yürütülen düğümü için mevcut değil.
+> Değişken oluşturma ve başlangıç saati (bazı görevler diğerlerinden önce hazır düğümlerdir) yeni bir havuzdaki düğümlerin nedeniyle, farklı çıkış görebilirsiniz. Özellikle, görevleri hızlı bir şekilde tamamlamak için havuz düğümlerinden biri tüm işin görevleri yürütebilir. Bu meydana gelirse, iş hazırlama olduğunu fark edeceksiniz ve sürüm görevleri hiçbir görev yürütülen düğüm için mevcut değil.
 > 
 > 
 
-### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>İş hazırlama ve bırakma görevleri Azure portalında inceleyin.
-Örnek uygulamayı çalıştırdığınızda, kullanabileceğiniz [Azure portal] [ portal] işi ve görevleri özelliklerini görüntülemek veya hatta iş görevleri tarafından değiştirilmiş paylaşılan metin dosyasını indirin.
+### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>İş hazırlama ve bırakma görevleri Azure portalında inceleyin
+Örnek uygulamayı çalıştırdığınızda, kullanabileceğiniz [Azure portalında] [ portal] iş ve görevleri özelliklerini görüntüleyin ya da devre dışı bile iş görevlerinin tarafından değiştirilen paylaşılan metin dosyasını indirin.
 
-Aşağıda gösterildiği ekran **hazırlama görevleri dikey** örnek uygulamasının bir farklı çalıştır sonra Azure portalında. Gidin *JobPrepReleaseSampleJob* özellikleri görevleri tamamladıktan sonra (ancak işi ve havuzu silmeden önce) tıklatıp **hazırlama görevleri** veya **yayın görevleri** özelliklerini görüntülemek için.
+Gösterir aşağıdaki ekran görüntüsünde **hazırlık görevleri dikey** örnek uygulamayı çalıştırma sonra Azure portalında. Gidin *JobPrepReleaseSampleJob* özellikleri görevleri tamamladıktan sonra (ancak işi ve havuzu silmeden önce) tıklayın **hazırlama görevleri** veya **yayın görevleri**özelliklerini görüntülemek için.
 
-![İş hazırlama özelliklerini Azure portalında][1]
+![Azure portalında iş hazırlama özellikleri][1]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 ### <a name="application-packages"></a>Uygulama paketleri
-İş hazırlama görevi ek olarak da kullanabilirsiniz [uygulama paketleri](batch-application-packages.md) işlem düğümleri için görev yürütme hazırlamak için Toplu özellik. Bu özellik bir yükleyici, çok sayıda (100 +) dosyalar içeren uygulamalar veya katı sürüm denetimi gerektiren uygulamalar çalıştıran gerektirmeyen uygulamalarını dağıtmak için özellikle yararlıdır.
+İş hazırlama görevi ek olarak, ayrıca kullanabileceğiniz [uygulama paketleri](batch-application-packages.md) işlem düğümleri için görev yürütme hazırlamak için Toplu özellik. Bu özellik bir yükleyici, çok sayıda (100'den fazla) dosyaları içeren uygulamalar veya katı sürüm denetimi gerektiren uygulamalar çalıştıran gerektirmeyen uygulama dağıtmak için özellikle yararlıdır.
 
-### <a name="installing-applications-and-staging-data"></a>Uygulama yükleme ve verileri hazırlama
-Bu MSDN Forumu gönderisi düğümleriniz hazırlama görevleri çalıştırmak için çeşitli yöntemler genel bir bakış sağlar:
+### <a name="installing-applications-and-staging-data"></a>Uygulamaları yükleme ve verileri hazırlama
+Bu MSDN forum gönderisi, görevleri çalıştırmak için düğümlerinizin hazırlama çeşitli yöntemler için genel bir bakış sağlar:
 
-[İşlem düğümlerine uygulamaların yüklenmesi ve toplu veri hazırlama][forum_post]
+[İşlem düğümleri uygulamaları yükleme ve batch veri hazırlama][forum_post]
 
-Azure Batch ekip üyelerinin biri tarafından yazılmış, uygulamaları ve verileri işlem düğümleri için dağıtmak için kullanabileceğiniz çeşitli teknikleri açıklar.
+Bir Azure Batch ekip üyeleri tarafından yazılan uygulamaları ve verileri işlem düğümlerine dağıtmak için kullanabileceğiniz çeşitli teknikler açıklanır.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx

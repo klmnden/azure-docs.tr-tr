@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48e64f0cc65ade870425f73989209e8bef8ec8d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4c33466af6e57264e02a7d5c298f7f1f9fbf4ed8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630295"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717310"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure sanal makine ölçek ile otomatik ölçeklendirmeye genel bakış ayarlar
 Bir Azure sanal makine ölçek kümesini otomatik olarak artırabilir veya uygulamanızı çalıştıran VM örneği sayısını azaltabilirsiniz. Bu otomatik ve esnek davranışı izlemek ve uygulamanızın performansını en iyi duruma getirmek için yönetim yükünü azaltır. Pozitif bir müşteri deneyimi için kabul edilebilir performans tanımlayan kuralları oluşturun. Bu tanımlı eşikler karşılandığında, otomatik ölçeklendirme kurallarını ölçek kümenizin kapasitesinin ayarlamak için gerekeni yapın. Ayrıca, olayları otomatik olarak artırma veya azaltma ölçek kümenizin kapasitesinin kez sabit zamanlayabilirsiniz. Bu makalede performans ölçümleri kullanılabilir bir genel bakış ve hangi eylemleri otomatik ölçeklendirme gerçekleştirebilir sağlar.
@@ -106,7 +106,7 @@ Bir otomatik ölçeklendirme kural tetiklendiğinde, Ölçek kümeniz otomatik o
 | Sayıyı şu kadar artır:   | VM örnekleri oluşturmak için sabit bir sayı. Ölçek kümeleri ile Vm'leri daha az sayıda yararlıdır.                                           |
 | Yüzdeyi şu kadar artır: | Yüzde tabanlı bir artış VM örnekleri. Daha büyük ölçekli iyi burada sabit bir artış fark edilir derecede performansını iyileştirebilir değil ayarlar. |
 | Sayıyı şuna artır:   | İstenen bir maksimum miktar ulaşmak için birçok VM örnekleri gerektiği gibi oluşturun.                                                            |
-| Sayıyı şuna düşür:   | VM örnekleri kaldırmak için sabit bir sayı. Ölçek kümeleri ile Vm'leri daha az sayıda yararlıdır.                                           |
+| Sayıyı şu kadar azalt:   | VM örnekleri kaldırmak için sabit bir sayı. Ölçek kümeleri ile Vm'leri daha az sayıda yararlıdır.                                           |
 | Yüzdeyi şu kadar azalt: | Yüzde tabanlı bir düşüş VM örnekleri. Daha büyük ölçekli iyi burada sabit bir artış fark edilir derecede kaynak tüketimine ve maliyetlere azaltabilir değil ayarlar. |
 | Sayıyı şuna düşür:   | Birçok VM örnekleri istediğiniz en düşük düzeyde erişmek için gerekli olan kaldırın.                                                            |
 

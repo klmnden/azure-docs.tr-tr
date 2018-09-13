@@ -1,12 +1,10 @@
 ---
-title: Excel eklentisi Machine Learning Web Hizmetleri için | Microsoft Docs
-description: Azure Machine Learning Web hizmetlerini doğrudan Excel'de herhangi bir kod yazmak zorunda kalmadan nasıl kullanacağınızı.
+title: Excel eklentisi için Machine Learning Web Hizmetleri | Microsoft Docs
+description: Azure Machine Learning Web Hizmetleri, herhangi bir kod yazmaya gerek kalmadan doğrudan Excel'de kullanma
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
+author: marthalc
+ms.author: marthalc
 ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
 ms.component: studio
@@ -15,75 +13,79 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 68e2f72dfd8cc58d42263f4b6378d89304aaaa4d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
-ms.translationtype: HT
+ms.openlocfilehash: 8fade171095ff6a9f4c10925089452d8925e11fe
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834201"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35978301"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Azure Machine Learning web hizmetleri için Excel Eklentisi
+# <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio web hizmetleri için Excel Eklentisi
 Excel web hizmetleri herhangi bir kod yazmak zorunda kalmadan doğrudan çağırmak kolaylaştırır.
 
-## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Çalışma kitabını bir varolan web hizmetini kullanmak için adımları
+## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Çalışma kitabında mevcut bir web hizmetini kullanma adımları
 
-1. Açık [örnek Excel dosyası](http://aka.ms/amlexcel-sample-2), Excel eklentisi ve Titanic üzerinde yolcu hakkındaki verileri içerir.
-2. Web hizmeti tıklayarak seçin-"Titanic hayatta bir göstergesi olduğu (Excel Eklentisi örneği) [Sonuç]" Bu örnekte.
+1. Açık [örnek Excel dosyasını](http://aka.ms/amlexcel-sample-2), Excel eklentisi ve Yolcuların Kurtulacağını üzerinde hakkındaki verileri içerir. 
+ 
+> [!NOTE]
+> Web Hizmetleri listesi dosyasına ve altındaki bir onay kutusu "Otomatik-tahmin etmek için" ilgili görürsünüz. Etkinleştirirseniz, otomatik-tahminler tahmin **tüm** hizmetlerinizi güncelleştirilmiş her olacaktır girişleri bir değişiklik yoktur. İşaretli değilse, "Tahmin"'ye tıklayın yenileme için gerekir. Etkinleştirmek için otomatik-6. adım bir hizmet düzeyi gidin, tahmin edin.
+
+2. Web hizmeti tıklayarak seçin-"Titanic hayatta tahmin unsuru (Excel Eklentisi örneği) [puan]" Bu örnekte.
    
-    ![Web hizmetini seçin][01]
-3. Bu, olanak sürer **Predıct** bölümü.  Bu çalışma kitabı zaten örnek veri içeriyor, ancak için boş bir çalışma kitabını Excel'de bir hücre seçin ve'ı tıklatın **örnek verileri kullanın**.
-4. Üst bilgileri ile verileri seçin ve giriş verilerini aralığı simgesini tıklatın.  "Verilerimin üstbilgileri var" kutunun işaretli olduğundan emin olun.
-5. Altında **çıkış**, olması için örneğin "H1" Buraya çıkış istediğiniz hücre sayısını girin.
-6. Tıklatın **tahmin**.
+    ![Web hizmeti seçin][01]
+3. Sayfasına yönlendirileceksiniz **Predıct** bölümü.  Bu çalışma kitabı zaten örnek veriler içerir, ancak için boş bir çalışma kitabını Excel'de bir hücreyi seçin ve tıklayın **örnek verileri kullanarak**.
+4. Üst bilgileri ile verileri seçin ve giriş verilerini aralığı simgesine tıklayın.  "Verilerimin üst bilgileri var" kutunun işaretli olduğundan emin olun.
+5. Altında **çıkış**, çıktı olacak şekilde, örneğin "H1" burada istediğiniz sayı girin.
+6. Tıklayın **tahmin**. "Otomatik predıct" onay kutusunu seçerseniz seçili alanlara (giriş olarak belirtilenler) herhangi bir değişiklik isteği ve bir güncelleştirme predıct düğmesine basın etmenize gerek kalmadan çıkış hücrelerin tetikler.
    
-    ![Bölüm tahmin etme][02]
+    ![Bölüm tahmin edin][02]
 
-Bir web hizmetini dağıtma veya var olan bir Web hizmetini kullanın. Bir web hizmeti dağıtma hakkında daha fazla bilgi için bkz: [gözden geçirme adım 5: Azure Machine Learning Web hizmetini dağıtma](walkthrough-5-publish-web-service.md).
+Bir web hizmeti dağıtın veya mevcut bir Web hizmetini kullanın. Bir web hizmeti dağıtma hakkında daha fazla bilgi için bkz. [izlenecek 5. adım: Azure Machine Learning Web hizmetini dağıtma](walkthrough-5-publish-web-service.md).
 
-Web hizmeti için API anahtarı edinin. Gerçekleştirdiğiniz burada yeni Machine Learning web hizmeti bir Klasik Machine Learning web hizmeti olup yayımlanan Bu eylem bağlıdır.
+Web hizmetiniz için API anahtarını alın. Gerçekleştirdiğiniz durumlarda bu eylemi yeni Machine Learning web hizmeti bir Machine Learning Klasik web hizmeti mi yayımlanan bağlıdır.
 
 **Klasik web hizmetini kullanın** 
 
-1. Machine Learning Studio'da tıklatın **WEB Hizmetleri** bölümünde sol bölmede ve web hizmeti seçin.
+1. Machine Learning Studio'da tıklayın **WEB Hizmetleri** bölümünde, sol bölmede ve web hizmeti seçin.
    
     ![Bir Web hizmeti Studio seçin][04]
-2. Web hizmeti API anahtarını kopyalayın.
+2. Web hizmeti için API anahtarını kopyalayın.
    
     ![Studio API anahtarı][05]
-3. Üzerinde **PANO** web hizmeti için sekmesini tıklatın, **istek/yanıt** bağlantı.
-4. Ara **istek URI'si** bölümü.  Kopyalayın ve URL kaydedin.
+3. Üzerinde **PANO** web hizmeti için sekmesinde **istek/yanıt** bağlantı.
+4. Aranacak **istek URI** bölümü.  Kopyalayın ve URL'yi kaydedin.
 
 > [!NOTE]
-> Oturumu açmak artık mümkündür [Azure Machine Learning Web Hizmetleri](https://services.azureml.net) Klasik Machine Learning web hizmeti için API anahtarını elde etmek üzere portalı.
+> Oturum açmak artık mümkündür [Azure Machine Learning Web Hizmetleri](https://services.azureml.net) Machine Learning Klasik web hizmeti için API anahtarını almak için portalı.
 > 
 > 
 
 **Yeni bir web hizmetini kullanın**
 
-1. İçinde [Azure Machine Learning Web Hizmetleri](https://services.azureml.net) portal tıklatın **Web Hizmetleri**, web hizmetinizi seçin. 
-2. Tıklatın **tüketen**.
-3. Ara **temel tüketim bilgileri** bölümü. Kopyalayıp kaydedin **birincil anahtar** ve **istek-yanıt** URL.
+1. İçinde [Azure Machine Learning Web Hizmetleri](https://services.azureml.net) portal'ı tıklatın **Web Hizmetleri**, ardından web hizmetinizi seçin. 
+2. Tıklayın **tüketen**.
+3. Aranacak **temel tüketim bilgileri** bölümü. Kopyalayıp kaydedin **birincil anahtar** ve **istek-yanıt** URL'si.
 
-## <a name="steps-to-add-a-new-web-service"></a>Yeni bir web hizmeti ekleme adımları
+## <a name="steps-to-add-a-new-web-service"></a>Yeni bir web hizmeti eklemek için adımları
 
-1. Bir web hizmetini dağıtma veya var olan bir Web hizmetini kullanın. Bir web hizmeti dağıtma hakkında daha fazla bilgi için bkz: [gözden geçirme adım 5: Azure Machine Learning Web hizmetini dağıtma](walkthrough-5-publish-web-service.md).
-2. Tıklatın **tüketen**.
-3. Ara **temel tüketim bilgileri** bölümü. Kopyalayıp kaydedin **birincil anahtar** ve **istek-yanıt** URL.
-4. Excel'de Git **Web Hizmetleri** bölümüne (içinde olup olmadığını **Predıct** bölümünde, web hizmetleri listesine dönmek için geri oku tıklatın).
+1. Bir web hizmeti dağıtın veya mevcut bir Web hizmetini kullanın. Bir web hizmeti dağıtma hakkında daha fazla bilgi için bkz. [izlenecek 5. adım: Azure Machine Learning Web hizmetini dağıtma](walkthrough-5-publish-web-service.md).
+2. Tıklayın **tüketen**.
+3. Aranacak **temel tüketim bilgileri** bölümü. Kopyalayıp kaydedin **birincil anahtar** ve **istek-yanıt** URL'si.
+4. Excel'de, Git **Web Hizmetleri** bölümü (açıksa **Predıct** bölümünde, web hizmetleri listesine dönmek için geri okuna tıklayın).
    
-    ![Web hizmeti seçimi gidin][03]
-5. Tıklatın **Web hizmeti Ekle**.
-6. Eklenti metin kutusu etiketli Excel'e URL'sini yapıştırın **URL**.
+    ![Web hizmet seçimi için Git][03]
+5. Tıklayın **Web hizmeti Ekle**.
+6. Eklenti metin kutusu etiketli Excel'e URL'yi yapıştırın **URL**.
 7. API/birincil anahtarı etiketli metin kutusuna yapıştırın **API anahtarı**.
 8. **Ekle**'ye tıklayın.
    
     ![Klasik Web hizmeti URL'sini ve API anahtarı.][06]
-9. Web hizmeti kullanmak için "varolan web hizmeti kullanmak için adımlar." önceki yönergeleri izleyin
+9. Web hizmetini kullanmak için yukarıdaki yönergeleri, "bir varolan web hizmeti kullanmak için adımlar." izleyin.
 
-## <a name="sharing-your-workbook"></a>Çalışma kitabınız paylaşımı
-Çalışma kitabınız kaydederseniz, eklediğiniz web hizmetleri için API/birincil anahtar da kaydedilir. Bu çalışma kitabını yalnızca güvendiğiniz kişilerle paylaşması gerekir anlamına gelir.
+## <a name="sharing-your-workbook"></a>Çalışma kitabınızı paylaşma
+Çalışma kitabınızı kaydederseniz, eklediğiniz web hizmetleri için API/birincil anahtar da kaydedilir. Bu çalışma kitabını yalnızca güvendiğiniz kişilerle paylaşması gerekir anlamına gelir.
 
-Herhangi bir sorunuz aşağıdaki Açıklama bölümünde veya üzerinde isteyin bizim [Forumu](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Aşağıdaki yorum bölümünde veya herhangi bir soru sorun bizim [Forumu](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/excel-add-in-for-web-services/image1.png
 [02]: ./media/excel-add-in-for-web-services/image2.png

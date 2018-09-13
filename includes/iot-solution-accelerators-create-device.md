@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: c6e57d5094f455983b8b474b6930f628d654e457
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 9196648d7e3d2ea717b1a61cbca959805649ed2f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371216"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44754365"
 ---
 Bu senaryoda, Contoso için yeni bir telemetri türünü, mevcut ekleme **Soğutucu** cihaz türü.
 
@@ -73,6 +73,7 @@ Bu nasıl yapılır kılavuzunda takip etmek için ihtiyacınız vardır:
 
 * Visual Studio Code. Yapabilecekleriniz [Mac, Linux ve Windows için Visual Studio Code'u indirin](https://code.visualstudio.com/download).
 * .NET core. İndirebileceğiniz [Mac, Linux ve Windows için .NET Core](https://www.microsoft.com/net/download).
+* [Visual Studio Code için C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * Postman. İndirebileceğiniz [Mac, Windows veya Linux için Postman](https://www.getpostman.com/apps).
 * Bir [IOT hub'ı Azure aboneliğinize dağıtılır](../articles/iot-hub/iot-hub-create-through-portal.md). Bu kılavuzdaki adımları tamamlamak için IOT hub'ınızın bağlantı dizesi gerekir. Bağlantı dizesini Azure portalından alabilirsiniz.
 * SQL API'si kullanan ve için yapılandırılmış bir Cosmos DB veritabanı [güçlü tutarlılık](../articles/cosmos-db/manage-account.md). Bu kılavuzdaki adımları tamamlamak için Cosmos DB veritabanı bağlantı dizesi gerekir. Bağlantı dizesini Azure portalından alabilirsiniz.
@@ -89,13 +90,11 @@ Bu makaledeki yönergeler, Windows kullanmakta olduğunuz varsayılır. Başka b
 
 ### <a name="download-the-microservices"></a>Mikro hizmetler indirin
 
-İndirip sıkıştırmasını [depolama bağdaştırıcısı mikro hizmet](https://github.com/Azure/pcs-storage-adapter-dotnet/archive/master.zip) yerel makinenizde uygun bir konuma github'dan.
-
-İndirip sıkıştırmasını [cihaz benzetimi mikro hizmet](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) yerel makinenizde uygun bir konuma github'dan.
+İndirip sıkıştırmasını [uzaktan mikro hizmetler izleme](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) yerel makinenizde uygun bir konuma github'dan.
 
 ### <a name="run-the-storage-adapter-microservice"></a>Depolama bağdaştırıcısı mikro hizmet çalıştırma
 
-Açık **bilgisayarları-storage-bağdaştırıcısı-dotnet-master** Visual Studio code'da klasörü. Tıklatın **geri** herhangi düzeltmek için düğmeler çözümlenmemiş bağımlılıklar.
+Açık **remote-monitoring-services-dotnet-master\storage-adapter** Visual Studio code'da klasörü. Tıklatın **geri** herhangi düzeltmek için düğmeler çözümlenmemiş bağımlılıklar.
 
 Açık **.vscode/launch.json** dosya ve Cosmos DB bağlantı dizenizi atama **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** ortam değişkeni.
 
@@ -420,7 +419,7 @@ Bu bölümde, yerel olarak önceki bölümde oluşturduğunuz cihaz türlerini t
 
 ### <a name="run-the-device-simulation-microservice"></a>Cihaz benzetimi mikro hizmet çalıştırma
 
-Açık **cihaz-simülasyon-dotnet-master** Visual Studio Code yeni bir örneğini github'dan indirdiğiniz klasörü. Tıklatın **geri** herhangi düzeltmek için düğmeler çözümlenmemiş bağımlılıklar.
+Açık **remote-monitoring-services-dotnet-master\device-simulation** Visual Studio Code yeni bir örneğini github'dan indirdiğiniz klasörü. Tıklatın **geri** herhangi düzeltmek için düğmeler çözümlenmemiş bağımlılıklar.
 
 Açık **.vscode/launch.json** dosya ve IOT hub'ı bağlantı dizenizi atama **PCS_IOTHUB_CONNSTRING** ortam değişkeni.
 

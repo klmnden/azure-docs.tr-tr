@@ -1,54 +1,54 @@
 ---
-title: Havadan görüntü sınıflandırma | Microsoft Docs
-description: Havadan görüntü sınıflandırmasına gerçek dünya senaryoları için yönergeler sağlar
+title: Havadan görünüm sınıflandırması | Microsoft Docs
+description: Havadan görünüm sınıflandırması üzerinde gerçek dünya senaryosu için yönergeler sağlar
 author: mawah
 ms.author: mawah
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: d34f25fd75816f0ae840b3cbb2e0e88cbc2bfd91
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: eb788f56825166ccaa376d32b07371db0588edc8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832416"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35971939"
 ---
-# <a name="aerial-image-classification"></a>Havadan görüntü sınıflandırma
+# <a name="aerial-image-classification"></a>Havadan görünüm sınıflandırması
 
-Bu örnek, Azure Machine Learning çalışma ekranı dağıtılmış eğitim ve görüntü sınıflandırma modelleri operationalization koordine etmek için nasıl kullanılacağını gösterir. Eğitim için iki yaklaşım kullanırız: iyileştirme (i) derin sinir ağı kullanarak bir [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) GPU küme ve (II) kullanarak [Microsoft Machine Learning Apache Spark (MMLSpark) için](https://github.com/Azure/mmlspark) paketini pretrained CNTK modelleri kullanarak featurize görüntüleri ve türetilen özelliklerini kullanarak sınıflandırıcı eğitmek için. Biz sonra eğitilmiş modeller paralel şekilde bulut kullanarak büyük görüntü ayarlar uygulamak bir [Azure Hdınsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) küme, bize eğitim ve operationalization hızına ekleyerek veya kaldırarak çalışan düğümleri ölçeklendirmek izin verme.
+Bu örnek dağıtılmış eğitimi ve kullanıma hazır hale getirme, görüntü sınıflandırma modellerini koordine etmek için Azure Machine Learning Workbench'i kullanma işlemini gösterir. Eğitim için iki yaklaşım kullanıyoruz: iyileştirme (i) bir derin sinir ağı kullanarak bir [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) GPU kümesi ve (ii) kullanarak [(MMLSpark) Apache Spark için Microsoft Machine Learning](https://github.com/Azure/mmlspark) için paket CNTK modelleri kullanan kullanarak özellik kazandırın görüntüleri ve türetilmiş özelliklerini kullanarak sınıflandırıcılar eğitmek için. Biz ardından eğitilen modelleri paralel şekilde büyük görüntü kümesi kullanarak bulut geçerli bir [Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) küme, eğitim ve kullanıma hazır hale getirme hızına ekleyerek veya kaldırarak çalışan düğümlerini ölçeklendirmek bize izin verme.
 
-Bu örnek eğitim derin sinir ağları sıfırdan maliyetleri önlemek için pretrained modelleri yararlanır öğrenme aktarmak için iki yaklaşım vurgular. Derin sinir ağı genellikle yeniden eğitme GPU işlem gerektiriyor, ancak daha yüksek doğruluk için Eğitim kümesi yeterli büyüklükte olduğunda yol açabilir. Basit bir sınıflandırıcı featurized görüntülerinde eğitim GPU işlem gerektirmez, kendiliğinden hızlı ve rasgele ölçeklenebilir ve daha az parametre uygun. Bu yöntem, bu nedenle genellikle özel kullanım örnekleri için olduğu gibi birkaç eğitim örnekleri--kullanılamadığında mükemmel bir seçim kullanılır. 
+Bu örnekte, sıfırdan eğitimi derin sinir ağı maliyetleri önlemek için modelleri kullanan yararlanan öğrenme aktarmak için iki yaklaşım vurgular. Derin sinir ağı genellikle yeniden eğitme GPU işlem gerektirir, ancak daha yüksek doğruluk için Eğitim kümesi yeterince büyük olduğunda yol açabilir. Basit bir sınıflandırıcı özellikleri tespit görüntülerindeki eğitim GPU işlem gerektirmez, kendiliğinden hızlı ve rasgele olarak ölçeklenebilir ve daha az parametreleri en uygun. Genellikle özel kullanım örnekleri için olduğu gibi birkaç eğitim örnekleri--kullanılabilir olduğunda bu yöntem bu nedenle bir mükemmel seçimdir. 
 
-Bu örnekte kullanılan Spark kümesi 40 çalışan düğümleri varsa ve çalışmaya ~$40/hr maliyetleri; Toplu AI küme kaynakları çalışmaya ~$10/hr maliyet ve sekiz GPU içerir. Bu kılavuzu tamamladıktan yaklaşık üç saat sürer. İşiniz bittiğinde, oluşturduğunuz ve ücretlerinin yansıtılmasını durdurmak kaynakları kaldırmak için temizleme yönergeleri izleyin.
+Bu örnekte kullanılan Spark kümesi, 40 çalışan düğümleri varsa ve çalışmaya ~$40/hr maliyetleri; Batch AI kümesi kaynakları sekiz GPU'ları içerir ve çalışılacak ~$10/hr maliyeti. Bu izlenecek yolu tamamlamak yaklaşık üç saat sürüyor. İşlemi tamamladığınızda, oluşturduğunuz ve ücretlerinin yansıtılmasını durdurmak kaynakları kaldırmak için temizleme yönergeleri izleyin.
 
 ## <a name="link-to-the-gallery-github-repository"></a>Galeri GitHub deponuza bağlayın
 
-Bu gerçek dünya senaryoları için ortak GitHub depo kod örnekleri, bu örnek için gerekli dahil olmak üzere tüm malzemeleri içerir:
+Bu örnek için gerekli, kod örnekleri dahil olmak üzere tüm malzemeler, bu gerçek dünya senaryosu için ortak GitHub deposu içerir:
 
 [https://github.com/Azure/MachineLearningSamples-AerialImageClassification](https://github.com/Azure/MachineLearningSamples-AerialImageClassification)
 
 ## <a name="use-case-description"></a>Kullanım örneği açıklaması
 
-Bu senaryoda, 224 ölçer x 224 ölçer çizimleri havadan görüntülerini gösterilen kara türünü sınıflandırmak için makine öğrenimi modellerini eğitmek. Havadan görüntülerin düzenli aralıklarla kullanarak diğer önemli ortam eğilimlerini toplanan ve kara kullanım sınıflandırma modelleri urbanization, deforestation, wetlands kaybı izlemek için kullanılır. Biz ABD gelen görüntülerin göre eğitim ve doğrulama görüntü kümeleri hazırladınız Ulusal Tarım görüntülerin Program ve kara ABD tarafından yayımlanan etiketleri kullanma Ulusal kara kapak veritabanı. Her kara kullanım sınıfı örneği görüntülerinde burada gösterilir:
+Bu senaryoda, biz 224 ölçüm x 224 ölçüm çizimleri havadan görüntülerini gösterilen land türünü sınıflandırmak için makine öğrenimi modellerini eğitin. Havadan tanımayı diğer önemli ortam eğilimleri kullanarak düzenli aralıklarla toplanan ve land kullanım sınıflandırma modellerini urbanization, deforestation wetlands kaybı izlemek için kullanılır. Gözünüzde ABD gelen temel eğitim ve doğrulama görüntü kümeleri hazırladığımız Ulusal Tarım tanımayı Program ve land ABD yayımlanan etiketleri kullanma Ulusal Land kapak veritabanı. Her land kullanım sınıfı örnek görüntüleri aşağıda gösterilmiştir:
 
-![Etiket örneği bölgeler her kara için kullanın](media/scenario-aerial-image-classification/example-labels.PNG)
+![Örnek bölgeler her land için etiket kullanma](media/scenario-aerial-image-classification/example-labels.PNG)
 
-Eğitim ve sınıflandırıcı model doğrulama sonra onu Middlesex ilçe, MA--giriş Microsoft'un yeni İngiltere araştırma ve geliştirme (NERD) merkezi--Kentsel eğilimler incelemek için bu modeller'ın nasıl kullanılabileceğini gösteren kapsayıcı havadan görüntülerine uygulayacağız geliştirme.
+Eğitim ve sınıflandırıcı model doğrulama sonra biz bunu Middlesex ilçe, MA--giriş Microsoft'un yeni İngiltere araştırma ve geliştirme (NERD) merkezi--bu modeller urban eğilimler incelemek için nasıl kullanılabileceğini göstermek için kapsayıcı havadan görüntülerine uygulanır geliştirme.
 
-Öğrenme aktarımı kullanarak bir görüntü sınıflandırıcı üretmek için veri bilimcilerine genellikle yöntemleri aralıklı birden çok modelleri oluşturmak ve en fazla kullanıcı modelini seçin. Azure Machine Learning çalışma ekranı bilimcilerine eğitim farklı işlem ortamlar genelinde koordine, izlemek ve birden fazla modeli performansını karşılaştırın verileri yardımcı olmak ve seçilen model bulut büyük veri kümelerinde uygulanır.
+Aktarımlı kullanarak bir görüntü sınıflandırıcı üretmek için veri bilimcilerine genellikle bir dizi yöntem ile birden çok modelleri ve en iyi performansa sahip modelin seçilme. Azure Machine Learning Workbench, veri uzmanları, farklı işlem ortamlarında eğitim koordine etmek, izlemek ve performansını birden çok modeli karşılaştırma yardımcı ve seçtiğiniz model bulut büyük veri kümelerinde uygulanır.
 
 ## <a name="scenario-structure"></a>Senaryo yapısı
 
-Bu örnekte, görüntü verilerini ve pretrained modelleri bir Azure depolama hesabında saklanır. Azure Hdınsight Spark kümesinde bu dosyaları okur ve MMLSpark kullanarak bir görüntü sınıflandırma modeli oluşturur. Eğitilen model ve onun tahminleri burada bunlar kullanılabilir analiz ve yerel olarak çalışan bir Jupyter not defteri tarafından görselleştirilen depolama hesabı, ardından yazılır. Azure Machine Learning çalışma ekranı komut dosyalarının Spark kümesinde uzaktan yürütme düzenler. Ayrıca, kullanıcının en kullanıcı modelini seçmek farklı yöntemler kullanarak eğitilmiş birden çok modelleri için doğruluğu ölçümleri izler.
+Bu örnekte, görüntü verilerini ve modeli kullanan bir Azure depolama hesabında saklanır. Bir Azure HDInsight Spark kümesi, bu dosyaları okur ve MMLSpark'ı kullanarak bir görüntü sınıflandırma modeli oluşturur. Ardından eğitilen model ve kendi Öngörüler burada edilebilmeleri analiz ve yerel olarak çalışan bir Jupyter not defteri tarafından görselleştirilen depolama hesabına yazılır. Azure Machine Learning Workbench'te betikleri Spark kümesi üzerinde uzaktan yürütülmesini düzenler. Ayrıca, kullanıcının en iyi performansa sahip modelin seçilme izin farklı yöntemler kullanılarak geliştirilen birden çok modellerinin doğruluğu ölçümlerini izler.
 
-![Havadan görüntü sınıflandırma gerçek dünya senaryosu için şeması](media/scenario-aerial-image-classification/scenario-schematic.PNG)
+![Havadan sınıflandırma gerçek dünya senaryosu için şeması](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-Bu adım adım yönergeler size oluşturulması ve bir Azure depolama hesabı ve Spark kümesi, veri aktarımı ve bağımlılık yükleme de dahil olmak üzere hazırlama göstererek başlar. Bunlar ardından eğitim işlerini başlatma ve sonuçta elde edilen modelleri performansını karşılaştırır açıklar. Son olarak, Spark kümesi büyük görüntü kümesinde seçilen model uygulamak ve yerel olarak tahmin sonuçlarını analiz etmek nasıl gösterilmektedir.
+Bu adım adım yönergeleri size oluşturma ve hazırlama Azure depolama hesabı ve veri aktarımı ve bağımlılık yükleme dahil olmak üzere bir Spark kümesi aracılığıyla göstererek başlayın. Bunlar ardından eğitim işleri başlatmak ve ortaya çıkan modeller performansını karşılaştırmak nasıl açıklar. Son olarak, bir büyük görüntü kümesi üzerinde Spark kümesi seçtiğiniz model uygulamak ve yerel olarak tahmin sonuçlarını analiz etme göstermektedir.
 
 
 ## <a name="set-up-the-execution-environment"></a>Yürütme ortamını ayarlama
@@ -56,44 +56,44 @@ Bu adım adım yönergeler size oluşturulması ve bir Azure depolama hesabı ve
 Aşağıdaki yönergeler bu örneğin yürütme ortamı ayarlama işleminde size kılavuzluk eder.
 
 ### <a name="prerequisites"></a>Önkoşullar
-- Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz deneme kullanılabilir)
-    - Hdınsight Spark kümesinde 40 çalışan düğümleri (toplam 168 çekirdekler) oluşturur. "Kullanım + kotalar" inceleyerek hesabınızı yeterli kullanılabilir çekirdeğe sahip olduğundan emin olun aboneliğinizin Azure portalında sekmesi.
-       - Daha az çekirdek kullanılabilir varsa, sağlanan çalışanların sayısını azaltmak için Hdınsight küme şablonu değiştirebilir. Bunun için yönergeler "Hdınsight Spark kümesi oluşturma" bölümünde görüntülenir.
-    - Bu örnek bir Batch AI Eğitim kümesi ile iki NC6 oluşturur (1 GPU, 6 vCPU) VM'ler. Hesabınızın yeterli kullanılabilir çekirdekler Doğu ABD bölgesinde "kullanım + kotalar" inceleyerek sahip olduğundan emin olun aboneliğinizin Azure portalında sekmesi.
+- Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz denemeler kullanılabilir)
+    - 40 çalışan düğümleri (toplam 168 çekirdek), bir HDInsight Spark kümesi oluşturacaksınız. Hesabınızın yeterli sayıda kullanılabilir çekirdek "kullanım ve kotalar" gözden geçirerek sahip olduğundan emin olun Azure portalında aboneliğinizi için sekmesinde.
+       - Daha az çekirdeğe sahip, sağlanan çalışanların sayısını azaltmak için HDInsight küme şablonu değiştirebilir. Bu yönergeler, "HDInsight Spark kümesi oluşturma" bölümünün altında görüntülenir.
+    - Bu örnek, bir Batch AI eğitimi kümesi ile iki NC6 oluşturur. (1 GPU, 6 vCPU) VM'ler. Hesabınızın yeterli sayıda kullanılabilir çekirdek Doğu ABD bölgesinde "kullanım ve kotalar" gözden geçirerek sahip olduğundan emin olun Azure portalında aboneliğinizi için sekmesinde.
 - [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)
-    - İzleyin [yükleme ve hızlı başlangıç oluşturma](../service/quickstart-installation.md) Azure Machine Learning çalışma ekranı yükleyip deneme ve Model yönetim hesapları oluşturun.
-- [Toplu AI](https://github.com/Azure/BatchAI) Python SDK'sı ve Azure CLI 2.0
-    - Aşağıdaki bölümlerde tamamlamak [toplu AI tarif Benioku](https://github.com/Azure/BatchAI/tree/master/recipes):
+    - İzleyin [yükleme ve oluşturma Hızlı Başlangıç](../service/quickstart-installation.md) deneme ve Model yönetim hesapları oluşturma ve Azure Machine Learning Workbench'i yükleyin.
+- [Batch AI](https://github.com/Azure/BatchAI) Python SDK'sını ve Azure CLI
+    - Aşağıdaki bölümlerde tamamlamak [Batch AI tarifleri Benioku](https://github.com/Azure/BatchAI/tree/master/recipes):
         - "Önkoşullar"
-        - "Oluşturun ve Azure Active Directory (AAD) uygulamanız Al"
-        - "BatchAI kaynak sağlayıcıları register" (altında "Azure CLI 2.0" kullanarak tarif çalıştırın)
-        - "Azure Batch AI Management istemcisi Yükle"
-        - "Azure Python SDK Yükle"
-    - Kayıt istemci kimliği, gizli ve Kiracı kimliği Azure Active Directory uygulamasının oluşturmak üzere yönlendirilir. Bu öğreticide daha sonra bu kimlik bilgilerini kullanır.
-    - Bu makalenin yazıldığı sırada, Azure CLI 2.0 ayrı çatallarını Azure Machine Learning çalışma ekranı ve Azure Batch AI kullanın. Daha anlaşılır olması için biz "Azure Machine Learning çalışma ekranından başlatılan CLI" olarak CLI çalışma ekranı'nın sürümü ve (toplu AI içeren) genel yayın sürümü "Azure CLI 2.0." bakın
-- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), bir ücretsiz Azure depolama hesapları arasında dosya aktarımı Eşgüdümleme yardımcı programı
-    - AzCopy yürütülebilir içeren klasör, sisteminizin PATH ortam değişkeni üzerinde olduğundan emin olun. (Ortam değişkenleri değiştirme yönergeleri kullanılabilir [burada](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp).)
+        - "Oluşturmak ve uygulamanızı Azure Active Directory (AAD)"
+        - "("Azure CLI kullanarak çalışma tarif içeren"altında) BatchAI kaynak sağlayıcılarını kaydetme"
+        - "Azure Batch AI Yönetimi istemcisini yükleyin"
+        - "Azure Python SDK'sını Yükle"
+    - Kayıt istemci kimliği, gizli anahtarı ve oluşturma yönlendirilirsiniz Azure Active Directory uygulamasının Kiracı kimliği. Bu öğreticide daha sonra bu kimlik bilgilerini kullanır.
+    - Azure Machine Learning Workbench ve Azure Batch AI, bu makalenin yazıldığı tarih itibarıyla Azure CLI'ın ayrı çatalları kullanın. Anlaşılsın diye, "Azure Machine Learning Workbench'ten başlatılan bir CLI" olarak CLI'yi Workbench'in sürümünü ve (kod Batch AI'ı içerir) genel yayın sürümü "Azure CLI" diyoruz
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), ücretsiz Azure depolama hesapları arasında dosya aktarımını koordine yardımcı programı
+    - AzCopy yürütülebilir dosyayı içeren klasör sisteminizin yol ortam değişkenine olduğundan emin olun. (Ortam değişkenleri değiştirme yönergeleri kullanılabilir [burada](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Bir SSH istemcisi; öneririz [PuTTY](http://www.putty.org/).
 
-Bu örnek, bir Windows 10 PC'de test edilmiştir; Azure veri bilimi sanal makineler de dahil olmak üzere tüm Windows makineden çalıştırılabilmesi için olması gerekir. Azure CLI 2.0 göre bir MSI yüklendiği [bu yönergeleri](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Küçük değişiklikler (örneğin, filepaths değişiklikler) gerekli macOS üzerinde bu örnek çalıştırılırken.
+Bu örnek, bir Windows 10 bilgisayarında test edilmiştir; Azure veri bilimi sanal makineleri dahil olmak üzere bir Windows makineden çalıştırılabilmesi için olmalıdır. Azure CLI'yı bir MSI göre yüklendiği [bu yönergeleri](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Küçük değişiklikler (örneğin, değişiklikleri filepaths) gerekli macOS üzerinde bu örnek çalışırken.
 
-### <a name="set-up-azure-resources"></a>Azure kaynakları ayarlamak
+### <a name="set-up-azure-resources"></a>Azure kaynakları ayarlama
 
-Bu örnek, Hdınsight Spark kümesinde ve ana bilgisayar ilgili dosyaları için bir Azure depolama hesabı gerektirir. Bu kaynaklar yeni bir Azure kaynak grubu oluşturmak için bu yönergeleri izleyin:
+Bu örnek, bir HDInsight Spark kümesi ve ilgili konak dosyaları için bir Azure depolama hesabı gerektirir. Yeni bir Azure kaynak grubunda bu kaynakları oluşturmak için bu yönergeleri izleyin:
 
-#### <a name="create-a-new-workbench-project"></a>Yeni bir çalışma ekranı projesi oluşturma
+#### <a name="create-a-new-workbench-project"></a>Workbench yeni bir proje oluşturun
 
-Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
-1.  Açık Azure Machine Learning çalışma ekranı
-2.  Üzerinde **projeleri** sayfasında, **+** oturum ve seçin **yeni proje**
-3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun
-4.  İçinde **arama proje şablonları** arama kutusu, "Hava görüntü sınıflandırması" yazın ve şablonu seçin
+Bu örnekte, şablon olarak kullanarak yeni bir proje oluşturun:
+1.  Açık bir Azure Machine Learning Workbench'i
+2.  Üzerinde **projeleri** sayfasında **+** açıp seçmek **yeni proje**
+3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri girin
+4.  İçinde **proje şablonlarında Ara** arama kutusuna, "Havadan görüntü sınıflandırması" yazın ve şablonu seçin
 5.  **Oluştur**'a tıklayın
  
 #### <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
 
-1. Azure Machine Learning çalışma ekranı projenizde yüklendikten sonra açık bir komut satırı arabirimi (dosya tıklatarak CLI) -> komut istemi açın.
-    CLI'ın bu sürümü öğretici çoğunluğu için kullanın. (Belirtilen yerlerde, başka bir sürümü toplu AI kaynakları hazırlamak için CLI açmak için sorulur.)
+1. Azure Machine Learning Workbench projenizde yüklendikten sonra açık bir komut satırı arabirimi (dosya tıklayarak CLI) -> komut istemini Aç.
+    CLI'ın bu sürümü, öğreticinin çoğu için kullanın. (Belirtilen yerlerde, Batch AI kaynak hazırlamak için CLI'ın başka bir sürümü açın istenir.)
 
 1. Komut satırı arabiriminden aşağıdaki komutu çalıştırarak Azure hesabınızda oturum açın:
 
@@ -101,21 +101,21 @@ Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
     az login
     ```
 
-    URL ve sağlanan geçici kodu türü ziyaret istenir; Web sitesi Azure hesabı kimlik bilgilerinizi ister.
+    URL ve sağlanan geçici bir kod türü ziyaret istenir; Web sitesi, Azure hesabı kimlik bilgilerinizi ister.
     
-1. Oturum açma tamamlandığında, CLI dönün ve hangi Azure abonelikleri Azure hesabınızda kullanılabilir olduğunu belirlemek için aşağıdaki komutu çalıştırın:
+1. Oturum açma tamamlandığında, CLI için geri dönün ve hangi Azure abonelikleri Azure hesabınızda kullanılabilir olduğunu belirlemek için aşağıdaki komutu çalıştırın:
 
     ```
     az account list
     ```
 
-    Bu komut Azure hesabınızla ilişkili tüm abonelikleri listeler. Kullanmak istediğiniz abonelik Kimliğini bulun. Yazma abonelik kimliği aşağıdaki komutta gösterilen yerde sonra etkin bir aboneliğiniz komutunu yürüterek ayarlayın:
+    Bu komut, Azure hesabınızla ilişkili tüm abonelikleri listeler. Kullanmak istediğiniz aboneliğin Kimliğini bulun. Yazma abonelik Kimliğini aşağıdaki komutta belirtilen yerlerde etkin aboneliği komutu yürüterek ayarlayın:
 
     ```
     az account set --subscription [subscription ID]
     ```
 
-1. Bu örnekte oluşturulan Azure kaynaklarını birlikte bir Azure kaynak grubu içinde depolanır. Benzersiz kaynak grubu adı seçin ve okuma ve yazma belirtilen yerlerde, Azure kaynak grubu oluşturmak için her iki komut yürütün:
+1. Bu örnekte oluşturulan Azure kaynaklarını bir Azure kaynak grubu içinde birlikte depolanır. Benzersiz kaynak grubu adı seçin ve Not belirtilen yerlerde, sonra Azure kaynak grubu oluşturmak için her iki komutu yürütün:
 
     ```
     set AZURE_RESOURCE_GROUP=[resource group name]
@@ -124,9 +124,9 @@ Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
 
 #### <a name="create-the-storage-account"></a>Depolama hesabı oluşturma
 
-Ana bilgisayar tarafından Hdınsight Spark erişilmelidir dosyaları proje depolama hesabı artık oluşturuyoruz.
+Artık konakları HDInsight Spark tarafından erişilen dosyalar proje depolama hesabı oluşturacağız.
 
-1. Benzersiz depolama hesabı adı seçin ve okuma ve yazma aşağıda gösterilen yerde `set` komutu sonra her iki komutları yürüterek Azure depolama hesabı oluşturun:
+1. Benzersiz bir depolama hesabı adı seçin ve Not aşağıda belirtilen yerlerde `set` komutunu ve ardından her iki komutu yürüterek bir Azure depolama hesabı oluşturun:
 
     ```
     set STORAGE_ACCOUNT_NAME=[storage account name]
@@ -139,18 +139,18 @@ Ana bilgisayar tarafından Hdınsight Spark erişilmelidir dosyaları proje depo
     az storage account keys list --resource-group %AZURE_RESOURCE_GROUP% --account-name %STORAGE_ACCOUNT_NAME%
     ```
 
-    Değerini kaydedin `key1` aşağıdaki komutta depolama anahtarı olarak değeri depolamak için komutu çalıştırın.
+    Değerini kayıt `key1` aşağıdaki komutta depolama anahtarı olarak ardından değerini depolamak için komutu çalıştırın.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
     ```
-1. Adlı bir dosya paylaşımı oluşturmak `baitshare` aşağıdaki komutla depolama hesabınızdaki:
+1. Adlı bir dosya paylaşımı oluşturma `baitshare` depolama hesabınızda aşağıdaki komutla:
 
     ```
     az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
-1. Sık kullandığınız metin düzenleyicinizde yük `settings.cfg` Azure Machine Learning çalışma ekranı projenin "Code" alt dizinden dosya ve depolama hesabı adı ve anahtar gösterildiği gibi ekleyin. Kaydet ve Kapat `settings.cfg` dosya.
-1. Zaten yapmadıysanız, indirin ve yükleyin [AzCopy](http://aka.ms/downloadazcopy) yardımcı programı. AzCopy yürütülebilir "AzCopy" yazarak ve belgelerinde göstermek için Enter tuşuna basarak, sistem yolunda olduğundan emin olun.
-1. Tüm örnek verileri, pretrained modelleri ve model eğitim betikler depolama hesabınızdaki uygun konumlara kopyalamak için aşağıdaki komutları yürütün:
+1. Sık kullandığınız metin düzenleyicinizde yük `settings.cfg` Azure Machine Learning Workbench projenin "Code" alt dizinden dosya ve depolama hesabı adını ve anahtarını gösterildiği gibi ekleyin. Kaydet ve Kapat `settings.cfg` dosya.
+1. Zaten yapmadıysanız, indirme ve yükleme [AzCopy](http://aka.ms/downloadazcopy) yardımcı programı. AzCopy yürütülebilir "AzCopy" yazmaya ve belgelerini göstermek için Enter tuşuna basarak sistem yolunuzda olduğundan emin olun.
+1. Örnek veri modelleri kullanan ve model eğitim betikleriniz, depolama hesabınıza uygun yerlere kopyalamak için aşağıdaki komutları yürütün:
 
     ```
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/test /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.blob.core.windows.net/test /DestKey:%STORAGE_ACCOUNT_KEY% /S
@@ -161,15 +161,15 @@ Ana bilgisayar tarafından Hdınsight Spark erişilmelidir dosyaları proje depo
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Dosya aktarımı yaklaşık bir saat olması için bekler. Beklerken, aşağıdaki bölümüne geçebilirsiniz: çalışma ekranı aracılığıyla başka bir komut satırı arabirimi açın ve geçici değişkenleri yeniden tanımlamanız gerekebilir.
+    Dosya aktarımı yaklaşık bir saat almak için bekler. Beklerken, aşağıdaki bölüme geçebilirsiniz: başka bir komut satırı arabirimi aracılığıyla Workbench'i açın ve geçici değişkenlerin yeniden tanımlamanız gerekebilir.
 
-#### <a name="create-the-hdinsight-spark-cluster"></a>Hdınsight Spark kümesi oluşturma
+#### <a name="create-the-hdinsight-spark-cluster"></a>HDInsight Spark kümesi oluşturma
 
-Hdınsight kümesi oluşturmak için önerilen yöntem, bu proje "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" alt klasöründe bulunan Hdınsight Spark küme resource manager şablonu kullanır.
+Bir HDInsight kümesi oluşturmak için önerilen yöntem, bu proje, "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" alt klasöründe bulunan HDInsight Spark kümesine resource manager şablonu kullanır.
 
-1. Hdınsight Spark küme bu projenin "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" alt "template.json" dosyasını şablonudur. Varsayılan olarak, şablon 40 çalışan düğümleri ile bir Spark kümesi oluşturur. Bu sayıyı ayarlamanız gerekir, sık kullandığınız metin düzenleyicinizde şablonu açın ve "40"'ın tüm örneklerini tercih ettiğiniz çalışan düğüm sayısı ile değiştirin.
-    - Daha sonra seçtiğiniz çalışan düğüm sayısı küçükse, bellek yetersiz hatalarla karşılaşabilirsiniz. Bellek hataları mücadele etmek için eğitim ve operationalization betikleri kullanılabilir verilerin bir alt kümesinde bu belgenin sonraki bölümlerinde açıklandığı gibi çalışabilir.
-2. Benzersiz bir ad ve parola Hdınsight için Küme ve bunları yazma seçin aşağıdaki komutta gösterilen yerde: Küme komutları vererek oluşturursunuz:
+1. HDInsight Spark kümesi bu projenin "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" alt "template.json" dosyayı şablonudur. Varsayılan olarak, şablon 40 çalışan düğümleri ile bir Spark kümesi oluşturur. Bu sayıyı ayarlamanız gerekir, şablonu, sık kullandığınız metin düzenleyicisinde açın ve "40" sürümünün tüm örneklerini dilediğiniz çalışan düğüm sayısı ile değiştirin.
+    - Daha sonra seçtiğiniz çalışan düğümlerinin sayısını küçükse, bellek yetersiz hatalarla karşılaşabilirsiniz. Bellek hatalarını mücadele etmek için eğitim ve kullanıma hazır hale getirme betikleri kullanılabilir verilerin bir alt kümesi üzerinde bu belgenin sonraki bölümlerinde açıklandığı şekilde çalıştırabilirsiniz.
+2. Benzersiz bir ad ve parola için HDInsight kümesi ve bunları yazma seçin aşağıdaki komutta belirtilen yerlerde: ardından komutlar göndererek kümesi oluşturabilirsiniz:
 
     ```
     set HDINSIGHT_CLUSTER_NAME=[HDInsight cluster name]
@@ -179,29 +179,29 @@ Hdınsight kümesi oluşturmak için önerilen yöntem, bu proje "Code\01_Data_A
 
 Kümenizin dağıtım (sağlama ve betik eylemi yürütme dahil) en fazla 30 dakika sürebilir.
 
-### <a name="set-up-batch-ai-resources"></a>Toplu AI kaynakları ayarlamak
+### <a name="set-up-batch-ai-resources"></a>Batch AI kaynaklarını ayarlama
 
-Depolama hesabı dosya aktarımı ve Spark Küme dağıtımı için tamamlamak beklerken toplu AI ağ dosya sunucusu (NFS) ve GPU küme hazırlayabilirsiniz. Bir Azure CLI 2.0 komut istemi açın ve aşağıdaki komutu çalıştırın:
+Depolama hesabının dosya aktarımı ve Spark Küme dağıtımı için tamamlamak beklerken, Batch AI ağ dosya sunucusu (NFS) ve GPU kümesi hazırlayabilirsiniz. Bir Azure CLI komut istemi açın ve aşağıdaki komutu çalıştırın:
 
 ```
 az --version 
 ```
 
-Onaylayın `batchai` yüklü modülleri arasında listelenir. Aksi durumda, farklı komut satırı arabirimi (örneğin, bir çalışma ekranı açılan) kullanıyor olabilir.
+Onaylayın `batchai` yüklü modülleri arasında listelenir. Aksi takdirde, farklı bir komut satırı arabirimi (örneğin, biri Workbench açık) kullanıyor olabilir.
 
-Ardından, sağlayıcı kaydı başarıyla tamamlanıp tamamlanmadığını denetleyin. (Sağlayıcı kaydı en fazla beş dakika sürer ve hala son tamamladıysanız devam eden olabilir [toplu AI kurulum yönergelerini](https://github.com/Azure/BatchAI/tree/master/recipes).) "Microsoft.Batch" ve "Microsoft.BatchAI" aşağıdaki komut çıktısı "Kaydedildi" durumu görünür olduğunu doğrulayın:
+Ardından, sağlayıcısı kaydı başarıyla tamamlandığını denetleyin. (Sağlayıcı kaydı en fazla beş dakika sürer ve hala son tamamlanan devam eden olabilir [Batch AI kurulum yönergelerini](https://github.com/Azure/BatchAI/tree/master/recipes).) Hem "Microsoft.Batch" ve "Microsoft.BatchAI" aşağıdaki komutun çıktısında "Kaydedildi" durumuyla görüntülendiğini doğrulayın:
 
 ```
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
-Yoksa, aşağıdaki sağlayıcıyı kayıt komutları çalıştırmak ve tamamlamak kayıt ~ 15 dakika bekleyin.
+Aksi durumda, aşağıdaki sağlayıcısı kayıt komutları çalıştırın ve kayıt tamamlanması yaklaşık 15 dakika bekleyin.
 ```
 az provider register --namespace Microsoft.Batch
 az provider register --namespace Microsoft.BatchAI
 ```
 
-Daha önce kaynak grubu ve depolama hesabı oluşturma sırasında kullanılan değerlerle ayraçlı ifadeler değiştirmek için aşağıdaki komutları değiştirin. Ardından, değerleri, komutları yürüterek değişkenleri olarak depola:
+Daha önce kaynak grubunu ve depolama hesabı oluşturma sırasında kullanılan değerlerle ayraçlı ifadeler değiştirmek için aşağıdaki komutları değiştirin. Ardından, değerler komutları yürüterek değişkenleri olarak depola:
 ```
 az account set --subscription [subscription ID]
 set AZURE_RESOURCE_GROUP=[resource group name]
@@ -211,15 +211,15 @@ az configure --defaults location=eastus
 az configure --defaults group=%AZURE_RESOURCE_GROUP%
 ```
 
-Azure Machine Learning projeyi içeren klasörü belirleyin (örneğin, `C:\Users\<your username>\AzureML\aerialimageclassification`). Köşeli parantez içindeki değer klasörün filepath (ile hiçbir eğik) değiştirin ve komutu yürütün:
+Azure Machine Learning projenizi içeren klasörü belirleyin (örneğin, `C:\Users\<your username>\AzureML\aerialimageclassification`). Köşeli parantez içindeki değeri klasör yolu (sondaki eğik çizgi yok ile) değiştirin ve komutu yürütün:
 ```
 set PATH_TO_PROJECT=[The filepath of your project's root directory]
 ```
-Şimdi Bu öğretici için gerekli toplu AI kaynakları oluşturmaya hazırsınız.
+Bu öğretici için gerekli Batch AI kaynak oluşturmak artık hazırsınız.
 
-#### <a name="prepare-the-batch-ai-network-file-server"></a>Toplu iş AI ağ dosya sunucusunu hazırlama
+#### <a name="prepare-the-batch-ai-network-file-server"></a>Batch AI ağ dosya sunucusu hazırlama
 
-Toplu AI kümenizi eğitim verilerinizi bir ağ dosya sunucusundaki erişir. Veri erişimi daha hızlı bir Azure dosya paylaşımı veya Azure Blob Storage ve NFS gelen dosyalara erişirken several-fold olabilir.
+Eğitim verilerinizi bir ağ dosya sunucusunda, Batch AI kümesi erişir. Veri erişimi daha hızlı bir NFS ile bir Azure dosya paylaşımı veya Azure Blob depolama alanından dosyalara erişirken several-fold olabilir.
 
 1. Bir ağ dosya sunucusu oluşturmak için aşağıdaki komutu yürütün:
 
@@ -227,32 +227,32 @@ Toplu AI kümenizi eğitim verilerinizi bir ağ dosya sunucusundaki erişir. Ver
     az batchai file-server create -n landuseclassifier -u demoUser -p "Dem0Pa$$w0rd" --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
-1. Aşağıdaki komutu kullanarak, ağ dosya sunucunuzun sağlama durumunu kontrol edin:
+1. Aşağıdaki komutu kullanarak, ağ dosya sunucusu sağlama durumunu kontrol edin:
 
     ```
     az batchai file-server list
     ```
 
-    Ağ dosya sunucusu "landuseclassifier" adlı "provisioningState" "başarılı zaman" kullanıma hazırdır. Yaklaşık beş dakika sürer sağlama bekler.
-1. ("MountSettings" altında "fileServerPublicIp" özelliği) önceki komutunun çıktısı, NFS IP adresini bulun. IP aşağıdaki komutta gösterilen yerde adres, sonra komutu yürüterek değerini depolama yazma:
+    Ağ dosya sunucusu "landuseclassifier" adlı "provisioningState" başarılı"," kullanıma hazırdır. Sağlama yaklaşık beş dakika sürmesi beklenir.
+1. ("FileServerPublicIp" özelliği "mountSettings" altında) önceki komutun çıkışında, NFS IP adresini bulun. IP aşağıdaki komutta belirtilen yerlerde adres, sonra komutu yürüterek değeri depolamak yazma:
 
     ```
     set AZURE_BATCH_AI_TRAINING_NFS_IP=[your NFS IP address]
     ```
 
-1. Sık kullanılan SSH aracını kullanarak (Aşağıdaki örnek komut kullanır [PuTTY](http://www.putty.org/)), bu projenin yürütme `prep_nfs.sh` eğitim ve doğrulama görüntü aktarmak için NFS komut ayarlar vardır.
+1. En sevdiğiniz SSH aracı kullanarak (Aşağıdaki örnek komut kullandığı [PuTTY](http://www.putty.org/)), bu projenin yürütme `prep_nfs.sh` eğitim ve doğrulama görüntü aktarmak için NFS komut ayarlar vardır.
 
     ```
     putty -ssh demoUser@%AZURE_BATCH_AI_TRAINING_NFS_IP% -pw Dem0Pa$$w0rd -m %PATH_TO_PROJECT%\Code\01_Data_Acquisition_and_Understanding\02_Batch_AI_Training_Provisioning\prep_nfs.sh
     ```
 
-    Veri yükleme ve ayıklama ilerleme güncelleştirmeleri Kabuğu penceresini kadar hızlı bir şekilde okunmaz kaydırırsanız endişelenmeniz gerekmez.
+    Veri indirme ve ayıklama devam eden güncelleştirmelerin shell penceresini arasında kadar hızlı bir şekilde materyali kaydırırsanız merak etmeyin.
 
-İsterseniz, veri aktarımı gibi sık kullanılan SSH aracınızla dosya sunucusuna oturum açmayı ve denetimi planlanmış proceeded onaylayabilirsiniz `/mnt/data` dizin içeriği. İki klasör, training_images ve validation_images bulmanız gerekir, her göre kara adlı alt klasörler içeren kategorileri kullanın.  Eğitim ve doğrulama kümeleri ~ 44 içermelidir k ve ~ 11 k görüntüleri, sırasıyla.
+İstenirse, veri aktarımı gibi en sevdiğiniz SSH aracı ile dosya sunucusu için oturum açmayı ve denetimi planlanmış proceeded onaylayabilirsiniz `/mnt/data` dizin içeriği. İki klasör training_images ve validation_images bulmanız gerekir, her göre land adlı alt klasörler ile içeren kategorileri kullanın.  Eğitim ve doğrulama kümeleri ~ 44 içermelidir k ve ~ 11 k görüntüleri, sırasıyla.
 
-#### <a name="create-a-batch-ai-cluster"></a>Bir toplu AI kümesi oluşturma
+#### <a name="create-a-batch-ai-cluster"></a>Bir Batch AI kümesi oluşturun
 
-1. Aşağıdaki komutu gönderdikten küme oluşturun:
+1. Aşağıdaki komutu gönderdikten tarafından küme oluşturun:
 
     ```
     az batchai cluster create -n landuseclassifier2 -u demoUser -p "Dem0Pa$$w0rd" --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
@@ -264,19 +264,19 @@ Toplu AI kümenizi eğitim verilerinizi bir ağ dosya sunucusundaki erişir. Ver
     az batchai cluster list
     ```
 
-    Ayırma durumu kümeyi için sabit için yeniden boyutlandırma gelen "landuseclassifier" değişiklikleri adlı olduğunda iş göndermek mümkündür. Ancak, işleri kümedeki tüm sanal makineleri "Hazırlama" durumu bıraktıysanız kadar çalışmaya başlatmayın. Kümenin "hataları" özelliği boş değilse, küme oluşturma sırasında bir hata oluştu ve onu kullanılmamalıdır.
+    Ayırma durumu kümenin birimden olarak yeniden boyutlandırılıyor gelen değişiklikleri "landuseclassifier" adlı, işleri göndermek mümkündür. Ancak, işleri kümedeki tüm sanal makineler "Hazırlama" durumu bıraktıysanız verene kadar çalışmasını başlatmayın. Küme "hata" özelliği null değilse, küme oluşturma sırasında bir hata oluştu ve bu kullanılmamalıdır.
 
-#### <a name="record-batch-ai-training-credentials"></a>Kayıt toplu AI eğitim kimlik bilgileri
+#### <a name="record-batch-ai-training-credentials"></a>Kayıt Batch AI eğitimi kimlik bilgileri
 
-Küme ayırma için beklerken açmak `settings.cfg` metin düzenleyiciyi bu projede "Code" alt dosyasından. Aşağıdaki değişkenler kendi kimlik bilgilerinizle güncelleştirin:
-- `bait_subscription_id` (36 karakter Azure abonelik Kimliğinizi)
+Küme ayırma için beklerken açın `settings.cfg` "Code" alt dizini bu projenin, tercih ettiğiniz metin düzenleyicisinde dosyasından. Aşağıdaki değişkenleri kendi kimlik bilgileriyle güncelleştirin:
+- `bait_subscription_id` (36 karakterden oluşan Azure abonelik Kimliğinizi)
 - `bait_aad_client_id` ("Önkoşullar" bölümünde belirtilen Azure Active Directory Uygulama/istemci kimliği)
 - `bait_aad_secret` ("Önkoşullar" bölümünde belirtilen Azure Active Directory Uygulama gizli anahtarı)
 - `bait_aad_tenant` ("Önkoşullar" bölümünde belirtilen Azure Active Directory Kiracı kimliği)
-- `bait_region` (Bu makalenin yazıldığı sırada tek seçenektir: eastus)
+- `bait_region` (Bu makalenin yazıldığı tarih itibarıyla, tek seçenektir: eastus)
 - `bait_resource_group_name` (daha önce seçtiğiniz kaynak grubu)
 
-Bu değerleri atadıktan sonra değiştirilen satırları settings.cfg dosyanızın aşağıdaki metni benzemelidir:
+Bu değerleri atadıktan sonra aşağıdaki metni settings.cfg dosyanızın değiştirilen satırları benzemelidir:
 
 ```
 [Settings]
@@ -295,13 +295,13 @@ Bu değerleri atadıktan sonra değiştirilen satırları settings.cfg dosyanız
 
 Kaydet ve Kapat `settings.cfg`.
 
-Artık, toplu AI kaynak oluşturma komutlarını yürütüldüğü CLI pencereyi kapatabilirsiniz. Bu öğreticide sonraki tüm adımların Azure Machine Learning çalışma ekranından başlatılan CLI kullanın.
+Batch AI kaynak oluşturma komutları yürütüldüğü CLI penceresi artık kapatabilirsiniz. Bu öğreticideki tüm adımların Azure Machine Learning Workbench'ten başlatılan bir CLI kullanın.
 
-### <a name="prepare-the-azure-machine-learning-workbench-execution-environment"></a>Azure Machine Learning çalışma ekranı yürütme ortamını hazırlayın
+### <a name="prepare-the-azure-machine-learning-workbench-execution-environment"></a>Azure Machine Learning Workbench yürütme ortamını hazırlama
 
-#### <a name="register-the-hdinsight-cluster-as-an-azure-machine-learning-workbench-compute-target"></a>Hdınsight kümesi bir Azure Machine Learning çalışma ekranı işlem hedefi olarak Kaydet
+#### <a name="register-the-hdinsight-cluster-as-an-azure-machine-learning-workbench-compute-target"></a>HDInsight kümesi, bir Azure Machine Learning Workbench işlem hedefi olarak kaydetme
 
-Hdınsight küme oluşturma tamamlandıktan sonra küme projeniz için bir işlem hedefi olarak şu şekilde kaydedin:
+HDInsight kümesi oluşturma işlemi tamamlandıktan sonra küme projeniz için işlem hedefi olarak şu şekilde kaydedin:
 
 1.  Azure Machine Learning komut satırı arabiriminden aşağıdaki komutu yürütün:
 
@@ -309,17 +309,17 @@ Hdınsight küme oluşturma tamamlandıktan sonra küme projeniz için bir işle
     az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
-    Bu komut, iki dosya ekler `myhdi.runconfig` ve `myhdi.compute`, projenizin için `aml_config` klasör.
+    Bu komut iki dosya ekler `myhdi.runconfig` ve `myhdi.compute`, projenizin için `aml_config` klasör.
 
-1. Açık `myhdi.compute` sık kullandığınız metin düzenleyicinizde dosya. Değiştirme `yarnDeployMode: cluster` okumak için satır `yarnDeployMode: client`, sonra dosyayı kaydedip kapatın.
-1. Hdınsight ortamınızı kullanmak için hazırlamak için aşağıdaki komutu çalıştırın:
+1. Açık `myhdi.compute` sık kullandığınız metin düzenleyicinizde dosya. Değiştirme `yarnDeployMode: cluster` okunacak satır `yarnDeployMode: client`, ardından dosyayı kaydedip kapatın.
+1. Kullanılacak HDInsight ortamınızı hazırlamak için aşağıdaki komutu çalıştırın:
    ```
    az ml experiment prepare -c myhdi
    ```
 
 #### <a name="install-local-dependencies"></a>Yerel bağımlılıkları yükler
 
-Azure Machine Learning çalışma ekranından CLI açın ve aşağıdaki komutu gönderdikten yerel yürütme için gerekli bağımlılıkları yükler:
+CLI, Azure Machine Learning Workbench uygulamasını açın ve aşağıdaki komutu gönderdikten ile yerel yürütme için gerekli bağımlılıkları yükler:
 
 ```
 pip install matplotlib azure-storage==0.36.0 pillow scikit-learn azure-mgmt-batchai
@@ -327,83 +327,83 @@ pip install matplotlib azure-storage==0.36.0 pillow scikit-learn azure-mgmt-batc
 
 ## <a name="data-acquisition-and-understanding"></a>Veri edinme ve anlama
 
-Bu senaryo, genel kullanıma açık havadan görüntülerin verilerden kullanır [Ulusal Tarım görüntülerin Program](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) 1 ölçer çözünürlükte. Biz özgün NAIP verilerden kırpılacak ve kara kullanım etiketlerden göre sıralanmış 224 piksel x 224 piksel PNG dosyaları kümesi oluşturmuş [Ulusal kara kapak veritabanı](https://www.mrlc.gov/nlcd2011.php). "Developed" etiketli bir örnek görüntüyü tam boyutuyla gösterilir:
+Bu senaryo genel kullanıma açık hava tanımayı verileri kullanan [Ulusal Tarım tanımayı Program](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) 1 ölçerin çözünürlükte. Biz kara etiket göre sıralanır ve özgün NAIP verilerden kırpılmış 224 piksel x 224 piksel PNG dosya kümelerini oluşturulmasını [Ulusal Land kapsayan veritabanı](https://www.mrlc.gov/nlcd2011.php). "Developed" etiketli bir örnek görüntü tam boyutuyla gösterilmektedir:
 
-![Geliştirilmiş kara örnek parçasına](media/scenario-aerial-image-classification/sample-tile-developed.png)
+![Geliştirilmiş olan örnek kutucuk](media/scenario-aerial-image-classification/sample-tile-developed.png)
 
-~ 44 sınıfı dengeli kümesi k ve 11 k görüntüleri kullanılan model eğitim ve doğrulama için sırasıyla. Model dağıtımı ~ 67 k görüntüsüne döşemesini Middlesex ilçe, MA--giriş Microsoft'un yeni İngiltere araştırma ve geliştirme (NERD) merkezi ayarlamak göstermektedir. Bu görüntü kümeleri nasıl oluşturulan daha fazla bilgi için bkz: [utandırıcı derecede paralel görüntü sınıflandırma git deposu](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
+~ 44 sınıfı dengeli kümesi k ve 11 k görüntüleri kullanılan model eğitiminin ve doğrulama, sırasıyla. Biz döşemesini Middlesex ilçe, MA--giriş Microsoft'un yeni İngiltere araştırma ve geliştirme (NERD) merkezi model dağıtımı ~ 67 k görüntüye ayarlayın gösterir. Bu görüntü kümeleri nasıl oluşturulmuş daha fazla bilgi için bkz: [utandırıcı derecede paralel görüntü sınıflandırması git deposu](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
 
 ![Middlesex ilçe, Massachusetts konumu](media/scenario-aerial-image-classification/middlesex-ma.png)
 
-Kurulum sırasında bu örnekte kullanılan havadan görüntü kümeleri oluşturduğunuz depolama hesabını aktarıldı. Eğitim, doğrulama ve operationalization görüntüleri tüm 224 piksel x 224 piksel PNG metre kare başına bir piksel çözünürlükte dosyalarıdır. Eğitim ve doğrulama görüntüleri kendi kara kullanım etikete göre alt klasörler halinde düzenlenmiştir. (Kara etiket operationalization görüntülerinin bilinmeyen ve çoğu durumda belirsiz; bu görüntüleri bazıları birden çok kara türü içeriyor.) Bu görüntü kümeleri nasıl oluşturulan daha fazla bilgi için bkz: [utandırıcı derecede paralel görüntü sınıflandırma git deposu](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
+Kurulumu sırasında oluşturduğunuz depolama hesabına Bu örnekte kullanılan havadan kümeleri aktarıldı. Eğitim, doğrulama ve kullanıma hazır hale getirme görüntüleri tüm 224 piksel x 224 piksel PNG metrekare başına bir pikselin çözünürlükte dosyalarıdır. Eğitim ve doğrulama görüntüleri kendi land kullanım etikete göre alt klasörler halinde. (Bilinmeyen land etiket kullanıma hazır hale getirme görüntülerin ve belirsiz; çoğu durumda bu görüntüleri bazıları birden fazla land türler bulunur.) Bu görüntü kümeleri nasıl oluşturulmuş daha fazla bilgi için bkz: [utandırıcı derecede paralel görüntü sınıflandırması git deposu](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
 
-Azure depolama alanınızı görüntülerinde hesabını (isteğe bağlı) örnek görüntülemek için:
+Örnek görüntüleri, Azure depolama hesabını (isteğe bağlı) görüntülemek için:
 1. [Azure Portal](https://portal.azure.com)’da oturum açın.
-1. Ekranın üstünde arama çubuğunda depolama hesabınızın adını arayın. Depolama hesabınız arama sonuçlarında tıklayın.
-2. Depolama hesabının ana bölmesinde "BLOB'lar" bağlantısını tıklatın.
-3. "Tren." adlı kapsayıcı'ı tıklatın Kara göre adlı dizinlerin listesini kullanın görmeniz gerekir.
-4. İçerdiği görüntülerin listesi yüklemek için bu dizinleri birini tıklatın.
-5. Herhangi bir görüntü tıklatın ve görüntüyü görüntülemek için indirin.
-6. İsterseniz, "test" ve "middlesexma2016 içerikleri de görüntülemek için" adlı kapsayıcılarında'ı tıklatın.
+1. Ekranın üstündeki arama çubuğunda depolama hesabınızın adını arayın. Depolama hesabınızdaki arama sonuçlarını tıklayın.
+2. Depolama hesabının ana bölmede "BLOB" bağlantısına tıklayın.
+3. "Eğit" adlı kapsayıcıdaki tıklayın Dizinleri göre land adlı kullanmak listesini görmeniz gerekir.
+4. İçerdiği görüntülerin listesini yüklemek için bu dizinleri birini tıklatın.
+5. Herhangi bir görüntü tıklayın ve resmi görmek için indirin.
+6. İsterseniz, "test" ve "middlesexma2016 de bunların içeriğini görüntülemek için" adlı kapsayıcılarında tıklayın.
 
 ## <a name="modeling"></a>Modelleme
 
-### <a name="training-models-with-azure-batch-ai"></a>Azure Batch AI eğitim modelleriyle
+### <a name="training-models-with-azure-batch-ai"></a>Azure Batch AI eğitim modeli
 
-`run_batch_ai.py` Çalışma ekranı projesinin "Code\02_Modeling" alt komut dosyası toplu AI eğitim iş vermek için kullanılır. Bu işin bir görüntü sınıflandırıcı (AlexNet veya ResNet ImageNet üzerinde pretrained 18) kullanıcı tarafından seçilen DNN retrains. Yeniden eğitme derinliği de belirtilebilir: ağ yalnızca son katmanı yeniden eğitme azaltmak overfitting birkaç eğitim örnekleri kullanılabilir, tüm ağ hassas ayar yapma çalışırken (veya AlexNet, tam olarak bağlı Katmanlar) olduğunda büyük modeline yol açabilir Eğitim kümesi yeterli büyüklükte olduğunda performans.
+`run_batch_ai.py` Workbench projesini "Code\02_Modeling" alt klasöründe betik, bir Batch AI eğitimi işi göndermek için kullanılır. Bu işlem, bir görüntü sınıflandırıcı (AlexNet veya ResNet Imagenet üzerinde kullanan 18) kullanıcı tarafından seçmiş DNN retrains. Yeniden eğitme derinliği de belirtilebilir: ağ yalnızca son katmanı yeniden eğitme azaltmak overfitting eğitim örnek çalışırken, tüm ağ hassas ayar yapma (ya da AlexNet, tam olarak bağlı katmanları), kullanılabilir olduğunda daha büyük modeline yol açabilir Eğitim kümesi yeterince büyük olduğunda performans.
 
-Eğitim işi tamamlandığında, bu komut dosyası (yanı sıra modelin tamsayı çıkış ve dize etiketleri arasında eşleme açıklayan bir dosya) modeli ve tahminleri blob depolama alanına kaydeder. YEMİ işin günlük dosyası, eğitim dönemlerinde üzerinden hata oranı geliştirme timecourse ayıklamak için ayrıştırılır. Hata oranı geliştirme timecourse AML çalışma'nin çalıştırma geçmişi özelliği daha sonra görüntülemek için günlüğe kaydedilir.
+Eğitim işi tamamlandığında bu betik modelin (birlikte, modelin tamsayı çıkış ve dize etiketleri arasındaki eşlemeyi açıklayan bir dosya) ve Öngörüler blob depolamaya kaydeder. Eğitim dönemler üzerinde hata oranı iyileştirme timecourse ayıklanacak BAIT işin günlük dosyası ayrıştırılır. Hata oranı geliştirme timecourse AML Workbench'in çalıştırma geçmişi özelliği daha sonra günlüğe kaydedilir.
 
-Eğitilen model pretrained model türünü ve yeniden eğitme derinliği için bir ad seçin. Yazma seçimlerinizi aşağıdaki komutta gösterilen yerde sonra bir Azure ML komut satırı arabiriminden komutunu yürüterek yeniden eğitme başlayın:
+Eğitilen model kullanan bir model türünü ve yeniden eğitme derinliği için bir ad seçin. Yazma seçimlerinizi aşağıdaki komutta belirtilen yerlerde sonra bir Azure ML komut satırı arabiriminden komutu yürüterek yeniden eğitme başlatın:
 
 ```
 az ml experiment submit -c local Code\02_Modeling\run_batch_ai.py --config_filename Code/settings.cfg --output_model_name [unique model name, alphanumeric characters only] --pretrained_model_type {alexnet,resnet18} --retraining_type {last_only,fully_connected,all} --num_epochs 10
 ```
 
-Azure Machine Learning tamamlamak için yaklaşık yarım saat yapılacak çalıştırmak bekler. Böylece farklı yöntemlerle eğitilmiş modeller performansını karşılaştırabilirsiniz (çıktı model adı, pretrained model türünü ve yeniden eğitme derinliği değişen) birkaç benzer komutları çalıştırmanızı öneririz.
+Azure Machine Learning tamamlanması yaklaşık yarım saat gerçekleştirilecek çalıştırma bekler. Farklı yöntemleri ile geliştirilen modellerinin performansını karşılaştırabilmek birkaç benzer komutları (çıkış model adını kullanan bir model türü ve yeniden eğitme derinliği değişen) çalıştırmanızı öneririz.
 
-### <a name="training-models-with-mmlspark"></a>Eğitim modelleriyle MMLSpark
+### <a name="training-models-with-mmlspark"></a>MMLSpark eğitim modeli
 
-`run_mmlspark.py` Komut dosyası çalışma ekranı projesinin "Code\02_Modeling" alt eğitmek için kullanılan bir [MMLSpark](https://github.com/Azure/mmlspark) görüntü sınıflandırması için model. Komut dosyası ilk featurizes eğitim DNN pretrained bir görüntü sınıflandırıcı ImageNet veri kümesine (AlexNet veya 18 katman ResNet) kullanarak görüntüleri ayarlayın. Komut dosyası featurized görüntüleri (rastgele bir orman ya da bir Lojistik regresyon modeli) görüntüleri sınıflandırmak için bir MMLSpark modeli eğitmek için sonra kullanır. Test görüntü kümesi featurized ise ve eğitilen model ile skoru. Sınama kümesi üzerinde modelinin tahminleri doğruluğunu hesaplanır ve Azure Machine Learning çalışma ekranı'nin çalıştırma geçmişi özelliğini oturum. Son olarak, eğitilen MMLSpark modeli ve sınama kümesi üzerinde kendi tahminleri BLOB depolamaya kaydedilir.
+`run_mmlspark.py` Workbench projesini "Code\02_Modeling" alt klasöründe betik eğitmek için kullanılan bir [MMLSpark](https://github.com/Azure/mmlspark) görüntü sınıflandırması için model. Komut dosyası birinci featurizes eğitim DNN kullanan bir görüntü sınıflandırıcı Imagenet veri (AlexNet veya 18-katman ResNet) kullanarak görüntüleri ayarlayın. Betik, görüntülerin özellikleri tespit sonra (rastgele bir orman ya da bir Lojistik regresyon modeli) görüntüleri sınıflandırmak için bir MMLSpark modeli eğitmek için kullanır. Test görüntü kümesi özellikleri tespit ise ve puanlanmış eğitilen modeli. Test kümesindeki modelin tahmin doğruluğunu hesaplanır ve Azure Machine Learning Workbench'in çalıştırma geçmişi özelliği günlüğe kaydedilir. Son olarak, eğitim MMLSpark modeli ve test kümesi üzerinde kendi Öngörüler BLOB depolamaya kaydedilir.
 
-Eğitilen model pretrained model türünü ve MMLSpark model türü için bir benzersiz çıkış model adı seçin. Yazma seçimlerinizi aşağıdaki komut şablonda belirtilen yerlerde sonra bir Azure ML komut satırı arabiriminden komutunu yürüterek yeniden eğitme başlayın:
+Eğitilen model kullanan bir model türünü ve bir MMLSpark model türü için bir benzersiz çıkış model adı seçin. Yazma seçimlerinizi aşağıdaki komut şablonunda belirtilen yerlerde sonra bir Azure ML komut satırı arabiriminden komutu yürüterek yeniden eğitme başlatın:
 
 ```
 az ml experiment submit -c myhdi Code\02_Modeling\run_mmlspark.py --config_filename Code/settings.cfg --output_model_name [unique model name, alphanumeric characters only] --pretrained_model_type {alexnet,resnet18} --mmlspark_model_type {randomforest,logisticregression}
 ```
 
-Ek bir `--sample_frac` parametresi, eğitmek ve bir veri alt kümesini kullanılabilir modeliyle test etmek için kullanılabilir. Küçük bir örnek kesir kullanarak eğitilen model doğruluğundan ödün verme pahasına çalışma zamanı ve bellek gereksinimlerini azaltır. (Örneğin, bir Farklı Çalıştır ile `--sample_frac 0.1` yaklaşık 20 dakika sürmesi beklendiğinde.) Bu ve diğer parametreleri hakkında daha fazla bilgi için Çalıştır `python Code\02_Modeling\run_mmlspark.py -h`.
+Ek bir `--sample_frac` parametre eğitme ve modeli kullanılabilir verilerin bir alt kümesi ile test etmek için kullanılabilir. Küçük örnek kesir kullanarak, çalışma zamanı ve bellek gereksinimleri doğruluktan eğitilen model azaltır. (Örneğin, bir çalıştırma ile `--sample_frac 0.1` yaklaşık 20 dakika sürmesi beklenir.) Bu ve diğer parametreler hakkında daha fazla bilgi için çalıştırma `python Code\02_Modeling\run_mmlspark.py -h`.
 
-Kullanıcılar, bu komut dosyası, farklı giriş parametreleriyle birkaç kez çalıştırmak için önerilir. Sonuçta elde edilen modelleri performansını sonra Azure Machine Learning çalışma ekranı'nin çalıştırma geçmişi özelliği karşılaştırılabilir.
+Kullanıcılar, bu betik, farklı giriş parametreleriyle birkaç kez çalıştırmak için önerilir. Performans elde edilen modelleri ardından Azure Machine Learning Workbench'in çalıştırma geçmişi özelliği karşılaştırılabilir.
 
-### <a name="comparing-model-performance-using-the-workbench-run-history-feature"></a>Çalışma ekranı çalıştırma geçmişi özelliğini kullanarak modeli performans karşılaştırma
+### <a name="comparing-model-performance-using-the-workbench-run-history-feature"></a>Model performansını Workbench'i çalıştırma geçmişi özelliğini kullanarak karşılaştırma
 
-İki çalıştırdıktan veya daha fazla eğitim iki tür çalıştıran sonra çalışma ekranındaki çalıştırma geçmişi özelliğini sol menü çubuğunu boyunca saat simgesini tıklatarak gidin. Seçin `run_mmlspark.py` soldaki betikleri listesinden. Bir bölme tüm çalışmaları için test kümesi doğruluğu karşılaştırma yükler. Daha fazla ayrıntı görmek için aşağı kaydırın ve ayrı bir çalışma adına tıklayın.
+İki yürüttünüz veya daha fazla eğitim herhangi bir türde çalışır sonra workbench'teki çalıştırma geçmişi özelliği boyunca sol menü çubuğundaki saat simgesine tıklayarak gidin. Seçin `run_mmlspark.py` betikleri sol konumunda listesinden. Tüm çalıştırmalar için test kümesi doğruluğunu karşılaştıran bir bölme yükler. Daha fazla ayrıntı görmek için aşağı kaydırın ve tek bir çalıştırmanın adına tıklayın.
 
 ## <a name="deployment"></a>Dağıtım
 
-Eğitilmiş modeller birini Middlesex ilçe, MA uzaktan yürütme kullanarak döşeme havadan görüntüleri uygulamak için istenen modelinizin ad aşağıdaki komutu ekleyin ve onu yürütün:
+Eğitilen Modellerinizi birini havadan görüntüleri döşeme Middlesex ilçe, MA uzaktan yürütme kullanarak HDInsight üzerinde uygulamak için istenen modelinizin adı aşağıdaki komutu ekleyin ve yürütebilirsiniz:
 
 ```
 az ml experiment submit -c myhdi Code\03_Deployment\batch_score_spark.py --config_filename Code/settings.cfg --output_model_name [trained model name chosen earlier]
 ```
 
-Ek bir `--sample_frac` parametresi, kullanılabilir verilerin bir alt kümesini modeliyle faaliyete geçirmek için kullanılabilir. Küçük bir örnek kesir kullanarak çalışma zamanı ve bellek gereksinimlerini tahmin bütünlük ödün verme pahasına azaltır. Bu ve diğer parametreleri hakkında daha fazla bilgi için Çalıştır `python Code\03_Deployment\batch_score_spark -h`.
+Ek bir `--sample_frac` parametresi, kullanılabilir verilerin bir alt kümesi ile modeli hazır hale getirmek için kullanılabilir. Küçük örnek kesir kullanarak tahmin bütünlük çoğaltamaz çalışma zamanı ve bellek gereksinimlerini azaltır. Bu ve diğer parametreler hakkında daha fazla bilgi için çalıştırma `python Code\03_Deployment\batch_score_spark -h`.
 
-Bu komut, depolama hesabınıza modelinin tahminleri yazar. Sonraki bölümde açıklandığı gibi tahminleri incelenebilir.
+Bu betik modelin Öngörüler depolama hesabınıza yazar. Sonraki bölümde açıklandığı gibi Öngörüler incelenebilir.
 
 ## <a name="visualization"></a>Görselleştirme
 
-Çalışma ekranı projesinin "Code\04_Result_Analysis" alt "Tahmin analiz modeli" Jupyter not defteri bir modelin tahminleri visualizes. Yük ve Not Defteri gibi çalıştırın:
-1. Proje içinde çalışma ekranı açın ve klasör dizin listeleme yüklemek üzere sol menüdeki boyunca ("dosyalar") simgesine tıklayın.
-2. "Code\04_Result_Analysis" alt klasöre gidin ve "Tahmin analiz modeli" adlı dizüstü bilgisayar'ı tıklatın Not Defteri Önizleme çizmeye görüntülenmesi gerekir.
-3. "Başlat Not Not Defteri yüklemek için sunucu" seçeneğini tıklatın.
-4. İlk hücreye sonuçları bloğunu çözümlemek istediğiniz model adını girin.
+Workbench projesini "Code\04_Result_Analysis" alt "modeli tahmin analizi" Jupyter not defteri modeline ait tahminlerin görselleştirir. Yük ve Not Defteri gibi çalıştırın:
+1. Workbench'te proje açın ve simgesi ("dosyalar") dizin listeleme yüklemek için sol taraftaki menüden boyunca klasörü tıklatın.
+2. "Code\04_Result_Analysis" alt klasörüne gidin ve "Tahmin analizi Model" adlı not defterini tıklayın Not defterinin Önizleme işleme görüntülenmesi gerekir.
+3. "Not Defteri sunucusu not defterini yüklenecek Başlat" tıklayın.
+4. İlk hücrenin belirtilen yerlerde çözümlemek istediğiniz sonuçları model adını girin.
 5. Tıklayın "hücre Çalıştır -> tüm" Not defterinde tüm hücreleri yürütülecek.
-6. Analizleri ve onu sunar görselleştirmeleri hakkında daha fazla bilgi edinmek için Not Defteri ile birlikte okuyun.
+6. Analizler ve görselleştirmeler sunduğu hakkında daha fazla bilgi edinmek için Not defterini birlikte okuyun.
 
 ## <a name="cleanup"></a>Temizleme
-Örnek tamamlandığında, Azure komut satırı arabiriminden aşağıdaki komutu çalıştırarak oluşturmuş olduğunuz tüm kaynakları silmenizi öneririz:
+Örnek tamamladıktan sonra Azure komut satırı arabiriminden aşağıdaki komutu çalıştırarak oluşturduğunuz kaynakların tümünü silmenizi öneririz:
 
   ```
   az group delete --name %AZURE_RESOURCE_GROUP%
@@ -411,19 +411,19 @@ Bu komut, depolama hesabınıza modelinin tahminleri yazar. Sonraki bölümde a�
 
 ## <a name="references"></a>Başvurular
 
-- [Utandırıcı derecede paralel görüntü sınıflandırma deposu](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification)
-   - Veri kümesi oluşturma ücretsiz görüntüler ve etiketleri açıklar
-- [MMLSpark](https://github.com/Azure/mmlspark) GitHub deposunu
+- [Utandırıcı derecede paralel görüntü sınıflandırması depo](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification)
+   - Veri kümesi oluşturma yeridir görüntüleri ve etiketleri açıklar
+- [MMLSpark](https://github.com/Azure/mmlspark) GitHub deposu
    - Model eğitimi ve değerlendirmesi MMLSpark ile ek örneklerini içerir
 
 ## <a name="conclusions"></a>Sonuçları
 
-Azure Machine Learning çalışma ekranı kolayca kendi kodunuzu uzak işlem hedeflerde dağıtmak veri bilimcilerine yardımcı olur. Bu örnekte, yerel MMLSpark eğitim kod Hdınsight kümesinde uzaktan yürütme için dağıtıldı ve yerel bir komut dosyası bir Azure Batch AI GPU küme eğitim işinde başlattı. Azure Machine Learning çalışma ekranı'nin çalıştırma geçmişi özelliği, birden fazla modeli performansını izlenen ve bize en doğru modeli tanımlamaya yardım. Çalışma ekranı 's Jupyter not defterlerini özelliği bir etkileşimli, grafiksel ortamda bizim modelleri tahminleri görselleştirmenize yardımcı oldu.
+Azure Machine Learning Workbench, veri bilimcileri kodlarını uzak işlem hedeflerde kolayca dağıtın yardımcı olur. Bu örnekte, bir HDInsight kümesi üzerinde uzaktan yürütme yerel MMLSpark eğitim kod dağıtıldığı ve yerel bir betik bir Azure Batch AI, GPU kümesi üzerinde bir eğitim işi başlatıldı. Azure Machine Learning Workbench'in çalıştırma geçmişi özelliği, birden çok performans izlenir ve bize en doğru model belirlemenize yardımcı olmuştur. Workbench'in Jupyter not defterleri özellik bizim modelleri Öngörüler etkileşimli ve grafik bir ortamda görselleştirmenize yardımcı olmuştur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu örnek daha derin çalışmak için:
-- Azure Machine Learning çalışma ekranı'nin çalıştırma geçmişi özelliği hangi grafikleri ve ölçümleri görüntüleneceğini seçmek için dişli simgeleri tıklatın.
-- Çağırma deyimleri için örnek komut dosyalarını inceleyin `run_logger`. Her ölçüm nasıl kaydedilen anlamak denetleyin.
-- Çağırma deyimleri için örnek komut dosyalarını inceleyin `blob_service`. Nasıl eğitilmiş modeller anlamak ve tahminleri depolanır ve buluttan alınır denetleyin.
-- Blob depolama hesabınızdaki oluşturulan kapsayıcıları içeriğini keşfedin. Hangi komut dosyası anlamak veya komut dosyaları her grubu oluşturmaktan sorumlu olduğundan emin olun.
-- Farklı bir MMLSpark model türü eğitmek için veya model hyperparameters değiştirmek için eğitim komut dosyasını değiştirin. Değişikliklerinizi artırılabilir veya modelin doğruluğunu azaltılabilir olup olmadığını belirlemek için çalıştırma geçmişi özelliğini kullanın.
+Bu örnek ile daha derine inin için:
+- Azure Machine Learning Workbench'in çalıştırma geçmişi özelliği dişli simgeleri hangi ölçümleri ve grafikleri görüntülenen seçmek için tıklayın.
+- Çağırma deyimleri için örnek betikler inceleyin `run_logger`. Her ölçümü nasıl kaydedilen anladığınızı denetleyin.
+- Çağırma deyimleri için örnek betikler inceleyin `blob_service`. Nasıl eğitilen modelleri anlamak ve Öngörüler depolanır ve buluttan alınan denetleyin.
+- Blob depolama hesabınızda oluşturulan kapsayıcı içeriğini keşfedin. Hangi komut anlamak veya komut dosyalarının her bir grup oluşturmak için sorumludur emin olun.
+- Model hiperparametreleri değiştirmek için ya da farklı bir MMLSpark model türü eğitmek için eğitim betiği değiştirin. Değişikliklerinizi artan veya azalan modelin doğruluğunu belirlemek için çalıştırma geçmişi özelliğini kullanın.

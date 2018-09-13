@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 068e9a3379bd2762455aade1761592fa70a09a20
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 3c12e98137f44ac094adaae282b5d56d30061e60
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144387"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719860"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Tetikleyici eylemlere Event Grid kullanarak IOT Hub olaylarına tepki verme
 
@@ -34,12 +34,11 @@ IOT Hub aşağıdaki olay türleri yayımlar:
 | Olay türü | Açıklama |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | IOT hub'a bir cihaz kaydedildiğinde yayımladı. |
-| Microsoft.Devices.DeviceDeleted | Bir cihaz IOT hub'ından silindiğinde yayımladı. | 
-| Microsoft.Devices.DeviceConnected | Bir cihaz IOT hub'a bağlandığında yayımladı. | 
-| Microsoft.Devices.DeviceDisconnected | Bir cihaz IOT hub'ından kesildiğinde yayımladı. | 
-Bağlı cihaz ve olayları cihazın bağlantısı Not Kanada Doğu ve Doğu ABD bölgeleri için kısa süre içinde etkinleştirilecektir.
+| Microsoft.Devices.DeviceDeleted | Bir cihaz IOT hub'ından silindiğinde yayımladı. |
+| Microsoft.Devices.DeviceConnected | Bir cihaz IOT hub'a bağlandığında yayımladı. |
+| Microsoft.Devices.DeviceDisconnected | Bir cihaz IOT hub'ından kesildiğinde yayımladı. |
 
-Her IOT hub'ından yayımlamak için hangi olayları yapılandırmak için Azure portal veya Azure CLI kullanın. Örneğin, öğreticiyi deneyin [Logic Apps kullanarak Azure IOT Hub olayları hakkında e-posta bildirimleri gönderme](../event-grid/publish-iot-hub-events-to-logic-apps.md). 
+Her IOT hub'ından yayımlamak için hangi olayları yapılandırmak için Azure portal veya Azure CLI kullanın. Örneğin, öğreticiyi deneyin [Logic Apps kullanarak Azure IOT Hub olayları hakkında e-posta bildirimleri gönderme](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
 ## <a name="event-schema"></a>Olay şeması
 
@@ -146,7 +145,7 @@ IOT Hub olaylarını işlemek uygulamalar bu önerilen uygulamaları izlemelisin
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [IOT Hub olaylarını öğreticisini deneyin](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* [Cihaz bağlı ve olayları bağlantısı kesildi sipariş öğrenin](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
+* [Cihazla bağlantılı ve bağlantısız olayları nasıl sıralayacağınızı öğrenin](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * [Event Grid hakkında daha fazla bilgi edinin][lnk-eg-overview]
 * [IOT Hub olaylarını yönlendirme iletileri arasındaki farkları karşılaştırın][lnk-eg-compare]
 

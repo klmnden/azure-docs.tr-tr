@@ -1,8 +1,8 @@
 ---
-title: "Algılama - Azure Application Insights tarafından algılanan olası bellek sızıntısı akıllı | Microsoft Docs"
-description: "Azure Application Insights ile olası bellek sızıntıları için uygulamalarını izleyin."
+title: Akıllı algılama - Azure Application Insights tarafından algılanan olası bellek sızıntısı | Microsoft Docs
+description: Azure Application Insights ile bir uygulama için olası bellek sızıntılarını izleyin.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
@@ -10,31 +10,30 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: e98caaa387418d746905990436b69925a591b260
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 25d26db3cd11fff7f7e9ba472247a920ecddea33
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651153"
 ---
-# <a name="memory-leak-detection-preview"></a>Bellek sızıntısı algılama (Önizleme)
+# <a name="memory-leak-detection-preview"></a>Bellek sızıntısı algılamayı (Önizleme)
 
-Application Insights otomatik olarak uygulamanızdaki her işlem bellek kullanımını analiz eder ve olası bellek sızıntıları veya daha yüksek bellek tüketimine hakkında uyarır.
+Application ınsights'ı otomatik olarak uygulamanızdaki her bir işlem bellek tüketimini analiz eder ve olası bellek sızıntısı ya da daha yüksek bellek tüketimi hakkında sizi uyarır.
 
-Bu özellik, başka hiçbir özel kurulum gerektirir [performans sayaçları yapılandırma](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) uygulamanız için. Uygulamanızı yeterli bellek performans sayaçları telemetri (örneğin, özel bayt sayısı) oluşturduğunda etkin olur.
+Bu özellik dışında hiçbir özel kurulum gerektiren [performans sayaçları yapılandırılıyor](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) uygulamanız için. Uygulamanızı yeterli bellek performans sayaçları telemetri (örneğin, özel baytlar) oluşturduğunda etkin değil.
 
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Bu tür bir akıllı algılama bildirim ne zaman elde edersiniz?
+Tipik bir bildirim, bir uzun süre boyunca, uygulamanızın bir parçası olan bir veya daha fazla makine ve/veya bir veya daha fazla işlem bellek tüketimi tutarlı bir artış izler. Makine öğrenimi algoritmaları, bir bellek sızıntısı deseni ile eşleşen artan bellek tüketimi algılamak için kullanılır.
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Bu tür akıllı algılama bildirim ulaştıklarında?
-Tipik bir bildirim, bir veya daha fazla işlem ve/veya, uygulamanın parçası olan bir veya daha fazla makine bellek tüketimi bir uzun süre boyunca (birkaç saat), tutarlı bir artış izler.
-Machine learning algoritmaları doğal olarak uygulama kullanımı artırmayı nedeniyle daha yüksek bellek tüketimine aksine bir bellek sızıntısı olan bir desenle eşleşen daha yüksek bellek tüketimine algılama için kullanılır.
-
-## <a name="does-my-app-definitely-have-a-problem"></a>Uygulamam kesinlikle bir sorun var mı?
-Hayır, bir bildirim uygulamanızı kesinlikle bir sorun olduğu anlamına gelmez. Bellek sızıntısı desenleri genellikle uygulama sorununu gösterir ancak bu desenleri belirli işleminizi tipik olabilir veya doğal iş gerekçesinin olabilir ve göz ardı edilebilir.
+## <a name="does-my-app-really-have-a-problem"></a>Uygulamamı gerçekten bir sorun var mı?
+Hayır, bir bildirim uygulamanızı kesinlikle bir sorun olduğu anlamına gelmez. Bellek sızıntısı desenler genellikle bir uygulama sorunu olduğunu olsa da, bu desenleri belirli süreciniz için tipik olabilir veya doğal İş Gerekçesi olabilir ve yok sayılabilir.
 
 ## <a name="how-do-i-fix-it"></a>Bunu nasıl düzeltirim?
-Bildirimleri tanılama Çözümleme işleminin desteklemek için tanılama bilgileri içerir:
-1. **Önceliklendirme.** Bildirim, bellek miktarını artırın (GB) ve bellek artan zaman aralığı gösterir. Bu sorun için bir öncelik atamanıza yardımcı olabilir.
-2. **Kapsamı.** Kaç tane makineler bellek sızıntısı düzeni sergilenen? Kaç tane özel durumlar olası bellek sızıntısı sırasında tetiklenen? Bu bilgiler bildirimden alınabilir.
-3. **Tanılayın.** Algılama zamanla işleminin bellek tüketimini gösteren bellek sızıntısı düzeni içerir. Daha fazla yardımcı olacak bilgiler, destek bağlama raporları sorunu tanılamak ve ilgili öğeler de kullanabilirsiniz.
+Bildirimler tanılama Analiz işlemini desteklemek için tanılama bilgileri içerir:
+1. **Değerlendirme.** Bildirim, bellek miktarını artırın (GB) ve bellek içinde arttığını gözlemleyebiliriz zaman aralığını gösterir. Bu sorun için bir öncelik atamanıza yardımcı olabilir.
+2. **Kapsam.** Makine sayısını, bellek sızıntısı deseni sergilenen? Kaç özel durumlar, olası bellek sızıntısı sırasında tetiklenen? Bu bilgiler gelen bildirim elde edilebilir.
+3. **Tanılayın.** Algılama zaman içinde bellek tüketimini işleminin gösteren bellek sızıntısı deseni içerir. İlgili öğeler de kullanabilirsiniz ve daha fazla yardımcı olacak bilgiler için destek bağlama raporları sorunu tanılayın.

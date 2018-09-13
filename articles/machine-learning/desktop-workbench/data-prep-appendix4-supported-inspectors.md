@@ -1,40 +1,40 @@
 ---
-title: Denetçiler Azure Machine Learning veri hazırlığı ile kullanılabilir desteklenen | Microsoft Docs
-description: Bu belgede Azure Machine Learning veri hazırlığı kullanılabilir denetçiler tam bir listesi sağlanmaktadır
+title: Desteklenen denetçiler Azure Machine Learning veri hazırlama ile kullanılabilir | Microsoft Docs
+description: Bu belge, Azure Machine Learning veri hazırlama için kullanılabilir denetçiler tam listesi sağlar
 services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: ca9b46335105e62b023e7db16e0ead4061fbfd00
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ef5f6f3dc7ae0c555b2afe000b54c443313800f1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830723"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35651046"
 ---
-# <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Denetçiler Azure Machine Learning veri hazırlık önizlemesi için desteklenen
-Bu belgede, bu Önizleme'de kullanılabilen denetçiler kümesi özetlenmektedir.
+# <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Azure Machine Learning veri hazırlama Önizleme denetçiler desteklenir
+Bu belge, bu Önizleme sürümünde kullanılabilir olan denetçiler kümesini açıklar.
 
 ## <a name="the-halo-effect"></a>Halo etkisi 
-Bazı denetçiler hale efekti destekler. Bu etkiyi hemen değişikliği görsel olarak bir dönüşüm göstermek için iki farklı renk kullanır. Gri son dönüştürme önce değerini temsil eder ve mavi geçerli değeri gösterir. Bu etkiyi etkin ve seçenekleri devre dışı.
+Bazı denetçiler halo etkisi destekler. Bu etkiyi hemen dönüşüm dosyasından görsel olarak göstermek için iki farklı renkler kullanır. Gri önce en son transform değerini temsil eder ve mavi geçerli değeri gösterir. Bu etkiyi etkinleştirilmeli ve seçeneklerinde devre dışı.
 
 ## <a name="graphical-filtering"></a>Grafik filtreleme 
-Denetçiler bazıları düzenleyici olarak Inspector'ı kullanarak veri filtreleme destekler. Düzenleyici olarak Inspector'ı kullanarak, grafik öğeleri seçerek ve araç denetçisi pencerenin sağ üst kısmında veya seçilen değerleri uzaklaştırma filtre kullanmayı içerir. 
+Denetçiler bazıları bir düzenleyici olarak Denetçisi'ni kullanarak verileri filtrelemeyi destekler. Bir düzenleyici olarak denetçisini kullanma, grafik öğeleri seçme ve araç denetçisi pencerenin sağ üst kısmında kullanarak içe veya dışa seçilen değerleri filtreleme içerir. 
 
 ## <a name="column-statistics"></a>Sütun istatistikleri
-Sayısal sütunlar için bu denetçisi farklı istatistik sütun hakkında çeşitli sağlar. İstatistikler aşağıdaki ölçüleri içerir: 
+Sayısal sütunları için bu denetim hakkında sütunu farklı istatistikleri çeşitli sağlar. İstatistikler, aşağıdaki ölçüleri içerir: 
 - Minimum
-- Alt DÖRTTEBİRLİK
+- Daha düşük dörtte
 - ORTANCA
-- Üst DÖRTTEBİRLİK
+- Üst dörtte
 - Maksimum
 - Ortalama
 - Standart sapma
@@ -44,35 +44,35 @@ Sayısal sütunlar için bu denetçisi farklı istatistik sütun hakkında çeş
 - None
 
 ## <a name="histogram"></a>Çubuk grafik 
-Hesaplar ve tek bir sayısal sütunun bir histogram görüntüler. Varsayılan aralık sayısı, Scott'ın kuralı kullanılarak hesaplanır. Bununla birlikte, kural seçenekleri ile geçersiz kılınabilir.
+Hesaplar ve tek bir sayısal sütun bir histogram gösterir. Varsayılan demet sayısını Scott'ın kuralı kullanılarak hesaplanır. Ancak, kural aracılığıyla seçenekleri geçersiz kılınabilir.
 
-Bu denetleyici hale efekti destekler.
+Bu denetim halo etkisi destekler.
 
 
 ### <a name="options"></a>Seçenekler
-- En az sayıda demete (hatta zaman varsayılan bucketing denetlenir geçerlidir)
-- Varsayılan aralık sayısı (Scott'ın kuralı) 
-- Hale Göster
+- En düşük demet sayısı (hatta zaman varsayılan benzeyebilir denetlenir geçerlidir)
+- Varsayılan sayıda demete (Scott'ın kuralı) 
+- Halo Göster
 - Çekirdek yoğunluğu çizim katmana (Gauss çekirdek) 
 - Logaritmik ölçek kullan
 
 
 ### <a name="actions"></a>Eylemler
-Bu denetim, tek veya çoklu seçim demet içerebilen demet filtreleme destekler. Daha önce açıklandığı gibi filtre uygulayın.
+Bu denetim, tek veya çoklu seçim demet içeren demetler filtrelemeyi destekler. Daha önce açıklandığı gibi filtreler uygulayın.
 
-## <a name="value-counts"></a>Değer sayar
-Bu denetim sıklığı tablosu şu anda seçili sütun değerleri gösterir. Varsayılan görüntü üst altı değerlerini ayarıdır. Ancak, herhangi bir sayıya sınırı değiştirebilirsiniz. Top yerine Alttan saymak için ekranı de ayarlayabilirsiniz. Bu denetleyici hale efekti destekler.
+## <a name="value-counts"></a>Değer sayıları
+Bu denetim sıklığı tablosu şu anda seçili sütun için değerler sunar. İlk altı değerleri için varsayılan görüntüdür. Ancak, herhangi bir sayı sınırı değiştirebilirsiniz. Ekranın en üstünde değil, Alttan saymak için de ayarlayabilirsiniz. Bu denetim halo etkisi destekler.
 
 ### <a name="options"></a>Seçenekler 
 - Üst değer sayısı
 - Azalan
 - Null/hata değerlerini içerir
-- Hale Göster
+- Halo Göster
 - Logaritmik ölçek kullan
 
 
 ### <a name="actions"></a>Eylemler 
-Bu denetim, tek veya çoklu seçim çubukları içerebilen çubukları filtreleme destekler. Daha önce açıklandığı gibi filtre uygulayın.
+Bu denetim, tek veya çoklu seçim çubukları içerebilen çubukları filtrelemeyi destekler. Daha önce açıklandığı gibi filtreler uygulayın.
 
 ## <a name="box-plot"></a>Kutu Çizimi 
 Bir kutu yatay çizgi çizimi sayısal bir sütun.
@@ -80,8 +80,8 @@ Bir kutu yatay çizgi çizimi sayısal bir sütun.
 ### <a name="options"></a>Seçenekler 
 - Sütuna göre Gruplandır
 
-## <a name="scatter-plot"></a>Çizim dağılım
-Dağılım çizim iki sayısal sütunlar için. Performansı artırmak için aşağı örneklenen verilerdir. Örnek boyut seçenekleri geçersiz kılınabilir.
+## <a name="scatter-plot"></a>Dağılım
+İki sayısal bir sütun için bir dağılım grafiğinde noktalara. Performansla ilgili nedenlerden dolayı alt örneklenen verilerdir. Örnek boyutu seçenekleri geçersiz kılınabilir.
 
 ### <a name="options"></a>Seçenekler  
 - X ekseni sütun
@@ -91,20 +91,20 @@ Dağılım çizim iki sayısal sütunlar için. Performansı artırmak için aş
 
 
 ## <a name="time-series"></a>Zaman serisi
-Çizgi grafiği eksenindeki zaman tanıma sahip.
+X eksenindeki zaman tanıma ile çizgi grafiği.
 
 ### <a name="options"></a>Seçenekler
 - Tarih sütunu
-- Sayısal sütun
+- Sayısal bir sütun
 - Örnek boyutu
 
 
 ### <a name="actions"></a>Eylemler
-Bu denetleyici grafikte bir aralık seçmek üzere tıklatın ve sürükleyin select yöntemi aracılığıyla filtreleme destekler. Seçimi tamamladıktan sonra daha önce açıklandığı gibi filtre uygulayın.
+Bu denetim, grafikteki bir aralık seçmek için tıklayın ve sürükleyin select yöntemi aracılığıyla filtrelemeyi destekler. Seçimi tamamladıktan sonra daha önce açıklandığı gibi filtreler uygulayın.
 
 
 ## <a name="map"></a>Eşleme 
-Enlem ve boylam belirtilen varsayarsak, çizilir noktaları ile eşleme. Enlem önce seçilmelidir.
+Enlem ve boylamdan belirtilen varsayarak, çizilir noktalarını sahip bir eşleme. Enlem ilk seçilmelidir.
 
 ### <a name="options"></a>Seçenekler
 - Enlem sütun
@@ -114,21 +114,21 @@ Enlem ve boylam belirtilen varsayarsak, çizilir noktaları ile eşleme. Enlem �
 
 
 ### <a name="actions"></a>Eylemler
-Bu denetim noktası seçimini harita üzerinde aracılığıyla filtreleme destekler. Tuşuna **Ctrl** anahtar ve ardından bir kare noktaları etrafında oluşturmak üzere fareyle sürükleyin. Ardından daha önce açıklandığı gibi filtre uygulayın.
+Bu denetim noktası seçimi harita üzerinde aracılığıyla filtrelemeyi destekler. Tuşuna **Ctrl** anahtar, tıklayın ve fareyle noktaları etrafında bir kare oluşturmak için sürükleyin. Ardından, daha önce açıklandığı gibi filtreler uygulayın.
 
 Harita tuşlarına basarak yalnızca olası noktalarını göstermek için hızlı bir şekilde boyutlandırabilirsiniz **E** harita sol tarafındaki.
 
 
 ## <a name="pattern-frequency"></a>Desen sıklığı 
 
-Bu denetim içinde seçilen dize sütunu desenlerinin bir listesi gösterilir. Desenler bir normal ifade sözdizimini gibi kullanılarak gösterilir. Desenine bekleyerek bu desene tarafından temsil edilen değerler örnekleri gösterilir. Desenler ile birlikte yüzdesi cinsinden yaklaşık coverages da gösterilir.
+Bu denetim içinde seçilen dize sütunu desenlerinin bir listesi gösterir. Desenler sözdizimi gibi normal bir ifade kullanılarak temsil edilir. Desen vurgulama, bu deseni tarafından gösterilen değerleri örneklerini gösterir. Desenleri yanı sıra, yaklaşık coverages yüzde olarak da gösterilir.
 
-![Desen denetçisi görüntüsü](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+![Desen denetçisinin görüntüsü](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
 
 ### <a name="options"></a>Seçenekler
 - Üst değer sayısı
 - Azalan
-- Hale Göster
+- Halo Göster
 
 ### <a name="actions"></a>Eylemler
-Bu denetleyici görüntülenen düzenlerini esas alarak filtreleme destekler. Tuşuna **Ctrl** anahtar ve doldurulmuş çubuğu düzeni Denetçisi'nde seçin. Ardından daha önce açıklandığı gibi filtre uygulayın. Kullanıcı acion sonucunda bir Gelişmiş Filtre adım eklenir. Bakın ve Gelişmiş Filtre adım Düzenle seçeneğini çağırarak oluşturulan Python kodu değiştirin.
+Bu denetim, görüntülenen düzenlerini esas alarak filtrelemeyi destekler. Tuşuna **Ctrl** anahtar ve desen denetçi'deki doldurulmuş çubuğu seçin. Ardından, daha önce açıklandığı gibi filtreler uygulayın. Gelişmiş Filtre adım kullanıcı acion sonucu olarak eklenir. Görebilir ve Gelişmiş Filtre adımı Düzenle seçeneğini çağırarak oluşturulan Python kodu değiştirin.

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: efdded28fa4554bf58399d997bf663781a08755e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325345"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714710"
 ---
 # <a name="about-the-speech-to-text-api"></a>Konuşmayı metne dönüştürme API'si
 
@@ -36,7 +36,7 @@ ms.locfileid: "39325345"
 
 ## <a name="api-capabilities"></a>API özellikleri
 
-Bazı özelliklerini **Konuşmayı metne dönüştürme** API'si, REST kullanılabilir değildir. Aşağıdaki tabloda, her API erişimi yöntemi yeteneklerini özetler.
+Çok sayıda yeteneklerini **Konuşmayı metne dönüştürme** - özellikle çevresinde özelleştirmesi - API REST kullanılabilir. Aşağıdaki tabloda, her API erişimi yöntemi yeteneklerini özetler. Özellikler ve API tam listesini consult Lütfen ayrıntıları [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
 
 | Kullanım örneği | REST | SDK’lar |
 |-----|-----|-----|----|
@@ -44,6 +44,16 @@ Bazı özelliklerini **Konuşmayı metne dönüştürme** API'si, REST kullanıl
 | Konuşmaların daha uzun bir utterance (> 15 sn) | Hayır | Evet |
 | İsteğe bağlı Ara sonuçlarla Akış ses özelliği | Hayır | Evet |
 | Konuşmacı ıntents aracılığıyla LUIS anlama | Yok\* | Evet |
+| Doğruluk testi oluşturma | Evet | Hayır |
+| Model uyarlama için veri kümelerini karşıya yükleme | Evet | Hayır |
+| Konuşma modelleri Yönet & Oluştur | Evet | Hayır |
+| Model dağıtımları yönetmek & Oluştur | Evet | Hayır |
+| Abonelikleri Yönetme | Evet | Hayır |
+| Model dağıtımları yönetmek & Oluştur | Evet | Hayır |
+| Model dağıtımları yönetmek & Oluştur | Evet | Hayır |
+
+> [!NOTE]
+> REST API, API isteklerinin 5 saniye başına 25 sınırlayan azaltma uygular. İleti hearders sınırlarını size bildirir
 
 \* *LUIS amaç ve varlıkları kullanarak ayrı bir LUIS aboneliği türetilebilir. Bu abonelikle SDK LUIS çağırmanızı ve konuşma döküm yanı sıra, varlık ve amacını sonuçlar sağlar. REST API ile LUIS çağırabilirsiniz kendiniz amaç ve varlıkları LUIS aboneliğinizle türetmek için.*
 

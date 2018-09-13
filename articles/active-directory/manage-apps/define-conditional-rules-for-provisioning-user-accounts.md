@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e9616b39491aac01427ee34fb23db556c5c9b9
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: b62679332a45127d7c1a45593c162182886a7150
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357625"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719367"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Kapsam filtreleri ile öznitelik tabanlı uygulama sağlama
 Bu makalenin amacı, bir uygulamaya hangi kullanıcılar sağlanır belirlemek öznitelik tabanlı kurallar tanımlamak için kapsam belirleme filtrelerini kullanma açıklanmaktadır sağlamaktır.
@@ -111,7 +111,6 @@ Kapsam belirleme filtrelerini bağlayıcı sağlama her bir Azure AD kullanıcı
 
 
 ## <a name="related-articles"></a>İlgili makaleler
-* [Azure Active Directory'de uygulama yönetimi için makale dizini](../active-directory-apps-index.md)
 * [Sağlama ve sağlamayı kaldırma SaaS uygulamalarına kullanıcı otomatikleştirin](user-provisioning.md)
 * [Kullanıcı sağlama için öznitelik eşlemelerini özelleştirme](customize-application-attributes.md)
 * [Öznitelik eşlemeleri için ifadeler yazma](functions-for-customizing-application-data.md)
