@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 09b9126125006fb70f5e2560f04b815b4a874405
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d106d9f79498678f08142f952e09c5125c6e5d6c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027308"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721526"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Öğretici: sanal makineler, Azure Stack kullanıcılar için kullanılabilir yap
 
@@ -46,11 +46,11 @@ Daha fazla bilgi için bkz. [anahtar özellikler ve kavramlar Azure Stack'te](az
 
 Teklifler sağlayıcıları satın alan veya abone olmak için kullanıcılara sunmak bir veya daha fazla plan gruplarıdır. Teklif oluşturma işlemi birkaç adım vardır. İlk olarak, teklif, sonra bir plan ve son olarak, kotalar oluşturmanız istenir.
 
-1. [Oturum](azure-stack-connect-azure-stack.md) portalda bir bulut Yöneticisi ve ardından olarak **yeni** > **sunar + planlar** > **teklif**.
+1. [Oturum](azure-stack-connect-azure-stack.md) portalda bir bulut Yöneticisi ve ardından olarak **+ kaynak Oluştur** > **sunar + planlar** > **teklif**.
 
    ![Yeni teklif](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-1. İçinde **yeni teklif**, girin bir **görünen ad** ve **kaynak adı**ve ardından yeni veya mevcut bir seçin **kaynak grubu**. Görünen Ad, teklifin kolay adıdır. Yalnızca bulut operatörü, kaynak adını görebilirsiniz. Bu ad, yöneticilerin teklifle Azure Resource Manager kaynağı olarak çalışmak için kullandıkları addır.
+1. İçinde **yeni teklif**, girin bir **görünen ad** ve **kaynak adı**ve ardından yeni veya mevcut bir seçin **kaynak grubu**. Görünen ad teklifin kolay adıdır. Yalnızca bulut işleci yöneticileri teklif bir Azure Resource Manager kaynağı olarak çalışmak için kullandığınız adı kaynak adını görebilirsiniz.
 
    ![Görünen ad](media/azure-stack-tutorial-tenant-vm/image02.png)
 
@@ -58,7 +58,7 @@ Teklifler sağlayıcıları satın alan veya abone olmak için kullanıcılara s
 
    ![Bir plan Ekle](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-1. İçinde **yeni Plan** bölümünde, doldurun **görünen ad** ve **kaynak adı**. Görünen ad kullanıcıların göreceği planın kolay addır. Yalnızca bulut operatörü, kaynak adını görebilirsiniz. Bir Azure Resource Manager kaynağı olarak planla çalışmak için bulut işleçleri kullanan addır.
+1. İçinde **yeni plan** bölümünde, doldurun **görünen ad** ve **kaynak adı**. Görünen ad kullanıcıların göreceği planın kolay addır. Yalnızca bulut operatörü, bulut operatörlerinin bir Azure Resource Manager kaynağı olarak planla çalışmak için kullandığınız adı olan kaynak adı görebilirsiniz.
 
    ![Plan görünen adı](media/azure-stack-tutorial-tenant-vm/image04.png)
 
@@ -112,11 +112,11 @@ Teklif oluşturduğunuza göre bunu test edebilirsiniz. Bir kullanıcı olarak o
    - Tümleşik bir sistem için URL, işlecin bölge ve dış etki alanı adına göre değişir ve biçimde olacaktır https://portal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
    - Azure Stack geliştirme Seti'ni kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
 
-   ![Abonelik edinin](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![Abonelik edinin](media/azure-stack-tutorial-tenant-vm/image10.png)
 
    b. İçinde **bir abonelik edinmeniz**, aboneliğinizde için bir ad girin **görünen ad** alan. Seçin **teklif**, bir teklif seçin **bir teklif seçin** listesi. **Oluştur**’u seçin.
 
-   ![Teklif oluşturma](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![Teklif oluşturma](media/azure-stack-tutorial-tenant-vm/image11.png)
 
    c. Aboneliği görüntülemek için seçin **tüm hizmetleri**ve ardından altındaki **genel** kategorisi seçin **abonelikleri**. Hangi hizmetlerin abonelik parçası olduğunu görmek için yeni aboneliğinizi seçin.
 
@@ -131,7 +131,7 @@ Teklif oluşturduğunuza göre bunu test edebilirsiniz. Bir kullanıcı olarak o
       - Tümleşik bir sistem için URL, işlecin bölge ve dış etki alanı adına göre değişir ve biçimde olacaktır https://portal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
    - Azure Stack geliştirme Seti'ni kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
 
-   b.  Panoda seçin **yeni** > **işlem** > **Windows Server 2016 Datacenter değerlendirme**ve ardından **Oluştur**.
+   b.  Panoda seçin **+ kaynak Oluştur** > **işlem** > **Windows Server 2016 Datacenter değerlendirme**seçip **Oluşturma**.
 
    c. İçinde **Temelleri**, aşağıdaki bilgileri sağlayın:
       - Girin bir **adı**
@@ -151,14 +151,11 @@ Teklif oluşturduğunuza göre bunu test edebilirsiniz. Bir kullanıcı olarak o
 
    h. Seçin **Tamam** içinde **ayarları** ağ yapılandırmasını kaydetmek için.
 
-   ![Sanal ağ oluşturma](media/azure-stack-provision-vm/image04.png)
-
-   i. İçinde **özeti**seçin **Tamam** sanal makine oluşturmak için.  
+      i. İçinde **özeti**seçin **Tamam** sanal makine oluşturmak için.  
 
    j. Yeni bir sanal makine görmek için seçin **tüm kaynakları**. Sanal makine için arama yapın ve Arama sonuçlarından adını seçin.
 
-   ![Tüm kaynaklar](media/azure-stack-provision-vm/image06.png)
-
+   
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:

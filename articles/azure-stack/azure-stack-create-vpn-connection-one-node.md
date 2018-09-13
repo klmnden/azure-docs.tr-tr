@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6225a12b50ebb7bf0a0cb9244153800ba734d93a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a219f44cb27bb6ebe4e17079ad487457ae8852f0
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006912"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718126"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Farklı Azure Stack geliştirme Seti'ni ortamlarındaki iki sanal ağ arasında siteden siteye VPN bağlantısı oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -92,10 +92,7 @@ Hizmet Yöneticisi bir kiracı planlar, teklifler ve kiracılarının kullanabil
 
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Sanal ağ ve VM alt ağı oluşturma
 1. Kullanıcı portalında oturum açmak için bir kiracı hesabı kullanın.
-2. Kullanıcı Portalı'nda seçin **yeni**.
-
-    ![Yeni sanal ağ oluşturma](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
-
+2. Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**.
 3. Git **Market**ve ardından **ağ**.
 4. Seçin **sanal ağ**.
 5. İçin **adı**, **adres alanı**, **alt ağ adı**, ve **alt ağ adres aralığı**, ağda görünen değerleri kullanın Yapılandırma tablo.
@@ -118,7 +115,7 @@ Hizmet Yöneticisi bir kiracı planlar, teklifler ve kiracılarının kullanabil
 6. Seçin **Tamam** ağ geçidi alt ağı oluşturmak için.
 
 ### <a name="create-the-virtual-network-gateway"></a>Sanal ağ geçidini oluşturma
-1. Azure portalında **yeni**. 
+1. Azure portalında **+ kaynak Oluştur**. 
 2. Git **Market**ve ardından **ağ**.
 3. Ağ kaynakları listesinden **sanal ağ geçidi**.
 4. İçinde **adı**, girin **GW1**.
@@ -140,7 +137,7 @@ Bu konuda daha genel düşünmek için bir yerel ağ geçidi kaynağı her zaman
 
 ### <a name="create-the-local-network-gateway-resource"></a>Yerel ağ geçidi kaynağı oluşturma
 1. POC1 için Azure Stack fiziksel makinesinde oturum açın.
-2. Kullanıcı Portalı'nda seçin **yeni**.
+2. Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**.
 3. Git **Market**ve ardından **ağ**.
 4. Kaynak listesinden **yerel ağ geçidi**.
 5. İçinde **adı**, girin **POC2-GW**.
@@ -149,7 +146,7 @@ Bu konuda daha genel düşünmek için bir yerel ağ geçidi kaynağı her zaman
 8. Doğrulayın, **abonelik**, **kaynak grubu**, ve **konumu** doğru olduğundan ve ardından **Oluştur**.
 
 ### <a name="create-the-connection"></a>Bağlantı oluşturma
-1. Kullanıcı Portalı'nda seçin **yeni**.
+1. Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**.
 2. Git **Market**ve ardından **ağ**.
 3. Kaynak listesinden **bağlantı**.
 4. Üzerinde **Temelleri** ayarları dikey penceresinde için **bağlantı türü**seçin **siteden siteye (IPSec)**.
@@ -163,7 +160,7 @@ Bu konuda daha genel düşünmek için bir yerel ağ geçidi kaynağı her zaman
 ### <a name="create-a-vm"></a>VM oluşturma
 VPN bağlantısından geçen verileri doğrulamak için her Azure Stack geliştirme Seti'ni veri alıp göndermek için sanal makinelerin gerekir. POC1'de, hemen bir sanal makine oluşturun ve ardından, VM alt ağında yerleştirin sanal ağınızda bulunan.
 
-1. Azure portalında **yeni**.
+1. Azure portalında **+ kaynak Oluştur**.
 2. Git **Market**ve ardından **işlem**.
 3. Sanal makine görüntüleri listesinde seçin **Windows Server 2016 Datacenter değerlendirme** görüntü.
 4. Üzerinde **Temelleri** dikey penceresindeki **adı**, girin **VM01**.
@@ -185,7 +182,7 @@ Hizmet Yöneticisi bir kiracı planlar, teklifler ve kiracılarının kullanabil
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Sanal ağ ve VM alt ağı oluşturma
 
 1. Bir kiracı hesabı kullanarak oturum açın.
-2. Kullanıcı Portalı'nda seçin **yeni**.
+2. Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**.
 3. Git **Market**ve ardından **ağ**.
 4. Seçin **sanal ağ**.
 5. POC2 için değerleri belirlemek için ağ yapılandırma tabloda daha önce görünen bilgileri kullanın **adı**, **adres alanı**, **alt ağ adı**ve **Alt ağ adres aralığı**.
@@ -205,7 +202,7 @@ Hizmet Yöneticisi bir kiracı planlar, teklifler ve kiracılarının kullanabil
 6. Seçin **Tamam** ağ geçidi alt ağı oluşturmak için.
 
 ### <a name="create-the-virtual-network-gateway"></a>Sanal ağ geçidini oluşturma
-1. Azure portalında **yeni**.  
+1. Azure portalında **+ kaynak Oluştur**.  
 2. Git **Market**ve ardından **ağ**.
 3. Ağ kaynakları listesinden **sanal ağ geçidi**.
 4. İçinde **adı**, girin **GW2**.
@@ -218,7 +215,7 @@ Hizmet Yöneticisi bir kiracı planlar, teklifler ve kiracılarının kullanabil
 
 ### <a name="create-the-local-network-gateway-resource"></a>Yerel ağ geçidi kaynağı oluşturma
 
-1. POC2 Kullanıcı Portalı'nda seçin **yeni**. 
+1. POC2 Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**. 
 4. Git **Market**ve ardından **ağ**.
 5. Kaynak listesinden **yerel ağ geçidi**.
 6. İçinde **adı**, girin **POC1-GW**.
@@ -227,7 +224,7 @@ Hizmet Yöneticisi bir kiracı planlar, teklifler ve kiracılarının kullanabil
 9. Doğrulayın, **abonelik**, **kaynak grubu**, ve **konumu** doğru olduğundan ve ardından **Oluştur**.
 
 ## <a name="create-the-connection"></a>Bağlantı oluşturma
-1. Kullanıcı Portalı'nda seçin **yeni**. 
+1. Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**. 
 2. Git **Market**ve ardından **ağ**.
 3. Kaynak listesinden **bağlantı**.
 4. Üzerinde **temel** ayarları dikey penceresinde için **bağlantı türü**, seçin **siteden siteye (IPSec)**.
@@ -241,7 +238,7 @@ Hizmet Yöneticisi bir kiracı planlar, teklifler ve kiracılarının kullanabil
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 POC2'de, hemen bir sanal makine oluşturun ve sanal ağınızdaki VM alt yerleştirin.
 
-1. Azure portalında **yeni**.
+1. Azure portalında **+ kaynak Oluştur**.
 2. Git **Market**ve ardından **işlem**.
 3. Sanal makine görüntüleri listesinde seçin **Windows Server 2016 Datacenter değerlendirme** görüntü.
 4. Üzerinde **Temelleri** dikey penceresinde için **adı**, girin **VM02**.

@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 7277aeb97409815e2e218da8f233cd836bccc72b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e4e3fdbdd3bc9eb982f993a9be60ba0812c68a9d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022425"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713756"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>Hızlı Başlangıç: Azure Stack portal ile bir Windows server sanal makinesi oluşturma
 
@@ -36,7 +36,7 @@ Azure Stack portalında oturum açın. Azure Stack portal'ın adresi, Azure Stac
 
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-1. Tıklayın **yeni** > **işlem** > **Windows Server 2016 Datacenter –-,-kullandıkça** > **oluşturma**. Görmüyorsanız **Windows Server 2016 Datacenter –-,-kullandıkça** girişi, Azure Stack operatörü başvurun. Bunlar ve Market içinde anlatıldığı gibi eklemenizi isteyin [Windows Server 2016 VM görüntüsü eklemek için Azure Stack marketini](../azure-stack-add-default-image.md) makalesi.
+1. Tıklayın **+ kaynak Oluştur** > **işlem** > **Windows Server 2016 Datacenter –-,-kullandıkça**  >   **Oluşturma**. Görmüyorsanız **Windows Server 2016 Datacenter –-,-kullandıkça** girişi, Azure Stack operatörü başvurun. Bunlar ve Market içinde anlatıldığı gibi eklemenizi isteyin [Windows Server 2016 VM görüntüsü eklemek için Azure Stack marketini](../azure-stack-add-default-image.md) makalesi.
 
     ![Portalında bir Windows sanal makinesi oluşturma adımları](media/azure-stack-quick-windows-portal/image01.png)
 2. Altında **Temelleri**, tür a **adı**, **kullanıcı adı**, ve **parola**. Seçin bir **abonelik**. Oluşturma bir **kaynak grubu**, veya varolan bir adet seçin bir **konumu**ve ardından **Tamam**.

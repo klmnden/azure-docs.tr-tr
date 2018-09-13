@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: db9f19154668fa33bb94e59a4da6735b1a6d3d49
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139622"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720506"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack, Azure ExpressRoute kullanarak Azure'a bağlanma
 
@@ -98,7 +98,7 @@ Gerekli ağ kaynaklarına Azure Stack için bir kiracı oluşturmak için aşağ
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>Sanal ağ ve VM alt ağı oluşturma
 
 1. Kullanıcı Portalı bir kullanıcı (Kiracı) hesabıyla oturum açın.
-1. Portalında **yeni**.
+1. Portalında **+ kaynak Oluştur**.
 
 1. Altında **Azure Marketi**seçin **ağ**.
 
@@ -131,7 +131,7 @@ Gerekli ağ kaynaklarına Azure Stack için bir kiracı oluşturmak için aşağ
 
 #### <a name="create-the-virtual-network-gateway"></a>Sanal ağ geçidini oluşturma
 
-1. Azure Stack Kullanıcı Portalı'nda seçin **yeni**.
+1. Azure Stack Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**.
 1. Altında **Azure Marketi**seçin **ağ**.
 1. Ağ kaynakları listesinden **Sanal ağ geçidi**’ni seçin.
 1. İçinde **adı** alanına **GW1**.
@@ -146,7 +146,7 @@ Gerekli ağ kaynaklarına Azure Stack için bir kiracı oluşturmak için aşağ
 
 VPN bağlantısının diğer ucundaki uzak ağ geçidini yerel ağ geçidi kaynağı tanımlar. Bu örnekte, uzak bağlantı ExpressRoute yönlendiricinin LAN arabirim sonudur. Kiracı 1 için görünen *Şekil 2*, 10.60.3.255 uzak adresidir.
 
-1. Azure Stack Kullanıcı Portalı kullanıcı hesabınızla oturum açın ve seçin **yeni**.
+1. Azure Stack Kullanıcı Portalı kullanıcı hesabınızla oturum açın ve seçin **+ kaynak Oluştur**.
 1. Altında **Azure Marketi**seçin **ağ**.
 1. Kaynak listesinden **yerel ağ geçidi**’ni seçin.
 1. İçinde **adı** alanına **ER yönlendirici GW**.
@@ -163,7 +163,7 @@ VPN bağlantısının diğer ucundaki uzak ağ geçidini yerel ağ geçidi kayna
 
 #### <a name="create-the-connection"></a>Bağlantı oluşturma
 
-1. Azure Stack Kullanıcı Portalı'nda seçin **yeni**.
+1. Azure Stack Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**.
 1. Altında **Azure Marketi**seçin **ağ**.
 1. Kaynak listesinden **Bağlantı**’yı seçin.
 1. Altında **Temelleri**, seçin **siteden siteye (IPSec)** olarak **bağlantı türü**.
@@ -187,7 +187,7 @@ Sanal ağ geçidi oluşturduktan sonra ağ geçidinin genel IP adresini alabilir
 
 Veri trafiği VPN bağlantısı üzerinden test etmek için Azure Stack Vnet'te veri alıp göndermek için sanal makineler gerekir. Bir sanal makine oluşturun ve VM alt ağı için sanal ağınıza dağıtma.
 
-1. Azure Stack Kullanıcı Portalı'nda seçin **yeni**.
+1. Azure Stack Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**.
 1. Altında **Azure Marketi**seçin **işlem**.
 1. Sanal makine görüntüleri listesinde seçin **Windows Server 2016 Datacenter değerlendirme** görüntü.
 

@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: efemmano
-ms.openlocfilehash: 66a89c3cb14dd642ae993cbf3c45885635f59759
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 7b26afa99e9ab14db83aee5c0487c1c405243962
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139742"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719775"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Azure Stack'te teklif oluşturma
 
 [Sunar](azure-stack-key-features.md) sağlayıcıları satın almanız veya abone kullanıcılara sunmak bir veya daha fazla plan gruplarıdır. Bu belgede, içeren bir teklif oluşturma işlemini göstermektedir [oluşturduğunuz planı](azure-stack-create-plan.md). Bu teklifin aboneleri sanal makineleri ayarlama olanağı sağlar.
 
-1. Azure Stack Yönetici portalında oturum açın (https://adminportal.local.azurestack.external) seçip **yeni** > **Kiracı sunar + planlar** > **teklif**.
+1. Azure Stack Yönetici portalında oturum açın (https://adminportal.local.azurestack.external) seçip **+ kaynak Oluştur** > **Kiracı sunar + planlar** > **Teklif**.
 
    ![Teklif oluşturma](media/azure-stack-create-offer/image01.png)
   

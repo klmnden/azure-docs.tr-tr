@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: sethm
-ms.openlocfilehash: a8d211992f52c9719cad76f16133e23eba24d422
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 9f229caa76059db403ced5b74c7a35ec2f0b8e9d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139572"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721900"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Anahtar dikkat edilmesi gerekenler: hizmetlerini kullanarak veya Azure Stack için uygulamalar oluşturma
 
@@ -33,7 +33,7 @@ Azure Stack operatörünüze hangi Hizmetleri kullanabilmeniz için kullanılabi
 
 Azure teknik içerik, uygulamaları Azure Stack yerine bir Azure hizmeti için Geliştiriliyor varsayar. Derleme ve Azure Stack'e uygulamaları dağıtma, bazı temel farklar gibi anlamanız gerekir:
 
-* Azure Stack Hizmetleri ve Azure'da kullanılabilir olan özelliklerin bir alt kümesini sunar.
+* Azure Stack sunan bir **alt** Azure'da kullanılabilen özellikleri ve Hizmetleri.
 * Şirket veya hizmet sağlayıcınızın sunmak istediğiniz hizmetleri seçebilirsiniz. Kullanılabilir seçenekler, özelleştirilmiş hizmet veya uygulamalar içerebilir. Bunlar, kendi özelleştirilmiş belgeleri sunabilir.
 * Doğru kullanmanız gerekir (örneğin, bir portal adresi ve Azure Resource Manager uç nokta URL'leri) Azure Stack özel uç noktaları.
 * Azure yığını tarafından desteklenen PowerShell ve API sürümleri kullanmanız gerekir. Desteklenen sürümler kullanarak uygulamalarınızı Azure Stack ve Azure iş sağlar.
@@ -75,11 +75,11 @@ Azure Stack, Azure PowerShell ve Azure hizmet API'lerini belirli sürümlerini d
 Azure PowerShell doğru sürümünü kullandığınızdan emin olmak için [API sürümü profillerini](azure-stack-version-profiles.md). Kullanabileceğiniz en son API Sürüm profili belirlemek için kullanmakta olduğunuz Azure Stack yapımı bulun. Azure Stack yöneticinizden bu bilgi edinebilirsiniz.
 
 >[!NOTE]
- Azure Stack geliştirme Seti'ni kullanıyorsanız ve yönetici erişiminiz varsa, "geçerli sürümünü belirleme" bölümüne bakın. [güncelleştirmeleri yönetme](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version) Azure Stack derleme belirlemek için.
+ Azure Stack geliştirme Seti'ni kullanıyorsanız ve yönetici erişiminiz varsa, "geçerli sürümünü belirleme" bölümüne bakın. [güncelleştirmeleri yönetme](../azure-stack-updates.md#determine-the-current-version) Azure Stack derleme belirlemek için.
 
 Diğer API'ler için ad alanları, kaynak türleri ve Azure Stack aboneliğinizde desteklenen API sürümlerini çıktısını almak için aşağıdaki PowerShell komutunu çalıştırın. Not hala bir özellik düzeyinde farklar olabilir. (Bu komutun çalışması için önceden olmalıdır [yüklü](azure-stack-powershell-install.md) ve [yapılandırılmış](azure-stack-powershell-configure-user.md) PowerShell için Azure Stack ortamı. Ayrıca Azure Stack'te teklif için aboneliğiniz olmalıdır.)
 
- ```powershell
+```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
