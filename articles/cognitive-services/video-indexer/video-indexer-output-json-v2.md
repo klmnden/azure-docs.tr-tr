@@ -7,14 +7,14 @@ author: juliako
 manager: cfowler
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 43cc02417fad8a2fa46bd309235951393cd55b8a
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14e308f04450999fcec91a7882a22868c8c824ce
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41987566"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579012"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>V2 API'si tarafından üretilen Video dizinleyici çıktısını İnceleme
 
@@ -23,7 +23,7 @@ ms.locfileid: "41987566"
 
 Çağırdığınızda **alma Video dizini** API ve yanıt durumunu Tamam, yanıt içeriği olarak ayrıntılı bir JSON çıktısını alın. JSON içeriği belirtilen video öngörüleri ayrıntılarını içerir. Insights gibi boyutları içerir: dökümleri, karakterlerini, yüzleri, konular, blokları vb. Boyutları, her boyut bir videoda özelliğiyken gösteren zaman aralıklarının örneğe sahip.  
 
-Videonun özetlenen ınsights tuşlarına basarak da görsel olarak inceleyebilirsiniz **Play** Video Indexer portalı videoda düğmesine. Daha fazla bilgi için [görüntüleme ve düzenleme video öngörüleri](video-indexer-view-edit.md).
+Videonun özetlenen ınsights tuşlarına basarak da görsel olarak inceleyebilirsiniz **Play** düğmesine video [Video Indexer](https://www.videoindexer.ai/) Web sitesi. Daha fazla bilgi için [görüntüleme ve düzenleme video öngörüleri](video-indexer-view-edit.md).
 
 ![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
@@ -82,7 +82,7 @@ Bu bölümde, içgörüler özetini gösterir.
 |privacyMode|Döküm şu modlardan birine sahip olabilir: **özel**, **genel**. **Genel** -video herkes hesabınızı ve videoya bir bağlantı olan herkes tarafından görülebilir. **Özel** -video hesabınızdaki herkes tarafından da görülebilir.|
 |süre|Bir öngörü gerçekleştiği zaman açıklayan bir süresini içerir. Saniyeler içinde süresidir.|
 |thumbnailVideoId|Küçük resim alınmış videonun kimliği.
-|thumbnailId|Video küçük resim kimliği. Get-küçük resim gerçek küçük resim çağrı almak için (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) thumbnailVideoId ve thumbnailId geçirin.|
+|thumbnailId|Video küçük resim kimliği. Get-küçük resim gerçek küçük resim alma çağrısı (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) thumbnailVideoId ve thumbnailId geçirin.|
 |yüzleri|Sıfır veya daha fazla yüzleri içerebilir. Daha ayrıntılı bilgi için bkz. [yüzleri](#faces).|
 |anahtar sözcükler|Sıfır veya daha fazla anahtar sözcükler içerebilir. Daha ayrıntılı bilgi için bkz. [anahtar sözcükleri](#keywords).|
 |yaklaşımlar|Sıfır veya daha fazla yaklaşımları içerebilir. Daha ayrıntılı bilgi için bkz. [yaklaşımları](#sentiments).|
@@ -90,6 +90,8 @@ Bu bölümde, içgörüler özetini gösterir.
 |etiketleri| Sıfır veya daha fazla etiket içerebilir. Daha fazla ayrıntı için bkz [etiketleri](#labels).|
 |markalar| Sıfır veya daha fazla markaları içerebilir. Daha ayrıntılı bilgi için bkz. [markaları](#brands).|
 |İstatistikleri | Daha ayrıntılı bilgi için bkz. [istatistikleri](#statistics).|
+|duyguları| Sıfır veya daha fazla duyguları içerebilir. Daha ayrıntılı bilgi için bkz. [duyguları](#emotions).|
+|konuları|Sıfır veya daha fazla konuları içerebilir. [Konuları](#topics) boyut.|
 
 ## <a name="videos"></a>video
 
@@ -112,7 +114,7 @@ Bu bölümde, içgörüler özetini gösterir.
 |publishedUrlProxy|Videodan (Apple cihazlar için) akış URL'si.|
 |viewToken|Video akışı için bir kısa süreli görünümü belirteci.|
 |sourceLanguage|Video kaynak dili.|
-|Dil|Videonun gerçek dili (çeviri).|
+|dil|Videonun gerçek dili (çeviri).|
 |indexingPreset|Videonun dizini oluşturmak için kullanılan hazır.|
 |streamingPreset|Videoyu yayımlama için kullanılan hazır.|
 |linguisticModelId|CRI model video özelliği kullanılır.|
@@ -152,7 +154,7 @@ Yüz kimliği, bir ad, bir küçük resim, diğer meta veriler ve zamana bağlı
 |Sürüm|Kod sürümü|
 |---|---|
 |sourceLanguage|Video kaynak dili (bir ana dil varsayılarak). Biçiminde bir [BCP-47](https://tools.ietf.org/html/bcp47) dize.|
-|Dil|Insights dili (kaynak dili çevrilir). Biçiminde bir [BCP-47](https://tools.ietf.org/html/bcp47) dize.|
+|dil|Insights dili (kaynak dili çevrilir). Biçiminde bir [BCP-47](https://tools.ietf.org/html/bcp47) dize.|
 |transkript|[Döküm](#transcript) boyut.|
 |OCR|[Ocr](#ocr) boyut.|
 |anahtar sözcükler|[Anahtar sözcükleri](#keywords) boyut.|
@@ -165,6 +167,8 @@ Yüz kimliği, bir ad, bir küçük resim, diğer meta veriler ve zamana bağlı
 |yaklaşımlar|[Yaklaşımları](#sentiments) boyut.|
 |visualContentModeration|[VisualContentModeration](#visualcontentmoderation) boyut.|
 |textualConentModeration|[TextualConentModeration](#textualconentmoderation) boyut.|
+|duyguları| [Duyguları](#emotions) boyut.|
+|konuları|[Konuları](#topics) boyut.|
 
 Örnek:
 
@@ -200,7 +204,7 @@ id|Blok kimliği.|
 |---|---|
 |id|Satır kimliği|
 |metin|Transkripti kendisi.|
-|Dil|Döküm dili. Transkript desteklemek her satırı farklı bir dil sahip olduğu yöneliktir.|
+|dil|Döküm dili. Transkript desteklemek her satırı farklı bir dil sahip olduğu yöneliktir.|
 |örnekler|Bu satırı nerede göründüğü zaman aralıkları listesi. Transkript örneğiyse yalnızca 1 örneğin olacaktır.|
 
 Örnek:
@@ -239,7 +243,7 @@ id|Blok kimliği.|
 |id|OCR satır kimliği|
 |metin|OCR metin.|
 |güven|Tanıma güvenilirlik.|
-|Dil|OCR dili.|
+|dil|OCR dili.|
 |örnekler|Bu OCR nerede göründüğü zaman aralıkları listesi (aynı OCR birden çok kez görünebilir).|
 
 ```json
@@ -282,7 +286,7 @@ id|Blok kimliği.|
 |id|Anahtar sözcük kimliği.|
 |metin|Anahtar sözcüğü metin.|
 |güven|Anahtar sözcüğü'nın tanıma güvenilirlik.|
-|Dil|Anahtar sözcüğü (çevrildiğinde) dili.|
+|dil|Anahtar sözcüğü (çevrildiğinde) dili.|
 |örnekler|Bu anahtar sözcük nerede göründüğü zaman aralıkları listesi (bir anahtar sözcüğü, birden çok kez görünebilir).|
 
 ```json
@@ -320,7 +324,6 @@ id|Blok kimliği.|
     ]
 }
 ] 
-
 ```
 
 #### <a name="faces"></a>yüzleri
@@ -374,7 +377,7 @@ id|Blok kimliği.|
 |---|---|
 |id|Etiket Kimliği|
 |ad|Etiket adı (örneğin, 'Bilgisayara', 'TV').|
-|Dil|Etiket adı (çevrildiğinde) dili. BCP-47|
+|dil|Etiket adı (çevrildiğinde) dili. BCP-47|
 |örnekler|Bu etiket nerede göründüğü zaman aralıkları listesi (bir etiket birden çok kez görünebilir). Her örnek güvenle alana sahiptir. |
 
 
@@ -444,7 +447,7 @@ id|Blok kimliği.|
           "id": 0,
           "instances": [
             {
-          "thumbnailId": "00000000-0000-0000-0000-000000000000",
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",
               "start": "00: 00: 00.1670000",
               "end": "00: 00: 00.2000000"
             }
@@ -453,7 +456,7 @@ id|Blok kimliği.|
       ],
       "instances": [
         {
-       "thumbnailId": "00000000-0000-0000-0000-000000000000",   
+            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
           "start": "00: 00: 00.2000000",
           "end": "00: 00: 05.0330000"
         }
@@ -466,7 +469,7 @@ id|Blok kimliği.|
           "id": 1,
           "instances": [
             {
-          "thumbnailId": "00000000-0000-0000-0000-000000000000",        
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
               "start": "00: 00: 05.2670000",
               "end": "00: 00: 05.3000000"
             }
@@ -667,10 +670,144 @@ Yetişkinlere yönelik veya müstehcen içerikleri bulunan videoları yalnızca 
 |bannedWordsCount |Yasaklı bir sözcük sayısı.|
 |bannedWordsRatio |Sözcükleri toplam sayısına oranı.|
 
+#### <a name="emotions"></a>duyguları
+
+Video Indexer, konuşma tanıma ve ses ipuçları üzerinde bağlı olarak duyguları tanımlar. Tanımlanan duygu olabilir: oyun, üzüntü, kızgınlık veya Korkmayın.
+
+|Ad|Açıklama|
+|---|---|
+|id|Duygu tanıma kimliği.|
+|type|Konuşma tanıma ve ses ipuçları göre tanımlanan duygu tanıma şu. Duygu tanıma olabilir: oyun, üzüntü, kızgınlık veya Korkmayın.|
+|örnekler|Bu duygu tanıma nerede göründüğü zaman aralıkları listesi.|
+
+```json
+"emotions": [{
+    "id": 0,
+    "type": "Fear",
+    "instances": [{
+      "adjustedStart": "0:00:39.47",
+      "adjustedEnd": "0:00:45.56",
+      "start": "0:00:39.47",
+      "end": "0:00:45.56"
+    },
+    {
+      "adjustedStart": "0:07:19.57",
+      "adjustedEnd": "0:07:23.25",
+      "start": "0:07:19.57",
+      "end": "0:07:23.25"
+    }]
+  },
+  {
+    "id": 1,
+    "type": "Anger",
+    "instances": [{
+      "adjustedStart": "0:03:55.99",
+      "adjustedEnd": "0:04:05.06",
+      "start": "0:03:55.99",
+      "end": "0:04:05.06"
+    },
+    {
+      "adjustedStart": "0:04:56.5",
+      "adjustedEnd": "0:05:04.35",
+      "start": "0:04:56.5",
+      "end": "0:05:04.35"
+    }]
+  },
+  {
+    "id": 2,
+    "type": "Joy",
+    "instances": [{
+      "adjustedStart": "0:12:23.68",
+      "adjustedEnd": "0:12:34.76",
+      "start": "0:12:23.68",
+      "end": "0:12:34.76"
+    },
+    {
+      "adjustedStart": "0:12:46.73",
+      "adjustedEnd": "0:12:52.8",
+      "start": "0:12:46.73",
+      "end": "0:12:52.8"
+    },
+    {
+      "adjustedStart": "0:30:11.29",
+      "adjustedEnd": "0:30:16.43",
+      "start": "0:30:11.29",
+      "end": "0:30:16.43"
+    },
+    {
+      "adjustedStart": "0:41:37.23",
+      "adjustedEnd": "0:41:39.85",
+      "start": "0:41:37.23",
+      "end": "0:41:39.85"
+    }]
+  },
+  {
+    "id": 3,
+    "type": "Sad",
+    "instances": [{
+      "adjustedStart": "0:13:38.67",
+      "adjustedEnd": "0:13:41.3",
+      "start": "0:13:38.67",
+      "end": "0:13:41.3"
+    },
+    {
+      "adjustedStart": "0:28:08.88",
+      "adjustedEnd": "0:28:18.16",
+      "start": "0:28:08.88",
+      "end": "0:28:18.16"
+    }]
+  }
+],
+```
+
+#### <a name="topics"></a>konuları
+
+Video Indexer dökümleri ana konulardan biri çıkarımı yapar. Mümkün olduğunda, 1. düzey [IPTC](https://iptc.org/standards/media-topics/) sınıflandırma dahildir. 
+
+|Ad|Açıklama|
+|---|---|
+|id|Konu kimliği.|
+|ad|Konu adı, örneğin: "Eczacılık".|
+|Başvuru Kimliği|Konuları hiyerarşi yansıtan bir içerik haritası. Örneğin: "sistem durumu ve wellbeing / TIP ve sağlık hizmetleri / Eczacılık".|
+|güven|[0,1] aralığındaki güvenilirlik puanı. Daha fazla emindir.|
+|dil|Bu konuda kullanılan dil.|
+|iptcName|IPTC ortam adı algılanırsa kod.|
+|örnekler |Bu nedenle tüm video ve aralık olarak kullanılır. şu anda, Video Indexer zaman aralıkları için bir konu dizinini oluşturmaz.|
+
+```json
+"topics": [{
+    "id": 0,
+    "name": "INTERNATIONAL RELATIONS",
+    "referenceId": "POLITICS AND GOVERNMENT/FOREIGN POLICY/INTERNATIONAL RELATIONS",
+    "referenceType": "VideoIndexer",
+    "confidence": 1,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
+}, {
+    "id": 1,
+    "name": "Politics and Government",
+    "referenceType": "VideoIndexer",
+    "iptcName": "Politics",
+    "confidence": 0.9041,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
+}]
+. . .
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Video Indexer API](https://api-portal.videoindexer.ai)
+[Video Indexer Geliştirici Portalı](https://api-portal.videoindexer.ai)
 
 Uygulamanıza pencere öğeleri hakkında daha fazla bilgi için bkz: [uygulamalarınıza ekleme Video Indexer pencere öğeleri](video-indexer-embed-widgets.md). 
 

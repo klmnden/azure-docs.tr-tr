@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 8ca7ce2586513373c58552bb1f56b94715f15076
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 59c2f865ae5e056b0fabb360712f6eb622943145
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128458"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574632"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data factory'deki tümleştirme çalışma zamanı izleme  
 **Integration runtime** , farklı ağ ortamlarında çeşitli veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. Tümleştirme çalışma zamanları Data Factory tarafından sunulan üç tür vardır:
@@ -87,7 +87,7 @@ Sınır eşzamanlı iş varsayılan değeri makine boyutuna göre. Bu değer hes
 
 Düğüm sayısını artırarak ölçeği. Eşzamanlı iş sınırı düğüm sayısını artırdığınızda, kullanılabilir tüm düğümlerden eş zamanlı iş sınırı değerlerinin toplamıdır.  Bir düğüm, en fazla on iki eşzamanlı iş çalıştırmanıza olanak tanır, örneğin, sonra üç daha benzer düğüm eklemeyi, en fazla 48 eşzamanlı işler (4 x 12) çalıştırmanıza olanak tanır. Her bir düğümde düşük kaynak kullanımını varsayılan değerlerle gördüğünüzde eşzamanlı iş sınırı artırmak öneririz.
 
-Azure portalında hesaplanan varsayılan değeri geçersiz kılabilirsiniz. Yazar seçin > bağlantılar > tümleştirme çalışma zamanları > Düzenle > düğümleri > düğüm başına eşzamanlı iş değerini değiştirin. PowerShell de kullanabilirsiniz [güncelleştirme azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) komutu.
+Azure portalında hesaplanan varsayılan değeri geçersiz kılabilirsiniz. Yazar seçin > bağlantılar > tümleştirme çalışma zamanları > Düzenle > düğümleri > düğüm başına eşzamanlı iş değerini değiştirin. PowerShell de kullanabilirsiniz [güncelleştirme azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) komutu.
   
 ### <a name="status-per-node"></a>Durum (her düğüm)
 Aşağıdaki tabloda, şirket içinde barındırılan tümleştirme çalışma zamanı düğümü olası durumlar sağlar:

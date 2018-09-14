@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b562b10be8add02d0a3c6eb95e8df8eb0711a208
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 7168db80593426977e238fa2b8a5f09638cf0fdf
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093541"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542168"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevlerini ölçeklendirme ve barındırma
 
@@ -124,7 +124,7 @@ Azure işlevleri kullanan adlı bir bileşen *ölçek denetleyicisi* olayların�
 
 Ölçeklendirme faktörleri ve farklı şekilde tetikleyici ve seçili dil göre ölçeği sayısına farklılık gösterebilir. Ancak, ölçeklendirme, birkaç unsur vardır sistemde bugün mevcut:
 
-* Tek bir işlev uygulaması yalnızca en fazla 200 örnek için ölçeklendirilebilir. Hiç için eş zamanlı yürütme sayısı bir set sınır tek bir örneği birden fazla ileti veya isteği aynı anda yine de işleyebilir.
+* Tek bir işlev uygulaması yalnızca maksimum 100 örneğe kadar ölçeklendirilebilir. Hiç için eş zamanlı yürütme sayısı bir set sınır tek bir örneği birden fazla ileti veya isteği aynı anda yine de işleyebilir.
 * Yeni örnekleri yalnızca 10 saniyede en fazla bir kez ayrılır.
 
 Ayrıca farklı ölçeklendirme limitleri yanı sıra aşağıda belgelenmiş farklı tetikleyicilere sahip olabilir:

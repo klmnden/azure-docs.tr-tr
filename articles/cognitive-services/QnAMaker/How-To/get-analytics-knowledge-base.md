@@ -1,31 +1,31 @@
 ---
-title: Microsoft Bilişsel hizmetler bilginiz analizleri temel - alma | Microsoft Docs
-titleSuffix: Azure
-description: Analytics, Bilgi Bankası alma
+title: Bilgi Bankası Analizine
+titleSuffix: Azure Cognitive Services
+description: Soru-cevap Oluşturucu, soru-cevap Oluşturucu hizmetinizi oluşturma sırasında App Insights etkinleştirdiyseniz, tüm sohbet günlükleri ve diğer telemetriyi depolar. Uygulama anlayışları'ndan, sohbet günlüklerini almak için örnek sorgular çalıştırın.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: 1588d0c5a8eaf4e161b5319c9f33a772dc56b247
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 28dd34cc49d0004dd434a54d53f3f27f7c7d80e7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353999"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542711"
 ---
-# <a name="get-analytics-on-your-knowledge-base"></a>Analytics, Bilgi Bankası Al
+# <a name="get-analytics-on-your-knowledge-base"></a>Bilgi bankanız hakkında analizler alma
 
-QnA Maker, tüm sohbet günlükleri ve diğer telemetri App Insights sırasında etkinleştirilirse depolar [QnA Maker hizmetinizi oluşturulmasını](./set-up-qnamaker-service-azure.md). Sohbet günlüklerinizi uygulama ilişkin bilgiler almak için örnek sorgular çalıştırın.
+Soru-cevap Oluşturucu, tüm sohbet günlükleri ve diğer telemetriyi App Insights sırasında etkinleştirdiyseniz depolar [, soru-cevap Oluşturucu hizmetini oluşturulmasını](./set-up-qnamaker-service-azure.md). Uygulama anlayışları'ndan, sohbet günlüklerini almak için örnek sorgular çalıştırın.
 
 1. App Insights kaynağınıza gidin.
 
-    ![Uygulama ınsights kaynağınızı seçin](../media/qnamaker-how-to-analytics-kb/resources-created.png)
+    ![Application ınsights kaynağınızı seçin](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Seçin **Analytics**. Yeni bir pencere açılır QnA Maker telemetri WHERE sorgu.
+2. Seçin **Analytics**. Yeni bir pencere açılır burada soru-cevap Oluşturucu telemetri sorgulayabilirsiniz.
 
     ![Analytics seçin](../media/qnamaker-how-to-analytics-kb/analytics.png)
 
@@ -44,13 +44,13 @@ QnA Maker, tüm sohbet günlükleri ve diğer telemetri App Insights sırasında
         | project KbId, timestamp, resultCode, duration, question, answer
     ```
 
-    Seçin **çalıştırmak** sorguyu çalıştırmak için.
+    Seçin **çalıştırma** sorguyu çalıştırmak için.
 
     ![Sorgu çalıştırma](../media/qnamaker-how-to-analytics-kb/run-query.png)
 
-## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Diğer analiz için sorguları, QnA Maker Bilgi Bankası Çalıştır
+## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu bankanızı üzerinde analiz sorguları çalıştırma
 
-### <a name="total-90-day-traffic"></a>Toplam 90 günlük trafiği
+### <a name="total-90-day-traffic"></a>Toplam 90 günlük trafik
 
 ```query
     //Total Traffic
@@ -73,7 +73,7 @@ QnA Maker, tüm sohbet günlükleri ve diğer telemetri App Insights sırasında
     | summarize ChatCount=count() by KbId
 ```
 
-### <a name="user-traffic"></a>Kullanıcı trafiğinin
+### <a name="user-traffic"></a>Kullanıcı trafiği
 
 ```query
     //User Traffic
@@ -88,7 +88,7 @@ QnA Maker, tüm sohbet günlükleri ve diğer telemetri App Insights sırasında
     | summarize ChatCount=count() by bin(timestamp, 1d), UserId, KbId
 ```
 
-### <a name="latency-distribution-of-questions"></a>Soruların gecikme dağılımı
+### <a name="latency-distribution-of-questions"></a>Soru gecikme dağılımı
 
 ```query
     //Latency distribution of questions
