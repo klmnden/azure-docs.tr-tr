@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e62d2ff1fdd6bc94244511a2de95c4268a58d6f9
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: f8977a0a50103b3c2935ee27a69a53e636f5aecb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42057124"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580404"
 ---
-# <a name="how-to-view-the-azure-maps-api-usage"></a>Azure haritalar API kullanımı görüntüleme
-Bu makalede Azure haritalar hesabınız için API kullanım ölçümleri görüntülemek gösterilmektedir [portalı](https://portal.azure.com). Ölçümler, özelleştirilebilir bir süre boyunca uygun grafik biçiminde gösterilir. 
+# <a name="view-azure-maps-api-usage"></a>Azure haritalar API'si kullanımını görüntüleyin
 
-## <a name="view-metric-snapshot"></a>Ölçüm anlık görüntüsünü görüntüle 
+Bu makalede Azure haritalar hesabınız için API kullanım ölçümleri görüntülemek gösterilmektedir [portalı](https://portal.azure.com). Ölçümler, özelleştirilebilir bir süre boyunca uygun grafik biçiminde gösterilir.
 
-Bazı ortak ölçümleri gördüğünüz **genel bakış** haritalar hesabınızın sayfası. Şu anda gösterir *toplam istek*, *toplam hata*, ve *kullanılabilirlik* seçilebilir bir süre içinde. 
+## <a name="view-metric-snapshot"></a>Ölçüm anlık görüntüsünü görüntüle
+
+Bazı ortak ölçümleri gördüğünüz **genel bakış** haritalar hesabınızın sayfası. Şu anda gösterir *toplam istek*, *toplam hata*, ve *kullanılabilirlik* seçilebilir bir süre içinde.
 
 ![Azure haritalar ölçümlerine genel bakış](media/how-to-view-api-usage/portal-overview.png)
 
 Belirli çözümleme için bu grafikleri özelleştirmek istiyorsanız sonraki bölüme devam edin.
 
-
 ## <a name="view-detailed-metrics"></a>Ayrıntılı ölçümler görüntüleyin
 
-1. Azure aboneliğinizde oturum açın [portalı](https://portal.azure.com). 
+1. Azure aboneliğinizde oturum açın [portalı](https://portal.azure.com).
 
 2. Tıklayın **tüm kaynakları** menü öğesinin sol tarafında ve gidin, *Azure haritalar hesabı*.
 
@@ -37,28 +37,28 @@ Belirli çözümleme için bu grafikleri özelleştirmek istiyorsanız sonraki b
 
 4. Üzerinde **ölçümleri** bölmesinde aşağıdakilerden birini seçin:
 
-    1. **Kullanılabilirlik**, hangi gösterir *ortalama* API kullanılabilirlik bir süre boyunca, veya 
-    2. **Kullanım**, hangi gösterir nasıl kullanım *sayısı* hesabınız için. 
+    1. **Kullanılabilirlik** -hangi gösterir *ortalama* bir süre boyunca API kullanılabilirlik.
+    2. **Kullanım** -hangi gösterir nasıl kullanım *sayısı* hesabınız için.
 
     ![Azure haritalar ölçümleri bölmesi](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Ölçümler seçtikten sonra seçtiğiniz *zaman aralığı* seçerek **son 12 saat (otomatik)** varsayılan değer olan. Ayrıca seçebilirsiniz *zaman ayrıntı düzeyi*, yanı sıra saati olarak görüntülemeyi *yerel* veya *GMT* aynı açılan. **Uygula**'ya tıklayın.
+5. Ardından, seçtiğiniz *zaman aralığı* tıklayarak **son 24 saat (otomatik)**. Varsayılan olarak, zaman aralığı 24 saate ayarlanır. Tıklandıktan sonra tüm seçilebilir zaman aralıkları görürsünüz. Seçebileceğiniz *zaman ayrıntı düzeyi* ve zaman olarak görüntülemeyi *yerel* veya *GMT* aynı açılan. **Uygula**'ya tıklayın.
 
     ![Azure haritalar ölçümleri zaman aralığı](media/how-to-view-api-usage/time-range.png)
- 
-6. Ölçümünüzün ekledikten sonra böylece **Filtre Ekle** devralmak için ilgili özellikleri kabuş edin ve ardından istediğiniz özelliğinin değeri için grafiği görmek. 
+
+6. Ölçümünüzün ekledikten sonra böylece **Filtre Ekle** devralmak için ilgili özellikleri kabuş edin ve ardından istediğiniz özelliğinin değeri için grafiği görmek.
 
     ![Azure haritalar ölçümleri filtresi](media/how-to-view-api-usage/filter.png)
 
-7. Ayrıca **uygulamak bölme** seçilen ölçüm özelliğini temel alarak, ölçüm için. Bu, her biri bu özelliğin her değeri için birden çok grafik bölünmesi için grafiği sağlar. Örneğin, aşağıdaki resimde, her grafik rengini grafiğin alt kısmında gösterilen özellik değerine karşılık gelir.
+7. Ayrıca **uygulamak bölme** seçilen ölçüm özelliğini temel alarak, ölçüm için. Bu, her biri bu özelliğin her değeri için birden çok grafik bölünmesi için grafiği sağlar. Aşağıdaki resimde, grafiğin alt kısmında gösterilen özellik değerinin her grafik rengini karşılık gelir.
 
     ![Azure haritalar bölme ölçümleri](media/how-to-view-api-usage/splitting.png)
- 
-8. Birden çok ölçümleri aynı grafikte üzerinde yalnızca tıklayarak mümkün da **ölçüm Ekle** üstteki düğmesine.
 
+8. Birden çok ölçümleri aynı grafikte üzerinde yalnızca tıklayarak mümkün da **ölçüm Ekle** üstteki düğmesine.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure haritalar kullanımınızı izleyin gerçekleştirmeyi öğrendiniz, daha fazla bilgi için ilerleyebilirsiniz ile kullandığınız API'leri hakkında:
+Azure haritalar kullanım için izlemek istediğiniz API'ları hakkında daha fazla bilgi edinin:
 
-* [Azure haritalar REST API'si belgeleri](https://docs.microsoft.com/rest/api/maps)
+> [!div class="nextstepaction"]
+> [Azure haritalar REST API'si belgeleri](https://docs.microsoft.com/rest/api/maps)

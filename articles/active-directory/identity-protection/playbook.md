@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 02d402b7de82631ce459c60cb42e5335c7e7cfe3
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 5c2a37f3753292c6db847a4a9152bd4506f8fa5e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003309"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580506"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory kimlik koruması Kılavuzu
 
@@ -115,7 +115,7 @@ Bu bölümde kullanıcı riski ve oturum açma riski İlkesi test etmek için ad
 
 ### <a name="user-risk-security-policy"></a>Kullanıcı riski İlkesi
 
-Daha fazla bilgi için [kullanıcı riski İlkesi](overview.md#user-risk-security-policy).
+Daha fazla bilgi için [kullanıcı riski ilkesi yapılandırma](howto-user-risk-policy.md).
 
 ![Kullanıcı riski](./media/playbook/02.png "Playbook")
 
@@ -140,7 +140,7 @@ Daha fazla bilgi için [kullanıcı riski İlkesi](overview.md#user-risk-securit
 
 ### <a name="sign-in-risk-security-policy"></a>Oturum açma riski İlkesi
 
-Daha fazla bilgi için [kullanıcı riski İlkesi](overview.md#user-risk-security-policy).
+Daha fazla bilgi için [oturum açma riski ilkesini yapılandırma](howto-sign-in-risk-policy.md).
 
 ![Oturum açma riski](./media/playbook/01.png "Playbook")
 

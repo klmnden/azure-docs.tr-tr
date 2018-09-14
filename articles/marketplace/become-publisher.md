@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7aadb7b89cf1b338a257846882e34ff796df74b2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666393"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580727"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
@@ -28,11 +28,11 @@ Bu makale, bir bulut Market yayımcısı kaydetme kapsar. Seçilen yayımlama se
 
 |  | Kayıt adımı | Süre | Ayrıntılar |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Microsoft İş Ortağı Ağı'kaydetme | 15 dakika | [Microsoft İş Ortağı Ağı'kaydetme](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Bir Microsoft hesabı oluşturun <ul>(teklifleri Azure Marketi transact için gerekli; diğerleri için önerilir)</ul> | 15 dakika | [Microsoft kimliği oluşturma](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Market kayıt formu gönderin | 15 dakika | [Market ADAYLIK formu gönderin](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
-| 4 |  Bulut iş ortağı Portalı'nda oturum açın | 1 ila 3 gün | [Bulut iş ortağı Portalı'nda oturum açın](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
-| 5 | Microsoft Developer Center'da (Dev Merkezi) (Azure Marketi'nde transact teklifleri için) kaydetme | 5-10 gün | [Geliştirme Merkezi'ne Kaydolma](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
+| 1 | Microsoft İş Ortağı Ağı'kaydetme | 15 dakika | [Microsoft İş Ortağı Ağı'kaydetme](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
+| 2 | Bir Microsoft hesabı oluşturun <ul>(teklifleri Azure Marketi transact için gerekli; diğerleri için önerilir)</ul> | 15 dakika | [Microsoft kimliği oluşturma](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 3 | Market kayıt formu gönderin | 15 dakika | [Market ADAYLIK formu gönderin](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 4 |  Bulut iş ortağı Portalı'nda oturum açın | 1 ila 3 gün | [Bulut iş ortağı Portalı'nda oturum açın](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
+| 5 | Microsoft Developer Center'da (Dev Merkezi) (Azure Marketi'nde transact teklifleri için) kaydetme | 5-10 gün | [Geliştirme Merkezi'ne Kaydolma](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. Microsoft İş Ortağı Ağı'kaydetme  
@@ -54,9 +54,9 @@ Bir Microsoft hesabı, örneğin *@outlook.com veya @live.com*, birçok Microsof
 [! İş e-postanız ile ilişkili Microsoft hesabınız portalına erişmek izin vermez, önemli] lütfen unutmayın.
 
 >[!Note]
->Zaten bir Microsoft hesabınız varsa gözden [marketplace hesabı yönetmek için a Microsoft ID oluşturma yönergeleri](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) Market yayımlama için kullanılabilir olmadığını belirlemek için. 
+>Zaten bir Microsoft hesabınız varsa gözden [marketplace hesabı yönetmek için a Microsoft ID oluşturma yönergeleri](https://review.docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) Market yayımlama için kullanılabilir olmadığını belirlemek için. 
 
->Kullanıcılar Azure Active Directory Federasyon Kurumsal hesap ile kimler [bu makalede](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) oluşturmayı veya mevcut Microsoft Account kullanmayı denemeden önce.
+>Kullanıcılar Azure Active Directory Federasyon Kurumsal hesap ile kimler [bu makalede](https://review.docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) oluşturmayı veya mevcut Microsoft Account kullanmayı denemeden önce.
 
 *   Oluşturma veya Microsoft hesabınızı yönetme konusunda yardım için ziyaret [Microsoft hesabı Yardım desteği sayfaları](https://support.microsoft.com/en-us/products/microsoft-account?category=manage-account).
 
@@ -100,12 +100,12 @@ Tamamladıktan sonra [Geliştirme Merkezi](https://developer.microsoft.com/en-us
 >99 Geliştirici Merkezi kayıt ücret ayları için Market kayıt formunu tamamladıktan ve promosyon kodunuzu içeren bir e-posta alırsınız. 
 
 >[!Important]
->Microsoft Dev Center hesabı oluşturmadan önce kuruluşunuzun zaten yinelenen önlemek için bir Geliştirme Merkezi hesabı yok doğrulayın. Daha fazla bilgi için ziyaret [geliştirme Merkezi'ne kaydolun](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center) bölümü.
+>Microsoft Dev Center hesabı oluşturmadan önce kuruluşunuzun zaten yinelenen önlemek için bir Geliştirme Merkezi hesabı yok doğrulayın. Daha fazla bilgi için ziyaret [geliştirme Merkezi'ne kaydolun](https://docs.microsoft.com/azure/marketplace/register-dev-center) bölümü.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Market vitrininin birleşiminden hakkında bilgi edinin: [karşılaştırma AppSource ve Azure Market](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
-*   [Çözümünüz için liste türü belirlenemiyor](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type)
+* Market vitrininin birleşiminden hakkında bilgi edinin: [karşılaştırma AppSource ve Azure Market](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
+*   [Çözümünüz için liste türü belirlenemiyor](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  
 ---  

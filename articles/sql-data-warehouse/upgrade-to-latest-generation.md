@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 9b2c5fa38d0ad21a374d3e5acee8534aeb9c0384
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306989"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580557"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Veri Ambarı’nı yükselterek performansı iyileştirme
 Azure SQL veri ambarı, yeni nesil Azure donanım ve depolama mimarisi için yükseltin.
@@ -34,7 +34,7 @@ Bu yükseltme en iyi duruma getirilmiş Gen1 işlem katmanı veri ambarları iç
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 > [!NOTE]
-> Var olan işlem için iyileştirilmiş Gen1 katmanı veri ambarınızın işlem için iyileştirilmiş Gen2 katmanı kullanılabildiği bir bölgede değil ise, yapabilecekleriniz [coğrafi geri yükleme](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) desteklenen bir bölge için PowerShell aracılığıyla.
+> Var olan işlem için iyileştirilmiş Gen1 katmanı veri ambarınızın işlem için iyileştirilmiş Gen2 katmanı kullanılabildiği bir bölgede değil ise, yapabilecekleriniz [coğrafi geri yükleme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) desteklenen bir bölge için PowerShell aracılığıyla.
 > 
 >
 

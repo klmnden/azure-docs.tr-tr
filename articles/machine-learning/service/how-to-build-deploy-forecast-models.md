@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 07/13/2018
-ms.openlocfilehash: 60eecf134f067d68326fc23ade8ed2a5a7ae7ac4
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9bdda67f08b9fbee20bdcc11186b97a3d942b778
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070356"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580676"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Azure Machine Learning ile tahmin modellerini Derleme ve dağıtma
 
@@ -106,7 +106,7 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>Verileri yüklemek ve keşfedin
 
-Bu kod parçacığı ile ham bir veri kümesi, bu durumda başlatma tipik işlemini gösterir [Dominick'ın daha hassas Foods verilerden](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Kolaylık işlevini de kullanabilirsiniz [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Bu kod parçacığı ile ham bir veri kümesi, bu durumda başlatma tipik işlemini gösterir [Dominick'ın daha hassas Foods verilerden](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Kolaylık işlevini de kullanabilirsiniz [load_dominicks_oj_data](https://docs.microsoft.com/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -123,7 +123,7 @@ whole_df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Depolama</th>
+      <th>Store</th>
       <th>marka</th>
       <th>hafta</th>
       <th>logmove</th>
@@ -279,7 +279,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Depolama</th>
+      <th>Store</th>
       <th>marka</th>
       <th>WeekLastDay</th>
       <th>Miktar</th>
@@ -337,7 +337,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 Veriler yaklaşık 250 farklı birleşimlerini deposu ve bir veri çerçevesinde marka içeriyor. Her bir bileşimi kendi zaman serisi satış tanımlar. 
 
-Kullanabileceğiniz [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) rahatça birden fazla seri kullanarak bir tek veri yapısı model sınıfı _dilimi_. Dilimi tarafından belirtilen `store` ve `brand` sütun.
+Kullanabileceğiniz [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) rahatça birden fazla seri kullanarak bir tek veri yapısı model sınıfı _dilimi_. Dilimi tarafından belirtilen `store` ve `brand` sütun.
 
 Arasındaki fark _dilimi_ ve _grubu_ grubu olması gerekmez ancak dilimi her zaman gerçek dünyada, fiziksel olarak anlamlı olmasıdır. İç paket işlevleri, kullanıcı bu gruplandırma model performansını artırır inanırsa birden çok zaman serisindeki tek bir model oluşturmak için grubu kullanın. Varsayılan olarak, grup için dilimi eşit olacak şekilde ayarlanır ve tek bir model için her bir dilimi oluşturulmuştur. 
 
@@ -369,7 +369,7 @@ whole_tsdf[['Quantity']].head()
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>Depolama</th>
+      <th>Store</th>
       <th>marka</th>
       <th></th>
     </tr>
@@ -434,7 +434,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>Depolama</th>
+      <th>Store</th>
       <th>marka</th>
       <th></th>
     </tr>
@@ -499,7 +499,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-[TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) işlevi, zaman serisi veri çerçevesi ilişkin kapsamlı bir rapor oluşturur. Rapor, hem bir genel veri açıklaması hem de istatistik belirli zaman serisi verilerini içerir. 
+[TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) işlevi, zaman serisi veri çerçevesi ilişkin kapsamlı bir rapor oluşturur. Rapor, hem bir genel veri açıklaması hem de istatistik belirli zaman serisi verilerini içerir. 
 
 
 ```python
@@ -731,7 +731,7 @@ whole_tsdf.head()
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>Depolama</th>
+      <th>Store</th>
       <th>marka</th>
       <th></th>
       <th></th>
@@ -886,14 +886,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Verileri önceden işleme ve eksik değerleri impute
 
-Başlangıç Eğitim kümesi ve bir sınama kümesi verileri bölerek [last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) yardımcı program işlevi. Sonuç kümesi testi her zaman serisinin son 40 gözlemler içerir. 
+Başlangıç Eğitim kümesi ve bir sınama kümesi verileri bölerek [last_n_periods_split](https://docs.microsoft.com/python/api/ftk.ts_utils?view=azure-ml-py-latest) yardımcı program işlevi. Sonuç kümesi testi her zaman serisinin son 40 gözlemler içerir. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Temel zaman serisi modelleri, bitişik zaman serisi gerektirir. Seriyi kullanarak düzenli aralıklarla örneklenen bir zaman dizine sahip oldukları anlamına gelir, normal olup olmadığını görmek için onay [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) işlevi.
+Temel zaman serisi modelleri, bitişik zaman serisi gerektirir. Seriyi kullanarak düzenli aralıklarla örneklenen bir zaman dizine sahip oldukları anlamına gelir, normal olup olmadığını görmek için onay [check_regularity_by_grain](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) işlevi.
 
 
 ```python
@@ -968,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Seri (213 tanesi 249) çoğunu düzensiz görebilirsiniz. Bir [imputation dönüştürme](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) satış miktarı değerleri eksik doldurmak için gereklidir. Aşağıdaki örnek kod, birçok imputation seçenek olsa da, doğrusal enterpolasyon kullanır.
+Seri (213 tanesi 249) çoğunu düzensiz görebilirsiniz. Bir [imputation dönüştürme](https://docs.microsoft.com/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) satış miktarı değerleri eksik doldurmak için gereklidir. Aşağıdaki örnek kod, birçok imputation seçenek olsa da, doğrusal enterpolasyon kullanır.
 
 
 ```python
@@ -1034,7 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Birden çok modeli birleştirin
 
-[ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator birden çok estimators birleştirmek ve bunlara bir kod satırı kullanarak uygun/tahmin olanak tanır.
+[ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) estimator birden çok estimators birleştirmek ve bunlara bir kod satırı kullanarak uygun/tahmin olanak tanır.
 
 
 ```python
@@ -1107,7 +1107,7 @@ univariate_model_errors
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>ModelName</th>
+      <th>modelName</th>
       <th>MAPE</th>
       <th>MedianAPE</th>
     </tr>
@@ -1248,7 +1248,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-[RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) TimeSeriesDataFrame üzerinde geliştirilen böylece sklearn regresyon estimators işlevi sarmalar. Sarmalanan forecaster, aynı modele bu durum deposunda her grup ayrıca koyar. Benzer olarak kabul ve birlikte bir havuzda toplanabilir mi seri grubu için bir model forecaster öğrenebilirsiniz. Seri grubu için bir model, uzun serisi verilerinden genellikle kısa bir seri için tahminlerini geliştirmek için kullanır. Bu modeller Kitaplığı'nda regresyon destekleyen diğer modelleri için birbirinin yerine kullanabilir. 
+[RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) TimeSeriesDataFrame üzerinde geliştirilen böylece sklearn regresyon estimators işlevi sarmalar. Sarmalanan forecaster, aynı modele bu durum deposunda her grup ayrıca koyar. Benzer olarak kabul ve birlikte bir havuzda toplanabilir mi seri grubu için bir model forecaster öğrenebilirsiniz. Seri grubu için bir model, uzun serisi verilerinden genellikle kısa bir seri için tahminlerini geliştirmek için kullanır. Bu modeller Kitaplığı'nda regresyon destekleyen diğer modelleri için birbirinin yerine kullanabilir. 
 
 
 ```python
@@ -1297,7 +1297,7 @@ all_errors.sort_values('MedianAPE')
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>ModelName</th>
+      <th>modelName</th>
       <th>MAPE</th>
       <th>MedianAPE</th>
     </tr>
@@ -1372,7 +1372,7 @@ Aşağıdaki çizimde, her kare bir zaman noktasından verileri temsil eder. Mav
 ![PNG](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
 **Parametre Süpürme**  
-[TSGridSearchCV](https://docs.microsoft.com/en-us/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) sınıfı ayrıntısına arar belirtilen parametre değerleri ve kullandığı `RollingOriginValidator` en iyi parametreleri bulmak için parametre performansını değerlendirmek için.
+[TSGridSearchCV](https://docs.microsoft.com/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) sınıfı ayrıntısına arar belirtilen parametre değerleri ve kullandığı `RollingOriginValidator` en iyi parametreleri bulmak için parametre performansını değerlendirmek için.
 
 
 ```python
@@ -1424,10 +1424,10 @@ best_of_forecaster_prediction.head()
     </tr>
     <tr>
       <th>WeekLastDay</th>
-      <th>Depolama</th>
+      <th>Store</th>
       <th>marka</th>
       <th>ForecastOriginTime</th>
-      <th>ModelName</th>
+      <th>modelName</th>
       <th></th>
       <th></th>
       <th></th>

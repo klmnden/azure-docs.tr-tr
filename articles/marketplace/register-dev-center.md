@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3eca9e416a18e7389a6ce45cccd3cc99707e9806
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ffc2a9fb7b0ed516645c833f87c9ef5c95ca20ff
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070443"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580761"
 ---
 # <a name="register-in-dev-center"></a>Geliştirme Merkezi'ne kaydolun  
 Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımcı olmak için yeni bir InPrivate Internet Explorer veya Chrome gizli gözatma oturumu açın.  
@@ -108,11 +108,11 @@ Ardından, Geliştirme Merkezi kayıt ile ilgili sorunlar varsa, bir destek bile
 > Liste türü Transact içinde yayımlama yayımcı: VM, Azure uygulamaları: Çözüm şablonları ve yönetilen uygulamalar.  
 
 *   **Neden Geliştirme Merkezi hesabı gerekir mi?**
-> Geliştirme Merkezi hesabı bir için liste türünü Transact publisher'ın sizin adınıza müşteri faturalandırmak Microsoft etkinleştirmek için gereklidir. Kayıt sağlar: yasal doğrulamak Microsoft Geliştirme Merkezi hesabı vergi ve bankacılık bilgilerini şirketinizin. Bilgi için daha fazla tıklayın [burada.](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#register-in-dev-center)
+> Geliştirme Merkezi hesabı bir için liste türünü Transact publisher'ın sizin adınıza müşteri faturalandırmak Microsoft etkinleştirmek için gereklidir. Kayıt sağlar: yasal doğrulamak Microsoft Geliştirme Merkezi hesabı vergi ve bankacılık bilgilerini şirketinizin. Bilgi için daha fazla tıklayın [burada.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
 
 *   **Geliştirme Merkezi kayıt ile nasıl başlayabilirim?**
 > Çoğaltma önlemek için şirketinizin zaten kayıtlı bir Geliştirme Merkezi hesabı olmadığını doğrulayın. Geliştirici hesabınızla ilişkilendirmek istediğiniz bir Microsoft hesabıyla oturum açmanız gerekir. Bir Microsoft hesabınız yoksa, yeni bir hesap oluşturabilirsiniz [burada.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (örnek: contoso_marketplace@live.com) oturum açın ve kaydetmek için Git https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>Tıklayın kayıt işlemi hakkında daha fazla bilgi edinmek için [burada.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center)</br>
+<br>Tıklayın kayıt işlemi hakkında daha fazla bilgi edinmek için [burada.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
 *   **Şirket' hesap türü ya da 'Bireysel' seçmem gerekir?**
 > Bir transact teklifi Market'te yayımlamak için şirket hesabı için Geliştirici Merkezi hesabınızda kaydederken seçmeniz gerekir.
@@ -143,7 +143,7 @@ Ardından, Geliştirme Merkezi kayıt ile ilgili sorunlar varsa, bir destek bile
 > Bir geçici şirket adı atayın, desteğe başvurun [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) ve bunları iş kayıt belgelerinizi sağlayın.
 
 *   **Vergi ve ödeme bilgilerimi nasıl ekleyebilirim?**
-> Yayımlamak mümkün olmayacaktır vergi ve banka bilgilerinde Geliştirici Merkezi hesabınızda tamamlamadan teklifler transact.  Hesap bilgileri ekleme hakkında daha fazla bilgi için ziyaret [Ekle banka ve vergi bilgilerini.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
+> Yayımlamak mümkün olmayacaktır vergi ve banka bilgilerinde Geliştirici Merkezi hesabınızda tamamlamadan teklifler transact.  Hesap bilgileri ekleme hakkında daha fazla bilgi için ziyaret [Ekle banka ve vergi bilgilerini.](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
 
 *   **Dev Center Microsoft oturum açma hesabı değiştirebilirim?**
 > Hayır. Sahip hesabı, bir geliştirme merkezi oluşturulduktan sonra değiştirilemez. İstenen Microsoft hesabı ile yeni bir Geliştirme Merkezi hesabı ile baştan başlatmak gerekir.

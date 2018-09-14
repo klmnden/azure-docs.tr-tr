@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
-ms.openlocfilehash: 44059de5a0ef0667b4268d9cdc2997162bab474a
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 65bcb92b8e97b09ca961aa02cd5891419c2cddb2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285920"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580659"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Azure Machine Learning ile nesne algılama modellerini Derleme ve dağıtma
 
@@ -126,7 +126,7 @@ _ = data_train.images[2].visualize_bounding_boxes(image_size = (10,10))
 
 ## <a name="define-a-model"></a>Bir modeli tanımlamak
 
-Bu örnekte, daha hızlı R CNN modeli kullanılır. Bu model tanımlarken, çeşitli parametrelerin sağlanabilir. (Sonraki bölüme bakın) eğitimi için kullanılan parametreler yanı sıra, bu parametreleri anlamını ya da CVTK'ın API belgeleri veya üzerinde bulunabilir [Tensorflow nesne algılama Web sitesi](https://github.com/tensorflow/models/tree/master/research/object_detection). Daha hızlı R CNN modeli hakkında daha fazla bilgi şu adreste bulunabilir: [bu bağlantıyı](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Hızlı R-CNN üzerinde bu modeli temel alır ve daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
+Bu örnekte, daha hızlı R CNN modeli kullanılır. Bu model tanımlarken, çeşitli parametrelerin sağlanabilir. (Sonraki bölüme bakın) eğitimi için kullanılan parametreler yanı sıra, bu parametreleri anlamını ya da CVTK'ın API belgeleri veya üzerinde bulunabilir [Tensorflow nesne algılama Web sitesi](https://github.com/tensorflow/models/tree/master/research/object_detection). Daha hızlı R CNN modeli hakkında daha fazla bilgi şu adreste bulunabilir: [bu bağlantıyı](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Hızlı R-CNN üzerinde bu modeli temel alır ve daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
 
 
 ```python

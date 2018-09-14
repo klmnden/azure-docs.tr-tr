@@ -1,50 +1,72 @@
 ---
-title: Azure AD'de grup özelliklerini yönetme | Microsoft Docs
-description: Azure Active Directory'de bir grubun özelliklerini ve diğer yapılandırma ayarlarını düzenleme
+title: Azure Active Directory'yi kullanarak Grup bilgilerinizi düzenlemek nasıl | Microsoft Docs
+description: Azure Active Directory'yi kullanarak bir grup bilgilerini düzenlemek nasıl.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 08/01/2017
+ms.topic: conceptual
+ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 50d9443197df35ac032c87317966551da1612c41
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: HT
+ms.openlocfilehash: 0bac740a5da9c1e57ea1755c58579463da4a883a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860441"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580455"
 ---
-# <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Azure Active Directory'de bir grubun ayarlarını yönetme
-Bu makalede Azure Active Directory'de (Azure AD) bir grubun ayarlarını değiştirme adımları açıklanmaktadır.
+# <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>Nasıl yapılır: Azure Active Directory'yi kullanarak, grup bilgilerini Düzenle
 
-## <a name="how-do-i-find-and-change-the-settings"></a>Ayarları nasıl bulup değiştirebilirim?
-1. Dizin için genel yönetici olan bir hesapla [Azure AD yönetim merkezinde](https://aad.portal.azure.com) oturum açın.
-2. **Tüm hizmetler**’i seçin, metin kutusuna **Kullanıcılar ve gruplar** yazın ve ardından **Enter**’a basın.
+Azure Active Directory'yi kullanarak, kendi ad, açıklama veya üyelik türü güncelleştirme dahil olmak üzere grubun ayarlarını düzenleyebilir.
 
-   ![Kullanıcılar ve gruplar dikey penceresini açma](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
-3. **Kullanıcılar ve gruplar** dikey penceresinde **Tüm gruplar**’ı seçin.
+## <a name="to-edit-your-group-settings"></a>Grup ayarlarınızı düzenlemek için
+1. Oturum [Azure portalında](https://portal.azure.com) dizinde genel yönetici hesabını kullanarak.
 
-   ![Tüm gruplar dikey penceresini açma](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
-4. **Kullanıcılar ve gruplar - Tüm gruplar** dikey penceresinde bir grup seçin.
-5. **Grup - *groupname*** dikey penceresinde **Özellikler**’i seçin.
+2. Seçin **Azure Active Directory**ve ardından **grupları**.
 
-   ![Özellikler dikey penceresini açma](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
-6. Grubun özelliklerini değiştirmeyi bitirdiğinizde **Kaydet**’i seçin.    
+    **Gruplar - tüm gruplar** sayfası görüntülenirse, etkin gruplarınızın tümü gösteriliyor.
 
-   ![Özelliklere yapılan değişiklikler kaydediliyor](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
+3. Gelen **gruplar - tüm gruplar** sayfasında, grup adı kadar içine mümkün olduğunca **arama** kutusu. Bu makalenin amaçları ki aradığınız **MDM İlkesi - Batı** grubu.
+
+    Arama sonuçları altında görüntülenir **arama** kutusunda daha fazla karakter türü olarak güncelleştiriliyor.
+
+    ![Arama kutusuna arama metniyle tüm grupları sayfası](media/active-directory-groups-settings-azure-portal/search-for-specific-group.png)
+
+4. Grup seçin **MDM İlkesi - Batı**ve ardından **özellikleri** gelen **Yönet** alan.
+
+    ![Sayı, üyeleri ve üye seçeneğinin vurgulandığı grubu genel bakış sayfası](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+
+5. Güncelleştirme **genel ayarlar** dahil olmak üzere, gerektiği gibi bilgileri:
+
+    ![Bir grup için özellikleri ayarlar](media/active-directory-groups-settings-azure-portal/group-properties-settings.png)
+
+    - **Grup adı.** Var olan grup adını düzenleyin.
+    
+    - **Grup açıklaması.** Mevcut Grup açıklamasını düzenleyin.
+
+    - **Grup türü.** Oluşturulduktan sonra bir grup türünü değiştiremezsiniz. Değiştirilecek **grup türü**, grubunu silin ve yeni bir tane oluşturmanız gerekir.
+    
+    - **Üyelik türü.** Üyelik türünü değiştirin. Çeşitli kullanılabilir üyeliği türleri hakkında daha fazla bilgi için bkz. [nasıl yapılır: temel bir grup oluşturma ve Azure Active Directory portalı kullanarak üye ekleme](active-directory-groups-create-azure-portal.md)
+    
+    - **Nesne Kimliği** Nesne Kimliğini değiştiremezsiniz, ancak bu grup için PowerShell komutlarında kullanılacak kopyalayabilirsiniz. PowerShell cmdlet'leri kullanma hakkında daha fazla bilgi için bkz. [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-v2-cmdlets.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
-* [Var olan grupları görme](active-directory-groups-view-azure-portal.md)
-* [Yeni grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md)
-* [Bir grubun üyelerini yönetme](active-directory-groups-members-azure-portal.md)
-* [Bir grubun üyeliklerini yönetme](active-directory-groups-membership-azure-portal.md)
-* [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](../users-groups-roles/groups-dynamic-membership.md)
+- [Gruplar ve üyeler görüntüleyin](active-directory-groups-view-azure-portal.md)
+
+- [Temel bir grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md)
+
+- [Ekleme veya gruptan üye kaldırma](active-directory-groups-members-azure-portal.md)
+
+- [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](../users-groups-roles/groups-create-rule.md)
+
+- [Bir grubun üyeliklerini yönetme](active-directory-groups-membership-azure-portal.md)
+
+- [Grupları kullanarak kaynaklara erişimi yönetme](active-directory-manage-groups.md)
+
+- [Azure Active Directory'ye bir Azure aboneliği ekleme veya ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)

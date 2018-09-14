@@ -13,22 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 168ba57399b2649af29820f7321dd0151618346e
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 1daf04e3f878d0748bfa0904259c7b7187481843
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436489"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580503"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Bir Windows VM için başka bir Azure abonelik veya kaynak grubunu Taşı
-Bu makalede, bir Windows VM kaynak grubu veya abonelik arasında taşıma konusunda size yol gösterir. Abonelikler arasında taşıma, kişisel bir abonelikte ilk olarak bir VM oluşturduysanız, kullanışlı ve çalışmaya devam etmek için şirketinizin aboneliğine taşımak şimdi istiyorsunuz.
+Bu makalede, bir Windows sanal makinesi (VM), kaynak grubu veya abonelik arasında taşıma konusunda size yol gösterir. Abonelikler arasında taşıma, kişisel bir abonelikte ilk olarak bir VM oluşturduysanız, kullanışlı ve çalışmaya devam etmek için şirketinizin aboneliğine taşımak şimdi istiyorsunuz.
 
 > [!IMPORTANT]
->Şu anda yönetilen diskleri taşıyamazsınız. 
+>Şu anda Azure yönetilen diskler taşıyamazsınız. 
 >
->Yeni kaynak kimliklerini taşımanın bir parçası oluşturulur. Sanal makine taşındığında, araçları ve betikleri, yeni kaynak kimliğini kullanacak şekilde güncelleştirmeniz gerekir. 
+>Yeni kaynak kimliklerini taşımanın bir parçası oluşturulur. VM taşındıktan sonra araçları ve betikleri, yeni kaynak kimliğini kullanacak şekilde güncelleştirmeniz gerekir. 
 > 
 > 
 
@@ -36,16 +36,15 @@ Bu makalede, bir Windows VM kaynak grubu veya abonelik arasında taşıma konusu
 
 ## <a name="use-powershell-to-move-a-vm"></a>Bir VM'yi taşıma için Powershell kullanma
 
-Bir sanal makineyi başka bir kaynak grubuna taşımak için ayrıca tüm bağımlı kaynakları taşıdığınızdan emin olmanız gerekir. Move-AzureRMResource cmdlet'ini kullanmak için her kaynak ResourceId gerekir. ResourceId'ın kullanarak bir listesini alabilirsiniz [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet'i.
+Bir sanal makineyi başka bir kaynak grubuna taşımak için ayrıca tüm bağımlı kaynakları taşıdığınızdan emin olmanız gerekir. Bu kaynakların her biri kaynak kimliği listesini almak için kullanın [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet'i.
 
 ```azurepowershell-interactive
  Get-AzureRMResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-Bir VM'yi taşıma için birden fazla kaynak taşımak ihtiyacımız var. Get-AzureRMResource çıktısını Resourceıds virgülle ayrılmış bir listesini oluşturun ve geçirebilirsiniz kullanabiliriz [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) hedef konuma taşınır. 
+Önceki komutun çıktısındaki kaynak kimliklerinin virgülle ayrılmış bir listesi olarak kullanabileceğiniz [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) her kaynak hedef konuma taşımak için. 
 
 ```azurepowershell-interactive
-
 Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
@@ -59,8 +58,8 @@ Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" 
 ```
 
 
-Belirtilen kaynakları taşımak isteyip istemediğiniz sorulur. 
+İstediğiniz belirli kaynakları taşıma, girin onaylamak için sorulduğunda **Y** onaylamak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Birçok farklı türdeki kaynakların kaynak grupları ve abonelikler arasında taşıyabilirsiniz. Daha fazla bilgi için bkz. [Kaynakları yeni kaynak grubuna veya aboneliğe taşıma](../../resource-group-move-resources.md).    
+Birçok farklı türdeki kaynakların kaynak grupları ve abonelikler arasında taşıyabilirsiniz. Daha fazla bilgi için [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](../../resource-group-move-resources.md).    
 
