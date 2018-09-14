@@ -40,8 +40,20 @@ items:
     items:
     - name: Otomatik kullanıcı sağlama
       href: configure-automatic-user-provisioning-portal.md
+    - name: SaaS uygulamaları
+      href: user-provisioning.md
     - name: SCIM etkin uygulamalar
       href: use-scim-to-provision-users-and-groups.md
+    - name: Uygulama özniteliklerini özelleştirme
+      href: Customize-application-attributes.md
+    - name: Öznitelik eşlemeleri için ifadeler yazma
+      href: functions-for-customizing-application-data.md
+    - name: Kapsam belirleme filtreleri
+      href: define-conditional-rules-for-provisioning-user-accounts.md
+    - name: Otomatik kullanıcı hazırlama raporu
+      href: check-status-user-account-provisioning.md
+    - name: Kullanıcı hazırlama sorunlarını giderme
+      href: application-provisioning-config-problem.md
   - name: Uygulama güvenliği
     items:
     - name: Uygulama erişim seçenekleri
@@ -50,24 +62,40 @@ items:
       href: certificate-signing-options.md
     - name: Sertifikaları yönetme
       href: manage-certificates-for-federated-single-sign-on.md
+    - name: Kiracı kısıtlamaları
+      href: tenant-restrictions.md
   - name: Çoklu oturum açma
     items:
+    - name: Genel Bakış
+      href: what-is-single-sign-on.md
     - name: SSO yöntemleri
       href: application-proxy-single-sign-on.md
+    - name: Yöntem seçme
+      href: single-sign-on-modes.md
     - name: Giriş Bölgesi Bulma
       href: configure-authentication-for-federated-users-portal.md
     - name: Kerberos Kısıtlanmış Temsili (KCD)
       href: application-proxy-configure-single-sign-on-with-kcd.md
     - name: Parola kasası oluşturma
       href: application-proxy-configure-single-sign-on-password-vaulting.md
-    - name: Ping erişimi
+    - name: Üst bilgiler
       href: application-proxy-configure-single-sign-on-with-ping-access.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: Bulut uygulaması tümleştirme
     items:
+    - name: Uygulama ekleme
+      items:
+      - name: Uygulama türünü seçme
+        href: choose-application-type.md
+      - name: Yaygın sorunlar - galeri uygulamaları
+        href: adding-gallery-app-common-problems.md
+      - name: Yaygın sorunlar - galeri dışındaki uygulamalar
+        href: adding-non-gallery-app-common-problems.md
     - name: Ad veya logo değiştirme
       href: change-name-or-logo-portal.md
+    - name: SaaS uygulama öğreticileri
+      href: ../saas-apps/tutorial-list.md
   - name: Şirket içi uygulama tümleştirmesi
     items:
     - name: Uygulama Ara Sunucusunu etkinleştirme
@@ -92,35 +120,171 @@ items:
       href: application-proxy-remove-personal-data.md
     - name: Özel etki alanı yapılandırma
       href: application-proxy-configure-custom-domain.md
-    - name: Uzak Masaüstü ile tümleştirme
-      href: application-proxy-integrate-with-remote-desktop-services.md
-    - name: SharePoint ile tümleştirme
-      href: application-proxy-integrate-with-sharepoint-server.md
-    - name: Teams ile tümleştirme
-      href: application-proxy-integrate-with-teams.md
-    - name: Tableau ile tümleştirme
-      href: application-proxy-integrate-with-tableau.md
-    - name: Qlik ile tümleştirme
-      href: application-proxy-qlik.md
     - name: Yapılandırma hataları
       href: application-proxy-troubleshoot.md
+    - name: Adım adım kılavuzlar yayımlama
+      items:
+      - name: Uzak Masaüstü ile tümleştirme
+        href: application-proxy-integrate-with-remote-desktop-services.md
+      - name: SharePoint ile tümleştirme
+        href: application-proxy-integrate-with-sharepoint-server.md
+      - name: Teams ile tümleştirme
+        href: application-proxy-integrate-with-teams.md
+      - name: Tableau ile tümleştirme
+        href: application-proxy-integrate-with-tableau.md
+      - name: Qlik ile tümleştirme
+        href: application-proxy-qlik.md
+    - name: Uygulama Ara Sunucusu sorunlarını giderme
+      items:
+      - name: Uygulama sayfası görüntülenirken sorun oluşuyor
+        href: application-proxy-page-appearance-broken-problem.md
+      - name: Uygulamanın yüklenmesi çok uzun sürüyor
+        href: application-proxy-page-load-speed-problem.md
+      - name: Uygulama sayfasındaki bağlantılar çalışmıyor
+        href: application-proxy-page-links-broken-problem.md
+      - name: Uygulamam için açılacak bağlantı noktaları
+        href: application-proxy-connectivity-ports-how-to.md
+      - name: Uygulamam için bağlayıcı grubunda çalışan bağlayıcı yok
+        href: application-proxy-connectivity-no-working-connector.md
+      - name: Yönetici portalında yapılandırma
+        href: application-proxy-config-how-to.md
+      - name: Uygulamamda çoklu oturum açmayı yapılandırma
+        href: application-proxy-config-sso-how-to.md
+      - name: Yönetici portalında uygulama oluştururken sorun oluşuyor
+        href: application-proxy-config-problem.md
+      - name: Kerberos Kısıtlanmış Temsilini Yapılandırma
+        href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
+      - name: PingAccess ile yapılandırma
+        href: application-proxy-back-end-ping-access-how-to.md
+      - name: “Bu Şirket Uygulamasına Erişilemiyor” hatası
+        href: application-proxy-sign-in-bad-gateway-timeout-error.md
+      - name: Uygulama Ara Sunucusu Aracı Bağlayıcısı’nı yüklerken sorun oluşuyor
+        href: application-proxy-connector-installation-problem.md
+      - name: Oturum açma sorunu
+        href: application-sign-in-problem-on-premises-application-proxy.md
+  - name: Kullanıcı sağlama
+    items:
+    - name: Gereken süre
+      href: application-provisioning-when-will-provisioning-finish-specific-user.md
+    - name: Saatler sürüyor - galeri uygulaması
+      href: application-provisioning-when-will-provisioning-finish.md
+    - name: Kullanıcı sağlamayı yapılandırma - galeri uygulaması
+      href: application-provisioning-config-how-to.md
+    - name: Kullanıcı sağlamayı yapılandırma sorunu - galeri uygulaması
+      href: application-provisioning-config-problem.md
+    - name: Kullanıcı sağlama galeri uygulamasını yapılandırırken yönetici kimlik bilgilerini kaydetme sorunu
+      href: application-provisioning-config-problem-storage-limit.md
+    - name: Kullanıcılar sağlanmıyor - galeri uygulaması
+      href: application-provisioning-config-problem-no-users-provisioned.md
+    - name: Yanlış kullanıcılar sağlanıyor - galeri uygulaması
+      href: application-provisioning-config-problem-wrong-users-provisioned.md
   - name: Uygulama erişimi
     items:
+    - name: Uygulama türleri
+      href: application-types.md
+    - name: Kullanıcıları ve grupları bir uygulamaya atama yöntemleri
+      href: methods-for-assigning-users-and-groups.md
     - name: Kullanıcıyı uygulamaya atama
       href: assign-user-or-group-access-portal.md
+    - name: Bir kullanıcının uygulamaya erişimini kaldırma yöntemleri
+      href: methods-for-removing-user-access.md
+    - name: Beklenmeyen kullanıcı ataması
+      href: ways-users-get-assigned-to-applications.md
     - name: Kullanıcı veya grup erişimini kaldırma
       href: remove-user-or-group-access-portal.md
     - name: Kullanıcıdan uygulama gizleme
       href: hide-application-from-user-portal.md
     - name: Kullanıcılar için oturum açmayı devre dışı bırakma
       href: disable-user-sign-in-portal.md
+    - name: Self servis uygulama atamasını yapılandırma
+      href: manage-self-service-access.md
+  - name: Çoklu oturum açma
+    items:
+    - name: Galeri dışındaki uygulamaları yapılandırma
+      href: configure-single-sign-on-non-gallery-applications.md
+    - name: Federasyon yapılandırma - galeri uygulamaları
+      href: configure-federated-single-sign-on-gallery-applications.md
+    - name: Federasyon yapılandırmayla ilgili yaygın sorunlar - galeri uygulamaları
+      href: configure-federated-single-sign-on-gallery-applications-problems.md
+    - name: Federasyon yapılandırma - galeri dışındaki uygulamalar
+      href: configure-federated-single-sign-on-non-gallery-applications.md
+    - name: Federasyon yapılandırmayla ilgili yaygın sorunlar - galeri dışındaki uygulamalar
+      href: configure-federated-single-sign-on-non-gallery-applications-problems.md
+    - name: Parola yapılandırma - galeri uygulamaları
+      href: configure-password-single-sign-on-gallery-applications.md
+    - name: Parola yapılandırmayla ilgili yaygın sorunlar - galeri uygulamaları
+      href: configure-password-single-sign-on-gallery-applications-problems.md
+    - name: Parola yapılandırma - galeri dışındaki uygulamalar
+      href: configure-password-single-sign-on-non-gallery-applications.md
+    - name: Parola yapılandırmayla ilgili yaygın sorunlar - galeri dışındaki uygulamalar
+      href: configure-password-single-sign-on-non-gallery-applications-problems.md
+  - name: Erişim paneli
+    items:
+    - name: Tarayıcı uzantısı yönetme
+      href: manage-access-panel-browser-extension.md
+    - name: Uygulama görüntülenmiyor
+      href: access-panel-troubleshoot-application-not-appearing.md
+    - name: Beklenmeyen uygulama görüntüleniyor
+      href: access-panel-troubleshoot-unexpected-application.md
+    - name: Oturum açılamıyor
+      href: access-panel-troubleshoot-web-sign-in-problem.md
+    - name: Tarayıcı uzantısı yüklenirken hata oluşuyor
+      href: access-panel-extension-problem-installing.md
+    - name: Self servis uygulama erişiminin kullanma
+      href: access-panel-manage-self-service-access.md
+    - name: Self servis uygulama erişiminin kullanırken hata oluşuyor
+      href: access-panel-troubleshoot-self-service-access.md
   - name: Geçiş
     items:
     - name: ADFS uygulamasını Azure’a geçirme
       href: migrate-adfs-apps-to-azure.md
-ms.openlocfilehash: 57a377c56764272b70814bc78b31f718d3d902b7
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+  - name: Kullanıcı oturum açma sorunlarını giderme
+    items:
+    - name: Beklenmeyen izin alma istemi
+      href: application-sign-in-unexpected-user-consent-prompt.md
+    - name: Kullanıcı onayı hatası
+      href: application-sign-in-unexpected-user-consent-error.md
+    - name: Özel portaldan oturum açma sorunları
+      href: application-sign-in-other-problem-deeplink.md
+    - name: Özel bölmeden oturum açma sorunları
+      href: application-sign-in-other-problem-access-panel.md
+    - name: Uygulama oturum açma sayfasında hata
+      href: application-sign-in-problem-application-error.md
+    - name: Parolayla çoklu oturum açma sorunu - galeri dışındaki uygulama
+      href: application-sign-in-problem-password-sso-non-gallery.md
+    - name: Parolayla çoklu oturum açma sorunu - galeri uygulaması
+      href: application-sign-in-problem-password-sso-gallery.md
+    - name: Microsoft uygulamasında oturum açma sorunu
+      href: application-sign-in-problem-first-party-microsoft.md
+    - name: Federasyonda çoklu oturum açma sorunu - galeri dışındaki uygulama
+      href: application-sign-in-problem-federated-sso-non-gallery.md
+    - name: Federasyonda çoklu oturum açma sorunu - galeri uygulaması
+      href: application-sign-in-problem-federated-sso-gallery.md
+    - name: Özel geliştirilmiş uygulama ile ilgili sorun
+      href: application-sign-in-problem-custom-dev.md
+- name: Kaynaklar
+  items:
+  - name: Azure AD dağıtım planları
+    href: ../fundamentals/active-directory-deployment-plans.md
+  - name: Azure geri bildirim forumu
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: MSDN forumu
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/active-directory
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator
+  - name: Hizmet güncelleştirmeleri
+    href: https://azure.microsoft.com/updates/?product=active-directory
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Videolar
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: de8f961b5f39751aac95c7fcde47a73c848ef96e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381845"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721798"

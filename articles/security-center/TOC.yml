@@ -34,7 +34,7 @@ items:
   items:
   - name: Gelişmiş güvenliğe yükseltme
     href: security-center-onboarding.md
-  - name: WATP ile sunucu koruması (Önizleme)
+  - name: Windows Defender ATP (Önizleme) ile sunucu koruması
     href: security-center-wdatp.md
   - name: Güvenlik ilkesi ayarlama
   - name: Güvenlik ilkeleri ayarlama
@@ -150,12 +150,14 @@ items:
       href: security-center-alert-validation.md
     - name: Güvenilirlik puanı uyarısı
       href: security-center-confidence-score.md
-    - name: Tehdit bilgileri haritası
+    - name: Güvenlik uyarıları haritası ve tehdit bilgileri
       href: security-center-threat-intel.md
     - name: Araştırma
       href: security-center-investigation.md
     - name: Araştırma kullanıcı verilerini yönetme
       href: security-center-investigation-user-data.md
+    - name: Azure kaynakları ve kullanıcıları için UEBA
+      href: security-center-ueba-mcas.md
   - name: Güvenlik iş akışlarını otomatik hale getirme
     items:
     - name: Logic Apps playbook’ları
@@ -210,9 +212,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Bölgesel kullanılabilirlik
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 2d35c25f9afb743b7c0d2d466bc7943d1cab1419
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 12f463c36edef411f42ff17f2126284a0c89983e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053749"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716902"

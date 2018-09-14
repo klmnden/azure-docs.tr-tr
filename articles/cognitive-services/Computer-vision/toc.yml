@@ -98,6 +98,30 @@ items:
       href: quickstarts-sdk/csharp-thumb-sdk.md
     - name: El yazısı metni ayıklama
       href: quickstarts-sdk/csharp-hand-text-sdk.md
+- name: Kavramlar
+  items:
+  - name: Resimleri etiketleme
+    href: concept-tagging-images.md
+  - name: Resimleri kategorilere ayırma
+    href: concept-categorizing-images.md
+  - name: Resimleri açıklama
+    href: concept-describing-images.md
+  - name: Yüz algılama
+    href: concept-detecting-faces.md
+  - name: Görüntü türünü algılama
+    href: concept-detecting-image-types.md
+  - name: Etki alanına özgü içeriği algılama
+    href: concept-detecting-domain-content.md
+  - name: Renk şemalarını algılama
+    href: concept-detecting-color-schemes.md
+  - name: Küçük resimler oluşturma
+    href: concept-generating-thumbnails.md
+  - name: OCR ile metin ayıklama
+    href: concept-extracting-text-ocr.md
+  - name: Yazdırılmış ve el yazısı ile yazılan metinleri tanıma
+    href: concept-recognizing-text.md
+  - name: Yetişkinlere yönelik ve müstehcen içerikleri algılama
+    href: concept-detecting-adult-content.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: İlk Görüntü İşleme uygulamaları
@@ -160,9 +184,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Kategori sınıflandırma
     href: Category-Taxonomy.md
-ms.openlocfilehash: c784546bdba472882b6c098befc584da35bbac59
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6bdbfc9285665c6e0f7eb678c50e19bd82238696
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337510"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714420"

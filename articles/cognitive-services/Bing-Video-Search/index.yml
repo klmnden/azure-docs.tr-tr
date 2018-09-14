@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: b21d38e828888129057bc128061c8d5a8ceb06e8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624449"
+documentType: LandingData
+title: Bing Video Arama Belgeleri
+metadata:
+  title: Bing Video Arama Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
+  description: Bing Video Arama API’si kullanarak Web’den kullanıcı sorgularıyla alakalı videolar elde etmeyi öğrenin. Öğreticilerde bu hizmeti kullanan uygulamaların nasıl derleneceği gösterilmektedir.
+  services: cognitive-services
+  author: mikedodaro
+  manager: rosh
+  ms.service: bing-video-search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/02/2017
+  ms.author: v-gedod
+abstract:
+  description: Bing Video Arama API’si, Bing’in sorguyla alakalı olduğunu belirlediği videoları döndürerek Bing Videolar’a çok yakın bir deneyim sunar.
+sections:
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: paragraph
+    text: 'Sorgu oluşturup JSON yanıtını görüntüleyerek Bing Video Arama API’sini kullanmaya başlayın:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      href: csharp
+      text: C&#35;
+    - image:
+        src: media/index/logo_java.svg
+      href: java
+      text: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      href: nodejs
+      text: Node.js
+    - image:
+        src: media/index/logo_php.svg
+      href: php
+      text: PHP
+    - image:
+        src: media/index/logo_python.svg
+      href: python
+      text: Python
+    - image:
+        src: media/index/logo_ruby.svg
+      href: ruby
+      text: Ruby
+- title: Adım Adım Öğreticiler
+  items:
+  - type: paragraph
+    text: 'Bing Video Arama API’sini kullanarak uygulama geliştirin:'
+  - type: paragraph
+    text: <a href="tutorial-bing-video-search-single-page-app">Tek sayfalı web uygulaması</a> &#124; <a href="tutorial-bing-video-search-single-page-app-source">Kaynak kodu</a>
+- title: Başvuru
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API'ler
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference">Bing Video Arama API’si v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference/">Bing Video Arama API’si v5</a></p>
+    - title: SDK’lar
+      html: <p><a href="sdk.md">Bing Arama SDK’sı</a></p>

@@ -36,45 +36,9 @@ items:
     href: concepts-connectivity.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Yönetici
-    items:
-    - name: CSP olarak uygulama oluşturma ve yönetme
-      href: howto-create-and-manage-applications-as-CSP.md
-    - name: Uygulamanızı yönetme
-      href: howto-administer.md
-    - name: Verilerinizi dışa aktarma
-      href: howto-export-data.md
-    - name: Power BI’da verilerinizi görselleştirme
-      href: howto-connect-powerbi.md
-  - name: Oluşturucu
-    items:
-    - name: Cihaz şablonunu ayarlama
-      href: howto-set-up-template.md
-    - name: Cihaz şablonu için sürüm oluşturma
-      href: howto-version-devicetemplate.md
-    - name: Telemetri kuralı oluşturma
-      href: howto-create-telemetry-rules.md
-    - name: Olay kuralı oluşturma
-      href: howto-create-event-rules.md
-    - name: Kurallar üzerinde web kancası eylemleri oluşturma
-      href: howto-create-webhooks.md
-    - name: Microsoft Flow'da iş akışları oluşturma
-      href: howto-add-microsoft-flow.md
-    - name: Azure İşlevleri'ni tetikleme
-      href: howto-trigger-azure-functions.md
-    - name: Giriş sayfasını yapılandırma
-      href: howto-configure-homepage.md
-    - name: Görüntüleri karşıya hazırlama ve yükleme
-      href: howto-prepare-images.md
-  - name: İşleç
-    items:
-    - name: Cihazlarınızı yönetme
-      href: howto-manage-devices.md
-    - name: Cihaz kümelerini kullanma
-      href: howto-use-device-sets.md
-    - name: Özel analiz oluşturma
-      href: howto-create-analytics.md
-  - name: Cihaz geliştirici
+  - name: Uygulama oluşturma
+    href: howto-create-application.md
+  - name: Cihazları bağlama
     items:
     - name: Node.js (genel) uygulamasını hazırlama ve bağlama
       href: howto-connect-nodejs.md
@@ -86,6 +50,46 @@ items:
       href: howto-connect-raspberry-pi-csharp.md
     - name: Windows IoT Core cihazını hazırlama ve bağlama
       href: howto-connect-windowsiotcore.md
+  - name: Cihazları yönetme
+    items:
+    - name: Cihaz şablonu ayarlama
+      href: howto-set-up-template.md
+    - name: Cihazlarınızı yönetme
+      href: howto-manage-devices.md
+    - name: Cihaz kümelerini kullanma
+      href: howto-use-device-sets.md
+    - name: Cihaz şablonu için sürüm oluşturma
+      href: howto-version-devicetemplate.md
+  - name: İzleme ve analiz
+    items:
+    - name: Telemetri kuralı oluşturma
+      href: howto-create-telemetry-rules.md
+    - name: Olay kuralı oluşturma
+      href: howto-create-event-rules.md
+    - name: Özel analiz oluşturma
+      href: howto-create-analytics.md
+  - name: Eylemler ve genişletilebilirlik
+    items:
+    - name: Kurallar üzerinde web kancası eylemleri oluşturma
+      href: howto-create-webhooks.md
+    - name: Microsoft Flow'da iş akışları oluşturma
+      href: howto-add-microsoft-flow.md
+    - name: Azure İşlevleri'ni tetikleme
+      href: howto-trigger-azure-functions.md
+    - name: Verilerinizi dışa aktarma
+      href: howto-export-data.md
+    - name: Power BI’da verilerinizi görselleştirme
+      href: howto-connect-powerbi.md
+  - name: Yönetim
+    items:
+    - name: Uygulamanızı yönetme
+      href: howto-administer.md
+    - name: CSP olarak uygulama oluşturma ve yönetme
+      href: howto-create-and-manage-applications-as-CSP.md
+    - name: Giriş sayfasını yapılandırma
+      href: howto-configure-homepage.md
+    - name: Görüntüleri karşıya hazırlama ve yükleme
+      href: howto-prepare-images.md
 - name: İlgili
   items:
   - name: Çözümler
@@ -118,9 +122,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-central
-ms.openlocfilehash: 83afcefb0e8fa90253e917ba700644b21bb61100
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6cfa705fbcdf7c876dd78fb28210742eb5562e8a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348931"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714607"

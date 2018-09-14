@@ -82,6 +82,7 @@
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Tablosal Model Betik Dili (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 ## [Tablosal Nesne Modeli (TOM)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo)
+## [Kaynak ve nesne sınırları](analysis-services-capacity-limits.md)
 
 # Kaynaklar
 

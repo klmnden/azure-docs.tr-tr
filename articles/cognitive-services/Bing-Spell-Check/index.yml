@@ -1,0 +1,76 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: a13532f0dbd687dacffda938e6fbfe5506f60ff8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624367"
+documentType: LandingData
+title: Bing Yazım Denetimi API'si Belgeleri
+metadata:
+  document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
+  title: Bing Yazım Denetimi API’si Belgeleri - Öğreticiler, API Başvurusu - Azure Bilişsel Hizmetler | Microsoft Docs
+  description: Metin belgelerine yönelik önerilen düzeltileri elde etmek için Bing Yazım Denetimi API’sini kullanmayı öğrenin. Öğreticilerde API kullanan uygulamaların nasıl derleneceği gösterilmektedir.
+  services: cognitive-services
+  author: noellelacharite
+  manager: nolachar
+  ms.service: cognitive-services
+  ms.component: bing-spell-check
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/09/2018
+  ms.author: nolachar
+abstract:
+  description: Bing Yazım Denetimi API'si, bağlamsal dil bilgisi ve yazım denetimi gerçekleştirmenize olanak sağlar. Bing, sürekli olarak gelişen ve yüksek düzeyde bağlamsal olan bir algoritmayı dinamik bir şekilde eğitmek için makine öğrenimi ve istatistiksel makine çevirisinden yararlanan web tabanlı bir yazım denetleyicisi geliştirmiştir. Yazım denetleyicisi, web aramalarından ve belgelerden oluşan dev bir gövdeyi temel alır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle içeriği farklı şekillerde analiz etmeyi öğrenin.
+sections:
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: paragraph
+    text: 'Sorgu oluşturup JSON yanıtını görüntüleyerek Bing Yazım Denetimi API’sini kullanmaya başlayın:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      text: C&#35;
+      href: quickstarts/csharp
+    - image:
+        src: media/index/logo_java.svg
+      text: Java
+      href: quickstarts/java
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: quickstarts/nodejs
+    - image:
+        src: media/index/logo_php.svg
+      text: PHP
+      href: quickstarts/php
+    - image:
+        src: media/index/logo_python.svg
+      text: Python
+      href: quickstarts/python
+    - image:
+        src: media/index/logo_ruby.svg
+      text: Ruby
+      href: quickstarts/ruby
+- title: Adım Adım Öğreticiler
+  items:
+  - type: paragraph
+    text: 'Bing Yazım Denetimi API’sini kullanarak uygulama geliştirmeyi öğrenin:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorials/spellcheck.md">Tek sayfalı Web uygulaması</a>
+    - html: <a href="tutorials/spellcheck-source.md">Tek sayfalı web uygulaması (kaynak kodu)</a>
+- title: Başvuru
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference">Bing Yazım Denetimi API’si v7 Başvurusu</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference">Bing Yazım Denetimi API’si v5 Başvurusu</a> (eski sürüm)</p>
+    - title: Kod örnekleri
+      html: <p><a href="sdk.md">SDK örneklerine genel bakış</a></p>

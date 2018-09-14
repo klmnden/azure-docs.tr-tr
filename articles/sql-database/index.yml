@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 986a946e345492515a79f7dcd8730c533f4a0503
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 0439f35a8ad7daab780bde301a2ec5fee8aaf1d6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052749"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718310"
 documentType: LandingData
 title: Azure SQL Veritabanı Belgeleri
 metadata:
@@ -115,7 +115,7 @@ sections:
       - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
-    - title: SQL Esnek Havuzu oluşturma
+    - title: SQL elastik havuzu oluşturma
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
@@ -127,7 +127,7 @@ sections:
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
       - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
       - href: 
-    - title: SQL Esnek Havuzunu ölçeklendirme
+    - title: SQL elastik havuzunu ölçeklendirme
       values:
       - href: 
       - href: /azure/sql-database/scripts/sql-database-scale-pool-cli

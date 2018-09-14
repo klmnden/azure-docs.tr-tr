@@ -6,7 +6,7 @@
 ## [Data Lake Storage Gen1 ile Azure Depolama karşılaştırması](data-lake-store-comparison-with-blob-storage.md)
 ## [Büyük veri işleme için Data Lake Storage Gen1](data-lake-store-data-scenarios.md)
 ## [Data Lake Storage Gen1 ile çalışan açık kaynak uygulamalar](data-lake-store-compatible-oss-other-applications.md)
-## [Data Lake Storage Gen1'i kullanmak için en iyi yöntemler](data-lake-store-best-practices.md)
+## [En iyi uygulamalar](data-lake-store-best-practices.md)
 
 # başlarken
 ## [Portalı kullanma](data-lake-store-get-started-portal.md)
@@ -26,8 +26,8 @@
 
 ## Verilerin güvenliğini sağlama
 ### [Güvenliğe genel bakış](data-lake-store-security-overview.md)
-### [Data Lake Storage Gen1'de erişim denetimi](data-lake-store-access-control.md)
-### [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+### [Erişim denetimi](data-lake-store-access-control.md)
+### [Depolanan verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 ### [Şifreleme](data-lake-store-encryption.md)
 
 ## Data Lake Storage Gen1 ile kimlik doğrulaması
@@ -55,12 +55,12 @@
 #### [Python’u kullanma](data-lake-store-data-operations-python.md)
 
 ## Performans
-### [Azure Data Lake Storage Gen1 için performans ayarlama kılavuzu](data-lake-store-performance-tuning-guidance.md)
-### [Data Lake Storage Gen1 ile PowerShell’i kullanmaya yönelik performans ayarlama kılavuzu](data-lake-store-performance-tuning-powershell.md)
-### [Data Lake Storage Gen1 ve HDInsight’ta Spark için performans ayarlama kılavuzu](data-lake-store-performance-tuning-spark.md)
-### [Data Lake Storage Gen1 ve HDInsight’ta Hive için performans ayarlama kılavuzu](data-lake-store-performance-tuning-hive.md)
-### [Data Lake Storage Gen1 ve HDInsight’ta MapReduce için performans ayarlama kılavuzu](data-lake-store-performance-tuning-mapreduce.md)
-### [Data Lake Storage Gen1 ve HDInsight’ta Storm için performans ayarlama kılavuzu](data-lake-store-performance-tuning-storm.md)
+### [Genel Bakış](data-lake-store-performance-tuning-guidance.md)
+### [Azure PowerShell’i kullanma](data-lake-store-performance-tuning-powershell.md)
+### [HDInsight üzerinde Spark kullanma](data-lake-store-performance-tuning-spark.md)
+### [HDInsight üzerinde Hive kullanma](data-lake-store-performance-tuning-hive.md)
+### [HDInsight üzerinde kullanma](data-lake-store-performance-tuning-mapreduce.md)
+### [HDInsight üzerinde Storm kullanma](data-lake-store-performance-tuning-storm.md)
 
 ## Azure Hizmetleri ile tümleştirme
 ### Klasik Azure portalı (kullanım dışı)
