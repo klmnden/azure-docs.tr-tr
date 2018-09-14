@@ -1,27 +1,34 @@
 ---
 title: Azure Stack Ethereum blockchain çözümü şablonu
-description: Özel çözüm şablonlarını dağıtmak ve Azure Stack'te bir konsorsiyum Ethereum blok zinciri ağı yapılandırmak için kullanın
+description: Özel çözüm şablonlarını kullanarak dağıtma ve Azure Stack'te consortium Ethereum blok zinciri ağ yapılandırma Öğreticisi
 services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/12/2018
-ms.topic: article
+ms.date: 09/13/2018
+ms.topic: tutorial
 ms.service: azure-stack
-ms.reviewer: coborn
+ms.reviewer: seyadava
+ms.custom: mvc
 manager: femila
-ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b21a9ca58fc29a3da62ea08e81e628368fe5385f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722000"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580778"
 ---
-# <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blok zinciri çözüm şablonları
+# <a name="tutorial-use-the-azure-stack-ethereum-blockchain-solution-template"></a>Öğretici: Azure Stack Ethereum blok zinciri çözüm şablonu kullanın.
 
 Ethereum çözüm şablonu, daha kolay ve hızlı dağıtma ve Azure ve Ethereum minimum bilgi ile çok üye consortium Ethereum blok zinciri ağ yapılandırma olmak için tasarlanmıştır.
 
 Birkaç kullanıcı girişleri ve Azure Stack Kiracı Portalı aracılığıyla tek tıklamayla dağıtım ile üyelerin kendi ağ kaplama alanını sağlayabilirsiniz. Her üyenin ağ kaplama alanını yük dengeli işlem düğümlerinin bir dizi oluşur. sahip olan bir uygulama ya da kullanıcı işlemleri, bir dizi kayıt işlemleri için araştırma düğümü ve bir ağ sanal Gereci (NVA) göndermek için etkileşim kurabilirsiniz. Nva'ların tam olarak yapılandırılmış birden çok üye blockchain ağ oluşturmak için bir sonraki bağlantı adım bağlanır.
+
+Bunu ayarlamak için yapacaklarınız:
+
+> [!div class="checklist"]
+> * Dağıtım mimarisi seçin
+> * Tek başına, consortium lider veya consortium üye ağ dağıtma
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -198,5 +205,13 @@ Dağıtım tamamlandıktan sonra öncü ve üye iletişim başlatmak birkaç dak
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ethereum ve Azure hakkında daha fazla bilgi için bkz: [blok zinciri teknolojisi ve uygulamaları | Microsoft Azure](https://azure.microsoft.com/solutions/blockchain/).
-- Azure'da blok zinciri senaryolarını hakkında daha fazla bilgi için bkz. [Ethereum iş kavram consortium çözüm şablonu](../blockchain-workbench/ethereum-deployment-guide.md).
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
+
+> [!div class="checklist"]
+> * Dağıtım mimarisi seçin
+> * Tek başına, consortium lider veya consortium üye ağ dağıtma
+
+Ethereum ve Azure hakkında daha fazla bilgi için bkz:
+
+> [!div class="nextstepaction"]
+> [Blok zinciri teknolojisi ve uygulamaları](https://azure.microsoft.com/solutions/blockchain/)

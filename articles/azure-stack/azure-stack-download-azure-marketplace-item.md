@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 09/13/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: ddb1fcd91ff0c0018bcab9988a5ab063b882cf36
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: e396fc82754188ea655c70b44d4bf937a3c3163c
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714676"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544220"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure Stack için Azure Market öğelerini indirme
 
@@ -148,9 +148,9 @@ Bu senaryo iki bölümü vardır:
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>İndirme içeri aktarma ve Azure Stack Market'te yayımlama
 1. Sanal makine görüntüleri veya sahip olduğunuz çözüm şablonları dosyalarını [daha önce indirilen](#use-the-marketplace-syndication-tool-to-download-marketplace-items) Azure Stack ortamınıza yerel olarak kullanılabilir hale getirilmelidir.  
 
-2. Market öğesi paket (.azpkg dosyası) Azure Stack Blob Depolama'ya yüklemek için yönetim portalını kullanın. Öğe daha sonra yayımlayabilmeniz paketin karşıya yükleme, Azure Stack için Azure Stack Marketini kullanılabilir.
+2. Market öğesi paket (.azpkg dosyası) ve sanal sabit disk görüntüsü (.vhd dosyası) Azure Stack Blob Depolama'ya yüklemek için yönetim portalını kullanın. Paket karşıya ve disk dosyaları kullanılabilir hale getirir bunları Azure Stack için Azure Stack Marketini daha sonra öğeyi yayımlayabilmeniz.
 
-   Karşıya yükleme, genel olarak erişilebilir kapsayıcısı ile bir depolama hesabına sahip olmasını gerektirir (bu senaryonun önkoşulları bakın)   
+   Karşıya yükleme, genel olarak erişilebilir kapsayıcısı ile bir depolama hesabına sahip olmasını gerektirir (bu senaryonun önkoşulları bakın).  
    1. Azure Stack Yönetim Portalı'nda Git **tüm hizmetleri** altındaki **veri + depolama** kategorisi seçin **depolama hesapları**.  
    
    2. Aboneliğinizde ve altında bir depolama hesabı seçin **BLOB hizmeti**seçin **kapsayıcıları**.  
@@ -159,7 +159,7 @@ Bu senaryo iki bölümü vardır:
    3. Kullanın ve ardından istediğiniz kapsayıcıyı seçin **karşıya** açmak için **blobu karşıya yükleme** bölmesi.  
       ![Kapsayıcı](media/azure-stack-download-azure-marketplace-item/container.png)  
    
-   4. Depolama alanına yüklemek ve ardından istediğiniz dosyaları karşıya yükleme blob bölmesinde, Gözat **karşıya**.  
+   4. Depolama alanına yüklemek ve ardından diski ve paket dosyaları karşıya yükleme blob bölmesinde, Gözat **karşıya**.  
       ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
 
    5. Karşıya dosya kapsayıcı bölmesinde görünür. Bir dosya seçin ve ardından URL'den kopyalayın **Blob özellikleri** bölmesi. Azure Stack'e Market öğesi içeri aktardığınızda bu URL'yi bir sonraki adımda kullanacaksınız.  Aşağıdaki görüntüde kapsayıcısıdır *blob test depolama* ve dosya *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Dosyanın URL'si *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
@@ -169,7 +169,7 @@ Bu senaryo iki bölümü vardır:
 
    Alabileceğiniz *yayımcı*, *teklif*, ve *sku* AZPKG dosya yüklemeleri metin dosyasından görüntüyü değerleri. Metin dosyasını, hedef konumda depolanır. *Sürüm* öğesi önceki yordamda Azure'dan indirirken belirtilen sürüm değerdir. 
  
-   Aşağıdaki örnek betik, Windows Server 2016 Datacenter - Sunucu Çekirdeği sanal makine için değerler kullanılır. Değiştirin *URI_path* yoluyla öğesi için blob depolama konumu.
+   Aşağıdaki örnek betik, Windows Server 2016 Datacenter - Sunucu Çekirdeği sanal makine için değerler kullanılır. Değeri *- Osuri* öğesi için blob depolama konumuna örnek yoludur.
 
    ```PowerShell  
    Add-AzsPlatformimage `
@@ -178,7 +178,7 @@ Bu senaryo iki bölümü vardır:
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
     -Version "2016.127.20171215" `
-    -OsUri "URI_path"  
+    -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
    **Çözüm şablonları hakkında daha fazla:** bazı şablonlar, küçük bir 3 MB dahil edebilirsiniz. VHD dosya adı ile **fixed3.vhd**. Azure Stack için bu dosyayı içeri gerek yoktur. Fixed3.vhd.  Bu dosya, Azure Marketi'nde yayımlama gereksinimlerini karşılamak için bazı çözüm şablonları ile birlikte gelir.
 
@@ -198,7 +198,7 @@ Bu senaryo iki bölümü vardır:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. Bir galeri öğesinin konumuna giderek bunu yayımladıktan sonra **tüm hizmetleri**. Sonraki altında **genel** kategorisi, select **Market**.  İndirme işleminiz bir çözüm şablonu, bu çözüm şablonu herhangi bir bağımlı VHD görüntü eklediğinizden emin olun.  
+5. Bir galeri öğesi yayımladıktan sonra artık kullanmak kullanılabilir. Galeri öğesi yayımlandığında onaylamak için Git **tüm hizmetleri**ve ardından altındaki **genel** kategorisi seçin **Market**.  İndirme işleminiz bir çözüm şablonu, bu çözüm şablonu herhangi bir bağımlı VHD görüntü eklediğinizden emin olun.  
   ![Görünüm Market](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

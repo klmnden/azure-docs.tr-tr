@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: ba4c53f03350995544eb95917102bd7123a077d2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022773"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575822"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Azure Stack'te bir sanal makine görüntüsü kullanılabilmesini
 
@@ -75,7 +75,7 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>PowerShell kullanarak bir VM görüntüsü Market'te Ekle
 
 > [!Note]  
-> Şablonlar ve PowerShell dağıtımları, yalnızca Azure kaynak yöneticisi için kullanılabilir olacak bir görüntü tabanlı eklerken. Görüntü kullanılabilir hale getirmek için bir kullanıcılarınızın bir Market öğesi olarak makalesindeki adımları kullanarak Market öğesi yayımlama [oluşturma ve bir Market öğesi yayımlama](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
+> Şablonlar ve PowerShell dağıtımları, yalnızca Azure kaynak yöneticisi için kullanılabilir olacak bir görüntü tabanlı eklerken. Görüntü kullanılabilir hale getirmek için bir kullanıcılarınızın bir Market öğesi olarak makalesindeki adımları kullanarak Market öğesi yayımlama [oluşturma ve bir Market öğesi yayımlama](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
 
 1. [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md).  
 

@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 773acd3a22244403548ef4ce35164291f5c0be7d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ad40f3efc123d313b2fd759889b0aa2621b3d7aa
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300844"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542510"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack'te uygulama dağıtma
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure uygulama dağıtma yığını
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
@@ -81,7 +81,7 @@ Bu öğreticide, Azure ve Azure Stack bazı temel bilgi sahibi olduğunuzu varsa
  * Oluşturma [planı/teklifler](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) Azure Stack'te.
  * Oluşturma bir [Kiracı aboneliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) Azure Stack'te.
  * Bir Web uygulaması, Kiracı aboneliği oluşturabilir. Daha sonra kullanmak için yeni Web App URL'si not edin.
- * Kiracı abonelik Azure DevOps Hizmetleri sanal makine dağıtın.
+ * Kiracı aboneliği bir Windows Server 2012 sanal makinesi dağıtın. Yapı sunucunuz ve Azure DevOps hizmetlerini çalıştırmak için bu sunucu kullanır.
 * Bir Windows Server 2016 görüntüsü ile .NET 3.5 bir sanal makine (VM) sağlayın. Bu sanal Makineyi bir özel yapı aracısı Azure Stack oluşturulur.
 
 ### <a name="developer-tool-requirements"></a>Geliştirici aracı gereksinimleri
