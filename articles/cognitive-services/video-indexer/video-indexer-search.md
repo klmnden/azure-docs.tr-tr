@@ -7,20 +7,20 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 1cffa067d8028adab4dbcc82c529f77d980ce6be
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 72f110c0c98e6fb6ee5fca684fdc74c6986e032c
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397553"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541415"
 ---
 # <a name="find-exact-moments-within-videos"></a>Videoların içinde belirli anları bulma
 
 Bu konu, videolar için belirli anları bulmanıza olanak sağlamak arama seçeneklerini gösterir.
 
-1. Oturum açın, [Video Indexer](https://api-portal.videoindexer.ai/) hesabı.
+1. Gözat [Video Indexer](https://www.videoindexer.ai/) Web sitesine gidin ve oturum açma.
 2. Hesabınızdaki tüm videoları arasında arayın.
 
     Aşağıdaki örnekte, biz Channel9 Scott hanselman'la tarafından oluşturulan tüm videolar için arama yapılır.
@@ -49,8 +49,8 @@ Bu konu, videolar için belirli anları bulmanıza olanak sağlamak arama seçen
 Birlikte çalışmak istediğiniz videoyu bulun, sonra aşağıdaki konulardan birine açıklandığı şekilde video işleme geçebilirsiniz: 
 
 - [Mevcut video dayalı yeni video öngörüleri oluşturma](video-indexer-create-new.md)
-- [Video Indexer REST API ile işlem içerik](video-indexer-use-apis.md)
-- [Uygulamanıza Visual pencere öğeleri](video-indexer-embed-widgets.md)
+- [Video Indexer REST API'si ile içerik işleme](video-indexer-use-apis.md)
+- [Görsel pencere öğelerini uygulamanıza ekleme](video-indexer-embed-widgets.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

@@ -1,27 +1,28 @@
 ---
-title: Soru-cevap Oluşturucu limitleri - Azure Bilişsel hizmetler | Microsoft Docs
-description: Soru-cevap Oluşturucu sınırlar
+title: Sınırları ve sınır - soru-cevap Oluşturucu
+titleSuffix: Azure Cognitive Services
+description: Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: 93471faab9aac94616c770cbee21fb0364f73639
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.date: 09/12/2018
+ms.author: nstulasi
+ms.openlocfilehash: da1de0c36033823bd8f615411eed183ffe9701b6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501896"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574558"
 ---
 # <a name="qna-maker-limits"></a>Soru-cevap Oluşturucu sınırlar
 Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
 
 ## <a name="knowledge-bases"></a>Bilgi bankaları
 
-* Bilgi bankaları en fazla sayısını temel alarak [Azure arama katmanı sınırları](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)
+* Bilgi bankaları en fazla sayısını temel alarak [Azure arama katmanı sınırları](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
 
 |**Azure arama katmanı** | **Ücretsiz** | **Temel** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -32,7 +33,7 @@ Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
 * En fazla SSS HTML sayfaları için ayıklama bankalarıyla gezinilebilen ayrıntılı bağlantı sayısı: 20
 
 ## <a name="metadata-limits"></a>Meta veri sınırları
-* Meta veri alanları Bilgi Bankası başına en fazla sayısını temel alarak [Azure arama katmanı sınırları](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)
+* Meta veri alanları Bilgi Bankası başına en fazla sayısını temel alarak [Azure arama katmanı sınırları](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
 
 |**Azure arama katmanı** | **Ücretsiz** | **Temel** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|

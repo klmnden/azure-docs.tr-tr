@@ -12,12 +12,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 667636aac49d2622ba1a6b45d7c8af61b9609c55
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "35622220"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579226"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench'i kullanarak görüntü sınıflandırması
 
@@ -95,7 +95,7 @@ Bu adımları gerçekleştiren, aşağıda gösterilen Proje yapısı oluşturur
 
 ## <a name="data-description"></a>Veri açıklaması
 
-Bu öğreticide, örnek kadar 428 görüntülerini oluşan bir üst gövdesi giysi doku dataset çalışıyor olarak kullanılır. Her görüntü üç farklı dokular (noktalı, şeritli, leopard) biri olarak açıklanıyor. Biz, görüntülerinin sayısını küçük tutulur, böylece Bu öğretici hızlı yürütülebilir. Ancak, kod iyi test edilmiş ve on binlerce görüntüleri veya daha fazla ile çalışır. Bing resim arama kullanarak scraped ve elle-ek açıklama içinde anlatıldığı gibi tüm görüntüleri [3. Kısım](#using-a-custom-dataset). URL'ler ile bunların ilgili öznitelikler listelenir görüntü */resources/fashionTextureUrls.tsv* dosya.
+Bu öğreticide, örnek kadar 428 görüntülerini oluşan bir üst gövdesi giysi doku dataset çalışıyor olarak kullanılır. Her görüntü üç farklı dokular (noktalı, şeritli, leopard) biri olarak açıklanıyor. Biz, görüntülerinin sayısını küçük tutulur, böylece Bu öğretici hızlı yürütülebilir. Ancak, kod iyi test edilmiş ve on binlerce görüntüleri veya daha fazla ile çalışır. İçinde anlatıldığı gibi elle açıklanan tüm görüntüleri [3. Kısım](#using-a-custom-dataset). URL'ler ile bunların ilgili öznitelikler listelenir görüntü */resources/fashionTextureUrls.tsv* dosya.
 
 Betik `0_downloadData.py` tüm görüntülere indirir *DATA_DIR/resimler/fashionTexture/* dizin. Büyük olasılıkla bozuk 428 URL'leri bazılarıdır. Bu bir sorun değildir ve sadece biz biraz daha az görüntüler, eğitim ve test için sahip oldukları anlamına gelir. Bu örnekte sağlanan tüm betikleri yerel olarak yürütülecek olan ve örneğin docker uzak ortamda üzerinde değil.
 
@@ -263,11 +263,11 @@ Geliştirmeleri için en olası meydan veren noktaları bazıları şunlardır:
 
 ## <a name="part-3---custom-dataset"></a>Bölüm 3 - özel veri kümesi
 
-Bölüm 1 ve 2, eğitim ve belirtilen üst gövdesi giysi dokular görüntüleri kullanarak bir görüntü sınıflandırma modeli değerlendirilir. Şimdi nasıl bunun yerine özel bir kullanıcı tarafından sağlanan veri kullanılacağını göstereceğiz. Veya yoksa, nasıl oluşturup Bing kullanarak bir veri kümesi gibi ek açıklama Resim arayın.
+Bölüm 1 ve 2, eğitim ve belirtilen üst gövdesi giysi dokular görüntüleri kullanarak bir görüntü sınıflandırma modeli değerlendirilir. Şimdi nasıl bunun yerine özel bir kullanıcı tarafından sağlanan veri kullanılacağını göstereceğiz. 
 
 ### <a name="using-a-custom-dataset"></a>Özel bir veri kümesi kullanma
 
-İlk olarak, şimdi giysi doku veri klasör yapısını göz sahip. Not nasıl tüm görüntüler için farklı öznitelikler ilgili alt klasörlerinde *noktalı*, *, leopard ve *şeritli* en *DATA_DIR/resimler/fashionTexture/*. Ayrıca nasıl görüntü klasörü adı da meydana unutmayın `PARAMETERS.py` dosyası:
+İlk olarak, şimdi giysi doku veri klasör yapısını göz sahip. Not nasıl tüm görüntüler için farklı öznitelikler ilgili alt klasörlerinde *noktalı*, *leopard*, ve *şeritli* adresindeki *DATA_DIR/resimler / fashionTexture /*. Ayrıca nasıl görüntü klasörü adı da meydana unutmayın `PARAMETERS.py` dosyası:
 ```python
 datasetName = "fashionTexture"
 ```
@@ -280,14 +280,23 @@ Her bir görüntü için tam olarak bir öznitelik atanabilir önemlidir. Örne�
 
 ### <a name="image-scraping-and-annotation"></a>Görüntü değiştirilene ve ek açıklama
 
-Eğitim ve test amacıyla ek açıklamalı görüntüleri yeterince çok sayıda toplama zor olabilir. Bu sorunu çözmenin yollarından biri, Internet'ten görüntüleri scrape sağlamaktır. Örneğin, Bing resim arama sonuçları sorgu için aşağıya bakın *şeritli t-shirt*. Beklendiği gibi çoğu görüntüleri gerçekten şeritli tişörtler. (Örneğin, sütun 1, 1; satır veya sütun 3, satır 2) birkaç yanlış veya belirsiz görüntüleri tanımlanır ve kolayca kaldırıldı:
+Eğitim ve test amacıyla ek açıklamalı görüntüleri yeterince çok sayıda toplama zor olabilir. Bu sorunu çözmenin yollarından biri, Internet'ten görüntüleri scrape sağlamaktır.
+
+> [!IMPORTANT] 
+> Kullandığınız herhangi bir görüntü için telif hakkı ihlal yoksa emin olun. 
+
+<!--
+For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
+-->
 
 Büyük ve farklı bir veri kümesi oluşturmak için birden çok sorgu kullanılmalıdır. Örneğin, 7\*3 = 21 sorgular oluşturulan tüm birleşimlerini {blouse hoodie, pullover, sweater, gömlek, t-shirt, vest} giysi öğeleri ve özniteliklerinin {şeritli, noktalı, leopard} kullanılarak otomatik olarak. Sorgu başına ilk 50 görüntüleri indirme ardından neden en fazla 21 * 50 = 1050 görüntüler.
 
-Bing görüntü arama karşıdan görüntüleri el ile yükleme yerine bunu kullanmayı çok daha kolaydır [Bilişsel hizmetler Bing resim arama API'si](https://www.microsoft.com/cognitive-services/bing-image-search-api) resim URL'leri bir sorgu dizesi verilmiş bir dizi döndürür.
+<!--
+Rather than manually downloading images from Bing Image Search, it is much easier to instead use the [Cognitive Services Bing Image Search API](https://www.microsoft.com/cognitive-services/bing-image-search-api) which returns a set of image URLs given a query string.
+-->
 
 İndirilen resmi tam ya da çoğaltmaları bazıları (örneğin, yalnızca görüntü çözünürlüğünü veya jpg yapıtları farklı). Eğitim ve test bölme içermez aynı görüntüleri böylece bu yinelemeleri kaldırılması gerekir. Yinelenen görüntüleri kaldırma gerçekleştirilebilir iki adımda çalışan bir karma tabanlı yaklaşımı sayesinde: (i) karma dize tüm görüntüler için; ilk olarak hesaplanır (ii görüntüleri üzerinden bir ikinci geçiş) bu görüntülerin değil henüz görüldü karma dize tutulur. Diğer tüm görüntüleri atılır. Bulduk `dhash` Python kitaplığı yaklaşımda `imagehash` ve bu konuda açıklanan [blog](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) parametresiyle de gerçekleştirilecek `hash_size` 16 olarak ayarlayın. Gerçek yinelenenleri çoğunu kaldırıldı sürece yanlış bazı yinelenmeyen görüntüleri kaldırmak için Tamam olduğunu.
 

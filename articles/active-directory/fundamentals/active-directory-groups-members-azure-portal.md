@@ -1,56 +1,65 @@
 ---
-title: Azure AD'de bir grubun üyelerini yönetme | Microsoft Docs
-description: Azure Active Directory'de bir gruba kullanıcı ve cihaz ekleme veya gruptan kaldırma
+title: Azure Active Directory'yi kullanarak grubuna üye ekleme veya kaldırma nasıl | Microsoft Docs
+description: Ekleme veya kullanıcıları ve cihazları Azure Active Directory'yi kullanarak bir gruptan kaldırmak nasıl.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 08/28/2017
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: 947b0c11aba211530e3ae25d6617079bcaf2995f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: HT
+ms.openlocfilehash: f9244e1285396a2d5de40b596d47e311efa50b83
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860490"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574242"
 ---
-# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınızdaki kullanıcıların grup üyeliğini yönetme
-Bu makalede Azure Active Directory'de (Azure AD) bir grubun üyelerini yönetme adımları açıklanmaktadır.
+# <a name="how-to-add-or-remove-group-members-using-azure-active-directory"></a>Nasıl yapılır: Azure Active Directory'yi kullanarak grubuna üye ekleme veya kaldırma
+Azure Active Directory'yi kullanarak, ekleme ve grubu üyelerini kaldırma devam edebilirsiniz.
 
-## <a name="how-do-i-find-the-members-and-manage-them"></a>Üyeleri nasıl bulup yönetebilirim?
-1. Dizin için genel yönetici olan bir hesapla [Azure portalda](https://portal.azure.com) oturum açın.
-2. **Tüm hizmetler**’i seçin, metin kutusuna **Kullanıcılar ve gruplar** yazın ve ardından **Enter**’a basın.
+## <a name="to-add-group-members"></a>Grup üyeleri eklemek için
 
-   ![Kullanıcı yönetimini açma](./media/active-directory-groups-members-azure-portal/search-user-management.png)
-3. **Kullanıcılar ve gruplar** dikey penceresinde **Tüm gruplar**’ı seçin.
+1. Oturum [Azure portalında](https://portal.azure.com) dizinde genel yönetici hesabını kullanarak.
 
-   ![Gruplar dikey penceresini açma](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
-4. **Kullanıcılar ve gruplar - Tüm gruplar** dikey penceresinde bir grup seçin.
-5. **Grup - *groupname*** dikey penceresinde **Üyeler**’i seçin.
+2. Seçin **Azure Active Directory**ve ardından **grupları**.
 
-   ![Üyeler dikey penceresini açma](./media/active-directory-groups-members-azure-portal/view-group-members.png)
-6. Gruba üye eklemek için **Grup - Üyeler** dikey penceresinde **Üye Ekle**’yi seçin.
+3. Gelen **gruplar - tüm gruplar** sayfasında arayın ve üye eklemek istediğiniz grubu seçin. Bu durumda, önceden oluşturulmuş grubumuz kullanın **MDM İlkesi - Batı**.
 
-   ![Üye Ekle komutu](./media/active-directory-groups-members-azure-portal/add-group-members-command.png)
-7. **Üyeler** dikey penceresinde gruba eklemek üzere bir veya daha fazla kullanıcı ya da cihaz seçin ve bunları gruba eklemek için dikey pencerenin en altında yer alan **Seç** düğmesini seçin. **Kullanıcı** kutusu görünen sonuçları girişinizle eşleşen kullanıcı veya cihaz adlarını gösterecek şekilde filtreler. Bu kutuda joker karakter kullanılamaz.
-8. Gruptan üye kaldırmak için **Grup - Üyeler** dikey penceresinde bir üye seçin.
-9. ***membername*** dikey penceresinde **Kaldır** komutunu seçin ve komut isteminde seçiminizi onaylayın.
+    ![Tüm grupları grupları sayfasında grubu adı vurgulanmış](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
-   ![Üye kaldır komutu](./media/active-directory-groups-members-azure-portal/remove-group-members-command.png)
-10. Grubun üyelerini değiştirmeyi bitirdiğinizde **Kaydet**’i seçin.
+4. Gelen **MDM İlkesi - Batı genel bakış** sayfasında **üyeleri** gelen **Yönet** alan.
 
-## <a name="additional-information"></a>Ek bilgiler
-Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
+    ![MDM İlkesi - üyeleri seçeneğinin vurgulandığı Batı genel bakış sayfası](media/active-directory-groups-members-azure-portal/group-overview-blade.png)
 
-* [Var olan grupları görme](active-directory-groups-view-azure-portal.md)
-* [Yeni grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md)
-* [Bir grubun ayarlarını yönetme](active-directory-groups-settings-azure-portal.md)
-* [Bir grubun üyeliklerini yönetme](active-directory-groups-membership-azure-portal.md)
-* [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](../users-groups-roles/groups-dynamic-membership.md)
+5. Seçin **üye ekleme**, her gruba eklemeniz ve ardından istediğiniz üyeleri seçin ve ardından arama **seçin**.
+
+    Üye başarıyla eklendi belirten bir ileti alırsınız.
+
+    ![Üyeleri sayfa ekleme ile gösterilen üyesi için aranır.](media/active-directory-groups-members-azure-portal/update-members.png)
+
+6. Gruba üye adlarını görmek için ekranı yenileyin.
+
+## <a name="to-remove-group-members"></a>Grup üyeleri kaldırmak için
+
+1. Gelen **gruplar - tüm gruplar** sayfasında arayın ve üye kaldırmak istediğiniz grubu seçin. Tekrar kullanacağız, **MDM İlkesi - Batı**.
+
+2. Seçin **üyeleri** gelen **Yönet** alanında, arama ve kaldırın ve ardından üyenin adını işaretleyin **Kaldır**.
+
+    ![Üye bilgileri sayfası, Kaldır seçeneği](media/active-directory-groups-members-azure-portal/remove-members-from-group.png)
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- [Gruplar ve üyeler görüntüleyin](active-directory-groups-view-azure-portal.md)
+
+- [Grup ayarlarınızı düzenleyin](active-directory-groups-settings-azure-portal.md)
+
+- [Grupları kullanarak kaynaklara erişimi yönetme](active-directory-manage-groups.md)
+
+- [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](../users-groups-roles/groups-create-rule.md)
+
+- [Azure Active Directory'ye bir Azure aboneliği ekleme veya ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)

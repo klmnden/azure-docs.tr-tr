@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921440"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574412"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure'dan Azure'a çoğaltma Mobility hizmetini otomatik güncelleştirme
 
@@ -79,8 +79,8 @@ Onarma düğmesi kullanılamaz durumda uzantı ayarları bölmesi altında gör�
 
  - **Hata**: Farklı Çalıştır hesabının kurtarma Hizmetleri kaynağına erişim izni yok.
 
-    **Önerilen eylem**: silin ve ardından [farklı çalıştır hesabını yeniden oluşturma](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account) veya Otomasyon farklı çalıştır hesabı Azure Active Directory uygulamasının kurtarma Hizmetleri kaynağına erişimi olduğundan emin olun.
+    **Önerilen eylem**: silin ve ardından [farklı çalıştır hesabını yeniden oluşturma](https://docs.microsoft.com/azure/automation/automation-create-runas-account) veya Otomasyon farklı çalıştır hesabı Azure Active Directory uygulamasının kurtarma Hizmetleri kaynağına erişimi olduğundan emin olun.
 
 - **Hata**: Farklı Çalıştır hesabı bulunamadı. Ya da bunlardan biri silinmiş veya oluşturulmamış: Azure Active Directory uygulaması, hizmet sorumlusu, rol, Otomasyon sertifikası varlığı, Otomasyon bağlantısı varlığı; ya da parmak izi sertifika ve bağlantı arasındaki aynı değil. 
 
-    **Önerilen eylem**: silme ve [sonra farklı çalıştır hesabını yeniden oluşturun](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+    **Önerilen eylem**: silme ve [sonra farklı çalıştır hesabını yeniden oluşturun](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

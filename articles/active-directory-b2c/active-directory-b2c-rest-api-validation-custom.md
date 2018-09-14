@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b4fda38834782be502e2581b7b3d1097000b07bb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0ac9b98a9dfe06492775481cd590bfb4d0db4b55
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440672"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542591"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>İzlenecek yol: Kullanıcı girişini doğrulama olarak, Azure AD B2C kullanıcı yolculuğunun talep alışverişlerine REST API tümleştirme
 
@@ -118,7 +118,7 @@ Talep değişimi otomatik olarak onaylanan teknik profile eklemek için:
 
 1. TrustFrameworkBase.xml dosyasını açın ve arama `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
 2. Bu teknik profil yapılandırmasını gözden geçirin. Exchange kullanıcı (giriş talep) kullanıcıya sorulur talepleri ve geri otomatik olarak onaylanan sağlayıcısından (çıkış talep) beklenen talepler olarak nasıl tanımlandığını gözlemleyin.
-3. Arama `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`ve bu profile'nın düzenleme adımı 4 çağrılan fark `<UserJourney Id="ProfileEdit">`.
+3. Arama `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`ve bu profile'nın düzenleme adımı 5 çağrılan fark `<UserJourney Id="ProfileEdit">`.
 
 ## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>4. adım: Karşıya yükleme ve test profili düzenleme RP ilke dosyası
 

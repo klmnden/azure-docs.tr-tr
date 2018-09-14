@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 21ad417b9b3b8d0354333962c4e811d0eebba4e9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: efab734cc7d6facf82f622b95c12a1a27e99c5f7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159342"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575941"
 ---
 # <a name="security-management-in-azure"></a>Azure’da Güvenlik Yönetimi
 Azure aboneleri yönetim iş istasyonları, geliştirici PC’leri ve hatta göreve özel izinleri bulunan ayrıcalıklı son kullanıcı cihazları dahil birden fazla cihazda kendi bulut ortamlarını yönetebilir. Bazı durumlarda, yönetim işlevleri [Azure portal](https://azure.microsoft.com/features/azure-portal/) gibi web tabanlı konsollar aracılığıyla gerçekleştirilir Diğer durumlarda, Sanal Özel Ağlar (VPN), Terminal Hizmetleri, istemci uygulaması protokolleri ya da (programlı olarak) Azure Service Management API (SMAPI) üzerinden şirket için sistemlerden Azure’a bağlantılar olabilir. Ayrıca, istemci uç noktaları ya da etki alanına katılmış veya yalıtılmış ve yönetilmeyen olabilir, tabletler veya akıllı telefonlar gibi.
@@ -225,7 +225,7 @@ Azure ve ilgili Microsoft hizmetlerinin yanı sıra bu belgede başvurulan belir
 
 * [Ayrıcalıklı Erişimi Güvenli Hale Getirme](https://technet.microsoft.com/library/mt631194.aspx) – Azure yönetimi için güveni bir iş istasyonu tasarlama ve oluşturmaya ilişkin teknik ayrıntıları alın
 * [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure) -Azure dokusunu koruyan Azure platformu özellikleri ve Azure üzerinde çalışan iş yükleri hakkında bilgi edinin
-* [Microsoft Security Response Center](https://technet.microsoft.com/en-us/security/dn440717.aspx) --Azure ile ilgili sorunlar da dahil Microsoft güvenlik açıklarının bildirilebileceği veya [secure@microsoft.com](mailto:secure@microsoft.com) adresine e-posta yoluyla gönderilebileceği yer
+* [Microsoft Security Response Center](https://technet.microsoft.com/security/dn440717.aspx) --Azure ile ilgili sorunlar da dahil Microsoft güvenlik açıklarının bildirilebileceği veya [secure@microsoft.com](mailto:secure@microsoft.com) adresine e-posta yoluyla gönderilebileceği yer
 * [Azure Güvenlik Web Günlüğü](http://blogs.msdn.com/b/azuresecurity/) – Azure Güvenlik konusundaki yenilikleri takip edin
 
 <!--Image references-->

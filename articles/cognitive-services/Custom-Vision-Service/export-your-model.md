@@ -1,6 +1,6 @@
 ---
-title: Mobil - özel görme Service - Azure Bilişsel hizmetler için özel görme hizmet modelinizi verme | Microsoft Docs
-description: Modelinizi mobil uygulamalar oluştururken kullanılacak verme öğrenin.
+title: Custom Vision Service'e modelinizi mobil - özel görüntü işleme hizmeti - Azure Bilişsel hizmetler için dışarı aktarma | Microsoft Docs
+description: Modelinizi mobil uygulamalar oluştururken kullanmak için dışarı aktarma hakkında bilgi edinin.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
@@ -9,69 +9,69 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: ce8f42d6239867dd217cddfc61a27d7835dc9c9b
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 63ebe17ff9a179ed7e9bd399fa94f20740c26f3a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355918"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574479"
 ---
-# <a name="export-your-model-for-use-with-mobile-devices"></a>Modelinizi kullanmak için mobil aygıtlarla dışarı aktarma
+# <a name="export-your-model-for-use-with-mobile-devices"></a>Modelinizi kullanılmak ile mobil cihazları dışarı aktarma
 
-Özel görme hizmet çevrimdışı çalışmasını verilecek sınıflandırıcı sağlar. Bir uygulamaya verilen sınıflandırıcı katıştırmak ve yerel olarak çalıştırma gerçek zamanlı sınıflandırması için bir aygıtta. 
+Özel görüntü işleme hizmeti sınıflandırıcılar çevrimdışı çalışmasını dışarı aktarılmasına izin verir. Dışarı aktarılan sınıflandırıcınızı bir uygulamaya ekleme ve yerel olarak çalıştırma gerçek zamanlı sınıflandırma için bir cihaz. 
 
-Özel görme hizmet aşağıdaki dışarı destekler:
+Özel görüntü işleme hizmeti, aşağıdaki dışarı aktarmaları destekler:
 
 * __Tensorflow__ için __Android__.
 * __CoreML__ için __iOS11__.
 * __ONNX__ için __Windows ML__.
-* Bir Windows veya Linux __kapsayıcı__. Kapsayıcı bir Tensorflow içeren model ve hizmet özel görme hizmeti API'si kullanmak için kodu. 
+* Bir Windows veya Linux __kapsayıcı__. Kapsayıcı içeren bir Tensorflow model ve hizmet özel görüntü işleme hizmeti API'sini kullanmak için kodu. 
 
 > [!IMPORTANT]
-> Yalnızca özel görme hizmet verir __compact__ etki alanları. Compact etki alanı tarafından oluşturulan modelleri mobil cihazlarda gerçek zamanlı sınıflandırma kısıtlamalar için en iyi duruma getirilir. Sıkıştırılmış bir etki alanı ile oluşturulmuş sınıflandırıcı standart bir etki alanı ile aynı miktarda eğitim verileri daha az doğru olmayabilir.
+> Özel görüntü işleme hizmeti yalnızca dışa aktarır __compact__ etki alanları. Compact etki alanları tarafından oluşturulan modelleri, mobil cihazlarda gerçek zamanlı sınıflandırma kısıtlamaları için iyileştirilmiştir. Sıkıştırılmış bir etki alanı ile oluşturulan sınıflandırıcılar eğitim verilerini aynı miktarda sahip standart bir etki alanı biraz daha az kesin olabilir.
 >
-> Sınıflandırıcı artırma hakkında daha fazla bilgi için bkz: [, sınıflandırıcı geliştirme](getting-started-improving-your-classifier.md) belge.
+> Sınıflandırıcılar artırma hakkında daha fazla bilgi için bkz: [sınıflandırıcınızı sürekli olarak geliştirmek](getting-started-improving-your-classifier.md) belge.
 
-## <a name="convert-to-a-compact-domain"></a>Sıkıştırılmış bir etki alanına Dönüştür
+## <a name="convert-to-a-compact-domain"></a>Sıkıştırılmış bir etki alanına dönüştürün
 
 > [!NOTE]
-> Etki alanı sıkıştırmak için ayarlanmamış bir varolan sınıflandırıcı varsa, yalnızca bu bölümdeki adımları uygulayın.
+> Bu bölümdeki adımlar, yalnızca etki alanı sıkıştırmak için ayarlanmadı var olan bir sınıflandırıcı varsa geçerlidir.
  
-Varolan bir sınıflandırıcı etki alanına dönüştürmek için aşağıdaki adımları kullanın:
+Etki alanı mevcut bir sınıflandırıcı dönüştürmek için aşağıdaki adımları kullanın:
 
-1. Gelen [özel görme sayfasını](https://customvision.ai)seçin __giriş__ projelerinizi listesini görüntülemek için simge. Aynı zamanda [ https://customvision.ai/projects ](https://customvision.ai/projects) projelerinizi görmek için.
+1. Gelen [özel görüntü işleme sayfasını](https://customvision.ai)seçin __giriş__ projelerinizi listesini görüntülemek için simge. Ayrıca [ https://customvision.ai/projects ](https://customvision.ai/projects) projelerinizi görmek için.
 
-    ![Ev simgesini ve projeleri listesi görüntüsü](./media/export-your-model/projects-list.png)
+    ![Giriş simgesini ve projeleri listesinin görüntüsü](./media/export-your-model/projects-list.png)
 
-2. Bir proje seçin ve ardından __dişli__ sayfasının sağ üst simgesi.
+2. Bir proje seçin ve ardından __dişli__ sayfanın sağ üst kısımdaki simgesi.
 
     ![Dişli simgesinin görüntüsü](./media/export-your-model/gear-icon.png)
 
-3. İçinde __etki alanları__ bölümünde, select bir __compact__ etki alanı. Seçin __Değişiklikleri Kaydet__ değişiklikleri kaydedin.
+3. İçinde __etki alanları__ bölümünden bir __compact__ etki alanı. Seçin __Değişiklikleri Kaydet__ değişiklikleri kaydedin.
 
-    ![Etki alanları seçimi görüntüsü](./media/export-your-model/domains.png)
+    ![Etki alanı seçimi görüntüsü](./media/export-your-model/domains.png)
 
-4. Sayfanın üst kısmından seçin __Train__ yeni etki alanını kullanan yeniden eğitme için.
+4. Sayfanın üst kısmından seçin __eğitme__ yeniden ayarlamak yeni etki kullanarak.
 
 ## <a name="export-your-model"></a>Modelinizi dışarı aktarma
 
-Yeniden eğitme sonra modeli dışa aktarmak için aşağıdaki adımları kullanın:
+Modeli yeniden eğitme sonra dışa aktarmak için aşağıdaki adımları kullanın:
 
-1. Git **performans** sekmesinde ve seçin __verme__. 
+1. Git **performans** sekmenize __dışarı__. 
 
     ![Dışarı aktarma simgesinin görüntüsü](./media/export-your-model/export.png)
 
     > [!TIP]
-    > Varsa __verme__ girişi kullanılabilir değil ve ardından seçili yineleme compact bir etki alanı kullanmaz. Kullanım __yineleme__ compact bir etki alanı kullanan yineleme seçin ve ardından seçmek için bu sayfayı bölümünü __verme__.
+    > Varsa __dışarı__ girişi mevcut değil ve ardından seçili yineleme kompakt bir etki alanı kullanmaz. Kullanım __yinelemeler__ kompakt bir etki alanı kullanan bir yineleme seçin ve ardından seçmek için bu sayfanın bölümüne __dışarı__.
 
-2. Verme biçimini seçin ve ardından __verme__ model karşıdan yüklemek için.
+2. Dışarı aktarma biçimini seçin ve ardından __dışarı__ modeli indirilemedi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Dışarı aktarılan modelinizi bir uygulamayı tümleştirin. Birkaç örnek uygulamalar mevcuttur:
 
-* Bir örnek için [dışarı aktarılan CoreML model bir iOS uygulaması kullanarak](https://go.microsoft.com/fwlink/?linkid=857726) Swift ile gerçek zamanlı görüntü sınıflandırma
-* Örnek iOS uygulaması için [Xamarin ile verilen CoreML model kullanarak](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) gerçek zamanlı görüntü sınıflandırma 
-* İçin örnek [dışarı aktarılan Tensorflow model bir Android uygulamasını kullanarak](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) gerçek zamanlı görüntü sınıflandırma 
-* [Tensorflow modelinizi Windows ile kullanma](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/export-model-python)
-* İçin örnek [dışarı aktarılan ONNX modelinizi Windows Machine Learning ile kullanma](https://azure.microsoft.com/en-us/resources/samples/cognitive-services-onnx-customvision-sample/)
+* Bir örnek için [dışarı aktarılan CoreML modelinizi kullanarak bir iOS uygulaması](https://go.microsoft.com/fwlink/?linkid=857726) Swift ile gerçek zamanlı görüntü sınıflandırma
+* İOS uygulaması için örnek [Xamarin ile verilen CoreML modelinizi kullanarak](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) gerçek zamanlı görüntü sınıflandırma 
+* İçin örnek [bir Android uygulaması dışarı aktarılan Tensorflow modelinizi kullanarak](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) gerçek zamanlı görüntü sınıflandırma 
+* [Tensorflow modelinizi Windows ile kullanma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-model-python)
+* İçin örnek [dışarı aktarılan ONNX model Windows Machine Learning ile kullanarak](https://azure.microsoft.com/resources/samples/cognitive-services-onnx-customvision-sample/)

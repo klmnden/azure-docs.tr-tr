@@ -1,63 +1,63 @@
 ---
-title: QnA Maker hizmeti - Microsoft Bilişsel hizmetler ayarlama | Microsoft Docs
-titleSuffix: Azure
-description: QnA Maker hizmet ayarlama
+title: Soru-cevap Oluşturucu bir soru-cevap Oluşturucu hizmeti - Kurulum
+titleSuffix: Azure Cognitive Services
+description: Herhangi bir soru-cevap Oluşturucu bilgi bankalarından oluşturabilmeniz için önce bir soru-cevap Oluşturucu hizmetini azure'da ilk ayarlamanız gerekir. Bir abonelikte yeni kaynaklar oluşturma yetkisi olan herkes bir soru-cevap Oluşturucu hizmetini ayarlayabilirsiniz.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: ce452dd686529e017b4eae4717eadb044b389409
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 70bab81f89486f865e6a1a97aace1914be231713
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354070"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542304"
 ---
-# <a name="create-a-qna-maker-service"></a>QnA Maker hizmet oluşturma
+# <a name="create-a-qna-maker-service"></a>Soru-cevap Oluşturucu hizmeti oluşturma
 
-Tüm QnA Maker Bilgi Bankası oluşturmadan önce ilk Azure QnA Maker hizmetinde ayarlamanız gerekir. Bir abonelikte yeni kaynaklar oluşturma yetkisi olan herkes bir QnA Maker hizmet ayarlayabilirsiniz.
+Herhangi bir soru-cevap Oluşturucu bilgi bankalarından oluşturabilmeniz için önce bir soru-cevap Oluşturucu hizmetini azure'da ilk ayarlamanız gerekir. Bir abonelikte yeni kaynaklar oluşturma yetkisi olan herkes bir soru-cevap Oluşturucu hizmetini ayarlayabilirsiniz.
 
-Bu kurulum birkaç Azure kaynaklarını dağıtır. Birlikte, bu kaynakları Bilgi Bankası içeriği yönetme ve bir uç nokta olsa soruyu yanıtlarken özellikleri sağlar.
+Bu kurulum, birkaç Azure kaynaklarını dağıtır. Birlikte, bu kaynaklar, Bilgi Bankası içeriği yönetmek ve bir uç nokta ancak soru-yanıt özellikleri sağlar.
 
 1. [Azure Portal](<https://portal.azure.com>)’da oturum açın.
 
-2.  Tıklayın **yeni kaynak Ekle**, arama "qna maker" yazın ve QnA Maker kaynak seçin
+2.  Tıklayarak **yeni kaynağı ekleyin**, arama "soru-cevap Oluşturucu" yazın ve soru-cevap Oluşturucu kaynağı seçin
 
-    ![Yeni bir QnA Maker hizmet oluştur](../media/qnamaker-how-to-setup-service/create-new-resource.png)
+    ![Yeni bir soru-cevap Oluşturucu hizmeti oluşturma](../media/qnamaker-how-to-setup-service/create-new-resource.png)
 
-3.  Tıklayın **oluşturma** hüküm ve koşulları okuma sonra.
+3.  Tıklayarak **Oluştur** hüküm ve koşulları okuma sonra.
 
-    ![Yeni bir QnA Maker hizmet oluştur](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
+    ![Yeni bir soru-cevap Oluşturucu hizmeti oluşturma](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
 
-4. İçinde **QnA Maker**, bölgeler ve uygun katmanları seçin.
+4. İçinde **soru-cevap Oluşturucu**, uygun katmanları ve bölgeleri seçin.
 
-    ![Yeni bir QnA Maker hizmet oluştur](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
+    ![Yeni bir soru-cevap Oluşturucu hizmeti oluşturma](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
-    * Dolgu **adı** bu QnA Maker Hizmeti'ni tanımlamak için benzersiz bir ada sahip. Bu ad Ayrıca, Bilgi Bankası ilişkili edileceği QnA Maker endpoint tanımlar.
-    * Seçin **abonelik** QnA Maker kaynak dağıtılacak içinde.
-    * Seçin **fiyatlandırma katmanı Yönetim** QnA Maker Yönetim Hizmetleri (portal ve yönetim API'leri). Bkz: [burada](https://aka.ms/qnamaker-pricing) SKU'ları fiyatlandırması hakkında bilgi.
-    * Yeni bir **kaynak grubu** (önerilen) veya mevcut bir bu QnA Maker kaynak dağıtmak üzere kullanın.
-    * Seçin **fiyatlandırma katmanı arama** Azure Search hizmeti. Gri ücretsiz katmanı seçeneğini görürseniz, aboneliğinizde dağıtılan bir ücretsiz Azure arama katmanı zaten anlamına gelir. Bu durumda temel Azure Search katmanı ile başlatmanız gerekir. Azure arama fiyatlandırma ayrıntıları görmek [burada](https://azure.microsoft.com/en-us/pricing/details/search/).
-    * Seçin **arama konumunu** dağıtılacak Azure Search verileri istediğiniz. Müşteri verilerinin depolandığı gerekir içinde kısıtlamaları Azure arama için seçtiğiniz konum size bildirir.
-    * Uygulama hizmetiniz için bir ad verin **uygulama adı**.
-    * Varsayılan olarak standart (S1) katmanına uygulama hizmeti varsayılan olarak ayarlanır. Plan oluşturulduktan sonra değiştirebilirsiniz. App service fiyatlandırması hakkında daha fazla ayrıntı görmek [burada](https://azure.microsoft.com/en-in/pricing/details/app-service/).
-    * Seçin **Web sitesi konumu** uygulama hizmeti dağıtılacağı.
+    * Dolgu **adı** Bu soru-cevap Oluşturucu hizmetini tanımlamak için benzersiz bir ada sahip. Bu ad Ayrıca, bilgi bankalarından ilişkili edileceği soru-cevap Oluşturucu uç nokta tanımlar.
+    * Seçin **abonelik** soru-cevap Oluşturucu kaynağın dağıtılacağı.
+    * Seçin **Yönetimi fiyatlandırma katmanı** soru-cevap Oluşturucu Yönetim Hizmetleri (portal ve API Yönetimi). Bkz: [burada](https://aka.ms/qnamaker-pricing) SKU'ları fiyatlandırması hakkında ayrıntılı bilgi için.
+    * Yeni bir **kaynak grubu** (önerilir) veya bu soru-cevap Oluşturucu kaynak dağıtacağınız var olanı kullanın.
+    * Seçin **arama fiyatlandırma katmanı** Azure Search hizmeti. Gri ücretsiz katmanı seçeneğini görürseniz, aboneliğinizde bir ücretsiz Azure arama katmanı zaten sahip olduğunuz anlamına gelir. Bu durumda Azure arama temel katman ile başlatmanız gerekir. Azure arama fiyatlandırma ayrıntılarına [burada](https://azure.microsoft.com/en-us/pricing/details/search/).
+    * Seçin **arama konumu** dağıtılacak Azure Search veri istediğiniz. Müşteri verilerinin nerede depolanacağını gerekir, kısıtlamaları, Azure arama için seçtiğiniz konumu bilgilendirecektir.
+    * App service içinde bir ad verin **uygulama adı**.
+    * Varsayılan olarak App service için standart (S1) katman varsayılan olarak. Plan oluşturulduktan sonra değiştirebilirsiniz. App service fiyatlandırması hakkında daha fazla ayrıntı görmek [burada](https://azure.microsoft.com/en-in/pricing/details/app-service/).
+    * Seçin **Web sitesi konumu** App Service dağıtılacağı.
 
         > [!NOTE]
         > Arama konumu Web sitesi konumundan farklı olabilir.
 
-    * Etkinleştirmek isteyip istemediğinizi seçin **Application Insights** veya değil. Varsa **Application Insights** olduğu etkin QnA Maker telemetri trafiği, sohbet günlükleri ve hatalarını toplar.
-    * Seçin **App ınsights konumu** Application Insights kaynağı dağıtılacağı.
+    * Etkinleştirmek isteyip istemediğinizi seçin **Application Insights** veya yok. Varsa **Application Insights** olan etkin, soru-cevap Oluşturucu telemetri trafik, sohbet günlükleri ve hataları toplar.
+    * Seçin **uygulama öngörülerinin konumu** Application Insights kaynağı dağıtılacağı.
 
-5. Tüm alanlar doğrulandıktan sonra tıklatabilirsiniz **oluşturma** aboneliğinizde bu hizmetleri dağıtımını başlatmak için. İşlemin tamamlanması birkaç dakika sürecek.
+5. Tüm alanları doğrulandıktan sonra tıklayabilirsiniz **Oluştur** aboneliğinizde bu hizmetlerin dağıtımı başlatmak için. Tamamlanması birkaç dakika sürer.
 
-6.  Dağıtım tamamlandığında, aboneliğinizde oluşturulan aşağıdaki kaynakları görürsünüz.
+6.  Dağıtım tamamlandığında, aboneliğinizde oluşturduğunuz aşağıdaki kaynakları görürsünüz.
 
-    ![Yeni bir QnA Maker hizmet oluştur](../media/qnamaker-how-to-setup-service/resources-created.png)
+    ![Yeni bir soru-cevap Oluşturucu hizmeti oluşturma](../media/qnamaker-how-to-setup-service/resources-created.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

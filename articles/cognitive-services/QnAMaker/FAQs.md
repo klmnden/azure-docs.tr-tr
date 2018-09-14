@@ -1,92 +1,92 @@
 ---
-title: SSS - Microsoft Bilişsel hizmetler | Microsoft Docs
-titleSuffix: Azure
-description: SSS
+title: SSS - soru-cevap Oluşturucu
+titleSuffix: Azure Cognitive Services
+description: Soru-cevap Oluşturucu hizmeti için sık sorulan sorular listesi
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: a6bf32549715d0357771b3f3b0ff72f64788ec20
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: nstulasi
+ms.openlocfilehash: 0af93682c4a1be4de4d92e9c44e10586f740d8bf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354082"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576689"
 ---
 # <a name="frequently-asked-questions"></a>Sık Sorulan Sorular
 
-## <a name="why-is-my-urlsfiles-is-not-extracting-question-answer-pairs"></a>My URL'lerini neden olduğunu / soru-yanıt çiftleri dosyalar ayıklanıyor değil mi?
+## <a name="why-is-my-urlsfiles-is-not-extracting-question-answer-pairs"></a>My URL'lerini neden olduğunu / soru-cevap çiftlerini dosyalar ayıklanıyor değil mi?
 
-QnA Maker otomatik-soru ve yanıt (QnA) içerikler geçerli SSS URL'lerden extract olduğunu olamaz mümkündür. Böyle durumlarda, QnA içeriği bir .txt dosyasına yapıştırın ve aracı, işleyebilen, bkz. Alternatif olarak, Bilgi Bankası'na içerik düzenleme şeklinde ekleyebilirsiniz.
+Soru-cevap Oluşturucu otomatik-geçerli SSS URL'lerinden soru-cevap (soru-cevap) içerikler ayıklama emin olamaz mümkündür. Böyle durumlarda soru-cevap içeriğini bir .txt dosyasına yapıştırma ve aracı, veri alabilen, bkz. Alternatif olarak, Bilgi Bankası'na bilgi bankanızı düzenleyerek içerik ekleyebilirsiniz.
 
 ## <a name="how-large-a-knowledge-base-can-i-create"></a>Ne kadar büyük bir bilgi bankası oluşturabilirim?
 
-Bilgi Bankası QnA Maker hizmet oluştururken seçtiğiniz SKU, Azure Search'te boyutuna bağlıdır. Okuma [burada](./Tutorials/choosing-capacity-qnamaker-deployment.md) daha fazla ayrıntı için.
+Soru-cevap Oluşturucu hizmeti oluştururken seçtiğiniz SKU, Azure Search'te Bilgi Bankası boyutuna bağlıdır. Okuma [burada](./Tutorials/choosing-capacity-qnamaker-deployment.md) daha fazla ayrıntı için.
 
-## <a name="why-do-i-not-see-anything-in-the-drop-down-for-when-i-try-to-create-a-new-knowledge-base"></a>Yeni Bilgi Bankası oluşturmak çalıştığınızda neden için açılan bir şey görmüyorum?
+## <a name="why-do-i-not-see-anything-in-the-drop-down-for-when-i-try-to-create-a-new-knowledge-base"></a>Yeni Bilgi Bankası oluşturmaya çalıştığınızda neden her şey için açılan göremiyorum?
 
-Azure'da henüz QnA Maker hizmetlerin oluşturmadınız. Okuma [burada](./How-To/set-up-qnamaker-service-azure.md) nasıl.
+Azure'da henüz herhangi bir soru-cevap Oluşturucu hizmeti oluşturmadınız. Okuma [burada](./How-To/set-up-qnamaker-service-azure.md) bunu nasıl yapacağınız.
 
-## <a name="how-do-i-share-a-knowledge-base-with-other"></a>Nasıl ı Bilgi Bankası diğer paylaşmak?
+## <a name="how-do-i-share-a-knowledge-base-with-other"></a>Nasıl Bilgi Bankası diğer paylaşırım?
 
-QnA Maker hizmet düzeyinde çalışır paylaşımı, yani tüm Bilgi Bankası hizmetlerinde paylaşılır. Okuma [burada](./How-To/collaborate-knowledge-base.md) Bilgi Bankası üzerinde işbirliği yapma.
+Soru-cevap Oluşturucu hizmetini düzeyinde çalışır paylaşımı, yani tüm bilgi bankalarından hizmetlerinde paylaşılır. Okuma [burada](./How-To/collaborate-knowledge-base.md) nasıl Bilgi Bankası üzerinde işbirliği yapın.
 
 ## <a name="how-can-i-change-the-default-message-when-no-good-match-is-found"></a>İyi bir eşleşme bulunduğunda varsayılan ileti nasıl değiştirebilirim?
 
-Varsayılan ileti uygulama hizmetiniz ayarlarında bir parçasıdır.
-- Git App service kaynağınız Azure portalında
+Varsayılan ileti ayarları, App Service'te bir parçasıdır.
+- Go için Azure portalında uygulama hizmeti kaynağınıza
 
-![qnamaker uygulama hizmeti](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
-- Tıklayın **ayarları** seçeneği
+![qnamaker appservice](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
+- Tıklayarak **ayarları** seçeneği
 
 ![qnamaker appservice ayarları](./media/qnamaker-faq/qnamaker-appservice-settings.png)
-- Değerini değiştirme **DefaultAnswer** ayarı
-- Uygulama hizmeti yeniden başlatın
+- Değiştirin **DefaultAnswer** ayarı
+- App service'ı yeniden başlatın
 
 ![qnamaker appservice yeniden başlatma](./media/qnamaker-faq/qnamaker-appservice-restart.png)
 
-## <a name="why-is-my-sharepoint-link-not-getting-extracted"></a>Neden my SharePoint bağlantı ayıklanan değil mi?
+## <a name="why-is-my-sharepoint-link-not-getting-extracted"></a>Neden SharePoint bağlantımı ayıklanan değil mi?
 
-Aracı yalnızca ortak URL'leri ayrıştırır ve kimliği doğrulanmış veri kaynakları şu anda desteklemiyor. Alternatif olarak, dosyayı indirin ve sorular ve yanıtlar ayıklamak için dosya karşıya yükleme seçeneğini kullanın.
+Araç yalnızca ortak URL'leri ayrıştırır ve kimliği doğrulanmış veri kaynakları şu anda desteklemiyor. Alternatif olarak, dosyayı indirin ve soru ve cevapları ayıklayın için dosya karşıya yükleme seçeneğini kullanın.
 
 
-## <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>My Bilgi Bankası'na yapılan güncelleştirmeler değil yansıtılır yayımlayın. Neden?
+## <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>My Bilgi Bankası'na yaptığım güncelleştirmeler bankamda. Neden?
 
-Her düzenleme işlemi tablo güncelleştirme, test veya ayarları olup olmadığını yayımlanmadan önce kaydedilmesi gerekir. Kaydet'i tıklatın ve sonra her düzenleme işlemi düğmesi eğitmek emin olun.
+Her düzenleme işleminden tablo güncelleştirme, test veya ayarları olmadığını yayımlanabilmesi için önce kaydedilmesi gerekir. Kaydet'e tıklayın ve her düzenleme işleminden sonra düğme eğitme emin olun.
 
-## <a name="when-should-i-refresh-my-endpoint-keys"></a>My uç nokta anahtarları yenilediğinizde?
+## <a name="when-should-i-refresh-my-endpoint-keys"></a>Uç nokta anahtarlarımı ne zaman yenilemeniz gerekir?
 
-Geçirildiğini olduğundan şüpheleniyorsanız, uç nokta anahtarlarınızı yenilemeniz gerekir.
+Geçirildiğini, şüpheleniyorsanız uç nokta anahtarlarınızı yenilemeniz gerekir.
 
-## <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>Bilgi Bankası destek zengin veri ya da çoklu ortam mu?
+## <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>Multimedya ve Bilgi Bankası zengin veriler mu?
 
-Bilgi bankası Markdown’ı destekler. Ancak, URL'lerden otomatik ayıklama HTML Markdown dönüştürme yeteneği sınırlıdır. Tam özellikli Markdown kullanmak istiyorsanız, içeriğinizi doğrudan tablosundaki değiştirmek veya zengin içerikli bir Bilgi Bankası karşıya yükleyin.
+Bilgi bankası Markdown’ı destekler. Bununla birlikte, URL'lerden otomatik ayıklama HTML Markdown'a dönüştürme becerisi sınırlıdır. Tam özellikli Markdown kullanmak istiyorsanız, içeriğinizi doğrudan Tablo'da değiştirebilir ya da zengin içerikli bir Bilgi Bankası karşıya yükleyin.
 
-Multimedya, görüntüler ve videolar gibi şu anda desteklenmiyor.
+Multimedya, resimler ve videolar gibi şu anda desteklenmiyor.
 
-## <a name="does-qna-maker-support-non-english-languages"></a>QnA Maker İngilizce dışındaki dilleri destekliyor mu?
+## <a name="does-qna-maker-support-non-english-languages"></a>Soru-cevap Oluşturucu İngilizce dışındaki dilleri destekler mi?
 
 Daha fazla ayrıntı görmek [desteklenen diller](./Overview/languages-supported.md).
 
-Birden çok dil içerikten varsa, her dil için ayrı bir hizmet oluşturmak emin olun.
+Birden çok dil içerik varsa, her dil için ayrı bir hizmet oluşturmak emin olun.
 
 ## <a name="do-i-need-to-use-bot-framework-in-order-to-use-qna-maker"></a>Soru-Cevap Oluşturucu’yu kullanmak için Bot Framework’ü kullanmam mı gerekir?
 
-Hayır, Bot Framework QnA Maker ile kullanmanız gerekmez. Ancak, QnA Maker Azure Bot hizmetinde birkaç şablonlarından birini olarak sunulur. Microsoft Bot çerçevesi aracılığıyla hızlı akıllı bot geliştirme bot hizmetini etkinleştirir ve daha az ortamı sunucu çalıştırır.
+Hayır, soru-cevap Oluşturucu ile Bot Framework kullanmanız gerekmez. Bununla birlikte, soru-cevap Oluşturucu, Azure robot hizmeti'ndeki çeşitli şablonlardan biri olarak sunulur. Bot hizmeti, Microsoft robot altyapısı aracılığıyla, hızla akıllı robot geliştirme sağlar ve daha az ortam bir sunucu çalıştırır.
 
-## <a name="how-can-i-create-a-bot-with-qna-maker"></a>Bir bot QnA Maker ile nasıl oluşturabilirim?
+## <a name="how-can-i-create-a-bot-with-qna-maker"></a>Soru-cevap Oluşturucu ile bot nasıl oluşturabilirim?
 
-' Ndaki yönergeleri izleyin [bu](./Tutorials/create-qna-bot.md) ile Azure Bot, Bot oluşturmak için belgeleri.
+Bölümündeki yönergeleri [bu](./Tutorials/create-qna-bot.md) Azure Bot ile Botunuza oluşturulacağını belgeler.
 
 ## <a name="how-do-i-embed-the-qna-maker-service-in-my-website"></a>Soru-Cevap Oluşturucu hizmetini web siteme nasıl ekleyebilirim?
 
-QnA Maker hizmeti, Web sitenizdeki bir web Sohbeti denetimi olarak eklemek için aşağıdaki adımları izleyin:
+Soru-cevap Oluşturucu hizmetini Web sitenize bir web Sohbeti denetimi olarak eklemek için şu adımları izleyin:
 
-1. Yönergeleri izleyerek SSS bot oluşturma [burada](./Tutorials/create-qna-bot.md).
-2. Aşağıdaki adımları izleyerek web Sohbeti etkinleştirmek [burada](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat)
+1. Yönergeleri takip ederek, SSS Robotu oluşturun [burada](./Tutorials/create-qna-bot.md).
+2. Adımları izleyerek web Sohbeti etkinleştirin [burada](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)
 
 

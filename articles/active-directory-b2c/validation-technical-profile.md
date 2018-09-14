@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 07a5c378ddf73f245104f64e1dae945525a1e01a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f08d5732939e853785e2cce1d1e9ed8eea7f9ad7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381645"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543148"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C özel bir ilke doğrulama teknik profil tanımlama
 
@@ -53,8 +53,8 @@ Otomatik olarak onaylanan bir teknik profili, bazıları veya tümü, çıkış 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | Başvuru Kimliği | Evet | İlke veya üst ilkede zaten tanımlanmış bir teknik profili tanımlayıcısı. |
-|ContinueOnError|Hayır| Herhangi bir sonraki doğrulama teknik profil doğrulama bu validaiton teknik profili, bir hata harekete geçirirse sürmelidir olup olmadığını belirten. Mümkün olan değerleri: `ture` veya `false` (varsayılan, daha fazla doğrulama profilleri işlenmesini durdurur ve bir hata döndürdü). 
-|ContinueOnSuccess | Hayır | Herhangi bir sonraki doğrulama profil doğrulama başarılı olursa bu doğrulama teknik profili sürmelidir olup olmadığını belirten. Mümkün olan değerleri: `ture` veya `false`. Varsayılan `true`, daha fazla doğrulama profilleri işlenmesini devam edeceği anlamına gelir. |
+|ContinueOnError|Hayır| Herhangi bir sonraki doğrulama teknik profil doğrulama bu validaiton teknik profili, bir hata harekete geçirirse sürmelidir olup olmadığını belirten. Mümkün olan değerleri: `true` veya `false` (varsayılan, daha fazla doğrulama profilleri işlenmesini durdurur ve bir hata döndürdü). 
+|ContinueOnSuccess | Hayır | Herhangi bir sonraki doğrulama profil doğrulama başarılı olursa bu doğrulama teknik profili sürmelidir olup olmadığını belirten. Mümkün olan değerleri: `true` veya `false`. Varsayılan `true`, daha fazla doğrulama profilleri işlenmesini devam edeceği anlamına gelir. |
 
 **ValidationTechnicalProfile** öğesi aşağıdaki öğeyi içerir:
 

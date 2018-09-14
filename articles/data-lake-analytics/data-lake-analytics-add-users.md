@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 0386406f5fc81a007d55bd5358e7a6b333f63b04
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f48dc07e27c6cb01a842f1f6d720ed6476028ef7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048342"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542321"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Azure portalında bir kullanıcı ekleme
 
@@ -31,12 +31,12 @@ ms.locfileid: "43048342"
 "R-X" veya "RWX" gerektiğinde, girdi verilerini içeren klasörlerde vermek ve çıktı verilerini.
 
 
-## <a name="optionally-add-the-user-to-the-azure-data-lake-store-role-reader-role"></a>İsteğe bağlı olarak, Azure Data Lake Store rolüne kullanıcı ekleme **okuyucu** rol.
-1.  Azure Data Lake Store hesabınızı bulun.
+## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>İsteğe bağlı olarak, Azure Data Lake depolama Gen1 rolüne kullanıcı ekleme **okuyucu** rol.
+1.  Azure Data Lake depolama Gen1 hesabınızı bulun.
 2.  Tıklayarak **kullanıcılar**.
 3. **Ekle**'ye tıklayın.
 4.  Bu grup atamak için bir Azure RBAC rolü seçin.
-5.  Okuyucu rolüne atayın. Bu rol, en düşük Gözat/yönetme ADLS, depolanan veri için gereken izinler kümesini sahiptir. Grup, Azure hizmetlerini yönetmek için tasarlanmamıştır, bu role atayın.
+5.  Okuyucu rolüne atayın. Bu rol, en düşük Gözat/ADLSGen1 içinde depolanan verileri yönetmek için gereken izinler kümesini sahiptir. Grup, Azure hizmetlerini yönetmek için tasarlanmamıştır, bu role atayın.
 6.  Grubun adını yazın.
 7.  **Tamam** düğmesine tıklayın.
 

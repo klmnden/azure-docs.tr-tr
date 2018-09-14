@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 034e708b79bbdf15d7fa628f388402998f49c0d9
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 3c1bff98debf426fc02dbd4518c0bb798d7ba96d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161515"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576032"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure İzleyici uyarılarıyla karmaşık eylemleri tetiklemek nasıl
 
@@ -129,7 +129,7 @@ Genel süreç şöyledir:
 
 14. Üst kısmındaki **Logic Apps Tasarımcısı'nda**seçin **Kaydet** mantıksal uygulamanızı kaydetmek için.
 
-15. Mevcut eylem grubunuzu açın ve mantıksal uygulamaya başvurmak için eylem ekleme. Var olan bir eylem grubu yoksa bkz [oluştur ve Eylem grupları Azure portalında yönetmek](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) oluşturmak için. Yaptığınız değişiklikleri kaydetmeyi unutmayın.
+15. Mevcut eylem grubunuzu açın ve mantıksal uygulamaya başvurmak için eylem ekleme. Var olan bir eylem grubu yoksa bkz [oluştur ve Eylem grupları Azure portalında yönetmek](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) oluşturmak için. Yaptığınız değişiklikleri kaydetmeyi unutmayın.
 
     ![Eylem grubu](media/monitoring-action-groups/update-action-group.png "eylem grubu")
 

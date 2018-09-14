@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 4cf04ceeb8650b2978389cefb561ae31e88bc853
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: af8c0b6a4aa0c3b6e25f92dc450faa22a01ee374
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282447"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579195"
 ---
 # <a name="log-analytics-data-security"></a>Oturum Analytics veri güvenliği
 Bu belgede Azure Log Analytics hakkında bilgi desteklemek için belirli bilgiler sağlamaya yönelik [Azure Güven Merkezi](../security/security-microsoft-trust-center.md).  
@@ -51,9 +51,9 @@ Açıkça aracınızı sürece bu otomatik olarak algılamak ve daha yeni avanta
 |Platform/dili | Destek | Daha Fazla Bilgi |
 | --- | --- | --- |
 |Linux | Linux dağıtımları eğilimli etmenin [OpenSSL](https://www.openssl.org) TLS 1.2 desteği.  | Denetleme [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) OpenSSL sürümünüz desteklenir onaylamak için.|
-| Windows 8.0 10 | Desteklenen ve varsayılan olarak etkindir. | Yine de kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012-2016 | Desteklenen ve varsayılan olarak etkindir. | Yine de kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 ve Windows Server 2008 R2 SP1 | , Varsayılan olarak etkin değildir ancak desteklenir. | Bkz: [Aktarım Katmanı Güvenliği (TLS) kayıt defteri ayarları](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) nasıl etkinleştirileceği hakkında daha fazla ayrıntı için.  |
+| Windows 8.0 10 | Desteklenen ve varsayılan olarak etkindir. | Yine de kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012-2016 | Desteklenen ve varsayılan olarak etkindir. | Yine de kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 ve Windows Server 2008 R2 SP1 | , Varsayılan olarak etkin değildir ancak desteklenir. | Bkz: [Aktarım Katmanı Güvenliği (TLS) kayıt defteri ayarları](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) nasıl etkinleştirileceği hakkında daha fazla ayrıntı için.  |
 | Windows Server 2008 SP2 | TLS 1.2 desteği güncelleştirilmesi gerekiyor. | Bkz: [TLS 1.2 desteği eklemek için güncelleştirme](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) Windows Server 2008 SP2. |
 
 ## <a name="data-segregation"></a>veriler arasında ayrım yapma
@@ -86,7 +86,7 @@ Aşağıdaki tabloda veri türleri gösterilmektedir:
 | Durum |StateChangeEventId, stateId, NewHealthState, OldHealthState, bağlam, TimeGenerated, TimeAdded, StateId2, Basemanagedentityıd, Monitorıd, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Fiziksel güvenlik
-Log Analytics hizmeti, Microsoft personeli tarafından yönetilir ve tüm etkinlikleri günlüğe kaydedilir ve denetlenebilir. Log Analytics, bir Azure hizmeti olarak çalıştırılır ve tüm Azure uyumluluk ve güvenlik gereksinimlerini karşılıyor. Fiziksel varlıklarının güvenliği, Azure hakkındaki ayrıntıları 18 sayfasında görüntüleyebilirsiniz [Microsoft Azure güvenliğine genel bakış](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Alanları güvenliğini sağlamak için fiziksel erişim hakları, aktarımı ve sonlandırma dahil olmak üzere Log Analytics hizmeti için sorumluluk artık sahip olan herkes için bir iş günü içinde değiştirilir. Kullandığımız en genel fiziksel altyapı okuyabilirsiniz [Microsoft Datacenters](https://azure.microsoft.com/en-us/global-infrastructure/).
+Log Analytics hizmeti, Microsoft personeli tarafından yönetilir ve tüm etkinlikleri günlüğe kaydedilir ve denetlenebilir. Log Analytics, bir Azure hizmeti olarak çalıştırılır ve tüm Azure uyumluluk ve güvenlik gereksinimlerini karşılıyor. Fiziksel varlıklarının güvenliği, Azure hakkındaki ayrıntıları 18 sayfasında görüntüleyebilirsiniz [Microsoft Azure güvenliğine genel bakış](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Alanları güvenliğini sağlamak için fiziksel erişim hakları, aktarımı ve sonlandırma dahil olmak üzere Log Analytics hizmeti için sorumluluk artık sahip olan herkes için bir iş günü içinde değiştirilir. Kullandığımız en genel fiziksel altyapı okuyabilirsiniz [Microsoft Datacenters](https://azure.microsoft.com/global-infrastructure/).
 
 ## <a name="incident-management"></a>Olay yönetimi
 Log Analytics için tüm Microsoft hizmetlerini kullanan bir olay Yönetimi sürecinizi sahiptir. Özetlemek gerekirse, biz:

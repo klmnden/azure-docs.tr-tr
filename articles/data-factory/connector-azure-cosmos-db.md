@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: eb290dffd7bdd86b9776d4f30b6fd09a2a952a46
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: db2f3086da41e990e6f87d8086d6e8defa447532
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720030"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543456"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Cosmos DB için veya veri kopyalama
 
@@ -41,7 +41,7 @@ Azure Cosmos DB'den tüm desteklenen havuz veri deposuna veri kopyalamak ya da A
 Veri Fabrikası ile tümleştirilir [Cosmos DB toplu Yürütücü Kitaplığı](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) Cosmos DB'ye yazma en iyi performansı sağlamak için.
 
 >[!TIP]
->İzleme [bu videoyu](https://www.youtube.com/watch?v=5-SRNiC_qOU&t=760s) Cosmos DB için Azure Blob depolamadan veri kopyalama aracılığıyla size yol gösterir ve performans konuları Cosmos DB'ye genel veri alma ayarlama açıklanmaktadır.
+>İzleme [bu videoyu](https://youtu.be/5-SRNiC_qOU) Cosmos DB için Azure Blob depolamadan veri kopyalama aracılığıyla size yol gösterir ve performans konuları Cosmos DB'ye genel veri alma ayarlama açıklanmaktadır.
 
 ## <a name="getting-started"></a>Başlarken
 

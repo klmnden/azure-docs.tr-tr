@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 42090b8b55becc5e703e0e7180d0cbec0d48a3f4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ff96b9a63e7340788ef2474ce9934145c184e1e1
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381777"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542778"
 ---
 # <a name="date-claims-transformations"></a>Tarih dönüştürmeleri talep
 
@@ -88,7 +88,7 @@ Doğrulama otomatik olarak onaylanan teknik profil çağırır **etkileşimli ol
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
-Dönüştürür bir **tarih** için ClaimType bir **DateTime** ClaimTpye. Talep dönüştürme saat biçimine dönüştürür ve 12:00:00 AM'den tarihe ekler.
+Dönüştürür bir **tarih** için ClaimType bir **DateTime** ClaimType. Talep dönüştürme saat biçimine dönüştürür ve 12:00:00 AM'den tarihe ekler.
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |

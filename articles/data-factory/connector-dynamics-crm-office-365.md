@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: e4ebddc35b402d7a8997d899ce97577e93a27b84
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444869"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574683"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri kopyalama kaynak ve hedef (Common Data Service) Dynamics 365 veya Dynamics CRM
 
@@ -279,7 +279,7 @@ Dynamics veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarlayın
 >[!NOTE]
 >Havuz varsayılan değerini "**writeBatchSize**"ve kopyalama etkinliği"**[parallelCopies](copy-activity-performance.md#parallel-copy)**" Dynamics havuz için her iki 10 olan. Bu nedenle, 100 kayıtları Dynamics eşzamanlı olarak gönderilir.
 
-Çevrimiçi Dynamics 365 için bir sınır yoktur [kuruluş 2 eş zamanlı batch çağrılık](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Bu sınır aşılırsa, ilk isteği hiç olmadığı kadar yürütülmeden önce bir "Sunucu meşgul" hatası oluşturulur. "WriteBatchSize" 10'a eşit veya bu tür eş zamanlı çağrılar azaltma kaçının.
+Çevrimiçi Dynamics 365 için bir sınır yoktur [kuruluş 2 eş zamanlı batch çağrılık](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Bu sınır aşılırsa, ilk isteği hiç olmadığı kadar yürütülmeden önce bir "Sunucu meşgul" hatası oluşturulur. "WriteBatchSize" 10'a eşit veya bu tür eş zamanlı çağrılar azaltma kaçının.
 
 En iyi birleşimi "**writeBatchSize**"ve"**parallelCopies**" şemanın varlığınızın sayısı sütun, satır boyutu, iş akışları/plugins/iş akışı etkinlikleri ölçekledikçe sayısı örn bağlıdır. Bu çağrı, vb. için. Varsayılan ayar 10 writeBatchSize * 10 parallelCopies olan öneri göre Dynamics özelleştirebilirsiniz ancak en iyi performansı olmayabilir için işe yarar Dynamics hizmeti. Kopyalama etkinliği ayarlarında birleşimi ayarlayarak performans ayarlayabilirsiniz.
 

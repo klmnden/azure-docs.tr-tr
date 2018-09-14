@@ -1,6 +1,6 @@
 ---
-title: MySQL kaynak sağlayıcı Azure yığında kaldırma | Microsoft Docs
-description: Azure yığın dağıtımınızdan MySQL kaynak sağlayıcısı nasıl kaldırabileceğiniz öğrenin.
+title: Azure Stack'te MySQL kaynak sağlayıcısını kaldırma | Microsoft Docs
+description: Azure Stack dağıtımınıza MySQL kaynak sağlayıcısı nasıl kaldırabileceğiniz öğrenin.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,52 +11,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: d3a615e3b92a62709a787d0463dfa3148f14d07e
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: cd0195796189158650c9c2655062950b71130ad7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085807"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578489"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcısını kaldırma
 
-MySQL kaynak sağlayıcı kaldırmadan önce tüm sağlayıcı bağımlılıklarını kaldırmanız gerekir. Kaynak sağlayıcısını yüklemek için kullanılan dağıtım paketinin bir kopyasını da gerekir.
+MySQL kaynak sağlayıcısı kaldırmadan önce tüm sağlayıcısı bağımlılıklarını kaldırmanız gerekir. Kaynak sağlayıcısını yüklemek için kullanılan dağıtım paketinin bir kopyasını da gerekir.
 
 ## <a name="dependency-cleanup"></a>Bağımlılık temizleme
 
-Kaynak sağlayıcısı kaldırmak için DeployMySqlProvider.ps1 komut dosyası çalıştırılmadan önce yapmak için birkaç temizleme görevleri vardır.
+Kaynak Sağlayıcısı'nı kaldırmak için DeployMySqlProvider.ps1 betik çalıştırılmadan önce yapmak için birkaç temizleme görevi vardır.
 
-Kiracılar aşağıdaki temizleme görevlerden sorumlu şunlardır:
+Kiracılar için aşağıdaki temizleme görevlerini sorumludur:
 
-* Tüm veritabanları kaynak Sağlayıcısı'ndan silin. (Kiracı veritabanlarını silerek verileri silmez.)
+* Tüm veritabanları, kaynak Sağlayıcısı'ndan silin. (Kiracı veritabanlarını silerek verileri silmez.)
 * Sağlayıcı ad alanından kaydını silin.
 
-Aşağıdaki temizleme görevler için yönetici sorumludur:
+Yönetici için aşağıdaki temizleme görevlerini sorumludur:
 
-* Barındırma sunucuları MySQL bağdaştırıcısından siler.
-* MySQL bağdaştırıcısı başvuru herhangi bir plan siler.
-* MySQL bağdaştırıcısı ile ilişkili tüm kotalar siler.
+* Barındırma sunucusu MySQL bağdaştırıcısından siler.
+* MySQL bağdaştırıcı başvuru planları siler.
+* MySQL bağdaştırıcısı ile ilişkili olan herhangi bir kota siler.
 
-## <a name="to-remove-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcı kaldırmak için
+## <a name="to-remove-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcıyı kaldırmak için
 
-1. Tüm mevcut MySQL kaynak sağlayıcı bağımlılıkları kaldırdık doğrulayın.
+1. Tüm mevcut MySQL kaynak sağlayıcısı bağımlılıkları kaldırmış olduğunuz doğrulayın.
 
    >[!NOTE]
-   >Bağımlı kaynaklar şu anda kaynak sağlayıcısı kullanıyor olsanız bile, MySQL kaynak sağlayıcısını kaldırma devam edecek.
+   >Bağımlı kaynaklar halen kaynak sağlayıcısı kullanıyor olsanız bile, MySQL kaynak sağlayıcısını kaldırma devam edecek.
   
-2. MySQL kaynak sağlayıcı bir kopyasını ikili almak ve geçici bir dizine içeriği ayıklamak için ayıklayıcısı çalıştırın.
-3. SQL kaynak sağlayıcısı bir kopyasını ikili almak ve geçici bir dizine içeriği ayıklamak için ayıklayıcısı çalıştırın.
+2. İkili MySQL kaynak sağlayıcısı bir kopyasını alın ve ardından içeriği geçici bir dizine ayıklayın ayıklayıcısı çalıştırın.
+3. İkili SQL kaynak sağlayıcısı bir kopyasını alın ve ardından içeriği geçici bir dizine ayıklayın ayıklayıcısı çalıştırın.
 4. Yeni yükseltilmiş bir PowerShell konsol penceresi açın ve MySQL kaynak sağlayıcısı ikili dosyaları ayıkladığınız dizine geçin.
-5. Aşağıdaki parametreleri kullanarak DeployMySqlProvider.ps1 komut dosyasını çalıştırın:
-    - **Kaldırma**. İlişkili tüm kaynakları ve kaynak sağlayıcısını kaldırır.
-    - **PrivilegedEndpoint**. IP adresi veya ayrıcalıklı uç noktanın DNS adı.
-    - **CloudAdminCredential**. Bulut Yöneticisi, ayrıcalıklı uç noktasına erişmek için gerekli kimlik bilgileri.
+5. Aşağıdaki parametreleri kullanarak DeployMySqlProvider.ps1 betiği çalıştırın:
+    - **Kaldırma**. Kaynak sağlayıcısı ile ilişkili tüm kaynakları kaldırır.
+    - **PrivilegedEndpoint**. Ayrıcalıklı uç noktasının DNS adı veya IP adresi.
+    - **AzureEnvironment**. Azure Stack dağıtmak için kullanılan Azure ortamı. Yalnızca Azure AD dağıtımları için gereklidir.
+    - **CloudAdminCredential**. Ayrıcalıklı uç noktasına erişmek gerekli bulut Yöneticisi kimlik bilgileri.
     - **DirectoryTenantID**
-    - **AzCredential**. Azure yığın hizmet yönetici hesabının kimlik bilgileri. Azure yığın dağıtmak için kullanılan kimlik bilgilerini kullanın.
+    - **AzCredential**. Azure Stack hizmet yönetici hesabının kimlik bilgileri. Azure Stack dağıtmak için kullanılan kimlik bilgilerini kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Uygulama Hizmetleri PaaS teklifi](azure-stack-app-service-overview.md)
+[PaaS olarak App Services teklifi](azure-stack-app-service-overview.md)

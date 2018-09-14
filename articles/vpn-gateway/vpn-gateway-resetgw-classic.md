@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: e61e41c41888d8d2ca65961dd5bea73fd9b6bd21
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: d23ed383bee3346cfbb20c6935dd3630e137c179
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927698"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573918"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway sıfırlama
 
@@ -75,7 +75,7 @@ Dönüş sonucu aldığınızda, ağ geçidi sıfırlama başarılı olduğunu v
 
 ### <a name="resetclassic"></a>Klasik dağıtım modeli
 
-Bir ağ geçidini sıfırlamayı cmdlet'i **Reset-AzureVNetGateway**. Sıfırlama gerçekleştirmeden önce en son sürümüne sahip olduğunuzdan emin olun [Hizmet Yönetimi (SM) PowerShell cmdlet'lerini](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Aşağıdaki örnekte "ContosoVNet" adlı bir sanal ağ için ağ geçidi sıfırlar:
+Bir ağ geçidini sıfırlamayı cmdlet'i **Reset-AzureVNetGateway**. Sıfırlama gerçekleştirmeden önce en son sürümüne sahip olduğunuzdan emin olun [Hizmet Yönetimi (SM) PowerShell cmdlet'lerini](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Aşağıdaki örnekte "ContosoVNet" adlı bir sanal ağ için ağ geçidi sıfırlar:
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

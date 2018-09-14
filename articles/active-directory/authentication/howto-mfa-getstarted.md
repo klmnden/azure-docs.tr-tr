@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0408b26e687dd31c408dbccc68f56e8198016c8f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 17c67cc07f2bbdee3d71e69068cca6cbcfe3a104
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664797"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579828"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Bulut tabanlı Azure multi-Factor Authentication'ı dağıtma
 
@@ -30,7 +30,7 @@ Başlamadan önce aşağıdaki önkoşulların karşılandığından emin olun:
 
 **Koşullu erişim ilkesi tarafından etkinleştirilen** -bu yöntem, bu makalede ele alınmıştır. Kullanıcılarınız için iki aşamalı doğrulamayı etkinleştirmek için en esnek yöntemdir. Yalnızca koşullu erişim ilkesi kullanarak etkinleştirmek için bulutta Azure MFA çalışır ve Azure AD premium özelliğidir.
 
-Bu yöntem Azure AD kimlik koruması tarafından - etkin iki aşamalı kimlik doğrulaması oturum açma riski tüm bulut uygulamaları için yalnızca temel Azure AD kimlik Koruması riski İlkesi kullanır. Bu yöntem, Azure Active Directory P2 lisansı gerektirir. Bu yöntem hakkında daha fazla bilgi bulunabilir [Azure Active Directory kimlik koruması](../identity-protection/overview.md#risky-sign-ins).
+Bu yöntem Azure AD kimlik koruması tarafından - etkin iki aşamalı kimlik doğrulaması oturum açma riski tüm bulut uygulamaları için yalnızca temel Azure AD kimlik Koruması riski İlkesi kullanır. Bu yöntem, Azure Active Directory P2 lisansı gerektirir. Bu yöntem hakkında daha fazla bilgi bulunabilir [kullanıcı riski ilkesi yapılandırma](../identity-protection/howto-user-risk-policy.md).
 
 Kullanıcı değiştirerek etkin durumu - iki aşamalı doğrulama gerektirme geleneksel yöntem budur. Bu, hem de bulutta Azure MFA ve Azure MFA sunucusu ile çalışır. Bu yöntemi kullanarak, kullanıcıların iki aşamalı doğrulamanın gerektirir **her** oturum açın ve koşullu erişim ilkeleri geçersiz kılar. Bu yöntem hakkında daha fazla bilgi bulunabilir [bir kullanıcı için iki aşamalı doğrulama gerektirme](howto-mfa-userstates.md).
 

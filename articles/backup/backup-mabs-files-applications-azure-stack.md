@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617124"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579228"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Azure Stack'te dosyaları yedekleme
 Azure Backup, korumak (veya yedeklemek için) kullanabilirsiniz dosyaları ve Azure Stack'te uygulamaları. Dosya ve uygulamaları yedeklemek için Azure Stack üzerinde çalışan bir sanal makine olarak Microsoft Azure Backup sunucusu yükleyin. Aynı sanal ağdaki herhangi bir Azure Stack sunucuda dosyaları koruyabilirsiniz. Azure Backup sunucusu yükledikten sonra kısa vadeli yedekleme verileri için kullanılabilir yerel depolama alanını artırmak için Azure disk ekleyin. Azure Backup sunucusu, uzun süreli saklama için Azure depolama kullanır.
@@ -49,7 +49,7 @@ Azure Stack sanal makineler'de dosyaları korumak için Azure Backup sunucusu ya
 
     ![Yeni koruma grubu Sihirbazı'nı açar.](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft, bir koruma İlkesi bir koruma grubu paylaşacak tüm verilerden yararlanabiliyor önerir. System Center DPM makaleye bakın hakkında planlama ve koruma gruplarını dağıtma eksiksiz bilgi [koruma gruplarını dağıtma](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Microsoft, bir koruma İlkesi bir koruma grubu paylaşacak tüm verilerden yararlanabiliyor önerir. System Center DPM makaleye bakın hakkında planlama ve koruma gruplarını dağıtma eksiksiz bilgi [koruma gruplarını dağıtma](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
 4. İçinde **veri koruma yöntemini seçin** ekranında, koruma grubu için bir ad yazın. Onay kutusunu seçip **vadeli koruma istiyorum:** ve **çevrimiçi koruma istiyorum**. **İleri**’ye tıklayın.
 
@@ -135,5 +135,5 @@ Azure portalında Azure Backup sunucusu olan varlıkları görüntülemek için 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Diğer iş yüklerini korumak için Azure Backup sunucusu kullanma hakkında daha fazla bilgi için aşağıdaki makalelerden birine bakın:
-- [SharePoint grubunu yedekleme](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [SQL server'ı yedekleme](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint grubunu yedekleme](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [SQL server'ı yedekleme](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

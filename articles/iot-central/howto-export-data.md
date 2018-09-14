@@ -8,12 +8,12 @@ ms.date: 07/3/2018
 ms.topic: article
 ms.prod: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 3ca2bc56c03e5bbabbd9b2f17edc621bdd94b02f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 5defbf7021936e3cc77250ccc453cb3887c77617
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622492"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576451"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IOT Central verilerinizi dışarı aktarma
 
@@ -33,7 +33,7 @@ Bu makalede sürekli veri dışa aktarma Özelliği Azure IOT Central verileri A
 
 ### <a name="measurements"></a>Ölçümler
 
-Cihazları gönderir ve ölçümler, depolama hesabınıza dakikada bir kez verilir. Veri ile IOT Central, bu süre boyunca tüm cihazlardan alınan tüm yeni ileti yok. Dışarı aktarılan AVRO dosyalarını tarafından dışarı aktarılan ileti dosyaları olarak aynı biçimi kullanır. [IOT Hub ileti yönlendirme](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) Blob Depolama.
+Cihazları gönderir ve ölçümler, depolama hesabınıza dakikada bir kez verilir. Veri ile IOT Central, bu süre boyunca tüm cihazlardan alınan tüm yeni ileti yok. Dışarı aktarılan AVRO dosyalarını tarafından dışarı aktarılan ileti dosyaları olarak aynı biçimi kullanır. [IOT Hub ileti yönlendirme](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) Blob Depolama.
 
 > [!NOTE]
 > Ölçümler gönderen cihazları (aşağıdaki bölümlere bakın) cihaz kimlikleri tarafından temsil edilir. Cihaz adları almak için cihaz anlık görüntülerin dışarı aktarın. Her bir ileti kaydı kullanarak ilişkilendirmek **connectionDeviceId** cihaz kimliği ile eşleşen

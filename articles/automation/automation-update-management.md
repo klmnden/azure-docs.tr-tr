@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 62a7bb9bf63e8ebf97f9aeb5b08bf08ef06da43b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ddc27d9f5124000601a57b4ecd72c3d6021c109f
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782799"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542642"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -88,9 +88,9 @@ Windows aracıları bir WSUS sunucusuyla iletişim kuracak şekilde yapılandır
 
 #### <a name="linux"></a>Linux
 
-Linux için makine bir güncelleştirme havuzuna erişimi olmalıdır. Güncelleştirme deposu, özel veya genel olabilir. Güncelleştirme yönetimi ile etkileşim kurmak için TLS 1.1 veya TLS 1.2 gerekir. Birden fazla Log Analytics çalışma alanına rapor için yapılandırılmış Linux için Operations Management Suite (OMS) aracı, bu çözüm ile desteklenmez.
+Linux için makine bir güncelleştirme havuzuna erişimi olmalıdır. Güncelleştirme deposu, özel veya genel olabilir. Güncelleştirme yönetimi ile etkileşim kurmak için TLS 1.1 veya TLS 1.2 gerekir. Log Analytics aracısını birden fazla Log Analytics çalışma alanına rapor için yapılandırılmış Linux için bu çözüm ile desteklenmez.
 
-Linux için OMS Aracısı'nı yükleme ve en son sürümü indirmek için hakkında daha fazla bilgi için bkz. [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux). Windows için OMS Aracısı'nı yükleme hakkında daha fazla bilgi için bkz: [için Operations Management Suite Aracısı Windows](../log-analytics/log-analytics-windows-agent.md).
+Linux için Log Analytics aracısını yükleme ve en son sürümü indirmek için hakkında daha fazla bilgi için bkz. [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux). Windows için Log Analytics aracısını yükleme hakkında daha fazla bilgi için bkz: [için Operations Management Suite Aracısı Windows](../log-analytics/log-analytics-windows-agent.md).
 
 ## <a name="permissions"></a>İzinler
 
@@ -147,7 +147,7 @@ Bir Windows bilgisayarda, Log Analytics ile aracı bağlantısını doğrulamak 
 Aracı bir güvenlik duvarı veya Ara sunucu üzerinden internet ile iletişim kurmak için yapılandırılmış ve aracının Log Analytics ile iletişim kuramıyor, güvenlik duvarı veya Ara sunucunun düzgün yapılandırıldığını onaylayın. Güvenlik Duvarı veya Ara sunucunun düzgün yapılandırıldığını doğrulama hakkında bilgi edinmek için [Windows aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-windows.md) veya [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Linux sistemleriniz bir ara sunucu ile iletişim kurmak için yapılandırılmış olan veya OMS ağ geçidi ve kullandığınız ekleme, bu çözüm, güncelleştirme *proxy.conf* izinlerini, omi kullanıcı grubuna vermek için okuma izni dosya çubuğunda şunları kullanarak komutlar:
+> Linux sistemleriniz bir ara sunucu ile iletişim kurmak için yapılandırılmış olan veya Log Analytics Gateway ve kullandığınız ekleme, bu çözüm, güncelleştirme *proxy.conf* izinlerini, omi kullanıcı grubuna vermek için okuma izni dosya çubuğunda kullanarak Aşağıdaki komutlar:
 >
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 3cf5a32d95b028664f29b82b14e2294d58ae9925
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664453"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580020"
 ---
 # <a name="upload-and-index-your-videos"></a>Karşıya yükleme ve videolarınızı dizin  
 
@@ -33,7 +33,7 @@ Ayrıca bazı parametreler işlem ve API çıktısını değiştirmek için API 
 ## <a name="uploading-considerations"></a>Karşıya yükleme konuları
     
 - Videonuz karşıya (tercih edilir) URL'si üzerinde temel uç nokta TLS 1.2 (veya üzeri) korunmalıdır
-- Bayt dizisi seçenek 4 GB ile sınırlıdır ve 30 dakika sonra zaman aşımına uğruyor
+- Bayt dizisi seçeneği 2 GB ile sınırlıdır ve 30 dakika sonra zaman aşımına uğruyor
 - Sağlanan URL `videoURL` param kodlanması gerekiyor
 
 ## <a name="configurations-and-params"></a>Yapılandırmalar ve parametreler

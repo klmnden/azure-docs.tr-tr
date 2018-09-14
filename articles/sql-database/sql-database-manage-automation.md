@@ -9,12 +9,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 43476cfcae2035c3b8e94b4a5e264a0c8ff424e0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0636a4daf06e4d476935773e65cd388f94d99986
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715457"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578269"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure Automation'ı kullanarak Azure SQL database'leri yönetme
 Bu kılavuzda Azure Otomasyonu ve nasıl, Azure SQL veritabanlarınızı yönetimini basitleştirmek için kullanılabileceğini başlatacaktır.
@@ -27,7 +27,7 @@ Azure Otomasyonu, kuruluşunuz büyüdükçe, gereksinimlerinizi karşılayacak 
 Alt işlemsel yük ve boş BT / iş kazandıran işe odaklanmak için DevOps personeli, Azure Otomasyonu tarafından otomatik olarak çalıştırılmak için bulut Yönetimi görevlerinizi taşıyarak değer.
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Azure Otomasyonu Azure SQL veritabanlarına yönetmenize nasıl yardımcı olabilir?
-Azure SQL veritabanı yönetilen Azure Automation'da kullanarak [Azure SQL Database PowerShell cmdlet'leri](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) kullanılabilir olan [Azure PowerShell Araçları](/powershell/azure/overview). Azure Otomasyonu bu Azure SQL Database PowerShell cmdlet'leri kullanılabilir yepyeni sahiptir; böylece tüm hizmet içinde SQL DB yönetim görevlerini gerçekleştirebilirsiniz. Ayrıca, Azure automation'da bu cmdlet'ler Azure Hizmetleri ve 3. taraf sistemleri arasında karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri için cmdlet'leri eşleşebileceğini denetleyebilmesi.
+Azure SQL veritabanı yönetilen Azure Automation'da kullanarak [Azure SQL Database PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) kullanılabilir olan [Azure PowerShell Araçları](/powershell/azure/overview). Azure Otomasyonu bu Azure SQL Database PowerShell cmdlet'leri kullanılabilir yepyeni sahiptir; böylece tüm hizmet içinde SQL DB yönetim görevlerini gerçekleştirebilirsiniz. Ayrıca, Azure automation'da bu cmdlet'ler Azure Hizmetleri ve 3. taraf sistemleri arasında karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri için cmdlet'leri eşleşebileceğini denetleyebilmesi.
 
 Azure Otomasyonu, PowerShell kullanarak SQL komutları vererek SQL sunucuları ile doğrudan iletişim kurabilir de vardır.
 

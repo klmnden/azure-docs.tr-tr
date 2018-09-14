@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 7289259214f90507c5b9cf527f19f0cf7026798c
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: be0ec31a05c0c1454e1af58b4a9c4ca959acbecf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391462"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577169"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile ölçüm uyarısı oluşturma
 Bu makalede nasıl kullanabileceğinizi gösteren bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) yapılandırmak için [yeni ölçüm uyarılarının](monitoring-near-real-time-metric-alerts.md) Azure İzleyici'de. Resource Manager şablonları, program aracılığıyla uyarıları ortamlarınızda tutarlı ve tekrarlanabilir bir şekilde ayarlamak etkinleştirin. Yeni ölçüm uyarılarının şu anda kullanılabilir [bu kaynak türleri kümesini](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
@@ -184,7 +184,7 @@ Aşağıdaki json'u simplemetricalert.json amacıyla bu kılavuzda olarak kayded
 }
 ```
 
-Bir uyarı kuralı özellikleri ve şema açıklaması [ulaşabilirsiniz](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
+Bir uyarı kuralı özellikleri ve şema açıklaması [ulaşabilirsiniz](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
 
 Komut satırında veya bir parametre dosyası aracılığıyla, parametre değerlerini ayarlayabilirsiniz. Örnek bir parametre dosyası aşağıda verilmiştir. 
 

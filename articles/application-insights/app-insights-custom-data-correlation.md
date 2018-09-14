@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 31e37efc1aad3d355bdd8391535f317ec137f5d7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6d19c64c74a01a012bac3d867e2d65393ae21cd3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40162230"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577780"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Application Insights verileri özel veri kaynakları ile ilişkilendirme
 
@@ -51,7 +51,7 @@ Log Analytics'e veri göndermeye başlamak için. Çeşitli seçenekler mevcuttu
 
 ## <a name="correlating-data"></a>Verileri ilişkilendirme
 
-Application Insights ve Log Analytics veri platformda dayanır. Bu nedenle kullanabiliriz [kaynaklar arası birleştirmeler](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search) Application Insights verilerimizi biz alınan Log Analytics'e tüm veriler ilişkilendirmek için.
+Application Insights ve Log Analytics veri platformda dayanır. Bu nedenle kullanabiliriz [kaynaklar arası birleştirmeler](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) Application Insights verilerimizi biz alınan Log Analytics'e tüm veriler ilişkilendirmek için.
 
 Örneğin, size sunduğumuz Laboratuvar Envanter ve konumları "myLA" adlı bir Log Analytics çalışma alanında "LabLocations_CL" adlı bir tabloya alabilen. Ardından "myAI" adlı Application Insights uygulamada izlenen gönderdiğimiz istekleri gözden geçirin ve yukarıda açıklanan özel tablosunda depolanan bu makinelerde konumları isteklerine hizmet makine adları bağıntısını istedik, aşağıdaki sorgusunun çalıştırılacağı Application Insights veya Log Analytics içerik:
 
@@ -66,4 +66,4 @@ app('myAI').requests
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 - Kullanıma [veri toplayıcı API'sini](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) başvuru.
-- Daha fazla bilgi için [kaynaklar arası birleştirmeler](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search).
+- Daha fazla bilgi için [kaynaklar arası birleştirmeler](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).

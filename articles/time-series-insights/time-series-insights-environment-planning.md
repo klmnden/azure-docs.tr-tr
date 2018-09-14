@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 2c06463d95467543a426079addf981aa42d53eb6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c98a90aa44166d6453612f9b73287966851df6ce
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630645"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578166"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Azure Time Series Insights ortamınızı planlama
 
@@ -101,11 +101,11 @@ Bir Azure hizmeti olduğundan, zaman serisi görüşleri çözüm için gerekli 
 
 Time Series Insights yerleşik iş olağanüstü durum kurtarma (BCDR) sahip değil.  Ancak, BCDR gerektiren müşteriler hala kurtarma stratejisi uygulayabilir. Yedekleme bir Azure bölgesinde ikinci bir zaman serisi görüşleri ortamı oluşturma ve ikinci bir adanmış bir tüketici grubu ve bu olay kaynağının BCDR yönergeleri yararlanarak birincil olay kaynağından ikincil bu ortam için olayları gönderirsiniz.  
 
-1.  Ortam, ikinci bir bölgede oluşturun.  Zaman serisi görüşleri ortamı oluşturma hakkında daha fazla [burada](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started).
-2.  Olay kaynağınız için ikinci bir adanmış bir tüketici grubu oluşturun ve bu olay kaynak yeni ortama bağlanın.  İkinci ve adanmış bir tüketici grubu tanımlamak emin olun.  Ya da izleyerek bu konu hakkında daha fazla bilgi edinebilirsiniz [IOT Hub belgeleri](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) veya [Event hub belgeleri](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access).
+1.  Ortam, ikinci bir bölgede oluşturun.  Zaman serisi görüşleri ortamı oluşturma hakkında daha fazla [burada](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+2.  Olay kaynağınız için ikinci bir adanmış bir tüketici grubu oluşturun ve bu olay kaynak yeni ortama bağlanın.  İkinci ve adanmış bir tüketici grubu tanımlamak emin olun.  Ya da izleyerek bu konu hakkında daha fazla bilgi edinebilirsiniz [IOT Hub belgeleri](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) veya [Event hub belgeleri](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
 3.  Bir olağanüstü durum olayı sırasında Git, birincil bölge olsaydı, işlemlerinin yedekleme zaman serisi görüşleri ortamına geçiş yapın.  
 
-IOT Hub'ın BCDR ilkeleri hakkında daha fazla bilgi edinmek için head [burada](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr).  Olay hub'ın BCDR ilkeleri hakkında daha fazla bilgi edinmek için head [burada](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr).  
+IOT Hub'ın BCDR ilkeleri hakkında daha fazla bilgi edinmek için head [burada](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  Olay hub'ın BCDR ilkeleri hakkında daha fazla bilgi edinmek için head [burada](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Bir Event Hub olay kaynağı ekleme](time-series-insights-how-to-add-an-event-source-eventhub.md)

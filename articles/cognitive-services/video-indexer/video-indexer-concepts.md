@@ -9,28 +9,20 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: juliako
-ms.openlocfilehash: 224c8b05027f51fb99c8d58be34c3604032c0f77
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 67bbb7046d71b904dfdcaad0e44024e8f30ac288
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399504"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543718"
 ---
 # <a name="video-indexer-concepts"></a>Video Indexer kavramları
  
-Bu konuda, Video Indexer hizmeti bazı kavramlarını açıklar.
+Bu makalede, Video Indexer hizmeti bazı kavramlar açıklanır.
     
 ## <a name="summarized-insights"></a>Özetlenen öngörüleri
 
-Özetlenen ınsights içeren toplu bir görünümünü verilerin: yüz, anahtar sözcükler yaklaşımları. Örneğin, her zaman aralıkları binlerce giderek ve bunun içinde hangi yüzleri olan denetimi yerine özetlenen öngörüleri içeren tüm yüzleri ve her biri, içinde göründüğü zaman aralıkları ve % zaman gösterilir.
-
-## <a name="topicskeywords"></a>Konuları/anahtar sözcükleri
-
-Video Indexer metni ayıklar, anahtar ifadeleri listesinde konuları/anahtar sözcüklerdir. Örneğin, Scott Guthrie video aşağıdaki konular/anahtar sözcükler içerebilir: güvenlik, Azure, Microsoft Cloud, gelir.
-
-## <a name="sentiments"></a>Yaklaşımlar
-
-Video Indexer dökümleri çözümler yaklaşımları de algılar. Örneğin, "Bu heyecan verici bir olaydır" pozitif yaklaşımı olur.
+Özetlenen ınsights içeren toplu bir görünümünü verilerin: yüz, konular, duyguları. Örneğin, her zaman aralıkları binlerce giderek ve bunun içinde hangi yüzleri olan denetimi yerine özetlenen öngörüleri içeren tüm yüzleri ve her biri, içinde göründüğü zaman aralıkları ve % zaman gösterilir.
 
 ## <a name="time-range-vs-adjusted-time-range"></a>zaman aralığı ve ayarlanmış bir zaman aralığı
 

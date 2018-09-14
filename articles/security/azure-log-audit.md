@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a499f609e517d880b3a942ac6dc3eb0dc10b69e7
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 93b0a7e382c27cab5f050166ec8fa89fc7cf6b96
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058285"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576111"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlük kaydı ve denetim
 
@@ -45,7 +45,7 @@ Aşağıdaki tablo, en önemli Azure'da kullanılabilen günlük türlerini list
 |[Etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Azure Resource Manager kaynaklarına denetim düzlemi olayları|   Aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar.|    REST API, [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Azure Resource Manager kaynakların abonelik işlemi hakkında sık kullanılan veri|    Kaynak gerçekleştirilen işlemler hakkında bilgi sağlar.| Azure İzleyici [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Azure AD raporlama](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Günlüklerini ve raporları | Kullanıcı oturum açma etkinliği raporları ve kullanıcı ve Grup Yönetimi hakkında sistem etkinliği bilgileri.|[Graph API'si](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Sanal makineler ve bulut Hizmetleri](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows olay günlüğü hizmeti ve Linux Syslog|    Sistem verilerini ve sanal makinelerde günlük verilerini yakalar ve bu verileri, tercih ettiğiniz bir depolama hesabına aktarır.|   Windows (Windows Azure Tanılama'yı kullanarak [[WAD](https://docs.microsoft.com/azure/azure-diagnostics)] depolama) ve Azure İzleyici'de Linux|
+|[Sanal makineler ve bulut Hizmetleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows olay günlüğü hizmeti ve Linux Syslog|  Sistem verilerini ve sanal makinelerde günlük verilerini yakalar ve bu verileri, tercih ettiğiniz bir depolama hesabına aktarır.|   Windows (Windows Azure Tanılama'yı kullanarak [[WAD](https://docs.microsoft.com/azure/azure-diagnostics)] depolama) ve Azure İzleyici'de Linux|
 |[Azure depolama analizi](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Depolama günlüğü, depolama hesabı için ölçüm verileri sağlar|İzleme istekleri hakkında Öngörüler sağlar, kullanım eğilimlerini analiz eder ve depolama hesabınızla ilgili sorunlar tanılar.|   REST API veya [istemci kitaplığı](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Ağ güvenlik grubu (NSG) akış günlükleri](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON biçiminde bir kural başına temelinde giden ve gelen akışları gösterir|Bir ağ güvenlik grubu üzerinden giriş ve çıkış IP trafiğini hakkındaki bilgileri görüntüler.|[Azure Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Günlükler, özel durumlar ve özel tanılama|   Bir uygulama performansı izleme (APM) hizmeti birden çok platformda web geliştiricileri için sağlar.| REST API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|

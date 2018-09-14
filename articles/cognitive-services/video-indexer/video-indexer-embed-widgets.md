@@ -7,41 +7,45 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: b8de9e8d73ba899fb7f3036d871c5d30daf101de
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6ee87b6d7c89745472bf6000de66f682cbf2cca9
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049364"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544125"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer pencere öğeleri uygulamalarınıza ekleyin
 
-Video Indexer, uygulamanıza ekleme iki tür pencere öğeleri destekler: **Bilişsel İçgörüler** ve **Player**. 
+Bu makalede, uygulamalarınıza Video Indexer pencere öğeleri nasıl katıştırabilirsiniz gösterilmektedir. Video Indexer, uygulamanıza ekleme iki tür pencere öğeleri destekler: **Bilişsel İçgörüler** ve **Player**. 
+## <a name="widget-types"></a>Pencere öğesi türleri
 
-* A **Bilişsel İçgörüler** pencere öğesi içeren dizin oluşturma işlemi videonuzdan ayıklanan tüm görsel Öngörüler. 
-    İçgörüler pencere öğesi, aşağıdaki isteğe bağlı URL parametreleri destekler:
+### <a name="cognitive-insights-widget"></a>Bilişsel İçgörüler pencere öğesi
 
-    |Ad|Tanım|Açıklama|
-    |---|---|---|
-    |pencere öğeleri|Virgülle ayırarak dizeleri|İşlemek istediğiniz öngörüleri denetlemenizi sağlar. <br/>Örnek: **pencere öğeleri kişiler, markalar =** yalnızca Kişiler ve markalar UI ınsights işlenir<br/>Mevcut seçenekler: kişiler, anahtar sözcükler, ek açıklamalar, markalar, yaklaşımları, döküm, Ara | 
-* A **Player** pencere öğesi, Uyarlamalı bit hızı kullanarak video akışı olanak tanır.
+A **Bilişsel İçgörüler** pencere öğesi içeren dizin oluşturma işlemi videonuzdan ayıklanan tüm görsel Öngörüler. İçgörüler pencere öğesi, aşağıdaki isteğe bağlı URL parametreleri destekler:
 
-    Oynatıcı pencere öğesi, aşağıdaki isteğe bağlı URL parametreleri destekler:
+|Ad|Tanım|Açıklama|
+|---|---|---|
+|pencere öğeleri|Virgülle ayırarak dizeleri|İşlemek istediğiniz öngörüleri denetlemenizi sağlar. <br/>Örnek: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` yalnızca Kişiler ve markalar UI ınsights işlenir<br/>Mevcut seçenekler: kişiler, anahtar sözcükler, ek açıklamalar, markalar, yaklaşımları, döküm, arama.<br/>URL ile sürümünde desteklenmeyen = 2<br/><br/>**Not:** **pencere öğeleri** , URL param desteklenmiyor **sürüm 2 =** kullanılır. |
+|sürüm|Sürümleri **Bilişsel İçgörüler** pencere öğesi|Pencere öğesi güncelleştirmeleri en yeni içgörüleri almak için ekleyin `?version=2` query param ekleme URL'si. Örneğin, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Eski sürümü almak için kaldırmayı `version=2` URL'den.
 
-    |Ad|Tanım|Açıklama|
-    |---|---|---|
-    |T|Başlangıçtan saniye|İşaret belirtilen süreye yürütmeyi player başlangıç yapar.<br/>Örnek: t = 60|
-    |açıklamalı alt yazılar|Dil kodu|Açıklamalı alt yazılar menüde kullanılabilir olmasını yüklenirken pencere öğesi sırasında belirtilen dilde resim yazısı getirir.<br/>Örnek: kapalı açıklamalı alt yazı = en-Us|
-    |showCaptions|Bir Boole değeri|Zaten etkin altyazıları yük player yapar.<br/>Örnek: showCaptions = true|
-    |type||Bir ses yürütücüsü kaplama (video bölümü kaldırılır) etkinleştirir.<br/>Örnek: türü ses =|
-    |otomatik yürütme|Bir Boole değeri|Oyuncu yüklendiğinde videoyu oynatmaya başlatılması gerekip gerekmediğini karar verin (varsayılan: true).<br/>Örnek: autoplay = false|
-    |Dil|Dil kodu|Yerelleştirme denetim oynatıcı denetimleri (varsayılan: en-US)<br/>Örnek: dil de-DE =|
+### <a name="player-widget"></a>Oynatıcı pencere öğesi
+
+A **Player** pencere öğesi, Uyarlamalı bit hızı kullanarak video akışı olanak tanır. Oynatıcı pencere öğesi, aşağıdaki isteğe bağlı URL parametreleri destekler:
+
+|Ad|Tanım|Açıklama|
+|---|---|---|
+|T|Başlangıçtan saniye|İşaret belirtilen süreye yürütmeyi player başlangıç yapar.<br/>Örnek: t = 60|
+|açıklamalı alt yazılar|Dil kodu|Açıklamalı alt yazılar menüde kullanılabilir olmasını yüklenirken pencere öğesi sırasında belirtilen dilde resim yazısı getirir.<br/>Örnek: kapalı açıklamalı alt yazı = en-US|
+|showCaptions|Bir Boole değeri|Zaten etkin altyazıları yük player yapar.<br/>Örnek: showCaptions = true|
+|type||Bir ses yürütücüsü kaplama (video bölümü kaldırılır) etkinleştirir.<br/>Örnek: türü ses =|
+|otomatik yürütme|Bir Boole değeri|Oyuncu yüklendiğinde videoyu oynatmaya başlatılması gerekip gerekmediğini gösterir (varsayılan: true).<br/>Örnek: autoplay = false|
+|dil|Dil kodu|Oynatıcı dil denetimlerini (varsayılan: en-US)<br/>Örnek: dil de-DE =|
 
 ## <a name="embedding-public-content"></a>Genel içeriği ekleme
 
-1. Oturum açın, [Video Indexer](https://api-portal.videoindexer.ai/) hesabı. 
+1. Gözat [Video Indexer](https://www.videoindexer.ai/) Web sitesine gidin ve oturum açma.
 2. Videonun altında görüntülenen "ekleme" düğmesine tıklayın.
 
     ![Pencere öğesi](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
@@ -60,9 +64,9 @@ Alma katıştırabilir kodlarından ekleme açılan pencereler (önceki bölümd
 
 Eklemek istediğiniz bir **özel** bir erişim belirteci geçirmek zorunda video, **iframe**'s **src** özniteliği:
 
-     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<VideoId>/?accessToken=<accessToken>
+     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>
     
-Kullanma [ **İçgörüler pencere öğesi alma** ](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) Bilişsel İçgörüler pencere öğesinin içeriğini almak için API veya [ **Video erişim belirteci Al** ](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) ve olarak eklemek bir Yukarıda da gösterildiği gibi url parametresi sorgulayın. Bu URL olarak belirtmek **iframe**'s **src** değeri.
+Kullanın [ **İçgörüler pencere öğesi alma** ](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) Bilişsel İçgörüler pencere öğesi içeriği veya API [ **Video erişim belirteci Al** ](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) ve olarak ekleyen bir Yukarıda da gösterildiği gibi URL parametresi sorgulayın. Bu URL olarak belirtmek **iframe**'s **src** değeri.
 
 İçinde katıştırılmış bir pencere öğenizi (web uygulamamıza uyguluyoruz gibi) düzenleme ınsights yetenekleri sağlamak istiyorsanız, düzenleme izinlerine sahip bir erişim belirteci geçmesi gerekir. Kullanım [ **İçgörüler pencere öğesi alma** ](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) veya [ **Video erişim belirteci Al** ](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) ile **& allowEdit = true**. 
 
@@ -216,24 +220,24 @@ Video dizinleyici öngörülerini kendi AMP player ile eklerseniz, kullanabilece
 
 Olası değerler şunlardır: kişiler, anahtar sözcükler, yaklaşımları, döküm, arama.
 
-Eklemek istiyorsanız, örneğin, yalnızca kişi ve arama ınsights iframe embed URL içeren bir pencere öğesi şuna benzeyecektir: https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?widgets=people, arama
+Eklemek istiyorsanız, örneğin, yalnızca kişi ve arama ınsights iframe embed URL içeren bir pencere öğesi şuna benzeyecektir: https://www.videoindexer.ai/embed/insights/ <accountId> / <videoId>/? pencere öğeleri kişilerin = arama
 
 İframe pencerenin başlığı sağlayarak da özelleştirilebilir **& Başlık =** <YourTitle> iframe URL'si. (Html özelleştireceğim \<başlığı > değer).
-İframe pencereniz başlığı "MyInsights" vermek istiyorsanız, örneğin, url şöyle görünür: https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?title=MyInsights. Insights yeni bir pencerede açmak, ihtiyacınız olduğunda bu seçeneği yalnızca durumlarda ilgili olduğuna dikkat edin.
+İframe pencereniz başlığı "MyInsights" vermek istiyorsanız, örneğin, URL şöyle görünür: https://www.videoindexer.ai/embed/insights/ <accountId> / <videoId>/? başlık MyInsights =. Insights yeni bir pencerede açmak, ihtiyacınız olduğunda bu seçeneği yalnızca durumlarda ilgili olduğuna dikkat edin.
 
 ### <a name="player-widget"></a>Oynatıcı pencere öğesi
-Video Indexer player eklerseniz iframe boyutunu belirterek oynatıcı boyutunu seçebilirsiniz.
+Video Indexer player eklerseniz, iframe boyutunu belirterek oynatıcı boyutunu seçebilirsiniz.
 
 Örneğin:
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
+    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
 
 Varsayılan Video Indexer oynatıcısının otomatik kapalı açıklamalı alt yazılar Video'dan video karşıya yüklendi, seçilen kaynak diliyle ayıklanan videonun dökümünü temel oluşturulmuş.
 
-İle farklı bir dil eklemek istiyorsanız ekleyebileceğiniz **& açıklamalı alt yazılar = < dil | "tüm" | "false" >** ekleme player URL'sini veya put "all" tüm diller açıklamalı alt yazılar istiyorsanız değeri.
+Ekleyebileceğiniz ile farklı bir dil eklemek istiyorsanız, **& açıklamalı alt yazılar = < dil | "tüm" | "false" >** ekleme player URL'sini veya put "all" tüm diller açıklamalı alt yazılar istiyorsanız değeri.
 Varsayılan olarak görüntülenecek resim yazıları istiyorsanız geçirebilirsiniz **& showCaptions = true**
 
-Ekleme URL'sini sonra şuna benzeyecektir: https://www.videoindexer.ai/embed/player/9a296c6ec3/?captions=italian. Açıklamalı alt yazılar devre dışı bırakmak isterseniz, "false" olarak açıklamalı alt yazılar parametresi için değer geçirebilirsiniz.
+Ekleme URL'sini sonra şuna benzeyecektir: https://www.videoindexer.ai/embed/player/ <accountId> / <videoId>/? açıklamalı alt yazılar İtalyanca =. Açıklamalı alt yazılar devre dışı bırakmak isterseniz, "false" olarak açıklamalı alt yazılar parametresi için değer geçirebilirsiniz.
 
 Otomatik Oynat – varsayılan olarak player videoyu oynatmaya başla. için seçebileceğiniz = false olarak yukarıdaki ekleme URL'sini geçirme & autoplay tarafından.
 

@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: c598fdae40b4552e1d4dc29b8558d82d0830160a
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 229624f4070c931b6ad892533aad269af49c738b
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841857"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544203"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure'a bağlı bir Video Indexer hesabı oluşturun
 
@@ -52,16 +52,18 @@ Bu makalede bir Azure aboneliğine bağlı bir Video Indexer hesabınız ve Azur
 
 ## <a name="connect-to-azure"></a>Azure'a Bağlanma
 
-1. Oturum [ https://www.videoindexer.ai/ ](https://www.videoindexer.ai/) tıklayın **Azure'a bağlanma** düğmesi:
+1. Gözat [Video Indexer](https://www.videoindexer.ai/) Web sitesine gidin ve oturum açma.
+
+2. Tıklayarak **Azure'a bağlanma** düğmesi:
 
     ![Azure'a bağlanma](./media/create-account/connect-to-azure.png)
 
-2. Abonelik listesi göründüğünde, kullanmak istediğiniz aboneliği seçin. 
+3. Abonelik listesi göründüğünde, kullanmak istediğiniz aboneliği seçin. 
 
     ![Video Indexer'ı Azure'a bağlanma](./media/create-account/connect-vi-to-azure-subscription.png)
 
-3. Desteklenen konumlardan Azure bölgesini seçin: Batı ABD 2, Kuzey Avrupa ve Doğu Asya.
-4. Altında **Azure Media Services hesabı**, aşağıdaki seçeneklerden birini seçin:
+4. Desteklenen konumlardan Azure bölgesini seçin: Batı ABD 2, Kuzey Avrupa ve Doğu Asya.
+5. Altında **Azure Media Services hesabı**, aşağıdaki seçeneklerden birini seçin:
 
     * Yeni bir Media Services hesabı oluşturmak için Seç **yeni kaynak grubu oluştur**. Kaynak grubunuz için bir ad sağlayın.
 
@@ -85,13 +87,13 @@ Bu makalede bir Azure aboneliğine bağlı bir Video Indexer hesabınız ve Azur
         |Uygulama Kimliği|Azure AD uygulama kimliği ile belirtilen Media Services hesabı için izinler. Daha fazla bilgi için [kullanım hizmet sorumlusu kimlik doğrulaması](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
         |Uygulama Anahtarı|Daha fazla bilgi için [kullanım hizmet sorumlusu kimlik doğrulaması](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
-5. İşiniz bittiğinde seçin **Connect**. Bu işlem birkaç dakika sürebilir. 
+6. İşiniz bittiğinde seçin **Connect**. Bu işlem birkaç dakika sürebilir. 
 
     Azure'a bağlandıktan sonra yeni Video Indexer hesabınız hesap listesinde görüntülenir:
 
     ![Yeni hesap](./media/create-account/new-account.png)
 
-6. Yeni hesabınıza gidin: 
+7. Yeni hesabınıza gidin: 
 
     ![Video Indexer hesabınız](./media/create-account/vi-account.png)
 

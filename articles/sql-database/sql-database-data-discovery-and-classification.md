@@ -8,18 +8,18 @@ ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/10/2018
 ms.author: giladm
-ms.openlocfilehash: a69142ebabc4af8b8543dc5dd276b99130620470
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: aca01e67339d5f6d003021cb17f1787093b79eda
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714981"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543971"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı veri bulma ve sınıflandırma
 Veri bulma & sınıflandırma (şu anda önizlemede), Azure SQL veritabanı için gelişmiş özellikler sunar **keşfetme**, **sınıflandırma**, **etiketleme**  &  **koruma** veritabanlarınızı hassas verileri.
-Bulma ve sınıflandırma en hassas verileriniz (iş, Finans, sağlık, PII, vb.), kuruluş bilgilerini koruma stature içinde rol yürütebilirsiniz. Altyapı olarak hizmet eder:
+Bulma ve sınıflandırma en hassas verileriniz (iş, Finans, sağlık hizmeti, kişisel verileri (PII) ve benzeri) rol içinde kuruluş bilgilerini koruma stature oynatabilirsiniz. Altyapı olarak hizmet eder:
 * Veri gizliliği standartlarını ve yasal uyumluluk gereksinimlerini karşılamak yardımcı olur.
 * (Denetim) izleme gibi çeşitli güvenlik senaryoları ve anormal hassas verilere erişimi üzerinde uyarı.
 * Erişimi denetleme ve son derece hassas veri içeren veritabanlarını güvenliğini artırma.
@@ -42,6 +42,17 @@ Aşağıdaki bölümde, bulma, Sınıflandırma ve etiketleme veritabanı hem de
 Sınıflandırma iki meta veri öznitelikleri içerir:
 * Sütunda depolanan verilerin duyarlılık düzeyi tanımlamak için kullanılan etiketler – ana sınıflandırma öznitelikleri.  
 * Bilgi türlerini sütunda depolanan verilerin türünü içine ek ayrıntı düzeyi sağlar.
+
+## <a name="define-and-customize-your-classification-taxonomy"></a>Tanımlama ve sınıflandırma taksonominizi özelleştirme
+
+SQL veri bulma & sınıflandırma etiketleri duyarlılık yerleşik bir dizi ve bilgi türleri ve bulma mantığını yerleşik bir dizi ile birlikte gelir. Artık bu sınıflandırma özelleştirme ve kümesi ve ortamınız için özel olarak sınıflandırma yapıları sıralamasını tanımlama özelliği var.
+
+Tüm Azure kiracınız için merkezi bir yerde tanımı ve sınıflandırma taksonominizi özelleştirmesini gerçekleştirilir. Konum olduğunu [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro), güvenlik ilkenizin bir parçası olarak. Kiracı kök yönetim grubu üzerinde yönetici haklarına sahip biri yalnızca, bu görevi gerçekleştirebilirsiniz.
+
+Information Protection İlkesi yönetiminin bir parçası özel etiketler tanımlamak, bunları derecelendirmek ve bunları seçilen bilgi türleri kümesi ile ilişkilendirebilirsiniz. Ayrıca, kendi özel bilgi türlerini ekleyebilir ve bunları bu tür verilerin veritabanlarınızda tanımlamak için bulma mantığını eklenen dize desenlerle yapılandırabilirsiniz.
+Özelleştirme ve ilkenizde yönetme hakkında daha fazla bilgi [Information Protection İlkesi ile ilgili nasıl yapılır Kılavuzu](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+
+Kiracı genelinde bir ilke oluşturulduktan sonra özelleştirilmiş ilkenizi kullanarak tek tek veritabanlarını sınıflandırmasıyla devam edebilirsiniz.
 
 ## <a name="classify-your-sql-database"></a>SQL veritabanınız sınıflandırma
 

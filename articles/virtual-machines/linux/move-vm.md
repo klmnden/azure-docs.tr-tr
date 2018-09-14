@@ -1,6 +1,6 @@
 ---
-title: Azure'da bir Linux VM Taşı | Microsoft Docs
-description: Resource Manager dağıtım modelinde başka bir Azure abonelik veya kaynak grubu için bir Linux VM taşıyın.
+title: Azure'da bir Linux VM'yi taşıma | Microsoft Docs
+description: Bir Linux VM, Resource Manager dağıtım modelinde başka bir Azure abonelik veya kaynak grubuna taşıyın.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -13,43 +13,43 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: a4a7dd5541fe298675232ffa803f749e71f6a03f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b521c66581b4b77e5c49c963530b0c81f842f6f0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907508"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573850"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Bir Linux VM başka bir abonelik veya kaynak grubuna taşıma
-Bu makalede, bir Linux VM kaynak grupları veya abonelikler arasında taşıma hakkında adım adım anlatılmaktadır. Bir VM abonelikler arasında taşıma kişisel bir abonelikte VM oluşturduysanız kullanışlı ve şirketinizin aboneliği taşımak şimdi istiyorsunuz.
+Bu makalede, bir Linux sanal makinesini (VM), kaynak grubu veya abonelik arasında taşıma konusunda size yol gösterir. VM'yi abonelikler arasında taşıma kişisel bir abonelikte bir VM oluşturduysanız, kullanışlı ve şirketinizin aboneliği taşımak şimdi istiyorsunuz.
 
 > [!IMPORTANT]
->Şu anda yönetilen diskleri taşınamıyor. 
+>Şu anda Azure yönetilen diskler taşıyamazsınız. 
 >
->Yeni kaynak kimlikleri taşıma bir parçası olarak oluşturulur. VM taşındıktan sonra yeni kaynak kimlikleri kullanmak için komut dosyaları ve araçları güncelleştirmeniz gerekir. 
+>Yeni kaynak kimliklerini taşımanın bir parçası oluşturulur. VM taşındıktan sonra araçları ve betikleri, yeni kaynak kimliğini kullanacak şekilde güncelleştirmeniz gerekir. 
 > 
 > 
 
-## <a name="use-the-azure-cli-to-move-a-vm"></a>Bir VM taşımak için Azure CLI kullanın
+## <a name="use-the-azure-cli-to-move-a-vm"></a>Bir VM'yi taşıma için Azure CLI kullanma
 
 
-CLI kullanarak VM taşımadan önce kaynak ve hedef abonelikler aynı Kiracı içinde var olduğundan emin olmanız gerekir. Her iki aboneliğin aynı Kiracı kimliği olduğunu denetlemek için kullanın [az hesabı Göster](/cli/azure/account#az_account_show).
+Azure CLI kullanarak sanal makinenize taşımadan önce kaynak ve hedef abonelikler aynı kiracıda kayıtlı emin olmanız gerekir. Her iki aboneliğin aynı Kiracı Kimliğine sahip denetlemek için kullanmak [az hesabı show](/cli/azure/account#az_account_show).
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
 az account show --subscription myDestinationSubscription --query tenantId
 ```
-Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, başvurmalıdır [Destek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) kaynakları için yeni bir kiracı taşımak için.
+Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, başvurmalıdır [Destek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) kaynakları yeni bir kiracıya taşımak için.
 
-Başarıyla bir VM taşımak için VM ve tüm destekleyici kaynakları taşımanız gerekir. Kullanım [az kaynak listesi](/cli/azure/resource#az_resource_list) tüm kaynakları bir kaynak grubu ve kimlikleri listelemek için komutu. Böylece kopyalayıp kimlikleri Yapıştır sonraki komutlarını bu komutun çıktısı bir dosyaya kanal yardımcı olabilir.
+Bir sanal makine başarıyla taşımak için VM'yi ve tüm destekleyici kaynakları taşımak gerekir. Kullanım [az kaynak listesi](/cli/azure/resource#az_resource_list) tüm kaynaklar bir kaynak grubu ve kimliklerini listelemek için komutu. Bu komutun çıktısı, kopyalayın ve daha sonra komutlarına kimlikleri yapıştırın, bir dosyaya kanal oluşturarak için yardımcı olur.
 
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
 
-Bir VM ve kaynaklarını başka bir kaynak grubuna taşımak için kullanın [az kaynak taşıma](/cli/azure/resource#az_resource_move). Aşağıdaki örnek, bir VM ve gerektirdiği en yaygın kaynaklarını taşımak gösterilmiştir. Kullanım **-kimlikleri** parametre ve virgülle ayrılmış listesini (boşluksuz) taşımak için kaynaklar için kimlikleri geçirin.
+Bir sanal makine ve kaynaklarının başka bir kaynak grubuna taşımak için kullanın [az kaynak taşıma](/cli/azure/resource#az_resource_move). Aşağıdaki örnek, bir sanal Makineyi ve gerektirdiği en yaygın kaynakları taşımak gösterilmektedir. Kullanım **-kimlikleri** parametre ve bir virgülle ayrılmış listesi (boşluksuz) taşımak için kaynaklar için kimlikleri geçirin.
 
 ```azurecli-interactive
 vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
@@ -65,12 +65,12 @@ az resource move \
     --destination-group "myDestinationResourceGroup"
 ```
 
-Farklı bir aboneliğe VM ve kaynaklarını taşımak istiyorsanız, ekleme **--hedef-Subscriptionıd** parametresi hedef abonelik belirtin.
+Sanal makine ve kaynaklarının farklı bir aboneliğe taşımak istiyorsanız, ekleme **--hedef Subscriptionıd** hedef aboneliği belirtmek için parametre.
 
-Belirtilen kaynak taşımak istediğiniz onaylamanız istenirse. Tür **Y** kaynakları taşımak istediğinizi onaylamak için.
+İstediğiniz belirli kaynakları taşıma, girin onaylamak için sorulduğunda **Y** onaylamak için.
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Birçok farklı türdeki kaynakların kaynak grupları ve abonelikler arasında taşıyabilirsiniz. Daha fazla bilgi için bkz. [Kaynakları yeni kaynak grubuna veya aboneliğe taşıma](../../resource-group-move-resources.md).    
+Birçok farklı türdeki kaynakların kaynak grupları ve abonelikler arasında taşıyabilirsiniz. Daha fazla bilgi için [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](../../resource-group-move-resources.md).    
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 5b31188eb5618d0ec5ac1f89c590913e4e284d9f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1b8b680736c49c0036600bf4337da6952cf38afb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337838"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573648"
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>REST API kullanılarak gerçekleştirilen Azure Data Lake Store'daki hesap yönetimi işlemleri
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Azure Active Directory'yi kullanarak kimlik doğrulaması gerçekleştirmek üze
 
 
 ## <a name="create-a-data-lake-store-account"></a>Data Lake Store hesabı oluşturma
-Bu işlem, [burada](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/create) tanımlanan REST API çağrısını temel alır.
+Bu işlem, [burada](https://docs.microsoft.com/rest/api/datalakestore/accounts/create) tanımlanan REST API çağrısını temel alır.
 
 Aşağıdaki cURL komutunu kullanın. **\<yourstorename>** ifadesini, Data Lake Store adınızla değiştirin.
 
@@ -59,7 +59,7 @@ Yukarıdaki komutta; \<`REDACTED`\> öğesini daha önce aldığınız yetkilend
     }    
 
 ## <a name="delete-a-data-lake-store-account"></a>Data Lake Store hesabını silme
-Bu işlem, [burada](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/delete) tanımlanan REST API çağrısını temel alır.
+Bu işlem, [burada](https://docs.microsoft.com/rest/api/datalakestore/accounts/delete) tanımlanan REST API çağrısını temel alır.
 
 Bir Data Lake Store hesabını silmek için aşağıdaki cURL komutunu kullanın. **\<yourstorename>** ifadesini, Data Lake Store adınızla değiştirin.
 

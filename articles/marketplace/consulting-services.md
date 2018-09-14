@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 104ef98aac3e34e30a86854a0d759cf11106b55b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414710"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575328"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Market Danışmanlık Hizmetleri
 Danışmanlık Hizmetleri Azure marketi'ndeki Microsoft iş ortaklarının müşterileri desteklemek ve bunların Azure kullanımını genişletmek için ile hizmetlerin bağlantısını kurma amacı sağlar. Azure Market danışmanlık hizmet teklifleri, Microsoft Sistem Entegratörü (sı) iş ortaklarının listesini destekler. 
@@ -73,7 +73,7 @@ Daha fazla bilgi için [aracılığıyla Microsoft iş ortağı ağı uzmanlıkl
 Azure Market danışmanlık hizmetleri piyasaya belirli coğrafi bölgede çalışmaya başlayacaktır. İlk kez başlatıldığında olacaktır: Amerika Birleşik Devletleri, Kanada, Birleşik Krallık ve Avustralya. Diğer ülkeler için katalog anlamlı bir sayıdan sonra canlı geçilir ve hizmet teklifleri seçilmesine etkileyici alınan iş ortakları tarafından gönderilen ve Microsoft tarafından onaylandı.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Kayıt için danışmanlık hizmetleri Azure Marketi'nde nasıl
-Başlat, danışmanlık hizmetleri ile kaydederek [Azure Marketi](https://azuremarketplace.microsoft.com/en-us/sell/signup). Yayımcılar başvurabilir [bir yayımcının Market'te haline](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), bir onay-gereksinimlerinin tam listesi kayıt için. 
+Başlat, danışmanlık hizmetleri ile kaydederek [Azure Marketi](https://azuremarketplace.microsoft.com/en-us/sell/signup). Yayımcılar başvurabilir [bir yayımcının Market'te haline](https://docs.microsoft.com/azure/marketplace/become-publisher), bir onay-gereksinimlerinin tam listesi kayıt için. 
 
 **Hangi beklediğiniz sonra kaydının** Onboarding ekibi ulaşın, bulut iş ortağı Portalı'nı (CPP) oturum açma bilgilerini içeren bir Hoş Geldiniz e-posta ile 1-3 iş günü içinde. [Bulut iş ortağı portalı](https://cloudpartner.azure.com) yayımcılar burada gönderme liste bilgilerinde ve gönderimler teklif liste portalıdır. 
 
@@ -93,7 +93,7 @@ Kayıt, öncesinde toplamaya başlamak ve ortaya çıkaran hizmet ve çözüm he
 |Yeni teklifleri için ayarlama  |
 |---------|
 |(200 karakter) adı ve açıklaması (2000 karakter)    |
-|Uzmanlıklar     |
+|Yetkinlikler     |
 |Ülke/bölge kullanılabilirliği     |
 |Engagement'ın süresi     |
 |Geçerli sektörlerde, kategoriler ve arama anahtar sözcükleri     |
@@ -150,7 +150,7 @@ Teklif açıklamaları ve teklif özetleri gözden geçirirken, takım aşağıd
 |**Kavram kanıtı**    |    Mühendislik değişiklikler, teknik yapıtlar veya diğer yapıtlar bir müşteri engagement sonuçlarını bekleyebileceğiniz ifade     | Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme        |
 |**Atölyesi**    |   Günlük, haftalık veya aylık, seçilen süre teklifinizin bağlı olarak ayrıntılı bir gündem içerir. İfade, Atölyesi öğrenme hedefler ya da diğer teslim edilebilir öğeler nelerdir     |   Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme      |
 
-Bulut iş ortağı portalını kullanarak, liste için biçimlendirme ekleyebilirsiniz [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Lehçe, listeye eklemek yardımcı olacak basit tasarım dili budur. 
+Bulut iş ortağı portalını kullanarak, liste için biçimlendirme ekleyebilirsiniz [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). Lehçe, listeye eklemek yardımcı olacak basit tasarım dili budur. 
 
 **Örnek Markdown notları**
 *   Ekleme * başında ve sonunda boşluk italik oluşturmak için kopyalama blok - en (örn: *içeriği*)

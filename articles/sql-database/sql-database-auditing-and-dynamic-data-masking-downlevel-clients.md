@@ -1,6 +1,6 @@
 ---
-title: Tablo denetim TDS yeniden yönlendirme ve Azure SQL veritabanı için IP uç noktaları | Microsoft Docs
-description: Denetim, TDS yeniden yönlendirme ve IP uç noktası değişiklikleri Azure SQL veritabanı'nda Tablo denetim uygularken öğrenin.
+title: Tablo denetim TDS Yönlendirme ve Azure SQL veritabanı için IP uç noktaları | Microsoft Docs
+description: Denetim, TDS Yönlendirme ve IP uç noktası değişiklikleri Azure SQL veritabanı'nda Tablo denetleme uygularken öğrenin.
 services: sql-database
 author: giladm
 manager: craigg
@@ -9,43 +9,44 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: b615e9ff67788c2f02c2fa0c33e0de3331e77885
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+ms.openlocfilehash: 9fcb070f41d699cef3ef11ba9b8feb6cdfd83ae5
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645639"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541226"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL veritabanı - alt düzey istemci desteği ve tablo denetimi için IP uç noktası değişiklikleri
 
 > [!IMPORTANT]
-> Bu belgede yalnızca tablo olan denetleme geçerlidir **artık kullanım dışı**.<br>
-> Lütfen yeni kullanın [Blob denetimi](sql-database-auditing.md) yöntemi, hangi **yok** alt düzey istemci bağlantı dizesi değişiklikler gerektirir. Blob denetimi hakkında ek bilgiler bulunabilir [SQL veritabanı denetimi ile çalışmaya başlama](sql-database-auditing.md).
+> Bu belgede yalnızca tablo olan denetimi için geçerlidir. **artık kullanım dışı**.<br>
+> Lütfen yeni kullanın [Blob denetimi](sql-database-auditing.md) yöntemi, hangi **yok** alt düzey istemci bağlantı dizesi değişiklikler gerektirir. Blob denetimi hakkında ek bilgiler bulunabilir [SQL veritabanı denetimini kullanmaya başlama](sql-database-auditing.md).
 
-[Veritabanı denetim](sql-database-auditing.md) otomatik olarak çalışır TDS yeniden yönlendirmeyi destekleyen SQL istemcileri ile. Blob denetimi yöntemi kullanırken, yeniden yönlendirme uygulanmaz unutmayın.
+[Veritabanı denetim](sql-database-auditing.md) çalışır otomatik olarak TDS yeniden yönlendirmeyi destekleyen SQL istemcileri ile. Unutmayın. Bu yeniden yönlendirme Blob denetimi yöntemi kullanılırken geçerli değildir.
 
 ## <a id="subheading-1"></a>Alt düzey istemci desteği
-TDS 7.4 uygulayan herhangi bir istemci yeniden yönlendirme de desteklemelidir. Bu özel durumlar yeniden yönlendirme özelliğini tam olarak desteklenmez ve Node.JS hangi yeniden yönlendirmesi için Tedious uygulanmadı JDBC 4.0 içerir.
+TDS 7.4 uygulayan herhangi bir istemci yeniden yönlendirme de desteklemelidir. Bunun istisnası, JDBC, yeniden yönlendirme özelliği tam olarak desteklenmiyor ve hangi yeniden yönlendirmesi Node.JS için Tedious uygulanmadı 4.0 içerir.
 
-"Alt düzey istemciler için", yani hangi destek TDS sürüm 7.3 ve aşağıda - sunucunun FQDN bağlantı dizesi değiştirilmelidir:
+"Alt düzey istemciler için", yani hangi destek TDS sürüm 7.3 ve aşağıda - bir sunucunun FQDN bağlantı dizesi değiştirilmelidir:
 
 Bağlantı dizesindeki özgün sunucunun FQDN: <*sunucu adı*>. database.windows.net
 
-Bağlantı dizesindeki değiştirilmiş sunucu FQDN: <*sunucu adı*> .database. **güvenli**. windows.net
+Bağlantı dizesindeki değiştirilmiş sunucusu FQDN'si: <*sunucu adı*> .database. **güvenli**. windows.net
 
 "Alt düzey istemciler" kısmi bir listesine içerir:
 
 * .NET 4.0 ve aşağıdaki
-* ODBC 10.0 ve aşağıdaki.
-* JDBC (JDBC TDS 7.4 desteklerken, bu TDS yeniden yönlendirme özelliğini tam olarak desteklenmez)
-* Can sıkıcı (için Node.JS)
+* ODBC 10.0 ve altı.
+* JDBC (JDBC TDS 7.4 desteklese de TDS yeniden yönlendirme özelliği tam olarak desteklenmiyor)
+* (Node.JS için) tedious
 
-**Açıklama:** yukarıdaki sunucunun FDQN değişikliği bir yapılandırma gereksinimini adım olmadan her veritabanı (geçici azaltma) de bir SQL Server düzeyi denetim ilkesi uygulamak için yararlı olabilir.
+**Açıklama:** FDQN değişikliği üstteki sunucunun yapılandırma gereksinimini adım olmadan her veritabanında (geçici azaltma) de bir SQL sunucu düzeyi denetimi ilkesi uygulamak için yararlı olabilir.
 
 ## <a id="subheading-2"></a>Denetim etkinleştirilirken IP uç noktası değişiklikleri
-Tablo denetim etkinleştirdiğinizde, IP uç veritabanınızın değiştirecek unutmayın. Katı güvenlik duvarı ayarları varsa, lütfen bu güvenlik duvarı ayarlarını güncelleştirmeniz buna göre.
+Tablo denetimi etkinleştirdiğinizde, IP uç veritabanınızın değişeceğini unutmayın. Katı güvenlik duvarı ayarları varsa, lütfen bu güvenlik duvarı ayarlarını güncelleştirin uygun şekilde.
 
-Yeni veritabanı IP uç noktası üzerinde veritabanı bölgesi bağlıdır:
+Yeni veritabanı IP uç noktası veritabanı bölgesine bağlıdır:
 
 | Veritabanı bölgesi | Olası IP uç noktaları |
 | --- | --- |

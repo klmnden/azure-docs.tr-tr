@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jasonh
-ms.openlocfilehash: 5078ee68e559959390d439ed1ef9f8e199d2f083
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 898feee916168792c155190064200555b8331c0f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090159"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577250"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight için sürüm notları
 
@@ -41,7 +41,7 @@ En yeni güncelleştirmeleri ve özellikleri aşağıdaki kategorilere ayrılır
 
 3.  ***Azure Data Lake depolama 2. nesil için destek*** – HDInsight Azure Data Lake depolama Gen2 önizleme sürümünü destekler. Kullanılabilir bölgelerde, müşterilerin kendi HDInsight kümeleri için birincil veya ikincil deposu olarak bir ADLS Gen2 hesap seçmek mümkün olacaktır.
 
-4.  ***HDInsight Kurumsal güvenlik paketi güncelleştirmeleri (Önizleme)*** – (Önizleme) [sanal ağ hizmet uç noktaları](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) Azure Blob Depolama, ADLS Gen1, Cosmos DB ve Azure DB için destek.
+4.  ***HDInsight Kurumsal güvenlik paketi güncelleştirmeleri (Önizleme)*** – (Önizleme) [sanal ağ hizmet uç noktaları](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) Azure Blob Depolama, ADLS Gen1, Cosmos DB ve Azure DB için destek.
 
 ## <a name="component-versions"></a>Bileşen sürümü
 
@@ -1420,6 +1420,6 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 
 ## <a name="upgrading"></a>Yükseltiliyor
 
-Bu özelliklerin tümü, HDInsight 3.6 içinde kullanılabilir. Spark, Kafka ve R Server (Machine Learning Hizmetleri) en son sürümünü almak için Spark, Kafka, ML Hizmetleri sürümü seçin, [HDInsight 3.6 kümesi oluşturma](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). ADLS destek almak için bir seçenek olarak ADLS depolama türünü seçebilirsiniz. Var olan kümeleri için bu sürümleri otomatik olarak yükseltilmeyecek.
+Bu özelliklerin tümü, HDInsight 3.6 içinde kullanılabilir. Spark, Kafka ve R Server (Machine Learning Hizmetleri) en son sürümünü almak için Spark, Kafka, ML Hizmetleri sürümü seçin, [HDInsight 3.6 kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). ADLS destek almak için bir seçenek olarak ADLS depolama türünü seçebilirsiniz. Var olan kümeleri için bu sürümleri otomatik olarak yükseltilmeyecek.
 
-Haziran 2018'den sonra oluşturulan tüm yeni kümeleri, 1000'den fazla hata düzeltmeleri tüm açık kaynak projeler arasında otomatik olarak alırsınız. Lütfen izleyin [bu](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-upgrade-cluster) HDInsight bir sürüme yükseltme en iyi uygulamalar Kılavuzu.
+Haziran 2018'den sonra oluşturulan tüm yeni kümeleri, 1000'den fazla hata düzeltmeleri tüm açık kaynak projeler arasında otomatik olarak alırsınız. Lütfen izleyin [bu](https://docs.microsoft.com/azure/hdinsight/hdinsight-upgrade-cluster) HDInsight bir sürüme yükseltme en iyi uygulamalar Kılavuzu.

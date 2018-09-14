@@ -1,6 +1,6 @@
 ---
 title: Store-sendgrid-Java-How-To-Send-EMail-example
-description: Bir Azure dağıtımında SendGrid Java kullanarak e-posta gönderme
+description: Bir Azure dağıtımında Java'dan SendGrid kullanarak e-posta gönderme
 services: ''
 documentationcenter: java
 author: thinkingserious
@@ -14,34 +14,34 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: fab76467025518bc455295da681d0b0127a9cbfe
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7db7e00ec3f93695cc6bc3369fe1b00582740d0e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098738"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578081"
 ---
-# <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Bir Azure dağıtımında SendGrid Java kullanarak e-posta gönderme
-Aşağıdaki örnek, Azure üzerinde barındırılan bir web sayfasından e-postalar gönderme SendGrid nasıl kullanabileceğinizi gösterir. Sonuçta elde edilen uygulama kullanıcı e-posta değerleri için aşağıdaki ekran görüntüsünde gösterildiği gibi isteyecektir.
+# <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Bir Azure dağıtımında Java'dan SendGrid kullanarak e-posta gönderme
+Aşağıdaki örnek, Azure'da barındırılan bir web sayfasından e-postaları göndermek için Sendgrid'i nasıl kullanabileceğinizi gösterir. Elde edilen uygulama, aşağıdaki ekran görüntüsünde gösterildiği gibi kullanıcıdan e-posta değerlerini ister.
 
 ![E-posta formu][emailform]
 
-Sonuçta elde edilen e-posta aşağıdaki ekran görüntüsüne benzer görünür.
+Sonuçta elde edilen e-posta aşağıdaki ekran görüntüsüne benzer olacaktır.
 
 ![E-posta iletisi][emailsent]
 
 Bu konudaki kodu kullanmak için aşağıdakileri yapmanız gerekir:
 
-1. Javax.mail Kavanoz örneğin almak <http://www.oracle.com/technetwork/java/javamail/index.html>.
-2. Kavanoz, Java derleme yolu ekleyin.
-3. Bu Java uygulaması oluşturmak için Eclipse kullanıyorsanız, SendGrid kitaplıkları Eclipse'nın dağıtım derleme özelliğini kullanarak, uygulama dağıtım dosyanızda (WAR) içerebilir. Bu Java uygulaması oluşturmak için Eclipse kullanmıyorsanız kitaplıkları Java uygulamanız aynı Azure rolünü içerdiği ve uygulamanızı sınıfı yoluna eklenen emin olun.
+1. Javax.mail jar dosyaları dışındaki, örneğin almak <http://www.oracle.com/technetwork/java/javamail/index.html>.
+2. Jar dosyaları dışındaki Java derleme yolu ekleyin.
+3. Bu Java uygulaması oluşturmak için Eclipse kullanıyorsanız, SendGrid kitaplıklarını Eclipse'nın dağıtım derleme özelliğini kullanarak uygulama dağıtım dosyanızda (WAR) içerebilir. Bu Java uygulaması oluşturmak için Eclipse kullanmıyorsanız kitaplıkları aynı Azure rol Java uygulamanızı olarak içerdiği ve uygulama sınıf yolunuza eklendi emin olun.
 
-SendGrid kullanıcı adınızı ve e-posta gönderebilmesi için parola, ayrıca sahip olmalıdır. SendGrid başlamak için bkz: [SendGrid Java kullanarak e-posta göndermek nasıl](store-sendgrid-java-how-to-send-email.md).
+Ayrıca, kendi SendGrid kullanıcı adınızı ve e-posta gönderebilmesi için parola olmalıdır. SendGrid ile çalışmaya başlamak için bkz. [Java'dan SendGrid kullanarak e-posta göndermek nasıl](store-sendgrid-java-how-to-send-email.md).
 
-Ayrıca, bilgileri aşina [bir Hello World uygulamasının Azure için Eclipse'te oluşturma](http://msdn.microsoft.com/library/windowsazure/hh690944), veya Eclipse kullanıyorsanız azure'da Java uygulamaları barındırmak için başka teknikler ile önemle önerilir.
+Ayrıca, bilgileri konusunda [bir Hello World uygulaması Azure için Eclipse'te oluşturma](http://msdn.microsoft.com/library/windowsazure/hh690944), veya Eclipse kullanmıyorsanız, azure'da Java uygulamalarını barındırmak için diğer teknikleri ile önemle tavsiye edilir.
 
 ## <a name="create-a-web-form-for-sending-email"></a>E-posta göndermek için web formu oluşturma
-Aşağıdaki kod, e-posta göndermek için kullanıcı verilerini almak için web formu oluşturulacağını gösterir. Bu içerik amaçları doğrultusunda JSP dosyası adlı **emailform.jsp**.
+Aşağıdaki kod, e-posta göndermek için kullanıcı verilerini almak için bir web formu oluşturma işlemini gösterir. Bu içeriğin amacı doğrultusunda, JSP dosyası adlı **emailform.jsp**.
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
@@ -97,7 +97,7 @@ Aşağıdaki kod, e-posta göndermek için kullanıcı verilerini almak için we
     </html>
 
 ## <a name="create-the-code-to-send-the-email"></a>E-posta göndermek için kod oluşturma
-Emailform.jsp biçiminde tamamladığınızda olarak adlandırılır, aşağıdaki kod, e-posta iletisi oluşturur ve bunu gönderir. Bu içerik amaçları doğrultusunda JSP dosyası adlı **sendemail.jsp**.
+Emailform.jsp biçiminde tamamladığınızda çağrılır, aşağıdaki kod, e-posta iletisi oluşturur ve gönderir. Bu içeriğin amacı doğrultusunda, JSP dosyası adlı **sendemail.jsp**.
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" import="javax.activation.*, javax.mail.*, javax.mail.internet.*, java.util.Date, java.util.Properties" %>
@@ -204,18 +204,18 @@ Emailform.jsp biçiminde tamamladığınızda olarak adlandırılır, aşağıda
     </body>
     </html>
 
-E-posta gönderme yanı sıra emailform.jsp kullanıcı için bir sonuç sağlar; Aşağıdaki ekran örneğidir:
+E-posta göndermeye ek olarak emailform.jsp kullanıcı için bir sonuç sağlar; Aşağıdaki ekran görüntüsünde bir örnek verilmiştir:
 
 ![Posta sonucunu gönderin][emailresult]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-İşlem öykünücüsü uygulamanızı dağıtmak ve bir tarayıcıdan emailform.jsp çalıştırmak, değerleri girin, tıklatın **bu e-posta Gönder**ve ardından sendemail.jsp sonuçlarında görebilirsiniz.
+İşlem öykünücüsü uygulamanızı dağıtın ve emailform.jsp tarayıcıda çalıştırın, değerleri girin, tıklayın **bu e-posta Gönder**ve ardından sendemail.jsp sonuçlarına bakın.
 
-Bu kod, Azure üzerinde Java SendGrid kullanmayı göstermek için sağlanmıştır. Azure'a üretimde dağıtmadan önce daha fazla hata işleme veya diğer özellikler eklemek isteyebilirsiniz. Örneğin: 
+Bu kod, Azure üzerinde Java SendGrid kullanmayı göstermek için sağlanmıştır. Üretimde Azure'a dağıtmadan önce daha fazla hata işleme veya diğer özellikler eklemek isteyebilirsiniz. Örneğin: 
 
-* E-posta adreslerini ve bir web formu kullanmak yerine, e-posta iletileri depolamak için Azure storage bloblarında veya SQL veritabanı'nı kullanabilirsiniz. Azure storage bloblarında Java kullanma hakkında daha fazla bilgi için bkz: [Java'dan Blob Depolama hizmetini kullanmayı](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). SQL veritabanı Java kullanma hakkında daha fazla bilgi için bkz: [SQL veritabanında kullanarak Java](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-connect-query-java).
-* Kullanabileceğinizi `RoleEnvironment.getConfigurationSettings` bu değerleri almak için web formu kullanmak yerine dağıtımınızın yapılandırma ayarlarını SendGrid kullanıcı adı ve parola almalarını sağlar. Hakkında bilgi için `RoleEnvironment` sınıfı için bkz: [JSP biçiminde Azure hizmeti çalışma zamanı kitaplığını kullanarak](http://msdn.microsoft.com/library/windowsazure/hh690948) ve Azure hizmet çalışma zamanı paketi belgelerine <http://dl.windowsazure.com/javadoc>.
-* SendGrid Java kullanma hakkında daha fazla bilgi için bkz: [SendGrid Java kullanarak e-posta göndermek nasıl](store-sendgrid-java-how-to-send-email.md).
+* E-posta adreslerini ve bir web formu kullanmak yerine, e-posta iletileri depolamak için Azure depolama blobları veya SQL veritabanı'nı kullanabilirsiniz. Java'da Azure depolama BLOB'ları kullanma hakkında daha fazla bilgi için bkz: [Java'dan Blob Depolama hizmetini kullanma](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). SQL veritabanı'nda Java kullanma hakkında daha fazla bilgi için bkz: [Java kullanarak SQL veritabanı'na](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java).
+* Kullanabileceğinizi `RoleEnvironment.getConfigurationSettings` dağıtımınızın yapılandırma ayarlarını bu değerleri almak için web formu kullanmak yerine, SendGrid kullanıcı adı ve parola almak için. Hakkında bilgi için `RoleEnvironment` sınıfı [JSP biçiminde Azure hizmeti çalışma zamanı kitaplığı kullanarak](http://msdn.microsoft.com/library/windowsazure/hh690948) ve Azure hizmeti çalışma zamanı paketi belgeleri <http://dl.windowsazure.com/javadoc>.
+* SendGrid Java kullanma hakkında daha fazla bilgi için bkz. [Java'dan SendGrid kullanarak e-posta göndermek nasıl](store-sendgrid-java-how-to-send-email.md).
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg
 [emailsent]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg

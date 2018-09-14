@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: dc9d7b924f51fb3a4e9662dfa7ad4b9557b481bc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80987408e65785afba1df2d2f6b6fc9981fd2dbf
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347010"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542829"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -215,8 +215,8 @@ Aşağıdaki video, hizmet etiketleri yapılandırmak için adım adım yordam b
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-> [!WARNING]
-> Depolama hizmet etiketleri yalnızca belirli bölgelerde kullanılabilir durumdadır ve önizleme aşamasındadır. Bölgelerin bir listesi için bkz. [depolama için hizmet etiketleri](../virtual-network/security-overview.md#service-tags).
+> [!NOTE]
+> Depolama hizmet etiketleri ve bölgelerin listesi için bkz. [depolama için hizmet etiketleri](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>VM yedeklemeleri için bir HTTP Proxy'si kullanın
 Bir VM'yi yedekleme yapıyorsanız, yedekleme uzantısını VM üzerinde bir HTTPS API'sini kullanarak Azure Depolama'ya anlık görüntü yönetimi komutları gönderir. Genel internet erişimi için yapılandırılan tek bileşen olduğundan HTTP Ara sunucusu yedekleme uzantısı trafiği yönlendirmek.

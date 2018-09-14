@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: aa26106460f305568fcb2dd1b84fbc54370e5f39
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493877"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543586"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
 Bu makalede, Azure Backup bileşenleri hakkında sık sorulan sorular yanıtlanmaktadır. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Yorum yapmak için bir Livefyre hesabı gerekir. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -41,6 +41,9 @@ Hayır. Kasa abonelik düzeyinde oluşturulur ve başka bir aboneliğe yeniden a
 
 ### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>Başka bir kasa için yedekleme verileri geçirebilir miyim? <br/>
 Hayır. Bir kasada depolanan yedekleme verileri, farklı bir kasaya taşınamaz.
+
+### <a name="can-i-change-from-grs-to-lrs-after-a-backup-br"></a>Bir yedeklemeden sonra GRS LRS için değiştirebilirim? <br/>
+Hayır. Bir kurtarma Hizmetleri kasası, yalnızca depolanan yedeklemelere önce depolama seçenekleri değiştirebilirsiniz. 
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Kurtarma Hizmetleri kasaları Resource Manager tabanlıdır. Yedekleme kasaları hâlâ destekleniyor? <br/>
 Yedekleme kasaları kurtarma Hizmetleri kasalarına dönüştürüldü. Bir kurtarma Hizmetleri kasasına yedekleme kasasına dönüştürülüp, ardından yedekleme kasası kurtarma Hizmetleri kasası için sizin için dönüştürüldü. 

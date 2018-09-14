@@ -1,6 +1,6 @@
 ---
-title: Azure CDN ile Çin içerik teslim | Microsoft Docs
-description: Çin kullanıcılara içerik ulaştırmak için Azure içerik teslim ağı (CDN) kullanma hakkında bilgi edinin.
+title: Azure CDN ile içerik teslim Çin | Microsoft Docs
+description: Çin kullanıcılara içerik teslim etmek için Azure içerik teslim ağı (CDN) kullanmayı öğrenin.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -15,36 +15,36 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 59788f301bb501103babd55a2ac37102932f4dcf
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 12a29e5af287c5cc68c3bd9d7069534ff16c496f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260275"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573238"
 ---
-# <a name="china-content-delivery-with-azure-cdn"></a>Azure CDN ile Çin içerik teslim
+# <a name="china-content-delivery-with-azure-cdn"></a>Azure CDN ile içerik teslim Çin
 
-Azure içerik teslim ağı (CDN) genel içerik, Çin veya Çin ' kaynaklanan istekler için en iyi performans sağlar POP yakın bir yerde bulunma noktası (POP) konumları ile Çin kullanıcılara hizmet verebilir. Ancak, Çin müşterileriniz için önemli bir Pazar ise ve hızlı performans ihtiyaç duydukları Azure CDN Çin kullanmayı düşünün.
+Azure içerik teslim ağı (CDN) genel içeriği, Çin veya Çin'den gelen istekler için en iyi performans sağlayan bir POP yakın bulunma noktası (POP) konumları ile Çin kullanıcılara hizmet verebilir. Bununla birlikte, müşterileriniz için önemli bir pazar Çin ise ve hızlı performans ihtiyaç duydukları, Azure CDN Çin kullanmayı düşünün.
 
-Azure CDN Çin, içerik Çin içinde POP gelen yerel sağlayıcıları bir dizi ortaklık tarafından sunan CDN Azure genel farklıdır. Çince uyumluluk ve düzenleme, nedeniyle, Web sitelerinizi ICP lisansına sahip olması gerekir ve Azure CDN Çin'de kullanmak için ayrı bir abonelik kaydetmeniz gerekir. Portal ve API etkinleştirmek ve içeriği yönetme deneyimi teslimat Azure CDN genel ve Azure CDN Çin arasında aynı olur.
+Azure CDN Çin, içerik POP Çin içinde bir dizi yerel sağlayıcıları ile iş ortaklığı kurarak sunar ve genel Azure CDN from farklıdır. Çince uyumluluk ve düzenleme, nedeniyle Azure CDN Çin'de kullanmak için ayrı bir abonelik kaydetmeniz gerekir ve Web sitelerinizi ICP lisansına sahip olması gerekir. Etkinleştirme içeriğini yönetmek için portal ve API deneyimi teslimi global Azure CDN ile Azure CDN Çin arasında aynı olur.
 
-## <a name="comparison-of-azure-cdn-global-and-azure-cdn-china"></a>Azure CDN genel karşılaştırması ve Azure CDN Çin
+## <a name="comparison-of-azure-cdn-global-and-azure-cdn-china"></a>Azure CDN genel karşılaştırma ve Azure CDN Çin
 
-Azure CDN genel ve Azure CDN Çin aşağıdaki özelliklere sahiptir:
+Azure CDN genel ve Azure CDN Çin'de, aşağıdaki özelliklere sahiptir:
 
 - Azure CDN genel:
 
-     - Portal: https://portal.azure.com  
+     - Portalı: https://portal.azure.com  
 
-     - İçerik teslim Çin dışında gerçekleştirir
+     - Çin dışında içerik teslim gerçekleştirir
 
-     - Dört fiyatlandırma katmanlarına: Microsoft standart, Verizon standart, Verizon premium ve standart Akamai
+     - Dört fiyatlandırma katmanı: standart Microsoft, standart Verizon, Verizon premium ve standart Akamai
 
-     - [Belgeleri](https://docs.microsoft.com/en-us/azure/cdn/)
+     - [Belgeleri](https://docs.microsoft.com/azure/cdn/)
 
 - Azure CDN Çin'de:
 
-     - Portal: https://portal.azure.cn
+     - Portalı: https://portal.azure.cn
 
      - İçerik teslim Çin içinde gerçekleştirir
 
@@ -57,13 +57,13 @@ Azure CDN genel ve Azure CDN Çin aşağıdaki özelliklere sahiptir:
 
 Azure CDN Çin hakkında daha fazla bilgi için bkz:
 
-- [İçerik teslim ağı özellikleri](https://www.azure.cn/en-us/home/features/cdn/)
+- [Content Delivery Network özellikleri](https://www.azure.cn/en-us/home/features/cdn/)
 
-- [Azure içerik teslim ağı'ne genel bakış](https://docs.azure.cn/en-us/cdn/cdn-overview)
+- [Azure Content Delivery Network'e genel bakış](https://docs.azure.cn/en-us/cdn/cdn-overview)
 
-- [Azure içerik teslim ağı kullan](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
+- [Azure Content Delivery Network'e kullanın](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
 
-- [Çin'de Azure hizmet kullanılabilirliği](https://docs.microsoft.com/en-us/azure/china/china-get-started-service-availability)
+- [Çin'de Azure hizmet kullanılabilirliği](https://docs.microsoft.com/azure/china/china-get-started-service-availability)
 
 
 

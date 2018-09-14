@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1188ff040c12fd431cfcef5eea982647df6b9a71
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888441"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576400"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Azure Machine Learning ile görüntü sınıflandırma modellerini Derleme ve dağıtma
 
@@ -174,7 +174,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Görüntüleri büyütmek
 
-[ `augmentation` Modülü](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) açıklanan tüm dönüştürmeleri kullanarak bir veri kümesi nesnesi büyütmek için işlevsellik sağlar [imgaug](https://github.com/aleju/imgaug) kitaplığı. Resim dönüşümleri gruplandırılabilir tek bir işlem hattı, bu durumda işlem hattındaki tüm dönüştürmeler eşzamanlı olarak uygulanır her görüntü. 
+[ `augmentation` Modülü](https://docs.microsoft.com/python/api/cvtk.augmentation) açıklanan tüm dönüştürmeleri kullanarak bir veri kümesi nesnesi büyütmek için işlevsellik sağlar [imgaug](https://github.com/aleju/imgaug) kitaplığı. Resim dönüşümleri gruplandırılabilir tek bir işlem hattı, bu durumda işlem hattındaki tüm dönüştürmeler eşzamanlı olarak uygulanır her görüntü. 
 
 Farklı güçlendirme adımları ayrı ayrı uygulamak istediğiniz veya farklı şekilde, birden fazla işlem hattını tanımlayabilir ve onlara geçirmek *augment_dataset* işlevi. Daha fazla bilgi ve görüntü güçlendirme örnekler için bkz. [imgaug belgeleri](https://github.com/aleju/imgaug).
 

@@ -1,11 +1,9 @@
 ---
-title: Access management için gruplar - Azure AD kullanarak'sonraki adımlar | Microsoft Docs
-description: Nasıl Gelişmiş-için kullanıcının güvenlik grupları ve bu grupları bir kaynağa erişimi yönetmek için nasıl kullanılacağını yönetme.
+title: Ekleme veya Azure Active Directory Grup sahipleri Kaldır | Microsoft Docs
+description: Azure Active Directory'yi kullanarak Grup sahipleri ekleyip öğrenin.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -13,35 +11,61 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: d84c3b556f27366c249382a37e0a8227726110cf
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5ca2115e8f5f2e18c31477135aa94bc04d6d9256
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714693"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577404"
 ---
-# <a name="managing-owners-for-a-group"></a>Bir grubun sahiplerini yönetme
-Kaynak sahibi Azure AD grubundaki bir kaynağa erişim atandıktan sonra grubun üyeliğini Grup sahibi tarafından yönetilir. Kaynak sahibi etkili bir şekilde kaynak grubun sahibine kullanıcıları atama izni verilir.
+# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Nasıl yapılır: ekleme veya Azure Active Directory'de Grup sahipleri kaldırma
+Azure Active Directory (Azure AD) gruplarına ait ve Grup sahipleri tarafından yönetilir. Grup sahipleri bir grup ve üyelerini yönetmek için bir kaynak sahibi (Yönetici) atanır. Grup sahipleri güvenlik grubunun üyesi olması gerekmez. Bir grup sahibi atandıktan sonra yalnızca bir kaynak sahibi ekleyebilir veya sahipleri kaldırabilirsiniz.
+
+Bazı durumlarda, yönetici olarak bir grup sahibi atamamayı karar verebilirsiniz. Bu durumda, Grup sahibi olur. Ayrıca, bu grubu ayarlarında kısıtlı sürece sahipleri için Grup, diğer sahipleri atayabilirsiniz.
 
 ## <a name="add-an-owner-to-a-group"></a>Gruba sahip ekleme
+Ek Grup sahipleri, Azure AD kullanarak bir gruba ekleyin.
 
-1. İçinde [Azure AD yönetim merkezini](https://aad.portal.azure.com)seçin **kullanıcılar ve gruplar**.
-2. Seçin **tüm grupları**ve sahiplerine eklemek istediğiniz grubu açın.
-3. Seçin **sahipler eklemeyi**.
-4. Üzerinde **sahipler eklemeyi** sayfasında, bu grubun sahibi olarak ekleyin ve bu ad eklendiğinden emin olmak istediğiniz kullanıcıyı seçin **seçili** bölmesi.
+### <a name="to-add-a-group-owner"></a>Bir grup sahibi eklemek için
+1. Oturum [Azure portalında](https://portal.azure.com) dizinde genel yönetici hesabını kullanarak.
+
+2. Seçin **Azure Active Directory**seçin **grupları**, ardından sahip eklemek istediğiniz grubu seçin (Bu örnekte, _MDM İlkesi - Batı_).
+
+3. Üzerinde **MDM İlkesi - Batı genel bakış** sayfasında **sahipleri**.
+
+    ![MDM İlkesi - sahipleri seçeneğinin vurgulandığı Batı genel bakış sayfası](media/active-directory-accessmanagement-managing-group-owners/add-owners-option-overview-blade.png)
+
+4. Üzerinde **MDM İlkesi - Batı - sahipleri** sayfasında **sahipler eklemeyi**, yeni Grup sahibi olmanız ve ardından kullanıcıyı seçin ve ardından aramak **seçin**.
+
+    ![MDM İlkesi - Batı - sahipler sayfası ile sahipleri seçeneği vurgulanmış olarak Ekle](media/active-directory-accessmanagement-managing-group-owners/add-owners-owners-blade.png)
+
+    Yeni sahibi seçin sonra yenileyebilirsiniz **sahipleri** sayfasında ve sahipleri listesine eklenen adı görür.
 
 ## <a name="remove-an-owner-from-a-group"></a>Sahibi gruptan kaldırma
+Sahibi Azure AD kullanarak bir gruptan kaldırın.
 
-1. İçinde [Azure AD yönetim merkezini](https://aad.portal.azure.com)seçin **kullanıcılar ve gruplar**.
-2. Seçin **tüm grupları**ve ardından sahipleri kaldırmak istediğiniz grubu açın.
-3. Seçin **sahipleri** sekmesi.
-4. Bu gruptan kaldırın ve ardından istediğiniz sahibini seçin **Kaldır**.
+### <a name="to-remove-an-owner"></a>Sahibi kaldırmak için
+1. Oturum [Azure portalında](https://portal.azure.com) dizinde genel yönetici hesabını kullanarak.
 
-## <a name="additional-information"></a>Ek bilgiler
-Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
+2. Seçin **Azure Active Directory**seçin **grupları**, ardından sahip eklemek istediğiniz grubu seçin (Bu örnekte, _MDM İlkesi - Batı_).
 
-* [Azure Active Directory grupları ile kaynaklara erişimi yönetme](active-directory-manage-groups.md)
-* [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-cmdlets.md)
-* [Azure Active Directory'de uygulama yönetimi](../manage-apps/what-is-application-management.md)
-* [Azure Active Directory nedir?](active-directory-whatis.md)
-* [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../connect/active-directory-aadconnect.md)
+3. Üzerinde **MDM İlkesi - Batı genel bakış** sayfasında **sahipleri**.
+
+    ![MDM İlkesi - sahipleri seçeneğinin vurgulandığı Batı genel bakış sayfası](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
+
+4. Üzerinde **MDM İlkesi - Batı - sahipleri** sayfasında, bir grup sahibi kaldırmak için seçmek istediğiniz kullanıcıyı seçin **Kaldır** kullanıcı bilgileri sayfası ve select **Evet** onaylamak için siz karar verirsiniz.
+
+    ![Kaldır seçeneğinin vurgulandığı kullanıcı bilgi sayfası](media/active-directory-accessmanagement-managing-group-owners/remove-owner-info-blade.png)
+
+    Sahibi kaldırdıktan sonra dönebilirsiniz **sahipleri** sayfasında ve ad sahipleri listesinden kaldırıldı bakın.
+
+## <a name="next-steps"></a>Sonraki adımlar
+- [Azure Active Directory grupları ile kaynaklara erişimi yönetme](active-directory-manage-groups.md)
+
+- [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-cmdlets.md)
+
+- [Tümleşik bir SaaS uygulamasına erişim atamak için grupları kullanma](../users-groups-roles/groups-saasapps.md)
+
+- [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../connect/active-directory-aadconnect.md)
+
+- [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-v2-cmdlets.md)

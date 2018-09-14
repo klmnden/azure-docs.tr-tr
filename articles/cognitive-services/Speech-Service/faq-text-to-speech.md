@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 330acf3e1258951f0129a1ba47f03c5140c30adf
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2068bcb796b660847d0ea9b1126e64a9003ca871
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719061"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576859"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Metin okuma hakkında sık sorulan sorular
 
@@ -28,11 +28,11 @@ Bu SSS'de sorularınızın yanıtlarını bulamazsanız, kullanıma [diğer dest
 
 **S: Standart ses modelini kullanmak istiyorsanız nereden başlamalıyım?**
 
-**A**: HTTP isteklerini 80'den fazla standart ses modelleri üzerinde 45 dilde kullanılabilir. İlk olarak, alın bir [abonelik anahtarı](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started). Predeployed ses modelleri için REST çağrıları yapmak için bkz: [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+**A**: HTTP isteklerini 80'den fazla standart ses modelleri üzerinde 45 dilde kullanılabilir. İlk olarak, alın bir [abonelik anahtarı](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Predeployed ses modelleri için REST çağrıları yapmak için bkz: [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 **S: özelleştirilmiş sesli modelini kullanmak istersem, API standart ses için kullanılan bir ile aynı mıdır?**
 
-**A**: özel sesli modeli oluşturulup dağıtıldığında, modeliniz için benzersiz bir uç noktasını alın. Uygulamalarınızda konuşma ses kullanmak için uç noktası, HTTP isteklerini belirtmeniz gerekir. Metin okuma hizmeti REST API'si kullanılabilir olan aynı işlevleri özel uç noktanız için kullanılabilir. Bilgi edinmek için nasıl [oluşturabilir ve özel uç noktanız](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**A**: özel sesli modeli oluşturulup dağıtıldığında, modeliniz için benzersiz bir uç noktasını alın. Uygulamalarınızda konuşma ses kullanmak için uç noktası, HTTP isteklerini belirtmeniz gerekir. Metin okuma hizmeti REST API'si kullanılabilir olan aynı işlevleri özel uç noktanız için kullanılabilir. Bilgi edinmek için nasıl [oluşturabilir ve özel uç noktanız](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
 
 **Verilerimi kendi özel sesli modelleri oluşturmak için eğitim verilerini hazırlamak gereken s:?**
 
@@ -40,7 +40,7 @@ Bu SSS'de sorularınızın yanıtlarını bulamazsanız, kullanıma [diğer dest
 
 Konuşma verilerinin bir koleksiyonunu özelleştirilmiş sesli modeli oluşturmak için gereklidir. Bu koleksiyon, bir dizi konuşma kayıtlarını ses dosyalarının ve her ses dosyasının transkripsiyonu, metin dosyası oluşur. Dijital sesinizi sonucunu yoğun eğitim verilerinizi kaliteye kullanır. İyi bir metin okuma ses üretmek için bir yüksek kaliteli ayakta Mikrofon Sessiz bir odada kayıtları yapılan önemlidir. Tutarlı bir birim oranı konuşma ve aralık ve konuşma ifadesel veren davranışların bile tutarlılık gibi harika bir dijital ses oluşturmak için gereklidir. Ses kaydı Studio'da kaydı önemle öneririz.
 
-Şu anda, biz çevrimiçi kaydı desteklemek veya kayıt studio önerisi sahip kullanmayın. Biçim gereksinim için bkz: [kayıtları ve dökümler hazırlama](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
+Şu anda, biz çevrimiçi kaydı desteklemek veya kayıt studio önerisi sahip kullanmayın. Biçim gereksinim için bkz: [kayıtları ve dökümler hazırlama](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
 
 **S: hangi komut dosyaları için özel bir üslup eğitimi konuşma verilerini kaydetmek için kullanmalıyım?**
 

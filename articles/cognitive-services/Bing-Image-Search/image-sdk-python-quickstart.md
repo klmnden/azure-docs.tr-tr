@@ -1,116 +1,91 @@
 ---
-title: "Hızlı Başlangıç: İstek ve Python SDK'sını kullanarak görüntüleri Filtrele"
-description: Bu hızlı başlangıçta, istek ve Python kullanarak Bing resim arama tarafından döndürülen görüntüleri Filtrele.
-titleSuffix: Azure Image Search SDK Python quickstart
+title: "Hızlı Başlangıç: Python ve Bing resim arama SDK'sını kullanarak görüntüleri arayın"
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, arama ve Bing resim arama SDK'sını ve Python kullanarak web üzerinde görüntüleri bulmak için kullanın.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 02/14/2018
-ms.author: v-gedod
-ms.openlocfilehash: 4729f103bb9b50d4ff039907db8eb677f3dc290a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.date: 08/28/2018
+ms.author: aahi
+ms.openlocfilehash: 4a24f1e4e051b627034f1d4664e94e0f47c43014
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41987486"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578302"
 ---
- # <a name="quickstart-request-and-filter-images-using-the-sdk-and-python"></a>Hızlı Başlangıç: Python ve SDK'sı kullanarak istek ve filtre görüntüleri
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>Hızlı Başlangıç: Python ve Bing resim arama SDK'sı ile görüntüleri arayın
 
-Bing görüntü arama SDK'sı web sorgular ve ayrıştırma sonuçları için REST API işlevlerini içerir. 
+Bing görüntü arama API'si için bir sarmalayıcı olan ve aynı özellikleri içeren SDK'yı kullanarak ilk görüntü arama yapmak için bu Hızlı Başlangıç'ı kullanın. Bu basit bir Python uygulaması bir görüntü arama sorgusu gönderir, JSON yanıtı ayrıştırır ve döndürülen ilk görüntünün URL'sini görüntüler.
 
-[Kaynak kodu Python Bing resim arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py) Git hub'da kullanılabilir.
+Bu örnek için kaynak kodu kullanılabilir [github'da](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) ek hata işleme ve ek açıklamalar.
 
-## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-Zaten sahip değilseniz, Python'ı yükleyin. SDK, 3.3, 3.4, 3.5 ve 3.6 gibi Python 2.7 ile uyumludur.
+## <a name="prerequisites"></a>Önkoşullar 
 
-Python geliştirme için genel öneri kullanmaktır bir [sanal ortam](https://docs.python.org/3/tutorial/venv.html). Yükleme ve sanal ortamıyla başlatma [venv Modülü](https://pypi.python.org/pypi/virtualenv). Python 2.7 için virtualenv yüklemeniz gerekir.
-```
-python -m venv mytestenv
-```
-Bing görüntü arama SDK bağımlılıklarını yükleyin:
-```
-cd mytestenv
-python -m pip install azure-cognitiveservices-search-imagesearch
-```
-## <a name="image-search-client"></a>Görüntü arama istemci
-Alma bir [Bilişsel hizmetler erişim anahtarını](https://azure.microsoft.com/try/cognitive-services/) altında *arama*. İçeri aktarmaları ekleyin:
-```
-from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
-from azure.cognitiveservices.search.imagesearch.models import ImageType, ImageAspect, ImageInsightModule
-from msrest.authentication import CognitiveServicesCredentials
+* [Python 2.7 veya 3.4](https://www.python.org/) ve daha yüksek.
 
-subscription_key = "YOUR-SUBSCRIPTION-KEY"
-```
-Bir örneğini oluşturmak `CognitiveServicesCredentials`ve istemci örneği:
-```
-client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
-```
-Animasyonlu GIF'ler ve geniş bir boyut için filtrelenmiş sorgu (Yosemite) görüntülerinde arayın. Sonuç sayısı doğrulayın ve yazdırma insightsToken, küçük resim URL'si ve web ilk sonucunun URL'si.
-```
-image_results = client.images.search(
-        query="Yosemite",
-        image_type=ImageType.animated_gif, # Could be the str "AnimatedGif"
-        aspect=ImageAspect.wide # Could be the str "Wide"
-    )
-    print("\r\nSearch images for \"Yosemite\" results that are animated gifs and wide aspect")
+* [Azure görüntü arama SDK](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) Python için
+    * Kullanarak yükleme `pip install azure-cognitiveservices-search-imagesearch`
 
-    if image_results.value:
-        first_image_result = image_results.value[0]
-        print("Image result count: {}".format(len(image_results.value)))
-        print("First image insights token: {}".format(first_image_result.image_insights_token))
-        print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
-        print("First image web search url: {}".format(first_image_result.web_search_url))
-    else:
-        print("Couldn't find image results!")
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-```
-Animasyonlu GIF'ler ve geniş bir boyut için filtrelenmiş resimler (Yosemite) için arama yapın.  Sonuç sayısı doğrulayın.  Çıkış yazdırma `insightsToken`, `thumbnail url` ve `web url` ilk sonuç.
-```
-image_results = client.images.search(
-    query="Yosemite",
-    image_type=ImageType.animated_gif, # Could be the str "AnimatedGif"
-    aspect=ImageAspect.wide # Could be the str "Wide"
-)
-print("\r\nSearch images for \"Yosemite\" results that are animated gifs and wide aspect")
+## <a name="create-and-initialize-the-application"></a>Oluşturma ve uygulama başlatma
 
+1. En sevdiğiniz IDE veya düzenleyici ve aşağıdaki içeri aktarmaları yeni bir Python betiği oluşturun:
+
+    ```python
+    from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
+    from msrest.authentication import CognitiveServicesCredentials
+    ```
+
+2. Abonelik anahtarı ve arama terimi için değişkenler oluşturun.
+
+    ```python
+    subscription_key = "Enter your key here"
+    search_term = "canadian rockies"
+    ```
+
+## <a name="create-the-image-search-client"></a>Görüntü arama istemcisi oluşturma
+
+3. Bir örneğini oluşturmak `CognitiveServicesCredentials`ve istemci örneği oluşturmak için kullanın:
+
+    ```python
+    client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
+    ```
+4. Bing resim arama API'si için bir arama sorgusu gönderin:
+    ```python
+    image_results = client.images.search(query=search_term)
+    ```
+## <a name="process-and-view-the-results"></a>İşlem ve sonuçları görüntüleme
+
+Yanıtta döndürülen resim sonuçları ayrıştırılamıyor.
+
+
+Yanıt arama sonuçları içeriyorsa, ilk sonucu depolar ve bir küçük resim gibi ayrıntılarını yazdırmak URL, toplam sayısını özgün URL'yi döndürülen görüntüler.  
+
+```python
 if image_results.value:
     first_image_result = image_results.value[0]
-    print("Image result count: {}".format(len(image_results.value)))
-    print("First image insights token: {}".format(first_image_result.image_insights_token))
+    print("Total number of images returned: {}".format(len(image_results.value)))
     print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
-    print("First image web search url: {}".format(first_image_result.web_search_url))
+    print("First image content url: {}".format(first_image_result.content_url))
 else:
-    print("Couldn't find image results!")
-
-```
-
-Popüler sonuçları alın:
-```
-trending_result = client.images.trending()
-print("\r\nSearch trending images")
-
-# Categorires
-if trending_result.categories:
-    first_category = trending_result.categories[0]
-    print("Category count: {}".format(len(trending_result.categories)))
-    print("First category title: {}".format(first_category.title))
-    if first_category.tiles:
-        first_tile = first_category.tiles[0]
-        print("Subcategory tile count: {}".format(len(first_category.tiles)))
-        print("First tile text: {}".format(first_tile.query.text))
-        print("First tile url: {}".format(first_tile.query.web_search_url))
-    else:
-        print("Couldn't find subcategory tiles!")
-    else:
-        print("Couldn't find categories!")
-
+    print("No image results returned!")
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Python SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+> [!div class="nextstepaction"]
+> [Bing resim arama tek sayfalı uygulama Öğreticisi](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
 
+## <a name="see-also"></a>Ayrıca bkz. 
 
+* [Bing resim arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Çevrimiçi bir etkileşimli Tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Ücretsiz bir Bilişsel hizmetler erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
+* [Azure Bilişsel hizmetler SDK için Python örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)  
+* [Azure Bilişsel hizmetler belgeleri](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing resim arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

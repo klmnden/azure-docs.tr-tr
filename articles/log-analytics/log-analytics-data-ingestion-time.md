@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2018
+ms.date: 09/12/2018
 ms.author: bwren
-ms.openlocfilehash: 0e513cc4f6a7d5d030ded807870de9eb0fdc0ed8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 97cf5c06372d416037b875078809aebb7e633456
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972645"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542846"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Log analytics'te veri alım zamanı
 Azure Log Analytics binlerce müşteri terabaytlarca veriyi her ay büyüyen bir hızda gönderme yapan bir büyük ölçekli veri hizmetidir. Genellikle verileri toplandıktan sonra Log Analytics'te kullanılabilir olana kadar geçen süreyi hakkında sorular vardır. Bu makalede, bu gecikme süresini etkileyen faktörleri farklı açıklanmaktadır.
 
 ## <a name="typical-latency"></a>Tipik bir gecikme süresi
-Gecikme süresi verileri izlenen sistemde oluşturulduğu tarih ve analiz Log analytics'te gelen süreyi ifade eder. Log Analytics'e veri almak için tipik bir gecikme süresi 7 dakikadan daha kısa bir süre içinde alınan veri %95 3, 10 dakika arasındadır. Herhangi bir veri belirli gecikme sürelerini faktörler aşağıda açıklanan çeşitli bağlı olarak değişir.
+Gecikme süresi verileri izlenen sistemde oluşturulduğu tarih ve analiz Log analytics'te gelen süreyi ifade eder. Log Analytics'e veri almak için tipik bir gecikme süresi arasında 2 ve 5 dakikadır. Herhangi bir veri belirli gecikme sürelerini faktörler aşağıda açıklanan çeşitli bağlı olarak değişir.
 
 ## <a name="sla-for-log-analytics"></a>Log Analytics için SLA
 [Log Analytics Hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) hizmet hedeflerini karşılamadığında, Microsoft müşterilerin mahsup işlemleri tanımlayan bir yasal bağlama anlaşması. Bu tipik sistem ancak olası bir yıkıcı durumlar için hesapları, en kötü durumda, performansı temel değil.
@@ -60,7 +60,7 @@ Bazı çözümler verilerine bir Aracıdan toplamaz ve ek gecikme sağlayan bir 
 Koleksiyon sıklığının belirlenmesi her bir çözüm için belgelere bakın.
 
 ### <a name="pipeline-process-time"></a>İşlem hattı işlem süresi
-Log Analytics işlem hattı'nda günlük kayıtları içe alınan sonra geçici depolama birimine Kiracı yalıtımı sağlamak ve veri kaybı olmadığından emin olmak için yazılan. Bu işlem genellikle 5-15 saniye ekler. Bazı yönetim çözümleri, veri toplama daha ağır algoritmalarını uygulayan ve içindeki veri akış içgörülere sahip olun. Örneğin, ağ performansı izleme gelen veri 3 dakikalık aralıklarında etkili bir şekilde 3 dakikalık bir gecikme ekleme toplar.
+Log Analytics işlem hattı'nda günlük kayıtları içe alınan sonra geçici depolama birimine Kiracı yalıtımı sağlamak ve veri kaybı olmadığından emin olmak için yazılan. Bu işlem genellikle 5-15 saniye ekler. Bazı yönetim çözümleri, veri toplama daha ağır algoritmalarını uygulayan ve içindeki veri akış içgörülere sahip olun. Örneğin, ağ performansı izleme gelen veri 3 dakikalık aralıklarında etkili bir şekilde 3 dakikalık bir gecikme ekleme toplar. Gecikme süresi ekler, başka bir işlem özel günlükleri işleyen işlemidir. Bazı durumlarda, bu işlem birkaç dakika gecikme dosyalarından aracısı tarafından toplanan günlükleri ekleyebilir.
 
 ### <a name="new-custom-data-types-provisioning"></a>Sağlama, yeni özel veri türleri
 Öğesinden yeni bir özel veri türü oluşturulduğunda bir [özel günlük](../log-analytics/log-analytics-data-sources-custom-logs.md) veya [veri toplayıcı API'sini](../log-analytics/log-analytics-data-collector-api.md), sistem bir adanmış depolama kapsayıcısı oluşturur. Bu, bu veri türü yalnızca ilk görünümünü oluşan tek seferlik bir ek yüktür.

@@ -1,76 +1,77 @@
 ---
-title: Bilgi Bankası - QnA Maker - Azure Bilişsel hizmetler test etme | Microsoft Docs
-description: Bilgi Bankası yayımlamadan önce test edin.
+title: Bilgi Bankası - soru-cevap Oluşturucu test etme
+titlesuffix: Azure Cognitive Services
+description: Soru-cevap Oluşturucu bankanızı test etme, verilen yanıtları doğruluğunu artırmak için bir süreçtir önemli bir parçasıdır. Bilgi Bankası düzenlemeler yapmak da sağlayan gelişmiş sohbet arabiriminden test edebilirsiniz.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: cffb63666edab25e1b3b0739d0e0f2f828600f3a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d2b93e62513f256e151d3ab3b34d6dc6d9a49d79
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354095"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542625"
 ---
-# <a name="test-your-knowledge-base"></a>Bilgi Bankası test
+# <a name="test-your-knowledge-base"></a>Bilgi bankanızı test
 
-QnA Maker Bilgi Bankası sınama, döndürülen yanıtları doğruluğunu artırmak için yinelemeli süreç önemli bir parçasıdır. Bilgi Bankası'de düzenlemeleri yapın sağlar bir Gelişmiş sohbet arabirim üzerinden test edebilirsiniz.
+Soru-cevap Oluşturucu bankanızı test etme, verilen yanıtları doğruluğunu artırmak için bir süreçtir önemli bir parçasıdır. Bilgi Bankası düzenlemeler yapmak da sağlayan gelişmiş sohbet arabiriminden test edebilirsiniz.
 
 ## <a name="test-answer-matching"></a>Test yanıt eşleştirme
 
-1.  Bilgi Bankası üzerinde adını seçerek erişim **My Bilgi Bankası** sayfası.
-2.  Test slayt çıkış paneli erişmek için seçin **Test** uygulamanızın üst panelinde.
+1.  Adını seçerek bilgi bankanızı erişim **My bilgi bankalarından** sayfası.
+2.  Test slayt genişletme paneline erişmek için seçin **Test** uygulamanızın üst panelinde.
 
     ![Erişim sınaması](../media/qnamaker-how-to-test-kb/access-test.png)
 
-3.  Metin kutusuna bir sorgu girin ve Enter seçin.
+3.  Metin kutusuna bir sorgu girin ve Enter tuşuna basın.
 
-4.  Bilgi Bankası'nden en iyi eşleşen yanıtlama yanıt olarak döndürülür.
+4.  Bilgi Bankası'nden en iyi eşleşen yanıtlama yanıt döndürülür.
 
-## <a name="clear-test-panel"></a>Clear test paneli
+## <a name="clear-test-panel"></a>Açık test paneli
 
-Tüm girilen test sorgular ve sonuçları test konsolundan temizlemek için seçin **baştan başlamak** Test bölmenin sol üst köşesindeki.
+Tüm girilen test sorgular ve sonuçları test konsolundan temizlemek için seçin **baştan** Test panelinin sol üst köşesinde.
 
 ## <a name="close-test-panel"></a>Kapat test paneli
 
-Test paneli kapatmaya seçin **Test** yeniden düğmesine tıklayın. Test paneli açık olsa da, Bilgi Bankası içeriğini düzenleyemezsiniz.
+Test paneli kapatmak için seçin **Test** düğmesini tekrar. Bilgi Bankası içerikleri, Test panel açıkken düzenleyemezsiniz.
 
-## <a name="inspect-score"></a>Puan inceleyin.
+## <a name="inspect-score"></a>Puan inceleyin
 
-Test sonucu İncele panelinde ayrıntılarını inceleyin.
+İnceleyin panelinde test sonucunun ayrıntılarını inceleyin.
 
-1.  Test slayt çıkış paneli açık seçin **incele** bu yanıtı hakkında daha fazla ayrıntı için.
+1.  Test slayt çıkış panelini Aç seçin **inceleyin** bu yanıtı hakkında daha fazla bilgi.
 
-    ![Yanıtları inceleyin.](../media/qnamaker-how-to-test-kb/inspect.png)
+    ![Yanıtları](../media/qnamaker-how-to-test-kb/inspect.png)
 
-2.  İncelemesini panelinde görüntülenir. Bölmenin hedefi olarak tanımlanan herhangi bir varlık Puanlama üst içerir. Bölmenin seçili utterance sonucunu gösterir.
+2.  İnceleme paneli görüntülenir. Panelin amacını ve bunun yanı sıra tanımlanan herhangi bir varlık Puanlama üst içerir. Paneli, seçilen utterance sonucunu gösterir.
 
 ## <a name="correct-the-top-scoring-answer"></a>Yanıt Puanlama üst düzeltin
 
-Yanıt Puanlama üst yanlış ise, doğru yanıt listesi ve select seçin **kaydedin ve eğitmek**.
+Yanıt Puanlama üst yanlışsa, doğru yanıtı listesi ve select seçin **kaydedin ve eğitme**.
 
 ![Erişim sınaması](../media/qnamaker-how-to-test-kb/choose-answer.png)
 
 ## <a name="add-alternate-questions"></a>Diğer sorular ekleyin
 
-Belirli bir yanıt bir soru alternatif forms ekleyebilirsiniz. Bunları eklemek için diğer'i tıklatın ve metin kutusu içinde yanıt türü girin. Seçin **kaydedin ve eğitmek** güncelleştirmeleri depolamak için.
+Belirli bir yanıt soru diğer formlara ekleyebilirsiniz. Diğer tıklayın ve metin kutusu içinde yanıt türü bunları eklemek için enter. Seçin **kaydedin ve eğitme** güncelleştirmeleri depolamak için.
 
 ![Erişim sınaması](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
 
 ## <a name="add-a-new-answer"></a>Yeni bir yanıt Ekle
 
-Yanıt Bilgi Bankası (KB cinsinden iyi eşleşme bulundu) mevcut değil ya da eşleştirildiklerinden varolan yanıtlar yanlış olan yeni bir yanıt ekleyebilirsiniz. Geçerli soru yeni yanıt metin kutusuna girin ve eklemek için enter tuşuna basın. 
+Yanıt Bilgi Bankası (KB iyi eşleşme bulundu) mevcut değil veya eşleştirilmiş olan mevcut yanıtlar yanlış olan, yeni bir yanıt ekleyebilirsiniz. Yeni geçerli sorusuna yanıt metin kutusuna girin ve eklemek için enter tuşuna basın. 
 
-Seçin **kaydedin ve eğitmek** bu yanıt kalıcı hale getirmek için. Yeni bir soru-yanıt çifti şimdi Bilgi Bankası'na eklendi.
+Seçin **kaydedin ve eğitme** bu yanıt kalıcı hale getirmek için. Yeni bir soru-cevap çifti şimdi Bilgi Bankası'na eklendi.
 
 ![Erişim sınaması](../media/qnamaker-how-to-test-kb/add-answer.png)
 
 > [!NOTE]
-> Tuşuna bastığınızda, Bilgi Bankası yapılan düzenlemelerin yalnızca kaydedileceği **kaydedin ve eğitmek** düğmesi.
+> Tuşuna bastığınızda tüm düzenlemeleri bilgi bankanızı yalnızca kaydedileceği **kaydedin ve eğitme** düğmesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

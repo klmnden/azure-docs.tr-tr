@@ -1,21 +1,21 @@
 ---
-title: Destekleniyor - veri kaynakları Microsoft Bilişsel hizmetler | Microsoft Docs
-titleSuffix: Azure
-description: Desteklenen veri kaynakları
+title: Destekleniyor - veri kaynakları soru-cevap Oluşturucu
+titleSuffix: Azure Cognitive Services
+description: Soru-cevap Oluşturucu SSS ve ürün kılavuzlarını gibi ortak yarı yapılandırılmış içerik biçimlerden soru-cevap çiftlerini otomatik olarak ayıklayabilir. İçeriği, yapılandırılmış dosyalarından Bilgi Bankası'na da eklenebilir.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: 698f96b15a9387cd30d26e684ed03ff4cc3346a7
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 0436d5015ee4b369aeead7691f87ef313259d391
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697909"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544005"
 ---
 # <a name="data-sources"></a>Veri kaynakları 
 Soru-cevap Oluşturucu SSS ve ürün kılavuzlarını gibi ortak yarı yapılandırılmış içerik biçimlerden soru-cevap çiftlerini otomatik olarak ayıklayabilir. İçeriği, yapılandırılmış dosyalarından Bilgi Bankası'na da eklenebilir.
@@ -75,4 +75,4 @@ Bilgi Bankası doldurmak için önceden var olan içerik yoksa, ayrıca bunları
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
-[Soru-cevap Oluşturucu genel bakış](../Overview/overview.md)
+[Soru-Cevap Oluşturma’ya genel bakış](../Overview/overview.md)

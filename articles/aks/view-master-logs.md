@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 04afd71183bcb8001d017b0027f29338b8d67ddb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 50de43fd6f9ca579b501c47514c9f8fca4f53ae8
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442376"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540977"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Kubernetes Azure Kubernetes Service (AKS) ana düğüm günlüklerini gözden geçirin ve etkinleştirin
 
@@ -75,8 +75,7 @@ Bu OMS çalışma alanınızda görünür ve etkin tanılama günlükleri için 
 Sol tarafındaki seçin **günlük araması**. Görüntülenecek *kube-apiserver*, metin kutusuna aşağıdaki sorguyu girin:
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | project log_s
 ```
@@ -84,8 +83,7 @@ search *
 Çok sayıda günlüğü API sunucusu için büyük olasılıkla döndürülür. Önceki adımda oluşturduğunuz NGINX pod hakkında günlükleri görüntülemek için sorguyu aşağı kapsamını belirlemek için ek bir ekleme *burada* aramak için deyimi *pod'ların / nginx* aşağıdaki örnek sorguda gösterildiği gibi:
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | where log_s contains "pods/nginx"
 | project log_s

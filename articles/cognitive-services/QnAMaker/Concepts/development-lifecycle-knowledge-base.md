@@ -1,57 +1,57 @@
 ---
-title: Bilgi Bankası - Microsoft Bilişsel hizmetler geliştirme yaşam döngüsü | Microsoft Docs
-titleSuffix: Azure
-description: Bilgi Bankası geliştirme yaşam döngüsü
+title: Bilgi Bankası - soru-cevap Oluşturucu geliştirme yaşam döngüsü
+titleSuffix: Azure Cognitive Services
+description: Soru-cevap Oluşturucu, en iyi modeli değişiklikleri, utterance örnekler, yayımlama ve veri toplamayı yinelemeli bir döngüyle uç nokta sorgularından öğrenir.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: 9ecdd2c7823eed145621b214690eff7681065507
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: d38eaf466e6013d9b20063fe1e1feb2c36ed4205
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35356034"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543428"
 ---
 # <a name="knowledge-base-lifecycle"></a>Bilgi Bankası yaşam döngüsü
-QnA Maker en iyi modeli değişiklikleri, utterance örnekler, yayımlama ve veri toplamayı yinelemeli bir döngüyle uç nokta sorgularından öğrenir. 
+Soru-cevap Oluşturucu, en iyi modeli değişiklikleri, utterance örnekler, yayımlama ve veri toplamayı yinelemeli bir döngüyle uç nokta sorgularından öğrenir. 
 
-![Döngüsü yazma](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
+![Yazma döngüsü](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
-## <a name="creating-a-qna-maker-knowledge-base"></a>QnA Maker Bilgi Bankası oluşturma
-QnA Maker Bilgi Bankası (KB) uç noktası KB içeriğine göre bir kullanıcı sorgu için en iyi eşleşme yanıt sağlar. Bilgi Bankası oluşturma sorular, yanıtlar ve ilişkili meta verileri bir içerik deposu ayarlamak için tek seferlik bir işlemdir. Bilgi Bankası SSS sayfaları, Ürün kılavuzlarının veya yapılandırılmış Q-A çiftleri gibi önceden varolan içerikte tarafından oluşturulabilir. Bilgi edinmek için nasıl [Bilgi Bankası oluşturun](../How-To/create-knowledge-base.md).
+## <a name="creating-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası oluşturma
+Soru-cevap Oluşturucu Bilgi Bankası (KB) uç noktası, bir kullanıcı sorgu KB içeriğine göre en iyi eşleşme Yanıtla sağlar. Bilgi Bankası oluşturma, bir içerik deposu soru, yanıt ve ilişkili meta verileri ayarlama için tek seferlik bir işlemdir. Bilgi Bankası, SSS sayfaları, ürün kılavuzlarını veya yapılandırılmış Q A çiftleri gibi önceden varolan içerikte tarafından oluşturulabilir. Bilgi edinmek için nasıl [Bilgi Bankası oluşturma](../How-To/create-knowledge-base.md).
 
-## <a name="testing-and-updating-the-knowledge-base"></a>Test etme ve Bilgi Bankası güncelleştiriliyor
-Bilgi Bankası düzenleme şeklinde veya otomatik ayıklama aracılığıyla içerikle doldurulduktan sonra test etmek için hazırdır. Aracılığıyla sınama yapılabilir **Test** Masası ortak kullanıcı sorgularının girerek ve döndürülen yanıtlarının beklendiği gibi olduğunu doğrulamak ve yeterli güvenirlik puanı. Düşük güvenilirlik puanları düzeltmek için diğer sorular ekleyebilirsiniz. Bir sorgu "eşleşme KB bulunamadı" dönerse yeni yanıtlar de ekleyebilirsiniz varsayılan yanıt. Sonuçlardan memnun olana kadar testi güncelleştirme sıkı Bu döngü devam eder. Bilgi edinmek için nasıl [, Bilgi Bankası test](../How-To/test-knowledge-base.md).
+## <a name="testing-and-updating-the-knowledge-base"></a>Test ve Bilgi Bankası güncelleştirme
+Bilgi Bankası bilgi bankanızı düzenleyerek veya otomatik ayıklama aracılığıyla içerikle doldurulur sonra test etmek için hazırdır. Aracılığıyla testi yapılabilir **Test** paneli yeterli güvenilirlik puanı ve ortak kullanıcı sorguları girerek ve döndürülen yanıtların beklendiği gibi olduğu doğrulanıyor. Düşük güven puanları düzeltmek için alternatif bir soru ekleyebilirsiniz. Bir sorgu "eşleşme KB bulunamadı" dönerse yeni yanıtları de ekleyebilirsiniz varsayılan yanıt. Sonuçlardan memnun olana kadar test güncelleştirme sıkı Bu döngü devam eder. Bilgi edinmek için nasıl [bilgi bankanızı test](../How-To/test-knowledge-base.md).
 
-Büyük KB için test generateAnswer API'leri otomatik olarak yapılabilir. 
+Büyük KB'leri için test generateAnswer API'leri otomatikleştirilebilir. 
 
 ## <a name="publish-the-knowledge-base"></a>Bilgi Bankası yayımlama
-İşiniz bittiğinde Bilgi Bankası test, onu yayımlayabilirsiniz. En son sürümünü test edilmiş Bilgi Bankası'na adanmış bir Azure Search dizini temsil eden iter yayımlama **yayımlanan** Bilgi Bankası. Ayrıca çağrılabilir bir uç nokta uygulaması ya da sohbet bot oluşturur.
+İşiniz bittiğinde Bilgi Bankası sınanması, bunu yayımlayabilirsiniz. En son sürümünü test edilmiş Bilgi Bankası'na ayrılmış bir Azure Search dizinini temsil eden bildirim yayımlama **yayımlanan** Bilgi Bankası. Ayrıca, uygulama veya sohbet Robotu çağrılabilen bir uç nokta oluşturur.
 
-Bu şekilde, bir üretim uygulamasında dinamik olabilecek yayımlanmış bir sürüm Bilgi Bankası test sürümüne yapılan değişiklikleri etkilemez.
+Bu şekilde, bir üretim uygulamasında Canlı olabilecek yayımlanmış sürümüne Bilgi Bankası test sürümüne yapılan her değişikliği etkilemez.
 
-Bu Bilgi Bankası herbiri ayrı ayrı test etmek için hedeflenebilir. API'lerini kullanarak, Bilgi Bankası'ile deneme sürümü hedefleyebilirsiniz `isTest=true` generateAnswer çağrısında bayrağı.
+Bu bilgi bankalarından herbiri ayrı olarak test etmek için hedeflenebilir. API'leri kullanarak Bilgi Bankası ile test sürümünü hedefleyebilirsiniz `isTest=true` generateAnswer çağrısında bayrağı.
 
 Bilgi edinmek için nasıl [, Bilgi Bankası yayımlama](../How-To/publish-knowledge-base.md).
 
 ## <a name="monitor-usage"></a>Kullanımı izleme
-Hizmetinizin sohbet günlükleri oturum açabilmesi için Application Insights etkinleştirmek gerekir, [QnA Maker hizmetinizi oluşturmak](../How-To/set-up-qnamaker-service-azure.md).
+Sohbet günlükleri hizmetinizin oturum açabilmesi için Application Insights'ı etkinleştirmek ihtiyacınız zaman, [soru-cevap Oluşturucu hizmetinizi oluşturun](../How-To/set-up-qnamaker-service-azure.md).
 
-Çeşitli analytics hizmeti kullanım elde edebilirsiniz. Application ınsights almak için nasıl kullanılacağı hakkında daha fazla bilgi [analytics QnA Maker hizmetiniz için](../How-To/get-analytics-knowledge-base.md).
+Hizmet kullanımınızın çeşitli analiz elde edebilirsiniz. Almak için application ınsights'ı kullanma hakkında daha fazla bilgi edinin [soru-cevap Oluşturucu hizmetiniz için analytics](../How-To/get-analytics-knowledge-base.md).
 
-Bağlı olarak, analytics'ten öğrenin, uygun hale [, Bilgi Bankası güncelleştirmeleri](../How-To/edit-knowledge-base.md).
+Bağlı olarak, analytics'ten öğrenin, uygun hale [bilgi bankanızı güncelleştirmeleri](../How-To/edit-knowledge-base.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [GÜVENİRLİK puanı](./confidence-score.md)
+> [Güvenilirlik puanı](./confidence-score.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
 [Bilgi Bankası](./knowledge-base.md)
-[QnA Maker genel bakış](../Overview/overview.md)
+[soru-cevap Oluşturucu genel bakış](../Overview/overview.md)

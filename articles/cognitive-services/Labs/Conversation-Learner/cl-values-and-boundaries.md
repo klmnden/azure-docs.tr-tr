@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c0ad9f71665e503fe794c68200b90a8474750823
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b048509f38356b19d52507f4dfb5bfa61122f9f6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173634"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576434"
 ---
 # <a name="default-values-and-boundaries"></a>Varsayılan değerler ve sınırlar
 
@@ -35,8 +35,8 @@ API geliştirme, aylık maksimum HTTP çağrıları | 5 DK
 API geliştirme, saniye başına en fazla HTTP çağrısı | 25
 Oturum API, ayda en fazla HTTP çağrısı | 500K
 Saniye başına en fazla HTTP oturumu API çağrısı | 10
-Özel (programlı olmayan) varlıklar model başına en fazla sayısı | Bkz: [LUIS sınırları doc](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries); uygulama, gerçek sayı biraz daha küçük olmalıdır
-Önceden derlenmiş varlıklar model başına en fazla sayısı | Bkz: [LUIS sınırları belge](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries)
+Özel (programlı olmayan) varlıklar model başına en fazla sayısı | Bkz: [LUIS sınırları doc](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries); uygulama, gerçek sayı biraz daha küçük olmalıdır
+Önceden derlenmiş varlıklar model başına en fazla sayısı | Bkz: [LUIS sınırları belge](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)
 Varlıklar (toplam) model başına en fazla sayısı | 100
 Eylemler model başına en fazla sayısı | 32
 Train iletişim kutuları model başına en fazla sayısı | 1000

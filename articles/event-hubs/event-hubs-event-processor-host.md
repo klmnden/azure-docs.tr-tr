@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: ede76e8161cc15d6a87041ef5ef9525570fec794
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 672e31109b71a8a4238a05851a58a7c83e275b19
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745890"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576330"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Azure Event Hubs olay işlemcisi konağı genel bakış
 
 Azure Event Hubs, milyonlarca olayı düşük bir maliyet karşılığında kullanılabilir güçlü telemetri alma hizmetidir. Bu makalede kullanarak içe alınan etkinlikleri kullanma *Event Processor Host* (EPH); akıllı bir tüketici aracıyı denetim noktası oluşturma, kiralama ve paralel olay okuyucuları yönetimini basitleştirir.  
 
-Event Hubs için ölçeklendirmek için anahtar bölümlenmiş tüketici olur. Tersine [rakip tüketiciler](http://msdn.microsoft.com/en-us/library/dn568101.aspx) düzeni, bölünmüş bir tüketici modeli sağlar büyük ölçekli Çekişme performans sorunu kaldırma ve uçtan uca paralellik etkinleştirme.
+Event Hubs için ölçeklendirmek için anahtar bölümlenmiş tüketici olur. Tersine [rakip tüketiciler](http://msdn.microsoft.com/library/dn568101.aspx) düzeni, bölünmüş bir tüketici modeli sağlar büyük ölçekli Çekişme performans sorunu kaldırma ve uçtan uca paralellik etkinleştirme.
 
 ## <a name="home-security-scenario"></a>Giriş güvenlik senaryosu
 

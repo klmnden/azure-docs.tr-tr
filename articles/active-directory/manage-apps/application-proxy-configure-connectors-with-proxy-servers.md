@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2017
+ms.date: 09/12/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 7f9d74ce60d2a433f6bb63be4f131ac430452036
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e67428116c66c05d83efbb217d7ec81f75124051
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363423"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540855"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Mevcut şirket içi proxy sunucuları ile çalışma
 
@@ -77,7 +77,7 @@ Yalnızca giden trafiğe sahip sonucu olarak, güvenlik duvarları üzerinden ge
 
 WPAD ortamda etkin olduğundan ve uygun şekilde yapılandırıldığından, bağlayıcıyı kullanmak için girişim ve giden proxy sunucusu otomatik olarak bulur. Ancak, bir giden proxy üzerinden gitmek için bağlayıcıyı açıkça yapılandırabilirsiniz.
 
-Bunu yapmak için C:\Program Files\Microsoft AAD uygulaması Proxy Connector\ApplicationProxyConnectorService.exe.config dosyasını düzenleyin ve ekleyin *system.net* Bu kod örneğinde gösterilen bölümü. Değişiklik *proxyserver:8080* yerel ara sunucu adınız veya IP adresi ve dinleme yaptığı bağlantı noktasını yansıtmak için.
+Bunu yapmak için C:\Program Files\Microsoft AAD uygulaması Proxy Connector\ApplicationProxyConnectorService.exe.config dosyasını düzenleyin ve ekleyin *system.net* Bu kod örneğinde gösterilen bölümü. Değişiklik *proxyserver:8080* yerel ara sunucu adınız veya IP adresi ve dinleme yaptığı bağlantı noktasını yansıtmak için. Bir IP adresi kullanıyor olsanız bile değeri önek http:// olması gerekir.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

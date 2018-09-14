@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7aa7cd2e5b1cf1346a5a7b1f82ec9c7933dd1112
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041434"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542489"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure portalını kullanarak cihazları yönetme
 
 
-İle cihaz Yönetimi Azure Active Directory'de (Azure AD) güvenlik ve uyumluluğa yönelik standartlarınızı karşılayan cihazlardan kullanıcılarınızın kaynaklarınızı eriştiğiniz emin olabilirsiniz. 
+Azure Active Directory’de (Azure AD) cihaz yönetimi ile, kullanıcılarınızın güvenlik ve uyumluluk açısından standartlarınızı karşılayan cihazlardan kaynaklarınıza eriştiğinden emin olabilirsiniz. 
 
 Bu makalede:
 
@@ -123,7 +123,7 @@ Bir yönetici olarak kayıtlı veya alanına katılmış cihazları yönetebilir
 
 ### <a name="manage-an-intune-device"></a>Bir Intune cihaz yönetme
 
-Bir Intune Yöneticisi olarak, istiyorsanız olarak işaretlenmiş cihazlarını yönetebilmeniz için **Intune**. Yönetici ek cihaz görebilirsiniz. 
+Bir Intune Yöneticisi olarak, istiyorsanız olarak işaretlenmiş cihazlarını yönetebilmeniz için **Intune**. 
 
 ![Bir Intune cihaz yönetme](./media/device-management-azure-portal/31.png)
 

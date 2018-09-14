@@ -1,6 +1,6 @@
 ---
 title: Azure Otomasyonu Windows Karma Runbook Çalışanı
-description: Bu makale bir Azure Otomasyon karma Runbook, runbook'lar yerel veri merkezinde veya Bulut ortamında Windows tabanlı bilgisayarlarda çalıştırmak için kullanabileceğiniz Worker yükleme hakkında bilgi sağlar.
+description: Bu makale, bir Azure Otomasyonu karma Runbook, runbook'ları yerel veri merkezinde veya Bulut ortamında Windows tabanlı bilgisayarlarda çalıştırmak için kullanabileceğiniz çalışanı yükleme hakkında bilgi sağlar.
 services: automation
 ms.service: automation
 ms.component: process-automation
@@ -9,65 +9,65 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e449e6e457c4fa568b5a4de5823014b4dcea82d0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0d98aef3e75130bbab7871733f709bf5e2ffdbcb
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064074"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541258"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı dağıtma
 
-Runbook'ları doğrudan rolünü barındıran bilgisayarda ve bu yerel kaynakları yönetmek için ortamında kaynaklara karşı çalıştırmak için Azure Otomasyon karma Runbook çalışanı özelliğini kullanabilirsiniz. Runbook'ları depolanan ve Azure Otomasyonu'nda yönetilir ve bir veya daha fazla atanmış bilgisayarlara teslim. Bu makalede, bir Windows makinesinde karma Runbook çalışanı yüklemeyi açıklar.
+Runbook'ları doğrudan rolünü barındıran bilgisayarda ve ortamınızda bu yerel kaynakları yönetmek için kaynakların karşı çalıştırmak için Azure Otomasyon karma Runbook çalışanı özelliğini kullanabilirsiniz. Runbook'ları tutulur ve yönetilen Azure Otomasyonu'nda ve sonra bir veya daha fazla atanmış bilgisayarlara teslim. Bu makalede, bir Windows makinede karma Runbook çalışanı yükleneceğini açıklar.
 
-## <a name="installing-the-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı yükleme
+## <a name="installing-the-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı'nı yükleme
 
-Yüklemek ve bir Windows karma Runbook çalışanı yapılandırmak için iki yöntem kullanabilirsiniz. Önerilen yöntem, tam bir Windows bilgisayarı yapılandırma işlemini otomatikleştirmek için bir Otomasyon runbook'u kullanıyor. İkinci yöntem, el ile rolünü yüklemek ve yapılandırmak için adım adım bir yordam takip ediyor.
+Yükleme ve yapılandırma Windows karma Runbook çalışanı için iki yöntem kullanabilirsiniz. Önerilen yöntem, tam bir Windows bilgisayar yapılandırma işlemi otomatik hale getirmek için bir Otomasyon runbook'unu kullanıyor. İkinci yöntem, el ile rolünü yüklemek ve yapılandırmak için adım adım bir yordam kullanılmasıdır.
 
 > [!NOTE]
-> İstenen durum yapılandırması (DSC) ile karma Runbook çalışanı rolünü destekleyen sunucularınızın yapılandırmasını yönetmek için DSC düğümleri olarak eklemeniz gerekir.
+> Karma Runbook çalışanı rolü Desired State Configuration (DSC) ile destekleyen sunucularınızın yapılandırmasını yönetmek için DSC düğümleri olarak eklemeniz gerekir.
 
-Windows karma Runbook çalışanı için minimum gereksinimleri şunlardır:
+Windows karma Runbook çalışanı için en düşük gereksinimler şunlardır:
 
 * Windows Server 2012 veya üzeri.
-* Windows PowerShell 4.0 veya üstünü ([WMF 4.0 indirme](https://www.microsoft.com/download/details.aspx?id=40855)). Windows PowerShell 5.1 öneririz ([WMF 5.1 karşıdan](https://www.microsoft.com/download/details.aspx?id=54616)) daha yüksek güvenilirlik için.
-* .NET framework 4.6.2 veya sonraki bir sürümü.
+* Windows PowerShell 4.0 veya üzeri ([WMF 4.0 indirmeniz](https://www.microsoft.com/download/details.aspx?id=40855)). Windows PowerShell 5.1 öneririz ([WMF 5.1 indirme](https://www.microsoft.com/download/details.aspx?id=54616)) daha fazla güvenilirlik için.
+* .NET framework 4.6.2 veya üzeri.
 * İki çekirdek.
 * 4 GB RAM.
 * Bağlantı noktası 443 (giden).
 
-Karma Runbook çalışanı için daha fazla ağ gereksinimlerini almak için bkz: [ağınızı yapılandırma](automation-hybrid-runbook-worker.md#network-planning).
+Karma Runbook çalışanı için daha fazla ağ gereksinimleri almak için bkz. [ağınıza yapılandırma](automation-hybrid-runbook-worker.md#network-planning).
 
-DSC ile yönetimi için hazırlanma sunucuları hakkında daha fazla bilgi için bkz: [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md).
-Etkinleştirirseniz, [güncelleştirme yönetimi çözümü](../operations-management-suite/oms-solution-update-management.md), bu çözümde bulunan runbook'ları desteklemek için bir karma Runbook çalışanı olarak Azure günlük analizi çalışma alanına bağlı herhangi bir Windows bilgisayar otomatik olarak yapılandırılır. Ancak, bu Otomasyon hesabında zaten tanımlanmış bir karma çalışanı grubu ile kayıtlı değil. 
+DSC ile yönetim sunucuları ekleme hakkında daha fazla bilgi için bkz. [makineleri Azure Automation DSC tarafından Yönetim için hazırlama](automation-dsc-onboarding.md).
+Etkinleştirirseniz [güncelleştirme yönetimi çözümünü](../operations-management-suite/oms-solution-update-management.md), Azure Log Analytics çalışma alanınıza bağlı herhangi bir Windows bilgisayarda otomatik olarak bu çözümde yer alan runbook'ların desteklenmesi için bir karma Runbook çalışanı olarak yapılandırılır. Ancak, Otomasyon hesabınızda önceden tanımlı karma çalışanı gruplarıyla kayıtlı değil. 
 
-Bilgisayar grubuna Automation runbook çözümü ve karma Runbook çalışanı grup üyeliği için aynı hesabı kullanmakta olduğunuz sürece desteklemek için bir karma Runbook çalışanı Otomasyon hesabınızda eklenebilir. Bu işlev Karma Runbook Çalışanının 7.2.12024.0 sürümüne eklenmiştir.
+Bilgisayar çözüm ve karma Runbook çalışanı grup üyeliği için aynı hesabı kullandığınız sürece Otomasyon gruplarını desteklemek için Otomasyon hesabınızdaki bir karma Runbook çalışanı grubuna eklenebilir. Bu işlev Karma Runbook Çalışanının 7.2.12024.0 sürümüne eklenmiştir.
 
-Bir runbook worker başarıyla dağıttıktan sonra gözden [runbook'lar bir karma Runbook çalışanı üzerinde çalışacak](automation-hrw-run-runbooks.md) runbook'larınızın, şirket içi veri merkezi ya da diğer bulut ortamı süreçlerini otomatikleştirmek için yapılandırma hakkında bilgi edinmek için.
+Başarılı bir şekilde bir runbook worker dağıtımından sonra gözden [bir karma Runbook çalışanı üzerinde runbook çalıştırma](automation-hrw-run-runbooks.md) şirket içi veri merkezinizde veya diğer bulut ortamı işlemlerini otomatikleştirmek için runbook'larınızı yapılandırma hakkında bilgi edinmek için.
 
 ### <a name="automated-deployment"></a>Otomatik dağıtım
 
-Yükleme ve Windows karma çalışan rolü yapılandırmasını otomatik hale getirmek için aşağıdaki adımları gerçekleştirin:
+Yükleme ve yapılandırma Windows karma çalışan rolünün otomatik hale getirmek için aşağıdaki adımları gerçekleştirin:
 
-1. Yeni OnPremiseHybridWorker.ps1 komut dosyasını karşıdan [PowerShell Galerisi](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript) doğrudan karma Runbook çalışanı rolünü çalıştıran bilgisayara veya başka bir bilgisayardan, ortamınızdaki. Komut dosyası için çalışan kopyalayın.
+1. New-OnPremiseHybridWorker.ps1 betiği indirin [PowerShell Galerisi](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript) doğrudan karma Runbook çalışanı rolünü çalıştıran bilgisayar veya başka bir bilgisayardan ortamınızdaki. Çalışana betiği kopyalayın.
 
-   Yeni OnPremiseHybridWorker.ps1 komut dosyası yürütme sırasında aşağıdaki parametreleri gerektirir:
+   New-OnPremiseHybridWorker.ps1 betik yürütme sırasında için aşağıdaki parametreler gereklidir:
 
-   * *AutomationAccountName* (zorunlu): Otomasyon hesabınızın adını.
+   * *AutomationAccountName* (zorunlu): Otomasyon hesabınızın adı.
    * *AAResourceGroupName* (zorunlu): Otomasyon hesabınızla ilişkili kaynak grubunun adı.
-   * *OMSResourceGroupName* (isteğe bağlı): Operations Management Suite çalışma kaynak grubunun adı. Bu kaynak grubu belirtilmezse, *AAResourceGroupName* kullanılır.
+   * *OMSResourceGroupName* (isteğe bağlı): Log Analytics çalışma alanı için kaynak grubunun adı. Bu kaynak grubu belirtilmezse *AAResourceGroupName* kullanılır.
    * *HybridGroupName* (zorunlu): Bu senaryoyu desteklemek runbook'ları için hedef olarak belirttiğiniz bir karma Runbook çalışanı grubunun adı.
-   * *Subscriptionıd* (zorunlu): Automation hesabınız olarak Azure abonelik kimliği.
-   * *WorkspaceName* (isteğe bağlı): günlük analizi çalışma alanı adı. Günlük analizi çalışma alanı yoksa, komut dosyası oluşturur ve bir yapılandırır.
+   * *Subscriptionıd* (zorunlu):, Otomasyon hesabının bulunduğu Azure abonelik kimliği.
+   * *WorkspaceName* (isteğe bağlı): Log Analytics çalışma alanı adı. Bir Log Analytics çalışma alanınız yoksa, betiği oluşturur ve bir yapılandırır.
 
      > [!NOTE]
-     > Günlük analizi ile tümleştirme için desteklenen tek Otomasyon bölgeler şu anda, uygun **Avustralya Güneydoğu**, **Doğu ABD 2**, **Güneydoğu Asya**, ve  **Batı Avrupa**. Otomasyon hesabınızı bu bölgeler içinde değilse, komut dosyası günlük analizi çalışma alanı oluşturur, ancak bunları birlikte Bağla olamaz, sizi uyarır.
+     > Log Analytics ile tümleştirme için desteklenen tek Otomasyon bölgeler şu anda olan **Avustralya Güneydoğu**, **Doğu ABD 2**, **Güneydoğu Asya**, ve  **Batı Avrupa**. Otomasyon hesabınızın bu bölgelerden birinde değilse, komut dosyasının bir Log Analytics çalışma alanı oluşturur ancak bunları birlikte Bağla olamaz, sizi uyarır.
 
-1. Bilgisayarınızda açmak **Windows PowerShell** gelen **Başlat** ekran Yönetici modunda.
-1. PowerShell komut satırı kabuğundan indirdiğiniz komut dosyasını içeren klasöre gidin. Parametre değerlerini değiştirmek *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- Subscriptionıd*, ve *- WorkspaceName*. Daha sonra komut dosyasını çalıştırın.
+1. Bilgisayarınızda açma **Windows PowerShell** gelen **Başlat** Yönetici modunda ekran.
+1. PowerShell komut satırı kabuğundan, indirdiğiniz komut dosyasını içeren klasöre göz atın. Parametreler için değerleri değiştirme *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- Subscriptionıd*, ve *- WorkspaceName*. Ardından, betiği çalıştırın.
 
      > [!NOTE]
-     > Betiği çalıştırdıktan sonra Azure kimlik doğrulaması istenir. *Gerekir* abonelik Yöneticileri rolünün üyesi ve aboneliğin ortak yöneticisi olan bir hesapla oturum açın.
+     > Betiği çalıştırdıktan sonra Azure ile kimlik doğrulaması istenir. *Gerekir* abonelik Yöneticileri rolünün üyesi ve aboneliğin ortak yöneticisi olan bir hesap bilgilerinizle oturum açın.
 
    ```powershell-interactive
    .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> -AAResourceGroupName <NameofResourceGroup>`
@@ -75,74 +75,74 @@ Yükleme ve Windows karma çalışan rolü yapılandırmasını otomatik hale ge
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
-1. NuGet yüklemeyi kabul istenir ve Azure kimlik bilgilerinizle kimliğinizi istenir.
+1. NuGet yüklemeyi kabul etmeniz istenir ve Azure kimlik bilgilerinizle kimlik doğrulaması istenir.
 
-1. Komut dosyası tamamlandıktan sonra **karma çalışan grupları** sayfası, yeni Grup ve üye sayısını gösterir. Varolan bir grubu ise, üye sayısı artar. Grup listesinden seçebilirsiniz **karma çalışan grupları** sayfasından seçim yapıp **karma çalışanları** döşeme. Üzerinde **karma çalışanları** sayfasında, listelenen grubun her üyesi bakın.
+1. Betik tamamlandıktan sonra **karma çalışan grupları** sayfasında, yeni Grup ve üye sayısı gösterilir. Varolan bir grubu ise, üye sayısı artar. Grup listesinden seçebilirsiniz **karma çalışan grupları** sayfasından seçim yapıp **karma çalışanları** Döşe. Üzerinde **karma çalışanları** sayfasında listelenen bir grubun her üyesi görürsünüz.
 
-### <a name="manual-deployment"></a>El ile dağıtımı
+### <a name="manual-deployment"></a>El ile dağıtım
 
-İlk iki adımı Otomasyon ortamınız için bir kez gerçekleştirin ve sonra her bir çalışan bilgisayar için kalan adımları yineleyin.
+İlk iki kez Otomasyon ortamınız için adımları ve her bir çalışan bilgisayar için kalan adımları yineleyin.
 
-#### <a name="1-create-a-log-analytics-workspace"></a>1. Günlük analizi çalışma alanı oluşturma
+#### <a name="1-create-a-log-analytics-workspace"></a>1. Log Analytics çalışma alanı oluşturma
 
-Günlük analizi çalışma alanı zaten sahip değilseniz, yönergeleri kullanarak bir tane oluşturmak [çalışma alanınızı yönetmek](../log-analytics/log-analytics-manage-access.md). Zaten varsa, varolan bir çalışma alanını kullanabilirsiniz.
+Bir Log Analytics çalışma alanı yoksa, adresindeki yönergeleri kullanarak bir tane oluşturmak [çalışma alanınızı yönetme](../log-analytics/log-analytics-manage-access.md). Zaten varsa var olan bir çalışma alanını kullanabilirsiniz.
 
-#### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Otomasyon çözümünü günlük analizi çalışma alanıma Ekle
+#### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Bir Otomasyon çözümü Log Analytics çalışma alanına ekleme
 
-Çözümler, Log Analytics’e işlevler ekler. Otomasyon çözümünü Azure Otomasyon karma Runbook çalışanı desteği dahil olmak üzere için işlevsellik ekler. Çözüm, çalışma alanına eklediğinizde, otomatik olarak çalışan bileşenleri sonraki adımda yükleyecek aracı bilgisayar için iter.
+Çözümler, Log Analytics’e işlevler ekler. Bir Otomasyon çözümü, Azure Otomasyon karma Runbook çalışanı desteği dahil olmak üzere için işlevsellik ekler. Çözüm çalışma alanınıza eklediğinizde, bu otomatik olarak çalışan bileşenleri sonraki adımda yükler aracıyı bilgisayara iter.
 
-Eklemek için **Otomasyon** günlük analizi çalışma alanınız, çözüme kısmındaki yönergeleri izleyin [Çözümleri Galerisi kullanarak bir çözüm eklemek için](../log-analytics/log-analytics-add-solutions.md).
+Eklenecek **Otomasyon** Log Analytics çalışma alanınıza çözüm adresindeki yönergeleri izleyerek [çözüm Galerisi'ndeki kullanarak çözümü eklemek için](../log-analytics/log-analytics-add-solutions.md).
 
-#### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Microsoft Monitoring Agent Yükleme
+#### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Microsoft Monitoring Agent'ı yükleme
 
-Microsoft Monitoring Agent için günlük analizi bilgisayarlara bağlanır. Şirket içi bilgisayarınıza aracıyı yüklemek ve alanınıza bağlanın, karma Runbook çalışanı için gerekli olan bileşenleri otomatik olarak yükler.
+Microsoft Monitoring Agent bilgisayarları Log Analytics'e bağlanır. Şirket içi bilgisayarınıza aracıyı yüklemek ve çalışma alanınıza bağlamak, karma Runbook çalışanı için gerekli olan bileşenleri otomatik olarak indirir.
 
-Şirket içi bilgisayara aracı yüklemek için yönergeleri izleyin [günlük analizi bağlanmak Windows bilgisayarlara](../log-analytics/log-analytics-windows-agent.md). Birden çok Worker ortamınıza eklemek için birden çok bilgisayar için bu işlemi yineleyebilirsiniz.
+Şirket içi bilgisayarda aracıyı yüklemek için yönergeleri izleyin. [bağlanmak Windows bilgisayarlarını Log Analytics'e](../log-analytics/log-analytics-windows-agent.md). Birden fazla çalışana ortamınıza eklemek birden çok bilgisayar için bu işlemi yineleyebilirsiniz.
 
-Aracı için günlük analizi başarıyla bağlandı, listelendiğini **bağlı kaynakları** günlük analizi sekmesinde **ayarları** sayfası. Adlı bir klasör varsa, aracı doğru Otomasyon çözümünü indirdiğini doğrulamak **AzureAutomationFiles** C:\Program Files\Microsoft Monitoring Agent\Agent içinde. Karma Runbook çalışanı sürümünü onaylamak için C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ ve Not göz atabilirsiniz \\ *sürüm* alt klasörü.
+Aracı başarıyla Log Analytics'e bağlandığında, listelenmiş olup **bağlı kaynaklar** Log Analytics için sekmesinde **ayarları** sayfası. Adlı bir klasör varsa aracıyı düzgün bir Otomasyon çözümü indirdiğini doğrulamak **AzureAutomationFiles** C:\Program Files\Microsoft Monitoring Agent\Agent içinde. Karma Runbook çalışanı sürümünü onaylamak için C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ ve Not göz atabilirsiniz \\ *sürüm* alt.
 
-#### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Runbook ortamını yüklemek ve Azure Otomasyonu bağlanın
+#### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Runbook ortamını yükleyin ve Azure Otomasyonu bağlanın
 
-Bir aracı için günlük analizi eklediğinizde, Otomasyon çözümünü iter **HybridRegistration** içeren PowerShell Modülü **Add-HybridRunbookWorker** cmdlet'i. Bu cmdlet, bilgisayarda runbook ortamını yüklemek ve Azure Automation ile kaydetmek için kullanın.
+Log Analytics için aracıyı eklediğinizde bir Otomasyon çözümü gönderim **HybridRegistration** içeren PowerShell Modülü **Add-HybridRunbookWorker** cmdlet'i. Bu cmdlet'i runbook ortamını bilgisayara yükleyin ve Azure Otomasyonu'na kaydetmek için kullanın.
 
-Yönetici modunda bir PowerShell oturumu açın ve modülü içeri aktarmak için aşağıdaki komutları çalıştırın:
+Yönetici modunda bir PowerShell oturumu açın ve bir modülü içeri aktarmak için aşağıdaki komutları çalıştırın:
 
 ```powershell-interactive
 cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
 Import-Module HybridRegistration.psd1
 ```
 
-Ardından çalıştırın **Add-HybridRunbookWorker** aşağıdaki sözdizimini kullanarak:
+Ardından çalıştırın **Add-HybridRunbookWorker** cmdlet'i aşağıdaki söz dizimini kullanarak:
 
 ```powershell-interactive
 Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 ```
 
-Bu cmdlet olanağını için gerekli bilgileri almak **anahtarları Yönet** Azure portalında sayfası. Bu sayfayı seçerek açın **anahtarları** gelen seçeneği **ayarları** sayfa Otomasyon hesabınızda.
+Bu cmdlet için gereken bilgileri alabilirsiniz **anahtarları Yönet** Azure portalında sayfası. Bu sayfayı seçerek açın **anahtarları** seçeneğini **ayarları** Otomasyon hesabınızdaki sayfası.
 
 !["Anahtarları Yönet" sayfası](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* **GroupName** karma Runbook çalışanı grubunun adıdır. Bu grubun Automation hesabında zaten varsa, geçerli bilgisayar kendisine eklenir. Bu grup yoksa, eklenir.
-* **Uç nokta** olan **URL** girişinde **anahtarları Yönet** sayfası.
-* **Belirteç** olan **birincil erişim ANAHTARINI** girişinde **anahtarları Yönet** sayfası.
+* **GroupName** karma Runbook çalışanı grubunun adıdır. Bu grup Otomasyon hesabında zaten varsa, geçerli bilgisayar kendisine eklenir. Bu grup mevcut değilse eklenir.
+* **Uç nokta** olduğu **URL** girişinde **anahtarları Yönet** sayfası.
+* **Belirteç** olduğu **birincil erişim anahtarı** girişinde **anahtarları Yönet** sayfası.
 
 Yükleme hakkında ayrıntılı bilgi almak için kullandığınız **-Verbose** anahtarı ile **Add-HybridRunbookWorker**.
 
-#### <a name="5-install-powershell-modules"></a>5. PowerShell modülleri yükleme
+#### <a name="5-install-powershell-modules"></a>5. PowerShell modüllerini yükleyin
 
-Runbook'lar etkinlikler ve Azure Otomasyonu ortamınızda yüklü modülleri tanımlanan cmdlet'leri birini kullanabilirsiniz. El ile yüklemeniz gerekir böylece bu modülleri şirket içi bilgisayarlara otomatik olarak dağıtılmaz. Özel durumu varsayılan olarak yüklenir ve Azure Automation ile ilgili tüm Azure Hizmetleri ve etkinlikleri cmdlet'leri için erişim sağlayan Azure modülüdür.
+Runbook'lar, etkinlikler ve Azure Otomasyonu ortamınızda yüklü modülleri'nde tanımlanan cmdlet'leri herhangi birini kullanabilirsiniz. El ile yüklemeniz gerekir, böylece bu modüller, şirket içi bilgisayarlara otomatik olarak dağıtılmaz. Varsayılan olarak yüklenir ve Azure otomasyonu için tüm Azure Hizmetleri ve etkinlikleri cmdlet'leri için erişim sağlayan Azure modülü istisnadır.
 
-Karma Runbook çalışanı özelliği birincil amacı, yerel kaynakları yönetmek için olduğundan, büyük olasılıkla bu kaynakları destekleyen modüllerin yüklemeniz gerekir. Windows PowerShell modülleri yükleme hakkında daha fazla bilgi için bkz: [yükleme modülleri](http://msdn.microsoft.com/library/dd878350.aspx). 
+Karma Runbook çalışanı özelliğini birincil amacı, yerel kaynakları yönetmek için olduğundan, büyük olasılıkla bu kaynakları destekleyen modül yüklemeniz gerekir. Windows PowerShell modülleri yükleme hakkında daha fazla bilgi için bkz. [modülleri yükleme](http://msdn.microsoft.com/library/dd878350.aspx). 
 
-Yüklü modülleri tarafından başvurulan bir konumda olmalı **PSModulePath** ortam değişkeni böylece karma çalışanı otomatik olarak onları içeri aktarabilirsiniz. Daha fazla bilgi için bkz: [PSModulePath yükleme yolunun değiştirerek](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
+Yüklü modülleri tarafından başvurulan bir konumda olmalıdır **PSModulePath** ortam değişkeni böylece karma çalışanı bunları otomatik olarak aktarabilirsiniz. Daha fazla bilgi için [PSModulePath yükleme yolunu değiştirmek](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-Karma Runbook çalışanları sorunlarını giderme konusunda bilgi almak için bkz: [Windows karma Runbook çalışanları sorunlarını giderme](troubleshoot/hybrid-runbook-worker.md#windows)
+Sorun giderme, karma Runbook çalışanları öğrenmek için bkz [Windows karma Runbook çalışanları sorunlarını giderme](troubleshoot/hybrid-runbook-worker.md#windows)
 
 Güncelleştirme yönetimi ile ilgili sorunları giderme konusunda ek adımlar için bkz: [güncelleştirme yönetimi: sorun giderme](troubleshoot/update-management.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Runbook'larınızın, şirket içi veri merkezi ya da diğer bulut ortamı süreçlerini otomatikleştirmek için yapılandırma hakkında bilgi edinmek için [runbook'lar bir karma Runbook çalışanı üzerinde çalışacak](automation-hrw-run-runbooks.md).
-* Karma Runbook çalışanları kaldırma hakkında daha fazla yönerge için bkz: [Azure Otomasyon karma Runbook çalışanları kaldırmak](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
+* Şirket içi veri merkezinizde veya diğer bulut ortamı işlemlerini otomatikleştirmek için runbook'larınızı yapılandırma konusunda bilgi için bkz: [bir karma Runbook çalışanı üzerinde runbook çalıştırma](automation-hrw-run-runbooks.md).
+* Karma Runbook çalışanlarını kaldırma yönergeleri için bkz: [Azure Otomasyon karma Runbook çalışanlarını kaldırma](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).

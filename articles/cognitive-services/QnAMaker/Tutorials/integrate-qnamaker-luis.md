@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: 18eae69867dc9774f63b11c762b22df4595bdce6
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: b923e7c39ccd96bd9b158c98507f961ea2dc3e02
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781756"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576774"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Soru-cevap oluşturucu ve LUIS bilgi bankanızı dağıtmak için tümleştirin
 Soru-cevap Oluşturucu bankanızı büyük büyüdükçe, tek tek parça bir ayarlayın ve Bilgi Bankası daha küçük mantıksal parçalara bölmek için gerekir bakımını yapmak zor hale gelir.
@@ -29,14 +29,14 @@ Soru-cevap oluşturucu içinde birden çok bilgi bankaları oluşturmak kolay ol
 Yukarıdaki senaryoda soru-cevap Oluşturucu önce gelen soru amacı LUIS modelden alır ve doğru soru-cevap Oluşturucu Bilgi Bankası'na yönlendirmek için bunu kullanın.
 
 ## <a name="prerequisites"></a>Önkoşullar
-- Oturum [LUIS](https://www.luis.ai/) portalı ve [uygulama oluşturma](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
-- [Hedef ekleme](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) senaryonuza göre.
-- [Train](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) ve [yayımlama](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) LUIS uygulamanızı.
+- Oturum [LUIS](https://www.luis.ai/) portalı ve [uygulama oluşturma](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
+- [Hedef ekleme](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) senaryonuza göre.
+- [Train](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) ve [yayımlama](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) LUIS uygulamanızı.
 - Oturum [soru-cevap Oluşturucu](https://qnamaker.ai) ve [oluşturma](https://www.qnamaker.ai/Create) bilgi bankalarından senaryonuza göre.
 - Test edin ve bilgi bankalarından yayımlayın.
 
 ## <a name="qna-maker--luis-bot"></a>Soru-cevap Oluşturucu + LUIS Robotu
-1. İlk LUIS şablonu ile bir Web App botu oluşturun, yukarıda oluşturduğunuz LUIS uygulaması ile bağlantı ve hedefleri değiştirin. Ayrıntılı adımlar için bkz: [burada](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
+1. İlk LUIS şablonu ile bir Web App botu oluşturun, yukarıda oluşturduğunuz LUIS uygulaması ile bağlantı ve hedefleri değiştirin. Ayrıntılı adımlar için bkz: [burada](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
 
 2. Bağımlılıklar, diğer bağımlılıkları olan dosyanın üstüne ekleyin:
 

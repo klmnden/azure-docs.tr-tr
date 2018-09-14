@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9f7fb5009468dccae50190ee40a53d11040d0348
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903756"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578319"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analizi hakkında sık sorulan sorular
 
@@ -58,7 +58,7 @@ Bir abonelik için bir kullanıcıya atanan rollerin denetlemek için:
 
 3. Belirli bir kullanıcıya atanmış olan tüm rolleri listelemek için kullanın **Get-AzureRmRoleAssignment - SignInName [kullanıcı e-postası] - IncludeClassicAdministrators**. 
 
-Herhangi bir çıktı görmediğinizden, komutları çalıştırmak için erişim elde etmek için ilgili abonelik yöneticisine başvurun. Daha fazla ayrıntı için [rol tabanlı erişim denetimini Azure PowerShell ile yönetme](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+Herhangi bir çıktı görmediğinizden, komutları çalıştırmak için erişim elde etmek için ilgili abonelik yöneticisine başvurun. Daha fazla ayrıntı için [rol tabanlı erişim denetimini Azure PowerShell ile yönetme](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Hangi Azure bölgeleri trafik analizi kullanılabilir?
@@ -196,7 +196,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Trafik analizi ölçülür. Kullanım ölçümü akış günlük verisi işleme hizmeti tarafından temel alır ve ortaya çıkan depolama günlükleri Log Analytics çalışma alanında Gelişmiş. 
 
-Örneğin, olarak başına [fiyatlandırma planını](https://azure.microsoft.com/en-us/pricing/details/network-watcher/), akış günlükleri verilerini trafik analizi tarafından işlenen bir depolama hesabında depolanan, Batı Orta ABD bölgesinde dikkate 10 GB'tır ve Log Analytics çalışma alanında alınan Gelişmiş günlük 1 GB'tır sonra Geçerli ücretlerdir: 10 x 2.3$ + 1 x 2.76$ 25.76 = $
+Örneğin, olarak başına [fiyatlandırma planını](https://azure.microsoft.com/pricing/details/network-watcher/), akış günlükleri verilerini trafik analizi tarafından işlenen bir depolama hesabında depolanan, Batı Orta ABD bölgesinde dikkate 10 GB'tır ve Log Analytics çalışma alanında alınan Gelişmiş günlük 1 GB'tır sonra Geçerli ücretlerdir: 10 x 2.3$ + 1 x 2.76$ 25.76 = $
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Coğrafi harita Görünümü'nde klavyeyi kullanarak nasıl gidebilirsiniz?
 

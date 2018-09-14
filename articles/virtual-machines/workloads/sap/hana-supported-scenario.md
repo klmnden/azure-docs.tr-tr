@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 412872e607f62f710e013d88822cddc59255992e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859961"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576502"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA büyük örnekler için desteklenen senaryolar
 Bu belgede, HANA büyük örnekleri (HLI) için kendi mimari ayrıntılarıyla birlikte desteklenen senaryolar açıklanmaktadır.
@@ -198,7 +198,7 @@ Aşağıdaki bağlama yapılandırılmış:
 
 ### <a name="key-considerations"></a>Dikkat edilmesi gereken temel konular
 - /usr/SAP/SID /hana/shared/SID sembolik bir bağlantıdır.
-- Birim boyutu dağıtım kapalı bellek veritabanı boyutunu temel alır. Başvuru [genel bakışı ve mimarisi](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) bellekte hangi veritabanı boyutları öğrenmek için bölüm multisid ortamı ile desteklenir.
+- Birim boyutu dağıtım kapalı bellek veritabanı boyutunu temel alır. Başvuru [genel bakışı ve mimarisi](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) bellekte hangi veritabanı boyutları öğrenmek için bölüm multisid ortamı ile desteklenir.
 
 ## <a name="3-single-node-with-dr-normal"></a>3. DR (Normal) ile tek düğüm
  
@@ -235,9 +235,9 @@ Aşağıdaki bağlama yapılandırılmış:
 
 ### <a name="key-considerations"></a>Dikkat edilmesi gereken temel konular
 - /usr/SAP/SID /hana/shared/SID sembolik bir bağlantıdır.
-- MCOS için: Birim boyutu dağıtım kapalı bellek veritabanı boyutunu temel alır. Başvuru [genel bakışı ve mimarisi](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) bellekte hangi veritabanı boyutları öğrenmek için bölüm multisid ortamı ile desteklenir.
+- MCOS için: Birim boyutu dağıtım kapalı bellek veritabanı boyutunu temel alır. Başvuru [genel bakışı ve mimarisi](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) bellekte hangi veritabanı boyutları öğrenmek için bölüm multisid ortamı ile desteklenir.
 - DR sırasında: bağlama ve birimler ("HANA yüklemesi için gerekli olarak" işaretlenmiştir) yapılandırılmış olan üretim DR HLI biriminde HANA örneği yükleme için. 
-- DR sırasında: veri logbackups ve paylaşılan birimler ("Depolama çoğaltma" işaretlenmiştir) anlık görüntüden üretim sitesini aracılığıyla yinelenir. Bu birimleri, yalnızca yük devretme süre boyunca bağlanır. Daha fazla bilgi için belgeyi okumak [olağanüstü durum kurtarma yük devretme yordamı](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) daha fazla ayrıntı için.
+- DR sırasında: veri logbackups ve paylaşılan birimler ("Depolama çoğaltma" işaretlenmiştir) anlık görüntüden üretim sitesini aracılığıyla yinelenir. Bu birimleri, yalnızca yük devretme süre boyunca bağlanır. Daha fazla bilgi için belgeyi okumak [olağanüstü durum kurtarma yük devretme yordamı](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) daha fazla ayrıntı için.
 - Önyükleme birimi için **SKU miyim sınıf türü** DR düğüme çoğaltılır.
 
 
@@ -284,9 +284,9 @@ Aşağıdaki bağlama yapılandırılmış:
 
 ### <a name="key-considerations"></a>Dikkat edilmesi gereken temel konular
 - /usr/SAP/SID /hana/shared/SID sembolik bir bağlantıdır.
-- MCOS için: Birim boyutu dağıtım kapalı bellek veritabanı boyutunu temel alır. Başvuru [genel bakışı ve mimarisi](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) bellekte hangi veritabanı boyutları öğrenmek için bölüm multisid ortamı ile desteklenir.
+- MCOS için: Birim boyutu dağıtım kapalı bellek veritabanı boyutunu temel alır. Başvuru [genel bakışı ve mimarisi](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) bellekte hangi veritabanı boyutları öğrenmek için bölüm multisid ortamı ile desteklenir.
 - DR sırasında: bağlama ve birimler ("HANA yüklemesi için gerekli olarak" işaretlenmiştir) yapılandırılmış olan üretim DR HLI biriminde HANA örneği yükleme için. 
-- DR sırasında: veri logbackups ve paylaşılan birimler ("Depolama çoğaltma" işaretlenmiştir) anlık görüntüden üretim sitesini aracılığıyla yinelenir. Bu birimleri, yalnızca yük devretme süre boyunca bağlanır. Daha fazla bilgi için belgeyi okumak [olağanüstü durum kurtarma yük devretme yordamı](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) daha fazla ayrıntı için. 
+- DR sırasında: veri logbackups ve paylaşılan birimler ("Depolama çoğaltma" işaretlenmiştir) anlık görüntüden üretim sitesini aracılığıyla yinelenir. Bu birimleri, yalnızca yük devretme süre boyunca bağlanır. Daha fazla bilgi için belgeyi okumak [olağanüstü durum kurtarma yük devretme yordamı](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) daha fazla ayrıntı için. 
 - DR sırasında: veri, logbackups, günlük, QA ("QA örneği yükleme" işaretlenmiştir) için paylaşılan birimler, QA örneği yükleme için yapılandırılır.
 - Önyükleme birimi için **SKU miyim sınıf türü** DR düğüme çoğaltılır.
 
@@ -335,7 +335,7 @@ Aşağıdaki bağlama yapılandırılmış:
 
 ### <a name="key-considerations"></a>Dikkat edilmesi gereken temel konular
 - /usr/SAP/SID /hana/shared/SID sembolik bir bağlantıdır.
-- MCOS için: Birim boyutu dağıtım kapalı bellek veritabanı boyutunu temel alır. Başvuru [genel bakışı ve mimarisi](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) bellekte hangi veritabanı boyutları öğrenmek için bölüm multisid ortamı ile desteklenir.
+- MCOS için: Birim boyutu dağıtım kapalı bellek veritabanı boyutunu temel alır. Başvuru [genel bakışı ve mimarisi](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) bellekte hangi veritabanı boyutları öğrenmek için bölüm multisid ortamı ile desteklenir.
 - STONITH: Bir SBD STONITH kurulumu için yapılandırılır. Ancak, STONITH kullanımı isteğe bağlıdır.
 
 
@@ -391,11 +391,11 @@ Aşağıdaki bağlama yapılandırılmış:
 
 ### <a name="key-considerations"></a>Dikkat edilmesi gereken temel konular
 - /usr/SAP/SID /hana/shared/SID sembolik bir bağlantıdır.
-- MCOS için: Birim boyutu dağıtım kapalı bellek veritabanı boyutunu temel alır. Başvuru [genel bakışı ve mimarisi](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) bellekte hangi veritabanı boyutları öğrenmek için bölüm multisid ortamı ile desteklenir.
+- MCOS için: Birim boyutu dağıtım kapalı bellek veritabanı boyutunu temel alır. Başvuru [genel bakışı ve mimarisi](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) bellekte hangi veritabanı boyutları öğrenmek için bölüm multisid ortamı ile desteklenir.
 - STONITH: Bir SBD STONITH kurulumu için yapılandırılır. Ancak, STONITH kullanımı isteğe bağlıdır.
 - DR sırasında: **iki depolama birimleri gerekli** birincil ve ikincil düğüm çoğaltması için.
 - DR sırasında: bağlama ve birimler ("HANA yüklemesi için gerekli olarak" işaretlenmiştir) yapılandırılmış olan üretim DR HLI biriminde HANA örneği yükleme için. 
-- DR sırasında: veri logbackups ve paylaşılan birimler ("Depolama çoğaltma" işaretlenmiştir) anlık görüntüden üretim sitesini aracılığıyla yinelenir. Bu birimleri, yalnızca yük devretme süre boyunca bağlanır. Daha fazla bilgi için belgeyi okumak [olağanüstü durum kurtarma yük devretme yordamı](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) daha fazla ayrıntı için. 
+- DR sırasında: veri logbackups ve paylaşılan birimler ("Depolama çoğaltma" işaretlenmiştir) anlık görüntüden üretim sitesini aracılığıyla yinelenir. Bu birimleri, yalnızca yük devretme süre boyunca bağlanır. Daha fazla bilgi için belgeyi okumak [olağanüstü durum kurtarma yük devretme yordamı](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) daha fazla ayrıntı için. 
 - DR sırasında: veri, logbackups, günlük, QA ("QA örneği yükleme" işaretlenmiştir) için paylaşılan birimler, QA örneği yükleme için yapılandırılır.
 - Önyükleme birimi için **SKU miyim sınıf türü** DR düğüme çoğaltılır.
 
@@ -559,10 +559,10 @@ Aşağıdaki bağlama yapılandırılmış:
 ### <a name="key-considerations"></a>Dikkat edilmesi gereken temel konular
 - /usr/SAP/SID /hana/shared/SID sembolik bir bağlantıdır.
 -  DR sırasında: bağlama ve birimler ("HANA yüklemesi için gerekli olarak" işaretlenmiştir) yapılandırılmış olan üretim DR HLI biriminde HANA örneği yükleme için. 
-- DR sırasında: veri logbackups ve paylaşılan birimler ("Depolama çoğaltma" işaretlenmiştir) anlık görüntüden üretim sitesini aracılığıyla yinelenir. Bu birimleri, yalnızca yük devretme süre boyunca bağlanır. Daha fazla bilgi için belgeyi okumak [olağanüstü durum kurtarma yük devretme yordamı](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) daha fazla ayrıntı için. 
+- DR sırasında: veri logbackups ve paylaşılan birimler ("Depolama çoğaltma" işaretlenmiştir) anlık görüntüden üretim sitesini aracılığıyla yinelenir. Bu birimleri, yalnızca yük devretme süre boyunca bağlanır. Daha fazla bilgi için belgeyi okumak [olağanüstü durum kurtarma yük devretme yordamı](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) daha fazla ayrıntı için. 
 - Önyükleme birimi için **SKU miyim sınıf türü** DR düğüme çoğaltılır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Başvuru [altyapı ve bağlantı](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) HLI için
-- Başvuru [yüksek kullanılabilirlik ve olağanüstü durum kurtarma](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) HLI için
+- Başvuru [altyapı ve bağlantı](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) HLI için
+- Başvuru [yüksek kullanılabilirlik ve olağanüstü durum kurtarma](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) HLI için

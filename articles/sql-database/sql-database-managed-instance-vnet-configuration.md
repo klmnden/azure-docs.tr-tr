@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1ec4a6033fad643c75cdf9f7ebc5cdb1f4bab9c3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 559859e1f844cae37b0baaf48b0ad7c5cc2d4b0a
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717157"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542461"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma
 
@@ -101,7 +101,7 @@ Oluşturma ve sanal ağ yapılandırma en kolay yolu, Azure Resource Manager da�
 
 3. Ağ ortamı yapılandırın. Aşağıdaki formda ağ ortamınızın parametreleri yapılandırabilirsiniz:
 
-![Azure ağı yapılandırma](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+![Azure ağı yapılandırma](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
 VNet ve alt ağlar adlarını değiştirme ve ağ kaynaklarınıza ilişkili IP aralıklarını ayarlama. "Satın Al" düğmesine basın, sonra bu form oluşturma ve ortamınızı yapılandırın. İki alt ağa ihtiyacınız yoksa, varsayılan silebilirsiniz. 
 

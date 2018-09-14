@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 73359955861b88f2bc5ca297c32fa78c2632148c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bd0f9e01257bec2d39ef0c8e13b68c4a7a13637d
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449510"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542944"
 ---
 # <a name="use-azure-video-indexer-api"></a>Azure Video dizinleyici API'sini kullanma
 
@@ -23,23 +23,20 @@ ms.locfileid: "39449510"
 
 Video Indexer, tümleşik bir hizmet Microsoft tarafından sunulan çeşitli ses ve video yapay zeka (AI) teknolojileri geliştirmeyi birleştirir. API'ler hakkında ölçek, global endişelenmeden medya AI teknolojilerini kullanan odaklanmasına geliştiricilerine ulaşmak etkinleştir, kullanılabilirlik ve güvenilirlik bulut platformunun için tasarlanmıştır. Dosyalarınızı karşıya yüklemek, ayrıntılı video öngörüleri almak için içgörü ve oynatıcı pencere öğeleri URL'lerini alın. uygulamanız ve diğer görevleri katıştırmak için API'yi kullanabilirsiniz.
 
-Video Indexer hesabınız oluşturulurken (belirli sayıda boş dizin dakika nereden) ücretsiz bir deneme hesabı veya Ücretli bir seçeneğe (burada, kota tarafından sınırlı değildir) seçebilirsiniz. Ücretsiz deneme ile 2400 dakika sayısı en fazla ücretsiz API kullanıcılara dizin oluşturma ve Video Indexer, ücretsiz Web sitesi kullanıcılara dizin 600 dakika sağlar. Bir Video Indexer hesabı oluşturduğunuz Ücretli seçeneğiyle [Azure aboneliğinizi ve Azure Media Services hesabına bağlı](connect-to-azure.md). İlgili medya hesabı yanı sıra dizine dakikalar için ödeme ücretleri. 
+Video Indexer hesabınız oluşturulurken (belirli sayıda boş dizin dakika nereden) ücretsiz bir deneme hesabı veya Ücretli bir seçeneğe (burada, kota tarafından sınırlı değildir) seçebilirsiniz. Ücretsiz deneme ile 2400 dakika sayısı en fazla ücretsiz API kullanıcılara dizin oluşturma ve Video Indexer, ücretsiz Web sitesi kullanıcılara dizin 600 dakika sağlar. Bir Video Indexer hesabı oluşturduğunuz Ücretli seçeneğiyle [Azure aboneliğinizi ve Azure Media Services hesabına bağlı](connect-to-azure.md). Yanı sıra ilgili ücretler Azure Media Services hesabı dizine dakikalar için ödeme yaparsınız. 
 
-Nasıl geliştiriciler yararlanabilir Bu makale [Video Indexer API](https://api-portal.videoindexer.ai/). Video Indexer hizmeti daha ayrıntılı bir genel bakış için bkz [genel bakış](video-indexer-overview.md) makalesi.
+Nasıl geliştiriciler yararlanabilir Bu makale [Video Indexer API](https://api-portal.videoindexer.ai/).
 
 ## <a name="subscribe-to-the-api"></a>API için abone olun
 
-1. Oturum Aç.
-
-    Video Indexer ile geliştirmeye başlamak için ilk oturum açma için gereken [Video Indexer](https://api-portal.videoindexer.ai/) portalı. 
+1. Oturum [Video Indexer Geliştirici Portalı](https://api-portal.videoindexer.ai/).
     
-    ![Kaydolma](./media/video-indexer-use-apis/video-indexer-api01.png)
+    ![Oturum aç](./media/video-indexer-use-apis/video-indexer-api01.png)
 
     > [!Important]
     > * Video Indexer için kaydolurken kullandığınız aynı sağlayıcı kullanmanız gerekir.
     > * Google ve Microsoft (outlook/Canlı) kişisel hesaplar yalnızca deneme hesapları için kullanılabilir. Azure'a bağlı hesaplar, Azure AD gerektirir.
     > * E-posta başına yalnızca bir etkin hesap olabilir. Bir kullanıcı ile oturum açmanız çalışırsa user@gmail.com ve sonrası ile LinkedIn için user@gmail.com kullanıcı zaten belirten Google daha sonra bir hata sayfası görüntüler için mevcut.
-
 
 2. Abone olun.
 
@@ -91,15 +88,15 @@ Aşağıdaki tabloda açıklanan değerlere uygulanır. **Parametre değerine** 
 
 Hesap kimliği parametresi tüm işletimsel API çağrılarında gereklidir. Hesap Kimliği aşağıdaki yollardan biriyle alınabilir bir GUID'dir:
 
-* Video Indexer portal, hesabı Kimliğini almak için kullanın:
+* Kullanım **Video Indexer Web sitesi** hesap kimliği almak için:
 
-    1. Oturum [videoındexer](https://www.videoindexer.ai/).
+    1. Gözat [Video Indexer](https://www.videoindexer.ai/) Web sitesine gidin ve oturum açma.
     2. Gözat **ayarları** sayfası.
     3. Hesap Kimliği kopyalayın.
 
         ![Hesap Kimliği](./media/video-indexer-use-apis/account-id.png)
 
-* Program aracılığıyla hesap kimliği almak için API'yi kullanın.
+* Kullanım **Video Indexer Geliştirici Portalı** programlı olarak hesap kimliği almak için
 
     Kullanım [alma hesapları](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
     
@@ -225,7 +222,5 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Çıkış JSON ayrıntılarını incelemek](video-indexer-output-json.md).
-
-## <a name="see-also"></a>Ayrıca bkz.
 
 [Video Indexer genel bakış](video-indexer-overview.md)

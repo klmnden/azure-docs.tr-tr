@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 52582a6fe3f6c8ccc22c57268e20a94139be9e6f
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 669a436293ddf6f13760db5e6802aaae82ddd74b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094867"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577522"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performans ve ölçek dayanıklı işlevler (Azure işlevleri)
 
@@ -27,13 +27,13 @@ Performans ve ölçeklenebilirlik iyileştirmek için benzersiz ölçeklendirme 
 
 **Geçmişi** bir görev hub'ındaki tüm düzenleme örnekleri için geçmiş olaylar içeren bir Azure depolama tablosuna bir tablodur. Bu tablonun adı biçimindedir *TaskHubName*geçmişi. Örneklerin gibi bu tabloya yeni satır eklenir. Bu tablonun bölüm anahtarı, orchestration örneği Kimliğinden elde edilir. Örnek kimliği iç bölümlerin Azure storage'da en iyi dağıtım sağlar, çoğu durumda, rastgele belirlenir.
 
-Orchestration örneği çalıştırmak gerektiğinde, geçmiş tablodaki uygun satırları belleğe yüklenir. Bunlar *geçmiş olaylar* önceden belirttiğinizde, duruma geri dönmek için orchestrator işlevi koda daha sonra yeniden. Durum bu şekilde yeniden yürütme geçmişini kullanımını tarafından etkilenir [olay kaynağını belirleme düzeni](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing).
+Orchestration örneği çalıştırmak gerektiğinde, geçmiş tablodaki uygun satırları belleğe yüklenir. Bunlar *geçmiş olaylar* önceden belirttiğinizde, duruma geri dönmek için orchestrator işlevi koda daha sonra yeniden. Durum bu şekilde yeniden yürütme geçmişini kullanımını tarafından etkilenir [olay kaynağını belirleme düzeni](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing).
 
 ## <a name="instances-table"></a>Örnek tablo
 
 **Örnekleri** bir görev hub'ındaki tüm düzenleme örneklerinin durumları içeren başka bir Azure depolama tablosuna bir tablodur. Örneklerin oluşturulduğu gibi bu tabloya yeni satır eklenir. Orchestration örnek kimliği bu tablonun bölüm anahtarı olduğu ve satır anahtarı sabit bir sabittir. Orchestration örneği başına bir satır var.
 
-Bu tabloda örnek sorgu istekleri karşılamak için kullanılan [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API yanı sıra [durum sorgusu HTTP API](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-http-api#get-instance-status). İçeriğiyle birlikte sonunda tutarlı tutulur **geçmişi** tablo daha önce bahsedilen. Tarafından bu şekilde örnek sorgu işlemleri verimli bir şekilde karşılamak için ayrı bir Azure depolama tablo kullanımını etkileyen [komut ve sorgu sorumluluğu ayrımı (CQRS) düzeni](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs).
+Bu tabloda örnek sorgu istekleri karşılamak için kullanılan [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API yanı sıra [durum sorgusu HTTP API](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status). İçeriğiyle birlikte sonunda tutarlı tutulur **geçmişi** tablo daha önce bahsedilen. Tarafından bu şekilde örnek sorgu işlemleri verimli bir şekilde karşılamak için ayrı bir Azure depolama tablo kullanımını etkileyen [komut ve sorgu sorumluluğu ayrımı (CQRS) düzeni](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>İç sıra Tetikleyiciler
 

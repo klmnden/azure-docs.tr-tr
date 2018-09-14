@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4546734cd1b5bf2f4aaddc6477310128c9e62d51
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 3fab0648a2ad0e0a4c193d37875913dd27bf9af4
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056424"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574292"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki riskli oturum açma işlemleri raporu
 
@@ -29,9 +29,9 @@ Azure AD, kullanıcı hesaplarınızla ilgili kuşkulu eylemleri algılar. Algı
 
 Algılanan risk olayları aşağıdakileri hesaplamak için kullanılır:
 
-- **Riskli oturum açma işlemleri** - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. Daha fazla bilgi için bkz. [Riskli oturum açma işlemleri](../identity-protection/overview.md#risky-sign-ins). 
+- **Riskli oturum açma işlemleri** - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. Daha fazla ayrıntı için [oturum açma riski ilkesini yapılandırma](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. Daha fazla bilgi için bkz. [Riskli oldukları belirlenen kullanıcılar](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. Daha fazla ayrıntı için [kullanıcı riski ilkesi yapılandırma](../identity-protection/howto-user-risk-policy.md).  
 
 Güvenlik raporlarını, [Azure portalının](https://portal.azure.com) **Azure Active Directory** dikey penceresindeki **Güvenlik** bölümünde bulabilirsiniz. 
 
@@ -73,7 +73,7 @@ Riskli oturum açma işlemi araştırmanıza göre, Azure Active Directory'ye a�
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-risky-sign-ins/21.png)
 
-Daha fazla ayrıntı için bkz. [Risk olaylarını elle kapatma](../identity-protection/overview.md#closing-risk-events-manually).
+
 
 Bu rapor size şu seçeneği sağlar:
 
@@ -98,13 +98,13 @@ Azure Active Directory premium sürümlerindeki riskli oturum açma işlemleri r
 
 Bir risk olayını seçtiğinizde bu risk olayına ilişkin, aşağıdakileri gerçekleştirmenize olanak tanıyan ayrıntılı bir rapor görünümü açılır:
 
-- Bir [kullanıcı riskini azaltma ilkesi](../identity-protection/overview.md#user-risk-security-policy) yapılandırabilirsiniz.  
+- Bir [kullanıcı riskini azaltma ilkesi](../identity-protection/howto-user-risk-policy.md) yapılandırabilirsiniz.  
 
 - Risk olayının algılanma zaman çizelgesini gözden geçirebilirsiniz.  
 
 - Bu risk olayının hangi kullanıcılarla ilgili olarak algılandığının listesini gözden geçirebilirsiniz.
 
-- [Risk olayını elle kapatabilir](../identity-protection/overview.md#closing-risk-events-manually) ya da elle kapatılmış bir risk olayını yeniden etkinleştirebilirsiniz. 
+- Risk olayını elle kapatabilir. 
 
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-risky-sign-ins/457.png)
@@ -124,7 +124,7 @@ Bir kullanıcıyı seçtiğinizde bu kullanıcıya ilişkin, aşağıdakileri ge
 
 
 Bir risk olayını araştırmak için, söz konusu olayı listeden seçin.  
-Bu risk olayına ilişkin **Ayrıntılar** dikey penceresi açılır. **Ayrıntılar** dikey penceresinde, [risk olayını elle kapatma](../identity-protection/overview.md#closing-risk-events-manually) ve elle kapatılmış risk olayını yeniden etkinleştirme seçenekleri sunulur. 
+Bu risk olayına ilişkin **Ayrıntılar** dikey penceresi açılır. Üzerinde **ayrıntıları** dikey penceresinde el ile bir risk olayı kapatın veya elle kapatılmış risk olayını yeniden etkinleştirme seçeneğine sahip. 
 
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-risky-sign-ins/325.png)

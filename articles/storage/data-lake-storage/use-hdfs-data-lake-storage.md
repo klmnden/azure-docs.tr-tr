@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: ef28468c7aa420c145f5e6d79e2b079bd1d094f4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c59331c772e140fccfefb89eef086a35837171e1
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523691"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576984"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake depolama 2. nesil ile HDFS CLI'yı kullanma
 
@@ -37,7 +37,7 @@ Bir dosya veya dizin silmek için:
     hdfs dfs -rm [-skipTrash] URI [URI ...]
 
 
-Artık Linux'ta HDInsight Hadoop kümesi örnek olarak alalım. HDFS CLI kullanmak için öncelikle oluşturmak için ihtiyacınız [Uzaktan Erişim Hizmetleri](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). Seçerseniz [SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) örnek PowerShell kodu şu şekilde görünür:
+Artık Linux'ta HDInsight Hadoop kümesi örnek olarak alalım. HDFS CLI kullanmak için öncelikle oluşturmak için ihtiyacınız [Uzaktan Erişim Hizmetleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). Seçerseniz [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) örnek PowerShell kodu şu şekilde görünür:
 ```PowerShell
 #Connect to the cluster via SSH.
 ssh sshuser@clustername-ssh.azurehdinsight.net

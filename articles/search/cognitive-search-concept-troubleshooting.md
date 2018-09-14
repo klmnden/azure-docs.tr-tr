@@ -1,6 +1,6 @@
 ---
-title: Sorun giderme ipuçları Azure Search'te bilişsel arama için | Microsoft Docs
-description: İpuçları ve bilişsel ayarlamak için sorun giderme işlem hatları Azure Search'te arama.
+title: Sorun giderme ipuçları için Azure Search bilişsel arama | Microsoft Docs
+description: İşlem hatları Azure Search'te arama, ipuçları ve bilişsel ayarlama işlemleri için sorun giderme.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,36 +10,36 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3c3f9a0d0dc40de6c62c21dab0f11a501829ef11
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3d0d468674a2284e9925c1410f2bb8bcbde8f73f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640974"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575329"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Bilişsel arama için sorun giderme ipuçları
 
-Bu makalede, ipuçları ve püf noktaları bilişsel arama yetenekleri Azure Search ile çalışmaya başlama gibi hareket tutmak için listesini içerir. 
+Bu makalede, ipuçları ve püf noktaları bilişsel arama özellikleri Azure Search kullanmaya başlama gibi hareket tutmak listesini içerir. 
 
-Henüz yapmadıysanız, adım adım [Öğreticisi: bilişsel arama API çağrısı öğrenin](cognitive-search-quickstart-blob.md) uygulamada bilişsel arama enrichments blob veri kaynağına uygulamak için.
+Henüz yapmadıysanız, adım adım [Öğreticisi: bilişsel arama API'leri çağırmak nasıl öğrenin](cognitive-search-quickstart-blob.md) uygulamada bilişsel arama zenginleştirmelerinin bir blob veri kaynağına uygulamak için.
 
-## <a name="tip-1-start-with-a-small-dataset"></a>İpucu 1: küçük bir veri kümesi ile Başlat
-Sorunları hızla bulmak için en iyi yolu, sorunları gidermek hızlı artırmaktır. Dizin oluşturma süresini azaltmak için en iyi dizine alınacak belgeler sayısını azaltarak yoludur. 
+## <a name="tip-1-start-with-a-small-dataset"></a>İpucu 1: küçük bir veri kümesiyle çalışmaya başlayın
+Sorunları hızlı bir şekilde bulmak için en iyi yolu sorunları düzeltebilir miyim hızını artırmaktır. Dizin oluşturma süresini azaltmak için en iyi belgelere sıralanacak sayısını azaltarak yoludur. 
 
-Yalnızca belgeleri/kayıtları sayıda ile bir veri kaynağı oluşturarak başlayın. Belge örneğinizi dizinlenir belgeleri çeşitli iyi bir gösterimi olmalıdır. 
+Bir veri kaynağı yalnızca birkaç belge/ile oluşturmaya başlayın. Belge örneğinizi dizinlenir belgeleri çeşitli iyi bir temsili olmalıdır. 
 
-Uçtan uca ardışık düzen üzerinden belge örneğinizi çalıştırmak ve sonuçları gereksinimlerinizi karşılayacak denetleyin. Sonuçlardan memnun olduktan sonra veri kaynağınızı daha fazla dosya ekleyebilirsiniz.
+Belge örneğinizi uçtan uca işlem hattı çalıştırma ve sonuçları ihtiyaçlarınızı karşılayacak denetleyin. Sonuçlardan memnun olduğunuzda, veri kaynağınıza başka dosyalar ekleyebilirsiniz.
 
 ## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>İpucu 2: veri kaynağı kimlik bilgilerinizi doğru olduğundan emin olun
-Kullandığı bir dizin oluşturucuyu tanımlama kadar veri kaynağı bağlantısı doğrulanmaz. Dizin Oluşturucu veri alınamıyor söz herhangi bir hata görürseniz, emin olun:
-- Bağlantı dizenizi doğrudur. Özel, SAS belirteci oluştururken, Azure Search tarafından beklenen biçimde kullandığınızdan emin olun. Bkz: [nasıl belirleneceğini bölüm kimlik bilgileri](
-https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) desteklenen farklı biçimleri hakkında bilgi edinmek için.
-- Kapsayıcı adınızı dizin Oluşturucudaki doğrudur.
+Veri kaynağı bağlantısı kullanan bir dizin oluşturucu tanımladığınız kadar doğrulanmaz. Dizin Oluşturucu verileri alınamıyor bahseden herhangi bir hata görürseniz emin olun:
+- Bağlantı dizenizi doğrudur. Özel, SAS belirteçleri oluştururken, Azure Search tarafından beklenen biçimde kullandığınızdan emin olun. Bkz: [nasıl belirtileceğini bölüm kimlik bilgileri](
+https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) desteklenen farklı biçimleri hakkında bilgi edinmek için.
+- Kapsayıcı adınız dizin Oluşturucudaki doğrudur.
 
-## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>İpucu 3: bazı hatalar olsa bile ne çalıştığını görmek
-Bazen küçük hata kendi parçaları bir dizin oluşturucu durdurur. Tek tek sorunlarını gidermek düşünüyorsanız uygundur. Ancak, hata, belirli bir tür yoksay ne akışları gerçekte çalıştığınız görebilmeniz için devam etmek dizin oluşturucu izin vermek isteyebilirsiniz.
+## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>İpucu 3: bazı hatalar olsa bile neyin işe yaradığını görmek
+Bazen bir dizin oluşturucu, parçalardaki küçük hata durdurur. Bu, tek tek sorunlarını düzeltmek düşünüyorsanız uygundur. Ancak, hatanın belirli bir tür yok saymak ne akışlar gerçekten çalıştığınız görebilmeniz için devam etmek dizin oluşturucuyu izin vermek isteyebilirsiniz.
 
-Bu durumda, hatalarını yok saymak için dizin oluşturucu bildirmek isteyebilirsiniz. Ayarlayarak bunu *maxFailedItems* ve *maxFailedItemsPerBatch* -1 olarak dizin oluşturucu tanımının bir parçası olarak.
+Bu durumda, hatalarını yok saymak için dizin oluşturucuyu bildirmek isteyebilirsiniz. Ayarlayarak bunu *maxFailedItems* ve *maxFailedItemsPerBatch* -1 olarak dizin oluşturucu tanımı bir parçası olarak.
 
 ```
 {
@@ -51,16 +51,16 @@ Bu durumda, hatalarını yok saymak için dizin oluşturucu bildirmek isteyebili
    }
 }
 ```
-## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>İpucu 4: başlık altında zenginleştirilmiş belgeleri bakarak. 
-İyileştirmesini sırasında oluşturulan ve işlem tamamlandığında silinir geçici yapıları zenginleştirilmiş belgelerdir.
+## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>İpucu 4: başlık altında zenginleştirilmiş belgelere bakarak. 
+Zenginleştirme sırasında oluşturulan ve işlenmesi tamamlandığında silinir geçici yapıları zenginleştirilmiş belgelerdir.
 
 Dizin oluşturma sırasında oluşturulan zenginleştirilmiş belgenin anlık görüntüsünü yakalamak için dizininize ```enriched``` adlı bir alan ekleyin. Dizin oluşturucu, otomatik olarak alana, o belgenin tüm zenginleştirmelerinin dize gösteriminin dökümünü alır.
 
 ```enriched``` alanı, JSON’da bellek içi zenginleştirilmiş belgenin mantıksal gösterimi olan bir dize içerir.  Ancak alan değeri geçerli bir JSON belgesidir. Tırnak işaretlerine kaçış karakteri eklenir, böylece belgeyi biçimlendirilmiş JSON olarak görüntülemek için `\"` öğesini `"` ile değiştirmeniz gerekir. 
 
-Zenginleştirilmiş alan yalnızca, mantıksal şekli ifadeleri karşı değerlendirilen içeriğin anlamanıza yardımcı olması için hata ayıklama amacıyla tasarlanmıştır. Amacıyla dizin oluşturma için bu alanı bağlı olmaması gerekir.
+Zenginleştirilmiş alan, yalnızca mantıksal ifadeleri karşı değerlendirilmekte içeriği şeklini anlamanıza yardımcı olması için hata ayıklama amacıyla tasarlanmıştır. Bu alan için dizin oluşturma amacıyla bağlı olmamalıdır.
 
-Ekleme bir ```enriched``` alan hata ayıklama amacıyla, dizin tanımının bir parçası olarak:
+Ekleme bir ```enriched``` dizin tanımınız, hata ayıklama amacıyla bir parçası olarak alan:
 
 #### <a name="request-body-syntax"></a>İstek Gövdesi Sözdizimi
 ```json
@@ -81,31 +81,31 @@ Ekleme bir ```enriched``` alan hata ayıklama amacıyla, dizin tanımının bir 
 
 ## <a name="tip-5-expected-content-fails-to-appear"></a>İpucu 5: görünmesi beklenen içerik başarısız
 
-Eksik içerik dizin oluşturma sırasında kesiliyor belgeleri sonucu olabilir. Ücretsiz ve temel Katmanlar belge boyutuna düşük sınırlara sahiptir. Sınırı aşan herhangi bir dosyayı dizin oluşturma sırasında atıldı. Azure portalında bırakılan belgeler için kontrol edebilirsiniz. Arama hizmet panosunda, dizin oluşturucu Döşe çift tıklayın. Dizine başarılı belgeleri oranını gözden geçirin. % 100 değilse, daha fazla ayrıntı almak için oranı tıklatabilirsiniz. 
+Eksik içerik dizin oluşturma sırasında bırakılmak belgeleri sonucu olabilir. Ücretsiz ve temel katmanlarında belge boyutuna düşük sınırlara sahiptir. Sınırı aşan herhangi bir dosya, dizin oluşturma sırasında bırakılır. Bırakılan belgeleri Azure portalında denetleyebilirsiniz. Arama hizmet panosunda, dizin oluşturucu kutucuğu çift tıklayın. Dizini oluşturulmuş başarılı belgelerini oranı gözden geçirin. % 100 değilse, daha fazla ayrıntı almak için oran tıklayabilirsiniz. 
 
-Sorun dosya boyutunu ilişkiliyse, bu gibi bir hata görebilirsiniz: "Blob < dosya adı >" Belge ayıklama geçerli hizmet katmanı için en fazla boyutu aşıyor < dosya boyutu > bayt boyutuna sahip. " Dizin Oluşturucu sınırları hakkında daha fazla bilgi için bkz: [hizmet sınırları](search-limits-quotas-capacity.md).
+Sorun için dosya boyutu ile ilgiliyse, bu gibi bir hata görebilirsiniz: "Blob < dosya adı >" Belge ayıklama geçerli hizmet katmanı için en büyük boyutu aşıyor < dosya boyutu > bayt cinsinden boyutu yok. " Dizin Oluşturucu sınırları hakkında daha fazla bilgi için bkz. [hizmet sınırları](search-limits-quotas-capacity.md).
 
-İkinci bir nedenle görünmesi başarısız olan içerik için ilgili giriş/çıkış eşleme hataları olabilir. Örneğin, bir çıktı hedef adı "Kişiler" ancak dizin alanın adı küçük "Kişiler". Aslında bir alanı boş olduğunda dizin oluşturma, başarılı bir şekilde düşündüğünüz şekilde sistem tüm ardışık düzeni için 201 başarı iletileri döndürebilirsiniz. 
+Görüntülenecek başarısız olan içerik için ikinci bir nedeni, ilgili giriş/çıkış eşleme hataları olabilir. Örneğin, "Kişiler" çıkış hedef adıdır ancak küçük harf "Kişiler" dizin alan adıdır. Aslında bir alan boş olduğunda dizin oluşturma, başarılı anlattık sistem işlem hattının tamamı için 201 Başarı iletilerinin döndürebilir. 
 
-## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>İpucu 6: işlem en fazla çalışma süresi (24 saatlik bir aralık) ötesine genişletmek
+## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>İpucu 6: işleme en fazla çalışma süresi (24 saatlik pencere) ötesine genişletir
 
-Görüntü analiz hesaplama yoğunluklu bile basit durumlarda, bu nedenle görüntüleri özellikle büyük veya karmaşık olduğunda işleme sürelerini aşan izin verilen en fazla süre. 
+Görüntü analizi işlem bakımından yoğun bile basit durumlarda, bu nedenle görüntüleri özellikle büyük veya karmaşık olduğunda işleme sürelerini aşan izin verilen en fazla süreyi. 
 
-Maksimum Çalıştırma süresi katmanı tarafından değişir: 24 saatlik Faturalanabilir katmanda bulunan dizin birkaç dakikada ücretsiz katmanı. İsteğe bağlı işleme için 24 saatlik süre içinde tamamlanması işlem başarısız olursa, kaldığı yerden işlemeyi çekme dizin oluşturucu için bir zamanlama geçin. 
+Maksimum Çalıştırma süresi katmana göre değişiklik gösterir: 24 saatlik Faturalanabilir katmanlarda dizin oluşturma birkaç dakika ücretsiz katmanı. Talep üzerine işleme için bir 24 saatlik süre içinde tamamlanması işleme başarısız olursa, kaldığı işlemeyi çekme dizin oluşturucu için bir zamanlama geçin. 
 
-Zamanlanmış dizin oluşturucular için dizin oluşturma en son bilinen iyi belge zamanlamaya göre devam ettirir. Dizin Oluşturucu, yinelenen bir zamanlama kullanarak, bir dizi saat veya tüm atanmamış işlenen görüntüleri işlenene kadar gün içinde görüntü biriktirme kendi aşamalardaki çalışabilir. Zamanlama sözdizimi hakkında daha fazla bilgi için bkz: [adım 3: Oluştur-bir-dizin oluşturucu](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+Zamanlanmış dizin oluşturucular için dizin oluşturma en son bilinen iyi belge zamanlamaya göre devam ettirir. Dizin Oluşturucu, yinelenen bir zamanlama kullanarak saatler veya günler, hazırlanmamış işlenen tüm görüntüleri işlenene kadar bir dizi üzerinden görüntü biriktirme listesi aracılığıyla kendi şekilde çalışabilirsiniz. Zamanlama sözdizimi hakkında daha fazla bilgi için bkz. [3. adım:-bir-dizin oluşturucu oluşturma](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
 
-Portal tabanlı (açıklandığı gibi Hızlı Başlangıç) dizin oluşturma işlemi için 1 saat olarak işleme sınırları seçeneği "bir kez çalıştır" dizin oluşturucusunu seçme (`"maxRunTime": "PT1H"`). Uzun bir şey işleme penceresi genişletmek isteyebilirsiniz.
+Portal tabanlı (hızlı başlangıç açıklandığı şekilde) dizin oluşturma için 1 saate işleme sınırları seçenek "bir kez çalıştır" Dizin Oluşturucusu seçme (`"maxRunTime": "PT1H"`). Uzun bir şey işleme penceresini genişletmek isteyebilirsiniz.
 
 ## <a name="tip-7-increase-indexing-throughput"></a>İpucu 7: dizin oluşturma performansı artırma
 
-İçin [paralel dizin](search-howto-large-index.md), birden çok kapsayıcı ya da aynı kapsayıcı içinde birden çok sanal klasörler verilerinizi yerleştirin. Daha sonra birden çok veri kaynağı ve dizin oluşturucu çiftleri oluşturun. Tüm Dizin oluşturucuların aynı skillset ve arama uygulamanız bu bölümlendirme farkında olması gerekmez şekilde aynı hedef arama dizine yazma kullanabilirsiniz.
-Daha fazla bilgi için bkz: [dizin büyük veri kümeleri](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
+İçin [paralel dizin](search-howto-large-index.md), verilerinizi birden çok kapsayıcı ya da aynı kapsayıcı içinde birden çok sanal klasör yerleştirin. Daha sonra birden çok veri kaynağı ve dizin oluşturucu çifti oluşturun. Tüm Dizin oluşturucuların aynı becerilerine ve arama uygulamanızı bu bölümlere farkında olması gerekmez, aynı hedef search dizinine yazma kullanabilirsiniz.
+Daha fazla bilgi için [dizin oluşturma, büyük veri kümelerini](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-+ [Hızlı Başlangıç: portalda bilişsel arama işlem hattı oluşturma](cognitive-search-quickstart-blob.md)
-+ [Öğretici: bilişsel arama REST API'leri öğrenin](cognitive-search-tutorial-blob.md)
++ [Hızlı Başlangıç: portalında bir bilişsel arama işlem hattı oluşturma](cognitive-search-quickstart-blob.md)
++ [Öğretici: bilişsel arama REST API'leri ile bilgi edinin.](cognitive-search-tutorial-blob.md)
 + [Veri kaynağı kimlik bilgilerini belirtme](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
-+ [Dizin oluşturma büyük veri kümeleri](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
-+ [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
-+ [Bir dizine zenginleştirilmiş alanlarını eşleme](cognitive-search-output-field-mapping.md)
++ [Büyük veri kümelerini dizin oluşturma](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
++ [Bir beceri kümesi tanımlama](cognitive-search-defining-skillset.md)
++ [Nasıl bir dizin zenginleştirilmiş alanlarını eşleme](cognitive-search-output-field-mapping.md)

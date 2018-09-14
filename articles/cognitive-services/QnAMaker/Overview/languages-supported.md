@@ -1,49 +1,50 @@
 ---
-title: Desteklenen diller - QnA Maker - Azure Bilişsel hizmetler | Microsoft Docs
-description: Hangi dilleri için QnA Maker desteklendiğini öğrenin.
+title: Desteklenen diller - soru-cevap Oluşturucu
+titlesuffix: Azure Cognitive Services
+description: Bilgi Bankası dili otomatik-extract sorular ve yanıtlar kaynaklardan yanı sıra, soru-cevap Oluşturucu, kullanıcı sorgularına yanıt sağlar sonuçlarının ilgi soru-cevap Oluşturucu'nın yeteneğini etkiler.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: b210f59129a962046787b27d003c2872a54f6c8e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ee04733064ec4e3d131b800fe1f18b27e5127fe8
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354940"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45572949"
 ---
 # <a name="supported-languages"></a>Desteklenen diller
 
-Bilgi Bankası dilinin otomatik extract soruları QnA Maker'ın yeteneği etkiler ve gelen yanıtları [kaynakları](../Concepts/data-sources-supported.md), QnA Maker sağlayan kullanıcı sorgularına yanıt sonuçları alaka yanı sıra.
+Bilgi Bankası dili otomatik ayıklama soruların soru-cevap Oluşturucu'nın özelliğini etkiler ve gelen yanıtları [kaynakları](../Concepts/data-sources-supported.md), soru-cevap Oluşturucu sağlayan kullanıcı sorgularına yanıt sonuçlarının ilgi yanı sıra.
 
 ## <a name="auto-extraction"></a>Otomatik ayıklama
-QnA Maker soru/yanıt ayıklama herhangi bir dil sayfa destekler, ancak QnA Maker soruları tanımlamak için anahtar sözcükleri kullanır gibi ayıklama verimliliğini aşağıdaki diller için çok daha yüksektir.
+Soru-cevap Oluşturucu, herhangi bir dil sayfanın soru/yanıt ayıklama destekler, ancak soru-cevap Oluşturucu soruları tanımlamak için anahtar sözcükler kullandığından ayıklama verimliliğini aşağıdaki diller için çok daha yüksektir.
 
 |Desteklenen diller| Yerel ayar|
 |-----|----|
 |Türkçe|tr-*|
-|Fransızca |FR-*|
+|Fransızca|FR-*|
 |İtalyanca|BT-*|
-|Almanca |de-*|
-|İspanyolca |ES-*|
+|Almanca|de-*|
+|İspanyolca|ES-*|
 
-## <a name="query-matching-and-relevance"></a>Eşleşen sorgu ve ilgi
-QnA Maker bağımlı [dil Çözümleyicileri](https://docs.microsoft.com/en-us/rest/api/searchservice/language-support) sonuçları sağlamak için Azure Search'te. Yeniden sıralama özelliklere tr - için kullanılabilir * daha iyi bir ilgisi etkinleştirmek diller.
+## <a name="query-matching-and-relevance"></a>Sorguyla eşleşen ve ilgi düzeyi
+Soru-cevap Oluşturucu bağlıdır [dil Çözümleyicileri](https://docs.microsoft.com/rest/api/searchservice/language-support) sonuçları sağlamak için Azure Search'te. Özel yeniden sıralama özellikleri kullanılabilir tr - için * daha iyi uygunluğu sağlayan diller.
 
-QnA Maker otomatik-dilini Bilgi Bankası oluşturma sırasında algılar ve Çözümleyicisi uygun şekilde ayarlar. Bilgi Bankası aşağıdaki dillerde de oluşturabilirsiniz. Okuma [bu](../How-To/language-knowledge-base.md) QnA Maker dillerin nasıl işlediği hakkında daha fazla ayrıntı için.
+Soru-cevap Oluşturucu, otomatik olarak Bilgi Bankası dili oluşturma sırasında algılar ve Çözümleyicisi uygun şekilde ayarlar. Aşağıdaki dillerde bilgi bankalarından oluşturabilirsiniz. Okuma [bu](../How-To/language-knowledge-base.md) soru-cevap Oluşturucu dillerin nasıl işlediği hakkında daha fazla ayrıntı için.
 
 
 > [!Tip]
-> Dil Çözümleyicileri kez ayarlandıktan sonra değiştirilemez. Ayrıca, dil Çözümleyicisi tüm Bilgi Bankası uygulandığı bir [QnA Maker hizmet](../How-To/set-up-qnamaker-service-azure.md). Farklı bir dilde bilgi temellerine sahip planlıyorsanız, ayrı QnA Maker hizmetler oluşturmanız gerekir.
+> Dil Çözümleyicileri kez ayarlandıktan sonra değiştirilemez. Ayrıca, bir dil Çözümleyicisi bilgi bankalarından tüm uygulandığı bir [soru-cevap Oluşturucu hizmetini](../How-To/set-up-qnamaker-service-azure.md). Farklı bir dilde bilgi bankalarından olmasını planlıyorsanız, bunları ayrı soru-cevap Oluşturucu hizmetler oluşturmalısınız.
 
 |Desteklenen diller|
 |-----|
 |Arapça|
-|Ermenice|,
+|Ermenice|, 
 Bengali|
 |Bask dili|
 |Bulgarca|
@@ -53,13 +54,13 @@ Bengali|
 |Hırvatça|
 |Çekçe|
 |Danca|
-|Felemenkçe|
+|Hollanda dili|
 |Türkçe|
 |Estonca|
 |Fince|
-|Fransızca |
+|Fransızca|
 |Galiçya dili|
-|Almanca |
+|Almanca|
 |Yunanca|
 |Gucerat dili|
 |İbranice|
@@ -86,7 +87,7 @@ Bengali|
 |Serbian_Latin|
 |Slovakça|
 |Slovence|
-|İspanyolca |
+|İspanyolca|
 |İsveç dili|
 |Tamil dili|
 |Telugu dili|

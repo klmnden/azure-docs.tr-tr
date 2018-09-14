@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 482f0403cfd4bbd6587ba7e3e936cdac7f82b54a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b7abbd486e9c357a5bdba093214a3801f88c39ab
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228116"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575907"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Anlayabilmemiz ve akış birimleri
 
@@ -46,7 +46,7 @@ Azure portalını kullanarak bir işin aktarım hızı izleyebilirsiniz:
 
 Belirli bir proje için gerekli SUs sayısını seçme girişleri ve iş içinde tanımlanan bir sorgu için bölümlendirme yapılandırmasına bağlıdır. **Ölçek** sayfası SUs doğru sayıda ayarlamanıza olanak sağlar. Gerekli olandan daha fazla SUs ayırmak için iyi bir uygulamadır. Stream Analytics işleme altyapısı, gecikme ve ek bellek ayırma, performans için iyileştirir.
 
-Genel olarak, kullanmayan sorgular için 6 SUs başlatmak için en iyi yöntem olacaktır **PARTITION BY**. Ardından tatlı nokta temsili miktarda veri aktarmak ve SU % Utilization ölçümünü inceleyin sonra SUs sayısını değiştirerek bir deneme yanılma yöntemini kullanarak belirler. Stream Analytics işi tarafından kullanılan akış birimi sayısı, iş ve her bir adımın bölüm sayısı için tanımlanan sorgu, adım sayısı bağlıdır. Sınırları hakkında daha fazla bilgi [burada](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
+Genel olarak, kullanmayan sorgular için 6 SUs başlatmak için en iyi yöntem olacaktır **PARTITION BY**. Ardından tatlı nokta temsili miktarda veri aktarmak ve SU % Utilization ölçümünü inceleyin sonra SUs sayısını değiştirerek bir deneme yanılma yöntemini kullanarak belirler. Stream Analytics işi tarafından kullanılan akış birimi sayısı, iş ve her bir adımın bölüm sayısı için tanımlanan sorgu, adım sayısı bağlıdır. Sınırları hakkında daha fazla bilgi [burada](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
 SUs doğru sayıda seçme hakkında daha fazla bilgi için bu sayfaya bakın: [verimliliğini artırmak için ölçek Azure Stream Analytics işleri](stream-analytics-scale-jobs.md)
 
@@ -85,7 +85,7 @@ Kullanılan bellek (durum boyutu) bir pencereli toplama için her zaman penceres
 
    ```sql
    SELECT count(*) 
-   FROM PARTITION BY PartitionId
+   FROM input PARTITION BY PartitionId
    GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
    ```
 

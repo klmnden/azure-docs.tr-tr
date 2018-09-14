@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: na
-ms.openlocfilehash: 7898af1a8d516fa74deef5614b5373f1dbd22f5a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ec35cece8da8eaaa89b11a35b0fc1e55d0cdfee8
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378611"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573500"
 ---
 # <a name="log-analytics-for-service-providers"></a>Hizmet sağlayıcıları için log Analytics
 Log Analytics, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) ve müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme barındırma hizmeti sağlayıcılarına yardımcı olabilir. 
@@ -31,16 +31,16 @@ Büyük kuruluşlar özellikle yönetmekten sorumlu merkezi bir BT ekibiniz oldu
 
 ## <a name="architectures-for-service-providers"></a>Hizmet sağlayıcılarına yönelik mimariler
 
-Log Analytics çalışma alanları, akış ve günlüklerin yalıtım denetlemek ve belirli iş gereksinimlerini ele alan bir günlük mimarisi oluşturma yöneticiye bir yöntem sağlar. [Bu makalede](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access) geçici çalışma alanı yönetimi genel konular açıklanmaktadır. Hizmet sağlayıcıları, ek hususlar vardır.
+Log Analytics çalışma alanları, akış ve günlüklerin yalıtım denetlemek ve belirli iş gereksinimlerini ele alan bir günlük mimarisi oluşturma yöneticiye bir yöntem sağlar. [Bu makalede](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) geçici çalışma alanı yönetimi genel konular açıklanmaktadır. Hizmet sağlayıcıları, ek hususlar vardır.
 
 Log Analytics çalışma alanları ile ilgili hizmet sağlayıcıları için üç olası mimari vardır:
 
 ### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. Dağıtılmış - müşteri kiracısında bulunan çalışma alanları günlükleri depolanır 
 
-Bu mimaride, bir çalışma alanı söz konusu müşterinin tüm günlükleri için kullanılan bir müşterinin Kiracı dağıtılır. Hizmet sağlayıcısı yöneticileri kullanarak bu çalışma alanı için erişim izni verilen [Azure Active Directory'ye Konuk kullanıcılar (B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b). Hizmet sağlayıcısı yöneticileri, bu çalışma alanlarının erişebilmesi için Azure portalında, müşterinin dizinine geçin gerekecektir.
+Bu mimaride, bir çalışma alanı söz konusu müşterinin tüm günlükleri için kullanılan bir müşterinin Kiracı dağıtılır. Hizmet sağlayıcısı yöneticileri kullanarak bu çalışma alanı için erişim izni verilen [Azure Active Directory'ye Konuk kullanıcılar (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b). Hizmet sağlayıcısı yöneticileri, bu çalışma alanlarının erişebilmesi için Azure portalında, müşterinin dizinine geçin gerekecektir.
 
 Bu mimari avantajları şunlardır:
-* Müşteri, kendi kullanarak günlükleri erişimi yönetebilir [rol tabanlı erişim](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+* Müşteri, kendi kullanarak günlükleri erişimi yönetebilir [rol tabanlı erişim](https://docs.microsoft.com/azure/role-based-access-control/overview).
 * Her müşteri için kendi çalışma alanı tutma ve veri capping gibi farklı ayarlara sahip olabilir.
 * Müşteriler için arasında yalıtım yasal ve uymalarını zorunlu tutar.
 * Müşterinin hizmet aboneliği içinde her çalışma alanı için ücret alınacaktır.
@@ -74,7 +74,7 @@ Bu mimari dezavantajları şunlardır:
 
 Log Analytics'te merkezi bir konum uygulamak için iki seçenek vardır:
 
-1. Merkezi çalışma alanı: hizmet sağlayıcısı, kiracıda bir çalışma alanı oluşturun ve yararlanan bir betik kullan [sorgu API'si](https://dev.loganalytics.io/) ile [veri koleksiyonu API'sini](log-analytics-data-collector-api.md) için çeşitli çalışma alanlarından verileri getirmek için Merkezi bir konum. Bir betik dışındaki başka bir seçenek kullanmaktır [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
+1. Merkezi çalışma alanı: hizmet sağlayıcısı, kiracıda bir çalışma alanı oluşturun ve yararlanan bir betik kullan [sorgu API'si](https://dev.loganalytics.io/) ile [veri koleksiyonu API'sini](log-analytics-data-collector-api.md) için çeşitli çalışma alanlarından verileri getirmek için Merkezi bir konum. Bir betik dışındaki başka bir seçenek kullanmaktır [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 2. Power BI olarak merkezi bir konum: çeşitli çalışma alanları için Log Analytics arasındaki tümleştirmeden kullanarak verileri dışarı aktardığınızda, Power BI merkezi konumunuz olarak hareket edebilir ve [Power BI](log-analytics-powerbi.md). 
 

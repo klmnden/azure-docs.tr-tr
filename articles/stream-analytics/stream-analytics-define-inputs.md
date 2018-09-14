@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 9fa71c221b276e2173694e2c1e86673e52677e63
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2da388ef2fc0df8b08658900fe91ecc9d440fd3a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389832"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579301"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics giriş olarak Stream veri
 
@@ -29,7 +29,7 @@ Bu giriş kaynakları, Stream Analytics işinizi aynı Azure aboneliğinde veya 
 Stream Analytics, tüm veri akışı giriş kaynaklarında sıkıştırma destekler. Şu anda desteklenen başvuru türleridir: hiçbiri, GZip ve Deflate sıkıştırma. Sıkıştırma desteğine başvuru verileri için kullanılabilir değil. Giriş biçimi, sıkıştırılmış Avro veri olması durumunda saydam bir şekilde ele alınır. Avro serileştirme ile sıkıştırma türünü belirtmeniz gerekmez. 
 
 ## <a name="create-edit-or-test-inputs"></a>Oluşturma, düzenleme veya test girişleri
-Kullanabileceğiniz [Azure portalı](https://portal.azure.com) için [yeni girdileri Oluştur](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) görüntüleyebilir veya var olan akış işinizin girişler düzenleyin. Ayrıca, giriş bağlantılarını test edebilirsiniz ve [test sorguları](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-manage-job#test-your-query) örnek verilerden. Bir sorgu yazdığınızda, giriş FROM yan tümcesi içinde listelenir. Kullanılabilir girişler listesini alabilirsiniz **sorgu** portalında sayfası. Birden çok giriş kullanmak istiyorsanız, aşağıdakileri yapabilirsiniz `JOIN` bunları veya birden çok yazma `SELECT` sorgular.
+Kullanabileceğiniz [Azure portalı](https://portal.azure.com) için [yeni girdileri Oluştur](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) görüntüleyebilir veya var olan akış işinizin girişler düzenleyin. Ayrıca, giriş bağlantılarını test edebilirsiniz ve [test sorguları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) örnek verilerden. Bir sorgu yazdığınızda, giriş FROM yan tümcesi içinde listelenir. Kullanılabilir girişler listesini alabilirsiniz **sorgu** portalında sayfası. Birden çok giriş kullanmak istiyorsanız, aşağıdakileri yapabilirsiniz `JOIN` bunları veya birden çok yazma `SELECT` sorgular.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Event Hubs’dan veri akışı sağlama

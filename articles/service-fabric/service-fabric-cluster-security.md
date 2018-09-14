@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 52730ae24f4917ab593914c390df798f7f58dbde
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42062129"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541913"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kümesi güvenlik senaryoları
 Bir Azure Service Fabric kümesine sahip olduğunuz bir kaynaktır. Yetkisiz kullanıcıların bunlara bağlanmasını önlemeye yardımcı olmak için kümeleri güvenli hale getirmek için sizin sorumluluğunuzdur. Üretim iş yükleri küme üzerinde çalışan, güvenli bir kümeye özellikle önemlidir. Kümenin yönetim uç noktalarını genel İnternet'e sunarsa, güvenli olmayan bir kümeye oluşturmak mümkün olsa da, anonim kullanıcılar için bağlanabilir. Güvenli olmayan kümelerini üretim iş yükleri için desteklenmez. 
@@ -92,6 +92,7 @@ Dikkate alınması gereken bazı önemli noktalar:
 * Üretim iş yüklerinde çalışan kümeler için sertifikaları oluşturmak için doğru şekilde yapılandırılmış bir Windows Server sertifika hizmeti veya onaylanan bir diğerine kullanın [sertifika yetkilisi (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
 * Hiçbir zaman herhangi bir geçici kullanın veya bir üretim ortamında MakeCert.exe gibi araçları kullanarak, oluşturduğunuz sertifikalar test edebilirsiniz.
 * Ancak yalnızca bir sınama kümesi otomatik olarak imzalanan bir sertifika kullanabilirsiniz. Kendinden imzalı sertifika üretim ortamında kullanmayın.
+* Sertifika parmak izini oluştururken, SHA1 parmak izi'ı oluşturduğunuzdan emin olun. İstemci ve küme sertifikası parmak izleri yapılandırırken kullandığınız kadar SHA1 değeridir.
 
 ### <a name="cluster-and-server-certificate-required"></a>Küme ve sunucu sertifikası (gerekli)
 Bu sertifikalar (birincil ve isteğe bağlı olarak ikincil) küme güvenliğini sağlama ve yetkisiz erişimi önlemek için gereklidir. Bu sertifikalar, küme ve sunucu kimlik doğrulaması sağlar.

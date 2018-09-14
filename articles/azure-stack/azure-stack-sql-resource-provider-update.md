@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 3517114d5bc267aa32cea49161d0d34156a2ed1e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 84306d832464249d614942d85a1069ad42dd2eba
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390918"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578132"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL kaynak sağlayıcısını güncelle
 
@@ -38,8 +38,8 @@ Kaynak Sağlayıcısı'nı güncelleştirmek için *UpdateSQLProvider.ps1* beti�
 
 *UpdateSQLProvider.ps1* betik en son kaynak sağlayıcı kodu ile yeni bir sanal makine (VM) oluşturur.
 
->[!NOTE]
->En son Windows Server 2016 Core görüntüyü Market Yönetimi'nden indirmenizi öneririz. Bir güncelleştirme yüklemeniz gerekiyorsa, yerleştirebilirsiniz bir **tek** MSU paketinde bağımlılık yerel yolu. Bu konumda birden fazla MSU dosyası yoksa, betiği başarısız olur.
+> [!NOTE]
+> En son Windows Server 2016 Core görüntüyü Market Yönetimi'nden indirmenizi öneririz. Bir güncelleştirme yüklemeniz gerekiyorsa, yerleştirebilirsiniz bir **tek** MSU paketinde bağımlılık yerel yolu. Bu konumda birden fazla MSU dosyası yoksa, betiği başarısız olur.
 
 Sonra *UpdateSQLProvider.ps1* betik yeni bir VM oluşturur, betik aşağıdaki ayarları eski sağlayıcısından VM geçirir:
 
@@ -49,9 +49,9 @@ Sonra *UpdateSQLProvider.ps1* betik yeni bir VM oluşturur, betik aşağıdaki a
 
 ### <a name="update-script-powershell-example"></a>PowerShell örnek betiği güncelleştir
 
-<a name="you-can-edit-and-run-the-following-script-from-an-elevated-powershell-ise"></a>Düzenle ve yükseltilmiş bir PowerShell ISE'den aşağıdaki betiği çalıştırın. 
--  
-- Ortamınız için gerektiği şekilde parola ve hesap bilgilerini değiştirmeyi unutmayın.
+Düzenle ve yükseltilmiş bir PowerShell ISE'den aşağıdaki betiği çalıştırın. 
+
+Ortamınız için gerektiği şekilde parola ve hesap bilgilerini değiştirmeyi unutmayın.
 
 > [!NOTE]
 > Bu güncelleştirme işlemi, yalnızca Azure Stack tümleşik sistemleri için geçerlidir.
@@ -66,6 +66,9 @@ $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -92,6 +95,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint $privilegedEndpoint `
+  -AzureEnvironment $AzureEnvironment `
   -DefaultSSLCertificatePassword $PfxPass `
   -DependencyFilesLocalPath $tempDir\cert `
 
@@ -107,7 +111,7 @@ Betiği çalıştırdığınızda, komut satırından aşağıdaki parametreleri
 | **AzCredential** | Azure Stack hizmet yönetici hesabının kimlik bilgileri. Azure Stack dağıtmak için kullanılan kimlik bilgilerini kullanın. | _Gerekli_ |
 | **VMLocalCredential** | SQL kaynak sağlayıcısı VM yerel yönetici hesabı için kimlik bilgileri. | _Gerekli_ |
 | **PrivilegedEndpoint** | Ayrıcalıklı uç noktasının DNS adı veya IP adresi. |  _Gerekli_ |
-| **AzureEnvironment** | Azure Stack dağıtmak için kullanılan hizmet yönetici hesabının azure ortamı. Yalnızca AD FS değilse gereklidir. Desteklenen ortam adları **AzureCloud**, **AzureUSGovernment**, veya bir Çin'de Azure Active Directory'yi kullanarak **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | Azure Stack dağıtmak için kullanılan hizmet yönetici hesabının Azure ortamı. Yalnızca Azure AD dağıtımları için gereklidir. Desteklenen ortam adları **AzureCloud**, **AzureUSGovernment**, veya bir Azure AD, Çin kullanıyorsanız **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Ayrıca, sertifika .pfx dosyasını bu dizinde yerleştirmeniz gerekir. | _Çok düğümlü zorunlu ancak tek bir düğüm için isteğe bağlı_ |
 | **DefaultSSLCertificatePassword** | .Pfx sertifika için parola. | _Gerekli_ |
 | **MaxRetryCount** | Her işlem bir hata olursa yeniden denemek istiyor sayısı.| 2 |

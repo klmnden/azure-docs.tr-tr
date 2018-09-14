@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: eda3e95c1bd8fb7eef97ee9db10c217c2885198f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970892"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576706"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack üzerinde Azure Backup Sunucusu'nu yükleme
 
@@ -310,7 +310,7 @@ Azure Backup sunucusu, veri koruma Yöneticisi ile kod paylaşır. Data Protecti
 
 ## <a name="add-backup-storage"></a>Yedekleme depolama alanı ekleme
 
-İlk yedek kopyanın Azure Backup sunucusu makinesine bağlı depolama tutulur. Disk ekleme hakkında daha fazla bilgi için bkz. [ekleme Modern yedekleme depolama alanı](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801).
+İlk yedek kopyanın Azure Backup sunucusu makinesine bağlı depolama tutulur. Disk ekleme hakkında daha fazla bilgi için bkz. [ekleme Modern yedekleme depolama alanı](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > Verileri Azure'a göndermek planlama olsa bile, yedekleme depolama alanı ekleme gerekir. Azure Backup sunucusu mimaride, Kurtarma Hizmetleri kasası ayrı tutma *ikinci* ilk (ve zorunlu) yedek kopyayı yerel depolama sırasında verilerin kopyasını tutar.
@@ -360,10 +360,10 @@ Ayrıca başvurabilirsiniz [Azure Backup ilgili sık sorulan sorular](backup-azu
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Makale [ortamınızı DPM'ye hazırlama](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), desteklenen Azure Backup sunucusu yapılandırmaları hakkında bilgi içerir.
+Makale [ortamınızı DPM'ye hazırlama](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), desteklenen Azure Backup sunucusu yapılandırmaları hakkında bilgi içerir.
 
 Microsoft Azure Backup sunucusu kullanarak iş yükü koruması daha derin bir anlayış kazanmak için aşağıdaki makalelere kullanabilirsiniz.
 
-- [SQL Server Yedekleme](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
-- [SharePoint server yedekleme](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [SQL Server Yedekleme](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint server yedekleme](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Alternatif Sunucu yedekleme](backup-azure-alternate-dpm-server.md)

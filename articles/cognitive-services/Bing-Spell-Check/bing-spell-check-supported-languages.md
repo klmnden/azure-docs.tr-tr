@@ -1,6 +1,6 @@
 ---
-title: Bing yazım denetleme API (Azure'da Microsoft Bilişsel hizmetler) içinde desteklenen diller | Microsoft Docs
-description: Genel olarak kullanılabilir listesi ve önizleme dil için Bing yazım denetleme API işlemleri destekler.
+title: Bing yazım denetimi API'si (Azure'da Microsoft Bilişsel hizmetler), desteklenen diller | Microsoft Docs
+description: Bing yazım denetimi API'si işlemleri için listesi genel kullanıma sunuldu ve önizleme dili destekler.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -9,18 +9,18 @@ ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: nolachar
-ms.openlocfilehash: 7cab8e0471151cd2ae7c2e31406f2460fdff6a0b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a62980f563c8fad525696aca73f8c036382fa820
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050395"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573799"
 ---
-# <a name="supported-language-list-and-status"></a>Desteklenen dil listesi ve durumu
+# <a name="supported-language-list-and-status"></a>Desteklenen dilini listesini ve durumu
 
-Bu diller Bing yazım denetleme API'si tarafından desteklenir (yalnızca `spell` modu). 
+Bu diller, Bing yazım denetimi API'si tarafından desteklenir (yalnızca `spell` modu). 
 
-' Den başka bir dilde çalışmak için lütfen unutmayın `en-US`, `mkt` ayarlamanız gerekir ve her iki `Accept-Language` veya `setLang` , açıklandığı ayarlanmalıdır [yazım denetleme API v7 başvurusu](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+Başka bir dilde çalışmak için lütfen unutmayın `en-US`, `mkt` ayarlanması gerekir ve her iki `Accept-Language` veya `setLang` , açıklandığı ayarlanmalıdır [yazım denetimi API'si v7 başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
 
 | Dil    | Dil kodu |
 |:----------- |:-------------:|
@@ -67,5 +67,5 @@ Bu diller Bing yazım denetleme API'si tarafından desteklenir (yalnızca `spell
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-- [Bilişsel hizmetler belge sayfası](https://docs.microsoft.com/azure/cognitive-services/)
-- [Bilişsel hizmetler ürün sayfası](https://azure.microsoft.com/services/cognitive-services/)
+- [Bilişsel Hizmetler Belgeleri sayfası](https://docs.microsoft.com/azure/cognitive-services/)
+- [Bilişsel Hizmetler Ürün sayfası](https://azure.microsoft.com/services/cognitive-services/)

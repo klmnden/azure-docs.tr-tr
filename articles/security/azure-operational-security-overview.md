@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 361905b4c1e0c9e596cb7cf1cd5a730268d81bd0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413418"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575227"
 ---
 # <a name="azure-operational-security-overview"></a>Azure operasyonel güvenliğine genel bakış
 [Azure operasyonel güvenlik](https://docs.microsoft.com/azure/security/azure-operational-security) verilerini, uygulamalarını ve diğer varlıklardan Microsoft azure'da korumak için Hizmetleri, denetimleri ve kullanıcılara sunulan özellikleri gösterir. Çeşitli Microsoft'a özgü özellikler aracılığıyla edinilen bilgileri içeren bir çerçevedir. Bu özellikler, Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center program ve siber güvenlik tehditleri hakkındaki ayrıntılı tanıma içerir.
@@ -68,7 +68,7 @@ Azure AD de içeren eksiksiz [kimlik yönetimi özellikleri](https://docs.micros
 Azure Active Directory'ye (işletme veya tüketici) müşteriler ve iş ortakları için yayımlama tüm uygulamalar aynı kimliğe sahip ve erişim yönetimi özellikleri. Bu, önemli ölçüde işletim maliyetlerini azaltmak sağlar.
 
 ## <a name="azure-security-center"></a>Azure Güvenlik Merkezi
-[Azure Güvenlik Merkezi](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) , önlemenize, algılamanıza ve Artırılmış görünürlük ile tehditleri (ve üzerinde denetim) yardımcı olur, Azure kaynaklarınızın güvenlik. Bu, aboneliklerinizde tümleşik güvenlik izleme ve ilke yönetimi sağlar. Aksi takdirde gözden kaçan geçebilir tehditleri algılamanıza yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.
+[Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro) , önlemenize, algılamanıza ve Artırılmış görünürlük ile tehditleri (ve üzerinde denetim) yardımcı olur, Azure kaynaklarınızın güvenlik. Bu, aboneliklerinizde tümleşik güvenlik izleme ve ilke yönetimi sağlar. Aksi takdirde gözden kaçan geçebilir tehditleri algılamanıza yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.
 
 [Sanal makine (VM) veri koruma](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine) azure'da sanal makinenizin güvenlik ayarlarını görünürlük sağlayarak ve tehditleri izleme. Güvenlik Merkezi, sanal makinelerinizi şu açılardan izleyebilir:
 

@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 1954393c9fe544c33919c8f9fb8ee04e430e7639
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056467"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542574"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -216,17 +216,19 @@ Bu hata, aşağıdaki nedenlerden kaynaklanabilir:
 
 1. Bellek sınırı. Bir korumalı alan için ayrılan bellek miktarını üzerinde belgelenmiş sınırlamanın vardır [Otomasyon hizmet sınırları](../../azure-subscription-service-limits.md#automation-limits) şekilde 400 MB'tan fazla bellek kullanıyorsa, bir işi başarısız olabilir.
 
-2. Modül uyumsuz. Modül bağımlılıklarının doğru değildir ve değilse, runbook'unuzda genellikle "komut bulunamadı" döndürürse oluşabilir veya "parametresi bağlanılamıyor" iletisi.
+1. Ağ yuvaları. Anlatıldığı gibi Azure sanal 1000 eşzamanlı ağ yuvaları ile sınırlı [Otomasyon hizmet sınırları](../../azure-subscription-service-limits.md#automation-limits).
+
+1. Modül uyumsuz. Modül bağımlılıklarının doğru değildir ve değilse, runbook'unuzda genellikle "komut bulunamadı" döndürürse oluşabilir veya "parametresi bağlanılamıyor" iletisi.
 
 #### <a name="resolution"></a>Çözüm
 
 Aşağıdaki çözümlerden birini sorunu düzeltin:
 
-* Bellek sınırı içinde çalışmak için önerilen yöntemler bellekteki gereksiz çıkış, runbook'lardan yazamazlar kadar verileri işlemek veya PowerShell akışınıza yazma kaç kontrol noktaları göz önünde bulundurun değil iş yükünü birden çok runbook arasında bölmek üzeresiniz runbook'ları.  
+* Bellek sınırı içinde çalışmak için önerilen yöntemler bellekteki gereksiz çıkış, runbook'lardan yazamazlar kadar verileri işlemek veya PowerShell akışınıza yazma kaç kontrol noktaları göz önünde bulundurun değil iş yükünü birden çok runbook arasında bölmek üzeresiniz runbook'ları. Clear yöntemi gibi kullanabileceğiniz `$myVar.clear()` kullanın ve değişken temizlemek için `[GC]::Collect()` çöp toplama çalıştırmak için hemen, bu bellek Ayak izi, runbook'un sırasında çalışma zamanı azaltır.
 
 * Azure modüllerini adımları izleyerek [Azure automation'da Azure PowerShell modüllerini güncelleştirme](../automation-update-azure-modules.md).  
 
-* Runbook'u çalıştırmak için başka bir çözüm olan bir [karma Runbook çalışanı](../automation-hrw-run-runbooks.md). Karma çalışanları tarafından sınırı yoktur [adil paylaşımı](../automation-runbook-execution.md#fair-share) Azure sanal olduğunu sınırlar.
+* Runbook'u çalıştırmak için başka bir çözüm olan bir [karma Runbook çalışanı](../automation-hrw-run-runbooks.md). Karma çalışanları tarafından Azure sanal bellek ve ağ sınırları sınırlı değildir.
 
 ### <a name="fails-deserialized-object"></a>Senaryo: Runbook seri durumdan çıkarılmış nesne nedeniyle başarısız olur.
 

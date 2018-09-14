@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: 37c2c96ad14741fba2733765640f8d6d9ef3fee2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 73bc8b6954470d11d6369bc733bb7c6f794ce892
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716443"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577141"
 ---
 # <a name="azure-data-factory-faq"></a>Azure veri fabrikası ile ilgili SSS
 Bu makalede Azure Data Factory hakkında sık sorulan soruların yanıtlarını sağlar.  
@@ -82,7 +82,7 @@ PowerShell, SDK veya Visual izleme araçları tarayıcı kullanıcı arabirimi a
 -   Azure SQL DB ile sanal ağ hizmet uç noktaları
 -   Yönetilen örnek (mı)
 -   Elastik havuz
--   Azure Resource Manager sanal ağı (VNet) gelecekte – kullanım dışı bırakılacak Klasik VNet üzerinde desteği bu sayesinde, Azure-SSIS Integration Runtime (IR) için Azure SQL DB sanal ağ hizmet uç noktaları/mı ile yapılandırılmış bir sanal ağa ekleme/Birleştir / Şirket içinde veri erişimi için bkz: https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
+-   Azure Resource Manager sanal ağı (VNet) gelecekte – kullanım dışı bırakılacak Klasik VNet üzerinde desteği bu sayesinde, Azure-SSIS Integration Runtime (IR) için Azure SQL DB sanal ağ hizmet uç noktaları/mı ile yapılandırılmış bir sanal ağa ekleme/Birleştir / Şirket içinde veri erişimi için bkz: https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
 -   Destek üstünde, SSISDB için - bağlanmak için SQL kimlik doğrulaması Azure Active Directory (AAD) kimlik doğrulaması için bu, ADF yönetilen hizmet kimliği (MSI) ile AAD kimlik doğrulama kullanmanıza olanak tanır
 -   Azure hibrit Avantajı'nı (AHB) seçeneğinden önemli maliyet tasarrufları kazanmak için kendi şirket içi SQL Server lisansınızı getirmek için destek
 -   Enterprise Edition'ın Azure-SSIS sağlayan IR için destek, Gelişmiş premium özellikler, 3. taraf ekosisteminin yanı sıra ek bileşenleri ve uzantıları yüklemek için bkz özel kurulum kullanın: https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 

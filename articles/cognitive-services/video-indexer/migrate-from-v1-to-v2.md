@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: b1737960a4142f5c0d949ce8c2524c34fe9cd79e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2237bde2fa69cf9b701e1c093f97516613cef0c6
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41987553"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544154"
 ---
 # <a name="migrate-from-the-video-indexer-api-v1-to-v2"></a>Video Indexer API v1'den v2'ye geçirme
 
@@ -65,7 +65,7 @@ Video Indexer, artık çok daha net öngörüleri sunmak için Basitleştirilmi�
 
 ### <a name="swagger"></a>Swagger
 
-Video Indexer API tanımlarını buna uygun olarak güncelleştirildi ve aracılığıyla indirilebilir [API portalı](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
+Video Indexer API tanımlarını buna uygun olarak güncelleştirildi ve aracılığıyla indirilebilir [Video Indexer Geliştirici Portalı](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
 
 
 ### <a name="v1-vs-v2-examples"></a>V1 ve V2 örnekleri

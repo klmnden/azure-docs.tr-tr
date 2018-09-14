@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: a85cd5287f6947ec17dc19291a70d6dd081e1827
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035869"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578506"
 ---
 # <a name="determine-your-publishing-option"></a>Yayımlama seçeneğinizi belirleyin
 Teklifiniz için seçtiğiniz yayımlama seçeneği doğrudan hem uygunluk gereksinimleri ve Market Avantajlarımız ilişkilendirir. Daha da önemlisi, kullanıcılar, Market teklifi ile nasıl etkileşime gireceğini seçeneğini ve Teklif türü bulut iş ortağı Portalı'nda yayımlama seçimi tanımlar.
@@ -80,7 +80,7 @@ Bir teklif oluşturabilmeniz için önce bir teklif türü seçmeniz gerekir. Te
 
 Tek bir teklif türü sağlama veya fiyatlandırma farklı yayımlama seçeneklerini, çağrıları eylem, etkinleştirmek için bulut iş ortağı portalında farklı şekilde yapılandırılabilir. Ayrıca yayımlama seçeneğini ve Teklif türü yapılandırmasını teklif uygunluk gereksinimlerini ve teknik gereksinimleri için hizalayın. 
 
-Mağazada gözden geçirin ve bu tür uygunluk gereksinimlerini mutlaka [yayımcı rehberi](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide) ve teknik gereksinimleri teklifinizi oluşturmadan önce yayımlama.
+Mağazada gözden geçirin ve bu tür uygunluk gereksinimlerini mutlaka [yayımcı rehberi](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) ve teknik gereksinimleri teklifinizi oluşturmadan önce yayımlama.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 1bfc70680ecef2ee4fe162f81aac71430c773740
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c5f251f2de938d4441672c8aa1a6dbc6bd616155
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005087"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575500"
 ---
 # <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory kimlik koruması - kullanıcı engellemesini kaldırma
 Azure Active Directory kimlik koruması ile yapılandırılmış koşullara sağlanırsa, kullanıcıları engellemek için ilkeler yapılandırabilirsiniz. Engeli için genellikle, engellenen bir kullanıcı kişiler Yardım Masası. Bu makalede, engellenen bir kullanıcının engelini kaldırmak için gerçekleştirebileceğiniz adımlar açıklanmaktadır.
@@ -52,8 +52,8 @@ Bir şüpheli oturum açma engelini kaldırmak için aşağıdaki seçeneklerini
 ## <a name="unblocking-accounts-at-risk"></a>Engellemeyi kaldırma hesapları risk altında
 Hesabınız risk altında engelini kaldırmak için aşağıdaki seçenekleriniz vardır:
 
-1. **Parolayı Sıfırla** -kullanıcının parolasını sıfırlayabilirsiniz. Daha fazla bilgi için [el ile güvenli parola sıfırlama](overview.md#manual-secure-password-reset).
-2. **Tüm risk olayları kapatılamadı** - bir kullanıcı yapılandırılmış kullanıcı risk düzeyi için erişimi engelleme, ulaşıldı kullanıcı riski İlkesi engeller. Bir kullanıcı azaltabilir risk olaylarını elle kapatma tarafından risk düzeyi bildirilen kullanıcının. Daha fazla bilgi için [risk olaylarını elle kapatma](overview.md#closing-risk-events-manually).
+1. **Parolayı Sıfırla** -kullanıcının parolasını sıfırlayabilirsiniz. 
+2. **Tüm risk olayları kapatılamadı** - bir kullanıcı yapılandırılmış kullanıcı risk düzeyi için erişimi engelleme, ulaşıldı kullanıcı riski İlkesi engeller. Bir kullanıcı azaltabilir risk olaylarını elle kapatma tarafından risk düzeyi bildirilen kullanıcının. 
 3. **İlkenin dışında bırakılacak** - düşünüyorsanız, oturum açma ilkesi yapılandırmasına belirli kullanıcılar için sorunlarına neden, kullanıcıların dışlayabilirsiniz. Daha fazla bilgi için [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md).
 4. **Bu ilkeyi devre dışı** - düşünüyorsanız İlkesi yapılandırmanızı, kullanıcılarınızın sorunlarına neden, ilkeyi devre dışı bırakabilirsiniz. Daha fazla bilgi için [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md).
 

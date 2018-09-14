@@ -1,6 +1,6 @@
 ---
-title: Bir Azure Kubernetes küme CoScale ile izleme
-description: İzleyici CoScale kullanarak Azure kapsayıcı hizmeti Kubernetes kümede
+title: CoScale ile bir Azure Kubernetes kümesini izleme
+description: CoScale kullanarak Azure Container Service içindeki bir Kubernetes kümesini izleme
 services: container-service
 author: fryckbos
 manager: jeconnoc
@@ -9,36 +9,36 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 16580307193bbb7eb9b401eb1b14356e8589d6e2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e9896a34e835646e17328482c07d8031c624e858
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162798"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544039"
 ---
-# <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>Azure kapsayıcı hizmeti Kubernetes küme CoScale ile izleme
+# <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>CoScale ile bir Azure Container Service Kubernetes kümesini izleme
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Bu makalede, nasıl dağıtılacağı gösteriyoruz [CoScale](https://www.coscale.com/) tüm düğümler ve Kubernetes kümenizdeki Azure kapsayıcı hizmeti kapsayıcı izlemek için aracı. Bu yapılandırma için CoScale sahip bir hesap gerekir. 
+Bu makalede, nasıl dağıtılacağı gösteriyoruz [CoScale](https://www.coscale.com/) tüm düğümleri ve Azure Container Service'te Kubernetes kümenizde kapsayıcıları İzleme Aracısı. Bu yapılandırma için bir hesabıyla CoScale ihtiyacınız var. 
 
 
 ## <a name="about-coscale"></a>CoScale hakkında 
 
-CoScale birkaç orchestration platformlarda tüm kapsayıcıları gelen ölçümleri ve olayları toplayan izleme bir platformdur. CoScale Kubernetes ortamlar için tam yığını izleme sunar. Tüm Katmanlar yığınında için görselleştirme ve analizi sağlar: işletim sistemi, Kubernetes, Docker ve kapsayıcıların içinde çalışan uygulamalar. Birkaç yerleşik izleme panoları coScale sunar ve işleçler ve geliştiricilerin altyapı ve uygulama sorunlarını hızlı bulmak izin vermek için yerleşik anomali algılama içeriyor.
+CoScale birkaç düzenleme platformlarda tüm kapsayıcılardan ölçümleri ve olayları toplayan bir izleme platformudur. CoScale, Kubernetes ortamlar için tam yığın izlemesini sunar. Yığınındaki tüm katmanlar için görselleştirmeler ve analiz sağlar: OS, Kubernetes, Docker ve kapsayıcılarınızı içinde çalışan uygulamalar. CoScale birkaç yerleşik izleme panoları sunar ve yerleşik anomali algılama ve geliştiricilerin altyapı ve uygulama sorunları hızla bulmak izin vermek için vardır.
 
-![UI coScale](./media/container-service-kubernetes-coscale/coscale.png)
+![CoScale kullanıcı Arabirimi](./media/container-service-kubernetes-coscale/coscale.png)
 
-Bu makalede gösterildiği gibi SaaS çözümü olarak CoScale çalıştırmak için Kubernetes kümede aracıları yükleyebilirsiniz. Verilerinizi yerinde tutmak istiyorsanız, CoScale de şirket içi yükleme için kullanılabilir.
+Bu makalede gösterilen şekilde bir SaaS çözümü olarak CoScale çalıştırmak için bir Kubernetes kümesinde aracıları yükleyebilirsiniz. CoScale verilerinizi yerinde tutmak istiyorsanız, ayrıca şirket içi yükleme için kullanılabilir.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Öncelikle [CoScale hesabı oluşturma](https://www.coscale.com/free-trial).
 
-Bu kılavuz, sahibi olduğunuzu varsayar [Azure kapsayıcı hizmeti kullanarak Kubernetes küme oluşturulan](container-service-kubernetes-walkthrough.md).
+Bu izlenecek yol, sahibi olduğunuzu varsayar [Azure Container Service kullanan bir Kubernetes kümesi oluşturuldu](container-service-kubernetes-walkthrough.md).
 
-Ayrıca, sahibi olduğunuzu varsayar `az` Azure CLI ve `kubectl` araçları yüklü.
+Ayrıca, sahibi olduğunuzu varsayar `az` Azure CLI ve `kubectl` araçlarının yüklü.
 
 Varsa, test edebilirsiniz `az` çalıştırarak yüklü aracı:
 
@@ -46,7 +46,7 @@ Varsa, test edebilirsiniz `az` çalıştırarak yüklü aracı:
 az --version
 ```
 
-Sahip değilseniz `az` yüklü, aracı yönergeler vardır [burada](/cli/azure/install-azure-cli).
+Öğeniz yoksa `az` yüklü aracı yönergeler sunulmaktadır [burada](/cli/azure/install-azure-cli).
 
 Varsa, test edebilirsiniz `kubectl` çalıştırarak yüklü aracı:
 
@@ -54,32 +54,32 @@ Varsa, test edebilirsiniz `kubectl` çalıştırarak yüklü aracı:
 kubectl version
 ```
 
-Sahip değilseniz `kubectl` yüklü çalıştırabilirsiniz:
+Öğeniz yoksa `kubectl` yüklü çalıştırabilirsiniz:
 
 ```azurecli
 az acs kubernetes install-cli
 ```
 
-## <a name="installing-the-coscale-agent-with-a-daemonset"></a>DaemonSet ile CoScale Aracısı'nı yükleme
-[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) Kubernetes tarafından kümedeki her ana bilgisayarda bir kapsayıcı tek bir örneği çalıştırmak için kullanılır.
-Bunlar CoScale aracı gibi izleme aracıları çalıştırmak için mükemmel.
+## <a name="installing-the-coscale-agent-with-a-daemonset"></a>İle bir DaemonSet CoScale Aracısı'nı yükleme
+[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) Kubernetes tarafından kümedeki her bir konakta bir kapsayıcıyı tek bir örneğini çalıştırmak için kullanılır.
+Bunlar CoScale aracı gibi izleme aracılarını çalıştırmak için ideal.
 
-CoScale için oturum açtıktan sonra Git [Aracısı sayfası](https://app.coscale.com/) bir DaemonSet kullanarak kümenizde CoScale aracıları yüklemek için. CoScale kullanıcı Arabirimi bir aracı oluşturun ve tam Kubernetes kümenizi izlemeye başlamak için Destekli yapılandırma adımları sağlar.
+CoScale için oturum açtıktan sonra Git [Aracısı sayfası](https://app.coscale.com/) bir DaemonSet kullanarak kümenizde CoScale aracıları yüklemek için. CoScale kullanıcı Arabirimi, bir aracı oluşturun ve tüm Kubernetes kümenizi izlemeye başlamak için Kılavuzlu yapılandırma adımlarını sağlar.
 
-![CoScale Aracısı yapılandırması](./media/container-service-kubernetes-coscale/installation.png)
+![CoScale aracı yapılandırması](./media/container-service-kubernetes-coscale/installation.png)
 
-Kümede Aracısı'nı başlatmak için sağlanan komutu çalıştırın:
+Kümede Aracısı'nı başlatmak için belirtilen komutu çalıştırın:
 
-![CoScale Aracısı'nı Başlat](./media/container-service-kubernetes-coscale/agent_script.png)
+![CoScale Aracısı'nı başlatın](./media/container-service-kubernetes-coscale/agent_script.png)
 
-İşte bu kadar! Aracılar ve çalışıyor olduktan sonra birkaç dakika içinde veri konsolunda görmeniz gerekir. Ziyaret [Aracısı sayfası](https://app.coscale.com/) kümenizi özetini görmek için ek yapılandırma adımları uygulayın ve panolar gibi bakın **Kubernetes küme genel bakış**.
+İşte bu kadar! Aracılar hazır ve çalışır olduğunda birkaç dakika içinde veri konsolunda görmeniz gerekir. Ziyaret [Aracısı sayfası](https://app.coscale.com/) kümenizi özetini görmek için ek yapılandırma adımlarını gerçekleştirin ve panolar gibi bakın **Kubernetes küme genel bakış**.
 
-![Kubernetes küme genel bakış](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
+![Kubernetes kümesine genel bakış](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
 
-CoScale aracı kümedeki yeni makinelere otomatik olarak dağıtılır. Otomatik olarak yeni bir sürümü yayımlandığında aracı güncelleştirmeleri.
+CoScale Aracısı kümedeki yeni makinelere otomatik olarak dağıtılır. Otomatik olarak yeni bir sürümü yayımlandığında, aracı güncelleştirmeleri.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bkz: [CoScale belgelerine](http://docs.coscale.com/) ve [blog](https://www.coscale.com/blog) CoScale çözümlerini izleme hakkında daha fazla bilgi için. 
+Bkz: [CoScale belgeleri](http://docs.coscale.com/) ve [blog](https://www.coscale.com/blog) CoScale izleme çözümleri hakkında daha fazla bilgi. 
 

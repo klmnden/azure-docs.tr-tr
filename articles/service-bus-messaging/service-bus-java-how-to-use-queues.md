@@ -11,23 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/13/2018
 ms.author: spelluru
-ms.openlocfilehash: e4099c8228e9434276242a3c49ebcb4fc2e995b2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 804e0dd4b510b40c1ebbc5790308a429c2715724
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696474"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573323"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Java ile Service Bus kuyruklarını kullanma
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Bu makalede, Service Bus kuyruklarının nasıl kullanılacağı açıklanır. Java ve kullanım örnekleri yazılır [Java için Azure SDK'sı][Azure SDK for Java]. Senaryoları ele alınmaktadır **kuyruk oluşturma**, **ileti gönderme ve alma**, ve **sıraları silme**.
 
+> [!NOTE]
+> Java örnekleri Github'da bulabilirsiniz [azure-service-bus deposunu](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
+
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+## <a name="create-a-service-bus-namespace"></a>Service Bus ad alanı oluşturma
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
+## <a name="create-a-service-bus-queue"></a>Service Bus kuyruğu oluşturma
+[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırma
 Yüklediğinizden emin olun [Java için Azure SDK'sı] [ Azure SDK for Java] Bu örnek derlemeden önce. Eclipse kullanıyorsanız yükleyebileceğiniz [Eclipse için Azure Araç Seti] [ Azure Toolkit for Eclipse] , Java için Azure SDK'sı içerir. Daha sonra ekleyebilirsiniz **Microsoft Java için Azure kitaplıkları** projenize:
@@ -38,83 +45,72 @@ Aşağıdaki `import` Java dosyasının en üstüne ifadeleri:
 
 ```java
 // Include the following imports to use Service Bus APIs
-import com.microsoft.windowsazure.services.servicebus.*;
-import com.microsoft.windowsazure.services.servicebus.models.*;
-import com.microsoft.windowsazure.core.*;
-import javax.xml.datatype.*;
+import com.google.gson.reflect.TypeToken;
+import com.microsoft.azure.servicebus.*;
+import com.microsoft.azure.servicebus.primitives.ConnectionStringBuilder;
+import com.google.gson.Gson;
+
+import static java.nio.charset.StandardCharsets.*;
+
+import java.time.Duration;
+import java.util.*;
+import java.util.concurrent.*;
+
+import org.apache.commons.cli.*;
+
 ```
-
-## <a name="create-a-queue"></a>Bir kuyruk oluşturma
-Service Bus kuyruklarına yönelik yönetim işlemlerini aracılığıyla gerçekleştirilebilir **ServiceBusContract** sınıfı. A **ServiceBusContract** nesnesi, yönetim izinleriyle SAS belirteci kapsülleyen uygun bir yapılandırma ile oluşturulur ve **ServiceBusContract** tek yakınlardaki bir sınıftır Azure ile iletişim.
-
-**ServiceBusService** sınıfı oluşturmak, listeleme ve kuyruklarını silmek için yöntemler sağlar. Gösterir aşağıdaki örnekte nasıl bir **ServiceBusService** nesne adında bir kuyruk oluşturmak için kullanılabilir `TestQueue`, adlı bir ad alanı ile `HowToSample`:
-
-```java
-Configuration config =
-    ServiceBusConfiguration.configureWithSASAuthentication(
-            "HowToSample",
-            "RootManageSharedAccessKey",
-            "SAS_key_value",
-            ".servicebus.windows.net"
-            );
-
-ServiceBusContract service = ServiceBusService.create(config);
-QueueInfo queueInfo = new QueueInfo("TestQueue");
-try
-{
-    CreateQueueResult result = service.createQueue(queueInfo);
-}
-catch (ServiceException e)
-{
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
-```
-
-Temel yöntem vardır `QueueInfo` ayarlanmasına kuyruğun özelliklerini izin ver (örneğin: kuyruğa gönderilen iletilere uygulanacak varsayılan yaşam süresi (TTL) değerini ayarlamak için). Aşağıdaki örnekte adlı bir kuyruğun nasıl oluşturulacağını gösterir `TestQueue` en fazla 5 GB'lık:
-
-````java
-long maxSizeInMegabytes = 5120;
-QueueInfo queueInfo = new QueueInfo("TestQueue");
-queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
-CreateQueueResult result = service.createQueue(queueInfo);
-````
-
-Kullanabileceğiniz Not `listQueues` metodunda **ServiceBusContract** nesneleri belirtilen adda bir kuyruk, bir hizmet ad alanı içinde zaten mevcut olup olmadığını denetleyin.
 
 ## <a name="send-messages-to-a-queue"></a>Kuyruğa ileti gönderme
-Bir Service Bus kuyruğuna bir ileti göndermek için uygulamanızı alır bir **ServiceBusContract** nesne. Aşağıdaki kod bir ileti göndermek nasıl gösterir `TestQueue` daha önce oluşturulan kuyruk `HowToSample` ad alanı:
+Bir Service Bus kuyruğuna ileti göndermek için uygulamanızı örnekleyen bir **QueueClient** nesne ve iletileri zaman uyumsuz olarak gönderir. Aşağıdaki kod Portalı aracılığıyla oluşturulan bir kuyruğa bir ileti göndermek nasıl gösterir.
 
 ```java
-try
-{
-    BrokeredMessage message = new BrokeredMessage("MyMessage");
-    service.sendQueueMessage("TestQueue", message);
+public void run() throws Exception {
+    // Create a QueueClient instance and then asynchronously send messages.
+    // Close the sender once the send operation is complete.
+    QueueClient sendClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
+    this.sendMessageAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
+
+    sendClient.close();
 }
-catch (ServiceException e)
-{
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
+
+    CompletableFuture<Void> sendMessagesAsync(QueueClient sendClient) {
+        List<HashMap<String, String>> data =
+                GSON.fromJson(
+                        "[" +
+                                "{'name' = 'Einstein', 'firstName' = 'Albert'}," +
+                                "{'name' = 'Heisenberg', 'firstName' = 'Werner'}," +
+                                "{'name' = 'Curie', 'firstName' = 'Marie'}," +
+                                "{'name' = 'Hawking', 'firstName' = 'Steven'}," +
+                                "{'name' = 'Newton', 'firstName' = 'Isaac'}," +
+                                "{'name' = 'Bohr', 'firstName' = 'Niels'}," +
+                                "{'name' = 'Faraday', 'firstName' = 'Michael'}," +
+                                "{'name' = 'Galilei', 'firstName' = 'Galileo'}," +
+                                "{'name' = 'Kepler', 'firstName' = 'Johannes'}," +
+                                "{'name' = 'Kopernikus', 'firstName' = 'Nikolaus'}" +
+                                "]",
+                        new TypeToken<List<HashMap<String, String>>>() {}.getType());
+
+        List<CompletableFuture> tasks = new ArrayList<>();
+        for (int i = 0; i < data.size(); i++) {
+            final String messageId = Integer.toString(i);
+            Message message = new Message(GSON.toJson(data.get(i), Map.class).getBytes(UTF_8));
+            message.setContentType("application/json");
+            message.setLabel("Scientist");
+            message.setMessageId(messageId);
+            message.setTimeToLive(Duration.ofMinutes(2));
+            System.out.printf("\nMessage sending: Id = %s", message.getMessageId());
+            tasks.add(
+                    sendClient.sendAsync(message).thenRunAsync(() -> {
+                        System.out.printf("\n\tMessage acknowledged: Id = %s", message.getMessageId());
+                    }));
+        }
+        return CompletableFuture.allOf(tasks.toArray(new CompletableFuture<?>[tasks.size()]));
+    }
+
 ```
 
-İletileri gönderilen ve alınan Service Bus kuyrukları örnekleri olan [BrokeredMessage] [ BrokeredMessage] sınıfı. [BrokeredMessage] [ BrokeredMessage] nesneleri olan bir standart özellikler kümesi (gibi [etiket](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) ve [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), özel tutmak için kullanılan bir sözlüğü uygulamaya özgü özellikler ve rastgele uygulama verileri gövdesi. Uygulamanın herhangi bir seri hale getirilebilir nesnesi oluşturucusuna geçirerek ileti gövdesini ayarlayabilirsiniz [BrokeredMessage][BrokeredMessage], ve uygun seri hale getirici sonra nesneyi serileştirmek için kullanılır. Alternatif olarak, sağlayan bir **java. GÇ. InputStream** nesne.
+İletileri gönderilen ve alınan Service Bus kuyrukları örnekleri olan [ileti](/java/api/com.microsoft.azure.servicebus._message?view=azure-java-stable) sınıfı. İleti nesneler, bir uygulamaya özgü özel özellikleri tutmak için kullanılan bir sözlük ve rastgele uygulama verileri gövdesi içerir (örneğin, etiket ve TimeToLive) standart özellikler kümesi sahip. Uygulamanın herhangi bir seri hale getirilebilir nesne ileti oluşturucusuna geçirerek ileti gövdesini ayarlayabilirsiniz ve uygun seri hale getirici daha sonra nesneyi serileştirmek için kullanılacaktır. Alternatif olarak, sağlayan bir **java. GÇ. InputStream** nesne.
 
-Aşağıdaki örnek nasıl beş test iletisi göndereceğinizi gösterir `TestQueue` **MessageSender** önceki kod parçacığında elde ediyoruz:
-
-```java
-for (int i=0; i<5; i++)
-{
-     // Create message, passing a string message for the body.
-     BrokeredMessage message = new BrokeredMessage("Test message " + i);
-     // Set an additional app-specific property.
-     message.setProperty("MyProperty", i);
-     // Send message to the queue
-     service.sendQueueMessage("TestQueue", message);
-}
-```
 
 Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Kuyrukta tutulan ileti sayısına ilişkin bir sınır yoktur ancak kuyruk tarafından tutulan iletilerin toplam boyutu için uç sınır vardır. Bu kuyruk boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir.
 
@@ -122,63 +118,60 @@ Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) m
 Bir kuyruktan ileti almak için birincil yolu bir **ServiceBusContract** nesne. Alınan iletiler, iki farklı modda çalışabilir: **ReceiveAndDelete** ve **PeekLock**.
 
 Kullanırken **ReceiveAndDelete** modunda almak bir tek işlem - diğer bir deyişle, Service Bus kuyruk iletiye yönelik Okuma isteği aldığında, iletiyi kullanılıyor olarak işaretler ve uygulamaya döndürür. **ReceiveAndDelete** (varsayılan mod budur) mod en basit modeldir ve içinde bir uygulama tolere edebilen bir arıza olması durumunda bir iletiyi işlememeye izin senaryolarda en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın.
-Service Bus iletiyi kullanılıyor olarak işaretleyeceğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi atlamış olur.
+Service Bus iletiyi kullanılıyor olarak işaretlediğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi eksik.
 
-İçinde **PeekLock** modu, alma, atlanan iletilere veremeyen uygulamaları desteklemenin mümkün hale getiren bir iki aşamalıdır. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya güvenilir bir şekilde işlemek üzere depolar sonra) çağırarak alma işleminin ikinci aşamasını tamamlar **Sil** alınan iletide. Service Bus gördüğünde **Sil** çağrı, bu iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırın.
+İçinde **PeekLock** modu, alma, atlanan iletilere veremeyen uygulamaları desteklemenin mümkün hale getiren bir iki aşamalıdır. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya güvenilir bir şekilde işlemek üzere depolar sonra) çağırarak alma işleminin ikinci aşamasını tamamlar **Sil** alınan iletide. Service Bus gördüğünde **Sil** çağrı, iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırın.
 
 Aşağıdaki örnek nasıl ileti alındı ve işlenen kullanarak gösterir **PeekLock** modu (varsayılan mod değil). Aşağıdaki örnek bir sonsuz döngü yapar ve içine geldikçe iletileri işleyen bizim `TestQueue`:
 
 ```java
-try
-{
-    ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-    opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
+    public void run() throws Exception {
+        // Create a QueueClient instance for receiving using the connection string builder
+        // We set the receive mode to "PeekLock", meaning the message is delivered
+        // under a lock and must be acknowledged ("completed") to be removed from the queue
+        QueueClient receiveClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
+        this.registerReceiver(receiveClient);
 
-    while(true)  {
-         ReceiveQueueMessageResult resultQM =
-                 service.receiveQueueMessage("TestQueue", opts);
-        BrokeredMessage message = resultQM.getValue();
-        if (message != null && message.getMessageId() != null)
-        {
-            System.out.println("MessageID: " + message.getMessageId());
-            // Display the queue message.
-            System.out.print("From queue: ");
-            byte[] b = new byte[200];
-            String s = null;
-            int numRead = message.getBody().read(b);
-            while (-1 != numRead)
-            {
-                s = new String(b);
-                s = s.trim();
-                System.out.print(s);
-                numRead = message.getBody().read(b);
-            }
-            System.out.println();
-            System.out.println("Custom Property: " +
-                message.getProperty("MyProperty"));
-            // Remove message from queue.
-            System.out.println("Deleting this message.");
-            //service.deleteMessage(message);
-        }  
-        else  
-        {
-            System.out.println("Finishing up - no more messages.");
-            break;
-            // Added to handle no more messages.
-            // Could instead wait for more messages to be added.
-        }
+        // shut down receiver to close the receive loop
+        receiveClient.close();
     }
-}
-catch (ServiceException e) {
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
-catch (Exception e) {
-    System.out.print("Generic exception encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
+    void registerReceiver(QueueClient queueClient) throws Exception {
+        // register the RegisterMessageHandler callback
+        queueClient.registerMessageHandler(new IMessageHandler() {
+        // callback invoked when the message handler loop has obtained a message
+            public CompletableFuture<Void> onMessageAsync(IMessage message) {
+            // receives message is passed to callback
+                if (message.getLabel() != null &&
+                    message.getContentType() != null &&
+                    message.getLabel().contentEquals("Scientist") &&
+                    message.getContentType().contentEquals("application/json")) {
+
+                        byte[] body = message.getBody();
+                        Map scientist = GSON.fromJson(new String(body, UTF_8), Map.class);
+
+                        System.out.printf(
+                            "\n\t\t\t\tMessage received: \n\t\t\t\t\t\tMessageId = %s, \n\t\t\t\t\t\tSequenceNumber = %s, \n\t\t\t\t\t\tEnqueuedTimeUtc = %s," +
+                            "\n\t\t\t\t\t\tExpiresAtUtc = %s, \n\t\t\t\t\t\tContentType = \"%s\",  \n\t\t\t\t\t\tContent: [ firstName = %s, name = %s ]\n",
+                            message.getMessageId(),
+                            message.getSequenceNumber(),
+                            message.getEnqueuedTimeUtc(),
+                            message.getExpiresAtUtc(),
+                            message.getContentType(),
+                            scientist != null ? scientist.get("firstName") : "",
+                            scientist != null ? scientist.get("name") : "");
+                    }
+                    return CompletableFuture.completedFuture(null);
+                }
+
+                // callback invoked when the message handler has an exception to report
+                public void notifyException(Throwable throwable, ExceptionPhase exceptionPhase) {
+                    System.out.printf(exceptionPhase + "-" + throwable.getMessage());
+                }
+        },
+        // 1 concurrent call, messages are auto-completed, auto-renew duration
+        new MessageHandlerOptions(1, true, Duration.ofMinutes(1)));
+    }
+
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Uygulama çökmelerini ve okunmayan iletileri giderme

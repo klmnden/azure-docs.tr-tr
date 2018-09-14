@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 8cfa0e2a5aa1d7f560fe84f4eda18349f5d1d8b4
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4aeb37d656dcb5ebca1a48253c418186dfca0a7a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991530"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575432"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service fabric'te düzenli yedekleme yapılandırması anlama
 
@@ -182,19 +182,19 @@ Yedekleme verilerini gerek olduğunda yedekleme ilkelerini devre dışı bırak�
 ## <a name="suspend--resume-backup"></a>Askıya alma ve yedeklemeyi Sürdür
 Belirli bir durum verilerinin düzenli yedeklemesi geçici askıya alınması talep edebilir. Bu durumda, gereksinim, bağlı olarak API, kullanılabilir yedekleme askıya bir _uygulama_, _hizmet_, veya _bölüm_. Düzenli yedekleme askıya alma, uygulamanın hiyerarşi uygulandığı noktasından alt ağacı içinde geçişlidir. 
 
-* Ne zaman askıya alınma uygulandığında bir _uygulama_ kullanarak [uygulama yedekleme askıya](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API, ardından tüm bölümler altında bu uygulama ve Hizmetleri için veri düzenli yedekleme askıya alınır.
+* Ne zaman askıya alınma uygulandığında bir _uygulama_ kullanarak [uygulama yedekleme askıya](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API, ardından tüm bölümler altında bu uygulama ve Hizmetleri için veri düzenli yedekleme askıya alınır.
 
-* Ne zaman askıya alınma uygulanır bir _hizmet_ kullanarak [yedekleme hizmeti askıya alma](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendservicebackup) API, ardından tüm bölümler altında bu hizmet için veri düzenli yedekleme askıya alınır.
+* Ne zaman askıya alınma uygulanır bir _hizmet_ kullanarak [yedekleme hizmeti askıya alma](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) API, ardından tüm bölümler altında bu hizmet için veri düzenli yedekleme askıya alınır.
 
-* Ne zaman askıya alınma uygulanan en bir _bölüm_ kullanarak [bölüm Yedekleme askıya](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API, ardından bölümler altında bu hizmet askıya alır veri düzenli yedeklemesi için askıya alınır.
+* Ne zaman askıya alınma uygulanan en bir _bölüm_ kullanarak [bölüm Yedekleme askıya](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API, ardından bölümler altında bu hizmet askıya alır veri düzenli yedeklemesi için askıya alınır.
 
 Askıya alma gereksinimini bittikten sonra düzenli yedekleme ilgili sürdürme yedekleme API'sini kullanarak döndürülebilir. Düzenli yedekleme gerekir sürdürüldü aynı anda _uygulama_, _hizmet_, veya _bölüm_ burada bu askıya alındı.
 
-* Askıya alma, uygulandıysa bir _uygulama_, kullanarak sürdürülmesini sonra [uygulama yedeklemeyi Sürdür](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API. 
+* Askıya alma, uygulandıysa bir _uygulama_, kullanarak sürdürülmesini sonra [uygulama yedeklemeyi Sürdür](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API. 
 
-* Askıya alma, uygulandıysa bir _hizmet_, kullanarak sürdürülmesini sonra [hizmet yedeklemeyi Sürdür](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
+* Askıya alma, uygulandıysa bir _hizmet_, kullanarak sürdürülmesini sonra [hizmet yedeklemeyi Sürdür](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
 
-* Askıya alma, uygulandıysa bir _bölüm_, kullanarak sürdürülmesini sonra [bölüm yedeklemeyi Sürdür](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
+* Askıya alma, uygulandıysa bir _bölüm_, kullanarak sürdürülmesini sonra [bölüm yedeklemeyi Sürdür](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
 ## <a name="auto-restore-on-data-loss"></a>Veri kaybı otomatik geri yükleme
 Hizmet bölüm beklenmeyen hatalar nedeniyle veri kaybedebilirsiniz. Örneğin, bir bölüm (birincil çoğaltma dahil) için iki tanesi üç çoğaltmalar için disk bozuk silinebilen veya.
@@ -202,7 +202,7 @@ Hizmet bölüm beklenmeyen hatalar nedeniyle veri kaybedebilirsiniz. Örneğin, 
 Service Fabric bölümü veri kaybına olduğunu algıladığında, bu çağırır `OnDataLossAsync` arabirim yöntemi bölüme ve veri kaybı dışında olması gereken eylemi gerçekleştirmek için bölüm bekliyor. Bölüm en etkili bir yedekleme ilkesi varsa, bu durumda `AutoRestoreOnDataLoss` bayrağı ayarlanmış `true` ardından geri yüklemeyi otomatik olarak bu bölüm için en son kullanılabilir yedek kullanarak tetiklenen.
 
 ## <a name="get-backup-configuration"></a>Yedekleme yapılandırmasını alma
-Ayrı API yedekleme yapılandırması bilgileri almak kullanılabilir yapılan bir _uygulama_, _hizmet_, ve _bölüm_ kapsam. [Uygulama yedekleme yapılandırma bilgilerini alma](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [hizmeti yedekleme yapılandırma bilgi al](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo), ve [bölüm Yedekleme yapılandırma bilgi al](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) API'leri sırasıyla şunlardır. Esas olarak, bu API'ler, geçerli yedekleme İlkesi, yedekleme ilkesi uygulanan ve yedekleme askıya alma ayrıntıları olduğu kapsamı döndürür. Bu API'leri döndürülen sonuçları hakkında kısa bir açıklaması verilmiştir.
+Ayrı API yedekleme yapılandırması bilgileri almak kullanılabilir yapılan bir _uygulama_, _hizmet_, ve _bölüm_ kapsam. [Uygulama yedekleme yapılandırma bilgilerini alma](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [hizmeti yedekleme yapılandırma bilgi al](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo), ve [bölüm Yedekleme yapılandırma bilgi al](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) API'leri sırasıyla şunlardır. Esas olarak, bu API'ler, geçerli yedekleme İlkesi, yedekleme ilkesi uygulanan ve yedekleme askıya alma ayrıntıları olduğu kapsamı döndürür. Bu API'leri döndürülen sonuçları hakkında kısa bir açıklaması verilmiştir.
 
 - Uygulama yedekleme yapılandırması bilgileri: uygulama ve Hizmetleri ve bölümleri uygulamaya ait tüm düzenlenmiştir ilkeleri uygulanan yedekleme ilkesini ayrıntılarını sağlar. Uygulama askıya alma bilgilerini de içerir ve Hizmetleri ve bölümler.
 
@@ -218,11 +218,11 @@ Bu API'ler ayrıca sonuçlarını sayfalandırma destekler, _maxresults bağıms
 
 Desteklenen türevleri hakkında kısa bilgiler verilmiştir.
 
-- [Uygulama yedekleme listesini alma](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): yedekleme için belirli bir Service Fabric uygulaması ait her bölüm için kullanılabilir listesini döndürür.
+- [Uygulama yedekleme listesini alma](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): yedekleme için belirli bir Service Fabric uygulaması ait her bölüm için kullanılabilir listesini döndürür.
 
-- [Hizmet yedekleme listesini alma](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackuplist): belirli bir Service Fabric hizmeti ait her bölüm için mevcut yedekleme listesini döndürür.
+- [Hizmet yedekleme listesini alma](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): belirli bir Service Fabric hizmeti ait her bölüm için mevcut yedekleme listesini döndürür.
  
-- [Bölüm yedekleme listesini alma](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): yedekleme için belirtilen bölüm kullanılabilir listesini döndürür.
+- [Bölüm yedekleme listesini alma](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): yedekleme için belirtilen bölüm kullanılabilir listesini döndürür.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Yedekleme geri yükleme REST API Başvurusu](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

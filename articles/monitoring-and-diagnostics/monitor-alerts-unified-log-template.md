@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 588a0686eda1966582b82a4673a8b6805453c94c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441451"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576876"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile günlük uyarısı oluşturma
 Bu makalede nasıl yönetebileceğinizi gösterir [günlük uyarıları](monitor-alerts-unified-log.md) ölçekte Azure kullanarak program aracılığıyla [Azure Resource Manager şablonu](..//azure-resource-manager/resource-group-authoring-templates.md) aracılığıyla [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) ve [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). Şu anda Azure uyarıları destekleyen sorgularından uyarılarda oturum [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ve [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
@@ -35,12 +35,12 @@ Log Analytics uyarı REST API, RESTful olduğu ve Azure Resource Manager REST AP
 Daha fazla bilgi edinin [oluşturmak ve REST API ile Log analytics'teki uyarı kuralları yönetmek](../log-analytics/log-analytics-api-alerts.md)Powershell'den API'sine erişim örnekler dahil.
 
 ## <a name="managing-log-alert-on-application-insights"></a>Application ınsights günlük uyarı yönetme
-Azure Application Insights için günlük uyarıları, Azure İzleyici altında yeni Azure uyarıları bir parçası olarak tanıtılmıştır. Bu nedenle Azure İzleyici API altında çalıştığı [zamanlanmış sorgu kuralları](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) REST işlem grubu.
+Azure Application Insights için günlük uyarıları, Azure İzleyici altında yeni Azure uyarıları bir parçası olarak tanıtılmıştır. Bu nedenle Azure İzleyici API altında çalıştığı [zamanlanmış sorgu kuralları](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST işlem grubu.
 
 ### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanma
-Application Insights kaynakları için günlük uyarı sahip bir tür `Microsoft.Insights/scheduledQueryRules/`. Bu kaynak türü hakkında daha fazla bilgi için bkz. [Azure İzleyici - zamanlanmış sorgu kuralları API Başvurusu](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
+Application Insights kaynakları için günlük uyarı sahip bir tür `Microsoft.Insights/scheduledQueryRules/`. Bu kaynak türü hakkında daha fazla bilgi için bkz. [Azure İzleyici - zamanlanmış sorgu kuralları API Başvurusu](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-Aşağıdakiler için yapısıdır [zamanlanmış sorgu kuralı oluşturma](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) değişkenleri olarak örnek veri kümesiyle kaynak şablonu temel.
+Aşağıdakiler için yapısıdır [zamanlanmış sorgu kuralı oluşturma](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) değişkenleri olarak örnek veri kümesiyle kaynak şablonu temel.
 
 ```json
 {
@@ -113,7 +113,7 @@ Aşağıdakiler için yapısıdır [zamanlanmış sorgu kuralı oluşturma](http
 }
 ```
 > [!IMPORTANT]
-> Hedef kaynak için gizli-bağlantı etiketi alanıyla kullanımını zorunlu [zamanlanmış sorgu kuralları ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) API çağrısı veya kaynak şablonu. 
+> Hedef kaynak için gizli-bağlantı etiketi alanıyla kullanımını zorunlu [zamanlanmış sorgu kuralları ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API çağrısı veya kaynak şablonu. 
 
 Yukarıdaki örnek json sampleScheduledQueryRule.json amacıyla bu izlenecek yolda (örneğin) olarak kaydedilebilir ve kullanılarak dağıtılabilir [Azure portalında Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

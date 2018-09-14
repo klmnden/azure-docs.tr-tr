@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 76448f57bf710dcb8b3b220cc06b3833a22a6295
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 236859cca623643b9bc7a4484f6ce4e6aa11aad6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059777"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579794"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Office 365, Dynamics 365, Power Apps ve Power BI teklifi yayımlama Kılavuzu
 
@@ -31,7 +31,7 @@ AppSource listesi ve eylem "Benimle iletişim kurun" veya "Şimdi deneyin." ça�
 
 ### <a name="office-365"></a>Office 365
 
-Gözden geçirme [işlem ve Kılavuzlar yayımlama](https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store)
+Gözden geçirme [işlem ve Kılavuzlar yayımlama](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store)
 
 ### <a name="power-apps"></a>Power Apps
 
@@ -39,15 +39,15 @@ Müşteriler için hakkında nasıl bilgi [test sürüşü uygulamanızı Appsou
 
 ### <a name="power-bi"></a>Power BI
 
-Gözden geçirme [işlemi ve yönergeleri yayımlama.](https://docs.microsoft.com/en-us/power-bi/developer/office-store)
+Gözden geçirme [işlemi ve yönergeleri yayımlama.](https://docs.microsoft.com/power-bi/developer/office-store)
 
 ### <a name="dynamics-365"></a>Dynamics 365
 
 #### <a name="dynamics-365-for-finance-and-operations"></a>Finans ve operasyon için Dynamics 365
-Enterprise Edition için oluşturma sırasında gözden [işlem ve Kılavuzlar yayımlama](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+Enterprise Edition için oluşturma sırasında gözden [işlem ve Kılavuzlar yayımlama](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 ### <a name="dynamics-365-for-customer-engagement"></a>Dynamics 365 müşteri katılımı için
-Gözden geçirme [işlem ve Kılavuzlar yayımlama](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource)
+Gözden geçirme [işlem ve Kılavuzlar yayımlama](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

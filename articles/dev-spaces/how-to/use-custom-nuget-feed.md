@@ -1,5 +1,5 @@
 ---
-title: Özel bir NuGet kullanma Azure Dev boşluk akış | Microsoft Docs
+title: Azure geliştirme alanlarında özel NuGet kullanma akış | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -8,24 +8,24 @@ author: johnsta
 ms.author: johnsta
 ms.date: 05/11/2018
 ms.topic: article
-description: Özel bir NuGet erişmek ve bir Azure Dev alanı NuGet paketlerini kullanmak üzere akışı kullanın.
-keywords: Docker, Kubernetes, Azure, AKS, Azure kapsayıcı hizmeti, kapsayıcıları
+description: Akış erişmek ve bir Azure geliştirme alanında NuGet paketlerini kullanmak için özel bir NuGet kullanın.
+keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kapsayıcılar
 manager: ghogen
-ms.openlocfilehash: 3badd15bcfd09c97b43744a20c5df05f4ff57e84
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04b89f6d12c58e2f4915a84d3e0a7988d0e3192f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199118"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579232"
 ---
-#  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Bir Azure Dev alanı akış özel bir NuGet kullanma
+#  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Bir Azure geliştirme alanında özel bir NuGet akışı kullanma
 
-Bir NuGet akışı paket kaynaklarını bir proje eklemek için kolay bir yol sağlar. Azure Dev alanları Docker kapsayıcısı düzgün bir şekilde yüklenmesi için bağımlılıkları sırada bu akışın erişebilmeleri gerekir.
+Bir NuGet akışı paket kaynaklarını bir projeye dahil etmek için kullanışlı bir yol sağlar. Azure geliştirme alanları Docker kapsayıcısında düzgün yüklenmemiş bağımlılıklar için sırada bu akışa erişebilmesi gerekir.
 
-## <a name="set-up-a-nuget-feed"></a>Bir NuGet akış ayarlayın
+## <a name="set-up-a-nuget-feed"></a>Akış nuget'i ayarlama
 
-Bir NuGet akış ayarlamak için:
-1. Ekleme bir [paketini başvuru](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files) içinde `*.csproj` altında dosya `PackageReference` düğümü.
+Bir NuGet akışı ayarlamak için:
+1. Ekleme bir [paket başvurusu](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) içinde `*.csproj` altında dosya `PackageReference` düğümü.
 
    ```xml
    <ItemGroup>
@@ -35,9 +35,9 @@ Bir NuGet akış ayarlamak için:
    </ItemGroup>
    ```
 
-2. Oluşturma bir [NuGet.Config](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file) proje klasöründeki dosya.
-     * Kullanım `packageSources` konumu akış, NuGet başvurmak için bölüm. Önemli: NuGet akışı genel olarak erişilebilir olmalıdır.
-     * Kullanım `packageSourceCredentials` bölümünde kullanıcı adı ve parola kimlik bilgilerini yapılandırın. 
+2. Oluşturma bir [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) proje klasöründeki dosya.
+     * Kullanım `packageSources` Özet akışı konumu NuGet başvurmak için bölüm. Önemli: NuGet akışı genel olarak erişilebilir olması gerekir.
+     * Kullanım `packageSourceCredentials` bölümü, kullanıcı adı ve parola kimlik bilgilerini yapılandırın. 
 
    ```xml
    <packageSources>
@@ -53,8 +53,8 @@ Bir NuGet akış ayarlamak için:
    ```
 
 3. Kaynak kodu denetimi kullanıyorsanız:
-    - Başvuru `NuGet.Config` içinde `.gitignore` kimlik bilgilerini kaynak deponuza yanlışlıkla yürütme yok şekilde dosya.
-    - Açık `azds.yaml` dosya projenizde ve bulun `build` bölümünde ve emin olmak için aşağıdaki kod parçacığını ekleyin `NuGet.Config` dosya işlemleri senkronize edilir Azure'a böylece kapsayıcı görüntü oluşturma işlemi sırasında kullanılır. (Varsayılan olarak, Azure Dev alanları eşleşen dosyaları eşitlenmediğini `.gitignore` ve `.dockerignore` kuralları.)
+    - Başvuru `NuGet.Config` içinde `.gitignore` kimlik yanlışlıkla kaynak deponuza işleme olmayan şekilde dosya.
+    - Açık `azds.yaml` dosya projenizde ve bulun `build` bölümünde ve emin olmak için aşağıdaki kod parçacığını eklemek `NuGet.Config` dosya işlemleri senkronize edilir Azure'a böylece kapsayıcı görüntüsü oluşturma işlemi sırasında kullanılır. (Varsayılan olarak, Azure geliştirme alanları eşleşen dosyaları eşitlemez `.gitignore` ve `.dockerignore` kuralları.)
 
         ```yaml
         build:
@@ -66,5 +66,5 @@ Bir NuGet akış ayarlamak için:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yukarıdaki adımları tamamladıktan sonra bir sonraki defa çalıştırılması `azds up` (veya isabet `F5` VSCode ya da Visual Studio), Azure Dev alanları eşitleyecek `NuGet.Config` sonra tarafından kullanılan Azure dosyasına `dotnet restore` paketini yüklemek için kapsayıcı bağımlılıkları.
+Yukarıdaki adımları tamamladıktan sonra sonraki açışınızda çalıştırmanız `azds up` (veya isabet `F5` VSCode ya da Visual Studio), Azure geliştirme alanları eşitleneceğini `NuGet.Config` ardından tarafından kullanılan Azure dosya `dotnet restore` paketini yüklemek için kapsayıcı bağımlılıkları.
 

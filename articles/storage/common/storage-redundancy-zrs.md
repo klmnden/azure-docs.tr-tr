@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: 0bca4825c757604ab15838aac585603be0616582
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: dfd5058b17a211adf97eb8729158b2b65d7b6975
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025344"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579522"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Bölgesel olarak yedekli depolama (ZRS): Azure depolama yüksek kullanılabilirliğe sahip uygulamalar
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## <a name="support-coverage-and-regional-availability"></a>Destek kapsamı ve bölgesel kullanılabilirlik
-ZRS şu anda standart destekler [genel amaçlı v2 (GPv2)](storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#general-purpose-v2-accounts) hesap türleri. ZRS, blok blobları, disk olmayan sayfa blobları, dosyalar, tablolar ve Kuyruklar için kullanılabilir. Ayrıca, tüm, [depolama analizi](storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) günlükleri ve [depolama ölçümleri](storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+ZRS şu anda standart destekler [genel amaçlı v2 (GPv2)](storage-account-options.md#general-purpose-v2-accounts) hesap türleri. ZRS, blok blobları, disk olmayan sayfa blobları, dosyalar, tablolar ve Kuyruklar için kullanılabilir. Ayrıca, tüm, [depolama analizi](storage-analytics.md) günlükleri ve [depolama ölçümleri](storage-enable-and-view-metrics.md)
 
 ZRS şu bölgelerde genel kullanıma sunulmuştur:
 
@@ -37,7 +37,7 @@ Microsoft, ek Azure bölgelerinde ZRS etkinleştirmek devam ediyor. Denetleme [A
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>Bir bölge kullanılamaz duruma geldiğinde ne olur?
 Verilerinizi bir bölge kullanılamaz duruma gelirse dayanıklı kalır. Microsoft, geçici hata işleme, üstel geri alma ile yeniden deneme ilkelerini uygulayan gibi yöntemleri izlemek için devam edin önerir. Bir bölge kullanılamadığında, Azure DNS repointing gibi ağ güncelleştirmeleri üstlendiği. Bunlar tamamlanmadan verilerinizi sağlıyorsanız bu güncelleştirmeler, uygulamanızın etkileyebilir.
 
-ZRS, verilerinizin nerede birden çok bölge kalıcı olarak etkilenen bölgesel bir olağanüstü durum karşı koruma. Bunun yerine, geçici olarak kullanılamaz hale gelirse ZRS, verilerinizin dayanıklılık sunar. Bölgesel felaketlere karşı koruma için coğrafi olarak yedekli depolama (GRS) kullanarak Microsoft önerir. GRS hakkında daha fazla bilgi için bkz: [coğrafi olarak yedekli depolama (GRS): Azure depolama için bölgeler arası çoğaltma](storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+ZRS, verilerinizin nerede birden çok bölge kalıcı olarak etkilenen bölgesel bir olağanüstü durum karşı koruma. Bunun yerine, geçici olarak kullanılamaz hale gelirse ZRS, verilerinizin dayanıklılık sunar. Bölgesel felaketlere karşı koruma için coğrafi olarak yedekli depolama (GRS) kullanarak Microsoft önerir. GRS hakkında daha fazla bilgi için bkz: [coğrafi olarak yedekli depolama (GRS): Azure depolama için bölgeler arası çoğaltma](storage-redundancy-grs.md).
 
 ## <a name="converting-to-zrs-replication"></a>ZRS çoğaltmalı dönüştürme
 LRS, GRS ve RA-GRS depolamadan geçirdiğiniz sürece Bugün, Azure portalında veya depolama kaynak sağlayıcısı API'si, hesabınızın yedeklilik türünü değiştirmek için kullanabilirsiniz. Fiziksel veri hareketi tek depolama damgası bir bölgede birden fazla damga içerdiğinden ZRS ile ancak geçiş olarak açık değildir. 
@@ -80,7 +80,7 @@ Destek ekibiyle sonra sizinle iletişime geçeceğiz olur. Söz konusu kişinin 
 >
 > ZRS olduğunda [sunuldu](#support-coverage-and-regional-availability) bir bölgede müşteriler artık ZRS Klasik hesapları bu bölgede portalından oluşturmak mümkün olacaktır. ZRS Klasik kullanım dışı kadar ZRS Klasik hesapları oluşturmak için Microsoft PowerShell ve Azure CLI kullanarak desteklenir.
 
-ZRS Klasik zaman uyumsuz olarak verileri bir veya iki bölgedeki veri merkezleri arasında çoğaltır. Çoğaltma, Microsoft ikincil birime yük devretme işlemini başlatana kadar kullanılamayabilir. ZRS Klasik, kullanılabilir yalnızca **blok blobları** içinde [genel amaçlı V1 (GPv1)](storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#general-purpose-v1-accounts) depolama hesapları. ZRS Klasik hesabı, LRS veya GRS’ye iki yönlü olarak dönüştürülemez ve ölçüm veya günlüğe kaydetme özelliklerine sahip değildir.
+ZRS Klasik zaman uyumsuz olarak verileri bir veya iki bölgedeki veri merkezleri arasında çoğaltır. Çoğaltma, Microsoft ikincil birime yük devretme işlemini başlatana kadar kullanılamayabilir. ZRS Klasik, kullanılabilir yalnızca **blok blobları** içinde [genel amaçlı V1 (GPv1)](storage-account-options.md#general-purpose-v1-accounts) depolama hesapları. ZRS Klasik hesabı, LRS veya GRS’ye iki yönlü olarak dönüştürülemez ve ölçüm veya günlüğe kaydetme özelliklerine sahip değildir.
 
 ZRS Klasik hesapları için veya LRS, GRS veya RA-GRS dönüştürülemez. ZRS Klasik hesapları ölçüm veya günlük da desteklemez.
 

@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 55de3cd8830834a2af512661d5389952d927ef9f
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 49000d4fd61e7cd061b415d50545a7f5ee56f3fb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094324"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579133"
 ---
 # <a name="call-a-function-from-powerapps"></a>PowerApps’ten bir işlev çağırma
 [PowerApps](https://powerapps.microsoft.com) platform, geleneksel uygulama kodu olmadan uygulamalar oluşturmak, iş uzmanları için tasarlanmıştır. Profesyonel Geliştiriciler, Azure işlevleri, PowerApps uygulama derleyicileri from teknik ayrıntıları koruma sırasında PowerApps, yeteneklerini genişletmek için kullanabilirsiniz.
@@ -41,7 +41,7 @@ Bu konu başlığında, şunların nasıl yapılır:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-+ Etkin bir [PowerApps hesabı](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps) Azure hesabınızla oturum açma kimlik ile. 
++ Etkin bir [PowerApps hesabı](https://docs.microsoft.com/powerapps/maker/signup-for-powerapps) Azure hesabınızla oturum açma kimlik ile. 
 + Excel ve [Excel örnek dosyası](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) , uygulamanız için bir veri kaynağı olarak kullanır.
 + Bu öğreticiyi tamamlamak [bir işlev için Openapı tanımı oluşturma](functions-openapi-definition.md).
 

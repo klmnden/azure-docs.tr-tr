@@ -1,7 +1,7 @@
 ---
-title: Veri bilimi sanal makine tabanlı ekip ortamları - Azure giriş | Microsoft Docs
-description: Bir kuruluş ekip ortamında veri bilimi VM dağıtmak için desenleri.
-keywords: derin öğrenme, AI, veri bilimi araçları, veri bilimi sanal makine, Jeo-uzamsal analytics, takım veri bilimi işlemi
+title: Veri bilimi sanal makinesi tabanlı takım ortamlarına - Azure giriş | Microsoft Docs
+description: Veri bilimi sanal Makinesi'ne kurumsal bir takım ortamı dağıtmak için desenler.
+keywords: derin öğrenme yapay ZEKA, veri bilimi araçları, veri bilimi sanal makinesi, Jeo-uzamsal analiz, team data science Process'i
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,32 +15,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 8486b0be1fb5e1385da3c7ad55f6410a1059df93
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ea8d53ee71e9272167a045e2ea1780828f974d30
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309257"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573600"
 ---
-# <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Veri bilimi sanal makine tabanlı ekip analizi ve AI ortamı 
-[Veri bilimi sanal makine](overview.md) (DSVM) yapay Intelligence (AI) ve veri analizi için önceden oluşturulmuş yazılımıyla Azure platformu zengin bir ortam sağlar. 
+# <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Veri bilimi sanal makinesi tabanlı takım analizi ve yapay ZEKA ortamı 
+[Veri bilimi sanal makinesi](overview.md) (DSVM), Azure platformunda yapay zeka (AI) ve veri analizi için önceden oluşturulmuş yazılım ile zengin bir ortam sağlar. 
 
-Geleneksel olarak, DSVM tek tek analytics Masaüstü olarak kullanıldı. Tek tek veri bilimcilerine önceden oluşturulmuş analytics ortamlarına paylaşılan bu kavramı verimliliğini kazanır. Yinelenen temalardan birini bir büyük analytics takımlar analytics ortamlarını kendi veri bilimcileri ve AI geliştiricileri için planlama yaparken, geliştirme ve deneme için paylaşılan analytics altyapısıdır. Bu altyapı kurumsal BT uygun olarak yönetilen de veri bilimi/analytics takımlar arasında işbirliğini ve tutarlılık kolaylaştırmak ilkeleri. 
+Geleneksel olarak, bir tek analize yönelik Masaüstü DSVM kullanıldı. Tek tek veri bilimcileri, önceden oluşturulmuş analiz ortamını paylaşılan bu kavramı ile üretkenliği elde edin. Yinelenen temalardan birini bir büyük analytics takımlar, veri bilimcileri ve yapay ZEKA geliştiricilerine için analiz ortamlarını planlarken, geliştirme ve deneme için paylaşılan analiz altyapısıdır. Bu altyapı, kurumsal BT ayarlarına uygun olarak yönetilen ayrıca veri bilimi/analiz takımlar arasında işbirliğini ve tutarlılık kolaylaştırmak, ilkeleri. 
 
-Ayrıca, paylaşılan bir altyapı sağlar analytics ortamı daha iyi kullanmalarını sağlar. Bazı kuruluşlar, bir "analytics sandbox." ekip tabanlı veri bilimi/analytics altyapı çağırın Hızlı bir şekilde verileri anlamak, denemeleri çalıştırmak, varsayımlar doğrulamak ve üretim ortamına etkilemeden Tahmine dayalı modelleri oluşturmak için çeşitli veri varlıklarına erişmek veri bilimcilerine sağlar. 
+Paylaşılan altyapı da sağlayan BT analiz ortamını daha iyi kullanmak için. Bazı kuruluşlar, ekip tabanlı veri bilimi/analiz altyapısı bir "analiz sandbox." çağırın. Ancak, veri uzmanları, hızlı bir şekilde verileri anlamak, denemeleri çalıştırmak, sınamakta doğrulamak ve üretim ortamına etkilemeden Tahmine dayalı modeller oluşturmak için çeşitli veri varlıklarına erişmek etkinleştirir. 
 
-DSVM Azure altyapı düzeyinde çalıştığından, BT yöneticileri kurumsal BT ilkeleriyle uyumlu çalışmaya DSVM kolayca yapılandırabilirsiniz. DSVM kurumsal veri varlıklarına erişimi olan çeşitli paylaşım mimarileri denetimli bir şekilde uygulama tam esneklik sunar. 
+DSVM Azure altyapı düzeyinde çalıştığından, BT yöneticileri kurumsal BT ilkelerle çalışmaya DSVM kolayca yapılandırabilirsiniz. DSVM kurumsal veri varlıklarına erişimi olan çeşitli paylaşım mimarileri denetimli bir şekilde uygulama tam esneklik sunar. 
 
-Bu bölümde bazı desenleri ve DSVM ekip tabanlı veri bilimi altyapı olarak dağıtmak için kullanabileceğiniz yönergeler açıklanmaktadır. Herhangi bir Azure VM uygulamak için bu düzenleri için yapı taşları Azure altyapısından (Iaas), hizmet olarak gelir. Bu standart Azure altyapı özellikleri veri bilimi VM uygulama makaleleri bu dizi odak noktasıdır. 
+Bu bölümde, bazı desen ve bir ekip tabanlı veri bilimi altyapısı olarak DSVM dağıtmak için kullanabileceğiniz yönergeleri ele alınmaktadır. Bunlar herhangi bir Azure sanal makinelere uygulamak için bu desenleri için yapı taşları Azure altyapıdan (Iaas), hizmet olarak gelir. Bu makale serisi, odak noktası, standart Azure altyapı yeteneklere veri bilimi sanal makinesi için uygulama üzerinde ' dir. 
 
-Anahtar kuruluş takım analytics ortamında yapı taşlarını bazıları şunlardır:
+Bir kurumsal takım analiz ortamını temel yapı taşları bazıları şunlardır:
 
-* [Autoscaled havuzu veri bilimi sanal makineler](dsvm-pools.md)
-* [Ortak kimlik ve havuzdaki DSVMs herhangi bir çalışma alanına erişim](dsvm-common-identity.md)
+* [Veri bilimi sanal makineleri Autoscaled havuzu](dsvm-pools.md)
+* [Ortak kimlik ve havuzdaki Dsvm'leri birinden bir çalışma alanına erişim](dsvm-common-identity.md)
 * [Veri kaynaklarına güvenli erişim](dsvm-secure-access-keys.md)
 
 
-Bu makale dizisi her önceki öğeler için kılavuz ve işaretçileri sağlar. Tüm değerlendirmeleri ve büyük kuruluş yapılandırmalarında DSVM dağıtmanın gereksinimlerini kapsamaz. DSVM örnekleri, kuruluşunuzda uygulama çalışırken kullanabileceğiniz diğer Azure belgelerine şöyledir: 
+Bu makale serisi, rehberlik ve işaretçileri her önceki öğeler için sağlar. Tüm önemli noktalar ve büyük kuruluş yapılandırmalarında DSVM dağıtmanın gereksinimlerini ele alınmamıştır. DSVM örnekleri, kuruluşunuzda uygulama çalışırken kullanabileceğiniz diğer Azure belgeleri aşağıda verilmiştir: 
 
 * [Ağ güvenliği](https://docs.microsoft.com/azure/security/azure-network-security)
 * [İzleme](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) ve [Yönetimi](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
@@ -51,4 +51,4 @@ Bu makale dizisi her önceki öğeler için kılavuz ve işaretçileri sağlar. 
 * [Şifreleme](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Veri bulma ve idare](https://docs.microsoft.com/azure/data-catalog/)
 
-[Azure Mimari Merkezi](https://docs.microsoft.com/en-us/azure/architecture/) düzenleri oluşturma ve bulut tabanlı analytics altyapınızı yönetme ve ayrıntılı bir uçtan uca mimarisi sağlar. 
+[Azure Mimari Merkezi](https://docs.microsoft.com/azure/architecture/) desenleri oluşturmak ve bulut tabanlı analiz altyapınızı yönetmek için ve ayrıntılı bir uçtan uca mimarisi sağlar. 

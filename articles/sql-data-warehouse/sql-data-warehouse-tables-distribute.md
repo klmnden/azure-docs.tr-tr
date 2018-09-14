@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b6d6dd5f000c4295ffdf64f7d2f1ece4f625678
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 36db91cd7c4dad3c28c0c110ee837ca6d1284959
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307526"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575398"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data warehouse'da dağıtılmış tablolar tasarlama hakkında rehberlik
 Azure SQL Data warehouse'da dağıtılmış karma dağıtılmış ve hepsini bir kez deneme tabloları tasarlama için öneriler sunar.
@@ -174,7 +174,7 @@ Veri çözümlemek, karar vermek için bir tablodaki eğriltme, veri hacimleri v
 Var olan bir tabloda dağıtım sütunu değiştirilemez olduğundan, normal şekilde veri dengesizliği çözmek için farklı dağıtım sütunu içeren tabloyu yeniden oluşturmaktır.  
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>Yeni dağıtım sütunlu tabloyu yeniden oluşturun
-Bu örnekte [CREATE TABLE AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) farklı karma dağıtım sütunlu bir tablo yeniden oluşturulacak.
+Bu örnekte [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) farklı karma dağıtım sütunlu bir tablo yeniden oluşturulacak.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]

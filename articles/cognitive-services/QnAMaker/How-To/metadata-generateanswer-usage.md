@@ -1,20 +1,21 @@
 ---
-title: Bilgi Bankası'GenerateAnswer API yanı sıra meta verileri kullanın | Microsoft Docs
-description: Meta verileri GenerateAnswer API'si ile kullanma
+title: Meta veri API'si - soru-cevap Oluşturucu GenerateAnswer ile
+titleSuffix: Azure Cognitive Services
+description: Soru-cevap Oluşturucu meta verileri anahtar/değer çiftleri biçiminde soru/yanıt kümelerinizi eklemenizi sağlar. Bu bilgiler, kullanıcı sorgularının sonuçlarını filtrelemek için ve izleme konuşmalardaki kullanılabilecek ek bilgileri depolamak için kullanılabilir.
 services: cognitive-services
 author: pchoudhari
-manager: rsrikan
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 09/12/2018
 ms.author: pchoudh
-ms.openlocfilehash: e1b7c82e6998705bdc7e1c1a5d279bda7793667a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d715707217803355aea35eece0a9963b0a213c65
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43305208"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542676"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Meta veri ve GenerateAnswer API'sini kullanarak
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 73a23ace23d2373e238c6887c4a41c6037d233de
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 517de578e2a3c6350bbb18d756a8740ceb6f1d23
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189013"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576383"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızı Windows IOT Core cihazı bağlayın
 
@@ -66,7 +66,7 @@ Bunu hazırlamak için istemci uygulamasına önceki adımdan gelen Windows 10 I
 * Masaüstünde, bağlantı dizesini connection.string.iothub adlı bir metin dosyasına kaydedin.
 * Metin dosyası, cihazın belge klasörüne kopyalayın: `[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
 
-Bunu yaptıktan sonra açmanız gerekir [Windows Device Portal](https://docs.microsoft.com/en-us/windows/iot-core/manage-your-device/deviceportal) http://[device-IP-address]:8080 içinde herhangi bir tarayıcıda yazarak.
+Bunu yaptıktan sonra açmanız gerekir [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) http://[device-IP-address]:8080 içinde herhangi bir tarayıcıda yazarak.
 
 Orada ve gerekirse gösterildiği gibi, şunları yapmanız gerekir:
 1. Sol taraftaki "Uygulamalar" düğümünü genişletin.

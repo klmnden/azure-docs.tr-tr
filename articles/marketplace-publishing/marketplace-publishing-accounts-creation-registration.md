@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 24dc50a6c78769877bdc07b9521a9d2e33837937
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715667"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579624"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Microsoft Developer hesabı oluşturma
 Bu makale gerekli hesap oluşturma ve kayıt işlemini, Azure Marketi için onaylanmış bir Microsoft Developer olmasını size.
@@ -38,7 +38,7 @@ Kullanıcı adını oluşturan adres, etki alanınız üzerinde olmalı ve BT ek
 Bir şirket hesabı oluştururken, hesap açılan Microsoft hesabıyla oturum açarak hesabınıza erişmek birden fazla kişi gerekiyorsa aşağıdaki yönergeleri izleyin.
 
 > [!Important]
-> İçin önemli Geliştirme Merkezi hesabınıza erişmek birden çok kullanıcı izin, Azure Active Directory hesabına bireysel oturum açarak erişebilir bireysel kullanıcılar için rolleri atamak için kullanmanızı öneririz Azure AD kimlik. Daha fazla bilgi için bkz. [hesabı kullanıcılarını yönetmek](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> İçin önemli Geliştirme Merkezi hesabınıza erişmek birden çok kullanıcı izin, Azure Active Directory hesabına bireysel oturum açarak erişebilir bireysel kullanıcılar için rolleri atamak için kullanmanızı öneririz Azure AD kimlik. Daha fazla bilgi için bkz. [hesabı kullanıcılarını yönetmek](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
 
 * Şirketinizin etki alanı, ancak tek ait bir e-posta adresi kullanarak Microsoft hesabınızı oluşturun — Örneğin, windowsapps@fabrikam.com.
 * Geliştiricilerin olası en küçük sayı bu Microsoft hesabına erişimi sınırlayın.
@@ -50,7 +50,7 @@ Bir şirket hesabı oluştururken, hesap açılan Microsoft hesabıyla oturum a�
 
 Geliştirici hesabınızın birincil güvenilen bilgisayarlarından erişilmelidir. Hesap, haftası başına oluşturulan kodları sayısına bir sınır olduğundan bu önemlidir. Ayrıca, en kolay oturum açma deneyimi sağlar.
 
-Ek Geliştirici hesabı kuralları ve güvenlik hakkında daha fazla bilgi için tıklatın [burada](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+Ek Geliştirici hesabı kuralları ve güvenlik hakkında daha fazla bilgi için tıklatın [burada](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Yönergeler
 1. Yeni bir gizli Chrome veya Internet Explorer gözatma oturumunda InPrivate, mevcut bir hesaba oturum açmadıysanız emin olmak için açın.

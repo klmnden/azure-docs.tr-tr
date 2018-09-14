@@ -8,12 +8,12 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: b2c
-ms.openlocfilehash: a9faece909bba89714deef9d229ab86bd351b445
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: bdacbe425aa3140f8a3d60fdf121712d1e6eda3e
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347146"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541611"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Çözümler ve Azure Active Directory B2C için eğitim
 
@@ -25,7 +25,4 @@ Azure Active Directory (Azure AD) B2C, kuruluşların kendi müşteriler ile ba�
 | [Azure AD B2C uzmanlığı elde: geliştiriciler için bir kurs](https://aka.ms/learnAADB2C) | Bu uçtan uca kurs geliştiricilere kimlik doğrulama mekanizması olarak Azure AD B2C ile uygulama geliştirme üzerinde tam bir yolculuk kazanır. On ayrıntılı modülleri laboratuvarlarla müşterilerinizle yolculuklarından tanımladığınız özel ilkeleri oluşturmak için bir Azure aboneliği ayarlama kadar her şeyi kapsar. |
 | [İş ortakları, satıcılar ve müşteriler Azure active Directory ile uygulamalarına erişmek için etkinleştirme](https://aka.ms/aadexternalidentities) | Boyutunu, sektör, veya uyumluluk ve güvenlik duruşunu bağımsız olarak her kuruluşun başarısı diğer kuruluşlarla işbirliği yapıyorsa ve müşteriler ile bağlantı kuruluş özelliğini kullanır.<br><br>Bir araya Azure AD, Azure AD B2C'yi ve Azure AD B2B işbirliği, bu kılavuzda ayrıntılı iş değeri ve birleşik kimlik doğrulama deneyimi sağlayan bir uygulama veya web deneyimi uyarlanmış içerikleri oluşturma mekanizması, Çalışanlar, iş ortakları ve sağlayıcıları ve müşteriler. |
 | [Azure AD B2C'ye karma bir ortamda uygulama kimlik doğrulamasını geçirme](https://aka.ms/MigratetoAADB2C) | Günümüzün modern kuruluşta, dijital Dönüşüm ve buluta geçiş gerçekleşir, aşama, çoğu kuruluş, en azından geçici olarak bir karma kimlik ortamda çalışmak için gerek.<br><br>Bu kılavuz, ilk uygulamanızı Azure AD B2C'ye taşımak için geçiş planı oluşturmaya odaklıdır ve karma bir ortamda kimlik ancak bunun yapılması konuları kapsar. |
-
-<!-- 
-| [General Data protection Regulation (GDPR) Considerations for Customer Facing Applications](https://aka.ms/AADB2CandGDPR) | For any customer facing applications, GDPR must be taken into consideration by all organizations that embark on projects that hold personal data and serve EU citizens.<br><br>This solution Guide focuses on how Azure AD B2C can be used as a flexible component of your overall GDPR compliance approach, including how AAD B2C components support each of the key GDPR rights for individuals. | 
--->
+| [Genel veri koruma yönetmeliği (GDPR) konuları müşteri yan yana uygulamalar](https://aka.ms/AADB2CandGDPR) | Uygulamalar'e yönelik tüm müşteriler için GDPR AB vatandaşlar derler ve kişisel verileri tutmak projelerde süreçlerle tüm kuruluşlar tarafından dikkate atılmalıdır.<br><br>Bu çözüm kılavuzunda, nasıl Azure AD B2C'yi nasıl Azure AD B2C bileşenleri her anahtar GDPR haklarını kişiler için destek dahil olmak üzere genel GDPR uyumluluğu yaklaşımınızı, esnek bir bileşen olarak kullanılabileceğini üzerinde odaklanır. |

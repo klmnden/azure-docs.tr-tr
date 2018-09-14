@@ -1,6 +1,6 @@
 ---
-title: Akış günlük analizi için Azure tanılama günlükleri
-description: Günlük analizi çalışma alanı için Azure tanılama günlüklerini akış öğrenin.
+title: Stream Log analytics'e Azure tanılama günlükleri
+description: Azure tanılama günlükleri Log Analytics çalışma alanına akışı yapmayı öğrenin.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: d8966edb6061ed07f5aecb9682fca081ed589040
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 134c33ac28c6a094bdc50deb7206db95bf4436fc
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083983"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574541"
 ---
-# <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Akış günlük analizi için Azure tanılama günlükleri
+# <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Log analytics'e Azure tanılama günlükleri
 
-**[Azure tanılama günlüklerini](monitoring-overview-of-diagnostic-logs.md)**  portalı, PowerShell cmdlet'leri veya Azure CLI 2.0 kullanarak Azure günlük analizi için yakın gerçek zamanlı akış.
+**[Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md)**  portal, PowerShell cmdlet'leri veya Azure CLI 2.0 kullanarak Azure Log analytics'e neredeyse gerçek zamanlı akış.
 
-## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Günlük analizi günlüklerini Tanılama ile yapabilecekleriniz
+## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Tanılama ile neler yapabileceğinizi Log Analytics'te günlüğe kaydeder
 
-Azure günlük analizi Azure kaynaklarından oluşturulan ham günlük verileri kavramanıza olanak tanıyan bir esnek günlük arama ve analizi aracıdır. Bazı özellikleri şunlardır:
+Azure Log Analytics, Azure kaynaklarından oluşturulan ham günlük verilerini öngörü sağlayan bir esnek günlük arama ve analiz aracıdır. Bazı özellikler şunlardır:
 
-* **Günlük arama** -yazma gelişmiş sorguları günlük verilerinizi, correlate günlükleri çeşitli kaynaklardan ve hatta Azure panonuza sabitlenir grafikleri oluşturun.
-* **Uyarı** -bir veya daha fazla olayları belirli bir sorgu eşleşen ve bir e-posta veya Web kancası çağrısı ile bildirim hale algılayabilir.
-* **Çözümleri** -önceden oluşturulmuş görünümler ve günlük verileriniz hakkında anında bilgi vermek panoları kullanın.
-* **Gelişmiş analizler** - machine learning uygulanır ve günlüklerinizi tarafından açığa olası sorunları tanımlamak için eşleşen algoritmaları desen.
+* **Günlük araması** -günlük verileriniz üzerinde yazma Gelişmiş sorgular, performanstaki günlükleri, çeşitli kaynaklardan ve hatta Azure panonuza sabitlenebilir grafikler oluşturun.
+* **Uyarı** -bir veya daha fazla olay belirli sorguyla eşleşen ve bir e-posta veya Web kancası çağrısı ile bildirilmesi algılayabilir.
+* **Çözümleri** -önceden oluşturulmuş görünümleri ve günlük verileriniz hakkında anında bilgi vermek panoları'nı kullanın.
+* **Gelişmiş analiz** - makine öğrenimi uygulayın ve günlüklerinizi tarafından ortaya olası sorunları belirlemek için eşleşen algoritmalar desen.
 
-## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Günlük analizi için tanılama günlükleri akışını etkinleştirmek
+## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Log Analytics için tanılama günlüklerinin akışı etkinleştirme
 
-Tanılama günlüklerini portalı yoluyla programlı olarak akış veya kullanarak etkinleştirebilirsiniz [Azure İzleyici REST API'lerini](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). Her iki durumda da, oluşturduğunuz bir tanılama ayarını günlük analizi çalışma alanı ve günlük kategorileri ve bu çalışma alanına göndermek istediğiniz ölçümleri, belirttiğiniz içinde. Bir tanılama **günlük kategori** kaynak sağlayabilir günlük türüdür.
+Tanılama günlüklerini programlı olarak portal, akış veya kullanarak etkinleştirebilirsiniz [Azure İzleyici REST API'leri](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). Tanılama ayarını oluşturduğunuz her iki durumda da bir Log Analytics çalışma alanı ve günlük kategorileri ve bu çalışma alanına göndermek istediğiniz ölçümleri, belirttiğiniz içinde. Bir tanılama **günlüğü kategorisi** kaynak sağlayabilir günlük türüdür.
 
-Günlük analizi çalışma alanı ayar yapılandıran kullanıcı her iki aboneliğin uygun RBAC erişime sahip olduğu sürece günlükleri yayma kaynak ile aynı abonelikte olması gerekmez.
+Log Analytics çalışma ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan kaynak ile aynı abonelikte olması gerekmez.
 
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
@@ -41,41 +41,41 @@ Günlük analizi çalışma alanı ayar yapılandıran kullanıcı her iki abone
 >
 >
 
-## <a name="stream-diagnostic-logs-using-the-portal"></a>Portalı kullanarak akış tanılama günlükleri
-1. Portal, Azure izleyicisine gidin ve tıklayın **tanılama ayarları**
+## <a name="stream-diagnostic-logs-using-the-portal"></a>Portalı kullanarak Stream tanılama günlükleri
+1. Portal, Azure İzleyicisi'ne gidin ve tıklayarak **tanılama ayarları**
 
-    ![Azure İzleyicisi İzleme bölümü](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
+    ![Azure İzleyicisi İzleme](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
 
-2. İsteğe bağlı olarak kaynak grubu veya kaynak türü listeyi filtrelemek sonra tanılama ayarını ayarlamak istediğiniz kaynak'ı tıklatın.
+2. İsteğe bağlı olarak kaynak grubu veya kaynak türe göre listeyi filtreleyin ve kaynağın tanılama ayarını ayarlamak istediğiniz'i tıklatın.
 
-3. Hiçbir ayar kaynağı varsa, sizden istenir bir ayar oluşturmak için seçtiğiniz. "Tanılamayı açın."'i tıklatın
+3. Hiçbir ayar kaynağı varsa, istenen bir ayar oluşturmak için seçtiğiniz. "Tanılamayı Aç" tıklayın
 
-   ![Tanılama ayarını - ayar Ekle](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
+   ![Tanılama ayarını - mevcut hiçbir ayar Ekle](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
 
-   Kaynak üzerinde var olan ayarları varsa, bu kaynak üzerinde zaten yapılandırılmış ayarları listesini görürsünüz. "Tanılama ayarını Ekle" yi tıklatın.
+   Kaynakta mevcut ayarları varsa, bu kaynakta zaten yapılandırılmış ayarların bir listesini görürsünüz. "Tanılama ayarı Ekle" ye tıklayın
 
-   ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
+   ![Tanılama ayarını - var olan ayarları Ekle](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
 
-3. Ayarı, bir ad verin ve için kutuyu **için günlük analizi Gönder**, günlük analizi çalışma alanı seçin.
+3. Ayarı, bir ad verin ve kutusunu işaretlemeniz **Log Analytics'e gönderme**, sonra bir Log Analytics çalışma alanı seçin.
 
-   ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
+   ![Tanılama ayarını - var olan ayarları Ekle](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
 
 4. **Kaydet**’e tıklayın.
 
-Birkaç dakika sonra yeni ayar, bu kaynak için ayarları listesi görüntülenir ve yeni olay verilerini oluşturulan hemen tanılama günlükleri, çalışma alanına akışa alınır. En fazla beş dakikada bir olay olduğunda yayılan ve günlük analizi görüntülendiğinde arasında olabileceğini unutmayın.
+Birkaç dakika sonra yeni ayar, bu kaynak için ayarların listesi görüntülenir ve tanılama günlükleri, yeni olay verilerini oluşturulan hemen sonra bu çalışma alanına aktarılır. Beş dakika arasında bir olay olduğunda yayılır ve Log Analytics'te görüntülendiğinde olabileceğini unutmayın.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell cmdlet'leri
-Aracılığıyla akışını etkinleştirmek için [Azure PowerShell cmdlet'leri](insights-powershell-samples.md), kullanabileceğiniz `Set-AzureRmDiagnosticSetting` Bu parametreler cmdlet'iyle:
+Aracılığıyla akışını etkinleştirmek için [Azure PowerShell cmdlet'leri](insights-powershell-samples.md), kullanabileceğiniz `Set-AzureRmDiagnosticSetting` cmdlet şu parametrelerle:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
 ```
 
-Workspaceıd özelliği olmayan çalışma alanı kimliği/anahtar günlük analizi portalında gösterilen çalışma alanı tam Azure kaynak Kimliğini alır.
+Tam Azure kaynak kimliği değil çalışma alanı kimliği/anahtarı Log Analytics Portalı'nda gösterilen çalışma alanının çalışma alanı kimliği özelliği aldığını unutmayın.
 
 ### <a name="via-azure-cli-20"></a>Azure CLI 2.0
 
-Aracılığıyla akışını etkinleştirmek için [Azure CLI 2.0](insights-cli-samples.md), kullanabileceğiniz [az İzleyici tanılama ayarlarını oluştur](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) komutu.
+Aracılığıyla akışını etkinleştirmek için [Azure CLI 2.0](insights-cli-samples.md), kullanabileceğiniz [az İzleyici diagnostic-settings oluşturma](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) komutu.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -90,14 +90,14 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     ]'
 ```
 
-Ek kategoriler tanılama günlük olarak geçirilen JSON dizisine sözlükler ekleyerek ekleyebileceğiniz `--logs` parametresi.
+Tanılama günlüğüne olarak geçirilen JSON dizisi sözlükleri ekleyerek ek kategori ekleyebilirsiniz `--logs` parametresi.
 
-`--resource-group` Bağımsız değişken, yalnızca gerekli olduğunda `--workspace` bir nesne kimliği değil
+`--resource-group` Bağımsız değişken, yalnızca gerekli if `--workspace` bir nesne kimliği değil.
 
-## <a name="how-do-i-query-the-data-in-log-analytics"></a>Günlük analizi verileri nasıl sorgu?
+## <a name="how-do-i-query-the-data-in-log-analytics"></a>Log analytics'te verileri nasıl sorgu?
 
-Portal ya da günlük analizi bir parçası olarak Advanced Analytics deneyimi günlük arama dikey penceresinde, günlük yönetim çözümü AzureDiagnostics tablonun altında bir parçası olarak tanılama günlüklerini sorgulayabilirsiniz. Ayrıca [Azure kaynakları için çeşitli çözümler](../log-analytics/log-analytics-add-solutions.md) günlük analizi gönderiyorsunuz daha iyi günlük verilerini almak için yükleyebilir.
+Portalında veya Gelişmiş analiz deneyimi Log analytics'in bir parçası olarak günlük arama dikey penceresinde, günlük yönetimi çözümü AzureDiagnostics tablonun altında bir parçası olarak tanılama günlükleri sorgulayabilir. Ayrıca [Azure kaynakları için çeşitli çözümler](../log-analytics/log-analytics-add-solutions.md) günlük verileri anında Öngörüler Log Analytics'e gönderme, alma için yükleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure tanılama günlükleri hakkında daha fazla bilgi](monitoring-overview-of-diagnostic-logs.md)
+* [Azure Tanılama Günlükleri](monitoring-overview-of-diagnostic-logs.md)
