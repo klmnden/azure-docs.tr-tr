@@ -2,7 +2,7 @@
 title: Hızlı Başlangıç - Azure Active Directory koşullu erişim ile bir oturumu risk algılandığında erişimi engelleme | Microsoft Docs
 description: Bu hızlı başlangıçta, oturum açma oturumu riskler için temel engellemek için bir Azure Active Directory (Azure AD) koşullu erişim ilkesini nasıl yapılandırabileceğinizi öğrenin.
 services: active-directory
-keywords: uygulamalar, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2bd52486a78ca103e0070d94ea423c069f845587
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 65f740e23b68727bdffa4a966518b1581fb5b0a6
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627517"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604374"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Hızlı Başlangıç: Azure Active Directory koşullu erişim ile bir oturumu risk algılandığında erişimi engelle  
 
@@ -46,7 +46,7 @@ Bu öğreticide senaryoyu tamamlamak için gerekir:
 
 - **Tor tarayıcı** - [Tor tarayıcı](https://www.torproject.org/projects/torbrowser.html.en) çevrimiçi gizliliğinizi korumak amacıyla tasarlanmıştır. Kimlik Koruması'nın algıladığı bir oturum açma bir Tor tarayıcıdan **anonim IP adreslerinden oturum açma**, bir orta düzeyde risk düzeyine sahip. Daha fazla bilgi için bkz. [Azure Active Directory risk olayları](../reports-monitoring/concept-risk-events.md).  
 
-- **Alain Charon adlı bir test hesabı** - bir test hesabı oluşturmak için bkz bilmiyorsanız [bulut tabanlı kullanıcılar eklemek](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **Alain Charon adlı bir test hesabı** - bir test hesabı oluşturmak için bkz bilmiyorsanız [bulut tabanlı kullanıcılar eklemek](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## <a name="test-your-sign-in"></a>Oturum açma testi 
@@ -206,7 +206,7 @@ Koşullu erişim ilkenizi yapılandırdığınıza göre büyük olasılıkla be
 
 Artık gerekli değilse, test kullanıcısı, Tor tarayıcı ve koşullu erişim ilkesini Sil:
 
-- Bir Azure AD kullanıcı silme işlemini bilmiyorsanız, bkz. [Azure AD'den kullanıcı silme](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Bir Azure AD kullanıcı silme işlemini bilmiyorsanız, bkz. [Azure AD'den kullanıcı silme](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - İlkeniz silinecek ilkenizi seçin ve ardından **Sil** hızlı erişim araç çubuğu.
 

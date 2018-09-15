@@ -10,12 +10,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: vanto
-ms.openlocfilehash: d8f8a823f19ff233d05d09c126cf2524a0aa532e
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 5149b4cbd1e86bfca3ad7d628d129a08aff60a98
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542202"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604323"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Her zaman şifreli: SQL veritabanındaki hassas verileri korumak ve şifreleme anahtarlarınızı Azure Key Vault'ta depolama
 
@@ -595,7 +595,9 @@ Herhangi bir düz metin veri içermemesi şifrelenmiş sütunları görebilirsin
 
    ![Yeni konsol uygulaması](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-Düz metin verilerine erişmek için SSMS kullanmak için ekleyebilirsiniz *sütun şifreleme ayarı = etkin* bağlantı parametresi.
+SSMS düz metin verilerine erişmek için kullanmak için önce kullanıcı Azure anahtar kasası için uygun izinlere sahip olduğundan emin olmak gerekir: *alma*, *unwrapKey*, ve *doğrulayın*. Ayrıntılı bilgi için bkz. [oluştur ve Store sütun ana anahtarları (her zaman şifreli)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+
+Ardından Ekle *sütun şifreleme ayarı = etkin* bağlantınızı sırasında parametre.
 
 1. SSMS'de, sunucuya sağ tıklayın **Nesne Gezgini** ve **Bağlantıyı Kes**.
 2. Tıklayın **Connect** > **veritabanı altyapısı** açmak için **sunucuya Bağlan** penceresini açın ve **seçenekleri**.

@@ -1,20 +1,21 @@
 ---
-title: Rolleri desen tabanlı varlıklarda - Azure nasıl kullanıldığını anlama | Microsoft Docs
-description: Bir rolü alt bağlamsal varlık türü için bir ad vermek için desen tabanlı bir varlıkta nasıl kullanıldığını öğrenin.
+title: Rolleri desen tabanlı varlıklarda nasıl kullanıldığını anlama
+titleSuffix: Azure Cognitive Services
+description: Adlandırılmış ve bağlamsal subtypes yalnızca desenlerinde kullanılan bir varlığın rolleridir. Örneğin, utterance satın alma New York'tan bilet Londra, New York hem Londra şehirler olan ancak tümcedeki her farklı bir anlama sahiptir. New York kaynak Şehir ve Londra hedef şehir.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d2692cdce9da7428bd7b30c4feaf7347792618f5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: aabd3a22498e0e33993d715e7a5882dde7aacf37
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222712"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632492"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Varlık desenleri bağlamsal subtypes rolleridir
 Adlandırılmış ve bağlamsal subtypes yalnızca kullanılan bir varlığın rolleridir [desenleri](luis-concept-patterns.md).
@@ -31,9 +32,10 @@ Rolleri, bu fark için bir ad verin:
 ## <a name="how-are-roles-used-in-patterns"></a>Rolleri, modelleri nasıl kullanılır?
 Bir desenin şablon utterance içinde rolleri içinde utterance kullanılır: 
 
-```
-buy a ticket from {Location:origin} to {Location:destination}
-```
+|Varlık rolleriyle deseni|
+|--|
+|`buy a ticket from {Location:origin} to {Location:destination}`|
+
 
 ## <a name="role-syntax-in-patterns"></a>Rol sözdizimi desenleri
 Varlık ve rol parantez içinde içine alınmış `{}`. Varlık ve rol virgül ile ayrılır. 

@@ -1,97 +1,144 @@
 ---
-title: Azure AD'de kullanıcı lisanslama | Microsoft Docs
-description: Azure Active Directory'de kendinizi ve kullanıcılarınızı lisanslamayı öğrenin.
+title: Atama veya Azure Active Directory lisansları Kaldır | Microsoft Docs
+description: Atayın veya kullanıcıları veya grupları Azure Active Directory'yi kullanarak Azure Active Directory lisansları kaldırın.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: quickstart
-ms.date: 08/22/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: lizross
-ms.reviewer: jeffgilb
+ms.reviewer: jeffsta
 custom: it-pro
-ms.openlocfilehash: 6fc1d808fb712f7acb60e490663cb7301e22153c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: HT
+ms.openlocfilehash: e1b0b2f84c67e30c3bb998554dc662b002744003
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856098"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603901"
 ---
-# <a name="quickstart-license-users-in-azure-active-directory"></a>Hızlı başlangıç: Azure Active Directory'de kullanıcı lisanslama
-Lisans tabanlı Azure AD hizmetlerini kullanabilmek için Azure kiracınızda bir Azure Active Directory (Azure AD) aboneliğini etkinleştirmeniz gerekir. Abonelik etkinleştirildikten sonra hizmet özellikleri Azure AD yöneticileri tarafından yönetilir ve lisanslı kullanıcılar tarafından kullanılır. Enterprise Mobility + Security, Azure AD Premium veya Azure AD Basic hizmetlerini satın aldığınızda kiracınız geçerlilik süresi ve ön ödemeli lisanslar dahil olmak üzere bu aboneliği kapsayacak şekilde güncelleştirilir. Atanmış veya kullanılabilir durumdaki lisans sayısı dahil olmak üzere abonelik bilgilerinize Azure portaldaki **Lisanslar** kutucuğunun **Azure Active Directory** bölümünden erişebilirsiniz. Lisans atamalarınızı yönetmek için **Lisanslar** dikey penceresini de kullanabilirsiniz.
+# <a name="how-to-assign-or-remove-azure-active-directory-licenses"></a>Nasıl yapılır: atamak veya Azure Active Directory lisansları kaldırın
+Birçok Azure Active Directory (Azure AD) Hizmetleri, Azure AD ürünü etkinleştirmek için ve her biri, kullanıcılar veya gruplar (ve ilişkili üyeler) lisans bu ürün için gerektirir. Etkin bir lisansa sahip kullanıcılar erişebilir ve lisanslı kullanma yalnızca Azure AD Hizmetleri.
 
-Ücretli özellikleri yapılandırmak için tek yapmanız gereken bir abonelik satın almak olsa da ücretli Azure AD özellikleri için kullanıcı lisansı atamanız şarttır. Azure AD ücretli özelliklerine erişmesi gereken veya bu özellikler üzerinden yönetilen tüm kullanıcılara bir lisans atanması gerekir. Lisans ataması, Azure AD Premium, Basic veya Enterprise Mobility + Security gibi satın alınan bir hizmetle kullanıcı arasında gerçekleştirilen eşlemedir.
+## <a name="available-product-editions"></a>Kullanılabilir ürün sürümleri
+Azure AD ürünü için kullanılabilen çeşitli sürümleri vardır.
 
-[Grup tabanlı lisans atamasını](active-directory-licensing-whatis-azure-portal.md) kullanarak aşağıdakilere benzer kurallar ayarlayabilirsiniz:
-* Dizininizdeki tüm kullanıcıların otomatik olarak lisans dağıtma
-* Uygun iş unvanına sahip herkese lisans dağıtma
-* Kararı kuruluştaki diğer yöneticilere de bırakabilirsiniz ([self-service gruplarını](../users-groups-roles/groups-self-service-management.md) kullanarak)
+- Azure AD Ücretsiz
 
-> [!TIP]
-> Gelişmiş senaryolar ve Office 365 lisanslama senaryoları dahil olmak üzere gruplara ayrıntılı lisans ataması hakkında ayrıntılı bilgiler için bkz. [Azure Active Directory'de grup üyeliği ile kullanıcılara lisans atama](../users-groups-roles/licensing-groups-assign.md).
+- Azure AD Basic
 
-## <a name="assign-licenses-to-users-and-groups"></a>Kullanıcılara ve gruplara lisans atama
-Öncelikle etkin bir aboneliği kullanarak kendinize lisans atamanız ve tarayıcı sayfasını yenileyerek aboneliğinizin kapsamında olması gereken tüm özellikleri gördüğünüzden emin olmanız gerekir. Bir sonraki adım, ücretli Azure AD özelliklerine erişmesi gereken kullanıcılara lisans atamaktır. Lisans atamanın kolay yollarından biri, lisansları kullanıcılar yerine gruplara atamaktır. Lisansları bir gruba atadığınızda gruptaki tüm üyelere lisans atamış olursunuz. Gruba eklenen veya gruptan kaldırılan kullanıcılara otomatik olarak lisans atanır veya lisansı kaldırılır. 
+- Azure AD Premium 1 (Azure AD P1)
 
-> [!NOTE]
-> Bazı Microsoft hizmetleri tüm konumlarda kullanılamaz. Bir kullanıcıya lisans atanabilmesi için yöneticinin kullanıcının **Kullanım konumu** özelliğini belirtmesi gerekir. Bu özelliği Azure portalın **Kullanıcı** &gt; **Profil** &gt; **Ayarlar** sayfasından ayarlayabilirsiniz. Gruba lisans atandığında kullanım konumu belirtilmeyen kullanıcılar dizinin konumunu devralır.
+- Azure AD Premium 2 (Azure AD P2)
 
-Lisans atamak için **Azure Active Directory** &gt; **Lisanslar** &gt; **Tüm Ürünler** bölümünde bir veya daha fazla ürün seçtikten sonra komut çubuğundan **Ata**'yı seçin.
+Her ürün sürümünü ve ilişkili lisans ayrıntıları hakkında ayrıntılı bilgi için bkz. [lisans ne yapmam gerekir mi?](../authentication/concept-sspr-licensing.md).
 
-![Atanacak lisansı seçme](./media/license-users-groups/select-license-to-assign.png)
+## <a name="view-your-product-edition-and-license-details"></a>Ürün sürümü ve lisans bilgilerinizi görüntüleyin
+Bağımsız lisans dahil olmak üzere ürünlerinizi kullanılabilir tüm bekleyen sona erme tarihleri ve kullanılabilir atamaları sayısı denetleniyor görüntüleyebilirsiniz.
 
-**Kullanıcılar ve gruplar** dikey penceresini kullanarak üründeki hizmet planlarını devre dışı bırakmak üzere birden fazla kullanıcı veya grup seçebilirsiniz. Kullanıcı ve grup adıyla arama yapmak için sayfanın en üstündeki arama kutusunu kullanın.
+### <a name="to-find-your-product-and-license-details"></a>Ürün ve lisans bilgilerinizi bulmak için
+1. Oturum [Azure portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
 
-![Lisans ataması için bir kullanıcı veya grup seçme](./media/license-users-groups/select-user-for-license-assignment.png)
+2. Seçin **Azure Active Directory**ve ardından **lisansları**.
 
-Bir gruba lisans atadığınızda tüm kullanıcıların lisansı devralması için gereken süre grubun boyutuna göre değişebilir. İlerleme durumunu **Lisanslar** kutucuğunun **Grup** dikey penceresinden takip edebilirsiniz.
+    **Lisansları** sayfası görüntülenir.
 
-![Lisans atama durumu](./media/license-users-groups/license-assignment-status.png)
+    ![Lisans sayfasında, satın alınan ürünleri sayısını gösteren ve atanmış lisansların](media/license-users-groups/license-details-blade.png)
+    
+3. Seçin **satın alınan ürünlerle** bağlantısına **ürünleri** sayfası ve **atanan**, **kullanılabilir**, ve  **Yakında sona erecek** her belirli bir ürün sürümü için ayrıntıları.
 
-Azure AD lisanslarının atanması sırasında atama hataları oluşabilir ancak bu hatalara Azure AD ve Enterprise Mobility + Security ürünlerinin yönetilmesi sırasında daha ender rastlanır. Olası atama hataları şunlarla sınırlıdır:
-- Atama çakışması: Kullanıcıya daha önceden geçerli lisansla uyumsuz bir lisans atanması durumunda ortaya çıkar. Bu durumda yeni lisansın atanabilmesi için geçerli lisansın kaldırılması gerekir.
-- Kullanılabilir lisans sayısı aşıldı: Atama yapılan gruplardaki kullanıcı sayısı, kullanılabilir durumdaki lisans sayısından fazla olduğunda eksik lisans nedeniyle kullanıcının lisans durumunda atama hatası görüntülenir.
+    ![Ürün sürümleri ve ilişkili lisans bilgilerini içeren ürün sayfası](media/license-users-groups/license-products-blade-with-products.png)
 
-### <a name="azure-ad-b2b-collaboration-licensing"></a>Azure AD B2B işbirliği lisanslaması
+4. Kendi lisanslı kullanıcılar ve grupları görmek için bir ürün sürümü adını seçin.
 
-B2B işbirliği, Azure AD hizmetlerine ve sunduğunuz Azure kaynaklarına erişmek üzere Azure AD kiracınıza konuk kullanıcılar davet etmenizi sağlar.  
+## <a name="assign-licenses-to-users-or-groups"></a>Kullanıcılara veya gruplara lisans atama
+Emin olun, herhangi bir lisanslı kullanmaya gerek Azure AD hizmeti uygun lisansa sahip. Bu, lisans haklarını bireysel kullanıcılar veya tüm bir gruba eklemek istediğiniz aittir.
 
-B2B kullanıcılarını davet etme ve Azure AD'deki bir uygulamaya atama için ücret alınmaz. B2B işbirliği kullanıcıları için konuk kullanıcı başına en fazla 10 uygulama ve 3 temel rapor da ücretsizdir. Konuk kullanıcınıza iş ortağının Azure AD kiracısında atanmış olan uygun lisanslar varsa bu kullanıcılar sizin kiracınızda da lisans sahibi olur.
+>! [Not] Azure ad genel önizleme özelliği olan Grup tabanlı Lisanslama ve tüm kullanılabilir Ücretli Azure AD lisans planınız. Önizlemeler hakkında daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Kullanıcı ekleme hakkında ayrıntılı bilgi için bkz: [ekleyin veya Azure Active Directory'de kullanıcı silme](add-users-azure-active-directory.md). Grupları oluşturma ve üye ekleme hakkında ayrıntılı bilgi için bkz. [temel bir grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md).
 
-B2B konuk kullanıcılarına ücreti Azure AD özelliklerine erişim izni vermenize gerek yoktur ancak bunu yapmak isterseniz bu konuklara uygun Azure AD lisansı atanması gerekir. Ücretli Azure AD lisansına sahip olan davet eden kiracı, bu kiracıya davet edilmiş olan ek beş konuk kullanıcıya B2B işbirliği kullanıcısı hakkı atayabilir. Senaryolar ve bilgi için bkz. [B2B işbirliği lisans kılavuzu](../b2b/licensing-guidance.md).
+### <a name="to-assign-a-license-to-a-specific-user"></a>Belirli bir kullanıcıya lisans atamak için
+1. Üzerinde **ürünleri** sayfasında, kullanıcıya atamak istediğiniz sürüm adını belirleyin. Örneğin, _Azure Active Directory Premium Plan 2_.
 
-## <a name="view-assigned-licenses"></a>Atanan lisansları görüntüleme
+    ![Vurgulanan ürün sürümü ile ürün sayfası](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-Atanmış ve kullanılabilir durumdaki lisansların özel görünümüne **Azure Active Directory** &gt; **Lisanslar** &gt; **Tüm ürünler** sayfasından ulaşabilirsiniz.
+2. Üzerinde **Azure Active Directory Premium Plan 2** sayfasında **atama**.
 
-![Lisans özetini görüntüleme](./media/license-users-groups/view-license-summary.png)
+    ![Vurgulanan Ata seçeneğiyle ürün sayfası](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-Belirli bir ürünü seçtiğinizde atanan kullanıcıların ve grupların ayrıntılı listesine ulaşabilirsiniz. **Lisanslı Kullanıcılar** listesinde, lisans sahibi olan kullanıcıların tamamı ve lisansın doğrudan kullanıcıya mı atanmış olduğu yoksa gruptan mı devralındığı bilgisi görüntülenir.
+3. Üzerinde **atama** sayfasında **kullanıcılar ve gruplar**, arayın ve lisans atama kullanıcı seçin. Örneğin, _Mary Parker_.
 
-![Lisans ayrıntılarını görüntüleme](./media/license-users-groups/view-license-detail.png)
+    ![Lisans sayfasında, vurgulanan arama ve seçim seçenekleri ile atayın](media/license-users-groups/assign-license-blade-with-highlight.png)
 
-Benzer şekilde **Lisanslı Gruplar** listesinde de lisansların atanmış olduğu tüm gruplar görüntülenir. Bir nesneye atanmış olan tüm lisansları gösteren **Lisanslar** dikey penceresini açmak için bir kullanıcı veya grup seçin.
+4. Seçin **atama seçenekleri**, lisans seçenekleri açık ve ardından uygun olduğundan emin olun **Tamam**.
+
+    ![Lisans seçeneği sayfasında Edition'da kullanılabilir seçeneklerin tümü gösteriliyor](media/license-users-groups/license-option-blade-assignments.png)
+
+    **Ata lisans** sayfasında bir kullanıcı seçili olduğunu ve atamaları yapılandırıldığını göstermek için güncelleştirmeler.
+
+    >[!NOTE]
+    >Tüm Microsoft Hizmetleri, tüm konumlardaki kullanılabilir. Bir kullanıcıya lisans atanabilmesi için önce belirtmelisiniz **kullanım konumu**. Bu değer ayarlayabilirsiniz **Azure Active Directory &gt; kullanıcılar &gt; profili &gt; ayarları** Azure AD alanı.
+
+5. **Ata**'yı seçin.
+
+    Kullanıcı lisanslı kullanıcılar listesine eklenir ve erişimi dahil olan Azure AD Hizmetleri.
+
+### <a name="to-assign-a-license-to-an-entire-group"></a>Grubun tamamı için bir lisans atamak için
+1. Üzerinde **ürünleri** sayfasında, kullanıcıya atamak istediğiniz sürüm adını belirleyin. Örneğin, _Azure Active Directory Premium Plan 2_.
+
+    ![Vurgulanan ürün sürümü ile ürünleri dikey penceresi](media/license-users-groups/license-products-blade-with-product-highlight.png)
+
+2. Üzerinde **Azure Active Directory Premium Plan 2** sayfasında **atama**.
+
+    ![Vurgulanan Ata seçeneğiyle ürün sayfası](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+
+3. Üzerinde **atama** sayfasında **kullanıcılar ve gruplar**, arayın ve lisans atama bir grubu seçin. Örneğin, _MDM İlkesi - Batı_.
+
+    ![Lisans sayfasında, vurgulanan arama ve seçim seçenekleri ile atayın](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+
+4. Seçin **atama seçenekleri**, lisans seçenekleri açık ve ardından uygun olduğundan emin olun **Tamam**.
+
+    ![Lisans seçeneği sayfasında Edition'da kullanılabilir seçeneklerin tümü gösteriliyor](media/license-users-groups/license-option-blade-group-assignments.png)
+
+    **Ata lisans** sayfasında bir kullanıcı seçili olduğunu ve atamaları yapılandırıldığını göstermek için güncelleştirmeler.
+
+    >[!NOTE]
+    >Tüm Microsoft Hizmetleri, tüm konumlardaki kullanılabilir. Bir gruba lisans atanabilmesi için önce belirtmelisiniz **kullanım konumu** tüm üyeleri için. Bu değer ayarlayabilirsiniz **Azure Active Directory &gt; kullanıcılar &gt; profili &gt; ayarları** Azure AD alanı. Kullanım konumu belirtilmezse herhangi bir kullanıcı, Kiracı konumunu alır.
+
+5. **Ata**'yı seçin.
+
+    Grubu lisanslı gruplar listeye eklenir ve tüm üyelerin dahil erişiminiz Azure AD Hizmetleri.
+
 
 ## <a name="remove-a-license"></a>Lisansı kaldırma
+Bir kullanıcı ya da bir gruptan lisans kaldırmaya **lisansları** sayfası.
 
-Bir lisansı kaldırmak için kullanıcıya veya gruba gidip **Lisanslar** kutucuğunu açın. Lisansı seçin ve **Kaldır**'a tıklayın.
+### <a name="to-remove-a-license-from-a-specific-user"></a>Belirli bir kullanıcı tarafından bir lisans kaldırmak için
+1. Üzerinde **lisanslı kullanıcılar** sayfasında ürün sürümü için artık lisans olması gereken kullanıcıyı seçin. Örneğin, _Alain Charon_.
 
-![Lisansı kaldırma](./media/license-users-groups/remove-license.png)
+2. Seçin **Kaldır lisans**.
 
-Kullanıcının bir gruptan devraldığı lisanslar doğrudan kaldırılamaz. Bunun yerine kullanıcıyı lisansı devraldığı gruptan kaldırabilirsiniz.
+    ![Lisansı Kaldır seçeneğinin vurgulandığı lisanslı kullanıcılar sayfası](media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
 
+### <a name="to-remove-a-license-from-a-group"></a>Lisans bir gruptan kaldırmak için
+1. Üzerinde **lisanslı gruplar** sayfasında ürün sürümü için artık lisans olmalıdır bir grup seçin. Örneğin, _MDM İlkesi - Batı_.
+
+2. Seçin **Kaldır lisans**.
+
+    ![Lisanslı gruplar sayfasıyla lisans seçeneği vurgulanmış olarak Kaldır](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+
+>[!Important]
+>Lisans bir gruptan bir kullanıcı tarafından devralınan doğrudan kaldırılamaz. Bunun yerine, kullanıcı, bunlar lisans devralan gruptan kaldırmak zorunda.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu hızlı başlangıçta Azure AD dizinindeki kullanıcılara ve gruplara lisans atamayı öğrendiniz. 
+Lisanslarınızı atadıktan sonra aşağıdaki işlemleri gerçekleştirebilirsiniz:
 
-Aşağıdaki bağlantıyı kullanarak Azure AD içindeki abonelik lisansı atamalarını Azure portaldan yapılandırabilirsiniz.
+- [Lisans ataması sorunlarını tanımlama ve çözme](../users-groups-roles/licensing-groups-resolve-problems.md)
 
-> [!div class="nextstepaction"]
-> [Azure AD lisanslarını atama](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Overview) 
+- [Lisanslı kullanıcılar için lisans gruba ekleme](../users-groups-roles/licensing-groups-migrate-users.md)
+
+- [Senaryoları, sınırlamalar ve bilinen sorunlar Azure Active Directory'de lisanslama yönetmek için grupları kullanma](../users-groups-roles/licensing-group-advanced.md)
+
+- [Profil bilgileri ekleme veya değiştirme](active-directory-users-profile-azure-portal.md)

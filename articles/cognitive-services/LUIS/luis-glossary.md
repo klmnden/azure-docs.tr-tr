@@ -1,5 +1,6 @@
 ---
-title: Language Understanding (LUIS) API'si hizmeti için terimler sözlüğü | Microsoft Docs
+title: Language Understanding (LUIS) API'si hizmeti için terimler sözlüğü
+titleSuffix: Azure Cognitive Services
 description: Terimler sözlüğü açıklanmaktadır LUIS API'si hizmeti ile çalışırken karşılaşabileceğiniz.
 services: cognitive-services
 author: diberry
@@ -7,16 +8,17 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3f99e58a38bbe9ecc87165b5e6fa24a5a49e5e4a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a66eb42ac03b96757a0363c9dd442adc5ca75023
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390067"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634379"
 ---
 # <a name="glossary"></a>Sözlük
+LUIS API'si hizmeti ile çalışırken, Language Understanding (LUIS), koşulları sözlüğü açıklar karşılaşabilirsiniz.
 
 ## <a name="active-version"></a>Etkin sürümü
 
@@ -72,7 +74,7 @@ LUIS bağlamında bir **etki alanı** bilgi alanıdır. Etki alanınız, Bilgi B
 
 ## <a name="endpoint"></a>Uç noktası
 
-[LUIS uç nokta](https://aka.ms/luis-endpoint-apis) URL'dir sonra LUIS sorguları gönderdiğinizde burada [LUIS uygulaması](#luis-app) yazılan ve yayımlandı. Yayımlanmış uygulama ve bunun yanı sıra uygulama kimliği bölge uç nokta URL'sini içerir Uç nokta bulabilirsiniz **[Yayımla](luis-how-to-publish-app.md)** , kaynaklar ve anahtarları tablo ya da uygulama sayfası, uç nokta URL'sini alabilirsiniz [uygulama bilgi al](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+[LUIS uç nokta](https://aka.ms/luis-endpoint-apis) URL'dir sonra LUIS sorguları gönderdiğinizde burada [LUIS uygulaması](#luis-app) yazılan ve yayımlandı. Yayımlanmış uygulama ve bunun yanı sıra uygulama kimliği bölge uç nokta URL'sini içerir Uç nokta bulabilirsiniz **[anahtarları ve uç noktaları](/luis-how-to-manage-keys.md)** sayfasında, uygulamanızı veya uç nokta URL'sini alabilirsiniz [uygulama bilgi al](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 Örnek uç nokta şu şekilde görünür:
 
@@ -83,7 +85,7 @@ LUIS bağlamında bir **etki alanı** bilgi alanıdır. Etki alanınız, Bilgi B
 |bölge| [yayımlanan bölge](luis-reference-regions.md#publishing-regions) |
 |Uygulama Kimliği | LUIS uygulama kimliği |
 |Subscriptionıd | Azure portalında oluşturulan LUIS (abonelik) uç noktası anahtarı |
-|q | utterance |
+|q | Utterance |
 |timezoneOffset| minutes|
 
 ## <a name="entity"></a>Varlık
@@ -167,7 +169,7 @@ Konuşma Hazırlama işlemi aracılığıyla LUIS modelinize primed, konuşma hi
 
 ## <a name="spelling-correction"></a>Yazım denetimi
 
-Yayımlama sayfasında etkinleştir [Bing yazım denetleyicisi](luis-how-to-publish-app.md#enable-bing-spell-checker) önce tahmin uzunluğu yanlış yazılan sözcükleri düzeltmek için. 
+Bing yazım denetleyicisi önce tahmin uzunluğu yanlış yazılan sözcükleri düzeltmek etkinleştirin. 
 
 ## <a name="starter-key"></a>Başlangıç anahtarı
 
@@ -175,7 +177,7 @@ Aynı [programlı anahtarı](#programmatic-key), yazma anahtarı olarak yeniden 
 
 ## <a name="subscription-key"></a>Abonelik anahtarı
 
-Abonelik anahtarı **uç nokta** LUIS hizmeti ile ilişkilendirilen anahtar [Azure'da oluşturduğunuz](luis-how-to-azure-subscription.md). Bu anahtarı değil [anahtar yazma](#programmatic-key). Bir uç noktası anahtarı varsa, tüm uç nokta istekleri yazma anahtarı yerine kullanılmalıdır. Uç nokta URL'SİNİN sonuna içinde geçerli uç nokta anahtarınızı görebilirsiniz [ **uygulama yayımlama** sayfa](luis-how-to-publish-app.md) içinde [LUIS](luis-reference-regions.md) Web sitesi. Bu değeri **abonelik anahtarı** ad/değer çifti. 
+Abonelik anahtarı **uç nokta** LUIS hizmeti ile ilişkilendirilen anahtar [Azure'da oluşturduğunuz](luis-how-to-azure-subscription.md). Bu anahtarı değil [anahtar yazma](#programmatic-key). Bir uç noktası anahtarı varsa, tüm uç nokta istekleri yazma anahtarı yerine kullanılmalıdır. Uç nokta URL'SİNİN sonuna içinde geçerli uç nokta anahtarınızı görebilirsiniz [ **anahtarları ve uç noktaları** sayfa](luis-how-to-manage-keys.md) içinde [LUIS](luis-reference-regions.md) Web sitesi. Bu değeri **abonelik anahtarı** ad/değer çifti. 
 
 ## <a name="test"></a>Test
 
@@ -202,7 +204,7 @@ Eğitim olan herhangi bir değişiklik hakkında LUIS eğitiminde işleminin [et
 
 İçinde [toplu test](luis-interactive-test.md#batch-testing), veri noktalarının konuşma, uygulamanızın doğru şekilde tahmin edilen hedef hedefi/varlık varlığını temsil eder.
 
-## <a name="utterance"></a>utterance
+## <a name="utterance"></a>Utterance
 
 Bir utterance, "Seattle sonraki Salı kitap 2 bilet" gibi doğal dil bir terimdir. Örnek konuşma ıntent'e eklenir. 
 

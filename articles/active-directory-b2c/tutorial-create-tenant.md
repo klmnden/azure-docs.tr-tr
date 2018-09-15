@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cc48cd3eb40d93c26a68caf843a89f7bbfb46c6c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: d5831d868bec940c4e38f62e70e456ae84903ada
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236902"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604919"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Öğretici: Azure Active Directory B2C kiracısı oluşturma
 
@@ -31,7 +31,7 @@ Sonraki öğreticide bir uygulamayı kaydetme öğrenin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Azure AD B2C kiracısı oluşturma
 
@@ -49,17 +49,13 @@ Yeni kiracınızı yönetmeye başlamak için word'ü tıklatın. **burada** bur
 
 Tüm işlevleri etkinleştirmek ve kullanım ücretlerini ödemek için Azure AD B2C kiracınızı Azure aboneliğinize bağlamanız gerekir. Aboneliğinize kiracınızı bağlama, uygulamalarınızın düzgün çalışmaz.
 
-1. Azure portalının sağ üst köşedeki dizini geçerek yeni kiracıya ilişkilendirmek istediğiniz aboneliği içeren dizine kullandığınızdan emin olun.
+Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme. 
 
-    ![Dizinleri değiştir](./media/tutorial-create-tenant/switch-directories.png)
+![Azure AD B2C kiracınıza geçiş yapma](./media/tutorial-create-tenant/switch-directories.png)
 
-    Belirledikten sonra aboneliğinizi içeren dizin.
-
-    ![Dizin seçme](./media/tutorial-create-tenant/select-directory.png)
-
-2. Seçin **kaynak Oluştur** Azure portalının üst sol üst köşedeki.
-3. Arama kutusuna Azure Market kaynakları yukarıdaki listede, aramak ve seçmek **Active Directory B2C**ve ardından **Oluştur**.
-4. Seçin **Azure Aboneliğimi bağlantı var olan bir Azure AD B2C Kiracısına**, oluşturduğunuz Kiracı seçin, aboneliğinizi seçin, girin *myContosoTenantRG* kaynak grubu adı kabul edin konum ve ardından **Oluştur**.
+1. Seçin **kaynak Oluştur** Azure portalının üst sol üst köşedeki.
+2. Arama kutusuna Azure Market kaynakları yukarıdaki listede, aramak ve seçmek **Active Directory B2C**ve ardından **Oluştur**.
+3. Seçin **Azure Aboneliğimi bağlantı var olan bir Azure AD B2C Kiracısına**, oluşturduğunuz Kiracı seçin, aboneliğinizi seçin, girin *myContosoTenantRG* kaynak grubu adı kabul edin konum ve ardından **Oluştur**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

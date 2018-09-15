@@ -1,30 +1,28 @@
 ---
-title: LUIS - Azure ile Konuşma C# SDK'sını kullanma | Microsoft Docs
-titleSuffix: Azure
-description: Mikrofona ve döndürülen LUIS amaç ve varlıkları Öngörüler elde etmek için örnek konuşma C# SDK'sını kullanın.
+title: LUIS ile Konuşma C# SDK'sını kullanma
+titleSuffix: Azure Cognitive Services
+description: Konuşma hizmeti ses almak ve JSON nesneleri LUIS tahmin dönmek için tek bir istek kullanmanıza olanak tanır. Bu makalede, indirin ve bir mikrofona bir utterance konuşmak ve LUIS tahmin bilgi almak için Visual Studio'da C# projesi kullanın. Proje zaten bir başvuru olarak dahil konuşma NuGet paketini kullanır.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8eff6ff3d0263708158f2fea82380e88ba4638ad
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124405"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633636"
 ---
 # <a name="integrate-speech-service"></a>Konuşma hizmeti tümleştirin
-[Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) ses almak ve JSON nesneleri LUIS tahmin dönmek için tek bir istek kullanmanıza olanak tanır.
-
-Bu makalede, indirin ve bir mikrofona bir utterance konuşmak ve LUIS tahmin bilgi almak için Visual Studio'da C# projesi kullanın. Konuşma kullandığından [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paket, bir başvuru olarak zaten eklendi. 
+[Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) ses almak ve JSON nesneleri LUIS tahmin dönmek için tek bir istek kullanmanıza olanak tanır. Bu makalede, indirin ve bir mikrofona bir utterance konuşmak ve LUIS tahmin bilgi almak için Visual Studio'da C# projesi kullanın. Konuşma kullandığından [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paket, bir başvuru olarak zaten eklendi. 
 
 Bu makale için ücretsiz bir gereksinim [LUIS] [ LUIS] uygulamayı içeri aktarmak için Web sitesi hesabı.
 
-## <a name="create-luis-endpoint-key"></a>LUIS uç noktası anahtarı oluşturma
+## <a name="create-luis-endpoint-key"></a>LUIS uç nokta anahtarı oluşturma
 Azure portalında [oluşturma](luis-how-to-azure-subscription.md#create-luis-endpoint-key) bir **Language Understanding** (LUIS) anahtarı. 
 
 ## <a name="import-human-resources-luis-app"></a>İnsan Kaynakları LUIS alma uygulaması
@@ -32,12 +30,13 @@ Azure portalında [oluşturma](luis-how-to-azure-subscription.md#create-luis-end
 
 Bu uygulamanın amacı, varlıkları ve İnsan Kaynakları etki ilgili konuşma yok. Örnek konuşma şunlardır:
 
-```
-Who is John Smith's manager?
-Who does John Smith manage?
-Where is Form 123456?
-Do I have any paid time off?
-```
+|Örnek konuşmalar|
+|--|
+|John Smith'in manager kimdir?|
+|John Smith yöneten?|
+|Form 123456 nerede?|
+|Ücretli dilediğiniz zaman zorundayım?|
+
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Anahtar cümlesi ekleyin önceden oluşturulmuş varlık
 Uygulamayı aldıktan sonra Seç **varlıkları**, ardından **önceden oluşturulmuş varlıklarla yönetme**. Ekleme **anahtar cümlesi** varlık. Anahtar cümlesi varlık anahtar konuya utterance ayıklar.
@@ -45,19 +44,18 @@ Uygulamayı aldıktan sonra Seç **varlıkları**, ardından **önceden oluştur
 ## <a name="train-and-publish-the-app"></a>Uygulamayı eğitme ve yayımlama
 1. Üst, sağ gezinti çubuğunda **eğitme** LUIS uygulaması geliştirmek için düğme.
 
-2. Seçin **Yayımla** Yayımla sayfasına gidin. 
+2. Seçin **Yönet** çubuğunun sağ üst bölümde seçip **anahtarları ve uç noktaları** sol gezinti bölmesinde. 
 
-3. Sayfanın alt kısmında **Yayımla** sayfasında, oluşturduğunuz LUIS anahtarı eklemek [oluşturma LUIS uç noktası anahtarı](#create-luis-endpoint-key) bölümü.
+3. Üzerinde **anahtarları ve uç noktaları** sayfasında, oluşturduğunuz LUIS tuşu atama [oluşturma LUIS uç noktası anahtarı](#create-luis-endpoint-key) bölümü.
 
-4. LUIS uygulaması seçerek yayımlama **Yayımla** Yayımla yuvasının sağdaki düğme. 
-
-  Üzerinde **Yayımla** sayfasında uygulama kimliğini, bölge ve abonelik kimliği oluşturulan LUIS anahtarının yayımlama [oluşturma LUIS uç noktası anahtarı](#create-luis-endpoint-key) bölümü. Bu makalenin sonraki bölümlerinde bu değerleri kullanmak için kodu değiştirmeniz gerekir. 
-
-  Bu değerleri tüm uç nokta URL'sini sayfanın alt kısmında bulunan **Yayımla** oluşturduğunuz anahtarı için sayfa. 
+  Uygulama Kimliği bu sayfada toplamak, yayımlama bölge ve abonelik kimliği LUIS anahtarın oluşturulduğu [oluşturma LUIS uç noktası anahtarı](#create-luis-endpoint-key) bölümü. Bu makalenin sonraki bölümlerinde bu değerleri kullanmak için kodu değiştirmeniz gerekir. 
   
   Yapmak **değil** bu alıştırma için ücretsiz başlangıç anahtarı kullanın. Yalnızca bir **Language Understanding** Azure portalında oluşturulan anahtarı bu alıştırma için çalışır. 
 
   https://**bölge**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? abonelik anahtarı =**LUISKEY**& q =
+
+
+4. Seçerek LUIS uygulaması yayımlama **Yayımla** çubuğunun sağ üst köşesindeki düğme. 
 
 ## <a name="audio-device"></a>Ses cihazı
 Bu makalede, bilgisayarınızda ses cihazı kullanılmıştır. Kulaklık mikrofon veya yerleşik bir ses cihazı olabilir. Ses giriş düzeylerini ses cihazı tarafından algılanan konuşma için normalde çok daha yüksek sesle konuşurken, görmek için kontrol edin. 

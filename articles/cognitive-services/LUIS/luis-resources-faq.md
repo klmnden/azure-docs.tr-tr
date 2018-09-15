@@ -1,20 +1,21 @@
 ---
-title: Language Understanding (LUIS) Azure sık sorulan sorular | Microsoft Docs
-description: Language Understanding (LUIS) hakkında sık sorulan soruların yanıtlarını alın
+title: Sık sorulan sorular - Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Bu makale, Language Understanding (LUIS) hakkında sık sorulan soruların yanıtlarını içerir.
 author: diberry
 manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a266055c7685dca87d985775584a9ea7a4bda883
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c338f874f426eef047f29e958877368c61db7e62
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128529"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630266"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding hakkında SSS
 
@@ -63,7 +64,7 @@ Cortana önceden oluşturulmuş uygulamalar, 2017'de kullanım dışı bırakıl
 LUIS [tokenizes](luis-glossary.md#token) utterance temel alarak [kültür](luis-supported-languages.md#tokenization). Parçalanmış değeri ve özgün değeri kullanılabilir [veri ayıklama](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Nasıl oluştururum ve uç noktası anahtarı bir LUIS atama?
-[Uç nokta oluşturma](luis-how-to-azure-subscription.md#create-luis-endpoint-key) için azure'da, [hizmet](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) düzeyi. [Anahtar atama](luis-how-to-manage-keys.md#assign-endpoint-key) üzerinde **[Yayımla](luis-how-to-publish-app.md)** sayfası. Bu eyleme karşılık gelen hiçbir API yoktur. HTTP isteği için uç nokta için değiştirmeniz gerekir sonra [yeni uç nokta anahtarını kullanmak](luis-concept-keys.md#use-endpoint-key-in-query).
+[Uç nokta oluşturma](luis-how-to-azure-subscription.md#create-luis-endpoint-key) için azure'da, [hizmet](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) düzeyi. [Anahtar atama](luis-how-to-manage-keys.md#assign-endpoint-key) üzerinde **[anahtarları ve uç noktaları](luis-how-to-manage-keys.md)** sayfası. Bu eyleme karşılık gelen hiçbir API yoktur. HTTP isteği için uç nokta için değiştirmeniz gerekir sonra [yeni uç nokta anahtarını kullanmak](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>LUIS puanları nasıl yorumlanacağı? 
 Sisteminizi, en yüksek Puanlama amaç değeri ne olursa olsun kullanmanız gerekir. Örneğin, 0,5 (daha az % 50'den) altında bir puan mutlaka LUIS düşük güven olduğunu gelmez. Daha fazla eğitim verilerini sağlayarak, olasılıkla amaç puanı artırmaya yardımcı olabilir.
@@ -115,13 +116,18 @@ Bkz: [aynı uygulamanın bir kopyasını tahmin farklılıklardan](luis-concept-
 ## <a name="app-publishing"></a>Uygulama yayımlama
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Kiracı kimliği "Anahtarı uygulamanıza ekleme" penceresinde nedir?
-Azure'da, bir kiracı istemcisi veya hizmeti ile ilişkili kuruluş temsil eder. Azure portalında Kiracı Kimliğinizi bulmak **dizin kimliği** kutusunu seçerek **Azure Active Directory** > **Yönet**  >  **Özellikleri**.
+Azure'da, bir kiracı istemcisi veya bir hizmet ile ilişkili kuruluş temsil eder. Azure portalında Kiracı Kimliğinizi bulmak **dizin kimliği** kutusunu seçerek **Azure Active Directory** > **Yönet**  >  **Özellikleri**.
 
 ![Azure portalında Kiracı kimliği](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
-### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Neden olan var. uygulamamın hakkında daha fazla uç nokta anahtarları yayımlama sayfasını uygulamaya atadığım daha? 
-Her LUIS uygulaması yazma başlangıç anahtarına sahiptir. LUIS uç nokta anahtarları GA zaman çerçevesinde oluşturulan bakılmaksızın uygulamaya eklediyseniz Yayımla sayfanızda görünür değildir. Bu, GA geçiş kolaylaştırmak için yapıldı. Herhangi bir yeni LUIS uç noktası anahtarı Yayımla sayfasında görünmez. 
+<a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+
+
+### <a name="why-are-there-more-endpoint-keys-assigned-to-my-app-than-i-assigned"></a>Neden atadığım daha uygulamama atanan daha fazla uç nokta anahtarları vardır? 
+Her LUIS uygulaması yazma başlangıç anahtarı kolaylık uç nokta listesinde yok. LUIS deneyebilirsiniz. Bu nedenle bu anahtar yalnızca birkaç uç noktası İsabeti sağlar.  
+
+LUIS genel kullanıma (GA) şeklindeydi uygulamanız varsa, aboneliğinizdeki LUIS uç nokta anahtarları otomatik olarak atanır. Bu, GA geçiş kolaylaştırmak için yapıldı. Azure portalında yeni bir LUIS uç nokta anahtarlar _değil_ LUIS otomatik atanmış. 
 
 ## <a name="app-management"></a>Uygulama Yönetimi
 

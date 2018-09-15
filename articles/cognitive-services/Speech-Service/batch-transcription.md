@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 02af95859bcbdc3dd9fdd6d6354cae9cdf99eae8
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: fcc57ea7729f8a907fd39fe346270cc52c148f07
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717956"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605598"
 ---
 # <a name="batch-transcription"></a>Toplu iş transkripsiyonu
 
@@ -59,21 +59,21 @@ Stereo ses akışları için Batch döküm sırasında transkripsiyonu sol ve sa
 
 ## <a name="authorization-token"></a>Yetkilendirme belirteci
 
-Birleşik konuşma hizmeti tüm özellikleri ile bir abonelik anahtarı oluştururken [Azure portalında](https://portal.azure.com). Lütfen 6 Bu kolay adımları izleyin.
+Birleşik konuşma hizmeti tüm özellikleri ile bir abonelik anahtarı oluştururken [Azure portalında](https://portal.azure.com) aşağıdaki bizim [başlangıç kılavuzunu](get-started.md). Bizim temel modellerinden döküm alma planlıyorsanız, daha sonra tek yapmanız gereken budur. 
 
-1. Bir abonelik anahtarı Azure aşağıdaki oluşturulan bizim [Başlarken Kılavuzu](get-started.md) 
+Özelleştirme ve özel bir model kullanarak planlıyorsanız bu subscritpion anahtar özel konuşma tanıma Portalı'na aşağıdaki gibi eklemeniz gerekir:
 
-2. Oturum [özel konuşma](https://customspeech.ai).
+1. Oturum [özel konuşma](https://customspeech.ai).
 
-3. **Abonelikler**'i seçin.
+2. **Abonelikler**'i seçin.
 
-4. Seçin **mevcut aboneliğe bağlanma**.
+3. Seçin **mevcut aboneliğe bağlanma**.
 
-5. Açılan view abonelik anahtarını ve bir diğer ad ekleyin
+4. Açılan view abonelik anahtarını ve bir diğer ad ekleyin
 
     ![Özel konuşma abonelikler ekran sayfası](media/stt/Subscriptions.jpg)
 
-6. Kopyalayın ve bu anahtarın aşağıdaki örnekte istemci kodu yapıştırın.
+5. Kopyalayın ve bu anahtarın aşağıdaki örnekte istemci kodu yapıştırın.
 
 > [!NOTE]
 > Özel bir model kullanmayı planlıyorsanız, bu model Kimliğini çok gerekir. Bu uç noktası Ayrıntıları görünümünde bulma uç noktası kimliği olmadığını unutmayın. Bu modelin ayrıntılarını seçtiğinizde, alabileceğiniz model kimliği var.
@@ -101,7 +101,7 @@ Belirteç edindikten sonra transkripsiyonu isteyen bir ses dosyasına işaret ed
    static async Task TranscribeAsync()
         { 
             private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
-            private const string HostName = "cris.ai";
+            private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
             // Creating a Batch transcription API Client

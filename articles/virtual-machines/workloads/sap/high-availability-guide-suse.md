@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 238f411ca1a1bb1aa3c89a515edd2091162512a2
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 02a12cc9fc614a642a5dad37e21bd8343c669aad
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379768"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631149"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP uygulamaları için SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -73,7 +73,7 @@ Bu makalede, sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme
 * SAP notu [1999351] Azure Gelişmiş izleme uzantısı için SAP için ek bilgiler.
 * [SAP topluluk WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tüm SAP notları Linux için zorunludur.
 * [Azure sanal makineleri planlama ve uygulama için Linux üzerinde SAP][planning-guide]
-* [(Bu makale) Linux'ta SAP için Azure sanal makineler dağıtımı][deployment-guide]
+* [Linux'ta SAP için Azure sanal makineler dağıtımı][deployment-guide]
 * [Linux'ta SAP için Azure sanal makineleri DBMS dağıtım][dbms-guide]
 * [SUSE SAP HA en iyi uygulama kılavuzları] [ suse-ha-guide] ve SAP HANA sistem çoğaltması şirket içi kılavuzları Netweaver HA ayarlamak için gerekli tüm bilgileri içerir. Bu kılavuzlar, genel bir temel olarak kullanın. Bunlar çok daha ayrıntılı bilgi sağlar.
 
@@ -149,7 +149,7 @@ Tüm gerekli kaynakları dağıtmak için Github'da hızlı başlangıç şablon
    9. Yönetici kullanıcı adı ve yönetici parolası  
       Yeni bir kullanıcı oluşturulur makinesinde oturum açma için kullanılabilir.
    10. Alt ağ kimliği  
-   Sanal makineler için bağlanması alt ağ kimliği.  NFS sunucu dağıtımının bir parçası olarak kullanılan ya da oluşturduğunuz alt ağ seçin veya yeni bir sanal ağ oluşturma istiyorsanız boş bırakın. Kimliği genellikle /subscriptions/ gibi görünüyor**&lt;abonelik kimliği&gt;**/resourceGroups/**&lt;kaynak grubu adı&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;sanal ağ adı&gt;**/subnets/**&lt;alt ağ adı&gt;**
+   Tanımlanan bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle /subscriptions/ gibi görünüyor**&lt;abonelik kimliği&gt;**/resourceGroups/**&lt;kaynak grubu adı&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;sanal ağ adı&gt;**/subnets/**&lt;alt ağ adı&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Linux Azure Portalı aracılığıyla el ile dağıtma
 

@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: cadcc806b9aaeea4f2fc68c911e09c7e35926623
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 6879822e8451e6170bf17fff4ab66b672f711a93
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45552464"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632396"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Hızlı Başlangıç: Azure Active Directory kimlik koruması ile oturum risk algılandığında erişimi engelle  
 
@@ -29,7 +29,7 @@ Ortamınızın korumasını sürdürün için şüpheli oturum açarken kullanı
 
 Bu hızlı başlangıçta bir oturum açma riski engelleyen koşullu erişim ilkesini yapılandırmak bir oturum açma, bir orta gösterilmektedir ve oturum açma riski düzeyi algılandı. 
 
-![İlke oluşturma](./media/quickstart-sign-in-risk-policy/1003.png)
+![İlke oluşturma](./media/quickstart-sign-in-risk-policy/1004.png)
 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
@@ -46,7 +46,7 @@ Bu öğreticide senaryoyu tamamlamak için gerekir:
 
 - **Tor tarayıcı** - [Tor tarayıcı](https://www.torproject.org/projects/torbrowser.html.en) çevrimiçi gizliliğinizi korumak amacıyla tasarlanmıştır. Kimlik Koruması'nın algıladığı bir oturum açma bir Tor tarayıcıdan **anonim IP adreslerinden oturum açma**, bir orta düzeyde risk düzeyine sahip. Daha fazla bilgi için bkz. [Azure Active Directory risk olayları](../reports-monitoring/concept-risk-events.md).  
 
-- **Alain Charon adlı bir test hesabı** - bir test hesabı oluşturmak için bkz bilmiyorsanız [bulut tabanlı kullanıcılar eklemek](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **Alain Charon adlı bir test hesabı** - bir test hesabı oluşturmak için bkz bilmiyorsanız [yeni kullanıcı ekleme](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## <a name="test-your-sign-in"></a>Oturum açma testi 
@@ -82,35 +82,31 @@ Bu bölümde, gerekli oturum açma riski koşullu erişim ilkesi oluşturma işl
 
 1. Oturum açın, [Azure portalında](https://portal.azure.com) genel yönetici olarak.
 
-2. Azure portalında sol gezinti çubuğunda tıklatın **tüm hizmetleri**. 
-
-4. İçinde **filtre** metin kutusuna **kimlik koruması**.
-
-5. Tıklayın **Azure AD kimlik koruması**.   
+2. Git [Azure AD kimlik koruması sayfa](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/Overview).
  
-6. Üzerinde **Azure AD kimlik koruması** sayfasında **yapılandırma** bölümünde **oturum açma riski İlkesi**.
+3. Üzerinde **Azure AD kimlik koruması** sayfasında **yapılandırma** bölümünde **oturum açma riski İlkesi**.
  
-5. İlke sayfasında içinde **atamaları** bölümünde **kullanıcılar**.
+4. İlke sayfasında içinde **atamaları** bölümünde **kullanıcılar**.
 
-6. Üzerinde **kullanıcılar** sayfasında **Seçili kullanıcılar**.
+5. Üzerinde **kullanıcılar** sayfasında **Seçili kullanıcılar**.
 
-7. Üzerinde **Seçili kullanıcılar** sayfasında **Alain Charon**ve ardından **seçin**.
+6. Üzerinde **Seçili kullanıcılar** sayfasında **Alain Charon**ve ardından **seçin**.
 
-8. Üzerinde **kullanıcılar** sayfasında **Bitti**. 
+7. Üzerinde **kullanıcılar** sayfasında **Bitti**. 
 
-9. İlke sayfasında içinde **atamaları** bölümünde **koşullar**.
+8. İlke sayfasında içinde **atamaları** bölümünde **koşullar**.
 
-10. Üzerinde **koşullar** sayfasında **oturum açma riski**.
+9. Üzerinde **koşullar** sayfasında **oturum açma riski**.
 
-11. Üzerinde **oturum açma riski** sayfasında **Orta ve yukarıdaki**ve ardından **seçin**. 
+10. Üzerinde **oturum açma riski** sayfasında **Orta ve yukarıdaki**ve ardından **seçin**. 
 
-12. Üzerinde **koşullar** sayfasında **Bitti**.
+11. Üzerinde **koşullar** sayfasında **Bitti**.
 
-13. İlke sayfasında içinde **denetimleri** bölümünde **erişim**.
+12. İlke sayfasında içinde **denetimleri** bölümünde **erişim**.
 
-14. Üzerinde **erişim** sayfasında **erişime izin ver**seçin **çok faktörlü kimlik doğrulaması gerektiren**ve ardından **seçin**.
+13. Üzerinde **erişim** sayfasında **erişime izin ver**seçin **çok faktörlü kimlik doğrulaması gerektiren**ve ardından **seçin**.
 
-15. İlke sayfasında tıklayın **Kaydet**.  
+14. İlke sayfasında tıklayın **Kaydet**.  
 
 
 ## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test
@@ -124,7 +120,7 @@ Bu bölümde, gerekli oturum açma riski koşullu erişim ilkesi oluşturma işl
 
 Artık gerekli değilse, test kullanıcısı, Tor tarayıcı silin ve oturum açma riski koşullu erişim ilkesini devre dışı bırakın:
 
-- Bir Azure AD kullanıcı silme işlemini bilmiyorsanız, bkz. [Azure AD'den kullanıcı silme](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Bir Azure AD kullanıcı silme işlemini bilmiyorsanız, bkz. [ekleme veya kullanıcıları silmek](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - Tor tarayıcı kaldırma yönergeleri için bkz: [kaldırma](https://tb-manual.torproject.org/en-US/uninstalling.html).
 

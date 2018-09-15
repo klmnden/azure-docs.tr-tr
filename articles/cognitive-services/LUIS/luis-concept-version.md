@@ -1,5 +1,6 @@
 ---
-title: Sürüm oluşturma LUIS - Azure'ı Anlama | Microsoft Docs
+title: LUIS sürüm oluşturma anlama
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) değişiklikleri yönetmek için sürümleri kullanmayı öğrenin
 services: cognitive-services
 author: diberry
@@ -7,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 17abe383d3074d636605c3b1b91927f89f7dd896
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: dd8c521d4f9e76026d4651be24d784c3115d4856
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225736"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632707"
 ---
 # <a name="versions"></a>Sürümler
 İle aynı uygulamanın farklı modelleri oluşturma [sürümleri](luis-how-to-manage-versions.md). 

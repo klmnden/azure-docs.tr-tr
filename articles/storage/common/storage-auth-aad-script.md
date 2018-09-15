@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b90050291a936027f66a76c14458e717b63c7257
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e9e47214ffed94f45a1a44a19234484f13ba452e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090736"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632203"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>CLI veya PowerShell (Önizleme) ile Azure depolamaya erişmek için bir Azure AD kimliğini kullanın.
 
@@ -61,7 +61,7 @@ Bir Azure AD kimlik bilgilerinizle oturum açmak için Azure PowerShell kullanma
 1. PowerShellGet yüklü en son sürümüne sahip olduğunuzdan emin olun. En son yüklemek için aşağıdaki komutu çalıştırın:
  
     ```powershell
-    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber -RequiredVersion "4.4.1-preview"
+    Install-Module PowerShellGet –Repository PSGallery –Force
     ```
 
 2. Azure PowerShell'in önceki yüklemeleri kaldırın.
@@ -74,7 +74,7 @@ Bir Azure AD kimlik bilgilerinizle oturum açmak için Azure PowerShell kullanma
 4. Önizleme modülünü yükleyin:
 
     ```powershell
-    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber 
+    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber -RequiredVersion "4.4.1-preview" 
     ```
 
 5. Çağrı [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) bir bağlam oluşturur ve eklemek için cmdlet `-UseConnectedAccount` parametresi. 

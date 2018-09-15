@@ -1,56 +1,57 @@
 ---
-title: Metin analizi API - Azure Bilişsel hizmetler hakkında sık sorulan sorular | Microsoft Docs
-description: Azure üzerinde Microsoft Bilişsel Hizmetleri metin Analytics API ilgili sık sorulan soruların yanıtlarını alın.
+title: Metin analizi API'si hakkında sık sorulan sorular
+titleSuffix: Azure Cognitive Services
+description: Metin analizi API'si hakkında sık sorulan soruların yanıtlarını alın.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: bf82899b4317f0f5ce0f6ca5096dccef7cddd931
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: aa1c5b048c3ef339d01a3a63fd1d565b888ffbbb
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355174"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603405"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Metin analizi API hakkında sık sorulan sorular (SSS)
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Metin analizi Bilişsel hizmet hakkında sık sorulan sorular (SSS)
 
- Kavramları, kod ve metin Analytics API için Microsoft Azure üzerinde Bilişsel hizmetler için ilgili senaryoları hakkında sık sorulan soruların yanıtlarını bulun.
+ Kavramları, kod ve senaryolar için Azure üzerinde Microsoft Bilişsel hizmetler metin analizi API'si için ilgili hakkında sık sorulan soruların yanıtlarını bulun.
 
-## <a name="can-text-analytics-identify-sarcasm"></a>Metin analizi alaycı düşünceleri belirleyebilir misiniz?
+## <a name="can-text-analytics-identify-sarcasm"></a>Metin analizi alaycılığa belirleyebilir misiniz?
 
-Analiz pozitif negatif düşünceleri ruh algılama yerine ' dir.
+Analiz, pozitif ve negatif yaklaşım ruh algılama yerine ' dir.
 
-Her zaman bazı derecesini düşünceleri analizi imprecision yoktur, ancak hiçbir gizli anlamı veya alt içerik olduğunda en yararlı modelidir. İrony, alaycı düşünceleri, mizah ve benzer şekilde nuanced içerik kültürel bağlamını ve amacı iletmek için normları kullanır. Bu içerik türünü En zorlu arasında analiz etmek için ' dir. Genellikle, Çözümleyicisi ve öznel değerlendirme bir insan tarafından üretilen belirli bir puan arasında büyük farklılık nuanced anlamı içerikle içindir.
+Her zaman bir ölçüde yaklaşım analizi kesinlik eksikliği olduğu halde gizli anlam ya da alt içeriğine olduğunda model en kullanışlıdır. İrony, alaycılığa anıları ve benzer şekilde incelikli içerik kültürel bağlam ve amacını iletmek için normları kullanır. Bu tür içerik, En zorlu arasında analiz etmek için kullanılır. Genellikle, incelikli bir anlama sahip içerik Çözümleyicisi ve bir insan tarafından öznel bir değerlendirmesi tarafından oluşturulan belirli bir puan arasında en fazla uyumsuzluk içindir.
 
-## <a name="can-i-add-my-own-training-data-or-models"></a>Kendi eğitim verileri veya modelleri ekleyebilir miyim?
+## <a name="can-i-add-my-own-training-data-or-models"></a>Kendi eğitim verileri veya model ekleyebilir miyim?
 
-Hayır, modelleri pretrained. Karşıya yüklenen veriler üzerinde kullanılabilir yalnızca işlemlerine Puanlama, anahtar tümcecik ayıklama ve dil algılama. Özel modelleri barındırmayan. İstiyorsanız oluşturmak ve özel makine öğrenimi modellerini konak, göz önünde bulundurun [makine yeteneklerini Microsoft R Server öğrenme](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
+Hayır, modelleri kullanan. Karşıya yüklenen veri çubuğunda kullanılabilir işlemleri yalnızca Puanlama anahtar ifade ayıklama ve dil algılama. Özel modelleri barındırmayın. İstediğiniz, oluşturmak ve özel makine öğrenimi modellerini barındırmak göz önünde bulundurun [makine öğrenimi özellikleri Microsoft R Server'da](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
 
-## <a name="can-i-request-additional-languages"></a>Ek dilleri isteyebilir miyim?
+## <a name="can-i-request-additional-languages"></a>İlave diller isteyebilir miyim?
 
-Düşünceleri analiz ve anahtar tümcecik ayıklama için kullanılabilir bir [diller sayıda](text-analytics-supported-languages.md). Doğal dil işleme karmaşıktır ve yeni işlevsellik yayımlanabilmesi için önce önemli sınama gerektirir. Bu nedenle, böylece hiç kimse bir bağımlılık yetişkin için daha fazla zaman gerektiren işlevini alır destek önceden Duyurusu kaçının. 
+Yaklaşım analizi ve anahtar ifade ayıklama için kullanılabilir bir [seçin dil sayısı](text-analytics-supported-languages.md). Doğal dil işleme, karmaşık ve önemli yeni işlevler yayımlanabilmesi için önce test edilmesini gerektirir. Bu nedenle, hiç bir bağımlılık yetişkin daha çok zaman gerektiren işlevselliğini alır, böylece destek önceden Duyurusu kaçının. 
 
-Sonraki sayfada çalışması için hangi dilleri belirlememize yardımcı olması için oy belirli diller için [kullanıcı sesi](https://cognitive.uservoice.com/forums/555922-text-analytics). 
+Sonraki çalışmak için hangi diller belirlememize yardımcı olmak için belirli diller için üzerinden oy [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
-## <a name="why-does-key-phrase-extraction-return-some-words-but-not-others"></a>Anahtar tümcecik ayıklama neden bazı sözcükleri ancak diğer dönüş?
+## <a name="why-does-key-phrase-extraction-return-some-words-but-not-others"></a>Anahtar ifade ayıklama neden bazı sözcükler, ancak diğerlerini döndürür?
 
-Anahtar tümcecik ayıklama gerekli olmayan sözcükleri ve tek başına sıfatları ortadan kaldırır. "Muhteşem görünümleri" veya "sisli hava durumu" gibi gelen isim birleşimleri birlikte döndürülür.
+Anahtar ifade ayıklama, gerekli olmayan sözcükler ve tek başına sıfat ortadan kaldırır. "Muhteşem görünümleri" veya "kafanız karışık hava durumu" gibi bir sıfat-ad birleşimleri birlikte döndürülür.
 
-Genellikle, çıktı isimleri ve nesneleri tümcenin oluşur. Çıktı en önemli olan ilk deyim ile önem, sırayla listelenir. Önem derecesi metni diğer öğeler bu öğeye ilişkisi veya belirli bir kavram belirtiliyor sayısı tarafından ölçülür.
+Genellikle, çıkış isimleri ve nesneleri cümlenin oluşur. Çıkış en önemli işlemin ilk deyim ile önem sırasına göre listelenir. Önem derecesi, belirli bir kavram belirtilen sayıda veya diğer öğelere metin o öğenin ilişki tarafından ölçülür.
 
-## <a name="why-does-output-vary-given-identical-inputs"></a>Neden çıktı, aynı girişleri değişiyor mu?
+## <a name="why-does-output-vary-given-identical-inputs"></a>Neden çıkış, aynı giriş değişiyor?
 
-Güncelleştirme küçük değişiklik önemli ya da hizmete sessizce e ise modelleri ve algoritmaları geliştirmeleri bildirilir. Zaman içinde aynı metin giriş sonuçları farklı düşünceleri puan veya anahtar tümcecik çıkış bulabilirsiniz. Bulutta yönetilen makine öğrenme kaynakları kullanarak normal ve kasıtlı bir sonuç budur.
+Güncelleştirme küçük değişiklik büyük veya hizmete sessizce e ise modeller ve algoritmalar geliştirmeleri bildirilir. Zaman içinde aynı metin giriş sonuçları farklı yaklaşım puanını veya anahtar tümcecik çıkış bulabilirsiniz. Bulutta yönetilen bir makine öğrenme kaynakları kullanarak normal ve kasıtlı bir sonuç budur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Eksik bir özellik veya işlev hakkında soru mi? İsteme veya onun için oy göz önünde bulundurun bizim [UserVoice web sitesi](https://cognitive.uservoice.com/forums/555922-text-analytics).
+Eksik bir özellik veya işlev hakkında sorunuz var mı? İsteme veya bunun için oy göz önünde bulundurun bizim [UserVoice web sitesi](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
- [StackOverflow: Metin analizi API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: Metin analizi API'si](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Bilişsel hizmetler](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

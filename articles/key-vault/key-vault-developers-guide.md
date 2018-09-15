@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: b8b51ed8cbaaaaaa463dd1ed841e6d5193fec40a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 3dc80c97a43c35295deacefc37a76471912c9b42
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301924"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604000"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure anahtar kasası Geliştirici Kılavuzu
 
@@ -129,7 +129,7 @@ Aşağıdaki makaleler ve senaryoları Azure anahtar kasası ile çalışmaya y�
 - [Sertifikaları Key Vault'tan Vm'lere dağıtmak nasıl](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - VM ile bir sertifika Azure gereksinimlerine göre çalışan bir bulut uygulaması. Nasıl, bu sertifika bu VM'ye bugün elde ederim?
 - [Anahtar kasası uçtan uca anahtar döndürme ve denetleme ile ayarlama nasıl](key-vault-key-rotation-log-monitoring.md) - bu Azure anahtar kasası ile denetim ve anahtar döndürme ayarlama konusunda yol göstermektedir.
 - [Key Vault aracılığıyla Azure Web App sertifikası dağıtma]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) sertifikaları Key Vault'ta depolanan bir parçası olarak dağıtmak için adım adım yönergeler sağlar [App Service sertifikası](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) teklifidir.
-- [Çok sayıda uygulamaya bir anahtar kasasına erişim izni vermek](key-vault-group-permissions-for-apps.md) anahtar kasası erişim denetimi ilkesini yalnızca 16 girişleri destekler. Ancak, bir Azure Active Directory güvenlik grubu oluşturabilirsiniz. Tüm ilişkili hizmet sorumlularını bu sistem güvenlik grubuna ekleyin ve bu güvenlik grubu için Key Vault erişim hakkı.
+- [Çok sayıda uygulamaya bir anahtar kasasına erişim izni vermek](key-vault-group-permissions-for-apps.md) anahtar kasası erişim denetimi İlkesi, en fazla 1024 girişleri destekler. Ancak, bir Azure Active Directory güvenlik grubu oluşturabilirsiniz. Tüm ilişkili hizmet sorumlularını bu sistem güvenlik grubuna ekleyin ve bu güvenlik grubu için Key Vault erişim hakkı.
 - Tümleştirme ve Azure ile Key Vault kullanma hakkında daha fazla görev özgü yönergeler için bkz: [Ryan Gareth Azure Resource Manager şablonu örnekleri için Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Key Vault geçici silmeyi CLI ile kullanmayı](key-vault-soft-delete-cli.md) etkin ile geçici silme kullanın ve bir anahtar kasası ve çeşitli anahtar kasası nesne yaşam döngüsü ile yol gösterir.
 - [PowerShell ile Key Vault geçici silmeyi kullanma](key-vault-soft-delete-powershell.md) etkin ile geçici silme kullanın ve bir anahtar kasası ve çeşitli anahtar kasası nesne yaşam döngüsü ile yol gösterir.

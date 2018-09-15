@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a7aeecc84a3629b43f2c1eb40030866a941d0d3b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 2b06dcfd4bdeb68d114c0c6dd57134fadfef57b5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627993"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605853"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Hızlı Başlangıç: Bulut uygulamaları erişmeden önce kabul edilmesi için kullanım koşullarını gerektirir 
 
@@ -45,7 +45,7 @@ Bu hızlı başlangıçta senaryoyu tamamlamak için gerekir:
 
 - **Bir Azure AD Premium sürümü için erişim** -Azure AD koşullu erişimi olan bir Azure AD Premium özelliği. 
 
-- **Adlı bir test hesabı Isabella Simonsen** - bir test hesabı oluşturmak için bkz bilmiyorsanız [bulut tabanlı kullanıcılar eklemek](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **Adlı bir test hesabı Isabella Simonsen** - bir test hesabı oluşturmak için bkz bilmiyorsanız [bulut tabanlı kullanıcılar eklemek](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## <a name="test-your-sign-in"></a>Oturum açma testi
@@ -250,7 +250,7 @@ Tıklayarak **ne** gösteren bir simülasyon raporu oluşturur:
 
 Artık gerekli değilse, test kullanıcısı ve koşullu erişim ilkesini Sil:
 
-- Bir Azure AD kullanıcı silme işlemini bilmiyorsanız, bkz. [Azure AD'den kullanıcı silme](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Bir Azure AD kullanıcı silme işlemini bilmiyorsanız, bkz. [Azure AD'den kullanıcı silme](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - İlkeniz silinecek ilkenizi seçin ve ardından **Sil** hızlı erişim araç çubuğu.
 

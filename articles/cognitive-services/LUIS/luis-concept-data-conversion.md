@@ -8,17 +8,17 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e1d0e0a0205190846612d727fbf34404e33c3ad4
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 58f08c13bd10ae96a3490a15d765df82df8ed021
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027087"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631557"
 ---
 # <a name="data-conversion-concepts-in-luis"></a>LUIS, veri dönüştürme kavramları
-LUIS konuşma metin konuşma tahmin önce konuşulan konuşma dönüştürmek için bir yol sağlar. 
+LUIS, Bilişsel hizmetler konuşma hizmeti konuşma metin konuşma tahmin önce konuşulan konuşma dönüştürmek için kullanır. 
 
 ## <a name="speech-to-intent-conversion-concepts"></a>Konuşma niyetini dönüştürme kavramları
 LUIS metinde konuşma dönüştürülmesi konuşulan konuşma bir uç noktasına göndermesi ve LUIS tahmini yanıt almanızı sağlar. Bir tümleştirme işlemidir [konuşma](https://docs.microsoft.com/azure/cognitive-services/Speech) LUIS ile hizmet. 

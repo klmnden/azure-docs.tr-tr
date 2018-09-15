@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 71d50a55d9c584b61a1412bb03a03ad99f1bb96c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 548c94ce502da8c6a8d208daafb5b0fb624de1e1
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39635146"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603949"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Log Analytics sorguları kullanmaya başlama
 
@@ -28,6 +28,7 @@ ms.locfileid: "39635146"
 > [!NOTE]
 > Tamamlamanız gereken [Analytics portalı ile çalışmaya başlama](get-started-analytics-portal.md) Bu öğreticiyi tamamlamadan önce.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Bu öğreticide, Azure Log Analytics sorguları yazma öğreneceksiniz. Size nasıl yardımcı olacak için:
 
@@ -49,7 +50,7 @@ Sorgular, bir tablo adı ile başlatabilir veya *arama* komutu. Sorgu için aç�
 ### <a name="table-based-queries"></a>Tablo tabanlı sorgular
 Azure Log Analytics tablolardaki verileri düzenler, her birden çok sütundan oluşan. Tüm tabloları ve sütunları Analytics portalında şema bölmesinde gösterilir. İlginizi çeken ve ardından veri göz atın, bir tablo tanımlayın:
 
-```OQL
+```KQL
 SecurityEvent
 | take 10
 ```
@@ -65,7 +66,7 @@ Biz aslında sorgu bile eklemeden çalıştırabilirsiniz `| take 10` -, hala ge
 ### <a name="search-queries"></a>Arama sorguları
 Arama sorguları daha az yapılandırılmış ve genellikle daha sütunlarından birini belirli bir değer içeren bir kayıt bulmak için uygun şunlardır:
 
-```OQL
+```KQL
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
@@ -87,7 +88,7 @@ SecurityEvent
 
 Yalnızca en son 10 kayıtları almak için en iyi yolu kullanmaktır **üst**, sunucu tarafında tüm tabloyu sıralar ve ardından üst kayıtlar döndürür:
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated
 ```
@@ -102,7 +103,7 @@ Filtreleri adlarına göre belirtildiği gibi belirli bir koşul tarafından ver
 
 Bir sorguya bir filtre eklemek için **burada** işleci, bir veya daha fazla koşul tarafından izlenen. Örneğin, aşağıdaki sorguyu yalnızca döndürür *SecurityEvent* kayıtları _düzeyi_ eşittir _8_:
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8
 ```
@@ -118,14 +119,14 @@ Filtre koşulları yazarken, aşağıdaki ifadeler kullanabilirsiniz:
 
 Birden çok koşullarına göre filtre uygulamak için kullanabilir **ve**:
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
 veya birden çok kanal **burada** birbiri ardına öğeleri biri:
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8 
 | where EventID == 4672
@@ -145,7 +146,7 @@ Saat Seçici, biz yalnızca son 24 saat kayıtları sorguladığınız gösteren
 ### <a name="time-filter-in-query"></a>Sorgu zaman filtresi
 Sorgu süresi filtre ekleyerek de kendi zaman aralığı tanımlayabilirsiniz. Tablo adı hemen sonra süresi filtre yerleştirmek idealdir: 
 
-```OQL
+```KQL
 SecurityEvent
 | where TimeGenerated > ago(30m) 
 | where toint(Level) >= 10
@@ -157,7 +158,7 @@ Yukarıdaki süresi filtre `ago(30m)` bu sorgu, kayıtları yalnızca son 30 dak
 ## <a name="project-and-extend-select-and-compute-columns"></a>Proje ve genişlet: seçin ve sütunları işlem
 Kullanım **proje** sonuçların dahil edileceği belirli sütunları seçmek için:
 
-```OQL
+```KQL
 SecurityEvent 
 | top 10 by TimeGenerated 
 | project TimeGenerated, Computer, Activity
@@ -174,7 +175,7 @@ Ayrıca **proje** sütunları yeniden adlandırma ve yenilerini tanımlamak içi
 * Adlı yeni bir sütun oluşturun *EventCode*. **Substring()** işlevi yalnızca ilk dört karakter etkinlik alanından almak için kullanılır.
 
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated 
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
@@ -182,7 +183,7 @@ SecurityEvent
 
 **genişletme** özgün tüm sütunları sonuç kümesinde tutar ve bulunmakla tanımlar. Aşağıdaki sorguda kullandığı **genişletmek** eklemek için bir *localtime* yerelleştirilmiş TimeGenerated değeri içeren sütun.
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated
 | extend localtime = TimeGenerated-8h
@@ -192,7 +193,7 @@ SecurityEvent
 Kullanım **özetlemek** kayıt gruplarını göre bir veya daha fazla sütun belirleyin ve toplamalar uygulayabilirsiniz. En yaygın işletim sistemi kullanmak **özetlemek** olduğu *sayısı*, her grupta sonuç sayısını döndürür.
 
 Aşağıdaki sorgu tüm incelemeleri *Perf* son bir saat kayıtlardan göre gruplar *ObjectName*ve her gruptaki kayıtları sayar: 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
@@ -200,7 +201,7 @@ Perf
 
 Bazen birden fazla boyuta göre grupları tanımlamak için mantıklıdır. Bu değerler her benzersiz birleşimi ayrı bir grubu tanımlar:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName, CounterName
@@ -208,7 +209,7 @@ Perf
 
 Başka bir ortak her grubunda matematik veya istatistik hesaplamalar gerçekleştirmek için kullanılır. Örneğin, aşağıdaki ortalamasını hesaplar *Ort* her bilgisayar için:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer
@@ -216,7 +217,7 @@ Perf
 
 Ne yazık ki, biz farklı performans sayaçlarının arada olduğundan bu sorgunun sonuçlarının anlamsız. Bu daha anlamlı olacak şekilde, biz ayrı ayrı her bir birleşimi için ortalama hesaplamanız gerekir *CounterName* ve *bilgisayar*:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer, CounterName
@@ -227,7 +228,7 @@ Sonuçları gruplandırma de saat sütunu veya başka bir sürekli değer temel 
 
 Sürekli değerlerine göre grupları oluşturmak için aralığı kullanılarak yönetilebilir birimler halinde bölmek en iyisidir **bin**. Aşağıdaki sorguyu analiz eder *Perf* boş bellek ölçen kayıtları (*Kullanılabilir MBayt*) belirli bir bilgisayardaki. Her dönem if ortalama değerini hesaplar son 2 gün içinde 1 saat:
 
-```OQL
+```KQL
 Perf 
 | where TimeGenerated > ago(2d)
 | where Computer == "ContosoAzADDS2" 

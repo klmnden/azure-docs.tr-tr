@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: be3d0d32e60e23b2b2d7d414d2297b86dec62f1d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: eee9998280f2105fee5144b520bc8000b086f941
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576842"
+ms.locfileid: "45603946"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Coğrafi olarak yedekli depolama (GRS): Azure depolama için bölgeler arası çoğaltma
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -41,7 +41,7 @@ RA-GRS kullanırken akılda tutulması gereken bazı noktalar:
    * Saat, birincil konumda verilerin kurtarılabilir olup olmadığını ya da bir yük devretme gerekli olup olmadığını belirlemek için Microsoft gerektirir.
    * Depolama hesabının ikincil konuma işaret edecek şekilde birincil DNS girişlerini değiştirerek yük devri için geçen süre.
 
-   Microsoft, verilerinizin gerçekten de koruma sorumluluğunu üstlenir. Birincil bölgedeki veriler kurtarma herhangi olasılığı varsa, Microsoft yük devretme gecikme ve verilerinizi kurtarma üzerinde odaklanın. Hizmet gelecek bir sürümünde, böylece RTO kendiniz denetleyebilirsiniz hesap düzeyinde bir yük devretme tetiklemek izin verir.
+   Microsoft, verilerinizin gerçekten de koruma sorumluluğunu üstlenir. Birincil bölgedeki veriler kurtarma herhangi olasılığı varsa, Microsoft yük devretme gecikme ve verilerinizi kurtarma üzerinde odaklanın. 
 
 ## <a name="paired-regions"></a>Eşleştirilmiş bölgeler 
 Bir depolama hesabı oluşturduğunuzda, hesap için birincil bölge seçin. Eşleştirilmiş ikincil bölgede, birincil bölgeye göre belirlenir ve değiştirilemez. Azure tarafından desteklenen bölgeler hakkında güncel bilgiler için bkz: [iş sürekliliği ve olağanüstü durum kurtarma (BCDR): eşleştirilmiş Azure bölgeleri](../../best-practices-availability-paired-regions.md).

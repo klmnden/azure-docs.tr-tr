@@ -8,19 +8,19 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 40c7e0744825697779e6bd19a78d8d3512b5d63e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d857767e5d94daa0a32997474722cec608e513b0
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023469"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630554"
 ---
 # <a name="data-extraction"></a>Veri ayıklama
-LUIS, bir kullanıcının doğal dil konuşma bilgi almak için sağlar. Bilgiler bir program, uygulama veya sohbet botu tarafından Harekete geçmeye kullanılabilmesi için bir şekilde ayıklanır.
+LUIS, bir kullanıcının doğal dil konuşma bilgi almak için sağlar. Bilgiler bir program, uygulama veya sohbet Robotu eyleme kullanılabilmesi için bir şekilde ayıklanır. Aşağıdaki bölümlerde, hangi verilerin hedefleri ve JSON örneklerini varlıklarla döndürülür öğrenin. 
 
-Aşağıdaki bölümlerde, hangi verilerin hedefleri ve JSON örneklerini varlıklarla döndürülür öğrenin. Tam metin eşleşmesi olmadığından uygulamalarınızdaki verileri ayıklamak için makine öğrenilen verilerdir. Makine öğrendiniz, veri ayıklama [varlıkları](luis-concept-entity-types.md) parçası olması gerekiyor [döngüsü yazma](luis-concept-app-iteration.md) beklediğiniz verileri aldığınız emin olana kadar. 
+Tam metin eşleşmesi olmadığından uygulamalarınızdaki verileri ayıklamak için makine öğrenilen verilerdir. Makine öğrendiniz, veri ayıklama [varlıkları](luis-concept-entity-types.md) parçası olması gerekiyor [döngüsü yazma](luis-concept-app-iteration.md) beklediğiniz verileri aldığınız emin olana kadar. 
 
 ## <a name="data-location-and-key-usage"></a>Veri konum ve anahtar kullanımı
 LUIS, yayımlanan verilerden sağlar [uç nokta](luis-glossary.md#endpoint). **HTTPS isteğini** hazırlık veya üretim ortamları gibi bazı isteğe bağlı yapılandırmalar yanı sıra utterance (POST veya GET) içerir. 
@@ -29,7 +29,7 @@ LUIS, yayımlanan verilerden sağlar [uç nokta](luis-glossary.md#endpoint). **H
 
 `appID` Kullanılabilir **ayarları** sayfası URL'SİNİN bir parçası yanı sıra, LUIS uygulaması (sonra `/apps/`) ne zaman düzenlemekte olduğunuz bu LUIS uygulaması. `subscription-key` Uygulamanızı sorgulamak için kullanılan uç noktası anahtarı. LUIS öğreniyorsanız sırada ücretsiz geliştirme/başlangıç anahtarınızı kullanabilirsiniz, ancak uç noktası anahtarı destekleyen bir anahtarı değiştirmek önemli olan, [LUIS kullanım beklenen](luis-boundaries.md#key-limits). `timezoneOffset` Dakika birimidir.
 
-**HTTPS yanıtı** LUIS belirleyebilir hedefi ve varlık bilgilerini herhangi birinin geçerli yayımlanan model tabanlı hazırlık veya üretim uç noktası içerir. Uç nokta URL'si bulundu [LUIS](luis-reference-regions.md) Web sitesi **Yayımla** sayfası. 
+**HTTPS yanıtı** LUIS belirleyebilir hedefi ve varlık bilgilerini herhangi birinin geçerli yayımlanan model tabanlı hazırlık veya üretim uç noktası içerir. Uç nokta URL'si bulundu [LUIS](luis-reference-regions.md) Web sitesi, **Yönet** üzerinde bölümünde **anahtarları ve uç noktaları** sayfası. 
 
 ## <a name="data-from-intents"></a>Intents verileri
 Üst birincil verilerdir Puanlama **hedefi adı**. Kullanarak `MyStore` [hızlı](luis-quickstart-intents-only.md), uç nokta yanıt:
@@ -568,13 +568,37 @@ Diğer tüm kültürler için yanıt şöyledir:
 ### <a name="key-phrase-extraction-entity-data"></a>Anahtar ifade ayıklama varlık verilerini
 Anahtar ifade ayıklama varlık tarafından sağlanan utterance, anahtar ifadeleri döndürür [metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
-<!-- TBD: verify JSON-->
 ```JSON
-"keyPhrases": [
-    "places",
-    "beautiful views",
-    "favorite trail"
-]
+{
+  "query": "Is there a map of places with beautiful views on a favorite trail?",
+  "topScoringIntent": {
+    "intent": "GetJobInformation",
+    "score": 0.764368951
+  },
+  "intents": [
+    ...
+  ],
+  "entities": [
+    {
+      "entity": "beautiful views",
+      "type": "builtin.keyPhrase",
+      "startIndex": 30,
+      "endIndex": 44
+    },
+    {
+      "entity": "map of places",
+      "type": "builtin.keyPhrase",
+      "startIndex": 11,
+      "endIndex": 23
+    },
+    {
+      "entity": "favorite trail",
+      "type": "builtin.keyPhrase",
+      "startIndex": 51,
+      "endIndex": 64
+    }
+  ]
+}
 ```
 
 ## <a name="data-matching-multiple-entities"></a>Birden çok varlık eşleşen veri

@@ -15,24 +15,26 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 359e5e671287c4d330deeb2d3573877d9ee5d1c5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: acf51056a084abc08bda2d7f73b561f442f57784
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190334"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605547"
 ---
 # <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Log Analytics sorguları grafikleri ve diyagramları oluşturma
 
 > [!NOTE]
 > Tamamlamanız gereken [Log Analytics sorguları toplamalara Gelişmiş](advanced-aggregations.md) dersin tamamlamadan önce.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 Bu makalede, Azure Log Analytics, verilerinizi farklı şekillerde göstermek için çeşitli görselleştirmeler açıklanır.
 
 ## <a name="charting-the-results"></a>Sonuç grafiği
 Son bir saat işletim sistemi vardır kaç bilgisayarın gözden geçirerek başlayın:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(1h)
 | summarize count(Computer) by OSType  
@@ -50,7 +52,7 @@ Daha iyi bir görünüm elde edin seçin **grafik**ve **pasta** sonuçların gö
 ## <a name="timecharts"></a>Timecharts
 Depo 1 saat ortalama, 50. ve 95. yüzdebirlik değerleri işlemci zamanı gösterir. Sorgu birden fazla seri oluşturur ve hangi serisi zaman grafikte gösterilecek daha sonra seçebilirsiniz:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -65,7 +67,7 @@ Seçin **satırı** grafik görüntüleme seçeneği:
 
 Başvuru çizgisi ölçüm, belirli bir eşiği aşılırsa bir kolayca belirlemenize yardımcı olabilir. Grafiğe bir satır eklemek için bir sabit sütun kümesiyle genişletin:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -78,7 +80,7 @@ Perf
 ## <a name="multiple-dimensions"></a>Birden çok boyut
 Birden çok ifadelerinde `by` yan tümcesi `summarize` birden çok satır sonuçları her değerlerinin birleşimi için bir tane oluşturun.
 
-```OQL
+```KQL
 SecurityEvent
 | where TimeGenerated > ago(1d)
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)

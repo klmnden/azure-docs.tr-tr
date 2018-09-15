@@ -1,21 +1,21 @@
 ---
-title: LUIS yinelemeli uygulama tasarımı - Language Understanding anlama
-description: LUIS, en iyi modeli değişiklikleri, utterance örnekler, yayımlama ve veri toplamayı yinelemeli bir döngüyle uç nokta sorgularından öğrenir.  LUIS uygulamaları en iyi veri ayıklama almak için LUIS eğitmek için tasarım yinelemeleri gerektirir.
+title: Yinelemeli uygulama tasarımı Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
+description: LUIS, en iyi modeli değişiklikleri, utterance örnekler, yayımlama ve veri toplamayı yinelemeli bir döngüyle uç nokta sorgularından öğrenir.  LUIS uygulamaları en iyi veri ayıklama almak için LUIS eğitmek için tasarım yinelemeleri gerektirir.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 7c267d53c9057ac05427ff14a7e3c25d56ab1f62
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 5eba6867bdf6ca6ca362bcd6bb3ab747780d1a5e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025436"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634243"
 ---
 # <a name="authoring-cycle"></a>Yazma döngüsü
 LUIS, en iyi modeli değişiklikleri, utterance örnekler, yayımlama ve veri toplamayı yinelemeli bir döngüyle uç nokta sorgularından öğrenir. 
@@ -33,15 +33,12 @@ Model amacı, varlıkları içerir.
 LUIS, örnek konuşma amacı de gerekir. Örnekler, sözcük seçimi ve sözcük sırasını utterance yöneliktir hangi hedefini belirlemek için yeterli sayıda çeşitlemesi gerekir. Her örnek utterance varlıklar olarak etiketlenen tüm gerekli veri olmalıdır. 
 
 LUIS için utterance atayarak uygulamanızın etki ilgili olmayan konuşma yok saymak için toplamasını **hiçbiri** hedefi. Herhangi bir sözcük veya gerekmeyen tümcecikleri dışında bir utterance çekilen etiketlenmiş gerekmez. Sözcük ve tümcecikleri yok saymak için hiçbir etiket yok. 
-<!--
-## Not just yet
-Do not add features such as a [phrase list](luis-concept-feature.md) feature in your first cycle. Phrase lists are phrases that would be specific to your app's subject area.  
--->
+
 ## <a name="train-and-publish-the-app"></a>Uygulamayı eğitme ve yayımlama
-10-15 farklı konuşma etiketli gerekli varlıklarla her hedefini oluşturduktan sonra LUIS eğitin ve ardından uç noktalarınızı almak için yayımlama. Uygulamanızı oluşturmak ve kullanılabilir, böylece uygulamanızı yayımlamak emin [uç nokta bölgeleri](luis-reference-regions.md) ihtiyacınız. 
+10-15 farklı konuşma her amaca sahip olduğunuzda, gerekli varlıkları etiketli eğitin ve yayımlayın. Yayımlama başarılı bildirimden bağlantı uç noktalarınızı almak için kullanın. Uygulamanızı oluşturmak ve kullanılabilir, böylece uygulamanızı yayımlamak emin [uç nokta bölgeleri](luis-reference-regions.md) ihtiyacınız. 
 
 ## <a name="https-endpoint-testing"></a>HTTPS uç noktasını sınama
-LUIS uygulamanızı listelenen HTTPS uç noktasından test edebilirsiniz **[Yayımla](luis-how-to-publish-app.md)** sayfası. Uç noktasından test LUIS gözden geçirme için düşük güvenle herhangi bir konuşma seçmenizi sağlar.  
+LUIS uygulamanızı HTTPS uç noktasından test edebilirsiniz. Uç noktasından test LUIS gözden geçirme için düşük güvenle herhangi bir konuşma seçmenizi sağlar.  
 
 ## <a name="recycle"></a>Geri dönüştür
 Geliştirme döngüsünü işiniz bittiğinde, yeniden başlayabilirsiniz. Uç nokta konuşma LUIS düşük güvenle işaretlenmiş inceleyerek başlayın. Bu konuşma amacı hem de varlık için denetleyin. Konuşma gözden sonra İnceleme listesi boş olmalıdır.  

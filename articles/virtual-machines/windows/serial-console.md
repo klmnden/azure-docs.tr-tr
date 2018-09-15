@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 1bb6e464b748f2558cec35a95554bb3e08b667f0
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 785b0137624cc6d940f4944e0357d0a5774561df
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378338"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634719"
 ---
-# <a name="virtual-machine-serial-console-preview"></a>Sanal makinenin seri konsol (Önizleme) 
+# <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
 
 Azure'da sanal makine seri konsolu, Windows sanal makineler için metin tabanlı bir konsol erişim sağlar. Bu seri bağlantı, COM1, bir sanal makinenin ağ veya işletim sistemi durumu bağımsız olan sanal makineye erişim sağlayarak sanal makinenin seri bağlantı noktası sağlamaktır. Bir sanal makine şu anda için seri konsoluna erişim yalnızca Azure Portalı aracılığıyla yapılması ve VM katkıda bulunanı olan kullanıcılar için veya sanal makineye erişimi yukarıda izin verilmiyor. 
@@ -29,7 +29,7 @@ Azure'da sanal makine seri konsolu, Windows sanal makineler için metin tabanlı
 Linux VM'ler için seri konsol belgeleri [Buraya](../linux/serial-console.md).
 
 > [!Note] 
-> Kullanım koşullarını kabul etmiş olursunuz şartıyla önizlemeleri için kullanılabilir hale getirilir. Daha fazla bilgi için bkz. [Microsoft Azure ek kullanım koşulları Microsoft Azure önizlemeleri için.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Bu hizmeti şu anda aşamasındadır **genel Önizleme** ve genel Azure bölgelerine seri konsoluna erişimi sanal makineler için kullanılabilir. Bu noktada seri konsol kullanılabilir Azure kamu, Azure Almanya ve Azure Çin bulut değil.
+> Sanal makineler için seri konsol genel Azure bölgelerinde genel kullanıma sunulmuştur. Bu noktada seri konsol henüz kullanılabilir Azure kamu veya Azure Çin bulut değil.
 
  
 
@@ -51,7 +51,7 @@ Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure por
   1. Azure portalını açın
   2. Sol taraftaki menüde, sanal makineleri seçin.
   3. VM listesinde tıklayın. VM için genel bakış sayfası açılır.
-  4. Destek + sorun giderme bölümüne aşağı kaydırın ve seri konsol (Önizleme) seçeneğine tıklayın. Seri konsolu ile yeni bir bölme açılır ve bağlantıyı başlatın.
+  4. Destek + sorun giderme bölümüne aşağı kaydırın ve "Seri konsol" seçeneğine tıklayın. Seri konsolu ile yeni bir bölme açılır ve bağlantıyı başlatın.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
@@ -187,18 +187,18 @@ Bu sanal makine seri konsolu kullanmak için gerekli izinlere sahip değil. En a
 Önyükleme tanılaması depolama hesabı için kaynak grubu belirlenemiyor '<STORAGEACCOUNTNAME>'. Bu VM için önyükleme tanılaması etkin ve bu depolama hesabına erişiminiz olduğunu doğrulayın. | Seri konsol erişimi erişmek için belirli bir izni gerektirir. Bkz: [erişim gereksinimlerini](#prerequisites) için Ayrıntılar
 Bu sanal makinenin önyükleme tanılaması depolama hesabı erişirken 'Yasak' yanıt karşılaşıldı. | Bu önyükleme tanılama hesabı bir güvenlik duvarı bulunmadığından emin olun. İşleve seri konsol için bir erişilebilir önyükleme tanılaması depolama hesabı gereklidir.
 Web yuvası kapalı veya açılamadı. | Beyaz listeye gerekebilir `*.console.azure.com`. Daha ayrıntılı ancak uzun yaklaşımdır beyaz listeye [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/en-us/download/details.aspx?id=41653), nispeten düzenli olarak değiştiği.
+Yalnızca sistem durumu bilgileri, bir Windows VM'ye bağlanırken gösterilir.| Bu özel Yönetim Konsolu Windows görüntünüzü için etkinleştirilmemiş olmadığını gösterilir. Bkz: [erişim seri konsol için Windows](#access-serial-console-for-windows) SAC, Windows VM'de el ile etkinleştirme hakkında yönergeler için. Daha fazla ayrıntı şu adreste bulunabilir: [Windows durum sinyallerini](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 
 ## <a name="known-issues"></a>Bilinen sorunlar 
-Hala Önizleme aşamaları seri konsol erişimi için de bizim yaptığımız gibi biz bazı bilinen sorunlar ile çalışıyorsanız, olası geçici çözümleri ile bunların bir listesi aşağıda verilmiştir 
+Seri konsol ile ilgili bazı sorunlar farkında duyuyoruz. Bu sorunlar ve risk azaltma için adımlar listesi aşağıda verilmiştir.
 
 Sorun                             |   Risk azaltma 
 :---------------------------------|:--------------------------------------------|
 Ulaşmaktan bağlantı başlık satırında bir günlük göstermez sonra girin | Lütfen şu sayfaya bakın: [Hitting girin hiçbir şey yapmaz](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Bu özel bir VM çalıştırıyorsanız, gereç sağlamlaştırılmış olması veya düzgün bir şekilde seri bağlantı noktasına bağlanmak başarısız olmasına, causers Windows yapılandırma kaz.
-Yalnızca sistem durumu bilgileri, bir Windows VM'ye bağlanırken gösterilir.| Bu özel Yönetim Konsolu Windows görüntünüzü için etkinleştirilmemiş olmadığını gösterilir. Bkz: [erişim seri konsol için Windows](#access-serial-console-for-windows) SAC, Windows VM'de el ile etkinleştirme hakkında yönergeler için. Daha fazla ayrıntı şu adreste bulunabilir: [Windows durum sinyallerini](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Çekirdek hata ayıklamasını etkin olduğunda SAC komut istemi türü oluşturulamıyor | VM ve çalıştırmak için RDP `bcdedit /debug {current} off` yükseltilmiş bir komut isteminden. RDP gerçekleştiremezsiniz, bunun yerine başka bir Azure VM için işletim sistemi diski ve kullanarak bir veri diski olarak bağlı durumdayken değiştirmek `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, ardından diski geri değiştirme.
 Özgün içerik yinelenen bir karakter varsa PowerShell içinde SAC sonuçları üçüncü bir karakter yapıştırma | Geçerli oturumun PSReadLine modülünü kaldırmak için bir çözüm olabilir. Çalıştırma `Remove-Module PSReadLine` - geçerli oturumu PSReadLine modülünden kaldırmak için bu silmez veya modül kaldırın.
 Bazı klavye girişleri garip SAC çıkış üretmesi (örneğin `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) kaçış dizileri SAC istemi tarafından desteklenmiyor.
-Bu sanal makinenin önyükleme tanılaması depolama hesabı erişirken 'Yasak' yanıt karşılaşıldı. | Bu önyükleme tanılama hesabı bir güvenlik duvarı bulunmadığından emin olun. İşleve seri konsol için bir erişilebilir önyükleme tanılaması depolama hesabı gereklidir.
+Çok uzun dizeler yapıştırma çalışmıyor | Seri konsol 2048 karakter terminale içine yapıştırdığınız dize uzunluğunu kısıtlar. Bu seri bağlantı noktası bant genişliği aşırı yüklenilmesini önlemek içindir.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular 
 **SORU. Nasıl geri bildirim gönderebilir miyim?**

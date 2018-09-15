@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: eb2b26333647d464a3a18cd07bf1576251fb3830
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: a2daf75e5a75a4fb0be06986903a2f4f9be8adf0
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715412"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634855"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure sanal makineler dağıtım için SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -483,7 +483,7 @@ Azure portalında şablon için aşağıdaki parametreleri girin:
   * **Yönetici kullanıcı adı** ve **yönetici parolası**: bir kullanıcı adı ve parola.
     Yeni bir kullanıcı sanal makineye oturum açmak için oluşturulur.
   * **Yeni veya var olan bir alt ağa**: yeni bir sanal ağ ve alt ağ oluşturulur veya var olan bir alt ağ kullanılan belirler. Şirket içi ağınıza bağlı bir sanal ağınız zaten varsa, seçin **varolan**.
-  * **Alt ağ kimliği**: alt ağ kimliği sanal makinelerin bağlanması için. Sanal özel ağ (VPN) veya sanal makine şirket içi ağınıza bağlanmak için kullanılacak Azure ExpressRoute sanal ağ alt ağı seçin. Kimliği genellikle şöyle görünür: /subscriptions/&lt;abonelik kimliği > /resourceGroups/&lt;kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/&lt;sanal ağ adı > /subnets/&lt;alt ağ adı >
+  * **Alt ağ kimliği**: tanımlı bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle şöyle görünür: /subscriptions/&lt;abonelik kimliği > /resourceGroups/&lt;kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/&lt;sanal ağ adı > /subnets/&lt;alt ağ adı >
 
 1. **Hüküm ve koşullar**:  
     Gözden geçirin ve yasal koşulları kabul edin.
@@ -614,9 +614,7 @@ Azure portalında şablon için aşağıdaki parametreleri girin:
 
     Yeni bir kullanıcı sanal makineye oturum açmak için oluşturulur.
   * **Yeni veya var olan bir alt ağa**: yeni bir sanal ağ ve alt ağ oluşturulur veya var olan bir alt ağ kullanılan belirler. Şirket içi ağınıza bağlı bir sanal ağınız zaten varsa, seçin **varolan**.
-  * **Alt ağ kimliği**: istediğiniz sanal makinelerin bağlanması için alt ağ kimliği. Sanal makine şirket içi ağınıza bağlanmak için kullanılacak VPN veya ExpressRoute sanal ağ alt ağı seçin. Kimliği genellikle şu şekilde görünür:
-
-    /Subscriptions/&lt;abonelik kimliği > /resourceGroups/&lt;kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/&lt;sanal ağ adı > /subnets/&lt;alt ağ adı >
+  * **Alt ağ kimliği**: tanımlı bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle şöyle görünür: /subscriptions/&lt;abonelik kimliği > /resourceGroups/&lt;kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/&lt;sanal ağ adı > /subnets/&lt;alt ağ adı >
 
 1. **Hüküm ve koşullar**:  
     Gözden geçirin ve yasal koşulları kabul edin.
@@ -697,9 +695,7 @@ Azure portalında şablon için aşağıdaki parametreleri girin:
   * **İşletim sistemi diski VHD URI'si** (yalnızca yönetilmeyen disk şablonu): özel işletim sistemi diskinin, örneğin, https:// URI&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
   * **İşletim sistemi diski Disk kimliği yönetilen** (yalnızca yönetilen disk şablonu): yönetilen diski işletim sistemi diskinin kimliği /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
   * **Yeni veya var olan bir alt ağa**: yeni bir sanal ağ ve alt ağ oluşturulur veya varolan bir alt ağı kullanılır olup olmadığını belirler. Şirket içi ağınıza bağlı bir sanal ağınız zaten varsa, seçin **varolan**.
-  * **Alt ağ kimliği**: istediğiniz sanal makinelerin bağlanması için alt ağ kimliği. Sanal makine şirket içi ağınıza bağlanmak için kullanılacak VPN veya Azure ExpressRoute sanal ağ alt ağı seçin. Kimliği genellikle şu şekilde görünür:
-
-    /Subscriptions/&lt;abonelik kimliği > /resourceGroups/&lt;kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/&lt;sanal ağ adı > /subnets/&lt;alt ağ adı >
+  * **Alt ağ kimliği**: tanımlı bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle şöyle görünür: /subscriptions/&lt;abonelik kimliği > /resourceGroups/&lt;kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/&lt;sanal ağ adı > /subnets/&lt;alt ağ adı >
 
 1. **Hüküm ve koşullar**:  
     Gözden geçirin ve yasal koşulları kabul edin.
@@ -835,7 +831,7 @@ Windows Proxy'yi yapılandırmak için uygulayacağınız adımlar, Linux proxy 
 Proxy ayarlarını İnternet'e erişmek yerel sistem hesabı için doğru ayarlanmış olması gerekir. Proxy ayarlarını Grup İlkesi tarafından ayarlanmamışsa, yerel sistem hesabı ayarlarını yapılandırabilirsiniz.
 
 1. Git **Başlat**, girin **gpedit.msc**ve ardından **Enter**.
-1. Seçin **Bilgisayar Yapılandırması** > **Yönetim Şablonları** > **Windows bileşenleri**  >  ** Internet Explorer**. Emin olun ayarı **proxy ayarları makine başına (yerine kullanıcı başına) olun** devre dışı bırakılmış veya yapılandırılmamış.
+1. Seçin **Bilgisayar Yapılandırması** > **Yönetim Şablonları** > **Windows bileşenleri**  >   **Internet Explorer**. Emin olun ayarı **proxy ayarları makine başına (yerine kullanıcı başına) olun** devre dışı bırakılmış veya yapılandırılmamış.
 1. İçinde **Denetim Masası**Git **ağ ve Paylaşım Merkezi** > **Internet Seçenekleri**.
 1. Üzerinde **bağlantıları** sekmesinde **LAN Ayarları** düğmesi.
 1. NET **ayarlarını otomatik olarak algıla** onay kutusu.

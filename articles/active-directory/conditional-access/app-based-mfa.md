@@ -2,7 +2,7 @@
 title: Hızlı Başlangıç - Azure Active Directory koşullu erişimiyle belirli uygulamalar için çok faktörlü kimlik doğrulaması (MFA) gerekli | Microsoft Docs
 description: Bu hızlı başlangıçta, Azure Active Directory (Azure AD) koşullu erişim kullanarak erişilen bulut uygulaması türü için kimlik doğrulaması gereksinimlerinizi nasıl bağlayabilirsiniz öğrenin.
 services: active-directory
-keywords: uygulamalar, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eee4d73042232aabd995a749b7848306be0ef655
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f27ced5c67c5124d0792c5ce3884c88473fba056
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628265"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604204"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Hızlı Başlangıç: Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektirme 
 
@@ -42,7 +42,7 @@ Bu hızlı başlangıçta senaryoyu tamamlamak için gerekir:
 
 - **Bir Azure AD Premium sürümü için erişim** -Azure AD koşullu erişimi olan bir Azure AD Premium özelliği. 
 
-- **Adlı bir test hesabı Isabella Simonsen** - bir test hesabı oluşturmak için bkz bilmiyorsanız [bulut tabanlı kullanıcılar eklemek](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **Adlı bir test hesabı Isabella Simonsen** - bir test hesabı oluşturmak için bkz bilmiyorsanız [bulut tabanlı kullanıcılar eklemek](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## <a name="test-your-sign-in"></a>Oturum açma testi
@@ -209,7 +209,7 @@ Koşullu erişim ilkenizi yapılandırdığınıza göre büyük olasılıkla be
 
 Artık gerekli değilse, test kullanıcısı ve koşullu erişim ilkesini Sil:
 
-- Bir Azure AD kullanıcı silme işlemini bilmiyorsanız, bkz. [Azure AD'den kullanıcı silme](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Bir Azure AD kullanıcı silme işlemini bilmiyorsanız, bkz. [Azure AD'den kullanıcı silme](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - İlkeniz silinecek ilkenizi seçin ve ardından **Sil** hızlı erişim araç çubuğu.
 

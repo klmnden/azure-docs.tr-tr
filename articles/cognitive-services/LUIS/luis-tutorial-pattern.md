@@ -1,76 +1,56 @@
 ---
-title: LUIS tahminleri - Azure geliştirmek için desenler kullanma Öğreticisi | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Bu öğreticide, hedefleri için düzeni LUIS amacı ve varlık Öngörüler geliştirmek için kullanın.
+title: 'Öğretici 3: LUIS Öngörüler geliştirecek düzenler'
+titleSuffix: Azure Cognitive Services
+description: Desenler, daha az örnek konuşma sağlarken amacı ve varlık tahmin artırmak için kullanın. Desen, varlıkları ve Ignorable metin tanımlamak için söz dizimi içeren bir şablon utterance örnek olarak sağlanır.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9c14f2121cd83cec802f4fd4a92661d58eb7efb3
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 3b41105a20b765abd084fc387370a49b657d1cba
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159582"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634736"
 ---
-# <a name="tutorial-improve-app-with-patterns"></a>Öğretici: uygulama desenleri ile geliştirin
+# <a name="tutorial-3-add-common-utterance-formats"></a>Öğretici: 3. Ortak utterance biçimleri ekleme
 
-Bu öğreticide, hedefi ve varlık tahmin artırmak için desenleri kullanın.  
+Bu öğreticide, desenleri daha az örnek konuşma sağlarken amacı ve varlık tahmin artırmak için kullanın. Desen, varlıkları ve Ignorable metin tanımlamak için söz dizimi içeren bir şablon utterance örnek olarak sağlanır. Bir desen eşleme ifadesinde ve makine öğrenimi birleşimidir.  Şablon utterance örnek hedefi konuşma yanı sıra, amaç hangi konuşma uygun daha iyi LUIS verin. 
+
+**Bu öğreticide, şunların nasıl yapılır:**
 
 > [!div class="checklist"]
-* Bir desen uygulamanıza yardımcı olduğunu belirleme
-* Bir düzen oluşturma
-* Desen tahmin geliştirmeleri doğrulama
+> * Mevcut öğretici uygulamasını kullanma 
+> * Hedefi oluşturma
+> * Eğitim
+> * Yayımlama
+> * Uç noktasından amaç ve varlıkları alma
+> * Bir düzen oluşturma
+> * Desen tahmin geliştirmeleri doğrulayın
+> * Metin Ignorable olarak işaretler ve düzeni desen içinde iç içe
+> * Desen başarıyı doğrulamak için test panelini kullanın
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Başlamadan önce
+## <a name="use-existing-app"></a>Var olan bir uygulama kullanma
 
-İnsan Kaynakları uygulamadan yoksa [toplu test](luis-tutorial-batch-testing.md) öğreticide [alma](luis-how-to-start-new-app.md#import-new-app) JSON'a yeni bir uygulama [LUIS](luis-reference-regions.md#luis-website) Web sitesi. İçeri aktarılacak uygulamasını bulunan [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) GitHub deposu.
+Adlı son öğreticisinde oluşturulan uygulama devam **İnsanKaynakları**. 
 
-Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `patterns` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
+Önceki öğreticide İnsanKaynakları uygulamadan yoksa aşağıdaki adımları kullanın:
 
-## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Desenler LUIS daha az sayıda örnek ile ortak konuşma öğretin.
+1.  İndirip kaydedin [uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
-İnsan Kaynakları etki alanı yapısı nedeniyle, kuruluşların çalışan ilişkiler hakkında soran birkaç genel yol vardır. Örneğin:
+2. JSON, yeni bir uygulamaya aktarma.
 
-|Konuşmalar|
-|--|
-|Jill Jones kimin için rapor?|
-|Kimin için Jill Jones raporları?|
-
-Bu konuşma yakın her birçok utterance örneği sağlamadan bağlamsal benzersizlik belirleyin. Bir amaç için bir düzen ekleyerek, birçok utterance örneği sağlamadan LUIS bir amaç için ortak utterance düzenlerini öğrenir. 
-
-Örnek şablon konuşma niyetini şunlar:
-
-|Örnek şablon konuşma|
-|--|
-|{Çalışan} mu rapor?|
-|Kimin {çalışana} raporları?|
-
-Desen, varlıkları ve Ignorable metin tanımlamak için söz dizimi içeren bir şablon utterance örnek olarak sağlanır. Bir desen, normal ifade eşleştirme ve makine öğrenimi birleşimidir.  Şablon utterance örnek hedefi konuşma yanı sıra, amaç hangi konuşma uygun daha iyi LUIS verin.
-
-Bir utterance için eşleştirilecek desen için sırada utterance varlıkları şablon utterance varlıklarda ilk eşleşmesi gerekir. Ancak, şablon varlıklar, yalnızca ıntents tahmin yardımcı olmaz. 
-
-**Desenler varlıkları değil algılanırsa, daha az örnek konuşma sağlamanıza olanak tanırken desenle eşleşmez.**
-
-Çalışanların içinde oluşturulduğunu unutmayın [listesi varlık öğretici](luis-quickstart-intent-and-list-entity.md).
+3. Gelen **Yönet** üzerinde bölümünde **sürümleri** sekmesinde sürüm kopyalayın ve adlandırın `patterns`. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rota bir parçası olarak kullanıldığından, adın bir URL geçerli olmayan karakterler içeremez.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Yeni hedefleri ve kullanıcıların konuşma oluşturma
 
-İki yeni hedef ekleme: `OrgChart-Manager` ve `OrgChart-Reports`. Bir kez LUIS tahmin hedefi adı istemci uygulama istemci uygulamasında bir işlev adı olarak kullanılabilir ve bu işlev bir parametre olarak çalışan varlık kullanılabilir döndürür.
-
-```Javascript
-OrgChart-Manager(employee){
-    ///
-}
-```
-
-1. İnsan Kaynakları uygulamanızın LUIS sisteminin **Build** (Derleme) bölümünde olduğundan emin olun. Sağ taraftaki menü çubuğunun en üstünde bulunan **Build** (Derleme) ifadesini seçerek bu bölüme geçebilirsiniz. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **Intents** (Amaçlar) sayfasında **Create new intent** (Yeni amaç oluştur) öğesini seçin. 
 
@@ -110,17 +90,17 @@ OrgChart-Manager(employee){
 
 ## <a name="caution-about-example-utterance-quantity"></a>Örnek utterance miktarı hakkında uyarı
 
-Bu hedefleri, örnek konuşma miktarını LUIS düzgün şekilde ayarlayabilmesi yeterli değil. Gerçek bir uygulamada, her amaç 15 konuşma birçok seçenek ve utterance sözcük uzunluğu en az olmalıdır. Bu birkaç konuşma özellikle desenleri vurgulamak için seçilir. 
+[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
-## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
+## <a name="train"></a>Eğitim
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
+## <a name="publish"></a>Yayımlama
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Uç noktayı farklı bir konuşmayla sorgulama
+## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktasından amaç ve varlıkları alma
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -215,13 +195,53 @@ Desenleri doğru amaç 's puanı önemli ölçüde daha yüksek yüzdesi cinsind
 
 Bu ikinci bir tarayıcı penceresi açık bırakın. Bu öğreticide daha sonra yeniden kullanın. 
 
-## <a name="add-the-template-utterances"></a>Şablon Konuşma ekleme
+## <a name="template-utterances"></a>Şablon konuşma
+İnsan Kaynakları etki alanı yapısı nedeniyle, kuruluşların çalışan ilişkiler hakkında soran birkaç genel yol vardır. Örneğin:
+
+|Konuşmalar|
+|--|
+|Jill Jones kimin için rapor?|
+|Kimin için Jill Jones raporları?|
+
+Bu konuşma yakın her birçok utterance örneği sağlamadan bağlamsal benzersizlik belirleyin. Bir amaç için bir düzen ekleyerek, birçok utterance örneği sağlamadan LUIS bir amaç için ortak utterance düzenlerini öğrenir. 
+
+Şablon utterance örnekleri hedefi şunlar:
+
+|Şablon konuşma örnekleri|söz dizimini anlama|
+|--|--|
+|{Çalışan} mu rapor [?] için|birbirinin yerine {çalışan}, yoksayma [?]}|
+|Kimin {çalışan} [?] raporları|birbirinin yerine {çalışan}, yoksayma [?]}|
+
+`{Employee}` Söz dizimi hangi varlık olarak da öyledir olarak şablon utterance içindeki varlık konum işaretler. İsteğe bağlı söz dizimi `[?]`, sözcük veya isteğe bağlı bir noktalama işaretleri. LUIS, isteğe bağlı bir metin köşeli ayraçlar yoksayılıyor utterance eşleşir.
+
+Söz dizimi normal ifadeler gibi görünüyor, ancak normal ifadeler değil. Yalnızca küme ayracı `{}`ve köşeli ayraç `[]`, söz dizimi desteklenir. En fazla iki düzeyi yuvalanabilir.
+
+Bir utterance için eşleştirilecek desen için sırada utterance varlıkları şablon utterance varlıklarda ilk eşleşmesi gerekir. Ancak, şablon varlıklar, yalnızca ıntents tahmin yardımcı olmaz. 
+
+**Desenler varlıkları değil algılanırsa, daha az örnek konuşma sağlamanıza olanak tanırken desenle eşleşmez.**
+
+Bu öğreticide, iki yeni hedef ekleme: `OrgChart-Manager` ve `OrgChart-Reports`. 
+
+|Amaç|Konuşma|
+|--|--|
+|Kuruluş Şeması-Manager|Jill Jones kimin için rapor?|
+|Kuruluş Şeması-raporlar|Kimin için Jill Jones raporları?|
+
+Bir kez LUIS tahmin hedefi adı istemci uygulama istemci uygulamasında bir işlev adı olarak kullanılabilir ve bu işlev bir parametre olarak çalışan varlık kullanılabilir döndürür.
+
+```Javascript
+OrgChartManager(employee){
+    ///
+}
+```
+
+Çalışanların içinde oluşturulduğunu unutmayın [listesi varlık öğretici](luis-quickstart-intent-and-list-entity.md).
 
 1. Seçin **derleme** üst menüdeki.
 
 2. Sol gezinti bölmesindeki altında **uygulama performansını**seçin **desenleri** sol gezinti bölmesinden.
 
-3. Seçin **Kuruluş Şeması-yönetici** amacı, aşağıdaki şablon konuşma, bir kerede enter, seçtikten sonra her şablon utterance girin:
+3. Seçin **Kuruluş Şeması-yönetici** amacı, ardından aşağıdaki şablon konuşma girin:
 
     |Şablon konuşma|
     |:--|
@@ -232,17 +252,13 @@ Bu ikinci bir tarayıcı penceresi açık bırakın. Bu öğreticide daha sonra 
     |[?] {[Kullanıcının] çalışan} gözetmen kimdir|
     |Patronunuzdan {çalışanın} [?] kimdir|
 
-    `{Employee}` Söz dizimi hangi varlık olarak da öyledir olarak şablon utterance içindeki varlık konum işaretler. 
-
     Rolleri varlıklarla rol adı içeren sözdizimi kullanın ve ele alınmaktadır bir [rolleri için ayrı öğretici](luis-tutorial-pattern-roles.md). 
-
-    İsteğe bağlı söz dizimi `[]`, sözcük veya isteğe bağlı bir noktalama işaretleri. LUIS, isteğe bağlı bir metin köşeli ayraçlar yoksayılıyor utterance eşleşir.
 
     Sol küme ayracı girdiğinizde, Doldur LUIS yardımcı olur, şablon utterance varlıkta yazarsanız `{`.
 
     [![Şablon konuşma amacı için girme ekran görüntüsü](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Seçin **Kuruluş Şeması-raporları** amacı, aşağıdaki şablon konuşma, bir kerede enter, seçtikten sonra her şablon utterance girin:
+4. Seçin **Kuruluş Şeması-raporları** amacı, ardından aşağıdaki şablon konuşma girin:
 
     |Şablon konuşma|
     |:--|
@@ -427,6 +443,8 @@ Tüm bu konuşma bulunan varlıkların içinde bu nedenle bunlar aynı deseniyle
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide iki amaçlar için birçok örnek konuşma zorunda kalmadan yüksek doğruluk ile tahmini zor konuşma ekler. Ekleme desenleri daha iyi izin verilen bu LUIS için önemli ölçüde daha yüksek bir puan hedefle tahmin edin. Varlıklar ve Ignorable metni işaretleme LUIS çok çeşitli konuşma deseni uygulamak izin verilir.
 
 > [!div class="nextstepaction"]
 > [Roller bir desen ile kullanmayı öğrenin](luis-tutorial-pattern-roles.md)

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ecf56f3172ebeab54757d7cbd164b92ca1470ce5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: e494c2bc90f6db1f3a850fccff88efdf26f43012
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051179"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604257"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services ölçeğini genişletme
 
@@ -30,6 +30,8 @@ Bir sorgu havuzundaki sahip sorgu çoğaltmaları sayısından bağımsız olara
 Ölçek genişletme, yeni sorgu çoğaltmaları artımlı olarak sorgu havuzuna eklenir. Bu sorgu havuza eklenecek yeni sorgu çoğaltması kaynaklar için beş dakikaya kadar sürebilir; istemci bağlantıları ve sorguları almaya hazır. Ne zaman tüm yeni sorgu çoğaltmaları hazır ve çalışır hale geldiğinde, yeni istemci bağlantılarını tüm sorgu havuzu kaynaklar arasında Yük Dengelemesi yapılıyor. Mevcut istemci bağlantıları, şu anda bağlı oldukları kaynaktan değiştirilmez.  Ölçek artırma, tüm mevcut istemci bağlantıları için sorgu havuzdan kaldırılmadan bir sorgu havuzu kaynak sonlandırılır. İşlem ölçek, bu beş dakikaya kadar sürebilir tamamlandıktan sonra kalan sorgu kaynak havuzuna bağlanır.
 
 İşlemleri tamamlandıktan sonra modeller, işleme sırasında işlem sunucusu ve sorgu çoğaltmaları eşitleme gerçekleştirilmelidir. İşlemleri otomatikleştirme, işlem işleme başarıyla tamamlandıktan sonra bir eşitleme işlemi yapılandırılması önemlidir. Eşitleme, portalda veya PowerShell veya REST API kullanarak el ile gerçekleştirilebilir. 
+
+### <a name="separate-processing-from-query-pool"></a>Sorgu havuzundan ayrı işleme
 
 Hem işlem hem de sorgu işlemleri için en yüksek performans için işlem sunucunuzun sorgu havuzundan ayırmak seçebilirsiniz. Ayrılmış, mevcut ve yeni istemci bağlantılarını sorgu çoğaltmaları yalnızca sorgu havuzundaki atanır. İşlemleri yalnızca kısa bir süre alırsa, sorgu havuzu, işleme ve eşitleme işlemleri ve ardından sorgu havuza eklemek için gereken süre, işlem sunucusundan ayrı seçebilirsiniz. 
 
@@ -53,7 +55,7 @@ Sunucunuz bulunduğu bölgeyi yapılandırabileceğiniz sorgu yinelemelerinin sa
 
 1. Portalında **genişleme**. Sorgu çoğaltma sunucu sayısını seçmek için kaydırıcıyı kullanın. Mevcut sunucunuz yanı sıra seçtiğiniz yinelemeler sayısıdır.
 
-2. İçinde **işleme sunucusunu sorgulama havuzundan ayırın**seçin işleme sunucunuza sorgu sunuculardan hariç tutmak için Evet.
+2. İçinde **işleme sunucusunu sorgulama havuzundan ayırın**seçin işleme sunucunuza sorgu sunuculardan hariç tutmak için Evet. Varsayılan bağlantı dizesini kullanarak istemci bağlantıları (olmadan: rw) sorgu havuzundaki çoğaltmalar yönlendirilirsiniz. 
 
    ![Ölçek genişletme kaydırıcı](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
@@ -99,6 +101,13 @@ Power BI Desktop, Excel ve özel uygulamalar kullanma gibi son kullanıcı istem
 Azure işlev uygulamaları ve ÇYN, SSMS, SSDT ve PowerShell bağlantı dizelerini kullanma **yönetim sunucusu adı**. Özel bir yönetim sunucusu adı içerir `:rw` (okuma-yazma) niteleyicisi. Yönetim sunucusu üzerindeki tüm işleme faaliyetlerinden oluşur.
 
 ![Sunucu adları](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## <a name="troubleshoot"></a>Sorun giderme
+
+**Sorun:** kullanıcılar alma hatası **sunucusu bulunamıyor '\<sunucusunun adı >' bağlantı modunda 'ReadOnly' örneği.**
+
+**Çözüm:** seçerken **işleme sunucusunu sorgulama havuzundan ayırın** seçeneği, varsayılan bağlantı dizesini kullanarak istemci bağlantıları (olmadan: rw) sorgu havuzu kopyaya yönlendirilirsiniz. Eşitleme değildir, çünkü sorgu havuzundaki çoğaltmalar henüz çevrimiçi henüz tamamlanmamış, yeniden yönlendirilen istemci bağlantıları başarısız olabilir. Başarısız bağlantılar önlemek için tam bir ölçek genişletme ve eşitleme işlemi kadar işleme sunucusunu sorgulama havuzundan ayırın değil seçin. Bellek ve QPU ölçümleri eşitleme durumunu izlemek için kullanabilirsiniz.
+
 
 ## <a name="related-information"></a>İlgili bilgiler
 

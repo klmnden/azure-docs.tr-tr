@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 09/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 3600e83d18f8cabd03c46af2ef47445c588cbdb5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7f24dad3cfefd5ecb0b1c78f4a2b242c99a01239
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38548296"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Öğretici: Azure Active Directory AppDynamics ile tümleştirme
 
@@ -36,7 +36,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi AppDynamics ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir AppDynamics çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de AppDynamics tümleştirmesini yapılandırmak için AppDynamics Gale
 
 **AppDynamics galerideki eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -112,7 +112,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
 
     ![Çoklu oturum açmayı yapılandırın](./media/appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.saas.appdynamics.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.saas.appdynamics.com/controller`
 
@@ -189,6 +189,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 ### <a name="creating-an-appdynamics-test-user"></a>AppDynamics bir test kullanıcısı oluşturma
 
 Bu bölümün amacı AppDynamics Britta Simon adlı bir kullanıcı oluşturmaktır. AppDynamics tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa AppDynamics erişme denemesi sırasında oluşturulur.
+
 >[!Note]
 >Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [AppDynamics istemci Destek ekibine](https://www.appdynamics.com/support/).
 
@@ -231,7 +232,7 @@ Erişim panelinde AppDynamics kutucuğa tıkladığınızda, otomatik olarak App
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

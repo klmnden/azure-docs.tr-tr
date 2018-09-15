@@ -1,5 +1,6 @@
 ---
-title: Azure uç noktası aboneliği yönetme | Microsoft Docs
+title: LUIS, uç nokta abonelik yönetimi
+titleSuffix: Azure Cognitive Services
 description: Bu makalede, LUIS hesabınızın ödeme planı aşağıdaki uç noktanıza sınırsız trafiği sağlamak için bir tarifeli uç noktası anahtarı oluşturun.
 services: cognitive-services
 author: diberry
@@ -7,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0b735499ae589e44c2ce5076fce38ec47ddd69c7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: dcee5ce7ce103db734cf4b63c26944945efed0ea
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223288"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630911"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Azure uç noktası Abonelik anahtarları yönetme
 
@@ -24,9 +25,9 @@ Test ve yalnızca prototip için ücretsiz katman (F0) kullanın. Üretim sistem
 > Kullanmayın [anahtar yazma](luis-concept-keys.md#authoring-key) için üretim uç noktası sorgular.
 
 <a name="create-luis-service"></a>
-## <a name="create-luis-endpoint-key"></a>LUIS uç noktası anahtarı oluşturma
+## <a name="create-luis-endpoint-key"></a>LUIS uç nokta anahtarı oluşturma
 
-1. Oturum  **[Microsoft Azure](https://ms.portal.azure.com/)** 
+1. Oturum  **[Microsoft Azure](https://ms.portal.azure.com/)**. 
 2. Yeşil tıklayın **+** "LUIS" Market'te arayın ve üst sol paneli oturum açma ve ardından tıklayarak **Language Understanding** izleyin **deneyimi oluşturun**  LUIS abonelik hesabı oluşturmak için. 
 
     ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
@@ -40,8 +41,7 @@ Test ve yalnızca prototip için ücretsiz katman (F0) kullanın. Üretim sistem
     ![Azure anahtarları](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Oturum, bölgenin [LUIS](luis-reference-regions.md) Web sitesi ve [yeni LUIS uç noktası anahtarı ekleme](luis-how-to-manage-keys.md#assign-endpoint-key). 
-    > * Adı Anımsanması gereken bölgenin üzerinde seçmek için oluşturduğunuz Azure hizmetinden [LUIS](luis-reference-regions.md) yayımlama sayfası.  
+    > Oturum, bölgenin [LUIS](luis-reference-regions.md) Web sitesi ve [uç noktası anahtarı yeni LUIS atama](luis-how-to-manage-keys.md#assign-endpoint-key). 3. adımdaki LUIS aboneliğin adını ihtiyacınız vardır.
 
 ## <a name="change-luis-pricing-tier"></a>LUIS fiyatlandırma katmanını Değiştir
 

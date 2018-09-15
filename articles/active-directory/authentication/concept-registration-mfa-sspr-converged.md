@@ -1,6 +1,6 @@
 ---
 title: Yakınsanmış kaydı için Azure AD SSPR ve mfa'yı (genel Önizleme)
-description: Kayıt (genel Önizleme) Azure AD çok faktörlü kimlik doğrulamasını ve Self Servis parola sıfırlama
+description: Kayıt (genel Önizleme) Azure AD multi-Factor Authentication ve Self Servis parola sıfırlama
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,62 +10,64 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: af57faddcc1413747b4bb847e27287ba86562175
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 44a5b32b68b0365e957d97a516f0d767e6501c0f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056096"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630333"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Yakınsanmış kaydı için Self Servis parola sıfırlama ve Azure multi-Factor Authentication (genel Önizleme)
 
-Şimdiye kadar kullanıcıların Azure multi-Factor Authentication (MFA) ve iki farklı portallarında Self Servis parola sıfırlama (SSPR) için kimlik doğrulama yöntemlerini kaydetmeniz gerekir. Çok sayıda kullanıcı benzer yöntemler Azure MFA ve SSPR için kullanılan ve her iki portallarında kaydetmemek olgu yanıltıcı. Azure mfa'yı veya, bir Yardım Masası çağrı baştaki gerektiğinde SSPR erişememe bazı kullanıcılar ve büyük olasılıkla upset bir kullanıcı bu girdilerinde gerektiriyordu. Artık, kullanıcıların bir kez kaydedebilir ve Azure mfa'yı hem de bu özellikler için kendi kimlik doğrulama yöntemlerini iki kez kaydetmek için gereksinimini ortadan kaldırır, SSPR avantajlarından yararlanın.  
+Şimdiye kadar kullanıcıların Azure multi-Factor Authentication (MFA) ve iki farklı portallarında Self Servis parola sıfırlama (SSPR) için kimlik doğrulama yöntemlerini kaydetmeniz gerekir. Çok sayıda kullanıcı, benzer yöntemler Azure MFA ve SSPR için kullanılan ve her iki portallarında kaydetmemek yanıltıcı. Bazı kullanıcılar ardından gerekli, Yardım masanıza yapılan aramaları için önde gelen Azure mfa'yı veya SSPR kullanacak şekilde aktaramadık. 
 
-Kuruluşunuz için bu yeni deneyim etkinleştirmeden önce bu makalede gözden geçirmenizi öneririz yanı sıra sunduğumuz [son kullanıcı belgelerinin](https://aka.ms/securityinfoguide) etkisini anlamak için yönetim deneyimine kullanıcılarınızı sahip olursunuz. Kullanabileceğiniz [son kullanıcı belgelerinin](https://aka.ms/securityinfoguide) eğitmek ve yeni deneyimi ve başarılı bir dağıtım sağlamak için kullanıcılarınıza hazırlamak için.
+Artık, kullanıcıların bir kez kaydedebilir ve Azure mfa'yı hem SSPR avantajlarından yararlanın. Kullanıcıların kendi kimlik doğrulama yöntemlerini bu özellikler için iki kez kaydetmek gerekmez.  
+
+Kuruluşunuz için bu yeni deneyim etkinleştirmeden önce bu makalede gözden geçirmenizi öneririz ve [kullanıcı belgeleri](https://aka.ms/securityinfoguide) kullanıcılarınızı deneyimi sunacak etkisini anlamak için. Kullanıcı belgeleri, eğitmek ve kullanıcılarınız için yeni deneyim hazırlamak ve başarılı bir dağıtım sağlamak için kullanabilirsiniz.
 
 |     |
 | --- |
-| Azure multi-Factor Authentication ve Self Servis parola sıfırlama için yakınsanmış kaydı Azure Active Directory genel Önizleme özelliğidir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure multi-Factor Authentication ve Self Servis parola sıfırlama için yakınsanmış kaydı Azure Active Directory (Azure AD) genel Önizleme özelliğidir. Önizlemeler hakkında daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 Azure multi-Factor Authentication hem de Self Servis parola sıfırlama tek bir deneyimle için kimlik doğrulama yöntemlerini kaydedin açmasına etkinleştirmek için aşağıdaki adımları tamamlayın:
 
 1. Azure portalına genel yönetici veya Kullanıcı Yöneticisi olarak oturum açın.
-2. Gözat **Azure Active Directory**, **kullanıcı ayarları**, **erişim paneli Önizleme özellikleri için ayarları yönetme**.
+2. Gözat **Azure Active Directory** > **kullanıcı ayarları** > **erişim paneli Önizleme özellikleri için ayarları yönetme**.
 3. Altında **kullanıcılar kaydetme ve güvenlik bilgilerinizi yönetmek için Önizleme özelliklerini kullanabilir**, etkinleştirmek seçebileceğiniz bir **seçili** için kullanıcı ve grup **tüm** kullanıcılar.
 
-Kullanıcılar artık giderek [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo) MFA ve SSPR için kendi kimlik doğrulama yöntemlerini kaydedilecek. Bu yeni deneyimi, kullanıcıların göreceği hakkında daha fazla bilgi edinmek için müşterilerimize [son kullanıcı belgelerinin](https://aka.ms/securityinfoguide).  
+Kullanıcılar artık giderek [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo) MFA ve SSPR için kendi kimlik doğrulama yöntemlerini kaydedilecek. Bu yeni deneyimi, kullanıcıların göreceği hakkında daha fazla bilgi için bkz: [kullanıcı belgeleri](https://aka.ms/securityinfoguide).  
 
 > [!NOTE]
-> Bu deneyim, kaydetme veya telefon numarasını onaylamak kullanıcıları bir kez etkinleştirmeniz veya bu yöntemler MFA ve SSPR ilkelerinde etkinleştirilip etkinleştirilmediğini yeni deneyim aracılığıyla mobil uygulama için mfa'yı ve SSPR kullanmayı imkanına sahip olursunuz. Bu deneyim devre dışı bırakırsanız, aka.ms/ssprsetup önceki SSPR kayıt sayfasına gidin kullanıcılar sayfası erişebilmeniz için önce MFA gerçekleştirmek için gerekir.  
+> Bu deneyim etkinleştirdikten sonra bu yöntemler MFA ve SSPR ilkelerinde etkinleştirilip etkinleştirilmediğini kaydetmek veya telefon numarası ya da yeni deneyim aracılığıyla mobil uygulama onaylayın kullanıcılar bunları MFA ve SSPR için kullanabilirsiniz. Bu deneyim devre dışı bırakırsanız, https:/aka.ms/ssprsetup önceki SSPR kayıt sayfasına gidin kullanıcılar sayfası erişebilmeniz için önce çok faktörlü kimlik doğrulaması gerçekleştirmek için gerekir.  
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Bir kullanıcı kimlik doğrulama yöntemleri ayrı MFA ve SSPR kayıt deneyimler aracılığıyla daha önce kaydedildiyse, bu bilgileri tekrar kaydetmek gerekmez. Ancak, MFA veya SSPR için kaydedin açmasına ayarlarınızı ihtiyacınız varsa oturum açarken güvenlik bilgilerini gözden geçirmek için bir istem görebilirsiniz.
+Bir kullanıcı kimlik doğrulama yöntemleri ayrı MFA ve SSPR kayıt deneyimler aracılığıyla daha önce kaydedildiyse, bu bilgileri tekrar kaydetmek gerekmez. Ancak, MFA veya SSPR için kaydedin açmasına ayarlarınızı ihtiyacınız varsa oturum açarken güvenlik bilgilerini incelemek isteyen bir ileti görebilirsiniz.
 
-Kullanıcı MFA için kullanılabilecek bir yöntem kaydedildiyse, yeni deneyimi erişebilmeniz için önce MFA gerçekleştirmek için istenir.
+Kullanıcı MFA için kullanılabilecek bir yöntem kaydedildiyse, yeni deneyimi erişebilmeniz için önce çok faktörlü kimlik doğrulaması gerçekleştirmek üzere istenir.
 
 Kayıt için mfa'yı veya SSPR zorunlu ve bir kullanıcı henüz kayıtlı değil, oturum açtığında kaydetmek için istenir.
 
-Oturum açma sırasında kaydetmek isteyip istemediğiniz sorulur kullanıcılar aşağıdaki deneyimi göreceksiniz:
+Oturum açma sırasında kaydetmek isteyip istemediğiniz sorulur kullanıcılar aşağıdaki deneyimi bakın:
 
-![Yakınsanmış kaydı. Yeni bir kullanıcı olarak yöntemlerini ayarlama](./media/concept-registration-mfa-sspr-converged/concept-registration-add-methods.png)
-
-> [!NOTE]
-> Bu deneyim, yalnızca bir kullanıcı oturum açma sırasında kaydetmek için ne zaman istemde gösterilir. Bu makalenin sonraki bölümlerinde açıklanan deneyimi farklı bir sürümü aka.ms/setupsecurityinfo, yeni deneyimi doğrudan Git kullanıcıları görürsünüz.
-
-Gösterilen kimlik doğrulama yöntemleri, MFA veya SSPR ilkeleri etkin yöntemlere bağlı olarak değişir. Kullanıcı MFA ilkesini, SSPR İlkesi veya her ikisi ile uyumlu olması için gereken kimlik doğrulama yöntemleri en az sayıda kayıt istenir. Hangi kimlik doğrulama yöntemlerini kullanıcı kaydedebilir esneklik varsa, bunlar seçebilirsiniz **güvenlik bilgisi seçin** diğer kimlik doğrulama yöntemlerini seçmesine.  
+![Yakınsanmış kaydı. Yöntemleri, yeni bir kullanıcı olarak ayarlayın.](./media/concept-registration-mfa-sspr-converged/concept-registration-add-methods.png)
 
 > [!NOTE]
-> Hem mobil uygulama bildirimi hem de mobil uygulama kodu kullanımını etkinleştirirseniz, bir bildirim kullanarak Microsoft Authenticator uygulamasını kaydetme kullanıcıların kimliklerini doğrulamak için hem bildirim hem de kodu kullanabilirsiniz.
+> Bu deneyim, yalnızca, bir kullanıcı oturum açma sırasında kaydetmek için istenir gösterilir. Deneyimini doğrudan Git kullanıcılar https://aka.ms/setupsecurityinfo bu makalenin sonraki bölümlerinde açıklanan deneyimi farklı bir sürümüne bakın.
 
-Önceki MFA kayıt deneyimi, kullanıcıların uygulama parolası yeni kayıt deneyimi geçerken kaydetmek için istenmez. Bunun yerine, uygulama parolaları yeni deneyiminde kaydetmek için uygulama parolaları öğreticimize listelenen adımları izlemelidir.  
+Görüntülenen kimlik doğrulaması yöntemleri, yöntemleri, MFA ve SSPR ilkeleri etkin göre değiştirin. Kullanıcı MFA ilkesini, SSPR İlkesi veya her ikisi ile uyumlu olması için gereken kimlik doğrulama yöntemleri en az sayıda kayıt istenir. Hangi kimlik doğrulama yöntemlerini kullanıcı kaydedebilir esneklik varsa, bunlar seçebilirsiniz **güvenlik bilgisi seçin** diğer kimlik doğrulama yöntemlerini seçmesine.  
 
-Bir kullanıcı, kayıt işlemi tamamlandıktan sonra varsayılan MFA yöntemleri otomatik olarak ayarlanır. Kullanıcının kayıtlı Doğrulayıcı uygulama, uygulama için varsayılan yöntemi ayarlanır. Kullanıcı, bir kimlik doğrulayıcı uygulama kaydedilmedi ve telefon numarası yalnızca kayıtlı varsayılan yöntemini telefon araması olarak ayarlanır. Kullanıcılar, kendi varsayılan giderek değiştirebilirsiniz [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo) seçerek **Varsayılanı Değiştir**.  
+> [!NOTE]
+> Hem mobil uygulama bildirimi hem de mobil uygulama kodu kullanımını etkinleştirirseniz, öğe bir bildirim aracılığıyla Microsoft Authenticator uygulamasını kaydetme kullanıcıların kimliklerini doğrulamak için hem bildirim hem de kodu kullanabilirsiniz.
 
-Kayıt zorlanmaz, kullanıcıların kendi kimlik doğrulama yöntemleri, yönetebileceği [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo). Kullanıcı MFA gerçekleştirmek için kullanılan bir yöntem daha önce kaydedildiyse, sayfanın erişebilmeniz için önce MFA gerçekleştirmek için istenecektir.  
+Önceki MFA kayıt deneyimi, bir uygulama parolası yeni kayıt deneyimi geçerken kaydetmek için kullanıcıların istenmez. Bunun yerine, bunlar uygulama parolaları yeni deneyime kaydedin için uygulama parolaları Öğreticisi listelenen adımları izlemelidir.  
 
-![Yakınsanmış kaydı. Kayıtlı kullanıcı olarak yöntemlerini Düzenle](./media/concept-registration-mfa-sspr-converged/concept-registration-edit-methods.png)
+Bir kullanıcı kayıt tamamlandıktan sonra kendi varsayılan MFA yöntemini otomatik olarak ayarlanır. Bir doğrulayıcı uygulama kullanıcının kayıtlı varsayılan yöntemi uygulamasına ayarlanır. Kullanıcı, bir kimlik doğrulayıcı uygulama kaydedilmedi ve telefon numarası yalnızca kayıtlı varsayılan yöntemini telefon araması olarak ayarlanır. Kullanıcılar, kendi varsayılan giderek değiştirebilirsiniz https://aka.ms/setupsecurityinfo seçerek **Varsayılanı Değiştir**.  
+
+Kayıt zorlanmaz, kullanıcıların kendi kimlik doğrulama yöntemleri, yönetebileceği https://aka.ms/setupsecurityinfo. Kullanıcı MFA için kullanılabilecek bir yöntem daha önce kaydedildiyse, sayfanın erişebilmeniz için önce çok faktörlü kimlik doğrulaması gerçekleştirmek üzere istenir.  
+
+![Yakınsanmış kaydı. Yöntemler, kayıtlı kullanıcı olarak düzenleyin.](./media/concept-registration-mfa-sspr-converged/concept-registration-edit-methods.png)
 
 Bu sayfada, önceden kaydedilmiş kimlik doğrulama yöntemleri ve kimlik doğrulama yöntemleri için ofis telefonu gibi kayıtlı kullanıcılar görür. Ayrıca kullanıcılar eklemek, düzenlemek veya silmek kendi kimlik doğrulama yöntemlerini (ofis telefonu hariç).  
 
@@ -77,18 +79,18 @@ Bu yeni deneyim için Denetim günlükleri, Denetim günlüğü kimlik doğrulam
 
    * Bazı kullanıcılar, kısa mesaj kullanarak telefon numarasını kaydettikten sonra varsayılan MFA yöntemleri telefon araması olarak ayarlandığını görebilirsiniz. Kullanıcılar, kendi varsayılan yöntemini makalede bulunan yönergeleri takip ederek değiştirerek bu sorunu giderebilir [güvenlik bilgilerinizi (Önizleme) yönetme](../user-help/security-info-manage-settings.md#change-your-info).
 
-**Kullanıcı yönetici kendi varsayılan yöntemini devre dışı bırakır. sonra yeni kayıt deneyimi erişemiyor**
+**Bir yönetici kendi varsayılan yöntemini devre dışı bırakır. sonra kullanıcı yeni kaydı deneyimini erişemiyor**
 
-   * Bazı kullanıcılar önceden kaydedilmiş varsayılan MFA yöntemi, yönetici tarafından devre dışı ise yeni kayıt deneyimi erişmek mümkün olmayabilir. Örnek bir senaryo aşağıda verilmiştir:
+   * Bazı kullanıcılar, yönetici kullanıcıların önceden kaydedilmiş varsayılan MFA yöntemi devre dışı bırakılmışsa yeni kayıt deneyimi erişmek mümkün olmayabilir. Örnek bir senaryo aşağıda verilmiştir:
       1. Kullanıcı daha önce kaydedilen telefon numarasını ve kendi varsayılan yöntemini telefon araması olarak ayarlayın.
       2. Kiracı için bir MFA yöntemi olarak telefon araması yönetici devre dışı bırakır.
       3. Kullanıcı oturum açma sırasında Kiracı SSPR ilkeyi karşılamak için ek bir yöntem kaydedilecek gerektiğinden kaydetmek için istenir.
-      4. Kullanıcı kaydetmek çalışır, ancak ayarlanmış bir varsayılan yöntemi olmaması nedeniyle sayfasına erişemezseniz ve bir döngüde takılı.
+      4. Kullanıcı kaydetmek çalışır, ancak sayfasına erişemezseniz ve varsayılan bir yöntem olmadığından bir döngüde takılı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Azure'ı dağıtmayı öğrenin AD Self Servis parola sıfırlama](howto-sspr-deployment.md)
 
-[Oturum açarken çok faktörlü kimlik doğrulaması isteme hakkında bilgi edinin](howto-mfa-getstarted.md)
+[Oturum açmak için çok faktörlü kimlik doğrulaması isteme hakkında bilgi edinin](howto-mfa-getstarted.md)
 
-[Son kullanıcı kimlik doğrulama yöntemini yapılandırma belgeleri](https://aka.ms/securityinfoguide)
+[Kullanıcı kimlik doğrulama yöntemleri yapılandırma hakkında bilgi edinin](https://aka.ms/securityinfoguide)

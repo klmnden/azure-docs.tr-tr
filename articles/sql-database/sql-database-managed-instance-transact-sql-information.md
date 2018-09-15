@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 0813/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 57c6b52df3e8f6c47eb794cda4b47bfa2d7de374
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c35fdb391f3ec3f0af3a7c916cb22cb58c90dd64
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051247"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604679"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları 
 
@@ -267,7 +267,7 @@ Dış tablolar HDFS veya Azure blob depolamadaki dosyalara başvuru desteklenmez
 
 ### <a name="replication"></a>Çoğaltma 
  
-Çoğaltma, yönetilen örneği'nde desteklenir. Çoğaltma hakkında daha fazla bilgi için bkz. [SQL Server çoğaltma](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Çoğaltma, yönetilen örnek'te genel önizlemesi için kullanılabilir. Çoğaltma hakkında daha fazla bilgi için bkz. [SQL Server çoğaltma](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>GERİ bildirimi 
  
@@ -335,23 +335,24 @@ Restore deyimleri hakkında daha fazla bilgi için bkz. [geri deyimleri](https:/
 - `sp_attach_db`, `sp_attach_single_file_db`, ve `sp_detach_db` desteklenmez. Bkz: [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), ve [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` desteklenmiyor. Bkz: [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### <a name="sql-server-agent"></a>SQL Server Agent 
- 
+### <a name="sql-server-agent"></a>SQL Server Agent
+
 - SQL Aracısı ayarları salt okunur. Yordam `sp_set_agent_properties` yönetilen örneği'nde desteklenmiyor.  
-- İşler - T-SQL iş adımları şu anda desteklenen (daha fazla adım genel Önizleme sırasında eklenir).
- - SSIS henüz desteklenmiyor. 
- - Çoğaltma henüz desteklenmiyor  
-  - İşlem günlüğü okuyucu henüz desteklenmiyor.  
-  - Anlık görüntü henüz desteklenmiyor.  
-  - Dağıtıcı henüz desteklenmiyor.  
-  - Birleştirme desteklenmiyor.  
+- İşler - T-SQL iş adımları şu anda desteklenmiyor
+- Diğer tür iş adımları olmayan şu anda desteklenen (daha fazla adım türleri, genel Önizleme sırasında eklenir).
+  - Desteklenmeyen çoğaltma işleri de dahil olmak üzere:
+    - İşlem günlüğü okuyucu.  
+    - Anlık görüntü.
+    - Dağıtıcı.  
+    - Birleştirme.  
+  - SSIS henüz desteklenmiyor. 
   - Sıra okuyucusu desteklenmiyor.  
- - Komut kabuğu henüz desteklenmiyor. 
+  - Komut kabuğu henüz desteklenmiyor. 
   - Yönetilen örnek (örneğin, ağ paylaşımları üzerinden robocopy) dış kaynaklara erişemez.  
- - PowerShell henüz desteklenmiyor.
- - Analiz Hizmetleri desteklenmez.  
+  - PowerShell henüz desteklenmiyor.
+  - Analiz Hizmetleri desteklenmez.  
 - Bildirimleri kısmen desteklenir.
- - E-posta bildirimi desteklenir, bir veritabanı posta profili yapılandırma gerektirir. Yalnızca bir veritabanı posta profili olabilir ve çağrılması gerekir `AzureManagedInstance_dbmail_profile` genel önizlemeye sunuldu (geçici sınırlama).  
+- E-posta bildirimi desteklenir, bir veritabanı posta profili yapılandırma gerektirir. Yalnızca bir veritabanı posta profili olabilir ve çağrılması gerekir `AzureManagedInstance_dbmail_profile` genel önizlemeye sunuldu (geçici sınırlama).  
  - Çağrı desteklenmiyor.  
  - NetSend desteklenmiyor. 
  - Uyarılar değil henüz desteklenmemektedir.

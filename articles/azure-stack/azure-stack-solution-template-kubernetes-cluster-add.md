@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: c9429f5909e5ba3fd66681fa62cf16125922d075
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ded2aa17fe9b8de2d8c8f662f5d99b1ce33a2b25
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721781"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634218"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Bir Kubernetes kümesi için Azure Stack Marketini Ekle
 
@@ -110,7 +110,7 @@ Kubernetes kümesini marketten ekleyin:
 
 1. Açık [Yönetim Portalı](https://adminportal.local.azurestack.external).
 
-1. Seçin **Hizmetleri; bir;** altındaki **Yönetim** kategorisi, select **Market Yönetim**.
+1. Seçin **hizmetlerini ekleyin** altındaki **Yönetim** kategorisi, select **Market Yönetim**.
 
 1. Seçin **+ Azure'dan Ekle**.
 

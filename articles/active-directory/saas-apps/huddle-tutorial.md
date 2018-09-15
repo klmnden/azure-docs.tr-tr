@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 08114fc52665eb336844a1072df8bd3f2591dd07
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: fc4ea2538ebe5876e8f3572ab8ad76c4b3b44b8c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093473"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Öğretici: Azure Active Directory Huddle ile tümleştirme
 
@@ -56,6 +56,7 @@ Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu 
 2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-huddle-from-the-gallery"></a>Galeriden Huddle ekleme
+
 Azure AD'de Huddle tümleştirmesini yapılandırmak için Huddle Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Huddle eklemek için aşağıdaki adımları gerçekleştirin:**
@@ -67,7 +68,7 @@ Azure AD'de Huddle tümleştirmesini yapılandırmak için Huddle Galeriden yön
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
-    
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
@@ -80,24 +81,18 @@ Azure AD'de Huddle tümleştirmesini yapılandırmak için Huddle Galeriden yön
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/huddle-tutorial/tutorial_huddle_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
 
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." adlı bir test kullanıcı tabanlı Huddle ile test etme
 
 Tek iş için oturum açma için Azure AD ne Huddle karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Huddle ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Huddle içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
-
 Yapılandırma ve Azure AD çoklu oturum açma Huddle ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-
 3. **[Huddle test kullanıcısı oluşturma](#creating-a-huddle-test-user)**  - kullanıcı Azure AD gösterimini bağlı Huddle Britta simon'un bir karşılığı vardır.
-
 4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-
 5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
@@ -111,10 +106,13 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve H
     ![Çoklu oturum açmayı yapılandırın][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açmayı yapılandırın](./media/huddle-tutorial/tutorial_huddle_samlbase.png)
 
 3. Üzerinde **Huddle etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+
+    > [!NOTE]
+    > Huddle örneğinizin aşağıdaki girdiğiniz etki alanından otomatik olarak algılanır.
 
     ![Etki alanı ve URL'ler tek oturum açma bilgileri huddle](./media/huddle-tutorial/tutorial_huddle_url.png)
 
@@ -122,16 +120,16 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve H
 
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.com`|
-    | `https://us.huddle.com` |
+    | `https://<customsubdomain>.huddle.net`|
+    | `https://my.huddle.net` |
     | |
 
     b. İçinde **yanıt URL'si** metin herhangi biri şu biçimi kullanarak URL'yi yazın:
 
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.com/saml/idp-initiated-sso`|
-    | `https://us.huddle.com/saml/idp-initiated-sso`|
+    | `https://<customsubdomain>.huddle.net/saml/idp-initiated-sso`|
+    | `https://my.huddle.net/saml/idp-initiated-sso`|
     | |
 
 4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
@@ -139,15 +137,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve H
     ![Etki alanı ve URL'ler tek oturum açma bilgileri huddle](./media/huddle-tutorial/tutorial_huddle_url1.png)
 
     İçinde **oturum açma URL'si** metin herhangi biri şu biçimi kullanarak URL'yi yazın:
-    
+
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.com`|
-    | `https://us.huddle.com`|
+    | `https://<customsubdomain>.huddle.net`|
     | |
 
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Huddle istemci Destek ekibine](https://huddle.zendesk.com) bu değerleri almak için. 
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Huddle istemci Destek ekibine](https://huddle.zendesk.com) bu değerleri almak için.
 
 5. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
@@ -157,15 +154,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve H
 
     ![Çoklu oturum açmayı yapılandırın](./media/huddle-tutorial/tutorial_general_400.png)
 
-7. Üzerinde **Huddle yapılandırma** bölümünde **yapılandırma Huddle** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.** 
+7. Üzerinde **Huddle yapılandırma** bölümünde **yapılandırma Huddle** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/huddle-tutorial/tutorial_huddle_configure.png) 
-    
+
 8. Çoklu oturum açma Huddle tarafında yapılandırmak için indirilen göndermek gereken **sertifika**, **SAML çoklu oturum açma hizmeti URL'si**, ve **SAML varlık kimliği** için [ İstemci Destek ekibine huddle](https://huddle.zendesk.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.  
-   
+
     >[!NOTE]
-    > Çoklu oturum açma Huddle destek ekibi tarafından etkinleştirmesi gerekir. Yapılandırma tamamlandıktan sonra bir bildirim alırsınız. 
-    > 
+    > Çoklu oturum açma Huddle destek ekibi tarafından etkinleştirmesi gerekir. Yapılandırma tamamlandıktan sonra bir bildirim alırsınız.
+    >
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

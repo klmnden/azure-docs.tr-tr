@@ -6,22 +6,24 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/12/2018
+ms.date: 09/14/2018
 ms.author: dobett
-ms.openlocfilehash: b57a448459101150363d595910cefcde991f1f92
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: f5d493628df68e0afbe05137b0d7386d6c40f7d4
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721829"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605751"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Anlama ve Azure IOT Hub SDK'ları kullanın
 
-IOT Hub ile çalışmaya yönelik yazılım geliştirme setleri (SDK'lar) iki kategorisi vardır:
+IOT Hub ile çalışmaya yönelik yazılım geliştirme setleri (SDK'lar) üç kategoriye ayrılır:
 
 * **Cihaz SDK'ları** , cihaz istemcisi veya modül istemcisi kullanarak IOT cihazlarında çalışan uygulamalar oluşturmanıza olanak tanır. Bu uygulamalar, IOT hub'ına telemetri gönderme ve isteğe bağlı olarak, IOT hub'ından iletiler, iş, yöntemi veya ikizi güncelleştirmeleri alırsınız.  Modül istemci yazmak için kullanabileceğiniz [modülleri](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) için [Azure IOT Edge çalışma zamanı](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge).
 
 * **Hizmet SDK'ları** IOT hub'ınızı yönetme ve isteğe bağlı olarak ileti göndermek, zamanlama işleri, doğrudan metotları çağırma veya istenen özellik güncelleştirmeleri, IOT cihazları veya modülleri Gönder olanak sağlar.
+
+* **Cihaz sağlama SDK'ları** kullanarak IOT hub cihaz sağlama sağlayan [cihaz sağlama hizmeti](../iot-dps/about-iot-dps.md).
 
 Azure IOT SDK'larını kullanarak geliştirme avantajları hakkında bilgi [burada][lnk-benefits-blog].
 
@@ -107,7 +109,29 @@ C için Azure IOT Hub hizmeti SDK'sı
 > [!NOTE]
 > GitHub depolarının readme dosyalarında dil ve platforma özgü paket yöneticileri, geliştirme makinenizde ikili dosyaları ve bağımlılıklarını yüklemek için kullanma hakkında bilgi için bkz.
 
+## <a name="device-provisioning-sdks"></a>Cihaz SDK'ları sağlama
 
+**Microsoft Azure sağlama SDK'ları** kullanarak IOT hub cihaz sağlama sağlayan [cihaz sağlama hizmeti](../iot-dps/about-iot-dps.md).
+
+Azure sağlama cihaz ve hizmet SDK'ları C# için:
+* [Cihaz istemci SDK'sı sağlama](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/device)
+* [Sağlama hizmeti istemci SDK'sı](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/service)
+
+Azure sağlama cihaz ve hizmet SDK'ları Java için:
+* [Cihaz istemci SDK'sı sağlama](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning-device-client)
+* [Sağlama hizmeti istemci SDK'sı](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning/provisioning-service-client)
+
+Azure sağlama cihaz ve hizmet SDK'ları Node.js için:
+* [Cihaz istemci SDK'sı sağlama](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device)
+* [Sağlama hizmeti istemci SDK'sı](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service)
+
+Azure sağlama cihaz ve hizmet SDK'ları Python için:
+* [Cihaz istemci SDK'sı sağlama](https://github.com/Azure/azure-iot-sdk-python/blob/master/provisioning_device_client)
+* [Sağlama hizmeti istemci SDK'sı](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client)
+
+C için Azure sağlama cihaz ve hizmet SDK
+* [Cihaz istemci SDK'sı sağlama](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client)
+* [Sağlama hizmeti istemci SDK'sı](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning/service)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

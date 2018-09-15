@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fd4955cb2d7ea76e8d0fd6c60027740b64bd8b24
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ac1c3b4ac49cd8934316eb5653af8f5af2cf801a
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026256"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630163"
 ---
 # <a name="collaborating"></a>İşbirliği yapma
 
@@ -30,6 +30,11 @@ Bkz: [Azure Active Directory Kiracı Kullanıcı](luis-how-to-collaborate.md#azu
 
 ## <a name="luis-app-owner"></a>LUIS uygulama sahibi
 Bir uygulamayı oluşturan sahibi hesaptır. Her uygulamanın tek bir sahip vardır. Uygulama sahibi listelendiğinden  **[ayarları](luis-how-to-collaborate.md)**. Bu uygulamayı silebilirsiniz hesabıdır. Uç nokta kota aylık sınırı %75 ulaştığında e-posta alırsa hesabı da budur. 
+
+## <a name="authorization-roles"></a>Yetkilendirme rolleri
+LUIS, sahipleri ve bir özel durum ortak çalışanlarla için farklı roller desteklemiyor. Sahibi uygulama silebilirsiniz tek hesaptır.
+
+Model erişimi denetlemek ilgileniyorsanız, her daha küçük uygulama Ortak Çalışanlar daha sınırlı sayıda sahip olduğu daha küçük LUIS uygulamalarda, model dilimleme göz önünde bulundurun. Kullanım [gönderme](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) üst ve alt uygulamalar arasında koordinasyon yönetmek bir üst LUIS uygulaması izin vermek için.
 
 ## <a name="transfer-ownership"></a>Sahipliği devretme
 LUIS, ancak herhangi bir ortak çalışanı uygulamayı dışarı aktarabilir ve ardından içeri aktararak uygulama oluşturma, sahipliğin aktarılması sağlamaz. Yeni uygulama farklı bir uygulama kimliği olan unutmayın Eğitim, yayımlanan yeni uygulama gereksinimlerini ve kullanılan yeni uç nokta.

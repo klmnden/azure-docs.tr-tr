@@ -1,6 +1,6 @@
 ---
-title: Oracle Azure Data Factory kullanarak Eloqua veri kopyalama | Microsoft Docs
-description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak Oracle Eloqua desteklenen havuz veri depolarına kopyalama öğrenin.
+title: Azure Data Factory (Önizleme) kullanarak, Oracle Eloqua verileri kopyalama | Microsoft Docs
+description: Desteklenen bir havuz veri depolarına Oracle Eloqua bir Azure Data Factory işlem hattında kopyalama etkinliği'ni kullanarak veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,45 +13,45 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 821e345933ba52ed2c71251bab3ba159e5412568
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f260cd274c7d70872d0002c93780f553feef69d9
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048382"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629874"
 ---
-# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory"></a>Oracle Azure Data Factory kullanarak Eloqua veri kopyalama
+# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory"></a>Azure Data factory'yi kullanarak, Oracle Eloqua veri kopyalama
 
-Bu makalede kopya etkinliği Azure Data Factory'de Oracle Eloqua verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de Oracle Eloqua verileri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 > [!IMPORTANT]
-> Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve geri bildirim sağlayın. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
+> Bu bağlayıcı, şu anda Önizleme aşamasındadır. Deneyin ve geri bildirim sağlayın. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Oracle Eloqua verileri herhangi bir desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Oracle Eloqua tüm desteklenen havuz veri deposuna veri kopyalayabilirsiniz. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak sürücüyü el ile yüklemeniz gerekmez.
+Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak herhangi bir sürücü el ile yüklemeniz gerekmez.
 
 ## <a name="getting-started"></a>Başlarken
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Aşağıdaki bölümler, Oracle Eloqua bağlayıcıya Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler, Oracle Eloqua bağlayıcıya belirli Data Factory varlıkları tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Aşağıdaki özellikler, Oracle Eloqua bağlantılı hizmeti için desteklenir:
+Aşağıdaki özellikler, Oracle Eloqua bağlı hizmeti için desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Eloqua** | Evet |
-| endpoint | Eloqua sunucusu uç noktası. Eloqua destekleyen uç noktanızı, oturum açma belirlemek için birden çok veri merkezleri, https://login.eloqua.com ile kimlik bilgilerinizi, daha sonra kopyalayın **ana URL** yeniden yönlendirilen URL'si desenini ile kısımlarından `xxx.xxx.eloqua.com`. | Evet |
-| kullanıcı adı | Eloqua hesabınızı biçiminde kullanıcı adını ve site adı: `SiteName\Username` örneğin `Eloqua\Alice`.  | Evet |
-| password | Kullanıcı adına karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
+| endpoint | Eloqua sunucu uç noktası. Eloqua desteklediği uç noktanızı, oturum açma belirlemek için birden çok veri merkezinde https://login.eloqua.com bilginizle, ardından kopyalama **ana URL** desenini ile yeniden yönlendirilen URL'de bölümü `xxx.xxx.eloqua.com`. | Evet |
+| kullanıcı adı | Eloqua hesabınızın biçiminde kullanıcı adını ve site adı: `SiteName\Username` örn `Eloqua\Alice`.  | Evet |
+| password | Kullanıcı adına karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
-| useHostVerification | SSL üzerinden bağlanırken sunucusunun ana bilgisayar adı ile eşleşmesi için sunucunun sertifikası ana bilgisayar adlarında istenip istenmeyeceğini belirtir. Varsayılan değer true olur.  | Hayır |
-| usePeerVerification | SSL üzerinden bağlanırken sunucusunun kimliğini doğrulamak belirtir. Varsayılan değer true olur.  | Hayır |
+| useHostVerification | Ana bilgisayar adı sunucunun sertifikasında SSL üzerinden bağlanırken sunucu ana bilgisayar adıyla eşleşmesi gerekip gerekmediğini belirtir. Varsayılan değer true olur.  | Hayır |
+| usePeerVerification | SSL üzerinden bağlanırken sunucu kimliğinin doğrulanıp doğrulanmayacağını belirtir. Varsayılan değer true olur.  | Hayır |
 
 **Örnek:**
 
@@ -74,9 +74,9 @@ Aşağıdaki özellikler, Oracle Eloqua bağlantılı hizmeti için desteklenir:
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Oracle Eloqua veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Oracle Eloqua veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Oracle Eloqua verileri kopyalamak için kümesine tür özelliği ayarlamak **EloquaObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Oracle Eloqua verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **EloquaObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
 
 **Örnek**
 
@@ -95,16 +95,16 @@ Oracle Eloqua verileri kopyalamak için kümesine tür özelliği ayarlamak **El
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, Oracle Eloqua kaynak tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Oracle Eloqua kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
 ### <a name="eloquasource-as-source"></a>Kaynak olarak EloquaSource
 
-Oracle Eloqua verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **EloquaSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Oracle Eloqua verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **EloquaSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **EloquaSource** | Evet |
-| sorgu | Verileri okumak için özel SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Accounts"`. | Evet |
+| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **EloquaSource** | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Accounts"`. | Evet |
 
 **Örnek:**
 
@@ -139,4 +139,4 @@ Oracle Eloqua verileri kopyalamak için kopyalama etkinliği için kaynak türü
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Data Factory tarafından depolanan desteklenen veri listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory tarafından desteklenen veriye listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

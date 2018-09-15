@@ -1,61 +1,62 @@
 ---
-title: Metin analizi API - Azure Bilişsel hizmetler desteklenen diller | Microsoft Docs
-description: Genel olarak kullanılabilir listesi ve önizleme dil metin analizi API işlemleri için destekler. Düşünceleri analiz, anahtar tümcecik ayıklama ve dil algılama için geçerlidir.
+title: Metin analizi API'si, desteklenen diller
+titleSuffix: Azure Cognitive Services
+description: Metin analizi API'si işlemleri için listesi sunulmuştur ve önizleme dil desteği. Yaklaşım analizi, anahtar ifade ayıklama ve dil algılama için geçerlidir.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 09/12/2018
 ms.author: ashmaka
-ms.openlocfilehash: 2d341cfaf261bea6367bb55dd5d322f419e22d34
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 984947903a91837910493618bd7abc2cdfe0da71
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355186"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603252"
 ---
-# <a name="supported-languages-in-the-text-analytics-api"></a>Metin analizi API'sindeki desteklenen diller
+# <a name="supported-languages-in-the-text-analytics-cognitive-service"></a>Metin analizi Bilişsel hizmetinde desteklenen diller
 
-Bu makale, her işlem için desteklenen hangi dilleri açıklar: düşünceleri analiz, anahtar tümcecik ayıklama ve dil algılama.
+Bu makalede her işlem için desteklenen dilleri açıklar: yaklaşım analizi, anahtar ifade ayıklama ve dil algılama.
 
 ## <a name="language-detection"></a>Dil Algılama
 
-Metin analizi API en fazla 120 farklı dillerde algılayabilir. Dil algılama "komut dosyası" dilinin döndürür. Örneğin, tümcecik "Sahibim bir köpek" döndürür `en` yerine `en-US`. Yalnızca özel Çince dil algılama yeteneği burada döndürür durumdur `zh_CHS` veya `zh_CHT` sağlanan metin verilen komut dosyası belirleyebilirseniz. Burada belirli bir betik belirlenemedi Çince bir belge için durumlarda, yalnızca döndürür `zh`.
+Metin analizi API'si, en fazla 120 farklı dillerde algılayabilir. Dil algılama dilinin "betik" döndürür. Örneğin, tümcecik "I sahip bir köpek" döndürür `en` yerine `en-US`. Dil algılama yeteneği döndürdüğü Çince, yalnızca özel bir durum olduğu `zh_CHS` veya `zh_CHT` sağlanan metin verilen betiği belirleyebilirseniz. Burada belirli bir betik tanımlanamıyor Çince belge durumlarda, yalnızca döndüreceği `zh`.
 
-## <a name="sentiment-analysis-key-phrase-extraction-and-entity-linking"></a>Düşünceleri çözümleme, anahtar tümcecik ayıklama ve varlık bağlama
+## <a name="sentiment-analysis-key-phrase-extraction-and-entity-linking"></a>Yaklaşım analizi, anahtar ifade ayıklama ve varlık bağlama
 
-Düşünceleri analiz, anahtar tümcecik ayıklama ve varlık bağlama, desteklenen dillerin listesi çözümleyiciler ek dilleri dil kurallarına uygun hale getirmek için Gelişmiş daha Seçici içindir.
+Yaklaşım analizi, anahtar ifade ayıklama ve varlık bağlama, desteklenen dillerin listesini Çözümleyicileri ek diller dil kurallarına uyum sağlamak için daraltılmış daha Seçici.
 
-## <a name="language-list-and-status"></a>Dil listesi ve durumu
+## <a name="language-list-and-status"></a>Dil listesini ve durumu
 
-Dil desteği başlangıçta genel olarak kullanılabilir (GA) durumuna birbirinden ve genel metin Analytics hizmeti, Mezun önizlemede alınır. Metin analizi API geçişleri genel olarak kullanılabilir sırasında bile önizlemede kalmasına diller için mümkündür.
+Dil desteği başlangıçta Mezun genel kullanıma (GA) durumuna birbirinden ve metin analizi hizmetinin genel Önizleme aşamasında kullanıma sunulma. Önizleme aşamasında için genel kullanıma sunulan metin analizi API'si geçişi sırasında bile kalmasına diller için mümkündür.
 
 | Dil    | Dil kodu | Yaklaşım | Anahtar ifadeler | Varlık Bağlama |   Notlar  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Danca      | `da`          | ✔ \*     | ✔           |             |     |
-| Felemenkçe       | `nl`          | ✔ \*     | ✔          |             |     |
+| Hollanda dili       | `nl`          | ✔ \*     | ✔          |             |     |
 | Türkçe     | `en`          | ✔        | ✔           |  ✔ \*   |      |
 | Fince     | `fi`          | ✔ \*     | ✔           |             |     |
-| Fransızca       | `fr`          | ✔        | ✔           |             |     |
-| Almanca       | `de`          | ✔ \*     | ✔           |            |     |
+| Fransızca      | `fr`          | ✔        | ✔           |             |     |
+| Almanca      | `de`          | ✔ \*     | ✔           |            |     |
 | Yunanca       | `el`          | ✔ \*     |             |            |     |
 | İtalyanca     | `it`          | ✔ \*     | ✔           |             |     |
 | Japonca    | `ja`          |          | ✔           |            |     |
 | Kore dili      | `ko`          |          | ✔           |            |     |
-| Norveççe (Bokmål) | `no`          | ✔ \*     |  ✔          |             |     |
+| Norveççe (Bokmal) | `no`          | ✔ \*     |  ✔          |             |     |
 | Lehçe      | `pl`          | ✔ \*     |  ✔          |             |     |
 | Portekizce (Portekiz) | `pt-PT`| ✔        |  ✔          |       |`pt` Ayrıca kabul edildi|
 | Portekizce (Brezilya)   | `pt-BR`|          |  ✔   |         |     |
 | Rusça     | `ru`          | ✔ \*     | ✔           |             |     |
-| İspanyolca      | `es`          | ✔        | ✔           |     |     |
+| İspanyolca     | `es`          | ✔        | ✔           |     |     |
 | İsveç dili     | `sv`          | ✔ \*     | ✔           |             |     |
 | Türkçe     | `tr`          | ✔ \*     |             |             |     |
 
-\* dil desteği önizlemede gösterir
+\* dil desteği Önizleme gösterir
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[Bilişsel hizmetler belge sayfası](https://docs.microsoft.com/azure/cognitive-services/)   
-[Bilişsel hizmetler ürün sayfası](https://azure.microsoft.com/services/cognitive-services/)
+[Bilişsel hizmetler belgeleri sayfası](https://docs.microsoft.com/azure/cognitive-services/)   
+[Bilişsel Hizmetler Ürün sayfası](https://azure.microsoft.com/services/cognitive-services/)

@@ -8,14 +8,15 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 160752cd0467ef307f7a45b1e0d703c7ddd5d773
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9122a349fd81cf723e21cd17e09e15d1d9f64503
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720812"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634770"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Azure haritalar harita stil seçin
+
 Azure haritalar seçebileceğiniz dört farklı eşlemeler stilleri sahiptir. Eşleme stilleri hakkında daha fazla bilgi için bkz. [eşleme stilleri Azure eşlemelerinde desteklenen](./supported-map-styles.md). Bu makale stil harita üzerindeki yükü ayarlamak, yeni bir stil ve stil seçici denetimi kullanmak için stil işlevlerini kullanma.
 
 ## <a name="setting-style-on-map-load"></a>Harita üzerindeki yükü stili ayarlanıyor
@@ -47,14 +48,17 @@ Stil seçimi eşlemesi için stil seçiciyi sağlar. Üçüncü kod bloğu stil 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi edinin: 
-* [Harita](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle)
-    * [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol)
+Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi için:
 
-* [Atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest)
-    * [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol)
-    
-Eşlenir eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın:
-* [Eşleme denetimleri ekleme](./map-add-controls.md)
-* [Pin ekleme](./map-add-pin.md)
+> [!div class="nextstepaction"]
+> [Harita](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Denetim, eşlenir ekleyin:
+
+> [!div class="nextstepaction"]
+> [Eşleme denetimleri ekleme](./map-add-controls.md)
+
+Bir harita raptiyesini ekleyin:
+
+> [!div class="nextstepaction"]
+> [Pin ekleme](./map-add-pin.md)

@@ -1,20 +1,21 @@
 ---
-title: Azure'da LUIS uygulamalarında konuşma | Microsoft Docs
-description: Konuşma, Language Understanding Intelligent Service (LUIS) uygulamaları ekleme.
+title: LUIS uygulamalarında konuşma
+titleSuffix: Azure Cognitive Services
+description: Konuşma yorumlamak için uygulamanız gereken kullanıcıdan giriş. Kullanıcıların girer düşündüğünüz tümcecikleri toplayın. Aynı anlama gelir, ancak oluşturulan konuşma farklı sözcük uzunluğu ve sözcük yerleştirme dahil.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6f962d0aaf631051c841be29d2854a89bf58ac25
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c455296348e3b4378a2912fa5388098b206b3ea4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224424"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632322"
 ---
 # <a name="utterances-in-luis"></a>LUIS, konuşma
 
@@ -35,12 +36,14 @@ Konuşma seçerken, bir ortak terimini veya tümceciğini olduğunu düşündü�
 Değiştirilen cümle desenleri oluşturma işlemleri yaparsanız bile bazı sözlük hala yinelenir bulabilirsiniz.
 
 Bu örnek konuşma uygulayın:
-```
-how do I get a computer?
-Where do I get a computer?
-I want to get a computer, how do I go about it?
-When can I have a computer? 
-```
+
+|Örnek konuşmalar|
+|--|
+|bir bilgisayara nasıl alabilirim?|
+|Bir bilgisayar nereden bulabilirim?|
+|Bir bilgisayara nasıl adadım gitmeliyim almak istiyorsunuz?|
+|Bir bilgisayar zaman olabilir mi?| 
+
 Burada, çekirdek terimi "bilgisayar" değil değiştirilen. Bunlar, masaüstü bilgisayar, dizüstü bilgisayar, iş istasyonu veya hatta yalnızca makine diyebilirsiniz. LUIS akıllıca eş anlamlılar bağlamdan çıkarır, ancak eğitim konuşma oluşturduğunuzda, bunları farklı yine de daha iyi olur.
 
 ## <a name="example-utterances-in-each-intent"></a>Her amacı, örnek konuşma

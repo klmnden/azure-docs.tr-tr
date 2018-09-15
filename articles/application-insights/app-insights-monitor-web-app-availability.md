@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/09/2018
+ms.date: 09/13/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 392abef7f92dce024ba6e4af091cf58fde5119b6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: cf5f85d4f7e9dbe1278e9dc4290967d781b398f3
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302400"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632834"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -33,11 +33,6 @@ Genel İnternet'ten erişilebilen herhangi bir HTTP veya HTTPS uç noktası içi
 
 Her uygulama kaynağı için 100’e kadar kullanılabilirlik testi oluşturabilirsiniz.
 
-
-> [!NOTE] 
-> * Kullanılabilirlik testi konumları kısa süre önce Azure veri merkezlerine taşındı. Bu taşıma işlemi, Azure veri merkezlerinin gelişen ağıyla konum eklememizi sağlıyor.  
-> * Testleri güncelleştirmeniz gerekmez. Tüm testler geçirilmiştir ve yeni konumlarında çalışmaktadır. 
->* Daha fazla bilgi için lütfen [hizmet güncelleştirmesi](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/) makalesini inceleyin.
 
 ## <a name="create"></a>Kullanılabilirlik testi raporlarınız için kaynak açma
 
@@ -55,15 +50,17 @@ Kullanılabilirlik dikey penceresini açın ve bir kullanılabilirlik testi ekle
 ![En azından web sitenizin URL'sini doldurma](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 * **URL**, test etmek istediğiniz herhangi bir web sayfası olabilir, ancak ortak İnternet’te görünür olmalıdır. URL bir sorgu dizesi içerebilir. Bu nedenle, örneğin, veritabanınızla biraz alıştırma yapabilirsiniz. URL yeniden yönlendirme adresine çözümlenirse, en fazla 10 yeniden yönlendirmeyi izleriz.
-* **Bağımlı istekleri ayrıştır**: Bu seçenek işaretlenirse test, test kapsamındaki web sitesine ait görüntü, betik, stil dosyaları ve diğer dosyaları ister. Kayıtlı yanıt süresi, bu dosyaları almak için geçen süreyi içerir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse, test başarısız olur. 
-
-    Seçenek işaretlenmezse, test yalnızca belirttiğiniz URL’deki dosyayı ister.
+* **Bağımlı istekleri ayrıştır**: Bu seçenek işaretlenirse test, test kapsamındaki web sitesine ait görüntü, betik, stil dosyaları ve diğer dosyaları ister. Kayıtlı yanıt süresi, bu dosyaları almak için geçen süreyi içerir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse, test başarısız olur. Seçenek işaretlenmezse, test yalnızca belirttiğiniz URL’deki dosyayı ister.
 
 * **Yeniden denemeyi etkinleştir**: Bu seçenek işaretlenirse, test başarısız olduğunda kısa bir süre sonra yeniden denenir. Art arda üç deneme başarısız olursa bir hata bildirilir. Sonraki testler bundan sonra her zamanki test sıklığında gerçekleştirilir. Bir sonraki başarılı olana kadar yeniden deneme geçici olarak askıya alınır. Bu kural her test konuma bağımsız olarak uygulanır. Bu ayar önerilir. Ortalama olarak hataların yaklaşık %80’i yeniden deneme sırasında kaybolur.
 
 * **Test sıklığı**: Her test konumdan testin ne sıklıkta çalıştırılacağını ayarlar. Beş dakikalık varsayılan sıklıkta ve beş test konumuyla, siteniz ortalama olarak dakikada bir test edilir.
 
 * **Test konumları**, sunucularımızın URL’nize web istekleri gönderdiği yerlerdir. Bir konumdan fazla seçin; böylece, web sitenizdeki ağ sorunlarını ayırt edebilirsiniz. En fazla 16 konum seçebilirsiniz.
+
+> [!NOTE] 
+> * Geçici bir sorun belirli bir konum kaynaklanan yanlış alarm önlemek için birden fazla konumdan test kesinlikle öneririz.
+> * Katı bir onay "bağımlı istekleri Ayrıştır" seçeneğinin sonuçları etkinleştiriliyor. Test için el ile site göz atarken belirgin olmayabilir çalışmaları başarısız olabilir.
 
 * **Başarı ölçütleri**:
 
@@ -72,58 +69,6 @@ Kullanılabilirlik dikey penceresini açın ve bir kullanılabilirlik testi ekle
     **HTTP yanıtı**: Başarılı sayılan döndürüldü durum kodu. 200, normal web sayfası döndürüldüğünü belirten koddur.
 
     **İçerik eşleşmesi**: "Hoş geldiniz!" gibi bir dize. Her yanıtta büyük küçük harfe duyarlı bir tam eşleşme oluştuğunu test edebiliriz. Joker karakter bulunmayan düz bir dize olmalıdır. Sayfanızın içeriği değişirse bunu güncelleştirmeniz gerektiğini unutmayın.
-* **Uyarılar**, varsayılan olarak, beş dakikayı geçen bir sürede üç konumda hata varsa size gönderilir. Tek konumdaki hata daha çok bir ağ sorunudur, sitenizle ilgili değildir. Ancak, eşiği daha fazla veya daha az hassas olarak değiştirebilirsiniz; size kimlerin e-posta göndermesi gerektiğini de değiştirebilirsiniz.
-
-    Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../monitoring-and-diagnostics/insights-webhooks-alerts.md) ayarlayabilirsiniz. (Ancak şu anda sorgu parametreleri Özellikler aracılığıyla geçirilmez.)
-
-### <a name="test-more-urls"></a>Daha fazla URL test etme
-Daha fazla test ekleyin. Örneğin, giriş sayfanızın test edilmesine ek olarak arama URL’sini de test ederek veritabanınızın çalıştığından emin olursunuz.
-
-
-## <a name="monitor"></a>Kullanılabilirlik testi sonuçlarınızı görme
-
-Birkaç dakika sonra, test sonuçlarını görmek için **Yenile**’ye tıklayın. 
-
-![Giriş dikey penceresinde özet sonuçları](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
-
-Dağılım grafiği, tanılama testi adım ayrıntılarını içeren örnek test sonuçlarını gösterir. Test altyapısı, hata içeren testler için tanılama ayrıntılarını depolar. Başarılı testlerde, yürütmelerin bir alt kümesi için tanılama ayrıntıları depolanır. Test zaman damgası, test süresi, konum ve test adını görmek için yeşil/kırmızı noktalardan herhangi birinin üzerine gelin. Test sonucunun ayrıntılarını görmek için dağılım grafiğinde noktalara tıklayarak gezinin.  
-
-Belirli bir testi veya konumu seçin ya da ilgilendiğiniz dönemle ilgili daha fazla sonuç görmek için zaman dilimini küçültün. Arama Gezgini’ni kullanarak tüm yürütmelerden alınan sonuçları görün veya Analytics sorgularını kullanarak bu veriler üzerinde özel raporlar çalıştırın.
-
-Ölçüm Gezgini’nde ham sonuçlara ek olarak iki Kullanılabilirlik ölçümü vardır: 
-
-1. Kullanılabilirlik: Tüm test yürütmelerinde başarılı olan testlerin yüzdelik oranı. 
-2. Test Süresi: Tüm test yürütmelerinde ortalama test süresi.
-
-Belirli bir testin ve/veya konumun eğilimlerini analiz etmek için test adına ve konumuna göre filtre uygulayabilirsiniz.
-
-## <a name="edit"></a> Testleri inceleme ve düzenleme
-
-Özet sayfasından belirli bir test seçin. Burada özel sonuçları görebilir ve düzenleyebilir ya da geçici olarak devre dışı bırakabilirsiniz.
-
-![Web testini düzenleme veya devre dışı bırakma](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
-
-Hizmetinizde bakım gerçekleştirdiğiniz sırada kullanılabilirlik testlerini veya bunlarla ilişkili uyarıları devre dışı bırakmak isteyebilirsiniz. 
-
-## <a name="failures"></a>Hata görürseniz
-Kırmızı noktaya tıklayın.
-
-![Kırmızı noktaya tıklama](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
-
-
-Bir kullanılabilirlik testi sonucundan şunları yapabilirsiniz:
-
-* Sunucunuzdan alınan yanıtı denetleme.
-* Başarısız istek örneği işlenirken toplanan sunucu tarafı telemetrisi ile hatayı tanılayın.
-* Bir sorun oturum veya bir sorunu izlemek için Git veya Azure DevOps iş öğesi. Hata, bu olayın bir bağlantısını içerir.
-* Web testi sonucunu Visual Studio’da açın.
-
-*Sorunsuz görünüyor ancak hata olarak mı bildiriliyor?* Gürültüyü azaltma yolları için bkz. [SSS](#qna).
-
-
-> [!TIP]
-> Güvenilir bir izleme için en az 2 konumdan test etmenizi öneririz.
->
 
 ## <a name="multi-step-web-tests"></a>Çok adımlı web testleri
 Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satış web sitesi izliyorsanız, öğelerin alışveriş sepetine doğru eklendiğini test edebilirsiniz.
@@ -178,22 +123,6 @@ Web oturumu kaydetmek için Visual Studio Enterprise kullanın.
 
     Test konumları, sıklığı ve uyarı parametrelerini aynı ping testlerinde olduğu gibi aynı şekilde ayarlayın.
 
-#### <a name="3-see-the-results"></a>3. Sonuçları görme
-
-Tek url testlerinde olduğu gibi test sonuçlarını ve hatalarını görüntüleyin.
-
-Visual Studio'da bunları görüntülemek için test sonuçlarını da indirebilirsiniz.
-
-Test sonuçları karşıdan yüklemek için. Kullanılabilirlik testi özetine gidin, kullanılabilirlik test sonuç penceresini açmak için grafikte bir sonuç tıklayın ve ardından **Visual Studio'da açın** test sonucu indirilemedi.
-
-#### <a name="too-many-failures"></a>Çok fazla hata mı var?
-
-* Yaygın bir başarısızlık nedeni testin çok uzun çalışmasıdır. İki dakikadan uzun çalıştırılmamalıdır.
-
-* Betikler, stil sayfaları, görüntüler ve diğerleri de dahil olmak üzere, testin başarılı olması için sayfanın tüm kaynaklarının doğru yüklenmiş olması gerektiğini unutmayın.
-
-* Web testi tamamen .webtest dosyasında olmalıdır: Testte kodlanmış işlevleri kullanamazsınız.
-
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Çok adımlı testinizde bağlı kalma süresi ve rasgele rakamlar
 Dış bir kaynağa ait stoklar gibi zamana bağımlı veriler alan bir aracı test ettiğinizi varsayalım. Web testinizi kaydettiğinizde, belirli zamanları kullanmanız gerekse de, bunları testin parametreleri (StartTime ve EndTime) olarak ayarlarsınız.
 
@@ -216,6 +145,87 @@ Web Testi Eklentileri, zamanları parametreleme yolunu sağlar.
     ![Test parametresinde {{plug-in name}} kullanın.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
 Artık testi portala yükleyin. Testin her çalıştırılışında dinamik değerler kullanılır.
+
+
+## <a name="monitor"></a>Kullanılabilirlik testi sonuçlarınızı görme
+
+Birkaç dakika sonra, test sonuçlarını görmek için **Yenile**’ye tıklayın. 
+
+![Giriş dikey penceresinde özet sonuçları](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
+
+Dağılım grafiği, tanılama testi adım ayrıntılarını içeren örnek test sonuçlarını gösterir. Test altyapısı, hata içeren testler için tanılama ayrıntılarını depolar. Başarılı testlerde, yürütmelerin bir alt kümesi için tanılama ayrıntıları depolanır. Test zaman damgası, test süresi, konum ve test adını görmek için yeşil/kırmızı noktalardan herhangi birinin üzerine gelin. Test sonucunun ayrıntılarını görmek için dağılım grafiğinde noktalara tıklayarak gezinin.  
+
+Belirli bir testi veya konumu seçin ya da ilgilendiğiniz dönemle ilgili daha fazla sonuç görmek için zaman dilimini küçültün. Arama Gezgini’ni kullanarak tüm yürütmelerden alınan sonuçları görün veya Analytics sorgularını kullanarak bu veriler üzerinde özel raporlar çalıştırın.
+
+Ölçüm Gezgini’nde ham sonuçlara ek olarak iki Kullanılabilirlik ölçümü vardır: 
+
+1. Kullanılabilirlik: Tüm test yürütmelerinde başarılı olan testlerin yüzdelik oranı. 
+2. Test Süresi: Tüm test yürütmelerinde ortalama test süresi.
+
+Belirli bir testin ve/veya konumun eğilimlerini analiz etmek için test adına ve konumuna göre filtre uygulayabilirsiniz.
+
+## <a name="edit"></a> Testleri inceleme ve düzenleme
+
+Özet sayfasından belirli bir test seçin. Burada özel sonuçları görebilir ve düzenleyebilir ya da geçici olarak devre dışı bırakabilirsiniz.
+
+![Web testini düzenleme veya devre dışı bırakma](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
+
+Hizmetinizde bakım gerçekleştirdiğiniz sırada kullanılabilirlik testlerini veya bunlarla ilişkili uyarıları devre dışı bırakmak isteyebilirsiniz. 
+
+## <a name="failures"></a>Hata görürseniz
+Kırmızı noktaya tıklayın.
+
+![Kırmızı noktaya tıklama](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
+
+Bir kullanılabilirlik testi sonucundan tüm bileşenler genelinde işlem ayrıntılarını görebilirsiniz. Burada şunları yapabilirsiniz:
+
+* Sunucunuzdan alınan yanıtı denetleme.
+* Başarısız bir kullanılabilirlik testi işlenirken toplanan ilişkili sunucu tarafı telemetrisi ile hata tanılayın.
+* Sorunu izlemek için bir sorunu veya iş öğesini Git’te ya da VSTS’de günlüğe kaydetme. Hata, bu olayın bir bağlantısını içerir.
+* Web testi sonucunu Visual Studio’da açın.
+
+Deneyimi uçtan uca işlem tanılamaları hakkında daha fazla bilgi edinin [burada](app-insights-transaction-diagnostics.md).
+
+Sentetik kullanılabilirlik testin başarısız olmasına neden olan sunucu tarafı özel durumun ayrıntılarını görmek için özel durum satırına tıklayın. Ayrıca Al [hata ayıklama anlık görüntüsünü](app-insights-snapshot-debugger.md) daha zengin kod düzeyi tanılama için.
+
+![Sunucu tarafı tanılamalarını](./media/app-insights-monitor-web-app-availability/open-instance-4.png)
+
+## <a name="alerts"></a> Kullanılabilirlik uyarıları
+Klasik uyarılar deneyimini kullanmanın kullanılabilirlik veri uyarı kuralları aşağıdaki türde olabilir:
+1. Bir zaman dönemi içindeki hataları raporlama Y konumları dışında X
+2. Toplama kullanılabilirlik yüzdesi düşme bir eşiğin altında
+3. Ortalama test süresi arttıkça bir eşiğini aşan
+
+### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Hata Raporlama Y konumları dışında X uyar
+Varsayılan olarak etkin uyarı kuralı Y konumları dışında X [birleştirilmiş yeni uyarılar deneyimini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), yeni bir kullanılabilirlik testi oluşturun. "Klasik" seçeneğini belirleyerek veya uyarı kuralı devre dışı bırakmak belirleyerek çevirme.
+
+![Deneyimi oluşturun](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
+
+**Önemli**: ile [yeni birleştirilmiş uyarılar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), uyarı kuralının önem derecesi ve bildirim tercihleri ile [Eylem grupları](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **olmalıdır** yapılandırılmış Uyarılar deneyimini yaşayın. Aşağıdaki adımlar olmadan, yalnızca portal bildirim alırsınız. 
+
+1. Kullanılabilirlik testi kaydettikten sonra ayrıntılara gitmek için yeni test adına tıklayın. "Uyarı düzenleme" tıklayın ![Düzenle kaydedildikten sonra](./media/app-insights-monitor-web-app-availability/editaftersave.png)
+
+2. İstenen önem derecesini, kural açıklaması ve en önemlisi - bu uyarı kuralı için kullanmak istediğiniz bildirim tercihleri olan eylem grubu ayarlayın.
+![Düzen kaydedildikten sonra](./media/app-insights-monitor-web-app-availability/setactiongroup.png)
+
+
+> [!NOTE]
+> * Yukarıdaki adımları izleyerek uyarıyı tetikleyecek çıktığında bildirimleri almak için Eylem grupları yapılandırın. Kural tetiklendiğinde bu adım, yalnızca portal bildirim alırsınız.
+>
+### <a name="alert-on-availability-metrics"></a>Kullanılabilirlik ölçümler üzerinde uyarı
+Kullanarak [yeni birleştirilmiş uyarılar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), uyarı segmentli toplama kullanılabilirliğine ve süresi ölçümleri test edebilirsiniz:
+
+1. Ölçüm deneyimi bir Application Insights kaynağını seçin ve bir kullanılabilirlik ölçümü seçin: ![kullanılabilirlik ölçümlerini seçimi](./media/app-insights-monitor-web-app-availability/selectmetric.png)
+
+2. Menü seçeneğinden belirli testleri veya uyarı kuralı ayarlamak için konumları seçebileceğiniz yeni deneyime sürer uyarıları yapılandırın. Bu uyarı kuralı buraya Eylem grupları da yapılandırabilirsiniz.
+    ![Kullanılabilirlik uyarıları yapılandırma](./media/app-insights-monitor-web-app-availability/availabilitymetricalert.png)
+
+### <a name="alert-on-custom-analytics-queries"></a>Özel analytics sorgularına göre uyarı
+Kullanarak [yeni birleştirilmiş uyarılar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), sizi uyarabilir [özel günlük sorguları](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Özel sorgular ile kullanılabilirlik sorunları en güvenilir sinyal elde etmenize yardımcı olan rastgele koşula göre uyarabilir. Bu ayrıca TrackAvailability SDK'sını kullanarak özel kullanılabilirlik sonuçları gönderiyorsanız özellikle geçerlidir. 
+
+> [!Tip]
+> * Ölçümleri kullanılabilirliği verileri TrackAvailability SDK'mız çağırarak gönderdiğiniz herhangi bir özel kullanılabilirlik sonucunu içerir. Uyarı özel kullanılabilirlik sonuçları ölçümleri desteği hakkında uyarı kullanabilirsiniz.
+>
 
 ## <a name="dealing-with-sign-in"></a>Oturum açmayla ilgilenme
 Kullanıcılarınız uygulamanızda oturum açarsa, oturum açma benzetimi için bir dizi seçeneğiniz vardır; böylece, oturum açmanın ötesinde sayfaları test edebilirsiniz. Kullandığınız yaklaşım, uygulamanın sağladığı güvenlik türüne bağlıdır.
@@ -253,11 +263,10 @@ Testinizde OAuth kullanılarak oturum açılması gerekiyorsa, genel yaklaşım 
 * Belirteçleri parametreleyin; belirteç kimlik doğrulayıcıdan döndürüldüğünde ve sitede sorgu sırasında kullanıldığında parametre ayarı.
   (Visual Studio testi parametrelemeyi dener, ancak belirteçleri doğru parametrelemez.)
 
-
 ## <a name="performance-tests"></a>Performans testleri
 Web sitenizde bir yük testi çalıştırabilirsiniz. Kullanılabilirlik testinde olduğu gibi dünyanın dört bir yanındaki noktalarımızdan basit istekler ya da çok adımlı istekler gönderebilirsiniz. Kullanılabilirlik testinden farklı olarak eşzamanlı birden fazla kullanıcıyı benzeten çok sayıda istek gönderilir.
 
-Genel Bakış dikey penceresinde **Ayarlar**, **Performans Testleri**’ni açın. Bir test oluşturduğunuzda, bağlanma veya bir Azure DevOps hizmetler kuruluşundan oluşturma davetlidir.
+Genel Bakış dikey penceresinde **Ayarlar**, **Performans Testleri**’ni açın. Bir test oluşturduğunuzda, bağlanmak veya bir Azure DevOps hesabı oluşturmak için davetlidir.
 
 Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
@@ -272,50 +281,68 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 * Otomatik olarak [kullanılabilirlik testi ayarlamak için PowerShell betiklerini kullanın](app-insights-powershell.md#add-an-availability-test).
 * Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../monitoring-and-diagnostics/insights-webhooks-alerts.md) ayarlayın.
 
-## <a name="qna"></a>Sorularınız mı var? Sorunlarınız mı var?
+## <a name="qna"></a> SSS
+
+* *Site sorunsuz görünüyor ancak görüyorum test hataları? Application Insights bana neden uyarı olduğu?*
+
+    * "Etkin ayrıştırma bağımlı istekleri" testiniz var mı? Komut dosyaları gibi kaynakları üzerinde katı denetimi sonuçlarını vb. görüntüler. Bu tür hataları tarayıcıda belirgin olmayabilir. Tüm görüntüleri, betikleri, stil sayfalarını ve sayfa tarafından yüklenen diğer dosyaları denetleyin. Herhangi biri başarısızsa, ana html sayfası Tamam olarak yüklense bile test başarısız olarak raporlanır. Bu tür kaynak hatalarına karşı testin hassasiyetini ortadan kaldırmak için test yapılandırmasında "Bağımlı İstekleri Ayrıştır" seçeneğinin işaretini kaldırın. 
+
+    * Geçici ağ sinyalleri vb. kaynaklı gürültü olasılığını azaltmak için "Test hataları için yeniden denemeyi etkinleştir" yapılandırmasının işaretlendiğinden emin olun. Ayrıca, uygunsuz uyarılara neden olan konuma özgü sorunları önlemek için daha fazla konumdan test yapabilir ve uyarı kuralı eşiğini uygun şekilde yönetebilirsiniz.
+
+    * Herhangi bir kullanılabilirlik deneyiminden kırmızı nokta veya neden biz bildirilen hata ayrıntılarını görmek için tüm kullanılabilirlik hatasından arama Gezgini'ni tıklatın. Test sonucu (etkinse) bağlantılı sunucu tarafı telemetrisi ile birlikte testin neden başarısız anlamanıza yardımcı olacaktır. Sık karşılaşılan nedenleri geçici bir sorun, ağ veya bağlantı sorunlarıdır. 
+
+    * Test zaman aşımı mı? Biz, 2 dakika sonra testleri durdurur. Ping veya çok adımlı bir test 2 dakikadan uzun sürerse, biz hata olarak raporlanır. Kısa süre içinde tamamlayabilmeniz için birden fazla olanlar test parçalamak göz önünde bulundurun.
+
+    * Tüm Konumlar raporu hata ya da yalnızca bazılarını mı? Yalnızca bazı hataları bildirilen ağ/CDN sorunlarından kaynaklanıyor olabilir. Yeniden üzerinde kırmızı noktaya tıklayarak neden konum bir başarısızlık bildirilmedi anlamanıza yardımcı olacaktır.
+
+* *Ben, uyarıyı tetikleyen veya çözümlendiğinde bir e-posta veya her ikisini de almadığını?*
+
+    E-postanızı doğrudan listelenen veya bildirimleri almak için yapılandırılmış olan bir dağıtım listesi onaylamak için Klasik uyarılar yapılandırmasını denetleyin. Daha sonra ise, dış e-postalar alabilirsiniz onaylamak için dağıtım listesi yapılandırmasını denetleyin. Ayrıca, posta yöneticiniz bu soruna neden yapılandırılmış ilkeleri olup olmadığını kontrol edin.
+
+* *Web kancası bildirim almadı?*
+
+    Web kancası bildirim alma uygulama kullanılabilir ve Web kancası isteği başarıyla işler emin olun. Bkz: [bu](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) daha fazla bilgi için.
+
 * *Protokol ihlali hatası ile aralıklı test hatası?*
 
     Hata ("protokol ihlali..CR’den sonra LF gelmelidir") sunucu (veya bağımlılıklar) ile ilgili bir sorun olduğunu gösterir. Bu durum, yanıtta hatalı biçimlendirilmiş üst bilgiler ayarlandığında meydana gelir. Yük dengeleyiciler veya CDN'lerden kaynaklanabilir. Özellikle bazı üst bilgiler satır sonunu belirtmek için CRLF kullanmıyor olabilir; bu durum HTTP belirtimini ihlal eder ve bu nedenle .NET WebRequest düzeyinde doğrulama başarısız olur. İhlal edici olabilecek nokta üst bilgilerine yanıtı inceleyin.
     
     Not: URL, HTTP üst bilgilerinin gevşek doğrulaması yapılmış tarayıcılarda başarısız olmayabilir. Bu sorunun ayrıntılı bir açıklaması için bu blog gönderisine bakın: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
-* *Site sorunsuz görünüyor, ancak test hataları görüyorum?*
-
-    * Tüm görüntüleri, betikleri, stil sayfalarını ve sayfa tarafından yüklenen diğer dosyaları denetleyin. Herhangi biri başarısızsa, ana html sayfası Tamam olarak yüklense bile test başarısız olarak raporlanır. Bu tür kaynak hatalarına karşı testin hassasiyetini ortadan kaldırmak için test yapılandırmasında "Bağımlı İstekleri Ayrıştır" seçeneğinin işaretini kaldırın. 
-
-    * Geçici ağ sinyalleri vb. kaynaklı gürültü olasılığını azaltmak için "Test hataları için yeniden denemeyi etkinleştir" yapılandırmasının işaretlendiğinden emin olun. Ayrıca, uygunsuz uyarılara neden olan konuma özgü sorunları önlemek için daha fazla konumdan test yapabilir ve uyarı kuralı eşiğini uygun şekilde yönetebilirsiniz.
     
 * *Test hatalarını tanılamak için herhangi bir ilgili sunucu tarafı telemetrisi görmüyorum?*
     
-    Sunucu tarafı uygulamanız için Application Insights ayarlanmışsa, bunun nedeni [örnekleme](app-insights-sampling.md) işleminin devam ediyor olması olabilir.
+    Sunucu tarafı uygulamanız için Application Insights ayarlanmışsa, bunun nedeni [örnekleme](app-insights-sampling.md) işleminin devam ediyor olması olabilir. Farklı kullanılabilirlik sonucu seçin.
+
 * *Web testimden kod çağırabilir miyim?*
 
     Hayır. Test adımları .webtest dosyasında olmalıdır. Bu nedenle, başka web testlerini çağıramaz, döngüleri kullanamazsınız. Ancak yararlı bulabileceğiniz bir dizi eklenti vardır.
+
 * *HTTPS destekleniyor mu?*
 
     TLS 1.1 ve TLS 1.2 desteklenir.
 * *"Web testleri" ve "kullanılabilirlik testleri" arasında bir fark var mı?*
 
     Bu iki terim birbirlerinin yerine kullanılabilir. Kullanılabilirlik testleri, çok adımlı web testlerine ek olarak tek URL ping testlerini de içeren daha genel bir terimdir.
+    
 * *Kullanılabilirlik testlerini, güvenlik duvarının arkasında çalışan kendi iç sunucumuzda kullanmak istiyorum.*
 
     İki olası çözümü vardır:
     
     * Güvenlik duvarınızı, [Web testi aracılarımızın IP adreslerinden](app-insights-ip-addresses.md) gelen isteklere izin verecek şekilde yapılandırın.
     * İç sunucunuzu düzenli olarak test etmek için kendi kodunuzu yazın. Kodu, güvenlik duvarınızın arkasındaki bir test sunucusunda arka plan işlemi olarak çalıştırın. Test işleminiz, temel SDK paketindeki [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API’sini kullanarak sonuçları Application Insights’a gönderebilir. Bunun için test sunucunuzun Application Insights alım uç noktası ile giden bağlantısının olması gerekir, ancak bu, gelen isteklere izin vermeye göre çok daha küçük bir güvenlik riski oluşturur. Sonuçlar kullanılabilirlik web testi dikey pencerelerinde görünür, ancak Analytics, Search ve Ölçüm Gezgini’nde kullanılabilirlik sonuçları olarak görüntülenir.
+
 * *Çok adımlı web testi karşıya yüklenemiyor*
 
-    300 K boyut sınırı vardır.
+    Bu durum bazı nedenler:
+    * 300 K boyut sınırı vardır.
+    * Döngüler desteklenmez.
+    * Başka web testlerine başvurular desteklenmez.
+    * Veri kaynakları desteklenmez.
 
-    Döngüler desteklenmez.
-
-    Başka web testlerine başvurular desteklenmez.
-
-    Veri kaynakları desteklenmez.
 * *Çok adımlı testim tamamlanmıyor*
 
-    Test başına 100 istek sınırı var.
+    Test başına 100 istek sınırı var. Ayrıca, iki dakikadan uzun çalışırsa test durduruldu.
 
-    Test, iki dakikadan uzun çalışırsa durdurulur.
 * *İstemci sertifikalarıyla testi nasıl çalıştırırım?*
 
     Üzgünüz, bunu desteklemiyoruz.

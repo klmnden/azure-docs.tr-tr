@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/07/2018
-ms.openlocfilehash: f209aa201dafb3383ae71dd4ebff3d2ab76a9020
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: f337679279f4a3eb6d01808f15a59fee4c8f3cd1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345073"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630604"
 ---
 # <a name="supported-postgresql-database-versions"></a>PostgreSQL veritabanı desteklenen sürümleri
 Microsoft şu anda yayımlanmış ana sürümü (n) ve iki önceki ana sürümü (-2) için Azure veritabanı içinde PostgreSQL hizmeti, PostgreSQL altyapısının n-2 sürümlerini destekleyen amaçlar.
@@ -31,7 +31,7 @@ Başvurmak [PostgreSQL belgeleri](https://www.postgresql.org/docs/9.6/static/rel
 Başvurmak [PostgreSQL belgeleri](https://www.postgresql.org/docs/9.5/static/release-9-5-13.html) iyileştirmeler ve düzeltmeler hakkında bilgi edinmek için bu ikincil sürüm.
 
 ## <a name="managing-updates-and-upgrades"></a>Yönetme güncelleştirmeler ve yükseltmeler
-PostgreSQL için Azure veritabanı, ikincil sürüm güncelleştirmeleri için düzeltme eki uygulama otomatik olarak yönetir. Şu anda ana sürüm yükseltme desteklenmez. Örneğin, PostgreSQL 9.6 için PostgreSQL 9.5 ' yükseltme desteklenmiyor.
+PostgreSQL için Azure veritabanı, ikincil sürüm güncelleştirmeleri için düzeltme eki uygulama otomatik olarak yönetir. Şu anda ana sürüm yükseltme desteklenmez. Örneğin, PostgreSQL 9.6 için PostgreSQL 9.5 ' yükseltme desteklenmiyor. Bir sonraki ana sürümüne yükseltmek istiyorsanız, olması bir [döküm ve geri yükleme](./howto-migrate-using-dump-and-restore.md) yeni altyapısı sürümü ile oluşturulmuş bir sunucu için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 PostgreSQL Uzantıları desteği hakkında daha fazla bilgi için bkz. [PostgreSQL uzantıları](concepts-extensions.md).

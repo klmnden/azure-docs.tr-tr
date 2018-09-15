@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 8a4b29cf8f2a5a79c68bad3631a54449d3ada09a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 69dea0aa3eaa9de3ed94b934e5fa3c6e6a3ec24d
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717871"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632849"
 ---
-# <a name="virtual-machine-serial-console-preview"></a>Sanal makinenin seri konsol (Önizleme) 
+# <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
 
 Azure'da sanal makine seri konsolu, Linux sanal makineleri için metin tabanlı bir konsol erişim sağlar. Bu seri bağlantı, COM1, bir sanal makinenin ağ veya işletim sistemi durumu bağımsız olan sanal makineye erişim sağlayarak sanal makinenin seri bağlantı noktası sağlamaktır. Bir sanal makine şu anda için seri konsoluna erişim yalnızca Azure Portalı aracılığıyla yapılması ve VM katkıda bulunanı olan kullanıcılar için veya sanal makineye erişimi yukarıda izin verilmiyor. 
@@ -29,7 +29,7 @@ Azure'da sanal makine seri konsolu, Linux sanal makineleri için metin tabanlı 
 Windows Vm'leri için seri konsol belgeleri [Buraya](../windows/serial-console.md).
 
 > [!Note] 
-> Kullanım koşullarını kabul etmiş olursunuz şartıyla önizlemeleri için kullanılabilir hale getirilir. Daha fazla bilgi için bkz. [Microsoft Azure ek kullanım koşulları Microsoft Azure önizlemeleri için.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Bu hizmeti şu anda aşamasındadır **genel Önizleme** ve genel Azure bölgelerine seri konsoluna erişimi sanal makineler için kullanılabilir. Bu noktada seri konsol kullanılabilir Azure kamu, Azure Almanya ve Azure Çin bulut değil.
+> Sanal makineler için seri konsol genel Azure bölgelerinde genel kullanıma sunulmuştur. Bu noktada seri konsol henüz kullanılabilir Azure kamu veya Azure Çin bulut değil.
 
 
 ## <a name="prerequisites"></a>Önkoşullar 
@@ -54,7 +54,7 @@ Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure por
   1. Azure portalını açın
   2. Sol taraftaki menüde, sanal makineleri seçin.
   3. VM listesinde tıklayın. VM için genel bakış sayfası açılır.
-  4. Destek + sorun giderme bölümüne aşağı kaydırın ve seri konsol (Önizleme) seçeneğine tıklayın. Seri konsolu ile yeni bir bölme açılır ve bağlantıyı başlatın.
+  4. Destek + sorun giderme bölümüne aşağı kaydırın ve "Seri konsol" seçeneğine tıklayın. Seri konsolu ile yeni bir bölme açılır ve bağlantıyı başlatın.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
@@ -62,7 +62,7 @@ Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure por
 > [!NOTE] 
 > Seri konsol yapılandırılmış bir parolayla yerel bir kullanıcı gerektirir. Şu anda yalnızca bir SSH ortak anahtarı ile yapılandırılan VM'ler seri konsoluna erişimi yoktur. Parola ile yerel bir kullanıcı oluşturmak için kullanın [VM erişimi uzantısı](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (Ayrıca "parolayı Sıfırla" tıklayarak Portalı'nda kullanılabilir) ve bir parolayla yerel bir kullanıcı oluşturun.
 
-## <a name="access-serial-console-for-linux"></a>Linux için seri konsol erişimi
+## <a name="serial-console-linux-distro-availability"></a>Seri konsol Linux distro kullanılabilirlik
 Okuma ve seri bağlantı noktasına konsol iletileri yazma, düzgün bir şekilde seri konsol için sırada, konuk işletim sistemi yapılandırılması gerekir. Çoğu [desteklenen Azure Linux dağıtımı](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) varsayılan olarak yapılandırılmış seri Konsolu. Yalnızca Azure portalında seri konsol bölümüne tıklayarak konsoluna erişim sağlar. 
 
 Distro      | Seri konsol erişimi
@@ -73,7 +73,7 @@ Ubuntu      | Azure'da ubuntu görüntülerinde varsayılan olarak etkin konsol 
 CoreOS      | Azure'da CoreOS görüntülerinden, varsayılan olarak etkin konsol erişimi.
 SUSE        | Azure'da sunulan yeni SLES görüntüleri, varsayılan olarak etkin konsol erişebilir. Azure'da SLES'ın daha eski sürümleri (10 veya aşağıdaki) kullanıyorsanız uygulayın [KB makalesi](https://www.novell.com/support/kb/doc.php?id=3456486) seri konsol etkinleştirmek için. 
 Oracle Linux        | Azure'da Oracle Linux görüntüleri, varsayılan olarak etkin konsol erişebilir.
-Özel Linux görüntüleri     | Seri konsol özel Linux VM görüntünüz için etkinleştirmek için konsol erişimi etkinleştirmek `/etc/inittab` bir terminal çalıştırılacak `ttyS0`. Bu inittab dosyasına eklemek için bir örnek aşağıda verilmiştir: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Düzgün bir şekilde özel görüntü oluşturma hakkında daha fazla bilgi için bkz. [azure'da bir Linux VHD'si oluşturup yükleme](https://aka.ms/createuploadvhd).
+Özel Linux görüntüleri     | Seri konsol özel Linux VM görüntünüz için etkinleştirmek için konsol erişimi etkinleştirmek `/etc/inittab` bir terminal çalıştırılacak `ttyS0`. Bu inittab dosyasına eklemek için bir örnek aşağıda verilmiştir: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Düzgün bir şekilde özel görüntü oluşturma hakkında daha fazla bilgi için bkz. [azure'da bir Linux VHD'si oluşturup yükleme](https://aka.ms/createuploadvhd). Özel bir çekirdek oluşturuyorsanız etkinleştirme dikkate alınması gereken bazı çekirdek bayraklar `CONFIG_SERIAL_8250=y` ve `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Yapılandırma dosyası, genellikle daha fazla araştırma için /boot/ altında bulunur.
 
 ## <a name="common-scenarios-for-accessing-serial-console"></a>Seri konsoluna erişmek için genel senaryolar 
 Senaryo          | Seri konsol eylemleri                
@@ -165,20 +165,22 @@ Durdurulan serbest bırakılmış durumda vm'dir. VM'yi başlatın ve seri konso
 Bu sanal makine seri konsolu kullanmak için gerekli izinlere sahip değil. En az olduğundan emin olun VM katkıda bulunan rol izinleri.| Seri konsol erişimi erişmek için belirli bir izni gerektirir. Bkz: [erişim gereksinimlerini](#prerequisites) için Ayrıntılar
 Önyükleme tanılaması depolama hesabı için kaynak grubu belirlenemiyor '<STORAGEACCOUNTNAME>'. Bu VM için önyükleme tanılaması etkin ve bu depolama hesabına erişiminiz olduğunu doğrulayın. | Seri konsol erişimi erişmek için belirli bir izni gerektirir. Bkz: [erişim gereksinimlerini](#prerequisites) için Ayrıntılar
 Web yuvası kapalı veya açılamadı. | Beyaz listeye gerekebilir `*.console.azure.com`. Daha ayrıntılı ancak uzun yaklaşımdır beyaz listeye [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/en-us/download/details.aspx?id=41653), nispeten düzenli olarak değiştiği.
+Bu sanal makinenin önyükleme tanılaması depolama hesabı erişirken 'Yasak' yanıt karşılaşıldı. | Bu önyükleme tanılama hesabı bir güvenlik duvarı bulunmadığından emin olun. İşleve seri konsol için bir erişilebilir önyükleme tanılaması depolama hesabı gereklidir.
+
 ## <a name="known-issues"></a>Bilinen sorunlar 
-Hala Önizleme aşamaları seri konsol erişimi için de bizim yaptığımız gibi bazı bilinen sorunlar çalışıyoruz. Bu olası geçici çözümler listesi aşağıdadır:
+Seri konsol ile ilgili bazı sorunlar farkında duyuyoruz. Bu sorunlar ve risk azaltma için adımlar listesi aşağıda verilmiştir.
 
 Sorun                           |   Risk azaltma 
 :---------------------------------|:--------------------------------------------|
 Ulaşmaktan bağlantı başlık satırında bir günlük göstermez sonra girin | Lütfen şu sayfaya bakın: [Hitting girin hiçbir şey yapmaz](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Özel VM, sağlamlaştırılmış gereç veya Linux düzgün bir şekilde seri bağlantı noktasına bağlanmak başarısız olmasına neden olan GRUB yapılandırma çalıştırıyorsanız, bu durum oluşabilir.
-Bu sanal makinenin önyükleme tanılaması depolama hesabı erişirken 'Yasak' yanıt karşılaşıldı. | Bu önyükleme tanılama hesabı bir güvenlik duvarı bulunmadığından emin olun. İşleve seri konsol için bir erişilebilir önyükleme tanılaması depolama hesabı gereklidir.
 Yalnızca seri konsol metin (genellikle bir metin düzenleyicisi kullanarak sonra) ekran boyutu bir kısmını alır | Seri konsol penceresi boyutu hakkında anlaşması desteklemez ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)) SIGWINCH sinyali yok olacak anlamına gönderilen ekran boyutu güncelleştirilecek ve VM terminalinizi 's boyutu olanağıyla olacaktır. İnstaling xterm ya da 'boyutlandırma' komutu veren bazı diğer benzer bir yardımcı programını öneririz. 'Yeniden boyutlandırma' çalıştıran bu düzeltir.
+Çok uzun dizeler yapıştırma çalışmıyor | Seri konsol 2048 karakter terminale içine yapıştırdığınız dize uzunluğunu kısıtlar. Bu seri bağlantı noktası bant genişliği aşırı yüklenilmesini önlemek içindir.
 
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular 
 **SORU. Nasıl geri bildirim gönderebilir miyim?**
 
-A. Giderek bir sorun geri bildirim sağlamak https://aka.ms/serialconsolefeedback. Alternatif olarak daha az (tercih edilen) gönderme aracılığıyla geri bildirim azserialhelp@microsoft.com veya sanal makine kategorisi http://feedback.azure.com
+A. Giderek bir sorun geri bildirim sağlamak https://aka.ms/serialconsolefeedback. Alternatif olarak aracılığıyla geri bildirim gönder (daha az tercih edilir), azserialhelp@microsoft.com veya sanal makine kategorisi http://feedback.azure.com
 
 **SORU. Seri konsol kopyala/yapıştır destekliyor mu?**
 

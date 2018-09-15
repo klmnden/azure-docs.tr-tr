@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 52dfac826de86f67b3143cce49c35088547c4b39
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e096a67d953860ec2e9601f25dbd9ca92a8fb4a3
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171781"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633790"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda sınırlamaları
 Aşağıdaki bölümlerde, kapasite ve veritabanı hizmetinde işlev sınırlamaları açıklanmaktadır.
@@ -47,7 +47,7 @@ Azure sistem PostgreSQL sunucusu için Azure veritabanı izlemek için beş bağ
 - Sunucu depolama boyutunu küçültme şu anda desteklenmiyor.
 
 ### <a name="server-version-upgrades"></a>Sunucu sürümü yükseltme
-- Ana veritabanı altyapısı sürümleri arasında otomatik geçişi şu anda desteklenmiyor.
+- Ana veritabanı altyapısı sürümleri arasında otomatik geçişi şu anda desteklenmiyor. Bir sonraki ana sürümüne yükseltmek istiyorsanız, olması bir [döküm ve geri yükleme](./howto-migrate-using-dump-and-restore.md) yeni altyapısı sürümü ile oluşturulmuş bir sunucu için.
 
 ### <a name="subscription-management"></a>Abonelik yönetimi
 - Abonelikler ve kaynak grupları arasında sunucuları dinamik olarak taşıma şu anda desteklenmiyor.

@@ -15,24 +15,26 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 4f2d49233a6eb92f567d4265210fcab394aa6461
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 661ff7c07ba2bb17eb5830b38bb39e1c3e80bb55
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190346"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45602917"
 ---
 # <a name="advanced-aggregations-in-log-analytics-queries"></a>Log Analytics sorguları Gelişmiş toplamaları
 
 > [!NOTE]
 > Tamamlamanız gereken [Log Analytics sorguları Toplamalara](./aggregations.md) dersin tamamlamadan önce.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 Bu makale, Log Analytics sorguları daha gelişmiş toplama seçeneklerini bazılarını açıklar.
 
 ## <a name="generating-lists-and-sets"></a>Listeler ve kümeleri oluşturma
 Kullanabileceğiniz `makelist` özet verileri belirli bir sütundaki değerleri sıraya göre. Örneğin, en yaygın sipariş olaylar gerçekleştiğinde makinelerinizde incelemek isteyebilirsiniz. Aslında, her makinede Eventıds sıraya göre veri Özet. 
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -48,7 +50,7 @@ Event
 
 Yalnızca benzersiz değerler listesini oluşturmak kullanışlıdır. Bu adlı bir _ayarlamak_ ve ile oluşturulan `makeset`:
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -65,7 +67,7 @@ Gibi `makelist`, `makeset` de çalışır sıralı veri ve içine geçirilen Sat
 ## <a name="expanding-lists"></a>Listeleri Genişletiliyor
 Ters işleyişini `makelist` veya `makeset` olduğu `mvexpand`, satırları ayırmak için değer listesi genişletir. Dinamik sütun, hem JSON hem de dizi herhangi bir sayıda arasında genişletebilirsiniz. Örneğin, iade edilemedi *sinyal* tablo son bir saat içinde bir sinyal gönderilen bilgisayarlardan veri gönderen çözümleri için:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, Solutions
@@ -95,7 +97,7 @@ Sinyal | Burada TimeGenerated > önce (1s) | Proje bilgisayar, bölünmüş (ç�
 
 Ardından kullanabileceğinizi `makelist` yeniden grubuna öğelerini birlikte ve bu süre çözüm başına bilgisayarların listesini bakın:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, split(Solutions, ",")
@@ -113,7 +115,7 @@ Heartbeat
 ## <a name="handling-missing-bins"></a>Depo eksik işleme
 Yararlı bir uygulamayı `mvexpand` eksik depo için varsayılan değerleri doldurmak için gerekli değildir. Örneğin, belirli bir makine için çalışma süresi, sinyal inceleyerek aradığınız varsayalım. Ayrıca, olan sinyal kaynağını görmek istediğiniz _kategori_ sütun. Normalde, biz basit kullanacağınız deyim şu şekilde özetler:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
@@ -129,7 +131,7 @@ Heartbeat
 
 Bu ancak ilişkili demetine sonuçları "2017-06-06T19:00:00Z" Bu saat için herhangi bir sinyal veri olmadığından eksik. Kullanım `make-series` boş demet için bir varsayılan değer atamak için işlevi. Bu, her iki ek bir dizi sütun kategorisiyle, değerleri için diğeri için eşleşen zaman demet için bir satır oluşturur:
 
-```OQL
+```KQL
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
@@ -141,7 +143,7 @@ Heartbeat
 
 Üçüncü öğesine *count_* dizi 0 beklendiği gibi olduğu ve eşleşen bir zaman damgası yok "2017-06-06T19:00:00.0000000Z" içinde _TimeGenerated_ dizisi. Bu dizi biçimi, ancak okuma zordur. Kullanım `mvexpand` diziler genişletin ve aynı biçimi tarafından oluşturulan çıktı üretmek için `summarize`:
 
-```OQL
+```KQL
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 | mvexpand TimeGenerated, count_
@@ -163,7 +165,7 @@ Heartbeat
 Yaygın bir senaryo, bir ölçüt kümesi temel alınarak belirli bazı varlıklar adını seçin ve daha sonra farklı bir veri kümesi, bir dizi varlık aşağı filtre sağlamaktır. Örneğin, güncelleştirmelerin eksik olduğu bilinen bilgisayarlar bulmak ve tanımlamak için bu bilgisayarları çekilerek IP'ler:
 
 
-```OQL
+```KQL
 let ComputersNeedingUpdate = toscalar(
     Update
     | summarize makeset(Computer)

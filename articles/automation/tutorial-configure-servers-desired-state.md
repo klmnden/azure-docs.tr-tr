@@ -4,17 +4,17 @@ description: Öğretici - Azure Otomasyonu durum yapılandırması ile sunucu ya
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 3b4ecc7596af52312785ea7acaad18a7af8a5087
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 000875e4e591bcfe94ec99f8b16c8ec40bf52cf4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005966"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629891"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Sunucuları istenen duruma göre yapılandırma ve kaymaları yönetme
 

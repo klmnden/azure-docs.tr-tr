@@ -1,42 +1,29 @@
 ---
-title: LUIS tahminleri - Azure geliştirmek için pattern.Any varlık kullanma Öğreticisi | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Bu öğreticide, pattern.any varlık LUIS amacı ve varlık Öngörüler geliştirmek için kullanın.
+title: 'Öğretici 5: Pattern.any varlık serbest biçimli metin'
+titleSuffix: Azure Cognitive Services
+description: Burada verilerin sonuna kolayca utterance kalan kelimelerinizle aklınızı karıştırabilir ve konuşma olduğu iyi biçimlendirilmiş pattern.any varlık konuşma verileri ayıklamak için kullanın.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: dce75710137f4d4160cb2f55f856066c7c93ac78
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157863"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628996"
 ---
-# <a name="tutorial-improve-app-with-patternany-entity"></a>Öğretici: pattern.any varlığı ile uygulama geliştirin
+# <a name="tutorial-5-extract-free-form-data"></a>Öğretici: 5. Serbest biçimli verileri ayıklayın
 
-Bu öğreticide, hedefi ve varlık tahmin artırmak için pattern.any varlık kullanın.  
+Bu öğreticide, pattern.any varlık konuşma iyi biçimlendirilmiş olduğu ve burada verilerin sonuna kolayca utterance kalan kelimelerinizle aklınızı karıştırabilir konuşma verileri ayıklamak için kullanın. 
 
-> [!div class="checklist"]
-* Ne zaman ve pattern.any kullanmayı öğrenin
-* Pattern.any kullanan düzeni oluşturma
-* Tahmin geliştirmeleri doğrulama
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Başlamadan önce
-İnsan Kaynakları uygulamadan yoksa [desen rolleri](luis-tutorial-pattern-roles.md) öğreticide [alma](luis-how-to-start-new-app.md#import-new-app) JSON'a yeni bir uygulama [LUIS](luis-reference-regions.md#luis-website) Web sitesi. İçeri aktarılacak uygulamasını bulunan [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub deposu.
-
-Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `patt-any` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
-
-## <a name="the-purpose-of-patternany"></a>Pattern.any amacı
 Pattern.any varlık burada ifade varlığın varlık utterance geri kalanından sonuna belirlemek zorlaştırır serbest biçimli veri bulmanıza olanak tanır. 
 
-İnsan Kaynakları uygulamasında bu, çalışanların şirket formları yardımcı olur. Forms eklendi [normal ifade öğretici](luis-quickstart-intents-regex-entity.md). Bu öğreticiden form adları form adları gibi iyi biçimlendirilmiş bir form adı ayıklamak için normal bir ifade kullanılan, aşağıdaki tabloda utterance Kalın:
+İnsan Kaynakları uygulamasında bu, çalışanların şirket formları yardımcı olur. 
 
 |Konuşma|
 |--|
@@ -54,11 +41,38 @@ Konuşma kolay form adı ile şöyle görünür:
 |Kimin yazılan **"Request yeniden konumlandırma çalışan şirket 2018 sürüm 5 yeni"**?|
 |**Yeniden konumlandırma çalışan şirket 2018 sürüm 5 yeni istek** Fransızca yayımlanan?|
 
-Değişken uzunluğu LUIS varlık sona ereceği hakkında karışıklığa neden olabilir ifadeleri içerir. İçindeki bir desenle Pattern.any varlık kullanarak LUIS form adı doğru ayıklar. böylece form adının sonunda ve başındaki belirtmenizi sağlar.
+Değişken uzunluğu LUIS varlık sona ereceği hakkında karışıklığa neden olabilir sözcükleri içerir. İçindeki bir desenle Pattern.any varlık kullanarak LUIS form adı doğru ayıklar. böylece form adının sonunda ve başındaki belirtmenizi sağlar.
 
-**Desenler varlıkları değil algılanırsa, daha az örnek konuşma sağlamanıza olanak tanırken desenle eşleşmez.**
+|Şablon utterance örneği|
+|--|
+|Burada {formadı} [?] olan|
+|Kimin {formadı} [?] yazıldı|
+|Fransızca [?] {formadı} yayımlanır|
 
-## <a name="add-example-utterances-to-the-existing-intent-findform"></a>Mevcut ıntent'e FindForm örnek Konuşma ekleme 
+**Bu öğreticide, şunların nasıl yapılır:**
+
+> [!div class="checklist"]
+> * Mevcut öğretici uygulamasını kullanma
+> * Varolan bir varlık için örnek Konuşma ekleme
+> * Pattern.Any varlık oluşturma
+> * Desen oluşturmak
+> * Eğitim
+> * Yeni test düzeni
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Var olan bir uygulama kullanma
+Adlı son öğreticisinde oluşturulan uygulama devam **İnsanKaynakları**. 
+
+Önceki öğreticide İnsanKaynakları uygulamadan yoksa aşağıdaki adımları kullanın:
+
+1.  İndirip kaydedin [uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+
+2. JSON, yeni bir uygulamaya aktarma.
+
+3. Gelen **Yönet** üzerinde bölümünde **sürümleri** sekmesinde sürüm kopyalayın ve adlandırın `patt-any`. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rota bir parçası olarak kullanıldığından, adın bir URL geçerli olmayan karakterler içeremez.
+
+## <a name="add-example-utterances"></a>Örnek Konuşma ekleme 
 Önceden oluşturulmuş bir anahtar cümlesi varlık oluşturun ve formadı varlık etiketi zor ise kaldırın. 
 
 1. Seçin **derleme** üst gezinti bölmesinden seçip **hedefleri** sol gezinti bölmesinden.
@@ -128,6 +142,8 @@ Varlıklar farklı uzunluktaki Pattern.any varlık ayıklar. Desen Başlangıç 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğretici, var olan bir amaç için örnek konuşma eklenen ardından form adı için yeni bir Pattern.any oluşturulan. Ardından öğretici varlık ve yeni örnek Konuşma ile mevcut hedefi için bir düzen oluşturdunuz. Etkileşimli test varlık bulunamadığından deseni ve konuşmanın niyetini tahmin olduğunu göstermiştir. 
 
 > [!div class="nextstepaction"]
 > [Roller bir desen ile kullanmayı öğrenin](luis-tutorial-pattern-roles.md)

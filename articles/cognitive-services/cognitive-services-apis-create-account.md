@@ -1,9 +1,10 @@
 ---
-title: Azure portalında bir Bilişsel hizmetler API hesabı oluşturma | Microsoft Docs
-description: Azure portalında Microsoft Bilişsel hizmetler API hesabı oluşturma
+title: 'Hızlı Başlangıç: Azure portalında bir Bilişsel Hizmetler hesabı oluşturma'
+titleSuffix: Microsoft Docs
+description: Azure Bilişsel hizmetler erişmek için bir hesap oluşturmayı öğrenin.
 services: cognitive-services
 documentationcenter: ''
-author: garyericson
+author: aahill
 manager: cgronlun
 editor: ''
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
@@ -11,68 +12,62 @@ ms.service: cognitive-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
-ms.author: garye
+ms.date: 09/06/2018
+ms.author: aahi
 ms.reviewer: gibattag
-ms.openlocfilehash: ed5f19b23375ecb83e19274c7405e9a1208a7985
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 232e0aa64eef4f6829813efff6e0abffd0a78518
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036169"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605139"
 ---
-# <a name="create-a-cognitive-services-apis-account-in-the-azure-portal"></a>Azure portalında bir Bilişsel hizmetler API hesabı oluşturma
+# <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında bir Bilişsel Hizmetler hesabı oluşturma
 
-Microsoft Bilişsel hizmetler API'leri kullanmak için öncelikle Azure portalında bir hesap oluşturmanız gerekir.
+Bu hızlı başlangıçta, Azure Bilişsel hizmetler'ı kullanmaya başlamak için kullanın. Bu hizmetler, Azure tarafından temsil edilen [kaynakları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), bir veya daha fazla birçok Bilişsel hizmetler API'leri kullanılabilir bağlanmanıza olanak tanır.
 
-1. [Azure Portal](http://portal.azure.com)’da oturum açın.
+## <a name="prerequisites"></a>Önkoşullar
 
-2. Tıklayın **+ kaynak Oluştur**.
+* Geçerli bir Azure aboneliği. yapabilecekleriniz [hesap oluşturma](https://azure.microsoft.com/free/) ücretsiz.
 
-3. Azure Marketi bölümünde seçin **yapay ZEKA ve Bilişsel Hizmetler** ve kullanılabilen API'lerin listesi keşfedin. Tıklayarak **tümünü gör** Bilişsel hizmetler API'leri tam listesini görmek için. Devam etmek için tercih ettiğiniz API'ye tıklayın.
+## <a name="create-and-subscribe-to-an-azure-cognitive-services-resource"></a>Oluşturma ve bir Azure Bilişsel hizmetler kaynağı için abone olun
 
-    ![Bilişsel hizmetler API'leri seçin](media/cognitive-services-apis-create-account/select-cognitive-services-apis.png)
+1. Oturum [Azure portalında](http://portal.azure.com), tıklatıp **+ kaynak Oluştur**.
+    
+    ![Bilişsel hizmetler API'leri seçin](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
-4. Üzerinde **Oluştur** sayfasında, aşağıdaki bilgileri sağlayın:
+2. Azure Marketi bölümünde seçin **yapay ZEKA + makine öğrenimi**. İlgilendiğiniz hizmet görmüyorsanız, tıklayarak **tümünü gör** Bilişsel hizmetler API'leri, tüm katalogunu görüntülemek için.
 
-   - **Hesap adı:** hesabının adı. Örneğin, açıklayıcı bir ad kullanmanızı öneririz *AFaceAPIAccount*.
+    ![Bilişsel hizmetler API'leri seçin](media/cognitive-services-apis-create-account/azureMarketplace.png)
 
-   - **Abonelik:** kullanılabilir Azure abonelikleri sahip olduğunuz en az birini katkıda bulunan izinleri.
+3. Üzerinde **Oluştur** sayfasında, aşağıdaki bilgileri sağlayın:
 
-   - **API türü:** Bilişsel hizmetler API'si kullanmak istediğinizi seçin. Çeşitli Bilişsel hizmetler API'leri kullanılabilir hakkında daha fazla bilgi için ziyaret [Bilişsel Hizmetler](https://azure.microsoft.com/services/cognitive-services/) site.
+    |    |    |
+    |--|--|
+    | **Ad** | Bilişsel hizmetler kaynağınız için açıklayıcı bir ad. Örneğin, açıklayıcı bir ad kullanmanızı öneririz *MyNameFaceAPIAccount*. |
+    | **Abonelik** | Kullanılabilir Azure aboneliklerinizi birini seçin. |
+    | **Konum** | Bilişsel hizmet örneğinizin konumu. Farklı konumlara gecikmelere neden ancak kaynağınızı çalışma zamanı kullanılabilirliğini etkilemez sahip. |
+    | **Fiyatlandırma katmanı** | Bilişsel hizmetler hesabınızın maliyeti, belirttiğiniz seçeneklere ve kullanımınıza bağlıdır. Daha fazla bilgi için bkz. API [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    | **Kaynak grubu** | [Azure kaynak grubu](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) Bilişsel hizmetler kaynağınızı içerecek. Yeni bir grup oluşturmak veya önceden var olan bir gruba ekleyin. |
 
-   - **Fiyatlandırma katmanı:** Bilişsel hizmetler hesabınızın maliyeti, gerçek kullanım ve belirttiğiniz seçeneklere bağlıdır. Her API'si için fiyatlandırma hakkında daha fazla bilgi için [fiyatlandırma sayfalarına](https://azure.microsoft.com/pricing/details/cognitive-services/).
+    ![Kaynak oluşturma ekranı](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
-   - **Kaynak grubu:** bir kaynak grubu, aynı yaşam döngüsünü, izinleri ve ilkeleri paylaşan kaynaklar koleksiyonudur. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı portal üzerinden yönetme](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+## <a name="access-your-resource"></a>Kaynak erişimi 
 
-   - **Kaynak grubu konumu:** yalnızca seçili API (bir konuma bağlı değil) genel ise, bu gereklidir. Ancak, API, genel ve konuma bağlı ise, Bilişsel hizmetler API hesabı ile ilişkili meta verilerin bulunduğu kaynak grubu için bir konum belirtmeniz gerekir. Bu konum, hesabınızın çalışma zamanı kullanılabilirliğini etkilemez. Kaynak grubu hakkında daha fazla bilgi için bkz: [Azure kaynaklarınızı portal üzerinden yönetme](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+Bu sabitlenmiş kaynağınızı oluşturduktan sonra bunu Azure panosundan erişebilirsiniz. Aksi takdirde, bulabilirsiniz **kaynak grupları**.
 
-   - **Çevrimiçi Hizmet Koşulları'nın açık onayını:** abonelik sahipleri veya katkıda bulunan bir hesabı oluşturmak için (tarafından tanımlandığı gibi [Azure rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/overview)) açıkça koşulları kabul etmek ihtiyacınız olan Cognitive Services uygulamak [çevrimiçi hizmet koşulları](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx). 
+Bilişsel hizmetler kaynağınızı uç nokta URL'si ve anahtarları kullanabilirsiniz **genel bakış** API oluşturmaya başlamak için bölüm uygulamalarınızda çağırır.
 
-     Abonelik sahibi Bilişsel Hizmetler hesabı için belirli bir kaynak grubu veya abonelikle oluşturulmasını devre dışı bırakabilirsiniz [Azure ilkeleri](../azure-policy/azure-policy-introduction.md) makaleyi izleyerek [atamak ve yönetmek için portalı kullanarak Azure Kaynak ilkeleri](../azure-policy/assign-policy-definition.md) "izin verilmeyen kaynak türleri" için bir ilke tanımı atadıktan ve belirterek **Microsoft.CognitiveServices/accounts** hedef kaynak türü.
+![Kaynaklarının ekranı](media/cognitive-services-apis-create-account/resourceScreen.png)
 
-     Hesap oluşturma devre dışı bırakılmışsa aşağıdaki hata hesap oluşturma sırasında görüntülenir:
+## <a name="next-steps"></a>Sonraki Adımlar
 
-     ![Hesabı oluşturma hatası](media/cognitive-services-apis-create-account/error-message.png)
+> [!div class="nextstepaction"]
+> [Bilgisayar görüntü işleme API'si C# Öğreticisi](https://docs.microsoft.com/azure/cognitive-services/computer-vision/tutorials/csharptutorial)
 
-5. Hesap Azure portal panosuna sabitlemek için tıklayın **panoya Sabitle**.
+## <a name="see-also"></a>Ayrıca bkz.
 
-6. Hesabı oluşturmak için **Oluştur**’a tıklayın.
-
-Bilişsel Hizmetler hesabı başarıyla dağıtıldıktan sonra hesap bilgilerini görüntülemek için panodaki bir kutucuğa tıklayın.
-
-Kullanabileceğiniz **uç nokta URL'si** içinde **genel bakış** bölümü ve anahtarları **anahtarları** API oluşturmaya başlamak için bölümün çağırdığı uygulamalarınızda.
-
-![Hesap bilgilerini görüntüleme](media/cognitive-services-apis-create-account/display-account.png)
-
-![Hesap anahtarlarını görüntüle](media/cognitive-services-apis-create-account/account-keys.png)
-
-### <a name="next-steps"></a>Sonraki Adımlar
-
-Tüm Microsoft Bilişsel hizmetler hakkında daha fazla bilgi için bkz. [Bilişsel Hizmetler](https://azure.microsoft.com/services/cognitive-services/).
-
-Hızlı Başlangıç kılavuzları için bazı örnek Bilişsel hizmetler API'lerini kullanarak:
-
- - [Bilgisayar işleme C# hızlı başlangıçları](computer-vision/quickstarts/csharp.md)
- - [Python ile metin analizi](text-analytics/quickstarts/python.md)
- - [Yüz tanıma API'si ile JavaScript](face/quickstarts/javascript.md)
+* [Hızlı Başlangıç: resimlerdeki el yazısı bir görüntüden ayıklayın.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
+* [Öğretici: algılamak ve bir görüntüdeki yüzleri çerçeve için uygulama oluşturma](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)
+* [Bir özel arama Web sayfası oluşturma](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)
+* [Language Understanding (LUIS) Bot Framework kullanarak bir bot ile tümleştirme](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample)

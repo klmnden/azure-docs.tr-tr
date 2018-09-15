@@ -2,74 +2,83 @@
 title: Azure Media Services tarafından önerilen kodlayıcılar hakkında bilgi edinin | Microsoft Docs
 description: Media services tarafından önerilen kodlayıcılar hakkında bilgi edinin
 services: media-services
-keywords: kodlama kodlayıcılar; ortam
+keywords: kodlama; kodlayıcılar; medya
 author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
-ms.date: 11/10/2017
+manager: johndeu
+ms.author: johndeu
+ms.date: 09/13/2018
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d0c5536d2339470eac058250cc14e1f250b86d90
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c90d6a5784fe9d80df4fab304b6122d3fa24d0b5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790275"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605173"
 ---
 # <a name="recommended-on-premises-encoders"></a>Önerilen şirket içi kodlayıcılar
-Canlı, Azure Media Services ile akış nasıl kanalınızı Giriş akışı almak istediğinizi belirtebilirsiniz. Bir şirket içi Kodlayıcı ile canlı bir kodlama kanalı kullanmayı seçerseniz, kodlayıcıyı çıkış olarak yüksek kaliteli tek bit hızında akışa itme. Bir geçiş kanalı ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, tüm istenen çıkış nitelikleri ile çıkış olarak kodlayıcıyı Çoklu bit hızında akışa itme. Daha fazla bilgi için bkz: [şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md).
+Canlı, Azure Media Services ile akış, giriş akışını almak için kanal nasıl istediğinizi belirtebilirsiniz. Canlı kodlama kanal ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, kodlayıcınız çıktı olarak bir yüksek kaliteli tek bit hızında akışa anında iletme. Bir geçiş kanalı üzerinden ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, tüm istenen çıkış kalitelerini çıktı olarak kodlayıcınız Çoklu bit hızında akışa anında. Daha fazla bilgi için [şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md).
 
-Azure Media Services RTMP çıktı olarak sahip gerçek zamanlı kodlayıcılar aşağıdaki birini kullanarak önerir:
-- Adobe Flash medya gerçek zamanlı kodlayıcıya 3.2
+Azure Media Services, gerçek zamanlı kodlayıcılar RTMP çıktısı olarak olan aşağıdaki birini kullanarak önerir:
+- Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
-- Telestream Wirecast 8.1
+- Haivision KB
+- Telestream Wirecast 8.1 +
+- Telestream Wirecast S
 - Teradek dilim 756
 - TriCaster 8000
 - Tricaster Mini HD-4
+- OBS Studio
+- VMIX
+- xStream
+- Değiştirici Studio (iOS)
 
-Çoklu bit hızlı kesintisiz akış çıktı olarak sahip şu gerçek zamanlı kodlayıcılar birini kullanarak Azure Media Services önerir:
+Azure Media Services, Çoklu bit hızlı parçalanmış-MP4 (kesintisiz akış) çıktı olarak sahip şu gerçek zamanlı kodlayıcılar kullanarak önerir:
+- Medya Excel Hero canlı ve Hero 4 K (UHD/HEVC)
 - Ateme TITAN Canlı
 - Cisco dijital medya Kodlayıcısı 2200
-- Elemental dinamik
+- Elemental Live
 - Envivio 4Caster C4 Gen III
-- İletişim Selenio MCP3 düşünün
-- Dinamik medya Excel kahramanı
+- Imagine Communications Selenio MCP3
 
 > [!NOTE]
-> Gerçek zamanlı Kodlayıcı bir geçiş kanalı üzerinden bir tek bit hızında akışa gönderebilir, ancak bit hızı Uyarlamalı akış için istemci için izin vermediği için bu yapılandırma önerilmez.
+> Gerçek zamanlı bir kodlayıcı tek bit hızında akışa bir geçiş kanalı üzerinden gönderebilir, ancak bit hızı Uyarlamalı akış için bir istemci için izin vermediğinden bu yapılandırma önerilmez.
 
-## <a name="how-to-become-an-on-prem-encoder-partner"></a>Bir şirket içi Kodlayıcı ortağı olmaya
-Bir Azure Media Services şirket içi Kodlayıcı iş ortağı olarak, Kurumsal müşterilerin kodlayıcıyı önererek Media Services ürününüzü yükseltir. Bir şirket içi Kodlayıcı ortağı olmak için şirket içi kodlayıcıyı uyumluluk Media Services ile doğrulamanız gerekir. Bunu yapmak için aşağıdaki Doğrulamalar tamamlayın:
+## <a name="how-to-become-an-on-prem-encoder-partner"></a>Nasıl bir şirket içi Kodlayıcı iş ortağı
+Bir Azure Media Services şirket içi Kodlayıcı iş ortağı olarak, Media Services, kurumsal müşterilere kodlayıcınız önererek ürününüzü yükseltir. Bir şirket içi Kodlayıcı iş ortağı için Uyumluluk, şirket içi Kodlayıcı, Media Services ile doğrulamanız gerekir. Bunu yapmak için aşağıdaki Doğrulamalar tamamlayın:
 
 Kanal doğrulama geçirin
-1. Oluşturma veya Azure Media Services hesabınızı ziyaret edin
+1. Oluşturun veya Azure Media Services hesabınızı ziyaret edin
 2. Oluşturma ve başlatma bir **doğrudan** kanal
-3. Çoklu bit hızında bir canlı akışı göndermeyi kodlayıcıyı yapılandırın.
-4. Yayımlanan bir canlı olay oluşturma
+3. Çoklu bit hızlı canlı akış anında yapmak için kodlayıcınızı yapılandırın.
+4. Yayımlanan bir canlı etkinlik oluştur
 5. Yaklaşık 10 dakika, gerçek zamanlı Kodlayıcı çalıştırın
-6. Canlı olay Durdur
-7. Varlık kimliği, akış URL'si Canlı Arşiv ayarları ve canlı kodlayıcıdan kullanılan sürümü için yayımlanan kayıt
-8. Her örnek oluşturduktan sonra kanal durumu Sıfırla
-9. Kodlayıcıyı (ile ve ad sinyal/resim yazıları/hızları kodlama farklı olmadan) tarafından desteklenen tüm yapılandırmalar için 8 aracılığıyla 3 adımları yineleyin
+6. Canlı etkinliği durdurmak
+7. Oluşturma, bir akış uç noktasını başlatın, aşağıdaki gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) , kayıttan yürütme için tüm kalite düzeylerine görünür hiçbir arızalardan bulunmasını arşivlenmiş varlığı izleyin (veya alternatif olarak izleyin ve önizleme URL ile doğrulamak için 6. adımdan önce Canlı oturumda)
+8. Canlı Arşiv ve ayarları, Canlı kodlayıcıdan kullanılan sürümü ve akış URL'si yayımlanmış varlık kimliği kaydedin
+9. Her bir örnek oluşturduktan sonra kanal durumu Sıfırla
+10. (İle ve ad sinyal/açıklamalı alt yazılar/hızları kodlama farklı olmadan), kodlayıcı tarafından desteklenen tüm yapılandırmalar için 9 3 adımları yineleyin
 
 Canlı kodlama kanal doğrulama
-1. Oluşturma veya Azure Media Services hesabınızı ziyaret edin
-2. Oluşturma ve başlatma bir **kodlama canlı** kanal
-3. Tek bit hızında bir canlı akışı göndermeyi kodlayıcıyı yapılandırın.
-4. Yayımlanan bir canlı olay oluşturma
+1. Oluşturun veya Azure Media Services hesabınızı ziyaret edin
+2. Oluşturma ve başlatma bir **live encoding** kanal
+3. Tek bit hızında bir canlı akışı anında yapmak için kodlayıcınızı yapılandırın.
+4. Yayımlanan bir canlı etkinlik oluştur
 5. Yaklaşık 10 dakika, gerçek zamanlı Kodlayıcı çalıştırın
-6. Canlı olay Durdur
-7. Varlık kimliği, akış URL'si Canlı Arşiv ayarları ve canlı kodlayıcıdan kullanılan sürümü için yayımlanan kayıt
-8. Her örnek oluşturduktan sonra kanal durumu Sıfırla
-9. Kodlayıcıyı (ile ve ad sinyal/resim yazıları/hızları kodlama çeşitli olmadan) tarafından desteklenen tüm yapılandırmalar için 8 aracılığıyla 3 adımları yineleyin
+6. Canlı etkinliği durdurmak
+7. Oluşturma, bir akış uç noktasını başlatın, aşağıdaki gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) , kayıttan yürütme için tüm kalite düzeylerine görünür hiçbir arızalardan bulunmasını arşivlenmiş varlığı izleyin (veya alternatif olarak izleyin ve önizleme URL ile doğrulamak için 6. adımdan önce Canlı oturumda)
+8. Canlı Arşiv ve ayarları, Canlı kodlayıcıdan kullanılan sürümü ve akış URL'si yayımlanmış varlık kimliği kaydedin
+9. Her bir örnek oluşturduktan sonra kanal durumu Sıfırla
+10. (İle ve ad sinyal/açıklamalı alt yazılar/hızları kodlama çeşitli olmadan), kodlayıcı tarafından desteklenen tüm yapılandırmalar için 9 3 adımları yineleyin.
 
 Dayanıklılık doğrulama
-1. Oluşturma veya Azure Media Services hesabınızı ziyaret edin
+1. Oluşturun veya Azure Media Services hesabınızı ziyaret edin
 2. Oluşturma ve başlatma bir **doğrudan** kanal
-3. Çoklu bit hızında bir canlı akışı göndermeyi kodlayıcıyı yapılandırın.
-4. Yayımlanan bir canlı olay oluşturma
-5. Bir hafta için veya daha uzun, gerçek zamanlı Kodlayıcı çalıştırın
-6. Canlı olay Durdur
-7. Varlık kimliği, akış URL'si Canlı Arşiv ayarları ve canlı kodlayıcıdan kullanılan sürümü için yayımlanan kayıt
+3. Çoklu bit hızlı canlı akış anında yapmak için kodlayıcınızı yapılandırın.
+4. Yayımlanan bir canlı etkinlik oluştur
+5. Bir hafta veya daha uzun, gerçek zamanlı Kodlayıcı çalıştırın
+6. Gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) Canlı süresi zaman (ya da arşivlenmiş varlığı), kayıttan yürütme sahip hiçbir görünür arızalardan emin olmak için akış izlemek için
+7. Canlı etkinliği durdurmak
+8. Canlı Arşiv ve ayarları, Canlı kodlayıcıdan kullanılan sürümü ve akış URL'si yayımlanmış varlık kimliği kaydedin
 
-Son olarak, kaydedilen ayarlarınızı göndermek ve canlı arşiv parametreleri Media Services için e-postayla gönderme tarafından amsstreaming@microsoft.com. Alındığında, Media Services, gerçek zamanlı Kodlayıcı örnekleri üzerinde doğrulama testleri gerçekleştirir. Bu işlem ile ilgili herhangi bir sorunuz ile Media Services başvurabilirsiniz.
+Son olarak, kaydedilen ayarlarınızı gönderin ve canlı arşiv parametreleri Media Services'e postası göndererek amsstreaming@microsoft.com. Media Services, alındığında, gerçek zamanlı Kodlayıcı örnekleri üzerinde doğrulama testleri gerçekleştirir. Media Services ile bu işlem ile ilgili herhangi bir sorunuz başvurabilirsiniz.

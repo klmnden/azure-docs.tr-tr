@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 09/13/2018
 ms.author: magoedte; bwren
 ms.component: na
-ms.openlocfilehash: 386aad94461fa3f2ceafb7564342797eefa2f086
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 996502ffe5a31fcfa1b73dab9a041c336c4ea98f
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060392"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45602640"
 ---
 # <a name="viewing-and-analyzing-data-in-log-analytics"></a>Log analytics'te verileri çözümleme ve görüntüleme
 Azure portalında Log analytics içinde depolanan verileri analiz etmek için ve geçici analiz sorguları oluşturmak için iki seçenek vardır. Bu portalı kullanarak oluşturduğunuz sorguları, uyarılar ve panolar gibi diğer özellikler için kullanılabilir.
 
-## <a name="log-analytics-page-preview"></a>Log Analytics sayfa (Önizleme)
-Log Analytics sayfasından açın **günlükleri (Önizleme)** Log Analytics menüsünde. Günlük verileri ile çalışma ve sorgular oluşturmak için yeni bir deneyim budur. Bu portalı giriş yapın ve onun özelliklerini inceleme [Azure portalında Log Analytics sayfası ile çalışmaya başlama](query-language/get-started-analytics-portal.md).
+## <a name="log-analytics-page"></a>Log Analytics sayfası
+Log Analytics sayfasından açın **günlükleri** Log Analytics menüsünde. Günlük verileri ile çalışma ve sorgular oluşturmak için yeni bir deneyim budur. Bu portalı giriş yapın ve onun özelliklerini inceleme [Azure portalında Log Analytics sayfası ile çalışmaya başlama](query-language/get-started-analytics-portal.md).
 
 Log Analytics sayfası üzerinde aşağıdaki iyileştirmeleri sağlar [günlük araması](#log-search) karşılaşırsınız.
 
@@ -55,8 +55,8 @@ Tarayıcınız Log Analytics sayfası ve Gelişmiş analiz portalını erişmek 
 | docs.loganalytics.io   | Dinamik | 80,443 |
 
 
-## <a name="log-search"></a>Günlük araması
-Günlük arama sayfasından açın **günlükleri** Log Analytics menüsünde veya gelen **Log Analytics** Azure İzleyici menüsünde. Temel sorgular kullanarak günlük verilerini çözümlemek için uygundur. Bunu birden çok özellik düzenleme sorgular için sorgu dili hakkında tam bilgi zorunda kalmadan sağlar.  Bu özelliklerin bir özetini elde edebilirsiniz [oluşturma günlük arama özelliğini kullanarak Azure Log analytics'te günlük aramaları](log-analytics-log-search-log-search-portal.md). 
+## <a name="log-search-classic"></a>Günlük araması (Klasik)
+Günlük arama sayfasından açın **günlükleri (Klasik)** Log Analytics menüsünde veya gelen **Log Analytics** Azure İzleyici menüsünde. Temel sorgular kullanarak günlük verilerini çözümlemek için uygundur. Bunu birden çok özellik düzenleme sorgular için sorgu dili hakkında tam bilgi zorunda kalmadan sağlar.  Bu özelliklerin bir özetini elde edebilirsiniz [oluşturma günlük arama özelliğini kullanarak Azure Log analytics'te günlük aramaları](log-analytics-log-search-log-search-portal.md). 
 
 
 ![Günlük arama sayfası](media/log-analytics-log-search-portals/log-search-portal.png)

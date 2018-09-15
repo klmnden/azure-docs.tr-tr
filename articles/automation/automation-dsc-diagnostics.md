@@ -4,17 +4,17 @@ description: Bu makalede Desired State Configuration (DSC) raporlama verilerini 
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1b3c0cd71508aef9a608e0c41e32cd079e40d4e5
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 62d201e608864949c86e52d8ac8fbf9ce8538f11
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003475"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631472"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Azure Otomasyonu durum yapılandırması raporlama verilerini Log Analytics'e iletme
 

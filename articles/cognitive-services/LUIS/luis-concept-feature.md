@@ -1,20 +1,21 @@
 ---
-title: Azure'da LUIS uygulama özelliklerini anlama | Microsoft Docs
-description: Bir LUIS uygulamanın performansını iyileştirmeye yardımcı olan özellikler hakkında bilgi edinin. İfade listeleri ve düzenleri için normal ifadeleri tanıma özellikleri içerir.
+title: Azure Bilişsel hizmetler LUIS uygulamalarda özellikleri
+titleSuffix: Azure Cognitive Services
+description: Bir dil modeli, ipuçlarını, etiket veya sınıflandırmak istediğiniz giriş anlamayı hakkında sağlamaya özellikleri ekleyin. Özellikleri, hedefleri ve varlıkları hem LUIS yardımcı olur.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8d3f006f27d1d728f89458deba27e1c1a63b6de5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 906e63c94666d2e24b486f5ae34f99133408c4dc
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224937"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628718"
 ---
 # <a name="phrase-list-features-in-luis"></a>LUIS, ifade listesi özellikleri
 

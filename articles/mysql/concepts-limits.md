@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 1fd5905b8ea3f87fe6cfc2a830b73b8120a717dd
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c18faa94f207b98400fece366a23a68c3d7bc58c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341486"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633189"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda sınırlamaları
 Aşağıdaki bölümlerde, kapasitesi, depolama altyapısı desteği, destek ayrıcalığına, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz: [genel kısıtlamalar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
@@ -72,7 +72,7 @@ Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
 - Sunucu depolama boyutunu küçültme desteklenmiyor.
 
 ### <a name="server-version-upgrades"></a>Sunucu sürümü yükseltme
-- Ana veritabanı altyapısı sürümleri arasında otomatik geçişi şu anda desteklenmiyor.
+- Ana veritabanı altyapısı sürümleri arasında otomatik geçişi şu anda desteklenmiyor. Bir sonraki ana sürümüne yükseltmek istiyorsanız, olması bir [döküm ve geri yükleme](./concepts-migrate-dump-restore.md) yeni altyapısı sürümü ile oluşturulmuş bir sunucu için.
 
 ### <a name="point-in-time-restore"></a>belirli bir noktaya geri yükleme
 - PITR özelliğini kullanırken, yeni sunucuya bağlı olduğu sunucusuyla aynı yapılandırmaları ile oluşturulur.

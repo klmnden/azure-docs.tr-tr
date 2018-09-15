@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 010efdf0fbfabb92b7465e37cb678a64810c8979
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 80d73620d11312a386a406d9a49d9223295b42f3
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025257"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631387"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Bir LUIS uygulaması için Kurumsal stratejileri
 Bu tasarım stratejiler Kurumsal uygulamanız için gözden geçirin.
@@ -51,9 +51,7 @@ Kullanım [gönderme] [ dispatch-tool] bulunan komut satırı aracı [Botbuilder
 
 ![Kavramsal gönderme mimarisi görüntüsü](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-Üst etki alanını LUIS belirtilmiş bir **V gönderme** uygulama. 
-
-![Dağıtım aracı tarafından oluşturulan LUIS uygulaması ile ekran görüntüsü, LUIS uygulamalar listesi](./media/luis-concept-enterprise/dispatch.png)
+Üst etki alanını adlı bir sürümle LUIS içinde belirtilir `Dispatch` uygulamalar listesinde. 
 
 Sohbet botu utterance alır, ardından üst LUIS uygulaması tahmin için gönderir. Üst uygulama üst tahmin edilen amacından LUIS uygulaması sonraki denir hangi alt belirler. Sohbet botu utterance daha belirli bir tahmin için alt uygulamaya gönderir.
 
@@ -67,4 +65,4 @@ Gönderme uygulama en fazla 500 gönderme kaynağı, 500 hedefleri için eşdeğ
 * Bilgi edinmek için nasıl [toplu test](luis-how-to-batch-test.md)
 
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
-[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatch-tool]: https://aka.ms/dispatch-tool

@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: ea72e4ac778e52d4f6e4f5597d38a1de59ba43fc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: 193aa8f87a90eb7bbf1e2c49132ad480881d41fe
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348948"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633478"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Iaas VM'ler için Azure Disk şifrelemesi 
 Microsoft Azure sağlamak için veri gizliliği, veri egemenliği taahhüt eder ve denetlemek için etkinleştirme verileri şifrelemek için Denetim ve şifreleme anahtarlarını yönetmek için Gelişmiş teknolojilerden bir dizi aracılığıyla Azure'da barındırılan ve denetim ve denetim veri erişim. Bu denetim, Azure müşterilerine iş gereksinimlerini en iyi karşılayan çözümü seçme esnekliği sağlar. Bu makalede "Azure Disk şifrelemesi için Windows ve Linux Iaas korumak ve kurumsal güvenlik ve uyumluluk taahhütlerinizi yerine verilerinizi korumak için VM'ler", bir teknoloji çözümü tanıtılmaktadır. 
@@ -78,7 +78,10 @@ Microsoft Azure'da etkin çözüm Iaas Vm'leri için aşağıdaki senaryoları d
 * Iaas VM'ler, Klasik VM oluşturma yöntemini kullanarak oluşturulur
 * Linux Iaas sanal makineleri müşteri özel görüntüleri şifrelemesini etkinleştirme
 * Şirket içi anahtar yönetimi hizmeti ile tümleştirme
-* Azure dosyaları (paylaşılan dosya sistemi), ağ dosya sistemi (NFS), dinamik birimler ve yazılım tabanlı RAID sistemler ile yapılandırılan Windows Vm'leri
+* Azure dosyaları (paylaşılan dosya sistemi)
+* Ağ dosya sistemi (NFS)
+* Dinamik birimler
+* Yazılım tabanlı RAID sistemler ile yapılandırılan Windows Vm'leri
 
 ## <a name="encryption-features"></a>Şifreleme özellikleri
 Etkinleştirme ve Azure Disk şifrelemesi için Azure Iaas Vm'lerini dağıtmak, sağlanan yapılandırmasına bağlı olarak aşağıdaki özellikleri etkinleştirilir:

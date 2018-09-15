@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 0810aff364f8a015e93d7513b13ac7dcb5379556
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 335c3fe4e27ce6025ad889cc7958a32223dc85f8
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544107"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629942"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 erişim denetimi
 
@@ -40,18 +40,6 @@ Hem Erişim ACL'leri hem de Varsayılan ACL'ler aynı yapıdadır.
 > Bir üst öğe üzerindeki Varsayılan ACL’nin değiştirilmesi zaten var olan alt öğelerin Erişim ACL’sini veya Varsayılan ACL’sini etkilemez.
 >
 >
-
-## <a name="users-and-identities"></a>Kullanıcılar ve kimlikler
-
-Her dosya ve klasör bu kimlikler için farklı izinlere sahiptir:
-
-* Sahip olan kullanıcı
-* Sahip olan grup
-* Adlandırılmış kullanıcılar
-* Adlandırılmış gruplar
-* Diğer tüm kullanıcılar
-
-Kullanıcıların ve grupların kimlikleri, Azure Active Directory (Azure AD) kimlikleridir. Aksi belirtilmediği sürece "kullanıcı" Data Lake depolama Gen1, bağlamında şekilde ya da bir Azure AD kullanıcısı veya Azure AD güvenlik grubu anlamına gelir.
 
 ## <a name="permissions"></a>İzinler
 
@@ -100,7 +88,19 @@ Bir Data Lake depolama Gen1 hesabı üzerinde belirli işlemlerin gerçekleştir
 >
 
 
-## <a name="the-super-user"></a>Süper kullanıcı
+## <a name="users-and-identities"></a>Kullanıcılar ve kimlikler
+
+Her dosya ve klasör bu kimlikler için farklı izinlere sahiptir:
+
+* Sahip olan kullanıcı
+* Sahip olan grup
+* Adlandırılmış kullanıcılar
+* Adlandırılmış gruplar
+* Diğer tüm kullanıcılar
+
+Kullanıcıların ve grupların kimlikleri, Azure Active Directory (Azure AD) kimlikleridir. Aksi belirtilmediği sürece "kullanıcı" Data Lake depolama Gen1, bağlamında şekilde ya da bir Azure AD kullanıcısı veya Azure AD güvenlik grubu anlamına gelir.
+
+### <a name="the-super-user"></a>Süper kullanıcı
 
 Süper kullanıcı Data Lake depolama Gen1 hesaptaki tüm kullanıcılar arasında en fazla hakka sahiptir. Süper kullanıcı:
 
@@ -115,7 +115,7 @@ Süper kullanıcı izinlerine sahip özel bir rol tabanlı erişim denetimi (RBA
 - Microsoft.Authorization/roleAssignments/write
 
 
-## <a name="the-owning-user"></a>Sahip olan kullanıcı
+### <a name="the-owning-user"></a>Sahip olan kullanıcı
 
 Öğeyi oluşturan kullanıcı otomatik olarak öğenin sahibi olan kullanıcıdır. Sahip olan kullanıcı şunları yapabilir:
 
@@ -127,7 +127,7 @@ Süper kullanıcı izinlerine sahip özel bir rol tabanlı erişim denetimi (RBA
 >
 >
 
-## <a name="the-owning-group"></a>Sahip olan grup
+### <a name="the-owning-group"></a>Sahip olan grup
 
 **Arka plan**
 
@@ -234,7 +234,7 @@ Aşağıdaki sözde kod umask bir alt öğesi ACL'leri oluştururken nasıl uygu
 ```
 def set_default_acls_for_new_child(parent, child):
     child.acls = []
-    foreach entry in parent.acls :
+    for entry in parent.acls :
         new_entry = None
         if (entry.type == OWNING_USER) :
             new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))

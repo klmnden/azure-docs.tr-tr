@@ -4,15 +4,15 @@ description: Toplayıcı gerecini ve nasıl yapılandırılacağına ilişkin ge
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/14/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: dae6cc9a55049e2b44291eb105288b33a1db9e7b
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 6822bd149d5542d577fa18db3c9f50007ae48d35
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325541"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605071"
 ---
 # <a name="collector-appliance"></a>Toplayıcı Gereci
 
@@ -30,12 +30,17 @@ Toplayıcı adımları izleyerek oluşturabilirsiniz burada - [Toplayıcı VM'yi
 
 Şirket içi ortamınızı bulduğunuz iki yöntem vardır:
 
-a. **Tek seferlik:** Bu model, Toplayıcının vCenter sanal makineleri ile ilgili meta verileri toplamak için sunucu ile iletişim kurar. Performans verileri toplama VM'lerin geçmiş performans verileri vCenter Server'da depolanan kullanır ve son bir ayın performans geçmişi toplar. Bu modelde, Azure geçişi toplar (yoğun sayacı) için her bir ölçüm sayaç ortalama, [daha fazla bilgi] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) Azure geçişi tarafından toplanan performans sayaçları ile ilgili. Bir kerelik bulma olduğundan, gereç bu durumda sürekli olarak projeye bağlı değil. Bulma tamamlandıktan sonra bu nedenle, şirket içi ortamda değişiklikleri Azure geçişi içinde yansıtılmaz. Aynı projeye aynı ortamın bir yeniden bulma yapmak zorunda isterseniz yansıtacak şekilde değişir.
+a. **Tek seferlik:** Bu model, Toplayıcının vCenter sanal makineleri ile ilgili meta verileri toplamak için sunucu ile iletişim kurar. Performans verileri toplama VM'lerin geçmiş performans verileri vCenter Server'da depolanan kullanır ve son bir ayın performans geçmişi toplar. Bu modelde, Azure geçişi, her bir ölçüm için (en yüksek sayacı) ve ortalama sayacını toplar. Bir kerelik bulma olduğundan, gereç bu durumda sürekli olarak projeye bağlı değil. Bulma tamamlandıktan sonra bu nedenle, şirket içi ortamda değişiklikleri Azure geçişi içinde yansıtılmaz. Aynı projeye aynı ortamın bir yeniden bulma yapmak zorunda isterseniz yansıtacak şekilde değişir.
+
+> [!NOTE]
+> Bu yöntem, 3. düzey vcenter Server istatistik ayarları ayarlayın ve gerekli performans ölçümleri toplamak için keşif başlatmadan önce en az bir gün bekleyin gerektirir.
 
 b. **Sürekli bulma:** Toplayıcı gerecini Bu model için sürekli olarak Azure geçişi projesine bağlıdır. Sürekli olarak, şirket içi ortamda, her 20 saniyede gerçek zamanlı kullanım verilerini toplamak için profil. Gereç ardından pay 20 saniye örnekleri yukarı ve Azure'a gönderilen en yüksek değer seçerek boyunca 15 dakikada bir tek veri noktası oluşturur. Bu model için performans verilerini toplama vCenter Server'ın istatistik ayarları, bağlı değildir. Sürekli dilediğiniz zaman Gereci profil oluşturma durdurabilirsiniz.
 
 > [!NOTE]
-> Sürekli bulma işlevi Önizleme aşamasındadır.
+> Sürekli bulma işlevi Önizleme aşamasındadır. VCenter Server istatistik ayarları düzeyini 3 olarak yoksa, bu yöntemi kullanmak için önerilir.
+
+[Daha fazla bilgi edinin] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) Azure geçişi tarafından toplanan performans sayaçları ile ilgili.
 
 ## <a name="collector-communication-diagram"></a>Toplayıcı iletişim diyagramı
 

@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 6d41b4347eac29144743a22cb83e508cdab9b164
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: ba6d79661a2c07ba3eef1f16a117992a858830b5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45552445"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605938"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Azure Time Series Insights Uzaktan izleme ile tümleştirin
 
@@ -22,7 +22,7 @@ Azure Time Series Insights, bulutta IoT ölçekli zaman serisi verilerinin yöne
 Uzaktan izleme çözüm Hızlandırıcısını artık otomatik dağıtım ve Time Series Insights ile tümleştirme sağlar. Bu nasıl yapılır zaman serisi görüşleri Time Series Insights zaten içermeyen mevcut bir uzaktan izleme çözüm yapılandırma konusunda bilgi edinin.
 
 > [!NOTE]
-> Zaman serisi görüşleri Azure Çin bulutunda henüz kullanılamıyor. Azure Çin bulutunda yeni dağıtımlar için tüm depolama Cosmos DB kullanmaya devam edin.
+> Zaman serisi görüşleri Azure Çin Bulutu şu anda kullanılabilir değil. Yeni Uzaktan izleme çözüm Hızlandırıcı dağıtımlarda Azure Çin Bulutu, Cosmos DB için tüm depolama kullanın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

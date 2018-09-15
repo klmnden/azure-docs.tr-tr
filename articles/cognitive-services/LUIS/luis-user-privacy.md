@@ -1,20 +1,21 @@
 ---
-title: Dışarı aktarma ve silme, müşteri verilerini - LUIS - Azure Bilişsel hizmetler || Microsoft Docs
-description: Language Understanding hizmeti (LUIS) dışarı aktarma ve müşteri verilerini silme işlemi için başvuru.
+title: Dışarı aktarma ve Müşteri verilerinin - Language Understanding - LUIS silme
+titleSuffix: Azure Cognitive Services
+description: Language Understanding Intelligent Service (LUIS) hizmeti çalıştırmak için müşteri içerik korur, ancak LUIS kullanıcı görüntüleme, verme ve verileri silme üzerinde tam denetime sahiptir. LUIS web portalı veya LUIS program tabalı API'lerle yapılabilir.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c6fba28ea3a4b24f02b62b6c3f124569378e5bc8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5b4b7a746a6a5f7e849777dedca9193455e1cc6c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43130552"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630826"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Language Understanding (LUIS) Bilişsel hizmetler, müşteri verilerini silebilir ve dışarı aktarma
 

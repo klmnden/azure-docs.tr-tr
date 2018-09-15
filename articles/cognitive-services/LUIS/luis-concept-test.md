@@ -1,22 +1,23 @@
 ---
-title: LUIS uygulamanızı - Azure test | Microsoft Docs
-description: Language Understanding (LUIS), uygulamanızı geliştirebilirsiniz ve kendi dil anlama geliştirmek için sürekli olarak çalışmak için kullanın.
+title: LUIS uygulamanızı test edin
+titleSuffix: Azure Cognitive Services
+description: Test LUIS için örnek konuşma sağlayan ve LUIS tanınan hedefleri ve varlıkların bir yanıt alma işlemidir. LUIS etkileşimli olarak, test edebilir, her seferinde bir utterance veya konuşma toplu sağlayın. Test ile yayımlanan model geçerli etkin modele karşılaştırın.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d231eaf98358e3f8237a820e59433558d293872f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 41ba968eb68f2104a2183917c4ef850b2b6a9edc
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224356"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629959"
 ---
-# <a name="testing-in-luis"></a>LUIS test etme
+# <a name="testing-example-utterances-in-luis"></a>Örnek konuşma LUIS test etme
 
 Test LUIS için örnek konuşma sağlayan ve LUIS tanınan hedefleri ve varlıkların bir yanıt alma işlemidir. 
 
@@ -25,6 +26,7 @@ Yapabilecekleriniz [test](luis-interactive-test.md) LUIS etkileşimli olarak, he
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
+
 ## <a name="what-is-a-score-in-testing"></a>Test içinde bir puan nedir?
 Bkz: [tahmin puanı](luis-concept-prediction-score.md) tahmin puanları hakkında daha fazla bilgi için kavramlar.
 

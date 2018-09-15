@@ -12,12 +12,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 667636aac49d2622ba1a6b45d7c8af61b9609c55
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a8c258a9bc8e006d5bbae4b7bbb61c7ef6e95412
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579226"
+ms.locfileid: "45605955"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench'i kullanarak görüntü sınıflandırması
 
@@ -283,7 +283,7 @@ Her bir görüntü için tam olarak bir öznitelik atanabilir önemlidir. Örne�
 Eğitim ve test amacıyla ek açıklamalı görüntüleri yeterince çok sayıda toplama zor olabilir. Bu sorunu çözmenin yollarından biri, Internet'ten görüntüleri scrape sağlamaktır.
 
 > [!IMPORTANT] 
-> Kullandığınız herhangi bir görüntü için telif hakkı ihlal yoksa emin olun. 
+> Kullandığınız herhangi bir görüntü için görüntünün telif hakkı ve lisanslama ihlal yoksa emin olun. 
 
 <!--
 For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:

@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 562fdc82e0b814fc759bda7b853492b47d073925
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f72fb6f654b4699214a22a7f96431c605af52f2d
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190345"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603682"
 ---
 # <a name="aggregations-in-log-analytics-queries"></a>Log Analytics sorguları toplamaları
 
 > [!NOTE]
 > Tamamlamanız gereken [Analytics portalı ile çalışmaya başlama](get-started-analytics-portal.md) ve [sorguları ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Bu makalede, verilerinizi analiz etmek için faydalı teklif Log Analytics sorgu toplama işlevleri açıklanmaktadır. Tüm bu işlevler çalışmak `summarize` işleci girdi tablosunun toplu sonuçları içeren bir tablo oluşturur.
 
@@ -35,13 +37,13 @@ Bu makalede, verilerinizi analiz etmek için faydalı teklif Log Analytics sorgu
 Tüm filtreler uygulandıktan sonra sonuç satır sayısı. Aşağıdaki örnek toplam satır sayısı döndürür _Perf_ son 30 dakika tablosundan. Adlı bir sütunu sonuç döndürülmeden *count_* sürece belirli bir ad atayın:
 
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize count()
 ```
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize num_of_records=count() 
@@ -49,7 +51,7 @@ Perf
 
 Bir zaman grafiğini görselleştirme, zaman içinde bir eğilim görmek yararlı olabilir:
 
-```OQL
+```KQL
 Perf 
 | where TimeGenerated > ago(30m) 
 | summarize count() by bin(TimeGenerated, 5m)
@@ -64,7 +66,7 @@ Bu örnekteki Çıkışta, 5 dakikalık aralıklarla iyileştirilmiş kayıt say
 ### <a name="dcount-dcountif"></a>DCount, dcountif
 Kullanım `dcount` ve `dcountif` belirli bir sütundaki farklı değerleri saymak için. Aşağıdaki sorgu, kaç farklı bilgisayarların sinyal son bir saat içinde gönderilen değerlendirir:
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcount(Computer)
@@ -72,7 +74,7 @@ Heartbeat
 
 Sinyal gönderilen Linux bilgisayarları Say kullanın `dcountif`:
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcountif(Computer, OSType=="Linux")
@@ -81,7 +83,7 @@ Heartbeat
 ### <a name="evaluating-subgroups"></a>Alt gruplar değerlendiriliyor
 Alt gruplar veri çubuğunda bir sayı veya diğer toplamalar gerçekleştirmek için `by` anahtar sözcüğü. Örneğin, sinyal gönderilen her ülkede ayrı Linux bilgisayarların sayısını saymak için şunu yazın:
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry
@@ -98,7 +100,7 @@ Heartbeat
 
 Bile küçük alt grupları verilerinizi analiz etmek için ek sütun adlarına ekleme `by` bölümü. Örneğin, farklı bilgisayarların her ülkenin OSType başına saymak isteyebilirsiniz:
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
@@ -110,7 +112,7 @@ Sayısal değerleri değerlendirirken, bir ortak alışkanlıktır bunları orta
 ### <a name="percentile"></a>Yüzdebirlik
 ORTANCA değerini bulmak için kullanmak `percentile` işlevi yüzdelik dilim belirtmek için bir değer ile:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -119,7 +121,7 @@ Perf
 
 Ayrıca, her biri için toplu bir sonuç almak için farklı yüzdebirliklerini belirtebilirsiniz:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -131,7 +133,7 @@ Bu bilgisayar bazı CPU'yu benzer ORTANCA değerlere sahip, ancak bazı ORTANCA 
 ### <a name="variance"></a>Varyans
 Doğrudan bir değerin varyansını değerlendirmek için standart sapma ve varyans yöntemleri kullanın:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -140,7 +142,7 @@ Perf
 
 CPU kullanımı kararlılığını analiz etmek için en iyi yolu ile ORTANCA olan hesaplamayı stdev oluşturmaktır:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(130m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 

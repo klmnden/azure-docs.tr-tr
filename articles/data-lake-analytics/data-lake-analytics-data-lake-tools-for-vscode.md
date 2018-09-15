@@ -2,19 +2,19 @@
 title: Visual Studio Code için Azure Data Lake Araçları'nı kullanma
 description: Oluşturun, test etme ve U-SQL betikleri çalıştırmak için Visual Studio Code için Azure Data Lake Araçları'nı kullanmayı öğrenin.
 services: data-lake-analytics
+ms.service: data-lake-analytics
 author: Jejiang
 ms.author: jejiang
 ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
-ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: b06b4c4484e3f41b64ff2d60ce558726c555a2e3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: e470d27ccfea68f628b793f9afd695bb363e295a
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047920"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630844"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Visual Studio Code için Azure Data Lake Araçları'nı kullanma
 
@@ -24,7 +24,7 @@ Bu makalede, nasıl Azure Data Lake araçları Visual Studio Code için (VS Code
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-VS Code için Azure Data Lake araçları, Windows, Linux ve Macos'ta destekler.  
+VS Code için Azure Data Lake araçları, Windows, Linux ve Macos'ta destekler. U-SQL yerel çalıştırma ve yerel hata ayıklama yalnızca Windows içinde çalışır.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
@@ -220,6 +220,8 @@ U-SQL yerel çalıştırma, verilerinizi yerel test eder ve kodunuzu Data Lake A
 - C# arka plan kod hatalarını ayıklayın. 
 - Kodunuz içinde adım adım. 
 - Kodunuzu yerel olarak doğrulayın.
+
+Yerel çalıştırma ve yerel hata ayıklama özellik yalnızca Windows ortamlarda çalışır ve macOS ve Linux tabanlı işletim sistemlerinde desteklenmez.
 
 Yerel çalıştırma ve yerel hata ayıklama hakkında yönergeler için bkz: [U-SQL yerel çalıştırma ve Visual Studio Code ile yerel hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md).
 

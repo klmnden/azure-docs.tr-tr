@@ -3,7 +3,7 @@ title: Azure Stack 1807 güncelleştirme | Microsoft Docs
 description: Bilinen sorunlar da dahil olmak üzere Azure Stack tümleşik sistemleri için 1807 güncelleştirmesindeki yenilikler ve güncelleştirme karşıdan yükleme konumu hakkında bilgi edinin.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: eabd6fdd643f7f8e1795f791e8a66e612651dee2
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: c55667e61e35186f63f49082db0c3adadd66ff68
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159512"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633390"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 güncelleştirme
 
@@ -82,7 +82,7 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 - <!-- TBD | IS, ASDK -->  **Azure Stack Capacity Planner kullanılabilirlik geliştirmeleri**. Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) artık S2D önbelleğini ve S2D kapasite SKU'ları çözüm tanımlarken, girişini yaparak için basitleştirilmiş bir deneyim sunar. 1000 VM sınırı kaldırıldı.
 
 
-### <a name="fixed-issues"></a>Giderilen sorunlar
+### <a name="fixed-issues"></a>Düzeltilen sorunlar
 
 - <!-- TBD | ASDK, IS --> Çeşitli iyileştirmeler, daha güvenilir hale getirmek için güncelleştirme işlemi için yapılmıştır. Ayrıca, hangi, güncelleştirme sırasında olan iş yükleri için olası kapalı kalma süresini düzeltmeleri, temel alınan altyapıya'e yapıldı.
 

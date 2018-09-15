@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: ee5b11bc04a7e13354c30b64dc55c165eea4f028
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 51b2bd7956f775dbc7f737be33bd0fd6f9246524
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303974"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604544"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure işlevleri için Azure Service Bus bağlamaları
 
@@ -27,13 +27,13 @@ Bu makalede, Azure işlevleri'nde Azure Service Bus bağlamaları ile nasıl ça
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
-Service Bus bağlamaları sağlanan [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet paketi sürüm 2.x. Paket için kaynak kodu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/) GitHub deposu.
+Service Bus bağlamaları sağlanan [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet paketi sürüm 2.x. 
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="packages---functions-2x"></a>Paketler - 2.x işlevleri
 
-Service Bus bağlamaları sağlanan [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet paketi sürüm 3.x. Paket için kaynak kodu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/) GitHub deposu.
+Service Bus bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet paketi sürüm 3.x. Paket için kaynak kodu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) GitHub deposu.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -214,7 +214,7 @@ Java kod aşağıdaki gibidir:
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), Service Bus tetiği yapılandırmak için aşağıdaki öznitelikleri kullanın:
 
-* [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs)
+* [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs)
 
   Özniteliğin oluşturucusu, kuyruk veya konu ve abonelik adını alır. Azure işlevleri sürüm 1.x, bağlantının erişim hakları da belirtebilirsiniz. Erişim hakları belirtmezseniz varsayılan değerdir `Manage`. Daha fazla bilgi için [tetikleyici - yapılandırma](#trigger---configuration) bölümü.
 
@@ -243,7 +243,7 @@ Java kod aşağıdaki gibidir:
 
   Tam bir örnek için bkz. [tetikleyici - C# örneği](#trigger---c-example).
 
-* [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs)
+* [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAccountAttribute.cs)
 
   Kullanılacak hizmet veri yolu hesabı belirtmek için başka bir yol sağlar. Oluşturucusu bir Service Bus bağlantı dizesi içeren bir uygulama ayarı adı alır. Öznitelik parametre, yöntemi veya sınıf düzeyinde uygulanabilir. Aşağıdaki örnek, sınıf ve yöntem düzeyindeki gösterir:
 
@@ -525,7 +525,7 @@ public String pushToQueue(
 
 ## <a name="output---attributes"></a>Çıkış - öznitelikleri
 
-İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
 
 Özniteliğin oluşturucusu, kuyruk veya konu ve abonelik adını alır. Bağlantının erişim hakları de belirtebilirsiniz. Erişim haklarını ayarlama seçme içinde açıklanmıştır [çıkışı - yapılandırma](#output---configuration) bölümü. İşlev dönüş değeri için uygulanan öznitelik gösteren bir örnek aşağıda verilmiştir:
 

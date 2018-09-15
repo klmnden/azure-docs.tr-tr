@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 227723ecea1401247f0df87bccfe058fb2273647
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 4e9a5808a718909b21698b551f516a238e3934b0
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145358"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605785"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -42,8 +42,8 @@ Size verebilir [izinleri](#iot-hub-permissions) aşağıdaki yollarla:
   | iothubowner | ALL izni |
   | hizmet | **ServiceConnect** izinleri |
   | cihaz | **DeviceConnect** izinleri |
-  | RegistryRead | **RegistryRead** izinleri |
-  | RegistryReadWrite | **RegistryRead** ve **RegistryWrite** izinleri |
+  | registryRead | **RegistryRead** izinleri |
+  | registryReadWrite | **RegistryRead** ve **RegistryWrite** izinleri |
 
 * **Cihaz başına güvenlik kimlik bilgileri**. Her IOT hub'ı içeren bir [kimlik kayıt defteri][lnk-identity-registry]. Bu kimlik kayıt defterinde her cihaz için vermek güvenlik kimlik bilgilerini yapılandırabileceğiniz **DeviceConnect** karşılık gelen cihaz uç noktalarına için kapsamlı izinler.
 
@@ -328,7 +328,7 @@ Bitiş noktası kullanıma sunulan hizmet işlevleri şunlardır:
 
 ```nodejs
 var endpoint ="myhub.azure-devices.net/devices";
-var policyName = 'device';
+var policyName = 'registryRead';
 var policyKey = '...';
 
 var token = generateSasToken(endpoint, policyKey, policyName, 60);
@@ -431,8 +431,8 @@ Aşağıdaki tabloda, IOT hub'ınıza erişimi denetlemek için kullanabileceği
 
 | İzin | Notlar |
 | --- | --- |
-| **RegistryRead** |Okuma kimlik kayıt defterine erişim verir. Daha fazla bilgi için [kimlik kayıt defteri][lnk-identity-registry]. <br/>Bu izin, arka uç bulut Hizmetleri tarafından kullanılır. |
-| **RegistryReadWrite** |Okuma ve yazma erişimi için kimlik kayıt defteri. Daha fazla bilgi için [kimlik kayıt defteri][lnk-identity-registry]. <br/>Bu izin, arka uç bulut Hizmetleri tarafından kullanılır. |
+| **registryRead** |Okuma kimlik kayıt defterine erişim verir. Daha fazla bilgi için [kimlik kayıt defteri][lnk-identity-registry]. <br/>Bu izin, arka uç bulut Hizmetleri tarafından kullanılır. |
+| **registryReadWrite** |Okuma ve yazma erişimi için kimlik kayıt defteri. Daha fazla bilgi için [kimlik kayıt defteri][lnk-identity-registry]. <br/>Bu izin, arka uç bulut Hizmetleri tarafından kullanılır. |
 | **ServiceConnect** |Bulut hizmeti kullanıma yönelik iletişim ve uç noktalarınızı izleyerek erişimi verir. <br/>CİHAZDAN buluta iletileri almak, bulut-cihaz iletilerini göndermek ve karşılık gelen teslim alındı bildirimleri almak için izin verir. <br/>Karşıya yükleme dosyası için teslim bildirimleri almak için izin verir. <br/>Etiketler ve istenen özellikleri güncelleştirme, bildirilen özellikleri almak ve sorguları çalıştırmak için erişim ikizlerini izin verir. <br/>Bu izin, arka uç bulut Hizmetleri tarafından kullanılır. |
 | **DeviceConnect** |Cihaz'e yönelik uç noktalarına erişimi verir. <br/>CİHAZDAN buluta iletiler gönderir ve bulut-cihaz iletilerini izni verir. <br/>Bir CİHAZDAN karşıya dosya yükleme gerçekleştirme izni verir. <br/>Bildirilen özellikler cihaz çiftinin istenen özellik bildirimleri almak ve cihaz ikizi güncelleştirmek için izin verir. <br/>Dosya gerçekleştirilecek izin verir yükler. <br/>Bu izin, cihazlar tarafından kullanılır. |
 

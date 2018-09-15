@@ -1,20 +1,21 @@
 ---
-title: LUIS uygulamalar - Azure erişimi anlama | Microsoft Docs
-description: LUIS yazma erişmeyi öğrenin.
+title: LUIS uygulamalara erişim anlama
+titleSuffix: Azure Cognitive Services
+description: Erişim geliştirme sahipleri ve ortak çalışanlar için kullanılabilir. Özel bir uygulama için erişim uç noktası sahipleri ve ortak çalışanlar için kullanılabilir. Genel bir uygulama için uç nokta kendi LUIS hesabını ve genel uygulama kimliğine sahip herkes için erişilebilir
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fddffbcabba753e9ef214f924d5ff2cee38427a5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ca179dc845930bd0cbc89f8bf700bd1650ecf7fc
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301702"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633119"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Geliştirme ve uç noktası kullanıcı erişimi
 Erişim geliştirme sahipleri ve ortak çalışanlar için kullanılabilir. Özel bir uygulama için erişim uç noktası sahipleri ve ortak çalışanlar için kullanılabilir. Genel bir uygulama için uç nokta kendi LUIS hesabını ve genel uygulama kimliğine sahip herkes için erişilebilir 
@@ -37,11 +38,13 @@ Sahibi ve tüm ortak çalışanlar uygulama yazma erişimi vardır.
 |Eğitim|
 
 ## <a name="access-to-endpoint"></a>Erişim uç noktası
-Sorgu LUIS uç noktaya erişim tarafından denetlenir **genel** uygulamanın ayarını **ayarları** sayfası. Özel bir uygulamanın uç nokta sorgu kalan kota isabet sayısı ile yetkili anahtar denetlenir. Bir genel uygulamanın uç nokta sorgu de (kişi sorgu yapıyor) gelen bir uç noktası anahtarı sağlamanız gerekir, ayrıca işaretli kalan kota isabet sayısı. 
-
-Uç noktası anahtarı ya da GET isteğinin sorgu dizesinde geçirilen veya gönderinin üst bilgi isteyin.
+Erişim uç noktası'nı sorgulamak için bir ayar tarafından denetlenir **uygulama bilgilerini** sayfasını **Yönet** bölümü. 
 
 ![Kümesi uygulamasına genel](./media/luis-concept-security/set-application-as-public.png)
+
+|[Özel uç nokta](#private-app-endpoint-security)|[Genel bir uç nokta](#public-app-endpoint-access)|
+|:--|:--|
+|Sahibi ve ortak çalışanlar için kullanılabilir|Sahip, çalışanlar ve herkes tarafından kullanılabilir değilse, uygulama kimliği bilir|
 
 ### <a name="private-app-endpoint-security"></a>Özel uygulama uç nokta güvenliği
 Özel bir uygulamanın uç noktası yalnızca aşağıdakiler için kullanılabilir:
@@ -50,14 +53,19 @@ Uç noktası anahtarı ya da GET isteğinin sorgu dizesinde geçirilen veya gön
 |--|--|--|
 |Sahibin yazma anahtarı| En fazla 1000 uç noktası İsabeti|
 |Ortak Çalışanlar yazma anahtarları| En fazla 1000 uç noktası İsabeti|
-|Uç nokta anahtarları alanından eklenen **[Yayımla](luis-how-to-publish-app.md)** sayfası|Uç nokta anahtarları sahibi ve ortak çalışanlar ekleyebilirsiniz|
+|LUIS için bir yazar ya da ortak çalışanı tarafından atanan herhangi bir tuşa|Anahtar kullanımı katmanını temel alan|
 
-Diğer uç nokta yazma veya anahtarlara sahip **hiçbir** erişim.
+#### <a name="microsoft-user-accounts"></a>Microsoft kullanıcı hesapları
+Yazarlar ve ortak çalışanlar anahtarları için özel bir LUIS uygulaması atayabilirsiniz. LUIS anahtar oluşturur Azure portalında Microsoft kullanıcı hesabının uygulama sahibine ya da bir uygulama ortak çalışanı olması gerekir. Özel bir uygulama için bir anahtar başka bir Azure hesabından diğerine atayamazsınız.
+
+Bkz: [Azure Active Directory Kiracı Kullanıcı](luis-how-to-collaborate.md#azure-active-directory-tenant-user) Active Directory kullanıcı hesapları hakkında daha fazla bilgi edinmek için. 
 
 ### <a name="public-app-endpoint-access"></a>Genel Uygulama uç noktası erişimi
-Uygulama olarak yapılandırmanıza **genel** üzerinde **ayarları** uygulamasının sayfası. Genel, bir uygulama yapılandırıldıktan sonra _herhangi_ anahtarı tüm uç nokta kota kullanmamış sürece yazma anahtarı veya LUIS uç noktası anahtarı geçerli LUIS uygulamanızı sorgulayabilir.
+Genel, bir uygulama yapılandırıldıktan sonra _herhangi_ anahtarı tüm uç nokta kota kullanmamış sürece yazma anahtarı veya LUIS uç noktası anahtarı geçerli LUIS uygulamanızı sorgulayabilir.
 
 Uygulama kimliğini belirtilen bir sahibi veya ortak çalışan, bir kullanıcı bir genel uygulama yalnızca erişim Genel LUIS yoksa _Pazar_ veya diğer yolu genel bir uygulamayı arayın.  
+
+LUIS kaynak bölge tabanlı anahtarı bir kullanıcıyla uygulama hangi bölge kaynak anahtarla ilişkilendirilen erişebilmesi için tüm bölgelerde genel bir uygulama yayımlanır.
 
 ## <a name="microsoft-user-accounts"></a>Microsoft kullanıcı hesapları
 Yazarlar ve ortak çalışanlar anahtarları için LUIS Yayımla sayfasında ekleyebilirsiniz. LUIS anahtar oluşturur Azure portalında Microsoft kullanıcı hesabının uygulama sahibine ya da bir uygulama ortak çalışanı olması gerekir. 
@@ -71,11 +79,13 @@ If the Microsoft user account is part of an Azure Active Directory (AAD), and th
 ### Administrator consent
 If the Microsoft user account is part of an Azure Active Directory (AAD), and the active directory doesn't allow users to give consent, then the administrator can give individual consent via the method discussed in this [blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/). 
 -->
+
 ## <a name="securing-the-endpoint"></a>Uç noktanın güvenliğini sağlama 
 Bir sunucudan sunucuya ortamında çağırarak LUIS uç nokta anahtarınızı kimler görebilir kontrol edebilirsiniz. LUIS ile bot arasındaki bağlantı zaten bir robotun LUIS kullanıyorsanız, güvenlidir. LUIS uç noktası doğrudan çağırıyorsanız, sunucu tarafı API oluşturmanız gerekir (bir Azure gibi [işlevi](https://azure.microsoft.com/services/functions/)) denetimli erişim (gibi [AAD](https://azure.microsoft.com/services/active-directory/)). Sunucu tarafı API olarak adlandırılır ve kimlik doğrulama ve yetkilendirme doğrulandıktan sonra LUIS açın çağrı geçirin. Bu strateji adam-de-adam saldırılarına engellemez, ancak erişimi izlemenize olanak tanır, kullanıcılarınızın uç noktanızı bilgisayardan farklı gösterir ve uç nokta yanıt günlük eklemenize izin verir (gibi [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
 
 ## <a name="security-compliance"></a>Güvenlik uyumluluk
-LUIS ile sıfır olmayan-conformities (bulguları) denetim rapordaki ISO 27018:2014 denetim ve ISO 27001: 2013 başarıyla tamamlandı. Ayrıca, LUIS olgunluk özellik değerlendirmesi için en yüksek olası Gold ödül CSA STAR sertifikasına de alınır. Azure yalnızca büyük genel bulut hizmeti sağlayıcısının Bu sertifika almaya hak kazanma ' dir. Daha fazla bilgi için Azure'nın ana güncelleştirilmiş kapsam deyiminde LUIS dahil bulabilirsiniz [uyumluluk genel bakış](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) üzerinde başvurulan belge [Güven Merkezi](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27001) ISO sayfaları.  
+ 
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-security-compliance.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

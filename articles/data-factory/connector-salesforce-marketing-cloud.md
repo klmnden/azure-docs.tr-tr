@@ -1,6 +1,6 @@
 ---
-title: Salesforce pazarlama Azure Data Factory kullanarak Buluttan veri kopyalama | Microsoft Docs
-description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak Salesforce pazarlama Buluttan desteklenen havuz veri depolarına kopyalama öğrenin.
+title: Salesforce pazarlama Azure Data Factory (Önizleme) kullanarak bulutta veri kopyalama | Microsoft Docs
+description: Desteklenen bir havuz veri depolarına Salesforce pazarlama Buluttan bir Azure Data Factory işlem hattında kopyalama etkinliği'ni kullanarak veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,44 +13,44 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: a68090ea32c7ba4155aa5474067c5cce6f1ee30b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 62e925c3b1f48752b5062560a325953f8190c198
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059111"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634702"
 ---
-# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Salesforce pazarlama Azure Data Factory kullanarak bulut verilerini
+# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Salesforce pazarlama Azure Data Factory kullanarak buluttaki verileri kopyalama
 
-Bu makalede kopya etkinliği Azure Data Factory'de Salesforce pazarlama Buluttan verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de Salesforce pazarlama Buluttan veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 > [!IMPORTANT]
-> Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve bize geri bildirimde bulunun. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
+> Bu bağlayıcı, şu anda Önizleme aşamasındadır. Deneyin ve geri bildirimde bulunun. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Salesforce pazarlama Buluttan verileri herhangi bir desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Salesforce pazarlama Buluttan tüm desteklenen havuz veri deposuna veri kopyalayabilirsiniz. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak sürücüyü el ile yüklemeniz gerekmez.
+Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak herhangi bir sürücü el ile yüklemeniz gerekmez.
 
 ## <a name="getting-started"></a>Başlarken
 
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API veya Azure Resource Manager şablonu kullanarak kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği öğretici](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API'si veya Azure Resource Manager şablonu kullanarak kopyalama etkinlikli bir işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği Öğreticisi](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
 
-Aşağıdaki bölümler, belirli Data Factory varlıklarını Salesforce pazarlama bulut bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler, Data Factory varlıklarını belirli Salesforce Marketing Cloud connector tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Aşağıdaki özellikler Salesforce pazarlama bağlanan bulut hizmeti için desteklenir:
+Salesforce pazarlama bağlantılı bulut hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **SalesforceMarketingCloud** | Evet |
-| istemci kimliği | Salesforce pazarlama bulut uygulama ile ilişkili istemci kimliği.  | Evet |
-| clientSecret | Salesforce pazarlama bulut uygulama ile ilişkili istemci gizli anahtarı. Bu alan ADF içinde güvenli şekilde depolayın veya Azure anahtar kasası parolayı depolamak için bir SecureString olarak işaretle ve veri kopyalama gerçekleştirirken etkinliklere çekme buradan kopyalama-'dan daha fazla bilgi edinin ADF izin seçebilirsiniz [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
+| type | Type özelliği ayarlanmalıdır: **eklendi** | Evet |
+| ClientID | Salesforce Marketing Cloud uygulama ile ilişkili istemci kimliği.  | Evet |
+| ClientSecret | Salesforce Marketing Cloud uygulamayla ilişkili gizli. Bu alanı ADF içinde güvenli bir şekilde depolayın veya Azure anahtar Kasası'nda parolayı depolamak için bir SecureString olarak işaretleyin ve veri kopyalama gerçekleştirirken acitivty çekme buradan kopyalama - daha fazla bilgi ADF seçebileceğiniz [anahtar Kasası'nda kimlik bilgileri Store](store-credentials-in-key-vault.md). | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
-| useHostVerification | SSL üzerinden bağlanırken sunucusunun ana bilgisayar adı ile eşleşmesi için sunucunun sertifikası ana bilgisayar adlarında istenip istenmeyeceğini belirtir. Varsayılan değer true olur.  | Hayır |
-| usePeerVerification | SSL üzerinden bağlanırken sunucusunun kimliğini doğrulamak belirtir. Varsayılan değer true olur.  | Hayır |
+| useHostVerification | Ana bilgisayar adı sunucunun sertifikasında SSL üzerinden bağlanırken sunucu ana bilgisayar adıyla eşleşmesi gerekip gerekmediğini belirtir. Varsayılan değer true olur.  | Hayır |
+| usePeerVerification | SSL üzerinden bağlanırken sunucu kimliğinin doğrulanıp doğrulanmayacağını belirtir. Varsayılan değer true olur.  | Hayır |
 
 **Örnek:**
 
@@ -76,9 +76,9 @@ Aşağıdaki özellikler Salesforce pazarlama bağlanan bulut hizmeti için dest
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde Salesforce pazarlama bulut veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Salesforce Marketing Cloud veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Salesforce pazarlama Buluttan verileri kopyalamak için kümesine tür özelliği ayarlamak **SalesforceMarketingCloudObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Salesforce pazarlama Buluttan veri kopyalamak için dataset öğesinin type özelliği ayarlamak **SalesforceMarketingCloudObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
 
 **Örnek**
 
@@ -97,16 +97,16 @@ Salesforce pazarlama Buluttan verileri kopyalamak için kümesine tür özelliğ
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Salesforce pazarlama bulut kaynak tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Salesforce Marketing Cloud kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="salesforce-marketing-cloud-as-source"></a>Salesforce pazarlama bulut kaynak olarak
+### <a name="salesforce-marketing-cloud-as-source"></a>Kaynak olarak Salesforce Marketing Cloud
 
-Salesforce pazarlama Buluttan verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **SalesforceMarketingCloudSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Salesforce pazarlama Buluttan veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **SalesforceMarketingCloudSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **SalesforceMarketingCloudSource** | Evet |
-| sorgu | Verileri okumak için özel SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
+| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **SalesforceMarketingCloudSource** | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Evet |
 
 **Örnek:**
 
@@ -141,4 +141,4 @@ Salesforce pazarlama Buluttan verileri kopyalamak için kopyalama etkinliği iç
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

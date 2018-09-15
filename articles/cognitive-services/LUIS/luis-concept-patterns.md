@@ -1,24 +1,24 @@
 ---
-title: Nasıl desenlerini tahmin doğruluğunu artırmak öğrenin | Microsoft Docs
-titleSuffix: Azure
-description: Hedefi tahmin puanları artırmak ve varlıkları bulmak için desenler tasarlama konularını öğrenin.
+title: Nasıl desenlerini tahmin doğruluğunu artırmak öğrenin
+titleSuffix: Azure Cognitive Services
+description: Desenler, çeşitli konuşma çok benzer olduğunda doğruluğunu artırmak için tasarlanmıştır. Bir desen çok daha fazla konuşma sağlamadan bir amaç için daha yüksek doğruluk derecesi elde etmek sağlar.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 0a61ec4407a23e8cc515c2343a92bd77460d424b
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225226"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631421"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Desenlerini tahmin doğruluğunu artırmak
-Desenler, çeşitli konuşma çok benzer olduğunda doğruluğunu artırmak için tasarlanmıştır. LUIS, utterance için bir desen sağlayarak tahmine yüksek güvenilirliğe olabilir. 
+Desenler, çeşitli konuşma çok benzer olduğunda doğruluğunu artırmak için tasarlanmıştır.  Bir desen çok daha fazla konuşma sağlamadan bir amaç için daha yüksek doğruluk derecesi elde etmek sağlar. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Düşük hedefi güvenle desenleri çözün
 Kuruluş şeması ile ilgili olarak çalışan bir rapor bir insan kaynakları uygulamasında göz önünde bulundurun. Bir çalışanın adı ve ilişki LUIS çalışanlar ilgili döndürür. Tom, çalışanın sahip bir yönetici adı Alice ve adlı Astları ekibi dikkate alın: Michael Rebecca ve Carl.
@@ -60,25 +60,25 @@ Varlıkları desenleri süslü ayraç tarafından çevrilmiş `{}`. Desenler, va
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Bir varlık için bir desen şablonu eklemek için söz dizimi
 Surround gibi küme ayracı ile varlık adı deseni şablona bir varlık eklemek için `Who does {Employee} manage?`. 
 
-```
-Who does {Employee} manage?
-```
+|Varlık deseni|
+|--|
+|`Who does {Employee} manage?`|
 
 ### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Bir varlık ve rol için bir desen şablonu eklemek için söz dizimi
 Bir varlık rolü olarak gösterilir `{entity:role}` ile bir iki nokta üst üste ve ardından rol adı tarafından izlenen varlık adı. Desen şablona bir role sahip bir varlık eklemek için varlık adı ve küme ayracı ile rol adı gibi çevreleyen `Book a ticket from {Location:Origin} to {Location:Destination}`. 
 
-```
-Book a ticket from {Location:Origin} to {Location:Destination}
-```
+|Varlık rolleriyle deseni|
+|--|
+|`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
 ### <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Bir pattern.any deseni şablonuna eklemek için söz dizimi
 Pattern.any varlık varlığın değişen uzunluktaki desen eklemenizi sağlar. Düzen şablonu ve ardından sürece pattern.any herhangi bir uzunlukta olabilir. 
 
 Eklemek için bir **Pattern.any** deseni şablon varlığa saran ve küme ayraçlarının Pattern.any varlıkla gibi `How much does {Booktitle} cost and what format is it available in?`.  
 
-```
-How much does {Booktitle} cost and what format is it available in?
-```
+|Pattern.any varlık deseni|
+|--|
+|`How much does {Booktitle} cost and what format is it available in?`|
 
 |Deseninde bir kitap adları|
 |--|
@@ -107,9 +107,9 @@ Bu özel durumun desen için düzeltmek için ekleme `the man from la mancha` {s
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>İsteğe bağlı bir metin şablonu utterance olarak işaretlemek için söz dizimi
 İsteğe bağlı normal ifade köşeli parantez sözdizimini kullanarak utterance metni işaretleme `[]`. İsteğe bağlı bir metin, köşeli ayraç yalnızca iki ayraçlar en fazla iç içe yerleştirebilirsiniz.
 
-```
-[find] email about {subject} [from {person}]
-```
+|İsteğe bağlı metin deseni|
+|--|
+|`[find] email about {subject} [from {person}]`|
 
 Noktalama işaretleri gibi `.`, `!`, ve `?` köşeli ayraç kullanarak göz ardı edilebilir. Bu işaretler yoksaymak için her işareti ayrı bir desende olması gerekir. İsteğe bağlı söz dizimi, çeşitli öğeleri listesinde bir öğe yok sayılıyor desteklemiyor.
 

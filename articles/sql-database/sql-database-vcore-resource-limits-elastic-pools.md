@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 068ecf8283b92873542a7cb9ab2202212fd2ad2c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: af9d34b0c3b59cbf012d16de27bb4c60a809f619
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495518"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630974"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları elastik havuzlar için satın alma
 
@@ -50,8 +50,8 @@ SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katm
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |Maks. eş zamanlı çalışan (istek)|210|420|840|1680|3360|5040|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
-|En büyük havuz yoğunluğu|100|200|500|500|500|500|
-|Min/Maks elastik havuz tıklayın-durdurur|0, 0.25, 0,5, 1|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0,5, 1, 2, 4, 8, 16, 24|
+|Havuz başına en fazla veritabanı|100|200|500|500|500|500|
+|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0,5, 1|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0,5, 1, 2, 4, 8, 16, 24|
 |Çoğaltma sayısı|1|1|1|1|1|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|
@@ -74,8 +74,8 @@ SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katm
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |Maks. eş zamanlı çalışan (istek)|210|420|840|1680|2520|3360|4200|8400
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|30000|
-|En büyük havuz yoğunluğu|100|200|500|500|500|500|500|500|
-|Min/Maks elastik havuz tıklayın-durdurur|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|Havuz başına en fazla veritabanı|100|200|500|500|500|500|500|500|
+|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Çoğaltma sayısı|1|1|1|1|1|1|1|1|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
@@ -100,8 +100,8 @@ SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katm
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Maks. eş zamanlı çalışan (istek)|210|420|840|1680|3360|5040|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
-|En büyük havuz yoğunluğu|Yok|50|100|100|100|100|
-|Min/Maks elastik havuz tıklayın-durdurur|Yok|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0,5, 1, 2, 4, 8, 16, 24|
+|Havuz başına en fazla veritabanı|Desteklenmiyor|50|100|100|100|100|
+|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|Yok|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0,5, 1, 2, 4, 8, 16, 24|
 |Çoğaltma sayısı|3|3|3|3|3|3|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|
@@ -124,8 +124,8 @@ SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katm
 |Hedef IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Maks. eş zamanlı çalışan (istek)|210|420|840|1680|2520|3360|5040|8400|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|30000|
-|En büyük havuz yoğunluğu|Yok|50|100|100|100|100|100|100|
-|Min/Maks elastik havuz tıklayın-durdurur|Yok|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|Havuz başına en fazla veritabanı|Yok|50|100|100|100|100|100|100|
+|Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|Yok|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0,5, 1, 2, 4, 8, 16, 24|0, 0,5, 1, 2, 4, 8, 16, 24, 32|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Çoğaltma sayısı|3|3|3|3|3|3|3|3|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|Evet|Evet|

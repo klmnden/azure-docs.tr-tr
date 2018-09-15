@@ -1,80 +1,70 @@
 ---
-title: LUIS tahminleri - Azure geliştirmek için desen rolleri kullanma Öğreticisi | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Bu öğreticide, bağlamsal ilgili varlıkları için desen rolleri LUIS Öngörüler geliştirmek için kullanın.
+title: 'Öğretici 4: Desen rolleri bağlamı için ilgili verileri'
+titleSuffix: Azure Cognitive Services
+description: Bir desen, bir iyi biçimlendirilmiş şablon utterance verileri ayıklamak için kullanın. Şablon utterance konumu kaynak ve hedef konumu gibi ilgili verileri ayıklamak için basit bir varlık ve rollerini kullanır.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 6f3e7c9db7bbdb6bc24d123208355fc7a1d8e7e8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f3ddbad350ed42823ca95136ae2a507c46c3c763
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161943"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634549"
 ---
-# <a name="tutorial-improve-app-with-pattern-roles"></a>Öğretici: desen rolleri ile uygulama geliştirin
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Öğretici: 4. Bağlamsal ilgili desenleri ayıklayın
 
-Bu öğreticide, hedefi ve varlık tahmin artırmak için birleştirilmiş desenler rolleri ile bir varlığın kullanın.  Desenler kullanırken, daha az örnek konuşma amacı için gereklidir.
+Bu öğreticide, bir desen bir iyi biçimlendirilmiş şablon utterance verileri ayıklamak için kullanın. Şablon utterance konumu kaynak ve hedef konumu gibi ilgili verileri ayıklamak için basit bir varlık ve rollerini kullanır.  Desenler kullanırken, daha az örnek konuşma amacı için gereklidir.
 
-> [!div class="checklist"]
-* Desen rollerini anlama
-* Varlığın rolleriyle kullanın 
-* Varlığın rolleriyle kullanarak konuşma deseni oluşturma
-* Desen tahmin geliştirmeleri doğrulama
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Başlamadan önce
-İnsan Kaynakları uygulamadan yoksa [deseni](luis-tutorial-pattern.md) öğreticide [alma](luis-how-to-start-new-app.md#import-new-app) JSON'a yeni bir uygulama [LUIS](luis-reference-regions.md#luis-website) Web sitesi. İçeri aktarılacak uygulamasını bulunan [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) GitHub deposu.
-
-Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `roles` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
-
-## <a name="the-purpose-of-roles"></a>Rolleri amacı
 Rolleri amacı bir utterance bağlamsal olarak ilişkili varlıkları ayıklamaktır. Utterance içinde `Move new employee Robert Williams from Sacramento and San Francisco`, kaynak Şehir ve hedef Şehir değerlerini birbiriyle ilgili ve ortak dil her bir konum belirtmek için kullanın. 
 
-Desenleri kullanırken, herhangi bir varlık deseninde algılanması gereken _önce_ utterance desenle eşleşir. 
 
-Bir desen oluşturduğunuzda, ilk adım desenin amacı seçmektir. Desen eşleşirse, amaç seçerek doğru amacı her zaman yüksek puanıyla döndürülür (genellikle 99 %100). 
-
-### <a name="compare-hierarchical-entity-to-simple-entity-with-roles"></a>Hiyerarşik varlık varlığın rolleri ile Karşılaştır
-
-İçinde [hiyerarşik öğretici](luis-quickstart-intent-and-hier-entity.md), **MoveEmployee** hedefi varolan bir çalışan bir yapı ve office diğerine taşımak ne zaman algılandı. Örnek konuşma kaynak ve hedef konumların vardı, ancak rol kullanmamıştır. Bunun yerine, alt öğeleri hiyerarşik varlık kaynak ve hedef yoktu. 
-
-Bu öğreticide, İnsan Kaynakları uygulamasında yeni çalışanlar bir city taşıma hakkında konuşma algılar. Bu iki tür konuşma benzer ancak farklı LUIS becerileriyle ile çözüldü.
-
-|Öğretici|Örnek utterance|Kaynak ve hedef konumları|
-|--|--|--|
-|[Hiyerarşik (Rol)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones gelen **a-2349** için **b-1298**|a-2349 b-1298|
-|Bu öğreticiyle (roller)|Öğesinden Billy Patterson ve Konuğu taşıma **Yuma** için **Denver**.|Yuma, Denver|
-
-Yalnızca hiyerarşik üst desenlerinde kullanılan olduğundan hiyerarşik varlık deseninde kullanamazsınız. Kullanım muse kaynak ve hedef adlandırılmış konumlar döndürmek için bir desen.
-
-### <a name="simple-entity-for-new-employee-name"></a>Basit varlık için yeni çalışan adı
 Yeni bir çalışan, Billy Patterson ve Konuğu, adını liste varlığı bir parçası değil **çalışan** henüz. Yeni çalışan adı, ilk olarak, şirket kimlik bilgilerini oluşturmak için bir dış sistem adı göndermek için ayıklanır. Çalışan kimlik bilgilerini şirket kimlik bilgilerini oluşturulduktan sonra liste varlığı için eklenen **çalışan**.
 
-**Çalışan** listesi oluşturulduğu [liste Öğreticisi](luis-quickstart-intent-and-list-entity.md).
-
-**Yeniçalışan** rol ile bir varlığın bir varlıktır. 
-
-### <a name="simple-entity-with-roles-for-relocation-cities"></a>Varlığın rollerle yeniden konumlandırma şehirlere
 Aile ve yeni çalışan adlı kurgusal şirketin bulunduğu şehir için geçerli city taşınacak gerekir. Yeni bir çalışan herhangi bir şehre gelebileceğinden konumları bulunmaları gerekir. Yalnızca liste şehirlerin ayıklanan çünkü kümesi listesini bir liste varlığı gibi çalışmaz.
 
-Kaynak ve hedef şehirleri ile ilişkili rol adları tüm varlıklar arasında benzersiz olması gerekir. Rolleri benzersiz olduğundan emin olmak için kolay bir yolu bunları adlandırma stratejisi aracılığıyla içeren varlık için bağlamaktır. **NewEmployeeRelocation** varlıktır iki rol ile basit bir varlık: **NewEmployeeReloOrigin** ve **NewEmployeeReloDestination**.
+Kaynak ve hedef şehirleri ile ilişkili rol adları tüm varlıklar arasında benzersiz olması gerekir. Rolleri benzersiz olduğundan emin olmak için kolay bir yolu bunları adlandırma stratejisi aracılığıyla içeren varlık için bağlamaktır. **NewEmployeeRelocation** varlıktır iki rol ile basit bir varlık: **NewEmployeeReloOrigin** ve **NewEmployeeReloDestination**. Relo kısaltması yeniden konumlandırma ' dir.
 
-### <a name="simple-entities-need-enough-examples-to-be-detected"></a>Basit varlıkları algılanamayacak kadar yeterli örneği ihtiyacı
 Çünkü örnek utterance `Move new employee Robert Williams from Sacramento and San Francisco` yalnızca makine öğrenilen varlıklar, sahip varlıklar algılanan şekilde yeterli örnek konuşma amacı sağlamak önemlidir.  
 
 **Desenler varlıkları değil algılanırsa, daha az örnek konuşma sağlamanıza olanak tanırken desenle eşleşmez.**
 
 Bir şehir gibi bir adı olduğundan varlığın algılama ile sorun yaşıyorsanız, benzer değer ifade listesi eklemeyi göz önünde bulundurun. Bu, şehir adı algılanması sözcük veya tümcecik türü hakkında ek bir sinyal LUIS sağlayarak yardımcı olur. İfade listeleri yalnızca eşleşme gerçekleştirilecek desenin için gerekli olan varlık algılama yardımcı olarak deseni yardımcı olur. 
 
+**Bu öğreticide, şunların nasıl yapılır:**
+
+> [!div class="checklist"]
+> * Mevcut öğretici uygulamasını kullanma
+> * Yeni varlık oluşturma
+> * Yeni hedefi oluşturma
+> * Eğitim
+> * Yayımlama
+> * Uç noktasından amaç ve varlıkları alma
+> * Desen ile rolleri oluşturma
+> * Şehir ifade listesi oluşturma
+> * Uç noktasından amaç ve varlıkları alma
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Var olan bir uygulama kullanma
+Adlı son öğreticisinde oluşturulan uygulama devam **İnsanKaynakları**. 
+
+Önceki öğreticide İnsanKaynakları uygulamadan yoksa aşağıdaki adımları kullanın:
+
+1.  İndirip kaydedin [uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+
+2. JSON, yeni bir uygulamaya aktarma.
+
+3. Gelen **Yönet** üzerinde bölümünde **sürümleri** sekmesinde sürüm kopyalayın ve adlandırın `roles`. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rota bir parçası olarak kullanıldığından, adın bir URL geçerli olmayan karakterler içeremez.
+
 ## <a name="create-new-entities"></a>Yeni varlık oluşturma
-1. Seçin **derleme** üst menüdeki.
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Seçin **varlıkları** sol gezinti bölmesinden. 
 
@@ -124,15 +114,15 @@ Bu adımları varlıklarda etiketleme geri bu bölümdeki adımları tamamladık
 
     Anahtar cümlesi varlık kaldırılırsa, uygulamaya geri şimdi ekleyin.
 
-## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
+## <a name="train"></a>Eğitim
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
+## <a name="publish"></a>Yayımlama
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-without-pattern"></a>Sorgu deseni olmadan bir uç noktası
+## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktasından amaç ve varlıkları alma
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -224,9 +214,12 @@ Bu adımları varlıklarda etiketleme geri bu bölümdeki adımları tamamladık
 
 Hedefi tahmin puanı yalnızca yaklaşık % 50 ' dir. İstemci uygulamanızı daha yüksek bir sayı gerektiriyorsa, bu düzeltilmesi gerekir. Varlıkları değil ya da tahmin edilen.
 
+Konumlardan birine ayıklanan ancak diğer konumda değildi. 
+
 Desenlerini tahmin puanı yardımcı olur, önce utterance desenle eşleşir ancak varlıkları doğru şekilde tahmin gerekir. 
 
-## <a name="add-a-pattern-that-uses-roles"></a>Rolleri kullanan bir desen Ekle
+## <a name="pattern-with-roles"></a>Rolleri deseni
+
 1. Seçin **derleme** üst gezintideki.
 
 2. Seçin **desenleri** sol gezinti bölmesinde.
@@ -237,8 +230,8 @@ Desenlerini tahmin puanı yardımcı olur, önce utterance desenle eşleşir anc
 
     Eğitim, yayımlama ve uç nokta sorgu desen ile eşleşmedi, varlıkları, bulunmayan, görmek hayal kırıklığına olabilir bu nedenle tahminini geliştirme kaydetmedi. Yeterli sayıda örnek konuşma etiketli varlıklarla bir sonucu budur. Daha fazla örnek eklemek yerine, bu sorunu gidermek için bir ifade listesi ekleyin.
 
-## <a name="create-a-phrase-list-for-cities"></a>Şehir için bir ifade listesi oluşturun
-Herhangi bir sözcük ve noktalama karışımını olabilirler, şehirler, kişilerin adları gibi hassas. Ancak öğrenme başlamak için Şehir ifade listesi LUIS gerekir müşteri Şehir Bölge ve dünya bilinmektedir. 
+## <a name="cities-phrase-list"></a>Şehir ifade listesi
+Herhangi bir sözcük ve noktalama karışımını olabilirler, şehirler, kişilerin adları gibi hassas. Şehir Bölge ve dünya bilinen sorunlarıdır ve LUIS öğrenme başlamak için Şehir ifade listesi gerekir. 
 
 1. Seçin **tümcecik listesi** gelen **uygulama performansını** soldaki menüden bölümü. 
 
@@ -255,16 +248,13 @@ Herhangi bir sözcük ve noktalama karışımını olabilirler, şehirler, kişi
     |Miami|
     |Dallas|
 
-    Her şehir dünyanın veya bölgede bile her şehir eklemeyin. LUIS generalize mümkün olması gerekir hangi şehirde listesidir. 
-
-    Tutmaya dikkat **birbirinin yerine bu değerleri** seçili. Bu ayar listesindeki sözcükler üzerinde eş anlamlı sözcükler kabul anlamına gelir. Düzende bunların nasıl değerlendirilip tam olarak budur.
-
-    Unutmayın [son](luis-quickstart-primary-and-secondary-data.md) bir ifade listesini oluşturan öğretici serisinin bir varlığın varlık algılama artırmak için ayrıca oldu.  
+    Her şehir dünyanın veya bölgede bile her şehir eklemeyin. LUIS generalize mümkün olması gerekir hangi şehirde listesidir. Tutmaya dikkat **birbirinin yerine bu değerleri** seçili. Bu ayar listesindeki sözcükler üzerinde eş anlamlı sözcükler kabul anlamına gelir. 
 
 3. Eğitim ve uygulama yayımlama.
 
-## <a name="query-endpoint-for-pattern"></a>Desen için sorgu uç noktası
-1. **Publish** (Yayımla) sayfasının en altında bulunan **endpoint** (uç nokta) bağlantısını seçin. Bu eylem adres çubuğunda uç nokta URL'sinin bulunduğu başka bir tarayıcı penceresi açar. 
+## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktasından amaç ve varlıkları alma
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Adres çubuğundaki URL'nin sonuna gidip `Move wayne berry from miami to mount vernon` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. 
 
@@ -380,11 +370,24 @@ Herhangi bir sözcük ve noktalama karışımını olabilirler, şehirler, kişi
 
 Intent puanı artık çok daha yüksektir ve rol adları varlık yanıt bir parçasıdır.
 
+## <a name="hierarchical-entities-versus-roles"></a>Karşı rol hiyerarşik varlıklar
+
+İçinde [hiyerarşik öğretici](luis-quickstart-intent-and-hier-entity.md), **MoveEmployee** hedefi varolan bir çalışan bir yapı ve office diğerine taşımak ne zaman algılandı. Örnek konuşma kaynak ve hedef konumların vardı, ancak rol kullanmamıştır. Bunun yerine, alt öğeleri hiyerarşik varlık kaynak ve hedef yoktu. 
+
+Bu öğreticide, İnsan Kaynakları uygulamasında yeni çalışanlar bir city taşıma hakkında konuşma algılar. Bu iki tür konuşma aynıdır, ancak farklı LUIS becerileriyle ile çözüldü.
+
+|Öğretici|Örnek utterance|Kaynak ve hedef konumları|
+|--|--|--|
+|[Hiyerarşik (Rol)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones gelen **a-2349** için **b-1298**|a-2349 b-1298|
+|Bu öğreticiyle (roller)|Öğesinden Billy Patterson ve Konuğu taşıma **Yuma** için **Denver**.|Yuma, Denver|
+
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide, rollerine sahip bir varlık ile bir örnek konuşma hedefle eklendi. Varlık doğru kullanarak ilk uç nokta tahmin hedefi ancak düşük güven puanıyla birlikte tahmin. İki varlık yalnızca biri algılandı. Ardından, öğretici varlık rolleri ve deyim listesi konuşma Şehir adları değerini artırmak için kullanılan bir desen eklendi. İkinci uç nokta tahmin, bir yüksek güven puanı döndürülür ve iki varlık rolü bulunamadı. 
 
 > [!div class="nextstepaction"]
 > [LUIS uygulamaları için en iyi uygulamaları öğrenin](luis-concept-best-practices.md)

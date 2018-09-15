@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9b04f6bc2158f88b54bb4ed086c2f74b5a28eedd
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346347"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605224"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>GRANT B2B kullanıcıları Azure AD'de, şirket içi uygulamalarınıza erişim
 
@@ -63,7 +63,7 @@ Aşağıdaki diyagramda, dizin iş birlikte B2B kullanıcıları şirket içi IW
 Şirket içi B2B kullanıcı nesnelerinin yaşam döngüsü yönetimi ilkeleri aracılığıyla yönetebilirsiniz. Örneğin:
 
 - Uygulama proxy'si kimlik doğrulaması sırasında MFA kullanılmasını sağlamak amacıyla Konuk kullanıcı için çok faktörlü kimlik doğrulaması (MFA) ilkeleri ayarlayabilirsiniz. Daha fazla bilgi için [B2B işbirliği kullanıcıları için koşullu erişim](conditional-access.md).
-- Tüm sponsorships, erişim gözden geçirmeleri, hesap doğrulamaları vb. kullanıcı şirket içi kullanıcılar için geçerliyse bulutta B2B gerçekleştirilen. Örneğin, bulut kullanıcı yaşam döngüsü yönetimi ilkelerinizi silinirse, şirket içi kullanıcı de MIM eşitleme veya Azure AD Connect eşitleme yoluyla silinir. Daha fazla bilgi için [Konuk erişimi yönetme ile Azure AD erişim gözden geçirmeleri](../active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md).
+- Tüm sponsorships, erişim gözden geçirmeleri, hesap doğrulamaları vb. kullanıcı şirket içi kullanıcılar için geçerliyse bulutta B2B gerçekleştirilen. Örneğin, bulut kullanıcı yaşam döngüsü yönetimi ilkelerinizi silinirse, şirket içi kullanıcı de MIM eşitleme veya Azure AD Connect eşitleme yoluyla silinir. Daha fazla bilgi için [Konuk erişimi yönetme ile Azure AD erişim gözden geçirmeleri](../governance/manage-guest-access-with-access-reviews.md).
 
 ### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>B2B Konuk kullanıcı nesneleri MIM (Önizleme) ile oluşturun
 

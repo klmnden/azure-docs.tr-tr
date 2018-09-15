@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory kullanarak Impala veri kopyalama | Microsoft Docs
-description: Desteklenen havuz veri depolarına Impala veri fabrikası ardışık düzeninde kopyalama etkinliği kullanarak verileri kopyalamak öğrenin.
+title: Azure Data Factory (Önizleme) kullanarak Impala veri kopyalama | Microsoft Docs
+description: Desteklenen bir havuz veri depolarına Impala bir data factory işlem hattında kopyalama etkinliği'ni kullanarak veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,50 +13,50 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 366d0945bfac8546aa757648b6f797c2605a43ea
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8130128e7743226fd3fa020dd0846ad8056b3ae0
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045876"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629857"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Impala verileri kopyalama
 
-Bu makalede kopya etkinliği Azure Data Factory'de Impala verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de Impala verileri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliğine genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 > [!IMPORTANT]
-> Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve geri bildirim sağlayın. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
+> Bu bağlayıcı, şu anda Önizleme aşamasındadır. Deneyin ve geri bildirim sağlayın. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Tüm desteklenen havuz veri deposuna Impala veri kopyalayabilirsiniz. Kaynakları veya havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Impala tüm desteklenen havuz veri deposuna veri kopyalayabilirsiniz. Kopyalama etkinliği tarafından kaynak ve havuz desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
- Veri Fabrikası bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar. Bu nedenle, bu bağlayıcıyı kullanmak için bir sürücüyü el ile yüklemeniz gerekmez.
+ Veri Fabrikası bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar. Bu nedenle, bu bağlayıcıyı kullanmak üzere bir sürücüyü el ile yüklemeniz gerekmez.
 
 ## <a name="get-started"></a>başlarken
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Aşağıdaki bölümler, belirli Data Factory varlıklarını Impala bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler belirli Data Factory varlıkları için Impala Bağlayıcısı tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Hizmeti Impala bağlı aşağıdaki özellikleri desteklenir.
+Impala bağlı hizmeti için aşağıdaki özellikleri desteklenir.
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlamak **Impala**. | Evet |
-| konak | (Diğer bir deyişle, 192.168.222.160) Impala sunucusunun IP adresi veya ana bilgisayar adı.  | Evet |
-| port | İstemci bağlantılarını dinlemek için Impala sunucusunun kullandığı TCP bağlantı noktası. 21050 varsayılan değerdir.  | Hayır |
-| authenticationType | Kullanılacak kimlik doğrulama türü. <br/>İzin verilen değerler **anonim**, **SASLUsername**, ve **UsernameAndPassword**. | Evet |
-| kullanıcı adı | Impala sunucuya erişmek için kullanılan kullanıcı adı. Varsayılan değer anonim olduğunda SASLUsername kullanın.  | Hayır |
-| password | UsernameAndPassword kullandığınızda, kullanıcı adına karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
-| enableSsl | Sunucusuna bağlantılarda SSL kullanarak şifrelenir olup olmadığını belirtir. Varsayılan değer **false**.  | Hayır |
-| trustedCertPath | Sunucu SSL üzerinden bağlandığında doğrulamak için kullanılan güvenilir CA sertifikaları içeren .pem dosyasının tam yolu. Bu özellik, yalnızca SSL Self-hosted tümleştirmesi Çalışma Zamanı Modülü kullandığınızda ayarlayabilirsiniz. Varsayılan değer ile tümleştirme çalışma zamanının yüklü cacerts.pem dosyasıdır.  | Hayır |
-| useSystemTrustStore | Bir CA sertifikası sistem güven deposundan veya belirtilen PEM dosyası kullanılıp kullanılmayacağını belirtir. Varsayılan değer **false**.  | Hayır |
-| allowHostNameCNMismatch | SSL üzerinden bağlandığında, sunucunun ana bilgisayar adını eşleştirmek için bir CA tarafından verilen SSL sertifika adı istenip istenmeyeceğini belirtir. Varsayılan değer **false**.  | Hayır |
+| type | Type özelliği ayarlanmalıdır **Impala**. | Evet |
+| konak | Impala sunucusu (diğer bir deyişle, 192.168.222.160) IP adresi veya ana bilgisayar adı.  | Evet |
+| port | Impala sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. 21050 varsayılan değerdir.  | Hayır |
+| authenticationType | Kullanılacak kimlik doğrulaması türü. <br/>İzin verilen değerler **anonim**, **SASLUsername**, ve **UsernameAndPassword**. | Evet |
+| kullanıcı adı | Impala sunucusuna erişmek için kullanılan kullanıcı adı. Varsayılan değer SASLUsername kullandığınızda anonimdir.  | Hayır |
+| password | UsernameAndPassword kullandığınızda, kullanıcı adına karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
+| enableSsl | Sunucusuna bağlantılarda SSL kullanarak şifrelenip şifrelenmeyeceğini belirtir. Varsayılan değer **false**.  | Hayır |
+| trustedCertPath | SSL üzerinden bağlanırken sunucu doğrulamak için kullanılan güvenilir CA sertifikaları içeren bir .pem dosyasının tam yolu. Yalnızca şirket içinde barındırılan tümleştirme çalışma zamanını SSL kullandığınızda, bu özelliği ayarlayabilirsiniz. Varsayılan değer tümleştirme çalışma zamanının yüklü cacerts.pem dosyasıdır.  | Hayır |
+| useSystemTrustStore | Bir CA sertifikası sistem güven deposu veya belirtilen bir PEM dosyası kullanılıp kullanılmayacağını belirtir. Varsayılan değer **false**.  | Hayır |
+| allowHostNameCNMismatch | SSL üzerinden bağlanırken sunucu ana bilgisayar adını eşleştirmek için bir CA tarafından verilen SSL sertifika adı gerekip gerekmediğini belirtir. Varsayılan değer **false**.  | Hayır |
 | allowSelfSignedServerCert | Otomatik olarak imzalanan sertifikalar sunucudan izin verilip verilmeyeceğini belirtir. Varsayılan değer **false**.  | Hayır |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+| connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 **Örnek:**
 
@@ -85,9 +85,9 @@ Hizmeti Impala bağlı aşağıdaki özellikleri desteklenir.
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Impala veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, Impala veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Impala verileri kopyalamak için kümesine tür özelliği ayarlamak **ImpalaObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+Impala verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **ImpalaObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
 
 **Örnek**
 
@@ -106,16 +106,16 @@ Impala verileri kopyalamak için kümesine tür özelliği ayarlamak **ImpalaObj
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Impala kaynak türü tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Impala kaynak türüne göre desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="impala-as-a-source-type"></a>Bir kaynak türü olarak ımpala
+### <a name="impala-as-a-source-type"></a>Impala kaynak türü
 
-Impala verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **ImpalaSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü.
+Impala verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **ImpalaSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü.
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak **ImpalaSource**. | Evet |
-| sorgu | Verileri okumak için özel SQL sorgusu kullanın. `"SELECT * FROM MyTable"` bunun bir örneğidir. | Evet |
+| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **ImpalaSource**. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. `"SELECT * FROM MyTable"` bunun bir örneğidir. | Evet |
 
 **Örnek:**
 
@@ -150,4 +150,4 @@ Impala verileri kopyalamak için kopyalama etkinliği için kaynak türünü aya
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
+Veri fabrikasında kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

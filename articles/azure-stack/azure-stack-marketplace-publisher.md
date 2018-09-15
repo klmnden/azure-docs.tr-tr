@@ -1,9 +1,9 @@
 ---
-title: Oluşturma ve yayımlama Market öğesi Market araç kullanma | Microsoft Docs
-description: Market öğesi ile Araç Seti yayımlama hızlı bir şekilde oluşturmayı öğrenin
+title: Oluşturma ve Market öğesi yayımlama Market araç setini kullanma | Microsoft Docs
+description: Market öğesi yayımlama araç seti ile hızlı bir şekilde oluşturmayı öğrenin
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,87 +13,87 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ade78dd992e8d1d2eda2cf27d44e52c4030563f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386886"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630945"
 ---
-#  <a name="add-marketplace-items-using-publishing-tool"></a>Yayımlama aracını kullanarak Market öğesi ekleme
-İçeriğinizi ekleme [Azure yığın Market](azure-stack-marketplace.md) çözümlerinizi sizin ve kiracılarınızın dağıtımı için kullanılabilir yapar.  Market araç seti, Iaas Azure Resource Manager şablonları veya VM uzantıları göre Azure Market paketleri (.azpkg) dosyaları oluşturur.  Market Araç Seti .azpkg dosyaları, aracı ile oluşturulmuş veya kullanarak yayımlamak için de kullanabilirsiniz [el ile](azure-stack-create-and-publish-marketplace-item.md) adımları.  Bu konu, aracı yükleme, bir VM şablonunu temel alan bir Market öğesi oluşturma ve ardından bu öğeyi Azure yığın Marketinde yayımlama kılavuzluk eder.     
+#  <a name="add-marketplace-items-using-publishing-tool"></a>Market öğesi yayımlama aracını kullanarak Ekle
+İçeriklerinizi ekleme [Azure Stack Marketini](azure-stack-marketplace.md) çözümlerinizi siz ve kiracılarınız için dağıtım yapar.  Market araç seti, Iaas Azure Resource Manager şablonları veya VM uzantılarını temel alan Azure Market paketleri (.azpkg) dosyaları oluşturur.  Market Araç Seti .azpkg dosyaları aracıyla oluşturulan ya da kullanarak yayımlamak için de kullanabilirsiniz [el ile](azure-stack-create-and-publish-marketplace-item.md) adımları.  Bu konuda, Aracı'nı indirme, VM şablonunu temel alarak bir Market öğesi oluşturma ve ardından bu öğeyi Azure Stack Market'te yayımlama kılavuzluk eder.     
 
 
 ## <a name="prerequisites"></a>Önkoşullar
- - Araç Seti Azure yığın ana bilgisayarda çalıştırmak veya sahip [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) aracını çalıştırdığınız makineden bağlantısını.
+ - Azure Stack ana bilgisayarda Araç Seti çalıştırma veya sahip [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) aracını çalıştırdığınız makine bağlantısı.
 
- - Karşıdan [Azure yığın hızlı başlangıç şablonlarını](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) ve ayıklayın.
+ - İndirme [Azure Stack hızlı başlangıç şablonları](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) ve ayıklayın.
 
- - Karşıdan [Azure Galerisi paketleme aracı](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
+ - İndirme [Azure Galerisi paketleme aracı](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
 
- - Market yayımlamayı simgelerini ve küçük resim dosyası gerektirir.  Kendi kullanmak veya kaydetmek [örnek](azure-stack-marketplace-publisher.md#support-files) dosyaları yerel olarak bu örneğin.
+ - Market'te yayımlama simgeleri ve küçük resim dosyası gerektirir.  Kendi kullanmak veya kaydetmek [örnek](azure-stack-marketplace-publisher.md#support-files) Bu örnek için yerel dosyaları.
 
 ## <a name="download-the-tool"></a>Aracı'nı indirme
-Market Araç Seti olabilir [Azure yığın araçları depodaki indirilen](azure-stack-powershell-download.md).
+Market Araç Seti olabilir [Azure Stack araçları depodan indirilen](azure-stack-powershell-download.md).
 
 
 ##  <a name="create-marketplace-items"></a>Market öğesi oluşturma
 Bu bölümde, Market Araç Seti .azpkg biçiminde bir Market öğesi paketi oluşturmak için kullanın.  
 
 ### <a name="provide-marketplace-information-with-wizard"></a>Sihirbazı ile Market bilgileri sağlayın
-1. Market Araç Seti PowerShell oturumu çalıştırın:
+1. Market araç seti, bir PowerShell oturumundan çalıştırın:
 ```PowerShell
     .\MarketplaceToolkit.ps1
 ```
 
-2. Tıklatın **çözüm** sekmesi.  Bu ekran, Market öğesi hakkında bilgi kabul eder. Market görünmesini istediğiniz şekilde öğenizi hakkında bilgi girin.  Ayrıca belirtebilirsiniz bir [parametreler dosyası](azure-stack-marketplace-publisher.md#use-a-parameters-file) formun önceden doldurmak için.  
+2. Tıklayın **çözüm** sekmesi.  Bu ekran, Market öğesi hakkında bilgi kabul eder. Market'te görünmesini istediğiniz şekilde öğeniz hakkında bilgi girin.  Ayrıca belirtebileceğiniz bir [parametre dosyasını](azure-stack-marketplace-publisher.md#use-a-parameters-file) form önceden doldurmak için.  
     
     ![Market Araç Seti ilk ekranının ekran görüntüsü](./media/azure-stack-marketplace-publisher/image7.png)
-3. Tıklatın **Gözat** ve her bir simge ve ekran alan için bir görüntü dosyası seçin.  Kendi simgeler veya örnek simgeleri kullanabilirsiniz [destek dosyalarını](azure-stack-marketplace-publisher.md#support-files) bölümü.
-4. Tüm alanlar doldurulduktan sonra "Önizleme çözümü" Market çözümünüzde önizlemesi için seçin.  Gözden geçirme ve metin, görüntüler ve ekran'ı tıklatmadan önce Düzenle **sonraki**.  
+3. Tıklayın **Gözat** ve her bir simge ve ekran alan için bir resim dosyası seçin.  Kendi simgeleri veya örnek simgeleri kullanabilirsiniz [destek dosyalarını](azure-stack-marketplace-publisher.md#support-files) bölümü.
+4. Tüm alanları doldurulduktan sonra Market dahilindeki çözüm önizlemesi için "Önizleme Çözüm"'ı seçin.  Gözden geçirin ve metin, resimler ve ekran tıklamadan önce Düzenle **sonraki**.  
 
-### <a name="import-template-and-create-package"></a>Şablonu içeri aktarın ve paketi oluşturma
-Bu bölümde, şablonu içeri aktarın ve çözümünüz için giriş ile çalışır.
+### <a name="import-template-and-create-package"></a>Şablonu içeri aktarma ve paket oluşturma
+Bu bölümde, şablonu içeri aktarma ve çözümünüz için giriş ile çalışır.
 
-1.  Tıklatın **Gözat** seçip *azuredeploy.json* indirilen şablonlarındaki 101-basit-Windows-VM klasöründen.
+1.  Tıklayın **Gözat** seçip *azuredeploy.json* indirilen şablonları basit Windows VM 101 klasöründeki.
 
     ![Market Araç Seti ikinci ekranının ekran görüntüsü](./media/azure-stack-marketplace-publisher/image8.png)
-2.  Dağıtım Sihirbazı'nı doldurulur bir *temel* şablonda belirtilen her parametre için adım ve giriş öğeleri.  Başka adımlar da eklemek ve girişleri adımları arasında taşıyın.  Örnek olarak, çözümünüz için "Ön uç yapılandırma" ve "Arka uç yapılandırması" adımlarını isteyebilirsiniz.
+2.  Dağıtım Sihirbazı ile doldurulan bir *temel* adım ve giriş öğelerini şablonunda belirtilen her parametre için.  Başka adımlar da eklemek ve girişleri adımlar arasında taşıyın.  Örneğin, çözümünüz için "Ön uç yapılandırması" ve "Arka uç yapılandırması" adımları isteyebilirsiniz.
 3.  AzureGalleryPackager.exe yolunu belirtin.  
-4.  Tıklatın **oluşturma** ve Market araç seti, çözümünüzün bir .azpkg dosyasında paketler.  Tamamlandıktan sonra sihirbaz, çözüm dosya yolunu görüntüler ve paketinizin Azure yığınına yayımlamaya devam seçeneği sunar.
+4.  Tıklayın **Oluştur** ve Market araç seti, çözümünüzün bir .azpkg dosyasına paketler.  Tamamlandıktan sonra sihirbaz çözüm dosyanız yolunu görüntüler ve Azure Stack'e paketinizi yayımlamaya devam seçeneği sunar.
 
 
 ## <a name="publish-marketplace-items"></a>Market öğesi yayımlama
-Bu bölümde, Market öğesi, Azure yığın Marketinde yayımlama.
+Bu bölümde, Azure Stack Marketini için Market öğesi yayımlama.
 
 ![Market Araç Seti ilk ekranının ekran görüntüsü](./media/azure-stack-marketplace-publisher/image9.png)
 
-1.  Sihirbaz, çözüm yayımlamaya bilgileri gerektirir:
+1.  Sihirbaz, çözümünüzü yayımlamak için gerekli bilgiyi gerektirir:
     
     |Alan|Açıklama|
     |-----|-----|
-    | Hizmet Yöneticisi adı | Hizmet yöneticisi hesabı.  Örnek:  ServiceAdmin@mydomain.onmicrosoft.com |
-    | Parola | Hizmet yönetici hesabının parolası. |
-    | API Endpoint | Azure yığın Azure Resource Manager uç noktası.  Örnek: management.local.azurestack.external |
-2.  Tıklatın **Yayımla** ve yayımlama günlük görüntülenir.
-3.  Artık Azure yığın Portalı aracılığıyla yayımlanan öğenizi dağıtamaz.
+    | Hizmet Yöneticisi adı | Hizmet Yöneticisi hesabını.  Örnek:  ServiceAdmin@mydomain.onmicrosoft.com |
+    | Parola | Hizmet Yöneticisi hesabının parolası. |
+    | API uç noktası | Azure Stack Azure Resource Manager uç noktası.  Örnek: management.local.azurestack.external |
+2.  Tıklayın **Yayımla** ve yayımlama günlük görüntülenir.
+3.  Şimdi Azure Stack portal aracılığıyla yayımlanan öğeniz dağıtabilir.
 
 
-## <a name="use-a-parameters-file"></a>Bir parametre dosyası kullanın
-Market öğesi bilgisi tamamlamak için bir parametre dosyası da kullanabilirsiniz.  
+## <a name="use-a-parameters-file"></a>Bir parametre dosyası kullanma
+Market öğesi bilgisini tamamlamak için bir parametre dosyası da kullanabilirsiniz.  
 
-Market Araç Seti içeren bir *solution.parameters.ps1* kendi parametreler dosyası oluşturmak için kullanabilirsiniz.
+Market Araç Seti içeren bir *solution.parameters.ps1* kendi parametre dosyasını oluşturmak için kullanabilirsiniz.
 
 
 ## <a name="support-files"></a>Destek dosyaları
 | Açıklama | Örnek |
 | ----- | ----- |
-| 40x40 .png icon | ![](./media/azure-stack-marketplace-publisher/image1.png) |
+| 40 x 40 .png simgesi | ![](./media/azure-stack-marketplace-publisher/image1.png) |
 | 90 x 90 .png simgesi | ![](./media/azure-stack-marketplace-publisher/image2.png) |
-| 115x115 .png icon | ![](./media/azure-stack-marketplace-publisher/image3.png) |
-| 255x115 .png icon | ![](./media/azure-stack-marketplace-publisher/image4.png) |
-| 533 x 324 .png küçük resim | ![](./media/azure-stack-marketplace-publisher/image5.png) |
+| 115 x 115 .png simgesi | ![](./media/azure-stack-marketplace-publisher/image3.png) |
+| 255 x 115 .png simgesi | ![](./media/azure-stack-marketplace-publisher/image4.png) |
+| 533 x 324 .png küçük resmi | ![](./media/azure-stack-marketplace-publisher/image5.png) |
 
 

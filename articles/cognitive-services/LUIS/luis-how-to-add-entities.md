@@ -1,6 +1,6 @@
 ---
-title: LUIS uygulama varlıkları ekleyin | Microsoft Docs
-titleSuffix: Azure
+title: LUIS uygulamalarında varlık ekleme
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) uygulamalarında varlıklar (anahtar, uygulamanızın etki alanı veri) ekleyin.
 services: cognitive-services
 author: diberry
@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e97f9a5391799849983bd98db5400e0a842627b7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3fe76afca2eb8b14641589e4e29fc20b5d3de7fa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224135"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632299"
 ---
 # <a name="manage-entities"></a>Varlıkları yönetme
 Uygulamanızın tanımladıktan sonra [hedefleri](luis-concept-intent.md), yapmanız [etiket örnek konuşma](luis-concept-utterance.md) ile [varlıkları](luis-concept-entity-types.md). Varlıklar, önemli bir komut veya soru parçalarıdır ve istemci uygulamanızı kendi görevi gerçekleştirmek gerekli olabilir. 
@@ -31,9 +31,7 @@ Aşağıdaki bölümlerde yalnızca bir LUIS uygulaması içinde kullanılabilir
  
 2. Üzerinde **varlıkları** sayfasında **önceden oluşturulmuş varlıklarla yönetme**.
 
-    ![Varlıkları sayfasında önceden oluşturulmuş bir varlık ekleme işleminin ekran görüntüsü](./media/add-entities/manage-prebuilt-entities-button.png)
-
-3. İçinde **Ekle veya önceden oluşturulmuş varlıklarla kaldırma** iletişim kutusunda **numarası** ve **datetimeV2** önceden oluşturulmuş varlıklar. Ardından **Bitti**.
+3. İçinde **Ekle veya önceden oluşturulmuş varlıklarla kaldırma** iletişim kutusunda **numarası** ve **datetimeV2** önceden oluşturulmuş varlıklar. Ardından **Bitti**'yi seçin.
 
     ![Önceden oluşturulmuş varlık iletişim kutusu Ekle ekran görüntüsü](./media/add-entities/list-of-prebuilt-entities.png)
 
@@ -43,8 +41,6 @@ Aşağıdaki bölümlerde yalnızca bir LUIS uygulaması içinde kullanılabilir
 Bir varlığın tek bir kavram açıklayan genel bir varlıktır. 
 
 1. Uygulamanızda, gelen **derleme** bölümüne ve ardından **varlıkları** Sol paneli ve ardından **yeni varlık Oluştur**.
-
-    ![Oluştur yeni varlık düğmesi vurgulanmış ekran görüntüsü, varlıkları sayfası](./media/add-entities/create-new-entity-button.png)
 
 2. Açılan iletişim kutusuna `Airline` içinde **varlık adı** kutusunda **basit** gelen **varlık türü** listeleyin ve ardından **Bitti**.
 
@@ -57,7 +53,7 @@ Bir normal ifade varlık sağladığınız bir normal ifadeye göre utterance ve
 
 1. Uygulamanızda seçin **varlıkları** sol gezinti ve ardından **yeni varlık Oluştur**.
 
-2. Pencerede iletişim kutusu, türü `AirFrance Flight` içinde **varlık adı** kutusunda **normal ifade** gelen **varlık türü** listesinde, normal ifade girin`AFR[0-9]{3,4}`ve ardından **Bitti**. 
+2. Açılan iletişim kutusuna `AirFrance Flight` içinde **varlık adı** kutusunda **normal ifade** gelen **varlık türü** listesinde, normal ifade girin`AFR[0-9]{3,4}`ve ardından **Bitti**. 
 
     Bu AirFrance uçuş normal ifade üç karakter, gerçek anlamda bekliyor `AFR`, ardından 3 veya 4 rakamı. Sayı 0 ile 9 arasında herhangi bir sayı olabilir. AirFrance uçuş numaraları gibi normal ifadeyle eşleşen: "AFR101", "ARF1302" ve "AFR5006". Bkz: [veri ayıklama](luis-concept-data-extraction.md) JSON sorgu yanıtı uç noktasından varlık ayıklama hakkında daha fazla bilgi edinmek için.
 

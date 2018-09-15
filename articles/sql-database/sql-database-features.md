@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b45daafc732a497f9b2daf4e9e7c1a2c54aac501
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 75bd73b16d3e8d2e6e66cf518ab9694c945526cc
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056953"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604697"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Özellik karşılaştırması: SQL Server yerine Azure SQL veritabanı 
 
@@ -125,7 +125,7 @@ Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlant�
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Evet | Evet |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Evet | Evet |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Hayır - bkz [genişletilmiş olaylar](sql-database-xevent-db-diff-from-svr.md) | Evet |
-| [SQL Server çoğaltma](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Yalnızca işlem ve anlık görüntü çoğaltma abonesi](sql-database-cloud-migrate.md) | Evet - [çoğaltma ile SQL veritabanı yönetilen örneği (genel Önizleme)](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
+| [SQL Server çoğaltma](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Yalnızca işlem ve anlık görüntü çoğaltma abonesi](sql-database-cloud-migrate.md) | Evet (genel Önizleme) - [çoğaltma ile SQL veritabanı yönetilen örneği (genel Önizleme)](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Raporlama Hizmetleri (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Hayır - [Power BI bakın](https://docs.microsoft.com/power-bi/) | Hayır - [Power BI bakın](https://docs.microsoft.com/power-bi/) |
 | [Saklı yordamlar](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Evet | Evet |
 | [Sistem saklı işlevleri](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Çoğu - bkz ayrı İşlevler | Evet - bkz [saklı yordamlar, İşlevler, Tetikleyiciler farkları](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

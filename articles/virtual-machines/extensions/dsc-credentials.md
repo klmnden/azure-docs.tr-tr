@@ -1,9 +1,9 @@
 ---
-title: İstenen durum Yapılandırması'nı kullanarak Azure için kimlik bilgilerini geçirmek
-description: PowerShell istenen durum yapılandırması (DSC) kullanarak Azure sanal makineleri için kimlik bilgilerini güvenli bir şekilde geçirmek öğrenin.
+title: Kimlik bilgileri Desired State Configuration ' ı kullanarak Azure'a geçirin
+description: Güvenli bir şekilde PowerShell Desired State Configuration (DSC) kullanarak Azure sanal makineleri için kimlik bilgilerini geçirmek hakkında bilgi edinin.
 services: virtual-machines-windows
 documentationcenter: ''
-author: DCtheGeek
+author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
@@ -15,27 +15,27 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: dacoulte
-ms.openlocfilehash: 666253d16ac51dcc21174211f71794f8b0ede07d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: robreed
+ms.openlocfilehash: 52e115aa7f54eccc2be4e500c544aa38ca3bc32d
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012555"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631285"
 ---
-# <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Kimlik bilgileri Azure DSCExtension işleyicisine geçirin
+# <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Kimlik bilgilerini geçirmek için Azure DSCExtension işleyicisi
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Bu makalede, Azure için istenen durum Yapılandırması'nı (DSC) uzantısı yer almaktadır. DSC uzantı işleyici genel bakış için bkz: [Azure istenen durum yapılandırması uzantısı işleyici giriş](dsc-overview.md).
+Bu makale için Azure Desired State Configuration ' nı (DSC) uzantısı kapsar. DSC uzantısı işleyicisine genel bakış için bkz. [Azure Desired State Configuration uzantısı işleyicisi giriş](dsc-overview.md).
 
-## <a name="pass-in-credentials"></a>Kimlik bilgilerinde geçirin
+## <a name="pass-in-credentials"></a>Kimlik bilgilerini geçirin
 
-Yapılandırma işleminin bir parçası olarak gerektiğinde kullanıcı hesaplarını, ayarlamak için hizmetlere erişmek veya kullanıcı bağlamında bir program yüklemek. Bu işlemler yapmak için kimlik bilgilerini sağlamanız gerekir.
+Yapılandırma işleminin bir parçası olarak, gerektiğinde, kullanıcı hesaplarını ayarlamak için hizmetlere erişmek veya kullanıcı bağlamında bir program yüklemek. Bunları yapmak için kimlik bilgilerini sağlamanız gerekir.
 
-DSC parametreli yapılandırmalarını ayarlamak için kullanabilirsiniz. Parametreli bir yapılandırmada, kimlik bilgileri yapılandırmaya geçirilen ve güvenli .mof dosyalarında depolanır. Azure uzantısı işleyici sertifikaların otomatik yönetimi sağlayarak kimlik bilgileri yönetimi basitleştirir.
+DSC, parametreli yapılandırmalarını ayarlamak için kullanabilirsiniz. Parametreli bir yapılandırmada, kimlik bilgileri yapılandırmasını geçirilen ve güvenli bir şekilde .mof dosyalarında depolanır. Azure uzantısı işleyicisi, sertifikaların otomatik yönetimi sağlayarak kimlik bilgileri yönetimi basitleştirir.
 
-Şu DSC yapılandırma betiği belirtilen parola ile yerel bir kullanıcı hesabı oluşturur:
+Şu DSC yapılandırma betiği, belirtilen parolayla yerel bir kullanıcı hesabı oluşturur:
 
 ```powershell
 configuration Main
@@ -61,13 +61,13 @@ configuration Main
 }
 ```
 
-Eklenmesi önemlidir **düğümü localhost** yapılandırmasının bir parçası olarak. Uzantı işleyici özellikle arar **düğümü localhost** deyimi. Bu bildirimi eksikse, aşağıdaki adımları çalışmıyor. Typecast eklemek önemlidir **[PsCredential]**. Bu belirli tür kimlik bilgilerini şifrelemek için uzantı tetikler.
+Eklenmesi önemlidir **düğüm localhost** yapılandırmasının bir parçası olarak. Uzantı işleyici özellikle arar **düğüm localhost** deyimi. Aşağıdaki adımlar, bu deyimi yoksa, çalışmaz. Typecast eklenmesi önemlidir **[PsCredential]**. Bu belirli tür uzantısı kimlik bilgisi şifrelenemedi tetikler.
 
-Bu komut dosyası Azure Blob depolama alanına yayımlamak için:
+Bu betik, Azure Blob depolama alanına yayımlama için:
 
 `Publish-AzureRmVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
-Azure DSC uzantısı ayarlamak ve kimlik bilgilerini sağlamak için:
+Azure DSC uzantısı ve kimlik bilgileri sağlamak için:
 
 ```powershell
 $configurationName = 'Main'
@@ -82,13 +82,13 @@ $vm | Update-AzureRmVM
 
 ## <a name="how-a-credential-is-secured"></a>Bir kimlik bilgisi güvenliği nasıl sağlanır
 
-Bu kodu çalıştırmak için kimlik bilgilerini ister. Kimlik bilgisi sağlandıktan sonra kısaca bellekte depolanır. Ne zaman kimlik bilgisi yayımlanır kullanarak **kümesi AzureRmVMDscExtension** cmdlet, kimlik bilgisi VM HTTPS üzerinden aktarılır. VM'nin Azure yerel VM sertifika kullanarak diskte şifrelenmiş kimlik bilgileri depolar. Kimlik bilgisi kısaca bellekte şifresi çözülür ve ardından DSC için geçirmek için yeniden şifrelenir.
+Bu kodu çalıştırmak için kimlik bilgilerini ister. Kimlik bilgileri sağlandıktan sonra kısaca bellekte depolanır. Kimlik bilgisi, yayımlanan kullanarak **kümesi AzureRmVMDscExtension** cmdlet'i, kimlik bilgisi, sanal makineye HTTPS üzerinden iletilir. VM, Azure yerel sanal makine sertifikası kullanarak diskte şifrelenmiş kimlik bilgileri depolar. Kimlik bilgisi kısaca bellekte şifresi çözülür ve ardından DSC için geçirmek için yeniden şifrelenir.
 
-Bu işlem farklıdır [uzantısı işleyici olmadan güvenli yapılandırmaları kullanarak](/powershell/dsc/securemof). Azure ortamı yapılandırma verilerinin sertifikalar yoluyla güvenli bir şekilde iletmek için bir yöntem sunar. DSC uzantı işleyicisi kullandığınızda, sağlamanız gerekmez **$CertificatePath** veya **$CertificateID**/ **$Thumbprint** girişi**ConfigurationData**.
+Bu işlem farklıdır [uzantı işleyici olmadan güvenli yapılandırmaları kullanarak](/powershell/dsc/securemof). Azure ortamı, yapılandırma verilerini sertifikaları aracılığıyla güvenli bir şekilde aktarmak için bir yol sunar. DSC uzantısı işleyicisine kullandığınızda sağlamanıza gerek kalmaması **$CertificatePath** veya **$CertificateID**/ **$Thumbprint** girişte**ConfigurationData**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Alma bir [Azure DSC uzantısı işleyici giriş](dsc-overview.md).
-- İncelemek [DSC uzantısı için Azure Resource Manager şablonu](dsc-template.md).
+- Alma bir [giriş Azure DSC uzantısı işleyicisine](dsc-overview.md).
+- İnceleme [DSC uzantısı için Azure Resource Manager şablonu](dsc-template.md).
 - PowerShell DSC hakkında daha fazla bilgi için Git [PowerShell Belge Merkezi](/powershell/dsc/overview).
-- PowerShell DSC kullanarak yönetebilmeniz için daha fazla işlevsellik ve daha fazla DSC kaynakları Gözat [PowerShell Galerisi](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
+- PowerShell DSC kullanarak yönetebilirsiniz. daha fazla işlevsellik ve daha fazla DSC kaynakları için Gözat [PowerShell Galerisi](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

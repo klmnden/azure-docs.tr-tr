@@ -3,33 +3,26 @@ title: Atılacak Mektubu ve yeniden deneme ilkeleri için Azure Event Grid abone
 description: Event Grid olay teslim seçeneklerini özelleştirmeyi açıklar. Teslim edilemeyen hedef ayarlayın ve teslim denemeye ne kadar süreyle belirtin.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 09/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a37fadc179157ba590b31a79fcd98f223cb1869
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5db53567b1df9e726fb0c507f0302536ea45b7f4
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501958"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603779"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Atılacak Mektubu ve yeniden deneme ilkeleri
 
-Bir olay aboneliği oluştururken, olay teslimi için ayarları özelleştirebilirsiniz. Event Grid iletiyi teslim çalıştığında ne kadar süreyle ayarlayabilirsiniz. Bir uç noktaya sağlanamamıştır olayları depolamak için kullanılacak bir depolama hesabı ayarlayabilirsiniz.
+Bir olay aboneliği oluştururken, olay teslimi için ayarları özelleştirebilirsiniz. Bu makalede bir edilemeyen konumunu ayarlayın ve yeniden deneme ayarları özelleştirebilirsiniz gösterilmektedir. Bu özellikler hakkında daha fazla bilgi için bkz: [Event Grid iletiyi teslim ve yeniden deneme](delivery-and-retry.md).
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="set-dead-letter-location"></a>Teslim edilemeyen konumunu ayarla
 
-Event Grid olay teslim edilemiyor, bir depolama hesabına teslim edilmeyen olay gönderebilirsiniz. Bu işlem, ulaşmayan olarak bilinir. Varsayılan olarak, Event Grid hakkında ulaşmayan kapatmaz. Bunu etkinleştirmek için olay abonelik oluştururken teslim edilmeyen olayları barındıracak bir depolama hesabı belirtmeniz gerekir. Olayları teslim çözmek için bu depolama hesabından çekin.
-
-Event Grid tüm kendi yeniden deneme yaptı veya teslim belirten bir hata iletisi aldığında, hiçbir zaman başarılı olur edilemeyen konumuna bir olay gönderir. Event Grid olay sunarken bir hatalı biçim hatası alırsa, örneğin, bu olay edilemeyen yere gönderir. Bir olay ve ne zaman teslim edilemeyen konumuna teslim sunmak için son girişimi arasındaki beş dakikalık bir gecikme yoktur. Bu gecikme, çok sayıda Blob Depolama işlemi azaltmak için tasarlanmıştır. Teslim edilemeyen konumu için dört saat kullanılamıyorsa, olay bırakılır.
-
-Teslim edilemeyen konumu ayarlamadan önce bir kapsayıcı ile bir depolama hesabı olması gerekir. Olay aboneliği oluştururken uç noktası için bu kapsayıcı sağlayın. Uç nokta biçimindedir: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
-
-Aşağıdaki betik, mevcut bir depolama hesabı kaynak kimliği alır ve bu depolama hesabında edilemeyen uç nokta için bir kapsayıcı kullanan bir olay aboneliği oluşturur.
+Atılacak Mektubu konumunu ayarlamak için bir uç noktaya sağlanamamıştır olayları tutmak için bir depolama hesabı gerekir. Aşağıdaki betik, mevcut bir depolama hesabı kaynak kimliği alır ve bu depolama hesabında edilemeyen uç nokta için bir kapsayıcı kullanan bir olay aboneliği oluşturur.
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -48,8 +41,6 @@ az eventgrid event-subscription create \
   --endpoint <endpoint_URL> \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
 ```
-
-Event Grid teslim edilmeyen olaylara yanıt vermesi için kullanılacak [bir olay aboneliği oluşturmak](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) edilemeyen blob depolama için. Her zaman teslim edilmeyen bir olay edilemeyen blob depolama alanınızın alır, Event Grid işleyicinizi bildirir. İşleyici teslim edilmeyen olayları karşılaştırma için almak istediğiniz eylemi ile yanıt verir. 
 
 Ulaşmayan devre dışı bırakmak için olay aboneliğini oluşturmak için komutu yeniden çalıştırın ancak için bir değer sağlamayan `deadletter-endpoint`. Olay aboneliği silmeniz gerekmez.
 

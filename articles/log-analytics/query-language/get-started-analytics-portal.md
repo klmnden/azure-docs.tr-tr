@@ -1,6 +1,6 @@
 ---
-title: Azure portalında Log Analytics sayfası ile çalışmaya başlama | Microsoft Docs
-description: Bu makale, Log Analytics sorguları yazma sayfasından bir öğretici sağlar.
+title: Azure portalında log Analytics ile çalışmaya başlama | Microsoft Docs
+description: Bu makale, Log Analytics sorguları yazma Azure Portalı'nda kullanmaya yönelik bir öğretici sağlar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,14 +15,16 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 2c35d71d127903a67dce2280b2d0ab335079b480
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056280"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604476"
 ---
-# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Azure portalında Log Analytics sayfası ile çalışmaya başlama
+# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Azure portalında log Analytics ile çalışmaya başlama
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Bu öğreticide, Log Analytics sorguları yazma (şu anda önizlemede) Azure portalında Log Analytics sayfa kullanmayı öğreneceksiniz. Size nasıl yardımcı olacak için:
 
@@ -45,7 +47,7 @@ Log Analytics, yazma ve Azure Log Analytics sorgularını yürütmek için kulla
 ## <a name="basic-queries"></a>Temel sorgular
 Sorgular, arama terimleri, eğilimleri belirlemenize, biçimlerini çözümleme ve verilerinizi temel alan birçok öngörüden sağlamak için kullanılabilir. Temel bir sorgu başlatın:
 
-```OQL
+```KQL
 Event | search "error"
 ```
 
@@ -55,7 +57,7 @@ Sorgular, bir tablo adı ile başlatabilir veya **arama** komutu. Yukarıdaki ö
 
 Aynı sorgu yazmak için başka bir yolu şu şekilde olur:
 
-```OQL
+```KQL
 search in (Event) "error"
 ```
 
@@ -79,7 +81,7 @@ Her tabloda sütun adının yanındaki simge tarafından belirtildiği gibi fark
 ## <a name="filter-the-results"></a>Sonuçları filtreleme
 Her şeyi alınırken Start _olay_ tablo.
 
-```OQL
+```KQL
 Event
 ```
 
@@ -133,7 +135,7 @@ Sorgu için bir filtre açıkça içeriyorsa _TimeGenerated_Seçici başlık gö
 ## <a name="charts"></a>Grafikler
 Bir tablodaki sonuçları döndüren yanı sıra sorgu sonuçlarını visual biçimlerde sunulabilir. Örnek olarak aşağıdaki sorguyu kullanın:
 
-```OQL
+```KQL
 Event 
 | where EventLevelName == "Error" 
 | where TimeGenerated > ago(1d) 

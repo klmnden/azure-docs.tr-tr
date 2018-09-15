@@ -1,25 +1,26 @@
 ---
-title: Hedef LUIS uygulamaları ekleme | Microsoft Docs
-description: Intents kullanıcı isteklerini anlamak ve düzgün bir şekilde tepki uygulamaların eklemek için Language Understanding (LUIS) kullanın.
+title: LUIS uygulamalarda hedef ekleme
+titleSuffix: Azure Cognitive Services
+description: Intents sorularınız ya da aynı amaçları olan komutları gruplarını tanımlamak için LUIS uygulamanızı ekleyin.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 687cbad9d1e493e07fc5f813fdd7c52dee3b97d4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225895"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634634"
 ---
 # <a name="manage-intents"></a>Intents yönetme 
 Ekleme [hedefleri](luis-concept-intent.md) LUIS uygulamanızı sorularınız ya da aynı amaçları olan komutları gruplarını tanımlamak için. 
 
-Ekleme ve yönetme, amaçlardan tutun **hedefleri** sayfasında, kullanılabilir **hedefleri** LUIS'ın sol panelde. 
+Intents yönetilen engelle **derleme** üstteki araç çubuğunda bölümü. Ekleme ve yönetme, amaçlardan tutun **hedefleri** sayfasında, sol bölmede bulunan kullanılabilir. 
 
 Aşağıdaki yordam TravelAgent uygulamada "Bookflight" hedefi ekleme göstermektedir.
 
@@ -28,7 +29,6 @@ Aşağıdaki yordam TravelAgent uygulamada "Bookflight" hedefi ekleme göstermek
 1. Uygulamanız (örneğin, TravelAgent) adını tıklayarak açın **uygulamalarım** sayfasında ve ardından **hedefleri** sol bölmesinde. 
 2. Üzerinde **hedefleri** sayfasında **yeni hedefi oluşturma**.
 
-    ![Intents listesi](./media/luis-how-to-add-intents/IntentsList.png)
 3. İçinde **yeni hedefi oluşturma** iletişim kutusu, amacı "BookFlight" adını verin ve tıklayın türü **Bitti**.
 
     ![Hedefi ekleyin](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -105,7 +105,7 @@ Bir utterance silmek için üç noktayı seçin (***...*** ) bu utterance satır
 2. Seçin **Bitti** içinde **konuşma Sil?** açılır iletişim kutusu.
 
 ## <a name="search-in-utterances-on-intent-page"></a>Konuşma niyetini sayfasında içinde arama
-Bir amaca, metin (sözcük ve tümcecikleri) içeren konuşma için arama yapabilirsiniz. Örneğin, belirli bir sözcüğün içeren bir hata görebilirsiniz ve bu belirli bir sözcüğün dahil tüm örnekleri bulmak istediğiniz. 
+Amaç'ın utterance listesi içinde metin (sözcük ve tümcecikleri) içeren konuşma için arama yapabilirsiniz. Örneğin, belirli bir sözcüğün içeren bir hata görebilirsiniz ve bu belirli bir sözcüğün dahil tüm örnekleri bulmak istediğiniz. 
 
 1. Araç çubuğunda Büyüteç simgesini seçin.
 

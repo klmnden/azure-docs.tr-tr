@@ -9,12 +9,12 @@ ms.custom: reference
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: carlrab
-ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 218bd9031193d4987fdc1e0ae2bf302bdb028673
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286341"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604510"
 ---
 # <a name="sql-database-faq"></a>SQL Veritabanı SSS
 
@@ -71,7 +71,7 @@ SQL veritabanı müşterilerinin, SQL Server için Azure hibrit avantajı ile il
 İşlem maliyet, uygulama için sağlanan toplam işlem kapasitesini yansıtır. İş açısından kritik hizmet katmanında, biz otomatik olarak en az 3 her zaman açık çoğaltma ayırın. Bu ek işlem kaynakları ayrılması yansıtacak şekilde yaklaşık 2.7 x daha yüksek iş açısından kritik sanal çekirdek fiyatı değeridir. Aynı nedenden dolayı GB başına daha yüksek depolama fiyatı iş açısından kritik katmanında SSD depolama, düşük gecikme süresi ve yüksek g/ç yansıtır. Her iki durumda da bir standart depolama sınıfı kullandığımızdan aynı zamanda, yedekleme depolama maliyeti, farklı değildir.
 
 ## <a name="how-am-i-charged-for-storage---based-on-what-i-configure-upfront-or-on-what-the-database-uses"></a>Nasıl ne önceden yapılandırabilirim veya hangi veritabanı kullanan temel depolama için-ücretlendirilir miyim?
-Farklı depolama türlerini farklı faturalandırılır. Veri depolama için seçtiğiniz en fazla veritabanı veya havuz boyutuna bağlı olarak sağlanan depolama alanı için ücretlendirilirsiniz. Maliyeti azaltmak veya artırmak, en fazla sürece değiştirmez. Yedekleme alanı, örneğinizin otomatik yedekleme işlemleriyle ilişkilidir. Yedekleme saklama döneminizin artırılması, örneğiniz tarafından kullanılan yedekleme alanının artmasına neden olur. Toplam sağlanan sunucu depolama alanınızın yüzde 100’üne ulaşana kadar yedekleme alanı için ek ücret ödemezsiniz. Ek yedekleme alanı kullanımı, GB cinsinden aylık olarak ücretlendirilir. Örneğin, veritabanı depolama alanınızın boyutu 100 GB’sa ek maliyet olmaksızın 100 GB yedekleme alanına sahip olursunuz. Ancak yedekleme boyutu 110 GB olursa fazlalık 10 GB için ödeme yapın.
+Farklı depolama türlerini farklı faturalandırılır. Veri depolama için seçtiğiniz en fazla veritabanı veya havuz boyutuna bağlı olarak sağlanan depolama alanı için ücretlendirilirsiniz. Maliyeti azaltmak veya artırmak, en fazla sürece değiştirmez. Yedekleme depolama alanı, örneğinizin otomatik yedekleme işlemleriyle ilişkilidir ve dinamik olarak ayrılır. Yedekleme saklama döneminizin artırılması, örneğiniz tarafından kullanılan yedekleme alanının artmasına neden olur. Toplam sağlanan sunucu depolama alanınızın yüzde 100’üne ulaşana kadar yedekleme alanı için ek ücret ödemezsiniz. Ek yedekleme alanı kullanımı, GB cinsinden aylık olarak ücretlendirilir. Örneğin, veritabanı depolama alanınızın boyutu 100 GB’sa ek maliyet olmaksızın 100 GB yedekleme alanına sahip olursunuz. Ancak yedekleme boyutu 110 GB olursa fazlalık 10 GB için ödeme yapın. 
 
 Tek bir veritabanı yedekleme alanı için veritabanının boyutuna eksi veritabanı yedeklemeleri için ayrılan depolama alanı için günlere eşit olarak ücretlendirilir. Elastik havuz Yedekleme depolaması için veritabanı yedeklerini eksi elastik havuzun en yüksek boyut havuzdaki tüm veritabanları için ayrılan depolama alanı için günlere eşit olarak ücretlendirilir. Tüm elastik havuz ve veritabanı boyutunu artırma veya işlem hızı artış daha fazla depolama alanı gerektirir ve bu nedenle yedekleme depolama faturanız artırır.  En yüksek boyut artırdığınızda, bu yeni miktar faturalandırılan yedekleme depolama boyutundan çıkarılır.
 

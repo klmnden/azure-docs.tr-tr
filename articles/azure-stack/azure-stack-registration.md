@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 6f406f63f4ae7518b93153db30c9ca51564b848c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 92c0ad6dfde4fc83a912b4a3387d8b586e72809c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720149"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630452"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -52,7 +52,7 @@ Azure Stack Azure ile kaydetmeden önce şunlara sahip olmalısınız:
 
 - Kullanıcı adı ve parola için aboneliğin sahibi olan bir hesabı (MSA/2FA hesapları desteklenir).
 
-- Kullanıcı hesabı için Azure Stack kayıtlı, örneğin, Azure AD kiracısında yönetici olmanız gerekiyor `yourazurestacktenant.onmicrosoft.com`.
+- Kullanıcı hesabı, Azure aboneliğine erişiminiz olması ve bu abonelikle dizinde kimlik uygulama ve hizmet sorumluları oluşturma izniniz gerekiyor.
 
 - Azure Stack kaynak sağlayıcısına kayıtlı (Ayrıntılar için aşağıdaki Azure Stack kaynak sağlayıcısını kaydetme bölümüne bakın).
 
@@ -106,7 +106,7 @@ Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azu
 
 1. Azure ile Azure Stack kaynak sağlayıcısını kaydetmek için PowerShell ISE yönetici olarak başlatın ve aşağıdaki PowerShell cmdlet'leriyle **EnvironmentName** parametre uygun Azure aboneliğini türüne (bkz: parametreleri aşağıdaki).
 
-2. Azure Stack kaydetmek için kullandığınız bir Azure hesabı ekleyin. Hesap eklemek için şunu çalıştırın **Add-AzureRmAccount** cmdlet'i. Azure genel yönetici hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 faktörlü kimlik doğrulaması kullanmak zorunda kalabilirsiniz.
+2. Azure Stack kaydetmek için kullandığınız bir Azure hesabı ekleyin. Hesap eklemek için şunu çalıştırın **Add-AzureRmAccount** cmdlet'i. Azure hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 faktörlü kimlik doğrulaması kullanmak zorunda kalabilirsiniz.
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
@@ -166,7 +166,7 @@ Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azu
 
 1. Azure ile Azure Stack kaynak sağlayıcısını kaydetmek için PowerShell ISE yönetici olarak başlatın ve aşağıdaki PowerShell cmdlet'leriyle **EnvironmentName** parametre uygun Azure aboneliğini türüne (bkz: parametreleri aşağıdaki).
 
-2. Azure Stack kaydetmek için kullandığınız bir Azure hesabı ekleyin. Hesap eklemek için şunu çalıştırın **Add-AzureRmAccount** cmdlet'i. Azure genel yönetici hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 faktörlü kimlik doğrulaması kullanmak zorunda kalabilirsiniz.
+2. Azure Stack kaydetmek için kullandığınız bir Azure hesabı ekleyin. Hesap eklemek için şunu çalıştırın **Add-AzureRmAccount** cmdlet'i. Azure hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 faktörlü kimlik doğrulaması kullanmak zorunda kalabilirsiniz.
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"

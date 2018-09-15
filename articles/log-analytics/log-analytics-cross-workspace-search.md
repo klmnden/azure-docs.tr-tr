@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 75116e0ba50c3f195d528d33822af0c446acd5fe
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: e39a492b466581cd52df3084faebfc3976307c61
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055939"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603354"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics'te kaynaklar arası günlük aramaları gerçekleştirme  
 
 Daha önce Azure Log Analytics ile yalnızca geçerli çalışma alanındaki verileri çözümleyebilir ve aboneliğinizde tanımlanmış birden çok çalışma alanında sorgu yapabilmenizi sınırlıdır.  Ayrıca, Application ınsights'ta doğrudan Application Insights ile web tabanlı uygulamanızın içinden veya Visual Studio'dan toplanan telemetri öğelerinin yalnızca arama yapabilirsiniz.  Bu ayrıca yerel olarak operasyonel analiz etmek için sınama ve uygulama verileri birlikte hale.   
 
-Artık yalnızca birden fazla Log Analytics çalışma alanları, aynı zamanda aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından verileriniz üzerinde sorgulama yapabilirsiniz. İle verilerinizin sistem genelinde bir görünüm sağlar.  Yalnızca bu tür bir sorgu gerçekleştirebileceğiniz [Log Analytics sayfa (Önizleme)](log-analytics-log-search-portals.md#log-analytics-page-preview), Azure Portalı'nda. 100'e (Log Analytics çalışma alanları ve Application Insights uygulaması), tek bir sorguda dahil edebileceğiniz kaynak sayısı sınırlıdır. 
+Artık yalnızca birden fazla Log Analytics çalışma alanları, aynı zamanda aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından verileriniz üzerinde sorgulama yapabilirsiniz. İle verilerinizin sistem genelinde bir görünüm sağlar.  Yalnızca bu tür bir sorgu gerçekleştirebileceğiniz [Log Analytics sayfa](log-analytics-log-search-portals.md#log-analytics-page), Azure Portalı'nda. 100'e (Log Analytics çalışma alanları ve Application Insights uygulaması), tek bir sorguda dahil edebileceğiniz kaynak sayısı sınırlıdır. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Application ınsights ve Log Analytics çalışma alanları arasında sorgulama
 Sorgunuzu başka bir çalışma alanı başvurmak için kullanma [ *çalışma* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) tanımlayıcısı ve Application ınsights'tan bir uygulama için [ *uygulama* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())tanımlayıcısı.  

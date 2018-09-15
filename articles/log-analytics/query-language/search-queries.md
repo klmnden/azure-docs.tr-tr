@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6a375da3c97790bd6a7a6fa505de82b2fc298385
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2ccef960378190f10e64318f91039871657a1a46
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42062118"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603762"
 ---
 # <a name="search-queries-in-log-analytics"></a>Log Analytics arama sorguları
 
 > [!NOTE]
-> Tamamlamanız gereken [sorgular, Log Analytics ile çalışmaya başlama](get-started-queries.md) Bu öğreticiyi tamamlamadan önce.
+> Tamamlamanız gereken [sorgular, Log Analytics ile çalışmaya başlama](get-started-queries.md) dersin tamamlamadan önce.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Azure Log Analytics sorguları bir tablo adı veya bir arama komutunu ile başlayabilirsiniz. Bu öğretici, arama tabanlı sorgular kapsar. Her yöntemin avantajları vardır.
 
@@ -34,7 +36,7 @@ Tablo tabanlı sorgular, sorgu kapsamı tarafından başlatın ve bu nedenle ara
 ## <a name="search-a-term"></a>Arama terimi
 **Arama** komutu genellikle belirli bir terim aramak için kullanılır. Aşağıdaki örnekte, tüm tabloların tüm sütunlarında "error" terimi için taranan:
 
-```OQL
+```KQL
 search "error"
 | take 100
 ```
@@ -44,13 +46,13 @@ Kullanımı kolay oldukları karşın, yukarıda gösterilen bir gibi kapsamsız
 ### <a name="table-scoping"></a>Tablo kapsamı
 Belirli bir tabloda bir terim aramak için ekleme `in (table-name)` hemen sonrasına **arama** işleci:
 
-```OQL
+```KQL
 search in (Event) "error"
 | take 100
 ```
 
 veya birden çok tablo:
-```OQL
+```KQL
 search in (Event, SecurityEvent) "error"
 | take 100
 ```
@@ -58,7 +60,7 @@ search in (Event, SecurityEvent) "error"
 ### <a name="table-and-column-scoping"></a>Tablo ve sütun kapsamı
 Varsayılan olarak, **arama** veri kümesindeki tüm sütunları değerlendirir. Yalnızca belirli bir sütuna aramak için bu sözdizimini kullanın:
 
-```OQL
+```KQL
 search in (Event) Source:"error"
 | take 100
 ```
@@ -69,7 +71,7 @@ search in (Event) Source:"error"
 ## <a name="case-sensitivity"></a>Büyük küçük harf duyarlılığı
 "Dns" arama "DNS", "dns" veya "Dns" gibi sonuçlar böylece varsayılan olarak, arama terimi, duyarlıdır. Büyük küçük harfe duyarlı arama yapmak için `kind` seçeneği:
 
-```OQL
+```KQL
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
@@ -78,26 +80,26 @@ search kind=case_sensitive in (Event) "DNS"
 **Arama** komutu başlangıcında, son veya döneminin ortasında joker destekler.
 
 "Win" ile başlayan koşulları aramak için:
-```OQL
+```KQL
 search in (Event) "win*"
 | take 100
 ```
 
 Aranacak ".com" ile biten koşulları:
-```OQL
+```KQL
 search in (Event) "*.com"
 | take 100
 ```
 
 "Www" içeren koşulları aramak için:
-```OQL
+```KQL
 search in (Event) "*www*"
 | take 100
 ```
 
 "Corp" ile başlayan ve biten ".com" "corp.mydomain.com" gibi arama terimlerini için"
 
-```OQL
+```KQL
 search in (Event) "corp*.com"
 | take 100
 ```
@@ -110,21 +112,21 @@ Ayrıca her şeyi bir tabloda yalnızca bir joker kart kullanarak alabilirsiniz:
 ## <a name="add-and--or-to-search-queries"></a>Ekleme *ve* / *veya* aramak için sorgular
 Kullanım **ve** birden çok kullanım koşulları içeren kayıtlar aramak için:
 
-```OQL
+```KQL
 search in (Event) "error" and "register"
 | take 100
 ```
 
 Kullanım **veya** koşulları en az birini içeren kayıtları almak için:
 
-```OQL
+```KQL
 search in (Event) "error" or "register"
 | take 100
 ```
 
 Birden çok arama koşulu varsa, aynı sorguyu parantez kullanarak birleştirebilirsiniz:
 
-```OQL
+```KQL
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
@@ -134,7 +136,7 @@ Bu örneğin sonuçlarını "error" terimini içeren ve "Kaydet" veya "Hazırlam
 ## <a name="pipe-search-queries"></a>Kanal arama sorguları
 Tıpkı diğer herhangi bir komutu olduğu gibi **arama** arama sonuçlarını filtre, sıralar, toplu ve bu nedenle ayrıştırılabilir. Örneğin, sayısını almak için *olay* "win" içeren kayıtlar:
 
-```OQL
+```KQL
 search in (Event) "win"
 | count
 ```
