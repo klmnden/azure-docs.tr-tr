@@ -1,13 +1,13 @@
 | Kaynak | Varsayılan Sınır |
 | --- | :--- |
-| [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına kapsayıcı grubu | 20<sup>1</sup> |
+| [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına kapsayıcı grubu | 100<sup>1</sup> |
 | Kapsayıcı grubu başına kapsayıcı sayısı | 60 |
 | Kapsayıcı grubu başına birim sayısı | 20 |
 | IP başına bağlantı noktası | 5 |
-| Saat başına kapsayıcı oluşturma sayısı |60<sup>1</sup> |
-| 5 dakika bir kapsayıcı oluşturma sayısı | 20<sup>1</sup> |
-| Saat başına kapsayıcı silme sayısı | 150<sup>1</sup> |
-| 5 dakika bir kapsayıcı silme sayısı | 50<sup>1</sup> |
+| Saat başına kapsayıcı oluşturma sayısı |300<sup>1</sup> |
+| 5 dakika bir kapsayıcı oluşturma sayısı | 100<sup>1</sup> |
+| Saat başına kapsayıcı silme sayısı | 300<sup>1</sup> |
+| 5 dakika bir kapsayıcı silme sayısı | 100<sup>1</sup> |
 | Kapsayıcı grubu başına birden çok kapsayıcı | Yalnızca Linux<sup>2</sup> |
 | Azure Dosyaları birimleri | Yalnızca Linux<sup>2</sup> |
 | GitRepo birimleri | Yalnızca Linux<sup>2</sup> |

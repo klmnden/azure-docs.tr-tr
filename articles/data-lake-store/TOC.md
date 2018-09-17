@@ -3,14 +3,14 @@
 
 # Genel Bakış
 ## [Data Lake Storage Gen1'e Genel Bakış](data-lake-store-overview.md)
-## [Data Lake Storage Gen1 ile Azure Depolama karşılaştırması](data-lake-store-comparison-with-blob-storage.md)
-## [Büyük veri işleme için Data Lake Storage Gen1](data-lake-store-data-scenarios.md)
-## [Data Lake Storage Gen1 ile çalışan açık kaynak uygulamalar](data-lake-store-compatible-oss-other-applications.md)
+## [Azure Depolama ile karşılaştırma](data-lake-store-comparison-with-blob-storage.md)
+## [Büyük verileri işleme](data-lake-store-data-scenarios.md)
+## [Açık kaynak uygulamalar ile çalışma](data-lake-store-compatible-oss-other-applications.md)
 ## [En iyi uygulamalar](data-lake-store-best-practices.md)
 
 # başlarken
-## [Portalı kullanma](data-lake-store-get-started-portal.md)
-## [PowerShell’i kullanma](data-lake-store-get-started-powershell.md)
+## [Azure Portalını kullanma](data-lake-store-get-started-portal.md)
+## [Azure PowerShell’i kullanma](data-lake-store-get-started-powershell.md)
 ## [Azure CLI 2.0 kullanma](data-lake-store-get-started-cli-2.0.md)
 
 
