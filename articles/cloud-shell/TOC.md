@@ -7,16 +7,19 @@
 # Özellikler ve araçlar
 ## [Özellikler ve araçlar](features.md)
 
-# Nasıl yapılır
+# Öğreticiler
+## Ansible
+### [Ansible playbook’u çalıştırma](/azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json)
+### [Azure dinamik envanterlerinizi yönetme](/azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json)
+## Terraform
+### [Yürütme planı oluşturma](example-terraform-bash.md)
+
+# Nasıl yapılır kılavuzları
 ## [Microsoft kullanıcıları için PowerShell Cloud Shell](cloud-shell-windows-users.md)
 ## [Depolama alanındaki kalıcı dosyalar](persisting-shell-storage.md)
 ## [Pencereyi kullanma](using-the-shell-window.md)
 ## [Cloud Shell’de MSI Kullanma](msi-authorization.md)
 ## [Cloud Shell’i Ekleme](embed-cloud-shell.md)
-
-# Örnekler
-## [Bash - Terraform ile kaynak oluşturma](example-terraform-bash.md)
-## [Bash - Ansible playbook’ları çalıştırma](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Cloud Shell düzenleyicisini kullanma](using-cloud-shell-editor.md)
 

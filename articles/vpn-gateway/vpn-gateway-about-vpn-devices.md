@@ -80,7 +80,7 @@ VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz aile
 >
 > (*) Cisco ASA 8.4 ve üzeri sürümleri IKEv2 desteği ekler, "UsePolicyBasedTrafficSelectors" seçeneğiyle özel IPsec/IKE ilkesini kullanarak Azure VPN ağ geçidine bağlanabilir. Bu [nasıl yapılır makalesine](vpn-gateway-connect-multiple-policybased-rm-ps.md) başvurun.
 >
-> (**) ISR 7200 Serisi yönlendiriciler yalnızca PolicyBased VPN’leri destekler.
+> (\*\*) ISR 7200 Serisi yönlendiriciler yalnızca PolicyBased VPN’leri destekler.
 
 ## <a name="configscripts"></a>Azure VPN cihazı yapılandırma betiklerini indirme
 

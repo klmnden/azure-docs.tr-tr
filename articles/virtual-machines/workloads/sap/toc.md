@@ -54,6 +54,19 @@
 ## [Windows üzerinde SAP IDES/SQL Server SAP CAL dağıtım kılavuzu](cal-ides-erp6-erp7-sp3-sql.md)
 ## [Azure Linux VM'lerde SAP NetWeaver](suse-quickstart.md)
 ## [Azure’da SAP NetWeaver planlama ve uygulama](planning-guide.md)
+## [SAP NetWeaver Dağıtım kılavuzu](deployment-guide.md)
+## [Azure için SAP LaMa bağlayıcısı](lama-installation.md)
+## SAP iş yükü için DBMS dağıtım kılavuzları
+### [SAP iş yükü için genel Azure Sanal Makineler DBMS dağıtımı](dbms_guide_general.md)
+### [SAP iş yükü için SQL Server Azure Sanal Makineler DBMS dağıtımı](dbms_guide_sqlserver.md)
+### [SAP iş yükü için Oracle Azure Sanal Makineler DBMS dağıtımı](dbms_guide_oracle.md)
+### [SAP iş yükü için IBM DB2 Azure Sanal Makineler DBMS dağıtımı](dbms_guide_ibm.md)
+### [SAP iş yükü için SAP ASE Azure Sanal Makineler DBMS dağıtımı](dbms_guide_sapase.md)
+### [Azure’da SAP MaxDB, liveCache ve İçerik Sunucusu dağıtımı](dbms_guide_maxdb.md)
+### Azure Sanal Makineler'de SAP HANA Kullanılabilirliği
+### [Azure üzerinde SAP HANA kullanılabilirliğine genel bakış](sap-hana-availability-overview.md)
+### [Tek Azure bölgesi içinde Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-one-region.md)
+### [Azure bölgeleri arasında Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-across-regions.md)
 ## Windows ve Linux üzerinde Yüksek Kullanılabilirlik (HA)
 ### [Genel Bakış](sap-high-availability-guide-start.md)
 ### Yüksek Kullanılabilirlik Mimarisi
@@ -74,21 +87,7 @@
 ### SAP Çoklu SID
 #### [(A)SCS Örneği için Paylaşılan Disk ile Windows](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows](sap-ascs-ha-multi-sid-wsfc-file-share.md)
-## [SAP NetWeaver Dağıtım kılavuzu](deployment-guide.md)
-## SAP iş yükü için DBMS dağıtım kılavuzları
-### [SAP iş yükü için genel Azure Sanal Makineler DBMS dağıtımı](dbms_guide_general.md)
-### [SAP iş yükü için SQL Server Azure Sanal Makineler DBMS dağıtımı](dbms_guide_sqlserver.md)
-### [SAP iş yükü için Oracle Azure Sanal Makineler DBMS dağıtımı](dbms_guide_oracle.md)
-### [SAP iş yükü için IBM DB2 Azure Sanal Makineler DBMS dağıtımı](dbms_guide_ibm.md)
-### [SAP iş yükü için SAP ASE Azure Sanal Makineler DBMS dağıtımı](dbms_guide_sapase.md)
-### [Azure’da SAP MaxDB, liveCache ve İçerik Sunucusu dağıtımı](dbms_guide_maxdb.md)
-### [Azure işlemlerinde SAP HANA kılavuzu](hana-vm-operations.md)
-#### Azure Sanal Makineler'de SAP HANA Kullanılabilirliği
-##### [Azure üzerinde SAP HANA kullanılabilirliğine genel bakış](sap-hana-availability-overview.md)
-##### [Tek Azure bölgesi içinde Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-one-region.md)
-##### [Azure bölgeleri arasında Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-across-regions.md)
-## [SAP Olağanüstü Durum Kurtarma için Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
-## [Azure için SAP LaMa bağlayıcısı](lama-installation.md)
+##  [SAP Olağanüstü Durum Kurtarma için Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # AAD SAP Kimlik Tümleştirmesi ve Çoklu Oturum Açma
 ## [SAP Bulut ile tümleştirme](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [SAP Cloud Platform Kimlik Doğrulaması ile AAD Tümleştirmesi](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
@@ -97,5 +96,10 @@
 ## [SAP Business ByDesign ile AAD Tümleştirmesi](../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [SAP HANA DBMS ile AAD Tümleştirmesi](../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ##[Azure AD ile SAP Fiori Launchpad SAML Çoklu Oturum Açma](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad)
+# Azure Hizmetlerini SAP ile Tümleştirme
+## [Power BI Desktop’ta SAP HANA kullanma](https://docs.microsoft.com/power-bi/desktop-sap-hana)
+## [DirectQuery ve SAP HANA](https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana)
+## [SAP BW Connector’ı Power BI Desktop’ta kullanma](https://docs.microsoft.com/power-bi/desktop-sap-bw-connector)
+## [Azure Data Factory, SAP HANA ve Business Warehouse veri tümleştirmesi sunuyor](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

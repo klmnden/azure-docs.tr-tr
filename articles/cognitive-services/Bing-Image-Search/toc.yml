@@ -22,7 +22,7 @@ items:
     - name: Ruby'yi kullanma
       href: quickstarts/ruby.md
     expanded: true
-  - name: SDK'yı kullanarak görüntüleri isteme ve filtreleme
+  - name: SDK’yı kullanarak resim arama
     items:
     - name: C# kullanma
       href: image-search-sdk-quickstart.md
@@ -104,9 +104,9 @@ items:
     href: UseAndDisplayRequirements.md
   - name: Bing Resim Arama API’si analizleri
     href: bing-image-stats.md
-ms.openlocfilehash: 02b54baef02d40373bb574d12575e2df739f1703
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 452891c553ba69ba30ab74925ddd19289f8dbee6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42440192"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576723"

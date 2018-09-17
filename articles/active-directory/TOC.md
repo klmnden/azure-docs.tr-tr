@@ -83,6 +83,7 @@
 
 ## [Grupları ve üyeleri yönetme](fundamentals/active-directory-manage-groups.md)
 ### [Grupları yönetme](fundamentals/active-directory-groups-create-azure-portal.md)
+### [Grubu ve üyelerini silme](fundamentals/active-directory-groups-delete-group.md)
 ### [Grup ayarlarını yönetme](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Raporları yönetme](reports-monitoring/overview-reports.md)
 ### [Oturum açma etkinliği](reports-monitoring/concept-sign-ins.md)
@@ -346,6 +347,7 @@
 #### [Oturum açma deneyimi](identity-protection/flows.md)
 #### [Risk olaylarının benzetimini gerçekleştirme](identity-protection/playbook.md)
 #### [Kullanıcıların engelini kaldırma](identity-protection/howto-unblock-user.md)
+#### [Oturum riski algılandığında erişimi engelleme](identity-protection/quickstart-sign-in-risk-policy.md)
 #### [SSS](identity-protection/faqs.md)
 #### [Sözlük](identity-protection/glossary.md)
 #### [Microsoft Graph](identity-protection/graph-get-started.md)

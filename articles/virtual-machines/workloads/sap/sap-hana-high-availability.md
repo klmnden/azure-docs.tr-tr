@@ -1,6 +1,6 @@
 ---
-title: Azure sanal makinelerinde (VM'ler) SAP HANA sistem çoğaltması ayarlama | Microsoft Docs
-description: Azure sanal makinelerinde (VM'ler) SAP hana yüksek kullanılabilirlik kurun.
+title: SUSE Linux Enterprise Server Vm'lerinde Azure üzerinde SAP HANA yüksek kullanılabilirliği | Microsoft Docs
+description: SUSE Linux Enterprise Server Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 7a0797d79da95db77174a3e067a1e84276f286a5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: dfcb5c7c0b487b8379d89a9b285bae1ca1a9c774
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42062119"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634532"
 ---
-# <a name="high-availability-of-sap-hana-on-azure-virtual-machines"></a>Azure sanal makineler'de SAP hana yüksek kullanılabilirlik
+# <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -110,7 +110,7 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
     - **Sistem kullanılabilirliği**: seçin **HA**.
     - **Yönetici kullanıcı adı ve yönetici parolası**: yeni bir kullanıcı oluşturulur makinesinde oturum açma için kullanılabilir.
     - **Yeni veya mevcut alt**: yeni bir sanal ağ ve alt ağ oluşturulmalıdır veya kullanılan var olan bir alt ağ belirler. Şirket içi ağınıza bağlı bir sanal ağınız zaten varsa, seçin **varolan**.
-    - **Alt ağ kimliği**: istediğiniz sanal makineleri bağlı alt ağ kimliği. Sanal makine şirket içi ağınıza bağlanmak için VPN veya Azure ExpressRoute sanal ağ alt ağı seçin. Kimliği genellikle gibi görünüyor **/subscriptions/\<abonelik kimliği > /resourceGroups/\<kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı > /subnets/ \<alt ağ adı >**.
+    - **Alt ağ kimliği**: tanımlı bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle gibi görünüyor **/subscriptions/\<abonelik kimliği > /resourceGroups/\<kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı > /subnets/ \<alt ağ adı >**.
 
 ### <a name="manual-deployment"></a>El ile dağıtım
 
@@ -193,7 +193,7 @@ SAP HANA için gerekli bağlantı noktaları hakkında daha fazla bilgi için bu
 
 Bağlantısındaki [SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama](high-availability-guide-suse-pacemaker.md) HANA bu sunucu için temel Pacemaker küme oluşturmak için. SAP HANA ve SAP NetWeaver (A) SCS için aynı Pacemaker kümesini kullanabilirsiniz.
 
-## <a name="install-sap-hana"></a>SAP HANA yükleyin
+## <a name="install-sap-hana"></a>SAP HANA yükleme
 
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 - **[A]** : Adım tüm düğümler için geçerlidir.
@@ -969,7 +969,7 @@ Not: Aşağıdaki testleri, sırayla çalıştırılması ve önceki testleri ç
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker durdurulmuş HANA örneğinde algılar ve kaynak düğüm hn1-db-1'başarısız olarak işaretleyin. Başarısız durumunu temizlemek için aşağıdaki komutu çalıştırın. Pacemaker sonra otomatik olarak HANA örneğini yeniden başlatmanız.
+   Pacemaker durdurulmuş HANA örneğinde algılar ve kaynak düğüm hn1-db-1'başarısız olarak işaretleyin. Pacemaker HANA örneği otomatik olarak yeniden başlatmanız gerekir. Başarısız durumunu temizlemek için aşağıdaki komutu çalıştırın.
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
