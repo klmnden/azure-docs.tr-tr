@@ -323,34 +323,8 @@
 
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
 
-## Erişim gözden geçirmeleri
-### [Erişim gözden geçirmelerine genel bakış](active-directory-azure-ad-controls-access-reviews-overview.md)
-### [Erişim gözden geçirmesi tamamlama](active-directory-azure-ad-controls-complete-access-review.md)
-### [Erişim gözden geçirmesi oluşturma](active-directory-azure-ad-controls-create-access-review.md)
-### [Erişim değerlendirmesi gerçekleştirme](active-directory-azure-ad-controls-perform-access-review.md)
-### [Erişiminizi gözden geçirme](active-directory-azure-ad-controls-how-to-review-your-access.md)
-### [Erişim gözden geçirmesi ile konuk erişimi](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-### [Gözden geçirmelerle kullanıcı erişimini yönetme](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-### [Programları ve denetimleri yönetme](active-directory-azure-ad-controls-manage-programs-controls.md)
-### [Erişim gözden geçirmesi sonuçlarını alma](active-directory-azure-ad-controls-retrieve-access-review.md)
-
-## [Kullanım koşulları](active-directory-tou.md)
-
 ## Kimliklerinizi güvenli hale getirme
 
-### Azure AD Kimlik Koruması
-#### [Genel Bakış](identity-protection/overview.md)
-#### [Etkinleştirme](identity-protection/enable.md)
-#### [Güvenlik açıklarını algılama](identity-protection/vulnerabilities.md)
-#### [Risk olayları](active-directory-identity-protection-risk-events.md)
-#### [Bildirimler](identity-protection/notifications.md)
-#### [Oturum açma deneyimi](identity-protection/flows.md)
-#### [Risk olaylarının benzetimini gerçekleştirme](identity-protection/playbook.md)
-#### [Kullanıcıların engelini kaldırma](identity-protection/howto-unblock-user.md)
-#### [Oturum riski algılandığında erişimi engelleme](identity-protection/quickstart-sign-in-risk-policy.md)
-#### [SSS](identity-protection/faqs.md)
-#### [Sözlük](identity-protection/glossary.md)
-#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [Azure’a AD FS dağıtma](active-directory-aadconnect-azure-adfs.md)
