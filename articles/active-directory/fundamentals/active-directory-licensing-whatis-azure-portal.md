@@ -1,28 +1,26 @@
 ---
-title: Azure AD'de grup tabanlı lisanslama nedir? | Microsoft Docs
-description: Azure Active Directory grup tabanlı lisanslamanın açıklaması, nasıl çalıştığı ve en iyi yöntemleri
+title: Grup tabanlı Azure Active Directory lisansı nedir? | Microsoft Docs
+description: Nasıl çalıştığını ve en iyi uygulamalar da dahil olmak üzere Azure Active Directory grup tabanlı lisanslama hakkında bilgi edinin.
 services: active-directory
 keywords: Azure AD lisanslama
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/13/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 5f5aab6a8514636e8be09deb773748080871b9d4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 7848b52bcf5204a871920cbfab8a0e95223654d4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005240"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735910"
 ---
-# <a name="group-based-licensing-basics-in-azure-active-directory"></a>Azure Active Directory'de grup tabanlı lisanslamanın temelleri
+# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Grup tabanlı Azure Active Directory lisansı nedir?
 
 Microsoft'un ücretli bulut hizmetleri Office 365, Enterprise Mobility + Security, Dynamics 365 ve diğer benzer ürünler lisans gerektirir. Bu lisanslar, bu hizmetlere erişmesi gereken her kullanıcıya atanır. Lisansları yönetmek için, yöneticiler yönetim portallarından birini (Office veya Azure) ve PowerShell cmdlet'lerini kullanır. Azure Active Directory (Azure AD), tüm Microsoft bulut hizmetleri için kimlik yönetimini destekleyen temel altyapıdır. Azure AD kullanıcıların lisans atama durumları hakkındaki bilgileri depolar.
 

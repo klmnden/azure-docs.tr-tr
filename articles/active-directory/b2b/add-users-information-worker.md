@@ -4,18 +4,18 @@ description: Bilgi çalışanları ve uygulama sahipleri erişim için Azure AD'
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 904f6b571c063dd760cfd2604a72a505112fe57a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e590500dd622988226c592352b0b86f16d54a9d4
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42057626"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983072"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Nasıl kuruluşunuzdaki kullanıcılar uygulama Konuk kullanıcılar davet edebilir
 

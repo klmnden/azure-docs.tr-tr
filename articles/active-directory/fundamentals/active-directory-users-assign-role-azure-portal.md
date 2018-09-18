@@ -1,6 +1,6 @@
 ---
 title: Kullanıcılar Azure Active Directory'ye Dizin rolleri atama | Microsoft Docs
-description: Kullanıcılar Azure Active Directory'ye Dizin rolleri atamak nasıl.
+description: Kullanıcılar Azure Active Directory'ye Dizin rolleri atama hakkında bilgi edinin.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: 02eb55509a3708517dff4c14640826a3a21f1df0
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b73df5ec0381e83c54c8cd9f8c0335448def0c6d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603728"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733051"
 ---
 # <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>Nasıl yapılır: roller ve yöneticiler kullanıcılara atama Azure Active Directory ile
 Kuruluşunuzdaki bir kullanıcı Azure Active Directory (Azure AD) kaynakları yönetme izni gerekiyorsa, kullanıcının uygun bir rol Azure AD'de kullanıcının gerçekleştirme izni gereken eylemler temelinde atamanız gerekir.

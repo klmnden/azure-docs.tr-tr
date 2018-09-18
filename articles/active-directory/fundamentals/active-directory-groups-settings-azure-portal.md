@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory'yi kullanarak Grup bilgilerinizi düzenlemek nasıl | Microsoft Docs
-description: Azure Active Directory'yi kullanarak bir grup bilgilerini düzenlemek nasıl.
+description: Azure Active Directory kullanarak bir grup bilgilerini düzenlemeyi öğrenin.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,12 +12,12 @@ ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 0bac740a5da9c1e57ea1755c58579463da4a883a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a02987fdce3a15cd5d416234e3717df6d33622ec
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580455"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731351"
 ---
 # <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>Nasıl yapılır: Azure Active Directory'yi kullanarak, grup bilgilerini Düzenle
 

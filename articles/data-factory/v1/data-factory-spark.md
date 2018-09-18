@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42062138"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736419"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory işlem hatlarını Spark programlarını çağırma
 
@@ -109,7 +109,7 @@ Bu adımda, depolama hesabınızı veri fabrikanıza bağlarsınız. Bu kılavuz
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Değiştirin **hesap adı** ve **hesap anahtarı** depolama hesabınızın adını ve erişim anahtarına sahip. Depolama erişim anahtarınızı nasıl alabileceğinizi öğrenmek için [Depolama hesabınızı yönetme](../../storage/common/storage-create-storage-account.md#manage-your-storage-account) sayfasındaki depolama erişim anahtarlarını görüntüleme, kopyalama ve yeniden oluşturma yönergelerine bakın.
+1. Değiştirin **hesap adı** ve **hesap anahtarı** depolama hesabınızın adını ve erişim anahtarına sahip. Depolama erişim anahtarınızı nasıl alabileceğinizi öğrenmek için [Depolama hesabınızı yönetme](../../storage/common/storage-account-manage.md#access-keys) sayfasındaki depolama erişim anahtarlarını görüntüleme, kopyalama ve yeniden oluşturma yönergelerine bakın.
 
 1. Bağlı hizmeti dağıtmak için seçebileceğiniz **Dağıt** komut çubuğunda. Bağlı hizmet başarıyla dağıtıldıktan sonra Draft-1 penceresi kaybolur. Soldaki ağaç görünümünde **AzureStorageLinkedService** öğesini görürsünüz.
 

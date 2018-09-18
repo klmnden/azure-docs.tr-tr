@@ -1,28 +1,45 @@
+---
+title: include dosyası
+description: include dosyası
+services: storage
+author: alkohli
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: alkohli
+ms.custom: include file
+ms.openlocfilehash: 4285ee94d2f2a9b5fff9d1896cdf7013f88801ab
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45978916"
+---
 #### <a name="to-create-a-new-service"></a>Yeni hizmet oluşturmak için
 
-1.  Microsoft hesabı kimlik bilgilerinizi kullanarak Azure portalında şu URL için oturum açın: <https://portal.azure.com/>. Kamu portal cihazı dağıtma, adresinde oturum açın: <https://portal.azure.us/>
+1.  Microsoft hesabı kimlik bilgilerinizi kullanarak, Azure portalında şu URL için oturum açın: <https://portal.azure.com/>. Kamu Portalı'nda cihaz dağıtıyorsanız, oturum açın: <https://portal.azure.us/>
 
-2.  Azure portalında tıklatın **+ kaynak oluşturma** &gt; **depolama** &gt; **StorSimple sanal serisi**.
+2.  Azure portalında **+ kaynak Oluştur** &gt; **depolama** &gt; **StorSimple sanal seri**.
 
     ![Yeni bir hizmet oluşturun](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 
-3.  İçinde **StorSimple Aygıt Yöneticisi'ni** , açılan dikey penceresinde aşağıdakileri yapın:
+3.  İçinde **StorSimple cihaz Yöneticisi** , açılan dikey penceresinde aşağıdakileri yapın:
 
-    1.  Hizmetiniz için benzersiz bir **Kaynak adı** sağlayın. Kaynak adı Hizmeti'ni tanımlamak için kullanılan kolay bir addır. Ad harf, rakam ve tirelerden oluşan 2-50 karakter arası uzunlukta olabilir. Ad bir harf veya sayıyla başlamalı ve bitmelidir.
+    1.  Hizmetiniz için benzersiz bir **Kaynak adı** sağlayın. Kaynak adı hizmetinizi tanımlamak için kullanılan kolay bir addır. Ad harf, rakam ve tirelerden oluşan 2-50 karakter arası uzunlukta olabilir. Ad bir harf veya sayıyla başlamalı ve bitmelidir.
 
     2.  Açılan listeden bir **Abonelik** seçin. Abonelik fatura hesabınıza bağlıdır. Bu alan bir aboneliğiniz olmadığı sürece yoktur.
 
-    3.  İçin **kaynak grubu**, var olan seçin veya yeni bir grup oluşturun. Daha fazla bilgi edinmek için bkz. [Azure kaynak grupları](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+    3.  İçin **kaynak grubu**, var olan bir'ı seçin veya yeni bir grup oluşturun. Daha fazla bilgi edinmek için bkz. [Azure kaynak grupları](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
 
-    4.  Hizmetiniz için bir **Konum** sağlayın. Bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/#services) hangi hizmetlerin kullanılabilir hangi bölgede daha fazla bilgi için. Genel olarak, seçin bir **konumu** , Cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın. Aşağıdakilerin de etkili olmasını isteyebilirsiniz:
+    4.  Hizmetiniz için bir **Konum** sağlayın. Bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/#services) hangi hizmetler kullanılabilir hangi bölgede daha fazla bilgi için. Genel olarak, seçmek bir **konumu** , Cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın. Aşağıdakilerin de etkili olmasını isteyebilirsiniz:
 
-        -   Var olan iş yükleri de dağıtmak için StorSimple cihazınızla düşündüğünüz Azure varsa, o veri merkezini kullanmanız önerilir.
+        -   Var olan iş yükleri de dağıtmak StorSimple cihazınızla istediğiniz Azure varsa, o veri merkezini kullanmanızı öneririz.
 
-        -   StorSimple Aygıt Yöneticisi'ni ve Azure depolama alanınızı iki ayrı konumda olabilir. Böyle bir durumda, StorSimple Cihaz Yöneticisi ve Azure Storage hesabını ayrı ayrı oluşturmanız gerekir. Azure Depolama hesabı oluşturmak için Azure portalındaki Azure Depolama hizmetine gidin ve [Azure Depolama hesabı oluşturma](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account) konusundaki adımları uygulayın. Bu hesabı oluşturduktan sonra, [Hizmet için yeni bir depolama hesabı yapılandırma](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service) konusundaki adımları uygulayarak bunu StorSimple Cihaz Yöneticisi hizmetine ekleyin.
+        -   StorSimple cihaz Yöneticisi'ni ve Azure depolama, iki ayrı konumda olabilir. Böyle bir durumda, StorSimple Cihaz Yöneticisi ve Azure Storage hesabını ayrı ayrı oluşturmanız gerekir. Bir Azure depolama hesabı oluşturmak için Azure portalında Azure depolama birimine gidin ve açıklanan adımları [depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). Bu hesabı oluşturduktan sonra, [Hizmet için yeni bir depolama hesabı yapılandırma](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service) konusundaki adımları uygulayarak bunu StorSimple Cihaz Yöneticisi hizmetine ekleyin.
 
-        -   StorSimple cihaz Yöneticisi hizmeti kamu portalı sanal cihazı dağıtma, ABD Iowa ve ABD Virginia konumlarda kullanılabilir.
+        -   Kamu Portalı'nda sanal cihazını dağıtma, StorSimple cihaz Yöneticisi hizmeti ABD Iowa ve ABD Virginia konumlarda kullanılabilir.
 
-    5.  Seçin **yeni bir Azure depolama hesabı oluşturma** hizmetiyle otomatik olarak bir depolama hesabı oluşturmak için. Belirtin bir **depolama hesabı adı**. Verilerinizin farklı bir konumda olması gerekiyorsa bu kutunun işaretini kaldırın.
+    5.  Seçin **yeni bir Azure depolama hesabı oluşturma** otomatik olarak hizmeti ile bir depolama hesabı oluşturmak için. Belirtin bir **depolama hesabı adı**. Verilerinizin farklı bir konumda olması gerekiyorsa bu kutunun işaretini kaldırın.
 
     6.  Panonuzda bu hizmetin hızlı bağlantısının olmasını istiyorsanız **Panoya sabitle** seçeneğini işaretleyin.
 

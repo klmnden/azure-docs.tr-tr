@@ -1,0 +1,46 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 04de34624a7902849d42ad62ed4e6a813157ddd9
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45606686"
+documentType: LandingData
+title: Azure AD Kimlik Koruması
+metadata:
+  document_id: 
+  title: Azure Active Directory Kimlik Koruması Belgeleri - Hızlı başlangıçlar, kavramlar, başvurular | Microsoft Docs
+  description: Azure Active Directory Kimlik Koruması’nı yapılandırmayı ve test etmeyi öğrenin.
+  services: active-directory
+  ms.component: identity-protection
+  author: MarkusVi
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/14/2018
+  ms.author: markvi
+abstract:
+  description: Risk altında olabilecek kimlik algılamasının nasıl çalıştığını ve bunları ele almak için otomatik yanıtları nasıl uygulayacağınızı öğrenin. Azure Active Directory Kimlik Koruması, Azure AD Premium P2 sürümünün bir özelliğidir ve şunları yapmanıza olanak sağlar:<ul><li>Kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını algılama</li><li>Kuruluşunuzun kimlikleriyle ilişkili şüpheli eylemlere otomatik olarak yanıt vermek üzere koşullu erişim ilkeleri yapılandırma</li><li>Şüpheli olayları araştırma ve bunları çözmek için uygun eylemi gerçekleştirme</li></ul><br> Aşağıdaki kaynaklar hızlı bir başlangıç yapmanıza yardımcı olur.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/video.png
+      width: 246
+    title: Azure AD Kimlik Koruması’na giriş
+    href: https://www.youtube.com/watch?v=zI3jn_G0_Ns
+    width: 246
+sections:
+- title: 5 dakikalık hızlı başlangıçlar
+  items:
+  - type: paragraph
+    text: Yaygın erişim senaryolarında oturum açma riski koşullu erişim ilkelerini yapılandırmayı öğrenin.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Oturum riski algılandığında erişimi engelleme
+      href: quickstart-sign-in-risk-policy.md

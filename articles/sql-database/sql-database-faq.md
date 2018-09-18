@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 218bd9031193d4987fdc1e0ae2bf302bdb028673
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 479f7df740e75ae44a5198414036ff0b0c216471
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604510"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730656"
 ---
 # <a name="sql-database-faq"></a>SQL Veritabanı SSS
 
@@ -41,7 +41,7 @@ Hayır, müşteri tercihlerine ve esnekliğe olan taahhüdümüzün bir elastik 
 DTU ve sanal çekirdek tabanlı modeller birlikte sunulmaya devam edecektir. Size daha fazla şeffaflığın veritabanı kaynakları ve işlem ve depolama kaynaklarını ayrı olarak ölçeklendirebilme olanağı için müşteri isteklerine yanıt olarak sanal çekirdek tabanlı modeli kullanıma sunuyoruz. Sanal çekirdek tabanlı model ayrıca ek tasarruf için Azure hibrit avantajı etkin Yazılım Güvencesi olan müşteriler SQL Server için etkinleştirir.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>DTU tabanlı satın alma modeli vs arasında sanal çekirdek tabanlı satın alma modeli nasıl seçmeliyim? 
-Veritabanı İşlem Birimi (DTU); CPU, bellek, okuma ve yazma eylemlerinin karma bir ölçümüne dayalıdır. DTU tabanlı performans düzeyleri, farklı uygulama performansı düzenleri elde etmek için önceden yapılandırılmış kaynak paketlerini temsil eder. Müşterilerin, temel alınan kaynaklarla ilgili endişe ve her ay sabit bir tutar ödeme sırasında önceden yapılandırılmış bir paketin basitliğini tercih etmek istiyor musunuz DTU tabanlı model ihtiyaçları için daha uygun fark edebilirsiniz. Ancak, temel alınan kaynaklara ilişkin daha fazla içgörüye ihtiyacınız veya bunları birbirinden bağımsız olarak en iyi performans elde etmek için ölçeklendirmek gereken müşteriler için sanal çekirdek tabanlı model en iyi seçenek olacaktır.  Ayrıca, bir müşterinin SQL Server için bir etkin Yazılım Güvencesi (SA) varsa, bunlar var olan yatırımları yararlanın ve % 30 ile tasarruf [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Seçenekler her satın alma modeli, otomatik yedeklemeler, yazılım güncelleştirmeleri ve düzeltme ekleri gibi tam olarak yönetilen bir hizmet avantajlarını sağlar. 
+Veritabanı İşlem Birimi (DTU); CPU, bellek, okuma ve yazma eylemlerinin karma bir ölçümüne dayalıdır. DTU tabanlı bilgi işlem boyutlarına sürücü farklı düzeyde uygulama performansı için önceden yapılandırılmış paketleri kaynakları temsil eder. Müşterilerin, temel alınan kaynaklarla ilgili endişe ve her ay sabit bir tutar ödeme sırasında önceden yapılandırılmış bir paketin basitliğini tercih etmek istiyor musunuz DTU tabanlı model ihtiyaçları için daha uygun fark edebilirsiniz. Ancak, temel alınan kaynaklara ilişkin daha fazla içgörüye ihtiyacınız veya bunları birbirinden bağımsız olarak en iyi performans elde etmek için ölçeklendirmek gereken müşteriler için sanal çekirdek tabanlı model en iyi seçenek olacaktır.  Ayrıca, bir müşterinin SQL Server için bir etkin Yazılım Güvencesi (SA) varsa, bunlar var olan yatırımları yararlanın ve % 30 ile tasarruf [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Seçenekler her satın alma modeli, otomatik yedeklemeler, yazılım güncelleştirmeleri ve düzeltme ekleri gibi tam olarak yönetilen bir hizmet avantajlarını sağlar. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>SQL Server için Azure Hibrit Avantajı nedir? 
 [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md) , mevcut lisans yatırımlarınızdan değerini en üst düzeye çıkarmak ve bunların geçiş bulut yolculuğunuzu hızlandırın yardımcı olur. SQL Server için Azure hibrit avantajı, Yazılım Güvencesi içeren SQL Server lisanslarınızı kullanarak SQL veritabanı'nda indirimli ücret ("taban fiyat") ödemenize olanak sağlayan bir Azure tabanlı avantajdır. SQL Server için Azure hibrit avantajı, SQL veritabanı tek veritabanları ve elastik havuzlar için sanal çekirdek tabanlı satın alma modeli, genel Önizleme sırasında kullanılabilir. SKU etkin olduğunda bile bu avantajı uygulayabilirsiniz ancak temel ücreti Azure Portalı'nda seçtiğiniz andan itibaren uygulanan Not. Geriye dönük olarak herhangi bir kredi düzenlenmez.
@@ -78,8 +78,8 @@ Tek bir veritabanı yedekleme alanı için veritabanının boyutuna eksi veritab
 ## <a name="how-do-i-select-the-right-sku-when-converting-an-existing-database-to-the-new-service-tiers"></a>SKU'ları doğru nasıl mevcut bir veritabanı yeni hizmet katmanlarına nasıl dönüştürülürken seçin? 
 DTU tabanlı modeli kullanarak mevcut SQL veritabanı uygulamaları için genel amaçlı hizmet katmanı standart katmanı ile karşılaştırılabilir. İş açısından kritik Hizmet katmanını Premium katmanı ile karşılaştırılabilir. Her iki durumda da DTU tabanlı modelde uygulamanızın kullandığı her 100 DTU için en az 1 sanal çekirdek ayırmanız gerekir.
 
-## <a name="do-the-new-vcore-based-service-tiers-offer-the-performance-levels-compatible-with-all-existing-service-level-objectives-slos"></a>Yeni sanal çekirdek tabanlı hizmet katmanları, mevcut tüm hizmet düzeyi hedefleri ile (Slo) uyumlu performans düzeyleri sunuyor musunuz?
-Yeni sanal çekirdek tabanlı hizmet katmanları için tüm elastik havuzları ve veritabanlarını veya daha fazla 100 dtu'ları kullanarak benzer performans seçenekleri sunar.  Sub 100 DTU iş yüklerine uyum sağlamak için zaman içinde daha fazla Slo'lar eklemeye devam eder.
+## <a name="do-the-new-vcore-based-service-tiers-offer-the-compute-sizes-compatible-with-all-existing-compute-sizes"></a>Yeni sanal çekirdek tabanlı hizmet katmanları, tüm mevcut ile uyumlu bir bilgi işlem boyutlarına boyutları işlem sunuyor musunuz?
+Yeni sanal çekirdek tabanlı hizmet katmanları için tüm elastik havuzları ve veritabanlarını veya daha fazla 100 dtu'ları kullanarak benzer performans seçenekleri sunar.  Daha fazla 100 DTU iş yüklerine uyum sağlamak için zaman içinde boyutları alt işlem eklemeye devam eder.
 
 ## <a name="are-there-any-database-feature-differences-between-the-existing-dtu-based-and-new-vcore-based-service-tiers"></a>Herhangi bir veritabanı mevcut DTU tabanlı ve yeni sanal çekirdek tabanlı hizmet katmanları arasındaki özellik farkları vardır? 
 Yeni hizmet katmanları, geçerli DTU tabanlı teklifleri ile sunulan özellikler kümesi desteği. Ek özellikler, bir dizi ek dinamik yönetim görünümlerini (Dmv'ler) ve ek kaynak yapılandırma seçenekleri içerir. 
@@ -110,7 +110,7 @@ VCore modeli sağlanan işlem ve depolama miktarını bağımsız denetime izin 
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>Havuz başına kaynakları ne sıklıkta değiştirebilir miyim?
 Sıklıkta istediğiniz. Bkz: [elastik havuzları yönetme](sql-database-elastic-pool.md).
 
-## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Ne kadar tek bir veritabanının Hizmet katmanını veya performans düzeyini değiştirmek veya bir veritabanını bir elastik havuzun içine ve dışına taşımak için sürer?
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Ne kadar Hizmet katmanını değiştirebilirsiniz veya tek bir veritabanının boyutunu işlem ya da bir veritabanını bir elastik havuzun içine ve dışına taşımak için sürer?
 Arka plan işlemi olarak platformunda kopyalanacak veritabanı havuzunun içine veya dışına taşımak ve bir veritabanının Hizmet katmanını değiştirmeniz gerekir. Hizmet katmanını değiştirmeniz birkaç dakika veya veritabanlarını boyutuna bağlı olarak birkaç saat sürebilir. Her iki durumda da, veritabanlarını taşıma işlemi sırasında çevrimiçi ve kullanılabilir kalır. Tek veritabanları değiştirme hakkında daha fazla bilgi için bkz [bir veritabanının Hizmet katmanını değiştirebilirsiniz](sql-database-service-tiers-dtu.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Tek bir veritabanı ve elastik veritabanları ne zaman kullanmalıyım?
@@ -120,7 +120,7 @@ Genel olarak, elastik havuzlar için tipik bir tasarlanmıştır [hizmet olarak 
 SQL veritabanı faturalandırılır öngörülebilir bir saatlik fiyat temel alarak [satın alma modeli](sql-database-service-tiers-dtu.md). Gerçek kullanım hesaplanır ve saatlik olarak bir saat kesirlerini faturanızı gösterebilir şekilde eşit olarak. Örneğin, bir veritabanı ayda 12 saat çalışıyorsa faturanızda 0,5 gün kullanımını gösterir. 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>Ne tek bir veritabanının bir saatten az için etkin olan veya daha yüksek bir hizmet katmanına bir saatten az için kullanır?
-Faturalandırılırsınız her bir veritabanının en yüksek hizmet katmanı kullanarak mevcut saat + kullanıma veya veritabanının bir saatten az için etkin olup bağımsız olarak bu saat sırasında uygulanan performans düzeyi. Örneğin, tek bir veritabanı oluşturup beş dakika sonra silerseniz faturanıza bir veritabanı saati ücreti yansıtır. 
+Size en yüksek hizmet katmanı kullanarak bir veritabanının mevcut olduğu her saat için faturalandırılırsınız + işlem kullanıma veya veritabanının bir saatten az için etkin olup bağımsız olarak bu saat sırasında uygulanan boyutu. Örneğin, tek bir veritabanı oluşturup beş dakika sonra silerseniz faturanıza bir veritabanı saati ücreti yansıtır. 
 
 Örnekler:
 
@@ -141,8 +141,8 @@ DTU tabanlı satın alma modeli örnekleri:
 Elastik havuzlar, aşağıdaki özelliklere faturalandırılır:
 
 * Havuzda veritabanı yoksa bir esnek havuz oluşturulduktan sonra faturalandırılır.
-* Elastik havuz, saatlik olarak faturalandırılır. Performans düzeyleri tek veritabanları için aynı Ölçüm sıklığı budur.
-* Ardından bir elastik havuz boyutlandırılırsa, yeniden boyutlandırma işlemi tamamlanana kadar havuza yeni kaynakların miktarını göre faturalandırılmaz. Bu, tek veritabanı performans düzeyini değiştirme olarak aynı deseni izler.
+* Elastik havuz, saatlik olarak faturalandırılır. İşlem boyutları tek veritabanları için aynı Ölçüm sıklığı budur.
+* Ardından bir elastik havuz boyutlandırılırsa, yeniden boyutlandırma işlemi tamamlanana kadar havuza yeni kaynakların miktarını göre faturalandırılmaz. Bu, tek veritabanları işlem boyutunu değiştirme olarak aynı deseni izler.
 * Elastik havuz fiyatını, havuzu kaynaklardaki temel alır. Elastik havuz fiyatını, sayısını ve içerdiği esnek veritabanlarının kullanım bağımsızdır.
 
 Ayrıntılar için bkz [SQL veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/), [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md), ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).

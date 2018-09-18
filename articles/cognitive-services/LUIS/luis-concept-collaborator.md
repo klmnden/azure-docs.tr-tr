@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ac1c3b4ac49cd8934316eb5653af8f5af2cf801a
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 5573bd36761fb56f0731f886bd705327625f06fe
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630163"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734514"
 ---
 # <a name="collaborating"></a>İşbirliği yapma
 
@@ -34,7 +34,7 @@ Bir uygulamayı oluşturan sahibi hesaptır. Her uygulamanın tek bir sahip vard
 ## <a name="authorization-roles"></a>Yetkilendirme rolleri
 LUIS, sahipleri ve bir özel durum ortak çalışanlarla için farklı roller desteklemiyor. Sahibi uygulama silebilirsiniz tek hesaptır.
 
-Model erişimi denetlemek ilgileniyorsanız, her daha küçük uygulama Ortak Çalışanlar daha sınırlı sayıda sahip olduğu daha küçük LUIS uygulamalarda, model dilimleme göz önünde bulundurun. Kullanım [gönderme](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) üst ve alt uygulamalar arasında koordinasyon yönetmek bir üst LUIS uygulaması izin vermek için.
+Model erişimi denetlemek ilgileniyorsanız, her daha küçük uygulama Ortak Çalışanlar daha sınırlı sayıda sahip olduğu daha küçük LUIS uygulamalarda, model dilimleme göz önünde bulundurun. Kullanım [gönderme](https://aka.ms/dispatch-tool) üst ve alt uygulamalar arasında koordinasyon yönetmek bir üst LUIS uygulaması izin vermek için.
 
 ## <a name="transfer-ownership"></a>Sahipliği devretme
 LUIS, ancak herhangi bir ortak çalışanı uygulamayı dışarı aktarabilir ve ardından içeri aktararak uygulama oluşturma, sahipliğin aktarılması sağlamaz. Yeni uygulama farklı bir uygulama kimliği olan unutmayın Eğitim, yayımlanan yeni uygulama gereksinimlerini ve kullanılan yeni uç nokta.

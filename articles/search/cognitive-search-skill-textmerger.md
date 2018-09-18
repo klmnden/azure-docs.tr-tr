@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: d90a9f8bd32924eef6533e602957aa1704cfdae9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5bd1b534386f38f8dd3a78bbd98ffd012875351f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190482"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736164"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Metin birleştirme bilişsel beceri
 
 **Metin birleştirme** beceri alanlar koleksiyonu tek bir alana metinden birleştirir. 
+
+> [!NOTE]
+> Bilişsel Arama, genel önizleme aşamasındadır. Görüntü ayıklama ve normalleştirme ve beceri yürütmesi şu anda ücretsiz sunulmaktadır. Daha sonraki bir zamanda, bu özelliklerin fiyatlandırması duyurulacaktır. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill

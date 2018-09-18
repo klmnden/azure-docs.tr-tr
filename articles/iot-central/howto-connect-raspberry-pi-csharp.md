@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205145"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734244"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Raspberry Pi'yi bağlanmak için Azure IOT Central, uygulama (C#)
 
@@ -262,6 +262,9 @@ Aşağıdaki adımları tamamlamak için Visual Studio Code kullanabilirsiniz. D
 ## <a name="run-your-net-application"></a>.NET uygulamanızı çalıştırın
 
 Cihaza özgü bağlantı dizenizi Azure IOT Central ile kimlik doğrulaması bir cihaz için kod ekleyin. Azure IOT Central uygulamanıza gerçek Cihazınızı eklediğinizde, bu bağlantı dizesini Not yaptığınız.
+
+  > [!NOTE]
+   > Azure IOT Central değiştiğinden Azure IOT Hub cihazı sağlama hizmeti (DPS) kullanarak tüm cihaz bağlantıları için bu instrustions için izleyin [cihaz bağlantı dizesini alma](concepts-connectivity.md#getting-device-connection-string) ve bu öğreticinin geri kalanını ile devam edin.
 
 1. Değiştirin `{your device connection string}` içinde **Program.cs** daha önce bağlantı dizesi içeren dosya.
 

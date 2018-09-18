@@ -4,24 +4,39 @@ description: Makine bağımlılıkları kullanan Azure geçişi hizmeti ile bir 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 31cbec8eab499fac116eac6fa2addac4ec2a340b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621088"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737117"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşlemesi kullanan Grup makineleri
 
 Bu makalede bu makine için bir grup oluşturmak nasıl [Azure geçişi](migrate-overview.md) makinelerin bağımlılıklarını görselleştirme tarafından değerlendirme. Makine bağımlılıklarını arası denetimi, bir değerlendirme çalıştırmadan önce göre daha yüksek güven düzeylerine sahip VM grupları değerlendirmek istediğiniz zaman genellikle bu yöntemi kullanın. Bağımlılık görselleştirmesi etkili bir şekilde azure'a geçişinizi planlamanıza yardımcı olabilir. Hiçbir şey geride bıraktığı ve Azure'a geçirirken şaşkınlık kesintiler meydana gelmediğinden emin olmanıza yardımcı olur. Geçişini birlikte yaptığınız ve çalışan bir sistemi hala kullanıcıya hizmet veren veya geçiş yerine yetkisinin alınması için bir adaydır olup olmadığını belirlemek için gereken tüm bağımlı sistemlere bulabilir.
 
 
-## <a name="prepare-machines-for-dependency-mapping"></a>Makine bağımlılık eşlemesi için hazırlanma
-Makinelerin bağımlılıklarını görüntülemek için indirip değerlendirmek istediğiniz her bir şirket içi makineye aracılar yüklemeniz gerekir. İnternet bağlantısı olmayan makineleriniz varsa, ayrıca, indirmek ve yüklemek ihtiyacınız [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md) bunlar üzerinde.
+## <a name="prepare-for-dependency-visualization"></a>Bağımlılık görselleştirmesi için hazırlama
+Azure geçişi, hizmet eşlemesi çözümünü'makineler için bağımlılık görselleştirme etkinleştirmek için Log analytics'te yararlanır.
+
+### <a name="associate-a-log-analytics-workspace"></a>Log Analytics çalışma alanını ilişkilendir
+Bağımlılık görselleştirmesi yararlanmak için yeni veya var olan, Log Analytics çalışma alanı yeniden eşlemeniz gerekir ile bir Azure geçişi projesi. Yalnızca oluşturma veya geçiş projesi oluşturulduğu aynı Abonelikteki bir çalışma alanı ekleyin.
+
+- İçinde bir proje için bir Log Analytics çalışma alanı eklemek için **genel bakış**Git **Essentials** projenin bölümünü tıklatın **yapılandırma gerektirir**
+
+    ![Log Analytics çalışma alanını ilişkilendir](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- Yeni bir çalışma alanı oluşturduğunuzda, çalışma alanı için bir ad belirtmeniz gerekir. Çalışma alanı sonra geçiş projesi ile aynı abonelikte ve aynı bölgede oluşturulan [her Azure coğrafyası](https://azure.microsoft.com/global-infrastructure/geographies/) geçiş projesi olarak.
+- **Var olanı kullan** seçeneği yalnızca hizmet eşlemesi kullanılabildiği bölgelerinde oluşturulan çalışma alanları listeler. Hizmet eşlemesi kullanılabilir olduğu bir bölgede bir çalışma alanı varsa, bunu açılan menü yer almaz.
+
+> [!NOTE]
+> Bir geçiş projesine ilişkili çalışma alanı değiştiremezsiniz.
 
 ### <a name="download-and-install-the-vm-agents"></a>Sanal makine aracılarını indirip yükleme
+Bir çalışma alanı yapılandırdıktan sonra aracılar değerlendirmek istediğiniz her bir şirket içi makinede yükleyip gerekir. İnternet bağlantısı olmayan makineleriniz varsa, ayrıca, indirmek ve yüklemek ihtiyacınız [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md) bunlar üzerinde.
+
 1. İçinde **genel bakış**, tıklayın **Yönet** > **makineler**, gerekli makineyi seçin.
 2. İçinde **bağımlılıkları** sütun tıklayın **aracıları yüklemek**.
 3. Üzerinde **bağımlılıkları** sayfasında indirin ve değerlendirmek istediğiniz her sanal makinede Microsoft Monitoring Agent (MMA) ve bağımlılık aracısını yükleyin.

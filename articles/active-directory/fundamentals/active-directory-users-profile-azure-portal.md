@@ -1,6 +1,6 @@
 ---
 title: Ekleme veya Azure Active Directory'de kullanıcı profili bilgilerini güncelleştir | Microsoft Docs
-description: Bir kullanıcının profilini, Azure Active Directory'de bir profil resminizi, işe özgü bilgileri ve bazı ayarlar dahil olmak üzere bilgi ekleyin.
+description: Bir kullanıcının profilini, Azure Active Directory'de bir profil resminizi, işe özgü bilgileri ve bazı ayarlar dahil olmak üzere bilgi eklemeyi öğrenin.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: 7f37ee513de016e024327698d5a8181c9c62d7aa
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: d4e2ebd88430cab1fe0734e342b1c9ba4a29af1b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604816"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45728955"
 ---
 # <a name="how-to-add-or-update-a-users-profile-information-using-azure-active-directory"></a>Nasıl yapılır: ekleme veya Azure Active Directory'yi kullanarak kullanıcının profil bilgilerini güncelleştirme
 Kullanıcı profili bilgilerini, profil resminizi dahil olmak üzere, işe özgü bilgileri ve Azure Active Directory (Azure AD) kullanarak bazı ayarları ekleyin. Yeni kullanıcı ekleme hakkında daha fazla bilgi için bkz. [ekleyin veya Azure Active Directory'de kullanıcı silme](add-users-azure-active-directory.md).

@@ -6,15 +6,15 @@ author: srdan-bozovic-msft
 manager: craigg
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 09/14/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5e4d96df7d6a43418aad92fdf6509a5ca7ec623a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818411"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734673"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Uygulamanızı Azure SQL Veritabanı Yönetilen Örneği'ne bağlayın
 
@@ -25,13 +25,10 @@ Azure App Service veya Azure App Service ortamı, sanal makine, sanal makine öl
 Oluşturduğunuz her seçenek bir yönetilen örneğe (Önizleme) bağlanabilirsiniz.  
 
 ![yüksek kullanılabilirlik](./media/sql-database-managed-instance/application-deployment-topologies.png)  
-
 ## <a name="connect-an-application-inside-the-same-vnet"></a>Aynı sanal ağ içindeki bir uygulama bağlama 
 
 Bu tasarımıdır senaryodur. Sanal makineler VNet içinde içinde farklı alt ağlarda olsalar bile birbirlerine doğrudan bağlanabilirsiniz. Tüm Azure uygulama ortamı veya sanal makine içinde uygulama bağlanmak için gereken bağlantı dizesi uygun şekilde ayarlanmış olması anlamına gelir.  
  
-Bağlantı kurulamıyor durumda ayarlamak uygulama alt ağda bir ağ güvenlik grubu olup olmadığını denetleyin. Bu durumda, yeniden yönlendirme için bağlantı noktası aralığını 11000 12000 yanı sıra SQL bağlantı noktası 1433 üzerinde giden bağlantı açmanız gerekir. 
-
 ## <a name="connect-an-application-inside-a-different-vnet"></a>Farklı bir sanal ağ içindeki bir uygulama bağlama 
 
 Yönetilen örnek kendi Vnet'ine özel IP adresi olduğundan bu biraz daha karmaşık bir senaryodur. Bağlanmak için bir uygulama yönetilen örneği dağıtıldığı sanal ağa erişimi gerekir. Bu nedenle, ilk, uygulama ve yönetilen örnek VNet arasında bir bağlantı yapmanız gerekir. Sanal ağlar bu senaryonun işe yaraması için sırayla aynı abonelikte olması gerekmez. 
@@ -55,6 +52,19 @@ Yönetilen örnek, yalnızca özel bir IP adresi erişilebilir. Şirket içinden
  
 Şirket içi Azure bağlantısı başarıyla kuruldu ve yönetilen örnek bağlantı kuramıyor, güvenlik duvarınızı yeniden yönlendirme için bağlantı noktası aralığını 11000 12000 yanı sıra SQL bağlantı noktası 1433 üzerinde giden bağlantı olup olmadığını denetleyin. 
 
+## <a name="connect-an-application-on-the-developers-box"></a>Geliştiriciler kutusunda uygulamayı bağlama
+
+Yönetilen örnek yalnızca özel bir IP adresi, geliştirici kutusundan erişmek için bu nedenle erişilebilir, önce Geliştirici box'ınızı ve yönetilen örnek VNet arasında bir bağlantı yapmanız gerekir. Bunu yapmak için yerel Azure sertifika doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırın. Daha fazla bilgi için [şirket içi bilgisayardan bir Azure SQL veritabanı yönetilen örneğine bağlanmak için noktadan siteye bağlantı yapılandırma](sql-database-managed-instance-configure-p2s.md).
+
+## <a name="connect-from-on-premises-with-vnet-peering"></a>Şirket içinden sanal ağ eşlemesi ile bağlanma
+Müşteriler tarafından uygulanan başka bir VPN ağ geçidi ayrı bir sanal ağ ve bir abonelikten bir barındırma yönetilen örneği, yüklü olduğu bir senaryodur. İki sanal etworks ardından eşlenmiş. Aşağıdaki örnek mimarisi diyagramı gösterildiği nasıl olabileceğini uygulanmalıdır.
+
+![VNet eşlemesi](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
+
+Temel altyapıyı ayarlamak aldıktan sonra VPN ağ geçidi yönetilen örneğini barındıran sanal ağdaki IP adresleri görebilmeniz için bazı ayarı değiştirmeniz gerekir. Bunu yapmak için aşağıdaki belirli değişiklik **eşleme ayarları**.
+1.  VPN ağ geçidini barındıran Vnet'te Git **eşlemeler**sonra yönetilen örneği'ne VNet bağlantısı eşlenen ve ardından **ağ geçidi aktarımına izin ver**.
+2.  Yönetilen örneğini barındıran sanal ağda Git **eşlemeler**sonra VPN ağ geçidi için sanal ağ bağlantısını eşlenmiş ve ardından **uzak ağ geçitlerini kullan**.
+
 ## <a name="connect-an-azure-app-service-hosted-application"></a>Azure App Service, barındırılan uygulamayı bağlama 
 
 Azure App Service'ten erişmek için öncelikle uygulamayı yönetilen örnek Vnet'iniz arasında bağlantı yapmak gerekir böylece yönetilen örneği yalnızca özel bir IP adresi erişilebilir. Bkz: [uygulamanızı bir Azure sanal ağı ile tümleştirme](../app-service/web-sites-integrate-with-vnet.md).  
@@ -71,11 +81,48 @@ Bu senaryo, aşağıdaki diyagramda gösterilmiştir:
 
 ![tümleşik uygulama eşlemesi](./media/sql-database-managed-instance/integrated-app-peering.png)
  
-## <a name="connect-an-application-on-the-developers-box"></a>Geliştiriciler kutusunda uygulamayı bağlama 
+## <a name="troubleshooting-connectivity-issues"></a>Bağlantı sorunlarını giderme
 
-Yönetilen örnek yalnızca özel bir IP adresi, geliştirici kutusundan erişmek için bu nedenle erişilebilir, önce Geliştirici box'ınızı ve yönetilen örnek VNet arasında bir bağlantı yapmanız gerekir.  
- 
-Yerel Azure sertifika kimlik doğrulaması makaleleri kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma ([Azure portalında](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) ayrıntılı olarak gösterilmiştir nasıl yapılabilir. 
+Bağlantı sorunlarını gidermek için aşağıdakileri gözden geçirin:
+- Aynı sanal ağa ancak farklı bir alt ağ içinde bir Azure sanal makinesinden yönetilen örneğe bağlanma erişimi engelleme VM alt ağı üzerinde ayarlanmış bir ağ güvenlik grubu olup olmadığını denetleyin. Ayrıca unutmayın bu Azure sınırının içindeki yeniden yönlendirmesi aracılığıyla bağlanmak için gerekli olan bu yana 11000 12000 aralığında bağlantı noktalarının yanı sıra SQL bağlantı noktası 1433 üzerinde giden bağlantı açmanız gerekir. 
+- BGP yayma ayarlandığından emin olun **etkin** sanal ağ ile ilişkili yol tablosuna için.
+- P2S VPN kullanarak, görüyorsanız, görmek için Azure portalında yapılandırmayı denetleyin. **giriş/çıkış** sayı. Sıfır olmayan sayılar, Azure için buralardan şirket içi trafiği yönlendirme olduğunu gösterir.
+
+   ![Giriş/Çıkış numaraları](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
+
+- (Çalışan VPN istemcisi) istemci makine erişmesi gereken tüm sanal ağları için rota girişleri olup olmadığını denetleyin. Yollar depolanan `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
+
+
+   ![route.txt](./media/sql-database-managed-instance-connect-app/route-txt.png)
+
+   Bu görüntüde gösterildiği gibi katılan her sanal ağa iki girişe ve Portalı'nda yapılandırılmış VPN uç noktası için üçüncü bir giriş vardır.
+
+   Yollar denetlemek için başka bir aşağıdaki komutu yoludur. Çıktı, çeşitli alt ağlar için yol gösterir: 
+
+   ```cmd
+   C:\ >route print -4
+   ===========================================================================
+   Interface List
+   14...54 ee 75 67 6b 39 ......Intel(R) Ethernet Connection (3) I218-LM
+   57...........................rndatavnet
+   18...94 65 9c 7d e5 ce ......Intel(R) Dual Band Wireless-AC 7265
+   1...........................Software Loopback Interface 1
+   Adapter===========================================================================
+   
+   IPv4 Route Table
+   ===========================================================================
+   Active Routes:
+   Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0       10.83.72.1     10.83.74.112     35
+         10.0.0.0    255.255.255.0         On-link       172.26.34.2     43
+     
+         10.4.0.0    255.255.255.0         On-link       172.26.34.2     43
+   ===========================================================================
+   Persistent Routes:
+   None
+   ```
+
+- VNet eşlemesi kullanıyorsanız, ayar için yönergeleri izlediğinizden emin olun [ağ geçidi aktarımına izin ver ve uzak ağ geçitlerini kullan](#connect-from-on-premises-with-vnet-peering). 
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Gerekli sürücüleri ve araçlarını sürümleri
 
@@ -93,5 +140,5 @@ Yönetilen örneğe bağlanmak istiyorsanız aşağıdaki en düşük sürümler
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Yönetilen örneği hakkında daha fazla bilgi için bkz. [yönetilen örnek nedir](sql-database-managed-instance.md).
+- Yönetilen Örnek hakkında daha fazla bilgi için bkz. [Yönetilen Örnek nedir?](sql-database-managed-instance.md).
 - Yeni bir yönetilen örneğin nasıl oluşturulacağını gösteren bir öğretici için bkz [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).

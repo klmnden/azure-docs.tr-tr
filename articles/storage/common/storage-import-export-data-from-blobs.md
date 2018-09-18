@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: a7456bedeb6bc870ad5d6892fe697fb2dfcd3bc1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a85fb6ce211e6089f67cb2e2f265fbda06a25b10
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527813"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735106"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Blob depolama alanından verileri dışarı aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede Azure içeri/dışarı aktarma hizmeti büyük miktarda veriyi Azure Blob depolama alanından güvenli bir şekilde dışarı aktarmak için nasıl kullanılacağını adım adım yönergeler sağlar. Hizmet, Azure veri merkezine boş sürücüleri gönderin gerektirir. Hizmet veri sürücüleri için depolama hesabınızdan verir ve ardından sürücüleri geri gelir.
@@ -23,7 +23,7 @@ Bu makalede Azure içeri/dışarı aktarma hizmeti büyük miktarda veriyi Azure
 Verileri Azure Blob Depolama dışına aktarmak için dışarı aktarma işi oluşturmadan önce dikkatle gözden geçirin ve aşağıdaki listede yer alan bu hizmet için önkoşulları tamamlayın. Şunları yapmanız gerekir:
 
 - İçeri/dışarı aktarma hizmeti için kullanılabilir bir etkin Azure Aboneliğim var.
-- En az bir Azure depolama hesabına sahip. Listesine bakın [desteklenen depolama hesapları ve depolama türleri için içeri/dışarı aktarma hizmeti](storage-import-export-requirements.md). Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-create-storage-account.md#create-a-storage-account).
+- En az bir Azure depolama hesabına sahip. Listesine bakın [desteklenen depolama hesapları ve depolama türleri için içeri/dışarı aktarma hizmeti](storage-import-export-requirements.md). Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-quickstart-create-account.md).
 - Diskleri yeterli sayıda [desteklenen türleri](storage-import-export-requirements.md#supported-disks).
 - Bir FedEx/DHL hesabınız vardır.  
     - Hesabın geçerli olmalıdır, Bakiye olmalıdır ve iade sevkiyat özelliklerine sahip olmalı.

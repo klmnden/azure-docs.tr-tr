@@ -8,15 +8,15 @@ manager: craigg
 ms.service: sql-database
 ms.subservice: elastic-pool
 ms.custom: DBs & servers
-ms.date: 07/27/2018
+ms.date: 09/14/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: ffc74eafed81c3dad836cfe70050244cb66a820b
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 39c127569ea3ea5339c90554e1e899212f1b3f6a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003748"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735521"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastik havuzlar, yönetmenize ve birden çok Azure SQL veritabanını ölçeklendirme Yardım
 
@@ -55,7 +55,7 @@ Aşağıdaki şekilde zamanın büyük bölümünü boşta geçiren, ancak düze
 
    ![havuz için uygun bir tek veritabanı](./media/sql-database-elastic-pool/one-database.png)
 
-Gösterilen beş dakikalık süre boyunca Veritabanı1, 90 DTU’ya kadar yükselir, ancak genel ortalama kullanım beş DTU’dan azdır. Bu iş yükünü tek veritabanında çalıştırmak için S3 performans düzeyi gereklidir, ancak bu düzey düşük etkinlik dönemlerinde kaynakların çoğunu kullanılmamış halde bırakır.
+Gösterilen beş dakikalık süre boyunca Veritabanı1, 90 DTU’ya kadar yükselir, ancak genel ortalama kullanım beş DTU’dan azdır. Bir S3 işlem boyutu, bu iş yükünü tek veritabanında çalıştırmak için gereklidir, ancak bu kaynakların çoğunu kullanılmamış düşük etkinlik dönemlerinde bırakır.
 
 Havuz bu kullanılmayan DTU’ların birden fazla veritabanında paylaşılmasına olanak tanır ve böylece gereken DTU ile genel maliyeti azaltır.
 
@@ -65,7 +65,7 @@ Havuz bu kullanılmayan DTU’ların birden fazla veritabanında paylaşılması
 
    ![bir havuz için uygun kullanım modeli ile yirmi veritabanı](./media/sql-database-elastic-pool/twenty-databases.png)
 
-20 veritabanının tamamındaki toplam DTU kullanımı, önceki şekilde siyah çizgi ile gösterilmiştir. Bu şekil, toplam DTU kullanımının 100 DTU’yu hiçbir zaman aşmadığını ve 20 veritabanının bu süre boyunca 100 eDTU’yu paylaşabileceğini gösterir. Bu durum, tek veritabanları için S3 performans düzeylerindeki veritabanlarının her birini yerleştirmeye kıyasla DTU sayısında 20 kat azalmaya ve 13 kat fiyat azalmasına yol açar.
+20 veritabanının tamamındaki toplam DTU kullanımı, önceki şekilde siyah çizgi ile gösterilmiştir. Bu şekil, toplam DTU kullanımının 100 DTU’yu hiçbir zaman aşmadığını ve 20 veritabanının bu süre boyunca 100 eDTU’yu paylaşabileceğini gösterir. Dtu 20 kat azalma sonuçlanır ve 13 kat fiyat indirimi S3 veritabanlarının her birini yerleştirmeye kıyasla boyutları tek veritabanları için işlem.
 
 Bu örnek aşağıdaki nedenlerle idealdir:
 
@@ -75,21 +75,21 @@ Bu örnek aşağıdaki nedenlerle idealdir:
 
 Bir havuzun fiyatı, havuz eDTU'larının bir işlevidir. Bir havuzun eDTU birim fiyatı, tek veritabanının DTU birim fiyatından 1,5 kat fazladır. Bununla birlikte **havuz eDTU'ları çok sayıda veritabanı tarafından paylaşılabilir ve toplam eDTU sayısı gereklidir**. Fiyatlandırma ve eDTU paylaşımındaki bu farklılıklar, havuzların sağlayabileceği tasarruf potansiyelinin temelini oluşturur.
 
-Veritabanı sayısı ve veritabanı kullanımıyla ilgili aşağıdaki temel kurallar, bir havuzun tek veritabanları için kullanılan performans düzeylerine kıyasla daha az maliyet doğurmasını sağlar.
+Aşağıdaki kuralları veritabanı sayısı ve veritabanı kullanımıyla ilgili karşısında bir havuzu tek veritabanları için işlem boyutlarını kullanmaya kıyasla daha az maliyet doğurmasını yardımcı olur.
 
 ### <a name="minimum-number-of-databases"></a>En az veritabanı sayısı
 
 Tek veritabanları için kaynakları toplam miktarı 1,5 havuz için gerekli kaynakları kat fazla ise elastik havuz daha uygun maliyetli.
 
 ***DTU tabanlı satın alma modeli örnek***<br>
-100 eDTU havuzun tek veritabanı performans düzeylerini kullanmaya kıyasla daha uygun maliyetli olması için en az iki S3 veritabanı veya en az 15 adet S0 veritabanı gereklidir.
+100 eDTU havuzun tek veritabanları için işlem boyutlarını kullanmaktan daha uygun maliyetli olması en az iki S3 veritabanı veya en az 15 adet S0 veritabanı gereklidir.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Eşzamanlı olarak en üst seviyeye çıkan en fazla veritabanı sayısı
 
 Kaynakları paylaşarak, bir havuzdaki tüm veritabanlarının aynı anda mevcut olan sınıra kadar kaynakları tek veritabanları için kullanabilirsiniz. Daha az sayıda eşzamanlı olarak en üst seviyeye, alt kaynakları ayarlanabileceği ve havuz daha uygun maliyetli hale gelir. Genel olarak havuzdaki veritabanlarının 2/3'ten çok (veya % 67) kaynak sınırlarını eşzamanlı olarak ulaşmalıdır.
 
 ***DTU tabanlı satın alma modeli örnek***<br>
-200 eDTU içeren bir havuzdaki üç S3 veritabanının maliyetlerini azaltmak için, bu veritabanlarının en fazla iki tanesi kullanım sırasında en üst seviyeye çıkabilir. Aksi takdirde, bu dört S3 veritabanının ikiden fazlası eşzamanlı olarak en üst seviyeye çıkarsa, havuzun boyutu 200 eDTU’dan fazla olmak zorundadır. Havuz 200 eDTU’dan fazlasına yeniden boyutlandırılırsa, maliyetin tek veritabanı performans düzeylerinden düşük tutulması için havuza daha fazla S3 veritabanı eklenmesi gerekir.
+200 eDTU içeren bir havuzdaki üç S3 veritabanının maliyetlerini azaltmak için, bu veritabanlarının en fazla iki tanesi kullanım sırasında en üst seviyeye çıkabilir. Aksi takdirde, bu dört S3 veritabanının ikiden fazlası eşzamanlı olarak en üst seviyeye çıkarsa, havuzun boyutu 200 eDTU’dan fazla olmak zorundadır. Havuz 200 Edtu'dan boyutlandırılırsa, daha fazla S3 veritabanı boyutları tek veritabanları için işlem daha düşük tutulması için havuza eklenmesi gerekir.
 
 Bu örnek, havuzdaki diğer veritabanlarının kullanımını dikkate almaz. Herhangi bir zamanda tüm veritabanlarının kullanımı aynı olursa, veritabanlarının 2/3’ünden (veya %67) daha azı eşzamanlı olarak en üst seviyeye çıkabilir.
 
@@ -123,7 +123,7 @@ Araçları kullanamadığınız durumlarda aşağıdaki adım adım yönergeler 
 2. Havuzdaki tüm veritabanları için gereken bayt sayısını ekleyerek havuz için gereken depolama alanını tahmin edin. Ardından, bu depolama miktarını sağlayan eDTU havuz boyutunu belirleyin.
 3. DTU tabanlı satın alma modeli için eDTU tahminleri büyük adım 1 ve 2 adımlardaki yararlanın. Sanal çekirdek tabanlı satın alma modeli için sanal çekirdek tahmini 1. adımdaki yararlanın.
 4. Bkz: [SQL veritabanı fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/sql-database/) ve 3. adım tahminden büyük en küçük havuz boyutunu bulun.
-5. 5 Adımdaki havuz fiyatını, tek veritabanları için uygun performans düzeylerini kullanma fiyatıyla karşılaştırın.
+5. 5. adımdaki havuz fiyatını, tek veritabanları için uygun bilgi işlem boyutlarına kullanma fiyatıyla karşılaştırın.
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Elastik havuzlar sayesinde diğer SQL veritabanı özelliklerini kullanma
 
@@ -151,7 +151,7 @@ Azure portalında bir elastik havuz oluşturmanın iki yolu vardır.
 > [!NOTE]
 > Bir sunucu üzerinde birden fazla havuzu oluşturabilirsiniz, ancak aynı havuza farklı sunuculara ait veritabanlarını ekleyemezsiniz.
 
-Elastik havuz ve her bir veritabanı için kullanılabilir kaynakları en uzun süreyi için kullanılabilen özelliklerin havuzun hizmet katmanına belirler. Ayrıntılar için bkz elastik havuzlar için kaynak sınırları [DTU model](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels). Elastik havuzlar için sanal çekirdek tabanlı kaynak sınırları için bkz: [sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
+Elastik havuz ve her bir veritabanı için kullanılabilir kaynakları en uzun süreyi için kullanılabilen özelliklerin havuzun hizmet katmanına belirler. Ayrıntılar için bkz elastik havuzlar için kaynak sınırları [DTU model](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes). Elastik havuzlar için sanal çekirdek tabanlı kaynak sınırları için bkz: [sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Kaynaklarını yapılandırmak ve havuzu, fiyatlandırma **havuzu Yapılandır**. Bir hizmet katmanını seçip, havuza veritabanları ekleyebilir ve havuz ve veritabanlarında için kaynak sınırları yapılandırın.
 

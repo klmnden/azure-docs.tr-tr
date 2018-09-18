@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6a9897e94bf8f58ca4000f68ff30bfc6eece6249
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a2b6b3334176cb6fdd86c17b4d11cb03a42dd4bf
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057295"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731811"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Batch AI işi girdi ve çıktı Azure depolama ile Store
 
@@ -30,7 +30,7 @@ Azure Depolama, Microsoft’un bulut depolama çözümüdür. Azure Blob kapsay�
 
 Batch AI ortamınız için Azure Depolama'yı seçtiğinizde, daha yüksek aktarım hızı olan bir Blob kapsayıcısında (örneğin, veri kümeleri) giriş dosyalarınızı depolamak eğitim çıkışınızı (izin verme akış destekleyen bir dosya paylaşımında depoladığınız öneririz. Çıktı günlüklerini okumak) iş eşzamanlı olarak çalışırken. 
 
-Azure Depolama'yı kullanabilmeniz için önce şunları yapmalısınız [bir Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). Batch AI destekler bağlama birimlerden hem genel amaçlı v1 (GPv1) ve genel amaçlı v2 (GPv2) Azure depolama hesapları. Azure depolama hesabı, birden çok Blob kapsayıcıları tutun veya dosya paylaşımı örneklerini. Bir depolama hesabı seçerken, maliyet ve performans gereksinimlerinizi göz önünde bulundurun [seçeneği](../storage/common/storage-account-options.md). 
+Azure Depolama'yı kullanabilmeniz için önce şunları yapmalısınız [bir Azure depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md). Batch AI destekler bağlama birimlerden hem genel amaçlı v1 (GPv1) ve genel amaçlı v2 (GPv2) Azure depolama hesapları. Azure depolama hesabı, birden çok Blob kapsayıcıları tutun veya dosya paylaşımı örneklerini. Oluşturulacak depolama hesabı türünü seçerken, maliyet ve performans gereksinimlerinizi göz önünde bulundurun. Daha fazla bilgi için [Azure depolama hesabına genel bakış](../storage/common/storage-account-overview.md). 
 
 Bir Blob kapsayıcı oluşturun ve Veri kümenizi bir Azure Blob kapsayıcısını karşıya yüklemek için aşağıdaki yöntemlerden birini seçin:
 - [Azure portalında](../storage/blobs/storage-quickstart-blobs-portal.md) web tabanlı bir GUI ile karşıya yükleme. Küçük sayıda dosyayı karşıya yüklemek için Azure portalında basit işlemi sağlar.

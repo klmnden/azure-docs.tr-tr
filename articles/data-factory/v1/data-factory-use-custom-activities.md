@@ -1,6 +1,6 @@
 ---
 title: Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
-description: Özel etkinlikler oluşturmak ve bunları bir Azure Data Factory ardışık düzeninde öğrenin.
+description: Özel etkinlikler oluşturur ve bunları bir Azure Data Factory işlem hattında kullanma hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 044d47a294df4e218c84a928a63426dde4f8373b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 580dd5bf6a7e905927189f4b1ae42ab49a1cbc80
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053142"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730724"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,21 +27,21 @@ ms.locfileid: "37053142"
 > * [Sürüm 2 (geçerli sürüm)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 özel etkinlikler](../transform-data-using-dotnet-custom-activity.md).
+> Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2'de özel etkinlikler](../transform-data-using-dotnet-custom-activity.md).
 
-İki tür kullanabileceğiniz bir Azure Data Factory ardışık düzeninde etkinlik yok.
+Kullanabileceğiniz bir Azure Data Factory işlem hattı etkinlikleri iki tür vardır.
 
-- [Veri taşıma etkinlikleri](data-factory-data-movement-activities.md) arasında veri taşımak için [desteklenen kaynak ve havuz veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-- [Veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) verileri dönüştürmek için kullanarak işlem hizmetlerini Azure Hdınsight, Azure Batch ve Azure Machine Learning gibi. 
+- [Veri taşıma etkinlikleri](data-factory-data-movement-activities.md) arasında veri taşımak için [kaynak ve havuz veri deposu desteklenen](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
+- [Veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) verileri dönüştürmek için kullanma gibi işlem hizmetlerini Azure HDInsight, Azure Batch ve Azure Machine Learning. 
 
-Oluştur/Veri Fabrikası desteği olmayan bir veri deposundan verileri taşımak için bir **özel etkinlik** kendi veri taşıma mantığı ve ardışık düzeninde etkinlik kullanın. Benzer şekilde, veri fabrikası tarafından desteklenmeyen bir şekilde veri dönüştürme/işlemi için kendi veri dönüştürme mantığı ile özel bir etkinlik oluşturmak ve bir ardışık düzende etkinlik kullanın. 
+Data Factory desteklemediği bir veri deposundan/veri taşımak için oluşturma bir **özel etkinlik** veri taşıma mantığı ve bir işlem hattındaki etkinliğin kullanın. Benzer şekilde, dönüştürebilen/Data Factory tarafından desteklenmeyen bir şekilde verileri için özel bir etkinlik ile kendi veri dönüştürme mantığını oluşturun ve bir işlem hattında etkinlik kullanma. 
 
-Çalıştırmak için özel bir etkinliği yapılandırabilirsiniz bir **Azure Batch** sanal makinelerin havuzu. Azure Batch kullanırken, mevcut bir Azure Batch havuzu kullanabilirsiniz.
+Çalıştırmak için özel bir etkinlik yapılandırabileceğiniz bir **Azure Batch** sanal makine havuzu. Azure Batch kullanırken, mevcut bir Azure Batch havuzu kullanabilirsiniz.
 
-Aşağıdaki örneklerde, özel bir .NET etkinlik oluşturmak ve bir ardışık düzende özel etkinlik kullanmak için adım adım yönergeler sağlar. İzlenecek yol kullanan bir **Azure Batch** bağlı hizmeti. 
+Aşağıdaki yönergeler, özel bir .NET etkinliği oluşturmayı ve bir işlem hattında özel etkinlik kullanmak için adım adım yönergeler sağlar. Bu izlenecek yolda bir **Azure Batch** bağlı hizmeti. 
 
 > [!IMPORTANT]
-> - Şirket içi veri kaynaklarına erişmek için veri yönetimi ağ geçidi özel etkinliğinden kullanmak mümkün değil. Şu anda [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) yalnızca kopyalama etkinliği ve saklı yordam etkinliği veri fabrikasında destekler.   
+> - Şirket içi veri kaynaklarına erişmek için özel bir etkinlik bir veri yönetimi ağ geçidini kullanmak mümkün değildir. Şu anda [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) veri fabrikasında kopyalama etkinliği, saklı yordam etkinliği yalnızca destekler.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>İzlenecek yol: özel etkinlik oluşturma
 ### <a name="prerequisites"></a>Önkoşullar
@@ -49,39 +49,39 @@ Aşağıdaki örneklerde, özel bir .NET etkinlik oluşturmak ve bir ardışık 
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)’yı indirip yükleyin
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch önkoşulları
-İzlenecek özel .NET etkinliklerinizi Azure toplu işlem kaynak olarak kullanarak çalıştırın. **Azure Batch** (HPC) uygulamalarını bulutta verimli bir şekilde bir platform için büyük ölçekli paralel çalıştırmak için hizmet ve yüksek performanslı bilgi işlem. Azure toplu işlem yönetilen üzerinde çalıştırılacak işlem yoğunluklu işi zamanlayan **sanal makineler koleksiyonunda**, ve ölçek işleriniz ihtiyaçlarını karşılamak için kaynakları otomatik olarak hesaplayabilirsiniz. Bkz: [Azure Batch temel bilgileri] [ batch-technical-overview] ayrıntılı bir genel bakış için makale Azure Batch hizmetinin.
+Kılavuzda, Azure Batch bir işlem kaynağı kullanarak, özel .NET etkinlikleri çalıştırın. **Azure Batch** (HPC) uygulamalarını bulutta verimli bir şekilde bir platform hizmetini çalıştırmak büyük ölçekli paralel ve yüksek performanslı bilgi işlem. Azure Batch, yönetilen üzerinde çalıştırılacak işlem yoğunluklu işi zamanlar **sanal makine koleksiyonunu**, ve ölçek işlerinizi ihtiyaçlarını karşılamak için kaynakları işlem otomatik olarak. Bkz: [Azure Batch temel bilgileri] [ batch-technical-overview] Azure Batch hizmetinin ayrıntılı bir genel bakış makalesi.
 
-Öğretici için VM'ler havuzuyla Azure Batch hesabı oluşturun. Adımlar aşağıdaki gibidir:
+Öğreticide, VM'lerin bir havuzla Azure Batch hesabı oluşturun. Adımlar aşağıdaki gibidir:
 
-1. Oluşturma bir **Azure Batch hesabı** kullanarak [Azure portal](http://portal.azure.com). Bkz: [oluşturma ve bir Azure Batch hesabını yönetmek] [ batch-create-account] makale yönergeler için.
-2. Azure toplu işlem hesabı adı, hesap anahtarı, URI ve havuz adı unutmayın. Bir Azure Batch bağlı hizmet oluşturmak için gereksinim duyarsınız.
-    1. Azure toplu işlem hesabı için giriş sayfasında, gördüğünüz bir **URL** şu biçimde: `https://myaccount.westus.batch.azure.com`. Bu örnekte, **myaccount** Azure Batch hesabının adıdır. URI bağlantılı hizmet tanımında kullandığınız hesabın adını olmadan URL'dir. Örneğin: `https://<region>.batch.azure.com`.
-    2. Tıklatın **anahtarları** sol menü ve kopyalama **birincil erişim ANAHTARINI**.
-    3. Var olan bir havuzu kullanmak için tıklatın **havuzları** menü ve Not **kimliği** havuzu. Var olan bir havuzu sahip değilseniz, sonraki adıma taşıyın.     
+1. Oluşturma bir **Azure Batch hesabı** kullanarak [Azure portalında](http://portal.azure.com). Bkz: [oluşturun ve bir Azure Batch hesap] [ batch-create-account] makaledeki yönergelere.
+2. Azure Batch hesabı adı, hesap anahtarı, URI ve havuz adı unutmayın. Bir Azure Batch bağlı hizmeti oluşturmak için ihtiyaç.
+    1. Azure Batch hesabı için giriş sayfasında, gördüğünüz bir **URL** şu biçimde: `https://myaccount.westus.batch.azure.com`. Bu örnekte, **myaccount** Azure Batch hesabının adıdır. URI bağlı hizmet tanımında kullandığınız hesabın adı olmadan URL'dir. Örneğin: `https://<region>.batch.azure.com`.
+    2. Tıklayın **anahtarları** sol menü ve kopyalama **birincil erişim anahtarı**.
+    3. Mevcut havuzlardan kullanmak için **havuzları** menü ve not edin **kimliği** havuzu. Mevcut bir havuza sahip değilseniz, sonraki adıma taşıyın.     
 2. Oluşturma bir **Azure Batch havuzu**.
 
-   1. İçinde [Azure portal](https://portal.azure.com), tıklatın **Gözat** sol menüsüne ve ardından içinde **toplu işlem hesaplarını**.
-   2. Açmak için Azure Batch hesabınızı seçin **toplu işlem hesabı** dikey.
-   3. Tıklatın **havuzları** döşeme.
-   4. İçinde **havuzları** dikey penceresinde, araç çubuğunda bir havuzu eklemek için Ekle düğmesini tıklatın.
-      1. Bir kimlik havuzu (havuzu kimliği) girin. Not **havuzun kimliği**; Data Factory çözüm oluşturulurken gerekir.
+   1. İçinde [Azure portalında](https://portal.azure.com), tıklayın **Gözat** sol menü seçeneğine tıklayıp **Batch hesapları**.
+   2. Azure Batch hesabınızı açmak için seçin **Batch hesabı** dikey penceresi.
+   3. Tıklayın **havuzları** Döşe.
+   4. İçinde **havuzları** dikey penceresinde, bir havuzu eklemek için araç Ekle düğmesine tıklayın.
+      1. Havuz (Havuz kimliği) için bir kimlik girin. Not **havuzun kimliği**; Data Factory çözümü oluştururken gerekir.
       2. Belirtin **Windows Server 2012 R2** işletim sistemi ailesi ayarı için.
-      3. Seçin bir **düğüm fiyatlandırma katmanı**.
-      4. Girin **2** olarak değer **hedef ayrılmış** ayarı.
-      5. Girin **2** olarak değer **en fazla düğüm başına görevleri** ayarı.
+      3. Seçin bir **fiyatlandırma katmanında düğüm**.
+      4. Girin **2** olarak değer **hedef adanmış** ayarı.
+      5. Girin **2** olarak değer **düğüm başına en fazla görev** ayarı.
    5. Havuzu oluşturmak için **Tamam**'a tıklayın.
-   6. Aşağı Not **kimliği** havuzu. 
+   6. Not **kimliği** havuzu. 
 
 
 
-### <a name="high-level-steps"></a>Üst düzey adımlar
-Bu kılavuz kapsamında gerçekleştirme iki üst düzey adımlar şunlardır: 
+### <a name="high-level-steps"></a>Üst düzey adımları
+Bu kılavuzda bir parçası olarak gerçekleştireceğiniz iki üst düzey adımlar şunlardır: 
 
-1. Basit veri dönüştürme/işleme mantığı içeren özel bir aktivite oluşturun.
-2. Bir Azure data factory özel etkinlik kullanan bir sahip işlem hattı oluşturacaksınız.
+1. Basit veri dönüştürme/işleme mantığı içeren özel bir etkinlik oluşturursunuz.
+2. Özel Etkinlik kullanan bir işlem hattı ile bir Azure veri fabrikası oluşturun.
 
 ### <a name="create-a-custom-activity"></a>Özel etkinlik oluşturma
-.NET özel etkinlik oluşturmak için Oluştur bir **.NET sınıf kitaplığı** uygulayan bir sınıf projeyle **IDotNetActivity** arabirimi. Bu arabirim yalnızca bir yöntemi vardır: [yürütme](https://msdn.microsoft.com/library/azure/mt603945.aspx) ve imzası:
+.NET özel etkinliği oluşturmak için bir **.NET sınıf kitaplığı** uygulayan bir sınıf ile proje **Idotnetactivity** arabirimi. Bu arabirim yalnızca bir yöntemi vardır: [yürütme](https://msdn.microsoft.com/library/azure/mt603945.aspx) ve imzası:
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -92,22 +92,22 @@ public IDictionary<string, string> Execute(
 ```
 
 
-Yöntemi, dört parametreleri alır:
+Yöntemi dört parametre alır:
 
-- **linkedServices**. Bu özellik etkinlik için giriş/çıkış veri kümesi tarafından başvurulan veri deposu bağlı Hizmetleri numaralandırılabilir bir listesi verilmiştir.   
-- **veri kümeleri**. Bu özellik etkinlik için giriş/çıkış veri kümesi numaralandırılabilir bir listesi verilmiştir. Giriş ve çıkış veri kümeleri tarafından tanımlanan şemaları ve konumlarını almak için bu parametreyi kullanın.
+- **linkedServices**. Bu özellik etkinlik için giriş/çıkış veri kümesi tarafından başvurulan veri Store bağlı Hizmetleri numaralandırılabilir bir listesidir.   
+- **veri kümeleri**. Bu özellik etkinlik için giriş/çıkış veri kümesi sıralanabilir bir listesi verilmiştir. Bu parametre, girdi ve çıktı veri kümeleri tarafından tanımlı şemalar ve konumları almak için kullanabilirsiniz.
 - **Etkinlik**. Bu özellik geçerli etkinliği temsil eder. Özel Etkinlik ile ilişkili genişletilmiş özelliklere erişmek için kullanılabilir. Bkz: [genişletilmiş özellikler erişim](#access-extended-properties) Ayrıntılar için.
-- **Günlükçü**. Bu nesne ardışık düzeni için kullanıcı günlüğünde bu yüzeyini hata ayıklama açıklamaları yazmanızı sağlar.
+- **Günlükçü**. Bu nesne hata ayıklama açıklamaları, işlem hattının kullanıcı günlüğünde, surface yazmanızı sağlar.
 
-Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü döndürür. Bu özellik henüz uygulanmadı, bu nedenle boş bir sözlük döndürme.  
+Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü döndürür. Bu özellik henüz uygulanmadı, bu nedenle boş bir sözlük yöntemi döndürür.  
 
 ### <a name="procedure"></a>Yordam
-1. Oluşturma bir **.NET sınıf kitaplığı** projesi.
+1. Oluşturma bir **.NET sınıf kitaplığı** proje.
    <ol type="a">
      <li>Başlatma <b>Visual Studio 2017</b> veya <b>Visual Studio 2015</b> veya <b>Visual Studio 2013'ün</b> veya <b>Visual Studio 2012</b>.</li>
      <li><b>Dosya</b>’ya tıklayın, <b>Yeni</b>’nin üzerine gelin ve <b>Proje</b>’ye tıklayın.</li>
-     <li><b>Şablonlar</b>’ı genişletin ve <b>Visual C#</b> seçeneğini belirleyin. Bu kılavuzda, C# kullanın, ancak özel etkinlik geliştirmek için herhangi bir .NET dil kullanabilirsiniz.</li>
-     <li>Seçin <b>sınıf kitaplığı</b> proje türleri sağdaki listeden. VS 2017 ' seçin <b>sınıf kitaplığı (.NET Framework)</b> </li>
+     <li><b>Şablonlar</b>’ı genişletin ve <b>Visual C#</b> seçeneğini belirleyin. Bu izlenecek yolda, C# kullanıyor, ancak özel etkinlik geliştirmek için dilediğiniz .NET dilini kullanabilirsiniz.</li>
+     <li>Seçin <b>sınıf kitaplığı</b> sağ taraftaki proje türleri listesinden. VS 2017'deki seçin <b>sınıf kitaplığı (.NET Framework)</b> </li>
      <li>Girin <b>MyDotNetActivity</b> için <b>adı</b>.</li>
      <li>Seçin <b>C:\ADFGetStarted</b> için <b>konumu</b>.</li>
      <li>Projeyi oluşturmak için <b>Tamam</b>'a tıklayın.</li>
@@ -115,20 +115,20 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
    
 2. **Araçlar**'a tıklayın, **NuGet Paket Yöneticisi**'nin üzerine gelin ve ardından **Paket Yöneticisi Konsolu**'na tıklayın.
 
-3. Paket Yöneticisi konsolunda içeri aktarmak için aşağıdaki komutu yürütün **Microsoft.Azure.Management.DataFactories**.
+3. Paket Yöneticisi Konsolu'nda içeri aktarmak için aşağıdaki komutu yürütün **Microsoft.Azure.Management.DataFactories**.
 
     ```PowerShell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
-4. İçeri aktarma **Azure Storage** projesi için NuGet paketi.
+4. İçeri aktarma **Azure depolama** NuGet paketini projeye.
 
     ```PowerShell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
     > [!IMPORTANT]
-    > Veri Fabrikası Başlatıcı WindowsAzure.Storage 4.3 sürümünü gerektirir. Özel Etkinlik projenizde Azure Storage derleme daha sonraki bir sürümü başvuru eklerseniz, etkinlik yürütüldüğünde, bir hata görürsünüz. Hatayı gidermek için bkz: [Appdomain yalıtım](#appdomain-isolation) bölümü. 
-5. Aşağıdakileri ekleyin **kullanarak** projenin kaynak dosyasında deyimlerini.
+    > Data Factory hizmeti Başlatıcısı WindowsAzure.Storage 4.3 sürümünü gerektirir. Özel Etkinlik projenizde Azure depolama derlemenin daha yeni bir sürümünü bir başvuru ekleyin, etkinlik yürütüldüğünde, bir hata görürsünüz. Hatayı gidermek için bkz: [Appdomain yalıtım](#appdomain-isolation) bölümü. 
+5. Aşağıdaki **kullanarak** projedeki kaynak dosyası deyimleriyle.
 
     ```csharp
 
@@ -158,14 +158,14 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
     ```csharp
     namespace MyDotNetActivityNS
     ```
-7. Sınıfın adını değiştirmek **MyDotNetActivity** ve buradan türetebilir **IDotNetActivity** arabirimi aşağıdaki kod parçacığında gösterildiği gibi:
+7. İçin sınıfın adını değiştirmek **MyDotNetActivity** ve türetmeniz **Idotnetactivity** arabirimi aşağıdaki kod parçacığında gösterildiği gibi:
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
     ```
-8. Uygulama (Ekle) **yürütme** yöntemi **IDotNetActivity** arabirimini **MyDotNetActivity** sınıfı ve aşağıdaki örnek kod yöntemi kopyalayabilirsiniz.
+8. Uygulama (Ekle) **yürütme** yöntemi **Idotnetactivity** arabirimini **MyDotNetActivity** sınıfı ve aşağıdaki örnek kod yönteme kopyalayın.
 
-    Aşağıdaki örnek veri dilimi ile ilişkili her bir blob içinde arama terimi ("Microsoft") oluşumları sayısını sayar.
+    Aşağıdaki örnek, bir veri dilimi ile ilişkili her BLOB ("Microsoft") arama terimi oluşum sayısını sayar.
 
     ```csharp
     /// <summary>
@@ -283,7 +283,7 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
         return new Dictionary<string, string>();
     }
     ```
-9. Aşağıdaki yardımcı yöntem ekler: 
+9. Aşağıdaki yardımcı yöntemler ekleyin: 
 
     ```csharp
     /// <summary>
@@ -358,7 +358,7 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
     }
     ```
 
-    Veri kümesi işaret klasörüne yol GetFolderPath yöntemi döndürür ve GetFileName yöntemi dataset işaret blob/dosya adını döndürür. {Year} gibi değişkenler kullanarak, havefolderPath tanımlıyorsa {Month} olarak dizedir çalışma zamanı değerlerle değiştirmeden {Day} vb., yöntemi döndürür. Bkz: [genişletilmiş özellikler erişim](#access-extended-properties) erişme SliceStart, SliceEnd, vb. ile ilgili ayrıntılar için bölüm.    
+    Veri kümesini işaret klasöre yolunu GetFolderPath yöntemi döndürür ve GetFileName yöntemi blob/dataset işaret eden dosya adını döndürür. {Year} gibi değişkenler kullanarak, havefolderPath tanımlıyorsa {Month} olarak dizedir çalışma zamanı değerlerinizle değiştirerek olmadan {Day} vs. yöntemi döndürür. Bkz: [genişletilmiş özellikler erişim](#access-extended-properties) bölümüne erişme SliceStart, SliceEnd ilişkin ayrıntılar için.    
 
     ```JSON
     "name": "InputDataset",
@@ -370,96 +370,96 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
             "folderPath": "adftutorial/inputfolder/",
     ```
 
-    Calculate yöntemi anahtar sözcüğü girdi dosyaları (BLOB klasöründe) Microsoft örneklerinin sayısını hesaplar. Arama terimi kodda sabit kodlanmış ("Microsoft").
-10. Projeyi derleyin. Tıklatın **yapı** tıklatın ve menüden **yapı çözümü**.
+    Calculate yöntemi anahtar sözcüğü Giriş dosyaları (klasördeki blobları) Microsoft örnek sayısını hesaplar. Arama terimi, kodda sabit kodlanmış ("Microsoft").
+10. Projeyi derle. Tıklayın **derleme** tıklatın ve menüden **Çözümü Derle**.
 
     > [!IMPORTANT]
-    > Projeniz için hedef çerçeve olarak .NET Framework 4.5.2 kümesi sürümü: projeye sağ tıklayın ve **özellikleri** hedef Framework'ü ayarlamak için. Veri Fabrikası karşı .NET Framework sürüm 4.5.2 daha sonra derlenmiş özel etkinlikler desteklemez.
+    > Projeniz için hedef çerçeveyi .NET Framework 4.5.2 kümesi sürümü: projeye sağ tıklayın ve **özellikleri** hedef Framework'ü ayarlamak için. Veri Fabrikası karşı .NET Framework sürüm 4.5.2 daha sonra derlenmiş olan özel etkinlikler desteklemez.
 
-11. Başlatma **Windows Explorer**ve gidin **bin\debug** veya **bin\release** klasörü yapı türüne bağlı olarak.
-12. Zip dosyası oluşturma **MyDotNetActivity.zip** içindeki tüm ikili dosyaları içeren <project folder>\bin\Debug klasörünü. Dahil **MyDotNetActivity.pdb** başarısız olduysa, soruna neden kaynak kodunda satır numarası gibi ek ayrıntıları almak için dosya. 
+11. Başlatma **Windows Explorer**gidin **bin\debug** veya **bin\release** klasör yapı türüne bağlıdır.
+12. ZIP dosyası oluşturma **MyDotNetActivity.zip** tüm ikili dosyaları içeren <project folder>\bin\Debug klasörüne. Dahil **MyDotNetActivity.pdb** kaynak kodunda bir hata varsa, soruna neden satır numarası gibi ek ayrıntıları almak için dosya. 
 
     > [!IMPORTANT]
     > Özel etkinliğin zip dosyasındaki tüm dosyalar alt klasör olmadan **en üst düzeyde** olmalıdır.
 
     ![İkili çıktı dosyaları](./media/data-factory-use-custom-activities/Binaries.png)
-14. Adlı bir blob kapsayıcı oluşturun **customactivitycontainer** zaten yoksa. 
-15. Bir BLOB customactivitycontainer olarak MyDotNetActivity.zip karşıya bir **genel amaçlı** AzureStorageLinkedService tarafından başvurulan Azure blob storage (değil seyrek/cool Blob Depolama).  
+14. Adlı bir blob kapsayıcısı oluşturursunuz **customactivitycontainer** zaten yoksa. 
+15. Bir BLOB içinde customactivitycontainer olarak MyDotNetActivity.zip karşıya bir **genel amaçlı** AzureStorageLinkedService tarafından başvurulan Azure blob depolama (değil sık/seyrek erişimli Blob Depolama).  
 
 > [!IMPORTANT]
-> Visual Studio'da bir Data Factory projesi içeren bir çözüm için bu .NET etkinliği proje ekleyin ve .NET etkinliği projesine bir başvuru veri fabrikası uygulama projesi eklerseniz, el ile zip oluşturma son iki adımı gerçekleştirin gerekmez Dosya ve genel amaçlı Azure blob depolama alanına yüklemek. Visual Studio kullanarak Data Factory varlıklarını yayımladığınızda, yayımlama işlemi tarafından adımları otomatik olarak yapılır. Daha fazla bilgi için bkz: [Visual Studio Data Factory projesindeki](#data-factory-project-in-visual-studio) bölümü.
+> Bu .NET etkinliği proje Visual Studio'da bir Data Factory projesi içeren bir çözüme ekleyin ve Data Factory uygulama projesinden bir .NET etkinliği projeye başvuru ekleyin, zip el ile oluşturma, son iki adımı gerçekleştirmeniz gerekmez Dosya ve genel amaçlı bir Azure blob depolama alanına yükleniyor. Visual Studio kullanarak Data Factory varlıkları yayımladığınızda, bu adımlar yayımlama işlemi tarafından otomatik olarak gerçekleştirilir. Daha fazla bilgi için [Visual Studio'da Data Factory projesine](#data-factory-project-in-visual-studio) bölümü.
 
-## <a name="create-a-pipeline-with-custom-activity"></a>Özel etkinliği ile işlem hattı oluşturma
-Özel bir aktivite oluşturulur ve bir blob kapsayıcısını ikililerini zip dosyası karşıya bir **genel amaçlı** Azure depolama hesabı. Bu bölümde, bir Azure data factory özel etkinlik kullanan sahip işlem hattı oluşturun.
+## <a name="create-a-pipeline-with-custom-activity"></a>Özel Etkinlik ile işlem hattı oluşturma
+Özel bir etkinlik oluşturulur ve ikili dosyaları zip dosyasıyla, bir blob kapsayıcısını karşıya bir **genel amaçlı** Azure depolama hesabı. Bu bölümde, özel etkinliği kullanan bir işlem hattı ile bir Azure veri fabrikası oluşturun.
 
-Özel Etkinlik için giriş veri kümesi adftutorial kapsayıcı blob depolama customactivityinput klasöründeki BLOB'lar (dosyaları) temsil eder. Çıktı veri kümesi etkinliğinin çıkış BLOB'lar adftutorial kapsayıcı blob depolama customactivityoutput klasöründeki temsil eder.
+Özel etkinliğin giriş veri kümesi customactivityinput klasöründe adftutorial blob depolama kapsayıcısında bloblar (dosyalar) temsil eder. Etkinliğin çıkış veri kümesi, çıktı bloblarını adftutorial blob depolama kapsayıcısında customactivityoutput klasöründe temsil eder.
 
-Oluşturma **dosya.txt'yi** dosya aşağıdaki içeriğe ve için karşıya **customactivityinput** klasöründe **adftutorial** kapsayıcı. Zaten yoksa adftutorial kapsayıcı oluşturun. 
+Oluşturma **dosya.txt** dosya aşağıdaki içeriğe ve bunu **customactivityinput** klasörü **adftutorial** kapsayıcı. Zaten yoksa adftutorial kapsayıcısını oluşturun. 
 
 ```
 test custom activity Microsoft test custom activity Microsoft
 ```
 
-İki veya daha fazla dosya klasör sahip olsa bile giriş klasörü Azure Data factory'de bir dilim karşılık gelir. Her dilimi ardışık düzen tarafından işlendiğinde, özel etkinlik tüm BLOB'ları, dilim için giriş klasörü dolaşır.
+İki veya daha fazla dosya klasörü sahip olsa bile giriş klasörü Azure Data factory'de bir dilim karşılık gelir. Özel Etkinlik, her işlem hattı tarafından işlendiğinde, dilim için giriş klasöründeki tüm blobları gezinir.
 
-Bir dosyayla adftutorial\customactivityoutput klasöründeki bir veya daha fazla satırlara sahip (aynı sayıda BLOB giriş klasöründe) çıkış bakın:
+Bir veya daha fazla satır (girdi klasöründe bulunan BLOB sayısı ile aynı) dosyası ile adftutorial\customactivityoutput klasöründe bir çıkış görürsünüz:
 
 ```
 2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2016-11-16-00/file.txt.
 ```
 
 
-Bu bölümde gerçekleştirdiğiniz adımlar şunlardır:
+Bu bölümde gerçekleştireceğiniz adımlar şunlardır:
 
 1. Oluşturma bir **veri fabrikası**.
-2. Oluşturma **bağlantılı Hizmetleri** Vm'lerinde Azure Batch havuzu için özel etkinlik çalışır ve giriş/çıkış BLOB'ları tutan Azure Storage.
-3. Giriş ve çıkış oluşturma **veri kümeleri** giriş ve çıkış özel etkinliği temsil eden.
-4. Oluşturma bir **ardışık düzen** özel etkinlik kullanır.
+2. Oluşturma **bağlı hizmetler** Vm'lerinde Azure Batch havuzu için özel etkinliği çalışır ve giriş/çıkış BLOB'ları içeren Azure depolama.
+3. Girdi ve çıktı oluşturma **veri kümeleri** temsil eden girdi ve çıktı özel etkinlik.
+4. Oluşturma bir **işlem hattı** , özel etkinliği kullanır.
 
 > [!NOTE]
-> Oluşturma **dosya.txt'yi** ve zaten yapmadıysanız bir blob kapsayıcısına yükleyin. Önceki bölümdeki yönergelere bakın.   
+> Oluşturma **dosya.txt** ve zaten yapmadıysanız blob kapsayıcısına yükleyin. Önceki bölümdeki yönergelere bakın.   
 
 ### <a name="step-1-create-the-data-factory"></a>1. adım: veri fabrikası oluşturma
 1. Azure portalında oturum açtıktan sonra aşağıdaki adımları uygulayın:
-   1. Tıklatın **kaynak oluşturma** sol menüde.
-   2. Tıklatın **veri + analiz** içinde **yeni** dikey.
+   1. Tıklayın **kaynak Oluştur** sol menüsünde.
+   2. Tıklayın **veri ve analiz** içinde **yeni** dikey penceresi.
    3. **Veri analizi** dikey penceresinde **Data Factory**’ye tıklayın.
    
     ![Yeni Azure Data Factory menüsü](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. İçinde **yeni data factory** dikey penceresinde girin **CustomActivityFactory** adı. Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **veri fabrikası adı "CustomActivityFactory" kullanılabilir değil**, data factory adını değiştirin (örneğin, **yournameCustomActivityFactory**) ve oluşturmayı yeniden deneyin.
+2. İçinde **yeni veri fabrikası** dikey penceresinde girin **CustomActivityFactory** adı. Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **veri fabrikası adı "CustomActivityFactory" kullanılamıyor**, veri fabrikasının adını değiştirin (örneğin, **yournameCustomActivityFactory**) ve oluşturmayı yeniden deneyin.
 
     ![Yeni Azure Data Factory dikey penceresi](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
-3. Tıklatın **kaynak grubu adı**, varolan bir kaynak grubu seçin veya bir kaynak grubu oluşturun.
-4. Doğru kullandığını doğrulayın **abonelik** ve **bölge** oluşturulacak data factory istediğiniz.
+3. Tıklayın **kaynak grubu adı**, mevcut bir kaynak grubunu seçin ve bir kaynak grubu oluşturun.
+4. Doğru kullandığınızı doğrulayın **abonelik** ve **bölge** oluşturulacak veri fabrikasının istediğiniz.
 5. **Yeni data factory** dikey penceresinde **Oluştur**’a tıklayın.
-6. Oluşturulmakta veri fabrikası gördüğünüz **Pano** Azure portalının.
-7. Veri Fabrikası başarıyla oluşturulduktan sonra data factory içeriği gösterilir Data Factory dikey penceresine bakın.
+6. İçinde oluşturduğunuz veri fabrikasına gördüğünüz **Pano** Azure portal'ın.
+7. Data factory başarıyla oluşturulduktan sonra data Factory içeriği gösterilir Data Factory dikey penceresine bakın.
     
     ![Data Factory dikey penceresi](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>2. adım: bağlı hizmetler oluşturma
-Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory’ye bağlar. Bu adımda data factory'nizi Azure Storage hesabını ve Azure Batch hesabı bağlayın.
+Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory’ye bağlar. Bu adımda, Azure depolama hesabınız ve Azure Batch hesabı veri fabrikanıza bağlarsınız.
 
 #### <a name="create-azure-storage-linked-service"></a>Azure Storage bağlı hizmeti oluşturma
-1. Tıklatın **yazar ve dağıtma** döşemesinin **DATA FACTORY** dikey **CustomActivityFactory**. Data Factory Düzenleyicisi’ni görürsünüz.
-2. Tıklatın **yeni veri deposu** komut çubuğu ve seçin **Azure depolama**. Düzenleyicide Azure Storage bağlı hizmeti oluşturmak için JSON betiğini görmeniz gerekir.
+1. Tıklayın **yazar ve dağıtma** kutucuğundan **DATA FACTORY** dikey **CustomActivityFactory**. Data Factory Düzenleyicisi’ni görürsünüz.
+2. Tıklayın **yeni veri deposu** komut çubuğu ve seçin **Azure depolama**. Düzenleyicide Azure Storage bağlı hizmeti oluşturmak için JSON betiğini görmeniz gerekir.
     
     ![Yeni veri deposu - Azure depolama](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Değiştir `<accountname>` Azure depolama hesabınızın adıyla ve `<accountkey>` Azure depolama hesabının erişim anahtarı ile. Depolama erişim anahtarınızı nasıl alacağınız hakkında bilgi için bkz. [Depolama erişim anahtarlarını görüntüleme, kopyalama ve yeniden oluşturma](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Değiştirin `<accountname>` Azure depolama hesabınızın adıyla ve `<accountkey>` Azure depolama hesabının erişim anahtarı ile. Depolama erişim anahtarınızı nasıl alacağınız hakkında bilgi için bkz. [Depolama erişim anahtarlarını görüntüleme, kopyalama ve yeniden oluşturma](../../storage/common/storage-account-manage.md#access-keys).
 
-    ![Azure depolama hizmeti beğendiğinizi](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
+    ![Azure depolama hizmeti beğenmediğinizi](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’a tıklayın.
 
-#### <a name="create-azure-batch-linked-service"></a>Azure Batch bağlı hizmet oluşturma
-1. Data Factory Düzenleyici'yi tıklatın **... Daha fazla** komut çubuğunda **yeni işlem**ve ardından **Azure Batch** menüsünde.
+#### <a name="create-azure-batch-linked-service"></a>Azure Batch bağlı hizmeti oluşturma
+1. Data Factory Düzenleyicisi'nde tıklayın **... Daha fazla** komut çubuğunda **yeni işlem**ve ardından **Azure Batch** menüsünde.
 
-    ![Yeni işlem - Azure toplu işlem](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
+    ![Yeni işlem - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. JSON betiği aşağıdaki değişiklikleri yapın:
 
-   1. Azure Batch hesabı adını belirtin **accountName** özelliği. **URL** gelen **Azure Batch hesabı dikey** aşağıdaki biçimdedir: `http://accountname.region.batch.azure.com`. İçin **batchUri** özelliği JSON içinde ihtiyacınız kaldırmak `accountname.` URL ve kullanım `accountname` için `accountName` JSON özelliği.
-   2. Azure Batch hesabı anahtar belirtmeniz **accessKey** özelliği.
-   3. Önkoşulları bir parçası olarak, oluşturduğunuz havuzunun adını belirtin **poolName** özelliği. Havuz adı yerine havuzun kimliği de belirtebilirsiniz.
-   4. Azure Batch URI'sini belirtin **batchUri** özelliği. Örnek: `https://westus.batch.azure.com`.  
+   1. Azure Batch hesap adı belirtin **accountName** özelliği. **URL** gelen **Azure Batch hesabı dikey penceresi** aşağıdaki biçimdedir: `http://accountname.region.batch.azure.com`. İçin **batchUri** JSON özelliğinde kaldırmak için ihtiyacınız `accountname.` kullanın ve URL `accountname` için `accountName` JSON özelliği.
+   2. Azure Batch hesap anahtarı belirtin **accessKey** özelliği.
+   3. İçin ön koşulların bir parçası olarak oluşturduğunuz havuzunun adını belirtin **poolName** özelliği. Havuz adı yerine havuzun kimliği belirtebilirsiniz.
+   4. Azure Batch URI'si belirtin **batchUri** özelliği. Örnek: `https://westus.batch.azure.com`.  
    5. Belirtin **AzureStorageLinkedService** için **linkedServiceName** özelliği.
 
         ```json
@@ -478,16 +478,16 @@ Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory�
         }
         ```
 
-       İçin **poolName** özelliği, havuzu havuzunun adı yerine Kimliğini de belirtebilirsiniz.
+       İçin **poolName** özelliği, havuzun havuz adı yerine Kimliğini belirtebilirsiniz.
 
     
 
 ### <a name="step-3-create-datasets"></a>3. adım: veri kümeleri oluşturma
-Bu adımda, girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma.
+Bu adımda, girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun.
 
 #### <a name="create-input-dataset"></a>Girdi veri kümesi oluşturma
-1. Data Factory **Düzenleyici**’de açılır listeden **... Daha fazla** komut çubuğunda **yeni veri kümesi**ve ardından **Azure Blob Depolama** açılır menüsünden.
-2. Sağ bölmedeki JSON aşağıdaki JSON parçacığıyla değiştirin:
+1. Data Factory **Düzenleyici**’de açılır listeden **... Daha fazla** komut çubuğunda **yeni veri kümesi**ve ardından **Azure Blob Depolama** aşağı açılan menüden.
+2. Sağ bölmede JSON'u aşağıdaki JSON parçacığıyla değiştirin:
 
     ```json
     {
@@ -511,16 +511,16 @@ Bu adımda, girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma
     }
     ```
 
-   Başlangıç saati ile bu kılavuzda daha sonra bir işlem hattı oluşturma: 2016-11-16T00:00:00Z ve bitiş zamanı: 2016-11-16T05:00:00Z. Beş giriş/çıkış dilimler olduklarından veri saatlik, üretmek için planlanmıştır (arasında **00**: 00:00 -> **05**: 00:00).
+   Başlangıç saatine sahip bu kılavuzda daha sonra bir işlem hattı oluşturursunuz: 2016-11-16T00:00:00Z ve bitiş zamanı: 2016-11-16T05:00:00Z. Beş girdi/çıktı dilimleri olduklarından, verileri üretmek üzere planlanmıştır (arasında **00**: 00:00 -> **05**: 00:00).
 
-   **Sıklığı** ve **aralığı** girdi veri kümesi ayarlanmıştır **saat** ve **1**, girdi dilimi saatlik kullanılabilir olduğunu anlamına gelir. Bu örnekte, aynı (dosya.txt'yi) intputfolder dosyasıdır.
+   **Sıklığı** ve **aralığı** giriş veri kümesi ayarlanmıştır **saat** ve **1**, giriş dilimi saatlik kullanılabilir olduğunu anlamına gelir. Bu örnekte, buna intputfolder aynı dosyada (dosya.txt) var.
 
-   Yukarıdaki JSON parçacığında bulunan SliceStart sistem değişkeni tarafından temsil edilen her dilim başlangıç zamanlarını şunlardır.
-3. Tıklatın **dağıtma** oluşturmak ve dağıtmak için araç çubuğunda **InputDataset**. Düzenleyici’nin başlık çubuğunda **TABLO BAŞARIYLA OLUŞTURULDU** iletisini gördüğünüzü onaylayın.
+   Yukarıdaki JSON kod parçacığında SliceStart sistem değişkeni tarafından temsil edilen her dilim için başlangıç zamanlarını aşağıda verilmiştir.
+3. Tıklayın **Dağıt** oluşturmak ve dağıtmak için araç çubuğunda **Inputdataset**. Düzenleyici’nin başlık çubuğunda **TABLO BAŞARIYLA OLUŞTURULDU** iletisini gördüğünüzü onaylayın.
 
 #### <a name="create-an-output-dataset"></a>Çıktı veri kümesi oluşturma
-1. İçinde **Data Factory düzenleyici**, tıklatın **... Daha fazla** komut çubuğunda **yeni veri kümesi**ve ardından **Azure Blob Depolama**.
-2. Sağ bölmedeki JSON betiği aşağıdaki JSON betiği ile değiştirin:
+1. İçinde **Data Factory Düzenleyicisi'ni**, tıklayın **... Daha fazla** komut çubuğunda **yeni veri kümesi**ve ardından **Azure Blob Depolama**.
+2. Sağ bölmedeki JSON betiği aşağıdaki JSON kod ile değiştirin:
 
     ```JSON
     {
@@ -550,9 +550,9 @@ Bu adımda, girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma
     }
     ```
 
-     Çıktı konumu **adftutorial/customactivityoutput/** ve çıktı dosyası adını yyyy-aa-gg-HH.txt yyyy-aa-gg-HH yıl, ay, tarih ve saat üretilen dilimin olduğu. Bkz: [Geliştirici Başvurusu] [ adf-developer-reference] Ayrıntılar için.
+     Çıkış konumu **adftutorial/customactivityoutput/** ve yyyy-MM-dd-ss yıl, ay, tarih ve saat diliminin üretilmekte olduğu yyyy-aa-gg-HH.txt çıkış dosyası adı. Bkz: [Geliştirici Başvurusu] [ adf-developer-reference] Ayrıntılar için.
 
-    Bir çıkış blob/dosyası, her girdi dilimi için oluşturulur. İşte bir çıktı dosyası için her dilimi nasıl adlandırılır. Bir çıkış klasöründe oluşturulan tüm çıktı dosyaları: **adftutorial\customactivityoutput**.
+    Bir çıkış blob/dosyası, her giriş dilimi için oluşturulur. İşte bir çıktı dosyası için her bir dilimi nasıl adlandırılır. Bir klasörde oluşturulan tüm çıktı dosyaları: **adftutorial\customactivityoutput**.
 
    | Dilim | Başlangıç zamanı | Çıktı dosyası |
    |:--- |:--- |:--- |
@@ -562,12 +562,12 @@ Bu adımda, girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma
    | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
    | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
-    Giriş bir klasördeki tüm dosyaları yukarıda belirtilen başlangıç zamanlarını dilimle parçası olduğunu unutmayın. Bu dilim işlendiğinde özel etkinlik her dosyası aracılığıyla tarar ve arama terimi ("Microsoft"), yineleme sayısı ile çıkış dosyasındaki bir satır üretir. İnputfolder üç dosya varsa vardır üç satır her saat dilimi için çıktı dosyasına: 2016-11-16-00.txt, 2016-11-16:01:00:00.txt, vs.
-3. Dağıtmak için **OutputDataset**, tıklatın **dağıtma** komut çubuğunda.
+    Giriş bir klasördeki tüm dosyaları bir dilim başlangıç süresi, yukarıda belirtilen bir parçası olduğunu unutmayın. Bu dilim işlenirken özel etkinlik her dosyanın tarar ve çıkış dosyasına arama terimi ("Microsoft") oluşum sayısını içeren bir satır üretir. İçinde inputfolder üç dosya varsa, üç satırı yok her saatlik dilim için çıkış dosyasına: 2016-11-16-00.txt, 2016-11-16:01:00:00.txt, vs.
+3. Dağıtılacak **OutputDataset**, tıklayın **Dağıt** komut çubuğunda.
 
-### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>Oluşturma ve özel etkinlik kullanan bir ardışık düzen çalıştırma
-1. Data Factory Düzenleyici'yi tıklatın **... Daha fazla**ve ardından **yeni işlem hattı** komut çubuğunda. 
-2. Sağ bölmedeki JSON aşağıdaki JSON betiği ile değiştirin:
+### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>Oluşturma ve özel etkinliği kullanan bir işlem hattı çalıştırma
+1. Data Factory Düzenleyicisi'nde tıklayın **... Daha fazla**ve ardından **yeni işlem hattı** komut çubuğunda. 
+2. Sağ bölmede JSON'u aşağıdaki JSON betiği ile değiştirin:
 
     ```JSON
     {
@@ -616,123 +616,123 @@ Bu adımda, girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma
 
     Aşağıdaki noktalara dikkat edin:
 
-   * **Eşzamanlılık** ayarlanır **2** böylece iki dilimler Azure Batch havuzunda 2 VM tarafından paralel olarak işlenir.
-   * Etkinlikler bölümünde bir etkinlik vardır ve bu tür: **DotNetActivity**.
-   * **AssemblyName** DLL adına ayarlayın: **MyDotnetActivity.dll**.
+   * **Eşzamanlılık** ayarlanır **2** böylece iki dilimlerini Azure Batch havuzu içinde 2 VM tarafından paralel olarak işlenir.
+   * Etkinlikler bölümünde bir etkinlik olduğundan ve türü: **DotNetActivity**.
+   * **AssemblyName** DLL adına ayarlanır: **MyDotnetActivity.dll**.
    * **EntryPoint** ayarlanır **MyDotNetActivityNS.MyDotNetActivity**.
-   * **PackageLinkedService** ayarlanır **AzureStorageLinkedService** özel etkinlik zip dosyasını içeren blob depolama alanına işaret eder. Giriş/çıkış dosyaları ve özel etkinlik zip dosyası için farklı Azure depolama hesapları kullanıyorsanız, başka bir Azure depolama bağlantılı hizmeti oluşturun. Bu makalede, aynı Azure Storage hesabını kullandığınızı varsayar.
+   * **PackageLinkedService** ayarlanır **AzureStorageLinkedService** özel etkinliğin zip dosyasını içeren blob depolama alanına işaret eder. Girdi/çıktı dosyalarını ve özel etkinliğin zip dosyası için farklı bir Azure depolama hesapları kullanıyorsanız, başka bir Azure depolama bağlı hizmeti oluşturun. Bu makalede, aynı Azure depolama hesabını kullandığınızı varsayar.
    * **PackageFile** ayarlanır **customactivitycontainer/MyDotNetActivity.zip**. Şu biçimdedir: containerforthezip/nameofthezip.zip.
-   * Özel Etkinlik alır **InputDataset** giriş olarak ve **OutputDataset** çıktı olarak.
-   * Özel Etkinlik linkedServiceName özelliğinin işaret **AzureBatchLinkedService**, özel etkinlik Azure toplu işlemi Vm'lerinde çalıştırmak için gereken bir Azure Data Factory söyler.
-   * **isPaused** özelliği ayarlanmış **false** varsayılan olarak. Geçmişte dilimleri başlatmak için ardışık düzen hemen bu örnekte çalışır. Bu özelliği, ardışık düzen duraklatma ve yeniden başlatmak için geri false olarak ayarlamak için true olarak ayarlayın.
-   * **Başlat** zaman ve **son** sürelerinin **beş** ardışık düzen tarafından beş dilimlerinin şekilde birbirinden saatleri ve dilimler saatlik, üretilmektedir.
-3. İşlem hattını dağıtmak için **dağıtma** komut çubuğunda.
+   * Özel Etkinlik alır **Inputdataset** giriş olarak ve **OutputDataset** çıktı olarak.
+   * Özel Etkinlik linkedServiceName özelliğini işaret **AzureBatchLinkedService**, Azure Data Factory, Azure Batch Vm'leri üzerinde çalışacak şekilde özel etkinlik gereken söyler.
+   * **isPaused** özelliği **false** varsayılan olarak. Geçmiş dilimler başlatmak için işlem hattı hemen bu örnekte çalışır. Bu özellik, işlem hattı duraklatma ve yeniden geri false olarak ayarlamak için true olarak ayarlayabilirsiniz.
+   * **Başlat** zaman ve **son** sürelerinin **beş** uzaklıkta saat ve dilim oluşturulur, işlem hattı tarafından beş dilimlerinin şekilde.
+3. İşlem hattını dağıtmak için **Dağıt** komut çubuğunda.
 
 ### <a name="monitor-the-pipeline"></a>İşlem hattını izleme
-1. Azure Portal'daki Data Factory dikey penceresinde tıklayın **diyagramı**.
+1. Azure Portal'da Data Factory dikey penceresinde **diyagram**.
 
     ![Diyagram kutucuğu](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
-2. Diyagram Görünümü'nde şimdi OutputDataset'yi tıklatın.
+2. Diyagram Görünümü'nde OutputDataset artık'a tıklayın.
 
     ![Diyagram görünümü](./media/data-factory-use-custom-activities/diagram.png)
-3. Beş çıkış dilimi hazır durumda olduğunu görmeniz gerekir. Bunlar hazır durumda değilse, bunlar henüz üretilmiş henüz. 
+3. Beş çıktı dilimi hazır durumda olduğunu görmeniz gerekir. Bunlar, hazır durumda değilse, bunlar henüz üretilmiş henüz. 
 
    ![Çıktı dilimleri](./media/data-factory-use-custom-activities/OutputSlices.png)
-4. Çıkış dosyaları blob depolamada oluşturulan doğrulayın **adftutorial** kapsayıcı.
+4. Çıktı dosyaları blob depolama içinde oluşturulan doğrulayın **adftutorial** kapsayıcı.
 
-   ![Özel etkinliğinden çıktı][image-data-factory-ouput-from-custom-activity]
-5. Çıktı dosyası açarsanız, aşağıdaki çıkış benzer bir çıktı görmeniz gerekir:
+   ![Özel Etkinlik çıkışı][image-data-factory-ouput-from-custom-activity]
+5. Çıktı dosyasını açın, aşağıdaki çıktıya benzer bir çıktı görmeniz gerekir:
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2016-11-16-00/file.txt.
     ```
-6. Kullanım [Azure portal] [ azure-preview-portal] veya veri fabrikası, ardışık düzen ve veri kümelerini izlemek için Azure PowerShell cmdlet'leri. Gelen iletileri görebilirsiniz **ActivityLogger** kodunda özel etkinlik portal veya cmdlet'ler kullanarak indirebilir günlüklerine (özellikle kullanıcı-0.log).
+6. Kullanım [Azure portalında] [ azure-preview-portal] ya da, data factory, işlem hatlarını ve veri kümelerini izlemek için Azure PowerShell cmdlet'leri. Gelen iletileri görebilirsiniz **ActivityLogger** kodunda özel etkinlik günlüklerindeki portalı veya cmdlet'lerini kullanarak yükleyebileceğiniz (özellikle kullanıcı-0.log).
 
-   ![Özel etkinliğinden günlüklerini indirin][image-data-factory-download-logs-from-custom-activity]
+   ![indirme günlükleri özel etkinliği][image-data-factory-download-logs-from-custom-activity]
 
-Bkz: [izleme ve yönetme ardışık düzen](data-factory-monitor-manage-pipelines.md) veri kümelerini ve işlem hatlarını izleme için ayrıntılı adımlar için.      
+Bkz: [yönetme işlem hatlarını izleme ve](data-factory-monitor-manage-pipelines.md) veri kümeleri ve işlem hatlarını izleme ile ilgili ayrıntılı adımlar.      
 
-## <a name="data-factory-project-in-visual-studio"></a>Visual Studio Data Factory projesi  
-Oluşturma ve Azure portalını kullanarak yerine Visual Studio kullanarak Data Factory varlıklarını yayımlama. Visual Studio kullanarak Data Factory varlıklarını yayımlama, bakın ve ayrıntılı oluşturma hakkında daha fazla bilgi için [Visual Studio kullanarak ilk işlem hattınızı oluşturma](data-factory-build-your-first-pipeline-using-vs.md) ve [kopyalama verileri Azure Blob'tan Azure SQL'e](data-factory-copy-activity-tutorial-using-visual-studio.md) makaleler.
+## <a name="data-factory-project-in-visual-studio"></a>Visual Studio'da Data Factory projesi  
+Oluşturun ve Azure portalını kullanarak yerine Visual Studio kullanarak Data Factory varlıklarını yayımlama. Ayrıntılı oluşturma hakkında bilgi ve Visual Studio kullanarak Data Factory varlıklarını yayımlama, görmek için [Visual Studio kullanarak ilk işlem hattınızı](data-factory-build-your-first-pipeline-using-vs.md) ve [kopyalayın verileri Azure Blob'tan Azure SQL'e](data-factory-copy-activity-tutorial-using-visual-studio.md) makaleler.
 
-Visual Studio'da veri fabrikası proje oluşturuyorsanız, aşağıdaki ek adımları uygulayın:
+Visual Studio'da Data Factory proje oluşturuyorsanız, aşağıdaki ek adımları uygulayın:
  
-1. Özel Etkinlik projeyi içeren bir Visual Studio çözümüne Data Factory projenize ekleyin. 
-2. Veri Fabrikası projeden .NET etkinliği projesine bir başvuru ekleyin. Data Factory projesine sağ tıklayın, fareyle **Ekle**ve ardından **başvuru**. 
+1. Data Factory projenize özel etkinlik projesini içeren Visual Studio çözümünü ekleyin. 
+2. Data Factory proje .NET etkinliği projeye bir başvuru ekleyin. Data Factory projesine sağ tıklayın, fareyle **Ekle**ve ardından **başvuru**. 
 3. İçinde **Başvuru Ekle** iletişim kutusunda **MyDotNetActivity** proje öğesini tıklatıp **Tamam**.
 4. Derleme ve çözüm yayımlayın.
 
     > [!IMPORTANT]
-    > Data Factory varlıklarını yayımladığınızda, ZIP dosyası sizin için otomatik olarak oluşturulur ve blob kapsayıcısına karşıya: customactivitycontainer. Blob kapsayıcısı mevcut değilse otomatik olarak çok oluşturulur.  
+    > Data Factory varlıkları yayımladığınızda bir zip dosyası sizin için otomatik olarak oluşturulur ve blob kapsayıcısına yüklenir: customactivitycontainer. Blob kapsayıcısında mevcut değilse otomatik olarak çok oluşturulur.  
 
 
-## <a name="data-factory-and-batch-integration"></a>Veri Fabrikası ve toplu tümleştirmesi
-Data Factory hizmetinin bir iş Azure Batch adıyla oluşturur: **adf poolname: iş xxx**. Tıklatın **işleri** sol menüden. 
+## <a name="data-factory-and-batch-integration"></a>Data Factory ve Batch tümleştirme
+Data Factory hizmetinin bir iş adı ile Azure Batch hizmetinde oluşturur: **adf poolname: iş-xxx**. Tıklayın **işleri** sol menüden. 
 
-![Azure Data Factory - toplu işler](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
+![Azure Data Factory - Batch işleri](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
 
-Bir görev, her bir dilim etkinlik çalıştırması için oluşturulur. Beş dilimler işlenmeye hazır varsa, beş görev alanında bu işin oluşturulur. Batch havuzundaki birden çok işlem düğümleri varsa, iki veya daha fazla dilim paralel olarak çalıştırılabilir. İşlem düğümü başına en fazla görevleri ayarlarsanız > 1'e, aynı işlem üzerinde çalışan birden fazla dilim sahip olabilir.
+Bir dilim her etkinlik çalışması için bir görev oluşturulur. Beş dilimleri işlenmeye hazır varsa, beş görev alanında bu işin oluşturulur. Batch havuzu birden çok işlem düğümleri varsa, iki veya daha fazla dilim paralel olarak çalıştırılabilir. İşlem düğümü başına en fazla görev > 1 olarak ayarlanırsa, aynı işlem üzerinde çalışan birden fazla dilim da olabilir.
 
-![Azure Data Factory - toplu iş görevleri](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
+![Azure Data Factory - Batch iş görevleri](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
 
-Aşağıdaki diyagram, Azure Data Factory ve toplu işlem görevlerini arasındaki ilişkiyi gösterir.
+Aşağıdaki diyagram, Azure Data Factory ve Batch görevleri arasındaki ilişkiyi gösterir.
 
-![Veri Fabrikası & toplu işlem](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
+![Veri Fabrikası ve toplu işlem](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
 ## <a name="troubleshoot-failures"></a>Hatalarını giderme
-Sorun giderme birkaç temel teknikleri oluşur:
+Sorun giderme birkaç temel teknikten oluşur:
 
-1. Aşağıdaki hata görürseniz, bir etkin/Cool blob depolama genel amaçlı Azure blob storage kullanarak yerine kullanıyor olabilir. Zip dosyasını karşıya bir **genel amaçlı Azure depolama hesabı**. 
+1. Aşağıdaki hatayı görürseniz, sık erişimli/seyrek erişimli blob depolama genel amaçlı bir Azure blob depolama alanı kullanmak yerine kullanıyor olabilir. Zip dosyasını karşıya bir **genel amaçlı Azure depolama hesabı**. 
  
     ```
     Error in Activity: Job encountered scheduling error. Code: BlobDownloadMiscError Category: ServerError Message: Miscellaneous error encountered while downloading one of the specified Azure Blob(s).
     ``` 
-2. Aşağıdaki hatayla karşılaşırsanız, CS dosyasındaki sınıfın adı için belirtilen ad eşleştiğini onaylayın **EntryPoint** JSON işlem hattındaki özelliği. Kılavuzda sınıfı adıdır: MyDotNetActivity ve JSON EntryPoint: MyDotNetActivityNS. **MyDotNetActivity**.
+2. Aşağıdaki hatayı görürseniz, CS dosyasında sınıfın adı için belirttiğiniz ad eşleştiğini doğrulamak **EntryPoint** JSON işlem hattının özelliği. Bu izlenecek yolda, sınıf adıdır: MyDotNetActivity ve JSON EntryPoint: MyDotNetActivityNS. **MyDotNetActivity**.
 
     ```
     MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
     ```
 
-   Adları eşleşiyorsa, bu tüm ikili dosyaları olduğunu onaylamak **kök klasörü** ZIP dosyasının. Diğer bir deyişle, ZIP dosyasının açtığınızda, tüm dosyaları kök klasöründe, tüm alt klasörlerde görmeniz gerekir.   
-3. Girdi dilimi ayarlanmamışsa **hazır**, giriş klasör yapısı doğru olduğunu onaylayın ve **dosya.txt'yi** giriş klasörlerde bulunmaktadır.
-3. İçinde **yürütme** özel etkinliklerinizi, kullanım yöntemi **IActivityLogger** sorunlarını gidermenize yardımcı olacak bilgileri oturum nesnesi. Günlüğe kaydedilen iletilere kullanıcı günlük dosyalarında görünmesini (adlı bir veya daha fazla: kullanıcı 0.log, kullanıcı 1.log, kullanıcı 2.log, vs.).
+   Adları aynı ise, tüm ikili dosyaların olduğunu onaylamak **kök klasörü** ZIP dosyasının. Zip dosyasını açtığınızda, diğer bir deyişle, tüm dosyaları kök klasöründe bulunan, tüm alt klasörlerdeki görmeniz gerekir.   
+3. Giriş dilimi olarak ayarlanmazsa, **hazır**, giriş klasörü yapısının doğru olduğundan emin olun ve **dosya.txt** giriş klasörlerinde bulunmaktadır.
+3. İçinde **yürütme** yöntemi özel etkinliği, kullanım **Iactivitylogger** sorunlarını gidermenize yardımcı olacak bilgileri günlüğe kaydetmek için nesne. Günlüğe kaydedilen iletiler kullanıcı günlük dosyalarında gösterilir (adlı bir veya daha fazla dosyaları: user-0.log, user-1.log, user-2.log vb..).
 
-   İçinde **OutputDataset** dikey penceresinde görmek için dilimi tıklatın **veri DİLİMİ** dikey penceresinde, dilim için. Gördüğünüz **etkinlik çalışması** bu dilim için. Bir etkinlik için dilim görmeniz gerekir. Komut çubuğunda Çalıştır'ı tıklatın, aynı dilim için başka bir etkinlik başlatabilirsiniz.
+   İçinde **OutputDataset** dikey penceresinde görmek için dilime tıklayın **veri DİLİMİ** dikey penceresinde, dilim için. Gördüğünüz **etkinlik çalıştırmalarını** , dilim için. Bir etkinlik dilimi için çalıştırılan görmeniz gerekir. Komut çubuğunda Çalıştır'a tıklayın, aynı dilimi için çalıştırılan başka bir etkinlik başlayabilirsiniz.
 
-   Etkinliğin çalışma tıklattığınızda gördüğünüz **etkinlik çalışma ayrıntıları** günlük dosyalarının listesini içeren dikey. User_0.log dosyasında günlüğe kaydedilen iletilere bakın. Hata oluştuğunda, yeniden deneme sayısı 3 JSON ardışık düzeni/etkinliği olarak ayarlandığından, üç Etkinlik çalışması görürsünüz. Etkinlik Çalıştır'ı tıklatın, hatayı gidermek için gözden geçirebilirsiniz günlük dosyalarına bakın.
+   Etkinlik çalıştırma tıkladığınızda, gördüğünüz **etkinlik çalışma ayrıntıları** günlük dosyalarının listesini içeren dikey pencere. User_0.log dosyasında günlüğe kaydedilen iletilere bakın. Bir hata oluştuğunda, yeniden deneme sayısı 3 işlem hattı/etkinlik JSON olarak ayarlandığından üç Etkinlik çalıştırmalarını görürsünüz. Etkinlik Çalıştır'a tıklayın, hatayı gidermek için gözden geçirebileceğiniz günlük dosyalarına bakın.
 
-   Günlük dosyaları listesinde tıklatın **kullanıcı 0.log**. Sağ panelde kullanarak sonucu olan **IActivityLogger.Write** yöntemi. Tüm iletileri görmüyorsanız adlı daha fazla günlük dosyaları olup olmadığını denetleyin: user_1.log, user_2.log vs. Son ileti günlüğe sonra Aksi halde, kod başarısız olmuş olabilir.
+   Günlük dosyalarının listesinde tıklayın **kullanıcı-0.log**. Sağ bölmede kullanarak sonucu olan **IActivityLogger.Write** yöntemi. Tüm iletileri görmüyorsanız, daha fazla günlük dosyası adında olup olmadığını denetleyin: user_1.log, user_2.log vs. Son ileti günlüğe sonra Aksi takdirde, kod başarısız olmuş olabilir.
 
-   Ayrıca, denetleme **sistem 0.log** sistem hata iletileri ve özel durumlar için.
-4. Dahil **PDB** hata ayrıntılarını bilgileri gibi böylece zip dosyasında dosya **çağrı yığını** bir hata oluştuğunda.
+   Ayrıca, kontrol **system-0.log** herhangi bir sistem hata iletileri ve özel durumlar için.
+4. Dahil **PDB** zip dosyasında hata ayrıntılarını aşağıdaki gibi bilgileri sahip dosya **çağrı yığını** bir hata oluştuğunda.
 5. Özel etkinliğin zip dosyasındaki tüm dosyalar alt klasör olmadan **en üst düzeyde** olmalıdır.
-6. Emin **assemblyName** (MyDotNetActivity.dll) **entryPoint**(MyDotNetActivityNS.MyDotNetActivity) **packageFile** (customactivitycontainer / MyDotNetActivity.zip) ve **packageLinkedService** (işaret etmelidir **genel amaçlı**zip dosyasını içeren Azure blob depolama) için doğru değerleri ayarlayın.
+6. Emin **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer / MyDotNetActivity.zip) ve **packageLinkedService** (ulaştıracağı **genel amaçlı**zip dosyasını içeren Azure blob depolama) doğru değerlere ayarlanır.
 7. Bir hatayı düzelttiyseniz ve dilimi yeniden işlemek istiyorsanız **OutputDataset** dikey penceresindeki dilime sağ tıklayın ve **Çalıştır**’a tıklayın.
-8. Aşağıdaki hata görürseniz, Azure Storage paketi sürümü > 4.3.0 kullanıyor. Veri Fabrikası Başlatıcı WindowsAzure.Storage 4.3 sürümünü gerektirir. Bkz: [Appdomain yalıtım](#appdomain-isolation) bölümünde bir iş-geçici bir çözüm bulmak için Azure Storage derlemenin sonraki bir sürümünü kullanmanız gerekiyorsa. 
+8. Aşağıdaki hatayı görürseniz, Azure depolama paketi sürümü > 4.3.0 kullanıyor. Data Factory hizmeti Başlatıcısı WindowsAzure.Storage 4.3 sürümünü gerektirir. Bkz: [Appdomain yalıtım](#appdomain-isolation) bölümünde geçici için Azure depolama derlemenin daha yeni sürümünü kullanmanız gerekiyorsa. 
 
     ```
     Error in Activity: Unknown error in module: System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeLoadException: Could not load type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from assembly 'Microsoft.WindowsAzure.Storage, Version=4.3.0.0, Culture=neutral, 
     ```
 
-    4.3.0 kullanırsanız, Azure Storage paketin sürümü Azure Storage paketi sürümü > 4.3.0 varolan başvurusunu kaldırın. Ardından, NuGet Paket Yöneticisi konsolundan aşağıdaki komutu çalıştırın. 
+    4.3.0 kullandığınız Azure depolama paketin sürümü Azure depolama paketi sürümü > 4.3.0 mevcut başvurusunu kaldırın. Ardından, NuGet Paket Yöneticisi konsolundan aşağıdaki komutu çalıştırın. 
 
     ```PowerShell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
-    Projeyi derleyin. Sürüm > 4.3.0 Azure.Storage bütünleştirilmiş klasörüne silin. İkili dosyaları ve PDB dosya ile bir zip dosyası oluşturun. Bu bir blob kapsayıcısında (customactivitycontainer) eski zip dosyasını değiştirin. Başarısız olan dilimler yeniden (dilim sağ tıklatın ve Çalıştır'ı tıklatın).   
-8. Özel Etkinlik kullanmayan **app.config** paketinizi dosyasından. Bu nedenle, kodunuzu yapılandırma dosyasından bağlantı dizelerini yazıyorsa, çalışma zamanında çalışmıyor. Azure Batch kullanarak tüm gizli tutmak için olduğunda en iyi uygulama bir **Azure KeyVault**, korumak için bir sertifika tabanlı hizmet asıl adı kullanmasını **keyvault**ve Azure Batch sertifikaya dağıtın havuzu. Böylece .NET özel etkinliği çalıştırma sırasında KeyVault’tan parolalara erişebilir. Bu çözüm genel bir çözümdür ve gizli anahtarı, yalnızca bağlantı dizesi herhangi bir türde ölçeklendirebilirsiniz.
+    Projeyi derleyin. Sürüm > 4.3.0 Azure.Storage derlemenin bin\Debug klasöründen silin. İkili dosyalar ve PDB dosyası bir zip dosyası oluşturun. Bu bir blob kapsayıcısında (customactivitycontainer) eski zip dosyasını değiştirin. Yeniden çalıştırma başarısız olan dilimler (dilime sağ tıklayın ve Çalıştır'a tıklayın).   
+8. Özel Etkinlik kullanmaz **app.config** dosyasını. Bu nedenle, kodunuz yapılandırma dosyasından herhangi bir bağlantı dizesini okuyorsa, çalışma zamanında çalışmıyor. Azure Batch tüm gizli tutmak için kullanırken en iyi bir **Azure KeyVault**, korumak için sertifika tabanlı hizmet sorumlusu kullanmak **keyvault**ve Azure Batch için sertifika dağıtma havuzu. Böylece .NET özel etkinliği çalıştırma sırasında KeyVault’tan parolalara erişebilir. Bu çözüm, genel bir çözümdür ve gizli dizi, yalnızca bağlantı dizesi türüne ölçeklendirebilirsiniz.
 
-   Daha kolay bir çözüm (ancak en iyi yöntem değildir): oluşturabileceğiniz bir **Azure SQL bağlı hizmeti** bağlantı dizesi ayarlarıyla bağlantılı hizmet kullanan bir veri kümesi oluşturma ve sahte bir giriş veri kümesi olarak dataset zincir Özel .NET etkinliği. Özel Etkinlik kodu bağlantılı hizmetin bağlantı dizesinde daha sonra erişebilirsiniz.  
+   Daha kolay bir geçici çözüm (ancak değil en iyi uygulama): oluşturabileceğiniz bir **Azure SQL bağlı hizmeti** bağlantı dizesi ayarlarını bağlı hizmetini kullanan bir veri kümesi oluşturma ve veri kümesi olarak bir işlevsiz bir giriş veri kümesi için zincir oluşturma özel bir .NET etkinliği. Özel Etkinlik kod bağlantılı hizmetin bağlantı dizesinde erişebilirsiniz.  
 
 ## <a name="update-custom-activity"></a>Özel Etkinlik güncelleştirme
-Özel Etkinlik için kod güncelleştirirseniz, onu oluşturmak ve blob depolama birimine yeni ikili dosyaları içeren zip dosyasını karşıya yükleyin.
+Özel Etkinlik için kodu güncelleştirmeniz gerekirse oluşturun ve blob depolama alanına yeni ikili dosyaları içeren bir ZIP dosyasını karşıya yükleme.
 
 ## <a name="appdomain-isolation"></a>Uygulama etki alanı yalıtımı
-Bkz [arası AppDomain örnek](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) , veri fabrikası başlatıcısı tarafından kullanılan derleme sürümleri için sınırlı değildir özel bir aktivite oluşturulacağını gösterir (örnek: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, vs.).
+Bkz: [çapraz AppDomain örnek](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) , Data Factory başlatıcısı tarafından kullanılan derleme sürümlerini kısıtlı değil özel bir etkinlik oluşturma işlemini gösterir (örnek: WindowsAzure.Storage verze 4.3.0, aynı zamanda Newtonsoft.Json v6.0.x.).
 
 ## <a name="access-extended-properties"></a>Genişletilmiş özellikler erişim
-Aşağıdaki örnekte gösterildiği gibi JSON etkinliğinde genişletilmiş özellikler bildirebilirsiniz:
+Genişletilmiş özellikler, aşağıdaki örnekte gösterildiği gibi JSON etkinliğinde bildirebilirsiniz:
 
 ```JSON
 "typeProperties": {
@@ -748,9 +748,9 @@ Aşağıdaki örnekte gösterildiği gibi JSON etkinliğinde genişletilmiş öz
 ```
 
 
-Örnekte, iki genişletilmiş özellik vardır: **SliceStart** ve **DataFactoryName**. SliceStart değeri SliceStart sistem değişkeni temel alır. Bkz: [sistem değişkenleri](data-factory-functions-variables.md) desteklenen sistem değişkenleri listesi. İlgili DataFactoryName CustomActivityFactory için sabit kodlu değer.
+Örnekte, iki genişletilmiş özellikler vardır: **SliceStart** ve **DataFactoryName**. SliceStart değeri SliceStart sistem değişkeninde temel alır. Bkz: [sistem değişkenlerini](data-factory-functions-variables.md) desteklenen sistem değişkenleri listesi. DataFactoryName CustomActivityFactory için sabit kodlanmış değerdir.
 
-Bu özellikler genişletilmiş erişmek için **yürütme** yöntemi, aşağıdaki kodu benzer kod kullanın:
+Bu özellikler genişletilmiş erişmeye **yürütme** yöntemi, aşağıdaki koda benzer kod kullanın:
 
 ```csharp
 // to get extended properties (for example: SliceStart)
@@ -767,9 +767,9 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 ```
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure batch otomatik olarak ölçeklendirme
-Bir Azure Batch havuzuyla oluşturabilirsiniz **otomatik ölçeklendirme** özelliği. Örneğin, 0 özel VM'ler ve beklemedeki görevlerin sayısına dayalı bir otomatik ölçeklendirme formülü ile bir azure batch havuzu oluşturabilirsiniz. 
+Bir Azure Batch havuzu de oluşturabilirsiniz **otomatik ölçeklendirme** özelliği. Örneğin, 0 adanmış VM'ler ve Bekleyen Görevler sayısına bağlı olarak bir otomatik ölçeklendirme formülü ile bir azure batch havuzu oluşturabilirsiniz. 
 
-Formül örneği burada aşağıdaki davranışı elde eder: havuzu başlangıçta oluşturulduğunda 1 VM ile başlar. $PendingTasks ölçüm tanımlar görev sayısı çalışan + (kuyruğa alınmış) etkin durumu.  Formül Son 180 saniye içinde görevleri bekleyen ortalama sayısı bulur ve TargetDedicated uygun şekilde ayarlar. TargetDedicated hiçbir zaman 25 VM'ler gider sağlar. Bu nedenle, yeni görevler gönderildiği haliyle havuzu otomatik olarak büyür ve görevler tamamlanınca VM'ler boş bir birer birer hale ve bu sanal makineleri otomatik ölçeklendirmeyi küçültür. startingNumberOfVMs ve maxNumberofVMs gereksinimlerinize göre ayarlanabilir.
+Burada örnek formülü aşağıdaki davranışı elde eder: havuz başlangıçta oluşturulduğunda, 1 sanal makine ile başlar. $PendingTasks ölçüm çalışan + (kuyruğa alınmış) etkin içindeki görevlerin sayısını tanımlar durumu.  Formül, Son 180 saniye cinsinden ortalama sayısı Bekleyen Görevler bulur ve TargetDedicated uygun şekilde ayarlar. TargetDedicated hiçbir zaman 25 VM'lerin ötesine geçen gider sağlar. Bu nedenle, yeni görevler gönderilen, havuzu otomatik olarak büyür ve görevler tamamlanınca ücretsiz tek tek sanal makineleri olur ve bu sanal makineler için otomatik ölçeklendirme küçültür. startingNumberOfVMs ve maxNumberofVMs ihtiyaçlarınıza göre ayarlanabilir.
 
 Otomatik ölçeklendirme formülü:
 
@@ -781,13 +781,13 @@ pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($
 $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 ```
 
-Bkz: [ölçek işlem düğümlerini Azure Batch havuzunda otomatik olarak](../../batch/batch-automatic-scaling.md) Ayrıntılar için.
+Bkz: [işlem düğümleri Azure Batch havuzunda otomatik olarak](../../batch/batch-automatic-scaling.md) Ayrıntılar için.
 
-Varsayılan havuzu kullanıyorsanız [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), Batch hizmeti VM özel etkinlik çalıştırmadan önce hazırlamak için 15-30 dakika sürebilir.  Havuz farklı autoScaleEvaluationInterval kullanıyorsanız, Batch hizmeti autoScaleEvaluationInterval + 10 dakika sürebilir.
+Varsayılan havuz kullanıyorsa [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), Batch hizmeti, sanal Makinenin özel etkinlik çalıştırmadan önce hazırlamak için 15-30 dakika sürebilir.  Havuz farklı autoScaleEvaluationInterval kullanıyorsanız, Batch hizmeti autoScaleEvaluationInterval + 10 dakika sürebilir.
 
 
-## <a name="create-a-custom-activity-by-using-net-sdk"></a>.NET SDK kullanarak bir özel etkinlik oluşturma
-Kılavuzda bu makalede, Azure portalını kullanarak özel etkinlik kullanan bir ardışık düzen ile bir veri fabrikası oluşturun. Aşağıdaki kod .NET SDK kullanarak data factory oluşturulacağını gösterir. Program aracılığıyla ardışık düzenlerinde oluşturmak için SDK'sını kullanma hakkında daha fazla ayrıntı bulabilirsiniz [.NET API kullanarak kopyalama etkinliği ile işlem hattı oluşturma](data-factory-copy-activity-tutorial-using-dotnet-api.md) makalesi. 
+## <a name="create-a-custom-activity-by-using-net-sdk"></a>.NET SDK kullanarak özel bir etkinlik oluşturma
+Bu makaledeki kılavuzda, Azure portalını kullanarak özel etkinliği kullanan bir işlem hattıyla veri fabrikası oluşturun. Aşağıdaki kodu yerine .NET SDK kullanarak data factory oluşturulacağını gösterir. Program aracılığıyla işlem hatlarında oluşturmak için SDK'sı kullanma hakkında daha fazla ayrıntı bulabilirsiniz [.NET API kullanarak kopyalama etkinlikli bir işlem hattı oluşturma](data-factory-copy-activity-tutorial-using-dotnet-api.md) makalesi. 
 
 ```csharp
 using System;
@@ -1027,17 +1027,17 @@ namespace DataFactoryAPITestApp
 ```
 
 ## <a name="debug-custom-activity-in-visual-studio"></a>Özel Etkinlik Visual Studio'da hata ayıklama
-[Azure Data Factory - yerel ortamınıza](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) örneği github'daki özel .NET etkinlikler Visual Studio içinde hata ayıklama olanak tanıyan bir araç içerir.  
+[Azure Data Factory - yerel ortam](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) github'daki örnek özel .NET etkinlikleri Visual Studio'dan hata ayıklama olanak tanıyan bir araç içerir.  
 
 
-## <a name="sample-custom-activities-on-github"></a>Github'da örnek özel etkinlikler
-| Örnek | Hangi özel etkinlik mu |
+## <a name="sample-custom-activities-on-github"></a>GitHub üzerinde örnek özel etkinlikler
+| Örnek | Hangi özel etkinlik yok |
 | --- | --- |
-| [HTTP veri yükleyici](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Verileri Azure Blob veri fabrikasında özel C# etkinlik kullanarak depolama için bir HTTP uç noktasından indirir. |
-| [Twitter düşünceleri çözümleme örneği](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Bir Azure ML model ve düşünceleri analiz, Puanlama, tahmin vb. çağırır. |
-| [R betiği Çalıştır](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |R betiği Hdınsight kümenize zaten R yüklü üzerinde olan RScript.exe çalıştırarak çağırır. |
-| [AppDomain .NET etkinliği arası](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Olanları Data Factory başlatıcısı tarafından kullanılan farklı derleme sürümlerini kullanır |
-| [Azure Analysis Services modelinde yeniden işleyin](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Azure Analysis Services modelinde yeniden işler. |
+| [HTTP veri yükleyici](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Verileri, özel C# etkinlik Data Factory kullanarak Azure Blob Depolama için bir HTTP uç noktasından indirir. |
+| [Twitter yaklaşım analizi örneği](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Bir Azure ML model ve yaklaşım analizi yapın, Puanlama, tahmin vb. çağırır. |
+| [R betiğini Çalıştır](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |R betiği HDInsight kümenizde R yüklü üzerinde zaten RScript.exe çalıştırarak çağırır. |
+| [Çapraz AppDomain .NET etkinliği](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Data Factory başlatıcısı tarafından kullanılan olanları farklı derleme sürümlerini kullanır |
+| [Azure Analysis Services modelinde yeniden işleme](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Azure Analysis Services modelinde yeniden işler. |
 
 [batch-net-library]: ../../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md

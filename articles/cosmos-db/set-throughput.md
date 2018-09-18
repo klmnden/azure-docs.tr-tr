@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: andrl
-ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42061469"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734480"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Azure Cosmos DB kapsayıcıları ve veritabanı için aktarım hızı alma ve ayarlama
 
@@ -61,7 +61,7 @@ Sonraki bölümlerde, aktarım hızı, Azure Cosmos DB hesabı için farklı dü
 2. Sol gezinti bölmesinde seçin **tüm kaynakları** ve Azure Cosmos DB hesabınızı bulun.  
 3. Mevcut bir veritabanı için bir veritabanı veya güncelleştirme aktarım hızı oluşturulurken, aktarım hızını yapılandırabilirsiniz.  
 4. Bir veritabanı oluşturulurken aktarım hızı atamak için açık **Veri Gezgini** dikey penceresinde ve select **yeni veritabanı**  
-5. Dolgu **veritabanı kimliği** değeri, onay **sağlama aktarım hızı** seçenek ve aktarım hızı değerini yapılandırın. Bir veritabanı en düşük aktarım hızı değeriyle 50.000 sağlanabilir RU/sn.  
+5. Dolgu **veritabanı kimliği** değeri, onay **sağlama aktarım hızı** seçenek ve aktarım hızı değerini yapılandırın.  
 
    ![Yeni veritabanı seçeneği ile aktarım hızı ayarlama](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -74,7 +74,7 @@ Sonraki bölümlerde, aktarım hızı, Azure Cosmos DB hesabı için farklı dü
 1. [Azure Portal](https://portal.azure.com) oturum açın.  
 2. Sol gezinti bölmesinde seçin **tüm kaynakları** ve Azure Cosmos DB hesabınızı bulun.  
 3. Veritabanı oluşturma ve aktarım hızı için atayın. Açık **Veri Gezgini** dikey penceresinde ve select **yeni veritabanı**  
-4. Dolgu **veritabanı kimliği** değeri, onay **sağlama aktarım hızı** seçenek ve aktarım hızı değerini yapılandırın. Bir veritabanı en düşük aktarım hızı değeriyle 50.000 sağlanabilir RU/sn.  
+4. Dolgu **veritabanı kimliği** değeri, onay **sağlama aktarım hızı** seçenek ve aktarım hızı değerini yapılandırın.  
 
    ![Yeni veritabanı seçeneği ile aktarım hızı ayarlama](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -107,33 +107,6 @@ Aşağıdaki durumlarda bir kapsayıcının aktarım hızı sağlama göz önün
 * Azure Cosmos DB kapsayıcıları daha az sayıda varsa.  
 
 * SLA ile desteklenen belirli bir kapsayıcıda, garantili aktarım hızı almak istiyorsanız.
-
-## <a name="throughput-ranges"></a>Aktarım aralığı
-
-Kapsayıcılar için kullanılabilir aktarım hızı aşağıdaki tabloda listelenmektedir:
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>Tek bölüm kapsayıcı</strong></p></td>
-            <td valign="top"><p><strong>Bölünmüş kapsayıcı</strong></p></td>
-            <td valign="top"><p><strong>Kapsayıcıları kümesi</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>En düşük aktarım hızı</p></td>
-            <td valign="top"><p>400 istek birimi / saniye</p></td>
-            <td valign="top"><p>saniye başına 1000 istek birimi</p></td>
-            <td valign="top"><p>50. 000'istek birimi / saniye</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>En fazla aktarım hızı</p></td>
-            <td valign="top"><p>10.000 istek birimi / saniye</p></td>
-            <td valign="top"><p>Sınırsız</p></td>
-            <td valign="top"><p>Sınırsız</p></td>
-        </tr>
-    </tbody>
-</table>
 
 <a id="set-throughput-sdk"></a>
 

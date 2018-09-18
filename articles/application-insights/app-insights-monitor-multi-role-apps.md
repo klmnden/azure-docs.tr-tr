@@ -10,20 +10,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2017
+ms.date: 09/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 191913500daf7f1ab20f92c7e951f58598d5d14e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: bf247748415822d5ba1a0e652fdeff384d8e8db1
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647719"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982060"
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Çok bileşenli uygulamalar Application Insights (Önizleme) ile izleme
 
 Birden çok sunucu bileşenlerini, rolleri veya Hizmetleri ile oluşur uygulamaları izleyebilirsiniz [Azure Application Insights](app-insights-overview.md). Bileşenler ve aralarındaki ilişkilerin durumunu tek bir uygulama harita üzerinde görüntülenir. Tek işlemler birden çok bileşen otomatik HTTP bağıntıyla aracılığıyla izleyebilirsiniz. Kapsayıcı tanılama tümleşik ve uygulama telemetrisini ile ilişkili. Uygulamanızın tüm bileşenleri için tek bir Application Insights kaynağı kullanın. 
 
-![Çok bileşenli Uygulama Haritası](./media/app-insights-monitor-multi-role-apps/app-map.png)
+![Çok bileşenli Uygulama Haritası](./media/app-insights-monitor-multi-role-apps/application-map-001.png)
 
 'Bileşen' burada büyük bir uygulamanın çalışan herhangi bir bölümünü auto'yu kullanırız. Örneğin, tipik iş uygulaması bir konuşma web tarayıcılarında çalışan istemci kodunun oluşabilir veya hizmetleri sırayla geri kullanan daha fazla web uygulama hizmetleri bitemez. Sunucu bileşenleri şirket içi bulut üzerinde olabilir ya da Azure web ve çalışan rolleri olabilir veya kapsayıcıları Docker veya Service Fabric gibi çalışabilir. 
 
@@ -33,7 +33,7 @@ Anahtar burada her bileşen aynı Application Insights kaynağına, uygulamanız
 
 Hakkında daha fazla bilgi için geçersiz kılma `cloud_RoleName` özelliği bakın [özellikleri ekleyin: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
 
-Bazı durumlarda, bu uygun olmayabilir ve farklı bileşenleri grupları için ayrı kaynaklar'ı kullanmayı tercih edebilirsiniz. Örneğin, yönetim veya faturalandırma amaçları için farklı kaynaklar kullanmanız gerekebilir. Ayrı kaynaklar kullanarak tek bir uygulama eşlemesinde görüntülenen tüm bileşenleri görmüyor anlamına gelir; ve bileşenler arasında sorgulanamıyor [Analytics](app-insights-analytics.md). Ayrıca ayrı kaynakları ayarlamak vardır.
+Bazı durumlarda, bu uygun olmayabilir ve farklı bileşenleri grupları için ayrı kaynaklar'ı kullanmayı tercih edebilirsiniz. Örneğin, yönetim veya faturalandırma amaçları için farklı kaynaklar kullanmanız gerekebilir.
 
 Bu uyarı ile birden çok bileşenlerini bir Application Insights kaynağına veri göndermek istediğiniz bu belgenin geri kalanında varsayıyoruz.
 

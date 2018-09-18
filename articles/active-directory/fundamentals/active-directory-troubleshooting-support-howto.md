@@ -1,6 +1,6 @@
 ---
-title: Azure AD için destek alma | Microsoft Docs
-description: Azure Active Directory için destek alma
+title: Azure Active Directory için destek alma | Microsoft Docs
+description: Azure Active Directory için destek almayı öğrenin.
 services: active-directory
 documentationcenter: na
 author: eross-msft
@@ -14,16 +14,14 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 72212d2d47ff0290ee541c1ffeab6d73dbf3185d
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: d7d499ed43ee2eab03e46e408104eca4af6a2945
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35982168"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729408"
 ---
-# <a name="how-to-get-support-for-azure-active-directory"></a>Azure Active Directory için destek alma
-
-
+# <a name="how-to-get-support-for-azure-active-directory"></a>Nasıl yapılır: Azure Active Directory için destek
 Microsoft, genel teknik, satış öncesi, faturalandırma ve abonelik desteği için Azure Active Directory (Azure AD) sağlar. Hem çevrimiçi hem de Microsoft Azure Ücretli ve ücretsiz deneme abonelikleri için telefonla destek kullanılabilir. Telefon ve çevrimiçi faturalandırma desteği, ek dillerde mevcuttur. 
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>Bir destek bileti açmadan Yardım bulma

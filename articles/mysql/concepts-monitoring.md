@@ -1,6 +1,6 @@
 ---
-title: MySQL için Azure veritabanında izleme
-description: Bu makalede izleme ve Azure veritabanı için CPU, depolama ve bağlantı istatistikleri de dahil olmak üzere MySQL için uyarı için ölçümleri açıklanmaktadır.
+title: MySQL için Azure veritabanı'nda izleme
+description: Bu makalede izleme ve CPU, depolama ve bağlantı istatistikleri de dahil olmak üzere MySQL için Azure veritabanı için uyarı ölçümleri açıklanır.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
@@ -8,35 +8,40 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 03/15/2018
-ms.openlocfilehash: af90fb4c89cf552d4c5637db08ef0acd9984b31b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/17/2018
+ms.openlocfilehash: 3c9e0acfe9f8ffb159cacf50923f249be175ea77
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264706"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981952"
 ---
-# <a name="monitoring-in-azure-database-for-mysql"></a>MySQL için Azure veritabanında izleme
-İzleme verilerini sunucularınız hakkında sorun giderme ve işleminizi iş yükü için en iyi duruma yardımcı olur. Azure veritabanı MySQL için MySQL server destekleyen kaynaklarda davranışını bir anlayış veren çeşitli ölçümleri sağlar. 
+# <a name="monitoring-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda izleme
+İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. MySQL için Azure veritabanı, MySQL server'ı destekleyen kaynaklarda davranışını öngörü sunan çeşitli ölçümleri sağlar. 
 
 ## <a name="metrics"></a>Ölçümler
-Tüm Azure ölçümlerini bir dakikalık sıklık, ve her ölçümü geçmişi 30 gün sağlar. Ölçümleri uyarılar yapılandırabilirsiniz. Adım adım yönergeler için bkz [uyarıları ayarlamak nasıl](howto-alert-on-metric.md). Diğer görevleri otomatik eylemler oluşturma, gelişmiş analizler gerçekleştirme ve geçmiş arşivleme içerir. Daha fazla bilgi için bkz: [Azure ölçümleri genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Tüm Azure ölçümleri bir dakikalık sıklığı, ve 30 günlük geçmişi her ölçüm sağlar. Ölçümler üzerinde uyarılar yapılandırabilirsiniz. Adım adım yönergeler için bkz. [uyarıları ayarlamak nasıl](howto-alert-on-metric.md). Diğer görevler otomatik eylemleri ayarlama, Gelişmiş analiz gerçekleştirme ve geçmiş arşivleme içerir. Daha fazla bilgi için [Azure ölçümlerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-### <a name="list-of-metrics"></a>Ölçümleri listesi
-Bu ölçümleri, Azure veritabanı için MySQL için kullanılabilir:
+### <a name="list-of-metrics"></a>Ölçümlerin listesi
+Bu ölçümler, MySQL için Azure veritabanı için kullanılabilir:
 
 |Ölçüm|Ölçüm görünen adı|Birim|Açıklama|
 |---|---|---|---|---|
-|cpu_percent|CPU yüzdesi|Yüzde|CPU yüzdesi kullanımda.|
+|cpu_percent|CPU yüzdesi|Yüzde|CPU yüzdesi kullanılıyor.|
 |memory_percent|Bellek yüzdesi|Yüzde|Kullanılan bellek yüzdesi.|
-|io_consumption_percent|G/ç yüzdesi|Yüzde|G/ç yüzdesi kullanımda.|
-|storage_percent|Depolama yüzdesi|Yüzde|En fazla sunucunun dışında kullanılan depolama alanı yüzdesi.|
-|storage_used|Kullanılan depolama|Bayt|Kullanımdaki depolama miktarı. Veritabanı dosyaları, işlem günlüklerinin ve sunucu günlüklerini hizmet tarafından kullanılan depolama alanını içerir.|
+|io_consumption_percent|G/ç yüzdesi|Yüzde|G/ç yüzdesi kullanılıyor.|
+|storage_percent|Depolama yüzdesi|Yüzde|En fazla depolama sunucusu dışında kullanılan yüzdesi.|
+|storage_used|Kullanılan depolama|Bayt|Kullanılan depolama miktarı. Hizmet tarafından kullanılan depolama, veritabanı dosyaları, işlem günlükleri ve sunucu günlüklerini içerebilir.|
+|serverlog_storage_percent|Sunucu günlüğü depolama yüzdesi|Yüzde|Sunucunun en fazla sunucu günlük depolama dışında kullanılan sunucu günlük depolama yüzdesi.|
+|serverlog_storage_usage|Kullanılan sunucu günlük depolama alanı|Bayt|Sunucu günlüğü depolama miktarı.|
+|serverlog_storage_limit|Sunucu günlük depolama sınırı|Bayt|Bu sunucu için en fazla sunucu günlük depolama.|
 |storage_limit|Depolama sınırı|Bayt|Bu sunucu için en fazla depolama alanı.|
-|active_connections|Toplam etkin bağlantılar|Sayı|Sunucuya etkin bağlantı sayısı.|
-|connections_failed|Toplam başarısız bağlantıları|Sayı|Sunucuya başarısız bağlantılarının sayısı.|
-
+|active_connections|Etkin bağlantılar|Sayı|Sunucu için etkin bağlantı sayısı.|
+|connections_failed|Başarısız Bağlantılar|Sayı|Başarısız bağlantılar sunucu sayısı.|
+|seconds_behind_master|Saniyeler içinde çoğaltma gecikmesi|Sayı|Çoğaltma sunucusu, ana sunucu karşı geciken saniye sayısı.|
+|network_bytes_egress|Ağ Çıkışı|Bayt|Ağ çıkışı arasında etkin bağlantılar.|
+|network_bytes_ingress|Ağ Girişi|Bayt|Ağ içinde arasında etkin bağlantılar.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Bkz: [uyarıları ayarlamak nasıl](howto-alert-on-metric.md) ölçüm üzerinde bir uyarı oluşturma konusunda yönergeler için.
-- Erişim ve Azure portalı, REST API veya CLI kullanarak ölçümleri dışarı aktarma hakkında daha fazla bilgi için bkz: [Azure ölçümleri genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Bkz: [uyarıları ayarlamak nasıl](howto-alert-on-metric.md) bir ölçüme göre bir uyarı oluşturma hakkında yönergeler için.
+- Erişim ve Azure portalı, REST API veya CLI kullanarak ölçümleri dışarı aktarma hakkında daha fazla bilgi için bkz. [Azure ölçümlerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

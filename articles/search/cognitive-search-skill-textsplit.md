@@ -1,6 +1,6 @@
 ---
-title: Metin bölme bilişsel arama nitelik (Azure Search) | Microsoft Docs
-description: Metin öbekleri veya bir Azure Search iyileştirmesini ardışık uzunluğu göre metin sayfalarının bölün.
+title: Metni Böl bilişsel arama beceri (Azure Search) | Microsoft Docs
+description: Metin öbekleri veya metin tabanlı bir Azure Search zenginleştirme ardışık düzeninde bir uzunluk sayfaları Kes.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,39 +10,42 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: dbb9261cfce0a8437cfe76121fa16aa87c4b3393
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 583d2ac5a8ac4c236612cdfe78595da1812c56fa
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33791031"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730775"
 ---
-#   <a name="text-split-cognitive-skill"></a>Bilişsel yetenek metnini bölme
+#   <a name="text-split-cognitive-skill"></a>Bilişsel beceri metni Böl
 
-**Metin bölünmüş** yetenek metin metin parçalara ayırır. Metin cümleleri veya belirli bir uzunlukta sayfa sonu isteyip istemediğinizi belirtebilirsiniz. Diğer becerileri aşağı uzunluk gereksinimlerini maksimum metin varsa bu beceri özellikle yararlıdır. 
+**Metin bölme** beceri metin metin öbeklere böler. Metin cümleler veya sayfaları belirli bir süre sonu isteyip istemediğinizi belirtebilirsiniz. Bu yetenek, diğer aşağı yönde becerileri uzunluğu gereksinimleri en büyük metin varsa özellikle yararlıdır. 
+
+> [!NOTE]
+> Bilişsel Arama, genel önizleme aşamasındadır. Görüntü ayıklama ve normalleştirme ve beceri yürütmesi şu anda ücretsiz sunulmaktadır. Daha sonraki bir zamanda, bu özelliklerin fiyatlandırması duyurulacaktır. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
 
 ## <a name="skill-parameters"></a>Yetenek parametreleri
 
-Parametreleri büyük/küçük harfe duyarlıdır.
+Parametreler büyük/küçük harfe duyarlıdır.
 
 | Parametre adı     | Açıklama |
 |--------------------|-------------|
-| textSplitMode      | "Sayfalar" veya "cümleleri" | 
-| maximumPageLength | TextSplitMode "sayfalara" olarak ayarlanırsa, bu tarafından ölçülen en fazla sayfa ifade eder `String.Length`. En düşük değer 100'dür. | 
-| defaultLanguageCode   | (isteğe bağlı) Aşağıdaki dil kodlarından birini: `da, de, en, es, fi, fr, it, ko, pt`. İngilizce (TR) varsayılandır. Birkaç göz önünde bulundurmanız gerekenler:<ul><li>Bir languagecode countrycode biçimi geçirirseniz, yalnızca languagecode parçası biçimi kullanılır.</li><li>Dil önceki listede değilse, bölünmüş yetenek karakter sınırlarında metni keser.</li><li>Bir dil kodu sağlama ikiye Çince, Japonca ve Kore dili gibi boşluk olmayan diller için bir sözcük kesme önlemek kullanışlıdır.</li></ul>  |
+| textSplitMode      | "Sayfalar" veya "cümleler" | 
+| maximumPageLength | TextSplitMode "sayfalarına" olarak ayarlanırsa bu ölçülen en fazla sayfa uzunluğu başvuruyor `String.Length`. En düşük değer 100'dür. | 
+| defaultLanguageCode   | (isteğe bağlı) Aşağıdaki dil kodları: `da, de, en, es, fi, fr, it, ko, pt`. İngilizce (TR) varsayılandır. Dikkate alınması gereken bazı noktalar:<ul><li>Bir languagecode countrycode biçimi geçirirseniz, yalnızca biçim languagecode bölümü kullanılır.</li><li>Dilin önceki listede değilse, bölünmüş beceri karakter sınırlarında metni keser.</li><li>Dil kodu sağlayarak, yarıya Çince, Japonca ve Korece gibi dilleri boşluk olmayan bir sözcük kesme önlemek açısından kullanışlıdır.</li></ul>  |
 
 
-## <a name="skill-inputs"></a>Yetenek girişleri
+## <a name="skill-inputs"></a>Beceri girişleri
 
 | Parametre adı       | Açıklama      |
 |----------------------|------------------|
-| Metin  | Dizeye bölmek için metin. |
+| metin  | Dizeye Bölünecek metin. |
 | languageCode  | (İsteğe bağlı) Belge için dil kodu.  |
 
-## <a name="skill-outputs"></a>Yetenek çıkışları 
+## <a name="skill-outputs"></a>Beceri çıkışları 
 
 | Parametre adı     | Açıklama |
 |--------------------|-------------|
@@ -127,9 +130,9 @@ Parametreleri büyük/küçük harfe duyarlıdır.
 ```
 
 ## <a name="error-cases"></a>Hata durumları
-Bir dil desteklenmiyorsa, bir uyarı oluşturulur ve metin karakter sınırlarında ayrılır.
+Bir dil desteklenmiyorsa, bir uyarı oluşturulduğu ve metin karakter sınırlarında bölünür.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-+ [Önceden tanımlanmış yetenekleri](cognitive-search-predefined-skills.md)
-+ [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
++ [Önceden tanımlanmış beceriler](cognitive-search-predefined-skills.md)
++ [Bir beceri kümesi tanımlama](cognitive-search-defining-skillset.md)

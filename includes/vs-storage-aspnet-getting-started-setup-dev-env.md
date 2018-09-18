@@ -1,35 +1,52 @@
+---
+title: include dosyası
+description: include dosyası
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 634143f56bc9134f240ff42b7b5989605c8bffde
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979094"
+---
 ## <a name="set-up-the-development-environment"></a>Geliştirme ortamını ayarlama
 
-Bu bölümde, geliştirme ortamını ayarlama aracılığıyla anlatılmaktadır. Bu, bir ASP.NET MVC uygulaması oluşturma, bağlı hizmetler bağlantısı ekleme, bir denetleyicisi ekleme ve gerekli ad alanı yönergeleri belirtmeyi içerir.
+Bu bölüm geliştirme ortamını ayarlama aracılığıyla size yol gösterir. Bu, bir ASP.NET MVC uygulaması oluşturma, bağlı hizmetler bağlantı ekleme, denetleyici ekleme ve gereken ad alanının yönergelerini belirtme içerir.
 
 ### <a name="create-an-aspnet-mvc-app-project"></a>Bir ASP.NET MVC uygulaması projesi oluşturma
 
 1. Visual Studio'yu açın.
 
-1. Ana menüden seçin **dosya** > **yeni** > **proje**.
+1. Ana menüden **dosya** > **yeni** > **proje**.
 
 1. İçinde **yeni proje** iletişim kutusunda **Web** > **ASP.NET Web uygulaması (.NET Framework)**. İçinde **adı** alanında, belirtin **StorageAspNet**. **Tamam**’ı seçin.
 
-    ![Yeni Proje penceresinin Ekran iletişim kutusu](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
+    ![Ekran görüntüsü, yeni proje iletişim kutusu](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
 1. İçinde **yeni ASP.NET Web uygulaması** iletişim kutusunda **MVC**ve ardından **Tamam**.
 
-    ![Ekran, yeni bir ASP.NET Web uygulaması iletişim kutusu](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
+    ![Ekran görüntüsü, yeni ASP.NET Web uygulaması iletişim kutusu](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
-### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Bir Azure depolama hesabına bağlanmak üzere bağlı hizmetler kullanın
+### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Bir Azure depolama hesabına bağlanmak için bağlı hizmetler kullanın
 
 1. İçinde **Çözüm Gezgini**, projeye sağ tıklayın.
 
 2. Bağlam menüsünden seçin **Ekle** > **bağlı hizmet**.
 
-1. İçinde **bağlantılı Hizmetler** iletişim kutusunda **Azure Storage ile bulut depolama**.
+1. İçinde **bağlı hizmetler** iletişim kutusunda **Azure depolama ile bulut depolama**.
 
-    ![Bağlantılı Hizmetler ekran iletişim kutusu](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
+    ![Bağlı hizmetler ekran iletişim kutusu](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
-1. İçinde **Azure Storage** Azure depolama hesabı Bu öğretici için kullanılacak iletişim kutusunda, seçin. Yeni bir Azure depolama hesabı oluşturmak için seçin **yeni depolama hesabı oluşturma**ve formu doldurun. Ya da mevcut bir depolama hesabını seçmek veya yeni bir tane oluşturduktan sonra Seç **Ekle**. Visual Studio Azure Storage ve bir depolama bağlantı dizesi için NuGet paketi yükler **Web.config**.
+1. İçinde **Azure depolama** Azure depolama hesabı Bu öğretici için kullanılacak iletişim kutusunda seçin. Yeni bir Azure depolama hesabı oluşturmak için Seç **yeni depolama hesabı oluşturma**ve formu doldurun. Ya da mevcut bir depolama hesabını seçmek veya yeni bir oluşturduktan sonra seçin **Ekle**. Visual Studio, Azure depolama ve bir depolama bağlantı dizesi için NuGet paketi yükler **Web.config**.
 
 > [!TIP]
-> İle depolama hesabı oluşturma konusunda bilgi almak için [Azure portal](https://portal.azure.com), bkz: [depolama hesabı oluşturma](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+> Bir depolama hesabı oluşturma hakkında bilgi edinmek için [Azure portalında](https://portal.azure.com), bakın [depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 >
-> Kullanarak bir depolama hesabı oluşturabilirsiniz [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), veya [Azure bulut Kabuk](../articles/cloud-shell/overview.md).
+> Kullanarak bir depolama hesabı oluşturabilirsiniz [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), veya [Azure Cloud Shell](../articles/cloud-shell/overview.md).
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cf6291cb12366c4f710092c1b36c8cb0b8c14fb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 2deacb7d15f370c9182c3239493ed60f735d738c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578404"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736844"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Barındırma ve SAP iş yükü senaryoları çalıştırmak için Azure'ı kullanma
 
@@ -103,23 +103,11 @@ Azure'da SAP iş yükü altında olmayan HANA veritabanları ile ilgili belgeler
 
 Azure üzerinde SAP HANA veritabanları için Azure sanal Makineler'de SAP HANA bölümüne bakın.
 
-Azure'da SAP iş yükü yüksek kullanılabilirlik için aşağıdaki belgeleri kullanılabilir:
+Azure'da SAP iş yükü yüksek kullanılabilirlik için giriş belgesidir:
 
 - [Azure sanal makineleri SAP NetWeaver için yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-start)
-- [Yüksek kullanılabilirlik mimarisi ve senaryolar için SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
-- ["Yüksek kullanılabilirliği" bir SAP sistemiyle elde etmek üzere Azure altyapı VM yeniden kullanma](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-higher-availability-architecture-scenarios)
-- [Azure'da bir küme paylaşılan disk kullanarak bir Windows Yük devretme kümesinde Küme SAP ASCS/SCS örneği](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
-- [SAP ASCS/SCS örneği ile Azure dosya paylaşımı kullanarak bir Windows Yük devretme kümesinde Küme](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)
-- [SAP uygulamaları için SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
-- [Azure altyapı SAP yüksek kullanılabilirlik için bir Windows Yük devretme kümesi ve paylaşılan disk SAP ASCS/SCS kullanarak hazırlama](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk)
-- [SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşımı kullanarak SAP yüksek kullanılabilirlik için Azure altyapısını hazırlama](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
-- [SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
-- [SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
-- [https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk)
-- [Azure üzerinde SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşım SAP NetWeaver-yüksek kullanılabilirlik yükleyin](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share)
-- [SAP uygulamaları için SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
-- [Paylaşılan disk azure'da Windows Server Yük Devretme Kümelemesi ve yüksek kullanılabilirlikle çoklu SID SAP ASCS/SCS örneği](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
-- [Azure'da Windows Server Yük Devretme Kümelemesi ve dosya paylaşımı ile yüksek kullanılabilirlik çoklu SID SAP ASCS/SCS örneği](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
+
+Giriş belgesi, çeşitli diğer mimari ve senaryo belgelere işaret eder. Sonraki senaryo belgeleri, dağıtımını ve yapılandırmasını farklı yüksek kullanılabilirlik yöntemleri açıklayan ayrıntılı teknik belgelere bağlantılar sağlanır. Windows işletim sistemlerinin yanı sıra Linux kapsayıp kurma ve SAP NetWeaver iş yükü için yüksek kullanılabilirlik yapılandırma farklı belgeler.
 
 
 Azure Active Directory (AAD) ile SAP hizmetleri arasında tümleştirme için ve çoklu oturum açma, gibi belgelerin listesi:
@@ -134,10 +122,10 @@ Azure Active Directory (AAD) ile SAP hizmetleri arasında tümleştirme için ve
 
 SAP bileşenleri Azure Hizmetleri'nin tümleştirilmesi için belgelerin listesini şuna benzer:
 
-- [Power BI Desktop'ta SAP HANA kullanma](https://docs.microsoft.com/power-bi/desktop-sap-hana)
+- [Power BI Desktop’ta SAP HANA kullanma](https://docs.microsoft.com/power-bi/desktop-sap-hana)
 - [DirectQuery ve SAP HANA](https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana)
-- [Power BI Desktop'ta SAP BW bağlayıcısını kullanma](https://docs.microsoft.com/power-bi/desktop-sap-bw-connector) 
-- [Azure Data Factory SAP HANA ve Business Warehouse veri tümleştirme sunar.](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
+- [SAP BW Connector’ı Power BI Desktop’ta kullanma](https://docs.microsoft.com/power-bi/desktop-sap-bw-connector) 
+- [Azure Data Factory, SAP HANA ve Business Warehouse veri tümleştirmesi sunuyor](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 
 
 

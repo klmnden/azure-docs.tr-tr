@@ -1,30 +1,30 @@
 ---
-title: -Microsoft Bilişsel hizmetler, soru-cevap Oluşturucu dağıtımınız için kapasite seçme | Microsoft Docs
-titleSuffix: Azure
+title: Dağıtım - soru-cevap Oluşturucu için kaynak kapasitesi
+titleSuffix: Azure Cognitive Services
 description: soru-cevap Oluşturucu dağıtımınız için kapasite seçmek için kılavuz
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: 71af374fbd08fe1f7568bc1ece2a65af2de3ad19
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.date: 09/12/2018
+ms.author: nstulasi
+ms.openlocfilehash: e2c9239ccd42e2464c85172be0e91492bd8f6718
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573375"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736793"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>Soru-cevap Oluşturucu dağıtımınız için kapasite seçme
 
 Soru-cevap Oluşturucu hizmetini üç Azure kaynaklarında bir bağımlılık alır:
 1.  App Service (için çalışma zamanı)
 2.  Azure arama (için Bankalarıyla depolama)
-3.  App Insights (chatlogs ve telemetri depolamak için isteğe bağlı)
+3.  App Insights (Sohbet günlükleri ve telemetri depolamak için isteğe bağlı)
 
-Soru-cevap Oluşturucu hizmetinizi oluşturmadan önce sizin için uygun olan hangi katmanları yukarıdaki Hizmetleri karar vermelisiniz. 
+Soru-cevap Oluşturucu hizmetinizi oluşturmadan önce yukarıdaki hizmetler hangi katmanı size uygun olduğuna karar vermelisiniz. 
 
 Genellikle dikkate almanız gereken üç parametresi vardır:
 1. **Aktarım hızı ihtiyacınız hizmetten**: uygun seçin [uygulama planı](https://azure.microsoft.com/en-in/pricing/details/app-service/plans/) uygulama hizmetiniz için gereksinimlerinize göre. Yapabilecekleriniz [ölçeği](https://docs.microsoft.com/azure/app-service/web-sites-scale) veya uygulama azaltın. Bkz: daha fazla ayrıntı bu Azure arama SKU seçiminiz ayrıca etkilemelidir [burada](https://docs.microsoft.com/azure/search/search-sku-tier).

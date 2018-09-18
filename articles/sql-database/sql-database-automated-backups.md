@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 07/25/2018
+ms.date: 09/14/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ce7c41730bec4e014225fb8c744d029493f5ec2c
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 3a9a81154a7ae03b524ca13da3b4576841c3cab3
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246795"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736776"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Otomatik SQL veritabanını yedekleme hakkında bilgi edinin
 
@@ -26,7 +26,7 @@ SQL veritabanı otomatik veritabanı yedeklerini oluşturur ve Azure okuma eriş
 
 ## <a name="what-is-a-sql-database-backup"></a>SQL veritabanı yedeklemesini nedir?
 
-SQL veritabanı oluşturmak için SQL Server teknolojisini kullanan [tam](https://msdn.microsoft.com/library/ms186289.aspx), [fark](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), ve [işlem günlüğü](https://msdn.microsoft.com/library/ms191429.aspx) yedeklerini amacı doğrultusunda, zaman içinde nokta geri (PITR). İşlem günlüğü yedeklemeleri genellikle 5-10 dakikada bir gerçekleşir ve değişiklik yedekleri performans düzeyi ve veritabanı etkinliği miktarı göre sıklığı ile her 12 saatte bir, genellikle oluşur. İşlem günlüğü yedeklemeleri, tam ve farklı yedeklemelerini bir veritabanı, bir özel-belirli bir noktaya veritabanını barındıran aynı sunucuya geri yüklemenize olanak sağlar. Yedeklemeleri çoğaltılır RA-GRS depolama bloblarında depolanan bir [eşleştirilmiş veri merkezine](../best-practices-availability-paired-regions.md) bir veri merkezi arızasına karşı koruma için. Bir veritabanını geri yüklediğinizde, hizmetin hangi tam, değişiklik yedeklemelerinin ve işlem günlüğü yedekleri geri yüklenmelidir çözüyordu.
+SQL veritabanı oluşturmak için SQL Server teknolojisini kullanan [tam](https://msdn.microsoft.com/library/ms186289.aspx), [fark](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), ve [işlem günlüğü](https://msdn.microsoft.com/library/ms191429.aspx) yedeklerini amacı doğrultusunda, zaman içinde nokta geri (PITR). İşlem günlüğü yedeklemeleri genellikle 5-10 dakikada bir gerçekleşir ve değişiklik yedekleri İşlem boyutu ve veritabanı etkinliği miktarı göre sıklığı ile her 12 saatte bir, genellikle oluşur. İşlem günlüğü yedeklemeleri, tam ve farklı yedeklemelerini bir veritabanı, bir özel-belirli bir noktaya veritabanını barındıran aynı sunucuya geri yüklemenize olanak sağlar. Yedeklemeleri çoğaltılır RA-GRS depolama bloblarında depolanan bir [eşleştirilmiş veri merkezine](../best-practices-availability-paired-regions.md) bir veri merkezi arızasına karşı koruma için. Bir veritabanını geri yüklediğinizde, hizmetin hangi tam, değişiklik yedeklemelerinin ve işlem günlüğü yedekleri geri yüklenmelidir çözüyordu.
 
 
 Bu yedeklemeler için kullanabilirsiniz:
@@ -66,7 +66,7 @@ Geçerli PITR saklama süresini artırmak istiyorsanız, SQL veritabanı uzun be
 
 ## <a name="how-often-do-backups-happen"></a>Yedeklemeleri ne sıklıkta gerçekleşir?
 ### <a name="backups-for-point-in-time-restore"></a>Yedeklemeler için zaman içinde nokta geri yükleme
-SQL veritabanı, tam yedekleme, değişiklik yedekleri ve işlem günlüğü yedeklemeleri otomatik olarak oluşturarak, zaman içinde nokta geri yükleme (PITR) Self Servis destekler. Haftalık tam veritabanı yedeklemeleri oluşturulur, Türevsel veritabanı yedekleri, genellikle her 12 saatte bir oluşturulur ve işlem günlüğü yedeklemeleri genellikle her 5-10 dakika performans düzeyinde ve veritabanı etkinliği miktarı göre sıklığı oluşturulur. Hemen bir veritabanı oluşturulduktan sonra ilk tam yedeklemede zamanlanır. Genellikle 30 dakika içinde tamamlanır, ancak veritabanı önemli bir boyutta olduğunda daha uzun sürebilir. Örneğin, ilk yedekleme, geri yüklenen veritabanı veya veritabanı kopyası üzerinde daha uzun sürebilir. İlk tam yedeklemeden sonra tüm ek yedeklemeler otomatik olarak zamanlanan ve arka planda sessizce yönetilen. Genel sistem iş yükü dengeleyen gibi tüm veritabanı yedeklerinin tam zamanlama SQL veritabanı hizmeti tarafından belirlenir.
+SQL veritabanı, tam yedekleme, değişiklik yedekleri ve işlem günlüğü yedeklemeleri otomatik olarak oluşturarak, zaman içinde nokta geri yükleme (PITR) Self Servis destekler. Haftalık tam veritabanı yedeklemeleri oluşturulur, Türevsel veritabanı yedekleri, genellikle her 12 saatte bir oluşturulur ve işlem günlüğü yedeklemeleri genellikle her 5-10 dakika işlem boyutu ve veritabanı etkinliği miktarı göre sıklığı oluşturulur. Hemen bir veritabanı oluşturulduktan sonra ilk tam yedeklemede zamanlanır. Genellikle 30 dakika içinde tamamlanır, ancak veritabanı önemli bir boyutta olduğunda daha uzun sürebilir. Örneğin, ilk yedekleme, geri yüklenen veritabanı veya veritabanı kopyası üzerinde daha uzun sürebilir. İlk tam yedeklemeden sonra tüm ek yedeklemeler otomatik olarak zamanlanan ve arka planda sessizce yönetilen. Genel sistem iş yükü dengeleyen gibi tüm veritabanı yedeklerinin tam zamanlama SQL veritabanı hizmeti tarafından belirlenir.
 
 Coğrafi olarak yedekli ve korunan PITR yedeklemeleri [Azure depolama bölgeler arası çoğaltma](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 

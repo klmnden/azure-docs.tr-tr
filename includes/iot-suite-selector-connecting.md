@@ -5,22 +5,23 @@ services: iot-suite
 author: dominicbetts
 ms.service: iot-suite
 ms.topic: include
-ms.date: 04/24/2018
+ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 780a215b66fec845bc1df639fedda870881b4027
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: ed2d52c906bda7060f09769fa689f824026669c5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39189516"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979052"
 ---
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
 > * [Linux üzerinde C](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
+> * [Raspberry Pi üzerinde C](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 > * [Node.js (genel)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Raspberry Pi üzerinde Node.js](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
-> * [Raspberry Pi üzerinde C](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
+> * [MXChip IOT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
 Bu öğreticide, uygulamanız bir **Soğutucu** Uzaktan izleme için aşağıdaki telemetri gönderen cihaz [Çözüm Hızlandırıcısı](../articles/iot-accelerators/about-iot-accelerators.md):
 

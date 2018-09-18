@@ -7,14 +7,14 @@ author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: mlandzic
-ms.openlocfilehash: 52fce1cf1acb5e084c629c9cad6486d6a599b4fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a57e354651255e2d3ff723e978222d1a5a9fa002
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435783"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733355"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL veritabanı esnek sorgu genel bakış (Önizleme)
 
@@ -28,7 +28,7 @@ T-SQL de tamamen Azure SQL veritabanlarında sorgulama yapma. Bu salt okunur uza
 
 ### <a name="available-on-standard-tier"></a>Standart katmanda kullanılabilir
 
-Esnek sorgu, standart ve Premium performans katmanı üzerinde desteklenir. Üzerinde performans sınırlamaları daha düşük performans katmanları için Önizleme sınırlamaları bölümüne bakın.
+Esnek sorgu standart ve Premium hizmet katmanlarda desteklenir. Daha düşük hizmet katmanlarına yönelik performans sınırlamaları üzerinde Önizleme sınırlamaları bölümüne bakın.
 
 ### <a name="push-parameters-to-remote-databases"></a>Uzak veritabanı için anında iletme parametreleri
 
@@ -101,7 +101,7 @@ Raporlama görevleri parçalı gerçekleştirmek için elastik sorgu kullanarak,
 
 > [!NOTE]
 > Elastik sorgu veritabanı (baş düğüm), ayrı bir veritabanı veya parça eşlemesi barındıran aynı veritabanı olabilir.
-> Seçtiğiniz herhangi bir yapılandırma olduğundan emin olun, veritabanının bu hizmet ve performans katmanını beklenen miktarı oturum açma/sorgu isteği işlemek için yüksek.
+> Seçin, söz konusu hizmet katmanı emin olun ve sonra işlem, veritabanı boyutu ne olursa olsun beklenen miktarı oturum açma/sorgu isteği işlemek için yeterince yüksek bir yapılandırmadır.
 
 Aşağıdaki adımları (genellikle) birden çok uzak SQL veritabanlarında bulunan tabloları kümesi erişmesi yatay bölümleme senaryoları için esnek veritabanı sorguları yapılandırın:
 
@@ -133,7 +133,7 @@ Esnek sorgu, Azure SQL veritabanı veritabanları maliyetini dahil edilir. Uzak 
 
 ## <a name="preview-limitations"></a>Önizleme sınırlamaları
 
-* Çalıştıran ilk esnek sorgunuzu alabilir standart performans katmanındaki birkaç dakika. Bu süre, elastik sorgu işlevini yüklemek gereklidir; Yükleme performansını, yüksek performans katmanları ile artırır.
+* Çalıştıran ilk esnek sorgunuzu alabilir standart hizmet katmanında işlem birkaç dakika için. Bu süre, elastik sorgu işlevini yüklemek gereklidir; daha yüksek hizmet katmanları ve bilgi işlem boyutlarına ile yükleme performansını artırır.
 * Dış veri kaynaklarına veya dış tablolar SSMS veya SSDT betik henüz desteklenmiyor.
 * İçeri/dışarı aktarma SQL DB, dış veri kaynakları ve dış tablolar henüz desteklemiyor. İçeri/dışarı aktarma kullanmanız gerekiyorsa, dışarı aktarmadan önce bu nesneleri bırakın ve sonra bunları içeri aktardıktan sonra yeniden oluşturun.
 * Esnek sorgu şu anda yalnızca dış tablolar yalnızca okuma erişimi destekler. Ancak, tüm T-SQL işlevleri veritabanında dış tablo tanımlandığı kullanabilirsiniz. Örneğin, geçici sonuçları kullanarak, örneğin kalıcı, < local_table > < column_list >'i seçin, veya dış tablolara başvuran esnek sorgu veritabanında saklı yordamlar tanımlamak için yararlı olabilir.

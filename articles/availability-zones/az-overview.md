@@ -3,7 +3,7 @@ title: Azure kullanılabilirlik alanları nedir? | Microsoft Docs
 description: Azure'da yüksek oranda kullanılabilir ve dayanıklı uygulamalar oluşturma için fiziksel olarak ayrı konumlarda kaynaklarınızı çalıştırmak için kullanabileceğiniz kullanılabilirlik sağlayın.
 services: ''
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
-ms.author: iainfou
+ms.date: 08/31/2018
+ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 6a4dcc2cd3b196221b881783c79ddb0adaa6f38b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 488f7fa123692a908c36619e17166cee27d17612
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42058288"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735875"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik alanları nedir?
 Kullanılabilirlik alanları, veri merkezi arızasına karşı uygulamalarınızı ve verilerinizi koruyan sunan bir yüksek kullanılabilirlik olur. Kullanılabilirlik, bir Azure bölgesi içinde benzersiz fiziksel konumlara bölgeleridir. Her bölge, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Bir bölge içinde kullanılabilirlik alanlarının fiziksel olarak ayrılması, uygulamaları ve verileri veri merkezi arızasına karşı korur. Bölgesel olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-ın-arızasına karşı korumak için kullanılabilirlik alanları genelinde çoğaltın. Kullanılabilirlik alanları ile Azure, sektördeki en iyi % 99,99 VM çalışma SLA'sı sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
@@ -40,10 +40,13 @@ Azure üzerinde kapsamlı iş sürekliliği elde etmek için uygulama mimarinizi
 ## <a name="regions-that-support-availability-zones"></a>Kullanılabilirlik alanlarını destekleyen bölgeler
 
 - Orta ABD
-- Fransa Orta
 - Doğu ABD 2 (Önizleme)
-- Batı Avrupa
+- Fransa Orta
+- Kuzey Avrupa
 - Güneydoğu Asya (Önizleme)
+- Batı Avrupa
+- Batı ABD 2
+
 
 
 ## <a name="services-that-support-availability-zones"></a>Kullanılabilirlik alanlarını destekleyen hizmetler

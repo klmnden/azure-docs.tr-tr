@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/16/2018
 ms.author: glenga
-ms.openlocfilehash: 9f6746f1bf8fb65e39933afa00b74a2b8266a1a9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: f7299b9193c5ab24431feb9c73a0a3cf97596da3
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095445"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734950"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
@@ -152,18 +152,15 @@ Yalnızca tüketim planları için. İşlev uygulaması kod ve yapılandırma do
 |---|------------|
 |WEB SİTESİ\_DÜĞÜM\_DEFAULT_VERSION|6.5.0|
 
-## <a name="websiterunfromzip"></a>WEB SİTESİ\_ÇALIŞTIRMA\_FROM\_ZIP
+## <a name="websiterunfrompackage"></a>WEB SİTESİ\_ÇALIŞTIRMA\_FROM\_PAKET
 
 Takılı paket dosyasından çalıştırılacak işlev uygulamanızı sağlar.
 
-> [!NOTE]
-> Bu ayar için bir önizleme özelliğidir.
-
 |Anahtar|Örnek değer|
 |---|------------|
-|WEB SİTESİ\_ÇALIŞTIRMA\_FROM\_ZIP|1|
+|WEB SİTESİ\_ÇALIŞTIRMA\_FROM\_PAKET|1|
 
-Geçerli değerler için bir dağıtım paket dosyası konumunu çözümleyen ya da bir URL veya `1`. Ayarlandığında `1`, paket olmalıdır `d:\home\data\SitePackages` klasör. Zip dağıtımı Bu ayar ile kullanıldığında, paketi bu konuma otomatik olarak yüklenir.  Daha fazla bilgi için [paket dosyasından işlevlerinizin çalıştığı](run-functions-from-deployment-package.md).
+Geçerli değerler için bir dağıtım paket dosyası konumunu çözümleyen ya da bir URL veya `1`. Ayarlandığında `1`, paket olmalıdır `d:\home\data\SitePackages` klasör. Zip dağıtımı Bu ayar ile kullanıldığında, paketi bu konuma otomatik olarak yüklenir. Önizleme'de, bu ayar adlandırılmış `WEBSITE_RUN_FROM_ZIP`. Daha fazla bilgi için [paket dosyasından işlevlerinizin çalıştığı](run-functions-from-deployment-package.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

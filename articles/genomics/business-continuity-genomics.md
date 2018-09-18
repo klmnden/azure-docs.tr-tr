@@ -1,51 +1,49 @@
 ---
 title: İş sürekliliği - Microsoft Genomics | Microsoft Docs
 titleSuffix: Azure
-description: Microsoft Genomics iş sürekliliği nasıl destekler? öğrenin
+description: Bu genel bakışta, iş sürekliliği ve olağanüstü durum kurtarma için Microsoft Genomics sağlayan özellikleri açıklar. Veri kaybına neden olabilecek bir Azure bölgesinde kesinti gibi hizmet kesintilerine yol açacak olaylardan kurtarmak için seçenekler hakkında bilgi edinin.
 keywords: İş sürekliliği, olağanüstü durum kurtarma
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 04/06/2018
-ms.openlocfilehash: cb3825cb89aff386c4f7c3f3b0d771d73fe637b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be678648ab93fcbdfd0a0baa1b01dcb273060ce2
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31427166"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729461"
 ---
-# <a name="overview-of-business-continuity-with-microsoft-genomics"></a>İş sürekliliği Microsoft Genomics ile genel bakış
-Bu genel bakışta, iş devamlılığı ve olağanüstü durum kurtarma için Microsoft Genomics sağlayan özellikleri açıklanmaktadır. Veri kaybına neden olabilecek bir Azure bölgesi kesinti gibi kesintiye uğratan olaylardan kurtarma seçenekleri hakkında bilgi edinin. 
+# <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Microsoft Genomics iş sürekliliğine genel bakış
+Bu genel bakışta, iş sürekliliği ve olağanüstü durum kurtarma için Microsoft Genomics sağlayan özellikleri açıklar. Veri kaybına neden olabilecek bir Azure bölgesinde kesinti gibi hizmet kesintilerine yol açacak olaylardan kurtarmak için seçenekler hakkında bilgi edinin. 
 
 
-## <a name="microsoft-genomics-features-that-support-business-continuity"></a>Bu destek iş sürekliliği Microsoft Genomics özellikleri 
-Ender olsa bir Azure veri merkezi birkaç dakika ile birkaç saat son bir iş kesintiye neden olabilecek bir hizmet kesintisi olabilir. Bir kesinti oluşursa, şu anda veri merkezinde çalışan tüm işleri başarısız olur ve Microsoft Genomics hizmeti otomatik olarak ikincil bir bölgeye işleri yeniden gönderin. 
+## <a name="microsoft-genomics-features-that-support-business-continuity"></a>Microsoft Genomics söz konusu destek iş sürekliliği özellikleri 
+Ender olsa bir Azure veri merkezinde bir kesinti birkaç dakika ile birkaç saat sürebilecek bir iş kesinti olabilir. Bir kesinti oluştuğunda, veri merkezinde şu anda çalışan tüm işleri başarısız olur ve Microsoft Genomics hizmetine otomatik olarak ikincil bir bölgeye sunmaları değil. 
 
-* Veri Merkezi kesintisinden tekrar çevrimiçi görünmesi için veri merkezi üzerinden beklenir bir seçenektir. Kesinti kısaysa, Microsoft Genomics hizmet başarısız işleri otomatik olarak algılar ve iş akışı otomatik olarak yeniden başlatılacak.
+* Veri Merkezi kesintisi veri merkezi tekrar çevrimiçi duruma gelmesini beklemek bittikten bir seçenektir. Kesinti kısaysa, Microsoft Genomics hizmeti başarısız işleri otomatik olarak algılar ve iş akışını otomatik olarak yeniden başlatılır.
 
-* Proaktif olarak başka bir veri bölgesi iş akışında gönderme başka bir seçenektir. Microsoft Genomics dağıtan birkaç durumlarda [Azure bölgeleri](https://azure.microsoft.com/regions/services/), ve her bölgeye özgü örneği bağımsızdır. Microsoft Genomics örneklerden birini bir bölge yerel hatasıyla karşılaşırsanız, Microsoft Genomics örneklerini çalıştıran diğer bölgelerdeki işlerini işlemeye devam eder. Bu aktarım alternatif bir bölge için kullanıcı ve kullanılabilir altında herhangi bir zamanda denetimdir.
+* Başka bir iş akışında başka bir veri bölgesi proaktif bir şekilde göndermek için bir seçenektir. Bazı durumlarda Microsoft Genomics dağıtır [Azure bölgeleri](https://azure.microsoft.com/regions/services/), ve her bir bölgeye özgü örneği bağımsızdır. Microsoft Genomics örneklerinden birinde bir bölge yerel hatasıyla karşılaşırsanız, Microsoft Genomics örneklerini çalıştıran diğer işleri işlemek devam edecektir. Bu aktarım için alternatif bölgelere kullanıcının ve kullanılabilir altında herhangi bir zamanda denetimidir.
 
 
-### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>El ile yük devretme Microsoft Genomics iş akışlarına başka bir bölge
-Bölgesel veri merkezi kesintisinden söz konusu olduğunda, Microsoft Genomics akışlarında ayrı veri egemenliği ve iş sürekliliği gereksinimlerinize göre bir ikincil bölge göndermek tercih edebilirsiniz. El ile yük devretme Microsoft Genomics iş akışları için farklı bir bölgeye özel kullanırsınız. Genomics hesap ve uygun bölgeye özgü Genomics ve depolama hesabının kimlik bilgilerini işlemiyle gönderin.
+### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>El ile yük devretme Microsoft Genomics iş akışları başka bir bölgede
+Bölgesel veri merkezi kesintisi durumunda ikincil bir bölgede Microsoft Genomics iş akışlarını tek tek veri egemenliği ve iş sürekliliği gereksinimlerinize göre gönderme katılmak bırakmayı. El ile yük devretme Microsoft Genomics iş akışları için farklı bir bölgeye özel kullanmanız gerekir. Genomiks hesabı ve ilgili bölgeye özgü Genomiks ve depolama hesabı kimlik bilgileri ile iş gönderme.
 
 Özellikle, yapmanız gerekir:
-* Azure portalını kullanarak ikincil bölge'de, bir Genomics hesabı oluşturun. 
-* İkincil bölge içindeki bir depolama hesabına giriş verilerinizi taşımanız ve ikincil bölge içinde bir çıkış klasörü ayarlayın.
-* İkincil bölge iş akışında gönderin.
+* Genomiks hesabı, Azure portalını kullanarak ikincil bölgede oluşturun. 
+* Girişinizi ikincil bölgedeki bir depolama hesabına geçirin ve ikincil bölgedeki bir çıkış klasörü ayarlayın.
+* İkincil bölgedeki bir iş akışı gönderin.
 
-Özgün bölge geri yüklendiğinde Microsoft Genomics hizmeti veri ikincil bölge ' özgün bölgeye geçirmez. İkincil bölge çıktı dosyaları özgün bölgesine arka ve giriş taşımak tercih edebilirsiniz.  Veri taşıma verilerini taşıma bırakmayı, bu dışında Genomics hizmetidir ve tüm ücretleri ilgili sizin sorumluluğunuzdadır şöyle olur. 
+Özgün bölge geri yüklendiğinde, Microsoft Genomics hizmeti verileri ikincil bölgeden özgün bölgeye geri geçirmez. Girişi Taşı katılmak bırakmayı ve özgün bölgeye ikincil bölgeye çıktı dosyaları yedekleyin.  Veri taşıma verilerini taşımak seçilmesi, Genomiks hizmeti dışında budur ve ilgili tüm ücretleri sizin sorumluluğunuzdadır olacaktır. 
 
-### <a name="preparing-for-a-possible-region-specific-outage"></a>Olası bir bölgeye özgü kesinti için hazırlama
-Veri Merkezi kesintisinden söz konusu olduğunda daha hızlı kurtarma hakkında endişeleriniz varsa, Microsoft Genomics akışlarınızı ikincil bir bölgeye el ile yeniden gönderin gereken süreyi azaltmak için yapabileceğiniz birkaç adım vardır:
+### <a name="preparing-for-a-possible-region-specific-outage"></a>Olası bir bölgeye özgü kesinti için hazırlanma
+Daha hızlı kurtarma veri merkezi kesintisi durumunda ilgili endişeleriniz varsa, Microsoft Genomics akışlarınızı ikincil bir bölgeye el ile yeniden göndermek için gereken süreyi azaltmak için yapabileceğiniz birkaç adım vardır:
 
-* Uygun bir ikincil bölge belirleyin ve bu bölgede etkin profesyonel bir Genomics hesabı oluşturun
-* Böylece, verilerinizi ikincil bölge'de hemen kullanılabilir birincil ve ikincil bölge verilerinizi yinelenen. Bu el ile yapılan veya kullanarak olabilir [coğrafi olarak yedekli depolama](https://docs.microsoft.com/azure/storage/common/storage-redundancy) Özelliği Azure depolama alanında kullanılabilir. 
+* Uygun bir ikincil bölgeye tanımlamak ve profesyonel etkin olarak bu bölgede Genomiks hesabı oluşturma
+* Böylece, verilerinizi ikincil bölge'de hemen kullanılabilir birincil ve ikincil bölgede çoğaltın. Bu el ile yapılan veya kullanarak olabilir [coğrafi olarak yedekli depolama](https://docs.microsoft.com/azure/storage/common/storage-redundancy) özelliğini Azure depolamada kullanılabilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, iş sürekliliği ve olağanüstü durum kurtarma seçenekleri hakkında Microsoft Genomics hizmetini kullanırken öğrendiniz. İş devamlılığı ve olağanüstü durum kurtarma Azure içinde genel hakkında daha fazla bilgi için bkz: [Azure dayanıklılık teknik Kılavuzu.](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region) 
+Bu makalede, iş sürekliliği ve olağanüstü durum kurtarma seçenekleriniz hakkında Microsoft Genomics hizmeti kullanırken öğrendiniz. İş sürekliliği ve olağanüstü durum kurtarma azure'da genel hakkında daha fazla bilgi için bkz: [Azure dayanıklılık teknik Kılavuzu.](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region) 

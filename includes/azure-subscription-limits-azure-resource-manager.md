@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: f47654d056a26f5a58b1ccc2c200f774bee1f19f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348210"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979710"
 ---
 | Kaynak | Varsayılan Sınır | Üst Sınır |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "37348210"
 | [Abonelik](../articles/billing-buy-sign-up-azure-subscription.md) başına toplam VM çekirdeği sayısı |Bölge başına 20<sup>1</sup> | Desteğe başvurun |
 | Bir [abonelikteki](../articles/billing-buy-sign-up-azure-subscription.md) seri (Dv2, F vb.) çekirdeği başına VM |Bölge başına 20<sup>1</sup> | Desteğe başvurun |
 | Abonelik başına [ortak yönetici](../articles/billing-add-change-azure-subscription-administrator.md) sayısı |Sınırsız |Sınırsız |
-| [Depolama hesapları](../articles/storage/common/storage-create-storage-account.md) her Abonelikteki bölge başına |200 |200<sup>2</sup> |
+| [Depolama hesapları](../articles/storage/common/storage-quickstart-create-account.md) her Abonelikteki bölge başına |200 |200<sup>2</sup> |
 | Abonelik başına [Kaynak Grubu](../articles/azure-resource-manager/resource-group-overview.md) |980 |980 |
 | Abonelik başına [Kullanılabilirlik Kümesi](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |Bölge başına 2.000 |Bölge başına 2.000 |
 | Resource Manager API'si Okuma İşlemleri |Saatte 15.000 |Saatte 15.000 |
@@ -31,6 +31,7 @@ ms.locfileid: "37348210"
 | Abonelik başına benzersiz etiket hesaplaması<sup>3</sup> | 10,000 | 10,000 |
 | Abonelik başına [bulut hizmeti](../articles/cloud-services/cloud-services-choose-me.md) sayısı |Uygulanamaz<sup>4</sup> |Uygulanamaz<sup>4</sup> |
 | Abonelik başına [benzeşim grubu](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) sayısı |Uygulanamaz<sup>4</sup> |Uygulanamaz<sup>4</sup> |
+| [Abonelik düzeyi dağıtımları](../articles/azure-resource-manager/deploy-to-subscription.md) konum başına | 800 | 800 |
 
 <sup>1</sup>Varsayıla limitler Ücretsiz Deneme, Kullandıkça Öde gibi teklif Kategori Türüne ve Dv2, F, G vb. serilere göre farklılık gösterir.
 

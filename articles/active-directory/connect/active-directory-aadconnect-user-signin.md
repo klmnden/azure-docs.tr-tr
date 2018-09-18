@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1bf20ebec5792fc01c62966a0454c37c3c950182
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 554434e57c5c67809f79aab21054e6ad60fe8491
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35972101"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729406"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect kullanıcı oturum açma seçenekleri
 Azure Active Directory (Azure AD) Connect, kullanıcılarınızın hem bulut hem de şirket içi kaynaklara aynı parolayı kullanarak oturum açmasını sağlar. Bu makalede, Azure AD'de oturum açmak için kullanmak istediğiniz kimlik seçmenize yardımcı olmak her bir kimlik modeli için temel kavramları açıklar.
@@ -114,7 +114,7 @@ Kullanıcının UPN'sini şu biçimdedir username@domain. Örneğin, "contoso.co
 ### <a name="user-principal-name-in-azure-ad"></a>Azure AD'de kullanıcı asıl adı
 Azure AD Connect Sihirbazı, userPrincipalName özniteliği kullanır veya şirket içinden Azure AD'de kullanıcı asıl adı kullanılmak üzere özniteliğinde (özel bir yükleme) belirtmenize olanak tanır. Azure AD'de oturum açmak için kullanılan değer budur. UserPrincipalName özniteliğinin değeri Azure AD'de doğrulanmış bir etki alanına karşılık gelmesi gerekmez, ardından Azure AD ile bir varsayılan değiştirir. onmicrosoft.com değeri.
 
-Her dizinde bir Azure Active Directory biçimi contoso.onmicrosoft.com, Azure veya diğer Microsoft Hizmetleri kullanmaya başlamanıza olanak tanıyan bir yerleşik etki alanı adıyla birlikte gönderilir. Geliştirin ve özel etki alanları kullanarak oturum açma deneyimini basitleştirir. Azure AD'de özel etki alanı adlarını ve bir etki alanını doğrulama hakkında daha fazla bilgi için bkz: [Azure Active Directory'ye özel etki alanı adınızı ekleme](../fundamentals/add-custom-domain.md#add-the-custom-domain-name-to-your-directory).
+Her dizinde bir Azure Active Directory biçimi contoso.onmicrosoft.com, Azure veya diğer Microsoft Hizmetleri kullanmaya başlamanıza olanak tanıyan bir yerleşik etki alanı adıyla birlikte gönderilir. Geliştirin ve özel etki alanları kullanarak oturum açma deneyimini basitleştirir. Azure AD'de özel etki alanı adlarını ve bir etki alanını doğrulama hakkında daha fazla bilgi için bkz: [Azure Active Directory'ye özel etki alanı adınızı ekleme](../fundamentals/add-custom-domain.md#add-a-custom-domain-name).
 
 ## <a name="azure-ad-sign-in-configuration"></a>Azure AD oturum açma yapılandırması
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Azure AD oturum açma yapılandırması Azure AD Connect ile
@@ -126,7 +126,7 @@ Azure AD oturum açma sayfasının, her sonek karşı karşılık gelen durumunu
 | Durum | Açıklama | Eylem gerekli |
 |:--- |:--- |:--- |
 | Doğrulandı |Azure AD Connect, Azure AD'de doğrulanmış etki alanı için eşleşen bir bulundu. Bu etki alanı için tüm kullanıcılar, şirket içi kimlik bilgilerini kullanarak oturum açabilirsiniz. |Eylem gerekmiyor. |
-| Doğrulanmadı |Azure AD Connect, Azure AD'de eşleşen özel etki alanı bulundu, ancak doğrulanmış değil. Bu etki alanı kullanıcılarının UPN soneki, varsayılan değiştirilecek. onmicrosoft.com sonekini etki alanını doğruladıysanız değil eşitlemeden sonra. | [Azure AD'de özel etki alanını doğrulayın.](../fundamentals/add-custom-domain.md#verify-the-custom-domain-name-in-azure-ad) |
+| Doğrulanmadı |Azure AD Connect, Azure AD'de eşleşen özel etki alanı bulundu, ancak doğrulanmış değil. Bu etki alanı kullanıcılarının UPN soneki, varsayılan değiştirilecek. onmicrosoft.com sonekini etki alanını doğruladıysanız değil eşitlemeden sonra. | [Azure AD'de özel etki alanını doğrulayın.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
 | Ekli değil |Azure AD Connect için UPN soneki corresponded özel bir etki alanı bulunamadı. Bu etki alanı kullanıcılarının UPN soneki, varsayılan değiştirilecek. onmicrosoft.com sonekini etki alanı eklenmiş değildir ve Azure'da doğrulanır. | [Ekleme ve için UPN son ekine karşılık gelen bir özel etki alanını doğrulayın.](../fundamentals/add-custom-domain.md) |
 
 Azure AD oturum açma sayfasında şirket içi Active Directory ile ilgili özel etki alanı için geçerli doğrulama durumunu ile Azure AD'de tanımlanan UPN sonekleri listeler. Özel bir yükleme artık kullanıcı asıl adı özniteliğini üzerinde seçebilirsiniz **Azure AD oturum açma** sayfası.

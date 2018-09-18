@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ea9ff8f93ede3b9ec5e7eed83c6049b0c23de7e8
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 94de5566db2395a3daf24c99a43cca6853e12cce
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205468"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736980"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -43,26 +43,34 @@ Yapılandırması hakkında tam Ayrıntılar için bkz [MXChip cihaz şablonu ay
 
 ## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
-Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz şablonu ve cihaz bağlantı dizesini Not olun. Daha fazla bilgi için [Azure IOT Central uygulamanıza gerçek bir cihaz eklemek](tutorial-add-device.md).
+Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz şablonu ve cihaz bağlantı ayrıntılarını not yap (**kapsam kimliği, cihaz kimliği ve birincil anahtarınızı**).
+
+1. Ekleme bir **gerçek cihaz** Device Explorer tıklayarak **+ yeni > gerçek** gerçek bir cihaz eklemek için.
+    * Cihaz kimliğini girebilir **<span style="color:Red">(küçük harf olması gerekir)</span>** veya önerilen cihaz kimliğini kullanması
+    * Cihaz adını girin veya önerilen adı kullanın
+    
+    ![Cihaz Ekleme](media\concepts-connectivity\add-device.png)
+
+
+1. Bağlantı ayrıntıları gibi almak **kapsam kimliği, cihaz kimliği ve birincil anahtarınızı** tıklayarak eklenen bir cihazı için **Connect** cihaz sayfasında.
+ 
+    ![Bağlantı ayrıntıları](media\concepts-connectivity\device-connect.PNG)
+
+3. Bu ayrıntılar kaydettiğinizden emin olun DevKit cihazı hazırlama gibi gibi temporaritly internet'ten bağlantıları kesilir. 
+
 
 ### <a name="prepare-the-devkit-device"></a>DevKit cihazı hazırlama
 
 > [!NOTE]
 > Cihaz daha önce kullandınız ve kimlik bilgileri depolanır ve farklı bir WiFi ağına, bağlantı dizesi veya telemetri ölçüm kullanacak şekilde cihazı yeniden yapılandırmak istediğiniz Wi-Fi varsa, her ikisi de basın **A** ve **B** Pano üzerinde aynı anda düğmeler. Bu işe yaramazsa, basın **sıfırlama** düğmesine tıklayın ve yeniden deneyin.
 
-#### <a name="before-you-start-configuring-the-device"></a>Cihaz yapılandırma başlamadan önce:
-1. İçinde IOT Central **örnek Devkits** Git `Device Explorer` ->  `select MXChip Template`  ->  `Click on +New and choose **Real** Device`  ->  `Connect this device` (sağ üst kısımdaki) 
-2. Birincil bağlantı dizesini kopyalayın
-3. Bağlantı dizesi kaydettiğinizden emin olun DevKit cihazı hazırlama gibi gibi temporaritly internet'ten bağlantıları kesilir. 
 
 
 #### <a name="to-prepare-the-devkit-device"></a>DevKit cihazı hazırlamak için:
 
 
-1. MXChip için önceden oluşturulmuş en son Azure IOT Central bellenim indirme [sürümleri](https://github.com/Azure/iot-central-firmware/releases) GitHub sayfasında. Sürümler sayfasından indirme dosya benzer `AZ3166-IoT-Central-X.X.X.bin`.
-
+1. MXChip için önceden oluşturulmuş en son Azure IOT Central bellenim indirme [sürümleri](http://aka.ms/iotcentral-docs-MXChip-releases) GitHub sayfasında.
 1. DevKit cihazı bir USB kablosu kullanarak, geliştirme makinenize bağlayın. Windows içinde DevKit cihazdaki depolama alanına eşlenmiş sürücüsünde bir dosya Gezgini penceresi açılır. Örneğin, sürücü olarak adlandırılabilir **AZ3166 (D:)**.
-
 1. Sürükleme **iotCentral.bin** sürücü pencerenin üzerine dosya. Kopyalama tamamlandığında, cihazı yeni bellenim ile yeniden başlatır.
 
 1. DevKit cihaz yeniden başlatıldığında, aşağıdaki ekranda görüntüler:
@@ -75,7 +83,7 @@ Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz �
     ```
 
     > [!NOTE]
-    > Başka bir şey ekran görüntüleri, basın **A** ve **B** cihazı yeniden başlatmak için aynı anda cihazda düğme. 
+    > Başka bir şey ekran görüntüleri, tuşuna basın ve cihaz sıfırlama **A** ve **B** cihazı yeniden başlatmak için aynı anda cihazda düğme. 
 
 1. Cihaz erişim noktası (AP) modunda sunulmuştur. Bu Wi-Fi erişim noktasına, bilgisayar veya mobil CİHAZDAN bağlanabilirsiniz.
 
@@ -89,7 +97,7 @@ Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz �
     - Wi-Fi ağınıza adını ekleyin 
     - Wi-Fi ağ parolanızı
     - PIN LCD cihazda gösterilen kodu 
-    - bağlantı dizesi (, zaten kaydettiğiniz bu adımları izleyerek) cihazınızın zamanında bağlantı dizenizi bulabilirsiniz `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (sağ üst kısımdaki)
+    - bağlantı ayrıntıları **kapsam kimliği, cihaz kimliği ve birincil anahtarınızı** cihazınızın (, zaten kaydettiğiniz bu adımları izleyerek)      
     - Tüm mevcut telemetri ölçümleri seçin! 
 
 1. Seçtiğiniz sonra **cihazı yapılandırma**, bu sayfayı görürsünüz:
@@ -99,7 +107,6 @@ Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz �
 1. Tuşuna **sıfırlama** Cihazınızda düğmesi.
 
 
-
 ## <a name="view-the-telemetry"></a>Telemetri görüntüleme
 
 DevKit cihaz yeniden başlatıldığında, cihaz ekranı gösterilmektedir:
@@ -107,6 +114,9 @@ DevKit cihaz yeniden başlatıldığında, cihaz ekranı gösterilmektedir:
 * Gönderilen telemetri iletilerini sayısı.
 * Başarısızlık sayısı.
 * İstenen özellik alınan sayısı ve gönderilen bildirilen özellikler sayısı.
+
+> [!NOTE]
+> Cihaz cihaz bağlantı denetimi sırasında döngü olması görünüyorsa *bloke* IOT Central, ve *Engellemeyi Kaldır* uygulamaya bağlanabilmesi için cihaz.
 
 Cihaz artırma gönderilen bildirilen özellikler sayısını sallayın. Rastgele bir sayı olarak cihazın gönderdiği **sayı öldürmüş** cihaz özelliği.
 

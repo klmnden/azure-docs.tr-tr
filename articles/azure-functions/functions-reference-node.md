@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: d80914fcd1f667924b52122b39f95871c1e21532
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a8ee92d117a416d638f62b573dfb155f67bf66e0
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298021"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983184"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -94,6 +94,13 @@ context.bindings.myOutput = {
 ```
 
 Çıkış veri bağlama kullanarak tanımlamak seçebileceğinize dikkat edin `context.done` yöntemi yerine `context.binding` nesne (aşağıya bakın).
+
+### <a name="contextbindingdata-property"></a>context.bindingData özelliği
+
+```
+context.bindingData
+```
+Tetikleyici meta verileri ve işlev çağırma verilerini içeren adlandırılmış bir nesne döndürür (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Tetikleyici meta veri örneği için bkz. Bu [event hubs örneği](functions-bindings-event-hubs.md#trigger---javascript-example).
 
 ### <a name="contextdone-method"></a>Context.Done yöntemi
 ```
@@ -262,8 +269,9 @@ HTTP tetikleyicileri ile çalışırken, çeşitli yollarla HTTP istek ve yanıt
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
++ _[Yalnızca yanıtı]_  Çağırarak `context.res.send(body?: any)`. Bir HTTP yanıtı girişi ile oluşturulan `body` yanıt gövdesi olarak. `context.done()` örtük olarak çağrılır.
 
-+ [Yalnızca yanıtı] Çağırarak `context.done()`. Özel bir HTTP bağlaması için geçirilen yanıtı döndürür `context.done()` yöntemi. Aşağıdaki HTTP çıktı bağlamasını tanımlar bir `$return` çıkış parametresi:
++ _[Yalnızca yanıtı]_  Çağırarak `context.done()`. Özel bir HTTP bağlaması için geçirilen yanıtı döndürür `context.done()` yöntemi. Aşağıdaki HTTP çıktı bağlamasını tanımlar bir `$return` çıkış parametresi:
 
     ```json
     {

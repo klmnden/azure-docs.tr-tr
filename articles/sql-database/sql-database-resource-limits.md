@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 3b05f553e591de2660e9842f316de0cb6f80c852
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 5d070c1d65ea15450589e1b590eaf926c10e749f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056269"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736198"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Azure SQL veritabanı kaynak limitleri genel bakış 
 
@@ -47,7 +47,7 @@ Bu makalede, Azure SQL veritabanı kaynağı genel bir bakış sınırlar ve bu 
 (Dtu ve Edtu veya sanal çekirdek tarafından ölçülür) veritabanı işlem kullanımı yüksek olduğunda, sorgunun gecikme süresi artar ve hatta zaman aşımına olabilir. Bu koşullar altında sorguları hizmeti tarafından sıraya alınmış ve kaynaklar için kaynak olarak yürütme boş duruma sağlanır.
 Yüksek işlem kullanımı ile karşılaşıldığında, risk azaltma seçenekleri şunlardır:
 
-- Veritabanını veya veritabanı ile daha fazla işlem kaynakları sağlamak için elastik havuz performans düzeyini artırma. Bkz: [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) ve [ölçeğini elastik havuz kaynakları](sql-database-elastic-pool-scale.md).
+- Veritabanı veya elastik havuz, veritabanı ile daha fazla işlem kaynakları sağlamak için işlem boyutunu artırma. Bkz: [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) ve [ölçeğini elastik havuz kaynakları](sql-database-elastic-pool-scale.md).
 - Her sorgu, kaynak kullanımını azaltmak için en iyi duruma getirme sorgular. Daha fazla bilgi için [sorgu ayarlama/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Depolama
@@ -62,10 +62,10 @@ Yüksek alan kullanımının karşılaşıldığında, risk azaltma seçenekleri
 
 ### <a name="sessions-and-workers-requests"></a>Oturumlarının ve çalışan (istek) 
 
-Oturumlar ve çalışan sayısı, hizmet katmanını ve performans düzeyi tarafından (Dtu'lar ve Edtu'lar) belirlenir. Yeni istekler oturumu veya çalışan sınırlara ulaştı ve istemciler bir hata iletisi alıyorsunuz reddedilir. Kullanılabilir bağlantı sayısı uygulama tarafından denetlenebilir, ancak eş zamanlı çalışan sayısı genellikle tahmin edin ve denetlemek daha zordur. Bu ne zaman veritabanı kaynak limitleri ulaştı ve çalışanları nedeniyle uzun çalışan sorguları üst üste yığmak yoğun yük dönemlerini sırasında özellikle doğrudur. 
+Oturumlar ve çalışan sayısı, hizmet katmanı tarafından belirlenir ve boyutu (Dtu ve Edtu) işlem. Yeni istekler oturumu veya çalışan sınırlara ulaştı ve istemciler bir hata iletisi alıyorsunuz reddedilir. Kullanılabilir bağlantı sayısı uygulama tarafından denetlenebilir, ancak eş zamanlı çalışan sayısı genellikle tahmin edin ve denetlemek daha zordur. Bu ne zaman veritabanı kaynak limitleri ulaştı ve çalışanları nedeniyle uzun çalışan sorguları üst üste yığmak yoğun yük dönemlerini sırasında özellikle doğrudur. 
 
 Oturum veya çalışan yüksek kullanım ile karşılaşıldığında, risk azaltma seçenekleri şunlardır:
-- Veritabanınız veya elastik havuzunuz Hizmet katmanını veya performans düzeyini artırma. Bkz: [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) ve [ölçeğini elastik havuz kaynakları](sql-database-elastic-pool-scale.md).
+- Artan hizmet katmanı veya boyutu veritabanınız veya elastik havuzun işlem. Bkz: [tek veritabanı kaynaklarının ölçeğini](sql-database-single-database-scale.md) ve [ölçeğini elastik havuz kaynakları](sql-database-elastic-pool-scale.md).
 - İşlem kaynakları için Çekişme nedeniyle artan çalışan kullanımı nedenini ise, her sorgu, kaynak kullanımını azaltmak için en iyi duruma getirme sorgular. Daha fazla bilgi için [sorgu ayarlama/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="next-steps"></a>Sonraki adımlar

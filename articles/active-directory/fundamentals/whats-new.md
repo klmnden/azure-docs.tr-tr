@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0fa220822c65065538db70df8a74de2fcca51938
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: e62dd48af69dd54abd26c21d7510ec872500e274
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143688"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737439"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
->Bu ekleyerek güncelleştirmeler için bu sayfayı yeniden ziyaret etmeniz ne zaman hakkında bildirim almak [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) için ![RSS simgesi](./media/whats-new/feed-icon-16x16.png) okuyucu akış.
+>Bu ekleyerek güncelleştirmeler için bu sayfayı yeniden ziyaret etmeniz ne zaman hakkında bildirim almak [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=docs.microsoft.com/) için ![RSS simgesi](./media/whats-new/feed-icon-16x16.png) okuyucu akış.
 
 Azure AD iyileştirmeleri düzenli olarak alır. İle en son gelişmeleri güncel kalmak için bu makalede, ile hakkında bilgi sağlar:
 

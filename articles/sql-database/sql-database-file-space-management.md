@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 09/14/2018
 ms.author: moslake
-ms.openlocfilehash: 498e83e7c312480af6d2eff7d44bd13aee9c55fd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 09b7df861f65a5fb4b3c9727f61f73a0ff4e0d65
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060717"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730250"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL veritabanı'nda dosya alanı yönetme
 Bu makalede, Azure SQL veritabanı ve açıkça yönetilecek gereksinimlerini elastik havuzlar ve veritabanları için ayrılan dosya alanı gerçekleştirilen adımlar, depolama alanının farklı türleri açıklanmaktadır.
@@ -27,7 +27,7 @@ Azure SQL veritabanı'nda, Azure portalı ve aşağıdaki API'leri gösterilen �
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Ayırma veritabanları için temel alınan veri dosyaları burada kullanılan veri sayfaları tutardan daha büyük olabilir iş yükü düzenleri vardır.  Kullanılan alan artar ve veri sonradan silindiğinde bu durum oluşabilir.  Veri silindiğinde ayrılmış dosya alanı otomatik olarak alınmaz olmasıdır.  Böyle senaryolarda, bir veritabanı veya havuzu için ayrılan alanı desteklenen limitlerin veri büyümesini engellemek veya performans katmanı değişiklikleri önlemek ve azaltmak için veri dosyalarını küçülterek gerektirir.
+Ayırma veritabanları için temel alınan veri dosyaları burada kullanılan veri sayfaları tutardan daha büyük olabilir iş yükü düzenleri vardır.  Kullanılan alan artar ve veri sonradan silindiğinde bu durum oluşabilir.  Veri silindiğinde ayrılmış dosya alanı otomatik olarak alınmaz olmasıdır.  Böyle senaryolarda, bir veritabanı veya havuzu için ayrılan alanı desteklenen limitlerin veri büyümesini engellemek veya hizmet katmanı önlemek ve boyut değişikliklerine işlem ve azaltmak için veri dosyalarını küçülterek gerektirir.
 
 SQL DB hizmetini otomatik olarak kullanılmayan bir ayrılmış alanı veritabanı performans için potansiyel etkisi nedeniyle geri kazanmak için veri dosyalarını küçülmez.  Müşterilerin kendi seçme içinde açıklanan adımları izleyerek bir zaman Self Servis aracılığıyla veri dosyalarını ancak küçültülebilir [geri kullanılmayan ayrılmış alanı](#reclaim-unused-allocated-space). 
 

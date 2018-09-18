@@ -6,15 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 1aab8dfd3a4bcc33cddb71dec08157ee7eb68f8d
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: b35eafd8c154b6550104a87bfadce6ec528e911a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324657"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732531"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 
@@ -23,8 +23,8 @@ Azure SQL veritabanı yüksek oranda kullanılabilir platformu süresinin, Bakı
 Azure platformu, tam olarak yöneten her bir Azure SQL veritabanı ve veri kaybı olmadan ve yüksek miktarda veri kullanılabilirliği garanti eder. Azure, düzeltme eki uygulama, yedekleme, çoğaltma, hata algılama, temel alınan olası donanım, yazılım veya ağ hatası, dağıtımı hata düzeltmeleri, yük devretmeleri, veritabanı yükseltme işlemleri ve diğer bakım görevleri otomatik olarak işler. SQL Server mühendisleri insanın yöntemler, tüm bakım işlemleri veritabanına hayatındaki %0,01 saatten daha az tamamlandığından emin olduktan uyguladınız. Bu mimari, kaydedilmiş veri hiçbir zaman kayıp olduğundan ve bakım işlemlerini iş yükünü etkilemeden gerçekleştirildiğinden emin olmak için tasarlanmıştır. Bakım pencereleri veya kapalı kalma süreleri, veritabanı yükseltme ya da korunan iş yükü durdurmak gereksinim duymanız yoktur. Azure SQL veritabanında yerleşik yüksek kullanılabilirlik veritabanı hiçbir zaman tek yazılım mimarinizdeki hata noktası olmaz garanti eder.
 
 Azure SQL veritabanı altyapı hataları durumda bile % 99,99 kullanılabilirlik sağlamak üzere bulut ortamı için ayarlanmış bir SQL Server veritabanı altyapısı mimarisini temel alır. Azure SQL veritabanı'nda kullanılan iki yüksek kullanılabilirlik Mimari modeli vardır (her ikisi de % 99,99 kullanılabilirlik sağlama):
-- İşlem ve depolama ayrılması tabanlı standart/genel amaçlı modeli. Yüksek kullanılabilirlik ve güvenilirlik depolama katmanının bu mimari bir model kullanır, ancak bazı olası performans düşüşü bakım etkinlikleri sırasında olabilir.
-- Veritabanı altyapısı işlemlerin bir kümeye bağlı premium/iş kritik modeli. Bu mimari bir model, her zaman bir kullanılabilir veritabanı altyapısı düğüm Çekirdeği ve en az düzeyde performans etkisi bile bakım etkinlikleri sırasında iş yüküne sahip bir olgu kullanır.
+- Ayrımı işlem ve depolama bağlı hizmeti katman modeli standart/genel amaçlı. Yüksek kullanılabilirlik ve güvenilirlik depolama katmanının bu mimari bir model kullanır, ancak bazı olası performans düşüşü bakım etkinlikleri sırasında olabilir.
+- Veritabanı altyapısı işlemlerin bir kümeye bağlı premium/iş kritik hizmet katman modeli. Bu mimari bir model, her zaman bir kullanılabilir veritabanı altyapısı düğüm Çekirdeği ve en az düzeyde performans etkisi bile bakım etkinlikleri sırasında iş yüküne sahip bir olgu kullanır.
 
 Azure, yükseltir ve son kullanıcılar için en düşük kapalı kalma süresi ile temel işletim sistemi, sürücüler ve SQL Server Veritabanı Altyapısı'nın şeffaf bir şekilde yamaları. Azure SQL veritabanı, SQL Server veritabanı altyapısı ve Windows işletim sistemi en son kararlı sürümü üzerinde çalışan ve kullanıcıların çoğunun yükseltmeleri sürekli olarak gerçekleştirilen dikkat edin değil.
 
@@ -59,7 +59,7 @@ Ayrıca, iş açısından kritik küme, birincil İş yükünüzün performansı
 
 Varsayılan olarak, yerel depolama yapılandırmaları için çekirdek kümesi çoğaltmalarını aynı veri merkezinde oluşturulur. Sunulmasıyla birlikte [Azure kullanılabilirlik alanları](../availability-zones/az-overview.md), farklı kullanılabilirlik bölgelerine aynı bölgedeki çekirdek kümeleri farklı kopyaya koyun olanağına sahip. Bir tek hata noktası ortadan kaldırmak için Denetim halka ayrıca birden çok bölge arasında üç ağ geçidi halkaları (GW) çoğaltılır. Belirli bir ağ geçidi kademesine yönlendirme tarafından denetlenen [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Bölge yedekli yapılandırması ek veritabanı artıklığı oluşturmadığından, kullanılabilirlik alanları (Önizleme) kullanımı, Premium veya iş açısından kritik hizmet katmanlarında kullanılabilir hiçbir ek maliyet. Bölge yedekli veritabanı seçerek, Premium veya iş açısından kritik veritabanlarınızı dayanıklı çok daha büyük bir uygulama mantığının herhangi bir değişiklik yapmadan geri dönülemez veri merkezi kesintilerine hataları gibi yapabilirsiniz. Mevcut tüm Premium veya iş açısından kritik veritabanı veya havuzlar için bölge yedekli yapılandırması dönüştürebilirsiniz.
 
-Bölge yedekli çekirdek kümesi, aralarındaki bazı uzaklığı ile farklı veri merkezlerinde çoğaltmaları olduğundan, artan ağ gecikme süresi işleme süresini artırabilir ve böylece bazı OLTP iş yüklerinin performansını etkileyebilir. Her zaman dilimi yedeklilik devre dışı bırakarak tek bölgeli yapılandırmaya geri dönebilirsiniz. Bu işlem, bir veri işlemi boyutu ve normal hizmet düzeyi hedefi (SLO) güncelleştirme benzer. İşlemin sonunda, veritabanı veya havuz bir bölge yedekli halka dışında bir tek bir bölge halkası ya da tam tersi geçirilir.
+Bölge yedekli çekirdek kümesi, aralarındaki bazı uzaklığı ile farklı veri merkezlerinde çoğaltmaları olduğundan, artan ağ gecikme süresi işleme süresini artırabilir ve böylece bazı OLTP iş yüklerinin performansını etkileyebilir. Her zaman dilimi yedeklilik devre dışı bırakarak tek bölgeli yapılandırmaya geri dönebilirsiniz. Bu işlem, bir veri işlemi boyutu ve normal bir hizmet katmanı güncelleştirme benzer. İşlemin sonunda, veritabanı veya havuz bir bölge yedekli halka dışında bir tek bir bölge halkası ya da tam tersi geçirilir.
 
 > [!IMPORTANT]
 > Bölge yedekli veritabanları ve elastik havuzlar şu anda yalnızca Premium hizmet katmanında desteklenmiyor. Genel önizlemesi, yedeklemeleri ve Denetim sırasında kayıtları RA-GRS depolama alanında depolanır ve bu nedenle bir bölge çapında kesinti olması durumunda otomatik olarak kullanılabilir olmayabilir. 
@@ -69,7 +69,7 @@ Bölge yedekli sürümü, yüksek kullanılabilirlik mimarisi ile Aşağıdaki d
 ![yüksek kullanılabilirlik mimarisi bölgesel olarak yedekli](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Okuma ölçeği genişletme
-Açıklandığı gibi Premium ve iş açısından kritik hizmet katmanlarına yüksek kullanılabilirlik hem tek bir bölge ve bölge yedekli yapılandırmaları için çekirdek-ayarlar ve Always On teknoloji yararlanın. AlwaysOn avantajlarını çoğaltmaların her zaman işlemsel olarak tutarlı bir durumda olduğundan biridir. Çoğaltmaları birincil aynı performans düzeyinde olduğundan, uygulamanın bakım hiçbir ek salt okunur iş yükleri için bu ek kapasite yararlanabilirsiniz maliyeti (okuma ölçeği genişletme). Bu şekilde salt okunur sorguların ana okuma-yazma iş yükünden yalıtılmış ve performansını etkilemez. Ölçeklendirme özelliği yönelik Okuma içeren mantıksal uygulamalar için analytics gibi salt okunur iş yüklerinin ayrılmış ve bu nedenle bu ek kapasite için birincil bağlanmadan yararlanabiliriz. 
+Açıklandığı gibi Premium ve iş açısından kritik hizmet katmanlarına yüksek kullanılabilirlik hem tek bir bölge ve bölge yedekli yapılandırmaları için çekirdek-ayarlar ve Always On teknoloji yararlanın. AlwaysOn avantajlarını çoğaltmaların her zaman işlemsel olarak tutarlı bir durumda olduğundan biridir. Aynı işlem boyutu birincil olarak çoğaltma içerdiğinden, Uygulama Bakımı hiçbir ek salt okunur iş yükleri için bu ek kapasite yararlanabilirsiniz maliyeti (okuma ölçeği genişletme). Bu şekilde salt okunur sorguların ana okuma-yazma iş yükünden yalıtılmış ve performansını etkilemez. Ölçeklendirme özelliği yönelik Okuma içeren mantıksal uygulamalar için analytics gibi salt okunur iş yüklerinin ayrılmış ve bu nedenle bu ek kapasite için birincil bağlanmadan yararlanabiliriz. 
 
 Belirli bir veritabanıyla okuma ölçek genişletme özelliğini kullanmak için açıkça veritabanını oluştururken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri veya Azure Resource Manager REST API aracılığıyla [veritabanları - oluşturma veya güncelleştirme](/rest/api/sql/databases/createorupdate) yöntemi.
 

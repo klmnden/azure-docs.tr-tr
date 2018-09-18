@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: bc1f1dd577231f5b22474f6cd3dc622480209dd9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 1a7fcc11bf1b98d5feaeae07264e556acce2b14b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042927"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736101"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>VPN aracılığıyla bir HDInsight Spark uygulamaları uzaktan hata ayıklama Intellij için Azure Araç Seti'ni kullanma
 
@@ -132,7 +132,7 @@ Ayrıca, oluşturduğunuz Azure sanal ağının parçası olan Azure HDInsight A
     Bu dosyaları projenize eklemek için bunları altında kopyalayın **/src** , proje ağacında, örneğin klasör `<your project directory>\src`.
 1. Güncelleştirme `core-site.xml` dosyasını aşağıdaki değişiklikleri yapın:
 
-   a. Şifrelenmiş anahtarı değiştirin. `core-site.xml` Dosya şifrelenmiş anahtar kümeyle ilişkili depolama hesabına içerir. İçinde `core-site.xml` şifrelenmiş anahtarı varsayılan depolama hesabı ile ilişkili gerçek depolama anahtarı ile değiştirin, projeye eklenen dosya. Daha fazla bilgi için [depolama erişim anahtarlarınızı yönetme](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+   a. Şifrelenmiş anahtarı değiştirin. `core-site.xml` Dosya şifrelenmiş anahtar kümeyle ilişkili depolama hesabına içerir. İçinde `core-site.xml` şifrelenmiş anahtarı varsayılan depolama hesabı ile ilişkili gerçek depolama anahtarı ile değiştirin, projeye eklenen dosya. Daha fazla bilgi için [depolama erişim anahtarlarınızı yönetme](../../storage/common/storage-account-manage.md#access-keys).
 
            <property>
                  <name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 2c26c26f201e9b500018b4851ac0bc462820a8e5
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d6567b18984a6369a4a9e653270d0b788272aba4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056367"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729918"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Bir Azure sanal makinesinde SQL Server’a veri taşıma
 Bu konuda verileri düz dosyaları (CSV ya da TSV biçimi) veya bir şirket içi SQL Server'dan SQL Server için Azure sanal makinesinde taşımak için seçenekleri açıklanmaktadır. Verileri buluta taşımak için bu görevleri Team Data Science Process bir parçasıdır.
@@ -49,7 +49,7 @@ Bu belge SQL komutlarını SQL Server Management Studio veya Visual Studio verit
 Bu öğreticide, sahip olduğunuz varsayılır:
 
 * Bir **Azure aboneliği**. Aboneliğiniz yoksa [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-* Bir **Azure depolama hesabı**. Bu öğreticide verilerin depolanması için bir Azure depolama hesabı kullanır. Azure depolama hesabınız yoksa [Depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md) makalesine bakın. Depolama hesabı oluşturduktan sonra depolamaya erişmek için kullanılan hesap anahtarını edinmeniz gerekir. Bkz: [depolama erişim anahtarlarınızı yönetme](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+* Bir **Azure depolama hesabı**. Bu öğreticide verilerin depolanması için bir Azure depolama hesabı kullanır. Azure depolama hesabınız yoksa [Depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md) makalesine bakın. Depolama hesabı oluşturduktan sonra depolamaya erişmek için kullanılan hesap anahtarını edinmeniz gerekir. Bkz: [depolama erişim anahtarlarınızı yönetme](../../storage/common/storage-account-manage.md#access-keys).
 * Sağlanan **Azure VM'deki SQL Server'a**. Yönergeler için [Gelişmiş analiz için Ipython Notebook olarak bir Azure SQL Server sanal makinesini ayarlama](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Yüklenmiş ve yapılandırılmış **Azure PowerShell** yerel olarak. Yönergeler için [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 

@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: af9d34b0c3b59cbf012d16de27bb4c60a809f619
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 19693e394b0bd3a589ead25e2ddfa2fa88e92bad
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630974"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730388"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları elastik havuzlar için satın alma
 
@@ -25,17 +25,17 @@ DTU tabanlı satın alma modeli limitleri için bkz. [SQL veritabanı DTU tabanl
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Elastik havuz: depolama alanı boyutları ve performans düzeyleri
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastik havuz: depolama boyutlarına ve işlem boyutları
 
-SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katmanı ve performans düzeyinde kaynaklar gösterilmektedir. Bir hizmet katmanını, performans düzeyi ve depolama miktarını kullanarak ayarlayabilirsiniz [Azure portalında](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), veya [RESTAPI](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katmanında kullanılabilir kaynakları göster ve işlem boyutu. Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabilirsiniz [Azure portalında](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), veya [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
-> Kaynak sınırları elastik havuzlardaki veritabanlarını tek tek genellikle tek veritabanları aynı performans düzeyine sahip havuzları dışında aynıdır. Örneğin, maks. eş zamanlı çalışan GP_Gen4_1 veritabanı için 200 çalışanları olur. Bu nedenle, GP_Gen4_1 havuzdaki bir veritabanı için en fazla eş zamanlı çalışan var. Ayrıca 200 çalışanları 210 olduğuna dikkat edin. eş zamanlı çalışan GP_Gen4_1 havuzundaki toplam sayısı.
+> Kaynak elastik havuzlardaki veritabanlarını tek tek genellikle tek veritabanları aynı havuzları dışında aynı boyutu işlem limitlerdir. Örneğin, maks. eş zamanlı çalışan GP_Gen4_1 veritabanı için 200 çalışanları olur. Bu nedenle, GP_Gen4_1 havuzdaki bir veritabanı için en fazla eş zamanlı çalışan var. Ayrıca 200 çalışanları 210 olduğuna dikkat edin. eş zamanlı çalışan GP_Gen4_1 havuzundaki toplam sayısı.
 
 ### <a name="general-purpose-service-tier"></a>Genel amaçlı hizmet katmanı
 
 #### <a name="generation-4-compute-platform"></a>4. nesil işlem platformu
-|Performans düzeyi|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
+|İşlem boyutu|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |S/W oluşturma|4|4|4|4|4|4|
 |Sanal çekirdekler|1|2|4|8|16|24|
@@ -59,7 +59,7 @@ SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katm
 |||
 
 #### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
-|Performans düzeyi|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|İşlem boyutu|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|5|
 |Sanal çekirdekler|2|4|8|16|24|32|40|80|
@@ -85,7 +85,7 @@ SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katm
 ### <a name="business-critical-service-tier"></a>İş kritik hizmet katmanı
 
 #### <a name="generation-4-compute-platform"></a>4. nesil işlem platformu
-|Performans düzeyi|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|İşlem boyutu|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |S/W oluşturma|4|4|4|4|4|4|
 |Sanal çekirdekler|1|2|4|8|16|24|
@@ -100,7 +100,7 @@ SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katm
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Maks. eş zamanlı çalışan (istek)|210|420|840|1680|3360|5040|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
-|Havuz başına en fazla veritabanı|Desteklenmiyor|50|100|100|100|100|
+|Havuz başına en fazla veritabanı|Yalnızca tek veritabanları için bu işlem boyutu desteklenir|50|100|100|100|100|
 |Veritabanı başına en düşük/en yüksek elastik havuz sanal çekirdek seçenekleri|Yok|0, 0.25, 0,5, 1, 2|0, 0.25, 0,5, 1, 2, 4|0, 0.25, 0,5, 1, 2, 4, 8|0, 0.25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0,5, 1, 2, 4, 8, 16, 24|
 |Çoğaltma sayısı|3|3|3|3|3|3|
 |Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
@@ -109,7 +109,7 @@ SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katm
 |||
 
 #### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
-|Performans düzeyi|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|İşlem boyutu|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|5|
 |Sanal çekirdekler|2|4|8|16|24|32|40|80|

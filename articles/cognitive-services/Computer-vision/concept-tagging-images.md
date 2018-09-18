@@ -1,23 +1,23 @@
 ---
-title: Görüntüleri etiketleme
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Azure Bilişsel hizmetler görüntü işleme kullanarak görüntüleri etiketleme için ilgili kavramları.
+title: Görüntüleri - görüntü işleme etiketleme
+titleSuffix: Azure Cognitive Services
+description: Görüntü işleme API'sini kullanarak görüntüleri etiketleme için ilgili kavramları.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: b06265bbdd5ba642c5395823e98a6a76171baff4
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 159a1b9404f6ce635dcc8bb6007e52b7346ef98d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725538"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982979"
 ---
-# <a name="tagging-images"></a>Görüntüleri etiketleme
+# <a name="tagging-images"></a>Resimleri etiketleme
 
 Görüntü işleme, 2000'den fazla tanınabilir nesne, canlı, manzara ve Eylemler alan etiketler döndürür. Etiketlerin belirsiz olduğunda veya bilinmediği API yanıtı 'bilinen bir ayar bağlamında etiketin anlamını açıklamak için ipuçları' sağlar. Etiketleri bir sınıflandırma düzenlenmiş ve devralma hiyerarşi yok. İçerik etiket koleksiyonu, 'description' tam cümlelerden biçimlendirilmiş insan tarafından okunabilir dili olarak görüntülenen bir görüntü için temel oluşturur. Bu noktada İngilizce için görüntü açıklaması yalnızca desteklenen dil olduğunu unutmayın.
 

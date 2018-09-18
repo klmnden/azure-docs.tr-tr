@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: edc0cf7c8700e1ab728109bc9cbfda8135a59ee9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6b7a361213a0236d71fe41566ba71c28b2958cd7
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574751"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736351"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Depolama yaşam döngüsü (Önizleme) yönetme
 
@@ -30,7 +30,7 @@ Bir yaşam döngüsü erken aşaması sırasında sık erişilen, yalnızca gere
 
 ## <a name="storage-account-support"></a>Depolama hesabı desteği
 
-Yaşam Döngüsü Yönetimi İlkesi ile hem genel amaçlı v2 (GPv2) hesabı ve Blob Depolama hesabı. Varolan genel amaçlı (GPv1) hesabı, Azure portalında basit bir tek tıklama işlemiyle aracılığıyla GPv2 hesabına dönüştürebilir. Daha fazla bilgi için bkz. [Azure depolama hesabı seçenekleri](../common/storage-account-options.md).  
+Yaşam Döngüsü Yönetimi İlkesi ile hem genel amaçlı v2 (GPv2) hesabı ve Blob Depolama hesabı. Varolan genel amaçlı (GPv1) hesabı, Azure portalında basit bir tek tıklama işlemiyle aracılığıyla GPv2 hesabına dönüştürebilir. Depolama hesapları hakkında daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](../common/storage-account-overview.md) daha fazla bilgi için.  
 
 ## <a name="pricing"></a>Fiyatlandırma 
 

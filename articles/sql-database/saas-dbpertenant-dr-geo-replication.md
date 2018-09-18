@@ -10,18 +10,18 @@ ms.custom: saas apps
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1af13857bdde06b70cb8d01db8d9668cc6ce99e6
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34645802"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983976"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Coğrafi çoğaltma veritabanı kullanan çok kiracılı SaaS uygulaması için olağanüstü durum kurtarma
 
 Bu öğreticide, bir kiracı başına veritabanı modeli kullanılarak uygulanan bir çok kiracılı SaaS uygulaması için eksiksiz olağanüstü durum kurtarma senaryosuna keşfedin. Uygulama kesintiden korumak için kullandığınız [ _coğrafi çoğaltma_ ](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) bir alternatif kurtarma bölgesinde yinelemeler için katalog ve Kiracı veritabanları oluşturmak için. Bir kesinti oluşursa, hızlı bir şekilde normal iş işlemlerini sürdürmek için bu çoğaltmaların yük devri. Yük devretmede, özgün bölgede veritabanları veritabanlarının kurtarma bölgesindeki ikincil çoğaltma olur. Bu çoğaltmaların yeniden çevrimiçi duruma geldikten sonra bunlar otomatik olarak veritabanlarının kurtarma bölgesindeki durumuna flow'unu yakalayın. Kesinti giderildikten sonra geri özgün üretim bölgede veritabanları için başarısız.
 
-Bu öğretici, yük devretme ve yeniden çalışma iş akışları açıklar. Öğreneceksiniz nasıl yapılır:
+Bu öğretici, yük devretme ve yeniden çalışma iş akışları açıklar. Şunları öğrenirsiniz:
 > [!div classs="checklist"]
 
 >* Kiracı kataloğa veritabanı ve elastik havuzu yapılandırma bilgilerini eşitleme
@@ -51,9 +51,9 @@ Coğrafi çoğaltma üzerinde dayalı olarak bir kurtarma planı, üç farklı b
 Tüm bölümleri dikkatlice olarak değerlendirilmesi uygun ölçekte özellikle işletim varsa. Genel olarak, plan çeşitli hedeflere ulaşmak gerekir:
 
 * Kurulum
-    * Kurmak ve kurtarma bölgesinde bir Ayna görüntüsünü ortamı güncelleştirin. Elastik havuzlar oluşturma ve bu kurtarma ortamda herhangi bir tek başına veritabanı çoğaltma kurtarma bölgesindeki kapasite ayırır. Bu ortamı bulundurmak, bunlar sağlanırken yeni Kiracı veritabanları çoğaltmayı içerir.  
+    * Kurmak ve kurtarma bölgesinde bir Ayna görüntüsünü ortamı güncelleştirin. Elastik havuzlar oluşturma ve bu kurtarma ortamdaki tek veritabanları çoğaltma kurtarma bölgesindeki kapasite ayırır. Bu ortamı bulundurmak, bunlar sağlanırken yeni Kiracı veritabanları çoğaltmayı içerir.  
 * Kurtarma
-    * Günlük maliyetleri azaltmak için ölçeği aşağı kurtarma ortamı kullanıldığı havuzlarını ve tek başına veritabanları kurtarma bölgesindeki tam işlem kapasitesi edinmek için ölçeği gerekir
+    * Günlük maliyetleri azaltmak için ölçeği aşağı kurtarma ortamı kullanıldığı havuzlarını ve tek veritabanlarını kurtarma bölgesindeki tam işlem kapasitesi edinmek için ölçeği gerekir
     * Yeni Kiracı kurtarma bölgesinde olabildiğince çabuk sağlamayı etkinleştir  
     * Kiracılar öncelik sırasına geri yüklemek için iyileştirilmiş
     * Kiracılar çevrimiçi mümkün olduğunca hızlı pratik olduğunda paralel adımları uygulayarak almak için iyileştirilmiş
@@ -158,7 +158,7 @@ Kurtarma betiği aşağıdaki görevleri gerçekleştirir:
 
 1. Üzerinden başarısız olmadan önce Kiracı veritabanlarına erişimi engellemek için tüm mevcut kiracıda kurtarma Kataloğu çevrimdışı olarak işaretler.
 
-1. Tüm elastik havuzlar ve özgün bölge yapılandırmalarında yansıtmak üzere Kurtarma bölgede çoğaltılan tek başına veritabanları yapılandırmasını güncelleştirir. (Havuzlar veya Kurtarma Ortamı ' çoğaltılmış veritabanlarında maliyetlerini azaltmak için normal işlemler sırasında ölçeklenirse bu görevi yalnızca gereklidir).
+1. Tüm elastik havuzlar ve özgün bölge yapılandırmalarında yansıtmak üzere Kurtarma bölgede çoğaltılan tek veritabanları yapılandırmasını güncelleştirir. (Havuzlar veya Kurtarma Ortamı ' çoğaltılmış veritabanlarında maliyetlerini azaltmak için normal işlemler sırasında ölçeklenirse bu görevi yalnızca gereklidir).
 
 1. Kurtarma bölgesindeki web uygulaması için Traffic Manager uç nokta sağlar. Bu uç noktayı etkinleştirme, yeni kiracılar sağlama uygulaması sağlar. Bu aşamada, var olan kiracılar hala çevrimdışı.
 

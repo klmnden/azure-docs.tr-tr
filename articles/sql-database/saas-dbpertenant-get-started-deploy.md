@@ -10,12 +10,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: cc3e870d67f3c38fe4173275b6fd210d0c4ee05a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 87560f3fb34c281b6802ef5079fd1445caba6db8
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423574"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983640"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Kiracı başına veritabanı desen ile SQL veritabanı kullanan çok kiracılı bir SaaS uygulama keşfedin ve dağıtın
 
@@ -83,7 +83,7 @@ Uygulama dağıtılır, ancak kaynak kodu ve yönetim komut dosyaları indirin.
 > .Zip dosyaları bir dış kaynaktan indirilip ayıklanan zaman yürütülebilir içeriği (betikler ve dll) Windows tarafından engelleniyor olabilir. Komut dosyalarını ayıklamak önce .zip dosyasını engelini kaldırma adımlarını izleyin. Kaldırma komut dosyalarının çalışmasına izin verilen emin olur.
 
 1. Gözat [WingtipTicketsSaaS DbPerTenant GitHub deposunu][github-wingtip-dpt].
-1. Seçin **Kopyala veya indir**.
+1. **Clone or download**'u (Kopyala veya indir) seçin.
 1. Seçin **ZIP'i indir**ve ardından dosyayı kaydedin.
 1. Sağ **WingtipTicketsSaaS DbPerTenant master.zip** dosya ve ardından **özellikleri**.
 1. Üzerinde **genel** sekmesinde **Engellemeyi Kaldır** > **Uygula**.
@@ -242,7 +242,7 @@ Sunucuya Gözat **tenants1-dpt -&lt;kullanıcı&gt;** seçip **Pool1** havuz iç
 - Etiketli ilk grafik **kaynak kullanımını**, havuz eDTU kullanımı gösterilmektedir.
 - İkinci grafik, havuzda beş en etkin veritabanları için eDTU kullanımını gösterir.
 
-İki grafik, elastik havuzların ve SQL veritabanı öngörülemeyen SaaS uygulaması iş yükleri için uygun olduğunu gösterir. Grafikleri Göster: her 40 Edtu'ya kadar geçiş yapabilen dört veritabanı olan ve henüz tüm veritabanlarına 50 eDTU havuz tarafından rahatça desteklenir. 50 eDTU havuz bile daha ağır iş yüklerini destekler. Her bir veritabanları tek başına veritabanı sağladıysanız S2 olması gerekir (geçişlerini desteklemek için 50 DTU). Dört bağımsız S2 veritabanı havuzunun fiyatı neredeyse üç kez maliyetidir. Gerçek durumlarda, SQL veritabanı müşterilerinin 200 eDTU havuzunda 500 veritabanları kadar çalıştırın. Daha fazla bilgi için [performans izleme Öğreticisi](saas-dbpertenant-performance-monitoring.md).
+İki grafik, elastik havuzların ve SQL veritabanı öngörülemeyen SaaS uygulaması iş yükleri için uygun olduğunu gösterir. Grafikleri Göster: her 40 Edtu'ya kadar geçiş yapabilen dört veritabanı olan ve henüz tüm veritabanlarına 50 eDTU havuz tarafından rahatça desteklenir. 50 eDTU havuz bile daha ağır iş yüklerini destekler. Her bir veritabanı tek veritabanı olarak sağladıysanız S2 olması gerekir (geçişlerini desteklemek için 50 DTU). Dört bağımsız S2 veritabanı havuzunun fiyatı neredeyse üç kez maliyetidir. Gerçek durumlarda, SQL veritabanı müşterilerinin 200 eDTU havuzunda 500 veritabanları kadar çalıştırın. Daha fazla bilgi için [performans izleme Öğreticisi](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

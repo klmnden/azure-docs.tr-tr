@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a0ff6c09eb0a6fffe0ce82fe9ccb3bc43970ad68
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 5ae57764e2950d027e832eccec5393d4aec4486a
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024627"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981853"
 ---
 # <a name="try-the-speech-service-for-free"></a>Konuşma tanıma hizmetini ücretsiz olarak deneyin
 
@@ -130,7 +130,7 @@ Azure hesabınızda bir konuşma hizmeti kaynak eklemek için:
 1. Altında **hızlı**seçin **anahtarları** abonelik anahtarlarınızı görüntülemek için 1. adım altında bağlantı. Her aboneliğin, iki anahtarı vardır; uygulamanızda iki anahtarı kullanabilirsiniz. Kodunuzu yapıştırma panoya kopyalamak için her anahtar yanındaki düğmeyi seçin.
 
 > [!NOTE]
-> Bir veya birden çok bölgede standart katman abonelikleri sınırsız sayıda oluşturabilirsiniz. Ancak, yalnızca bir ücretsiz katman abonelik oluşturabilir.
+> Bir veya birden çok bölgede standart katman abonelikleri sınırsız sayıda oluşturabilirsiniz. Ancak, yalnızca bir ücretsiz katman abonelik oluşturabilir. Ücretsiz katmanındaki 7 gün için kullanılmaması modeli dağıtımlarını otomatik olarak kullanımdan olacaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

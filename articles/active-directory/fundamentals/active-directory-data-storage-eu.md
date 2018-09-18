@@ -2,24 +2,21 @@
 title: Avrupalı müşteriler için Azure AD'nin kimlik verilerini depolama konumu | Microsoft Docs
 description: Microsoft Azure Active Directory'nin Avrupalı müşterileri için kimlikle ilgili verileri depoladığı konum hakkında bilgi edinin.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.author: lizross
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro
-ms.openlocfilehash: 0baa499f56fa6c074ac1c0f604e74f9e7adb5502
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: d0015f40714b639d15245827ae0da3ca0f132df4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42023257"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733406"
 ---
 # <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Microsoft Azure Active Directory (Azure AD), Avrupalı müşterileri için kimlik verilerini nerede depolar?
 Azure AD, kullanıcı kimliklerini yönetmenize ve kuruluşunuzun kaynaklarını korumanıza yardımcı olmak için zeka tabanlı erişim ilkeleri oluşturmanıza yardımcı olur. Kimlik verileri, hizmete abone olurken kuruluşunuzun sağladığı adrese göre belirlenen bir konumda depolanır. Örnek olarak Office 365 veya Azure abonelikleri verilebilir. Kimlik verilerinizin depolandığı yer hakkında belirli bilgiler için Microsoft Güven Merkezi'nin [Verileriniz nerede bulunur?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) bölümünü inceleyebilirsiniz.
@@ -76,7 +73,6 @@ Avrupa adresine sahip kuruluşların Azure AD ile ilgili Avrupa kaynaklı kimlik
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Yukarıda anlatılan özellikler ve işlevler hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
-- [Azure Active Directory ile çalışmaya başlama](get-started-azure-ad.md)
 - [Multi-Factor Authentication nedir?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 - [Azure AD self servis parola sıfırlama](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
 - [Azure Active Directory B2C nedir?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

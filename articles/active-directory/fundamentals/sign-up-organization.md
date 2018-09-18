@@ -1,38 +1,40 @@
 ---
-title: Kuruluş olarak Azure AD için kaydolun | Microsoft Docs
-description: Bir iş veya Okul hesabınız var olan kullanıcı hesaplarını, ilkeler, ayarlar veya zaten varsa ve kuruluşunuzun şirket içi kimlik altyapınızı ve Azure AD arasındaki verimliliği artırmak şirket içi sunucu dağıtımları yararlanmak için nasıl öğrenin.
+title: Azure Active Directory kuruluş olarak kaydolma | Microsoft Docs
+description: Kuruluşunuz oturum Azure ve Azure Active Directory hakkında bilgi edinin.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2017
+ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: a8d4781af0320f86eb5dd0b4b5e71c0ca7db5a18
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 77b49a050724cbf4666ca5253cc1fa518c441e62
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064063"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732541"
 ---
-# <a name="how-to-sign-up-for-azure-ad-as-an-organization"></a>Nasıl yapılır: bir kuruluş olarak Azure AD için kaydolun
-Yakın zamanda kadar yalnızca Microsoft hesabınızı (Windows Live ID) kullanarak yeni bir Microsoft Azure aboneliği için kaydolduktan. Kaydolmak için aşağıdaki iki hesap yöntemlerden birini kullanarak Azure artık destekler:
+# <a name="how-to-sign-up-for-azure-active-directory-as-an-organization"></a>Nasıl yapılır: Azure Active Directory kuruluş olarak kaydolma
+Azure Active Directory (Azure AD) kullanarak yeni bir Microsoft Azure aboneliğine kaydolun:
 
-* **Microsoft hesapları** (sizin tarafınızdan kişisel kullanım için oluşturulan) - tüm tüketiciye yönelik Microsoft ürünleri erişim sağlar ve bulut Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE veya Office 365 gibi hizmetler. Otomatik olarak imzalama Outlook.com posta kutusu için bir Microsoft hesabı oluşturur. Bir Microsoft hesabı oluşturulduktan sonra tüketici ilişkili Microsoft bulut Hizmetleri veya Azure erişmek için kullanılabilir. [Daha fazla bilgi](https://account.microsoft.com/account)
-* **İş veya Okul hesapları** (iş/akademik kullanmak için bir yönetici tarafından verilen) - Azure, Microsoft Intune veya Office 365 gibi iş düzeyinde Microsoft bulut Hizmetleri tüm küçük, Orta ve kurumsal erişim sağlar. Bu hizmetler biriyle kuruluş olarak oturum açtığınızda, bulut tabanlı bir dizin otomatik olarak Azure kuruluşunuz temsil etmek için Active Directory'de sağlanır. [Daha fazla bilgi](active-directory-administer.md)
-  
-    Bu dizin oluşturulduktan sonra bir yönetici daha sonra kullanıcılar ve ata lisanslarını kullanıcılara göre erişimi Azure gibi istedikleri hangi bulut hizmeti Aboneliklerde oluşturabilirsiniz.
+- **Microsoft hesabı.** Azure'a erişimi ve tüm tüketici yönelimli Microsoft ürünlerinde ve bulut Hizmetleri, Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE veya Office 365 gibi kişisel Microsoft hesabınızı kullanın. Bir Outlook.com posta kutusu için otomatik olarak kaydolmaya bir Microsoft hesabı oluşturur. Daha fazla bilgi için [Microsoft hesabı'na genel bakış](https://account.microsoft.com/account).
 
-Azure'a kuruluş olarak kaydolmak istiyor? [**Şimdi kaydolun**](https://azure.microsoft.com/pricing/purchase-options/)
+- **İş veya Okul hesabı.** Tüm küçük, Orta ve kurumsal bulut Hizmetleri, Azure, Microsoft Intune veya Office 365 gibi Microsoft gelen erişim elde etmek için iş veya Okul ile ilgili hesabınızı kullanın. Bu hizmetlerden biri için bir kuruluş olarak kaydolduktan sonra Azure AD'ye otomatik olarak kuruluşunuzu temsil eden bulut tabanlı bir dizin sağlar. Daha fazla bilgi için [Azure AD dizininizi yönetme](active-directory-administer.md).
 
-**Ek Kaynaklar**
+## <a name="next-steps"></a>Sonraki adımlar
 
-* [Microsoft Azure blogu](https://azure.microsoft.com/blog/)
-* [Azure AD nedir?](active-directory-whatis.md)
-* [Şirket içi kimlik altyapınızı bulutta kullanma](../connect/active-directory-aadconnect.md)
+- [Bir kuruluş olarak kaydolma](https://azure.microsoft.com/pricing/purchase-options/)
+
+- [Azure Active Directory Premium sürümleri için kaydolun](active-directory-get-started-premium.md)
+
+- [Azure AD hakkında daha fazla bilgi edinin](active-directory-whatis.md)
+
+- [Şirket içi kimlik altyapınızı bulutta kullanma](../connect/active-directory-aadconnect.md)
+
+- [Microsoft Azure blogunu ziyaret edin](https://azure.microsoft.com/blog/)
 

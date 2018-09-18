@@ -1,0 +1,63 @@
+items:
+- name: Kimlik Koruması Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+  - name: Azure AD Kimlik Koruması nedir?
+    href: overview.md
+- name: Hızlı Başlangıçlar
+  items:
+  - name: Oturum riski algılandığında erişimi engelleme
+    href: quickstart-sign-in-risk-policy.md
+- name: Kavramlar
+  items:
+  - name: Güvenlik açıkları nelerdir?
+    href: vulnerabilities.md
+  - name: Bildirimler nelerdir?
+    href: notifications.md
+  - name: Oturum açma deneyiminiz nedir?
+    href: flows.md
+  expanded: false
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Azure AD Kimlik Koruması’nı etkinleştirme
+    href: enable.md
+  - name: MFA kayıt ilkesini yapılandırma
+    href: howto-mfa-policy.md
+  - name: Oturum açma risk ilkesini yapılandırma
+    href: howto-sign-in-risk-policy.md
+  - name: Kullanıcı riski ilkesini yapılandırma
+    href: howto-user-risk-policy.md
+  - name: Kullanıcıların engelini kaldırma
+    href: howto-unblock-user.md
+  - name: Risk olaylarının benzetimini yapma
+    href: playbook.md
+  - name: Microsoft Graph API’sini kullanma
+    href: graph-get-started.md
+  - name: SSS
+    href: faqs.md
+  expanded: true
+- name: Başvuru
+  items:
+  - name: Sözlük
+    href: glossary.md
+- name: Kaynaklar
+  items:
+  - name: Azure geri bildirim forumu
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: MSDN forumu
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Hizmet güncelleştirmeleri
+    href: ../fundamentals/whats-new.md
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Videolar
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: 651ac43690180fadad6eef7f83d2a58b531752ed
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45606720"

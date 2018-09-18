@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 0920489daf99445a9d715d0858cf68ae45e6a178
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a0e0b8e2de3c944698cdbc6b1b11351f70e77276
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056350"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729901"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli kullanarak elastik havuzlar için kaynak sınırları 
 
@@ -25,9 +25,9 @@ DTU tabanlı satın alma modeli kaynak sınırları için tek veritabanları iç
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Elastik havuz: depolama alanı boyutları ve performans düzeyleri
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastik havuz: depolama boyutlarına ve işlem boyutları
 
-SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katmanı ve performans düzeyinde kaynaklar gösterilmektedir. Bir hizmet katmanını, performans düzeyi ve depolama miktarını kullanarak ayarlayabilirsiniz [Azure portalında](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), veya [RESTAPI](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katmanında kullanılabilir kaynakları göster ve işlem boyutu. Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabilirsiniz [Azure portalında](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), veya [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
 > Kaynak sınırları elastik havuzlardaki veritabanlarını tek tek genellikle tek veritabanları havuzlar dtu'ları ve hizmet katmanına göre dışında aynıdır. Örneğin, S2 veritabanı için en fazla eş zamanlı çalışan 120 çalışanları olur. Bu nedenle, standart havuzdaki bir veritabanı için en fazla eş zamanlı çalışan olup da 120 çalışanları havuzlarda veritabanı başına maksimum DTU (S2 için eşdeğer olan) 50 Dtu'dan azdır.

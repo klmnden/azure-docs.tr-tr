@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bafd130b2fbd22f85407590ff2e86ecf5c6dfe67
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: f2f00b94b50ecf1fc3d1b08a04063dbffa62501e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42057594"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736147"
 ---
 # <a name="integrate-azure-ad-logs-with-splunk-by-using-azure-monitor-preview"></a>Azure İzleyicisi'ni (Önizleme) kullanarak Azure AD günlükleri Splunk ile tümleştirin
 
@@ -55,4 +55,4 @@ Bu özelliği kullanmak için şunlara ihtiyacınız vardır:
 
 * [Azure İzleyici denetim günlükleri şemasını yorumlama](reference-azure-monitor-audit-log-schema.md)
 * [Azure İzleyici oturum açma günlükleri şemasını yorumlama](reference-azure-monitor-sign-ins-log-schema.md)
-* [Sık sorulan sorular ve bilinen sorunlar](overview-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Sık sorulan sorular ve bilinen sorunlar](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)

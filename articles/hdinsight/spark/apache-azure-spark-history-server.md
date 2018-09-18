@@ -8,30 +8,30 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/12/2018
-ms.openlocfilehash: b514f23f2e8a43f99fd5bf5c3afb5ed625ad4472
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/14/2018
+ms.openlocfilehash: 65617aa87ec8f28b13951f1a2196eb2ccedf5c85
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046584"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729765"
 ---
 # <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Hata ayıklama ve tanılama Spark uygulamaları için genişletilmiş Spark geçmiş sunucusu kullanın
 
-Bu makalede, hata ayıklama ve tanılama tamamlanmış ve çalışan Spark uygulamaları için Spark geçmiş sunucusu nasıl kullanılacağı hakkında yönergeler genişletilmiş sağlar. Uzantı şu anda veri ve graf sekmelerini içerir. Veri sekmesinde, kullanıcıların bir Spark işi, girdi ve çıktı verilerini denetleyebilirsiniz. Graf sekmesinde, kullanıcılar veri akışını kontrol edin ve iş grafiği yeniden yürütün.
+Bu makalede, hata ayıklama ve tanılama tamamlanmış ve çalışan Spark uygulamaları için Spark geçmiş sunucusu nasıl kullanılacağı hakkında yönergeler genişletilmiş sağlar. Uzantı, veri sekmesi ve graf sekmesi ve Tanılama sekmesi içerir. Üzerinde **veri** sekmesinde, kullanıcıların, Spark işinin girdi ve çıktı verilerini kontrol edebilirsiniz. Üzerinde **grafik** sekmesinde, kullanıcıların veri akışını ve iş grafiği yeniden yürütme denetleyebilirsiniz. Üzerinde **tanılama** sekmesinde kullanıcı başvurabilir **veri dengesizliği**, **zaman farkı** ve **Yürütücü kullanım analizi**.
 
-## <a name="open-the-spark-history-server"></a>Spark geçmiş sunucusu açın
+## <a name="get-access-to-spark-history-server"></a>Spark geçmiş sunucusu erişin
 
 Spark geçmiş tamamlanmış ve çalışan Spark uygulamaları için kullanıcı Arabirimi web sunucusudur. 
 
-### <a name="to-open-the-spark-history-server-web-ui-from-azure-portal"></a>Azure Portalı'ndan Spark geçmiş sunucusu Web kullanıcı arabirimini açmak için
+### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>Azure portalından Spark geçmiş sunucusu Web kullanıcı arabirimini açın
 
 1. Gelen [Azure portalında](https://portal.azure.com/), Spark kümesini açın. Daha fazla bilgi için [kümeleri Listele ve Göster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. Gelen **hızlı bağlantılar**, tıklayın **küme Panosu**ve ardından **Spark geçmiş sunucusu**. İstendiğinde, Spark küme için yönetici kimlik bilgilerini girin. 
 
     ![Spark geçmiş sunucusu](./media/apache-azure-spark-history-server/launch-history-server.png "Spark geçmiş sunucusu")
 
-### <a name="to-open-the-spark-history-server-web-ui-by-url"></a>URL'ye göre Spark geçmiş sunucusu Web kullanıcı arabirimini açmak için
+### <a name="open-the-spark-history-server-web-ui-by-url"></a>Spark geçmiş sunucusu Web kullanıcı Arabirimi URL'ye göre açın
 Aşağıdaki URL'ye atarak Spark geçmiş sunucusu açık değiştirin <ClusterName> müşteri Spark kümesi adı.
 
    ```
@@ -43,7 +43,7 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
 ![HDInsight Spark geçmiş sunucusu](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
 
 
-## <a name="open-the-data-tab-from-spark-history-server"></a>Spark geçmiş sunucusundan veri sekmesini açın
+## <a name="data-tab-in-spark-history-server"></a>Spark geçmiş sunucusu, veri sekmesi
 İş Kimliği'ni seçin'a tıklayın **veri** aracı menüsünde veri görünüm elde edin.
 
 + Denetleme **girişleri**, **çıkışları**, ve **tablo işlemleri** sekmeleri ayrı olarak seçerek.
@@ -87,7 +87,7 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
     ![Grafik geri bildirim](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="open-the-graph-tab-from-spark-history-server"></a>Spark geçmiş sunucudan graf sekmesini açın
+## <a name="graph-tab-in-spark-history-server"></a>Graf sekmesinde Spark geçmiş sunucusu
 İş Kimliği'ni seçin'a tıklayın **grafik** iş graf görünümünü almak için aracı menüsünde.
 
 + Genel Bakış işinizin tarafından oluşturulan iş grafiğinin denetleyin. 
@@ -108,16 +108,19 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
 
     + Başarılı olanlar için yeşil: işi başarıyla tamamlandı.
     + Denenen için turuncu: başarısız olan ancak işin kesin sonucunu etkilemeyen bir görev örneği. Bu görevler sahip yinelenen veya daha sonra başarılı olabilecek örnekleri yeniden deneyin.
-    + Kırmızı işlemi başarısız oldu: görev başarısız oldu.
     + Mavi çalıştırmak için: Görev çalışıyor.
-    + İçin atlandı beyaz veya bekliyor: görev çalıştırılmayı bekliyor veya aşamayı atlandı.
+    + Bekleme için beyaz veya atlandı: görev çalıştırılmayı bekliyor veya aşamayı atlandı.
+    + Kırmızı işlemi başarısız oldu: görev başarısız oldu.
 
     ![renk örneği çalıştırma grafiği](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
+    Beyaz Atlanan aşama görüntüler.
+    ![renk örneği grafik, atlayın](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+
     ![graf renk örneği, başarısız oldu](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
     > [!NOTE]
-    > Kayıttan yürütme her iş için izin verilir. Kayıttan yürütme, bir işin tüm aşama yok ya da tam henüz desteklenmiyor.
+    > Kayıttan yürütme her iş için izin verilir. İş eksik, kayıttan yürütme desteklenmiyor.
 
 
 + Fare kaydırma giren/çıkan iş grafiğinin yakınlaştırma veya **sığdırmak için Yakınlaştır** filtrelenecek sığdırmak için.
@@ -127,6 +130,12 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
 + Araç İpucu olmadığında görevler başarısız olduğunu görmek için graf düğümüyle gelin ve sahneye çıkarak aşama sayfasını açmak için tıklayın.
 
     ![Grafik araç ipucu](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
+
++ İş grafiği sekmesinde, araç ipucu ve görevleri karşılamak oluşturulduysa görüntülenen küçük simge aşamaları olacaktır koşullar altında:
+    + Veri dengesizliği: veri okuma boyutu > Ortalama Veri Okuma boyutu Bu aşama içinde tüm görevlerin * 2 ve veri okuma boyutu > 10 MB
+    + Zaman eğimi: yürütme süresi > Bu aşamayı içindeki tüm görevlerin ortalama yürütme süresi * 2 ve yürütme süresi > 2 dakika
+
+    ![graf eğriltme simgesi](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + İş graf düğümüyle her aşaması aşağıdaki bilgileri görüntüler:
     + KİMLİĞİ.
@@ -147,6 +156,47 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
 + Tıklayarak sorunları ile geri bildirim gönder **geri bildirim sağlayın**.
 
     ![Grafik geri bildirim](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+
+
+## <a name="diagnosis-tab-in-spark-history-server"></a>Spark geçmiş sunucusu Tanılama sekmesi
+İş Kimliği'ni seçin'a tıklayın **tanılama** tanılama görünümü almak için aracı menüsünde. Tanılama sekmesi içerir **veri dengesizliği**, **zaman farkı**, ve **Yürütücü kullanım analizi**.
+    
++ Denetleme **veri dengesizliği**, **zaman farkı**, ve **Yürütücü kullanım analizi** sırasıyla sekmelerini seçerek.
+
+    ![Tanılama sekmeleri](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+
+### <a name="data-skew"></a>Veri dengesizliği
+Tıklayın **veri dengesizliği** sekmesinde ilgili dengesiz görevleri, belirtilen parametrelere bağlı olarak görüntülenir. 
+
++ **Parametreleri belirtin** -ilk bölüm veri dengesizliği algılamak için kullanılan parametreleri görüntüler. Yerleşik kural: okunan görev verisi okuma 3 kez ortalama görev verileri büyüktür ve okuma görev verileri 10 MB'tan fazla. Kendi kural dengesiz görevleri tanımlamak istiyorsanız, parametrelerinizi seçebilirsiniz **dengesiz aşama**, ve **eğme Char** bölümüne uygun şekilde yenileneceğini.
+
++ **Dengesiz aşama** -İkinci bölüm, yukarıda belirtilen ölçütleri karşılayan görevleri şuna aşamaları görüntüler. Bir aşamadaki birden fazla dengesiz görev varsa, dengesiz aşama tablo yalnızca en dengesiz görev (örneğin en büyük veri için veri dengesizliği) görüntüler.
+
+    ![Section2 veri dengesizliği](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+
++ **Grafik eğme** – eğriltme aşama tablosunda bir satıra seçildiğinde, daha fazla görev dağıtımları ayrıntıları veri okuma ve yürütme süresi eğriltme grafiği görüntüler. Dengesiz görevleri kırmızı olarak işaretlenir ve normal görevleri mavi olarak işaretlenir. Performans artışı için grafik yalnızca en fazla 100 örnek görevleri görüntüler. Görev Ayrıntıları sağ alt panelde görüntülenir.
+
+    ![Section3 veri dengesizliği](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+
+### <a name="time-skew"></a>Zaman eğimi
+**Zaman farkı** sekmesi, görev yürütme saatini temel alan dengesiz görevleri görüntüler. 
+
++ **Parametreleri belirtin** -ilk bölüm zaman farkı algılamak için kullanılan parametreleri görüntüler. Zaman eğimi algılamak için varsayılan ölçütü: görev yürütme süresi ortalama yürütme süresi 3 kez daha büyük ve görev yürütme süresi 30 saniyeden büyük. Gereksinimlerinize göre parametreleri değiştirebilirsiniz. **Dengesiz aşama** ve **eğme grafik** karşılık gelen aşamaları ve görev bilgileri gibi görüntüler **veri dengesizliği** yukarıdaki sekmesi.
+
++ Tıklayın **zaman farkı**, sonra da filtrelenmiş sonuç görüntülenir **dengesiz aşama** bölüme bölümünde ayarladığınız parametrelere göre **parametreleri belirtin**. Bir öğeye tıklayın **dengesiz aşama** bölümünde ilişkili grafik, içinde section3 drafted ve görev ayrıntılarını sağ alt panelde görüntülenir.
+
+    ![Zaman dengesizliği section2](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+
+### <a name="executor-usage-analysis"></a>Yürütücü kullanım analizi
+Yürütücü kullanım grafiği, Spark iş gerçek Yürütücü ayırma ve çalıştırma durumunu görselleştirir.  
+
++ Tıklayın **Yürütücü kullanım analizi**, dört tür eğrileri Yürütücü kullanımı hakkında da dahil olmak üzere drafted sonra **ayrılan yürütücüler**, **çalıştıran yürütücüler**, **Boşta yürütücüler**, ve **en fazla örnek Yürütücü**. Ayrılmış yürütücüler ile ilgili her "Yürütücü eklendi" veya "Yürütücü kaldırıldı" olay artacağı veya ayrılmış yürütücüler azaltın, daha fazla karşılaştırma "İşler" sekmesinde "Olay zaman çizelgesi" kontrol edebilirsiniz.
+
+    ![Yürütücüler sekmesi](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+
++ Tüm Taslak karşılık gelen içeriği seçimini kaldırın veya seçmek için renk simgesine tıklayın.
+
+    ![Grafiği seçin](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
 
 ## <a name="faq"></a>SSS
@@ -268,7 +318,7 @@ Düzeltme ile yükseltmek istiyorsanız, aşağıdaki spark enhancement.jar* yü
     ![Günlük karşıya yükleme veya yükseltme düzeltme](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
-## <a name="known-issue"></a>Bilinen sorun
+## <a name="known-issues"></a>Bilinen sorunlar
 
 1.  Şu anda yalnızca Spark 2.3 küme için çalışır.
 

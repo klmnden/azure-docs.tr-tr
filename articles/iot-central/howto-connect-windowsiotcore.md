@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 517de578e2a3c6350bbb18d756a8740ceb6f1d23
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 12f7e466bdfd6d9b6cf1c36df4daf1e76cc417f2
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576383"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729833"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızı Windows IOT Core cihazı bağlayın
 
@@ -48,7 +48,10 @@ Ayarlamak için bir Windows IOT Core cihazı Lütfen izleyin [Windows IOT Core c
 
 ### <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
-Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **Windows IOT Core** cihaz şablonu ve cihaz bağlantı dizesini Not olun. Daha fazla bilgi için [Azure IOT Central uygulamanıza gerçek bir cihaz eklemek](tutorial-add-device.md).
+Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **Windows IOT Core** cihaz şablonu ve cihaz bağlantı ayrıntılarını not yap (**kapsam kimliği, cihaz kimliği, birincil anahtar**). Daha fazla bilgi için [Azure IOT Central uygulamanıza gerçek bir cihaz eklemek](tutorial-add-device.md).
+
+ > [!NOTE]
+   > Azure IOT Central değiştiğinden Azure IOT Hub cihazı sağlama hizmeti (DPS) kullanarak tüm cihaz bağlantıları için bu instrustions için izleyin [cihaz bağlantı dizesini alma](concepts-connectivity.md#getting-device-connection-string) ve bu öğreticinin geri kalanını ile devam edin.
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>Windows 10 IoT Core cihazı hazırlama
 

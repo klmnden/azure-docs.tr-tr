@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: f0f20a4ceac2f0b79d4ae3bbf3cf82eb761bceb8
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: c20ffcca17f8b0521bac3b6131e963bbecbdc6e1
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782680"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736963"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage ile Azure PowerShell’i kullanma
 
@@ -159,7 +159,7 @@ Diğer anahtarı yeniden oluşturmak için kullanmak `key2` yerine anahtar adı 
 Anahtarlarınızdan birini yeniden oluşturun ve sonra yeniden yeni değeri görmek için alır.
 
 > [!NOTE] 
-> Bir üretim depolama hesabı anahtarı yeniden önce dikkatli planlama yapmalısınız. Bir veya iki anahtarlarını yeniden oluşturma, yeniden oluşturuldu anahtarını kullanarak herhangi bir uygulama için erişim geçersiz kılar. Daha fazla bilgi için lütfen bkz [depolama erişim anahtarlarını yeniden](storage-create-storage-account.md#regenerate-storage-access-keys).
+> Bir üretim depolama hesabı anahtarı yeniden önce dikkatli planlama yapmalısınız. Bir veya iki anahtarlarını yeniden oluşturma, yeniden oluşturuldu anahtarını kullanarak herhangi bir uygulama için erişim geçersiz kılar. Daha fazla bilgi için [erişim anahtarları](storage-account-manage.md#access-keys).
 
 
 ### <a name="delete-a-storage-account"></a>Bir depolama hesabını silme 

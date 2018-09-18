@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206080"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731999"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızda cihaz kümelerini kullanma
 
@@ -50,7 +50,7 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
 
 1. Seçin **Pano** sekmesi.
 
-1. Açma **tasarım modu**.
+1. Tıklayın **şablonu Düzen**.
 
     ![Tasarım modu](media/howto-use-device-sets/image3.png)
 
@@ -58,9 +58,6 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
 
 1. Bağlantı kutucuğu ekleyin:
     1. Seçin **bağlantı** sağ bölmede.
-
-        ![Bağlantıyı seçin](media/howto-use-device-sets/image6.png)
-
     1. Bağlantı vermek bir **başlık**.
     1. Bağlantıya tıklandığında açılması için bir URL seçin.
     1. Bağlantınız aşağıda gösteren bir açıklama vermek **başlık**.
@@ -87,38 +84,26 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
     > [!NOTE]
     > Birden çok resimleri, bağlantılar ve Kılavuzlar ekleyebilirsiniz.
   
-    1. Devre dışı **tasarım modu**.
+    1. **Bitti**’ye tıklayın.
 
     ![Tasarım modunda devre dışı](media/howto-use-device-sets/image10.png)
 
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Pano ayarlar konum eşleme Cihazınızı yapılandırma 
-Bir haritada cihazlarınızı konumunu görselleştirmek için bir konum eşlemesi ayarlar ekleyebilirsiniz. 
+Bir haritada cihazlarınızı konumunu görselleştirmek için bir konum eşlemesi ayarlar ekleyebilirsiniz.
 
 Cihaz için bir konum eşleme cihaz şablonunuzda yapılandırılan konum özelliği olmalıdır Pano ayarlar eklemek için bkz: [Azure haritalar tarafından desteklenen bir konum özelliği oluşturma](howto-set-up-template.md).
 
 
-1. Cihaz kümeleri Panoda kitaplıktan harita seçin. 
+1. Cihaz ayarlayın, panoda kitaplıktan harita seçin.
 
     ![Pano Maps cihazın ayarlar](media/howto-use-device-sets/LocationMaps1.png)
 
-
 2. Bir başlık verin ve location özelliği, cihaz özelliği bir parçası olarak daha önce yapılandırdığınız seçin.
-
-    ![Pano eşlemelerini yapılandırma](media/howto-use-device-sets/LocationMaps2.png)
-
 3. Kaydet ve cihaz kümesinde cihazlarınızı konumunu görüntüleme kutucuğuna harita görürsünüz.
-
-    ![Pano eşlemeleri Kaydet](media/howto-use-device-sets/LocationMaps3.png)
-
-
-5. Operatörün cihaz kümeleri panoyu görüntülediğinde tüm kutucukları görebiliyor artık bir bakışta tüm cihazları konumu görselleştirmek için eşleme konumu dahil olmak üzere yapılandırdınız! 
-
-    ![Pano haritalar işleci görünümü](media/howto-use-device-sets/LocationMaps4.png)
-
-    İstenen boyutunuz haritaya yeniden boyutlandırabilirsiniz olacaktır.
-
-    Eşlem içindeki bir PIN tıklayarak cihaz bilgilerini, adını ve konumunu görüntüler. Cihaz özellik sayfasına gitmek için açılan tıklayabilirsiniz.  
+4. Operatörün cihaz kümeleri panoyu görüntülediğinde tüm kutucukları görebiliyor artık bir bakışta tüm cihazları konumu görselleştirmek için eşleme konumu dahil olmak üzere yapılandırdınız! 
+    
+[!NOTE] İstenen boyutunuz haritaya yeniden boyutlandırabilirsiniz olacaktır. Eşlem içindeki bir PIN tıklayarak cihaz bilgilerini, adını ve konumunu görüntüler. Cihaz özellik sayfasına gitmek için açılan tıklayabilirsiniz.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Listenin, cihaz kümesi için yapılandırın

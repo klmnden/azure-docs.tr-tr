@@ -1,6 +1,6 @@
 ---
-title: OMS’de Aracı Durumu çözümü | Microsoft Docs
-description: Bu makale, doğrudan OMS veya System Center Operations Manager’a bildirimde bulunan aracılarınızın durumunu izlemek için bu çözümü nasıl kullanabileceğinizi anlamanıza yardımcı olmak için hazırlanmıştır.
+title: Azure'da aracı durumu çözümü | Microsoft Docs
+description: Bu makale, bu çözüm doğrudan Log Analytics veya System Center Operations Manager'a bildirimde bulunan aracılarınızın durumunu izlemek için nasıl kullanılacağını anlamanıza yardımcı olmak için hazırlanmıştır.
 services: operations-management-suite
 documentationcenter: ''
 author: MGoedtel
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 8a6275748c82fbb448a767af690121abbd1f669a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f0737c6a6ff228b92a030242faf7f4d634bdd9f2
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347156"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733202"
 ---
-#  <a name="agent-health-solution-in-oms"></a>OMS’de Aracı Durumu çözümü
-OMS’deki Aracı Durumu çözümü, doğrudan bir OMS çalışma alanına veya OMS’ye bağlı bir System Center Operations Manager yönetim grubuna bildirimde bulunan, yanıt vermeyen ve işletimsel veriler gönderen tüm aracıları anlamanıza yardımcı olur.  Ayrıca, kaç aracının dağıtıldığını, bunların coğrafi olarak nerelere dağıtıldığını da izleyebilir ve Azure’da, diğer bulut ortamlarında ya da şirket içinde dağıtılmış aracıların dağılımından her zaman haberdar olmaya yönelik diğer sorguları gerçekleştirebilirsiniz.    
+#  <a name="agent-health-solution-in-azure"></a>Aracı durumu çözümü, Azure
+Aracı durumu çözümü, Azure, tüm raporlanan aracılar için doğrudan yanıt vermeyen Log Analytics için Log Analytics çalışma alanı veya System Center Operations Manager yönetim grubu bağlı ve işletimsel gönderme anlamanıza yardımcı olur veriler.  Ayrıca, kaç aracının dağıtıldığını, bunların coğrafi olarak nerelere dağıtıldığını da izleyebilir ve Azure’da, diğer bulut ortamlarında ya da şirket içinde dağıtılmış aracıların dağılımından her zaman haberdar olmaya yönelik diğer sorguları gerçekleştirebilirsiniz.    
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu çözümü dağıtmadan önce, OMS çalışma alanına veya OMS çalışma alanınızla tümleşik bir [Operations Manager yönetim grubuna](../log-analytics/log-analytics-om-agents.md) bildirimde bulunan ve geçerli olarak desteklenen [Windows aracılarınız](../log-analytics/log-analytics-windows-agent.md) olduğunu doğrulayın.    
+Bu çözümü dağıtmadan önce şu anda desteklenen onaylayın [Windows aracıları](../log-analytics/log-analytics-windows-agent.md) Log Analytics çalışma alanına raporlama ya da raporlama bir [Operations Manager yönetim grubu](../log-analytics/log-analytics-om-agents.md) ile tümleşik Çalışma alanınız.    
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
 Bu çözüm, çalışma alanınıza eklenen aşağıdaki kaynaklardan ve doğrudan bağlanılan aracılardan veya Operations Manager bağlantılı yönetim grubundan oluşur.
 
 ### <a name="management-packs"></a>Yönetim paketleri
-System Center Operations Manager yönetim grubunuz OMS çalışma alanına bağlıysa, Operation Manager’a aşağıdaki yönetim paketleri yüklenir.  Bu çözüm eklendikten sonra bu yönetim paketleri doğrudan bağlı Windows bilgisayarlarına da yüklenir. Bu yönetim paketlerinde yapılandırılacak veya yönetilecek hiçbir şey yoktur.
+System Center Operations Manager yönetim grubunuzun bir Log Analytics çalışma alanınıza bağlıysa, aşağıdaki yönetim paketlerini Operations Manager'da yüklenir.  Bu çözüm eklendikten sonra bu yönetim paketleri doğrudan bağlı Windows bilgisayarlarına da yüklenir. Bu yönetim paketlerinde yapılandırılacak veya yönetilecek hiçbir şey yoktur.
 
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack  (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
@@ -39,7 +39,7 @@ System Center Operations Manager yönetim grubunuz OMS çalışma alanına bağl
 Çözüm yönetim paketlerini güncelleştirme hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics’e Bağlama](../log-analytics/log-analytics-om-agents.md).
 
 ## <a name="configuration"></a>Yapılandırma
-[Çözüm ekleme](../log-analytics/log-analytics-add-solutions.md) bölümünde açıklanan işlemi kullanarak Aracı Durumu çözümünü OMS çalışma alanınıza ekleyin. Başka bir yapılandırma işlemi gerekmez.
+Aracı durumu çözümü açıklanan işlemi kullanarak Log Analytics çalışma alanınıza eklemek [çözüm ekleme](../log-analytics/log-analytics-add-solutions.md). Başka bir yapılandırma işlemi gerekmez.
 
 
 ## <a name="data-collection"></a>Veri toplama
@@ -52,7 +52,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | System Center Operations Manager yönetim grubu | Evet | Sinyal olayları, 60 saniyede bir yönetim grubuna bildirimde bulunan aracılardan toplanır ve sonra Log Analytics’e iletilir. Operations Manager aracılarının doğrudan Log Analytics’e bağlanması gerekmez. Sinyal olay verileri yönetim grubundan Log Analytics deposuna iletilir.|
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
-Çözümü OMS çalışma alanınıza eklediğinizde OMS panonuza **Aracı Durumu** kutucuğu eklenir. Bu kutucuk, son 24 saat içindeki toplam aracı sayısını ve yanıt vermeyen aracı sayısını gösterir.<br><br> ![Panodaki Aracı Durumu Çözüm kutucuğu](./media/monitoring-solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Çözüm, Log Analytics çalışma alanınıza eklediğinizde **aracı sistem durumu** kutucuk, panonuza eklenir. Bu kutucuk, son 24 saat içindeki toplam aracı sayısını ve yanıt vermeyen aracı sayısını gösterir.<br><br> ![Panodaki Aracı Durumu Çözüm kutucuğu](./media/monitoring-solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 **Aracı Durumu** kutucuğuna tıklayarak **Aracı Durumu** panosunu açın.  Pano aşağıdaki tabloda gösterilen sütunları içerir. Her sütunda, ilgili sütunun belirtilen zaman aralığına ilişkin ölçütlerle eşleşen ilk on olay sayılarına göre listelenir. Her sütunun sağ alt tarafındaki **Tümünü görüntüle**’yi seçerek ya da sütun başlığına tıklayarak listenin tamamını sağlayan bir günlük araması çalıştırabilirsiniz.
 
@@ -65,12 +65,12 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | Aracı Kategorisine Göre Dağılım | Sinyal olayları gönderen farklı kategorilerdeki araçlara ilişkin bir bölüm: Doğrudan aracılar, OpsMgr aracıları veya OpsMgr Management Server.|
 | Yönetim Grubuna Göre Dağılım | Ortamınızdaki farklı SCOM Yönetim gruplarına ilişkin bir bölüm.|
 | Aracıların coğrafi konumu | Aracılarınızın bulunduğu farklı ülkelere ve her ülkede yüklü olan toplam aracı sayısına ilişkin bir bölüm.|
-| Yüklü Ağ Geçidi Sayısı | OMS Ağ Geçidi’nin yüklü olduğu sunucu sayısı ve bu sunucuların listesi.|
+| Yüklü Ağ Geçidi Sayısı | Log Analytics Gateway yüklü olan sunucu sayısını ve bu sunucuların listesi.|
 
 ![Aracı Durumu Çözüm panosu örneği](./media/monitoring-solution-agenthealth/agenthealth-solution-dashboard.png)  
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
-Çözüm, OMS deposunda bir tür kayıt oluşturur.  
+Çözüm, Log Analytics çalışma alanında bir tür kayıt oluşturur.  
 
 ### <a name="heartbeat-records"></a>Sinyal kayıtları
 **Sinyal** türünde bir kayıt oluşturulur.  Bu kayıtlar aşağıdaki tabloda gösterilen özelliklere sahiptir.  
@@ -83,9 +83,9 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | OSType | Windows veya Linux işletim sistemi.|
 | OSMajorVersion | İşletim sistemi ana sürümü.|
 | OSMinorVersion | İşletim sistemi alt sürümü.|
-| Sürüm | OMS Aracısı veya Operations Manager Aracısı sürümü.|
+| Sürüm | Log Analytics aracısı veya Operations Manager Aracısı sürümü.|
 | SCAgentChannel | Değer *Doğrudan* ve/veya *SCManagementServer*’dır.|
-| IsGatewayInstalled | OMS Ağ Geçidi yüklüyse değer *true*, aksi takdirde *false* olur.|
+| IsGatewayInstalled | Log Analytics Gateway yüklü değilse, değeri olan *true*, aksi takdirde *false*.|
 | ComputerIP | Bilgisayarın IP adresi.|
 | RemoteIPCountry | Bilgisayarın dağıtıldığı coğrafi konum.|
 | ManagementGroupName | Operations Manager yönetim grubunun adı.|
@@ -93,7 +93,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | RemoteIPLongitude | Bilgisayarın coğrafi konumunun boylamı.|
 | RemoteIPLatitude | Bilgisayarın coğrafi konumunun enlemi.|
 
-Bir Operations Manager yönetim sunucusuna bildirimde bulunan her bir aracı iki sinyal gönderir ve OMS aboneliğinizde hangi Log Analytics veri kaynaklarını ve çözümlerini etkinleştirdiğinize bağlı olarak SCAgentChannel özelliğinin değeri hem **Doğrudan** hem de **SCManagementServer**’ı içerir. Geri çağırırsanız, çözümlerden toplanan veriler doğrudan bir Operations Manager yönetim sunucusundan OMS web hizmetine gönderilir ya da aracıda toplanan verilerin hacmi nedeniyle doğrudan aracıdan OMS web hizmetine gönderilir. **SCManagementServer** değerine sahip sinyal olayları için ComputerIP değeri, verileri aslında karşıya yükleyen yönetim sunucusunun IP adresidir.  SCAgentChannel’ın **Doğrudan** olarak ayarlandığı sinyaller için bu adres, aracının genel IP adresidir.  
+Bir Operations Manager yönetim sunucusuna rapor veren her bir aracı iki sinyal gönderir ve SCAgentChannel özelliğinin değeri hem de içerecektir **doğrudan** ve **SCManagementServer** hangi günlük bağlı olarak Analiz veri kaynakları ve çözümleri, aboneliğinizde etkinleştirmiş olmanız gerekir. Hatırlayacağınız, veri çözümlerinden ya da gönderilir doğrudan bir Operations Manager yönetim sunucusundan Log analytics'e ya da aracıda toplanan verilerin hacmi nedeniyle Log Analytics'e gönderilen doğrudan Aracıdan. **SCManagementServer** değerine sahip sinyal olayları için ComputerIP değeri, verileri aslında karşıya yükleyen yönetim sunucusunun IP adresidir.  SCAgentChannel’ın **Doğrudan** olarak ayarlandığı sinyaller için bu adres, aracının genel IP adresidir.  
 
 ## <a name="sample-log-searches"></a>Örnek günlük aramaları
 Aşağıdaki tabloda, bu çözüm tarafından toplanan kayıtlara ilişkin örnek günlük aramaları sunulmaktadır.
@@ -111,7 +111,7 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan kayıtlara ilişkin örne
 | Heartbeat &#124; summarize AggregatedValue = count() by Category |Aracı Kategorisine Göre Dağılım |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Yönetim Grubuna Göre Dağılım |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Aracıların coğrafi konumu |
-| Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Yüklü OMS Ağ Geçidi Sayısı |
+| Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Log Analytics yüklü ağ geçidi sayısı |
 
 
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 921e9df11cd79e9d2558d9ca6a490a8da064deb8
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 877ea4c143d74414c3d733c446da57060322b11d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630350"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982151"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
 
@@ -57,7 +57,7 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 
 - <!-- | IS ASDK--> **Blok zinciri şablonları**. Artık yürütebilir [Ethereum consortium dağıtımları](azure-stack-ethereum.md) Azure Stack'te. Üç yeni şablonlarında bulabilirsiniz [Azure Stack hızlı başlangıç şablonlarından](https://github.com/Azure/AzureStack-QuickStart-Templates). Bunlar dağıtma ve Azure ve Ethereum minimum bilgi ile çok üye consortium Ethereum ağ yapılandırma izin verin. Şablonları amacı, kullanıcıların Kurulum geliştirme/test Blockchain dağıtımları birkaç adımda basit olmasını sağlamaktır.
 
-
+- <!-- | IS ASDK--> **API Sürüm profili 2017-03-09-profile 2018-03-01-karma güncelleştirildi**. API profillerini Azure kaynak sağlayıcısı ve Azure REST uç noktaları için API sürümü belirtin. Profilleri hakkında daha fazla bilgi için bkz. [yönetme API sürümü profillerini Azure Stack'te](/azure/azure-stack/user/azure-stack-version-profiles).
 
  ### <a name="fixed-issues"></a>Düzeltilen sorunlar
 - <!-- IS ASDK--> Bir kullanılabilirlik kümesi Portal'da bulunan ve bir hata etki alanı ve 1 güncelleştirme etki alanına sahip kümesinde sonuçlandı oluşturmaya yönelik bir sorunu düzelttik. 
@@ -142,6 +142,17 @@ Bu güncelleştirme ayrıca L1 Terminal içinde açıklanan hata (L1TF) olarak b
 Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 ### <a name="portal"></a>Portal
+
+- <!-- TBD - IS ASDK --> Bir boş Pano portalında görebilirsiniz. Pano kurtarmak için **Pano düzenleme**, sonra sağ tıklatın ve seçin **varsayılan durumuna sıfırlansın**.
+
+- <!-- 2930718 - IS ASDK --> Yönetici portalında herhangi bir kullanıcı aboneliği ayrıntıları tıklandığında ve dikey pencereyi kapatmadan sonra erişirken **son**, kullanıcı abonelik adı görünmez.
+
+- <!-- 3060156 - IS ASDK --> Yönetici ve Kullanıcı Portalı, portal ayarları ve seçme içinde **tüm ayarları ve özel panoları Sil** beklendiği gibi çalışmaz. Bir hata bildirimi görüntülenir. 
+
+- <!-- 2930799 - IS ASDK --> Yönetici ve Kullanıcı Portalı'nda altında **tüm hizmetleri**, varlık **DDoS koruma planları** yanlış listelenir. Azure Stack'te gerçekten kullanılabilir değil. Bunu oluşturmayı denerseniz, portalda Market öğesi oluşturulamadı belirten bir hata görüntülenir. 
+
+- <!-- 2930820 - IS ASDK --> "Docker için" araması yaparsanız yönetici ve kullanıcı portalı yanlış öğesi döndürülür. Azure Stack'te gerçekten kullanılabilir değil. Bunu oluşturmayı denerseniz, bir hata göstergesi içeren bir dikey pencere görüntülenir. 
+
 - <!-- 2967387 – IS, ASDK --> Azure Stack yönetici veya kullanıcı portalı oturum açmak için kullandığınız hesap görüntüler olarak **tanımlanmayan kullanıcı**. Hesap ya da sahip olmadığında bu oluşur bir *ilk* veya *son* adı belirtilmedi. Bu sorunu geçici olarak çözmek için ilk veya son sağlamak için kullanıcı hesabı düzenleyin. Oturumu kapatın ve sonra portalda yeniden oturum gerekir. 
 
 -  <!--  2873083 - IS ASDK --> Bir sanal makine ölçek oluşturmak için portalı kullandığınızda ayarlayın (VMSS) *örnek boyutu* açılan olmayan yük doğru bir şekilde Internet Explorer kullandığınızda. Bu sorunu çözmek için bir VMSS oluşturmak için portalı kullanırken başka bir tarayıcı kullanın.  
@@ -151,8 +162,6 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - <!--2760466 – IS  ASDK --> Bu sürümünü çalıştıran yeni bir Azure Stack ortamına yüklediğinizde, uyarıyı gösterir *etkinleştirme gerekli* görüntülenmeyebilir. [Etkinleştirme](azure-stack-registration.md) Market dağıtım kullanabilmeniz için gereklidir.  
 
 - <!-- TBD - IS ASDK --> İki Yönetim abonelik türlerini [1804 sürümü ile sunulan](azure-stack-update-1804.md#new-features) kullanılmamalıdır. Abonelik türleridir **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türlerini 1804 sürümünden başlayarak yeni Azure Stack ortamlarında görülebilir ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir **varsayılan sağlayıcı** abonelik türü.
-
-- <!-- TBD - IS --> Bir boş Pano portalında görebilirsiniz. Pano kurtarmak için portalın sağ üst köşesindeki dişli simgesini seçin ve ardından **varsayılan ayarları geri**.
 
 - <!-- TBD - IS ASDK --> Kullanıcı abonelikleri sonuçlarında yalnız bırakılmış kaynakları siliniyor. Geçici bir çözüm olarak kullanıcı kaynaklar veya kaynak grubunun tamamını silin ve sonra kullanıcı abonelikleri silin.
 

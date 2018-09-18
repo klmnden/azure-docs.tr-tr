@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 4d55c152bdc938d943c90a3e51af37b45f6a8eb5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c1684ce28cd52ac1891804ebb490b8b59d6fcccc
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301405"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729782"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Anlama ve IOT Hub'ından doğrudan metotları çağırma
 IOT Hub buluttan cihazlar üzerinde doğrudan metotları çağırma yeteneği sağlar. Başarılı veya başarısız hemen (kullanıcı tarafından belirtilen zaman aşımından sonra) doğrudan yöntemler için HTTP çağrısı benzer bir cihazla bir istek-yanıt etkileşimi temsil eder. Bu yaklaşım, hemen işlem boyunca cihaz yanıt verebilmesi olmasına bağlı olarak farklı olduğu senaryolar için kullanışlıdır.
@@ -112,7 +112,7 @@ Bu amaçla kullanabileceğiniz `ServiceClient.InvokeDeviceMethodAsync()` yöntem
 ## <a name="handle-a-direct-method-on-a-device"></a>Tanıtıcı bir cihazda doğrudan yöntem
 ### <a name="mqtt"></a>MQTT
 #### <a name="method-invocation"></a>Yöntem çağırma
-Cihaz, MQTT konusunda doğrudan yöntem isteklerini alır: `$iothub/methods/POST/{method name}/?$rid={request id}`
+Cihaz, MQTT konusunda doğrudan yöntem isteklerini alır: `$iothub/methods/POST/{method name}/?$rid={request id}`. 5. abonelik başına cihaz sayısı sınırlıdır. Bu nedenle, doğrudan her yöntem için tek tek abone değil önerilir. Bunun yerine abone düşünün `$iothub/methods/POST/#` ve ardından teslim edilen iletiler, istenen yöntem adlarına göre filtreleyin.
 
 Cihaz aldıktan gövdesi aşağıdaki biçimdedir:
 

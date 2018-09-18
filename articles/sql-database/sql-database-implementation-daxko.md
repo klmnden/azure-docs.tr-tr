@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: ee06039242afe5b5e92cf2fecc4c3fa9bff0b78b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 10720f42f7a9b10b42ccaaaad81acca369592f6a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214378"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731221"
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI Azure, kendi geliştirme döngüsünü hızlandırmalarına ve müşteri hizmet ve performansı geliştirmek için kullanılır.
 ![Daxko/CSI logosu](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -59,7 +59,7 @@ Bugün, yaklaşık yüzde 99'csı yazılımı müşterilere dört bölgesel veri
 ## <a name="azure-elastic-pools-free-up-it-resources"></a>BT kaynaklarını ücretsiz Azure elastik havuzlar
 Çeşitli Azure özelliklerinin CSI yazılımı yardımcı shift altyapı ve işlemleri özellik ve geliştirme odaklı olmak için odaklı engeller. Belki de en büyük avantaj, elastik havuzlarını olmuştur.
 
-CSI yazılımı, müşteriler için şu anda yaklaşık 550 veritabanları sağlar. Elastik havuzlar önce bir katman yapısı içinde bu kadar fazla sayıda veritabanını yönetmek zordu. Önemli BT-kaynak yükü gereken müşteriler, aşırı yük gereksinimlerine göre performans katmanları atamak OPS yöneticileri vardı. Elastik havuzlar sayesinde yöneticileri kiracılar, premium veya standart bir havuz, uygun şekilde atamak ve ardından boyutuna göre müşteriler taşıyabilir ve gerekir. Müşteriler, elastik havuzlar etkilerini hemen düşünmüştür; Elastik havuzlar önce müşterilerin veri bloğu kullanım dönemleri sırasında zaman aşımları ve diğer sorunlar vardı ancak elastik havuzlar sayesinde müşteriler gerektiğinde etkinlik artışları oluşabilir ve SpectrumNG sorun olmadan kullanmaya devam edebilirsiniz.
+CSI yazılımı, müşteriler için şu anda yaklaşık 550 veritabanları sağlar. Elastik havuzlar önce bir katman yapısı içinde bu kadar fazla sayıda veritabanını yönetmek zordu. OPS yöneticileri, hizmet katmanları atayın ve önemli BT-kaynak yükü gereken müşteriler, veri bloğu ihtiyaçlarını temel alarak boyutları işlem gerekiyordu. Elastik havuzlar sayesinde yöneticileri kiracılar, premium veya standart bir havuz, uygun şekilde atamak ve ardından boyutuna göre müşteriler taşıyabilir ve gerekir. Müşteriler, elastik havuzlar etkilerini hemen düşünmüştür; Elastik havuzlar önce müşterilerin veri bloğu kullanım dönemleri sırasında zaman aşımları ve diğer sorunlar vardı ancak elastik havuzlar sayesinde müşteriler gerektiğinde etkinlik artışları oluşabilir ve SpectrumNG sorun olmadan kullanmaya devam edebilirsiniz.
 
 ## <a name="azure-active-geo-replication-accelerates-reporting"></a>Azure etkin coğrafi çoğaltma raporlama hızlandırır.
 Birkaç CSI yazılımı Müşteriler ayrıca Azure etkin coğrafi çoğaltma avantajlarından sürüyor. Etkin coğrafi çoğaltma ile en fazla dört okunabilir ikincil veritabanı, aynı veya farklı bir veri merkezi bölgelerinde yapılandırılabilir. CSI yazılımı iki yolla etkin coğrafi çoğaltma kullanır: önce ikincil veritabanlarını bir veri merkezi kesintisi veya şubelerde birincil veritabanına bağlanmak için söz konusu olduğunda kullanılabilir ve ikinci olarak, ikincil veritabanlarıyla okunabilir ve raporlama işleri gibi salt okunur iş yüklerini boşaltma için kullanılabilir. CSI yazılımı bazı müşteriler bu Avantajdan raporlama iş akışları hızlandırmak için kullanın.

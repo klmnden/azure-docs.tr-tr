@@ -1,114 +1,115 @@
 ---
-title: Azure AD kiracınızın oturum açma sayfasını özelleştirme | Microsoft Docs
-description: Azure oturum açma sayfasına şirket markası ekleme hakkında bilgi edinin
+title: Oturum açma, Azure Active Directory sayfanıza markası ekleme | Microsoft Docs
+description: Kuruluşunuz için Azure Active Directory oturum açma sayfası markasını eklemeyi öğrenin.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 07/20/2018
+ms.topic: conceptual
+ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 45637122af3df1906a8c3b4b16233f6361eecca3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: HT
+ms.openlocfilehash: 6a817d4e52d602c921cb04f8c40dbad632d41932
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528335"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731336"
 ---
-# <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Hızlı başlangıç: Azure AD'de oturum açma sayfanıza şirket markası ekleme
-Birçok şirket, karışıklığı önlemek için yönettikleri hizmetlerde ve web sitelerinde tutarlı bir genel görünüm uygulamak ister. Azure Active Directory (Azure AD), oturum açma sayfasının görünümünü şirket logonuzla ve özel renk düzenleriyle özelleştirmenize olanak tanıyarak size bu özelliği sunar. Oturum açma sayfası, Office 365 gibi kimlik sağlayıcısı olarak Azure AD'yi kullanan web tabanlı uygulamalarda oturum açmak istediğinizde görüntülenir. Kimlik bilgilerinizi girmek için bu sayfayla etkileşim kurarsınız.
+# <a name="how-to-add-branding-to-your-azure-ad-sign-in-page"></a>Nasıl yapılır: Azure AD oturum açma sayfanızdaki için marka Ekle
+Kuruluşunuzun logosu ve özel renk düzenleriyle bir tutarlı görünüm ve hisse oturum açma, Azure Active Directory (Azure AD) sayfalarında sağlamak için kullanın. Oturum açma sayfaları kuruluşunuzun web tabanlı uygulamalara, Azure AD kimlik sağlayıcınız olarak kullanan Office 365 gibi kullanıcılar oturum açtığında görünür.
+
+>[!Note]
+>Özel marka öğelerini eklemek için Azure Active Directory Premium 1, 2 Premium veya Basic sürümleri kullanın ya da bir Office 365 lisansına sahip olması gerekir. Lisanslama ve sürümleri hakkında daha fazla bilgi için bkz: [Azure AD Premium'a kaydolun](active-directory-get-started-premium.md).<br><br>Azure AD Premium ve Temel sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure AD Premium ve Basic sürümleri şu anda Çin'de 21Vianet tarafından işletilen Azure hizmeti desteklenmez. Daha fazla bilgi için kullanarak bizimle iletişime geçin [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/).
+
+## <a name="customize-your-azure-ad-sign-in-page"></a>Azure AD oturum açma sayfanızı özelleştirme
+Kullanıcılar, kuruluşunuzun kiracıya özel uygulamalar için aşağıdaki gibi oturum açtığında görüntülenir, Azure AD oturum açma sayfaları özelleştirebilirsiniz [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), veya gibibiretkialanıdeğişkeninigeçirme[ *https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+
+Kullanıcılarınızın www.office.com gibi sitelere olduğunuzda özel marka hemen görünmez. Bunun yerine, kullanıcının özelleştirilmiş markalama görünmeden önce oturum açmanız gerekir.
 
 > [!NOTE]
-> * Şirket markası yalnızca Azure AD için Premium veya Temel lisans satın aldıysanız ya da Office 365 lisansınız varsa kullanılabilir. Bir özelliğin lisans türünüz tarafından desteklenip desteklenmediğini öğrenmek için [Azure Active Directory fiyatlandırma bilgileri sayfasına](https://azure.microsoft.com/pricing/details/active-directory/) bakın.
-> 
-> * Azure AD Premium ve Temel sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure AD Premium ve Temel sürümleri, şu anda Çin'de 21Vianet tarafından işletilen Azure hizmeti kapsamında desteklenmemektedir. Daha fazla bilgi için [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/)'nda bizimle konuşun.
+> Tüm marka öğeleri isteğe bağlıdır. Örneğin, hiçbir arka plan görüntüsü ile bir başlık logosu belirtirseniz oturum açma sayfası varsayılan arka plan görüntüsü (örneğin, Office 365) hedef siteden Logonuzla gösterir.<br><br>Ayrıca, oturum açma sayfasında bulunan marka kişisel Microsoft hesapları için aktarılmaz. Kullanıcılarınıza veya şirket konuklarınız kişisel bir Microsoft hesabı kullanarak oturum açın, oturum açma sayfasında, kuruluşunuzun markasını yansıtmaz.
 
-## <a name="customizing-the-sign-in-page"></a>Oturum açma sayfasını özelleştirme
+### <a name="to-customize-your-branding"></a>Markanızın özelleştirmek için
+1. Oturum [Azure AD portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
 
-<!--You can customize the following elements on the sign-in page: <attach image>-->
+2. Seçin **Azure Active Directory**ve ardından **şirket markası ekleme**ve ardından **yapılandırma**.
 
-Şirket markası özelleştirmeleri kullanıcılar [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com) gibi kiracıya özgü bir URL'ye eriştiğinde veya [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com) gibi bir URL'de etki alanını değişkenini ilettiğinde Azure AD oturum açma sayfasında görünür.
+    ![Contoso - şirket markalama dikey penceresinde, yapılandırma seçeneği vurgulanmış](media/customize-branding/company-branding-configure-button.png)
 
-Örneğin kullanıcılar www.office.com adresini ziyaret ettiğinde, kullanıcı henüz kimlik bilgilerini girmediğinden oturum açma sayfasında şirket markası özelleştirmeleri görünmez. Kullanıcı kimliği girildikten veya kullanıcı kutucuğu silindikten sonra şirket markası görünür.
+3. Üzerinde **yapılandırma şirket markası** dikey penceresinde tüm aşağıdaki bilgileri sağlayın:
 
-> [!NOTE]
-> * Etki alanı adının şirket markasını yapılandırdığınız Azure portalının **Etki Alanları** bölümünde "Etkin" olarak görünmesi gerekir. Daha fazla bilgi için bkz. [Özel etki alanı adı ekleme](add-custom-domain.md).
-> * Oturum açma sayfasında bulunan marka, Microsoft'un kişisel hesaplara yönelik oturum açma sayfasına aktarılmaz. Çalışanlarınız veya şirket konuklarınız kişisel bir Microsoft hesabıyla oturum açtığında, oturum açma sayfaları kuruluşunuzun markasını yansıtmaz.
+    - **Genel ayarlar**
 
+        ![Şirket dikey penceresinde tamamlanmış genel ayarlarla markasını yapılandırın](media/customize-branding/configure-company-branding-general-settings.png)
 
-### <a name="banner-logo"></a>Başlık logosu 
+        - **Dili.** Dil, varsayılan olarak otomatik olarak ayarlanır ve değiştirilemez.
+        
+        - **Oturum açma sayfası arka plan resmi.** Oturum açma sayfalarını arka planı olarak görüntülenecek bir .png veya .jpg görüntüsü dosyası seçin. Görüntü boyutu 1920 x 1080 piksel değerinden büyük olamaz ve az 300 KB dosya boyutuna sahip olmalıdır.
 
-Açıklama | Kısıtlamalar | Öneriler
-------- | ------- | ----------
-Başlık logosu, oturum açma ve Erişim paneli sayfalarında görüntülenir.<br>Oturum açma sayfasında logo, kullanıcı adı girildikten sonra gösterilir. | Saydam JPG veya PNG<br>Maksimum yükseklik: 36 piksel<br>Maksimum genişlik: 245 piksel | Burada kuruluşunuzun logosunu kullanın.<br>Saydam bir görüntü kullanın. Arka planın beyaz olacağını düşünmeyin.<br>Logonuzun veya görüntünüzün etrafına iç boşluk eklemeyin, aksi halde logonuz orantısız bir şekilde küçük görünür.
+        - **Başlık logosu.** Logonuz oturum açma sayfasında kullanıcının kullanıcı adı girdiğinde ve üzerinde görünmesi için bir .png veya .jpg sürümünü seçin **uygulamalarım** portal sayfası. Görüntü 36 pikselden daha uzun veya 245 pikselden daha geniş olamaz. Arka plan logo arka plan eşleşmeyebilir beri saydam bir görüntü kullanmanızı öneririz. Ayrıca görüntü çevresindeki dolgunun eklenmiyor öneririz veya küçük Ara logonuz hale getirebilirsiniz.
 
-### <a name="username-hint"></a>Kullanıcı adı ipucu   
-Açıklama | Kısıtlamalar | Öneriler
-------- | ------- | ----------
-Bu seçenek, kullanıcı adı alanındaki ipucu metnini özelleştirir. | Maksimum 64 karakterlik Unicode metni<br>Yalnızca düz metin | Kuruluşunuzun dışındaki konuk kullanıcıların uygulamanızda oturum açmasını bekliyorsanız bu seçeneği ayarlamamanızı öneririz.
+        - **Kullanıcı adı ipucu.** Kullanıcı adlarını unuturlarsa kullanıcılara görüntülenen İpucu metni yazın. Bu metin, Unicode bağlantılar veya kod olmalıdır ve 64 karakterden uzun olamaz. Konuklar uygulamanızda oturum açarsa, bu ipucu eklenmiyor öneririz.
+
+        - **Oturum açma sayfası metni.** Oturum açma sayfasının en altında görüntülenen metin yazın. Bu metin, Yardım masanıza ya da yasal bildirim telefon numarası gibi ek bilgiler iletmek için kullanabilirsiniz. Bu metin, Unicode ve 256 karakterden uzun değil. Bağlantılar veya HTML etiketleri içermeden öneririz.
+
+    - **Gelişmiş ayarlar**
             
-### <a name="sign-in-page-text"></a>Oturum açma sayfası metni   
-Açıklama | Kısıtlamalar | Öneriler
-------- | ------- | ----------
-Bu seçenek, oturum açma formunun en altında görünür ve yardım masanızın telefon numarası veya yasal bildirim gibi ek bilgiler için kullanılabilir. | Maksimum 256 karakterlik Unicode metni<br>Yalnızca düz metin (bağlantılar veya HTML etiketleri olmadan)    
+        ![Şirket tamamlandı ile Gelişmiş ayarlar dikey penceresinde markasını yapılandırın](media/customize-branding/configure-company-branding-advanced-settings.png)   
 
-### <a name="sign-in-page-image"></a>Oturum açma sayfası görüntüsü  
-Açıklama | Kısıtlamalar | Öneriler
-------- | ------- | ----------
-Bu seçenek oturum açma sayfasının arka planında görüntülenir, görünür alanın ortasına sabitlenir ve tarayıcı penceresini dolduracak şekilde ölçeklenir ve kırpılır.    <br>Cep telefonları gibi dar ekranlarda bu görüntü gösterilmez.<br>Sayfa yüklendiğinde bu görüntünün üzerine 0,55 opaklık değerine sahip siyah bir maske uygulanır. | JPG veya PNG<br>Görüntü boyutları: 1920x1080 piksel<br>Dosya boyutu: &lt; 300 KB | <br>Konu odağının güçlü olmadığı görüntüler kullanın. Opak oturum açma formu bu görüntünün ortasında görüntülenir ve tarayıcı penceresinin boyutuna bağlı olarak görüntünün herhangi bir bölümünü kaplayabilir.<br>Yükleme süresinin kısa olması için dosya boyutunu küçük tutun. 
+        - **Oturum açma sayfası arka plan rengi.** Onaltılık renk belirtin (örneğin #FFFFFF beyaz) arka plan görüntünüzü düşük bant genişlikli bağlantı durumlarda yerine görüntülenir. Başlık logosu, ya da kuruluş renginiz birincil rengini kullanmanızı öneririz.
 
-### <a name="sign-in-page-background-color"></a>Oturum açma sayfası arka plan rengi
-Açıklama | Kısıtlamalar | Öneriler
-------- | ------- | ----------
-Bu renk, düşük bant genişliği durumlarında arka plan görüntüsünün yerine kullanılır. | Onaltılık biçimde RGB rengi (örnek: #FFFFFF) | Başlık logosunun birincil rengini veya kurumsal renginizi kullanmanızı öneririz.
+        - **Kare logo görüntüsü.** (Tercih edilir) bir .png veya .jpg görüntüsü yeni Windows 10 Enterprise cihazları için Kurulum işlemi sırasında kullanıcıların göreceği kuruluşunuzun logo seçin. Bu görüntü, yalnızca Windows kimlik doğrulaması için kullanılır ve yalnızca kullandığınız kiracının görünür [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) parola girişi veya dağıtım için diğer Windows 10 sayfalarında deneyimleri. Görüntü boyutu 240 x 240 piksel değerinden büyük olamaz ve dosya boyutunun 10 KB'den az olmalıdır. Arka plan logo arka plan eşleşmeyebilir beri saydam bir görüntü kullanmanızı öneririz. Ayrıca görüntü çevresindeki dolgunun eklenmiyor öneririz veya küçük Ara logonuz hale getirebilirsiniz.
+    
+        - **Kare logo görüntüsü, koyu tema.** Yukarıdaki kare logo görüntüsü ile aynıdır. Bu logo görüntüsü, koyu renkli arka plan ile gibi Windows 10 Azure AD'ye katılmış ekranlar kullanıma hazır deneyimi (OOBE) sırasında kullanıldığında kare logo görüntüsü yerini alır.  Logonuz beyaz, koyu mavi ve siyah arka plan üzerinde iyi görünüyorsa, bu görüntüyü eklemenize gerek yoktur. 
+        
+        - **Oturumu açık bırak seçeneğini göster.** Kullanıcılarınızın açıkça oturumunuzu kadar Azure AD'ye oturumunun açık kalmasına izin vermeyi seçebilirsiniz. Seçerseniz **Hayır**, bu seçenek gizlenir ve kullanıcılar tarayıcı kapatıldı ve yeniden her zaman içinde oturum gerekir.
+        
+            >[!Note]
+            >SharePoint Online ve Office 2010’un bazı özellikleri kullanıcıların oturumun açık kalmasını seçebilmesine bağlıdır. Bu ayarı **Hayır** olarak ayarlarsanız kullanıcılarınız oturum açmaya yönelik ek ve beklenmeyen istemler görebilir.
+   
 
-### <a name="square-logo-image"></a>Kare logo görüntü
-Açıklama | Kısıtlamalar | Öneriler
-------- | ------- | ----------
-Bu görüntü yeni Enterprise Windows 10 bilgisayarlar için kurulum sırasında görüntülenir. Yeni iş bilgisayarının kurulumunu yapan çalışanlar için bir bağlam sunar. Görüntü iş cihazlarını dağıtmak için [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) kullanan kiracılarda ve diğer Windows 10 deneyimlerindeki parola giriş sayfalarında görüntülenir.<br>Kare logo yalnızca Windows kimlik doğrulamasında kullanılır. Koyu tema sürüm kullanım dışı bırakılmıştır ve artık herhangi bir yerde kullanılmamaktadır. | Saydam PNG (tercih edilir) veya JPG<br>Görüntü boyutları: 240x240 piksel<br>Dosya boyutu: &lt; 10 KB | Burada kuruluşunuzun logosunu kullanın.<br> Saydam bir görüntü kullanın.<br>Arka planın beyaz olacağını düşünmeyin.<br>Logonuza veya görüntünüze iç boşluk eklemeyin, aksi halde logonuz orantısız bir şekilde küçük görünür.
+3. Marka bilgilerinizi ekleyerek bitirdikten sonra seçin **Kaydet**.
 
-### <a name="show-option-to-remain-signed-in"></a>Oturumu açık bırak seçeneğini göster
-Açıklama | Kısıtlamalar | Öneriler
-------- | ------- | ----------
-Azure AD oturum açma deneyimi, kullanıcıya tarayıcıyı kapatıp yeniden açtıktan sonra oturumun açık kalması seçeneğini sunar. Bu ayar, bu seçeneği gizler.<br>Bu seçeneği kullanıcılardan gizlemek için **Hayır** seçeneğini belirleyin. | &nbsp; | Bu seçeneğin gizlenmesi, oturum ömrünü etkilemez.<br>SharePoint Online ve Office 2010’un bazı özellikleri kullanıcıların oturumun açık kalmasını seçebilmesine bağlıdır. Bu ayarı **Hayır** olarak ayarlarsanız kullanıcılarınız oturum açmaya yönelik ek ve beklenmeyen istemler görebilir.
+  Bu ilk marka yapılandırmanızı olduğundan, kiracınız için varsayılan olur. Daha fazla yapılandırma eklerseniz, varsayılan seçim yapma olanağı elde edersiniz.
 
-> [!NOTE]
-> Tüm öğeler isteğe bağlıdır. Örneğin arka plan görüntüsü olmayan bir başlık logosu belirtirseniz oturum açma sayfasında logonuz ve hedef site (örneğin Office 365) için belirlenen arka plan görüntüsü gösterilir.
+  >[!Important]
+  >Daha fazla bilgi eklemek için Kurumsal yapılandırmaları, kiracınız marka seçmeniz gerekir **yeni dil** üzerinde **Contoso - şirket markası** dikey penceresi. Bu açılır **yapılandırma şirket markası** dikey penceresinde, burada izleyebilirsiniz yukarıdaki gibi aynı adımları.
 
-## <a name="add-company-branding-to-your-directory"></a>Dizininize şirket markası ekleme
+## <a name="update-your-custom-branding"></a>Özel bir marka bilgilerinizi güncelleştirin
+Özel marka oluşturduktan sonra geri dönün ve istediğiniz değişikliği.
 
-1. Kiracı için genel yönetici olan bir hesapla [Azure AD yönetim merkezinde](https://aad.portal.azure.com) oturum açın.
-2. **Azure Active Directory** > **Şirket markası** > **Düzenle**'yi seçin.
-  
-  ![Özel markalamayı açma](./media/customize-branding/navigation-to-branding.png)
-3. Özelleştirmek istediğiniz öğeleri değiştirin. Tüm öğeler isteğe bağlıdır.
-  
-  ![Özel markalamayı düzenleme](./media/customize-branding/edit-branding.png)
-4. İşiniz bittiğinde **Kaydet**'i seçin.
+### <a name="to-edit-your-custom-branding"></a>Özel bir marka bilgilerinizi düzenlemek için
+1. Oturum [Azure AD portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
 
-Oturum açma sayfası markasında yaptığınız değişikliklerin görünmesi bir saate kadar sürebilir.
+2. Seçin **Azure Active Directory**ve ardından **şirket markası ekleme**ve ardından **yapılandırma**.
+
+    ![Contoso - şirket markalama dikey penceresinde gösterilen varsayılan yapılandırma ile](media/customize-branding/company-branding-default-config.png)
+
+3. Üzerinde **yapılandırma şirket markası** dikey penceresinde, eklemek, kaldırmak veya açıklamasında temel alan bilgiler, değişiklik [Azure AD oturum açma sayfanızı özelleştirmek](#customize-your-azure-ad-sign-in-page) bu makalenin.
+
+4. **Kaydet**’i seçin.
+
+  Oturum açma sayfası markasında yaptığınız değişikliklerin görünmesi bir saate kadar sürebilir.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>Dizininize dile özgü şirket markası ekleme
+Varsayılan dilinizi özgün yapılandırmasının dili değiştiremezsiniz. Ancak, farklı bir dil yapılandırmasında ihtiyacınız varsa, yeni bir yapılandırma oluşturabilirsiniz.
 
-1. Dizin için genel yönetici olan bir hesapla [Azure AD yönetim merkezinde](https://aad.portal.azure.com) oturum açın.
-2. **Azure Active Directory** > **Şirket markası** > **Yeni dil**'i seçin.
-  
-  ![Dile özgü markalama öğeleri ekleme](./media/customize-branding/add-language.png)
-3. Özelleştirmek istediğiniz öğeleri değiştirin. Tüm öğeler isteğe bağlıdır.
-4. İşiniz bittiğinde **Kaydet**'i seçin.
+### <a name="to-add-a-language-specific-branding-configuration"></a>Dile özgü marka yapılandırması eklemek için
 
-Oturum açma sayfası markasında yaptığınız değişikliklerin görünmesi bir saate kadar sürebilir.
+1. Oturum [Azure AD portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
 
-## <a name="next-steps"></a>Sonraki adımlar
-Bu hızlı başlangıçta Azure AD dizininize şirket markası eklemeyi öğrendiniz. 
+2. Seçin **Azure Active Directory**ve ardından **şirket markası ekleme**ve ardından **yeni dil**.
 
-Aşağıdaki bağlantıyı kullanarak Azure AD içindeki şirket markanızı Azure portaldan yapılandırabilirsiniz.
+    ![Contoso - şirket markalama dikey penceresinde yeni dil seçeneği vurgulanmış ile](media/customize-branding/company-branding-new-language.png)
 
-> [!div class="nextstepaction"]
-> [Şirket markası yapılandırma](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/LoginTenantBrandingBlade) 
+3. Üzerinde **yapılandırma şirket markası** dikey penceresinde (örneğin, Fransızca) dilinizi seçin ve ardından bağlantısındaki açıklamalara göre çevrilmiş bilgilerinizi ekleyin [Azure AD oturum açma sayfanızı özelleştirmek](#customize-your-azure-ad-sign-in-page) Bu makalede bölümü.
+
+4. **Kaydet**’i seçin.
+
+    **Contoso – şirket markası** yeni Fransızca yapılandırmanızı göstermek için dikey penceresinde güncelleştirmeler.
+
+    ![Contoso - şirket markalama dikey penceresinde gösterilen varsayılan yapılandırma ile](media/customize-branding/company-branding-french-config.png)

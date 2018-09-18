@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 6cbaaeed75f160a2281fdce0949397b9a14bf981
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1be7dd9ce537d0999ace01eafa46318e42df9f20
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347928"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732459"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure dosyaları'na veri almak için Azure içeri/dışarı aktarma hizmetini kullanma
 
@@ -26,7 +26,7 @@ Bu makalede Azure içeri/dışarı aktarma hizmeti büyük miktarda veriyi Azure
 Azure dosyalarına veri aktarmak için içeri aktarma işine oluşturmadan önce dikkatle gözden geçirin ve aşağıdaki listede yer alan önkoşulları tamamlayın. Şunları yapmanız gerekir:
 
 - İçeri/dışarı aktarma hizmeti ile kullanmak için etkin bir Azure aboneliğine sahip.
-- En az bir Azure depolama hesabına sahip. Listesine bakın [desteklenen depolama hesapları ve depolama türleri için içeri/dışarı aktarma hizmeti](storage-import-export-requirements.md). Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-create-storage-account.md#create-a-storage-account).
+- En az bir Azure depolama hesabına sahip. Listesine bakın [desteklenen depolama hesapları ve depolama türleri için içeri/dışarı aktarma hizmeti](storage-import-export-requirements.md). Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-quickstart-create-account.md).
 - Diskleri yeterli sayıda [desteklenen türleri](storage-import-export-requirements.md#supported-disks). 
 - Çalıştıran bir Windows sistemine sahip bir [desteklenen işletim sistemi sürümü](storage-import-export-requirements.md#supported-operating-systems).
 - [' % S'WAImportExport sürüm 2 indirme](https://www.microsoft.com/download/details.aspx?id=55280) Windows sistem üzerinde. Varsayılan klasöre çıkartın `waimportexport`. Örneğin, `C:\WaImportExport`.

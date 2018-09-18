@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 8266d9e3530969154ac9c8c877badda9f8b4fed3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 93b017482006507d616d9125cd17fd2f14389d59
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307281"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983055"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Sanal çekirdek hizmet katmanı seçme, bilgi işlem, bellek, depolama ve GÇ kaynakları
 
@@ -26,7 +26,7 @@ vCore modeli de kullanmanıza olanak verir [SQL Server için Azure hibrit kullan
 
 ## <a name="service-tier-characteristics"></a>Hizmet katmanı özellikleri
 
-İki hizmet katmanıyla genel amaçlı ve iş açısından kritik vCore modeli sağlar. Hizmet katmanları, bir dizi performans düzeyleri, yüksek kullanılabilirlik tasarımı, hata yalıtımı, depolama türleri ve g/ç aralığı tarafından ayrılır. Müşteri, gerekli depolama ve saklama dönemi yedeklemeler için ayrı olarak yapılandırmanız gerekir.
+İki hizmet katmanıyla genel amaçlı ve iş açısından kritik vCore modeli sağlar. Hizmet katmanları, bir dizi işlem boyutları, yüksek kullanılabilirlik tasarımı, hata yalıtımı, depolama türleri ve g/ç aralığı tarafından ayrılır. Müşteri, gerekli depolama ve saklama dönemi yedeklemeler için ayrı olarak yapılandırmanız gerekir.
 
 Aşağıdaki tabloda, bu iki katmanı arasındaki farklar anlamanıza yardımcı olur:
 
@@ -53,10 +53,10 @@ Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtla
 
 Aşağıdaki topluluklara bir göz atın:
 - Ayrılmış depolama, veri dosyaları (MDF) ve günlük dosyalarını (LDF) tarafından kullanılır.
-- Varsayılan en büyük boyutu 32 GB olan bir maksimum veritabanı boyutu her tek veritabanı performans düzeyi destekler.
+- Varsayılan en büyük boyutu 32 GB olan bir maksimum veritabanı boyutu her tek veritabanı işlem boyutu destekler.
 - Gereken tek veritabanı boyutu (MDF boyutu) yapılandırırken, ek depolama alanı % 30'luk LDF desteklemek için otomatik olarak eklenir
 - Yönetilen örnek depolama boyutu, 32 GB'ın katları şeklinde belirtilmelidir.
-- Tüm tek veritabanı boyutu 10 GB ve desteklenen en yüksek arasında seçebilirsiniz.
+- Desteklenen en fazla 10 GB arasındaki herhangi bir tek veritabanı boyutu seçebilirsiniz.
  - Standart depolama için artırmak veya azaltmak boyutu 10 GB'lık artışlarla
  - Premium depolama için artırmak veya azaltmak boyutu 250 GB'lık artışlarla
 - Genel amaçlı hizmet katmanındaki `tempdb` ekli bir SSD ve bu depolama maliyeti sanal çekirdek fiyatına dahil kullanır.
@@ -113,13 +113,13 @@ Yük devretme grupları ile birden çok veritabanı geçişi birincil ve ikincil
 
 ### <a name="creation-of-a-geo-replication-secondary"></a>Coğrafi çoğaltma ikincil oluşturma
 
-Yalnızca birincil olarak aynı hizmet katmanını kullanarak bir coğrafi-ikincil oluşturabilirsiniz. İçin bir veritabanı yüksek günlük oluşturma hızı ile aynı performans düzeyinde birincil ile ikincil oluşturulduğunu önerilir. Tek bir birincil veritabanı için elastik havuzdaki bir coğrafi-ikincil oluşturuyorsanız, havuz olduğunu önerilir `maxVCore` ayarı birincil veritabanının performans düzeyini eşleşir. Esnek havuz başka bir elastik havuzdaki bir birincil site için bir coğrafi-ikincil oluşturuyorsanız havuzlarının aynı olduğunu önerilir `maxVCore` ayarları
+Yalnızca birincil olarak aynı hizmet katmanını kullanarak bir coğrafi-ikincil oluşturabilirsiniz. İçin bir veritabanı yüksek günlük oluşturma hızı ile aynı işlem boyutu birincil olarak ikincil yaratılırken önerilir. Tek bir birincil veritabanı için elastik havuzdaki bir coğrafi-ikincil oluşturuyorsanız, havuz olduğunu önerilir `maxVCore` ayarı, birincil veritabanı işlem boyutu eşleşir. Esnek havuz başka bir elastik havuzdaki bir birincil site için bir coğrafi-ikincil oluşturuyorsanız havuzlarının aynı olduğunu önerilir `maxVCore` ayarları
 
 ### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Veritabanı kopyası kullanarak sanal çekirdek tabanlı bir veritabanı için DTU tabanlı bir veritabanı dönüştürmek.
 
-DTU tabanlı performans düzeyine sahip herhangi bir veritabanı sanal çekirdek tabanlı performans düzeyi kısıtlama olmadan veya özel kaynak veritabanının en büyük veritabanı boyutu hedef performans düzeyi desteklediği sürece sıralaması veritabanına kopyalayabilirsiniz. Veritabanı kopyalama kopyalama işleminin başlangıç tarihindeki verileri anlık görüntüsünü oluşturur ve kaynak ve hedef arasında veri eşitlemeye gerçekleştirmez olmasıdır. 
+DTU tabanlı işlem boyutu olan herhangi bir veritabanı sanal çekirdek tabanlı işlem boyutu kısıtlamaları veya kaynak veritabanının en büyük veritabanı boyutu hedef işlem boyutu desteklediği sürece özel sıralaması olmayan bir veritabanına kopyalayabilirsiniz. Veritabanı kopyalama kopyalama işleminin başlangıç tarihindeki verileri anlık görüntüsünü oluşturur ve kaynak ve hedef arasında veri eşitlemeye gerçekleştirmez olmasıdır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Belirli bir performans düzeyleri ve depolama boyutu tek veritabanı için kullanılabilir seçenekler hakkında daha fazla bilgi için bkz: [tek veritabanları için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)
-- Elastik havuzlar için boyut seçenekleri belirli bir performans düzeyleri ve depolama hakkında ayrıntılı bilgi için bkz [elastik havuzlar için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- Özel hakkında ayrıntılı bilgi işlem boyutları ve tek veritabanı için kullanılabilir depolama boyutu seçenekleri için bkz: [tek veritabanları için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
+- Özel hakkında ayrıntılı bilgi işlem boyutlarına ve elastik havuzlar için kullanılabilir depolama boyutu seçenekleri görmek için [elastik havuzlar için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

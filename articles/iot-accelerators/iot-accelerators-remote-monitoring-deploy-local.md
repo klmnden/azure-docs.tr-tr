@@ -3,17 +3,17 @@ title: Yerel olarak - uzaktan izleme çözümünü Azure'da dağıtma | Microsof
 description: Bu nasıl yapılır kılavuzunda test ve geliştirme için yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtmayı gösterir.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: asdonald
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/06/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: aaaf31d5c1faae8176dd9909f74c70300c3f0b4e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: e29a21639d3d7c7acb6093bcd8eb9947721273bc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716449"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982551"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak dağıtma
 
@@ -42,13 +42,13 @@ Yerel dağıtımını tamamlamak için aşağıdaki araçları, yerel geliştirm
 Mikro hizmetler Java uygulamalarını yüklemek için çalıştırın:
 
 ```cmd/sh
-git clone --recurse-submodules -j8 https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
+git clone --recurse-submodules  https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
 ```
 
 .net mikro hizmet uygulamaları yüklemek için çalıştırın:
 
 ```cmd\sh
-git clone --recurse-submodules -j8 https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet
+git clone --recurse-submodules  https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
 ```
 
 > [!NOTE]
@@ -58,18 +58,38 @@ git clone --recurse-submodules -j8 https://github.com/Azure/azure-iot-pcs-remote
 
 Bu makalede, mikro Hizmetleri yerel olarak çalıştırmak nasıl gösterir, ancak bunlar bulutta çalışan Azure Hizmetleri bağlıdır. Bu Azure hizmetlerini dağıtabileceğiniz [Azure Portalı aracılığıyla el ile](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup), ya sağlanan komut dosyasını kullanın. Aşağıdaki betik örnekleri, bir Windows makinede .NET deposu kullanmakta olduğunuz varsayılır. Başka bir ortamda çalışıyorsanız, yol, dosya uzantılarını ve yol ayırıcıları uygun şekilde ayarlayın. Sağlanan komut dosyasını kullanmak için:
 
-1. Komut satırı ortamınızda gidin **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch** kopyaladığınız deponun klasöründe.
+### <a name="new-users"></a>Yeni kullanıcılar
+Sahip kullanıcılar için **henüz** gerekli Azure kaynakları oluşturulur, devam aşağıdaki adımları izleyin:
 
-1. Çalıştırma **start.cmd** betiği ve yönergeleri izleyin. Betik için aşağıdaki bilgileri ister:
+ 1. Komut satırı ortamınızda gidin **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch** kopyaladığınız deponun klasöründe.
+
+ 2. Çalıştırma **start.cmd veya start.sh** betiği ve yönergeleri izleyin. Betik için aşağıdaki bilgileri ister:
     * Bir çözüm adı.
     * Kullanılacak Azure aboneliği.
     * Kullanmak için Azure veri merkezi konumu.
 
     Betik, çözümünüzün adına ile Azure'da kaynak grubu oluşturur.
 
-1. Komut satırı ortamınızda gidin **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch\os\win** kopyaladığınız deponun klasöründe.
+ 3. Komut satırı ortamınızda gidin **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch\os\win** kopyaladığınız deponun klasöründe.
 
-1. Çalıştırma **kümesi env uri.cmd** betiği.
+ 4. Çalıştırma **kümesi env uri.cmd veya set env uri.sh** betiği.
+ 
+ 5. En son ayarlara sahip olduğunuzdan emin olmak için git alt güncelleştirin: ```cd <repo-name>``` ve ardından aşağıdaki komutu çalıştırın ```git submodule foreach git pull origin master```
+
+> [!NOTE]
+> Azure-iot-pcs-remote-monitoring-dotnet depo kopyaladıysanız, betikler klasörüne Hizmetleri (klasör) alt modül altında mevcuttur.
+Başlangıç betiği gerektirir **Node.js** yürütmek için lütfen en son kararlı düğüm 8 (kapatırsanız kullanımı düğüm 10) bu betik kullanmadan önce yükleyin. Yüklemeye çalıştığında ayrıca, bu betik işletir ayrıcalıkları veya sudo izni gerektirebilir [bilgisayarları-cli](https://github.com/Azure/pcs-cli) CLI Uzaktan izleme dağıtımları.  
+
+### <a name="existing-users"></a>Mevcut kullanıcıları
+Gerekli azure kaynakları oluşturduysanız ve yeni kullanıcılar güncelleştirmeniz gerekir için yalnızca tamamlamak **bir** aşağıdaki adımları:
+
+ * Ortam değişkenlerini makinenizde genel olarak ayarlayın.
+ * **VS Code:** yani launch.json IDE başlatma yapılandırmalarında ortam değişkenlerini ayarlama
+ * **Visual Studio:** için özellikleri → hata ayıklama → ortam değişkenlerini ekleyerek mikro Hizmetleri, Web hizmeti projesi için ortam değişkenlerini ayarlama
+ 
+Son olarak, en son ayarlara sahip olduğunuzdan emin olmak için git alt güncelleştirin: ```cd <repo-name>``` ve ardından aşağıdaki komutu çalıştırın ```git submodule foreach git pull origin master```
+ 
+Önerilmemesine rağmen ortam değişkenleri WebService klasörü altında her bir mikro hizmetler için mevcut appsettings.ini dosyasında da ayarlanabilir.
 
 ## <a name="run-the-microservices-in-docker"></a>Mikro hizmetler Docker'da çalıştırma
 

@@ -1,23 +1,23 @@
 ---
-title: Renk düzenleri algılama
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Azure Bilişsel hizmetler görüntü işleme kullanarak resimlerdeki renk şeması algılanıyor ilgili kavramları.
+title: Renk düzenleri - görüntü işleme algılama
+titleSuffix: Azure Cognitive Services
+description: Görüntü işleme API'sini kullanarak resimlerdeki renk şeması algılama için ilgili kavramları.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 66abab93ba9c1152d18428e66d648c6ba690aaa0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c01433ed3ef1279bf3db9bdcf76e57aad2208895
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725453"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983606"
 ---
-# <a name="detecting-color-schemes"></a>Renk düzenleri algılama
+# <a name="detecting-color-schemes"></a>Renk şemalarını algılama
 
 Görüntü işleme, bir resimden renkleri ayıklar. Renkleri, sonra üç farklı bağlamda analiz edilir: baskın ön plan rengi, baskın arka plan rengini ve bir bütün olarak görüntü için baskın renkler. Bunlar 12 baskın vurgu rengine ayrılarak gruplandırılır. Vurgu renklerdir siyah, mavi, brown, gri, yeşil, orange, pembe, mor, red, Deniz Mavisi, teknik ve sarı. Görüntü işleme, izleyiciler, birlikte baskın renk doygunluğu ve görüntü için en canlı rengi temsil eden bir Vurgu rengi döndürülecek bir görüntüden ayıklanan renkleri analiz eder. Görüntü renkleri bağlı olarak, basit siyah beyaz mı vurgu rengine ayrılarak onaltılık renk kodlarını döndürülebilir. Görüntü işleme, ayrıca bir resmin siyah olmadığını gösteren bir Boole değeri döndürür ve beyaz.
 

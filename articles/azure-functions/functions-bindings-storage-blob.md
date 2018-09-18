@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: 9efe3c3d65dc1d809285eb760ca373c648ad66c0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: aaa18e5bc4a95ed0c7334232417f68064fd26ca7
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094579"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734916"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -29,7 +29,7 @@ Bu makalede, Azure işlevleri'nde Azure Blob Depolama bağlamaları ile nasıl �
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Olay Kılavuzu tetikleyicisi için yalnızca blob depolama hesapları için büyük ölçekli veya soğuk başlangıç gecikmeleri önlemek için Blob Depolama tetikleyici yerine kullanın. Daha fazla bilgi için [tetikleyici](#trigger) bölümü. 
+> Event Grid tetikleyicisinin Blob Depolama hesapları için büyük ölçekli veya soğuk başlangıç gecikmeleri önlemek için Blob Depolama tetikleyici yerine kullanın. Daha fazla bilgi için [tetikleyici](#trigger) bölümü. 
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
@@ -53,13 +53,13 @@ Yeni veya güncelleştirilmiş bir blob algılandığında bir işlevin Blob Dep
 
 Event Grid, Blob Depolama tetikleyici yerine aşağıdaki senaryolar için kullanın:
 
-* Yalnızca BLOB Depolama hesapları
+* Blob Storage hesapları
 * Yüksek ölçek
 * Soğuk başlangıç gecikmesi en aza indirme
 
-### <a name="blob-only-storage-accounts"></a>Yalnızca BLOB Depolama hesapları
+### <a name="blob-storage-accounts"></a>Blob Storage hesapları
 
-[Yalnızca BLOB Depolama hesapları](../storage/common/storage-create-storage-account.md#blob-storage-accounts) blob giriş için desteklenir ve çıkış bağlamaları blob Tetikleyicileri için değil. BLOB Depolama Tetikleyicileri bir genel amaçlı depolama hesabı gerektirir.
+[BLOB Depolama hesapları](../storage/common/storage-account-overview.md#types-of-storage-accounts) blob giriş için desteklenir ve çıkış bağlamaları blob Tetikleyicileri için değil. BLOB Depolama Tetikleyicileri bir genel amaçlı depolama hesabı gerektirir.
 
 ### <a name="high-scale"></a>Yüksek ölçek
 
@@ -284,7 +284,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**direction** | yok | Ayarlanmalıdır `in`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. Özel durumlar belirtilmiştir [kullanım](#trigger---usage) bölümü. |
 |**Adı** | yok | İşlev kodunu blob temsil eden değişken adı. | 
 |**Yolu** | **BlobPath** |İzlemek için kapsayıcı.  Olabilir bir [blob adı deseni](#trigger-blob-name-patterns). | 
-|**bağlantı** | **bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**bağlantı** | **bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [Blob Depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -602,7 +602,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**direction** | yok | Ayarlanmalıdır `in`. Özel durumlar belirtilmiştir [kullanım](#input---usage) bölümü. |
 |**Adı** | yok | İşlev kodunu blob temsil eden değişken adı.|
 |**Yolu** |**BlobPath** | Blob yolu. | 
-|**bağlantı** |**bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**bağlantı** |**bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [Blob Depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |yok | **Erişim** | Okuma yazma ya da olup olmadığını gösterir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -834,7 +834,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**direction** | yok | Ayarlanmalıdır `out` bir çıkış bağlaması için. Özel durumlar belirtilmiştir [kullanım](#output---usage) bölümü. |
 |**Adı** | yok | İşlev kodunu blob temsil eden değişken adı.  Kümesine `$return` işlev dönüş değeri başvurmak için.|
 |**Yolu** |**BlobPath** | Blob yolu. | 
-|**bağlantı** |**bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**bağlantı** |**bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.<br><br>Bağlantı dizesi, genel amaçlı depolama hesabı için olmamalıdır bir [Blob Depolama hesabı](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |yok | **Erişim** | Okuma yazma ya da olup olmadığını gösterir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

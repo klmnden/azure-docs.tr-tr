@@ -1,6 +1,6 @@
 ---
-title: Shaper bilişsel arama nitelik (Azure Search) | Microsoft Docs
-description: Meta veri ve yapılandırılmış bilgiler yapılandırılmamış verileri ayıklamak ve bir Azure Search iyileştirmesini ardışık düzeninde bir karmaşık tür olarak şekil.
+title: Shaper bilişsel arama beceri (Azure Search) | Microsoft Docs
+description: Meta veriler ve yapılandırılmış bilgiler yapılandırılmamış verileri ayıklayın ve bir Azure Search zenginleştirme işlem hattı karmaşık tür olarak şekil.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,32 +10,34 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 311f4bd67081de567763783a9d86540eda36d9f8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 286e1f9d6f6ae09d98aa87b447df7a7524642a1f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33791010"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729012"
 ---
-#   <a name="shaper-cognitive-skill"></a>Shaper bilişsel nitelik
+#   <a name="shaper-cognitive-skill"></a>Shaper bilişsel beceri
 
-**Shaper** yetenek bileşik alanlar (çok parçalı alanlar olarak da bilinir) desteklemek için karmaşık bir tür oluşturur. Karmaşık Tür alanında birden çok bölümlü ancak Azure Search dizini içinde tek bir öğe olarak kabul edilir. Tek bir alan, şehir ve tek bir alan veya adı durumuna ve doğum tarihi benzersiz kimliğini oluşturmak için tek bir alana adı ve Soyadı birleştirme birleştirilmiş alanları arama senaryolarda yararlı örnekleri içerir.
+**Shaper** beceri bileşik alanlarını (çok bölümlü alanlar olarak da bilinir) desteklemek için bir karmaşık türü oluşturur. Bir karmaşık tür alanı birden çok bölümden oluşur, ancak Azure Search dizini içinde tek bir öğe olarak kabul edilir. Birleştirilmiş alanlar arama senaryolarda yararlı bir tek bir alan, şehir ve tek alan veya adı durumuna ve doğum tarihi benzersiz kimliğini oluşturmak için tek bir alanına adı ve Soyadı birleştirme verilebilir.
 
-Shaper yetenek, aslında bir yapı oluşturmak, yapıyı üyeleri adını tanımlayın ve her üyesine değerleri atamak sağlar.
+Shaper yetenek, aslında bir yapı oluşturmak, yapı üyelerinin adını tanımlayın ve her üye için değerler atayın olanak tanır.
 
-Varsayılan olarak, bu teknik bir düzey derin olan nesneleri destekler. Daha karmaşık nesneler için çeşitli Shaper adımları zincir.
+Varsayılan olarak, bu teknik bir düzey derin olan nesneleri destekler. Daha karmaşık nesneler için çeşitli Shaper adımları zincirleyebilirsiniz.
 
-Yanıtta, çıktı adı her zaman "çıkış". Dahili olarak, ardışık düzen farklı bir ad eşleyebilirsiniz, "çıktı" ancak Shaper aşağıdaki örneklerde "analyzedText" gibi yetenek kendisini "çıktı" yanıt olarak döndürür. Özel bir yetenek oluşturmak ve yanıt kendiniz yapılandırılması bu zenginleştirilmiş belgeleri hata ayıklama ve adlandırma tutarsızlık dikkat edin veya, önemli olabilir.
+Yanıt olarak, çıkış adı her zaman "çıkış". Dahili olarak, işlem hattı farklı bir ad eşleyebilirsiniz, "çıkış" ancak Shaper aşağıdaki örneklerde "analyzedText" gibi beceri kendisini "çıkış" yanıt olarak döndürür. Özel bir yetenek oluşturun ve yanıt kendiniz yapılandırılması bu zenginleştirilmiş belgeleri hata ayıklaması yapıyorsanız ve adlandırma tutarsızlık dikkat edin veya önemli olabilir.
 
+> [!NOTE]
+> Bilişsel Arama, genel önizleme aşamasındadır. Görüntü ayıklama ve normalleştirme ve beceri yürütmesi şu anda ücretsiz sunulmaktadır. Daha sonraki bir zamanda, bu özelliklerin fiyatlandırması duyurulacaktır. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="sample-1-complex-types"></a>Örnek 1: karmaşık türler
 
-Adlı bir yapı oluşturmak istediğiniz bir senaryo düşünün *analyzedText* iki üyesi olan: *metin* ve *düşünceleri*sırasıyla. Azure Search'te çok parçalı bir aranabilir alan adı verilen bir *karmaşık tür*, ve kullanıma hazır henüz desteklenmiyor. Bu Önizleme'de, bir Shaper yetenek dizininizdeki alanları bir karmaşık tür oluşturmak için kullanılabilir. 
+Adlı bir yapı oluşturmak istediğiniz bir senaryo düşünün *analyzedText* iki üyesi olan: *metin* ve *yaklaşım*sırasıyla. Azure Search'te çok parçalı aranabilir bir alanı olarak adlandırılan bir *karmaşık tür*, ve kullanıma hazır henüz desteklenmiyor. Bu önizleme sürümünde Shaper beceri dizininizdeki bir karmaşık türü alanları oluşturmak için kullanılabilir. 
 
-Aşağıdaki örnek, girdi olarak adları üye sağlar. Çıktı yapısı (Azure Search karmaşık kendi alanına) aracılığıyla belirtilen *targetName*. 
+Aşağıdaki örnekte, giriş olarak üye adları sağlar. Çıktı yapısını (Azure Search karmaşık, alan) aracılığıyla belirtilen *targetName*. 
 
 
 ```json
@@ -62,7 +64,7 @@ Aşağıdaki örnek, girdi olarak adları üye sağlar. Çıktı yapısı (Azure
 ```
 
 ### <a name="sample-input"></a>Örnek Giriş
-Bu Shaper yetenek için kullanılabilir giriş sağlayan bir JSON belgesi aşağıdakilerden biri olabilir:
+Bu Shaper yetenek için kullanılabilir girişi sağlayan bir JSON belgesi olabilir:
 
 ```json
 {
@@ -80,7 +82,7 @@ Bu Shaper yetenek için kullanılabilir giriş sağlayan bir JSON belgesi aşağ
 
 
 ### <a name="sample-output"></a>Örnek çıktı
-Adlı yeni bir öğe Shaper yetenek oluşturur *analyzedText* birleşik öğeleri *metin* ve *düşünceleri*. 
+Shaper beceri adlı yeni bir öğe oluşturur *analyzedText* birleşik öğeleri *metin* ve *yaklaşım*. 
 
 ```json
 {
@@ -102,9 +104,9 @@ Adlı yeni bir öğe Shaper yetenek oluşturur *analyzedText* birleşik öğeler
 
 ## <a name="sample-2-input-consolidation"></a>Örnek 2: Giriş birleştirme
 
-Başka bir örnekte, ardışık düzen işleme farklı aşamalarında kitap başlığı ve bölüm başlıkları defterinin farklı sayfalarında ayıkladığınız olduğunu düşünün. Şimdi çeşitli bu girişleri oluşan tek bir yapı oluşturabilir.
+Başka bir örnekte, ardışık düzen işleme farklı aşamalarında, bir kitap başlığı ve bölüm başlıkları kitabın farklı sayfalarında ayıkladığınız olduğunu varsayın. Artık bu çeşitli girişleri oluşan tek bir yapı oluşturabilir.
 
-Bu senaryo için Shaper yetenek tanımı aşağıdaki gibi görünebilir:
+Bu senaryo için Shaper beceri tanımı aşağıdaki örnekteki gibi görünebilir:
 
 ```json
 {
@@ -130,7 +132,7 @@ Bu senaryo için Shaper yetenek tanımı aşağıdaki gibi görünebilir:
 ```
 
 ### <a name="sample-output"></a>Örnek çıktı
-Bu durumda, tek bir dizi oluşturmak için tüm bölüm başlıklarını Shaper düzleştirir. 
+Bu durumda, tek bir dizi oluşturmak için tüm bölüm başlıkları Shaper düzleştirir. 
 
 ```json
 {
@@ -154,6 +156,6 @@ Bu durumda, tek bir dizi oluşturmak için tüm bölüm başlıklarını Shaper 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-+ [Önceden tanımlanmış yetenekleri](cognitive-search-predefined-skills.md)
-+ [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
++ [Önceden tanımlanmış beceriler](cognitive-search-predefined-skills.md)
++ [Bir beceri kümesi tanımlama](cognitive-search-defining-skillset.md)
 

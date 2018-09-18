@@ -1,46 +1,46 @@
 ---
-title: Makineleri geçir değerlendirme sonra Azure geçirme ile | Microsoft Docs
-description: Geçiş için öneriler almayı açıklar Azure geçiş hizmeti ile bir değerlendirme çalıştırdıktan sonra makineleri.
+title: Geçiş makineleri değerlendirme sonrasında Azure geçişi ile | Microsoft Docs
+description: Geçiş için öneriler alın açıklar Azure geçişi hizmeti ile bir değerlendirme çalıştırdıktan sonra makineleri.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 571bd2424d1d38e6c0048a95b263dda000477e44
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b02ae4b75426b379ad7c124f5ddeb053c142ce6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221888"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730303"
 ---
 # <a name="migrate-machines-after-assessment"></a>Değerlendirmenin ardından makineleri geçirme
 
 
-[Azure geçirme](migrate-overview.md) bunlar Azure geçiş için uygun ve makine Azure'da çalışan için boyutlandırma ve maliyet tahminler sunar olup olmadığını denetlemek için şirket içi makineler değerlendirir. Şu anda Azure geçirmek yalnızca makineleri geçiş için değerlendirir. Geçiş, diğer Azure hizmetlerini kullanarak gerçekleştirilir.
+[Azure geçişi](migrate-overview.md) şirket içi makineleri, Azure'a geçiş için uygun ve makine Azure'da çalıştırmak için boyutlandırma ve maliyet tahminleri sağlar olup olmadığını denetlemek için değerlendirir. Şu anda Azure geçişi yalnızca makineler geçiş için değerlendirir. Geçiş, diğer Azure Hizmetleri kullanılarak gerçekleştirilir.
 
-Bu makalede, bir geçiş değerlendirmesi çalıştırdıktan sonra Geçiş Aracı ilgili öneriler alın açıklar.
+Bu makalede, geçiş değerlendirmesi çalıştırdıktan sonra geçiş aracı için öneriler almak açıklar.
 
 ## <a name="migration-tool-suggestion"></a>Geçiş Aracı önerisi
 
-Geçiş Araçları ile ilgili öneriler almak için şirket içi ortamdaki bir derin bulma yapmanız gerekir. Derin bulma şirket içi makinelerde aracıları yükleyerek gerçekleştirilir.  
+Geçiş Araçları ile ilgili öneriler almak için şirket içi ortamın bir derin bulma yapmanız gerekir. Derin bulma şirket içi makinelere aracılar yükleyerek gerçekleştirilir.  
 
-1. Bir Azure geçirmek projesi oluşturun, şirket içi makineleri Bul ve geçiş değerlendirme oluşturun. [Daha fazla bilgi edinin](tutorial-assessment-vmware.md).
-2. Karşıdan yükle ve Azure geçirmek aracıları önerilen geçiş yöntemi görmek istediğiniz her şirket içi makineye yükleyin. [Bu yordamı izlemeden](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) aracıları yüklemek için.
-2. Yükseltme ve shift geçiş için uygun olan şirket içi makinelerinizi tanımlayın. Bunlar üzerinde çalışan uygulamalar herhangi bir değişiklik gerektirmez ve olarak geçirilebilir VM'ler bunlar.
-3. Yükseltme ve shift geçiş için Azure Site RECOVERY'yi kullanarak öneririz. [Daha fazla bilgi edinin](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternatif olarak, Azure geçişi destekleyen üçüncü taraf araçları kullanabilirsiniz.
-4. Diğer bir deyişle, yükseltme ve shift geçiş için uygun olmayan şirket içi makineler varsa, tüm bir VM'yi yerine belirli bir uygulama geçirmek istiyorsanız diğer geçiş araçları kullanabilirsiniz. Örneğin, önerdiğimiz [Azure veritabanı geçiş hizmeti](https://azure.microsoft.com/campaigns/database-migration/) geçirmek istiyorsanız, şirket içi veritabanlarını böyle bir SQL Server, MySQL veya Oracle Azure.
+1. Bir Azure geçişi projesi oluşturun, şirket içi makineleri keşfetmek ve geçiş değerlendirmesi oluşturun. [Daha fazla bilgi edinin](tutorial-assessment-vmware.md).
+2. İndirin ve önerilen geçiş yöntemi görmek istediğiniz her bir şirket içi makinede Azure geçişi aracılarını yükleyin. [Bu yordamı izlemeden](how-to-create-group-machine-dependencies.md#prepare-for-dependency-visualization) aracıları yüklemek için.
+2. Lift-and-shift ile taşıma geçiş için uygun olan şirket içi makinelerinizi belirleyin. Bunlar, VM'ler üzerinde çalışan uygulamalar herhangi bir değişiklik gerektirmez ve olarak geçirilebilir.
+3. Lift-and-shift ile taşıma geçiş için Azure Site Recovery kullanmanızı öneririz. [Daha fazla bilgi edinin](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternatif olarak, azure'a geçiş destekleyen üçüncü taraf araçları kullanabilirsiniz.
+4. Diğer bir deyişle, lift-and-shift ile taşıma geçiş için uygun olmayan şirket içi makineleriniz varsa, VM'nin tamamını yerine belirli bir uygulama geçirmek istiyorsanız diğer geçiş araçları kullanabilirsiniz. Örneğin, öneririz [Azure veritabanı geçiş hizmeti](https://azure.microsoft.com/campaigns/database-migration/) böyle bir SQL Server, MySQL veya Oracle azure'a geçirmek istiyorsanız şirket içi veritabanları.
 
 
 ## <a name="review-suggested-migration-methods"></a>Önerilen geçiş yöntemleri gözden geçirin
 
-1. Önerilen geçiş yöntemi sağlayabilmek için önce bir Azure geçirmek projesi oluşturun, şirket içi makineler bulmak ve geçiş değerlendirme çalıştırmak gerekir. [Daha fazla bilgi edinin](tutorial-assessment-vmware.md).
-2. Değerlendirme oluşturulduktan sonra projede görüntülemek > **genel bakış** > **Pano**. Tıklatın **değerlendirme Hazırlık**
+1. Önerilen geçiş yöntemi sağlayabilmek için önce bir Azure geçişi projesi oluşturun, şirket içi makineleri keşfetmek ve geçiş değerlendirmesi gerekir. [Daha fazla bilgi edinin](tutorial-assessment-vmware.md).
+2. Değerlendirme oluşturulduktan sonra projede görüntüleme > **genel bakış** > **Pano**. Tıklayın **hazır olma durumu değerlendirmesi**
 
     ![Hazır olma durumu değerlendirmesi](./media/tutorial-assessment-vmware/assessment-report.png)  
 
-3. İçinde **önerilen aracı**, geçiş için kullanabileceğiniz araçlar önerileri gözden geçirin.
+3. İçinde **önerilen araç**, geçiş için kullanabileceğiniz araçlar önerilerinizi gözden geçirin.
 
-    ![Önerilen araç](./media/tutorial-assessment-vmware/assessment-suitability.png) 
+    ![Önerilen araç](./media/tutorial-assessment-vmware/assessment-suitability.png)
 
 
 

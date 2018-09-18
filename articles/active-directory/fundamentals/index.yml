@@ -1,0 +1,53 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 4c9f26c36b0cf79c8bd28e57fc7bdec5dda22764
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45636334"
+documentType: LandingData
+title: Azure Active Directory temel öğeler belgeleri
+metadata:
+  document_id: 
+  title: Azure Active Directory temel öğeler belgeleri
+  description: Azure Active Directory’yi kullanırken söz konusu olan temel kavramlar ve süreçler hakkında bilgi edinin.
+  services: active-directory
+  ms.component: fundamentals
+  author: eross-msft
+  manager: mtillman
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 09/07/2018
+  ms.author: lizross
+abstract:
+  description: Kullanmaya başlamak için kullanıcı, grup ve ortam oluşturma gibi temel Azure Active Directory (Azure AD) kavram ve süreçleri hakkında bilgi edinin.
+sections:
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: paragraph
+    text: Azure Active Directory portalını kullanmaya başlamayı öğrenin.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_portal.png
+      text: Kiracı oluşturmak için Azure AD’ye erişme
+      href: active-directory-access-create-new-tenant.md
+    - image:
+        src: ./media/index/i_tasks.png
+      text: Grupları ve üyeleri görüntüleme
+      href: active-directory-groups-view-azure-portal.md
+- title: Adım Adım kılavuzlar
+  items:
+  - type: paragraph
+    text: Azure Active Directory ortamınızı ayarlamak için temel görevleri gerçekleştirme hakkında bilgi edinin
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Azure AD Premium’a kaydolun</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">Özel bir etki alanı adı ekleme</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">Temel bir grup oluşturma ve üye ekleme</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">Grup sahibi ekleme</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Yeni kullanıcı ekleme</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">Kullanıcılara roller atama</a>
+    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Kullanıcılara lisans atama</a>

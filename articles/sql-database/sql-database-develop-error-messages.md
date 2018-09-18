@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/14/2018
 ms.author: sstein
-ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 643add4e0e4732734e9ef763a587755bf8700605
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092537"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731011"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL veritabanı istemci uygulamaları için SQL hata kodları: veritabanı bağlantı hataları ve diğer sorunlar
 
@@ -111,7 +111,7 @@ Oluşturma ve elastik havuzlar kullanarak şu hatalarla ilgili:
 | 40857 |EX_USER |Esnek havuz için sunucu bulunamadı: '%ls', elastik havuz adı: '%ls'. |sunucusunun adı; Elastik havuz adı |Belirtilen bir elastik havuz, belirtilen sunucuda yok. |Geçerli bir elastik havuz adı sağlayın. |
 | 40858 |EX_USER |'%Ls' esnek havuzu zaten şu sunucuda: '%ls' |Elastik havuz adı, sunucu adı |Belirtilen bir elastik havuz, belirtilen mantıksal sunucuda zaten mevcut. |Yeni elastik havuz adı sağlayın. |
 | 40859 |EX_USER |Elastik havuz, '%ls' hizmet katmanı desteklemez. |Esnek havuz hizmet katmanı |Belirtilen hizmet katmanı, elastik havuz sağlama için desteklenmiyor. |Doğru sürümü sağlayın veya hizmet katmanı varsayılan hizmet katmanı kullanmak için boş bırakın. |
-| 40860 |EX_USER |Elastik havuz, '%ls' ve hizmet hedefi '%ls' birleşimi geçerli değil. |Elastik havuz adı; Hizmet düzeyi hedef adı |Elastik havuz ve hizmet hedefi belirtilebilir birlikte yalnızca hizmet hedefi 'ElasticPool' belirtilirse. |Elastik havuz ve hizmet hedefi doğru birleşimini belirtin. |
+| 40860 |EX_USER |Elastik havuz, '%ls' ve hizmet hedefi '%ls' birleşimi geçerli değil. |Elastik havuz adı; Hizmet katmanı |Elastik havuz ve hizmet katmanı belirtilebilir birlikte yalnızca 'ElasticPool' kaynak türü belirtilirse. |Elastik havuz ve Hizmet katmanını doğru birleşimini belirtin. |
 | 40861 |EX_USER |Veritabanı sürümü ' %. *ls olan esnek havuz katmanından farklı olamaz ' %.* ls'. |veritabanı sürümü, elastik havuz hizmet katmanı |Esnek havuz katmanından farklı veritabanı sürümüdür. |Esnek havuz katmanından farklı bir veritabanı sürümü belirtmeyin.  Veritabanı sürümü belirtilmesi gerekmez unutmayın. |
 | 40862 |EX_USER |Esnek havuz adının belirtilmesi gerekir esnek havuz hizmeti hedefi belirtildiyse smbiosguid'sinin. |None |Esnek havuz hizmeti hedefi, bir elastik havuzu benzersiz olarak tanımlamıyor. |Esnek havuz hizmeti hedefi kullanarak elastik havuz adı belirtin. |
 | 40864 |EX_USER |Elastik havuz için Dtu'lar'ın en az olmalıdır (%d) Dtu hizmet katmanı için ' %. * ls'. |Elastik havuz için Dtu'lar; Esnek havuz hizmet katmanı. |Alt sınır aşağıda elastik havuz için Dtu'lar yapılmaya çalışılıyor. |Esnek havuz için en az alt sınır Dtu ayarı yeniden deneyin. |
@@ -139,7 +139,7 @@ Aşağıdaki hatalar, önceki tüm kategoriye ayrılır değil.
 | Hata kodu | Severity | Açıklama |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin), geçersiz karakterler içerdiğinden geçerli bir ad değil. |
-| 18452 |14 |Oturum açma başarısız. Oturum açma güvenilmeyen bir etki alanından ve Windows authentication.%.&#x2a;ls ile kullanılamaz ls (Windows oturumu açma desteklenmez SQL Server'ın bu sürümünde.) |
+| 18452 |14 |Oturum açma başarısız oldu. Oturum açma güvenilmeyen bir etki alanından ve Windows authentication.%.&#x2a;ls ile kullanılamaz ls (Windows oturumu açma desteklenmez SQL Server'ın bu sürümünde.) |
 | 18456 |14 |Kullanıcı için oturum açma başarısız '%.&#x2a;ls'.%.&#x2a;ls%.&#x2a;ls(kullanıcı için oturum açma başarısız "%.&#x2a;ls". Parola değiştirme başarısız. Oturum açma sırasında parola değiştirme bu SQL Server sürümünde desteklenmiyor.) |
 | 18470 |14 |Kullanıcı için oturum açma başarısız '%.&#x2a;ls'. Neden: Disabled.%.&#x2a;ls hesaptır ls |
 | 40014 |16 |Birden fazla veritabanı aynı işlemde kullanılamaz. |

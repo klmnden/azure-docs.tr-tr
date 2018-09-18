@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 8a5d880d0238e38fbbaa9de22fc1baf604f0fc07
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206046"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733473"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
 
@@ -49,7 +49,7 @@ Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. Alan a
 
 Şu durumda ekleme **ölçümleri** sayfası:
 
-| Görünen Ad | Alan Adı  | 1 değeri | Görünen Ad | Değer 2 | Görünen Ad |
+| Görünen Ad | Alan Adı  | Değer 1 | Görünen Ad | Değer 2 | Görünen Ad |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
 | Fan Modu     | fanmode     | 1       | Çalışıyor      | 0       | Durduruldu      |
 
@@ -129,7 +129,11 @@ Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci u
     var client = clientFromConnectionString(connectionString);
     ```
 
-    Yer tutucu güncelleştirme `{your device connection string}` cihaz bağlantısı dizeniz ile. Gerçek Cihazınızı eklediğinizde bağlantı ayrıntıları sayfasından bu değeri kopyalar. Bu örnekte biz başlatmak `targetTemperature` sıfır olarak, isteğe bağlı olarak bir CİHAZDAN geçerli okuma veya değeri cihaz ikizinden alabilir. 
+  > [!NOTE]
+   > Azure IOT Central değiştiğinden Azure IOT Hub cihazı sağlama hizmeti (DPS) kullanarak tüm cihaz bağlantıları için bu instrustions için izleyin [cihaz bağlantı dizesini alma](concepts-connectivity.md#getting-device-connection-string) ve bu öğreticinin geri kalanını ile devam edin.
+
+
+    Yer tutucu güncelleştirme `{your device connection string}` cihaz bağlantı dizesiyle. Bu örnekte biz başlatmak `targetTemperature` sıfır olarak, isteğe bağlı olarak bir CİHAZDAN geçerli okuma veya değeri cihaz ikizinden alabilir. 
 
 1. Telemetri, durum ve olay ölçümleri, Azure IOT Central uygulamasına göndermek için dosyasına aşağıdaki işlevi ekleyin:
 

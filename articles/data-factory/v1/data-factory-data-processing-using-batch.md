@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060996"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737422"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -556,7 +556,7 @@ Bağlı hizmetler veri depolarını veya işlem Hizmetleri data factory'ye. Bu a
 
    ![Yeni veri deposu](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. **Hesap adı** değerini depolama hesabınızın adıyla değiştirin. **Hesap anahtarı** değerini depolama hesabının erişim anahtarıyla değiştirin. Depolama erişim anahtarınızı alma hakkında bilgi için bkz: [görüntüleme, kopyalama ve yeniden oluşturma depolama erişim anahtarlarını](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. **Hesap adı** değerini depolama hesabınızın adıyla değiştirin. **Hesap anahtarı** değerini depolama hesabının erişim anahtarıyla değiştirin. Depolama erişim anahtarınızı alma hakkında bilgi için bkz: [görüntüleme, kopyalama ve yeniden oluşturma depolama erişim anahtarlarını](../../storage/common/storage-account-manage.md#access-keys).
 
 1. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’ı seçin.
 

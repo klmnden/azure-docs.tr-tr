@@ -9,12 +9,12 @@ ms.custom: develop databases
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: f4e056e9f8461085df6ae447672e2c9ec91aa3ca
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5fd0d487371acdf8d0b3301cc881aa2f059a9f41
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092412"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984161"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL veritabanında bellek içi teknolojileri kullanarak performansını iyileştirin
 
@@ -72,7 +72,7 @@ Kapsamlı videoları teknolojileri hakkında:
 
 Bellek içi OLTP, kullanıcı verilerini depolamak için kullanılan bellek için iyileştirilmiş tablolar içerir. Bu tablolar belleğe sığması gerekir. SQL veritabanı hizmeti bellekte doğrudan yönetmek için kullanıcı verileri için bir kota kavramını sahibiz. Bu fikir olarak adlandırılır *bellek içi OLTP depolama alanını*.
 
-Fiyatlandırma katmanı ve her esnek havuzun fiyatlandırma katmanı her desteklenen tek başına veritabanı, belirli bir miktarda bellek içi OLTP depolama alanı içerir. Bkz: [DTU tabanlı kaynak sınırları - tek veritabanı](sql-database-dtu-resource-limits-single-databases.md), [DTU tabanlı kaynak sınırları - elastik havuzlar](sql-database-dtu-resource-limits-elastic-pools.md),[sanal çekirdek tabanlı kaynak sınırları - tek veritabanları](sql-database-vcore-resource-limits-single-databases.md) ve [sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
+Fiyatlandırma katmanı ve her esnek havuzun fiyatlandırma katmanı her desteklenen tek veritabanı, belirli bir miktarda bellek içi OLTP depolama alanı içerir. Bkz: [DTU tabanlı kaynak sınırları - tek veritabanı](sql-database-dtu-resource-limits-single-databases.md), [DTU tabanlı kaynak sınırları - elastik havuzlar](sql-database-dtu-resource-limits-elastic-pools.md),[sanal çekirdek tabanlı kaynak sınırları - tek veritabanları](sql-database-vcore-resource-limits-single-databases.md) ve [sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Aşağıdaki öğeler, bellek içi OLTP depolama tavanınızı doğru sayısı:
 

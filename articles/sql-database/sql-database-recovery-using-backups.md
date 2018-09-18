@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 09/14/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 75805cad43f015f1741193ec5a1ead1fa7603f41
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bcb533fbaa788498734776147c9bd053d35bef60
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056184"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733605"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 SQL veritabanı kullanarak veritabanı kurtarma için bu seçenekleri sağlar [otomatik veritabanı yedeklemelerini](sql-database-automated-backups.md) ve [uzun süreli saklama kapsamındaki yedekleri](sql-database-long-term-retention.md). Veritabanı yedeklemesini geri yükleyebilirsiniz:
@@ -32,7 +32,7 @@ Geri yüklenen veritabanı aşağıdaki koşullarda bir ek depolama alanı maliy
 - Veritabanı boyutu 500 GB'den daha büyük ise, P11 – P15 S4-S12 veya P1 – P6 geri yükleyin.
 - Veritabanı boyutu 250 GB'tan büyük ise, P1 – P6 S4-S12 için geri yükleme.
 
-Ekstra maliyeti, çünkü geri yüklenen veritabanının maksimum boyutunu performans düzeyi için dahil edilen depolama miktarını büyüktür ve dahil edilen miktarın üzerinde sağlanan ek depolama ek ücret alınır.  Fiyatlandırma ayrıntıları ek depolama alanının bkz [SQL veritabanı fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/sql-database/).  Gerçek kullanılan alanı miktarı dahil edilen depolama alanı miktarı azsa, daha sonra bu ek maliyet veritabanı boyutu için dahil edilen miktarın azaltarak önlenebilir.  
+Ekstra maliyeti, çünkü geri yüklenen veritabanının maksimum boyutunu işlem boyutu için dahil edilen depolama miktarını büyüktür ve dahil edilen miktarın üzerinde sağlanan ek depolama ek ücret alınır.  Fiyatlandırma ayrıntıları ek depolama alanının bkz [SQL veritabanı fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/sql-database/).  Gerçek kullanılan alanı miktarı dahil edilen depolama alanı miktarı azsa, daha sonra bu ek maliyet veritabanı boyutu için dahil edilen miktarın azaltarak önlenebilir.  
 
 > [!NOTE]
 > [Veritabanı Yedeklemeleri otomatik](sql-database-automated-backups.md) , oluştururken kullanılan bir [veritabanı kopyalama](sql-database-copy.md). 
@@ -43,7 +43,7 @@ Ekstra maliyeti, çünkü geri yüklenen veritabanının maksimum boyutunu perfo
 Otomatik veritabanı yedeklerini kullanarak bir veritabanını geri yüklemek için kurtarma zamanı çeşitli faktörler tarafından etkilenir: 
 
 * Veritabanı boyutu
-* Veritabanının performans düzeyini
+* Veritabanı işlem boyutu
 * İşlem günlükleri dahil sayısı
 * Geri yükleme noktasına kurtarmak için yeniden yürütülmesi gereken etkinlik miktarı
 * Geri yükleme farklı bir bölgeye ise ağ bant genişliği 
@@ -72,11 +72,11 @@ Azure portalını kullanarak aynı mantıksal sunucu üzerinde yeni bir veritaba
 > Bir veritabanının bir zaman içinde nokta geri yüklemeyi gerçekleştirmek nasıl gösteren bir örnek PowerShell Betiği için bkz: [PowerShell kullanarak bir SQL veritabanını geri](scripts/sql-database-restore-database-powershell.md).
 >
 
-Veritabanı hiçbir hizmet katmanını veya performans düzeyini ve tek veritabanı olarak veya bir elastik havuzun içine geri yüklenebilir. Mantıksal sunucuda veya veritabanını geri yüklediğiniz esnek havuzda yeterli kaynaklara sahip olun. Tamamlandıktan sonra geri yüklenen veritabanı bir normal, tam olarak erişilebilir, çevrimiçi veritabanı hizmetidir. Geri yüklenen veritabanı kendi hizmet katmanını ve performans düzeyine bağlı olarak normal fiyatlarıyla ücretlendirilir. Veritabanı geri yükleme işlemi tamamlanana kadar bir ücrete tabi değildir.
+Veritabanı herhangi bir hizmet katmanı veya işlem boyutu ve tek bir veritabanı veya elastik havuz içine geri yüklenebilir. Mantıksal sunucuda veya veritabanını geri yüklediğiniz esnek havuzda yeterli kaynaklara sahip olun. Tamamlandıktan sonra geri yüklenen veritabanı bir normal, tam olarak erişilebilir, çevrimiçi veritabanı hizmetidir. Geri yüklenen veritabanı, hizmet katmanı ve işlem boyutuna bağlı olarak normal fiyatlarıyla ücretlendirilir. Veritabanı geri yükleme işlemi tamamlanana kadar bir ücrete tabi değildir.
 
 Bir veritabanını daha önceki bir noktaya kurtarma amacıyla genellikle geri. Bunun yapılması, yerine özgün veritabanını geri yüklenen veritabanı işle veya verileri almak ve sonra özgün veritabanını güncellemek için kullanın. 
 
-* ***Veritabanı değiştirme:*** yerine özgün veritabanını geri yüklenen veritabanı hedeflenmişse, performans düzeyi doğrulamanız gerekir ve/veya hizmet katmanı uygundur ve gerekirse, veritabanı ölçeklendirin. Özgün veritabanını yeniden adlandırın ve ardından özgün adı kullanarak geri yüklenen veritabanı vermek [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL komutu. 
+* ***Veritabanı değiştirme:*** yerine özgün veritabanını geri yüklenen veritabanı hedeflenmişse, işlem boyutu doğrulamanız gerekir ve/veya hizmet katmanı uygundur ve gerekirse, veritabanı ölçeklendirin. Özgün veritabanını yeniden adlandırın ve ardından özgün adı kullanarak geri yüklenen veritabanı vermek [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL komutu. 
 * ***Veri kurtarma:*** bir kullanıcı veya uygulama hatasından kurtarmak için geri yüklenen veritabanından veri almak planlama, yazma ve özgün veritabanına geri yüklenen veritabanından verileri ayıklamak için gerekli verileri kurtarma betiklerini yürütmek gerekir. Geri yükleme işleminin tamamlanması uzun zaman alabilir ancak geri yüklenen veritabanının geri yükleme işlemi boyunca veritabanı listesinde görünür. Veritabanını geri yükleme sırasında silmeniz halinde, geri yükleme işlemi iptal edildi ve geri yükleme işlemi tamamlanamadı veritabanı için ücretlendirilmez. 
 
 ### <a name="azure-portal"></a>Azure portal
@@ -146,7 +146,7 @@ Daha önce bahsedildiği gibi Azure portalına ek olarak, veritabanı kurtarma A
 |  | |
 
 ## <a name="summary"></a>Özet
-Otomatik yedeklemeler, kullanıcı ve uygulama hataları, yanlışlıkla veritabanı silme ve verilerinizi uzun süren kesintileri veritabanlarınızı koruyun. Bu yerleşik özelliği, tüm hizmet katmanları ve performans düzeyleri için kullanılabilir. 
+Otomatik yedeklemeler, kullanıcı ve uygulama hataları, yanlışlıkla veritabanı silme ve verilerinizi uzun süren kesintileri veritabanlarınızı koruyun. Bu yerleşik özelliği, tüm bilgi işlem boyutlarına ve hizmet katmanları için kullanılabilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * İş sürekliliğine genel bakış ve senaryolar için bkz: [iş sürekliliğine genel bakış](sql-database-business-continuity.md).

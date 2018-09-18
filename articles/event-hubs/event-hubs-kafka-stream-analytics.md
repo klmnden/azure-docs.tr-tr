@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: a066d2a55f6949eea316eaf0a2956500667a996f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8a7346f884a065a21b6f0a822b2236fa7ce5dff0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340280"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732566"
 ---
-# <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Stream analytics kullanarak Event Hubs olay için işlem Apache Kafka 
+# <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Stream Analytics kullanarak Event Hubs için Apache Kafka olaylarını işleme 
 Bu makalede, veri akışı Kafka özellikli Event Hubs'a ve Azure Stream Analytics ile işlemek gösterilmektedir. Aşağıdaki adımları gösterilmektedir: 
 
 1. Oluşturma bir Kafka Event Hubs ad alanı etkin.
@@ -38,7 +38,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşıla
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * Bir Maven ikili arşivini [indirin](http://maven.apache.org/download.cgi) ve [yükleyin](http://maven.apache.org/install.html).
 * [Git](https://www.git-scm.com/)
-* Bir **Azure depolama hesabı**. Biri yoksa [oluşturmak](../storage/common/storage-create-storage-account.md#create-a-storage-account) devam etmeden önce. Bu izlenecek yolda Stream Analytics işi çıktı verilerini bir Azure blob depolama alanında depolar. 
+* Bir **Azure depolama hesabı**. Biri yoksa [oluşturmak](../storage/common/storage-quickstart-create-account.md) devam etmeden önce. Bu izlenecek yolda Stream Analytics işi çıktı verilerini bir Azure blob depolama alanında depolar. 
 
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Kafka etkin Event Hubs ad alanı oluşturma
@@ -114,7 +114,7 @@ Artık Kafka protokolünü kullanan uygulamalarınızdaki olayların akışını
     ![Olay hub'ı - iletileri](./media/event-hubs-kafka-stream-analytics/confirm-event-hub-messages.png)
 
 ## <a name="process-event-data-using-a-stream-analytics-job"></a>Bir Stream Analytics işi kullanarak olay verilerini işleme
-Bu bölümde, Azure Stream Analytics işi oluşturun. Kafka istemci, olayları olay hub'ına gönderir. Olay verileri girdi olarak alır ve bir Azure blob depolama alanına çıkaran bir Stream Analytics işi oluşturun. Yoksa bir **Azure depolama hesabı**, [oluşturmak](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Bu bölümde, Azure Stream Analytics işi oluşturun. Kafka istemci, olayları olay hub'ına gönderir. Olay verileri girdi olarak alır ve bir Azure blob depolama alanına çıkaran bir Stream Analytics işi oluşturun. Yoksa bir **Azure depolama hesabı**, [oluşturmak](../storage/common/storage-quickstart-create-account.md).
 
 Stream Analytics işinde sorgu, herhangi bir analiz yapmadan aracılığıyla verileri geçirir. Farklı bir biçimde veya elde edildi öngörülerle çıkış verileri üretmek üzere giriş verilerini dönüştüren bir sorgu oluşturabilirsiniz.  
 

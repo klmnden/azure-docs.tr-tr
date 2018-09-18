@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 785b0137624cc6d940f4944e0357d0a5774561df
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1597e850219ddbab1a0714072c47e12016aa2069
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634719"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736897"
 ---
 # <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
@@ -64,9 +64,8 @@ Azure'da yeni Windows Server görüntülerini olacaktır [Özel Yönetim Konsolu
 * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 3. SAC Konsolu etkinleştirilmesi için sistemi yeniden başlatın
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-Gerekli SAC çevrimdışı de etkinleştirilebilir ise 
+Gerekirse, SAC çevrimdışı de etkinleştirilebilir:
 
 1. Var olan sanal makineye veri diski olarak yapılandırılmış SAC istediğiniz windows disk ekleyin. 
 2. Bir yönetim komut isteminden aşağıdaki komutları çalıştırın. 

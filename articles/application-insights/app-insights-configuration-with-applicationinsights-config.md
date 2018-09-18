@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 09/17/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 9e53fa896f1d958e505d26af430b262be9195605
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: fa7115e651cf1b5c4533675cc2b2194b36d773f8
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859692"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730186"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config veya .xml ile Application Insights SDK yapılandırma
-Application Insights .NET SDK'sı NuGet paketlerini birtakım oluşur. [Çekirdek paket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights'a telemetri göndermek için API sağlar. [Ek paketleri](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcılar* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunlardan bazıları için parametreleri ayarlayın.
+Application Insights SDK'ları, NuGet paketlerini birtakım oluşur. [Çekirdek paket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights'a telemetri göndermek için API sağlar. [Ek paketleri](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcılar* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunlardan bazıları için parametreleri ayarlayın.
 
-Yapılandırma dosyası adlı `ApplicationInsights.config` veya `ApplicationInsights.xml`, uygulamanın türüne bağlı olarak. Otomatik olarak projenize eklenir, siz [SDK'ın çoğu sürümünü birden yüklemek][start]. Ayrıca bir web uygulaması tarafından eklenir [Durum İzleyicisi bir IIS sunucusunda][redfield], veya Application ınsights'ı seçtiğinizde, [için bir Azure Web sitesinde veya sanal makine uzantısı](app-insights-azure-web-apps.md).
+Yapılandırma dosyası adlı `ApplicationInsights.config` (.NET) veya `ApplicationInsights.xml` (Java), uygulama türüne bağlıdır. Otomatik olarak projenize eklenir, siz [SDK'ın çoğu sürümünü birden yüklemek][start]. Ayrıca bir web uygulaması tarafından eklenir [Durum İzleyicisi bir IIS sunucusunda][redfield], veya Application ınsights'ı seçtiğinizde, [için bir Azure Web sitesinde veya sanal makine uzantısı](app-insights-azure-web-apps.md).
 
 Denetimi eşdeğer bir dosyaya hiç [SDK'sı bir web sayfasında][client].
 
@@ -173,8 +173,6 @@ Ayrıca bir standart olan [telemetri işlemci örnekleme](app-insights-api-filte
 
 ```
 
-
-
 ## <a name="channel-parameters-java"></a>Kanal parametreleri (Java)
 Bu parametreler, Java SDK'sı depolamak ve bunları topladığı telemetri verilerini temizleme nasıl etkiler.
 
@@ -232,7 +230,20 @@ Yerel diskte kalıcı depolama için ayrılan MB en büyük boyutunu belirler. B
    </ApplicationInsights>
 ```
 
+#### <a name="local-forwarder"></a>Yerel ileticisi
 
+[Yerel ileticisi](https://docs.microsoft.com/azure/application-insights/local-forwarder) Application Insights tarafından toplanan bir aracı veya [OpenCensus](https://opencensus.io/) çeşitli SDK'lar ve çerçeveleri alınan telemetri ve uygulama anlayışları'na yönlendirir. Bu, Windows ve Linux altında çalıştırma yeteneğine sahiptir. 
+
+```Java
+<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
+   <DeveloperMode>false</DeveloperMode>
+   <EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+
+   <!-- The properties below are optional. The values shown are the defaults for each property -->
+   <FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
+   <MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
+</Channel>
+```
 
 ## <a name="instrumentationkey"></a>Instrumentationkey
 Bu, verilerinizi göründüğü Application Insights kaynağını belirler. Genellikle, ayrı bir kaynak ayrı bir anahtar ile her uygulamalarınızı oluşturun.

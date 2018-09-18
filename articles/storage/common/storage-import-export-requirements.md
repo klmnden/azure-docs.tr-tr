@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 10e8fb6ac5bcce278de3924ebd3a0d9f90392217
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 18c27e4059ea06fcc52863b2d7671c14167dae75
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528063"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732762"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure içeri/dışarı aktarma sistem gereksinimleri
 
@@ -32,12 +32,15 @@ Sabit sürücüleri aşağıdaki WAImportExport aracını kullanarak hazırlaman
 
 ## <a name="supported-storage-accounts"></a>Desteklenen depolama hesapları
 
-Azure içeri/dışarı aktarma hizmeti, aşağıdaki destekler [Azure depolama hesapları](storage-account-options.md).
+Azure içeri/dışarı aktarma hizmeti, aşağıdaki türlerde depolama hesapları destekler:
+
+- Genel amaçlı v2 depolama hesapları
 - Genel amaçlı v1 depolama hesaplarında (hem Klasik hem de Azure Resource Manager dağıtımları)
 - Blob Depolama Hesapları
-- Genel amaçlı v2 depolama hesapları
 
-Her iş için veya yalnızca bir depolama hesabından veri aktarmak için kullanılabilir. Diğer bir deyişle, bir tek içeri/dışarı aktarma işi birden çok depolama hesabında yayılamaz. Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-create-storage-account.md#create-a-storage-account).
+Depolama hesapları hakkında daha fazla bilgi için bkz. [Azure depolama hesabı genel bakış](storage-account-overview.md).
+
+Her iş için veya yalnızca bir depolama hesabından veri aktarmak için kullanılabilir. Diğer bir deyişle, bir tek içeri/dışarı aktarma işi birden çok depolama hesabında yayılamaz. Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
 > Azure içeri dışarı aktarma hizmeti, depolama hesaplarını desteklemiyor burada [sanal ağ hizmet uç noktaları](../../virtual-network/virtual-network-service-endpoints-overview.md) özelliği etkinleştirildi. 

@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1c3df6aa8b4080cbd70b53a994f743fb82d896b5
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 3ec7f6043c1d2e8e8f090ffc60822768ab9bc9d9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542372"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984010"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Geliştirme ve C modülleri, Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
@@ -111,7 +111,7 @@ VS Code tutar hata ayıklama yapılandırma bilgilerini bir `launch.json` dosya 
 
 1. VS Code hata ayıklama görünümüne gidin. Bir modül için hata ayıklama yapılandırma dosyasını seçin. Hata ayıklama seçeneği adı şuna benzer olmalıdır **ModuleName Remote Debug (C)**
 
-   ![Select hata ayıklama yapılandırması](./media/how-to-develop-c-module/debug-config.png).
+   ![Select hata ayıklama yapılandırması](./media/how-to-develop-c-module/debug-config.png)
 
 2. `main.c` sayfasına gidin. Bu dosyada kesme noktası ekleyin.
 

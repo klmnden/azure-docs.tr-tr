@@ -1,70 +1,70 @@
 ---
-title: Azure AD dizininize var olan bir Azure aboneliğini ekleme | Microsoft Docs
-description: Azure AD dizininize var olan bir aboneliği ekleme
+title: Azure Active Directory kiracınız için mevcut bir Azure aboneliği ekleme | Microsoft Docs
+description: Azure Active Directory kiracınız için mevcut bir Azure aboneliğine eklemeyi öğrenin.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 6b0933e9aa732cb9a01a454764fb0425465ec078
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.custom: it-pro
+ms.openlocfilehash: dd62b22eca40a214c5b08a9bc48815e40fe90e47
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503320"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984095"
 ---
-# <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory'ye bir Azure aboneliğini ekleme veya ilişkilendirme
+# <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Nasıl yapılır: ilişkilendirmek veya Azure Active Directory'ye bir Azure aboneliği ekleme
+Azure aboneliğinin Azure Active Directory'ye abonelik kullanıcılar, hizmet ve cihaz kimliğini doğrulamak için Azure AD güvendiği anlamına gelir (Azure AD), bir güven ilişkisi vardır. Birden çok abonelik Azure AD ile aynı dizine güvenebilir ancak her abonelik yalnızca tek bir dizine güvenebilir.
 
-Bu makalede, Azure aboneliğinin Azure Active Directory (Azure AD) ile ilişkisi gibi ilgili konulara yönelik bilgiler ve mevcut bir aboneliği Azure AD dizinine nasıl ekleyeceğiniz ele alınmaktadır. Azure aboneliğinizin Azure AD ile bir güven ilişkisi olması, kullanıcıların, hizmetlerin ve cihazların kimliğini doğrulamak için dizine güvendiği anlamına gelir. Birden çok abonelik aynı dizine güvenebilir ancak her abonelik yalnızca bir dizine güvenir. 
+Aboneliğinizin süresi dolarsa abonelikle ilişkili diğer kaynaklara erişimlerini kaybeder. Ancak, Azure AD dizini ilişkilendirmek ve farklı bir Azure aboneliğini kullanarak dizin yönetmenize izin vererek, Azure içinde kalır.
 
-Aboneliğin bir dizinle arasındaki bu güven ilişkisi, aboneliğin Azure'daki diğer kaynaklarla (web siteleri, veritabanları ve benzeri) sahip olduğu ilişkiye benzer nitelikte değildir. Bir aboneliğin süresi dolarsa abonelikle ilişkili diğer kaynaklara erişim de durdurulur. Ancak Azure AD dizini Azure içinde kalır, siz de farklı bir aboneliği bu dizinle ilişkilendirebilir ve dizini yeni aboneliği kullanarak yönetebilirsiniz.
+Tüm kullanıcılarınızın kimlik doğrulaması için tek bir "Giriş" dizinine sahip. Bununla birlikte, kullanıcılarınızın diğer dizinlerde Konuk da olabilir. Azure AD'de her kullanıcı için her iki bir ev ve Konuk dizin görebilirsiniz.
 
-Tüm kullanıcılar kimliklerini doğrulayan tek giriş dizinine sahiptir ancak diğer dizinlerde konuk da olabilmektedir. Azure AD içinde yalnızca, kullanıcı hesabınızın üye veya konuk olduğu dizinleri görebilirsiniz.
+>[!Important]
+>Tüm [rol tabanlı erişim denetimi (RBAC)](../../role-based-access-control/role-assignments-portal.md) tüm abonelik yöneticileri birlikte atanan erişimi olan kullanıcıların erişimini kaybedecek sonra Abonelik dizin değişikliklerini. Tüm anahtar kasalarını varsa, ek olarak, ayrıca abonelik taşıma tarafından etkilenmiş. Bu sorunu gidermek için şunları yapmalısınız [anahtar kasası Kiracı Kimliğini değiştirme](../../key-vault/key-vault-subscription-move-fix.md) önce işlem sürdürülüyor.
+
 
 ## <a name="before-you-begin"></a>Başlamadan önce
+İlişkilendirme veya aboneliğinize eklemek için önce aşağıdaki görevleri gerçekleştirmeniz gerekir:
 
-* Aboneliğe erişmek için RBAC Sahip erişimi olan hesapla oturum açmanız gerekir.
-* Hem aboneliğin ilişkili olduğu geçerli dizinde hem de eklemek istediğiniz dizinde olan bir hesapla oturum açmanız gerekir. Başka bir dizine erişim elde etme hakkında daha fazla bilgi için bkz. [Azure Active Directory yöneticileri B2B işbirliği kullanıcılarını nasıl ekler?](../b2b/add-users-administrator.md)
-* Bu özellik, CSP (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P) ve Microsoft Imagine (MS-AZR-0144P) abonelikleri için kullanılamaz.
+- Bir hesap kullanarak oturum açın:
+    - Sahip **RBAC sahip** aboneliğe erişim.
 
+    - Abonelikle ilişkili iki geçerli dizindeki ve, bundan sonra abonelik ilişkilendirmek istediğiniz yeni dizine bulunmaktadır. Başka bir dizine erişim sağlama hakkında daha fazla bilgi için bkz. [nasıl Azure Active Directory yöneticileri ekleme B2B işbirliği kullanıcıları?](../b2b/add-users-administrator.md).
+
+- Bir Azure bulut hizmeti sağlayıcıları (CSP) aboneliği (MS-AZR - 0145 P, MS - AZR - 0146 P, MS - AZR - 159 P), bir Microsoft Internal abonelik (MS-AZR - 0015 P) veya Microsoft Imagine aboneliği (MS-AZR - 0144 P) kullanmadığınızdan emin olun.
+    
 ## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Var olan bir aboneliği Azure AD dizininizle ilişkilendirme
+1. Oturum açın ve kullanmak istediğiniz aboneliği seçin [Azure portalındaki abonelikler sayfasından](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-1. Oturum açın ve [Azure portalındaki Abonelikler sayfasından](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) bir abonelik seçin.
-2. **Dizin değiştir**’e tıklayın.
+2. Seçin **dizinini Değiştir**.
 
-    ![Dizin değiştir düğmesini gösteren ekran görüntüsü](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. Uyarıları gözden geçirin. Abonelik dizini değiştiğinde, erişim atanmış tüm [Rol Tabanlı Erişim Denetimi (RBAC)](../../role-based-access-control/role-assignments-portal.md) kullanıcıları ve tüm abonelik yöneticileri, erişimini kaybeder.
-4. Bir dizin seçin.
+    ![Abonelik sayfasında, dizin seçeneği vurgulanmış olarak değiştir](media/active-directory-how-subscriptions-associated-directory/change-directory-button.png)
 
-    ![Değişiklik dizini kullanıcı arabirimini gösteren ekran görüntüsü](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
-5. **Değiştir**’e tıklayın.
-6. Başarılı! Yeni dizine gitmek için dizin değiştiricisini kullanın. Her şeyin doğru şekilde gösterilmesi 10 dakikaya kadar sürebilir.
+3. Görüntülenen ve ardından tüm uyarıları gözden **değişiklik**.
 
-    ![Dizin değiştir başarı bildirimini gösteren ekran görüntüsü](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
+    ![Dizini değiştirmek için gösteren dizin sayfası Değiştir](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
-    ![Değiştiriciyi gösteren ekran görüntüsü](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
+    Abonelik için dizinin değiştirilir ve bir başarı iletisi alın.
 
+    ![Başarı iletisi](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
 
-Sahip olduğunuz Azure anahtar kasaları da abonelik taşıma işleminden etkilenir, bu nedenle işlemlere devam etmeden önce [anahtar kasası kiracı kimliğini değiştirmeniz](../../key-vault/key-vault-subscription-move-fix.md) gerekir.
+4. Yeni dizininizi gitmek için dizin değiştiricisini kullanın. Her şeyin doğru şekilde gösterilmesi 10 dakikaya kadar sürebilir.
 
-Abonelik dizininin değiştirilmesi, hizmet düzeyinde bir işlemdir. Abonelik faturalandırma sahipliğini etkilemez ve Hesap Yöneticisi hala [Hesap Merkezi](https://account.azure.com/subscriptions)’ni kullanarak Hizmet Yöneticisi’ni değiştirebilir. Özgün dizini silmek istiyorsanız, abonelik faturalandırma sahipliğini yeni bir Hesap Yöneticisine aktarmanız gerekir. Faturalandırma sahipliğini aktarma hakkında daha fazla bilgi için bkz. [Bir Azure aboneliğinin sahipliğini başka bir hesaba aktarma](../../billing/billing-subscription-transfer.md). 
+    ![Dizin değiştirici sayfası](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+
+Abonelik faturalandırma sahipliğini etkilemez abonelik dizininin değiştirilmesi bir hizmet düzeyi işlemi olduğundan. Hesap Yöneticisi hala Hizmet Yöneticisi'nden değiştirebilirsiniz [hesap Merkezi](https://account.azure.com/subscriptions). Özgün dizini silmek için abonelik faturalandırma sahipliğini için yeni bir hesap yöneticisine aktarmanız gerekir Faturalandırma sahipliğini aktarma hakkında daha fazla bilgi için bkz. [Bir Azure aboneliğinin sahipliğini başka bir hesaba aktarma](../../billing/billing-subscription-transfer.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Ücretsiz olarak yeni bir Azure AD dizini oluşturma hakkında daha fazla bilgi edinmek için bkz. [Azure Active Directory kiracısı alma](../develop/quickstart-create-new-tenant.md)
-* Bir Azure aboneliğinin faturalandırma sahipliğini aktarma hakkında daha fazla bilgi için bkz. [Bir Azure aboneliğinin sahipliğini başka bir hesaba aktarma](../../billing/billing-subscription-transfer.md)
-* Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Azure AD'de rol atama hakkında daha fazla bilgi için bkz. [Azure Active Directory'de yönetici rolü atama](../users-groups-roles/directory-assign-admin-roles.md)
+- Yeni bir Azure AD oluşturmak için Kiracı için bkz: [erişim Azure yeni bir kiracı oluşturmak için Active Directory](active-directory-access-create-new-tenant.md)
 
-<!--Image references-->
-[1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
-[2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
-[3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
+- Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+
+- Azure AD'de rol atama hakkında daha fazla bilgi için bkz: [kullanıcılar Azure Active Directory'ye Dizin rolleri atama](active-directory-users-assign-role-azure-portal.md)

@@ -9,16 +9,19 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: cf02946c772ce2dfd04fcd0ae478a560d095c092
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: c342eca8f27db713e139c187147abddd80eb854e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35972154"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734543"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>İçerik zenginleştirme (Azure Search) için önceden tanımlanmış beceriler
 
 Bu makalede, Azure Search ile sağlanan bilişsel beceriler hakkında bilgi edinin. A *bilişsel beceri* şekilde içeriği dönüştürür bir işlemdir. Genellikle, bu, verileri ayıklayan veya yapısı algılar ve bu nedenle ilişkin giriş verileri çoğaltan bir bileşendir. Neredeyse her zaman, çıktı metin tabanlıdır. A *beceri kümesi* zenginleştirme işlem hattı tanımlayın becerileri koleksiyonudur. 
+
+> [!NOTE]
+> Bilişsel Arama, genel önizleme aşamasındadır. Görüntü ayıklama ve normalleştirme ve beceri yürütmesi şu anda ücretsiz sunulmaktadır. Daha sonraki bir zamanda, bu özelliklerin fiyatlandırması duyurulacaktır. 
 
 ## <a name="predefined-skills"></a>Önceden tanımlanmış beceriler
 

@@ -1,26 +1,25 @@
 ---
-title: AD kiracı dizini genel kullanımı | Microsoft Docs
-description: Azure AD kiracısının ne olduğu ve Azure'ın, Azure Active Directory kullanılarak nasıl yönetileceği açıklanmaktadır.
+title: Azure Active Directory kiracınızı yönetin | Microsoft Docs
+description: Azure AD kiracısının ne olduğu ve Azure Active Directory'yi kullanarak Azure'ı yönetme hakkında bilgi edinin.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
-ms.date: 08/23/2017
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro;oldportal
-ms.openlocfilehash: b18ff1f59a46e98544159b488294e2d3f7bd9cd7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+custom: it-pro
+ms.openlocfilehash: 2a548a16a6b896ae1c1297badcef6154b64977f1
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767583"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737184"
 ---
-# <a name="manage-your-azure-ad-directory"></a>Azure AD dizininizi yönetme
+# <a name="manage-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınızı yönetin
 
 ## <a name="what-is-an-azure-ad-tenant"></a>Azure AD kiracısı nedir?
 Azure Active Directory’de (Azure AD) kiracı, kuruluşunuzun Azure veya Office 365 gibi bir Microsoft bulut hizmetinde oturum açtığında aldığı ve sahip olduğu bir Azure AD dizininin adanmış örneğidir. Her Azure AD dizini, diğer Azure AD dizinlerinden farklı ve ayrıdır. Kurumsal ofis binasının yalnızca kuruluşunuza özel güvenilir bir varlık olması gibi, Azure AD dizini de yalnızca sizin kuruluşunuz tarafından kullanılmak üzere tasarlanan güvenilir bir varlıktır. Azure AD mimarisi, kullanıcı verilerini ve kimlik bilgilerini ayrı tutar, bu da bir Azure AD dizinindeki kullanıcıların ve yöneticilerin yanlışlıkla veya kötü amaçlı olarak başka bir dizindeki verilere erişemeyeceği anlamına gelir.

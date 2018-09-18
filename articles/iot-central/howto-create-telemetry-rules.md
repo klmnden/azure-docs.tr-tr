@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5913df2d4dc286fad63760c95f54e0dbc717acdc
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 1b82ac3bf67370a2c39e85bf5691da38539edb74
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061136"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729341"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir telemetri kuralı oluşturabilir ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
+
+*Bu makale, işleçler, Oluşturucular ve Yöneticiler için geçerlidir.*
 
 Bağlı cihazlarınızın uzaktan izlemek için Azure IOT Central kullanabilirsiniz. Azure IOT Central kuralları cihazlarınızı neredeyse gerçek zamanlı izleme ve otomatik eylemleri bir e-posta veya gibi Microsoft Flow tetiklemek etkinleştirin. Yalnızca birkaç tıklamayla, cihaz verilerinizi izleyin ve ilgili eylemi yapılandırmak istediğiniz koşulu tanımlayabilirsiniz. Bu makalede, cihaz tarafından gönderilen telemetri izlemek için kurallar oluşturma açıklanmaktadır.
 
@@ -36,9 +38,9 @@ Telemetri kuralı oluşturmak için cihaz şablonu en az bir telemetri ölçüm 
 
     ![Henüz hiçbir kural](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
 
-1. Üzerinde **kuralları** sekmesinde **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
+1. Üzerinde **kuralları** sekmesini tıklatın, **şablonu Düzen** ardından **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
 
-1. Tıklayarak **Telemetri** cihaz telemetrisi izlemek için bir kural oluşturmak için bir kutucuk.
+1. Tıklayın **Telemetri** cihaz telemetrisi izlemek için bir kural oluşturmak için.
 
     ![Kural türü](media\howto-create-telemetry-rules\Rule_Types.png)
 
@@ -87,6 +89,8 @@ Bu bölümde, kural tetiklendiğinde gerçekleştirilecek eylemleri ayarlamak i�
 
 1. Kuralı kaydetmek için seçin **Kaydet**. Kural, birkaç dakika içinde etkin hale gelir ve uygulamanıza gönderilen telemetri izlemeye başlar. Kuralda belirtilen koşul eşleştiğinde kural yapılandırılan e-posta eylemi tetikler.
 
+1. Seçin **Bitti** çıkmak için **şablonu Düzen** modu.
+
 Diğer Eylemler gibi Microsoft Flow ve Web kancaları kuralı ekleyebilirsiniz. Kural başına en fazla 5 eylem ekleyebilirsiniz.
 
 - [Microsoft Flow eylem](howto-add-microsoft-flow.md) için Microsoft Flow bir iş akışında bir kuralı tetiklendiğinde kazandırın 
@@ -100,7 +104,7 @@ Parametreleri kullanarak, cihaz şablonunu yönetmek için kuralların sayısın
 
 Eylemleri kullanarak yapılandırılabilir **cihaz özelliği** bir parametre olarak. Bir özellik olarak depolanan bir e-posta adresi sonra tanımlarken kullanılabilir **için** adresi.
 
-## <a name="delete-a-rule"></a>Kural silme
+## <a name="delete-a-rule"></a>Kuralı silme
 
 Bir kural artık ihtiyacınız kalmadığında, kural açarak ve silmek **Sil**. Kural siliniyor cihaz şablonunu ve ilişkili tüm cihazlardan kaldırır.
 

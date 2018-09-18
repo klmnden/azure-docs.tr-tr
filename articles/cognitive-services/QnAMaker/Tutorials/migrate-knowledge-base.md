@@ -1,78 +1,78 @@
 ---
-title: Bilgi Bankası - Microsoft Bilişsel hizmetler içeri aktarma | Microsoft Docs
-titleSuffix: Azure
+title: Önizleme bilgi bankalarından - soru-cevap Oluşturucu geçirme
+titleSuffix: Azure Cognitive Services
 description: Bilgi Bankası içeri aktarma
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: ce8f98f9bdb37d5f326e942fe5b5e815e5272c56
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.date: 09/12/2018
+ms.author: nstulasi
+ms.openlocfilehash: ba883acc0cd74e5252e704cede837a814c17b975
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355941"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729952"
 ---
-# <a name="migrate-a-knowledge-base-using-export-import"></a>Bir Bilgi Bankası dışa-içe aktarma kullanarak geçirme
-QnA Maker 7 Mayıs 2018 üzerinde genel kullanılabilirlik duyurdu \\\build\ konferans. QnA Maker GA Azure üzerinde oluşturulmuş yeni bir mimariye sahip. Bilgi Bankası QnA Maker ücretsiz önizleme ile oluşturulan QnA Maker İST geçirilmesi gerekir QnA Maker Önizleme Kasım 2018 kullanım dışı kalacaktır. QnA Maker GA duyuru QnA Maker GA yapılan değişiklikler hakkında daha fazla bilgi için bkz: [blog gönderisi](https://aka.ms/qnamakerga-blog).
+# <a name="migrate-a-knowledge-base-using-export-import"></a>İçeri dışarı aktarma kullanarak Bilgi Bankası geçirme
+Soru-cevap Oluşturucu 7 Mayıs 2018'den genel kullanılabilirliğini duyurduk \\\build\ konferans. Soru-cevap Oluşturucu GA, Azure'u temel alan yeni bir mimariye sahiptir. Soru-cevap Oluşturucu ücretsiz önizleme ile oluşturulan bilgi bankaları için soru-cevap Oluşturucu büyüyecek geçirilmesi gerekir Soru-cevap Oluşturucu Önizleme Kasım 2018'de kullanımdan kaldırılacaktır. Soru-cevap Oluşturucu GA değişiklikler hakkında daha fazla bilgi için bkz: soru-cevap Oluşturucu GA duyurusundan [blog gönderisi](https://aka.ms/qnamakerga-blog).
 
-QnA Maker şimdi sahip bir [fiyatlandırma modeli](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
+Soru-cevap Oluşturucu artık sahip bir [fiyatlandırma modeli](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
 
 Önkoşullar
 > [!div class="checklist"]
 > * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-> * Yeni bir kurulum [QnA Maker hizmeti](../How-To/set-up-qnamaker-service-azure.md)
+> * Yeni bir kurulum [soru-cevap Oluşturucu hizmeti](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="migrate-a-knowledge-base-from-qna-maker-preview-portal"></a>Bilgi Bankası QnA Maker Önizleme Portalı'ndan geçirme
-1. Gidin [QnA Maker Önizleme portalı](https://aka.ms/qnamaker-old-portal
-) ve tıklayın **Hizmetlerim**.
-2. Bilgi Bankası'nın düzenleme simgesine tıklayarak geçirmek istediğiniz seçin.
+## <a name="migrate-a-knowledge-base-from-qna-maker-preview-portal"></a>Bilgi Bankası soru-cevap Oluşturucu Önizleme portalından geçirme
+1. Gidin [soru-cevap Oluşturucu Önizleme portalı](https://aka.ms/qnamaker-old-portal
+) tıklayın **Hizmetlerim**.
+2. Düzenleme simgesine tıklayarak geçirmek istediğiniz Bilgi Bankası'nı seçin.
 
     ![Bilgi Bankası Düzenle](../media/qnamaker-how-to-migrate-kb/preview-editkb.png)
 
-3. Tıklayın **karşıdan Bilgi Bankası** , Bilgi Bankası - içeriğini içeren bir .tsv dosyasını karşıdan yüklemek için yanıtları, meta verileri, soru ve veri kaynağı adları bunlar ayıkladığınız gelen.
+3. Tıklayarak **indirme Bilgi Bankası** , Bilgi Bankası - içeriğini içeren bir .tsv dosyasını indirmek için yanıtları, meta verileri, soru ve veri kaynağı adları, ayıklandıkları öğesinden.
 
-    ![Bilgi Bankası indirin](../media/qnamaker-how-to-migrate-kb/preview-download.png)
+    ![Bilgi Bankası'nı indirin](../media/qnamaker-how-to-migrate-kb/preview-download.png)
 
-4. İçine oturum [QnA Maker portal](https://qnamaker.ai) 'ı tıklatın ve azure kimlik bilgileri ile **yeni hizmet oluşturma**.
+4. İçine oturum [soru-cevap Oluşturucu portalı](https://qnamaker.ai) tıklayın ve azure kimlik bilgileri ile **yeni hizmet oluşturma**.
 
     ![KB oluşturma ](../media/qnamaker-how-to-create-kb/create-new-service.png)
     
-5. QnA Maker hizmeti zaten oluşturmadıysanız seçin **QnA hizmet oluşturma**. Aksi takdirde, adım 2'deki aşağı açılan listeler QnA Maker hizmeti seçin. Bilgi Bankası barındıracak QnA Maker hizmeti seçin.
+5. Soru-cevap Oluşturucu hizmetini zaten oluşturmadıysanız seçin **soru-cevap hizmeti oluşturma**. Aksi takdirde, 2. adım açılan menülerde soru-cevap Oluşturucu hizmetini seçin. Bilgi Bankası barındıracak soru-cevap Oluşturucu hizmeti seçin.
 
-    ![Kurulum QnA hizmeti](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
+    ![Soru-cevap hizmetini ayarlama](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
 
-6. Boş bir Bilgi Bankası oluşturun 
+6. Boş bir Bilgi Bankası oluşturma 
 
-    ![Set veri kaynakları](../media/qnamaker-how-to-create-kb/set-data-sources.png)
+    ![Kümesi veri kaynakları](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
-    - Hizmetinizi vermek bir **adı.** Yinelenen adları desteklenir ve özel karakterler de desteklenir.
-    - Önizleme Bilgi Bankası verilerden kullanmak istediğiniz gibi karşıya yükleme dosyaları veya URL'leri atlayın. Şimdilik, boş bir Bilgi Bankası oluşturur.
+    - Hizmetinize vermek bir **adı.** Yinelenen adları desteklenir ve özel karakterler de desteklenir.
+    - Önizleme bankanızı verilerini kullanmak istediğiniz dosyalar veya URL'ler karşıya yüklemeyi atlayın. Şimdilik, boş bir Bilgi Bankası oluşturacaksınız.
 
 7. **Oluştur**’u seçin.
 
     ![KB oluşturma](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-8. Bu yeni Bilgi Bankası'nda açmak **ayarları** sekmesinde ve tıklayın **alma Bilgi Bankası**. Bu sorular, yanıtlar ve meta verileri içe aktarır ve bunlar ayıklandığı veri kaynağı adları korur.
+8. Bu yeni Bilgi Bankası'açın **ayarları** sekmesini ve tıklayarak **alma Bilgi Bankası**. Bu soruları, yanıtlar ve meta verileri içe aktarır ve kendisinden ayıklandıkları veri kaynağı adlarını korur.
 
    ![Bilgi Bankası içeri aktarma](../media/qnamaker-how-to-migrate-kb/Import.png)
 
-9. **Test** Test Masası'nı kullanarak yeni Bilgi Bankası. Bilgi edinmek için nasıl [, Bilgi Bankası test](../How-To/test-knowledge-base.md).
+9. **Test** Test Masası'nı kullanarak yeni Bilgi Bankası. Bilgi edinmek için nasıl [bilgi bankanızı test](../How-To/test-knowledge-base.md).
 10. **Yayımlama** Bilgi Bankası. Bilgi edinmek için nasıl [, Bilgi Bankası yayımlama](../How-To/publish-knowledge-base.md).
-11. Uç nokta aşağıda uygulama veya bot kodunuzda kullanabilirsiniz. Burada gördüğünüz nasıl [QnA bot oluşturma](../Tutorials/create-qna-bot.md).
+11. Uygulama veya bot kodunuzda aşağıdaki uç noktayı kullanın. Burada gördüğünüz nasıl [soru-cevap Robotu oluşturun](../Tutorials/create-qna-bot.md).
 
-    ![QnA Maker değerlerin](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+    ![Soru-cevap Oluşturucu değerleri](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
-Bu noktada, tüm Bilgi Bankası içeriği - sorular, yanıtlar ve meta veri, kaynak dosyaları ve URL'leri adları ile birlikte yeni Bilgi Bankası'na aktarılır. 
+Bu noktada, tüm Bilgi Bankası içerikleri - soruları yanıtlar ve kaynak dosyaları ve URL'leri adlarını yanı sıra meta veri yeni Bilgi Bankası'na aktarılır. 
 
 ## <a name="chatlogs-and-alterations"></a>Chatlogs ve değişiklikleri
-Değişiklikleri (anlamlıları) otomatik olarak içeri aktarılmaz. Kullanım [V2 API'leri](https://aka.ms/qnamaker-v2-apis) değişiklikleri Önizleme yığınından dışarı aktarmak için ve [V4 API'leri](https://aka.ms/qnamaker-v4-apis) yeni yığınında değiştirmek için.
+Değişiklikleri (eş anlamlılar) otomatik olarak içeri aktarılmaz. Kullanım [V2 API'leri](https://aka.ms/qnamaker-v2-apis) değişiklikleri Önizleme yığından dışarı aktarmak için ve [V4 API'leri](https://aka.ms/qnamaker-v4-apis) yeni yığına değiştirilecek.
 
-Yeni yığını chatlogs depolamak için Application Insights kullandığından chatlogs, geçirmek için bir yolu yoktur. Gelen chatlogs ancak indirebilirsiniz [Önizleme portalı](https://aka.ms/qnamaker-old-portal).
+Yeni yığın chatlogs depolamak için Application Insights kullandığından, chatlogs geçirmek için hiçbir yolu yoktur. Ancak chatlogs dan indirebileceğiniz [Önizleme portalı](https://aka.ms/qnamaker-old-portal).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

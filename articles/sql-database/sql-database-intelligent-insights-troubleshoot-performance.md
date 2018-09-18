@@ -8,14 +8,14 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 09/14/2018
 ms.author: v-daljep
-ms.openlocfilehash: 100cb939c0d7297b92af3255382745355aa8d271
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c2bb85d9c0bb02b7eb698dbee07f488c2ad0b62
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722121"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733201"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Öngörüler sayesinde Azure SQL veritabanı performans sorunlarını giderme
 
@@ -283,7 +283,7 @@ Veritabanı kapsamlı yapılandırma değişiklikleri tek tek her veritabanı i�
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
-Tanılama için önceki yedi günlük iş yükü davranışını kıyasla performans düşüşüne neden olan kısa bir süre önce yapılan çıkışları veritabanı kapsamlı yapılandırma değişiklikleri günlüğe yazılır. Önceki değerleri yapılandırma değişiklikleri geri dönebilirsiniz. İstenen bir performans düzeyi ulaşılana kadar değere göre değeri de ayarlayabilirsiniz. Tatmin edici performansa ile benzer bir veritabanından veritabanı kapsamlı yapılandırma değerlerini kopyalayabilirsiniz. Performans sorunlarını giderme yapamıyorsanız, varsayılan SQL veritabanı varsayılan değerlere geri dönmesi ve bu temelinden başlayarak ince ayar yapma girişimi.
+Tanılama için önceki yedi günlük iş yükü davranışını kıyasla performans düşüşüne neden olan kısa bir süre önce yapılan çıkışları veritabanı kapsamlı yapılandırma değişiklikleri günlüğe yazılır. Önceki değerleri yapılandırma değişiklikleri geri dönebilirsiniz. İstenen işlem boyutu ulaşılana kadar değere göre değeri de ayarlayabilirsiniz. Tatmin edici performansa ile benzer bir veritabanından veritabanı kapsamlı yapılandırma değerlerini kopyalayabilirsiniz. Performans sorunlarını giderme yapamıyorsanız, varsayılan SQL veritabanı varsayılan değerlere geri dönmesi ve bu temelinden başlayarak ince ayar yapma girişimi.
 
 Veritabanı kapsamlı yapılandırma ve yapılandırmayı değiştirme T-SQL söz dizimi iyileştirme ile ilgili daha fazla bilgi için bkz: [Alter veritabanı kapsamlı yapılandırma (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 

@@ -1,25 +1,25 @@
 ---
-title: Görüntüleri açıklayan
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Azure Bilişsel hizmetler görüntü işleme kullanarak görüntüleri tanımlamaya ilgili kavramları.
+title: Görüntüleri - görüntü işleme açıklayan
+titleSuffix: Azure Cognitive Services
+description: Görüntü işleme API'sini kullanarak görüntüleri tanımlamaya ilgili kavramları.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: be59055a2c6cd1366c8c52370fa97158ab8d6c88
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a65e3ea2fb28ca8a2250fb3e39860eb5e08c18f4
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725471"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981993"
 ---
-# <a name="describing-images"></a>Görüntüleri açıklayan
+# <a name="describing-images"></a>Resimleri açıklama
 
-Görüntü işleme'nın algoritmaları, görüntü içeriği analiz edin. Bu analiz, tam cümlelerden okunabilir dili olarak görüntülenen bir 'description' için temel oluşturur. Açıklama, görüntüde bulunan özetler. Görüntü işleme'nın algoritmaları görüntüde tanımlanmış görsel özelliklere bağlı olarak çeşitli açıklamaları oluşturur. Açıklamaların her biri değerlendirilir ve bir güvenilirlik puanı oluşturulur. Ardından, güvenilirlik puanı için azalan düzende sıralı bir liste döndürülür.
+Görüntü işleme'nın algoritmaları, görüntü içeriği analiz edin. Bu analiz, tam cümlelerden okunabilir dili olarak görüntülenen bir 'description' için temel oluşturur. Açıklama, görüntüde bulunan özetler. Görüntü işleme'nın algoritmaları görüntüde tanımlanmış görsel özelliklere bağlı olarak çeşitli açıklamaları oluşturur. Her açıklaması değerlendirilir ve bir güven puanı oluşturulur. Ardından, güvenilirlik puanı için azalan düzende sıralı bir liste döndürülür.
 
 ## <a name="image-description-example"></a>Resim Açıklama örneği
 

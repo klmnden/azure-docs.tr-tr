@@ -6,7 +6,7 @@
 | type |Type özelliği ayarlanmalıdır: **AzureStorage** |Evet |
 | bağlantı dizesi |ConnectionString özelliği için Azure depolamaya bağlanmak için gereken bilgileri belirtin. |Evet |
 
-Bir Azure depolama için Görünüm/kopyalama hesap anahtarı adımları için şu makaleye bakın: [görüntüleme, kopyalama ve yeniden oluşturma depolama erişim anahtarlarını](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
+Görünüm/hesap anahtarı için bir Azure depolama kopyalama adımları için aşağıdaki bölüme bakın: [erişim anahtarları](../articles/storage/common/storage-account-manage.md#access-keys).
 
 **Örnek:**  
 

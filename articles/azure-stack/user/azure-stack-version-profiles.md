@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: db60aaacfb2ba60dbe73663cb415e2a3baea5400
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745808"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982162"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure stack'teki API sürümü profillerini yönetme
 
@@ -46,7 +46,7 @@ Bu konuda size yardımcı olur:
     Düzenlenen bir tempoda yayımlanan bu sürüm tutarlılığı ve kararlılığı üzerinde birden fazla bulutlarda odaklanır. Bu profil, en iyi Azure Stack uyumluluk hedefler.
     - **yyyy-aa-gg-profili** en iyi kararlılık ve en son özellikleri arasında yer alır.
 
-### <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Azure API profillerini ve Azure Stack uyumluluğu
+## <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Azure API profillerini ve Azure Stack uyumluluğu
 
 En yeni Azure API profillerini Azure Stack ile uyumlu değildir. Azure Stack çözümlerinizi kullanmak için hangi profil tanımlamak için aşağıdaki adlandırma kurallarını kullanabilirsiniz.
 

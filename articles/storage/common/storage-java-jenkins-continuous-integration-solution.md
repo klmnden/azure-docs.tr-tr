@@ -8,12 +8,12 @@ services: devops
 custom: jenkins
 ms.date: 07/31/2018
 ms.component: common
-ms.openlocfilehash: 549150abc630cd247927b4ba7042d0bdf0e8b88a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b7ac5c277b45ae5c005a284d5c38e55099c11e33
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524398"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735571"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins sürekli tümleştirme çözümüyle Azure depolama kullanma
 
@@ -48,7 +48,7 @@ Jenkins hakkında daha fazla bilgi şu adreste bulunabilir: [karşılamak Jenkin
      
       Tipik bir Jenkins CI çözüm Jenkins war komut satırını çalıştıran, bir hizmet olarak çalıştırmak için ayarlanması ancak bu öğretici için yeterli olacaktır.
 * Bir Azure hesabı. Bir Azure hesabı için kaydolabilirsiniz <http://www.azure.com>.
-* Bir Azure depolama hesabı. Bir depolama hesabınız yoksa, adımları kullanarak bir tane oluşturabilirsiniz [depolama hesabı oluşturma](../common/storage-create-storage-account.md#create-a-storage-account).
+* Bir Azure depolama hesabı. Bir depolama hesabınız yoksa, adımları kullanarak bir tane oluşturabilirsiniz [depolama hesabı oluşturma](../common/storage-quickstart-create-account.md).
 * Jenkins CI çözümüne konusunda önerilir, ancak aşağıdaki içeriği Blob hizmeti için Jenkins CI deposu olarak kullanılırken gerekli olan adımları derleme yapıları göstermek için basit bir örneği kullanacağınız, gerekli değildir.
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Jenkins CI ile Blob hizmetini kullanma

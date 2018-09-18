@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 618df9b4bcc4a1b6f44d9cabc29c797a2cabcc80
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366801"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982281"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantıları yeniden yönlendirin
 
@@ -109,7 +109,7 @@ Bağlantı çeviri ile çalışmaya başlama, bir düğmeye tıklatmak kadar kol
 2. Git **Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları** > yönetmek istediğiniz uygulamayı seçin >  **Uygulama proxy'si**.
 3. Kapatma **uygulama gövdesi URL'leri çevir** için **Evet**.
 
-   ![Uygulama gövdesinde URL'leri çevirme için Evet'i seçin](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png).
+   ![Uygulama gövdesinde URL'leri çevirme için Evet'i seçin](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
 4. Seçin **Kaydet** yaptığınız değişiklikleri uygulamak için.
 
 Kullanıcılarınızın bu uygulamaya eriştiğinde, artık proxy otomatik olarak kiracınızda uygulama proxy'si aracılığıyla yayımlanan iç URL'ler için tarar.

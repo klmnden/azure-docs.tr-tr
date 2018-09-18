@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 19e47e0dba1a89ea32f42ef0bafc26f8c59b4ad7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 4defdabde19b2dcf7f9872fd6da1b63b0d244913
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288311"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983827"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Verileri Azure Cosmos DB ile küresel olarak dağıtma
 Azure bulunabilen - 50'den fazla coğrafi bölgeler arasında bir küresel kaplama alanını sahiptir ve sürekli genişliyor. Genel iletişim durumu ile Azure, geliştiricilere sunduğu fark yaratan özellikleri oluşturmanızı, dağıtmanızı ve Global olarak dağıtılmış uygulamaları kolayca yönetme olanağı biridir. 
@@ -28,7 +28,7 @@ Azure bulunabilen - 50'den fazla coğrafi bölgeler arasında bir küresel kapla
 
 Azure Cosmos DB oluşturulurken edindiğimiz gibi ekleme genel dağıtım akla olamaz. "Cıvatalı"çoklu site"bir veritabanı sistemi açma" olamaz. Dışında geleneksel coğrafi olağanüstü durum kurtarma (coğrafi-DR) "tek sitede" veritabanı tarafından sunulan Global olarak dağıtılmış bir veritabanı tarafından sunulan özellikleri kapsar. Tek site veritabanları GEO-DR özelliği sunan, Global olarak dağıtılmış veritabanları özelliklerinin katı bir alt değildir. 
 
-Azure Cosmos DB'nin anahtar teslim küresel dağıtım ile geliştiriciler kendi çoğaltma iskele kurma kullanarak kazançlarını ya da Lambda düzeni oluşturmak izniniz yok (örneğin, [AWS DynamoDB çoğaltma](https://github.com/awslabs/dynamodb-cross-region-library/blob/master/README.md)) veritabanı günlük üzerinden ya da "çift yazmalar" birden çok bölgede gerçekleştiriliyor. Yaptığımız *değil* , bu tür bir yaklaşım doğruluğunu sağlamak ve ses SLA'lar sağlamak mümkün olduğundan bu yaklaşım önerilir. 
+Azure Cosmos DB'nin anahtar teslim küresel dağıtım ile geliştiriciler kendi çoğaltma yapı iskelesi veritabanı günlüğü üzerinden Lambda deseni kullanan ya da birden çok bölgede "çift yazmalar" gerçekleştirerek yapı gerekmez. Yaptığımız *değil* , bu tür bir yaklaşım doğruluğunu sağlamak ve ses SLA'lar sağlamak mümkün olduğundan bu yaklaşım önerilir. 
 
 Bu makalede, Azure Cosmos DB'nin genel dağıtım özelliklerine genel bakış sunuyoruz. Ayrıca kapsamlı SLA'lar sağlamak için Azure Cosmos DB'nin benzersiz yaklaşımı açıklanmaktadır. 
 

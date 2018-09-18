@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 72d1630ecaeada3acf8b49952a31ccd3ae8634aa
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 68d546fc4c853f1a19230b8aee7e86519aaa7e4c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617967"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729069"
 ---
 # <a name="what-is-cognitive-search"></a>Bilişsel arama nedir?
 
@@ -31,7 +31,7 @@ Azure Search'te bilişsel beceriler Bilişsel hizmetler API'leri kullanılan ayn
 Doğal dil ile görüntü işleme uygulanır veri alımı aşaması sırasında Azure Search'te arama yapılabilir bir dizin bir belgenin birleşimde parçası olma sonuçlarla. Veri kaynağı bir Azure veri kümesi ve ardından hangisi kullanarak bir dizini oluşturma ardışık düzeni gönderilen [yerleşik yetenekler](cognitive-search-predefined-skills.md) ihtiyacınız. Yerleşik yetenek yeterli değilse oluşturabilir ekleme ve mimari Genişletilebilir olduğundan [özel becerileri](cognitive-search-create-custom-skill-example.md) özel işleme tümleştirmek için. Örnekler, Finans, bilimsel yayınlar veya ilaç gibi belirli bir etki alanı hedefleyen bir özel varlık modül veya belge sınıflandırıcı olabilir.
 
 > [!NOTE]
-> Bilişsel arama genel önizlemededir ve beceri yürütmesi şu anda ücretsiz olarak sunulur. İlerleyen zamanlarda bu özelliğin fiyatlandırması duyurulacaktır. 
+> Bilişsel Arama, genel önizleme aşamasındadır. Görüntü ayıklama ve normalleştirme ve beceri yürütmesi şu anda ücretsiz sunulmaktadır. Daha sonraki bir zamanda, bu özelliklerin fiyatlandırması duyurulacaktır. 
 
 ## <a name="components-of-cognitive-search"></a>Bilişsel arama bileşenleri
 

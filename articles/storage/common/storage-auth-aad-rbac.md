@@ -1,6 +1,6 @@
 ---
-title: Azure depolama kapsayıcıları ve Kuyruklar'ı (Önizleme) için erişim haklarını yönetmek için RBAC kullanma | Microsoft Docs
-description: Azure depolama veri kullanıcıları, grupları, uygulama hizmet sorumlularını veya yönetilen hizmet kimlikleri için erişim için rolleri atamak için rol tabanlı erişim denetimi (RBA) kullanın. Azure Storage kapsayıcıları ve Kuyruklar erişim hakları için yerleşik ve özel rollerin destekler.
+title: Kapsayıcılar ve kuyrukları (Önizleme) - Azure depolama için erişim haklarını yönetmek için RBAC kullanma | Microsoft Docs
+description: Kullanıcılar, gruplar, uygulama hizmet sorumlularını veya yönetilen hizmet kimlikleri için blob ve kuyruk verilere erişim için rolleri atamak için rol tabanlı erişim denetimi (RBAC) kullanın. Azure Storage kapsayıcıları ve Kuyruklar erişim hakları için yerleşik ve özel rollerin destekler.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c26eee05a59a10036138f81086b3f6a9e0de6d5d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298684"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737303"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>RBAC (Önizleme) ile Azure depolama verilere erişim haklarını yönetme
 
 Azure Active Directory (Azure AD) ile güvenli kaynaklara erişim hakları yetkilendirir [rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Azure depolama genel kapsayıcılar veya sıralara erişmek için kullanılan izin kümelerini kapsayacak yerleşik RBAC rolleri kümesi tanımlar. Ne zaman bir RBAC rolü atanmış bir Azure AD kimlik için kimlik bu kaynaklara erişimi verilir göre belirtilen kapsam. Abonelik, kaynak grubu, depolama hesabı veya bir kapsayıcının veya kuyruk düzeyi için erişimi sınırlayabilirsiniz. Azure portalı, Azure komut satırı araçları ve Azure Management API'leri kullanarak Azure Storage kaynakları için erişim hakları atayabilirsiniz. 
 
-Bir Azure AD kimlik, bir kullanıcı, Grup veya uygulama hizmet sorumlusu olabilir veya olabilir bir *yönetilen hizmet kimliği*. Bir güvenlik sorumlusu, kullanıcı, Grup veya uygulama hizmet sorumlusu olabilir. A [yönetilen hizmet kimliği](../../active-directory/managed-identities-azure-resources/overview.md) olan Azure sanal makineleri, işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan kimliğini doğrulamak için kullanılan otomatik olarak yönetilen bir kimlik. Azure AD'de kimlik genel bakış için bkz. [anlamak Azure kimlik çözümleri](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+Bir kullanıcı, Grup veya uygulama hizmet sorumlusunun bir Azure AD kimlik olabilir veya Azure kaynakları için bir yönetilen kimlik olabilir. Bir güvenlik sorumlusu, kullanıcı, Grup veya uygulama hizmet sorumlusu olabilir. A [yönetilen Azure kaynakları için kimliği](../../active-directory/managed-identities-azure-resources/overview.md) olan Azure sanal makineleri, işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan kimliğini doğrulamak için kullanılan otomatik olarak yönetilen bir kimlik. Azure AD'de kimlik genel bakış için bkz. [anlamak Azure kimlik çözümleri](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
-## <a name="rbac-roles-for-azure-storage"></a>RBAC rolleri için Azure depolama
+## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC rolleri için BLOB'lar ve Kuyruklar
 
 Azure depolama, hem yerleşik hem de özel RBAC rollerini destekler. Azure depolama, Azure AD ile kullanmak için bu yerleşik RBAC rolleri sunar:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 912ae17fb7bb5d5cecad0af5b53d817b2faeef02
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522210"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730958"
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
 
@@ -142,20 +142,13 @@ Azure Key Vault'u kullanarak başka bir depolama anahtarlarınızı için güven
 
 Azure Key Vault'u kullanarak başka bir avantajı, erişimi Azure Active Directory'yi kullanarak anahtarlarınızı denetleyebilirsiniz olmasıdır. Başka bir deyişle, Azure Key Vault'tan anahtarları almak ve diğer uygulamalara erişim anahtarlarını izni özellikle vermeden için bunları mümkün olmayacaktır bilmeniz gereken uygulamalar dizi için erişim verebilirsiniz.
 
-Not: Bu anahtarları yalnızca biri tüm uygulamalar aynı anda kullanılması önerilir. Bazı yerlerde anahtar 1 ve anahtar 2'de başkaları kullanıyorsanız anahtarlarınızın Döndür erişim hakkını kaybetmesini bazı uygulama mümkün olmayacaktır.
+> [!NOTE]
+> Microsoft, anahtarlar yalnızca biri tüm uygulamalar aynı anda kullanılmasını önerir. Bazı yerlerde anahtar 1 ve anahtar 2'de başkaları kullanıyorsanız anahtarlarınızın Döndür erişim hakkını kaybetmesini bazı uygulama mümkün olmayacaktır.
 
 #### <a name="resources"></a>Kaynaklar
-* [Azure depolama hesapları hakkında](storage-create-storage-account.md#regenerate-storage-access-keys)
 
-  Bu makalede, depolama hesaplarına genel bakış sağlar ve görüntüleme, kopyalama ve depolama erişim anahtarlarını yeniden oluşturma açıklanır.
+* [Azure portalında depolama hesabı ayarlarını yönetme](storage-account-manage.md)
 * [Azure depolama kaynak sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/mt163683.aspx)
-
-  Bu makale, depolama hesabı anahtarlarını alma ve REST API kullanarak bir Azure hesabı için depolama hesabı anahtarlarını yeniden hakkında belirli makalelerin bağlantıları içerir. Not: Resource Manager depolama hesapları için budur.
-* [Depolama hesabı üzerinde işlemler](https://msdn.microsoft.com/library/ee460790.aspx)
-
-  Bu makalede Hizmet Yöneticisi depolama REST API Başvurusu, alma ve REST API kullanarak depolama hesabı anahtarlarını yeniden oluşturma belirli makalelere bağlantılar içerir. Not: Klasik depolama hesapları için budur.
-
-  Bu makalede, Azure depolama anahtarları Azure Key vault'ta erişimi denetlemek için Active Directory kullanmayı gösterir. Ayrıca, saatlik olarak anahtarlarını yeniden oluşturmak üzere Azure Otomasyonu işini kullanmayı gösterir.
 
 ## <a name="data-plane-security"></a>Veri düzlemi güvenliği
 Veri düzlemi güvenliği Azure Depolama: bloblar, kuyruklar, tablolar ve dosyalar depolanan veri nesnelerini güvenli hale getirmek için kullanılan yöntemler ifade eder. Güvenlik ve veri veri aktarım sırasında şifrelemek için yöntemleri gördük ancak nesnelere erişimi denetleme hakkında nasıl devam?

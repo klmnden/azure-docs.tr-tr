@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 09/14/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: d82cc3ee1074e326c9e4dee7fd65e338cb95e19f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4b48f360c95170a36d1e79b075403d541c8b66ed
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722240"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983942"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – veritabanınızı Azure SQL veritabanı'nda yönetme
 
@@ -36,9 +36,9 @@ Bu makalede, Azure SQL DB temel özelliklerinden bazıları kolayca yararlanabil
 İş sürekliliği ve olağanüstü durum kurtarma yeteneklerini işletmenizi, olağanüstü bir durumunda her zamanki şekilde devam etmek etkinleştirin. Olağanüstü durum veritabanı düzeyi olay olabilir (örneğin, birisi yanlışlıkla önemli bir tabloyu bırakacağını) veya bir veri merkezi düzeyi olay (Bölgesel felaketler, örneğin bir tsunami). 
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Nasıl oluştururum ve SQL veritabanı yedeklemelerini yönetme?
-Azure SQL DB'de yedeklemeleri oluşturmayın ve gerek yoktur çünkü. Artık zamanlama, alma ve yedekleri yönetme hakkında endişelenmeniz gereken şekilde SQL veritabanı, sizin için otomatik olarak veritabanlarını yedekler. Platform, her hafta, fark yedekleme birkaç saatte bir günlük 5 verimli olağanüstü durum kurtarma sağlamak için dakikada, yedekleme ve ve veri kaybını en az bir tam yedekleme alır. Bir veritabanını oluşturur oluşturmaz, ilk tam yedekleme olur. Bu yedeklemeler "Bekletme dönemi" adlı belirli bir süre için kullanabileceğiniz ve seçtiğiniz performans katmanına göre değişir.  SQL veritabanı kullanarak bu elde tutma dönemi içinde zaman içinde herhangi bir noktasına geri yükleme olanağı sağlar [işaret zaman Kurtarma (PITR) içinde](sql-database-recovery-using-backups.md#point-in-time-restore).
+Azure SQL DB'de yedeklemeleri oluşturmayın ve gerek yoktur çünkü. Artık zamanlama, alma ve yedekleri yönetme hakkında endişelenmeniz gereken şekilde SQL veritabanı, sizin için otomatik olarak veritabanlarını yedekler. Platform, her hafta, fark yedekleme birkaç saatte bir günlük 5 verimli olağanüstü durum kurtarma sağlamak için dakikada, yedekleme ve ve veri kaybını en az bir tam yedekleme alır. Bir veritabanını oluşturur oluşturmaz, ilk tam yedekleme olur. Bu yedeklemeler "Bekletme dönemi" adlı belirli bir süre için kullanabileceğiniz ve seçtiğiniz hizmet katmanına göre değişir. SQL veritabanı kullanarak bu elde tutma dönemi içinde zaman içinde herhangi bir noktasına geri yükleme olanağı sağlar [işaret zaman Kurtarma (PITR) içinde](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Performans katmanı|Bekletme süresi (gün)|
+|Hizmet katmanı|Bekletme süresi (gün)|
 |---|:---:|
 |Temel|7|
 |Standart|35|
@@ -202,7 +202,7 @@ SQL veritabanı'nda platformunun performansını izlemek ve buna uygun olarak ay
 
    ![Grafik2 izleme](./media/sql-database-manage-after-migration/chart.png)
 
-Bu grafikte, kaynak tarafından uyarıları da yapılandırabilirsiniz. Bu uyarılar bir e-posta ile kaynak koşulları yanıt, bir HTTPS/HTTP uç noktasına yazma veya bir eylem gerçekleştirmeye olanak sağlar. Bkz: [SQL database'de veritabanı performansını izleme](sql-database-single-database-monitor.md) ayrıntılı yönergeler için.
+Bu grafikte, kaynak tarafından uyarıları da yapılandırabilirsiniz. Bu uyarılar bir e-posta ile kaynak koşulları yanıt, bir HTTPS/HTTP uç noktasına yazma veya bir eylem gerçekleştirmeye olanak sağlar. Daha fazla bilgi için [uyarıları oluşturma](sql-database-insights-alerts-portal.md).
 
 - **Dinamik Yönetim görünümlerini**: sorgulayabilirsiniz [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) kaynak tüketimi istatistikleri geçmişi, son bir saat geri dönmek için dinamik yönetim görünümünü ve [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) son 14 güne ait geçmişi döndürmek için sistem Katalog görünümü.
 - **Sorgu performansı İçgörüleri**: [sorgu performansı İçgörüleri](sql-database-query-performance.md) en çok kaynak tüketen sorguları ve belirli bir veritabanı için uzun süre çalışan sorguların geçmişini görmenizi sağlar. Kaynak kullanımı, süresi ve yürütme sıklığı en sık kullanılan sorgular hızla belirleyebilirsiniz. Sorguları izleyebilir ve regresyon algılayın. Bu özellik gerektirir [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) etkinleştirildiğinde ve veritabanı için etkin olması.
@@ -218,21 +218,21 @@ Performans sorunlarını giderme yönelik yaklaşımınızı gibi akıllı özel
 
 Performans sorunlarını giderme ile yalnızca uygulamayı ya da uygulama performansınızı etkileyen, yedekleme, veritabanı tanımlamak önemlidir. Genellikle performans sorunu uygulama katmanında arasındadır. Mimari veya veri erişim modelini olabilir. Örneğin, sahip olduğunuz ağ gecikmesine duyarlıdır sık iletişim kuran bir uygulama düşünün. Olacaktır çünkü çok kısa istekleri gidip bu durumda, uygulamanızı alternatife Bu gidiş-dönüş ("geveze") uygulama sunucusu arasında ve yoğun ağ üzerinde hızlı ekleyin. Bu durumda performansını artırmak için kullanabileceğiniz [toplu işlem sorguları](sql-database-performance-guidance.md#batch-queries). İsteklerinizi bir toplu işte şimdi işlenemedi çünkü toplu kullanarak büyük ölçüde yardımcı olur; Bu nedenle, gidiş dönüş gecikmesine Kes ve uygulama performansınızı geliştirmenize yardımcı olur. 
 
-Veritabanınızı genel performansını düşüş fark ederseniz, ayrıca, izleyebilirsiniz [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) ve [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dinamik yönetim görünümleri için CPU, GÇ ve bellek tüketimi anlayın. Veritabanınızı, kaynakları starved için performansınızı belki etkilendi. Performans düzeyini değiştirmek ve/veya hizmet katmanını büyüyen ve iş yükü taleplerini küçültme göre gerekebilir olabilir. 
+Veritabanınızı genel performansını düşüş fark ederseniz, ayrıca, izleyebilirsiniz [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) ve [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dinamik yönetim görünümleri için CPU, GÇ ve bellek tüketimi anlayın. Veritabanınızı, kaynakları starved için performansınızı belki etkilendi. İşlem boyutu değiştirmek ve/veya hizmet katmanını büyüyen ve iş yükü taleplerini küçültme göre gerekebilir olabilir. 
 
 Kapsamlı bir performans sorunlarını ayarlama önerileri için bkz: [veritabanınızı ayarlayın](sql-database-performance-guidance.md#tune-your-database).
 
-### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-performance-level"></a>Uygun hizmet katmanını ve performans düzeyi kullandığımı nasıl emin olabilirim?
-SQL veritabanı çeşitli hizmet katmanları temel, standart ve Premium sunar. Her bir hizmet katmanına bağlı, hizmet düzeyi için garantili bir tahmin edilebilir performans alın. İş yükünüze bağlı olarak, burada kaynak kullanımınızı tavanını olan geçerli bir performans düzeyine neden olabilir, etkinlik artışları olabilir. Herhangi bir ayar (örneğin ekleme veya bir dizin vb. değiştirme.) yardımcı olup olmadığını gibi durumlarda, değerlendirme ile başlamanız için kullanışlıdır. Hala sınır sorunlarla karşılaşırsanız, daha yüksek performans düzeyi veya hizmet düzeyi taşımayı düşünün. 
+### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>Uygun hizmet katmanını kullanıyorum ve işlem boyutu nasıl emin olabilirim?
+SQL veritabanı çeşitli hizmet katmanları temel, standart ve Premium sunar. Her bir hizmet katmanına bağlı söz konusu hizmet katmanı için garantili bir tahmin edilebilir performans alın. İş yükünüze bağlı olarak, burada kaynak kullanımınızı içinde geçerli işlem boyutu tavanını neden olabilir, etkinlik artışları olabilir. Herhangi bir ayar (örneğin ekleme veya bir dizin vb. değiştirme.) yardımcı olup olmadığını gibi durumlarda, değerlendirme ile başlamanız için kullanışlıdır. Hala sınır sorunlarla karşılaşırsanız, boyutu işlem ya da daha yüksek bir hizmet katmanına taşıyarak göz önünde bulundurun. 
 
-|**Hizmet düzeyi**|**Genel kullanım örneği senaryoları**|
+|**Hizmet katmanı**|**Genel kullanım örneği senaryoları**|
 |---|---|
 |**Temel**|Bazı kullanıcılar ve yüksek eşzamanlılık, ölçek ve performans gereksinimlerine sahip olmayan bir veritabanına sahip olan uygulamalar. |
 |**Standart**|Önemli bir eşzamanlılık, ölçek ve performans gereksinimleri olan uygulamalar, Orta GÇ talepleri düşük ile bağlı. |
 |**Premium**|Uygulama çok sayıda eşzamanlı kullanıcıyı, yüksek CPU/bellek ve yüksek g/ç ihtiyaç duyar. Premium düzeyi yüksek eşzamanlılık, yüksek aktarım hızı ve gecikme süresi önemli uygulamaları yararlanabilirsiniz. |
 |||
 
-Doğru performans düzeyinde olduğunuzdan emin olmak, sorgu ve veritabanı kaynak tüketiminizi "Nasıl performans ve kaynak kullanımı SQL veritabanı'nda izleyebilirim", yukarıda belirtilen şekilde aracılığıyla izleyebilirsiniz. Sorgular/veritabanlarını tutarlı bir şekilde sık erişimli daha yüksek bir performans düzeyine ölçeği artırmayı denemeniz CPU/bellek vb. üzerinde çalıştığını bulmanız gerekir. Benzer şekilde, hatta yoğun saatlerde unutmayın, kadar kaynakları kullanma görünmüyor; Geçerli Performans düzeyinden ölçeği göz önünde bulundurun. 
+Doğru işlem boyutu olduğunuzdan emin olmak, sorgu ve veritabanı kaynak tüketiminizi "Nasıl performans ve kaynak kullanımı SQL veritabanı'nda izleyebilirim", yukarıda belirtilen şekilde aracılığıyla izleyebilirsiniz. Sorgular/veritabanlarını tutarlı bir şekilde sık erişimli bir daha yüksek işlem boyutu için ölçeği artırmayı denemeniz CPU/bellek vb. üzerinde çalıştığını bulmanız gerekir. Benzer şekilde, hatta yoğun saatlerde unutmayın, kadar kaynakları kullanma görünmüyor; Geçerli işlem boyutundan ölçeği göz önünde bulundurun. 
 
 SaaS uygulama düzeni veya bir veritabanı birleştirme senaryo varsa, maliyet iyileştirmesi için elastik havuz kullanımının göz önünde bulundurun. Elastik havuz, veritabanı birleştirme ve maliyet iyileştirmesi elde etmek için harika bir yoludur. Daha fazla bilgi için elastik havuz kullanımının birden çok veritabanını yönetme hakkında bkz: [yönetmek, havuzlar ve veritabanları](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 

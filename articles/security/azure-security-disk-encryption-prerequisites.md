@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 0750ea0877d5f27a8ceb091f8c3904048c9314aa
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: e025a1a625bded118ea7f3b3968502115b64d83a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348285"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734707"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk şifrelemesi önkoşulları 
  Bu makalede, Azure Disk şifrelemesi önkoşulları, Azure Disk şifrelemesi kullanabilmeniz için önce karşılanması gereken öğeleri açıklar. Azure Disk şifrelemesi ile tümleşiktir [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/) şifreleme anahtarlarını yönetmeye yardımcı olmak için. Kullanabileceğiniz [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), veya [Azure portalında](https://portal.azure.com) Azure Disk şifrelemesini yapılandırmak için.
@@ -127,6 +127,9 @@ Zaten Azure Disk şifrelemesi için Key Vault ve Azure AD önkoşulları alış�
 1. Gerekirse, bir kaynak grubu oluşturun.
 2. Bir anahtar kasası oluşturma. 
 3. Set anahtar kasası erişim ilkeleri Gelişmiş.
+
+>[!WARNING]
+>Bir anahtar kasası silmeden önce var olan tüm Vm'lerle şifrelenmez olduğunu emin olun. Bir kasayı yanlışlıkla silinmeye karşı korumak için [geçici silmeyi etkinleştir](../key-vault/key-vault-soft-delete-powershell.md#enabling-soft-delete) ve [kaynak kilidi](../azure-resource-manager/resource-group-lock-resources.md) kasasındaki. 
  
 ## <a name="bkmk_KeyVault"></a> Anahtar kasası oluşturma 
 Azure Disk şifrelemesi ile tümleşiktir [Azure anahtar kasası](https://azure.microsoft.com/documentation/services/key-vault/) denetlemenize ve disk şifreleme anahtarlarını ve gizli anahtar kasası aboneliğinizi yönetmenize yardımcı olmak için. Anahtar kasası oluşturma veya mevcut bir Azure Disk şifrelemesi kullanın. Anahtar kasası hakkında daha fazla bilgi için bkz: [Azure anahtar kasası ile çalışmaya başlama](../key-vault/key-vault-get-started.md) ve [anahtar kasanızın güvenliğini sağlama](../key-vault/key-vault-secure-your-key-vault.md). Bir anahtar kasası oluşturmak için Resource Manager şablonu, Azure PowerShell veya Azure CLI'yı kullanabilirsiniz. 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dobett
-ms.openlocfilehash: f5d493628df68e0afbe05137b0d7386d6c40f7d4
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: ba06617762650afc8cd3eecb2fcddda6d24f4228
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605751"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734999"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Anlama ve Azure IOT Hub SDK'ları kullanın
 
@@ -37,33 +37,35 @@ Microsoft Azure IOT cihaz SDK'ları oluşturma aygıtlar ve bağlanın ve Azure 
 * Yüklersiniz [Nuget][lnk-nuget-csharp-device]
 * [Kaynak kodu][lnk-dotnet-sdk]
 * [API Başvurusu][lnk-dotnet-ref]
-* [Modül başvurusu] [https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet]
+* [Modül başvurusu](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
 
 Taşınabilirlik ve geniş platform uyumluluğu için ANSI C (C99) yazılmış için Azure IOT Hub cihaz SDK'sı
 * Yüklersiniz [apt-get, MBED, Arduino IDE veya Nuget][lnk-c-package]
 * [Kaynak kodu][lnk-c-sdk]
 * [API Başvurusu][lnk-c-ref]
-* [Modül başvurusu] [https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h]
+* [Modül başvurusu](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h)
 
 Java için Azure IOT Hub cihazı SDK'sı: 
 * Ekleme [Maven] [ lnk-maven-device] proje
 * [Kaynak kodu][lnk-java-sdk]
 * [API Başvurusu][lnk-java-ref]
-* [Modül başvurusu] [https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable]
+* [Modül başvurusu](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable)
 
 Node.js için Azure IOT Hub cihazı SDK'sı: 
 * Yüklersiniz [npm][lnk-npm-device]
 * [Kaynak kodu][lnk-node-sdk]
 * [API Başvurusu][lnk-node-ref]
-* [Modül başvurusu] [https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest]
+* [Modül başvurusu](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)
 
 Python için Azure IOT Hub cihazı SDK'sı: 
 * Yüklersiniz [pip][lnk-pip-device]
 * [Kaynak kodu][lnk-python-sdk]
+* API Başvurusu: bkz [C API Başvurusu][lnk-c-ref]
 
 İOS için Azure IOT Hub cihazı SDK'sı: 
 * Yüklersiniz [CocoaPod][lnk-cocoa-device]
 * [Örnekleri][lnk-ios-sample]
+* API Başvurusu: bkz [C API Başvurusu][lnk-c-ref]
 
 > [!NOTE]
 > GitHub depolarının readme dosyalarında dil ve platforma özgü paket yöneticileri, geliştirme makinenizde ikili dosyaları ve bağımlılıklarını yüklemek için kullanma hakkında bilgi için bkz.

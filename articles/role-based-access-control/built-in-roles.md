@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/06/2018
+ms.date: 09/15/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 44b32746c43569705b445ac5df0a5727463acbe0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 0b7933df1e9f250430800b5b7deba06239cb6fd1
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095343"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736691"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcılara, gruplara veya hizmet sorumluları için atayabileceğiniz birkaç yerleşik rol tanımlarına sahiptir. Rol atamaları, azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi [özel rollerinizi](custom-roles.md) oluşturabilirsiniz.
@@ -398,8 +398,8 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Oluşturma ve kurtarma Hizmetleri kasası kullanımını yönetme |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
-> | Microsoft.Storage/storageAccounts/read | Depolama hesapları veya belirtilen depolama hesabının özelliklerini alır döndürür. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
+> | Microsoft.Storage/storageAccounts/read | Depolama hesaplarının listesini döndürür veya belirtilen depolama hesabının özelliklerini alır. |
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
@@ -455,8 +455,8 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Bir Kurtarma Hizmetleri Kasası için kullanım ayrıntılarını döndürür. |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
-> | Microsoft.Storage/storageAccounts/read | Depolama hesapları veya belirtilen depolama hesabının özelliklerini alır döndürür. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
+> | Microsoft.Storage/storageAccounts/read | Depolama hesaplarının listesini döndürür veya belirtilen depolama hesabının özelliklerini alır. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="backup-reader"></a>Yedekleme Okuyucusu
@@ -521,9 +521,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.BizTalkServices/BizTalk/* | BizTalk Hizmetleri oluşturup yönetebilirsiniz |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönet |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını tüm kaynaklar için belirtilen kapsamda alır. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="cdn-endpoint-contributor"></a>CDN Uç Noktası Katkıda Bulunanı
@@ -539,7 +539,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Cdn/profiles/endpoints/* |  |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="cdn-endpoint-reader"></a>CDN Uç Nokta Okuyucusu
@@ -555,7 +555,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Cdn/profiles/endpoints/*/read |  |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="cdn-profile-contributor"></a>CDN Profili Katkıda Bulunanı
@@ -571,7 +571,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Cdn/profiles/* |  |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="cdn-profile-reader"></a>CDN Profil Okuyucusu
@@ -587,7 +587,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Cdn/profiles/*/read |  |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="classic-network-contributor"></a>Klasik Ağ Katılımcısı
@@ -600,9 +600,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Authorization/*/read | Yetkilendirme okuyun |
 > | Microsoft.ClassicNetwork/* | Oluşturma ve klasik ağları yönetme |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını tüm kaynaklar için belirtilen kapsamda alır. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="classic-storage-account-contributor"></a>Klasik Depolama Hesabı Katılımcısı
@@ -615,9 +615,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Authorization/*/read | Yetkilendirme okuyun |
 > | Microsoft.ClassicStorage/storageAccounts/* | Depolama hesapları oluşturma ve yönetme |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını tüm kaynaklar için belirtilen kapsamda alır. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="classic-storage-account-key-operator-service-role"></a>Klasik Depolama Hesabı Anahtarı İşleci Hizmet Rolü
@@ -628,7 +628,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Kimlik** | 985d6b00-f706-48f5-a6fe-d0ca12fb668d |
 > | **Eylemler** |  |
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Depolama hesaplarının erişim anahtarlarını listeler. |
-> | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Mevcut depolama hesabının erişim anahtarlarını yeniden oluşturur. |
+> | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Depolama hesabı için var olan erişim anahtarlarını yeniden oluşturur. |
 
 ## <a name="classic-virtual-machine-contributor"></a>Klasik Sanal Makine Katılımcısı
 > [!div class="mx-tableFixed"]
@@ -641,18 +641,18 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.ClassicCompute/domainNames/* | Oluşturma ve klasik işlem etki alanı adlarını yönetme |
 > | Microsoft.ClassicCompute/virtualMachines/* | Sanal makineler oluşturun ve yönetin |
 > | Microsoft.ClassicNetwork/networkSecurityGroups/join/action |  |
-> | Microsoft.ClassicNetwork/reservedIps/link/action | Ayrılmış bir IP'ye bağlantı |
+> | Microsoft.ClassicNetwork/reservedIps/link/action | Ayrılmış bir IP'ye bağlantı oluşturun |
 > | Microsoft.ClassicNetwork/reservedIps/read | Ayrılmış IP'leri alır |
 > | Microsoft.ClassicNetwork/virtualNetworks/join/action | Sanal ağa katılır. |
 > | Microsoft.ClassicNetwork/virtualNetworks/read | Sanal ağı alın. |
 > | Microsoft.ClassicStorage/storageAccounts/disks/read | Depolama hesabı diskini döndürür. |
 > | Microsoft.ClassicStorage/storageAccounts/images/read | Depolama hesabı görüntüsünü döndürür. (Kullanım dışı. 'Microsoft.ClassicStorage/storageAccounts/vmImages' kullanın) |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Depolama hesaplarının erişim anahtarlarını listeler. |
-> | Microsoft.ClassicStorage/storageAccounts/read | Belirli bir hesaba depolama hesabını döndürün. |
+> | Microsoft.ClassicStorage/storageAccounts/read | Belirli bir hesaba yönelik depolama hesabını döndürün. |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını tüm kaynaklar için belirtilen kapsamda alır. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="cognitive-services-user"></a>Bilişsel hizmetler kullanıcı
@@ -666,14 +666,14 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.CognitiveServices/accounts/listkeys/action | Anahtarları Listele |
 > | Microsoft.Insights/metricdefinitions/read | Ölçüm tanımlarını oku |
 > | Microsoft.Insights/metrics/read | Ölçümleri okuma |
-> | Microsoft.Insights/alertRules/read | Klasik bir ölçüm uyarısı okuyun |
-> | Microsoft.Insights/diagnosticSettings/read | Kaynağın tanılama ayarını oku |
+> | Microsoft.Insights/alertRules/read | Bir klasik ölçüm uyarısını okuyun |
+> | Microsoft.Insights/diagnosticSettings/read | Bir kaynak tanılama ayarını okuyun |
 > | Microsoft.Insights/logDefinitions/read | Günlük tanımlarını oku |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını tüm kaynaklar için belirtilen kapsamda alır. |
-> | Microsoft.Resources/deployments/operations/read | Alır veya dağıtım işlemlerini listeler. |
-> | Microsoft.Resources/subscriptions/operationresults/read | Abonelik işlem sonuçlarını al. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
+> | Microsoft.Resources/deployments/operations/read | Dağıtım işlemlerini alır veya listeler. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Abonelik işlem sonuçlarını alır. |
 > | Microsoft.Resources/subscriptions/read | Aboneliklerin listesini alır. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="cosmos-db-account-reader-role"></a>Cosmos DB Hesabı Okuyucusu Rolü
@@ -688,7 +688,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.DocumentDB/databaseAccounts/readonlykeys/action | Veritabanı hesabı salt okunur anahtarları okur. |
 > | Microsoft.Insights/MetricDefinitions/read | Ölçüm tanımlarını oku |
 > | Microsoft.Insights/Metrics/read | Ölçümleri okuma |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="data-box-contributor"></a>Veri kutusu katkıda bulunan
@@ -699,9 +699,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Kimlik** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını tüm kaynaklar için belirtilen kapsamda alır. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | Microsoft.Databox/* |  |
 
@@ -716,7 +716,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Databox/*/read |  |
 > | Microsoft.Databox/jobs/listsecrets/action | Siparişle ilgili şifrelenmemiş parolaları listeler. |
 > | Microsoft.Databox/locations/availableSkus/action | Bu yöntem, kullanılabilen SKU'ların listesini döndürür. |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını tüm kaynaklar için belirtilen kapsamda alır. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="data-factory-contributor"></a>Data Factory Katılımcısı
@@ -730,9 +730,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.DataFactory/dataFactories/* | Oluşturun ve veri fabrikaları ve bunların alt kaynaklarını yönetin. |
 > | Microsoft.DataFactory/factories/* | Oluşturun ve veri fabrikaları ve bunların alt kaynaklarını yönetin. |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönet |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını tüm kaynaklar için belirtilen kapsamda alır. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="data-lake-analytics-developer"></a>Data Lake Analytics Geliştiricisi
@@ -746,9 +746,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.BigAnalytics/accounts/* |  |
 > | Microsoft.DataLakeAnalytics/accounts/* |  |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını tüm kaynaklar için belirtilen kapsamda alır. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | **NotActions** |  |
 > | Microsoft.BigAnalytics/accounts/Delete |  |
@@ -788,9 +788,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.Compute/availabilitySets/read | Bir kullanılabilirlik kümesinin özelliklerini al |
 > | Microsoft.Compute/virtualMachines/*/read | Bir sanal makine (VM boyutları, çalışma zamanı durumu, VM uzantıları, vb.) özelliklerini okuyun |
-> | Microsoft.Compute/virtualMachines/deallocate/action | İşlem kaynaklarını serbest bırakır ve sanal makineyi kapatır |
+> | Microsoft.Compute/virtualMachines/deallocate/action | Sanal makineyi kapatır ve işlem kaynaklarını serbest bırakır |
 > | Microsoft.Compute/virtualMachines/read | Bir sanal makinenin özelliklerini alır |
-> | Microsoft.Compute/virtualMachines/restart/action | Sanal makine yeniden başlatılıyor |
+> | Microsoft.Compute/virtualMachines/restart/action | Sanal makineyi yeniden başlatır |
 > | Microsoft.Compute/virtualMachines/start/action | Sanal makineyi başlatır |
 > | Microsoft.DevTestLab/*/read | Bir laboratuvar özelliklerini okuyun |
 > | Microsoft.DevTestLab/labs/createEnvironment/action | Sanal makineleri bir laboratuar ortamında oluşturun. |
@@ -810,9 +810,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Network/publicIPAddresses/join/action | Bir genel IP adresi birleştirir |
 > | Microsoft.Network/publicIPAddresses/read | Bir genel IP adresi tanımı alır. |
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Bir sanal ağa katılır |
-> | Microsoft.Resources/deployments/operations/read | Alır veya dağıtım işlemlerini listeler. |
+> | Microsoft.Resources/deployments/operations/read | Dağıtım işlemlerini alır veya listeler. |
 > | Microsoft.Resources/deployments/read | Dağıtımları alır veya listeler. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Belirtilen depolama hesabının erişim anahtarlarını döndürür. |
 > | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | Sanal makineyi güncelleştirmek için kullanılabilir boyutları listeler |
@@ -827,9 +827,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönet |
 > | Microsoft.Network/dnsZones/* | DNS bölgeleri ve kayıtları oluşturma ve yönetme |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını tüm kaynaklar için belirtilen kapsamda alır. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="documentdb-account-contributor"></a>DocumentDB Hesabı Katılımcısı
@@ -842,9 +842,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.DocumentDb/databaseAccounts/* | Azure Cosmos DB hesapları oluşturma ve yönetme |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönet |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını tüm kaynaklar için belirtilen kapsamda alır. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="intelligent-systems-account-contributor"></a>Akıllı Sistemler Hesap Katılımcısı
@@ -857,9 +857,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönet |
 > | Microsoft.IntelligentSystems/accounts/* | Akıllı sistemler hesapları oluşturma ve yönetme |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını tüm kaynaklar için belirtilen kapsamda alır. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="key-vault-contributor"></a>Key Vault Katkıda Bulunanı
@@ -873,7 +873,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
 > | Microsoft.KeyVault/* |  |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | **NotActions** |  |
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Geçici silinen bir anahtar kasasını temizleyin |
@@ -889,9 +889,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Bir laboratuvar bir laboratuvar hesabı oluşturun. |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Bir laboratuvar hesabı altında yapılandırılmış her boyutu kategori bölgesel kullanılabilirliği hakkında bilgi alın |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action |  |
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Bir laboratuvar hesabı altında yapılandırılmış her boyutu kategori bölgesel kullanılabilirliği hakkında bilgi alın |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
 ## <a name="log-analytics-contributor"></a>Log Analytics Katkıda Bulunan
@@ -938,17 +938,17 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Depolama hesaplarının erişim anahtarlarını listeler. |
-> | Microsoft.ClassicStorage/storageAccounts/read | Belirli bir hesaba depolama hesabını döndürün. |
+> | Microsoft.ClassicStorage/storageAccounts/read | Belirli bir hesaba yönelik depolama hesabını döndürün. |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
 > | Microsoft.Insights/diagnosticSettings/* | Analiz sunucusu için tanılama ayarını okur, güncelleştirir veya oluşturur |
 > | Microsoft.Insights/logdefinitions/* | Bu izin, portal aracılığıyla etkinlik günlüklerine erişmek isteyen kullanıcılar için gereklidir. Etkinlik günlüğünde günlük kategorileri listesi. |
 > | Microsoft.Insights/metricDefinitions/* | Okunan ölçüm tanımları (bir kaynak için ölçüm kullanılabilir türler listesi). |
 > | Microsoft.Logic/* | Logic Apps kaynaklarını yönetir. |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/operationresults/read | Abonelik işlem sonuçlarını al. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Abonelik işlem sonuçlarını alır. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Belirtilen depolama hesabının erişim anahtarlarını döndürür. |
-> | Microsoft.Storage/storageAccounts/read | Depolama hesapları veya belirtilen depolama hesabının özelliklerini alır döndürür. |
+> | Microsoft.Storage/storageAccounts/read | Depolama hesaplarının listesini döndürür veya belirtilen depolama hesabının özelliklerini alır. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | Microsoft.Web/connectionGateways/* | Oluşturma ve bir bağlantı ağ geçidi yönetir. |
 > | Microsoft.Web/connections/* | Oluşturma ve bir bağlantı yönetir. |
@@ -972,9 +972,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Logic/workflows/disable/action | İş akışını devre dışı bırakır. |
 > | Microsoft.Logic/workflows/enable/action | İş akışını etkinleştirir. |
 > | Microsoft.Logic/workflows/validate/action | İş akışını doğrular. |
-> | Microsoft.Resources/deployments/operations/read | Alır veya dağıtım işlemlerini listeler. |
-> | Microsoft.Resources/subscriptions/operationresults/read | Abonelik işlem sonuçlarını al. |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/deployments/operations/read | Dağıtım işlemlerini alır veya listeler. |
+> | Microsoft.Resources/subscriptions/operationresults/read | Abonelik işlem sonuçlarını alır. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | Microsoft.Web/connectionGateways/*/read | Bağlantı ağ geçidi'ni okuyun. |
 > | Microsoft.Web/connections/*/read | Bağlantıları okuyun. |
@@ -988,7 +988,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Açıklama** | Okuma ve yönetilen uygulama kaynaklarında işlemleri sağlar |
 > | **Kimlik** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Eylemler** |  |
-> | Microsoft.Solutions/applications/read | Uygulamaların bir listesini alır. |
+> | Microsoft.Solutions/applications/read | Uygulama listesi alır. |
 
 ## <a name="managed-applications-reader"></a>Yönetilen uygulamaların okuyucusu
 > [!div class="mx-tableFixed"]
@@ -1013,7 +1013,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/delete |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
@@ -1028,7 +1028,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
@@ -1097,7 +1097,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | **DataActions** |  |
-> | Microsoft.Insights/Metrics/Write | Ölçümleri Yaz |
+> | Microsoft.Insights/Metrics/Write | Ölçümleri yaz |
 
 ## <a name="monitoring-reader"></a>İzleme Okuyucusu
 > [!div class="mx-tableFixed"]
@@ -1338,7 +1338,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Tüm çoğaltma kurtarma noktaları okuyun |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Çoğaltmayı Onar |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | Korumalı öğeyi yeniden koru |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Yük devretme testi |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Test Yük Devretmesi |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Yük devretme temizlik testi |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Yük devretme |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Mobility hizmetini güncelleştirme |
@@ -1670,10 +1670,10 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Network/virtualNetworks/read | Sanal ağ tanımı Al |
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Bir sanal ağa katılır |
 > | Microsoft.RecoveryServices/locations/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Bir yedekleme koruma hedefi oluşturma |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Korumalı öğenin nesne ayrıntılarını döndürür |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Yedekleme korumalı öğesi oluştur |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Bir yedekleme koruma hedefi oluşturma |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Tüm koruma ilkelerini döndürür |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Koruma ilkesi oluşturur |
 > | Microsoft.RecoveryServices/Vaults/read | Kasayı Al işlemi 'vault' türündeki Azure kaynağını temsil eden bir nesne alır. |
@@ -1682,6 +1682,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
+> | Microsoft.SqlVirtualMachine/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Belirtilen depolama hesabının erişim anahtarlarını döndürür. |
 > | Microsoft.Storage/storageAccounts/read | Depolama hesaplarının listesini döndürür veya belirtilen depolama hesabının özelliklerini alır. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |

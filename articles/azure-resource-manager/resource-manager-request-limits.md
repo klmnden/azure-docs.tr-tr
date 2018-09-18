@@ -1,74 +1,74 @@
 ---
-title: Azure Resource Manager istek sınırlarını | Microsoft Docs
-description: Abonelik sınırları erişildiğinde Azure Resource Manager istekleriyle azaltma kullanmayı açıklar.
+title: Azure Resource Manager istek sınırları | Microsoft Docs
+description: Abonelik sınırlarına ulaşıldı, Azure Resource Manager istekleri azaltma kullanmayı açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/10/2018
+ms.date: 09/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: f3dcb0c5036b2cfc38ef2a6a16269a8697bbd9e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fdc98c6d88b18f770d1869acbea5998ad4571287
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358872"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981822"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager istekleri azaltma
-Her abonelik ve Kiracı, Resource Manager sınırları saatte 15.000 isteklerine okuma ve yazma isteklerinin saatte 1.200 için. Bu sınırlar her Azure Resource Manager örneği için geçerlidir. Her Azure bölgesi birden çok örneği vardır ve Azure Resource Manager için tüm Azure bölgeleri dağıtılır.  Uygulamada, sınırları etkili bir şekilde bu sınırlardan daha yüksek olacak şekilde kullanıcı olarak istekleri genellikle birçok farklı örnekleri tarafından sunulur.
+Her Azure aboneliği ve Kiracı için Resource Manager kadar saat başına istek 12.000 okuma ve yazma istekleri saatte 1.200 sağlar. Bu limitler istekleri yapabilen sorumlu kimliği ve abonelik kimliği için kapsamlı veya Kiracı kimliği. İsteklerinizi birden fazla asıl kimliği geliyorsa, abonelik veya Kiracı genelinde sınırınızı 12.000 ve saatte 1.200 büyüktür.
 
-Uygulama veya betik bu sınırları ulaşırsa, istek kısıtlama gerekir. Bu makalede, sınır ulaşmadan sahip kalan istekleri belirleme ve nasıl sınıra ulaştığınızda yanıt gösterir.
+İstekleri aboneliğiniz veya kiracınız için uygulanır. Abonelik isteği olanları aboneliğinizi geçirme involve kimliği, aboneliğinizdeki kaynak gruplarını almak gibi adı verilir. Kiracı isteklerini, geçerli Azure konumlarının alma gibi abonelik Kimliğinizi dahil değildir.
 
-Sınırına ulaştığında, HTTP durum kodunu alma **429 çok fazla istek**.
+Bu limitler her bir Azure Resource Manager örneğine uygulayın. Her Azure bölgesi içinde birden çok örneği vardır ve Azure Resource Manager tüm Azure bölgelerine dağıtılır.  Uygulamada, sınırlar etkili bir şekilde bu sınırlardan daha yüksek olacak şekilde, kullanıcı olarak istekler genellikle birçok farklı örnekleri tarafından sunulur.
 
-İstek sayısı aboneliğiniz ya da Kiracı kapsamlıdır. Birden çok varsa, aboneliğinizde istekleri yapan eşzamanlı uygulamalar bu uygulamalardan istekler eklenir birlikte kalan isteklerinin sayısını belirlemek için.
+Bu limitler ulaşırsa, uygulama veya betik, istek kısıtlama gerekir. Bu makalede, sahip olduğunuz sınırına ulaşmadan önce kalan istekler belirleme ve sınırına geldiğinde nasıl gösterir.
 
-Kapsamlı abonelik olanları aboneliğinizi geçirme involve kimliği, aboneliğinizdeki kaynak gruplarını alma gibi isteklerdir. Kapsamlı Kiracı isteklerini alma geçerli Azure konumları gibi abonelik Kimliğinizi eklemeyin.
+Sınıra ulaştığınızda, HTTP durum kodu alma **429 çok fazla istek**.
 
-## <a name="remaining-requests"></a>Kalan istekleri
-Yanıt Üstbilgileri inceleyerek kalan istek sayısını belirleyebilirsiniz. Her istek için kalan okuma ve yazma isteklerinin sayısı değerlerini içerir. Aşağıdaki tabloda, bu değerleri inceleyebilirsiniz yanıt üstbilgilerini açıklanmaktadır:
+## <a name="remaining-requests"></a>Kalan istekler
+Yanıt üst bilgilerini inceleyerek, kalan istek sayısını belirleyebilirsiniz. Her isteğin kalan okuma ve yazma isteklerinin sayısı değerlerini içerir. Aşağıdaki tabloda, bu değerler için inceleyebilirsiniz yanıt üstbilgilerini açıklanmaktadır:
 
 | Yanıt üst bilgisi | Açıklama |
 | --- | --- |
-| x-MS-ratelimit-Remaining-Subscription-Reads |Kapsamlı abonelik kalan okur. Bu değer okuma işlemlerinin döndürülür. |
-| x-MS-ratelimit-Remaining-Subscription-Writes |Kapsamlı abonelik kalan yazar. Bu değer, yazma işlemlerinin döndürülür. |
+| x-MS-ratelimit-Remaining-Subscription-Reads |Abonelik kapsamı, kalan okur. Bu değer, okuma işlemlerinin döndürülür. |
+| x-MS-ratelimit-Remaining-Subscription-Writes |Abonelik kapsamı, kalan yazar. Bu değer, yazma işlemlerinin döndürülür. |
 | x-MS-ratelimit-Remaining-tenant-Reads |Kalan kapsamlı kiracı okur |
-| x-ms-ratelimit-remaining-tenant-writes |Kalan kapsamlı Kiracı Yazar |
-| x-MS-ratelimit-Remaining-Subscription-Resource-Requests |Abonelik, kaynak türü istekleri kalan kapsamlı.<br /><br />Bu üstbilgi değerini yalnızca bir hizmet varsayılan sınır kılınmış döndürülür. Resource Manager abonelik okuma veya yazmaları yerine bu değer ekler. |
-| x-MS-ratelimit-Remaining-Subscription-Resource-entities-Read |Abonelik, kaynak türü koleksiyonu isteklerini kalan kapsamlı.<br /><br />Bu üstbilgi değerini yalnızca bir hizmet varsayılan sınır kılınmış döndürülür. Bu değer kalan koleksiyonu isteklerini (liste kaynakları) sayısını sağlar. |
-| x-MS-ratelimit-Remaining-tenant-Resource-Requests |Kiracı kaynak türü istekleri kalan kapsamlı.<br /><br />Bu üst yalnızca Kiracı düzeyinde istekleri için eklenir ve yalnızca bir hizmet varsayılan sınır geçersiz kılınmış. Resource Manager Kiracı okuma veya yazmaları yerine bu değer ekler. |
-| x-MS-ratelimit-Remaining-tenant-Resource-entities-Read |Kiracı kaynak türü koleksiyonu isteklerini kalan kapsamlı.<br /><br />Bu üst yalnızca Kiracı düzeyinde istekleri için eklenir ve yalnızca bir hizmet varsayılan sınır geçersiz kılınmış. |
+| x-ms-ratelimit-remaining-tenant-writes |Kalan kapsamlı Kiracı yazar. |
+| x-MS-ratelimit-Remaining-Subscription-Resource-Requests |Abonelik, kaynak türü istekleri kalan kapsamı.<br /><br />Bu üst bilgi değeri yalnızca bir hizmet varsayılan sınırı geçersiz kılınmış döndürülür. Resource Manager abonelik okuma ve yazma yerine bu değeri ekler. |
+| x-MS-ratelimit-Remaining-Subscription-Resource-entities-Read |Abonelik, kaynak türü toplama isteklerini kalan kapsamı.<br /><br />Bu üst bilgi değeri yalnızca bir hizmet varsayılan sınırı geçersiz kılınmış döndürülür. Bu değer, kalan toplama isteklerini (liste kaynaklar) sayısını sağlar. |
+| x-MS-ratelimit-Remaining-tenant-Resource-Requests |Kiracı kaynak türü istekleri kalan kapsamı.<br /><br />Kiracı düzeyinde istek için yalnızca bu üst bilgi eklenir ve bir hizmet, yalnızca varsayılan sınırı geçersiz kılınmış. Kaynak Yöneticisi Kiracı okuma veya yazma yerine bu değeri ekler. |
+| x-MS-ratelimit-Remaining-tenant-Resource-entities-Read |Kiracı kaynak türü toplama isteklerini kalan kapsamı.<br /><br />Kiracı düzeyinde istek için yalnızca bu üst bilgi eklenir ve bir hizmet, yalnızca varsayılan sınırı geçersiz kılınmış. |
 
 ## <a name="retrieving-the-header-values"></a>Üstbilgi değerlerini alma
-Kod ya da komut dosyasında bu üstbilgi değerlerini alma herhangi bir üstbilgi değeri almaktan farklı değildir. 
+Bu kod veya betik üstbilgi değerlerini alma herhangi bir üst bilgi değeri almaktan farklı değildir. 
 
-Örneğin, **C#**, üstbilgi değeri almak bir **HttpWebResponse** adlı nesne **yanıt** aşağıdaki kod ile:
+Örneğin, **C#**, üstbilgi değerini almak bir **HttpWebResponse** adlı nesne **yanıt** aşağıdaki kod ile:
 
 ```cs
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
 ```
 
-İçinde **PowerShell**, bir Invoke-WebRequest işlemden üstbilgi değeri alır.
+İçinde **PowerShell**, üst bilgi değeri bir Invoke-WebRequest işlemden alın.
 
 ```powershell
 $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
-Veya, size sağlayabilir hata ayıklama, kalan isteklerini görmek istiyorsanız **-Debug** parametresi, **PowerShell** cmdlet'i.
+Tam bir PowerShell örnek için bkz: [bir abonelik için Resource Manager sınırları denetle](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
+
+Hata ayıklama için kalan istekler görmek istiyorsanız, sağlayabilir **-hata ayıklama** parametresi, **PowerShell** cmdlet'i.
 
 ```powershell
 Get-AzureRmResourceGroup -Debug
 ```
 
-Aşağıdaki yanıt değeri de dahil olmak üzere birden fazla değer döndüren:
+Şu yanıt değeri de dahil olmak üzere birçok değer döndürür:
 
 ```powershell
 DEBUG: ============================ HTTP RESPONSE ============================
@@ -87,7 +87,7 @@ Yazma sınırları almak için bir yazma işlemi kullanın:
 New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
-Aşağıdaki değerler dahil olmak üzere birden fazla değer döndüren:
+Aşağıdaki değerleri dahil olmak üzere birçok değer döndürür:
 
 ```powershell
 DEBUG: ============================ HTTP RESPONSE ============================
@@ -100,13 +100,13 @@ Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
-İçinde **Azure CLI**, daha ayrıntılı seçeneğini kullanarak üstbilgi değerini alır.
+İçinde **Azure CLI**, daha ayrıntılı seçeneğini kullanarak üstbilgi değeri alınamıyor.
 
 ```azurecli
 az group list --verbose --debug
 ```
 
-Aşağıdaki değerler dahil olmak üzere birden fazla değer döndüren:
+Aşağıdaki değerleri dahil olmak üzere birçok değer döndürür:
 
 ```azurecli
 msrest.http_logger : Response status: 200
@@ -126,7 +126,7 @@ Yazma sınırları almak için bir yazma işlemi kullanın:
 az group create -n myresourcegroup --location westus --verbose --debug
 ```
 
-Aşağıdaki değerler dahil olmak üzere birden fazla değer döndüren:
+Aşağıdaki değerleri dahil olmak üzere birçok değer döndürür:
 
 ```azurecli
 msrest.http_logger : Response status: 201
@@ -139,10 +139,11 @@ msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
-## <a name="waiting-before-sending-next-request"></a>Sonraki istek gönderilmeden önce bekleniyor
-İstek sınırına ulaştığında, Resource Manager döndürür **429** HTTP durum kodu ve **yeniden deneme sonrasında** üstbilgi değeri. **Yeniden deneme sonrasında** değeri sonraki istek göndermeden önce uygulamanızın beklemesi gereken saniye (veya uyku) sayısını belirtir. Yeniden deneme değeri geçmeden önce bir isteği gönderirseniz, isteğiniz işlendiği değil ve yeni bir yeniden deneme değeri döndürülür.
+## <a name="waiting-before-sending-next-request"></a>Bir sonraki istek göndermeden önce bekleniyor
+Resource Manager istek sınırına ulaştığında döndürür **429** HTTP durum kodu ve **Retry-After** üst bilgisindeki değerle. **Retry-After** değeri sonraki isteği göndermeden önce uygulamanızı beklemesi gereken saniye (veya uyku) sayısını belirtir. Yeniden deneme değeri dolmadan isteği gönderirseniz, isteğiniz işlenir değil ve yeni bir yeniden deneme değeri döndürülür.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Sınırları ve kotalar hakkında daha fazla bilgi için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md).
-* Zaman uyumsuz REST istekleri işleme hakkında bilgi edinmek için [izlemek zaman uyumsuz Azure işlemleri](resource-manager-async-operations.md).
+* Tam bir PowerShell örnek için bkz: [bir abonelik için Resource Manager sınırları denetle](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
+* Limitler ve kotalar hakkında daha fazla bilgi için bkz: [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
+* Zaman uyumsuz REST istekleri işleme hakkında bilgi edinmek için [Azure zaman uyumsuz işlemleri izleme](resource-manager-async-operations.md).

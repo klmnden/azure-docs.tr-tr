@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dafa58c5356c89351ab0eb711e4095b767aee1ae
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1cff44e8430af0a544da948b33a15439fae56d8e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298175"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735663"
 ---
-# <a name="set-up-a-device-template"></a>Bir cihaz şablonu ayarlama
+# <a name="set-up-a-device-template"></a>Cihaz şablonu ayarlama
 
 Cihaz özellikleri ve davranışları için bir Microsoft Azure IOT Central uygulamasına bağlanan cihaz türü tanımlayan bir şema şablonudur.
 
@@ -74,8 +74,6 @@ Yeni bir telemetri ölçüm eklemek için seçin **şablonu Düzen**ve ardından
 
 Seçtikten sonra **Bitti**, **sıcaklık** ölçüm ölçümleri listesinde görünür. Operatörün cihaz toplama sıcaklık verilerini görselleştirme görebilirsiniz.
 
-![Ölçüm grafiği](./media/howto-set-up-template/measurementsgraph.png)
-
 ### <a name="create-an-event-measurement"></a>Bir olay ölçü oluşturma
 Yeni bir olay ölçüm eklemek için seçin **şablonu Düzen**ve ardından **+ yeni ölçüm** düğmesi. Seçin **olay** ölçüm yazın ve ayrıntılarını girin **olay oluşturma** formu.
 
@@ -89,7 +87,7 @@ Seçtikten sonra **Bitti**, **Fan Motor hata** ölçüm ölçümleri listesinde 
 
 ![Olay ölçüm grafiği](./media/howto-set-up-template/eventmeasurementschart.png)
 
-Olay hakkında daha fazla ayrıntı görüntülemek için grafik olay simgesini seçin:
+Olay hakkında daha fazla ayrıntı görüntülemek için grafikteki olay simgesini seçin.
 
 !["Fan Motor Error" olayla ilgili ayrıntıları](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
@@ -108,9 +106,6 @@ Seçtikten sonra **Bitti**, **fanı modu** durumu ölçüm ölçümleri listesin
 ![Durum ölçüm grafiği](./media/howto-set-up-template/statemeasurementschart.png)
 
 Cihaz küçük bir süre içinde çok fazla veri noktasının gönderirse, durumu ölçümü ile farklı bir görsel, aşağıdaki ekran görüntüsünde gösterildiği gibi görünür. Grafikte tıklarsanız, bu süre içinde tüm veri noktalarına kronolojik sırada görüntülenir. Grafiği çizilen ölçüm görmek için zaman aralığını da daraltabilirsiniz.
-
-![Ayrıntılar için "Statik fanı modu" durumu ölçümü](./media/howto-set-up-template/statemeasurementsdetail.png)
-
 
 ## <a name="settings"></a>Ayarlar
 
@@ -182,11 +177,7 @@ IOT Central uygulamanızda Azure haritalar'ı kullanarak bir uygulama özelliği
    - **Adresi olarak konumu**
    - **Koordinatları olarak konumu** 
 
-4. Seçin **Kaydet** ve **Bitti**. 
-
-   ![Eklenen yükleme adresli Location özelliği](./media/howto-set-up-template/locationcloudproperty3.png)
-
-Artık bir işleç konum alanı formda konum değeri güncelleştirebilirsiniz. 
+4. Seçin **Kaydet** ve **Bitti**. Artık bir işleç konum alanı formda konum değeri güncelleştirebilirsiniz. 
 
 #### <a name="add-location-as-a-device-property"></a>Konumu bir cihaz özelliği Ekle 
 
@@ -261,11 +252,7 @@ Bir konum özelliği daha önce söz yapılandırdıysanız [bir konum özelliğ
 
    ![Seçilen konum eşlemesi kutucuğu](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-Harita, istenen boyuta yeniden boyutlandırabilirsiniz.
-
-Artık bir işleç panoyu görüntülediğinde, bir konum eşlemesi dahil olmak üzere, yapılandırdığınız tüm Pano kutucuklarının görebilirsiniz.
-
-![Panodaki kutucuklar](./media/howto-set-up-template/locationcloudproperty7map.png) 
+Harita, istenen boyuta yeniden boyutlandırabilirsiniz. Artık bir işleç panoyu görüntülediğinde, bir konum eşlemesi dahil olmak üzere, yapılandırdığınız tüm Pano kutucuklarının görebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

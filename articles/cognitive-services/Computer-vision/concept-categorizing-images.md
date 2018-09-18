@@ -1,23 +1,23 @@
 ---
-title: Kategorilere görüntüleri
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Azure Bilişsel hizmetler görüntü işleme kullanarak görüntüleri halinde kategorilere ayrılması için ilgili kavramları.
+title: Görüntüleri - görüntü işleme halinde kategorilere ayrılması
+titleSuffix: Azure Cognitive Services
+description: Görüntü işleme API'sini kullanarak görüntüleri halinde kategorilere ayrılması için ilgili kavramları.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 9c15392e7f7df346553f925c5bf255ee900d25fe
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 345432cbc8a552ba7f6a4902cec72bcc1bf9feac
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725470"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983569"
 ---
-# <a name="categorizing-images"></a>Kategorilere görüntüleri
+# <a name="categorizing-images"></a>Resimleri kategorilere ayırma
 
 Görüntü işleme, etiketleme ve açıklamaları ek olarak, önceki sürümlerde tanımlanmış sınıflandırma tabanlı kategorileri döndürür. Bu kategoriler, üst/alt hereditary hiyerarşileri ile bir sınıflandırma olarak düzenlenir. Tüm kategoriler İngilizce'dir. Tek başına veya birlikte yeni modeli etiketleme kullanılabilir.
 

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/14/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8faf6713a5fd8287b5f9e30976e80172c2c42f05
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ddd0fa21cebb6a6a25965b6d5e49b04cfdcc0466
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631302"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737014"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure portalı ve başlatma yük devretme Azure SQL veritabanı için etkin coğrafi çoğaltmayı yapılandırma
 
@@ -35,7 +35,7 @@ Aşağıdaki adımlar bir coğrafi çoğaltma ortaklığı yeni bir ikincil veri
 
 Bir ikincil veritabanı eklemek için abonelik sahibi veya ortak sahibi olmalıdır.
 
-İkincil veritabanı için birincil veritabanıyla aynı ada sahip ve varsayılan olarak, aynı hizmet düzeyi vardır. İkincil veritabanı, tek bir veritabanı veya elastik bir havuzdaki bir veritabanı olabilir. Daha fazla bilgi için [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
+İkincil veritabanı için birincil veritabanıyla aynı ada sahip ve varsayılan olarak, aynı hizmet katmanı ve işlem boyutu vardır. İkincil veritabanı, tek bir veritabanı veya elastik bir havuzdaki bir veritabanı olabilir. Daha fazla bilgi için [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 İkincil oluşturulan ve çekirdek değeri oluşturulmuş sonra veri yeni ikincil veritabanı için birincil veritabanından çoğaltmaya başlar.
 
 > [!NOTE]

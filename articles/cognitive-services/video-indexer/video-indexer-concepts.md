@@ -1,20 +1,21 @@
 ---
-title: Azure Video Indexer kavramları | Microsoft Docs
+title: Video Indexer kavramları
+titlesuffix: Azure Cognitive Services
 description: Bu konuda, Video Indexer hizmeti bazı kavramlarını açıklar.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/31/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 67bbb7046d71b904dfdcaad0e44024e8f30ac288
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 740f13e90397650ed9274937b16254e46c6deced
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543718"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984132"
 ---
 # <a name="video-indexer-concepts"></a>Video Indexer kavramları
  

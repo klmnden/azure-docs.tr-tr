@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 12/15/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 66e974e80fa6f5e002b1f54584ea48e22a7b13ce
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b81c66acc0a90ba9b74cf1f4fb34ef7a545837f9
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053196"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736615"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory raporlama gecikmeleri
 
@@ -43,11 +43,6 @@ Aşağıdaki tabloda, etkinlik raporları gecikme bilgileri listeler.
 | :-- | --- | --- | 
 | Denetim günlükleri | 2 dk.  | 5 dk.  |
 | Oturum açma işlemleri | 2 dk.  | 5 dk. |
-
-
-
-
-
 
 
 ## <a name="security-reports"></a>Güvenlik raporları

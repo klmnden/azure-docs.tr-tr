@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: wesmc
-ms.openlocfilehash: 6733891213f15e9ceaf08ef7fb50380db47a695f
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: b48235b1c1912ac767070d5890d4768138a9db8b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259203"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732100"
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Azure Redis cache'teki verileri dışarı ve içeri aktarma
 İçeri/dışarı aktarma verileri Azure Redis önbelleğine aktarma veya veri alma ve Azure blob için premium önbellekten bir Redis önbelleği veritabanı'nı (RDB) anlık görüntü verme ile Azure Redis Önbelleği'ndeki olanak tanıyan bir Azure Redis Cache veri yönetimi, işlemdir Depolama hesabı. 
@@ -78,7 +78,7 @@ Dışarı aktarma, Azure Redis için uyumlu RDB dosyaları Redis önbelleğinde 
 2. Tıklayın **depolama kapsayıcısı seçin** ve istenen depolama hesabını seçin. Depolama hesabı olarak önbelleğinizin aynı abonelik ve aynı bölgede olması gerekir.
 
    > [!IMPORTANT]
-   > Dışarı aktarma, hem Klasik hem de Resource Manager depolama hesapları tarafından desteklenir, ancak tarafından desteklenmeyen sayfa bloblarını çalışır [Blob Depolama hesapları](../storage/common/storage-account-options.md#blob-storage-accounts) şu anda.
+   > Dışarı aktarma, hem Klasik hem de Resource Manager depolama hesapları tarafından desteklenir, ancak Blob Depolama hesapları tarafından şu anda desteklenmeyen sayfa bloblarını ile çalışır. Daha fazla bilgi için [Azure depolama hesabına genel bakış](../storage/common/storage-account-overview.md).
    >
    >
 
@@ -156,7 +156,7 @@ Evet, PowerShell için yönergeleri görmek [Redis önbelleği içeri aktarmak i
 Bu sorunu çözmek için alma işlemi başlatmak veya dışarı aktarma işlemi 15 dakika önce geçti.
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Azure Blob depolama alanına verilerimi dışarı aktarılırken bir hata aldım. Ne oldu?
-Dışarı aktarma, sayfa blobu olarak depolanan RDB dosyaları ile birlikte çalışır. Diğer blob türleri şu anda, sık ve seyrek erişimli katmanlardaki blob depolama hesapları dahil olmak üzere desteklenmez. Daha fazla bilgi için [Blob Depolama hesapları](../storage/common/storage-account-options.md#blob-storage-accounts).
+Dışarı aktarma, sayfa blobu olarak depolanan RDB dosyaları ile birlikte çalışır. Diğer blob türleri şu anda, sık ve seyrek erişimli katmanlardaki Blob Depolama hesapları dahil olmak üzere desteklenmez. Daha fazla bilgi için [Azure depolama hesabına genel bakış](../storage/common/storage-account-overview.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla premium önbellek özelliklerini kullanmayı öğrenin.

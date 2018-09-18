@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: 23e84a8d577bb1c4950de3acd76b0f8528551ae0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: add49aaf96190f782d2133e2a5f620a340f05eaf
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611450"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733840"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Raspberry Pi'yi Cihazınızı Uzaktan izleme çözüm hızlandırıcısına (C) bağlama
 
@@ -53,137 +53,29 @@ Aşağıdaki adımları Raspberry Pi'yi çözüm hızlandırıcısına bağlanan
     sudo apt-get update
     ```
 
-1. Raspberry Pi'yi gerekli geliştirme araçları ve kitaplıkları eklemek için aşağıdaki komutu kullanın:
+1. Nasıl yapılır bu kılavuzdaki adımları tamamlamak için adımları izleyin [Linux geliştirme ortamınızı ayarlama](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) gerekli geliştirme araçları ve kitaplıkları Raspberry Pi'yi eklemek için.
 
-    ```sh
-    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
-    ```
+## <a name="view-the-code"></a>Kod Görünümü
 
-1. İndirme, oluşturun ve IOT Hub istemci kitaplıkları Raspberry Pi'yi yüklemek için aşağıdaki komutları kullanın:
+[Örnek kod](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring) kullanılan Kılavuzu Azure IOT C SDK'ları GitHub deposunda kullanılabilir.
 
-    ```sh
-    cd ~
-    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
-    mkdir cmake
-    cd cmake
-    cmake ..
-    make
-    sudo make install
-    ```
+### <a name="download-the-source-code-and-prepare-the-project"></a>Kaynak kodunu indirebilir ve proje hazırlama
 
-## <a name="create-a-project"></a>Proje oluşturma
+Proje hazırlamak için Kopyala veya indir [Azure IOT C SDK'ları depo](https://github.com/Azure/azure-iot-sdk-c) github'dan.
 
-Kullanarak aşağıdaki adımları tamamlayın **ssh** Raspberry Pi'yi bağlantısı:
+Örnek bulunan **çözümleri/samples/remote_monitoring** klasör.
 
-1. Adlı bir klasör oluşturun `remote_monitoring` giriş klasörünüzde Raspberry Pi üzerinde. Kabuğunuz bu klasöre gidin:
+Açık **remote_monitoring.c** dosyası **çözümleri/samples/remote_monitoring** bir metin düzenleyicisinde klasör.
 
-    ```sh
-    cd ~
-    mkdir remote_monitoring
-    cd remote_monitoring
-    ```
-
-1. Dört dosyaları oluşturmak **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, ve **CMakeLists.txt** içinde `remote_monitoring` klasör.
-
-1. Bir metin düzenleyicisinde açın **remote_monitoring.c** dosya. Raspberry Pi üzerinde kullanabilirsiniz **nano** veya **VI** metin düzenleyici. Aşağıdaki `#include` deyimlerini ekleyin:
-
-    ```c
-    #include "iothubtransportmqtt.h"
-    #include "schemalib.h"
-    #include "iothub_client.h"
-    #include "serializer_devicetwin.h"
-    #include "schemaserializer.h"
-    #include "azure_c_shared_utility/threadapi.h"
-    #include "azure_c_shared_utility/platform.h"
-    #include <string.h>
-    ```
-
-[!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
-
-Kaydet **remote_monitoring.c** dosya ve düzenleyiciden çıkın.
-
-## <a name="add-code-to-run-the-app"></a>Uygulamayı çalıştırmak için kod ekleyin
-
-Bir metin düzenleyicisinde açın **remote_monitoring.h** dosya. Aşağıdaki kodu ekleyin:
-
-```c
-void remote_monitoring_run(void);
-```
-
-Kaydet **remote_monitoring.h** dosya ve düzenleyiciden çıkın.
-
-Bir metin düzenleyicisinde açın **main.c** dosya. Aşağıdaki kodu ekleyin:
-
-```c
-#include "remote_monitoring.h"
-
-int main(void)
-{
-  remote_monitoring_run();
-
-  return 0;
-}
-```
-
-Kaydet **main.c** dosya ve düzenleyiciden çıkın.
+[!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
 ## <a name="build-and-run-the-application"></a>Uygulamayı derleme ve çalıştırma
 
-Aşağıdaki adımları nasıl kullanılacağını açıklayan *CMake* istemci uygulamanızı oluşturmak için.
+Aşağıdaki adımları nasıl kullanılacağını açıklayan *CMake* istemci uygulaması oluşturmak için. Uzaktan izleme istemci uygulaması oluşturma işleminin bir parçası için SDK'sı yerleşik olarak bulunur.
 
-1. Bir metin düzenleyicisinde açın **CMakeLists.txt** dosyası `remote_monitoring` klasör.
+1. Düzen **remote_monitoring.c** değiştirmek için dosya `<connectionstring>` bu nasıl yapılır kılavuzunda başlangıcında not ettiğiniz çözüm hızlandırıcısına bir cihazı eklendiğinde cihaz bağlantı dizesiyle.
 
-1. İstemci uygulamanızı nasıl tanımlamak için aşağıdaki yönergeleri ekleyin:
-
-    ```cmake
-    macro(compileAsC99)
-      if (CMAKE_VERSION VERSION_LESS "3.1")
-        if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
-          set (CMAKE_C_FLAGS "--std=c99 ${CMAKE_C_FLAGS}")
-          set (CMAKE_CXX_FLAGS "--std=c++11 ${CMAKE_CXX_FLAGS}")
-        endif()
-      else()
-        set (CMAKE_C_STANDARD 99)
-        set (CMAKE_CXX_STANDARD 11)
-      endif()
-    endmacro(compileAsC99)
-
-    cmake_minimum_required(VERSION 2.8.11)
-    compileAsC99()
-
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
-
-    include_directories(${AZUREIOT_INC_FOLDER})
-
-    set(sample_application_c_files
-        ./remote_monitoring.c
-        ./main.c
-    )
-
-    set(sample_application_h_files
-        ./remote_monitoring.h
-    )
-
-    add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
-
-    target_link_libraries(sample_app
-      serializer
-      iothub_client_mqtt_transport
-      umqtt
-      iothub_client
-      aziotsharedutil
-      parson
-      pthread
-      curl
-      ssl
-      crypto
-      m
-    )
-    ```
-
-1. Kaydet **CMakeLists.txt** dosya ve düzenleyiciden çıkın.
-
-1. İçinde `remote_monitoring` klasörünü depolamak için bir klasör oluşturun *olun* CMake oluşturan dosyaları. Ardından çalıştırın **cmake** ve **olun** gibi komutlar:
+1. Kopyaladığınız kök dizinine gidin [Azure IOT C SDK'ları depo](https://github.com/Azure/azure-iot-sdk-c) deposu ve istemci uygulaması oluşturmak için aşağıdaki komutları çalıştırın:
 
     ```sh
     mkdir cmake
@@ -195,7 +87,12 @@ Aşağıdaki adımları nasıl kullanılacağını açıklayan *CMake* istemci u
 1. İstemci uygulamasını çalıştırın ve IOT Hub'ına telemetri gönderme:
 
     ```sh
-    ./sample_app
+    ./samples/solutions/remote_monitoring/remote_monitoring_client
     ```
+
+    Konsol iletileri olarak gösterir:
+
+    - Uygulama, çözüm hızlandırıcısına örnek telemetri gönderir.
+    - Çözüm panosundan çağrılan yöntemlere verir.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

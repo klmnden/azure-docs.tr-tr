@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: c6dfb8ac36f3b5d51cc1d6126449b458f8f4946c
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0f726769b9e4266e310f9f50b1a7ef768c0c1d55
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377438"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735894"
 ---
 # <a name="reacting-to-blob-storage-events"></a>BLOB Depolama olaylarına tepki verme
 
@@ -28,7 +28,7 @@ Bir göz atın [rota Blob Depolama olaylarını bir özel web uç noktası - CLI
 ![Event Grid modeli](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Blob Storage hesapları
-BLOB Depolama olaylarını kullanılabilir [Blob Depolama hesapları](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ve [genel amaçlı v2 depolama hesaplarının](../common/storage-account-options.md#general-purpose-v2-accounts). **Genel Amaçlı v2 (GPv2)** hesapları Bloblar, Dosyalar, Kuyruklar ve Tablolar dahil olmak üzere depolama hizmetlerinin tamamına yönelik tüm özellikleri destekleyen depolama hesaplarıdır. **Blob depolama hesabı**, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesabıdır. Blob Storage hesapları, genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Yalnızca blok veya engelleme blobunun gerektiği uygulamalar için Blob Storage hesaplarının kullanılmasını öneririz. 
+Genel amaçlı v2 depolama hesabı ve Blob Depolama hesapları BLOB Depolama olaylarını kullanılabilir. **Genel amaçlı v2** depolama hesapları, Blobları, dosyalar, kuyruklar ve tablolar dahil olmak üzere tüm depolama hizmetleri için tüm özellikleri destekler. **Blob depolama hesabı**, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesabıdır. Blob Storage hesapları, genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Daha fazla bilgi için [Azure depolama hesabına genel bakış](../common/storage-account-overview.md).
 
 ## <a name="available-blob-storage-events"></a>Blob Depolama olayları kullanılabilir
 Event grid'i kullanır [olay abonelikleri](../../event-grid/concepts.md#event-subscriptions) abonelere olay iletileri yönlendirmek için.  BLOB Depolama olay abonelikleri, iki tür olay şunları içerebilir:  

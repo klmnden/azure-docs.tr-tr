@@ -1,27 +1,25 @@
 ---
-title: Azure Kimlik Çözümlerini Anlama | Microsoft Docs
-description: Kuruluşunuzda en iyi kimlik yönetim kararlarını almak için Microsoft Azure kimlik çözümü terimleri, kavramları ve önerileri hakkında temel bir anlayışa sahip olun.
-keywords: ''
+title: Microsoft Azure kimlik nedir? | Microsoft Docs
+description: Microsoft Azure kimlik çözümü koşulları, kavramlar ve, kuruluşunuz için en iyi kimlik İdaresi karar vermeniz öneriler hakkında bilgi edinin.
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.reviewer: jsnow
-ms.author: lizross
-ms.date: 7/17/2017
-ms.topic: overview
-ms.prod: ''
-ms.service: azure-directory
+ms.service: active-directory
 ms.component: fundamentals
-ms.technology: ''
-ms.assetid: ''
-ms.custom: it-pro
-ms.openlocfilehash: ec84cdb4e226eea4d16d28d63acd7be59241b973
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 7/17/2017
+ms.author: lizross
+ms.reviewer: jsnow
+custom: it-pro
+ms.openlocfilehash: db14dbf298596a9fdc189c27ea8608d472c58a35
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346925"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737252"
 ---
-# <a name="understand-azure-identity-solutions"></a>Azure kimlik çözümlerini anlama
+# <a name="what-is-microsoft-azure-identity"></a>Microsoft Azure kimlik nedir?
 Microsoft Azure Active Directory (Azure AD) dizin hizmetleri, kimlik yönetimi ve uygulama erişim yönetimi özellikleri sunan bir kimlik ve erişim yönetimi bulut çözümüdür. Azure AD, [Azure AD uygulama galerisindeki](https://azure.microsoft.com/marketplace/active-directory/all/) binlerce önceden tümleştirilmiş ticari ve özel uygulamada [çoklu oturum açmayı (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) hızlı bir şekilde etkinleştirmenizi sağlar. Bu uygulamaların çoğu Office 365, Salesforce.com, Box, ServiceNow, Workday gibi muhtemelen kullanmakta olduğunuz uygulamalardır.
 
 Bir Azure aboneliği oluşturulduğunda otomatik olarak tek bir Azure AD diziniyle ilişkilendirilir. Ardından Azure’ın kimlik hizmeti olan Azure AD, bulut tabanlı kaynaklar için tüm kimlik yönetimi ve erişim denetimi işlevlerini üstlenir. Bu kaynaklar aşağıdaki şemada gösterildiği gibi bağımsız bir kiracının (kuruluşun) kullanıcılarını, uygulamalarını ve gruplarını içerebilir:

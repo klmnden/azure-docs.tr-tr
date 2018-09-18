@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 3ba1f7a5759f037ce4bcfafcef40d0b247692f58
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 57e83376747b9a3e2d30dec37d4a378a167580e5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577046"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733119"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Bir bulut SQL Server seçeneği seçin: Azure SQL (PaaS) Veritabanı ya da Azure VM'lerde SQL Server (IaaS)
 
@@ -89,7 +89,7 @@ Aşağıdaki tabloda, SQL Database ve Azure VM'lerinde SQL Server'ın temel öze
 
 #### <a name="billing-and-licensing-basics"></a>Faturalama ve lisanslama ile ilgili temel bilgiler
 
-Şu anda **SQL veritabanı** hizmet olarak satılır ve her biri faturalandırılır saatlik seçtiğiniz Hizmet katmanını ve performans düzeyine bağlı olarak sabit fiyat, kaynaklar için farklı fiyatlarla birkaç hizmet katmanlarında kullanılabilir. SQL veritabanı yönetilen örnek sayesinde, ayrıca kendi lisansınızı getirebilirsiniz. Kendi lisansını getir seçeneği hakkında daha fazla bilgi için bkz. [Azure'da Yazılım Güvencesi ile Lisans Mobilitesi](https://azure.microsoft.com/pricing/license-mobility/). Buna ek olarak, giden Internet trafiği için normal [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) faturalandırılırsınız. Hizmet katmanları ve performans düzeyleri, uygulamanızın değişken verimlilik ihtiyaçlarını karşılamak üzere dinamik olarak ayarlayabilirsiniz. En yeni bilgileri desteklenen geçerli hizmet katmanları, bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Ayrıca oluşturabilirsiniz [elastik havuzlar](sql-database-elastic-pool.md) kaynakları maliyetleri azaltmak ve kullanım uyum sağlamak için veritabanı örnekleri arasında paylaşmak için ani.
+Şu anda **SQL veritabanı** hizmet olarak satılır ve kaynakların her biri faturalandırılır saatlik hizmet katmanı ve seçtiğiniz işlem boyutuna göre sabit bir ücrete, farklı fiyatlarla birkaç hizmet katmanlarında kullanılabilir. SQL veritabanı yönetilen örnek sayesinde, ayrıca kendi lisansınızı getirebilirsiniz. Kendi lisansını getir seçeneği hakkında daha fazla bilgi için bkz. [Azure'da Yazılım Güvencesi ile Lisans Mobilitesi](https://azure.microsoft.com/pricing/license-mobility/). Buna ek olarak, giden Internet trafiği için normal [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) faturalandırılırsınız. Dinamik olarak ayarlamak hizmet katmanları ve boyutları, uygulamanızın değişken verimlilik ihtiyaçlarını karşılamak için işlem kullanabilirsiniz. En yeni bilgileri desteklenen geçerli hizmet katmanları, bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Ayrıca oluşturabilirsiniz [elastik havuzlar](sql-database-elastic-pool.md) kaynakları maliyetleri azaltmak ve kullanım uyum sağlamak için veritabanı örnekleri arasında paylaşmak için ani.
 
 **SQL Database** ile, veritabanı yazılımına Microsoft tarafından otomatik olarak yapılandırma, düzeltme eki ve yükseltme uygulanır; bu da yönetim maliyetlerinizi azaltır. Ayrıca, [yerleşik yedekleme](sql-database-automated-backups.md) özellikleri, özellikle çok sayıda veritabanınız olduğunda önemli maliyet tasarrufları sağlamanıza yardımcı olur. 
 

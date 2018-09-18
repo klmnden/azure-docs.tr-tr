@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 3cc38e7ede9882e78e509738351696a64c938c40
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: d24a268cf389dfe9dec914b2d27bbe8e466ea675
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391428"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737201"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Azure Data Lake depolama Gen1 ve Azure Blob Depolama ile karşılaştırma
 Bu makalede tabloda büyük veri işleme önemli bazı yönlerini boyunca Azure Data Lake depolama Gen1 ve Azure Blob Depolama alanı arasındaki farklar özetlenmektedir. Azure Blob Depolama, genel amaç, çeşitli depolama senaryoları için tasarlanan ölçeklenebilir nesne deposu. Azure Data Lake depolama Gen1 büyük veri analizi iş yükleri için en iyi duruma getirilmiş hiper ölçekli bir depodur.
@@ -31,9 +31,9 @@ Bu makalede tabloda büyük veri işleme önemli bazı yönlerini boyunca Azure 
 | API |HTTPS üzerinden REST API |HTTP/HTTPS üzerinden REST API |
 | Sunucu tarafı API'si |[WebHDFS ile uyumlu REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Depolama REST API'si](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Hadoop dosya sistemi istemci |Evet |Evet |
-| Veri işlemleri - kimlik doğrulaması |Temel [Azure Active Directory kimlikleri](../active-directory/develop/authentication-scenarios.md) |Paylaşılan gizlilikleri üzerinde - tabanlı [hesap erişim anahtarlarını](../storage/common/storage-create-storage-account.md#manage-your-storage-account) ve [paylaşılan erişim imzası anahtarları](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
+| Veri işlemleri - kimlik doğrulaması |Temel [Azure Active Directory kimlikleri](../active-directory/develop/authentication-scenarios.md) |Paylaşılan gizlilikleri üzerinde - tabanlı [hesap erişim anahtarlarını](../storage/common/storage-account-manage.md#access-keys) ve [paylaşılan erişim imzası anahtarları](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Veri işlemleri - kimlik doğrulama protokolü |OAuth 2.0. Azure Active Directory tarafından verilen bir geçerli (JSON Web belirteci) JWT çağrıları içermelidir |Karma tabanlı ileti kimlik doğrulama kodu (HMAC). Çağrıları Base64 kodlamalı SHA-256 karma HTTP isteğinin bir bölümü içermelidir. |
-| Veri işlemleri - yetkilendirme |POSIX erişim denetim listeleri (ACL'ler).  Azure Active Directory kimliği temel ACL'leri dosya ve klasör düzeyinde ayarlanabilir. |Hesap düzeyinde yetkilendirme için – kullanan [hesap erişim anahtarlarını](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Hesabı, kapsayıcı veya blob yetkilendirme - kullanın [paylaşılan erişim imzası anahtarlar](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Veri işlemleri - yetkilendirme |POSIX erişim denetim listeleri (ACL'ler).  Azure Active Directory kimliği temel ACL'leri dosya ve klasör düzeyinde ayarlanabilir. |Hesap düzeyinde yetkilendirme için – kullanan [hesap erişim anahtarlarını](../storage/common/storage-account-manage.md#access-keys)<br>Hesabı, kapsayıcı veya blob yetkilendirme - kullanın [paylaşılan erişim imzası anahtarlar](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Veri işlemleri - denetim |Kullanılabilir. Bkz: [burada](data-lake-store-diagnostic-logs.md) bilgi. |Kullanılabilir |
 | Bekleyen verileri şifreleme |<ul><li>Saydam sunucu tarafı</li> <ul><li>Hizmet tarafından yönetilen anahtarlarla</li><li>Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar ile</li></ul></ul> |<ul><li>Saydam sunucu tarafı</li> <ul><li>Hizmet tarafından yönetilen anahtarlarla</li><li>Müşteri tarafından yönetilen anahtarlarla içinde Azure anahtar kasası (Önizleme)</li></ul><li>İstemci Tarafında Şifreleme</li></ul> |
 | Yönetim işlemlerini (örneğin hesap oluştur) |[Rol tabanlı erişim denetimi](../role-based-access-control/overview.md) (RBAC), hesap yönetimi için Azure tarafından sağlanan |[Rol tabanlı erişim denetimi](../role-based-access-control/overview.md) (RBAC), hesap yönetimi için Azure tarafından sağlanan |

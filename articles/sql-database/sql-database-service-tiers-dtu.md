@@ -1,24 +1,24 @@
 ---
 title: Azure SQL veritabanı hizmet katmanları - DTU | Microsoft Docs
-description: Tek hizmet katmanları ve performans düzeyleri ve depolama alanı boyutları sağlamak için havuz veritabanları hakkında bilgi edinin.
+description: Tek hizmet katmanları ve bilgi işlem boyutlarına ve depolama alanı boyutları sağlamak için havuz veritabanları hakkında bilgi edinin.
 services: sql-database
 author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d0250d508ca6d21ee09c9402e10d2fdb025529ac
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 27e6e12efc28bb8ee1cdaa9ec62d7ca8c4c68f38
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055859"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729748"
 ---
-# <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Depolama kaynaklarını DTU tabanlı hizmet katmanı ve performans düzeyi seçme 
+# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>DTU tabanlı hizmet katmanı seçme, işlem boyutu ve depolama kaynakları 
 
-Hizmet katmanları, performans düzeyleri dahil edilen depolama alanı, yedekleme ve sabit fiyat için bekletme süresi sabit tutarda aralığına göre ayrılır. Tüm hizmet katmanları ve performans düzeylerini kapalı kalma süresi olmadan değiştirmenin esneklik sağlar. Tek veritabanları ve elastik havuzlar, hizmet katmanı ve performans düzeyine göre saatlik faturalandırılır.
+Hizmet katmanları, bilgi işlem boyutlarına dahil edilen depolama alanı, yedekleme ve sabit fiyat için bekletme süresi sabit tutarda aralığına göre ayrılır. Tüm hizmet katmanlarında işlem boyutları kapalı kalma süresi olmadan değiştirme esnekliği sunar. Tek veritabanları ve elastik havuzlar, hizmet katmanı ve işlem boyutu saatlere göre faturalandırılır.
 
 > [!IMPORTANT]
 > SQL veritabanı yönetilen örneği, DTU tabanlı satın alma modeli genel önizlemede şu anda desteklemiyor. Daha fazla bilgi için [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md). 
@@ -40,7 +40,7 @@ Hizmet katmanı seçme, öncelikli olarak iş sürekliliği, depolama ve perform
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Tek veritabanı DTU ve depolama limitleri
 
-Performans düzeyleri tek veritabanları için Veritabanı İşlem Birimleri (DTU’lar), elastik havuzlar için de elastik Veritabanı İşlem Birimleri (eDTU’lar) ile ifade edilir. Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz. [Dtu'lar ve Edtu'lar nelerdir](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
+İşlem boyutları, tek veritabanları için veritabanı işlem birimleri (Dtu'lar) ve elastik havuzlar için esnek veritabanı işlem birimleri (Edtu) cinsinden ifade edilir. Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz. [Dtu'lar ve Edtu'lar nelerdir](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
 
 ||Temel|Standart|Premium|
 | :-- | --: | --: | --: | --: |
@@ -73,7 +73,7 @@ Performans düzeyleri tek veritabanları için Veritabanı İşlem Birimleri (DT
 Gerçek veritabanı iş yükünün benzetimini gerçekleştiren bir Kıyaslama kullanarak kalibre her DTU ölçü için ilişkili fiziksel özelliklerini (CPU, bellek, g/ç).
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Gerçek dünya veritabanı performans için kıyaslama sonuçları ilişkilendirme
-Tüm değerlendirmesi yalnızca temsili ve hatırlanması olduğunu anlamak önemlidir. Kıyaslama uygulama ile elde edilen işlem hızları, diğer uygulamalarla elde aynı olması değil. Kıyaslama farklı işlem türleri birçok farklı tablolar ve veri türlerini içeren bir şema karşı çalıştırmak koleksiyonunu içerir. Tüm OLTP iş yükleri için ortak olan temel işlemlerin aynısını Kıyaslama uygular, ancak veritabanı veya uygulamanın belirli herhangi bir sınıf temsil etmiyor. Kıyaslama amacı, göreli ölçeği artırılabilen veya azaltılabilen olduğunda performans düzeyleri arasında beklenebilir bir veritabanının performansı için makul bir kılavuz sağlamaktır. Veritabanları farklı boyutta ve karmaşıklık gerçekte, farklı iş yüklerini bileşimleri karşılaştığınız ve farklı şekilde yanıt verir. Örneğin, yoğun g/ç uygulama GÇ eşiklerini daha çabuk karşılaşabilirsiniz veya CPU yoğunluklu uygulama CPU sınırları daha çabuk karşılaşabilirsiniz. Herhangi bir veritabanı Kıyaslama artan yük altında aynı şekilde, ölçeği bir garanti yoktur.
+Tüm değerlendirmesi yalnızca temsili ve hatırlanması olduğunu anlamak önemlidir. Kıyaslama uygulama ile elde edilen işlem hızları, diğer uygulamalarla elde aynı olması değil. Kıyaslama farklı işlem türleri birçok farklı tablolar ve veri türlerini içeren bir şema karşı çalıştırmak koleksiyonunu içerir. Tüm OLTP iş yükleri için ortak olan temel işlemlerin aynısını Kıyaslama uygular, ancak veritabanı veya uygulamanın belirli herhangi bir sınıf temsil etmiyor. Kıyaslama amacı, göreli zaman arasında bilgi işlem boyutlarına ölçeği artırılabilen veya azaltılabilen beklenebilir bir veritabanı performansını artırmak için makul bir kılavuz sağlamaktır. Veritabanları farklı boyutta ve karmaşıklık gerçekte, farklı iş yüklerini bileşimleri karşılaştığınız ve farklı şekilde yanıt verir. Örneğin, yoğun g/ç uygulama GÇ eşiklerini daha çabuk karşılaşabilirsiniz veya CPU yoğunluklu uygulama CPU sınırları daha çabuk karşılaşabilirsiniz. Herhangi bir veritabanı Kıyaslama artan yük altında aynı şekilde, ölçeği bir garanti yoktur.
 
 Kıyaslama ve metodolojisi aşağıda daha ayrıntılı olarak açıklanmıştır.
 
@@ -155,5 +155,5 @@ Ana ölçümler Kıyaslama aktarım hızı ve yanıt süresi ' dir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Belirli performans düzeylerini ve tek veritabanları için kullanılabilen depolama boyutu seçenekleri hakkında daha fazla bilgi için bkz: [tek veritabanları için SQL veritabanı DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
-- Belirli bir performans düzeyleri ve depolama boyutu elastik havuzlar için kullanılabilir seçenekler hakkında daha fazla bilgi için bkz: [SQL veritabanı DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- Özel hakkında ayrıntılı bilgi işlem boyutlarına ve tek veritabanları için kullanılabilen depolama boyutu seçenekleri için bkz: [tek veritabanları için SQL veritabanı DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- Özel hakkında ayrıntılı bilgi işlem boyutları ve elastik havuzlar için kullanılabilir depolama boyutu seçenekleri için bkz: [SQL veritabanı DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

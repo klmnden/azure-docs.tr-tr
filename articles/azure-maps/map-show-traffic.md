@@ -3,22 +3,22 @@ title: Azure Haritalar ile trafiği gösterme | Microsoft Docs
 description: Bir Javascript harita üzerindeki trafik verileri görüntüleme
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 09/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 2499822db587dbf47dccedf6039d0fb5823c58b5
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 6d5c721ab84c28bae9415dceeaa09fd12cc05824
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746087"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733034"
 ---
 # <a name="show-traffic-on-the-map"></a>Harita üzerinde trafiği Göster
 
-Bu makalede haritada trafik ve olaylar bilgileri gösterecek şekilde gösterilmektedir. 
+Bu makalede haritada trafik ve olaylar bilgileri gösterecek şekilde gösterilmektedir.
 
 ## <a name="understand-the-code"></a>Kodu anlama
 
@@ -31,12 +31,20 @@ Yukarıdaki kod, kod bloğunun ilk harita nesnesi oluşturur. Gördüğünüz [b
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi edinin: 
-* [Harita](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic)
+Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi edinin:
 
-Eşlenir eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın: 
-* [Harita – fare olayları ile etkileşim kurma](./map-events.md)
-* [Erişilebilir bir harita oluşturma](./map-accessibility.md)
+> [!div class="nextstepaction"]
+> [Harita](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Kullanıma sunduğumuz [kod örnek sayfası](http://aka.ms/AzureMapsSamples) daha fazla eşleme senaryolar için.
+Tam kod örnekleri için aşağıdaki makalelere bakın:
+
+> [!div class="nextstepaction"]
+> [Kod örnek sayfası](http://aka.ms/AzureMapsSamples)
+
+Kullanıcı deneyimlerini geliştirir:
+
+> [!div class="nextstepaction"]
+> [Fare olayları ile etkileşim eşleme](./map-events.md)
+
+> [!div class="nextstepaction"]
+> [Erişilebilir bir harita oluşturma](./map-accessibility.md)

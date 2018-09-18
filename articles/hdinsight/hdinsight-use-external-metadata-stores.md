@@ -8,13 +8,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: a2c992a47e40a4f8764f5950c65bb90f1cd9e066
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/14/2018
+ms.openlocfilehash: 7c58162048de341468b69a29c55edf346b376e9b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045152"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733823"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight, harici meta veri depolarını kullanma
 
@@ -29,11 +29,11 @@ Meta veri deposu, HDInsight kümeleri için ayarlayabileceğiniz iki yolu vardı
 
 ## <a name="default-metastore"></a>Varsayılan meta veri deposu
 
-Varsayılan olarak, HDInsight her küme türü ile bir meta veri deposu sağlar. Bunun yerine özel bir meta veri deposu belirtebilirsiniz. Varsayılan meta veri deposu aşağıdaki unsurları içerir:
-- Ek ücret ödemeden. HDInsight her küme türü, herhangi bir ek maliyet olmadan ile meta veri deposu sağlar.
-- Her varsayılan meta veri deposu küme yaşam döngüsü'nın bir parçasıdır. Meta veri deposu ve meta verileri de silinir küme sildiğinizde.
+Varsayılan olarak, HDInsight her küme türü ile bir meta veri deposu oluşturur. Bunun yerine özel bir meta veri deposu belirtebilirsiniz. Varsayılan meta veri deposu aşağıdaki unsurları içerir:
+- Ek ücret ödemeden. HDInsight her küme türü, herhangi bir ek maliyet olmadan bir meta veri deposu oluşturur.
+- Her varsayılan meta veri deposu küme yaşam döngüsü'nın bir parçasıdır. Küme silme, karşılık gelen meta veri deposu ve meta verileri de silinir.
 - Varsayılan meta veri deposu diğer kümeleriyle paylaşamazsınız.
-- Temel Azure SQL 5 DTU (veritabanı işlem birimi) sınırı olan bir veritabanı, varsayılan meta veri deposu kullanır.
+- Temel Azure SQL beş DTU (veritabanı işlem birimi) sınırı olan bir veritabanı, varsayılan meta veri deposu kullanır.
 Bu varsayılan meta veri deposu, genellikle birden fazla küme gerektirmeyen ve kümenin yaşam korunur meta veri gerektirmeyen görece basit iş yükleri için kullanılır.
 
 
@@ -46,11 +46,7 @@ HDInsight, üretim kümeleri için önerilen özel meta depolar da destekler:
 - Seçtiğiniz performans düzeyine göre meta veri deposu (Azure SQL DB) maliyetini ödeme yaparsınız.
 - Meta veri deposu, gerektiği şekilde ölçekleyebilirsiniz.
 
-
 ![HDInsight Hive meta veri Store kullanım örneği](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
-
-<!-- Image – Typical shared custom Metastore scenario in HDInsight (?) -->
-
 
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Küme oluşturma sırasında özel bir meta veri deposu seçin
@@ -67,12 +63,14 @@ Ayrıca ek kümeler için özel bir meta veri deposu Azure portalından veya Amb
 
 Meta veri deposu en iyi bazı genel HDInsight Hive şunlardır:
 
-- Bu ayrı işlem kaynakları (çalışan kümenizi) ve meta verileri (meta veri deposu içinde depolanan) yardımcı olur, mümkün olduğunda, özel bir meta depo kullanın.
+- Mümkün olduğunda, ayrı işlem kaynakları (çalışan kümenizi) ve (meta veri deposu içinde depolanan) meta veri yardımcı olmak özel bir meta depo kullanın.
 - 50 DTU ve 250 GB depolama alanı sağlayan bir S2 katmanı ile başlayın. Bir performans sorunu görürseniz, veritabanının ölçeğini artırabilir.
-- Bir HDInsight kümesi sürüm farklı HDInsight küme sürümleri arasında paylaşılmaz oluşturulan meta veri deposu emin olun. Hive farklı sürümlerini farklı şemalar kullanın. Örneğin, hem Hive 1.2 ve 2.1 Hive kümeleri ile meta veri deposu paylaşamazsınız.
-- Kendi özel meta veri deposu düzenli olarak yedekleyin.
-- Meta veri deposu ve HDInsight kümesi aynı bölgede bulundurun.
+- Ayrı verilere erişmek için birden çok HDInsight kümesi düşünüyorsanız, her kümede meta veri deposu için ayrı bir veritabanı'nı kullanın. Meta veri deposu birden çok HDInsight kümeleri arasında paylaşıyorsanız, kümeler aynı meta verileri ve arka plandaki kullanıcı verileri dosyalarını kullanmak anlamına gelir.
+- Kendi özel meta veri deposu düzenli olarak yedekleyin. Azure SQL veritabanı yedeklemeleri otomatik olarak oluşturur, ancak yedekleme bekletme zaman çerçevesini değişir. Daha fazla bilgi için [otomatik SQL veritabanını yedekleme hakkında bilgi edinin](../sql-database/sql-database-automated-backups.md).
+- Meta veri deposu ve HDInsight kümesi için en yüksek performans ve düşük ağ çıkışı ücretleri aynı bölgedeki bulun.
 - Performans ve kullanılabilirlik gibi Azure Log Analytics ve Azure portalında Azure SQL veritabanı izleme araçlarını kullanarak, meta veri deposu izleyin.
+- Azure HDInsight yeni, daha yüksek bir sürümü mevcut bir özel meta veri deposu veritabanında oluşturulduğunda Sistem meta veri deposu şeması veritabanını yedekten geri olmadan geri alınamaz olduğu yükseltir.
+- Meta veri deposu arasında birden fazla küme paylaşıyorsanız, tüm kümeleri aynı HDInsight sürüm emin olun. Farklı Hive sürümleri, farklı bir meta veri deposu veritabanı şemalarını kullanın. Örneğin, bir meta veri deposu Hive 1.2 ve 2.1 Hive tutulan kümelerinde paylaşamazsınız. 
 
 ## <a name="oozie-metastore"></a>Oozie meta veri deposu
 

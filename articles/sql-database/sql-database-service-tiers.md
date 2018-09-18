@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: a4bf21f972da1aa92d6f127e8cbabb89a9c31489
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4fe75d8d350ee2d2a97b9d7efb10ff3c1675168d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719962"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737124"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL veritabanı'nı modelleri ve kaynakları satın alma 
 
@@ -26,7 +26,7 @@ Aşağıdaki tablo ve grafik karşılaştırın ve bu iki satın alma modeli.
 
 |**Satın alma modeli**|**Açıklama**|**En iyi**|
 |---|---|---|
-|DTU tabanlı model|Bu model, işlem, depolama ve GÇ kaynakları ile birlikte gelen bir ölçüyü temel alır. Performans düzeyleri tek veritabanları için Veritabanı İşlem Birimleri (DTU’lar), elastik havuzlar için de elastik Veritabanı İşlem Birimleri (eDTU’lar) ile ifade edilir. Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz. [Dtu'lar ve Edtu'lar nelerdir](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Basit, önceden yapılandırılmış kaynak seçenekleri isteyen müşteriler için idealdir.| 
+|DTU tabanlı model|Bu model, işlem, depolama ve GÇ kaynakları ile birlikte gelen bir ölçüyü temel alır. İşlem boyutları, tek veritabanları için veritabanı işlem birimleri (Dtu'lar) ve elastik havuzlar için esnek veritabanı işlem birimleri (Edtu) cinsinden ifade edilir. Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz. [Dtu'lar ve Edtu'lar nelerdir](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Basit, önceden yapılandırılmış kaynak seçenekleri isteyen müşteriler için idealdir.| 
 |vCore tabanlı model|Bu model, işlem ve depolama kaynaklarını bağımsız olarak seçmenizi sağlar. Ayrıca, maliyet tasarrufu elde etmek için SQL Server için Azure hibrit avantajı kullanmanıza olanak sağlar.|Esneklik, Denetim ve saydamlık değerini müşteriler için idealdir.|
 ||||  
 
@@ -50,22 +50,22 @@ Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depola
 > İşlem, IOs, veri ve günlük depolama, veritabanı veya elastik havuz başına ücretlendirilir. Yedekleme depolama, her veritabanı ücretlendirilir. Yönetilen örnek ücretleri ayrıntılarını başvurmak [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md).
 > **Bölge kısıtlamaları:** sanal çekirdek tabanlı satın alma modeli henüz aşağıdaki bölgelerde kullanılabilir değil: Batı Avrupa, Fransa Orta, Birleşik Krallık Güney, UK Batı ve Avustralya Güneydoğu.
 
-Veritabanı veya elastik Havuzu'nu sanal çekirdek 300'den fazla DTU dönüştürme kullanırsa maliyetinizi azaltabilir. API'nizi tercih ettiğiniz veya kapalı kalma süresi ile Azure portalını kullanarak dönüştürebilirsiniz. Ancak, dönüştürme gerekli değildir. DTU satın alma modeli, performans ve iş gereksinimlerini karşılıyorsa, onu kullanmaya devam etmek. Sanal çekirdek-model DTU modelden dönüştürmeye karar verirseniz, aşağıdaki kural karşısında kullanarak performans düzeyi seçmeniz gerekir: genel amaçlı katmanında; en az 1 sanal çekirdek standart katmandaki her 100 DTU gerektirir Her Premium katmanda 125 DTU, iş açısından kritik katmanında en az 1 sanal çekirdek gerektirir.
+Veritabanı veya elastik Havuzu'nu sanal çekirdek 300'den fazla DTU dönüştürme kullanırsa maliyetinizi azaltabilir. API'nizi tercih ettiğiniz veya kapalı kalma süresi ile Azure portalını kullanarak dönüştürebilirsiniz. Ancak, dönüştürme gerekli değildir. DTU satın alma modeli, performans ve iş gereksinimlerini karşılıyorsa, onu kullanmaya devam etmek. Sanal çekirdek-model DTU modelden dönüştürmeye karar verirseniz, aşağıdaki kural karşısında kullanarak işlem boyutu seçmeniz gerekir: genel amaçlı katmanında; en az 1 sanal çekirdek standart katmandaki her 100 DTU gerektirir Her Premium katmanda 125 DTU, iş açısından kritik katmanında en az 1 sanal çekirdek gerektirir.
 
 ## <a name="dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli
 
 Veritabanı işlem birimi (DTU) temsil eden bir ölçüyle CPU, bellek, okur ve yazar. DTU tabanlı satın alma modeli, bir dizi işlem kaynakları, önceden yapılandırılmış paketleri sunar ve dahil edilen depolama alanı için çeşitli uygulama performans düzeylerini sürücü. Önceden yapılandırılmış bir paket sabit ödemeler ve Basitlik, her ay tercih eden müşteriler bulun DTU tabanlı model ihtiyaçları için daha uygun. DTU tabanlı satın alma modeli, müşteriler arasında seçim yapabilirsiniz **temel**, **standart**, ve **Premium** hizmet katmanları için her ikisi de [tek veritabanları](sql-database-single-database-scale.md) ve [elastik havuzlar](sql-database-elastic-pool.md). Bu satın alma modeli kullanıma sunulmadı [yönetilen örnekleri](sql-database-managed-instance.md).
 
 ### <a name="what-are-database-transaction-units-dtus"></a>Veritabanı işlem birimleri (Dtu) nedir?
-İçinde bir belirli bir performans düzeyinde tek bir Azure SQL veritabanı için bir [hizmet katmanı](sql-database-single-database-scale.md), Microsoft garanti kaynakları (bağımsız olarak herhangi bir veritabanı Azure bulutunda) Bu veritabanı, belirli bir düzeyde sağlayan bir tahmin edilebilir performans düzeyi. Kaynakların miktarını, veritabanı işlem birimleri veya Dtu'lar sayısı hesaplanır ve işlem, depolama ve GÇ kaynakları ile birlikte gelen bir ölçüdür. Bu kaynaklar arasındaki oran başlangıçta tarafından belirlenen bir [OLTP Kıyaslama iş yükünün](sql-database-benchmark-overview.md), gerçek OLTP iş yükleri tipik olacak şekilde tasarlanmıştır. İş yükünüz şu kaynaklara miktarı aşarsa, aktarım hızınızı daraltılmış - yavaş performans ve zaman aşımları sonuç. İş yükünüz tarafından kullanılan kaynakları başka bir SQL veritabanına Azure bulutunda kullanılabilir kaynakları etkilemez ve diğer iş yükleri tarafından kullanılan kaynakları SQL veritabanınıza kullanılabilir kaynakları etkilemez.
+Belirli bir anda tek bir Azure SQL veritabanı için boyutu içinde işlem bir [hizmet katmanı](sql-database-single-database-scale.md), Microsoft, bir tahmin edilebilir sağlamaya kaynakları (bağımsız olarak herhangi bir veritabanı Azure bulutunda) Bu veritabanı, belirli bir düzeyde garanti eder performans düzeyi. Kaynakların miktarını, veritabanı işlem birimleri veya Dtu'lar sayısı hesaplanır ve işlem, depolama ve GÇ kaynakları ile birlikte gelen bir ölçüdür. Bu kaynaklar arasındaki oran başlangıçta tarafından belirlenen bir [OLTP Kıyaslama iş yükünün](sql-database-benchmark-overview.md), gerçek OLTP iş yükleri tipik olacak şekilde tasarlanmıştır. İş yükünüz şu kaynaklara miktarı aşarsa, aktarım hızınızı daraltılmış - yavaş performans ve zaman aşımları sonuç. İş yükünüz tarafından kullanılan kaynakları başka bir SQL veritabanına Azure bulutunda kullanılabilir kaynakları etkilemez ve diğer iş yükleri tarafından kullanılan kaynakları SQL veritabanınıza kullanılabilir kaynakları etkilemez.
 
 ![sınırlayıcı kutu](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-Dtu en kaynakları farklı performans düzeylerinde Azure SQL veritabanı hizmet katmanları arasındaki göreli miktarını anlamak için kullanışlıdır. Örneğin, bir veritabanının performans düzeyini artırarak dtu'ları Katlama konusu veritabanının kullanabileceği kaynakları kümesi Katlama için karşılık gelmektedir. Örneğin, 1750 DTU’ya sahip Premium P11 veritabanı 5 DTU’ya sahip Temel veritabanına göre 350 kat daha fazla DTU işlem gücü sağlıyor.  
+Dtu en kaynakları farklı bilgi işlem boyutlarına, Azure SQL veritabanı hizmet katmanları arasındaki göreli miktarını anlamak için kullanışlıdır. Örneğin, bir veritabanı işlem boyutunu artırarak dtu'ları Katlama konusu veritabanının kullanabileceği kaynakları kümesi Katlama için karşılık gelmektedir. Örneğin, 1750 DTU’ya sahip Premium P11 veritabanı 5 DTU’ya sahip Temel veritabanına göre 350 kat daha fazla DTU işlem gücü sağlıyor.  
 
 İş yükünüz kaynak (DTU) kullanımını daha derin bir anlayış kazanmak için kullanın [Azure SQL veritabanı sorgu performansı İçgörüleri](sql-database-query-performance.md) için:
 
-- En sık kullanılan sorgular, potansiyel olarak daha iyi performans için ayarlanmış CPU/süresi/yürütme sayısına göre belirleyin. Örneğin, bir g/ç kullanımı yoğun sorgu kullanımından yararlanabilir [bellek içi iyileştirme teknikleri](sql-database-in-memory.md) bir belirli hizmet katmanını ve performans düzeyinde kullanılabilir belleği daha iyi kullanılmasını sağlamak için.
+- En sık kullanılan sorgular, potansiyel olarak daha iyi performans için ayarlanmış CPU/süresi/yürütme sayısına göre belirleyin. Örneğin, bir g/ç kullanımı yoğun sorgu kullanımından yararlanabilir [bellek içi iyileştirme teknikleri](sql-database-in-memory.md) kullanılabilir bellek belirli bir hizmet katmanını ve işlem boyutu daha iyi kullanılmasını sağlamak için.
 - Bir sorgunun ayrıntılarına detaya, kendi metin ve kaynak kullanımı geçmişini görüntüleyin.
 - Erişim performans tarafından gerçekleştirilen eylemleri göster önerilerinde [SQL veritabanı Danışmanı](sql-database-advisor.md).
 

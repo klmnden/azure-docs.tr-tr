@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: c076ae96f8aba648196dc5222db3da3da68673ff
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 86a14d12f6621524ef26e2a869d4be532105dc77
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528400"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732362"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Hudson Sürekli Tümleştirme çözümüyle Azure Depolama'yı kullanma
 ## <a name="overview"></a>Genel Bakış
@@ -53,7 +53,7 @@ Blob hizmeti Hudson CI çözümünüz ile kullanmak için aşağıdakilere ihtiy
      
       Tipik bir Hudson CI çözüm Hudson war komut satırını çalıştıran, bir hizmet olarak çalıştırmak için ayarlanması ancak bu öğretici için yeterli olacaktır.
 * Bir Azure hesabı. Bir Azure hesabı için kaydolabilirsiniz <http://www.azure.com>.
-* Bir Azure depolama hesabı. Bir depolama hesabınız yoksa, adımları kullanarak bir tane oluşturabilirsiniz [depolama hesabı oluşturma](../common/storage-create-storage-account.md#create-a-storage-account).
+* Bir Azure depolama hesabı. Bir depolama hesabınız yoksa, adımları kullanarak bir tane oluşturabilirsiniz [depolama hesabı oluşturma](../common/storage-quickstart-create-account.md).
 * Hudson CI çözümüne konusunda önerilir, ancak aşağıdaki içeriği Blob hizmeti için Hudson CI deposu olarak kullanılırken gerekli olan adımları derleme yapıları göstermek için basit bir örneği kullanacağınız, gerekli değildir.
 
 ## <a name="how-to-use-the-blob-service-with-hudson-ci"></a>Hudson CI ile Blob hizmetini kullanma

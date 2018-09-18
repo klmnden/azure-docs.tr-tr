@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e729c2e3a802df15973fc6a43ee42265d1de654
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f387c1afe88f2bba476309b2e2e01942d2b7ae5b
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164774"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982634"
 ---
 # <a name="setting-up-smt-server-for-suse-linux"></a>SUSE Linux için SMT sunucusu ayarlama
 SAP HANA büyük örnekleri, doğrudan Internet bağlantısı yok. Bu nedenle, böyle bir birim OS sağlayıcıya Kaydol indirin ve düzeltme ekleri uygulama için basit bir işlem değil. SUSE Linux Azure VM'deki bir SMT sunucusunu ayarlamak için tek bir çözüm olabilecek durumunda. Azure VM, HANA büyük örneği için bağlı olan bir Azure VNet, barındırılması gerekiyor ancak. Böyle bir SMT sunucusu ile HANA büyük örneği birim kaydedin ve düzeltme eklerini indirmek. 
@@ -33,11 +33,11 @@ HANA büyük örneği için görev karşılayan bir SMT sunucusunun yüklenmesi 
 
 ## <a name="installation-of-smt-server-on-azure-vm"></a>Azure sanal makinesinde SMT server yüklemesi
 
-Bu adımda, Azure VM'deki SMT sunucusu yükleyin. Oturum açmak için ilk ölçüdür [SUSE Müşteri merkezi](https://scc.suse.com/)
+Bu adımda, Azure VM'deki SMT sunucusu yükleyin. Oturum açmak için ilk ölçüdür [SUSE Müşteri merkezi](https://scc.suse.com/).
 
 Oturum açtığınız gibi kuruluş Git kuruluş kimlik-->. Bu bölümde SMT sunucusu kurmak gerekli kimlik bilgilerini bulmanız gerekir.
 
-Üçüncü adım SUSE Linux VM Azure Vnet'te yüklemektir. VM dağıtmak için Azure SLES 12 SP2 galeri görüntüsü alın. Dağıtım işlemi, bir DNS adı tanımlayın yok ve bu ekran görüntüsünde görüldüğü gibi statik IP adresleri kullanmayın
+Üçüncü adım SUSE Linux VM Azure Vnet'te yüklemektir. VM dağıtmak için Azure (BYOS SUSE görüntüyü seçin) SLES 12 SP2 galeri görüntüsü alın. Dağıtım işlemi, bir DNS adı tanımlayın yok ve bu ekran görüntüsünde görüldüğü gibi statik IP adresleri kullanmayın
 
 ![SMT sunucusu için VM dağıtımı](./media/hana-installation/image3_vm_deployment.png)
 
@@ -56,7 +56,28 @@ echo "export NCURSES_NO_UTF8_ACS=1" >> .bashrc
 
 Bu komutlar yürütüldükten sonra ayarları etkinleştirmek için bash yeniden başlatın. Daha sonra YAST başlatın.
 
-Yazılım bakımı ve smt araması YAST içinde gidin. Aşağıda gösterildiği gibi yast2 smt için otomatik olarak geçer smt, seçin
+Sanal makinenize (smtserver) SUSE siteye bağlanın.
+
+```
+smtserver:~ # SUSEConnect -r <registration code> -e s<email address> --url https://scc.suse.com
+Registered SLES_SAP 12.2 x86_64
+To server: https://scc.suse.com
+Using E-Mail: email address
+Successfully registered system.
+```
+
+VM SUSE siteye bağlandıktan sonra smt paketleri yükleyin. Smt paketleri yüklemek için putty aşağıdaki komutu kullanın.
+
+```
+smtserver:~ # zypper in smt
+Refreshing service 'SUSE_Linux_Enterprise_Server_for_SAP_Applications_12_SP2_x86_64'.
+Loading repository data...
+Reading installed packages...
+Resolving package dependencies...
+```
+
+
+Smt paketleri yüklemek için YAST aracını da kullanabilirsiniz. Yazılım bakımı ve smt araması YAST içinde gidin. Aşağıda gösterildiği gibi yast2 smt için otomatik olarak geçer smt, seçin
 
 ![SMT yast içinde](./media/hana-installation/image5_smt_in_yast.PNG)
 

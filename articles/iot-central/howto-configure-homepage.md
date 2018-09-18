@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1b4d97c1e8c4360028cb249b7e1a61f9fc26e9f2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 609dc8aa1305833fb3677de6fbe95cf490237a4a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300537"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731130"
 ---
 ## <a name="configuring-homepage"></a>Giriş sayfası yapılandırma
 
@@ -27,7 +27,7 @@ Seçme **Düzenle**, Pano kitaplığı sol taraftaki bir paneli açılır. Kutuc
 
 ![Pano kitaplığı](media\howto-configure-homepage\image2.png)
 
-Örneğin, ekleyebileceğiniz bir **ayarları ve özellikleri** seçimi ayarlarını ve özelliklerini geçerli değerlerini görüntülemek için kutucuk. Bunu yapmak için önce seçin bir **cihaz şablonu** seçip bir **cihaz örneği**. Bir başlık ve seçin, kutucuğu verdikten sonra bir **ayarı** veya **özelliği** görüntülenecek. Bu durumda seçtik **fanı hızı**. Tıklayarak **Bitti** giriş sayfasında görünmesi için bu kutucuğa neden olur.
+Örneğin, ekleyebileceğiniz bir **ayarları ve özellikleri** seçimi ayarlarını ve özelliklerini geçerli değerlerini görüntülemek için kutucuk. Bunu yapmak için önce seçin bir **cihaz şablonu** seçip bir **cihaz örneği**. Bir başlık ve seçin, kutucuğu verdikten sonra bir **ayarı** veya **özelliği** görüntülenecek. Bu durumda seçtik **ayarlamak sıcaklık**. Tıklayarak **Bitti** giriş sayfasında görünmesi için bu kutucuğa neden olur.
 
 !["Cihaz ayrıntıları Yapılandır" form ayarlarına ve özelliklerine ilişkin ayrıntılı](media\howto-configure-homepage\image3.png)
 

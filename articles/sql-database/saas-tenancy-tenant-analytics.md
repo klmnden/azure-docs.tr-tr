@@ -1,6 +1,6 @@
 ---
-title: Ayıklanan verileri kullanarak çapraz Kiracı analizler çalıştırır | Microsoft Docs
-description: Birden çok Azure SQL veritabanı veritabanlarından ayıklanan verilerin kullanarak çapraz Kiracı analytics sorgular.
+title: Ayıklanan verileri kullanarak kiracılar arası analiz çalıştırma | Microsoft Docs
+description: Kiracılar arası analiz sorguları kullanarak verileri birden çok Azure SQL veritabanı veritabanlarından ayıklanır.
 keywords: sql veritabanı öğreticisi
 services: sql-database
 author: stevestein
@@ -8,59 +8,59 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: sstein
 ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: 68057a2ae5925aa16288844759a34592aa7c7573
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b887572e7c2bdf22c8a6cc8ffa1641e402fd6a58
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644969"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736436"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Ayıklanan verileri kullanarak çapraz Kiracı analizi
+# <a name="cross-tenant-analytics-using-extracted-data"></a>Ayıklanan verileri kullanarak kiracılar arası analiz
 
-Bu öğreticide, bir tam analytics senaryosuyla yol. Senaryo analytics akıllı kararlar almak işletmeler nasıl etkinleştirebilirsiniz gösterir. Her Kiracı veritabanından ayıklanan verileri kullanarak analytics Kiracı Öngörüler davranışı ve uygulama kullanımını sağlamak için kullanın. Bu senaryoda üç adımdan oluşur: 
+Bu öğreticide, bir tam analytics senaryoyu İnceleme. Analytics akıllı kararlar işletmelere nasıl olanak sağlayabileceğiniz senaryosunu gösterir. Her Kiracı veritabanından ayıklanmış verileri kullanarak Analiz davranışı ve uygulama kullanım Kiracı Öngörüler edinmek için kullanın. Bu senaryoda üç adımdan oluşur: 
 
-1.  **Extract** her Kiracı veritabanından veri ve **yük** analytics deposuna.
-2.  **Ayıklanan veri dönüştürme** analytics işleme.
-3.  Kullanım **iş zekası** kararlar yönlendirebilir yararlı Öngörüler çizmek için Araçlar. 
+1.  **Ayıklama** her Kiracı veritabanı verileri ve **yük** bir analytics deposuna.
+2.  **Ayıklanan verileri dönüştürme** analiz işleme için.
+3.  Kullanım **iş zekası** karar yönlendirebilir faydalı içgörüler çizmek için Araçlar. 
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> - Verileri ayıklamak için Analytics depolamak Kiracı oluşturun.
-> - Esnek İş analizi deposuna her Kiracı veritabanından veri ayıklamak için kullanın.
-> - Ayıklanan verilerin (Reorganize komutunu yıldız şeması içine) iyileştirin.
-> - Analytics veritabanı sorgu.
-> - Power BI veri görselleştirme için Kiracı verilerindeki eğilimleri vurgulayın ve iyileştirmeler için öneri oluşturmak için kullanın.
+> - Kiracı analiz verileri ayıklamak için depolama oluşturun.
+> - Esnek işler analytics deposuna her Kiracı veritabanından verileri ayıklamak için kullanın.
+> - Ayıklanan verilerin (bir yıldız şeması içine reorganıze) iyileştirin.
+> - Analiz veritabanını sorgulayın.
+> - Kiracı verilerini eğilimler vurgulayın ve geliştirmeler için öneride bulunmak için veri görselleştirme için Power BI'ı kullanın.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/architectureOverview.png)
 
-## <a name="offline-tenant-analytics-pattern"></a>Çevrimdışı Kiracı analytics düzeni
+## <a name="offline-tenant-analytics-pattern"></a>Çevrimdışı Kiracı analiz düzeni
 
-Çok kiracılı SaaS uygulamaları genellikle bulutta depolanan Kiracı veri çok büyük miktarda vardır. Bu veriler işlemi hakkında Öngörüler zengin kaynağı ve uygulamanızın kullanımını ve kiracılarınızın davranışını sağlar. Bu Öngörüler özelliği development, kullanılabilirlik yenilikleri ve diğer uygulama ve platform yatırım yönlendirebilir.
+Çok kiracılı SaaS uygulamaları, genellikle çok büyük miktarda Kiracı verilerini bulutta depolanan sahiptir. Bu verileri zengin bir kaynak işlemi hakkında öngörü ve uygulamanızın kullanımını ve kiracılarınız davranışını sağlar. Bu Öngörüler özellik geliştirmeleri, kullanılabilirlik iyileştirmeleri ve diğer uygulama ve platform Yatırımlar için rehberlik sağlayabilir.
 
-Tüm verileri tek bir çok kiracılı veritabanında olduğunda tüm kiracılar için verilere basit bir işlemdir. Ancak erişim ölçekte binlerce veritabanları arasında dağıtıldığında daha karmaşıktır. Bir karmaşıklık kontrol altına almak için ve işlem verilerini sorgularda analytics etkisini en aza indirmek için bir amaç tasarlanmış analytics veritabanı veya veri ambarına veri ayıklamak için yoludur.
+Tüm veriler tek bir çok kiracılı veritabanında olduğunda tüm kiracılar için verilere erişmek kolaydır. Ancak, potansiyel olarak binlerce veritabanına ölçekli olarak dağıtıldığında daha karmaşık bir erişimdir. Bir şekilde ayrılacaksınız karmaşıklığı ve işlemsel veriler üzerinde analiz sorguları etkisini en aza indirmek için bir tasarlanmış amaçlı analiz veritabanını veya veri ambarına veri ayıklamaktır.
 
-Bu öğreticide Wingtip biletleri SaaS uygulaması için bir tam analytics senaryosu gösterilmektedir. İlk olarak, *esnek iş* her Kiracı veritabanından veri ayıklamak ve hazırlama tablolarındaki analytics deposunda içine yüklemek için kullanılır. Analytics mağaza ya da bir SQL Database veya SQL Data Warehouse olabilir. Büyük ölçekli veri ayıklama için [Azure Data Factory](../data-factory/introduction.md) önerilir.
+Bu öğreticide, Wingtip bilet SaaS uygulaması için bir tam analytics senaryosu gösterilmektedir. İlk olarak, *esnek işler* her Kiracı veritabanından verileri ayıklamak ve bir analytics deposunda hazırlama içine yüklemek için kullanılır. Analytics mağaza ya da bir SQL veritabanı veya SQL veri ambarı olabilir. Büyük ölçekli veri ayıklama için [Azure Data Factory](../data-factory/introduction.md) önerilir.
 
-Ardından, toplanan veri bir kümesine dönüştürüldüğünde [yıldız şeması](https://www.wikipedia.org/wiki/Star_schema) tabloları. Bir merkezi Olgu Tablosu artı ilgili boyut tabloları, tablolar oluşur.  Wingtip biletlerini:
+Ardından, toplanan verileri bir dizi dönüştürülür [yıldız şeması](https://www.wikipedia.org/wiki/Star_schema) tablolar. Bir merkezi Olgu Tablosu yanı sıra ilgili boyut tabloları, tablolar oluşur.  Wingtip biletleri için:
 
-- Yıldız şemadaki merkezi Olgu Tablosu bilet verilerini içerir.
-- Boyut tabloları açıklamak görebildikleri, olaylar, müşteriler ve tarihleri satın alın.
+- Yıldız şeması merkezi olgu tablosunda bilet verilerini içerir.
+- Boyut tabloları, mekanlar, olaylar, müşteriler açıklayan ve tarihleri satın alın.
 
-Birlikte merkezi olgu ve boyut tabloları etkili analitik işleme etkinleştirin. Bu öğreticide kullanılan yıldız Şeması aşağıdaki görüntüde gösterilir:
+Birlikte etkili Analitik İşlem Merkezi olgu ve boyut tabloları etkinleştirin. Bu öğreticide kullanılan yıldız şeması, aşağıdaki görüntüde gösterilmiştir:
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-Analytics deposu kullanarak son olarak, sorgulanan **Powerbı** Kiracı davranışı ve kullanımlarını Wingtip biletleri uygulamasının vurgulayın. Bu sorgular çalıştırın:
+Son olarak, analytics deponun kullanarak sorgulanır **Powerbı** Öngörüler Kiracı davranışı ve bunların kullanılması Wingtip bilet uygulamanın vurgulamak için. Bu sorguları çalıştırın:
  
-- Her salonundan göreli popülerliği Göster
-- Farklı olayları için bilet satış düzenleri vurgulayın
-- Kendi olay satış farklı görebildikleri göreli başarısını Göster
+- Göreli popülerliği, her mekanın Göster
+- Farklı olaylar için bilet satışı desenleri vurgulayın
+- Kendi olay satış içinde farklı venues göreli başarısını Göster
 
-Her bir kiracı ve hizmetinin nasıl kullandığı anlamak, kiracılar daha başarılı olmasına yardımcı olmak için hizmet monetizing ve hizmeti geliştirme seçeneklerini keşfetmek için kullanılır. Bu öğretici, Kiracı verilerden konusunda Öngörüler türlerinin temel örnekler verilmektedir.
+Her kiracıya hizmet nasıl kullandığını anlama, kiracıların daha başarılı olmanıza yardımcı olmak için hizmet markalaştırabilir ve hizmeti geliştirmek için seçeneklerini keşfetmek için kullanılır. Bu öğretici, Kiracı verileri konusunda Öngörüler türlerinin temel örnekler sağlar.
 
 ## <a name="setup"></a>Kurulum
 
@@ -68,176 +68,176 @@ Her bir kiracı ve hizmetinin nasıl kullandığı anlamak, kiracılar daha baş
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
-- Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama dağıtılır. Beş dakikadan daha kısa bir süre içinde dağıtmak için bkz: [dağıtma ve Wingtip SaaS uygulamasına keşfedin.](saas-dbpertenant-get-started-deploy.md)
-- Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını ve uygulama [kaynak kodu](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) Github'dan indirilir. Bkz: yükleme yönergeleri. Yaptığınızdan emin olun *zip dosyası engellemesini* içeriğinin ayıklanıyor önce. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
-- Power BI Desktop yüklenir. [Power BI Desktop'u indirin](https://powerbi.microsoft.com/downloads/)
-- Ek kiracılar toplu sağlanması için bkz: [ **sağlama kiracılar öğretici**](saas-dbpertenant-provision-and-catalog.md).
-- Bir iş hesabı ve iş hesabı veritabanı oluşturuldu. Uygun açıklanan adımları izleyerek [ **şema yönetimi öğretici**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
+- Wingtip bilet SaaS her Kiracı veritabanı uygulama dağıtılır. Beş dakikadan kısa bir süre içinde dağıtmak için bkz. [Dağıt ve Wingtip SaaS uygulaması keşfedin](saas-dbpertenant-get-started-deploy.md)
+- Wingtip bilet SaaS her Kiracı veritabanı komut dosyaları ve uygulama [kaynak kodu](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) Github'dan indirilir. Bkz. yükleme yönergeleri. Mutlaka *zip dosyası engellemesini* içeriğini ayıklanması önce. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımları indirin ve Wingtip bilet SaaS betikleri engelini kaldırmak için.
+- Power BI Desktop yüklenir. [Power BI Desktop'ı indirin](https://powerbi.microsoft.com/downloads/)
+- Ek Kiracı grubu batch sağlanan bkz [ **sağlama kiracılar öğretici**](saas-dbpertenant-provision-and-catalog.md).
+- Bir iş hesabı ve iş hesabı veritabanı oluşturulmadı. Uygun adımları görmek [ **şema yönetimi Öğreticisi**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
-### <a name="create-data-for-the-demo"></a>Gösteri için verileri oluşturma
+### <a name="create-data-for-the-demo"></a>Tanıtım için veri oluşturma
 
-Bu öğreticide, bilet satış verilerini analiz gerçekleştirilir. Geçerli adım için tüm kiracılar bilet verilerini oluşturur.  Daha sonra bu verileri analiz için ayıklanır. *Sağladığınız kiracılar toplu daha önce açıklandığı gibi anlamlı miktarda veriniz varsa emin olun*. Yeterince büyük miktarda veri desenleri satın farklı bilet aralığı hale getirebilir.
+Bu öğreticide, bilet satış verilerini analiz gerçekleştirilir. Geçerli adımda, tüm kiracılar için bilet verileri oluşturur.  Daha sonra bu verileri analiz için ayıklanır. *Sağladığınız Kiracı grubu daha önce açıklandığı gibi anlamlı bir miktarda veri sahip olun*. Yeterince büyük miktarda veri bir dizi farklı bilet satın alım düzenleri ortaya çıkarabilirsiniz.
 
-1. PowerShell ISE'yi açın *...\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*ve aşağıdaki değeri ayarlayın:
-    - **$DemoScenario** = **1** tüm görebildikleri etkinliklerine biletlerini satın alma
-2. Tuşuna **F5** komut dosyasını çalıştırın ve her salonundan her olay için geçmiş satın bileti oluşturun.  Komut dosyası için birkaç dakika on binlerce anahtarları oluşturmak çalışır.
+1. PowerShell ISE'de açın *...\Learning Modules\Operational Analytics\Tenant Analytics\Demo TenantAnalytics.ps1*ve aşağıdaki değeri ayarlayın:
+    - **$DemoScenario** = **1** tüm mekanlardaki etkinlikler için bilet satın alma
+2. Tuşuna **F5** betiği çalıştırmak ve bilet satın alma geçmişini her mekan her olay için oluşturun.  Komut dosyası için birkaç dakika on binlerce anahtarları oluşturmak çalışır.
 
-### <a name="deploy-the-analytics-store"></a>Analytics deposu dağıtma
-Genellikle birlikte tüm Kiracı verileri tutmak çok sayıda işlem veritabanlarını vardır. Bir analiz deposuna birçok işlem veritabanlarından Kiracı veri toplaması gerekir. Verilerin verimli sorgu olanaklı kılmaktadır. Bu öğreticide, bir Azure SQL veritabanı veritabanı toplanan verileri depolamak için kullanılır.
+### <a name="deploy-the-analytics-store"></a>Analytics deposuna dağıtın
+Genellikle birlikte tüm Kiracı verilerini tutan çok sayıda işlem veritabanları da vardır. Kiracı verilerini bir analytics deposuna çok sayıda işlem veritabanlarından toplama gerekir. Toplama etkin sorgu veri sağlar. Bu öğreticide, bir Azure SQL veritabanı, toplanan verileri depolamak için kullanılır.
 
-Aşağıdaki adımlarda dağıttığınız adlandırılır analytics deposu **tenantanalytics**. Daha sonra öğreticide doldurulur önceden tanımlanmış tabloları da dağıtım:
-1. PowerShell ISE'yi açın *...\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
-2. $DemoScenario değişkeni betik seçiminizi analytics deposunun eşleşecek şekilde ayarlayın:
-    - Sütun deposu olmadan SQL veritabanını kullanacak şekilde ayarlama **$DemoScenario** = **2**
-    - Sütun deposu ile SQL veritabanını kullanacak şekilde ayarlama **$DemoScenario** = **3**  
-3. Tuşuna **F5** kullanarak gösteri komut dosyasını çalıştırın (çağırır *dağıtma TenantAnalytics<XX>.ps1* komut dosyası) Kiracı analytics deposu oluşturur. 
+Aşağıdaki adımlarda, çağrılan analytics deponun dağıttığınız **tenantanalytics**. Öğreticinin ilerleyen bölümlerinde doldurulur önceden tanımlanmış tablolar da dağıtım:
+1. PowerShell ISE'de açın *...\Learning Modules\Operational Analytics\Tenant Analytics\Demo TenantAnalytics.ps1* 
+2. $DemoScenario değişkeni betik analytics deposuna tercih ettiğiniz eşleşecek şekilde ayarlayın:
+    - SQL veritabanı sütun deposu olmadan kullanmak için ayarlanmış **$DemoScenario** = **2**
+    - SQL veritabanı ile sütun deposu kullanmak için ayarlanmış **$DemoScenario** = **3**  
+3. Tuşuna **F5** tanıtım betiğini çalıştırmak için (çağrılarının *Dağıt TenantAnalytics<XX>.ps1* betik) Kiracı analiz deposu oluşturur. 
 
-Dağıtılan uygulama ve ilginç Kiracı verilerle doldurulur göre kullanmak [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) bağlanmak için **tenants1-dpt -&lt;kullanıcı&gt;**  ve **katalog-dpt -&lt;kullanıcı&gt;**  oturum açma kullanan sunucuları = *Geliştirici*, parola = *P@ssword1*. Bkz: [giriş öğretici](saas-dbpertenant-wingtip-app-overview.md) daha fazla yardım için.
+Uygulamanın dağıtılması ve ilgi çekici Kiracı verilerle doldurulmuş göre kullanın [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) bağlanmak için **tenants1-dpt -&lt;kullanıcı&gt;**  ve **Kataloğu-dpt -&lt;kullanıcı&gt;**  oturum açma kullanarak sunucuları = *Geliştirici*, parola = *P@ssword1*. Bkz: [giriş niteliğindeki öğretici](saas-dbpertenant-wingtip-app-overview.md) daha fazla kılavuzluk için.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
-Nesne Gezgini'nde aşağıdaki adımları gerçekleştirin:
+Nesne Gezgini'nde, aşağıdaki adımları gerçekleştirin:
 
-1. Genişletme *tenants1-dpt -&lt;kullanıcı&gt;*  sunucu.
-2. Veritabanları düğümünü genişletin ve Kiracı veritabanları listesine bakın.
-3. Genişletme *katalog-dpt -&lt;kullanıcı&gt;*  sunucu.
-4. Analytics deposu ve jobaccount veritabanını gördüğünüzü doğrulayın.
+1. Genişletin *tenants1-dpt -&lt;kullanıcı&gt;*  sunucusu.
+2. Veritabanları düğümünü genişletin ve Kiracı veritabanlarını listesine bakın.
+3. Genişletin *Kataloğu-dpt -&lt;kullanıcı&gt;*  sunucusu.
+4. Analytics deponun ve jobaccount veritabanını gördüğünüzü doğrulayın.
 
-Şu veritabanı öğeler SSMS nesne Gezgini'nde analizi Depolama düğümü genişleterek bakın:
+Aşağıdaki veritabanı öğeleri SSMS nesne Gezgini'nde, analiz depolama düğümünü genişleterek görebilirsiniz:
 
-- Tablolar **TicketsRawData** ve **EventsRawData** Kiracı veritabanlarındaki ayıklanan ham verileri tutun.
+- Tabloları **TicketsRawData** ve **EventsRawData** Kiracı veritabanlarını ayıklanan ham verilerden tutun.
 - Yıldız şeması tablolar **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, ve **dim_Dates** .
-- Saklı yordam ham veri tabloları yıldız şeması tablolardan doldurmak için kullanılır.
+- Saklı yordam yıldız şeması tablolarının ham veri tablolarını doldurmak için kullanılır.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
 
 ## <a name="data-extraction"></a>Veri ayıklama 
 
-### <a name="create-target-groups"></a>Hedef grupları oluşturma 
+### <a name="create-target-groups"></a>Hedef grup oluşturma 
 
-Devam etmeden önce iş hesabı ve jobaccount veritabanına dağıttığınız emin olun. Adımları sonraki kümesinde esnek iş her Kiracı veritabanından veri ayıklamak ve veri analizi deposunda depolamak için kullanılır. Ardından ikinci işi veri shreds ve yıldız şeması içindeki tablolara depolar. Bu iki işler iki farklı hedef grupları karşı öğesine çalıştırmak **TenantGroup** ve **AnalyticsGroup**. Ayıklama işi tüm Kiracı veritabanlarını içeren TenantGroup karşı çalışır. Shredding işi yalnızca analytics deposunda AnalyticsGroup karşı çalışır. Aşağıdaki adımları kullanarak hedef gruplarını oluşturun:
+Devam etmeden önce iş hesabı ve jobaccount veritabanını dağıttığınız emin olun. Sonraki adım kümesini esnek işler her Kiracı veritabanından verileri ayıklamak ve analytics deposunda verileri depolamak için kullanılır. Ardından ikinci iş verileri shreds ve yıldız şemasındaki tablolar halinde depolar. Bu iki karşı iki farklı hedef grupları, yani işlerinizi **TenantGroup** ve **AnalyticsGroup**. Tüm Kiracı veritabanlarını içeren TenantGroup karşı ayıklama işi çalıştırır. Yalnızca analytics deposunda AnalyticsGroup karşı shredding işi çalıştırır. Aşağıdaki adımları kullanarak hedef grupları oluşturun:
 
-1. SSMS, bağlanmak **jobaccount** katalog veritabanında-dpt -&lt;kullanıcı&gt;.
-2. SSMS, açık *...\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
-3. Değiştirme @User değişken komut dosyasının üst değiştirme <User> Wingtip SaaS uygulama dağıtıldığında kullanılan kullanıcı değerine sahip.
-4. Tuşuna **F5** iki hedef grupları oluşturur komut dosyasını çalıştırmak için.
+1. SSMS'de bağlanma **jobaccount** katalog veritabanında-dpt -&lt;kullanıcı&gt;.
+2. SSMS'de açın *...\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
+3. Değiştirme @User değişken komut üst kısmındaki değiştirerek <User> Wingtip SaaS uygulamasını dağıtırken kullandığınız kullanıcı değerine sahip.
+4. Tuşuna **F5** iki hedef grupları oluşturur ve betiği çalıştırmak için.
 
-### <a name="extract-raw-data-from-all-tenants"></a>Tüm kiracılardan ham verileri ayıklamak
+### <a name="extract-raw-data-from-all-tenants"></a>Tüm kiracılardan ham verileri ayıklayın
 
-Kapsamlı veri değişiklikleri oluşabilir daha sık için *raporu ve müşteri* için daha veri *olay ve salonundan* veri. Bu nedenle, ayrı ayrı ve olay ve salonundan veri ayıklamak daha sık bilet ve müşteri verileri ayıklamayı göz önünde bulundurun. Bu bölümde tanımlayın ve iki ayrı işlerini zamanla:
+Kapsamlı veri değişiklikler oluşabilir daha sık için *raporu ve müşteri* için daha veri *olay ve mekan* veri. Bu nedenle, ayrı ayrı ve olay ve mekan verileri ayıklamak daha sık raporu ve müşteri veri ayıklamayı göz önünde bulundurun. Bu bölümde, tanımlamak ve iki ayrı işleri zamanlayın:
 
-- Bilet ve müşteri verilerini ayıklayın.
-- Olay ve salonundan veri ayıklayın.
+- Anahtar ve müşteri verileri ayıklayın.
+- Olay ve mekan verileri ayıklayın.
 
-Her bir iş verileri ayıklar ve analizi depolama alanına gönderir. Var. ayrı bir İş analizi yıldız şemasına ayıklanan verilerin shreds.
+Her bir iş, verileri ayıklayan ve analytics deposuna gönderir. Var ayrı bir İş analizi yıldız şeması ayıklanan verilerin shreds.
 
-1. SSMS, bağlanmak **jobaccount** katalog veritabanında-dpt -&lt;kullanıcı&gt; sunucu.
-2. SSMS, açık *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
-3. Değiştirme @User komut dosyası ve Değiştir üstündeki <User> Wingtip SaaS uygulama dağıtıldığında kullanılan kullanıcı adı 
-4. Oluşturan ve her Kiracı veritabanından biletlerini ve müşterilerin verileri ayıklar işi çalıştırır komut dosyasını çalıştırmak için F5 tuşuna basın. İş verileri analiz deposuna kaydeder.
-5. Tablonun tüm kiracılar bilet bilgileriyle doldurulur emin olmak için tenantanalytics veritabanındaki TicketsRawData Tablo sorgusu.
+1. SSMS'de bağlanma **jobaccount** katalog veritabanında-dpt -&lt;kullanıcı&gt; sunucusu.
+2. SSMS'de açın *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
+3. Değiştirme @User en üstündeki komut dosyası ve Değiştir <User> Wingtip SaaS uygulamasını dağıtırken kullandığınız kullanıcı adı 
+4. Oluşturan ve her Kiracı veritabanından biletler ve müşterilerin verileri ayıklayan işi çalıştırır ve betiği çalıştırmak için F5 tuşuna basın. İş verileri analizi deposuna kaydeder.
+5. Tablonun tüm kiracıların bilet bilgileriyle doldurulduğundan emin olmak için tenantanalytics veritabanındaki TicketsRawData tablosunu sorgulayın.
 
 ![ticketExtracts](media/saas-tenancy-tenant-analytics/ticketExtracts.png)
 
 Bu zaman değiştir dışında önceki adımları yineleyin **\ExtractTickets.sql** ile **\ExtractVenuesEvents.sql** 2. adımda.
 
-İş başarıyla çalıştıran yeni olaylar ve tüm kiracılar görebildikleri bilgilerinden analytics deposuyla EventsRawData tabloda doldurur. 
+İş başarıyla çalıştığını yeni olaylar ve tüm kiracılar venues bilgileri analiz deposuyla EventsRawData tablosunda doldurur. 
 
-## <a name="data-reorganization"></a>Veri düzenlenmesi
+## <a name="data-reorganization"></a>Verileri yeniden düzenleme
 
-### <a name="shred-extracted-data-to-populate-star-schema-tables"></a>Yıldız şeması tabloları doldurmak için shred ayıklanan veri
+### <a name="shred-extracted-data-to-populate-star-schema-tables"></a>Yıldız şeması tablolarını doldurmak için ayıklanan veri içinse
 
-Sonraki adım analitik sorguları için iyileştirilmiş tablolar kümesine ayıklanan ham verileri shred olacak. Bir yıldız şeması kullanılır. Bir merkezi Olgu Tablosu tek tek bilet satış kayıtları tutar. Diğer tablolar görebildikleri, olayları ve müşteriler hakkında ilgili verilerle doldurulur. Ve zaman boyut tabloları vardır. 
+Sonraki adım, ayıklanan ham verileri analiz sorguları için iyileştirilmiş tablolar kümesine içinse sağlamaktır. Bir yıldız şeması kullanılır. Bir merkezi Olgu Tablosu tek bilet satış kayıt tutar. Diğer tablolar hakkında mekanlar, etkinlikleri ve müşterilerin ilgili verilerle doldurulur. Ve zaman boyut tabloları vardır. 
 
-Öğreticinin bu bölümünde tanımlanır ve ayıklanan ham verileri yıldız şeması tablolardaki verileri birleştiren bir işi çalıştırın. Birleştirme işi tamamlandıktan sonra ham verileri silinir, sonraki Kiracı veri tarafından doldurulmalıdır hazır tabloları bırakarak ayıklamak işi.
+Öğreticinin bu bölümünde tanımlayın ve yıldız şeması tablolardaki verileri ayıklanan ham verileri birleştiren bir işi çalıştırın. Birleştirme işlemi tamamlandıktan sonra ham veriler silinir, sonraki Kiracı verilerini tarafından doldurulmalıdır hazır tabloları bırakarak iş ayıklayın.
 
-1. SSMS, bağlanmak **jobaccount** katalog veritabanında-dpt -&lt;kullanıcı&gt;.
-2. SSMS, açık *...\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql*.
-3. Tuşuna **F5** analytics deposunda saklı yordamı sp_ShredRawExtractedData çağıran bir işlemi tanımlamak için komut dosyasını çalıştırmak için.
-4. İş başarılı bir şekilde çalıştırmak yeterli zaman tanıyın.
-    - Denetleme **yaşam döngüsü** işinin durumu için jobs.jobs_execution tablosunun sütun. İş emin **başarılı** devam etmeden önce. Başarılı bir çalıştırma verileri aşağıdaki grafiğe benzer görüntüler:
+1. SSMS'de bağlanma **jobaccount** katalog veritabanında-dpt -&lt;kullanıcı&gt;.
+2. SSMS'de açın *...\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql*.
+3. Tuşuna **F5** sp_ShredRawExtractedData çağıran bir işi tanımlamak üzere betik çalıştırmak için analytics deposunda saklı yordamı.
+4. İş, başarıyla çalışması yeterli zaman ayırın.
+    - Denetleme **yaşam döngüsü** işinin durumunu jobs.jobs_execution tablonun sütun. İş emin **başarılı** devam etmeden önce. Başarılı çalıştırma aşağıdaki grafiğe benzer veri görüntüler:
 
 ![shredding](media/saas-tenancy-tenant-analytics/shreddingJob.PNG)
 
 ## <a name="data-exploration"></a>Veri keşfi
 
-### <a name="visualize-tenant-data"></a>Kiracı verileri görselleştirin
+### <a name="visualize-tenant-data"></a>Kiracı verilerini görselleştirin
 
-Yıldız Şeması tablosundaki verileri çözümleme için gereken tüm bilet satış verileri sağlar. Büyük veri kümeleri eğilimler görmeyi kolaylaştırmak için grafik görselleştirmek gerekir.  Bu bölümde, nasıl kullanılacağını öğrenirsiniz **Power BI** değiştirmek ve ayıklanır ve düzenlenmiş Kiracı verileri görselleştirmek için.
+Yıldız şeması tablodaki verileri çözümleme için gereken tüm bilet satış verileri sağlar. Büyük veri kümelerindeki eğilimleri görmek daha kolay hale getirmek için grafik görselleştirme gerekir.  Bu bölümde, nasıl kullanılacağını öğrenin **Power BI** işlemek ve ayıklanır ve düzenlenmiş Kiracı verilerini görselleştirmek için.
 
-Power BI bağlanmak ve daha önce oluşturduğunuz görünümler içeri aktarmak için aşağıdaki adımları kullanın:
+Power BI'a bağlamak için ve daha önce oluşturduğunuz görünümleri içeri aktarmak için aşağıdaki adımları kullanın:
 
-1. Power BI desktop başlatın.
-2. Giriş şeridinden seçin **Veri Al**seçip **daha...** menüden.
-3. İçinde **Veri Al** penceresinde, Azure SQL veritabanı seçme.
-4. Veritabanı oturum açma penceresinde sunucunuzun adını girin (katalog-dpt -&lt;kullanıcı&gt;. database.windows.net). Seçin **alma** için **veri bağlantı modu**ve ardından Tamam'ı tıklatın. 
+1. Power BI desktop'ı başlatın.
+2. Giriş şeridinde seçin **Veri Al**seçip **daha...** belirleyin.
+3. İçinde **Veri Al** penceresinde, Azure SQL veritabanı seçin.
+4. Veritabanı oturum açma penceresinde sunucunuzun adını girin (Kataloğu-dpt -&lt;kullanıcı&gt;. database.windows.net). Seçin **alma** için **veri bağlantısı modu**ve ardından Tamam'a tıklayın. 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Seçin **veritabanı** sol bölmede, kullanıcı adı enter = *Geliştirici*ve parolayı girin = *P@ssword1*. **Bağlan**'a tıklayın.  
+5. Seçin **veritabanı** sol bölmede, daha sonra kullanıcı adını girin = *Geliştirici*ve parolayı girin = *P@ssword1*. **Bağlan**'a tıklayın.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
-6. İçinde **Gezgini** bölmesinde Analizi veritabanı altında yıldız şeması tabloları seçme: fact_Tickets, dim_Events, dim_Venues, dim_Customers ve dim_Dates. Ardından **yük**. 
+6. İçinde **Gezgin** bölmesinde analiz veritabanı altında yıldız şeması tabloları Seç: fact_Tickets dim_Events, dim_Venues dim_Customers ve dim_Dates. Ardından **yük**. 
 
-Tebrikler! Power BI'da verileri başarıyla yüklemiş olduğunuz. Şimdi, kiracılar Öngörüler elde yardımcı olmak için ilgi çekici görselleştirmeler keşfetmeye başlayabilirsiniz. Sonraki nasıl analytics Wingtip biletleri iş takımı verilere öneriler sağlamak üzere etkinleştirebilirsiniz aracılığıyla yol. Öneriler iş modeli ve müşteri deneyimini iyileştirmek için yardımcı olabilir.
+Tebrikler! Power BI'a veri başarıyla yüklediniz. Artık kiracılarınız bilgi edinmeye yardımcı olmak için ilgi çekici görselleştirmeler keşfetmeye başlayabilirsiniz. Sonraki nasıl analiz Wingtip bilet iş ekibine veri odaklı öneriler sağlamak üzere etkinleştirebilirsiniz aracılığıyla yol. Öneriler iş modeli ve müşteri deneyimini iyileştirmek için yardımcı olabilir.
 
-Değişim kullanımı arasında görebildikleri görmek için bilet satış verileri çözümleyerek başlatın. Power BI'ın her salonundan tarafından satılan biletleri toplam sayısının bir çubuk grafiği çizmek için aşağıdaki seçenekleri belirleyin. Bilet oluşturucu içinde rastgele değişim nedeniyle sonuçlarınızı farklı olabilir.
+Kullanım varyasyonu arasında venues görmek için bilet satış verileri çözümleyerek başlayın. Power BI'ın bilet her mekan tarafından satılan toplam sayısı bir çubuk grafiği çizmek için aşağıdaki seçenekleri belirleyin. Bilet Oluşturucu rastgele varyasyonu nedeniyle sonuçlarınızı farklı olabilir.
  
 ![TotalTicketsByVenues](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
 
-Önceki çizim, her salonundan tarafından satılan anahtarların sayısı değişiklik gösterdiğini doğrular. Daha fazla bilet satabilir görebildikleri hizmetiniz daha az bilet satabilir görebildikleri daha yoğun kullanıyor. Kaynak ayırma farklı Kiracı gereksinimlerine göre uyarlamak için Fırsat burada olabilir.
+Önceki çizim, her mekanın tarafından satılan anahtarların sayısı değiştiğini onaylar. Daha fazla biletleri satmanın venues hizmetiniz daha az biletleri satmanın venues daha fazla kullanmaktadır. Kaynak ayırma farklı kiracıda gereksinimlerine göre uygun hale getirmek için bir fırsat burada olabilir.
 
-Daha fazla bilet satış zaman içinde nasıl farklılık görmek için bu verileri analiz edebilirsiniz. 60 gün boyunca her gün satılan anahtarların toplam sayısı çizmek için Power bı'da aşağıdaki seçenekleri belirleyin.
+Daha fazla nasıl bilet satışı zamanla değişir görmek için verileri analiz edebilirsiniz. Power BI'ın bilet her gün 60 gün boyunca satılan toplam sayısı çizmek için aşağıdaki seçenekleri belirleyin.
  
 ![SaleVersusDate](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
 
-Önceki grafik bazı görebildikleri Bu bilet satış depo görüntüler. Bu ani bazı görebildikleri sistem kaynaklarını orantısız kullanan, fikir pekiştirmek. Şu ana kadar ani olduğunda belirgin bir desen yoktur.
+Önceki grafik bazı mekanlar, bilet satış depo görüntüler. Bu ani venues bazı sistem kaynakları orantısız kullanan, fikir güçlendirmek. Şu ana kadar ani değişiklikleri gerçekleştiğinde herhangi bir belirgin desen yoktur.
 
-Sonraki en yüksek satış bugünlerde önemini daha fazla araştırmak istediğiniz. Bilet indirimde olduktan sonra bu yükselmeleri ortaya çıktığında? Gün başına satılan biletleri çizmek için Power BI'da aşağıdaki seçenekleri belirleyin.
+Sonraki en yüksek satış bugünlerde önemini daha fazla araştırmak istediğiniz. Bilet satış için olduktan sonra bu en yüksek sayılar oluşur? Gün başına satılan biletleri çizmek için Power BI'da aşağıdaki seçenekleri belirleyin.
 
 ![SaleDayDistribution](./media/saas-tenancy-tenant-analytics/SaleDistributionPerDay.PNG)
 
-Önceki çizim, bazı görebildikleri satış ilk günü biletlerinin çok satmak gösterir. Bilet satış bu görebildikleri adresindeki gidin hemen olduğu anlaşılıyor mad sağladığından olmalıdır. Bu veri bloğu birkaç görebildikleri tarafından etkinliğin diğer kiracılar için hizmet etkileyebilir.
+Yukarıdaki çizimin bazı venues satış ilk gününde biletleri çok fazla satış gösterir. Biletler satışa bu mekanlar, Git hemen sonra yok gibi görünüyor mad yoğunluğu yaşanan bir mekanda olması. Bu çok sayıda etkinlik birkaç venues tarafından diğer kiracılar için hizmet etkileyebilir.
 
-Yeniden bu mad sağladığından bu görebildikleri tarafından barındırılan tüm olaylar için doğru olup olmadığını görmek için verilerin ayrıntılarına geçebilir. Önceki çizimleri içinde Contoso birlikte Hall biletlerinin çok sattığı ve Contoso aynı zamanda bir depo bilet satış belirli günlerde olduğunu gözlenen. Olayların her biri kendi için satış eğilimlerini odaklanan Contoso birlikte Hall toplu bilet satış çizmek için Power BI seçeneklerle yürütün. Tüm olaylar aynı satış modeli izleyen?
+Yeniden bu mad sağladığından bu venues tarafından barındırılan tüm olaylar için doğru olup olmadığını görmek için verilerin ayrıntılarına ulaşabilirsiniz. Önceki çizimler içinde Contoso Konser Salonu biletlerinin çok satan ve Contoso ayrıca bir bilet satış belirli günlerde sahip olduğunu gözlemledik. Satış eğilimlerini her olaylarını odaklanma Contoso Konser Salonu için toplu bilet satışı çizmek için Power BI seçeneklerle oynayabilirsiniz. Tüm olaylar aynı satış deseni takip?
 
 ![ContosoSales](media/saas-tenancy-tenant-analytics/EventSaleTrends.PNG)
 
-Önceki çizim Contoso birlikte Hall için mad sağladığından ilgili tüm olaylar gerçekleşmez gösterir. Diğer görebildikleri satış eğilimlerini görmek için filtre seçenekleriyle yürütün.
+Contoso Konser Salonu için yukarıdaki çizimin mad sağladığından tüm olaylar için gerçekleşmez gösterir. Diğer venues satış eğilimlerini görmek için filtre seçenekleriyle oynayabilirsiniz.
 
-Desenler satış bilet Öngörüler Wingtip kendi iş modeli en iyi duruma getirme biletleri neden olabilir. Tüm kiracılar eşit şarj yerine, belki de Wingtip hizmet katmanları farklı performans düzeyleriyle eklemeniz gerekir. Gün başına daha fazla bilet satabilir gerek büyük görebildikleri daha yüksek bir hizmet düzeyi sözleşmesi (SLA) ile daha yüksek bir katmanı sunulabilecek. Bu görebildikleri daha yüksek veritabanı başına kaynak sınırları havuzuyla yerleştirilen kendi veritabanlarını olabilir. Her hizmet katmanında bir saatlik satış ayırma ayırma aşan için sizden ücret ek ücretler ile sahip olabilir. Satış düzenli WINS'e sahip büyük görebildikleri daha yüksek katman yararlanabileceğini ve Wingtip biletleri kendi hizmet daha verimli bir şekilde paraya çevirme.
+Bilet satış desenleri Öngörüler, kendi iş modeli iyileştirmek için Wingtip bilet neden olabilir. Tüm kiracılar eşit şekilde ücretlendirmeye yerine, belki de Wingtip farklı bilgi işlem boyutlarına hizmet katmanlarıyla eklemeniz gerekir. Her gün daha fazla bileti satmak için gereken daha büyük mekanlar, daha yüksek bir hizmet düzeyi sözleşmesi (SLA) ile daha yüksek bir katmana sunulabilecek. Bu mekanlar, veritabanları, havuz başına veritabanı kaynak sınırları daha yüksek yerleştirilir olabilir. Her hizmet katmanı için ayırma aşan ek Ücretlerle ile saatlik bir satış ayırma olabilir. Satış düzenli ani artışlara sahip büyük mekanlar, daha yüksek katmanı arasından avantaj elde edecektir ve Wingtip bilet servisine daha verimli bir şekilde gelir elde.
 
-Bu sırada, bazı Wingtip biletleri müşterilerin servis maliyeti yaslamak için yeterli bilet satabilir güçlük şikayetçi. Belki de bu Öngörüler görebildikleri underperforming için bilet satış artırmak için bir fırsat yok. Daha yüksek satış hizmet algılanan değerini artırır. Fact_Tickets sağ tıklatın ve seçin **yeni ölçü**. Aşağıdaki adlı yeni bir ölçü ifadesi girin **AverageTicketsSold**:
+Bu arada, bazı Wingtip bilet müşterilerin service maliyetleri açıklamaya yeterli bileti satmak uğraşır şikayet. Belki de bu ınsights'ta venues yeterli performansa sahip olmayan için bilet satışları artırın olanağı yoktur. Daha yüksek satış hizmet algılanan değerini artırır. Fact_Tickets sağ tıklatın ve seçin **yeni ölçü**. Adlı yeni bir ölçü için aşağıdaki ifadeyi girin **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
 ```
 
-Göreli başarılarını belirlemek için her salonundan tarafından satılan yüzdesi biletleri çizmek için aşağıdaki görselleştirme seçeneklerini belirtin.
+Göreli başarılarını belirlemek için her mekan tarafından satılan yüzdesi biletleri çizmek için aşağıdaki görselleştirme seçeneklerini belirtin.
 
 ![AvgTicketsByVenues](media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
 
-Önceki çizim, çoğu görebildikleri biletlerini % 80'den fazla satmak olsa bile, bazı yarısından fazlası kişilik doldurmak zorlanıyor olduğunu gösterir. Değerleri için her salonundan satılan biletlerinin en düşük veya en yüksek yüzde seçmek için iyi oynamak.
+Yukarıdaki çizimin çoğu venues biletlerini % 80'inden fazlasının satmak olsa da, bazı yarısından fazlasına lisans doldurmak ulaşmakta olduğunu gösterir. Değerler, her mekanın için satılan anahtarların en yüksek veya en düşük yüzdelerini belirlemek için de ile oynayabilirsiniz.
 
-Önceki bilet satış tahmin edilebilir desenleri eğilimindedir bulmak için çözümleme deepened. Bu bulgu dinamik fiyatlandırma önererek görebildikleri artırma bilet satış underperforming Wingtip biletleri Yardım sağlayabilir. Bu bulma, her olay için bilet satış tahmin etmek için makine öğrenme teknikleri kullanımlar için fırsat ortaya. Tahminleri bilet satış indirimler sunumu gelir üzerindeki etkiyi için de yapılamadı. Power BI Embedded bir olay yönetim uygulamaya tümleştirmesine izin. Tümleştirme, tahmin edilen satış ve farklı indirimleri etkisini görselleştirmenize yardımcı olabilir. Uygulama, doğrudan analytics görüntüden uygulanan en iyi bir indirimli insanlara yardımcı olabilir.
+Önceki bilet satışı tahmin edilebilir düzenleri izleyerek eğilimindedir keşfetmeye, analiz deepened. Bu bulgu venues boost bilet satışı dinamik fiyatlandırma önererek yeterli performansa sahip olmayan Wingtip bilet Yardım sağlayabilir. Bu bulma, her etkinlik için bilet satışı tahmin etmek için makine öğrenimi tekniklerinden kullanmak istemiyorsunuz fırsat ortaya. Tahminler elde etmek için bilet satışı indirimler sunan gelir üzerindeki etkisini de yapılamadı. Power BI Embedded bir olay yönetim uygulamasına tümleşik. Tümleştirme, tahmin edilen satışlar ve farklı indirimleri etkisini görselleştirmenize yardımcı olabilir. Uygulama, Answering doğrudan analytics görüntüden uygulanacak en yüksek bir indirim yardımcı olabilir.
 
-WingTip uygulamasından Kiracı verilerindeki eğilimleri karşılaştığınız. Uygulama SaaS uygulama satıcıları için iş kararları bilgilendirebilir diğer yolları contemplate. Satıcılar kiracıları ihtiyaçlarını daha iyi karşılamak. Umarız Bu öğreticide, veri güdümlü kararlar almak için işletmelerin güçlendirmeniz Kiracı veriler üzerinde analiz gerçekleştirmek için gerekli araçları ile donatılmış.
+WingTip uygulamasının Kiracı verileri eğilimleri gözlenmiştir. Uygulama SaaS uygulama satıcıları için iş kararları bilgilendirebilir diğer yolları contemplate. Satıcılar, kiracıları ihtiyaçlarını daha iyi yararlanılır. Umarım Bu öğreticide, veri odaklı kararlar, işletmelerin güçlendirmek için Kiracı verilerini analiz gerçekleştirmek gerekli araçları ile donatılmış.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> - Önceden tanımlı bir yıldız şeması tablolarla Kiracı analytics veritabanı dağıtılan
-> - Esnek iş tüm Kiracı veritabanından veri ayıklamak için kullanılır
-> - Ayıklanan veri analizi için tasarlanmış bir yıldız şeması tablolarında birleştirin
-> - Bir analiz veritabanını sorgulama 
-> - Kiracı verilerindeki eğilimleri izlemek için veri görselleştirme için Power BI kullanın 
+> - Kiracı analiz veritabanını önceden tanımlı bir yıldız şeması tablolarla dağıtılan
+> - Esnek işler, tüm Kiracı veritabanından verileri ayıklamak için kullanılır
+> - Ayıklanan verileri analiz için tasarlanan bir yıldız şeması tablolarında birleştirin
+> - Bir analiz veritabanı sorgulama 
+> - Kiracı verilerindeki eğilimleri gözlemlemek için veri görselleştirme için Power BI'ı kullanın 
 
 Tebrikler!
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-- Ek [Wingtip SaaS uygulamasına yapı öğreticileri](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Esnek iş](sql-database-elastic-jobs-overview.md).
+- Ek [Wingtip SaaS uygulaması oluşturan öğretici](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- [Esnek işler](sql-database-elastic-jobs-overview.md).

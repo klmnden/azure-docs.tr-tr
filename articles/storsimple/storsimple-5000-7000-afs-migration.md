@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: d54394a8dc74d04f1922a78826b10a4a421d193b
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: aad5b2d2e451f33a3f4f365fa0702eef5d698e4e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814599"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729172"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Azure dosya eşitleme için StorSimple 5000-7000 serisinden veri geçirme
 
@@ -56,8 +56,7 @@ Burada, eski 5000 veya 7000 Serisi Cihazınızı için Azure dosya eşitleme ge�
 - StorSimple birimleri konakta bağlanır ve dosya paylaşımları içeren.
 - Ana bilgisayar, yerel olarak önbelleğe alınan verileri tutmak için yeterli yerel depolama alanına sahiptir.
 - Azure dosya eşitleme dağıtmak için kullanacağınız Azure aboneliği düzeyinde erişim sahibi. Sahibi veya yönetici düzeyi izinler yoksa eşitleme grubunuz için bir bulut uç noktası oluştururken sorunlarla karşılaşabilirsiniz.
-- Erişim bir [genel amaçlı v2 depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-account-options) ile eşitlemek için istediğiniz bir Azure dosya paylaşımı. Daha fazla bilgi için Git 
- - Nasıl yapılır [genel amaçlı v2 depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal#create-a-general-purpose-storage-account).
+- Erişim bir [genel amaçlı v2 depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-account-overview) ile eşitlemek için istediğiniz bir Azure dosya paylaşımı. Daha fazla bilgi için [depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
  - Nasıl yapılır [bir Azure dosya paylaşımı oluşturma](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal).
 
 ## <a name="migration-process"></a>Geçiş işlemi

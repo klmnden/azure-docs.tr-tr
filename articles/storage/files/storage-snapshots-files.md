@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: b261ec5fb0ad437202df1a8fd8683a095cb1bb96
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 03280f87b4b49b3e42091c6b1572a7f050afb336
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42058289"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983186"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure dosyaları için paylaşım anlık görüntülerine genel bakış 
 Azure dosyaları, dosya paylaşımları paylaşım anlık görüntüsünü olanağı sağlar. Anlık görüntüleri yakalama paylaşım durumu zamandaki o noktada paylaşın. Bu makalede, hangi özelliklerin paylaşım anlık görüntüleri sağlar ve bunları kendi özel kullanım örneğindeki özelliklerinden nasıl gerçekleştirebileceğiniz açıklanmaktadır.
@@ -32,7 +32,7 @@ Bir dosya paylaşımı oluşturduktan sonra düzenli aralıklarla veri yedekleme
 ## <a name="capabilities"></a>Özellikler
 Paylaşım anlık görüntüsü, verilerinizin zaman içinde nokta, salt okunur bir kopyasıdır. Oluşturma, silme ve REST API kullanarak anlık görüntüleri yönetme. Aynı özellikleri, ayrıca istemci kitaplığı, Azure CLI ve Azure portalında kullanılabilir. 
 
-REST API ve SMB kullanarak bir paylaşım anlık görüntülerini görüntüleyebilirsiniz. Dizin veya dosya sürümlerinin listesini alabilir ve doğrudan bir sürücü olarak belirli bir sürüme bağlayabilir. 
+REST API ve SMB kullanarak bir paylaşım anlık görüntülerini görüntüleyebilirsiniz. Dizin veya dosya sürümlerinin listesini alabilir ve doğrudan bir sürücü olarak belirli bir sürüme bağlayabilir (yalnızca Windows - kullanılabilir bkz [sınırları](#limits)). 
 
 Paylaşım anlık görüntüsü oluşturulduktan sonra okuyun, kopyalanır, veya silinmiş, ancak değiştirilmedi. Başka bir depolama hesabı için tam paylaşım anlık görüntüsü kopyalanamıyor. Bu dosya tarafından dosya, AzCopy veya kopyalama başka mekanizmalar kullanılarak yapmak zorunda.
 
@@ -62,6 +62,8 @@ Anlık görüntüler, 5 TB paylaşımı sınırında sayılmaz. Ne kadar toplam 
 Azure dosyaları'nı bugün sağlayan bir paylaşım anlık görüntüleri sayısı 200'dür. 200 paylaşım anlık görüntüleri sonra yenilerini oluşturmak için önceki paylaşım anlık görüntüleri silmeniz gerekir. 
 
 Paylaşım anlık görüntüleri oluşturmak için eş zamanlı çağrı için sınır yoktur. Belirli bir dosya paylaşımı anlık görüntülerini kullanabilir paylaşan boşluk miktarının sınırı yoktur. 
+
+Bugün, paylaşım anlık görüntüleri Linux'ta bağlama mümkün değildir. Linux SMB istemcisinin Windows gibi bağlama anlık görüntülerini desteklemiyor olmasıdır.
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Paylaşım anlık görüntüsünden geri bir paylaşıma veri kopyalama
 İlgili dosyaları ve anlık görüntüleri paylaşan kopyalama işlemleri bu kuralları izleyin:

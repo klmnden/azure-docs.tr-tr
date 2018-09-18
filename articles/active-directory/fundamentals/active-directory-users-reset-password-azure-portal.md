@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory'de bir kullanıcının parolasını sıfırlama | Microsoft Docs
-description: Azure Active Directory'yi kullanarak bir kullanıcının parolasını sıfırlayın.
+description: Azure Active Directory'yi kullanarak bir kullanıcının parolasını sıfırlama konusunda bilgi edinin.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -13,12 +13,12 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: e6f937063832e6b2a5f301d6d61aec4b3426ea28
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3803808ab589c3d880111421f650141f0d829f0b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603099"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736110"
 ---
 # <a name="how-to-reset-a-users-password-using-azure-active-directory"></a>Nasıl yapılır: Azure Active Directory'yi kullanarak bir kullanıcının parolasını sıfırlama
 Parola unutulursa kullanıcı dışında bir cihaz kilitli ya da kullanıcı hiç parola almadıysanız, bir kullanıcının parolasını sıfırlayabilirsiniz.

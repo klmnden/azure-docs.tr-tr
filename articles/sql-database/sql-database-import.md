@@ -6,19 +6,19 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 09/04/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 ms.topic: conceptual
-ms.openlocfilehash: 6df71f50129ec6901d0b8688b0a6d3619260cf22
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: eefffdc425a300a8a4caa358494fbdc4fd84e356
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634250"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983993"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Yeni bir Azure SQL veritabanına BACPAC dosyasını içeri aktarma
 
-Ne zaman bir veritabanı arşivden almanız veya başka bir platformdan diğerine geçirirken, veritabanı şemasını ve verileri içeri aktarabilirsiniz bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosya. Bir BACPAC dosyasına BACPAC SQL Server veritabanındaki verileri ve meta verileri içeren bir uzantıya sahip bir ZIP dosyasıdır. Bir BACPAC dosyası (yalnızca standart depolama) Azure blob depolama alanından içeri aktarılabilir veya yerel depoda bir şirket içi konum. İçeri aktarma hızını en üst düzeye çıkarmak için daha yüksek hizmet katmanı ve performans düzeyi, bir P6 gibi belirtin ve ardından içeri aktarma başarılı olduktan sonra uygun şekilde aşağı ölçeklendirin öneririz. Ayrıca, içeri aktarma işleminden veritabanı uyumluluk düzeyi, kaynak veritabanının uyumluluk düzeyini temel alır. 
+Ne zaman bir veritabanı arşivden almanız veya başka bir platformdan diğerine geçirirken, veritabanı şemasını ve verileri içeri aktarabilirsiniz bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosya. Bir BACPAC dosyasına BACPAC SQL Server veritabanındaki verileri ve meta verileri içeren bir uzantıya sahip bir ZIP dosyasıdır. Bir BACPAC dosyası (yalnızca standart depolama) Azure blob depolama alanından içeri aktarılabilir veya yerel depoda bir şirket içi konum. Alma hızını en üst düzeye çıkarmak için daha yüksek bir hizmet katmanına belirtin ve boyutu, bir P6 gibi işlem ve sonra içeri aktarma başarılı olduktan sonra uygun şekilde aşağı ölçeklendirin öneririz. Ayrıca, içeri aktarma işleminden veritabanı uyumluluk düzeyi, kaynak veritabanının uyumluluk düzeyini temel alır. 
 
 > [!IMPORTANT] 
 > Veritabanınızı Azure SQL veritabanı'na geçirdikten sonra veritabanını, geçerli uyumluluk düzeyinde (düzey 100 AdventureWorks2008R2 veritabanı için) veya daha yüksek bir düzeyde çalışılacak seçebilirsiniz. Veritabanını belirli bir uyumluluk düzeyinde çalıştırmanın etkileri ve buna yönelik seçenekler hakkında daha fazla bilgi için, bkz. [Veritabanı Uyumluluk Düzeyini Değiştirme](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Uyumluluk düzeyleriyle ilgili ek veritabanı düzeyi ayarları hakkında bilgi için, ayrıca bkz. [VERİTABANI KAPSAMLI YAPILANDIRMAYI DEĞİŞTİRME](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).   >
@@ -104,7 +104,7 @@ $importStatus
 Başka bir komut dosyası örneği için bkz. [veritabanını BACPAC dosyasından içeri aktarma](scripts/sql-database-import-from-bacpac-powershell.md).
 
 ## <a name="limitations"></a>Sınırlamalar
-- Elastik havuzdaki bir veritabanı için içeri aktarma desteklenmiyor. Bir tek veritabanı'na veri aktarma ve ardından veritabanını havuza taşıma.
+- Elastik havuzdaki bir veritabanı için içeri aktarma desteklenmiyor. Verileri tek bir veritabanına içeri aktarabilir ve sonra veritabanını havuza taşıma.
 
 ## <a name="import-using-other-methods"></a>Diğer yöntemleri kullanarak içeri aktarma
 
