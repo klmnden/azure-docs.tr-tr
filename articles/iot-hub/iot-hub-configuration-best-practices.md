@@ -7,12 +7,12 @@ ms.date: 06/24/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 571aa5a080ae4622a23fdb20d712327d4ec6fbf9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 5eb0ba659961d809d0ae471034b03263f87e3894
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42059662"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985507"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Bir IOT çözüm içinde cihaz yapılandırması için en iyi uygulamalar
 
@@ -55,7 +55,7 @@ Donanım üreticileri ve katıştırılmış yazılım geliştirme ile ilgili en
 
 Azure'da tabanlı sistemler oluşturmaya IOT çözüm geliştiriciler için en iyi uygulamalar şunlardır:
 
-* **Uygulama [cihaz ikizlerini](iot-hub-devguide-device-twins.md):** cihaz ikizlerini etkinleştirme buluttan ve geçerli yapılandırma ve cihaz özelliklerini raporlamak istediğiniz yapılandırma eşitleniyor. Cihaz ikizlerini bulut çözümleri uygulamaları içinde uygulamak için en iyi yollarından biri sayesinde [Azure IOT SDK'ları](https://github.com/Azure/azure-iot-sdks.) için cihaz ikizlerini yapılandırması için en uygun bunlar:
+* **Uygulama [cihaz ikizlerini](iot-hub-devguide-device-twins.md):** cihaz ikizlerini etkinleştirme buluttan ve geçerli yapılandırma ve cihaz özelliklerini raporlamak istediğiniz yapılandırma eşitleniyor. Cihaz ikizlerini bulut çözümleri uygulamaları içinde uygulamak için en iyi yollarından biri sayesinde [Azure IOT SDK'ları](https://github.com/Azure/azure-iot-sdks). İçin cihaz ikizlerini yapılandırması için en uygun bunlar:
 
     * Çift yönlü iletişimi destekler.
     * Her iki bağlı ve bağlantısı kesilmiş cihaz durumları için izin verin. 

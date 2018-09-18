@@ -1,22 +1,24 @@
 ---
-title: Bilgisayar görme API için sınıflandırma 86 kategorilerini | Microsoft Docs
-description: Microsoft Bilişsel hizmetler bilgisayar görme API sınıflandırma 86 kategorilerini alın.
+title: Görüntü işleme API'si için sınıflandırma 86 kategorileri
+titlesuffix: Azure Cognitive Services
+description: Azure Bilişsel hizmetler, görüntü işleme API'si için sınıflandırma 86 kategorilerini alın.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: reference
 ms.date: 12/19/2016
 ms.author: kefre
-ms.openlocfilehash: c44345ac1829f09cc855483278198883ca021159
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b5da9a19d51bef6ae31b89c5b8fc8ae4b7c5177e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351616"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984916"
 ---
-##<a name="86-categories-taxonomy"></a>86 kategorileri sınıflandırma
+# <a name="86-categories-taxonomy"></a>86 kategori sınıflandırma
+
 abstract_
 
 abstract_net

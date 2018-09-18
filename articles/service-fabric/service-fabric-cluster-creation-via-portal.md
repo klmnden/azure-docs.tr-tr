@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: e56c60f67dcfe5c11191942a812d2c670055dfd8
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: fbca9c746863b852a9ddd46d00a65d4133961718
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092657"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984382"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure portalını kullanarak Azure'da bir Service Fabric kümesi oluşturma
 > [!div class="op_single_selector"]
@@ -123,7 +123,7 @@ Küme düğümlerini yapılandırın. Düğüm türleri VM boyutlarını, VM'ler
 7. **Ters Proxy'yi Etkinleştir**.  [Service Fabric ters proxy'si](service-fabric-reverseproxy.md) yardımcı mikro hizmetler bir Service Fabric kümesinde çalışan bulmak ve http uç noktaları olan diğer hizmetlerle iletişim kurma.
 8. Altında **+ isteğe bağlı ayarları göster**, küme yapılandırma **tanılama**. Varsayılan olarak, tanılama, kümenizde sorunlarını gidermeye yardımcı olmak için etkinleştirilir. Tanılama değişiklik devre dışı bırakmak isterseniz **durumu** geç **kapalı**. Tanılama kapatıldığında kaynağınızın olan **değil** önerilir. Oluşturulan Application Insights proje zaten varsa, kendisine uygulama izlemeler yönlendirilebilmesi anahtarıyla, ardından verin.
 9. **DNS hizmetini dahil et**.  [DNS hizmeti](service-fabric-dnsservice.md) DNS protokolünü kullanarak diğer hizmetleri bulmanıza olanak sağlayan isteğe bağlı bir hizmettir.
-10. Seçin **yapı yükseltme modu** istediğiniz kümenizi ayarlayın. Seçin **otomatik**sistemin otomatik olarak en son sürümü seçin ve kendisine kümenizi yükseltmek deneyin istiyorsanız. Modunun **el ile**, desteklenen bir sürüm seçmek istiyorsanız. Yapı yükseltme modu hakkında daha fazla ayrıntı için [service fabric kümesini yükseltme belge.] bakın. [service-fabric-kümesi-yükseltme]
+10. Seçin **yapı yükseltme modu** istediğiniz kümenizi ayarlayın. Seçin **otomatik**sistemin otomatik olarak en son sürümü seçin ve kendisine kümenizi yükseltmek deneyin istiyorsanız. Modunun **el ile**, desteklenen bir sürüm seçmek istiyorsanız. Fabric hakkında daha fazla ayrıntı modu Bkz: yükseltme için [service fabric kümesini yükseltme belge.][service-fabric-cluster-upgrade]
 
 > [!NOTE]
 > Yalnızca Service Fabric, desteklenen sürümlerini çalıştıran kümeler destekliyoruz. Seçerek **el ile** modunda almak sorumluluğa kümenizi desteklenen bir sürüme yükseltmek için.
@@ -225,7 +225,8 @@ Bu noktada, yönetim kimlik doğrulaması için sertifikaları kullanarak güven
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node --> [remote-connect-to-a-vm-scale-set]: service-fabric-kümesi-nodetypes.md [service-fabric-kümesi-yükseltme]: service-fabric-kümesi-upgrade.mdd
+[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
+[service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png

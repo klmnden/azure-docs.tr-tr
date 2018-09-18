@@ -1,21 +1,21 @@
 ---
-title: Açıklayan yetişkinlere yönelik ve müstehcen içerik
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Azure Bilişsel hizmetler görüntü işleme kullanarak görüntüleri yetişkinlere yönelik ve müstehcen içeriğin saptamak için ilgili kavramları.
+title: Yetişkinlere yönelik ve müstehcen içeriğin - görüntü işleme açıklayan
+titleSuffix: Azure Cognitive Services
+description: Görüntü işleme API'sini kullanarak resimlerdeki yetişkinlere yönelik ve müstehcen içerikleri algılama için ilgili kavramları.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 8ddf7f99ed796c3eb4c4a2eb05e9cb27c26cf7a1
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b1ba8e7556b6ba134624548142bf73e84d875c6a
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725515"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984531"
 ---
 # <a name="detecting-adult-and-racy-content"></a>Yetişkinlere yönelik ve müstehcen içerikleri algılama
 

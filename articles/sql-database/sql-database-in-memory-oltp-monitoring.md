@@ -1,57 +1,57 @@
 ---
-title: İzleme XTP bellek içi depolama | Microsoft Docs
-description: Tahmin ve İzleyici XTP bellek içi depolama, kapasite kullanın; Kapasite hatayı 41823
+title: XTP bellek içi depolama izleme | Microsoft Docs
+description: Tahmini ve izleme XTP bellek içi depolama alanı, kapasite kullanın. Kapasite hatası 41823 çözümleyin
 services: sql-database
 author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 09/14/2018
 ms.author: jodebrui
-ms.openlocfilehash: f74c9bf06cad8b84d08baf7a0a0504b9cb729bf4
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 3cfa13ae78c2669cc15e4c1e4eb7ab6615b1a263
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308688"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985235"
 ---
-# <a name="monitor-in-memory-oltp-storage"></a>İzleyici bellek içi OLTP depolama
-Kullanırken [bellek içi OLTP](sql-database-in-memory.md), bellek için iyileştirilmiş tablolar ve Tablo değişkenlerinin verileri bellek içi OLTP depolamada yer alıyor. Her Premium ve iş kritik bir hizmet katmanına bir maksimum bellek içi OLTP depolama boyutuna sahip. Bkz: [DTU tabanlı kaynak sınırları - tek veritabanı](sql-database-dtu-resource-limits-single-databases.md), [DTU tabanlı kaynak sınırları - esnek havuzlar](sql-database-dtu-resource-limits-elastic-pools.md),[vCore tabanlı kaynak sınırları - tek veritabanlarını](sql-database-vcore-resource-limits-single-databases.md) ve [vCore tabanlı kaynak sınırları - esnek havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
+# <a name="monitor-in-memory-oltp-storage"></a>İzleyici bellek içi OLTP depolama alanı
+Kullanırken [bellek içi OLTP](sql-database-in-memory.md), bellek için iyileştirilmiş tablolarda ve Tablo değişkenleri veriler bellek içi OLTP depolama alanında bulunur. Her Premium ve iş açısından kritik hizmet katmanında bellek içi OLTP depolama alanı boyut sınırı bulunur. Bkz: [DTU tabanlı kaynak sınırları - tek veritabanı](sql-database-dtu-resource-limits-single-databases.md), [DTU tabanlı kaynak sınırları - elastik havuzlar](sql-database-dtu-resource-limits-elastic-pools.md),[sanal çekirdek tabanlı kaynak sınırları - tek veritabanları](sql-database-vcore-resource-limits-single-databases.md) ve [sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Bu sınır aşılırsa sonra ekleme ve güncelleştirme işlemleri hata 41823 bağımsız veritabanları ve esnek havuzlar için 41840 hata ile başarısız başlayabilir. Bu noktada, ya da belleği geri almasını verileri silmek veya veritabanınızın performans katmanı yükseltin.
+Bu sınır aşılırsa sonra ekleme ve güncelleştirme işlemleri, hata 41823 tek veritabanları ve elastik havuzlar için 41840 hata ile başarısız başlayabilir. Bu noktada, veri belleği geri kazanmak veya hizmet katmanını yükseltme veya veritabanınızın boyutunu hesaplamak için ya da silmeniz gerekir.
 
-## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Veri içinde bellek içi OLTP depolama ucun uygun olup olmadığını belirleme
-Farklı hizmet katmanları, depolama caps belirler. Bkz: [DTU tabanlı kaynak sınırları - tek veritabanı](sql-database-dtu-resource-limits-single-databases.md), [DTU tabanlı kaynak sınırları - esnek havuzlar](sql-database-dtu-resource-limits-elastic-pools.md),[vCore tabanlı kaynak sınırları - tek veritabanlarını](sql-database-vcore-resource-limits-single-databases.md) ve [vCore tabanlı kaynak sınırları - esnek havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
+## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Veri içinde bellek içi OLTP depolama kapasitesi en uygun olup olmadığını belirleme
+Farklı hizmet katmanları, depolama caps belirleyin. Bkz: [DTU tabanlı kaynak sınırları - tek veritabanı](sql-database-dtu-resource-limits-single-databases.md), [DTU tabanlı kaynak sınırları - elastik havuzlar](sql-database-dtu-resource-limits-elastic-pools.md),[sanal çekirdek tabanlı kaynak sınırları - tek veritabanları](sql-database-vcore-resource-limits-single-databases.md) ve [sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
 
-Bellek için iyileştirilmiş tablo works onu aynı şekilde SQL Server için Azure SQL veritabanı'nda mu bellek gereksinimlerini tahmin etme. Bu makale üzerinde gözden geçirmek için birkaç dakika sürebilir [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
+Bellek için iyileştirilmiş tablo çalıştığı için aynı şekilde SQL Server için Azure SQL veritabanı'nda mu bellek gereksinimlerini tahmin etme. Bu makale üzerinde gözden geçirmek için birkaç dakikanızı ayırarak [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
-Tablosu ve tablo değişkeni satırları yanı sıra, dizinler, en fazla kullanıcı veri boyutu doğru sayısı. Buna ek olarak, ALTER TABLE tablonun tamamını ve dizinlerini yeni bir sürümünü oluşturmak için yeterli alan gerekir.
+Tablosu ve tablo değişkeni satırları yanı sıra, dizinler, doğru maks. kullanıcı veri boyutu sayısı. Ayrıca, ALTER TABLE tablonun tamamını ve dizinlerini yeni bir sürümünü oluşturmak için yeterli alan gerekir.
 
 ## <a name="monitoring-and-alerting"></a>İzleme ve uyarı
-Bellek içi depolama kullanımı depolama ucun yüzdesi olarak, performans katmanı için izleyebileceğiniz [Azure portal](https://portal.azure.com/): 
+İşlem boyutunuz için bellek içi depolama kullanımı depolama sınırı yüzdesi olarak izleyebilirsiniz [Azure portalında](https://portal.azure.com/): 
 
-1. Veritabanı dikey penceresinde kaynak kullanımı kutusunu bulun ve Düzenle'yi tıklatın.
+1. Veritabanı dikey penceresinde, kaynak kullanımı kutusunu bulun ve Düzenle'yi tıklatın.
 2. Ölçümü seçin `In-Memory OLTP Storage percentage`.
-3. Bir uyarı eklemek için ölçüm dikey penceresi açmak için kaynak kullanımı kutusuna tıklayın, sonra Ekle uyarıya tıklayın.
+3. Uyarı eklemek için ölçüm dikey penceresini açmak için kaynak kullanımını kutusunu tıklatın, sonra Ekle uyarıya tıklayın.
 
-Veya bellek içi depolama kullanımını göstermek için aşağıdaki sorguyu kullanın:
+Veya, bellek içi depolama kullanımını göstermek için aşağıdaki sorguyu kullanın:
 
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 
 
-## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Belleğin içinde dışarı OLTP depolama durumlarda - 41823 ve 41840 hatalarını düzeltin
-Bellek içi OLTP depolama ucun INSERT deyiminde veritabanı sonuçlarınızda basarsa, güncelleştirme, ALTER ve hata iletisinin 41823 (tek başına veritabanları) veya hata 41840 (esnek havuzlar için) başarısız olan işlemleri oluşturun. Her iki hata oluşmasına neden iptal etmek etkin işlem.
+## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Belleğin içinde kullanıma OLTP depolama durumlarda - 41823 ve 41840 hataları düzeltin
+Bellek içi OLTP depolama kapasitesi Ekle veritabanı sonucu ulaşmaktan, güncelleştirme, ALTER ve oluşturma işlemleri (tek veritabanları için) hata iletisi 41823 veya 41840 (için elastik havuzları) hata ile başarısız oluyor. Her iki hata iptal etmek etkin işlem neden.
 
-Hata iletileri 41823 ve 41840 bellek için iyileştirilmiş tablolar ve veritabanı veya havuzu Tablo değişkenlerinin bellek içi OLTP depolama boyut üst sınırına belirtin.
+Bellek için iyileştirilmiş tablolar ve tablo değişkenlerinde veritabanı veya havuz en yüksek bellek içi OLTP depolama alanı boyutu üst sınırına ulaştınız 41823 ve 41840 hata iletilerini gösterir.
 
-Ya da bu hatayı gidermek için:
+Ya da bu hatayı çözmek için:
 
-* Potansiyel olarak Geleneksel, disk tabanlı tablolara veri boşaltma bellek için iyileştirilmiş tablolardaki verileri silmek; veya,
-* Bellek için iyileştirilmiş tablolarda tutmak için gereken verileri için yeterli bellek içi depolama sahip bir hizmet katmanına yükseltin.
+* Büyük olasılıkla Geleneksel, disk tabanlı tablolara veri boşaltma bellek için iyileştirilmiş tablolardaki verileri Sil; veya,
+* Bellek için iyileştirilmiş tablolarda tutmak için ihtiyacınız olan verileri için yeterli bellek içi depolama ile bir hizmet katmanına yükseltin.
 
 > [!NOTE] 
-> Nadir durumlarda 41823 ve 41840 hataları yeterli kullanılabilir bellek içi OLTP depolama yoktur ve işlemi yeniden denemeden başarılı anlamına geçici olabilir. Bu nedenle hem izlenecek genel kullanılabilir bellek içi OLTP depolama ve ilk hata 41823 veya 41840 karşılaşıldığında yeniden denemek için öneririz. Yeniden deneme mantığı hakkında daha fazla bilgi için bkz: [çakışma algılamasını ve yeniden deneme mantığı bellek içi OLTP ile](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
+> Nadiren de olsa, hataları 41823 ve 41840 geçici yeterli kullanılabilir bellek içi OLTP depolama alanı yoktur ve işlemi yeniden denemeden başarılı olabilir. Bu nedenle her iki izleme genel olarak kullanılabilir bellek içi OLTP depolama alanı ve ilk 41823 veya 41840 hata ile karşılaşıldığında yeniden denemek için önerilir. Yeniden deneme mantığı hakkında daha fazla bilgi için bkz: [çakışma algılaması ve bellek içi OLTP ile yeniden deneme mantığı](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kılavuzu izleme için bkz: [Azure SQL Dinamik Yönetim görünümlerini kullanarak veritabanı izleme](sql-database-monitoring-with-dmvs.md).
+İzleme kılavuzu için bkz: [izleme Azure dinamik yönetim görünümlerini kullanarak SQL veritabanı](sql-database-monitoring-with-dmvs.md).

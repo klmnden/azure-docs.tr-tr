@@ -12,23 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 994893eb73356fde9acc593569dc5fb1c5a0106f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 87052b39524ae7e3a789cada4ef9720f080726a6
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391139"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985490"
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>PowerShell'de Azure Stack için API Sürüm profillerini kullanma
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-API sürümü profillerini Azure ve Azure Stack arasında sürümü farkları yönetmek için bir yol sağlar. Bir API Sürüm profili, AzureRM PowerShell modülleri belirli API sürümleri ile kümesidir. Her bulut platformu desteklenen API sürümü profillerini kümesi vardır. Örneğin, Azure Stack gibi belirli tarihli profil sürümü destekleyen **2017-03-09-profile**, ve Azure'ı destekleyen **son** API Sürüm profili. Belirtilen profiliyle AzureRM PowerShell modülleri, bir profil yükleme sırasında yüklenir.
-
- 
+API sürümü profillerini Azure ve Azure Stack arasında sürümü farkları yönetmek için bir yol sağlar. Bir API Sürüm profili, AzureRM PowerShell modülleri belirli API sürümleri ile kümesidir. Her bulut platformu desteklenen API sürümü profillerini kümesi vardır. Örneğin, Azure Stack gibi belirli tarihli profil sürümü destekleyen **2018-03-01-karma**, ve Azure'ı destekleyen **son** API Sürüm profili. Belirtilen profiliyle AzureRM PowerShell modülleri, bir profil yükleme sırasında yüklenir.
 
 ## <a name="install-the-powershell-module-required-to-use-api-version-profiles"></a>API sürümü profillerini kullanmak için gerekli PowerShell modülünü yükleme
 
@@ -38,13 +36,27 @@ API sürümü profillerini Azure ve Azure Stack arasında sürümü farkları y�
 Install-Module -Name AzureRm.BootStrapper
 ```
 
+## <a name="azure-stack-version-and-profile-versions"></a>Azure Stack sürümü ve profil sürümleri
+
+Gerekli API profili sürümü ve Azure Stack son sürümleri için kullanılan PowerShell yönetici modülü ad aşağıdaki tabloda listelenmektedir. Bu makalede 1808 önce bir sürüm kullanıyorsanız, ad ve sürüm profili doğru bir değerle güncelleştirin.
+
+| Sürüm No | API Sürüm profili | PS yönetim modülü bilinen ad |
+| --- | --- | --- |
+| 1808 veya üzeri | 2018-03-01-karma | 1.5.0 |
+| 1804 veya üzeri | 2017-03-09-profile | 1.4.0 |
+| 1804 öncesi sürümleri | 2017-03-09-profile | 1.2.11 |
+
+> [!Note]  
+> 1.2.11 yükseltme sürümünü görmek [Geçiş Kılavuzu](https://aka.ms/azpsh130migration).
+
 ## <a name="install-a-profile"></a>Profil yükle
 
-Kullanım **yükleme-AzureRmProfile** cmdlet'iyle **2017-03-09-profile** Azure yığını tarafından gerekli AzureRM modüllerini yüklemek için API Sürüm profili. Bu API Sürüm profili ile Azure Stack operatörü modülleri yüklü değil. Bunlar ayrı olarak belirtilen adım 3'te yüklenmelidir [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md) makalesi.
+Kullanım **yükleme-AzureRmProfile** cmdlet'iyle **2018-03-01-karma** Azure yığını tarafından gerekli AzureRM modüllerini yüklemek için API Sürüm profili. Bu API Sürüm profili ile Azure Stack operatörü modülleri yüklü değil. Bunlar ayrı olarak belirtilen adım 3'te yüklenmelidir [Azure Stack için PowerShell yükleme](../azure-stack-powershell-install.md) makalesi.
 
 ```PowerShell 
-Install-AzureRMProfile -Profile 2017-03-09-profile
+Install-AzureRMProfile -Profile 2018-03-01-hybrid
 ```
+
 ## <a name="install-and-import-modules-in-a-profile"></a>Yükleme ve bir profildeki modüllerini içeri aktarma
 
 Kullanım **kullanın-AzureRmProfile** yüklemek ve bir API Sürüm profili ile ilişkili olan modülleri içeri aktarmak için cmdlet'ini. Bir PowerShell oturumunda tek bir API Sürüm profili içeri aktarabilirsiniz. Farklı bir API Sürüm profili içeri aktarmak için yeni bir PowerShell oturumu açmanız gerekir. Aşağıdaki görevleri kullanın-AzureRMProfile cmdlet'ini çalıştırır:  
@@ -54,17 +66,17 @@ Kullanım **kullanın-AzureRmProfile** yüklemek ve bir API Sürüm profili ile 
 
 ```PowerShell
 # Installs and imports the specified API version profile into the current PowerShell session.
-Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Scope CurrentUser
 
 # Installs and imports the specified API version profile into the current PowerShell session without any prompts
-Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser -Force
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Scope CurrentUser -Force
 ```
 
 Yükleyin ve seçili AzureRM modülleri bir API sürümü profilinden içeri aktarmak için kullanın-AzureRMProfile cmdlet'ini çalıştırmak **Modülü** parametresi:
 
 ```PowerShell
 # Installs and imports the compute, Storage and Network modules from the specified API version profile into your current PowerShell session.
-Use-AzureRmProfile -Profile 2017-03-09-profile -Module AzureRM.Compute, AzureRM.Storage, AzureRM.Network
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Module AzureRM.Compute, AzureRM.Storage, AzureRM.Network
 ```
 
 ## <a name="get-the-installed-profiles"></a>Yüklü profili Al
@@ -78,6 +90,7 @@ Get-AzureRmProfile -ListAvailable
 # lists the API version profiles which are installed on your machine
 Get-AzureRmProfile
 ```
+
 ## <a name="update-profiles"></a>Profillerini güncelleştirin
 
 Kullanım **güncelleştirme-AzureRmProfile** bir API Sürüm profili modülleri PSGallery içinde kullanılabilir olan modülleri en son sürümüne güncelleştirmek için cmdlet. Her zaman çalıştır önerilir **güncelleştirme-AzureRmProfile** modüller içeri aktarılırken çakışmalarını önlemek için yeni bir PowerShell oturumunda cmdlet'i. Update-AzureRmProfile cmdlet'i aşağıdaki görevleri çalıştırır:
@@ -87,14 +100,14 @@ Kullanım **güncelleştirme-AzureRmProfile** bir API Sürüm profili modülleri
 3. Yükler ve güncelleştirilmiş modülleri geçerli PowerShell oturumuna aktarır.  
 
 ```PowerShell
-Update-AzureRmProfile -Profile 2017-03-09-profile
+Update-AzureRmProfile -Profile 2018-03-01-hybrid
 ```
 
-Daha önce yüklenen modülleri sürümleri için en son sürümüne güncelleştirmeden önce kaldırmak için Update-AzureRmProfile cmdlet'i ile birlikte kullanın. **- RemovePreviousVersions** parametresi:
+<!-- To remove the previously installed versions of the modules before updating to the latest available version, use the Update-AzureRmProfile cmdlet along with the **-RemovePreviousVersions** parameter:
 
 ```PowerShell 
-Update-AzureRmProfile -Profile 2017-03-09-profile -RemovePreviousVersions
-```
+Update-AzureRmProfile -Profile 2018-03-01-hybrid -RemovePreviousVersions
+``` --> 
 
 Bu cmdlet, aşağıdaki görevleri çalıştırır:  
 
@@ -108,7 +121,7 @@ Bu cmdlet, aşağıdaki görevleri çalıştırır:
 Kullanım **Kaldır-AzureRmProfile** cmdlet'i, belirtilen API sürümü profilini kaldırmak için.
 
 ```PowerShell 
-Uninstall-AzureRmProfile -Profile 2017-03-09-profile
+Uninstall-AzureRmProfile -Profile  2018-03-01-hybrid
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

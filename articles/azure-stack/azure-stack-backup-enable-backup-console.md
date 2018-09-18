@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 1373e98b8edac81ebdb15aaf36d8bbfc910029fe
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: fdcc4f51f49e8eb133deeeecd070c55511cda464
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026194"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985805"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Yönetim Portalı'ndan Azure Stack için yedeklemeyi etkinleştirme
 Azure Stack yedekleme oluşturabilmesi altyapı Backup Hizmeti Yönetim Portalı aracılığıyla etkinleştirin. Bu yedeklemeler bulut kurtarma durumunda kullanarak ortamınızda geri yüklemek için kullanabileceğiniz [geri dönülemez bir arıza](.\azure-stack-backup-recover-data.md). Bulut kurtarma amacı, Kurtarma tamamlandıktan sonra operatörler ve kullanıcılar portalına geri dönüp oturum açabildiğinizden emin sağlamaktır. Kullanıcılar, rol tabanlı erişim izinleri ve rolleri, özgün planları, teklifleri ve önceden tanımlı bilgi işlem, depolama ve ağ kotaları dahil olmak üzere geri aboneliklerini sahip olacaktır.
@@ -62,7 +62,7 @@ Yöneticiler ve kullanıcılar için yedekleme ve Iaas ve PaaS kaynakları ayrı
 ## <a name="start-backup"></a>Yedeklemeyi Başlat
 Bir yedekleme başlatmak için tıklayın **Şimdi Yedekle** isteğe bağlı yedekleme başlatmak için. İsteğe bağlı yedekleme sonraki zamanlanmış yedekleme için saat değiştirmez. Görev tamamlandıktan sonra ayarları onaylayın **Essentials**:
 
-![Azure Stack - isteğe bağlı yedekleme](media\azure-stack-backup\scheduled-backup.png).
+![Azure Stack - isteğe bağlı yedekleme](media\azure-stack-backup\scheduled-backup.png)
 
 PowerShell cmdlet'ini de çalıştırabilirsiniz **başlangıç AzsBackup** Azure Stack yönetim bilgisayarınızda. Daha fazla bilgi için [Azure Stack yedekleme](azure-stack-backup-back-up-azure-stack.md).
 

@@ -28,6 +28,8 @@ items:
     href: azure-stack-tutorial-sql-server.md
   - name: Web Apps teklifi
     href: azure-stack-tutorial-app-service.md
+  - name: Ethereum dağıtma
+    href: azure-stack-ethereum.md
 - name: Kavramlar
   items:
   - name: Veri merkezi tümleştirmesi
@@ -99,18 +101,28 @@ items:
     href: azure-stack-manage-basics.md
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Telemetri koleksiyonunu yapılandırma
-    href: azure-stack-telemetry.md
-  - name: Azure Stack kaydetme
-    href: azure-stack-registration.md
-  - name: Yönetme
+  - name: Azure yığını'nı yönetme
     items:
+    - name: Telemetri koleksiyonunu yapılandırma
+      href: azure-stack-telemetry.md
+    - name: Azure Stack kaydetme
+      href: azure-stack-registration.md
     - name: Bölge yönetimi
       href: azure-stack-region-management.md
     - name: Yönetici portalını kullanma
       href: azure-stack-manage-portals.md
     - name: Azure Stack'e Bağlanma
       href: azure-stack-connect-azure-stack.md
+    - name: Azure'a Bağlanma
+      items:
+      - name: VPN kullanarak bağlanma
+        href: azure-stack-connect-vpn.md
+      - name: VPN gateway hakkında
+        href: azure-stack-vpn-gateway-about-vpn-gateways.md
+      - name: VPN gateway ayarları
+        href: azure-stack-vpn-gateway-settings.md
+      - name: ExpressRoute kullanarak bağlanma
+        href: azure-stack-connect-expressroute.md
     - name: Kullanıcılar için CLI’yi etkinleştirme
       href: azure-stack-cli-admin.md
     - name: Yönetim ortamını ayarlama
@@ -149,6 +161,8 @@ items:
         href: azure-stack-manage-storage-physical-memory-capacity.md
       - name: Ölçek birimi düğümleri Ekle
         href: azure-stack-add-scale-node.md
+      - name: Genel IP adresleri ekleme
+        href: azure-stack-add-ips.md
     - name: Donanım değiştirme
       items:
       - name: Düğüm eylemleri
@@ -159,25 +173,6 @@ items:
         href: azure-stack-replace-disk.md
       - name: Bileşenini değiştirme
         href: azure-stack-replace-component.md
-    - name: Azure yığını yedekleme
-      href: azure-stack-backup-infrastructure-backup.md
-      items:
-      - name: Yönetim konsolundan Azure Stack için yedeklemeyi etkinleştirme
-        href: azure-stack-backup-enable-backup-console.md
-      - name: PowerShell ile Azure Stack için yedeklemeyi etkinleştirme
-        href: azure-stack-backup-enable-backup-powershell.md
-      - name: Azure yığını yedekleme
-        href: azure-stack-backup-back-up-azure-stack.md
-      - name: Azure Stack üzerinde dosya ve uygulama yedekleme
-        href: ../backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
-      - name: Azure Stack sanal makinelerini Azure'a çoğaltma
-        href: ../site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
-      - name: Geri dönülemez veri kaybından kurtarma
-        href: azure-stack-backup-recover-data.md
-      - name: Yedekleme en iyi uygulamalar
-        href: azure-stack-backup-best-practices.md
-      - name: Yedekleme başvurusu
-        href: azure-stack-backup-reference.md
   - name: Güvenlik, uyumluluk ve kimlik
     items:
     - name: Güvenliğe genel bakış
@@ -202,144 +197,150 @@ items:
       href: azure-stack-rotate-secrets.md
     - name: Virüsten koruma güncelleştirme
       href: azure-stack-security-av.md
-  - name: Hizmet sunma
+  - name: Market’i doldurma
     items:
-    - name: Hizmet sunmaya genel bakış
-      href: azure-stack-offer-services-overview.md
-    - name: Plan, teklif ve kota oluşturma
+    - name: Market’e genel bakış
+      href: azure-stack-marketplace.md
+    - name: Market öğelerini indirme
+      href: azure-stack-download-azure-marketplace-item.md
+    - name: Azure Stack için Azure Market öğeleri
+      href: azure-stack-marketplace-azure-items.md
+    - name: Market öğesi oluşturma ve yayımlama
+      href: azure-stack-create-and-publish-marketplace-item.md
+    - name: Market'te yayımlama aracını kullanma
+      href: azure-stack-marketplace-publisher.md
+    - name: Azure Stack için desteklenen konuk işletim sistemleri
+      href: azure-stack-supported-os.md
+    - name: Özel bir sanal makine görüntüsü ekleme
+      href: azure-stack-add-vm-image.md
+    - name: Bir sanal makine ölçek kümesi sunar.
+      href: azure-stack-compute-add-scalesets.md
+    - name: Linux sanal makine teklifi
+      href: azure-stack-linux.md
+    - name: Red Hat sanal makine Ekle
+      href: azure-stack-redhat-create-upload-vhd.md
+    - name: Bir Kubernetes kümesi sunar.
+      href: azure-stack-solution-template-kubernetes-cluster-add.md
+  - name: Hizmet sunma
+    href: azure-stack-offer-services-overview.md
+  - name: PaaS hizmetlerine genel bakış
+    href: azure-stack-tools-paas-services.md
+  - name: PaaS olarak SQL teklifi
+    href: azure-stack-sql-resource-provider.md
+    items:
+    - name: SQL Server Kaynak sağlayıcısı dağıtma
+      href: azure-stack-sql-resource-provider-deploy.md
+    - name: SQL barındırma sunucuları ekleme
+      href: azure-stack-sql-resource-provider-hosting-servers.md
+    - name: SQL veritabanı oluşturma
+      href: azure-stack-sql-resource-provider-databases.md
+    - name: SQL Server Kaynak sağlayıcısını güncelle
+      href: azure-stack-sql-resource-provider-update.md
+    - name: SQL Server Kaynak sağlayıcısı koru
+      href: azure-stack-sql-resource-provider-maintain.md
+    - name: SQL Server Kaynak sağlayıcısını kaldırma
+      href: azure-stack-sql-resource-provider-remove.md
+  - name: PaaS olarak MySQL teklifi
+    href: azure-stack-mysql-resource-provider.md
+    items:
+    - name: MySQL Server Kaynak sağlayıcısı dağıtma
+      href: azure-stack-mysql-resource-provider-deploy.md
+    - name: MySQL barındırma sunucuları ekleme
+      href: azure-stack-mysql-resource-provider-hosting-servers.md
+    - name: MySQL veritabanı oluşturma
+      href: azure-stack-mysql-resource-provider-databases.md
+    - name: MySQL Server Kaynak sağlayıcısını güncelle
+      href: azure-stack-mysql-resource-provider-update.md
+    - name: MySQL Server Kaynak sağlayıcısı koru
+      href: azure-stack-mysql-resource-provider-maintain.md
+    - name: MySQL Server Kaynak sağlayıcısını kaldırma
+      href: azure-stack-mysql-resource-provider-remove.md
+  - name: PaaS olarak App Service teklifi
+    href: azure-stack-app-service-overview.md
+    items:
+    - name: App Service, kapasite planlaması
+      href: azure-stack-app-service-capacity-planning.md
+    - name: Başlamadan önce
+      href: azure-stack-app-service-before-you-get-started.md
+    - name: Azure Stack'te Azure App Service, hata etki alanlarında yeniden dağıtma
+      href: azure-stack-app-service-fault-domain-update.md
+    - name: App Service kaynak sağlayıcısı dağıtma
+      href: azure-stack-app-service-deploy.md
+    - name: Çevrimdışı App Service dağıtma
+      href: azure-stack-app-service-deploy-offline.md
+    - name: Uygulama hizmetini güncelleştir
+      href: azure-stack-app-service-update.md
+    - name: Güncelleştirme uygulama hizmet çevrimdışı
+      href: azure-stack-app-service-update-offline.md
+    - name: Daha fazla web çalışanı rolü ekleme
+      href: azure-stack-app-service-add-worker-roles.md
+    - name: Dağıtım kaynaklarını yapılandırma
+      href: azure-stack-app-service-configure-deployment-sources.md
+    - name: Sürüm Notları Azure Stack üzerinde App Service'e
       items:
-      - name: Plan, teklif, kota ve aboneliğe genel bakış
-        href: azure-stack-plan-offer-quota-overview.md
-      - name: Plan oluşturma
-        href: azure-stack-create-plan.md
-      - name: Eklenti planı oluşturma
-        href: create-add-on-plan.md
-      - name: Teklif oluşturma
-        href: azure-stack-create-offer.md
-      - name: Bir teklife abone olma
-        href: azure-stack-subscribe-plan-provision-vm.md
-      - name: Azure Stack’te teklifleri yetkilendirme
-        href: azure-stack-delegated-provider.md
-      - name: Kota türleri
-        href: azure-stack-quota-types.md
-    - name: PaaS hizmetlerine genel bakış
-      href: azure-stack-tools-paas-services.md
-    - name: PaaS olarak SQL teklifi
-      href: azure-stack-sql-resource-provider.md
-      items:
-      - name: SQL Server Kaynak sağlayıcısı dağıtma
-        href: azure-stack-sql-resource-provider-deploy.md
-      - name: SQL barındırma sunucuları ekleme
-        href: azure-stack-sql-resource-provider-hosting-servers.md
-      - name: SQL veritabanı oluşturma
-        href: azure-stack-sql-resource-provider-databases.md
-      - name: SQL Server Kaynak sağlayıcısını güncelle
-        href: azure-stack-sql-resource-provider-update.md
-      - name: SQL Server Kaynak sağlayıcısı koru
-        href: azure-stack-sql-resource-provider-maintain.md
-      - name: SQL Server Kaynak sağlayıcısını kaldırma
-        href: azure-stack-sql-resource-provider-remove.md
-    - name: PaaS olarak MySQL teklifi
-      href: azure-stack-mysql-resource-provider.md
-      items:
-      - name: MySQL Server Kaynak sağlayıcısı dağıtma
-        href: azure-stack-mysql-resource-provider-deploy.md
-      - name: MySQL barındırma sunucuları ekleme
-        href: azure-stack-mysql-resource-provider-hosting-servers.md
-      - name: MySQL veritabanı oluşturma
-        href: azure-stack-mysql-resource-provider-databases.md
-      - name: MySQL Server Kaynak sağlayıcısını güncelle
-        href: azure-stack-mysql-resource-provider-update.md
-      - name: MySQL Server Kaynak sağlayıcısı koru
-        href: azure-stack-mysql-resource-provider-maintain.md
-      - name: MySQL Server Kaynak sağlayıcısını kaldırma
-        href: azure-stack-mysql-resource-provider-remove.md
-    - name: PaaS olarak App Service teklifi
-      items:
-      - name: Azure Stack’te App Service’e genel bakış
-        href: azure-stack-app-service-overview.md
-      - name: Kapasite planlaması
-        href: azure-stack-app-service-capacity-planning.md
-      - name: Başlamadan önce
-        href: azure-stack-app-service-before-you-get-started.md
-      - name: Azure Stack'te Azure App Service, hata etki alanlarında yeniden dağıtma
-        href: azure-stack-app-service-fault-domain-update.md
-      - name: App Service kaynak sağlayıcısı dağıtma
-        href: azure-stack-app-service-deploy.md
-      - name: Çevrimdışı App Service dağıtma
-        href: azure-stack-app-service-deploy-offline.md
-      - name: Uygulama hizmetini güncelleştir
-        href: azure-stack-app-service-update.md
-      - name: Güncelleştirme uygulama hizmet çevrimdışı
-        href: azure-stack-app-service-update-offline.md
-      - name: Daha fazla web çalışanı rolü ekleme
-        href: azure-stack-app-service-add-worker-roles.md
-      - name: Dağıtım kaynaklarını yapılandırma
-        href: azure-stack-app-service-configure-deployment-sources.md
       - name: Güncelleştirme 1 sürüm notları Azure Stack üzerinde App Service'e
         href: azure-stack-app-service-release-notes-update-one.md
       - name: Güncelleştirme 2 sürüm notları Azure Stack üzerinde App Service'e
         href: azure-stack-app-service-release-notes-update-two.md
       - name: Güncelleştirme 3 sürüm notları Azure Stack üzerinde App Service'e
         href: azure-stack-app-service-release-notes-update-three.md
-    - name: Ethereum dağıtma
-      href: azure-stack-ethereum.md
-    - name: Market’i doldurma
+  - name: Plan, teklif ve kota oluşturma
+    items:
+    - name: Plan, teklif, kota ve aboneliğe genel bakış
+      href: azure-stack-plan-offer-quota-overview.md
+    - name: Plan oluşturma
+      href: azure-stack-create-plan.md
+    - name: Eklenti planı oluşturma
+      href: create-add-on-plan.md
+    - name: Teklif oluşturma
+      href: azure-stack-create-offer.md
+    - name: Bir teklife abone olma
+      href: azure-stack-subscribe-plan-provision-vm.md
+    - name: Azure Stack’te teklifleri yetkilendirme
+      href: azure-stack-delegated-provider.md
+    - name: Kota türleri
+      href: azure-stack-quota-types.md
+  - name: Kullanım ve faturalandırma
+    href: azure-stack-billing-and-chargeback.md
+    items:
+    - name: Kullanımını yönetmenize ve CSP olarak faturalama
+      href: azure-stack-add-manage-billing-as-a-csp.md
       items:
-      - name: Market’e genel bakış
-        href: azure-stack-marketplace.md
-      - name: Market öğelerini indirme
-        href: azure-stack-download-azure-marketplace-item.md
-      - name: Azure Stack için Azure Market öğeleri
-        href: azure-stack-marketplace-azure-items.md
-      - name: Market öğesi oluşturma ve yayımlama
-        href: azure-stack-create-and-publish-marketplace-item.md
-      - name: Market'te yayımlama aracını kullanma
-        href: azure-stack-marketplace-publisher.md
-      - name: Azure Stack için desteklenen konuk işletim sistemleri
-        href: azure-stack-supported-os.md
-      - name: Özel bir sanal makine görüntüsü ekleme
-        href: azure-stack-add-vm-image.md
-      - name: Bir sanal makine ölçek kümesi sunar.
-        href: azure-stack-compute-add-scalesets.md
-      - name: Linux sanal makine teklifi
-        href: azure-stack-linux.md
-      - name: Red Hat sanal makine Ekle
-        href: azure-stack-redhat-create-upload-vhd.md
-      - name: Bir Kubernetes kümesi sunar.
-        href: azure-stack-solution-template-kubernetes-cluster-add.md
-    - name: Kullanım ve faturalandırma
-      href: azure-stack-billing-and-chargeback.md
+      - name: Kiracılar için kullanım ve faturalandırma Ekle
+        href: azure-stack-csp-howto-register-tenants.md
+      - name: Kiracı kaydı yönetme
+        href: azure-stack-csp-ref-operations.md
+    - name: Kullanımı ve faturalama başvurusu
       items:
-      - name: Kullanımını yönetmenize ve CSP olarak faturalama
-        href: azure-stack-add-manage-billing-as-a-csp.md
-        items:
-        - name: Kiracılar için kullanım ve faturalandırma Ekle
-          href: azure-stack-csp-howto-register-tenants.md
-        - name: Kiracı kaydı yönetme
-          href: azure-stack-csp-ref-operations.md
-      - name: Kullanımı ve faturalama başvurusu
-        items:
-        - name: Kullanım verilerini raporlama
-          href: azure-stack-usage-reporting.md
-        - name: Bulut hizmeti sağlayıcıları için raporlama altyapınızın kullanımı
-          href: azure-stack-csp-ref-infrastructure.md
-        - name: Sağlayıcı kullanım API’si
-          href: azure-stack-provider-resource-api.md
-        - name: Kiracı kullanım API’si
-          href: azure-stack-tenant-resource-usage-api.md
-        - name: Kullanım Hakkında SSS
-          href: azure-stack-usage-related-faq.md
-    - name: Azure'a Bağlanma
-      items:
-      - name: VPN kullanarak bağlanma
-        href: azure-stack-connect-vpn.md
-      - name: VPN gateway hakkında
-        href: azure-stack-vpn-gateway-about-vpn-gateways.md
-      - name: VPN gateway ayarları
-        href: azure-stack-vpn-gateway-settings.md
-      - name: ExpressRoute kullanarak bağlanma
-        href: azure-stack-connect-expressroute.md
+      - name: Kullanım verilerini raporlama
+        href: azure-stack-usage-reporting.md
+      - name: Bulut hizmeti sağlayıcıları için raporlama altyapınızın kullanımı
+        href: azure-stack-csp-ref-infrastructure.md
+      - name: Sağlayıcı kullanım API’si
+        href: azure-stack-provider-resource-api.md
+      - name: Kiracı kullanım API’si
+        href: azure-stack-tenant-resource-usage-api.md
+      - name: Kullanım Hakkında SSS
+        href: azure-stack-usage-related-faq.md
+  - name: Azure yığını yedekleme
+    href: azure-stack-backup-infrastructure-backup.md
+    items:
+    - name: Yönetim konsolundan Azure Stack için yedeklemeyi etkinleştirme
+      href: azure-stack-backup-enable-backup-console.md
+    - name: PowerShell ile Azure Stack için yedeklemeyi etkinleştirme
+      href: azure-stack-backup-enable-backup-powershell.md
+    - name: Azure yığını yedekleme
+      href: azure-stack-backup-back-up-azure-stack.md
+    - name: Azure Stack üzerinde dosya ve uygulama yedekleme
+      href: ../backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+    - name: Azure Stack sanal makinelerini Azure'a çoğaltma
+      href: ../site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+    - name: Geri dönülemez veri kaybından kurtarma
+      href: azure-stack-backup-recover-data.md
+    - name: Yedekleme en iyi uygulamalar
+      href: azure-stack-backup-best-practices.md
+    - name: Yedekleme başvurusu
+      href: azure-stack-backup-reference.md
   - name: Sorun giderme
     items:
     - name: Bilinen sorunlar
@@ -372,9 +373,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Eğitim ve sertifika
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 2334accb56409bf77b52153a9e0d279cddd1d352
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c6032eb4482dafaebcc376f3f22102a15f6f4cf4
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026673"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985622"

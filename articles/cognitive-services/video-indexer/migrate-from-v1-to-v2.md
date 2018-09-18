@@ -1,20 +1,21 @@
 ---
-title: Azure Video Indexer API v1'den v2'ye geçirme | Microsoft Docs
+title: Azure Video Indexer API v1'den v2'ye geçirme
+titlesuffix: Azure Cognitive Services
 description: Bu konuda, Azure Video Indexer API v1'den v2'ye geçirme açıklanmaktadır.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2237bde2fa69cf9b701e1c093f97516613cef0c6
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 3c70bbe11d94e6b03d615b8d1394ccdca6bd3790
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544154"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985637"
 ---
 # <a name="migrate-from-the-video-indexer-api-v1-to-v2"></a>Video Indexer API v1'den v2'ye geçirme
 

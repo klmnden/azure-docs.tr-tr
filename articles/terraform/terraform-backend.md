@@ -1,18 +1,18 @@
 ---
 title: Terraform arka uç olarak Azure Depolama'yı kullanma
-description: Terrafom durumu Azure depolamada depolamak için bir giriş.
+description: Terraform durumu Azure depolamada depolamak için bir giriş.
 services: terraform
 author: neilpeterson
 ms.service: terraform
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: nepeters
-ms.openlocfilehash: c27c6bc5f2071203c9a9dd5a94e73c0cb4626598
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 2bee9f73f430e18fe159eed142b265cc1934860e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45608308"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984994"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Azure Depolama'daki Store Terraform durumu
 
@@ -35,7 +35,7 @@ RESOURCE_GROUP_NAME=tfstatestorage
 STORAGE_ACCOUNT_NAME=tfstatestorage$RANDOM
 CONTAINER_NAME=tfstatestorage
 
-# Ceeate resoruce group
+# Create resource group
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 # Create storage account
@@ -49,7 +49,7 @@ az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOU
 
 echo "storage_account_name: $STORAGE_ACCOUNT_NAME"
 echo "container_name: $CONTAINER_NAME"
-echo "ARM_ACCESS_KEY: $ACCOUNT_KEY"
+echo "access_key: $ACCOUNT_KEY"
 ```
 
 Depolama hesabı adı, kapsayıcı adı ve depolama erişim anahtarını not edin. Bu değerler, uzak durumu yapılandırırken gereklidir.
@@ -79,7 +79,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 Terraform arka uç kullanılacak şekilde yapılandırmak için dahil bir *arka uç* türünde yapılandırma *azurerm* Terraform yapılandırması içinde. Ekleme *storage_account_name*, *container_name*, ve *anahtar* yapılandırma bloğuna değerleri.
 
-Aşağıdaki örnek bir Terraform arka ucu yapılandırır ve oluşturur ve Azure kaynak grubu.
+Aşağıdaki örnek, Terraform arka uç yapılandırır ve oluşturur ve Azure kaynak grubu.
 
 ```json
 terraform {
@@ -91,7 +91,7 @@ terraform {
 }
 
 resource "azurerm_resource_group" "state-demo-secure" {
-  name     = "state-demoe"
+  name     = "state-demo"
   location = "eastus"
 }
 ```
@@ -102,7 +102,7 @@ resource "azurerm_resource_group" "state-demo-secure" {
 
 Azure depolama blobu durumu depolama için kullanılırken, blob durumunu yazan herhangi bir işlemden önce otomatik olarak kilitlenir. Bu yapılandırma bozulmaya neden olabilir birden çok eş zamanlı durumu işlemleri engeller. Daha fazla bilgi için [durumu kilitleme] [ terraform-state-lock] Terraform belgeleri.
 
-Kilit bkz: blob Azure portalı veya diğer Azure Yönetim Araçları ancak incelerken olabilir.
+Blob Azure portalı veya diğer Azure Yönetim Araçları ancak incelerken, kilit görülebilir.
 
 ![Kilit ile Azure blob](media/terraform-backend/lock.png)
 

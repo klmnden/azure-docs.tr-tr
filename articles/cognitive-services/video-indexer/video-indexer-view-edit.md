@@ -1,19 +1,21 @@
 ---
-title: Görüntüleme ve düzenleme Azure Video dizinleyici öngörülerini | Microsoft Docs
+title: Video Indexer içgörülerini görüntüleme ve düzenleme
+titlesuffix: Azure Cognitive Services
 description: Bu konu başlığı altında görüntülemek ve Video dizinleyici öngörülerini düzenlemek nasıl gösterir.
 services: cognitive services
-documentationcenter: ''
 author: juliako
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 11bd61387bfe6fe07cd41806f165eed9575622b4
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: c9b229e2fb3297d724ec8de02bf54e9765689ab7
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45540931"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984546"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Video Indexer içgörülerini görüntüleme ve düzenleme
 

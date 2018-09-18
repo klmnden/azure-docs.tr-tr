@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/13/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 489d9c430db000710368a65f3100bb175ad00eae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 988f77dd0f8f31f6e31e5371ed263d4c4195c105
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041198"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984882"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Otomasyonu Runbook ve modül galerileri
 Azure Automation'da kendi runbook'ları ve modüller oluşturmak yerine, çeşitli Microsoft ve topluluk tarafından zaten oluşturulduğundan senaryoları erişebilirsiniz.  Bu senaryolar yapmadan ya da kullanabilirsiniz veya bunları bir başlangıç noktası olarak kullanın ve bunları belirli gereksinimleriniz için düzenleyin.
@@ -94,6 +94,10 @@ PowerShell modülleri larınızda kullanabileceğiniz cmdlet'leri içeren ve Azu
 
 > [!NOTE]
 > Yalnızca PowerShell core desteği modülleri, Azure Automation'da desteklenmez ve Azure portalında içeri aktarılan veya PowerShell Galerisi'nden doğrudan dağıtılabilir.
+
+## <a name="python-runbooks"></a>Python runbook'ları
+
+Python runbook'ları kullanılabilir [Komut Merkezi Galerisi](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Python runbook'ları betik merkezi Galeriye katkıda bulunabilir. Ne zaman olun etiket ekleme **Python** katkılarınız karşıya yüklenirken.
 
 ## <a name="requesting-a-runbook-or-module"></a>Bir runbook veya modül isteme
 İstekleri gönderebilirsiniz [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Bir runbook yazma Yardım ihtiyaç veya PowerShell ile ilgili sorularınız varsa soru gönderin bizim [Forumu](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
