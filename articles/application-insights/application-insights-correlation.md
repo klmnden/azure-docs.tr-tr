@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 057e47c19f6405bec9e1fa80dd7097476876baa9
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 696843363bc6617bb11c01cdccb9dbbb7b719a82
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650835"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298209"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application ınsights telemetri bağıntısı
 
@@ -74,6 +74,34 @@ RFC teklifi için üzerinde çalıştığımız [bağıntı HTTP Protokolü](htt
 Standart Ayrıca iki şemaları tanımlar `Request-Id` oluşturma - düz ve hiyerarşik. Düz şemasıyla yoktur iyi bilinen `Id` için tanımlanan anahtar `Correlation-Context` koleksiyonu.
 
 Application Insights tanımlar [uzantısı](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) bağıntı HTTP protokolü için. Kullandığı `Request-Context` ad değer çiftleri koleksiyonu şu anki çağırıcı veya Aranan tarafından kullanılan özellikleri yaymak için. Application Insights SDK'sını ayarlamak için bu üstbilgiyi kullanır `dependency.target` ve `request.source` alanları.
+
+### <a name="w3c-distributed-tracing"></a>W3C dağıtılmış izleme
+
+Biz (izleme biçimine W3C dağıtılmış) geçiş [https://w3c.github.io/distributed-tracing/report-trace-context.html]. Tanımlar:
+- `traceparent` -Genel olarak benzersiz işlem kimliği ve aramanın benzersiz tanımlayıcısı
+- `tracestate` -İzleme sistem belirli bağlamı yürütür.
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-classic-apps"></a>W3C dağıtılmış izleme ASP.NET Klasik uygulamaları desteğini etkinleştirme
+
+Bu özellik, sürüm 2.8.0-beta1 ile başlayan Microsoft.applicationınsights.Web ve Microsoft.ApplicationInsights.DependencyCollector paketlerdeki kullanılabilir.
+Bu **kapalı** etkinleştirmek için varsayılan olarak, değişiklik `ApplicationInsights.config`:
+
+* altında `RequestTrackingTelemetryModule` ekleme `EnableW3CHeadersExtraction` ayarlanan değere sahip öğe `true`
+* altında `DependencyTrackingTelemetryModule` ekleme `EnableW3CHeadersInjection` ayarlanan değere sahip öğe `true`
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>ASP.NET Core uygulamaları için Dağıtılmış W3C İzleme desteğini etkinleştirme
+
+Bu özellik, sürüm 2.5.0-beta1 Microsoft.ApplicationInsights.DependencyCollector sürüm 2.8.0-beta1 ile Microsoft.ApplicationInsights.AspNetCore içinde kullanılabilir.
+Bu **kapalı** etkinleştirmek için varsayılan olarak ayarlanmış `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` için `true`:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry(o => 
+        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
+    // ....
+}
+```
 
 ## <a name="open-tracing-and-application-insights"></a>Açık izleme ve Application Insights
 
@@ -137,3 +165,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - Yerleşik mikro hizmet Application Insights'ın tüm bileşenleri. Kullanıma [desteklenen platformlar](app-insights-platforms.md).
 - Bkz: [veri modeli](application-insights-data-model.md) için Application Insights türleri ve veri modeli.
 - Bilgi edinmek için nasıl [genişletmek ve telemetri filtreleme](app-insights-api-filtering-sampling.md).
+- [Application Insights konfig başvurusu](app-insights-configuration-with-applicationinsights-config.md)
+

@@ -1,6 +1,6 @@
 ---
-title: Power BI'ı kullanarak Data Lake Store'da verilerin çözümleme | Microsoft Docs
-description: Azure Data Lake Store içinde depolanan verileri çözümlemek için Power BI'ı kullanın
+title: Power BI'ı kullanarak Azure Data Lake depolama Gen1 verileri çözümleme | Microsoft Docs
+description: Azure Data Lake depolama Gen1 depolanan verileri analiz etmek için Power BI'ı kullanma
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,90 +12,90 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 37cde17703a15ba5659814e1b65a54d24b67edad
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5db9d18a31af4d6b407fcd9172ac80fc6f93f085
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624796"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297188"
 ---
-# <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>Power BI'ı kullanarak Data Lake Store'da verilerin çözümleme
-Bu makalede, Power BI Desktop çözümlemek ve Azure Data Lake Store içinde depolanan verileri görselleştirmek için nasıl kullanılacağını öğreneceksiniz.
+# <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Power BI'ı kullanarak Azure Data Lake depolama Gen1 verileri çözümleme
+Bu makalede çözümlemek ve Azure Data Lake depolama Gen1 depolanan verileri görselleştirmek için Power BI Desktop kullanmayı öğreneceksiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure Data Lake Store hesabı**. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md) bölümündeki yönergeleri uygulayın. Bu makalede adlı bir Data Lake Store hesabı zaten oluşturduğunuzu varsayar **mybidatalakestore**ve bir örnek veri dosyasını karşıya (**Drivers.txt**) kendisine. Bu örnek dosya Merkezi'nden edinilebilir [Azure Data Lake Git deposu](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
-* **Power BI Desktop**. Buradan indirebilirsiniz [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
+* **Bir Data Lake depolama Gen1 hesabı**. Konumundaki yönergeleri [Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure portalını kullanarak](data-lake-store-get-started-portal.md). Bu makalede adlı bir Data Lake depolama Gen1 hesabı zaten oluşturmuş olduğunuzu varsayar **myadlsg1**ve bir örnek veri dosyası (**Drivers.txt**) ona. Bu örnek dosya sitesinden indirilebilir [Azure Data Lake Git deposu](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
+* **Power BI Desktop**. Buradan indirebileceğiniz [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Power BI Desktop'ta rapor oluşturma
-1. Power BI Desktop bilgisayarınızda başlatın.
-2. Gelen **giriş** Şerit, tıklatın **Veri Al**ve daha fazlasını'ı tıklatın. İçinde **Veri Al** iletişim kutusu, tıklatın **Azure**, tıklatın **Azure Data Lake Store**ve ardından **Bağlan**.
+1. Power BI Desktop, bilgisayarınızda başlatın.
+2. Gelen **giriş** Şerit ye **Veri Al**ve ardından daha fazla. İçinde **Veri Al** iletişim kutusu, tıklayın **Azure**, tıklayın **Azure Data Lake Store**ve ardından **Connect**.
    
-    ![Data Lake Store'a bağlama](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Data Lake Store'a bağlama")
-3. Bir geliştirme aşamasında olan Bağlayıcısı hakkında bir iletişim kutusu görürseniz, devam etmek için kabul et.
-4. İçinde **Microsoft Azure Data Lake Store** iletişim kutusu, Data Lake Store hesabınızın URL'sini girin ve ardından **Tamam**.
+    ![Bağlanmak için Data Lake depolama Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account.png "bağlanmak için Data Lake depolama Gen1")
+3. Devam etmek için bir geliştirme aşamasında olan Bağlayıcısı hakkında bir iletişim kutusu görürseniz, iyileştirilmiş.
+4. İçinde **Azure Data Lake Store** iletişim kutusu, Data Lake depolama Gen1 hesabınıza URL sağlayın ve ardından **Tamam**.
    
-    ![Data Lake Store için URL](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "Data Lake Store için URL")
-5. Sonraki iletişim kutusunda tıklatın **oturum** Data Lake Store dikkate imzalamak için. Kuruluşunuzun oturum açma sayfasına yönlendirilirsiniz. Hesaba imzalamak için istemleri izleyin.
+    ![Data Lake depolama Gen1 URL'sini](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "Data Lake depolama Gen1 URL'si")
+5. Sonraki iletişim kutusunda tıklayın **oturum** Data Lake depolama Gen1 hesabında oturum açabilir. Kuruluşunuzun oturum açma sayfasına yönlendirilirsiniz. Hesapta oturum için istemleri izleyin.
    
-    ![Data Lake Store içine oturum](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "oturum Data Lake Store açın")
-6. Başarıyla oturum açtıktan sonra tıklayın **Bağlan**.
+    ![Data Lake depolama Gen1 oturum](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Data Lake depolama Gen1'nda oturum açın")
+6. Başarıyla oturum açtıktan sonra tıklayın **Connect**.
    
-    ![Data Lake Store'a bağlama](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Data Lake Store'a bağlama")
-7. Sonraki iletişim kutusunda, Data Lake Store hesabınıza karşıya dosya gösterir. Bilgileri doğrulayın ve ardından **yük**.
+    ![Bağlanmak için Data Lake depolama Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "bağlanmak için Data Lake depolama Gen1")
+7. Sonraki iletişim kutusunda, Data Lake depolama Gen1 hesabınıza yüklediğiniz dosyayı gösterir. Bilgileri doğrulayın ve ardından **yük**.
    
-    ![Data Lake Deposu'ndan veri veri yükleme](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "veri Data Lake Deposu'ndan veri yükleme")
-8. Verileri Power BI başarıyla yüklendikten sonra aşağıdaki alanlarda görürsünüz **alanları** sekmesi.
+    ![Data Lake depolama Gen1 veri yükleme](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Data Lake depolama Gen1 veri yükleme")
+8. Verileri başarıyla Power BI'a yüklendikten sonra aşağıdaki alanlarda göreceğiniz **alanları** sekmesi.
    
-    ![Alınan alanları](./media/data-lake-store-power-bi/imported-fields.png "içe alanlar")
+    ![İçeri aktarılan alanları](./media/data-lake-store-power-bi/imported-fields.png "alınan alanları")
    
-    Ancak, görselleştirin ve verileri çözümlemek için biz verilerin aşağıdaki alanlar kullanılabilir tercih
+    Ancak, Görselleştirme ve veri çözümleme için aşağıdaki alanlar kullanılabilir olması için veri tercih ediyoruz
    
     ![Alanları istenen](./media/data-lake-store-power-bi/desired-fields.png "alanları istenen")
    
-    İçeri aktarılan verileri istediğiniz biçimde dönüştürmek üzere sorgu sonraki adımlarda güncelleştireceğiz.
-9. Gelen **giriş** Şerit, tıklatın **Düzenle sorguları**.
+    Sonraki adımlarda, istenen biçimde içeri aktarılan verileri dönüştürmek için sorguyu güncelleştireceğiz.
+9. Gelen **giriş** Şerit ye **sorguları Düzenle**.
    
-    ![Sorguları düzenleme](./media/data-lake-store-power-bi/edit-queries.png "sorgularını düzenleme")
-10. Sorgu Düzenleyicisi'nde, altında **içerik** sütun tıklatın **ikili**.
+    ![Sorguları Düzenle](./media/data-lake-store-power-bi/edit-queries.png "sorguları Düzenle")
+10. Sorgu Düzenleyicisi'nde, altında **içerik** sütun tıklayın **ikili**.
     
-    ![Sorguları düzenleme](./media/data-lake-store-power-bi/convert-query1.png "sorgularını düzenleme")
-11. Temsil eden bir dosya simgesini görürsünüz **Drivers.txt** karşıya dosya. Dosyayı sağ tıklayın ve **CSV**.    
+    ![Sorguları Düzenle](./media/data-lake-store-power-bi/convert-query1.png "sorguları Düzenle")
+11. Temsil eden bir dosya simgesi görürsünüz **Drivers.txt** karşıya yüklenen dosya. Dosyaya sağ tıklayın ve **CSV**.    
     
-    ![Sorguları düzenleme](./media/data-lake-store-power-bi/convert-query2.png "sorgularını düzenleme")
-12. Aşağıda gösterildiği gibi bir çıktı görmeniz gerekir. Verilerinizi görsel öğeleri oluşturmak için kullanabileceğiniz bir biçimde kullanıma sunulmuştur.
+    ![Sorguları Düzenle](./media/data-lake-store-power-bi/convert-query2.png "sorguları Düzenle")
+12. Aşağıda gösterildiği gibi bir çıktı görmeniz gerekir. Veri görselleştirmeleri oluşturmak için kullanabileceğiniz bir biçimde kullanıma sunuldu.
     
-    ![Sorguları düzenleme](./media/data-lake-store-power-bi/convert-query3.png "sorgularını düzenleme")
-13. Gelen **giriş** Şerit, tıklatın **kapatın ve geçerli**ve ardından **kapatın ve geçerli**.
+    ![Sorguları Düzenle](./media/data-lake-store-power-bi/convert-query3.png "sorguları Düzenle")
+13. Gelen **giriş** Şerit ye **Kapat ve Uygula**ve ardından **Kapat ve Uygula**.
     
-    ![Sorguları düzenleme](./media/data-lake-store-power-bi/load-edited-query.png "sorgularını düzenleme")
-14. Sorgu güncelleştirildikten sonra **alanları** sekmesini görselleştirme için kullanılabilir yeni alanları gösterir.
+    ![Sorguları Düzenle](./media/data-lake-store-power-bi/load-edited-query.png "sorguları Düzenle")
+14. Sorgu güncelleştirildikten sonra **alanları** sekmesi, görselleştirme için kullanılabilir yeni alanları gösterilir.
     
-    ![Alanları güncelleştirilmiş](./media/data-lake-store-power-bi/updated-query-fields.png "alanları güncelleştirildi")
+    ![Alanlar](./media/data-lake-store-power-bi/updated-query-fields.png "alanlar")
 15. Bize her şehir için belirli bir ülke sürücüleri temsil etmek için bir pasta grafik oluşturun. Bunu yapmak için aşağıdaki seçimleri yapın.
     
-    1. Görselleştirmeleri sekmesinden pasta grafiği için simgeyi tıklatın.
+    1. Görsel öğeler sekmesinde, pasta grafiği simgesini tıklayın.
        
-        ![Pasta grafiği oluşturmak](./media/data-lake-store-power-bi/create-pie-chart.png "pasta grafik oluşturma")
-    2. Biz kullanacaksanız sütunlar **sütun 4** (şehrin adı) ve **sütun 7** (ülke adı). Bu sütunlardan sürükleyin **alanları** için sekme **görselleştirmeleri** sekmesinde aşağıda gösterildiği gibi.
+        ![Pasta grafiği oluşturma](./media/data-lake-store-power-bi/create-pie-chart.png "pasta grafiği oluşturma")
+    2. Kullanılacak kullanacağız sütunlar **sütun 4** (Şehir adı) ve **sütun 7** (ülke adı). Bu sütunları sürükleyin **alanları** için sekmesinde **görselleştirmeler** sekmesine aşağıda gösterildiği gibi.
        
-        ![Görselleştirmelerinin](./media/data-lake-store-power-bi/create-visualizations.png "görselleştirmeler oluşturun")
-    3. Pasta grafik şimdi aşağıda gösterilene benzer benzemelidir.
+        ![Görselleştirmeler oluşturma](./media/data-lake-store-power-bi/create-visualizations.png "görselleştirmeler oluşturma")
+    3. Pasta grafiği, aşağıda gösterilene benzer artık benzemelidir.
        
-        ![Pasta grafik](./media/data-lake-store-power-bi/pie-chart.png "görselleştirmeler oluşturun")
-16. Belirli bir ülkeye sayfa düzeyi filtreleri seçerek, her şehir seçilen ülkenin sürücüleri sayısını şimdi görebilirsiniz. Örneğin, altında **görselleştirmeleri** sekmesinde, altında **sayfa düzeyi filtreleri**seçin **Brezilya**.
+        ![Pasta grafiği](./media/data-lake-store-power-bi/pie-chart.png "görselleştirmeler oluşturma")
+16. Sayfa düzeyi filtreleri belirli bir ülke seçerek artık sürücüler seçilen ülke, her şehirde sayısını görebilirsiniz. Örneğin, altında **görselleştirmeler** sekmesindeki **sayfa düzeyi filtreleri**seçin **Brezilya**.
     
-    ![Bir ülke seçin](./media/data-lake-store-power-bi/select-country.png "bir ülke seçin")
-17. Pasta grafik Brezilya şehirlerde sürücüleri görüntülemek için otomatik olarak güncelleştirilir.
+    ![Ülke seçin](./media/data-lake-store-power-bi/select-country.png "bir ülke seçin")
+17. Pasta grafiği, Brezilya şehirlerin sürücüleri görüntülemek için otomatik olarak güncelleştirilir.
     
     ![Sürücüleri bir ülkede](./media/data-lake-store-power-bi/driver-per-country.png "ülke başına sürücüleri")
-18. Gelen **dosya** menüsünde tıklatın **kaydetmek** görselleştirme Power BI Desktop dosyası olarak kaydetmek için.
+18. Gelen **dosya** menüsünde tıklatın **Kaydet** görselleştirmeyi Power BI Desktop dosyası olarak kaydetmek için.
 
-## <a name="publish-report-to-power-bi-service"></a>Rapor Power BI hizmetinde yayımlama
-Power BI Desktop'ta görselleştirmeleri oluşturduktan sonra bunu başkalarıyla Power BI hizmetinde yayımlayarak paylaşabilirsiniz. Bunun hakkında daha fazla yönerge için bkz: [Power BI masaüstünden Yayımla](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
+## <a name="publish-report-to-power-bi-service"></a>Raporu Power BI hizmetinde yayımlayın
+Power BI Desktop'ta görselleştirmeler oluşturduktan sonra bunu diğer kullanıcılarla Power BI hizmetinde yayımlayarak paylaşabilirsiniz. Bunu yapmak yönergeler için bkz: [Power BI Desktop'tan yayımlama](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Data Lake Analytics kullanarak Data Lake Store içinde verileri analiz etme](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Data Lake depolama Gen1 Data Lake Analytics'i kullanarak verileri analiz etme](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

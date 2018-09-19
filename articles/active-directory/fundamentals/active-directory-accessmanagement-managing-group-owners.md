@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: 5ca2115e8f5f2e18c31477135aa94bc04d6d9256
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f546ea5b5f9288849334d27cd1721f0c22fb8806
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577404"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297784"
 ---
 # <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Nasıl yapılır: ekleme veya Azure Active Directory'de Grup sahipleri kaldırma
 Azure Active Directory (Azure AD) gruplarına ait ve Grup sahipleri tarafından yönetilir. Grup sahipleri bir grup ve üyelerini yönetmek için bir kaynak sahibi (Yönetici) atanır. Grup sahipleri güvenlik grubunun üyesi olması gerekmez. Bir grup sahibi atandıktan sonra yalnızca bir kaynak sahibi ekleyebilir veya sahipleri kaldırabilirsiniz.
@@ -66,6 +66,6 @@ Sahibi Azure AD kullanarak bir gruptan kaldırın.
 
 - [Tümleşik bir SaaS uygulamasına erişim atamak için grupları kullanma](../users-groups-roles/groups-saasapps.md)
 
-- [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../connect/active-directory-aadconnect.md)
+- [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../hybrid/whatis-hybrid-identity.md)
 
 - [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-v2-cmdlets.md)

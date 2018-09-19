@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 4b48f360c95170a36d1e79b075403d541c8b66ed
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9ca8c42d99f3bd7548c685f03328084865a09906
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983942"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295793"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – veritabanınızı Azure SQL veritabanı'nda yönetme
 
@@ -73,12 +73,12 @@ Vardır [iki kimlik doğrulama yöntemleri](sql-database-control-access.md#authe
 - [Azure Active Directory kimlik doğrulaması](sql-database-aad-authentication.md)
 - SQL kimlik doğrulaması. 
 
-Geleneksel windows kimlik doğrulaması desteklenmiyor. Azure Active Directory (AD) bir merkezi kimlik ve erişim yönetimi hizmetidir. Bu, çok bir kolayca bir çoklu oturum açma erişimi (SSO) için tüm personel, kuruluşunuzda sağlayabilirsiniz. Ne bu kimlik bilgileri daha basit kimlik doğrulaması için tüm Azure hizmetleri arasında paylaşıldığı anlamına gelir. Destekleyen AAD [MFA (çok faktörlü kimlik doğrulamasını)](sql-database-ssms-mfa-authentication.md) ve ile bir [yalnızca birkaç tıklamayla](../active-directory/connect/active-directory-aadconnect-get-started-express.md) AAD Windows Server Active Directory ile tümleştirilebilir. SQL kimlik doğrulaması, tam olarak, geçmişte kullandığınız gibi çalışır. Bir kullanıcı adı/parola sağlayın ve kullanıcıların belirli bir mantıksal sunucu üzerindeki herhangi bir veritabanı için kimlik doğrulaması yapabilir. Bu da çok faktörlü kimlik doğrulaması ve Azure AD etki alanı içinde Konuk kullanıcı hesaplarını sunmak SQL veritabanı ve SQL veri ambarı sağlar. Bir Active Directory şirket içi zaten varsa, dizininize Azure'a genişletmek için Azure Active Directory ile dizin ad'sini birleştirebilir.
+Geleneksel windows kimlik doğrulaması desteklenmiyor. Azure Active Directory (AD) bir merkezi kimlik ve erişim yönetimi hizmetidir. Bu, çok bir kolayca bir çoklu oturum açma erişimi (SSO) için tüm personel, kuruluşunuzda sağlayabilirsiniz. Ne bu kimlik bilgileri daha basit kimlik doğrulaması için tüm Azure hizmetleri arasında paylaşıldığı anlamına gelir. Destekleyen AAD [MFA (çok faktörlü kimlik doğrulamasını)](sql-database-ssms-mfa-authentication.md) ve ile bir [yalnızca birkaç tıklamayla](../active-directory/hybrid/how-to-connect-install-express.md) AAD Windows Server Active Directory ile tümleştirilebilir. SQL kimlik doğrulaması, tam olarak, geçmişte kullandığınız gibi çalışır. Bir kullanıcı adı/parola sağlayın ve kullanıcıların belirli bir mantıksal sunucu üzerindeki herhangi bir veritabanı için kimlik doğrulaması yapabilir. Bu da çok faktörlü kimlik doğrulaması ve Azure AD etki alanı içinde Konuk kullanıcı hesaplarını sunmak SQL veritabanı ve SQL veri ambarı sağlar. Bir Active Directory şirket içi zaten varsa, dizininize Azure'a genişletmek için Azure Active Directory ile dizin ad'sini birleştirebilir.
 
 |**Varsa...**|**SQL veritabanı / SQL veri ambarı**|
 |---|---|
 |Azure Active Directory (AD) ile Azure kullanmayı tercih edin|Kullanım [SQL kimlik doğrulaması](sql-database-security-overview.md)|
-|SQL Server'da kullanılan AD şirket içi|[Azure AD ile federasyona](../active-directory/connect/active-directory-aadconnect.md)ve Azure AD kimlik doğrulaması kullanın. Bu, çoklu oturum açma kullanabilirsiniz.|
+|SQL Server'da kullanılan AD şirket içi|[Azure AD ile federasyona](../active-directory/hybrid/whatis-hybrid-identity.md)ve Azure AD kimlik doğrulaması kullanın. Bu, çoklu oturum açma kullanabilirsiniz.|
 |Çok faktörlü kimlik doğrulaması (MFA) zorunlu kılmanız gerekiyorsa|Bir ilke olarak MFA gerektirecek [Microsoft koşullu erişim](sql-database-conditional-access.md)ve [MFA desteği ile Azure AD Evrensel kimlik doğrulaması](sql-database-ssms-mfa-authentication.md).|
 |Microsoft hesapları (live.com, outlook.com) veya diğer etki alanları (gmail.com) Konuk hesapları sahip|Kullanım [Azure AD Evrensel kimlik doğrulaması](sql-database-ssms-mfa-authentication.md) SQL veritabanı/veri ambarı'nda hangi yararlanır [Azure AD B2B işbirliği](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).|
 |Bir Federasyon etki alanına ait Azure AD kimlik bilgilerinizi kullanarak Windows için oturum|Kullanım [Azure AD ile tümleşik kimlik doğrulaması](sql-database-aad-authentication-configure.md).|

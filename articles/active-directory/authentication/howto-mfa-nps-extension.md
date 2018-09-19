@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: a24988bb9866dde72769107f1c45fc461c039f9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9873347683fdfabd93083b44d034a8d9d5bcaeef
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161066"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297546"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Mevcut NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -105,7 +105,7 @@ Bu adım zaten kiracınızda tam olabilir, ancak Azure AD Connect'in son veritab
 2. Seçin **Azure Active Directory** > **Azure AD'ye bağlanma**
 3. Eşitleme durumunuzu doğrulayın **etkin** ve bu, son eşitleme bir saatten önce gerçekleştirildi.
 
-Eşitleme, bize yönergeleri yeni bir gidiş istiyorsanız gerekiyorsa, [Azure AD Connect eşitleme: Scheduler](../connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler).
+Eşitleme, bize yönergeleri yeni bir gidiş istiyorsanız gerekiyorsa, [Azure AD Connect eşitleme: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
 
 ### <a name="determine-which-authentication-methods-your-users-can-use"></a>Kullanıcılarınızın hangi kimlik doğrulama yöntemlerini belirleme
 

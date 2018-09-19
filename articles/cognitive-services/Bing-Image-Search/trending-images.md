@@ -1,25 +1,26 @@
 ---
-title: Oluşturan eğilim görüntüleri için web Ara | Microsoft Docs
-description: Bing görüntüleri arama API oluşturan eğilim görüntüleri Web'de aramak için nasıl kullanılacağını gösterir.
+title: Popüler resimler - Bing resim arama API'si için Web'de arama
+titleSuffix: Azure Cognitive Services
+description: Bing resim arama API'si, Web'de popüler resimler için arama yapmak için kullanmayı öğrenin.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: EAB92D35-5C0B-4A0A-8F49-02DF7FAD44B4
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: b12524cd4c1896501820209b3a45746b8f38b210
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 00d992da1d061ddbbee59e93898a92b6701f1ffb
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351473"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296320"
 ---
-# <a name="get-trending-images"></a>Oluşturan eğilim görüntüleri alma  
+# <a name="get-trending-images-from-the-bing-image-search-api"></a>Bing resim arama API'si popüler resimlerden Al
 
-Günümüzün oluşturan eğilim görüntüleri almak için aşağıdaki GET isteği gönderin:  
+Günümüzün popüler resimlerden almak için aşağıdaki GET isteği gönder:  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending?mkt=en-us HTTP/1.1  
@@ -30,15 +31,15 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Eğilim görüntüleri API şu anda yalnızca aşağıdaki pazarda destekler:  
+Popüler resimler API'si şu anda aşağıdaki borsa destekler:  
 
 - en-US (İngilizce, Amerika Birleşik Devletleri)  
 - tr-CA (İngilizce, Kanada)  
 - tr-AU (İngilizce, Avustralya)  
 - zh-CN (Çince, Çin)
 
-Yanıtı içeren bir [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#trendingimages) görüntüleri kategoriye göre listeler nesnesi. Kategorinin kullanmak `title` kullanıcı deneyiminizi görüntülerinde gruplandırmak için. Kategoriler günlük değişebilir.  
-  
+Yanıt içeren bir [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#trendingimages) kategoriye göre görüntülerini listeleyen bir nesne. Kategori kullanın `title` , kullanıcı deneyiminde görüntülerini gruplandırmak için. Kategoriler her gün değişebilir.  
+
 ```json
 {
     "_type" : "TrendingImages",  
@@ -85,12 +86,12 @@ Yanıtı içeren bir [TrendingImages](https://docs.microsoft.com/rest/api/cognit
     }]  
 }  
 ```  
-  
-Her bölme görüntü ve ilgili görüntüleri almak için seçenekleri içerir. İlgili görüntüleri almak için sorgu kullanabilirsiniz `text` çağırmak için [görüntü arama API](./search-the-web.md) ve ilgili görüntüleri kendiniz görüntüleyin. Veya, URL'de kullanabilirsiniz `webSearchUrl` ilgili görüntüleri içeren Bing'ın görüntüleri arama sonuçları sayfasını, kullanıcıya gerçekleştirilecek. 
 
-İlgili görüntüleri almak için görüntü arama API çağırırsanız, ayarlamak [kimliği](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) sorgu parametresi kimliği için `id` alan. Kimliğini belirtme yanıt (bunu ilk yanıt görüntüdür) görüntüsü ve ilişkili görüntüleri içeren sağlar. Ayrıca, [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#q) sorgu parametresi metne `query` nesnenin `text` alan.
+Her kutucuk, görüntü ve ilgili görüntüleri almak için seçenekleri içerir. İlgili görüntüleri almak için sorguyu kullanabilirsiniz `text` çağrılacak [resim arama API'si](./search-the-web.md) ve ilgili kendiniz görüntüler. Veya URL'de kullandığınız `webSearchUrl` ilgili görüntüleri içeren Bing'in görüntüleri arama sonuçları sayfası, kullanıcıya yapılacak.
 
-Aşağıdaki örnek ilgili Bay Etikan görüntülerinde önceki eğilim görüntüleri API yanıt almak için resim kimliği kullanmayı gösterir.
+İlgili görüntüleri almak için resim arama API'si çağrısı verilirse [kimliği](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) sorgu parametresi kimlik `id` alan. Kimliğini belirterek yanıt görüntünün (yanıt ilk görüntüde olduğu) ve ilgili resimlerini içeren sağlar. Ayrıca, [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#q) sorgu parametresi metinde `query` nesnenin `text` alan.
+
+Aşağıdaki örnek, ilgili Bay Smith görüntülerde önceki popüler resimler API yanıt almak için resim kimliği kullanmayı gösterir.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=Smith&id=77FDE4A1C6529A23C7CF0EC073FAA64843E828F2&mkt=en-us HTTP/1.1  

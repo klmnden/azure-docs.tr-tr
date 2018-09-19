@@ -1,150 +1,315 @@
 ---
-title: Bilgisayar görme API C# Öğreticisi | Microsoft Docs
-description: Microsoft Bilişsel Hizmetleri'nde bilgisayar görme API'sini kullanan basit bir Windows uygulaması keşfedin. OCR gerçekleştirmek, küçük resim oluşturma ve görüntüdeki visual özellikleriyle çalışma.
+title: 'Öğretici: bir görüntü işleme uygulaması - C# derleme'
+titleSuffix: Computer Vision - Cognitive Services - Azure
+description: Microsoft Bilişsel hizmetler görüntü işleme API'sini kullanan basit bir Windows uygulaması keşfedin. OCR gerçekleştirmek, küçük resim oluşturma ve görüntüdeki görsel özellikler ile çalışma.
 services: cognitive-services
-author: KellyDF
-manager: corncar
+author: deken
+manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
-ms.date: 05/22/2017
-ms.author: kefre
-ms.openlocfilehash: f2aeb1734f8858ed8b80e5cdf48ef7e558703919
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/28/2018
+ms.author: v-deken
+ms.openlocfilehash: 9ea562e7fa2ec3e32da2f0f1453db36dda319303
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352894"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295861"
 ---
-# <a name="computer-vision-api-c35-tutorial"></a>Bilgisayar görme API C&#35; Öğreticisi
+# <a name="tutorial-build-an-image-processing-app---c35"></a>Öğretici: bir görüntü işleme uygulaması - C derleme&#35;
 
-Optik karakter tanıma gerçekleştirmek, akıllı kırpılmış küçük resimler oluşturma artı algılamak, kategorilere ayırmak, etiket için bilgisayar görme API kullanır ve yüz, görüntüyü dahil olmak üzere visual özelliklerini açıklayan temel bir Windows uygulaması keşfedin. Bir resim URL'si veya yerel olarak depolanan dosya gönderebilmek örnek sağlar. WPF (Windows Presentation Foundation), .NET Framework'ün bir parçası ve görme API kullanan Windows için kendi uygulamanızı oluşturmak için bu açık kaynak örnek şablon olarak kullanabilirsiniz.
+Optik karakter tanıma (OCR) gerçekleştirin, akıllı kırpılmış küçük resimler oluşturma artı algılamak, kategorilere ayırma, etiket için görüntü işleme kullanır ve bir resimdeki yüz, dahil olmak üzere, görsel özellikleri açıklayan temel bir Windows uygulaması keşfedin. Görüntü URL'sini veya yerel olarak depolanan bir dosya göndermeniz bir örnek sağlar. Bu açık kaynak örneği ve görüntü işleme API'si, .NET Framework'ün bir parçası olan Windows Presentation Foundation (WPF) kullanarak Windows için kendi uygulamanızı oluşturmak için şablon olarak kullanabilirsiniz.
 
-### <a name="prerequisites"></a>Önkoşullar
+> [!div class="checklist"]
+> * Örnek uygulamasını Github'dan alma
+> * Açın ve örnek uygulamayı Visual Studio'da derleme
+> * Örnek uygulamayı çalıştırın ve çeşitli senaryoları gerçekleştirmek için etkileşim
+> * Örnek uygulamayı dahil çeşitli senaryoları keşfedin
 
-#### <a name="platform-requirements"></a>Platform gereksinimleri
+## <a name="prerequisites"></a>Önkoşullar
 
-Aşağıdaki örnekte .NET Framework için geliştirilen kullanarak [Visual Studio 2015, Community Edition](https://www.visualstudio.com/downloads/).
+Örnek uygulamayı keşfetmeyi önce aşağıdaki önkoşulların karşılamanızın emin olun:
 
-#### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Bilgisayar görme API'sine abone olma ve aboneliği anahtarı alma 
+* Olmalıdır [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) veya üzeri.
+* Görüntü işleme için bir abonelik anahtarı olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik anahtarları alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-Örnek oluşturmadan önce bilgisayarı görme API'sine Microsoft Bilişsel hizmetler (önceki adıyla proje Oxford) parçası olan abone olmalısınız. Abonelik ve anahtar yönetimi Ayrıntılar için bkz: [abonelikleri](https://azure.microsoft.com/try/cognitive-services/). Bu öğreticide, hem birincil ve ikincil anahtar kullanılabilir. 
+## <a name="get-the-sample-app"></a>Örnek uygulamayı alma
 
-> [!NOTE]
-> Öğretici abonelik anahtarlarında kullanmak üzere tasarlanmış **westcentralus** bölge. Bilgisayar görme ücretsiz izi kullanımda oluşturulan abonelik anahtarları **westcentralus** doğru çalışması için bölge. Abonelik anahtarlarınızı aracılığıyla Azure hesabınızı kullanarak oluşturulan varsa [ https://azure.microsoft.com/ ](https://azure.microsoft.com/), belirtmeniz gerekir **westcentralus** bölge. Dışında oluşturulan anahtarları **westcentralus** bölge çalışmaz.
+Görüntü işleme örnek uygulamasını Github'dan üzerinde kullanılabilir `Microsoft/Cognitive-Vision-Windows` depo. Bu depo da içeren `Microsoft/Cognitive-Common-Windows` deposu olarak bir Git alt modülüdür. Kullanarak ya da alt modülü de dahil olmak üzere bu depo, özyinelemeli olarak Kopyala için `git clone --recurse-submodules` komut satırından veya GitHub Masaüstü kullanarak komutu.
 
-#### <a name="get-the-client-library-and-example"></a>İstemci Kitaplığı ve örnek alın
+Örneğin, yinelemeli olarak kopyalama için depo görüntü işleme örnek uygulama için bir komut isteminden aşağıdaki komutu çalıştırın:
 
-Bilgisayar görme API'si istemci kitaplığı ve örnek uygulaması aracılığıyla bilgisayarınıza kopyalamak [SDK](https://www.github.com/microsoft/cognitive-vision-windows). ZIP yüklemeyin.
-
-### <a name="Step1">1. adım: örnek yükleme</a>
-
-GitHub masaüstünüzü WPF\VisionAPI WPF Samples.sln örnek açın.
-
-### <a name="Step2">2. adım: örnek oluşturma</a>
-
-* Ctrl + Shift + B tuşuna basın veya yapı Şerit menüsünde'nı tıklatın ve sonra yapı çözümü seçin.
-
-### <a name="Step3">3. adım: örnek çalıştırma</a>
-
-1. Yapı tamamlandıktan sonra basın **F5** veya **Başlat** örneği çalıştırmak için Şerit menüsünde.
-2. Bilgisayar görme API kullanıcı arabirimi penceresi metin düzenleme kutusu "başlatmak için abonelik anahtarınızı Buraya Yapıştır" okuma bulun.
-Abonelik anahtarınızı PC veya dizüstü bilgisayarınız üzerinde "Anahtarı Kaydet" düğmesini tıklatarak kalıcı hale getirmek seçebilirsiniz. Abonelik anahtarı sistemden silmek istediğinizde, PC ya da dizüstü bilgisayara kaldırmak için "anahtar Sil"'ı tıklatın.
-
-    ![Görme abonelik anahtarı](../Images/Vision_UI_Subscription.PNG)
-
-3. "Senaryo seçin" altında altı senaryolardan biri, kullanmak için tıklatın, ardından ekrandaki yönergeleri izleyin. Microsoft, karşıya yükleme ve bunları bilgisayar görme API ve ilgili hizmetler geliştirmek için kullanabilir görüntüleri alır. Bir görüntü göndererek, izlediğinizden onaylamanız bizim [kullanım kuralları Geliştirici](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
-
-    ![Görüntü arabirimi Çözümle](../Images/Analyze_Image_Example.PNG)
-
-4. Bu örnek uygulama ile kullanılacak örnek görüntülerin vardır. Yüz API Windows Github deposuna üzerinde bu görüntüleri bulabilirsiniz [veri klasörü](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data). Lütfen bu görüntüleri kullanımını sözleşmesi altında lisanslanır Not [lisans görüntü](https://github.com/Microsoft/Cognitive-Face-Windows/blob/master/LICENSE-IMAGE.md).
-
-### <a name="Review">Gözden geçirin ve öğrenin</a>
-
-Çalışan bir uygulama sahip olduğunuza göre bize Bu örnek uygulama Bilişsel hizmetler teknolojisi ile nasıl tümleşik çalıştığını gözden geçirin. Bu, bu uygulamanın üzerine yapı devam ya da Microsoft bilgisayar görme API kullanarak kendi uygulamanızı geliştirin daha kolay hale getirir.
-
-Bu örnek uygulama bilgisayar görme API'si istemci kitaplığı, ince C# istemci için sarmalayıcı Microsoft bilgisayar görme API kullanır. Yukarıda açıklandığı gibi örnek uygulama yapılandırıldığında, istemci kitaplığı NuGet paket aldı. Başlıklı klasöründeki istemci kitaplığı kaynak kodu gözden geçirebilirsiniz "**istemci Kitaplığı**" altında **görme**, **Windows**, **istemci Kitaplığı**, hangi önkoşulları yukarıdaki indirilen dosya deposu bir parçasıdır.
-
-Çözüm Gezgini'nde istemci kitaplığı kodu kullanmayı da bulabilirsiniz: altında **VisionAPI WPF_Samples**, genişletin **AnalyzePage.xaml** bulmak için **AnalyzePage.xaml.cs**, görüntünün görüntü analiz uç göndermek için kullanılan. Çift tıklayın. bunları şekilde xaml.cs dosyalarını açma Visual Studio'da yeni Windows.
-
-Görme istemci kitaplığı bizim örnek uygulamasında nasıl kullanılan gözden geçirme, iki kod parçacıkları bakalım **AnalyzePage.xaml.cs**. Dosya "Anahtar örnek kodu BAŞLATIR burada" ve "Anahtar örnek kodu sona ERER burada" aşağıda parçacıkları çoğaltılamaz kod bulmanıza yardımcı olmak üzere gösteren kod açıklamaları içerir.
-
-Giriş olarak bir resim URL'si veya ikili resim verileri (biçiminde bir sekizli akış) ile çalışabilmek için Çözümle uç noktadır. İlk olarak kullanarak bir bulma görme istemci kitaplığı kullanmanıza olanak sağlayan yönergesi.
-
+```Console
+git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Vision-Windows.git
 ```
-                // ----------------------------------------------------------------------
-                // KEY SAMPLE CODE STARTS HERE
-                // Use the following namespace for VisionServiceClient 
-                // ---------------------------------------------------------------------- 
-                using Microsoft.ProjectOxford.Vision; 
-                using Microsoft.ProjectOxford.Vision.Contract; 
-                // ----------------------------------------------------------------------
-                // KEY SAMPLE CODE ENDS HERE 
-                // ----------------------------------------------------------------------
 
-```
-**UploadAndAnalyzeImage(...)**  Bu kod parçacığını istemci kitaplığı abonelik anahtarınızı ve bilgisayar görme API hizmeti Çözümle uç noktası için yerel olarak saklanan bir görüntü göndermek için nasıl kullanılacağını gösterir.
+> [!IMPORTANT]
+> Bu depo, bir ZIP olarak indir değil. Git alt modülleri bir deposu olarak bir ZIP indirirken içermez.
 
+### <a name="get-optional-sample-images"></a>İsteğe bağlı bir örnek görüntü alma
+
+Bulunan örnek görüntüleri isteğe bağlı olarak kullanabileceğiniz [yüz](../../Face/Overview.md) örnek uygulaması, GitHub üzerinde kullanılabilir `Microsoft/Cognitive-Face-Windows` depo. Bu örnek uygulama, bir klasör içerir `/Data`, birden çok kişi görüntülerini içerir. Bu depo, de, özyinelemeli olarak Kopyala için görüntü işleme örnek uygulama açıklanan yöntemlerle yapabilirsiniz.
+
+Örneğin, yinelemeli olarak kopyalama için depo yüz örnek uygulama için bir komut isteminden aşağıdaki komutu çalıştırın:
+
+```Console
+git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windows.git
 ```
-    private async Task<AnalysisResult> UploadAndAnalyzeImage(string imageFilePath)
+
+## <a name="open-and-build-the-sample-app-in-visual-studio"></a>Açın ve örnek uygulamayı Visual Studio'da derleme
+
+Böylece örnek uygulamayı inceleme veya çalıştırmadan önce Visual Studio bağımlılıkları çözümlemek örnek uygulamayı ilk olarak oluşturmanız gerekir. Açın ve örnek uygulamayı oluşturmak için aşağıdaki adımları uygulayın:
+
+1. Visual Studio çözüm dosyasını açın `/Sample-WPF/VisionAPI-WPF-Samples.sln`, Visual Studio'da.
+1. Visual Studio çözümünü iki proje içerdiğinden emin olun:  
+
+   * SampleUserControlLibrary
+   * VisionAPI WPF Örnekleri  
+
+   Kopyalanan yinelemeli olarak seçtiğiniz SampleUserControlLibrary proje kullanılamıyorsa, onaylayın `Microsoft/Cognitive-Vision-Windows` depo.
+1. Visual Studio'da ya da Ctrl + Shift + B tuşlarına basın veya seçin **derleme** Şerit menüsünde seçip **Çözümü Derle** çözümü derlemek için.
+
+## <a name="run-and-interact-with-the-sample-app"></a>Çalıştırın ve örnek uygulaması ile etkileşim kurma
+
+Nasıl, siz ve görüntü işleme istemci kitaplığı ile oluşturma küçük resimleri veya etiketleme görüntüleri gibi çeşitli görevleri gerçekleştirirken etkileşim görmek için örnek uygulamayı çalıştırabilirsiniz. Çalıştırın ve örnek uygulaması ile etkileşim kurmak için aşağıdaki adımları uygulayın:
+
+1. Derleme tamamlandıktan sonra tuşlarına basın **F5** veya **hata ayıklama** Şerit menüsünde seçip **hata ayıklamayı Başlat** örnek uygulamayı çalıştırmak için.
+1. Örnek uygulama görüntülendiğinde seçin **abonelik anahtarı Yönetimi** abonelik anahtarı Yönetimi sayfasını görüntülemek için Gezinti bölmesinden.
+   ![Abonelik anahtarı Yönetimi sayfası](../Images/Vision_UI_Subscription.PNG)  
+1. Abonelik anahtarınızı girin **abonelik anahtarı**.
+1. Uç nokta URL'sini atlama `/vision/v1.0`, görüntü işleme kaynak için abonelik anahtarınızı **uç nokta**.  
+   Örneğin, görüntü işleme ücretsiz deneme aboneliği anahtarı kullanıyorsanız, Batı Orta ABD Azure bölgesi için şu uç nokta URL'sini girin: `https://westcentralus.api.cognitive.microsoft.com`
+1. Abonelik anahtarını ve uç nokta girmek istemiyorsanız URL gelecek sefer örnek uygulamayı çalıştırdığınızda seçin **Kaydet ayarı** abonelik anahtarını ve uç nokta URL'si bilgisayarınıza kaydedin. Daha önce kaydettiğiniz abonelik anahtarını ve uç nokta URL'nizi silmek istiyorsanız, seçin **ayarı silmek**.
+
+   > [!NOTE]
+   > Yalıtılmış Depolama, örnek uygulamayı kullanır ve `System.IO.IsolatedStorage`, abonelik anahtarını ve uç nokta URL'nizi depolamak için.
+
+1. Altında **bir senaryo seçmek** Gezinti bölmesinde, örnek uygulamayı şu anda dahil senaryolardan birini seçin:  
+
+   | Senaryo | Açıklama |
+   |----------|-------------|
+   |Resmi çözümleme | Kullanan [analiz görüntü](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) yerel veya uzak bir resmi çözümleme işlemi. Görsel özellikler ve analiz için dil seçin ve hem yansıma hem de sonuçları bakın.  |
+   |Etki alanı modeli ile resmi çözümleme | Kullanır [listesi alana özgü modellere](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) içinden seçebilirsiniz, etki alanı modellerini listelemek için işlemi ve [tanımak etki alanı belirli içerik](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) işlemi, yerel veya uzak bir görüntü kullanarak bir analiz etmek için Seçilen etki alanı modeli. Dil çözümleme için de seçebilirsiniz. |
+   |Görüntü açıklayın | Kullanan [açıklayan görüntü](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fe) okunabilir açıklamasını yerel veya uzak bir görüntü oluşturma işlemi. Ayrıca, açıklama dilini seçebilirsiniz. |
+   |Etiket Oluştur | Kullanan [etiket görüntü](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1ff) yerel veya uzak bir görüntünün görsel özellikleri etiketlemek için işlemi. Ayrıca, etiketleri için kullanılan dili seçebilirsiniz. |
+   |Metin (OCR) tanıması | Kullanan [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) görüntüden tanıması ve ayıklamak için işlem yazdırılan metin. Kullanılacak dili seçin veya görüntü işleme otomatik dil algılama sağlar. |
+   |Metin V2 tanımak (İngilizce) | Kullanan [metni tanı](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) ve [tanımak metin işleminin sonucunu Al](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) işlemlerini zaman uyumsuz olarak tanımak ve bir görüntüden yazdırılan veya el yazısı metinleri ayıklamak için. |
+   |Küçük resmini Al | Kullanan [küçük resim alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) için yerel veya uzak bir görüntüyü küçük resim oluşturma işlemi. |
+
+   > [!IMPORTANT]
+   > Microsoft, görüntüleri karşıya yükleme ve bunları görüntü işleme API'si ve ilgili hizmetleri geliştirmek için kullanabiliriz alır. Görüntü göndererek sizi takip onaylamanız bizim [kullanım şartları Geliştirici](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
+
+   Aşağıdaki ekran görüntüsünde bir örnek görüntü çözümledikten sonra analiz görüntü senaryosu için sağlanan sayfası gösterilmektedir.
+   ![Görüntü senaryosu sayfasında analiz edin](../Images/Analyze_Image_Example.PNG)
+
+## <a name="explore-the-sample-app"></a>Örnek uygulamayı İnceleme
+
+Visual Studio çözümünü görüntü işleme örnek uygulama için iki proje içerir:
+
+* SampleUserControlLibrary  
+  SampleUserControlLibrary projesi, birden çok Bilişsel hizmetler örnekleri tarafından paylaşılan işlevselliği sağlar. Proje aşağıdakileri içerir:
+  * SampleScenarios  
+    Bir UserControl örnekleri için başlık çubuğu, Gezinti bölmesinde ve içerik bölmesi gibi standart bir sunu sağlar. Görüntü işleme örnek uygulaması senaryosu sayfaları, görüntüler ve abonelik anahtarını ve uç nokta URL'si gibi senaryoları arasında paylaşılan bilgiler erişmek için MainWindow.xaml penceresinde bu denetimi kullanır.
+  * SubscriptionKeyPage  
+    Örnek uygulama için bir abonelik anahtarı ve uç nokta URL'si girmek için standartlaştırılmış bir düzen sağlayan bir sayfa. Görüntü işleme örnek uygulama, abonelik anahtarını yönetmek için bu sayfayı kullanır ve uç nokta URL'si senaryo sayfaları tarafından kullanılır.
+  * VideoResultControl  
+    Video ile ilgili bilgileri için standartlaştırılmış bir sunu sağlar bir UserControl. Görüntü işleme örnek uygulaması, bu denetim kullanmaz.
+* VisionAPI WPF Örnekleri  
+  Görüntü işleme örnek uygulaması için ana proje, bu proje için görüntü işleme tüm ilginç işlevselliğini içerir. Proje aşağıdakileri içerir:
+  * AnalyzeInDomainPage.xaml  
+    Etki alanı modeli senaryo ile analiz görüntü için senaryo sayfası.
+  * AnalyzeImage.xaml  
+    Analiz görüntü Senaryo için senaryo sayfası.
+  * DescribePage.xaml  
+    Görüntü açıklayan senaryo için senaryo sayfası.
+  * ImageScenarioPage.cs  
+    Tüm örnek uygulamada senaryo sayfaları türetildiği ImageScenarioPage sınıfı. Bu sınıf, kimlik bilgileri sağlama ve tüm senaryo sayfaları tarafından paylaşılan çıktı biçimlendirme gibi işlevleri yönetir.
+  * MainWindow.xaml  
+    Örnek uygulama ana penceresi, SampleScenarios denetim SubscriptionKeyPage ve senaryo sayfaları sunmak için kullanır.
+  * OCRPage.xaml  
+    Metin tanıma (OCR) senaryosu için senaryo sayfası.
+  * RecognizeLanguage.cs  
+    RecognizeLanguage sınıfı örnek uygulamada çeşitli yöntemler tarafından desteklenen diller hakkında bilgi sağlar.
+  * TagsPage.xaml  
+    Etiketler oluşturma senaryosu için senaryo sayfası.
+  * TextRecognitionPage.xaml  
+    Tanı metin V2 (İngilizce) senaryosu için senaryo sayfası.
+  * ThumbnailPage.xaml  
+    Küçük resim alma senaryosu için senaryo sayfası.
+
+### <a name="explore-the-sample-code"></a>Örnek kodu inceleyin
+
+Anahtar bölümlerini örnek kod ile başlayan açıklama blokları Çerçeveli `KEY SAMPLE CODE STARTS HERE` ve ile sona erdi `KEY SAMPLE CODE ENDS HERE`, örnek uygulamayı İnceleme kolaylaştırır. Örnek kod bu anahtar bölümlerinin görüntü işleme API'si istemci kitaplığı çeşitli görevleri gerçekleştirmek için nasıl kullanılacağını öğrenmek için en uygun kodu içerir. Arayabilirsiniz `KEY SAMPLE CODE STARTS HERE` görüntü işleme örnek uygulamada kod en uygun bölümleri arasında hareket etmek için Visual Studio'da. 
+
+Örneğin, `UploadAndAnalyzeImageAsync` izleyerek ve AnalyzePage.xaml içinde bulunan yöntemi, harekete geçirerek yerel görüntüyü çözümlemek için istemci kitaplığını kullanma işlemini gösterir `ComputerVisionClient.AnalyzeImageInStreamAsync` yöntemi.
+
+```csharp
+private async Task<ImageAnalysis> UploadAndAnalyzeImageAsync(string imageFilePath)
+{
+    // -----------------------------------------------------------------------
+    // KEY SAMPLE CODE STARTS HERE
+    // -----------------------------------------------------------------------
+
+    //
+    // Create Cognitive Services Vision API Service client.
+    //
+    using (var client = new ComputerVisionClient(Credentials) { Endpoint = Endpoint })
     {
-        // -----------------------------------------------------------------------
-        // KEY SAMPLE CODE STARTS HERE
-        // -----------------------------------------------------------------------  
-        //
-        // Create Project Oxford Computer Vision API Service client
-        //
-        VisionServiceClient VisionServiceClient = new VisionServiceClient(SubscriptionKey);
-        Log("VisionServiceClient is created");
-    
+        Log("ComputerVisionClient is created");
+
         using (Stream imageFileStream = File.OpenRead(imageFilePath))
         {
             //
-            // Analyze the image for all visual features
+            // Analyze the image for all visual features.
             //
-            Log("Calling VisionServiceClient.AnalyzeImageAsync()...");
-         VisualFeature[] visualFeatures = new VisualFeature[] { VisualFeature.Adult, VisualFeature.Categories, VisualFeature.Color, VisualFeature.Description, VisualFeature.Faces, VisualFeature.ImageType, VisualFeature.Tags };
-            AnalysisResult analysisResult = await VisionServiceClient.AnalyzeImageAsync(imageFileStream, visualFeatures);
+            Log("Calling ComputerVisionClient.AnalyzeImageInStreamAsync()...");
+            VisualFeatureTypes[] visualFeatures = GetSelectedVisualFeatures();
+            string language = (_language.SelectedItem as RecognizeLanguage).ShortCode;
+            ImageAnalysis analysisResult = await client.AnalyzeImageInStreamAsync(imageFileStream, visualFeatures, null, language);
             return analysisResult;
         }
-    
-        // -----------------------------------------------------------------------
-        // KEY SAMPLE CODE ENDS HERE
-        // -----------------------------------------------------------------------
-        }
-```
-**AnalyzeUrl(...)**  Bu kod parçacığını istemci kitaplığı abonelik anahtarınızı ve bilgisayar görme API hizmeti Çözümle uç noktası için bir fotoğraf URL'si göndermek için nasıl kullanılacağını gösterir.
-
-```
-    private async Task<AnalysisResult> AnalyzeUrl(string imageUrl)
-    {
-        // -----------------------------------------------------------------------
-        // KEY SAMPLE CODE STARTS HERE
-        // -----------------------------------------------------------------------
-    
-        //
-        // Create Project Oxford Computer Vision API Service client
-        //
-     VisionServiceClient VisionServiceClient = new VisionServiceClient(SubscriptionKey);
-        Log("VisionServiceClient is created");
-    
-        //
-        // Analyze the url for all visual features
-        //
-        Log("Calling VisionServiceClient.AnalyzeImageAsync()...");
-        VisualFeature[] visualFeatures = new VisualFeature[] { VisualFeature.Adult, VisualFeature.Categories, VisualFeature.Color, VisualFeature.Description, VisualFeature.Faces, VisualFeature.ImageType, VisualFeature.Tags };
-        AnalysisResult analysisResult = await VisionServiceClient.AnalyzeImageAsync(imageUrl, visualFeatures);
-     return analysisResult;
     }
-        // -----------------------------------------------------------------------
-        // KEY SAMPLE CODE ENDS HERE
-        // -----------------------------------------------------------------------
+
+    // -----------------------------------------------------------------------
+    // KEY SAMPLE CODE ENDS HERE
+    // -----------------------------------------------------------------------
+}
 ```
-**Diğer sayfalar ve uç noktaları** bilgisayar görme API hizmeti tarafından sunulan diğer uç noktaları ile etkileşim kurmak nasıl bir örnek sayfalarında bakarak görülebilir; örneği için OCR endpoint OCRPage.xaml.cs içinde yer alan kodun bir parçası olarak gösterilir 
 
-### <a name="Related">İlgili Konular</a>
- * [Yüz API'si ile çalışmaya başlama](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
- 
- 
+### <a name="explore-the-client-library"></a>İstemci kitaplığını keşfedin
 
+Bu örnek uygulama, ölçülü kaynak kullanan C# istemci için bir sarmalayıcı görüntü işleme API'si, Azure Bilişsel hizmetler görüntü işleme API'si istemci kitaplığını kullanır. İstemci Kitaplığı nuget içinde kullanılabilir [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) paket. Visual Studio uygulamasını yapılandırıldığında, istemci kitaplığının karşılık gelen NuGet paketinden alınır. İstemci Kitaplığı'ndaki kaynak kodunu da görüntüleyebilirsiniz `/ClientLibrary` klasörü `Microsoft/Cognitive-Vision-Windows` depo.
 
+İstemci kitaplığının işlevselliği etrafında ortalar `ComputerVisionClient` içinde sınıf `Microsoft.Azure.CognitiveServices.Vision.ComputerVision` ad alanı tarafından kullanılan modelleri çalışırken `ComputerVisionClient` görüntü işleme ile etkileşim kurulurken sınıfı bulunur `Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models` ad alanı. Aşağıdaki örnek uygulaması ile dahil çeşitli XAML senaryo sayfaları'nda bulabilirsiniz `using` yönergesi bu ad alanları için:
+
+```csharp
+// -----------------------------------------------------------------------
+// KEY SAMPLE CODE STARTS HERE
+// Use the following namespace for ComputerVisionClient.
+// -----------------------------------------------------------------------
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+// -----------------------------------------------------------------------
+// KEY SAMPLE CODE ENDS HERE
+// -----------------------------------------------------------------------
+```
+
+İle sunulan çeşitli yöntemler hakkında daha fazla bilgi edineceksiniz `ComputerVisionClient` ile görüntü işleme örnek uygulamasını dahil senaryoları keşfederken sınıfı.
+
+## <a name="explore-the-analyze-image-scenario"></a>Analiz görüntü Senaryo keşfedin
+
+Bu senaryo AnalyzePage.xaml sayfası tarafından yönetilir. Görsel özellikler ve analiz için dil seçin ve hem yansıma hem de sonuçları bakın. Senaryo sayfası resminin kaynağını bağlı olarak, aşağıdaki yöntemlerden birini kullanarak yapar:
+
+* UploadAndAnalyzeImageAsync  
+  Bu yöntem, görüntü gerekir kodlanmış olarak yerel görüntüler için kullanılan bir `Stream` ve görüntü işleme çağırarak gönderilen `ComputerVisionClient.AnalyzeImageInStreamAsync` yöntemi.
+* AnalyzeUrlAsync  
+  Bu yöntem, görüntü URL'sini gönderilen görüntü işleme çağırarak uzak görüntüleri için kullanılan `ComputerVisionClient.AnalyzeImageAsync` yöntemi.
+
+`UploadAndAnalyzeImageAsync` Yöntemi yeni bir oluşturur `ComputerVisionClient` örneğini, belirtilen abonelik anahtarını ve uç nokta URL'sini kullanarak. Örnek uygulamayı yerel bir görüntü çözümlüyor olduğundan, görüntü işleme, görüntü içeriğini göndermek vardır. Belirtilen yerel dosyayı açar `imageFilePath` olarak okumak için bir `Stream`, ardından senaryosu sayfasında seçili dil ve görsel özellikleri alır. Çağrı `ComputerVisionClient.AnalyzeImageInStreamAsync` yöntemini `Stream` dosya, görsel özellikler ve dil, ardından sonuç olarak döndüren bir `ImageAnalysis` örneği. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+`AnalyzeUrlAsync` Yöntemi yeni bir oluşturur `ComputerVisionClient` örneğini, belirtilen abonelik anahtarını ve uç nokta URL'sini kullanarak. Bu senaryo sayfasında seçili dil ve görsel özellikleri alır. Çağrı `ComputerVisionClient.AnalyzeImageInStreamAsync` resim URL'si, görsel özellikler ve dil geçirme yöntemi, ardından döndürür sonucu olarak bir `ImageAnalysis` örneği. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+## <a name="explore-the-analyze-image-with-domain-model-scenario"></a>Etki alanı Model senaryosuna analiz görüntüsüyle keşfedin
+
+Bu senaryo AnalyzeInDomainPage.xaml sayfası tarafından yönetilir. Gibi bir etki alanı modeli seçin `celebrities` veya `landmarks`ve görüntünün bir etki alanına özgü analizi gerçekleştirmek ve hem yansıma hem de sonuçları görmek için dili. Senaryo sayfası resminin kaynağını bağlı olarak aşağıdaki yöntemleri kullanır:
+
+* GetAvailableDomainModelsAsync  
+  Bu yöntem, görüntü işleme kullanılabilir bir etki alanı modelleri listesini alır ve dolduran `_domainModelComboBox` sayfasında ComboBox denetimi kullanarak `ComputerVisionClient.ListModelsAsync` yöntemi.
+* UploadAndAnalyzeInDomainImageAsync  
+  Bu yöntem, görüntü gerekir kodlanmış olarak yerel görüntüler için kullanılan bir `Stream` ve görüntü işleme çağırarak gönderilen `ComputerVisionClient.AnalyzeImageByDomainInStreamAsync` yöntemi.
+* AnalyzeInDomainUrlAsync  
+  Bu yöntem, görüntü URL'sini gönderilen görüntü işleme çağırarak uzak görüntüleri için kullanılan `ComputerVisionClient.AnalyzeImageByDomainAsync` yöntemi.
+
+`UploadAndAnalyzeInDomainImageAsync` Yöntemi yeni bir oluşturur `ComputerVisionClient` örneğini, belirtilen abonelik anahtarını ve uç nokta URL'sini kullanarak. Örnek uygulamayı yerel bir görüntü çözümlüyor olduğundan, görüntü işleme, görüntü içeriğini göndermek vardır. Belirtilen yerel dosyayı açar `imageFilePath` olarak okumak için bir `Stream`, ardından senaryosu sayfasında seçtiğiniz dile alır. Çağrı `ComputerVisionClient.AnalyzeImageByDomainInStreamAsync` yöntemini `Stream` dosya için etki alanı modeli ve dil adını ardından sonuç olarak döndüren bir `DomainModelResults` örneği. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+`AnalyzeInDomainUrlAsync` Yöntemi yeni bir oluşturur `ComputerVisionClient` örneğini, belirtilen abonelik anahtarını ve uç nokta URL'sini kullanarak. Bu senaryo sayfasında seçtiğiniz dile alır. Çağrı `ComputerVisionClient.AnalyzeImageByDomainAsync` resim URL'si, görsel özellikler ve dil geçirme yöntemi, ardından döndürür sonucu olarak bir `DomainModelResults` örneği. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+## <a name="explore-the-describe-image-scenario"></a>Görüntü açıklayan senaryo keşfedin
+
+Bu senaryo DescribePage.xaml sayfası tarafından yönetilir. Görüntüsünün insanlar tarafından okunabilen bir açıklamasını oluşturmak için bir dil seçin ve hem yansıma hem de sonuçları bakın. Senaryo sayfası resminin kaynağını bağlı olarak aşağıdaki yöntemleri kullanır:
+
+* UploadAndDescribeImageAsync  
+  Bu yöntem, görüntü gerekir kodlanmış olarak yerel görüntüler için kullanılan bir `Stream` ve görüntü işleme çağırarak gönderilen `ComputerVisionClient.DescribeImageInStreamAsync` yöntemi.
+* DescribeUrlAsync  
+  Bu yöntem, görüntü URL'sini gönderilen görüntü işleme çağırarak uzak görüntüleri için kullanılan `ComputerVisionClient.DescribeImageAsync` yöntemi.
+
+`UploadAndDescribeImageAsync` Yöntemi yeni bir oluşturur `ComputerVisionClient` örneğini, belirtilen abonelik anahtarını ve uç nokta URL'sini kullanarak. Örnek uygulamayı yerel bir görüntü çözümlüyor olduğundan, görüntü işleme, görüntü içeriğini göndermek vardır. Belirtilen yerel dosyayı açar `imageFilePath` olarak okumak için bir `Stream`, ardından senaryosu sayfasında seçtiğiniz dile alır. Çağrı `ComputerVisionClient.DescribeImageInStreamAsync` yöntemini `Stream` dosya için aday (Bu durumda, 3) ve dil sayısı ardından sonuç olarak döndüren bir `ImageDescription` örneği. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+`DescribeUrlAsync` Yöntemi yeni bir oluşturur `ComputerVisionClient` örneğini, belirtilen abonelik anahtarını ve uç nokta URL'sini kullanarak. Bu senaryo sayfasında seçtiğiniz dile alır. Çağrı `ComputerVisionClient.DescribeImageAsync` geçirme resim URL'si, aday (Bu durumda, 3) ve dil sayısı, ardından döner sonucu olarak bir `ImageDescription` örneği. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+## <a name="explore-the-generate-tags-scenario"></a>Etiketler oluşturma senaryosu keşfedin
+
+Bu senaryo TagsPage.xaml sayfası tarafından yönetilir. Görüntünün görsel özellikleri etiketlemek için bir dil seçin ve görüntü hem sonuçları bakın. Senaryo sayfası resminin kaynağını bağlı olarak aşağıdaki yöntemleri kullanır:
+
+* UploadAndGetTagsForImageAsync  
+  Bu yöntem, görüntü gerekir kodlanmış olarak yerel görüntüler için kullanılan bir `Stream` ve görüntü işleme çağırarak gönderilen `ComputerVisionClient.TagImageInStreamAsync` yöntemi.
+* GenerateTagsForUrlAsync  
+  Bu yöntem, görüntü URL'sini gönderilen görüntü işleme çağırarak uzak görüntüleri için kullanılan `ComputerVisionClient.TagImageAsync` yöntemi.
+
+`UploadAndGetTagsForImageAsync` Yöntemi yeni bir oluşturur `ComputerVisionClient` örneğini, belirtilen abonelik anahtarını ve uç nokta URL'sini kullanarak. Örnek uygulamayı yerel bir görüntü çözümlüyor olduğundan, görüntü işleme, görüntü içeriğini göndermek vardır. Belirtilen yerel dosyayı açar `imageFilePath` olarak okumak için bir `Stream`, ardından senaryosu sayfasında seçtiğiniz dile alır. Çağrı `ComputerVisionClient.TagImageInStreamAsync` yöntemini `Stream` dosya ve dil için ardından sonuç olarak döndüren bir `TagResult` örneği. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+`GenerateTagsForUrlAsync` Yöntemi yeni bir oluşturur `ComputerVisionClient` örneğini, belirtilen abonelik anahtarını ve uç nokta URL'sini kullanarak. Bu senaryo sayfasında seçtiğiniz dile alır. Çağrı `ComputerVisionClient.TagImageAsync` resim URL'si hem de dil, ardından döner sonucu olarak bir `TagResult` örneği. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+## <a name="explore-the-recognize-text-ocr-scenario"></a>Metin tanıma (OCR) senaryo keşfedin
+
+Bu senaryo OCRPage.xaml sayfası tarafından yönetilir. Tanıması ve bir görüntüden yazdırılan metin ayıklamak için bir dil seçin ve hem yansıma hem de sonuçları bakın. Senaryo sayfası resminin kaynağını bağlı olarak aşağıdaki yöntemleri kullanır:
+
+* UploadAndRecognizeImageAsync  
+  Bu yöntem, görüntü gerekir kodlanmış olarak yerel görüntüler için kullanılan bir `Stream` ve görüntü işleme çağırarak gönderilen `ComputerVisionClient.RecognizePrintedTextInStreamAsync` yöntemi.
+* RecognizeUrlAsync  
+  Bu yöntem, görüntü URL'sini gönderilen görüntü işleme çağırarak uzak görüntüleri için kullanılan `ComputerVisionClient.RecognizePrintedTextAsync` yöntemi.
+
+`UploadAndRecognizeImageAsync` Yöntemi yeni bir oluşturur `ComputerVisionClient` örneğini, belirtilen abonelik anahtarını ve uç nokta URL'sini kullanarak. Örnek uygulamayı yerel bir görüntü çözümlüyor olduğundan, görüntü işleme, görüntü içeriğini göndermek vardır. Belirtilen yerel dosyayı açar `imageFilePath` olarak okumak için bir `Stream`, ardından senaryosu sayfasında seçtiğiniz dile alır. Çağrı `ComputerVisionClient.RecognizePrintedTextInStreamAsync` yönlendirme algılanmadı belirten ve geçirme yöntemi `Stream` dosya ve dil için ardından sonuç olarak döndüren bir `OcrResult` örneği. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+`RecognizeUrlAsync` Yöntemi yeni bir oluşturur `ComputerVisionClient` örneğini, belirtilen abonelik anahtarını ve uç nokta URL'sini kullanarak. Bu senaryo sayfasında seçtiğiniz dile alır. Çağrı `ComputerVisionClient.RecognizePrintedTextAsync` yönlendirme algılanmadı belirten ve resim URL'si hem de dil yöntemi ardından döndürür sonucu olarak bir `OcrResult` örneği. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+## <a name="explore-the-recognize-text-v2-english-scenario"></a>Tanı metin V2 (İngilizce) senaryosu keşfedin
+
+Bu senaryo TextRecognitionPage.xaml sayfası tarafından yönetilir. Tanıma modu ve zaman uyumsuz olarak tanınması ve bir görüntüden yazdırılan veya el yazısı metinleri ayıklamak için bir dil seçin ve görüntü hem sonuçları bakın. Senaryo sayfası resminin kaynağını bağlı olarak aşağıdaki yöntemleri kullanır:
+
+* UploadAndRecognizeImageAsync  
+  Bu yöntem, görüntü gerekir kodlanmış olarak yerel görüntüler için kullanılan bir `Stream` ve görüntü işleme çağırarak gönderilen `RecognizeAsync` yöntemi ve parametreli bir temsilci geçirmek için `ComputerVisionClient.RecognizeTextInStreamAsync` yöntemi.
+* RecognizeUrlAsync  
+  Bu yöntem, görüntü URL'sini gönderilen görüntü işleme çağırarak uzak görüntüleri için kullanılan `RecognizeAsync` yöntemi ve parametreli bir temsilci geçirmek için `ComputerVisionClient.RecognizeTextAsync` yöntemi.
+* Bu yöntem RecognizeAsync işleme hem de zaman uyumsuz çağırma `UploadAndRecognizeImageAsync` ve `RecognizeUrlAsync` arayarak sonuçlar için yoklama yanı sıra yöntemleri `ComputerVisionClient.GetTextOperationResultAsync` yöntemi.
+
+Görüntü işleme örnek uygulamasındaki diğer senaryolara, bu işlemi başlatmak için bir yöntem çağrılır ancak farklı durumunu denetleyin ve bu işlemin sonuçlarını döndürmek için çağrılan zaman uyumsuz senaryodur. Bu senaryoda mantıksal akışı diğer senaryolarda, biraz farklıdır.
+
+`UploadAndRecognizeImageAsync` Yöntemi içinde belirtilen yerel dosyayı açar `imageFilePath` olarak okumak için bir `Stream`, sonra çağıran `RecognizeAsync` geçirme yöntemi:
+
+* Parametreli bir zaman uyumsuz metot için bir lambda ifadesi `ComputerVisionClient.RecognizeTextInStreamAsync` yöntemi ile `Stream` dosya ve parametre olarak tanıma modu için de `GetHeadersAsyncFunc`.
+* Bir lambda ifadesi almak bir temsilci için `Operation-Location` yanıt üst bilgisi değeri `GetOperationUrlFunc`.
+
+`RecognizeUrlAsync` Yöntem çağrılarını `RecognizeAsync` geçirme yöntemi:
+
+* Parametreli bir zaman uyumsuz metot için bir lambda ifadesi `ComputerVisionClient.RecognizeTextAsync` uzak görüntü ve parametre olarak tanıma modu URL ile bir yöntem içinde `GetHeadersAsyncFunc`.
+* Bir lambda ifadesi almak bir temsilci için `Operation-Location` yanıt üst bilgisi değeri `GetOperationUrlFunc`.
+
+Zaman `RecognizeAsync` yöntemi tamamlandığında, her ikisi de `UploadAndRecognizeImageAsync` ve `RecognizeUrlAsync` sonucu olarak yöntemleri döndürür bir `TextOperationResult` örneği. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+`RecognizeAsync` Yöntemini çağırır parametreli temsilci için `ComputerVisionClient.RecognizeTextInStreamAsync` veya `ComputerVisionClient.RecognizeTextAsync` yöntemi geçirilen `GetHeadersAsyncFunc` ve yanıt bekler. Yöntemi ardından geçirilen temsilci çağıran `GetOperationUrlFunc` almak için `Operation-Location` yanıt yanıt üstbilgi değeri. Bu değer, geçirilen yöntemi sonuçlarını almak için kullanılan URL'dir `GetHeadersAsyncFunc` gelen görüntü işleme.
+
+`RecognizeAsync` Sonra yöntemi çağırır `ComputerVisionClient.GetTextOperationResultAsync` yöntemini hizmetinden alınan URL `Operation-Location` yanıt üst bilgisi, durum ve geçirilen yöntemin sonucunu almak için `GetHeadersAsyncFunc`. Yöntemi, başarıyla veya başarısız, tamamlandığını durumu içermiyorsa `RecognizeAsync` yöntem çağrılarını `ComputerVisionClient.GetTextOperationResultAsync` 3 daha fazla kez, çağrıları arasında 3 saniye bekleniyor. `RecognizeAsync` Yöntemi çağıran yönteme sonuçlarını döndürür.
+
+## <a name="explore-the-get-thumbnail-scenario"></a>Küçük resim alma senaryosu keşfedin
+
+Bu senaryo ThumbnailPage.xaml sayfası tarafından yönetilir. Akıllı kırpma kullanılıp kullanılmayacağını belirtmek ve istenen yüksekliğini ve genişliğini bir görüntüden bir küçük resim oluşturmaya belirtin ve hem yansıma hem de sonuçları bakın. Senaryo sayfası resminin kaynağını bağlı olarak aşağıdaki yöntemleri kullanır:
+
+* UploadAndThumbnailImageAsync  
+  Bu yöntem, görüntü gerekir kodlanmış olarak yerel görüntüler için kullanılan bir `Stream` ve görüntü işleme çağırarak gönderilen `ComputerVisionClient.GenerateThumbnailInStreamAsync` yöntemi.
+* ThumbnailUrlAsync  
+  Bu yöntem, görüntü URL'sini gönderilen görüntü işleme çağırarak uzak görüntüleri için kullanılan `ComputerVisionClient.GenerateThumbnailAsync` yöntemi.
+
+`UploadAndThumbnailImageAsync` Yöntemi yeni bir oluşturur `ComputerVisionClient` örneğini, belirtilen abonelik anahtarını ve uç nokta URL'sini kullanarak. Örnek uygulamayı yerel bir görüntü çözümlüyor olduğundan, görüntü işleme, görüntü içeriğini göndermek vardır. Belirtilen yerel dosyayı açar `imageFilePath` olarak okumak için bir `Stream`. Çağrı `ComputerVisionClient.GenerateThumbnailInStreamAsync` yöntemi, genişlik, yükseklik geçirme `Stream` dosya ve akıllı kırpma kullanıp kullanmayacağınızı sonra sonuç olarak döndüren bir `Stream`. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+`RecognizeUrlAsync` Yöntemi yeni bir oluşturur `ComputerVisionClient` örneğini, belirtilen abonelik anahtarını ve uç nokta URL'sini kullanarak. Çağrı `ComputerVisionClient.GenerateThumbnailAsync` yöntemini, genişlik, yükseklik, görüntünün URL'sini ve akıllı kırpma kullanıp kullanmayacağınızı ardından döndürür sonucu olarak bir `Stream`. Devralınan yöntemleri `ImageScenarioPage` sınıfı sunmak ve döndürülen sonuçlarda senaryosu sayfasında.
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli olmadığında, kopyaladığınız klasörü silin `Microsoft/Cognitive-Vision-Windows` depo. Örnek görüntüleri kullanmayı seçtiyseniz, ayrıca hangi kopyaladığınız klasörü silin `Microsoft/Cognitive-Face-Windows` depo.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+> [!div class="nextstepaction"]
+> [Yüz tanıma API'si ile çalışmaya başlama](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)

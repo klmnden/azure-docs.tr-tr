@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 25488295ec046eb0ca7473af76e4618eacb1155d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8828ba3c91df7b0a2fde3c42ecd81bd4ee4d17a3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38600779"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295946"
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Bir kaynağa veya Azure Resource Manager şablonları özelliğinde birden çok örneğini dağıtma
 
 Bu makalede bir kaynağın birden çok örneğini oluşturmak için Azure Resource Manager şablonunuzda yineleme gösterilmektedir. Belirtmeniz gerekiyorsa olup kaynağın dağıtıldığı tüm bkz [koşul öğesi](resource-manager-templates-resources.md#condition).
+
+Bir öğretici için bkz. [öğretici: Resource Manager şablonlarını kullanarak birden çok kaynak örneğini oluşturma](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-iteration"></a>Kaynak yineleme
 
@@ -442,6 +444,9 @@ Aşağıdaki örnekler, birden çok kaynak veya özellikleri oluşturmaya yönel
 |[Birden çok güvenlik kuralları](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Birden çok güvenlik kuralları, bir ağ güvenlik grubu dağıtır. Bu, bir parametre gelen güvenlik kuralları oluşturur. Parametresi için bkz: [birden fazla NSG parametre dosyası](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+* Bir öğreticiyi incelemek için bkz: [öğretici: Resource Manager şablonlarını kullanarak birden çok kaynak örneğini oluşturma](./resource-manager-tutorial-create-multiple-instances.md).
+
 * Bir şablon bölümleri hakkında bilgi edinmek istiyorsanız bkz [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 * Şablonunuzu dağıtmak nasıl öğrenmek için bkz. [Azure Resource Manager şablonu ile uygulama dağıtma](resource-group-template-deploy.md).
 

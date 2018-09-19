@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 846b76bddbc771a924a1d710cd333dfa4623f5ec
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a629c598c94e44713f8990871c46272dc48b1359
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450278"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296286"
 ---
 # <a name="authentication-and-user-permissions"></a>Kimlik doğrulaması ve kullanıcı izinleri
 Azure Analysis Services Kimlik Yönetimi ve kullanıcı kimlik doğrulaması için Azure Active Directory (Azure AD) kullanır. Herhangi bir kullanıcı oluşturma, yönetme veya bir Azure Analysis Services'e bağlanma sunucusu geçerli kullanıcı kimlik olmalı bir [Azure AD kiracısı](../active-directory/fundamentals/active-directory-administer.md) aynı abonelikte.
@@ -33,7 +33,7 @@ Excel ve Power BI Desktop gibi istemci uygulamalar ve SSMS'yi ve ssdt'yi yüklem
 
 Power BI Desktop, SSDT ve SSMS Active Directory Evrensel kimlik doğrulaması, Azure multi-Factor Authentication (MFA) destekleyen etkileşimli bir yöntemi destekler. Azure MFA erişimi korumaya yardımcı olur ve basit bir oturum açma işlemi sağlarken uygulamalarınıza. Bu güçlü kimlik doğrulaması (telefon araması, SMS mesajı, akıllı kart PIN ya da mobil uygulama bildirimi ile) birçok doğrulama seçeneği sunar. Azure AD ile etkileşimli MFA doğrulama için bir açılır iletişim kutusu neden olabilir. **Evrensel kimlik doğrulaması önerilir**.
 
-Bir Windows hesabı ve evrensel kimlik doğrulaması seçilmemiş kullanarak veya kullanılabilir (Excel), Azure'da oturum açma, [Active Directory Federasyon Hizmetleri (AD FS)](../active-directory/connect/active-directory-aadconnect-azure-adfs.md) gereklidir. Federasyon, Azure AD ile Office 365 kullanıcıları, şirket içi kimlik bilgilerini kullanarak kimlik doğrulaması ve Azure kaynaklarına erişebilirsiniz.
+Bir Windows hesabı ve evrensel kimlik doğrulaması seçilmemiş kullanarak veya kullanılabilir (Excel), Azure'da oturum açma, [Active Directory Federasyon Hizmetleri (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) gereklidir. Federasyon, Azure AD ile Office 365 kullanıcıları, şirket içi kimlik bilgilerini kullanarak kimlik doğrulaması ve Azure kaynaklarına erişebilirsiniz.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 Azure Analysis Services sunucuları desteği bağlantılarından [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ve Windows kimlik doğrulaması, Active Directory parola kimlik doğrulaması ve Active Directory Evrensel kimlik doğrulaması'nı kullanarak daha yüksek. Genel olarak, çünkü'de Active Directory Evrensel kimlik doğrulaması kullanmanız önerilir:

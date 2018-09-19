@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: 1cb00035dc8f1cdeabd1beb22ca69f47bf4bd89e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d651a0a9e006e996db44b82eeaf0a1242a4114e0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379579"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296099"
 ---
 # <a name="regions-of-the-speech-service"></a>Konuşma hizmeti bölgeleri
 
@@ -35,16 +35,17 @@ Bkz: [REST API'leri](rest-apis.md) Ayrıntılar için.
 
 Kullanılabilir bölgeler için aşağıdaki tabloda listelenmiştir **konuşma tanıma** ve **çeviri**:
 
-Bölge| Speech SDK'sı bölge parametresi için değer| Portal
--|-
-Batı ABD| `westus`| https://westus.cris.ai
-Batı ABD 2| `westus2`| https://westus2.cris.ai
-Doğu ABD| `eastus`| https://eastus.cris.ai
-Doğu ABD 2| `eastus2`| https://eastus2.cris.ai
-Doğu Asya| `eastasia`| https://eastasia.cris.ai
-Güneydoğu Asya| `southeastasia`| https://southeastasia.cris.ai
-Kuzey Avrupa| `northeurope`| https://northeurope.cris.ai
-Batı Avrupa|  `westeurope`| https://westeurope.cris.ai
+  Bölge | Konuşma SDK parametresi | Portal
+ ------|-------|--------
+ Batı ABD | `westus` | https://westus.cris.ai
+ Batı ABD 2 | `westus2` | https://westus2.cris.ai 
+ Doğu ABD | `eastus` | https://eastus.cris.ai
+ Doğu ABD 2 | `eastus2` | https://eastus2.cris.ai
+ Doğu Asya | `eastasia` | https://eastasia.cris.ai
+ Güneydoğu Asya | `southeastasia` | https://southeastasia.cris.ai
+ Kuzey Avrupa | `northeurope` | https://northeurope.cris.ai
+ Batı Avrupa | `westeurope` | https://westeurope.cris.ai
+
 
 ### <a name="regions-for-intent-recognition"></a>Amaç tanıma için bölgeler
 

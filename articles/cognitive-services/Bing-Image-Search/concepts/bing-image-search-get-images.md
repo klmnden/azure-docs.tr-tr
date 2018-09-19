@@ -1,5 +1,6 @@
 ---
-title: Bing resim arama API'si ile web görüntülerini alın | Microsoft Docs
+title: Web - Bing resim arama API'si görüntü alma
+titleSuffix: Azure Cognitive Services
 description: Bing resim arama API'si için arama yapın ve ilgili görüntüleri Web'den almak için kullanın.
 services: cognitive-services
 author: aahill
@@ -10,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: 720318ab2be53c59c47e3399b1be5a55487840b7
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c21741ebb8f68797b31a2ba1de4bb6f0f8d32cb7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053967"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297136"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Bing resim arama API'si ile web görüntülerini alın
 

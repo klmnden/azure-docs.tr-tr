@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 3b4c9de16c7248cbd3087689544d70fe22c858fd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059666"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296422"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı'nı kullanarak şirket içi koşullu erişimi ayarlama
 Azure Active Directory (Azure AD) cihaz kayıt hizmeti için kişisel cihazlarını çalışma alanına katılma kullanıcılara ihtiyaç duyduğunuzda, cihazlarını kuruluşunuza bilinen olarak işaretlenebilir. Aşağıda, Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak şirket içi uygulamalara koşullu erişimi etkinleştirmek için adım adım yönergeler verilmektedir.
@@ -88,7 +88,7 @@ Etkinleştirmek ve Azure Active Directory cihaz Kayıt Hizmeti'ni yapılandırma
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>3. Bölüm: Azure AD'de etkin cihaz geri yazma
 | Görev | Başvuru |
 | --- | --- |
-| "Etkinleştirme cihaz geri yazma özelliğini Azure AD CONNECT'te." iki bölümü tamamlayın Tamamladığınızda, bu kılavuza döndürür. |[Azure AD Connect’te cihaz geri yazma özelliğini etkinleştirme](./connect/active-directory-aadconnect-feature-device-writeback.md) |
+| "Etkinleştirme cihaz geri yazma özelliğini Azure AD CONNECT'te." iki bölümü tamamlayın Tamamladığınızda, bu kılavuza döndürür. |[Azure AD Connect’te cihaz geri yazma özelliğini etkinleştirme](hybrid/how-to-connect-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[İsteğe bağlı] 4. Bölüm: Enable çok faktörlü kimlik doğrulaması
 Multi-Factor Authentication'a ilişkin birkaç seçenekten birini yapılandırmanız önerilir. Çok faktörlü kimlik doğrulaması gerektiren istiyorsanız, bkz. [sizin için multi-Factor Authentication güvenlik çözümünüzü seçin](authentication/concept-mfa-whichversion.md). Bu, her çözüm ve çözüm, tercih ettiğiniz yapılandırmanıza yardımcı olması için bağlantılar açıklamasını içerir.
@@ -107,9 +107,9 @@ Dağıtım tamamlandı, ve bazı senaryolarını deneyebilirsiniz. Hizmet ile de
 
 **Bkz:**
 
-- [Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](./connect/active-directory-aadconnect.md) - kavramsal bilgileri gözden geçirin.
+- [Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](hybrid/whatis-hybrid-identity.md) - kavramsal bilgileri gözden geçirin.
 
-- [Azure AD Connect özel yüklemesi](./connect/active-directory-aadconnect-get-started-custom.md) - yükleme yönergeleri.
+- [Azure AD Connect özel yüklemesi](hybrid/how-to-connect-install-custom.md) - yükleme yönergeleri.
 
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Active Directory Domain Services şemanızı yükseltme

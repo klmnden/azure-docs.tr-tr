@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 4c8f2966df9c33ec227b14c00996f84f39043cdb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c8517114f51b5aed8f8e31a19b672721b109775e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349237"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298311"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -46,7 +46,7 @@ Azure AD Premium ile istediğiniz POC için gereken bazı ön koşullar aşağı
 | Azure AD Premium veya EMS deneme etkin | [Azure Active Directory Premium bir ay boyunca ücretsiz](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Azure AD Premium veya EMS lisanslarınız PoC kullanıcılara atadığınız | [Kendiniz ve kullanıcılarınızın Azure Active Directory lisansı](active-directory-licensing-get-started-azure-portal.md) |
 | Azure AD genel yönetici kimlik bilgileri | [Azure Active Directory’de yönetici rolü atama](users-groups-roles/directory-assign-admin-roles.md) |
-| İsteğe bağlı ancak önerilir: bir geri dönüş olarak paralel bir laboratuvar ortamı | [Azure AD Connect Önkoşulları](./connect/active-directory-aadconnect-prerequisites.md) |
+| İsteğe bağlı ancak önerilir: bir geri dönüş olarak paralel bir laboratuvar ortamı | [Azure AD Connect Önkoşulları](hybrid/how-to-connect-install-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>Dizin eşitleme - parola karma eşitlemesi (PHS) - yeni yükleme
 
@@ -56,23 +56,23 @@ Yaklaşık tamamlama süresi: 1. 000'den az PoC kullanıcılar için bir saat
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
-| Azure AD çalıştıran sunucuya bağlanma | [Azure AD Connect Önkoşulları](./connect/active-directory-aadconnect-prerequisites.md) |
-| POC kullanıcılar, aynı etki alanında ve bir güvenlik grubu ve OU parçası hedef | [Azure AD Connect özel yüklemesi](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) |
-| Azure AD Connect POC için gereken özellikleri tanımlanır. | [Azure Active Directory ile Active Directory connect - eşitleme yapılandırma özellikleri](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| Şirket içi kimlik bilgileri gerekli ve bulut ortamları  | [Azure AD Connect: Hesaplar ve izinler](./connect/active-directory-aadconnect-accounts-permissions.md) |
+| Azure AD çalıştıran sunucuya bağlanma | [Azure AD Connect Önkoşulları](hybrid/how-to-connect-install-prerequisites.md) |
+| POC kullanıcılar, aynı etki alanında ve bir güvenlik grubu ve OU parçası hedef | [Azure AD Connect özel yüklemesi](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) |
+| Azure AD Connect POC için gereken özellikleri tanımlanır. | [Azure Active Directory ile Active Directory connect - eşitleme yapılandırma özellikleri](hybrid/how-to-connect-install-roadmap.md#configure-sync-features) |
+| Şirket içi kimlik bilgileri gerekli ve bulut ortamları  | [Azure AD Connect: Hesaplar ve izinler](hybrid/reference-connect-accounts-permissions.md) |
 
 ### <a name="steps"></a>Adımlar
 
 | Adım | Kaynaklar |
 | --- | --- |
 | Azure AD Connect'in en son sürümünü indirin | [Microsoft Azure Active Directory Connect'i indirin](https://www.microsoft.com/download/details.aspx?id=47594) |
-| En basit yol ile Azure AD Connect'i yükleme: Express <br/>1. Hedef eşitleme döngü süresini en aza indirmek için OU filtreleme<br/>2. Hedef kullanıcı kümesine şirket içi grubunda seçin.<br/>3. Diğer POC Temalar gerekli özellikleri dağıtma | [Azure AD Connect: Özel yükleme: etki alanı ve OU filtreleme](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Özel yükleme: Grup tabanlı filtreleme](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: şirket içi kimliklerinizi Azure Active Directory ile tümleştirme: eşitleme özelliklerini yapılandırma](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| Azure AD Connect kullanıcı arabirimini açar ve çalıştırma profilleri tamamlanmış (içeri aktarma, eşitleme ve dışarı aktarma) | [Azure AD Connect eşitleme: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
+| En basit yol ile Azure AD Connect'i yükleme: Express <br/>1. Hedef eşitleme döngü süresini en aza indirmek için OU filtreleme<br/>2. Hedef kullanıcı kümesine şirket içi grubunda seçin.<br/>3. Diğer POC Temalar gerekli özellikleri dağıtma | [Azure AD Connect: Özel yükleme: etki alanı ve OU filtreleme](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Özel yükleme: Grup tabanlı filtreleme](hybrid/how-to-connect-install-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: şirket içi kimliklerinizi Azure Active Directory ile tümleştirme: eşitleme özelliklerini yapılandırma](hybrid/how-to-connect-install-roadmap.md#configure-sync-features) |
+| Azure AD Connect kullanıcı arabirimini açar ve çalıştırma profilleri tamamlanmış (içeri aktarma, eşitleme ve dışarı aktarma) | [Azure AD Connect eşitleme: Scheduler](hybrid/how-to-connect-sync-feature-scheduler.md) |
 | Açık [Azure AD yönetim portalında](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), "Tüm kullanıcılar" dikey penceresine gidin, "Windows Server'dan AD" geliyormuş gibi düzgün bir şekilde işaretlenmiş kullanıcılar görüntülenir, görmek ve "Yetki kaynağı" Sütun Ekle | [Azure AD Yönetim Portalı](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-1. Parola karma eşitlemesi sırasında güvenlik konuları arayın [burada](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  Ardından pilot üretim kullanıcılar için parola karması eşitlemesi kesin bir şekilde bir seçenek değilse, aşağıdaki seçenekleri göz önünde bulundurun:
+1. Parola karma eşitlemesi sırasında güvenlik konuları arayın [burada](hybrid/how-to-connect-password-hash-synchronization.md).  Ardından pilot üretim kullanıcılar için parola karması eşitlemesi kesin bir şekilde bir seçenek değilse, aşağıdaki seçenekleri göz önünde bulundurun:
    * Test kullanıcıları üretim etki alanında oluşturun. Başka bir hesap eşitleme olduğundan emin olun
    * UAT ortama taşıma
 2.  Daha sonra amacınızın Federasyon istiyorsanız, maliyetleri POC ötesinde şirket içi kimlik sağlayıcısı ile bir Federasyon çözümü ilişkili anlamak ve aradığınız avantajları karşı ölçüye faydalı olur:
@@ -277,7 +277,7 @@ Yaklaşık bir saat tamamlamaya: 60 dakika
 | --- | --- |
 | Azure AD Connect yüklenir ve yapılandırılır. | Yapı Taşı: [dizin eşitleme - parola karması eşitleme](#directory-synchronization--password-hash-sync-phs--new-installation) |
 | ADLDS örneği toplantı gereksinimleri | [Genel LDAP Bağlayıcısı teknik başvurusu: Genel LDAP Bağlayıcısı genel bakış](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
-| Kullanıcılar kullanan iş yükleri ve bu iş yükleri ile ilişkili öznitelikleri listesi | [Azure AD Connect eşitleme: Azure Active Directory ile eşitlenen öznitelikler](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
+| Kullanıcılar kullanan iş yükleri ve bu iş yükleri ile ilişkili öznitelikleri listesi | [Azure AD Connect eşitleme: Azure Active Directory ile eşitlenen öznitelikler](hybrid/reference-connect-sync-attributes-synchronized.md) |
 
 
 ### <a name="steps"></a>Adımlar
@@ -285,11 +285,11 @@ Yaklaşık bir saat tamamlamaya: 60 dakika
 | Adım | Kaynaklar |
 | --- | --- |
 | Genel LDAP Bağlayıcısı Ekle | [Genel LDAP Bağlayıcısı teknik başvurusu: yeni bir bağlayıcı oluşturun](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
-| (Tam içeri aktarma, değişikliği içeri aktarma, tam eşitleme, delta eşitleme, dışarı aktarma) oluşturulan bağlayıcısının çalıştırma profillerini oluşturma | [Bir yönetim Aracısı çalıştırma profili oluşturma](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Azure AD Connect eşitleme hizmeti yöneticisiyle bağlayıcıları kullanma](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
-| Tam içeri aktarma profilini çalıştırmak ve bağlayıcı alanı nesne olmadığını doğrulayın | [Bağlayıcı alanı nesnesi arayın](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Bağlayıcıları kullanarak Azure AD Connect eşitleme hizmeti yöneticisiyle: arama bağlayıcı alanı](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| Eşitleme kuralları oluşturabilir ve böylece meta veri deposu nesneleri iş yükleri için gerekli özniteliklere sahip. | [Azure AD Connect eşitleme: varsayılan yapılandırmanın değiştirilmesine yönelik en iyi uygulamalar: değişiklikleri eşitleme kuralları](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect eşitleme: anlama, bildirim temelli sağlama](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect eşitleme: bildirim temelli sağlama ifadelerini anlama](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| Tam eşitleme döngüsünü Başlat | [Azure AD Connect eşitleme: Scheduler: Zamanlayıcı'yı başlatma](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
-| Sorun giderme hataları durumunda yapın | [Azure AD ile eşitlenmeyen bir nesneyle ilgili sorunları giderme](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
+| (Tam içeri aktarma, değişikliği içeri aktarma, tam eşitleme, delta eşitleme, dışarı aktarma) oluşturulan bağlayıcısının çalıştırma profillerini oluşturma | [Bir yönetim Aracısı çalıştırma profili oluşturma](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Azure AD Connect eşitleme hizmeti yöneticisiyle bağlayıcıları kullanma](hybrid/how-to-connect-sync-service-manager-ui-connectors.md)|
+| Tam içeri aktarma profilini çalıştırmak ve bağlayıcı alanı nesne olmadığını doğrulayın | [Bağlayıcı alanı nesnesi arayın](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Bağlayıcıları kullanarak Azure AD Connect eşitleme hizmeti yöneticisiyle: arama bağlayıcı alanı](hybrid/how-to-connect-sync-service-manager-ui-connectors.md#search-connector-space) |
+| Eşitleme kuralları oluşturabilir ve böylece meta veri deposu nesneleri iş yükleri için gerekli özniteliklere sahip. | [Azure AD Connect eşitleme: varsayılan yapılandırmanın değiştirilmesine yönelik en iyi uygulamalar: değişiklikleri eşitleme kuralları](hybrid/how-to-connect-sync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect eşitleme: anlama, bildirim temelli sağlama](hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)<br/>[Azure AD Connect eşitleme: bildirim temelli sağlama ifadelerini anlama](hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) |
+| Tam eşitleme döngüsünü Başlat | [Azure AD Connect eşitleme: Scheduler: Zamanlayıcı'yı başlatma](hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler) |
+| Sorun giderme hataları durumunda yapın | [Azure AD ile eşitlenmeyen bir nesneyle ilgili sorunları giderme](hybrid/tshoot-connect-object-not-syncing.md) |
 | LDAP kullanıcı oturum açma ve uygulama erişimi olduğunu doğrulayın | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
@@ -552,7 +552,7 @@ Yaklaşık tamamlanma süresi: 20 dakika
 | Önkoşul | Kaynaklar |
 | --- | --- |
 | Sağlanan kullanıcı sertifikadan (Windows, iOS veya Android) Kuruluş PKI ile cihaz | [Kullanıcı sertifikalarını dağıtma](https://msdn.microsoft.com/library/cc770857.aspx) |
-| Azure AD etki alanı AD FS ile Federasyon | [Azure AD Connect ve federasyon](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory Sertifika Hizmetleri'ne Genel Bakış](https://technet.microsoft.com/library/hh831740.aspx)|
+| Azure AD etki alanı AD FS ile Federasyon | [Azure AD Connect ve federasyon](hybrid/how-to-connect-fed-whatis.md)<br/>[Active Directory Sertifika Hizmetleri'ne Genel Bakış](https://technet.microsoft.com/library/hh831740.aspx)|
 | İOS cihazları için Microsoft Authenticator uygulamasının yüklü olması | [Microsoft Authenticator uygulamasını kullanmaya başlama](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Adımlar

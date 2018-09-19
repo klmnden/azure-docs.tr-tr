@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/18/2018
 ms.author: carlrab
-ms.openlocfilehash: 84fb916a5620bc7d91f01b9aebfd3eae8346f6bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e14f65c16706f8285b6ce390e75f95ea1a8bede6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729444"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295527"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme
 
@@ -65,6 +65,10 @@ Rezervasyon boyutunu temel veritabanı ve/veya belirli bir bölgedeki elastik ha
 Gerekirse SQL veritabanınızı iptal etmek için kapasite ayırma ayrılmış, % 12 erken sonlandırma ücreti olabilir. Para iadesi veya satın alma fiyatına, hem de ayırmanın geçerli fiyatını düşük fiyatı temel alınarak temel alır. Para iadesi yıl başına 50.000 TL sınırlıdır. Para iadesi alırsınız % 12 erken sonlandırma ücreti kalan günlere Bakiye ' dir. Azure portal ve select ayırma Git bir iptal isteğinde bulunmak **para iadesi** bir destek isteği oluşturmak için.
 
 Başka bir bölge, kaynak türü, hizmet katmanı veya terimi, SQL veritabanı ayrılmış kapasite ayırma değiştirmeniz gerekiyorsa, eşit veya daha fazla değeri için başka bir ayırma gönderip alabilir. Yeni Ayırma dönemi başlangıç tarihi alışverişi olur ayırma aktarılmaz. 1 veya 3 yıllık dönemin yeni ayırma oluştururken başlatır. Bir exchange istemek için Azure portalında ayırma gidin ve seçin **Exchange** bir destek isteği oluşturmak için.
+
+## <a name="vcore-size-flexibility"></a>Sanal çekirdek boyutu esneklik
+
+Sanal çekirdek boyutu esneklik ölçeği artırın veya azaltın performans katmanına ve bölge içinde ayrılmış kapasite avantajı kaybetmeden yardımcı olur. SQL veritabanı ayrılmış kapasite de geçici olarak sık erişimli veritabanlarınızı tek veritabanları ve havuzlar arasında (katmanında aynı bölge ve performans), normal işlemlerin parçası olarak ayrılmış kapasite kaybetmeden taşımak için esneklik sağlar yararlanır. Beklemediğiniz uygulanan bir arabellek rezervasyonunuz içinde tutarak, bütçenizi aşmadan, performans artışlarını etkili bir şekilde yönetebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

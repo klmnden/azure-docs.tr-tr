@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: cdce0ae223a637ac30ed472d2bf711aa36958414
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8d5f31f09d51794f9ad3c126edf2fd935f379221
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346772"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296489"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>AD FS şirket içi uygulamalarını Azure'a geçirme 
 
@@ -238,4 +238,4 @@ Azure AD'nin SaaS uygulaması için kullanıcı sağlamayı doğrudan işlemesin
 
 - [Uygulamaları Azure Active Directory ile yönetme](what-is-application-management.md)
 - [Uygulamalara erişimi yönetme](what-is-access-management.md)
-- [Azure AD Connect federasyonu](../active-directory-aadconnectfed-whatis.md)
+- [Azure AD Connect federasyonu](../hybrid/how-to-connect-fed-whatis.md)

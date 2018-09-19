@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: eb3c1177f86f4c595280521f4dbcbe8081f68895
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159575"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296253"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Son kullanıcı kaydı istemeden parola sıfırlamayı dağıtma
 
 Azure Active Directory (Azure AD) Self Servis parola sıfırlama (SSPR) dağıtmak için kimlik doğrulama verilerini mevcut olması gerekir. Bazı kuruluşların kullanıcıları kendi kimlik doğrulama verilerini girin vardır. Ancak birçok kuruluşun Active Directory'de zaten var. veri ile eşitlemek tercih edin. Azure AD'ye eşitlenmiş veriler kullanılabilir hale gelir ve SSPR, kullanıcı etkileşimi gerektirmeden:
    * Şirket içi dizininizdeki verileri düzgün bir şekilde biçimlendirin.
-   * Yapılandırma [hızlı ayarları kullanarak Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md).
+   * Yapılandırma [hızlı ayarları kullanarak Azure AD Connect](../hybrid/how-to-connect-install-express.md).
 
 Düzgün çalışması için telefon numaraları biçiminde olmalıdır *+ CountryCode PhoneNumber*, örneğin, + 1 4255551234.
 

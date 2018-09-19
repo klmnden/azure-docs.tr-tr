@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b33f2e809ae5758e41f7a76680347b9487f3f461
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e49e362528f5fcd00a13a9fc1b233e62a569fe5a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735352"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297955"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Nasıl yapılır: Azure Active Directory portalı kullanarak özel etki alanı adınızı ekleme
 Her yeni Azure AD kiracısı bir ilk etki alanı adı ile gelir *domainname*. onmicrosoft.com. Değiştirme veya silme ilk etki alanı adı, ancak kuruluşunuzun adları listesine ekleyebilirsiniz. Özel etki alanı adları ekleme yardımcı olur, kullanıcılarınızın tanıdığı gibi kullanıcı adları oluşturmak için _alain@contoso.com_.
@@ -31,9 +31,14 @@ Her yeni Azure AD kiracısı bir ilk etki alanı adı ile gelir *domainname*. on
 ### <a name="to-add-a-custom-domain-name"></a>Özel etki alanı eklemek için
 1. Oturum [Azure AD portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
 
+<<<<<<< BAŞ
+> [!TIP]
+> Şirket içi Windows Server AD'nizi Azure AD ile birleştirmeyi planlıyorsanız, dizinlerinizi eşitlemek için Azure AD Connect aracını çalıştırdığınızda **Bu etki alanını, yerel Active Directory dizinimde çoklu oturum açmak üzere yapılandırmak istiyorum** onay kutusunu seçmeniz gerekir. Ayrıca aynı etki alanı adını sihirbazın şirket içi dizininizi **Azure AD Etki Alanı** ile birleştirme adımında da kaydetmeniz gerekir. [Bu yönergelerde](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation) sihirbazdaki bu adımın nasıl göründüğünü görebilirsiniz. Azure AD Connect aracınız yoksa [buradan indirebilirsiniz](http://go.microsoft.com/fwlink/?LinkId=615771).
+=======
 2. Seçin **Azure Active Directory**seçin **özel etki alanı adları**ve ardından **özel etki alanı Ekle**.
+>>>>>>> 73f447b1499ba1f189efb6832ad759f1230e55a2
 
-    ![Fabrikam - özel etki alanı ekle seçeneğinin vurgulandığı ile özel etki alanı adları dikey](media/add-custom-domain/add-custom-domain.png)
+    ![Fabrikam - Custom domain names blade, with Add custom domain option highlighted](media/add-custom-domain/add-custom-domain.png)
 
 3. Yeni şirket etki alanı adınızı yazın **özel etki alanı adı** kutusunda (örneğin, _contoso.com_) ve ardından **etki alanı Ekle**.
 

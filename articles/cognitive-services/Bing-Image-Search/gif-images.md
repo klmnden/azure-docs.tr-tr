@@ -1,22 +1,24 @@
 ---
-title: Microsoft Bilişsel hizmetler - .gif görüntüleri alma | Microsoft Docs
+title: Bing resim arama API'si .gif görüntüleri - Al
+titleSuffix: Azure Cognitive Services
 description: .Gif görüntüleri hakkında daha fazla bilgi için Bing resim arama API'si kullanma
 services: cognitive-services
 author: MikeDodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 7f1d02067d2ef31f56eefe40736b6f02b58940b8
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 30a266a1dc0441485b4f6ba70876ac32c3de0e14
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577158"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296490"
 ---
-# <a name="search-for-gif-images"></a>.Gif görüntüleri için arama
+# <a name="search-for-gif-images-using-the-bing-image-search-api"></a>Bing resim arama API'si kullanarak .gif resimler için arama yapın
+
 Bing resim arama API'si de en uygun .gif görüntüleri için tüm Web aramanızı sağlar.  Geliştiriciler, çeşitli konuşma senaryolarda ilgi çekici GIF'ler tümleştirebilirsiniz. 
 
 Animasyonlu .gif görüntüleri için bir sorgu URL'dir.
@@ -27,7 +29,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageT
 
 Sonuçları örneklerini görmek için bing.com aramak için şu URL'yi kullanın.
 ````
-https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif 
+https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif
 
 ````
 ## <a name="query-parameters"></a>Sorgu parametreleri
@@ -39,7 +41,7 @@ Sorgu parametreleri ve seçenekleri hakkında daha fazla bilgi için bkz. [resim
 - Belirtebileceğiniz [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#maxfilesize) ve [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#minfilesize) parametreleri. MaxFileSize ayarı öneririz, dizinimizi GIF etkinleştirildiklerinde gibi altında 2 MB 2000000 =.  Bu ayrıca bant genişliği, gibi mobil hücresel senaryolarda önemliyse veri boyutunu denetlemek için yardımcı olur.
 - Algılanan performansını geliştirmeye yardımcı olmak için ilk önce yükleme kaynak URL'si küçük resim yükleyin.  
 - İlk çalıştırma veya yoksa sahip olduğunuz bir kullanıcı sorgu henüz giriş sayfası deneyimi için bizim popüler GIF aramaları Yardım almak için kullanmayı deneyin [popüler resimler API](trending-images.md).
-- İçin üç seçenek vardır [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) parametresi.  `strict` Seçeneğinin yetişkinlere yönelik içeriği engeller. 
+- İçin üç seçenek vardır [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) parametresi.  `strict` Seçeneğinin yetişkinlere yönelik içeriği engeller.
 - Bkz: [mkt](supported-countries-markets.md) tam dil ve desteklenen konumların listesi.
 - *AnimatedGifHttps* yalnızca döndürür animasyonlu GIF görüntüler bir https adresi. Güvenlik için çoğu uygulama, dış web bağlantılarını bağlantı https üzerinden gerektirir. Örneğin, Apple App Store, aktarım sırasında güvenli kullanıcı verileri şifreler, HTTPS üzerinden web hizmetlerine bağlantı gerektirir.
 

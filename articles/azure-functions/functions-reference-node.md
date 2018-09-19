@@ -12,21 +12,53 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: a8ee92d117a416d638f62b573dfb155f67bf66e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 72b93de029af750f55bf53fcc82e22ad91b45f69
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983184"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296354"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
+Bu kılavuz, Azure işlevleri ile JavaScript Yazma ayrıntılı olarak incelenmektedir hakkında bilgi içerir.
 
-Azure işlevleri için JavaScript deneyimi olarak geçirilen bir işlevi dışa aktarmak kolaylaştırır bir `context` bağlamaları aracılığıyla veri gönderme ve alma ve çalışma zamanı ile iletişim kurmak için bir nesne.
+Dışarı aktarılan bir JavaScript işlevidir `function` tetiklendiğinde yürütecek ([Tetikleyiciler içinde function.json yapılandırılmış](functions-triggers-bindings.md)). Her işleve geçirilen bir `context` alıcı ve gönderen bağlama verileri, günlüğe kaydetme ve çalışma zamanı ile iletişim kurmak için kullanılan nesne.
 
-Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md).
+Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md). Ayrıca, "Hızlı Başlangıçlar" altındaki bir öğretici uyguladığınız önerilir [ilk işlevinizi oluşturma](functions-create-first-function-vs-code.md).
+
+## <a name="folder-structure"></a>klasör yapısı
+
+Bir JavaScript proje için gereken klasör yapısı aşağıdaki gibi görünür. Bu varsayılan değiştirilebilir unutmayın: bkz [KomutDosyası](functions-reference-node.md#using-scriptfile) bölümünde daha fazla ayrıntı için.
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - index.js
+ | | - function.json
+ | - MySecondFunction
+ | | - index.js
+ | | - function.json
+ | - SharedCode
+ | | - myFirstHelperFunction.js
+ | | - mySecondHelperFunction.js
+ | - node_modules
+ | - host.json
+ | - package.json
+ | - extensions.csproj
+ | - bin
+```
+
+Proje kök dizininde yok paylaşılan [host.json](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev, kendi kod dosyası (.js) ve bağlama yapılandırma dosyası (function.json) ile bir klasörü vardır.
+
+Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
 
 ## <a name="exporting-a-function"></a>Bir işlevi dışa aktarma
-Her bir JavaScript işlevi, tek bir vermelisiniz `function` aracılığıyla `module.exports` işlevi bulmak ve çalıştırmak çalışma zamanı. Bu işlev her zaman almalıdır bir `context` ilk parametre olarak nesne.
+
+JavaScript işlevleri dışa, aracılığıyla [ `module.exports` ](https://nodejs.org/api/modules.html#modules_module_exports) (veya [ `exports` ](https://nodejs.org/api/modules.html#modules_exports)). Varsayılan durumda, yalnızca dışarı aktarma, dosyasından adlı dışarı aktarma, dışarı aktarılan işlevin olmalıdır `run`, veya adlandırılmış dışarı aktarma `index`. Varsayılan konum işlevinizin `index.js`burada `index.js` ilgili olarak aynı üst dizine paylaşır `function.json`. Unutmayın adını `function.json`ait üst dizinidir her zaman, işlevin adı. 
+
+Dosya konumunu yapılandırmanız ve işlevinizin adını dışarı aktarma hakkında bilgi edinin: [işlevinizin giriş noktası yapılandırma](functions-reference-node.md#configure-function-entry-point) aşağıda.
+
+Dışarı aktarılan işlevin giriş noktanız her zaman almalıdır bir `context` ilk parametre olarak nesne.
 
 ```javascript
 // You must include a context, other arguments are optional
@@ -45,7 +77,7 @@ module.exports = function(context) {
 };
 ```
 
-Giriş ve tetikleyici bağlamaları (bağlamalarını `direction === "in"`) işlevi için parametre olarak geçirilebilir. İçinde tanımlanan aynı sırada işlevine geçirilen *function.json*. JavaScript kullanarak girişleri dinamik olarak işleyebilir [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) nesne. Örneğin, `function(context, a, b)` ve değiştirmek için `function(context, a)`, değeri almaya devam `b` başvuran tarafından işlevi kodda `arguments[2]`.
+Tetikleyiciler ve bağlamalar giriş (bağlamalarını `direction === "in"`) işlevi için parametre olarak geçirilebilir. İçinde tanımlanan aynı sırada işlevine geçirilen *function.json*. JavaScript kullanarak girişleri de dinamik olarak işleyebilir [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) nesne. Örneğin, `function(context, a, b)` ve değiştirmek için `function(context, a)`, değeri almaya devam `b` başvuran tarafından işlevi kodda `arguments[2]`.
 
 Yön bağımsız olarak tüm bağlamaları boyunca da geçirilir `context` kullanarak nesne `context.bindings` özelliği.
 
@@ -56,9 +88,9 @@ Yön bağımsız olarak tüm bağlamaları boyunca da geçirilir `context` kulla
 
 ```javascript
 // You must include a context, but other arguments are optional
-module.exports = function(context) {
+module.exports = function(ctx) {
     // function logic goes here :)
-    context.done();
+    ctx.done();
 };
 ```
 
@@ -109,7 +141,7 @@ context.done([err],[propertyBag])
 
 Kodunuzu bitirdi çalışma zamanı bildirir. İşlevinizi JavaScript kullanıyorsa [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) bildirimi (kullanılabilir işlevler sürüm 8 + düğümü kullanan 2.x), kullanın gerekmez `context.done()`. `context.done` Geri çağırma örtük olarak çağrılır.
 
-İşlevinizi bir zaman uyumsuz işlev değilse **çağırmalısınız `context.done`**  çalışma zamanının işlevinizi tamamlandığını bildirmek için. Yürütme zaman aşımı eksik olması durumunda olur.
+İşlevinizi bir zaman uyumsuz işlev değilse **çağırmalısınız** `context.done` çalışma zamanının işlevinizi tamamlandığını bildirmek için. Yürütme zaman aşımı eksik olması durumunda olur.
 
 `context.done` Yöntemi geri hem bir kullanıcı tanımlı hata çalışma zamanı ve çıktı bağlaması verilerini içeren bir JSON nesnesi geçirme olanak tanır. Geçirilen özellikleri `context.done` ayarlanan herhangi bir şey üzerine yazar `context.bindings` nesne.
 
@@ -164,7 +196,7 @@ Seçenekler `dataType` şunlardır: `binary`, `stream`, ve `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>İzleme çıktısı konsola yazma 
 
-İşlevleri'nde, kullandığınız `context.log` konsola izleme çıkışını yazmak için yöntemleri. İşlevleri v1.x içinde kullanamazsınız `console.log` konsola yazma için. İşlevler'ın v2.x içinde aracılığıyla ouputs izleme `console.log` işlevi uygulama düzeyinde yakalanır. Gelen veren anlamına gelir `console.log` bir belirli bir işlev çağrısı için bağlı değil.
+İşlevleri'nde, kullandığınız `context.log` konsola izleme çıkışını yazmak için yöntemleri. İşlevler'ın v2.x içinde aracılığıyla ouputs izleme `console.log` işlevi uygulama düzeyinde yakalanır. Gelen veren anlamına gelir `console.log` bir belirli bir işlev çağrısı için bağlı değil ve bu nedenle belirli bir işlevin günlüklerini görüntülenmez. Ancak, Application Insights'a yay uygulanır. İşlevleri v1.x içinde kullanamazsınız `console.log` konsola yazma için. 
 
 Çağırdığınızda `context.log()`, iletinizin olduğundan varsayılan izleme düzeyini konsolda yazılan _bilgisi_ izleme düzeyi. Aşağıdaki kod, bilgi izleme düzeyini konsola yazar:
 
@@ -295,22 +327,10 @@ Aşağıdaki tabloda her önemli işlevler çalışma zamanı sürümü tarafın
 | 1.x | 6.11.2 (çalışma zamanı tarafından kilitlendi) |
 | 2.x  | _Etkin LTS_ ve _geçerli_ Node.js sürümleri (8.11.1 ve önerilen 10.6.0). Sürüm WEBSITE_NODE_DEFAULT_VERSION ayarlamak [uygulama ayarı](functions-how-to-use-azure-function-app-settings.md#settings).|
 
-Çalışma zamanı tarafından yazdırma kullanarak geçerli sürümü gördüğünüz `process.version` herhangi bir işlevden.
+Çalışma zamanı kullanarak yukarıdaki uygulama ayarını denetleyerek veya yazdırma geçerli sürümü gördüğünüz `process.version` herhangi bir işlevden.
 
-## <a name="package-management"></a>Paket yönetimi
-Aşağıdaki adımları paketleri işlev uygulamanıza eklemenize olanak tanır: 
-
-1. `https://<function_app_name>.scm.azurewebsites.net` kısmına gidin.
-
-2. Tıklayın **konsol hata ayıklama** > **CMD**.
-
-3. Git `D:\home\site\wwwroot`ve ardından, package.json dosyasına sürükleyin **wwwroot** sayfanın üst kısmında klasörü.  
-    Dosya başka yollarla işlev uygulamanıza da karşıya yükleyebilirsiniz. Daha fazla bilgi için [işlevi uygulama dosyalarını nasıl güncelleştireceğinizi](functions-reference.md#fileupdate). 
-
-4. Package.json dosyası karşıya yüklendikten sonra Çalıştır `npm install` komutunu **Kudu uzaktan yürütme konsol**.  
-    Bu eylem, package.json dosyası içinde belirtilen paketleri indirir ve işlev uygulamasını yeniden başlatır.
-
-Gereksinim paketlerin yüklendikten sonra bunları işlevinize çağrı yaparak aldığınız `require('packagename')`, aşağıdaki örnekte olduğu gibi:
+## <a name="dependency-management"></a>Bağımlılık yönetimi
+İçinde gösterildiği gibi JavaScript kodunuzun topluluk kitaplıkları kullanmak için aşağıdaki örnekte, tüm bağımlılıkların işlev uygulamanızda Azure üzerinde yüklü olduğundan emin olmak gerekir.
 
 ```javascript
 // Import the underscore.js library
@@ -323,7 +343,26 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Tanımladığınız bir `package.json` işlev uygulamanızın kök dosya. Dosya tanımlama uygulamasında tüm işlevleri aynı önbelleğe eklenen paketleri en iyi performansı veren paylaşmak olanak tanır. Sürüm çakışması ortaya çıkarsa, ekleyerek giderebileceğiniz bir `package.json` belirli bir işlev bir klasörde dosya.  
+Tanımlamanız gerekir Not bir `package.json` işlev uygulamanızın kök dosya. Dosya tanımlama uygulamasında tüm işlevleri aynı önbelleğe eklenen paketleri en iyi performansı veren paylaşmak olanak tanır. Sürüm çakışması ortaya çıkarsa, ekleyerek giderebileceğiniz bir `package.json` belirli bir işlev bir klasörde dosya.  
+
+İşlev uygulamanızı paketleri yüklemek için iki yolu vardır: 
+
+### <a name="deploying-with-dependencies"></a>Bağımlılıkları ile dağıtma
+1. Yerel olarak çalıştırarak tüm önkoşul paketleri yüklemek `npm install`.
+
+2. Kodunuzu dağıtırsınız ve emin `node_modules` klasör dağıtıma dahil edilir. 
+
+
+### <a name="using-kudu"></a>Kudu kullanarak
+1. `https://<function_app_name>.scm.azurewebsites.net` kısmına gidin.
+
+2. Tıklayın **konsol hata ayıklama** > **CMD**.
+
+3. Git `D:\home\site\wwwroot`ve ardından, package.json dosyasına sürükleyin **wwwroot** sayfanın üst kısmında klasörü.  
+    Dosya başka yollarla işlev uygulamanıza da karşıya yükleyebilirsiniz. Daha fazla bilgi için [işlevi uygulama dosyalarını nasıl güncelleştireceğinizi](functions-reference.md#fileupdate). 
+
+4. Package.json dosyası karşıya yüklendikten sonra Çalıştır `npm install` komutunu **Kudu uzaktan yürütme konsol**.  
+    Bu eylem, package.json dosyası içinde belirtilen paketleri indirir ve işlev uygulamasını yeniden başlatır.
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
 Bir ortam değişkeni veya değeri ayarlamak uygulama almak için kullanın `process.env`, burada gösterildiği gibi `GetEnvironmentVariable` işlevi:
@@ -344,9 +383,74 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+
+## <a name="configure-function-entry-point"></a>İşlev giriş noktası yapılandırma
+
+`function.json` Özellikleri `scriptFile` ve `entryPoint` , dışarı aktarılan işlevin adını ve konumunu yapılandırmak için kullanılabilir. Bunlar, JavaScript transpiled ise önemli olabilir.
+
+### <a name="using-scriptfile"></a>kullanma `scriptFile`
+
+Bir JavaScript işlevi yürütüldüğü varsayılan olarak, `index.js`, kendi ilişkili olarak aynı üst dizine paylaşan bir dosya `function.json`.
+
+`scriptFile` şuna benzer bir klasör yapısı almak için kullanılabilir:
+```
+FunctionApp
+ | - host.json
+ | - myNodeFunction
+ | | - function.json
+ | - lib
+ | | - nodeFunction.js
+ | - node_modules
+ | | - ... packages ...
+ | - package.json
+```
+
+`function.json` İçin `myNodeFunction` içermelidir bir `scriptFile` çalıştırmak için dışarı aktarılan işlevin dosyasına işaret eden özelliği.
+```json
+{
+  "scriptFile": "../lib/nodeFunction.js",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+### <a name="using-entrypoint"></a>kullanma `entryPoint`
+
+İçinde `scriptFile` (veya `index.js`), bir işlevi kullanarak dışarı aktarılmalıdır `module.exports` bulundu ve çalıştırmak için. Varsayılan olarak, bu dosyadaki adlı dışarı aktarma yalnızca dışarı aktarma tetiklendiğinde yürüten işlev olduğundan `run`, veya adlandırılmış dışarı aktarma `index`.
+
+Bu kullanılarak yapılandırılabilir `entryPoint` içinde `function.json`:
+```json
+{
+  "entryPoint": "logFoo",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+İşlevler'ın v2.x içinde destekleyen `this` kullanıcı işlevindeki bir parametre, işlev kodunu ardından olabilir gibi:
+```javascript
+class MyObj {
+    constructor() {
+        this.foo = 1;
+    };
+    
+    function logFoo(context) { 
+        context.log("Foo is " + this.foo); 
+        context.done(); 
+    }
+}
+
+const myObj = new MyObj();
+module.exports = myObj;
+```
+
+Bu örnekte, bir nesne dışarı olsa da, bulunduğuna yürütmeleri arasında durum koruma etrafında hiçbir kuralının dikkat edin önemlidir.
+
 ## <a name="considerations-for-javascript-functions"></a>JavaScript işlevleri için dikkat edilmesi gerekenler
 
-JavaScript işlevleri ile çalışırken, aşağıdaki iki bölümü, konuları unutmayın.
+JavaScript işlevleri ile çalışırken, aşağıdaki bölümlerde konuları unutmayın.
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Tek vCPU App Service planı seçin
 
@@ -354,6 +458,9 @@ App Service planını kullanan bir işlev uygulaması oluşturduğunuzda, bir pl
 
 ### <a name="typescript-and-coffeescript-support"></a>TypeScript ve CoffeeScript desteği
 Doğrudan desteği henüz otomatik derleme TypeScript veya CoffeeScript için çalışma zamanı var olmadığından, dağıtım sırasında çalışma zamanı dışında işlenecek tür desteğini gerekir. 
+
+### <a name="cold-start"></a>Hazırlıksız başlatma
+Geliştirme Azure işlevleri'nde sunucusuz barındırma modeli, soğuk başladığında gerçeğe var. "Hazırlıksız başlatma" başvuruyor olgusu işlev uygulamanızı belirli bir süre sonra ilk kez başlatıldığında başlatılması uzun sürer. Büyük bağımlılık ağaçları ile JavaScript işlevleri için özel olarak, bu ana yavaşlama neden olabilir. İşlemi, mümkün olduğunda, hasten için [bir paket dosyası işlevlerinizin çalıştığı](run-functions-from-deployment-package.md). Birçok dağıtım yöntemi, varsayılan olarak bu modele tercih et ancak büyük kaldırmanıza yaşayan yapıyorsanız ve bir paket dosyasından çalışmıyor, bu çok büyük bir geliştirme olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:

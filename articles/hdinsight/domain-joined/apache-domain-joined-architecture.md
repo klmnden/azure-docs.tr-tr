@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: d5132cf2414045ca1343354215b2a4564f696190
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: efdc9cfbbe9a78571e0a56437e512d0cbbc18b3e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044779"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297289"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Azure etki alanına katılmış Hadoop kümeleri planlama
 
@@ -61,7 +61,7 @@ Daha fazla bilgi için [yapılandırma etki alanına katılmış HDInsight küme
 
 Etki alanınız için bir şirket içi Active Directory örneğine veya daha karmaşık Active Directory ayarları varsa, Azure AD Connect kullanarak kimliklerle Azure AD'ye eşitleyebilirsiniz. Ardından, Azure AD DS, Active Directory kiracısı üzerinde etkinleştirebilirsiniz. 
 
-Kerberos Parola karmalarının üzerinde kullandığından, gerekecektir [Azure AD DS parola karması eşitlemeyi etkinleştir](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Active Directory Federasyon Hizmetleri (AD FS) ile Federasyon kullanıyorsanız, AD FS altyapınızı başarısız olursa, isteğe bağlı olarak parola karması eşitlemeyi yedek olarak ayarlayabilirsiniz. Daha fazla bilgi için [Azure AD Connect eşitlemesi ile parola karma eşitlemesini etkinleştirme](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). 
+Kerberos Parola karmalarının üzerinde kullandığından, gerekecektir [Azure AD DS parola karması eşitlemeyi etkinleştir](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Active Directory Federasyon Hizmetleri (AD FS) ile Federasyon kullanıyorsanız, AD FS altyapınızı başarısız olursa, isteğe bağlı olarak parola karması eşitlemeyi yedek olarak ayarlayabilirsiniz. Daha fazla bilgi için [Azure AD Connect eşitlemesi ile parola karma eşitlemesini etkinleştirme](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
 Kullanarak Active Directory veya tek başına, Iaas vm'lerinde Active Directory etki alanına katılmış HDInsight kümeleri için desteklenen bir yapılandırma değil Azure AD ve Azure AD DS, olmadan şirket içi.
 

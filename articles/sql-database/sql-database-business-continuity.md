@@ -12,12 +12,12 @@ ms.workload: On Demand
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c653f1f5366e7dac43f51d5daf1f0b13d93674ce
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5e45bff827a8c376d4b35ee88f1f000c2b122443
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722002"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298243"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -59,11 +59,11 @@ Aşağıdaki tabloda, her hizmet katmanı için üç yaygın senaryo için ERT v
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Sunucunun var olan bir veritabanını kurtarma
 
-SQL veritabanı otomatik olarak tam veritabanı yedeklemeleri birlikte haftalık gerçekleştirir, saatlik veritabanı değişiklik yedeklerinin ve işlem yedeklemeleri her 5 - 10 dakika işletmenizi veri kaybına karşı korumak için oturum açın. Yedeklemeler, yedeklemeler için 7 gün depolandığı temel DTU hizmet katmanları dışındaki tüm hizmet katmanları için 35 gün boyunca RA-GRS depolama alanında depolanır. Daha fazla bilgi için [otomatik veritabanı yedeklemelerini](sql-database-automated-backups.md). Var olan bir veritabanı formunu otomatik yedekleri için daha önceki bir noktaya Azure portalı, PowerShell veya REST API'yi kullanarak aynı mantıksal sunucu üzerinde yeni bir veritabanı olarak zaman içinde geri yükleyebilirsiniz. Daha fazla bilgi için [-belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore).
+SQL veritabanı otomatik olarak her 12 saatte bir, genellikle yapılan Türevsel veritabanı yedekleri tam veritabanı yedeklemeleri birlikte haftalık, gerçekleştirir ve işlem işletmenizi veri kaybına karşı korumak için 5-10 dakikada bir yedekleme günlüğü. Yedeklemeler, yedeklemeler için 7 gün depolandığı temel DTU hizmet katmanları dışındaki tüm hizmet katmanları için 35 gün boyunca RA-GRS depolama alanında depolanır. Daha fazla bilgi için [otomatik veritabanı yedeklemelerini](sql-database-automated-backups.md). Var olan bir veritabanı formunu otomatik yedekleri için daha önceki bir noktaya Azure portalı, PowerShell veya REST API'yi kullanarak aynı mantıksal sunucu üzerinde yeni bir veritabanı olarak zaman içinde geri yükleyebilirsiniz. Daha fazla bilgi için [-belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Maksimum desteklenen-belirli bir noktaya geri yükleme (PITR) saklama süresi uygulamanız için yeterli değil, veritabanları için bir uzun süreli saklama (LTR) ilkesi yapılandırarak genişletebilirsiniz. Daha fazla bilgi için [uzun süreli yedek saklama](sql-database-long-term-retention.md).
 
-Bu otomatik veritabanı yedekleme özelliklerini kullanarak hem kendi veri merkezinizdeki hem de başka veri merkezlerindeki veritabanlarını çeşitli kesintilerden kurtarabilirsiniz. Otomatik veritabanı yedekleriyle tahmini kurtarma süresi, aynı anda aynı bölgede kurtarılan veri tabanı sayısı, veritabanı boyutu, işlem günlüğü boyutu ve ağ bant genişliği gibi birden fazla etmene göre değişiklik gösterir. Kurtarma zamanı, genellikle daha az 12 saati geçmez. Çok büyük veya etkin bir veritabanına kurtarılması daha uzun sürebilir. Kurtarma süresi hakkında daha fazla bilgi için bkz. [veritabanı kurtarma zamanı](sql-database-recovery-using-backups.md#recovery-time). Başka bir veri bölgesine kurtarma gerçekleştirirken, potansiyel veri kaybı saatlik veritabanı değişiklik yedeklerinin coğrafi olarak yedekli olması sayesinde 1 saatle sınırlıdır.
+Bu otomatik veritabanı yedekleme özelliklerini kullanarak hem kendi veri merkezinizdeki hem de başka veri merkezlerindeki veritabanlarını çeşitli kesintilerden kurtarabilirsiniz. Otomatik veritabanı yedekleriyle tahmini kurtarma süresi, aynı anda aynı bölgede kurtarılan veri tabanı sayısı, veritabanı boyutu, işlem günlüğü boyutu ve ağ bant genişliği gibi birden fazla etmene göre değişiklik gösterir. Kurtarma zamanı, genellikle daha az 12 saati geçmez. Çok büyük veya etkin bir veritabanına kurtarılması daha uzun sürebilir. Kurtarma süresi hakkında daha fazla bilgi için bkz. [veritabanı kurtarma zamanı](sql-database-recovery-using-backups.md#recovery-time). Başka bir veri bölgesine kurtarma gerçekleştirirken, potansiyel veri kaybı ile coğrafi olarak yedekli yedeklemeleri kullanımını 1 saat sınırlıdır.
 
 Otomatik yedekleri kullanın ve [-belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore) iş sürekliliği ve kurtarma mekanizmanızı olarak, uygulamanızı:
 
@@ -122,7 +122,7 @@ Kurtarma sisteminizde etkin coğrafi çoğaltma ve otomatik yük devretme grupla
 > 
 
 ### <a name="perform-a-geo-restore"></a>Bir coğrafi geri yükleme gerçekleştirme
-Kurtarma sisteminizde coğrafi olarak yedekli depolama çoğaltması ile otomatik yedekleri kullanıyorsanız [coğrafi geri yükleme kullanarak bir veritabanı kurtarma işlemini başlatmada](sql-database-disaster-recovery.md#recover-using-geo-restore). Kurtarma işlemi genelde 12 saat içinde gerçekleşir. Son saatlik değişiklik yedeğinin alındığı ve çoğaltıldığı zaman göre en fazla bir saatlik veri kaybı yaşanabilir. Kurtarma işlemi tamamlanana kadar veritabanı işlem kaydedemez ve sorgulara yanıt veremez. Bu son bir veritabanını geri yüklerken, zaman içinde kullanılabilir noktası coğrafi-ikincil, zaman herhangi bir noktasına geri yüklenmesi şu anda desteklenmiyor.
+Kurtarma sisteminizde coğrafi olarak yedekli depolama çoğaltması ile otomatik yedekleri kullanıyorsanız [coğrafi geri yükleme kullanarak bir veritabanı kurtarma işlemini başlatmada](sql-database-disaster-recovery.md#recover-using-geo-restore). Kurtarma genellikle bir saate kadar zaman en son günlük yedekleme alındığı tarafından belirlenen ve diğer bölgeye coğrafi olarak çoğaltılmış veri kaybı - 12 saat içinde gerçekleşir. Kurtarma işlemi tamamlanana kadar veritabanı işlem kaydedemez ve sorgulara yanıt veremez. Bu son bir veritabanını geri yüklerken, zaman içinde kullanılabilir noktası coğrafi-ikincil, zaman herhangi bir noktasına geri yüklenmesi şu anda desteklenmiyor.
 
 > [!NOTE]
 > Kurtarılan veritabanı için uygulamanızı geçebilir önce veri merkezi tekrar çevrimiçi olursa kurtarma işlemini iptal edebilirsiniz.  

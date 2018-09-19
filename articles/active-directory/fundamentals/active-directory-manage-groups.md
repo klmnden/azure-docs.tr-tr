@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.openlocfilehash: 437831736d80214ce569b41de7b13c2d051aaf40
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3ec8472285ecc7512e2eedc8b9ac850ef8e9cf87
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45572830"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298029"
 ---
 # <a name="learn-about-access-management-using-azure-active-directory-groups"></a>Azure Active Directory grupları kullanarak erişimi yönetimi hakkında bilgi edinin
 Azure Active Directory (Azure AD) bulut tabanlı uygulamalarınızı şirket içi uygulamalar ve kuruluşunuzun grupları kullanarak kaynaklarınızı yönetmenize yardımcı olur. Kaynaklarınızı directory ya da dış dizin rolleri aracılığıyla nesneleri gibi yazılım olarak hizmet (SaaS) uygulamaları için Azure, SharePoint siteleri, hizmetleri ve şirket içi kaynakları yönetmek için izinleri gibi bir dizinin parçası olabilir.
@@ -58,4 +58,4 @@ Biraz erişim yönetim gruplarını kullanarak bir giriş olduğuna göre kaynak
 
 - [Tümleşik bir SaaS uygulamasına erişim atamak için grupları kullanma](../users-groups-roles/groups-saasapps.md)
 
-- [Azure AD Connect kullanarak Azure için bir şirket içi Grup eşitleme](../connect/active-directory-aadconnect.md)
+- [Azure AD Connect kullanarak Azure için bir şirket içi Grup eşitleme](../hybrid/whatis-hybrid-identity.md)

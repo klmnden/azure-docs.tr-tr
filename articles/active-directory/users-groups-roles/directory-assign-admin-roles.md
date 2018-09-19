@@ -14,12 +14,12 @@ ms.date: 09/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 2768ba4726ccaf5e2249e356e425aeafaaaf91f6
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 985fd559c0af0306dc5b0868a8d7ccc66ca790f8
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349254"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296711"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -119,12 +119,20 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[SharePoint Hizmet Yöneticisi](#sharepoint-service-administrator)**: Bu role sahip kullanıcılar sahip Microsoft SharePoint hizmet mevcut olduğunda Online içinde genel izinlere olmanın yanı sıra destek biletlerini yönetebilir ve hizmet durumunu izleyebilir. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **[İşletme için Skype / Lync Hizmet Yöneticisi](#lync-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Skype Kurumsal, içinde genel izinlere sahip, hem de Skype özgü kullanıcı öznitelikleri, Azure Active Yönet Dizin. Ayrıca, bu rol, destek biletlerini yönetebilir ve hizmet durumunu izleyebilir ve takımlar ve Skype kurumsal iş Yönetim Merkezi erişim olanağı verir. Hesap, takımlar için lisanslanmalıdır veya ekipler PowerShell cmdlet'leri çalıştırılamaz. Daha fazla bilgi [hakkında Skype kurumsal iş yöneticisi rolüne](https://support.office.com/en-us/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) ve lisans bilgileri takımlar [iş ve Microsoft Teams eklenti lisansı için Skype](https://docs.microsoft.com/en-us/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
+* **[İşletme için Skype / Lync Hizmet Yöneticisi](#lync-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Skype Kurumsal, içinde genel izinlere sahip, hem de Skype özgü kullanıcı öznitelikleri, Azure Active Yönet Dizin. Ayrıca, bu rol, destek biletlerini yönetebilir ve hizmet durumunu izleyebilir ve takımlar ve Skype kurumsal iş Yönetim Merkezi erişim olanağı verir. Hesap, takımlar için lisanslanmalıdır veya ekipler PowerShell cmdlet'leri çalıştırılamaz. Daha fazla bilgi [hakkında Skype kurumsal iş yöneticisi rolüne](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) ve lisans bilgileri takımlar [iş ve Microsoft Teams eklenti lisansı için Skype](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Lync Hizmet Yöneticisi" olarak tanımlanır. "Skype Kurumsal Hizmet Yöneticisi" olarak [Azure portalında](https://portal.azure.com/).
   >
   >
+
+* **[İletişim yönetici takımlar](#teams-communications-administrator)**: Bu roldeki kullanıcılar, ilgili ses & telefon için Microsoft Teams iş yükü özelliklerini yönetebilir. Bu telefon numarası ataması, ses ve toplantı ilkeleri ve çağrı analizi araç takımı tam erişim için yönetim araçlarını içerir.
+
+* **[Takımlar iletişimleri destek mühendisi](#teams-communications-support-engineer)**: Bu roldeki kullanıcılar Microsoft Teams ve Skype Kurumsal sorun giderme araçları kullanarak kullanıcı iş çağrısı içinde Microsoft Teams & Skype iletişim sorun giderme İş Yönetim Merkezi. Bu roldeki kullanıcılar, ilgili tüm katılımcılar için tam çağrı kayıt bilgileri görüntüleyebilirsiniz.
+
+* **[Takımlar iletişimleri destek uzmanı](#teams-communications-support-specialist)**: Bu roldeki kullanıcılar Microsoft Teams ve Skype Kurumsal sorun giderme araçları kullanarak kullanıcı iş çağrısı içinde Microsoft Teams & Skype iletişim sorun giderme İş Yönetim Merkezi. Bu roldeki kullanıcılar yalnızca bunlar Aranan kullanıcıyı çağrıda kullanıcı ayrıntıları da görüntüleyebilirsiniz.
+
+* **[Hizmet Yöneticisi takımlar](#teams-service-administrator)**: Bu roldeki kullanıcılar, iş Yönetim Merkezi ve ilgili PowerShell modülleri için Microsoft Teams iş yükü Microsoft Teams ve Skype üzerinden tüm özelliklerini yönetebilir. Bu, diğer alanları arasında telefon, Mesajlaşma, toplantılar ve takımlar için ilgili tüm Yönetim Araçlar içerir. Bu rol, ayrıca Office 365 grupları yönetme olanağı verir.
 
 * **[Kullanıcı hesabı yöneticisi](#user-account-administrator)**: Bu role sahip kullanıcılar oluşturabilir ve kullanıcıların ve grupların tüm özelliklerini yönetebilir. Ayrıca bu rol, destek biletlerini yönetebilir ve hizmet durumu izleme olanağı içerir. Bazı kısıtlamalar geçerlidir. Örneğin, bu rolü genel yönetici silinmesine izin vermiyor değil. Kullanıcı hesabı yöneticileri, parolaları değiştirmeniz ve diğer kullanıcı hesabı yöneticileri yalnızca kullanıcıların ve Yardım Masası yöneticileri için yenileme belirteçleri geçersiz. Bir yenileme belirteci geçersiz kılmalarını, kullanıcı yeniden oturum açmak için zorlar.
 
@@ -1081,6 +1089,93 @@ SharePoint hizmetinin tüm özelliklerini yönetebilir.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
 | Microsoft.Office365.SharePoint/allEntities/allTasks | Oluşturma ve tüm kaynakları silmek ve okuma ve güncelleştirme microsoft.office365.sharepoint standart özellikleri. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Office 365 destek biletleri oluşturun ve yönetin. |
+
+### <a name="teams-communications-administrator"></a>Takımlar iletişimleri Yöneticisi
+Arama ve Microsoft Teams hizmet içinde toplantıları özelliklerini yönetebilir.
+
+  > [!NOTE]
+  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
+  >
+  >
+
+  > [!NOTE]
+  > Bu rol, Azure Active Directory dışında addditonal izinlere sahiptir. Rol tanımı yukarıda daha fazla bilgi için bkz.
+  >
+  >
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| Microsoft.aad.Directory/Policies/Basic/Read | İlkeleri Azure Active Directory'de temel özelliklerini okuyun. |
+| microsoft.azure.accessService/allEntities/allTasks | Azure erişim hizmetinin tüm özelliklerini yönetebilir. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Okuma ve Azure hizmet durumu yapılandırın. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Oluşturun ve Azure destek biletlerini yönetebilir. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
+| Microsoft.Office365.supportTickets/allEntities/allTasks | Office 365 destek biletleri oluşturun ve yönetin. |
+| Microsoft.Office365.usageReports/allEntities/Read | Office 365 kullanım raporlarını okuyun. |
+
+### <a name="teams-communications-support-engineer"></a>Takımlar iletişimleri destek mühendisi
+Gelişmiş araçlar kullanarak takımlar içinde iletişim sorunlarını giderebilirsiniz.
+
+  > [!NOTE]
+  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
+  >
+  >
+
+  > [!NOTE]
+  > Bu rol, Azure Active Directory dışında addditonal izinlere sahiptir. Rol tanımı yukarıda daha fazla bilgi için bkz.
+  >
+  >
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| Microsoft.aad.Directory/Policies/Basic/Read | İlkeleri Azure Active Directory'de temel özelliklerini okuyun. |
+| microsoft.azure.accessService/allEntities/allTasks | Azure erişim hizmetinin tüm özelliklerini yönetebilir. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Okuma ve Azure hizmet durumu yapılandırın. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
+
+### <a name="teams-communications-support-specialist"></a>Takımlar iletişimleri Destek Uzmanı
+Temel araçları kullanarak takımlar içinde iletişim sorunlarını giderebilirsiniz.
+
+  > [!NOTE]
+  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
+  >
+  >
+
+  > [!NOTE]
+  > Bu rol, Azure Active Directory dışında addditonal izinlere sahiptir. Rol tanımı yukarıda daha fazla bilgi için bkz.
+  >
+  >
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| Microsoft.aad.Directory/Policies/Basic/Read | İlkeleri Azure Active Directory'de temel özelliklerini okuyun. |
+| microsoft.azure.accessService/allEntities/allTasks | Azure erişim hizmetinin tüm özelliklerini yönetebilir. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Okuma ve Azure hizmet durumu yapılandırın. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
+
+### <a name="teams-service-administrator"></a>Takımlar Hizmet Yöneticisi
+Microsoft Teams hizmeti yönetebilir.
+
+  > [!NOTE]
+  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
+  >
+  >
+
+  > [!NOTE]
+  > Bu rol, Azure Active Directory dışında addditonal izinlere sahiptir. Rol tanımı yukarıda daha fazla bilgi için bkz.
+  >
+  >
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| microsoft.aad.directory/groups/hiddenMembers/read | Azure Active Directory'de groups.hiddenMembers özelliği okuyun. |
+| Microsoft.aad.Directory/Policies/Basic/Read | İlkeleri Azure Active Directory'de temel özelliklerini okuyun. |
+| microsoft.azure.accessService/allEntities/allTasks | Azure erişim hizmetinin tüm özelliklerini yönetebilir. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Okuma ve Azure hizmet durumu yapılandırın. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Oluşturun ve Azure destek biletlerini yönetebilir. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
+| Microsoft.Office365.supportTickets/allEntities/allTasks | Office 365 destek biletleri oluşturun ve yönetin. |
+| Microsoft.Office365.usageReports/allEntities/Read | Office 365 kullanım raporlarını okuyun. |
 
 ### <a name="user-account-administrator"></a>Kullanıcı Hesabı Yöneticisi
 Kullanıcıların ve grupların tüm özelliklerini yönetebilir

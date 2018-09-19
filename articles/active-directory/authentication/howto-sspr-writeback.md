@@ -10,28 +10,28 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e613ff742096077fe1765d4b855b6c7d409cc228
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158956"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295827"
 ---
 # <a name="how-to-configure-password-writeback"></a>Nasıl yapılır: parola geri yazmayı yapılandırın
 
-Otomatik güncelleştirme özelliğini kullanmanızı öneririz [Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md) parola geri yazma özelliğini kullanırken.
+Otomatik güncelleştirme özelliğini kullanmanızı öneririz [Azure AD Connect](../hybrid/how-to-connect-install-express.md) parola geri yazma özelliğini kullanırken.
 
-Zaten yapılandırdığınız Azure AD Connect, ortamınızda kullanarak aşağıdaki adımları varsayar [Express](./../connect/active-directory-aadconnect-get-started-express.md) veya [özel](./../connect/active-directory-aadconnect-get-started-custom.md) ayarları.
+Zaten yapılandırdığınız Azure AD Connect, ortamınızda kullanarak aşağıdaki adımları varsayar [Express](../hybrid/how-to-connect-install-express.md) veya [özel](../hybrid/how-to-connect-install-custom.md) ayarları.
 
-1. Parola geri yazma özelliğini etkinleştirmek ve yapılandırmak için Azure AD Connect sunucusu için oturum açın ve başlangıç **Azure AD Connect** Yapılandırma Sihirbazı.
-2. Üzerinde **Hoş Geldiniz** sayfasında **yapılandırma**.
-3. Üzerinde **ek görevler** sayfasında **eşitleme seçeneklerini özelleştirme**ve ardından **sonraki**.
-4. Üzerinde **Azure ad Connect** sayfasında genel yönetici kimlik bilgilerini girin ve ardından **sonraki**.
-5. Üzerinde **dizinleri Bağla** ve **etki alanı/OU** sayfa filtresi seçin **sonraki**.
-6. Üzerinde **isteğe bağlı özellikler** sayfasında, yanındaki kutuyu işaretleyin **parola geri yazma** seçip **sonraki**.
+1. Parola geri yazma özelliğini yapılandırmak ve etkinleştirmek için Azure AD Connect sunucunuzda oturum açın ve **Azure AD Connect** yapılandırma sihirbazını başlatın.
+2. **Hoş Geldiniz** sayfasında, **Yapılandır**’ı seçin.
+3. **Ek görevler** sayfasında **Eşitleme seçeneklerini özelleştirme**'yi ve ardından **İleri**'yi seçin.
+4. **Azure AD'ye bağlan** sayfasına bir genel yöneticinin kimlik bilgilerini girin ve **İleri**'yi seçin.
+5. **Dizinleri bağla** ve **Etki Alanı/OU** filtreleme sayfalarında **İleri**'yi seçin.
+6. **İsteğe bağlı özellikler** sayfasında **Parola geri yazma** özelliğinin yanındaki kutuyu işaretleyin ve **İleri**'yi seçin.
    ![Azure AD CONNECT'te parola geri yazmayı etkinleştirme][Writeback]
-7. Üzerinde **yapılandırma için hazır** sayfasında **yapılandırma** işleminin tamamlanması için bekleyin.
-8. Son yapılandırma gördüğünüzde, seçmek **çıkış**.
+7. **Yapılandırma için hazır** sayfasında **Yapılandır**'ı seçin ve işlemin tamamlanmasını bekleyin.
+8. Yapılandırma tamamlandığında **Çıkış**'ı seçin.
 
 Parola geri yazma için ilgili genel sorun giderme görevleri görmek için bölüm [parola geri yazma sorunlarını gidermek](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) sorun giderme makalemizde.
 

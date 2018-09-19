@@ -1,6 +1,7 @@
 ---
-title: Bing resim arama API'si için sorguları gönderme | Microsoft Docs
-description: Gönderme ve Bing resim arama API'si için gönderilen arama sorguları özelleştirme hakkında bilgi edinin.
+title: Bing resim arama API'si - görüntü sorguları gönderme
+titleSuffix: Azure Cognitive Services
+description: Bing resim arama API'si için gönderilen arama sorguları özelleştirme hakkında bilgi edinin.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: bf0db0b6d2aa54a853ba86b570ca05fba902dbc1
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5d2dcc60a8707394ec07a76e3286929db365c651
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049567"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296524"
 ---
 # <a name="send-queries-to-the-bing-image-search-api"></a>Bing resim arama API'si için sorguları gönderme
 
@@ -102,7 +103,7 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Sorguyu Genişlet
 
-Bing özgün aramayı daraltmak için sorguyu genişletebiliyorsa [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) nesnesi `queryExpansions` alanını içerir. Örneğin, sorgu *Microsoft Surface*, genişletilmiş sorgular olabilir: 
+Bing özgün aramayı daraltmak için sorguyu genişletebiliyorsa [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) nesnesi `queryExpansions` alanını içerir. Örneğin, sorgu *Microsoft Surface*, genişletilmiş sorgular olabilir:
 - Microsoft Surface **Pro 3**.
 - Microsoft Surface **RT**.
 - Microsoft Surface **telefon**.
@@ -148,7 +149,7 @@ Aşağıdaki örnekte *Microsoft Surface* için genişletilmiş sorgular göster
 }
 ```
 
-`queryExpansions` alanı [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) nesnelerinin listesini içerir. `text` Alan genişletilmiş sorgu içerir. `displayText` Genişletme terimi alan içerir. Kullanıcı Arama genişletilmiş sorgu dizesidir kullanırsanız `text` ve `thumbnail` genişletilmiş sorgu dizelerini görüntülenecek alanları. Kullanarak küçük resim ve metin tıklanabilir hale `webSearchUrl` URL veya `searchLink` URL'si. Kullanım `webSearchUrl` Bing arama sonuçları kullanıcıya gönderilecek. kendi sonuçları sayfası sağlarsanız, kullanın `searchLink`.
+`queryExpansions` alanı [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) nesnelerinin listesini içerir. `text` Alan genişletilmiş sorgu içerir. `displayText` Genişletme terimi alan içerir. Kullanıcı Arama genişletilmiş sorgu dizesidir kullanırsanız `text` ve `thumbnail` genişletilmiş sorgu dizelerini görüntülenecek alanları. Kullanarak küçük resim ve metin tıklanabilir hale `webSearchUrl` URL veya `searchLink` URL'si. Kullanım `webSearchUrl` Bing arama sonuçları kullanıcıya gönderilecek. Kendi sonuçları sayfası sağlarsanız, kullanın `searchLink`.
 
 <!-- Removing until we can replace with a sanitized image.
 The following shows an example Bing implementation that uses expanded queries. If the user clicks the Microsoft Surface Pro 3 link, they're taken to the Bing search results page, which shows them images of the Pro 3.

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: b0fded9f5543d151091955c0b0d645bf9db16b7d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9ea91f70a72b812803a20244bb4445b76b133b0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158592"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296168"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory akıllı kilitleme
 
@@ -27,7 +27,7 @@ Akıllı kilitleme her zaman doğru karışımını güvenlik ve kullanılabilir
 
 Akıllı kilitleme, saldırganlar tarafından kilitli şirket içi Active Directory hesapları korumak için parola karması eşitleme veya doğrudan kimlik doğrulaması'nı kullanarak, karma dağıtımlar ile tümleştirilebilir. Şirket içi Active Directory ulaşmadan önce akıllı kilitleme ilkeleri Azure AD'de uygun şekilde ayarlayarak saldırıları filtrelenebilen.
 
-Kullanırken [geçişli kimlik doğrulaması](../connect/active-directory-aadconnect-pass-through-authentication.md), emin olmanız gerekir:
+Kullanırken [geçişli kimlik doğrulaması](../hybrid/how-to-connect-pta.md), emin olmanız gerekir:
 
    * Azure AD kilitleme eşiği **daha az** Active Directory hesap kilitleme eşik değerinden. Böylece Active Directory hesap kilitleme eşiği en az iki veya üç kez Azure AD kilitleme eşik değerinden daha uzun değerleri ayarlayın. 
    * Azure AD kilitleme süresi **saniye** olduğu **uzun** Active Directory süreden sonra hesap kilitleme sayacını sıfırla daha **dakika**.

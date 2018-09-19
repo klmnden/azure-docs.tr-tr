@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: 62ee6aae825d822a1d87858ea6a7eab953a33318
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2f6b9ee7a23341f27272a4614bed6be5ae422ce0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345087"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297290"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory'de sertifika tabanlı kimlik doğrulamasını kullanmaya başlama
 
@@ -29,7 +29,7 @@ Bu özelliği yapılandıran bir kullanıcı adı ve parola birleşimini belirli
 Bu konuda:
 
 - Sertifika tabanlı kimlik doğrulaması kullanıcılar için kiracının Office 365 Kurumsal, iş, eğitim ve ABD kamu planlarında yazılımınız olması ve yapılandırma adımları sağlar. Bu özellik, Office 365 Çin, ABD kamu savunma ve ABD kamu Federal planlarında önizlemede kullanılabilir.
-- Zaten sahip olduğunuzu varsayar bir [ortak anahtar altyapısı (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) ve [AD FS](../connect/active-directory-aadconnectfed-whatis.md) yapılandırılmış.
+- Zaten sahip olduğunuzu varsayar bir [ortak anahtar altyapısı (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) ve [AD FS](../hybrid/how-to-connect-fed-whatis.md) yapılandırılmış.
 
 ## <a name="requirements"></a>Gereksinimler
 

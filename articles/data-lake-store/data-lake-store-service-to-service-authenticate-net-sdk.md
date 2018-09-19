@@ -1,6 +1,6 @@
 ---
-title: "Hizmetten hizmete kimlik doğrulaması: Azure Active Directory'yi kullanarak .NET SDK Data Lake Store ile | Microsoft Docs"
-description: Hizmetten hizmete kimlik doğrulaması .NET SDK kullanarak Azure Active Directory kullanarak Data Lake Store ile elde öğrenin
+title: 'Hizmetten hizmete kimlik doğrulaması: .NET SDK kullanarak Azure Active Directory ile Azure Data Lake depolama Gen1 | Microsoft Docs'
+description: Azure Data Lake depolama Gen1 ile hizmetten hizmete kimlik doğrulaması .NET SDK kullanarak Azure Active Directory kullanarak elde öğrenin
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 388b84024a031a181625404ec1429087982dffbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bd03c0801fed0da6d9a87466bc33819f6afa4578
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625500"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296932"
 ---
-# <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>.NET SDK kullanarak Data Lake Store ile hizmet kimlik doğrulaması
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Hizmetten hizmete kimlik doğrulaması .NET SDK kullanarak Azure Data Lake depolama Gen1 ile
 > [!div class="op_single_selector"]
 > * [Java kullanma](data-lake-store-service-to-service-authenticate-java.md)
 > * [.NET SDK’yı kullanma](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -27,7 +27,7 @@ ms.locfileid: "34625500"
 > 
 >  
 
-Bu makalede, Azure Data Lake Store ile hizmet kimlik doğrulaması yapmak için .NET SDK'sını kullanma hakkında bilgi edinin. .NET SDK kullanarak Data Lake Store ile son kullanıcı kimlik doğrulaması için bkz: [.NET SDK kullanarak Data Lake Store ile son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-net-sdk.md).
+Bu makalede, Azure Data Lake depolama Gen1 ile hizmetten hizmete kimlik doğrulaması yapmak için .NET SDK'sı kullanma hakkında bilgi edinin. .NET SDK kullanarak son kullanıcı kimlik doğrulaması ile Data Lake depolama Gen1 bkz [son kullanıcı kimlik doğrulaması .NET SDK kullanarak Data Lake depolama Gen1 ile](data-lake-store-end-user-authenticate-net-sdk.md).
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -35,7 +35,7 @@ Bu makalede, Azure Data Lake Store ile hizmet kimlik doğrulaması yapmak için 
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure Active Directory "Web" uygulama oluşturma**. ' Ndaki adımları tamamlanmış gerekir [hizmeti için kimlik doğrulaması Azure Active Directory kullanarak Data Lake Store ile](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Bir Azure Active Directory "Web" uygulaması oluşturma**. Adımları tamamlamış olmanız gerekir [hizmetten hizmete kimlik doğrulaması Azure Active Directory kullanarak Data Lake depolama Gen1 ile](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>.NET uygulaması oluşturma
 1. Visual Studio'yu açın ve bir konsol uygulaması oluşturun.
@@ -77,8 +77,8 @@ Bu makalede, Azure Data Lake Store ile hizmet kimlik doğrulaması yapmak için 
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-## <a name="service-to-service-authentication-with-client-secret"></a>İstemci parolası ile hizmet kimlik doğrulaması
-Bu kod parçacığında .NET istemci uygulamanızda ekleyin. Yer tutucu değerlerini (bir önkoşul olarak listelenen) Azure AD web uygulamasından alınan değerlerle değiştirin.  Bu kod parçacığında, uygulamanız için kimlik doğrulaması sağlar **etkileşimsiz** web uygulaması için Azure AD İstemci gizli/anahtar kullanarak Data Lake Store ile. 
+## <a name="service-to-service-authentication-with-client-secret"></a>Gizli anahtarla hizmetten hizmete kimlik doğrulaması
+Bu kod parçacığı, .NET istemci uygulamanıza ekleyin. Yer tutucu değerlerini (bir önkoşul olarak listelenen) bir Azure AD web uygulamasından alınan değerlerle değiştirin.  Bu kod parçacığı uygulamanızın kimlik doğrulaması sağlar **etkileşimsiz** Data Lake depolama Gen1 ile Azure AD web uygulaması için istemci parolası/anahtarı kullanarak. 
 
     private static void Main(string[] args)
     {    
@@ -93,11 +93,11 @@ Bu kod parçacığında .NET istemci uygulamanızda ekleyin. Yer tutucu değerle
         var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
     }
 
-Önceki kod parçacığını bir yardımcı işlevini kullanır `GetCreds_SPI_SecretKey`. Bu yardımcı işlevi için kod kullanılabilir [github'da burada](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
+Önceki kod parçacığında yardımcı işlevini kullanan `GetCreds_SPI_SecretKey`. Bu yardımcı işlev kodunu kullanılabilir [github'da burada](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
 
-## <a name="service-to-service-authentication-with-certificate"></a>Hizmeti için kimlik doğrulama sertifikası ile
+## <a name="service-to-service-authentication-with-certificate"></a>Sertifika ile hizmetten hizmete kimlik doğrulaması
 
-Bu kod parçacığında .NET istemci uygulamanızda ekleyin. Yer tutucu değerlerini (bir önkoşul olarak listelenen) Azure AD web uygulamasından alınan değerlerle değiştirin. Bu kod parçacığında, uygulamanız için kimlik doğrulaması sağlar **etkileşimsiz** web uygulaması için Azure AD sertifikayı kullanarak Data Lake Store ile. Azure AD uygulaması oluşturma hakkında yönergeler için bkz: [sertifikalarla hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+Bu kod parçacığı, .NET istemci uygulamanıza ekleyin. Yer tutucu değerlerini (bir önkoşul olarak listelenen) bir Azure AD web uygulamasından alınan değerlerle değiştirin. Bu kod parçacığı uygulamanızın kimlik doğrulaması sağlar **etkileşimsiz** Data Lake depolama Gen1 ile bir Azure AD web uygulaması için sertifika kullanma. Azure AD uygulaması oluşturma hakkında yönergeler için bkz: [sertifikalar ile hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
     
     private static void Main(string[] args)
@@ -113,12 +113,12 @@ Bu kod parçacığında .NET istemci uygulamanızda ekleyin. Yer tutucu değerle
         var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
     }
 
-Önceki kod parçacığını bir yardımcı işlevini kullanır `GetCreds_SPI_Cert`. Bu yardımcı işlevi için kod kullanılabilir [github'da burada](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
+Önceki kod parçacığında yardımcı işlevini kullanan `GetCreds_SPI_Cert`. Bu yardımcı işlev kodunu kullanılabilir [github'da burada](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, .NET SDK kullanarak Azure Data Lake Store ile kimlik doğrulaması için hizmetten hizmete kimlik doğrulaması kullanmayı öğrendiniz. Şimdi, Azure Data Lake Store ile çalışmak için .NET SDK'sını kullanma hakkında konuşun aşağıdaki makaleleri da bakabilirsiniz.
+Bu makalede, Data Lake depolama Gen1 ile kimlik doğrulaması için hizmetten hizmete kimlik doğrulaması kullanmayı öğrendiniz .NET SDK kullanarak. Data Lake depolama Gen1 ile çalışması için .NET SDK'sı kullanma hakkında konuşmak Aşağıdaki makaleler artık göz atabilirsiniz.
 
-* [.NET SDK kullanılarak gerçekleştirilen Data Lake Store'daki hesap yönetimi işlemleri](data-lake-store-get-started-net-sdk.md)
-* [Data Lake Store .NET SDK kullanarak veri işlemleri](data-lake-store-data-operations-net-sdk.md)
+* [Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK'sını kullanma](data-lake-store-get-started-net-sdk.md)
+* [Veri işlemleri .NET SDK kullanarak Data Lake depolama Gen1](data-lake-store-data-operations-net-sdk.md)
 
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055377"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296405"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Nasıl çalıştığını: Azure AD Self Servis parola sıfırlama
 
@@ -161,8 +161,8 @@ Yükleme, yapılandırma ve Azure AD Connect etkinleştirmek, şirket içi tüml
 Bu sayfayı hızlı bir şirket içi geri yazma istemci durumunu sağlar, geçerli yapılandırmanız temelinde şu iletilerden biri görüntülenir:
 
 * Şirket içi geri yazma istemciniz çalışır durumda.
-* Azure AD, çevrimiçi ve şirket içi geri yazma istemcinize bağlı. Ancak, Azure AD Connect'in yüklü sürümü güncel değil gibi görünüyor. Göz önünde bulundurun [Azure AD Connect'i yükseltmeniz](./../connect/active-directory-aadconnect-upgrade-previous-version.md) son bağlantı özelliklerinden ve önemli hata düzeltmelerinden olmasını sağlamak için.
-* Ne yazık ki, size Azure AD Connect'in yüklü sürümü güncel olmadığından, şirket içi geri yazma istemcinizin durumunu denetleyemiyor. [Azure AD Connect'e yükseltmenin](./../connect/active-directory-aadconnect-upgrade-previous-version.md) bağlantı durumunuzu denetleyebilmek için.
+* Azure AD, çevrimiçi ve şirket içi geri yazma istemcinize bağlı. Ancak, Azure AD Connect'in yüklü sürümü güncel değil gibi görünüyor. Göz önünde bulundurun [Azure AD Connect'i yükseltmeniz](../hybrid/how-to-upgrade-previous-version.md) son bağlantı özelliklerinden ve önemli hata düzeltmelerinden olmasını sağlamak için.
+* Ne yazık ki, size Azure AD Connect'in yüklü sürümü güncel olmadığından, şirket içi geri yazma istemcinizin durumunu denetleyemiyor. [Azure AD Connect'e yükseltmenin](../hybrid/how-to-upgrade-previous-version.md) bağlantı durumunuzu denetleyebilmek için.
 * Ne yazık ki şirket içi geri yazma istemcinize şu anda bağlanamıyoruz gibi görünüyor. [Azure AD Connect sorun giderme](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) bağlantı geri yüklemek için.
 * Ne yazık ki, parola geri yazma düzgün şekilde yapılandırılmadı çünkü şirket içi geri yazma istemcinize bağlanamıyoruz. [Parola geri yazmayı yapılandırın](howto-sspr-writeback.md) bağlantı geri yüklemek için.
 * Ne yazık ki şirket içi geri yazma istemcinize şu anda bağlanamıyoruz gibi görünüyor. Bu, bizim son geçici sorunlar nedeniyle olabilir. Sorun devam ederse [sorun giderme Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) bağlantı geri yüklemek için.

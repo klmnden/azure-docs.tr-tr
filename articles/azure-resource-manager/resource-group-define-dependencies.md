@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5b4d8317d565528f896bf6823ddaefd010d0a845
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 308ab9d35e07c8376fb183c794fcad77a74a1df9
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528638"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295572"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarında kaynak dağıtmaya sırasını tanımlayın
 Belirli bir kaynak için kaynak dağıtılmadan önce mevcut olmalıdır diğer kaynakları olabilir. Örneğin, bir SQL server, SQL veritabanı dağıtmaya çalışmadan önce mevcut olması gerekir. Bu ilişki, diğer kaynağına bağlı olarak bir kaynak olarak işaretleyerek tanımlayın. Bir bağımlılık ile tanımladığınız **dependsOn** öğesini kullanarak veya **başvuru** işlevi. 
 
 Resource Manager, kaynaklar arasındaki bağımlılıkları değerlendirir ve bunları bağımlılık sırasına göre dağıtır. Resource Manager, birbirine bağımlı olmayan kaynakları paralel olarak dağıtır. Yalnızca aynı şablonda dağıtılan kaynaklar için bağımlıkları tanımlama gerekir. 
+
+Bir öğretici için bkz [öğretici: Azure Resource Manager şablonları ile bağımlı kaynaklarını oluşturmak](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
 
 ## <a name="dependson"></a>dependsOn
 Şablonunuzun içindeki dependsOn öğesi bir kaynak olarak bir veya daha fazla kaynak bağlıdır tanımlamanızı sağlar. Değerini kaynak adlarının virgülle ayrılmış bir listesini olabilir. 
@@ -164,6 +166,8 @@ Resource Manager şablon doğrulaması sırasında döngüsel bağımlılıklar 
 Dağıtım sırası değerlendirmek ve bağımlılık hatalarını çözme hakkında daha fazla bilgi için bkz. [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+* Bir öğreticiyi incelemek için bkz: [öğretici: Azure Resource Manager şablonları ile bağımlı kaynaklarını oluşturmak](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
 * Bağımlılıkları dağıtımı sırasında sorun giderme hakkında bilgi edinmek için [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md).
 * Azure Resource Manager şablonları oluşturma hakkında bilgi edinmek için [şablonları yazma](resource-group-authoring-templates.md). 
 * Bir şablonda kullanabileceğiniz işlevler listesi için bkz. [şablon işlevleri](resource-group-template-functions.md).

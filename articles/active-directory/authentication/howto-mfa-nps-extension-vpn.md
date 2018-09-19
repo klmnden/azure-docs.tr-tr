@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c1247dfca6dea638da2113fef940b97ad3348b9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160289"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297580"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure için ağ ilkesi sunucusu uzantısı kullanarak VPN altyapınız ile Azure mfa'yı tümleştirme
 
@@ -122,7 +122,7 @@ Microsoft Azure Active Directory PowerShell modülü zaten mevcut değilse Kurul
 
 NPS uzantısını kullanmak için şirket içi kullanıcıları Azure Active Directory ile eşitlenen ve MFA için etkinleştirilmiş olmalıdır. Bu kılavuz, şirket içi kullanıcıları Azure AD Connect ile Azure Active Directory ile eşitlenen varsayar. Kullanıcı MFA için etkinleştirmeye ilişkin yönergeler aşağıda verilmiştir.
 
-Azure AD Connect hakkında daha fazla bilgi için bkz. [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../connect/active-directory-aadconnect.md). 
+Azure AD Connect hakkında daha fazla bilgi için bkz. [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../hybrid/whatis-hybrid-identity.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>Azure Active Directory GUID kimliği 
 
@@ -393,7 +393,7 @@ Betiği kullanmak için Azure Active Directory yönetici kimlik bilgilerinizi ve
 
 6. Sunucuyu yeniden başlatın.
 
-### <a name="verify-the-configuration"></a>yapılandırıldığını doğrulayın
+### <a name="verify-the-configuration"></a>Yapılandırmayı doğrulama
 Yapılandırmayı doğrulamak için VPN sunucusu ile yeni bir VPN bağlantısı oluşturmanız gerekir. Birincil kimlik doğrulaması için başarıyla kimlik bilgilerinizi girdikten sonra bağlantı yeniden kurulmadan önce aşağıda gösterildiği gibi başarılı olması ikincil kimlik doğrulaması için VPN bağlantısı bekler. 
 
 ![Windows ayarları VPN penceresi](./media/howto-mfa-nps-extension-vpn/image42.png)
@@ -453,5 +453,5 @@ Daha fazla bilgi için [mevcut NPS altyapınızı Azure multi-Factor Authenticat
 
 [RADIUS kullanan Uzak Masaüstü Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu](howto-mfaserver-nps-rdg.md)
 
-[Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../connect/active-directory-aadconnect.md)
+[Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../hybrid/whatis-hybrid-identity.md)
 

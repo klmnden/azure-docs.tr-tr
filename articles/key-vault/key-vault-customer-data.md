@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 807b8a17570dfdcefa07a42719b7b0b24e4f31d7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056944"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297171"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault müşteri veri özellikleri
 
@@ -37,7 +37,7 @@ Azure Key Vault içinde müşteri verileri aşağıdaki bilgileri tanımlar:
 - Sertifika kişileri kullanıcı e-posta adresleri, adları veya telefon numaralarını içermelidir.
 - Sertifika verenler, e-posta adresleri, adları, telefon numaraları, hesap kimlik bilgilerini ve Kuruluş ayrıntılarını içerebilir.
 - Rasgele etiket, Azure anahtar Kasası'nda nesnelere uygulanabilir. Bu nesneler, kasaları, anahtarları, parolaları, sertifikaları ve depolama hesapları içerir. Kullanılan etiketleri kişisel verileri içerebilir.
-- Azure anahtar kasası erişim günlükleri içeren nesne kimlikleri, [UPN](../active-directory/connect/active-directory-aadconnect-userprincipalname.md)ve her REST API çağrısı için IP adresleri
+- Azure anahtar kasası erişim günlükleri içeren nesne kimlikleri, [UPN](../active-directory/hybrid/plan-connect-userprincipalname.md)ve her REST API çağrısı için IP adresleri
 - Azure anahtar kasası tanılama günlükleri, nesne kimlikleri ve IP adresleri için REST API çağrıları içerebilir.
 
 ## <a name="deleting-customer-data"></a>Müşteri verileri silme

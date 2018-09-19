@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 105c1d97a812841e82a0c364ec7dda097c0dd399
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 1fa5451b852a564ef3f0858fdfe0ab0091117508
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717378"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296037"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -171,7 +171,8 @@ Standart yönetilen diskler | Azure Site Recovery, desteklenen Azure bölgelerin
 Premium yönetilen diskler | Azure Site Recovery, desteklenen Azure bölgelerinde desteklenir. |
 Depolama alanları | Desteklenen |         
 (SSE) bekleyen şifreleme | Desteklenen | SSE, depolama hesapları varsayılan ayardır.   
-Azure Disk şifrelemesi (ADE) | Desteklenmiyor |
+Windows işletim sistemi için Azure Disk şifrelemesi (ADE) | VM'ler için etkin [şifrelemesi ile Azure AD uygulaması](https://aka.ms/ade-aad-app) desteklenir |
+Linux işletim sistemi için Azure Disk şifrelemesi (ADE) | Desteklenmiyor |
 Sık erişimli Ekle/Kaldır disk | Desteklenmiyor | VM veri diski ekleyip, çoğaltmayı devre dışı bırakın ve yeniden sanal Makineye yönelik çoğaltmayı etkinleştirmek gerekir.
 Diski hariç tutma | Desteklenmiyor|   Geçici disk, varsayılan olarak çıkarılır.
 Depolama alanları doğrudan  | Desteklenmiyor|

@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: byvinyal
-ms.openlocfilehash: d179acae2053b2365c010c33cc061d29559be0cf
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a24fc56bf455fbc487cb6f93e06678d52e5b1c0b
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577692"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295775"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -158,10 +158,14 @@ Aşağıdaki tabloda temel, standart ve Premium sınırlamaları ve özellikleri
 [!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
 
 ### <a name="storage-limits"></a>Depolama sınırları
-Depolama hesabı sınırları hakkında ek bilgi için bkz. [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage/common/storage-scalability-targets.md).
-
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+[!INCLUDE [storage-limits-increase-include](../includes/storage-limits-increase-include.md)]
+
+Depolama hesabı sınırları hakkında ek bilgi için bkz. [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage/common/storage-scalability-targets.md).
+
+#### <a name="storage-resource-provider-limits"></a>Depolama kaynak sağlayıcısı sınırları 
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 

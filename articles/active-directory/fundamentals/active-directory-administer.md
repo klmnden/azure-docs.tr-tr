@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 custom: it-pro
-ms.openlocfilehash: 2a548a16a6b896ae1c1297badcef6154b64977f1
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: eb9cf7c21613ab91cc0b8e41a4454835d18f2c34
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737184"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297937"
 ---
 # <a name="manage-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınızı yönetin
 
@@ -42,7 +42,7 @@ Diğer Microsoft Hizmetleri için kaydolurken ilk hizmetiniz için kullandığı
 
 Örneğin, bir Microsoft Intune aboneliği için kaydolduysanız ve şirket içi Active Directory'nizi Azure AD diziniyle eşitlediyseniz, Office 365 gibi başka bir Microsoft hizmeti için kaydolabilir ve Microsoft Intune ile sahip olduğunuz aynı dizin tümleştirme avantajlarını kolayca elde edebilirsiniz.
 
-Şirket içi dizininizi Azure AD ile tümleştirme hakkında daha fazla bilgi için bkz. [Azure AD Connect ile dizin tümleştirme](../connect/active-directory-aadconnect.md).
+Şirket içi dizininizi Azure AD ile tümleştirme hakkında daha fazla bilgi için bkz. [Azure AD Connect ile dizin tümleştirme](../hybrid/whatis-hybrid-identity.md).
 
 ### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>Mevcut bir Azure AD dizinini yeni bir Azure aboneliğiyle ilişkilendirme
 Yeni bir Azure aboneliği ile mevcut bir Office 365 veya Microsoft Intune aboneliği için oturum açma kimlik doğrulaması bir dizini ilişkilendirebilirsiniz. Bu senaryo hakkında daha fazla bilgi için bkz. [Azure aboneliğinin sahipliğini başka bir hesaba devretme](../../billing/billing-subscription-transfer.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 4467c193b5ff70a304b4ec5f632276ca14551b08
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d30d164a3e2896b1a300bf665ca09f57ce97fdf3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502007"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295878"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) etki alanı Hizmetleri
 ## <a name="overview"></a>Genel Bakış
@@ -65,7 +65,7 @@ Yönetilen etki alanı, Azure AD Domain Services tarafından sağlanan bazı bel
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>Hibrit kuruluşlar için Azure AD etki alanı Hizmetleri
 Karma bir BT altyapısı olan kuruluşlar, Bulut ve şirket kaynaklarının bir karışımını kullanır. Bu durumdaki kuruluşların, kendi Azure AD kiracısı için kimlik bilgileri, şirket içi dizinden eşitleyin. Hibrit kuruluşlar daha geçirmek için konum olarak kendi şirket içi uygulamaların buluta, özellikle dizin kullanan eski uygulamalarınızı, Azure AD Domain Services için yararlı olabilir.
 
-Litware Corporation dağıtıldı [Azure AD Connect](../active-directory/active-directory-aadconnect.md), kendi Azure AD kiracısı için kendi şirket içi dizinden kimlik bilgileri eşitlenemedi. Eşitlenen kimlik bilgilerini, kullanıcı hesapları, kimlik doğrulaması (Parola Eşitleme) ve grup üyeliklerini, kimlik bilgisi karmalarını içerir.
+Litware Corporation dağıtıldı [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md), kendi Azure AD kiracısı için kendi şirket içi dizinden kimlik bilgileri eşitlenemedi. Eşitlenen kimlik bilgilerini, kullanıcı hesapları, kimlik doğrulaması (Parola Eşitleme) ve grup üyeliklerini, kimlik bilgisi karmalarını içerir.
 
 > [!NOTE]
 > **Hibrit kuruluşlar Azure AD Domain Services'ı kullanmak parola eşitleme zorunludur**. Bu gereksinim, NTLM veya Kerberos kimlik doğrulama yöntemleri aracılığıyla bu kullanıcıların kimliğini doğrulamak için Azure AD Domain Services tarafından sağlanan yönetilen etki alanındaki kullanıcıların kimlik bilgileri gerekli olmasıdır.

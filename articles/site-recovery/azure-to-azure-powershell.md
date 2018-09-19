@@ -9,16 +9,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 62dd02d53c14635a386a8c6fa3fbfbd6f91a88f7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: dbc092a9a6984a74cb59f287f12b06892c68fe4a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921095"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296898"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarmayı ayarlama
 
-Kurulum ve test etmek nasıl gördüğünüz bu makalede, Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarma. 
+Kurulum ve test etmek nasıl gördüğünüz bu makalede, Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarma.
 
 Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -93,13 +93,13 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
-Kurtarma Hizmetleri kasası oluşturmak bir kaynak grubu oluşturun. 
+Kurtarma Hizmetleri kasası oluşturmak bir kaynak grubu oluşturun.
 
 > [!IMPORTANT]
 > * Kurtarma Hizmetleri kasası ve korunmakta olan sanal makineleri farklı Azure konumlarında olması gerekir.
 > * Kurtarma Hizmetleri kasası korunmakta olan sanal makineler ve kaynak grubu, farklı Azure konumlarında olmalıdır.
 > * Kurtarma Hizmetleri kasası ve ait olduğu, kaynak grubu, aynı Azure konumda olabilir.
- 
+
 Bu makaledeki örnekte Doğu ABD bölgesinde korunan sanal makine var. Olağanüstü durum kurtarma için seçilen kurtarma Batı ABD 2 bölgesinde bölgedir. Kurtarma Hizmetleri kasası ve kasa kaynak grubu (Batı ABD 2) kurtarma bölgede hem de olması
 
 ```azurepowershell
@@ -110,10 +110,10 @@ New-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
 ResourceGroupName : a2ademorecoveryrg
 Location          : westus2
 ProvisioningState : Succeeded
-Tags              : 
+Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
-   
+
 Bir kurtarma Hizmetleri kasası oluşturun. A2aDemoRecoveryVault adlı kurtarma Hizmetleri kasası aşağıdaki örnekte Batı ABD 2 bölgesinde oluşturulur.
 
 ```azurepowershell
@@ -130,15 +130,15 @@ Location          : westus2
 ResourceGroupName : a2ademorecoveryrg
 SubscriptionId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
-``` 
+```
 ## <a name="set-the-vault-context"></a>Kasa bağlamını ayarlayın
 
 > [!TIP]
 > Azure Site Recovery PowerShell Modülü (AzureRm.RecoveryServices.SiteRecovery Modülü), çoğu cmdlet için kullanımı kolay diğer adları ile birlikte gelir. Modüldeki cmdlet'ler biçiminde  *\<işlemi >-**AzureRmRecoveryServicesAsr**\<Nesne >* ve biçiminde eşdeğer diğer adlar  *\<İşlemi >-**ASR**\<Nesne >*. Bu makalede, kolay okunması için cmdlet diğer adları kullanır.
 
-PowerShell oturumunda kullanmak için kasa bağlamını ayarlayın. Bunu yapmak için kasa ayarları dosyasına indirin ve kasa bağlamını ayarlamak için PowerShell oturumunda indirilen dosyayı içeri aktarın. 
+PowerShell oturumunda kullanmak için kasa bağlamını ayarlayın. Bunu yapmak için kasa ayarları dosyasına indirin ve kasa bağlamını ayarlamak için PowerShell oturumunda indirilen dosyayı içeri aktarın.
 
-Bir kez ayarlandıktan sonra sonraki Azure Site Recovery işlemlerini bir PowerShell oturumunda seçili kasa bağlamında gerçekleştirilir. 
+Bir kez ayarlandıktan sonra sonraki Azure Site Recovery işlemlerini bir PowerShell oturumunda seçili kasa bağlamında gerçekleştirilir.
 
  ```azurepowershell
 #Download the vault settings file for the vault.
@@ -169,12 +169,12 @@ Kasadaki doku nesnesi, bir Azure bölgesi temsil eder. Birincil fabric nesnesidi
 
 ```azurepowershell
 #Create Primary ASR fabric
-$TempASRJob = New-ASRFabric -Azure -Location 'East US'  -Name "A2Ademo-EastUS" 
+$TempASRJob = New-ASRFabric -Azure -Location 'East US'  -Name "A2Ademo-EastUS"
 
 # Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         #If the job hasn't completed, sleep for 10 seconds before checking the job status again
-        sleep 10; 
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -191,11 +191,11 @@ Kurtarma doku nesnesi, Azure konum kurtarma temsil eder. Sanal makineler için �
 
 ```azurepowershell
 #Create Recovery ASR fabric
-$TempASRJob = New-ASRFabric -Azure -Location 'West US 2'  -Name "A2Ademo-WestUS" 
+$TempASRJob = New-ASRFabric -Azure -Location 'West US 2'  -Name "A2Ademo-WestUS"
 
 # Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -215,8 +215,8 @@ Koruma kapsayıcısı, çoğaltılan öğeler bir yapı içinde gruplamak için 
 $TempASRJob = New-AzureRmRecoveryServicesAsrProtectionContainer -InputObject $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -231,8 +231,8 @@ $PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name 
 $TempASRJob = New-AzureRmRecoveryServicesAsrProtectionContainer -InputObject $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -250,8 +250,8 @@ $RecoveryProtContainer = Get-ASRProtectionContainer -Fabric $RecoveryFabric -Nam
 $TempASRJob = New-ASRPolicy -AzureToAzure -Name "A2APolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -269,8 +269,8 @@ Bir koruma kapsayıcısı eşlemesine kurtarma koruma kapsayıcısı ve bir ço�
 $TempASRJob = New-ASRProtectionContainerMapping -Name "A2APrimaryToRecovery" -Policy $ReplicationPolicy -PrimaryProtectionContainer $PrimaryProtContainer -RecoveryProtectionContainer $RecoveryProtContainer
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -285,12 +285,12 @@ $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $Pri
 Bir sanal makineyi geri özgün Azure bölgesindeki için yeniden çalışma başarısız duruma getirmeye hazır olduğunda yük devretme sonrasında. Yeniden çalışma, başarısız başarısız olarak çoğaltılmış sanal makine üzerinde ters olan özgün bölgeye bölge üzerinden. Çoğaltmayı tersine çevirme için özgün bölgesi ve kurtarma bölgesi rollerini geçin. Özgün bölge, yeni kurtarma bölgesi artık hale gelir ve ilk kurtarma bölgesi artık neydi birincil bölgeye olur. Çoğaltmayı tersine çevirme için koruma kapsayıcısı eşlemesini özgün ve kurtarma bölgelerin anahtarlı rolleri temsil eder.
 
 ```azurepowershell
-#Create Protection container mapping (for failback) between the Recovery and Primary Protection Containers with the Replication policy 
+#Create Protection container mapping (for failback) between the Recovery and Primary Protection Containers with the Replication policy
 $TempASRJob = New-ASRProtectionContainerMapping -Name "A2ARecoveryToPrimary" -Policy $ReplicationPolicy -PrimaryProtectionContainer $RecoveryProtContainer -RecoveryProtectionContainer $PrimaryProtContainer
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -307,7 +307,7 @@ Bir önbellek depolama hesabına çoğaltılan sanal makine ile aynı Azure böl
 $EastUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-Yönetilen disk kullanmayan sanal makineleri için hedef depolama hesabı için sanal makinenin diskleri çoğaltılır kurtarma bölgesinde bir depolama hesabı ' dir. Hedef depolama hesabı, standart depolama hesabı veya bir premium depolama hesabı olabilir. Depolama hesabı gereklidir (GÇ Yazma oranı) veri değişim hızı için diskler ve depolama türü için Azure Site Recovery tarafından desteklenen değişim sınırları temel türü seçin.
+Sanal makineler için **yönetilen diskleri kullanmayan**, sanal makinenin diskleri yinelenir kurtarma bölgesinde bir depolama hesabı hedef depolama hesabıdır. Hedef depolama hesabı, standart depolama hesabı veya bir premium depolama hesabı olabilir. Depolama hesabı gereklidir (GÇ Yazma oranı) veri değişim hızı için diskler ve depolama türü için Azure Site Recovery tarafından desteklenen değişim sınırları temel türü seçin.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
@@ -332,7 +332,7 @@ Ağ eşlemesi, Kurtarma bölgesindeki sanal ağlar için birincil bölgedeki san
 - Birincil sanal ağ (sanal makine bağlı vnet) alma
    ```azurepowershell
     #Retrieve the virtual network that the virtual machine is connected to
-    
+
     #Get first network interface card(nic) of the virtual machine
     $SplitNicArmId = $VM.NetworkProfile.NetworkInterfaces[0].Id.split("/")
 
@@ -355,35 +355,72 @@ Ağ eşlemesi, Kurtarma bölgesindeki sanal ağlar için birincil bölgedeki san
    ```azurepowershell
     #Create an ASR network mapping between the primary Azure virtual network and the recovery Azure virtual network
     $TempASRJob = New-ASRNetworkMapping -AzureToAzure -Name "A2AEusToWusNWMapping" -PrimaryFabric $PrimaryFabric -PrimaryAzureNetworkId $EastUSPrimaryNetwork -RecoveryFabric $RecoveryFabric -RecoveryAzureNetworkId $WestUSRecoveryNetwork
-    
+
     #Track Job status to check for completion
-    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-            sleep 10; 
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+            sleep 10;
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
-    
+
     #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
     Write-Output $TempASRJob.State
-    
+
    ```
 - Ters yönde (yeniden çalışma) için Ağ eşlemesi oluşturma
     ```azurepowershell
     #Create an ASR network mapping for failback between the recovery Azure virtual network and the primary Azure virtual network
     $TempASRJob = New-ASRNetworkMapping -AzureToAzure -Name "A2AWusToEusNWMapping" -PrimaryFabric $RecoveryFabric -PrimaryAzureNetworkId $WestUSRecoveryNetwork -RecoveryFabric $PrimaryFabric -RecoveryAzureNetworkId $EastUSPrimaryNetwork
-    
+
     #Track Job status to check for completion
-    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-            sleep 10; 
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+            sleep 10;
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
-        
+
     #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
     Write-Output $TempASRJob.State
     ```
 
 ## <a name="replicate-azure-virtual-machine"></a>Azure sanal makine çoğaltma
 
-Azure sanal makineyi çoğaltın.
+Azure sanal makinesinin çoğaltma **yönetilen diskler**.
+
+```azurepowershell
+
+#Get the resource group that the virtual machine must be created in when failed over.
+$RecoveryRG = Get-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
+
+#Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
+
+#OsDisk
+$OSdiskId =  $vm.StorageProfile.OsDisk.ManagedDisk.Id
+$RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
+
+$OSDiskReplicationConfig = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -managed -LogStorageAccountId $storageAccount.Id `
+         -DiskId $OSdiskId -RecoveryResourceGroupId  $ RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -RecoveryOSDiskAccountType $RecoveryOSDiskAccountType
+
+# Data disk
+$datadiskId1  = $vm.StorageProfile.DataDisks[0].ManagedDisk.id
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0]. StorageAccountType
+$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0]. StorageAccountType
+
+$DataDisk1ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -managed -LogStorageAccountId $storageAccount.Id `
+         -DiskId $datadiskId1 -RecoveryResourceGroupId  $ RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
+
+#Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
+$diskconfigs = @()
+$diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
+
+
+#Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
+$TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
+
+```
+
+Azure sanal makinesinin çoğaltma **yönetilmeyen diskler**.
 
 ```azurepowershell
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
@@ -405,8 +442,8 @@ $RecoveryRG = Get-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "West
 $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -415,9 +452,9 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 Write-Output $TempASRJob.State
 ```
 
-Başlangıç çoğaltma işlemi başarılı olduktan sonra sanal makine verilerini kurtarma bölgeye çoğaltılır. 
+Başlangıç çoğaltma işlemi başarılı olduktan sonra sanal makine verilerini kurtarma bölgeye çoğaltılır.
 
-Başlangıçta bir kurtarma bölgesindeki sanal makinenin çoğaltılan diskleri kopyasını dengeli dağıtım çoğaltma işlemi başlatır. Bu aşama, ilk çoğaltma aşaması olarak adlandırılır. 
+Başlangıçta bir kurtarma bölgesindeki sanal makinenin çoğaltılan diskleri kopyasını dengeli dağıtım çoğaltma işlemi başlatır. Bu aşama, ilk çoğaltma aşaması olarak adlandırılır.
 
 İlk çoğaltma tamamlandıktan sonra çoğaltma fark eşitleme aşamaya taşır. Bu noktada, sanal makine korunur ve test yük devretme işlemi üzerinde gerçekleştirilebilir. İlk çoğaltma tamamlandıktan sonra çoğaltılan öğeyi temsil eden sanal makine çoğaltma durumu "Korumalı" durumuna geçer.
 
@@ -473,7 +510,7 @@ EndTime          : 4/25/2018 4:33:06 AM
 TargetObjectId   : ce86206c-bd78-53b4-b004-39b722c1ac3a
 TargetObjectType : ProtectionEntity
 TargetObjectName : azuredemovm
-AllowedActions   : 
+AllowedActions   :
 Tasks            : {Prerequisites check for test failover, Create test virtual machine, Preparing the virtual machine, Start the virtual machine}
 Errors           : {}
 ```
@@ -544,7 +581,7 @@ EndTime          : 4/25/2018 4:51:01 AM
 TargetObjectId   : ce86206c-bd78-53b4-b004-39b722c1ac3a
 TargetObjectType : ProtectionEntity
 TargetObjectName : azuredemovm
-AllowedActions   : 
+AllowedActions   :
 Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```

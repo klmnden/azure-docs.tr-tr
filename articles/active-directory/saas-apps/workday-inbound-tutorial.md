@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 930ca49a63e34214ec197d8dd37f38361b34fe90
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 917baa4b0d983df858c64cd0fa5b697b0fbb316c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347044"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298277"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Öğretici: Workday otomatik kullanıcı hazırlama (Önizleme) için yapılandırma
 
@@ -75,7 +75,7 @@ Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunu
 * Sınama ve tümleştirme amacıyla Workday uygulama Kiracı
 * Sınama amacıyla çalışan verilerini test etmek için yönetici izinleri workday'deki sistem tümleştirme kullanıcısı oluşturun ve değişiklikler yapmak için
 * Windows hizmetini 2012 veya üzeri çalıştıran etki alanına katılmış bir sunucuya Active Directory kullanıcı sağlama için ana bilgisayar için gerekli [şirket içi eşitleme Aracısı](https://go.microsoft.com/fwlink/?linkid=847801)
-* [Azure AD Connect](../connect/active-directory-aadconnect.md) Active Directory ve Azure AD arasında eşitlemek için
+* [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) Active Directory ve Azure AD arasında eşitlemek için
 
 ### <a name="solution-architecture"></a>Çözüm mimarisi
 
@@ -504,11 +504,11 @@ Azure Active Directory'ye sağlama nasıl yapılandırabileceğinizi aşağıdak
 
 | Senaryo | Çözüm |
 | -------- | -------- |
-| **Kullanıcıları Active Directory ve Azure AD için sağlanması gereken** | Kullanım  **[AAD bağlanma](../connect/active-directory-aadconnect.md)** |
-| **Kullanıcıların Active Directory'ye yalnızca sağlanması gerekir** | Kullanım  **[AAD bağlanma](../connect/active-directory-aadconnect.md)** |
+| **Kullanıcıları Active Directory ve Azure AD için sağlanması gereken** | Kullanım  **[AAD bağlanma](../hybrid/whatis-hybrid-identity.md)** |
+| **Kullanıcıların Active Directory'ye yalnızca sağlanması gerekir** | Kullanım  **[AAD bağlanma](../hybrid/whatis-hybrid-identity.md)** |
 | **Kullanıcıların Azure AD'de yalnızca (yalnızca bulutta) sağlanması gerekir** | Kullanım **Azure Active Directory sağlama için Workday** app Galerisi'nde uygulama |
 
-Azure AD Connect ayarlama hakkında yönergeler için bkz: [Azure AD Connect belgelerini](../connect/active-directory-aadconnect.md).
+Azure AD Connect ayarlama hakkında yönergeler için bkz: [Azure AD Connect belgelerini](../hybrid/whatis-hybrid-identity.md).
 
 Aşağıdaki bölümlerde, yalnızca bulut kullanıcılarına sağlamak için Workday ile Azure AD arasında bir bağlantı ayarlama açıklanmaktadır.
 
