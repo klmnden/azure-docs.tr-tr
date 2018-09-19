@@ -1,21 +1,22 @@
 ---
-title: Arama sonuçlarını görüntülemek için sıralama kullanarak | Microsoft Docs
+title: Arama sonuçlarını görüntülemek için derece kullanma
+titleSuffix: Azure Cognitive Services
 description: Bing RankingResponse yanıt derece sırada arama sonuçlarını görüntülemek için nasıl kullanılacağını gösterir.
 services: cognitive-services
 author: bradumbaugh
-manager: bking
+manager: cgronlun
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: brumbaug
-ms.openlocfilehash: 0dd3a2057e73adda3224e7cebe7c492572f94105
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3e55830fcfdbea91581a75fcfc343fd522485c5a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41988629"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123411"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>C# konsol uygulaması arama istemci derleme
 
@@ -45,8 +46,8 @@ Uygulama adı **MyConsoleSearchApp**ve ardından **Tamam**.
 
 JSON.net API'si tarafından döndürülen JSON yanıtlarıyla çalışmanıza olanak sağlar. Kendi NuGet paketini projenize ekleyin:
 
-- İçinde **Çözüm Gezgini** sağ tıklatın ve proje **NuGet paketlerini Yönet...** . 
-- Üzerinde **Gözat** sekmesinde, arama `Newtonsoft.Json`. En son sürümü seçin ve ardından **yükleme**. 
+- İçinde **Çözüm Gezgini** sağ tıklatın ve proje **NuGet paketlerini Yönet...** .
+- Üzerinde **Gözat** sekmesinde, arama `Newtonsoft.Json`. En son sürümü seçin ve ardından **yükleme**.
 - Tıklayın **Tamam** düğmesini **değişiklikleri gözden geçir** penceresi.
 - Başlıklı Visual Studio sekmeyi kapatırsanız **NuGet: MyConsoleSearchApp**.
 
@@ -60,7 +61,7 @@ Bu öğreticide dayanan `System.Web` derleme. Bu derlemeye olan başvuruyu proje
 
 ## <a name="add-some-necessary-using-statements"></a>Bazı gerekli using deyimleri ekleme
 
-Bu öğreticideki kod üç ek gerektirir using deyimleri. Varolan aşağıda bu deyimleri ekleme `using` deyimleri en üstündeki **Program.cs**: 
+Bu öğreticideki kod üç ek gerektirir using deyimleri. Varolan aşağıda bu deyimleri ekleme `using` deyimleri en üstündeki **Program.cs**:
 
 ```csharp
 using System.Web;
@@ -145,7 +146,7 @@ Değerini ayarladığınızdan emin olun `Ocp-Apim-Subscription-Key` abonelik an
 
 ## <a name="display-ranked-results"></a>Dereceli sonuçları görüntüle
 
-Kişilerinin sıralı bir düzende sonuçları görüntülemek nasıl göstermeden önce bir örnek web arama yanıt göz atın: 
+Kişilerinin sıralı bir düzende sonuçları görüntülemek nasıl göstermeden önce bir örnek web arama yanıt göz atın:
 
 ```json
 {
@@ -171,7 +172,7 @@ Kişilerinin sıralı bir düzende sonuçları görüntülemek nasıl göstermed
         },
 
         ...
-        
+
         ],
         "someResultsRemoved" : true
     },
@@ -184,7 +185,7 @@ Kişilerinin sıralı bir düzende sonuçları görüntülemek nasıl göstermed
         }
 
         ...
-        
+
         ]
     },
     "rankingResponse" : {
@@ -220,7 +221,7 @@ Kişilerinin sıralı bir düzende sonuçları görüntülemek nasıl göstermed
 }
 ```
 
-`rankingResponse` JSON nesnesi ([belgeleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) arama sonuçları için uygun görüntülenme sırasını tanımlar. Bu, bir veya daha fazla aşağıdaki, Önceliklendirilmiş grupları içerir: 
+`rankingResponse` JSON nesnesi ([belgeleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) arama sonuçları için uygun görüntülenme sırasını tanımlar. Bu, bir veya daha fazla aşağıdaki, Önceliklendirilmiş grupları içerir:
 
 - `pole`: En çok görünen işleme almak için arama sonuçları (örneğin, ana hat görüntülenen ve kenar çubuğunuzu).
 - `mainline`: Ana hatta da görüntülemek için arama sonuçları.
@@ -273,7 +274,7 @@ static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects
 Bu yöntem:
 
 - Üzerinde döngü `rankingResponse` yanıtını içeren gruplar
-- Öğeleri çağırarak her grupta görüntüler. `DisplaySpecificResults(...)` 
+- Öğeleri çağırarak her grupta görüntüler. `DisplaySpecificResults(...)`
 
 İçinde **Program.cs**, aşağıdaki iki yöntemi ekleyin:
 

@@ -1,32 +1,33 @@
 ---
-title: İade Microsoft Çeviricisi metin API ile N en iyi Çeviriler | Microsoft Docs
-description: Microsoft Çeviricisi metin API kullanarak N en iyi Çeviriler döndür.
+title: En iyi N çevirileri - Translator metin çevirisi API'si döndürür
+titlesuffix: Azure Cognitive Services
+description: Microsoft Translator metin çevirisi API'si kullanarak en iyi N çevirileri döndürür.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 3eafe50f69ae1a6748342e64a414ecee4467d0d1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e1d310cecb41de00c1d3e3986fe715d1519ceeff
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352600"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123462"
 ---
-# <a name="how-to-return-n-best-translations"></a>N en iyi Çeviriler döndürmek nasıl
+# <a name="how-to-return-n-best-translations"></a>En iyi N çevirileri iade etme
 
 > [!NOTE]
-> Bu yöntem kullanım dışıdır. Çevirici metin API V3.0 içinde kullanılabilir değil.
+> Bu metot kullanımdan kaldırılmıştır. Translator metin çevirisi API'si, V3.0 içinde kullanılabilir değil.
 
-Bir isteğe bağlı mantıksal bayrak "IncludeMultipleMTAlternatives" Microsoft Çeviricisi API GetTranslations() ve GetTranslationsArray() yöntemleri içerir.
-Yöntemi, delta Çeviricisi altyapısı N en iyi listesinden burada sağlanan maxTranslations alternatifleri kadar döndürür.
+İsteğe bağlı mantıksal bayrak "IncludeMultipleMTAlternatives" Microsoft Translator API'si GetTranslations() ve GetTranslationsArray() yöntemlerini içerir.
+Yöntemi, delta translator altyapısı en iyi N listesinden burada sağlanan maxTranslations alternatifleri kadar döndürür.
 
 İmza değil:
 
-**Sözdizimi**
+**Söz dizimi**
 
 | C# |
 |:---|
@@ -36,24 +37,24 @@ Yöntemi, delta Çeviricisi altyapısı N en iyi listesinden burada sağlanan ma
 
 | Parametre | Açıklama |
 |:---|:---|
-| AppID | **Gerekli** Authorization Üstbilgisi kullanılırsa, AppID alanı boş bırakın başka belirtin "Bearer" içeren bir dize + "" + erişim belirteci.|
-| metin | **Gerekli** çevirmek için metin temsil eden dize. Metin boyutu 10000 karakteri aşmamalıdır.|
-| başlangıç | **Gerekli** çevirmek için metnin dil kodunu temsil eden dize. |
-| - | **Gerekli** metne çevirmek için dil kodu temsil eden dize. |
-| maxTranslations | **Gerekli** çevirileri döndürülecek en büyük sayısını temsil eden bir tamsayı. |
-| seçenekler | **İsteğe bağlı** aşağıda listelenen değerler içeren bir TranslateOptions nesne. Bunlar tüm isteğe bağlıdır ve varsayılan en yaygın ayarlar.
+| Uygulama Kimliği | **Gerekli** yetkilendirme üst bilgisi kullandıysanız, AppID alanı boş bırakın başka belirtin "Bearer" içeren bir dize + "" + erişim belirteci.|
+| metin | **Gerekli** Çevrilecek metin temsil eden bir dize. Metin boyutu 10000 karakterden uzun olmamalıdır.|
+| başlangıç | **Gerekli** Çevrilecek metin dil kodunu temsil eden bir dize. |
+| - | **Gerekli** metne çevirmek için dil kodunu temsil eden bir dize. |
+| maxTranslations | **Gerekli** çevirileri döndürülecek en fazla sayısını temsil eden bir tamsayı. |
+| seçenekler | **İsteğe bağlı** aşağıda listelenen değerler içeren bir TranslateOptions nesne. Bunlar tümü isteğe bağlıdır ve varsayılan en sık kullanılan ayarları için.
 
 * Kategori: Desteklenen tek ve varsayılan olarak, "Genel" seçeneğidir.
-* ContentType: Desteklenen tek ve "metin/düz" varsayılan seçenektir.
-* Durum: correlate istek ve yanıt yardımcı olmak için kullanıcı durumu. Aynı içeriği yanıt olarak döndürülür.
-* IncludeMultipleMTAlternatives: birden fazla alternatifleri MT altyapısı döndürülmeyeceğini belirleyen bayrak. Varsayılan, false ve yalnızca 1 alternatif içerir.
+* ContentType: Desteklenen tek ve "text/plain" varsayılan seçenektir.
+* Durumu: performanstaki istek ve yanıt yardımcı olmak için kullanıcı durumu. Aynı içeriğini yanıta döndürülür.
+* IncludeMultipleMTAlternatives: birden fazla alternatifleri MT altyapısından döndürülüp döndürülmeyeceğini belirlemek için bayrak. Varsayılan değer false'tur ve yalnızca 1 seçenek içerir.
 
 ## <a name="ratings"></a>Derecelendirme
-Derecelendirmeleri gibi uygulanır: 5 derecesi en iyi otomatik çeviri içeriyor.
-Otomatik olarak oluşturulan (N-en iyi) çeviri alternatifleri 0 derecesi yoksa ve 100 eşleşme derecesi.
+Derecelendirmeleri şu şekilde uygulanır: en iyi bir otomatik çeviri 5 derecesi vardır.
+Otomatik olarak oluşturulan (en iyi N) çeviri alternatifleri de derecesi 0 ve 100 eşleşme derecesi sahiptir.
 
 ## <a name="number-of-alternatives"></a>Alternatifleri sayısı
-Döndürülen alternatifleri sayısı kadar maxTranslations olmakla birlikte, daha az olabilir.
+Döndürülen alternatifleri sayısı kadar maxTranslations olmakla birlikte daha az olabilir.
 
 ## <a name="language-pairs"></a>Dil çiftleri
-Bu işlevsellik, Basitleştirilmiş ve Geleneksel Çince, her iki yönde arasında çevirileri kullanımda değil. Diğer tüm Microsoft Translator desteklenen dil çiftleri için kullanılabilir.
+Bu işlev, Basitleştirilmiş ve Geleneksel Çince, her iki yönde de arasında çevirileri için kullanılamıyor. Diğer tüm Microsoft Translator desteklenen dil çiftleri için kullanılabilir.

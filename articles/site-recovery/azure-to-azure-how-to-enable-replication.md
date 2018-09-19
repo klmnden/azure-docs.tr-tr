@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: e7cd3032053b3628b94f93f3c7e00b6890afd4ca
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7002e8a63ca0223a38ba099b17955a86034fa057
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916291"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295470"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Azure sanal makinelerini başka bir Azure bölgesine çoğaltma
 
@@ -36,6 +36,7 @@ Bu makalede bu senaryo için Site RECOVERY'yi önceden ayarladığınız açıkl
     - **Kaynak**: Bu durumda sanal makinelerin başlangıç noktasını **Azure**.
     - **Kaynak konumu**: sanal makinelerinizi korumak istediğiniz Azure bölgesi. Bu çizim için 'Doğu Asya' kaynak konumdur
     - **Dağıtım modeli**: kaynak makineleri Azure dağıtım modeli.
+    - **Kaynak abonelik**: kaynak sanal makinelerinize ait olduğu abonelik. Bu abonelik, kurtarma hizmetleri kasanızın bulunduğu Azure Active Directory kiracısında bulunan aboneliklerden biri olabilir.
     - **Kaynak grubu**: kaynak sanal makinelerinize ait olduğu kaynak grubu. Sonraki adımda koruma için seçilen kaynak grubu altındaki tüm sanal makineler listelenmektedir.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
@@ -46,6 +47,7 @@ Bu makalede bu senaryo için Site RECOVERY'yi önceden ayarladığınız açıkl
 4. İçinde **ayarları**, isteğe bağlı olarak hedef site ayarları yapılandırabilirsiniz:
 
     - **Hedef konum**: konumun burada kaynak sanal makine verilerinizi çoğaltılabilir. Seçili makineler konumuna bağlı olarak Site Recovery, uygun hedef bölgelerin listesini sağlar. Kurtarma Hizmetleri kasası konumu olarak aynı hedef konum tutmanızı öneririz.
+    - **Hedef abonelik**: Olağanüstü durum kurtarma için kullanılan hedef abonelik. Hedef abonelik varsayılan olarak kaynak abonelikle aynı olur.
     - **Hedef kaynak grubu**: çoğaltılmış sanal makineleriniz için tüm ait kaynak grubu. Varsayılan olarak Azure Site Recovery "asr" sonekine sahip adı ile hedef bölgede yeni bir kaynak grubu oluşturur. Azure Site Recovery tarafından zaten oluşturulan kaynak grubunun mevcut olması durumunda, yeniden kullanılır. Aşağıdaki bölümde gösterildiği gibi özelleştirmek seçebilirsiniz. Hedef kaynak grubu konumunu, kaynak sanal makineleri barındırdığı bölge dışında tüm Azure bölgelerine olabilir.
     - **Hedef sanal ağ**: varsayılan olarak, Site Recovery yeni bir sanal ağ hedef bölgede "asr" sonekine sahip adla oluşturur. Bu kaynak ağa eşlenen ve gelecekteki tüm koruma için kullanılır. [Daha fazla bilgi edinin](site-recovery-network-mapping-azure-to-azure.md) ağ eşlemesi hakkında.
     - **Depolama hesapları (kaynak makine yönetilen diskleri kullanmıyorsa) hedef**: varsayılan olarak, Site Recovery, kaynak VM depolama yapılandırması yakından taklit eden yeni bir hedef depolama hesabı oluşturur. Depolama hesabı zaten mevcut olması durumunda, yeniden kullanılır.
@@ -60,7 +62,9 @@ Bu makalede bu senaryo için Site RECOVERY'yi önceden ayarladığınız açıkl
 
 Site Recovery tarafından kullanılan varsayılan hedef ayarlarını değiştirebilirsiniz.
 
-1. Tıklayın **Özelleştir:** varsayılan ayarlarını değiştirmek için:
+1. Tıklayın **Özelleştir:** yanındaki 'Hedef aboneliği' varsayılan hedef aboneliği değiştirmek için. Aynı Azure Active Directory (AAD) kiracısında mevcut tüm abonelikleri listeden aboneliği seçin.
+
+2. Tıklayın **Özelleştir:** varsayılan ayarlarını değiştirmek için:
     - İçinde **hedef kaynak grubu**, aboneliğin hedef konumdaki tüm kaynak grupları listesinden kaynak grubunu seçin.
     - İçinde **hedef sanal ağ**, ağ sanal ağ içinde hedef konum listesinden seçin.
     - İçinde **kullanılabilirlik kümesi**, bir kullanılabilirlik kümesi kaynak bölgede parçası iseler VM kullanılabilirlik kümesi ayarları ekleyebilirsiniz.

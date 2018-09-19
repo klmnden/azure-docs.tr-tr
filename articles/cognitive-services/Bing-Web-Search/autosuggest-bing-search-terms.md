@@ -1,23 +1,23 @@
 ---
-title: Bing arama terimlerini otomatik öneri
-titleSuffix: Microsoft Cognitive Services
-description: Bing Web araması API'si kullanıcıların ile geliştirilmiş bir arama deneyimi sağlamak için Bing otomatik öneri API'si ile eşleştirin.
+title: Arama terimleri - Bing Web araması API'si otomatik öneri
+titleSuffix: Azure Cognitive Services
+description: Bing Web araması API'si kullanıcıların bir Gelişmiş arama deneyimi sağlamak için Bing otomatik öneri API'si ile eşleştirin.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
-ms.openlocfilehash: df8a57b3136abfacce971f4d01ccb2296dfa784c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 475ddfc2bcd9acd1312348a6c85e3d4627e48a3d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889500"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128953"
 ---
-# <a name="autosuggest-bing-search-terms"></a>Bing arama terimlerini otomatik öneri
+# <a name="autosuggest-bing-search-terms-in-your-application"></a>Uygulamanızı Bing arama terimlerini otomatik öneri
 
 Kullanıcıların arama terimlerini gireceği bir arama kutusu sağlıyorsanız deneyimi geliştirmek için [Bing Otomatik Öneri API'sini](../bing-autosuggest/get-suggested-search-terms.md) kullanın. API, kullanıcı yazarken kısmi arama terimlerine dayalı önerilen sorgu dizelerini yönetin.
 

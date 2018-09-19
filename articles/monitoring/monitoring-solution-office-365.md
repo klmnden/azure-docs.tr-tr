@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 3772b03d9a9d688b9d0eac42d51af7a2f2e0c5bd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e3620bbf92cab926d56c4de0817f833b61cf2b03
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056562"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125094"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -516,7 +516,7 @@ Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 | OfficeWorkload | Kayıt başvurduğu office 365 hizmeti.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | İşlem | Kullanıcı veya yönetici etkinliğinin adı.  |
 | OrganizationId | Kuruluşunuzun Office 365 kiracısı için GUID. Bu değer her zaman içinde gerçekleştiği Office 365 hizmet ne olursa olsun, kuruluşunuz için aynı olacaktır. |
-| RecordType | Gerçekleştirilen işlem türünü. |
+| RecordType | Gerçekleştirilen işlem türü. |
 | ResultStatus | Eylemin (Operation özelliğinde belirtilen) başarılı olup olmadığını gösterir. Olası değerler şunlardır: Succeeded, PartiallySucceded veya Failed. Exchange yönetim etkinliği için ya da True değeridir ya da yanlış. |
 | UserId | UPN'sini (kullanıcı asıl adı) günlüğe kaydedilmesini kaydında sonuçlanan eylemi gerçekleştiren kullanıcının; Örneğin, my_name@my_domain_name. Sistem hesapları (sharepoınt\system veya gibi ntauthority\system adlı) tarafından gerçekleştirilen etkinlik kayıtları da dahil edilir. | 
 | UserKey | Kullanıcı Kimliği özelliğinde belirtilen kullanıcı için alternatif bir kimliği.  Örneğin, bu özellik, kullanıcıların SharePoint, OneDrive iş ve Exchange için gerçekleştirilen olayları için passport benzersiz Tanımlayıcısı (PUID) ile doldurulur. Bu özellik, diğer hizmetler ve sistem hesapları tarafından gerçekleştirilen olayları gerçekleşen olayları için kullanıcı kimliği özelliği olarak aynı değeri de belirtebilirsiniz|

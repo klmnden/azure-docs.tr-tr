@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0b0ddedde49208a85628cdfc226f870a32ff7170
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 2448b1f799c5253b36a18f108af1ff2de8b6ced3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985873"
+ms.locfileid: "46127457"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -173,6 +173,8 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Otomasyon
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* MySQL için Azure Veritabanı
+* PostgreSQL için Azure Veritabanı
 * Azure DevOps - Microsoft dışı uzantılı Azure DevOps kuruluşlarına satın gereken [aldıklarını iptal](https://go.microsoft.com/fwlink/?linkid=871160) abonelikler arasında hesap taşınabilmesi.
 * Azure Haritalar
 * Azure Geçişi
@@ -237,8 +239,6 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * AD etki alanı Hizmetleri
 * AD karma sistem durumu hizmeti
 * Application Gateway
-* MySQL için Azure Veritabanı
-* PostgreSQL için Azure Veritabanı
 * Azure veritabanı geçişi
 * Azure Databricks
 * Azure Geçişi

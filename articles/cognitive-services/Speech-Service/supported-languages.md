@@ -1,5 +1,5 @@
 ---
-title: Desteklenen diller - Microsoft Bilişsel hizmetler konuşma hizmeti
+title: Desteklenen diller - Azure Bilişsel hizmetler konuşma hizmeti
 description: Konuşma hizmeti tarafından desteklenen dillerin bir listesi.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
@@ -9,22 +9,22 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 704534ed50e12e7f9290cb321ad3b9e1b99117d5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a4307ee0ff210dafee5afe51bd9cb90db9be22e5
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377897"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295437"
 ---
 # <a name="supported-languages-for-speech-service"></a>Konuşma hizmeti için desteklenen diller
 
-Farklı diller için farklı bir konuşma hizmetleri işlevleri desteklenir. Aşağıdaki tablolarda, dil desteği özetler.
+Farklı diller için farklı bir konuşma hizmeti işlevleri desteklenir. Aşağıdaki tablolarda, dil desteği özetler.
 
 ## <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
 
 Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. 
 
-  Kod | Dil | Akustik Uyarlama | Dil uyarlama | Söyleniş uyarlama
+  Kod | Dil | Akustik uyarlama | Dil uyarlama | Söyleniş uyarlama
  ------|----------|---------------------|---------------------|-------------------------
  ar EG | Arapça (Mısır) modern standart | Hayır | Evet | Hayır
  İt-IT | İtalyanca (İtalya) | Hayır | Evet | Hayır 
@@ -105,24 +105,24 @@ ja-JP | Japonca |Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ayu
 | | |Erkek | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ichiro, Apollo)"
 | | |Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, HarukaRUS)"
 ko-KR | Kore dili |Kadın | "Microsoft Server Konuşma metin konuşma ses (ko-KR, HeamiRUS)"
-ms-MY | Malay dili|Erkek | "Microsoft Server Konuşma metin okuma ses (ms MY, Rizwan)"
-NB-yok | Norveççe|Kadın | "Microsoft Server Konuşma metin okuma ses (nb-yok, HuldaRUS)"
-NL-NL | Hollanda dili|Kadın | "Microsoft Server Konuşma metin okuma ses (nl-NL, HannaRUS)"
-pl-PL | Lehçe|Kadın | "Microsoft Server Konuşma metin okuma ses (pl-PL, PaulinaRUS)"
-pt-BR | Portekizce (Brezilya)|Kadın | "Microsoft Server Konuşma metin okuma ses (pt-BR, HeloisaRUS)"
+ms-MY | Malay dili | Erkek | "Microsoft Server Konuşma metin okuma ses (ms MY, Rizwan)"
+NB-yok | Norveççe | Kadın | "Microsoft Server Konuşma metin okuma ses (nb-yok, HuldaRUS)"
+NL-NL | Hollanda dili | Kadın | "Microsoft Server Konuşma metin okuma ses (nl-NL, HannaRUS)"
+pl-PL | Lehçe | Kadın | "Microsoft Server Konuşma metin okuma ses (pl-PL, PaulinaRUS)"
+pt-BR | Portekizce (Brezilya) | Kadın | "Microsoft Server Konuşma metin okuma ses (pt-BR, HeloisaRUS)"
 | | |Erkek | "Microsoft Server Konuşma metin okuma ses (pt-BR, Daniel, Apollo)"
-pt-PT | Portekizce (Portekiz)|Kadın | "Microsoft Server Konuşma metin okuma ses (pt-PT, HeliaRUS)"
-Ro-RO | Rumence|Erkek | "Microsoft Server Konuşma metin konuşma ses (ro-RO, Andrei)"
+pt-PT | Portekizce (Portekiz) | Kadın | "Microsoft Server Konuşma metin okuma ses (pt-PT, HeliaRUS)"
+Ro-RO | Rumence | Erkek | "Microsoft Server Konuşma metin konuşma ses (ro-RO, Andrei)"
 ru-RU |Rusça| Kadın | "Microsoft Server Konuşma metin okuma ses (ru-RU, Irina, Apollo)"
 | | |Erkek | "Microsoft Server Konuşma metin okuma ses (ru-RU, Pavel, Apollo)"
 | | |Kadın | "Microsoft Server Konuşma metin okuma ses (ru-RU, EkaterinaRUS)"
-SK-SK | Slovakça|Erkek | "Microsoft Server Konuşma metin okuma ses (sk-SK, Filip)"
-SL SI | Slovence|Erkek | "Microsoft Server Konuşma metin okuma ses (sl-sı, Lado)"
-sv-SE | İsveç dili|Kadın | "Microsoft Server Konuşma metin konuşma ses (sv-SE, HedvigRUS)"
-Veri-ın | Tamil dili (Hindistan) |Erkek | "Microsoft Server Konuşma metin konuşma ses (veri-ın, Valluvar)"
-TH TH | Tay Dili|Erkek | "Microsoft Server Konuşma metin okuma ses (th-TH, Pattara)"
-tr-TR |Türkçe| Kadın | "Microsoft Server Konuşma metin okuma ses (tr-TR, SedaRUS)"
-VI VN | Vietnam dili|Erkek | "Microsoft Server Konuşma metin okuma ses (vi-VN bir)"
+SK-SK | Slovakça | Erkek | "Microsoft Server Konuşma metin okuma ses (sk-SK, Filip)"
+SL SI | Slovence | Erkek | "Microsoft Server Konuşma metin okuma ses (sl-sı, Lado)"
+sv-SE | İsveç dili | Kadın | "Microsoft Server Konuşma metin konuşma ses (sv-SE, HedvigRUS)"
+Veri-ın | Tamil dili (Hindistan) | Erkek | "Microsoft Server Konuşma metin konuşma ses (veri-ın, Valluvar)"
+TH TH | Tay Dili | Erkek | "Microsoft Server Konuşma metin okuma ses (th-TH, Pattara)"
+tr-TR |Türkçe | Kadın | "Microsoft Server Konuşma metin okuma ses (tr-TR, SedaRUS)"
+VI VN | Vietnam dili | Erkek | "Microsoft Server Konuşma metin okuma ses (vi-VN bir)"
 zh-CN | Çince (ana kara)|Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, HuihuiRUS)"
 | | |Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, Yaoyao, Apollo)"
 | | |Erkek | "Microsoft Server Konuşma metin konuşma ses (zh-CN, Kangkang, Apollo)"
@@ -140,13 +140,13 @@ zh-TW | Çince (Tayvan)|Kadın | "Microsoft Server Konuşma metin konuşma ses (
 Ses özelleştirme ABD İngilizce (en-US), ana kara Çince (zh-CN) ve İtalyanca (it-IT) için kullanılabilir.
 
 > [!NOTE]
-> İtalyan sesi eğitim 2000'den fazla konuşma bir veri kümesi ile başlar. Çince-İngilizce dilli modelleri da bir ilk konuşma 2000'den fazla veri kümesi ile desteklenir.
+> Bir veri kümesi ile 2000'den fazla konuşma İtalyan sesi eğitim başlatır. Çince-İngilizce dilli modelleri da bir ilk konuşma 2000'den fazla veri kümesi ile desteklenir.
 
 ## <a name="speech-translation"></a>Konuşma Çevirisi
 
-**Konuşma çevirisi** API, konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için farklı dilleri destekler. Kaynak dil konuşma dilini tablosundan her zaman olmalıdır. Hedef diller Çeviri hedef konuşma veya metin olmasına göre değişir.
+**Konuşma çevirisi** API, konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için farklı dilleri destekler. Kaynak dili her zaman aşağıdaki konuşma dilini tablodan olmalıdır. Hedef diller Çeviri hedef konuşma veya metin olmasına göre değişir.
 
-REST API'nin dilleri uç nokta kullanarak program aracılığıyla dillerin listesini alabilirsiniz. İngilizce dil adının yanı sıra, her dil kodu listesi sağlar — veya tüm diğer diller desteklenmez. Yeni bir dil kullanılabilir olduğunda bu liste Microsoft Translator hizmeti tarafından güncelleştirilir.
+REST API'nin dilleri uç nokta kullanarak dillerin listesini program aracılığıyla elde edebilirsiniz. Liste, desteklenen herhangi bir dili veya İngilizce dil adının yanı sıra, her dil kodu sağlar. Yeni bir dil kullanılabilir olduğunda bu liste Microsoft Translator hizmeti tarafından güncelleştirilir.
 
 ### <a name="speech-languages"></a>Konuşma dillerini
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 01ef5fd70b1c919c5aa2a7afbb6e46558a80b1f3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7971a5aeadd2b2edaa43da8bacae9743937ce30e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717346"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127355"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm Hızlandırıcısını özelleştirme
 
@@ -35,7 +35,7 @@ Aşağıdaki adımlar, kullanıcı Arabirimi geliştirme için yerel bir ortamı
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Yalnızca, test ve geliştirme sırasında SSH erişimini etkinleştirmeniz gerekir. SSH, etkinleştirirseniz [yeniden olabildiğince çabuk devre dışı](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines).
+    Yalnızca, test ve geliştirme sırasında SSH erişimini etkinleştirmeniz gerekir. SSH, etkinleştirirseniz [yeniden olabildiğince çabuk devre dışı](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
 1. Azure portalını kullanın veya [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) adı ve sanal makinenizin genel IP adresini bulmak için. Örneğin:
 

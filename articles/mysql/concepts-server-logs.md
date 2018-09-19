@@ -1,6 +1,6 @@
 ---
-title: Azure veritabanı için MySQL için sunucu günlüklerine
-description: MySQL ve farklı günlük düzeylerini etkinleştirmek için kullanılabilir parametreler için Azure veritabanı'nda kullanılabilir günlük açıklar.
+title: MySQL için Azure veritabanı sunucusu günlükleri
+description: Farklı günlüğe kaydetme düzeylerini etkinleştirmek için kullanılabilir parametrelerde ve MySQL için Azure veritabanı'nda kullanılabilir günlükleri açıklar.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
@@ -8,43 +8,43 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 50e4b9b8b8f9433ec725aaa982e969cec7afb91c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/17/2018
+ms.openlocfilehash: ac5be20815b552c08e5cd1054bf24d7a10b56498
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265794"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124278"
 ---
-# <a name="server-logs-in-azure-database-for-mysql"></a>Sunucu, Azure veritabanı için MySQL kaydeder.
-MySQL için Azure veritabanı'nda yavaş sorgu günlüğü kullanıcılar tarafından kullanılabilir. İşlem günlüğü erişimi desteklenmiyor. Yavaş sorgu günlüğü sorun giderme için performans sorunlarını tanımlamak için kullanılabilir. 
+# <a name="server-logs-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda sunucu günlüklerini
+MySQL için Azure veritabanı'nda yavaş sorgu günlüğü kullanıcılar tarafından kullanılabilir. İşlem günlüğü erişimi desteklenmiyor. Yavaş sorgu günlüğü, sorun giderme için performans sorunlarını tanımlamak için kullanılabilir. 
 
-MySQL başvuru el ile 's MySQL yavaş sorgu günlüğü hakkında daha fazla bilgi için bkz: [yavaş sorgu günlük bölümü](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
+MySQL yavaş sorgu günlüğü hakkında daha fazla bilgi için bkz: MySQL Başvuru Kılavuzu'nın [yavaş sorgu günlüğü bölümü](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
 
 ## <a name="access-server-logs"></a>Sunucu günlüklerine erişme
-Liste ve Azure veritabanı için MySQL server günlüklerini Azure portalı ve Azure CLI kullanarak yükleyin.
+Liste ve Azure portalı ve Azure CLI kullanarak MySQL sunucusu günlükleri için Azure veritabanı indirin.
 
-Azure portalında Azure veritabanınızı MySQL sunucusu için seçin. Altında **izleme** başlığını seçin **sunucu günlükleri** sayfası.
+Azure portalında MySQL için Azure veritabanı sunucunuza seçin. Altında **izleme** başlığı seçin **sunucu günlükleri** sayfası.
 
-Azure CLI hakkında daha fazla bilgi için bkz: [ve erişimi Yapılandır sunucu günlüklerini Azure CLI kullanarak](howto-configure-server-logs-in-cli.md).
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI kullanarak sunucu günlükleri ve erişimi Yapılandır](howto-configure-server-logs-in-cli.md).
 
 ## <a name="log-retention"></a>Günlük tutma
-Günlükleri, yedi gündür kendi oluşturma. 7.5 GB kullanılabilir günlüklerini toplam boyutunu aşarsa, alan kullanılabilir oluncaya kadar eski dosyalar silinir. 
+Günlükleri, bunların oluşturma yedi güne kadar kullanılabilir. Kullanılabilir günlükleri toplam boyutu 7 GB aşarsa alanı olana kadar eski dosyalar silinir. 
 
-Günlükleri Döndürülmüş her 24 saat veya 7.5 GB, hangisi gelir ilk.
+Günlükleri Döndürülmüş her 24 saat veya 7 GB, hangisi gelir önce.
 
 
 ## <a name="configure-logging"></a>Günlük tutmayı yapılandırma 
-Yavaş sorgu günlüğü varsayılan olarak devre dışıdır. Etkinleştirmek için slow_query_log açık olarak ayarlanmış.
+Yavaş sorgu günlüğü varsayılan olarak devre dışıdır. Bunu etkinleştirmek için slow_query_log açık olarak ayarlayın.
 
-Ayarlayabileceğiniz diğer parametreler şunları içerir:
+Ayarlayabileceğiniz diğer parametreler şunlardır:
 
-- **long_query_time**: (saniye cinsinden) bir sorgu long_query_time uzun sürerse, bu sorguyu günlüğe kaydedilir. Varsayılan değer 10 saniyedir.
-- **log_slow_admin_statements**: ON slow_query_log yazılmış deyimlerinde ALTER_TABLE ve ANALYZE_TABLE gibi yönetim deyimleri içeriyorsa.
-- **log_queries_not_using_indexes**: dizinleri kullanmayın sorguları slow_query_log günlüğe kaydedilip kaydedilmeyeceğini belirler
-- **log_throttle_queries_not_using_indexes**: Bu parametre yavaş sorgu günlüğüne yazılan dizini olmayan sorguları sayısını sınırlar. Bu parametre, log_queries_not_using_indexes ON olarak ayarlandığında etkinleşir.
+- **long_query_time**: sorgu (saniye cinsinden) long_query_time uzun sürerse, sorgu günlüğe kaydedilir. Varsayılan değer 10 saniyedir.
+- **log_slow_admin_statements**: ON slow_query_log için yazılan deyimlerinde ALTER_TABLE ve ANALYZE_TABLE gibi yönetim deyimleri içeriyorsa.
+- **log_queries_not_using_indexes**: dizinleri kullanmayan sorgular için slow_query_log kaydedilip kaydedilmeyeceğini belirler
+- **log_throttle_queries_not_using_indexes**: Bu parametre için yavaş sorgu günlüğü yazılabilir olmayan dizin sorguların sayısını sınırlar. Log_queries_not_using_indexes ON olarak ayarlandığında bu parametre etkinleşir.
 
-MySQL bkz [yavaş sorgu günlüğü belgelerine](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) yavaş sorgu günlüğü parametrelerini tam açıklamaları için.
+MySQL bkz [yavaş sorgu günlüğü belgeleri](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) yavaş sorgu günlüğü parametrelerini tam açıklamaları için.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-- [Nasıl yapılandırılacağı ve sunucu günlüklerini Azure CLI üzerinden erişim](howto-configure-server-logs-in-cli.md).
+- [Yapılandırma ve Azure CLI'dan sunucu günlüklerine erişme](howto-configure-server-logs-in-cli.md).

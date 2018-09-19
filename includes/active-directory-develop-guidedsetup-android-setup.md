@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 45e8668ce0a7eb2edd79271096f58b56ca1af5f0
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 2e23a15a6bff81f0b48b703e516de8a1a1820972
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205578"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293638"
 ---
-## <a name="set-up-your-project"></a>Projenizin kurulumunu
+## <a name="set-up-your-project"></a>Projenizi ayarlama
 
-Bunun yerine bu örneği ait Android Studio projesi indirme istiyor musunuz? [Bir proje indirme](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)ve geçin [yapılandırma adımı](#register-your-application) kod örneği, yürütmeden önce yapılandırmak için.
+Bunun yerine bu örneği ait Android Studio projeyi indirmek istiyor musunuz? [Bir projeyi indirirken](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)ve atlamak [yapılandırma adımı](#register-your-application) yürütmeden önce onun kod örneği yapılandırmak için.
 
 ### <a name="create-a-new-project"></a>Yeni bir proje oluşturma 
 1.  Android Studio'yu açın ve ardından **dosya** > **yeni** > **yeni proje**.
@@ -33,11 +33,11 @@ Bunun yerine bu örneği ait Android Studio projesi indirme istiyor musunuz? [Bi
 4.  Bırakın **boş etkinlik** olduğu gibi seçin **sonraki**ve ardından **son**.
 
 
-### <a name="add-msal-to-your-project"></a>MSAL projenize ekleyin
-1.  Android Studio'da seçin **Gradle betikleri** > **build.gradle (modül: uygulama)**.
+### <a name="add-msal-to-your-project"></a>MSAL projenize ekleyin.
+1.  Android Studio'da **Gradle betiklerini** > **build.gradle (modül: uygulama)**.
 2.  Altında **bağımlılıkları**, aşağıdaki kodu yapıştırın:
 
-    ```ruby  
+    ```gradle  
     compile ('com.microsoft.identity.client:msal:0.1.+') {
         exclude group: 'com.android.support', module: 'appcompat-v7'
     }
@@ -45,17 +45,17 @@ Bunun yerine bu örneği ait Android Studio projesi indirme istiyor musunuz? [Bi
     ```
 
 <!--start-collapse-->
-### <a name="about-this-package"></a>Bu paketi hakkında
+### <a name="about-this-package"></a>Bu paket hakkında
 
-Önceki kod pakette Microsoft kimlik doğrulama kitaplığı yükler. MSAL alınırken, önbelleğe alma ve Azure Active Directory v2 bitiş noktası tarafından korunan API'leri erişmek için kullanılan kullanıcı belirteçleri yenilemeyi işler.
+Önceki kodda paketi, Microsoft kimlik doğrulama kitaplığı yükler. MSAL alınırken, önbelleğe alma, yenileme, silme gibi tüm belirteç işlemlerini işler.  Belirteç, Microsoft kimlik platformu tarafından korunan API'lerine erişmek için gereklidir.
 <!--end-collapse-->
 
-## <a name="create-the-application-ui"></a>Uygulama kullanıcı Arabirimi oluşturma
+## <a name="create-the-apps-ui"></a>Uygulamanın kullanıcı Arabirimi oluşturma
 
-1. Git **res** > **düzeni**ve ardından açın **activity_main.xml**. 
-2. Etkinlik düzeninden değiştirme `android.support.constraint.ConstraintLayout` veya için diğer `LinearLayout`.
-3. Ekleme `android:orientation="vertical"` özelliğine `LinearLayout` düğümü.
-4. Aşağıdaki kodu yapıştırın `LinearLayout` düğüm, geçerli içerik değiştirme:
+1. Git **res** > **Düzen**ve ardından açın **activity_main.xml**. 
+2. Etkinlik düzenden değiştirme `android.support.constraint.ConstraintLayout` veya için diğer `LinearLayout`.
+3. Ekleme `android:orientation="vertical"` özelliğini `LinearLayout` düğümü.
+4. Aşağıdaki kodu yapıştırın `LinearLayout` düğümünün geçerli içerik değiştirme:
 
     ```xml
     <TextView

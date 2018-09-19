@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights ile ilgili SSS | Microsoft Docs
-description: Application Insights hakkında sık sorulan sorular.
+description: Sık sorulan Application Insights hakkında sorular.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,39 +10,40 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: d7abfd1ac6f914c75297ff49462590e5b6169dbd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 8ef0ea20256807650f19d25aa77276cb8cbcb7d7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35648263"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık sorulan sorular
 
 ## <a name="configuration-problems"></a>Yapılandırma sorunları
-*Sorun ayarı yaşıyorum my:*
+*Ayarlama konusunda sorun yaşıyorum my:*
 
 * [.NET uygulaması](app-insights-asp-net-troubleshoot-no-data.md)
-* [Zaten çalışan uygulama izleme](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
+* [Zaten çalışan bir uygulamayı izleme](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Azure tanılama](app-insights-azure-diagnostics.md)
 * [Java web uygulaması](app-insights-java-troubleshoot.md)
 
-*Hiçbir veri sunucumdan alıyorum*
+*Benim sunucumdan veri alabilirim*
 
-* [Set güvenlik duvarı özel durumlar](app-insights-ip-addresses.md)
-* [ASP.NET sunucusu kurma](app-insights-monitor-performance-live-website-now.md)
-* [Java sunucusunu ayarlama](app-insights-java-agent.md)
+* [Küme güvenlik duvarı özel durumları](app-insights-ip-addresses.md)
+* [Bir ASP.NET sunucusu ayarlama](app-insights-monitor-performance-live-website-now.md)
+* [Bir Java sunucusu ayarlama](app-insights-java-agent.md)
 
-## <a name="can-i-use-application-insights-with-"></a>Application Insights ile kullanabilirim...?
+## <a name="can-i-use-application-insights-with-"></a>Application Insights ile kullanabilir miyim...?
 
-* [Web uygulamaları IIS sunucusu - şirket içi veya VM](app-insights-asp-net.md)
+* [Web uygulamaları - şirket içi bir IIS sunucusunda veya VM](app-insights-asp-net.md)
 * [Java web uygulamaları](app-insights-java-get-started.md)
 * [Node.js uygulamaları](app-insights-nodejs.md)
-* [Azure Web uygulamaları](app-insights-azure-web-apps.md)
-* [Azure bulut Hizmetleri](app-insights-cloudservices.md)
-* [Docker içinde çalışan uygulama sunucuları](app-insights-docker.md)
+* [Azure'da Web uygulamaları](app-insights-azure-web-apps.md)
+* [Azure'da bulut Hizmetleri](app-insights-cloudservices.md)
+* [Docker'ı çalıştıran uygulama sunucuları](app-insights-docker.md)
 * [Tek sayfa web uygulamaları](app-insights-javascript.md)
 * [SharePoint](app-insights-sharepoint.md)
 * [Windows masaüstü uygulaması](app-insights-windows-desktop.md)
@@ -50,161 +51,161 @@ ms.lasthandoff: 05/01/2018
 
 ## <a name="is-it-free"></a>Ücretsiz mi?
 
-Evet, Deneysel için kullanın. Temel fiyatlandırma planı, uygulamanızın bir belirli indirimi veri her ay ücretsiz olarak gönderebilir. Ücretsiz indirimi kapak geliştirme ve küçük bir kullanıcı sayısı için bir uygulama yayımlamak için yeterince büyük olduğundan. Belirtilen miktarda veri birden fazla işlenmekte olan önlemek için bir uç ayarlayabilirsiniz.
+Evet, Deneysel için kullanın. Temel fiyatlandırma planı, uygulamanızın bir belirli kullanım hakkı her ay ücretsiz olarak gönderebilir. Ücretsiz Kullanım Hakkı kapak geliştirme ve az sayıda kullanıcı için bir uygulama yayımlama için yeteri kadar büyük. Belirtilen veri miktarından fazla işlenmekte olan önlemek için üst sınır ayarlayabilirsiniz.
 
-Telemetri daha büyük birimleri Gb ile ücretlendirilirsiniz. İçin bazı ipuçları sağladığımız [ücretlerinizi sınırlamak](app-insights-pricing.md).
+Daha büyük miktarda telemetri Gb ile ücretlendirilir. Nasıl yapılır ilgili bazı ipuçları sağlıyoruz [ücretlerinizin sınırlamak](app-insights-pricing.md).
 
-Kurumsal planı her web sunucusu düğümüne telemetri gönderen her gün için bir ücret doğurur. Büyük ölçekte sürekli verme kullanmak istiyorsanız uygundur.
+Kurumsal plan, her web sunucusu düğümüne telemetri gönderen her gün için bir ücret doğurur. Büyük ölçekte sürekli dışarı aktarma'yı kullanmak istiyorsanız uygundur.
 
 [Fiyatlandırma planı okuma](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="how-much-is-it-costing"></a>Bu ne kadar maliyetlendirme?
+## <a name="how-much-is-it-costing"></a>Bunun ne kadar maliyetlendirme?
 
-* Açık **kullanım ve tahmini maliyetleri sayfa** Application Insights kaynağı sayfasında. Bir grafik son kullanım yoktur. İsterseniz, bir veri birimi cap ayarlayabilirsiniz.
-* Açık [Azure faturalama dikey](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) tüm kaynaklar arasında faturalarınızı görmek için.
+* Açık **kullanım ve Tahmini maliyetler sayfasını** Application Insights kaynağı sayfasında. Bir son kullanım grafiğini yoktur. İsterseniz, bir veri hacmi üst sınırı ayarlayabilirsiniz.
+* Açık [Azure faturalama dikey](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) faturalarınızı tüm kaynaklar arasında görmek için.
 
-## <a name="q14"></a>Ne my projesinde Application Insights değiştirebilir?
-Ayrıntıları proje türüne göre değişir. Web uygulaması için:
+## <a name="q14"></a>Hangi, Application Insights'ı Projemde değiştirmez?
+Ayrıntılar projenin türüne bağlıdır. Bir web uygulaması için:
 
-* Bu dosyaları projenize ekler:
+* Bu dosyalar, projenize ekler:
 
   * Applicationınsights.config.
   * Ai.js
 * Bu NuGet paketlerini yükler:
 
-  * *Application Insights API'si* -API çekirdek
-  * *Web uygulamaları için Application Insights API'si* - telemetri sunucusundan göndermek için kullanılan
-  * *JavaScript uygulamaları için Application Insights API'si* - telemetri istemciden göndermek için kullanılan
+  * *Application Insights API* -core API'si
+  * *Web uygulamaları için Application Insights API* - sunucudan telemetri göndermek için kullanılır
+  * *JavaScript uygulamaları için Application Insights API* - istemciden telemetri göndermek için kullanılır
 
-    Paketler bu derlemeler şunlardır:
+    Paketler Bu bütünleştirilmiş kodları şunlardır:
   * Microsoft.ApplicationInsights
   * Microsoft.ApplicationInsights.Platform
 * Öğeleri ekler:
 
   * Web.config
   * Packages.config
-* (Yeni varsa yalnızca - projeleri, [varolan bir projeye Application Insights Ekle][start], bu el ile yapmanız gerekir.) Application Insights kaynak kimliği ile başlatmak için istemci ve sunucu kodu parçacıkları ekler Örneğin, bir MVC uygulamasında kodu ana sayfaya Views/Shared/_Layout.cshtml eklenir
+* (Yeni, yalnızca - projelerin, [var olan bir projeye Application Insights ekleme][start], bu el ile yapmanız gerekir.) Application Insights kaynak kimliği ile bunları başlatmak için istemci ve sunucu kod parçacıkları ekler Örneğin, bir MVC uygulamasında kodu ana sayfaya Views/Shared/_Layout.cshtml eklenir
 
-## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Eski SDK sürümlerden nasıl yükseltme?
-Bkz: [sürüm notları](app-insights-release-notes.md) SDK'sı, uygulama türüne uygun.
+## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Daha eski SDK sürümlerinden nasıl yükseltebilirim?
+Bkz: [sürüm notları](app-insights-release-notes.md) uygulama türüne uygun SDK'sı.
 
-## <a name="update"></a>Proje için verileri gönderir hangi Azure kaynak nasıl değiştirebilir miyim?
-Çözüm Gezgini'nde sağ `ApplicationInsights.config` ve **güncelleştirme Application Insights**. Varolan veya yeni bir kaynak azure'da veri gönderebilir. Güncelleştirme Sihirbazı'nı nereye sunucusu SDK verilerinizi gönderir belirler Applicationınsights.config izleme anahtarını değiştirir. "Tümünü Güncelleştir" kaldırmadıysanız web sayfalarınıza göründüğü anahtar da değiştirir.
+## <a name="update"></a>Hangi Azure kaynak Projem için veri gönderen nasıl değiştirebilirim?
+Çözüm Gezgini'nde sağ `ApplicationInsights.config` ve **güncelleştirme Application Insights**. Azure'da mevcut veya yeni bir kaynak veri gönderebilir. Güncelleştirme Sihirbazı'nı izleme anahtarını sunucu SDK'sı verilerinizi göndereceği yeri belirler applicationınsights.config dosyasını değiştirir. "Tümünü Güncelleştir" kaldırmadıysanız, web sayfaları'nda göründüğü anahtarı da değişecektir.
 
 ## <a name="what-is-status-monitor"></a>Durum İzleyicisi nedir?
 
-IIS web sunucunuza Application Insights web uygulamalarında yapılandırmak için kullanabileceğiniz bir masaüstü uygulaması. Telemetri toplamak değil: bir uygulama yapılandırırken değil durdurabilirsiniz. 
+IIS web sunucunuza Application Insights web apps'te yapılandırmak için kullanabileceğiniz bir masaüstü uygulaması. Telemetri toplama yoktur: uygulama yapılandırırken değil durdurabilirsiniz. 
 
 [Daha fazla bilgi edinin](app-insights-monitor-performance-live-website-now.md#questions).
 
-## <a name="what-telemetry-is-collected-by-application-insights"></a>Hangi telemetri Application Insights tarafından toplanır?
+## <a name="what-telemetry-is-collected-by-application-insights"></a>Application Insights tarafından hangi telemetri toplanır?
 
 Sunucu web uygulamaları:
 
 * HTTP istekleri
-* [Bağımlılıklar](app-insights-asp-net-dependencies.md). Çağrıları: SQL veritabanları; Dış hizmetler için HTTP çağrıları; Azure Cosmos DB, tablo, blob depolama ve sıra. 
+* [Bağımlılıkları](app-insights-asp-net-dependencies.md). Çağrı: SQL veritabanı; Dış hizmetler için HTTP çağrıları; Azure Cosmos DB, tablo, blob depolama ve kuyruk. 
 * [Özel durumlar](app-insights-asp-net-exceptions.md) ve Yığın izlemeleri.
-* [Performans sayaçları](app-insights-performance-counters.md) - kullanırsanız [Durum İzleyicisi](app-insights-monitor-performance-live-website-now.md), [Azure izleme](app-insights-azure-web-apps.md) veya [Application Insights collectd yazan](app-insights-java-collectd.md).
-* [Özel olayları ve ölçümleri](app-insights-api-custom-events-metrics.md) , kod.
+* [Performans sayaçları](app-insights-performance-counters.md) - kullanırsanız [Durum İzleyicisi](app-insights-monitor-performance-live-website-now.md), [Azure izleme](app-insights-azure-web-apps.md) veya [Application Insights toplanan yazıcı](app-insights-java-collectd.md).
+* [Özel olaylar ve ölçümler](app-insights-api-custom-events-metrics.md) , kod.
 * [İzleme günlükleri](app-insights-asp-net-trace-logs.md) uygun Toplayıcı yapılandırırsanız.
 
 Gelen [istemci web sayfaları](app-insights-javascript.md):
 
-* [Sayfa görünümü sayar](app-insights-web-track-usage.md)
-* [AJAX çağrıları](app-insights-asp-net-dependencies.md) çalışan komut dosyasından yapılan istekleri.
-* Sayfa görünümü veri yükleme
-* Kullanıcı ve oturum sayısı
+* [Sayfa görüntüleme sayıları](app-insights-web-track-usage.md)
+* [AJAX çağrıları](app-insights-asp-net-dependencies.md) istekte bir çalışan komut dosyasından.
+* Sayfa görüntüleme yükleme verileri
+* Kullanıcı ve oturum sayıları
 * [Kimliği doğrulanmış kullanıcı kimlikleri](app-insights-api-custom-events-metrics.md#authenticated-users)
 
-Bunları yapılandırırsanız, diğer kaynaklardan:
+Yapılandırmadan, diğer kaynaklardan:
 
 * [Azure tanılama](app-insights-azure-diagnostics.md)
 * [Docker kapsayıcıları](app-insights-docker.md)
-* [İçeri aktarma tablolara analizi](app-insights-analytics-import.md)
+* [Analiz için tabloları İçeri Aktar](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
-## <a name="can-i-filter-out-or-modify-some-telemetry"></a>I filtrelemek veya birkaç telemetri değiştirmek için?
+## <a name="can-i-filter-out-or-modify-some-telemetry"></a>Filtreleme veya miyim bazı telemetri Değiştir?
 
 Evet, sunucuda şunu yazabilirsiniz:
 
-* Filtre veya uygulamanızdan gönderilmeden önce seçilen telemetri öğelerine özellikleri eklemek için telemetri işlemcisi'ni kullanın.
-* Telemetri Başlatıcı telemetri tüm öğelerine özellikleri ekleyin.
+* Filtre veya uygulamanızdan gönderilmeden önce özellikleri seçili telemetri öğelerini eklemek için telemetri işlemcisi'ni kullanın.
+* Tüm telemetri öğeleri için özellikler eklemek için telemetri başlatıcısını.
 
 Daha fazla bilgi edinin [ASP.NET](app-insights-api-filtering-sampling.md) veya [Java](app-insights-java-filter-telemetry.md).
 
-## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Şehir, ülke ve diğer coğrafi konum verileri nasıl hesaplanır?
+## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Şehir, ülke ve diğer coğrafi konum verilerini nasıl hesaplanır?
 
-Biz IP adresini kullanarak web istemcisi (IPv4 veya IPv6) aramak [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
+IP adresini kullanarak web istemcisi (IPv4 veya IPv6) baktığımızda [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
 
-* Tarayıcı telemetri: Gönderenin IP adresi toplarız.
-* Sunucu telemetri: Application Insights modülü istemci IP adresi toplar. Varsa toplanmaz `X-Forwarded-For` ayarlanır.
+* Tarayıcı telemetrisi: Gönderenin IP adresi toplarız.
+* Sunucu telemetri: Application Insights modülü için istemci IP adresi toplar. Varsa toplanmaz `X-Forwarded-For` ayarlanır.
 
-Yapılandırabileceğiniz `ClientIpHeaderTelemetryInitializer` üstbilgisi farklı IP adresi almak için. Bazı sistemlerde, örneğin, bir proxy tarafından taşınırsa, yük dengeleyici veya CDN ile `X-Originating-IP`. [Daha fazla bilgi edinin](http://apmtips.com/blog/2016/07/05/client-ip-address/).
+Yapılandırabileceğiniz `ClientIpHeaderTelemetryInitializer` farklı bir üst bilgisinden IP adresini almak için. Bazı sistemlerde, örneğin, bir proxy tarafından taşınması, yük dengeleyici veya CDN `X-Originating-IP`. [Daha fazla bilgi edinin](http://apmtips.com/blog/2016/07/05/client-ip-address/).
 
-Yapabilecekleriniz [Power BI](app-insights-export-power-bi.md) bir haritada isteği telemetrinizi görüntülenecek.
+Yapabilecekleriniz [Power BI](app-insights-export-power-bi.md) isteği telemetrinizi bir haritada görüntülemek için.
 
 
-## <a name="data"></a>Ne kadar süreyle verileri portalda Tutuluyor? Güvenli mi?
-Bir göz atalım [veri saklama ve gizlilik][data].
+## <a name="data"></a>Veri, portalda ne kadar süreyle tutulduğunu? Güvenli mi?
+Bir göz atın [veri saklama ve gizlilik][data].
 
-## <a name="might-personally-identifiable-information-pii-be-sent-in-the-telemetry"></a>Kişisel olarak tanımlanabilir bilgileri (PII) telemetri gönderilmiş olabilir?
+## <a name="might-personally-identifiable-information-pii-be-sent-in-the-telemetry"></a>Kişisel olarak tanımlanabilir bilgileri (PII) içinde telemetri gönderilebilir mi?
 
-Bu, kodunuzu bu tür veri gönderiyorsa mümkün olur. Yığın izlemeleri değişkenlerde PII eklerseniz de oluşabilir. Geliştirme ekibiniz PII düzgün şekilde işlendiğinden emin olmak için risk değerlendirmeleri yürütmeniz gerekir. [Veri saklama ve gizlilik hakkında daha fazla bilgi edinmek](app-insights-data-retention-privacy.md).
+Bu, kodunuzu tür veri gönderiyorsa mümkündür. Yığın izlemelerini değişkenlerinde PII dahil ederseniz de oluşabilir. Geliştirme ekibiniz, PII doğru şekilde işlediğinden emin olmak için risk değerlendirmeleri yürütmeniz gerekir. [Veri saklama ve gizlilik hakkında daha fazla bilgi edinin](app-insights-data-retention-privacy.md).
 
-**Tüm** coğrafi konum öznitelikleri aranır sonra istemci web adresi sekizlisinin 0 olarak her zaman ayarlanmış.
+**Tüm** coğrafi konum özniteliklerini aranır sonra istemci web adresinin sekizlik tabanda 0 olarak her zaman ayarlanmış.
 
-## <a name="my-ikey-is-visible-in-my-web-page-source"></a>My iKey my web sayfası kaynağında görünür olur. 
+## <a name="my-ikey-is-visible-in-my-web-page-source"></a>My iKey my web sayfası kaynağında görülebilir. 
 
-* Bu çözümleri izleme yaygın bir uygulamadır.
+* Bu izleme çözümleri, genel yöntemdir.
 * Verilerinizi çalmak için kullanılamaz.
-* Veri veya tetikleyici uyarılarınızı eğme için kullanılabilir.
-* Biz herhangi bir müşteriye tür sorunları oluşturdu duymuş değil.
+* Veri veya tetikleyici uyarılarınızı eğriltmek için kullanılabilir.
+* Tüm müşteriler bu tür sorunları oluşmuş kullanıcılarımız değil.
 
-Size şunları yapabilir:
+Şunları yapabilirsiniz:
 
-* (Application Insights kaynakları ayırın) iki ayrı iKeys istemci ve sunucu verileri için kullanın. Veya
-* Sunucunuzda çalışan bir proxy yazma ve proxy üzerinden veri gönderme web istemcisi.
+* (Application Insights kaynakları ayırın) iki ayrı İkey'leri istemci ve sunucu verileri için kullanın. Veya
+* Çalıştıran sunucunuzda bir ara sunucu yazabilir ve proxy üzerinden verileri göndermek web istemcisi vardır.
 
-## <a name="post"></a>Tanılama arama posta verileri nasıl görürüm?
-Gönderme verisi otomatik olarak oturum yoktur, ancak bir TrackTrace çağrı kullanabilirsiniz: ileti parametresinde verileri yerleştirin. Filtre uygulayamazsınız rağmen bu dize özellikleri sınırlamaları daha uzun bir boyut sınırı vardır.
+## <a name="post"></a>Gönderme verisi tanılama aramasındaki nasıl görebilirim?
+Gönderme verisi otomatik olarak oturum yok, ancak bir TrackTrace çağrı kullanabilirsiniz: ileti parametreyi verileri yerleştirin. Bu, üzerinde filtre uygulanamıyor rağmen bir uzun dize özellikleri barındırabileceğiniz boyut sınırını sahiptir.
 
-## <a name="should-i-use-single-or-multiple-application-insights-resources"></a>Tek veya birden çok Application Insights kaynağı kullanmalıyım?
+## <a name="should-i-use-single-or-multiple-application-insights-resources"></a>Tek veya birden fazla Application Insights kaynaklarını kullanmalı mıyım?
 
-Tek bir kaynak tüm bileşenleri veya rolleri için tek bir iş sisteminde kullanın. Ayrı kaynaklar ve bağımsız uygulamalar geliştirme, test ve yayın sürümleri için kullanın.
+Tek bir kaynak tüm bileşenleri veya rolleri için tek bir iş sisteminde kullanın. Bağımsız uygulamaların yanı sıra, geliştirme, test ve yayın sürümleri için ayrı kaynaklar kullanın.
 
 * [Buraya bakın](app-insights-separate-resources.md)
-* [Örnek - worker ve web rolleri sahip bulut hizmeti](app-insights-cloudservices.md)
+* [Örnek - worker ve web rolleri ile bulut hizmeti](app-insights-cloudservices.md)
 
-## <a name="how-do-i-dynamically-change-the-instrumentation-key"></a>Nasıl izleme anahtarını dinamik olarak değişir mi?
+## <a name="how-do-i-dynamically-change-the-instrumentation-key"></a>İzleme anahtarını dinamik olarak nasıl değiştirebilirim?
 
-* [Burada tartışma](app-insights-separate-resources.md)
-* [Örnek - worker ve web rolleri sahip bulut hizmeti](app-insights-cloudservices.md)
+* [Tartışması](app-insights-separate-resources.md)
+* [Örnek - worker ve web rolleri ile bulut hizmeti](app-insights-cloudservices.md)
 
-## <a name="what-are-the-user-and-session-counts"></a>Sayıları oturumu ve kullanıcı nelerdir?
+## <a name="what-are-the-user-and-session-counts"></a>Kullanıcı ve oturum nelerdir sayılır?
 
-* JavaScript SDK'sı etkinlikleri gruplandırmak için döndürmeyi kullanıcıları tanımlamak için web istemcisi, bir kullanıcı tanımlama bilgisinde ve oturum tanımlama bilgisi ayarlar.
-* İstemci tarafı komut dosyası varsa, şunları yapabilirsiniz [sunucuda tanımlama bilgilerini ayarlama](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
-* Farklı tarayıcılar veya içinde-özel/ıncognito gözatma kullanarak sitenizdeki bir gerçek kullanıcı kullanıyor veya farklı makinelerde sonra birden çok kez sayılacaktır varsa.
-* Makineler ve tarayıcılar arasında bir oturum açma kullanıcı tanımlamak için bir çağrı ekleyin [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
+* JavaScript SDK'sı, etkinlikleri gruplandırmak için gelen kullanıcıları tanımlamak için web istemcisi, bir kullanıcı tanımlama bilgisinde ve oturum tanımlama bilgisini ayarlar.
+* İstemci tarafı komut dosyası varsa, [sunucu tanımlama bilgilerini ayarlama](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* Farklı tarayıcılar veya içinde InPrivate/gizli Tarama modunda sitenizdeki bir gerçek kullanıcı kullanır veya farklı makineler sonra birden çok kez sayılır olur.
+* Makineleri ve tarayıcılar arasında bir oturum açma kullanıcı tanımlamak için bir çağrı ekleyin [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 
-## <a name="q17"></a> Her şeyi Application Insights etkinleştirdiniz mi?
-| Görmeniz gerekir | Bunu alma | İstediğiniz neden |
+## <a name="q17"></a> Application Insights içinde her şeyi etkinleştirdiniz mi?
+| Görmeniz gereken | Bunu alma | İstediğiniz neden |
 | --- | --- | --- |
 | Kullanılabilirlik grafikleri |[Web testleri](app-insights-monitor-web-app-availability.md) |Web uygulamanız çalışıyor bildirin |
-| Sunucu uygulaması perf: yanıt süreleri... |[Application Insights projenize eklemek](app-insights-asp-net.md) veya [sunucuda AI Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md) (veya kendi kodunuzu yazma [izlemek bağımlılıkları](app-insights-api-custom-events-metrics.md#trackdependency)) |Performans sorunlarını Algıla |
-| Bağımlılık telemetrisi |[Sunucuda AI Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md) |Veritabanları veya diğer dış bileşenlere ile ilgili sorunları tanılamak |
-| Özel durumlar Yığın izlemeleri Al |[Kodunuzda TrackException çağrıları ekleme](app-insights-asp-net-exceptions.md) (ancak bazı otomatik olarak bildirilen) |Algılamak ve tanılamak özel durumlar |
-| Arama günlük izlemelerini |[Bir günlük bağdaştırıcısı ekleme](app-insights-asp-net-trace-logs.md) |Özel durumlar, performans sorunlarını tanılamanıza |
-| İstemci kullanım temelleri: sayfa görünümleri, oturumlar,... |[Web sayfalarında JavaScript Başlatıcı](app-insights-javascript.md) |Kullanım analizi |
-| İstemci özel ölçümleri |[Web sayfalarında izleme çağırır](app-insights-api-custom-events-metrics.md) |Kullanıcı deneyimini geliştirmek |
-| Sunucu özel ölçümleri |[Sunucu izleme çağrıları](app-insights-api-custom-events-metrics.md) |İş zekası |
+| Server app perf: yanıt süreleri... |[Projenize Application Insights ekleme](app-insights-asp-net.md) veya [sunucuda AI Durum İzleyicisi yükleyin](app-insights-monitor-performance-live-website-now.md) (veya kendi kodunuzu yazma [bağımlılıkları izlemek](app-insights-api-custom-events-metrics.md#trackdependency)) |Performans sorunları tespit edin |
+| Bağımlılık telemetrisi |[Sunucu üzerinde yapay ZEKA Durum İzleyicisi'ni yükleyin](app-insights-monitor-performance-live-website-now.md) |Veritabanları veya diğer dış bileşenlere sorunları tanılayın |
+| Özel durumlardan yığın izlemelerini alın |[Kodunuzda TrackException çağrıları eklemenize](app-insights-asp-net-exceptions.md) (ancak bazı otomatik olarak raporlanır) |Algılama ve özel durumları tanılama |
+| Günlük izlemelerini arama |[Günlüğe kaydetme bağdaştırıcı ekleme](app-insights-asp-net-trace-logs.md) |Özel durumlar, performans sorunlarını tanılayın |
+| İstemci kullanım temelleri: sayfa görüntülemeleri, oturumlar... |[Web sayfalarında JavaScript Başlatıcı](app-insights-javascript.md) |Kullanım analizi |
+| İstemci özel ölçümler |[Web sayfaları'nda izleme çağrıları](app-insights-api-custom-events-metrics.md) |Kullanıcı deneyimini geliştirin |
+| Sunucu özel ölçümler |[Sunucu izleme çağrıları](app-insights-api-custom-events-metrics.md) |İş zekası |
 
-## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Neden arama ve ölçümler grafiklerde sayısına eşit olmayan misiniz?
+## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Neden arama ve ölçümler grafiklerde sayıları eşit?
 
-[Örnekleme](app-insights-sampling.md) (istekleri, özel etkinlikler ve benzeri) uygulamanızdan portala gönderilen gerçekten telemetri öğe sayısını azaltır. Aramada, aslında alınan öğe sayısı bakın. Etkinliklerin sayısını görüntüleyen ölçüm grafiklerde oluştu özgün olayların sayısının bakın. 
+[Örnekleme](app-insights-sampling.md) gerçekten portala uygulamanızdan gönderilen telemetri öğelerinin (istekler, özel olaylar vb.) sayısını azaltır. Aramada, gerçekte alınan öğe sayısını görürsünüz. Olayların sayısını görüntüleyen ölçüm grafiklerde oluştu özgün olay sayısını görürsünüz. 
 
-İzleme olan her bir öğe aktarılan bir `itemCount` öğenin kaç özgün olayları gösterir özelliğini temsil eder. Örnekleme işleminde izlemek için bu sorguyu analizleri çalıştırabilirsiniz:
+Her öğe taşıyan iletilen bir `itemCount` kaç tane özgün olay öğeyi gösteren bir özelliği temsil eder. Örnekleme işleminde gözlemlemek için Analytics'te bu sorguyu çalıştırabilirsiniz:
 
 ```
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
@@ -213,48 +214,48 @@ Tek bir kaynak tüm bileşenleri veya rolleri için tek bir iş sisteminde kulla
 
 ## <a name="automation"></a>Otomasyon
 
-### <a name="configuring-application-insights"></a>Application Insights yapılandırma
+### <a name="configuring-application-insights"></a>Application Insights'ı yapılandırma
 
-Yapabilecekleriniz [PowerShell komut dosyaları yazmak](app-insights-powershell.md) Azure Kaynak Yöneticisi kullanarak:
+Yapabilecekleriniz [PowerShell betikleri yazma](app-insights-powershell.md) için Azure Kaynak İzleyicisi'ni kullanma:
 
-* Oluşturun ve Application Insights kaynakları güncelleştirin.
+* Oluşturun ve Application Insights kaynaklarını güncelleştirin.
 * Fiyatlandırma planı ayarlayın.
-* İzleme anahtarını alır.
-* Ölçüm uyarı ekleyin.
-* Bir kullanılabilirlik test ekleyin.
+* İzleme anahtarını alın.
+* Ölçüm uyarısı Ekle.
+* Kullanılabilirlik testi ekleyin.
 
-Ölçüm Gezgini Raporu ayarlarken veya sürekli verme ayarlayın.
+Ölçüm Gezgini'nde raporu ayarlayamıyor veya sürekli dışarı aktarmayı ayarlayın.
 
 ### <a name="querying-the-telemetry"></a>Telemetri sorgulama
 
-Kullanım [REST API](https://dev.applicationinsights.io/) çalıştırmak için [Analytics](app-insights-analytics.md) sorgular.
+Kullanım [REST API](https://dev.applicationinsights.io/) çalıştırılacak [Analytics](app-insights-analytics.md) sorgular.
 
-## <a name="how-can-i-set-an-alert-on-an-event"></a>Bir olaya nasıl bir uyarı ayarlarım?
+## <a name="how-can-i-set-an-alert-on-an-event"></a>Bir olay hakkında bir uyarı nasıl ayarlayabilirim?
 
-Azure uyarıları yalnızca üzerinde ölçümleridir. Bir değeri eşik, olay oluştuğunda yayılan özel bir ölçü oluşturun. Daha sonra bir uyarı üzerinde ölçüm ayarlayın. Unutmayın: her iki yönde; eşiği ölçüm kestiği her bir bildirim alacaksınız Başlangıç değeri yüksek veya düşük olup olsun ilk aşma kadar bir bildirim vermeyecektir; her zaman birkaç dakikalık bir gecikme yoktur.
+Ölçümleri yalnızca Azure uyarılardır. Değeri eşiği aştığında, olay her gerçekleştiğinde, özel bir ölçü oluşturun. Bir uyarı ölçüme göre ayarlayın. Dikkat: ölçüm her iki yönde; eşikle kesiştiğinde bir bildirim alırsınız. Başlangıç değeri yüksek veya düşük olmasına ne olursa olsun ilk kesen kadar bildirim alamazsınız; her zaman birkaç dakikalık bir gecikme yoktur.
 
-## <a name="are-there-data-transfer-charges-between-an-azure-web-app-and-application-insights"></a>Bir Azure web uygulaması ve Application Insights arasında veri aktarımı ücretlerine var mı?
+## <a name="are-there-data-transfer-charges-between-an-azure-web-app-and-application-insights"></a>Bir Azure web uygulaması ve Application Insights arasında veri aktarımı ücreti var mıdır?
 
-* Azure web uygulamanızın bir veri merkezinde barındırılıp barındırılmadığını Application Insights toplama bitiş noktası olduğunda, ücretsizdir. 
-* Ana bilgisayar veri merkezinizde hiçbir toplama bitiş noktası olan sonra uygulamanızın telemetrisinde erişimliye [ücretleri giden Azure](https://azure.microsoft.com/pricing/details/bandwidth/).
+* Azure web uygulamanıza bir veri merkezinde barındırılan, bir Application Insights toplama bitiş noktası olduğunda, ücret alınmaz. 
+* Konak veri Merkezinize hiç toplama bitiş noktası yoktur sonra uygulamanızın telemetri ödenmesini [Azure ücretleri giden](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Bu, Application Insights kaynağınıza burada barındırılan bağımlı değil. Ayrıca bizim uç noktaları dağıtım noktasında sadece bağlıdır.
+Bu işlem, Application Insights kaynağınız burada barındırılan bağımlı değildir. Yalnızca bizim uç dağıtımına da bağlıdır.
 
-## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Application Insights portala telemetri gönderebilir miyim?
+## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Application ınsights'ı portala telemetri gönderebilir miyim?
 
-Bizim SDK'ları kullanın ve kullanmak öneririz [SDK API'si](app-insights-api-custom-events-metrics.md). Çeşitli için SDK'sı çeşitlemelerini vardır [platformları](app-insights-platforms.md). Bu SDK'ları arabelleğe alma, sıkıştırma, azaltma, yeniden deneme ve benzeri işler. Ancak, [alım şema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) ve [endpoint Protokolü](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) ortaktır.
+SDK'larımızda kullanın ve kullanmak öneririz [SDK API'si](app-insights-api-custom-events-metrics.md). Çeşitli için SDK çeşitlerini vardır [platformları](app-insights-platforms.md). Bu SDK'ları, arabelleğe alma, sıkıştırma, azaltma, yeniden denemeler ve benzeri işler. Ancak, [alımı şema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) ve [uç nokta Protokolü](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) ortaktır.
 
-## <a name="can-i-monitor-an-intranet-web-server"></a>Bir intranet web sunucusuna izleyebilir mi?
+## <a name="can-i-monitor-an-intranet-web-server"></a>Bir intranet web sunucusu izleyebilirim?
 
-İki yöntem şunlardır:
+İki yöntem aşağıda verilmiştir:
 
-### <a name="firewall-door"></a>Güvenlik Duvarı kapı
+### <a name="firewall-door"></a>Güvenlik Duvarı kapısı
 
-Web sunucunuzun bizim uç noktalarına telemetri göndermesine izin https://dc.services.visualstudio.com:443 ve https://rt.services.visualstudio.com:443. 
+Web sunucunuza bizim uç noktalarına telemetri göndermesine izin https://dc.services.visualstudio.com:443 ve https://rt.services.visualstudio.com:443. 
 
 ### <a name="proxy"></a>Ara sunucu
 
-Bir ağ geçidi sunucusundan trafiği intranetinizde Applicationınsights.config örnekte bu ayarları tarafından overwritting rota. Bu "Bitiş" özellikleri yapılandırma dosyasında mevcut değilse, bu sınıfları aşağıdaki örnekte gösterilen varsayılan değerler kullanılarak.
+Sunucunuza giden trafik bir ağ geçidi intranetinizde Applicationınsights.config örnekte bu ayarları tarafından overwritting yol. Bu "Bitiş" özellikleri, yapılandırmada mevcut değilse, aşağıdaki örnekte gösterilen varsayılan değerler bu sınıfların kullanacaklardır.
 
 #### <a name="example-applicationinsightsconfig"></a>Örnek Applicationınsights.config:
 ```xml
@@ -271,11 +272,11 @@ Bir ağ geçidi sunucusundan trafiği intranetinizde Applicationınsights.config
 </ApplicationInsights>
 ```
 
-_Not ApplicationIdProvider içinde v2.6.0 itibaren kullanılabilir_
+_Not ApplicationIdProvider v2.6.0 içinde itibaren kullanılabilir_
 
-Ağ geçidiniz için trafiği yönlendirmek https://dc.services.visualstudio.com:443
+Ağ geçidi trafiği yönlendirmek https://dc.services.visualstudio.com:443
 
-Yukarıdaki değerleriyle değiştirin: `http://<your.gateway.address>/<relative path>`
+Yukarıdaki değerlerle değiştirin: `http://<your.gateway.address>/<relative path>`
  
 Örnek: 
 ```
@@ -286,15 +287,15 @@ http://<your.gateway.endpoint>/api/profiles/{0}/apiId
 
 
 
-## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kullanılabilirlik web testleri bir intranet sunucusunda çalıştırabilir miyim?
+## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Bir intranet sunucusunda kullanılabilirlik web testleri çalıştırabilir miyim?
 
-Bizim [web testleri](app-insights-monitor-web-app-availability.md) noktalarında dünya dağıtılan varlık çalıştırın. İki çözümü vardır:
+Bizim [web testleri](app-insights-monitor-web-app-availability.md) dünyanın dört bir yanında dağıtılan varlık noktaları çalıştırın. İki çözümü vardır:
 
-* Güvenlik Duvarı kapı - sunucunuzdan istekleri olanak [web test aracılarını uzun ve değiştirilebilir listesini](app-insights-ip-addresses.md).
-* Sunucunuzdan intranetinize içinde düzenli istekleri göndermek için kendi kodunuzu yazın. Bu amaç için Visual Studio web testleri çalıştırabilirsiniz. Test sonuçları TrackAvailability() API kullanarak Application Insights'a gönderebilir.
+* Güvenlik Duvarı kapı - sunucunuzdan istekleri olanak [web test aracıları uzun ve değiştirilebilir listesini](app-insights-ip-addresses.md).
+* Sunucunuzdan intranetinize içinde düzenli aralıklarla istekler göndermek için kendi kodunuzu yazın. Bu amaç için Visual Studio web testleri çalıştırabilir. Test edicinin TrackAvailability() API'sini kullanarak sonuçları Application Insights'a gönderebilir.
 
-## <a name="more-answers"></a>Daha fazla yanıtlar
-* [Uygulama Öngörüler Forumu](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+## <a name="more-answers"></a>Daha fazla soru yanıtı
+* [Uygulama anlayışları Forumu](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
 
 <!--Link references-->
 

@@ -1,28 +1,30 @@
 ---
-title: Bilgi Bankası araştırması hizmeti API'si veri biçiminde | Microsoft Docs
-description: İçinde bilgi araştırması hizmet (KES) API Bilişsel Hizmetleri'nde veri biçimi hakkında bilgi edinin.
+title: Veri biçimi - bilgi keşfetme hizmeti API'si
+titlesuffix: Azure Cognitive Services
+description: Veri biçimi, bilgi keşfetme hizmeti (KES) API'si hakkında bilgi edinin.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: a763505ac6458d68df74ae73e71029b81202ec8b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2c67ff1f7a3713b9418458bb7904a35808532293
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351478"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129293"
 ---
 # <a name="data-format"></a>Veri biçimi
-Veri dosyası dizin nesneleri listesi açıklar.
-Dosya her satırda bir nesnenin öznitelik değerleri belirtir [JSON biçimine](http://json.org/) UTF-8 kodlaması ile.
-Tanımlanan özniteliklerin yanı sıra [şema](SchemaFormat.md), her nesnenin nesneleri arasındaki göreli günlük olasılık belirten isteğe bağlı "logprob" özniteliği vardır.
-Hizmet nesneleri olasılık azalan sırada geri döndüğünde, biz "logprob" nesneleri eşleşen dönüş sırasını belirtmek için kullanabilirsiniz.
-Bir olasılık verilen *p* 0 ile 1 arasında karşılık gelen günlük olasılık günlük hesaplanabilir (*p*), log() doğal günlük işlevini olduğu.
-Değer için logprob belirtilmezse, varsayılan değer 0 kullanılır.
+
+Veri dosyası dizini oluşturmak için nesne listesini açıklar.
+Dosya her satırda bir nesnenin öznitelik değerleri belirtir [JSON biçimine](http://json.org/) UTF-8 kodlamalı.
+Tanımlanan öznitelikleri yanı sıra [şema](SchemaFormat.md), her nesnenin nesneleri arasındaki göreli günlük olasılık belirten isteğe bağlı "logprob" özniteliği vardır.
+Hizmet olasılık azalan sırada nesneleri geri döndüğünde, biz "logprob" eşleşen nesneler dönüş sırasını belirtmek için kullanabilirsiniz.
+Verilen bir olasılık *p* karşılık gelen günlük olasılık 0 ile 1 arasında günlük hesaplanabilir (*p*), doğal logaritmayı işlevi log() olduğu.
+Logprob için değer belirtilmezse, varsayılan değer 0 kullanılır.
 
 ```json
 {"logprob":-5.3, "Title":"latent dirichlet allocation", "Year":2003, "Author":{"Name":"david m blei", "Affiliation":"uc berkeley"}, "Author":{"Name":"andrew y ng", "Affiliation":"stanford"}, "Author":{"Name":"michael i jordan", "Affiliation":"uc berkeley"}}
@@ -30,9 +32,9 @@ Değer için logprob belirtilmezse, varsayılan değer 0 kullanılır.
 ...
 ```
 
-Dize, GUID ve Blob öznitelikleri için değer tırnak içine alınmış bir JSON dizesi olarak temsil edilir.  (Int32, Int64, çift) sayısal öznitelikler için değeri JSON sayı olarak temsil edilir.  Bileşik öznitelikleri için değer alt öznitelik değerleri belirten bir JSON nesnesidir.  Daha hızlı dizin derlemeler için günlük olasılık azaltarak nesneleri presort.
+Dize, GUID ve Blob öznitelikleri için değer tırnak işaretli bir JSON dizesi temsil edilir.  (Int32, Int64, çift) sayısal öznitelikleri için değer JSON sayı olarak temsil edilir.  Bileşik öznitelikleri için alt öznitelik değerleri belirten bir JSON nesnesi bir değerdir.  Daha hızlı dizin derlemeler, günlük olasılık azaltarak nesneleri presort.
 
-Genel olarak, bir öznitelik 0 veya daha fazla değer olabilir.  Bir öznitelik değeri yoksa, biz yalnızca JSON öğesinden kaldırın.  Bir öznitelik 2 veya daha fazla değerlere sahipse, biz JSON nesnesinde öznitelik değer çifti yineleyebilirsiniz.  Alternatif olarak, biz öznitelik için birden çok değer içeren bir JSON dizisi atayabilirsiniz.
+Genel olarak, bir öznitelik 0 veya daha fazla değer olabilir.  Bir öznitelik değeri yoksa, biz yalnızca JSON'dan bırakın.  Bir öznitelik 2 veya daha fazla değer varsa, biz JSON nesnesinde öznitelik değer çifti yineleyebilirsiniz.  Alternatif olarak, biz öznitelik için birden çok değer içeren bir JSON dizisi atayabilirsiniz.
 
 ```json
 {"logprob":0, "Title":"0 keyword"}

@@ -3,18 +3,18 @@ title: Azure Haritalar ile bir açılan pencere Ekle | Microsoft Docs
 description: Javascript harita için açılır pencere ekleme
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0f86578e33e5c6a2d6528e2deb1c8068a0c94d01
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 76a7e230491d5e524a1d73437a56d12594cfebe2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747114"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127446"
 ---
 # <a name="add-a-popup-to-the-map"></a>Haritaya açılır pencere ekleme
 
@@ -31,25 +31,26 @@ Yukarıdaki kod, kod bloğunun ilk harita nesnesi oluşturur. Gördüğünüz [b
 
 İkinci kod bloğunu PIN oluşturur ve haritaya ekleyebilirsiniz. Gördüğünüz [PIN haritaya eklemek](./map-add-pin.md) yönergeler için.
 
-Üçüncü kod bloğu içinde bir açılır pencere görüntülenecek içeriği oluşturur. Açılan içerik HTML öğesidir. 
+Üçüncü kod bloğu içinde bir açılır pencere görüntülenecek içeriği oluşturur. Açılan içerik HTML öğesidir.
 
 Dördüncü bloğu kod oluşturur bir [açılan nesne](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) aracılığıyla `new atlas.Popup()`. Açılan pencerenin içeriğini ve konumunu gibi özelliklerdir parçası [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.popupoptions?view=azure-iot-typescript-latest). Açılan pencere Oluşturucusu veya yoluyla PopupOptions tanımlanabilir [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) açılan sınıfının işlevi.
 
 Son kod bloğunu kullanır [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) işlevi kullanır ve PIN'leri fareyi üzerine getirme olay dinlemek için eşleme sınıfının [açın](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) işlevi açılan sınıfın bir olay oluşursa, açılır penceresini aç.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi edinin: 
+Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi edinin:
 
-* [Harita](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins)
-    * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener)
-* [Açılan menüsü](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
-    * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions)
-    * [açın](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open)
-    * [Kapat](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#close)
-    
-Eşlenir eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın: 
-* [Şekil ekleme](./map-add-shape.md)
-* [Özel HTML ekleme](./map-add-custom-html.md)
+> [!div class="nextstepaction"]
+> [Harita](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [Açılan menüsü](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+
+Tam kod örnekleri için harika aşağıdaki makalelere bakın:
+
+> [!div class="nextstepaction"]
+> [Şekil ekleme](./map-add-shape.md)
+
+> [!div class="nextstepaction"]
+> [Özel HTML ekleme](./map-add-custom-html.md)

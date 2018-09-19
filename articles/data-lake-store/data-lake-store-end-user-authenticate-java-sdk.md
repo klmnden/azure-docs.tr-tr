@@ -1,6 +1,6 @@
 ---
-title: 'Son kullanıcı kimlik doğrulaması: Java ile Azure Active Directory kullanarak Data Lake Store | Microsoft Docs'
-description: Java ile Azure Active Directory kullanarak Data Lake Store ile son kullanıcı kimlik doğrulaması elde öğrenin
+title: 'Son kullanıcı kimlik doğrulaması: Azure Active Directory kullanarak Java ile Azure Data Lake depolama Gen1 | Microsoft Docs'
+description: Java ile Azure Active Directory kullanarak son kullanıcı kimlik doğrulaması ile Azure Data Lake depolama Gen1 elde öğrenin
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 633bf87d1e02a1132cfc5cd151b1e58418de8152
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 47b975b3ea0cfa9d2fb2536236b0a8dfaef14503
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625027"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126947"
 ---
-# <a name="end-user-authentication-with-data-lake-store-using-java"></a>Java kullanarak Data Lake Store ile son kullanıcı kimlik doğrulaması
+# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Java kullanarak son kullanıcı kimlik doğrulaması ile Azure Data Lake depolama Gen1
 > [!div class="op_single_selector"]
 > * [Java kullanma](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [.NET SDK’yı kullanma](data-lake-store-end-user-authenticate-net-sdk.md)
@@ -27,12 +27,12 @@ ms.locfileid: "34625027"
 > 
 >   
 
-Bu makalede, Azure Data Lake Store ile son kullanıcı kimlik doğrulaması yapmak için Java SDK'sını kullanma hakkında bilgi edinin. Java SDK'yı kullanarak Data Lake Store ile hizmet kimlik doğrulaması için bkz: [hizmeti için kimlik doğrulaması Java kullanarak Data Lake Store ile](data-lake-store-service-to-service-authenticate-java.md).
+Bu makalede, Azure Data Lake depolama Gen1 son kullanıcı kimlik doğrulaması yapmak için Java SDK'sını kullanma hakkında bilgi edinin. Java SDK'sını kullanarak hizmetten hizmete kimlik doğrulaması ile Data Lake depolama Gen1 bkz [Java ile hizmetten hizmete kimlik doğrulama ile Data Lake depolama Gen1](data-lake-store-service-to-service-authenticate-java.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure Active Directory "Yerel" uygulama oluşturma**. ' Ndaki adımları tamamlanmış gerekir [son kullanıcı kimlik doğrulaması Azure Active Directory kullanarak Data Lake Store ile](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Azure Active Directory "Yerel" uygulama oluşturma**. Adımları tamamlamış olmanız gerekir [Azure Active Directory kullanarak son kullanıcı kimlik doğrulaması ile Data Lake depolama Gen1](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 * [Maven](https://maven.apache.org/install.html). Bu eğiticide, yapı ve proje bağımlılıkları için Maven kullanılır. Maven veya Gradle gibi bir yapı sistemi olmadan derleme yapmak mümkün olsa da bu sistemler bağımlılıkların yönetilmesini çok daha kolay hale getirir.
 
@@ -56,7 +56,7 @@ Bu makalede, Azure Data Lake Store ile son kullanıcı kimlik doğrulaması yapm
           </dependency>
         </dependencies>
    
-    İlk bağımlılık, maven deposundan Data Lake Store SDK’sını (`azure-data-lake-store-sdk`) kullanmaktır. İkinci bağımlılık, bu uygulama için hangi günlük altyapısının (`slf4j-nop`) kullanılacağını belirtmektir. Data Lake Store SDK’sı; log4j, Java günlük kaydı, logback gibi birçok popüler günlük altyapısından birini seçmenizi veya günlük kaydı seçmemenizi sağlayan [slf4j](http://www.slf4j.org/) günlük cephesini kullanır. Bu örnekte, günlük kaydını devre dışı bırakacak ve dolayısıyla **slf4j-nop** bağlamasını kullanacağız. Uygulamanızda diğer günlük seçeneklerini kullanmak için [buraya](http://www.slf4j.org/manual.html#projectDep) bakın.
+    İlk bağımlılık, Data Lake depolama Gen1 SDK kullanmaktır (`azure-data-lake-store-sdk`) maven deposundan. İkinci bağımlılık, bu uygulama için hangi günlük altyapısının (`slf4j-nop`) kullanılacağını belirtmektir. Data Lake depolama Gen1 SDK'sını kullanan [slf4j](http://www.slf4j.org/) birçok popüler günlük altyapılarını log4j, Java günlük kaydı, logback vs. seçmenize olanak sağlayan günlük cephe veya günlük yok. Bu örnekte, günlük kaydını devre dışı bırakacak ve dolayısıyla **slf4j-nop** bağlamasını kullanacağız. Uygulamanızda diğer günlük seçeneklerini kullanmak için [buraya](http://www.slf4j.org/manual.html#projectDep) bakın.
 
 3. Aşağıdaki içeri aktarma deyimlerini uygulamanıza ekleyin.
 
@@ -67,17 +67,17 @@ Bu makalede, Azure Data Lake Store ile son kullanıcı kimlik doğrulaması yapm
         import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
         import com.microsoft.azure.datalake.store.oauth2.DeviceCodeTokenProvider;
 
-4. Aşağıdaki kod parçacığını kullanarak daha önce oluşturduğunuz Active Directory yerel uygulama için belirteci almak için Java uygulamanızda kullanmak `DeviceCodeTokenProvider`. Değiştir **burada doldurma** Azure Active Directory yerel uygulama için gerçek değerlerle.
+4. Aşağıdaki kod parçacığını kullanarak daha önce oluşturduğunuz Active Directory yerel uygulaması için belirteci edinmek için Java uygulamanızda kullanmak `DeviceCodeTokenProvider`. Değiştirin **burayı DOLDURUN** Azure Active Directory yerel uygulama için gerçek değerlerle.
 
         private static String nativeAppId = "FILL-IN-HERE";
             
         AccessTokenProvider provider = new DeviceCodeTokenProvider(nativeAppId);   
 
-Data Lake Store SDK’sı, Data Lake Store hesabıyla iletişim kurmak için gereken güvenlik belirteçlerini yönetmenizi sağlayacak kullanışlı yöntemler sunar. Bununla birlikte, SDK yalnızca bu yöntemlerin kullanılmasını zorunlu kılmaz. [Azure Active Directory SDK’sını](https://github.com/AzureAD/azure-activedirectory-library-for-java) veya kendi özel kodunuzu kullanma gibi diğer belirteç edinme yöntemlerinden yararlanabilirsiniz.
+Data Lake depolama Gen1 SDK'sı, Data Lake depolama Gen1 hesabıyla iletişim kurmak için gereken güvenlik belirteçlerini yönetmenizi sağlayacak kullanışlı yöntemler sağlar. Bununla birlikte, SDK yalnızca bu yöntemlerin kullanılmasını zorunlu kılmaz. [Azure Active Directory SDK’sını](https://github.com/AzureAD/azure-activedirectory-library-for-java) veya kendi özel kodunuzu kullanma gibi diğer belirteç edinme yöntemlerinden yararlanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, Java SDK'yı kullanarak Azure Data Lake Store ile kimlik doğrulaması için son kullanıcı kimlik doğrulaması kullanmayı öğrendiniz. Şimdi, Azure Data Lake Store ile çalışmak için Java SDK'sını kullanma hakkında konuşun aşağıdaki makaleleri da bakabilirsiniz.
+Bu makalede, Azure Data Lake depolama Gen1 ile kimlik doğrulaması için son kullanıcı kimlik doğrulaması kullanmayı öğrendiniz Java SDK'sını kullanarak. Şimdi, Azure Data Lake depolama Gen1 ile çalışmak için Java SDK'sını kullanma hakkında konuşmak aşağıdaki makaleleri da bakabilirsiniz.
 
-* [Data Lake Store Java SDK'sını kullanarak veri işlemleri](data-lake-store-get-started-java-sdk.md)
+* [Data Lake depolama Gen1 üzerinde Java SDK'sını kullanarak veri işlemleri](data-lake-store-get-started-java-sdk.md)
 
 

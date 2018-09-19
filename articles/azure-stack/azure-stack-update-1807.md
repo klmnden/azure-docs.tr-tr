@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b46e365ea3903a8f2c805717df13d361c823148d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 53f01ad6e8a801c69ea93c54e805807cb8eed34d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985605"
+ms.locfileid: "46127831"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 güncelleştirme
 
@@ -158,14 +158,10 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 - <!-- 2830461 - IS --> Bazı durumlarda, bir güncelleştirme dikkat gerektirdiğinde karşılık gelen bir uyarı oluşturulamayabilir. Doğru durumu Portalı'nda yine de yansıtılır ve etkilenmez.
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
+Bu güncelleştirme yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek hem de bizim [hizmet İlkesi](azure-stack-servicing-policy.md). 
+- [KB 4464231 – Azure Stack düzeltme Azure Stack düzeltme 1.1807.1.78]( https://support.microsoft.com/help/4464231)
 
-- <!-- 2933866 – IS --> **Başarısız güncelleştirme yüklemeleri için geliştirilmiş durum.** Bu sürüm, işleçler başarısız güncelleştirme yüklemeler hakkında daha fazla ayrıntı sağlamak için iki yeni durum kategorisi içerir. İki kategori *PreparationFailed*, ve *InstallationFailed*. Bu sürümünü yükledikten sonra bu yeni kategori yansıtacak şekilde yeniden düzenlendi, önceki güncelleştirme yükleme hataları için daha fazla bilgi görebilirsiniz. 
-
-<!-- *There are no post-update steps for update 1807.* -->
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - Link to KB  
- -->
+ <!-- 2933866 – IS --> Bu güncelleştirme yüklendikten sonra gördüğünüz **geliştirilmiş başarısız güncelleştirme yüklemelerini durumu.** Bu iki yeni durum kategorisi yansıtacak şekilde düzenlendi önceki güncelleştirme yükleme hatalarıyla ilgili bilgiler içerebilir. Yeni durum kategorilerinin *PreparationFailed*, ve *InstallationFailed*.  
 
 ## <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
 

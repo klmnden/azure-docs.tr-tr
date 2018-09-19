@@ -6,53 +6,77 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 1d2f194eb6a2186fc1e8451a7022d26cd1013bb2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8877234502ff662954dc6fe0c19d8252db42d7d6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022405"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123565"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware Vm'leri için yapılandırma sunucusunu yönetme
 
 Kullanırken bir şirket içi yapılandırma sunucusu ayarlama [Azure Site Recovery](site-recovery-overview.md) VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için. Yapılandırma sunucusu arasındaki iletişimi düzenler şirket içi VMware ve Azure ve veri çoğaltma işlemlerini yönetir. Bu makalede dağıtıldıktan sonra yapılandırma sunucusunu yönetmek için ortak görevler özetlenir.
 
-
-
-## <a name="modify-vmware-settings"></a>VMware ayarlarını değiştirme
+## <a name="access-configuration-server"></a>Erişimi yapılandırma sunucusu
 
 Yapılandırma sunucusu gibi erişebilirsiniz:
-    - Sanal Makinenin üzerinde dağıtıldığı ve Azure Site Recovery Yapılandırma Yöneticisi başlatmak için Masaüstü kısayoldan oturum açın.
-    - Alternatif olarak, yapılandırma sunucusundan uzaktan erişebileceğiniz **https://*ConfigurationServerName*/:44315 /**. Yönetici kimlik bilgilerinizle oturum açın.
 
-### <a name="modify-vmware-server-settings"></a>VMware sunucu ayarlarını değiştirin
+* VM, dağıtıldığı ve başlangıç oturum **Azure Site Recovery Yapılandırma Yöneticisi** masaüstü kısayolu.
+* Alternatif olarak, yapılandırma sunucusunu uzaktan https:// erişebilirsiniz*ConfigurationServerName*/:44315 /. Yönetici kimlik bilgilerinizle oturum açın.
 
-1. Oturum açma işleminden sonra farklı bir VMware sunucusunu yapılandırma sunucusu ile ilişkilendirmek için işaretleyin **vCenter sunucusu/vSphere ESXi Sunucusu Ekle**.
+## <a name="modify-vmware-server-settings"></a>VMware sunucu ayarlarını değiştirin
+
+1. Sonra farklı bir VMware sunucusunu yapılandırma sunucusu ile ilişkilendirmek için [oturum](#access-configuration-server)seçin **vCenter sunucusu/vSphere ESXi Sunucusu Ekle**.
 2. Ayrıntıları girin ve ardından **Tamam**.
 
+## <a name="modify-credentials-for-automatic-discovery"></a>Otomatik bulma için kimlik bilgilerini değiştirme
 
-### <a name="modify-credentials-for-automatic-discovery"></a>Otomatik bulma için kimlik bilgilerini değiştirme
-
-1. Oturum açma işleminden sonra VMware vm'lerinin otomatik bulma için VMware sunucusuna bağlanmak için kullanılan kimlik bilgilerini güncelleştirmek için seçin **Düzenle**.
+1. Sonra VMware vm'lerinin otomatik bulma için VMware sunucusuna bağlanmak için kullanılan kimlik bilgilerini güncelleştirmek için [oturum](#access-configuration-server), hesabı seçin ve tıklayın **Düzenle**.
 2. Yeni kimlik bilgilerini girin ve ardından **Tamam**.
 
     ![VMware değiştirme](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
 
+CSPSConfigtool.exe aracılığıyla kimlik bilgilerini de değiştirebilirsiniz.
+
+1. Cspsconfigtool.exe'yi başlatın ve yapılandırma sunucusu için oturum açma
+2. ' A tıklayın ve değiştirmek istediğiniz hesabı seçin **Düzenle**.
+3. Değiştirilen kimlik bilgilerini girin ve tıklayın **Tamam**
 
 ## <a name="modify-credentials-for-mobility-service-installation"></a>Mobility hizmeti yüklemesi için kimlik bilgilerini değiştirme
 
 VMware Vm'leri için çoğaltmayı etkinleştirme Mobility hizmetini otomatik olarak yüklemek için kullanılan kimlik bilgilerini değiştirin.
 
-1. Oturum açma işleminden sonra seçin **sanal makine kimlik bilgilerini yönetme**
-2. Yeni kimlik bilgilerini girin ve ardından **Tamam**.
+1. Sonra [oturum](#access-configuration-server)seçin **sanal makine kimlik bilgilerini yönetme**
+2. ' A tıklayın ve değiştirmek istediğiniz hesabı seçin **Düzenle**
+3. Yeni kimlik bilgilerini girin ve ardından **Tamam**.
 
     ![Mobility hizmet kimlik bilgilerini değiştirme](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
+
+CSPSConfigtool.exe üzerinden kimlik bilgileri de değiştirebilirsiniz.
+
+1. Cspsconfigtool.exe'yi başlatın ve yapılandırma sunucusu için oturum açma
+2. ' A tıklayın ve değiştirmek istediğiniz hesabı seçin **Düzenle**
+3. Yeni kimlik bilgilerini girin ve tıklayın **Tamam**.
+
+## <a name="add-credentials-for-mobility-service-installation"></a>Mobility hizmeti yüklemesi için kimlik bilgilerini ekleyin
+
+Yapılandırma sunucusu, OVF dağıtımı sırasında kimlik bilgilerini ekleyerek kaçırdıysanız
+
+1. Sonra [oturum](#access-configuration-server)seçin **sanal makine kimlik bilgilerini yönetme**.
+2. Tıklayarak **sanal makine kimlik bilgileri ekleme**.
+    ![Ekle-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+3. Yeni kimlik bilgilerini girin ve tıklayın **Ekle**.
+
+CSPSConfigtool.exe üzerinden kimlik bilgileri de ekleyebilirsiniz.
+
+1. Cspsconfigtool.exe'yi başlatın ve yapılandırma sunucusu için oturum açma
+2. Tıklayın **Ekle**, yeni kimlik bilgilerini girin ve tıklayın **Tamam**.
 
 ## <a name="modify-proxy-settings"></a>Proxy ayarlarını değiştirme
 
 Azure'da internet erişimi için yapılandırma sunucusu makine tarafından kullanılan proxy ayarları değiştirin. Varsayılan işlem sunucusunun yapılandırma sunucusu makinesinde çalışan yanı sıra işlem sunucunuz varsa, her iki makinede ayarlarını değiştirin.
 
-1. Oturum açtıktan sonra yapılandırma sunucusuna seçin **bağlantıları Yönet**.
+1. Sonra [oturum](#access-configuration-server) yapılandırma sunucusuna seçin **bağlantıları Yönet**.
 2. Proxy değerlerini güncelleştirin. Ardından **Kaydet** ayarları güncelleştirilemiyor.
 
 ## <a name="add-a-network-adapter"></a>Bir ağ bağdaştırıcısı ekleyin
@@ -60,7 +84,7 @@ Azure'da internet erişimi için yapılandırma sunucusu makine tarafından kull
 Open Virtualization Format (OVF) şablonu, tek bir ağ bağdaştırıcısı ile VM yapılandırma sunucusu dağıtır.
 
 - Yapabilecekleriniz [VM'ye ek bağdaştırıcı ekleme](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), ancak yapılandırma sunucusunu kasaya kaydetmeden önce eklemeniz gerekir.
-- Yapılandırma sunucusunu kasaya kaydetmek sonra bir bağdaştırıcı eklemek için VM özelliklerinde bağdaştırıcı ekleyin. Ardından sunucuyu kasaya kaydetmeden gerekir.
+- Yapılandırma sunucusunu kasaya kaydetmek sonra bir bağdaştırıcı eklemek için VM özelliklerinde bağdaştırıcı ekleyin. Ayarını yapmanız gerekir [yeniden kaydettirin](#reregister-a-configuration-server-in-the-same-vault) kasadaki sunucusu.
 
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Bir yapılandırma sunucusunda aynı kasaya yeniden kaydettirin
@@ -87,7 +111,8 @@ Gerekirse yapılandırma sunucusunu aynı kasaya yeniden kaydettirin. Varsayıla
   ```
           net stop obengine
           net start obengine
-  ```
+   ```
+
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Yapılandırma sunucusunu farklı bir kasaya kaydetme
 

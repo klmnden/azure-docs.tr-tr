@@ -1,31 +1,34 @@
 ---
-title: Microsoft Translator metin çevirisi API'si çeviri özelleştirme | Microsoft Docs
+title: Translator metin çevirisi API'si çeviri özelleştirme
+titlesuffix: Azure Cognitive Services
 description: Microsoft Translator hub'ı tercih edilen terimleri ve stil kullanarak kendi makine çevirisi sistem oluşturmak için kullanın.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9c7083ed0147b221d3d400afe83bb3bd6b6db86e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d71158bc74ffe15f133cc637371ddc840ef9df9e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574032"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124346"
 ---
 # <a name="customize-your-text-translations"></a>Metin çevirilerinizi özelleştirin
 
-Microsoft özel Translator Önizleme çevirirken Microsoft Translator Text API (yalnızca sürüm 3) kullanarak metin Microsoft Translator'ın gelişmiş sinirsel makine çevirisi özelleştirme olanağı tanıyan Microsoft Translator hizmeti bir özelliğidir. 
+Microsoft özel Translator Önizleme çevirirken Translator Text API (yalnızca sürüm 3) kullanarak metin Microsoft Translator'ın gelişmiş sinirsel makine çevirisi özelleştirme olanağı tanıyan Microsoft Translator hizmeti bir özelliğidir. 
 
 Bu özellik ile kullanıldığında konuşma çevirisi özelleştirmek için de kullanılabilir [Bilişsel hizmetler konuşma Önizleme](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
 ## <a name="custom-translator"></a>Özel Translator
+
 Özel Translator ile kendi iş ve sektör kullanılan terminolojiyi anladığınızdan sinirsel çeviri sistemleri oluşturabilirsiniz. Özelleştirilmiş çeviri sistemi ardından mevcut uygulamalarınızın, iş akışları ve Web siteleri ile tümleştirin. 
 
 ### <a name="how-does-it-work"></a>Nasıl çalışır?
+
 Önceden çevrilmiş belgelerinizi (leaflets, Web sayfaları, belgeler vb.) etki alanına özgü terminoloji ve stili daha iyi bir genel çeviri sistemi yansıtan bir çeviri sistem oluşturmak için kullanın. Kullanıcılar TMX, XLIFF, TXT, DOCX ve XLSX belgeler karşıya yükleyebilirsiniz.  
 
 Sistem, ayrıca, belge düzeyinde paralel ancak henüz cümle düzeyinde hizalanmamış verileri kabul eder. Kullanıcılar, birden çok dilde ancak ayrı bir belge sürümleri aynı içeriğe erişimi varsa, özel Translator cümleler belgeler arasında otomatik olarak eşleşecek şekilde mümkün olacaktır.  Sistem tek dilli Kinsoku'ya veri veya her iki dilde çevirileri arttırmak için paralel eğitim verilerini tamamlamak için de kullanabilirsiniz. 
@@ -60,5 +63,6 @@ Eski Microsoft Translator hub'ı, istatistiksel makine çevirisi çevirmek için
 >Translator Hub API'SİNDE benzer işlevselliği kullanılabilir. Bkz: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 > [!div class="nextstepaction"]
 > [Özel Translator'ı kullanarak bir özelleştirilmiş dil sistemi](http://aka.ms/CustomTranslatorDocs)

@@ -9,14 +9,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/23/2018
+ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 6d15405ef22f47dc8a94c07d9d09d343a743408e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a52ba16d7c8548d378d1b13a85fc1fd1070144e8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094561"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128392"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -308,23 +308,40 @@ Azure portalını kullanarak abonelikleri oluşturma hakkında daha fazla bilgi 
 
 Kullanarak bir abonelik oluşturmak için [Azure CLI'yı](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), kullanın [az eventgrid olay aboneliği oluşturma](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) komutu.
 
-Komut işlevi çağıran uç nokta URL'sini gerektirir. Aşağıdaki örnek URL deseni gösterir:
+Komut işlevi çağıran uç nokta URL'sini gerektirir. Aşağıdaki örnek, sürüme özgü URL deseni gösterir:
 
-```
-https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
-```
+#### <a name="version-2x-runtime"></a>Sürüm 2.x çalışma zamanı
+
+    https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+
+#### <a name="version-1x-runtime"></a>Sürüm 1.x çalışma zamanı
+
+    https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
 Sistem, bir olay Kılavuzu tetikleyicisi için uç nokta URL'si dahil edilecek bir yetkilendirme anahtar anahtardır. Aşağıdaki bölümde, sistem anahtarını almak açıklanmaktadır.
 
 (Sistem anahtarı için bir yer tutucu ile) bir blob depolama hesabına abone olan bir örnek aşağıda verilmiştir:
 
+#### <a name="version-2x-runtime"></a>Sürüm 2.x çalışma zamanı
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
 --provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name glengablobstorage --name myFuncSub  \
+--resource-name myblobstorage12345 --name myFuncSub  \
 --included-event-types Microsoft.Storage.BlobCreated \
 --subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://glengastorageevents.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=LUwlnhIsNtSiUjv/sNtSiUjvsNtSiUjvsNtSiUjvYb7XDonDUr/RUg==
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+#### <a name="version-1x-runtime"></a>Sürüm 1.x çalışma zamanı
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup \
+--provider-namespace Microsoft.Storage --resource-type storageAccounts \
+--resource-name myblobstorage12345 --name myFuncSub  \
+--included-event-types Microsoft.Storage.BlobCreated \
+--subject-begins-with /blobServices/default/containers/images/blobs/ \
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
 Bir aboneliğin nasıl oluşturulacağı hakkında daha fazla bilgi için bkz. [blob depolama hızlı başlangıcı](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) veya diğer Event Grid hızlı başlangıçları.
@@ -334,10 +351,10 @@ Bir aboneliğin nasıl oluşturulacağı hakkında daha fazla bilgi için bkz. [
 Aşağıdaki API (HTTP GET) kullanarak sistem anahtarı alabilirsiniz:
 
 ```
-http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-İşlev uygulamanızı gerektiriyorsa Bu olduğundan bir yönetici API'si, [ana anahtarı](functions-bindings-http-webhook.md#authorization-keys). (Bir olay Kılavuzu tetikleyicisi işlevi çağırma için) sistemi anahtarı (için yönetim görevleri işlev uygulamasını gerçekleştirdiği) ana anahtarı ile karıştırmayın. Bir olay Kılavuzu konu başlığına abone olduğunuzda, sistem anahtarını kullandığınızdan emin olun. 
+İşlev uygulamanızı gerektiriyorsa Bu olduğundan bir yönetici API'si, [ana anahtarı](functions-bindings-http-webhook.md#authorization-keys). (Bir olay Kılavuzu tetikleyicisi işlevi çağırma için) sistemi anahtarı (için yönetim görevleri işlev uygulamasını gerçekleştirdiği) ana anahtarı ile karıştırmayın. Bir olay Kılavuzu konu başlığına abone olduğunuzda, sistem anahtarını kullandığınızdan emin olun.
 
 Sistem anahtarı sağlayan yanıtın bir örnek aşağıda verilmiştir:
 
@@ -354,7 +371,12 @@ Sistem anahtarı sağlayan yanıtın bir örnek aşağıda verilmiştir:
 }
 ```
 
-Daha fazla bilgi için [yetkilendirme anahtarları](functions-bindings-http-webhook.md#authorization-keys) makaledeki HTTP tetikleyici başvurusu. 
+İşlev uygulamanız için ana anahtarı alma **işlev uygulaması ayarları** portalında sekmesi.
+
+> [!IMPORTANT]
+> Ana anahtarı, işlev uygulamanızı yönetici erişim sağlar. Bu anahtarı üçüncü taraflarla paylaşan veya yerel istemci uygulamaları Dağıt kullanmayın.
+
+Daha fazla bilgi için [yetkilendirme anahtarları](functions-bindings-http-webhook.md#authorization-keys) makaledeki HTTP tetikleyici başvurusu.
 
 Alternatif olarak, anahtar değeri kendiniz belirlemek için bir HTTP PUT gönderebilirsiniz.
 
@@ -475,7 +497,7 @@ https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionN
 ``` 
 İşlevler için bu endpoint düzeni kullanın 2.x:
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
 ``` 
 `functionName` Parametresi, belirtilen adı olmalıdır `FunctionName` özniteliği.
 

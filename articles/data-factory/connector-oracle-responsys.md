@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: dab282ad8f5f55b12d83f3329823d76b8ba4000f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 8c8376fcdcc33996ecc9340647c92a3abcf262c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629313"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129701"
 ---
-# <a name="copy-data-from-oracle-responsys-using-azure-data-factory"></a>Oracle Responsys Azure Data Factory kullanarak verileri kopyalama
+# <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Oracle Responsys Azure Data Factory (Önizleme) kullanarak verileri kopyalama
 
 Bu makalede, kopyalama etkinliği Azure Data Factory'de Oracle Responsys verileri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 

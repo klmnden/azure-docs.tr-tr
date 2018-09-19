@@ -1,6 +1,6 @@
 ---
-title: Ölçeklendirilen bulut veritabanları arasında raporlama | Microsoft Docs
-description: Yatay bölümleri esnek sorgulamalarını ayarlama
+title: Ölçeği genişletilen bulut veritabanlarında raporlama | Microsoft Docs
+description: Yatay bölümler üzerinde esnek sorguları ayarlama
 services: sql-database
 documentationcenter: ''
 manager: craigg
@@ -10,38 +10,38 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: fcb498542a496e4a887c825808642d3f586ef1d9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6efc9da60017914eeeb06bdf3309cae79fac36d6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646363"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35651243"
 ---
-# <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Raporlama ölçeklendirilmiş bulut veritabanları arasında (Önizleme)
-![Parça sorgulama][1]
+# <a name="reporting-across-scaled-out-cloud-databases-preview"></a>(Önizleme) ölçeği genişletilen bulut veritabanlarında raporlama
+![Parça arasında sorgu][1]
 
-Parçalı veritabanları dağıtmak satırları genişletilmiş bir veri katmanı. Şema yatay bölümleme olarak da bilinen tüm katılımcı veritabanlarında aynıdır. Esnek bir sorgu kullanarak, tüm veritabanları parçalı bir veritabanında span raporlar oluşturabilirsiniz.
+Parçalı veritabanları dağıtmak satırlar arasında ölçeği genişletilmiş veri katmanı. Yatay bölümleme olarak da bilinen katılan tüm veritabanlarında şema aynıdır. Elastik sorgu kullanarak, parçalı bir veritabanındaki tüm veritabanlarına yayılan raporlar oluşturabilirsiniz.
 
-Hızlı Başlangıç için bkz: [ölçeklendirilmiş bulut veritabanları arasında raporlama](sql-database-elastic-query-getting-started.md).
+Hızlı Başlangıç için bkz: [ölçeği genişletilen bulut veritabanlarında raporlama](sql-database-elastic-query-getting-started.md).
 
-Parçalı dışı veritabanları için bkz: [sorgu farklı şemalarda bulut veritabanları arasında](sql-database-elastic-query-vertical-partitioning.md). 
+Parçalı olmayan veritabanları için bkz: [sorgu farklı şemalarla bulut veritabanlarında](sql-database-elastic-query-vertical-partitioning.md). 
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Esnek veritabanı istemci kitaplığı kullanılarak bir parça Haritası oluşturun. bkz: [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md). Veya örnek uygulama kullanma [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md).
-* Alternatif olarak, bkz: [ölçeklendirilmiş veritabanları için var olan veritabanlarını geçirme](sql-database-elastic-convert-to-use-elastic-tools.md).
-* Kullanıcı ALTER ANY dış veri KAYNAĞINA iznine sahip olması gerekir. Bu izin ALTER DATABASE izniyle dahil edilir.
+* Elastik veritabanı istemci kitaplığını kullanarak bir parça eşlemesi oluşturun. bkz: [parça eşleme Yönetimi](sql-database-elastic-scale-shard-map-management.md). Veya örnek uygulama kullanma [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md).
+* Alternatif olarak, [ölçeği genişletilmiş veritabanları için mevcut veritabanlarını geçirme](sql-database-elastic-convert-to-use-elastic-tools.md).
+* Kullanıcı, ALTER ANY dış veri kaynağı iznine sahip olması gerekir. Bu izne ALTER DATABASE izni dahil edilir.
 * Temel alınan veri kaynağına başvurmak için ALTER ANY dış veri kaynağı izinleri gereklidir.
 
 ## <a name="overview"></a>Genel Bakış
-Bu ifadeler, parçalı veri katmanı meta veri gösterimi esnek sorgu veritabanında oluşturun. 
+Bu deyimler, esnek sorgu veritabanında parçalı veriler katmanınızın meta veri gösterimine oluşturun. 
 
-1. [ANA ANAHTAR OLUŞTURMA](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [VERİTABANI KAPSAMLI OLUŞTURMAK KİMLİK BİLGİSİ](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [DIŞ VERİ KAYNAĞI OLUŞTURUN](https://msdn.microsoft.com/library/dn935022.aspx)
+1. [ANA ANAHTAR OLUŞTURUN](https://msdn.microsoft.com/library/ms174382.aspx)
+2. [OLUŞTURMA VERİTABANI KAPSAMLI KİMLİK BİLGİLERİ](https://msdn.microsoft.com/library/mt270260.aspx)
+3. [DIŞ VERİ KAYNAĞI OLUŞTURMA](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [DIŞ TABLO OLUŞTURMA](https://msdn.microsoft.com/library/dn935021.aspx) 
 
-## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 kapsamlı veritabanı ana anahtarı ve kimlik bilgileri oluşturun
-Kimlik bilgisi esnek sorgu tarafından uzak veritabanlarına bağlanmak için kullanılır.  
+## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 kapsamlı veritabanı ana anahtarı ve kimlik bilgileri oluşturma
+Kimlik bilgisi tarafından esnek sorgu, uzak veritabanlarına bağlanmak için kullanılır.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
@@ -49,11 +49,11 @@ Kimlik bilgisi esnek sorgu tarafından uzak veritabanlarına bağlanmak için ku
     [;]
 
 > [!NOTE]
-> Olduğundan emin olun *"\<kullanıcıadı\>"* içermez *"@servername"* soneki. 
+> Emin olun *"\<kullanıcıadı\>"* içermez *"\@servername"* soneki. 
 > 
 > 
 
-## <a name="12-create-external-data-sources"></a>1.2 dış veri kaynakları oluşturun
+## <a name="12-create-external-data-sources"></a>1.2 dış veri kaynakları oluşturma
 Sözdizimi:
 
     <External_Data_Source> ::=    
@@ -76,13 +76,13 @@ Sözdizimi:
         SHARD_MAP_NAME='ShardMap' 
     );
 
-Geçerli dış veri kaynaklarının listesini alın: 
+Geçerli dış veri kaynakları listesini alın: 
 
     select * from sys.external_data_sources; 
 
-Parça haritanızı dış veri kaynağına başvuruyor. Esnek bir sorgu sonra dış veri kaynağı ve arka plandaki parça eşleme veri katmanı katılan veritabanları numaralandırmak için kullanır. Aynı kimlik bilgilerini parça eşleme okumak için ve esnek sorgu işleme sırasında parça verilere erişmek için kullanılır. 
+Dış veri kaynağı, parça eşlemesi başvuruyor. Elastik sorgu ardından dış veri kaynağı ve temel alınan parça eşlemesi veri katmanında katılan veritabanları numaralandırmak için kullanır. Aynı kimlik bilgileri, parça eşlemesi okuyun ve elastik sorgu işlenmesi sırasında parçalar verilere erişmek için kullanılır. 
 
-## <a name="13-create-external-tables"></a>1.3 dış tabloları oluşturma
+## <a name="13-create-external-tables"></a>1.3 dış tablolar oluşturma
 Sözdizimi:  
 
     CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
@@ -119,34 +119,34 @@ Sözdizimi:
         DISTRIBUTION=SHARDED(ol_w_id)
     ); 
 
-Dış tablo listesini geçerli veritabanından: 
+Geçerli veritabanından dış tabloların listesini alın: 
 
     SELECT * from sys.external_tables; 
 
-Dış tablolara bırakmak için:
+Dış tablolar bırakmak için:
 
     DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
 
 ### <a name="remarks"></a>Açıklamalar
-VERİ\_SOURCE yan tümcesinde dış tablo için kullanılan dış veri kaynağı (parça eşleme) tanımlar.  
+VERİ\_kaynak yan tümcesi için dış tablo kullanılan dış veri kaynağı (parça eşlemesi) tanımlar.  
 
-ŞEMA\_adı ve nesne\_adı yan tümceleri farklı bir şema tablosuna dış tablo tanımındaki eşleyin. Belirtilmezse, şema uzak nesnesinin "dbo" olarak kabul edilir ve adını tanımlanmakta dış tablo adıyla aynı olduğu varsayılır. Bu, uzak tablo adı zaten veritabanında dış tablo oluşturmak istediğiniz alınmışsa yararlı olur. Örneğin, Katalog görünümleri birleşik bir görünümünü almak için bir dış tablo tanımlamak istediğiniz veya genişletilmiş verileriniz üzerinde Dmv'leri katmanı. Katalog görünümleri ve Dmv'leri zaten yerel olarak mevcut olduğundan, dış tablo tanımı için adları kullanamazsınız. Bunun yerine, farklı bir ad kullanın ve Katalog görünümün veya DMV'ın adını şemasında\_adı ve/veya nesne\_adı yan tümceleri. (Aşağıdaki örneğe bakın.) 
+ŞEMA\_adı ve nesne\_adı yan tümceleri bir tabloda farklı bir şeması için dış tablo tanımındaki eşleme. Belirtilmezse, şema uzak nesnenin "dbo" olarak kabul edilir ve adını tanımlanmakta olan dış tablo adıyla aynı olduğu varsayılır. Bu, uzak tablo adı zaten veritabanında bir dış tablo oluşturmak istediğiniz alınmışsa yararlı olur. Örneğin, Katalog görünümleri birleşik bir görünümünü elde etmek için bir dış tablo tanımlamak istediğiniz veya ölçeği genişletilmiş veri çubuğunda Dmv'leri katmanı. Katalog görünümleri ve Dmv'leri zaten yerel olarak mevcut olduğundan, kendi adları için dış tablo tanımındaki kullanamazsınız. Bunun yerine, farklı bir ad kullanın ve Katalog görünümün veya DMV'ın şema adı\_adı ve/veya nesne\_adı yan tümceleri. (Aşağıdaki örneğe bakın.) 
 
-Dağıtım yan tümcesi Bu tablo için kullanılan veri dağılımını belirtir. Sorgu işlemcisi dağıtım yan tümcesinde en verimli sorgu planları oluşturmak için sağlanan bilgileri kullanır.  
+Dağıtım yan tümcesi Bu tablo için kullanılan veri dağılımını belirtir. Sorgu işlemcisi dağıtım yan tümcesinde en verimli sorgu planlarına oluşturmak için sağlanan bilgileri kullanır.  
 
-1. **PARÇALI** veri veritabanları arasında yatay olarak bölümlenmiş anlamına gelir. Veri dağıtımı için bölümleme anahtar **< sharding_column_name >** parametresi.
-2. **ÇOĞALTILAN** tablonun aynı kopyasını her veritabanını mevcut olduğu anlamına gelir. Çoğaltmaları veritabanları arasında aynı olduğundan emin olmak için sizin sorumluluğunuzdadır değil.
-3. **YUVARLAK\_deneme** bir uygulama bağımlı dağıtım yöntemi kullanarak, tablonun yatay bölümlenen anlamına gelir. 
+1. **PARÇALI** veri veritabanları arasında yatay olarak bölümlenir anlamına gelir. Veri dağıtımı için bölümleme anahtarıdır **< sharding_column_name >** parametresi.
+2. **ÇOĞALTILAN** tablo eşdeğer kopyalarını her veritabanında mevcut olduğu anlamına gelir. Bu veritabanları arasında çoğaltmaları aynı olduğundan emin olmak sizin sorumluluğunuzdur.
+3. **YUVARLAK\_ROBIN** uygulama bağımlı dağıtım yöntemi kullanarak, tabloyu yatay olarak bölümlenen anlamına gelir. 
 
-**Veri katmanı başvuru**: dış tablo DDL bir dış veri kaynağına başvuruyor. Dış veri kaynağı, dış tablo, veri katmanındaki tüm veritabanları bulmak gereken bilgileri sağlayan bir parça eşleme belirtir. 
+**Veri katmanı başvuru**: dış tablo DDL bir dış veri kaynağına başvuruyor. Dış tablo bütün veritabanlarını veri katmanınızın bulmak gereken bilgileri sağlayan bir parça eşlemesi dış veri kaynağını belirtir. 
 
 ### <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
-Dış tablo erişimi olan kullanıcılar otomatik olarak temel uzak tablolar dış veri kaynağı tanımında belirtilen kimlik bilgileri altında erişim kazanır. Dış veri kaynağının kimlik bilgisi aracılığıyla istenmeyen ayrıcalık kaçının. Yalnızca dizinindeymiş gibi olağan bir tablo için bir dış tablo GRANT veya REVOKE kullanın.  
+Dış tablo erişimi olan kullanıcılar temel alınan uzak tablolar dış veri kaynağı tanımına verilen kimlik bilgisi altında otomatik olarak erişin. Dış veri kaynağının kimlik bilgisi üzerinden istenmeyen ayrıcalık kaçının. Yalnızca işlevmiş gibi olağan bir tablo için dış tablo GRANT veya REVOKE kullanın.  
 
-Dış veri kaynağınızda ve dış tablolarınızı tanımladıktan sonra artık dış tablolar üzerindeki tam T-SQL kullanabilirsiniz.
+Dış veri kaynağı ve dış tablolarınızı tanımlandıktan sonra tam T-SQL artık dış tablolarınızı kullanabilirsiniz.
 
 ## <a name="example-querying-horizontal-partitioned-databases"></a>Örnek: yatay bölümlenmiş veritabanlarını sorgulama
-Aşağıdaki sorgu ambarları, sipariş ve sipariş satırları arasında üç yönlü birleştirme gerçekleştirir ve birkaç toplar ve seçmeli bir filtre kullanır. (1) yatay bölümleme (parçalama) ve ambarları, sipariş ve sipariş satırları ambar kimliği sütuna göre parçalı olduğunu (2) ve esnek sorgu birleştirmeler parça üzerinde birlikte bulunmasına ve parça üzerindeki sorgu pahalı parçası işlem varsayar Paralel. 
+Aşağıdaki sorgu, ambar, sipariş ve satış siparişi arasında üç yönlü birleştirme gerçekleştirir ve birkaç toplamlar ve seçmeli bir filtre kullanır. (1) yatay bölümleme (parçalama) ve ambar, sipariş ve satış siparişi ambarı kimlik sütunu örneğe göre parçalı olduğunu (2) ve esnek sorgu birleştirmeler parçalar üzerinde bir arada tutun ve parçalar üzerindeki sorgu pahalı parçası işleme varsayılır Paralel. 
 
     select  
          w_id as warehouse,
@@ -163,15 +163,15 @@ Aşağıdaki sorgu ambarları, sipariş ve sipariş satırları arasında üç y
     where w_id > 100 and w_id < 200 
     group by w_id, o_c_id 
 
-## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Saklı yordamı uzaktan T-SQL yürütmesi için: sp\_execute_remote
-Esnek sorgu aynı zamanda parça doğrudan erişim sağlayan bir saklı yordam sunar. Saklı yordam adlı [sp\_yürütme \_uzak](https://msdn.microsoft.com/library/mt703714) ve uzak saklı yordam veya T-SQL kodunu uzak veritabanlarına yürütmek için kullanılabilir. Aşağıdaki parametreleri alır: 
+## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Saklı yordamı uzaktan T-SQL yürütme için: sp\_execute_remote
+Esnek sorgu, parçalar doğrudan erişim sağlayan bir saklı yordam da tanıtılmaktadır. Saklı yordamı çağrılır [sp\_yürütme \_uzak](https://msdn.microsoft.com/library/mt703714) ve uzak veritabanlarında uzak saklı yordamları ya da T-SQL kodunu çalıştırmak için kullanılabilir. Bunu, aşağıdaki parametreleri alır: 
 
-* Veri kaynağı adı (nvarchar): türü RDBMS dış veri kaynağının adı. 
-* Sorgu (nvarchar): her parça yürütülmek üzere T-SQL sorgusu. 
-* Parametre bildirimi (nvarchar) - isteğe bağlı: dize veri türü tanımları (gibi sp_executesql) Sorgu parametresinde kullanılan parametreler için. 
-* Parametre değeri listesi - isteğe bağlı: parametre değerleri (gibi sp_executesql) virgülle ayrılmış listesi.
+* Veri kaynağı adı (nvarchar): RDBMS türündeki dış veri kaynağının adı. 
+* Sorgu (nvarchar): T-SQL sorgusu, her parça üzerinde yürütülür. 
+* Parametre bildirimi (nvarchar) - isteğe bağlı: dize verileri (gibi sp_executesql) sorgu parametresi olarak kullanılan parametreler için tür tanımları ile. 
+* Parametre değeri listesi - isteğe bağlı: parametre değerleri (örneğin, sp_executesql) virgülle ayrılmış listesi.
 
-Sp\_yürütme\_uzaktan uzak veritabanlarına verilen T-SQL deyimi yürütmek için çağrı parametrelerini sağlanan dış veri kaynağı kullanır. Shardmap manager veritabanı ve uzak veritabanlarına bağlanmak için dış veri kaynağının kimlik bilgilerini kullanır.  
+Sp\_yürütme\_uzaktan uzak veritabanlarında belirli T-SQL deyimi yürütmek için çağırma parametreleri sağlanan dış veri kaynağı kullanır. Dış veri kaynağının kimlik bilgisi shardmap manager veritabanını hem de uzak veritabanlarına bağlanmak için kullanır.  
 
 Örnek: 
 
@@ -179,22 +179,22 @@ Sp\_yürütme\_uzaktan uzak veritabanlarına verilen T-SQL deyimi yürütmek iç
         N'MyExtSrc',
         N'select count(w_id) as foo from warehouse' 
 
-## <a name="connectivity-for-tools"></a>Bağlantı için araçları
-Uygulamanızın, bağlanmak için normal SQL Server bağlantı dizelerini kullanın, BI ve veri tümleştirme araçları, dış tablo tanımları içeren veritabanı. SQL Server, aracı için bir veri kaynağı olarak desteklendiğinden emin olun. Yerel tabloları değilmiş gibi sonra başvuru herhangi bir SQL Server veritabanı gibi esnek sorgu veritabanı aracı ve kullanım dış tablolar için aracı ya da uygulama bağlı. 
+## <a name="connectivity-for-tools"></a>Bağlantı için Araçlar
+Uygulamanızı bağlamak için normal SQL Server bağlantı dizelerini kullanma dış tablo tanımlarınızı veritabanıyla, BI ve veri tümleştirme araçları. SQL Server'ın aracınız için bir veri kaynağı olarak desteklendiğinden emin olun. Yerel tablolar değilmiş gibi ardından başvuru gibi herhangi bir SQL Server veritabanı esnek sorgu veritabanı aracı ve kullanım dış tablolar için aracı ya da uygulama bağlı. 
 
 ## <a name="best-practices"></a>En iyi uygulamalar
-* Esnek sorgu uç veritabanı erişim shardmap veritabanı ve SQL DB güvenlik duvarı üzerinden tüm parça verildi emin olun.  
-* Dış tablo tarafından tanımlanan veri dağıtım zorunlu veya doğrulayın. Gerçek veri dağıtımınız farklıysa, tablo tanımında belirtilen dağıtım sorgularınızı beklenmeyen sonuçlar. 
-* Esnek sorgu koşulları parçalama anahtarı üzerinden güvenli bir şekilde işlenmesini belirli parça hariç tutmak için izin parça eleme şu anda gerçekleştirmez.
-* Esnek sorgu hesaplama çoğunu üzerinde parça burada yapılabilir sorguları için en iyi şekilde çalışır. Genellikle en iyi sorgu performansını değerlendirilebilir seçmeli filtre koşulları ile parça veya birleştirmeler üzerinde bir bölüme göre hizalı şekilde tüm parça üzerinde gerçekleştirilen bölümleme anahtarları üzerinden alırsınız. Diğer sorgu desenlerine kötü gerçekleştirebilir ve büyük miktarlarda verinin parça baş düğümü yük gerekebilir
+* Esnek sorgu bitiş noktası veritabanı erişim shardmap veritabanı ve SQL DB güvenlik duvarları üzerinden tüm parçalar verildi emin olun.  
+* Doğrulama veya dış tablo tarafından tanımlanan veri dağıtım zorlamaz. Gerçek veri dağıtımınız farklıysa, tablo tanımında belirtilen dağıtım sorgularınızı beklenmeyen sonuçlara neden olabilir. 
+* Esnek sorgu doğrulamaları parçalama anahtarı üzerinden güvenli bir şekilde işlenmesini bazı parçalar hariç tutmak için izin parça ortadan kaldırılması şu anda gerçekleştirmez.
+* Esnek sorgu parçalar üzerinde hesaplama çoğunu burada yapılabilir sorgular için en iyi şekilde çalışır. Normalde en iyi sorgu performansını değerlendirilebilir seçmeli filtre koşullarla parçalar ya da birleştirme bölümleme anahtarlarınızın bir bölüme göre hizalı şekilde tüm parçalar üzerinde gerçekleştirilebilir alabilirsiniz. Diğer sorgu desenleri sonlanmayacağından ve büyük miktarlarda verinin parçadan baş düğüme yük gerekebilir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Esnek sorgu genel bakış için bkz: [esnek sorgu genel bakış](sql-database-elastic-query-overview.md).
-* Dikey bölümleme öğretici için bkz: [(dikey bölümleme) veritabanları arası sorgusu ile çalışmaya başlama](sql-database-elastic-query-getting-started-vertical.md).
-* Dikey olarak bölümlenmiş verilere ilişkin söz dizimi ve örnek sorgular için bkz: [dikey sorgulama bölümlenmiş veri)](sql-database-elastic-query-vertical-partitioning.md)
-* Yatay bölümleme (parçalama) bir öğretici için bkz: [yatay (parçalama) bölümleme için esnek sorgu ile çalışmaya başlama](sql-database-elastic-query-getting-started.md).
-* Bkz: [sp\_yürütme \_uzak](https://msdn.microsoft.com/library/mt703714) tek uzaktan Azure SQL veritabanı ya da yatay bölümleme düzenindeki parça olarak hizmet veren bir veritabanları kümesi üzerinde bir Transact-SQL deyimini yürütür bir saklı yordam için.
+* Esnek sorgu genel bakış için bkz. [esnek sorgu genel bakış](sql-database-elastic-query-overview.md).
+* Dikey bölümleme öğreticisi için bkz. [(dikey bölümlendirme) veritabanları arası sorgu ile çalışmaya başlama](sql-database-elastic-query-getting-started-vertical.md).
+* Dikey olarak bölümlenmiş veriler için söz dizimi ve örnek sorgular için bkz. [sorgulama dikey olarak bölümlenmiş verileri)](sql-database-elastic-query-vertical-partitioning.md)
+* Yatay bölümleme (parçalama) bir öğretici için bkz. [yatay bölümleme (parçalama) için esnek sorgu kullanmaya başlama](sql-database-elastic-query-getting-started.md).
+* Bkz: [sp\_yürütme \_uzak](https://msdn.microsoft.com/library/mt703714) parçalarda bir yatay bölümleme düzeni olarak hizmet veren bir veritabanları kümesi veya bir uzak tek Azure SQL veritabanı Transact-SQL deyimini yürütür bir saklı yordam için.
 
 
 <!--Image references-->

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3bdb5bc2aa47a51cc95a4274fbf20ba5d0515130
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 9a75e7ed8ce25384d39afb22ef50b5453ef543ba
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094290"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129684"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure işlevleri C# betiği (.csx) Geliştirici Başvurusu
 
@@ -34,7 +34,30 @@ Azure işlevleri için C# betik deneyimine dayanır [Azure WebJobs SDK](https://
 
 *.Csx* biçimi daha az "standart" yazın ve hemen bir C# işlevi yazmaya odaklanmasına olanak tanır. Her şeyi bir ad alanını ve sınıf içinde kaydırma yerine tanımlamak bir `Run` yöntemi. Tüm derleme başvurularını ve ad alanları dosyasının başında zamanki içerir.
 
-Bir işlev uygulamasının *.csx* dosyaları örneği başlatıldığında derlenir. Bu derleme adımı hazırlıksız başlatma betiği C# sınıf kitaplıkları karşılaştırılan C# işlevlerine yönelik daha uzun sürebileceğini gibi şeyler ifade eder. Bu derleme ayrıca C# sınıfı kitaplıklar değildir; ancak C# betik işlevleri neden Azure Portalı'nda düzenlenebilir bir adımdır.
+Bir işlev uygulamasının *.csx* dosyaları örneği başlatıldığında derlenir. Bu derleme adımı hazırlıksız başlatma betiği C# sınıf kitaplıkları karşılaştırılan C# işlevlerine yönelik daha uzun sürebileceğini gibi şeyler ifade eder. Bu derleme ayrıca C# sınıfı kitaplıklar değildir; ancak C# betik işlevleri neden Azure portalında, düzenlenebilir bir adımdır.
+
+## <a name="folder-structure"></a>klasör yapısı
+
+Bir C# betik proje için klasör yapısı aşağıdaki gibi görünür:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+İşlev uygulamasını yapılandırmak için kullanılan bir paylaşılan [host.json] (işlevler-host-json.md) dosyası yoktur. Her işlev, kendi kod dosyalarını (.csx) ve bağlama yapılandırma dosyası (function.json) vardır.
+
+Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
 
 ## <a name="binding-to-arguments"></a>Bağımsız değişkenler için bağlama
 
@@ -336,8 +359,10 @@ Aşağıdaki derlemelere basit adıyla başvurulabilir (örneğin, `#r "Assembly
 ## <a name="referencing-custom-assemblies"></a>Özel derlemelere başvurma
 
 Bir özel bütünleştirilmiş kod başvurusu yapmak için ya da kullanabilirsiniz bir *paylaşılan* derleme veya *özel* derleme:
-- Paylaşılan derlemeler, bir işlev uygulaması içindeki tüm işlevleri arasında paylaşılır. Bir özel bütünleştirilmiş kod başvurusu için derleme adlı klasöre yükleyin `bin` içinde [işlevi uygulama kök klasörü](functions-reference.md#folder-structure) (wwwroot). 
-- Özel derlemeler, verilen işlevin bağlamı'nın bir parçasıdır ve dışarıdan farklı sürümlerini destekler. Özel derlemeler yüklenmiş olması bir `bin` işlevi dizini klasöründe. Dosya adı gibi kullanarak derlemelerine `#r "MyAssembly.dll"`. 
+
+* Paylaşılan derlemeler, bir işlev uygulaması içindeki tüm işlevleri arasında paylaşılır. Bir özel bütünleştirilmiş kod başvurusu için derleme adlı klasöre yükleyin `bin` içinde [işlevi uygulama kök klasörü](functions-reference.md#folder-structure) (wwwroot).
+
+* Özel derlemeler, verilen işlevin bağlamı'nın bir parçasıdır ve dışarıdan farklı sürümlerini destekler. Özel derlemeler yüklenmiş olması bir `bin` işlevi dizini klasöründe. Dosya adı gibi kullanarak derlemelerine `#r "MyAssembly.dll"`.
 
 Bölümüne bakın işlevi klasörünüze dosyaları karşıya yükleme hakkında daha fazla bilgi için [paket Yönetimi](#using-nuget-packages).
 

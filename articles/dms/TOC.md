@@ -9,6 +9,7 @@
 ## [SQL Server’ı Azure SQL DB’ye çevrimiçi geçirme](tutorial-sql-server-azure-sql-online.md)
 ## [SQL Server’ı Azure SQL DB Yönetilen Örneğine çevrimdışı geçirme](tutorial-sql-server-to-managed-instance.md)
 ## [MySQL’i MySQL için Azure DB’ye çevrimiçi geçirme](tutorial-mysql-azure-mysql-online.md)
+## [PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure DB‘ye geçirme](tutorial-postgresql-azure-postgresql-online.md)
 
 # Nasıl yapılır kılavuzları
 ## [SQL Server’ı Azure SQL DB'ye geçirmek için PowerShell kullanma](howto-sql-server-to-azure-sql-powershell.md)
@@ -18,6 +19,7 @@
 # Kaynaklar
 ## [Bilinen Sorunlar - Azure SQL DB’ye çevrimiçi geçiş](known-issues-azure-sql-online.md)
 ## [Bilinen Sorunlar - MySQL için Azure DB’ye çevrimiçi geçiş](known-issues-azure-mysql-online.md)
+## [Bilinen Sorunlar - PostgreSQL için Azure DB’ye çevrimiçi geçiş](known-issues-azure-postgresql-online.md)
 ## [UserVoice Geri Bildirimi](https://feedback.azure.com/forums/906100-azure-database-migration-service)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Veritabanı Geçiş Kılavuzu](https://aka.ms/datamigration)

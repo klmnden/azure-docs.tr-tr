@@ -1,6 +1,6 @@
 ---
-title: ".NET SDK: Azure Data Lake Store'daki hesap yönetimi işlemleri | Microsoft Docs"
-description: Data Lake Store'da hesap yönetim işlemlerini gerçekleştirmek için Azure Data Lake Store .NET SDK'sını kullanma
+title: ".NET SDK'sı: Hesap yönetimi işlemleri Azure Data Lake depolama Gen1 | Microsoft Docs"
+description: Data Lake depolama Gen1 içinde hesap yönetim işlemlerini gerçekleştirmek için Azure Data Lake depolama Gen1 .NET SDK'sını kullanın
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ee3c528345232090227c413aebaebe7cc265bc76
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 2ed9f534c0eb27601243428f8e4b9d95db5d16b0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648230"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123921"
 ---
-# <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>.NET SDK kullanılarak gerçekleştirilen Azure Data Lake Store'daki hesap yönetimi işlemleri
+# <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Azure Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK'sını kullanma
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
@@ -27,9 +27,9 @@ ms.locfileid: "35648230"
 >
 >
 
-Bu makalede .NET SDK kullanarak Data Lake Store'daki hesap yönetim işlemlerini nasıl gerçekleştireceğinizi öğreneceksiniz. Hesap yönetimi işlemleri arasında Data Lake Store hesabı oluşturma, bir Azure aboneliğindeki hesapları listeleme, hesapları silme vs. bulunur.
+Bu makalede, Azure Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK kullanarak gerçekleştirmeyi öğrenin. Bir Data Lake depolama Gen1 hesabı silme hesapları, vb. bir Azure aboneliğindeki hesapları listeleme, oluşturma, hesap yönetim işlemlerini içerir.
 
-Data Lake Store'da veri yönetim işlemlerini .NET SDK kullanarak gerçekleştirme talimatları için bkz. [Data Lake Store'da .NET SDK kullanılarak gerçekleştirilen dosya sistemi işlemleri](data-lake-store-data-operations-net-sdk.md).
+Data Lake depolama Gen1 veri yönetim işlemlerini .NET SDK kullanarak gerçekleştirme talimatları için bkz. [.NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri Data Lake depolama Gen1](data-lake-store-data-operations-net-sdk.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 * **Visual Studio 2013, 2015 veya 2017**. Aşağıdaki yönergelerde Visual Studio 2017 kullanılmıştır.
@@ -89,7 +89,7 @@ Data Lake Store'da veri yönetim işlemlerini .NET SDK kullanarak gerçekleştir
 
                 private static void Main(string[] args)
                 {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net"; 
+                    _adlsAccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net"; 
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; 
                     _location = "East US 2";
                     _subId = "<SUBSCRIPTION-ID>";                    
@@ -101,26 +101,26 @@ Makalenin geriye kalan bölümlerinde, kullanılabilir .NET yöntemlerinin, kiml
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
-* Uygulamanızın son kullanıcı kimlik doğrulaması için bkz. [.NET SDK kullanarak Data Lake Store'da son kullanıcı kimlik doğrulaması gerçekleştirme](data-lake-store-end-user-authenticate-net-sdk.md).
-* Uygulamanızın servisler arası kimlik doğrulaması için bkz. [.NET SDK kullanarak Data Lake Store'da servisler arası kimlik doğrulaması gerçekleştirme](data-lake-store-service-to-service-authenticate-net-sdk.md).
+* Uygulamanız için son kullanıcı kimlik doğrulaması için bkz. [son kullanıcı kimlik doğrulaması .NET SDK kullanarak Data Lake depolama Gen1 ile](data-lake-store-end-user-authenticate-net-sdk.md).
+* Uygulamanız için hizmetten hizmete kimlik doğrulaması için bkz [hizmetten hizmete kimlik doğrulaması .NET SDK kullanarak Data Lake depolama Gen1 ile](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## <a name="create-client-object"></a>İstemci nesnesi oluşturma
-Aşağıdaki kod parçacığı, istemci nesnesi için Data Lake Store hesabını oluşturur. Bu nesne hesap oluşturma, hesap silme gibi hesap yönetim isteklerini hizmete iletmek için kullanılır.
+Aşağıdaki kod parçacığı, hesap yönetim isteklerini hizmete iletmek, hesap silme gibi hesap oluşturmak için kullanılan Data Lake depolama Gen1 hesabı istemci nesnesini oluşturur.
 
     // Create client objects and set the subscription ID
     _adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
     
-## <a name="create-a-data-lake-store-account"></a>Data Lake Store hesabı oluşturma
-Aşağıdaki kod parçacığı Data Lake Store hesabı istemci nesnesini oluştururken sağladığınız Azure aboneliğinde bir Data Lake Store hesabı oluşturur.
+## <a name="create-a-data-lake-storage-gen1-account"></a>Bir Data Lake depolama Gen1 hesabı oluşturun
+Aşağıdaki kod parçacığı Data Lake depolama Gen1 hesabı istemci nesnesini oluştururken sağladığınız Azure aboneliğinde bir Data Lake depolama Gen1 hesabı oluşturur.
 
-    // Create Data Lake Store account
+    // Create Data Lake Storage Gen1 account
     var adlsParameters = new DataLakeStoreAccount(location: _location);
     _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
 
-## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>Bir abonelik içindeki tüm Data Lake Store hesaplarını listeleme
-Sınıf tanımına aşağıdaki yöntemi ekleyin. Aşağıdaki kod parçacığı belirli bir Azure aboneliği içindeki tüm Data Lake Store hesaplarını listeler.
+## <a name="list-all-data-lake-storage-gen1-accounts-within-a-subscription"></a>Bir abonelik içindeki tüm Data Lake depolama Gen1 hesaplarını listeleme
+Sınıf tanımına aşağıdaki yöntemi ekleyin. Aşağıdaki kod parçacığında, belirli bir Azure aboneliği içindeki tüm Data Lake depolama Gen1 hesaplarını listeler.
 
-    // List all Data Lake Store accounts within the subscription
+    // List all Data Lake Storage Gen1 accounts within the subscription
     public static List<DataLakeStoreAccountBasic> ListAdlStoreAccounts()
     {
         var response = _adlsClient.Account.List(_adlsAccountName);
@@ -135,15 +135,15 @@ Sınıf tanımına aşağıdaki yöntemi ekleyin. Aşağıdaki kod parçacığı
         return accounts;
     }
 
-## <a name="delete-a-data-lake-store-account"></a>Data Lake Store hesabını silme
-Aşağıdaki kod parçacığı önceden oluşturduğunuz Data Lake Store hesabını siler.
+## <a name="delete-a-data-lake-storage-gen1-account"></a>Bir Data Lake depolama Gen1 hesabını Sil
+Aşağıdaki kod parçacığı, daha önce oluşturduğunuz Data Lake depolama Gen1 hesabını siler.
 
-    // Delete Data Lake Store account
+    // Delete Data Lake Storage Gen1 account
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Data Lake Store'da .NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri](data-lake-store-data-operations-net-sdk.md)
-* [Data Lake Store .NET SDK Başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [.NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri Data Lake depolama Gen1](data-lake-store-data-operations-net-sdk.md)
+* [Data Lake depolama Gen1 .NET SDK başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)

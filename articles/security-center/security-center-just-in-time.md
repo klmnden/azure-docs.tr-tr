@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2018
+ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2a079456813a67eb40d5cf42bcdd2c91fbc631d3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: cb13da7ad9387b7170882752b1620c2756bc3675
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297048"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124161"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında özelliğini kullanarak sanal makine erişimini yönetme
 
@@ -108,6 +108,9 @@ Altında **JIT VM erişimi Yapılandırması**, ayrıca ekleyebilir ve tam olara
 
 3. **Tamam**’ı seçin.
 
+> [!NOTE]
+>Seçili bağlantı noktaları ile ilişkilendirilmiş ağ güvenlik grupları için tüm gelen trafik kuralları, bir VM, Azure Güvenlik Merkezi oluşturur için JIT VM erişimi etkinleştirildiğinde reddedin. Kuralları ya da ağ güvenlik Gruplarınızda üst önceliğini ya da var olduğu mevcut kurallardan daha düşük öncelikli olur. Bu, Azure Güvenlik Merkezi tarafından bir kural güvenli olup olmadığını belirleyen gerçekleştirilen analiz bağlıdır.
+>
 ## <a name="requesting-access-to-a-vm"></a>Bir VM için erişim isteği
 
 VM'ye erişime izin istemek için:
@@ -162,8 +165,6 @@ Günlük araması'nı kullanarak VM etkinlikleri hakkında Öngörüler elde ede
 
   **Etkinlik günlüğü** önceki işlem saati, tarih ve abonelik yanı sıra bu VM için filtrelenmiş bir görünüm sağlar.
 
-  ![Etkinlik Günlüğü Görüntüle][5]
-
 Günlük bilgilerini seçerek indirebilirsiniz **tüm öğeleri CSV olarak indirmek için buraya tıklayın**.
 
 Seç ve filtreleri değiştirmek **Uygula** arama ve günlük oluşturmak için.
@@ -172,15 +173,62 @@ Seç ve filtreleri değiştirmek **Uygula** arama ve günlük oluşturmak için.
 
 Tam zamanında VM erişimini Özelliği Azure Güvenlik Merkezi API aracılığıyla kullanılabilir. Yapılandırılan VM'ler hakkında bilgi edinin, yenilerini ekleyin, bir VM ve daha fazlasını bu API aracılığıyla erişim isteyin. Bkz [JIT ağ erişim ilkelerini](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies)yalnızca hakkında daha fazla bilgi için REST API zamanında.
 
-### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Yapılandırma tam zamanında ilkesi için bir VM
+## <a name="using-just-in-time-vm-access-via-powershell"></a>Zamanında VM erişimi PowerShell aracılığıyla kullanarak 
 
-Yalnızca bir yapılandırma İlkesi zaman belirli bir VM'de PowerShell oturumunuzda bu komutu çalıştırmanız gerekir: Set-ASCJITAccessPolicy.
-Daha fazla bilgi için cmdlet belgeleri izleyin.
+Yalnızca kullanılacak zaman VM erişimi çözümde PowerShell aracılığıyla resmi Azure Güvenlik Merkezi PowerShell cmdlet'lerini kullanın ve özellikle `Set-AzureRmJitNetworkAccessPolicy`.
+
+Aşağıdaki örnekte yalnızca bir ayarlar İlkesi belirli bir VM'de zamanında VM erişimi ve aşağıdaki ayarlar:
+1.  22 ve 3389 numaralı bağlantı noktalarını kapatın.
+2.  Onaylanan istek başına açılması için her biri için 3 saatte bir maksimum zaman aralığında ayarlayın.
+3.  IP adresleri ve başarılı bir oturum onaylı bir temel oluşturmak üzere kullanıcının Kaynak Denetim erişim isteyen kullanıcının zaman erişim isteğinde yeterlidir.
+
+Bunu gerçekleştirmek için PowerShell'de aşağıdaki komutu çalıştırın:
+
+1.  Yalnızca tutan değişkenine atayın bir VM için ilke zamanında VM erişimi:
+
+        $JitPolicy = (@{
+         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+        ports=(@{
+             number=22;
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
+             maxRequestAccessDuration="PT3H"},
+             @{
+             number=3389;
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
+             maxRequestAccessDuration="PT3H"})})
+
+2.  Sanal makine yalnızca bir diziye zaman VM erişimi ilkesi ekleyin:
+    
+        $JitPolicyArr=@($JitPolicy)
+
+3.  Yapılandırma tam zamanında VM erişimi ilkesi seçili VM üzerinde:
+    
+        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 ### <a name="requesting-access-to-a-vm"></a>Bir VM için erişim isteği
 
-Yalnızca korunan belirli bir sanal Makineye erişmek için PowerShell oturumunuzda bu komutu çalıştırmak gereken zaman çözümde: çağırma ASCJITAccess.
-Daha fazla bilgi için cmdlet belgeleri izleyin.
+Aşağıdaki örnekte, bir tam görebilirsiniz hangi bağlantı noktası 22 istenen belirli bir IP adresi ve belirli bir süre için açılması için belirli bir VM'ye VM erişim isteğinde zaman:
+
+PowerShell'de aşağıdaki komutu çalıştırın:
+1.  VM istek erişim özelliklerini yapılandır
+
+        $JitPolicyVm1 = (@{
+          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+        ports=(@{
+           number=22;
+           endTimeUtc="2018-09-17T17:00:00.3658798Z";
+           allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
+2.  Bir dizi VM erişimi İstek parametreleri ekleyin:
+
+        $JitPolicyArr=@($JitPolicyVm1)
+3.  (Kullanım 1. adımda aldığınız kaynak kimliği) erişim isteği gönder
+
+        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+
+Daha fazla bilgi için PowerShell cmdlet'i belgelerine bakın.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, nasıl yalnızca zamanında VM erişimi, Güvenlik Merkezi yardımcı olur, Azure sanal makineleri için erişim denetim öğrendiniz.

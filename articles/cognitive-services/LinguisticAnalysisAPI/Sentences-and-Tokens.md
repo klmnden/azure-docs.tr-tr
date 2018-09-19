@@ -1,71 +1,72 @@
 ---
-title: Cümleleri ve dil analiz API belirteçleri | Microsoft Docs
-description: Tümce ayırma ve Bilişsel hizmetler dil analiz API'sindeki simgeleştirme hakkında bilgi edinin.
+title: Cümleler ve belirteçler - dil analizi API'si
+titlesuffix: Azure Cognitive Services
+description: Tümce ve belirteçlere dil analizi API'si, ayırma hakkında bilgi edinin.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: 78e539f365728ad540308e9cfb07af44bf6d8fe7
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: b31ca8f88d1e8d5710c3a6a6cfccbb167fdd762a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084051"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126284"
 ---
-# <a name="sentence-separation-and-tokenization"></a>Tümce ayırma ve belirteç oluşturma
+# <a name="sentence-separation-and-tokenization"></a>Tümce ve belirteçlere ayırma
 
-## <a name="background-and-motivation"></a>Arka plan ve amacı
+## <a name="background-and-motivation"></a>Arka plan ve motivasyon
 
-Metin gövdesi verildiğinde, ilk dil analiz cümleleri ve belirteçler ayırmak için bir adımdır.
+Bir metin gövdesi göz önünde bulundurulduğunda, ilk adımı, dil analizi, tümce ve belirteçlere ayırmaktır bölmektir.
 
-### <a name="sentence-separation"></a>Tümce ayırma
+### <a name="sentence-separation"></a>Tümce ayrımı
 
-İlk bakışta metin cümleleri çiğnemekten basit olduğunu görünüyor: yalnızca cümle son işaretçileri bulmak ve bölün cümleleri vardır.
-Ancak, bu işaretleri genellikle karmaşık ve belirsiz.
+İlk bakışta üzerinde metin cümleler bozucu basit olduğunu görünüyor: yalnızca cümle son işaretlerinin bulun ve kesme tümceleri vardır.
+Ancak, bu işaretler genellikle karmaşık ve belirsiz.
 
-Aşağıdaki örnek metin göz önünde bulundurun:
+Aşağıdaki örnek metni göz önünde bulundurun:
 
-> Ne dedin?!? Yönetmenin "Yeni teklifi hakkında." yanıt alamadık Bay ve Merve Smith için önemlidir.
+> Ne dedin?!? Yönetmenin "Yeni Teklif hakkında." yanıt alamadık Bay ve Mrs. Smith için önemlidir.
 
-Bu metin üç cümleleri içerir:
+Bu metin, üç cümleler içerir:
 
 - Ne dedin?!?
-- Yönetmenin "Yeni teklifi hakkında." yanıt alamadık
-- Bay ve Merve Smith için önemlidir.
+- Yönetmenin "Yeni Teklif hakkında." yanıt alamadık
+- Bay ve Mrs. Smith için önemlidir.
 
-Cümleleri uçlarından çok farklı yollarla nasıl işaretlenmiş unutmayın.
-İlk soru işaretlerini (bazen bir interrobang denir) ünlem ve bir arada sona erer.
-İkinci uç nokta veya tam durma, ancak aşağıdaki tırnak işareti önceki cümle çekilen.
-Üçüncü cümlede de kısaltmalar işaretlemek için aynı bu nokta karakteri'nın nasıl kullanılabileceğini görebilirsiniz.
-Yalnızca noktalama arayan iyi bir adaydır kümesi sağlar, ancak daha fazla iş true cümle sınırlarını tanımlamak için gereklidir.
+Cümleleri ucunda çok farklı yollarla nasıl işaretlenmiş unutmayın.
+İlk soru işareti (bazen bir interrobang denir) ünlem ve bir arada sona erer.
+Önceki cümle nokta veya tam durdurma, ancak aşağıdaki tırnak işareti ikinci biter çekilmesi.
+Üçüncü cümlede kısaltmalar de işaretlemek için aynı, nokta karakteri'nın nasıl kullanılabileceğini görebilirsiniz.
+Noktalama işaretlerinin yalnızca arayan bir iyi aday kümesi sağlar, ancak daha fazla iş true cümle sınırlarını tanımlamak için gereklidir.
 
 ### <a name="tokenization"></a>Simgeleştirme
 
-Sonraki görev Bu cümleleri belirteçlere ayırmasına belirlemektir.
-Çoğunlukla, İngilizce belirteçleri boşluk tarafından sınırlandırılır.
-(Belirteçleri veya sözcükleri bulma nerede alanları sözcükler arasında çoğunlukla değil Çince, İngilizce'den çok daha kolay kullanılır.
-İlk cümle "Whatdidyousay?" yazılmış)
+Sıradaki görev, bu cümleleri belirteçlere ayırmasına sağlamaktır.
+Çoğunlukla, İngilizce belirteçleri beyaz boşluk tarafından ayrılmış.
+(Belirteçleri veya sözcükler bulma burada alanları kelimeler arasındaki çoğunlukla değil Çince, İngilizce çok daha kolay kullanılır.
+İlk cümle "Whatdidyousay?" yazılmış olabilir)
 
-Birkaç zor durumlar vardır.
-İlk olarak, genellikle (ancak her zaman) noktalama gereken, bölünmüş bağlam çevreleyen, ayrılmayın.
-İkinci olarak, İngilizce sahip *kısaltmalar*, "siz" veya "Bu", burada sözcükler alınan sıkıştırılmış ve daha küçük parçalara kısaltılmış gibi. Belirteç Oluşturucu sözcüklere karakter dizisi bölüneceği hedefidir.
+Zor bazı durumlar vardır.
+İlk olarak, genellikle (ama her zaman kullanılmaz) noktalama gereken, bölme, içeriğini çevreleyen uzağa.
+İkinci olarak, İngilizce olan *kısaltmalar*, "siz" veya "sadece değil", burada sözcükler alınan sıkıştırılmış ve daha küçük parçalara kısaltılmış gibi. Simgeleştirici karakter dizisi sözcüklere bölmek için hedeftir.
 
-Şimdi örnek cümleleri üstten dönün.
-Biz "merkezi nokta" yerleştirdiğiniz artık (&middot;) her ayrı belirteç arasında.
+Yukarıdaki örnek cümleleri şimdi geri dönün.
+Şimdi biz "merkezi dot" koyduğunuz (&middot;) arasındaki her farklı bir belirteç.
 
-- Ne &middot; vermedi &middot; , &middot; söyleyin &middot; ?!?
-- I &middot; vermedi &middot; ma &middot; duymak &middot; hakkında &middot; &middot; director &middot; 's &middot; " &middot; yeni &middot; teklifi &middot; . &middot; "
-- Bu &middot; 's &middot; önemli &middot; için &middot; Bay &middot; ve &middot; Mrs. &middot; Smith &middot; .
+- Hangi &middot; yaptığınız &middot; , &middot; söyleyin &middot; ?!?
+- Ben &middot; vermedi &middot; ma &middot; dinleyin &middot; hakkında &middot; &middot; Direktörü &middot; 's &middot; " &middot; yeni &middot; teklifi &middot; . &middot; "
+- Bunu &middot; 's &middot; önemli &middot; için &middot; Bay &middot; ve &middot; Mrs. &middot; Smith &middot; .
 
-Nasıl çoğu belirteçleri Bul sözlükte sözcüklerdir unutmayın (örneğin, *önemli*, *director*).
-Başkalarının yalnızca noktalama oluşur.
-Son olarak, kısaltmalar gibi göstermek için daha olağan dışı belirteçleri vardır *ma* için *değil*, iyelik ister *'s*, vb. Bu simgeleştirme bize word işlemeye izin verir *kaydetmedi* ve ifade *belirtmiyor* daha tutarlı bir şekilde örneği için.
+Bulma sözlüğe sözcüklerin nasıl çoğu belirteçleridir unutmayın (örneğin, *önemli*, *Direktörü*).
+Diğerleri yalnızca noktalama işaretlerini oluşur.
+Son olarak, kısaltmalar gibi temsil etmek için daha olağan dışı belirteçleri vardır *ma* için *değil*, iyelik ister *'s*vb. Word işlemek bu simgeleştirme kurmamızı *yaramadı* ve tümcecik *belirtmiyor* daha tutarlı bir şekilde örneği için.
 
 ## <a name="specification"></a>Belirtimi
 
-Ne bir cümle ve bir belirteç oluşur hakkında tutarlı kararları önemlidir.
-Biz belirtiminden Bel [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (bazı ek ayrıntıları ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html kullanılabilir).
+Ne bir cümle ve bir belirteç oluşur konusunda tutarlı kararlar önemlidir.
+Belirtiminden bağımlı olduğumuz [da Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html bazı ek ayrıntılar kullanılabilir).

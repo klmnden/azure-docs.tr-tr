@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 69dea0aa3eaa9de3ed94b934e5fa3c6e6a3ec24d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6fb60955f1d436e13234243c0e83f1487cb7f7d0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632849"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127729"
 ---
 # <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
@@ -29,7 +29,7 @@ Azure'da sanal makine seri konsolu, Linux sanal makineleri için metin tabanlı 
 Windows Vm'leri için seri konsol belgeleri [Buraya](../windows/serial-console.md).
 
 > [!Note] 
-> Sanal makineler için seri konsol genel Azure bölgelerinde genel kullanıma sunulmuştur. Bu noktada seri konsol henüz kullanılabilir Azure kamu veya Azure Çin bulut değil.
+> Sanal makineler için seri konsol genel Azure bölgelerinde genel kullanıma sunulmuştur. Bu noktada seri konsol henüz Azure kamu veya Azure China Bulutları içinde kullanılamaz.
 
 
 ## <a name="prerequisites"></a>Önkoşullar 

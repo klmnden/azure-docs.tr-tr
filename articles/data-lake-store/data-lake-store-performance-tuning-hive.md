@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store'a Hive performans yönergeleri ayarlama | Microsoft Docs
-description: Azure Data Lake Store'a Hive performans kuralları ayarlama
+title: Azure Data Lake depolama Gen1 Hive performans ayarlama yönergeleri | Microsoft Docs
+description: Azure Data Lake depolama Gen1 Hive performans ayarlama yönergeleri
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,62 +12,62 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: c46eb1b2da62d70337e60066ed0706c3a4fdedcf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9d0ad0398dfc238d48060247cdb6f29b0f34a60
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198978"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123343"
 ---
-# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Performans Kılavuzu Hive Hdınsight ve Azure Data Lake Store için ayarlama
+# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight ve Azure Data Lake depolama Gen1 Hive için performans ayarlama Kılavuzu
 
-Varsayılan ayarları birçok farklı kullanım örnekleri arasında iyi bir performans sağlamak üzere ayarlanmış.  G/ç yoğun sorgularında Hive ADLS ile daha iyi performans almak için ayarlanabilecek.  
+Varsayılan ayarlar, birçok farklı kullanım örnekleri arasında iyi bir performans sağlamak üzere ayarlandı.  G/ç kullanımı yoğun sorgular için Hive ile Azure Data Lake depolama Gen1 daha iyi performans elde etmek için ayarlanabilecek.  
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
-* **Azure Hdınsight kümesi** bir Data Lake Store hesabına erişim. Bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](data-lake-store-hdinsight-hadoop-use-portal.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
-* **Hdınsight'ta Hive çalıştıran**.  Hdınsight'ta Hive işleri çalıştırma hakkında bilgi edinmek için bkz: () [Hive kullanma hdınsight'ta]https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Performans ayarlama yönergeleri ADLS**.  Genel performans için bkz [Data Lake deposu performans rehberi ayarlama](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Bir Data Lake depolama Gen1 hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake depolama Gen1 ile çalışmaya başlama](data-lake-store-get-started-portal.md)
+* **Azure HDInsight kümesinde** bir Data Lake depolama Gen1 hesabına erişim. Bkz: [ile Data Lake depolama Gen1 bir HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-portal.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
+* **HDInsight üzerinde Hive'ı çalıştıran**.  HDInsight üzerinde Hive işlerini çalıştırma hakkında bilgi edinmek için bkz [Hive kullanma HDInsight üzerinde] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Performans ayarlama yönergeleri Data Lake depolama Gen1**.  Genel performans için bkz [Data Lake depolama Gen1 performans ayarlama Kılavuzu](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametreler
 
-ADLS performansı için ince ayar için en önemli ayarları şunlardır:
+Data Lake depolama Gen1 performansı için ayarlamak için en önemli ayarları şunlardır:
 
 * **Hive.tez.Container.size** – her görevleri tarafından kullanılan bellek miktarı
 
 * **Tez.Grouping.Min boyutu** – minimum boyutu her Eşleyici
 
-* **Tez.Grouping.max boyutu** – maksimum boyutu her Eşleyici
+* **Tez.Grouping.max boyutu** – maksimum boyutunu her Eşleyici
 
-* **Hive.Exec.reducer.bytes.Per.reducer** – her reducer boyutu
+* **Hive.Exec.reducer.bytes.Per.reducer** – her Azaltıcı boyutu
 
-**Hive.tez.Container.size** -kapsayıcı boyutu her görev için kullanılabilir bellek miktarını belirler.  Eşzamanlılık kovanında denetlemek için ana giriş budur.  
+**Hive.tez.Container.size** -her görev için ne kadar bellek kullanılabilir kapsayıcı boyutu belirler.  Eşzamanlılık kovanında denetlemek için ana giriş budur.  
 
-**Tez.Grouping.Min boyutu** – Bu parametre her Eşleyici minimum boyutu ayarlamanıza olanak tanır.  Tez seçer mappers sayısı bu parametre değerinden daha küçükse, Tez Burada ayarlanan değeri kullanır.
+**Tez.Grouping.Min boyutu** – Bu parametre için en küçük boyut her Eşleyici ayarlamanıza olanak tanır.  Tez seçtiği azaltıcının sayısı, bu parametrenin değeri küçükse, Tez Burada ayarlanan değer kullanın.
 
-**Tez.Grouping.max boyutu** – parametresi, her Eşleyici en büyük boyutunu ayarlamanızı sağlar.  Tez seçer mappers sayısı bu parametre değerinden büyükse, Tez Burada ayarlanan değeri kullanır.
+**Tez.Grouping.max boyutu** – parametresi her Eşleyici en büyük boyutunu ayarlamanızı sağlar.  Tez seçtiği azaltıcının sayısı, bu parametrenin değeri büyükse, Tez Burada ayarlanan değer kullanın.
 
-**Hive.Exec.reducer.bytes.Per.reducer** – Bu parametre her reducer boyutunu ayarlar.  Varsayılan olarak, her reducer 256 MB'tır.  
+**Hive.Exec.reducer.bytes.Per.reducer** – Bu parametre her Azaltıcı boyutunu ayarlar.  Varsayılan olarak, her Azaltıcı 256 MB'tır.  
 
-## <a name="guidance"></a>Rehberlik
+## <a name="guidance"></a>Rehber
 
-**Hive.Exec.reducer.bytes.Per.reducer ayarlamak** – veri sıkıştırılmamış olduğunda varsayılan değer iyi çalışır.  Sıkıştırılmış veri boyutu reducer azaltmanız gerekir.  
+**Hive.Exec.reducer.bytes.Per.reducer ayarlamak** – veri sıkıştırılmamış olduğunda varsayılan değer iyi çalışır.  Sıkıştırılmış veri Azaltıcı boyutunu azaltmanız gerekir.  
 
-**Hive.tez.Container.size ayarlamak** – her bir düğümündeki bellek yarn.nodemanager.resource.memory mb belirtilir ve HDI kümesi üzerinde varsayılan olarak doğru bir şekilde ayarlamanız gerekir.  YARN içinde uygun bellek ayarlama hakkında ek bilgi için bkz [sonrası](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Hive.tez.Container.size ayarlamak** – her düğümde bellek yarn.nodemanager.resource.memory mb belirtilir ve HDI kümesi üzerinde varsayılan olarak doğru şekilde ayarlanması gerekir.  YARN içinde uygun bellek ayarlama hakkında ek bilgi için bkz. Bu [sonrası](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
-G/ç yoğun iş yükleri, Tez kapsayıcı boyutu azaltarak daha fazla paralellik yararlı olabilir. Bu kullanıcı eşzamanlılık artıran daha fazla kapsayıcı sağlar.  Ancak, bazı Hive sorguları önemli miktarda belleği (örneğin MapJoin) gerektirir.  Görev yeterli belleğe sahip değil bir yetersiz bellek özel durumu çalışma zamanı sırasında alırsınız.  Yetersiz bellek özel durumları alırsanız, bellek artırmanız gerekir.   
+G/ç kullanımlı iş yükleri, Tez kapsayıcı boyutu azaltarak daha fazla paralellik yararlı olabilir. Bu kullanıcı eşzamanlılık artıran daha fazla kapsayıcı sağlar.  Ancak, bazı Hive sorguları önemli miktarda bellek (örneğin MapJoin) gerektirir.  Görev yeterli bellek yoksa çalışma zamanı sırasında yetersiz bellek özel dışı alırsınız.  Yetersiz bellek özel durumları alırsanız, bellek yükseltmeniz gerekir.   
 
-Çalışan görevler veya paralellik eşzamanlı sayısını, toplam YARN bellek tarafından sınırlanmış.  YARN kapsayıcı sayısı, kaç tane eş zamanlı görevleri çalıştırabilir benimsendiği belirler.  Düğüm başına YARN bellek bulmak için Ambari gidebilirsiniz.  YARN için gidin ve yapılandırmalar sekmesini görüntüleyin.  YARN bellek Bu pencerede görüntülenir.  
+Eş zamanlı çalışan görevler veya paralellik sayısı, toplam YARN bellek tarafından sınırlanmış.  YARN kapsayıcı sayısı, kaç tane eş zamanlı görevleri çalıştırabilir gösterecektir.  Düğüm başına YARN bellek bulmak için ambarı'na gidebilirsiniz.  YARN için gidin ve yapılandırmaları sekmesini görüntüleyin.  YARN bellek Bu pencerede görüntülenir.  
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size
-ADLS kullanarak performansı iyileştirme anahtarını mümkün olduğunca eşzamanlılık artırmaktır.  Tez ayarlayın gerekmez böylece oluşturulması gereken görevlerin sayısını otomatik olarak hesaplar.   
+Data Lake depolama Gen1 kullanarak performans geliştirme için anahtar mümkün olduğunca eşzamanlılık artırmaktır.  Tez otomatik olarak ayarlamanız gerek kalmayacak şekilde oluşturulması gereken görev sayısını hesaplar.   
 
 ## <a name="example-calculation"></a>Örnek hesaplama
 
-Bir 8 düğüm D14 küme sahip varsayalım.  
+Bir 8 düğüm D14 kümesine sahip olursunuz varsayalım.  
 
     Total YARN memory = nodes * YARN memory per node
     Total YARN memory = 8 nodes * 96GB = 768GB
@@ -75,19 +75,19 @@ Bir 8 düğüm D14 küme sahip varsayalım.
 
 ## <a name="limitations"></a>Sınırlamalar
 
-**ADLS azaltma** 
+**Data Lake depolama Gen1 azaltma** 
 
-ADLS tarafından sağlanan bant genişliği sınırlarını isabet UIf, görev hataları görmeye başlarsınız. Bu görev günlükleri gözlemci azaltma hatalar nedeniyle tanımlanamadı.  Tez kapsayıcı boyutu artırarak paralellik düşürebilir.  Daha fazla eşzamanlılık işiniz için ihtiyacınız varsa, lütfen bizimle iletişime geçin.
+Data Lake depolama Gen1 tarafından sağlanan bant genişliği sınırına ulaşırsanız, görev hataları görmeye başlarsınız. Bu görev günlüklerde gözlemci azaltma hataları tanımlanamadı.  Tez kapsayıcı boyutu artırarak paralellik düşürebilir.  Daha fazla eşzamanlılık işiniz için ihtiyacınız varsa lütfen bizimle iletişime geçin.
 
-Kısıtlanan durumunda denetlemek için hata ayıklama istemci tarafında günlüğünü etkinleştirmeniz gerekir. İşte nasıl bunu yapabilirsiniz:
+Kaynaklarınızın azaltılıp olmadığını denetlemek için hata ayıklama günlüğü istemci tarafında etkinleştirmeniz gerekir. İşte nasıl bunu yapabilirsiniz:
 
-1. Hive config log4j özelliklerinde aşağıdaki özelliği yerleştirin. Bu Ambari görünümünden yapılabilir: log4j.logger.com.microsoft.azure.datalake.store=DEBUG tüm düğümleri/hizmet yapılandırma etkili olması yeniden başlatın.
+1. Şu özellik Hive yapılandırma log4j özelliklerinde yerleştirin. Ambari görünümünden bu yapılabilir: log4j.logger.com.microsoft.azure.datalake.store=DEBUG tüm düğümleri/hizmet için yapılandırmanın etkili olması yeniden başlatın.
 
-2. Kısıtlanan HTTP 429 hata kodunu hive günlük dosyasında görürsünüz. Hive günlük dosyası içinde /tmp/,&lt;kullanıcı&gt;/hive.log
+2. Kaynaklarınızın azaltılıp yığın günlük dosyasının HTTP 429 hata kodunu görürsünüz. İçinde /tmp/ hive günlük dosyasıdır&lt;kullanıcı&gt;/hive.log
 
 ## <a name="further-information-on-hive-tuning"></a>Hive ayarlama hakkında daha fazla bilgi
 
-Hive sorgularınızı ince ayar yardımcı olacak birkaç Web günlükleri şunlardır:
-* [Hdınsight'ta Hadoop için Hive sorguları en iyi duruma getirme](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Hive sorgusu performans sorunlarını giderme](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
-* [Konuşma göz atın üzerinde hdınsight'ta Hive en iyi duruma getirme](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)
+Hive sorgularınızı kolayca yardımcı olacak birkaç blogları şunlardır:
+* [HDInsight, Hadoop için Hive sorgularını en iyi duruma getirme](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
+* [Hive sorgu performansı sorunlarını giderme](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+* [Konuşma ıgnite üzerinde Hive HDInsight üzerinde iyileştirme](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

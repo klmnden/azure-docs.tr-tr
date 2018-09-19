@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 09/14/2018
 ms.author: bonova
-ms.openlocfilehash: 7a2b98f0a78c82b65d7d29181a048ab59f237107
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 113f171f5ad4bcc8ee9abc2935a9741f7c23c3b0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391938"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734227"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Yönetilen örnek (Önizleme) nedir?
 
@@ -61,7 +61,7 @@ Aşağıdaki tabloda, işlem, bellek, depolama ve g/ç kaynakları en iyi yapıl
 ||4. Nesil|5. Nesil|
 |----|------|-----|
 |Donanım|Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri, bağlı SSD sanal çekirdek = 1 PP (fiziksel çekirdek)|Intel E5-2673 v4 (Broadwell) 2,3 GHz işlemcileri, hızlı eNVM SSD, sanal çekirdek = 1 LP (hiper iş parçacığı)|
-|Performans seviyeleri|8, 16, 24 sanal çekirdek|8, 16, 24, 32, 40, 64, 80 sanal çekirdekler|
+|İşlem boyutları|8, 16, 24 sanal çekirdek|8, 16, 24, 32, 40, 64, 80 sanal çekirdekler|
 |Bellek|Sanal çekirdek başına 7 GB|Sanal çekirdek başına 5.5 GB|
 ||||
 

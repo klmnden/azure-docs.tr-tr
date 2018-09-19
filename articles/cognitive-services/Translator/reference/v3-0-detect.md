@@ -1,22 +1,23 @@
 ---
-title: Microsoft Çeviricisi metnini API Algıla yöntemi | Microsoft Docs
-description: Microsoft Çeviricisi metin API algılama yöntemini kullanın.
+title: Translator metin çevirisi API'si algılama yöntemi
+titlesuffix: Azure Cognitive Services
+description: Translator metin API'si algılama yöntemini kullanın.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 7e81e91230e1ada4423d77d22134b1b64df65d9d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6698960cca39fb49fe8ba6e79b957be469ea7c50
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354971"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126131"
 ---
-# <a name="text-api-30-detect"></a>Metin API 3.0: Algıla
+# <a name="translator-text-api-30-detect"></a>Translator metin çevirisi API'si 3.0: algılayın
 
 Bir metin parçası dilini tanımlar.
 
@@ -30,43 +31,43 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 ## <a name="request-parameters"></a>İstek parametreleri
 
-Sorgu dizesinde geçirilen isteği Parametreler şunlardır:
+Sorgu dizesinde geçirilen istek Parametreler şunlardır:
 
 <table width="100%">
   <th width="20%">Sorgu parametresi</th>
   <th>Açıklama</th>
   <tr>
     <td>API sürümü</td>
-    <td>*Gerekli parametre*.<br/>İstemci tarafından istenilen API sürümü. Değeri olmalıdır `3.0`.</td>
+    <td>*Gerekli parametre*.<br/>İstemci tarafından istenen API sürümü. Değer olmalıdır `3.0`.</td>
   </tr>
 </table> 
 
-İstek üstbilgilerini şunları içerir:
+İstek üst bilgileri ekleyin:
 
 <table width="100%">
   <th width="20%">Üst bilgiler</th>
   <th>Açıklama</th>
   <tr>
-    <td>_Bir yetkilendirme_<br/>_Üstbilgi_</td>
-    <td>*Gerekli istek üstbilgisi*.<br/>Bkz: [kimlik doğrulama için kullanılabilir seçenekleri](./v3-0-reference.md#authentication).</td>
+    <td>_Bir yetkilendirme_<br/>_Üst bilgi_</td>
+    <td>*Gerekli istek üst bilgisi*.<br/>Bkz: [kimlik doğrulaması için kullanılabilir seçenekler](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Gerekli istek üstbilgisi*.<br/>Yükü içerik türünü belirtir. Olası değerler şunlardır: `application/json`.</td>
+    <td>*Gerekli istek üst bilgisi*.<br/>Akıştaki içerik türünü belirtir. Olası değerler şunlardır: `application/json`.</td>
   </tr>
   <tr>
-    <td>Content-Length</td>
-    <td>*Gerekli istek üstbilgisi*.<br/>İstek gövdesini uzunluğu.</td>
+    <td>İçerik uzunluğu</td>
+    <td>*Gerekli istek üst bilgisi*.<br/>İstek gövdesi uzunluğu.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*İsteğe bağlı*.<br/>İstek benzersiz şekilde tanımlamak için bir istemci tarafından üretilen GUID. İzleme kimliği adlı bir sorgu parametresini kullanarak sorgu dizesinde eklerseniz, bu başlığı atlayabilirsiniz Not `ClientTraceId`.</td>
+    <td>*İsteğe bağlı*.<br/>İstek benzersiz olarak tanımlanabilmesi için bir istemci tarafından oluşturulan GUID. İzleme kimliği adlı bir sorgu parametresi kullanarak sorgu dizesinde eklerseniz bu başlığı atlayabilirsiniz Not `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>İstek gövdesi
 
-İstek gövdesi bir JSON dizisidir. Her dizi öğesi adlı bir dize özelliği ile bir JSON nesnesidir `Text`. Dil algılama değerine uygulanan `Text` özelliği. Bir örnek istek gövdesi gibi görünür:
+İstek gövdesinde bir JSON dizisidir. Her dizi öğesi bir dize özelliği adlı bir JSON nesnesidir `Text`. Dil algılama değerine uygulanır `Text` özelliği. Örnek istek gövdesi aşağıdaki gibi görünür:
 
 ```json
 [
@@ -74,27 +75,27 @@ Sorgu dizesinde geçirilen isteği Parametreler şunlardır:
 ]
 ```
 
-Aşağıdaki sınırlamalar uygulanır:
+Aşağıdaki sınırlamalar geçerlidir:
 
-* Dizi en çok 100 öğeler bulunabilir.
-* Bir dizi öğesinin metin değeri, boşluklar dahil olmak üzere 10.000 karakterden uzun olamaz.
-* İstekte bulunan tüm metin, boşluklar dahil olmak üzere 50.000 karakterden uzun olamaz.
+* Dizi en fazla 100 öğeleri olabilir.
+* Bir dizi öğesinin metin değeri boşluk da dahil olmak üzere 10.000 karakterden uzun olamaz.
+* İstekte bulunan tüm metin alanları dahil olmak üzere 50. 000'karakterden uzun olamaz.
 
 ## <a name="response-body"></a>Yanıt gövdesi
 
-Başarılı yanıt Giriş dizisindeki her dize için bir sonuç içeren bir JSON dizisidir. Sonuç nesnesi aşağıdaki özellikleri içerir:
+Başarılı bir yanıt için Giriş dizisinin her bir dizede tek bir sonuç ile bir JSON dizisidir. Sonuç nesnesi, aşağıdaki özellikleri içerir:
 
   * `language`: Algılanan dil kodu.
 
-  * `score`: Güvenilirlik sonucundaki gösteren bir float değeri. Sıfır ile bir puan arasındadır ve düşük puanı düşük güvenilirlik gösterir.
+  * `score`: Sonuçta güvenle gösteren bir float değeri. Sıfır ile bir puan arasındadır ve düşük puanı düşük güven gösterir.
 
-  * `isTranslationSupported`: Algılanan dil metin çevirisi için desteklenen dilleri ise geçerlidir bir Boole değeri.
+  * `isTranslationSupported`: Algılanan dilin metin çevirisi için desteklenen dilleri ise geçerlidir bir Boole değeri.
 
-  * `isTransliterationSupported`: Algılanan dil harf çevirisi için desteklenen dilleri ise geçerlidir bir Boole değeri.
+  * `isTransliterationSupported`: Algılanan dilin alfabeye için desteklenen dilleri ise geçerlidir bir Boole değeri.
   
-  * `alternatives`: Diğer olası diller bir dizi. Dizideki her öğe yukarıda listelenen aynı özelliklere sahip başka bir nesnedir: `language`, `score`, `isTranslationSupported` ve `isTransliterationSupported`.
+  * `alternatives`: Diğer olası diller bir dizi. Dizinin her öğesinin yukarıda listelenen aynı özelliklere sahip başka bir nesnedir: `language`, `score`, `isTranslationSupported` ve `isTransliterationSupported`.
 
-JSON yanıt örneğidir:
+JSON yanıtı örneği verilmiştir:
 
 ```json
 [
@@ -128,13 +129,13 @@ JSON yanıt örneğidir:
   <th>Açıklama</th>
   <tr>
     <td>X-RequestId</td>
-    <td>İstek tanımlamak için hizmeti tarafından oluşturulan değer. Sorun giderme amacıyla kullanılır.</td>
+    <td>İstek tanımlamak için hizmeti tarafından oluşturulan değeri. Sorun giderme amacıyla kullanılır.</td>
   </tr>
 </table> 
 
-## <a name="response-status-codes"></a>Yanıtı durum kodları
+## <a name="response-status-codes"></a>Yanıt durum kodları
 
-Bir istek döndürür olası HTTP durum kodları şunlardır: 
+Bir isteği döndüren olası HTTP durum kodları şunlardır: 
 
 <table width="100%">
   <th width="20%">Durum Kodu</th>
@@ -145,33 +146,33 @@ Bir istek döndürür olası HTTP durum kodları şunlardır:
   </tr>
   <tr>
     <td>400</td>
-    <td>Sorgu parametrelerden biri eksik veya geçerli değil. İstek parametreleri denemeden önce düzeltin.</td>
+    <td>Sorgu parametrelerden biri eksik veya geçerli değil. İstek parametreleri yeniden denemeden önce düzeltin.</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>İsteğin kimliği doğrulanamadı. Kimlik bilgilerinin belirtilen ve geçerli olduğunu denetleyin.</td>
+    <td>İsteğin kimliği doğrulanamadı. Kimlik bilgilerinin belirtilen ve geçerli olup olmadığını denetleyin.</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>İstek yetkili değil. Ayrıntılar hata iletisine bakın. Bu, genellikle bir deneme aboneliği ile sağlanan tüm boş çevirileri kullanılmış olduğunu gösterir.</td>
+    <td>İstek yetkili değil. Ayrıntıları hata iletisine bakın. Bu, genellikle bir deneme aboneliği ile sağlanan tüm ücretsiz çevirileri kullanılmış olan olduğunu gösterir.</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>Çağrıyı yapan çok sayıda istek gönderiyor.</td>
+    <td>Çağıran, çok fazla istek gönderiyor.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Beklenmeyen bir hata oluştu. Sorun devam ederse, kendisiyle Rapor: tarih ve saat hata, istek tanımlayıcısı yanıt başlığından `X-RequestId`ve istemci tanımlayıcısı istek üstbilgisinden `X-ClientTraceId`.</td>
+    <td>Beklenmeyen bir hata oluştu. Sorun devam ederse, raporu ile: tarih ve saat hatanın yanıt üst bilgisinden istek tanımlayıcısı `X-RequestId`ve istemci tanımlayıcısı istek üst bilgisinden `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Sunucu geçici olarak kullanılamıyor. İsteği yeniden deneyin. Sorun devam ederse, kendisiyle Rapor: tarih ve saat hata, istek tanımlayıcısı yanıt başlığından `X-RequestId`ve istemci tanımlayıcısı istek üstbilgisinden `X-ClientTraceId`.</td>
+    <td>Sunucu geçici olarak kullanılamıyor. İsteği yeniden deneyin. Sorun devam ederse, raporu ile: tarih ve saat hatanın yanıt üst bilgisinden istek tanımlayıcısı `X-RequestId`ve istemci tanımlayıcısı istek üst bilgisinden `X-ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="examples"></a>Örnekler
 
-Aşağıdaki örnekte, metin çevirisi için desteklenen dilleri alınacak gösterilmiştir.
+Aşağıdaki örnekte, metin çevirisi için desteklenen dilleri alınacak gösterilmektedir.
 
 # <a name="curltabcurl"></a>[Curl](#tab/curl)
 

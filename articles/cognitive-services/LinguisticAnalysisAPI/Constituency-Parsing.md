@@ -1,95 +1,96 @@
 ---
-title: Dil analiz API'de ayrıştırma constituency | Microsoft Docs
-description: Ayrıştırma, olarak da bilinen "yapısını ayrıştırmaya, tümcecik" constituency metin tümcecikleri nasıl tanımlayan hakkında bilgi edinin.
+title: Constituency ayrıştırma - dil analizi API'si
+titlesuffix: Azure Cognitive Services
+description: Diğer adıyla "yapısını ayrıştırmaya, tümcecik" ayrıştırma metin tümcecikleri nasıl tanımlar hakkında bilgi edinin.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
-ms.openlocfilehash: bff5e587621e1278c260d555aec280a0f4c7c8a1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 83ea72e7c5c880ecab7d165e029f948144506271
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082181"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127713"
 ---
-# <a name="constituency-parsing"></a>Ayrıştırma constituency
+# <a name="constituency-parsing"></a>Ayrıştırma
 
-("Ayrıştırma olarak da bilinen tümcecik yapısı") ayrıştırma constituency amacı, metindeki tümcecikleri belirlemektir.
-Bu bilgi metinden çıkarılırken yararlı olabilir.
-Müşteriler, özellik adları veya büyük bir metin gövdesi gelen anahtar tümcecikleri bulmak ve değiştiricileri ve her tür tümceciği çevreleyen eylemleri görmek için isteyebilirsiniz.
+("Ayrıştırma olarak da bilinen aşama yapısı") ayrıştırma amacı, metin tümcecikleri belirlemektir.
+Bu bilgiler metinden ayıklanırken yararlı olabilir.
+Müşteriler, özellik adları veya büyük metin gövdesinden anahtar ifadeleri bulmak ve değiştiriciler ve her bir tümceciği çevreleyen eylemleri görmek için isteyebilirsiniz.
 
-## <a name="phrases"></a>Deyimleri
+## <a name="phrases"></a>İfadeleri
 
-Bir dilbilimci için bir *tümcecik* daha fazlasını sözcükleri bir dizisidir.
-Bir ifade olması belirli bir rol cümlede yürütmek için bir araya gelmesi bir grup sözcük gerekir.
-Sözcükler grubu birlikte taşınan ya da bir bütün olarak değiştirildi ve cümle fluent ve dilbilgisi kalmalıdır.
+Bir dil için bir *tümcecik* daha fazlasını bir kelimelerin sırasıdır.
+Bir ifade olmasını tümce içinde belirli bir rol oynamaya birlikte gelen bir kelimelerin grubu gerekir.
+Bu gruba sözcük birlikte taşınır veya bir bütün olarak değiştirildi ve cümlenin fluent ve dilbilgisi kalmalıdır.
 
-Tümce göz önünde bulundurun
+Cümlenin göz önünde bulundurun.
 
-> Bluetooth ile yeni bir karma otomobil bulmak istediğiniz.
+> Bluetooth ile yeni bir karma otomobil bulmak istiyorsanız.
 
-Bu cümleyi isim tümcecik içerir: "bir yeni karma otomobil Bluetooth".
-Bu bir tümceciği olduğunu nasıl biliyoruz?
-Tüm bu tümceciği öne taşıyarak biz cümle (biraz poetically) yazabilirsiniz:
+Bu cümleyi isim tümceciğini içeriyor: "bir yeni hibrit Otomobille Bluetooth".
+Nasıl Biz bu tümcecik olduğunu biliyor musunuz?
+Tam tümcecik önüne geçerek şu cümleyi (biraz poetically) yazabilirsiniz:
 
-> Bulmak istediğiniz Bluetooth ile yeni bir karma otomobil.
+> Bluetooth ile yeni bir karma otomobil öğrenmek istiyorum.
 
-Veya benzer işlevi ve "yeni bir süslü araba" gibi bir anlam ifade Biz bu tümceciği değiştirin:
+Veya benzer bir işlev ve anlamı, "yeni bir başvurmaktan araba" gibi bir ifade ile Biz bu tümceciği yerini alabilir:
 
-> Süslü yeni otomobil bulmak istediğiniz.
+> Süslü yeni bir araba bulmak istiyorsanız.
 
-Bunun yerine biz sözcüklerin farklı alt kaldırdıysa, bu değiştirme görevleri garip veya okunamaz cümlelere yol açar.
-"Yeni bir öne Bul" taşıdığınızda, ne olacağını düşünün:
+Bunun yerine biz farklı alt sözcük kaldırdıysa değiştirme görevleri garip veya okunamaz cümlelere yol açar.
+"Yeni bir öne bulma" taşıma ne olacağını göz önünde bulundurun:
 
 > Yeni Karma otomobil Bluetooth istiyorum bulun.
 
-Sonuçları okuduğunuzdan ve anladığınızdan oldukça zor.
+Sonuçları okumanız ve anlamanız oldukça zor olur.
 
-Bir ayrıştırıcı tüm tümcecikleri bulmanızı hedefidir.
-İlginçtir ki, doğal dil tümcecikleri başka içinde iç içe geçmiş eğilimindedir.
-Şu tümceciklerden doğal gösterimi aşağıdaki gibi bir ağaç ise:
+Bir Ayrıştırıcı amacı, bu tür ifadeleri bulmaktır.
+İlginçtir ki, doğal dilde ifadeleri birbiriyle içinde iç içe geçmiş eğilimindedir.
+Bu tümcecikleri doğal bir temsilini aşağıdaki gibi bir ağaç verilmiştir:
 
 ![Ağaç](./Images/tree.png)
 
-Bu ağacında "NP" olarak işaretlenmiş dalları isim tümcecikleri ' dir.
-Birkaç tümcecikleri vardır: *ı*, *yeni bir karma otomobil*, *Bluetooth*, ve *Bluetooth ile yeni bir karma otomobil*.
+Bu ağacında "NP" işaretli dalları isim deyime dikkat etmelisiniz.
+Bu tür ifadeleri vardır: *miyim*, *yeni bir karma otomobil*, *Bluetooth*, ve *Bluetooth ile yeni bir karma otomobil*.
 
 ## <a name="phrase-types"></a>İfade türleri
 
 | Etiket | Açıklama | Örnek |
 |-------|-------------|---------|
-|ADJP   | Sıfat deyimi | "Bu nedenle utangaç" |
-|ADVP   | Zarfı deyimi | "aracılığıyla Temizle" |
-|CONJP  | Birlikte deyimi | "yanı" |
-|PARÇA   | Parça, eksik veya fragmentary girişleri için kullanılır | "Tavsiye..." |
+|ADJP   | Sıfat tümceciği | "Bu nedenle rude" |
+|ADVP   | Zarfı tümceciği | "clear üzerinden" |
+|CONJP  | Birlikte tümceciği | "olarak" |
+|PARÇA   | Eksik ya da fragmentary girdiler için kullanılan bir parça | "Kesinlikle önerilir..." |
 |INTJ   | İnterjection | "Hooray" |
-|LST    | Noktalama işaretleri dahil olmak üzere liste işaretçisi | "#4)" |
-|NAC    | Değil A destekçi olmayan ifadesi kapsamı göstermek için kullanılan bağlı, |  "ve iyi bir anlaşma için" ", işlerinizi ve için iyi bir Dağıt" |
-|NP | İsim deyimi | "tasty Patates Krep" |
-|NX | Head işaretlemek için belirli karmaşık NPs içinde kullanılan| |
-|GÖ | Edat deyimi| "havuzunda" |
+|LST    | Noktalama işaretleri dahil olmak üzere, liste işaretçisi | "#4)" |
+|NAC    | Olmayan bir destekçi olmayan tümcecik kapsam göstermek için kullanılan bağlı, |  "ve iyi bir fırsat için" ", işlerinizi ve için iyi bir Dağıt" |
+|NP | İsim tümceciği | "tasty Patates Krep" |
+|NX | İçinde karmaşık belirli NPs baş işaretlemek için kullanılan| |
+|PP | Edat tümceciği| "havuzda" |
 |PRN    | Parantez| "(Bu nedenle denir)" |
 |PRT    | Parçacık| içinde "kopyalanan"out"" |
-|QP | Bir isim deyimi içinde miktar tümcecik (yani, karmaşık ölçü/tutar)| "$75" |
-|RRC    | Azaltılmış göreli yan tümcesi.| "" birçok sorunları hala çözümlenmemiş"hala çözümlenmemiş" |
-|S  | Tümce veya yan tümcesi. | "Bir cümle budur."
-|SBAR   | Genellikle subordinating birlikte tarafından sunulan alt yan tümcesi | "g sol" "ı bıraktığınız ı Aranan."|
-|SBARQ  | Uyu sözcük veya tümcecik tarafından - tanıtılan doğrudan soru | "Noktası neydi?" |
-|SINV   | Ters bildirim temelli cümle | "Hiçbir zaman uyumlu oldukları." (fiil "bundan sonra" nasıl normal konu "," taşındı unutmayın) |
-|SQ | Evet/Hayır soru veya ana yan tümcesi uyu soru ters | "Araba elde?" |
-|UCP    | Eşgüdümlü deyimi| "küçük ve hatalarda" (nasıl gelen ve bir preposition deyimi ile conjoined Not "ve")|
-|SES İZİ | Fiili deyimi | "özdemir çalışma konumu" |
-|WHADJP | Uyu gelen deyimi | "nasıl rahatsız" |
-|WHADVP | Uyu zarfı deyimi| "zaman" |
-|WHNP   | Uyu isim deyimi| "Patates hangi", "Çorbası ne kadar"|
-|WHPP   | Uyu prepositional deyimi| "hangi ülkede"|
-|X  | Bilinmeyen, belirsiz veya unbracketable.| ilk "", "... Çorbası" |
+|QP | Bir isim deyimi içindeki miktar tümcecik (yani, karmaşık ölçü/tutar)| "$75" |
+|RRC    | Azaltılmış göreli yan tümcesi.| "" birçok sorunları hala çözülmemiş"hala çözülmemiş" |
+|S  | Veya yan tümce. | "Bir cümle sağlıyor."
+|SBAR   | Genellikle bir subordinating birlikte tarafından sunulan alt yan tümcesi | "ı sol" "Anlayabilirim gibi ı biraz."|
+|SBARQ  | Wh sözcük veya tümcecik tarafından - tanıtılan doğrudan soru | "Noktası neydi?" |
+|SINV   | Ters bildirim temelli cümle | "Hiçbir zaman bunlar kullanan." (Not fiili "bundan sonra" nasıl normal konu "," taşındı) |
+|SQ | Evet/Hayır soru veya ana yan ne soru ters | "Araba aldıkları?" |
+|UCP    | Eşgüdümlü tümceciği| "küçük ve hatalarda" (nasıl bir sıfat ve preposition tümcecik ile conjoined Not "ve")|
+|SORUMLU BAŞKAN YARDIMCISI | Fiili tümceciği | "özdemir ran" |
+|WHADJP | Wh sıfat tümceciği | "nasıl rahatsız" |
+|WHADVP | Wh zarfı tümceciği| "" |
+|WHNP   | Wh isim tümceciği| "hangi Patates", "A'dan ne kadar"|
+|WHPP   | Wh prepositional tümceciği| "hangi ülkede"|
+|X  | Bilinmeyen, belirsiz veya unbracketable.| ilk "", "... A'dan" |
 
 
 ## <a name="specification"></a>Belirtimi
 
-Burada ağaçları kullanma gelen S ifadeleri [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Buraya ağacı gelen S ifadeleri kullanın [da Treebank](https://catalog.ldc.upenn.edu/ldc99t42).

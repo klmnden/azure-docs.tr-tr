@@ -1,6 +1,6 @@
 ---
-title: Akıllı algılama - performans anormalliklerini | Microsoft Docs
-description: Application Insights, uygulama telemetri akıllı çözümleme yapar ve olası sorunları sizi uyarır. Bu özellik Kurulum gerekir.
+title: Akıllı algılama - performans anomalileri | Microsoft Docs
+description: Application Insights, uygulama telemetrinizde akıllı analiz gerçekleştirir ve olası sorunları sizi uyarır. Bu özellik, herhangi bir kurulum gerekir.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -10,183 +10,185 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2017
-ms.author: mbullwin; antonfr
-ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: antonfr
+ms.author: mbullwin
+ms.openlocfilehash: eef597bf0c9f28cdec5af56c6dfe8bcaaa2415bd
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35651170"
 ---
-# <a name="smart-detection---performance-anomalies"></a>Akıllı algılama - performans Anormalliklerini
+# <a name="smart-detection---performance-anomalies"></a>Akıllı algılama - performans Anomalileri
 
-[Application Insights](app-insights-overview.md) otomatik olarak, web uygulamanızın performansını analiz eder ve olası sorunlar hakkında sizi uyarabilir. Bizim akıllı algılama bildirimlerini aldığından, bu okuma.
+[Application Insights](app-insights-overview.md) otomatik olarak web uygulamanızın performansını analiz eder ve olası sorunlar hakkında sizi uyarabilir. Bizim akıllı algılama bildirim aldığından, bu okuma.
 
-Bu özellik için Application Insights, uygulamanızın yapılandırma dışında hiçbir özel kurulum gerektirir (üzerinde [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), veya [Node.js](app-insights-nodejs.md)hem de [web sayfası kod](app-insights-javascript.md)). Uygulamanızı yeterli telemetri oluşturduğunda etkin olur.
+Bu özellik, uygulamanız için Application Insights yapılandırma dışında hiçbir özel kurulum gerektirir (üzerinde [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), veya [Node.js](app-insights-nodejs.md)hem de [web sayfası kod](app-insights-javascript.md)). Uygulamanızı yeterli telemetri oluşturduğunda etkin değil.
 
-## <a name="when-would-i-get-a-smart-detection-notification"></a>Bir akıllı algılama bildirim ulaştıklarında?
+## <a name="when-would-i-get-a-smart-detection-notification"></a>Bir akıllı algılama bildirim ne zaman elde edersiniz?
 
 Application Insights, uygulamanızın performansını şu yollardan biriyle düştü algıladı:
 
-* **Yanıt süresi düşüşü** -uygulamanızı daha yavaş için kullanıldığını isteklerine yanıt başlatıldı. Son dağıtımınız'teki bir gerileme olduğundan değişiklik Örneğin hızlı silinmiş olabilir. Veya, belki de bellek sızıntısı tarafından neden aşamalı, silinmiş olabilir. 
-* **Bağımlılık süresi düşüşü** -uygulamanızı bir REST API'si, veritabanı ya da diğer bağımlılık çağrılar. Bağımlılık için kullanılan daha daha yavaş yanıt vermiyor.
-* **Yavaş performans düzeni** -uygulamanızı yalnızca bazı istekleri etkileyen bir performans sorunu görünüyor. Örneğin, sayfalar daha yavaş diğerlerinden tarayıcının bir türündeki yüklüyorsunuz; veya isteklerini belirli bir sunucudan daha yavaş hizmet vermeleri sağlanır. Şu anda bizim algoritmalar, sayfa yükleme sürelerinin, istek yanıt sürelerini ve bağımlılık yanıt sürelerini bakın.  
+* **Yanıt süresinde performans düşüşü** -uygulamanız için harcadığımız süreden daha yavaş isteklere yanıt başlatıldı. Son dağıtımınız'teki bir gerileme olduğundan değişiklik hızlı örnek için silinmiş olabilir. Veya, belki de bir bellek sızıntısı tarafından neden aşamalı, silinmiş olabilir. 
+* **Bağımlılık süresi düşüşü** -REST API, veritabanı veya diğer bağımlılık çağrıları uygulamanızı sağlar. Bağımlılık için harcadığımız süreden daha yavaş yanıt veriyor.
+* **Yavaş performans deseni** -yalnızca bazı istekleri etkileyen bir performans sorunu, uygulamanızı görünür. Örneğin, sayfaları bir tür tarayıcı diğerlerinden daha yavaş yükleniyor; veya istekleri belirli bir sunucudan daha yavaş hizmet vermeleri sağlanır. Şu anda, sayfa yükleme süreleri, istek yanıt süreleri ve bağımlılık yanıt süreleri algoritmalarınızı arayın.  
 
-Akıllı algılama en az 8 gün çalışılabilir birim telemetrisini normal performansının taban çizgisini oluşturmak için gereklidir. Bu nedenle, uygulamanızı belirli bir döneme ait çalıştıran sonra herhangi bir önemli sorun bir bildirim neden olur.
+Akıllı algılama, normal performansının taban çizgisini oluşturmak için en az 8 gün çalışılabilir hacimde telemetri gerektirir. Bu nedenle, uygulamanızın belirli bir döneme ait çalıştırıldıktan sonra herhangi bir önemli sorun bildirim neden olur.
 
 
-## <a name="does-my-app-definitely-have-a-problem"></a>Uygulamam kesinlikle bir sorun var mı?
+## <a name="does-my-app-definitely-have-a-problem"></a>Uygulamamı kesinlikle bir sorun var mı?
 
-Hayır, bir bildirim uygulamanızı kesinlikle bir sorun olduğu anlamına gelmez. Bu öneri hakkında daha fazla yakından bakmak isteyebilirsiniz yeterlidir şeyle ilgili olur.
+Hayır, bir bildirim uygulamanızı kesinlikle bir sorun olduğu anlamına gelmez. Bu öneri hakkında daha fazla bilgi yakından atmak isteyebilirsiniz yalnızca bir şey hakkında olur.
 
 ## <a name="how-do-i-fix-it"></a>Bunu nasıl düzeltirim?
 
-Bildirimleri tanılama bilgileri içerir. Bir örneği aşağıda verilmiştir:
+Bildirimler, tanılama bilgilerini içerir. Bir örneği aşağıda verilmiştir:
 
 
-![Sunucu yanıt süresi düşüşü algılama bir örneği burada verilmiştir](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![İşte bir örnek sunucu yanıt süresinde performans düşüşü algılama](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
 
-1. **Önceliklendirme**. Bildirim kaç kullanıcı veya kaç işlemleri etkilenir gösterir. Bu sorun için bir öncelik atamanıza yardımcı olabilir.
-2. **Kapsam**. Sorun, tüm trafik veya yalnızca bazı sayfaları söz konusu? Belirli tarayıcılar veya konumları sınırlı? Bu bilgiler bildirimden alınabilir.
-3. **Tanılama**. Genellikle, bildirim tanılama bilgileri sorunun doğasına önerir. Örneğin, istek oranı yüksek olduğunda yanıt süresi düşerse sunucunuz veya bağımlılıkları aşırı öneren. 
+1. **Önceliklendirme**. Bildirim kaç kullanıcının veya kaç operations etkilenen gösterir. Bu sorun için bir öncelik atamanıza yardımcı olabilir.
+2. **Kapsam**. Sorun, tüm trafiği veya yalnızca bazı sayfalar etkileniyor? Belirli tarayıcılar veya konumlara sınırlıdır? Bu bilgiler gelen bildirim elde edilebilir.
+3. **Tanılama**. Genellikle, bildirim tanılama bilgileri sorunun doğasına önerir. Örneğin, yanıt süresi uzuyor istek hızı yüksek olduğunda, sunucu veya bağımlılıklar aşırı önerir. 
 
-    Aksi takdirde, Application Insights'ta performans dikey penceresini açın. Burada, bulacaksınız [profil oluşturucu](app-insights-profiler.md) veri. Özel durumlar varsa, siz de deneyebilirsiniz [anlık görüntü hata ayıklayıcı](app-insights-snapshot-debugger.md).
+    Aksi takdirde, Application Insights'da performans dikey penceresini açın. Burada, bulacaksınız [Profiler](app-insights-profiler.md) veri. Özel durumlar varsa da deneyebilirsiniz [anlık görüntü hata ayıklayıcısı](app-insights-snapshot-debugger.md).
 
 
 
-## <a name="configure-email-notifications"></a>E-posta bildirimleri yapılandırma
+## <a name="configure-email-notifications"></a>E-posta bildirimlerini yapılandırma
 
-Akıllı algılama bildirimleri varsayılan olarak etkindir ve sahip olanlar gönderilen [sahipleri, Katkıda Bulunanlar ve okuyucular erişmek için Application Insights kaynağı](app-insights-resources-roles-access-control.md). Bunu değiştirmek için ya da tıklatın **yapılandırma** e-posta bildirimi ya da Application ınsights'ta akıllı algılama ayarlarını Aç. 
+Akıllı algılama bildirimleri varsayılan olarak etkindir ve sahip olanlar için gönderilen [sahipleri, Katkıda Bulunanlar ve okuyucular erişmek için Application Insights kaynağı](app-insights-resources-roles-access-control.md). Bunu değiştirmek için ' a tıklayın ya da **yapılandırma** e-posta bildirimi veya Application Insights, akıllı algılama ayarlarını Aç. 
   
   ![Akıllı algılama ayarları](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
   
   * Kullanabileceğiniz **aboneliği** e-posta bildirimleri almayı durdurmak için akıllı algılama e-postadaki bağlantıya.
 
-E-postaları akıllı algılamaların performans anormalliklerini hakkında bir e-posta Application Insights kaynağı başına günde sınırlıdır. Yalnızca o gün algılandı en az bir yeni sorun olduğunda e-posta gönderilir. Herhangi bir iletisi yineler alamazsınız. 
+Akıllı algılama performans anomalileri hakkında e-posta, Application Insights kaynağı başına bir günde bir e-posta sınırlıdır. Yalnızca o gün algılandı ve yeni en az bir sorun olduğunda e-posta gönderilir. Tüm iletinin yineler elde etmezsiniz. 
 
 ## <a name="faq"></a>SSS
 
-* *Bu nedenle, Microsoft personeli my verilerini görmesine?*
-  * Hayır. Hizmet tamamen otomatik olarak yapılır. Yalnızca bildirimleri alır. Verileriniz [özel](app-insights-data-retention-privacy.md).
-* *Application Insights tarafından toplanan tüm verileri çözümlemek?*
-  * Değil şu anda. Şu anda isteği yanıt süresi, bağımlılık yanıt süresi ve sayfa yükleme süresi çözümleyin. Ek ölçümler analizini ileriye doğru arama bizim biriktirme listesi üzerinde ' dir.
+* *Bu nedenle, Microsoft personeli verilerimi geldi mi?*
+  * Hayır. Hizmeti tamamen otomatik olarak yapılır. Yalnızca bildirimleri alın. Verileriniz [özel](app-insights-data-retention-privacy.md).
+* *Application Insights tarafından toplanan tüm verileri analiz etmeye?*
+  * Değil şu anda. Şu anda isteği yanıt süresi, bağımlılık yanıt süresi ve sayfa yükleme süresi analiz ediyoruz. Ek ölçümler analizini ileriye doğru arama çalışıyoruz ' dir.
 
-* Ne tür bir uygulama bu için çalışıyor mu?
-  * Bu degradations uygun telemetri oluşturması herhangi bir uygulamada algılanır. Application Insights web uygulamanızda yüklediyseniz, ardından istekleri ve bağımlılıkları otomatik olarak izlenir. Ancak, arka uç Hizmetleri veya diğer uygulamalardan çağrıları eklediyseniz [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) veya [TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency), sonra da akıllı algılama aynı şekilde çalışır.
+* Ne tür bir uygulama için bu çalışır?
+  * Bu performans düşüşü yaşanması uygun telemetri oluşturması herhangi bir uygulamada algılanır. Web uygulamanızda Application Insights'ı yüklediyseniz, ardından istekleri ve bağımlılıkları otomatik olarak izlenir. Ancak, arka uç Hizmetleri ya da diğer uygulamalarda çağrıları eklediyseniz [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) veya [TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency), akıllı algılama aynı şekilde çalışmayacaktır.
 
-* *I kendi anomali algılama kuralları oluşturabilir veya mevcut kurallar özelleştirme?*
+* *Kendi anomali algılama kuralları oluşturun veya miyim mevcut kurallarını özelleştirme?*
 
   * Henüz, ancak şunları yapabilirsiniz:
-    * [Uyarıları ayarlamak](app-insights-alerts.md) , söyleyin, ne zaman bir ölçüm bir eşik kestiği.
-    * [Telemetri verme](app-insights-export-telemetry.md) için bir [veritabanı](app-insights-code-sample-export-sql-stream-analytics.md) veya [Powerbı için](app-insights-export-power-bi.md), burada, bunu kendiniz çözümleyebilirsiniz.
-* *Sıklıkla çözümleme yapılır?*
+    * [Uyarıları Ayarlama](app-insights-alerts.md) , bilgi, ne zaman bir ölçüm eşiği aştığında.
+    * [Telemetriyi dışarı aktarma](app-insights-export-telemetry.md) için bir [veritabanı](app-insights-code-sample-export-sql-stream-analytics.md) veya [Power BI için](app-insights-export-power-bi.md), burada, bunu kendiniz analiz edebilirsiniz.
+* *Ne sıklıkta çözümleme yapılır?*
 
-  * Biz analiz günlük önceki gün (tam gün içinde UTC saat dilimi) telemetrisinden çalıştırın.
+  * Analiz günlük önceki günün (UTC saat dilimine tam gün) telemetrisi üzerinde çalıştırıyoruz.
 * *Bu nedenle, bu Değiştir mu [ölçüm uyarıları](app-insights-alerts.md)?*
-  * Hayır.  Olağan dışı düşünebilirsiniz her davranışı algılama için yürütme yok.
+  * Hayır.  Olağan dışı düşünebilirsiniz her davranış algılama için işleme yok.
 
 
-* *Yanıt olarak bir bildirim hiçbir şey yapmayın, anımsatıcı alırsınız?*
-  * Hayır, her sorun hakkında bir ileti yalnızca bir kez alın. Sorun devam ederse akıllı dikey akış algılama, güncelleştirilir.
-* *I e-posta kesildi. Portalda bildirimleri nereden bulabilirim?*
-  * Uygulamanıza Application Insights bakış tıklatın **akıllı algılama** döşeme. Var. tüm bildirimleri 90 gün geri Bul mümkün olur.
+* *Yanıt olarak bir bildirim herhangi bir şey yapmaz, anımsatıcı alırım?*
+  * Hayır, her sorun hakkında bir ileti yalnızca bir kez alırsınız. Sorun devam ederse dikey akışı akıllı algılama, güncelleştirilecektir.
+* *Ben, e-posta kaybolur. Portalda bildirimleri nerede bulabilirim?*
+  * Uygulamanızı Application Insights bakış **akıllı algılama** Döşe. Burada tüm bildirimleri ayarlama 90 gün geriye bulmak mümkün olacaktır.
 
-## <a name="how-can-i-improve-performance"></a>Performansı artırmak ne?
-Yavaş ve başarısız yanıtları kendi deneyimlerden bildiğiniz gibi web sitesi kullanıcı için en büyük frustrations biridir. Bu nedenle, sorunları gidermek önemlidir.
+## <a name="how-can-i-improve-performance"></a>Performansı nasıl geliştirebilirim?
+Yavaş ve başarısız yanıtları kendi deneyiminden bildiğiniz gibi web sitesi kullanıcı için en büyük frustrations biridir. Bu nedenle, sorunları gidermek önemlidir.
 
-### <a name="triage"></a>Değerlendirme
-İlk olarak, önemli mu? Bir sayfa her zaman yüklenmesi yavaş, ancak yalnızca %1 sitenizin kullanıcılarının herhangi bir zamanda bakmak sahip belki de dikkat etmeniz gereken daha önemli noktalar varsa. Diğer taraftan, %1 kullanıcı açın, ancak her zaman özel durumları oluşturur yalnızca, araştırma değer olabilir.
+### <a name="triage"></a>Önceliklendirme
+İlk olarak, önemli mi? Belki de her zaman bir sayfa yavaş, ancak yalnızca %1 sitenizin kullanıcı hiç olmadığı kadar bakmak zorunda, dikkat etmeniz gereken önemli noktalar vardır. Öte yandan, %1 kullanıcı açabilirsiniz, ancak her seferinde istisnalar fırlatıyorsa yalnızca, incelemeye değer olabilir.
 
-Etkisi deyimi (etkilenen kullanıcılar veya trafiği %) genel bir kılavuz olarak kullanın, ancak Yazının tamamını olmadığını unutmayın. Onaylamak için diğer kanıt toplayın.
+Etkisi ifadesi (etkilenen kullanıcılar veya trafik yüzdesi) genel bir kılavuz olarak kullanın, ancak hikayenin tamamını olmadığını unutmayın. Onaylamak için başka bir kanıt toplayın.
 
-Sorunu parametrelerinin göz önünde bulundurun. Coğrafya bağımlı olması durumunda ayarlanan [kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md) bu bölge dahil: yalnızca ağ ilgili sorunlar olabilir, bu alanına.
+Sorunun parametreleri göz önünde bulundurun. Coğrafya bağlı ise, ayarlanan [kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md) bu bölge dahil olmak üzere: yalnızca ağ ilgili sorunlar olabilir, bu alanına.
 
-### <a name="diagnose-slow-page-loads"></a>Yavaş sayfa yüklemeleri tanılama
-Sorun nerede? Sunucu yavaş yanıt, sayfa çok uzun veya çok fazla görüntülemek için iş yapmak tarayıcı sahip mi?
+### <a name="diagnose-slow-page-loads"></a>Yavaş sayfa yüklemelerinin tanılayın
+Sorun nerede? Sunucu yavaş yanıt, sayfa çok uzun veya çok görüntülemek için iş yapmak tarayıcı sahip?
 
-Tarayıcılar ölçüm dikey penceresi açın. Tarayıcı sayfa yükleme süresi gösterir zaman nerede bulunacağını bölümlenmiş görüntüler. 
+Tarayıcılar ölçüm dikey penceresini açın. Tarayıcı sayfa yükleme süresi gösterir zaman nerede bulunacağını segmentli görüntüsü. 
 
-* Varsa **isteği gönderdiğinizde** olan yüksek ya da sunucu yavaş yanıt ya da çok miktarda veri ile bir post isteği olur. Bakmak [performans ölçümleri](app-insights-web-monitor-performance.md#metrics) yanıt sürelerini araştırmak için.
-* Ayarlanan [bağımlılık izleme](app-insights-asp-net-dependencies.md) yavaşlığı dış hizmetler veya veritabanınızı nedeniyle olup olmadığına bakın.
-* Varsa **alma yanıt** yaygındır, sayfanızın ve bağımlı bölümleri - JavaScript, CSS, vb. (ancak zaman uyumsuz olarak yüklenen veriler) görüntüleri uzun. Ayarlanmış bir [kullanılabilirlik test](app-insights-monitor-web-app-availability.md)ve bağımlı bölümleri yükleme seçeneğine ayarladığınızdan emin olun. Bazı sonuçları aldığınızda, bir sonuç ayrıntılarını açın ve farklı dosyaların yükleme süreleri görmek için genişletin.
-* Yüksek **istemci işleme süresi** betikleri yavaş çalışıyor önerir. Nedeni açık değilse, bazı zamanlama kod eklemeyi göz önünde bulundurun ve saatleri trackMetric çağrılarında gönderin.
+* Varsa **isteği gönderdiğinizde** olduğundan yüksek ya da sunucu yavaş yanıt veya istek çok fazla veri içeren bir postadır. Bakmak [performans ölçümlerini](app-insights-web-monitor-performance.md#metrics) yanıt süreleri araştırmak için.
+* Ayarlanan [bağımlılık izleme](app-insights-asp-net-dependencies.md) yavaşlık dış hizmetlere veya veritabanınızı nedeniyle olup olmadığına bakın.
+* Varsa **yanıt alma** yaygındır, sayfanız ve bağımlı bölümleri - JavaScript, CSS, görüntü ve benzeri (ancak zaman uyumsuz olarak yüklenen veriler) uzun. Ayarlanmış bir [kullanılabilirlik testi](app-insights-monitor-web-app-availability.md)ve bağımlı bölümleri Yükle seçeneği ayarladığınızdan emin olun. Bazı sonuçlar elde ettiğinizde, bir sonuç ayrıntılarını açın ve farklı dosyaların yükleme sürelerini görmek için genişletin.
+* Yüksek **istemci işleme süresi** betikleri yavaş çalışıyor önerir. Nedeni açık değilse, bazı zamanlama kod eklemeyi göz önünde bulundurun ve trackMetric çağrılarında gönderim zamanları.
 
-### <a name="improve-slow-pages"></a>Yavaş sayfa geliştirmek
-Tüm burada yinelenecek denemez şekilde sunucu yanıtlarını ve sayfa yükleme sürelerinin artırma önerileri, tam web yoktur. Aşağıda, büyük olasılıkla zaten, yalnızca düşünüyorum sağlamak için bilmeniz birkaç ipucu verilmiştir:
+### <a name="improve-slow-pages"></a>Yavaş sayfa geliştirin
+Burada tüm yinelenecek denemez şekilde sunucu yanıtları ve sayfa yükleme sürelerinin iyileştirme önerileri, tam bir web yoktur. Burada, büyük olasılıkla hakkında düşünmek hemen başlamanızı sağlayacak bildiğiniz birkaç ipucu verilmiştir:
 
-* Yavaş büyük dosyalar nedeniyle yükleniyor: komut dosyaları ve diğer bölümleri zaman uyumsuz olarak yükler. Betik paketleme kullanın. Ana sayfa verilerine ayrı olarak yük pencere öğeleri sonu. Uzun tablolar için eski düz HTML gönderme: verileri JSON veya diğer compact biçimi olarak istemek için bir komut dosyası kullanın ve sonra tablo yerinde doldurun. Tüm bu konuda yardımcı olmak için harika çerçeveleri vardır. (Bunlar da büyük komut dosyaları, Elbette oluşturulmasını gerektirir.)
-* Yavaş sunucu bağımlılıkları: bileşenlerinizi coğrafi konumlara göz önünde bulundurun. Örneğin, Azure kullanıyorsanız, web sunucusu ve veritabanı aynı bölgede yer aldığından emin olun. Sorguları ihtiyaç duydukları daha fazla bilgi almak? Önbelleğe alma veya Yardım toplu işleme musunuz?
-* Kapasite sorunları: ara sunucu ölçümlere yanıt sürelerinin ve istek sayısı. İstek sayısı genişliğindeki yükselmeleri ile yanıt sürelerini orantısız en yüksek, sunucularınızın uzatılır olasıdır.
+* Yavaş büyük dosyalar nedeniyle yükleniyor: betikler ve diğer bölümleri zaman uyumsuz olarak yükleyin. Betik paketini kullanın. Ana sayfaya verilerini ayrı olarak yüklenen pencere öğeleri bölün. Uzun tablolar için düz eski HTML gönderme: veri, JSON ya da diğer kompakt bir biçime istemek için bir betik kullanın, sonra yerinde tablosunu doldurmak. Tüm bu konuda yardım sağlayacak harika çerçeveleri vardır. (Bunlar da büyük komut dosyaları, Elbette dahildir.)
+* Yavaş sunucu bağımlılıkları: coğrafi konumları bileşenleriniz göz önünde bulundurun. Örneğin, Azure kullanıyorsanız, web sunucusu ve veritabanı aynı bölgede olduğundan emin olun. Sorgular, ihtiyaç duydukları daha fazla bilgi almak? Önbelleğe alma veya Yardım toplu işleme musunuz?
+* Kapasite sorunları: ara sunucu ölçümlerine yanıt sürelerinin ve istek sayısı. Yanıt sürelerinin orantısız başa istek sayısını en üst seviyeye çıkarsa, sunucularınızı uzatılır olasıdır.
 
 
-## <a name="server-response-time-degradation"></a>Sunucu yanıt süresi düşüşü
+## <a name="server-response-time-degradation"></a>Sunucu yanıt süresinde performans düşüşü
 
-Yanıt süresi düşüşü bildirimi size bildirir:
+Yanıt süresi performans düşüşü bildirim size bildirir:
 
-* Bu işlem için normal yanıt süresine göre yanıt süresi.
-* Kaç tane kullanıcılar etkilenir.
-* Ortalama yanıt süresi ve algılama ve 7 gün önce gün bu işlem için 90 yüzdebirlik yanıt süresi. 
-* Algılama gününü ve 7 gün önce bu işlemi isteği sayısı.
-* Bu işlemde bozulması ve ilgili bağımlılıklar degradations arasında bağıntı. 
-* Sorunu tanılamak yardımcı olması için bağlar.
-  * Profil Oluşturucu izlemeleri işlemi zamanın nerede harcandığına görüntülemenize yardımcı olur (bağlantıyı profil oluşturucu izleme örnekler algılama süre boyunca bu işlem için toplanan kullanılabilir). 
-  * Performans raporları Gezgini'nde ölçüm burada dilim ve bu işlem için zaman aralığı/filtreleri inin.
+* Bu işlem için normal yanıt süresi ile karşılaştırıldığında yanıt süresi.
+* Kaç kullanıcının etkilendiğini.
+* Ortalama yanıt süresi ve bu işlem günün algılama ve 7 gün önce 90. yüzdebirlik yanıt süresi. 
+* Gün algılama ve 7 gün önce bu işlemi isteklerinin sayısı.
+* Bu işlem bir düşüş ve ilgili bağımlılıklar performansındaki Düşüşler arasında bağıntı. 
+* Sorunu tanılamanıza yardımcı olmak için bağlar.
+  * İşlem zaman nerede harcandığını görüntülemek için Profiler izlemeleri (bağlantı Profiler izlemesi örnekleri algılama dönemi boyunca bu işlem için toplanan kullanılabilir). 
+  * Ölçüm Gezgini'nde, burada dilim ve bu işlem için zaman aralığını/filtreleri zar performans raporları.
   * Bu çağrı belirli arama özelliklerini görüntülemek arama yapın.
-  * Hata raporları - durumunda > 1 Bu anlamına olduğunu hatalar oldu performansın düşmesine katkıda bulunan bu işlemde sayısı.
+  * Hata raporları - varsa sayısı > 1 Bu anlamına yapıldığını hataları bu işlemde bir performans düşüşüne olmuş.
 
 ## <a name="dependency-duration-degradation"></a>Bağımlılık süresi düşüşü
 
-Modern uygulama giderek daha ağır güvenilirlik dış hizmetler hakkında müşteri adayları, çoğu durumda, mikro hizmetler tasarım yaklaşımı benimsemeye. Bazı veri platformu veya olsa bile, uygulamanızın kullanır, örneğin, kendi bot büyük olasılıkla daha İnsan şekillerde etkileşim kurmak, aracılarını etkinleştirmek için bazı bilişsel hizmetler sağlayıcıdaki 8.8.8.8'den hizmeti ve yanıtları sekmelerin yerine çekmesini bot için bazı veri deposu hizmetini oluşturma m.  
+Modern uygulamanın daha ağır güvenilirlik için dış hizmetler hakkında müşteri adayları, çoğu durumda, mikro hizmetler tasarım yaklaşımı benimseyin. Uygulamanız bazı verileri platform veya bile dayanıyorsa gibi kendi bot hizmeti büyük olasılıkla daha insansı bir biçimde etkileşim kurmak robotlarınızın etkinleştirmek için bazı bilişsel Hizmetler Sağlayıcısı geçirir ve yanıtları Excel'den çekmek robot için bazı veri depolama hizmeti oluşturun m.  
 
-Örnek bağımlılık düşüşü bildirimi:
+Örnek bağımlılık performans düşüşü bildirimi:
 
-![Bağımlılık süresi düşüşü algılama bir örneği burada verilmiştir](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![İşte bir örnek bağımlılık süresi düşüşü algılama](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
 
 Size bildirir dikkat edin:
 
-* Bu işlem için normal yanıt süresine göre süresi
-* Kaç kullanıcının etkilenen
-* Ortalama süreye ve 90 yüzdebirlik süresince bu bağımlılığı algılama gününü ve 7 gün önce
-* Algılama gününü ve 7 gün önce çağrı bağımlılık sayısı
-* Sorunu tanılamak yardımcı olması için bağlantılar
-  * Bu bağımlılığı ölçüm Explorer'da performans raporları
-  * Bu bağımlılık çağrılarını çağrıları özelliklerini görüntülemek için arama
-  * Hata raporları - süre düşmesine katkıda bulunan algılama dönem sayısı > yani başarısız bağımlılık vardı 1 çağırırsa. 
-  * Bu bağımlılık süresi ve sayısını hesaplamak sorgularıyla Analytics açın  
+* Bu işlem için normal yanıt süresi ile karşılaştırıldığında süresi
+* Kaç kullanıcının etkilendiğini
+* Ortalama süresi ve bu bağımlılık 90. yüzdebirlik süresinin gün algılama ve 7 gün önce
+* Bağımlılık sayısı gün algılama ve 7 gün önce çağırır
+* Sorunu tanılamanıza yardımcı olacak bağlantılar
+  * Bu bağımlılık için ölçüm Gezgini'nde performans raporları
+  * Çağrıları özelliklerini görüntülemek için bu bağımlılık çağrıları için arama yapın
+  * Hata raporları - sayısı > başka bir deyişle, başarısız bağımlılık vardı 1 için süresi düşüşü katkısı olan algılama dönemi boyunca çağırırsa. 
+  * Bu bağımlılık süresi ve sayısını hesaplayan sorgularla Analytics'i açın  
 
-## <a name="smart-detection-of-slow-performing-patterns"></a>Yavaş gerçekleştirme desenleri akıllı algılama 
+## <a name="smart-detection-of-slow-performing-patterns"></a>Akıllı algılama yavaş gerçekleştirme desenleri 
 
-Application Insights, kullanıcılarınızın kısmı etkiler veya yalnızca bazı durumlarda kullanıcıları etkileyen performans sorunlarını bulur. Örneğin, sayfaları yük hakkında bildirim bir tür diğer türler tarayıcıların, tarayıcı yavaştır veya istekleri daha yavaş belirli bir sunucudan hizmet alır. Belirli bir işletim sistemi kullanan istemciler için bir coğrafi alanda yavaş sayfa yükler gibi özellikleri bileşimleri ile ilgili sorunları da bulabilir.  
+Application Insights, kullanıcılarınızın kısmı yalnızca etkileyen, veya bazı durumlarda kullanıcılar yalnızca etkileyen performans sorunlarını bulur. Örneğin, sayfa yükleme hakkında bildirim daha yavaş tarayıcı başka tür tarayıcıları, bir tür veya istekleri belirli bir sunucudan daha yavaş sunulur. Yavaş sayfa, belirli bir işletim sistemi kullanan istemciler için bir coğrafi alanda yükler gibi özellikleri bileşimleri ile ilişkili sorunları da bulabilir.  
 
-Bu gibi bozukluklar veri inceleyerek algılamak çok zor ancak düşündüğünüzden daha yaygın. Çoğunlukla bunlar müşterilerinizin şikayetçi olduğunda yalnızca yüzey. O zamana dek çok geç: Etkilenen kullanıcılar zaten rakiplerinizin için geçiş!
+Anomalileri bunlar gibi verileri inceleyerek algılamak çok zor olan, ancak, düşündüğünüzden daha yaygındır. Müşterilerinizin şikayet olduğunda genellikle bunlar yalnızca yüzey. O zamana dek çok geç: Etkilenen kullanıcılar zaten rakiplerinizin için geçiş!
 
-Şu anda bizim algoritmalar, sayfa yükleme sürelerinin, sunucuda istek yanıt sürelerini ve bağımlılık yanıt sürelerini bakın.  
+Şu anda, sayfa yükleme süreleri, sunucuda istek yanıt süreleri ve bağımlılık yanıt süreleri algoritmalarınızı arayın.  
 
-Eşikleri ayarlayın veya kurallarını yapılandırmak gerekmez. Machine learning ve veri araştırma algoritmalarını anormal desenleri algılamak için kullanılır.
+Herhangi bir eşik ayarlayın veya kuralları yapılandırmak gerekmez. Makine öğrenimi ve veri araştırma algoritmalarını anormal desenleri algılamak için kullanılır.
 
-![E-posta uyarıdan Azure tanılama raporu açmak için bağlantıya tıklayın](./media/app-insights-proactive-performance-diagnostics/03.png)
+![E-posta uyarıdan Azure'da tanılama raporu açmak için bağlantıya tıklayın](./media/app-insights-proactive-performance-diagnostics/03.png)
 
-* **Zaman** sorunu algılandı zamanı gösterir.
-* **Ne** açıklar:
+* **Zaman** sorunun algılandığı zaman gösterir.
+* **Hangi** açıklar:
 
   * Algılanan Sorun;
-  * Bulduk olay kümesini özelliklerini sorunlu davranış görüntülenir.
-* Tablonun tüm diğer olaylar ortalama davranışını gerçekleştirme hatalı kümesiyle karşılaştırır.
+  * Sorun davranışı bulduk olay kümesini özellikleri görüntülenir.
+* Tablo, diğer tüm olayları ortalama davranışını düşük performanslı kümesiyle karşılaştırır.
 
-Ölçüm Gezgini ve arama yavaş gerçekleştirme kümesinin özelliklerini ve saat üzerinde filtrelenmiş ilgili raporları açmak için bağlantıları tıklatın.
+Ölçüm Gezgini ve arama süresi ve yavaş gerçekleştirme kümesinin özelliklerini göre filtrelenen, ilgili raporları açmak için bağlantıları tıklatın.
 
-Zaman aralığı ve telemetri keşfetmek için filtreleri değiştirin.
+Zaman aralığını ve telemetri keşfetmek için filtreleri değiştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu tanılama araçları, uygulamanızdan alınan telemetri incelemek yardımcı olur:
+Bu tanılama araçları, uygulamanızdan alınan telemetri incelemenize yardımcı:
 
 * [Profil Oluşturucu](app-insights-profiler.md) 
-* [Anlık görüntü hata ayıklayıcı](app-insights-snapshot-debugger.md)
+* [Anlık görüntü hata ayıklayıcısı](app-insights-snapshot-debugger.md)
 * [Analizler](app-insights-analytics-tour.md)
 * [Analytics akıllı tanılama](app-insights-analytics-diagnostics.md)
 
-Akıllı algılamaların tamamen otomatik olarak yapılır. Ancak, belki de daha fazla bazı uyarıları ayarlamak ister misiniz?
+Akıllı algılama tamamen otomatik olarak yapılır. Ancak belki de daha fazla bazı uyarıları ayarlamak ister misiniz?
 
-* [El ile yapılandırılmış ölçüm uyarıları](app-insights-alerts.md)
+* [El ile yapılandırılan ölçüm uyarıları](app-insights-alerts.md)
 * [Kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md)

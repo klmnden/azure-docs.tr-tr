@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: f260cd274c7d70872d0002c93780f553feef69d9
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 56160b8db3bad5ebd04fc30442833d36f1633ed1
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629874"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123530"
 ---
-# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory"></a>Azure Data factory'yi kullanarak, Oracle Eloqua veri kopyalama
+# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Oracle Eloqua, Azure Data Factory (Önizleme) kullanarak verileri kopyalama
 
 Bu makalede, kopyalama etkinliği Azure Data Factory'de Oracle Eloqua verileri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 

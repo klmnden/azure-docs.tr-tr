@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 62e925c3b1f48752b5062560a325953f8190c198
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 07c58ea964d6af1ffe1a447d8b52879753f1951c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634702"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123360"
 ---
-# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Salesforce pazarlama Azure Data Factory kullanarak buluttaki verileri kopyalama
+# <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Salesforce pazarlama Azure Data Factory (Önizleme) kullanarak buluttaki verileri kopyalama
 
 Bu makalede, kopyalama etkinliği Azure Data Factory'de Salesforce pazarlama Buluttan veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 

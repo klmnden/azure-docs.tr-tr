@@ -1,29 +1,30 @@
 ---
-title: Dil analiz API yönteminde çözümleme | Microsoft Docs
-description: Belirli doğal dil girişleri çözümlemenizi dil analiz API Çözümle yöntemi kullanmak nasıl.
+title: Analiz yöntemi - dil analizi API'si
+titlesuffix: Azure Cognitive Services
+description: Analiz yöntemi belirli doğal dil Girişleri analiz etmek için dil analizi API'si kullanma
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
-ms.openlocfilehash: b17a00f31845bfa05572dff7ca94e9a1ffd69586
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c8d380a23c1bbfca8258ef533453050c72a3abd0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351736"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129633"
 ---
 # <a name="analyze-method"></a>Analiz yöntemi
 
-**Analiz** REST API verilen doğal dil giriş çözümlemek için kullanılır.
-Yalnızca bulma ilgili [cümleleri ve belirteçleri](Sentences-and-Tokens.md) , giriş, bulma içinde [konuşma bölümü etiketleri](POS-tagging.md), veya bulma [constitutency ağaç](Constituency-Parsing.md).
-İlgili çözümleyiciler seçerek istediğiniz hangi sonuçları belirtebilirsiniz.
-Tüm kullanılabilir çözümleyiciler listelemek için bakmak  **[çözümleyiciler](AnalyzersMethod.md)**.
+**Analiz** REST API, verilen doğal dil giriş analiz etmek için kullanılır.
+Yalnızca bulma ilgili [tümce ve belirteçlere ayırmaktır](Sentences-and-Tokens.md) içinde giriş, bulma [konuşma bölümü etiketleri](POS-tagging.md), veya bulma [constitutency ağaç](Constituency-Parsing.md).
+İlgili Çözümleyicileri seçerek istediğiniz hangi sonuçları belirtebilirsiniz.
+Tüm kullanılabilir Çözümleyicileri listesine bakmak  **[Çözümleyicileri](AnalyzersMethod.md)**.
 
-Giriş dizesi dilini belirtme gerektiğini unutmayın.
+Giriş dizesinin dilini belirtmek gerektiğini unutmayın.
 
 **REST uç noktası:**
 ```
@@ -35,37 +36,37 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 Ad | Tür | Gerekli | Açıklama
 -----|-------|----------|------------
-**Dil**    | dize | Evet | İki harfli ISO dil kod çözümleme için kullanılacak. Örneğin, İngilizce "tr" dir.
-**analyzerIds** | dize listesi | Evet | Uygulanacak çözümleyiciler GUID'lerini listesi. Daha fazla bilgi için çözümleyiciler belgelerine bakın.
-**metin**        | dize | Evet | Çözümlenecek ham giriş. Bu bir sözcük veya tümcecik, tam bir cümle veya tam paragraf veya discourse gibi kısa bir dize olabilir.
+**Dil**    | dize | Evet | İki harfli ISO dil kod'analiz için kullanılacak. Örneğin, "en" İngilizce olarak belirlenmiştir.
+**analyzerIds** | dize listesi | Evet | Çözümleyiciler, uygulamak için bir GUID'ler listesi. Daha fazla bilgi için Çözümleyicileri belgelerine bakın.
+**Metin**        | dize | Evet | Analiz edilecek ham giriş. Bu, bir sözcük veya tümceciği, tam bir cümle veya paragraf tam veya discourse gibi kısa bir dize olabilir.
 
-<br>
 ## <a name="response-json"></a>Yanıt (JSON)
-Bir dizi çözümlemesi çıkarır, istekte belirtilen her bir öznitelik için bir tane.
+
+Analiz çıkış dizisi, istekte belirtilen her bir öznitelik için bir tane.
 
 Sonuçlar şu şekilde görünür:
 
 Ad | Tür | Açıklama
 -----|------|--------------
-analyzerId | dize | Belirtilen çözümleyicisinin GUID
+Analyzerıd | dize | Belirtilen Çözümleyicisi GUİD'si
 Sonuç | object | Çözümleyici sonucu
 
 Sonuç türü giriş Çözümleyicisi türüne bağlı olduğunu unutmayın.
 
-### <a name="tokens-response-json"></a>Belirteçleri yanıt (JSON)
+### <a name="tokens-response-json"></a>Belirteçler yanıt (JSON)
 
 Ad | Tür | Açıklama
 -----|------|-------------
-Sonuç | tümce nesnelerinin listesi | metnin içinde tanımlanan cümle sınırları |
-[x] sonucu. Uzaklık | int | Her tümcenin başlangıç karakteri uzaklığı |
-[x] sonucu. Len | int | Her tümcenin karakter cinsinden uzunluğu |
-[x] sonucu. Belirteçleri | belirteç nesnelerinin listesi | tümce içinde tanımlanan belirteci sınırları |
+Sonuç | tümce nesnelerinin listesi | içinde bulunan metinde tanımlanmış cümleyi sınırları |
+[x] sonucu. Uzaklık | int | Her cümle başlangıç karakteri uzaklığı |
+[x] sonucu. Len | int | Her cümle karakter uzunluğu |
+[x] sonucu. Belirteçleri | belirteç nesnelerinin listesi | belirteç sınırları tanımlanmış cümleyi içinde |
 [x] sonucu. Belirteçler [y]. Uzaklık | int | belirtecin başlangıç karakteri uzaklığı |
-[x] sonucu. Belirteçler [y]. Len | int | belirteç karakter cinsinden uzunluğu |
+[x] sonucu. Belirteçler [y]. Len | int | belirtecin karakter uzunluğu |
 [x] sonucu. Belirteçler [y]. RawToken | dize | normalleştirme önce bu belirteci içindeki karakterler |
-[x] sonucu. Belirteçler [y]. NormalizedToken | dize | Normalleştirilmiş bir form, kullanılmak üzere güvenli şekilde karakterinin bir [ayrıştırma ağacı](Constituency-Parsing.md); örneği için bir açık parantez karakteri ' (' - LRB - olur |
+[x] sonucu. Belirteçler [y]. NormalizedToken | dize | Normalleştirilmiş bir form karakterin kullanmak üzere güvenli bir [ayrıştırma ağacı](Constituency-Parsing.md); Örneğin, bir açık parantez karakteri ' (' '- LRB-' olur |
 
-Örnek Giriş: ' bunu denemedir. Merhaba.'
+Örnek Giriş: ' Bu bir denemedir. Merhaba.'
 Örnek JSON yanıtı:
 ```json
 [
@@ -129,16 +130,14 @@ Sonuç | tümce nesnelerinin listesi | metnin içinde tanımlanan cümle sınır
 
 ### <a name="pos-tags-response-json"></a>POS etiketleri yanıt (JSON)
 
-Sonuç dizeleri listelerinde bir listesidir.
-Her bir cümle için POS etiketlerin listesini, her belirteç bir POS etiketi yok.
-Belirteç karşılık gelen her POS etiketi bulmak için de bir simgeleştirme nesnesi isteyin istersiniz.
+Sonuç, dizeleri listesini bir listesidir.
+Her bir cümle için listesini POS etiketleri, her bir belirteç için bir POS etiketi yoktur.
+Belirteç karşılık gelen her bir POS etiketi bulmak için de simgeleştirme nesne için sorun isteyebilirsiniz.
 
 ### <a name="constituency-tree-response-json"></a>Constituency ağaç yanıt (JSON)
 
-Sonucu olan bir dize listesi, girdide bulunan her tümce için bir ayrıştırma ağacı.
-Ayrıştırma ağacı parantez içine alınmış biçiminde gösterilir.
-
-<br>
+Sonucu olan bir dize listesi, girişte her bir cümle için bir ayrıştırma ağacı.
+Ayrıştırma ağaçlarını, parantez içine alınmış biçimde temsil edilir.
 
 ## <a name="example"></a>Örnek
 

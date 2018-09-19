@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 211d79f387697ce850ac645ef65338c216e2bd76
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382204"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294773"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Azure Otomasyonu’nda runbook zamanlama
 
@@ -50,7 +50,10 @@ Azure portalında veya Windows PowerShell ile runbook'lar için yeni bir zamanla
 1. Azure portalında Otomasyon hesabınızı seçin **zamanlamaları** bölümünde **paylaşılan kaynakları** soldaki.
 1. Tıklayın **zamanlama Ekle** sayfanın üstünde.
 1. Üzerinde **yeni zamanlama** bölmesinde bir **adı** ve isteğe bağlı olarak bir **açıklama** yeni zamanlama için.
-1. Zamanlama bir kez olmasından veya yinelenen bir zamanlamaya göre seçerek **kez** veya **yinelenme**. Seçerseniz **kez** belirtin bir **başlangıç zamanı**ve ardından **Oluştur**. Seçerseniz **yinelenme**, belirtin bir **başlangıç zamanı** ve ne sıklıkta runbook - göre yinelemek istediğiniz sıklığını **saat**, **gün**, **hafta**, ya da **ay**. Seçerseniz **hafta** veya **ay** aşağı açılan listeden **yinelenme seçeneği** bölmesinde ve seçim sırasında görünür **yinelenmeseçeneği** bölmesinde sunulur ve seçtiyseniz, haftanın günü seçebileceğiniz **hafta**. Seçtiyseniz **ay**, tarafından seçebilirsiniz **haftanın günlerine** ya da belirli Takvim ayın günü ve son olarak, çalıştırmak ve ayın son gününde veya ve ardından istiyor musunuz **Tamam**.
+1. Zamanlama bir kez olmasından veya yinelenen bir zamanlamaya göre seçerek **kez** veya **yinelenen**. Seçerseniz **kez** belirtin bir **başlangıç zamanı**ve ardından **Oluştur**. Seçerseniz **yinelenen**, belirtin bir **başlangıç zamanı** ve **Yinele her**, ne sıklıkta runbook - göre yinelemek istediğiniz sıklığını seçin **saat**, **gün**, **hafta**, ya da **ay**.
+    1. Seçerseniz **hafta**, aralarından seçim yapabileceğiniz haftanın günlerini listesi sağlanır. İstediğiniz kadar çok gün seçin. İlk çalıştırma zamanlama, seçilen başlangıç zamanından sonraki ilk gününde gerçekleşir.
+    2. Seçerseniz **ay**, farklı seçenekler sunulur. İçin **aylık occurrances** seçeneğinde, ya da seçin **ayın günü** veya **haftanın günleri**. Seçerseniz **ayın günü** istediğiniz sayıda gün seçmenize olanak tanıyan bir takvim gösterilir. Geçerli ay içinde oluşmaz 31 gibi bir tarihi seçerseniz, zamanlama çalışmaz. Zamanlamanın son gününde çalıştırmak istiyorsanız seçin **Evet** altında **ayın son gününde Çalıştır**. Seçerseniz **haftanın günleri**, **Yinele her** seçeneği sunulur. Seçin **ilk**, **ikinci**, **üçüncü**, **dördüncü**, veya **son**. Son olarak üzerinde yinelemek için bir günü seçin.
+1. Click bittiğinde **Oluştur**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Windows PowerShell ile yeni bir zamanlama oluşturmak için
 
@@ -73,9 +76,9 @@ Bir runbook için birden çok zamanlama bağlanabilir ve bir zamanlama birden ç
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Azure portalı ile bir runbook için bir zamanlama bağlamak için
 
 1. Azure portalında Otomasyon hesabınızı seçin **runbook'ları** bölümünde **süreç otomasyonu** soldaki.
-1. Zamanlamak için runbook'un adına tıklayın.
-1. Runbook şu anda bir zamanlamaya bağlı değilse, yeni zaman çizelgesi veya mevcut bir zamanlamanın bağlantısına oluşturma seçeneği sunulur.
-1. Runbook parametrelere sahipse, bu seçeneği seçebilirsiniz **çalıştırma ayarları (varsayılan: Azure) değiştirme** ve **parametreleri** bölmesinde, bilgileri uygun şekilde girebileceğiniz sunulur.
+2. Zamanlamak için runbook'un adına tıklayın.
+3. Runbook şu anda bir zamanlamaya bağlı değilse, yeni zaman çizelgesi veya mevcut bir zamanlamanın bağlantısına oluşturma seçeneği sunulur.
+4. Runbook parametrelere sahipse, bu seçeneği seçebilirsiniz **çalıştırma ayarları (varsayılan: Azure) değiştirme** ve **parametreleri** bölmesinde, bilgileri uygun şekilde girebileceğiniz sunulur.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Windows PowerShell ile bir runbook için bir zamanlama bağlamak için
 

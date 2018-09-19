@@ -1,83 +1,90 @@
 ---
-title: Yapılandırılmış sorgu ifadelerinde bilgi araştırması hizmeti API'si | Microsoft Docs
-description: İçinde bilgi araştırması hizmet (KES) API Bilişsel Hizmetleri'ndeki yapılandırılmış sorgu ifadeleri kullanmayı öğrenin.
+title: Yapılandırılmış sorgu ifadeleri - bilgi keşfetme hizmeti API'si
+titlesuffix: Azure Cognitive Services
+description: Bilgi keşfetme hizmeti (KES içinde) API yapılandırılmış sorgu ifadeleri kullanmayı öğrenin.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 070ee311a1153bc9fb59870dce68f385a43b15f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bdde2dfc9ab8e8ffdf7123c916538a8c98ecfce9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351712"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129180"
 ---
 # <a name="structured-query-expression"></a>Yapılandırılmış sorgu ifadesi
-Yapılandırılmış sorgu ifadesi bir veri dizinini karşı değerlendirmek için işlemler kümesini belirtir.  Öznitelik sorgu ifadeleri ve üst düzey işlevleri oluşur.  Kullanım [ *değerlendirmek* ](evaluateMethod.md) ifade ile eşleşen nesneleri işlem yöntemi.  2013 yıl itibaren Jaime Teevan tarafından yazılan yayınlar döndürür akademik yayınlar etki alanından bir örnek verilmiştir.
+
+Bir yapılandırılmış sorgu ifadesi bir veri dizinine göre değerlendirilecek işlemleri belirtir.  Bu öznitelik sorgu ifadeleri ve daha üst düzey işlevler oluşur.  Kullanım [ *değerlendirmek* ](evaluateMethod.md) ifade ile eşleşen nesneleri hesaplamak için yöntemi.  2013 seneden beri Jaime Teevan tarafından yazılan yayınlar döndüren akademik yayınlar etki alanından bir örnek verilmiştir.
 
 `And(Composite(Author.Name=='jaime teevan'),Y>=2013)`
 
-Yapılandırılmış sorgu ifadeleri öğesinden elde edilebilir [ *yorumlama* ](interpretMethod.md) istekleri, burada her yorumlama anlamsal çıktısı, eşleşen dizin nesneleri döndüren bir yapılandırılmış sorgu ifadesi Giriş doğal dil sorgusu.  Alternatif olarak, bunlar el ile bu bölümde açıklanan sözdizimi kullanılarak yazılmış olabilir.
+Yapılandırılmış sorgu ifadeleri öğesinden alınan [ *yorumlama* ](interpretMethod.md) istekleri, burada her yorumu anlam çıktısı, eşleşen dizin nesneleri döndüren bir yapılandırılmış sorgu ifadesi Giriş doğal dil sorgusu.  Alternatif olarak, bunlar el ile bu bölümde açıklanan söz dizimi kullanılarak yazılmış olabilir.
 
 ## <a name="attribute-query-expression"></a>Öznitelik sorgu ifadesi
-Bir öznitelik sorgu ifadesi karşı belirli bir özniteliği eşleşmesini temel alan bir nesne tanımlar.  Farklı eşleşen işlemlerini, öznitelik türüne bağlı olarak desteklenir ve dizinli işlemi belirtilen [şema](SchemaFormat.md):
+
+Bir öznitelik sorgu ifadesi karşı belirli bir öznitelik eşleşmesi temeline göre bir nesne tanımlar.  Farklı eşleşen işlemlerini, öznitelik türüne bağlı olarak desteklenir ve dizinli işlemi belirtilen [şema](SchemaFormat.md):
 
 | Tür | İşlem | Örnekler |
 |------|-------------|------------|
-| Dize | şuna eşittir: | Başlık 'görünmeyen semantik analizi' = (kurallı + eş anlamlıları) |
+| Dize | şuna eşittir: | Başlık 'görünmeyen anlam çözümleme' = (kurallı + eş anlamlılar) |
 | Dize | şuna eşittir: | Author.Name=='susan t dumais (kurallı yalnızca)|
-| Dize | starts_with | Başlık = 'görünmeyen s'... |
+| Dize | starts_with | Başlık 'görünmeyen s' =... |
 | Int64/Int32/çift | şuna eşittir: | Yıl 2000 = |
-| Int64/Int32/çift | starts_with | Yıl '20' =... ("20" ile başlayan ondalık değer içermemeli) |
+| Int64/Int32/çift | starts_with | Yıl = '20'... ("20" ile başlayan ondalık değer içermemeli) |
 | Int64/Int32/çift | is_between | Yıl&lt;2000 <br/> Yıl&lt;2000 = <br/> Yıl&gt;2000 <br/> Yıl&gt;2000 = <br/> Year=[2010,2012) *(yalnızca sol sınır değeri içerir: 2010, 2011)* <br/> Yıl [2000,2012] = *(her iki sınır değerleri içerir: 2010, 2011, 2012)* |
-| Tarih | şuna eşittir: | Doğum Tarihi ='1984-05-14' |
-| Tarih | is_between | Doğum tarihi&lt;=' 03/2008/14' <br/> PublishDate = ['2000-01-01', ' 2009-12-31'] |
+| Tarih | şuna eşittir: | Doğum tarihini ='1984-05-14' |
+| Tarih | is_between | Doğum tarihi&lt;=' 2008/03/14' <br/> PublishDate = ['2000-01-01', ' 2009-12-31'] |
 | Guid | şuna eşittir: | Kimliği '602DD052-CC47-4B23-A16A-26B52D30C05B' = |
 
 
-Örneğin, ifade "Title 'görünmeyen s' =...", başlık "görünmeyen s" dizesi ile başlayan tüm akademik yayınları eşleşir.  Bu ifade değerlendirmek için başlık özniteliği şemanın dizin oluşturmak için kullanılan "starts_with" işlemi belirtmeniz gerekir.
+Örneğin, ifade "Title 'görünmeyen s' =..." ayarlanmış başlık "görünmeyen s" dizesi ile başlayan tüm akademik yayınları eşleşir.  Bu ifadeyi değerlendirmek için ' % s'özniteliği başlık şemanın dizin oluşturmak için kullanılan "starts_with" işlemi belirtmeniz gerekir.
 
-İle ilişkili eş anlamlıları öznitelikleri için sorgu ifadesi "==" işleci veya nesneler kendi kurallı/eş anlamlı değerleri "=" işlecini kullanarak eşleştiği kullanarak belirli bir dize, kurallı değerinin eşleşen nesneleri belirtebilir.  Her ikisi de "eşittir" işleci öznitelik tanımı'nda belirtilmesini gerektirir.
+İlişkili eş anlamlı sözcüklerle öznitelikler için kendi kurallı/eş anlamlı değerlerden herhangi birini "=" işlecini kullanarak eşleştiği "==" işleci veya nesneleri kullanarak belirli bir dize kurallı değeri ile eşleşen nesnelerini bir sorgu ifadesi belirtebilirsiniz.  Her ikisi de "eşittir" işleci öznitelik tanımını belirtilmesini gerektirir.
 
 
 ## <a name="functions"></a>İşlevler
-Yerleşik bir temel özniteliği sorgularından daha karmaşık sorgu ifadeleri yapımı sağlayan işlevler kümesi yok.
+
+Yerleşik işlevleri temel öznitelik sorgulardan daha karmaşık sorgu ifadeleri oluşumu sağlayan birtakım yoktur.
 
 ### <a name="and-function"></a>Ve işlevi
+
 `And(expr1, expr2)`
 
 İki giriş sorgu ifadeleri kesişimini döndürür.
 
-Aşağıdaki örnek hakkında bilgi alma 2000 yılında yayınlanan akademik yayınlar döndürür:
+Aşağıdaki örnek, akademik yayınlar hakkında bilgi alma 2000 yılında yayınlanan döndürür:
 
 `And(Year=2000, Keyword=='information retrieval')`
 
-### <a name="or-function"></a>Ya da işlevi
+### <a name="or-function"></a>Veya işlevi
+
 `Or(expr1, expr2)`
 
 İki giriş sorgu ifadeleri birleşimini döndürür.
 
-Aşağıdaki örnek hakkında bilgi alma veya kullanıcı modelleme 2000 yılında yayınlanan akademik yayınlar döndürür:
+Aşağıdaki örnek, akademik yayınlar hakkında bilgi alma veya kullanıcı modelleme 2000 yılında yayınlanan döndürür:
 
 `And(Year=2000, Or(Keyword='information retrieval', Keyword='user modeling'))`
 
 ### <a name="composite-function"></a>Bileşik işlevi
+
 `Composite(expr)`
 
-Ortak bir bileşik özniteliği alt özniteliklerini sorguları iç deyim yalıtan bir ifade oluşan döndürür.  Kapsülleme herhangi eşleşen veri nesnesinin tek tek iç ifade karşılayan en az bir değere sahip bileşik özniteliği gerektirir.  Bileşik özniteliğinin alt özniteliklerde bir sorgu ifadesi diğer sorgu ifadeleri ile birleştirilebilir önce Composite() işlevini kullanarak saklanmasını olduğuna dikkat edin.
+Ortak bir bileşik özniteliği alt özniteliklerini sorguları iç deyim kapsülleyen bir ifade oluşan döndürür.  Kapsülleme iç ifade tek tek karşılayan en az bir değere sahip tüm eşleşen veri nesne bileşik özniteliğini gerektirir.  Bileşik özniteliği alt özniteliklerde bir sorgu ifadesinden önce diğer sorgu ifadeleri ile birleştirilebilir Composite() işlevini kullanarak kapsüllenmiş olduğuna dikkat edin.
 
-Örneğin, kendisinin "microsoft" ederken aşağıdaki deyim tarafından akademik yayınlar "shum harry" döndürür:
+He "microsoft" durumundayken göre akademik yayınlar "harry shum" Örneğin, aşağıdaki ifade döndürür:
 
 ```
 Composite(And(Author.Name="harry shum", 
               Author.Affiliation="microsoft"))
 ```
 
-Öte yandan, aşağıdaki ifade, yazarlar birini olduğu akademik yayınlar "shum harry" ve "microsoft" üyelikler, biri döndürür:
+Öte yandan, aşağıdaki ifade, akademik yayınlar burada yazarlar, "harry shum" ve "microsoft" ise ilişkileri birini döndürür:
 
 ```
 And(Composite(Author.Name="harry shum"), 

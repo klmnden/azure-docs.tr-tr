@@ -1,22 +1,23 @@
 ---
-title: Microsoft Translator metin API'si sözlük arama yöntemi | Microsoft Docs
-description: Microsoft Translator metin API'si sözlük arama yöntemi kullanın.
+title: Translator metin API'si sözlük arama yöntemi
+titlesuffix: Azure Cognitive Services
+description: Translator metin API'si sözlük arama yöntemi kullanın.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5a186f60dc099b095c00056d965aa92618c2c708
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868094"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127854"
 ---
-# <a name="text-api-30-dictionary-lookup"></a>Metin çevirisi API'si 3.0: Sözlük arama
+# <a name="translator-text-api-30-dictionary-lookup"></a>Translator metin çevirisi API'si 3.0: Sözlük arama
 
 Bir sözcük ve az sayıda deyimler için alternatif çevirileri sağlar. Her çeviri arka çevirileri listesini ve bir-konuşma bölümü vardır. Arka-çevirileri bir kullanıcı bağlamında çeviri anlamak etkinleştirin. [Sözlük örnek](.\v3-0-dictionary-examples.md) işlemi her çeviri çifti bakın örnek kullanımları daha fazla detaya sağlar.
 
@@ -55,7 +56,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   <th width="20%">Üst bilgiler</th>
   <th>Açıklama</th>
   <tr>
-    <td>_Bir yetkilendirme_<br/>_üst bilgi_</td>
+    <td>_Bir yetkilendirme_<br/>_Üst bilgi_</td>
     <td>*Gerekli istek üst bilgisi*.<br/>Bkz: [kimlik doğrulaması için kullanılabilir seçenekler](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>

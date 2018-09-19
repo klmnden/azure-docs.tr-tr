@@ -1,6 +1,6 @@
 ---
-title: Performans Data Lake Store ile Powershell kullanmaya yönelik kılavuz ayarlama | Microsoft Docs
-description: Data Lake Store ile Azure PowerShell kullanırken, performansı artırmak ipuçları
+title: Performans ayarlama Kılavuzu, Azure Data Lake depolama Gen1 ile Powershell kullanma | Microsoft Docs
+description: Azure PowerShell ile Azure Data Lake depolama Gen1 kullanırken performansı konusunda ipuçları
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -11,35 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 7b19972ed4a75ac899a4b78b28ab36ba305a5a64
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fff26406b036edeb48371b89f7e585160ddc58e0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198659"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123326"
 ---
-# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>Performans Azure Data Lake Store ile PowerShell kullanmaya yönelik kılavuz ayarlama
+# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Performans ayarlama Kılavuzu, Azure Data Lake depolama Gen1 ile PowerShell kullanma
 
-Bu makalede, Data Lake Store ile çalışmak için PowerShell kullanırken bir daha iyi performans almak için ayarlanmış özellikler listelenmektedir:
+Bu makalede Azure Data Lake depolama Gen1 ile çalışmak için PowerShell'i kullanırken daha iyi bir performans elde etmek için ayarlanabilecek özellikler listelenmektedir:
 
-## <a name="performance-related-properties"></a>Performansla ilgili özellikleri
+## <a name="performance-related-properties"></a>Performans ile ilgili Özellikler
 
 | Özellik            | Varsayılan | Açıklama |
 |---------------------|---------|-------------|
-| PerFileThreadCount  | 10      | Bu parametre, her bir dosya karşıya yüklenirken veya indirilirken kaç paralel iş parçacığı kullanılacağını seçmenize olanak tanır. Bu sayı, dosya başına ayrılabilecek en fazla iş parçacığı temsil eder, ancak senaryonuza bağlı olarak daha az iş parçacığı alabilirsiniz (bir 1 KB dosya yüklüyorsanız, 20 iş parçacığı isteyin olsa bile Örneğin, bir iş parçacığı size).  |
-| ConcurrentFileCount | 10      | Bu parametre özellikle klasörlerin karşıya yüklenmesi ve indirilmesi içindir. Bu parametre, karşıya yüklenebilecek veya indirilebilecek eş zamanlı dosya sayısını belirler. Bu sayı, karşıya veya aynı anda indirilen eşzamanlı dosya en büyük sayısını temsil eder, ancak senaryonuza bağlı olarak daha az eşzamanlılık alabilirsiniz (iki dosya yüklüyorsanız, sorun olsa bile Örneğin, iki eş zamanlı dosyaları karşıya elde için 15). |
+| PerFileThreadCount  | 10      | Bu parametre, her bir dosya karşıya yüklenirken veya indirilirken kaç paralel iş parçacığı kullanılacağını seçmenize olanak tanır. Bu sayı dosya ayrılabilecek en fazla iş parçacıklarını gösterir, ancak senaryonuza bağlı olarak daha az iş parçacığı elde edebilirsiniz (1 KB'lık dosya karşıya yüklüyorsanız 20 iş parçacığı isteseniz bile Örneğin, bir iş parçacığı olursunuz).  |
+| ConcurrentFileCount | 10      | Bu parametre özellikle klasörlerin karşıya yüklenmesi ve indirilmesi içindir. Bu parametre, karşıya yüklenebilecek veya indirilebilecek eş zamanlı dosya sayısını belirler. Bu sayı en fazla karşıya yüklenen veya indirilen tek seferde eş zamanlı dosya sayısını temsil eder, ancak senaryonuza bağlı olarak daha az Eş zamanlılık elde edebilirsiniz (iki dosya yüklüyorsanız, isteseniz bile gibi iki eş zamanlı dosya yüklemeleri alma 15 için). |
 
 **Örnek**
 
-Bu komut, dosya başına 20 iş parçacığı ve 100 eşzamanlı dosya kullanarak dosyaları Azure Data Lake Store’dan kullanıcının yerel sürücüsüne indirir.
+Bu komut, kullanıcının yerel sürücüsüne dosya ve 100 eşzamanlı dosya başına 20 iş parçacığı kullanarak Data Lake depolama Gen1 dosyaları indirir.
 
-    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
-## <a name="how-do-i-determine-the-value-for-these-properties"></a>Bu özellikler için değer nasıl belirlerim?
+## <a name="how-do-i-determine-the-value-for-these-properties"></a>Bu özellikleri için değer nasıl belirlerim?
 
-Sahip olabileceğiniz sonraki soruya için performans ile ilgili özellikler sağlamak için hangi değerin nasıl belirlenir. Aşağıda kullanabileceğiniz bazı yönergeler verilmiştir.
+Sonraki soruya sahip olabileceğiniz için performans ile ilgili özellikler sağlamak için hangi değerin nasıl belirlenir. Aşağıda kullanabileceğiniz bazı yönergeler verilmiştir.
 
-* **1. Adım: Toplam iş parçacığı sayısını belirleyin** - İlk olarak kullanılması gereken toplam iş parçacığı sayısını hesaplayabilirsiniz. Genel kural olarak, her fiziksel çekirdek için altı iş parçacığı kullanmanız gerekir.
+* **1. Adım: Toplam iş parçacığı sayısını belirleyin** - İlk olarak kullanılması gereken toplam iş parçacığı sayısını hesaplayabilirsiniz. Genel bir kural olarak her fiziksel çekirdek için altı iş parçacığı kullanmanız gerekir.
 
         Total thread count = total physical cores * 6
 
@@ -50,17 +50,17 @@ Sahip olabileceğiniz sonraki soruya için performans ile ilgili özellikler sa�
         Total thread count = 16 cores * 6 = 96 threads
 
 
-* **2. Adım: PerFileThreadCount değerini hesaplayın**  - Kendi PerFileThreadCount değerimizi dosyaların boyutunu temel olarak hesaplıyoruz. 2,5 GB'den küçük dosyalar için varsayılan olarak 10 yeterli olduğu için bu parametreyi değiştirmenize gerek yoktur. 2,5 GB'den büyük olan dosyalar için 10 iş parçacığı için ilk 2,5 GB temel olarak kullanın ve dosya boyutu 1 iş parçacığı her ek 256 MB Boyutunda artış için ekleyin. Birçok farklı boyutta dosya içeren bir klasörü kopyalıyorsanız dosyaları benzer dosya boyutları halinde gruplandırmayı göz önünde bulundurun. Dosya boyutlarının benzer olmaması performansın düşmesine neden olabilir. Benzer boyutlu dosyaları gruplandırmanız mümkün değilse PerFileThreadCount değerini en büyük dosya boyutuna göre ayarlamanız gerekir.
+* **2. Adım: PerFileThreadCount değerini hesaplayın**  - Kendi PerFileThreadCount değerimizi dosyaların boyutunu temel olarak hesaplıyoruz. 2,5 GB'den küçük dosyalar için varsayılan değer olan 10 yeterli olduğundan bu parametreyi değiştirmek için gerek yoktur. 2,5 GB'den büyük olan dosyalar için 10 iş parçacığı ilk 2,5 GB için temel olarak kullanın ve dosya boyutundaki her ek 256 MB'lık artış için 1 iş parçacığı ekleyin. Birçok farklı boyutta dosya içeren bir klasörü kopyalıyorsanız dosyaları benzer dosya boyutları halinde gruplandırmayı göz önünde bulundurun. Dosya boyutlarının benzer olmaması performansın düşmesine neden olabilir. Benzer boyutlu dosyaları gruplandırmanız mümkün değilse PerFileThreadCount değerini en büyük dosya boyutuna göre ayarlamanız gerekir.
 
         PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size
 
     **Örnek**
 
-    1 GB ile 10 GB arasında 100 dosyalarınız varsayıldığında, 10 GB en büyük dosya boyutu aşağıdaki gibi okuduğunuz eşitlik için kullanırız.
+    1 GB ile 10 GB arasında değişen 100 dosyanız olduğunu varsayarsak, 10 GB'ın en büyük dosya boyutu aşağıdaki gibi okuduğunuz Denklem için kullanırız.
 
         PerFileThreadCount = 10 + ((10 GB - 2.5 GB) / 256 MB) = 40 threads
 
-* **3. adım: ConcurrentFilecount hesaplamak** - toplam iş parçacığı sayısı kullanın ve ConcurrentFileCount hesaplamak için PerFileThreadCount dayalı deneylerin:
+* **3. adım: Concurrentfilecount değerini hesaplayın** - toplam iş parçacığı sayısı ve perfilethreadcount değerini kullanarak concurrentfilecount değerini hesaplayın aşağıdaki denklemi temel alarak:
 
         Total thread count = PerFileThreadCount * ConcurrentFileCount
 
@@ -74,11 +74,11 @@ Sahip olabileceğiniz sonraki soruya için performans ile ilgili özellikler sa�
 
 ## <a name="further-tuning"></a>Daha fazla ayar
 
-Üzerinde çalışılan dosyaların boyutu çeşitlilik gösterdiğinden daha fazla ayar yapmanız gerekebilir. Daha büyük ve 10 GB aralığında yakın iyi tüm veya çoğu dosyaların önceki hesaplama çalışır. Bunun yerine çoğu dosya küçük olacak şekilde birçok farklı dosya boyutu varsa PerFileThreadCount değerini azaltabilirsiniz. PerFileThreadCount değerini azaltarak ConcurrentFileCount değerini artırabiliriz. Bu nedenle, bizim dosyaları çoğunu 5 GB aralığında küçük olduğunu varsayıyoruz, biz bizim hesaplama Yinele:
+Üzerinde çalışılan dosyaların boyutu çeşitlilik gösterdiğinden daha fazla ayar yapmanız gerekebilir. Yukarıdaki hesaplama iyi daha büyük ve 10 GB aralığından yakın tüm veya çoğu dosyaları çalışır. Bunun yerine çoğu dosya küçük olacak şekilde birçok farklı dosya boyutu varsa PerFileThreadCount değerini azaltabilirsiniz. PerFileThreadCount değerini azaltarak ConcurrentFileCount değerini artırabiliriz. Bu nedenle bizim dosyaları çoğunu 5 GB aralığında daha küçük olduğunu varsayıyoruz, biz hesaplamamızın Yinele:
 
     PerFileThreadCount = 10 + ((5 GB - 2.5 GB) / 256 MB) = 20
 
-Bu nedenle, **ConcurrentFileCount** 4.8 olan 96/20 hale için yuvarlanmış **4**.
+Bu nedenle, **ConcurrentFileCount** sonucunda 4.8 olarak 96/20 haline gelir için yuvarlanır **4**.
 
 Dosya boyutlarınızın dağılımına göre **PerFileThreadCount** değerini artırıp azaltarak bu ayarları değiştirmeye devam edebilirsiniz.
 
@@ -93,8 +93,8 @@ Dosya boyutlarınızın dağılımına göre **PerFileThreadCount** değerini ar
 * **Azaltma hataları**: Eşzamanlılığınız çok yüksekse azaltma hataları görebilirsiniz. Azaltma hataları görüyorsanız eşzamanlılığı azaltmanız veya bize ulaşmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Data Lake Store'u büyük veri gereksinimleri için kullanma](data-lake-store-data-scenarios.md) 
-* [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
-* [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Büyük veri gereksinimleri için Azure Data Lake depolama Gen1 kullanın](data-lake-store-data-scenarios.md) 
+* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Azure Data Lake Analytics'i Data Lake depolama Gen1 ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Azure HDInsight ile Data Lake depolama Gen1 kullanın](data-lake-store-hdinsight-hadoop-use-portal.md)
 

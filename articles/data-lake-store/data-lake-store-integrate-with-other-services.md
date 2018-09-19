@@ -1,6 +1,6 @@
 ---
-title: Data Lake Store diğer Azure hizmetleriyle tümleştirme | Microsoft Docs
-description: Data Lake Store diğer Azure hizmetleriyle nasıl tümleşik çalıştığını anlamak
+title: Azure Data Lake depolama Gen1 diğer Azure Hizmetleri ile tümleştirme | Microsoft Docs
+description: Azure Data Lake depolama Gen1 diğer Azure Hizmetleri ile nasıl tümleştirildiğini anlamak
 documentationcenter: ''
 services: data-lake-store
 author: nitinme
@@ -12,61 +12,61 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 3fd1b03d2ce0b814f453ae4d87a136f28479662d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e377a29167ace21e021568f3c65cefd1098d1dab
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624106"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127171"
 ---
-# <a name="integrating-data-lake-store-with-other-azure-services"></a>Data Lake Store’u diğer Azure Hizmetleri ile tümleştirme
-Azure Data Lake Store diğer Azure hizmetleriyle birlikte daha geniş çeşitli senaryoları etkinleştirmek için kullanılabilir. Aşağıdaki makalede Data Lake Store ile tümleşik hizmetler listelenmektedir.
+# <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Azure Data Lake depolama Gen1 diğer Azure hizmetleriyle tümleştirme
+Azure Data Lake depolama Gen1 diğer Azure Hizmetleri ile birlikte geniş bir senaryoları etkinleştirmek için kullanılabilir. Aşağıdaki makalede Data Lake depolama Gen1 ile tümleşik hizmetler listelenir.
 
-## <a name="use-data-lake-store-with-azure-hdinsight"></a>Kullanım Data Lake Store Azure Hdınsight ile
-Kaynak sağlayabilirsiniz bir [Azure Hdınsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) Data Lake Store, HDFS uyumlu depolama alanı olarak kullanan kümesi. Bu sürümde, Windows ve Linux, Hadoop ve Storm kümeleri için Data Lake Store yalnızca ek depolama alanı kullanabilirsiniz. Bu tür kümeler hala varsayılan depolama alanı olarak Azure Storage (WASB) kullanın. Ancak, Windows ve Linux üzerinde HBase kümeleri için Data Lake Store varsayılan depolama veya ek depolama alanı ya da her ikisini de kullanabilirsiniz.
+## <a name="use-data-lake-storage-gen1-with-azure-hdinsight"></a>Azure HDInsight ile Data Lake depolama Gen1 kullanın
+Sağlayabileceğiniz bir [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) HDFS uyumlu depolama alanı olarak Data Lake depolama Gen1 kullanan kümesi. Bu sürümde, Windows ve Linux, Hadoop ve Storm kümeleri için Data Lake depolama Gen1 yalnızca ek depolama alanı kullanabilirsiniz. Bu tür kümeler, varsayılan depolama alanı olarak Azure Storage (WASB) hala kullanın. Ancak, Windows ve Linux üzerinde HBase kümeleri için Data Lake depolama Gen1 varsayılan depolama alanı veya ek depolama veya her ikisi de olarak kullanabilirsiniz.
 
-Bir Hdınsight kümesini Data Lake Store sağlama hakkında daha fazla yönerge için bkz:
+Bir HDInsight kümesi ile Data Lake depolama Gen1 sağlama konusunda yönergeler için bkz:
 
-* [Azure Portal'ı kullanarak Data Lake Store ile Hdınsight kümesi sağlama](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Azure PowerShell kullanarak varsayılan depolama alanı olarak bir Hdınsight kümesini Data Lake Store sağlama](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-* [Azure PowerShell kullanarak ek depolama alanı bir Hdınsight kümesini Data Lake Store sağlama](data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [Azure portalını kullanarak bir HDInsight kümesi ile Data Lake depolama Gen1 sağlayın](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure PowerShell kullanarak varsayılan depolama alanı olarak Data Lake depolama Gen1 ile bir HDInsight kümesi sağlama](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+* [Azure PowerShell kullanarak ek depolama alanı olarak Data Lake depolama Gen1 ile bir HDInsight kümesi sağlama](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
-## <a name="use-data-lake-store-with-azure-data-lake-analytics"></a>Azure Data Lake Analytics ile kullanım veri Gölü deposu
-[Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) bulut ölçeğinde büyük verilerle çalışmanıza olanak tanır. Dinamik olarak kaynaklar sağlar ve terabayt ve hatta eksabayt desteklenen veri kaynakları, bir Data Lake Store olan tanesine sayısında depolanan veriler üzerinde analiz gerçekleştirmenize olanak tanır. Data Lake Analytics özellikle Azure Data Lake performansı, verimliliği ve paralelleştirmeyi sizin için en yüksek düzeyde büyük veri iş yüklerini sağlayan Store ile çalışmak için optimize edilmiştir.
+## <a name="use-data-lake-storage-gen1-with-azure-data-lake-analytics"></a>Data Lake depolama Gen1 Azure Data Lake Analytics ile kullanma
+[Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-overview.md) bulut ölçeğinde büyük verilerle çalışmanıza olanak tanır. Dinamik olarak kaynak sağlar ve terabayt veya hatta eksabayt boyutlarındaki desteklenen veri kaynakları, bir Data Lake depolama Gen1 olan bir tanesine bir süre içinde depolanan veriler üzerinde analiz gerçekleştirmenize olanak tanır. Özel, Data Lake Analytics'i Data Lake depolama en yüksek düzeyde performans, aktarım hızı ve paralelleştirme, büyük veri iş yükleri sağlama Gen1 ile - çalışmak için optimize edilmiştir.
 
-Data Lake Analytics Data Lake Store ile kullanma hakkında daha fazla yönerge için bkz: [Data Lake Store'ı kullanarak Data Lake Analytics ile çalışmaya başlama](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Data Lake Analytics ile Data Lake depolama Gen1 kullanma hakkında yönergeler için bkz: [Data Lake depolama Gen1 kullanarak Data Lake Analytics ile çalışmaya başlama](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
-## <a name="use-data-lake-store-with-azure-data-factory"></a>Kullanım Data Lake Store ile Azure veri fabrikası
-Kullanabileceğiniz [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) Azure tabloları, Azure SQL Database, Azure SQL veri ambarı, Azure Storage Bloblarında ve şirket içi veritabanlarından veri alma için. Birinci sınıf vatandaşı Azure ekosistemindeki olmaya, Azure Data Factory Azure Data Lake Store bu kaynaktan gelen veri alım düzenlemek için kullanılabilir.
+## <a name="use-data-lake-storage-gen1-with-azure-data-factory"></a>Data Lake depolama Gen1 Azure Data Factory ile kullanma
+Kullanabileceğiniz [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) Azure tabloları, Azure SQL veritabanı, Azure SQL veri ambarı, Azure depolama BLOB'ları ve şirket içi veritabanlarına alabilen için. Öncelikli bir yere Azure ekosistemindeki olduğundan, Azure Data Factory'ye Data Lake depolama Gen1 bu kaynaktan veri alımını düzenleme için kullanılabilir.
 
-Azure Data Factory Data Lake Store ile kullanma hakkında daha fazla yönerge için bkz: [Data Factory kullanarak Data Lake Store gelen ve veri taşıma](../data-factory/connector-azure-data-lake-store.md).
+Azure Data Factory ile Data Lake depolama Gen1 kullanma hakkında yönergeler için bkz: [Data Lake depolama Gen1 gelen ve giden veri taşıma Data Factory kullanarak](../data-factory/connector-azure-data-lake-store.md).
 
-## <a name="copy-data-from-azure-storage-blobs-into-data-lake-store"></a>Verileri Azure Storage Bloblarından Data Lake Store kopyalayın.
-Azure Data Lake Store komut satırı aracı, verileri Azure Blob depolama alanından bir Data Lake Store hesabına kopyalamak sağlayan AdlCopy sağlar. Daha fazla bilgi için bkz: [veri kopyalama Azure Storage Bloblarından Data Lake Store'a](data-lake-store-copy-data-azure-storage-blob.md).
+## <a name="copy-data-from-azure-storage-blobs-into-data-lake-storage-gen1"></a>Verileri Azure depolama Bloblarından Data Lake depolama Gen1 kopyalayın.
+Azure Data Lake depolama Gen1 sağlayan, verileri Azure Blob depolama alanından bir Data Lake depolama Gen1 hesabına kopyalamak AdlCopy bir komut satırı aracı sağlar. Daha fazla bilgi için [veri kopyalama Azure depolama Bloblarından Data Lake depolama Gen1 için](data-lake-store-copy-data-azure-storage-blob.md).
 
-## <a name="copy-data-between-azure-sql-database-and-data-lake-store"></a>Azure SQL veritabanı ve Data Lake Store arasında veri kopyalama
-Apache Sqoop içeri aktarın ve Azure SQL veritabanı ve Data Lake Store arasında veri dışarı aktarmak için kullanabilirsiniz. Daha fazla bilgi için bkz: [Data Lake Store ile Sqoop kullanarak Azure SQL veritabanı arasında veri kopyalama](data-lake-store-data-transfer-sql-sqoop.md).
+## <a name="copy-data-between-azure-sql-database-and-data-lake-storage-gen1"></a>Azure SQL veritabanı ile Data Lake depolama Gen1 arasında veri kopyalama
+Apache Sqoop alma ve Azure SQL veritabanı ve Data Lake depolama Gen1 arasında verileri dışarı aktarmak için kullanabilirsiniz. Daha fazla bilgi için [Data Lake depolama Gen1 ve Sqoop kullanarak Azure SQL veritabanı arasında veri kopyalama](data-lake-store-data-transfer-sql-sqoop.md).
 
-## <a name="use-data-lake-store-with-stream-analytics"></a>Kullanım Data Lake Store ile akış analizi
-Data Lake Store çıkışları biri olarak kullanarak Azure Stream Analytics akış verilerini depolamak için kullanabilirsiniz. Daha fazla bilgi için bkz: [akış Azure depolama Blob verileri Azure akış analizi kullanarak Data Lake Store](data-lake-store-stream-analytics.md).
+## <a name="use-data-lake-storage-gen1-with-stream-analytics"></a>Data Lake depolama Gen1 Stream Analytics ile kullanma
+Data Lake depolama Gen1 çıkışları biri olarak Azure Stream Analytics'i kullanarak akış verilerini depolamak için kullanabilirsiniz. Daha fazla bilgi için [Stream verileri Azure depolama blobundan Azure Stream Analytics'i kullanarak Data Lake depolama Gen1](data-lake-store-stream-analytics.md).
 
-## <a name="use-data-lake-store-with-power-bi"></a>Kullanım Data Lake Store Power BI ile
-Power BI çözümlemek ve verileri görselleştirmek için bir Data Lake Store hesabından veri almak için kullanabilirsiniz. Daha fazla bilgi için bkz: [Power BI kullanarak Data Lake Store verileri çözümlemek](data-lake-store-power-bi.md).
+## <a name="use-data-lake-storage-gen1-with-power-bi"></a>Data Lake depolama Gen1 Power BI ile kullanma
+Power BI, verileri analiz etmek ve görselleştirmek için bir Data Lake depolama Gen1 hesabından içeri aktarmak için kullanabilirsiniz. Daha fazla bilgi için [Power BI'ı kullanarak Data Lake depolama Gen1 verileri analiz etme](data-lake-store-power-bi.md).
 
-## <a name="use-data-lake-store-with-data-catalog"></a>Kullanım Data Lake Store veri Kataloğu ile
-Data Lake Store verilerden veri kuruluşunuz genelinde bulunabilir duruma getirmek için Azure veri Kataloğu içine kaydedebilirsiniz. Daha fazla bilgi için bkz: [Data Lake Store verileri Azure veri Kataloğu'nda kaydetmek](data-lake-store-with-data-catalog.md).
+## <a name="use-data-lake-storage-gen1-with-data-catalog"></a>Data Lake depolama Gen1 veri Kataloğu ile kullanma
+Data Lake depolama Gen1 verileri, verilerin kuruluşunuz genelinde bulunabilir olması için Azure veri Kataloğu'na kaydedebilirsiniz. Daha fazla bilgi için [Data Lake depolama Gen1 verileri Azure veri Kataloğu'nda kaydetme](data-lake-store-with-data-catalog.md).
 
-## <a name="use-data-lake-store-with-sql-server-integration-services-ssis"></a>Kullanım Data Lake Store ile SQL Server Integration Services (SSIS)
-Azure Data Lake Store ile bir SSIS paketi bağlanmak için SSIS Azure Data Lake Store Bağlantı Yöneticisi'ni kullanın. Daha fazla bilgi için bkz: [kullanım Data Lake Store SSIS ile](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
+## <a name="use-data-lake-storage-gen1-with-sql-server-integration-services-ssis"></a>SQL Server Integration Services (SSIS) ile Data Lake depolama Gen1 kullanın
+SSIS paketi ile Data Lake depolama Gen1 bağlanmak için SSIS Data Lake depolama Gen1 Bağlantı Yöneticisi'ni kullanabilirsiniz. Daha fazla bilgi için [kullanım Data Lake depolama Gen1 SSIS ile](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
 
-## <a name="use-data-lake-store-with-sql-data-warehouse"></a>Kullanım Data Lake Store ile SQL veri ambarı
-PolyBase, Azure Data Lake Deposu'ndan veri SQL Data Warehouse'a veri yüklemek için kullanabilirsiniz. Daha fazla bilgi için bkz: [kullanım Data Lake Store ile SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+## <a name="use-data-lake-storage-gen1-with-sql-data-warehouse"></a>SQL veri ambarı ile Data Lake depolama Gen1 kullanın
+PolyBase, verileri Data Lake depolama Gen1 SQL Data Warehouse'a veri yüklemek için kullanabilirsiniz. Daha fazla bilgi için [kullanım Data Lake depolama Gen1 SQL veri ambarı ile](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
 
-## <a name="use-data-lake-store-with-azure-event-hubs"></a>Azure Event Hubs ile kullanım veri Gölü deposu
-Azure Event Hubs tarafından alınan Arşiv ve yakalama verileri için Azure Data Lake Store kullanabilirsiniz. Daha fazla bilgi için bkz: [kullanım Data Lake Store Azure Event Hubs ile](data-lake-store-archive-eventhub-capture.md).
+## <a name="use-data-lake-storage-gen1-with-azure-event-hubs"></a>Azure Event Hubs ile Data Lake depolama Gen1 kullanın
+Azure Event hubs'ı tarafından alınan veri arşivleme ve yakalama için Azure Data Lake depolama Gen1 kullanabilirsiniz. Daha fazla bilgi için [kullanım Data Lake depolama Gen1 Azure Event Hubs ile](data-lake-store-archive-eventhub-capture.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Azure Data Lake Store'a Genel Bakış](data-lake-store-overview.md)
-* [Portal kullanarak Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
-* [PowerShell kullanarak Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-powershell.md)  
+* [Azure Data Lake depolama Gen1 genel bakış](data-lake-store-overview.md)
+* [Get başlangıç portalını kullanarak Data Lake depolama Gen1](data-lake-store-get-started-portal.md)
+* [Data Lake depolama Gen1 ile çalışmaya başlama PowerShell'i kullanma](data-lake-store-get-started-powershell.md)  
 

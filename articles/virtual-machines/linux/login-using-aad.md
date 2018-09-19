@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 1ce03c55a346adf846619c50f09eb063e6b6f639
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 2201455477af2bd871f8e8e401536d45af4a02f7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734633"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294668"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulama (Önizleme) kullanarak Azure'da bir Linux sanal makinede oturum açın
 
@@ -35,7 +35,7 @@ Linux sanal makineleri, azure'da oturum açmak için Azure AD kimlik doğrulamas
   - Yerel yönetici hesapları, güvenme azaltarak, kimlik bilgisi kaybı/hırsızlığı hakkında zayıf kimlik bilgileri vb. yapılandırma kullanıcılar endişelenmeniz gerekmez.
   - Parola karmaşıklığını ve parola ömrü ilkelerini Azure AD dizininiz için yapılandırılan güvenli Linux Vm'leri de yardımcı olur.
   - Azure sanal makineleri daha güvenli oturum açma için çok faktörlü kimlik doğrulamasını yapılandırabilirsiniz.
-  - Linux Vm'leri Azure Active Directory ile oturum açmak için özelliği kullanan müşteriler için de kullanılabilir [Federasyon Hizmetleri](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
+  - Linux Vm'leri Azure Active Directory ile oturum açmak için özelliği kullanan müşteriler için de kullanılabilir [Federasyon Hizmetleri](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
 - **Sorunsuz bir işbirliği:** With Role-Based erişim denetimi (RBAC) belirtebilirsiniz kimin yönetici ayrıcalıklarıyla veya normal bir kullanıcı belirli bir VM'nin oturum açabilirsiniz. Kullanıcılar katılın veya takımınızın bırakın, uygun erişim vermek sanal makine için RBAC İlkesi güncelleştirebilirsiniz. Bu deneyim Vm'leri gereksiz SSH ortak anahtarlarını kaldırmak için temizleme gerek kalmadan daha çok daha kolaydır. Çalışanlar, kuruluşunuzun bırakın ve kullanıcı hesabı devre dışı ya da Azure AD'deki kaldırıldı, artık kaynaklarınıza erişimi yok.
 

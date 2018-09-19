@@ -9,14 +9,14 @@ keywords: azure işlevleri, işlevler, olay işleme, web kancaları, dinamik iş
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 12/12/2017
+ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9f538b48918bdde923c6dbf3999302e45b955035
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 54ac616f97ba034893721ff62fc6157dd045b5f8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092419"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126839"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -36,10 +36,24 @@ Bu makalede, aşağıdaki makalelere zaten konusunu okuduğunuz varsayılır:
 Visual Studio'da **Azure işlevleri** proje şablonu, aşağıdaki dosyaları içeren bir C# sınıf kitaplığı projesi oluşturur:
 
 * [Host.JSON](functions-host-json.md) -proje uygulamasında tüm işlevleri yerel olarak veya azure'da çalıştırırken etkileyen yapılandırma ayarları depolar.
-* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -uygulama ayarları ve yerel olarak çalıştırırken kullanılan bağlantı dizeleri depolar.
+* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -uygulama ayarları ve yerel olarak çalıştırırken kullanılan bağlantı dizeleri depolar. Bu dosya, gizli dizileri içerir ve işlev uygulamanızı azure'da yayımlanan değil. Bunun yerine gerekir [uygulama ayarlarını işlev uygulamanıza ekleme](functions-develop-vs.md#function-app-settings).
+
+Proje oluşturduğunuzda, aşağıdaki oluşturulan yapı gibi görünen bir klasör yapısı çıkış dizinine:
+
+```
+<framework.version>
+ | - bin
+ | - MyFirstFunction
+ | | - function.json
+ | - MySecondFunction
+ | | - function.json
+ | - host.json
+```
+
+Bu dizin ne işlev uygulamanızı azure'da dağıtılan olur. Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı olan [projeye NuGet paketleri olarak eklenen](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
-> Derleme işlemi oluşturur bir *function.json* her işlev için dosya. Bu *function.json* dosyasının doğrudan düzenlenmesi değil yöneliktir. Bağlama yapılandırması değiştiremez veya bu dosyayı düzenleyerek işlevi devre dışı bırakın. Bir işlev devre dışı bırakmak için [devre dışı](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) özniteliği. Örneğin, MY_TIMER_DISABLED ayarı bir mantıksal uygulama ekleme ve uygulama `[Disable("MY_TIMER_DISABLED")]` işlevinize. Ardından, etkinleştirin ve uygulama ayarı değiştirerek devre dışı bırakın.
+> Derleme işlemi oluşturur bir *function.json* her işlev için dosya. Bu *function.json* dosyasının doğrudan düzenlenmesi değil yöneliktir. Bağlama yapılandırması değiştiremez veya bu dosyayı düzenleyerek işlevi devre dışı bırakın. Bir işlev devre dışı bırakma hakkında bilgi edinmek için [işlevler devre dışı bırakma](disable-function.md#functions-2x---c-class-libraries).
 
 ## <a name="methods-recognized-as-functions"></a>İşlevleri kabul edilen yöntemleri
 

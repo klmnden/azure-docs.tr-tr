@@ -1,51 +1,58 @@
 ---
-title: Koşullu erişim - Azure SQL veritabanı ve veri ambarı | Microsoft belge
-description: Azure SQL veritabanı ve veri ambarı için koşullu erişim yapılandırma hakkında bilgi edinin.
+title: Koşullu erişim - Azure SQL veritabanı ve veri ambarı | Microsoft belgeleri
+description: Azure SQL veritabanı ve veri ambarı için koşullu erişimi yapılandırmayı öğrenin.
 services: sql-database
 author: GithubMirek
 manager: johammer
 ms.custom: security
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: 83762136659756204aab5da367b905f66e770087
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+ms.openlocfilehash: 702121c18ade244bce5ab3a9c5a57a0245ad80c6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647468"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35972319"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı ile koşullu erişim (MFA)  
 
-SQL Database ve SQL Data Warehouse Microsoft koşullu erişimi destekler. Aşağıdaki adımlar SQL veritabanına bir koşullu erişim politikasını yapılandırmak nasıl gösterir.  
+Hem Azure [SQL veritabanı](sql-database-technical-overview.md) ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Microsoft koşullu erişimi destekler. 
+
+> [!NOTE]
+> Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
+
+Aşağıdaki adımlarda, SQL veritabanı, bir koşullu erişim ilkesini zorlamak için yapılandırma gösterilmektedir.  
 
 ## <a name="prerequisites"></a>Önkoşullar  
-- SQL Database veya SQL Data Warehouse Azure Active Directory kimlik doğrulamayı destekleyecek şekilde yapılandırmanız gerekir. Belirli adımlar için bkz: [yapılandırma ve SQL Database veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulamasını yönetmek](sql-database-aad-authentication-configure.md).  
-- Çok faktörlü kimlik doğrulaması etkinleştirildiğinde, en son SSMS gibi desteklenen aracı ile bağlanmalıdır. Daha fazla bilgi için bkz: [SQL Server Management Studio Azure SQL veritabanını yapılandırma çok faktörlü kimlik doğrulamasını](sql-database-ssms-mfa-authentication-configure.md).  
+- SQL veritabanınız veya SQL veri ambarı Azure Active Directory kimlik doğrulamasını destekleyecek şekilde yapılandırmanız gerekir. Belirli adımlar için bkz: [yapılandırma ve SQL veritabanı veya SQL veri ambarı ile Azure Active Directory kimlik doğrulamasını yönetmek](sql-database-aad-authentication-configure.md).  
+- Çok faktörlü kimlik doğrulaması etkinleştirildiğinde, en son SSMS gibi desteklenen aracı ile bağlanmalıdır. Daha fazla bilgi için [SQL Server Management Studio için Azure SQL veritabanını Yapılandır multi-Factor authentication](sql-database-ssms-mfa-authentication-configure.md).  
 
 ## <a name="configure-ca-for-azure-sql-dbdw"></a>Azure SQL DB/DW için CA'yı yapılandırma  
-1.  Portalı, select oturum açma **Azure Active Directory**ve ardından **koşullu erişim**. Daha fazla bilgi için bkz: [Azure Active Directory koşullu erişim teknik başvuru](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
+1.  Portalında, select oturum **Azure Active Directory**ve ardından **koşullu erişim**. Daha fazla bilgi için [Azure Active Directory koşullu erişim teknik başvuru](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
   ![koşullu erişim dikey penceresi](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
-2.  İçinde **koşullu erişim ilkeleri** dikey penceresinde tıklatın **yeni ilke**, bir ad sağlayın ve ardından **kurallar**.  
-3.  Altında **atamaları**seçin **kullanıcılar ve gruplar**, denetleme **kullanıcıları ve grupları seçin**ve ardından kullanıcıyı veya grubu koşullu erişim için seçin. Tıklatın **seçin**ve ardından **Bitti** seçiminizi kabul etmek için.  
+2.  İçinde **koşullu erişim ilkeleri** dikey penceresinde tıklayın **yeni ilke**bir ad belirtin ve ardından **yapılandırma kuralları**.  
+3.  Altında **atamaları**seçin **kullanıcılar ve gruplar**, kontrol **kullanıcıları ve grupları seçin**ve ardından kullanıcı veya grup için koşullu erişim'i seçin. Tıklayın **seçin**ve ardından **Bitti** seçiminizi kabul etmek için.  
   ![Kullanıcıları ve grupları seçin](./media/sql-database-conditional-access/select-users-and-groups.png)  
 
-4.  Seçin **bulut uygulamaları**, tıklatın **uygulamaları**. Tüm uygulamalar için koşullu erişim kullanılabilir bakın. Seçin **Azure SQL veritabanı**, alt tıklatın **seçin**ve ardından **Bitti**.  
+4.  Seçin **bulut uygulamaları**, tıklayın **uygulamaları Seç**. Tüm uygulamalar için koşullu erişim kullanılabilir görürsünüz. Seçin **Azure SQL veritabanı**, alt tıklatın **seçin**ve ardından **Bitti**.  
   ![SQL veritabanı seçin](./media/sql-database-conditional-access/select-sql-database.png)  
-  Bilgisayarınızda bulamazsanız **Azure SQL veritabanı** aşağıdaki üçüncü ekran içinde listelenen, aşağıdaki adımları tamamlayın:   
-  - Azure SQL DB/DW örneğinizi SSMS ile bir AAD yönetici hesabı kullanarak oturum açın.  
+  Aradığınız bulamıyorsanız **Azure SQL veritabanı** aşağıdaki üçüncü ekran görüntüsünde listelenen, aşağıdaki adımları tamamlayın:   
+  - Azure SQL DB/DW örneğinizin SSMS ile bir AAD yönetici hesabı kullanarak oturum açın.  
   - Yürütme `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
-  - AAD'ye oturum açabilir ve Azure SQL veritabanı ve veri ambarı, AAD uygulamalarda listelendiğini doğrulayın.  
+  - AAD için oturum açın ve Azure SQL veritabanı ve veri ambarı, AAD uygulamalarda listelendiğini doğrulayın.  
 
-5.  Seçin **erişim denetimleri**seçin **Grant**ve ardından uygulamak istediğiniz ilke denetleyin. Bu örnekte, biz seçin **çok faktörlü kimlik doğrulaması gerektiren**.  
-  ![erişim izni ver seçin](./media/sql-database-conditional-access/grant-access.png)  
+5.  Seçin **erişim denetimleri**seçin **Grant**ve ardından uygulamak istediğiniz ilke olup olmadığını denetleyin. Bu örnekte, seçiyoruz **çok faktörlü kimlik doğrulaması gerektiren**.  
+  ![erişim verme seçin](./media/sql-database-conditional-access/grant-access.png)  
 
 ## <a name="summary"></a>Özet  
-Azure SQL DB/Azure AD Premium kullanarak DW için bağlanmasına izin vererek seçilen uygulama (Azure SQL veritabanı) artık seçili koşullu erişim ilkesi zorunlu kılar **gerekli çok faktörlü kimlik doğrulaması.**  
+Azure SQL DB/Azure AD Premium kullanarak DW'ye bağlanmasına izin verme (Azure SQL veritabanı) seçili uygulama artık seçili koşullu erişim ilkesi zorunlu kılar **gerekli çok faktörlü kimlik doğrulaması.**  
 Çok faktörlü kimlik doğrulaması ile ilgili Azure SQL veritabanı ve veri ambarı hakkında sorular için başvurun MFAforSQLDB@microsoft.com.  
 
 ## <a name="next-steps"></a>Sonraki adımlar  
 
-Bir öğretici için bkz: [Azure SQL veritabanınıza güvenli](sql-database-security-tutorial.md).
+Bir öğretici için bkz. [Azure SQL veritabanınızın güvenliğini sağlama](sql-database-security-tutorial.md).

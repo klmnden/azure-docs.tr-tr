@@ -1,6 +1,6 @@
 ---
-title: Data Lake Storage Gen1 ile çalışmaya başlamak için Azure portal'ı kullanmanızı | Microsoft Docs
-description: Bir Data Lake Store hesabı oluşturmak ve data lake Store'da temel işlemleri gerçekleştirmek için Azure portalını kullanma
+title: Azure portalı kullanarak Azure Data Lake depolama Gen1 ile çalışmaya başlama | Microsoft Docs
+description: Bir Azure Data Lake depolama Gen1 hesabı oluşturmak ve Data Lake depolama Gen1 hesabında temel işlemleri gerçekleştirmek için Azure portalını kullanın.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: e23b2496ccb69bb530bd825a1feb99abcc4ab35b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: da238a30a55f37607abb3cfe63c3ba8f33ca2bf2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036815"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125179"
 ---
-# <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Data Lake Storage Gen1 ile çalışmaya başlama Azure Portalı'nı kullanarak
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure portalını kullanarak
 
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
@@ -28,79 +28,79 @@ ms.locfileid: "37036815"
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Azure Data Lake Store hesabı oluşturmak ve klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure Portal'ın nasıl kullanılacağını öğrenin. Daha fazla bilgi için bkz: [genel bakış, Azure Data Lake Storage Gen1](data-lake-store-overview.md).
+Azure portalında bir Azure Data Lake depolama Gen1 hesabı oluşturmak ve klasör oluşturma gibi karşıya yükleyin ve veri dosyalarını indirir temel işlemleri gerçekleştirmek için hesabınızı silme nasıl kullanılacağını öğrenin. Daha fazla bilgi için [genel bakış, Azure Data Lake depolama Gen1](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="create-an-azure-data-lake-store-account"></a>Azure Data Lake Store hesabı oluşturma
+## <a name="create-a-data-lake-storage-gen1-account"></a>Bir Data Lake depolama Gen1 hesabı oluşturun
 
 1. Yeni [Azure Portal](https://portal.azure.com)'da oturum açın.
-2. **Kaynak oluştur > Depolama > Data Lake Store** seçeneğine tıklayın.
-3. **Yeni Data Lake Store** dikey penceresinde, aşağıdaki ekran görüntüsünde gösterilen değerleri sağlayın:
+2. Tıklayın **kaynak Oluştur > depolama > Data Lake depolama Gen1**.
+3. İçinde **yeni Data Lake depolama Gen1** dikey penceresinde, aşağıdaki ekran görüntüsünde gösterilen değerleri sağlayın:
    
-    ![Yeni bir Azure Data Lake Store hesabı oluşturma](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
+    ![Yeni bir Data Lake depolama Gen1 hesabı oluşturma](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "yeni bir Data Lake depolama Gen1 hesabı oluşturma")
    
-   * **Ad**. Data Lake Store hesabı için benzersiz bir ad girin.
-   * **Abonelik**. Altında yeni bir Data Lake Store hesabı oluşturmak istediğiniz aboneliği seçin.
+   * **Ad**. Data Lake depolama Gen1 hesabı için benzersiz bir ad girin.
+   * **Abonelik**. Altında yeni bir Data Lake depolama Gen1 hesabını oluşturmak istediğiniz aboneliği seçin.
    * **Kaynak Grubu**. Mevcut bir kaynak grubunu seçin veya yeni grup oluşturmak için **Yeni oluştur** seçeneğini belirleyin. Kaynak grubu, bir uygulama için ilgili kaynakları bir arada tutan bir kapsayıcıdır. Daha fazla bilgi için bkz. [Azure'da Kaynak Grupları](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   * **Konum**: Data Lake Store hesabını oluşturmak istediğiniz konumu seçin.
+   * **Konum**: Data Lake depolama Gen1 hesabı oluşturmak istediğiniz bir konum seçin.
    * **Şifreleme Ayarları**. Üç seçenek vardır:
      
      * **Şifrelemeyi etkinleştirme**.
-     * **Data Lake Store tarafından yönetilen anahtarları kullanın**.  Şifreleme anahtarlarınızı yönetmek için Azure Data Lake Store kullanmak istiyorsanız.
-     * **Kendi Anahtar Kasanızdaki anahtarları kullanın**. Mevcut bir Azure Key Vault’u seçin veya yeni bir Key Vault oluşturun. Azure Key Vault’taki anahtarları kullanmak için Azure Data Lake Store hesabının Azure Key Vault’a erişmesini sağlayacak izinleri atamanız gerekir. Yönergeler için bkz. [Azure Key Vault'a izinleri atama](#assign-permissions-to-azure-key-vault).
+     * **Data Lake depolama Gen1 tarafından yönetilen anahtarlar kullan**şifreleme anahtarlarınızı yönetmek için Data Lake depolama Gen1 istiyorsanız.
+     * **Kendi Anahtar Kasanızdaki anahtarları kullanın**. Mevcut bir Azure Key Vault’u seçin veya yeni bir Key Vault oluşturun. Key vault'taki anahtarları kullanmak için Data Lake depolama Gen1 hesabı, Azure Key Vault'a erişmesini sağlayacak izinleri atamanız gerekir. Yönergeler için bkz. [Azure Key Vault'a izinleri atama](#assign-permissions-to-azure-key-vault).
        
-        ![Data Lake Store şifrelemesi](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Store encryption")
+        ![Data Lake depolama Gen1 şifreleme](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake depolama Gen1 şifreleme")
        
         **Şifreleme Ayarları** dikey penceresinde **Tamam**’a tıklayın.
 
-        Daha fazla bilgi için bkz. [Azure Data Lake Store'da verileri şifreleme](./data-lake-store-encryption.md).
+        Daha fazla bilgi için [Azure Data Lake depolama Gen1 veri şifreleme](./data-lake-store-encryption.md).
 
-4. **Oluştur**’a tıklayın. Hesabı panoya sabitlemeyi tercih ediyorsanız tekrar panoya yönlendirilirsiniz ve Data Lake Store hesap hazırlama işleminizin ilerleme durumunu görebilirsiniz. Data Lake Store hesabı sağlandıktan sonra, hesap dikey penceresi görünür.
+4. **Oluştur**’a tıklayın. Hesabı panoya sabitlemeyi tercih ediyorsanız tekrar panoya yönlendirilirsiniz ve Data Lake depolama Gen1 hesap hazırlama işleminizin ilerleme durumunu görebilirsiniz. Data Lake depolama Gen1 hesap sağlandıktan sonra hesap dikey penceresi görünür.
 
 ## <a name="assign-permissions-to-azure-key-vault"></a>Azure Key Vault’a izin atama
-Data Lake Store hesabında şifreleme yapılandırmak için bir Azure Anahtar Kasası’ndaki anahtarları kullandıysanız Data Lake Store hesabı ile Azure Anahtar Kasası hesabı arasında erişim yapılandırmalısınız. Bunu yapmak için aşağıdaki adımları gerçekleştirin.
+Data Lake depolama Gen1 hesabında şifreleme yapılandırmak için bir Azure anahtar Kasası'ndaki anahtarları kullandıysanız Data Lake depolama Gen1 hesabı ve Azure anahtar kasası hesabı arasında erişim yapılandırmalısınız. Bunu yapmak için aşağıdaki adımları gerçekleştirin.
 
-1. Azure Anahtar Kasası’ndaki anahtarları kullandıysanız Data Lake Store hesabına ait dikey pencerenin üstünde bir uyarı görüntülenir. Uyarıya tıklayarak **Şifreleme** sayfasını açın.
+1. Azure anahtar Kasası'ndaki anahtarları kullandıysanız Data Lake depolama Gen1 hesabı için dikey pencerenin en üstünde bir uyarı görüntüler. Uyarıya tıklayarak **Şifreleme** sayfasını açın.
    
-    ![Data Lake Store şifrelemesi](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Store encryption")
+    ![Data Lake depolama Gen1 şifreleme](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake depolama Gen1 şifreleme")
 2. Bu dikey pencere, erişimi yapılandırmak için iki seçenek gösterir.
 
-    ![Data Lake Store şifrelemesi](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Data Lake Store encryption")
+    ![Data Lake depolama Gen1 şifreleme](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Data Lake depolama Gen1 şifreleme")
    
-   * Erişim yapılandırmak için ilk seçenekte **İzin Ver**'e tıklayın. İlk seçenek yalnızca Data Lake Store hesabını oluşturan kullanıcı aynı zamanda Azure Anahtar Kasası’nın bir yöneticisiyse çalışır.
+   * Erişim yapılandırmak için ilk seçenekte **İzin Ver**'e tıklayın. İlk seçenek, yalnızca Data Lake depolama Gen1 hesabı oluşturan kullanıcı Azure Key Vault için bir yönetici ayrıca olduğunda etkinleştirilir.
    * Diğer seçenek, dikey pencerede görüntülenen PowerShell cmdlet’ini çalıştırmak içindir. Azure Anahtar Kasası’nın sahibi olmanız ya da Azure Anahtar Kasası’nda izin verme yetkisine sahip olmanız gerekir. Cmdlet’i çalıştırdıktan sonra, erişimi yapılandırmak için dikey pencereye dönün ve **Etkinleştir**’e tıklayın.
 
 > [!NOTE]
-> İsterseniz Azure Resource Manager şablonlarını kullanarak bir Data Lake Store hesabı da oluşturabilirsiniz. Bu şablonlara [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/resources/templates/?term=data+lake+store)’ndan erişebilirsiniz:
-    - Veri şifreleme olmadan: [Azure Data Lake Store hesabını veri şifrelemesi olmadan dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-    - Data Lake Store kullanarak veri şifrelemesi ile: [Şifreleme (Data Lake) ile Data Lake Store hesabı dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-    - Azure Key Vault kullanarak veri şifrelemesi ile: [Şifreleme (Key Vault) ile Data Lake Store hesabı dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> Ayrıca, Azure Resource Manager şablonlarını kullanarak bir Data Lake depolama Gen1 hesabı oluşturabilirsiniz. Bu şablonlara [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/resources/templates/?term=data+lake+store)’ndan erişebilirsiniz:
+    - Veri şifreleme olmadan: [veri şifrelemesi olmadan dağıtma Azure Data Lake depolama Gen1 hesabı](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
+    - Data Lake depolama Gen1 kullanarak veri şifrelemesi ile: [şifreleme (Data Lake) ile Data Lake depolama Gen1 dağıtma hesabı](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+    - Azure Key Vault kullanarak veri şifrelemesi ile: [şifreleme (Key Vault) ile Data Lake depolama Gen1 dağıtma hesabı](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 > 
 > 
 
 
 
-## <a name="createfolder"></a>Azure Data Lake Store hesabında klasör oluşturma
-Veri depolamak ve yönetmek için Data Lake Store hesabınızın altında klasör oluşturabilirsiniz.
+## <a name="createfolder"></a>Bir Data Lake depolama Gen1 hesabında klasör oluşturma
+Veri depolamak ve yönetmek için Data Lake depolama Gen1 hesabınızın altında klasör oluşturabilirsiniz.
 
-1. Oluşturduğunuz Data Lake Store hesabını açın. Sol bölmeden **Tüm kaynaklar**'a tıklayın ve ardından Tüm kaynaklar dikey penceresinden, altında klasör oluşturmak istediğiniz hesabın adına tıklayın. Hesabı başlangıç panosuna sabitlediyseniz bu hesap kutucuğuna tıklayın.
-2. Data Lake Store hesabı dikey pencerenizde, **Veri Gezgini**'ne tıklayın.
+1. Oluşturduğunuz Data Lake depolama Gen1 hesabını açın. Sol bölmeden **Tüm kaynaklar**'a tıklayın ve ardından Tüm kaynaklar dikey penceresinden, altında klasör oluşturmak istediğiniz hesabın adına tıklayın. Hesabı başlangıç panosuna sabitlediyseniz bu hesap kutucuğuna tıklayın.
+2. Data Lake depolama Gen1 hesabı dikey penceresinde **Veri Gezgini**.
    
-    ![Data Lake Store hesabında klasör oluşturma](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
+    ![Bir Data Lake depolama Gen1 hesabında klasör oluşturma](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "bir Data Lake depolama Gen1 hesabında klasör oluşturma")
 3. Veri Gezgini dikey penceresinde, **Yeni Klasör**'e tıklayın, yeni klasör için bir ad girin ve ardından **Tamam**'a tıklayın.
    
-    ![Data Lake Store hesabında klasör oluşturma](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in Data Lake Store account")
+    ![Bir Data Lake depolama Gen1 hesabında klasör oluşturma](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "bir Data Lake depolama Gen1 hesabında klasör oluşturma")
    
     Yeni oluşturulan klasör, **Veri Gezgini** dikey penceresinde listelenir. Herhangi bir düzeye kadar iç içe geçmiş klasörler oluşturabilirsiniz.
    
-    ![Data Lake hesabında klasör oluşturma](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
+    ![Bir Data Lake hesabında klasör oluşturma](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "bir Data Lake hesabında klasör oluşturma")
 
-## <a name="uploaddata"></a>Azure Data Lake Store hesabına veri yükleme
-Verilerinizi Azure Data Lake Store hesabınıza doğrudan kök düzeyinde veya hesap içinde oluşturduğunuz bir klasöre yüklenecek şekilde yükleyebilirsiniz. 
+## <a name="uploaddata"></a>Bir Data Lake depolama Gen1 hesabına veri yükleme
+Bir Data Lake depolama Gen1 hesabınıza doğrudan kök düzeyinde veya hesap içinde oluşturduğunuz bir klasöre verilerinizi karşıya yükleyebilirsiniz. 
 
 1. **Veri Gezgini** dikey penceresinde **Yükle**'ye tıklayın. 
 2. **Dosyaları karşıya yükleme** dikey penceresinde yüklemek istediğiniz dosyaları bulun ve **Seçili dosyaları ekle**'ye tıklayın. Yüklemek için birden fazla dosya da seçebilirsiniz.
@@ -115,16 +115,16 @@ Dosyanın yanındaki üç nokta simgesine tıklayın ve açılan menüden verile
 ![Verilere yönelik özellikler](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Properties on the data") 
 
 ## <a name="secure-your-data"></a>Verilerinizin güvenliğini sağlama
-Azure Active Directory'yi ve erişim denetimini (ACL'ler) kullanarak Azure Data Lake Store hesabınızda depolanan verilerin güvenliğini sağlayabilirsiniz. Bunun nasıl yapılacağına ilişkin yönergeler için bkz. [Azure Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md).
+Azure Active Directory ve erişim denetimi (ACL'ler) kullanarak Data Lake depolama Gen1 hesabınızda depolanan verilerin güvenliğini sağlayabilirsiniz. Bunu yapmak yönergeler için bkz: [Azure Data Lake depolama Gen1 verileri güvenli hale getirme](data-lake-store-secure-data.md).
 
-## <a name="delete-azure-data-lake-store-account"></a>Azure Data Lake Store hesabını silme
-Bir Azure Data Lake Store hesabını silmek için, Data Lake Store dikey pencerenizden **Sil**'e tıklayın. Eylemi onaylamak için silmek istediğiniz hesabın adını girmeniz istenir. Hesabın adını girin ve ardından **Sil**'e tıklayın.
+## <a name="delete-a-data-lake-storage-gen1-account"></a>Bir Data Lake depolama Gen1 hesabını Sil
+Bir Data Lake depolama Gen1 hesabı, Data Lake depolama Gen1 dikey penceresinden silmek için tıklayın **Sil**. Eylemi onaylamak için silmek istediğiniz hesabın adını girmeniz istenir. Hesabın adını girin ve ardından **Sil**'e tıklayın.
 
-![Data Lake hesabını silme](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Delete Data Lake account")
+![Data Lake depolama Gen1 hesabını silme](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Data Lake hesabını silme")
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Data Lake Store'u büyük veri gereksinimleri için kullanma](data-lake-store-data-scenarios.md) 
-* [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
-* [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Büyük veri gereksinimleri için Azure Data Lake depolama Gen1 kullanın](data-lake-store-data-scenarios.md) 
+* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Azure Data Lake Analytics'i Data Lake depolama Gen1 ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Azure HDInsight ile Data Lake depolama Gen1 kullanın](data-lake-store-hdinsight-hadoop-use-portal.md)
 

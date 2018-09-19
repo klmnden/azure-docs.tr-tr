@@ -12,12 +12,12 @@ ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 533c02f842918c5c27aaaf421a4f828022de6b8f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 782363144a6b1dd87aff515c38588b6ce70b61bd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604983"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295113"
 ---
 # <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>Nasıl yapılır: ekleme veya Azure Active Directory kullanarak kullanıcı silme
 Yeni kullanıcı ekleme veya var olan kullanıcılar, Azure AD kullanarak, Azure Active Directory (Azure AD) kiracısı silin.
@@ -55,7 +55,7 @@ Azure Active Directory'yi kullanarak yeni bir kullanıcı oluşturabilir.
     Kullanıcı oluşturulur ve Azure AD kiracınıza eklenir.
 
 ## <a name="add-a-new-user-within-a-hybrid-environment"></a>Bir karma ortamda yeni bir kullanıcı ekleyin
-Azure Active Directory (bulut) hem de Windows Server Active Directory (şirket) ile bir ortamınız varsa, var olan kullanıcı hesabı verileri eşitleyerek yeni kullanıcıları ekleyebilirsiniz. Karma ortamlar ve kullanıcılar hakkında daha fazla bilgi için bkz. [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../connect/active-directory-aadconnect.md).
+Azure Active Directory (bulut) hem de Windows Server Active Directory (şirket) ile bir ortamınız varsa, var olan kullanıcı hesabı verileri eşitleyerek yeni kullanıcıları ekleyebilirsiniz. Karma ortamlar ve kullanıcılar hakkında daha fazla bilgi için bkz. [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="delete-a-user"></a>Kullanıcı silme
 Mevcut bir kullanıcının Azure Active Directory'yi kullanarak silebilirsiniz.

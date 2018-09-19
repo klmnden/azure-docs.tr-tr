@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 5ae57764e2950d027e832eccec5393d4aec4486a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: cbb73b199255af7e7a91b1586b331acde035bfd7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981853"
+ms.locfileid: "46124521"
 ---
 # <a name="try-the-speech-service-for-free"></a>Konuşma tanıma hizmetini ücretsiz olarak deneyin
 
@@ -26,7 +26,7 @@ Son olarak, konuşma hizmeti uygulamaları geliştirmek için uygun olan ücrets
 
 ## <a name="free-trial"></a>Ücretsiz deneme sürümü
 
-30 günlük ücretsiz deneme için sınırlı bir süre için fiyatlandırma katmanı S0 standart erişmenizi sağlar. 
+30 günlük ücretsiz deneme standart fiyatlandırma katmanı sınırlı bir süre için erişmenizi sağlar.
 
 30 günlük ücretsiz deneme için kaydolmak için:
 
@@ -44,56 +44,28 @@ Son olarak, konuşma hizmeti uygulamaları geliştirmek için uygun olan ücrets
 
    ![Koşulları kabul edin](media/index/try-speech-api-free-trial3.png)
 
-1. Microsoft, Facebook, LinkedIn ve GitHub hesabınızı kullanarak oturum açın. Veya ücretsiz bir Microsoft hesabı için kaydolabilirsiniz:
+1. Microsoft, Facebook, LinkedIn ve GitHub hesabınızı kullanarak oturum açın.
 
-    * Git [Microsoft hesap portalı](https://account.microsoft.com/account).
-    * Seçin **Microsoft'ta oturum açma**.
+    Ücretsiz bir Microsoft hesabı için kaydolabilirsiniz [Microsoft hesap portalı](https://account.microsoft.com/account). Başlamak için tıklayın **Microsoft'ta oturum açma** oturum açması istenir,'a tıklayarak **oluşturun.** Oluşturun ve yeni Microsoft hesabınızı doğrulamak için adımları izleyin.
 
-    ![Oturum aç](media/index/try-speech-api-free-trial4.png)
-
-    * Oturum açma istemi bittiğinde **oluşturmak**.
-
-    ![Yeni hesap oluştur](media/index/try-speech-api-free-trial5.png)
-
-    * E-posta adresi veya telefon numarasını girin, takip adımlar, bir parola atayın ve yeni Microsoft hesabınızı doğrulamak için yönergeleri izleyin.
-
-Oturum açtıktan sonra ücretsiz deneme sürümünüzü başlatır. Görüntülenen Web sayfasının şu anda deneme abonelikleri olan tüm Azure Bilişsel hizmetler hizmetler listelenir. Abonelik anahtarları iki yanında listelenen **konuşma Hizmetleri**. İki anahtarı uygulamalarınızda kullanabilirsiniz.
+Bilişsel hizmetler için deneyin'da oturum açtıktan sonra ücretsiz deneme sürümünüzü başlar. Görüntülenen Web sayfasının şu anda deneme abonelikleri olan tüm Azure Bilişsel hizmetler hizmetler listelenir. Abonelik anahtarları iki yanında listelenen **konuşma Hizmetleri**. İki anahtarı uygulamalarınızda kullanabilirsiniz.
 
 > [!NOTE]
-> Tüm ücretsiz deneme Abonelikleri, Batı ABD bölgesinde içindir. İstekte bulunduğunuzda bölgeniz için karşılık gelen uç noktası kullanmayı unutmayın.
+> Tüm ücretsiz deneme Abonelikleri, Batı ABD bölgesinde içindir. İstekte bulunduğunuzda kullandığınızdan emin olun `westus` uç noktası.
 
 ## <a name="new-azure-account"></a>Yeni Azure hesabı
 
 Yeni Azure hesapları 30 gün boyunca kullanılabilir 200 ABD Doları değerinde bir hizmet kredisi alırsınız. Bu kredi konuşma hizmeti daha iyi keşfedilebilmesi için veya uygulama geliştirmeye başlamak için kullanabilirsiniz.
 
-Yeni bir Azure hesabı için kaydolmak için:
+Yeni bir Azure hesabı için kaydolmak için Git [Azure kayıt sayfasına](https://azure.microsoft.com/free/ai/), tıklayın **ücretsiz Başlat** ve Microsoft hesabınızı kullanarak yeni bir Azure hesabı oluşturun.
 
-1. Git [Azure kayıt sayfasına](https://azure.microsoft.com/free/ai/). 
+Ücretsiz bir Microsoft hesabı için kaydolabilirsiniz [Microsoft hesap portalı](https://account.microsoft.com/account). Başlamak için tıklayın **Microsoft'ta oturum açma** oturum açması istenir,'a tıklayarak **oluşturun.** Oluşturun ve yeni Microsoft hesabınızı doğrulamak için adımları izleyin.
 
-1. Seçin **ücretsiz olarak Başla**.
-
-    ![Ücretsiz kullanmaya başlayın](media/index/try-speech-api-new-azure1.png)
-
-1. Microsoft hesabınızla oturum açın. Yoksa:
-
-    * Git [Microsoft hesap portalı](https://account.microsoft.com/account).
-    * Seçin **Microsoft'ta oturum açma**.
-    * Oturum açma istemi bittiğinde **oluşturun.**
-    * E-posta adresi veya telefon numarasını girin, takip adımlar, bir parola atayın ve yeni Microsoft hesabınızı doğrulamak için yönergeleri izleyin.
-
-1. Bir hesaba kaydolun istedi bilgilerin kalanını girin. Ülkenizi ve adı belirtin ve telefon numarası ve e-posta adresi sağlayın.
-
-    ![Bilgileri girin](media/index/try-speech-api-new-azure2.png)
-
-    Telefon ve kredi kartı numarası sağlayarak kimliğinizi doğrulayın. (Kredi kartınızdan faturalandırılmazsınız.) olduğunda, Azure kullanıcı anlaşmasını kabul edin. 
-
-    ![Sözleşmesini kabul edin](media/index/try-speech-api-new-azure3.png)
-
-Ücretsiz Azure hesabınızı oluşturulur. Konuşma hizmeti için bir abonelik başlatmak için sonraki bölümdeki adımları izleyin.
+Azure hesabınızı oluşturduktan sonra konuşma hizmeti için bir abonelik başlatmak için sonraki bölümdeki adımları izleyin.
 
 ## <a name="create-a-speech-resource-in-azure"></a>Azure'da bir konuşma kaynak oluşturma
 
-Azure hesabınızda bir konuşma hizmeti kaynak eklemek için:
+Azure hesabınızda bir konuşma hizmeti kaynak (ücretsiz veya Ücretli katman) eklemek için:
 
 1. Oturum [Azure portalında](https://ms.portal.azure.com/) Microsoft hesabınızı kullanarak.
 
@@ -107,7 +79,7 @@ Azure hesabınızda bir konuşma hizmeti kaynak eklemek için:
 
     ![Konuşma tanıma (Önizleme) seçin](media/index/try-speech-api-create-speech2.png)
 
-1. Altında **konuşma tanıma (Önizleme)** seçin **Oluştur** düğmesi.
+1. Altında **konuşma tanıma (Önizleme)**, tıklayın **Oluştur** düğmesi.
 
     ![Oluştur düğmesine seçin](media/index/try-speech-api-create-speech3.png)
 
@@ -116,21 +88,33 @@ Azure hesabınızda bir konuşma hizmeti kaynak eklemek için:
     * Yeni kaynak için bir ad. Adı aynı hizmetin birden fazla aboneliğe arasında ayırt etmenize yardımcı olur.
     * Yeni kaynak ücretleri nasıl faturalandırılır belirlemek için ilişkili olduğu Azure aboneliğini seçin.
     * Kaynağı nerede kullanılacak bir bölge seçin. Şu anda konuşma hizmeti Doğu Asya, Kuzey Avrupa ve Batı ABD bölgelerinde kullanılabilir.
-    * Fiyatlandırma katmanı, her iki F0 seçin (sınırlı, ücretsiz aboneliği) veya S0 (Standart abonelik). Seçin **fiyatlandırma ayrıntılarının tamamını görüntüle** her katman için fiyatlandırma ve kullanım Kotalar hakkında tam bilgi için.
+    * Ya da ücretsiz veya Ücretli fiyatlandırma katmanı seçin. Tıklayın **fiyatlandırma ayrıntılarının tamamını görüntüle** her katman için fiyatlandırma ve kullanım Kotalar hakkında tam bilgi için.
     * Bu konuşma abonelik için yeni bir kaynak grubu oluşturun veya mevcut bir kaynak grubu aboneliği atayın. Kaynak düzenlenir, çeşitli Azure aboneliklerinizi tutmak Yardım gruplandırır.
     * Aboneliğinize gelecekte kolay erişim için seçin **panoya Sabitle** onay kutusu.
     * Seçin **oluşturun.**
 
     ![Oluştur düğmesine seçin](media/index/try-speech-api-create-speech4.png)
 
-    İşlem oluşturma ve dağıtma yeni konuşma kaynağınızı biraz sürebilir. Seçin **hızlı** yeni kaynağınız hakkındaki bilgileri görmek için.
+    Oluşturmak ve yeni konuşma kaynağınızı dağıtmak için bir dakika sürer. Seçin **hızlı** yeni kaynağınız hakkındaki bilgileri görmek için.
 
     ![Hızlı Başlangıç paneli](media/index/try-speech-api-create-speech5.png)
 
-1. Altında **hızlı**seçin **anahtarları** abonelik anahtarlarınızı görüntülemek için 1. adım altında bağlantı. Her aboneliğin, iki anahtarı vardır; uygulamanızda iki anahtarı kullanabilirsiniz. Kodunuzu yapıştırma panoya kopyalamak için her anahtar yanındaki düğmeyi seçin.
+1. Altında **hızlı**, tıklayın **anahtarları** abonelik anahtarlarınızı görüntülemek için 1. adım altında bağlantı. Her aboneliğin, iki anahtarı vardır; uygulamanızda iki anahtarı kullanabilirsiniz. Kodunuzu yapıştırma panoya kopyalamak için her anahtar yanındaki düğmeyi seçin.
 
 > [!NOTE]
 > Bir veya birden çok bölgede standart katman abonelikleri sınırsız sayıda oluşturabilirsiniz. Ancak, yalnızca bir ücretsiz katman abonelik oluşturabilir. Ücretsiz katmanındaki 7 gün için kullanılmaması modeli dağıtımlarını otomatik olarak kullanımdan olacaktır.
+
+## <a name="switch-to-a-new-subscription"></a>Yeni bir aboneliğe geçme
+
+Bir abonelikten diğerine geçmek için örneğin, ücretsiz deneme süresinin sona erdiği veya uygulamanızı yayımladığınızda değiştirin kodunuzu bölge ve abonelik anahtarı ile yeni bir Azure kaynak bölge ve abonelik anahtarı.
+
+> [!NOTE]
+> Ücretsiz deneme anahtarlarının yer olan Batı ABD'de oluşturulur (`westus`) bölge. Dilerseniz Azure Panosu oluşturulan bir aboneliği bazı başka bir bölgede olabilir.
+
+* Uygulamanız kullanıyorsa bir [Speech SDK'sı](speech-sdk.md), bölge kodu gibi sağladığınız `westus`, örneklerken `RecognizerFactory`. 
+* Uygulamanızı konuşma hizmetin birini kullanıp kullanmadığını [REST API'leri](rest-apis.md), bölge uç noktası URI'si istekleri yaparken kullandığınız bir parçasıdır.
+
+Bir bölgede oluşturulan anahtarları yalnızca bu bölgede geçerlidir. Diğer bölgeler ile kullanılmaya çalışılırsa, kimlik doğrulama hataları neden olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

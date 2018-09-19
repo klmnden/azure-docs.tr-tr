@@ -3,7 +3,7 @@ title: include dosyası
 description: include dosyası
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: navyasric
 manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -12,35 +12,35 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
+ms.date: 09/17/2018
+ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 24a5baade2168df603f5505baeaaf8e1c3ea2411
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 724166d402f81fa3a2c977d107111f5a0c32571d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205236"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293670"
 ---
-## <a name="setting-up-your-web-server-or-project"></a>Web sunucusu veya projesi ayarlama
+## <a name="setting-up-your-web-server-or-project"></a>Web sunucunuzda veya proje ayarlama
 
-> Bu örnek 's proje yerine indirmeyi tercih ediyorsunuz? 
-> - [Visual Studio projesi indirme](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
+> Bunun yerine bu örneği ait projeyi indirmek tercih ediyorsunuz?
+> - [Visual Studio projesini indirin](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
 >
 > or
-> - [Proje dosyalarını indirmek](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) Python gibi bir yerel web sunucusu için
+> - [Proje dosyalarını indirme](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) düğüm gibi bir yerel web sunucusu
 >
-> Ve ardından geçin [yapılandırma adımı](#register-your-application) kod örneği çalıştırmadan önce yapılandırmak için.
+> Ve ardından atlamak [yapılandırma adımı](#register-your-application) çalıştırmadan önce kodu örneği yapılandırmak için.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bir yerel web sunucusu gibi [Python http.server](https://www.python.org/downloads/), [http sunucu](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), ya da IIS Express ile tümleştirme [Visual Studio 2017](https://www.visualstudio.com/downloads/) Bu Destekli kurulumu çalıştırmak için gereklidir. 
+Bir yerel web sunucusu gibi [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), ya da IIS Express tümleştirmesiyle [Visual Studio 2017](https://www.visualstudio.com/downloads/) Bu öğretici çalıştırmak için gereklidir.
 
-Bu kılavuzdaki yönergeleri Python ve Visual Studio 2017 bağlıdır, ancak herhangi bir geliştirme ortamı veya Web sunucusu kullanmak üzere çekinmeyin.
+Bu kılavuzdaki yönergelere hem Node.js hem de Visual Studio 2017'yi temel alır, ancak herhangi bir geliştirme ortamı veya Web sunucusu kullanmaktan çekinmeyin.
 
-## <a name="create-your-project"></a>Projenizi oluşturma 
+## <a name="create-your-project"></a>Kendi projenizi oluşturun
 
-> ### <a name="option-1-visual-studio"></a>Seçenek 1: Visual Studio 
-> Visual Studio kullanarak ve yeni proje oluşturma, yeni bir Visual Studio çözüm oluşturmak için aşağıdaki adımları izleyin:
+> ### <a name="option-1-visual-studio"></a>Seçenek 1: Visual Studio
+> Visual Studio kullanarak ve yeni bir proje oluşturuyorsanız, yeni bir Visual Studio çözümü oluşturmak için aşağıdaki adımları izleyin:
 > 1.    Visual Studio'da:  `File` > `New` > `Project`
 > 2.    Altında `Visual C#\Web`seçin `ASP.NET Web Application (.NET Framework)`
 > 3.    Uygulamanızı adlandırın ve tıklayın *Tamam*
@@ -48,14 +48,14 @@ Bu kılavuzdaki yönergeleri Python ve Visual Studio 2017 bağlıdır, ancak her
 
 <p/><!-- -->
 
-> ### <a name="option-2-python-other-web-servers"></a>Seçenek 2: Python / diğer web sunucuları
-> Yüklediğinizden emin olun [Python](https://www.python.org/downloads/), aşağıdaki adımları izleyin:
+> ### <a name="option-2-node-other-web-servers"></a>2. seçenek: Düğüm / diğer web sunucuları
+> Yüklediğinizden emin olun [Node.js](https://nodejs.org/en/download/), ardından aşağıdaki adımları izleyin:
 > - Uygulamanızı barındırmak için bir klasör oluşturun.
 
 
-## <a name="create-your-single-page-applications-ui"></a>Tek sayfalı uygulama kullanıcı Arabirimi oluşturma
-1.  Oluşturma bir *index.html* JavaScript SPA dosyası. Visual Studio kullanıyorsanız, projeyi (Proje kök klasöründe) seçin, sağ tıklatın ve seçin: `Add`  >  `New Item`  >  `HTML page` ve index.html adlandırın
-2.  Sayfanıza aşağıdaki kodu ekleyin:
+## <a name="create-your-single-page-applications-ui"></a>Tek sayfalı uygulamanızın kullanıcı Arabirimi oluşturma
+1.  Oluşturma bir *index.html* , JavaScript SPA'ya dosyası. Visual Studio kullanıyorsanız, ' % s'projesi (projenin kök klasöründe) seçin, sağ tıklatın ve seçin: `Add`  >  `New Item`  >  `HTML page` index.html adlandırın
+2.  Sayfanız için aşağıdaki kodu ekleyin:
 ```html
 <!DOCTYPE html>
 <html>

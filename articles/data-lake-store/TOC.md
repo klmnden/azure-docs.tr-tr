@@ -22,7 +22,7 @@
 ### [DistCp’yi kullanma](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop’u kullanma](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Çevrimdışı kaynaklardan veri yükleme](data-lake-store-offline-bulk-data-upload.md)
-### [Data Lake Store’u bölgeler arasında geçirme](data-lake-store-migration-cross-region.md)
+### [Data Lake Storage 1. Nesil’i bölgeler arasında geçirme](data-lake-store-migration-cross-region.md)
 
 ## Verilerin güvenliğini sağlama
 ### [Güvenliğe genel bakış](data-lake-store-security-overview.md)
@@ -66,7 +66,7 @@
 ### Klasik Azure portalı (kullanım dışı)
 #### [Azure Portalını kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
 #### [Azure PowerShell'i kullanma (varsayılan depolama)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-#### [Azure PowerShell'i kullanma (ek depolama)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Azure PowerShell’i kullanma (ek depolama)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 #### [Azure şablonu kullanma](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Azure Sanal Ağı’ndaki VM’lerden erişim](data-lake-store-connectivity-from-vnets.md)
 ### [Data Lake Analytics ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

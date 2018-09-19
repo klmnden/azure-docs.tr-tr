@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory kullanarak Data Lake Store kimlik doğrulaması | Microsoft Docs
-description: Azure Active Directory kullanarak Data Lake Store ile kimlik doğrulaması yapmayı öğrenin
+title: Azure Data Lake depolama Gen1 Azure Active Directory'yi kullanarak kimlik doğrulaması | Microsoft Docs
+description: Azure Data Lake depolama Gen1 ile kimlik doğrulaması yapmayı öğrenin Azure Active Directory'yi kullanarak
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7db48b03a6f34655917c82702c12dbc9bc4c987a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: feb35336681376f6f4bd262418146d931f3d1e83
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494186"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294892"
 ---
-# <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Azure Active Directory kullanarak Data Lake Store ile kimlik doğrulaması
+# <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak kimlik doğrulaması ile Azure Data Lake depolama Gen1
 
-Azure Data Lake Store, Azure Active Directory kimlik doğrulaması için kullanır. Azure Data Lake Store ile çalışan bir uygulama geliştirme önce uygulamanızın Azure Active Directory (Azure AD) ile kimlik doğrulaması nasıl karar vermeniz gerekir.
+Azure Data Lake depolama Gen1 Azure Active Directory kimlik doğrulaması için kullanır. Data Lake depolama Gen1 ile çalışan bir uygulama geliştirme önce uygulamanızın Azure Active Directory (Azure AD) ile kimlik doğrulaması nasıl karar vermeniz gerekir.
 
 ## <a name="authentication-options"></a>Kimlik doğrulaması seçenekleri
 
-* **Son kullanıcı kimlik doğrulaması** -son kullanıcının Azure kimlik bilgileri ile Data Lake Store kimlik doğrulaması için kullanılır. Data Lake Store ile çalışmak için oluşturduğunuz uygulama, bu kullanıcı kimlik bilgilerini ister. Sonuç olarak, bu kimlik doğrulama mekanizmasıdır *etkileşimli* ve uygulama oturum açmış kullanıcının bağlamında çalışır. Daha fazla bilgi ve yönergeler için bkz. [Data Lake Store için son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Son kullanıcı kimlik doğrulaması** -son kullanıcının Azure kimlik bilgileri ile Data Lake depolama Gen1 kimliğini doğrulamak için kullanılır. Data Lake depolama Gen1 ile çalışmak için oluşturduğunuz uygulama, bu kullanıcı kimlik bilgilerini ister. Sonuç olarak, bu kimlik doğrulama mekanizmasıdır *etkileşimli* ve uygulama oturum açmış kullanıcının bağlamında çalışır. Daha fazla bilgi ve yönergeler için bkz. [son kullanıcı kimlik doğrulaması için Data Lake depolama Gen1](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **Hizmetten hizmete kimlik doğrulaması** -Data Lake Store ile kendi kimliğini doğrulamak için bir uygulama istiyorsanız bu seçeneği kullanın. Böyle durumlarda, bir Azure Active Directory (AD) uygulama oluşturmak ve Data Lake Store ile kimlik doğrulaması için Azure AD uygulaması anahtarı kullanın. Sonuç olarak, bu kimlik doğrulama mekanizmasıdır *etkileşimli olmayan*. Daha fazla bilgi ve yönergeler için bkz. [hizmetten hizmete kimlik doğrulaması için Data Lake Store](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Hizmetten hizmete kimlik doğrulaması** -Data Lake depolama Gen1 ile kendi kimliğini doğrulamak için bir uygulama istiyorsanız bu seçeneği kullanın. Böyle durumlarda, bir Azure Active Directory (AD) uygulama oluşturmak ve Data Lake depolama Gen1 ile kimlik doğrulaması için Azure AD uygulaması anahtarı kullanın. Sonuç olarak, bu kimlik doğrulama mekanizmasıdır *etkileşimli olmayan*. Daha fazla bilgi ve yönergeler için bkz. [hizmetten hizmete kimlik doğrulaması için Data Lake depolama Gen1](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
-Aşağıdaki tabloda, son kullanıcı ve hizmetten hizmete kimlik doğrulama mekanizmaları için Data Lake Store nasıl desteklenen gösterilmektedir. İşte, tabloyu nasıl olduğunu okuyun.
+Aşağıdaki tabloda, son kullanıcı ve hizmetten hizmete kimlik doğrulama mekanizmaları için Data Lake depolama Gen1 nasıl desteklenen gösterilmektedir. İşte, tabloyu nasıl olduğunu okuyun.
 
 * Kimlik doğrulama seçeneği desteklenir ve bağlantılar ✔ * simgesi gösterir, kimlik doğrulama seçeneği nasıl yapılacağı açıklanır makale için. 
 * ✔ Sembol, kimlik doğrulama seçeneği desteklenip desteklenmediğini gösterir. 

@@ -3,8 +3,8 @@ title: Azure Traffic Manager uç nokta izleme | Microsoft Docs
 description: Bu makalede, Traffic Manager uç nokta izleme ve otomatik bir uç nokta yük devretme yüksek kullanılabilirlik uygulamalarını dağıtmalarını Azure müşterilerine yardımcı olmak için nasıl kullandığını anlamanıza yardımcı olabilir
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c28b0ccfb565cb6bd4809a321d5e57f04475dceb
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398844"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123904"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager uç nokta izleme
 
@@ -32,17 +32,19 @@ Uç nokta izleme yapılandırmak için aşağıdaki ayarları Traffic Manager pr
 * **Protokol**. HTTP, HTTPS veya TCP Traffic Manager uç noktanızı yoklama zaman sistem durumu denetlemek için kullandığı protokolü olarak seçin. HTTPS izleme SSL sertifikanızı geçerli--olup olmadığını, yalnızca sertifika mevcut olduğunu denetler doğrulamaz.
 * **Bağlantı noktası**. İstek için kullanılan bağlantı noktasını seçin.
 * **Yol**. Bu yapılandırma ayarının hangi yolunu belirtmek için gerekli bir ayardır yalnızca HTTP ve HTTPS protokolleri için geçerlidir. Bu ayar TCP protokolü sonuçları hata izleme için sağlama. HTTP ve HTTPS protokolü için göreli yolunu ve Web sayfası veya izleme erişen dosyanın adını verin. Eğik çizgi (/), göreli yol geçerli bir giriştir. Bu değer, dosyanın kök dizininde (varsayılan) olduğunu gösterir.
+* **Özel üst bilgi ayarları** bu yapılandırma ayarı, sistem belirli HTTP üstbilgilerine denetler Traffic Manager uç noktalarına bir profili altındaki gönderir ekleyin yardımcı olur. Özel üst bilgiler, bu profildeki tüm uç noktalar için geçerli olacak şekilde, bir profil düzeyinde and / or yalnızca uç noktanın için geçerli bir uç nokta düzeyinde belirtilebilir. Özel üst bilgiler, bir konak üstbilgisi belirterek hedeflerine doğru şekilde yönlendirilmesini sistem durumu denetimleri çok müşterili bir ortamda uç noktalarına sahip olmak için kullanabilirsiniz. Farklı şekilde işler ve bu ayar HTTP (S) istekleri, Traffic Manager tanımlamak için kullanılan benzersiz üst kaynağı ekleyerek de kullanabilirsiniz.
+* **Beklenen durum kodu aralığı** Bu ayar 200 299, 301 301 biçiminde birden fazla başarı kodu aralığı belirtmenize olanak sağlar. Traffic Manager, sistem durumu denetimi başlatıldığında bir uç noktasından yanıt olarak bu durum kodları alınır, bu Uç noktalara sağlıklı olarak işaretler. En fazla 8 durum kodu aralığı belirtebilirsiniz. Bu ayar, yalnızca HTTP ve HTTPS protokolü ve tüm uç noktalar için geçerlidir. Bu ayarı Traffic Manager profili düzeyinde ve varsayılan başarılı durum kodu 200 değeri tanımlanır.
 * **Yoklama aralığı**. Bu değer, bir uç nokta Traffic Manager araştırma aracılardan gelen sistem durumu için ne sıklıkla kontrol belirtir. Burada iki değer belirtebilirsiniz: 30 saniye (normal algılama) ve 10 saniye (hızlı algılama). Hiçbir değer sağlanmışsa, profil 30 saniyelik bir varsayılan değere ayarlar. Ziyaret [Traffic Manager fiyatlandırma](https://azure.microsoft.com/pricing/details/traffic-manager) Hızlı Yoklama fiyatlandırması hakkında daha fazla bilgi edinmek için sayfa.
 * **Hatalarının sayısı kaydırmadan kaçınma şansınız**. Bu değer, bu uç nokta iyi durumda olmayan olarak işaretleme önce bir Traffic Manager Araştırma Aracı göstereceği kaç hataları belirtir. Değeri 0 ile 9 arasında değişebilir. 0 değeri tek bir izleme hata sorunlu olarak işaretleneceğini bu endpoint neden olabilir. Hiçbir değer belirtilmemişse, varsayılan değer 3'ün kullanır.
-* **İzleme zaman aşımı**. Bu özellik, bir sistem durumu kontrolü araştırma uç noktasına gönderilirken bir hata denetleyen Traffic Manager Araştırma Aracı olduğunu düşünmeden önce beklemesi gereken süreyi belirtir. Yoklama aralığı 30 saniye olarak ayarlarsanız, 5 ve 10 saniye arasında bir zaman aşımı değeri ayarlayabilirsiniz. Hiçbir değer belirtilmemişse, varsayılan değer 10 saniye olarak kullanır. Yoklama aralığı 10 saniye olarak ayarlarsanız, 5 ila 9 saniye arasında bir zaman aşımı değeri ayarlayabilirsiniz. Hiçbir zaman aşımı değeri belirtilmediği takdirde, 9 saniye varsayılan değeri kullanır.
+* **Yoklama zaman aşımı**. Bu özellik, bir sistem durumu kontrolü araştırma uç noktasına gönderilirken bir hata denetleyen Traffic Manager Araştırma Aracı olduğunu düşünmeden önce beklemesi gereken süreyi belirtir. Yoklama aralığı 30 saniye olarak ayarlarsanız, 5 ve 10 saniye arasında bir zaman aşımı değeri ayarlayabilirsiniz. Hiçbir değer belirtilmemişse, varsayılan değer 10 saniye olarak kullanır. Yoklama aralığı 10 saniye olarak ayarlarsanız, 5 ila 9 saniye arasında bir zaman aşımı değeri ayarlayabilirsiniz. Hiçbir zaman aşımı değeri belirtilmediği takdirde, 9 saniye varsayılan değeri kullanır.
 
-![Traffic Manager uç nokta izleme](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
+    ![Traffic Manager uç nokta izleme](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-**Şekil 1: Traffic Manager uç nokta izleme**
+    **Şekil: Traffic Manager uç nokta izleme**
 
 ## <a name="how-endpoint-monitoring-works"></a>Uç nokta izleme nasıl çalışır
 
-İzleme Protokolü HTTP veya HTTPS ' ayarlanırsa, Traffic Manager Araştırma Aracı protokol, bağlantı noktası ve göreli yol verilen kullanarak uç noktaya bir GET isteği yapar. Geri 200 Tamam yanıtı alır, bu uç nokta sağlıklı olarak değerlendirilir. Yanıt farklı bir değer ise veya sonra aracıyı yeniden dener (Bu ayarı 0 ise hiçbir yeniden dener yapılır), sayı hataları kaydırmadan kaçınma şansınız ayarına göre araştırma Traffic Manager belirtilen zaman aşımı süresi içinde yanıt alınamazsa. Art arda hata sayısını, sayı hataları kaydırmadan kaçınma şansınız ayarından daha yüksekse, bu uç nokta olarak sağlıksız olarak işaretlenir. 
+İzleme Protokolü HTTP veya HTTPS ' ayarlanırsa, Traffic Manager Araştırma Aracı protokol, bağlantı noktası ve göreli yol verilen kullanarak uç noktaya bir GET isteği yapar. Geri 200 Tamam yanıtı alır ya da yapılandırılan tüm yanıtlar ** beklenen durum kodu * aralıkları ** ardından, uç nokta olarak kabul edilir iyi durumda. Yanıt farklı bir değer ise veya sonra aracıyı yeniden dener (Bu ayarı 0 ise hiçbir yeniden dener yapılır), sayı hataları kaydırmadan kaçınma şansınız ayarına göre araştırma Traffic Manager belirtilen zaman aşımı süresi içinde yanıt alınamazsa. Art arda hata sayısını, sayı hataları kaydırmadan kaçınma şansınız ayarından daha yüksekse, bu uç nokta olarak sağlıksız olarak işaretlenir. 
 
 İzleme Protokolü TCP ise, Traffic Manager araştırma aracı kullanarak belirtilen bağlantı noktası TCP bağlantısı isteği başlatır. Bağlantı isteğine yanıt veren bir uç nokta yanıt verirse, bu sistem durumu denetimi başarılı işaretlenir ve Traffic Manager Araştırma Aracı TCP bağlantısı sıfırlar. Yanıt farklı bir değer ise veya zaman aşımı süresi içinde yanıt alınamazsa belirtilmezse, Traffic Manager aracısını yeniden dener (Bu ayarı 0 ise hiçbir yeniden dener yapılan), sayı hataları kaydırmadan kaçınma şansınız ayarına göre algılanıyor. Art arda hata sayısını, sayı hataları kaydırmadan kaçınma şansınız ayarından daha yüksekse, bu uç nokta sağlıksız olarak işaretlenir.
 
@@ -101,7 +103,7 @@ Traffic Manager, düzenli aralıklarla sağlıklı uç noktalar dahil olmak üze
 
 Aşağıdaki olaylardan herhangi biri gerçekleştiğinde bir uç nokta sağlam değil:
 - İzleme Protokolü, HTTP veya HTTPS ise:
-    - (301/302 yeniden yönlendirme veya farklı 2xx kod dahil) bir 200 yanıt alındı.
+    - 200 yanıt ya da belirtilen durum aralığı içermeyen bir yanıt **beklenen durum kodu aralığı** ayarı (301/302 yeniden yönlendirme veya farklı 2xx kod dahil) alınır.
 - İzleme protokol TCP olduğunda: 
     - Traffic Manager tarafından gönderilen bağlantı kurma denemesi eşitleme isteğine yanıt olarak ACK veya SYN ACK dışındaki bir yanıt aldı.
 - Zaman aşımı. 
@@ -109,14 +111,14 @@ Aşağıdaki olaylardan herhangi biri gerçekleştiğinde bir uç nokta sağlam 
 
 Sorun giderme başarısız denetimler hakkında daha fazla bilgi için bkz: [durumu Azure Traffic Manager'da düşürülmüş sorun giderme](traffic-manager-troubleshooting-degraded.md). 
 
-Şekil 2'de aşağıdaki zaman çizelgesi aşağıdaki ayarlara sahip bir Traffic Manager uç nokta izleme işleminin ayrıntılı açıklamasıdır: İzleme Protokolü HTTP olduğu, araştırma aralığı 30 saniye, tolere edilen hata sayısı 3 olan, zaman aşımı değeri 10 saniye ve DNS TTL'yi, 30 saniye.
+Zaman çizelgesinde aşağıdaki şekilde aşağıdaki ayarlara sahip bir Traffic Manager uç nokta izleme işleminin ayrıntılı açıklamasıdır: İzleme Protokolü HTTP olduğu, araştırma aralığı 30 saniye, tolere edilen hata sayısı 3 olan, zaman aşımı değeri 10 saniye ve DNS TTL'yi, 30 saniye.
 
 ![Traffic Manager uç nokta yük devretme ve yeniden çalışma dizisi](./media/traffic-manager-monitoring/timeline.png)
 
-**Şekil 2: Yük devretme ve kurtarma Traffic manager uç nokta dizisi**
+**Şekil: Yük devretme ve kurtarma Traffic manager uç nokta dizisi**
 
 1. **ALMA**. Her uç nokta için sistemin izlenmesi Traffic Manager İzleme ayarlarında belirtilen yolda bir GET isteği yapar.
-2. **200 TAMAM**. İzleme sistemi, 10 saniye içinde döndürülecek bir HTTP 200 OK iletisi bekliyor. Bu yanıt aldığında, hizmet kullanılabilir tanır.
+2. **Belirtilen izleme ayarlarını Traffic Manager profili 200 Tamam'ı veya özel kod aralığı** . Bir HTTP 200 OK izleme sistemi bekliyor veya veya özel kod aralığı 10 saniye içinde döndürülecek ayarları ileti izleme Traffic Manager profili belirtilmedi. Bu yanıt aldığında, hizmet kullanılabilir tanır.
 3. **Denetimler arasındaki 30 saniye**. Uç nokta sistem durumu denetimi, her 30 saniyede tekrarlanır.
 4. **Hizmet kullanılamıyor**. Hizmet kullanılamaz. Traffic Manager kadar sonraki sistem durumu denetimi oynatacaklarını bilmez.
 5. **İzleme yola erişme girişiminde**. İzleme sistemi için bir GET isteği yapar, ancak bu 10 saniyelik zaman aşımı süresi içinde yanıt almaz (Alternatif olarak, bir 200 yanıt alınması). Ardından üç kez daha, 30 saniyelik aralıklarla çalışır. Ardından bir deneme başarılı olursa, deneme sayısı sıfırlanır.
@@ -137,6 +139,8 @@ Bir uç nokta Degraded durumuna sahip olduğunda, DNS sorgularına yanıt artık
 * **Ağırlıklı**. Tüm kullanılabilir uç nokta rastgele atanan ağırlıkları ve diğer kullanılabilir uç noktalar ağırlıkları göre seçilir.
 * **Performans**. Son kullanıcıya en yakın uç nokta döndürülür. Uç noktanın kullanılamıyorsa, Traffic Manager trafik sonraki en yakın Azure bölgesinde uç noktalarına taşır. Performans trafiği yönlendirme için alternatif bir yük devretme planları kullanarak yapılandırabilirsiniz [iç içe Traffic Manager profillerini](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Coğrafi**. Sorgu isteği temel alarak coğrafi konumu hizmet eşlenmiş uç IP'ler döndürülür. Uç noktanın kullanılamıyorsa, yalnızca bir profilinde bir uç nokta için bir coğrafi konumda eşlenebilir olduğundan başka bir uç nokta yük devretme için seçilir değil (daha fazla ayrıntı bulunan [SSS](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Coğrafi yönlendirme kullanırken en iyi uygulama, müşterilerinin profil uç noktaları olarak birden fazla uç nokta ile iç içe Traffic Manager profillerini kullanmasını öneririz.
+* **Birden çok değerli** IPv4/IPv6 adresleriyle eşlenen birden fazla uç noktaları döndürülür. Bu profil için bir sorgu alındığında, sağlıklı uç noktalar göre döndürülen **en fazla kayıt sayısı yanıt** belirttiğiniz değeri. İki uç nokta, yanıtları varsayılan sayısıdır.
+* **Alt ağ** bir IP adresi aralıklarını kümesine eşlenmiş uç nokta döndürülür. Bu IP adresinden bir istek alındığında, bu IP adresi için eşlenmiş bir uç nokta döndürdü. 
 
 Daha fazla bilgi için [Traffic Manager trafik yönlendirme yöntemleri](traffic-manager-routing-methods.md).
 

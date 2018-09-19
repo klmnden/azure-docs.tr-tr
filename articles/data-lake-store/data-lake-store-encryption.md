@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store'da şifreleme | Microsoft Belgeleri
-description: Azure Data Lake Store’da şifreleme; verilerinizi koruma, kurumsal güvenlik ilkeleri uygulama ve yasal uyumluluk gereksinimlerini karşılamaya yardımcı olur. Bu makale tasarıma genel bir bakış sunarken uygulamanın birkaç teknik yönünü ele almaktadır.
+title: Azure Data Lake depolama Gen1 şifreleme | Microsoft Docs
+description: Azure Data Lake depolama Gen1 şifreleme, verilerinizi koruma, Kurumsal güvenlik ilkeleri uygulama ve yasal uyumluluk gereksinimlerini karşılamaya yardımcı olur. Bu makale tasarıma genel bir bakış sunarken uygulamanın birkaç teknik yönünü ele almaktadır.
 services: data-lake-store
 documentationcenter: ''
 author: esung22
@@ -8,40 +8,40 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: c3f79348cb5d80639d76ad1a8ba82fcfa56ebed1
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: df89f8fd4dd5c7690d858009e250a474f702f1a8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307752"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125043"
 ---
-# <a name="encryption-of-data-in-azure-data-lake-store"></a>Azure Data Lake Store'da veri şifreleme
+# <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 veri şifreleme
 
-Azure Data Lake Store’da şifreleme; verilerinizi koruma, kurumsal güvenlik ilkeleri uygulama ve yasal uyumluluk gereksinimlerini karşılamaya yardımcı olur. Bu makale tasarıma genel bir bakış sunarken uygulamanın birkaç teknik yönünü ele almaktadır.
+Azure Data Lake depolama Gen1 şifreleme, verilerinizi koruma, Kurumsal güvenlik ilkeleri uygulama ve yasal uyumluluk gereksinimlerini karşılamaya yardımcı olur. Bu makale tasarıma genel bir bakış sunarken uygulamanın birkaç teknik yönünü ele almaktadır.
 
-Data Lake Store, hem bekleyen hem de aktarımdaki verilerin şifrelenmesini destekler. Bekleyen veriler için Data Lake Store, "varsayılan olarak etkin" saydam şifrelemeyi destekler. Bu terimlerin biraz daha ayrıntılı olarak anlamı şudur:
+Data Lake depolama Gen1 hem bekleyen hem de Aktarımdaki verilerin şifrelenmesini destekler. Bekleyen veriler için Data Lake depolama Gen1 destekler "üzerinde varsayılan olarak," saydam şifrelemeyi. Bu terimlerin biraz daha ayrıntılı olarak anlamı şudur:
 
-* **Varsayılan olarak etkin**: Yeni bir Data Lake Store hesabı oluştururken varsayılan ayar, şifrelemeyi etkinleştirir. Bundan sonra Data Lake Store'da depolanan veriler her zaman kalıcı medyada depolanmadan önce şifrelenir. Bu durum tüm veriler için geçerlidir ve bir hesap oluşturulduktan sonra değiştirilemez.
-* **Şeffaf**: Data Lake Store, kaydetmeden önce verileri şifreler ve almadan öncesinde verilerin şifresini çözer. Bu şifreleme Data Lake Store düzeyinde bir yönetici tarafından yapılandırılır ve yönetilir. Veri erişimi API'lerinde hiçbir değişiklik yapılmaz. Bu nedenle, Data Lake Store ile etkileşimde bulunan uygulamalarda ve hizmetlerde şifreleme için herhangi bir değişiklik yapılması gerekmez.
+* **Üzerinde varsayılan olarak**: yeni bir Data Lake depolama Gen1 hesabı oluştururken varsayılan ayar şifrelemeyi etkinleştirir. Bundan sonra Data Lake depolama Gen1 içinde depolanan veriler her zaman kalıcı medyada depolanmadan önce şifrelenir. Bu durum tüm veriler için geçerlidir ve bir hesap oluşturulduktan sonra değiştirilemez.
+* **Saydam**: Data Lake depolama Gen1 otomatik olarak kaydetmeden önce verileri şifreler ve almadan öncesinde verilerin şifresini çözer. Şifreleme yapılandırılır ve Data Lake depolama Gen1 hesap düzeyinde bir yönetici tarafından yönetilir. Veri erişimi API'lerinde hiçbir değişiklik yapılmaz. Bu nedenle, değişiklik bulunan uygulamalarda ve hizmetlerde şifreleme Data Lake depolama Gen1 ile etkileşim kuran gerekli değildir.
 
-Data Lake Store'da aktarımdaki (diğer adıyla hareket halindeki) veriler de her zaman şifrelenir. Kalıcı medyaya depolama önce veri şifrelemeye ek olarak, aktarımdaki veriler de her zaman HTTPS kullanılarak korunmaktadır. HTTPS, Data Lake Store REST arabirimleri için desteklenen tek protokoldür. Aşağıdaki diyagramda, Data Lake Store'da verilerin nasıl şifrelendiği gösterilmektedir:
+(Diğer adıyla Hareket halindeki) veriler Aktarımdaki verileri Data Lake depolama Gen1 içinde de her zaman şifrelenir. Kalıcı medyaya depolama önce veri şifrelemeye ek olarak, aktarımdaki veriler de her zaman HTTPS kullanılarak korunmaktadır. HTTPS, Data Lake depolama Gen1 REST arabirimleri için desteklenen tek protokoldür. Aşağıdaki diyagramda, Data Lake depolama Gen1 içinde verilerin nasıl şifrelendiği gösterilmektedir:
 
-![Data Lake Store'da veri şifreleme diyagramı](./media/data-lake-store-encryption/fig1.png)
+![Data Lake depolama Gen1 veri şifreleme diyagramı](./media/data-lake-store-encryption/fig1.png)
 
 
-## <a name="set-up-encryption-with-data-lake-store"></a>Data Lake Store ile şifrelemeyi ayarlama
+## <a name="set-up-encryption-with-data-lake-storage-gen1"></a>Data Lake depolama Gen1 ile şifreleme ayarlama
 
-Data Lake Store için Şifreleme, hesap oluşturma sırasında ayarlanır ve her zaman varsayılan olarak etkindir. Anahtarları kendiniz yönetebilir veya Data Lake Store’un sizin için yönetmesine izin verebilirsiniz (varsayılan değer).
+Şifreleme Data Lake depolama Gen1 için hesap oluşturma sırasında ayarlanır ve her zaman varsayılan olarak etkindir. Anahtarları kendiniz yönetebilir veya Data Lake depolama Gen1 (varsayılan değer budur), bunları yönetmek izin verebilirsiniz.
 
 Daha fazla bilgi için [Başlarken](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal) bölümüne bakın.
 
-## <a name="how-encryption-works-in-data-lake-store"></a>Data Lake Store'da şifreleme nasıl çalışır
+## <a name="how-encryption-works-in-data-lake-storage-gen1"></a>Data Lake depolama Gen1 içinde şifreleme nasıl çalışır
 
-Aşağıdaki bilgiler ana şifreleme anahtarlarını yönetme konusunu kapsar ve Data Lake Store için veri şifrelemede kullanabileceğiniz üç farklı türü açıklar.
+Aşağıdaki bilgiler ana şifreleme anahtarlarını yönetme konusunu kapsar ve Data Lake depolama Gen1 için Veri şifrelemede kullanabileceğiniz üç farklı türleri açıklanmaktadır.
 
 ### <a name="master-encryption-keys"></a>Ana şifreleme anahtarları
 
-Data Lake Store, ana şifreleme anahtarlarının (MEK’ler) yönetimi için iki mod sağlar. Şimdilik, ana şifreleme anahtarının en üst düzey anahtar olduğunu varsayabiliriz. Data Lake Store'da depolanan verilerin şifresini çözmek için ana şifreleme anahtarına erişim gereklidir.
+Data Lake depolama Gen1 ana şifreleme anahtarlarının (Mek'ler) yönetimi için iki mod sağlar. Şimdilik, ana şifreleme anahtarının en üst düzey anahtar olduğunu varsayabiliriz. Data Lake depolama Gen1 içinde depolanan verilerin şifresini çözmek için ana şifreleme anahtarına erişim gereklidir.
 
 Ana şifreleme anahtarını yönetmek için kullanılan iki mod şunlardır:
 
@@ -58,17 +58,17 @@ MEK’leri yönetmek için kullanılan iki modun sağladığı özelliklerin kı
 |Ana Şifreleme Anahtarı nerede depolanır?|Key Vault|Key Vault|
 |Key Vault dışında açıkta saklanan şifreleme anahtarı var mı? |Hayır|Hayır|
 |Key Vault’tan MEK alınabilir mi?|Hayır. MEK Key Vault’ta depolandıktan sonra yalnızca şifreleme ve şifre çözme amacıyla kullanılabilir.|Hayır. MEK Key Vault’ta depolandıktan sonra yalnızca şifreleme ve şifre çözme amacıyla kullanılabilir.|
-|Key Vault örneği ve MEK kime aittir?|Data Lake Store hizmeti|Kendi Azure aboneliğiniz kapsamında bulunan Key Vault örneği size aittir. Key Vault’taki MEK, yazılım veya donanım tarafından yönetilebilir.|
-|Data Lake Store hizmeti için MEK erişimini iptal edebilir misiniz?|Hayır|Evet. Azure Key Vault’taki erişim denetimi listelerini yönetebilir ve Data Lake Store hizmeti için hizmet kimliğine erişim denetimi girdilerini kaldırabilirsiniz.|
-|MEK’i kalıcı olarak silebilir misiniz?|Hayır|Evet. Key Vault'taki MEK’i silerseniz, Data Lake Store hesabındaki verilerin şifresi Data Lake Store hizmeti de dahil olmak üzere hiç kimse tarafından çözülemez. <br><br> MEK’i Key Vault'tan silmeden önce özellikle yedeklediyseniz, MEK geri yüklenebilir ve veriler kurtarılabilir. Ancak, MEK’i Key Vault'tan silmeden önce yedeklemediyseniz, Data Lake Store hesabındaki verilerin şifresi asla çözülemez.|
+|Key Vault örneği ve MEK kime aittir?|Data Lake depolama Gen1 hizmeti|Kendi Azure aboneliğiniz kapsamında bulunan Key Vault örneği size aittir. Key Vault’taki MEK, yazılım veya donanım tarafından yönetilebilir.|
+|Data Lake depolama Gen1 hizmeti için MEK erişimini iptal edebilir mi?|Hayır|Evet. Key vault'taki erişim denetim listelerini yönetebilir ve Data Lake depolama Gen1 hizmeti için hizmet kimliği erişim denetimi girdilerini kaldırın.|
+|MEK’i kalıcı olarak silebilir misiniz?|Hayır|Evet. Key Vault'taki MEK'i silerseniz, herkes tarafından Data Lake depolama Gen1 hizmeti de dahil olmak üzere Data Lake depolama Gen1 hesabındaki verilerin şifresi çözülemiyor. <br><br> MEK’i Key Vault'tan silmeden önce özellikle yedeklediyseniz, MEK geri yüklenebilir ve veriler kurtarılabilir. Yukarı MEK'i Key Vault'tan silmeden önce yedeklemediyseniz, ancak Data Lake depolama Gen1 hesabındaki verilerin hiçbir zaman şifresi çözülemez.|
 
 
 MEK ve MEK’in içinde bulunduğu Key Vault’un kim tarafından yönetildiği konusundaki bu farklılık dışında, tasarımın geri kalanı her iki mod için aynıdır.
 
 Ana şifreleme anahtarları için modu seçtiğinizde aşağıdakileri unutmamanız gerekir:
 
-*   Bir Data Lake Store hesabı sağladığınızda müşteri tarafından veya hizmet tarafından yönetilen anahtarları kullanacağınızı seçebilirsiniz.
-*   Data Lake Store hesabı oluşturulduktan sonra mod değiştirilemez.
+*   Bir Data Lake depolama Gen1 hesabı sağladığınızda müşteri anahtarlar veya yönetilen hizmet anahtarları yönetilen olmadığını seçebilirsiniz.
+*   Bir Data Lake depolama Gen1 hesabı oluşturulduktan sonra mod değiştirilemez.
 
 ### <a name="encryption-and-decryption-of-data"></a>Verilerin şifrelenmesi ve şifresinin çözülmesi
 
@@ -76,8 +76,8 @@ Veri şifreleme tasarımında kullanılan üç tür anahtar vardır. Aşağıdak
 
 | Anahtar                   | Kısaltma | İlişkili olduğu yer: | Depolama konumu                             | Tür       | Notlar                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
-| Ana Şifreleme Anahtarı | MEK          | Bir Data Lake Store hesabı | Key Vault                              | Asimetrik | Data Lake Store veya sizin tarafınızdan yönetilebilir.                                                              |
-| Veri Şifreleme Anahtarı   | DEK          | Bir Data Lake Store hesabı | Kalıcı depolama, Data Lake Store hizmeti tarafından yönetilir | Simetrik  | DEK, MEK ile şifrelenir. Şifrelenmiş DEK, kalıcı medyada depolanır. |
+| Ana Şifreleme Anahtarı | MEK          | Bir Data Lake depolama Gen1 hesabı | Key Vault                              | Asimetrik | Data Lake depolama Gen1 veya sizin tarafınızdan yönetilebilir.                                                              |
+| Veri Şifreleme Anahtarı   | DEK          | Bir Data Lake depolama Gen1 hesabı | Data Lake depolama Gen1 hizmet tarafından yönetilen kalıcı depolama | Simetrik  | DEK, MEK ile şifrelenir. Şifrelenmiş DEK, kalıcı medyada depolanır. |
 | Blok Şifreleme Anahtarı  | BEK          | Bir veri bloğu | None                                         | Simetrik  | BEK, DEK’ten ve veri bloğundan türetilir.                                                      |
 
 Aşağıdaki diyagram bu kavramları göstermektedir:
@@ -85,7 +85,7 @@ Aşağıdaki diyagram bu kavramları göstermektedir:
 ![Veri şifrelemesindeki anahtarlar](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Bir dosyanın şifresinin çözülmesi için kullanılan genel algoritma:
-1.  Data Lake Store hesabının DEK’inin önbelleğe alınmış ve kullanıma hazır olup olmadığını denetleyin.
+1.  Data Lake depolama Gen1 hesabının DEK'inin önbelleğe alınmış ve kullanıma hazır olup olmadığını denetleyin.
     - Bu koşulları karşılamıyorsa, kalıcı depolamadan şifrelenmiş DEK’i okuyun ve şifresinin çözülmesi için Key Vault’a gönderin. Şifresi çözülmüş DEK’i bellekte önbelleğe alın. Artık kullanıma hazırdır.
 2.  Dosyadaki her veri bloğu için:
     - Kalıcı depolama alanından şifrelenmiş veri bloğu okunur.
@@ -94,7 +94,7 @@ Aşağıdaki diyagram bu kavramları göstermektedir:
 
 
 #### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Bir veri bloğu şifrelenecek olduğunda genel algoritma:
-1.  Data Lake Store hesabının DEK’inin önbelleğe alınmış ve kullanıma hazır olup olmadığını denetleyin.
+1.  Data Lake depolama Gen1 hesabının DEK'inin önbelleğe alınmış ve kullanıma hazır olup olmadığını denetleyin.
     - Bu koşulları karşılamıyorsa, kalıcı depolamadan şifrelenmiş DEK’i okuyun ve şifresinin çözülmesi için Key Vault’a gönderin. Şifresi çözülmüş DEK’i bellekte önbelleğe alın. Artık kullanıma hazırdır.
 2.  DEK’ten veri bloğu için benzersiz bir BEK oluşturulur.
 3.  Veri bloğu, BEK ile AES-256 şifreleme kullanılarak şifrelenir.
@@ -105,34 +105,34 @@ Aşağıdaki diyagram bu kavramları göstermektedir:
 
 ## <a name="key-rotation"></a>Anahtar döndürme
 
-Müşteri tarafından yönetilen anahtarları kullanırken MEK’i döndürebilirsiniz. Müşteri tarafından yönetilen anahtarlarla Data Lake Store hesabınızı ayarlama hakkında bilgi edinmek için bkz. [Başlarken](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+Müşteri tarafından yönetilen anahtarları kullanırken MEK’i döndürebilirsiniz. Müşteri tarafından yönetilen anahtarlarla Data Lake depolama Gen1 hesabınızı hakkında bilgi edinmek için bkz: [Başlarken](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-Data Lake Store hesabınızı ayarlarken kendi anahtarlarınızı kullanmayı seçtiniz. Bu seçenek, hesap oluşturulduktan sonra değiştirilemez. Aşağıdaki adımlarda, müşteri tarafından yönetilen anahtarlar kullandığınız (Key Vault'tan kendi anahtarlarınızı seçtiğiniz) varsayılır.
+Data Lake depolama Gen1 hesabınızı ayarlarken kendi anahtarlarınızı kullanmayı seçtiniz. Bu seçenek, hesap oluşturulduktan sonra değiştirilemez. Aşağıdaki adımlarda, müşteri tarafından yönetilen anahtarlar kullandığınız (Key Vault'tan kendi anahtarlarınızı seçtiğiniz) varsayılır.
 
-Şifreleme için varsayılan seçenekleri kullanıyorsanız, verilerinizin her zaman Data Lake Store tarafından yönetilen anahtarlar kullanılarak şifrelendiğini unutmayın. Bu seçenekte, Data Lake Store tarafından yönetildikleri için anahtarları döndüremezsiniz.
+Şifreleme için varsayılan seçenekleri kullanırsanız, verileriniz her zaman Data Lake depolama Gen1 tarafından yönetilen anahtarlar kullanılarak şifrelendiğini unutmayın. Bu seçenekte, Data Lake depolama Gen1 tarafından yönetildikleri için anahtarları döndüremezsiniz özelliği yok.
 
-### <a name="how-to-rotate-the-mek-in-data-lake-store"></a>Data Lake Store’da MEK döndürme
+### <a name="how-to-rotate-the-mek-in-data-lake-storage-gen1"></a>Data Lake depolama Gen1, MEK döndürme
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Data Lake Store hesabınızla ilişkili anahtarlarınızı depolayan Key Vault örneğine göz atın. **Anahtarlar**’ı seçin.
+2. Data Lake depolama Gen1 hesabınızla ilişkili anahtarlarınızı depolayan Key Vault örneğine göz atın. **Anahtarlar**’ı seçin.
 
     ![Key Vault ekran görüntüsü](./media/data-lake-store-encryption/keyvault.png)
 
-3.  Data Lake Store hesabınızla ilişkili anahtarı seçin ve bu anahtarın yeni bir sürümünü oluşturun. Data Lake Store şu anda yalnızca bir anahtarın yeni bir sürümüne anahtar döndürmeyi desteklemektedir. Farklı bir anahtara döndürmeyi desteklemez.
+3.  Data Lake depolama Gen1 hesabınızla ilişkili anahtarı seçin ve bu anahtarın yeni bir sürümünü oluşturun. Data Lake depolama Gen1 şu anda yalnızca bir anahtarın yeni bir sürüme anahtar döndürmeyi desteklediğini unutmayın. Farklı bir anahtara döndürmeyi desteklemez.
 
    ![Yeni Sürümün vurgulandığı Anahtarlar penceresi ekran görüntüsü](./media/data-lake-store-encryption/keynewversion.png)
 
-4.  Data Lake Store depolama hesabına gidip **Şifreleme**’yi seçin.
+4.  Data Lake depolama Gen1 hesabına Gözat ve Seç **şifreleme**.
 
-    ![Şifreleme’nin vurgulandığı Data Lake Store depolama hesabı penceresinin ekran görüntüsü](./media/data-lake-store-encryption/select-encryption.png)
+    ![Şifreleme'nin vurgulandığı ekran görüntüsü Data Lake depolama Gen1 hesabı penceresinin](./media/data-lake-store-encryption/select-encryption.png)
 
 5.  Yeni bir anahtar sürümünün mevcut olduğu bir ileti ile bildirilir. Anahtarı yeni sürüme güncelleştirmek için **Anahtarı Döndür** seçeneğine tıklayın.
 
-    ![İleti ve Anahtarı Döndür seçenekleri vurgulanmış Data Lake Store penceresinin ekran görüntüsü](./media/data-lake-store-encryption/rotatekey.png)
+    ![İleti ve anahtarı Döndür seçenekleri vurgulanmış ekran Data Lake depolama Gen1 penceresi](./media/data-lake-store-encryption/rotatekey.png)
 
 Bu işlem iki dakikadan kısa sürer ve anahtar döndürme nedeniyle beklenen kapalı kalma süresi yoktur. İşlem tamamlandıktan sonra anahtarın yeni sürümü kullanılır.
 
 > [!IMPORTANT]
-> Anahtar döndürme işlemi tamamlandıktan sonra anahtarın eski sürümü artık verilerinizi şifrelemek için etkin şekilde kullanılmaz.  Ancak verilerinizin yedek kopyalarının etkilendiği nadiren de olsa karşılaşılan beklenmedik hata durumlarında veriler halen eski anahtarı kullanan bir yedeklemeden geri yüklenebilir. Verilerinizin bu tür nadir durumlarda erişilebilir olmasını sağlamak için, şifreleme anahtarınızın önceki sürümünün bir kopyasını saklayın. Olağanüstü durum kurtarma planlamanıza yönelik en iyi uygulamalar için bkz. [Data Lake Store’da veriler için olağanüstü durum kurtarma rehberi](data-lake-store-disaster-recovery-guidance.md). 
+> Anahtar döndürme işlemi tamamlandıktan sonra anahtarın eski sürümü artık verilerinizi şifrelemek için etkin şekilde kullanılmaz.  Ancak verilerinizin yedek kopyalarının etkilendiği nadiren de olsa karşılaşılan beklenmedik hata durumlarında veriler halen eski anahtarı kullanan bir yedeklemeden geri yüklenebilir. Verilerinizin bu tür nadir durumlarda erişilebilir olmasını sağlamak için, şifreleme anahtarınızın önceki sürümünün bir kopyasını saklayın. Bkz: [olağanüstü durum kurtarma kılavuzu için verileri Data Lake depolama Gen1](data-lake-store-disaster-recovery-guidance.md) olağanüstü durum kurtarma planlaması için en iyi uygulamalar için. 

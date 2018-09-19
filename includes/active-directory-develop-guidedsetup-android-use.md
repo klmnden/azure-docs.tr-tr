@@ -1,7 +1,30 @@
+---
+title: include dosyası
+description: include dosyası
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: cf6ded1252528a0bbfac9c7378f03384cc484c50
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293813"
+---
+## <a name="use-msal-to-get-a-token"></a>Bir belirteç almak için MSAL kullanın 
 
-## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Microsoft Graph API için bir belirteç almak üzere MSAL kullanın
-
-1.  Altında **uygulama** > **java** > **{etki alanı}. { Appname}**, açık `MainActivity`. 
+1.  Altında **uygulama** > **java** > **{domain}. { Appname}** açın `MainActivity`. 
 2.  Aşağıdaki içeri aktarmaları ekleyin:
 
     ```java
@@ -22,7 +45,7 @@
     import com.microsoft.identity.client.*;
     ```
 
-3. Değiştir `MainActivity` aşağıdaki kod ile sınıfı:
+3. Değiştirin `MainActivity` aşağıdaki kodla sınıfı:
 
     ```java
     public class MainActivity extends AppCompatActivity {
@@ -219,22 +242,20 @@
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha fazla bilgi
-#### <a name="get-a-user-token-interactively"></a>Kullanıcı etkileşimli olarak belirteci alma
-Çağırma `AcquireTokenAsync` yöntemi, kullanıcının oturum açmasına izin isteyen bir pencere sonuçlanıyor. Uygulamalar genellikle etkileşimli olarak korunan bir kaynağa erişmek için ihtiyaç duydukları ilk kez oturum açmalarını gerektirir. (Örneğin, bir kullanıcının parolasının süresi sona erdiğinde) bir belirtecini almak üzere sessiz bir işlemi başarısız olduğunda oturum açmak de gerekebilir.
+#### <a name="get-a-user-token-interactively"></a>Etkileşimli bir kullanıcı belirteci alma
+Çağırma `AcquireTokenAsync` yöntemi oturum açın veya bunların hesap seçmek için kullanıcıların ister bir pencere başlatır. Uygulamalar genellikle ilk etkileşim için kullanıcıdan gerekir, ancak bu noktadan itibaren üzerinde sessiz bir şekilde çalışabilir. 
 
 #### <a name="get-a-user-token-silently"></a>Bir kullanıcı sessizce belirteci alma
-`AcquireTokenSilentAsync` Yöntemi belirteci satın almalar ve herhangi bir kullanıcı etkileşimi olmadan yenilemeleri işler. Sonra `AcquireTokenAsync` ilk kez yürütüldüğünde `AcquireTokenSilentAsync` veya belirteçleri yenileme isteği için çağrıları sessizce yapmış sonraki çağrılar için korunan kaynaklara erişim belirteçleri almak için kullanılacak normal bir yöntemdir.
+`AcquireTokenSilentAsync` Yöntemi herhangi bir kullanıcı etkileşimi olmadan bir belirteç alır.  `AcquireTokenSilentAsync` bir geri dönüş için bir en yüksek çaba istekle olarak davranılıp `AcquireTokenAsync` gerektiğinde kullanıcı yeniden oturum açın veya çok faktörlü kimlik doğrulaması gibi bazı ek yetkilendirme uygulamak 
 
-Sonuç olarak, `AcquireTokenSilentAsync` yöntemi başarısız olur. Hatanın nedenlerini kullanıcı oturumunuz veya başka bir cihazda kendi parolanın değiştirilmesi emin olabilir. MSAL algıladığında, etkileşimli bir eylem gerektirmeyen tarafından sorunu çözmek için harekete bir `MsalUiRequiredException` özel durum. Uygulamanız bu özel durumun iki yolla işleyebilir:
+Zaman `AcquireTokenSilentAsync` başarısız oluşturmak bir `MsalUiRequiredException`. Uygulamanız, bu özel durumun iki şekilde işleyebilir:
 
-* Karşı arama yapabilmeniz için `AcquireTokenAsync` hemen. Bu çağrı, oturum açmak için kullanıcıdan içinde sonuçlanır. Bu deseni genelde çevrimiçi uygulamalarda kullanılır kullanıcı için kullanılabilir çevrimdışı içerik olduğu. Bu Destekli kurulum tarafından oluşturulan örnek, örnek yürütme eylemi ilk zamanında görebilirsiniz bu deseni takip eder. 
-    * Hiçbir kullanıcı, uygulamayı kullanıldığından `PublicClientApp.Users.FirstOrDefault()` bir null değer içeriyor ve bir `MsalUiRequiredException` özel durumu oluşur. 
-    * Ardından örnek kodda çağırarak özel durumu işler `AcquireTokenAsync`, oturum açmak için kullanıcıdan içinde sonuçlanır. 
-
-* Bunun yerine oturum açmak için doğru zamanı seçebilmeniz için bir etkileşimli oturum açma gerekli olan kullanıcılar için görsel bir gösterge sunabilir. Veya uygulamayı yeniden deneyebilirsiniz `AcquireTokenSilentAsync` daha sonra. Çevrimdışı içeriği uygulamada kullanılabilir olduğunda kullanıcıların diğer uygulama işlevselliği kesintiye uğratmadan--Örneğin, ne zaman kullanabileceğini bu deseni sıkça kullanılır. Bu durumda, kullanıcıların korunan bir kaynağa erişmek veya eski bilgileri yenilemek oturum açmak istedikleri zaman karar verebilirsiniz. Yeniden denemek alternatif olarak, uygulama karar `AcquireTokenSilentAsync` zaman ağ geri geçici olarak devre dışı bırakıldı sonra. 
+* Çağrı `AcquireTokenAsync` hemen. Bu çağrı, kullanıcının oturum açmasını isteyen içinde sonuçlanır. Bu düzen çevrimiçi uygulamalarda kullanılır kullanıcı için çevrimdışı kullanılabilir içerik olduğunda. Bu öğretici tarafından oluşturulan örnek örnek yürütme eylemi ilk sürede görebileceğiniz gibi bu desenini izler.
+* Bir görsel gösterimi bir etkileşimli oturum açma gerekli olduğunu kullanıcılara sunacak. Çağrı `AcquireTokenAsync` kullanıcı ne zaman hazır.
+* Yeniden deneme `AcquireTokenSilentAsync` daha sonra. Bu düzen, genellikle çevrimdışı içerik uygulamada mevcut olduğunda kullanıcıların diğer uygulama işlevleri kesintiye uğratmadan--Örneğin, ne zaman kullanabileceğini kullanılır. Uygulamayı yeniden denemeye karar verebilirsiniz `AcquireTokenSilentAsync` ağ zaman geri geçici olarak devre dışı olan sonra. 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Yalnızca edinilen belirteçle kullanarak Microsoft Graph API çağırma
+## <a name="call-the-microsoft-graph-api"></a>Microsoft Graph API çağırma 
 İçine aşağıdaki yöntemleri ekleyin `MainActivity` sınıfı:
 
 ```java
@@ -294,10 +315,10 @@ private void updateGraphUI(JSONObject graphResponse) {
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Karşı korumalı bir API REST çağrısı yapma hakkında daha fazla bilgi
 
-Bu örnek uygulamasında `callGraphAPI` çağrıları `getAccessToken` ve bir HTTP yapar `GET` bir belirteç gerekiyor ve içerik döndüren bir kaynak isteği. Bu yöntem alınan belirteç HTTP yetkilendirme üst bilgi ekler. Bu örnek için Microsoft Graph API kaynaktır *bana* uç noktası kullanıcı profili bilgilerini görüntüler.
+Bu örnek uygulamasında `callGraphAPI()` kullanan `getAccessToken()` yeni erişim belirteci almak için.  Bir HTTP belirtecin uygulamanın kullandığı `GET` Microsoft Graph API isteği. 
 <!--end-collapse-->
 
-## <a name="set-up-sign-out"></a>Oturum kapatma ayarlama
+## <a name="set-up-sign-out"></a>Oturumunuzu ayarlama
 
 İçine aşağıdaki yöntemleri ekleyin `MainActivity` sınıfı:
 
@@ -353,7 +374,8 @@ private void updateSignedOutUI() {
 <!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>Kullanıcı oturum kapatma hakkında daha fazla bilgi
 
-`onSignOutClicked` Önceki kod yönteminde kullanıcılar yalnızca etkileşimli olarak yapılırsa, bir belirteç almak için gelecekteki bir istek başarılı olur, böylece geçerli kullanıcının unuttunuz MSAL etkili bir şekilde söyler MSAL kullanıcı önbellekten kaldırır.
+`onSignOutClicked()` Yöntemi kullanıcılar MSAL önbellekten kaldırır. MSAL, artık oturum açmış olan kullanıcı için herhangi bir durum yoktur ve uygulamadaki oturumunu oturum açacaksınız. 
 
-Bu örnek uygulamasında tek kullanıcılı desteklese de MSAL nerede birden fazla hesap aynı zamanda oturum açmadan senaryolarını destekler. Örnek bir kullanıcı birden fazla hesap bulunduğu bir e-posta uygulamasıdır.
+### <a name="more-information-on-multi-account-scenarios"></a>Birden çok hesap senaryoları hakkında daha fazla bilgi
+Aynı anda birden çok hesap oturum açtığınızda MSAL senaryolarını da destekler. Örneğin, çok sayıda e-posta uygulamaları aynı anda oturum açmanız birden çok hesapları sağlar. 
 <!--end-collapse-->

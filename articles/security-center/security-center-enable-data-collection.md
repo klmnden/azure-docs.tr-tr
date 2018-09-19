@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9043c6583a15d3be9d0d468e83a4bf79b3121794
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 313697d73d1e269691f1af4f021545049a907d66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304127"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127100"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde veri toplamayı
 Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve Azure harici bilgisayarları güvenlik açıklarını ve tehditleri izlemek için veri toplar. Veriler, makineden güvenlikle ilgili çeşitli yapılandırmaları ve olay günlüklerini okuyup verileri analiz için çalışma alanınıza kopyalayan Microsoft Monitoring Agent kullanılarak toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri) çalışan işlemler, makine adı, IP adresleri ve kullanıcı oturum. Microsoft Monitoring Agent, ayrıca kilitlenme bilgi dökümü dosyalarını çalışma alanınıza kopyalar.
@@ -34,7 +34,8 @@ Bu makalede, Microsoft Monitoring Agent'ı yükleme ve toplanan verilerin depola
 > - Sanal makine ölçek kümesi için veri koleksiyonu şu anda desteklenmiyor.
 
 
-## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Microsoft Monitoring Agent'ın otomatik sağlamayı etkinleştirme     
+## Microsoft Monitoring Agent'ın otomatik sağlamayı etkinleştirme <a name="auto-provision-mma"></a>
+
 Makinelerden verileri toplamak için Microsoft izleme aracısı yüklü olmalıdır.  Aracı yüklemesi otomatik olarak olabilir (önerilir) veya aracıyı el ile yüklemeyi tercih edebilirsiniz.  
 
 >[!NOTE]
@@ -296,9 +297,9 @@ Güvenlik Merkezi, Vm'lerinizden güvenlik verilerini toplamak ve öneriler ve u
 -   Otomatik sağlama yükleme sorunlarını belirlemek için bkz. [aracı sistem durumu sorunlarını izleme](security-center-troubleshooting-guide.md#mon-agent).
 
 -  Monitoring agent ağ gereksinimi tanımlamak için bkz: [sorun giderme monitoring agent ağ gereksinimleri](security-center-troubleshooting-guide.md#mon-network-req).
--   El ile ekleme sorunlarını belirlemek için bkz. [Operations Management Suite ekleme sorunlarını giderme](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
+-   El ile ekleme sorunlarını belirlemek için bkz. [Operations Management Suite ekleme sorunlarını giderme](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-- İzlenmeyen VM'ler ve bilgisayarların sorunlarını belirlemek için bkz. [izlenmeyen VM'ler ve bilgisayarlar](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers)
+- İzlenmeyen VM'ler ve bilgisayarların sorunlarını belirlemek için bkz. [izlenmeyen VM'ler ve bilgisayarlar](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede gösterilen, nasıl veri toplama ve otomatik sağlama Güvenlik Merkezi çalışır. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:

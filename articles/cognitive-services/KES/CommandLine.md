@@ -1,23 +1,26 @@
 ---
-title: Bilgi keşfetme hizmeti komut satırı arabirimi | Microsoft Docs
-description: Microsoft Bilişsel hizmetler web Hizmetleri olarak dağıtma ve yapılandırılmış verileri dizini ve dil bilgisi dosyalarından oluşturmak için KES komut satırı arabirimini kullanın.
+title: Komut satırı arabirimi - bilgi keşfetme hizmeti API'si
+titlesuffix: Azure Cognitive Services
+description: Yapılandırılmış verileri dizini ve dil bilgisi dosyalarından oluşturmak için komut satırı arabirimini kullanın ve bunları web Hizmetleri olarak dağıtabilirsiniz.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 71a6f5ac93e5605182a55de1bae9a99c5c3eddf4
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136364"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127174"
 ---
 # <a name="command-line-interface"></a>Command Line Interface
-KES komut satırı arabirimi yapılandırılmış verileri dizini ve dil bilgisi dosyalarından oluşturmak ve bunları web Hizmetleri olarak dağıtma olanağı sağlar.  Genel söz dizimini kullanır: `kes.exe <command> <required_args> [<optional_args>]`.  Çalıştırabileceğiniz `kes.exe` komutları listesini görüntülemek için bağımsız değişkenler olmadan veya `kes.exe <command>` belirtilen komut için kullanılabilen bağımsız değişkenler listesini görüntüleyin.  Kullanılabilir komutların bir listesi aşağıdadır:
+
+Bilgi keşfetme hizmeti (KES) komut satırı arabirimi yapılandırılmış verileri dizini ve dil bilgisi dosyalarından oluşturmak ve bunları web Hizmetleri olarak dağıtma olanağı sağlar.  Genel söz dizimini kullanır: `kes.exe <command> <required_args> [<optional_args>]`.  Çalıştırabileceğiniz `kes.exe` komutları listesini görüntülemek için bağımsız değişkenler olmadan veya `kes.exe <command>` belirtilen komut için kullanılabilen bağımsız değişkenler listesini görüntüleyin.  Kullanılabilir komutların bir listesi aşağıdadır:
+
 * build_index
 * build_grammar
 * host_service

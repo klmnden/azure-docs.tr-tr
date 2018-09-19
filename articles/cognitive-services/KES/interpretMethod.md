@@ -1,53 +1,58 @@
 ---
-title: Bilgi Bankası araştırması hizmeti API'si yönteminde yorumlama | Microsoft Docs
-description: İçinde bilgi araştırması hizmet (KES) API Bilişsel Hizmetleri'ndeki yorumlama yöntemi kullanmayı öğrenin.
+title: Yöntem - bilgi keşfetme hizmeti API'si yorumlama
+titlesuffix: Azure Cognitive Services
+description: Bilgi keşfetme hizmeti (KES içinde) API yorumlama yöntemi kullanmayı öğrenin.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: ef68d98dacf393abf8d030b9312217ea380947d2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 45badbdbe1a7e1f2028a00d54458db35a4f7d440
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351713"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128023"
 ---
 # <a name="interpret-method"></a>Yöntem yorumlama
-*Yorumlama* yöntemi doğal dil sorgu dizesini alır ve biçimlendirilmiş dilbilgisi ve dizin verileri temel alan kullanıcı hedefinin yorumlar döndürür.  Her karakteri ile kullanıcı tarafından girilen gibi bir etkileşimli arama deneyimi sağlamak için bu yöntemi çağrılabilir *tam* parametre otomatik tamamlama önerilerini etkinleştirmek için 1 olarak ayarlayın.
+
+*Yorumlama* yöntemi doğal dildeki sorgu dizesini alır ve dil bilgisi ve dizin verileri temel alan kullanıcı hedefinin ınterpretations biçimlendirilmiş döndürür.  Her karakter ile kullanıcı tarafından girildiği gibi bir etkileşimli bir arama deneyimi sağlamak için bu yöntem çağrılabilir *tam* parametresi, otomatik tamamlama önerileri etkinleştirmek için 1 olarak ayarlayın.
 
 ## <a name="request"></a>İstek
+
 `http://<host>/interpret?query=<query>[&<options>]`
 
 Ad|Değer| Açıklama
 ----|----|----
-sorgu    | Metin dizesi | Kullanıcı tarafından girilen sorgu.  Tam 1 olarak ayarlanırsa, sorgu oluşturma sorgu otomatik tamamlama önerileri için bir önek olarak yorumlanacak.        
-tamamlayın | 0 (varsayılan) veya 1 | Otomatik Tamamlama öneriler, dilbilgisi ve Dizin verilerine dayalı olarak oluşturulan 1 anlamına gelir.         
-count    | Sayı (varsayılan = 10) | Döndürülecek yorumlar maksimum sayısı.         
-uzaklık   | Sayı (varsayılan = 0) | Döndürülecek ilk yorumlama dizini.  Örneğin, *sayısı = 2 & uzaklığı 0 =* yorumlar 0 ve 1 döndürür. *Count = 2 & uzaklık = 2* yorumlar 2 ve 3 döndürür.       
-timeout  | Sayı (varsayılan = 1000) | Milisaniye cinsinden zaman aşımı. Yalnızca zaman aşımı dolmadan bulunan yorumlar döndürülür.
+sorgu    | Metin dizesi | Kullanıcı tarafından girilen sorgu.  Tam 1 olarak ayarlanırsa, sorgu oluşturma sorgu otomatik tamamlama önerileri için önek olarak yorumlanacaktır.        
+Tamamlayın | 0 (varsayılan) veya 1 | 1 dilbilgisi ve dizin verileri temel alan otomatik tamamlama önerileri oluşturulan anlamına gelir.         
+count    | Sayı (varsayılan = 10) | Yorum döndürülecek en fazla sayısı.         
+uzaklık   | Sayı (varsayılan = 0) | Döndürülecek ilk yorumu dizini.  Örneğin, *sayısı = 2 & uzaklığı 0 =* ınterpretations 0 ve 1 döndürür. *sayısı 2 & uzaklığı = 2 =* ınterpretations 2 ve 3 döndürür.       
+timeout  | Sayı (varsayılan = 1000) | Milisaniye cinsinden zaman aşımı. Zaman aşımı dolmadan bulunan ınterpretations döndürülür.
 
-Kullanarak *sayısı* ve *uzaklık* parametreleri, çok sayıda sonuç elde edilebilir artımlı olarak birden çok istek.
+Kullanarak *sayısı* ve *uzaklığı* parametre sonuçları çok sayıda elde edilebilir artımlı olarak birden çok istek.
 
 ## <a name="response-json"></a>Yanıt (JSON)
+
 JSONPath     | Açıklama
 ---------|---------
 $.query |*Sorgu* istek parametresi.
-$.interpretations   |0 veya daha fazla yolunu dilbilgisi karşı giriş sorguyla eşleşen dizisi.
-$.interpretations [\*] .logprob   |Göreli günlük olasılık yorumu (< = 0).  Daha yüksek değerleri daha yüksektir.
-$.interpretations [\*] .parse |Her bölümü nasıl yorumlanacağını gösterir XML dizesi.
-$.interpretations [\*] .rules |1 veya daha fazla kural yorumlama sırasında çağrılan dilbilgisi tanımlanan dizisi.
-$.interpretations [\*] .rules [\*] .ad    |Kural adı.
-$.interpretations [\*] .rules [\*] .output  |Kural anlamsal çıkışı.
-$.interpretations [\*] .rules [\*]. output.type |Anlam çıktı veri türü.
+$.interpretations   |0 veya daha fazla yolu dilbilgisi karşı giriş sorguyla eşleşen dizisi.
+$.interpretations [\*] .logprob   |Yorumu göreli günlük olasılığı (< = 0).  Yüksek değerler daha yüksektir.
+$.interpretations [\*] .parse |Sorgunun her bölümü nasıl yorumlanacağını gösterir XML dizesi.
+$.interpretations [\*] .rules |1 veya daha fazla kural yorumlama sırasında çağrılan dilbilgisi içinde tanımlanan dizisi.
+$.interpretations [\*] .rules [\*] .name    |kuralın adı.
+$.interpretations [\*] .rules [\*] .output  |Kural anlam çıkışı.
+$.interpretations [\*] .rules [\*]. output.type |Anlam çıkış veri türü.
 $.interpretations [\*] .rules [\*]. output.value|Anlam çıktı değeri.  
 $.aborted | İstek zaman aşımına uğrarsa true.
 
 ### <a name="parse-xml"></a>XML Ayrıştırma
-Ayrıştırma (tamamlanmış) sorguyu nasıl dilbilgisi kurallarında ve dizin öznitelikleri karşı eşleşen hakkında bilgi ile XML açıklama ekler.  Akademik yayınlar etki alanından bir örnek aşağıda verilmiştir:
+
+Ayrıştırma XML (tamamlanmış) sorgu nasıl dilbilgisi kuralları ve dizin öznitelikleri karşı eşleşen hakkında bilgi içeren bir açıklama ekler.  Akademik yayınlar etki alanından bir örnek aşağıda verilmiştir:
 
 ```xml
 <rule name="#GetPapers">
@@ -60,16 +65,17 @@ Ayrıştırma (tamamlanmış) sorguyu nasıl dilbilgisi kurallarında ve dizin �
 </rule>
 ```
 
-`<rule>` Öğesi tarafından belirtilen kural eşleşen sorgu aralığında sınırlandırır kendi `name` özniteliği.  Ayrıştırma dilbilgisi kuralı başvurularında gerektirdiğinde iç içe.
+`<rule>` Öğesi tarafından belirtilen kural eşleşen sorgu aralığında sınırlandırır kendi `name` özniteliği.  Ayrıştırma içerdiğinde kuralı başvuruları dilbilgisi içinde iç içe.
 
-`<attr>` Öğesi tarafından belirtilen dizin özniteliği eşleşen sorgu aralığında sınırlandırır kendi `name` özniteliği.  Eşleşme eşanlamlısı giriş sorgusunda gerektirdiğinde `canonical` özniteliği dizinden eş eşleşen kurallı değer içerir.
+`<attr>` Öğesi tarafından belirtilen dizin öznitelikleri eşleşen sorgu aralığında sınırlandırır kendi `name` özniteliği.  Giriş sorgusu içindeki bir eş anlamlı eşleşme içerdiğinde `canonical` eş anlamlı dizinden eşleşen kurallı değer özniteliği içerir.
 
 ## <a name="example"></a>Örnek
-Akademik yayınlar örnekte aşağıdaki isteği öneki sorgu "jaime tarafından yazıları" 2 otomatik tamamlama önerileri kadar döndürür:
+
+Akademik yayınlar örnekte aşağıdaki isteği öneki sorgu "jaime tarafından incelemeler" 2 otomatik tamamlama önerileri kadar döndürür:
 
 `http://<host>/interpret?query=papers by jaime&complete=1&count=2`
 
-İki üst yanıtı içerir ("count = 2") kısmi sorgu "jaime tarafından yazıları" tamamlamak olasılıkla yorumlar: "yazıları tarafından jaime teevan" ve "incelemeleri tarafından jaime yeşil".  İstek belirtilmediğinden yalnızca dikkate yerine oluşturulan hizmet sorgu tamamlamalar "jaime" yazar için eşleşen tam "Tam = 1". "Jamie yeşil" eş anlamlısı eşleşen kurallı değeri "j l yeşil" ayrıştırma belirtildiği gibi unutmayın.
+İlk iki yanıt içerir ("sayısı 2 =") "jaime tarafından incelemeler" kısmi sorguyu tamamlamak en olası ınterpretations: "raporlar tarafından jaime teevan" ve "raporlar tarafından jaime yeşil".  İstek belirtildiği için yalnızca dikkate yerine hizmet oluşturulan sorgu tamamlamaları Yazar "jaime" için eşleşme tam "Tam = 1". Canonical "j l yeşil" değeri "jamie green" eş anlamlı eşleşen ayrıştırma gösterildiği gibi unutmayın.
 
 
 ```json
@@ -106,7 +112,7 @@ Akademik yayınlar örnekte aşağıdaki isteği öneki sorgu "jaime tarafından
 }
 ```  
 
-Anlam çıktı türünü "query, bu örnekte olduğu gibi" olduğunda eşleşen nesneleri geçirerek alınabilir *output.value* için [ *değerlendirmek* ](evaluateMethod.md) API üzerinden*expr* parametresi.
+Anlam çıktı türünü "sorgu, bu örnekte olduğu gibi" olduğunda eşleşen nesneleri geçirilerek alınabilir *output.value* için [ *değerlendirmek* ](evaluateMethod.md) API aracılığıyla*expr* parametresi.
 
 `http://<host>/evaluate?expr=Composite(AA.AuN=='jaime teevan')`
   

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e100859a184db2b6298dd02a1bb7bb238de27d51
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e7cb3049f680f81026e09388066001413922600a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44096370"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Öğretici: Azure Active Directory Silverback ile tümleştirme
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 Azure AD Tümleştirmesi ile Silverback yapılandırmak için aşağıdaki öğeler gerekir:
 
 - Azure AD aboneliği
-- Abonelik Silverback çoklu oturum açma etkin
+- Etkin bir Silverback aboneliği
 
 > [!NOTE]
 > Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
@@ -107,11 +107,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Silverback etki alanı ve URL'ler tek oturum açma bilgileri](./media/silverback-tutorial/tutorial_silverback_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<YOURSILVERBACKURL>/ssp`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<YOURSILVERBACKURL>.com/ssp`
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<YOURSILVERBACKURL>`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `<YOURSILVERBACKURL>.com`
 
-    c. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<YOURSILVERBACKURL>/sts/authorize/login`
+    c. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si, tanımlayıcı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Silverback istemci Destek ekibine](mailto:helpdesk@matrix42.com) bu değerleri almak için. 
@@ -124,7 +124,31 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/silverback-tutorial/tutorial_general_400.png)
 
-6. Çoklu oturum açmayı yapılandırma **Silverback** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [Silverback Destek ekibine](mailto:helpdesk@matrix42.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+6.  Silverback sunucunuza yönetici olarak oturum açın ve aşağıdaki adımları gerçekleştirin:
+
+    a.  Gidin **yönetici** > **kimlik doğrulama sağlayıcısı**.
+
+    b. Üzerinde **kimlik sağlayıcı ayarları** sayfasında, aşağıdaki adımları gerçekleştirin:
+
+    ![Yönetici ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+
+    c.  Tıklayarak **URL'den içeri aktar**.
+    
+    d.  Kopyalanan meta veri URL'sini yapıştırın ve tıklayın **Tamam**.
+    
+    e.  Doğrulatın **Tamam** sonra da değerleri otomatik olarak doldurulur.
+    
+    f.  Etkinleştirme **oturum açma sayfasında göster**.
+    
+    g.  Etkinleştirme **dinamik kullanıcı oluşturma** Azure AD'ye yetkili kullanıcılar tarafından otomatik olarak eklemek istiyorsanız (isteğe bağlı).
+    
+    h.  Oluşturma bir **başlık** düğme üzerinde Self Servis portalı için.
+
+    i.  Karşıya bir **simgesi** tıklayarak **Dosya Seç**.
+    
+    j.  Arka plan seçme **renk** düğmesi.
+    
+    k.  **Kaydet**’e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -160,7 +184,34 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-silverback-test-user"></a>Silverback test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Silverback içinde adlı bir kullanıcı oluşturun. Çalışmak [Silverback Destek ekibine](mailto:helpdesk@matrix42.com) Silverback platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Silverback için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların Silverback sağlanması gerekir. Silverback içinde sağlama bir el ile gerçekleştirilen bir görevdir.
+
+**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
+
+1. Silverback sunucunuza yönetici olarak oturum açın.
+
+2. Gidin **kullanıcılar** ve **yeni cihaz kullanıcı ekleme**.
+
+3. Üzerinde **temel** sayfasında, aşağıdaki adımları gerçekleştirin:
+
+    ![Kullanıcı ](./media/silverback-tutorial/tutorial_silverback_user.png)
+
+    a. İçinde **kullanıcıadı** metin kutusunda, gibi kullanıcı adını girin **Britta**.
+
+    b. İçinde **ad** metin kutusunda, gibi kullanıcı adını girin **Britta**.
+
+    c. İçinde **Soyadı** metin kutusunda, son kullanıcı gibi adını **Simon**.
+
+    d. İçinde **e-posta adresi** metin kutusuna, kullanıcının gibi e-posta girin **Brittasimon@contoso.com**.
+
+    e. İçinde **parola** metin kutusunda, parolanızı girin.
+    
+    f. İçinde **parolayı onayla** metin kutusuna, parolayı yeniden girin ve onaylayın.
+
+    g. **Kaydet**’e tıklayın.
+
+>[!NOTE]
+>Her kullanıcı el ile oluşturmak istemiyorsanız, etkinleştirme **dinamik kullanıcı oluşturma** onay kutusunun **yönetici** > **kimlik doğrulama sağlayıcısı**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

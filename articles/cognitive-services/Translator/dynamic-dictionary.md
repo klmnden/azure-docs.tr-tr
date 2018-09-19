@@ -1,22 +1,23 @@
 ---
-title: Microsoft Translator metin API'si dinamik sözlük | Microsoft Docs
-description: Microsoft Translator metin çevirisi API'si, dinamik sözlük özelliği nasıl kullanılır.
+title: Translator metin API'si dinamik sözlük
+titlesuffix: Azure Cognitive Services
+description: Translator metin çevirisi API'si, dinamik sözlük özelliği nasıl kullanılır.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: dbc754093827730b8709d67f314e5b327518ef50
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 56558a2da5f29611d90021e9efb292720d1cea35
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41987586"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128137"
 ---
-# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-microsoft-translator-text-api"></a>Dinamik sözlük özelliği Microsoft Translator metin çevirisi API'si kullanma
+# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Translator metin çevirisi API'si, dinamik sözlük özelliği nasıl kullanılır
 
 Bir sözcük veya tümcecik uygulamak istediğiniz çeviri zaten biliyorsanız, istek içinde biçimlendirmesi olarak sağlayabilirsiniz. Dinamik sözlük yalnızca uygun ve ürün adları gibi bileşik isimleri için güvenlidir. 
 

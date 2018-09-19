@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 468c6486274b8bf1dc202716f525c39face91862
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f8aa37dbc2d3fb5f560d899626a84a2ab86ff223
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297307"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294586"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -261,7 +261,7 @@ Geliştiriciler olarak, kodun içine doğrudan içine dalmak ve çalıştırma u
 
 ### <a name="what-is-an-azure-account"></a>Bir Azure hesabı nedir?
 
-Oluşturun veya bir Azure aboneliği ile çalışmak için bir Azure hesabınız olmalıdır. Bir Azure hesabı, Azure AD'de yalnızca bir kimlik olduğunu veya Azure AD tarafından güvenilen bir iş veya Okul kuruluş gibi bir dizinde. Böyle bir kuruluşa ait olmayan, Microsoft, Azure AD tarafından güvenilen Account kullanarak, her zaman bir aboneliği oluşturabilirsiniz. Şirket içi Windows Server Active Directory, Azure AD ile tümleştirme hakkında daha fazla bilgi için bkz: [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../../active-directory/active-directory-aadconnect.md).
+Oluşturun veya bir Azure aboneliği ile çalışmak için bir Azure hesabınız olmalıdır. Bir Azure hesabı, Azure AD'de yalnızca bir kimlik olduğunu veya Azure AD tarafından güvenilen bir iş veya Okul kuruluş gibi bir dizinde. Böyle bir kuruluşa ait olmayan, Microsoft, Azure AD tarafından güvenilen Account kullanarak, her zaman bir aboneliği oluşturabilirsiniz. Şirket içi Windows Server Active Directory, Azure AD ile tümleştirme hakkında daha fazla bilgi için bkz: [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
 Her Azure aboneliği bir Azure AD örneğiyle güven ilişkisine sahiptir. Bu; Azure aboneliğinin kullanıcılar, hizmetler ve cihazlar için kimlik doğrulaması yapmak üzere bu dizine güvendiği anlamına gelir. Birden çok abonelik aynı dizine güvenebilir ancak bir abonelik yalnızca bir dizine güvenir. Daha fazla bilgi için bkz. [Azure aboneliklerinin Azure Active Directory ile ilişkisi](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

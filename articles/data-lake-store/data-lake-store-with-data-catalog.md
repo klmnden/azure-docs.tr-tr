@@ -1,6 +1,6 @@
 ---
-title: Data Lake Store verileri Azure veri Kataloğu'nda kaydetme | Microsoft Docs
-description: Azure veri Kataloğu'nda Data Lake Store verileri kaydetme
+title: Azure Data Lake depolama Gen1 verileri Azure veri Kataloğu'nda kaydetme | Microsoft Docs
+description: Azure veri Kataloğu'nda Azure Data Lake depolama Gen1 verileri kaydetme
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: nitinme
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 8da9f0f8aeb36d9ff2f87511c902dd719bc755b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 35fc7b2c713f8d4b88f4a44d9ddef5d92ba4c402
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441613"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294322"
 ---
-# <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Azure veri Kataloğu'nda Data Lake Store verileri kaydetme
-Bu makalede, Azure Data Lake Store, veri Kataloğu ile tümleştirerek verilerinizi bir kuruluş içinde bulunabilir hale getirmek için Azure veri Kataloğu ile tümleştirmeyi öğreneceksiniz. Veri kataloglama daha fazla bilgi için bkz: [Azure veri Kataloğu](../data-catalog/data-catalog-what-is-data-catalog.md). Veri Kataloğu, kullanabileceğiniz senaryoları anlamak için bkz: [Azure veri Kataloğu genel senaryoları](../data-catalog/data-catalog-common-scenarios.md).
+# <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Azure veri Kataloğu'nda Azure Data Lake depolama Gen1 verileri kaydetme
+Bu makalede, Azure Data Lake depolama Gen1 veri Kataloğu ile tümleştirerek verilerinizi bir kuruluş içinde bulunabilir hale getirmek için Azure veri Kataloğu ile tümleştirmeyi öğreneceksiniz. Veri kataloglama daha fazla bilgi için bkz: [Azure veri Kataloğu](../data-catalog/data-catalog-what-is-data-catalog.md). Veri Kataloğu, kullanabileceğiniz senaryoları anlamak için bkz: [Azure veri Kataloğu genel senaryoları](../data-catalog/data-catalog-common-scenarios.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure aboneliğinizi etkinleştirme** Data Lake Store genel önizlemesi için. Bkz. [yönergeler](data-lake-store-get-started-portal.md).
-* **Azure Data Lake Store hesabı**. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md) bölümündeki yönergeleri uygulayın. Bu öğreticide, adlı bir Data Lake Store hesabı oluşturmak **datacatalogstore**.
+* **Azure aboneliğinizi etkinleştirme** Data Lake depolama Gen1 için. Bkz. [yönergeler](data-lake-store-get-started-portal.md).
+* **Bir Data Lake depolama Gen1 hesabı**. Konumundaki yönergeleri [Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure portalını kullanarak](data-lake-store-get-started-portal.md). Bu öğreticide, adlı bir Data Lake depolama Gen1 hesabı oluşturabilir **datacatalogstore**.
 
     Hesap oluşturulduktan sonra, bir örnek veri kümesini karşıya. Bu öğreticide, bize altındaki tüm .csv dosyaları karşıya yükleme **AmbulanceData** klasöründe [Azure Data Lake Git deposu](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Çeşitli istemciler gibi kullanabileceğiniz [Azure Depolama Gezgini](http://storageexplorer.com/), veriler bir blob kapsayıcısına yükleyin.
 * **Azure veri Kataloğu**. Kuruluşunuz zaten bir Azure veri Kataloğu, kuruluşunuz için oluşturulmuş olması gerekir. Her kuruluş için yalnızca bir katalog izin verilir.
 
-## <a name="register-data-lake-store-as-a-source-for-data-catalog"></a>Veri kataloğu için bir kaynak olarak kayıt Data Lake Store
+## <a name="register-data-lake-storage-gen1-as-a-source-for-data-catalog"></a>Data Lake depolama Gen1 veri kataloğu için bir kaynak olarak kaydedin.
 
 > [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/ADCwithADL/player]
 
@@ -44,15 +44,15 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 1. Hoş Geldiniz sayfasında tıklayın **oturum**, kimlik bilgilerinizi girin.
 
     ![Hoş Geldiniz ekranı](./media/data-lake-store-with-data-catalog/welcome.screen.png "Hoş Geldiniz ekranı")
-1. Bir veri kaynağı sayfa seçin üzerinde seçin **Azure Data Lake**ve ardından **sonraki**.
+1. Bir veri kaynağı sayfa seçin üzerinde seçin **Azure Data Lake Store**ve ardından **sonraki**.
 
     ![Veri kaynağı seçme](./media/data-lake-store-with-data-catalog/select-source.png "veri kaynağını seçin")
-1. Sonraki sayfada, veri Kataloğu'nda kaydetmek istediğiniz Data Lake Store hesap adını belirtin. Diğer seçenekleri varsayılan bırakın ve ardından **Connect**.
+1. Sonraki sayfada, veri Kataloğu'nda kaydetmek istediğiniz Data Lake depolama Gen1 hesap adını belirtin. Diğer seçenekleri varsayılan bırakın ve ardından **Connect**.
 
     ![Veri kaynağına bağlanma](./media/data-lake-store-with-data-catalog/connect-to-source.png "veri kaynağına bağlanma")
 1. Sonraki sayfaya aşağıdaki parçalara ayrılabilir.
 
-    a. **Sunucusu hiyerarşisi** kutusunu Data Lake Store hesabı klasör yapısını temsil eder. **$Root** Data Lake Store hesabının kökü temsil eder ve **AmbulanceData** Data Lake Store hesabının kök dizininde oluşturduğunuz klasöre temsil eder.
+    a. **Sunucusu hiyerarşisi** kutusunu Data Lake depolama Gen1 hesabı klasör yapısını temsil eder. **$Root** Data Lake depolama Gen1 hesabı kök temsil eder ve **AmbulanceData** Data Lake depolama Gen1 hesabının kök dizininde oluşturduğunuz klasöre temsil eder.
 
     b. **Kullanılabilir nesneler** kutusu listeler dosyaları ve klasörlerinin **AmbulanceData** klasör.
 
@@ -80,4 +80,4 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Veri Kataloğu'nda veri kaynaklarına açıklama](../data-catalog/data-catalog-how-to-annotate.md)
 * [Veri Kataloğu'nda veri kaynaklarını belgeleme](../data-catalog/data-catalog-how-to-documentation.md)
-* [Data Lake Store, diğer Azure hizmetleriyle tümleştirme](data-lake-store-integrate-with-other-services.md)
+* [Data Lake depolama Gen1 diğer Azure hizmetleriyle tümleştirme](data-lake-store-integrate-with-other-services.md)

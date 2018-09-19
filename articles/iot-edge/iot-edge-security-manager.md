@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b4801048c391aae6e95f4181464255ecf6151fc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39360012"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126352"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IOT Edge Güvenlik Yöneticisi
 
@@ -109,7 +109,7 @@ IOT Edge çalışma zamanı izler ve IOT Edge güvenlik daemon sürümü bildiri
 
 ### <a name="hardware-security-module-platform-abstraction-layer-hsm-pal"></a>Donanım güvenlik modülü platform Soyutlama Katmanı (HSM PAL)
 
-Tüm kök geliştirici veya IOT Edge kullanıcıdan miktarı yalıtmak için güven donanım HSM PAL soyutlar.  Bu, bir birleşimi uygulama programcısı arabirimi (API) ve trans etki alanı iletişim yordamları, örneğin standart yürütme ortamı ile güvenli bir kuşatma arasındaki iletişimi oluşur.  HSM PAL gerçek uygulaması belirli güvenli donanımı bağlıdır.  Var IOT ekosisteminde neredeyse tüm güvenli Silikon donanım kullanımını etkinleştirir.
+Tüm kök geliştirici veya IOT Edge kullanıcıdan miktarı yalıtmak için güven donanım HSM PAL soyutlar.  Bu, bir birleşimi uygulama programlama arabirimi (API) ve trans etki alanı iletişim yordamları, örneğin standart yürütme ortamı ile güvenli bir kuşatma arasındaki iletişimi oluşur.  HSM PAL gerçek uygulaması belirli güvenli donanımı bağlıdır.  Var IOT ekosisteminde neredeyse tüm güvenli Silikon donanım kullanımını etkinleştirir.
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Silikon kök güven donanım güvenliğini sağlama
 

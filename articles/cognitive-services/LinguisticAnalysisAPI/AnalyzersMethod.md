@@ -1,24 +1,25 @@
 ---
-title: Lingistic analiz API çözümleyiciler yönteminde | Microsoft Docs
-description: REST API çözümleyiciler Microsoft Bilişsel hizmetler hizmeti tarafından şu anda desteklenen çözümleyiciler listesini sağlar.
+title: Analiz edici yöntemi - Lingistic analizi API'si
+titlesuffix: Azure Cognitive Services
+description: REST API Çözümleyicileri, dil analizi API'si tarafından şu anda desteklenen Çözümleyicileri listesini sağlar.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
-ms.openlocfilehash: 3fc243a0da77c5bae9009929f2b82e1353347752
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b443bbd6377f0720c8be86bbe2b7a3e8ab8cb880
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351461"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129021"
 ---
-# <a name="analyzers-method"></a>Çözümleyiciler yöntemi
+# <a name="analyzers-method"></a>Analiz edici yöntemi
 
-**Çözümleyiciler** REST API hizmeti tarafından şu anda desteklenen çözümleyiciler listesini sağlar.
+**Çözümleyicileri** REST API, hizmet tarafından şu anda desteklenen Çözümleyicileri listesini sağlar.
 Yanıtı içeren kendi [adları](Analyzer-Names.md) ve her (örneğin, İngilizce için "en") tarafından desteklenen diller.
 
 ## <a name="request-parameters"></a>İstek parametreleri
@@ -29,9 +30,9 @@ None
 ## <a name="response-parameters"></a>Yanıt parametreleri
 Ad | Tür | Açıklama
 -----|------|--------------
-Diller | dize listesi | Bu çözümleyici kullanılabilir iki harf ISO dil kodlarının listesi.
-id   | dize | Bu çözümleyici benzersiz kimliği
-türü | dize | Burada Çözümleyicisi geniş türü
+Diller | dize listesi | Bu çözümleyici kullanılabilecek iki harf ISO dil kodlarının listesi.
+id   | dize | Bu çözümleyici için benzersiz kimlik
+tür | dize | Burada Çözümleyicisi geniş türü
 Belirtimi | dize | Bu çözümleyici için kullanılan belirtimi adı
 Uygulama | dize | model ve/veya bu Çözümleyicisi arkasında algoritması açıklaması
 

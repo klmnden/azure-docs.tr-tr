@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 6c196d16258e4bf000f998899086c7a6d0197fba
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8c3d632063c8ed9347aa870d0971cc09dc1a658e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057606"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129548"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager'ın sık sorulan sorular (SSS)
 
@@ -72,7 +72,7 @@ Bu sorunu geçici olarak çözmek için bir HTTP yeniden yönlendirme trafiği �
 Çıplak etki alanı trafik Yöneticisi'nde için tam destek, sunduğumuz özellik biriktirme listesinde izlenir. Bu özellik istekleri için destek kaydedebilirsiniz [için topluluk geri bildirimi sitemizde oylama](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Traffic Manager istemci alt ağ adresi DNS sorgularının işlenirken göz önünde bulundurmaz? 
-Evet, ek olarak, DNS sorgusu kaynak IP adresini (genellikle olan IP adresini DNS Çözümleyicisi), aldığı ise aramaları için coğrafi ve performans yönlendirme yöntemleri gerçekleştirirken, traffic manager ayrıca istemci alt ağ adresi göz önünde bulundurur Sorgu son kullanıcılar istekte çözümleyici tarafından dahil.  
+Evet, ek olarak, DNS sorgusu kaynak IP adresini (genellikle olan IP adresini DNS Çözümleyicisi), aldığı aramaları için coğrafi, performans ve alt ağ yönlendirme yöntemleri gerçekleştirirken, traffic manager ayrıca istemci alt ağ adresi olmadığını göz önünde bulundurur Çözümleyici istekte son kullanıcılar, sorguda dahil edilir.  
 Özellikle, [RFC 7871 – DNS sorguları istemci alt](https://tools.ietf.org/html/rfc7871) sağlayan bir [DNS (EDNS0) için uzantı mekanizması](https://tools.ietf.org/html/rfc2671) hangi geçirebilirsiniz istemci alt ağ adresi üzerinde destekleyen Çözümleyicileri.
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>DNS TTL'si nedir ve nasıl kullanıcılarımın etkiler mi?
@@ -133,6 +133,39 @@ Bir bölge içinde profil tek bir uç nokta varsa atanabilir kendi coğrafi yön
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Bu yönlendirme türünü destekleyen bir API sürümü üzerinde herhangi bir kısıtlama var mıdır?
 
 Evet, yalnızca yeni destekler ve API Sürüm 2017-03-01 coğrafi yönlendirme yazın. Herhangi bir eski API sürümü veya oluşturulan coğrafi yönlendirme türü profilleriyle kullanılabilir uç noktalar için coğrafi bölgeyi atayın. Eski bir API sürümü profillerini Azure aboneliğinden alınacak kullanılırsa, coğrafi yönlendirme türünde herhangi bir profil döndürülmez. Üstelik, önceki API sürümlerini kullanırken, herhangi bir profil, uç noktaları bir coğrafi bölgede atamasına sahip olan, coğrafi bölgede atamasını gösterilen yoktur döndürdü.
+
+## <a name="traffic-manager-subnet-traffic-routing-method"></a>Alt traffic Manager trafik yönlendirme yöntemi
+
+### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Alt ağ yönlendirme yararlı olduğu bazı kullanım örnekleri nelerdir?
+Yönlendirme alt ağı için DNS istekleri IP adreslerini kaynak IP tarafından tanımlanan kullanıcılardan oluşan belirli ayarlar teslim deneyimi ayırt etmenize olanak sağlar. Kullanıcılar, Kurumsal HQ Excel'den bir Web sitesine bağlanan bir örnek gösteren farklı içerik olacaktır. Başka bir olacaktır yalnızca IPv6 kullanıldığında bu ISS'leri alt par performans varsa, yalnızca IPv4 bağlantılarını destekleyen uç noktalarına erişmek için belirli ISS'leri kullanıcıları kısıtlayarak.
+Alt ağ yönlendirme yöntemini kullanmak için başka bir nedeni, iç içe geçmiş profil diğer profillerinde birlikte ayarlanır. Örneğin, coğrafi yönlendirme yöntemini, kullanıcılarınızın şirketin coğrafı için kullanmak istediğiniz, ancak farklı yönlendirme yöntemi yapmak istediğiniz belirli bir ISP yaparsanız, profili withy alt ağ yönlendirme yöntemi üst profil olarak sahip ve pro belirli bir alt kullanılacak ISS'den geçersiz kılma Dosya ve standart coğrafi profilini herkes için vardır.
+
+### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Traffic Manager, son kullanıcının IP adresi nasıl biliyor musunuz?
+Son kullanıcı cihazları, bir DNS Çözümleyicisi genellikle gerçekleştirilemeyeceğine ilişkin DNS araması yapmak için kullanın. Bu tür Çözümleyicileri giden IP'si olan ne Traffic Manager kaynak IP olarak görür. Ayrıca, alt ağ yönlendirme yöntemini, istekle birlikte geçirildi EDNS0 genişletilmiş istemci alt ağ (ECS) bilgi olup olmadığını görmek için de arar. ECS bilgisinin mevcut olması durumunda, üretim belirlemek için kullanılan adres olmasıdır. ECS bilgi olmaması durumunda, sorgunun kaynak IP yönlendirme amacıyla kullanılır.
+
+### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>Nasıl miyim IP adresleri alt ağ yönlendirme kullanırken belirtebilir miyim?
+Bir uç nokta ile ilişkilendirmek için IP adreslerini iki yolla belirtilebilir. İlk olarak, başlangıç ve bitiş adresleriyle dört noktalı ondalık sekizlik gösterim (örn. 1.2.3.4-5.6.7.8 veya 3.4.5.6-3.4.5.6) aralığını belirtmek için kullanabilirsiniz. İkinci olarak, CIDR gösteriminde (örneğin 1.2.3.0/24) aralığını belirtmek için kullanabilirsiniz. Her iki gösterimi türü de aralık kümesinde kullanabilirsiniz ve birden çok aralık belirtebilirsiniz. Bazı kısıtlamalar geçerlidir.
+-   Her IP yalnızca tek bir uç nokta için eşlenmesi gereken bu yana örtüşme adres aralıklarının sahip olamaz
+-   Başlangıç adresi bitiş adresinden daha fazla olamaz
+-   CIDR gösteriminin söz konusu olduğunda, IP adresi önce '/', bu aralığın başlangıç adresi olmalıdır (örneğin 1.2.3.0/24 geçerlidir ancak 1.2.3.4.4/24 değil geçerli)
+
+### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Nasıl ben bir geri dönüş uç noktası alt ağ yönlendirme kullanırken belirtebilir miyim?
+Yönlendirme alt ağı, profilinde, eşlenmiş hiçbir alt ağ ile bir uç nokta varsa diğer uç noktaları ile eşleşmeyen herhangi bir istek için buraya yönlendirilirsiniz. Bir istek gelirse Traffic Manager NXDOMAIN yanıtı döndürür beri geri dönüş bir uç profilinizde yoksa ve tüm uç noktalar ile eşlenmemiş veya uç nokta iyi durumda olmayan ancak bu, bir uç noktaya eşlendiği önemle tavsiye edilir.
+
+### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>Bir alt ağ yönlendirme türü profilinde bir uç nokta devre dışı bırakılırsa ne olur?
+Yönlendirme alt ağı ile bir profili varsa, noktayla devre dışı bırakıldı, Traffic Manager uç noktanın ve bunun alt ağ eşlemeleri yok gibi davranır. Traffic Manager, IP adresi eşleme ile eşleşen bir sorgu alınır ve uç noktayı devre dışı bırakıldı, bir geri dönüş uç noktası (hiçbir eşleme ile bir adet) döndürür veya böyle bir uç nokta yoksa NXDOMAIN yanıtı döndürür
+
+## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Traffic Manager birden çok değerli trafik yönlendirme yöntemi
+
+### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>Çok değerli yönlendirme yararlı olduğu bazı kullanım örnekleri nelerdir?
+Çok değerli yönlendirme birden fazla sağlıklı bir uç nokta tek sorgu yanıt olarak döndürür. Bunun başlıca avantajı, bir uç nokta kötü durumda, istemcinin (Bu değerin, bir Yukarı Akış önbellekten döndürebilir) başka bir DNS arama yapmadan yeniden denemek için daha fazla seçenek olduğunu ' dir. Bu, kapalı kalma süresini en aza indirmek istiyorsa kullanılabilirlik hassas uygulamalar için geçerlidir.
+Bir uç nokta "çift hem de IPv4 için bağlantılı" ve IPv6 adresleri ve bağlantı uç noktasına başlattığı zaman gelen seçmek için her iki seçenek arayan vermek istediğiniz çok değerli yönlendirme yöntemi için başka bir kullanılır.
+
+### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>Çok değerli yönlendirme kullanıldığında, kaç tane uç noktaları döndürülür?
+Döndürülecek endopints sayısı belirtebilirsiniz ve bir sorgu alındığında birden çok değerli birçok sağlıklı uç noktalar daha fazla döndürür. Bu yapılandırma için en olası değer 10'dur.
+
+### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>Çok değerli yönlendirme kullanıldığında, aynı uç nokta kümesine alırım?
+Her sorgu bitiş noktaları aynı dizi döndürdü, garanti edemez. Bu da uç bazıları yanıtta eklenmeyecek hangi noktada sağlıksız geçebilir olgu tarafından etkilenir
 
 ## <a name="real-user-measurements"></a>Gerçek Kullanıcı Ölçümleri
 
@@ -257,7 +290,7 @@ Evet. 'Hazırlama yuvası' bulut hizmeti, dış uç noktalar olarak Traffic Mana
 
 Traffic Manager ad sunucularına IPv6 addressible şu anda sağlamaz. Ancak, Traffic Manager Uç noktalara IPv6 IPv6 istemciler tarafından hala kullanılabilir. Bir istemci doğrudan Traffic Manager DNS istekleri yapmaz. Bunun yerine, istemci bir özyinelemeli DNS hizmeti kullanır. Bir yalnızca IPv6 istemci IPv6 üzerinden özyinelemeli DNS hizmeti istekleri gönderir. Ardından özyinelemeli hizmet IPv4 kullanarak Traffic Manager ad sunucularıyla ile bağlantı kurabiliyor olması.
 
-Traffic Manager uç nokta DNS adı ile yanıt verir. Bir IPv6 uç nokta desteklemek için uç nokta DNS adı IPv6 adresine işaret eden bir DNS AAAA kaydı mevcut olması gerekir. Traffic Manager sistem durumu denetimlerini yalnızca IPv4 adreslerini destekler. Aynı DNS adı bir IPv4 uç nokta kullanıma sunmak hizmet gerekiyor.
+Traffic Manager uç noktasının IP adresini ve DNS adı ile yanıt verir. Bir IPv6 uç nokta desteklemek için iki seçenek vardır. Uç nokta Traffic Manager'ın sistem durumu denetimi, uç nokta ve sorgu yanıtına bir CNAME kaydı olarak türüne olur ve ilişkili bir AAAA kaydı olan bir DNA adı olarak ekleyebilirsiniz. IPv6 adresi ve Traffic Manager kullanarak bir AAAA türü kayıt sorgu yanıtında döndürür doğrudan bu uç nokta da ekleyebilirsiniz. 
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Aynı bölgede birden fazla Web uygulaması ile Traffic Manager kullanabilir miyim?
 
@@ -300,6 +333,46 @@ Traffic manager, herhangi bir sertifika doğrulama sağlayamazsınız dahil olma
 * SNI sunucu tarafı sertifikalar desteklenmez
 * İstemci sertifikaları desteklenmez.
 
+### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Bir IP adresi veya DNS adı bir uç nokta eklerken kullanabilirim?
+Traffic Manager kullanarak bunları – bir DNS adı olarak, bir IPv4 adresi ve bir IPv6 adresi olarak başvurmak için üç yol ekleme uç noktaları destekliyor. Sorgu yanıtına kayıt türü A veya AAAA, uç nokta IPv4 veya IPv6 adresi eklediyseniz sırasıyla olacaktır. Uç nokta DNS adı olarak eklendiyse, sorgu yanıtına CNAME kayıt türü olabilir. Lütfen IPv4 veya IPv6 adresi buldukça, uç noktaları ekleyerek, uç nokta yalnızca olduğuna dikkat edin 'Dış' türünde.
+Yönlendirme yöntemleri ve izleme ayarlarını üç uç nokta adresi türleri tarafından desteklenir.
+
+### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>Bir uç nokta eklerken hangi tür IP adresi kullanabilirim?
+Traffic Manager uç noktaları belirtmek için IPv4 veya IPv6 adresleri kullanmanıza olanak sağlar. Aşağıda listelenen bazı kısıtlamalar vardır:
+- Ayrılmış özel IP adresi alanları karşılık gelen adresleri izin verilmez. RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544 ve RFC 5771 çekilerek bu adresleri içerir
+- Adresi (Profil yapılandırma ayarlarında kullanılacak bağlantı noktası belirtebilirsiniz) herhangi bir bağlantı noktası numaralarını içermemelidir. 
+- İki uç nokta aynı profildeki aynı hedef IP adresine sahip olabilir
+
+### <a name="can-i-use-different-endpoint-addressing-types-within-a-single-profile"></a>Farklı uç nokta türleri tek bir profili içinde adresleme kullanabilir miyim?
+Hayır, Traffic Manager uç nokta adresi türleri burada IPv4 karıştırabilirsiniz çok değerli yönlendirme türü ve IPv6 adres türü ile bir profil durumu dışında bir profili içinde karıştırmak izin vermez
+
+### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>Gelen bir sorgunun kayıt türü, uç nokta adresi türü ile ilişkili kayıt türünün farklıdır ne olur?
+Bir profili karşı bir sorgu alındığında, Traffic Manager belirtilen yönlendirme yöntemine göre döndürülmesi gereken uç nokta ve sistem durumu uç nokta ilk bulur. Ardından gelen sorguyu istenen kayıt türüne ve tabloyu temel alan bir yanıt döndürmeden önce uç noktası ile ilişkili kayıt türünün görünüyor.
+
+Çoklu değer dışında herhangi bir yönlendirme yöntemi olan profiller için:
+|Gelen sorgu isteği|    Uç noktası türü|  Sağlanan yanıt|
+|--|--|--|
+|TÜM |  A / AAAA / CNAME |  Hedef uç noktası| 
+|A |    A / CNAME | Hedef uç noktası|
+|A |    AAAA |  NODATA |
+|AAAA | AAAA / CNAME |  Hedef uç noktası|
+|AAAA | A | NODATA |
+|CNAME |    CNAME | Hedef uç noktası|
+|CNAME  |A / AAAA | NODATA |
+|
+Yönlendirme yöntemi olan profiller için birden çok değerli ayarlamak için:
+
+|Gelen sorgu isteği|    Uç noktası türü | Sağlanan yanıt|
+|--|--|--|
+|TÜM |  Karışımını A ve AAAA | Hedef uç noktaları|
+|A |    Karışımını A ve AAAA | Yalnızca hedef uç nokta türü a|
+|AAAA   |Karışımını A ve AAAA|     Yalnızca hedef uç nokta türü AAAA|
+|CNAME |    Karışımını A ve AAAA | NODATA |
+
+### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>IPv4 ile bir profil kullanabilirsiniz / IPv6, iç içe geçmiş bir profilde uç noktalar ele?
+Evet, bir profil türü birden çok değerli bir iç içe geçmiş profil üst profilinde olamaz özel durum ile ayarlayabilirsiniz.
+
+
 ### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Bir Azure bulut durdurulmuş / web uygulama uç noktasını Traffic Manager Profilimi ancak bile ben bunu yeniden sonra herhangi bir trafik alıyorum değil. Bunu nasıl düzeltebilirim?
 
 Ne zaman bir Azure bulut hizmeti / uygulama uç noktası web sistem durumu denetimi durdurulmuş Traffic Manager durakları olan ve yalnızca uç nokta başlatıldı algılandıktan sonra sistem durumu denetimleri yeniden başlatır. Bu gecikmeyi önlemek için devre dışı bırakın ve uç noktayı yeniden başlattıktan sonra Bu uç nokta Traffic Manager profilindeki yeniden etkinleştirin.   
@@ -326,9 +399,13 @@ Bu ayarları kullanarak, Traffic Manager yük devretmeleri altında 10 saniye so
 
 Traffic Manager izleme ayarlarını ndadır bir profili düzeyi başına. Tek bir uç nokta için farklı bir izleme ayarını kullanmanız gerekiyorsa, bunu, uç noktası olarak sağlayarak yapılabilir bir [iç içe profil](traffic-manager-nested-profiles.md) izleme ayarları olan üst profilinden farklı.
 
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>Hangi konak üst bilgisi uç nokta sistem durumu kullanım denetler?
+### <a name="how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints"></a>Nasıl miyim HTTP üstbilgileri için benim uç noktaları için durum denetimleri olan Traffic Manager atayabilirim miyim?
+Traffic Manager özel üst bilgiler, HTTP (durum için uç noktalarınız başlattığı denetimleri S) belirtmenize olanak sağlar. Özel bir başlık belirtmek istiyorsanız, profil düzeyinde (tüm uç noktalar için geçerlidir) bunun veya uç nokta düzeyinde belirtebilirsiniz. Üst bilgi, iki düzeyde tanımlanmazsa, uç nokta düzeyinde belirtilen bir profili düzeyi bir geçersiz kılar.
+Traffic Manager isteklerini doğru bir çok kiracılı Ortamı'nda barındırılan bir uç noktaya yönlendirilir, böylece bu yaygın bir kullanım örneği barındırma üstbilgileri belirtilmesidir. Başka bir kullanım örneği bu Traffic Manager uç noktanın HTTP (S) istek günlükleri isteklerinden belirlemektir.
 
-Traffic Manager, HTTP ve HTTPS durum denetimleri barındırma üstbilgileri kullanır. Traffic Manager tarafından kullanılan ana bilgisayar üst bilgisini profilinde yapılandırılan uç noktası hedef adıdır. Ana bilgisayar üstbilgisi için kullanılan değer hedef özelliğinden ayrı olarak belirtilemez.
+## <a name="what-host-header-do-endpoint-health-checks-use"></a>Hangi konak üst bilgisi uç nokta sistem durumu kullanım denetler?
+Hiçbir özel ana bilgisayar üstbilgisi ayarı sağlanırsa, kullanılabilir durumdaysa Traffic Manager tarafından kullanılan ana bilgisayar üst bilgisini DNS profilinde yapılandırılan uç noktası hedef adıdır. 
+
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>IP adreslerini kendisinden kaynaklanan durum denetimleri nelerdir?
 

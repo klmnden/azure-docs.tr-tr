@@ -13,19 +13,19 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: c975b3e03f0293e4ef2464451b4c72fb709a1895
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 688ed311906754ee390b9a6ccd0ac430f42e8387
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730505"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125417"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olaylar ve ölçümler için Application Insights API
 
 Uygulamanızda hangi kullanıcılar ile nasıl kullandığını görün veya sorunlarının tanılanmasına yardımcı olmak için birkaç satırlık bir kod ekleyin. Cihaz ve Masaüstü uygulamaları, web istemcileri ve web sunucularından telemetri gönderebilir. Kullanım [Azure Application Insights](app-insights-overview.md) çekirdek özel olaylar ve ölçümler ve kendi sürümleri standart telemetri göndermek için API telemetri. Bu API, standart Application Insights veri toplayıcıları kullanın aynı bir API'dir.
 
 > [!NOTE]
-> `TrackMetric()` artık özel ölçümler, C# için gönderme tercih edilen yöntem tabanlı uygulamaları değil. İçinde [2,60 beta 3 sürümünü](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) Application Insights .NET SDK'ın yeni bir yöntem, [ `TelemetryClient.GetMetric()` ](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) kullanıma sunulmuştur. Application Insights .NET SDK'sı itibarıyla [sürüm 2.72](https://docs.microsoft.com/en-us/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) bu işlevsellik artık kararlı sürüm parçasıdır.
+> `TrackMetric()` Artık, .NET için özel ölçümleri gönderme tercih edilen yöntem tabanlı uygulamaları değil. İçinde [2,60 beta 3 sürümünü](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) Application Insights .NET SDK'ın yeni bir yöntem, [ `TelemetryClient.GetMetric()` ](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) kullanıma sunulmuştur. Application Insights .NET SDK'sı itibarıyla [sürüm 2.72](https://docs.microsoft.com/en-us/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) bu işlevsellik artık kararlı sürüm parçasıdır.
 
 ## <a name="api-summary"></a>API özeti
 ' % S'core API, gibi bazı farklılıklar dışında tüm platformlar arasında Tekdüzen `GetMetric`(yalnızca C#).

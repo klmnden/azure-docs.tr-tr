@@ -1,6 +1,6 @@
 ---
-title: "Java SDK: Azure Data Lake Store'daki dosya sistemi işlemleri | Microsoft Docs"
-description: Data Lake Store'da klasör oluşturma gibi dosya sistemi işlemlerini gerçekleştirmek için Azure Data Lake Store Java SDK'sını kullanın.
+title: 'Java SDK: Azure Data Lake depolama Gen1 gerçekleştirilen dosya sistemi işlemleri | Microsoft Docs'
+description: Dosya sistemi işlemleri Data Lake depolama Gen1 gibi gerçekleştirmek için kullanım Azure Data Lake depolama Gen1 Java SDK, klasörleri, vb. oluşturun.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 8f2dd4d001ae7322a351844146925c23b90f0916
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: a91593c1bae3002be8b7e423b627f1baf19e86e2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651219"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129213"
 ---
-# <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Data Lake Store'da Java SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
+# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Azure Data Lake depolama Gen1 Java SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
@@ -28,13 +28,13 @@ ms.locfileid: "35651219"
 >
 > 
 
-Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel işlemleri gerçekleştirmek için Azure Data Lake Store Java SDK’sını kullanma hakkında bilgi edinin. Data Lake hakkında daha fazla bilgi için bkz. [Azure Data Lake Store](data-lake-store-overview.md).
+Örneğin klasör oluşturma karşıya yükleme ve indirme veri dosyaları, vb. temel işlemleri gerçekleştirmek için Azure Data Lake depolama Gen1 Java SDK'sını kullanmayı öğrenin. Data Lake depolama Gen1 hakkında daha fazla bilgi için bkz: [Azure Data Lake depolama Gen1](data-lake-store-overview.md).
 
-Azure Data Lake Store için Java SDK API belgelerine, [Azure Data Lake Store Java API belgelerinden](https://azure.github.io/azure-data-lake-store-java/javadoc/) erişebilirsiniz.
+Data Lake depolama Gen1 için Java SDK API belgelerine erişebileceğiniz [Azure Data Lake depolama Gen1 Java API belgeleri](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Java Development Kit (Java sürüm 1.7 veya üzerini kullanan JDK 7 ya da üzeri)
-* Azure Data Lake Store hesabı. [Azure portalını kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md) bölümündeki yönergeleri uygulayın.
+* Data Lake depolama Gen1 hesabı. Konumundaki yönergeleri [Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure portalını kullanarak](data-lake-store-get-started-portal.md).
 * [Maven](https://maven.apache.org/install.html). Bu eğiticide, yapı ve proje bağımlılıkları için Maven kullanılır. Maven veya Gradle gibi bir yapı sistemi olmadan derleme yapmak mümkün olsa da bu sistemler bağımlılıkların yönetilmesini çok daha kolay hale getirir.
 * (İsteğe bağlı) [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), [Eclipse](https://www.eclipse.org/downloads/) vb. bir IDE.
 
@@ -58,7 +58,7 @@ Azure Data Lake Store için Java SDK API belgelerine, [Azure Data Lake Store Jav
           </dependency>
         </dependencies>
    
-    İlk bağımlılık, maven deposundan Data Lake Store SDK’sını (`azure-data-lake-store-sdk`) kullanmaktır. İkinci bağımlılık, bu uygulama için hangi günlük altyapısının (`slf4j-nop`) kullanılacağını belirtmektir. Data Lake Store SDK’sı; log4j, Java günlük kaydı, logback gibi birçok popüler günlük altyapısından birini seçmenizi veya günlük kaydı seçmemenizi sağlayan [slf4j](http://www.slf4j.org/) günlük cephesini kullanır. Bu örnekte, günlük kaydını devre dışı bırakacak ve dolayısıyla **slf4j-nop** bağlamasını kullanacağız. Uygulamanızda diğer günlük seçeneklerini kullanmak için [buraya](http://www.slf4j.org/manual.html#projectDep) bakın.
+    İlk bağımlılık, Data Lake depolama Gen1 SDK kullanmaktır (`azure-data-lake-store-sdk`) maven deposundan. İkinci bağımlılık, bu uygulama için hangi günlük altyapısının (`slf4j-nop`) kullanılacağını belirtmektir. Data Lake depolama Gen1 SDK'sını kullanan [slf4j](http://www.slf4j.org/) birçok popüler günlük altyapılarını log4j, Java günlük kaydı, logback vs. seçmenize olanak sağlayan günlük cephe veya günlük yok. Bu örnekte, günlük kaydını devre dışı bırakacak ve dolayısıyla **slf4j-nop** bağlamasını kullanacağız. Uygulamanızda diğer günlük seçeneklerini kullanmak için [buraya](http://www.slf4j.org/manual.html#projectDep) bakın.
 
 3. Aşağıdaki içeri aktarma deyimlerini uygulamanıza ekleyin.
 
@@ -75,20 +75,20 @@ Azure Data Lake Store için Java SDK API belgelerine, [Azure Data Lake Store Jav
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
-* Uygulamanızın son kullanıcı kimlik doğrulaması için bkz. [Java kullanarak Data Lake Store'da son kullanıcı kimlik doğrulaması gerçekleştirme](data-lake-store-end-user-authenticate-java-sdk.md).
-* Uygulamanızın servisler arası kimlik doğrulaması için bkz. [Java kullanarak Data Lake Store'da servisler arası kimlik doğrulaması gerçekleştirme](data-lake-store-service-to-service-authenticate-java.md).
+* Uygulamanız için son kullanıcı kimlik doğrulaması için bkz. [uç-kullanıcı-Java kullanarak kimlik doğrulaması ile Data Lake depolama Gen1](data-lake-store-end-user-authenticate-java-sdk.md).
+* Uygulamanız için hizmetten hizmete kimlik doğrulaması için bkz [Java ile hizmetten hizmete kimlik doğrulama ile Data Lake depolama Gen1](data-lake-store-service-to-service-authenticate-java.md).
 
-## <a name="create-an-azure-data-lake-store-client"></a>Azure Data Lake Store istemcisi oluşturma
-[ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) nesnesi oluşturmak için Data Lake Store hesap adını ve Data Lake Store ile kimlik doğrulaması gerçekleştirdiğinizde ([Kimlik doğrulaması](#authentication) bölümüne bakın) oluşturduğunuz belirteç sağlayıcısını belirtmeniz gerekir. Data Lake Store hesap adının tam etki alanı adı olması gerekir. Örneğin, **BURAYI DOLDURUN** alanını **mydatalakestore.azuredatalakestore.net** gibi bir etki alanı adı değiştirin.
+## <a name="create-a-data-lake-storage-gen1-client"></a>Bir Data Lake depolama Gen1 istemcisi oluşturma
+Oluşturma bir [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) nesne Data Lake depolama Gen1 hesap adını ve Data Lake depolama Gen1 ile kimlik doğrulaması gerçekleştirdiğinizde belirteç sağlayıcısını belirtmeniz gerekir (bkz [kimlikdoğrulaması](#authentication) bölümü). Data Lake depolama Gen1 hesap adının tam etki alanı adı olması gerekir. Örneğin, **burayı DOLDURUN** gibi bir şeyle **mydatalakestoragegen1.azuredatalakestore.net**.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
     ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
-Aşağıdaki bölümlerde yer alan kod parçacıkları bazı ortak dosya sistemi işlemlerine örnekler içermektedir. Diğer işlemleri görmek için **ADLStoreClient** nesnesinin tüm [Data Lake Store Java SDK API belgelerine](https://azure.github.io/azure-data-lake-store-java/javadoc/) bakabilirsiniz.
+Aşağıdaki bölümlerde yer alan kod parçacıkları bazı ortak dosya sistemi işlemlerine örnekler içermektedir. Bakabilirsiniz [Data Lake depolama Gen1 Java SDK API belgelerine](https://azure.github.io/azure-data-lake-store-java/javadoc/) , **ADLStoreClient** diğer işlemleri görmek için nesne.
 
 ## <a name="create-a-directory"></a>Dizin oluşturma
 
-Aşağıdaki kod parçacığı belirttiğiniz Data Lake Store hesabının kök dizininde bir dizin yapısı oluşturur.
+Aşağıdaki kod parçacığı belirttiğiniz Data Lake depolama Gen1 hesabının kök dizininde bir dizin yapısı oluşturur.
 
     // create directory
     client.createDirectory("/a/b/w");
@@ -134,7 +134,7 @@ Yukarıdaki kod parçacığında kullanılan `getSampleContent` işlevinin tanı
 
 ## <a name="read-a-file"></a>Dosya okuma
 
-Aşağıdaki kod parçacığı Data Lake Store hesabındaki bir dosyadan içerik okur.
+Aşağıdaki kod parçacığı Data Lake depolama Gen1 hesabındaki bir dosyadan içerik okur.
 
     // Read File
     InputStream in = client.getReadStream(filename);
@@ -149,7 +149,7 @@ Aşağıdaki kod parçacığı Data Lake Store hesabındaki bir dosyadan içerik
 
 ## <a name="concatenate-files"></a>Dosyaları birleştirme
 
-Aşağıdaki kod parçacığı Data Lake Store hesabındaki iki dosyayı birleştirir. İşlem başarılı olursa birleştirilmiş dosya, var olan iki dosyanın yerini alır.
+Aşağıdaki kod parçacığı Data Lake depolama Gen1 hesabında iki dosya art arda ekler. İşlem başarılı olursa birleştirilmiş dosya, var olan iki dosyanın yerini alır.
 
     // concatenate the two files into one
     List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
@@ -158,7 +158,7 @@ Aşağıdaki kod parçacığı Data Lake Store hesabındaki iki dosyayı birleş
 
 ## <a name="rename-a-file"></a>Dosyayı yeniden adlandırma
 
-Aşağıdaki kod parçacığı Data Lake Store hesabındaki bir dosyayı yeniden adlandırır.
+Aşağıdaki kod parçacığı Data Lake depolama Gen1 hesabındaki bir dosyayı yeniden adlandırır.
 
     //rename the file
     client.rename("/a/b/f.txt", "/a/b/g.txt");
@@ -166,7 +166,7 @@ Aşağıdaki kod parçacığı Data Lake Store hesabındaki bir dosyayı yeniden
 
 ## <a name="get-metadata-for-a-file"></a>Dosyanın meta verilerini alma
 
-Aşağıdaki kod parçacığı Data Lake Store hesabındaki bir dosyanın meta verilerini alır.
+Aşağıdaki kod parçacığı Data Lake depolama Gen1 hesabındaki bir dosyanın meta verilerini alır.
 
     // get file metadata
     DirectoryEntry ent = client.getDirectoryEntry(filename);
@@ -197,7 +197,7 @@ Yukarıdaki kod parçacığında kullanılan `printDirectoryInfo` işlevinin tan
 
 ## <a name="delete-files-and-folders"></a>Dosyaları ve klasörleri silme
 
-Aşağıdaki kod parçacığı Data Lake Store hesabındaki dosyaları ve klasörleri yinelemeli olarak siler.
+Aşağıdaki kod parçacığında, dosyaları ve klasörleri yinelemeli olarak bir Data Lake depolama Gen1 hesabında siler.
 
     // delete directory along with all the subdirectories and files in it
     client.deleteRecursive("/a");
@@ -210,6 +210,6 @@ Aşağıdaki kod parçacığı Data Lake Store hesabındaki dosyaları ve klasö
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Java SDK için JavaDoc’u keşfedin](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 
 

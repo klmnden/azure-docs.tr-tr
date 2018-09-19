@@ -1,27 +1,27 @@
 ---
-title: Azure Blob Depolama (Önizleme) için değişmez depolama | Microsoft Docs
+title: Azure depolama BLOB'ları için sabit depolama | Microsoft Docs
 description: Azure depolama, kullanıcıların verileri silinebilir olmayan ve değiştirilebilir olmayan bir durumda, belirtilen bir zaman aralığı için depolamak olanak sağlayan Blob (nesne) depolama SOLUCAN (bir kez yazma, okuma çok) desteği sunar.
 services: storage
-author: sangsinh
+author: MichaelHauss
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2018
-ms.author: sangsinh
+ms.date: 09/18/2018
+ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: cfc25906e926e8dd6687eeccd311a38653772c4d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: e6b016d437011f8e9ebe3e2d3a6f3c9f737f6ecc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399007"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129582"
 ---
-# <a name="store-business-critical-data-in-azure-blob-storage-preview"></a>İş açısından kritik verilerin Azure Blob Depolama (Önizleme) Store
+# <a name="store-business-critical-data-in-azure-blob-storage"></a>İş açısından kritik verilerin Azure Blob Depolama alanında Store
 
 Sabit depolama (nesne) Azure Blob Depolama için kullanıcıların bir SOLUCAN (bir kez yazma, okuma çok) durumda iş açısından kritik verileri depolamak sağlar. Bu durum verileri silinebilir olmayan ve değiştirilebilir olmayan bir kullanıcı tarafından belirtilen aralığı için yapar. Blobları oluşturulabilir ve okuma, ancak değil değiştirildi veya silindi, saklama aralığı süresince.
 
 ## <a name="overview"></a>Genel Bakış
 
-Sabit depolama Finans kuruluşları ve dağıtılmasından--verileri güvenli bir şekilde depolamak için özellikle Aracısı dağıtıcı kuruluşların--yardımcı olur.
+Sabit depolama Finans kuruluşları ve dağıtılmasından--verileri güvenli bir şekilde depolamak için özellikle Aracısı dağıtıcı kuruluşların--yardımcı olur. Ayrıca, hiçbir senaryoda silinmeye karşı kritik verileri korumak için de yararlanılabilir.  
 
 Tipik kullanım alanları şunlardır:
 
@@ -35,11 +35,11 @@ Sabit depolama sağlar:
 
 - **Zamana bağlı Bekletme İlkesi desteği**: kullanıcılar için belirli bir aralıkta verileri depolamak için ilkeler ayarlama.
 
-- **Yasal tutma ilkesi desteği**: elde tutma aralığı bilinmiyor, kullanıcıların yasal tutma temizlenene kadar immutably verileri depolamak için yasal tutma kuralı ayarlayabilirsiniz.  Yasal tutma söz konusu olduğunda bloblar oluşturulabilir ve okunabilir ancak değiştirilemez veya silinemez. Her bir yasal tutma, kullanıcı tanımlı ve bir kimlik dizesi (örneğin, bir durum kimliği) olarak kullanılan bir alfasayısal etiketi ile ilişkilidir.
+- **Yasal tutma ilkesi desteği**: elde tutma aralığı bilinmiyor, kullanıcıların yasal tutma temizlenene kadar immutably verileri depolamak için yasal tutma kuralı ayarlayabilirsiniz.  Yasal tutma söz konusu olduğunda bloblar oluşturulabilir ve okunabilir ancak değiştirilemez veya silinemez. Her yasal tutma süreci, tanımlayıcı dize olarak kullanılan ve kullanıcı tarafından belirlenen bir alfasayısal etiketle (olay kimliği gibi) ilişkilendirilir.
 
-- **Tüm katmanları blob desteği**: SOLUCAN ilkeleri, Azure Blob Depolama katmanını bağımsızdır ve katmanları için geçerlidir: sık erişimli, seyrek erişimli ve Arşiv. Kullanıcılar verileri kendi iş yükleri için en maliyet açısından iyileştirilmiş katmanındaki veri değiştirilemezlik korurken depolayabilir.
+- **Tüm katmanları blob desteği**: SOLUCAN ilkeleri, Azure Blob Depolama katmanını bağımsızdır ve katmanları için geçerlidir: sık erişimli, seyrek erişimli ve Arşiv. Kullanıcılar, veri değiştirilemezlik korurken veri iş yüklerini en maliyet açısından iyileştirilmiş katmanına geçiş yapabilirsiniz.
 
-- **Kapsayıcı düzeyi yapılandırma**: kullanıcılar, zamana bağlı bekletme ilkeleri yapılandırabilir ve kapsayıcı düzeyinde yasal tutma etiketler. Basit bir kapsayıcı düzeyi ayarlarını kullanarak, kullanıcılar oluşturabilir ve kilitleme zamana bağlı bekletme ilkeleri; Bekletme aralıkları genişletme; ayarlayın ve yasal tutma kuralı temizleyin. ve daha fazlası. Bu ilkeleri, mevcut ve yeni kapsayıcıdaki tüm blobları için geçerlidir.
+- **Kapsayıcı düzeyi yapılandırma**: kullanıcılar, zamana bağlı bekletme ilkeleri yapılandırabilir ve kapsayıcı düzeyinde yasal tutma etiketler. Basit kapsayıcı düzeyi ayarlarını kullanarak, kullanıcılar oluşturabilir ve kilitleme zamana bağlı bekletme ilkeleri, bekletme aralıkları genişletme, ayarlayın ve yasal tutma kuralı ve daha fazlasını temizleyin. Bu ilkeleri, mevcut ve yeni kapsayıcıdaki tüm blobları için geçerlidir.
 
 - **Oturum açma desteği denetim**: denetim günlüğü her kapsayıcı içerir. Bu üç günlük bekletme aralığı uzantıları için en fazla kilitli zamana bağlı bekletme ilkeleri için en fazla beş zamana bağlı bekletme komutları gösterir. Zamana bağlı bekletme için kullanıcı kimliği, komut türü, zaman damgaları ve bekletme aralığı günlük içerir. Yasal tutma kuralı günlüğü, kullanıcı kimliği, komut türü, zaman damgalarını içerir ve yasal tutma etiketler. Bu günlük, yaşam süresi, sn 17a-4(f) yasal yönergelerine uygun olarak kapsayıcı sağlamak için tutulur. [Azure etkinlik günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) daha kapsamlı bir günlük denetim düzlemi etkinlikleri gösterir. Bu günlük dosyaları sınıflandırmanıza, yasal veya diğer amaçlar için gerekli olduğu gibi depolamak kullanıcının sorumluluğundadır.
 
@@ -54,13 +54,13 @@ Zamana bağlı bekletme ilkesi veya yasal tutma bir kapsayıcı uygulandığınd
 > [!IMPORTANT]
 > Zamana bağlı bekletme ilkesi olmalıdır *kilitli* bir sabit olarak blob için (yazma ve silme korumalı) sn 17a-4(f) ve diğer yasal uyumluluk durumunda. Bir makul süre içinde genellikle 24 saat içindeki ilke kilitleme öneririz. Kullanımı önerilmemektedir *kilidi* kısa süreli özellik denemeler dışındaki herhangi bir amaçla durum.
 
-Bir kapsayıcı zamana bağlı Bekletme İlkesi uygulandığında, kapsayıcıdaki tüm blob'lara süresi boyunca sabit durumda kalır *etkili* saklama süresi. Mevcut bloblar için geçerli olan saklama süresi, blob oluşturma zamanı ile kullanıcı tarafından belirtilen saklama aralığı arasındaki farka eşittir. 
+Bir kapsayıcı zamana bağlı Bekletme İlkesi uygulandığında, kapsayıcıdaki tüm blob'lara süresi boyunca sabit durumda kalır *etkili* saklama süresi. Mevcut bloblar için geçerli olan saklama süresi, blob oluşturma zamanı ile kullanıcı tarafından belirtilen saklama aralığı arasındaki farka eşittir.
 
-Yeni bloblar için geçerli olan saklama süresi, kullanıcı tarafından belirtilen saklama aralığına eşittir. Kullanıcıları elde tutma aralığı değiştirebilirsiniz çünkü sabit depolama en son değeri kullanıcı tarafından belirtilen bekletme aralığının geçerli saklama dönemi hesaplamak için kullanır.
+Yeni bloblar için geçerli olan saklama süresi, kullanıcı tarafından belirtilen saklama aralığına eşittir. Kullanıcıları elde tutma aralığı genişletebilirsiniz çünkü sabit depolama en son değeri kullanıcı tarafından belirtilen bekletme aralığının geçerli saklama dönemi hesaplamak için kullanır.
 
 > [!TIP]
 > Örnek:
-> 
+>
 > Bir kullanıcı bir zamana bağlı bekletme ilkesi ile beş yıllık bir bekletme aralığı oluşturur.
 >
 > Mevcut blob testblob1, bu kapsayıcıdaki bir yıl önce oluşturuldu. Testblob1 etkili saklama süresini dört yıldır.
@@ -77,35 +77,30 @@ Aşağıdaki tabloda farklı bir sabit senaryolar için devre dışı bırakılm
 
 |Senaryo  |BLOB durumu  |İzin blob işlemleri  |
 |---------|---------|---------|
-|Blobdaki geçerli saklama süresi dolmadı ve/veya yasal tutma ayarlandı     |Sabit: hem silme hem de yazma korumalı         |Delete Container, Delete Blob, Put Blob1, Put Block, Put Block List, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
-|Blob üzerindeki geçerli saklama süresi doldu     |Yalnızca yazma korumalı (silme işlemlerine izin verilir)         |Put Blob, Put Block, Put Block List, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
+|Blobdaki geçerli saklama süresi dolmadı ve/veya yasal tutma ayarlandı     |Sabit: hem silme hem de yazma korumalı         |Kapsayıcı, Blob, Put Blob Sil<sup>1</sup>, blok yerleştirme<sup>1</sup>, engelleme listesine koymak<sup>1</sup>, Blob meta verileri ayarlama sayfası yerleştirmek, Blob özelliklerini, anlık görüntü Blob artımlı kopya Blob ayarlayın Blok ekleme         |
+|Blob üzerindeki geçerli saklama süresi doldu     |Yalnızca yazma korumalı (silme işlemlerine izin verilir)         |İkili büyük nesne koyma<sup>1</sup>, blok yerleştirme<sup>1</sup>, engelleme listesine koymak<sup>1</sup>, Blob meta verileri ayarlama, sayfa yerleştirme, Blob özelliklerini, anlık görüntü Blob artımlı kopya blob'u ayarlayın, blok ekleme         |
 |Tüm yasal temizlenmiş tutar ve zamana bağlı bekletme ilkesi yok, kapsayıcıdaki ayarlanır     |Değiştirilebilir         |None         |
 |Hiçbir SOLUCAN İlkesi (zamana bağlı bekletme veya yasal tutma) oluşturulur.     |Değiştirilebilir         |None         |
 
+<sup>1</sup> kez bir blob oluşturmak için bu işlem uygulamayı çağırabilir. Blob üzerindeki tüm sonraki işlemleri izin verilmiyor.
+
 > [!NOTE]
-> Önceki tablonun ilk iki senaryolarından ilk Put Blob ve bir blob oluşturmak gerekli olan Engellenenler listesine yerleştirin ve blok yerleştirme işlemleri izin verilir. Tüm sonraki işlemleri izin verilmiyor.
 >
-> Sabit depolama, yalnızca GPv2 ve Blob Depolama hesaplarında kullanılabilir. Aracılığıyla oluşturulmalıdır [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> Sabit depolama, yalnızca genel amaçlı V2 ve Blob Depolama hesapları kullanılabilir. Hesap aracılığıyla oluşturulmalıdır [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Bu özelliği kullanmak için ek ücret yoktur. Sabit veri aynı şekilde normal, kesilebilir veri olarak fiyatlandırılır. Fiyatlandırma ayrıntıları için bkz: [Azure depolama fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Bu özelliği kullanmak için ek ücret yoktur. Sabit veri aynı şekilde normal, kesilebilir veri olarak fiyatlandırılır. Azure Blob Depolama fiyatlandırma ayrıntıları için bkz: [Azure depolama fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-### <a name="restrictions"></a>Kısıtlamalar
-
-Genel önizleme boyunca aşağıdaki kısıtlamalar geçerli olacaktır:
-
-- *Üretim veya iş açısından kritik verilerin depolamayın.*
-- Tüm Önizleme ve NDA kısıtlamalar geçerlidir.
 
 ## <a name="getting-started"></a>Başlarken
 
-En son sürümleri [Azure portalında](http://portal.azure.com), [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ve [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) sabit depolama Azure Blob Depolama için destek.
+En son sürümleri [Azure portalında](http://portal.azure.com) ve [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) önizleme sürümünü yanı sıra [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) sabit depolama Azure Blob Depolama için destek.
 
 ### <a name="azure-portal"></a>Azure portal
 
 1. Sabit durumda tutulması gereken blobların depolanması için yeni bir kapsayıcı oluşturun veya mevcut bir kapsayıcıyı seçin.
- Kapsayıcının GPv2 depolama hesabında olması gerekir.
+ Kapsayıcı bir GPv2 veya blob depolama hesabında olmalıdır.
 2. Seçin **erişim ilkesi** kapsayıcı ayarları. Ardından **+ ilke Ekle** altında **sabit blob depolaması**.
 
     ![Portalda kapsayıcı ayarları](media/storage-blob-immutable-storage/portal-image-1.png)
@@ -134,11 +129,9 @@ En son sürümleri [Azure portalında](http://portal.azure.com), [Azure CLI 2.0]
 
     ![İlke türü altında "Etiket adı" kutusu](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
+8. Yasal tutma temizlemek için etiketi kaldırmak yeterlidir.
+
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-
-Yükleme [Azure CLI uzantısı](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) kullanarak `az extension add -n storage-preview`.
-
-Yüklü uzantı zaten varsa, sabit depolama etkinleştirmek için aşağıdaki komutu kullanın: `az extension update -n storage-preview`.
 
 Bu özellik aşağıdaki komut gruplarını dahildir: `az storage container immutability-policy` ve `az storage container legal-hold`. Çalıştırma `-h` bunlara komutları görmek için.
 
@@ -160,7 +153,8 @@ Aşağıdaki istemci kitaplıkları, Azure Blob Depolama için sabit depolamayı
 
 - [.NET istemci kitaplığı sürümü 7.2.0-preview ve üzeri](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
 - [Node.js istemci kitaplığı sürüm 4.0.0 ve üzeri](https://www.npmjs.com/package/azure-arm-storage)
-- [Python istemci kitaplığı sürüm 2.0.0 Sürüm Adayı 2 ve üzeri](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
+- [Python istemci kitaplığı sürüm 2.0.0 Sürüm Adayı 2 ve üzeri](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
+- [Java istemci kitaplığı](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
 ## <a name="supported-values"></a>Desteklenen değerler
 
@@ -176,15 +170,15 @@ Aşağıdaki istemci kitaplıkları, Azure Blob Depolama için sabit depolamayı
 
 **Bu özellik, yalnızca blok blobları, veya sayfa ve ekleme blobları da için geçerli midir?**
 
-Sabit depolama herhangi bir blob türü ile kullanılabilir.  Ancak, çoğunlukla blok blobları için kullanmanızı öneririz. Aksine blok blobları, sayfa blobları ve ekleme blobları dışında bir SOLUCAN container oluşturulması gerekir ve ardından içinde kopyalanır. Bu bloblar bir SOLUCAN kapsayıcıya Hayır daha da kopyaladığınız sonra *ekler* için bir ekleme blobu veya bir sayfa blobu değişiklikleri izin verilir.
+Sabit depolama ile herhangi bir blob türü kullanılabilir, ancak çoğunlukla blok blobları için kullanmanızı öneririz. Aksine blok blobları, sayfa blobları ve ekleme blobları dışında bir SOLUCAN container oluşturulması gerekir ve ardından içinde kopyalanır. Bu bloblar bir SOLUCAN kapsayıcıya Hayır daha da kopyaladığınız sonra *ekler* için bir ekleme blobu veya bir sayfa blobu değişiklikleri izin verilir.
 
 **Bu özelliği kullanabilmek için her seferinde yeni bir depolama hesabı mı oluşturmam gerekiyor?**
 
-Hesap türü GPv2 ise sabit depolama mevcut tüm GPv2 hesaplarını veya daha yeni bir depolama hesabı kullanabilirsiniz. Bu özellik yalnızca Blob Depolama ile kullanılabilir.
+Tüm mevcut veya yeni oluşturulan genel amaçlı V2 veya Blob Depolama hesapları ile sabit depolamayı kullanabilirsiniz. Bu özellik yalnızca Blob Depolama için kullanılabilir.
 
 **Zaman tabanlı saklama veya yasal tutma ilkesi ile *kilitlenmiş* bir kapsayıcıyı silmeye çalışırsam ne olur?**
 
-Varsa bir kilitli zamana bağlı bekletme ilkesi veya yasal tutma ile en az bir blob kapsayıcısını silme işlemi başarısız olur. Veri olsa bile bu geçerlidir [geçici silinen](storage-blob-soft-delete.md). Etkin saklama aralığına ve yasal tutma ilkesine sahip bir blob yoksa Delete Container işlemi başarısız olur. Kapsayıcıyı silmeden önce BLOB'ları silmeniz gerekir. 
+Kilitli zamana bağlı bekletme ilkesi veya yasal tutma ile en az bir blob mevcut kapsayıcı silme işlemi başarısız olur. Kapsayıcı silme işlemi yalnızca bir etkin tutma aralığı ile hiçbir blob mevcut olduğundan ve hiçbir yasal tutma kuralı vardır başarılı olur. Kapsayıcıyı silmeden önce BLOB'ları silmeniz gerekir.
 
 **Zaman tabanlı saklama veya yasal tutma ilkesi ile *kilitlenmiş* bir WORM kapsayıcısı bulunan depolama hesabını silmeye çalışırsam ne olur?**
 
@@ -192,7 +186,7 @@ Yasal tutma ilkesine veya zaman tabanlı saklama aralığına sahip en az bir WO
 
 **Blob sabit durumda olduğunda farklı blob katmanları (sık erişimli, seyrek erişimli, soğuk depolama) arasında veri aktarımı gerçekleştirebilir miyim?**
 
-Evet, Set Blob Tier komutunu kullanarak verileri katmanlar arasında aktarabilir, verileri sabit durumda tutabilirsiniz. Sabit bir depolama blobu sık erişimli, seyrek erişimli ve soğuk katmanlar üzerinde desteklenir.
+Evet, Set Blob Tier komutunu kullanarak verileri katmanlar arasında aktarabilir, verileri sabit durumda tutabilirsiniz. Sabit depolama desteklenir sık, seyrek ve Arşiv katmanları blob.
 
 **Ödemeyi yapamadıysam ve saklama süresi dolmadıysa ne olur?**
 
@@ -209,6 +203,8 @@ Yalnızca Azure ortak bölgelerde sabit depolama şu anda kullanılabilir. Belir
 ## <a name="sample-powershell-code"></a>Örnek PowerShell kodu
 
 Aşağıdaki örnek PowerShell Betiği için bir başvurudur. Bu betik, yeni depolama hesabı ve kapsayıcı oluşturur. Bunu ardından, ayarlayın ve yasal tutma kuralı temizleyin, oluşturma ve bir zamana bağlı bekletme ilkesi (değiştirilemezlik ilkesi olarak da bilinir) kilitleyin ve elde tutma aralığı genişletmek gösterilmektedir.
+
+Ayarlama ve Azure depolama hesabına test:
 
 ```powershell
 $ResourceGroup = "<Enter your resource group>”
@@ -258,115 +254,128 @@ Remove-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 # Remove a container with a container object
 $containerObject2 = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 Remove-AzureRmStorageContainer -InputObject $containerObject2
+```
 
+Ayarlayın ve yasal tutma kuralı temizleyin:
+
+```powershell
 # Set a legal hold
 Add-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container -Tag tag1,tag2
+    -StorageAccountName $StorageAccount -Name $container -Tag <tag1>,<tag2>,...
 
-# Set a legal hold with an account object
-Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3
+# with an account object
+Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>
 
-# Set a legal hold with a container object
-Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4,tag5
+# with a container object
+Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>,<tag5>,...
 
 # Clear a legal hold
 Remove-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container -Tag tag2
+    -StorageAccountName $StorageAccount -Name $container -Tag <tag2>
 
-# Clear a legal hold with an account object
-Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3,tag5
+# with an account object
+Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
 
-# Clear a legal hold with a container object
-Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4
+# with a container object
+Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>
+```
 
-# Create or update an immutability policy
-## with an account name or container name
-
+Oluşturma veya güncelleştirme değiştirilemezlik İlkesi:
+```powershell
+# with an account name or container name
 Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container -ImmutabilityPeriod 10
 
-## with an account object
+# with an account object
 Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -ImmutabilityPeriod 1 -Etag $policy.Etag
 
-## with a container object
+# with a container object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 7
 
-## with an immutability policy object
+# with an immutability policy object
 Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
+```
 
+Değiştirilemezlik İlkesi alın:
+```powershell
 # Get an immutability policy
 Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container
 
-# Get an immutability policy with an account object
+# with an account object
 Get-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container
 
-# Get an immutability policy with a container object
+# with a container object
 Get-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject
+```
 
-# Lock an immutability policy (add -Force to dismiss the prompt)
-## with an immutability policy object
-
+Kilitleme değiştirilemezlik İlkesi (add - isteği kapatmak için zorla):
+```powershell
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
 
-## with an account name or container name
+# with an account name or container name
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
-## with an account object
+# with an account object
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -Etag $policy.Etag
 
-## with a container object
+# with a container object
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -Etag $policy.Etag -force
+```
 
-# Extend an immutability policy
-## with an immutability policy object
+Değiştirilemezlik İlkesi genişletin:
+```powershell
 
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
     $policy -ImmutabilityPeriod 11 -ExtendPolicy
 
-## with an account name or container name
+# with an account name or container name
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -ImmutabilityPeriod 11 -Etag $policy.Etag -ExtendPolicy
 
-## with an account object
+# with an account object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -ImmutabilityPeriod 12 -Etag `
     $policy.Etag -ExtendPolicy
 
-## with a container object
+# with a container object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
+```
 
-# Remove an immutability policy (add -Force to dismiss the prompt)
-## with an immutability policy object
+Değiştirilemezlik ilkesini kaldırmak (add - isteği kapatmak için zorla):
+```powershell
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
-## with an account name or container name
+# with an account name or container name
 Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
-## with an account object
+# with an account object
 Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -Etag $policy.Etag
 
-## with a container object
+# with a container object
 Remove-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject `
     -Etag $policy.Etag
-    
+
 ```

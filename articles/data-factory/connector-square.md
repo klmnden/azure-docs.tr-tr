@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: d75ee2403fee8cabc696f95918c283c648888754
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f63dcc73532426b07f792f631f934587fca08605
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630666"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129007"
 ---
-# <a name="copy-data-from-square-using-azure-data-factory"></a>Kare Azure Data Factory kullanarak verileri kopyalama
+# <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak kareden veri kopyalama
 
 Bu makalede, kopyalama etkinliği Azure Data Factory'de kareden veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 

@@ -1,36 +1,57 @@
-
+---
+title: include dosyası
+description: include dosyası
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: f0e584a4a4a54fc04b5539b56d5c901bfaa42bcc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293749"
+---
 ## <a name="register-your-application"></a>Uygulamanızı kaydetme
-Uygulamanızın iki yoldan biriyle sonraki iki bölümde açıklandığı gibi kaydedebilirsiniz.
+Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi kaydedebilirsiniz.
 
-### <a name="option-1-express-mode"></a>Seçenek 1: Hızlı mod
-Aşağıdakileri yaparak, uygulamanızın hızlı bir şekilde kaydedebilirsiniz:
+### <a name="option-1-express"></a>Seçenek 1: Express
 1. Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
-2.  İçinde **uygulama adı** kutusuna, uygulamanız için bir ad girin.
+2.  İçinde **uygulama adı**, uygulamanız için bir ad girin.
 
-3. Emin **destekli Kurulum** onay kutusu seçili ve ardından **oluşturma**.
+3. Emin **destekli Kurulum** onay kutusunu seçili ve ardından **Oluştur**.
 
-4. Uygulama Kimliği alma yönergeleri izleyin ve kodunuza yapıştırın.
+4. Uygulama Kimliği alma yönergeleri izleyin ve kodunuzun yapıştırın.
 
-### <a name="option-2-advanced-mode"></a>Seçenek 2: Gelişmiş mod
-Uygulamanızı kaydetme ve uygulama kayıt bilgilerinizi çözümünüze eklemek için aşağıdakileri yapın:
-1. Uygulamanızı kaydolmadıysanız Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app).
+### <a name="option-2-advanced"></a>Seçenek 2: Gelişmiş 
+1. Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app).
 2. İçinde **uygulama adı** kutusuna, uygulamanız için bir ad girin. 
 
-3. Emin **destekli Kurulum** onay kutusunun temizlenmiş ve ardından **oluşturma**.
+3. Emin **destekli Kurulum** onay kutusunun temizlenmiş ve ardından **Oluştur**.
 
-4. Seçin **eklemek Platform**seçin **yerel uygulama**ve ardından **kaydetmek**.
+4. Seçin **Platform Ekle**seçin **yerel uygulama**ve ardından **Kaydet**.
 
-5. Altında **uygulama** > **java** > **{konak}. { ad alanı}**, açık `MainActivity`. 
+5. Altında **uygulama** > **java** > **{konak}. { ad alanı}** açın `MainActivity`. 
 
-6.  Değiştir *[uygulama kimliği buraya girin]* yalnızca kayıtlı uygulama kimliği aşağıdaki satırı:
+6.  Değiştirin *[uygulama kimliği buraya girin]* uygulamanızla / istemci kimliği:
 
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";
     ```
 <!-- Workaround for Docs conversion bug -->
-7. Altında **uygulama** > **bildirimleri**, açık *AndroidManifest.xml* dosya.
+7. Altında **uygulama** > **bildirimlerini**açın *AndroidManifest.xml* dosya.
 
-8. İçinde `manifest\application` düğümü, aşağıdaki etkinlik ekleyin. Bunu yazmaçlar bulunurken bir `BrowserTabActivity` kimlik doğrulama tamamlandıktan sonra uygulamanızın sürdürmek işletim sistemi sağlayan etkinlik:
+8. İçinde `manifest\application`, aşağıdaki etkinliği ekleyin. `BrowserTabActivity` Microsoft kimlik doğrulaması tamamlandıktan sonra uygulamanıza geri çağırmaya izin veren etkinlik:
 
     ```xml
     <!--Intent filter to capture System Browser calling back to our app after sign-in-->
@@ -49,4 +70,4 @@ Uygulamanızı kaydetme ve uygulama kayıt bilgilerinizi çözümünüze eklemek
     </activity>
     ```
 <!-- Workaround for Docs conversion bug -->
-9. İçinde `BrowserTabActivity` düğümü yerine `[Enter the application Id here]` uygulama kimliğiyle
+9. İçinde `BrowserTabActivity`, değiştirin `[Enter the application Id here]` uygulamayla / istemci kimliği

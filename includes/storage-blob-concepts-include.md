@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 63593ff5f02f5e37fc25c988c4cef071a03a00b4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a934a1b75e85e03b6803be5c8afcd8fe74b0fad5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066042"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45739207"
 ---
 Azure Blob depolama, Microsoft’un buluta yönelik nesne depolama çözümüdür. Blob depolama, metin veya ikili veri gibi çok miktarda yapılandırılmamış veriyi depolamak için iyileştirilmiştir.
+
+Yapılandırılmamış veriler için yüksek düzeyde ölçeklenebilir nesne depolama
 
 Blob depolama aşağıdaki durumlar için idealdir:
 
@@ -36,7 +38,7 @@ Blob depolama üç kaynağı kullanır: depolama hesabınız, hesaptaki kapsayı
 
 ### <a name="storage-account"></a>Depolama Hesabı
 
-Azure Depolama içindeki veri nesnelerine erişim bir depolama hesabıyla sağlanır. Daha fazla bilgi için bkz. [Azure depolama hesapları hakkında](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure Depolama içindeki veri nesnelerine erişim bir depolama hesabıyla sağlanır. Daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="container"></a>Kapsayıcı
 

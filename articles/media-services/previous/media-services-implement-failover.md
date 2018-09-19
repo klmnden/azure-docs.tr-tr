@@ -1,75 +1,69 @@
 ---
-title: Azure Media Services ile akış yük devretme uygulamak | Microsoft Docs
-description: Bu konuda, bir yük devretme senaryosu akış uygulamak gösterilmiştir.
+title: Azure Media Services ile akış yük devredilmesini | Microsoft Docs
+description: Bu konuda, bir yük devretme senaryosu akış uygulanması gösterilmektedir.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 9ea18d4131705ac1e7ba12ed6af6d8202e766abd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788861"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124619"
 ---
-# <a name="implement-failover-streaming-with-azure-media-services"></a>Azure Media Services ile akış yük devretme uygulama
+# <a name="implement-failover-streaming-with-azure-media-services"></a>Azure Media Services ile akış yük devretme uygulayan
 
-Bu kılavuz içeriği (BLOB) kopyalamak bir varlık başka bir dosyaya isteğe bağlı akış için artıklık işlemek amacıyla gösterilmiştir. Bu senaryo, bir veri merkezinde bir kesinti durumunda iki veri merkezi arasında yük devretme için Azure içerik teslim ağı ayarlamak istiyorsanız yararlıdır. Bu kılavuz, aşağıdaki görevleri göstermek için Azure Media Services SDK'sı, Azure Media Services REST API ve Azure depolama SDK'sını kullanır:
+Bu yönerge (BLOB) içeriğini kopyalamak nasıl bir varlığından diğerine isteğe bağlı akış için yedeklilik işlemek için gösterir. Bu senaryo, bir veri merkezinde bir kesinti durumunda iki veri merkezleri arasında yük devretme için Azure Content Delivery Network ayarlamak istiyorsanız yararlıdır. Bu izlenecek yol aşağıdaki görevleri göstermek için Azure Media Services SDK'sı, Azure Media Services REST API ve Azure depolama SDK'sını kullanır:
 
-1. Bir Media Services hesabı "Veri merkezi A'daki" ayarlama
+1. "Veri merkezi A'daki" bir Media Services hesabı ayarlayın
 2. Bir ara dosyayı bir kaynak varlığa yükleyin.
-3. Varlık Çoklu bit hızı MP4 dosyasına kodlayın. 
-4. Bir salt okunur paylaşılan erişim imzası Bulucu oluşturun. Bu, kaynak varlık ile ilişkili depolama hesabındaki kapsayıcı okuma erişimine sahip olması kaynak varlık içindir.
-5. Kaynak varlık kapsayıcı adı önceki adımda oluşturduğunuz salt okunur paylaşılan erişim imzası Bulucu alırlar. Bu (daha sonra konusunda açıklanmıştır.) depolama hesapları arasında BLOB kopyalama için gereklidir
-6. Kodlama görevi tarafından oluşturulan varlık için bir kaynak Bulucu oluşturun. 
+3. Varlık birden çok bit hızı MP4 dosyaları olarak kodlayın. 
+4. Salt okunur bir paylaşılan erişim imzası Bulucunun oluşturun. Bu, kaynak varlık ile ilişkilidir depolama hesabında bir kapsayıcı okuma erişimine sahip olması kaynak varlık içindir.
+5. Kaynak varlık kapsayıcı adı önceki adımda oluşturduğunuz salt okunur bir paylaşılan erişim imzası Bulucu alın. Bu (konunun ilerleyen bölümlerinde açıklanmıştır.) depolama hesapları arasında BLOB'ları kopyalamak için gereklidir
+6. Bir kodlama görevi tarafından oluşturulan varlığın kaynak Bulucu oluşturun. 
 
-Ardından, yük devretme işlemek için:
+Ardından, yük devretme gerçekleştirmek için:
 
-1. Bir Media Services hesabı "Veri merkezi b" olarak ayarlayın
+1. "Veri merkezi B'deki" bir Media Services hesabı ayarlayın
 2. Hedef boş varlık hedef Media Services hesabı oluşturun.
-3. Bir yazma paylaşılan erişim imzası Bulucu oluşturun. Bu, hedef varlıkla ilişkilidir hedef depolama hesabı kapsayıcıya yazma erişimi sağlamak hedef boş varlık içindir.
-4. Kaynak depolama hesabı "Veri merkezi a" ve "Veri merkezi B'deki" hedef depolama hesabı arasında BLOB'ları (varlık dosyaları) kopyalamak için Azure depolama SDK'sını kullanın Bu depolama hesaplarından çeken varlıklar ile ilişkilendirilir.
+3. Yazma paylaşılan erişim imzası Bulucunun oluşturun. Bu, hedef varlık ile ilişkilidir hedef depolama hesabındaki bir kapsayıcıya yazma erişimi sağlamak boş hedef varlık içindir.
+4. Kaynak depolama hesabında "Veri merkezi A" ve "Veri merkezi b" hedef depolama hesabında arasında BLOB'ları (varlık dosyaları) kopyalamak için Azure depolama SDK'sını kullanma Bu depolama hesaplarından ilgi varlıklar ile ilişkilidir.
 5. BLOB'ları (varlık dosyaları) hedef varlık ile hedef blob kapsayıcısına kopyalanmıştır ilişkilendirin. 
 6. "Veri merkezi B" varlığı için bir kaynak Bulucu oluşturun ve "Veri merkezi A'daki" varlığı için oluşturulan Bulucu Kimliğini belirtin
 
-Bu işlem, (temel URL'leri farklı yalnızca) URL'lerin göreli yollar aynı olduğu akış URL'leri sağlar. 
+Bu işlem, (temel URL'leri farklıdır yalnızca) URL'lerin göreli yolları aynı olduğu akış URL'leri sağlar. 
 
-Ardından, tüm kesintilerini işlemek için bu kaynak konum belirleyicisi üstünde içerik teslim ağı oluşturabilirsiniz. 
+Ardından, kesinti olup olmadığını işlemek için bir Content Delivery Network bu kaynak konum belirleyicisi üzerine oluşturabilirsiniz. 
 
 Aşağıdaki maddeler geçerlidir:
 
-* Media Services SDK'ın geçerli sürümü, bir varlığın varlık dosyaları ile ilişkilendirirsiniz program aracılığıyla oluşturma IAssetFile bilgi desteklemez. Bunun yerine, bunu yapmak için CreateFileInfos Media Services REST API kullanın. 
-* (Şifreleme anahtarı hem de Media Services hesaplarını farklı olduğu için) şifrelenmiş depolama varlıklar (AssetCreationOptions.StorageEncrypted) için çoğaltma desteklenmiyor. 
-* Dinamik paketlemeden yararlanmak isterseniz, olduğundan emin olun, içerik akışı gerçekleştirmek istediğiniz akış uç noktası olarak **çalıştıran** durumu.
-
-> [!NOTE]
-> Media Services kullanmayı [çoğaltıcı aracı](http://replicator.codeplex.com/) senaryosu el ile akış bir yük devretme kümesinin uygulanmasına alternatif olarak. Bu araç varlıklar iki Media Services hesap arasında çoğaltmanıza olanak sağlar.
-> 
-> 
+* Media Services SDK'ın geçerli sürümü, bir varlığın varlık dosyaları ile ilişkilendirirsiniz program aracılığıyla oluşturma IAssetFile bilgi desteklemez. Bunu yapmak için bunun yerine, CreateFileInfos Media Services REST API'si kullanın. 
+* Şifrelenmiş depolama varlıkları (AssetCreationOptions.StorageEncrypted) (şifreleme anahtarını hem de Media Services hesaplarını farklı olduğu için) için çoğaltma desteklenmiyor. 
+* Dinamik paketlemeden yararlanmak isterseniz, içerik akışı yapmak istediğiniz akış uç noktasının içinde olduğundan emin **çalıştıran** durumu.
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Yeni veya var olan bir Azure aboneliği iki Media Services hesabı. Bkz: [bir ortam oluşturma hizmetleri hesabı](media-services-portal-create-account.md).
+* Yeni veya mevcut bir Azure aboneliğinde iki Media Services hesabı. Bkz: [Services hesabının bir ortam oluşturmak](media-services-portal-create-account.md).
 * İşletim sistemi: Windows 7, Windows 2008 R2 veya Windows 8.
 * .NET framework 4.5 veya .NET Framework 4.
 * Visual Studio 2010 SP1 veya sonraki bir sürümünü (Professional, Premium, Ultimate veya Express).
 
-## <a name="set-up-your-project"></a>Projenizin kurulumunu
-Bu bölümde oluşturun ve bir C# konsol uygulaması projesi ayarlayın.
+## <a name="set-up-your-project"></a>Projenizi ayarlama
+Bu bölümde, oluşturma ve C# konsol uygulaması projesini ayarlarsınız.
 
-1. C# konsol uygulaması projesi içeren yeni bir çözüm oluşturmak için Visual Studio kullanın. Girin **HandleRedundancyForOnDemandStreaming** adı ve ardından **Tamam**.
-2. Oluşturma **SupportFiles** ile aynı düzeyde klasöründe **HandleRedundancyForOnDemandStreaming.csproj** proje dosyası. Altında **SupportFiles** klasörü oluşturmak **OutputFiles** ve **MP4Files** klasörler. Bir .mp4 dosyaya kopyalayın **MP4Files** klasör. (Bu örnekte, **BigBuckBunny.mp4** dosyası kullanılır.) 
-3. Kullanım **Nuget** DLL'leri başvurularıyla ilgili Media Services'e eklemek için. İçinde **Visual Studio ana menü**seçin **Araçları** > **kitaplık Paket Yöneticisi** > **Paket Yöneticisi Konsolu**. Konsol penceresinde yazın **Install-Package windowsazure.mediaservices**, ve Enter tuşuna basın.
-4. Bu proje için gerekli olan diğer başvurular ekleyin: System.Configuration, System.Runtime.Serialization ve System.Web.
-5. Değiştir **kullanarak** eklenme deyimleri **Programs.cs** aşağıdaki sonuçlarla varsayılan dosya:
+1. C# konsol uygulaması projesi içeren yeni bir çözüm oluşturmak için Visual Studio'yu kullanın. Girin **HandleRedundancyForOnDemandStreaming** adı ve ardından **Tamam**.
+2. Oluşturma **SupportFiles** klasörü aynı düzeyde **HandleRedundancyForOnDemandStreaming.csproj** proje dosyası. Altında **SupportFiles** klasör oluşturma **OutputFiles** ve **MP4Files** klasörleri. İçine bir .mp4 dosyasını buraya kopyalayın **MP4Files** klasör. (Bu örnekte, **BigBuckBunny.mp4** dosyası kullanılır.) 
+3. Kullanım **Nuget** DLL'leri başvurularıyla ilgili Media Services'ı eklemek için. İçinde **Visual Studio ana menü**seçin **Araçları** > **kitaplık Paket Yöneticisi** > **Paket Yöneticisi Konsolu**. Konsol penceresine **Install-Package windowsazure.mediaservices**, ve Enter tuşuna basın.
+4. Bu proje için gerekli olan diğer başvurular ekleyin: System.Configuration System.Runtime.Serialization ve System.Web.
+5. Değiştirin **kullanarak** eklenen deyimleri **Programs.cs** aşağıdaki fiyatlarla varsayılan dosya:
    
         using System;
         using System.Configuration;
@@ -88,7 +82,7 @@ Bu bölümde oluşturun ve bir C# konsol uygulaması projesi ayarlayın.
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using Microsoft.WindowsAzure.Storage.Auth;
-6. Ekleme **appSettings** için bölüm **.config** dosya ve değerler temel Media Services ve depolama üzerinde güncelleştirme anahtarı ve değerleri olarak adlandırın. 
+6. Ekleme **appSettings** bölümünü **.config** dosya ve değerler temel medya Hizmetleri ve depolama üzerinde güncelleştirme anahtar ve değer olarak adlandırın. 
    
         <appSettings>
           <add key="MediaServicesAccountNameSource" value="Media-Services-Account-Name-Source"/>
@@ -101,8 +95,8 @@ Bu bölümde oluşturun ve bir C# konsol uygulaması projesi ayarlayın.
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>İsteğe bağlı akış için artıklık işleyen kodu ekleyin
-Bu bölümde, artıklık işleme yeteneği oluşturun.
+## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>İsteğe bağlı akış için yedeklilik işleyen kodu ekleyin
+Bu bölümde, yedeklilik işleyebilme yeteneği oluşturun.
 
 1. Program sınıfına aşağıdaki sınıf düzeyi alanları ekleyin.
        
@@ -131,7 +125,7 @@ Bu bölümde, artıklık işleme yeteneği oluşturun.
         static private MediaServicesCredentials _cachedCredentialsSource = null;
         static private MediaServicesCredentials _cachedCredentialsTarget = null;
 
-2. Varsayılan ana yöntem tanımını şu adla değiştirin. Main adlı yöntemi tanımları aşağıda tanımlanmıştır.
+2. Varsayılan ana yöntem tanımını aşağıdaki biriyle değiştirin. Ana çağrılan yöntem tanımlarını aşağıda tanımlanmıştır.
         
         static void Main(string[] args)
         {
@@ -209,10 +203,10 @@ Bu bölümde, artıklık işleme yeteneği oluşturun.
                 writeSasLocator.Delete();
         }
 
-3. Aşağıdaki yöntem tanımlarını Main denir.
+3. Aşağıdaki yöntem tanımlarını ana çağrılır.
 
     >[!NOTE]
-    >1.000.000 ilkelerinin farklı Media Services ilkeleri (örneğin, Bulucu ilke veya ContentKeyAuthorizationPolicy) için bir sınır yoktur. Her zaman aynı gün ve erişim izinlerini kullanıyorsanız, aynı ilke kimliği kullanmanız gerekir. Örneğin, aynı Kimliğe kalmasına yerinde uzun bir süre (karşıya yükleme olmayan ilkeleri) yöneliktir bulucular için ilkeleri kullanın. Daha fazla bilgi için bkz: [bu konuda](media-services-dotnet-manage-entities.md#limit-access-policies).
+    >Bir sınır 1.000.000 farklı Media Services ilkeleri için (örneğin, Bulucu İlkesi veya ContentKeyAuthorizationPolicy için) yoktur. Her zaman aynı günleri ve erişim izinlerini kullanıyorsanız aynı ilke Kimliğini kullanmanız gerekir. Örneğin, aynı Kimliğe kalmasına yerinde uzun bir süredir (karşıya yükleme olmayan ilkeler) yöneliktir bulucular için ilkeleri kullanın. Daha fazla bilgi için [bu konuda](media-services-dotnet-manage-entities.md#limit-access-policies).
 
         public static IAsset CreateAssetAndUploadSingleFile(CloudMediaContext context,
                                                         AssetCreationOptions assetCreationOptions,
@@ -941,7 +935,7 @@ Bu bölümde, artıklık işleme yeteneği oluşturun.
         }
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Trafik Yöneticisi şimdi iki veri merkezi arasında istekleri yönlendirmek ve bu nedenle herhangi kesinti durumunda yük için de kullanabilirsiniz.
+İki veri merkezleri arasında istekleri yönlendirmek ve bu nedenle herhangi bir kesinti olması durumunda yük devretme için traffic manager artık kullanabilirsiniz.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

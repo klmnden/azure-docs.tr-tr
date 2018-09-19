@@ -1,6 +1,6 @@
 ---
-title: "Python: Azure Data Lake Store'daki hesap yönetimi işlemleri | Microsoft Docs"
-description: Data Lake Store hesap yönetim işlemleriyle çalışmak için Python SDK'yı nasıl kullanacağınızı öğrenin.
+title: 'Python: Hesap yönetimi işlemleri Azure Data Lake depolama Gen1 | Microsoft Docs'
+description: Azure Data Lake depolama Gen1 hesap yönetim işlemleriyle çalışmak için Python SDK'sını kullanmayı öğrenin.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: e5b04a4cfbf26011753715f02baea689ec3065b6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0cc5b101e1afb6ea648963188887cf43b65a5afa
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009248"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124958"
 ---
-# <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Python kullanılarak gerçekleştirilen Azure Data Lake Store'daki hesap yönetimi işlemleri
+# <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Azure Data Lake depolama Gen1 hesap yönetim işlemlerini Python kullanarak
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
@@ -27,7 +27,7 @@ ms.locfileid: "39009248"
 >
 >
 
-Azure Data Lake Store için Python SDK'yı Data Lake Store hesabı oluşturma, Data Lake Store hesaplarını listeleme gibi temel hesap yönetim işlemlerini gerçekleştirme amacıyla kullanmayı öğrenin. Data Lake Store'da dosya sistemi işlemlerini Python kullanarak gerçekleştirme talimatları için bkz. [Data Lake Store'da Python kullanılarak gerçekleştirilen dosya sistemi işlemleri](data-lake-store-data-operations-python.md).
+Temel hesap yönetim işlemlerini gibi Oluştur bir Data Lake depolama Gen1 hesabı, hesapları listeleme Data Lake depolama Gen1 gerçekleştirmek için Azure Data Lake depolama Gen1 için Python SDK'sını kullanmayı öğrenin. Dosya sistemi işlemlerini Python kullanarak Data Lake depolama Gen1 gerçekleştirmek yönergeler için bkz: [dosya sistemi işlemlerini Python kullanarak Data Lake depolama Gen1](data-lake-store-data-operations-python.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -39,11 +39,11 @@ Azure Data Lake Store için Python SDK'yı Data Lake Store hesabı oluşturma, D
 
 ## <a name="install-the-modules"></a>Modülleri yükleme
 
-Data Lake Store ile Python kullanarak çalışabilmeniz için üç modül yüklemeniz gerekir.
+Data Lake depolama Gen1 ile çalışmak için Python'ı kullanarak, üç modül yüklemeniz gerekir.
 
 * `azure-mgmt-resource` modülü, Active Directory gibi şeyler için Azure modüllerini içerir.
-* `azure-mgmt-datalake-store` modülü, Azure Data Lake Store hesap yönetim işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [Azure Data Lake Store Yönetimi modül başvurusu](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* `azure-datalake-store` modülü, Azure Data Lake Store dosya sistemi işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [Azure Data Lake Store Dosya Sistemi modül başvurusu](http://azure-datalake-store.readthedocs.io/en/latest/).
+* `azure-mgmt-datalake-store` Modülü Azure Data Lake depolama Gen1 hesap yönetim işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [Azure Data Lake depolama Gen1 Yönetimi modül başvurusu](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
+* `azure-datalake-store` Modülü Azure Data Lake depolama Gen1 dosya sistemi işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [azure-datalake-store dosya sistemi modül başvurusu](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Modülleri yüklemek için aşağıdaki komutları kullanın.
 
@@ -69,11 +69,11 @@ pip install azure-datalake-store
     ## Use this only for Azure AD multi-factor authentication
     from msrestazure.azure_active_directory import AADTokenCredentials
 
-    ## Required for Azure Data Lake Store account management
+    ## Required for Data Lake Storage Gen1 account management
     from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
     from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-    ## Required for Azure Data Lake Store filesystem management
+    ## Required for Data Lake Storage Gen1 filesystem management
     from azure.datalake.store import core, lib, multithread
 
     # Common Azure imports
@@ -90,12 +90,12 @@ pip install azure-datalake-store
 
 Bu bölümde Azure AD ile gerçekleştirilen farklı kimlik doğrulama yöntemlerinden bahsedeceğiz. Şu seçenekleri kullanabilirsiniz:
 
-* Uygulamanızın son kullanıcı kimlik doğrulaması için bkz. [Python kullanarak Data Lake Store'da son kullanıcı kimlik doğrulaması gerçekleştirme](data-lake-store-end-user-authenticate-python.md).
-* Uygulamanızın servisler arası kimlik doğrulaması için bkz. [Python kullanarak Data Lake Store'da servisler arası kimlik doğrulaması gerçekleştirme](data-lake-store-service-to-service-authenticate-python.md).
+* Uygulamanız için son kullanıcı kimlik doğrulaması için bkz. [Python kullanarak son kullanıcı kimlik doğrulaması ile Data Lake depolama Gen1](data-lake-store-end-user-authenticate-python.md).
+* Uygulamanız için hizmetten hizmete kimlik doğrulaması için bkz [hizmetten hizmete kimlik doğrulaması Python kullanarak Data Lake depolama Gen1 ile](data-lake-store-service-to-service-authenticate-python.md).
 
-## <a name="create-client-and-data-lake-store-account"></a>İstemci ve Data Lake Store hesabı oluşturma
+## <a name="create-client-and-data-lake-storage-gen1-account"></a>İstemci ve Data Lake depolama Gen1 hesabı oluşturma
 
-Aşağıdaki kod parçacığı ilk olarak Data Lake Store hesabı istemcisini oluşturur. İstemci nesnesini kullanarak bir Data Lake Store hesabı oluşturur. Kod parçacığı son olarak bir dosya sistemi istemci nesnesi oluşturur.
+Aşağıdaki kod parçacığı ilk Data Lake depolama Gen1 hesabı istemcisini oluşturur. Bir Data Lake depolama Gen1 hesabı oluşturmak için istemci nesnesini kullanır. Kod parçacığı son olarak bir dosya sistemi istemci nesnesi oluşturur.
 
     ## Declare variables
     subscriptionId = 'FILL-IN-HERE'
@@ -103,10 +103,10 @@ Aşağıdaki kod parçacığı ilk olarak Data Lake Store hesabı istemcisini ol
     resourceGroup = 'FILL-IN-HERE'
     location = 'eastus2'
 
-    ## Create data lake store account management client object
+    ## Create Data Lake Storage Gen1 account management client object
     adlsAcctClient = DataLakeStoreAccountManagementClient(armCreds, subscriptionId)
 
-    ## Create a Data Lake Store account
+    ## Create a Data Lake Storage Gen1 account
     adlsAcctResult = adlsAcctClient.account.create(
         resourceGroup,
         adlsAccountName,
@@ -116,24 +116,24 @@ Aşağıdaki kod parçacığı ilk olarak Data Lake Store hesabı istemcisini ol
     ).wait()
 
     
-## <a name="list-the-data-lake-store-accounts"></a>Data Lake Store hesaplarını listeleme
+## <a name="list-the-data-lake-storage-gen1-accounts"></a>Data Lake depolama Gen1 hesaplarını listeleme
 
-    ## List the existing Data Lake Store accounts
+    ## List the existing Data Lake Storage Gen1 accounts
     result_list_response = adlsAcctClient.account.list()
     result_list = list(result_list_response)
     for items in result_list:
         print(items)
 
-## <a name="delete-the-data-lake-store-account"></a>Data Lake Store hesabını silme
+## <a name="delete-the-data-lake-storage-gen1-account"></a>Data Lake depolama Gen1 hesabını Sil
 
-    ## Delete the existing Data Lake Store accounts
+    ## Delete an existing Data Lake Storage Gen1 account
     adlsAcctClient.account.delete(adlsAccountName)
     
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Data Lake Store'da Python kullanılarak gerçekleştirilen dosya sistemi işlemleri](data-lake-store-data-operations-python.md).
+* [Dosya sistemi işlemlerini Python kullanarak Data Lake depolama Gen1](data-lake-store-data-operations-python.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Azure Data Lake Store Python (Dosya sistemi) Başvurusu](http://azure-datalake-store.readthedocs.io/en/latest)
-* [Azure Data Lake Store ile uyumlu Açık Kaynak Büyük Veri uygulamaları](data-lake-store-compatible-oss-other-applications.md)
+* [Azure-datalake-store Python (dosya sistemi) başvurusu](http://azure-datalake-store.readthedocs.io/en/latest)
+* [Azure Data Lake depolama Gen1 ile uyumlu açık kaynak büyük veri uygulamaları](data-lake-store-compatible-oss-other-applications.md)

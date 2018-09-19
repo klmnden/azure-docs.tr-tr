@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5060839be244f55700b40735e598964a0b7b6709
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e5cfbc7ddc10edf9b21afce73e3b7f8795fcdac9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382054"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121966"
 ---
 # <a name="add-custom-html-to-the-map"></a>Eşleme için özel HTML ekleme
 
-Bu makalede bir görüntü dosyası gibi özel bir HTML haritaya eklemek gösterilmektedir. 
+Bu makalede bir görüntü dosyası gibi özel bir HTML haritaya eklemek gösterilmektedir.
 
 ## <a name="understand-the-code"></a>Kodu anlama
 
@@ -33,11 +33,15 @@ Son kod bloğunu kullanır [addHtml](https://docs.microsoft.com/javascript/api/a
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi edinin: 
-* [Harita](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml)
-    
-Eşlenir eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın: 
-* [Arama sonuçlarını göster](./map-search-location.md)
-* [Bir Koordinattan bilgi alma](./map-get-information-from-coordinate.md)
+Bu makalede kullanılan yöntemleri ve sınıfları hakkında daha fazla bilgi edinin:
 
+> [!div class="nextstepaction"]
+> [Harita](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Eşlenir eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın:
+
+> [!div class="nextstepaction"]
+> [Arama sonuçlarını göster](./map-search-location.md)
+
+> [!div class="nextstepaction"]
+> [Bir Koordinattan bilgi alma](./map-get-information-from-coordinate.md)

@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: ec4260363aa0af3062a6d61db44a75d9ebd599db
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090753"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125264"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure işlevleri F # Geliştirici Başvurusu
 
@@ -29,6 +29,29 @@ Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başv
 Bir `.fsx` bir F # komut dosyasıdır. Bu, tek bir dosyada yer alan bir F # projesi olarak düşünülebilir. (Bu durumda, Azure işlevinizi), programınız için kodu her iki dosyayı içeren ve bağımlılıkları yönetmek için yönergeleri.
 
 Kullandığınızda, bir `.fsx` bir Azure işlevi için yaygın olarak gerekli derlemeleri işlevi "standart" yerine koda odaklanabilirsiniz sizin için otomatik olarak dahil edilir.
+
+## <a name="folder-structure"></a>klasör yapısı
+
+Bir F # komut dosyası proje için klasör yapısı aşağıdaki gibi görünür:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+İşlev uygulamasını yapılandırmak için kullanılan bir paylaşılan [host.json] (işlevler-host-json.md) dosyası yoktur. Her işlev, kendi kod dosyası (.fsx) ve bağlama yapılandırma dosyası (function.json) vardır.
+
+Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
 
 ## <a name="binding-to-arguments"></a>Bağımsız değişkenler için bağlama
 Her bağlama bazı bağımsız değişkenler, içinde ayrıntılı olarak kümesini destekleyen [Azure işlevleri Tetikleyicileri ve bağlamaları Geliştirici Başvurusu](functions-triggers-bindings.md). Örneğin, blob Tetikleyicileri destekler bağımsız değişken bağlamaları bir F # kayıt kullanarak ifade edilebilir bir POCO biridir. Örneğin:

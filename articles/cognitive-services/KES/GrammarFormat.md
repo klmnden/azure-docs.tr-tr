@@ -1,34 +1,38 @@
 ---
-title: Bilgi keşfetme hizmeti API'si dilbilgisi biçiminde | Microsoft Docs
-description: Dil bilgisi biçimi içinde bilgi keşfetme hizmeti (KES) API, Bilişsel hizmetler hakkında bilgi edinin.
+title: Dil bilgisi biçimi - bilgi keşfetme hizmeti API'si
+titlesuffix: Azure Cognitive Services
+description: Dil bilgisi biçimi, bilgi keşfetme hizmeti (KES) API hakkında daha fazla bilgi edinin.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: b64025be2f5a9708162da475c1f037d7f253d2c6
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 4b4010152622cd9a1d8111ac92dd1960e78d4601
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865762"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125162"
 ---
 # <a name="grammar-format"></a>Dil bilgisi biçimi
+
 Dil bilgisi şu doğal dil sorguları anlam sorgusu ifadelere nasıl dönüştürüleceğini yanı sıra hizmet yorumlayabilir doğal dil sorguları ağırlıklı kümesini belirten bir XML dosyasıdır.  Dilbilgisi söz dizimi dayanır [SRGS](http://www.w3.org/TR/speech-grammar/), veri dizin tümleştirmesi ve anlam işlevleri desteklemek için uzantılara sahip konuşma tanıma dilbilgisi için W3C standart.
 
 Dilbilgisi içinde kullanılabilen söz dizimsel öğelerin her biri aşağıda açıklanmıştır.  Bkz: [Bu örnek](#example) bağlamında bu öğeleri kullanımını gösteren tam bir dil bilgisi için.
 
-### <a name="grammar-element"></a>Dilbilgisi öğesi 
+### <a name="grammar-element"></a>Dilbilgisi öğesi
+
 `grammar` Öğesidir üst düzey XML dilbilgisi belirtimi.  Gerekli `root` özniteliği dilbilgisi başlangıç noktasını tanımlayan kök kuralının adını belirtir.
 
 ```xml
 <grammar root="GetPapers">
 ```
 
-### <a name="import-element"></a>içeri aktarma öğesi
+### <a name="import-element"></a>İçeri aktarma öğesi
+
 `import` Öğesi bir şema tanımı özniteliği başvuruları etkinleştirmek için bir dış dosyasından içeri aktarır. Üst düzey bir alt öğesi olmalıdır `grammar` öğesi önce görünür `attrref` öğeleri. Gerekli `schema` öznitelik dilbilgisi XML dosyasıyla aynı dizinde bulunan bir şema dosyası adını belirtir. Gerekli `name` şemanın diğer adı, sonraki öğeyi belirten `attrref` öğeleri, bu şema içinde tanımlanan öznitelikleri başvururken kullanın.
 
 ```xml
@@ -36,6 +40,7 @@ Dilbilgisi içinde kullanılabilen söz dizimsel öğelerin her biri aşağıda 
 ```
 
 ### <a name="rule-element"></a>Kural öğesi
+
 `rule` Öğesi, bir dil bilgisi kuralı bir sistem yorumlayabilir sorgu ifadeleri belirtir bir Yapısal birim tanımlar.  Üst düzey bir alt öğesi olmalıdır `grammar` öğesi.  Gerekli `id` özniteliği içinden başvuruda kuralının adını belirtir `grammar` veya `ruleref` öğeleri.
 
 A `rule` öğe yasal genişletmeleri kümesini tanımlar.  Metin belirteçlerini doğrudan giriş sorgusu eşleştirin.  `item` öğeleri yineler belirtin ve yorumu olasılıklar alter.  `one-of` öğeleri diğer seçenekleri belirtin.  `ruleref` öğeleri daha basit olanları öğesinden daha karmaşık genişletmeleri oluşumunu etkinleştirin.  `attrref` öğeleri, öznitelik değerleri dizinden karşı eşleşme izin verir.  `tag` öğeleri yorumu semantiği belirtin ve yorumu olasılık değiştirebilirsiniz.
@@ -45,6 +50,7 @@ A `rule` öğe yasal genişletmeleri kümesini tanımlar.  Metin belirteçlerini
 ```
 
 ### <a name="example-element"></a>Örnek öğesi
+
 İsteğe bağlı `example` öğesi belirtir içeren tarafından kabul edilebilen örnek ifadeleri `rule` tanımı.  Bu belge için kullanılabilir ve/veya otomatik test.
 
 ```xml
@@ -52,6 +58,7 @@ A `rule` öğe yasal genişletmeleri kümesini tanımlar.  Metin belirteçlerini
 ```
 
 ### <a name="item-element"></a>öğe öğesi
+
 `item` Dilbilgisi yapıları bir dizi öğe gruplandırır.  Genişletme dizisi tekrarlanıyor belirtmek için ya da birlikte alternatifleri belirlemek için kullanılabilir `one-of` öğesi.
 
 Olduğunda bir `item` öğesi alt öğesi değil bir `one-of` öğesi kapalı dizisi tekrarını atayarak belirtebilirsiniz `repeat` özniteliği için bir sayı değeri.  Sayısı değerini "*n*" (burada *n* bir tamsayıdır) dizisi tam olarak gerçekleşmesi gerektiğini belirtir *n* kez.  Sayısı değerini "*m*-*n*" dizisi arasında görünmesini sağlar *m* ve *n* zaman aralığında.  Sayısı değerini "*m*-" dizisi en az olması gerektiğini belirtir *m* kez.  İsteğe bağlı `repeat-logprob` özniteliği, yorumu olasılığını en düşük ötesinde ek her yineleme için alter için kullanılabilir.
@@ -71,6 +78,7 @@ Zaman `item` öğeleri alt öğeleri görünür bir `one-of` öğesi genişletme
 ```
 
 ### <a name="one-of-element"></a>bir-öğe
+
 `one-of` Öğesi alt arasında alternatif genişletmeleri belirtir `item` öğeleri.  Yalnızca `item` öğe içindeki görünebilir bir `one-of` öğesi.  Aracılığıyla farklı seçenekler arasında göreli olasılıklar belirtilebilir `logprob` her alt özniteliğinde `item`.
 
 ```xml
@@ -82,6 +90,7 @@ Zaman `item` öğeleri alt öğeleri görünür bir `one-of` öğesi genişletme
 ```
 
 ### <a name="ruleref-element"></a>ruleref öğesi
+
 `ruleref` Öğesi geçerli genişletmeleri aracılığıyla başka bir başvuru belirtir `rule` öğesi.  Kullanımının `ruleref` öğeleri, daha karmaşık ifadeler daha basit kuralları oluşturulabilir.  Gerekli `uri` özniteliği başvurulan adını gösterir `rule` söz dizimi kullanarak "#*rulename*".  Başvurulan kural anlam çıktısını yakalamak için isteğe bağlı kullanın `name` anlam çıkış atandığı değişkenin adı belirtmek için özniteliği.
  
 ```xml
@@ -89,6 +98,7 @@ Zaman `item` öğeleri alt öğeleri görünür bir `one-of` öğesi genişletme
 ```
 
 ### <a name="attrref-element"></a>attrref öğesi
+
 `attrref` Eşleşen öznitelik değerleri karşı gözlemlenen dizinde izin vererek bir dizin özniteliği öğeye başvuruyor.  Gerekli `uri` özniteliği, dizin şema adı ve öznitelik adı sözdizimini kullanarak belirtir "*schemaName*#*attrName*".  Olmalıdır bir önceki `import` adlı şemanın Imports öğesi *schemaName*.  Öznitelik adı karşılık gelen şemasında tanımlanan öznitelik adıdır.
 
 Kullanıcı girişi ile eşleşen yanı sıra `attrref` öğe ayrıca bir yapılandırılmış sorgu nesnesi döndürür giriş değeri ile eşleşen dizin nesneleri kümesini seçen bir çıkış olarak.  İsteğe bağlı `name` sorgu nesnesi çıkış burada depolanmalıdır değişkeninin adını belirtmek için özniteliği.  Sorgu nesnesi diğer sorgu nesneleri ile daha fazla bilgi formu kullanılıp kullanılamayacağı karmaşık ifadeler.  Bkz: [anlam yorumlama](SemanticInterpretation.md) Ayrıntılar için.  
@@ -97,7 +107,8 @@ Kullanıcı girişi ile eşleşen yanı sıra `attrref` öğe ayrıca bir yapıl
 <attrref uri="academic#Keyword" name="keyword"/>
 ```
 
-#### <a name="query-completion"></a>Sorgu tamamlama 
+#### <a name="query-completion"></a>Sorgu tamamlama
+
 Kısmi bir kullanıcı sorguları yorumlarken sorgu tamamlamaları desteklemek için her başvurulan öznitelik "starts_with" şema tanımı bir işlem olarak içermelidir.  Bir kullanıcı sorgu önek verilen `attrref` önek tamamlamak dizindeki tüm değerlerin eşleşmesi ve tam her değer ayrı bir yorumu dilbilgisi yield.  
 
 Örnekler:
@@ -105,6 +116,7 @@ Kısmi bir kullanıcı sorguları yorumlarken sorgu tamamlamaları desteklemek i
 * Eşleşen `<attrref uri="academic#Year" name="year"/>` karşı sorgu bir yorumu incelemeler "2000", "2001" incelemeler, vb. bir yorumu "200" ön eki oluşturur.
 
 #### <a name="matching-operations"></a>Eşleşen işlemler
+
 Tam eşleşme ek olarak, select de destek öneki öznitelik türleri ve eşitsizlik eşleşen isteğe bağlı `op` özniteliği.  Hiçbir dizin nesnesinde eşleşen bir değeri varsa, dil bilgisi yolu engellenir ve hizmet bu dilbilgisi yolu geçme herhangi bir yorum oluşturmaz.   `op` Varsayılanları "için eq" özniteliği.
 
 ```xml
@@ -129,6 +141,7 @@ Aşağıdaki tablo desteklenen listeler `op` her bir öznitelik türü için de�
 * `<attrref uri="academic#Year" op="starts_with" name="year"/>` tek bir yorumu incelemeler döndürür ve Giriş dizesinin "20" 200-299, 2000-2999, vb. yayımlanan eşleşir.  Nadir kullanım durumu budur.
 
 ### <a name="tag-element"></a>Etiket öğesi
+
 `tag` Öğesi nasıl yorumlanacağını dilbilgisi bir yol olduğunu belirtir.  Noktalı virgül ile sonlandırılmış ifadeler içeriyor.  Bir ifade bir sabit değer ya da başka bir değişkene bir değişken ataması olabilir.  Bir değişkene, 0 veya daha fazla parametre ile bir işlevin çıktısı de atayabilir.  Her işlev parametresi, bir sabit değer veya bir değişkeni kullanılarak belirtilebilir.  İşlev herhangi bir çıktı döndürmezse ataması yoksayılır.  Değişken kapsamı kuralını için yereldir.
 
 ```xml
@@ -144,12 +157,13 @@ Bazı deyimleri, ek günlük olasılık uzaklık sunarak bir yorumu yolu olasıl
 Desteklenen anlam işlevlerin bir listesi için bkz. [anlam işlevleri](SemanticInterpretation.md#semantic-functions).
 
 ## <a name="interpretation-probability"></a>Yorumu olasılık
+
 Tüm toplu günlük olasılığı dil bilgisi aracılığıyla bir yorumu yolu olasılığı `<item>` öğeleri ve anlam işlevleri süreç boyunca karşılaşıldı.  Bu, belirli bir giriş sırası eşleşen göreli olasılığını açıklar.
 
 Verilen bir olasılık *p* karşılık gelen günlük olasılık 0 ile 1 arasında günlük hesaplanabilir (*p*), doğal logaritmayı işlevi log() olduğu.  Günlük olasılıklar kullanarak basit bir yorumu yolundan Eklem olasılığını ulaşıncaya kadar sistem sağlar.  Ayrıca, kayan nokta yetersizliği gibi ek olasılık hesaplamaları için ortak önler.  Tasarım gereği, günlük olasılık her zaman negatif bir kayan nokta değer veya 0 ise, burada olasılığı daha büyük değerler belirtin olduğuna dikkat edin.
 
-<a name="example"></a>
 ## <a name="example"></a>Örnek
+
 XML'bir dil bilgisi çeşitli öğelerini gösteren akademik yayınlar etki alanından bir örnek verilmiştir:
 
 ```xml

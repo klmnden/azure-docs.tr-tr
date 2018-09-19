@@ -12,46 +12,43 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 23b7ca44b72b8840579f369954f41f554d4c8852
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 7e7e9d078bf9339beb2ad5ac53ea858e843242ce
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943428"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293601"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Kullanıcılar oturum ve bir Android uygulaması Microsoft Graph API çağrısı
+# <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Bir Android uygulamasından Microsoft Graph'i çağırmaya ve kullanıcılarının oturumunu
 
-Bu kılavuz, nasıl yerel bir Android uygulaması bir erişim belirteci alın ve Microsoft Graph API veya Azure Active Directory v2 uç noktasından erişim belirteçleri gerektiren diğer API'leri çağırmak gösterir.
+Bu öğreticide, bir Android uygulaması oluşturmak ve Microsoft'un kimlik platformuyla tümleştirebilir öğreneceksiniz. Özellikle, bu uygulama bir kullanıcının oturumunu, Microsoft Graph API'sini çağırmak için erişim belirteci almak ve Microsoft Graph API için temel bir istekte.  
 
-Kılavuzu tamamladıktan sonra uygulama oturum açma işlemleri kişisel hesapları (dahil olmak üzere outlook.com, live.com ve diğerleri) ve herhangi bir şirket veya Azure Active Directory kullanan kuruluş iş ve Okul hesaplarını kabul edemiyor olacaktır. Uygulama daha sonra Azure Active Directory v2 bitiş noktası tarafından korunan bir API çağırır.  
+Kılavuzu tamamladıktan sonra uygulamanızın oturum açma işlemleri kişisel Microsoft hesabı (outlook.com, live.com ve diğerleri dahil) kabul eder ve herhangi bir şirket veya Azure Active Directory kullanan kuruluş iş veya Okul hesapları. 
 
-## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Bu kılavuz tarafından oluşturulan örnek uygulaması nasıl çalışır
-![Bu örnek nasıl çalışır?](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Bu kılavuzda oluşturulan örnek uygulamasını nasıl çalışır?
+![Bu örnek nasıl çalışır](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
 
-Bu kılavuz ile oluşturduğunuz örnek uygulama bir Android uygulaması (Microsoft Graph API, bu durumda) Azure Active Directory v2 uç noktasından belirteçleri kabul eder bir Web API sorgulamak için kullanıldığı bir senaryo temel alır. Bu senaryo için uygulamanızı HTTP isteklerini Authorization Üstbilgisi yoluyla alınan simgesi ekler. Microsoft kimlik doğrulama kitaplığı (MSAL), belirteç edinme ve yenileme sizin için işler.
+Bu örnek uygulamasında kullanıcılarının oturumunu ve onların adına veri alın.  Bu veriler, yetkilendirme gerektirir ve Microsoft kimlik platformu tarafından korunmuş bir uzak API'ye (Bu durumda Microsoft Graph API) aracılığıyla erişilir. 
+
+Daha açık belirtmek gerekirse 
+* Uygulamanızı bir web sayfası, kullanıcının oturum açmak için başlatılır.
+* Uygulamanızı Microsoft Graph API'si için bir erişim belirteci verilir.
+* HTTP isteği Web API'sine erişim belirtecinin dahil edilir.
+* Microsoft Graph yanıta işler. 
+
+Bu örnek, koordine ve kimlik doğrulaması ile yardımcı için Microsoft Authentication kitaplığı için Android (MSAL) kullanır. MSAL otomatik olarak yenileme belirteçleri, cihazdaki diğer uygulamalar arasında SSO sunun, hesapları yönetebilir ve koşullu erişim durumlarında çoğu yardımcı. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Bu Destekli Kurulum Android Studio odaklanmıştır, ancak herhangi bir Android uygulaması geliştirme ortamında da kabul edilebilir. 
-* Android SDK 21 veya üstü gereklidir (SDK 25 önerilir).
-* Google Chrome veya özel sekmeler kullanan bir web tarayıcısı MSAL bu sürümünde Android için gereklidir.
+* Bu Kılavuzlu Kurulum Android Studio 3.0 kullanır. 
+* Android 21 veya üzeri gereklidir (25 + önerilir).
+* Google Chrome veya özel sekmeler kullanan bir web tarayıcısı Android için MSAL bu sürümü için gereklidir.
 
-> [!NOTE]
-> Google Chrome Android için Visual Studio öykünücüsü ile dahil değildir. Google Chrome yüklü olan bir öykünücü API 25 veya bir görüntü ile API 21 veya daha yeni bu kodu sınamanızı öneririz.
+## <a name="library"></a>Kitaplık
 
-## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Korumalı Web API'lerine erişmek için belirteç edinme işleme
-
-Kullanıcının kimliği doğrulandıktan sonra örnek uygulamayı Microsoft Graph API veya Azure Active Directory v2 ile güvenli bir Web API sorgulamak için kullanılan bir erişim belirteci alır.
-
-API Microsoft Graph gibi belirli kaynaklara erişmesine izin vermek için bir erişim belirteci gerektirir. Örneğin, bir erişim belirteci kullanıcı profilini okuma, bir kullanıcının Takvim erişmek veya e-posta göndermek için gereklidir. Uygulamanız, API kapsamları belirterek bu kaynaklara erişmek için MSAL kullanarak bir erişim belirteci isteyebilirsiniz. Bu erişim belirteci, ardından HTTP Authorization Üstbilgisi karşı korunan bir kaynağa yapılan her çağrı eklenir. 
-
-MSAL önbelleğe alma ve erişim belirteçleri, yenileme yönetir uygulamanız gerekmez.
-
-## <a name="libraries"></a>Kitaplıkları
-
-Bu kılavuz aşağıdaki kitaplıklarını kullanır:
+Bu kılavuz, aşağıdaki kimlik doğrulama kitaplığı kullanır:
 
 |Kitaplık|Açıklama|
 |---|---|

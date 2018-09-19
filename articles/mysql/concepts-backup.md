@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 21d6ed8a21e4c9273446eff6b0057214c715873f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 9d07f6cd5fa6a2df82dc2cbf9c1ebe08e5941acf
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391734"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125026"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Yedekleme ve MySQL için Azure veritabanı'nda geri yükleme
 
@@ -66,6 +66,8 @@ Son beş dakika içinde zaman içinde bir noktaya geri yüklemeden önce gerçek
 ### <a name="geo-restore"></a>Coğrafi Geri Yükleme
 
 Coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırdıysanız, hizmetin kullanılabildiği başka bir Azure bölgesine bir sunucuya geri yükleyebilirsiniz. Sunucunuz sunucu barındırıldığı bölgedeki bir olay nedeniyle kullanılamaz olduğunda varsayılan kurtarma seçeneğini coğrafi geri yükleme olduğu. Büyük ölçekli olay kullanılamazlık veritabanı uygulamanızın bir bölge sonucu, bir sunucu coğrafi olarak yedekli yedeklemelerden başka bir bölgede bir sunucuya geri yükleyebilirsiniz. Yedekleme zaman alınır ve ne zaman farklı bir bölgeye çoğaltılır arasında bir gecikme olur. Bu gecikme, bir saat, bu nedenle, bir olağanüstü durum oluşursa, olabilir yukarı bir saatlik veri kaybı için en fazla olabilir.
+
+Coğrafi geri yükleme sırasında işlem oluşturma, sanal çekirdek, yedekleme bekletme süresi ve fazladan yedek seçenekleri değiştirilebilir sunucu yapılandırmalarını içerir. Değişen fiyatlandırma katmanını (temel, genel amaçlı ve bellek için iyileştirilmiş) veya coğrafi geri yükleme sırasında depolama boyutu desteklenmiyor.
 
 ### <a name="perform-post-restore-tasks"></a>Gerçekleştirmek geri yükleme sonrası görevler
 

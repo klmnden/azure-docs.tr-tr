@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0d98aef3e75130bbab7871733f709bf5e2ffdbcb
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 62c171381201f3cedee869aba301859a7047f5ce
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541258"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294926"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı dağıtma
 
@@ -30,7 +30,7 @@ Yükleme ve yapılandırma Windows karma Runbook çalışanı için iki yöntem 
 Windows karma Runbook çalışanı için en düşük gereksinimler şunlardır:
 
 * Windows Server 2012 veya üzeri.
-* Windows PowerShell 4.0 veya üzeri ([WMF 4.0 indirmeniz](https://www.microsoft.com/download/details.aspx?id=40855)). Windows PowerShell 5.1 öneririz ([WMF 5.1 indirme](https://www.microsoft.com/download/details.aspx?id=54616)) daha fazla güvenilirlik için.
+* Windows PowerShell 5.1 veya üstünü ([WMF 5.1 indirme](https://www.microsoft.com/download/details.aspx?id=54616)).
 * .NET framework 4.6.2 veya üzeri.
 * İki çekirdek.
 * 4 GB RAM.
@@ -63,8 +63,8 @@ Yükleme ve yapılandırma Windows karma çalışan rolünün otomatik hale geti
      > [!NOTE]
      > Log Analytics ile tümleştirme için desteklenen tek Otomasyon bölgeler şu anda olan **Avustralya Güneydoğu**, **Doğu ABD 2**, **Güneydoğu Asya**, ve  **Batı Avrupa**. Otomasyon hesabınızın bu bölgelerden birinde değilse, komut dosyasının bir Log Analytics çalışma alanı oluşturur ancak bunları birlikte Bağla olamaz, sizi uyarır.
 
-1. Bilgisayarınızda açma **Windows PowerShell** gelen **Başlat** Yönetici modunda ekran.
-1. PowerShell komut satırı kabuğundan, indirdiğiniz komut dosyasını içeren klasöre göz atın. Parametreler için değerleri değiştirme *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- Subscriptionıd*, ve *- WorkspaceName*. Ardından, betiği çalıştırın.
+2. Bilgisayarınızda açma **Windows PowerShell** gelen **Başlat** Yönetici modunda ekran.
+3. PowerShell komut satırı kabuğundan, indirdiğiniz komut dosyasını içeren klasöre göz atın. Parametreler için değerleri değiştirme *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- Subscriptionıd*, ve *- WorkspaceName*. Ardından, betiği çalıştırın.
 
      > [!NOTE]
      > Betiği çalıştırdıktan sonra Azure ile kimlik doğrulaması istenir. *Gerekir* abonelik Yöneticileri rolünün üyesi ve aboneliğin ortak yöneticisi olan bir hesap bilgilerinizle oturum açın.
@@ -75,9 +75,9 @@ Yükleme ve yapılandırma Windows karma çalışan rolünün otomatik hale geti
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
-1. NuGet yüklemeyi kabul etmeniz istenir ve Azure kimlik bilgilerinizle kimlik doğrulaması istenir.
+4. NuGet yüklemeyi kabul etmeniz istenir ve Azure kimlik bilgilerinizle kimlik doğrulaması istenir.
 
-1. Betik tamamlandıktan sonra **karma çalışan grupları** sayfasında, yeni Grup ve üye sayısı gösterilir. Varolan bir grubu ise, üye sayısı artar. Grup listesinden seçebilirsiniz **karma çalışan grupları** sayfasından seçim yapıp **karma çalışanları** Döşe. Üzerinde **karma çalışanları** sayfasında listelenen bir grubun her üyesi görürsünüz.
+5. Betik tamamlandıktan sonra **karma çalışan grupları** sayfasında, yeni Grup ve üye sayısı gösterilir. Varolan bir grubu ise, üye sayısı artar. Grup listesinden seçebilirsiniz **karma çalışan grupları** sayfasından seçim yapıp **karma çalışanları** Döşe. Üzerinde **karma çalışanları** sayfasında listelenen bir grubun her üyesi görürsünüz.
 
 ### <a name="manual-deployment"></a>El ile dağıtım
 

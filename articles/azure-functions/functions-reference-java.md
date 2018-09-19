@@ -9,14 +9,14 @@ keywords: Azure işlevleri, İşlevler, olay işleme, Web kancaları, dinamik i�
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/10/2018
+ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: f0dc471e8875ad0d738fce10421c3586752148b9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: f6c5eb4a3ace1fcca1bbbef321371d55a0ce8da9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092318"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123496"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Java işlevleri Geliştirici Kılavuzu
 
@@ -26,7 +26,35 @@ ms.locfileid: "44092318"
 
 Azure işlevinizin giriş işleyen ve çıktıyı üretir bir durum bilgisi olmayan sınıf yöntemi olmalıdır. Örnek yöntemler yazabilirsiniz olsa da, işlevinizi sınıfının örneği alanlara bağlı olmamalı. Tüm işlev yöntemleri olmalıdır bir `public` erişim değiştiricisi.
 
-Bir projede birden fazla işlev koyabilirsiniz. Ayrı jar dosyaları dışındaki işlevlerinizi eklemekten kaçının.
+## <a name="folder-structure"></a>klasör yapısı
+
+Bir Java projesi klasör yapısı aşağıdaki gibi görünür:
+
+```
+FunctionsProject
+ | - src
+ | | - main
+ | | | - java
+ | | | | - FunctionApp
+ | | | | | - MyFirstFunction.java
+ | | | | | - MySecondFunction.java
+ | - target
+ | | - azure-functions
+ | | | - FunctionApp
+ | | | | - FunctionApp.jar
+ | | | | - host.json
+ | | | | - MyFirstFunction
+ | | | | | - function.json
+ | | | | - MySecondFunction
+ | | | | | - function.json
+ | | | | - bin
+ | | | | - lib
+ | - pom.xml
+```
+
+İşlev uygulamasını yapılandırmak için kullanılan bir paylaşılan [host.json] (işlevler-host-json.md) dosyası yoktur. Her işlev, kendi kod dosyası (.java) ve bağlama yapılandırma dosyası (function.json) vardır.
+
+Bir projede birden fazla işlev koyabilirsiniz. Ayrı jar dosyaları dışındaki işlevlerinizi eklemekten kaçının. Hedef dizinde FunctionApp ne işlev uygulamanızı azure'da dağıtılan ' dir.
 
 ## <a name="triggers-and-annotations"></a>Tetikleyiciler ve ek açıklamaları
 

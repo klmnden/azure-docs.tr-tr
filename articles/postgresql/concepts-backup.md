@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: aafe474ef23d499f505f0e1dab7623e5d032cc84
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 707803e1f69a3146772e71ff711a48b510d8c9fc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391717"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127576"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Yedekleme ve PostgreSQL için Azure veritabanı'nda geri yükleme
 
@@ -66,6 +66,8 @@ Son beş dakika içinde zaman içinde bir noktaya geri yüklemeden önce gerçek
 ### <a name="geo-restore"></a>Coğrafi Geri Yükleme
 
 Coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırdıysanız, hizmetin kullanılabildiği başka bir Azure bölgesine bir sunucuya geri yükleyebilirsiniz. Sunucunuz sunucu barındırıldığı bölgedeki bir olay nedeniyle kullanılamaz olduğunda varsayılan kurtarma seçeneğini coğrafi geri yükleme olduğu. Büyük ölçekli olay kullanılamazlık veritabanı uygulamanızın bir bölge sonucu, bir sunucu coğrafi olarak yedekli yedeklemelerden başka bir bölgede bir sunucuya geri yükleyebilirsiniz. Yedekleme zaman alınır ve ne zaman farklı bir bölgeye çoğaltılır arasında bir gecikme olur. Bu gecikme, bir saat, bu nedenle, bir olağanüstü durum oluşursa, olabilir yukarı bir saatlik veri kaybı için en fazla olabilir.
+
+Coğrafi geri yükleme sırasında işlem oluşturma, sanal çekirdek, yedekleme bekletme süresi ve fazladan yedek seçenekleri değiştirilebilir sunucu yapılandırmalarını içerir. Değişen fiyatlandırma katmanını (temel, genel amaçlı ve bellek için iyileştirilmiş) veya depolama boyutu desteklenmiyor.
 
 ### <a name="perform-post-restore-tasks"></a>Gerçekleştirmek geri yükleme sonrası görevler
 

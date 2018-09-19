@@ -54,6 +54,10 @@ items:
   items:
   - name: Traffic Manager'da performans yönlendirmeyi yapılandırma
     href: traffic-manager-configure-performance-routing-method.md
+  - name: Traffic Manager’da çoklu değer yönlendirmesini yapılandırma
+    href: traffic-manager-configure-multivalue-routing-method.md
+  - name: Traffic Manager’da alt ağ yönlendirmesini yapılandırma
+    href: traffic-manager-configure-subnet-routing-method.md
   - name: Gerçek Kullanıcı Ölçümlerini Traffic Manager’a Gönderme
     items:
     - name: Visual Studio SDK’sını kullanma
@@ -124,9 +128,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla/traffic-manager/
   - name: Videolar
     href: https://azure.microsoft.com/resources/videos/index/?services=traffic-manager
-ms.openlocfilehash: 98f9cd75227342876ab05bec7591ebd6f2d769d6
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 31549ccb0241d174d42d1cb748a905539b01cfef
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41927234"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124295"

@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f832b05969c028880f6e375ff4a2ee8dc7a7eaf4
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 3f3a8c8a8bce59d1757e9ad53c8ebdbd06a7f33f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42062114"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294178"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IOT Edge çalışma zamanı ve mimarisini anlama
 
@@ -23,7 +23,7 @@ IOT Edge çalışma zamanı, IOT Edge cihazlarında aşağıdaki işlevleri ger�
 
 * Cihazda iş yüklerini yükler ve güncelleştirir.
 * Cihazda Azure IoT Edge güvenlik standartlarını korur.
-* Sağlar [IOT Edge modülleri] [ lnk-modules] her zaman çalışıyor.
+* Sağlar, [IOT Edge modülleri] [lnk-modülleri] her zaman çalışıyor.
 * Uzaktan izleme için modül durumunu buluta bildirir.
 * Aşağı Akış yaprak cihazlarıyla IOT Edge cihazları arasındaki iletişimi kolaylaştırır.
 * IoT Edge cihazında bulunan modüller arasındaki iletişimi kolaylaştırır.
@@ -117,7 +117,7 @@ Azure IOT Edge güvenlik çerçevesi hakkında daha fazla bilgi için okuyun [IO
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure IOT Edge modüllerini anlama][lnk-modules]
+[Azure IOT Edge sertifikaları anlama][lnk-certs]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png
@@ -126,4 +126,4 @@ Azure IOT Edge güvenlik çerçevesi hakkında daha fazla bilgi için okuyun [IO
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
 <!-- Links -->
-[lnk-modules]: iot-edge-modules.md
+[lnk-certs]: iot-edge-certs.md

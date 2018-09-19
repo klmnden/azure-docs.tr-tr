@@ -12,12 +12,12 @@ ms.date: 7/17/2017
 ms.author: lizross
 ms.reviewer: jsnow
 custom: it-pro
-ms.openlocfilehash: db14dbf298596a9fdc189c27ea8608d472c58a35
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e22f5ced30e30d6f53a1d29c8be2f318161d4fc0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737252"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294858"
 ---
 # <a name="what-is-microsoft-azure-identity"></a>Microsoft Azure kimlik nedir?
 Microsoft Azure Active Directory (Azure AD) dizin hizmetleri, kimlik yönetimi ve uygulama erişim yönetimi özellikleri sunan bir kimlik ve erişim yönetimi bulut çözümüdür. Azure AD, [Azure AD uygulama galerisindeki](https://azure.microsoft.com/marketplace/active-directory/all/) binlerce önceden tümleştirilmiş ticari ve özel uygulamada [çoklu oturum açmayı (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) hızlı bir şekilde etkinleştirmenizi sağlar. Bu uygulamaların çoğu Office 365, Salesforce.com, Box, ServiceNow, Workday gibi muhtemelen kullanmakta olduğunuz uygulamalardır.
@@ -106,7 +106,7 @@ Aşağıda, bazı yaygın kimlik ve erişim senaryoları, hangi Azure kimlik se�
 ## <a name="where-can-i-learn-more"></a>Nereden daha fazla bilgi edinebilirim?
 Azure AD hakkında bilgi edinmenize yardımcı olacak birçok çevrimiçi kaynağımız mevcuttur. Kullanmaya başlamanıza yardımcı olacak makalelerin listesini burada bulabilirsiniz:
 
-* [Dizininizi Azure AD Connect ile karma yönetim için etkinleştirme](../connect/active-directory-aadconnect.md)
+* [Dizininizi Azure AD Connect ile karma yönetim için etkinleştirme](../hybrid/whatis-hybrid-identity.md)
 * [Bağlantılı bir dünya için ek güvenlik adımları](../authentication/multi-factor-authentication.md)
 * [Azure Active Directory ile SaaS Uygulamalarına Kullanıcı Hazırlama ve Sağlamayı Kaldırma İşlemlerini Otomatik Hale Getirme](../manage-apps/user-provisioning.md)
 * [Parolalarınızı istediğiniz yerden yönetin](../user-help/active-directory-passwords-update-your-own-password.md)

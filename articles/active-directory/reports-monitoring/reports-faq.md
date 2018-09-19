@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1683321e23eff82e73dc9bb44941fc390633b8c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c2e131776fb9f2c5e87c363d0d57e655bc34448f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056103"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294229"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory raporlama hakkında SSS
 
@@ -169,3 +169,7 @@ Bu makale, Azure Active Directory (Azure AD) hakkında sık sorulan sorular rapo
 **S: rapordaki tüm oturum açma ilkesi adı CA ilkesi adı eşleşmiyor. Neden?**
 
 **Y:** rapordaki tüm oturum açma ilkesi adı oturum açma zaman CA ilke adına bağlıdır. İlke adına daha sonra diğer bir deyişle, oturum açma işleminden sonra güncelleştirdiyseniz bu CA ilkesi adı ile tutarsız olabilir.
+
+**S: Alanım oturum açma bir koşullu erişim ilkesi nedeniyle engellendi, ancak oturum açma etkinliği raporunu, oturum açma başarılı olduğunu gösterir. Neden?**
+
+**Y:** koşullu erişim uygulandığında şu anda oturum açma raporu Exchange ActiveSync senaryoları için daha doğru sonuçlar gösterilmeyebilir. Bir oturum açma başarılı oturum açma sonuç raporunda gösterdiği durumlarda durumları olabilir, ancak oturum açma aslında bir koşullu erişim ilkesi nedeniyle başarısız oldu. 

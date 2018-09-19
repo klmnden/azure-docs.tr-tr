@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: d2b05c83f77a58e224760d90d111b270d71a6514
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d97766b0a8c0df3b414d78f563406530f67c313b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092436"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125383"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
 Azure işlevleri'nde belirli işlevleri birkaç temel teknik kavramlar ve bileşenler, dil veya kullandığınız bağlama bağımsız olarak paylaşın. Belirtilen dil veya bağlama için belirli ayrıntıları öğrenme moduna kullanmaya başlamadan önce bunların tümüne uygulanan bu genel bakışta aracılığıyla okuduğunuzdan emin olun.
@@ -62,15 +62,13 @@ Bir işlev uygulaması birlikte Azure App Service tarafından yönetilen bir vey
 
 HTTP Tetikleyicileri kolaylaştırmak için de mevcuttur, komut dosyası ana bilgisayarı üretim senaryolarında önünde sit için tasarlanmış bir web ana bilgisayarı. İki ana sahip web ana bilgisayar tarafından yönetilen trafiği ön betik konaktan ayırmaya yardımcı sonlandırın.
 
-## <a name="folder-structure"></a>Klasör yapısı
+## <a name="folder-structure"></a>klasör yapısı
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Azure App Service'te bir işlev uygulaması işlevleri dağıtmak için bir proje ayarlama, bu klasör yapısı site kodunuzu davranabilirsiniz. Sürekli tümleştirme ve dağıtım gibi mevcut araçları kullanabilir veya özel dağıtım yapmak için komut dosyaları zaman paket yüklemesi dağıtmak veya transpilation kod.
+Bir işlev uygulaması ile Azure işlevleri dağıtmak için bir proje ayarlama, bu klasör yapısı site kodunuzu davranabilirsiniz. Kullanmanızı öneririz [dağıtım paketini](deployment-zip-push.md) projenizi işlevi uygulamanızı Azure'a dağıtmak için. Gibi mevcut araçları da kullanabilirsiniz [sürekli tümleştirme ve dağıtım](functions-continuous-deployment.md) ve Azure DevOps.
 
 > [!NOTE]
-> Dağıtılacak emin olun, `host.json` dosya ve klasörleri doğrudan işlev `wwwroot` klasör. Dahil etmezseniz `wwwroot` dağıtımlarınızı klasöründe. Aksi takdirde, elde edersiniz `wwwroot\wwwroot` klasörleri. 
-> 
-> 
+> Dağıtılacak emin olun, `host.json` dosya ve klasörleri doğrudan işlev `wwwroot` klasör. Dahil etmezseniz `wwwroot` dağıtımlarınızı klasöründe. Aksi takdirde, elde edersiniz `wwwroot\wwwroot` klasörleri.
 
 ## <a id="fileupdate"></a> İşlev uygulaması dosyalarını güncelleştirme
 Azure portalda yerleşik işlev Düzenleyicisi, güncelleştirmenizi sağlar *function.json* dosyası ve bir işlev için kod dosyası. Karşıya yükleme veya güncelleştirme gibi diğer dosyaları *package.json* veya *project.json* veya bağımlılıkları, diğer dağıtım yöntemlerini kullanmanız.

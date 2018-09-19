@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 09/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e494c2bc90f6db1f3a850fccff88efdf26f43012
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 7c0aa2d43001100a392f8882316b7998838d90b9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604257"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121950"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services ölçeğini genişletme
 
@@ -27,7 +27,7 @@ Bir normal server dağıtımında, işlem sunucusu ve sorgu sunucusu bir sunucus
 
 Bir sorgu havuzundaki sahip sorgu çoğaltmaları sayısından bağımsız olarak, işleme iş yükleri arasında sorgu çoğaltmaları dağıtılmadı. Tek bir sunucu işlem sunucusu olarak görev yapar. Sorgu çoğaltmaları, yalnızca sorgu havuzundaki her sorgu çoğaltma arasında eşitlenen modelleri karşı sorgular işlevi görür. 
 
-Ölçek genişletme, yeni sorgu çoğaltmaları artımlı olarak sorgu havuzuna eklenir. Bu sorgu havuza eklenecek yeni sorgu çoğaltması kaynaklar için beş dakikaya kadar sürebilir; istemci bağlantıları ve sorguları almaya hazır. Ne zaman tüm yeni sorgu çoğaltmaları hazır ve çalışır hale geldiğinde, yeni istemci bağlantılarını tüm sorgu havuzu kaynaklar arasında Yük Dengelemesi yapılıyor. Mevcut istemci bağlantıları, şu anda bağlı oldukları kaynaktan değiştirilmez.  Ölçek artırma, tüm mevcut istemci bağlantıları için sorgu havuzdan kaldırılmadan bir sorgu havuzu kaynak sonlandırılır. İşlem ölçek, bu beş dakikaya kadar sürebilir tamamlandıktan sonra kalan sorgu kaynak havuzuna bağlanır.
+Ölçek genişletme, yeni sorgu çoğaltmaları artımlı olarak sorgu havuzuna eklenir. Bu sorgu havuza eklenecek yeni sorgu çoğaltması kaynaklar için beş dakikaya kadar sürebilir. Ne zaman tüm yeni sorgu çoğaltmaları hazır ve çalışır hale geldiğinde, yeni istemci bağlantılarını tüm sorgu havuzu kaynaklar arasında Yük Dengelemesi yapılıyor. Mevcut istemci bağlantıları, şu anda bağlı oldukları kaynaktan değiştirilmez.  Ölçek artırma, tüm mevcut istemci bağlantıları için sorgu havuzdan kaldırılmadan bir sorgu havuzu kaynak sonlandırılır. İşlem ölçek, bu beş dakikaya kadar sürebilir tamamlandıktan sonra kalan sorgu kaynak havuzuna bağlanır.
 
 İşlemleri tamamlandıktan sonra modeller, işleme sırasında işlem sunucusu ve sorgu çoğaltmaları eşitleme gerçekleştirilmelidir. İşlemleri otomatikleştirme, işlem işleme başarıyla tamamlandıktan sonra bir eşitleme işlemi yapılandırılması önemlidir. Eşitleme, portalda veya PowerShell veya REST API kullanarak el ile gerçekleştirilebilir. 
 
@@ -63,7 +63,6 @@ Sunucunuz bulunduğu bölgeyi yapılandırabileceğiniz sorgu yinelemelerinin sa
 
 Tablosal modeller, birincil sunucuda çoğaltma sunucuları ile eşitlenir. Eşitleme tamamlandığında, gelen sorguları çoğaltma sunucusu arasında dağıtma sorgu havuzu başlar. 
 
-
 ## <a name="synchronization"></a>Eşitleme 
 
 Yeni sorgu çoğaltmaları sağladığınızda, Azure Analysis Services Modellerinizi genelinde tüm çoğaltma otomatik olarak çoğaltır. Ayrıca, el ile eşitleme portalı veya REST API'yi kullanarak gerçekleştirebilirsiniz. Modellerinizi işlediğinizde, güncelleştirmeleri, sorgu yinelemeleri arasında eşitlenen için bir eşitleme gerçekleştirmeniz gerekir.
@@ -90,8 +89,6 @@ Sorgu yinelemelerinin sayısı ayarlamak için kullanın [Set-AzureRmAnalysisSer
 
 Eşitleme çalıştırmak için kullandığınız [eşitleme AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
-
-
 ## <a name="connections"></a>Bağlantılar
 
 Sunucunuzun genel bakış sayfasında, iki sunucu adları vardır. Ölçeği genişletilmiş bir sunucu için henüz yapılandırmadıysanız, her iki sunucu adları aynı şekilde işler. Ölçeği genişletilmiş bir sunucu için yapılandırdıktan sonra bağlantı türüne bağlı olarak uygun sunucu adını belirtmek gerekir. 
@@ -107,7 +104,6 @@ Azure işlev uygulamaları ve ÇYN, SSMS, SSDT ve PowerShell bağlantı dizeleri
 **Sorun:** kullanıcılar alma hatası **sunucusu bulunamıyor '\<sunucusunun adı >' bağlantı modunda 'ReadOnly' örneği.**
 
 **Çözüm:** seçerken **işleme sunucusunu sorgulama havuzundan ayırın** seçeneği, varsayılan bağlantı dizesini kullanarak istemci bağlantıları (olmadan: rw) sorgu havuzu kopyaya yönlendirilirsiniz. Eşitleme değildir, çünkü sorgu havuzundaki çoğaltmalar henüz çevrimiçi henüz tamamlanmamış, yeniden yönlendirilen istemci bağlantıları başarısız olabilir. Başarısız bağlantılar önlemek için tam bir ölçek genişletme ve eşitleme işlemi kadar işleme sunucusunu sorgulama havuzundan ayırın değil seçin. Bellek ve QPU ölçümleri eşitleme durumunu izlemek için kullanabilirsiniz.
-
 
 ## <a name="related-information"></a>İlgili bilgiler
 

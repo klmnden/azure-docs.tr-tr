@@ -3,7 +3,7 @@ title: Dosya bütünlüğünü izleme Azure Güvenlik Merkezi'nde | Microsoft Do
 description: " Dosya bütünlüğünü izleme Azure Güvenlik Merkezi'nde etkinleştirmeyi öğrenin. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
-ms.author: terrylan
-ms.openlocfilehash: e8455dddf62c16cb5ebcf20622580fad82d783a7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 09/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296245"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124125"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Dosya bütünlüğünü Azure Güvenlik Merkezi'nde izleme
 Dosya bütünlüğünü izleme (FIM), Azure Güvenlik Merkezi'nde bu kılavuzu kullanarak yapılandırmayı öğrenin.
@@ -182,6 +182,14 @@ Altında **değişiklik izleme için düzenleme** şunları yapabilirsiniz:
   ![False kümesi etkin][19]
 
 6. **Kaydet**’i seçin.
+
+## <a name="folder-and-path-monitoring-using-wildcards"></a>Klasör ve yolu joker karakterler kullanarak izleme
+
+Dizinler arasında izlemeyi basitleştirmek için joker karakterleri kullanın. Joker karakter kullanılması klasörü izlemeyi yapılandırdığınızda aşağıdaki kurallar geçerlidir:
+-   Joker karakter, birden çok dosyayı izlemek için gereklidir.
+-   Joker karakterler yalnızca C:\folder\file veya /etc/*.conf gibi bir yolun son segmentinde kullanılabilir
+-   Bir ortam değişkeni geçersiz bir yol varsa, doğrulama başarılı olur ancak sayım yürüttüğünde yol başarısız olur.
+-   Yolun ayarlarken, c: gibi genel yolları önlemek\*. * geçilen çok fazla klasörlerinde sonuçlanacak.
 
 ## <a name="disable-fim"></a>FIM devre dışı bırak
 FIM devre dışı bırakabilirsiniz. FIM Azure değişiklik izleme çözümü, ortamınızdaki değişiklikleri tanımlamak ve izlemek için kullanır. FIM devre dışı bırakarak, değişiklik izleme çözümü seçili çalışma alanından kaldırın.

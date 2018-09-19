@@ -1,6 +1,30 @@
-## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Kullanıcıyla oturum açmak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanın
+---
+title: include dosyası
+description: include dosyası
+services: active-directory
+documentationcenter: dev-center-name
+author: navyasric
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: nacanuma
+ms.custom: include file
+ms.openlocfilehash: 94d57abc95dabf1da579f6d2105ca6c74140a86f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293741"
+---
+## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Kullanıcının oturum açmak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanma
 
-1.  Adlı bir dosya oluşturun `app.js`. Visual Studio kullanıyorsanız, projeyi (Proje kök klasöründe) seçin, sağ tıklatın ve seçin: `Add`  >  `New Item`  >  `JavaScript File`:
+1.  `app.js` adlı bir dosya oluşturun. Visual Studio kullanıyorsanız, ' % s'projesi (projenin kök klasöründe) seçin, sağ tıklatın ve seçin: `Add`  >  `New Item`  >  `JavaScript File`:
 2.  Aşağıdaki kodu ekleyin, `app.js` dosyası:
 
 ```javascript
@@ -113,30 +137,30 @@ function showError(endpoint, error, errorDesc) {
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha Fazla Bilgi
 
-Bir kullanıcı tıklattıktan sonra *'Microsoft Graph API çağrısı'* düğmesine ilk kez `callGraphApi` yöntem çağrılarını `loginRedirect` kullanıcıyla oturum açmak için. Bu yöntem kullanıcı için yeniden yönlendirme sonucu *Microsoft Azure Active Directory v2 endpoint* ister ve kullanıcının kimlik bilgilerini doğrulamak için. Bir başarılı oturum açma sonucu olarak, kullanıcının özgün durumuna geri yönlendirildiği *index.html* sayfası ve bir belirteç alındığında, tarafından işlenen `msal.js` ve belirtecinde yer alan bilgileri önbelleğe alınır. Bu belirteç olarak bilinen *kimliği belirteci* ve gibi kullanıcı görünen adı kullanıcı hakkındaki temel bilgileri içerir. Tüm amaçlar için bu belirteci tarafından sağlanan herhangi bir veri kullanmayı planlıyorsanız, bu belirteç belirteç uygulamanız için geçerli bir kullanıcı için verilmiş olduğunu güvence altına almak için arka uç sunucu tarafından doğrulandığından emin olmanız gerekir.
+Bir kullanıcı tıklattıktan sonra *'Microsoft Graph API çağrısı'* düğmesini ilk kez `callGraphApi` yöntem çağrılarını `loginRedirect` kullanıcısı ile oturum. Kullanıcıya yeniden yönlendirme bu yöntem sonuçlarını *Microsoft Azure Active Directory v2 uç noktası* sor ve kullanıcının kimlik bilgilerini doğrulamak için. Bir oturum açma başarılı sonucu olarak, kullanıcının özgün durumuna geri yönlendirilir *index.html* sayfa ve bir belirteç alındığında, tarafından işlenen `msal.js` ve belirtecinde yer alan bilgileri önbelleğe alınır. Bu belirteci olarak da bilinen *kimlik belirteci* ve kullanıcı görünen adı gibi kullanıcıyla ilgili temel bilgileri içerir. Tüm amaçlar için bu belirteci tarafından sağlanan herhangi bir veri kullanmayı planlıyorsanız, bu belirteç, uygulamanız için geçerli bir kullanıcı için belirteç verildiğini güvence altına almak için arka uç sunucunuzu doğrulayan emin olmanız gerekir.
 
-Bu kılavuz tarafından oluşturulan SPA kullanmayan doğrudan kimliği belirteci kullanın-bunun yerine, çağıran `acquireTokenSilent` ve/veya `acquireTokenRedirect` edinmeye bir *erişim belirteci* Microsoft Graph API sorgulamak için kullanılır. Kimliği belirteci doğrular bir örnek gerekiyorsa, bir göz atalım [bu](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 örnek") örnek uygulama github'da – örnek bir ASP kullanır .NET web API'si belirteci doğrulama için.
+Bu kılavuzda oluşturulan SPA kullanmayan doğrudan kimlik belirteci kullanın: bunun yerine çağrı `acquireTokenSilent` ve/veya `acquireTokenRedirect` almak için bir *erişim belirteci* Microsoft Graph API sorgulamak için kullanılır. Kimlik belirteci doğrular bir örnek gerekirse göz atın [bu](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 örnek") github'da – örnek örnek uygulama bir ASP kullanır Belirteç doğrulama için .NET web API'si.
 
-#### <a name="getting-a-user-token-interactively"></a>Kullanıcı etkileşimli olarak belirteci alma
+#### <a name="getting-a-user-token-interactively"></a>Etkileşimli bir kullanıcı belirteci alma
 
-Kullanıcıları bir kaynağa – şekilde erişmek için bir belirteç istemek ihtiyaç duydukları her zaman kimlik doğrulamaya isteyin istemediğiniz ilk oturum açma işleminden sonra *acquireTokenSilent* belirteçleri almak üzere çoğu zaman kullanılmalıdır. Durumlar vardır ancak kullanıcıların Azure Active Directory v2 noktayla – etkileşim kurmasına zorlamak gereken bazı örnekler şunlardır:
-- Kullanıcıların parolanızın süresi dolduğu için kimlik bilgilerini yeniden girmeniz gerekebilir
-- Uygulamanız için onayı için kullanıcının gerektiren bir kaynağa erişim isteme
-- İki faktörlü kimlik doğrulama gereklidir
+İlk oturum açma işleminden sonra bu nedenle kaynak – erişmek için bir belirteç istemek ihtiyaç duydukları her zaman yeniden kimlik doğrulamaya zorlayabilir talep etmek istemediğiniz *acquireTokenSilent* çoğu zaman belirteçlerini almak için kullanılmalıdır. Durumlar vardır ancak kullanıcıları, Azure Active Directory v2 uç noktası ile – etkileşim kurmak gereken bazı örnekler şunlardır:
+- Kullanıcıların parola süresi dolduğundan, kimlik bilgilerini yeniden girmeniz gerekebilir
+- Uygulamanızın kullanıcı onay gerektiren bir kaynağa erişim istiyor
+- İki faktörlü kimlik doğrulaması gereklidir
 
-Çağırma *acquireTokenRedirect(scope)* neden kullanıcıların Azure Active Directory v2 uç noktasına yeniden yönlendirme (veya *acquireTokenPopup(scope)* bir açılır pencere sonucuna) kullanıcılar nerede gereken etkileşim kurmak kimlik bilgilerini onaylayan, gerekli kaynağa izin vermiş veya Tamamlanıyor tarafından iki öğeli kimlik doğrulamasını.
+Çağırma *acquireTokenRedirect(scope)* kullanıcılar Azure Active Directory v2 uç noktası için yeniden yönlendirme sonucu (veya *acquireTokenPopup(scope)* sonucu bir açılan pencere üzerinde) etkileşim kurmak, kullanıcıların nerede gerekir kimlik bilgilerini onaylayan, gerekli kaynak için izin vermek ya da Tamamlanıyor iki öğeli kimlik doğrulamasını.
 
 #### <a name="getting-a-user-token-silently"></a>Bir kullanıcı sessizce belirteci alma
-` acquireTokenSilent` Yöntemi belirteci satın almalar ve herhangi bir kullanıcı etkileşimi olmadan yenileme işler. Sonra `loginRedirect` (veya `loginPopup`) ilk kez yürütüldüğünde `acquireTokenSilent` veya belirteçleri yenileme isteği için çağrıları sessizce gerçekleştirilmediğinden sonraki çağrılar için-korumalı kaynaklara erişmek için kullanılan belirteçleri elde etmek için yaygın olarak kullanılan yöntem.
-`acquireTokenSilent` başarısız olabileceği bazı durumlarda – Örneğin, kullanıcının parolasının süresi doldu. Uygulamanız bu özel durumun iki yolla işleyebilir:
+` acquireTokenSilent` Belirteç edinme ve herhangi bir kullanıcı etkileşimi olmadan yenileme yöntemi işler. Sonra `loginRedirect` (veya `loginPopup`) ilk kez yürütülür `acquireTokenSilent` veya belirteçleri yenileme isteği için çağrıları sessizce yapıldıkça yapılan sonraki çağrılar için-korunan kaynaklara erişim için kullanılan belirteçleri elde etmek için yaygın kullanılan yöntemdir.
+`acquireTokenSilent` başarısız olabilir bazı durumlarda – Örneğin, kullanıcı parolasının süresi doldu. Uygulamanız, bu özel durumun iki şekilde işleyebilir:
 
-1.  Çağırmaya `acquireTokenRedirect` hemen hangi sonuçları oturum açmak için kullanıcıdan içinde. Bu desen çevrimiçi uygulamalarında yaygın olarak kullanılan söz konusu olduğunda kimliği doğrulanmamış içerik uygulamada kullanıcı tarafından kullanılabilir. Bu Destekli kurulum tarafından oluşturulan örnek bu deseni kullanır.
+1.  Çağrı yapmak `acquireTokenRedirect` hemen sonuçlanır kullanıcının oturum açmasını isteyen içinde. Bu düzen çevrimiçi uygulamalarında yaygın olarak kullanılan bulunduğu kimliği doğrulanmamış içerik uygulamada kullanıcı tarafından kullanılabilir. Bu Kılavuzlu kurulum tarafından oluşturulan örnek bu deseni kullanır.
 
-2. Uygulamalar bir etkileşimli oturum açma kullanıcı oturum açmak için doğru zamanı seçebilir ya da uygulama deneyebilirsiniz gerekli olan kullanıcı için görsel bir gösterge de yapabilirsiniz `acquireTokenSilent` daha sonra. Bunun yaygın olarak kullanılan kullanıcı kesintiye olmadan diğer uygulamanın işlevselliğini kullanabilir - Örneğin, kimliği doğrulanmamış içerik uygulamada kullanılabilir olduğunda. Bu durumda, korumalı kaynağa erişmek için ya da eski bilgileri yenilemek için giriş yapmak istediğinizde kullanıcının karar verebilirsiniz.
+2. Uygulamaları bir etkileşimli oturum açma kullanıcı oturum açmak için doğru zamanda seçebilir ya da uygulama yeniden deneyebilir gerekli olan, kullanıcı için bir görsel gösterimi de yapabilir `acquireTokenSilent` daha sonra. Bu yaygın olarak kullanılan kullanıcı uygulamanın diğer işlevleri kesintiye olmadan kullanabilir - Örneğin, kimliği doğrulanmamış içerik uygulamada kullanılabilir olduğunda. Bu durumda, korumalı kaynağa erişmeye veya güncel olmayan bilgileri yenilemek için oturum açmak istediğinizde kullanıcı karar verebilirsiniz.
 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Yalnızca edinilen belirteçle kullanarak Microsoft Graph API çağrısı
+## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Yalnızca edindiğiniz belirteci kullanarak Microsoft Graph API çağırma
 
 Aşağıdaki kodu ekleyin, `app.js` dosyası:
 
@@ -194,11 +218,11 @@ function callWebApiWithToken(endpoint, token, responseElement, showTokenElement)
 
 ### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Karşı korumalı bir API REST çağrısı yapma hakkında daha fazla bilgi
 
-Bu kılavuzu tarafından oluşturulan örnek uygulamasında `callWebApiWithToken()` yöntemi bir HTTP yapmak için kullanılan `GET` isteği için bir belirteç gerekiyor korunan bir kaynağa karşı ve ardından içeriği çağırana dönün. Bu yöntem alınan belirteç ekler *HTTP Authorization Üstbilgisi*. Bu kılavuz tarafından oluşturulan örnek bir uygulama için Microsoft Graph API kaynaktır *bana* endpoint – kullanıcı profili bilgilerini görüntüler.
+Bu kılavuzda, oluşturulan örnek uygulamada `callWebApiWithToken()` yöntemi bir HTTP yapmak için kullanılan `GET` istemek için bir belirteç gerekiyor korunan bir kaynağa karşı ve ardından içeriği çağırana döndürmesi. Bu yöntem alınan belirteç ekler *HTTP yetkilendirme üst bilgisi*. Bu kılavuzda oluşturulan örnek uygulama için Microsoft Graph API kaynaktır *bana* endpoint – kullanıcı profili bilgilerini görüntüler.
 
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-out-the-user"></a>Kullanıcı imzalamak için bir yöntem ekleyin
+## <a name="add-a-method-to-sign-out-the-user"></a>Kullanıcının oturumunu kapatmaz için yöntem ekleme
 
 Aşağıdaki kodu ekleyin, `app.js` dosyası:
 

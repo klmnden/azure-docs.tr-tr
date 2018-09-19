@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 81fab8903c0101d0e4aae8a392f05129651cd762
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: a17c08cc66b13a5ec15d32be7e9ec738da73e219
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369145"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129063"
 ---
 # <a name="scaling-media-processing-overview"></a>Genel Bakış medya işlemeyi ölçeklendirme
 Bu sayfa hakkında genel bakış ve neden medya işlemeyi ölçeklendirme sağlar. 
@@ -35,7 +35,7 @@ Aşağıdaki tabloda farklı kodlama hızlarını arasında seçim yaparken kara
 | Senaryolar | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | Hedeflenen kullanım örneğini |Tek bit hızlı kodlama. <br/>SD veya çözümleri altındaki dosyaları, duyarlı, düşük maliyetli değildir zaman. |Tekli bit hızı ve Çoklu bit hızlı kodlama.<br/>SD hem HD kodlaması için normal kullanım. |Tekli bit hızı ve Çoklu bit hızlı kodlama.<br/>Tam HD ve 4K çözünürlüklü videolar. Kodlama duyarlı, daha hızlı bir döngü süresi. |
-| Kıyaslama |Tek bit hızlı MP4 dosyası, aynı çözünürlükte, kodlamayı yaklaşık 11 dakika sürer. |"H264 tekli bit hızı ile 720 p" kodlama yaklaşık 5 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 720p" önayarını yaklaşık 11.5 birkaç dakika sürer. |"H264 tekli bit hızı ile 1080 p" kodlama yaklaşık 2.7 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 1080p" önayarını yaklaşık 5.7 birkaç dakika sürer. |
+| 5 dakikalık video için Kıyaslama |Tek bit hızlı MP4 dosyası, aynı çözünürlükte, kodlamayı yaklaşık 11 dakika sürer. |"H264 tekli bit hızı ile 720 p" kodlama yaklaşık 5 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 720p" önayarını yaklaşık 11.5 birkaç dakika sürer. |"H264 tekli bit hızı ile 1080 p" kodlama yaklaşık 2.7 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 1080p" önayarını yaklaşık 5.7 birkaç dakika sürer. |
 
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler

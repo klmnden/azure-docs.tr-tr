@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0cbcb6095c59089008bd9a95b9bb0a3ddaa70a58
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 722ab51d0f591b8f16924d1d5661385267b7f0e6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984070"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295164"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliğini kullanarak bulut kaynaklarına erişime yerel olarak yönetilen bir iş ortağı hesapları
 
@@ -32,17 +32,17 @@ Bunun için iki ortak yaklaşım vardır:
 - Kaynak özniteliği olarak kullanmak için kullanılmayan şirket içi Active Directory öznitelik (örneğin, extensionAttribute1) belirleyin. 
 - Alternatif olarak, temel alınan UserType özniteliği için değer, diğer özelliklerden türetilir. Örneğin, kendi şirket içi Active Directory UserPrincipalName özniteliğinin etki alanı ile bitiyorsa, konuk olarak tüm kullanıcılar eşitlemek istediğiniz *@partners.contoso.com*.
  
-Ayrıntılı öznitelik gereksinimleri için bkz [UserType, eşitlemeyi etkinleştirme](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype). 
+Ayrıntılı öznitelik gereksinimleri için bkz [UserType, eşitlemeyi etkinleştirme](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 
 ## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>Azure AD Connect eşitleme kullanıcılara bulut yapılandırma
 
 Benzersiz öznitelik tanımladıktan sonra bu kullanıcılara bulut Azure AD B2B kullanıcıları olarak eşitleme için Azure AD Connect'i yapılandırabilirsiniz (diğer bir deyişle, UserType kullanıcılarla konuk =). Bir yetkilendirme açısından bakıldığında, bu kullanıcılar B2B kullanıcıları Azure AD B2B işbirliği davet işlemi oluşturulan döndürsün.
 
-Uygulama yönergeleri için bkz. [UserType, eşitlemeyi etkinleştirme](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype).
+Uygulama yönergeleri için bkz. [UserType, eşitlemeyi etkinleştirme](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Hibrit kuruluşlar için Azure Active Directory B2B işbirliği](hybrid-organizations.md)
 - [GRANT B2B kullanıcıları Azure AD'de, şirket içi uygulamalarınıza erişim](hybrid-cloud-to-on-premises.md)
-- Azure AD Connect genel bakış için bkz. [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../connect/active-directory-aadconnect.md).
+- Azure AD Connect genel bakış için bkz. [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../hybrid/whatis-hybrid-identity.md).
 

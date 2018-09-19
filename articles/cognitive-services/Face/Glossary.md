@@ -1,178 +1,178 @@
 ---
-title: Yüz API'si hizmeti için Sözlük | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Terimler sözlüğü açıklanmaktadır yüz API hizmetiyle çalışacak şekilde karşılaşabileceğiniz.
+title: Sözlük - yüz tanıma API'si hizmeti
+titleSuffix: Azure Cognitive Services
+description: Terimler sözlüğü açıklanmaktadır yüz tanıma API'si hizmeti ile çalışırken karşılaşabileceğiniz.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: ec3068c013be9f2fa4ff34b1c24596e46e7c5d05
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 215b780bc403ab2df40567c3eb5a7ae86c9fe130
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351928"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127372"
 ---
 # <a name="glossary"></a>Sözlük
 
 ## <a name="a"></a>A
 
-#### <a name="Attributes"></a>Öznitelikleri
+#### <a name="attributes"></a>Öznitelikler
 
-Öznitelikleri isteğe bağlı olarak [algılama](#Detection-Face-Detection) gibi sonuçları [yaş](#Age-Attribute), [cinsiyetiniz](#Gender-Attribute), [baş poz](#Head-Pose-Attribute), [yüz artı](#Facial-Hair-Attribute), [gülen](#Smile-Attribute).
-Adresten edinilebilir [algılama](#Detection-Face-Detection) sorgu parametrelerini belirterek API: returnFaceAttributes. Öznitelikleri ek bilgi vermek ilgili seçili [yazıtiplerinin](#Face); ek olarak [kimliği yüz](#Face-ID) ve [dikdörtgen](#Face-Rectangle).
+Öznitelikler isteğe bağlı olarak [algılama](#Detection-Face-Detection) gibi sonuçları [yaş](#Age-Attribute), [cinsiyet](#Gender-Attribute), [baş poz](#Head-Pose-Attribute), [bıyığın](#Facial-Hair-Attribute), [gülümseyen](#Smile-Attribute).
+Örneğinden alınabilen [algılama](#Detection-Face-Detection) sorgu parametrelerini belirterek API: returnFaceAttributes. Öznitelikleri ekstra bilgi vermek ilgili seçili [yüzleri](#Face); ek olarak [yüz kimliği](#Face-ID) ve [dikdörtgen](#Face-Rectangle).
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="Age-Attribute"></a>Geçerlilik süresi (özniteliği)
+#### <a name="age-attribute"></a>Yaş (öznitelik)
 
-Geçerlilik süresi biridir [öznitelikleri](#Attributes) belirli bir yazıtipi yaşını açıklar. Geçerlilik süresi özniteliği isteğe bağlı olarak [algılama](#Detection-Face-Detection) sonuçlanır ve ile denetlenen bir [algılama](#Detection-Face-Detection) returnFaceAttributes parametresini belirterek isteği.
+Geçerlilik süresi aşağıdakilerden birini olan [öznitelikleri](#Attributes) , belirli bir yüzün yaşını açıklar. Yaş özniteliği isteğe bağlı olarak [algılama](#Detection-Face-Detection) sonuçları gruplayan ve ile denetlenebilir bir [algılama](#Detection-Face-Detection) isteği belirterek returnFaceAttributes parametresi.
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="b"></a>B
 
 ## <a name="c"></a>C
 
-#### <a name="Candidate"></a>Aday
+#### <a name="candidate"></a>Aday
 
-Adaylar temelde [kimliği](#Identification) sonuçları (örneğin tanımlanan kişi ve algılamaları güvenirlik düzeyini). Aday tarafından temsil edilen [PersonID](#Person-ID) ve [güvenirlik](#Confidence), belirten kişi güvenirlik yüksek düzeyde ile tanımlanır.
+Aday niteliği aslında [kimliği](#Identification) sonuçları (örn, tanımlanan kişiler ve algılamalar güven düzeyini). Bir aday tarafından temsil edilen [Personıd](#Person-ID) ve [güvenle](#Confidence), belirten kişi yüksek bir güven düzeyinde ile tanımlanır.
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - tanımlama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - tanımlamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-#### <a name="Confidence"></a>Güven
+#### <a name="confidence"></a>Güven
 
-Güven olduğunu arasında benzerlik ortaya ölçüm [yazıtiplerinin](#Face) veya [kişi](#Person) sayısal değerleri – içinde kullanılan [kimliği](#Identification), ve [ doğrulama](#Verification) Aranan, tanımlanan ve doğrulanmış sonuçları benzerlikler belirtmek için.
+Güven: arasında benzerlik ortaya çıkaran bir ölçü [yüzleri](#Face) veya [kişi](#Person) sayısal değerleri – kullanılan [kimliği](#Identification), ve [ doğrulama](#Verification) benzerlikler Aranan, tanımlanan ve doğrulanmış sonuçları göstermek için.
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [yüz - bulma benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [yüz - tanımlama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [yüz - doğrulayın](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [yüz tanıma - bulma benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [yüz tanıma - tanımlamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [yüz tanıma - doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 ## <a name="d"></a>D
 
-#### <a name="Detection-Face-Detection"></a>Algılama/yüz algılama
+#### <a name="detectionface-detection"></a>Algılama/yüz algılama
 
-Yüz algılama görüntülerinde yüzeyleri bulma eylemdir. Kullanıcılar bir görüntüyü karşıya yükleyin veya istekte bir resim URL'si belirtin. Algılanan yazıtipleri ile döndürülen [kimlikleri yüz](#Face-ID) yüz API'sindeki benzersiz bir kimlik belirten. Dikdörtgenler piksel yanı sıra isteğe bağlı görüntüde yüz konumlarda belirtmek [öznitelikleri](#Attributes) gibi her yüz için [yaş](#Age-Attribute), [cinsiyetiniz](#Gender-Attribute), [baş poz ](#Head-Pose-Attribute), [yüz artı](#Facial-Hair-Attribute) ve [gülen](#Smile-Attribute).
+Yüz algılama, yüz görüntüleri bulma eylemdir. Kullanıcılar, bir görüntüyü karşıya yükleme veya istekte bir resim URL'si belirtin. Algılanan yüzeylere ile döndürülür [kimlikleri yüz](#Face-ID) belirten yüz tanıma API'si, bir benzersiz kimliği. Dikdörtgenler piksel yanı sıra isteğe bağlı olarak görüntüde yüz konumları belirtin [öznitelikleri](#Attributes) gibi her yüz için [yaş](#Age-Attribute), [cinsiyet](#Gender-Attribute), [baş poz ](#Head-Pose-Attribute), [bıyığın](#Facial-Hair-Attribute) ve [gülümseyen](#Smile-Attribute).
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="e"></a>E
 
 ## <a name="f"></a>F
 
-#### <a name="Face"></a>Yüz
+#### <a name="face"></a>Yüz
 
-Yüz yüz algılanan yazıtipleri ile ilgili API türetilmiş sonuçlar için birleştirilmiş bir terimdir. Sonuç olarak, yüz birleşik kimliği tarafından temsil edilen ([yüz kimliği](#Face-ID)), görüntüleri belirli bir bölgede ([yüz dikdörtgen](#Face-Rectangle)) ve ilgili ek yüz [öznitelikleri](#Face-Attributes-Facial-Attributes), gibi[yaş](#Age-Attribute), [cinsiyetiniz](#Gender-Attribute), [bilinen yerler](#Face-Landmarks-Facial-Landmarks) ve [baş poz](#Head-Pose-Attribute). Ayrıca, yüzler gelen döndürülebilecek [algılama](#Detection-Face-Detection).
+Yüz tanıma, yüz tanıma API'si ile algılanan yüzeylere ilgili türetilen sonuçları için birleştirilmiş bir terimdir. Sonuç olarak, yüz tanıma tarafından birleştirilmiş bir kimlik gösterilir ([Face ID](#Face-ID)), görüntüleri belirli bir bölgede ([yüz dikdörtgeni](#Face-Rectangle)) ve ilgili ek yüz [öznitelikleri](#Face-Attributes-Facial-Attributes), gibi[yaş](#Age-Attribute), [cinsiyet](#Gender-Attribute), [yer işareti](#Face-Landmarks-Facial-Landmarks) ve [baş poz](#Head-Pose-Attribute). Ayrıca, yüzleri gelen döndürülebilir [algılama](#Detection-Face-Detection).
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="Face-API"></a>Yüz API
+#### <a name="face-api"></a>Yüz Tanıma API'si
 
-Yüz API yüz algılama ve tanınması için en gelişmiş algoritmalar sağlayan bir bulut tabanlı bir API'dir. Yüz API ana işlevselliğini iki kategoriye ayrılabilir: yüz [algılama](#Detection-Face-Detection) ile [öznitelikleri](#Face-Attributes-Facial-Attributes)ve yüz [tanıma](#Recognition).
+Yüz tanıma API'si, yüz algılama ve tanıma için en gelişmiş algoritmalar sağlayan bir bulut tabanlı bir API'dir. Yüz tanıma API'si ana işlevselliğini iki kategoriye ayrılabilir: yüz [algılama](#Detection-Face-Detection) ile [öznitelikleri](#Face-Attributes-Facial-Attributes)ve yüz [tanıma](#Recognition).
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [yüz API genel bakış](./Overview.md), [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [yüz - bulma benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [yüz - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [Yüz - tanımlama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [yüz - doğrulayın](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [yüz tanıma API'sine genel bakış](./Overview.md), [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [yüz tanıma - bulma benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [yüz tanıma - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [Yüz tanıma - tanımlamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [yüz tanıma - doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-#### <a name="Face-Attributes-Facial-Attributes"></a>Yüz öznitelikleri/yüz öznitelikleri
+#### <a name="face-attributesfacial-attributes"></a>Yüz öznitelikleri/yanı sıra yüz öznitelikleri
 
-Lütfen bakın [öznitelikleri](#Attributes).
+Lütfen [öznitelikleri](#Attributes).
 
-#### <a name="Face-ID"></a>Yüz kimliği
+#### <a name="face-id"></a>Yüz kimliği
 
-Yüz kimliği türetilir [algılama](#Detection-Face-Detection) sonuçları, bir dizeyi temsil eden bir [yüz](#Face) içinde [yüz API](#Face-API).
+Face ID türetilen [algılama](#Detection-Face-Detection) sonuçları, bir dizeyi temsil eden bir [yüz](#Face) içinde [yüz tanıma API'si](#Face-API).
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="Face-Landmarks-Facial-Landmarks"></a>Yüz işaretleri/yüz bilinen yerler
+#### <a name="face-landmarksfacial-landmarks"></a>Yüz tanıma yer işareti/yanı sıra yüz yer işareti
 
-Yer işaretlerini isteğe bağlı olarak [algılama](#Detection-Face-Detection) göz, burun ve ağzınıza (aşağıdaki şekilde gösterilmiştir) gibi anlamsal yüz noktaları sonuçları;. Yer işaretlerini ile denetlenebilir bir [algılama](#Detection-Face-Detection) Boolean numara returnFaceLandmarks isteğiyle. ReturnFaceLandmarks true ayarlanırsa, döndürülen yüzeyleri yer işareti özniteliklere sahip olacaktır.
+Yer işareti isteğe bağlı olarak [algılama](#Detection-Face-Detection) gözler ve burun ağız (aşağıdaki şekilde gösterilen) gibi anlamsal yüz noktaları sonuçlar;. Yer işareti ile denetlenebilir bir [algılama](#Detection-Face-Detection) Boole sayı returnFaceLandmarks isteği. ReturnFaceLandmarks true ayarlanırsa, döndürülen yüzleri yer işareti özniteliğe sahip olacaktır.
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ![HowToDetectFace](./Images/landmarks.1.jpg)
 
-#### <a name="Face-Rectangle"></a>Yüz dikdörtgen
+#### <a name="face-rectangle"></a>Yüz dikdörtgeni
 
-Yüz dikdörtgen türetilir [algılama](#Detection-Face-Detection) bir dik dikdörtgen (sol, üst düzey, genişlik, yükseklik) piksel cinsinden görüntülerinde sonuçları. Sol üst köşesindeki bir [yüz](#Face) (sol, top), genişlik ve yükseklik yanı sıra x yüz boyutlarında gösterir ve y eksenlerinin sırasıyla.
+Yüz dikdörtgeni türetilen [algılama](#Detection-Face-Detection) bir dik dikdörtgende (sol, üst düzey, genişlik, yükseklik) piksel cinsinden görüntü olan sonuçlar. Sol üst köşesinde bir [yüz](#Face) (sol, üst), genişlik ve yükseklik yanı sıra x nominal boyutlarının gösterir ve y eksenlerinin sırasıyla.
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="Facial-Hair-Attribute"></a>Yüz artı (özniteliği)
+#### <a name="facial-hair-attribute"></a>Bıyığın (öznitelik)
 
-Yüz artı biridir [öznitelikleri](#Attributes) kullanılabilir yüzeyleri yüz artı uzunluğu açıklamak için kullanılır. Yüz artı özniteliği isteğe bağlı olarak [algılama](#Detection-Face-Detection) sonuçlanır ve ile denetlenen bir [algılama](#Detection-Face-Detection) returnFaceAttributes isteğiyle. ReturnFaceAttributes 'facialHair' içeriyorsa, döndürülen yüzeyleri yüz artı özniteliklere sahip olacaktır.
+Bıyığın biridir [öznitelikleri](#Attributes) kullanılabilir yüzleri bıyığın uzunluğunu tanımlamak için kullanılır. İsteğe bağlı olarak bıyığın özniteliktir [algılama](#Detection-Face-Detection) sonuçları gruplayan ve ile denetlenebilir bir [algılama](#Detection-Face-Detection) returnFaceAttributes isteğiyle. ReturnFaceAttributes 'facialHair' içeriyorsa, döndürülen yüzleri bıyığın özniteliğe sahip olacaktır.
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="FaceList"></a>FaceList
+#### <a name="facelist"></a>FaceList
 
-FaceList koleksiyonudur [PersistedFace](#PersistedFace) ve birimidir [Bul benzer](#Find-Similar). Bir FaceList birlikte bir [FaceList kimliği](#FaceList-ID), diğer öznitelikleri gibi yanı sıra [adı](#Name) ve [kullanıcı verilerini](#UserData-User-Data).
+FaceList, koleksiyonudur [PersistedFace](#PersistedFace) ve birimidir [Bul benzer](#Find-Similar). Bir FaceList birlikte bir [FaceList kimliği](#FaceList-ID), diğer öznitelikleri gibi ek olarak [adı](#Name) ve [kullanıcı verilerini](#UserData-User-Data).
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [FaceList - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [FaceList - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
 
-#### <a name="FaceList-ID"></a>FaceList kimliği
+#### <a name="facelist-id"></a>FaceList kimliği
 
 FaceList kimliği olan bir tanımlayıcı olarak kullanılan bir kullanıcı tarafından sağlanan dize bir [FaceList](#FaceList). FaceList kimliği abonelik içinde benzersiz olmalıdır.
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [FaceList - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [FaceList - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
 
-#### <a name="Find-Similar"></a>Benzer Bul
+#### <a name="find-similar"></a>Benzer bulun
 
-Bu API, arama/benzer yüzeyleri yazıtipleri, bir koleksiyona bağlı sorgu için kullanılır. Sorgu yüzeyleri ve yüz koleksiyonları olarak temsil [kimlikleri yüz](#Face-ID) veya [FceList kimliği](#FaceList-ID)/[LargeFaceList kimliği](#LargeFaceList-ID) isteği. Sonuçları tarafından temsil edilen Aranan benzer yüzeyleri döndürülür [kimlikleri yüz](#Face-ID) veya [PersistedFace kimlikleri](#PersistedFace-ID).
+Bu API, benzer yüzlerden yüzleri üzerindeki bir koleksiyona göre arama/sorgu için kullanılır. Sorgu yüzleri ve yüz koleksiyonları olarak gösterilir [kimlikleri yüz](#Face-ID) veya [FceList kimliği](#FaceList-ID)/[LargeFaceList kimliği](#LargeFaceList-ID) istek. Sonuçları tarafından temsil edilen Aranan benzer yüzleri döndürülür [kimlikleri yüz](#Face-ID) veya [PersistedFace kimlikleri](#PersistedFace-ID).
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [yüz - bulma benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [FaceList - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [yüz tanıma - bulma benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [FaceList - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b).
 
 ## <a name="g"></a>G
 
-#### <a name="Gender-Attribute"></a>Cinsiyeti (özniteliği)
+#### <a name="gender-attribute"></a>Cinsiyet (öznitelik)
 
-Cinsiyeti biridir [öznitelikleri](#Attributes) kullanılabilir yüzeyleri genders açıklamak için kullanılır. Cinsiyeti özniteliği isteğe bağlı olarak [algılama](#Detection-Face-Detection) sonuçlanır ve ile denetlenen bir [algılama](#Detection-Face-Detection) returnFaceAttributes isteğiyle. ReturnfaceAttributes 'cinsiyetiniz' içeriyorsa, döndürülen yüzeyleri cinsiyetiniz özniteliklere sahip olacaktır.
+Cinsiyet biridir [öznitelikleri](#Attributes) kullanılabilir dikdörtgenlerini cinsiyetleri tanımlamak için kullanılır. Cinsiyet özniteliği isteğe bağlı olarak [algılama](#Detection-Face-Detection) sonuçları gruplayan ve ile denetlenebilir bir [algılama](#Detection-Face-Detection) returnFaceAttributes isteği. ReturnfaceAttributes 'cinsiyet' içeriyorsa, döndürülen yüzleri cinsiyet özniteliğe sahip olacaktır.
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="Grouping"></a>Gruplandırma
+#### <a name="grouping"></a>Gruplama
 
-Yüz gruplandırma yüz benzerlikler göre yazıtipleri koleksiyonu gruplandırmasıdır. Yüz koleksiyonları istek yüz kimliği koleksiyonlarda belirtilir. Gruplandırma sonucunda benzer yüzeyleri olarak gruplanmış [grupları](#Groups), ve diğer bir yüze benzer olmayan yüzeyleri düzensiz grup olarak birlikte birleştirilir. En çok bir olduğundan [düzensiz grup](#Messy-Group) gruplandırma sonuç.
+Yüz gruplama yüz benzerlikler göre yüz koleksiyonu gruplandırmasıdır. Yüz tanıma koleksiyonları istek yüz kimliği koleksiyonlar gösterilir. Gruplandırma sonucu olarak, benzer yüzlerden olarak gruplanmış [grupları](#Groups), ve herhangi bir yüz için benzer olmayan yüzleri kullanmak istemiyor grup olarak birlikte birleştirilir. En fazla bir tane olduğunu [kullanmak istemiyor grubu](#Messy-Group) gruplandırma sonuç.
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-#### <a name="Groups"></a>Grupları
+#### <a name="groups"></a>Gruplar
 
-Grupları türetilir [gruplandırma](#Grouping) sonuçları. Her grubu benzer yüz, burada yüzeyleri belirtilir tarafından oluşan bir koleksiyon içeren [kimlikleri yüz](#Face-ID).
+Grupları türetilir [gruplandırma](#Grouping) sonuçları. Her grup, burada yüzleri gösterilen, benzer yüzlerden oluşan bir koleksiyon içeren [kimlikleri yüz](#Face-ID).
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
 ## <a name="h"></a>H
 
-#### <a name="Head-Pose-Attribute"></a>HEAD teşkil (özniteliği)
+#### <a name="head-pose-attribute"></a>HEAD (öznitelik) konusunda sizi uyarmayı
 
-HEAD poz biridir [öznitelikleri](#Attributes) temsil aşağıdaki şekilde gösterildiği gibi 3B uzaydaki Top, aralık ve yaw açıları göre yönlendirmesini yüz. Değer aralıklarını alma ve öğeler [-180, 180] ve [-90, 90] derece cinsinden yaw. Geçerli sürümde algılama döndürülen aralık değeri her zaman olduğu 0. Head poz özniteliği isteğe bağlı olarak [algılama](#Detection-Face-Detection) sonuçlanır ve ile denetlenen bir [algılama](#Detection-Face-Detection) returnFaceAttributes parametresi tarafından isteği. ReturnFaceAttributes parametresi 'headPose' içeriyorsa, döndürülen yüzeyleri head öznitelikleri neden olacaktır.
+HEAD poz biridir [öznitelikleri](#Attributes) temsil aşağıdaki şekilde gösterildiği gibi yönlendirme 3B alanda Top, aralık ve yaw açıları göre yüz. Değer aralıkları alma ve derece cinsinden olan [-180, 180] ve [-90, 90] yaw. Geçerli sürümde, her zaman algılamadan döndürülen aralık değer olan 0. İsteğe bağlı olarak baş poz özniteliktir [algılama](#Detection-Face-Detection) sonuçları gruplayan ve ile denetlenebilir bir [algılama](#Detection-Face-Detection) returnFaceAttributes parametresi tarafından istek. ReturnFaceAttributes parametresi 'headPose' içeriyorsa, döndürülen yüz öznitelikleri konusunda sizi uyarmayı baş sahip olur.
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ![GlossaryHeadPose](./Images/headpose.1.jpg)
 
 ## <a name="i"></a>I
 
-#### <a name="Identification"></a>Tanımlama
+#### <a name="identification"></a>Tanımlama
 
-Bir veya daha fazla yüzeyleri LargePersonGroup/PersonGroup gelen tanımlamak için kimliğidir.
-A [PersonGroup](#PersonGroup)/[LargePersonGroup](#LargePersonGroup) koleksiyonudur [kişi](#Person).
-Yüzeyleri ve LargePersonGroup/PersonGroup temsil ettiği [kimlikleri yüz](#Face-ID) ve [LargePersonGroup kimlikleri](#LargePersonGroup-ID)/[PersonGroup kimlikleri](#PersonGroup-ID) sırasıyla içinde İstek.
-Tanımlanan sonuçlar [adayları](#Candidate), tarafından gösterilen [kişi](#Person) güvenle.
-Giriş birden çok yüzeyleri ayrı olarak kabul edilir ve her yüzü tanımlanmış sonucunu gerekir.
+Kimlik, bir veya daha fazla yüzleri LargePersonGroup/PersonGroup belirlemektir.
+A [PersonGroup](#PersonGroup)/[LargePersonGroup](#LargePersonGroup) koleksiyonudur [kişiler](#Person).
+Yüzleri ve LargePersonGroup/PersonGroup temsil edilir [kimlikleri yüz](#Face-ID) ve [LargePersonGroup kimlikleri](#LargePersonGroup-ID)/[PersonGroup kimlikleri](#PersonGroup-ID) sırasıyla içinde İstek.
+Tanımlanan sonuçlar [adayları](#Candidate), tarafından gösterilen [kişiler](#Person) güvenle.
+Birden çok giriş yüzlerini ayrı olarak kabul edilir ve her yüz tanımlanan sonucunu sahip olur.
 
 > [!NOTE]
-> LargePersonGroup/PersonGroup önce kimliği başarıyla Eğitilecek. LargePersonGroup/PersonGroup eğitildi değil, veya eğitim [durum](#Status-Train) başarılı' (yani ' çalışıyor', 'başarısız' veya 'zaman aşımı') 'gibi istek yanıt olan 400 gösterilmez.
+> Önce tanımlama LargePersonGroup/PersonGroup başarıyla eğitim verilmelidir. LargePersonGroup/PersonGroup eğitim almamış ise veya eğitim [durumu](#Status-Train) istek yanıt 400 '(yani ' çalışıyor', 'başarısız' veya 'timeout')'de başarılı olarak' gösterilmez.
 > 
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [yüz - tanımlama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [LargePersonGroup kişi - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [ LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup kişi - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - tren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [yüz tanıma - tanımlamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [LargePersonGroup kişi - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [ LargePersonGroup - eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup kişi - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
 
-#### <a name="Is-Identical"></a>IsIdentical
+#### <a name="isidentical"></a>IsIdentical
 
-IsIdentical olan bir Boole alanı [doğrulama](#Verification) iki yüz aynı kişiye ait olup olmadığını belirten sonuçları.
+IsIdentical olan Boolean alanı [doğrulama](#Verification) iki yüzün aynı insana ait olup olmadığını belirten bir sonuç.
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - doğrulayın](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 ## <a name="j"></a>K
 
@@ -180,159 +180,159 @@ Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - doğrulayın](htt
 
 ## <a name="l"></a>L
 
-#### <a name="landmarks"></a>Bilinen yerler
+#### <a name="landmarks"></a>Yer işareti
 
-Lütfen bakın [yüz işaretleri](#Face-Landmarks-Facial-Landmarks).
+Lütfen [yüz yer işareti](#Face-Landmarks-Facial-Landmarks).
 
-#### <a name="LargeFaceList"></a>LargeFaceList
+#### <a name="largefacelist"></a>LargeFaceList
 
-LargeFaceList koleksiyonudur [PersistedFace](#PersistedFace) ve birimidir [Bul benzer](#Find-Similar). Bir LargeFaceList birlikte bir [LargeFaceList kimliği](#LargeFaceList-ID), diğer öznitelikleri gibi yanı sıra [adı](#Name) ve [kullanıcı verilerini](#UserData-User-Data).
+LargeFaceList, koleksiyonudur [PersistedFace](#PersistedFace) ve birimidir [Bul benzer](#Find-Similar). Bir LargeFaceList birlikte bir [LargeFaceList kimliği](#LargeFaceList-ID), diğer öznitelikleri gibi ek olarak [adı](#Name) ve [kullanıcı verilerini](#UserData-User-Data).
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceList - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce), [LargeFaceList - liste yüz](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceList - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce), [LargeFaceList - liste yüz](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6).
 
-#### <a name="LargeFaceList-ID"></a>LargeFaceList kimliği
+#### <a name="largefacelist-id"></a>LargeFaceList kimliği
 
 LargeFaceList kimliği olan bir tanımlayıcı olarak kullanılan bir kullanıcı tarafından sağlanan dize bir [LargeFaceList](#LargeFaceList). LargeFaceList kimliği abonelik içinde benzersiz olmalıdır.
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceList - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceList - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce).
 
-#### <a name="LargePersonGroup"></a>LargePersonGroup
+#### <a name="largepersongroup"></a>LargePersonGroup
 
-LargePersonGroup koleksiyonudur [kişi](#Person) ve birimidir [kimliği](#Identification). Bir LargePersonGroup birlikte bir [LargePersonGroup kimliği](#LargePersonGroup-ID), diğer öznitelikleri gibi yanı sıra [adı](#Name) ve [kullanıcı verilerini](#UserData-User-Data).
+LargePersonGroup, koleksiyonudur [kişiler](#Person) ve birimidir [kimliği](#Identification). Bir LargePersonGroup birlikte bir [LargePersonGroup kimliği](#LargePersonGroup-ID), diğer öznitelikleri gibi ek olarak [adı](#Name) ve [kullanıcı verilerini](#UserData-User-Data).
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [LargePersonGroup kişi - liste](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [LargePersonGroup kişi - listesinde](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1).
 
-#### <a name="LargePersonGroup-ID"></a>LargePersonGroup kimliği
+#### <a name="largepersongroup-id"></a>LargePersonGroup kimliği
 
 LargePersonGroup kimliği olan bir tanımlayıcı olarak kullanılan bir kullanıcı tarafından sağlanan dize bir [LargePersonGroup](#LargePersonGroup). LargePersonGroup kimliği abonelik içinde benzersiz olmalıdır.
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e).
 
 ## <a name="m"></a>M
 
-#### <a name="Messy-Group"></a>Düzensiz grubu
+#### <a name="messy-group"></a>İşleyerek grubu
 
-Düzensiz Grup türetilir [gruplandırma](#Grouping) yüzeyleri için başka bir yazıtipi benzer değil içeren sonuçları;. Düzensiz grubundaki her yüz belirtilir [kimliği yüz](#Face-ID).
+İşleyerek grubu türetilen [gruplandırma](#Grouping) değil herhangi bir yüz için benzer yüzleri içeren sonuçları;. Her yüz kullanmak istemiyor grubundaki belirtilir [yüz kimliği](#Face-ID).
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
 ## <a name="n"></a>N
 
-#### <a name="name-person"></a>Adı (kişi)
+#### <a name="name-person"></a>Ad (kişi)
 
-Ad olduğu için kullanıcı dostu tanımlayıcı bir dize [kişi](#Person). Farklı [kişi kimliği](#Person-ID), kişilerin adını grup içinde çoğaltılabilir.
+Ad için kullanıcı dostu tanımlayıcı bir dize olan [kişi](#Person). Farklı [kişinin kimliği](#Person-ID), bir grup kişilerin adını çoğaltılabilir.
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup kişi - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup kişi - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [ PersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup kişi - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup kişi - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [ PersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
-#### <a name="Name"></a>Adı (LargePersonGroup/PersonGroup)
+#### <a name="name-largepersongrouppersongroup"></a>Ad (LargePersonGroup/PersonGroup)
 
-Adıdır ayrıca için kullanıcı dostu tanımlayıcı bir dize [LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup). Farklı [LargePersonGroup kimliği](#LargePersonGroup-ID)/[PersonGroup kimliği](#PersonGroup-ID), LargePersonGroups/PersonGroups adı bir abonelikte çoğaltılabilir.
+Adı da olduğu için kullanıcı dostu tanımlayıcı bir dize [LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup). Farklı [LargePersonGroup kimliği](#LargePersonGroup-ID)/[PersonGroup kimliği](#PersonGroup-ID), bir abonelikte LargePersonGroups/kişi adını çoğaltılabilir.
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [PersonGroup - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [ PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [PersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [ PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
 
 ## <a name="o"></a>O
 
 ## <a name="p"></a>P
 
-#### <a name="PersistedFace"></a>PersistedFace
+#### <a name="persistedface"></a>PersistedFace
 
-PersistedFace yüz API'sindeki bir veri yapısıdır. PersistedFace ile birlikte gelen bir [PersistedFace kimliği](#PersistedFace-ID), diğer öznitelikleri gibi yanı sıra [adı](#Name), ve [kullanıcı verilerini](#UserData-User-Data).
+PersistedFace, yüz tanıma API'si, bir veri yapısıdır. PersistedFace ile birlikte gelen bir [PersistedFace kimliği](#PersistedFace-ID), diğer öznitelikleri gibi ek olarak [adı](#Name), ve [kullanıcı verilerini](#UserData-User-Data).
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceList - eklemek yüz](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - eklemek yüz](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup kişi - eklemek yüz](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [ PersonGroup kişi - eklemek yüz](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceList - yüz tanıma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - yüz tanıma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup kişi - yüz tanıma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [ PersonGroup kişi - yüz tanıma eklemek](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
-#### <a name="Person-ID"></a>Kişi kimliği
+#### <a name="person-id"></a>Kişinin kimliği
 
-Kişinin kimliği üretilir olduğunda bir [PersistedFace](#PersistedFace) başarıyla oluşturuldu. Bu yüz temsil eden bir dize oluşturulur [yüz API](#Face-API).
+Kişinin kimliği üretilir olduğunda bir [PersistedFace](#PersistedFace) başarıyla oluşturuldu. Bu bir yüz temsil eden bir dize oluşturulur [yüz tanıma API'si](#Face-API).
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceList - eklemek yüz](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - eklemek yüz](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup kişi - eklemek yüz](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [ PersonGroup kişi - eklemek yüz](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceList - yüz tanıma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - yüz tanıma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup kişi - yüz tanıma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [ PersonGroup kişi - yüz tanıma eklemek](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
-#### <a name="Person"></a>Kişi
+#### <a name="person"></a>Kişi
 
-Kişi yüz API yönetilen bir veri yapısıdır. Kişi ile birlikte gelen bir [kişi kimliği](#Person-ID), diğer öznitelikleri gibi yanı sıra [adı](#Name), koleksiyonu [PersistedFace](#PersistedFace), ve [kullanıcı verilerini](#UserData-User-Data).
+Kişi, yüz tanıma API'si yönetilen bir veri yapısıdır. Kişi ile birlikte gelen bir [kişinin kimliği](#Person-ID), diğer öznitelikleri gibi ek olarak [adı](#Name), koleksiyonu [PersistedFace](#PersistedFace), ve [kullanıcı verilerini](#UserData-User-Data).
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup kişi - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup kişi - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [ PersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup kişi - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup kişi - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [ PersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
-#### <a name="Person-ID"></a>Kişi kimliği
+#### <a name="person-id"></a>Kişinin kimliği
 
-Kişinin kimliği üretilir olduğunda bir [kişi](#Person) başarıyla oluşturuldu. Bu kişinin temsil eden bir dize oluşturulur [yüz API](#Face-API).
+Kişinin kimliği üretilir olduğunda bir [kişi](#Person) başarıyla oluşturuldu. Bu kişinin temsil eden bir dize oluşturulur [yüz tanıma API'si](#Face-API).
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup kişi - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup kişi - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [ PersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup kişi - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup kişi - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [ PersonGroup kişi - alma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
-#### <a name="PersonGroup"></a>PersonGroup
+#### <a name="persongroup"></a>PersonGroup
 
-PersonGroup koleksiyonudur [kişi](#Person) ve birimidir [kimliği](#Identification). Bir PersonGroup birlikte bir [PersonGroup kimliği](#PersonGroup-ID), diğer öznitelikleri gibi yanı sıra [adı](#Name) ve [kullanıcı verilerini](#UserData-User-Data).
+PersonGroup, koleksiyonudur [kişiler](#Person) ve birimidir [kimliği](#Identification). Bir PersonGroup birlikte bir [PersonGroup kimliği](#PersonGroup-ID), diğer öznitelikleri gibi ek olarak [adı](#Name) ve [kullanıcı verilerini](#UserData-User-Data).
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [PersonGroup - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246), [PersonGroup kişi - liste](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [PersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246), [PersonGroup kişi - listesinde](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241).
 
-#### <a name="PersonGroup-ID"></a>PersonGroup kimliği
+#### <a name="persongroup-id"></a>PersonGroup kimliği
 
 PersonGroup kimliği olan bir tanımlayıcı olarak kullanılan bir kullanıcı tarafından sağlanan dize bir [PersonGroup](#PersonGroup). Grup Kimliği abonelik içinde benzersiz olmalıdır.
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [PersonGroup - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [PersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
 
-#### <a name="pose-attribute"></a>(Öznitelik) neden
+#### <a name="pose-attribute"></a>Neden (öznitelik)
 
-Lütfen bakın [Head teşkil](#Head-Pose-Attribute).
+Lütfen [baş konusunda sizi uyarmayı](#Head-Pose-Attribute).
 
 ## <a name="q"></a>Q
 
 ## <a name="r"></a>R
 
-#### <a name="Recognition"></a>Tanıma
+#### <a name="recognition"></a>Oney Belgesi
 
-Tanıma olan popüler uygulama alanında yüz teknolojileri için gibi [Benzerini Bul](#Find-Similar), [gruplandırma](#Grouping), [tanımla](#Identification),[iki doğrulama bakarken aynı ya da değil ](#Verification).
+Tanıma olan popüler uygulama alan yüz teknolojileri gibi [Bul benzer](#Find-Similar), [gruplandırma](#Grouping), [tanımla](#Identification),[iki doğrulama yüzler aynı olmadığını ](#Verification).
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [yüz - bulma benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [yüz - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [yüz - tanımlama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [yüz - doğrulayın](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [yüz tanıma - bulma benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [yüz tanıma - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [yüz tanıma - tanımlamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [yüz tanıma - doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 #### <a name="rectangle-face"></a>Dikdörtgen (yüz)
 
-Lütfen bakın [yüz dikdörtgen](#Face-Rectangle).
+Lütfen [yüz dikdörtgeni](#Face-Rectangle).
 
 ## <a name="s"></a>S
 
-#### <a name="Smile-Attribute"></a>(Öznitelik) smile
+#### <a name="smile-attribute"></a>Gülümseyin (öznitelik)
 
-Gülümseme gönderme biridir [öznitelikleri](#Attributes) kullanılabilir yüzeyleri gülümseme gönderme ifade açıklamak için kullanılır. Gülümseme gönderme özniteliği isteğe bağlı olarak [algılama](#Detection-Face-Detection) sonuçlanır ve ile denetlenen bir [algılama](#Detection-Face-Detection) returnFaceAttributes isteğiyle. ReturnFaceAttributes 'smile' içeriyorsa, döndürülen yüzeyleri gülümseme gönderme özniteliklere sahip olacaktır.
+Gülümseme Gönder, biridir [öznitelikleri](#Attributes) kullanılabilir dikdörtgenlerini gülümseme ifade tanımlamak için kullanılır. Gülümseme Gönder özniteliği isteğe bağlı olarak [algılama](#Detection-Face-Detection) sonuçları gruplayan ve ile denetlenebilir bir [algılama](#Detection-Face-Detection) returnFaceAttributes isteği. ReturnFaceAttributes 'gülümseyin' içeriyorsa, döndürülen yüzleri gülümseme özniteliğe sahip olacaktır.
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### <a name="similar-face-searching"></a>Benzer Yüz Arama
 
-Lütfen bakın [Bul benzer](#Find-Similar).
+Lütfen [Bul benzer](#Find-Similar).
 
-#### <a name="Status-Train"></a>Durum (Train)
+#### <a name="status-train"></a>Durum (eğitme)
 
-Durumudur yordamı için tanımlamak için kullanılan bir dize [eğitim LargeFaceList/LargePersonGroups/PersonGroups](#Train), '' çalışıyor' notstarted de dahil olmak üzere', 'başarılı', 'failed'.
+Durumu için bir yordam tanımlamak için kullanılan bir dize ise [eğitim LargeFaceList/LargePersonGroups/belirlenmiştir](#Train), '' çalışıyor' notstarted dahil olmak üzere', 'başarılı', 'başarısız'.
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [LargeFaceList - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - tren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [LargeFaceList - eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
 
 #### <a name="subscription-key"></a>Abonelik anahtarı
 
-Abonelik, herhangi bir yazıtipi API'yi çağırmak için bir sorgu dizesi parametresi belirtmeniz gerekir dize bir anahtardır. Microsoft Bilişsel hizmetler portalına oturum açtıktan sonra abonelik anahtarı My abonelikler sayfasında bulunabilir. Her abonelikle ilişkili iki anahtar olacaktır: bir birincil anahtar ve ikincil bir anahtar. Her ikisi de aynı API'sini çağırmak için kullanılabilir. My abonelikler sayfasında herhangi bir zamanda abonelik anahtarları yeniden ve Abonelik anahtarları güvenli tutmak gerekir.
+Abonelik anahtarı herhangi bir yüz tanıma API'sini çağırmak için bir sorgu dizesi parametresi belirtmeniz gereken bir dizedir. Microsoft Bilişsel Hizmetleri portalında oturum açtıktan sonra abonelik anahtarını Aboneliklerim sayfasında bulunabilir. Her bir aboneliği ile ilişkili iki anahtar olacaktır: bir birincil anahtar ve ikincil bir anahtar. Her ikisi de aynı şekilde API'yi çağırmak için kullanılabilir. Abonelik anahtarları güvenli tutmak gereken ve Abonelik anahtarları Aboneliklerim sayfasından dilediğiniz zaman yeniden oluşturabilirsiniz.
 
 ## <a name="t"></a>T
 
-#### <a name="Train"></a>Tren (LargePersonGroup/LargeFaceList/PersonGroup)
+#### <a name="train-largefacelistlargepersongrouppersongroup"></a>Train (LargeFaceList/LargePersonGroup/PersonGroup)
 
-Bu API önceden işlemek için kullanılan [LargeFaceList](#LargeFaceList)/[LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup) emin olmak için [Bul Benzer](#Find-Similar)/[kimliği](#Identification) performans. Eğitim işletilen değil, veya [eğitim durumu](#Status-Train) başarılı olarak bu PersonGroup kimliği yüklenememesine neden olacak gösterilmez.
+Bu API, önceden işlemek için kullanılan [LargeFaceList](#LargeFaceList)/[LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup) emin olmak için [bulun Benzer](#Find-Similar)/[kimliği](#Identification) performans. Eğitim işletilen değil, ya da [eğitim durumu](#Status-Train) başarılı olarak bu PersonGroup kimliği hataya neden gösterilmez.
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceList - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249), [yüz - tanımlama ](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargeFaceList - eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - eğitme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249), [yüz tanıma - tanımlayın ](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 ## <a name="u"></a>U
 
-#### <a name="UserData-User-Data"></a>UserData/kullanıcı verileri
+#### <a name="userdatauser-data"></a>UserData/kullanıcı verileri
 
-Kullanıcı verilerinin olduğundan ile ilişkili ek bilgileri [kişi](#Person) ve [PersonGroup](#PersonGroup)/[LargePersonGroup](#LargePersonGroup). Kullanıcı verileri, veri kullanmak için anlamak ve unutmayın daha kolay hale getirmek için kullanıcılar tarafından ayarlanır.
+Kullanıcı verilerinin fazladan bilgi ile ilişkili olduğundan [kişi](#Person) ve [PersonGroup](#PersonGroup)/[LargePersonGroup](#LargePersonGroup). Kullanıcı verileri, veri kullanmak için anlamak ve unutmayın daha kolay hale getirmek için kullanıcılar tarafından ayarlanır.
 
-Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acfc83a7b9412a4d53f3f), [LargePersonGroup kişi - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup kişi - güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ade043a7b9412a4d53f41), [PersonGroup - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524a), [PersonGroup kişi - oluşturmak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [ PersonGroup kişi - güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395242).
+Daha fazla ayrıntı için lütfen aşağıdaki kılavuzlara bakın: [LargePersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acfc83a7b9412a4d53f3f), [LargePersonGroup kişi - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup kişi - güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ade043a7b9412a4d53f41), [PersonGroup - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524a), [PersonGroup kişi - oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [ PersonGroup kişi - güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395242).
 
 ## <a name="v"></a>V
 
-#### <a name="Verification"></a>Doğrulama
+#### <a name="verification"></a>Doğrulama
 
-Bu API, iki yüz aynı olup olmadığını doğrulamak için kullanılır. Her iki yüz kimlikleri istekte yüz olarak temsil edilir. Sonuçlarını içeren bir Boole alanı doğrulandı ([isIdentical](#Is-Identical)) aynı true ise belirten ve bir sayı alanında ([güvenirlik](#Confidence)) güvenirlik düzeyini gösteren.
+Bu API, iki yüzün aynı olup olmadığını doğrulamak için kullanılır. Her iki yüz, istekte kimlikleri yüz olarak temsil edilir. Sonuçları içeren bir Boole alanı doğrulandı ([isIdentical](#Is-Identical)) aynı belirten true ise ve bir sayı alanında ([güvenle](#Confidence)) güven düzeyini gösteren.
 
-Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz - doğrulayın](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+Daha fazla ayrıntı için lütfen Kılavuzu'na bakın [yüz tanıma - doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
 ## <a name="w"></a>W
 

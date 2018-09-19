@@ -1,39 +1,42 @@
 ---
-title: Bilgi Bankası araştırması hizmeti API'si yönteminde değerlendirmek | Microsoft Docs
-description: İçinde bilgi araştırması hizmet (KES) API Bilişsel Hizmetleri'ndeki değerlendir yöntemi kullanmayı öğrenin.
+title: Yöntemi - bilgi keşfetme hizmeti API'si
+titlesuffix: Azure Cognitive Services
+description: Bilgi keşfetme hizmeti (KES içinde) API değerlendir yöntemi kullanmayı öğrenin.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: fc3d73b326b565cfe40d1b82cc419357b28a801a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 45b25ec5cfc6e198b9b125675f4942463cef247a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351664"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128273"
 ---
-# <a name="evaluate-method"></a>Yöntemini değerlendirin
-*Değerlendirmek* yöntemi değerlendirir ve dizin verileri temel alan bir yapılandırılmış sorgu ifadesi çıktısını döndürür.
+# <a name="evaluate-method"></a>yöntemi
 
-Genellikle, bir ifade yorumlama yöntemine bir yanıtı alınacaktır.  Ancak, aynı zamanda sorgu ifadeleri kendiniz oluşturabilirsiniz (bkz [yapılandırılmış sorgu ifadesi](Expressions.md)).  
+*Değerlendirmek* yöntemi değerlendirir ve çıkış dizini verileri temel alan bir yapılandırılmış sorgu ifadesi döndürür.
+
+Genellikle, bir ifade yorumlama yöntemi için bir yanıt alınır.  Ancak, aynı zamanda sorgu ifadeleri kendiniz oluşturabilirsiniz (bkz [yapılandırılmış sorgu ifadesi](Expressions.md)).  
 
 ## <a name="request"></a>İstek 
+
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
 Ad|Değer|Açıklama
 ----|----|----
 ifade       | Metin dizesi | Bir alt dizin varlıkların seçer yapılandırılmış sorgu ifadesi.
-Öznitelikleri | Metin dizesi | Yanıta eklenecek öznitelikleri virgülle ayrılmış listesi.
+Öznitelikleri | Metin dizesi | Yanıta eklenecek özniteliklerin virgülle ayrılmış listesi.
 count      | Sayı (varsayılan = 10) | Döndürülecek sonuç sayısı.
-uzaklık     | Sayı (varsayılan = 0) | Döndürülecek ilk sonucu dizini.
-OrderBy |   Metin dizesi | İsteğe bağlı sıralama düzeni tarafından izlenen sonuçları sıralamak için kullanılan öznitelik adı (varsayılan = asc): "*attrname*[: (asc&#124;desc)]".  Belirtilmezse, sonuçları doğal günlük olasılık azaltarak döndürülür.
-timeout  | Sayı (varsayılan = 1000) | Milisaniye cinsinden zaman aşımı. Yalnızca zaman aşımı dolmadan hesaplanan sonuçlar döndürülür.
+uzaklık     | Sayı (varsayılan = 0) | Döndürülecek ilk sonuç dizini.
+OrderBy |   Metin dizesi | İsteğe bağlı bir sıralama düzeni tarafından izlenen sonuçları sıralamak için kullanılan özniteliğin adı (varsayılan = asc): "*attrname*[: (asc&#124;desc)]".  Belirtilmezse, doğal logaritmayı olasılık azaltarak sonuçlar döndürülür.
+timeout  | Sayı (varsayılan = 1000) | Milisaniye cinsinden zaman aşımı. Zaman aşımı dolmadan hesaplanan sonuçlar döndürülür.
 
-Kullanarak *sayısı* ve *uzaklık* parametreleri, çok sayıda sonuç elde edilebilir artımlı olarak birden çok istek.
+Kullanarak *sayısı* ve *uzaklığı* parametre sonuçları çok sayıda elde edilebilir artımlı olarak birden çok istek.
   
 ## <a name="response-json"></a>Yanıt (JSON)
 JSONPath|Açıklama
@@ -49,7 +52,7 @@ Akademik yayınlar örnekte aşağıdaki isteği bir yapılandırılmış sorgu 
 
 `http://<host>/evaluate?expr=Composite(Author.Name=='jaime teevan')&attributes=Title,Y,Author.Name,Author.Id&count=2`
 
-Yanıt üst 2 içerir ("count = 2") büyük olasılıkla, varlıkları eşleşen.  Her bir varlık için başlık, yılı, yazar adı ve yazar kimlik öznitelikleri döndürülür.  Veri dosyasında belirtilen şekilde nasıl bileşik yapısını öznitelik değerlerini eşleşen unutmayın. 
+Yanıt üst 2 içerir ("sayısı 2 =") büyük olasılıkla, varlıkları eşleşen.  Her varlık için başlık, yıl, yazarın adı ve Yazar Kimliği öznitelikleri döndürülür.  Veri dosyasında belirtilen şekilde nasıl birleşik yapısını öznitelik değerlerini eşleşen dikkat edin. 
 
 ```json
 {

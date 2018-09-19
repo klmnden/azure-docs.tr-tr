@@ -1,28 +1,28 @@
 ---
-title: Translator Text API kaydolma | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: Translator Text API kaydolma
+titleSuffix: Azure Cognitive Services
 description: Translator metin çevirisi API'si için kaydolmayı öğrenin.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 2aa293acfa1a9e3fd95a64f6981bd8dc9747b6b6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 18d2926be9d358b90e5b34754e689604aef85522
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "36265566"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128326"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Translator metin çevirisi API'si için kaydolma
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-- Hesabınız yok mu? Oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) ücretsiz deneme.
-- Zaten bir hesabınız yok? [Oturum Aç](https://ms.portal.azure.com/)
+- Hesabınız yok mu? Deneme yapmak için [ücretsiz hesap](https://azure.microsoft.com/free/) oluşturabilirsiniz.
+- Hesabınız var mı? [Oturum Aç](https://ms.portal.azure.com/)
 
 ## <a name="create-a-subscription-to-the-translator-text-api"></a>Translator Text API aboneliği oluşturma
 
