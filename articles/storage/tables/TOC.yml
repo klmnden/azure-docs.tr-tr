@@ -1,69 +1,83 @@
+items:
 - name: Azure Tablo depolama Belgeleri
   items:
-    - name: Azure Tablo depolamaya genel bakış
-      href: table-storage-overview.md
-    - name: Tablo depolamayı veya Tablo API’sini seçme
-      href: /azure/cosmos-db/table-support
-      maintainContext: true
+  - name: Azure Tablo depolamaya genel bakış
+    href: table-storage-overview.md
+  - name: Tablo depolamayı veya Tablo API’sini seçme
+    href: /azure/cosmos-db/table-support
+    maintainContext: true
 - name: Hızlı Başlangıçlar
   items:
-    - name: Depolama hesabı oluşturma
-      href: /azure/storage/common/storage-quickstart-create-account
-      maintainContext: true
-    - name: Azure portalda tablo oluşturma
-      href: table-storage-quickstart-portal.md
+  - name: Depolama hesabı oluşturma
+    href: /azure/storage/common/storage-quickstart-create-account
+    maintainContext: true
+  - name: Azure portalda tablo oluşturma
+    href: table-storage-quickstart-portal.md
 - name: Örnekler
   items:
-    - name: .NET
-      href: /azure/cosmos-db/table-storage-how-to-use-dotnet
-      maintainContext: true
-    - name: 'F#'
-      href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
-      maintainContext: true
-    - name: Java
-      href: /azure/cosmos-db/table-storage-how-to-use-java
-      maintainContext: true
-    - name: Node.js
-      href: /azure/cosmos-db/table-storage-how-to-use-nodejs
-      maintainContext: true
-    - name: C++
-      href: /azure/cosmos-db/table-storage-how-to-use-c-plus
-      maintainContext: true
-    - name: PHP
-      href: /azure/cosmos-db/table-storage-how-to-use-php
-      maintainContext: true
-    - name: Python
-      href: /azure/cosmos-db/table-storage-how-to-use-python
-      maintainContext: true
-    - name: Ruby
-      href: /azure/cosmos-db/table-storage-how-to-use-ruby
-      maintainContext: true
-    - name: PowerShell
-      href: /azure/storage/tables/table-storage-how-to-use-powershell
-      maintainContext: true
+  - name: .NET
+    href: /azure/cosmos-db/table-storage-how-to-use-dotnet
+    maintainContext: true
+  - name: F#
+    href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+    maintainContext: true
+  - name: Java
+    href: /azure/cosmos-db/table-storage-how-to-use-java
+    maintainContext: true
+  - name: Node.js
+    href: /azure/cosmos-db/table-storage-how-to-use-nodejs
+    maintainContext: true
+  - name: C++
+    href: /azure/cosmos-db/table-storage-how-to-use-c-plus
+    maintainContext: true
+  - name: PHP
+    href: /azure/cosmos-db/table-storage-how-to-use-php
+    maintainContext: true
+  - name: Python
+    href: /azure/cosmos-db/table-storage-how-to-use-python
+    maintainContext: true
+  - name: Ruby
+    href: /azure/cosmos-db/table-storage-how-to-use-ruby
+    maintainContext: true
+  - name: PowerShell
+    href: /azure/storage/tables/table-storage-how-to-use-powershell
+    maintainContext: true
 - name: Kavramlar
   items:
-    - name: Ölçeklenebilir ve performansa yönelik tablolar tasarlama
-      href: table-storage-design.md
-    - name: Tablo tasarımı için yönergeler
-      href: table-storage-design-guidelines.md
-    - name: Sorgulama için tasarım
-      href: table-storage-design-for-query.md
-    - name: Veri değişikliği için tasarım
-      href: table-storage-design-for-modification.md
-    - name: Tablo verilerini şifreleme
-      href: table-storage-design-encrypt-data.md
-    - name: İlişkileri modelleme
-      href: table-storage-design-modeling.md
-    - name: Tablo tasarımı desenleri
-      href: table-storage-design-patterns.md
+  - name: Depolama hesapları
+    href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    items:
+    - name: Depolama hesabını yönetme
+      href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Depolama hesabını yükseltme
+      href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+  - name: Ölçeklenebilir ve performansa yönelik tablolar tasarlama
+    href: table-storage-design.md
+  - name: Tablo tasarımı için yönergeler
+    href: table-storage-design-guidelines.md
+  - name: Sorgulama için tasarım
+    href: table-storage-design-for-query.md
+  - name: Veri değişikliği için tasarım
+    href: table-storage-design-for-modification.md
+  - name: Tablo verilerini şifreleme
+    href: table-storage-design-encrypt-data.md
+  - name: İlişkileri modelleme
+    href: table-storage-design-modeling.md
+  - name: Tablo tasarımı desenleri
+    href: table-storage-design-patterns.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Depolama öykünücüsü kullanma
-      href: /azure/storage/common/storage-use-emulator
-      maintainContext: true
+  - name: Depolama öykünücüsü kullanma
+    href: /azure/storage/common/storage-use-emulator
+    maintainContext: true
 - name: Kaynaklar
   items:
-    - name: Tablo depolama REST API'leri
-      href: 'https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api'
-      maintainContext: true
+  - name: Tablo depolama REST API'leri
+    href: https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api
+    maintainContext: true
+ms.openlocfilehash: 08c4f97011d8eef508c96bb2d1d7d62122094245
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45728989"

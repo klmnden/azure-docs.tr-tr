@@ -12,7 +12,6 @@
 
 
 # başlarken
-## [Azure AD’yi kullanmaya başlama](fundamentals/get-started-azure-ad.md)
 ## [Azure AD Premium’a kaydolun](fundamentals/active-directory-get-started-premium.md)
 ## [Özel bir etki alanı adı ekleme](fundamentals/add-custom-domain.md)
 ## [Şirket markası yapılandırma](fundamentals/customize-branding.md)
@@ -20,28 +19,29 @@
 ## [Kullanıcılara lisans atama](fundamentals/license-users-groups.md)
 ## [Self servis parola sıfırlamasını yapılandırma](authentication/quickstart-sspr.md)
 ## [Azure AD’ye kuruluşunuzun gizlilik bilgilerini ekleme](active-directory-properties-area.md)
+## [Yeni bir kiracı oluşturmak için Azure Active Directory’ye erişme](fundamentals/active-directory-access-create-new-tenant.md)
 
 
 # Nasıl yapılır
 ## Planlama ve tasarım
 ### [Azure AD mimarisini anlama](fundamentals/active-directory-architecture.md)
 ### [Azure Active Directory’de talep eşlemesi](active-directory-claims-mapping.md)
-### [Karma kimlik çözümü dağıtma](active-directory-hybrid-identity-design-considerations-overview.md)
+### [Karma kimlik çözümü dağıtma](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Gereksinimlerini belirleme
-##### [Kimlik](active-directory-hybrid-identity-design-considerations-business-needs.md)
-##### [Dizin eşitlemesi](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-##### [Multi-Factor Authentication](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-##### [Kimlik yaşam döngüsü stratejisi](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-#### [Veri güvenliği planlama](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-##### [Veri koruma](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-##### [İçerik yönetimi](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-##### [Erişim denetimi](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-##### [Olay yanıtı](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+##### [Kimlik](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
+##### [Dizin eşitlemesi](hybrid/plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Multi-Factor Authentication](hybrid/plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [Kimlik yaşam döngüsü stratejisi](hybrid/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [Veri güvenliği planlama](hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [Veri koruma](hybrid/plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [İçerik yönetimi](hybrid/plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [Erişim denetimi](hybrid/plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [Olay yanıtı](hybrid/plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 #### Kimlik yaşam döngünüzü planlama
-##### [Görevler](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-##### [Benimseme stratejisi](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-#### [Sonraki adımlar](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-#### [Araç karşılaştırması](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+##### [Görevler](hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [Benimseme stratejisi](hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [Sonraki adımlar](hybrid/plan-hybrid-identity-design-considerations-nextsteps.md)
+#### [Araç karşılaştırması](hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Kullanıcıları yönetme
 ### [Azure AD’ye yeni kullanıcı ekleme](fundamentals/add-users-azure-active-directory.md)
@@ -91,11 +91,13 @@
 ### [Risk altındaki kullanıcılar](reports-monitoring/concept-user-at-risk.md)
 ### [Riskli oturum açma işlemleri](reports-monitoring/concept-risky-sign-ins.md)
 ### [Risk olayları](reports-monitoring/concept-risk-events.md)
-### [Azure İzleyici’yi kullanarak günlükleri izleme](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [Azure İzleyici’yi kullanarak günlükleri izleme](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
 ### [SSS](reports-monitoring/reports-faq.md)
 
 ### Görevler
-#### [Adlandırılmış konumları yapılandırma](active-directory-named-locations.md)
+#### [Oturum açma raporunu indirme](reports-monitoring/quickstart-download-sign-in-report.md)
+#### [Denetim raporunu indirme](reports-monitoring/quickstart-download-audit-report.md)
+#### [Adlandırılmış konumları yapılandırma](reports-monitoring/quickstart-configure-named-locations.md)
 #### [Etkinlik raporlarını bulma](reports-monitoring/howto-find-activity-reports.md)
 #### [Azure AD Power BI İçerik Paketi’ni kullanma](reports-monitoring/howto-power-bi-content-pack.md)
 #### [Riskli olduğu belirlenen kullanıcıları düzeltme](reports-monitoring/howto-remediate-users-flagged-for-risk.md)
@@ -307,7 +309,7 @@
 
 
 ## Dizininizi yönetme
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 ### Özel etki alanı adları
 #### [Hızlı Başlangıç](fundamentals/add-custom-domain.md)
 ### [Dizininizi yönetme](fundamentals/active-directory-administer.md)
@@ -319,7 +321,7 @@
 #### [Sorun giderme](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
-### [Azure AD Connect kullanarak şirket içi kimlikleri tümleştirme](./connect/active-directory-aadconnect.md)
+### [Azure AD Connect kullanarak şirket içi kimlikleri tümleştirme](hybrid/whatis-hybrid-identity.md)
 
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
 
@@ -327,7 +329,7 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [Azure’a AD FS dağıtma](active-directory-aadconnect-azure-adfs.md)
+## [Azure’a AD FS dağıtma](hybrid/how-to-connect-fed-azure-adfs.md)
 ### [Yüksek kullanılabilirlik](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Değişiklik imzası karma algoritması](active-directory-federation-sha256-guidance.md)
 
@@ -347,8 +349,8 @@
 
 # İlgili
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](./connect/active-directory-aadconnect.md)
-## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
+## [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
+## [Azure AD Connect Health](hybrid/whatis-hybrid-identity-health.md)
 ## [Geliştiriciler için Azure AD](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 

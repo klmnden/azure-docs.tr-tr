@@ -652,6 +652,12 @@ items:
     - name: Güvenlik Duvarı Kuralları
       href: /azure/templates/Microsoft.DBforMySQL/servers/firewallRules
       maintainContext: true
+    - name: Güvenlik Uyarısı İlkeleri
+      href: /azure/templates/Microsoft.DBforMySQL/servers/securityAlertPolicies
+      maintainContext: true
+    - name: Sanal Ağ Kuralları
+      href: /azure/templates/Microsoft.DBforMySQL/servers/virtualNetworkRules
+      maintainContext: true
     maintainContext: true
 - name: Ağ
   items:
@@ -661,8 +667,14 @@ items:
   - name: Uygulama Güvenlik Grupları
     href: /azure/templates/Microsoft.Network/applicationSecurityGroups
     maintainContext: true
+  - name: Azure Güvenlik Duvarları
+    href: /azure/templates/Microsoft.Network/azureFirewalls
+    maintainContext: true
   - name: Bağlantılar
     href: /azure/templates/Microsoft.Network/connections
+    maintainContext: true
+  - name: DDoS Koruması Planları
+    href: /azure/templates/Microsoft.Network/ddosProtectionPlans
     maintainContext: true
   - name: DNS Bölgeleri
     href: /azure/templates/Microsoft.Network/dnsZones
@@ -706,6 +718,17 @@ items:
       maintainContext: true
     - name: Eşlemeler
       href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings
+      items:
+      - name: Bağlantılar
+        href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings/connections
+        maintainContext: true
+      maintainContext: true
+    maintainContext: true
+  - name: Express Route Çapraz Bağlantıları
+    href: /azure/templates/Microsoft.Network/expressRouteCircuits
+    items:
+    - name: Eşlemeler
+      href: /azure/templates/Microsoft.Network/expressRouteCircuits/peerings
       maintainContext: true
     maintainContext: true
   - name: Yük Dengeleyiciler
@@ -731,12 +754,18 @@ items:
   - name: Ağ İzleyicileri
     href: /azure/templates/Microsoft.Network/networkWatchers
     items:
+    - name: Bağlantı İzleyicileri
+      href: /azure/templates/Microsoft.Network/networkWatchers/connectionMonitors
+      maintainContext: true
     - name: Paket Yakalamalar
       href: /azure/templates/Microsoft.Network/networkWatchers/packetCaptures
       maintainContext: true
     maintainContext: true
   - name: Genel IP Adresleri
     href: /azure/templates/Microsoft.Network/publicIPAddresses
+    maintainContext: true
+  - name: Genel IP Ön Ekleri
+    href: /azure/templates/Microsoft.Network/publicIPPrefixes
     maintainContext: true
   - name: Rota Filtreleri
     href: /azure/templates/Microsoft.Network/routeFilters
@@ -752,8 +781,18 @@ items:
       href: /azure/templates/Microsoft.Network/routeTables/routes
       maintainContext: true
     maintainContext: true
+  - name: Hizmet Uç Noktası İlkeleri
+    href: /azure/templates/Microsoft.Network/serviceEndpointPolicies
+    items:
+    - name: Hizmet Uç Noktası İlke Tanımları
+      href: /azure/templates/microsoft.Network/serviceendpointpolicies/serviceendpointpolicydefinitions
+      maintainContext: true
+    maintainContext: true
   - name: Traffic Manager Profilleri
     href: /azure/templates/Microsoft.Network/trafficmanagerprofiles
+    maintainContext: true
+  - name: Sanal Hub’lar
+    href: /azure/templates/Microsoft.Network/virtualHubs
     maintainContext: true
   - name: Sanal Ağ Geçitleri
     href: /azure/templates/Microsoft.Network/virtualNetworkGateways
@@ -767,6 +806,19 @@ items:
     - name: Sanal Ağ Eşlemeleri
       href: /azure/templates/Microsoft.Network/virtualNetworks/virtualNetworkPeerings
       maintainContext: true
+    maintainContext: true
+  - name: Sanal WAN'lar
+    href: /azure/templates/Microsoft.Network/virtualWans
+    maintainContext: true
+  - name: VPN Ağ Geçitleri
+    href: /azure/templates/Microsoft.Network/vpnGateways
+    items:
+    - name: VPN Bağlantıları
+      href: /azure/templates/Microsoft.Network/vpnGateways/vpnconnections
+      maintainContext: true
+    maintainContext: true
+  - name: VPN Siteleri
+    href: /azure/templates/Microsoft.Network/vpnSites
     maintainContext: true
 - name: Notification Hubs
   items:
@@ -818,6 +870,12 @@ items:
       maintainContext: true
     - name: Güvenlik Duvarı Kuralları
       href: /azure/templates/Microsoft.DBforPostgreSQL/servers/firewallRules
+      maintainContext: true
+    - name: Güvenlik Uyarısı İlkeleri
+      href: /azure/templates/Microsoft.DBforPostgreSQL/servers/securityAlertPolicies
+      maintainContext: true
+    - name: Sanal Ağ Kuralları
+      href: /azure/templates/Microsoft.DBforPostgreSQL/servers/virtualNetworkRules
       maintainContext: true
     maintainContext: true
 - name: Power BI
@@ -1174,9 +1232,9 @@ items:
         maintainContext: true
       maintainContext: true
     maintainContext: true
-ms.openlocfilehash: d4d1828eff777d27fe750906c1bee0d436d89ce5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: f54d4b1a72752571605a894a3be94025e8fce451
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41929234"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984433"

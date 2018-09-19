@@ -8,24 +8,98 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 11bf136897b5d5b8140fc7ff1bb259c657a71921
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 085df618eb6d3eb78e42261d1b324c3a2374877b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092199"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123394"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure işlevleri için Host.JSON başvurusu
 
 *Host.json* meta veri dosyası, tüm işlevler bir işlev uygulaması için etkileyen genel yapılandırma seçenekleri içerir. Bu makalede, kullanılabilir ayarlar listelenmiştir. JSON şemasını altındadır http://json.schemastore.org/host.
 
-Diğer genel yapılandırma seçeneği yoktur [uygulama ayarları](functions-app-settings.md) ve [local.settings.json](functions-run-local.md#local-settings-file) dosya.
+> [!NOTE]
+> Önemli farklılıklar vardır *host.json* sürümleri v1 ve v2 Azure işlevleri çalışma zamanı arasında. `"version": "2.0"` V2 çalışma zamanını hedefleyen bir işlev uygulaması için gereklidir.
+
+Başka bir işlev uygulaması yapılandırma seçenekleri yönetilir, [uygulama ayarları](functions-app-settings.md).
+
+Bazı host.json ayarları yalnızca yerel olarak çalıştırırken kullanılan [local.settings.json](functions-run-local.md#local-settings-file) dosya.
 
 ## <a name="sample-hostjson-file"></a>Örnek host.json dosyası
 
-Aşağıdaki örnek *host.json* dosyası belirtilen tüm olası seçeneklerin sahiptir.
+Aşağıdaki örnek *host.json* dosyaları belirtilen tüm olası seçeneklerin sahiptir.
+
+### <a name="version-2x"></a>Sürüm 2.x
+
+```json
+{
+    "version": "2.0",
+    "aggregator": {
+        "batchSize": 1000,
+        "flushTimeout": "00:00:30"
+    },
+    "extensions": {
+        "eventHubs": {
+          "maxBatchSize": 64,
+          "prefetchCount": 256,
+          "batchCheckpointFrequency": 1
+        },
+        "http": {
+            "routePrefix": "api",
+            "maxConcurrentRequests": 5,
+            "maxOutstandingRequests": 30
+        },
+        "queues": {
+            "visibilityTimeout": "00:00:10",
+            "maxDequeueCount": 3
+        },
+        "sendGrid": {
+            "from": "Azure Functions <samples@functions.com>"
+        },
+        "serviceBus": {
+          "maxConcurrentCalls": 16,
+          "prefetchCount": 100,
+          "autoRenewTimeout": "00:05:00"
+        }
+    },
+    "functions": [ "QueueProcessor", "GitHubWebHook" ],
+    "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
+    "id": "9f4ea53c5136457d883d685e57164f08",
+    "logging": {
+        "fileLoggingMode": "debugOnly",
+        "logLevel": {
+          "Function.MyFunction": "Information",
+          "default": "None"
+        },
+        "applicationInsights": {
+            "sampling": {
+              "isEnabled": true,
+              "maxTelemetryItemsPerSecond" : 5
+            }
+        }
+    },
+    "singleton": {
+      "lockPeriod": "00:00:15",
+      "listenerLockPeriod": "00:01:00",
+      "listenerLockRecoveryPollingInterval": "00:01:00",
+      "lockAcquisitionTimeout": "00:01:00",
+      "lockAcquisitionPollingInterval": "00:00:03"
+    },
+    "watchDirectories": [ "Shared", "Test" ]
+}
+```
+
+### <a name="version-1x"></a>Sürüm 1.x
 
 ```json
 {
@@ -121,7 +195,7 @@ Kaç tane işlev çağrılarını belirtir ne zaman toplanan [ölçümler için 
 
 ## <a name="applicationinsights"></a>Applicationınsights
 
-Denetimleri [Application ınsights'ta örnekleme özelliği](functions-monitoring.md#configure-sampling).
+Denetimleri [Application ınsights'ta örnekleme özelliği](functions-monitoring.md#configure-sampling). Sürüm 2.x, bu ayar bir alt öğesi olan [günlüğü](#log).
 
 ```json
 {
@@ -168,7 +242,7 @@ Görev hub adları bir harf ile başlamalı ve yalnızca harf ve sayı oluşur. 
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------|
-|HubName|DurableFunctionsHub|Alternatif [görev hub](durable-functions-task-hubs.md) adları kullanılabilir birden çok dayanıklı işlevler uygulamaları birbirinden ayırmak için aynı depolama arka ucu kullansalar bile.|
+|HubName|DurableFunctionsHub|Alternatif [görev hub](durable-functions-task-hubs.md) adları, birden çok dayanıklı işlevler uygulamaları birbirinden ayırmak için kullanılabilir olsa bile aynı depolama arka ucu kullanarak theyre.|
 |ControlQueueBatchSize|32|Aynı anda Denetim sıradan çıkarmak için ileti sayısı.|
 |PartitionCount |4|Denetim sıranın bölüm sayısı. 1 ile 16 arasında pozitif bir tamsayı olabilir.|
 |ControlQueueVisibilityTimeout |5 dakika|Sıradan çıkarılan denetim iletileri görünebilirlik zaman aşımı.|
@@ -181,19 +255,25 @@ Görev hub adları bir harf ile başlamalı ve yalnızca harf ve sayı oluşur. 
 |EventGridTopicEndpoint ||Bir Azure Event Grid özel konusu uç nokta URL'si. Bu özelliği ayarlandığında düzenleme yaşam döngüsü bildirim olayları Bu uç noktaya yayınlanır. Bu özellik, uygulama ayarları çözümleme destekler.|
 |EventGridKeySettingName ||Azure Event Grid özel konusu ile kimlik doğrulaması için kullanılan anahtarı içeren uygulama ayarının adı `EventGridTopicEndpoint`.|
 |EventGridPublishRetryCount|0|Olay Kılavuzu konu başlığında yayımlamaya yeniden denemek için kaç kez başarısız olur.|
-|EventGridPublishRetryInterval|5 dakika|Yeniden deneme aralığı içinde Event Grid yayımlama *SS* biçimi.|
+|EventGridPublishRetryInterval|5 dakika|Event Grid, yeniden deneme aralığı yayımlar *SS* biçimi.|
 
 Bunların çoğu, performansı iyileştirmek için olan. Daha fazla bilgi için [performansı ve ölçeği](durable-functions-perf-and-scale.md).
 
 ## <a name="eventhub"></a>eventHub
 
-İçin yapılandırma ayarlarını [olay hub'ı Tetikleyicileri ve bağlamaları](functions-bindings-event-hubs.md).
+İçin yapılandırma ayarlarını [olay hub'ı Tetikleyicileri ve bağlamaları](functions-bindings-event-hubs.md). Sürüm 2.x, bu alt öğesi olan [uzantıları](#extensions).
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
+## <a name="extensions"></a>Uzantıları
+
+*Sürüm 2.x yalnızca.*
+
+Tüm bağlama özgü ayarları gibi içeren bir nesne döndürür özelliği [http](#http) ve [eventHub](#eventhub).
+
 ## <a name="functions"></a>işlevler
 
-Proje ana bilgisayar çalıştırılan işlevlerin listesi. Boş bir dizi tüm işlevleri çalıştırma anlamına gelir. Kullanılmak üzere tasarlanmış yalnızca [yerel olarak çalışan](functions-run-local.md). İşlev uygulamaları'nda *function.json* `disabled` bu özellikte yerine özellik *host.json*.
+Proje ana çalışan işlevlerin listesi. Boş bir dizi tüm işlevleri çalıştırma anlamına gelir. Kullanılmak üzere tasarlanmış yalnızca [yerel olarak çalışan](functions-run-local.md). Azure işlev uygulamaları bunun yerine adımları izlemelidir [işlevleri Azure işlevleri'nde devre dışı bırakma](disable-function.md) belirli işlevleri yerine bu ayarı devre dışı bırakmak için.
 
 ```json
 {
@@ -203,7 +283,7 @@ Proje ana bilgisayar çalıştırılan işlevlerin listesi. Boş bir dizi tüm i
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Tüm İşlevler için zaman aşımı süresini gösterir. Tüketim planları, geçerli aralık 1 saniye için 10 dakika olan ve varsayılan değer 5 dakikadır. App Service planları, sınırı yoktur ve hiçbir zaman aşımı belirten varsayılan değeri null.
+Tüm İşlevler için zaman aşımı süresini gösterir. Sunucusuz bir tüketim planı geçerli aralık 1 saniye için 10 dakika olan ve varsayılan değer 5 dakikadır. App Service planı, genel bir sınır yoktur ve varsayılan çalışma zamanı sürümüne bağlıdır. Sürüm 2.x, bir App Service planı, 30 dakika için varsayılan değeri. Sürümünde olduğu 1.x, *null*, hiçbir zaman aşımını gösterir.
 
 ```json
 {
@@ -229,7 +309,7 @@ Tüm İşlevler için zaman aşımı süresini gösterir. Tüketim planları, ge
 
 |Özellik  |Varsayılan | Açıklama |
 |---------|---------|---------| 
-|enabled|true|Özellik etkinleştirilip etkinleştirilmediği. | 
+|enabled|true|Özelliğin etkin olup olmadığını belirtir. | 
 |healthCheckInterval|10 saniye|Düzenli arka plan sistem arasındaki zaman aralığını denetler. | 
 |healthCheckWindow|2 dakika|İle birlikte kullanılan kayan zaman penceresini `healthCheckThreshold` ayarı.| 
 |healthCheckThreshold|6|En fazla kaç kez, bir konak geri dönüştürme başlatılmadan önce sistem durumu denetimi başarısız olabilir.| 
@@ -237,16 +317,17 @@ Tüm İşlevler için zaman aşımı süresini gösterir. Tüketim planları, ge
 
 ## <a name="http"></a>http
 
-İçin yapılandırma ayarlarını [http Tetikleyicileri ve bağlamaları](functions-bindings-http-webhook.md).
+İçin yapılandırma ayarlarını [http Tetikleyicileri ve bağlamaları](functions-bindings-http-webhook.md). Sürüm 2.x, bu alt öğesi olan [uzantıları](#extensions).
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="id"></a>id
 
-Bir proje konak için benzersiz kimliği. Tireler ile küçük harf GUID kaldırılabilir. Yerel olarak çalışan gereklidir. Azure işlevleri'nde çalışırken, bir kimliği otomatik olarak, oluşturulan `id` atlanır.
+*Sürümü yalnızca 1.x.*
+
+Bir proje konak için benzersiz kimliği. Tireler ile küçük harf GUID kaldırılabilir. Yerel olarak çalışan gereklidir. Azure'da çalışan bir kimlik değeri ayarlanmadı öneririz. Azure'da bir kimliği otomatik olarak oluşturulan olduğunda `id` atlanır. Sürüm 2.x çalışma zamanı kullanırken bir özel işlev uygulama kimliği olarak ayarlanamıyor.
 
 Birden fazla işlev uygulaması arasında bir depolama hesabını paylaşmak, her işlev uygulaması farklı olduğundan emin olun `id`. Atlayabilirsiniz `id` özelliği veya her işlevi uygulamanın el ile ayarlamanız `id` için farklı bir değer. Zamanlayıcı tetikleyicisi depolama kilidi olacağına dair yalnızca bir zamanlayıcı örneği birden çok örneği için bir işlev uygulaması kullanıma ölçeklendirildiğinde emin olmak için kullanır. İki işlev uygulamaları aynı paylaşıyorsa `id` ve her bir zamanlayıcı tetikleyicisi kullanan, tek bir zamanlayıcı çalışır.
-
 
 ```json
 {
@@ -255,6 +336,8 @@ Birden fazla işlev uygulaması arasında bir depolama hesabını paylaşmak, he
 ```
 
 ## <a name="logger"></a>Günlükçü
+
+*Sürüm 1.x yalnızca; sürüm 2.x kullanılmak [günlüğü](#logging).*
 
 Tarafından yazılan günlükler için filtreleme denetimlerini bir [ILogger nesne](functions-monitoring.md#write-logs-in-c-functions) ya da [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
@@ -279,15 +362,40 @@ Tarafından yazılan günlükler için filtreleme denetimlerini bir [ILogger nes
 |defaultLevel|Bilgi|Belirtilen değil tüm kategorileri için `categoryLevels` dizi, bu düzeyde ve yukarıdaki günlükleri Application Insights'a Gönder.| 
 |categoryLevels|yok|Her kategori için Application Insights'a gönderme için en düşük günlük düzeyi belirtir kategoriler dizisi. Burada belirtilen kategori aynı değeri ile başlayan tüm kategorileri denetler ve daha uzun değerleri önceliklidir. Yukarıdaki örnekte *host.json* dosyası günlüğüne "Host.Aggregator" ile başlayan tüm kategorileri `Information` düzeyi. "Ana" gibi "Host.Executor" ile başlayan diğer tüm kategorileri oturum `Error` düzeyi.| 
 
+## <a name="logging"></a>Günlüğe kaydetme
+
+*Sürüm 2.x yalnızca; Sürüm 1.x kullanılmak [Günlükçü](#logger).*
+
+Application Insights da dahil olmak üzere, bir işlev uygulaması günlük davranışlarını denetler.
+
+```json
+"logging": {
+    "fileLoggingMode": "debugOnly",
+    "logLevel": {
+      "Function.MyFunction": "Information",
+      "default": "None"
+    },
+    "applicationInsights": {
+        ...
+    }
+}
+```
+
+|Özellik  |Varsayılan | Açıklama |
+|---------|---------|---------|
+|fileLoggingMode|bilgi|Günlükleri bu düzeyde ve üzeri, Application Insights'a gönderir. |
+|LogLevel|yok|Uygulama işlevler için filtreleme günlük kategoriyi tanımlayan nesne. Sürüm 2.x günlük kategorisi filtreleme için ASP.NET Core düzenini izler. Bu sayede belirli işlevleri günlüğünü filtreleyin. Daha fazla bilgi için [günlük filtreleme](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) ASP.NET Core belgelerindeki. |
+|Applicationınsights|yok| [Applicationınsights](#applicationinsights) ayarı. |
+
 ## <a name="queues"></a>Kuyruklar
 
-İçin yapılandırma ayarlarını [depolama kuyruğu Tetikleyicileri ve bağlamaları](functions-bindings-storage-queue.md).
+İçin yapılandırma ayarlarını [depolama kuyruğu Tetikleyicileri ve bağlamaları](functions-bindings-storage-queue.md). Sürüm 2.x, bu alt öğesi olan [uzantıları](#extensions).
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## <a name="servicebus"></a>serviceBus
 
-Bir yapılandırma ayarı için [Service Bus Tetikleyicileri ve bağlamaları](functions-bindings-service-bus.md).
+Bir yapılandırma ayarı için [Service Bus Tetikleyicileri ve bağlamaları](functions-bindings-service-bus.md). Sürüm 2.x, bu alt öğesi olan [uzantıları](#extensions).
 
 [!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
@@ -317,7 +425,9 @@ Singleton kilit davranışı için yapılandırma ayarları. Daha fazla bilgi i�
 
 ## <a name="tracing"></a>İzleme
 
-Yapılandırma ayarlarını kullanarak oluşturduğunuz günlükleri için bir `TraceWriter` nesne. Bkz: [C# günlüğü](functions-reference-csharp.md#logging) ve [Node.js günlük](functions-reference-node.md#writing-trace-output-to-the-console). 
+*Sürüm 1.x*
+
+Yapılandırma ayarlarını kullanarak oluşturduğunuz günlükleri için bir `TraceWriter` nesne. Bkz: [C# günlüğü](functions-reference-csharp.md#logging) ve [Node.js günlük](functions-reference-node.md#writing-trace-output-to-the-console). Sürüm 2.x, tüm günlük davranış tarafından denetlenir [günlüğü](#logging).
 
 ```json
 {

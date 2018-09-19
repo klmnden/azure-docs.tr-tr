@@ -20,7 +20,7 @@
 #### [Kapsayıcılar](./marketplace-containers.md)
 #### [Danışmanlık Hizmetleri](./consulting-services.md)  
 #### [Office 365, Dynamics 365 ve Power BI yayımlama kılavuzu](./appsource-offer-publishing-guide.md)
-#### [Azure Active Directory kullanarak market deneme deneyiminizi etkinleştirme](./enable-trial-using-azure-ad.md)
+#### [Azure Active Directory kullanarak Microsoft AppSource ve Azure Marketi listesini etkinleştirme](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [İşletmenizi market ile büyütme](./grow-your-business-with-azure-marketplace.md)  
 #### [Tercih edilen çözümler](./preferred-solutions.md) 
