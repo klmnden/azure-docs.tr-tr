@@ -1,20 +1,21 @@
 ---
-title: JavaScript içinde Microsoft konuşma tanıma API'si ile çalışmaya başlama | Microsoft Docs
-description: Microsoft konuşma tanıma API'si Bilişsel hizmetler, sürekli olarak Konuşmayı metne dönüştürme uygulamalar geliştirmek için kullanın.
+title: Javascript'teki Bing konuşma tanıma API'si ile çalışmaya başlama | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Bing konuşma tanıma API'si Bilişsel hizmetler, sürekli olarak Konuşmayı metne dönüştürme uygulamalar geliştirmek için kullanın.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04332c453d22122e65a758a65b09e17300e07f02
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 024f359362aba3f7d4f99b7dd36954a755c4d1f2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040547"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366089"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>JavaScript içinde konuşma tanıma API'si ile çalışmaya başlama
 
@@ -38,7 +39,7 @@ Bu bölümde biz, örnek bir HTML sayfası yüklemek için gereken adımlarda si
 
 ### <a name="open-the-sample-directly"></a>Örnek doğrudan açın
 
-Yukarıda açıklanan şekilde bir abonelik anahtarı edinin. Açılacağını [örnek bağlantı](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Bu sayfayı varsayılan tarayıcınızı yükler (kullanılarak oluşturulması [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
+Yukarıda açıklanan şekilde bir abonelik anahtarı edinin. Açılacağını [örnek bağlantı](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Bu sayfayı varsayılan tarayıcınızı yükler (kullanılarak oluşturulması [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>Örneği yerel bir kopyasından açın
 
