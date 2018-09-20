@@ -22,6 +22,10 @@ items:
   expanded: true
 - name: Öğreticiler
   items:
+  - name: Yüksek oranda kullanılabilir SQL veritabanı oluşturma
+    href: azure-stack-tutorial-sql.md
+  - name: Yüksek oranda kullanılabilir olan MySQL veritabanları oluşturma
+    href: azure-stack-tutorial-mysql.md
   - name: Azure ve Azure Stack’e uygulama dağıtma
     href: azure-stack-solution-pipeline.md
   - name: Hibrit bulut kimliği yapılandırma
@@ -192,9 +196,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Eğitim ve sertifika
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: a86b36d3734898d80e40e43f7c7f8a24ce87eb0f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 56bcdb6606c09c7d81d52a44e6e36f7900ec82e9
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717715"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366905"
