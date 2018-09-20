@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery Vmware'den Azure'a sorunlarını giderme | Microsoft Docs
-description: Azure sanal makineleri çoğaltırken hatalarında sorun giderme.
+description: Azure sanal makineleri çoğaltırken mobility hizmeti/göndererek yükleme hataları giderin.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,19 +8,20 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.author: ramamill
-ms.date: 09/17/2018
-ms.openlocfilehash: d77b252351c15bea13b0fa1fb42fa062d508fbdc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.date: 09/19/2018
+ms.openlocfilehash: 32b579ac680204a909c19e7125711d298b08b26a
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126998"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365494"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility hizmeti anında yükleme sorunlarını giderme
 
 Mobility hizmetinin yüklenmesi sırasında bir anahtar çoğaltmayı etkinleştirme sırasında adımdır. Bu adım başarısını yalnızca önkoşulları sağladıktan ve desteklenen yapılandırmalar ile çalışma bağlıdır. Mobility hizmeti yüklemesi sırasında karşılaşacağınız en yaygın hataları nedeniyle üzeresiniz
 
-* Bağlantı/kimlik bilgisi hatalarında
+* Kimlik bilgisi/ayrıcalık hataları
+* Bağlantı hataları
 * Desteklenmeyen işletim sistemleri
 
 Çoğaltmayı etkinleştirdiğinizde göndermeye çalıştığında Azure Site Recovery mobility Hizmeti Aracısı sanal makinenize yükleyin. Bunun bir parçası olarak, yapılandırma sunucusu ile sanal makineye bağlanın ve aracıyı kopyalamak çalışır. Başarılı yükleme etkinleştirmek için aşağıda verilen adım adım sorun giderme yönergeleri izleyin.

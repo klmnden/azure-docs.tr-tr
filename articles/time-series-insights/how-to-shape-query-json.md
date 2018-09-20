@@ -8,16 +8,22 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
-ms.openlocfilehash: 11bea78315ff7ebb4b0c167dbb687ce940907527
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b9d5e922a9a0a5f50e2ced896f5957fbc90d7eb4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628921"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364385"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Sorgu performansını en üst düzeye çıkarmak için JSON şekil nasıl 
 
 Bu makalede, Azure zaman serisi öngörüleri (TSI) sorgularınızı verimliliğini en üst düzeye çıkarmak için JSON, şekillendirme yönergeleri sağlanır.
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-best-practices-around-shaping-json-to-meet-your-storage-needsbr"></a>Bu videoda, JSON, depolama ihtiyaçlarınızı karşılayacak şekilde biçimlendirmeye ek olarak en iyi uygulamalar ele.</br>
+
+> [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 
@@ -181,7 +187,7 @@ Başvuru verileri: (cihaz kimliği ve series.tagId anahtar özellikleri olan)
 
 - İlk örnekte Alıntı yapılan herhangi bir nedenle gereksiz özellikleri atlanma.
 
-- başvuru verileri tanıyarak ağ üzerinden aktarılan bayt sayısını azaltmak için kullanılan **DeviceID**, için benzersiz bir çift **MessageID** ve **deviceLocation**. Bir bileşik anahtarı kullanılır, **series.tagId**, benzersiz çiftinin **türü** ve **departmanla**. Bileşik anahtar verir **DeviceID** ve **series.tagId** dört değerleri belirtmek için kullanılmak üzere çifti: **MessageID, deviceLocation, türü,** ve **birim **. Bu veriler, telemetri verileri birleşik giriş zaman ve sorgulama için TSI sonradan depolanır.
+- başvuru verileri tanıyarak ağ üzerinden aktarılan bayt sayısını azaltmak için kullanılan **DeviceID**, için benzersiz bir çift **MessageID** ve **deviceLocation**. Bir bileşik anahtarı kullanılır, **series.tagId**, benzersiz çiftinin **türü** ve **departmanla**. Bileşik anahtar verir **DeviceID** ve **series.tagId** dört değerleri belirtmek için kullanılmak üzere çifti: **MessageID, deviceLocation, türü,** ve **birim** . Bu veriler, telemetri verileri birleşik giriş zaman ve sorgulama için TSI sonradan depolanır.
 
 - İlk örnekte Alıntı yapılan herhangi bir nedenle iç içe geçme iki katman kullanılır.
 

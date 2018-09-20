@@ -8,87 +8,98 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: e49e362528f5fcd00a13a9fc1b233e62a569fe5a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9098a822aaf244130604493ac74c745f4000ab24
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297955"
+ms.locfileid: "46368214"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Nasıl yapılır: Azure Active Directory portalı kullanarak özel etki alanı adınızı ekleme
 Her yeni Azure AD kiracısı bir ilk etki alanı adı ile gelir *domainname*. onmicrosoft.com. Değiştirme veya silme ilk etki alanı adı, ancak kuruluşunuzun adları listesine ekleyebilirsiniz. Özel etki alanı adları ekleme yardımcı olur, kullanıcılarınızın tanıdığı gibi kullanıcı adları oluşturmak için _alain@contoso.com_.
 
->[!Note]
->Her özel etki alanı için baştan sona tüm bu işlemi yinelemeniz gerekir.
+## <a name="before-you-begin"></a>Başlamadan önce
+Özel etki alanı eklemeden önce bir etki alanı kayıt şirketi ile etki alanı adınızı oluşturmanız gerekir. Akredite bir etki alanı kayıt şirketi için bkz. [ICANN-Accredited kaydedicilerin](https://www.icann.org/registrar-reports/accredited-list.html).
 
-## <a name="add-a-custom-domain-name"></a>Özel bir etki alanı adı ekleme
-İlk olarak, özel etki alanı adınızı Azure AD kiracısına eklemeniz gerekir.
+## <a name="create-your-directory-in-azure-ad"></a>Azure AD dizininizi oluşturma
+Etki alanı adınızı aldıktan sonra ilk Azure AD dizininizi oluşturabilirsiniz.
 
-### <a name="to-add-a-custom-domain-name"></a>Özel etki alanı eklemek için
-1. Oturum [Azure AD portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
+1. Oturum [Azure portalında](https://portal.azure.com/) abonelik sahibi kullanarak hesap dizinini ve ardından **Azure Active Directory**.
 
-<<<<<<< BAŞ
-> [!TIP]
-> Şirket içi Windows Server AD'nizi Azure AD ile birleştirmeyi planlıyorsanız, dizinlerinizi eşitlemek için Azure AD Connect aracını çalıştırdığınızda **Bu etki alanını, yerel Active Directory dizinimde çoklu oturum açmak üzere yapılandırmak istiyorum** onay kutusunu seçmeniz gerekir. Ayrıca aynı etki alanı adını sihirbazın şirket içi dizininizi **Azure AD Etki Alanı** ile birleştirme adımında da kaydetmeniz gerekir. [Bu yönergelerde](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation) sihirbazdaki bu adımın nasıl göründüğünü görebilirsiniz. Azure AD Connect aracınız yoksa [buradan indirebilirsiniz](http://go.microsoft.com/fwlink/?LinkId=615771).
-=======
-2. Seçin **Azure Active Directory**seçin **özel etki alanı adları**ve ardından **özel etki alanı Ekle**.
->>>>>>> 73f447b1499ba1f189efb6832ad759f1230e55a2
+    ![Azure portal ekran](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
-    ![Fabrikam - Custom domain names blade, with Add custom domain option highlighted](media/add-custom-domain/add-custom-domain.png)
+    >[!TIP]
+    > Şirket içi Windows Server AD'nizi Azure AD ile birleştirmeyi planlıyorsanız, dizinlerinizi eşitlemek için Azure AD Connect aracını çalıştırdığınızda **Bu etki alanını, yerel Active Directory dizinimde çoklu oturum açmak üzere yapılandırmak istiyorum** onay kutusunu seçmeniz gerekir. Ayrıca aynı etki alanı adını sihirbazın şirket içi dizininizi **Azure AD Etki Alanı** ile birleştirme adımında da kaydetmeniz gerekir. [Bu yönergelerde](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation) sihirbazdaki bu adımın nasıl göründüğünü görebilirsiniz. Azure AD Connect aracınız yoksa [buradan indirebilirsiniz](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-3. Yeni şirket etki alanı adınızı yazın **özel etki alanı adı** kutusunda (örneğin, _contoso.com_) ve ardından **etki alanı Ekle**.
+2. İçindeki adımları izleyerek yeni dizininizi oluşturma [kuruluşunuz için yeni bir kiracı](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization).
+
+    >[!Important]
+    >Kiracı oluşturan kişi, otomatik olarak bu Kiracı için genel yönetici olur. Genel yönetici, Kiracı için başka Yöneticiler ekleyebilirsiniz.
+
+## <a name="add-your-custom-domain-name-to-azure-ad"></a>Özel etki alanı adınızı Azure AD'ye ekleme
+Dizininizi oluşturduktan sonra özel etki alanı adı ekleyebilirsiniz.
+
+1. Seçin **özel etki alanı adları**ve ardından **özel etki alanı Ekle**.
+
+    ![Fabrikam - özel etki alanı ekle seçeneğinin vurgulandığı ile özel etki alanı adları sayfası](media/add-custom-domain/add-custom-domain.png)
+
+2. Kuruluşunuzun yeni etki alanı adı **özel etki alanı adı** kutusunda (örneğin, _contoso.com_) ve ardından **etki alanı Ekle**.
+
+    Doğrulanmamış etki alanını eklenir ve **Contoso** sayfası görünür DNS bilgilerinizi gösteriliyor.
 
     >[!Important]
     >.Com, .net veya diğer üst düzey uzantıları bunun düzgün çalışması için eklemeniz gerekir.
 
-    ![Fabrikam - etki alanı Ekle düğmesi vurgulanmış ile özel etki alanı adları dikey](media/add-custom-domain/add-custom-domain-blade.png)
+    ![Fabrikam - etki alanı Ekle düğmesi vurgulanmış ile özel etki alanı adları sayfası](media/add-custom-domain/add-custom-domain-blade.png)
 
-4. DNS girişi bilgilerini kopyalamak **Contoso** dikey penceresi.
+4. DNS bilgisi kopyalama **Contoso** sayfası. Örneğin, MS ms64983159 =.
 
-    ![DNS girişi bilgilerle contoso dikey penceresi](media/add-custom-domain/contoso-blade-with-dns-info.png)
+    ![Contoso DNS girdisi bilgi sayfası](media/add-custom-domain/contoso-blade-with-dns-info.png)
 
-## <a name="add-your-domain-name-with-a-domain-name-registrar"></a>Bir etki alanı kayıt şirketinde etki alanı adınızı ekleme
-Ardından, yeni özel etki alanınız için DNS bölge dosyasını güncelleştirmeniz gerekir. Kullanabileceğiniz [DNS bölgelerini](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) için Azure, Office 365 veya dış DNS kayıtlarını veya farklı bir DNS kayıt şirketi kullanarak, yeni bir DNS girişi ekleyebilirsiniz (örneğin, [InterNIC](https://go.microsoft.com/fwlink/p/?LinkId=402770)).
+## <a name="add-your-dns-information-to-the-domain-registrar"></a>Etki alanı kayıt şirketi için DNS bilgilerinizi ekleyin
+Azure AD'ye özel etki alanı adınızı ekledikten sonra için etki alanı kayıt şirketinizde dönün ve Azure AD DNS bilgilerini, kopyalanan bir TXT dosyasından eklemeniz gerekir. Oluşturma bu TXT kaydı etki alanınız için "etki alanı adınızı sahipliğini doğrular".
 
-### <a name="to-add-your-domain-name"></a>Etki alanı adınızı ekleme 
-1. Özel etki alanınız için etki alanı adı kayıt şirketi için oturum açın. Giriş güncelleştirmek için doğru izinlere sahip değilseniz, bu izinlere sahip iletişime geçmeniz.
+-  Etki alanı kayıt için geri dönün, etki alanınız, kopyalanan DNS bilgilere göre ayarlamak için yeni bir TXT kaydı oluşturun. **TTL** (yaşam süresi) ila 60 dakika ve bilgileri kaydedin.
 
-2. DNS girişini kayıt şirketi ile güncelleştirildikten sonra Azure AD tarafından sağlanan bilgilerle DNS bölge dosyasını güncelleştirmeniz gerekir.
-
-    >[!Note]
-    >DNS girişi, posta yönlendirme veya web barındırma çalışma şeklini değişmez.
+    >[!Important]
+    >İstediğiniz sayıda etki alanı adları kaydedebilirsiniz. Ancak, her etki alanı kendi TXT kaydı, Azure AD'den alır. Etki alanı kayıt şirketinde TXT dosyası bilgilerinizi girerken dikkatli olun. Yanlış girin ya da bilgileri yanlışlıkla çoğaltmak, yeniden denemeden önce TTL (out 60 dakika) zaman beklemeniz gerekecektir.
 
 ## <a name="verify-your-custom-domain-name"></a>Özel etki alanı adınızı doğrulayın
-Özel etki alanı adınızı kaydettikten sonra birkaç saat önce Azure AD, geçerli olarak görebileceğiniz için DNS bilgilerini yayar birkaç saniye sürebilir.
+Özel etki alanı adınızı kaydettikten sonra Azure AD'de geçerli olduğundan emin olmanız gerekir. Azure ad etki alanı kayıt şirketinizde gelen yayılmasını anlık olabilir veya etki alanı kayıt şirketinizde bağlı olarak birkaç gün sürebilir.
 
 ### <a name="to-verify-your-custom-domain-name"></a>Özel etki alanı adınızı doğrulamak için
-1. Oturum [Azure AD portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
+1. Oturum [Azure portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
 
 2. Seçin **Azure Active Directory**ve ardından **özel etki alanı adları**.
 
-3. Üzerinde **Fabrikam - özel etki alanı adları** dikey penceresinde, özel etki alanı adı seçin **Contoso**.
+3. Üzerinde **Fabrikam - özel etki alanı adları** sayfasında, özel etki alanı adı seçin **Contoso**.
 
-    ![Fabrikam - vurgulanmış contoso ile özel etki alanı adları dikey](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
+    ![Fabrikam - vurgulanmış contoso ile özel etki alanı adları sayfası](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
 
-4. Üzerinde **Contoso** dikey penceresinde **doğrulama** özel etki alanınızı düzgün şekilde kaydedildiğinden ve Azure AD için geçerli olduğundan emin olun.
+4. Üzerinde **Contoso** sayfasında **doğrulama** özel etki alanınızı düzgün şekilde kaydedildiğinden ve Azure AD için geçerli olduğundan emin olun.
 
-    ![DNS girişi bilgileri ve Doğrula düğmesine contoso dikey penceresi](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+    ![DNS girişi bilgilerini ve Doğrula düğmesine contoso sayfası](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
 ### <a name="common-verification-issues"></a>Sık karşılaşılan doğrulama sorunları
-Azure AD'ye özel etki alanı adını doğrulayamıyorsanız, aşağıdaki önerileri deneyin:
-- **En az bir saat bekleyin ve yeniden deneyin**. Azure AD etki alanı ve bu işlem bir saat veya daha fazla sürebilir doğrulamadan önce DNS kayıtlarının yayılması gerekir.
+- Azure AD'ye özel etki alanı adını doğrulayamıyorsanız, aşağıdaki önerileri deneyin:
+    - **En az bir saat bekleyin ve yeniden deneyin**. Azure AD etki alanı ve bu işlem bir saat veya daha fazla sürebilir doğrulamadan önce DNS kayıtlarının yayılması gerekir.
 
-- **DNS kaydı doğru olduğundan emin olun.** Etki alanı adı kayıt şirketi siteye geri dönün ve giriş yoktur ve Azure AD tarafından sağlanan DSN giriş bilgilerini eşleştiğini doğrulayın.
+    - **DNS kaydı doğru olduğundan emin olun.** Etki alanı adı kayıt şirketi siteye geri dönün ve giriş yoktur ve Azure AD tarafından sağlanan DNS girişini bilgilerinin eşleştiğini doğrulayın.
 
     Kayıt şirketi sitenin kaydı güncelleştiremiyorsanız girdisi ekleyin ve doğru olduğundan emin olun için doğru izinlere sahip biri ile giriş paylaşmanız gerekir.
 
-- **Etki alanı adı zaten başka bir dizinde olmadığından emin olun.** Bir etki alanı adı, yalnızca etki alanı adınızı şu anda başka bir dizinde doğrulanırsa, bu da yeni bir dizinde doğrulanamadığına anlamına gelen bir dizinde doğrulanabilir. Bu çoğaltma sorunu gidermek için etki alanı adı eski dizinden silmeniz gerekir. Etki alanı adlarını silme hakkında daha fazla bilgi için bkz. [özel etki alanı adlarını yönetme](../users-groups-roles/domains-manage.md).    
+- **Etki alanı adı zaten başka bir dizindeki kullanımda olmadığından emin olun.** Bir etki alanı adı, yalnızca etki alanı adınızı şu anda başka bir dizinde doğrulanırsa, bu da yeni bir dizinde doğrulanamadığına anlamına gelen bir dizinde doğrulanabilir. Bu çoğaltma sorunu gidermek için etki alanı adı eski dizinden silmeniz gerekir. Etki alanı adlarını silme hakkında daha fazla bilgi için bkz. [özel etki alanı adlarını yönetme](../users-groups-roles/domains-manage.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Kullanıcılar, etki alanına eklemek için bkz: [özel etki alanı adlarını yönetme](../users-groups-roles/domains-manage.md).
+
+- Başka bir genel yönetici, dizininize ekleyin. Daha fazla bilgi için [roller ve yöneticiler atama](active-directory-users-assign-role-azure-portal.md)
+
+- Kullanıcılar, etki alanına eklemek için bkz: [ekleme veya kullanıcıları Sil](add-users-azure-active-directory.md)
+
+- Azure AD etki alanı adı bilgilerinizi yönetin. Daha fazla bilgi için [özel etki alanı adlarını yönetme](../users-groups-roles/domains-manage.md)
 
 - Şirket içi Azure Active Directory ile birlikte kullanmak üzere istediğiniz Windows Server sürümleri varsa [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../connect/active-directory-aadconnect.md).

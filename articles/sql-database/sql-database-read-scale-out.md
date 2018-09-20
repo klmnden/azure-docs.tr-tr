@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/18/2018
 ms.author: sashan
-ms.openlocfilehash: d7c3a672224bd7a167956d7699541880de11bef9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d29886b5c8693e4465053c8816fc38376a51fafc
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737048"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363609"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Yük Dengeleme (Önizleme) salt okunur sorgu iş yükleri için salt okunur çoğaltmalar kullanın
 
@@ -119,7 +119,7 @@ Daha fazla bilgi için [veritabanları - oluşturma veya güncelleştirme](/rest
 Yük Dengeleme salt okunur iş yükleri coğrafi olarak yedekli (örneğin bir bir yük devretme grubunun üyesi olarak) bir veritabanı üzerinde okuma ölçeği genişletme kullanıyorsanız, bu salt okunur genişleme hem birincil hem de coğrafi olarak çoğaltılmış ikincil veritabanlarıyla etkin olduğundan emin olun. Uygulamanızın yük devretmeden sonra yeni birincil siteye bağlandığında, bu yük dengeleyici aynı etkiyi garanti eder. Coğrafi çoğaltmalı ikincil veritabanına okuma-etkin, Ölçek ile bağlanıyorsanız, oturumları `ApplicationIntent=ReadOnly` çoğaltmalarından birini birincil veritabanı üzerinde şu yol bağlantıları aynı şekilde yönlendirilmez.  Oturumlarının olmadan `ApplicationIntent=ReadOnly` aynı zamanda salt okunur olan, coğrafi çoğaltmalı ikincil birincil çoğaltmaya yönlendirilir. Coğrafi çoğaltmalı ikincil veritabanının birincil veritabanı farklı bir uç nokta olduğundan, daha önce ikincil erişmek için bunu ayarlamak için gerekli değildi `ApplicationIntent=ReadOnly`. Geriye dönük uyumluluk sağlamak için `sys.geo_replication_links` DMV gösterir `secondary_allow_connections=2` (tüm istemci bağlantıya izin verilir).
 
 > [!NOTE]
-> Önizleme sırasında hepsini bir kez deneme gerçekleştirmez veya ikincil veritabanının yerel kopya yönlendirme başka bir yük dengeli. 
+> Önizleme, hepsini bir kez deneme veya başka bir yükleme sırasında yerel çoğaltmalarının ikincil veritabanı arasında dengeli yönlendirme desteklenmiyor. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

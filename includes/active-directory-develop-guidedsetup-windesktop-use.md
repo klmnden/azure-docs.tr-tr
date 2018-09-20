@@ -1,16 +1,38 @@
+---
+title: include dosyası
+description: include dosyası
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/18/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: d4ba15e4ad46044c04c242c8805af9f320e95150
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368467"
+---
+## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Microsoft Graph API'si için bir belirteç almak için MSAL kullanın
 
-## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Microsoft Graph API için bir belirteç almak üzere MSAL kullanın
+Bu bölümde, Microsoft Graph API'si için bir belirteç almak için MSAL kullanın.
 
-Bu bölümde, Microsoft Graph API için bir belirteç almak üzere MSAL kullanın.
-
-1.  İçinde *MainWindow.xaml.cs* dosya, başvuru için MSAL sınıfına ekleyin:
+1.  İçinde *MainWindow.xaml.cs* başvuru için MSAL sınıfı ekleyin:
 
     ```csharp
     using Microsoft.Identity.Client;
     ```
-<!-- Workaround for Docs conversion bug -->
 
-2. Değiştir `MainWindow` sınıfında aşağıdaki kodu:
+2. Değiştirin `MainWindow` kodu şu kodla sınıfı:
 
     ```csharp
     public partial class MainWindow : Window
@@ -33,9 +55,15 @@ Bu bölümde, Microsoft Graph API için bir belirteç almak üzere MSAL kullanı
         {
             AuthenticationResult authResult = null;
 
+            var app = App.PublicClientApp;
+            ResultText.Text = string.Empty;
+            TokenInfoText.Text = string.Empty;
+
+            var accounts = await app.GetAccountsAsync();
+
             try
             {
-                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
+                authResult = await app.AcquireTokenSilentAsync(_scopes, accounts.FirstOrDefault());
             }
             catch (MsalUiRequiredException ex)
             {
@@ -69,24 +97,29 @@ Bu bölümde, Microsoft Graph API için bir belirteç almak üzere MSAL kullanı
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha fazla bilgi
-#### <a name="get-a-user-token-interactively"></a>Kullanıcı etkileşimli olarak belirteci alma
-Çağırma `AcquireTokenAsync` yöntemi, kullanıcının oturum açmasına izin isteyen bir pencere sonuçlanıyor. Uygulamalar genellikle etkileşimli olarak korunan bir kaynağa erişmek için ihtiyaç duydukları ilk kez oturum açmalarını gerektirir. (Örneğin, bir kullanıcının parolasının süresi sona erdiğinde) bir belirtecini almak üzere sessiz bir işlemi başarısız olduğunda oturum açmak de gerekebilir.
+
+#### <a name="get-a-user-token-interactively"></a>Etkileşimli bir kullanıcı belirteci alma
+
+Çağırma `AcquireTokenAsync` oturum açmak için kullanıcıların ister bir pencere yöntemi sonuçlanıyor. Uygulamalar genellikle etkileşimli olarak korunan bir kaynağa erişmek için ihtiyaç duydukları ilk kez oturum açmalarını gerektirir. Bunlar (örneğin, bir kullanıcının parolasını süresi dolduğunda), bir belirteç almak için sessiz bir işlemi başarısız olduğunda oturum açmanız gerekebilir.
 
 #### <a name="get-a-user-token-silently"></a>Bir kullanıcı sessizce belirteci alma
-`AcquireTokenSilentAsync` Yöntemi belirteci satın almalar ve herhangi bir kullanıcı etkileşimi olmadan yenilemeleri işler. Sonra `AcquireTokenAsync` ilk kez yürütüldüğünde `AcquireTokenSilentAsync` veya belirteçleri yenileme isteği için çağrıları sessizce yapmış sonraki çağrılar için korunan kaynaklara erişim belirteçleri almak için kullanılacak normal bir yöntemdir.
 
-Sonuç olarak, `AcquireTokenSilentAsync` yöntemi başarısız olur. Hatanın nedenlerini kullanıcı oturumunuz veya başka bir cihazda kendi parolanın değiştirilmesi emin olabilir. MSAL algıladığında, etkileşimli bir eylem gerektirmeyen tarafından sorunu çözmek için harekete bir `MsalUiRequiredException` özel durum. Uygulamanız bu özel durumun iki yolla işleyebilir:
+`AcquireTokenSilentAsync` Yöntemi, belirteç edinme ve herhangi bir kullanıcı etkileşimi olmadan yenilemeler işler. Sonra `AcquireTokenAsync` ilk kez yürütülür `AcquireTokenSilentAsync` veya belirteçleri yenileme isteği için çağrıları sessizce yapılan sonraki çağrılar için korunan kaynaklara erişim belirteçleri elde etmek için kullanılacak normal yöntemidir.
 
-* Karşı arama yapabilmeniz için `AcquireTokenAsync` hemen. Bu çağrı, oturum açmak için kullanıcıdan içinde sonuçlanır. Bu deseni genelde çevrimiçi uygulamalarda kullanılır kullanıcı için kullanılabilir çevrimdışı içerik olduğu. Bu Destekli kurulum tarafından oluşturulan örnek, örnek yürütme eylemi ilk zamanında görebilirsiniz bu deseni takip eder. 
-    * Hiçbir kullanıcı, uygulamayı kullanıldığından `PublicClientApp.Users.FirstOrDefault()` bir null değer içeriyor ve bir `MsalUiRequiredException` özel durumu oluşur. 
-    * Ardından örnek kodda çağırarak özel durumu işler `AcquireTokenAsync`, oturum açmak için kullanıcıdan içinde sonuçlanır.
+Sonuç olarak, `AcquireTokenSilentAsync` yöntemi başarısız olur. Hatanın nedenlerini kullanıcı ya da oturumunuz veya başka bir cihazda kendi parola değiştirildi emin olabilir. MSAL etkileşimli bir eylem gerektirerek sorun çözülebilir, harekete algıladığında bir `MsalUiRequiredException` özel durum. Uygulamanız, bu özel durumun iki şekilde işleyebilir:
 
-* Bunun yerine oturum açmak için doğru zamanı seçebilmeniz için bir etkileşimli oturum açma gerekli olan kullanıcılar için görsel bir gösterge sunabilir. Veya uygulamayı yeniden deneyebilirsiniz `AcquireTokenSilentAsync` daha sonra. Çevrimdışı içeriği uygulamada kullanılabilir olduğunda kullanıcıların diğer uygulama işlevselliği kesintiye uğratmadan--Örneğin, ne zaman kullanabileceğini bu deseni sıkça kullanılır. Bu durumda, kullanıcıların korunan bir kaynağa erişmek veya eski bilgileri yenilemek oturum açmak istedikleri zaman karar verebilirsiniz. Yeniden denemek alternatif olarak, uygulama karar `AcquireTokenSilentAsync` zaman ağ geri geçici olarak devre dışı bırakıldı sonra.
+* Bir çağrısı yapabilirsiniz `AcquireTokenAsync` hemen. Bu çağrı, kullanıcının oturum açmasını isteyen içinde sonuçlanır. Bu düzen, genellikle çevrimiçi uygulamalarda kullanılır kullanıcı için çevrimdışı kullanılabilir içerik olduğunda. Bu Kılavuzlu kurulum tarafından oluşturulan örnek örnek yürütme eylemi ilk sürede görebileceğiniz gibi bu desenini izler. 
+
+* Hiçbir kullanıcı uygulama kullanıldığından `PublicClientApp.Users.FirstOrDefault()` bir null değer içeriyor ve bir `MsalUiRequiredException` özel durumu oluşturulur. 
+
+* Ardından kod çağırarak özel durumu işleyen `AcquireTokenAsync`, kullanıcının oturum açmasını isteyen içinde sonuçlanır.
+
+* Oturum açmak için doğru zamanda seçebilmeniz için görsel gösterimi bunun yerine bir etkileşimli oturum açma gerekli olan kullanıcılara sunabilirsiniz. Veya uygulama yeniden deneyebilirsiniz `AcquireTokenSilentAsync` daha sonra. Bu düzen, çevrimdışı içerik uygulamada mevcut olduğunda kullanıcıların diğer uygulama işlevleri kesintiye uğratmadan--Örneğin, ne zaman kullanabileceğini sık kullanılır. Korumalı kaynağa ya da eski bilgileri Yenile oturum açmaya istediğinizde, bu durumda, kullanıcılar karar verebilirsiniz. Alternatif olarak, uygulama denemeye karar verebilirsiniz `AcquireTokenSilentAsync` ağ zaman geri geçici olarak devre dışı olan sonra.
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Yalnızca edinilen belirteçle kullanarak Microsoft Graph API çağırma
+## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Yalnızca edinilen belirteçle'ı kullanarak Microsoft Graph API çağırma
 
-Aşağıdaki yeni yöntemine ekleyin, `MainWindow.xaml.cs`. Yöntem yapmak için kullanılan bir `GET` grafik API'sine karşı bir Authorize üstbilgisi kullanarak isteği:
+Aşağıdaki yeni yöntemi ekleyin, `MainWindow.xaml.cs`. Yöntem yapmak için kullanılan bir `GET` Authorize üstbilgi kullanarak Graph API'si isteği:
 
 ```csharp
 /// <summary>
@@ -114,27 +147,30 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
     }
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Karşı korumalı bir API REST çağrısı yapma hakkında daha fazla bilgi
 
-Bu örnek uygulamasında kullandığınız `GetHttpContentWithToken` yöntemini bir HTTP sağlamak için `GET` isteği için bir belirteç gerekiyor korunan bir kaynağa karşı ve ardından içeriği çağırana dönün. Bu yöntem alınan belirteç HTTP yetkilendirme üst bilgi ekler. Bu örnek için Microsoft Graph API kaynaktır *bana* uç noktası kullanıcı profili bilgilerini görüntüler.
+Bu örnek uygulamasında kullandığınız `GetHttpContentWithToken` yöntemi bir HTTP yapmak `GET` istemek için bir belirteç gerekiyor korunan bir kaynağa karşı ve ardından içeriği çağırana döndürmesi. Bu yöntem, HTTP yetkilendirme üst bilgisinde alınan belirteç ekler. Bu örnek için Microsoft Graph API kaynaktır *bana* uç noktası için kullanıcı profili bilgilerini görüntüler.
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-out-a-user"></a>Bir kullanıcı oturum için bir yöntem ekleyin
+## <a name="add-a-method-to-sign-out-a-user"></a>Bir kullanıcının oturumunu kapatmaz için yöntem ekleme
 
-Bir kullanıcı imzalamak için aşağıdaki yöntemi ekleyin, `MainWindow.xaml.cs` dosyası:
+Bir kullanıcının oturumunu kapatmaz, aşağıdaki yöntemi ekleyin, `MainWindow.xaml.cs` dosyası:
 
 ```csharp
 /// <summary>
 /// Sign out the current user
 /// </summary>
-private void SignOutButton_Click(object sender, RoutedEventArgs e)
+private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 {
-    if (App.PublicClientApp.Users.Any())
+    var accounts = await App.PublicClientApp.GetAccountsAsync(); 
+
+    if (accounts.Any())
     {
         try
         {
-            App.PublicClientApp.Remove(App.PublicClientApp.Users.FirstOrDefault());
+            await App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault()); 
             this.ResultText.Text = "User has signed-out";
             this.CallGraphButton.Visibility = Visibility.Visible;
             this.SignOutButton.Visibility = Visibility.Collapsed;
@@ -146,17 +182,18 @@ private void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>Kullanıcı oturum kapatma hakkında daha fazla bilgi
 
-`SignOutButton_Click` Yöntemi, kullanıcılar yalnızca etkileşimli olarak yapılırsa, bir belirteç almak için gelecekteki bir istek başarılı olur, böylece geçerli kullanıcının unuttunuz MSAL etkili bir şekilde söyler MSAL kullanıcı önbellekten kaldırır.
+`SignOutButton_Click` Yöntemi kullanıcılar yalnızca etkileşimli olarak yapılırsa, bir belirteç almak için gelecekteki bir istek başarılı olur böylece geçerli kullanıcının unutmak çok MSAL etkili bir şekilde söyler MSAL kullanıcı önbellekten kaldırır.
 
-Bu örnek uygulamasında tek kullanıcılı desteklese de MSAL nerede birden fazla hesap aynı zamanda oturum açmadan senaryolarını destekler. Örnek bir kullanıcı birden fazla hesap bulunduğu bir e-posta uygulamasıdır.
+Bu örnek uygulamasında tek kullanıcılı desteklese de MSAL burada birden çok hesap aynı zamanda oturum senaryolarını destekler. Örnek bir kullanıcı birden çok hesaba sahip olduğu bir e-posta uygulamasıdır.
 <!--end-collapse-->
 
-## <a name="display-basic-token-information"></a>Temel belirteci bilgilerini görüntüle
+## <a name="display-basic-token-information"></a>Temel belirteç bilgilerini görüntüle
 
-Belirteç hakkındaki temel bilgileri görüntülemek için aşağıdaki yöntemi ekleyin, *MainWindow.xaml.cs* dosyası:
+Belirteç ile ilgili temel bilgileri görüntülemek için aşağıdaki yöntemi ekleyin, *MainWindow.xaml.cs* dosyası:
 
 ```csharp
 /// <summary>
@@ -167,16 +204,16 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
     TokenInfoText.Text = "";
     if (authResult != null)
     {
-        TokenInfoText.Text += $"Name: {authResult.User.Name}" + Environment.NewLine;
-        TokenInfoText.Text += $"Username: {authResult.User.DisplayableId}" + Environment.NewLine;
+        TokenInfoText.Text += $"Username: {authResult.Account.Username}" + Environment.NewLine;
         TokenInfoText.Text += $"Token Expires: {authResult.ExpiresOn.ToLocalTime()}" + Environment.NewLine;
         TokenInfoText.Text += $"Access Token: {authResult.AccessToken}" + Environment.NewLine;
     }
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha fazla bilgi
 
-Kullanıcı açtığında sonra Microsoft grafik API'sini çağırmak için kullanılan erişim belirteci ek olarak, MSAL ayrıca bir kimliği belirteci alır. Bu belirteç küçük bir alt kullanıcılara ilgili bilgi içerir. `DisplayBasicTokenInfo` Yöntemi belirteç temel bilgiler görüntüler. Örneğin, kullanıcının görünen adı ve kimliği yanı sıra belirteci süre sonu tarihi ve erişim belirteci temsil eden dize görüntüler. Seçebileceğiniz *Microsoft Graph API çağrısı* birden çok kez düğmesine tıklayın ve aynı belirtecin sonraki istekleri için yeniden kullanılmış bakın. MSAL onu kapılarını açtığında genişletilen belirteci yenileme süresi sona erme tarihi de görebilirsiniz.
+Kullanıcı oturum açtığında sonra Microsoft Graph API'sini çağırmak için kullanılan erişim belirteci yanı sıra MSAL, ayrıca bir kimlik belirteci alır. Bu belirteç, küçük bir alt kümesini kullanıcılara ilgili bilgileri içerir. `DisplayBasicTokenInfo` Yöntemi belirtecinde yer alan temel bilgileri görüntüler. Örneğin, kullanıcının görünen adı ve kimliği yanı sıra belirteç sona erme tarihini ve erişim belirteci temsil eden dize görüntüler. Seçebileceğiniz *Microsoft Graph API çağrısı* düğmesine birden çok kez ve sonraki istekleri için aynı belirteci yeniden olduğunu görebilirsiniz. MSAL çalışmanın kapılarını açtığında Genişletilmekte olan belirteci yenileme süresi sona erme tarihi de görebilirsiniz.
 <!--end-collapse-->
 

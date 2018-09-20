@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: diberry
-ms.openlocfilehash: 48e1e19d2d425fe123e5a0c369ecebf623b74eb2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: eb7a6e86dc9628c8e981dbad7678d552d2ea587b
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721328"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363541"
 ---
 # <a name="regions-and-keys"></a>Bölgeler ve anahtarlar
 
@@ -42,20 +42,20 @@ LUIS uygulamalar üzerinde oluşturulan https://www.luis.ai tüm uç noktalar i�
 
 Yazma bölgesi uygulama yalnızca bir karşılık gelen yayımlanabilir bölge yayımlayın. Uygulamanız şu anda geliştirme yanlış bölgede ise, uygulamayı dışarı aktarma ve yayımlama bölgeniz için doğru yazma bölgesini almak. 
 
- Genel bölge | Yazma bölgesi | Yayımlama & bölgesi sorgulama   |   LUIS Web sitesi | Uç nokta URL'si biçimi   |
+ Genel bölge | Yazma bölgesi<br>`API region name` | Yayımlama & bölgesi sorgulama<br>`API region name`   |   LUIS Web sitesi | Uç nokta URL'si biçimi   |
 |-----|------|------|------|------|
-| Asya | Batı ABD| Doğu Asya     | [www.luis.ai][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| Asya | Batı ABD| Güneydoğu Asya     | [www.luis.ai][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| *[Avustralya](#publishing-to-australia) | Avustralya Doğu| Avustralya Doğu     |   [AU.luis.ai][au.luis.ai] | https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| *[Avrupa](#publishing-to-europe)| Batı Avrupa| Kuzey Avrupa     | [EU.luis.ai][eu.luis.ai]|  https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
-| *[Avrupa](#publishing-to-europe) | Batı Avrupa| Batı Avrupa     | [EU.luis.ai][eu.luis.ai]|  https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
-| Kuzey Amerika | Batı ABD | Doğu ABD      |[www.luis.ai][www.luis.ai] |   https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| Kuzey Amerika | Batı ABD | Doğu ABD 2     | [www.luis.ai][www.luis.ai] |  https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| Kuzey Amerika | Batı ABD | Orta Güney ABD     | [www.luis.ai][www.luis.ai] |  https://southcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
-| Kuzey Amerika | Batı ABD | Batı Orta ABD     |[www.luis.ai][www.luis.ai] |  https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| Kuzey Amerika | Batı ABD | Batı ABD |  [www.luis.ai][www.luis.ai] | https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
-| Kuzey Amerika | Batı ABD | Batı ABD 2    | [www.luis.ai][www.luis.ai] |  https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
-| Güney Amerika | Batı ABD | Güney Brezilya     | [www.luis.ai][www.luis.ai] |  https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Asya | Batı ABD<br>`westus`| Doğu Asya<br>`eastasia`     | [www.luis.ai][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Asya | Batı ABD<br>`westus`| Güneydoğu Asya<br>`souteastasia`     | [www.luis.ai][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| *[Avustralya](#publishing-to-australia) | Avustralya Doğu<br>`australiaeast`| Avustralya Doğu<br>`australiaeast`     |   [AU.luis.ai][au.luis.ai] | https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| *[Avrupa](#publishing-to-europe)| Batı Avrupa<br>`westeurope`| Kuzey Avrupa<br>`northeurope`     | [EU.luis.ai][eu.luis.ai]|  https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
+| *[Avrupa](#publishing-to-europe) | Batı Avrupa<br>`westeurope`| Batı Avrupa<br>`westeurope`     | [EU.luis.ai][eu.luis.ai]|  https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
+| Kuzey Amerika | Batı ABD<br>`westus` | Doğu ABD<br>`eastus`      |[www.luis.ai][www.luis.ai] |   https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Kuzey Amerika | Batı ABD<br>`westus` | Doğu ABD 2<br>`eastus2`     | [www.luis.ai][www.luis.ai] |  https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Kuzey Amerika | Batı ABD<br>`westus` | Orta Güney ABD<br>`southcentralus`     | [www.luis.ai][www.luis.ai] |  https://southcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
+| Kuzey Amerika | Batı ABD<br>`westus` | Batı Orta ABD<br>`westcentralus`     |[www.luis.ai][www.luis.ai] |  https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Kuzey Amerika | Batı ABD<br>`westus` | Batı ABD<br>`westus`  |  [www.luis.ai][www.luis.ai] | https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
+| Kuzey Amerika | Batı ABD<br>`westus` | Batı ABD 2<br>`westus2`    | [www.luis.ai][www.luis.ai] |  https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
+| Güney Amerika | Batı ABD<br>`westus` | Güney Brezilya<br>`brazilsouth`     | [www.luis.ai][www.luis.ai] |  https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 
 ## <a name="publishing-to-europe"></a>Avrupa yayımlama
 

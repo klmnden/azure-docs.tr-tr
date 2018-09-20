@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840628"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465801"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Key Vault, Visual Studio bağlı Hizmetler'i kullanarak web uygulamanıza ekleyin
 
@@ -39,7 +39,8 @@ Bağlı hizmetler anahtar Kasası'nı etkinleştirmek için projenizde yaptığ�
 
    !["Azure anahtar kasası ile güvenli gizli dizileri" seçin](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   Visual Studio'da oturum açıldıktan ve hesabınızla ilişkili bir Azure aboneliğiniz varsa, aboneliklerinizin ile bir açılan listedeki bir sayfa görünür.
+   Visual Studio'da oturum açıldıktan ve hesabınızla ilişkili bir Azure aboneliğiniz varsa, aboneliklerinizin ile bir açılan listedeki bir sayfa görünür. Visual Studio'ya oturum açmadıysanız ve hesabı ile oturum açmadıysanız, Azure aboneliğiniz için kullandığınız hesabın aynısını olduğundan emin olun.
+
 1. Yeni veya mevcut bir anahtar Kasası'nı seçin ve istediğiniz aboneliği seçin veya otomatik olarak oluşturulan adı değiştirmek için düzenleme bağlantısını seçin.
 
    ![Aboneliğinizi seçme](media/vs-key-vault-add-connected-service/KeyVaultConnectedService3.PNG)

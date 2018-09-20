@@ -1,34 +1,36 @@
 ---
-title: LogDownloader - Azure Bilişsel hizmetler | Microsoft Docs
-description: Azure özel karar hizmeti tarafından oluşturulan günlük dosyalarını indirin.
+title: LogDownloader - özel karar alma hizmeti
+titlesuffix: Azure Cognitive Services
+description: Azure Custom Decision Service tarafından üretilen günlük dosyalarını indirin.
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 783b534b3b3f4bb7f5d9f073f491690759edfea5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8c5ab0e297690f1fbdb41a2627dd63c3ea522d1b
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354551"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366822"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
-Azure özel karar hizmeti tarafından üretilen ve Oluştur günlük dosyalarını indirme *.gz* deneme tarafından kullanılan dosyalar.
+Azure Custom Decision Service tarafından üretilen ve oluşturacak günlük dosyalarını indirin *.gz* deneme tarafından kullanılan dosyalar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Python 3: Yüklü ve yolunuzu. Büyük dosyaları işlemek için 64-bit sürümü öneririz.
-- *Mwt/Microsoft-ds* deposu: [depoyu kopyalama](https://github.com/Microsoft/mwt-ds).
-- *Azure storage blobuna* paket: yükleme ayrıntılarını Git [Python için Microsoft Azure depolama Kitaplığı](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
+- Python 3: Yüklü ve yolunuzu. Büyük dosyaları işlemek için 64 bit sürümü öneririz.
+- *Mwt/Microsoft-ds* depo: [depoyu Kopyalayalım](https://github.com/Microsoft/mwt-ds).
+- *Azure depolama blobu* paket: ilgili yükleme ayrıntılarını, Git [Python için Microsoft Azure depolama Kitaplığı](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
 - Azure depolama bağlantı dizenizi girin *mwt-ds/DataScience/ds.config*: izleyin *my_app_id: my_connectionString* şablonu. Birden çok belirtebilirsiniz `app_id`. Çalıştırdığınızda `LogDownloader.py`, giriş `app_id` içinde bulunamadı `ds.config`, `LogDownloader.py` kullanan `$Default` bağlantı dizesi.
 
 ## <a name="usage"></a>Kullanım
 
-Git `mwt-ds/DataScience` çalıştırıp `LogDownloader.py` aşağıdaki kodda ayrıntılı olarak ilgili bağımsız değişkenlere sahip:
+Git `mwt-ds/DataScience` çalıştırıp `LogDownloader.py` aşağıdaki kodda ayrıntılı olarak ilgili bağımsız değişkenleriyle:
 
 ```cmd
 python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
@@ -41,33 +43,33 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 
 | Girdi | Açıklama | Varsayılan |
 | --- | --- | --- |
-| `-h`, `--help` | Yardım iletisi ve çıkış gösterir. | |
-| `-a APP_ID`, `--app_id APP_ID` | Uygulama Kimliği (diğer bir deyişle, Azure Storage blob kapsayıcı adı). | Gerekli |
-| `-l LOG_DIR`, `--log_dir LOG_DIR` | (Bir alt klasör oluşturulur) veri indirme için temel dizin.  | Gerekli |
-| `-s START_DATE`, `--start_date START_DATE` | Başlangıç tarihi (dahil), indirme *YYYY-AA-GG* biçimi. | `None` |
-| `-e END_DATE`, `--end_date END_DATE` | (Dahil) yükleme son tarihi, *YYYY-AA-GG* biçimi. | `None` |
-| `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | Kullanmak için üzerine yazma modu. | |
+| `-h`, `--help` | Çıkış ve yardım iletisini gösterir. | |
+| `-a APP_ID`, `--app_id APP_ID` | Uygulama Kimliği (diğer bir deyişle, Azure depolama blobu kapsayıcısının adı). | Gerekli |
+| `-l LOG_DIR`, `--log_dir LOG_DIR` | (Bir alt klasör oluşturulduğunda) veri yükleme için taban dizini.  | Gerekli |
+| `-s START_DATE`, `--start_date START_DATE` | Başlangıç tarihi (dahil), buna indirme *YYYY-AA-GG* biçimi. | `None` |
+| `-e END_DATE`, `--end_date END_DATE` | (Dahil) yükleme son tarihi *YYYY-AA-GG* biçimi. | `None` |
+| `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | Kullanılacak üzerine yazma modu. | |
 | | `0`: Hiçbir zaman üzerine; BLOB'ları şu anda kullanılmakta olan kullanıcı isteyin. | Varsayılan | |
-| | `1`: Kullanıcı dosyaları farklı boyutlarda veya ne zaman BLOB şu anda kullanılmakta olan devam etme isteyin. | |
-| | `2`: Her zaman üzerine; şu anda kullanılan BLOB'lar indirin. | |
-| | `3`: Hiçbir zaman üzerine ve boyutu büyükse, istemeden append; şu anda kullanılan BLOB'lar indirin. | |
-| | `4`: Hiçbir zaman üzerine ve boyutu büyükse, istemeden append; şu anda kullanılan BLOB'lar atlayın. | |
-| `--dry_run` | Yazdırma hangi BLOB'lar, indirmeden indirilmiş olan. | `False` |
+| | `1`: Kullanıcının dosyaları farklı boyutlarda veya BLOB'ları şu anda kullanılmakta olan devam etmek nasıl isteyin. | |
+| | `2`: Her zaman üzerine; şu anda kullanılan blobları indirin. | |
+| | `3`: Hiçbir zaman üzerine ve boyutu büyükse, istemeden ekleme; şu anda kullanılan blobları indirin. | |
+| | `4`: Hiçbir zaman üzerine ve boyutu büyükse, istemeden ekleme; şu anda kullanılan BLOB'ları atlayın. | |
+| `--dry_run` | Yazdırma hangi BLOB'ları, indirmeden indirilip. | `False` |
 | `--create_gzip` | Oluşturma bir *gzip* Vowpal Wabbit dosyası. | `False` |
-| `--delta_mod_t DELTA_MOD_T` | Bir dosyanın şu anda kullanımda olup olmadığını saptamak için saniye olarak zaman penceresi. | `3600` saniye (`1` saat) |
+| `--delta_mod_t DELTA_MOD_T` | Bir dosya şu anda kullanımda olup olmadığını saptamak için saniye cinsinden zaman penceresi. | `3600` saniye (`1` saat) |
 | `--verbose` | Daha fazla ayrıntı yazdırın. | `False` |
 | `-v VERSION`, `--version VERSION` | Kullanılacak günlük yükleyici sürümü. | |
 | | `1`: Uncooked günlüklerini (yalnızca geriye dönük uyumluluk için). | Kullanım Dışı |
-| | `2`: Hazırlanan günlüklerini. | Varsayılan |
+| | `2`: İşlenmiş günlükler için. | Varsayılan |
 
 ### <a name="examples"></a>Örnekler
 
-Kuru Azure Storage blob kapsayıcısında tüm verileri indirilmesi Çalıştır için aşağıdaki kodu kullanın:
+Bir Azure depolama blob kapsayıcınızdaki tüm veri indirme, Prova için aşağıdaki kodu kullanın:
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data --dry_run
 ```
 
-Yalnızca 1 Ocak 2018 ile bu yana oluşturulan günlükleri indirmek için `overwrite_mode=4`, aşağıdaki kodu kullanın:
+1 Ocak 2018'den ile oluşturulan günlükleri indirmek için `overwrite_mode=4`, aşağıdaki kodu kullanın:
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data -s 2018-1-1 -o 4
 ```

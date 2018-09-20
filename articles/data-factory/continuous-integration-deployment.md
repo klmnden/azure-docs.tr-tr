@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 57c691271c2b2673ade40d600162934341e18a81
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 94c4a3fbd1c854401c42af5787c22db0e5dd6083
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300249"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365006"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Sürekli tümleştirme ve dağıtım Azure Data factory'de
 
@@ -81,7 +81,7 @@ Veri Fabrikası birden çok ortama dağıtımı otomatik hale getirmek için bir
 
 -   Bir [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) gizli dizileri içeren.
 
-### <a name="set-up-a-azure-devops-services-release"></a>Azure DevOps Hizmetleri yayını Ayarla
+### <a name="set-up-an-azure-devops-services-release"></a>Bir Azure DevOps Hizmetleri yayını Ayarla
 
 1.  Data Factory ile yapılandırılmış bir olarak aynı projede Azure DevOps Hizmetleri sayfanıza gidin.
 
@@ -799,9 +799,9 @@ else {
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Özel Parametreler ile Resource Manager şablonu kullanma
 
-Resource Manager şablonuna yönelik özel parametreler tanımlayabilirsiniz. Adlı bir dosya yeterlidir `arm-template-parameters-definition.json` deposunun kök klasörüne. (Dosya adı tam olarak burada gösterilen adı eşleşmelidir.) Veri Fabrikası dosya, çalışmakta olduğunuz hangi daldan, işbirliği dalından yalnızca okumaya çalışır. Dosya bulunamazsa, Data Factory varsayılan tanımları kullanır.
+Resource Manager şablonuna yönelik özel parametreler tanımlayabilirsiniz. Adlı bir dosya yeterlidir `arm-template-parameters-definition.json` deposunun kök klasörüne. (Dosya adı tam olarak burada gösterilen adı eşleşmelidir.) Veri Fabrikası dosya, çalışmakta olduğunuz hangi daldan, işbirliği dalından yalnızca okumaya çalışır. Dosya bulunamazsa, Data Factory varsayılan parametreleri ve değerleri kullanır.
 
-Aşağıdaki örnek, örnek bir parametreler dosyası gösterir. Bu örnek, kendi özel parametre dosyasını oluşturmak için bir başvuru olarak kullanın. Sağladığınız dosya JSON biçimi doğru değilse, Data Factory tarayıcı konsolunu bir hata iletisi çıkışı yapar ve Data Factory kullanıcı Arabiriminde gösterilen varsayılan tanımları döner.
+Aşağıdaki örnek, örnek bir parametreler dosyası gösterir. Bu örnek, kendi özel parametre dosyasını oluşturmak için bir başvuru olarak kullanın. Sağladığınız dosya JSON biçimi doğru değil, Data Factory tarayıcı konsolunu bir hata iletisi verir ve varsayılan parametreleri ve Data Factory kullanıcı Arabiriminde gösterilen değerler döner.
 
 ```json
 {

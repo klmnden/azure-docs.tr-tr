@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 9ca8c42d99f3bd7548c685f03328084865a09906
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 7cad09a3fc02d0c25f164f7e45974019ff9bbb71
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295793"
+ms.locfileid: "46367925"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – veritabanınızı Azure SQL veritabanı'nda yönetme
 
@@ -98,7 +98,7 @@ Bir güvenlik duvarı erişimi sunucunuza bir dış varlık mantıksal sunucunuz
 Sunucu düzeyinde veya veritabanı düzeyinde güvenlik duvarı kuralları oluşturabilirsiniz. Sunucu düzeyinde güvenlik duvarı kuralları SSMS veya portal aracılığıyla oluşturulan ya da kullanabilirsiniz. Bir sunucu ve veritabanı düzeyinde güvenlik duvarı kuralı ayarlama hakkında daha fazla bilgi için bkz: [SQL veritabanı'nda güvenlik duvarı kuralları oluşturma](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
 #### <a name="service-endpoints"></a>Hizmet uç noktaları
-Varsayılan olarak, SQL veritabanı, "tüm Azure Hizmetleri izin verecek şekilde" yapılandırılmış – azure'da herhangi bir sanal makineyi başka bir deyişle, veritabanınıza bağlanma girişiminde bulunabilir. Yine de bu girişimler, kimlik doğrulaması zorunda. Tüm Azure IP'ler tarafından erişilebilir olması için veritabanının istemiyorum, ancak "tüm Azure Hizmetleri izin ver" devre dışı bırakabilirsiniz. Buna ek olarak, yapılandırabileceğiniz [sanal ağ hizmet uç noktaları](sql-database-vnet-service-endpoint-rule-overview.md).
+Varsayılan olarak, SQL veritabanınız için yapılandırılmış "Azure hizmetlerinin sunucuya erişmesine izin ver" – azure'da herhangi bir sanal makineyi başka bir deyişle, veritabanınıza bağlanma girişiminde bulunabilir. Yine de bu girişimler, kimlik doğrulaması zorunda. Tüm Azure IP'ler tarafından erişilebilir olması için veritabanının istemiyorum, ancak "Azure hizmetlerinin sunucuya erişmesine izin ver" devre dışı bırakabilirsiniz. Buna ek olarak, yapılandırabileceğiniz [sanal ağ hizmet uç noktaları](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Hizmet uç noktaları (SE) azure'da kendi özel sanal ağ için yalnızca kritik Azure kaynaklarınızı kullanıma sunmanıza olanak sağlar. Bunun yapılması, temelde genel erişim kaynaklarınıza ortadan kaldırır. Azure sanal ağınıza arasındaki trafiğin Azure omurga ağı üzerinde kalır. Zorlamalı tünel paketi yönlendirme SE olursunuz. Sanal ağınız, kuruluşunuz internet trafiğini ve aynı yol üzerinden gitmek için Azure hizmet trafiğini zorlar. Hizmet uç noktaları ile bu paket akışı doğrudan sanal ağınızdan Azure omurga ağındaki hizmete en iyi duruma getirebilirsiniz.
 

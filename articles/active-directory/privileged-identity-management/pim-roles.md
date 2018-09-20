@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: cf0c9b76a7edace9f2a9147823b292e218e20bf7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 63f4c4c48dd0fed3130dc99929a0e84c3cba2026
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300282"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466056"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>PIM'de yönetebilmeniz için azure AD Dizin rolleri
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -44,9 +44,9 @@ Privileged Identity Management kullanıcılar dahil olmak üzere genel yönetici
   > Office 365 kullanıyorsanız, ardından bir kullanıcı, Hizmet Yöneticisi rolü atamadan önce ilk kullanıcı yönetici izinleri Exchange Online gibi bir hizmet atayın.
   > 
   > 
-* **Kullanıcı Yönetimi Yöneticisi** parolaları sıfırlar, hizmetin sistem durumunu izler ve kullanıcı hesapları, kullanıcı grupları ve hizmet isteklerini yönetir. Kullanıcı Yönetimi Yöneticisi bir genel yöneticiyi silemez, başka yönetici rolleri oluşturamaz veya faturalama, genel ve hizmet yöneticileri için parolaları sıfırlama.
+* **Kullanıcı Yöneticisi** parolaları sıfırlar, hizmetin sistem durumunu izler ve kullanıcı hesapları, kullanıcı grupları ve hizmet isteklerini yönetir. Kullanıcı Yöneticisi bir genel yöneticiyi silemez, başka yönetici rolleri oluşturamaz veya faturalama, genel ve hizmet yöneticileri için parolaları sıfırlama.
 * **Exchange Yöneticisi** Exchange yönetici merkezini (EAC) Exchange Online yönetici erişimi olan ve hemen her görevi, Exchange Online'da gerçekleştirebilirsiniz.
-* **SharePoint Yöneticisi (Önizleme)** SharePoint Online Yönetim Merkezi SharePoint Online yönetimsel erişim sahibi ve hemen her görevi SharePoint Online'da gerçekleştirebilirsiniz. Bu rol, şu anda Önizleme aşamasındadır. Uygun kullanıcılar PIM'de etkinleştirdikten sonra SharePoint içinde bu rolü kullanarak gecikme.
+* **SharePoint Hizmet Yöneticisi** SharePoint Online Yönetim Merkezi SharePoint Online yönetimsel erişim sahibi ve hemen her görevi SharePoint Online'da gerçekleştirebilirsiniz. Uygun kullanıcılar PIM'de etkinleştirdikten sonra SharePoint içinde bu rolü kullanarak gecikme.
 * **Skype Kurumsal Yöneticisi** Skype kurumsal iş Yönetim Merkezi aracılığıyla işletme için Skype yönetimsel erişim sahibi ve neredeyse her görev Skype Kurumsal çevrimiçi gerçekleştirebilirsiniz.
 
 Daha fazla ayrıntı için bu makaleleri okuyun [Azure AD'de yönetici rolleri atama](../users-groups-roles/directory-assign-admin-roles.md) ve [Office 365'te yönetici rolleri atama](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).

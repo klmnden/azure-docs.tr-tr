@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 6a817d4e52d602c921cb04f8c40dbad632d41932
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cdf1c8bfb8e623956d50975f36faafe10b534d06
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731336"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367569"
 ---
-# <a name="how-to-add-branding-to-your-azure-ad-sign-in-page"></a>Nasıl yapılır: Azure AD oturum açma sayfanızdaki için marka Ekle
+# <a name="how-to-add-branding-to-your-azure-active-directory-sign-in-page"></a>Nasıl yapılır: Azure Active Directory oturum açma sayfanızdaki için marka Ekle
 Kuruluşunuzun logosu ve özel renk düzenleriyle bir tutarlı görünüm ve hisse oturum açma, Azure Active Directory (Azure AD) sayfalarında sağlamak için kullanın. Oturum açma sayfaları kuruluşunuzun web tabanlı uygulamalara, Azure AD kimlik sağlayıcınız olarak kullanan Office 365 gibi kullanıcılar oturum açtığında görünür.
 
 >[!Note]
@@ -34,23 +34,30 @@ Kullanıcılarınızın www.office.com gibi sitelere olduğunuzda özel marka he
 > Tüm marka öğeleri isteğe bağlıdır. Örneğin, hiçbir arka plan görüntüsü ile bir başlık logosu belirtirseniz oturum açma sayfası varsayılan arka plan görüntüsü (örneğin, Office 365) hedef siteden Logonuzla gösterir.<br><br>Ayrıca, oturum açma sayfasında bulunan marka kişisel Microsoft hesapları için aktarılmaz. Kullanıcılarınıza veya şirket konuklarınız kişisel bir Microsoft hesabı kullanarak oturum açın, oturum açma sayfasında, kuruluşunuzun markasını yansıtmaz.
 
 ### <a name="to-customize-your-branding"></a>Markanızın özelleştirmek için
-1. Oturum [Azure AD portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
+1. Oturum [Azure portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
 
 2. Seçin **Azure Active Directory**ve ardından **şirket markası ekleme**ve ardından **yapılandırma**.
 
-    ![Contoso - şirket markalama dikey penceresinde, yapılandırma seçeneği vurgulanmış](media/customize-branding/company-branding-configure-button.png)
+    ![Contoso - şirket markalama sayfasında, yapılandırma seçeneği vurgulanmış](media/customize-branding/company-branding-configure-button.png)
 
-3. Üzerinde **yapılandırma şirket markası** dikey penceresinde tüm aşağıdaki bilgileri sağlayın:
+3. Üzerinde **yapılandırma şirket markası** sayfasında, aşağıdaki bilgilerin bir bölümünü veya tamamını sağlayın.
+
+    >[!Important]
+    >Bu sayfada eklediğiniz tüm özel görüntüleri görüntü boyutu (piksel) sahip ve büyük olasılıkla dosya boyutu (KB) cinsinden kısıtlamaları. Bu kısıtlamalar nedeniyle, olasılıkla Fotoğraf Düzenleyici doğru boyutta görüntüleri oluşturmak için kullanmanız gerekecektir.
 
     - **Genel ayarlar**
 
-        ![Şirket dikey penceresinde tamamlanmış genel ayarlarla markasını yapılandırın](media/customize-branding/configure-company-branding-general-settings.png)
+        ![Şirket ile genel ayarlar Tamamlandı sayfasında markasını yapılandırın](media/customize-branding/configure-company-branding-general-settings.png)
 
         - **Dili.** Dil, varsayılan olarak otomatik olarak ayarlanır ve değiştirilemez.
         
-        - **Oturum açma sayfası arka plan resmi.** Oturum açma sayfalarını arka planı olarak görüntülenecek bir .png veya .jpg görüntüsü dosyası seçin. Görüntü boyutu 1920 x 1080 piksel değerinden büyük olamaz ve az 300 KB dosya boyutuna sahip olmalıdır.
+        - **Oturum açma sayfası arka plan resmi.** Oturum açma sayfalarını arka planı olarak görüntülenecek bir .png veya .jpg görüntüsü dosyası seçin. 
+        
+            Görüntü boyutu 1920 x 1080 piksel değerinden büyük olamaz ve az 300 KB dosya boyutuna sahip olmalıdır.
 
-        - **Başlık logosu.** Logonuz oturum açma sayfasında kullanıcının kullanıcı adı girdiğinde ve üzerinde görünmesi için bir .png veya .jpg sürümünü seçin **uygulamalarım** portal sayfası. Görüntü 36 pikselden daha uzun veya 245 pikselden daha geniş olamaz. Arka plan logo arka plan eşleşmeyebilir beri saydam bir görüntü kullanmanızı öneririz. Ayrıca görüntü çevresindeki dolgunun eklenmiyor öneririz veya küçük Ara logonuz hale getirebilirsiniz.
+        - **Başlık logosu.** Logonuz oturum açma sayfasında kullanıcının kullanıcı adı girdiğinde ve üzerinde görünmesi için bir .png veya .jpg sürümünü seçin **uygulamalarım** portal sayfası.
+            
+            Görüntü 36 pikselden daha uzun veya 245 pikselden daha geniş olamaz. Arka plan logo arka plan eşleşmeyebilir beri saydam bir görüntü kullanmanızı öneririz. Ayrıca görüntü çevresindeki dolgunun eklenmiyor öneririz veya küçük Ara logonuz hale getirebilirsiniz.
 
         - **Kullanıcı adı ipucu.** Kullanıcı adlarını unuturlarsa kullanıcılara görüntülenen İpucu metni yazın. Bu metin, Unicode bağlantılar veya kod olmalıdır ve 64 karakterden uzun olamaz. Konuklar uygulamanızda oturum açarsa, bu ipucu eklenmiyor öneririz.
 
@@ -58,11 +65,13 @@ Kullanıcılarınızın www.office.com gibi sitelere olduğunuzda özel marka he
 
     - **Gelişmiş ayarlar**
             
-        ![Şirket tamamlandı ile Gelişmiş ayarlar dikey penceresinde markasını yapılandırın](media/customize-branding/configure-company-branding-advanced-settings.png)   
+        ![Şirket ile Gelişmiş ayarlar Tamamlandı sayfasında markasını yapılandırın](media/customize-branding/configure-company-branding-advanced-settings.png)   
 
         - **Oturum açma sayfası arka plan rengi.** Onaltılık renk belirtin (örneğin #FFFFFF beyaz) arka plan görüntünüzü düşük bant genişlikli bağlantı durumlarda yerine görüntülenir. Başlık logosu, ya da kuruluş renginiz birincil rengini kullanmanızı öneririz.
 
-        - **Kare logo görüntüsü.** (Tercih edilir) bir .png veya .jpg görüntüsü yeni Windows 10 Enterprise cihazları için Kurulum işlemi sırasında kullanıcıların göreceği kuruluşunuzun logo seçin. Bu görüntü, yalnızca Windows kimlik doğrulaması için kullanılır ve yalnızca kullandığınız kiracının görünür [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) parola girişi veya dağıtım için diğer Windows 10 sayfalarında deneyimleri. Görüntü boyutu 240 x 240 piksel değerinden büyük olamaz ve dosya boyutunun 10 KB'den az olmalıdır. Arka plan logo arka plan eşleşmeyebilir beri saydam bir görüntü kullanmanızı öneririz. Ayrıca görüntü çevresindeki dolgunun eklenmiyor öneririz veya küçük Ara logonuz hale getirebilirsiniz.
+        - **Kare logo görüntüsü.** (Tercih edilir) bir .png veya .jpg görüntüsü yeni Windows 10 Enterprise cihazları için Kurulum işlemi sırasında kullanıcıların göreceği kuruluşunuzun logo seçin. Bu görüntü, yalnızca Windows kimlik doğrulaması için kullanılır ve yalnızca kullandığınız kiracının görünür [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) parola girişi veya dağıtım için diğer Windows 10 sayfalarında deneyimleri.
+        
+            Görüntü boyutu 240 x 240 piksel değerinden büyük olamaz ve dosya boyutunun 10 KB'den az olmalıdır. Arka plan logo arka plan eşleşmeyebilir beri saydam bir görüntü kullanmanızı öneririz. Ayrıca görüntü çevresindeki dolgunun eklenmiyor öneririz veya küçük Ara logonuz hale getirebilirsiniz.
     
         - **Kare logo görüntüsü, koyu tema.** Yukarıdaki kare logo görüntüsü ile aynıdır. Bu logo görüntüsü, koyu renkli arka plan ile gibi Windows 10 Azure AD'ye katılmış ekranlar kullanıma hazır deneyimi (OOBE) sırasında kullanıldığında kare logo görüntüsü yerini alır.  Logonuz beyaz, koyu mavi ve siyah arka plan üzerinde iyi görünüyorsa, bu görüntüyü eklemenize gerek yoktur. 
         
@@ -74,22 +83,22 @@ Kullanıcılarınızın www.office.com gibi sitelere olduğunuzda özel marka he
 
 3. Marka bilgilerinizi ekleyerek bitirdikten sonra seçin **Kaydet**.
 
-  Bu ilk marka yapılandırmanızı olduğundan, kiracınız için varsayılan olur. Daha fazla yapılandırma eklerseniz, varsayılan seçim yapma olanağı elde edersiniz.
-
-  >[!Important]
-  >Daha fazla bilgi eklemek için Kurumsal yapılandırmaları, kiracınız marka seçmeniz gerekir **yeni dil** üzerinde **Contoso - şirket markası** dikey penceresi. Bu açılır **yapılandırma şirket markası** dikey penceresinde, burada izleyebilirsiniz yukarıdaki gibi aynı adımları.
+    Bu işlem ilk özel marka yapılandırmanızı oluşturursa, kiracınız için varsayılan olur. Ek yapılandırmalar varsa, varsayılan yapılandırmayı seçmek mümkün olacaktır.
+    
+    >[!Important]
+    >Daha fazla bilgi eklemek için Kurumsal yapılandırmaları, kiracınız marka seçmeniz gerekir **yeni dil** üzerinde **Contoso - şirket markası** sayfası. Bu açılır **yapılandırma şirket markası** sayfasında, burada izleyebilirsiniz yukarıdaki gibi aynı adımları.
 
 ## <a name="update-your-custom-branding"></a>Özel bir marka bilgilerinizi güncelleştirin
 Özel marka oluşturduktan sonra geri dönün ve istediğiniz değişikliği.
 
 ### <a name="to-edit-your-custom-branding"></a>Özel bir marka bilgilerinizi düzenlemek için
-1. Oturum [Azure AD portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
+1. Oturum [Azure portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
 
 2. Seçin **Azure Active Directory**ve ardından **şirket markası ekleme**ve ardından **yapılandırma**.
 
-    ![Contoso - şirket markalama dikey penceresinde gösterilen varsayılan yapılandırma ile](media/customize-branding/company-branding-default-config.png)
+    ![Contoso - gösterilen varsayılan yapılandırma ile şirket markalama sayfası](media/customize-branding/company-branding-default-config.png)
 
-3. Üzerinde **yapılandırma şirket markası** dikey penceresinde, eklemek, kaldırmak veya açıklamasında temel alan bilgiler, değişiklik [Azure AD oturum açma sayfanızı özelleştirmek](#customize-your-azure-ad-sign-in-page) bu makalenin.
+3. Üzerinde **yapılandırma şirket markası** sayfasında, eklemek, kaldırmak veya açıklamasında temel alan bilgiler, değişiklik [Azure AD oturum açma sayfanızı özelleştirmek](#customize-your-azure-ad-sign-in-page) bu makalenin.
 
 4. **Kaydet**’i seçin.
 
@@ -100,16 +109,29 @@ Varsayılan dilinizi özgün yapılandırmasının dili değiştiremezsiniz. Anc
 
 ### <a name="to-add-a-language-specific-branding-configuration"></a>Dile özgü marka yapılandırması eklemek için
 
-1. Oturum [Azure AD portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
+1. Oturum [Azure portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
 
 2. Seçin **Azure Active Directory**ve ardından **şirket markası ekleme**ve ardından **yeni dil**.
 
-    ![Contoso - şirket markalama dikey penceresinde yeni dil seçeneği vurgulanmış ile](media/customize-branding/company-branding-new-language.png)
+    ![Contoso - yeni dil seçeneği vurgulanmış ile şirket markalama sayfası](media/customize-branding/company-branding-new-language.png)
 
-3. Üzerinde **yapılandırma şirket markası** dikey penceresinde (örneğin, Fransızca) dilinizi seçin ve ardından bağlantısındaki açıklamalara göre çevrilmiş bilgilerinizi ekleyin [Azure AD oturum açma sayfanızı özelleştirmek](#customize-your-azure-ad-sign-in-page) Bu makalede bölümü.
+3. Üzerinde **yapılandırma şirket markası** sayfasında dilinizi (örneğin, Fransızca) seçin ve ardından bağlantısındaki açıklamalara göre çevrilmiş bilgilerinizi ekleyin [Azure AD oturum açma sayfanızı özelleştirmek](#customize-your-azure-ad-sign-in-page) Bu makalede bölümü.
 
 4. **Kaydet**’i seçin.
 
-    **Contoso – şirket markası** yeni Fransızca yapılandırmanızı göstermek için dikey penceresinde güncelleştirmeler.
+    **Contoso – şirket markası** sayfasında yeni Fransızca yapılandırmanızı göstermek için güncelleştirmeler.
 
-    ![Contoso - şirket markalama dikey penceresinde gösterilen varsayılan yapılandırma ile](media/customize-branding/company-branding-french-config.png)
+    ![Contoso - gösterilen varsayılan yapılandırma ile şirket markalama sayfası](media/customize-branding/company-branding-french-config.png)
+
+## <a name="add-your-custom-branding-to-pages"></a>Özel sayfalara markanızı ekleme
+Metni, URL'nin sonuna değiştirerek marka, özel bilgilerinizi sayfalarına ekleme `?whr=yourdomainname`. Bu değişiklik, multi-Factor Authentication (MFA) Kurulum sayfasına, Self Servis parola sıfırlama (SSPR) Kurulum sayfasına ve oturum açma sayfasında da dahil olmak üzere çeşitli sayfalar üzerinde çalışır.
+
+**Örnekler:**
+
+**Özgün URL:** https://aka.ms/MFASetup<br>
+**Özel URL:** https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com
+
+**Özgün URL:** https://aka.ms/SSPR<br>
+**Özel URL:** https://passwordreset.microsoftonline.com/?whr=contoso.com
+
+ 

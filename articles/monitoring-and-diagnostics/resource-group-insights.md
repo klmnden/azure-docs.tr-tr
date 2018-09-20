@@ -9,15 +9,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 723006d37ed0570e32790a0bb70a3dce5a87ade8
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345222"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465818"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Kaynak grupları, Azure İzleyici (Önizleme) ile izleme
 
@@ -109,6 +109,11 @@ Sorguyu doğrudan değiştirebilirsiniz. Referans olarak kullanın ve bundan ken
 Bu durumda, düzen seçerseniz bu görselleştirmeler kümesini Azure İzleyici ölçümleri tarafından güçlendirilmiştir görürsünüz.
 
  ![Azure ölçümleri ile performans görünümünün ekran görüntüsü](.\media\resource-group-insights\0012-performance-metrics.png)
+
+## <a name="troubleshooting"></a>Sorun giderme
+
+### <a name="enabling-access-to-alerts"></a>Uyarılar erişimini etkinleştirme
+Kaynak grupları için Azure İzleyici uyarı durumu, kaynak grubundaki kaynakları erişmek için belirli izinler gerekiyor. Uyarılar yüklenirken bir hata iletisi görürseniz, yeterli izinlere sahip değilsiniz. Yöneticinizden size **sahibi** veya **katkıda bulunan** rolü için kaynak grubunu içeren aboneliği.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

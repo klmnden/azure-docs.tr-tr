@@ -12,12 +12,12 @@ ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: ac9783d970af96242266a787071ec831ef5c0df8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ccff64b88787291832b9d2ed84eb81919152d887
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296915"
+ms.locfileid: "46364780"
 ---
 # <a name="how-to-sign-up-for-azure-active-directory-as-an-organization"></a>Nasıl yapılır: Azure Active Directory kuruluş olarak kaydolma
 Azure Active Directory (Azure AD) kullanarak yeni bir Microsoft Azure aboneliğine kaydolun:
@@ -26,9 +26,12 @@ Azure Active Directory (Azure AD) kullanarak yeni bir Microsoft Azure aboneliği
 
 - **İş veya Okul hesabı.** Tüm küçük, Orta ve kurumsal bulut Hizmetleri, Azure, Microsoft Intune veya Office 365 gibi Microsoft gelen erişim elde etmek için iş veya Okul ile ilgili hesabınızı kullanın. Bu hizmetlerden biri için bir kuruluş olarak kaydolduktan sonra Azure AD'ye otomatik olarak kuruluşunuzu temsil eden bulut tabanlı bir dizin sağlar. Daha fazla bilgi için [Azure AD dizininizi yönetme](active-directory-administer.md).
 
+    >[!Note]
+    İş veya Okul hesabınız zaten Azure AD erişiminiz varsa öneririz. Ancak, Azure aboneliğinizle ilişkili hesabı hangi türde kullanmanız gerekir.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bir kuruluş olarak kaydolma](https://azure.microsoft.com/pricing/purchase-options/)
+- [Azure satın alma](https://azure.microsoft.com/pricing/purchase-options/)
 
 - [Azure Active Directory Premium sürümleri için kaydolun](active-directory-get-started-premium.md)
 
@@ -36,11 +39,5 @@ Azure Active Directory (Azure AD) kullanarak yeni bir Microsoft Azure aboneliği
 
 - [Şirket içi kimlik altyapınızı bulutta kullanma](../connect/active-directory-aadconnect.md)
 
-<<<<<<< BAŞ
-* [Microsoft Azure blogu](https://azure.microsoft.com/blog/)
-* [Azure AD nedir?](active-directory-whatis.md)
-* [Şirket içi kimlik altyapınızı bulutta kullanma](../hybrid/whatis-hybrid-identity.md)
-=======
 - [Microsoft Azure blogunu ziyaret edin](https://azure.microsoft.com/blog/)
->>>>>>> 73f447b1499ba1f189efb6832ad759f1230e55a2
 

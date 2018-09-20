@@ -1,21 +1,25 @@
 ---
-title: Azure IOT Central uygulamanız için özel analizler oluşturun | Microsoft Docs
-description: İşleç, Azure IOT Central uygulamanız için özel analytics oluşturma.
+title: Azure IOT Central uygulamanızdaki cihaz verilerinizi analiz edin | Microsoft Docs
+description: Azure IOT Central uygulamanızdaki cihaz verilerinizi analiz edin.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 08/26/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0a78c534605b6eab08d5b12674689f0459e80b26
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: bf86e769aff4a9b03d5df1b1aef702814c605fa4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247105"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368095"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Cihazınızın verileri analiz etmek için Analytics kullanma
+
+
+*Bu makale, işleçler, Oluşturucular ve Yöneticiler için geçerlidir.*
+
 
 Microsoft Azure IOT Central, büyük miktarda verileri anlamlı zengin analiz özellikleri sağlar. Başlamak için ziyaret **Analytics** sol gezinti menüsünde. 
 

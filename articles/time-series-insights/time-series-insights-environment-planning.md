@@ -11,16 +11,22 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: c98a90aa44166d6453612f9b73287966851df6ce
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 90a01e1b6741d0668a71e612d9c0cf90871b67da
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578166"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366327"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Azure Time Series Insights ortamınızı planlama
 
 Bu makalede, beklenen giriş oranınız ve veri koruma gereksinimlerinizi temel alan Azure Time Series Insights ortamınızı planlama açıklar.
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Bu videoda, Time Series Insights veri saklama ve bunun için nasıl kapsar.</br>
+
+> [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 
@@ -63,8 +69,8 @@ Aşağıdaki tabloda her SKU alma kapasitesi özetlenmektedir:
 
 |SKU  |Ayda birim başına olay sayısı  |Her ay, birim başına olay boyutu  |Dakikada birim başına olay sayısı  | Birim başına dakikada boyutu   |
 |---------|---------|---------|---------|---------|
-|S1     |   30 milyon     |  30 GB     |  700    |  700 KB   |
-|S2     |   300 milyon    |   300 GB   | 7,000   | 7000 KB  |
+|S1     |   30 milyon     |  30 GB     |  720    |  720 KB   |
+|S2     |   300 milyon    |   300 GB   | 7.200   | 7200 KB  |
 
 Tek bir ortamda 10 birim için bir S1 ve S2 SKU kapasitesi artırabilirsiniz. S2 için S1 ortamdan ya da bir S1 S2 ortamdan geçiremezsiniz. 
 
@@ -72,7 +78,7 @@ Alma kapasitesi için ilk ay başına temelinde gerekli toplam giriş belirlemen
 
 Time Series Insights "yakalama" veri girişinizi 24 saatten uzun bir depo varsa, yukarıda listelenen fiyatlar x 2 giriş hızında olabilir. 
 
-Örneğin, tek bir S1 SKU'ya ve giriş verileri 700 olay başına dakika ve ani bir hızda 1 saatten kısa bir süre bir hızda 1400 olayların ya da daha az olan, olacaktır ortamınıza belirgin hiçbir gecikme süresi. Ancak, bir saatten fazla için dakika başına 1400 olayları aşarsanız, gecikme görselleştirilmiş ve ortamınızda bir sorgu için kullanılabilir olan veriler için büyük olasılıkla deneyimleyeceği. 
+Örneğin, tek bir S1 SKU'ya ve giriş verileri 720 olay başına dakika ve ani bir hızda 1 saatten az 1440 olayları veya daha küçük bir hızda için varsa, olacaktır ortamınıza belirgin hiçbir gecikme süresi. Ancak, bir saatten fazla için dakika başına 1440 olayları aşarsanız, gecikme görselleştirilmiş ve ortamınızda bir sorgu için kullanılabilir olan veriler için büyük olasılıkla deneyimleyeceği. 
 
 Göndermeye beklediğiniz önceden ne kadar veri bilemeyebilirsiniz. Bu durumda, veri telemetri için bulabilirsiniz [Azure IOT hub'ı](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) ve [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) , Azure portalında. Bu telemetrinin ortamınızı sağlama belirlemenize yardımcı olabilir. Kullanım **ölçümleri** ve telemetrisini görüntülemek ilgili olay kaynağı Azure portalında sayfası. Olay kaynağı ölçümlerinizi anlarsanız, daha etkili bir şekilde planlamak ve zaman serisi görüşleri ortamınıza sağlayın.
 
@@ -97,15 +103,19 @@ Başvuru verileri geriye dönük olarak katılmamış unutmayın. Bu, yalnızca 
 TSI içindeki, başvuru verilerini yönetme oluşturma ve karşıya yükleme hakkında daha fazla bilgi edinmek için head bizim *başvuru verileri* belgeleri [belgeleri](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="business-disaster-recovery"></a>İş olağanüstü durum kurtarma
-Bir Azure hizmeti olduğundan, zaman serisi görüşleri çözüm için gerekli olan herhangi bir ek çalışma yapmadan Azure bölgesi düzeyinde fazlalıkları kullanarak yüksek kullanılabilirlik (HA) sağlar. Microsoft Azure platformu, olağanüstü durum kurtarma (DR) özellikleri veya bölgeler arası kullanılabilirlik ile çözümler oluşturmanıza yardımcı olacak özellikler de içerir. Genel sağlamak istiyorsanız, bölgeler arası yüksek kullanılabilirlik için cihazlara veya kullanıcılara, bu Azure DR özelliklerden yararlanın. Makaleyi [Azure iş sürekliliği teknik rehberlik](../resiliency/resiliency-technical-guidance.md) iş sürekliliği ve olağanüstü durum kurtarma için azure'da yerleşik özellikler açıklanmaktadır. [Olağanüstü durum kurtarma ve Azure uygulamaları için yüksek kullanılabilirlik] [olağanüstü durum kurtarma ve Azure uygulamaları için yüksek kullanılabilirlik] kağıt, HA ve DR elde etmek, Azure uygulamaları için stratejileri hakkında mimari rehberlik sağlar.
+Bir Azure hizmeti olduğundan, zaman serisi görüşleri çözüm için gerekli olan herhangi bir ek çalışma yapmadan Azure bölgesi düzeyinde fazlalıkları kullanarak yüksek kullanılabilirlik (HA) sağlar. Microsoft Azure platformu, olağanüstü durum kurtarma (DR) özellikleri veya bölgeler arası kullanılabilirlik ile çözümler oluşturmanıza yardımcı olacak özellikler de içerir. Genel sağlamak istiyorsanız, bölgeler arası yüksek kullanılabilirlik için cihazlara veya kullanıcılara, bu Azure DR özelliklerden yararlanın. Makaleyi [Azure iş sürekliliği teknik rehberlik](../resiliency/resiliency-technical-guidance.md) iş sürekliliği ve olağanüstü durum kurtarma için azure'da yerleşik özellikler açıklanmaktadır. [Olağanüstü durum kurtarma ve Azure uygulamaları için yüksek kullanılabilirlik] [https://docs.microsoft.com/en-us/azure/architecture/resiliency/index] kağıt, HA ve DR elde etmek, Azure uygulamaları için stratejileri hakkında mimari rehberlik sağlar.
 
-Time Series Insights yerleşik iş olağanüstü durum kurtarma (BCDR) sahip değil.  Ancak, BCDR gerektiren müşteriler hala kurtarma stratejisi uygulayabilir. Yedekleme bir Azure bölgesinde ikinci bir zaman serisi görüşleri ortamı oluşturma ve ikinci bir adanmış bir tüketici grubu ve bu olay kaynağının BCDR yönergeleri yararlanarak birincil olay kaynağından ikincil bu ortam için olayları gönderirsiniz.  
+Azure Time Series Insights yerleşik iş olağanüstü durum kurtarma (BCDR) sahip değil. BCDR gerektiren müşteriler aşağıdaki yöntemi kullanarak bir kurtarma stratejisine yine de uygulayabilirsiniz: 
+
+Yedekleme bir Azure bölgesinde ikinci bir zaman serisi görüşleri ortamı oluşturma ve ikinci bir adanmış bir tüketici grubu ve bu olay kaynağının BCDR yönergeleri yararlanarak birincil olay kaynağından ikincil bu ortam için olayları gönderirsiniz.  
 
 1.  Ortam, ikinci bir bölgede oluşturun.  Zaman serisi görüşleri ortamı oluşturma hakkında daha fazla [burada](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 2.  Olay kaynağınız için ikinci bir adanmış bir tüketici grubu oluşturun ve bu olay kaynak yeni ortama bağlanın.  İkinci ve adanmış bir tüketici grubu tanımlamak emin olun.  Ya da izleyerek bu konu hakkında daha fazla bilgi edinebilirsiniz [IOT Hub belgeleri](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) veya [Event hub belgeleri](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
 3.  Bir olağanüstü durum olayı sırasında Git, birincil bölge olsaydı, işlemlerinin yedekleme zaman serisi görüşleri ortamına geçiş yapın.  
 
-IOT Hub'ın BCDR ilkeleri hakkında daha fazla bilgi edinmek için head [burada](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  Olay hub'ın BCDR ilkeleri hakkında daha fazla bilgi edinmek için head [burada](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
+Varsayılan olarak Azure IOT Hub ve Event Hubs, yerleşik kurtarma sahiptir. IOT Hub'ın BCDR ilkeleri hakkında daha fazla bilgi edinmek için head [burada](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  Olay hub'ın BCDR ilkeleri hakkında daha fazla bilgi edinmek için head [burada](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
+
+Bu **Unutulmaması gereken** sırasında herhangi bir yük devretme senaryosu bir gecikme olabilir TSI iletilerini işleme tekrar başlamadan önce. Bu bir depo göz daha fazla bilgi için lütfen Al işleme iletisi neden olabilir [zaman serisi öngörüleri yönetme azaltma](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-environment-mitigate-latency)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Bir Event Hub olay kaynağı ekleme](time-series-insights-how-to-add-an-event-source-eventhub.md)

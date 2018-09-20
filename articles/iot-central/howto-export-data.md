@@ -4,18 +4,20 @@ description: Azure IOT Central uygulamanızdan veri dışarı aktarma
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 07/3/2018
+ms.date: 09/18/2018
 ms.topic: article
-ms.prod: azure-iot-central
+ms.service: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 5defbf7021936e3cc77250ccc453cb3887c77617
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a1a7e6a62a88057cc8bc512a0c46de79a55ccd53
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576451"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368146"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IOT Central verilerinizi dışarı aktarma
+
+*Bu konu, Yöneticiler için geçerlidir.*
 
 Bu makalede sürekli veri dışa aktarma Özelliği Azure IOT Central verileri Azure Blob Depolama hesabınıza düzenli aralıklarla dışarı aktarmak için nasıl kullanılacağını açıklar. Dışarı aktarabilirsiniz **ölçümleri**, **cihazları**, ve **cihaz şablonları** dosyalarla [Apache AVRO](https://avro.apache.org/docs/current/index.html) biçimi. Dışarı aktarılan verileri eğitim modeller Azure Machine Learning veya Microsoft Power BI uzun vadeli eğilim analizi gibi Durgun yoldaki analiz için kullanılabilir.
 
@@ -36,7 +38,7 @@ Bu makalede sürekli veri dışa aktarma Özelliği Azure IOT Central verileri A
 Cihazları gönderir ve ölçümler, depolama hesabınıza dakikada bir kez verilir. Veri ile IOT Central, bu süre boyunca tüm cihazlardan alınan tüm yeni ileti yok. Dışarı aktarılan AVRO dosyalarını tarafından dışarı aktarılan ileti dosyaları olarak aynı biçimi kullanır. [IOT Hub ileti yönlendirme](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) Blob Depolama.
 
 > [!NOTE]
-> Ölçümler gönderen cihazları (aşağıdaki bölümlere bakın) cihaz kimlikleri tarafından temsil edilir. Cihaz adları almak için cihaz anlık görüntülerin dışarı aktarın. Her bir ileti kaydı kullanarak ilişkilendirmek **connectionDeviceId** cihaz kimliği ile eşleşen
+> Ölçümler gönderen cihazları (aşağıdaki bölümlere bakın) cihaz kimlikleri tarafından temsil edilir. Cihaz adları almak için cihaz anlık görüntülerin dışarı aktarın. Her bir ileti kaydı kullanarak ilişkilendirmek **connectionDeviceId** eşleşen **DeviceID** cihaz kaydının.
 
 Aşağıdaki örnek, bir kaydı bir kodu çözülmüş AVRO dosyasında gösterir:
 
@@ -45,9 +47,9 @@ Aşağıdaki örnek, bir kaydı bir kodu çözülmüş AVRO dosyasında gösteri
     "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
     "Properties": {},
     "SystemProperties": {
-        "connectionDeviceId": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+        "connectionDeviceId": "<connectionDeviceId>",
         "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "636614021491644195",
+        "connectionDeviceGenerationId": "<generationId>",
         "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
     },
     "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
@@ -56,12 +58,13 @@ Aşağıdaki örnek, bir kaydı bir kodu çözülmüş AVRO dosyasında gösteri
 
 ### <a name="devices"></a>Cihazlar
 
-Verileri sürekli dışarı aktarma ilk açıldığında, tüm cihazlar ile tek bir anlık görüntüyü dışarı aktarılır. Anlık görüntü içerir:
-- Cihaz kimlikleri.
-- Cihaz adları.
-- Cihaz şablon kimlikleri belirtilmeli.
-- Özellik değeri.
-- Ayar değerleri.
+Verileri sürekli dışarı aktarma ilk açıldığında, tüm cihazlar ile tek bir anlık görüntüyü dışarı aktarılır. Her cihaz içerir:
+- `id` IOT Central'ın aygıt
+- `name` Aygıt
+- `deviceId` gelen [cihaz sağlama hizmeti](https://aka.ms/iotcentraldocsdps)
+- Cihaz şablon bilgisi
+- Özellik değerleri
+- Ayar değerleri
 
 Yeni bir anlık görüntü bir kez dakikada yazılır. Anlık görüntü içerir:
 
@@ -73,15 +76,16 @@ Yeni bir anlık görüntü bir kez dakikada yazılır. Anlık görüntü içerir
 >
 > Her bir cihaza ait cihaz şablonu cihaz şablon kimliği ile temsil edilir Cihaz şablonunun adını almak için cihaz şablonu anlık görüntülerin dışarı aktarın.
 
-Kodu çözülen AVRO dosyasında her kaydı şuna benzer:
+Kodu çözülen AVRO dosyasında bir kaydı gibi görünebilir:
 
 ```json
 {
-    "id": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+    "id": "<id>",
     "name": "Refrigerator 2",
     "simulated": true,
+    "deviceId": "<deviceId>",
     "deviceTemplate": {
-        "id": "c318d580-39fc-4aca-b995-843719821049",
+        "id": "<template id>",
         "version": "1.0.0"
     },
     "properties": {
@@ -104,8 +108,10 @@ Kodu çözülen AVRO dosyasında her kaydı şuna benzer:
 
 ### <a name="device-templates"></a>Cihaz şablonları
 
-Verileri sürekli dışarı aktarma ilk açıldığında, tüm cihaz şablonları ile tek bir anlık görüntüyü dışarı aktarılır. Anlık görüntü içerir: 
-- Cihaz şablon kimlikleri belirtilmeli.
+Verileri sürekli dışarı aktarma ilk açıldığında, tüm cihaz şablonları ile tek bir anlık görüntüyü dışarı aktarılır. Her cihaz şablonu içerir:
+- `id` cihaz şablonu
+- `name` cihaz şablonu
+- `version` cihaz şablonu
 - Ölçüm veri türleri ve en düşük/en yüksek değerleri.
 - Özellik veri türleri ve varsayılan değerleri.
 - Veri türleri ve varsayılan değerleri ayarlama.
@@ -118,11 +124,11 @@ Yeni bir anlık görüntü bir kez dakikada yazılır. Anlık görüntü içerir
 > [!NOTE]
 > Bu yana son anlık görüntü silinmiş cihaz şablonlarını dışa aktarılmaz. Şu anda anlık görüntüleri göstergeleri silinen cihaz şablonları için yok.
 
-Kodu çözülen AVRO dosyasında her kaydı şuna benzer:
+Bir kayıt kodu çözülmüş AVRO dosyasında şöyle görünebilir:
 
 ```json
 {
-    "id": "c318d580-39fc-4aca-b995-843719821049",
+    "id": "<id>",
     "name": "Refrigerated Vending Machine",
     "version": "1.0.0",
     "measurements": {
@@ -209,16 +215,16 @@ Kodu çözülen AVRO dosyasında her kaydı şuna benzer:
 
 4. Altında **Yönetim**seçin **verileri dışarı aktarma**.
 
-   ![Yapılandırma verileri sürekli dışarı aktarma](media/howto-export-data/continuousdataexport.PNG)
-
 5. İçinde **depolama hesabı** aşağı açılan liste kutusunda, depolama hesabınızı seçin. İçinde **kapsayıcı** aşağı açılan liste kutusunda, kapsayıcınızı seçin. Altında **dışarı aktarmak için veri**, her tür ayarlayarak dışarı aktarmak için veri türü belirtin **üzerinde**.
 
 6. Verileri sürekli dışarı aktarma üzerinde etkinleştirmek için ayarlanmış **verileri dışarı aktarma** için **üzerinde**. **Kaydet**’i seçin.
 
+  ![Yapılandırma verileri sürekli dışarı aktarma](media/howto-export-data/continuousdataexport.PNG)
+
 7. Birkaç dakika sonra verileriniz depolama hesabınızda görünür. Depolama hesabınıza gidin. Seçin **Gözat blobları** > kapsayıcı. Dışarı aktarma verileri için üç klasör görürsünüz. AVRO dosyalarını dışarı aktarma verileri için varsayılan yollar şunlardır:
-    - İleti: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - Aygıtlar: {container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - Cihaz şablonları: {container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - İleti: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - Aygıtlar: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - Cihaz şablonları: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ## <a name="read-exported-avro-files"></a>Verilen AVRO dosyaları okuma
 
@@ -280,7 +286,7 @@ def parse(filePath):
     transformed = pd.DataFrame()
 
     # The device ID is available in the id column.
-    transformed["device_id"] = devices["id"]
+    transformed["device_id"] = devices["deviceId"]
 
     # The template ID and version are present in a dictionary under
     # the deviceTemplate column.
@@ -395,7 +401,7 @@ public static async Task Run(string filePath)
                 {
                     // Get the field value directly. You can also yield return
                     // records and make the function IEnumerable<AvroRecord>.
-                    var deviceId = record.GetField<string>("id");
+                    var deviceId = record.GetField<string>("deviceId");
 
                     // The device template information is stored in a sub-record
                     // under the deviceTemplate field.
@@ -411,7 +417,7 @@ public static async Task Run(string filePath)
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
                     
                     Console.WriteLine(
-                        "ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
+                        "Device ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
                         deviceId,
                         templateId,
                         templateVersion,
@@ -524,8 +530,8 @@ const avro = require('avsc');
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device ID from the id property.
-        const deviceId = record.id;
+        // Fetch the device ID from the deviceId property.
+        const deviceId = record.deviceId;
 
         // Fetch the template ID and version from the deviceTemplate property.
         const deviceTemplateId = record.deviceTemplate.id;
@@ -535,7 +541,7 @@ async function parse(filePath) {
         const fanSpeed = record.settings.device.fanSpeed;
 
         // Log the retrieved device ID and humidity.
-        console.log(`ID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
+        console.log(`deviceID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 

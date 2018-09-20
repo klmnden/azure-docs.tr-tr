@@ -1,27 +1,29 @@
 ---
-title: Tarayıcıdan - Azure Bilişsel hizmetler API çağrısı | Microsoft Docs
-description: Bir Web sayfası API yaparak iyileştirmek için Azure özel karar hizmeti ile nasıl doğrudan bir tarayıcıdan çağırır.
+title: Bir tarayıcıdan - Custom Decision Service API çağırma
+titlesuffix: Azure Cognitive Services
+description: Custom Decision Service için doğrudan bir tarayıcıdan API çağrısı yaparak bir Web sayfası en iyi duruma getirme.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins,marcozo,alekh
-ms.openlocfilehash: 10236c9d8f70d9b90a896464b4f86a847ee904c2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 554b90efe1c646396597a722a74390e9048570ea
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354748"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363192"
 ---
 # <a name="call-api-from-a-browser"></a>Tarayıcıdan API çağrısı yapma
 
-Bu makalede Azure özel karar hizmeti API çağrıları doğrudan bir tarayıcıdan yapmanıza yardımcı olur.
+Bu makalede, Azure özel karar alma hizmeti API'lere giden çağrıların doğrudan bir tarayıcıdan yapmanıza yardımcı olur.
 
-Şunları yaptığınızdan emin olun [uygulamanızı kaydetme](custom-decision-service-get-started-register.md), ilk.
+Mutlaka [uygulamanızı kaydetmeniz](custom-decision-service-get-started-register.md), ilk.
 
-Haydi başlayalım. Uygulamanızı birkaç makale sayfalarına bağlantılar bir ön sayfa sahip olarak modellenir. Ön sayfa kendi makale sayfaları sıralamasını belirtmek için özel karar hizmetini kullanır. Ön sayfasında HTML head aşağıdaki kodu ekleyin:
+Haydi başlayalım. Uygulamanız birkaç makale sayfaları için bağlantılar bir ön sayfa sahip olacak şekilde modellenir. Ön sayfa Custom Decision Service, makale sayfaları sıralama belirtmek için kullanır. Ön sayfanın HTML baş aşağıdaki kodu ekleyin:
 
 ```html
 // Define the "callback function" to render UI
@@ -31,9 +33,9 @@ Haydi başlayalım. Uygulamanızı birkaç makale sayfalarına bağlantılar bir
 <script src="https://ds.microsoft.com/api/v2/<appId>/rank/<actionSetId>" async></script>
 ```
 
-`data` Bağımsız değişkeni işlenmek üzere URL'leri sıralamasını içerir. Daha fazla bilgi için bkz: başvurusu [API](custom-decision-service-api-reference.md).
+`data` İşlenecek URL'leri sıralamasını bağımsız değişken içeriyor. Daha fazla bilgi için bkz [API](custom-decision-service-api-reference.md).
 
-Üst makale kullanıcı tıklama işlemek için aşağıdaki kod ön sayfasında arayın:
+Üst makale kullanıcı click işlemek için aşağıdaki kodu ön sayfada çağırın:
 
 ```javascript
 // call Reward API to report a click
@@ -43,9 +45,9 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Burada, `data` bağımsız değişkenidir `callback()` işlevi. Bu uygulama örneği bulunabilir [Öğreticisi](custom-decision-service-tutorial-news.md#use-the-apis).
+Burada, `data` bağımsız değişkenidir `callback()` işlevi. Bu uygulama örneği bulunabilir [öğretici](custom-decision-service-tutorial-news.md#use-the-apis).
 
-Son olarak, eylem özel karar hizmeti tarafından kabul edilmesi için (Eylemler) makalelerinin listesi döndüren API kümesini, sağlamanız gerekir. Bu API bir RSS akışı olarak aşağıda gösterildiği gibi uygulayın:
+Son olarak eylem Custom Decision Service tarafından değerlendirilmesi için (Eylemler) makale listesi döndüren API kümesini, vermeniz gerekir. Bir RSS akışı olarak bu API, burada gösterildiği şekilde uygulayın:
 
 ```xml
 <rss version="2.0">
@@ -62,9 +64,9 @@ Son olarak, eylem özel karar hizmeti tarafından kabul edilmesi için (Eylemler
 </rss>
 ```
 
-Burada, her üst düzey `<item>` öğesi bir makale açıklar. `<link>` Zorunludur ve bir eylem kimliği özel karar hizmeti tarafından kullanılır. Belirtin `<date>` (standart biçimdeki RSS) 15'ten fazla makaleleri varsa. 15 en son makaleleri kullanılır. `<title>` İsteğe bağlıdır ve makale için metin güvenlikle ilgili özellikler oluşturmak için kullanılır.
+Burada, her üst düzey `<item>` öğesi bir makale açıklar. `<link>` Zorunludur ve bir eylem kimliği Custom Decision Service tarafından kullanılır. Belirtin `<date>` (standart bir biçimde RSS) 15'ten fazla makaleler varsa. En son 15 makaleleri kullanılır. `<title>` İsteğe bağlıdır ve makale için metin güvenlikle ilgili özellikler oluşturmak için kullanılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Aracılığıyla iş bir [öğretici](custom-decision-service-tutorial-news.md) daha ayrıntılı bir örnek için.
+* Çalışmak bir [öğretici](custom-decision-service-tutorial-news.md) daha ayrıntılı bir örnek.
 * Başvuru başvurun [API](custom-decision-service-api-reference.md) sağlanan işlevselliği hakkında daha fazla bilgi için.

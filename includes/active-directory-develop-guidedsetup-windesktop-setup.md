@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: c5d61da61f6ec98a1cac37ce9b12b28019ce2ae1
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7f8e9e8d333b87113783c566222b2d7ea57c411e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44058289"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368468"
 ---
 ## <a name="set-up-your-project"></a>Projenizi ayarlama
 
@@ -33,27 +33,26 @@ Bu bölümde ile nasıl tümleştireceğinizi Windows Masaüstü .NET uygulamas�
 >
 
 Uygulamanızı oluşturmak için aşağıdakileri yapın:
+
 1. Visual Studio'da **dosya** > **yeni** > **proje**.
 2. Altında **şablonları**seçin **Visual C#**.
-3. Seçin **WPF uygulaması** veya **WPF uygulaması**kullanmakta olduğunuz Visual Studio sürümü bağlı olarak.
+3. Seçin **WPF uygulaması (.NET Framework)** kullanmakta olduğunuz Visual Studio sürümü bağlı olarak.
 
 ## <a name="add-msal-to-your-project"></a>MSAL projenize ekleyin.
+
 1. Visual Studio'da **Araçları** > **NuGet Paket Yöneticisi**> **Paket Yöneticisi Konsolu**.
 2. Paket Yöneticisi konsolu penceresinde, aşağıdaki Azure PowerShell komutu yapıştırın:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
+    Install-Package Microsoft.Identity.Client -Pre
     ```
 
     > [!NOTE] 
-    > Bu komut, Microsoft kimlik doğrulama kitaplığı yükler. MSAL alınırken, önbelleğe alma ve Azure Active Directory v2 tarafından korunan API'lerine erişmek için kullanılan kullanıcı belirteçleri yenileme işler.
+    > Bu komut, Microsoft kimlik doğrulama kitaplığı yükler. MSAL alınırken, önbelleğe alma ve Azure Active Directory v2.0 tarafından korunan API'lerine erişmek için kullanılan kullanıcı belirteçleri yenileme işleme
     >
 
-    > [!NOTE]
-    > Bu hızlı başlangıçta daha önceden kullanımı henüz MSAL.NET, en son sürümünü ancak güncelleştirme üzerinde çalışıyoruz
-    > 
-
 ## <a name="add-the-code-to-initialize-msal"></a>MSAL başlatmak için kodu ekleyin
+
 Bu adımda, belirteçlerin işleme gibi MSAL, etkileşim işlemek için bir sınıf oluşturun.
 
 1. Açık *App.xaml.cs* dosya ve başvuru için MSAL sınıfı ekleyin:
@@ -97,4 +96,3 @@ A *MainWindow.xaml* dosyası, proje şablonunun bir parçası olarak otomatik ol
     </StackPanel>
 </Grid>
 ```
-

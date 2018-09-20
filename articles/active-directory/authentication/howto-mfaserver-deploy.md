@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b882f8d8ffc818de5ec459f504965015f55897a3
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: d69addac0647513e00663110ac82eef343b77983
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159735"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364627"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama
 
@@ -49,6 +49,7 @@ Azure Multi-Factor Authentication için kullandığınız sunucunun aşağıdaki
 |:--- |:--- |
 | Donanım |<li>200 MB boş sabit disk alanı</li><li>x32 veya x64 özellikli işlemci</li><li>1 GB veya daha fazla RAM</li> |
 | Yazılım |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, tüm sürümler</li><li>Windows 8, tüm sürümler</li><li>Windows 7, tüm sürümler</li><li>Windows Vista, tüm sürümler, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 veya üst sürümü, kullanıcı portalı veya web hizmeti SDK’sı yüklüyorsanız</li> |
+| İzinler | Active Directory ile kaydetmek için etki alanı yöneticisi veya kuruluş yöneticisi hesabı |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA Sunucusu Bileşenleri
 

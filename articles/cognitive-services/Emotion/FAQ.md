@@ -1,39 +1,40 @@
 ---
-title: Duygu tanıma API'si ile ilgili SSS | Microsoft Docs
-description: Bilişsel Hizmetleri'nde duygu tanıma API'si hakkında sık sorulan soruların yanıtlarını alın.
+title: Sık sorulan sorular - duygu tanıma API'si
+titlesuffix: Azure Cognitive Services
+description: Duygu tanıma API'si hakkında sık sorulan soruların yanıtlarını alın.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: anroth
-ms.openlocfilehash: 8532d7c00fd8d7b01d84b5e55cb9bbc60241789c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 56b3f2899f1e77c1a2b840285e2c69bdb8987ff4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351575"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363097"
 ---
-# <a name="emotion-api-frequently-asked-questions"></a>Duygu tanıma API'si sık sorulan sorular
+# <a name="emotion-api-frequently-asked-questions"></a>Duygu tanıma API'si hakkında sık sorulan sorular
  
 > [!IMPORTANT]
-> Video API Önizleme 30 Ekim 2017 sona erer. Yeni deneyin [Video dizin oluşturucu API önizlemesi](https://azure.microsoft.com/services/cognitive-services/video-indexer/) kolayca videoların öngörüleri ayıklamak ve konuşulan sözcüklerin, yüzler, karakterler ve duygular algılayarak arama sonuçları gibi içerik bulma deneyimlerini geliştirmek üzere. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Video API'si önizlemesi 30 Ekim 2017 tarihinde sona erecek. Yeni deneyin [Video Indexer API önizlemesi](https://azure.microsoft.com/services/cognitive-services/video-indexer/) kolayca videolardan içgörüleri ayıklayın ve konuşulan sözcükleri, yüzleri, karakterleri ve duyguları algılayarak arama sonuçları gibi içerik keşif deneyimlerini geliştirin. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
 
-### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-emotion-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Bu SSS sorularınızın yanıtlarını bulamazsanız, üzerinde duygu tanıma API'si topluluk isteyen deneyin [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) veya Yardım ve Destek kişi [UserVoice](https://cognitive.uservoice.com/).  
-
------
-
-**Soru**: *en iyi ne tür görüntüleri alma sonuçları duygu API'SİNDEN?*
-
-**Yanıt**: engellenmemiş olmayan, tam tamamen çıplak yüz görüntüleri en iyi sonuçlar için kullanın. Kısmi tamamen çıplak yazıtipleri ile güvenilirlik azalır ve duygu tanıma API'si duygular yüz Döndürülmüş 45 dereceyi veya daha fazla olduğu görüntülerinde anlamayabilir.
+### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-emotion-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Bu SSS'de sorularınızın yanıtlarını bulamazsanız, duygu tanıma API'si topluluk üzerinde sorma [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) veya Yardım ve Destek kişi [UserVoice](https://cognitive.uservoice.com/).  
 
 -----
 
-**Soru**: *kaç duygular duygu tanıma API'si belirleyebilir mi?*
+**Soru**: *hangi türde görüntü yararlanın, sunduğu duygu tanıma API'si sonuçlarını?*
 
-**Yanıt**: duygu tanıma API'si sekiz farklı evrensel olarak kabul duygular tanır: 
+**Yanıt**: en iyi sonuçlar için yakınlaştırarak daha rahat, tam tamamen çıplak yüz görüntüleri kullanın. Kısmi tamamen çıplak yüzleri ile güvenilirlik azalır ve duygu tanıma API'si, yüz tanıma 45 derece ya da daha fazla olduğu resimlerde duyguları algılamayabilir.
+
+-----
+
+**Soru**: *kaç duyguları duygu tanıma API'si belirleyebilir mi?*
+
+**Yanıt**: duygu tanıma API'si, sekiz farklı evrensel olarak kabul edilen duyguları tanır: 
 * Mutluluk
 * Üzüntü
 * Şaşkınlık
@@ -45,18 +46,18 @@ ms.locfileid: "35351575"
 
 -----
 
-**Soru**: *API için Canlı bir video akışına geçirmek ve aynı anda sonuç almak için herhangi bir şekilde yok?*
+**Soru**: *canlı video akışı API'sine geçirin ve sonuç aynı anda almak için herhangi bir yol var mı?*
 
-**Yanıt**: resim tabanlı duygu API kullanın ve her çerçevesi çağrısı veya performans çerçeveleri atlayabilirsiniz.  Video kare kare analiz örnekleri kullanılabilir.
+**Yanıt**: resim tabanlı duygu tanıma API'si kullanın ve her karede arayın veya performans çerçeveleri atlayın.  Video kare kare analizi örneklerini kullanılabilir.
 
 -----
 
-**Soru**: *ikili resim verileri geçirme ancak bana verir: "geçersiz yüz görüntü.**
+**Soru**: *bana sağlar ancak ikili resim verileri geçirme: "geçersiz yüz resmini.**
 
-**Yanıt**: Bu algoritma görüntü ayrıştırma bir sorun olduğunu gösterir.  
-* Desteklenen giriş resim biçimleri, JPEG, PNG, (ilk çerçeve) GIF, BMP içerir. 
-* Görüntü dosya boyutu 4 MB'den daha büyük olmalıdır
-* Algılanabilir yüz boyutu aralığı 36 x 36 için 4096 x 4096 pikseldir. Bu aralık dışında yüzeyleri algılanmaz
-* Bazı yüzeyleri teknik zorluklar nedeniyle, örneğin çok büyük yüz açıları (head-poz) algılanamayabilir büyük kapanması. En iyi sonuçlar tamamen çıplak ve tamamen yakın yüzler sahip
+**Yanıt**: Bu algoritma görüntü ayrıştırılırken bir sorun olduğu anlamına gelir.  
+* Desteklenen giriş resim biçimleri, JPEG, PNG, GIF (ilk çerçeve), BMP içerir. 
+* Resim dosyasının boyutu 4 MB'tan büyük olmamalıdır
+* Algılanabilir yüz boyut aralığı 36 x 36 için 4096 x 4096 pikseldir. Bu aralık dışında yüzleri algılanmaz
+* Teknik güçlükler nedeniyle, örneğin çok büyük yüz açıları (baş-poz) bazı yüzleri algılanamayabilir büyük kapatma. En iyi sonuçları tamamen çıplak ve neredeyse tamamen yüzleri sahip
 
 -----

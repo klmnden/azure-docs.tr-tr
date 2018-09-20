@@ -11,23 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 09/19/2018
 ms.author: shlo
-ms.openlocfilehash: 8ad587f7aa7aeb5b7176e63b52f6dea8286055a6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5bb1099dee919de50d2c2fc110f3a204e580b66c
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296900"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465988"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de görsel yazma
 Görsel olarak yazma ve herhangi bir kod yazmak zorunda kalmadan, veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi deneyimi (UX) sağlar. Etkinlikler bir işlem hattı tuvaline sürükleyin, test çalıştırmaları yapın, yinelemeli olarak, hata ayıklama ve dağıtabilir ve işlem hattı çalıştırmalarınızı izleyin. Görsel yazma gerçekleştirmek için kullanıcı Deneyimini kullanarak iki yaklaşım vardır:
 
 - Data Factory hizmeti ile doğrudan yazar.
-- Azure DevOps Git tümleştirmesiyle işbirliği, kaynak denetimi ve sürüm oluşturma için yazar.
+- Yazarın işbirliği, kaynak denetimi ve sürüm oluşturma için Azure depolarla Git tümleştirme.
 
 ## <a name="author-directly-with-the-data-factory-service"></a>Data Factory hizmeti ile doğrudan Yazar
-Data Factory hizmetine görsel yazma visual Azure DevOps ile iki şekilde geliştirme farklıdır:
+Data Factory hizmetine görsel yazma visual Azure DevOps hizmetleriyle iki yolla geliştirme farklıdır:
 
 - Data Factory hizmeti JSON varlıklar için yaptığınız değişiklikleri depolamak için bir depo içermez.
 - Data Factory hizmetinin birlikte çalışma veya sürüm denetimi için iyileştirilmedi.
@@ -38,39 +38,39 @@ UX kullandığınızda **yazma tuvalinde** doğrudan Data Factory hizmetine, yal
 
 ![Yayımlama modu](media/author-visually/data-factory-publish.png)
 
-## <a name="author-with-azure-devops-git-integration"></a>Azure DevOps Git tümleştirmesiyle yazma
-Azure DevOps Git tümleştirmesiyle görsel yazma data factory işlem hatlarınızı çalışma için kaynak denetimi ve işbirliği destekler. Kaynak denetimi, işbirliği, sürüm oluşturma ve benzeri için bir Azure DevOps Git kuruluş deposuna bir veri fabrikası ilişkilendirebilirsiniz. Tek bir Azure DevOps Git kuruluştaki birden çok deposu olabilir, ancak bir Azure DevOps Git deposu yalnızca bir data factory ile ilişkili olabilir. Azure DevOps kuruluş ya da depo yoksa izleyin [bu yönergeleri](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) kaynaklarınızı oluşturmak için.
+## <a name="author-with-git-integration-with-azure-repos"></a>Azure depolarla Git tümleştirmesiyle yazma
+Azure depolarla Git tümleştirmesiyle görsel yazma data factory işlem hatlarınızı çalışma için kaynak denetimi ve işbirliği destekler. Kaynak denetimi, işbirliği, sürüm oluşturma ve benzeri için bir Azure depoları Git kuruluş deposuna bir veri fabrikası ilişkilendirebilirsiniz. Tek bir Azure depoları Git kuruluştaki birden çok deposu olabilir, ancak bir Azure depoları Git deposu yalnızca bir data factory ile ilişkili olabilir. Bir Azure depoları kuruluş ya da depo yoksa izleyin [bu yönergeleri](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) kaynaklarınızı oluşturmak için.
 
 > [!NOTE]
-> Bir Azure DevOps Git deposunda betiğini ve veri dosyaları depolayabilir. Ancak, dosyaları Azure depolama alanına el ile karşıya yüklemeniz gerekir. Data Factory işlem hattı, Azure depolama için bir Azure DevOps Git deposunda depolanan kod veya veri dosyaları otomatik olarak yüklenmez.
+> Bir Azure depoları Git deposunda betiğini ve veri dosyaları depolayabilir. Ancak, dosyaları Azure depolama alanına el ile karşıya yüklemeniz gerekir. Data Factory işlem hattı, Azure depolama için bir Azure depoları Git deposunda depolanan kod veya veri dosyaları otomatik olarak yüklenmez.
 
-### <a name="configure-an-azure-devops-git-repository-with-azure-data-factory"></a>Azure Data Factory ile bir Azure DevOps Git deposu yapılandırma
-Azure DevOps Git deposu ile veri fabrikası iki yöntemleri yapılandırabilirsiniz.
+### <a name="configure-an-azure-repos-git-repository-with-azure-data-factory"></a>Azure Data Factory ile bir Azure depoları Git deposu yapılandırma
+Bir Azure depoları Git deposu ile veri fabrikası iki yöntemleri yapılandırabilirsiniz.
 
-#### <a name="method1"></a> Yapılandırma yöntemine (Azure DevOps Git deposu) 1: başlayalım sayfası
+#### <a name="method1"></a> Yapılandırma yöntemine (Azure depoları Git deposu) 1: başlayalım sayfası
 
 Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapılandırma**:
 
-![Bir Azure DevOps kod deposunu yapılandırma](media/author-visually/configure-repo.png)
+![Bir Azure depoları kod deposunu yapılandırma](media/author-visually/configure-repo.png)
 
 **Depo ayarları** yapılandırma bölmesi görünür:
 
 ![Kod deposu ayarlarını yapılandırma](media/author-visually/repo-settings.png)
 
-Bölmesinde, aşağıdaki Azure DevOps kod depo ayarları gösterir:
+Bölmesinde, aşağıdaki Azure depoları kod depo ayarları gösterir:
 
 | Ayar | Açıklama | Değer |
 |:--- |:--- |:--- |
-| **Depo türü** | Azure DevOps kod deposu türü.<br/>**Not**: GitHub şu anda desteklenmiyor. | Azure Dev Ops Git |
+| **Depo türü** | Azure depoları kod deposu türü.<br/>**Not**: GitHub şu anda desteklenmiyor. | Azure Dev Ops Git |
 | **Azure Active Directory** | Azure AD Kiracı adı. | <your tenant name> |
-| **Azure DevOps kuruluş** | Azure DevOps kuruluşunuzun adı. Azure DevOps kuruluş adınız konumunda bulabilirsiniz `https://{organization name}.visualstudio.com`. Yapabilecekleriniz [Azure DevOps kuruluşunuz oturum](https://www.visualstudio.com/team-services/git/) Visual Studio profilinize erişmek ve projeleri ve depoları bakın. | <your organization name> |
-| **projectName** | Azure DevOps projesi adı. Azure DevOps projesi adınızı bulabilirsiniz `https://{organization name}.visualstudio.com/{project name}`. | <your Azure DevOps project name> |
-| **RepositoryName** | Azure DevOps kod deponuzun adını. Azure DevOps projeleri, projeniz büyüdükçe, kaynak kodunuzu yönetmek için Git depoları içerir. Yeni bir havuz oluşturabilir veya projenizde zaten olan mevcut bir depoyu kullanın. | <your Azure DevOps code repository name> |
-| **Birlikte çalışma dalı** | Yayımlama için kullanılan, Azure DevOps işbirliği dal. Varsayılan olarak, olduğu `master`. Kaynakları başka bir daldan yayımlamak istemeniz durumunda bu ayarı değiştirin. | <your collaboration branch name> |
-| **Kök klasör** | Azure DevOps işbirliği dalınızdaki, kök klasör. | <your root folder name> |
-| **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** Azure DevOps Git deponuzla. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
+| **Azure depoları kuruluş** | Azure depoları kuruluşunuzun adı. Azure depoları kuruluş adınızı bulabilirsiniz `https://{organization name}.visualstudio.com`. Yapabilecekleriniz [Azure depoları kuruluşunuz oturum](https://www.visualstudio.com/team-services/git/) Visual Studio profilinize erişmek ve projeleri ve depoları bakın. | <your organization name> |
+| **projectName** | Azure depoları proje adı. Azure depoları proje adınızı bulabilirsiniz `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
+| **RepositoryName** | Azure depoları kod deponuzun adını. Projeniz büyüdükçe, kaynak kodunuzu yönetmek için Git depoları Azure depoları projeleri içerir. Yeni bir havuz oluşturabilir veya projenizde zaten olan mevcut bir depoyu kullanın. | <your Azure Repos code repository name> |
+| **Birlikte çalışma dalı** | Yayımlama için kullanılan Azure depoları işbirliği dalınızı. Varsayılan olarak, olduğu `master`. Kaynakları başka bir daldan yayımlamak istemeniz durumunda bu ayarı değiştirin. | <your collaboration branch name> |
+| **Kök klasör** | Kök klasör Azure depoları işbirliği dalınızdaki. | <your root folder name> |
+| **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** Azure depoları Git deponuzla. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
 
-#### <a name="configuration-method-2--azure-devops-git-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine (Azure DevOps Git deposu) 2: UX yazma tuvali
+#### <a name="configuration-method-2--azure-repos-git-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine (Azure depoları Git deposu) 2: UX yazma tuvali
 Azure Data Factory UX içinde **yazma tuvalinde**, veri fabrikanızın bulun. Seçin **Data Factory** öğelerine tıklayın ve ardından **kod deposunu Yapılandır**.
 
 Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında daha fazla ayrıntı için bkz: açıklamasında <a href="#method1">yapılandırma yöntemi 1</a>.
@@ -79,7 +79,7 @@ Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında 
 
 ## <a name="use-a-different-azure-active-directory-tenant"></a>Farklı bir Azure Active Directory kiracısı kullanma
 
-Azure DevOps Git depo içinde farklı bir Azure Active Directory kiracısı oluşturabilirsiniz. Farklı bir belirtmek için Azure AD kiracısına sahip kullanmakta olduğunuz Azure aboneliği için yönetici izinlerine sahip olması.
+Bir Azure depoları Git deposu içinde farklı bir Azure Active Directory kiracısı oluşturabilirsiniz. Farklı bir belirtmek için Azure AD kiracısına sahip kullanmakta olduğunuz Azure aboneliği için yönetici izinlerine sahip olması.
 
 ## <a name="switch-to-a-different-git-repo"></a>Farklı bir Git deposuna geçin
 
@@ -92,13 +92,31 @@ Geçerli depo ilişkilendirmesini kaldırdıktan sonra farklı bir depoyu kullan
 ## <a name="use-version-control"></a>Sürüm denetimi kullanın
 Sürüm denetimi sistemlerinden (olarak da bilinen _kaynak denetimi_) kod için temel yapılan kod ve değişiklikleri izleyin üzerinde işbirliği geliştiricilerin olanak sağlar. Kaynak denetimi çok geliştirme projeleri için önemli bir araçtır.
 
-Data factory ile ilişkili her Azure DevOps Git deposuna bir işbirliği dalı yok. (`master` varsayılan işbirliği dalı). Kullanıcılar ayrıca oluşturabilir özellik dalları tıklayarak **+ yeni dal** ve özellik dalları geliştirme yapın.
+Data factory ile ilişkili her Azure depoları Git deposuna bir işbirliği dalı yok. (`master` varsayılan işbirliği dalı). Kullanıcılar ayrıca oluşturabilir özellik dalları tıklayarak **+ yeni dal** ve özellik dalları geliştirme yapın.
 
 ![Eşitleniyor veya yayımlama kodu değiştirin](media/author-visually/sync-publish.png)
 
-Özellik dalınızda özellik geliştirmeye hazır olduğunuzda tıklayabilirsiniz **çekme isteği oluştur**. Bu eylem, Azure DevOps Git çekme istekleri, burada yükseltebilirsiniz kod incelemeleri ve işbirliği dalınızdaki değişiklikleri birleştirmek alır. (`master` varsayılandır). Yalnızca, işbirliği dalından Data Factory hizmetinde yayımlamak için izin verilir. 
+Özellik dalınızda özellik geliştirmeye hazır olduğunuzda tıklayabilirsiniz **çekme isteği oluştur**. Bu eylem, Azure depoları Git çekme istekleri, burada yükseltebilirsiniz, kod incelemeleri ve işbirliği dalınızdaki değişiklikleri Birleştir alır. (`master` varsayılandır). Yalnızca, işbirliği dalından Data Factory hizmetinde yayımlamak için izin verilir. 
 
 ![Yeni çekme isteği oluştur](media/author-visually/create-pull-request.png)
+
+## <a name="configure-publishing-settings"></a>Yayımlama ayarlarını yapılandırma
+
+Diğer bir deyişle, burada Resource Manager şablonları kaydedilir - dal yayımlama dal - yapılandırmak için Ekle bir `publish_config.json` işbirliği dalın kök klasörüne dosya. Data Factory, bu dosyayı okur, alan için arama yapar `publishBranch`ve (zaten yoksa), sağlanan değer ile yeni bir dal oluşturur. Sonra tüm Resource Manager şablonları belirtilen konuma kaydeder. Örneğin:
+
+```json
+{
+    "publishBranch": "factory/adf_publish"
+}
+```
+
+Git modundan yayımladığınızda, Data Factory beklediğiniz Yayımla dal aşağıdaki ekran görüntüsünde gösterildiği gibi kullandığını doğrulayabilirsiniz:
+
+![Doğru yayımlama dal onaylayın](media/author-visually/configure-publish-branch.png)
+
+Yeni bir yayımlama dal belirttiğinizde, Data Factory önceki yayımlama dal silmez. Önceki Yayınla dalı uzaktan istiyorsanız, el ile silin.
+
+Yalnızca veri fabrikası okur `publish_config.json` Fabrika yüklediğinde, dosya. Portalda yüklenen Fabrika zaten varsa, etkili, değişiklik yapmak için tarayıcıyı yenileyin.
 
 ## <a name="publish-code-changes"></a>Kod değişiklikleri Yayımla
 İşbirliği dala değişiklikleri birleştirdiğiniz sonra (`master` varsayılandır) seçeneğini **Yayımla** el ile kod değişikliklerinizi ana daldaki Data Factory hizmetine yayımlamak.
@@ -140,11 +158,11 @@ Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapı
 
 ![GitHub depo ayarları](media/author-visually/github-integration-image2.png)
 
-Bölmesinde, aşağıdaki Azure DevOps kod depo ayarları gösterir:
+Bölmesinde, aşağıdaki Azure depoları kod depo ayarları gösterir:
 
 | **Ayar**                                              | **Açıklama**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Değer**          |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| **Depo türü**                                      | Azure DevOps kod deposu türü.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
+| **Depo türü**                                      | Azure depoları kod deposu türü.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **GitHub hesabı**                                       | GitHub hesabı adı. Bu ad bulunabilir https://github.com/{account adı} / {depo adı}. Bu sayfaya giden GitHub hesabınızı GitHub OAuth kimlik bilgilerini girmenizi ister.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | GitHub kod deponuzun adını. Git depoları, kaynak kodunuzu yönetmek için GitHub hesaplarında bulunur. Yeni bir havuz oluşturabilir veya hesabınızda zaten varolan bir depo kullanın.                                                                                                                                                                                                                              |                    |
 | **Birlikte çalışma dalı**                                 | Yayımlama için kullanılan, GitHub işbirliği dal. Varsayılan olarak, ana. Kaynakları başka bir daldan yayımlamak istemeniz durumunda bu ayarı değiştirin.                                                                                                                                                                                                                                                               |                    |
@@ -172,11 +190,11 @@ Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapı
 
 ![GitHub depo ayarları](media/author-visually/github-integration-image3.png)
 
-Bölmesinde, aşağıdaki Azure DevOps kod depo ayarları gösterir:
+Bölmesinde, aşağıdaki Azure depoları kod depo ayarları gösterir:
 
 | **Ayar**                                              | **Açıklama**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Değer**          |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| **Depo türü**                                      | Azure DevOps kod deposu türü.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
+| **Depo türü**                                      | Azure depoları kod deposu türü.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **GitHub Enterprise kullanın**                                | GitHub Enterprise seçmek için onay kutusu                                                                                                                                                                                                                                                                                                                                                                                              |                    |
 | **GitHub Enterprise URL'si**                                | GitHub Enterprise kök URL'si. Örneğin, https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
 | **GitHub hesabı**                                       | GitHub hesabı adı. Bu ad bulunabilir https://github.com/{account adı} / {depo adı}. Bu sayfaya giden GitHub hesabınızı GitHub OAuth kimlik bilgilerini girmenizi ister.                                                                                                                                                                                                                                               |                    |

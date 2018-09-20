@@ -14,22 +14,40 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 9952720e917dc9202630b2feda0fadd0402d9eb6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e3745efdd0d0ea159afcda177c306f5865ac2aad
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377879"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366843"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>GRUB ve tek kullanıcı modu erişmek için seri Konsolu
-Tek kullanıcı modunda, en az bir işlevselliğe sahip en az bir ortamdır. Daha az Hizmetleri arka planda çalıştırabilir ve çalışma düzeyi bağlı olarak bir dosya sistemi bile otomatik olarak takılı önyükleme sorunlarını araştırmanıza veya ağ sorunları için faydalı olabilir. Bu, bozuk bir dosya, bozuk bir fstab sistemi gibi durumlarda araştırmak veya ağ bağlantısı (yanlış iptables yapılandırması) kullanışlıdır.
+GRUB genel birleşik Şifresizdir ' dir. GRUB ' diğer özelliklerin yanı sıra tek kullanıcı moduna önyükleme, önyükleme yapılandırması üzerinde değişiklik yapabilirsiniz. 
 
-GRUB erişmek için seri konsol dikey penceresini açık tutarken, sanal Makinenizin yeniden başlatmanız gerekir. Bu bir SysRq ile yapılabilir `'b'` komutunu ya da yeniden tıklayarak genel bakış dikey penceresinde düğmesi. Bazı dağıtım paketlerini GRUB, diğer otomatik olarak birkaç saniye önyüklemede GRUB Göster ve klavye girişini zaman aşımı iptal etmek kullanıcı girişine izin sırada gösterilecek klavye girdisi gerektirir. 
+Tek kullanıcı modunda, en az bir işlevselliğe sahip en az bir ortamdır. Önyükleme sorunlarını, dosya sistemi sorunları veya ağ sorunları araştırmak için yararlı olabilir. Daha az Hizmetleri arka planda çalıştırabilir ve çalışma düzeyi bağlı olarak bir dosya sistemi bile otomatik olarak takılı.
 
-Sanal makine için önyükleme kaydedemediği bazı dağıtım paketlerini otomatik olarak, tek kullanıcı modunda veya Acil Durum modunda kaldıracağız. Bunlar, tek kullanıcılı veya Acil Durum modunda otomatik olarak bırakabilirsiniz önce diğer ancak ek kurulum gerektirir.
+Tek kullanıcı modunda burada VM'nizi yalnızca oturum açmak için SSH anahtarları kabul edecek şekilde yapılandırılmış olabilir durumlarda da kullanışlıdır. Bu durumda parola kimlik doğrulaması ile hesap oluşturmak için tek kullanıcı modunda kullanmanız mümkün olabilir. 
 
-GRUB sanal Makinenize erişim tek kullanıcı moduna aktarabilmek için etkinleştirildiğinden emin olmak isteyeceksiniz. Distro bağlı olarak GRUB etkinleştirildiğinden emin olmak için bazı Kurulumu iş olabilir. 
+Tek kullanıcı moduna girmek için yedekleme, sanal Makinenizin önyükleme yaparken GRUB girin ve GRUB önyükleme yapılandırmasında değişiklik gerekecektir. Bu sanal makine seri konsolu ile yapılabilir.
 
+## <a name="general-grub-access"></a>Genel GRUB erişim
+GRUB erişmek için seri konsol dikey penceresini açık tutarken, sanal Makinenizin yeniden başlatmanız gerekir. Bazı dağıtım paketlerini GRUB, diğer otomatik olarak birkaç saniye GRUB Göster ve zaman aşımı iptal etmek kullanıcı klavye girişini izin sırada gösterilecek klavye girdisi gerektirir. 
+
+GRUB sanal Makinenize erişim tek kullanıcı moduna aktarabilmek için etkinleştirildiğinden emin olmak isteyeceksiniz. Distro bağlı olarak GRUB etkinleştirildiğinden emin olmak için bazı Kurulumu iş olabilir. Distro özgü bilgiler aşağıda verilmiştir.
+
+### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Seri konsol içinde GRUB erişmek için VM'yi yeniden başlatın
+Seri konsol dikey açık sanal makinenizin yeniden başlatılmasını bir SysRq ile yapılabilir `'b'` , komut [SysRq](./serial-console-nmi-sysrq.md) etkin veya genel bakış dikey penceresinde (açık kapatmadan yeniden başlatmak için yeni bir tarayıcı sekmesinde VM yeniden tıklayarak düğmesi Seri konsol dikey). Bilgisayarı yeniden başlattığınızda GRUB ' beklenmesi gerekenler öğrenmek distro özgü aşağıdaki yönergeleri izleyin.
+
+## <a name="general-single-user-mode-access"></a>Genel tek kullanıcı modu erişim
+Burada, bir hesabı parola kimlik doğrulaması ile yapılandırılmamış olduğu durumlarda tek kullanıcı moduna el ile erişim gerekli olabilir. GRUB yapılandırması tek kullanıcı moduna el ile değiştirmeniz gerekir. Bu işlemi tamamladıktan sonra bkz [kullanın tek kullanıcı moduna sıfırlamak veya bir parola eklemek için](#-Use-Single-User-Mode-to-reset-or-add-a-password) daha fazla yönerge için.
+
+Sanal makine için önyükleme oluşturulamıyor olduğu durumlarda, dağıtım paketlerini genellikle otomatik olarak, tek kullanıcı modunda veya Acil Durum modunda kaldıracağız. Bunlar otomatik olarak (bir kök parola ayarlamak gibi), tek kullanıcılı veya Acil durum moduna bırakabilirsiniz önce diğer ancak ek kurulum gerektirir.
+
+### <a name="use-single-user-mode-to-reset-or-add-a-password"></a>Tek kullanıcı moduna sıfırlamak veya bir parola eklemek için kullanın
+Tek kullanıcı modunda olduğunda, sudo ayrıcalıklarıyla yeni bir kullanıcı eklemek için aşağıdakileri yapın:
+1. Çalıştırma `useradd <username>` kullanıcı eklemek için
+1. Çalıştırma `sudo usermod -a -G sudo <username>` yeni kullanıcı kök ayrıcalıkları vermek için
+1. Kullanım `passwd <username>` için yeni kullanıcı parolası ayarlanamadı. Bundan sonra yeni bir kullanıcı olarak oturum açamaz olur
 
 ## <a name="access-for-red-hat-enterprise-linux-rhel"></a>Red Hat Enterprise Linux (RHEL) için erişim
 Otomatik olarak, normal şekilde önyükleme işlemi yapamıyorsanız RHEL tek kullanıcı moduna kaldıracağız. Ancak, tek kullanıcı modu için kök erişimi ayarlamadıysanız, bir kök parola olmaz ve oturum açmak mümkün olmayacaktır. Geçici çözüm (' El ile tek kullanıcı moduna aşağıda girmesini' bakın), ancak başlangıçta kök erişimi ayarlamak için öneridir.
@@ -101,7 +119,14 @@ CentOS tek kullanıcı modunda etkinleştirmek için yukarıdaki RHEL yönergele
 Ubuntu görüntüleri bir kök parola gerektirmez. Sistem tek kullanıcı modunda önyükleniyorsa ek kimlik bilgileri olmadan kullanabilirsiniz. 
 
 ### <a name="grub-access-in-ubuntu"></a>Ubuntu GRUB erişim
-GRUB erişmek için basılı VM yedekleme önyüklenirken 'Esc'.
+GRUB erişmek için basılı VM yedekleme önyüklenirken 'Esc'. 
+
+Varsayılan olarak, Ubuntu görüntülerinde GRUB ekranın otomatik olarak gösterilmez. Bu aşağıdaki yönergelere değiştirilebilir:
+1. Açık `/etc/default/grub.d/50-cloudimg-settings.cfg` tercih ettiğiniz bir metin düzenleyicisinde
+1. Değişiklik `GRUB_TIMEOUT` sıfır olmayan bir değere değer
+1. Açık `/etc/default/grub` tercih ettiğiniz bir metin düzenleyicisinde
+1. Açıklama `GRUB_HIDDEN_TIMEOUT=1` satır
+1. `sudo update-grub` öğesini çalıştırın
 
 ### <a name="single-user-mode-in-ubuntu"></a>Ubuntu tek kullanıcı modunda
 Otomatik olarak, normal şekilde önyükleme işlemi yapamıyorsanız Ubuntu tek kullanıcı moduna kaldıracağız. El ile tek kullanıcı moduna girmek için aşağıdaki yönergeleri kullanın:

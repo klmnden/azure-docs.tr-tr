@@ -1,85 +1,86 @@
 ---
-title: C# Masaüstü kitaplığını kullanarak Microsoft konuşma tanıma API'si ile çalışmaya başlama | Microsoft Docs
-description: Konuşma ses metne dönüştürmek için Microsoft konuşma tanıma API'si kullanan temel Windows uygulamaları geliştirin.
+title: C# Masaüstü kitaplığını kullanarak Bing konuşma tanıma API'sini kullanmaya başlama | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Konuşmayı metne dönüştürmek için Bing konuşma tanıma API'si kullanan temel Windows uygulamaları geliştirin.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e59b0e25401fb5182edd52f82985ffed9052286d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1c7755e3949cc3b7cfafddf3a822528c1bae0225
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352246"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367160"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-c35-for-net-on-windows"></a>C'de konuşma tanıma API'si ile çalışmaya başlama&#35; .NET Windows için
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Hızlı Başlangıç: c Bing konuşma tanıma API'si kullanan&#35; Windows üzerinde .NET için
 
-Bu sayfa konuşulan sesi metne dönüştürmek için konuşma tanıma API'si kullanan temel bir Windows uygulama geliştirmeyi gösterir. İstemci kitaplığı kullanılarak gerçek zamanlı akış için istemci uygulamanızı hizmete ses gönderdiğinde, aynı anda ve zaman uyumsuz kısmi tanıma sonuçları geri aldığı, yani sağlar.
+Bu sayfa, Konuşmayı metne dönüştürme için konuşma tanıma API'si kullanan temel bir Windows uygulaması geliştirme işlemi gösterilmektedir. İstemci kitaplığını kullanarak gerçek zamanlı akış için hangi istemci uygulamanızı hizmete ses gönderdiğinde, aynı anda ve zaman uyumsuz kısmi tanıma sonuçları alır anlamına sağlar.
 
-Herhangi bir cihazda çalıştırma uygulamalardan konuşma hizmetini kullanmak isteyen geliştiriciler C# Masaüstü kitaplığını kullanabilirsiniz. Kitaplık kullanmak için yükleme [NuGet paketi Microsoft.ProjectOxford.SpeechRecognition x86](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/) 32-bit platformu için ve [NuGet paketi Microsoft.ProjectOxford.SpeechRecognition x64](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/) için bir 64-bit platformu. İstemci Kitaplığı API Başvurusu bkz [Microsoft konuşma C# Masaüstü Kitaplığı](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
+Tüm cihazlarda çalışan uygulamalar konuşma hizmeti kullanmak isteyen geliştiriciler C# Masaüstü kitaplığını kullanabilirsiniz. Kitaplığı kullanmak için yükleyin [NuGet paketini Microsoft.ProjectOxford.SpeechRecognition x86](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/) bir 32-bit platformu ve [NuGet paketini Microsoft.ProjectOxford.SpeechRecognition x64](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/) için bir 64-bit platformu. İstemci Kitaplığı için API Başvurusu bkz [Microsoft konuşma C# Masaüstü Kitaplığı](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html).
 
-Aşağıdaki bölümlerde, yükleme, yapı ve C# Masaüstü kitaplığını kullanarak C# örnek uygulamayı çalıştırın açıklanmaktadır.
+Aşağıdaki bölümlerde, yükleme, oluşturma ve C# Masaüstü kitaplığını kullanarak C# örnek uygulamayı çalıştırma açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="platform-requirements"></a>Platform gereksinimleri
 
-Aşağıdaki örnek Windows 8 + ve .NET Framework 4.5 + için kullanarak geliştirilmiştir [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
+Aşağıdaki örnek Windows 8 + ve .NET Framework 4.5 + kullanarak geliştirilmiştir [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-### <a name="get-the-sample-application"></a>Örnek uygulamayı Al
+### <a name="get-the-sample-application"></a>Örnek uygulaması edinir
 
-Örnekten kopyalama [konuşma C# Masaüstü Kitaplığı örneği](https://github.com/microsoft/cognitive-speech-stt-windows) deposu.
+Örnekten kopyalama [konuşma C# Masaüstü kitaplık örneği](https://github.com/microsoft/cognitive-speech-stt-windows) depo.
 
-### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Konuşma tanıma API'si için abone olmak ve ücretsiz deneme aboneliği anahtarı alma
+### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Konuşma tanıma API'si için abone olur ve ücretsiz deneme aboneliği anahtarını alma
 
-Konuşma API Bilişsel hizmetler (daha önce proje Oxford) bir parçasıdır. Ücretsiz deneme aboneliği anahtarları alma [Bilişsel hizmetler abonelik](https://azure.microsoft.com/try/cognitive-services/) sayfası. Konuşma API seçtikten sonra Seç **alma API anahtarı** anahtarı alınamadı. Birincil ve ikincil anahtar döndürür. Her iki anahtar kullanabilmek için her iki anahtarı aynı kotasını bağlıdır.
+Konuşma tanıma API'si, Bilişsel hizmetler (daha önce Project Oxford) bir parçasıdır. Ücretsiz deneme aboneliği anahtarları alabilirsiniz [Bilişsel hizmetler abonelik](https://azure.microsoft.com/try/cognitive-services/) sayfası. Konuşma tanıma API'si belirledikten sonra seçin **API anahtarı alma** anahtarını almak için. Birincil ve ikincil anahtar döndürür. İki anahtarı kullanabilmeniz için her iki anahtarı aynı kotası bağlıdır.
 
 > [!IMPORTANT]
-> * Abonelik anahtarı edinin. Konuşma istemci kitaplıkları kullanmadan önce bilmeniz gereken bir [abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/).
+> * Bir abonelik anahtarı edinirler. Konuşma istemci kitaplıkları kullanmadan önce olmalıdır bir [abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/).
 >
-> * Abonelik anahtarınızı kullanın. Örneği çalıştırdığınızda sağlanan C# Masaüstü örnek uygulama ile abonelik anahtarınızı metin kutusuna yapıştırın. Daha fazla bilgi için bkz: [örnek uygulamayı çalıştırın](#step-3-run-the-sample-application).
+> * Abonelik anahtarınızı kullanın. Örneği çalıştırdığında sağlanan C# Masaüstü örnek uygulama ile birlikte abonelik anahtarınızı metin kutusuna yapıştırın. Daha fazla bilgi için [örnek uygulamayı çalıştırma](#step-3-run-the-sample-application).
 
 ## <a name="step-1-install-the-sample-application"></a>1. adım: örnek uygulama yükleme
 
-1. Visual Studio 2015'ı başlatın ve seçin **dosya** > **açık** > **proje/çözüm**.
+1. Visual Studio 2015'i başlatın ve **dosya** > **açık** > **proje/çözüm**.
 
-2. İndirilen konuşma tanıma API'si dosyalarını kaydettiğiniz klasöre göz atın. Seçin **konuşma** > **Windows**ve örnek WP klasörü seçin.
+2. İndirilen konuşma tanıma API'si dosyalarını kaydettiğiniz klasöre göz atın. Seçin **konuşma** > **Windows**ve ardından örnek WP klasörü seçin.
 
-3. SpeechToText WPF Samples.sln adlı Visual Studio 2015 çözümü (.sln) dosyasını açmak için çift tıklayın. Visual Studio'da Çözüm açılır.
+3. SpeechToText WPF Samples.sln adlı Visual Studio 2015 çözümü (.sln) dosyasını açmak için çift tıklayın. Çözüm, Visual Studio'da açılır.
 
-## <a name="step-2-build-the-sample-application"></a>2. adım: örnek uygulama oluşturma
+## <a name="step-2-build-the-sample-application"></a>2. adım: örnek uygulamayı oluşturma
 
-1. Kullanmak istiyorsanız, *amacıyla tanıma*, ilk kaydolmak gereken [dil anlama akıllı hizmet (HALUK)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). Anahtar değerini ayarlamak için uç nokta URL'sini HALUK uygulamanızın kullanmak `LuisEndpointUrl` samples/SpeechRecognitionServiceExample klasöründeki app.config dosyasında. HALUK uygulama uç nokta URL'sini hakkında daha fazla bilgi için bkz: [uygulamanızı yayınlama](../../luis/luis-get-started-create-app.md#publish-your-app).
+1. Kullanmak istiyorsanız *tanıma amacıyla*, önce kaydolmanız gerekir [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). LUIS uygulamanızı uç nokta URL'sini anahtarının değerini ayarlayın kullanılacağını `LuisEndpointUrl` samples/SpeechRecognitionServiceExample klasöründeki app.config dosyasında. LUIS uygulaması uç nokta URL'sini hakkında daha fazla bilgi için bkz. [uygulamanızı yayımlayın](../../luis/luis-get-started-create-app.md#publish-your-app).
 
    > [!TIP]
-   > Değiştir `&` HALUK uç nokta URL'si ile karakter `&amp;` URL XML Ayrıştırıcı tarafından doğru bir şekilde yorumlanır emin olmak için.
+   > Değiştirin `&` LUIS uç nokta URL'si ile içindeki karakter `&amp;` URL doğru XML ayrıştırıcısı tarafından yorumlanır emin olmak için.
 
-2. Ctrl + Shift + B tuşuna basın veya seçin **yapı** Şerit menüsünde. Ardından **yapı çözümü**.
+2. Ctrl + Shift + B tuşuna basın veya **derleme** Şerit menüsünde. Ardından **Çözümü Derle**.
 
 ## <a name="step-3-run-the-sample-application"></a>3. adım: örnek uygulamayı çalıştırma
 
-1. Yapı tamamlandıktan sonra F5 tuşuna basın veya seçin **Başlat** örneği çalıştırmak için Şerit menüsünde.
+1. Derleme tamamlandıktan sonra F5 tuşuna basın veya seçin **Başlat** örneği çalıştırmak için Şerit menüsünde.
 
-2. Git **metin örnek proje Oxford konuşma** penceresi. Abonelik anahtarınızı Yapıştır **başlatmak için abonelik anahtarınızı buraya yapıştırın** gösterildiği gibi metin kutusu. Abonelik anahtarınızı PC veya dizüstü bilgisayarınız üzerinde kalıcı hale getirmek için seçin **anahtarı Kaydet**. Abonelik anahtarı sistemden silmek için seçin **Delete tuşuna** PC ya da dizüstü bilgisayara kaldırmak için.
+2. Git **Project Oxford konuşma metin örnek** penceresi. Abonelik anahtarınızı yapıştırın **başlatmak için abonelik anahtarınızı buraya yapıştırın** gösterildiği gibi metin kutusu. Abonelik anahtarınızı PC'NİZDE veya dizüstü kalıcı hale getirmek için seçin **anahtarı Kaydet**. Sistemden bir abonelik anahtarı silmek için işaretleyin **Delete tuşuna** PC ya da dizüstü kaldırmak için.
 
-   ![Konuşma tanıma anahtar Yapıştır açma](../Images/SpeechRecog_paste_key.PNG)
+   ![Yapıştırma, konuşma tanıma anahtarı](../Images/SpeechRecog_paste_key.PNG)
 
-3. Altında **konuşma tanıma kaynak**, iki ana giriş kategoriye ayrılan altı konuşma kaynakları birini seçin:
+3. Altında **konuşma tanıma kaynak**, iki ana giriş kategoriye ayrılır altı konuşma kaynaklardan birini seçin:
 
    * Bilgisayarınızın mikrofon veya iliştirilmiş bir mikrofon konuşma yakalamak için kullanın.
    * Bir ses dosyasını yürütün.
 
-   Her kategori üç tanıma modu vardır:
+   Her kategorinin üç tanıma modu vardır:
 
-    * **ShortPhrase modu**: bir utterance en fazla 15 saniye uzun. Sunucuya gönderilen veri gibi istemci birden çok kısmi sonuçlar ve birden çok n en iyi seçenek bir nihai sonucu alır.
-    * **LongDictation modu**: bir utterance kadar iki dakikadan uzun. Sunucuya gönderilen veri gibi istemci birden çok kısmi sonuçlar ve sunucuyu cümle duraklatır burada gösterir göre birden çok son sonuçlarını alır.
-    * **Hedefi algılama**: sunucu giriş konuşma hakkında daha fazla yapılandırılmış bilgi döndürür. Hedefi algılamayı kullanmak için önce kullanarak bir modeli eğitmek gereken [HALUK](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+    * **ShortPhrase modu**: bir utterance fazla 15 saniye kadar. İstemci, veriler sunucuya gönderildiğinde gibi birden çok kısmı sonuç ve birden çok en iyi n seçim ile bir nihai sonucu alır.
+    * **LongDictation modu**: bir utterance en fazla iki dakika kadar. Veriler sunucuya gönderildiğinde gibi istemci, birden çok kısmı sonuç ve birden çok Nihai sonuç, sunucunun cümle duraklamaları burada gösterir temel alır.
+    * **Hedefi olan algılama**: sunucu giriş konuşma hakkında daha fazla yapılandırılmış bilgi döndürür. Hedefi olan algılama kullanmak için önce kullanarak bir model eğitip gerekir [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
-Bu örnek uygulama ile örnek ses dosyalarını kullanın. Bu örnek samples/SpeechRecognitionServiceExample klasörü altında ile indirilen deposundaki dosyaları bulur. Başka bir dosya seçtiğinizde seçilirse bu örnek ses dosyalarını otomatik olarak çalışacak **Shortphrase modu için wav dosyası kullan** veya **Longdictation modu için wav dosyası kullan** konuşmanızı giriş olarak. Şu anda yalnızca WAV ses biçimi destekleniyor.
+Bu örnek uygulaması ile örnek ses dosyalarını kullanın. Bu örnek samples/SpeechRecognitionServiceExample klasörü altında ile indirdiğiniz deponun dosyaları bulun. Başka hiçbir dosya seçtiğinizde seçilirse, bu örnek ses dosyalarını otomatik olarak çalışacak **Shortphrase modu için wav dosyası kullan** veya **Longdictation modu için wav dosyası kullan** konuşmanızı giriş olarak. Şu anda yalnızca WAV ses biçimi desteklenir.
 
 ![Konuşma metin arabirimi](../Images/HelloJones.PNG)
 
@@ -87,20 +88,20 @@ Bu örnek uygulama ile örnek ses dosyalarını kullanın. Bu örnek samples/Spe
 
 ### <a name="recognition-events"></a>Tanıma olayları
 
-* **Kısmi sonuçlar olayları**: bile konuşarak bitirmeden ne size, belirten konuşma hizmet tahmin her zaman bu olayı adlı (kullanırsanız `MicrophoneRecognitionClient`) veya veri gönderme işlemini tamamladıktan (kullanıyorsanız `DataRecognitionClient`).
-* **Hata olayları**: hizmet bir hata algıladığında çağrılır.
+* **Kısmi sonuçlar olayları**: bile Konuşmayı bitirmeden kişilerin, yorumlarını konuşma hizmeti tahmin her başlatıldığında bu olay adlı (kullanırsanız `MicrophoneRecognitionClient`) veya veri gönderen son (kullanırsanız `DataRecognitionClient`).
+* **Hata olayları**: hizmeti bir hata algıladığında çağrılır.
 * **Hedefi olayları**: adlı istemcilerde "WithIntent" (yalnızca modunda ShortPhrase) son tanıma sonra sonuç yapılandırılmış bir JSON hedefi ayrıştırılır.
-* **Neden olayları**:
-  * İçinde `ShortPhrase` modu, bu olay adı verilir ve Konuşmayı bitirdikten sonra n en iyi sonuçlar verir.
-  * İçinde `LongDictation` modu, olay işleyicisi çağrılır birden çok kez hizmeti cümle duraklatır burada tanımlar tabanlı.
-  * **Her n en iyi seçenek**, güvenirlik değeri ve birkaç farklı biçimlerde tanınan metni döndürülür. Daha fazla bilgi için bkz: [çıktı biçimi](../Concepts.md#output-format).
+* **Neden olayların**:
+  * İçinde `ShortPhrase` modu, bu olay adı verilir ve konuşma tamamladıktan sonra en iyi n sonuçlarını döndürür.
+  * İçinde `LongDictation` modu, olay işleyicisi adlı birden çok kez bağlı hizmeti cümle duraklamaları burada tanımlar.
+  * **Her en iyi n seçim**, güvenirlik değeri ve tanınan metin birkaç farklı biçimleri döndürülür. Daha fazla bilgi için [çıkış biçimi](../Concepts.md#output-format).
 
-Olay işleyicileri zaten kod açıklamaları biçiminde kodda işaret.
+Olay işleyicileri zaten kod açıklamaları biçiminde kodda belirtildiği.
 
 ## <a name="related-topics"></a>İlgili konular
 
 * [Microsoft Speech Masaüstü Kitaplığı Başvurusu](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html)
-* [Microsoft konuşma tanıma API'si Android üzerinde Java kullanmaya başlama](GetStartedJavaAndroid.md)
-* [Microsoft konuşma tanıma API'si Objective C'de iOS kullanmaya başlama](Get-Started-ObjectiveC-iOS.md)
-* [JavaScript Microsoft konuşma tanıma API'si ile çalışmaya başlama](GetStartedJSWebsockets.md)
+* [Android'de Java Microsoft konuşma tanıma API'si ile çalışmaya başlama](GetStartedJavaAndroid.md)
+* [İOS üzerinde Objective-C, Microsoft konuşma tanıma API'si ile başlama](Get-Started-ObjectiveC-iOS.md)
+* [JavaScript içinde Microsoft konuşma tanıma API'si ile çalışmaya başlama](GetStartedJSWebsockets.md)
 * [REST aracılığıyla Microsoft konuşma tanıma API'si ile çalışmaya başlama](GetStartedREST.md)

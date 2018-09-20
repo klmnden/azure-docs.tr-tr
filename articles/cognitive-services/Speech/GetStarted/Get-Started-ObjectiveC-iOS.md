@@ -1,63 +1,64 @@
 ---
-title: Microsoft konuşma tanıma API'si Objective C'de iOS kullanmaya başlama | Microsoft Docs
-description: Microsoft konuşma tanıma API'si konuşulan sesi metne dönüştürme iOS uygulamaları geliştirmek için kullanın.
+title: Bing konuşma tanıma API'si Objective C'de iOS kullanmaya başlayın | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Bing konuşma tanıma API'si, Konuşmayı metne dönüştürme iOS uygulamaları geliştirmek için kullanın.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bbb8d3975cdab537135b97ca9bbf6e845aa3fa0e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: af678ab1f63115d202214a754ad7afcb33b2f08a
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352240"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366633"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-objective-c-on-ios"></a>Konuşma tanıma API'si Objective C'de iOS kullanmaya başlama
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Hızlı Başlangıç: Objective-C içinde Bing konuşma tanıma API'si, İos'ta kullanın.
 
-Konuşma tanıma API'si ile konuşulan sesi metne dönüştürmek için bulut tabanlı bir konuşma hizmeti kullanan iOS uygulamaları geliştirebilirsiniz. Uygulamanız aynı anda olabilir ve hizmete ses gönderiyor aynı anda kısmi tanıma sonuçlarını zaman uyumsuz olarak almak için gerçek zamanlı akış, API destekler.
+Konuşma tanıma API'SİYLE konuşma kayıtlarını metne dönüştürmek için bulut tabanlı konuşma hizmeti kullanan iOS uygulamaları geliştirebilirsiniz. Uygulamanız aynı anda olabilir ve zaman uyumsuz olarak hizmete ses gönderiyor aynı anda kısmi tanıma sonuçları almak için gerçek zamanlı akış, API'yi destekler.
 
-Bu makalede bir örnek uygulamanın bir iOS uygulaması geliştirmek için konuşma tanıma API'si ile çalışmaya nasıl başlayacağınız temelleri göstermek için kullanır. Tam bir API başvuru için bkz: [konuşma SDK istemci kitaplığı başvurusu](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
+Bu makalede, bir iOS uygulaması geliştirmeye yönelik Konuşma tanıma API'si ile çalışmaya başlama ilişkin temel bilgileri göstermek için örnek uygulamayı kullanır. Bir tam API Başvurusu için bkz. [Speech SDK'sı istemci kitaplığı başvurusu](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="platform-requirements"></a>Platform gereksinimleri
 
-Mac XCode IDE yüklü olduğundan emin olun.
+Mac XCode IDE'ın yüklü olduğundan emin olun.
 
-### <a name="get-the-client-library-and-examples"></a>İstemci Kitaplığı ve örnekleri alın
+### <a name="get-the-client-library-and-examples"></a>İstemci Kitaplığı ve örnek alma
 
-Konuşma istemci kitaplığı ve iOS için örnekleri kullanılabilir [konuşma istemci SDK'sı iOS için](https://github.com/microsoft/cognitive-speech-stt-ios).
+İOS için örnekler ve konuşma istemcisi kitaplığını kullanılabilir [konuşma istemci SDK'sı, iOS için](https://github.com/microsoft/cognitive-speech-stt-ios).
 
-### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Konuşma tanıma API'si için abone olmak ve ücretsiz deneme aboneliği anahtarı alma
+### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>Konuşma tanıma API'si için abone olur ve ücretsiz deneme aboneliği anahtarını alma
 
-Konuşma API Bilişsel hizmetler (daha önce proje Oxford) bir parçasıdır. Ücretsiz deneme aboneliği anahtarları alma [Bilişsel hizmetler abonelik](https://azure.microsoft.com/try/cognitive-services/) sayfası. Konuşma API seçtikten sonra Seç **alma API anahtarı** anahtarı alınamadı. Birincil ve ikincil anahtar döndürür. Her iki anahtar kullanabilmek için her iki anahtarı aynı kotasını bağlıdır.
+Konuşma tanıma API'si, Bilişsel hizmetler (daha önce Project Oxford) bir parçasıdır. Ücretsiz deneme aboneliği anahtarları alabilirsiniz [Bilişsel hizmetler abonelik](https://azure.microsoft.com/try/cognitive-services/) sayfası. Konuşma tanıma API'si belirledikten sonra seçin **API anahtarı alma** anahtarını almak için. Birincil ve ikincil anahtar döndürür. İki anahtarı kullanabilmeniz için her iki anahtarı aynı kotası bağlıdır.
 
-Kullanmak istiyorsanız, *amacıyla tanıma*, kaydolmak etmeniz [dil anlama akıllı hizmet (HALUK)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+Kullanmak istiyorsanız *tanıma amacıyla*, ayrıca kaydolmanız gerekir [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 > [!IMPORTANT]
-> * Abonelik anahtarı edinin. Konuşma istemci kitaplıkları kullanmadan önce bilmeniz gereken bir [abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/).
+> * Bir abonelik anahtarı edinirler. Konuşma istemci kitaplıkları kullanabilmeniz için önce olmalıdır bir [abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/).
 >
-> * Abonelik anahtarınızı kullanın. Sağlanan iOS örnek uygulama ile dosya Samples/SpeechRecognitionServerExample/settings.plist abonelik anahtarınızı ile güncelleştirmeniz gerekir. Daha fazla bilgi için bkz: [derleme ve çalıştırma örnekleri](#build-and-run-samples).
+> * Abonelik anahtarınızı kullanın. Sağlanan iOS örnek uygulama ile birlikte ' % s'dosyası Samples/SpeechRecognitionServerExample/settings.plist abonelik anahtarınız ile güncelleştirmeniz gerekir. Daha fazla bilgi için [derleme ve çalıştırma örnekleri](#build-and-run-samples).
 
 ## <a name="use-the-speech-client-library"></a>Konuşma istemci kitaplığını kullanma
 
-İstemci Kitaplığı bir XCode projeye eklemek için aşağıdaki adımları [yönergeleri](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS#the-client-library).
+İstemci Kitaplığı bir XCode projesine eklemek için aşağıdaki adımları [yönergeleri](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS#the-client-library).
 
-İstemci Kitaplığı Başvurusu için iOS bulmak için bu bkz [Web sayfası](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
+İstemci Kitaplığı Başvurusu için iOS bulmak için bkz [Web sayfası](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html).
 
-## <a name="build-and-run-samples"></a>Derleme ve çalıştırma örnekleri
+## <a name="build-and-run-samples"></a>Derleme ve örneklerini çalıştırma
 
-Bu derleme ve çalıştırma örnekleri hakkında daha fazla bilgi için bkz [README page](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS#the-sample).
+Derleme ve çalıştırma örnekleri hakkında daha fazla bilgi için bkz. Bu [Benioku sayfa](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS#the-sample).
 
 ## <a name="samples-explained"></a>Açıklanan örnekleri
 
 ### <a name="create-recognition-clients"></a>Tanıma istemcileri oluşturma
 
-Aşağıdaki örnek kodda kullanıcı senaryolarını temel alarak tanıma istemci sınıfları oluşturulacağını gösterir:
+Aşağıdaki kod örneğinde, kullanıcı senaryoları tabanlı tanıma istemci sınıfları oluşturma işlemi gösterilmektedir:
 
 ```
 {
@@ -108,38 +109,38 @@ Aşağıdaki örnek kodda kullanıcı senaryolarını temel alarak tanıma istem
 
 ```
 
-İstemci Kitaplığı, önceden uygulanan tanıma konuşma tanıma tipik senaryolarda istemci sınıfları sağlar:
+İstemci Kitaplığı önceden uygulanan tanıma, konuşma tanıma tipik senaryolar için istemci sınıfları sağlar:
 
-* `DataRecognitionClient`: Konuşma tanıma verilerle PCM (örneğin, bir dosya veya ses kaynağı). Veri arabelleği ayrılır ve her arabellek konuşma hizmetine gönderilir. Kullanıcılar kendi sessizlik algılama isterseniz uygulayabilmek için hiçbir değişiklik arabellekleri için yapılır. Veri WAV dosyalarını sağlanmazsa, sunucunun dosya sağdan veriler gönderebilir. Ham verileri varsa, örneğin, ses Bluetooth üzerinden, gelen, ilk biçimi üstbilgisi izleyen verilerden sunucusuna gönderir.
-* `MicrophoneRecognitionClient`: Konuşma tanıma mikrofon gelen ses ile. Mikrofon açık olduğundan ve mikrofon verilerden konuşma tanıma hizmetine gönderilir emin olun. Tanıma hizmetine gönderilmeden önce bir yerleşik "sessizlik algılayıcısı" Mikrofon verilere uygulanır.
-* `DataRecognitionClientWithIntent` ve `MicrophoneRecognitionClientWithIntent`: tanıma metin ek olarak, bu istemciler uygulamalarınızı eylemler için daha fazla kullanabilir Konuşmacı amacı hakkında yapılandırılmış bilgi döndürür. "Amacı" kullanmak için öncelikle kullanarak bir modeli eğitmek gerekir [HALUK](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClient`: PCM verileri (örneğin, bir dosya ya da ses kaynağından gelen) ile Konuşma tanıma. Veri arabellekleri ayrılmıştır ve her arabellek konuşma hizmeti için gönderilir. Kullanıcılar kendi sessizlik algılama isterseniz uygulayabilmek için hiçbir değişiklik arabellekleri için gerçekleştirilir. Veri WAV dosyalarını sağlanmazsa, sunucunun dosya sağdan veriler gönderebilir. Ham verileri varsa, örneğin, Bluetooth üzerinden gelen ses, ilk biçimi üstbilgi verileri sunucusuna gönderir.
+* `MicrophoneRecognitionClient`: Konuşma tanıma mikrofondan gelen sesi ile. Mikrofon açık ve mikrofon verileri için konuşma tanıma hizmeti gönderilir emin olun. Tanıma hizmetine gönderilmeden önce bir yerleşik "sessizlik algılayıcısı" Mikrofon verilere uygulanır.
+* `DataRecognitionClientWithIntent` ve `MicrophoneRecognitionClientWithIntent`: tanıma metne ek olarak, bu istemciler uygulamalarınızı daha da seslerini için kullanabileceğiniz konuşmacının amacı hakkında yapılandırılmış bilgiler döndürür. "Hedefi" kullanmak için önce kullanarak bir model eğitip gerekir [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### <a name="recognition-language"></a>Tanıma dili
 
-Kullandığınızda `SpeechRecognitionServiceFactory` istemci oluşturmak için bir dil seçin. Konuşma hizmeti tarafından desteklenen diller tam listesi için bkz: [desteklenen diller](../API-Reference-REST/supportedlanguages.md).
+Kullanırken `SpeechRecognitionServiceFactory` istemcisi oluşturmak için bir dil seçmeniz gerekir. Konuşma hizmeti tarafından desteklenen dillerin tam listesi için bkz. [desteklenen diller](../API-Reference-REST/supportedlanguages.md).
 
 ### <a name="speechrecognitionmode"></a>SpeechRecognitionMode
 
-Ayrıca belirtmek zorunda `SpeechRecognitionMode` istemciyle oluşturduğunuzda `SpeechRecognitionServiceFactory`:
+Ayrıca belirtmenize gerek `SpeechRecognitionMode` istemciyle oluşturduğunuzda `SpeechRecognitionServiceFactory`:
 
-* `SpeechRecognitionMode_ShortPhrase`: Bir utterance 15 kadar uzun saniye. Hizmete gönderilen veri gibi istemci birden çok kısmi sonuçlar ve birden çok n en iyi seçenek bir nihai sonucu alır.
-* `SpeechRecognitionMode_LongDictation`: Bir utterance iki kadar uzun dakika. Hizmete gönderilen veri gibi istemci birden çok kısmi sonuçlar ve sunucu cümle duraklatır burada tanımlar göre birden çok son sonuçlarını alır.
+* `SpeechRecognitionMode_ShortPhrase`Uzun utterance fazla 15 saniye. Hizmetine gönderilen veri gibi istemci, birden çok kısmı sonuç ve birden çok en iyi n seçim ile bir nihai sonucu alır.
+* `SpeechRecognitionMode_LongDictation`: Bir utterance iki kadar uzun dakika. Hizmetine gönderilen veri gibi istemci, birden çok kısmı sonuç ve birden çok Nihai sonuç, sunucunun cümle duraklamaları burada tanımlar temel alır.
 
 ### <a name="attach-event-handlers"></a>Olay işleyicileri ekleme
 
-İstemciye çeşitli olay işleyicileri iliştirebilirsiniz oluşturduğunuz:
+İstemciye çeşitli olay işleyicileri ekleyebilirsiniz, oluşturan:
 
-* **Kısmi sonuçlar olayları**: bile konuşarak bitirmeden ne size, belirten konuşma hizmet tahmin her zaman bu olayı adlı (kullanırsanız `MicrophoneRecognitionClient`) veya veri gönderme işlemini tamamladıktan (kullanıyorsanız `DataRecognitionClient`).
-* **Hata olayları**: hizmet bir hata algıladığında çağrılır.
+* **Kısmi sonuçlar olayları**: bile Konuşmayı bitirmeden kişilerin, yorumlarını, konuşma tanıma hizmeti tahmin her başlatıldığında bu olay adlı (kullanırsanız `MicrophoneRecognitionClient`) veya veri gönderen son (kullanırsanız `DataRecognitionClient`).
+* **Hata olayları**: hizmeti bir hata algıladığında çağrılır.
 * **Hedefi olayları**: adlı istemcilerde "WithIntent" (yalnızca modunda ShortPhrase) son tanıma sonra sonuç yapılandırılmış bir JSON hedefi ayrıştırılır.
-* **Neden olayları**:
-  * İçinde `SpeechRecognitionMode_ShortPhrase` modu, bu olay adı verilir ve Konuşmayı bitirdikten sonra n en iyi sonuçlar verir.
-  * İçinde `SpeechRecognitionMode_LongDictation` modu, olay işleyicisi çağrılır birden çok kez hizmeti cümle duraklatır burada tanımlar tabanlı.
-  * **Her n en iyi seçenek**, güvenirlik değeri ve birkaç farklı biçimlerde tanınan metni döndürülür. Daha fazla bilgi için bkz: [çıktı biçimi](../Concepts.md#output-format).
+* **Neden olayların**:
+  * İçinde `SpeechRecognitionMode_ShortPhrase` modu, bu olay adı verilir ve konuşma tamamladıktan sonra en iyi n sonuçlarını döndürür.
+  * İçinde `SpeechRecognitionMode_LongDictation` modu, olay işleyicisi adlı birden çok kez bağlı hizmeti cümle duraklamaları burada tanımlar.
+  * **Her en iyi n seçim**, güvenirlik değeri ve tanınan metin birkaç farklı biçimleri döndürülür. Daha fazla bilgi için [çıkış biçimi](../Concepts.md#output-format).
 
 ## <a name="related-topics"></a>İlgili konular
 
-* [İOS için İstemci Kitaplığı Başvurusu](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html)
-* [Microsoft konuşma tanıma ve/veya hedefi Android üzerinde Java kullanmaya başlama](GetStartedJavaAndroid.md)
-* [JavaScript Microsoft konuşma API'si ile çalışmaya başlama](GetStartedJSWebsockets.md)
-* [Microsoft konuşma API REST üzerinden kullanmaya başlama](GetStartedREST.md)
+* [İOS istemci Kitaplığı Başvurusu](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html)
+* [Microsoft konuşma tanıma ve/veya Android üzerinde Java amaca kullanmaya başlama](GetStartedJavaAndroid.md)
+* [JavaScript içinde Microsoft konuşma tanıma API'si ile çalışmaya başlama](GetStartedJSWebsockets.md)
+* [REST aracılığıyla Microsoft konuşma tanıma API'si ile çalışmaya başlama](GetStartedREST.md)

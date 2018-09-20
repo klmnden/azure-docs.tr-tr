@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/25/2018
+ms.date: 09/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 5e45bff827a8c376d4b35ee88f1f000c2b122443
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 803dddd13ab3b18b6f161be9c0004d18c8d69f1e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298243"
+ms.locfileid: "46364208"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -122,12 +122,10 @@ Kurtarma sisteminizde etkin coğrafi çoğaltma ve otomatik yük devretme grupla
 > 
 
 ### <a name="perform-a-geo-restore"></a>Bir coğrafi geri yükleme gerçekleştirme
-Kurtarma sisteminizde coğrafi olarak yedekli depolama çoğaltması ile otomatik yedekleri kullanıyorsanız [coğrafi geri yükleme kullanarak bir veritabanı kurtarma işlemini başlatmada](sql-database-disaster-recovery.md#recover-using-geo-restore). Kurtarma genellikle bir saate kadar zaman en son günlük yedekleme alındığı tarafından belirlenen ve diğer bölgeye coğrafi olarak çoğaltılmış veri kaybı - 12 saat içinde gerçekleşir. Kurtarma işlemi tamamlanana kadar veritabanı işlem kaydedemez ve sorgulara yanıt veremez. Bu son bir veritabanını geri yüklerken, zaman içinde kullanılabilir noktası coğrafi-ikincil, zaman herhangi bir noktasına geri yüklenmesi şu anda desteklenmiyor.
+Otomatik yedeklemelerini coğrafi olarak yedekli depolama (varsayılan olarak etkindir) ile kullanıyorsanız, veritabanı kullanarak kurtarabileceğiniz [coğrafi geri yükleme](sql-database-disaster-recovery.md#recover-using-geo-restore). Kurtarma genellikle son saatlik değişiklik yedeği geçen ve çoğaltılan tarafından belirlenen en fazla bir saatlik veri kaybı - 12 saat içinde gerçekleşir. Kurtarma işlemi tamamlanana kadar veritabanı işlem kaydedemez ve sorgulara yanıt veremez. Unutmayın, coğrafi geri yükleme son kullanılabilir noktaya veritabanını yalnızca zaman içinde geri yükler.
 
 > [!NOTE]
 > Kurtarılan veritabanı için uygulamanızı geçebilir önce veri merkezi tekrar çevrimiçi olursa kurtarma işlemini iptal edebilirsiniz.  
->
->
 
 ### <a name="perform-post-failover--recovery-tasks"></a>Yük devretme/kurtarma sonrası görevleri gerçekleştirme
 Bu iki kurtarma sisteminden herhangi biriyle gerçekleştirilen kurtarma işleminden sonra kullanıcılarınızın ve uygulamalarınızın çalışmaya devam etmesi için aşağıdaki ek görevleri gerçekleştirmeniz gerekir:

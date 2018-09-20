@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: a404eb1393f9e99c2e2932c2d23724051f1b72a0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e301afaa2fed2b00599fbdde8178203965280c0d
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628496"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365014"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure zaman serisi görüşleri'nde gecikme süresini azaltmak için azaltmayı giderme ve izleme
 Ortamınızın yapılandırmasını gelen veri miktarı aşarsa, gecikme süresi veya Azure zaman serisi Öngörülerinde azaltma karşılaşabilirsiniz.
@@ -30,6 +30,11 @@ Gecikme süresi ve ne zaman azaltma deneyimi büyük olasılıkla:
 - Olay kaynağı (zaman serisi öngörüleri edinmek için gerekir) bir gecikme bunun sonucunda, büyük miktarlarda geçmiş olaylar gönderin.
 - Telemetri, daha büyük olay boyutu elde başvuru verileriyle birleştirin.  Azaltma açısından, paket boyutu 32 KB'lık bir ingressed veri paketi 32 olayları olarak kabul edilir, her 1 KB boyutlu. 32 KB izin verilen en uzun olay boyutudur; 32 KB'den büyük veri paketleri kesilir.
 
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Bu videoda, Time Series Insights veri giriş davranışı ve onun için nasıl kapsar.</br>
+
+> [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>Gecikme süresi ve azaltma uyarılarla izleme
 

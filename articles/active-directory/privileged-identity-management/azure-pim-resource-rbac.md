@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: aee172bc6fc77aaac8d2d52037a481fdb976d308
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ce7c96d92938c4e3b4cc0b53271df48350083754
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188977"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465240"
 ---
 # <a name="view-who-has-azure-resource-roles-in-pim"></a>Azure kaynağı rolleri PIM'de olan görüntüle
 
@@ -38,7 +38,7 @@ Azure Active Directory Privileged Identity Management (PIM ile), yönetebilir, d
 
 ## <a name="view-activation-and-azure-resource-activity"></a>Etkinleştirme ve Azure kaynak etkinliği görüntüle
 
-Belirli bir kullanıcı çeşitli kaynaklardaki sürdü hangi eylemleri görmek için ihtiyacınız olayda bir belirtilen etkinleştirme süresi (için uygun olan kullanıcılar) ile ilişkili Azure kaynak etkinliği gözden geçirebilirsiniz. Bir kullanıcı üye görünümünden veya belirli bir roldeki üyelerin listesi seçerek başlatın. Sonuç, tarihe göre Azure kaynaklarına kullanıcının eylemleri ve bu aynı süre boyunca yeni rol etkinleştirmeleri grafik bir görünümünü görüntüler.
+Belirli bir kullanıcı çeşitli kaynaklardaki sürdü hangi eylemleri görmek için ihtiyacınız olayda bir belirtilen etkinleştirme süresi (için uygun olan kullanıcılar) ile ilişkili Azure kaynak etkinliği gözden geçirebilirsiniz. Bir kullanıcı üye görünümünden veya belirli bir roldeki üyelerin listesi seçerek başlatın. Sonuç, tarihe göre Azure kaynaklarına kullanıcı eylemleri ve bu aynı süre boyunca yeni rol etkinleştirmeleri grafik bir görünümünü görüntüler.
 
 ![](media/azure-pim-resource-rbac/user-details.png)
 

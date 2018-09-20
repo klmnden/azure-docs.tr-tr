@@ -1,28 +1,52 @@
-## <a name="setting-up-your-ios-application"></a>İOS uygulamanızı kurma
+---
+title: include dosyası
+description: include dosyası
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 4ed4f7e15a21e1565031994bd377c15aebd535bc
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466191"
+---
+## <a name="setting-up-your-ios-application"></a>İOS uygulamanızı ayarlama
 
-Bu bölümde bir iOS uygulaması (Swift) tümleştirme göstermek için yeni bir proje oluşturmak için adım adım yönergeler sağlar *Microsoft ile oturum açma* bir belirteci gerektiren Web API'leri sorgulayabilirsiniz şekilde.
+Bu bölümde, ile nasıl tümleştireceğinizi bir iOS uygulaması (Swift) göstermek için yeni bir proje oluşturmak için adım adım yönergeler sağlar. *Microsoft ile oturum açma* bir belirteç gerektiren bir Web API sorgulayabilmesi.
 
-> Bu örnek 's XCode projesi yerine indirmeyi tercih ediyorsunuz? [Bir proje indirme](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) ve geçin [yapılandırma adımı](#register-your-application) kod örneği çalıştırmadan önce yapılandırmak için.
+> Bunun yerine bu örnek'ın XCode projesi indirme mi tercih ediyorsunuz? [Bir projeyi indirirken](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) ve atlamak [yapılandırma adımı](#register-your-application) çalıştırmadan önce kodu örneği yapılandırmak için.
 
 
-## <a name="install-carthage-to-download-and-build-msal"></a>İndirip MSAL yapı Carthage yükleyin
-Carthage Paket Yöneticisi MSAL Önizleme dönemi boyunca kullanılan – kitaplığa değişiklik yapmak Microsoft yeteneği korurken XCode ile tümleşir.
+## <a name="install-carthage-to-download-and-build-msal"></a>İndirip MSAL derleme Carthage yükleyin
+Carthage Paket Yöneticisi MSAL Önizleme dönemi boyunca kullanılan – yeteneği kitaplığa değişiklik yapmak Microsoft korurken XCode ile tümleşir.
 
-- Carthage en son sürümünü karşıdan yükleyip [burada](https://github.com/Carthage/Carthage/releases "Carthage indirme URL'si")
+- Carthage en son sürümünü indirip [burada](https://github.com/Carthage/Carthage/releases "Carthage indirme URL'si")
 
 ## <a name="creating-your-application"></a>Uygulamanızı oluşturma
 
-1.  Xcode açın ve seçin `Create a new Xcode project`
-2.  Seçin `iOS`  >  `Single view Application` tıklatıp *sonraki*
-3.  Bir ürün adı verin ve tıklatın *sonraki*
-4.  Uygulamanızı oluşturun ve tıklayın için bir klasör seçin *oluştur*
+1.  Xcode'ni açın ve seçin `Create a new Xcode project`
+2.  Seçin `iOS`  >  `Single view Application` tıklatıp *İleri*
+3.  Bir ürün adı verin ve tıklatın *İleri*
+4.  Uygulamanızı oluşturun ve'ı tıklatın, bir klasör seçin *oluştur*
 
-## <a name="build-the-msal-framework"></a>MSAL Framework derleme
+## <a name="build-the-msal-framework"></a>MSAL Framework'te derleme
 
-Çekme ve Carthage kullanarak MSAL kitaplık en son sürümünü oluşturmak için aşağıdaki yönergeleri izleyin:
+Çekme ve ardından en son sürümünü kullanarak Carthage MSAL kitaplıkları oluşturmak için aşağıdaki yönergeleri izleyin:
 
-1.  Bash Terminali açın ve uygulamanın kök klasörüne gidin
-2.  Kopya aşağıda 'Cartfile' dosyası oluşturmak için bash terminal yapıştırın:
+1.  Bash Terminali açın ve uygulamanın kök klasöre gidin
+2.  Kopyalama aşağıda 'Cartfile' dosyası oluşturmak için bash terminalde yapıştırın:
 
 ```bash
 echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" > Cartfile
@@ -30,7 +54,7 @@ echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" >
 <!-- Workaround for Docs conversion bug -->
 <ol start="3">
 <li>
-Kopyalama ve yapıştırma aşağıda. Bu komut Carthage/kullanıma klasörüne bağımlılıkları getirir, ardından MSAL kitaplığı oluşturur:
+Kopyalama ve yapıştırma aşağıda. Bu komut bir Carthage/kullanıma klasöre bağımlılıkları getirir ve ardından MSAL kitaplığı oluşturur:
 </li>
 </ol>
 
@@ -38,15 +62,15 @@ Kopyalama ve yapıştırma aşağıda. Bu komut Carthage/kullanıma klasörüne 
 carthage update
 ```
 
-> Yukarıdaki işlem indirmek ve Microsoft kimlik doğrulama kitaplığı (MSAL) oluşturmak için kullanılır. MSAL alınırken, önbelleğe alma ve Azure Active Directory v2 tarafından korunan API'leri erişmek için kullanılan kullanıcı belirteçleri yenilemeyi işler.
+> Yukarıdaki işlem, indirin ve Microsoft Authentication Library (MSAL) oluşturmak için kullanılır. MSAL alınırken, önbelleğe alma ve Azure Active Directory v2 tarafından korunan API'lerine erişmek için kullanılan kullanıcı belirteçleri yenileme işler.
 
-## <a name="add-the-msal-framework-to-your-application"></a>Uygulamanıza MSAL framework ekleyin
-1.  Xcode'da, açık `General` sekmesi
+## <a name="add-the-msal-framework-to-your-application"></a>MSAL framework uygulamanıza ekleyin
+1.  Xcode'da açın `General` sekmesi
 2.  Git `Linked Frameworks and Libraries` ' ye tıklayın `+`
 3.  `Add other…` seçeneğini belirleyin
-4.  Seçim: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` tıklatıp *açık*. Görmeniz gerekir `MSAL.framework` listesine eklenir.
+4.  Seçim: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` tıklatıp *açık*. Görmelisiniz `MSAL.framework` listesine eklenir.
 5.  Git `Build Phases` sekmesine ve tıklayın `+` simgesini seçin `New Run Script Phase`
-6.  Aşağıdaki içerikleri ekleyin *komut dosyası alanı*:
+6.  Aşağıdaki içeriği ekleyin *betik alan*:
 
 ```text
 /usr/local/bin/carthage copy-frameworks
@@ -55,7 +79,7 @@ carthage update
 <!-- Workaround for Docs conversion bug -->
 <ol start="7">
 <li>
-Aşağıdakileri ekleyin <code>Input Files</code> tıklayarak <code>+</code>:
+Ekleyin <code>Input Files</code> tıklayarak <code>+</code>:
 </li>
 </ol>
 
@@ -64,10 +88,10 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ```
 
 ## <a name="creating-your-applications-ui"></a>Uygulamanızın kullanıcı Arabirimi oluşturma
-Main.storyboard dosya proje şablonu bir parçası olarak otomatik olarak oluşturulması gerekir. Uygulama kullanıcı Arabirimi oluşturmak için aşağıdaki yönergeleri izleyin:
+Main.storyboard dosyası, proje şablonunun bir parçası olarak otomatik olarak oluşturulması gerekir. Uygulama kullanıcı Arabirimi oluşturmak için aşağıdaki yönergeleri izleyin:
 
-1.  Control + tıklatın `Main.storyboard` bağlam menüsünü açmak ve ardından: `Open As` > `Source Code`
-2.  Değiştir `<scenes>` aşağıdaki kod ile düğümü:
+1.  Control + tıklayın `Main.storyboard` bağlamsal menüyü getirin ve ardından: `Open As` > `Source Code`
+2.  Değiştirin `<scenes>` düğüm aşağıdaki kod ile:
 
 ```xml
  <scenes>

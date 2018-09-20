@@ -11,17 +11,27 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: dfdc538719b0c7571ba04f4134819d7142f109d3
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f4a9d09aa701d490e8391d68435e672ff49c771c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629149"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364244"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Gezgini
 Bu makalede, çeşitli özellikleri ve seçenekleri Time Series Insights Gezgini web app içinde kullanılabilir keşfediyor. Görselleştirilmiş oluşturmak için web tarayıcınızda Time Series Insights gezginini kullanın.
  
 Azure Time Series Insights, milyarlarca IoT olayını aynı anda keşfedip analiz etmeyi kolaylaştıran ve tam olarak yönetilen bir analiz, depolama ve görselleştirme hizmetidir. IOT çözümünüzü hızlıca doğrulamanıza ve görev açısından kritik cihazlarda, kapalı kalma önlemenize olanak tanır, verilerinizin genel bir görünüm sağlar. Anomalileri, gizli eğilimleri keşfetmenize ve neredeyse gerçek zamanlı olarak kök neden analizleri gerçekleştirebilir. Time Series Insights Gezgini şu anda genel Önizleme aşamasındadır.
+
+## <a name="video"></a>Video:
+
+Bu videoda, Time Series Insights Gezginini kullanarak verileri Sorgulama kapsar. 
+
+Bu videoda Video zaman serisi görüşleri oluşturur:  
+<span style="color:blue">Bir Azure IOT Çözüm Hızlandırıcısı kullanarak zaman serisi görüşleri ile başlar alınıyor.</span>
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 ## <a name="prerequisites"></a>Önkoşullar
 

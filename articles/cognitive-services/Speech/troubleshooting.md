@@ -1,53 +1,54 @@
 ---
-title: Sorun giderme | Microsoft Docs
-description: Microsoft konuşma hizmetini kullanırken sorunları gidermek nasıl.
+title: Bing konuşma sorunlarını giderme | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Bing konuşma kullanırken sorunları gidermek nasıl.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04f3da19939d523d201d357b2b0293db1508431d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6a204d32c30c0419a90801a5a9411b0f357ef883
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352186"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365052"
 ---
-# <a name="troubleshooting"></a>Sorun giderme
+# <a name="troubleshooting-bing-speech"></a>Bing konuşma sorunlarını giderme
 
-## <a name="error-http-403-forbidden"></a>hata `HTTP 403 Forbidden`
+## <a name="error-http-403-forbidden"></a>Hata `HTTP 403 Forbidden`
 
-Konuşma tanıma API'si kullanılırken döndüren bir `HTTP 403 Forbidden` hata.
+Konuşma tanıma API'si kullanılırken döndürür bir `HTTP 403 Forbidden` hata.
 
 ### <a name="cause"></a>Nedeni
 
-Bu hata genellikle kimlik doğrulama sorunları kaynaklanır. Bağlantı isteklerini olmadan geçerli `Ocp-Apim-Subscription-Key` veya `Authorization` üstbilgi hizmetiyle tarafından reddedilir bir `HTTP 403 Forbidden` yanıt.
+Bu hata genellikle tarafından kimlik doğrulama sorunları nedeniyle oluşur. Bağlantı isteklerini olmadan geçerli `Ocp-Apim-Subscription-Key` veya `Authorization` üstbilgi hizmetiyle tarafından reddedilir bir `HTTP 403 Forbidden` yanıt.
 
 Abonelik anahtarı kimlik doğrulaması için kullanılıyorsa, neden olabilir
 
 - Abonelik anahtarı eksik veya geçersiz
 - Abonelik anahtarı kullanım kotası aşıldı
-- `Ocp-Apim-Subscription-Key` alan REST API çağrıldığında istek üstbilgisinde ayarlanmadı
+- `Ocp-Apim-Subscription-Key` REST API çağrıldığında alanı istek üst bilgisinde ayarlanmadı
 
 Yetkilendirme belirteci kimlik doğrulaması için kullanılıyorsa, aşağıdaki nedenlerden hatasına neden olabilir.
 
 - `Authorization` üstbilgisi eksik istekte REST kullanırken
-- Yetkilendirme üstbilgisinde belirtilen yetkilendirme belirteci geçersiz
-- Yetkilendirme belirtecinin süresi doldu. Erişim belirteci 10 dakikalık bir süre sonu sahip
+- Yetkilendirme üst bilgisinde belirtilen yetkilendirme belirteci geçersiz.
+- Yetkilendirme belirtecinin süresi doldu. Erişim belirtecine sahip, 10 dakikalık bir süre sonu
 
-Kimlik doğrulaması hakkında daha fazla bilgi için bkz: [kimlik doğrulaması](How-to/how-to-authentication.md) sayfası.
+Kimlik doğrulaması hakkında daha fazla bilgi için bkz. [kimlik doğrulaması](How-to/how-to-authentication.md) sayfası.
 
 ### <a name="troubleshooting-steps"></a>Sorun giderme adımları
 
 #### <a name="verify-that-your-subscription-key-is-valid"></a>Abonelik anahtarınızı geçerli olduğunu doğrulayın
 
-Doğrulama için aşağıdaki komutu çalıştırabilirsiniz. Değiştirmek için Not *YOUR_SUBSCRIPTION_KEY* kendi abonelik anahtara sahip. Abonelik anahtarınızı geçerliyse, yanıtta bir JSON Web Token (JWT olarak) yetkilendirme belirtecini alırsınız. Aksi durumda yanıt olarak bir hata alıyorsunuz.
+Doğrulama için aşağıdaki komutu çalıştırabilirsiniz. Değiştirilecek Not *YOUR_SUBSCRIPTION_KEY* kendi abonelik anahtarınızla. Abonelik anahtarınızı geçerliyse, yanıtta bir JSON Web Token (JWT olarak) yetkilendirme belirtecini alır. Aksi takdirde yanıtında hata alırsınız.
 
 > [!NOTE]
-> Değiştir `YOUR_SUBSCRIPTION_KEY` kendi abonelik anahtara sahip.
+> Değiştirin `YOUR_SUBSCRIPTION_KEY` kendi abonelik anahtarınızla.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
 
@@ -67,23 +68,23 @@ $OAuthToken
 
 # <a name="curltabcurl"></a>[Curl](#tab/curl)
 
-Örnek curl Linux bash ile kullanır. Platformunuz üzerinde kullanılabilir durumda değilse, curl yüklemeniz gerekebilir. Bu örnek ayrıca Windows, Git Bash, zsh ve diğer Kabukları Cygwin üzerinde çalışması gerekir.
+Bu örnek, Linux üzerinde bash ile curl kullanır. Platformunuzda bulunan kullanılabilir durumda değilse, curl yüklemeniz gerekebilir. Örnek ayrıca, Windows, Git Bash, zsh ve diğer Kabukları Cygwin üzerinde çalışmalıdır.
 
 ```
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 ---
 
-Yukarıda kullanılan uygulamanızı veya REST isteğindeki aynı abonelik anahtarı kullandığınızdan emin olun.
+Yukarıda kullanılan uygulamanızda veya REST isteği aynı abonelik anahtarını kullandığınızdan emin olun.
 
-#### <a name="verify-the-authorization-token"></a>Yetkilendirme belirtecini doğrula
+#### <a name="verify-the-authorization-token"></a>Yetkilendirme belirteci doğrulayın
 
-Kimlik doğrulaması için yetkilendirme belirtecini kullanıyorsanız bu adımı yalnızca gereklidir. Yetkilendirme belirtecini hala geçerli olduğunu doğrulamak için aşağıdaki komutu çalıştırın. Komut, hizmete bir POST isteği yapar ve hizmetinden bir yanıt iletisi bekliyor. HTTP almaya devam ediyorsanız `403 Forbidden` hatası, erişim iki kez kontrol belirteci doğru olarak ayarlanmış ve süresi.
+Yetkilendirme belirteci kimlik doğrulaması için kullanıyorsanız bu adım yalnızca gereklidir. Yetkilendirme belirteci hala geçerli olduğunu doğrulamak için aşağıdaki komutu çalıştırın. Bu komut, hizmete bir POST isteği yapar ve hizmetinden bir yanıt iletisi bekliyor. HTTP almaya devam ederseniz `403 Forbidden` hata erişim sağlayamazsanız belirteci doğru şekilde ayarlanması ve süresi dolmuş.
 
 > [!IMPORTANT]
-> Belirtecin 10 dakikalık bir süre sonu vardır.
+> Belirteç, 10 dakikalık bir süre sonu sahiptir.
 > [!NOTE]
-> Değiştir `YOUR_AUDIO_FILE` önceden kaydedilmiş ses dosyanızın yolu ile ve `YOUR_ACCESS_TOKEN` yetki belirteciyle önceki adımda döndürülen.
+> Değiştirin `YOUR_AUDIO_FILE` önceden kaydedilmiş ses dosyanızın yoluyla ve `YOUR_ACCESS_TOKEN` yetkilendirme belirteciyle önceki adımda döndürdü.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
 
@@ -117,17 +118,17 @@ curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive
 
 ---
 
-## <a name="error-http-400-bad-request"></a>hata `HTTP 400 Bad Request`
+## <a name="error-http-400-bad-request"></a>Hata `HTTP 400 Bad Request`
 
-Bu nedenle, genellikle istek gövdesinde geçersiz ses veri içerdiğinden emin olur. Şu anda yalnızca WAV dosyası destekliyoruz.
+Bu nedenle, genellikle istek gövdesi geçersiz ses veri içerdiğinden emin olur. Şu anda yalnızca WAV dosyası destekliyoruz.
 
-## <a name="error-http-408-request-timeout"></a>hata `HTTP 408 Request Timeout`
+## <a name="error-http-408-request-timeout"></a>Hata `HTTP 408 Request Timeout`
 
-Büyük olasılıkla olduğundan ses veri hizmetine gönderilmez ve hizmet zaman aşımından sonra bu hatayı döndürür hatasıdır. REST API için istek gövdesinde ses verilerini moduna geçirmelisiniz.
+Hata büyük olasılıkla ses veri hizmetine gönderilmez ve hizmet zaman aşımından sonra bu hatayı verir çünkü. REST API için istek gövdesinde ses verilerini koymanız gerekir.
 
-## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>`RecognitionStatus` Yanıt `InitialSilenceTimeout`
+## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>`RecognitionStatus` İçinde yanıt. `InitialSilenceTimeout`
 
-Ses verileri, genellikle soruna neden nedenidir. Örneğin,
+Ses verisi genellikle soruna neden neden olur. Örneğin,
 
-- Ses başında uzun sessizlik süresi vardır. Hizmet tanıma bazı döndürür ve saniye sayısı sonra durdurulacak `InitialSilenceTimeout`.
-- Ses sessizlik değerlendirilmesi ses veri yapar desteklenmeyen codec biçimi kullanır.
+- Ses başında bir uzun sessizlik zamanına sahip. Hizmet tanıma bazı döndürür ve saniye sayısı sonra durdurulacak `InitialSilenceTimeout`.
+- Ses sessizlik işlem görecek ses verileri getiren desteklenmeyen codec biçimi kullanır.

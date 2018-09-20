@@ -10,12 +10,12 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 2cf9c8baf715acf0eef36d640c22f355435c9ca5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 45520a556d109158987dd47e33a1efb52a1cd356
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631053"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364746"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure portalını kullanarak zaman serisi görüşleri ortamınıza başvuru veri kümesi oluşturma
 
@@ -24,6 +24,12 @@ Bu makalede, Azure zaman serisi görüşleri ortamınıza başvuru veri kümesi 
 Başvuru veri kümesi, olaylar, olay kaynağınızdan büyütmek öğeleri koleksiyonudur. Zaman serisi görüşleri giriş altyapısı, başvuru veri kümenizdeki her olay, olay kaynağınızdan karşılık gelen veri satırı ile birleştirir. Bu genişletilmiş olay daha sonra sorgu için kullanılabilir. Bu birleşim, başvuru veri kümenizde tanımlı birincil anahtar sütunları dayanır.
 
 Başvuru verileri geriye dönük olarak birleştirilmedi. Bu, yalnızca mevcut ve gelecekteki giriş verileri eşleşen ve yapılandırılmış ve karşıya sonra başvuru tarih kümesine katılmış anlamına gelir.
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-time-series-insights-reference-data-modelbr"></a>Bu videoda, zaman serisi görüşleri'nin başvuru veri modeli ele.</br>
+
+> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
 ## <a name="add-a-reference-data-set"></a>Başvuru veri kümesi Ekle
 
@@ -63,7 +69,7 @@ Başvuru verileri geriye dönük olarak birleştirilmedi. Bu, yalnızca mevcut v
 
    ![Başvuru veri ekleme](media/add-reference-data-set/parse_data.png)
 
-9. Her bir sütunun veri türü varsayıldı görmek için gözden geçirin ve gerekirse veri türünü değiştirin.  Sütun başlığı veri türü simgesini seçin: ** # ** çift (sayısal veriler) için **T | F** Boole için veya **Abc** dizesi.
+9. Her bir sütunun veri türü varsayıldı görmek için gözden geçirin ve gerekirse veri türünü değiştirin.  Sütun başlığı veri türü simgesini seçin: **#** çift (sayısal veriler) için **T | F** Boole için veya **Abc** dizesi.
 
    ![Veri türlerinde sütun başlıklarını seçin.](media/add-reference-data-set/choose_datatypes.png)
 
@@ -71,7 +77,7 @@ Başvuru verileri geriye dönük olarak birleştirilmedi. Bu, yalnızca mevcut v
 
 11. Tıklayın **bir satır ekleyin** veya **sütun ekleme** gerektiğinde daha fazla başvuru veri değerleri eklemek için.
 
-12. Bir değer yazın **satırları filtrele... ** alanı gerektiği gibi belirli satırlar gözden geçirin. Filtre verileri gözden geçirmek için yararlıdır, ancak veriler karşıya yüklenirken uygulanmaz.
+12. Bir değer yazın **satırları filtrele...**  alanı gerektiği gibi belirli satırlar gözden geçirin. Filtre verileri gözden geçirmek için yararlıdır, ancak veriler karşıya yüklenirken uygulanmaz.
  
 13. Veri kümesi doldurarak ad **veri kümesi adı** veri kılavuzu yukarıda alan.
 
@@ -81,7 +87,7 @@ Başvuru verileri geriye dönük olarak birleştirilmedi. Bu, yalnızca mevcut v
 
    ![Anahtar sütunları seçin.](media/add-reference-data-set/set_primary_key.png)
 
-   İsteğe bağlı olarak ** + ** düğmesini bileşik bir birincil anahtar olarak ikincil bir anahtar sütunu ekleyin. Seçimi geri almanız gerekiyorsa, boş değer ikincil anahtarı'nı kaldırmak için açılan listeden seçin.
+   İsteğe bağlı olarak **+** düğmesini bileşik bir birincil anahtar olarak ikincil bir anahtar sütunu ekleyin. Seçimi geri almanız gerekiyorsa, boş değer ikincil anahtarı'nı kaldırmak için açılan listeden seçin.
 
 15.  Verileri yüklemek için seçin **karşıya satırları** düğmesi.
 

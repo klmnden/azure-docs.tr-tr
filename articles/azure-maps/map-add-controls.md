@@ -3,17 +3,17 @@ title: Azure haritalar eşleme denetimleri ekleme | Microsoft Docs
 description: Yakınlaştırma Denetimi, aralık denetimi, döndürme denetimi ve bir stil Seçici Azure haritalar eşlemesinde ekleme.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ddbb621561d8fcef3637e036be004d17aea76f40
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4410c2ec5851ff210ca8a5fb4f482e5e12d0b8e8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129310"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367806"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Azure haritalar için eşleme denetimleri ekleme
 
@@ -63,7 +63,7 @@ Yukarıdaki kod ilk kod bloğunda bir harita nesnesi oluşturur. Bkz: [bir harit
 
 Dördüncü kod bloğu atlas kullanarak bir aralık denetimi oluşturur [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) ve haritanın kullanarak haritaya ekler [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) yöntemi.
 
-Son kod bloğunu atlas kullanarak bir stil Seçici nesnesi haritaya ekler [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) ve haritanın kullanarak haritaya ekler [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) yöntemi.
+Son kod bloğunu atlas kullanarak bir stil Seçici nesnesi oluşturur. [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) ve haritanın kullanarak haritaya ekler [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) yöntemi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

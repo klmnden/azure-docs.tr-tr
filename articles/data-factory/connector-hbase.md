@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: f47e85b47f262e30e9160f11604220aa8055be5d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 10867974c6f1c3fae6965b1888db3c4448b26a38
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701726"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364127"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>HBase Azure Data Factory kullanarak verileri kopyalama 
 
@@ -45,7 +45,7 @@ HBase bağlı hizmeti için aşağıdaki özellikleri destekler:
 | type | Type özelliği ayarlanmalıdır: **HBase** | Evet |
 | konak | HBase sunucusunun IP adresi veya ana bilgisayar adı. (örn.)  `[clustername].azurehdinsight.net`, ' 192.168.222.160·)  | Evet |
 | port | HBase örneği istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. Varsayılan değer 9090'dır. Azure Hdınsights bağlarsanız, bağlantı noktası 443 belirtin. | Hayır |
-| httpPath | HBase sunucuya karşılık gelen kısmi URL. (yani `/hbaserest0`)  | Hayır |
+| httpPath | HBase sunucuya, örneğin karşılık gelen kısmi URL `/hbaserest0` Hdınsights küme kullanılırken. | Hayır |
 | authenticationType | HBase sunucuya bağlanmak için kullanılacak kimlik doğrulama mekanizması. <br/>İzin verilen değerler: **anonim**, **temel** | Evet |
 | kullanıcı adı | HBase örneğine bağlanmak için kullanılan kullanıcı adı.  | Hayır |
 | password | Kullanıcı adına karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
@@ -56,7 +56,7 @@ HBase bağlı hizmeti için aşağıdaki özellikleri destekler:
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 >[!NOTE]
->Yapışkan oturumu gibi HDInsight kümenizi desteklemiyorsa, açıkça http yolu ayarını sonunda düğümü dizin eklemek için örneğin belirtin `/hbaserest0` yerine `/hbaserest`.
+>Yapışkan oturumu örneğin HDInsight kümenizi desteklemiyorsa, açıkça http yolu ayarını sonunda düğüm dizinini ekleyin, örneğin belirtin `/hbaserest0` yerine `/hbaserest`.
 
 **Örneğin, Hdınsights HBase:**
 

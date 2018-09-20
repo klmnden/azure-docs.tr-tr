@@ -1,31 +1,32 @@
 ---
-title: Öbekli aktarım ses akışı nasıl | Microsoft Docs
-description: Öbekli trasfer ses akışı konuşma hizmete göndermek için nasıl kullanılacağını
+title: Öbekli aktarım ses Stream nasıl | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Bing konuşma hizmeti için ses akışı göndermek için öbekli trasfer kullanma
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7d02340932dfc547893c4c40cbe08978b7b93756
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1796a82b85182e6d231cb0bf1536cda2406e2c53
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352169"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364918"
 ---
 # <a name="chunked-transfer-encoding"></a>Öbekli aktarım kodlaması
 
-Metin konuşma transcribe için Microsoft konuşma tanıma API'si bir tam öbek ses göndermeye veya ses küçük parçalara kesme sağlar. Verimli ses akış ve transcription gecikme için kullanmanız önerilir [öbekli aktarım kodlamasını](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) hizmetine ses akışını sağlamak için. Diğer uygulamalardan kullanıcı algılanan daha yüksek gecikme neden olabilir. Daha fazla bilgi için bkz: [ses akışları](../concepts.md#audio-streams) sayfası.
+Konuşmayı metne dönüştürme özelliği için Microsoft konuşma tanıma API'si, ses bir tam öbek göndermek veya ses küçük öbeklere kesme için sağlar. Verimli bir ses akışı ve döküm gecikme süresini azaltmak için kullanmanız önerilir [öbekli aktarım kodlamasını](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) hizmetine ses akışı. Diğer uygulamalar, daha yüksek gecikme kullanıcı algılanan neden olabilir. Daha fazla bilgi için [ses akışları](../concepts.md#audio-streams) sayfası.
 
 > [!NOTE]
-> 10 saniyeden fazla herhangi bir istek ses karşıya değil ve toplam istek süresi 14 saniye aşamaz.
+> 10 saniyeden fazla herhangi bir istek ses karşıya değil ve toplam istek süresi 14 saniyeden uzun olamaz.
 > [!NOTE]
-> Öbekli aktarım yalnızca kullanıyorsanız kodlaması belirtmek zorunda [REST API'leri](../GetStarted/GetStartedREST.md) konuşma hizmetini çağırmak için. Kullanan uygulamalar [istemci kitaplıkları](../GetStarted/GetStartedClientLibraries.md) öbekli aktarım kodlamasını yapılandırma gerekmez.
+> Yalnızca kullanırsanız öbekli aktarım kodlamasını belirtmeniz gereken [REST API'leri](../GetStarted/GetStartedREST.md) konuşma hizmeti çağırmak için. Kullanan uygulamalar [istemci kitaplıkları](../GetStarted/GetStartedClientLibraries.md) öbekli aktarım kodlamasını yapılandırma gerekmez.
 
-Aşağıdaki kod öbekli aktarım kodlamasını ayarlamak ve 1024 bayt parçalara öbekli bir ses dosyası göndermek için nasıl gösterir.
+Aşağıdaki kod, öbekli aktarım kodlamasını ayarlayın ve 1024 bayt öbeklere öbekli bir ses dosyası göndermek için nasıl gösterir.
 
 ```cs
 

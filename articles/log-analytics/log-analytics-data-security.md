@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: af8c0b6a4aa0c3b6e25f92dc450faa22a01ee374
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 42b157a63b76474f6c9482da75072878fe9291e0
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579195"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466006"
 ---
 # <a name="log-analytics-data-security"></a>Oturum Analytics veri güvenliği
 Bu belgede Azure Log Analytics hakkında bilgi desteklemek için belirli bilgiler sağlamaya yönelik [Azure Güven Merkezi](../security/security-microsoft-trust-center.md).  
@@ -44,9 +44,9 @@ Log analytics'e Aktarımdaki verilerin güvenliğini sağlamak üzere en az kull
 
 [PCI güvenlik standartları Council](https://www.pcisecuritystandards.org/) olarak ayarlanmış bir [son 30 Haziran 2018'ın](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) TLS/SSL ve yükseltme daha da protokolleri güvenli hale getirmek için eski sürümlerini devre dışı bırakmak için. Sonra aracılar üzerinde en az iletişim kuramıyorsa eski destek, Azure bırakır TLS 1.2 değil okunup verileri Log Analytics'e gönderebilirsiniz. 
 
-Açıkça aracınızı sürece bu otomatik olarak algılamak ve daha yeni avantajlarından yararlanmanıza olanak tanıyan platform düzeyi güvenlik özelliklerinin daha güvenli bozabilir olarak kesinlikle gerekli çıktıkça gibi protokoller yalnızca TLS 1.2 kullanmak üzere ayarlanması önerilmez TLS 1.3. 
+Otomatik olarak algılamak ve olduklarında kullanılabilir, bu yeni daha güvenli protokolleri yararlanmasına olanak tanıyan platform düzeyi güvenlik özellikleri bozabilir olarak aracınızı sürece yalnızca TLS 1.2 kullanmak için açıkça kesinlikle gerekli ayarlanması önerilmez TLS 1.3. 
 
-### <a name="platform-specific-guidance"></a>Platform özel Kılavuzu
+### <a name="platform-specific-guidance"></a>Platforma özgü yönergeleri
 
 |Platform/dili | Destek | Daha Fazla Bilgi |
 | --- | --- | --- |
@@ -117,11 +117,11 @@ Log Analytics yazılım geliştirme ve hizmet takımın bilgileri güvenlik ve i
 
 Her geliştirme ekibi üyesi resmi uygulama güvenlik eğitim alır. Dahili olarak, bir sürüm denetim sistemi yazılım geliştirme için kullanırız. Her bir yazılım projesi, sürüm denetimi sistemi tarafından korunur.
 
-Microsoft, Microsoft tüm hizmetleri değerlendirir ve denetleyen güvenlik ve uyumluluk bir ekibe sahiptir. Güvenlik müdürleri takım yapın ve Log Analytics geliştiren mühendislik bölümlerine ilişkili değildir. Güvenlik sorumlularını, kendi yönetim zincir ve güvenlik ve uyumluluk sağlamak için ürün ve Hizmetleri, bağımsız değerlendirmelerini gerçekleştirmek.
+Microsoft, Microsoft tüm hizmetleri değerlendirir ve denetleyen güvenlik ve uyumluluk bir ekibe sahiptir. Güvenlik müdürleri takım yapın ve Log Analytics geliştiren mühendislik ekipleri ile ilişkili değildir. Güvenlik sorumlularını, kendi yönetim zincir ve güvenlik ve uyumluluk sağlamak için ürün ve Hizmetleri, bağımsız değerlendirmelerini gerçekleştirmek.
 
 Microsoft'un Kurulunun kurucu üyelerinden biriyim, yıllık bir rapor Microsoft'taki tüm bilgi güvenliği programlarını hakkında bildirimde bulunulur.
 
-Log Analytics yazılım geliştirme ve hizmet ekibi, etkin bir şekilde Microsoft Legal ve uyumluluk ekipleri ve çeşitli sertifikaları almak için diğer endüstri ortakları ile çalışmaktadır.
+Log Analytics yazılım geliştirme ve hizmet takımının etkin bir şekilde Microsoft Legal ve uyumluluk ekipleri ve çeşitli sertifikaları almak için diğer endüstri ortakları ile çalışmaktadır.
 
 ## <a name="certifications-and-attestations"></a>Sertifikaları ve onayları
 Azure Log Analytics, aşağıdaki gereksinimleri karşılar:
@@ -176,7 +176,7 @@ Yukarıda açıklandığı gibi yönetim sunucusu veya aracılar doğrudan bağl
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Log Analytics hizmetine alır ve verileri işler
 Log Analytics hizmeti, sertifikalar ve Azure kimlik doğrulaması ile veri bütünlüğünü doğrulayarak gelen verileri güvenilir bir kaynaktan olmasını sağlar. İşlenmemiş ham veriler, ardından veriler bekleme durumundayken sonunda depolanacak bölgede bir Azure olay Hub'ındaki depolanır. Depolanan verilerin türünü içe ve veri toplamak için kullanılan çözümleri türlerine bağlıdır. Ardından, Log Analytics işlemlerini ham veriler hizmet ve veritabanına alır.
 
-Seçilen fiyatlandırma planı hakkında toplanan verileri veritabanında depolanan saklama süresi bağlıdır. İçin *ücretsiz* katmanı, toplanan veriler kullanılabilir 7 gündür. İçin *Ücretli* katmanı, toplanan verileri varsayılan olarak 31 gün için kullanılabilir, ancak ila 730 gün genişletilebilir. Veri, veri gizliliği emin olmak için Azure depolama, bekleme sırasında şifrelenmiş olarak depolanır. Son iki haftalık veri da SSD tabanlı önbellekte depolanır ve bu önbellek şu anda şifrelenmez.  Bu tür şifrelemeyi 2018 sonraki yarısında desteklemeyi planlıyoruz.  
+Seçilen fiyatlandırma planı hakkında toplanan verileri veritabanında depolanan saklama süresi bağlıdır. İçin *ücretsiz* katmanı, toplanan veriler kullanılabilir yedi gündür. İçin *Ücretli* katmanı, toplanan verileri varsayılan olarak 31 gün için kullanılabilir, ancak ila 730 gün genişletilebilir. Verileri veri gizliliği emin olmak için Azure depolama, bekleme sırasında şifrelenmiş olarak depolanır ve veriler yerel olarak yedekli depolama (LRS) kullanarak yerel bölge içinde çoğaltılır. Son iki haftalık veri da SSD tabanlı önbellekte depolanır ve bu önbellek şu anda şifrelenmez.  Şu anda SSD tabanlı şifrelenirken desteklemek için çalışıyoruz.      
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Verilere erişmek için log Analytics'i kullanma
 Log Analytics çalışma alanınızın erişmek için bir kuruluş hesabı ya da daha önce ayarlamış bir Microsoft hesabı kullanarak Azure portalında oturum açın. Log Analytics hizmeti ve portalı arasındaki tüm trafiğe güvenli bir HTTPS kanalı üzerinden gönderilir. Portal kullanırken bir oturum kimliği kullanıcı istemci (tarayıcı) oluşturulur ve veriler, oturum sonlandırılana kadar yerel önbellekte depolanır. Sona erdi, önbellek silinir. Kişisel bilgi içermeyen, istemci tarafı tanımlama bilgilerini otomatik olarak kaldırılmaz. Oturum tanımlama bilgileri HTTPOnly işaretlenir ve güvenli hale getirilir. Önceden belirlenmiş bir boşta kalma süresinden sonra Azure portalı oturum sonlandırıldı.

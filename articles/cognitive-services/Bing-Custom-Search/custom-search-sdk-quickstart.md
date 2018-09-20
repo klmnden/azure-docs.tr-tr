@@ -10,35 +10,36 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: rosh
-ms.openlocfilehash: 59b208b53bec974433c50c0e2304dc96bd9bd09e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6b41dfbde0c2af776ee2c35220f731e40de334a0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351424"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367857"
 ---
-# <a name="custom-search-sdk-c-quickstart"></a>Özel arama SDK C# hızlı başlangıç
+# <a name="custom-search-sdk-c-quickstart"></a>Özel Arama SDK’sı C# hızlı başlangıcı
 
-Bing özel arama SDK'sı varlık arama ve sonuçları ayrıştırma için REST API işlevselliğini içerir.
+Bing özel arama SDK'sı, varlık arama ve sonuçlar ayrıştırma için REST API işlevselliğini içerir.
 
+Bu örnek için kaynak kod un kullanılabilir [Github](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing özel arama SDK'yı kullanarak bir konsol uygulaması ayarlamak için Gözat `Manage NuGet Packages` Visual Studio'daki Çözüm Gezgini'nden seçeneği. Ekleme `Microsoft.Azure.CognitiveServices.Search.CustomSearch` paket.
+Bing özel arama SDK'sını kullanarak bir konsol uygulaması oluşturma için göz atın `Manage NuGet Packages` Visual Studio'daki Çözüm Gezgini'nden seçeneği. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` paketini ekleyin.
 
-Yükleme [NuGet özel arama](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) paket bağımlılıkları aşağıdaki derlemeler dahil olmak üzere, ayrıca yükler:
+Yükleme [NuGet özel arama](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) paket bağımlılıkları, aşağıdaki derlemeler de dahil olmak üzere da yükler:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
 ## <a name="entity-search-client"></a>Varlık arama istemci
 
-CustomSearchAPI istemci örneği oluşturmak için using yönergelerini ekleyin:
+CustomSearchAPI istemcisi örneği oluşturmak için using yönergelerini ekleyin:
 ```
 using Microsoft.Azure.CognitiveServices.Search.CustomSearch;
 
 ```
 
-Özel arama istemci örneği: Değiştir `YOUR-CUSTOM-SEARCH-KEY` ve `YOUR-CUSTOM-CONFIG-ID` erişim anahtarınızı ve kimliği atanır, API uç nokta yapılandırması ile [My örnekleri](https://www.customsearch.ai/).
+Özel arama istemci örneği: değiştirin `YOUR-CUSTOM-SEARCH-KEY` ve `YOUR-CUSTOM-CONFIG-ID` erişim anahtarına ve Kimliğine atanmış, API uç nokta Yapılandırması [My örnekleri](https://www.customsearch.ai/).
 ```
 var client = new CustomSearchAPI(new ApiKeyServiceClientCredentials("YOUR-CUSTOM-SEARCH-KEY"));
 
@@ -50,7 +51,7 @@ var webData = client.CustomInstance.SearchAsync(query: "Xbox", customConfig: Int
 ```
 ## <a name="parse-the-results"></a>Sonuçları ayrıştırılamıyor
 
-`SearchAsync` Yöntemi döndürür bir `WebData` içeren nesne `WebPages` herhangi bir sorgu için bulunursa. Bu kod ilk sonucu bulur ve alır, `Name` ve `URL`.
+`SearchAsync` Yöntemi döndürür bir `WebData` içeren nesne `WebPages` herhangi bir sorgu için bulunması durumunda. Bu kod ilk sonuç bulur ve alır, `Name` ve `URL`.
 ```
 var webData = client.CustomInstance.SearchAsync(query: "Xbox", customConfig: Int32.Parse("YOUR-CUSTOM-CONFIG-ID")).Result;
  
@@ -81,7 +82,7 @@ else
 ```
 ## <a name="complete-console-application"></a>Tam konsol uygulaması
 
-Aşağıdaki kod sorgusu "Xbox" arar ve yazdırır `Name` ve `URL` ilk web sonucu.
+Aşağıdaki kod, arama sorgusu "Xbox" ve yazdırır `Name` ve `URL` ilk web sonucu.
 ```
 using System;
 using System.Linq;
@@ -141,4 +142,4 @@ namespace CustomSrchSDK
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler .NET SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Bilişsel Hizmetler .NET SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

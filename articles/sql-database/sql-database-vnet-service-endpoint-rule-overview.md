@@ -8,15 +8,15 @@ author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 09/18/2018
 ms.reviewer: vanto
 ms.author: dmalik
-ms.openlocfilehash: e1c05b56a1a7cc57b4d85d696df324438d916f11
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 51a9c1e2528833f0931e0bff30a9ec8a78eb99e0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720741"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367347"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Azure SQL veritabanı ve SQL veri ambarı için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
@@ -125,7 +125,7 @@ Kullanma seçeneğiniz [rol tabanlı erişim denetimi (RBAC)] [ rbac-what-is-813
 
 Azure SQL veritabanı için sanal ağ kuralları özelliği aşağıdaki sınırlamalara sahiptir:
 
-- Bir Web uygulaması, bir VNet/alt ağ içinde bir özel IP eşlenebilir. Hizmet uç noktaları belirtilen VNet/alt ağ üzerinde etkin olsa bile, bir Azure genel IP kaynağı, bir VNet/alt ağ kaynak sunucuya Web uygulamasından bağlantıları gerekir. Sanal ağ güvenlik duvarı kuralları olan bir sunucuyu bir Web uygulamasından bağlantıyı etkinleştirmek için şunları yapmanız gerekir **tüm Azure Hizmetleri izin** sunucusunda.
+- Bir Web uygulaması, bir VNet/alt ağ içinde bir özel IP eşlenebilir. Hizmet uç noktaları belirtilen VNet/alt ağ üzerinde etkin olsa bile, bir Azure genel IP kaynağı, bir VNet/alt ağ kaynak sunucuya Web uygulamasından bağlantıları gerekir. Sanal ağ güvenlik duvarı kuralları olan bir sunucuyu bir Web uygulamasından bağlantıyı etkinleştirmek için şunları yapmanız gerekir **izin Azure Hizmetleri için erişim sunucusu** sunucusunda.
 
 - SQL veritabanınız için Güvenlik Duvarı'nda, her sanal ağ kuralı bir alt ağ başvuruyor. Bu başvurulan tüm alt ağlar SQL veritabanını barındıran aynı coğrafi bölgede barındırılması gerekir.
 
@@ -157,23 +157,23 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-all-azure-services"></a>'Tüm Azure Hizmetleri izin ver' ı kaldırmanın etkisi
+## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>'Hizmetlerinin sunucuya erişimine izin vermek için Azure' ı kaldırmanın etkisi
 
-Çok sayıda kullanıcı, kaldırmak istediğiniz **tüm Azure Hizmetleri izin** , Azure SQL Sunucuları'ndan bir VNet güvenlik duvarı kuralı ile değiştirin.
+Çok sayıda kullanıcı, kaldırmak istediğiniz **izin Azure Hizmetleri için erişim sunucusu** kendi Azure SQL Sunucuları'ndan bir VNet güvenlik duvarı kuralı ile değiştirin.
 Ancak bu kaldırma, aşağıdaki Azure SQLDB özellikleri etkiler:
 
 #### <a name="import-export-service"></a>İçeri aktarma, dışarı aktarma hizmeti
-Azure SQLDB içeri aktarma dışarı aktarma hizmeti, azure'da sanal makineler üzerinde çalışır. Bu VM'ler, ağınızda değildir ve bu nedenle Azure IP, veritabanına bağlanırken alın. Kaldırma **tüm Azure Hizmetleri izin** bu VM'ler, veritabanlarına erişim bakımından mümkün olmayacaktır.
+Azure SQLDB içeri aktarma dışarı aktarma hizmeti, azure'da sanal makineler üzerinde çalışır. Bu VM'ler, ağınızda değildir ve bu nedenle Azure IP, veritabanına bağlanırken alın. Kaldırma **izin Azure Hizmetleri için erişim sunucusu** bu VM'ler, veritabanlarına erişim bakımından mümkün olmayacaktır.
 Sorunu geçici olarak çalışabilir. BACPAC içeri aktarma çalıştırın veya DACFx API'sini kullanarak kodunuzda doğrudan aktarın. Bu güvenlik duvarı kuralı ayarladığınız VNet-alt ağdaki bir sanal makinede dağıtıldığından emin olun.
 
 #### <a name="sql-database-query-editor"></a>SQL veritabanı sorgu Düzenleyicisi
-Azure SQL veritabanı sorgu Düzenleyicisi, azure'da sanal makineler üzerinde dağıtılır. Bu VM'ler, ağınızda değildir. Bu nedenle, veritabanına bağlanırken Vm'leri Azure IP alın. Kaldırma **tüm Azure Hizmetleri izin**, bu Vm'leri veritabanlarınızı erişmek mümkün olmayacaktır.
+Azure SQL veritabanı sorgu Düzenleyicisi, azure'da sanal makineler üzerinde dağıtılır. Bu VM'ler, ağınızda değildir. Bu nedenle, veritabanına bağlanırken Vm'leri Azure IP alın. Kaldırma **izin Azure Hizmetleri için erişim sunucusu**, bu Vm'leri veritabanlarınızı erişmek mümkün olmayacaktır.
 
 #### <a name="table-auditing"></a>Tablo denetimi
 Şu anda SQL veritabanınızda denetimini etkinleştirmek için iki yolu vardır. Azure SQL sunucunuz üzerinde hizmet uç noktaları etkinleştirdikten sonra tablo denetimi başarısız olur. Risk azaltma burada Blob Denetimi'ne taşımaktır.
 
 #### <a name="impact-on-data-sync"></a>Veri Eşitleme etkisi
-Azure SQLDB Azure IP'ler kullanarak veritabanlarınızı bağlanan veri eşitleme özelliği vardır. Hizmet uç noktaları kullanırken, kapanır emin olma olasılığı yüksektir **tüm Azure Hizmetleri izin** mantıksal sunucunuza erişim. Veri eşitleme özelliği çalışmamasına neden olur.
+Azure SQLDB Azure IP'ler kullanarak veritabanlarınızı bağlanan veri eşitleme özelliği vardır. Hizmet uç noktaları kullanırken, kapanır emin olma olasılığı yüksektir **izin Azure Hizmetleri için erişim sunucusu** mantıksal sunucunuza erişim. Veri eşitleme özelliği çalışmamasına neden olur.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Azure depolama ile sanal ağ hizmet uç noktaları kullanma etkileri
 

@@ -1,20 +1,21 @@
 ---
-title: Custom Vision Service'e - Azure Bilişsel hizmetler ile sınıflandırıcı oluşturma | Microsoft Docs
+title: Custom Vision Service'e - sınıflandırıcı oluşturma
+titlesuffix: Azure Cognitive Services
 description: Custom Vision Service'e nesneleri olarak keşfedilir bir sınıflandırıcı oluşturmak için kullanmayı öğrenin.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 998900e72511a95336e4a94289c794e2a8e59feb
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223378"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364259"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Özel görüntü ile bir sınıflandırıcı oluşturma
 
@@ -55,7 +56,7 @@ Yeni bir proje oluşturmak için aşağıdaki adımları kullanın:
 
 3. Bir ad ve proje için bir açıklama girin. Kullanılabilir etki alanlarını birini seçin. Aşağıdaki tabloda açıklandığı gibi her etki alanı görüntüleri, belirli türde bir sınıflandırıcı iyileştirir:
 
-    |Etki alanı|Amaç|
+    |Domain|Amaç|
     |---|---|
     |__Genel__| Çok sayıda görüntü sınıflandırma görevleri için en iyi duruma getirilmiş. Diğer etki alanlarıyla uygun yok ya da seçmek için hangi etki alanı emin değilseniz, genel etki alanını seçin. |
     |__Gıda__|Bir restoran menüsünde göreceğiniz şekilde çanakları fotoğraflarını için en iyi duruma getirilmiş. Bireysel MEYVELERİ veya et fotoğraflarını sınıflandırma istiyorsanız, Yemek etki alanını kullanın.|

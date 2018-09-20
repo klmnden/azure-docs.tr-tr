@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 849253dd4a2e66acc6a509a0515a22309c90e081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 99a1832d82005fabd6f8b62aea6ad7722b317a13
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42059192"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367891"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -25,7 +25,7 @@ Azure İzleyici, farklı Azure Hizmetleri genelinde izleme için birleştirilmi�
 
 Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Bunları erişebileceğiniz [Azure portalında](https://portal.azure.com), Azure İzleyici API'leri (REST ve .net) ve Operations Management Suite ve Event Hubs gibi analiz çözümleri. Daha fazla bilgi için [Azure İzleyici ölçümleri](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Ölçümler, varsayılan olarak etkindir ve son 30 Günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu yapılandırılan [tanılama ayarları](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) Azure İzleyici'de.
+Ölçümler, varsayılan olarak etkindir ve son 93 günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu yapılandırılan [tanılama ayarları](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) Azure İzleyici'de.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Azure portalında erişim ölçümleri
 
@@ -51,7 +51,7 @@ Aşağıdaki örnek, hesap düzeyinde ölçüm tanımını listeleme gösterilmi
 # Login to Azure and enter your credentials when prompted.
 > armclient login
 
-> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2017-05-01-preview
+> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2018-01-01
 
 ```
 
@@ -95,7 +95,7 @@ Yanıta JSON biçiminde ölçüm tanımı içerir:
 Aşağıdaki örnek, hesap düzeyinde ölçüm verileri okumak gösterilmektedir:
 
 ```
-> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metric=Availability&api-version=2017-05-01-preview&aggregation=Average&interval=PT1H"
+> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metricnames=Availability&api-version=2018-01-01&aggregation=Average&interval=PT1H"
 
 ```
 
@@ -312,7 +312,7 @@ Aşağıdaki Depolama hizmetlerinin her biri için kaynak Kimliğini belirtme bi
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * Dosya hizmeti kaynak kimliği `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Azure İzleyici REST API kaynak kimliği

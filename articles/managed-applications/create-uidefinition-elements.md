@@ -1,31 +1,29 @@
 ---
-title: Azure UI tanım öğesi oluşturun | Microsoft Docs
-description: Azure portal UI tanımlarında oluşturulurken kullanılacak öğelerini açıklar.
+title: Azure kullanıcı Arabirimi tanım öğesi oluşturun | Microsoft Docs
+description: Azure portalı kullanıcı Arabirimi tanımları oluştururken kullanılacak öğeleri açıklar.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 09/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0a69f46294fc370b1eb403440af5bb3c25ef995d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 895b5cfb121347f9400d1aa315fef05d9088c55c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34305251"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366480"
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition öğeleri
-Bu makalede, şema ve tüm desteklenen bir CreateUiDefinition öğelerinin özelliklerini açıklar. 
+Bu makalede, şema ve bir CreateUiDefinition desteklenen tüm öğelerin özelliklerini açıklar. 
 
 ## <a name="schema"></a>Şema
 
-Öğelerin çoğu için şemayı aşağıdaki gibidir:
+Öğelerin çoğu Şeması aşağıdaki gibidir:
 
 ```json
 {
@@ -42,18 +40,18 @@ Bu makalede, şema ve tüm desteklenen bir CreateUiDefinition öğelerinin özel
 
 | Özellik | Gerekli | Açıklama |
 | -------- | -------- | ----------- |
-| ad | Evet | Belirli bir öğenin örneği başvurmak için kullanılan bir iç tanımlayıcı. Öğe adı en yaygın kullanımı yer `outputs`, burada belirtilen öğelerinin çıkış değerleri şablon parametrelerinin eşlenir. Ayrıca, bir öğeye çıkış değeri bağlamak için kullanabileceğiniz `defaultValue` başka bir öğenin. |
-| type | Evet | Öğe için işlemek için kullanıcı Arabirimi denetim. Desteklenen türlerinin listesi için bkz: [öğeleri](#elements). |
-| Etiket | Evet | Öğenin görüntüleme metni. Değer, birden çok dizeyi içeren bir nesne olabilir şekilde birden çok etiketleri, bazı öğe türleri içerir. |
-| defaultValue | Hayır | Öğesinin varsayılan değeri. Bazı öğe türleri karmaşık varsayılan değerleri desteğini değer bir nesne olabilir. |
-| Araç İpucu | Hayır | Öğenin araç ipucu görüntülenecek metin. Benzer şekilde `label`, bazı öğeler birden çok araç ipucu dizeleri destekler. Markdown söz dizimini kullanarak satır içi bağlantı katıştırılabilir.
-| Kısıtlamaları | Hayır | Öğeyi doğrulama davranışını özelleştirmek için kullanılan bir veya daha fazla özellikleri. Kısıtlamalar için desteklenen özellikler öğesi türüne göre değişir. Bazı öğe türleri doğrulama davranışını özelleştirmesini desteklemiyor ve bu nedenle hiçbir kısıtlamaları özelliğine sahiptir. |
-| seçenekler | Hayır | Öğe davranışını özelleştiren ek özellikler. Benzer şekilde `constraints`, desteklenen özellikler öğesi türüne göre farklılık gösterir. |
-| Görünür | Hayır | Öğenin görüntülenip görüntülenmeyeceğini belirtir. Varsa `true`, öğesi ve ilgili alt öğeleri görüntülenir. Varsayılan değer `true`. Kullanım [mantıksal işlevleri](create-uidefinition-functions.md#logical-functions) dinamik olarak bu özelliğin değerini denetlemek için.
+| ad | Evet | Bir öğenin belirli bir örneğine başvurmak için iç tanımlayıcı. Öğe adı, en yaygın kullanım bulunduğu `outputs`, burada belirtilen öğelerin çıkış değerleri şablon parametreleri eşlenir. Ayrıca, bir öğeye çıkış değeri bağlamak için kullanabilirsiniz `defaultValue` başka bir öğe. |
+| type | Evet | Öğe için işlenecek UI denetimi. Desteklenen türler bir listesi için bkz. [öğeleri](#elements). |
+| etiket | Evet | Öğenin görünen metin. Değer, birden çok dizeyi içeren bir nesne olabilir. Bu nedenle bazı öğe türleri, birden çok etiket içerir. |
+| defaultValue | Hayır | Öğesinin varsayılan değeri. Değer, bir nesne olabilir. Bu nedenle bazı öğe türü karmaşık varsayılan değerleri destekler. |
+| Araç İpucu | Hayır | Öğenin araç ipucunda görüntülenecek metin. Benzer şekilde `label`, bazı öğeleri birden çok araç ipucu dizeleri destekler. Satır içi bağlantıları, Markdown söz dizimi kullanılarak eklenebilir.
+| Kısıtlamaları | Hayır | Öğe doğrulama davranışını özelleştirmek için kullanılan bir veya daha fazla özellikleri. Kısıtlamalar için desteklenen özellikler öğesi türüne göre değişir. Bazı öğe türleri doğrulama davranışını özelleştirmesini desteklemiyor ve bu nedenle hiçbir kısıtlamaları özelliğine sahiptir. |
+| seçenekler | Hayır | Öğe davranışını özelleştirmek ek özellikler. Benzer şekilde `constraints`, desteklenen özellikler öğesi türüne göre farklılık gösterir. |
+| Görünür | Hayır | Öğenin görüntülenip görüntülenmeyeceğini belirtir. Varsa `true`, öğeyi ve geçerli alt öğelerini görüntülenir. Varsayılan değer `true` şeklindedir. Kullanım [mantıksal işlevler](create-uidefinition-functions.md#logical-functions) dinamik olarak bu özelliğin değerini denetlemek için.
 
-## <a name="elements"></a>Öğeleri
+## <a name="elements"></a>Öğeler
 
-Belge Şeması, bir kullanıcı Arabirimi örnek her öğe içeriyor için öğe (genellikle ilgili doğrulama ve desteklenen özelleştirme) ve örnek çıktı davranışını açıklamalar.
+Belgeler her öğe içeren bir UI örnek için şema öğesi (genellikle ilgili doğrulama ve desteklenen özelleştirme) ve örnek çıktı davranışını açıklamalar.
 
 - [Microsoft.Common.DropDown](microsoft-common-dropdown.md)
 - [Microsoft.Common.FileUpload](microsoft-common-fileupload.md)
@@ -66,11 +64,10 @@ Belge Şeması, bir kullanıcı Arabirimi örnek her öğe içeriyor için öğe
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
 - [Microsoft.Compute.UserNameTextBox](microsoft-compute-usernametextbox.md)
-- [Microsoft.Network.AvailabilityZoneDropDown](microsoft-network-availabilityzonedropdown.md)
 - [Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
 - [Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
+UI tanımları oluşturma, bir giriş için bkz. [createuidefinition dosyasını kullanmaya başlama](create-uidefinition-overview.md).

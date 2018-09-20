@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/19/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 92c0ad6dfde4fc83a912b4a3387d8b586e72809c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630452"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364610"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -45,18 +45,18 @@ Kaydetmeden önce aşağıdakiler yerinde gerekir:
 
 Azure Stack Azure ile kaydetmeden önce şunlara sahip olmalısınız:
 
-- Abonelik kimliği için bir Azure aboneliği. Kimliğini almak için Azure'da oturum açın, sırayla **tüm hizmetleri**. Ardından, altında **genel** kategorisi seçin **abonelikleri**, kullanmak istediğiniz aboneliğe tıklayın ve altında **Essentials** abonelik kimliği bulabilirsiniz
+- Abonelik kimliği için bir Azure aboneliği. Yalnızca EA, CSP veya CSP paylaşılan hizmetler abonelikleri kaydı için desteklenir. CSP'ler gerek karar vermek kullanılıp kullanılmayacağını [CSP veya CSPSS bir abonelik kullanın](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>Kimliğini almak için Azure'da oturum açın, sırayla **tüm hizmetleri**. Ardından, altında **genel** kategorisi seçin **abonelikleri**, kullanmak istediğiniz aboneliğe tıklayın ve altında **Essentials** abonelik kimliği bulabilirsiniz
 
   > [!Note]  
   > Almanya bulut abonelikleri şu anda desteklenmemektedir.
 
-- Kullanıcı adı ve parola için aboneliğin sahibi olan bir hesabı (MSA/2FA hesapları desteklenir).
+- Kullanıcı adı ve parola için aboneliğin sahibi olan bir hesap.
 
 - Kullanıcı hesabı, Azure aboneliğine erişiminiz olması ve bu abonelikle dizinde kimlik uygulama ve hizmet sorumluları oluşturma izniniz gerekiyor.
 
 - Azure Stack kaynak sağlayıcısına kayıtlı (Ayrıntılar için aşağıdaki Azure Stack kaynak sağlayıcısını kaydetme bölümüne bakın).
 
-Kayıt sonrasında Azure Active Directory genel yönetici izni gerekli değildir. Ancak, bazı işlemler, genel yönetici kimlik bilgileri gerektirebilir. Örneğin, bir kaynak sağlayıcısı yükleyicisi betiği veya izin verilecek gerektiren yeni bir özelliktir. Geçici olarak hesap genel yönetici izinleri yeniden geri veya sahiplerinden biri olan ayrı bir genel yönetici hesabı kullanın *varsayılan sağlayıcı aboneliği*.
+Kayıt sonrasında Azure Active Directory genel yönetici izni gerekli değildir. Ancak, bazı işlemler, genel yönetici kimlik bilgileri gerektirebilir. Örneğin, bir kaynak sağlayıcısı yükleyicisi betiği veya izin verilecek gerektiren yeni bir özelliktir. Geçici olarak hesap genel yönetici izinleri yeniden devreye sokmanız veya sahiplerinden biri olan ayrı bir genel yönetici hesabı kullanın *varsayılan sağlayıcı aboneliği*.
 
 Bu gereksinimleri karşıladığını Azure aboneliğiniz yoksa, şunları yapabilirsiniz [buradan ücretsiz bir Azure hesabı oluşturun](https://azure.microsoft.com/free/?b=17.06). Azure aboneliğinize ücret ödemeden Azure Stack kaydetme artmasına neden olur.
 

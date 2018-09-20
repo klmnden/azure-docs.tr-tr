@@ -1,146 +1,147 @@
 ---
-title: Kavramları | Microsoft Docs
-description: Microsoft konuşma Service için kullanılan temel kavramları.
+title: Bing konuşma kavramları | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Microsoft konuşma hizmeti için kullanılan temel kavramları.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bc23f4fb7dfc045a0f8cc87155c31875c4de8450
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9ddb6263d2914810a3ac270b00d47a4e6ac738c2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352307"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368044"
 ---
 # <a name="basic-concepts"></a>Temel kavramlar
 
-Bu sayfa Microsoft konuşma tanıma hizmetinde bazı temel kavramları açıklar. Bu sayfa, uygulamanızda Microsoft konuşma tanıma API'si kullanmadan önce okumanızı öneririz.
+Bu sayfa, Microsoft konuşma tanıma hizmeti bazı temel kavramları açıklar. Bu sayfa, Microsoft konuşma tanıma API'si, uygulamanızda kullanmadan önce okumanızı öneririz.
 
 ## <a name="understanding-speech-recognition"></a>Konuşma tanıma anlama
 
-Bu, konuşma etkin bir uygulama oluşturmakta olduğunuz ilk kez kullanıyorsanız veya varolan bir uygulamaya konuşma yetenekleri ekleme ilk kez çalıştırılıyorsa, bu bölümde başlamanıza yardımcı olur. Konuşma etkinleştirilmiş uygulamalarla biraz deneyim zaten varsa bu bölüm yalnızca atlamanız seçebilir veya tamamen konuşma en eski el iseniz ve protokol ayrıntılarını sağ almak istediğiniz atlayabilirsiniz.
+Bu konuşma özellikli bir uygulama oluşturuyorsanız ilk kez kullanıyorsanız veya varolan bir uygulamaya Konuşma özelliklerini ekliyoruz ilk kez ise, bu bölümde, başlamanıza yardımcı olur. Konuşma özellikli uygulamaların biraz deneyim zaten varsa, bu bölüm yalnızca atlamanız seçebilir ya da tamamen bir konuşma eski elinizin işiniz ve protokolü ayrıntılara doğru hale getirmek istiyorsanız bunu atlayabilirsiniz.
 
 ### <a name="audio-streams"></a>Ses akışları
 
-Konuşma temel kavramlarını arasında yapısıdır *ses akışı*. Tek bir noktada oluştuğunda ve tek bir bilgi içeren bir tuş vuruşu aksine bir konuşma isteği yüzlerce milisaniye yayılan ve birçok kilobayt bilgileri içerir. Konuşma utterances süresi, kendi uygulama için bir kolaylaştırılmış ve zarif konuşma deneyimi sağlamak isteyen geliştiriciler için bazı zorluk gösterir. Bugünün bilgisayarlar ve algoritmaları konuşma transcription utterance süresi yaklaşık yarısı 2 saniyelik utterance yaklaşık 1 saniye içinde transcribed ancak bir 1 saniye arasında bir gecikme işleme kullanıcı deneyimleri herhangi bir uygulama olduğundan gerçekleştirin Kolaylaştırılmış ne Zarif.
+Konuşma temel kavramlarını arasında yapısıdır *ses akışı*. Tek bir noktada saatinden ve tek bir bilgiyi içeren bir tuş vuruşu aksine konuşmada geçen bir istek yüzlerce milisaniye yayılan ve birçok kilobayt bilgileri içerir. Konuşulan konuşma süresi, kendi uygulama kolaylaştırılmış ve şık konuşma deneyimi sağlamak isteyen geliştiriciler için bazı güçlük sunar. Günümüzün bilgisayarlar ve algoritmaları konuşma transkripsiyonu utterance süresi yaklaşık yarısını 2 saniyelik utterance yaklaşık 1 saniye içinde transcribed, ancak 1 saniye gecikmeden işleme kullanıcı deneyimleri herhangi bir uygulama için gerçekleştirin Kolaylaştırılmış ne Zarif.
 
-Neyse ki, yolları vardır "transcription zaman kullanıcı başka bir bölümü konuşarak sırada utterance bir parçası transcription gerçekleştirerek gizleme". Kullanıcı farkında olmasını sağlayın Örneğin, 100 milisaniye 10 parçalara 1 saniye utterance bölme ve gerçekleştirerek transcription her bir öbeğin sırayla, üzerinde transcription için gereken toplam 500 milisaniye "gizlenebilir" 450 transcription. klasöründe konuşarak sırada gerçekleştirilen. Bu örnekte, düşünmek unutmayın sonraki 100 kullanıcı konuşarak sırada hizmet transcription ses önceki 100 milisaniyede üzerinde çalıştığını, kullanıcı Konuşmayı durduğunda bu nedenle hizmet yalnızca kabaca 100 transcribe gerekir bir sonucu oluşturmak için ses milisaniye.
+Neyse ki, vardır, "kullanıcı başka bir bölümü konuştuğunu sırada utterance bir parçası üzerinde döküm gerçekleştirerek transkripsiyonu zaman gizleme". Kullanıcı farkında değildir Örneğin, bir 1 saniye utterance 100 milisaniye cinsinden süre 10 parçalara bölmek ve döküm her bir öbeği sırasıyla yaparak, üzerinde döküm için gereken toplam 500 milisaniye "gizlenebilir" 450 transkripsiyonu, böylelikle derse Konuşmayı sırada gerçekleştirilmekte olan. Bu örnek hakkında düşünmeye unutmayın hizmeti kullanıcı, sonraki 100 Konuşmayı sırada ses önceki 100 milisaniye transkripsiyonu gerçekleştiriyor, kullanıcı Konuşmayı durduğunda bu nedenle hizmet yalnızca kabaca 100 konuşmaların gerekir bir sonuç üretmek için ses milisaniye.
 
-Bu kullanıcı deneyimi elde etmek için konuşma ses bilgi yığınlar halinde toplanır ve kullanıcı konuşur gibi transcribed. Bu ses öbekleri topluca gelen *ses akışı*, ve bu ses öbekleri hizmete gönderme işlemini adlı *ses akış.* Ses akışı, herhangi bir konuşma etkin uygulama önemli bir parçasıdır; Öbek boyutu ayarlama ve akış uygulaması en iyi duruma getirme, uygulamanızın kullanıcı deneyimini artırmak en etkili yollarından biri bazılarıdır.
+Bu kullanıcı deneyimi elde etmek için konuşulan ses bilgi yığınlar toplanır ve kullanıcı konuştukça transcribed. Bu ses öbekleri topluca gelen *ses akışı*, ve bu ses öbekleri hizmete gönderme işlemini çağrılır *ses akışı.* Ses akış, herhangi bir konuşma özellikli uygulamanın önemli bir parçasıdır; Öbek boyutu ayarlama ve akış uygulaması en iyi duruma getirme, uygulamanızın kullanıcı deneyimini geliştiriyor en etkili yolları bazılarıdır.
 
-### <a name="microphones"></a>Mikrofonlar
+### <a name="microphones"></a>Mikrofon
 
-Kendi kulağına kullanarak konuşulan ses kişiler işlem ancak inanimate donanım mikrofonlar kullanır. Herhangi bir uygulamada konuşma etkinleştirmek için uygulamanız için ses akışı sağlama mikrofon ile tümleştirmek gerekir.
+Kişi kendi kulağına kullanarak konuşulan ses işlem ancak inanimate donanım mikrofonlar kullanır. Konuşma herhangi bir uygulamada etkinleştirmek için uygulamanız için ses akışı sağlama mikrofon tümleştirmek gerekir.
 
-Mikrofonunuz API'leri mikrofonun ses bayt alma durdurmak ve başlatmak izin vermelidir. Hangi kullanıcı eylemlerini konuşma dinleme başlatmak için mikrofon tetikleyecek karar vermeniz gerekir. Dinleniyor başlangıcı tetikleyen bir düğme basma tercih veya tercih bir *anahtar sözcük* veya *word Uyandırma* mikrofon ve bu modül çıktısını kullanmak için her zaman dinleme spotter Microsoft konuşma hizmete gönderme ses tetikler.
+Mikrofon yönelik API'ler, ses bayt mikrofondan durdurmak ve başlatmak izin vermeniz gerekir. Hangi kullanıcı eylemlerini konuşma dinlemeye başla mikrofon tetikleyecek karar vermeniz gerekir. Bir düğme basma dinleme başlangıç tetiklemek seçebilir ya da tercih bir *anahtar sözcük* veya *word Uyandırma* spotter mikrofon ve çıkış için bu modülü kullanmak için her zaman dinleme Microsoft konuşma hizmeti için gönderme ses tetikleyin.
 
 ### <a name="end-of-speech"></a>Konuşma sonu
 
-Algılama *zaman* Konuşmacı sahip *durduruldu* konuşarak insanlar için yeterince basit görünüyor ancak laboratuar koşullar dışında yerine zor bir sorundur. Genellikle çok fazla şey karmaşık hale ortam gürültü olduğundan için saf sessizlik bir utterance sonra yalnızca aramak yeterli değil. Microsoft konuşma hizmeti hızlı bir şekilde bir kullanıcı Konuşmayı durduruldu ve hizmeti uygulamanız bu olayının bilgilendirebilir, ancak bu düzenlemenin, uygulamanızın en son ne zaman kullanıcı Durdur konuşarak bilmeniz olduğu anlamına algılama mükemmel bir işi yapar. Bu, uygulamanızın olduğu tüm diğer giriş biçimlerini gibi değil *ilk* kullanıcı başlatır zaman giriş bilmeniz *ve* sona erer.
+Algılama *olduğunda* Konuşmacı sahip *durduruldu* Konuşmayı insanlar için yeterince basit gibi görünüyor ancak laboratuar koşullar dışında çok zor bir sorundur. Bu genellikle çok fazla şey genişlemesiyle için ortam gürültü olduğundan için saf sessizlik bir utterance sonra yalnızca aramak yeterli değildir. Microsoft konuşma hizmeti hızlı bir şekilde açıklamak gerekirse, bir kullanıcı durdurdu ve bunu, uygulamanızın hizmeti bilgilendirebilir, ancak bu düzenleme uygulamanızın son kullanıcı ne zaman durdurma Konuşmayı bilmek olduğu anlamına gelir algılama mükemmel bir işi yapar. Bu, uygulamanızın olduğu tüm diğer giriş biçimlerini gibi değildir *ilk* ne zaman başlar kullanıcının girişinin bilmek *ve* sona erer.
 
 ### <a name="asynchronous-service-responses"></a>Zaman uyumsuz hizmet yanıtları
 
-Kullanıcı girişi tamamlandığında, bilgi sahibi olmak için uygulamanız gereken olgu, herhangi bir performans cezaları veya programlama sorunlar, uygulamanızın üzerinde zorunlu tuttukları değil, ancak konuşma isteklerinden farklı giriş isteğinde yapılandırmanızda gerektirir / yanıt desenleri, size tanıdık olduğu. Kullanıcı konuşarak durduğunda, uygulamanızın bilemezsiniz olduğundan, uygulamanız aynı anda ve zaman uyumsuz olarak hizmetinden bir yanıt beklenirken hizmetine ses akışını sağlamak devam etmeniz gerekir. Bu desen HTTP gibi diğer istek/yanıt web protokolleri benzemez. Bu protokoller, herhangi bir yanıt almadan önce bir isteği tamamlamak gerekir; Microsoft konuşma hizmeti protokolünde yanıtları almak *istek için ses akışa hala durumdayken*.
+Kullanıcı girişi tamamlandığında, bilgilendirilmesi uygulamanızın ihtiyaç duyduğu gerçek herhangi bir performans cezaları ya da uygulamanızın programlama bizden koymaz, ancak farklı giriş istekten konuşma istekleriyle ilgili düşündüğünüz gerektirmez / yanıt desenleri ile ilgili bilgi sahibi olduğunuz. Kullanıcının dikte durduğunda, uygulamanızın bilemezsiniz olduğundan, uygulamanızı hizmetinden gelen yanıt üzerinde aynı anda ve zaman uyumsuz olarak beklenirken hizmetine ses akışı devam etmeniz gerekir. Bu düzen, diğer gibi HTTP istek/yanıt web protokolleri benzemez. Bu protokolleri, herhangi bir yanıt almadan önce bir isteği tamamlaması gerekir; Microsoft konuşma hizmeti protokolünde yanıtlar almasına *ses isteği için akışa devam ederken*.
 
 > [!NOTE]
-> Bu özellik, konuşma HTTP REST API'si kullanılırken desteklenmiyor.
+> Bu özellik, konuşma HTTP REST API kullanırken desteklenmiyor.
 
 ### <a name="turns"></a>Kapatır
 
-Konuşma bilgilerinin bir taşıyıcı ' dir. Konuşurken, bu bilgileri dinleme birisine elinizde olan bilgiler iletmek çalışıyorsunuz. Bilgileri açıklamak olduğunda, genellikle konuşarak ve dinleme kapatır alır. Benzer şekilde, uygulamanızın genellikle dinleme çoğu yapmasa da alternatif olarak dinleme ve yanıt, konuşma etkinleştirilmiş uygulamanızı kullanıcılarla etkileşim. Kullanıcının Konuşma giriş ve hizmet yanıt bu girişi olarak adlandırılan bir *kapatma*. A *kapatma* kullanıcı konuşur ve uygulamanızı konuşma hizmet yanıtı işlenmesi tamamlandığında sona erdiğinde başlatır.
+Konuşma bilgilerinin bir taşıyıcı ' dir. Konuşurken, elinizde bu bilgileri dinlediği bir kişiye bilgileri aktarmaya çalışıyorsunuz. Bilgi taşımak, genellikle konuşma ve bekleyen kapatır alır. Benzer şekilde, uygulamanızın genellikle çoğu dinleme yapmasına rağmen konuşma özellikli uygulamanızın kullanıcılarla dönüşümlü olarak dinleme ve yanıt, etkileşim. Kullanıcının okunan giriş ve bu giriş hizmeti yanıtı çağırıldı bir *kapatma*. A *kapatma* kullanıcı konuşacak ve uygulamanızı konuşma hizmeti yanıtı işlenmesi tamamlandığında sona başlatılır.
 
 ### <a name="telemetry"></a>Telemetri
 
-Bir konuşma etkin cihaz veya uygulama oluşturma, hatta deneyimli geliştiriciler için zor olabilir. Akış tabanlı protokolleri genellikle ilk bakışta göz korkutucu ve sessizlik algılama tamamen yeni gibi önemli ayrıntılar gibi görünüyor. Bir tek istek/yanıt çifti tamamlamak için başarıyla gönderilmesine ve alınmasına gerek çok fazla sayıda iletilerle olduğu *çok* bu iletileri hakkında doğru ve eksiksiz veri toplamak önemli. Microsoft konuşma hizmeti protokolü, bu verilerin toplanması için sağlar. Gerekli verileri mümkün olduğunca doğru bir şekilde sağlamak için her çabayı; doğru ve eksiksiz veri sağlayarak, kendiniz--yardımcı olacağını gerektiğinde Microsoft ekibinden konuşma hizmeti istemci uygulamanız ilgili gidermede yardım, toplanan telemetri verileri kalitesini sorun için kritik olacaktır Çözümleme.
+Konuşma özellikli cihaz veya uygulama oluşturma, hatta deneyimli geliştiriciler için zor olabilir. Stream dayanan protokoller genellikle ilk bakışta göz korkutucu ve sessizlik algılama tamamen yeni gibi önemli ayrıntıları gibi görünüyor. Bir tek istek/yanıt çifti tamamlanması başarıyla gönderilmesine ve alınmasına gerek kalmadan çok sayıda iletilerle olduğu *çok* bu iletileri hakkında doğru ve eksiksiz veri toplamak önemli. Microsoft konuşma hizmeti protokolü, bu verilerin toplanması için sağlar. Gerekli verileri mümkün olduğunca doğru bir şekilde sağlamak için her çabayı; tam ve doğru verileri sağlayarak, kendiniz--yardımcı olacağını gerektiğinde Yardım istemci uygulamanız ilgili sorunu giderme Microsoft konuşma hizmeti ekibi, toplanan telemetri verilerini kalitesini sorun için kritik olacaktır analizi.
 
 > [!NOTE]
 > Bu özellik, konuşma tanıma REST API kullanırken desteklenmiyor.
 
 ### <a name="speech-application-states"></a>Konuşma uygulama durumları
 
-Konuşma giriş uygulamanızda etkinleştirmek için uygulayacağınız adımlar fare tıklamaları veya parmak dokunur gibi diğer giriş biçimlerini adımları biraz farklı değildir. Uygulamanızın mikrofonun dinleme ve veri hizmetinden yanıt beklenirken ve boş bir durumda olduğunda konuşma hizmetine gönderme izlemek gerekir. Aşağıdaki diyagramda bu durumlar arasındaki ilişki gösterilmektedir.
+Uygulamanızdaki Konuşma giriş etkinleştirmek için uygulayacağınız adımlar, fare tıkladığında veya dokunduğunda parmak gibi diğer giriş biçimlerini adımları biraz farklı. Uygulamanızı mikrofonun dinleme ve hizmetten yanıt beklerken ve boş bir durumda olduğunda konuşma hizmeti için veri gönderen takip gerekir. Aşağıdaki diyagramda bu durumlar arasındaki ilişki gösterilmektedir.
 
 ![Konuşma uygulama durumu diyagramı](Images/speech-application-state-diagram.png)
 
-Microsoft konuşma hizmeti bazı durumlar katılan olduğundan, hizmet protokolü, uygulama geçiş durumlarındaki Yardım iletileri tanımlar. Uygulamanız, yorumlar ve izlemek ve konuşma uygulama durumları yönetmek için bu protokol iletilerini hareket gerekiyor.
+Microsoft konuşma hizmeti bazı durumların katılan olduğundan, hizmeti Protokolü uygulama geçişinizi durumlar arasında Yardım iletileri tanımlar. Yorumlar ve konuşma uygulama durumlarını yönetmek ve izlemek için bu iletişim kuralı iletileri hareket uygulamanız gerekir.
 
-## <a name="using-the-speech-recognition-service-from-your-apps"></a>Uygulamalarınızı konuşma tanıma hizmetinden kullanma
+## <a name="using-the-speech-recognition-service-from-your-apps"></a>Konuşma tanıma hizmeti uygulamalarınızdan gelen kullanma
 
-Microsoft konuşma tanıma hizmeti için uygulamalarını konuşma eklemek geliştiriciler için iki yöntem sağlar.
+Microsoft konuşma tanıma hizmeti, geliştiricilerin, uygulamalarına konuşma eklemek iki yol sağlar.
 
-- [REST API](GetStarted/GetStartedREST.md): geliştiriciler uygulamalarını gelen HTTP çağrıları için konuşma tanıma hizmetini kullanabilirsiniz.
-- [İstemci kitaplıkları](GetStarted/GetStartedClientLibraries.md): Gelişmiş özellikler için geliştiriciler Microsoft Speech istemci kitaplıkları indirebilir ve bunların uygulamalarla bağlantı.  İstemci kitaplıkları, farklı diller (C#, Java, JavaScript, ObjectiveC) kullanarak çeşitli platformlarda (Windows, Android, iOS) kullanılabilir.
+- [REST API'leri](GetStarted/GetStartedREST.md): geliştiriciler, konuşma tanıma hizmeti uygulamalarını HTTP çağrıları kullanabilir.
+- [İstemci kitaplıkları](GetStarted/GetStartedClientLibraries.md): Gelişmiş özellikler için geliştiriciler Microsoft Speech istemci kitaplıklarını indirin ve kendi uygulamalarınızda bağlantı.  İstemci kitaplıkları (C#, Java, JavaScript, ObjectiveC) farklı dilleri kullanan çeşitli platformlarda (Windows, Android, iOS) kullanılabilir.
 
 | Uygulama alanları | [REST API'ler](GetStarted/GetStartedREST.md) | [İstemci kitaplıkları](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Dönüştürme kısa konuşma ses (ses uzunluğu < 15 s) Ara sonuç olmadan örneğin, komutları. | Evet | Evet |
-| Uzun bir ses (> 15 s) Dönüştür | Hayır | Evet |
-| İstenen Ara sonuçlarla Akış ses | Hayır | Evet |
-| HALUK kullanarak ses Dönüştürülen metin anlama | Hayır | Evet |
+| Dönüştürme kısa konuşmada geçen bir ses (ses uzunluğu < 15 s) geçiş sonuçları gibi komutları. | Evet | Evet |
+| Uzun bir ses (> 15 s) dönüştürme | Hayır | Evet |
+| İstenen Ara sonuçlarla Stream ses | Hayır | Evet |
+| LUIS kullanarak seslerden Dönüştürülen metin anlama | Hayır | Evet |
 
- Diliniz veya platformunuz henüz bir SDK yoksa, göre kendi uygulama oluşturabileceğiniz [Protokolü belgeleri](API-Reference-REST/websocketprotocol.md).
+ Diliniz veya platformunuz henüz bir SDK yoksa, kendi uygulama temel oluşturabilirsiniz [Protokolü belgeleri](API-Reference-REST/websocketprotocol.md).
 
 ## <a name="recognition-modes"></a>Tanıma modları
 
-Tanıma üç modu vardır: `interactive`, `conversation`, ve `dictation`. Tanıma modu konuşma tanıma nasıl kullanıcıları seslendir olasılığı olan bağlı olarak ayarlar. Uygulamanız için uygun tanıma modu seçin.
+Tanıma üç mod vardır: `interactive`, `conversation`, ve `dictation`. Konuşma tanıma nasıl kullanıcıları duyma olasılığınız olan bağlı tanıma modu ayarlar. Uygulamanız için uygun tanıma modunu seçin.
 
 > [!NOTE]
-> Tanıma modları sahip olabileceği farklı davranışlar [REST Protokolü](#rest-speech-recognition-api) yaparlar daha [WebSocket Protokolü](#webSocket-speech-recognition-api). Örneğin, REST API bile konuşma veya Dikte modunda sürekli tanıma desteklemez.
+> Tanıma modları sahip olabileceği farklı davranışları [REST Protokolü](#rest-speech-recognition-api) arkadaşlarınıza kıyasla [WebSocket Protokolü](#webSocket-speech-recognition-api). Örneğin, REST API sürekli tanıma, hatta konuşma veya Dikte modunda desteklemez.
 > [!NOTE]
-> REST veya WebSocket Protokolü doğrudan kullandığınızda bu modların geçerlidir. [İstemci kitaplıkları](GetStarted/GetStartedClientLibraries.md) farklı parametreler tanıma modu belirtmek için kullanın. Daha fazla bilgi için tercih ettiğiniz istemci kitaplığına bakın.
+> Bu mod, doğrudan REST veya WebSocket protokolünü kullanırken geçerlidir. [İstemci kitaplıkları](GetStarted/GetStartedClientLibraries.md) tanıma modunu belirtmek üzere farklı parametreler kullanın. Daha fazla bilgi için seçtiğiniz istemci kitaplığı bakın.
 
-Microsoft konuşma hizmeti tüm tanıma modları için yalnızca bir tanıma tümcecik sonucunu döndürür. Tüm tek utterance 15 saniye sınırı yoktur.
+Microsoft konuşma hizmeti tüm tanıma modları için yalnızca bir tanıma ifade sonucunu döndürür. Herhangi bir tek utterance için 15 saniyelik bir sınır yoktur.
 
 ### <a name="interactive-mode"></a>Etkileşimli mod
 
-İçinde `interactive` modu, bir kullanıcının kısa istek yaptığında ve yanıt olarak bir eylemi gerçekleştirmek için uygulama bekler.
+İçinde `interactive` modu, kullanıcının kısa isteği yapan ve yanıt olarak bir eylemi gerçekleştirmek için uygulama bekler.
 
 Aşağıdaki özelliklere etkileşimli mod uygulamaları tipik şunlardır:
 
-- Başka bir insan değil de, bir makineye Konuşma dili konusunda kullanıcıları bilgilendirin.
-- Uygulama kullanıcıları deyin, temel yapmak için uygulama istediklerini üzerinde istedikleri zaman öncesinde bilirsiniz.
-- Utterances genellikle en son hakkında 2-3 saniye.
+- Kullanıcılar, başka bir insan değil de, bir makineye iletişim kurmanızı bildirin.
+- Uygulama kullanıcıları, önceden varsayalım, alan uygulama yapmak istediğini üzerinde istedikleri bildirin.
+- Konuşma son hakkında genellikle 2-3 saniye.
 
 ### <a name="conversation-mode"></a>Konuşma modu
 
-İçinde `conversation` modu, kullanıcıların İnsan İnsan konuşmada gerçekleştiriliyor.
+İçinde `conversation` modu, kullanıcıların insanlar konuşmada gerçekleştiriliyor.
 
-Aşağıdaki özelliklere konuşma modu uygulamaları tipik şunlardır:
+Aşağıdaki özelliklere konuşma modu uygulamalarının tipik şunlardır:
 
-- Başka bir kişiye varsayılır konusunda kullanıcıları bilgilendirin.
-- Konuşma tanıma konuşma metin görmek bir veya iki katılımcı vererek İnsan görüşmeleri geliştirir.
-- Kullanıcılar, söylemek istedikleri her zaman planlamadığınız.
-- Kullanıcılar sık argo ve diğer resmi olmayan konuşma kullanın.
+- Kullanıcılar başka bir kişiye konuşma olduğunu bilirsiniz.
+- Konuşma tanıma, konuşulan metnin görmek bir veya iki katılımcıları vererek İnsan konuşmalar geliştirir.
+- Kullanıcılar, söylemek istediği her zaman planlamıyorsanız.
+- Kullanıcıların sık argo ve resmi olmayan diğer konuşma kullanın.
 
-### <a name="dictation-mode"></a>Yazdırma modu
+### <a name="dictation-mode"></a>Dikte modu
 
-İçinde `dictation` modu, kullanıcıların başka bir işleme için uygulamaya uzun utterances belirtmesini.
+İçinde `dictation` modu, kullanıcılar uygulamaya daha fazla işleme için uzun konuşma belirtmesini.
 
-Aşağıdaki özelliklere dikte modu uygulamaları tipik şunlardır:
+Aşağıdaki özelliklere dikte modu uygulamalarının tipik şunlardır:
 
-- Bir makineye varsayılır konusunda kullanıcıları bilgilendirin.
-- Konuşma tanıma metin sonuçlarını kullanıcılara gösterilir.
-- Kullanıcılar, çoğunlukla söyleyin ve daha resmi bir dil kullanmak istedikleri planlayın.
-- Kullanıcıların employ tam, son 5-8 saniye cümleler.
+- Kullanıcılar için bir makine konuşma olduğunu bilirsiniz.
+- Kullanıcılara, konuşma tanıma metin sonuçları gösterilir.
+- Söyleyin ve daha resmi bir dil kullanmak istedikleri kullanıcıları genellikle planlayın.
+- Kullanıcılar kullanan tam, son 5-8 saniye cümleler.
 
 > [!NOTE]
-> Yazdırma ve konuşma modlarında Microsoft konuşma hizmeti kısmi sonuçlar döndürmez. Bunun yerine, hizmetin ses akışı sessizlik sınırlarında sonra kararlı tümcecik sonuçlar döndürür. Microsoft bu sürekli tanıma modda kullanıcı deneyimini geliştirmek için konuşma Protokolü geliştirmek.
+> Yazdırma ve konuşma modlarında Microsoft konuşma hizmeti kısmi sonuçlar döndürmez. Bunun yerine, hizmet sessizlik sınırları ses akışına sonra kararlı tümcecik sonuçlarını döndürür. Microsoft, bu sürekli tanıma modda kullanıcı deneyimini iyileştirmek üzere konuşma Protokolü geliştirmek.
 
 ## <a name="recognition-languages"></a>Tanıma dilleri
 
-*Tanıma dili* , uygulama kullanıcısı konuşur dilini belirtir. Belirtin *tanıma dili* ile *dil* bağlantıda URL sorgu parametresi. Değeri *dil* sorgu parametresi IETF dil etiket kullanır [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag), ve **gerekir** konuşma tanıma API'si tarafından desteklenen dilleri biri. Konuşma hizmeti tarafından desteklenen diller tam listesi sayfasında bulunabilir [desteklenen dilleri](API-Reference-REST/supportedlanguages.md).
+*Tanıma dil* uygulama kullanıcınızın konuşur dili belirtir. Belirtin *tanıma dil* ile *dil* bağlantı URL'si sorgu parametresi. Değerini *dil* sorgu parametresini kullanır IETF dil etiketi [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag), ve **gerekir** konuşma tanıma API'si tarafından desteklenen dilleri, biri. Konuşma hizmeti tarafından desteklenen dillerin tam listesi sayfasında bulunabilir [desteklenen dilleri](API-Reference-REST/supportedlanguages.md).
 
-Microsoft konuşma hizmeti görüntüleyerek geçersiz bağlantı istekleri reddeder bir `HTTP 400 Bad Request` yanıt. Geçersiz bir istek biridir:
+Microsoft konuşma hizmeti görüntüleyerek geçersiz bağlantı istekleri reddeden bir `HTTP 400 Bad Request` yanıt. Geçersiz bir istek biridir:
 
-- İçermemesi bir *dil* sorgusu parametre değeri.
+- İçermemesi bir *dil* sorgu parametresi değeri.
 - İçeren bir *dil* sorgu parametresi yanlış biçimlendirilmiş.
-- İçeren bir *dil* sorgu parametresi destek dilleri biri değil.
+- İçeren bir *dil* sorgu desteği dillerden biri değil parametresi.
 
-Bir veya tüm hizmet tarafından desteklenen diller destekleyen bir uygulama oluşturmak tercih edebilirsiniz.
+Birini veya tümünü hizmeti tarafından desteklenen dilleri destekleyen bir uygulama oluşturmak tercih edebilirsiniz.
 
 ### <a name="example"></a>Örnek
 
@@ -150,119 +151,119 @@ Aşağıdaki örnekte, bir uygulamanın kullandığı *konuşma* ABD İngilizce 
 https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
 
-## <a name="transcription-responses"></a>Transcription yanıtları
+## <a name="transcription-responses"></a>Döküm yanıtları
 
-Transcription yanıtları Dönüştürülen metin ses istemcilere döndürür. Transcription yanıt aşağıdaki alanları içerir:
+Döküm yanıtları Dönüştürülen metin gelen istemcilere döndürür. Bir döküm yanıt aşağıdaki alanları içerir:
 
 - `RecognitionStatus` tanıma durumunu belirtir. Olası değerler aşağıdaki tabloda verilmiştir.
 
 | Durum | Açıklama |
 | ------------- | ---------------- |
-| Başarılı | Tanıma başarılı oldu ve görüntü metni alan yok |
-| NoMatch | Konuşma ses akışını algılandı, ancak hedef dilden sözcük eşleştirildiklerinden. [NoMatch tanıma Status(#nomatch-recognition-status) daha fazla ayrıntı için bkz:  |
-| InitialSilenceTimeout | Ses akışı başlangıcı yalnızca sessizlik ve konuşma için beklerken zaman aşımına hizmet bulunan |
-| BabbleTimeout | Ses akışı başlangıcı yalnızca gürültü ve konuşma için beklerken zaman aşımına hizmet bulunan |
+| Başarılı | Tanıma başarılı oldu ve görüntü metni alanı var. |
+| NoMatch | Konuşma Tanıma Ses akışında algılandı, ancak hiçbir hedef dil sözcükleri eşleştirilmiş olan. [NoMatch tanıma Status(#nomatch-recognition-status) daha fazla ayrıntı için bkz.  |
+| InitialSilenceTimeout | Ses akışı başlangıcını yalnızca sessizlik ve konuşma için beklerken zaman aşımına hizmeti yer alan |
+| BabbleTimeout | Ses akışı başlangıcını yalnızca gürültü ve konuşma için beklerken zaman aşımına hizmeti yer alan |
 | Hata | Tanıma hizmeti bir iç hatayla karşılaştı ve çalışmaya devam edemedi |
 
-- `DisplayText` tanınan tümceciği büyük/küçük harf ve noktalama ters metin normalleştirme uygulanan sonra uygunsuz metin yıldız işaretiyle maskelenmiş temsil eder. Görüntü metni alanı yoksa *yalnızca* varsa `RecognitionStatus` alan değerine sahip `Success`.
+- `DisplayText` tanınan tümceciği, büyük/küçük harf, noktalama işaretleri ve ters metin normalleştirme uygulanmış sonra yıldız işareti ile küfür maskelenmiş temsil eder. Görüntü metni alanı yoksa *yalnızca* varsa `RecognitionStatus` alan değerine sahip `Success`.
 
-- `Offset` hangi tümcecik, ses akışı başlangıç göreli tanınan uzaklığı (100 nanosaniyelik birimleri) belirtir.
+- `Offset` başlangıçtan ifadesinin, ilgili ses akışı başlangıcını tanınan uzaklığını (100 nanosaniyelik cinsinden) belirtir.
 
-- `Duration`Bu konuşma deyimi (100 nanosaniyelik birimleri) süresini belirtir.
+- `Duration`Bu konuşma deyimi süresi (100 nanosaniyelik cinsinden) belirtir.
 
-Transcription yanıt daha fazla bilgi isterseniz döndürür. Bkz: [çıktı biçimi](#output-format) nasıl daha ayrıntılı çıktı döndürmek.
+Bir döküm yanıt isterseniz daha fazla bilgi döndürür. Bkz: [çıkış biçimi](#output-format) nasıl daha ayrıntılı çıktı döndürülecek.
 
-Microsoft konuşma hizmeti büyük/küçük harf ve noktalama işaretleri, eklemeyi içerir ek transcription işlem uygunsuz metin maskeleme ve ortak formlar metne normalleştirme destekler. Örneğin, bir kullanıcı tarafından temsil edilen bir deyim verirse sözcükler "altı iPhone satın hatırlat", "6 iPhone satın hatırlat." Microsoft'un konuşma Hizmetleri transcribed metni döndürür Word'ün "altı" "6" sayıya işlem adlı *ters metin normalleştirme* (*ITN* kısaca).
+Microsoft konuşma hizmeti küfür maskeleme ve sık karşılaşılan biçimlerinden metne normalleştirme büyük/küçük harf ve noktalama işaretleri, ekleme içeren ek döküm işlemini destekler. Örneğin, bir kullanıcı bir ifade tarafından temsil edilen verirse sözcükler "altı iPhone satın hatırlat", Microsoft konuşma Hizmetleri transcribed metni döndürür "iPhone 6 satın hatırlat." Word'ün "altı" "6" sayıya işlem çağrılırken *ters metin normalleştirme* (*edemezsiniz* kısaca).
 
 ### <a name="nomatch-recognition-status"></a>NoMatch tanıma durumu
 
-Transcription yanıtı döndürür `NoMatch` içinde `RecognitionStatus` zaman Microsoft konuşma hizmeti konuşma ses akışta algılar, ancak bu istek için kullanılan dil dilbilgisi konuşma eşleşecek şekilde alamıyor. Örneğin, bir *NoMatch* koşul tanıyıcı ABD İngilizcesi Konuşma dili olarak beklerken kullanıcı şeyin Almanca diyorsa oluşabilir. Utterance dalga biçiminin desenini İnsan konuşma varlığını gösterir, ancak konuşulan sözcüklerin hiçbiri tanıyıcı tarafından kullanılan ABD İngilizce sözlüğü eşleşir.
+Döküm yanıtı döndürür `NoMatch` içinde `RecognitionStatus` kullandığınızda, Microsoft konuşma hizmeti konuşma ses akışı algılar ancak bu istek için kullanılan dil dilbilgisi konuşma eşleşecek şekilde izleyemiyor. Örneğin, bir *NoMatch* koşul tanıyıcı ABD İngilizce konuşulan dili olarak beklerken bir kullanıcının bir şey Almanca diyorsa oluşabilir. Utterance dalga desenini İnsan konuşma varlığını gösterir, ancak konuşulan sözcükleri hiçbiri tanıyıcı tarafından kullanılan ABD İngilizce sözlüğü eşleşir.
 
-Başka bir *NoMatch* durum tanıma algoritması Ses akışında bulunan ses için doğru bir eşleşme bulamadı olduğunda meydana gelir. Bu durum gerçekleştiğinde, Microsoft konuşma hizmeti üretebilir *speech.hypothesis* içeren iletileri *metin onaylanmadığına* ancak oluşturacak bir *speech.phrase*, ileti *RecognitionStatus* olan *NoMatch*. Bu durum normaldir; varsayımlar doğruluğu veya metnin doğruluk hakkında yapmamalısınız *speech.hypothesis* ileti. Microsoft konuşma hizmeti oluşturduğundan Ayrıca, çalıştığını kabul gerekir değil *speech.hypothesis* hizmet oluşturabildiği iletileri bir *speech.phrase* ile ileti  *RecognitionStatus* *başarı*.
+Başka bir *NoMatch* durum tanıma algoritması Ses akışında bulunan ses için doğru bir eşleşme bulamadı olduğunda meydana gelir. Bu durum gerçekleştiğinde, Microsoft konuşma hizmeti üretebilir *speech.hypothesis* içeren iletileri *metin onaylanmadığına* ancak oluşturacak bir *speech.phrase*hangi iletisinde *RecognitionStatus* olduğu *NoMatch*. Bu durum normaldir; metnin kalitesini ve doğruluğunu hakkında varsayımlar yapmamalısınız *speech.hypothesis* ileti. Microsoft konuşma hizmeti ürettiği için Ayrıca, kabul gerekir değil *speech.hypothesis* hizmet oluşturabildiği iletileri bir *speech.phrase* ile ileti  *RecognitionStatus* *başarı*.
 
-## <a name="output-format"></a>Çıktı biçimi
+## <a name="output-format"></a>Çıkış biçimi
 
-Microsoft konuşma hizmeti, çeşitli yükü biçimlerde transcription yanıtları döndürebilir. Tüm yüklerini JSON yapıları ' dir.
+Microsoft konuşma hizmeti yük biçimleri çeşitli transkripsiyonu yanıtlarını döndürebilir. Tüm yükleri JSON yapılardır.
 
-Belirterek tümceciği sonuç biçimi denetleyebilirsiniz `format` URL sorgu parametresi. Varsayılan olarak hizmet verir `simple` sonuçları.
+İfade sonucu biçimi belirterek denetleyebilirsiniz `format` URL'si sorgu parametresi. Varsayılan olarak, hizmetin döndürdüğü `simple` sonuçları.
 
 | Biçimlendir | Açıklama |
 |-----|-----|
-| `simple` | Tanıma durumunu ve görüntü formdaki tanınan metni içeren Basitleştirilmiş tümcecik sonucu. |
-| `detailed` | Tanıma durumu ve her tümcecik sonucu tüm dört tanıma formları ve güven puanı, içerdiği tümcecik sonuçları N en iyi listesi. |
+| `simple` | Tanıma durumu ve görüntüleme formu içinde tanınan metin içeren bir Basitleştirilmiş ifade sonucu. |
+| `detailed` | Tanıma durumu ve en iyi N listesini ifade sonuçlar burada her ifade sonucu tüm dört tanıma formları ve bir güven puanı içerir. |
 
-`detailed` Biçimi içeren [N en iyi değerleri](#n-best-values), ek olarak `RecognitionStatus`, `Offset`, ve `duration`, yanıt.
+`detailed` Biçimi içeren [en iyi N değerleri](#n-best-values), ek olarak `RecognitionStatus`, `Offset`, ve `duration`, yanıt.
 
-### <a name="n-best-values"></a>N en iyi değerleri
+### <a name="n-best-values"></a>En iyi N değerleri
 
-Dinleyicileri, İnsan veya makine, hiçbir zaman olabilir bunlar heard belirli *tam olarak* ne söylenir. Dinleyici atayabileceğiniz bir *olasılık* yalnızca bir utterance belirli yorumu için. 
+Dinleyiciler, İnsan veya makine, hiçbir zaman olabilir, heard belirli *tam olarak* ne konuşulan. Dinleyici atayabileceğiniz bir *olasılık* yalnızca bir utterance belirli bir yorumu için. 
 
-Kim ile sık etkileşimde başkalarına konuşurken normal koşullarda, kişiler konuşulan sözcükler algılamayı bir yüksek olasılığı vardır. Makine tabanlı konuşma dinleyicileri çaba benzer doğruluğu düzeyleri elde etmek ve sağ koşullarda [insanlar eşlikli elde](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
+Başkalarının düğmelerinizi sık etkileşimde konuşurken normal koşullarında, algılamayı konuşulan sözcükleri, yüksek bir olasılık sahiptir. Makine tabanlı konuşma dinleyicileri çaba benzer doğruluğu seviyelerine ulaşmasını sağlamak ve doğru koşullarda [insanlar ile bunların denkliğini](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
-Konuşma tanıma kullanılan algoritmaları işleme normal bir parçası olarak bir utterance, alternatif yorumlar keşfedin. Genellikle, bu alternatifleri tek yorumlama lehinde kanıt bunaltıcı hale geldiğinde atılır. En iyi durumda olmayan koşullarda, ancak diğer olası Yorumlar listesini Konuşma tanıyıcı tamamlanır. Üst *N* bu listede alternatifleri çağrılır *N en iyi listesi*. Her bir alternatif atanmış bir [güvenirlik puan](#confidence). GÜVENİRLİK 0 ile 1 arasında puanlar. Bir puan 1 en yüksek güvenirlik düzeyini temsil eder. 0 puan güvenirlik en düşük düzeyde temsil eder.
+Konuşma tanıma kullanılan algoritmalar bir utterance normal işlenmesi bir parçası olarak, alternatif ınterpretations keşfedin. Tek bir yorumu ile değiştiriliyor kanıt zorlamayı olduğunda genellikle, bu alternatifleri atılır. En iyi durumda olmayan koşullarında, ancak diğer olası ınterpretations listesini konuşma tanıyıcının tamamlanır. Üst *N* alternatifleri bu listedeki çağrılır *en iyi N listesi*. Her alternatif atanmış bir [güvenilirlik puanı](#confidence). 0 ile 1 arasında güvenle puanlar. Bir puan, 1, en yüksek güven düzeyini temsil eder. 0 puanı düşük güven düzeyini temsil eder.
 
 > [!NOTE]
-> N en iyi listesinde girdi sayısı birden çok utterances arasında farklılık gösterir. Girdi sayısı birden çok teşekkürler arasında değişebilir *aynı* utterance. Bu değişim konuşma tanıma algoritması probabilistic yapısını doğal ve beklenen sonucunu ' dir.
+> Girdi sayısı bu değeri en iyi N listesinde birden çok konuşma arasında farklılık gösterir. Girdi sayısı birden çok tanıma arasında değişebilir *aynı* utterance. Bu farklılığa olasılıklara niteliği konuşma tanıma algoritması, bir doğal ve beklenen sonuç elde edilir.
 
-N en iyi listesinde döndürülen her bir giriş içerir
+En iyi N listesinde döndürülen her bir giriş içerir
 
-- `Confidence`, temsil eden [güvenirlik puanları](#confidence) bu girişinin.
-- `Lexical`, olduğu [sözcük form](#lexical-form) tanınan metin.
-- `ITN`, olduğu [ITN form](#itn-form) tanınan metin.
-- `MaskedITN`, olduğu [maskelenmiş ITN form](#masked-itn-form) tanınan metin.
+- `Confidence`, temsil eden [güven puanları](#confidence) bu giriş.
+- `Lexical`, olduğu [sözcük formu](#lexical-form) tanınan metin.
+- `ITN`, olduğu [edemezsiniz form](#itn-form) tanınan metin.
+- `MaskedITN`, olduğu [maskelenmiş edemezsiniz form](#masked-itn-form) tanınan metin.
 - `Display`, olduğu [görüntüleme formu](#display-form) tanınan metin.
 
-### GÜVENİRLİK puanları <a id="confidence"></a>
+### Güven puanları <a id="confidence"></a>
 
-GÜVENİRLİK puanları konuşma tanıma sistemlere tam sayı. Microsoft konuşma hizmeti gelen güven puanları edinir bir *güvenirlik sınıflandırıcı*. Microsoft güvenilirlik sınıflandırıcı maximally arasında doğru ve yanlış tanıma ayırt etmek için tasarlanmış özelliklerle kümesi üzerinden eğitir. GÜVENİRLİK puanları ayrı sözcükleri ve tüm utterances için değerlendirilir.
+Güven puanları, konuşma tanıma sistemlerine ayrılmaz. Microsoft konuşma hizmeti, gelen güven puanları alır bir *güvenle sınıflandırıcı*. Microsoft Güven sınıflandırıcı maximally doğru ve hatalı tanıma arasında ayırt etmek için tasarlanmış bir özellikler kümesini üzerinden eğitir. Güven puanları kelimeler ve tüm konuşma için değerlendirilir.
 
-Hizmet tarafından döndürülen güvenirlik puanları kullanmayı seçerseniz, aşağıdaki davranışını dikkat edin:
+Hizmet tarafından döndürülen güven puanları kullanmayı seçerseniz, aşağıdaki davranışını dikkat edin:
 
-- GÜVENİRLİK puanlarını ve aynı tanıma modu ve dil içinde yalnızca karşılaştırılabilir. Puanları farklı dil ya da farklı tanıma modlar arasında karşılaştırın değil. Örneğin, bir güven puan etkileşimli tanıma modunda olan *hiçbir* güvenirlik puan Dikte modunda bağıntı.
-- GÜVENİRLİK puanları utterances kısıtlı kümesine göre en iyi şekilde kullanılır. Doğal olarak çok sayıda utterances puanlarını sonuçlarındaki önemli ölçüde yoktur.
+- Güven puanları, aynı tanıma modu ve dil içinde yalnızca karşılaştırılabilir. Puanları farklı dil ya da farklı tanıma modları arasında karşılaştırma değil. Örneğin, bir güven puanı etkileşimli tanıma modunda olan *hiçbir* bağıntı Dikte modunda bir güven puanı için.
+- Güven puanları, konuşma kısıtlı kümesine göre en iyi şekilde kullanılır. Doğal olarak çok sayıda konuşma puanları sonuçlarındaki önemli ölçüde yoktur.
 
-GÜVENİRLİK puan değer olarak kullanmayı seçerseniz bir *eşik* uygulamanızı görev yapan üzerinde konuşma tanıma eşik değerleri oluşturmak için kullanın.
+Bir güven puanı değeri olarak kullanmayı seçerseniz bir *eşiği* uygulamanızı davranan üzerinde konuşma tanıma eşik değerleri oluşturmak için kullanın.
 
-- Konuşma tanıma utterances uygulamanız için temsili bir örnek üzerinde yürütün.
-- Örnek kümesindeki her tanıma güvenirlik puanlarını toplayın.
-- Bu örnek için güvenle bazı Yüzdeliğini eşik değeri temel.
+- Konuşma tanıma, konuşma, uygulamanız için temsili bir örnek üzerinde yürütün.
+- Örnek kümesindeki her tanıma için güven puanlarını toplayın.
+- Bu örnek için güvenle bazı Yüzdeliğini, eşik değerini temel.
 
-Tek eşik değer tüm uygulamalar için uygundur. Bir uygulama için bir kabul edilebilir güvenirlik puan başka bir uygulama için kabul edilebilir olabilir.
+Tek eşik değer, tüm uygulamalar için uygundur. Bir uygulama için bir kabul edilebilir bir güven puanı başka bir uygulama için kabul edilemez olabilir.
 
-### <a name="lexical-form"></a>sözcük formu
+### <a name="lexical-form"></a>sözcük temelli form
 
-Sözcük tanınan metin tam olarak nasıl onu utterance ve noktalama işareti ya da büyük/küçük harf olmadan oluştu biçimidir. Örneğin, "1020 Kurumsal yolu" adresi sözcük biçiminde olur *on yirmi Kurumsal şekilde*, böylece konuşulan varsayılarak. Sözcük formun cümlede "anımsatmak bana 5 Kurşun Kalem satın almak için" olan *beş Kurşun Kalem satın hatırlat*.
+Sözcük tanınan metin tam olarak nasıl bu utterance ve noktalama işaretleri veya büyük/küçük harf olmadan aktarılırken biçimidir. Örneğin, "1020 Kurumsal yolu" adresi sözcük biçiminde olacaktır *on yirmi Kurumsal şekilde*, böylece konuşulan varsayılarak. Sözcük temelli form cümlenin "anımsat 5 Kurşun Kalem satın almak için" olan *beş Kurşun Kalem satın hatırlat*.
 
-Sözcük formun standart metin normalleştirmesi için gereken uygulamalar için uygundur. Sözcük formun de işlenmemiş tanıma sözcükler gerektiren uygulamalar için uygundur.
+Sözcük temelli form standart metin normalleştirme gerçekleştirmeniz gereken uygulamalar için en uygun seçenektir. Sözcük temelli form de işlenmemiş tanıma sözcükleri gerek duyan uygulamalar için uygundur.
 
-Uygunsuz metin sözcük biçiminde hiçbir zaman maskelenir.
+Küfür hiçbir zaman sözcük biçiminde maskelenir.
 
-### <a name="itn-form"></a>ITN formu
+### <a name="itn-form"></a>Edemezsiniz formu
 
-Metin normalleştirme metin "kurallı" başka bir forma bir biçimden diğerine dönüştürme işlemidir. Örneğin, telefon numarası "555-1212" kurallı biçimi dönüştürülebilir *beş beş beş bir iki bir iki*. *Ters* metin normalleştirme (ITN) tersine çevirir sözcükleri dönüştürme bu işlem, "beş beş beş bir iki bir iki" ters kurallı biçimi için *555-1212*. Bir tanıma sonucunun ITN form büyük/küçük harf veya noktalama işareti içermez.
+Metin normalleştirme metin "canonical" başka bir forma bir biçimden diğerine dönüştürme işlemidir. Örneğin, telefon numarası "555-1212" için kurallı biçimi dönüştürülebilir *beş beş beş bir iki bir iki*. *Ters* metin normalleştirme (edemezsiniz) sözcükleri dönüştürülürken, bu işlemi tersine çevirir "beş beş beş bir iki bir iki" ters kurallı biçimi için *555-1212*. Bir tanıma işleminin sonucu edemezsiniz biçiminin büyük/küçük harf veya noktalama işareti içermez.
 
-ITN form tanınan metin üzerinde hareket uygulamalar için uygundur. Örneğin, bir kullanıcının arama terimleri seslendir izin verir ve ardından bu koşulları web sorguda kullanan bir uygulama ITN form kullanırsınız. Uygunsuz metin hiçbir zaman ITN biçiminde maskelenir. Uygunsuz metin maske, kullanın *maskelenmiş ITN form*.
+Edemezsiniz formun tanınan metin davranan uygulamalar için en uygun seçenektir. Örneğin, arama terimleri konuşmak açmasına olanak sağlar ve ardından bu terimleri web sorguda kullanan bir uygulama edemezsiniz formun kullanmanız gerekir. Küfür hiçbir zaman edemezsiniz biçiminde maskelenir. Küfür maske kullanılacağı *maskelenmiş edemezsiniz form*.
 
-### <a name="masked-itn-form"></a>Maskeli ITN formu
+### <a name="masked-itn-form"></a>Maskeli edemezsiniz formu
 
-Uygunsuz metin doğal konuşulan dilinde bir parçası olduğundan, bunlar konuşulan Microsoft konuşma hizmeti gibi sözcükler ve tümcecikleri tanır. Uygunsuz metin ancak, tüm uygulamalar, özellikle bu uygulamalarla sınırlı, yetişkin olmayan kullanıcı İzleyici için uygun olmayabilir.
+Küfür doğal konuşma dilini bir parçası olduğundan, bunlar konuşulan Microsoft konuşma hizmeti gibi bir sözcük ve tümcecikleri tanır. Küfür ancak tüm uygulamalar, özellikle sınırlı, yetişkin olmayan kullanıcı hedef kitle ile uygulamalarınız için uygun olmaması.
 
-Maskeli ITN formun ters metin normalleştirme formun maskeleme uygunsuz metin geçerlidir. Uygunsuz metin maske, uygunsuz metin parametre değerini ayarlamak için `masked`. Uygunsuz metin maskelenir dilin uygunsuz metin sözlüğü bir parçası olarak tanınan sözcükleri yıldız işaretiyle değiştirilir. Örneğin: *5 satın hatırlat *** Kurşun Kalem*. Maskeli ITN formun tanıma sonucunun büyük/küçük harf veya noktalama işareti içermez.
+Maskeli edemezsiniz formun ters metin normalleştirme formu maskeleme küfür geçerlidir. Küfür maske, küfür parametre değerine ayarlayın `masked`. Küfür maskelenir dilin küfür sözlüğe bir parçası olarak tanınan sözcükleri yıldız işareti ile değiştirilir. Örneğin: *5 satın hatırlat *** Kurşun Kalem*. Bir tanıma işleminin sonucu maskelenmiş edemezsiniz biçiminin büyük/küçük harf veya noktalama işareti içermez.
 
 > [!NOTE]
-> Uygunsuz metin sorgusu parametre değeri ayarlanmışsa `raw`, maskelenmiş ITN formun ITN form ile aynıdır. Uygunsuz metin olduğu *değil* maskelenir.
+> Küfür sorgu parametresi değeri ayarlanırsa `raw`, maskelenmiş edemezsiniz formun edemezsiniz formu ile aynıdır. Küfür olan *değil* maskelenir.
 
-### <a name="display-form"></a>Form Görüntüle
+### <a name="display-form"></a>Görüntüleme formu
 
-Noktalama işaretleri ve büyük/küçük harf Vurgu, duraklatma ve metin anlamak daha kolay hale getirir benzeri nerede bulunacağı yer işaret eder. Görüntü formun noktalama işaretleri ve büyük/küçük harf tanıma sonuçları, konuşma metin görüntüleme uygulamalar için en uygun form kolaylaştırarak ekler.
+Noktalama işaretleri ve büyük/küçük harf Vurgu, duraklatma ve metin anlamak daha kolay hale getiren benzeri nerede bulunacağı yer sinyal. Görüntüleme formu tanıma sonuçları konuşulan metnin uygulamaları için en uygun form yapma, noktalama işaretleri ve büyük/küçük harf ekler.
 
-Görüntü formun maskelenmiş ITN formun genişlettiğinden uygunsuz metin parametre değeri ayarlayabileceğiniz `masked` veya `raw`. Değer ayarlanmışsa `raw`, kullanıcı tarafından konuşulan herhangi uygunsuz metin tanıma sonuçları dahil edin. Değer ayarlanmışsa `masked`, dilin uygunsuz metin sözlüğü bir parçası olarak kabul edilen sözcükler, yıldız işareti ile değiştirilir.
+Görüntüleme formu maskelenmiş edemezsiniz formun genişlettiğinden, küfür parametre değeri ayarlayabilirsiniz `masked` veya `raw`. Değer ayarlanmışsa `raw`, kullanıcı tarafından konuşulan herhangi küfür tanıma sonuçları içerir. Değer ayarlanmışsa `masked`, dilin küfür sözlüğe bir parçası olarak tanınan sözcükleri, yıldız işareti ile değiştirilir.
 
 ### <a name="sample-responses"></a>Örnek yanıt
 
-Tüm yüklerini JSON yapıları ' dir.
+Tüm yükleri JSON yapılardır.
 
-Bir yük biçiminde `simple` tümceyi sonucu:
+Yük biçimi `simple` ifade sonucu:
 
 ```json
 {
@@ -273,7 +274,7 @@ Bir yük biçiminde `simple` tümceyi sonucu:
 }
 ```
 
-Bir yük biçiminde `detailed` tümceyi sonucu:
+Yük biçimi `detailed` ifade sonucu:
 
 ```json
 {
@@ -299,28 +300,28 @@ Bir yük biçiminde `detailed` tümceyi sonucu:
 }
 ```
 
-## <a name="profanity-handling-in-speech-recognition"></a>Konuşma tanıma uygunsuz metin işleme
+## <a name="profanity-handling-in-speech-recognition"></a>Konuşma tanıma küfür işleme
 
-Microsoft konuşma hizmeti İnsan okuma, sözcük ve birçok kişi "uygunsuz metin." sınıflandırabilir deyimleri dahil olmak üzere tüm biçimlerinin tanır Kullanarak hizmet uygunsuz metin nasıl işlediğini kontrol edebilirsiniz *uygunsuz metin* sorgu parametresi. Varsayılan olarak, hizmet maskeleri uygunsuz metin içinde *speech.phrase* sonuçlanır ve döndürmez *speech.hypothesis* uygunsuz metin içeren iletileri.
+Microsoft konuşma hizmeti İnsan okuma, sözcük ve çoğu kişi "küfür" sınıflandırabilir deyimleri dahil olmak üzere tüm biçimlerinin tanır. Kullanarak hizmet küfür nasıl işlediğini denetleyebilirsiniz *küfür* sorgu parametresi. Varsayılan olarak, hizmet içinde küfür maskeleri *speech.phrase* sonuçlanır ve sonuç döndürmez *speech.hypothesis* küfür içeren iletileri.
 
-| *Uygunsuz metin* değeri | Açıklama |
+| *Küfür* değeri | Açıklama |
 | - | - |
-| `masked` | Bir yıldız işareti ile maskeleri uygunsuz metin. Bu, varsayılan davranıştır. | 
-| `removed` | Uygunsuz metin tüm sonuçlarından kaldırır. |
-| `raw` | Tanır ve tüm sonuçlarında uygunsuz metin döndürür. |
+| `masked` | Küfür yıldız işareti ile maskeler. Varsayılan davranıştır. | 
+| `removed` | Tüm sonuçları küfür kaldırır. |
+| `raw` | Tanır ve küfür tüm sonuçları döndürür. |
 
-### <a name="profanity-value-masked"></a>Uygunsuz metin değeri `Masked`
+### <a name="profanity-value-masked"></a>Küfür değeri `Masked`
 
-Uygunsuz metin maske, ayarlamak için *uygunsuz metin* sorgu parametresi değeri *maskelenmiş*. Zaman *uygunsuz metin* sorgu parametresi bu değere sahip veya bir istek için hizmet belirtilmemiş *maskeleri* uygunsuz metin. Hizmet tanıma sonuçlarında uygunsuz metin yıldız işaretiyle değiştirerek maskeleme gerçekleştirir. Uygunsuz metin maskeleme işleme belirttiğinizde, hizmet döndürmez *speech.hypothesis* uygunsuz metin içeren iletileri.
+Küfür maskelemek için ayarlayın *küfür* sorgu parametresi değeri *maskelenmiş*. Zaman *küfür* sorgu parametresi bu değere sahip olması veya bir istek için hizmet belirtilmemiş *maskeleri* küfür. Hizmet, yıldız işareti ile tanıma sonuçları küfür değiştirerek maskeleme gerçekleştirir. Küfür maskeleme işleme belirttiğinizde, hizmet olmayan döndürür *speech.hypothesis* küfür içeren iletileri.
 
-### <a name="profanity-value-removed"></a>Uygunsuz metin değeri `Removed`
+### <a name="profanity-value-removed"></a>Küfür değeri `Removed`
 
-Zaman *uygunsuz metin* sorgusu parametre değeri içeriyor *kaldırılan*, hizmet uygunsuz metin hem de kaldırır *speech.phrase* ve *speech.hypothesis* iletileri. Sonuçları aynıdır *uygunsuz metin sözcük değil konuşulan gibi*.
+Zaman *küfür* sorgu parametresinin değeri *kaldırıldı*, küfür hem de hizmet kaldırır *speech.phrase* ve *speech.hypothesis* iletileri. Aynı sonucu olan *küfür sözcükleri telaffuz konuşulmaz alacağı*.
 
-#### <a name="profanity-only-utterances"></a>Yalnızca uygunsuz metin utterances
+#### <a name="profanity-only-utterances"></a>Yalnızca Küfürlü konuşma
 
-Bir kullanıcı Seslendir *yalnızca* uygulama uygunsuz metin kaldırılacak hizmetin yapılandırıldığında uygunsuz metin. Tanıma modu ise, bu senaryo için *dikte* veya *konuşma*, hizmet döndürmez bir *speech.result*. Tanıma modu ise *etkileşimli*, hizmet iadeleri bir *speech.result* durum koduyla *NoMatch*. 
+Bir kullanıcı konuşmak *yalnızca* uygulama küfür kaldırılacak hizmetin yapılandırıldığında küfür. Tanıma modu ise bu senaryo için *dikte* veya *konuşma*, hizmet döndürmez bir *speech.result*. Tanıma modu ise *etkileşimli*, hizmet döndürür bir *speech.result* durum koduyla *NoMatch*. 
 
-### <a name="profanity-value-raw"></a>Uygunsuz metin değeri `Raw`
+### <a name="profanity-value-raw"></a>Küfür değeri `Raw`
 
-Zaman *uygunsuz metin* sorgusu parametre değeri içeriyor *ham*, hizmeti kaldırma veya maske her ikisinde uygunsuz metin *speech.phrase* veya  *Speech.hypothesis* iletileri.
+Zaman *küfür* sorgu parametresinin değeri *ham*, hizmeti kaldırma veya her ikisinde küfür maske *speech.phrase* veya  *Speech.hypothesis* iletileri.

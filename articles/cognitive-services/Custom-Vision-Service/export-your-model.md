@@ -1,20 +1,21 @@
 ---
-title: Custom Vision Service'e modelinizi mobil - özel görüntü işleme hizmeti - Azure Bilişsel hizmetler için dışarı aktarma | Microsoft Docs
+title: Modelinizi mobil - Custom Vision Service'e dışarı aktarma
+titlesuffix: Azure Cognitive Services
 description: Modelinizi mobil uygulamalar oluştururken kullanmak için dışarı aktarma hakkında bilgi edinin.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 63ebe17ff9a179ed7e9bd399fa94f20740c26f3a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 50417e9e1722e69c24185c05ea5e286e6b13e8c7
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574479"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364950"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Modelinizi kullanılmak ile mobil cihazları dışarı aktarma
 

@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dhruv
-ms.openlocfilehash: 8159a9eb8d8829ed01609cebc3ae41713892f6cf
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6066462d0a7f31698745275c3c6d65c4e09d9cc5
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630195"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364153"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL veritabanı bağlantı mimarisi 
 
@@ -51,13 +51,16 @@ Azure dışından bağlanıyorsanız, bağlantılarınızı, bağlantı İlkesi 
 ![mimariye genel bakış](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Hizmet uç noktaları Azure SQL veritabanı ile ilkenizi kullanıldığında **Proxy** varsayılan olarak. Bağlantısı, sanal ağ içinde etkinleştirmek için aşağıdaki listede belirtilen Azure SQL veritabanı ağ geçidi IP adreslerine giden bağlantılara izin verin. Hizmet uç noktaları kullanırken bağlantı ilkelerinizi değiştirme öneririz **yeniden yönlendirme** daha iyi performans sağlamak. Bağlantı ilkelerinizi değiştirirseniz **yeniden yönlendirme** olmayacaktır NSG IP'ler, aşağıda listelenen Azure SQLDB ağ geçidi üzerinde giden izin vermek için yeterli, giden tüm Azure SQLDB IP'lere izin vermelidir. Bu NSG (ağ güvenlik grupları) hizmet etiketleri yardımıyla gerçekleştirilebilir. Daha fazla bilgi için [hizmet etiketleri](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+> Hizmet uç noktaları Azure SQL veritabanı ile ilkenizi kullanıldığında **Proxy** varsayılan olarak. Bağlantısı, sanal ağ içinde etkinleştirmek için aşağıdaki listede belirtilen Azure SQL veritabanı ağ geçidi IP adreslerine giden bağlantılara izin vermesi gerekir. Hizmet uç noktaları kullanırken bağlantı ilkelerinizi değiştirme öneririz **yeniden yönlendirme** daha iyi performans sağlamak. Bağlantı ilkelerinizi değiştirirseniz **yeniden yönlendirme** olmayacaktır NSG IP'ler, aşağıda listelenen Azure SQLDB ağ geçidi üzerinde giden izin vermek için yeterli, giden tüm Azure SQLDB IP'lere izin vermelidir. Bu NSG (ağ güvenlik grupları) hizmet etiketleri yardımıyla gerçekleştirilebilir. Daha fazla bilgi için [hizmet etiketleri](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL veritabanı ağ geçidi IP adresleri
 
 Şirket içi kaynaklardan bir Azure SQL veritabanına bağlanmak için Azure SQL veritabanı ağ geçidi, Azure bölgesi için giden ağ trafiğine izin vermeniz gerekir. Bağlantılarınızı yalnızca ağ geçidi üzerinden şirket içi kaynaklardan bağlanırken varsayılan değer olan ara sunucu modunda bağlanırken gidin.
 
 Aşağıdaki tablo, Azure SQL veritabanı ağ geçidi tüm veri bölgeleri için birincil ve ikincil IP'ler listeler. Bazı bölgeler için iki IP adresi vardır. Bu bölgede, birincil IP adresi geçerli bir ağ geçidi IP adresini ve ikinci IP adresini bir yük devretme IP adresidir. Yük devretme adresi size yüksek hizmet kullanılabilirliğini korumak için sunucunuzun taşıyabilirsiniz adresidir. Bu bölgeler için her iki IP adreslerine giden izin öneririz. İkinci IP adresi Microsoft'a ait ve bağlantıları kabul etmek üzere Azure SQL veritabanı tarafından etkinleştirilinceye kadar tüm hizmetleri dinlemez.
+
+> [!IMPORTANT]
+> Azure içinde içinden bağlanan bağlantı ilkelerinizi olacaktır **yeniden yönlendirme** varsayılan olarak (dışında hizmet uç noktaları kullanıyorsanız). Aşağıdaki IP'leri izin vermek için yeterli olur. Tüm Azure SQL veritabanı IP'lere izin vermeniz gerekir. Bir sanal ağ içinde gelen bağlanıyorsanız bu NSG (ağ güvenlik grupları) hizmet etiketleri yardımıyla gerçekleştirilebilir. Daha fazla bilgi için [hizmet etiketleri](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Bölge Adı | Birincil IP adresi | İkincil IP adresi |
 | --- | --- |--- |

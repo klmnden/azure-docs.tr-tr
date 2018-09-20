@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: wolfma
-ms.openlocfilehash: bbf3c5930de2ec6c709b6b527ae3eac107382420
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5862b119ceee4ace0d51691851dc53a9729ac68e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047808"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363403"
 ---
 # <a name="release-notes"></a>Sürüm notları
 
@@ -23,67 +23,64 @@ ms.locfileid: "43047808"
 
 **Yeni Özellikler**
 
-* Konuşma SDK'sı ile oluşturulan UWP uygulamaları, artık Windows uygulama sertifikası Kiti (WACK) geçirebilirsiniz.
-  Kullanıma sunduğumuz [UWP hızlı](quickstart-csharp-uwp.md).
+* UWP uygulamaları artık yerleşik olarak konuşma SDK'sı ile Windows uygulama sertifikası Kiti (WACK) geçirebilirsiniz.
+  Kullanıma [UWP hızlı](quickstart-csharp-uwp.md).
 * .NET Standard 2.0 Linux'ta (Ubuntu 16.04 x 64) için destek.
 * Deneysel: Java 8 (64-bit) Windows ve Linux (Ubuntu 16.04 x 64) desteği.
-  Kullanıma [Java Çalışma zamanı ortamı hızlı başlangıç](quickstart-java-jre.md)
+  Kullanıma [Java Çalışma zamanı ortamı hızlı](quickstart-java-jre.md).
 
-**İşlevsel değişiklikler**
+**İşlev değişikliği**
 
-* Bağlantı hataları hakkında ek hata ayrıntı bilgileri ifşa edildi.
+* Ek hata bağlantı hatalarıyla ilgili ayrıntılı bilgi kullanıma sunar.
 
 **Bozucu değişiklikler**
 
-* Java (Android) üzerinde `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` işlevi artık bir yol parametresi gerektirir. Yol, artık tüm desteklenen platformlarda otomatik olarak algılanır.
+* Java (Android) üzerinde `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` işlevi artık bir yol parametresi gerektirir. Artık bir yolu, tüm desteklenen platformlarda otomatik olarak algılanır.
 * Özelliğin get erişimcisine `EndpointUrl` Java ve C# ' kaldırıldı.
 
 **Hata düzeltmeleri**
 
 * Java dilinde çeviri tanıyıcı ses sentezi sonucuna artık uygulanır.
 * Etkin olmayan iş parçacıkları ve açık ve kullanılmayan yuva sayısının artması neden olabilecek bir hata düzeltildi.
-* Burada bir uzun süre çalışan tanıma ortadaki iletim sonlandırmak bir sorun düzeltildi.
+* Uzun süreli tanıma ortasında iletim burada sonlandırmak bir sorun düzeltildi.
 * Tanıyıcı kapatma bir yarış durumu düzeltildi.
 
 ## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Bilişsel hizmetler konuşma SDK buradan 0.5.0 sürümünü: Temmuz 2018 sürüm
 
 **Yeni Özellikler**
 
-* Android platform desteği (API 23: Android 6.0 Marshmallow veya üzeri).
-  Kullanıma [Android Hızlı Başlangıç](quickstart-java-android.md).
-* Windows üzerinde .NET Standard 2.0 desteği.
-  Kullanıma [.NET Core hızlı](quickstart-csharp-dotnetcore-windows.md).
-* Deneysel: Destek UWP üzerinde Windows (sürüm 1709 veya üzeri)
-  * Kullanıma sunduğumuz [UWP hızlı](quickstart-csharp-uwp.md).
+* Android platform desteği (API 23: Android 6.0 Marshmallow veya üzeri). Kullanıma [Android Hızlı Başlangıç](quickstart-java-android.md).
+* Windows üzerinde .NET Standard 2.0 desteği. Kullanıma [.NET Core hızlı](quickstart-csharp-dotnetcore-windows.md).
+* Deneysel: Destek UWP üzerinde Windows (sürüm 1709 veya üzeri).
+  * Kullanıma [UWP hızlı](quickstart-csharp-uwp.md).
   * Not: Windows uygulama sertifikası Kiti (WACK) Speech SDK'sı ile oluşturulan UWP uygulamaları henüz geçmeyin.
 * Otomatik yeniden bağlanma ile uzun süreli tanıma destekler.
 
 **İşlevsel değişiklikler**
 
-* `StartContinuousRecognitionAsync()` uzun tanıma çalıştırmayı destekler
-* Tanıma işleminin sonucu daha fazla alan içeriyor: ses başına ve süresi (hem de saat döngüsü) tanınan metin tanıma durumu, örn, temsil eden ek değerler uzaklığı `InitialSilenceTimeout`, `InitialBabbleTimeout`.
+* `StartContinuousRecognitionAsync()` uzun süreli tanıma destekler.
+* Tanıma işleminin sonucu daha fazla alan içeriyor. Ses başına ve süresi (hem de saat döngüsü) ve tanınan metin tanıma durumu, örneğin, temsil eden ek değerler uzaklığı `InitialSilenceTimeout` ve `InitialBabbleTimeout`.
 * AuthorizationToken factory örnekleri oluşturmak için destek.
 
 **Bozucu değişiklikler**
 
-* Tanıma olayları: NoMatch olay türü, hata olayı birleştirilir.
-* C# SpeechOutputFormat OutputFormat C++ ile hizalanmış tutmak için yeniden adlandırılır.
-* Bazı yöntemleri dönüş türünü `AudioInputStream` biraz değiştirilmiş bir arabirimi:
+* Tanıma olayları: NoMatch olay türü, hata olayı birleştirilmiş.
+* SpeechOutputFormat C#, C++ ile uyumlu kalmak için OutputFormat olarak değiştirildi.
+* Bazı yöntemleri dönüş türünü `AudioInputStream` arabirim biraz değişti:
    * Java'da,. `read` yöntemi şimdi döndürür `long` yerine `int`.
    * C# ' ta, `Read` yöntemi şimdi döndürür `uint` yerine `int`.
    * C++ ' ta `Read` ve `GetFormat` yöntemleri artık dönüş `size_t` yerine `int`.
-* C++: ses giriş akışları örneklerini artık yalnızca olarak geçirilebilir bir `shared_ptr`.
+* C++: Yalnızca ses giriş akışları artık örneklerini geçirilebilir bir `shared_ptr`.
 
 **Hata düzeltmeleri**
 
 * Sonuçta hatalı dönüş değerleri sabit olduğunda `RecognizeAsync()` zaman aşımına uğrar.
-* Windows media foundation kitaplıkları bağımlılığı kaldırılır. SDK artık çekirdek ses API'leri kullanıyor.
-* Belge düzeltmesi: eklenen bir [bölgeleri](regions.md) desteklenen bölgeleri nelerdir açıklamak için sayfa.
+* Windows media foundation kitaplıkları bağımlılığı kaldırıldı. SDK'sı artık çekirdek ses API'leri kullanır.
+* Belge düzeltmesi: eklenen bir [bölgeleri](regions.md) desteklenen bölgelerin açıklamak için sayfa.
 
-**Bilinen sorunlar**
+**Bilinen sorun**
 
-* Android için Speech SDK'sı konuşma sentezi sonuçları çeviri raporlamaz.
-  Bu, sonraki sürümde düzeltilecektir.
+* Android Speech SDK'sı için çeviri konuşma sentezi sonuçları bildirmez. Bu sorun, sonraki sürümde düzeltilecektir.
 
 ## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Bilişsel hizmetler konuşma SDK 0.4.0: Haziran 2018'den sürüm
 
@@ -91,19 +88,19 @@ ms.locfileid: "43047808"
 
 - AudioInputStream
 
-  Bir tanıyıcı, artık bir akışı ses kaynağı olarak tüketebilir. İlgili ayrıntılı bilgi için bkz: [yapılır kılavuzunda](how-to-use-audio-input-streams.md).
+  Bir tanıyıcı, artık bir akışı ses kaynağı olarak tüketebilir. Daha fazla bilgi için bkz. ilgili [yapılır kılavuzunda](how-to-use-audio-input-streams.md).
 
 - Ayrıntılı çıkış biçimi
 
-  Oluşturulurken bir `SpeechRecognizer`, talep edebilir `Detailed` veya `Simple` çıkış biçimi. `DetailedSpeechRecognitionResult` Maskelenmiş küfür ile bir güven puanı, tanınan metin, ham bir sözcük formu, normalleştirilmiş form ve normalleştirilmiş form içerir.
+  Oluştururken bir `SpeechRecognizer`, talep edebilir `Detailed` veya `Simple` çıkış biçimi. `DetailedSpeechRecognitionResult` Maskelenmiş küfür ile bir güven puanı, tanınan metin, ham bir sözcük formu, normalleştirilmiş form ve normalleştirilmiş form içerir.
 
 **Yeni değişiklik**
 
-- Değiştirin `SpeechRecognitionResult.Text` gelen `SpeechRecognitionResult.RecognizedText` C#.
+- Değiştirilecek `SpeechRecognitionResult.Text` gelen `SpeechRecognitionResult.RecognizedText` C#.
 
 **Hata düzeltmeleri**
 
-- Olası bir geri çağırma sorunu USP katmanda kapatılırken düzeltin.
+- Olası bir geri çağırma sorunu USP katmanda kapatılırken düzeltildi.
 
 - Ses giriş dosyası bir tanıyıcı kullanılan, onu için gerekenden daha uzun dosya tanıtıcısı bulunduran.
 
@@ -111,16 +108,16 @@ ms.locfileid: "43047808"
 
 - Ateş bir `NoMatch` hizmetinden gelen yanıt zaman aşımına neden.
 
-- Gecikmeli yüklenen Windows media foundation kitaplıkları. Bu kitaplığı yalnızca, mikrofon giriş için gerekli.
+- Windows media foundation kitaplıklarındaki Gecikmeli yüklendi ' dir. Bu kitaplık, yalnızca giriş mikrofon için gereklidir.
 
 - Karşıya yükleme hızı için ses verilerini iki kez özgün ses hızı hakkında sınırlıdır.
 
-- Windows üzerinde C# .NET derlemeleri artık güçlü-olarak adlandırılır.
+- Windows üzerinde C# .NET derlemeleri artık strong adlandırılır.
 
 - Belge düzeltmesi: `Region` bir tanıyıcı oluşturmak için gerekli bir bilgidir.
 
-Daha fazla örnek eklenmiştir ve sürekli olarak güncelleştiriliyor. En son örnekleri için bkz [konuşma SDK örnek GitHub deposunda](https://aka.ms/csspeech/samples).
+Daha fazla örnek eklenmiştir ve sürekli olarak güncelleştiriliyor. En son örnekleri için bkz [Speech SDK'sı örnekleri GitHub deposunda](https://aka.ms/csspeech/samples).
 
 ## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Bilişsel hizmetler konuşma SDK 0.2.12733: Mayıs 2018 sürüm
 
-Bilişsel hizmetler konuşma SDK'sının ilk genel Önizleme sürümü.
+Bu sürüm ilk Bilişsel hizmetler konuşma SDK'sı genel Önizleme sürümüdür.

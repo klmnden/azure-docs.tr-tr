@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 33072732053325f29dc44e4a46b809c1afaa93f4
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 38086d0e975956aefe4fcde4eda67d939d58f617
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312651"
+ms.locfileid: "46365851"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect kullanıcı oturum açma seçenekleri
 Azure Active Directory (Azure AD) Connect, kullanıcılarınızın hem bulut hem de şirket içi kaynaklara aynı parolayı kullanarak oturum açmasını sağlar. Bu makalede, Azure AD'de oturum açmak için kullanmak istediğiniz kimlik seçmenize yardımcı olmak her bir kimlik modeli için temel kavramları açıklar.
@@ -114,7 +114,7 @@ Kullanıcının UPN'sini şu biçimdedir username@domain. Örneğin, "contoso.co
 ### <a name="user-principal-name-in-azure-ad"></a>Azure AD'de kullanıcı asıl adı
 Azure AD Connect Sihirbazı, userPrincipalName özniteliği kullanır veya şirket içinden Azure AD'de kullanıcı asıl adı kullanılmak üzere özniteliğinde (özel bir yükleme) belirtmenize olanak tanır. Azure AD'de oturum açmak için kullanılan değer budur. UserPrincipalName özniteliğinin değeri Azure AD'de doğrulanmış bir etki alanına karşılık gelmesi gerekmez, ardından Azure AD ile bir varsayılan değiştirir. onmicrosoft.com değeri.
 
-Her dizinde bir Azure Active Directory biçimi contoso.onmicrosoft.com, Azure veya diğer Microsoft Hizmetleri kullanmaya başlamanıza olanak tanıyan bir yerleşik etki alanı adıyla birlikte gönderilir. Geliştirin ve özel etki alanları kullanarak oturum açma deneyimini basitleştirir. Azure AD'de özel etki alanı adlarını ve bir etki alanını doğrulama hakkında daha fazla bilgi için bkz: [Azure Active Directory'ye özel etki alanı adınızı ekleme](../fundamentals/add-custom-domain.md#add-a-custom-domain-name).
+Her dizinde bir Azure Active Directory biçimi contoso.onmicrosoft.com, Azure veya diğer Microsoft Hizmetleri kullanmaya başlamanıza olanak tanıyan bir yerleşik etki alanı adıyla birlikte gönderilir. Geliştirin ve özel etki alanları kullanarak oturum açma deneyimini basitleştirir. Azure AD'de özel etki alanı adlarını ve bir etki alanını doğrulama hakkında daha fazla bilgi için bkz: [Azure Active Directory'ye özel etki alanı adınızı ekleme](../fundamentals/add-custom-domain.md).
 
 ## <a name="azure-ad-sign-in-configuration"></a>Azure AD oturum açma yapılandırması
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Azure AD oturum açma yapılandırması Azure AD Connect ile

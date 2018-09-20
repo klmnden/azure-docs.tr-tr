@@ -1,18 +1,20 @@
 ---
-title: Özel görüntü işleme hizmeti sürüm notları
+title: Sürüm Notları - özel görüntü işleme hizmeti
+titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
+ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 8423051fa5169eb8acddc7297e36188e297cb9e4
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 61fa0b1d2fc40daed8b3b99a0ab0d36de802ce3d
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288675"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367993"
 ---
 # <a name="custom-vision-service-release-notes"></a>Özel görüntü işleme hizmeti sürüm notları
 

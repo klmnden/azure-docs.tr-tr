@@ -1,19 +1,21 @@
 ---
-title: Özel karar alma hizmeti iş akışı - Azure Bilişsel hizmetler | Microsoft Docs
-description: Bu makalede, Azure Custom Decision Service iş akışına genel bir bakış sağlar.
+title: Özel Karar Alma Hizmeti iş akışı
+titlesuffix: Azure Cognitive Services
+description: Bu makalede, Azure Custom Decision Service için önerilen iş akışı sağlar.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: nolachar
-ms.openlocfilehash: 32d5939e9adb4d98ae0c38a32ded0e0b6dec8256
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: b3bc7f90c9238ce58fd9dc8ac630987803d79bfd
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580642"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368027"
 ---
 # <a name="custom-decision-service-workflow"></a>Özel Karar Alma Hizmeti iş akışı
 

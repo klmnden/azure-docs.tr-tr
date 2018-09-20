@@ -10,15 +10,22 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: 204a9d64d14fe190cb0de73c964bb95b4b9b475f
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628775"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364148"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Zaman serisi görüşleri'nde veri saklamayı anlama
+
 Bu makalede, zaman serisi öngörüleri (TSI) ortamınızda veri bekletme etkileyen iki ayarları açıklanır.
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Bu videoda, Time Series Insights veri saklama ve bunun için nasıl kapsar.</br>
+
+> [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 Her TSI ortamın denetleyen bir ayarı vardır **veri saklama zamanı**. Değer 1 ile 400 gün yayılır. Veriler ortamı depolama kapasitesi veya bekletme süresine (1-400) göre silinir, hangisinin önce geldiğine.
 

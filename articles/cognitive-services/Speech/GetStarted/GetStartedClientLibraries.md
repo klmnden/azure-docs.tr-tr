@@ -1,20 +1,21 @@
 ---
-title: Bing konuşma istemci kitaplıklarını kullanarak Microsoft konuşma tanıma API'si ile çalışmaya başlama | Microsoft Docs
-description: Konuşma kayıtlarını metne dönüştürmesine uygulamaları geliştirmek için Microsoft Bilişsel hizmetler, Microsoft konuşma hizmeti istemci kitaplıkları kullanın.
+title: İstemci kitaplıkları aracılığıyla Bing konuşma tanıma API'sini kullanmaya başlama | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Konuşma kayıtlarını metne dönüştürmesine uygulamaları geliştirmek için Microsoft Bilişsel hizmetler Bing konuşma istemci kitaplıkları kullanın.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6fb490def6807204943a1ce3ba3c53186055102b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8e0c95b73db057c429c57da8c026822436c6c3b4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048466"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367283"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Bing konuşma hizmeti istemci kitaplıkları ile çalışmaya başlama
 
@@ -43,3 +44,4 @@ Mayıs 2018'de de yeni yayımlandı [konuşma hizmeti](../../speech-service/inde
 ## <a name="license"></a>Lisans
 
 Tüm Bilişsel Hizmetleri SDK'lar ve örnekler MIT lisansı ile birlikte lisanslanır. Daha fazla bilgi için [lisans](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+

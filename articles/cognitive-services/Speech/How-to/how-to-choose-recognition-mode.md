@@ -1,32 +1,33 @@
 ---
-title: Tanıma modu seçme | Microsoft Docs
-description: Nasıl en iyi tanıma modu seçin.
+title: Bing konuşma tanıma modu seçme | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Bing konuşma dilinde en iyi tanıma modu seçeceğinizi öğrenin.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f02b683dde16b537ae5554e6435c068f0fcb808
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ea11054e3062c0a265701f6d7fdd136cb692213
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352174"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366412"
 ---
-# <a name="speech-recognition-modes"></a>Konuşma tanıma modları
+# <a name="bing-speech-recognition-modes"></a>Bing konuşma tanıma modları
 
-Microsoft'un *metin konuşma* API'leri konuşma tanıma birden çok modunu destekler. Uygulamanız için en iyi tanıma sonuçlar üretir modu seçin.
+Bing konuşma metin API'lerine konuşma tanıma birden çok modlarını destekler. Uygulamanız için en iyi tanıma sonuçları üreten modunu seçin.
 
 | Mod | Açıklama |
 |---|---|
-| *Etkileşimli* | Etkileşimli bir kullanıcı uygulama senaryoları için "Komut ve Denetim" tanıma. Kullanıcılar, komutları bir uygulama olarak hedeflenen kısa tümceleri konuşun. |
-| *Yazdırma* | Sürekli tanıma dikte senaryoları için. Kullanıcıların metni olarak görüntülenmesi uzun cümleleri konuşun. Kullanıcılar daha resmi bir konuşma stili benimser. |
-| *Konuşma* | İnsanlar arasındaki görüşmeleri çoğaltmaya için sürekli tanıma. Kullanıcılar daha az resmi bir konuşma stili benimseme ve uzun cümleleri ve kısa tümcecikleri arasında farklı.
+| *Etkileşimli* | Etkileşimli kullanıcı uygulama senaryoları için "Komut ve Denetim" tanıma. Kullanıcılar, komutlar bir uygulamaya yönelik kısa deyimlerin konuşun. |
+| *Yazdırma* | Sürekli tanıma dikte senaryolar için. Metni olarak görüntülenmesi uzun cümleler kullanıcılar konuşun. Kullanıcılar daha resmi bir konuşma tarzı benimseyin. |
+| *Konuşma* | İnsanlar arasında yapılan görüşmeler fotoğrafını için sürekli tanıma. Kullanıcılar, daha az resmi bir konuşma tarzı benimseyin ve uzun cümleleri kısa tümcecikleri arasında alternatif.
 
 > [!NOTE]
-> Kullandığınızda bu modların geçerli [REST API'leri](../GetStarted/GetStartedREST.md). [İstemci kitaplıkları](../GetStarted/GetStartedClientLibraries.md) farklı parametreler tanıma modu belirtmek için kullanın. Daha fazla bilgi için tercih ettiğiniz istemci kitaplığına bakın.
+> Bu modu kullanırken geçerli [REST API'leri](../GetStarted/GetStartedREST.md). [İstemci kitaplıkları](../GetStarted/GetStartedClientLibraries.md) tanıma modunu belirtmek üzere farklı parametreler kullanın. Daha fazla bilgi için seçtiğiniz istemci kitaplığı bakın.
 
-Daha fazla bilgi için bkz: [tanıma modları](../concepts.md#recognition-modes) sayfası.
+Daha fazla bilgi için [tanıma modları](../concepts.md#recognition-modes) sayfası.

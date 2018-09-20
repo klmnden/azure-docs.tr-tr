@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 6fb60955f1d436e13234243c0e83f1487cb7f7d0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1ede114f670dc7b1f610dff7cf076329e50f9240
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127729"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367789"
 ---
 # <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
@@ -44,7 +44,7 @@ Windows Vm'leri için seri konsol belgeleri [Buraya](../windows/serial-console.m
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Linux dağıtımları için özel ayarları için bkz: [seri konsoluna erişmek için Linux](#access-serial-console-for-linux)
+* Linux dağıtımları için özel ayarları için bkz: [seri konsoluna erişmek için Linux](#Serial-Console-Linux-distro-availability)
 
 
 
@@ -52,15 +52,18 @@ Windows Vm'leri için seri konsol belgeleri [Buraya](../windows/serial-console.m
 Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure portalında](https://portal.azure.com). Portal aracılığıyla sanal makineler için seri konsoluna erişmek için adımları aşağıda verilmiştir 
 
   1. Azure portalını açın
-  2. Sol taraftaki menüde, sanal makineleri seçin.
-  3. VM listesinde tıklayın. VM için genel bakış sayfası açılır.
-  4. Destek + sorun giderme bölümüne aşağı kaydırın ve "Seri konsol" seçeneğine tıklayın. Seri konsolu ile yeni bir bölme açılır ve bağlantıyı başlatın.
+  1. (Bu, sanal Makinenizin parola kimlik doğrulaması kullanan bir kullanıcının varsa atlayın) Kullanıcı adı/parola kimlik doğrulaması ile kullanıcı dikey penceresinde "Parolayı Sıfırla" tıklayarak ekleme
+  1. Sol taraftaki menüde, sanal makineleri seçin.
+  1. VM listesinde tıklayın. VM için genel bakış sayfası açılır.
+  1. Destek + sorun giderme bölümüne aşağı kaydırın ve "Seri konsol" seçeneğine tıklayın. Seri konsolu ile yeni bir bölme açılır ve bağlantıyı başlatın.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
+### 
 
 > [!NOTE] 
-> Seri konsol yapılandırılmış bir parolayla yerel bir kullanıcı gerektirir. Şu anda yalnızca bir SSH ortak anahtarı ile yapılandırılan VM'ler seri konsoluna erişimi yoktur. Parola ile yerel bir kullanıcı oluşturmak için kullanın [VM erişimi uzantısı](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (Ayrıca "parolayı Sıfırla" tıklayarak Portalı'nda kullanılabilir) ve bir parolayla yerel bir kullanıcı oluşturun.
+> Seri konsol yapılandırılmış bir parolayla yerel bir kullanıcı gerektirir. Şu anda yalnızca bir SSH ortak anahtarı ile yapılandırılan VM'ler için seri konsol oturum açmak mümkün olmayacaktır. Parola ile yerel bir kullanıcı oluşturmak için kullanın [VM erişimi uzantısı](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), "parola sıfırlama portalı içinde" tıklayarak Portalı'nda ve bir parolayla yerel bir kullanıcı oluşturun.
+> Hesabınızda tarafından yönetici parolasını sıfırlayabilir [tek kullanıcı moduna bırakmak GRUB'ı kullanarak](./serial-console-grub-single-user-mode.md).
 
 ## <a name="serial-console-linux-distro-availability"></a>Seri konsol Linux distro kullanılabilirlik
 Okuma ve seri bağlantı noktasına konsol iletileri yazma, düzgün bir şekilde seri konsol için sırada, konuk işletim sistemi yapılandırılması gerekir. Çoğu [desteklenen Azure Linux dağıtımı](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) varsayılan olarak yapılandırılmış seri Konsolu. Yalnızca Azure portalında seri konsol bölümüne tıklayarak konsoluna erişim sağlar. 
@@ -208,6 +211,8 @@ A. Görüntünüzü seri konsol erişimi için büyük olasılıkla yanlış yap
 **SORU. Seri konsol sanal makine ölçek kümeleri için kullanılabilir mi?**
 
 A. Seri konsol erişimi için sanal makine ölçek kümesi örneklerine şu anda desteklenmiyor.
+
+**SORU. My VM'yi yalnızca SSH anahtar kimlik kullanarak ayarlarım, hala seri konsoluna bağlanmak için sanal Makinem için kullanabilir miyim?** Yanıt: Evet. Tüm yapmanız gereken ayarlanmış şekilde bir kullanıcı adı/parola birleşimini SSH anahtarları, seri konsol gerektirmez. Portalda "Parolayı Sıfırla" dikey penceresini kullanarak ve seri konsol açmak için bu kimlik bilgilerini kullanarak bunu yapabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Seri Konsolu [önyükleme GRUB ve tek kullanıcı moduna gir](serial-console-grub-single-user-mode.md)
