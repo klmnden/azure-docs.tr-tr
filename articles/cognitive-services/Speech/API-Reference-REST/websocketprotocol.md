@@ -1,30 +1,31 @@
 ---
-title: Microsoft konuşma tanıma WebSocket Protokolü | Microsoft Docs
-description: Üzerinde WebSockets Protokolü belgeleri konuşma hizmeti için temel
+title: Bing konuşma WebSocket Protokolü | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Üzerinde WebSockets Protokolü belgeleri için Bing konuşma tabanlı
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 17954536e8bdb49c09204c2e522586b79cb1bef5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 906b71f8312db843745f2e49fd211b010d8a6c83
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352318"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368248"
 ---
-# <a name="speech-service-websocket-protocol"></a>Konuşma hizmet WebSocket Protokolü
+# <a name="bing-speech-websocket-protocol"></a>Bing konuşma WebSocket Protokolü
 
-  Konuşma, metne dönüştürme konuşulan sesi için kullanılabilen en gelişmiş algoritmalar özellikleri bulut tabanlı bir platform hizmetidir. Konuşma hizmet protokolü tanımlar [bağlantı kurma](#connection-establishment) istemci uygulamaları ve hizmet ve ortaklarınıza arasında alınıp konuşma tanıma iletileri arasında ([istemci kaynaklı iletileri](#client-originated-messages)ve [hizmeti kaynaklı iletileri](#service-originated-messages)). Ayrıca, [telemetri iletilerini](#telemetry-schema) ve [hata işleme](#error-handling) açıklanmaktadır.
+Bing konuşma metin dönüştürme konuşma sesine kullanılabilir en gelişmiş algoritmalar özellikleri bir bulut tabanlı bir platformdur. Bing konuşma protokolü tanımlar [bağlantı kurma](#connection-establishment) istemci uygulamaları, hizmet ve ortaklarınıza arasında alınıp verilen konuşma tanıma iletileri arasındaki ([istemci kaynaklı iletiler](#client-originated-messages) ve [hizmeti kaynaklı iletiler](#service-originated-messages)). Ayrıca, [telemetri iletilerini](#telemetry-schema) ve [hata işleme](#error-handling) açıklanmıştır.
 
 ## <a name="connection-establishment"></a>Bağlantı kurma
 
-Konuşma hizmet protokolü WebSocket standart izler [IETF RFC 6455](https://tools.ietf.org/html/rfc6455). WebSocket bağlantısı HTTP semantiği kullanmak yerine bir WebSocket bağlantı yükseltmek için istemcinin desire belirtmek HTTP üst bilgilerini içeren bir HTTP isteği olarak başlar. Bir HTTP döndürerek WebSocket bağlantı katılmak için konusundaki istek sunucuyu gösterir `101 Switching Protocols` yanıt. Bu el sıkışma exchange sonra hem istemci hem de hizmet yuva açık tutmak ve bilgi göndermek ve almak için bir ileti tabanlı protokolü kullanarak başlayın.
+Konuşma hizmeti Protokolü WebSocket standart bir belirtim izleyen [IETF RFC 6455](https://tools.ietf.org/html/rfc6455). WebSocket bağlantısı HTTP semantiğine kullanmak yerine bir WebSocket bağlantısı yükseltmek için müşterinin isteğine belirten bir HTTP üst bilgilerini içeren bir HTTP isteği olarak başlar. Sunucu HTTP döndürerek WebSocket bağlantı katılmak için konusundaki isteği gösterir `101 Switching Protocols` yanıt. Bu el sıkışması alışverişi sonra hem istemci hem de hizmet yuva açık tutun ve bilgi göndermek ve almak için bir ileti tabanlı iletişim kuralı'ı kullanmaya başlamak.
 
-WebSocket el sıkışma başlamak için istemci uygulaması hizmete bir HTTPS GET isteği gönderir. Konuşma özgü diğer üstbilgileri birlikte standart WebSocket yükseltme üstbilgilerini içerir.
+WebSocket el sıkışması başlamak için istemci uygulama hizmetine bir HTTPS GET isteği gönderir. Bu, konuşma belirli olan diğer üst birlikte standart WebSocket yükseltme üstbilgileri içerir.
 
 ```HTTP
 GET /speech/recognition/interactive/cognitiveservices/v1 HTTP/1.1
@@ -49,50 +50,50 @@ Set-Cookie: SpeechServiceToken=AAAAABAAWTC8ncb8COL; expires=Wed, 17 Aug 2016 15:
 Date: Wed, 17 Aug 2016 15:03:52 GMT
 ```
 
-Tüm konuşma istekleri gerektiren [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) şifreleme. Şifrelenmemiş konuşma istekleri kullanımı desteklenmiyor. Aşağıdaki TLS sürümü desteklenir:
+Tüm sesli istekleri gerektiren [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) şifreleme. Şifrelenmemiş sesli istekleri kullanımı desteklenmiyor. Aşağıdaki TLS sürümü desteklenir:
 
 * TLS 1.2
 
-### <a name="connection-identifier"></a>Bağlantı tanımlayıcısı
+### <a name="connection-identifier"></a>Bağlantı tanımlayıcı
 
-Konuşma hizmeti, tüm istemcilerin bağlantıyı tanımlamak için benzersiz bir kimliği eklemenizi gerektirir. İstemcileri *gerekir* dahil *X ConnectionID* WebSocket el sıkışma başlattığınızda üstbilgi. *X ConnectionID* üstbilgi olmalıdır bir [evrensel benzersiz tanımlayıcı](https://en.wikipedia.org/wiki/Universally_unique_identifier) (UUID) değeri. İçermeyen WebSocket yükseltme istekleri *X ConnectionID*, için bir değer belirtmezseniz *X ConnectionID* , üst veya geçerli bir içerme bir HTTP hizmetiyletarafındanreddedilenUUIDdeğer`400 Bad Request` yanıt.
+Konuşma hizmeti, tüm istemcilerin bu bağlantıyı tanımlamak için benzersiz bir kimliği eklemenizi gerektirir. İstemciler *gerekir* dahil *X ConnectionID* bir WebSocket anlaşması'na başlattığınızda başlığı. *X ConnectionID* başlığı olmalıdır bir [evrensel benzersiz tanımlayıcı](https://en.wikipedia.org/wiki/Universally_unique_identifier) (UUID) değeri. İçermeyen WebSocket Yükseltme isteklerini *X ConnectionID*, için bir değer belirtmeyin *X ConnectionID* üst bilgi veya geçerli bir içerme hizmeti ile bir HTTP tarafındanreddedilenUUIDdeğer`400 Bad Request` yanıt.
 
 ### <a name="authorization"></a>Yetkilendirme
 
-Standart WebSocket el sıkışma üstbilgilerini yanı sıra konuşma istekleri gerektiren bir *yetkilendirme* üstbilgi. Bağlantı isteklerini bu başlığı reddedilir olmadan bir HTTP ile hizmeti tarafından `403 Forbidden` yanıt.
+Ek olarak standart WebSocket el sıkışması üstbilgileri, sesli istekleri gerektiren bir *yetkilendirme* başlığı. Bağlantı isteklerini HTTP hizmetiyle tarafından bu başlığı reddedilir olmadan `403 Forbidden` yanıt.
 
-*Yetkilendirme* üstbilgi bir JSON Web Token (JWT) erişim belirteci içermesi gerekir.
+*Yetkilendirme* üst bilgisi, JSON Web Token (JWT) erişim belirteci içermelidir.
 
-Abone olmak ve geçerli JWT erişim belirteçleri almak için kullanılan API anahtarlarını almak hakkında daha fazla bilgi için bkz: [Bilişsel hizmetler abonelik](https://azure.microsoft.com/try/cognitive-services/) sayfası.
+Geçerli JWT erişim belirteçlerini almak için kullanılan API anahtarlarını edinin ve abone olma hakkında daha fazla bilgi için bkz: [Bilişsel hizmetler abonelik](https://azure.microsoft.com/try/cognitive-services/) sayfası.
 
-API anahtarını belirteç hizmetine geçirilir. Örneğin:
+API anahtarı belirteç hizmetine geçirilir. Örneğin:
 
 ``` HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 Content-Length: 0
 ```
 
-Aşağıdaki üst bilgileri için belirteç erişimi gereklidir.
+Aşağıdaki üst bilgi bilgileri için belirteç erişimi gereklidir.
 
 | Ad | Biçimlendir | Açıklama |
 |----|----|----|
-| Ocp Apim abonelik anahtarı | ASCII | Abonelik anahtarınız |
+| Ocp-Apim-Subscription-Key | ASCII | Abonelik anahtarınız |
 
-JWT erişim belirteci olarak belirteç hizmetine döndürür `text/plain`. JWT olarak geçirilen sonra bir `Base64 access_token` el sıkışması olarak için bir *yetkilendirme* dizesiyle önekli üstbilgi `Bearer`. Örneğin:
+JWT belirteci belirteç hizmetine döndürür `text/plain`. Daha sonra JWT olarak geçirilen bir `Base64 access_token` anlaşma için bir *yetkilendirme* dizesiyle ön ekli üst bilgi `Bearer`. Örneğin:
 
 `Authorization: Bearer [Base64 access_token]`
 
 ### <a name="cookies"></a>Tanımlama bilgileri
 
-İstemcileri *gerekir* belirtilen HTTP tanımlama bilgilerini destekleyen [RFC 6265](https://tools.ietf.org/html/rfc6265).
+İstemciler *gerekir* belirtildiği gibi HTTP tanımlama bilgilerini desteklediği [RFC 6265](https://tools.ietf.org/html/rfc6265).
 
 ### <a name="http-redirection"></a>HTTP yeniden yönlendirmesi
 
-İstemcileri *gerekir* tarafından belirtilen standart yeniden yönlendirme mekanizmaları [HTTP protokolü belirtimi](http://www.w3.org/Protocols/rfc2616/rfc2616.html).
+İstemciler *gerekir* tarafından belirtilen standart yönlendirme mekanizmaları [HTTP protokolü belirtimi](http://www.w3.org/Protocols/rfc2616/rfc2616.html).
 
-### <a name="speech-endpoints"></a>Konuşma uç noktaları
+### <a name="speech-endpoints"></a>Konuşma tanıma uç noktaları
 
-İstemcileri *gerekir* konuşma hizmeti uygun bir uç noktası kullan. Uç nokta tanıma modu ve dil dayanır. Tablo bazı örnekler göstermektedir.
+İstemciler *gerekir* konuşma hizmeti uygun bir uç noktasını kullanın. Uç nokta tanıma modu ve dil dayanır. Tablo bazı örnekler göstermektedir.
 
 | Mod | Yol | Hizmet URI'si |
 | -----|-----|-----|
@@ -100,91 +101,91 @@ JWT erişim belirteci olarak belirteç hizmetine döndürür `text/plain`. JWT o
 | Konuşma | /Speech/Recognition/Conversation/cognitiveservices/V1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
 | Yazdırma | /Speech/Recognition/Dictation/cognitiveservices/V1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
-Daha fazla bilgi için bkz: [hizmeti URI'si](../GetStarted/GetStartedREST.md#service-uri) sayfası.
+Daha fazla bilgi için [hizmet URI'si](../GetStarted/GetStartedREST.md#service-uri) sayfası.
 
 ### <a name="report-connection-problems"></a>Rapor bağlantı sorunları
 
-İstemciler bir bağlantı yaparken karşılaşılan tüm sorunları hemen bildirmeniz gerekir. Raporlama başarısız bağlantıları için ileti Protokolü açıklanan [bağlantı hatası telemetri](#connection-failure-telemetry).
+İstemciler bir bağlantı yaparken karşılaştığınız tüm sorunları hemen bildirmelisiniz. Raporlama başarısız bağlantılar için ileti Protokolü açıklanan [bağlantı başarısızlık telemetrilerini](#connection-failure-telemetry).
 
 ### <a name="connection-duration-limitations"></a>Bağlantı süresi sınırlamaları
 
-Tipik web hizmeti HTTP bağlantıları ile karşılaştırıldığında, WebSocket bağlantıları son bir *uzun* zaman. Konuşma Service sınırlamalar hizmetine WebSocket bağlantı süresi yerleştirir:
+Tipik bir web hizmetinin HTTP bağlantılarıyla karşılaştırıldığında WebSocket bağlantılarını son bir *uzun* zaman. Konuşma hizmeti hizmetine WebSocket bağlantılarını süresi sınırlamalar getirir:
 
- * Etkin bir WebSocket bağlantı için en uzun süresi 10 dakikadır. Hizmet veya istemci o bağlantı üzerinden WebSocket iletileri gönderir, bağlantı durumu etkindir. Sınıra ulaşıldığında hizmet uyarmadan bağlantıyı sonlandırır. İstemcileri veya en yüksek bağlantı yaşam süresi'e yakın etkin kalmasını bağlantı gerektirmeyen bazı kullanıcı senaryoları geliştirmelisiniz.
+ * Herhangi bir etkin WebSocket bağlantısı için en uzun süresi 10 dakikadır. Bir bağlantı, hizmet veya istemci WebSocket iletileri bu bağlantı üzerinden gönderirse etkindir. Sınıra ulaşıldığında, hizmet uyarmadan bağlantıyı sonlandırır. İstemciler, rezervasyon sırasında veya en yüksek bağlantı ömrü yakın etkin bağlantı gerektirmeyen kullanıcı senaryoları geliştirmeniz gerekir.
 
- * Herhangi bir etkin olmayan WebSocket bağlantısı için en uzun süre 180 saniyedir. Bir bağlantı hizmet ne istemci WebSocket ileti bağlantı üzerinden gönderilen durumunda etkin değil. En fazla etkin olmayan yaşam süresi ulaşıldıktan sonra hizmeti devre dışı WebSocket bağlantıyı sonlandırır.
+ * Etkin olmayan herhangi bir WebSocket bağlantısı için süre üst sınırını 180 saniyedir. Bir bağlantı, hizmet ya da istemci bağlantı üzerinden bir WebSocket ileti gönderdiğinde etkin değil. Etkin olmayan en fazla ömrü ulaşıldıktan sonra hizmeti devre dışı WebSocket bağlantıyı sonlandırır.
 
 ## <a name="message-types"></a>İleti türleri
 
-İstemci ile hizmet arasında WebSocket bağlantısı kurulduktan sonra hem istemci hem de hizmet iletileri gönderebilir. Bu bölümde bu WebSocket iletiler biçimi açıklanmaktadır.
+İstemciyi ve hizmeti arasında bir WebSocket bağlantısı kurulduktan sonra hem istemci hem de hizmet iletileri gönderebilir. Bu bölümde, bu WebSocket iletilerin biçimini tanımlar.
 
-[IETF RFC 6455](https://tools.ietf.org/html/rfc6455) WebSocket iletileri bir metin veya ikili kodlama kullanılarak veri iletebilir belirtir. İki Kodlamalar farklı üzerinde hat biçimleri kullanın. Her biçim verimli kodlama, iletim ve ileti yükünü çözülmesi için optimize edilmiştir.
+[IETF RFC 6455](https://tools.ietf.org/html/rfc6455) bir metin veya ikili kodlama kullanarak WebSocket iletileri veri iletebilir belirtir. İki kodlama farklı-hat üzerinde biçimler kullanır. Her biçim verimli kodlama, iletim ve ileti yükü kod çözme için optimize edilmiştir.
 
 ### <a name="text-websocket-messages"></a>Metin WebSocket iletileri
 
-Metin WebSocket iletileri üstbilgiler ve HTTP iletileri için kullanılan tanıdık başı çift yeni satır çifti ile ayrılmış bir gövde bölümünü oluşan metin bilgileri yükü getirir. Ve HTTP iletileri gibi metin WebSocket iletileri üstbilgilerinde belirtin *ad: değer* biçimi tek satır başı yeni satır çifti tarafından ayrılmış. Bir metin WebSocket iletideki herhangi bir metin *gerekir* kullanmak [UTF-8](https://tools.ietf.org/html/rfc3629) kodlama.
+WebSocket sms'ler bir üst bilgiler ve HTTP iletileri için kullanılan bilinen çift satır başı satır çifti tarafından ayrılmış bir gövde bölümünü içeren metin tabanlı bilgiler bir yükü getirir. Ve HTTP iletileri gibi metin WebSocket iletisi üst bilgilerinde belirtin *adı: değer* biçimi tek satır başı satır çifti tarafından ayrılmış. Bir metin WebSocket iletideki herhangi bir metin *gerekir* kullanın [UTF-8](https://tools.ietf.org/html/rfc3629) kodlama.
 
-Metin WebSocket iletileri yol belirtmelisiniz. bir ileti üstbilgisinde *yolu*. Bu üstbilgi değerini daha sonra bu belgede tanımlanan konuşma protokolü ileti türlerinden biri olması gerekir.
+WebSocket sms'ler ileti yolu üst bilgisinde belirtmelidir *yolu*. Bu üstbilgisinin değerini daha sonra bu belgede tanımlanan konuşma protokolü ileti türlerinden biri olması gerekir.
 
 ### <a name="binary-websocket-messages"></a>İkili WebSocket iletileri
 
-İkili WebSocket iletileri bir ikili yükü getirir. Konuşma hizmeti protokolünde ses için aktarılan ve ikili WebSocket iletileri kullanarak hizmetinden alındı. Diğer tüm iletileri metin WebSocket iletileri edilir. 
+İkili yük ikili WebSocket iletileri taşır. Konuşma hizmeti protokolünde ses için gönderilen ve ikili WebSocket iletileri kullanarak hizmetinden alınan. Diğer tüm iletiler sms'ler WebSocket ' dir. 
 
-Metin WebSocket iletileri gibi bir başlığı ve gövde bölümü ikili WebSocket iletileri oluşur. İlk 2 bayt ikili WebSocket iletisinin belirtin, buna [big endian](https://en.wikipedia.org/wiki/Endianness) sipariş, üstbilgi bölümünün 16 bit tam sayı boyutu. En düşük üstbilgi bölüm boyutu 0 bayt'tır. En büyük boyutu 8.192 bayttır. İkili WebSocket iletilerinin üstbilgisi metinde *gerekir* kullanmak [US-ASCII](https://tools.ietf.org/html/rfc20) kodlama.
+Metin WebSocket iletileri gibi ikili WebSocket iletileri üstbilgi ve gövde bölümü oluşur. İlk 2 baytı ikili WebSocket iletisinin belirtin, buna [büyük endian](https://en.wikipedia.org/wiki/Endianness) sipariş, 16 bit tam sayı boyutu üst bilgisi bölümü. En düşük bölüm boyut 0 bayt'tır. En büyük boyutu 8192 bayttır. İkili WebSocket ileti üst bilgisindeki metin *gerekir* kullanın [US-ASCII](https://tools.ietf.org/html/rfc20) kodlama.
 
-Bir ikili WebSocket ileti üstbilgilerinde metin WebSocket iletileri olduğu gibi aynı biçimde kodlanır. *Ad: değer* tek satır başı yeni satır çifti tarafından ayrılmış biçimi. İkili WebSocket iletileri yol belirtmelisiniz. bir ileti üstbilgisinde *yolu*. Bu üstbilgi değerini daha sonra bu belgede tanımlanan konuşma protokolü ileti türlerinden biri olması gerekir.
+İkili bir WebSocket iletisindeki üst WebSocket sms'ler olduğu gibi aynı biçimde kodlanmış. *Ad: değer* biçimi tek satır başı satır çifti tarafından ayrılmış. İkili WebSocket ileti üstbilgisinde bir ileti yol belirtmelisiniz *yolu*. Bu üstbilgisinin değerini daha sonra bu belgede tanımlanan konuşma protokolü ileti türlerinden biri olması gerekir.
 
-Metin ve ikili WebSocket iletileri konuşma hizmeti protokolünde kullanılır. 
+Metin ve ikili WebSocket iletileri hem konuşma hizmeti protokolü kullanılır. 
 
-## <a name="client-originated-messages"></a>İstemci kaynaklanan iletileri
+## <a name="client-originated-messages"></a>İstemci kaynaklı iletiler
 
-Bağlantı kurulduktan sonra hem istemci hem de hizmet iletileri göndermek başlatabilirsiniz. Bu bölümde biçimini ve istemci uygulamaları konuşma hizmetine gönderdiğiniz iletileri yükünü açıklanmaktadır. Bölüm [hizmeti kaynaklı iletileri](#service-originated-messages) konuşma hizmetinde kaynaklanan ve istemci uygulamaları için gönderilen iletileri gösterir.
+Bağlantı kurulduktan sonra ileti göndermek hem istemci hem de hizmetini başlatabilirsiniz. Bu bölümde, biçimini ve konuşma hizmeti için istemci uygulamaları Gönder ileti yükü açıklanmaktadır. Bölüm [hizmeti kaynaklı iletiler](#service-originated-messages) konuşma hizmeti kaynaklanan ve istemci uygulamaları için gönderilen iletileri gösterir.
 
-Hizmetlere istemci tarafından gönderilen ana iletiler `speech.config`, `audio`, ve `telemetry` iletileri. Biz her ileti ayrıntılı düşünmeden önce bu iletiler ileti üstbilgilerini açıklanan ortak gereklidir.
+Hizmetlere istemci tarafından gönderilen ana iletiler `speech.config`, `audio`, ve `telemetry` iletileri. Biz, her ileti ayrıntılı düşünmeden önce ortak ileti üstbilgileri bu iletiler için açıklanan gereklidir.
 
 ### <a name="required-message-headers"></a>Gerekli ileti üstbilgileri
 
-Aşağıdaki üst bilgiler, tüm istemci kaynaklanan iletiler için gereklidir.
+Aşağıdaki üst bilgiler, tüm istemci kaynaklı iletiler için gereklidir.
 
 | Üst bilgi | Değer |
 |----|----|
 | Yol | Bu belgede belirtilen ileti yolu |
-| X-RequestId | "No-tire" biçiminde UUID |
-| X-zaman damgası | ISO 8601 biçiminde istemci UTC saat zaman damgası |
+| X-RequestId | "No-dash" biçiminde UUID |
+| X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
 
 #### <a name="x-requestid-header"></a>X-RequestId üstbilgisi
 
-İstemci kaynaklanan istekleri benzersiz şekilde tanımlanır *X RequestId* ileti üstbilgisi. Bu üst istemci kaynaklanan tüm iletiler için gereklidir. *X RequestId* üstbilgi değeri olmalıdır bir UUID "no-tire" formunda, örneğin, *123e4567e89b12d3a456426655440000*. Bu *olamaz* kurallı biçiminde olması *123e4567-e89b-12d3-a456-426655440000*. Olmadan ister bir *X RequestId* üstbilgisi veya biçimi yanlış UUID WebSocket bağlantıyı sonlandırmasına hizmetinin neden için kullandığı bir üstbilgi değeri.
+İstemci kaynaklı istekler tarafından benzersiz şekilde tanımlanır *X-RequestId* ileti üst bilgisi. Bu üst bilgisi, tüm istemci kaynaklı iletiler için gereklidir. *X-RequestId* üstbilgi değeri olmalıdır bir UUID'ye "no-dash" formunda, örneğin, *123e4567e89b12d3a456426655440000*. Bunu *olamaz* kurallı biçiminde olması *123e4567-e89b-12d3-a456-426655440000*. Olmadan istekleri bir *X-RequestId* üst bilgi veya biçimi yanlış UUID WebSocket bağlantısı sonlandırmak Service'in için kullandığı bir üstbilgi değeri.
 
 #### <a name="x-timestamp-header"></a>X-zaman damgası üstbilgisi
 
-Konuşma hizmeti için bir istemci uygulaması tarafından gönderilen her ileti *gerekir* içeren bir *X zaman damgası* üstbilgi. Bu üstbilgisi değeri istemci ileti gönderdiğinde saattir. Olmadan ister bir *X zaman damgası* üstbilgisi veya yanlış biçimi kullanan bir üstbilgi değeri ile WebSocket bağlantıyı sonlandırmasına hizmeti neden olabilir.
+Konuşma hizmeti için bir istemci uygulama tarafından gönderilen her ileti *gerekir* dahil bir *X zaman damgası* başlığı. Bu üst bilgi değeri istemci ileti gönderdiğinde zamandır. Olmadan istekleri bir *X zaman damgası* üst bilgi veya yanlış biçimini kullanan bir üstbilgi değerini WebSocket bağlantısı sona erdirmek hizmeti neden olabilir.
 
-*X zaman damgası* üstbilgi değeri, 'yyyy'-'MM'-'dd'T' ss biçiminde olmalıdır ': 'mm':'ss '.' fffffffZ' 'fffffff' bir saniyenin olduğu. Örneğin, '12,5', '12 + 5/10 saniye ve '12.526' anlamına gelir ' 12 artı 526/1000 saniye' anlamına gelir. Bu biçim ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve standart HTTP aksine *tarih* üstbilgisi, onu milisaniye çözünürlüğü sağlayabilir. İstemci uygulamaları yakın milisaniye zaman damgaları yuvarlak. İstemci uygulamaları için gereken aygıt saat doğru şekilde zaman kullanarak ilerlediğinden emin olmak bir [ağ zaman Protokolü (NTP) sunucusu](https://en.wikipedia.org/wiki/Network_Time_Protocol).
+*X zaman damgası* üst bilgi değeri, 'yyyy'-'MM'-'dd'T' HH biçiminde olmalıdır ': 'mm':'ss '.' fffffffZ' 'fffffff', bir saniyenin olduğu. Örneğin, '12,5', '12 + 5/10 saniye ve '12.526' yol ' 12 yanı sıra 526/1000 saniye' anlamına gelir. Bu biçim ile uyumlu [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) ve standart HTTP aksine *tarih* üst bilgi, milisaniye çözümleme sağlayabilir. İstemci uygulamaları en yakın milisaniyeye zaman damgaları yuvarlak. İstemci uygulamaları için gereken cihaz saati doğru zaman kullanarak ilerlediğinden emin olmak bir [Ağ Saati Protokolü (NTP) sunucusu](https://en.wikipedia.org/wiki/Network_Time_Protocol).
 
 ### <a name="message-speechconfig"></a>İleti `speech.config`
 
-Konuşma hizmet en iyi olası konuşma tanıma sağlamak için uygulamanızın özelliklerini bilmek ister. Gerekli özellikleri veri cihaz ve uygulamanızı'nın temelini oluşturan işletim sistemi hakkında bilgiler içerir. Bu bilgiyi sağlamanız `speech.config` ileti.
+Konuşma hizmeti, en iyi olası konuşma tanıma sağlamak için uygulamanızın özelliklerini bilmek ister. Gerekli özellikleri veriler, uygulamanızı çalıştıran işletim sistemi ve cihaz hakkında bilgi içerir. Bu bilgileri sağlamanız `speech.config` ileti.
 
-İstemcileri *gerekir* Gönder bir `speech.config` hemen bunlar konuşma hizmetine ve herhangi bir göndermeden önce bağlantı kurduktan sonra ileti `audio` iletileri. Göndermesi gerekir. bir `speech.config` bağlantı başına yalnızca bir kez iletisi.
+İstemciler *gerekir* Gönder bir `speech.config` hemen bunlar konuşma hizmeti ve tüm göndermeden önce bağlantıyı kurduktan sonra ileti `audio` iletileri. Göndermek gereken bir `speech.config` bağlantı yalnızca bir kez iletisi.
 
 | Alan | Açıklama |
 |----|----|
 | WebSocket ileti kodlama | Metin |
-| Gövde | Yükü JSON yapısındaki olarak |
+| Gövde | Yükü olarak JSON yapısı |
 
 #### <a name="required-message-headers"></a>Gerekli ileti üstbilgileri
 
-| Üstbilgi adı | Değer |
+| Üst bilgi adı | Değer |
 |----|----|
 | Yol | `speech.config` |
-| X-zaman damgası | ISO 8601 biçiminde istemci UTC saat zaman damgası |
+| X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
 | Content-Type | Uygulama/json; Charset = utf-8 |
 
-Tüm istemci kaynaklanan iletileri gibi konuşma hizmet protokolü ile `speech.config` ileti *gerekir* içeren bir *X zaman damgası* ileti gönderilme zaman istemci UTC saati süresi kayıtları üstbilgisi için hizmet. `speech.config` İleti *yok* gerektiren bir *X RequestId* üstbilgi bu iletiyi belirli konuşma istekle ilişkili olmadığından.
+Tüm istemci kaynaklı iletiler gibi konuşma tanıma hizmeti protokolü ile `speech.config` ileti *gerekir* dahil bir *X zaman damgası* kaydeder olduğunda iletinin gönderildiği istemci UTC saati zamanı üst bilgisi hizmet için. `speech.config` İleti *yok* gerektiren bir *X-RequestId* üst bilgisi bu ileti konuşma belirli bir istekle ilişkili olmadığından.
 
 #### <a name="message-payload"></a>İleti yükü
-Yükü `speech.config` iletisidir uygulamayla ilgili bilgileri içeren bir JSON yapısı. Aşağıdaki örnek, bu bilgileri gösterir. İstemci ve cihaz bağlamı bilgileri yer almaktadır *bağlamı* JSON yapısındaki öğesidir. 
+Yükü `speech.config` iletisidir uygulamayla ilgili bilgileri içeren bir JSON yapısı. Aşağıdaki örnek, bu bilgileri gösterir. İstemci ve cihaz bağlamı bilgilerini dahil *bağlam* JSON yapısı öğesidir. 
 
 ```JSON
 {
@@ -209,38 +210,38 @@ Yükü `speech.config` iletisidir uygulamayla ilgili bilgileri içeren bir JSON 
 
 ##### <a name="system-element"></a>Sistem öğesi
 
-System.version öğesinin `speech.config` ileti konuşma istemci uygulaması ya da aygıt tarafından kullanılan SDK yazılım sürümünü içerir. Değer biçimindedir *major.minor.build.branch*. Atlayabilirsiniz *şube* geçerli değilse bileşeni.
+System.version öğesinin `speech.config` ileti, konuşma istemci uygulama veya cihaz tarafından kullanılan SDK yazılım sürümünü içerir. Değer şu şekildedir *major.minor.build.branch*. Atlayabilirsiniz *dal* geçerli değilse bileşeni.
 
 ##### <a name="os-element"></a>İşletim sistemi öğesi
 
 | Alan | Açıklama | Kullanım |
 |-|-|-|
-| OS.Platform | İşletim sistemi örneğin uygulamasını barındıran platform, Windows, Android, iOS veya Linux |Gerekli |
+| OS.Platform | İşletim sistemi örnek uygulamasını barındıran platformu, Windows, Android, iOS veya Linux |Gerekli |
 | OS.Name | Örneğin, Debian veya Windows 10 işletim sistemi ürün adı | Gerekli |
-| OS.Version | Formunda işletim sistemi sürümüne *major.minor.build.branch* | Gerekli |
+| OS.Version | Biçimindeki işletim sistemi sürümünü *major.minor.build.branch* | Gerekli |
 
-##### <a name="device-element"></a>Aygıt öğesi
+##### <a name="device-element"></a>Cihaz öğesi
 
 | Alan | Açıklama | Kullanım |
 |-|-|-|
-| Device.Manufacturer | Aygıt donanım üreticisi | Gerekli |
+| Device.Manufacturer | Cihaz donanım üreticisi | Gerekli |
 | Device.model | Cihaz modeli | Gerekli |
-| Device.Version | Aygıt üreticisi tarafından sağlanan cihaz yazılım sürümü. Bu değer üretici tarafından izlenen cihaz sürümünü belirtir. | Gerekli |
+| Device.Version | Cihaz üreticisi tarafından sağlanan cihaz yazılımı sürümü. Bu değer, cihaz üreticisi tarafından izlenen bir sürümünü belirtir. | Gerekli |
 
 ### <a name="message-audio"></a>İleti `audio`
 
-Konuşma etkinleştirilmiş istemci uygulamaları ses öbekleri bir dizi ses akışı dönüştürerek, konuşma hizmetine ses gönderin. Ses, her bir öbeğin bir parçasını hizmeti tarafından transcribed için konuşulan ses taşır. Tek bir ses öbek en büyük boyutunu 8.192 bayttır. Ses akışı iletiler *ikili WebSocket iletileri*.
+Konuşma özellikli istemci uygulamalar bir dizi ses öbekler ses akışı dönüştürerek, konuşma tanıma Hizmeti'ne ses gönderin. Her bir öbeği ses bir hizmet tarafından transcribed için konuşulan ses parçasını yürütür. Tek bir ses öbek boyutu üst sınırı 8192 bayttır. Ses akışı iletiler *ikili WebSocket iletileri*.
 
-İstemcilerin kullandığı `audio` hizmete bir ses öbek gönderilecek ileti. İstemcileri parçalar mikrofon gelen ses okuyun ve bu öbekleri için transcription konuşma hizmetine göndermek. İlk `audio` ileti düzgün ses hizmeti tarafından desteklenen kodlama biçimlerden birine uyan belirtir doğru biçimlendirilmiş bir üstbilgi içermesi gerekir. Ek `audio` iletiler ikili ses akışı yalnızca mikrofon okunan veriler içerir.
+İstemcilerin kullandığı `audio` hizmete bir ses öbek gönderilecek ileti. İstemciler, ses öbekler halinde mikrofondan okuyun ve bu öbekleri döküm için konuşma tanıma Hizmeti'ne gönderin. İlk `audio` ileti düzgün ses kodlama hizmeti tarafından desteklenen biçimlerden biri için uygun olduğunu belirtir. iyi biçimlendirilmiş bir üst bilgisi içermesi gerekir. Ek `audio` iletiler ikili ses akışı yalnızca mikrofondan okunan veriler içerir.
 
-İstemciler isteğe bağlı olarak gönderme bir `audio` sıfır uzunluklu gövdesi olan ileti. Bu ileti konuşma kullanıcı durduruldu, utterance tamamlandı ve mikrofon kapalı istemci bilir hizmet söyler.
+İstemciler isteğe bağlı olarak gönderebilir bir `audio` sıfır uzunluklu gövdesi olan ileti. Bu ileti konuşma kullanıcı durdurdu, utterance tamamlandıktan ve mikrofon kapalı istemci bildiği hizmet söyler.
 
-Konuşma hizmetini kullanan ilk `audio` yeni bir istek/yanıt döngüsü başlangıcı göstermek için bir benzersiz istek tanımlayıcısını içeren ileti veya *kapatma*. Hizmet aldıktan sonra bir `audio` ileti isteğe bağlı olarak yeni bir istek tanımlayıcısı ile tüm önceki Aç ile ilişkili herhangi bir Sıraya alınmış veya gönderilmeyen iletisi atar.
+Konuşma hizmeti kullanan ilk `audio` içeren yeni bir istek/yanıt döngüsü başlangıcı göstermek için bir benzersiz istek tanımlayıcısı iletisi veya *kapatma*. Hizmet aldıktan sonra bir `audio` ileti isteğe bağlı olarak yeni bir istek tanımlayıcısı ile herhangi bir önceki bırakma ile ilişkili olan kuyruğa alınmış veya Gönderilmemiş iletileri atar.
 
 | Alan | Açıklama |
 |-------------|----------------|
 | WebSocket ileti kodlama | İkili |
-| Gövde | Ses öbek ikili verileri. En büyük boyutu 8.192 bayttır. |
+| Gövde | Ses öbek için ikili veriler. En büyük boyutu 8192 bayttır. |
 
 #### <a name="required-message-headers"></a>Gerekli ileti üstbilgileri
 
@@ -249,25 +250,25 @@ Aşağıdaki üst bilgiler tüm gerekli `audio` iletileri.
 | Üst bilgi         |  Değer     |
 | ------------- | ---------------- |
 | Yol | `audio` |
-| X-RequestId | "No-tire" biçiminde UUID |
-| X-zaman damgası | ISO 8601 biçiminde istemci UTC saat zaman damgası |
-| Content-Type | Ses içerik türü. Tür ya da olmalıdır *ses/x-wav* (PCM) veya *ses/silk* (SILK). |
+| X-RequestId | "No-dash" biçiminde UUID |
+| X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
+| Content-Type | Ses içerik türü. Türü olmalıdır *ses/x-wav* (PCM) veya *ses/silk* (SILK). |
 
-#### <a name="supported-audio-encodings"></a>Desteklenen ses kodlamaları
+#### <a name="supported-audio-encodings"></a>Ses kodlamaları
 
-Bu bölümde konuşma hizmeti tarafından desteklenen ses codec bileşenleri açıklanmaktadır.
+Bu bölümde, konuşma tanıma hizmeti tarafından desteklenen ses codec bileşenleri açıklanmaktadır.
 
 ##### <a name="pcm"></a>PCM
 
-Konuşma hizmet sıkıştırılmamış darbeli kod modülasyon (PCM) ses kabul eder. Ses hizmetine gönderilir [WAV](https://en.wikipedia.org/wiki/WAV) ilk ses öbek biçimde biçimlendirmek *gerekir* geçerli bir içeren [Kaynak Değişim dosya biçimi](https://en.wikipedia.org/wiki/Resource_Interchange_File_Format) (RIFF) üstbilgisi. Bir istemci mu ses bir Öbek ile Aç başlatır, *değil* geçerli bir RIFF üstbilgisini, hizmet isteği reddeder ve WebSocket bağlantıyı sonlandırır.
+Konuşma hizmeti sıkıştırılmamış pulse kod modülasyon (PCM) ses kabul eder. Ses, hizmete gönderilir [WAV](https://en.wikipedia.org/wiki/WAV) ilk ses öbek için biçim *gerekir* içeren geçerli bir [Kaynak Değişim dosya biçimi](https://en.wikipedia.org/wiki/Resource_Interchange_File_Format) (RIFF) üst bilgisi. Bir istemci bir bırakma yapan bir ses Öbek ile başlatır, *değil* geçerli bir RIFF üst bilgisi ekleyin, hizmet isteği reddeder ve WebSocket bağlantıyı sonlandırır.
 
-PCM ses *gerekir* örneklenen 16 kHz örnek ve bir kanal başına 16 bit ile (*RIFF-16khz-16 bit-mono-pcm*). Konuşma hizmet stereo ses akışları desteklemez ve belirtilen bit hızı, örnek hızı veya kanal sayısı kullanmayın ses akışları reddeder.
+PCM ses *gerekir* örneklenen 16 kHz örneği ve bir kanal başına 16 bit (*RIFF-16khz-16 bit-mono-pcm*). Konuşma hizmeti stereo ses akışları desteklemiyor ve belirtilen bit hızı, örnek hızı veya kanal sayısına kullanmayan ses akışları reddeder.
 
 ##### <a name="opus"></a>Geçerli
 
-Geçerli bir açık, ücretsiz, çok yönlü ses codec bileşenidir. Konuşma hizmeti geçerli bir sabit bit hızında destekler `32000` veya `16000`. Yalnızca `OGG` geçerli için kapsayıcıyı şu anda desteklenen tarafından belirtilen `audio/ogg` MIME türü.
+Açık, gayri münhasır, çok yönlü bir ses codec geçerli olur. Konuşma hizmeti destekleyen geçerli bir sabit bit hızında `32000` veya `16000`. Yalnızca `OGG` kapsayıcı için geçerli şu anda desteklenen tarafından belirtilen `audio/ogg` MIME türü.
 
-Geçerli kullanmak için değiştirmeniz [JavaScript örnek](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/master/samples/browser/Sample.html#L101) değiştirip `RecognizerSetup` döndürülecek yöntemi.
+Geçerli kullanmak için değiştirmeniz [JavaScript örnek](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/master/samples/browser/Sample.html#L101) değiştirip `RecognizerSetup` döndürmek için yöntemi.
 
 ```javascript
 return SDK.CreateRecognizerWithCustomAudioSource(
@@ -283,52 +284,52 @@ return SDK.CreateRecognizerWithCustomAudioSource(
           ));
 ```
 
-#### <a name="detect-end-of-speech"></a>Konuşma sonu Algıla
+#### <a name="detect-end-of-speech"></a>Konuşma sonu algılayın
 
-İnsanlar değil açıkça sinyal bunlar tamamladığınızda konuşarak. Girişte bir ses akışını konuşma sonu işleme için iki seçenek var olan konuşma kabul eden herhangi bir uygulama: hizmet konuşma sonu algılama ve istemci konuşma sonu algılama. Bu iki seçenek hizmet konuşma sonu algılama genellikle daha iyi bir kullanıcı deneyimi sağlar.
+İnsanlar değil açıkça sinyal bunlar tamamladığınızda konuşma. Giriş bir ses akışı olarak konuşma sonu işlemek için iki seçenek sahip olan konuşma kabul eden herhangi bir uygulama: hizmet uç Konuşma Algılama ve istemcisi bitiş Konuşma Algılama. Bu iki seçenek hizmet son Konuşma Algılama genellikle daha iyi bir kullanıcı deneyimi sağlar.
 
-##### <a name="service-end-of-speech-detection"></a>Hizmet konuşma sonu algılama
+##### <a name="service-end-of-speech-detection"></a>Hizmet uç Konuşma Algılama
 
-İdeal tutmadan konuşma deneyim oluşturmak için kullanıcı konuşarak bittiğinde algılayan hizmet uygulamaları izin verin. İstemcilerin gönderdiği ses mikrofon gelen *ses* hizmeti sessizlik algılar ve geri ile yanıt kadar öbekleri bir `speech.endDetected` ileti.
+İdeal eller serbest konuşma deneyimi oluşturmak için kullanıcının dikte bittiğinde algılamak hizmeti uygulamalar sağlar. İstemcilerin gönderdiği ses mikrofondan *ses* hizmet sessizlik algılar ve geri ile yanıt verdiği kadar chunks bir `speech.endDetected` ileti.
 
-##### <a name="client-end-of-speech-detection"></a>İstemci konuşma sonu algılama
+##### <a name="client-end-of-speech-detection"></a>İstemcisi bitiş Konuşma Algılama
 
-Bazı şekilde konuşma sonu sinyal kullanıcıya izin istemci uygulamaları da verebilirsiniz hizmet, sinyal. Örneğin, bir istemci uygulaması "Durdur" ya da kullanıcı basabilirsiniz "Sessiz" düğmesi olabilir. İstemci uygulamaları konuşma bitiş sinyali göndermek bir *ses* öbek iletisiyle sıfır uzunluklu gövdesi. Konuşma hizmeti bu ileti gelen ses akışın sonuna olarak yorumlar.
+Kullanıcının bir şekilde konuşma sonu sinyal olanak tanıyan istemci uygulamaları da verebilirsiniz hizmet, sinyal. Örneğin, bir istemci uygulaması "Durdur" ya da kullanıcı basabilirsiniz "Sesini kapat" düğmesini olabilir. İstemci uygulamaları konuşma son sinyal gönderme bir *ses* öbek iletisiyle bir sıfır uzunluklu gövdesi. Konuşma hizmeti, bu iletiyi sonu gelen bir ses akışı olarak yorumlar.
 
 ### <a name="message-telemetry"></a>İleti `telemetry`
 
-İstemci uygulamaları *gerekir* konuşma hizmetine Aç hakkında telemetriyi göndererek her Aç sonuna bildiremedi. Bırakma uç bildirim konuşma istek ve yanıt tamamlanması için gerekli tüm iletileri düzgün istemci tarafından alınan emin olmak hizmet sağlar. Dönüş son bildirimi de Konuşma istemci uygulamaları beklendiği şekilde çalıştığını doğrulamak hizmet sağlar. Bu bilgiler, konuşma etkinleştirilmiş uygulamanız sorun gidermek için yardıma ihtiyacınız varsa çok yararlı olur.
+İstemci uygulamaları *gerekir* sonuna kadar her Aç Aç hakkında telemetri konuşma tanıma Hizmeti'ne göndererek kabul etmiş olursunuz. Dönüş son bildirim isteği ve yanıtının tamamlanması için gerekli tüm iletileri düzgün istemci tarafından alınan emin olmak konuşma tanıma hizmeti sağlar. Dönüş son bildirimi de istemci uygulamalarını beklendiği gibi çalıştığını doğrulamak konuşma tanıma hizmeti sağlar. Konuşma özellikli uygulamanızın sorunlarını gidermek için yardıma ihtiyacınız varsa, bu bilgileri benzersizdir.
 
-İstemcileri gerekir kabul bir dönüş sonuna göndererek bir `telemetry` iletisi alındıktan hemen sonra bir `turn.end` ileti. İstemcileri kabul dener `turn.end` mümkün olan en kısa sürede. Dönüş son onaylamak bir istemci uygulaması başarısız olursa, konuşma hizmeti bir hata ile bağlantı sonlandırabilir. İstemcileri yalnızca bir gönderme gerekir `telemetry` her istek ve yanıt tarafından tanımlanan ileti *X RequestId* değeri.
+İstemciler gerekir bildirimi bir bırakma sonuna göndererek bir `telemetry` ileti alma hemen sonra bir `turn.end` ileti. İstemciler onaylamak çalışır `turn.end` olabildiğince çabuk. Dönüş son onaylamak bir istemci uygulama başarısız olursa, konuşma tanıma hizmeti bir hata bağlantısıyla sonlandırabilir. İstemcileri yalnızca bir gönderme gerekir `telemetry` ileti için her istek ve yanıt tarafından tanımlanan *X-RequestId* değeri.
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Metin |
 | Yol | `telemetry` |
-| X-zaman damgası | ISO 8601 biçiminde istemci UTC saat zaman damgası |
+| X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
 | Content-Type | `application/json` |
 | Gövde | Aç istemci bilgilerini içeren bir JSON yapısı |
 
 Gövdesi için şema `telemetry` ileti tanımlanmış [Telemetri şema](#telemetry-schema) bölümü.
 
-#### <a name="telemetry-for-interrupted-connections"></a>Telemetri kesintiye uğramış bağlantıları için
+#### <a name="telemetry-for-interrupted-connections"></a>Kesilen bağlantıları için telemetri
 
-Ağ bağlantısı, bırakma sırasında herhangi bir nedenle başarısız olursa ve istemci mu *değil* alma bir `turn.end` ileti hizmetinden istemci gönderir bir `telemetry` ileti. Bu ileti başarısız istek istemci hizmetine bir bağlantı yapar sonraki açışınızda açıklar. İstemcileri zorunda değilsiniz hemen göndermek için bir bağlantı girişimi `telemetry` ileti. İleti istemcide arabelleğe ve gelecekteki bir kullanıcı tarafından istenen bağlantı üzerinden gönderilir. `telemetry` İçin başarısız istek iletisi *gerekir* kullanmak *X RequestId* başarısız istek değeri. Göndermek veya diğer iletileri almak için beklemeden bir bağlantı oluşturulur hemen sonra hizmete gönderilen.
+Ağ bağlantısı bir bırakma sırasında herhangi bir nedenle başarısız olur ve istemciyi oluşturmazsa *değil* almak bir `turn.end` ileti hizmetinden, istemcinin gönderdiği bir `telemetry` ileti. Bu ileti, sonraki açışınızda istemci hizmeti için bağlantı kurar başarısız istek açıklar. İstemciler hemen gönderilecek bir bağlantı denemesi gerekmez `telemetry` ileti. İleti istemcide arabelleğe alınır ve gelecekteki bir kullanıcı tarafından istenen bağlantı üzerinden gönderilir. `telemetry` Başarısız istek iletisi *gerekir* kullanın *X-RequestId* başarısız istek değeri. İçin diğer iletiler gönderip beklemenize gerek kalmadan bir bağlantı kurulur hemen sonra hizmete gönderilen.
 
-## <a name="service-originated-messages"></a>Hizmet kaynaklanan iletileri
+## <a name="service-originated-messages"></a>Hizmeti kaynaklı iletiler
 
-Bu bölümde konuşma hizmetinde kaynaklanan ve istemciye gönderilen iletileri açıklanmaktadır. Konuşma hizmeti bir kayıt defteri istemci özelliklerini tutar ve her istemci tarafından şekilde gerekli olmayan tüm istemciler burada açıklanan tüm iletileri almak mesajları oluşturur. Konuyu uzatmamak amacıyla, iletileri değeri tarafından başvurulan *yolu* üstbilgi. Örneğin, biz WebSocket bir mesaj başvurmak *yolu* değeri `speech.hypothesis` olarak speech.hypothesis iletisi.
+Bu bölümde, konuşma hizmeti kaynaklanan ve istemciye gönderilen iletileri açıklanmaktadır. Konuşma hizmeti, istemci yeteneklerini bir kayıt defteri tutar ve her bir istemci tarafından bu nedenle gerekli olmayan tüm istemciler, burada açıklanan tüm iletileri alır iletileri oluşturur. Konuyu uzatmamak amacıyla, iletileri değeri tarafından başvurulan *yolu* başlığı. Örneğin, bir WebSocket kısa mesaj ile diyoruz *yolu* değer `speech.hypothesis` speech.hypothesis iletisi.
 
 ### <a name="message-speechstartdetected"></a>İleti `speech.startDetected`
 
-`speech.startDetected` İleti, konuşma hizmet Ses akışında konuşma algıladı gösterir.
+`speech.startDetected` İleti konuşma hizmeti ses akışı konuşma algılandığını gösterir.
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Metin |
 | Yol | `speech.startDetected` |
 | Content-Type | Uygulama/json; Charset = utf-8 |
-| Gövde | Konuşma başlangıcı algılandığında koşullarla ilgili bilgiler içeren JSON yapısı. *Uzaklık* bu yapı alanında belirtir (100 nanosaniyelik birimlerindeki) uzaklığı zaman konuşma algılandı Ses akışında, akış başlangıç göre. |
+| Gövde | Konuşma başlangıcını algılandığında koşullarla ilgili bilgiler içeren JSON yapısı. *Uzaklığı* bu yapı alanında belirtir (100 nanosaniyelik birimler) cinsinden uzaklık zaman konuşma algılandı akışın başlangıç göre bir ses akışı olarak. |
 
 #### <a name="sample-message"></a>Örnek ileti
 
@@ -344,17 +345,17 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 ### <a name="message-speechhypothesis"></a>İleti `speech.hypothesis`
 
-Konuşma tanıma sırasında Konuşma hizmeti varsayımlar sözcükler hakkında düzenli olarak kabul edilen hizmet oluşturur. Konuşma hizmeti bu varsayımlar yaklaşık her 300 milisaniye istemciye gönderir. `speech.hypothesis` Uygun *yalnızca* kullanıcı konuşma deneyimini geliştirmek için. İçerik veya metin doğruluğunu bağımlılıkları bu iletileri gerçekleştirmeniz gereken değil.
+Sırasında Konuşma tanıma, konuşma tanıma hizmeti sözcükler hakkında varsayımlar düzenli aralıklarla tanınan hizmeti oluşturur. Konuşma hizmeti bu hipotezi yaklaşık her 300 milisaniye istemciye gönderir. `speech.hypothesis` Uygundur *yalnızca* kullanıcı konuşma deneyimi için. Bağımlılığın içeriği veya metin doğruluğunu bu iletileri atmanız değil.
 
- `speech.hypothesis` İletisidir bazı metin işleme yeteneği olan ve konuşarak kişiye sürüyor tanıma yakın gerçek zamanlı geribildirim sağlamak istiyorsanız bu istemciler için geçerlidir.
+ `speech.hypothesis` İletisidir bazı metin işleme yeteneği olan ve algılanabileceğini kişiye sürüyor tanıma neredeyse gerçek zamanlı geri bildirim sağlamak istiyorsanız bu istemciler için geçerlidir.
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Metin |
 | Yol | `speech.hypothesis` |
-| X-RequestId | "No-tire" biçiminde UUID |
+| X-RequestId | "No-dash" biçiminde UUID |
 | Content-Type | uygulama/json |
-| Gövde | Konuşma varsayımınızın JSON yapısı |
+| Gövde | Konuşma varsayım JSON yapısı |
 
 #### <a name="sample-message"></a>Örnek ileti
 
@@ -370,15 +371,15 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 }
 ```
 
-*Uzaklık* öğesi belirtir (100 nanosaniyelik birimlerindeki) uzaklığı zaman tümcecik tanınan, ses akışı başlangıç göre.
+*Uzaklığı* öğesi belirtir (100 nanosaniyelik birimler) cinsinden uzaklık zaman tümceciği tanınan, ilgili ses akışı başlangıcını.
 
-*Süresi* öğesi bu konuşma deyimi (100 nanosaniyelik birimleri) süresini belirtir.
+*Süresi* öğesi bu konuşma deyimi süresi (100 nanosaniyelik cinsinden) belirtir.
 
-İstemcileri sıklığı, zamanlama veya bir konuşma varsayımınızın veya her iki konuşma varsayımlar metinde tutarlılığını bulunan metin dair varsayımlar yapmamalısınız. Varsayımlar hizmet transcription işlemine yalnızca anlık görüntüler değildir. Transcription kararlı toplamı temsil etmiyor. Örneğin, ilk konuşma varsayımınızın "ince eğlenceli" sözcükler içerebilir ve İkinci varsayım "komik bulunamıyor." sözcüklerini içerebilir Konuşma hizmet konuşma varsayımınızın metinde üzerinde (örneğin, büyük/küçük harf, noktalama) sonrası işlemi gerçekleştirmez.
+İstemciler sıklığı, zamanlama veya konuşma varsayım veya her iki konuşma hipotezi metinde tutarlılığını içindeki metin hakkında varsayımlar yapmamanız gerekir. Yol açan hipotezleri hizmetinde transkripsiyonu işlemine yalnızca anlık görüntüleridir. Kararlı bir döküm birikmesi temsil etmiyor. Örneğin, bir ilk konuşma varsayım "ince eğlenceli" sözcükler içerebilir ve İkinci varsayım "komik bulun." sözcükler içerebilir Konuşma hizmeti, konuşma varsayım metin herhangi bir sonradan işleme (örneğin, büyük/küçük harf, noktalama işaretleri) gerçekleştirmez.
 
 ### <a name="message-speechphrase"></a>İleti `speech.phrase`
 
-Konuşma hizmeti zaman belirler hizmet üretir değişmeyeceği tanıma sonucu oluşturmak için yeterli bilgiye sahip bir `speech.phrase` ileti. Kullanıcı bir cümle veya tümcecik tamamlandığını algılandıktan sonra konuşma hizmeti bu sonuçlar üretir.
+Konuşma hizmeti ne zaman belirler hizmeti oluşturan değişmez bir tanıma sonucu oluşturmak için yeterli bilgiye sahip bir `speech.phrase` ileti. Konuşma hizmeti, kullanıcı bir cümle veya tümceciği tamamlandığını algıladıktan sonra bu sonuçlar verir.
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
@@ -387,7 +388,7 @@ Konuşma hizmeti zaman belirler hizmet üretir değişmeyeceği tanıma sonucu o
 | Content-Type | uygulama/json |
 | Gövde | Konuşma tümcecik JSON yapısı |
 
-Konuşma tümcecik JSON Şeması aşağıdaki alanları içerir: `RecognitionStatus`, `DisplayText`, `Offset`, ve `Duration`. Bu alanlar hakkında daha fazla bilgi için bkz: [Transcription yanıtları](../concepts.md#transcription-responses).
+Konuşma tümcecik JSON Şeması aşağıdaki alanları içerir: `RecognitionStatus`, `DisplayText`, `Offset`, ve `Duration`. Bu alanlar hakkında daha fazla bilgi için bkz. [Transkripsiyonu yanıtları](../concepts.md#transcription-responses).
 
 #### <a name="sample-message"></a>Örnek ileti
 
@@ -406,13 +407,13 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 ### <a name="message-speechenddetected"></a>İleti `speech.endDetected`
 
-`speech.endDetected` İleti istemci uygulaması hizmetine ses akışı durması gerektiğini belirtir.
+`speech.endDetected` İletiyi istemci uygulama hizmetine ses akışı durması gerektiğini belirtir.
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Metin |
 | Yol | `speech.endDetected` |
-| Gövde | Konuşma sonu algılandığında uzaklık içeren JSON yapısı. Tanıma için kullanılan ses başından uzaklık 100 nanosaniyelik birimleri uzaklığı temsil edilir. |
+| Gövde | Konuşma sonu algılandığında uzaklık içeren JSON yapısı. Uzaklık birimleri 100 nanosaniyelik uzaklığı başından itibaren ses tanıma için kullanılan temsil edilir. |
 | Content-Type | Uygulama/json; Charset = utf-8 |
 
 #### <a name="sample-message"></a>Örnek ileti
@@ -427,11 +428,11 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 }
 ```
 
-*Uzaklık* öğesi belirtir (100 nanosaniyelik birimlerindeki) uzaklığı zaman tümcecik tanınan, ses akışı başlangıç göre.
+*Uzaklığı* öğesi belirtir (100 nanosaniyelik birimler) cinsinden uzaklık zaman tümceciği tanınan, ilgili ses akışı başlangıcını.
 
 ### <a name="message-turnstart"></a>İleti `turn.start`
 
-`turn.start` Bir dönüş başlangıcı hizmet perspektifinden işaret eder. `turn.start` İletisidir her zaman için herhangi bir istek aldığınız ilk yanıt iletisi. Almazsanız, bir `turn.start` iletisi, hizmet bağlantı durumunun geçersiz olduğunu varsayın.
+`turn.start` Hizmet perspektifinden bir bırakma başlangıcını bildirir. `turn.start` İleti, her zaman, aldığınız her istek için ilk yanıt iletisi. Almazsanız, bir `turn.start` iletisi, hizmet bağlantı durumunun geçersiz olduğunu varsayar.
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
@@ -454,11 +455,11 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 }
 ```
 
-Gövdesini `turn.start` iletisidir Aç başlangıcı bağlamının içeren bir JSON yapısı. *Bağlamı* öğesi içeren bir *serviceTag* özelliği. Bu özellik service Aç ile ilişkili bir etiket değeri belirtir. Hataları, uygulamanızda sorun gidermek için yardıma ihtiyacınız varsa bu değer Microsoft tarafından kullanılabilir.
+Gövdesi `turn.start` iletisidir Aç başlangıcını bağlamının içeren JSON yapısı. *Bağlam* öğesi içeren bir *serviceTag* özelliği. Bu özellik, hizmet Aç ile ilişkili bir etiket değeri belirtir. Uygulamanızdaki hataları giderme hakkında Yardım gerekiyorsa, bu değer Microsoft tarafından kullanılabilir.
 
 ### <a name="message-turnend"></a>İleti `turn.end`
 
-`turn.end` Hizmet perspektifinden bir dönüş sonuna işaret eder. `turn.end` İletisidir her zaman için herhangi bir istek aldığınız son yanıt iletisi. İstemciler bu iletinin alınması, bir sinyal temizleme etkinlikleri ve boşta durumuna geçiş için olarak kullanabilirsiniz. Almazsanız, bir `turn.end` iletisi, hizmet bağlantı durumunun geçersiz olduğunu varsayın. Bu durumlarda, var olan bağlantıyı hizmetine kapatın ve yeniden bağlayın.
+`turn.end` Hizmet perspektifinden bir bırakma sonuna bildirir. `turn.end` İleti, her zaman herhangi bir istek için aldığınız son yanıt iletisi. İstemciler bu iletinin alınması temizleme etkinlikleri ve bir boşta durumuna geçiş için bir sinyal olarak kullanabilir. Almazsanız, bir `turn.end` iletisi, hizmet bağlantı durumunun geçersiz olduğunu varsayar. Bu durumlarda, hizmet mevcut bağlantıyı kapatın ve yeniden.
 
 | Alan | Açıklama |
 | ------------- | ---------------- |
@@ -475,13 +476,13 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 ## <a name="telemetry-schema"></a>Telemetri şeması
 
-Gövdesini *telemetri* iletisidir bir dönüş veya denenen bağlantısı ile ilgili istemci bilgilerini içeren bir JSON yapısı. Yapı istemci olaylarını ortaya çıktığında kayıt istemci zaman damgaları yapılır. Her zaman damgası "X-zaman damgası üstbilgisi." başlıklı bölümde açıklandığı gibi ISO 8601 biçiminde olması gerekir *Telemetri* , belirlemezseniz tüm gerekli alanların JSON yapısındaki veya doğru zaman damgası biçimi kullanmayın iletileri istemciye bağlantıyı sonlandırmasına hizmeti neden olabilir. İstemcileri *gerekir* tüm gerekli alanlar için geçerli değerler sağlayın. İstemcileri *gereken* uygun olan her durumda isteğe bağlı alanları için değerler. Bu bölümdeki örnekte gösterilen yalnızca gösterim amacıyla değerlerdir.
+Gövdesi *telemetri* iletisidir bir etkinleştirin ya da bir bağlanma denemelerinin istemci bilgilerini içeren bir JSON yapısı. Yapısı, istemci olaylarını ortaya çıktığında kayıt istemci zaman damgaları yapılır. Her zaman damgası "X-zaman damgası header." başlıklı bölümde açıklandığı gibi ISO 8601 biçiminde olmalıdır *Telemetri* , belirtmeyin tüm gerekli alanları JSON yapısındaki ya da doğru zaman damgası biçimi kullanmayın iletileri istemci bağlantısını sona erdirmek hizmeti neden olabilir. İstemciler *gerekir* tüm gerekli alanlar için geçerli değerler sağlayın. İstemciler *gereken* uygun olduğunda isteğe bağlı alanlar için değerler sağlayın. Bu bölümdeki örnekte gösterilen değerleri yalnızca gösterim amaçlıdır.
 
-Telemetri şema, aşağıdaki bölümlere ayrılmıştır: alınan ileti zaman damgaları ve ölçümleri. Biçim ve her bölümünün kullanımı aşağıdaki bölümlerde belirtilmiş.
+Telemetri şema, aşağıdaki bölümlere ayrılmıştır: alınan ileti zaman damgaları ve ölçümleri. Aşağıdaki bölümlerde biçimini ve her parça kullanımını belirtilmişse.
 
 ### <a name="received-message-time-stamps"></a>Alınan ileti zaman damgaları
 
-İstemcilerin başarıyla hizmete bağlandıktan sonra aldıkları tüm iletiler için giriş saat değerlerini içermelidir. Bu değerler zaman kaydetmelisiniz olduğunda istemci *alınan* ağdan her ileti. Değeri başka bir zaman kaydetmelisiniz değil. Örneğin, istemci zaman kayıt zaman, *işlem* ileti üzerinde. Alınan ileti zaman damgaları bir dizi içinde belirtilen *ad: değer* çiftleri. Çift adını belirtir *yolu* iletinin değeri. Değer çiftinin iletisi alındığında istemci saati belirtir. Veya, belirtilen adda birden fazla iletisi alındı, değer çiftinin bu iletileri alındığında gösteren zaman damgaları dizisi.
+İstemciler hizmete bağlandıktan sonra aldıkları tüm iletiler için giriş saat değerlerini içermelidir. Bu değerleri zaman kaydetmelisiniz olduğunda istemci *alınan* ağdan gelen her ileti. Değeri başka bir zaman kaydetmemelisiniz değil. Örneğin, istemci zaman kayıt, bu *etkilediği* ileti üzerinde. Alınan ileti zaman damgaları bir dizi içinde belirtilen *ad: değer* çiftleri. Çift adını belirtir *yolu* iletinin değeri. Değer çiftinin iletisi alındığında istemci saati belirtir. Veya, belirtilen adda birden fazla iletisi alındı, değer çiftinin bu iletileri alındığında gösteren zaman damgaları dizisi.
 
 ```JSON
   "ReceivedMessages": [
@@ -492,86 +493,86 @@ Telemetri şema, aşağıdaki bölümlere ayrılmıştır: alınan ileti zaman d
   ]
 ```
 
-İstemcileri *gerekir* JSON gövdesine bu iletilerin zaman damgaları dahil olmak üzere hizmet tarafından gönderilen tüm iletiler alınmasını bildiremedi. Bir iletinin alınması onaylamak bir istemci başarısız olursa, hizmet bağlantı sonlandırabilir.
+İstemciler *gerekir* JSON gövdesine bu iletileri zaman damgalarının dahil olmak üzere hizmet tarafından gönderilen tüm iletilerin alınmasını kabul etmiş olursunuz. Bir iletinin alınması onaylamak bir istemci başarısız olursa, hizmet bağlantı sonlandırabilir.
 
 ### <a name="metrics"></a>Ölçümler
 
-İstemciler bir istek süresi boyunca oluşan olaylarla ilgili bilgileri içermelidir. Aşağıdaki ölçümleri desteklenir: `Connection`, `Microphone`, ve `ListeningTrigger`.
+İstemciler bir istek yaşam süresi boyunca oluşan olaylar hakkında bilgi içermelidir. Aşağıdaki ölçümler desteklenir: `Connection`, `Microphone`, ve `ListeningTrigger`.
 
 ### <a name="metric-connection"></a>Ölçüm `Connection`
 
-`Connection` Ölçüm istemci tarafından bağlantı girişimleri ayrıntılarını belirtir. WebSocket bağlantısı başlatıldığında ve tamamlandı ölçüm zaman damgaları, eklemeniz gerekir. `Connection` Metrik gereklidir *yalnızca ilk Aç bağlantısının için*. Bu bilgileri içerecek şekilde sonraki kapatır gerekli değildir. Bir bağlantı kurulmadan önce bir istemci birden çok bağlantı denemeleri yaparsa hakkında bilgi *tüm* bağlantı denemelerinin eklenmelidir. Daha fazla bilgi için bkz: [bağlantı hatası telemetri](#connection-failure-telemetry).
+`Connection` Ölçüm bağlantı denemeleri istemci tarafından ayrıntılarını belirtir. WebSocket bağlantısı başlatıldığında ve tamamlanmış ölçüm zamanı damgalarıyla içermelidir. `Connection` Ölçüm gereklidir *yalnızca ilk Aç bağlantısı için*. Bu bilgileri içerecek şekilde sonraki kapatır gerekli değildir. Bir bağlantı kurulmadan önce bir istemci birden çok bağlantı denemeleri yaparsa hakkında bilgi *tüm* bağlantı girişimleri dahil edilmelidir. Daha fazla bilgi için [bağlantı başarısızlık telemetrilerini](#connection-failure-telemetry).
 
 | Alan | Açıklama | Kullanım |
 | ----- | ----------- | ----- |
 | Ad | `Connection` | Gerekli |
-| Kimlik | İçinde kullanılan bağlantı tanımlayıcı değeri *X ConnectionID* Bu bağlantı isteği üstbilgisi | Gerekli |
+| Kimlik | Bağlantı tanımlayıcı değeri kullanıldı *X ConnectionID* Bu bağlantı isteği üst bilgisi | Gerekli |
 | Başlatma | İstemci bağlantı isteği zaman gönderdiği saati | Gerekli |
-| Son | Zaman istemci bağlantısı başarıyla kuruldu bildirim alındığında veya hata durumlarında reddedildi, reddedildi veya başarısız | Gerekli |
-| Hata | Varsa, oluşan hata açıklaması. Bağlantı başarılı olursa, istemcilerin bu alan atlayın. Bu alan uzunluğu en fazla 50 karakter uzunluğunda olabilir. | Aksi takdirde atlanmış hata durumları için gerekli |
+| Son | Zaman istemci bağlantı başarıyla kuruldu bildirim alındığında veya hata durumlarında reddedildi, reddedildi veya başarısız oldu | Gerekli |
+| Hata | Varsa, oluşan hata açıklaması. Bağlantı başarılı olursa, istemcilerin bu alan atlamak. Bu alan uzunluğunun üst sınırı 50 karakterdir. | Aksi takdirde atlanmış hata durumları için gerekli |
 
-Hata açıklaması en fazla 50 karakter uzunluğunda olmalıdır ve ideal olarak aşağıdaki tabloda listelenen değerlerden biri olmalıdır. Hata koşulu şu değerlerden biri eşleşmiyorsa, istemciler hata koşulu kısa bir açıklamasını kullanarak kullanabilir [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) boşluk olmadan. Gönderme olanağı bir *telemetri* ileti hizmetine, böylece yalnızca geçici bir bağlantı gerektiriyor veya geçici hata koşulları bildirilen içinde *telemetri* ileti. Hata koşulları *kalıcı olarak* hizmetine bir bağlantı kurarak bir istemcinin engelleme istemci hizmeti için herhangi bir iletisi göndermesinin dahil olmak üzere *telemetri* iletileri.
+Hata açıklaması en fazla 50 karakter arasında olmalıdır ve ideal olarak aşağıdaki tabloda listelenen değerlerden biri olmalıdır. Hata koşulu şu değerlerden biri olarak eşleşmiyorsa, istemciler birleştiren bir hata durumu açıklaması kullanarak kullanabilir [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) boşluk olmadan. Gönderme olanağı bir *telemetri* ileti hizmet, bu nedenle yalnızca geçici bir bağlantı gerektirir ya da geçici hata koşulları rapor içinde *telemetri* ileti. Hata koşulları *kalıcı olarak* blok hizmetine bir bağlantı kurulurken bir istemcinin istemci hizmete herhangi bir ileti göndermesini engellemek dahil olmak üzere *telemetri* iletileri.
 
 | Hata | Kullanım |
 | ----- | ----- |
-| DNSfailure | İstemci, ağ yığınındaki DNS hatası nedeniyle hizmetine bağlanamadı. |
-| NoNetwork | İstemci bağlantı çalıştı ancak ağ yığınını fiziksel ağ kullanılabilir olduğunu bildirdi. |
-| NoAuthorization | İstemci bağlantısı, bağlantı için bir yetki belirteci almaya çalışırken başarısız oldu. |
-| NoResources | İstemci, bir bağlantı kurmayı çalışırken yerel bazı kaynaklar (örneğin bellek) yetersiz kaldı. |
-| Yasak | İstemci hizmeti bir HTTP döndürdüğünden hizmete bağlanamadı `403 Forbidden` WebSocket yükseltme isteği durum kodu. |
-| Yetkilendirilmemiş | İstemci hizmeti bir HTTP döndürdüğünden hizmete bağlanamadı `401 Unauthorized` WebSocket yükseltme isteği durum kodu. |
-| BadRequest | İstemci hizmeti bir HTTP döndürdüğünden hizmete bağlanamadı `400 Bad Request` WebSocket yükseltme isteği durum kodu. |
-| ServerUnavailable | İstemci hizmeti bir HTTP döndürdüğünden hizmete bağlanamadı `503 Server Unavailable` WebSocket yükseltme isteği durum kodu. |
-| ServerError | İstemci hizmet döndürdüğünden hizmete bağlanamadı bir `HTTP 500` WebSocket yükseltme isteği iç hata durum kodu. |
-| Zaman Aşımı | İstemcinin bağlantı isteği hizmetinden bir yanıt olmadan zaman aşımına uğradı. *Son* alan ne zaman istemci zaman aşımına uğradı ve bağlantı için bekleme durduruldu saati içerir. |
-| ClientError | İstemci bağlantısı bazı iç istemci hata nedeniyle sonlandırıldı. | 
+| DNSfailure | İstemci, ağ yığınındaki bir DNS hatası nedeniyle hizmetine bağlanamadı. |
+| NoNetwork | İstemci bağlantı çalıştı, ancak ağ yığınını, fiziksel ağ kullanılabilir olduğunu bildirdi. |
+| NoAuthorization | İstemci bağlantısı, bağlantı için bir yetkilendirme belirteci alma girişimi sırasında başarısız oldu. |
+| NoResources | İstemci, bir bağlantısı kurmaya çalışırken bazı yerel kaynaklara (örneğin bellek) yetersiz kaldı. |
+| Yasak | İstemci HTTP hizmetin döndürdüğü için hizmete bağlanamadı `403 Forbidden` WebSocket yükseltme isteği durum kodu. |
+| Yetkilendirilmemiş | İstemci HTTP hizmetin döndürdüğü için hizmete bağlanamadı `401 Unauthorized` WebSocket yükseltme isteği durum kodu. |
+| BadRequest | İstemci HTTP hizmetin döndürdüğü için hizmete bağlanamadı `400 Bad Request` WebSocket yükseltme isteği durum kodu. |
+| ServerUnavailable | İstemci HTTP hizmetin döndürdüğü için hizmete bağlanamadı `503 Server Unavailable` WebSocket yükseltme isteği durum kodu. |
+| ServerError | İstemcinin hizmetin döndürdüğü için hizmete bağlanamadı bir `HTTP 500` WebSocket yükseltme isteği durum kodu iç hata. |
+| Zaman Aşımı | İstemcinin bağlantı isteği, hizmetten bir yanıt olmadan zaman aşımına uğradı. *Son* alan ne zaman istemci zaman aşımına uğradı ve bağlantı için bekleme durduruldu saati içerir. |
+| Senderconnections'da | İstemci bağlantı bazı iç istemci hatası nedeniyle sonlandırıldı. | 
 
 ### <a name="metric-microphone"></a>Ölçüm `Microphone`
 
-`Microphone` Ölçüm için tüm konuşma kapatır gereklidir. Bu ölçüm sırasında ses giriş etkin bir konuşma istek için kullanılan istemci süreyi ölçer.
+`Microphone` Ölçüm için tüm konuşma kapatır gereklidir. Bu ölçüm sırasında ses girişi etkin bir konuşma isteği için kullanılan istemci üzerinde süreyi ölçer.
 
-Aşağıdaki örnekler, kayıt için kılavuz olarak kullanın *Başlat* saat değerlerini `Microphone` istemci uygulamanızda ölçüm:
+Aşağıdaki örnekler, kayıt için kılavuz olarak kullanın *Başlat* saat değerlerini `Microphone` istemci uygulamanıza ölçüm:
 
-* Bir istemci uygulaması, bir kullanıcı mikrofon başlamak için fiziksel bir düğmeyi basmalısınız gerektirir. Düğmesine basın sonra istemci uygulaması mikrofon girdiyi okur ve konuşma hizmetine gönderir. *Başlat* değerini `Microphone` ölçüm mikrofon başlatıldı ve giriş sağlamak hazır olduğunda Düğme basma sonraki süreyi kaydeder. *Son* değerini `Microphone` ölçüm kayıtları ne zaman istemci uygulaması durduruldu aldığı sonra hizmetine ses akışı zaman `speech.endDetected` hizmetinden alınan ileti.
+* Bir istemci uygulaması, bir kullanıcı mikrofon başlatmak için fiziksel bir düğme basmalısınız gerektirir. Düğmesine basın sonra istemci uygulaması giriş mikrofondan okur ve konuşma hizmetine gönderir. *Başlat* değerini `Microphone` ölçüm mikrofon başlatıldı ve giriş sağlamak hazır olduğunda Düğme basma saatinden kaydeder. *Son* değerini `Microphone` ölçüm kaydeder olduğunda istemci uygulaması durduruldu aldığı sonra hizmete ses akışı zaman `speech.endDetected` hizmetinden alınan ileti.
 
-* Bir istemci uygulaması "her zaman" dinlediği bir anahtar sözcüğü spotter kullanır. Yalnızca bir konuşma tetikleyici deyimi anahtar sözcüğü spotter algılandıktan sonra istemci uygulaması giriş mikrofon toplamak ve konuşma hizmetine göndermek. *Başlat* değerini `Microphone` ölçüm zaman anahtar sözcüğü spotter bildirim mikrofon girişten kullanmaya başlamak için istemci zaman kaydeder. *Son* değerini `Microphone` ölçüm kayıtları ne zaman istemci uygulaması durduruldu aldığı sonra hizmetine ses akışı zaman `speech.endDetected` hizmetinden alınan ileti.
+* Bir istemci uygulaması "her zaman" dinlediği bir anahtar sözcüğü spotter kullanır. Yalnızca anahtar sözcüğü spotter konuşulan tetikleyici tümcecik algıladıktan sonra istemci uygulaması mikrofondan girişini toplamak ve konuşma tanıma Hizmeti'ne gönderin. *Başlat* değerini `Microphone` ölçüm mikrofon girişten kullanmaya başlamak için istemci anahtar sözcüğü spotter bildirim zaman zaman kaydeder. *Son* değerini `Microphone` ölçüm kaydeder olduğunda istemci uygulaması durduruldu aldığı sonra hizmete ses akışı zaman `speech.endDetected` hizmetinden alınan ileti.
 
-* Bir istemci uygulaması için sabit bir ses akışını erişimi vardır ve bu ses akışını sessizlik/Konuşma Algılama gerçekleştiren bir *Konuşma Algılama Modülü*. *Başlat* değerini `Microphone` ölçüm kayıtları zaman zaman *Konuşma Algılama Modülü* giriş ses akıştan kullanmaya başlamak için İstemci bildirim. *Son* değerini `Microphone` ölçüm kayıtları ne zaman istemci uygulaması durduruldu aldığı sonra hizmetine ses akışı zaman `speech.endDetected` hizmetinden alınan ileti.
+* Bir istemci uygulaması için sabit bir ses akışı erişebilir ve sessizlik/Konuşma Algılama ilgili ses akışı gerçekleştiren bir *Konuşma Algılama Modülü*. *Başlat* değerini `Microphone` ölçüm zamanı kaydeder olduğunda *Konuşma Algılama Modülü* giriş ses akıştan kullanmaya başlamak için İstemci bildirim. *Son* değerini `Microphone` ölçüm kaydeder olduğunda istemci uygulaması durduruldu aldığı sonra hizmete ses akışı zaman `speech.endDetected` hizmetinden alınan ileti.
 
-* Bir istemci uygulaması ikinci Aç çok bırakma isteği işliyor ve giriş için ikinci bırakma toplamak için mikrofon etkinleştirmek için bir hizmet yanıt iletisi tarafından bilgilendirilir. *Başlat* değerini `Microphone` ölçüm kayıtları zaman zaman istemci uygulaması mikrofon sağlar ve bu ses kaynaktan giriş kullanarak başlatır. *Son* değerini `Microphone` ölçüm kayıtları ne zaman istemci uygulaması durduruldu aldığı sonra hizmetine ses akışı zaman `speech.endDetected` hizmetinden alınan ileti.
+* Bir istemci uygulamanın ikinci Aç çok bırakma isteği işleme ve giriş için ikinci bırakma toplamak üzere mikrofon etkinleştirmek için bir hizmet yanıt iletisi olarak bilgilendirilir. *Başlat* değerini `Microphone` ölçüm ne zaman istemci uygulaması mikrofon sağlar ve giriş ilgili ses kaynağından kullanmaya başladığında zaman kaydeder. *Son* değerini `Microphone` ölçüm kaydeder olduğunda istemci uygulaması durduruldu aldığı sonra hizmete ses akışı zaman `speech.endDetected` hizmetinden alınan ileti.
 
-*Son* saat değeri için `Microphone` ölçüm ne zaman istemci uygulaması durdurulma ses giriş akış zamanı kaydeder. Çoğu durumda, bu olay, alınan kısa bir süre sonra istemcinin gerçekleşir `speech.endDetected` hizmetinden alınan ileti. İstemci uygulamaları doğrulayın bunlar düzgün protokol, sağlayarak uyumsuz emin *son* saat değeri için `Microphone` ölçüm oluşur için giriş saati değerden daha sonra `speech.endDetected` ileti. Ve genellikle bir dönüş sonuna başka bir dönüş başlangıcı arasında bir gecikme olduğundan, istemciler Protokolü uygunluk, sağlayarak doğrulayabilir *Başlat* süresi `Microphone` ölçüm tüm sonraki bırakma için doğru zamanı kaydeder, istemci *başlatılan* hizmetine ses giriş akışı mikrofonun kullanarak.
+*Son* saat değeri için `Microphone` ölçüm ne zaman istemci uygulaması durduruldu ses giriş akış zaman kaydeder. Çoğu durumda, bu olay, kısa süre içinde alınan istemci sonra gerçekleşir `speech.endDetected` hizmetinden alınan ileti. İstemci uygulamaları doğrulayın, düzgün bir şekilde protokolü, sağlayarak uygun olduğunu *son* saat değeri için `Microphone` ölçüm için giriş saat değerinden daha sonra gerçekleşir `speech.endDetected` ileti. Ve genellikle bir sonuna başka bir bırakma başlangıcını arasında bir gecikme olduğundan, istemcilerin protokol uyumluluğu, sağlayarak doğrulayabilir *Başlat* süresi `Microphone` herhangi bir sonraki bırakma için ölçüm doğru süreyi kaydeder olduğunda istemci *çalışmaya* mikrofonun ses akış girişi hizmetine kullanarak.
 
 | Alan | Açıklama | Kullanım |
 | ----- | ----------- | ----- |
 | Ad | Mikrofon | Gerekli |
-| Başlatma | Ses kullanarak istemciyi yeniden başlatıldığı zaman mikrofon veya diğer ses akışı giriş veya bir tetikleyici anahtar sözcüğü spotter alınan | Gerekli |
-| Son | Ne zaman istemci mikrofon veya ses akışı kullanarak durdurulma zamanı | Gerekli |
-| Hata | Varsa, oluşan hata açıklaması. Mikrofon işlemleri başarılı olursa, istemcilerin bu alan atlayın. Bu alan uzunluğu en fazla 50 karakter uzunluğunda olabilir. | Aksi takdirde atlanmış hata durumları için gerekli |
+| Başlatma | Ne zaman istemci mikrofon veya başka bir ses akışı ses girişi kullanmaya veya bir tetikleyici anahtar sözcüğü spotter alınan saati | Gerekli |
+| Son | Ne zaman istemci ses veya mikrofon akış kullanarak durduruldu. süre | Gerekli |
+| Hata | Varsa, oluşan hata açıklaması. Mikrofon işlem başarılı olursa, istemcilerin bu alan atlamak. Bu alan uzunluğunun üst sınırı 50 karakterdir. | Aksi takdirde atlanmış hata durumları için gerekli |
 
 ### <a name="metric-listeningtrigger"></a>Ölçüm `ListeningTrigger`
-`ListeningTrigger` Ölçüm zaman kullanıcı yürütür Konuşma giriş başlatır eylem zaman ölçer. `ListeningTrigger` Ölçüm isteğe bağlı, ancak bu ölçüm sağlayan istemciler Bunu yapmak için önerilir.
+`ListeningTrigger` Ölçüm ölçer zaman zaman kullanıcı Konuşma giriş başlatan eylemi yürütür. `ListeningTrigger` Ölçüm isteğe bağlıdır, ancak bu ölçüm sağlayan istemciler Bunu yapmak için önerilir.
 
-Aşağıdaki örnekler, kayıt için kılavuz olarak kullanın *Başlat* ve *son* saat değerlerini `ListeningTrigger` istemci uygulamanızda ölçüm.
+Aşağıdaki örnekler, kayıt için kılavuz olarak kullanın *Başlat* ve *son* saat değerlerini `ListeningTrigger` istemci uygulamanıza ölçüm.
 
-* Bir istemci uygulaması, bir kullanıcı mikrofon başlamak için fiziksel bir düğmeyi basmalısınız gerektirir. *Başlat* Düğme basma zaman bu ölçüm kayıtları için bir değer. *Son* değeri Düğme basma bittiğinde saati kaydeder.
+* Bir istemci uygulaması, bir kullanıcı mikrofon başlatmak için fiziksel bir düğme basmalısınız gerektirir. *Başlat* düğmesine basma süresini Bu ölçüm kayıtları için bir değer. *Son* değeri düğmesine basma tamamlandığı zaman kaydeder.
 
-* Bir istemci uygulaması "her zaman" dinlediği bir anahtar sözcüğü spotter kullanır. Sonra anahtar sözcüğü bir konuşma tetikleyici deyimi spotter algılar istemci uygulaması mikrofon girdiyi okur ve konuşma hizmetine gönderir. *Başlat* anahtar sözcüğü spotter tetikleyici tümcecik sonra algılandı ses alındığında zaman bu ölçüm kayıtları için bir değer. *Son* değeri zaman son tetikleyici tümceciği konuşma kullanıcı tarafından zaman kaydeder.
+* Bir istemci uygulaması "her zaman" dinlediği bir anahtar sözcüğü spotter kullanır. Anahtar sözcüğü sonra konuşulan tetikleyici tümcecik spotter algılar istemci uygulaması giriş mikrofondan okur ve konuşma hizmetine gönderir. *Başlat* Bu ölçüm tetikleyicisi tümcecik olarak ardından algılandı ses alındığında anahtar sözcüğü spotter zaman kayıtları için bir değer. *Son* değeri zaman son tetikleyici tümceciği konuşma kullanıcı tarafından zaman kaydeder.
 
-* Bir istemci uygulaması için sabit bir ses akışını erişimi vardır ve bu ses akışını sessizlik/Konuşma Algılama gerçekleştiren bir *Konuşma Algılama Modülü*. *Başlat* zaman bu ölçüm kayıtları için bir değer, *Konuşma Algılama Modülü* alınan konuşma sonra algılandı ses. *Son* değeri kaydeder zaman zaman *Konuşma Algılama Modülü* konuşma algılandı.
+* Bir istemci uygulaması için sabit bir ses akışı erişebilir ve sessizlik/Konuşma Algılama ilgili ses akışı gerçekleştiren bir *Konuşma Algılama Modülü*. *Başlat* Bu ölçüm zamanı kaydeder değeri, *Konuşma Algılama Modülü* alındı konuşma ardından algılandı ses. *Son* değeri zaman kaydeder olduğunda *Konuşma Algılama Modülü* konuşma algılandı.
 
-* Bir istemci uygulaması ikinci Aç çok bırakma isteği işliyor ve giriş için ikinci bırakma toplamak için mikrofon etkinleştirmek için bir hizmet yanıt iletisi tarafından bilgilendirilir. İstemci uygulaması gereken *değil* içeren bir `ListeningTrigger` bu bırakma için ölçüm.
+* Bir istemci uygulamanın ikinci Aç çok bırakma isteği işleme ve giriş için ikinci bırakma toplamak üzere mikrofon etkinleştirmek için bir hizmet yanıt iletisi olarak bilgilendirilir. İstemci uygulaması gereken *değil* dahil bir `ListeningTrigger` ölçüm için bu etkinleştirin.
 
 | Alan | Açıklama | Kullanım |
 | ----- | ----------- | ----- |
 | Ad | ListeningTrigger | İsteğe bağlı |
-| Başlatma | İstemci dinleme tetikleyici başlatıldığı zaman | Gerekli |
-| Son | İstemci dinleme tetikleyici bittiği zaman | Gerekli |
-| Hata | Varsa, oluşan hata açıklaması. Tetikleyici işlemi başarılı olursa, istemcilerin bu alan atlayın. Bu alan uzunluğu en fazla 50 karakter uzunluğunda olabilir. | Aksi takdirde atlanmış hata durumları için gerekli |
+| Başlatma | İstemci dinleme tetikleyici başlatıldığı saat | Gerekli |
+| Son | Ne zaman istemci dinleme tetikleyici bitiş zamanı | Gerekli |
+| Hata | Varsa, oluşan hata açıklaması. Tetikleyici işlem başarılı olduysa, istemciler bu alan atlamak. Bu alan uzunluğunun üst sınırı 50 karakterdir. | Aksi takdirde atlanmış hata durumları için gerekli |
 
 #### <a name="sample-message"></a>Örnek ileti
 
-Aşağıdaki örnek ReceivedMessages ve ölçümleri bölümleri içeren bir telemetri iletisi gösterir:
+Aşağıdaki örnek, bir telemetri iletisi ReceivedMessages hem ölçümleri bölümlerle gösterir:
 
 ```HTML
 Path: telemetry
@@ -609,75 +610,75 @@ X-Timestamp: 2016-08-16T15:03:54.183Z
 
 ## <a name="error-handling"></a>Hata işleme
 
-Bu bölümde, hata iletileri ve işlemek için uygulamanız gereken koşulları türleri açıklanmaktadır.
+Bu bölümde, hata iletileri ve işlemek için uygulamanız gereken koşullar açıklanır.
 
 ### <a name="http-status-codes"></a>HTTP durum kodları
 
-WebSocket yükseltme isteği sırasında Konuşma hizmeti herhangi bir standart HTTP durum kodları gibi döndürebilir `400 Bad Request`, vb. Uygulamanız bu hata koşulları düzgün şekilde işlemelidir.
+WebSocket yükseltme isteği sırasında Konuşma hizmeti herhangi bir standart HTTP durum kodları gibi döndürebilir `400 Bad Request`vb. Uygulamanız bu hata koşulları doğru şekilde işlemesi gerekir.
 
 #### <a name="authorization-errors"></a>Yetkilendirme hataları
 
-WebSocket yükseltme sırasında Konuşma hizmeti bir HTTP döndürür sağlanan yanlış yetkilendirme ise `403 Forbidden` durum kodu. Bu hata kodu tetikleyebilir koşullar arasında şunlardır:
+WebSocket yükseltme sırasında Konuşma tanıma hizmeti bir HTTP döndürür. yanlış yetkilendirme sağlanmazsa `403 Forbidden` durum kodu. Bu hata kodu tetikleyebileceğiniz koşullar arasında şunlardır:
 
 * Eksik *yetkilendirme* üstbilgisi
 
-* Geçersiz kimlik doğrulama belirteci
+* Geçersiz yetkilendirme belirteci
 
 * Süresi dolan yetkilendirme belirteci
 
-`403 Forbidden` Hata iletisi konuşma hizmeti ile bir sorun olduğunun göstergesi değil. Bu hata iletisini istemci uygulaması bir sorun olduğunu gösterir.
+`403 Forbidden` Hata iletisi olmayan konuşma hizmeti ile bir sorun olduğunu gösteriyor. Bu hata iletisi, istemci uygulama bir sorun olduğunu gösterir.
 
-### <a name="protocol-violation-errors"></a>Protokolü ihlali hataları
+### <a name="protocol-violation-errors"></a>Protokol ihlali hatalarını
 
-Konuşma hizmeti bir istemciden herhangi bir protokolü ihlali algılarsa, hizmet döndürmeden sonra WebSocket bağlantıyı sonlandırır bir *durum kodu* ve *neden* sonlandırma için. İstemci uygulamaları, sorun giderme ve ihlallerini düzeltmek için bu bilgileri kullanabilir.
+Konuşma hizmeti, istemciden gelen herhangi bir protokol ihlali algılarsa, hizmet döndüren sonra WebSocket bağlantıyı sonlandırır. bir *durum kodu* ve *neden* sonlandırma için. İstemci uygulamaları, sorun giderme ve ihlali gidermek için bu bilgileri kullanabilir.
 
-#### <a name="incorrect-message-format"></a>Hatalı ileti biçimi
+#### <a name="incorrect-message-format"></a>Yanlış ileti biçimi
 
-Bir istemci bir metin veya ikili ileti bu belirtiminde verilen doğru biçimde kodlanmamış hizmetine gönderirse, hizmeti ile bağlantıyı kapatır bir *1007 geçersiz yükü veri* durum kodu. 
+Bir istemci bir metin veya ikili ileti bu belirtiminde belirtilen doğru biçimde kodlanmamış hizmetine gönderir, hizmeti ile bağlantıyı kapatır. bir *1007 geçersiz yük verisi* durum kodu. 
 
-Hizmet, aşağıdaki örneklerde gösterildiği gibi çeşitli nedenlerle, bu durum kodunu döndürür:
+Aşağıdaki örneklerde gösterildiği gibi hizmet çeşitli nedenlerle, bu durum kodunu döndürür:
 
-* "Hatalı ileti biçimi. İkili ileti geçersiz üstbilgi boyutu öneke sahip." İstemci bir geçersiz üstbilgi boyutu öneke sahip ikili bir ileti gönderdi.
+* "Yanlış ileti biçimi. İkili ileti geçersiz üstbilgi boyutu ön eki vardır." İstemcisi, bir geçersiz üstbilgi boyutu ön ekine sahip bir ikili ileti gönderilir.
 
-* "Hatalı ileti biçimi. İkili ileti geçersiz üstbilgi boyutuna sahiptir." İstemcisi belirtilen geçersiz üstbilgi boyutu ikili bir ileti gönderilir.
+* "Yanlış ileti biçimi. İkili ileti geçersiz üstbilgi boyutuna sahiptir." İstemcisi belirtilen geçersiz üstbilgi boyutu ikili bir ileti gönderilir.
 
-* "Hatalı ileti biçimi. İkili ileti üstbilgilerini UTF-8 kod çözme başarısız oldu." İstemci doğru UTF-8'de kodlanmış değil üstbilgiler içeren bir ikili ileti gönderdi.
+* "Yanlış ileti biçimi. İkili ileti üstbilgileri UTF-8 kod çözme başarısız oldu." İstemcisi, UTF-8'de düzgün şekilde kodlanmış olmayan üst bilgilerini içeren bir ikili ileti gönderilir.
 
-* "Hatalı ileti biçimi. SMS mesajı veri içermiyor." İstemcisi, gövde verileri içeren bir SMS mesajı gönderilir.
+* "Yanlış ileti biçimi. SMS mesajı hiçbir veri içermiyor." İstemci hiçbir gövde verilerini içeren bir SMS mesajı gönderdik.
 
-* "Hatalı ileti biçimi. SMS mesajı UTF-8 kod çözme başarısız oldu." İstemcisi UTF-8'de doğru bir şekilde kodlanmamış bir SMS mesajı gönderilir.
+* "Yanlış ileti biçimi. SMS mesajı UTF-8 kod çözme başarısız oldu." İstemci, UTF-8'de düzgün şekilde kodlanmamış bir SMS mesajı gönderdik.
 
-* "Hatalı ileti biçimi. Metin iletisi başlığı ayırıcı içerir." İstemcisi bir üstbilgi ayırıcı içermiyordu veya yanlış üstbilgi ayırıcı kullanılan bir SMS mesajı gönderilir.
+* "Yanlış ileti biçimi. Metin iletisi üst bilgi ayırıcı içerir." İstemci, bir başlık ayırıcıyı içermiyordu veya yanlış bir başlık ayırıcıyı kullanılan bir SMS mesajı gönderdik.
 
 #### <a name="missing-or-empty-headers"></a>Eksik veya boş üstbilgileri
 
-Bir istemci gerekli üstbilgileri sahip olmayan bir ileti gönderirse *X RequestId* veya *yolu*, hizmeti ile bağlantıyı kapatır bir *1002 protokol hatası* durum kodu. İleti "eksik veya boş. başlığıdır {Üstbilgi adı}."
+Bir istemci gerekli üst bilgileri olmayan bir ileti gönderirse *X-RequestId* veya *yolu*, hizmeti ile bağlantıyı kapatır bir *1002 protokol hatası* durum kodu. Yapılacak olan "üst bilgisi eksik veya boş. {Üst bilgi adı}."
 
 #### <a name="requestid-values"></a>RequestId değerleri
 
-Bir istemci bir ileti gönderirse belirtir bir *X RequestId* üstbilgisi hatalı bir biçimde, hizmet bağlantıyı kapatır ve döndürür bir *1002 protokol hatası* durumu. İletisidir "geçersiz istek. X-RequestId üstbilgi değeri Hayır tire UUID biçiminde belirtilmedi."
+Belirten bir istemci bir ileti gönderir, bir *X-RequestId* üstbilgisi hatalı biçimde, hizmete bağlantıyı kapatır ve döndürür bir *1002 protokol hatası* durumu. "İsteği geçersiz. iletidir X-RequestId üstbilgi değeri yok-dash UUID biçiminde belirtilmedi."
 
 #### <a name="audio-encoding-errors"></a>Ses kodlama hataları
 
-Bir istemci bir etkinleştirin ve ses biçimi başlatan bir ses öbek gönderir veya kodlama gerekli belirtime uygun değil, hizmet bağlantıyı kapatır ve döndürür bir *1007 geçersiz yükü veri* durum kodu. İleti kaynak hata kodlama biçimi belirtir.
+Bir istemci bir bırakma ve ses biçimi başlatan bir ses öbek gönderir veya kodlama gerekli belirtime uygun değil, hizmet bağlantıyı kapatır ve döndürür bir *1007 geçersiz yük verisi* durum kodu. İleti hata kaynağı kodlama biçimi gösterir.
 
 #### <a name="requestid-reuse"></a>RequestId yeniden kullanma
 
-Bir istemci bu bırakma isteği tanımlayıcıdan yeniden kullanır iletisi gönderirse bir dönüş bittikten sonra hizmet bağlantıyı kapatır ve döndüren bir *1002 protokol hatası* durum kodu. İletisidir "geçersiz istek. İstek tanımlayıcılarını kullanılmasını izin verilmez."
+Bir istemci, bırakma alınan istek tanımlayıcısı yeniden kullanan bir ileti gönderir, bir bırakma tamamladıktan sonra hizmeti bağlantıyı kapatır ve döndürür bir *1002 protokol hatası* durum kodu. "İsteği geçersiz. iletidir İstek tanımlayıcıları kullanılmasını izin verilmez."
 
 ## <a name="connection-failure-telemetry"></a>Bağlantı hatası telemetri
 
-En iyi kullanıcı deneyimini sağlamak için istemciler bir bağlantı içindeki önemli kontrol noktaları zaman damgalarını konuşma hizmeti kullanarak bilgilendirmeniz *telemetri* ileti. İstemcileri çalıştı ancak başarısız bağlantıları hizmet bildirmek derecede önemlidir.
+İyi kullanıcı deneyimini sağlamak için istemciler bir bağlantı içinde önemli kontrol noktaları zaman damgalarında konuşma hizmeti kullanarak bilgilendirmeniz *telemetri* ileti. İstemcilerin hizmeti çalıştı ancak başarısız bağlantılar, bildirmek eşit derecede önemlidir.
 
-Başarısız olan her bağlantı denemesi için istemcileri oluşturma bir *telemetri* benzersiz bir iletiyle *X RequestId* üstbilgi değeri. İstemci bir bağlantı kuramadı çünkü *ReceivedMessages* JSON gövdesi alanında etmeyebilirsiniz. Yalnızca `Connection` girişi *ölçümleri* alan eklenmiştir. Bu girdi karşılaşıldı hata koşulu yanı sıra başlangıç ve bitiş zaman damgaları içerir.
+Başarısız her bağlantı denemesi için istemcileri oluşturma bir *telemetri* benzersiz bir iletiyle *X-RequestId* üstbilgi değeri. İstemci bağlantı kuramadı, çünkü *ReceivedMessages* JSON gövdesi alanında atlanabilir. Yalnızca `Connection` girişi *ölçümleri* alanı dahildir. Bu girdi karşılaşıldı hata koşulu yanı sıra başlangıç ve bitiş zaman damgası içerir.
 
 ### <a name="connection-retries-in-telemetry"></a>Telemetri, bağlantı yeniden deneme
 
-İstemcileri ayırt *yeniden deneme* gelen *birden çok bağlantı denemeleri* bağlantı denemesi tetikleyen olayı tarafından. Herhangi bir kullanıcı girişi programlı olarak gerçekleştirilen bağlantı denemeleri yeniden denemeler var. Yanıt kullanıcı girişi olarak yürütülen birden çok bağlantı denemeleri birden çok bağlantı denemeleri ' dir. İstemciler her bir kullanıcı tarafından tetiklenen bağlantı denemesi benzersiz bir vermek *X RequestId* ve *telemetri* ileti. İstemcileri yeniden *X RequestId* programlı yeniden deneme için. Tek bir bağlantı girişimi için birden çok deneme yapılmışsa, yeniden deneme girişimlerinden olarak eklenmiştir bir `Connection` girişi *telemetri* ileti.
+İstemciler ayırt *deneme* gelen *birden çok bağlantı denemeleri* bağlantı denemesi tetikleyen olayı tarafından. Herhangi bir kullanıcı girişi program aracılığıyla gerçekleştirilen bağlantı girişimleri, yeniden denemeler var. Kullanıcı girişine yanıt olarak gerçekleştirilen birden çok bağlantı denemeleri, birden çok bağlantı denemeleri ' dir. İstemcilerin her kullanıcı tetiklenen bağlantı denemesi benzersiz bir vermek *X-RequestId* ve *telemetri* ileti. İstemcileri yeniden *X-RequestId* için programlı bir yeniden deneme. Birden çok deneme için tek bir bağlantı denemesi yapıldı, her yeniden deneme girişimi olarak dahil edilen bir `Connection` girişi *telemetri* ileti.
 
-Örneğin, bir kullanıcı bir bağlantı başlatmak için anahtar sözcüğü tetikleyici konuşur ve DNS hatalar nedeniyle ilk bağlantı denemesi başarısız varsayalım. Ancak, program aracılığıyla istemci tarafından yapılan ikinci bir deneme başarılı. İstemci, tek bir kullanır, kullanıcıdan ek girişi gerektirmeden istemci bağlantısı denenen çünkü *telemetri* birden çok ileti `Connection` bağlantı açıklamak için girdileri.
+Örneğin, bir kullanıcı bir bağlantı başlatmak için anahtar sözcüğü tetikleyici konuşacak ve ilk bağlantı denemesi DNS hataları nedeniyle başarısız olduğunu varsayalım. Ancak, program aracılığıyla istemci tarafından yapılan ikinci denemesi başarılı olur. Ek kullanıcı girişi gerektirmeden istemci bağlantıyı yeniden çünkü tek bir istemcinin kullandığı *telemetri* birden çok ileti `Connection` bağlantı açıklamak için girdileri.
 
-Başka bir örnek olarak, bir kullanıcı bir bağlantı başlatmak için anahtar sözcüğü tetikleyici konuşur ve üç denemeden sonra bu bağlantı girişimleri başarısız olur varsayalım. İstemci, hizmete bağlanmaya durakları sağlar ve bir sorun oluştu kullanıcıya bildirir. Kullanıcı daha sonra yeniden anahtar sözcüğü tetikleyici konuşur. Bu süre, istemci hizmete bağlandığında varsayalım. Bağlandıktan sonra istemci hemen gönderir bir *telemetri* üç içeren hizmete iletiye `Connection` bağlantı hataları tanımlar girişleri. Alındıktan sonra `turn.end` iletisi, istemci gönderir başka *telemetri* başarılı bağlantı açıklayan ileti.
+Başka bir örnek olarak, bir kullanıcı bir bağlantı başlatmak için anahtar sözcüğü tetikleyici konuşacak ve üç denemeden sonra bu bağlantı girişimi başarısız olduğunu varsayalım. İstemci, hizmete bağlanmaya durakları sağlar ve bir sorun oluştu, kullanıcıya bildirir. Kullanıcı daha sonra yeniden anahtar sözcüğü tetikleyici konuşur. İstemci hizmete bağlandığında, bu kez, varsayalım. Bağlandıktan sonra istemci anında gönderir bir *telemetri* üçünü içeren hizmete ileti `Connection` bağlantı hataları tanımlayan girdileri. Alma sonra `turn.end` ileti, istemcinin gönderdiği başka *telemetri* başarılı bağlantı açıklayan ileti.
 
 ## <a name="error-message-reference"></a>Hata iletisi başvurusu
 
@@ -685,22 +686,22 @@ Başka bir örnek olarak, bir kullanıcı bir bağlantı başlatmak için anahta
 
 | HTTP durum kodu | Açıklama | Sorun giderme |
 | - | - | - |
-| 400 Hatalı istek | İstemcisi yanlış WebSocket bağlantı isteği gönderilir. | Tüm gerekli parametreleri ve HTTP üstbilgileri sağlanan ve değerleri doğru olduğunu denetleyin. |
-| 401 Yetkisiz | İstemci gerekli yetkilendirme bilgilerini içermiyordu. | Göndereceğiniz onay *yetkilendirme* WebSocket Bağlantısı'nda başlığı. |
-| 403 Yasak | İstemci yetkilendirme bilgilerini gönderilen ancak geçersizdi. | Süresi dolmuş veya geçersiz bir değer göndereceğiniz değil, denetleme *yetkilendirme* üstbilgi. |
-| 404 Bulunamadı | İstemci, desteklenmeyen bir URL yolu erişme girişiminde bulunuldu. | WebSocket bağlantısı için doğru URL'yi kullandığınızdan denetleyin. |
-| 500 sunucu hatası | Hizmet dahili bir hatayla karşılaştı ve istek karşılayamadı. | Çoğu durumda, bu geçici bir hatadır. İsteği yeniden deneyin. |
+| 400 Hatalı istek | İstemci, yanlış bir WebSocket bağlantısı isteği gönderdi. | Tüm HTTP üst bilgilerini ve gerekli parametreleri tarafından sağlanan ve değerlerin doğru olduğundan emin olun. |
+| 401 Yetkisiz | İstemcinin gerekli yetkilendirme bilgilerini içermiyordu. | Göndereceğiniz onay *yetkilendirme* üst bilgisinde WebSocket bağlantısı kurar. |
+| 403 Yasak | İstemci yetkilendirme bilgileri gönderilen, ancak geçersiz. | Süresi dolmuş veya geçersiz bir değer göndereceğiniz değil, kontrol *yetkilendirme* başlığı. |
+| 404 Bulunamadı | İstemci, desteklenmeyen bir URL yoluna erişmeye çalıştı. | WebSocket bağlantısı için doğru URL kullanıyorsanız denetleyin. |
+| 500 sunucu hatası | Hizmet bir iç hatayla karşılaştı ve istek karşılayamadı. | Çoğu durumda, bu geçici bir hatadır. İsteği yeniden deneyin. |
 | 503 Hizmet Kullanılamıyor | Hizmet isteği işleyemedi. | Çoğu durumda, bu geçici bir hatadır. İsteği yeniden deneyin. |
 
 ### <a name="websocket-error-codes"></a>WebSocket hata kodları
 
-| WebSocketsStatus kodu | Açıklama | Sorun giderme |
+| WebSocketsStatus kod | Açıklama | Sorun giderme |
 | - | - | - |
-| 1000 normal kapatma | Hizmet bir hata olmadan WebSocket bağlantı kapatıldı. | WebSocket kapatma beklenmeyen olduysa, nasıl ve ne zaman hizmeti WebSocket bağlantısı sonlandırabilir anladığınızdan emin olmak için belgeleri yeniden okuyun. |
-| 1002 protokol hatası | İstemci protokolü gereksinimlerine uyacak şekilde başarısız oldu. | Protokolü belgeleri anlamak ve gereksinimleri hakkında açık olduğundan emin olun. Protokolü gereksinimleri ihlal olmadığını görmek için hata nedenleri hakkında önceki belgelerini okuyun. |
-| 1007 geçersiz yük verileri | İstemci geçersiz bir yükü bir protokol iletisi gönderdi. | Hatalar için hizmetine gönderilen son ileti denetleyin. Yük hataları hakkında önceki belgelerini okuyun. |
-| 1011 sunucu hatası | Hizmet dahili bir hatayla karşılaştı ve istek karşılayamadı. | Çoğu durumda, bu geçici bir hatadır. İsteği yeniden deneyin. |
+| 1000 normal kapatma | Hizmet bir hata olmadan WebSocket bağlantısı kapatıldı. | Nasıl ve ne zaman hizmeti WebSocket bağlantısı sonlandırabilirsiniz anladığınızdan emin olmak için belgeler, beklenmeyen WebSocket kapatma, yeniden okuyun. |
+| 1002 protokol hatası | İstemci, Protokolü gereksinimlerine uyacak şekilde başarısız oldu. | Protokolü belgeleri anlamak ve gereksinimleri hakkında açık olduğundan emin olun. Önceki belgelerini protokolü gereksinimleri ihlal olmadığını görmek için hata nedenleri hakkında okuyun. |
+| 1007 geçersiz yük verisi | İstemcisi, bir protokol iletisinde geçersiz bir yükü gönderilir. | Hatalar için hizmete gönderilen son ileti denetleyin. Yük hataları hakkında önceki belgelerini okuyun. |
+| 1011 değerinin kodunu sunucu hatası | Hizmet bir iç hatayla karşılaştı ve istek karşılayamadı. | Çoğu durumda, bu geçici bir hatadır. İsteği yeniden deneyin. |
 
 ## <a name="related-topics"></a>İlgili konular
 
-Bkz: bir [JavaScript SDK'sı](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript) olan konuşma hizmet WebSocket tabanlı Protokolü uygulaması.
+Bkz: bir [JavaScript SDK'sı](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript) diğer bir deyişle WebSocket tabanlı konuşma hizmeti Protokolü uygulaması.
