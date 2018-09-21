@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 51c6753b1e4f2b08e93214abfcd7e18cb2e66613
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318322"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465614"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Azure IoT Central uygulaması oluşturma
 
@@ -52,78 +52,6 @@ Yeni bir Azure IoT Central uygulaması oluşturmak için:
 1. Ardından **Oluştur**’u seçin.
 
 ![Azure IoT Central Uygulama Oluştur sayfası](media/quick-deploy-iot-central/iotcentralcreate.png)
-
-## <a name="navigate-to-the-application"></a>Uygulamaya gidin
-
-Uygulamanız hazır olduğunda, uygulamanızın **Giriş Sayfası** görüntülenir. Giriş Sayfasını düzenlemek için sağ üst kısımda _Tasarım Modu_'na geçilebilir. Uygulama URL'si, önceki adımda belirttiğiniz URL'dir:
-
-![Uygulama Oluşturucu sayfası](media/quick-deploy-iot-central/apphome.png)
-
-Yeni Azure IoT Central uygulamanızın farklı alanlarına erişmek için _sol gezinti menüsünü_ kullanın:
-
-![Sol gezinti menüsü](media/quick-deploy-iot-central/navbar.png)
-
-Uygulamanızdaki cihaz şablonlarını ve cihazları görüntülemek için, sol gezinti menüsünde **Device Explorer**'ı seçin. Örnek uygulama **Soğutmalı Otomat** cihaz şablonunu içerir. Bu cihaz şablonundan önceden oluşturulmuş üç simülasyon cihazı vardır:
-
-![Device Explorer](media/quick-deploy-iot-central/deviceexplorer.png)
-
-## <a name="view-the-device-template-and-devices"></a>Cihaz şablonunu ve cihazları görüntüleme
-
-Aşağıdaki adımları kullanarak **Soğutmalı Otomat** cihaz şablonundan oluşturulmuş olan buzdolabı cihazını görüntüleyin. Cihaz şablonu şunları tanımlar:
-
-* _Ölçümler_, örneğin sıcaklık telemetrisi; cihazdan gönderilir.
-* _Ayarlar_, örneğin fan hızı; cihazı denetlemenize olanak tanır.
-* _Özellikler_, örneğin seri numarası; cihaz hakkındaki bilgileri depolar.
-* [Kurallar](howto-create-telemetry-rules.md); cihazın davranışı temelinde eylemleri otomatik hale getirmenize olanak tanır.
-* Özelleştirilebilir _pano_; cihaz hakkındaki bilgileri görüntüler.
-
-Cihaz şablonundan hem simülasyon hem de gerçek cihazlar oluşturabilirsiniz.
-
-### <a name="measurements"></a>Ölçümler
-
-**Refrigerator 1** cihazının **Ölçümler** sayfası görüntülenir. Simülasyon cihazından gönderilen ölçümlerin listesini görebilirsiniz. Sayfada ayrıca görünen ölçümlerin özelleştirilebilir bir grafiği de gösterilir:
-
-![Ölçümler sayfası](media/quick-deploy-iot-central/measurements.png)
-
-Tek tek öğelerin görünürlük durumunu değiştirebilir ve grafiği özelleştirebilirsiniz. Geçerli grafikte, simülasyon cihazından gelen telemetri gösterilir. Uygun izinleriniz varsa cihaz şablonuna yeni ölçümler ekleyebilirsiniz.
-
-> [!NOTE]
-> Simülasyon verilerinin grafikte gösterilmesi için kısa bir süre beklemeniz gerekebilir.
-
-### <a name="settings"></a>Ayarlar
-
-**Ayarlar**'ı seçin. **Ayarlar** sayfasında cihazı denetleyebilirsiniz. Örneğin, buzdolabının fan hızını güncelleştirebilirsiniz:
-
-![Ayarlar](media/quick-deploy-iot-central/settings.png)
-
-Cihaz değişikliği kabul ettiğinde ayar **eşitlenmiş** olarak gösterilir.
-
-### <a name="properties"></a>Özellikler
-
-**Özellikler**'i seçin. **Özellikler** sayfasında şunları yapabilirsiniz:
-
-* Cihazınız hakkında müşteri adı gibi bilgileri koruyabilirsiniz.
-* Cihaz tarafından bildirilen hareket uyarısı gibi özellik değerlerini görüntüleyebilirsiniz.
-
-![Özellikler](media/quick-deploy-iot-central/properties.png)
-
-### <a name="dashboard"></a>Pano
-
-**Pano**'yu seçin. Pano, cihazınız hakkındaki ölçümler, özellikler ve KPI'ler gibi bilgilerin özelleştirilebilir bir görünümüdür:
-
-![Pano](media/quick-deploy-iot-central/dashboard.png)
-
-## <a name="view-analytics"></a>Görünüm analizi
-
-Önceki bölümde tek bir cihaz hakkındaki bilgileri nasıl görüntüleyeceğini görmüştünüz. Birden çok cihazdan gelen birleştirilmiş bilgileri görüntülemek için [cihaz kümeleri](howto-use-device-sets.md) ve [analiz](howto-create-analytics.md) kullanabilirsiniz.
-
-Cihaz kümesi, ölçütlere uyan bir grup cihazı dinamik olarak seçmek için sorgu kullanır. Örneğin, **Machines in Seattle** cihaz kümesi konumu Seattle olan buzdolabı cihazlarını seçer. **Machines in Seattle** cihaz kümesini görüntülemek için, sol gezinti menüsünde **Cihaz Kümeleri**'ni seçin ve sonra da **Machines in Seattle**'ı seçin:
-
-![Machines in Seattle cihaz kümesi](media/quick-deploy-iot-central/deviceset.png)
-
-**Analiz** sayfasında, cihaz kümesindeki cihazların analiz verilerini görüntüleyebilirsiniz:
-
-![Seattle'daki makinelerin analizi](media/quick-deploy-iot-central/analytics.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

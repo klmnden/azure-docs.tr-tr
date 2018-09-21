@@ -1,19 +1,21 @@
 ---
-title: Bing Web Araması nedir? | Microsoft Docs
-description: Bing Web Araması API'si, uygulamanızın web sayfaları, görüntüler, videolar, haberler, varlıklar, ilgili arama sorguları, yazım düzeltmeleri, birim dönüştürmeleri, çeviriler ve hesaplamalar dahil olmak üzer Bing web araması özelliklerini kullanmasına olanak sağlayan bir RESTful hizmetidir.
+title: Bing Web Araması nedir?
+titleSuffix: Azure Cognitive Services
+description: Bing Web araması API'si, kullanıcı sorgularına anında yanıt sağlayan bir RESTful hizmetidir. Arama sonuçları; web sayfalarını, görüntüleri, videoları, haberleri, çevirileri ve daha fazlasını içerecek şekilde yapılandırılabilir. Sonuçlar, JSON biçiminde sunulur ve aramayla ilgi düzeyini ve Bing Web Araması aboneliklerinizi temel alır.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: overview
 ms.date: 08/14/2018
 ms.author: erhopf
-ms.openlocfilehash: ad1069a836a3ff9291ca8094fe86e19979bf7e32
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8482afae2889ccf2153e1864e4a65b635b6ab4c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889288"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125247"
 ---
 # <a name="what-is-bing-web-search"></a>Bing Web Araması nedir?
 

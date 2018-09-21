@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 06/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 39d2979aad3aee80ba010d5fc3cf83ad486baf2d
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 3b1da6e9068be3c96cce5973f29344fe7e4b4872
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247889"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35764066"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Yönetilen bir uygulamayı dahili tüketim için yayımlama
 
@@ -171,7 +171,7 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Azure Active Directory kullanıcı grubu veya uygulaması oluşturma
 
-Sonraki adım, müşteri adına kaynakları yönetmeye yönelik bir kullanıcı grubu ya da uygulama seçmektir. Bu kullanıcı grubu veya uygulama, atanan role göre yönetilen kaynak grubu üzerinde izinlere sahiptir. Rol, Sahip veya Katkıda Bulunan gibi herhangi bir yerleşik Rol Tabanlı Erişim Denetimi (RBAC) rolü olabilir. Kaynakları yönetmek için tek bir kullanıcı izni de verebilirsiniz ancak genellikle bu izni bir kullanıcı grubuna atarsınız. Yeni bir Active Directory kullanıcı grubu oluşturmak için bkz. [Azure Active Directory’de grup oluşturma ve üye ekleme](../active-directory/active-directory-groups-create-azure-portal.md).
+Sonraki adım, müşteri adına kaynakları yönetmeye yönelik bir kullanıcı grubu ya da uygulama seçmektir. Bu kullanıcı grubu veya uygulama, atanan role göre yönetilen kaynak grubu üzerinde izinlere sahiptir. Rol, Sahip veya Katkıda Bulunan gibi herhangi bir yerleşik Rol Tabanlı Erişim Denetimi (RBAC) rolü olabilir. Kaynakları yönetmek için tek bir kullanıcı izni de verebilirsiniz ancak genellikle bu izni bir kullanıcı grubuna atarsınız. Yeni bir Active Directory kullanıcı grubu oluşturmak için bkz. [Azure Active Directory’de grup oluşturma ve üye ekleme](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Kaynakları yönetmek için kullanılacak kullanıcı grubunun nesne kimliği gerekir. 
 

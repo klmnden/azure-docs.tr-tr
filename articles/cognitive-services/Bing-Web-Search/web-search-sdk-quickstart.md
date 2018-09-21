@@ -1,6 +1,7 @@
 ---
 title: "Hızlı başlangıç: C# için Bing Web Araması SDK'sını kullanma"
-description: C# için Bing Web Araması SDK'sını kullanmayı öğrenin.
+titleSuffix: Azure Cognitive Services
+description: Bing Web Araması SDK'sı, Bing Web Araması özelliklerini C# uygulamanızla tümleştirmeyi kolaylaştırır. Bu hızlı başlangıçta istemci başlatmayı, istek göndermeyi ve yanıtı yazdırmayı öğreneceksiniz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: ed958f4a691b878cfa7ff9766a0fb72857cce5db
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: cebeab562a54ec68b69eb6422685cc4b596ac223
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186805"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127898"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Hızlı başlangıç: C# için Bing Web Araması SDK'sını kullanma
 

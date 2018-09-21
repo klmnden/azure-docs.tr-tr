@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: b784e64962569f22cba3bc52b6a4e9443a4587d5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30312000"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35621288"
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch nedir?
 
@@ -61,7 +61,7 @@ Azure Batch için daha yüksek düzeyli, iş yüküne özel özellikler de kulla
 * Batch; Autodesk Maya, 3ds Max, Arnold ve V-Ray gibi işleme araçları ile büyük ölçekli [işleme iş yüklerini](batch-rendering-service.md) destekler. 
 * R kullanıcıları, Batch havuzlarında R algoritmalarının yürütülmesini kolayca ölçeklendirmek için [doAzureParallel R paketi](https://github.com/Azure/doAzureParallel) yükleyebilir.
 
-[Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md) gibi araçlarla yönetilen Batch işlerini, veri dönüştürmeye yönelik daha büyük bir Azure iş akışının parçası olarak da kullanabilirsiniz.
+[Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md) gibi araçlarla yönetilen Batch işlerini, veri dönüştürmeye yönelik daha büyük bir Azure iş akışının parçası olarak da kullanabilirsiniz.
 
 
 ## <a name="how-it-works"></a>Nasıl çalışır?

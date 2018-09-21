@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 405f69ae1c37e478758d984ddf7dc0e267910fef
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 381263a39716ad1271c853ec4b7453a5a922b43e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023549"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633716"
 ---
 # <a name="what-is-azure-policy"></a>Azure İlkesi nedir?
 
@@ -135,7 +135,7 @@ Bu senaryoda **initiativeC** için girişim parametreleri tanımlanırken üç s
 
 Aşağıdaki Azure İlkesi genel bakış videosu Build 2018 etkinliğinde kaydedilmiştir. Slaytları veya videoyu indirmek için lütfen Channel 9'daki [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Azure ortamınızı Azure İlkesi aracılığıyla yönetme) sayfasına gidin.
 
-> [!VIDEO https://channel9.msdn.com/events/Build/2018/THR2030/player]
+> [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

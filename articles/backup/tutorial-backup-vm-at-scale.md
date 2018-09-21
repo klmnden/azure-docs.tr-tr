@@ -9,12 +9,12 @@ ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: ecbf583a9b64868004b246bb01e7f174a21496b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4fb8d45c285ee3c1651039619808b8964c5313cd
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607473"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983089"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Birden çok sanal makineyi yedeklemek için Azure portalını kullanma
 
@@ -163,9 +163,9 @@ Sonraki öğreticilerle çalışmaya devam etmeyi planlıyorsanız bu öğretici
  
 7. Yedekleme öğesi doğrulandıktan sonra (bir onay işareti görünür), **Yedeklemeyi durdur** düğmesi etkinleşir. İlkeyi durdurup geri yükleme noktalarını silmek için **Yedeklemeyi Durdur** seçeneğine tıklayın. 
 
-    ![Kasayı silmek için Yedeklemeyi durdur seçeneğine tıklayın](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
+    ![Kasayı silmek için Yedeklemeyi durdur seçeneğine tıklayın](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
-8. **myRecoveryServicesVault** menüsünde **Sil** seçeneğine tıklayın.
+8. **myRecoveryServicesVault** menüsünde, **Sil** seçeneğine tıklayın.
 
     ![Kasayı silmek için Yedeklemeyi durdur seçeneğine tıklayın](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 

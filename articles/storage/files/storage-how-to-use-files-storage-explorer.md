@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e8989cadd331021a3e35fc559421bbdd08f0b4fb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 949d96bb1b5ffdc948737d4a47ffa14b2e344b5e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521203"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574740"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Azure Depolama Gezgini ile Azure dosya paylaşımlarını yönetme 
 [Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Bu makalede, [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/)'ni kullanarak Azure dosya paylaşımlarında çalışmanın temelleri gösterilir. Depolama Gezgini Windows, macOS ve Linux için kullanılabilen popüler bir istemci aracıdır. Depolama Gezgini’ni kullanarak Azure dosya paylaşımlarını ve diğer depolama kaynaklarını yönetebilirsiniz.
@@ -91,7 +91,7 @@ Pencerenin en altındaki **Etkinlikler** bölmesinde indirme işleminin ilerleme
 
 ## <a name="create-and-modify-share-snapshots"></a>Paylaşım anlık görüntülerini oluşturma ve değiştirme
 Anlık görüntü, Azure dosya paylaşımının zamanın bir noktasındaki kopyasını saklar. Dosya paylaşımı anlık görüntüleri, aşağıdakiler gibi zaten tanıyor olabileceğiniz diğer teknolojilere benzer:
-- NTFS ve ReFS gibi Windows dosya sistemleri için [Birim Gölge Kopyası Hizmeti (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal)
+- NTFS ve ReFS gibi Windows dosya sistemleri için [Birim Gölge Kopyası Hizmeti (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)
 - Linux sistemleri için [Mantıksal Birim Yöneticisi (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) anlık görüntüleri
 - macOS için [Apple Dosya Sistemi (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) anlık görüntüleri
 

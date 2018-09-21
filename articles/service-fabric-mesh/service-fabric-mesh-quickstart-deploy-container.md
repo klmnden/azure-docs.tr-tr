@@ -9,12 +9,12 @@ ms.date: 08/24/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: f5b834f92b2a126f68780a7647fda4d8b35dfe43
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: d50ebeef686de7e467e2a71b6bb33f207414bcc8
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886453"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541475"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Hızlı başlangıç: Merhaba Dünya uygulamasını Service Fabric Mesh’e dağıtma
 
@@ -45,16 +45,10 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="deploy-the-application"></a>Uygulamayı dağıtma
-`az mesh deployment create` komutunu kullanarak kaynak grubunda uygulamanızı oluşturun.  Bash konsolu kullanıyorsanız, aşağıdaki komutu çalıştırın:
+`az mesh deployment create` komutunu kullanarak kaynak grubunda uygulamanızı oluşturun.  Aşağıdakileri çalıştırın:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
-```
-
-PowerShell konsolu kullanıyorsanız, aşağıdaki komutu çalıştırın:
-
-```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
 ```
 
 Önceki komut, [mesh_rp.linux.json şablonunu](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json) kullanarak bir Linux uygulamasını dağıtır. Windows uygulaması dağıtmak istiyorsanız [mesh_rp.windows.json şablonunu](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json) kullanın. Windows kapsayıcı görüntüleri Linux kapsayıcı görüntülerinden büyüktür ve dağıtılması daha uzun sürebilir.

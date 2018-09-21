@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: c6ae2aa46ae17c4ef995211b02112e1c05e2ec2f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 34c041bf96ecc8ce7f4440d7afaa64de775baef7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344486"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576945"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service Ortamlarına giriş #
  
@@ -73,7 +73,7 @@ ASE bir genel IP adresi ile İnternet’e yönelik veya sadece bir Azure iç yü
 
 [Ağ Güvenlik Grupları][NSGs], bir ASE’nin bulunduğu alt ağa gelen ağ iletişimini kısıtlar. WAF’ler ve ağ SaaS sağlayıcıları gibi yukarı akış cihazlarının ve hizmetlerinin arkasında uygulamaları çalıştırmak için NSG’leri kullanabilirsiniz.
 
-Uygulamalar, iç veritabanları ve web hizmetleri gibi şirket kaynaklarına da sıklıkla erişmelidir. ASE’yi şirket içi ağınızla VPN bağlantısı olan bir sanal ağa dağıtırsanız, ASE’deki uygulamalar şirket içi kaynaklara erişebilir. Bu özellik, VPN’nin [siteden siteye](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site) veya [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN olmasından bağımsız olarak geçerli olabilir.
+Uygulamalar, iç veritabanları ve web hizmetleri gibi şirket kaynaklarına da sıklıkla erişmelidir. ASE’yi şirket içi ağınızla VPN bağlantısı olan bir sanal ağa dağıtırsanız, ASE’deki uygulamalar şirket içi kaynaklara erişebilir. Bu özellik, VPN’nin [siteden siteye](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) veya [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/) VPN olmasından bağımsız olarak geçerli olabilir.
 
 ASE’lerin sanal ağlar ve şirket ağlarla nasıl çalıştığı hakkında daha fazla bilgi için bkz. [App Service Ortamı ağ konuları][ASENetwork].
 

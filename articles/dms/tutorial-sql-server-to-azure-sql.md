@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/24/2018
-ms.openlocfilehash: 0cb4a5169036fc0a24a5fc5c86d232bb587a6684
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/22/2018
+ms.openlocfilehash: 02a4e38d90e327289fcc51160cbb2858636a2f0e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886302"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128902"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>DMS kullanarak SQL Server'ı çevrimdışı Azure SQL Veritabanına geçirme
 Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server örneğindeki veritabanlarını [Azure SQL Veritabanına](https://docs.microsoft.com/azure/sql-database/) geçirebilirsiniz. Bu öğreticide şirket içi SQL Server 2016 (veya üzeri) örneğine geri yüklemiş olan **Adventureworks2012** veritabanını Azure Veritabanı Geçiş Hizmeti'ni kullanarak bir Azure SQL Veritabanına geçireceksiniz.
