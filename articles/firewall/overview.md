@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3657b619dc57b994158c711c46d4db6924aa2930
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5e8048dc6b49a0f6c9a465e82a7278e491351034
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089830"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574139"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Güvenlik Duvarı nedir?
 
@@ -61,8 +61,8 @@ Azure Güvenlik Duvarı genel önizlemesindeki bilinen sorunla şunlardır:
 |---------|---------|---------|
 |NSG’lerle birlikte çalışabilirlik     |Güvenlik duvarı alt ağına bir ağ güvenlik grubu (NSG) uygulanırsa, NGS giden İnternet erişimine izin verecek şekilde yapılandırılmış olsa bile giden İnternet bağlantısı engellenebilir. Giden İnternet bağlantıları bir VirtualNetwork'ten geliyor olarak işaretlenir ve hedef de İnternettir. NSG'nin varsayılan olarak VirtualNetwork'ten VirtualNetwork'e *izni* vardır ama hedef İnternet olduğunda bu geçerli değildir.|Sorunu hafifletmek için, güvenlik duvarı alt ağına uygulanan NSG'ye aşağıdaki gelen kuralını ekleyin:<br><br>Kaynak: VirtualNetwork Kaynak bağlantı noktaları: Herhangi Biri <br><br>Hedef: Tüm Hedef Bağlantı Noktaları: Herhangi Biri <br><br>Protokol: Tüm Erişim: İzin Ver|
 |Azure Güvenlik Merkezi (ASC) Tam Zamanında (JIT) özelliği çakışması|Sanal makineye JIT kullanılarak erişilirse ve bu sanal makine varsayılan ağ geçidi olarak Azure Güvenlik Duvarı'na işaret eden kullanıcı tanımlı bir yola sahip bir alt ağ içindeyse, ASC JIT çalışmaz. Bu, asimetrik yönlendirmenin bir sonucudur; paket, sanal makine genel IP'si yoluyla gelir (JIT erişimi açmıştır) ama dönüş yolu güvenlik duvarı üzerindendir ve güvenlik duvarında hiçbir oturum oluşturulmadığından güvenlik duvarı paketi bırakır.|Bu soruna geçici bir çözüm olarak, JIT sanal makinelerini güvenlik duvarına kullanıcı tanımlı bir yolu olmayan ayrı bir alt ağa yerleştirin.|
-|Global eşlemeli merkez ve uç çalışmıyor|Merkezle güvenlik duvarının bir Azure bölgesinde dağıtıldığı ve uçların başka Azure bölgesinde yer aldığı merkez ve uç modelinde, merkeze Global Sanal Ağ eşlemesi üzerinden bağlanma desteklenmez.|Daha fazla bilgi için bkz. [Sanal ağ eşlemeyi oluşturma, değiştirme veya silme](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
-TCP/UDP dışı protokollere (örneğin ICMP) yönelik ağ filtreleme kuralları İnternet'e bağlı trafik için çalışmaz|TCP/UDP dışı protokollere yönelik ağ filtreleme kuralları genel IP adresinize SNAT ile çalışmaz. TCP/UDP dışı protokoller, uç alt ağlarla sanal ağlar arasında desteklenir.|Azure Güvenlik Duvarı, [bugün IP protokolleri için SNAT desteği olmayan](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview#limitations) Standart Load Balancer kullanır. Gelecek sürümlerden birinde bu senaryoyu destekleme seçeneklerini gözden geçiriyoruz.
+|Global eşlemeli merkez ve uç çalışmıyor|Merkezle güvenlik duvarının bir Azure bölgesinde dağıtıldığı ve uçların başka Azure bölgesinde yer aldığı merkez ve uç modelinde, merkeze Global Sanal Ağ eşlemesi üzerinden bağlanma desteklenmez.|Daha fazla bilgi için bkz. [Sanal ağ eşlemeyi oluşturma, değiştirme veya silme](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
+TCP/UDP dışı protokollere (örneğin ICMP) yönelik ağ filtreleme kuralları İnternet'e bağlı trafik için çalışmaz|TCP/UDP dışı protokollere yönelik ağ filtreleme kuralları genel IP adresinize SNAT ile çalışmaz. TCP/UDP dışı protokoller, uç alt ağlarla sanal ağlar arasında desteklenir.|Azure Güvenlik Duvarı, [bugün IP protokolleri için SNAT desteği olmayan](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations) Standart Load Balancer kullanır. Gelecek sürümlerden birinde bu senaryoyu destekleme seçeneklerini gözden geçiriyoruz.
 
 
 

@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 3e36d9202c578294609b01eaf2731b1551ae67af
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 138fbb64ca2d157059c952d9e82541cfac3ff597
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282339"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579063"
 ---
 # <a name="other-machine-learning-products-and-services-from-microsoft"></a>Microsoft'un diğer makine öğrenimi ürünleri ve hizmetleri
 
@@ -36,7 +36,7 @@ ms.locfileid: "39282339"
 Şirket içinde veya Microsoft SQL Server üzerinde model eğitmeniz veya dağıtmanız gerekiyorsa Microsoft Machine Learning Hizmetleri'ni kullanın. Machine Learning Hizmetleri ile derlenen modeller Azure Machine Learning Model Yönetimi kullanılarak dağıtılabilir. 
 
 ## <a name="microsoft-machine-learning-server"></a>Microsoft Machine Learning Sunucusu 
-[Microsoft Machine Learning Sunucusu](https://docs.microsoft.com/en-us/machine-learning-server/what-is-machine-learning-server) R ve Python işlemlerinin paralel ve dağıtılmış iş yüklerini barındırmak ve yönetmek için kullanılan kurumsal sunucudur. Microsoft Machine Learning Sunucusu Linux, Windows, Hadoop ve Apache Spark üzerinde çalışır. [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/) ile de kullanılabilir. [Microsoft Machine Learning paketleri](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package) kullanılarak derlenmiş çözümler için bir yürütme altyapısı sağlar ve açık kaynak R ve Python çözümlerini aşağıdaki senaryolar için sunulan destekle genişletir:
+[Microsoft Machine Learning Sunucusu](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server) R ve Python işlemlerinin paralel ve dağıtılmış iş yüklerini barındırmak ve yönetmek için kullanılan kurumsal sunucudur. Microsoft Machine Learning Sunucusu Linux, Windows, Hadoop ve Apache Spark üzerinde çalışır. [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/) ile de kullanılabilir. [Microsoft Machine Learning paketleri](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package) kullanılarak derlenmiş çözümler için bir yürütme altyapısı sağlar ve açık kaynak R ve Python çözümlerini aşağıdaki senaryolar için sunulan destekle genişletir:
 
 - Yüksek performanslı analiz
 - istatistiksel analiz

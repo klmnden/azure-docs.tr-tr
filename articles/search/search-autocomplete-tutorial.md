@@ -9,16 +9,16 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 7120080bfdc188c150c7065e1c0639ab8c04f173
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989695"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578183"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Öğretici: Azure Search kullanarak arama kutunuza otomatik tamamlama özelliği ekleme
 
-Bu öğreticide güçlü bir arama kutusu oluşturmak için [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)'sindeki [öneriler](https://docs.microsoft.com/rest/api/searchservice/suggestions), [otomatik tamamlama](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) ve [modeller](search-faceted-navigation.md) özellikleriyle [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet)'sını kullanmayı öğreneceksiniz. *Öneriler*, kullanıcının o ana kadar girdiği metne göre gerçek sonuçlardan öneriler sunar. Azure Search'teki [yeni bir önizleme seçeneği](search-api-preview.md) olan *otomatik tamamlama* özelliği, dizinden kullanıcının yazmakta olduğu girişi tamamlayan terimler önerir. Gelişmiş arama özelliklerini metin girişi sırasında kullanıcıya sunarak kullanıcının üretkenliğini artırmanın yanı sıra aradığını hızla ve kolayca bulmasını sağlayan birden fazla tekniği karşılaştıracağız.
+Bu öğreticide güçlü bir arama kutusu oluşturmak için [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)'sindeki [öneriler](https://docs.microsoft.com/rest/api/searchservice/suggestions), [otomatik tamamlama](https://docs.microsoft.com/rest/api/searchservice/autocomplete) ve [modeller](search-faceted-navigation.md) özellikleriyle [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet)'sını kullanmayı öğreneceksiniz. *Öneriler*, kullanıcının o ana kadar girdiği metne göre gerçek sonuçlardan öneriler sunar. Azure Search'teki [yeni bir önizleme seçeneği](search-api-preview.md) olan *otomatik tamamlama* özelliği, dizinden kullanıcının yazmakta olduğu girişi tamamlayan terimler önerir. Gelişmiş arama özelliklerini metin girişi sırasında kullanıcıya sunarak kullanıcının üretkenliğini artırmanın yanı sıra aradığını hızla ve kolayca bulmasını sağlayan birden fazla tekniği karşılaştıracağız.
 
 Bu öğreticide [Azure Search .NET istemci kitaplıklarını](https://aka.ms/search-sdk) çağırmak için C# kullanan bir ASP.NET MVC tabanlı uygulama ile Azure Search REST API'sini doğrudan çağırmak için kullanılan JavaScript uygulamasının işleyişi anlatılmaktadır. Bu öğreticide kullanılan uygulama, dizini oluşturulmuş [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) örnek verilerini hedefler. NYCJobs örneğindeki önceden yapılandırılmış dizini kullanabilir veya NYCJobs örnek çözümündeki veri yükleyiciyi kullanarak kendi dizininizi oluşturabilirsiniz. Örnekte otomatik tamamlama destekli bir arama kutusu oluşturmak için [jQuery UI](https://jqueryui.com/autocomplete/) ve [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) JavaScript kitaplıkları kullanılmaktadır. Bu bileşenleri Azure Search ile birlikte kullanarak arama kutunuza yazarken tamamlama özellikli otomatik tamamlama desteği eklemek için birden fazla örnek göreceksiniz.
 
@@ -214,7 +214,7 @@ Bu öğreticide otomatik tamamlamayı ve önerileri destekleyen bir arama kutusu
 Önerileri ve otomatik tamamlamayı arama deneyiminizle tümleştirin.  .Net SDK'sını veya doğrudan REST API'sini kullanmanın Azure Search'ün gücünü arama kutusuna metin giren kullanıcılarınıza sunmanızı nasıl sağlayabileceğini inceleyin.
 
 > [!div class="nextstepaction"]
-> [Autocomplete REST API'si](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete)
-> [Suggestions REST API'si](https://docs.microsoft.com/en-us/rest/api/searchservice/suggestions)
-> [Create Index REST API'sindeki modeller dizini özniteliği](https://docs.microsoft.com/en-us/rest/api/searchservice/create-index)
+> [Autocomplete REST API'si](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> [Suggestions REST API'si](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> [Create Index REST API'sindeki modeller dizini özniteliği](https://docs.microsoft.com/rest/api/searchservice/create-index)
 

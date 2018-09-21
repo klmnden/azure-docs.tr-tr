@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: overview
 ms.date: 08/15/2018
 ms.author: diberry
-ms.openlocfilehash: e74abb30709f186d3c1139793cf34d3e033ff967
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: aadf80df388a25e07051f6dd0a83cd4da7c2ef83
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40191648"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629806"
 ---
 # <a name="what-is-language-understanding-luis"></a>Language Understanding (LUIS) nedir?
 
@@ -179,7 +179,7 @@ LUIS için Microsoft istemci uygulamaları şunlardır:
 * [Windows Karma Gerçeklik](https://docs.microsoft.com/windows/mixed-reality/): LUIS [karma gerçeklik kursu](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) ile daha fazla bilgi edinin. 
 
 LUIS ile bot kullanmak için Microsoft araçları:
-* [Gönderme](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch), çeşitli LUIS ve Soru-Cevap Oluşturma uygulamalarının gönderme modelini kullanan bir üst uygulamadan kullanılmasını sağlar.
+* [Gönderme](https://aka.ms/dispatch-tool), çeşitli LUIS ve Soru-Cevap Oluşturma uygulamalarının gönderme modelini kullanan bir üst uygulamadan kullanılmasını sağlar.
 * [Konuşma öğrenici](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview), LUIS ile daha hızlı bir şekilde sohbet botları oluşturmanızı sağlar.
 * [Kişilik sohbeti projesi](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview), bot ile kısa sohbetler yapmanızı sağlar.
 
