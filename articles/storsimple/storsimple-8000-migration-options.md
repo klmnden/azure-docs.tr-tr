@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/20/2018
 ms.author: alkohli
-ms.openlocfilehash: 8f34d5a38f09f015547f52cc4b44819b780932bb
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5da67b5141eb61823d3e376b6f0e6b0b3895ca68
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818867"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498292"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>5000-7000 Serisi Storsimple'dan verileri geçirmeye seçenekleri 
 
@@ -75,13 +75,22 @@ A. Evet. Konak veri kopyası ile diğer depolama çözümleri geçiş destekleni
 
 A. 5000 veya 7000 serisinden geçiş tam olarak desteklenen bir işlemdir. Aslında, Microsoft, Geçişe başlamadan önce Destek birimine ulaşmanızı önerir. Geçişi şu anda destekli bir işlemdir. 5000-7000 Serisi bir cihaza, Storsimple'dan verileri geçirmeyi düşünüyorsanız [bir destek bileti açın](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="q-how-does-the-cost-compare-for-the-two-listed-migrations-to-azure-hybrid-services"></a>S. Nasıl maliyeti, iki listelenen geçişleri için Azure hibrit hizmetler için arasındaki fark nedir? 
+### <a name="q-what-is-the-pricing-model-for-both-the-migration-options"></a>S. Geçiş seçenekleri için fiyatlandırma modeli nedir?
 
-A. Geçiş maliyeti, belirlediğiniz seçeneğe bağlı olarak değişir. Bir StorSimple 8000 serisi için yükseltmeye karar verirseniz geçiş kendisi ücretsizdir ancak donanım maliyeti olmayacaktır. Benzer şekilde, Azure dosya eşitleme kullanırken, hizmeti için Abonelik ücretleri geçerli olabilir. Her durumda, Müşteriler ayrıca sürekli depolama ücret ödemeniz gerekir. Başvurmak [ilgili hizmetler için fiyatlandırma hesaplayıcısını Microsoft](https://azure.microsoft.com/pricing/#product-picker) tahmini için.  
+A. Geçiş maliyeti, belirlediğiniz seçeneğe bağlı olarak değişir. Bir StorSimple 8000 serisi için yükseltmeye karar verirseniz geçiş kendisi ücretsizdir ancak donanım maliyeti olmayacaktır. 
+
+Benzer şekilde, Azure dosya eşitleme kullanırken, hizmeti için Abonelik ücretleri geçerli olabilir. Her durumda, Müşteriler ayrıca sürekli depolama ücret ödemeniz gerekir. Tahmin için aşağıdakilere bakın: 
+- [StorSimple'nın fiyatlandırma](https://azure.microsoft.com/pricing/details/storsimple/)  
+- [Fiyatlandırma AFS]( https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>S.  Ne kadar bir geçiş işlemini tamamlamak için sürer?
 
 A. Veri geçiş süresini, veriler ve yükseltme seçeneği belirlenmiş miktarına bağlıdır. 
+
+### <a name="q-what-is-the-end-of-support-date-for-storsimple-8000-series"></a>S. StorSimple 8000 serisi için desteği son tarih nedir?
+
+A. StorSimple 8000 serisi için desteği bitiş tarihi yayımlanan [burada](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
  - [Verileri bir Storsimple'dan 5000-7000 Serisi 8000 serisinin cihazına geçirmek](storsimple-8000-migrate-from-5000-7000.md).

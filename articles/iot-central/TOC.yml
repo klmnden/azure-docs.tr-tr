@@ -56,6 +56,8 @@ items:
       href: howto-set-up-template.md
     - name: Cihazlarınızı yönetme
       href: howto-manage-devices.md
+    - name: İş çalıştırma
+      href: howto-run-a-job.md
     - name: Cihaz kümelerini kullanma
       href: howto-use-device-sets.md
     - name: Cihaz şablonu için sürüm oluşturma
@@ -66,7 +68,7 @@ items:
       href: howto-create-telemetry-rules.md
     - name: Olay kuralı oluşturma
       href: howto-create-event-rules.md
-    - name: Özel analiz oluşturma
+    - name: Cihaz verilerinizi analiz etme
       href: howto-create-analytics.md
   - name: Eylemler ve genişletilebilirlik
     items:
@@ -82,14 +84,12 @@ items:
       href: howto-connect-powerbi.md
   - name: Yönetim
     items:
-    - name: Uygulamanızı yönetme
-      href: howto-administer.md
+    - name: IoT Central'ı Azure Yönetim Portalı'ndan yönetme
+      href: howto-manage-iot-central-from-portal.md
     - name: CSP olarak uygulama oluşturma ve yönetme
       href: howto-create-and-manage-applications-as-CSP.md
     - name: Giriş sayfasını yapılandırma
       href: howto-configure-homepage.md
-    - name: Görüntüleri karşıya hazırlama ve yükleme
-      href: howto-prepare-images.md
 - name: İlgili
   items:
   - name: Çözümler
@@ -122,9 +122,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-central
-ms.openlocfilehash: 103bbb59a20194447d49e11327df1d984ccb0a8a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 3e8292ce6780381f4e8ead009002959fe42a9d02
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983143"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465683"

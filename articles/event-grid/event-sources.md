@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 09/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: adef9d2f2d859c62d3b3b3a542536698fa668f9a
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144238"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498309"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid olay kaynakları
 
@@ -58,7 +58,7 @@ Uygulama olaylarına yanıt vermek için özel konular için abone olun.
 | [PowerShell: özel bir konu için olaylara abone olma](./scripts/event-grid-powershell-subscribe-custom-topic.md)|Örnek betik bir özel konu için bir abonelik oluşturur. Bu, bir Web kancası için olaylar gönderir.|
 | [Resource Manager şablonu: özel konu ve Web kancası uç noktası](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | Resource Manager şablonu bir özel konu ve abonelik, özel bir konu oluşturur. Bu, bir Web kancası için olaylar gönderir. |
 |
-| [Resource Manager şablonu: özel konu ve olay hub'ları uç noktası](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeCustomTopicToEventHub.json)| Resource Manager şablonu kullanarak özel bir konu için bir abonelik oluşturur. Bu olayları Azure Event Hubs'a gönderir. |
+| [Resource Manager şablonu: özel konu ve olay hub'ları uç noktası](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Resource Manager şablonu kullanarak özel bir konu için bir abonelik oluşturur. Bu olayları Azure Event Hubs'a gönderir. |
 | [Olay şeması](event-schema.md) | Alanları, özel olayları gösterir. |
 
 ## <a name="event-hubs"></a>Event Hubs
@@ -104,7 +104,7 @@ Kaynak grubu olayları değişiklikleri kaynaklar bir kaynak grubu üzerinde yan
 | [Azure CLI: için bir kaynak grubu ve filtre bir kaynak için olaylara abone olma](./scripts/event-grid-cli-resource-group-filter.md) | Bir kaynak grubu için olaylara abone olur ve bir kaynak için olayları filtreler örnek betiği. |
 | [PowerShell: bir kaynak grubu için olaylara abone olma](./scripts/event-grid-powershell-resource-group.md) | Örnek betik bir kaynak grubu için olaylara abone olur. Bu, bir Web kancası için olaylar gönderir. |
 | [PowerShell: için bir kaynak grubu ve filtre bir kaynak için olaylara abone olma](./scripts/event-grid-powershell-resource-group-filter.md) | Bir kaynak grubu için olaylara abone olur ve bir kaynak için olayları filtreler örnek betiği. |
-| [Resource Manager şablonu: kaynak grubu aboneliği](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeResourceGroupToWebHook.json) | Bir kaynak grubu için olaylara abone olur. Bu, bir Web kancası için olaylar gönderir. |
+| [Resource Manager şablonu: kaynak aboneliği](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Azure abonelik veya kaynak grubu için olaylara abone olur. Bu, bir Web kancası için olaylar gönderir. |
 | [Olay Şeması](event-schema-resource-groups.md) | Alanlar, kaynak grubu olayları gösterir. |
 
 ## <a name="service-bus"></a>Service Bus
@@ -128,7 +128,7 @@ Blob oluşturulur ve Silinen olayları yanıtlamak için Blob Depolama olayları
 | [Hızlı Başlangıç: oluşturma ve Azure portalı ile Blob Depolama olaylarını yönlendirme](blob-event-quickstart-portal.md) | Blob Depolama olaylarını bir Web kancası'na göndermek için portalı kullanmayı gösterir. |
 | [Azure CLI: Blob Depolama hesabı için olaylara abone olma](./scripts/event-grid-cli-blob.md) | Örnek betik bir Blob Depolama hesabı için bir olaya abone olur. Bu olay için bir Web kancası gönderir. |
 | [PowerShell: Blob Depolama hesabı için olaylara abone olma](./scripts/event-grid-powershell-blob.md) | Örnek betik bir Blob Depolama hesabı için bir olaya abone olur. Bu olay için bir Web kancası gönderir. |
-| [Resource Manager şablonu: Blob Depolama ve abonelik oluşturma](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/createBlobAndSubscribe.json) | Bir Azure Blob depolama hesabı dağıtır ve o depolama hesabı için olaylara abone olur. Bu, bir Web kancası için olaylar gönderir. |
+| [Resource Manager şablonu: Blob Depolama ve abonelik oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Bir Azure Blob depolama hesabı dağıtır ve o depolama hesabı için olaylara abone olur. Bu, bir Web kancası için olaylar gönderir. |
 | [Genel Bakış: Blob Depolama olaylarına tepki verme](../storage/blobs/storage-blob-event-overview.md) | Blob Depolama, Event Grid ile tümleştirme genel bakış. |
 | [Olay şeması](event-schema-blob-storage.md) | Blob Depolama olaylarına alanları gösterir. |
 

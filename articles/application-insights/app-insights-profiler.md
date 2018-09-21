@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 790d192823867ee858a7fa6bf030721002a6bd94
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b11883ae592999a49db363486fd47a566bdfd360
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296882"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498717"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights ile canlı Azure web apps profili
 
-Azure Application Insights'ın bu özelliği için Azure App Service'in Web Apps özelliği genel kullanıma sunulmuştur ve Azure işlem kaynakları için önizlemeye sunulmuştur. Bilgi için ilgili [profil oluşturucu şirket içi kullanımı ile ilgili](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
+Azure Application Insights'ın bu özelliği Azure işlem kaynakları ve Azure App Service Web Apps özelliği için genel olarak kullanılabilir. Bilgi için ilgili [profil oluşturucu şirket içi kullanımı ile ilgili](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
 
 Bu makalede ele alınmaktadır kullanırken, canlı web uygulamanızın her bir yöntemin harcanan süreyi [Application Insights](app-insights-overview.md). Application Insights Profiler araç, uygulamanız tarafından sunulduğunu dinamik isteklerin ayrıntılı profilleri görüntüler. Profiler vurgular *etkin yolu* , en çok zaman kullanır. Yanıt süresi, çeşitli istekleri örnekleme olarak profillenen. Çeşitli teknikler kullanarak uygulama ile ilişkili ek yükü en aza indirebilirsiniz.
 

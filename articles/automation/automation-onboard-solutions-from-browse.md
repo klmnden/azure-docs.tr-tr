@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: c326232e0fc8f5f878241186eac8ae5ed23f0958
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 83a768b82172b8736ea06bfed012309ac92734b7
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366769"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497969"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri birden çok VM'de etkinleştir
 
@@ -51,9 +51,13 @@ Sanal makine, farklı Aboneliklerde, konum ve kaynak grupları seçmek için fil
 
 ![Güncelleştirme yönetimi çözümü ekleme](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Log analytics çalışma alanı ve Otomasyon hesabı seçimleri gözden geçirin. Yeni çalışma alanı ve Otomasyon hesabı, varsayılan olarak seçilir. Bir mevcut Log Analytics çalışma alanını ve Otomasyon hesabı varsa, istediğiniz'a tıklayın **değiştirme** bunları seçilecek **yapılandırma** sayfası. İşiniz bittiğinde **Kaydet**’e tıklayın.
+Log analytics çalışma alanı ve Otomasyon hesabı seçimleri gözden geçirin. Bir mevcut bir çalışma alanını ve Otomasyon hesabı, varsayılan olarak seçilir. Farklı bir Log Analytics çalışma alanı ve Otomasyon hesabı kullanmak istiyorsanız, tıklayın **özel** bunları seçilecek **özel yapılandırma** sayfası. Bir Log Analytics çalışma alanı seçtiğinizde, bir Otomasyon hesabıyla bağlantılı olduğunu belirlemek için bir onay yapılır. Bağlantılı bir Otomasyon hesabının bulunursa, aşağıdaki ekranı görürsünüz. İşiniz bittiğinde, tıklayın **Tamam**.
 
 ![Çalışma alanı ve hesabı seçin](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+
+Seçili çalışma alanı bir Otomasyon hesabına bağlı değilse, aşağıdaki ekranı görürsünüz. Bir Otomasyon hesabı seçin ve tıklayın **Tamam** tamamlandığında.
+
+![Çalışma alanı](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 Etkinleştirmek için istemediğiniz herhangi bir sanal makineyi yanındaki onay işaretini kaldırın. Zaten seçili sanal makinelerin etkinleştirilemez.
 

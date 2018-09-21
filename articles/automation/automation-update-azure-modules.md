@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 09/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9358c7ba72e16ed54514d42c1366420ef2f37324
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: bee1c5c48242b69ee33fedd358a83e0580d19942
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304280"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498068"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure automation'da Azure PowerShell modüllerini güncelleştirme
 
@@ -44,8 +44,10 @@ Modüller düzenli olarak ürün grubu tarafından güncelleştirildiğinden, de
 
     Modül zaten güncel olduğundan, işlem birkaç saniye içinde tamamlanır. Güncelleştirme işlemi tamamlandığında size bildirilir.<br><br> ![Azure modüllerini güncelleştirme durumunu güncelleştirme](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
+    .NET core AzureRm modülleri (AzureRm.*. Çekirdek) Azure Automation'da desteklenmez ve içeri aktarılamıyor.
+
 > [!NOTE]
-> Yeni bir zamanlanmış iş çalıştırıldığında azure Otomasyonu, Otomasyon hesabınızda en son modüllerini kullanır.    
+> Yeni bir zamanlanmış iş çalıştırıldığında azure Otomasyonu, Otomasyon hesabınızda en son modüllerini kullanır.  
 
 Bu Azure PowerShell modülleri cmdlet'leri, runbook'ları kullanırsanız, her ay bu güncelleştirme işlemini çalıştırmak için veya bu nedenle en son modülleri sahip olduğunuzdan emin olmak için istiyorsunuz. Azure Otomasyonu kullanır, hizmet sorumlusu süresi doldu veya abonelik düzeyi, modül güncelleştirme artık modülleri güncelleştirirken kimliğini doğrulamak için AzureRunAsConnection bağlantısı başarısız olur.
 

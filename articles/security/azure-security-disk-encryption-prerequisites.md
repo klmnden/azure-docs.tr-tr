@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/14/2018
-ms.openlocfilehash: e025a1a625bded118ea7f3b3968502115b64d83a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734707"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498598"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk şifrelemesi önkoşulları 
  Bu makalede, Azure Disk şifrelemesi önkoşulları, Azure Disk şifrelemesi kullanabilmeniz için önce karşılanması gereken öğeleri açıklar. Azure Disk şifrelemesi ile tümleşiktir [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/) şifreleme anahtarlarını yönetmeye yardımcı olmak için. Kullanabileceğiniz [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), veya [Azure portalında](https://portal.azure.com) Azure Disk şifrelemesini yapılandırmak için.
@@ -67,7 +67,7 @@ Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kulla
     - [Yükleme ve yapılandırma için Azure PowerShell Windows](/powershell/azure/install-azurerm-ps). 
         - PowerShellGet, Azure PowerShell'i yükleme ve AzureRM modülünü yükleyin. 
     - [Yükleme ve Azure PowerShell'i macOS ve Linux'ta yapılandırma](/powershell/azure/install-azurermps-maclinux).
-        -  PowerShell Core, .NET Core için Azure PowerShell'i yükleyin ve AzureRM.Netcore modülünü yükleme.
+        -  PowerShell Core, .NET Core için Azure PowerShell'i yükleyin ve Az modül yükle.
 
 2. AzureRM modülünü yüklü sürümlerini doğrulayın. Gerekirse, [Azure PowerShell modülü güncelleştirme](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
     -  AzureRM modülü 6.0.0 veya sonraki bir sürümü gerekir.

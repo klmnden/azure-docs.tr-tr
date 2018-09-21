@@ -8,18 +8,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 09/19/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 026f3450535e4bed6a636fc5ae6ee9d821dbbb72
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2f22ed862f9b45334a961f80e47ee2b4634e46fb
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247675"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498343"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Parçalı çok kiracılı SQL veritabanlarını kullanan bir SaaS uygulamasında Şemayı yönetme
-
+ 
 Bu öğreticide, bir hizmet (SaaS) uygulaması olarak bir yazılım veritabanlarında filosundan koruma karşılaşılan inceler. Çözümler, şema değişiklikleri filosundan veritabanları arasında fanning için gösterilir.
 
 Herhangi bir uygulama gibi Wingtip bilet SaaS uygulaması zamanla gelişecek ve veritabanında değişiklikler yapılmasını gerektirecektir. Değişiklik etkisi şema ya da başvuru verileri veya veritabanı bakım görevlerini uygulamak. Kiracı deseni başına bir veritabanı'nı kullanan bir SaaS uygulaması ile değişiklikler oldukça büyük olabilecek filosundan Kiracı veritabanları arasında Eşgüdümlü gerekir. Ayrıca, bu değişiklikleri sağlama işlemi oluşturuldukları sırada yeni veritabanları içerdiği emin olmak için veritabanına eklemeniz gerekir.

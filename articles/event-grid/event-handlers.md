@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08658c42687626779dea0de7dd724d9431a296da
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 12cc5a918044e3bc74e34f2e05adc9773dee5421
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617150"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498666"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid olay işleyicileri
 
@@ -50,6 +50,7 @@ Event Hubs bir olay kaynağı veya olay işleyicisi olarak görev yapabilir. Aş
 |Unvan  |Açıklama  |
 |---------|---------|
 | [Hızlı Başlangıç: Azure Event hubs'a, Azure CLI ve Event Grid ile özel olaylar yol.](custom-event-to-eventhub.md) | Bir uygulama tarafından işlenmesi için olay hub'ına özel bir olay gönderir. |
+| [Resource Manager şablonu: özel konu ve olay hub'ları uç noktası](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Resource Manager şablonu kullanarak özel bir konu için bir abonelik oluşturur. Bu olayları Azure Event Hubs'a gönderir. |
 
 Event Hubs kaynağı olarak bir örnekleri için bkz: [Event Hubs kaynağı](event-sources.md#event-hubs).
 

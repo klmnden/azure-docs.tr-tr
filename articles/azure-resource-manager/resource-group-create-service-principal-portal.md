@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: fc0ccd84f493fd69c84515331386592ec11a887e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2f053f6dd98b9f4e97d69e51bce933a003633277
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025302"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497952"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Bir Azure Active Directory uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için portalı kullanma
 
@@ -27,7 +27,7 @@ Erişim ya da kaynakları değiştirmek için gereken kodu varsa, Azure Active D
 Bu makalede, portal üzerinden bu adımların nasıl gerçekleştirileceğini gösterir. Tek kiracılı bir uygulama yalnızca bir kuruluş içinde çalıştırmak için uygulamayı nerede yöneliktir odaklanır. Genellikle tek kiracılı uygulamalar kuruluşunuzda çalışan satır iş kolu uygulamaları için kullanırsınız.
 
 > [!IMPORTANT]
-> Hizmet sorumlusu oluşturmak yerine, uygulama kimliğiniz için Azure AD Yönetilen Hizmet Kimliği kullanmayı göz önünde bulundurun. Azure AD MSI, Azure Active Directory'nin kod için kimlik oluşturmayı basitleştiren ve genel önizleme aşamasında olan bir özelliğidir. Kodunuz Azure AD MSI desteği olan bir hizmette çalıştırılıyorsa ve Azure Active Directory kimlik doğrulamasını destekleyen kaynaklara erişiyorsa, Azure AD MSI sizin için daha iyi bir seçenektir. Azure AD MSI hakkında daha fazla bilgi edinmek ve şu anda bunu hangi hizmetlerin desteklediğini öğrenmek için bkz. [Azure kaynakları için Yönetilen Hizmet Kimliği](../active-directory/managed-identities-azure-resources/overview.md).
+> Bir hizmet sorumlusu oluşturmak yerine, uygulama kimliğiniz için Azure kaynakları için yönetilen kimliklerle göz önünde bulundurun. Kodunuzu Yönetilen kimlikleri ve Azure Active Directory kimlik doğrulamasını destekleyen erişimleri kaynak destekleyen bir hizmeti çalıştıran yönetilen kimlikleri sizin için daha iyi bir seçenek vardır. Hangi şu anda, Destek Hizmetleri dahil olmak üzere, Azure kaynakları için yönetilen kimlikler hakkında daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikleri nedir?](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="required-permissions"></a>Gerekli izinler
 
@@ -71,7 +71,7 @@ Abonelik izinlerinizi denetlemek için:
 
 ## <a name="create-an-azure-active-directory-application"></a>Bir Azure Active Directory uygulaması oluşturma
 
-1. Üzerinden Azure hesabınızla oturum [Azure portalında](https://portal.azure.com).
+1. Üzerinden Azure hesabınızla oturum açın [Azure portalında](https://portal.azure.com).
 1. **Azure Active Directory**'yi seçin.
 
    ![azure active directory'yi seçme](./media/resource-group-create-service-principal-portal/select-active-directory.png)
@@ -114,7 +114,7 @@ Programlamayla oturum açılırken, uygulamanızın kimliği ve kimlik doğrulam
 
    ![anahtarı kaydetme](./media/resource-group-create-service-principal-portal/save-key.png)
 
-   Anahtar kaydedildikten sonra, anahtarın değeri görüntülenir. Bu değeri kopyalayın çünkü daha sonra anahtarı alamazsınız. Uygulama olarak uygulama kimliğiyle oturum açarken anahtar değerini sağlamanız gerekir. Anahtarı, uygulamanızın alabileceği bir konumda depolayın.
+   Anahtar kaydedildikten sonra, anahtarın değeri görüntülenir. Daha sonra anahtarı alamazsınız mümkün olmadığından, bu değeri kopyalayın. Uygulama kimliği ile bir uygulama olarak oturum açmak için anahtar değerini sağlayın. Anahtarı, uygulamanızın alabileceği bir konumda depolayın.
 
    ![kaydedilen anahtar](./media/resource-group-create-service-principal-portal/copy-key.png)
 

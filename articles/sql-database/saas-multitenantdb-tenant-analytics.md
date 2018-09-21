@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanına göre Analiz sorguları çalıştırma | Microsoft Docs
-description: Kiracılar arası analiz sorguları kullanarak verileri birden çok Azure SQL veritabanı veritabanlarından ayıklanır.
+description: Kiracılar arası analiz sorguları çok kiracılı uygulama birden çok Azure SQL veritabanı veritabanından ayıklanmış verileri kullanarak.
 keywords: SQL Öğreticisi
 services: sql-database
 author: stevestein
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/19/2018
 ms.author: anjangsh
-ms.reviewer: billgib, genemi
-ms.openlocfilehash: d5ffc9ade54ea02f34d25e4b6b7a4c0027b7d7b7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: anjangsh; billgib, genemi
+ms.openlocfilehash: 546cf4fc9a1aec23071b4d1cc69ece34e014da49
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733942"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498394"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Ayıklanan verileri kullanarak kiracılar arası analiz
-
-Bu öğreticide, bir tam analytics senaryoyu İnceleme. Analytics akıllı kararlar işletmelere nasıl olanak sağlayabileceğiniz senaryosunu gösterir. Parçalı veritabanını ayıklanmış verileri kullanarak Analiz Kiracı davranışı, kullanımları örnek Wingtip bilet SaaS uygulaması dahil olmak üzere Öngörüler edinmek için kullanın. Bu senaryoda üç adımdan oluşur: 
+# <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Ayıklanan verileri - çok kiracılı uygulamayı kullanarak kiracılar arası analiz
+ 
+Bu öğreticide, bir tam analytics senaryosu çok kiracılı bir uygulama için size yol. Analytics akıllı kararlar işletmelere nasıl olanak sağlayabileceğiniz senaryosunu gösterir. Parçalı veritabanını ayıklanmış verileri kullanarak Analiz Kiracı davranışı, kullanımları örnek Wingtip bilet SaaS uygulaması dahil olmak üzere Öngörüler edinmek için kullanın. Bu senaryoda üç adımdan oluşur: 
 
 1.  **Verileri ayıklamak** bir analytics deposuna her Kiracı veritabanından.
 2.  **Ayıklanan verileri En İyileştir** analiz işleme için.
@@ -240,5 +240,6 @@ Tebrikler!
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). -->
+Ek [Wingtip SaaS uygulaması oluşturan öğretici](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
 - [Esnek işler](sql-database-elastic-jobs-overview.md).
+- [Kiracılar arası Analytics'i kullanarak veri - tek kiracılı uygulama ayıklanan](saas-tenancy-tenant-analytics.md) 

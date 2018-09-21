@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/10/2018
-ms.openlocfilehash: 510ca032f77da25238ec060d4122a25345c9fb90
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6d08dbe1976363be414597401d7a4efbae82c9b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346657"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498445"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk şifrelemesi önkoşulları (önceki sürüm)
 
@@ -70,7 +70,7 @@ Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kulla
     - [Yükleme ve yapılandırma için Azure PowerShell Windows](/powershell/azure/install-azurerm-ps). 
         - PowerShellGet, Azure PowerShell'i yükleme ve AzureRM modülünü yükleyin. 
     - [Yükleme ve Azure PowerShell'i macOS ve Linux'ta yapılandırma](/powershell/azure/install-azurermps-maclinux).
-        -  PowerShell Core, .NET Core için Azure PowerShell'i yükleyin ve AzureRM.Netcore modülünü yükleme.
+        -  PowerShell Core, .NET Core için Azure PowerShell'i yükleyin ve Az modül yükle.
 2. Yükleme [Azure Active Directory PowerShell Modülü](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
 
      ```powershell

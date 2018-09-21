@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
 ms.author: tomsh
-ms.openlocfilehash: 273a464d6ece3f81948b9ebccb1adc3b2b12d730
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: b4af979ba23e5ef4d009ce2d808dacdffca2c4ec
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465954"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498105"
 ---
 # <a name="azure-security-technical-overviews"></a>Azure güvenlik teknik genel bakışlar
 
 
 * [Azure veritabanı güvenliğine genel bakış](azure-database-security-overview.md)
 * [Azure şifrelemeye genel bakış](security-azure-encryption-overview.md)
-* [Azure Kimlik Yönetimi güvenliğine genel bakış](security-azure-encryption-overview.md)
+* [Azure Kimlik Yönetimi güvenliğine genel bakış](security-identity-management-overview.md)
 * [Azure ağ güvenliğine genel bakış](security-network-overview.md)
 * [Azure operasyonel güvenliğine genel bakış](azure-operational-security-overview.md)
 * [Azure güvenlik yönetimi ve izlemeye genel bakış](security-management-and-monitoring-overview.md)

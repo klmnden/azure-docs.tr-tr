@@ -1,6 +1,6 @@
 ---
-title: Azure media Intelligence | Microsoft Docs
-description: Azure Media Services'i kullanırken, AudioAnalyzerPreset ve VideoAnalyzerPreset kullanarak, ses ve video contnet analiz edebilirsiniz.
+title: Azure medya zekası | Microsoft Docs
+description: Azure Media Services hizmetini kullanırken, ses ve video contnet AudioAnalyzerPreset ve VideoAnalyzerPreset kullanarak çözümleyebilirsiniz.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,48 +11,48 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a428f76f1239e7e67b99d05b96d26abd601e89c6
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331529"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498700"
 ---
 # <a name="media-intelligence"></a>Medya zekası
 
-Azure Media Services REST v3 API, ses ve video içeriğine çözümlemek sağlar. İçeriğinizi çözümlemek için oluşturduğunuz bir **dönüştürme** ve gönderme bir **iş** bu hazır ayarlarından birini kullanır: **AudioAnalyzerPreset** veya **VideoAnalyzerPreset** . 
+Azure Media Services REST v3 API'si, ses ve video içeriğine çözümlemenizi sağlar. İçeriğinizi analiz etmek için oluşturduğunuz bir **dönüştürme** ve gönderme bir **iş** bu hazır birini kullanır: **AudioAnalyzerPreset** veya **VideoAnalyzerPreset** . 
 
 ## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
-**AudioAnalyzerPreset** bir ses veya video dosyasından birden çok ses Öngörüler almanıza olanak sağlar. Çıktı bir JSON dosyası (içeren tüm) ve ses dökümü için VTT dosyası içerir. Bu hazır giriş dosyası dili biçiminde belirten bir özellik kabul eden bir [BCP47](https://tools.ietf.org/html/bcp47) dize. Ses Öngörüler şunları içerir:
+**AudioAnalyzerPreset** bir ses veya video dosyasından birden çok ses ınsights almanıza olanak sağlar. Çıkış bir JSON dosyası (öngörülerle tüm) ve ses transkripti VTT dosyası içerir. Bu hazır kabul diline giriş dosyası biçiminde belirten bir özelliği bir [BCP47](https://tools.ietf.org/html/bcp47) dize. Ses ınsights şunlardır:
 
-* Ses transcription – zaman damgalı konuşulan sözcüklerin dökümü. Birden çok dil desteklenir
-* Konuşmacı dizin oluşturma – hoparlöre ve karşılık gelen konuşulan sözcüklerin eşlemesi
-* Konuşma düşünceleri analiz – ses transcription üzerinde gerçekleştirilen düşünceleri analiz çıktısı
-* Anahtar sözcükler – ses transcription ayıklanır anahtar sözcükler.
+* Ses tanıma – konuşulan kelimeleri zaman damgalı bir kopyası. Birden çok dil desteklenir
+* Konuşmacı dizin oluşturma – konuşmacıların ve karşılık gelen konuşulan kelimeleri ilişkin bir eşleme
+* Konuşma yaklaşım analizi – ses tanıma üzerinde gerçekleştirilen yaklaşım analizi çıkışı
+* Anahtar sözcükler – ses tanıma ayıklanan anahtar sözcükleri.
 
 ## <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** video dosyasından birden çok ses ve video Öngörüler almanıza olanak sağlar. Çıktı bir JSON dosyası (içeren tüm), video dökümü ve küçük resimler koleksiyonu için bir VTT dosyası içerir. Bu hazır de kabul eden bir [BCP47](https://tools.ietf.org/html/bcp47) (video dilini temsil eden) dize özelliği olarak. Video Öngörüler yukarıda belirtilen ses Öngörüler ve aşağıdaki ek öğeler şunlardır:
+**VideoAnalyzerPreset** video dosyasından birden çok ses ve video öngörüleri almanıza olanak sağlar. Çıktı (tüm Öngörüler) içeren bir JSON dosyası, video deşifre metni ve küçük bir koleksiyon için bir VTT dosyası içerir. Bu hazır de kabul eden bir [BCP47](https://tools.ietf.org/html/bcp47) (video dilini temsil eden) dize özelliği. Video içgörüleri yukarıda belirtilen tüm ses Öngörüler ve aşağıdaki ek öğeler şunlardır:
 
-* Yüz izleme – yüzeyleri videoda mevcut saat. Her yüz yüz kimliği ve karşılık gelen küçük resimler koleksiyonu vardır
-* Görsel metin – optik karakter tanıma algılandığında metin. Zaman damgalı ve aynı zamanda anahtar sözcükler (ek olarak ses dökümü) çıkarmak için kullanılan metindir
-* Ana kare – video ayıklanır ana kare koleksiyonu
-* Görsel içerik yönetimini – Yetişkin veya yapısı saldırganlardan olarak işaretlenmiş videolar bölümü
-* Ek açıklama – önceden tanımlanmış nesne modelini temel alan videolar yorumlama bir sonucu
+* Yüz tanıma izleme – yüzleri videoda mevcut zaman. Face ID ve Parçacıkların karşılık gelen bir koleksiyon her yüz tanıma sahip
+* Görsel metin – optik karakter tanıma algılanan metin. Zaman damgalı ve aynı zamanda anahtar sözcükleri (ses transkripti) ek olarak ayıklamak için kullanılan metindir
+* Ana kareleri – videodan ayıklanan ana kareleri koleksiyonu
+* Görsel içerik denetimi – yetişkinlere yönelik veya müstehcen yapısı olarak işaretlenmiş videolar bölümü
+* Ek açıklama – bir sonucu bir önceden tanımlanmış nesne modelini temel videoları yorumlama
 
 ##  <a name="insightsjson-elements"></a>insights.JSON öğeleri
 
-Çıktı, ses veya video içinde bulunan tüm ınsights ile bir JSON dosyası (insights.json) içerir. Json aşağıdaki öğeleri içerebilir:
+Çıktı, video veya ses bulunamadı öngörü bir JSON dosyası (insights.json) içerir. Json'u aşağıdaki öğeleri içerebilir:
 
-### <a name="transcript"></a>dökümü
+### <a name="transcript"></a>transkript
 
 |Ad|Açıklama|
 |---|---|
-|id|Satır kimliği.|
-|metin|Dökümü kendisi.|
-|Dil|Dökümü dili. Dökümü desteklemek her bir satır farklı bir dil sahip olduğu amaçlanmıştır.|
-|örnekler|Burada bu satırı görünen zaman aralıkları listesi. Bir dökümü örneğiyse yalnızca 1 örneği gerekir.|
+|id|Satır kimliği|
+|metin|Transkripti kendisi.|
+|dil|Döküm dili. Transkript desteklemek her satırı farklı bir dil sahip olduğu yöneliktir.|
+|örnekler|Bu satırı nerede göründüğü zaman aralıkları listesi. Transkript örneğiyse yalnızca 1 örneğin olacaktır.|
 
 Örnek:
 
@@ -89,9 +89,9 @@ Azure Media Services REST v3 API, ses ve video içeriğine çözümlemek sağlar
 |---|---|
 |id|OCR satır kimliği|
 |metin|OCR metin.|
-|Güven|Tanıma güven.|
-|Dil|OCR dili.|
-|örnekler|Burada bu OCR görünen zaman aralıkları listesi (aynı OCR birden çok kez görünebilir).|
+|güven|Tanıma güvenilirlik.|
+|dil|OCR dili.|
+|örnekler|Bu OCR nerede göründüğü zaman aralıkları listesi (aynı OCR birden çok kez görünebilir).|
 
 ```json
 "ocr": [
@@ -126,69 +126,21 @@ Azure Media Services REST v3 API, ses ve video içeriğine çözümlemek sağlar
   ],
 ```
 
-### <a name="keywords"></a>anahtar sözcükler
+### <a name="faces"></a>yüzleri
 
 |Ad|Açıklama|
 |---|---|
-|id|Anahtar sözcük kimliği.|
-|metin|Anahtar sözcüğü metin.|
-|Güven|Anahtar sözcüğü'nın tanıma güven.|
-|Dil|(Çevrildiğinde) anahtar sözcüğü dili.|
-|örnekler|Bu anahtar sözcük burada görünen zaman aralıkları listesi (bir anahtar sözcük birden çok kez görünebilir).|
-
-```json
-"keywords": [
-{
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    },
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
-}
-] 
-
-```
-
-### <a name="faces"></a>yazıtipleri
-
-|Ad|Açıklama|
-|---|---|
-|id|Yüz kimliği.|
-|ad|Yüz adı. 'Bilinmeyen #0', tanımlanan ünlülerle veya müşteri eğitilen kişi olabilir.|
-|Güven|Yüz kimliği güven.|
-|açıklama|Bir ünlülerle durumunda açıklamasını. |
-|thumbnalId|Bu yüz küçük resim kimliği.|
-|knownPersonId|Bilinen kişi olması durumunda, kendi iç kimliği.|
-|Referenceıd|Bir Bing ünlülerle durumunda, Bing kimliği|
+|id|Face ID|
+|ad|Yüz tanıma adı. 'Bilinmeyen #0', tanımlanmış bir ünlü veya müşteri eğitilen kişi olabilir.|
+|güven|Yüz tanıma güvenilirlik.|
+|açıklama|Ünlü açıklaması. |
+|thumbnalId|Yüz tanıma, küçük resim kimliği.|
+|knownPersonId|Bilinen bir kişi, kendi iç kimliği ise|
+|Başvuru Kimliği|Bir Bing ünlü Bing kimliği ise|
 |referenceType|Şu anda yalnızca Bing.|
-|başlık|Bir ünlülerle durumunda başlığını (örneğin "CEO Microsoft'un").|
-|ImageUrl|Bir ünlülerle durumunda resim URL'si.|
-|örnekler|Örnekleri bunlar burada yüz belirli bir zaman aralığı içinde görünen biri. Her örnek, ayrıca bir thumbnailsId sahiptir. |
+|başlık|Ünlü, alt başlık (örneğin "CEO Microsoft'un") ise.|
+|ImageUrl|Ünlü, görüntü URL'sini ise.|
+|örnekler|Bunlar örnekleri, burada belirtilen zaman aralığında yüzü göründü. Her örnek, bir thumbnailsId de vardır. |
 
 ```json
 "faces": [{
@@ -219,14 +171,119 @@ Azure Media Services REST v3 API, ses ve video içeriğine çözümlemek sağlar
 }]
 ```
 
+### <a name="shots"></a>anlık görüntüleri
+
+|Ad|Açıklama|
+|---|---|
+|id|Görüntüsü kimliği.|
+|ana kareler|Anahtar çerçeveler (her bir kimlik ve örnekleri zaman aralıkları listesi vardır) görüntüsü içindeki bir listesi. Anahtar çerçeveler örneğiniz kimliği thumbnailId alana ana kare'nın küçük resimle|
+|örnekler|Bu görüntüsü zaman aralıkları listesi (yalnızca 1 örneğinin sahip görüntüleri).|
+
+```json
+"Shots": [
+    {
+      "id": 0,
+      "keyFrames": [
+        {
+          "id": 0,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",
+              "start": "00: 00: 00.1670000",
+              "end": "00: 00: 00.2000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
+          "start": "00: 00: 00.2000000",
+          "end": "00: 00: 05.0330000"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "keyFrames": [
+        {
+          "id": 1,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
+              "start": "00: 00: 05.2670000",
+              "end": "00: 00: 05.3000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+      "thumbnailId": "00000000-0000-0000-0000-000000000000",
+          "start": "00: 00: 05.2670000",
+          "end": "00: 00: 10.3000000"
+        }
+      ]
+    }
+  ]
+```
+
+### <a name="statistics"></a>İstatistikleri
+
+|Ad|Açıklama|
+|---|---|
+|CorrespondenceCount|Videoda yazışmalar sayısı.|
+|WordCount|Konuşmacı sözcük sayısı.|
+|SpeakerNumberOfFragments|Parçaları miktarı bulunan bir videoyu Konuşmacı vardır.|
+|SpeakerLongestMonolog|Konuşmacı uzun monolog. Konuşmacı silences monolog içinde varsa dahil edilir. Başında ve sonunda monolog sessizlik kaldırılır.| 
+|SpeakerTalkToListenRatio|Hesaplama videonun toplam zaman bölünmüş konuşmacının monolog (olmadan arasındaki sessizlik) üzerinde harcanan zamanı temel alır. Saat üçüncü ondalık noktasına yuvarlanır.|
+
+
+### <a name="sentiments"></a>yaklaşımlar
+
+Yaklaşımları sentimentType alanı (nötr/olumlu/olumsuz) tarafından toplanır. Örneğin, 0-0.1, 0.2 0,1.
+
+|Ad|Açıklama|
+|---|---|
+|id|Yaklaşım kimliği.|
+|Ortalama Not karşılaştırması |Bu yaklaşım türdeki - nötr/olumlu/olumsuz tüm örneklerin tüm puanları ortalaması|
+|örnekler|Bu yaklaşım nerede göründüğü zaman aralıkları listesi.|
+|sentimentType |Türü 'Pozitif', 'Nötr' veya 'Negatif' olabilir.|
+
+```json
+"sentiments": [
+{
+    "id": 0,
+    "averageScore": 0.87,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:23",
+        "end": "00:00:41"
+    }
+    ]
+}, {
+    "id": 1,
+    "averageScore": 0.11,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:13",
+        "end": "00:00:21"
+    }
+    ]
+}
+]
+```
+
 ### <a name="labels"></a>etiketleri
 
 |Ad|Açıklama|
 |---|---|
-|id|Etiket kimliği.|
-|ad|Etiket adı (örneğin, 'Bilgisayar', 'TV').|
-|Dil|Etiket adı (çevrildiğinde) dili. BCP 47|
-|örnekler|Bu etiket burada görünen zaman aralıkları listesi (bir etiket birden çok kez görünebilir). Her örneğinin güvenirlik alan vardır. |
+|id|Etiket Kimliği|
+|ad|Etiket adı (örneğin, 'Bilgisayara', 'TV').|
+|dil|Etiket adı (çevrildiğinde) dili. BCP-47|
+|örnekler|Bu etiket nerede göründüğü zaman aralıkları listesi (bir etiket birden çok kez görünebilir). Her örnek güvenle alana sahiptir. |
 
 
 ```json
@@ -278,95 +335,93 @@ Azure Media Services REST v3 API, ses ve video içeriğine çözümlemek sağlar
   ] 
 ```
 
-### <a name="shots"></a>görüntüleri
+### <a name="keywords"></a>anahtar sözcükler
 
 |Ad|Açıklama|
 |---|---|
-|id|Görüntüsü kimliği.|
-|ana kare|(Her bir kimlik ve örnekleri zaman aralıkları listesi vardır) görüntüsü içindeki anahtar çerçeveler listesi.|
-|örnekler|Bu görüntüsü zaman aralıkları listesi (yalnızca 1 örneği olan görüntüleri).|
+|id|Anahtar sözcük kimliği.|
+|metin|Anahtar sözcüğü metin.|
+|güven|Anahtar sözcüğü'nın tanıma güvenilirlik.|
+|dil|Anahtar sözcüğü (çevrildiğinde) dili.|
+|örnekler|Bu anahtar sözcük nerede göründüğü zaman aralıkları listesi (bir anahtar sözcüğü, birden çok kez görünebilir).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
-```
-
-
-### <a name="sentiments"></a>yaklaşımlar
-
-Düşüncelerin sentimentType alanı (nötr/olumlu/olumsuz) tarafından toplanır. Örneğin, 0-0.1, 0,1 0.2.
-
-|Ad|Açıklama|
-|---|---|
-|id|Düşünceleri kimliği.|
-|Ortalama Not karşılaştırması |Bu düşünceleri türü - nötr/olumlu/olumsuz tüm örneklerinin tüm puanları ortalaması|
-|örnekler|Burada bu düşünceleri görünen zaman aralıkları listesi.|
-
-```json
-"sentiments": [
+"keywords": [
 {
     "id": 0,
-    "averageScore": 0.87,
+    "text": "office",
+    "confidence": 1.6666666666666667,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:23",
-        "end": "00:00:41"
+        "start": "00:00:00.5100000",
+        "end": "00:00:02.7200000"
+    },
+    {
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
     }
     ]
-}, {
+},
+{
     "id": 1,
-    "averageScore": 0.11,
+    "text": "icons",
+    "confidence": 1.4,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:13",
-        "end": "00:00:21"
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
+    },
+    {
+        "start": "00:00:13.9900000",
+        "end": "00:00:15.6100000"
     }
     ]
 }
-]
+] 
 ```
 
+#### <a name="visualcontentmoderation"></a>visualContentModeration
+
+Video Indexer, büyük olasılıkla yetişkinlere yönelik içeriğe sahip bulunan olan tarih aralıkları visualContentModeration blok içerir. VisualContentModeration boşsa, tanımlanan yetişkinlere yönelik içerik yok.
+
+Yetişkinlere yönelik veya müstehcen içerikleri bulunan videoları yalnızca özel görünüm için olabilir. Kullanıcılar bir insan tarafından İnceleme çalışması IsAdult öznitelik insan tarafından İnceleme sonucunu içerecek içerik için bir istek göndermek seçeneğiniz vardır.
+
+|Ad|Açıklama|
+|---|---|
+|id|Görsel içerik denetleme kimliği.|
+|adultScore|Yetişkinlere yönelik içerik puanı (Başlangıç, content moderator).|
+|racyScore|Müstehcenlik puanı (Başlangıç, içerik denetleme).|
+|örnekler|Bu görsel içerik denetleme nerede göründüğü zaman aralıkları listesi.|
+
+```json
+"VisualContentModeration": [
+{
+    "id": 0,
+    "adultScore": 0.00069,
+    "racyScore": 0.91129,
+    "instances": [
+    {
+        "start": "00:00:25.4840000",
+        "end": "00:00:25.5260000"
+    }
+    ]
+},
+{
+    "id": 1,
+    "adultScore": 0.99231,
+    "racyScore": 0.99912,
+    "instances": [
+    {
+        "start": "00:00:35.5360000",
+        "end": "00:00:35.5780000"
+    }
+    ]
+}
+] 
+```
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Öğretici: Azure Media Services ile video Çözümle](analyze-videos-tutorial-with-api.md)
+> [Öğretici: Azure Media Services ile videoları analiz edin](analyze-videos-tutorial-with-api.md)

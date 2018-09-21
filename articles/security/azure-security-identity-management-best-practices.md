@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: 77bd95f036aec0cdaa351c44c0f1eafe9fc702d9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f6640e7d179199fbfb5b0c2b0c384729b6f53bcf
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294365"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498258"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure kimlik yönetimi ve erişim en iyi güvenlik denetimi
 
@@ -50,25 +50,22 @@ Bu makalede ele alınan azure kimlik yönetimi ve erişim denetimi güvenlik en 
 * Kaynakların yer aldığı denetim konumları
 
 ## <a name="treat-identity-as-the-primary-security-perimeter"></a>Kimlik birincil güvenlik çevresi olarak değerlendir
+
 Birçok kimlik birincil güvenlik çevresi olarak göz önünde bulundurun. Bu, gelen ağ güvenlik odaklı geleneksel bir kaydırmadır. Ağ duvarlar tutmak alma daha porous ve bu çevre savunması açılımı önce olduğu gibi etkin olamaz [KCG](http://aka.ms/byodcg) cihazlar ve bulut uygulamaları.
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) Azure kimlik ve erişim yönetimi çözümüdür. Azure AD bir çok kiracılı, bulut tabanlı dizin ve Kimlik Yönetimi Microsoft hizmetidir. Bu, temel Dizin Hizmetleri, uygulama erişim yönetimi ve kimlik korumasını tek bir çözüm birleştirir.
 
 Aşağıdaki bölümlerde, Azure AD kullanarak kimlik ve erişim güvenliği için en iyi yöntemler listelenmiştir.
 
-<<<<<<< Gerçekleştirmek bu HEAD için [karma kimlik](../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) senaryo iki seçenek öneririz: ===
 ## <a name="centralize-identity-management"></a>Kimlik yönetimini merkezden gerçekleştirin
+
 İçinde bir [karma kimlik](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) senaryo, şirket içi tümleştirme ve bulut dizinleri öneririz. Tümleştirme hesaplarını bir hesap oluşturulduğu bağımsız olarak, tek tek konumdan yönetmek üzere BT ekibinize sağlar. Tümleştirme, ayrıca, kullanıcılarınızın hem bulut hem de şirket içi kaynaklara erişmek için bir ortak kimlik sağlayarak daha üretken olmanıza yardımcı olur.
->>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 
 **En iyi yöntem**: şirket içi dizinlerinizi Azure AD ile tümleştirme.  
 **Ayrıntı**: kullanım [Azure AD Connect](../active-directory/connect/active-directory-aadconnect.md) şirket içi dizininizi bulut dizininizle eşitlenecek.
 
-<<<<<<< Baş Azure AD eşitleme hakkında daha fazla bilgi için bkz makaleyi [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory/hybrid/whatis-hybrid-identity.md).
-=======
 **En iyi yöntem**: parola karması eşitlemeyi açın.  
 **Ayrıntı**: parola karması eşitleme, karma bir bulut tabanlı Azure şirket içi Active Directory örneğinden kullanıcı parola karmalarının eşitlemek için kullanılan bir özelliktir AD örneği.
->>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 Active Directory Federasyon Hizmetleri (AD FS) veya diğer kimlik sağlayıcıları ile Federasyon kullanmaya karar olsa bile, şirket içi sunucularınızı geçici olarak kullanılamıyor veya başarısız durumda isteğe bağlı olarak parola karması eşitleme yedek olarak ayarlayabilirsiniz. Bu hizmete kendi şirket içi Active Directory örneğine oturum açmak için kullandıkları aynı parolayı kullanarak oturum açmalarını sağlar. Ayrıca bu parola karmalarının tehlikeye için bir kullanıcı kendi aynı e-posta adresi ve parola Azure AD'ye bağlı diğer sistemlerde kullanıldıysa bilinen parola ile karşılaştırarak tehlikeye atılmış kimlik bilgilerine algılamak kimlik koruması sağlar.
 
@@ -76,12 +73,6 @@ Daha fazla bilgi için [Azure AD Connect eşitlemesi ile parola karması eşitle
 
 Bulut kimliklerini ile kendi şirket içi kimlik tümleştirme olmayan kuruluşlar hesapları yönetiminde daha fazla ek yükü olabilir. Bu ek hatalar ve güvenlik ihlallerini olasılığını artırır.
 
-<<<<<<< BAŞ
-> [!NOTE]
-> SSO karar, şirket içi dizininizi bulut dizininizle tümleştirmek etkiler. SSO istiyorsanız, dizin eşitleme yalnızca sağlayacağından, Federasyon, kullanmanız gerekecektir [aynı oturum açma deneyimi](../active-directory/hybrid/whatis-hybrid-identity.md).
->
->
-=======
 ## <a name="enable-single-sign-on"></a>Çoklu oturum açmayı etkinleştir
 
 Bir mobil öncelikli ve bulut öncelikli dünyada, kullanıcılarınız ne zaman ve yerde üretken olabilmeleri çoklu oturum açma (SSO) cihazları, uygulamaları ve Hizmetleri için her yerden etkinleştirmek istiyorsunuz. Yönetmek için birden çok kimlik çözümleri varsa, bu değil yalnızca yönetimsel bir sorun haline BT aynı zamanda birden fazla parolayı hatırlamak zorunda kullanıcılar için.
@@ -94,19 +85,18 @@ Tüm uygulamalar ve kaynaklar için aynı kimlik çözümü kullanarak, SSO elde
 SSO kullanıcıların erişim sağlamak için kullanın, [SaaS uygulamalarına](../active-directory/active-directory-appssoaccess-whatis.md) Azure AD'de kendi iş veya Okul hesaplarına bağlı. Bu yalnızca Microsoft SaaS uygulamaları, ancak diğer uygulamalar için de geçerli olduğu gibi [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) ve [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Uygulamanızı Azure AD'ye olarak kullanmak üzere yapılandırabileceğiniz bir [SAML tabanlı kimlik](../active-directory/fundamentals-identity.md) sağlayıcısı. Güvenlik denetimi gibi Azure AD, Azure AD üzerinden erişim verilmiş sürece uygulamada oturum açmasına izin veren bir belirteç kesmez. Kullanıcılar bir üyesi olduğunu, doğrudan veya bir gruba erişim verebilirsiniz.
 
 Kendi kullanıcıları ve uygulamaları için SSO kurmak için ortak bir kimlik oluşturmayın kuruluşların daha kullanıcıların sahip olduğu birden çok parola senaryoları için kullanıma sunulur. Bu senaryolar, kullanıcıların parolaları yeniden kullanma veya zayıf parola kullanma olasılığını artırın.
->>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
 
 ## <a name="turn-on-conditional-access"></a>Koşullu erişimi etkinleştirmek
+
 Kullanıcıların çeşitli cihazlar ve uygulamalar her yerden kullanarak, kuruluşunuzun kaynaklarına erişim sağlayabilir. BT yöneticisi, bu cihazlar için güvenlik ve uyumluluk standartlarınızı karşılayan emin olmak istersiniz. Kimin bir kaynağa erişmek için yalnızca odaklanarak artık yeterli değildir.
 
-<<<<<<< Baş edinebilirsiniz Azure AD SSO hakkında daha fazla makaleyi okuyarak [AD FS yönetimi ve Azure AD Connect ile özelleştirme](../active-directory/hybrid/how-to-connect-fed-management.md).
-=== Güvenlik ve üretkenlik dengelemek için bir erişim denetimi karar yapabilmeniz için önce bir kaynak nasıl erişildiği düşünmeniz gerekir. Azure AD'nin koşullu erişim özelliği sayesinde bu gereksinimi karşılayabilirsiniz. Koşullu erişimle koşullara göre bulut uygulamalarınıza erişen için otomatik erişim denetimi kararları yapabilirsiniz.
->>>>>>> 72fef8deb3b74739d94337401a4a4a0921e88f58
+Güvenlik ve üretkenlik dengelemek için bir erişim denetimi karar yapabilmeniz için önce bir kaynak nasıl erişildiği düşünmeniz gerekir. Azure AD'nin koşullu erişim özelliği sayesinde bu gereksinimi karşılayabilirsiniz. Koşullu erişimle koşullara göre bulut uygulamalarınıza erişen için otomatik erişim denetimi kararları yapabilirsiniz.
 
 **En iyi yöntem**: yönetmek ve şirket kaynaklarına erişimi denetler.  
 **Ayrıntı**: Azure AD'yi yapılandırma [koşullu erişim](../active-directory/active-directory-conditional-access-azure-portal.md) grubu, konum ve SaaS uygulamaları ve Azure AD bağlı uygulamalar için uygulama hassaslığı göre.
 
 ## <a name="enable-password-management"></a>Parola yönetimini etkinleştirme
+
 Birden fazla Kiracı varsa veya kullanıcılara etkinleştirmek istediğiniz [kullanıcıların kendi parolalarını sıfırlamasına](../active-directory/active-directory-passwords-update-your-own-password.md), kötüye kullanımı önlemek için uygun güvenlik ilkelerini kullanmak önemlidir.
 
 **En iyi yöntem**: kullanıcılarınız için ayarlama Self Servis parola sıfırlama (SSPR).  
@@ -116,6 +106,7 @@ Birden fazla Kiracı varsa veya kullanıcılara etkinleştirmek istediğiniz [ku
 **Ayrıntı**: Azure AD kullanarak kaydettirmekte olduğunuz kullanıcıları izlemek [parola sıfırlama kayıt Etkinlik Raporu](../active-directory/active-directory-passwords-get-insights.md). Azure AD'nin sağladığı raporlama özelliği, önceden oluşturulmuş raporları kullanarak soruları yanıtlamanıza yardımcı olur. Uygun şekilde lisansınız varsa, özel sorgular oluşturabilirsiniz.
 
 ## <a name="enforce-multi-factor-verification-for-users"></a>Kullanıcılar için çok faktörlü doğrulama zorla
+
 İki aşamalı doğrulama tüm kullanıcılarınız için ihtiyacınız olan öneririz. Bu Yöneticiler ve başkaları (örneğin, finansal görevlileri), hesap tehlikede olursa önemli bir etkisi olabilir kuruluşunuzda içerir.
 
 İki aşamalı doğrulama gerektirme birden çok seçenek vardır. Sizin için en iyi seçenek, hedeflerinizi, kullanmakta olduğunuz Azure AD sürümü ve, bir lisanslama programı bağlıdır. Bkz: [bir kullanıcı için iki aşamalı doğrulama gerektirme](../active-directory/authentication/howto-mfa-userstates.md) sizin için en iyi seçeneği belirlemek için. Bkz: [Azure AD'ye](https://azure.microsoft.com/pricing/details/active-directory/) ve [Azure multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) sayfaları lisansları hakkında daha fazla bilgi için fiyatlandırma ve fiyatlandırma.
@@ -145,11 +136,13 @@ Kullanıcı ve oturum açma riski tüm bulut uygulamalarınız için iki aşamal
 Kimlik koruması, iki aşamalı doğrulama gibi ek katmanları eklemeyen kuruluşları için kimlik bilgisi hırsızlığı saldırısına daha açıktır. Bir kimlik bilgisi hırsızlığı saldırısına veri güvenliğinin aşılmasına yol açabilir.
 
 ## <a name="use-role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC) kullanın
+
 Erişimi kısıtlama temel alarak [bilmeniz gereken](https://en.wikipedia.org/wiki/Need_to_know) ve [en az ayrıcalık](https://en.wikipedia.org/wiki/Principle_of_least_privilege) güvenlik ilkeleri, veri erişimi için güvenlik ilkelerini zorlamak istediğinizde kuruluşlar için zorunlu. Kullanabileceğiniz [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md) kullanıcılara, gruplara ve uygulamalara belirli bir kapsamda izin vermek istiyorsanız. Rol atamasının kapsamı, bir abonelik, kaynak grubu veya tek bir kaynak olabilir.
 
 Kullanabileceğiniz [yerleşik RBAC](../role-based-access-control/built-in-roles.md) ayrıcalıkları kullanıcılara atamak için azure'da rolleri. Veri erişim denetimi, RBAC gibi özellikleri kullanarak zorlama kuruluşların kullanıcıları için gerekenden daha fazla ayrıcalık vermiş. Belirli sahip olmamalıdır (örneğin, yüksek iş etkisi) veri türleri için kullanıcı erişimine izin vererek bu veri güvenliğinin aşılmasına yol açabilir.
 
 ## <a name="lower-exposure-of-privileged-accounts"></a>Ayrıcalıklı hesapların açığa çıkarılması
+
 Güvenliğini sağlama ayrıcalıklı erişim iş varlıkların korunması için bir kritik ilk adımdır. Bilgi veya kaynakları güvenli hale getirmek için erişimi olan kişi sayısını en aza indirmek erişim sağlama kötü niyetli bir kullanıcı veya yetkili bir kullanıcı yanlışlıkla hassas kaynak etkileyen olasılığını azaltır.
 
 Ayrıcalıklı hesaplar BT sistemlerini yöneten hesaplarıdır. Siber saldırganlar bir kuruluşun veri ve sistemlere erişim elde etmek için bu hesapları hedefler. Ayrıcalıklı erişim güvenliğini sağlamak için hesaplar ve kötü niyetli bir kullanıcının maruz kalma riskini sistemlerden yalıtmak.
@@ -209,6 +202,7 @@ Atanan veya genel yönetici rolü için uygun olan hesaplarını değerlendirin.
 Ayrıcalıklı erişim güvenliğini sağlamazsanız, çok sayıda kullanıcınız yüksek ayrıcalıklı rolleri ve saldırılara karşı daha savunmasızdır bulabilirsiniz. Siber saldırganlar, genellikle hedef yönetici hesapları ve ayrıcalıklı erişimin diğer öğelerini kimlik bilgisi hırsızlığı kullanarak hassas verileri ve sistemleri erişim kazanmak için de dahil olmak üzere kötü amaçlı aktörler.
 
 ## <a name="control-locations-where-resources-are-created"></a>Kaynakların oluşturulabileceği denetim konumları
+
 Bulut operatörleri, kuruluşunuzun kaynakları yönetmek için gerekli olan kuralları kesilmesini önlenirken görevleri gerçekleştirmek etkinleştirmek çok önemlidir. Kaynakların oluşturulabileceği konumlarını denetlemek isterseniz kuruluşların Bu konumlar sabit kodlamanız gerekir.
 
 Kullanabileceğiniz [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) , tanımları, özellikle verilmeyen kaynakları ve eylemleri açıklayan güvenlik ilkeleri oluşturmak için. Bu ilke tanımları abonelik, kaynak grubunu veya ayrı bir kaynak gibi istenilen kapsamda atarsınız.
@@ -221,6 +215,7 @@ Kullanabileceğiniz [Azure Resource Manager](../azure-resource-manager/resource-
 Kaynakları nasıl oluşturulduğunu denetlediğiniz olmayan kuruluşlar, kullanıcılara ihtiyaç duydukları çok daha fazla kaynak oluşturarak hizmet sırasında kötüye kullandığı daha açıktır. Kaynak oluşturma işlemini sağlamlaştırma, çok kiracılı bir senaryo güvenliğini sağlamak için önemli bir adımdır.
 
 ## <a name="actively-monitor-for-suspicious-activities"></a>Şüpheli etkinlikler için etkin bir şekilde izleyin
+
 Sistem izleme etkin bir kimliği hızla şüpheli davranışı saptamanıza ve araştırılması için bir uyarı tetikler. Aşağıdaki tabloda, kuruluşların kimliklerini izlemesine yardımcı olacak iki Azure AD özellikleri listelenmektedir:
 
 **En iyi yöntem**: belirlemek üzere bir yöntem vardır:
@@ -239,4 +234,5 @@ Sistem izleme etkin bir kimliği hızla şüpheli davranışı saptamanıza ve a
 Etkin kimlik sistemlerinin izleme kuruluşların, kullanıcı kimlik bilgilerini ele yaşama risk altındadır. Kuşkulu etkinlikler bu kimlik bilgileri aracılığıyla yer alıyorlar bilgi sahibi olmadan, kuruluşların bu tür bir tehdit etkisini olamaz.
 
 ## <a name="next-step"></a>Sonraki adım
+
 Bkz: [Azure güvenlik en iyi uygulamaları ve desenleri](security-best-practices-and-patterns.md) kullanmak üzere daha fazla güvenlik için en iyi yöntemler, tasarlama, dağıtma ve Azure'ı kullanarak bulut çözümlerinizi yönetme.

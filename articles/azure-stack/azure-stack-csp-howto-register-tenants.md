@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: af28bff0a9826bb96451ae944a377ad0ee284d87
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634005"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498581"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Kiracı kullanımı için ekleyin ve Azure Stack'e faturalama
 
@@ -69,9 +69,9 @@ Kaydınızı yeni müşteri aboneliği ile güncelleştirin. Azure iş ortağı 
 ### <a name="new-azurermresource-powershell-parameters"></a>Yeni-AzureRmResource PowerShell parametreleri
 | Parametre | Açıklama |
 | --- | --- | 
-|registrationSubscriptionID | Azure Stack ilk kayıt için kullanılan Azure aboneliği. |
-| customerSubscriptionID | Kaydedilecek müşteriye ait Azure aboneliği (Azure Stack değil). Olmalıdır; CSP teklife oluşturulan uygulamada, bu iş ortağı merkezi üzerinden anlamına gelir. Bir müşteri birden fazla Azure Active Directory kiracınız varsa, bu abonelik Azure Stack açarken kullanılacak kiracıdaki oluşturulması gerekir.
-| Kaynak grubu | Kaydınızı depolandığı Azure kaynak grubunda. 
+|registrationSubscriptionID | Azure Stack ilk kayıt için kullanılan Azure aboneliği.|
+| customerSubscriptionID | Kaydedilecek müşteriye ait Azure aboneliği (Azure Stack değil). Olmalıdır; CSP teklife oluşturulan uygulamada, bu iş ortağı merkezi üzerinden anlamına gelir. Bir müşteri birden fazla Azure Active Directory kiracınız varsa, bu abonelik Azure Stack açarken kullanılacak kiracıdaki oluşturulması gerekir. Müşteri abonelik kimliği, küçük harf kullanmanız gerekir. |
+| Kaynak grubu | Kaydınızı depolandığı Azure kaynak grubunda. |
 | registrationName | Azure Stack kayıt adı. Bu, Azure'da depolanan bir nesnedir. | 
 | Özellikler | Kaynağın özelliklerini belirtir. Kaynak türü için belirli özelliklerin değerlerini belirtmek için bu parametreyi kullanın.
 

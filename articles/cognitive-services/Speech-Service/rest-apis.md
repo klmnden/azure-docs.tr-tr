@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7d5656d6599e1d8d2a3e85b9d41bcce6490e1511
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8f01130d46bce1e3b3e0b37f26e25d552c6002e5
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124176"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498122"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -59,7 +59,7 @@ Ses HTTP gövdesi gönderilen `PUT` istemek ve 16-bit WAV PCM tek kanalda (tekli
 
 ### <a name="chunked-transfer"></a>Öbekli aktarım
 
-Öbekli aktarım (`Transfer-Encoding: chunked`), while ses dosyası iletilen işlemeye başlamak konuşma tanıma hizmeti izin verdiğinden tanıma gecikme süresini azaltmaya yardımcı olabilir. REST API, kısmi veya Ara sonuçlar sağlamaz; Bu seçenek, yalnızca yanıt verme hızını artırmak için tasarlanmıştır.
+Öbekli aktarım (`Transfer-Encoding: chunked`) tanıma gecikme süresi, aktarım sırasında ses dosyası işlemesi konuşma tanıma hizmeti izin verdiğinden azaltmaya yardımcı olabilir. REST API, kısmi veya Ara sonuçlar sağlamaz; Bu seçenek, yalnızca yanıt verme hızını artırmak için tasarlanmıştır.
 
 Aşağıdaki kod öbekler halinde ses gönderme işlemini gösterir. `request` HTTPWebRequest nesneyi uygun REST uç noktasına bağlanır. `audioFile` ses dosyası diskte yoludur.
 
@@ -137,7 +137,7 @@ Sonuçları JSON biçiminde döndürülür. `simple` Biçimi yalnızca aşağıd
 | `Error` | Tanıma hizmeti bir iç hatayla karşılaştı ve çalışmaya devam edemedi. Mümkün olduğunda yeniden deneyin. |
 
 > [!NOTE]
-> Kullanıcı yalnızca küfür verirse ve `profanity` sorgu parametresi ayarlandığında `remove`, hizmet tanıma modunda olmadığı sürece bir konuşma sonuç döndürmez `interactive`. Bu durumda, hizmeti ile bir konuşma sonuç döndürür bir `RecognitionStatus` , `NoMatch`. 
+> Ses yalnızca küfür oluşuyorsa ve `profanity` sorgu parametresi ayarlandığında `remove`, hizmeti bir konuşma sonuç döndürmez. 
 
 `detailed` Biçimi içeren aynı alanları `simple` , bunların ile biçimde bir `NBest` alan. `NBest` Alan büyük olasılıkla'den az büyük olasılıkla sıralanmış aynı konuşma alternatif ınterpretations listesi verilmiştir. İlk giriş ana tanıma işleminin sonucu aynıdır. Her girişin aşağıdaki alanları içerir:
 
@@ -199,7 +199,7 @@ Konuşma hizmetin metin okuma API REST uç noktaları verilmiştir. Eşleşen ab
 
 Konuşma hizmeti, Bing konuşma tarafından desteklenen 16Khz çıkış ek olarak 24-KHz ses çıkış destekler. Kullanmak için dört 24-KHz Çıkış biçimleri kullanılabilir `X-Microsoft-OutputFormat` HTTP üst bilgisi, iki 24-KHz sesleri olarak `Jessa24kRUS` ve `Guy24kRUS`.
 
-Yerel ayar | Dil   | Cinsiyet | Hizmet adı eşleme
+Yerel Ayar | Dil   | Cinsiyet | Hizmet adı eşleme
 -------|------------|--------|------------
 tr-TR  | İngilizce (ABD) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)" 
 tr-TR  | İngilizce (ABD) | Erkek   | "Microsoft Server Konuşma metin konuşma ses (en-US, Guy24kRUS)"
@@ -215,8 +215,6 @@ Aşağıdaki alanlar, HTTP istek bağlığında gönderilir.
 |`Authorization`|Bir yetkilendirme belirteci word tarafından öncesinde `Bearer`. Gereklidir. Bkz: [kimlik doğrulaması](#authentication).|
 |`Content-Type`|Giriş içerik türü: `application/ssml+xml`.|
 |`X-Microsoft-OutputFormat`|Çıkış ses biçimi. Sonraki tabloya bakın.|
-|`X-Search-AppId`|İstemci uygulaması benzersiz olarak tanımlayan yalnızca onaltılık GUID (çizgi içermeyen). Bu depo kimliği olabilir Mağaza uygulaması değil ff, herhangi bir GUID kullanabilirsiniz.|
-|`X-Search-ClientId`|Her yükleme için bir uygulama örneği benzersiz olarak tanımlayan yalnızca onaltılık GUID (çizgi içermeyen).|
 |`User-Agent`|Uygulama adı. Gerekli; 255'den az karakter içermelidir.|
 
 Kullanılabilir ses çıkış biçimleri (`X-Microsoft-OutputFormat`) bir bit hızı ve bir kodlama dahil edilip derecelendirilir.
@@ -230,9 +228,12 @@ Kullanılabilir ses çıkış biçimleri (`X-Microsoft-OutputFormat`) bir bit h�
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
+> [!NOTE]
+> Seçilen ses ve çıkış biçimi farklı bit hızlarında varsa, ses, gerektiği şekilde örneklenmiş. Ancak, 24khz sesleri desteklemeyen `audio-16khz-16kbps-mono-siren` ve `riff-16khz-16kbps-mono-siren` Çıkış biçimleri. 
+
 ### <a name="request-body"></a>İstek gövdesi
 
-Konuşma olarak sentezlenecek metni, HTTP gövdesi olarak gönderilen `POST` isteği ya da düz metin veya [konuşma sentezi biçimlendirme dili](speech-synthesis-markup.md) metni UTF-8 kodlamalı (SSML'yi) biçimi. Hizmetin varsayılan ses dışındaki bir ses kullanmak istiyorsanız SSML'yi kullanmanız gerekir.
+Metni konuşmaya dönüştürülecek bir HTTP gövdesi olarak gönderilen `POST` istek ya da düz metin (ASCII veya UTF-8) veya [konuşma sentezi biçimlendirme dili](speech-synthesis-markup.md) (SSML'yi) biçimi (UTF-8). Düz metin istekleri, hizmetin varsayılan ses ve dil kullanın. Farklı bir ses kullanmak için SSML'yi gönderin.
 
 ### <a name="sample-request"></a>Örnek istek
 
@@ -260,10 +261,10 @@ Yanıtın HTTP durum, başarı veya sık karşılaşılan hata koşulları belir
 HTTP kodu|Anlamı|Olası neden
 -|-|-|
 200|Tamam|İstek başarılı oldu; ses dosyası yanıt gövdesidir.
-400|Hatalı istek|Gerekli üstbilgi alanı değeri çok uzun veya geçersiz SSML'yi belge eksik.
-401|Yetkilendirilmemiş|Abonelik anahtarı veya yetkilendirme belirteci, belirtilen bölge veya geçersiz uç nokta geçersiz.
-403|Yasak|Eksik abonelik anahtarı veya yetkilendirme belirteci.
-413|İstek varlığı çok büyük|Giriş metni 1.000 karakterden daha uzun.
+400 |Bozuk İstek |Gerekli parametre eksik, boş veya null. Veya, gerekli veya isteğe bağlı parametresi için geçirilen değer geçersiz. Çok uzun üstbilgi buna yaygın bir sorundur.
+401|Yetkilendirilmemiş |İstek yetkili değil. Abonelik anahtarı veya belirteç geçerli ve doğru bölgesinde olduğundan emin olmak için kontrol edin.
+413|İstek varlığı çok büyük|SSML'yi giriş metni, 1024 karakterden uzun.
+|502|Hatalı Ağ Geçidi    | Ağ veya sunucu tarafı sorun. Geçersiz üst bilgileri de gösterebilir.
 
 HTTP durum ise `200 OK`, yanıt gövdesi istenen biçiminde bir ses dosyası içerir. Bu dosya, aktarılan ya bir arabellek veya daha sonra kayıttan yürütmek ya da diğer kullanım için Dosya kaydedildi olarak yürütülen.
 

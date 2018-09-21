@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 08/31/2018
-ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: da39d4132190a7dea661779c507fa817758c3e17
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667166"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497935"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure veritabanını MySQL veri çoğaltma için yapılandırma
 
@@ -158,6 +158,9 @@ Aşağıdaki adımlar, hazırlama ve MySQL server barındırılan şirket içind
    - master_log_pos: çalışmasını ikili günlük konumu `show master status`
    - master_ssl_ca: CA sertifikanın bağlamı. SSL kullanılmıyorsa, boş bir dize geçirin.
        - Bu parametrede bir değişken olarak geçirmek için önerilir. Daha fazla bilgi için aşağıdaki örneklere bakın.
+
+> [!NOTE]
+> Ana sunucusu Azure VM'deki barındırılıyorsa "birbirleri ile iletişim kurmak ana ve çoğaltma sunucuları izin vermek için"on"Azure hizmetlerine erişime izin ver" olarak ayarlayın. Bu ayar, gelen değiştirilebilir **bağlantı güvenliği** seçenekleri. Başvurmak [portalını kullanarak güvenlik duvarı kurallarını yönetme](howto-manage-firewall-using-portal.md) daha fazla bilgi için.
 
    **Örnekler**
 

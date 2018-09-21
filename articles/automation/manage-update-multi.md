@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9cb2b0bdb036b26fbd355ff4bd84885b7e15507d
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541982"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498241"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -127,6 +127,7 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
 
 - **Ad**: güncelleştirme dağıtımını tanımlamak için benzersiz bir ad girin.
 - **İşletim sistemi**: seçin **Windows** veya **Linux**.
+- **(Önizleme) güncelleştirmek için grupları**: Abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlar. Bkz: daha fazla bilgi edinmek için [dinamik gruplar](automation-update-management.md#using-dynamic-groups)
 - **Güncelleştirilecek makineler**: kayıtlı arama, içeri aktarılan grubu seçin ya da güncelleştirmek istediğiniz makineleri seçin için makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Güncelleştirme dağıtımı zamanlayabilirsiniz önce bilgisayarın sistem durumunu görebilirsiniz. Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../log-analytics/log-analytics-computer-groups.md)
 
   ![Yeni güncelleştirme dağıtım bölmesi](./media/manage-update-multi/update-select-computers.png)
@@ -141,13 +142,15 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
   - Araçlar
   - Güncelleştirmeler
 
-- **Hariç tutulacak güncelleştirmeler**: Bu seçeneğin belirlenmesi açılır **hariç** sayfası. BB makalelerine veya hariç tutmak için paket adları girin.
+- **Güncelleştirmeleri Ekle/Dışla** -açılır **dahil edin/dışlayın** sayfası. Dahil etmek veya hariç tutmak ayrı sekmelerde güncelleştirmelerdir. Ekleme nasıl ele alındığını hakkında ek bilgi için bkz: [ekleme davranışı](automation-update-management.md#inclusion-behavior)
 
 - **Zamanlama ayarları** - Geçerli saatten 30 dakika sonrası olan varsayılan tarih ve saati kabul edebilirsiniz. Farklı bir saat de belirtebilirsiniz.
 
    Ayrıca, dağıtımın bir kez veya yinelenen bir zamanlamaya göre gerçekleşeceğini belirtebilirsiniz. Yinelenen bir zamanlama ayarlamak altında için **yinelenme**seçin **yinelenen**.
 
    ![Zamanlama Ayarları iletişim kutusu](./media/manage-update-multi/update-set-schedule.png)
+
+- **Önceden komutlar + sonrası betiklerini**: önce ve sonra dağıtımınız betiklerin seçin. Daha fazla bilgi için bkz. [yönetme öncesi ve sonrası betikler](pre-post-scripts.md).
 - **Bakım penceresi (dakika)**: güncelleştirme dağıtımının gerçekleşmesini istediğiniz süreyi belirtin. Bu ayar, değişikliklerin sizin tanımladığınız hizmet pencereleri içinde gerçekleştirilmesini sağlar.
 
 - **Denetim yeniden** -Bu ayar, yeniden başlatmalar güncelleştirme dağıtımı için nasıl işleneceğini belirler.

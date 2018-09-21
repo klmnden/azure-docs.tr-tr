@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: 61943da154483d8e815fa135fba30b136724b011
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b80fcecf28eaaf05e7fc199a9c318fd4148b9212
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42062137"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497867"
 ---
-# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Panda ile Azure blob depolama verilerini keşfedin
-Bu belgeyi kullanarak Azure blob kapsayıcının içinde depolanan verileri araştırmak nasıl etkinleştireceğinizi de açıklar [Pandas](http://pandas.pydata.org/) Python paket.
+# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Panda ile Azure blob depolamadaki verileri keşfedin
+Bu belgeyi kullanarak Azure blob kapsayıcının içinde depolanan verileri araştırmak nasıl etkinleştireceğinizi de açıklar [pandas](http://pandas.pydata.org/) Python paket.
 
 Aşağıdaki **menü** Araçlar çeşitli depolama ortamlarından verileri araştırmak için nasıl kullanılacağını açıklayan konulara bağlantılar. Bu görev bir adımdır [Data Science Process](overview.md).
 
@@ -35,8 +35,8 @@ Bu makalede, olduğunu varsayar:
 * Bir Azure depolama hesabı oluşturuldu. Yönergelere ihtiyacınız varsa bkz [bir Azure depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md)
 * Verilerinizi bir Azure blob depolama hesabında depolanır. Yönergelere ihtiyacınız varsa bkz [için ve Azure Depolama'dan veri taşıma](../../storage/common/storage-moving-data.md)
 
-## <a name="load-the-data-into-a-pandas-dataframe"></a>Bir Pandas DataFrame verileri yükleme
-Keşfedin veya bir veri kümesini değiştirmek için ilk blob kaynak içinde bir Pandas DataFrame yüklenebilir yerel bir dosyaya indirilmelidir. Bu yordam için izlenmesi gereken adımlar şunlardır:
+## <a name="load-the-data-into-a-pandas-dataframe"></a>Pandas DataFrame verileri yükleme
+Keşfedin veya bir veri kümesini değiştirmek için önce blob kaynağından bir pandas DataFrame yüklenebilir yerel bir dosyaya indirilmelidir. Bu yordam için izlenmesi gereken adımlar şunlardır:
 
 1. Verileri Azure blob'tan blob hizmeti kullanarak aşağıdaki Python kod örneği ile indirme. Aşağıdaki kod içindeki değişkene belirli değerleriniz ile değiştirin: 
    
@@ -55,14 +55,14 @@ Keşfedin veya bir veri kümesini değiştirmek için ilk blob kaynak içinde bi
         blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-2. İçine bir Pandas veri çerçevesine indirilen dosyadaki verileri okuyamadı.
+2. İçine bir pandas DataFrame indirilen dosyasından verileri okur.
    
         #LOCALFILE is the file path    
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 Verileri keşfetme ve bu veri kümesi özellikleri oluşturmak hazırsınız.
 
-## <a name="blob-dataexploration"></a>Veri keşfi Pandas kullanma örnekleri
+## <a name="blob-dataexploration"></a>Veri keşfi pandas kullanma örnekleri
 Panda kullanarak verileri araştırmak için gösteren bazı örnekleri şunlardır:
 
 1. İnceleme **satır ve sütun sayısı** 

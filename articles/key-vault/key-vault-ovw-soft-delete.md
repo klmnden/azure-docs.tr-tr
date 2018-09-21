@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: c8bde99e0247871212766a9915b9d07b7f392201
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 776d5957ee2c11354c350523cbc8fde12fbcafaf
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465597"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498190"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault geçici silmeyi genel bakış
 
@@ -37,9 +37,16 @@ Azure Key Vault, Azure Resource Manager tarafından yönetilen, izlenen kaynakla
 
 ### <a name="soft-delete-behavior"></a>Geçici silme davranışı
 
-Bu özellik, geçici etkili bir şekilde nesne silindikten görüntüsü verme sırasında ek olarak, belirtilen saklama süresi için kaynakları barındıran silme, anahtar kasası veya anahtar kasası nesne silme işlemi var. Daha fazla hizmet aslında silme işlemini geri alma silinen nesnesini kurtarmak için bir mekanizma sağlar. 
+Bu özellik ile nesne silindikten görünümünü sağlarken, geçici etkili bir şekilde belirtilen saklama dönemi (90 gün) için kaynakları barındıran silme, bir anahtar kasası veya anahtar kasası nesne silme işlemi kullanılabilir. Daha fazla hizmet aslında silme işlemini geri alma silinen nesnesini kurtarmak için bir mekanizma sağlar. 
 
 Geçici silme isteğe bağlı bir Key Vault davranışı ve **varsayılan olarak etkin değildir** bu sürümde. 
+
+### <a name="do-not-purge-flag"></a>Bayrağını temizlemek değil
+Kasa veya kasa nesne silinmesini zorlamak için isteyen bir kullanıcı bunu yapabilirsiniz. Bu kasa için geçici silme açık olsa bile bir kasa veya kasanın içindeki bir nesneyi silme izni olan bir kullanıcı temizleme zorlamak, olmasıdır. Ancak, kasa veya kasa nesne zorla silinmesini önlemek kullanıcı istiyorsa, bunlar ayarlayabilirsiniz--temizleme koruma etkinleştirme bayrağını true olması. Bir kasayı oluşturduğunuzda bunu yaparak bayrağı etkinleştirebilirsiniz. Temizleme korumayı etkinleştirme için geçici silme açık olmalıdır önkoşuldur. Azure CLI 2. Bunu yapmak için komut
+
+```
+az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
+```
 
 ### <a name="key-vault-recovery"></a>Anahtar kasası kurtarma
 

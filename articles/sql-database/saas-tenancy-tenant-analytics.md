@@ -1,6 +1,6 @@
 ---
 title: Ayıklanan verileri kullanarak kiracılar arası analiz çalıştırma | Microsoft Docs
-description: Kiracılar arası analiz sorguları kullanarak verileri birden çok Azure SQL veritabanı veritabanlarından ayıklanır.
+description: Kiracılar arası analiz sorguları tek kiracılı uygulamayı birden çok Azure SQL veritabanı veritabanından ayıklanmış verileri kullanarak.
 keywords: sql veritabanı öğreticisi
 services: sql-database
 author: stevestein
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/19/2018
 ms.author: sstein
 ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: b887572e7c2bdf22c8a6cc8ffa1641e402fd6a58
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a838630e3423ca5ec26893597e2bb2b6e36ede2e
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736436"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498071"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Ayıklanan verileri kullanarak kiracılar arası analiz
-
-Bu öğreticide, bir tam analytics senaryoyu İnceleme. Analytics akıllı kararlar işletmelere nasıl olanak sağlayabileceğiniz senaryosunu gösterir. Her Kiracı veritabanından ayıklanmış verileri kullanarak Analiz davranışı ve uygulama kullanım Kiracı Öngörüler edinmek için kullanın. Bu senaryoda üç adımdan oluşur: 
+# <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Kiracılar arası Analytics'i kullanarak veri - tek kiracılı uygulama ayıklanan
+ 
+Bu öğreticide, bir tam analytics senaryosu için tek bir kiracı implementatoin yol. Analytics akıllı kararlar işletmelere nasıl olanak sağlayabileceğiniz senaryosunu gösterir. Her Kiracı veritabanından ayıklanmış verileri kullanarak Analiz Kiracı davranışı, kullanımları örnek Wingtip bilet SaaS uygulaması dahil olmak üzere Öngörüler edinmek için kullanın. Bu senaryoda üç adımdan oluşur: 
 
 1.  **Ayıklama** her Kiracı veritabanı verileri ve **yük** bir analytics deposuna.
 2.  **Ayıklanan verileri dönüştürme** analiz işleme için.
@@ -241,3 +241,4 @@ Tebrikler!
 
 - Ek [Wingtip SaaS uygulaması oluşturan öğretici](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [Esnek işler](sql-database-elastic-jobs-overview.md).
+- [Ayıklanan verileri - çok kiracılı uygulamayı kullanarak kiracılar arası analiz](saas-multitenantdb-tenant-analytics.md)

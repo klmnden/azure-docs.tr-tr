@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57cfa44a0eb114503b89733b2c3e309b65d5b7e5
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 84b32cadbd7d574e01053b61ace1203d495983b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023333"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498615"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Azure PowerShell kullanarak sertifikayla bir hizmet sorumlusu oluşturma
 
@@ -29,7 +29,7 @@ Kaynaklara erişmesi gereken bir uygulamanız veya betiğiniz olduğunda, uygula
 * Katılımsız bir betik yürütürken kimlik doğrulaması için sertifika kullanabilirsiniz.
 
 > [!IMPORTANT]
-> Hizmet sorumlusu oluşturmak yerine, uygulama kimliğiniz için Azure AD Yönetilen Hizmet Kimliği kullanmayı göz önünde bulundurun. Azure AD MSI, Azure Active Directory'nin kod için kimlik oluşturmayı basitleştiren ve genel önizleme aşamasında olan bir özelliğidir. Kodunuz Azure AD MSI desteği olan bir hizmette çalıştırılıyorsa ve Azure Active Directory kimlik doğrulamasını destekleyen kaynaklara erişiyorsa, Azure AD MSI sizin için daha iyi bir seçenektir. Azure AD MSI hakkında daha fazla bilgi edinmek ve şu anda bunu hangi hizmetlerin desteklediğini öğrenmek için bkz. [Azure kaynakları için Yönetilen Hizmet Kimliği](../active-directory/managed-identities-azure-resources/overview.md).
+> Bir hizmet sorumlusu oluşturmak yerine, uygulama kimliğiniz için Azure kaynakları için yönetilen kimliklerle göz önünde bulundurun. Kodunuzu Yönetilen kimlikleri ve Azure Active Directory kimlik doğrulamasını destekleyen erişimleri kaynak destekleyen bir hizmeti çalıştıran yönetilen kimlikleri sizin için daha iyi bir seçenek vardır. Hangi şu anda, Destek Hizmetleri dahil olmak üzere, Azure kaynakları için yönetilen kimlikler hakkında daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikleri nedir?](../active-directory/managed-identities-azure-resources/overview.md).
 
 Bu makalede, sertifikayla kimlik doğrulaması yapan bir hizmet sorumlusunun nasıl oluşturulduğu gösterilir. Parolası olan bir hizmet sorumlusu ayarlamak için bkz. [Azure PowerShell ile Azure hizmet sorumlusu oluşturma](/powershell/azure/create-azure-service-principal-azureps).
 
@@ -207,9 +207,9 @@ Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
 
 Hizmet sorumlusu oluştururken şu hataları alabilirsiniz:
 
-* **"Authentication_Unauthorized"** veya **"Bağlamda hiç abonelik bulunamadı."** - Hesabınızın uygulamayı kaydetmek için Azure Active Directory üzerinde [gerekli izinleri](#required-permissions) olmadığında bu hatayı görürsünüz. Normalde, Azure Active Directory'nizde yalnızca yönetici kullanıcılar uygulama kaydedebildiği durumlarda ve sizin hesabınız bir yönetici hesabı olmadığında bu hata gösterilir. Yöneticinizden size yönetici rolü atamasını veya kullanıcıların uygulama kaydetmesini etkinleştirmesini isteyin.
+* **"Authentication_Unauthorized"** veya **"Bağlamda hiç abonelik bulunamadı."** Hesabınız yoksa,-bu hatayı görmeye [gerekli izinler](#required-permissions) bir uygulamayı kaydetmek için Azure Active Directory üzerinde. Yalnızca Azure Active Directory'de yönetici kullanıcı uygulama kaydedebilir ve hesabınızda bir yönetici değil. Bu hata genellikle bakın Yöneticinizden size yönetici rolü atamasını veya kullanıcıların uygulama kaydetmesini etkinleştirmesini isteyin.
 
-* Hesabınızın **"'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}' eylemini gerçekleştirme yetkisi yok."** - Hesabınızın bir kimliğe rol atamak için yeterli izinleri olmadığında bu hatayı görürsünüz. Abonelik yöneticinizden sizi Kullanıcı Erişimi Yöneticisi rolüne atamasını isteyin.
+* Hesabınızı **"'/ subscriptions / {guid}' kapsamı üzerinde 'Microsoft.Authorization/roleAssignments/write' işlemini gerçekleştirme yetkisi yok."**  -Hesabınız için bir kimlik bir rol atamak için yeterli izinlere sahip olmadığında bu hatayı görürsünüz. Abonelik yöneticinizden sizi Kullanıcı Erişimi Yöneticisi rolüne atamasını isteyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Parolası olan bir hizmet sorumlusu ayarlamak için bkz. [Azure PowerShell ile Azure hizmet sorumlusu oluşturma](/powershell/azure/create-azure-service-principal-azureps).

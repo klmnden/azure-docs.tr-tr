@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ddc27d9f5124000601a57b4ecd72c3d6021c109f
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 3e21cb90dbe76a648cbb23729cc5068e75e8e5f7
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542642"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498547"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -35,7 +35,7 @@ Aşağıdaki diyagramda davranışı kavramsal bir görünümü gösterir ve ver
 
 ![Güncelleştirme yönetimi işlem akışı](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Güncelleştirme yönetimi, yerel makine aynı kiracıda birden çok abonelik içinde kullanılabilir. Yerleşik gereken farklı bir kiracıda makineleri yönetmek için bunları olarak [Azure olmayan makineler](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+Güncelleştirme yönetimi, yerel makine aynı kiracıda birden çok abonelik içinde kullanılabilir. Yerleşik gereken farklı bir kiracıda makineleri yönetmek için bunları olarak [Azure olmayan makineler](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine). 
 
 Bilgisayar güncelleştirme uyumluluğu için tarama gerçekleştirdikten sonra aracıyı Azure Log Analytics'e toplu bilgiler iletir. Bir Windows bilgisayarda Uyumluluk taraması varsayılan olarak her 12 saatte bir gerçekleştirilir.
 
@@ -55,6 +55,8 @@ Zamanlanmış dağıtım, bilgisayarları açıkça belirterek veya seçerek uyg
 Güncelleştirmeler Azure Automation’daki runbook'lar tarafından yüklenir. Bu runbook'ları görüntüleyemezsiniz ve runbook'lar herhangi bir yapılandırma gerekmez. Güncelleştirme dağıtımı oluşturulduğunda, güncelleştirme dağıtımına dahil edilen bilgisayarlar için belirtilen zamanda ana güncelleştirme runbook'unu başlatan bir zamanlama oluşturur. Ana runbook, gerekli güncelleştirmelerin yüklemesini gerçekleştirmek için her aracıda bir alt runbook başlatır.
 
 Tarih ve güncelleştirme dağıtımında belirtilen saatte, hedef bilgisayarlar dağıtımı paralel olarak yürütün. Yüklemeden önce güncelleştirmelerin hala gerekli olduğunu doğrulamak için bir tarama gerçekleştirilir. WSUS istemci bilgisayarları için WSUS'de güncelleştirmeleri onaylı olmayan güncelleştirme dağıtımının başarısız olur.
+
+Birden fazla Log Analytics çalışma alanları (çoklu yönlendirmeyi) ortamında güncelleştirme yönetimi için kayıtlı bir makine olması desteklenmiyor.
 
 ## <a name="clients"></a>İstemciler
 
@@ -190,7 +192,7 @@ Makine, güncelleştirme veya dağıtım hakkında bilgi döndüren bir günlük
 
 Çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için güncelleştirmeleri değerlendirdikten sonra oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz bir *güncelleştirme dağıtım*. Güncelleştirme dağıtımı bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir. Tarih ve saat için dağıtım ve bilgisayar veya bilgisayar grubundaki bir dağıtım kapsamında içerecek şekilde belirt Bilgisayar grupları hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md).
 
- Güncelleştirme dağıtımınıza bilgisayar gruplarını eklediğinizde, grup üyeliği bir zamanlama oluşturma sırasında yalnızca bir kez değerlendirilir. Sonraki değişiklikler bir grup için geçerli değildir. Bu sorunu çözmek için zamanlanmış güncelleştirme dağıtımını silin ve yeniden oluşturun.
+ Güncelleştirme dağıtımınıza bilgisayar gruplarını eklediğinizde, grup üyeliği bir zamanlama oluşturma sırasında yalnızca bir kez değerlendirilir. Sonraki değişiklikler bir grup için geçerli değildir. Bu kullanım almak için [VMPS grupları](#using-dynamic-groups), bu grupları dağıtım sırasında çözümlenir ve bir sorgu tarafından tanımlanır.
 
 > [!NOTE]
 > Varsayılan olarak Azure Market'ten dağıtılan Windows sanal makineleri, Windows Update hizmetinden otomatik güncelleştirmeleri almak için ayarlanır. Bu çözümü eklediğinizde veya Windows sanal makineleri çalışma alanınıza eklemek, bu davranış değişmez. Bu çözümü kullanarak güncelleştirmeleri etkin olarak yönetmiyorsanız, varsayılan davranış (güncelleştirmeleri otomatik olarak uygulama için) yöneliktir.
@@ -198,6 +200,23 @@ Makine, güncelleştirme veya dağıtım hakkında bilgi döndüren bir günlük
 Güncelleştirmelerin ubuntu'daki bakım penceresinin dışında uygulanmasının önlemek için Otomatik Güncelleştirmeler devre dışı bırakmak için Katılımsız Yükseltme paketini yeniden yapılandırın. Paketin yapılandırma hakkında daha fazla bilgi için bkz: [Ubuntu Server Kılavuzu'ndaki Otomatik Güncelleştirmeler konu başlığı](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Azure Market'te kullanıma sunulan isteğe bağlı Red Hat Enterprise Linux (RHEL) görüntülerinden oluşturulan sanal makineler kayıtlı erişimi [Red Hat Update Infrastructure'a (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) Azure'da dağıtılır. Diğer tüm Linux dağıtımları, dağıtım'ın desteklenen yöntemleri izleyerek dağıtım'ın çevrimiçi dosya deposundan güncelleştirilmelidir.
+
+Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme dağıtımı zamanla**. **Yeni güncelleştirme dağıtımı** bölmesi açılır. Aşağıdaki tabloda açıklanan özellikler için değerleri girin ve ardından **Oluştur**:
+
+| Özellik | Açıklama |
+| --- | --- |
+| Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
+|İşletim Sistemi| Linux veya Windows|
+| Grupları güncelleştir (Önizleme)|Abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlarsınız. Bkz: daha fazla bilgi edinmek için [dinamik gruplar](automation-update-management.md#using-dynamic-groups)|
+| Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../log-analytics/log-analytics-computer-groups.md) |
+|Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin|
+|Güncelleştirmeleri Ekle/Dışla|Bu açılır **dahil edin/dışlayın** sayfası. Dahil etmek veya hariç tutmak ayrı sekmelerde güncelleştirmelerdir. Ekleme nasıl ele alındığını hakkında ek bilgi için bkz: [ekleme davranışı](automation-update-management.md#inclusion-behavior) |
+|Zamanlama ayarları|Her iki kez başlatın ve saati seçin veya yineleme için yineleme|
+| Ön betiklerini + sonrası betikleri|Önce ve sonra dağıtımınız betiklerin seçin|
+| Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değeri olması olamaz az 30 dakika ve en fazla 6 saat |
+| Denetim yeniden başlatma| Yeniden başlatma işlemlerini nasıl işleneceğini belirler. Kullanılabilen seçenekler:</br>Gerekirse yeniden başlat (Varsayılan)</br>Her zaman yeniden başlat</br>Hiçbir zaman yeniden başlatma</br>Yalnızca yeniden başlatma - güncelleştirmeleri yüklemez|
+
+Güncelleştirme dağıtımları da bir program aracılığıyla oluşturulabilir. REST API ile bir güncelleştirme dağıtımı oluşturmak nasıl öğrenmek için bkz. [yazılım güncelleştirme yapılandırmaları - oluşturma](/rest/api/automation/softwareupdateconfigurations/create). Haftalık bir güncelleştirme dağıtımı oluşturmak için kullanılan bir örnek runbook yoktur. Bu runbook hakkında daha fazla bilgi için bkz: [bir kaynak grubundaki bir veya daha fazla sanal makineleri için haftalık bir güncelleştirme dağıtımı oluşturma](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ## <a name="view-missing-updates"></a>Eksik güncelleştirmeleri görüntüle
 
@@ -209,20 +228,7 @@ Seçin **güncelleştirme dağıtımları** var olan güncelleştirme dağıtım
 
 ![Güncelleştirme dağıtımı sonuçlarına genel bakış](./media/automation-update-management/update-deployment-run.png)
 
-## <a name="create-or-edit-an-update-deployment"></a>Oluşturma veya güncelleştirme dağıtımı düzenleme
-
-Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme dağıtımı zamanla**. **Yeni güncelleştirme dağıtımı** bölmesi açılır. Aşağıdaki tabloda açıklanan özellikler için değerleri girin ve ardından **Oluştur**:
-
-| Özellik | Açıklama |
-| --- | --- |
-| Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
-|İşletim Sistemi| Linux veya Windows|
-| Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../log-analytics/log-analytics-computer-groups.md) |
-|Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin|
-|Hariç tutulacak güncelleştirmeler|Hariç tutulacak güncelleştirmeler girin. Windows için KB 'KB' öneki olmadan girin. Linux için paket adını girin veya bir joker karakter kullanın.  |
-|Zamanlama ayarları|Her iki kez başlatın ve saati seçin veya yineleme için yineleme|
-| Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değeri olması olamaz az 30 dakika ve en fazla 6 saat |
-| Denetim yeniden başlatma| Yeniden başlatma işlemlerini nasıl işleneceğini belirler. Kullanılabilen seçenekler:</br>Gerekirse yeniden başlat (Varsayılan)</br>Her zaman yeniden başlat</br>Hiçbir zaman yeniden başlatma</br>Yalnızca yeniden başlatma - güncelleştirmeleri yüklemez|
+Güncelleştirme dağıtımı REST API'sinden görüntülemek için bkz [yazılım güncelleştirme yapılandırması çalıştırmaları](/rest/api/automation/softwareupdateconfigurationruns).
 
 ## <a name="update-classifications"></a>Güncelleştirme sınıflandırmaları
 
@@ -484,11 +490,32 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
+## <a name="using-dynamic-groups"></a>Dinamik gruplar (Önizleme) kullanma
+
+Güncelleştirme yönetimi, Azure Vm'leri dinamik bir grup güncelleştirme dağıtımları için hedef olanağı sağlar. Bu grupları tanımlanan bir sorgu tarafından bir güncelleştirme dağıtımı başladığında, bu grubun üyelerinin değerlendirilir. Sorgunuzu tanımlarken, aşağıdaki öğeler birlikte dinamik Grup doldurmak için kullanılabilir
+
+* Abonelik
+* Kaynak grupları
+* Konumlar
+* Etiketler
+
+![Grupları seçin](./media/automation-update-management/select-groups.png)
+
+Dinamik bir Grup sonuçlarını önizlemek için tıklayın **Önizleme** düğmesi. Bu grup üyeliğini başlatıldığında, bu örnekte, biz arama için etiket makinelerle önizlemesini **rol** eşittir **BackendServer**. Daha fazla makine eklenen bu etiket varsa, bu gruba göre tüm gelecekteki dağıtımlar için eklenir.
+
+![Önizleme grupları](./media/automation-update-management/preview-groups.png)
+
 ## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager ile tümleştirme
 
 System Center Configuration Manager'da bilgisayarları, sunucuları ve mobil cihazları yönetmek için yatırım yapmış müşteriler aynı zamanda gücü ve yazılım güncelleştirmelerini yönetmenize yardımcı olmak için Configuration Manager'ın olgunluk yararlanmaktadır. Configuration Manager yazılım güncelleştirme yönetimi (SUM) döngüsünün bir parçasıdır.
 
 Yönetim çözümü System Center Configuration Manager ile tümleştirmeyi öğrenin için bkz: [güncelleştirme yönetimi ile System Center Configuration Manager tümleştirme](oms-solution-updatemgmt-sccmintegration.md).
+
+## <a name="inclusion-behavior"></a>Ekleme davranışı
+
+Güncelleştirme ekleme uygulamak için belirli güncelleştirmeleri belirtmenizi sağlar. Düzeltme ekleri veya dahil edilmek üzere ayarlanmış olan paketler, dağıtım için seçtiğiniz sınıflandırmaları ne olursa olsun yüklenir.
+
+Linux makineler için bir paket dahildir ancak specifcally kapsamı dışında olan bir bağımlı paketi varsa paket yüklü değil.
 
 ## <a name="patch-linux-machines"></a>Düzeltme eki Linux makineleri
 
@@ -527,3 +554,5 @@ Windows sanal makineleriniz için güncelleştirmeleri yönetme konusunda bilgi 
 
 * Te günlük aramalarını kullanın [Log Analytics](../log-analytics/log-analytics-log-searches.md) ayrıntılı güncelleştirme verilerini görüntülemek için.
 * [Uyarı oluşturma](../log-analytics/log-analytics-alerts.md) bilgisayarlardan eksik olarak kritik güncelleştirmeler algılandığında veya bir bilgisayarda Otomatik Güncelleştirmeler devre dışı olduğunda.
+
+* Güncelleştirme yönetimi REST API aracılığıyla etkileşim öğrenmek için bkz. [yazılım güncelleştirme yapılandırmaları](/rest/api/automation/softwareupdateconfigurations)

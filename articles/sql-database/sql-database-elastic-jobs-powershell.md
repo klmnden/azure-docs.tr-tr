@@ -9,12 +9,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: 6f72e0cbb4476e9ff22bd1a1ead8dbee24a7edf0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 3efee2f9a4b205b87a65eb473271b0ab5e58046d
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651240"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498428"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell (Önizleme) kullanarak SQL veritabanı esnek işler oluşturma ve yönetme
 
@@ -213,7 +213,7 @@ Elastik veritabanı işleri için en iyi güvenlik uygulamaları şunlardır:
 * Kimlik bilgileri, iş görevi gerçekleştirmek gerekli en az ayrıcalığa sahip olmalıdır.  Daha fazla bilgi bu içinde görülebilir [yetkilendirme ve izinler](https://msdn.microsoft.com/library/bb669084.aspx) SQL Server MSDN makalesi.
 
 ### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>Veritabanları arasında iş yürütme için şifrelenmiş bir kimlik bilgisi oluşturmak için
-Bir yeni şifrelenmiş kimlik bilgisi oluşturmak için [ **Get-Credential cmdlet** ](https://technet.microsoft.com/library/hh849815.aspx) isteyen bir kullanıcı adı ve geçirilebilir parola [ **AzureSqlJobCredential yeni cmdlet** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
+Bir yeni şifrelenmiş kimlik bilgisi oluşturmak için [ **Get-Credential cmdlet** ](/powershell/module/microsoft.powershell.security/get-credential) isteyen bir kullanıcı adı ve geçirilebilir parola [ **AzureSqlJobCredential yeni cmdlet** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential

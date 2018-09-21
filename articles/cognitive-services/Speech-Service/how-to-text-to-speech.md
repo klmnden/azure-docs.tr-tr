@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d19b71542f032111bbd3d9c7f3fe246110377b5d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2bcba37d5bf0e508c1f9aa1ad30ab1c039cff83f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127595"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497765"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>"Metin okuma" konuşma hizmeti kullanın
 
-Konuşma hizmeti, basit bir HTTP isteği aracılığıyla metin okuma işlevselliği sağlar. Uygun uç noktaya söylenir metin gönderin ve hizmeti bir ses dosyası döndürür (`.wav`) içeren oluşturulan konuşma. Bunu beğeni gibi uygulamanızın daha sonra bu ses kullanabilirsiniz.
+Konuşma hizmeti, basit bir HTTP isteği aracılığıyla metin okuma işlevselliği sağlar. `POST` Uygun uç noktaya ve hizmet konuşulan metnin ses dosyası döndürür (`.wav`) içeren oluşturulan konuşma. Bunu beğeni gibi uygulamanızın daha sonra bu ses kullanabilirsiniz.
 
 Metin okuma (ASCII veya UTF8) düz metin olabilir veya bir istek gövdesi gönderinin [SSML'yi](speech-synthesis-markup.md) belge. Düz metin istekleri ile bir varsayılan ses konuşulan. Çoğu durumda, bir SSML'yi gövdesi kullanmak istiyorsunuz. HTTP isteği içermelidir bir [yetkilendirme](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) belirteci. 
 
@@ -40,7 +40,7 @@ Bir ses belirtmek için kullanın `<voice>` [SSML'yi](speech-synthesis-markup.md
 
 Bkz: [seslerle metin okuma](supported-languages.md#text-to-speech) kullanılabilir seslerini ve adlarının listesi.
 
-## <a name="make-a-request"></a>Bir istek oluşturun
+## <a name="make-a-request"></a>İstekte bulunma
 
 Bir metin okuma HTTP isteği, istek gövdesinde söylenir POST modunda metin ile yapılır. HTTP isteği gövdesinin uzunluğunu en fazla 1024 karakter olabilir. İstek şu olmalıdır: 
 

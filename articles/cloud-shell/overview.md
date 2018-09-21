@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: ff50ea8c49d35306ccb48ec703de39c27c24bf7b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 639eff5806ef84c526ae8d0d0ed55ca790bdac08
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160685"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498037"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud shell'e genel bakış
 Azure Cloud Shell'i Azure kaynaklarını yönetmek için etkileşimli ve tarayıcı erişilebilir bir kabuktur.
@@ -28,7 +28,7 @@ Linux kullanıcıları Bash deneyimini, Windows kullanıcıları ise PowerShell�
 
 Aşağıda tıklayarak Shell.Azure.com deneyin.
 
-[![](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell'i Başlat")](https://shell.azure.com)
+[![Ekleme başlatma](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell'i Başlat")](https://shell.azure.com)
 
 Cloud Shell simgesini kullanarak Azure portalından deneyin.
 
