@@ -44,6 +44,7 @@
 ### [Yönetilen etki alanında grup tarafından yönetilen hizmet hesabı oluşturma](active-directory-ds-create-gmsa.md)
 ### [Yönetilen etki alanında grup ilkesi yönetme](active-directory-ds-admin-guide-administer-group-policy.md)
 ### [Yönetilen etki alanında parola ilkelerini yapılandırma](active-directory-ds-password-policy.md)
+### [Azure AD’den, yönetilen bir etki alanına kapsamlı eşitleme yapılandırma](active-directory-ds-scoped-synchronization.md)
 ## [Sanal ağ seçme](active-directory-ds-networking.md)
 ## Uygulamaları dağıtma
 ### [SharePoint Server için profil eşitleme desteğini yapılandırma](active-directory-ds-enable-sharepoint-profile-sync.md)
