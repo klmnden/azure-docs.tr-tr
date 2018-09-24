@@ -1,6 +1,6 @@
 ---
-title: Azure Stack için bir Kubernetes kümesi dağıtma | Microsoft Docs
-description: Azure Stack için bir Kubernetes kümesi dağıtmayı öğrenirsiniz.
+title: Kubernetes için Azure Stack dağıtma | Microsoft Docs
+description: Kubernetes için Azure Stack dağıtmayı öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,28 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 00c3fd0d1f637575904ebaa8031159344adf7e9f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: MT
+ms.openlocfilehash: a6e1acf3b9e69f32a8c175310134c534dbf8c561
+ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718585"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46876625"
 ---
-# <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Azure Stack için bir Kubernetes kümesi dağıtma
+# <a name="deploy-kubernetes-to-azure-stack"></a>Kubernetes için Azure Stack dağıtma
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!Note]  
-> Azure Stack'te AKS (Azure Kubernetes hizmeti) altyapısı, özel Önizleme aşamasındadır. Bu makaledeki yönergeleri gerçekleştirmek için gereken Kubernetes Market öğesi erişim istemek, Azure Stack operatörü gerekir.
+> Azure Stack'te Kubernetes önizlemeye sunuldu. Bu makaledeki yönergeleri gerçekleştirmek için gereken Kubernetes küme Market öğesi erişim istemek, Azure Stack operatörü gerekir.
 
 Aşağıdaki makalede dağıtıp tek ve eşgüdümlü bir işlemle Kubernetes için kaynakları sağlamak için bir Azure Resource Manager çözüm şablonu kullanarak arar. , Azure Stack yüklemesi hakkında gerekli bilgileri toplamak için şablonu oluşturun ve ardından, buluta dağıtın. AKS hizmeti genel Azure ancak ACS hizmet yakın sunulan yönetilen şablonu aynı değil unutmayın.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes ve kapsayıcılar
 
-Kubernetes Azure Stack'te Azure Kubernetes Hizmetleri (AKS) altyapısı tarafından oluşturulan Azure Resource Manager şablonlarını kullanarak yükleyebilirsiniz. [Kubernetes](https://kubernetes.io) dağıtımı otomatik hale getirmek için bir açık kaynak sistemi ölçeklendirme ve uygulamaların kapsayıcıları yönetme. A [kapsayıcı](https://www.docker.com/what-container) görüntü, bir VM ile benzerlik bulunur. Bir VM, kapsayıcı görüntüsü yalnızca bir uygulama, kod, kod, belirli kitaplıkları ve ayarları yürütmek için çalışma zamanı gibi çalışması için gereken kaynakları içerir.
+Kubernetes ACS-Engine Azure Stack'te tarafından oluşturulan Azure Resource Manager şablonlarını kullanarak yükleyebilirsiniz. [Kubernetes](https://kubernetes.io) dağıtımı otomatik hale getirmek için bir açık kaynak sistemi ölçeklendirme ve uygulamaların kapsayıcıları yönetme. A [kapsayıcı](https://www.docker.com/what-container) görüntü, bir VM ile benzerlik bulunur. Bir VM, kapsayıcı görüntüsü yalnızca bir uygulama, kod, kod, belirli kitaplıkları ve ayarları yürütmek için çalışma zamanı gibi çalışması için gereken kaynakları içerir.
 
 Kubernetes için kullanabilirsiniz:
 
@@ -59,7 +59,11 @@ Başlamak için doğru izinlere sahip ve Azure Stack hazır olduğundan emin olu
 ## <a name="create-a-service-principal-in-azure-ad"></a>Azure AD'de hizmet sorumlusu oluşturma
 
 1. Oturum açmak için genel [Azure portalında](http://portal.azure.com).
-1. Azure Stack örneği ile ilişkili Azure AD kiracısı'ı kullanarak oturum açmış denetleyin.
+
+1. Azure Stack örneği ile ilişkili Azure AD kiracısı'ı kullanarak oturum açmış denetleyin. Azure araç çubuğundaki filtre simgesine tıklayarak oturum açma işleminiz geçiş yapabilirsiniz.
+
+    ![AD kiracısı seçin](media/azure-stack-solution-template-kubernetes-deploy/tenantselector.png)
+
 1. Azure AD uygulaması oluşturun.
 
     a. Seçin **Azure Active Directory** > **+ uygulama kayıtları** > **yeni uygulama kaydı**.
@@ -83,26 +87,25 @@ Başlamak için doğru izinlere sahip ve Azure Stack hazır olduğundan emin olu
     c. **Kaydet**’i seçin. Anahtar dize not edin. Anahtar dize, kümeyi oluştururken gerekir. Anahtar olarak başvurulan **hizmet sorumlusu istemci parolası**.
 
 
-
 ## <a name="give-the-service-principal-access"></a>Hizmet sorumlusu erişimi verin
 
 Asıl kaynakları oluşturabilmesi aboneliğinizde hizmet sorumlusu erişimi verin.
 
 1.  Oturum [Azure Stack portalı](https://portal.local.azurestack.external/).
 
-1. Seçin **diğer hizmetler** > **abonelikleri**.
+1. Seçin **tüm hizmetleri** > **abonelikleri**.
 
-1. Oluşturduğunuz aboneliği seçin.
+1. Kubernetes kümesini kullanmak için operatör tarafından oluşturulan aboneliği seçin.
 
 1. Seçin **erişim denetimi (IAM)** > seçin **+ Ekle**.
 
-1. Seçin **sahibi** rol.
+1. Seçin **katkıda bulunan** rol.
 
 1. Hizmetiniz için asıl oluşturulan uygulama adı seçin. Arama kutusuna adını yazmanız gerekebilir.
 
 1. **Kaydet**’e tıklayın.
 
-## <a name="deploy-a-kubernetes-cluster"></a>Bir Kubernetes kümesi dağıtma
+## <a name="deploy-a-kubernetes"></a>Bir Kubernetes dağıtma
 
 1. Açık [Azure Stack portalı](https://portal.local.azurestack.external).
 
@@ -110,7 +113,7 @@ Asıl kaynakları oluşturabilmesi aboneliğinizde hizmet sorumlusu erişimi ver
 
     ![Çözüm Şablonu Dağıt](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-1. Seçin **Temelleri** , Kubernetes kümesi oluşturun.
+1. Seçin **Temelleri** , Kubernetes oluşturun.
 
     ![Çözüm Şablonu Dağıt](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
@@ -145,7 +148,6 @@ Asıl kaynakları oluşturabilmesi aboneliğinizde hizmet sorumlusu erişimi ver
 
 1. Girin **Kiracı Arm uç noktası**. Bu, bir Kubernetes kümesi için kaynak grubu oluşturmak için bağlanmak için Azure Resource Manager uç noktadır. Uç nokta için tümleşik bir sistem, Azure Stack operatörü almak gerekir. Azure Stack geliştirme Seti'ni (ASDK için), kullandığınız `https://management.local.azurestack.external`.
 
-1. Girin **Kiracı kimliği** Kiracı. Bu değeri bulmaya yardıma ihtiyacınız varsa bkz [Kiracı kimliği alma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
 
 ## <a name="connect-to-your-cluster"></a>Kümenize bağlanın
 
@@ -155,6 +157,6 @@ Ayrıca bulabilirsiniz **Helm** paket Yöneticisini Yükleme ve kümenize uygula
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir Kubernetes kümesi Market'te (Azure Stack operatörü için) ekleyin.](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Bir Kubernetes Market'te (Azure Stack operatörü için) ekleyin.](..\azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Azure'da Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

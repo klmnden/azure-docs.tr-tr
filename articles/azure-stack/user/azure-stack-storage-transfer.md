@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 91ba9b388566cc72f3024943005af499b7c3f3ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ms.openlocfilehash: 46bc043681bbba37a2dfb6476e1dd0784e1abf10
+ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139324"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46874036"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack depolama için veri aktarım araçları kullanın
 
@@ -246,7 +246,7 @@ Azure CLI'yı Azure kaynaklarını yönetmek için Azure komut satırı deneyimi
 
 Azure CLI, Azure kaynaklarını komut satırından yönetmek ve ve Azure Resource Manager'da çalışacak Otomasyon betikleri oluşturmak için optimize edilmiştir. Zengin verilere erişim de dahil olmak üzere Azure Stack portalında bulunan aynı işlevlerin birçoğunu sunar.
 
-Azure Stack, Azure CLI Sürüm 2.0 gerektirir. Yükleme ve Azure CLI, Azure Stack ile yapılandırma hakkında daha fazla bilgi için bkz. [yüklemek ve Azure Stack CLI yapılandırma](azure-stack-version-profiles-azurecli2.md). Azure Stack depolama hesabınızdaki kaynaklarla çalışma çeşitli görevleri gerçekleştirmek için Azure CLI 2.0 kullanma hakkında daha fazla bilgi için bkz. [Azure CLI2.0 Azure depolama ile kullanma](../../storage/storage-azure-cli.md)
+Azure Stack, Azure CLI 2.0 veya sonraki bir sürümünü gerektirir. Yükleme ve Azure CLI, Azure Stack ile yapılandırma hakkında daha fazla bilgi için bkz. [yüklemek ve Azure Stack CLI yapılandırma](azure-stack-version-profiles-azurecli2.md). Azure Stack depolama hesabınızdaki kaynaklarla çalışma çeşitli görevleri gerçekleştirmek için Azure CLI kullanma hakkında daha fazla bilgi için bkz. [Azure depolama ile Azure CLI kullanma](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure Stack için Azure CLI örnek betiği
 

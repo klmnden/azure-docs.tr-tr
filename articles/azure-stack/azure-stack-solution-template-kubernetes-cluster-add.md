@@ -1,6 +1,6 @@
 ---
-title: Bir Kubernetes kümesi için Azure Stack Marketini ekleyin | Microsoft Docs
-description: Bir Kubernetes kümesi için Azure Stack Marketini eklemeyi öğrenin.
+title: Kubernetes için Azure Stack Marketini ekleyin | Microsoft Docs
+description: Kubernetes için Azure Stack Marketini eklemeyi öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,30 +11,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: ded2aa17fe9b8de2d8c8f662f5d99b1ce33a2b25
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
-ms.translationtype: MT
+ms.openlocfilehash: 69bf788ef30a18bbe70e251fdd6a814d0f528f55
+ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634218"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46889126"
 ---
-# <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Bir Kubernetes kümesi için Azure Stack Marketini Ekle
+# <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes için Azure Stack Marketini Ekle
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!note]  
-> Azure Stack'te AKS (Azure Kubernetes hizmeti) altyapısı, özel Önizleme aşamasındadır. Bu makaledeki yönergeleri gerçekleştirmek için gereken Kubernetes Market öğesi erişim istemek için [erişim elde etmek için talebinizi](https://aka.ms/azsk8).
+> Azure Stack'te Kubernetes önizlemeye sunuldu. Bu makaledeki yönergeleri gerçekleştirmek için gereken Kubernetes küme Market öğesi erişim istemek için [erişim elde etmek için talebinizi](https://aka.ms/azsk8).
 
-Kullanıcılarınız için bir Market öğesi bir Kubernetes kümesi sunabilir. Kullanıcılarınızın Kubernetes tek ve eşgüdümlü bir işlemle dağıtabilir.
+Kullanıcılarınız için bir Market öğesi Kubernetes sunabilir. Kullanıcılarınızın Kubernetes tek ve eşgüdümlü bir işlemle dağıtabilir.
 
-Şu makaleye bakın dağıtmak ve tek başına bir Kubernetes kümesi için kaynakları sağlamak için bir Azure Resource Manager şablonu kullanarak. Başlamadan önce Azure Stack ve Azure genel Kiracı ayarlarını kontrol edin. Azure Stack hakkında gerekli bilgileri toplayın. Gerekli kaynakları kiracınız ve Azure Stack Marketini ekleyin. Bir Ubuntu sunucusu, özel bir betik ve Market'te olması için Kubernetes kümesi öğeleri kümesi bağlıdır.
+Şu makaleye bakın dağıtmak ve tek başına bir Kubernetes kümesi için kaynakları sağlamak için bir Azure Resource Manager şablonu kullanarak. Başlamadan önce Azure Stack ve Azure genel Kiracı ayarlarını kontrol edin. Azure Stack hakkında gerekli bilgileri toplayın. Gerekli kaynakları kiracınız ve Azure Stack Marketini ekleyin. Bir Ubuntu sunucusu, özel komut dosyası ve Kubernetes öğeleri Market'te olması küme bağlıdır.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Bir plan, teklif ve bir abonelik oluşturun
 
-Bir plan, teklif ve Kubernetes küme Market öğesi için bir abonelik oluşturun. Ayrıca, var olan bir planı kullanın ve sunar.
+Bir plan, teklif ve Kubernetes Market öğesi için bir abonelik oluşturun. Ayrıca, var olan bir planı kullanın ve sunar.
 
 1. Oturum [Yönetim Portalı.](https://adminportal.local.azurestack.external)
 
@@ -72,20 +72,16 @@ Ubuntu Server aşağıda Market'te ekleyin:
 
 1. `UbuntuServer` yazın.
 
-1. Aşağıdaki profil ile bir sunucu seçin:
+1. Sunucunun aşağıdaki profili ile en yeni sürümünü seçin:
     - **Yayımcı**: Canonical
     - **Teklif**: UbuntuServer
     - **SKU**: 16.04 LTS
-    - **Sürüm**: 16.04.201802220
-
-    > [!Note]  
-    > Birden fazla sürümünü Ubuntu Server 16.04 LTS listelenebilir. Eşleşen sürümünü eklemeniz gerekir. Kubernetes kümesini öğesi'nün tam sürümünü gerektirir.
 
 1. Seçin **indirin.**
 
 ## <a name="add-a-custom-script-for-linux"></a>Linux için özel bir komut dosyası Ekle
 
-Kubernetes kümesini marketten ekleyin:
+Kubernetes marketten ekleyin:
 
 1. Açık [Yönetim Portalı](https://adminportal.local.azurestack.external).
 
@@ -97,24 +93,24 @@ Kubernetes kümesini marketten ekleyin:
 
 1. Aşağıdaki profil komut dosyasını seçin:
     - **Teklif**: Linux 2.0 için özel betik
-    - **Sürüm**: 2.0.3 sürümünü
+    - **Sürüm**: 2.0.6
     - **Yayımcı**: Microsoft Corp
 
     > [!Note]  
-    > Linux için özel betik birden fazla sürümünü listelenebilir. Eşleşen sürümünü eklemeniz gerekir. Kubernetes kümesini öğesi'nün tam sürümünü gerektirir.
+    > Linux için özel betik birden fazla sürümünü listelenebilir. Eşleşen sürümünü eklemeniz gerekir. Kubernetes öğesi'nün tam sürümünü gerektirir.
 
 1. Seçin **indirin.**
 
 
-## <a name="add-the-kubernetes-cluster-to-the-marketplace"></a>Market'te Kubernetes kümenize ekleyin
+## <a name="add-kubernetes-to-the-marketplace"></a>Kubernetes Market'te Ekle
 
 1. Açık [Yönetim Portalı](https://adminportal.local.azurestack.external).
 
-1. Seçin **hizmetlerini ekleyin** altındaki **Yönetim** kategorisi, select **Market Yönetim**.
+1. Seçin **tüm hizmetleri** altındaki **Yönetim** kategorisi, select **Market Yönetim**.
 
 1. Seçin **+ Azure'dan Ekle**.
 
-1. `Kubernetes Cluster` yazın.
+1. `Kubernetes` yazın.
 
 1. `Kubernetes Cluster` öğesini seçin.
 
@@ -123,29 +119,29 @@ Kubernetes kümesini marketten ekleyin:
     > [!note]  
     > Bu Market öğesi Market'te görünmesi için beş dakika sürebilir.
 
-    ![Kubernetes kümesi](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![Kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
 
-## <a name="update-or-remove-the-kubernetes-cluster"></a>Güncelleştirme veya Kubernetes kümesi kaldırma 
+## <a name="update-or-remove-the-kubernetes"></a>Güncelleştirme veya Kubernetes kaldırma 
 
-Kubernetes kümesi öğesi güncelleştirilirken Market'te öğeyi kaldırmak gerekir. Ardından, Kubernetes kümesini Market'te eklemek için bu makaledeki yönerge takip edebilirsiniz.
+Kubernetes öğesi güncelleştirilirken Market'te öğeyi kaldırmak gerekir. Ardından, Kubernetes Market'te eklemek için bu makaledeki yönerge takip edebilirsiniz.
 
-Kubernetes kümesi öğeyi kaldırmak için:
+Kubernetes öğeyi kaldırmak için:
 
-1. Geçerli öğenin adını gibi unutmayın `Microsoft.AzureStackKubernetesCluster.0.1.0`
+1. Geçerli öğenin adını gibi unutmayın `Microsoft.AzureStackKubernetesCluster.0.2.0`
 
 1. PowerShell ile Azure stack'e bağlanma.
 
 1. Öğeyi kaldırmak için aşağıdaki PowerShell cmdlet'ini kullanın:
 
     ```PowerShell  
-    $Itemname="Microsoft.AzureStackKubernetesCluster.0.1.0"
+    $Itemname="Microsoft.AzureStackKubernetesCluster.0.2.0"
 
     Remove-AzsGalleryItem -Name $Itemname
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure Stack için bir Kubernetes kümesi dağıtma](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+[Bir Kubernetes için Azure Stack dağıtma](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
 
 
