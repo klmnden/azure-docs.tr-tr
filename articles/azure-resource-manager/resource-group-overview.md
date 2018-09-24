@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d04625fe78c423c995460afa29a81d96c6ce9cfb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337982"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969300"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
 Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal ağ veya web uygulaması, veritabanı, veritabanı sunucusu ya da üçüncü taraf hizmetler gibi birçok bileşenden meydana gelir. Bu bileşenleri ayrı varlıklar olarak değerlendirmez, bunun yerine bunları tek bir varlığın ilgili ve birbirine bağımlı parçaları olarak kabul edersiniz. Bunları gruplar halinde dağıtmak, yönetmek ve izlemek isteyebilirsiniz. Azure Resource Manager, çözümünüzdeki kaynaklar ile gruplar halinde çalışmanıza olanak sağlar. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar. 
@@ -183,7 +183,7 @@ Bir etiket değerine sahip tüm kaynakları almak için aşağıdaki PowerShell 
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-Veya aşağıdaki Azure CLI 2.0 komutunu kullanın:
+Veya aşağıdaki Azure CLI komutunu kullanın:
 
 ```azurecli
 az resource list --tag costCenter=Finance

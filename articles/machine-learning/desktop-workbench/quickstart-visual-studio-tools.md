@@ -2,23 +2,27 @@
 title: Azure’da Machine Learning için Visual Studio Araçları hızlı başlangıç makalesi | Microsoft Docs
 description: Bu makalede, deneme oluşturma, modeli deneme ve web hizmetini faaliyete geçirmeye gibi işlemlerle birlikte Machine Learning için Visual Studio Araçlarını kullanmaya nasıl başlayacağınız açıklanmaktadır.
 services: machine-learning
-ms.workload: data-services
 author: chris-lauren
-ms.author: chris.lauren
+ms.author: clauren
 ms.service: machine-learning
 ms.component: core
+ms.workload: data-services
 ms.custom: mvc, vs-azure
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: 94bca4d7670b1ec6fba5057b8295f7a3caac2968
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ROBOTS: NOINDEX
+ms.openlocfilehash: a32739623f9b4809db6623f0d4d1b9737b0fff51
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42024377"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984103"
 ---
 # <a name="visual-studio-tools-for-ai"></a>AI için Visual Studio Araçları
-AI için Visual Studio Araçları, Derin Öğrenme / AI çözümlerinin derlenmesini, test edilmesini ve dağıtılmasını sağlayan bir geliştirme uzantısıdır. Başta bir çalıştırma geçmişi görünümü olmak üzere önceki eğitimlerin performans ve özel ölçüm ayrıntılarını vererek, Azure Machine Learning ile sorunsuz bir tümleştirme sağlar. [Microsoft Bilişsel Araç Seti (önceki adıyla CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) ve diğer derin öğrenme çerçeveleriyle yeni projeye göz atma ve projeyi önyükleme olanağı tanıyan bir örnek gezgini görünümü sağlar. Son olarak, Azure Sanal Makineler veya GPU ile Linux sunucuları gibi uzak ortamlarda modelleri denemek üzere işleri göndermenizi sağlayan işlem hedeflerine yönelik bir gezgin sağlar. Ayrıca [Azure Batch AI (Önizleme)](https://docs.microsoft.com/azure/batch-ai/) için kolaylaştırılmış erişim sağlar.
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+AI için Visual Studio Araçları, Derin Öğrenme / AI çözümlerinin derlenmesini, test edilmesini ve dağıtılmasını sağlayan bir geliştirme uzantısıdır. Başta bir çalıştırma geçmişi görünümü olmak üzere önceki eğitimlerin performans ve özel ölçüm ayrıntılarını vererek, Azure Machine Learning ile sorunsuz bir tümleştirme sağlar. [Microsoft Bilişsel Araç Seti (önceki adıyla CNTK)](http://www.microsoft.com/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) ve diğer derin öğrenme çerçeveleriyle yeni projeye göz atma ve projeyi önyükleme olanağı tanıyan bir örnek gezgini görünümü sağlar. Son olarak, Azure Sanal Makineler veya GPU ile Linux sunucuları gibi uzak ortamlarda modelleri denemek üzere işleri göndermenizi sağlayan işlem hedeflerine yönelik bir gezgin sağlar. Ayrıca [Azure Batch AI (Önizleme)](https://docs.microsoft.com/azure/batch-ai/) için kolaylaştırılmış erişim sağlar.
  
 ## <a name="getting-started"></a>Başlarken 
 Başlamak için öncelikle [Visual Studio](https://www.visualstudio.com/downloads/)’yu indirip yüklemeniz gerekir. Visual Studio’yu açtıktan sonra aşağıdaki adımları uygulayın:
@@ -28,7 +32,7 @@ Başlamak için öncelikle [Visual Studio](https://www.visualstudio.com/download
 3. **İndir** düğmesine tıklayın. 
 4. Yükleme sonrasında Visual Studio’yu yeniden başlatın. 
 
-Visual Studio yeniden yüklendikten sonra uzantı etkinleştirilir. [Uzantıları bulma hakkında daha fazla bilgi edinin](hhttps://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions).
+Visual Studio yeniden yüklendikten sonra uzantı etkinleştirilir. [Uzantıları bulma hakkında daha fazla bilgi edinin](h https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions).
 
 > [!NOTE]
 > AI için Visual Studio Araçları, Visual Studio 2015 veya 2017, Professional veya Enterprise sürümlerini gerektirir. Apple OSX sürümünü desteklemez. 

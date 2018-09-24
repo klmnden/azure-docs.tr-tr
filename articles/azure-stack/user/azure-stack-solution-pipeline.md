@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
+ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: ad40f3efc123d313b2fd759889b0aa2621b3d7aa
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: febdb2e3ae4432c36ca839f81ba7a1d333df1a2f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542510"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952010"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure uygulama dağıtma yığını
 
@@ -47,6 +47,12 @@ CI ve CD hakkında daha fazla bilgi edinmek için:
 
 * [Sürekli Tümleştirme nedir?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
 * [Sürekli teslim nedir?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
+
+> [!Tip]  
+> ![karma pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack, Azure'nın bir uzantısıdır. Azure Stack çevikliğini ve yenilik bulut bilgi işlem, şirket içi ortamınıza ve hibrit uygulamaları her yerde oluşturup dağıtmayı olanak tanıyan tek hibrit Bulutu sunar.  
+> 
+> Teknik incelemeyi [karma uygulamaları için tasarım konuları](https://aka.ms/hybrid-cloud-applications-pillars) tasarlama, dağıtma ve karma işletim (yerleştirme, ölçeklenebilirlik, kullanılabilirlik, dayanıklılık, yönetilebilirlik ve güvenlik) yazılım kalitesinin yapı taşları gözden geçirmeleri uygulamalar. Tasarım konuları, üretim ortamlarında sorunlarını en aza karma uygulama tasarımının en iyi duruma getirme yardımcı olur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 421c4e0464eac22a7feba01e2e84660b02a32455
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3ec2c44c168b47fd66d1ffa9a0c8d0069600ecb0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174658"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958110"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalı kullanarak Azure DNS'yi ad çözümlemesi için yapılandırma
 
@@ -24,7 +24,7 @@ Bu hızlı başlangıçta bir test amaçlı bir etki alanı oluşturacak, ardın
 Bu hızlı başlangıçta kullanılan tüm adların ve IP adreslerinin yalnızca örnek amaçlı olduğunu ve bir gerçek dünya senaryosunu yansıtmadığını lütfen unutmayın. Ancak uygun yerlerde gerçek dünya senaryoları da eklenmiştir.
 
 <!---
-You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI 2.0](dns-getstarted-cli.md).
+You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 --->
 
 DNS bölgesi belirli bir etki alanıyla ilgili DNS girişlerini toplamak için kullanılır. Etki alanınızı Azure DNS'de barındırmaya başlamak için bir DNS bölgesi oluşturmanız gerekir. Ardından bu DNS bölgesinde etki alanınız için tüm DNS girişleri (veya kayıtları) oluşturulur. Aşağıdaki adımlar bunu nasıl yapabileceğinizi gösterir.

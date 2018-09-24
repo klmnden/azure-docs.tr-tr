@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 2a50350b9ba49d82a20b92804ffb92ec6906186d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: cae80408a7440136b504647596c84a459a0d679c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439909"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971714"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Öğretici: Azure Machine Learning Workbench'i kullanarak gelişmiş veri hazırlığı (Bisiklet paylaşımı verileri)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (önizleme), uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür.
 
 Bu öğreticide Machine Learning (önizleme) kullanarak aşağıdakileri yapmayı öğrenirsiniz:
@@ -36,7 +40,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Azure Machine Learning Workbench'in yerel yüklemesi. Daha fazla bilgi için [yükleme hızlı başlangıç](../service/quickstart-installation.md) başlığı altındaki yönergeleri izleyin.
+* Azure Machine Learning Workbench'in yerel yüklemesi. Daha fazla bilgi için [yükleme hızlı başlangıç](quickstart-installation.md) başlığı altındaki yönergeleri izleyin.
 * Azure CLI'yi yüklemediyseniz, yönergeleri izleyerek [en son Azure CLI sürümünü yükleyin](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Azure'da bir [HDInsights Spark kümesi](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) oluşturulur.
 * Bir Azure depolama hesabı.

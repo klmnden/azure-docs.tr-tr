@@ -4,16 +4,16 @@
 ## [Data Lake Analytics nedir?](data-lake-analytics-overview.md)
 
 # başlarken
-## [Azure portalında](data-lake-analytics-get-started-portal.md)
+## [Azure portalındaki](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Azure CLI](data-lake-analytics-get-started-cli2.md)
+## [Azure CLI](data-lake-analytics-get-started-cli.md)
 
 # Nasıl yapılır
 
 ## Data Lake Analytics'i yönetme
-### [Azure portalında](data-lake-analytics-manage-use-portal.md)
+### [Azure portalındaki](data-lake-analytics-manage-use-portal.md)
 ### Komut satırı
 #### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 #### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)

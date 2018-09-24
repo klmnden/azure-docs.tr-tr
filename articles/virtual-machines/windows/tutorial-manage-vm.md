@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ae29108aad2a538bb90484a048742be0b5c4764a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: dc3bd6258d2da331c83d0aaa9c6c0e57b44f2930
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094918"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950089"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Öğretici: Azure PowerShell ile Windows VM’leri Oluşturma ve Yönetme
 
@@ -54,7 +54,7 @@ Kaynak grubu, bu öğretici boyunca görülebileceği gibi bir VM oluşturulurke
 
 Bir sanal makine oluştururken, işletim sistemi görüntüsü, ağ yapılandırması ve yönetici kimlik bilgileri gibi çeşitli seçenekler bulunur. Bu örnekte, Windows Server 2016 Datacenter’ın varsayılan en son sürümünü çalıştıran *myVM* adlı bir sanal makine oluşturulur.
 
-[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) ile sanal makinede yönetici hesabı için gereken kullanıcı adı ve parolasını ayarlayın:
+[Get-Credential](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6) ile sanal makinede yönetici hesabı için gereken kullanıcı adı ve parolasını ayarlayın:
 
 ```azurepowershell-interactive
 $cred = Get-Credential

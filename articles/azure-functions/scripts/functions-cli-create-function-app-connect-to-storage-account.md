@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: aa25c0e636c36422cb6b576d0ca8ebc899b2a2dc
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: deddfe16e4ad3eeee099ce1d7b53b9f15cbf85d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163082"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956702"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Bir Azure Depolama hesabına bağlanan bir işlev uygulaması oluşturma
 
@@ -29,7 +29,7 @@ Bu Azure İşlevleri örnek betiği, bir işlev uygulaması oluşturur ve işlev
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI’yi yerel olarak kullanırsanız, Azure CLI sürüm 2.0 veya sonraki bir sürümü çalıştırdığınızdan emin olun. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
+CLI’yi yerel olarak kullanırsanız, Azure CLI sürüm 2.0 veya sonraki bir sürümü çalıştırdığınızdan emin olun. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Örnek betik
 

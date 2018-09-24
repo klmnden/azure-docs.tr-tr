@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 0aa1fd19af8819de54ab468c48516f402c1e2a9d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0d2ec551183d798da9e6c2f1d79ee2ca5f362f5b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30281493"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969283"
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>Bir web uygulamasını redis önbelleğine bağlama
 
@@ -31,7 +31,7 @@ Bu örnek betik bir Azure redis önbelleği ile bir Azure web uygulaması oluşt
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Örnek betik
 

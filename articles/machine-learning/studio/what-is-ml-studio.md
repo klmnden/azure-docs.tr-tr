@@ -14,14 +14,14 @@ ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 9911d56807a95a5f8199cecdff13ad06497fb33e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: cfe7f1dd932da45ae057b73817acd6bc4f859edd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836962"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989847"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio nedir?
 Microsoft Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Machine Learning Studio, modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web hizmetleri olarak yayımlar.

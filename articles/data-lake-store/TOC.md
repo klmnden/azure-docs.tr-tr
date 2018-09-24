@@ -11,8 +11,7 @@
 # başlarken
 ## [Azure Portalını kullanma](data-lake-store-get-started-portal.md)
 ## [Azure PowerShell’i kullanma](data-lake-store-get-started-powershell.md)
-## [Azure CLI 2.0 kullanma](data-lake-store-get-started-cli-2.0.md)
-
+## [Azure CLI’yi kullanma](data-lake-store-get-started-cli-2.0.md)
 
 # Nasıl yapılır
 ## Verileri yükleme ve taşıma

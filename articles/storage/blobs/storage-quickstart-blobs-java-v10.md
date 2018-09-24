@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: rogarana
-ms.openlocfilehash: 76b4cf2a8c16aa207b51faf3cc5252e47a368123
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: d3f7978f9aac2ced688e483ccdbece2d4d6a9808
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42022579"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986294"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>Hızlı başlangıç: Java Depolama SDK'sı V10 (önizleme) kullanarak blobları yükleme, indirme ve listeleme
 
@@ -28,7 +28,7 @@ Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok blobla
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
 

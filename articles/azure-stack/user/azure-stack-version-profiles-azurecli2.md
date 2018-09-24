@@ -13,20 +13,20 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ec3b1f43c7b89a545ee5bb26c4cc0d068a993021
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295862"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972819"
 ---
-# <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Azure Stack'te Azure CLI 2.0 ile API Sürüm profillerini kullanma
+# <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack'te Azure CLI ile API Sürüm profillerini kullanma
 
 Linux, Mac ve Windows istemci platformlarını Azure Stack geliştirme Seti'ni kaynakları yönetmek için Azure komut satırı arabirimi (CLI) yedekleme ayarlamak için bu makaledeki adımları izleyebilirsiniz.
 
 ## <a name="install-cli"></a>CLI yükleme
 
-Geliştirme iş istasyonunda oturum açın ve CLI'yı yükleyin. Azure Stack, Azure CLI 2.0 sürümünü gerektirir. Bu bölümünde açıklanan adımları kullanarak yükleyin [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) makalesi. Yüklemenin başarılı olup olmadığını doğrulamak için bir terminal veya komut istemi penceresi açın ve aşağıdaki komutu çalıştırın:
+Geliştirme iş istasyonunda oturum açın ve CLI'yı yükleyin. Azure Stack 2.0 veya Azure CLI'ın sonraki bir sürümünü gerektirir. Bu bölümünde açıklanan adımları kullanarak yükleyin [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) makalesi. Yüklemenin başarılı olup olmadığını doğrulamak için bir terminal veya komut istemi penceresi açın ve aşağıdaki komutu çalıştırın:
 
 ```azurecli
 az --version

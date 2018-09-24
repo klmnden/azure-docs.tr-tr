@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: ae742bbe1e5b751a8a8cabf378afd049728c3b8a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 69b025a06abb24bfa3b8ff6b692a2559b3947681
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717514"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995287"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack'e bir App Service kaynak sağlayıcısı ekleme
 
@@ -27,8 +27,8 @@ ms.locfileid: "44717514"
 
 Azure Stack'te App Service'e dağıtım yapmak, bu makaledeki yönergeleri kullanın.
 
->[!IMPORTANT]  
->Azure Stack tümleşik sisteminize 1807 güncelleştirmeyi veya Azure App Service 1.3 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
+> [!IMPORTANT]  
+> Azure Stack tümleşik sisteminize 1807 güncelleştirmeyi veya Azure App Service 1.3 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
 
 Kullanıcılarınız, web ve API uygulamaları oluşturma olanağı verebilirsiniz. Kullanıcıların bu uygulamaları oluşturmak için gerekir:
 

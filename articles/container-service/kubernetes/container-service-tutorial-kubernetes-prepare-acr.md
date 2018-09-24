@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8f14a7aabbdf815992e0777eaf5335a69570ce2e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d22661c0d07ce446ea0ad345a1e9629f6e2f0d6c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429259"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995899"
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry’yi dağıtma ve kullanma
 
@@ -33,7 +33,7 @@ Sonraki öğreticilerde, bu ACR örneği Azure Container Service’teki Kubernet
 
 [Önceki öğreticide](./container-service-tutorial-kubernetes-prepare-app.md), basit bir Azure Voting uygulaması için kapsayıcı görüntüsü oluşturulacaktır. Azure Voting uygulaması görüntüsünü oluşturmadıysanız [Öğretici 1 - Kapsayıcı görüntüleri oluştur](./container-service-tutorial-kubernetes-prepare-app.md)’a dönün.
 
-Bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry’yi dağıtma
 

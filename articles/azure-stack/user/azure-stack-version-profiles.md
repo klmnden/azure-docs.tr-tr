@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: MT
+ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982162"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970303"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure stack'teki API sürümü profillerini yönetme
 
@@ -79,8 +79,8 @@ Profilleri kullanılarak çözümünüzü Azure Stack ile tercih ettiğiniz dili
 
 - **PowerShell**  
 Kullanabileceğiniz **AzureRM.Bootstrapper** modülü PowerShell cmdlet'leri ile API Sürüm profillerini çalışması için gereken almak için PowerShell Galerisi aracılığıyla kullanılabilir. Bilgi için [kullanımı API sürümü profillerini PowerShell](azure-stack-version-profiles-powershell.md).
-- **Azure CLI 2.0**  
-Azure Stack belirli API Sürüm profili kullanmak için ortamınızdaki yapılandırmayı güncelleştirebilirsiniz. Bilgi için [Azure CLI 2.0 için kullanım API sürümü profillerini](azure-stack-version-profiles-azurecli2.md).
+- **Azure CLI**  
+Azure Stack belirli API Sürüm profili kullanmak için ortamınızdaki yapılandırmayı güncelleştirebilirsiniz. Bilgi için [Azure CLI için kullanım API sürümü profillerini](azure-stack-version-profiles-azurecli2.md).
 - **GİT**  
 GO SDK, bir profil farklı sürümlerini farklı hizmetlerden farklı kaynak türlerinin birleşimidir. profilleri profiller altında kullanılabilir / sürümü yolu **YYYY-AA-GG** biçimi. Bilgi için [GO için kullanım API sürümü profillerini](azure-stack-version-profiles-go.md).
 - **Ruby**  
