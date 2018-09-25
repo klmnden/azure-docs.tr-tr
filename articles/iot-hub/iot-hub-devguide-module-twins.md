@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 8f567ba43c1657783f9898863aef980627800481
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0df1170079e66bda95e38bcf17dcce738269eeb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436328"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039392"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Anlama ve IOT Hub'ında modül ikizlerini kullanma
 
@@ -250,7 +250,7 @@ Aşağıdaki kısıtlamalarla JSON nesneleri, etiketler ve istenen özellikler b
     }
     ```
 
-* Tüm dize değerleri, uzunluğu en fazla 4 KB olabilir.
+* Tüm dize değerleri, en fazla 512 bayt uzunluğunda olabilir.
 
 ## <a name="module-twin-size"></a>Modül ikizi boyutu
 IOT hub'ı zorunlu bir 8 KB'lık boyut sınırlaması ilgili toplam değerlerinin her `tags`, `properties/desired`, ve `properties/reported`, salt okunur öğeleri hariç.

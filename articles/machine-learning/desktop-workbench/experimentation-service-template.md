@@ -9,14 +9,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 7938eaa0e06c9a33034a7388d02845d60967774e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 24ed164f4a1dfdb9a3913efa78fe58fab2b53696
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056365"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991972"
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Azure Machine Learning deneme hizmeti yapılandırın
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>Genel Bakış
 Azure Machine Learning deneme hizmeti hesabı, çalışma alanı ve proje Azure kaynaklarıdır. Bu nedenle, bunlar Resource Manager şablonları kullanılarak dağıtılabilir. Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
@@ -158,4 +161,4 @@ Değişiklik yapabileceğiniz üç değer vardır.
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Oluşturma ve Azure Machine Learning'i yükleme](../service/quickstart-installation.md)
+* [Oluşturma ve Azure Machine Learning'i yükleme](quickstart-installation.md)

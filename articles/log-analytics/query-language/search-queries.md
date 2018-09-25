@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2ccef960378190f10e64318f91039871657a1a46
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 250eddb043ccf9fa0b1bb92a298900f8ad820140
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603762"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992278"
 ---
 # <a name="search-queries-in-log-analytics"></a>Log Analytics arama sorguları
 
@@ -36,7 +36,7 @@ Tablo tabanlı sorgular, sorgu kapsamı tarafından başlatın ve bu nedenle ara
 ## <a name="search-a-term"></a>Arama terimi
 **Arama** komutu genellikle belirli bir terim aramak için kullanılır. Aşağıdaki örnekte, tüm tabloların tüm sütunlarında "error" terimi için taranan:
 
-```KQL
+```Kusto
 search "error"
 | take 100
 ```
@@ -46,13 +46,13 @@ Kullanımı kolay oldukları karşın, yukarıda gösterilen bir gibi kapsamsız
 ### <a name="table-scoping"></a>Tablo kapsamı
 Belirli bir tabloda bir terim aramak için ekleme `in (table-name)` hemen sonrasına **arama** işleci:
 
-```KQL
+```Kusto
 search in (Event) "error"
 | take 100
 ```
 
 veya birden çok tablo:
-```KQL
+```Kusto
 search in (Event, SecurityEvent) "error"
 | take 100
 ```
@@ -60,7 +60,7 @@ search in (Event, SecurityEvent) "error"
 ### <a name="table-and-column-scoping"></a>Tablo ve sütun kapsamı
 Varsayılan olarak, **arama** veri kümesindeki tüm sütunları değerlendirir. Yalnızca belirli bir sütuna aramak için bu sözdizimini kullanın:
 
-```KQL
+```Kusto
 search in (Event) Source:"error"
 | take 100
 ```
@@ -71,7 +71,7 @@ search in (Event) Source:"error"
 ## <a name="case-sensitivity"></a>Büyük küçük harf duyarlılığı
 "Dns" arama "DNS", "dns" veya "Dns" gibi sonuçlar böylece varsayılan olarak, arama terimi, duyarlıdır. Büyük küçük harfe duyarlı arama yapmak için `kind` seçeneği:
 
-```KQL
+```Kusto
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
@@ -80,26 +80,26 @@ search kind=case_sensitive in (Event) "DNS"
 **Arama** komutu başlangıcında, son veya döneminin ortasında joker destekler.
 
 "Win" ile başlayan koşulları aramak için:
-```KQL
+```Kusto
 search in (Event) "win*"
 | take 100
 ```
 
 Aranacak ".com" ile biten koşulları:
-```KQL
+```Kusto
 search in (Event) "*.com"
 | take 100
 ```
 
 "Www" içeren koşulları aramak için:
-```KQL
+```Kusto
 search in (Event) "*www*"
 | take 100
 ```
 
 "Corp" ile başlayan ve biten ".com" "corp.mydomain.com" gibi arama terimlerini için"
 
-```KQL
+```Kusto
 search in (Event) "corp*.com"
 | take 100
 ```
@@ -112,21 +112,21 @@ Ayrıca her şeyi bir tabloda yalnızca bir joker kart kullanarak alabilirsiniz:
 ## <a name="add-and--or-to-search-queries"></a>Ekleme *ve* / *veya* aramak için sorgular
 Kullanım **ve** birden çok kullanım koşulları içeren kayıtlar aramak için:
 
-```KQL
+```Kusto
 search in (Event) "error" and "register"
 | take 100
 ```
 
 Kullanım **veya** koşulları en az birini içeren kayıtları almak için:
 
-```KQL
+```Kusto
 search in (Event) "error" or "register"
 | take 100
 ```
 
 Birden çok arama koşulu varsa, aynı sorguyu parantez kullanarak birleştirebilirsiniz:
 
-```KQL
+```Kusto
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
@@ -136,7 +136,7 @@ Bu örneğin sonuçlarını "error" terimini içeren ve "Kaydet" veya "Hazırlam
 ## <a name="pipe-search-queries"></a>Kanal arama sorguları
 Tıpkı diğer herhangi bir komutu olduğu gibi **arama** arama sonuçlarını filtre, sıralar, toplu ve bu nedenle ayrıştırılabilir. Örneğin, sayısını almak için *olay* "win" içeren kayıtlar:
 
-```KQL
+```Kusto
 search in (Event) "win"
 | count
 ```
@@ -146,4 +146,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla ilgili öğreticiler bakın [Log Analytics sorgu dili site](https://docs.loganalytics.io)
+- Daha fazla ilgili öğreticiler bakın [Log Analytics sorgu dili site](https://aka.ms/LogAnalyticsLanguage).

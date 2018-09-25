@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 67b2babcd19268a61794d123f5aa9780af16976b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364021"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984237"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Bir sanal makine ağ trafik filtresi sorununu tanılama
 
@@ -111,7 +111,7 @@ Ağ arabirimi adı önceki çıktısında olan *myVMVMNic*.
 
 ## <a name="diagnose-using-azure-cli"></a>Azure CLI'yı kullanarak tanılama
 
-Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu makale Azure CLI Sürüm 2.0.32 gerekir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` ve Azure'da oturum olan bir hesapla [gerekli izinleri](virtual-network-network-interface.md#permissions).
+Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu makale Azure CLI Sürüm 2.0.32 gerekir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` ve Azure'da oturum olan bir hesapla [gerekli izinleri](virtual-network-network-interface.md#permissions).
 
 Bir ağ arabirimi için geçerli güvenlik kuralları alma [az NIC liste-etkin-nsg'yi ağ](/cli/azure/network/nic#az-network-nic-list-effective-nsg). Aşağıdaki örnekte adlı bir ağ arabirimi için geçerli güvenlik kuralları alır *myVMVMNic* adlı bir kaynak grubunda olan *myResourceGroup*:
 

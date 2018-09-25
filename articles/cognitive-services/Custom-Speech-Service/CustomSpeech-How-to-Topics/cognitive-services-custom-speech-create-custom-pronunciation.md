@@ -1,6 +1,6 @@
 ---
-title: Azure üzerinde özel konuşma hizmetiyle özel telaffuz kullanın | Microsoft Docs
-description: Bilişsel hizmetler özel konuşma hizmetiyle dil modeli oluşturmayı öğrenin.
+title: Azure'da özel konuşma hizmeti ile özel telaffuz kullanma | Microsoft Docs
+description: Bilişsel hizmetler, özel konuşma hizmeti ile bir dil modeli oluşturmayı öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,17 +9,18 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ms.openlocfilehash: a74b69b84cc80809a25f18b580a18abb5721b8b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: c51ef6b25b454d0b8bf450b791f5c0fa9c6dfdee
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351683"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999384"
 ---
 # <a name="enable-custom-pronunciation"></a>Özel telaffuz etkinleştir
-Özel telaffuz ses form ve bir sözcük veya terim görünümünü tanımlamak kullanıcıların sağlar. Ürün adlarını veya kısaltmalar gibi özelleştirilmiş koşullarını işlemek için yararlıdır. İhtiyacınız olan tek şey telaffuz dosyasının (Basit .txt dosyası).
+Özel Söyleniş kullanıcıların fonetik formu ve görüntüleme bir sözcük veya terimi tanımlamasına olanak sağlar. Ürün adları veya kısaltmalar gibi özelleştirilmiş koşullarını işlemek için kullanışlıdır. İhtiyacınız olan telaffuz dosyası (Basit .txt dosyası).
 
-İşte nasıl çalışır. Bir tek .txt dosyasına birden fazla özel telaffuz girişi girebilirsiniz. Yapısı aşağıdaki gibidir:
+Şekli aşağıda verilmiştir. Bir tek bir .txt dosyasına birden çok özel telaffuz girişi girebilirsiniz. Yapı aşağıdaki gibidir:
 
 ```
 Display form <Tab> Spoken form <Newline>
@@ -27,40 +28,40 @@ Display form <Tab> Spoken form <Newline>
 
 *Örnekler*:
 
-| Form Görüntüle | Konuşma formu |
+| Görüntüleme formu | Konuşulan formu |
 |----------|-------|
 | C3PO | üç pea o bakın |
 | L8R | geç olan |
 | CNTK | n Çay k bakın|
 
-## <a name="requirements-for-the-spoken-form"></a>Konuşma biçimi için gereksinimler
-Konuşma formun içeri aktarma sırasında zorlanabilir küçük olması gerekir. Ayrıca, verileri içeri Aktarıcı denetimlerinde sağlamanız gerekir. Konuşma form veya görüntü formun sekme izin verilir. Var. ancak, olabilir, daha fazla görüntü formun karakter Yasak (örneğin, ~ ve ^).
+## <a name="requirements-for-the-spoken-form"></a>Konuşulan formu için gereksinimler
+İçeri aktarma sırasında zorlanabilir konuşulan formun küçük olmalıdır. Ayrıca, veri alma denetimleri sağlamanız gerekir. Sekme konuşulan form veya görüntüleme formu izin verilir. Var. ancak, olabilir, daha fazla karakter görüntüleme formu Yasak (örneğin, ~ ve ^).
 
-Her .txt dosyası birden çok girişi olabilir. Örneğin, aşağıdaki ekran görüntüsüne bakın:
+Her bir .txt dosyasına birden çok girişi olabilir. Örneğin, aşağıdaki ekran görüntüsüne bakın:
 
-![Not Defteri ekran kısaltma telaffuz birden çok girişi ile](../../../media/cognitive-services/custom-speech-service/custom-speech-pronunciation-file.png)
+![Not Defteri ekran harflendirme söylenişi için birden çok girişi ile](../../../media/cognitive-services/custom-speech-service/custom-speech-pronunciation-file.png)
 
-Konuşma form görüntüleme formu ses dizisidir. Harf, sözcük veya hece oluşur. Şu anda daha fazla kılavuzu veya konuşma formun formüle yardımcı olması için standartları kümesi yok. 
+Görüntüleme formu fonetik dizisini konuşulan biçimidir. Harf, sözcükleri veya hece oluşur. Şu anda daha fazla rehberlik veya sizin söylenen formun formüle yardımcı olmak için standartları kümesini yoktur. 
 
-## <a name="supported-pronunciation-characters"></a>Desteklenen telaffuz karakterleri
-Özel telaffuz şu anda İngilizce (en-US) ve Almanca (de-de) için desteklenir. Konuşma biçiminde bir terim (özel telaffuz dosyası) ifade etmek için kullanılan karakter kümesi aşağıdaki tabloda gösterilmiştir: 
+## <a name="supported-pronunciation-characters"></a>Desteklenen telaffuz karakter
+Özel telaffuz şu anda İngilizce (en-US) ve Almanca (de-de) için desteklenir. Konuşulan biçiminde bir terim (özel telaffuz dosyası) ifade etmek için kullanılan karakter kümesi aşağıdaki tabloda gösterilmiştir: 
 
-| Dil | Karakterler |
+| Dil | Karakter |
 |---------- |----------|
-| İngilizce (en-US) | a, b, c, d, e, f, g, h, i j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
-| Almanca (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
+| İngilizce (en-US) | a, b, c, d, e, f, g, h, i, j, k, m, o, p, q, r, s, t, u, v, w, x, y, z |
+| Almanca (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, m, o, p, q, r, s, t, u, v, w, x, y, z |
 
->[NOT] Terim 's görüntüleme formu (telaffuz dosyasındaki) aynı şekilde bir dil uyarlama veri kümesinde yazılması gerekir.
+>[NOT] Bir terimi ait görüntüleme formu (telaffuz dosyasında) aynı şekilde dil uyarlama veri kümesinde yazılması gerekir.
 
-## <a name="requirements-for-the-display-form"></a>Görüntü biçimi için gereksinimler
-Bir görüntü form yalnızca özel bir sözcük, terimi, kısaltma veya var olan sözcükler birleştiren bileşik sözcüklerin olabilir. Sık kullanılan sözcük için Söyleyiş da girebilirsiniz. 
+## <a name="requirements-for-the-display-form"></a>Görüntüleme formu için gereksinimleri
+Görüntüleme formu yalnızca özel bir sözcük, terim, kısaltması veya var olan sözcükler birleştiren bileşik sözcüklerin olabilir. Ayrıca, ortak kelimeler için Söyleyiş girebilirsiniz. 
 
 >[!NOTE]
-Sık kullanılan sözcük reformulate veya konuşma formu değiştirmek için bu özelliği kullanarak önermiyoruz. Olağan dışı bazı sözcükleri (örneğin, kısaltmalar, teknik sözcüklerini ve yabancı sözcükler) değil doğru çözülür varsa görmek için kod çözücü çalıştırmak iyidir. Varsa, bunları özel telaffuz dosyasına ekleyin. Dil modelinde, her zaman ve yalnızca bir word'ün görüntüleme formu kullanmalısınız. 
+Ortak kelimeler yeniden oluşturun veya konuşulan formunu değiştirmek için bu özelliği kullanarak önermiyoruz. Bazı olağan dışı bir sözcük (örneğin, kısaltmalar, teknik sözcüklerini ve yabancı kelimeler) değil doğru çözülür olmadığını görmek için kod çözücü çalıştırmak daha iyidir. Varsa, bunları özel telaffuz dosyaya ekleyin. Dil modeli, sözcüklerin görüntüleme formu yalnızca ve her zaman kullanmalısınız. 
 
 ## <a name="requirements-for-the-file-size"></a>Dosya boyutu gereksinimleri
-Söyleniş girişlerini içeren .txt dosyasının boyutu 1 MB ile sınırlıdır. Genellikle, büyük miktarlarda verinin bu dosya karşıya gerekmez. Çoğu özel telaffuz dosyaları yalnızca birkaç KB boyutunda olması muhtemeldir. Tüm yerel ayarlar için .txt dosya kodlamasını UTF-8 AĞACI olmalıdır. İngilizce yerel ayar için ANSI de kabul edilebilir.
+Söyleniş girişlerini içeren .txt dosyasının boyutu 1 MB ile sınırlıdır. Genellikle, bu dosya büyük miktarlarda veri yüklemek gerekmez. Çoğu özel telaffuz dosya boyutu birkaç KB'leri etkilenebilir. Tüm yerel ayarlar için .txt dosyasının kodlama UTF-8 AĞACI olmalıdır. İngilizce yerel ayarı için ANSI de kullanılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Oluşturarak tanıma doğruluğunu artırmak için [özel akustik modeli](cognitive-services-custom-speech-create-acoustic-model.md).
-* [Özel bir konuşma metin uç noktası oluşturma](cognitive-services-custom-speech-create-endpoint.md), hangi uygulamadan kullanabilirsiniz.
+* Oluşturarak tanıma doğruluğunu artırmak, [özel akustik model](cognitive-services-custom-speech-create-acoustic-model.md).
+* [Özel Konuşmayı metne uç nokta oluşturma](cognitive-services-custom-speech-create-endpoint.md), bir uygulamadan kullanabilirsiniz.

@@ -1,44 +1,46 @@
 ---
-title: LUIS önceden oluşturulmuş varlıklar başvuru - Azure | Microsoft Docs
-titleSuffix: Azure
+title: Önceden oluşturulmuş varlıklar - LUIS
+titleSuffix: Azure Cognitive Services
 description: Bu makale, Language Understanding (LUIS), dahil edilen önceden oluşturulmuş varlıklar listesi içerir.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 731ac279b4b0c162809d8e0638b9337924859b3d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6e38718f14fa5c7cb8455d6c6e7bd5421d70b553
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238838"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034494"
 ---
 # <a name="entities-per-culture"></a>Kültür başına varlıklar
 
 Language Understanding (LUIS), önceden oluşturulmuş varlıklar sağlar. Uygulamanızda önceden oluşturulmuş bir varlık eklendiğinde LUIS uç nokta yanıtta ilgili varlık öngörü içerir. Tüm örnek konuşma de sahip bir varlık olarak etiketlenmiştir. Önceden oluşturulmuş varlıkların **olamaz** değiştirilemiyor. Önceden oluşturulmuş varlıklarla aksi belirtilmediği sürece tüm LUIS uygulaması yerel (kültür) kullanılabilir. Aşağıdaki tabloda her bir kültür için desteklenen önceden oluşturulmuş varlıklar gösterilmektedir.
 
-Önceden oluşturulmuş varlık   |   İngilizce (ABD)<br>```En-us```   |   Fransızca (Fransa)<br>```fr-FR```   |   İtalyanca (İtalya)<br>```it-IT```   |   İspanyolca (İspanya)<br>```es-ES```   |   Çince<br>```zh-CN```   |   Almanca <br>```de-DE```   |   Portekizce (Brezilya)<br>```pt-BR```   |   Japonca (Japonya)<br>```ja-JP```   |   Korece (Kore)<br>```ko-kr```   | Fransızca (Kanada)<br>```fr-CA```   |   İspanyolca (Meksika)<br>```es-MX```   |   Hollanda dili (Hollanda)<br>```nl-NL```   |
+Önceden oluşturulmuş varlık   |   İngilizce (ABD)<br>```En-us```   |   Fransızca (Fransa)<br>```fr-FR```   |   İtalyanca (İtalya)<br>```it-IT```   |   İspanyolca (İspanya)<br>```es-ES```   |   Çince<br>```zh-CN```   |   Almanca<br>```de-DE```   |   Portekizce (Brezilya)<br>```pt-BR```   |   Japonca (Japonya)<br>```ja-JP```   |   Korece (Kore)<br>```ko-kr```   | Fransızca (Kanada)<br>```fr-CA```   |   İspanyolca (Meksika)<br>```es-MX```   |   Hollanda dili (Hollanda)<br>```nl-NL```   |
 ------|:------:|------|------|------|------|------|------|------|------|------|------|------|
 [Yaş](luis-reference-prebuilt-age.md):<br>yıl<br>ay<br>hafta<br>gün   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Para birimi](luis-reference-prebuilt-currency.md):<br>dolar<br>kesirli birimi (örn: kuruş)  |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>tarih<br>daterange<br>time<br>timerange   |    ✔   |   ✔   |   -   |   ✔   |    ✔   |   -   |   ✔   |   -   |   -   |   -   |   -   |   -   |
 [Boyut](luis-reference-prebuilt-dimension.md):<br>birim<br>Alan<br>ağırlığı<br>bilgi (örn: bit/bayt)<br>uzunluk (örn: ölçüm)<br>Hız (örn: mil saat başına)  |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [E-posta](luis-reference-prebuilt-email.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 [Anahtar cümlesi](luis-reference-prebuilt-keyphrase.md)   |    ✔   |   ✔   |   ✔   |   ✔   |   -   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |   ✔   |
 [Sayı](luis-reference-prebuilt-number.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Sıra](luis-reference-prebuilt-ordinal.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [Yüzdesi](luis-reference-prebuilt-percentage.md)   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   |    -   |    -   |    -   |    ✔   |    -   |    -   |    -   |   -   |   -   |   -   |   -   |
 [Telefon numarası](luis-reference-prebuilt-phonenumber.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 [Sıcaklık](luis-reference-prebuilt-temperature.md):<br>Fahrenhayt<br>Kelvin<br>rankine<br>delisle<br>Celsius   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |   -   |   -   |   -   |
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 
 Notları bakın [önceden oluşturulmuş varlıklarla kullanım dışı](luis-reference-prebuilt-deprecated.md)
 
-Anahtar cümlesi, Portekizce (Brezilya) - alt kültürde tüm kullanılabilir değil ```pt-BR```.
+Anahtar cümlesi, Portekizce (Brezilya) - tüm subcultures içinde kullanılabilir değil ```pt-BR```.
 
 <!--
 ## Examples of prebuilt entities in en-us culture
@@ -66,7 +68,7 @@ Prebuilt entity   |   Example utterance   |   JSON
 -->
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Önceden oluşturulmuş varlık kültürler için katkıda bulunan
-Önceden oluşturulmuş varlıklarla tanıyıcıları metin açık kaynak projenin geliştirilir. Lütfen [katkıda](https://github.com/Microsoft/Recognizers-Text) projeye. Bu proje, para birimi başına kültür örneklerini içerir. 
+Önceden oluşturulmuş varlıklarla tanıyıcıları metin açık kaynak projenin geliştirilir. [Katkıda bulunan](https://github.com/Microsoft/Recognizers-Text) projeye. Bu proje, para birimi başına kültür örneklerini içerir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

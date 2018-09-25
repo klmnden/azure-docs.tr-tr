@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 ile Azure DNS'te DNS kayıtlarını yönetme | Microsoft Docs
-description: DNS kayıt kümeleri ve Azure DNS kayıtları etki alanınızı Azure DNS'ye üzerinde barındırırken yönetme. CLI 2.0 komutlarını tüm kayıt kümelerini ve kayıtları üzerinde işlemler için.
+title: Azure CLI ile Azure DNS'te DNS kayıtlarını yönetme | Microsoft Docs
+description: DNS kayıt kümeleri ve Azure DNS kayıtları etki alanınızı Azure DNS'ye üzerinde barındırırken yönetme.
 services: dns
 documentationcenter: na
 author: vhorne
@@ -14,23 +14,23 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: victorh
-ms.openlocfilehash: 41366f29ecf5dcd6ffe23148acd61100681620df
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 1f1ee4f69cc1ab656df04ed30cae6f4c3e55bfa7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174391"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963824"
 ---
-# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>DNS kayıtlarını ve Azure Azure CLI 2.0 kullanarak DNS kayıt kümelerini yönetme
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>DNS kayıtlarını ve Azure CLI kullanarak Azure DNS kayıt kümelerini yönetme
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
+> * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-Bu makalede, platformlar arası Azure komut satırı arabirimi (Windows, Mac ve Linux için kullanılabilir olan CLI) 2.0 kullanarak DNS bölgenizin DNS kayıtlarını yönetme işlemini göstermektedir. Ayrıca kullanarak DNS kayıtlarınızı yönetebilirsiniz [Azure PowerShell](dns-operations-recordsets.md) veya [Azure portalında](dns-operations-recordsets-portal.md).
+Bu makalede, Windows, Mac ve Linux için kullanılabildiği platformlar arası Azure CLI kullanarak DNS bölgenizin DNS kayıtlarını yönetme işlemini göstermektedir. Ayrıca kullanarak DNS kayıtlarınızı yönetebilirsiniz [Azure PowerShell](dns-operations-recordsets.md) veya [Azure portalında](dns-operations-recordsets-portal.md).
 
-Bu makaledeki örneklerde varsayılmaktadır [, oturum açtığınız Azure CLI 2.0 yüklü ve DNS bölgesi oluşturduğunuz](dns-operations-dnszones-cli.md).
+Bu makaledeki örneklerde varsayılmaktadır [yüklü Azure CLI, oturum açtığınız ve DNS bölgesi oluşturduğunuz](dns-operations-dnszones-cli.md).
 
 ## <a name="introduction"></a>Giriş
 
@@ -106,7 +106,7 @@ az network dns record-set aaaa add-record --resource-group myresourcegroup --zon
 az network dns record-set caa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-caa --flags 0 --tag "issue" --value "ca1.contoso.com"
 ```
 
-### <a name="create-a-cname-record"></a>Bir CNAME kaydı oluşturun
+### <a name="create-a-cname-record"></a>bir CNAME kaydı oluşturun
 
 > [!NOTE]
 > DNS standartları bölge tepesinde CNAME kayıtlarına izin vermez (`--Name "@"`), ya da birden fazla kayıt içeren kayıt kümeleri izin yapın.

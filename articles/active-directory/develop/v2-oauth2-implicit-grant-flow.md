@@ -1,5 +1,5 @@
 ---
-title: Azure AD v2.0 örtük akışını kullanarak tek sayfalı uygulamaları güvenli hale getirin | Microsoft Docs
+title: Tek sayfa uygulamaları Azure AD v2.0 örtük akışını kullanarak güvenli hale getirin | Microsoft Docs
 description: Tek sayfalı uygulamalar için Azure AD'nin v2.0 uygulaması örtük akışını kullanarak web uygulamaları oluşturma.
 services: active-directory
 documentationcenter: ''
@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7954a4eebaf25e2a22e5a39721098ac8db1ed8dd
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9e8d35ee606d66f5c4f6e11512247fc909ecfb9f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581741"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999860"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokolleri - örtük akışını kullanarak Spa'lar
+
 V2.0 uç noktası ile kullanarak tek sayfalı uygulamanızla hem kişisel hem de iş/Okul hesapları Microsoft gelen kullanıcılar oturum açabilir. Tek sayfalı ve diğer JavaScript uygulamaları, öncelikle birkaç ilgi çekici sorunları, kimlik doğrulaması için söz konusu olduğunda bir tarayıcı yüz çalıştırın:
 
 * Bu uygulamalar güvenlik özelliklerini geleneksel sunucu tabanlı web uygulamalarından önemli ölçüde farklılık gösterir.
@@ -33,21 +34,21 @@ V2.0 uç noktası ile kullanarak tek sayfalı uygulamanızla hem kişisel hem de
 
 Bu uygulamalar için (düşünün: AngularJS, Ember.js React.js, vb.) Azure AD OAuth 2.0 örtülü izin akışını destekler. Örtük akış açıklanan [OAuth 2.0 belirtimini](http://tools.ietf.org/html/rfc6749#section-4.2). Bunun yararı belirteçleri Azure AD'den bir arka uç sunucusuna gerçekleştirmeden kimlik bilgisi alışverişinin ve uygulamayı vermesidir. Bu, kullanıcının oturumunu, oturumu korumak ve istemcideki tüm diğer web API'leri belirteçleri JavaScript kodu alma okumasına izin verir. Örtük akış - özellikle yaklaşık kullanırken dikkate almanız birkaç önemli güvenlik konuları vardır [istemci](http://tools.ietf.org/html/rfc6749#section-10.3) ve [kullanıcı kimliğe bürünme](http://tools.ietf.org/html/rfc6749#section-10.3).
 
-Örtük akış ve Azure AD kimlik doğrulaması JavaScript uygulamanıza eklemek için kullanmak istiyorsanız, bizim açık kaynak JavaScript Kitaplığı kullanmanız önerilir [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js). Kullanılabilir birkaç AngularJS öğreticiler [burada](active-directory-appmodel-v2-overview.md#getting-started) başlamanıza yardımcı olmak için. 
+Örtük akış ve Azure AD kimlik doğrulaması JavaScript uygulamanıza eklemek için kullanmak istiyorsanız, bizim açık kaynak JavaScript Kitaplığı kullanmanız önerilir [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js). Kullanılabilir birkaç AngularJS öğreticiler [burada](v2-overview.md#getting-started) başlamanıza yardımcı olmak için.
 
 Ancak, bir tek sayfalı uygulamanızı kitaplıkta kullanma ve kendinize iletişim kuralı iletileri göndermek tercih ederseniz, aşağıdaki genel adımları izleyin.
 
 > [!NOTE]
 > Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası tarafından desteklenir. V2.0 uç noktası kullanıyorsanız belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
-> 
-> 
 
 ## <a name="protocol-diagram"></a>Protokol diyagramı
+
 Tüm örtük oturum açma akışı aşağıdaki gibi görünür - adımların her biri aşağıda ayrıntılı olarak açıklanmıştır.
 
 ![Openıd Connect Kulvarlar](./media/v2-oauth2-implicit-grant-flow/convergence_scenarios_implicit.png)
 
 ## <a name="send-the-sign-in-request"></a>Oturum açma isteği gönder
+
 İlk kullanıcı, uygulamada oturum açması için size gönderebilir bir [Openıd Connect](v2-protocols-oidc.md) yetkilendirme isteği ve get bir `id_token` v2.0 uç noktasından:
 
 > [!IMPORTANT]
@@ -69,8 +70,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Bu isteğin yürütülmesi için aşağıdaki bağlantıya tıklayın! Oturum açtıktan sonra tarayıcınızı için yeniden yönlendirilmesi gereken `https://localhost/myapp/` ile bir `id_token` adres çubuğundaki.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
-> 
-> 
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
@@ -86,12 +85,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | login_hint |isteğe bağlı |Önceden, kullanıcı adını biliyorsanız, oturum açma sayfasında kullanıcı için kullanıcı adı/e-posta adresi alanları önceden doldurmak için kullanılabilir. Kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan yeniden kimlik doğrulaması sırasında bu parametre genellikle uygulamaları kullanacağı `preferred_username` talep. |
 | domain_hint |isteğe bağlı |Herhangi birini `consumers` veya `organizations`. Bu onay kutusu eklediyseniz, e-posta tabanlı bulma işlemi atlanacak kullanıcı v2.0 oturum açma sayfasında, biraz daha kolay bir kullanıcı deneyimi için önde gelen geçer. Uygulamalar genellikle kullanır bu parametreyi yeniden kimlik doğrulaması sırasında ayıklayarak `tid` id_token talep. Varsa `tid` değer talep `9188040d-6c67-4c5b-b112-36a304b66dad` (Microsoft Account tüketici Kiracı), kullanmanız gereken `domain_hint=consumers`. Aksi takdirde kullanın `domain_hint=organizations`. |
 
-
 Bu noktada, kullanıcı kimlik bilgilerini girin ve kimlik doğrulamasını tamamlaması istenecektir. V2.0 uç noktası, aynı zamanda kullanıcı için belirtilen izinleri onaylamasını sağlayacak `scope` sorgu parametresi. Kullanıcının tüm bu izinleri olmayan etmişse, onayı gerekli izinleri kullanıcıya sorar. Ayrıntılarını [izinleri, onay ve çok kiracılı uygulamalar sağlanan burada](v2-permissions-and-consent.md).
 
 V2.0 uç noktası kullanıcının kimliğini doğrular ve onayı veren sonra uygulamanızı belirtilen bir yanıt döndürür `redirect_uri`, bölümünde belirtilen yöntemi kullanarak `response_mode` parametresi.
 
 #### <a name="successful-response"></a>Başarılı yanıt
+
 Başarılı yanıt kullanarak bir `response_mode=fragment` ve `response_type=id_token+token` Okunaklılık için satır sonları ile aşağıdaki gibi görünür:
 
 ```
@@ -110,10 +109,11 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | token_type |Dahil edilen if `response_type` içerir `token`. Her zaman `Bearer`. |
 | expires_in |Dahil edilen if `response_type` içerir `token`. Belirteç tarafından önbelleğe alma işlemleri için geçerli kaldığı saniye sayısını gösterir. |
 | scope |Dahil edilen if `response_type` içerir `token`. Access_token geçerli olacağı kapsamlar gösterir. |
-| id_token |Uygulama istenen id_token. İd_token, kullanıcının kimliğini doğrulamak ve kullanıcıyı bir oturum başlatmak için kullanabilirsiniz. İd_tokens ve içerikleri daha fazla ayrıntı dahil [v2.0 uç noktası belirteç başvurusu](v2-id-and-access-tokens.md). |
+| id_token      | Bir işaretsiz JSON Web Token (JWT). Uygulama isteği açan kullanıcı hakkında bilgi için bu belirteci parçalarını çözebilen. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [ `id_token reference` ](id-tokens.md). <br> **Not:** yalnızca sağlanan if `openid` kapsam istendi. |
 | durum |State parametresi istekte yer alıyorsa aynı değeri yanıt olarak görünmelidir. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir. |
 
 #### <a name="error-response"></a>Hata yanıtı
+
 Hata yanıtları da gönderilebilir için `redirect_uri` uygulama bunları uygun şekilde işleyebilmesi için:
 
 ```
@@ -128,9 +128,10 @@ error=access_denied
 | error_description |Bir geliştirici bir kimlik doğrulama hatası kök nedenini belirlemenize yardımcı olabilecek belirli bir hata iletisi. |
 
 ## <a name="validate-the-idtoken"></a>İd_token doğrula
+
 Yalnızca bir id_token alma, kullanıcının kimliğini doğrulamak için yeterli değildir; id_token'ın imzayı doğrulamak ve uygulamanızın gereksinimlerini başına belirteçteki talepleri doğrulamak gerekir. V2.0 uç noktası kullanan [JSON Web belirteçleri (Jwt'ler)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) ve Belirteçleri imzalamak ve geçerli olduğunu doğrulamak için ortak anahtar şifrelemesi.
 
-Doğrulamak seçebileceğiniz `id_token` istemci kodu, ancak yaygın bir uygulama olan göndermek için `id_token` bir arka uç sunucusuna ve orada doğrulama gerçekleştirin. İd_token imzası doğruladıktan sonra birkaç talepleri doğrulamak için gerekli vardır. Bkz [v2.0 belirteç başvurusu](v2-id-and-access-tokens.md) daha fazla bilgi edinmek için de dahil olmak üzere [doğrulama belirteçleri](v2-id-and-access-tokens.md#validating-tokens) ve [önemli bilgiler hakkında imzalama anahtar geçişi](v2-id-and-access-tokens.md#validating-tokens). Öneririz belirteçleri doğrulamak ve ayrıştırmak için bir kitaplık yapmayı kullanımı - en az bir dil ve platform için kullanılabilir.
+Doğrulamak seçebileceğiniz `id_token` istemci kodu, ancak yaygın bir uygulama olan göndermek için `id_token` bir arka uç sunucusuna ve orada doğrulama gerçekleştirin. İd_token imzası doğruladıktan sonra birkaç talepleri doğrulamak için gerekli vardır. Bkz [ `id_token` başvuru](id-tokens.md) daha fazla bilgi edinmek için de dahil olmak üzere [doğrulama belirteçleri](id-tokens.md#validating-idtokens) ve [önemli bilgiler hakkında imzalama anahtar geçişi](active-directory-signing-key-rollover.md). Öneririz belirteçleri doğrulamak ve ayrıştırmak için bir kitaplık yapmayı kullanımı - en az bir dil ve platform için kullanılabilir.
 <!--TODO: Improve the information on this-->
 
 Senaryonuza bağlı olarak ek istekleri doğrulamak isteyebilirsiniz. Bazı ortak doğrulamaları şunlardır:
@@ -139,12 +140,11 @@ Senaryonuza bağlı olarak ek istekleri doğrulamak isteyebilirsiniz. Bazı orta
 * Uygun yetkilendirme/ayrıcalıklarına sahip kullanıcı sağlama
 * Belirli bir kimlik doğrulama gücü sağlamak, çok faktörlü kimlik doğrulaması gibi oluştu.
 
-Bir id_token Taleplerde hakkında daha fazla bilgi için bkz. [v2.0 uç noktası belirteç başvurusu](v2-id-and-access-tokens.md).
-
-İd_token tamamen doğruladıktan sonra bir kullanıcı oturumu başlatmak ve uygulamanızdaki kullanıcı hakkında bilgi edinmek için id_token talepleri kullanın. Bu bilgiler kullanılabilir görüntüleme, kayıtları, yetkilendirmeleri, vb. için.
+İd_token tamamen doğruladıktan sonra bir kullanıcı oturumu başlatmak ve uygulamanızdaki kullanıcı hakkında bilgi edinmek için id_token talepleri kullanın. Bu bilgiler kullanılabilir görüntüleme, kayıtları, kişiselleştirme, vb. için.
 
 ## <a name="get-access-tokens"></a>Erişim belirteci alma
-Tek sayfalı uygulamanızın kullanıcı oturum açma, erişim belirteçleri çağıran web API'leri gibi Azure AD tarafından güvenlik altına alabilirsiniz [Microsoft Graph](https://graph.microsoft.io). Zaten bir belirteci kullanarak alınan bile `token` response_type, kullanıcı yeniden oturum açmak için yeniden yönlendirme gerek kalmadan ek kaynaklara belirteçlerini almak için bu yöntemi kullanabilirsiniz.
+
+Tek sayfalı uygulamanızı kullanıcı oturum açma, erişim belirteçleri çağıran web API'leri gibi Azure AD tarafından güvenlik altına alabilirsiniz [Microsoft Graph](https://graph.microsoft.io). Zaten bir belirteci kullanarak alınan bile `token` response_type, kullanıcı yeniden oturum açmak için yeniden yönlendirme gerek kalmadan ek kaynaklara belirteçlerini almak için bu yöntemi kullanabilirsiniz.
 
 Normal Openıd Connect/OAuth akışını bu v2.0 için bir istekte yaptığınız `/token` uç noktası. Ancak, v2.0 uç noktası almak ve belirteçleri yenilemek için AJAX çağrıları yapma soru dışında bu nedenle CORS isteklerini desteklemez. Bunun yerine, diğer web API'leri için yeni belirteçlerini almak için gizli bir iframe içinde örtük akış kullanabilirsiniz: 
 
@@ -164,8 +164,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Kopyalama ve yapıştırma deneyin isteği bir tarayıcı sekmesi içine aşağıdaki! (Değiştirmeyi unutmayın `domain_hint` ve `login_hint` kullanıcınız için doğru değerlerle değerler)
-> 
-> 
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint={{consumers-or-organizations}}&login_hint={{your-username}}
@@ -188,6 +186,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 Performanstan `prompt=none` parametresi, bu isteği ya da başarılı olması veya hemen başarısız olur ve uygulamanıza dönün. Başarılı yanıt, belirtilen uygulamanızı gönderilecek `redirect_uri`, bölümünde belirtilen yöntemi kullanarak `response_mode` parametresi.
 
 #### <a name="successful-response"></a>Başarılı yanıt
+
 Başarılı yanıt kullanarak bir `response_mode=fragment` gibi görünür:
 
 ```
@@ -208,6 +207,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | scope |Erişim belirteci için geçerli olan kapsamları. |
 
 #### <a name="error-response"></a>Hata yanıtı
+
 Hata yanıtları da gönderilebilir için `redirect_uri` uygulama bunları uygun şekilde işleyebilmesi için. Durumunda, `prompt=none`, beklenen hata olacaktır:
 
 ```
@@ -231,12 +231,14 @@ Bir access_token aldıktan sonra aşağıdaki talep yanı sıra, belirteç imzas
 * **veren** talep belirteci uygulamanıza v2.0 uç noktası tarafından verildiğini doğrulamak için
 * **öncesine** ve **süre sonu** talep belirtecin süresinin sona ermediğini doğrulamak için
 
-Erişim belirtecinde talep hakkında daha fazla bilgi için bkz: [v2.0 uç noktası belirteç başvurusu](v2-id-and-access-tokens.md)
+Erişim belirtecinde talep hakkında daha fazla bilgi için bkz: [erişim belirteci başvurusu](access-tokens.md)
 
 ## <a name="refreshing-tokens"></a>Yenileme belirteçleri
+
 Örtük verme, yenileme belirteçleri sağlamaz. Her ikisi de `id_token`s ve `access_token`s, saati, uygulamanız bu yenilemek için hazırlanması gerekir böylece kısa bir süre düzenli aralıklarla belirteçler sonra dolacak. İki tür belirteci yenilemek için yukarıdaki kullanarak aynı gizli iframe isteği gerçekleştirebilirsiniz `prompt=none` Azure AD'nin davranışını denetlemek için parametre. Yeni bir almak istiyorsanız `id_token`, kullandığınızdan emin olun `response_type=id_token` ve `scope=openid`, hem de bir `nonce` parametresi.
 
 ## <a name="send-a-sign-out-request"></a>Bir oturum kapatma isteği gönder
+
 Openıdconnect `end_session_endpoint` v2.0 uç noktası tarafından ayarlanmış tanımlama bilgilerini temizleyin ve bir kullanıcının oturumunu sona erdirmek için v2.0 uç noktasına bir istek göndermek uygulamanızı sağlar. Tam olarak bir web uygulaması dışında bir kullanıcı oturum açmak için uygulamanızı kendi kullanıcı (genellikle bir belirteç önbelleği temizlemek veya tanımlama bilgilerini bırakarak) oturumunu ve tarayıcı yönlendirin:
 
 ```

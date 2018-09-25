@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: d2f5ce97ee81deaf590771f4794af4adf0fdbd1b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248596"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966574"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Bağlı Fabrika çözüm Hızlandırıcı için sık sorulan sorular
 
@@ -111,7 +111,7 @@ Benzetim kendinden aşağıdaki cihazları kaydeder:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Kullanarak [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) veya [Azure CLI 2.0 için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) aracı hangi cihazların çözümünüzü kullanarak IOT hub'la kayıtlı kontrol edebilirsiniz. Cihaz Gezgini kullanmak için bağlantı dizesi için IOT hub, dağıtımınızdaki gerekir. Azure CLI 2.0 için IOT uzantısını kullanmak için IOT hub'ı adı gerekir.
+Kullanarak [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) veya [Azure CLI için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) aracı hangi cihazların çözümünüzü kullanarak IOT hub'la kayıtlı kontrol edebilirsiniz. Cihaz Gezgini kullanmak için bağlantı dizesi için IOT hub, dağıtımınızdaki gerekir. IOT uzantısı için Azure CLI kullanmak için IOT hub'ı adı gerekir.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Benzetim bileşenleri günlük verilerini nasıl alabilirim?
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 1686c283b0aa9f0713317b22e2ef2abd16e6b187
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: caa8f1a10652c16e181c47fbbe4f9f0c815cfd67
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579928"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983693"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure tanılama günlüklerini arşivleme
 
@@ -81,7 +81,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | RetentionEnabled |Hayır |Bir bekletme ilkesi bu kaynak üzerinde etkin olmadığını belirten bir Boole değeri. |
 | Retentionındays |Hayır |Kendisi için olayları 1 ile 2147483647 arasında korunması gereken gün sayısı. Sıfır değeri, günlükler süresiz olarak depolar. |
 
-## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Azure CLI 2.0 ile tanılama günlüklerini arşivleme
+## <a name="archive-diagnostic-logs-via-the-azure-cli"></a>Azure CLI aracılığıyla tanılama günlüklerini arşivleme
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

@@ -1,9 +1,9 @@
-Azure CLI 2.0 oluşturup macOS, Linux ve Windows Azure kaynaklarınızı yönetmek sağlar. Bu makalede bazı oluşturmak ve sanal makineleri (VM'ler) yönetmek için en sık kullanılan komutlar ayrıntılarını verir.
+Azure CLI, macOS, Linux ve Windows, Azure kaynaklarını oluşturmak ve yönetmek sağlar. Bu makalede oluşturmak ve sanal makineleri (VM'ler) yönetmek için en yaygın komutlardan bazıları ayrıntılı olarak açıklanmaktadır.
 
-Bu makale Azure CLI Sürüm 2.0.4 gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Aynı zamanda [bulut Kabuk](/azure/cloud-shell/quickstart) tarayıcınızdan.
+Bu makalede Azure CLI 2.0.4 sürüm gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltmeniz gerekirse bkz [Azure CLI yükleme](/cli/azure/install-azure-cli). Ayrıca [Cloud Shell](/azure/cloud-shell/quickstart) tarayıcınızdan.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Azure CLI’daki Temel Azure Resource Manager komutları
-Daha ayrıntılı belirli komut satırı anahtarları ve seçenekleri ile ilgili Yardım için çevrimiçi komut Yardımı ve Seçenekler yazarak kullanabileceğiniz `az <command> <subcommand> --help`.
+Daha ayrıntılı belirli komut satırı anahtarları ve seçenekleri konusunda yardım için çevrimiçi Komut Yardımını ve seçeneklerini yazarak kullanabileceğiniz `az <command> <subcommand> --help`.
 
 ### <a name="create-vms"></a>VM oluşturma
 | Görev | Azure CLI komutları |
@@ -22,7 +22,7 @@ Daha ayrıntılı belirli komut satırı anahtarları ve seçenekleri ile ilgili
 | Bir VM’yi yeniden dağıtma | `az vm redeploy --resource-group myResourceGroup --name myVM` |
 | VM silme | `az vm delete --resource-group myResourceGroup --name myVM` |
 
-### <a name="get-vm-info"></a>VM bilgilerini al
+### <a name="get-vm-info"></a>VM bilgilerini alma
 | Görev | Azure CLI komutları |
 | --- | --- |
 | VM'leri listeleme | `az vm list` |
@@ -38,9 +38,9 @@ Daha ayrıntılı belirli komut satırı anahtarları ve seçenekleri ile ilgili
 | Bir diski yeniden boyutlandırma | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
 | Bir diskin anlık görüntüsünü alma | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
 | Bir VM görüntüsü oluşturma | `az image create --resource-group myResourceGroup --source myVM --name myImage` |
-| VM görüntüsünü oluşturma | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
+| Görüntüden VM oluşturma | `az vm create --resource-group myResourceGroup --name myNewVM --image myImage` |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-CLI komutları ek örnekler için bkz: [oluşturma ve yönetme Linux VM'ler Azure CLI ile](../articles/virtual-machines/linux/tutorial-manage-vm.md) Öğreticisi.
+CLI komutlarının ek örnekler için bkz: [oluşturma ve Azure CLI ile Linux sanal makineleri yönetme](../articles/virtual-machines/linux/tutorial-manage-vm.md) öğretici.
 

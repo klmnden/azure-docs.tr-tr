@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 09/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 3783bc6ccda7a559e749a84005f20d860ab56755
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: a077c7d154235205126d77e5523c0acd96e70ad5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368904"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031620"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Azure'da Office 365'ten veri kopyalama 
 
@@ -46,7 +46,6 @@ Azure'da Office 365'ten veri kopyalamak için aşağıdaki önkoşul adımların
     - Kiracı kimliği  Yönergeler için [Kiracı kimliği alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     - Uygulama kimliği ve uygulama anahtarı.  Yönergeler için [uygulama kimliği ve kimlik doğrulama anahtarını Al](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 - Azure AD web uygulaması sahibi olarak veri erişim isteği yapacak kullanıcı kimliğini ekleyin (Azure AD web uygulaması > Ayarlar > sahipleri > Ekle sahibi).
-- _(Önerilen)_  [Atama Azure ilkeleri](../azure-policy/assign-policy-definition.md) için veri şifreleme veri depolarınıza. İlke uyumluluk bilgilerini veri onaylayanlara verileri isteğin parçası olarak gösterilir. Çalıştırın, her bir kopyalama etkinliği için ilke ataması yapıldıktan sonra ilke ataması zorlanan emin olmak için ADF denetler. Başvuru [burada](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) desteklenen ilkelerinin tam listesi için.
 
 ## <a name="approving-new-data-access-requests"></a>Onaylama yeni veri erişim istekleri
 
@@ -54,9 +53,23 @@ Bu ilk kez kullanıyorsanız, bu bağlam için verileri isteyen (veri erişimi t
 
 Başvuran [burada](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) onaylayan nasıl onaylayabilirsiniz veri erişim isteği ve başvuru [burada](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) Privileged Access Management genel tümleştirme bir açıklama için verileri ayarlama dahil olmak üzere erişim onaylayan grubu.
 
+## <a name="policy-validation"></a>İlke doğrulama
+
+ADF yönetilen bir uygulamanın bir parçası olarak oluşturulur ve yönetim kaynak grubundaki kaynaklar üzerinde yapılan Azure ilkeleri atamaları, her kopyalama etkinliği çalıştırma, için ilke atamaları uygulandığından emin olmak için ADF denetler. Başvuru [burada](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) desteklenen ilkeleri listesi.
+
 ## <a name="getting-started"></a>Başlarken
 
-.NET SDK'sı, Python SDK'sı, Azure PowerShell, REST API'si veya Azure Resource Manager şablonu kullanarak kopyalama etkinlikli bir işlem hattı oluşturabilirsiniz. Bkz: [kopyalama etkinliği Öğreticisi](quickstart-create-data-factory-dot-net.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+>[!TIP]
+>Office 365 Bağlayıcısı kullanarak bir kılavuz için bkz. [Office 365'ten veri yükleme](load-office-365-data.md) makalesi.
+
+SDK'ları ve aşağıdaki araçlardan birini kullanarak kopyalama etkinlikli bir işlem hattı oluşturabilirsiniz. Kopyalama etkinliği ile işlem hattı oluşturmak için adım adım yönergeler içeren bir öğreticiye gitmek için bir bağlantıyı seçin. 
+
+- [Azure portal](quickstart-create-data-factory-portal.md)
+- [.NET SDK](quickstart-create-data-factory-dot-net.md)
+- [Python SDK'sı](quickstart-create-data-factory-python.md)
+- [Azure PowerShell](quickstart-create-data-factory-powershell.md)
+- [REST API](quickstart-create-data-factory-rest-api.md)
+- [Azure Resource Manager şablonu](quickstart-create-data-factory-resource-manager-template.md). 
 
 Aşağıdaki bölümler, Data Factory varlıklarını belirli Office 365 Bağlayıcısı tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 

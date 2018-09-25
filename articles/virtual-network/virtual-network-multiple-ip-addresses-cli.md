@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: c11883156f53ab53ebe6f84d66232f81f8cf31ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bd8a9e651c3b2369ae29be966ba4c9cbe0ae579b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697373"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972921"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Azure CLI kullanarak sanal makineler için birden çok IP adresi atama
 
@@ -34,7 +34,7 @@ Bu makalede, Azure CLI kullanarak Azure Resource Manager dağıtım modeli sanal
 
 Aşağıdaki adımları senaryoda açıklanan şekilde birden çok IP adresi ile bir örnek sanal makine oluşturma açıklanmaktadır. Değişken değerleri Değiştir "" ve uygulamanız için gereken IP adresi türleri. 
 
-1. Yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) , zaten yüklü değilse.
+1. Yükleme [Azure CLI](/cli/azure/install-azure-cli) , zaten yüklü değilse.
 2. İçindeki adımları tamamlayarak Linux VM'ler için SSH ortak ve özel anahtar çifti oluşturma [Linux VM'ler için SSH ortak ve özel anahtar çifti oluşturma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 3. Oturum açma komutu ile bir komut kabuğu'ndan `az login` ve kullanmakta olduğunuz aboneliği seçin.
 4. VM, bir Linux veya Mac bilgisayarda aşağıdaki komut dosyasını çalıştırarak oluşturun. Betik bağlı iki NIC içeren bir kaynak grubu, bir sanal ağ (VNet), bir NIC üç IP yapılandırmaları olan ve bir VM oluşturur. NIC, ortak IP adresi, sanal ağ ve VM kaynaklarının tümü aynı konum ve abonelikte bulunması gerekir. Kaynakların tümü aynı kaynak grubunda olması gerekmez ancak bunlar aşağıdaki betikte yapın.
@@ -157,7 +157,7 @@ az vm create \
 
 3 IP yapılandırmaları olan bir NIC ile VM oluşturmaya ek olarak, komut dosyası oluşturur:
 
-- Varsayılan olarak tek bir premium yönetilen disk, ancak diğer seçenekler için oluşturabileceğiniz disk türü vardır. Okuma [Azure CLI 2.0 kullanarak bir Linux VM oluşturma](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makale Ayrıntılar için.
+- Varsayılan olarak tek bir premium yönetilen disk, ancak diğer seçenekler için oluşturabileceğiniz disk türü vardır. Okuma [Azure CLI kullanarak bir Linux VM oluşturma](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makale Ayrıntılar için.
 - Bir sanal ağ ile bir alt ağ ve iki genel IP adresi. Alternatif olarak, *mevcut* sanal ağ, alt ağ, NIC veya genel IP adresi kaynakları. Ek kaynak oluşturmaya yerine var olan ağ kaynaklarını kullanmayı öğrenmek için girin `az vm create -h`.
 
 Genel IP adreslerinin nominal bir ücreti vardır. IP adresi fiyatlandırması hakkında daha fazla bilgi edinmek için [IP adresi fiyatlandırması](https://azure.microsoft.com/pricing/details/ip-addresses) sayfası. Bir abonelikte kullanılan genel IP adresleri sayısına bir sınır yoktur. Sınırlar hakkında daha fazla bilgi için [Azure limitleri](../azure-subscription-service-limits.md#networking-limits) makalesini okuyun.
@@ -170,7 +170,7 @@ VM oluşturulduktan sonra girin `az network nic show --name MyNic1 --resource-gr
 
 Aşağıdaki adımları izleyerek, ek özel ve genel IP adresleri için mevcut bir Azure ağ arabirimi ekleyebilirsiniz. Örnekler sınayabilmesi [senaryo](#Scenario) bu makalede açıklanan.
 
-1. Bir komut kabuğunu açın ve içinde tek bir oturumda bu bölümün kalan adımları tamamlayın. Azure CLI'yı yüklü ve yapılandırılmış yoksa bölümünde bulunan adımları tamamladığınızdan [Azure CLI 2.0 yükleme](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) makale ve Azure oturum açma hesabı ile `az-login` komutu.
+1. Bir komut kabuğunu açın ve içinde tek bir oturumda bu bölümün kalan adımları tamamlayın. Azure CLI'yı yüklü ve yapılandırılmış yoksa bölümünde bulunan adımları tamamladığınızdan [Azure CLI yükleme](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) makale ve Azure oturum açma hesabı ile `az-login` komutu.
 
 2. Gereksinimlerinize göre aşağıdaki bölümlerden birindeki adımları tamamlayın:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: 2cce0b883c18a813aed386186c825c26b0e4b674
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e6e6b8e03102825a15035adbea80ac5e9f3fa404
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303787"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996460"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Team Data Science Process nedir?
 
@@ -92,7 +92,7 @@ TDSP paylaşılan analiz ve depolama altyapısı gibi yönetmek için öneriler 
 - veri kümelerini depolamak için bulut dosya sistemleri 
 - veritabanları
 - büyük veri (Hadoop veya Spark) kümeleri 
-- Machine learning Hizmetleri. 
+- Machine learning hizmeti 
 
 Analiz ve depolama altyapısı, bulutta veya şirket içinde olabilir. Ham ve işlenen veri kümeleri depolandığı budur. Bu Altyapı yeniden üretilebilen analizi sağlar. Ayrıca, tutarsızlıklar ve gereksiz altyapı maliyetlerinden açabilir çoğaltma önler. Bu kaynaklara güvenli bir şekilde bağlanmak her takım üyesinin izin paylaşılan kaynakları sağlamak ve bunları izlemek için Araçlar sağlanır. Proje üyelerini tutarlı işlem ortamı oluşturmak için de iyi bir uygulamadır. Farklı ekip üyelerinin çoğaltabilir ve denemeleri doğrulayın.
 

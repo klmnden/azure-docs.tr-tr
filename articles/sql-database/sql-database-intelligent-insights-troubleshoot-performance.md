@@ -8,50 +8,50 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: v-daljep
-ms.openlocfilehash: 9c2bb85d9c0bb02b7eb698dbee07f488c2ad0b62
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b6e619f75ebf6ee58f3c259b665cd38c3546d2ff
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733201"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040644"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Öngörüler sayesinde Azure SQL veritabanı performans sorunlarını giderme
 
-Bu sayfa, algılanan aracılığıyla Azure SQL veritabanı performans sorunlarını hakkında bilgi sağlar. [Intelligent Insights](sql-database-intelligent-insights.md) veritabanı performans tanılama günlük. Bu tanılama günlük gönderilebilir [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure depolama](sql-database-metrics-diag-logging.md#stream-into-storage), veya bir üçüncü taraf çözümü için uyarı ve raporlama özel DevOps özellikleri.
+Bu sayfa, Azure SQL veritabanı'nda bilgileri sağlar ve yönetilen örnek performans sorunlarını tespit aracılığıyla [Intelligent Insights](sql-database-intelligent-insights.md) veritabanı performans tanılama günlük. Tanılama Günlüğü telemetri için yapılabilen [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure depolama](sql-database-metrics-diag-logging.md#stream-into-storage), veya bir üçüncü taraf çözümü özel DevOps uyarı verme ve raporlama özellikleri.
 
 > [!NOTE]
-> Bir hızlı SQL veritabanı performans sorun giderme için Intelligent Insights aracılığıyla, bilgi [akışla ilgili sorunları giderme önerilen](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) bu belgedeki akış çizelgesi.
+> Sorun giderme kılavuzu Intelligent ınsights'ı kullanarak bir hızlı SQL veritabanı performans için bkz: [akışla ilgili sorunları giderme önerilen](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) bu belgedeki akış çizelgesi.
 >
 
 ## <a name="detectable-database-performance-patterns"></a>Algılanabilir veritabanı performansı düzenleri
 
-Akıllı İçgörüler otomatik olarak algılar performans sorunları ile SQL veritabanı sorgu yürütme bekleme süreleri, hatalar veya zaman aşımları göre. Ardından, algılanan performans desenleri tanılama günlüğüne çıkarır. Algılanabilir performans desenleri aşağıdaki tabloda özetlenmiştir:
+Akıllı İçgörüler otomatik olarak algılar performans sorunlarını sorgu yürütme bekleme süreleri, hatalar veya zaman aşımları göre SQL veritabanı ve yönetilen örnek veritabanları ile. Bu, algılanan performans desenleri tanılama günlüğüne çıkarır. Algılanabilir performans desenleri aşağıdaki tabloda özetlenmiştir.
 
-| Algılanabilir performans desenleri | Yüzdelik ayrıntıları |
-| :------------------- | ------------------- |
-| [Kaynak sınırlarını ulaşma](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Kullanılabilir kaynakları (Dtu), veritabanı iş parçacıklarını veya veritabanı oturum açma oturumları izlenen abonelikte kullanılabilir tüketimini sınırları, SQL veritabanı performans sorunlarına neden olan sınırına ulaştı. |
-| [İş yükü artışı](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | SQL veritabanı performans sorunlarına neden olan iş yükünü artırmak veya iş yükü veritabanında sürekli birikmesi algılandı. |
-| [Bellek baskısı](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | İstenen bellek verir çalışanları, bellek ayırmaları için istatistiksel olarak önemli miktarda zaman için beklemek zorunda. Veya istenen bellek verir çalışanları artan birikmesi var, SQL veritabanı performansı etkiler. |
-| [Kilitleme](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Kilitleme aşırı veritabanı, SQL veritabanı performansı etkiler algılandı. |
-| [Artan MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Maksimum paralellik derecesi (MAXDOP) paralellik seçeneği değiştirildi ve sorgu yürütme verimliliğini etkiler. |
-| [Pagelatch çakışması](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | SQL veritabanı performansı etkiler Pagelatch çakışma algılandı. Birden çok iş parçacığı aynı anda aynı belleğe veri arabelleği sayfaları erişme girişimi. Bu, artan bekleme zamanlarda, SQL veritabanı performansı etkiler sonuçlanır. |
-| [Dizini yok](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | SQL veritabanı performansı etkiler eksik bir dizin sorunu algılandı. |
-| [Yeni sorgu](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Genel SQL veritabanı performansı etkiler yeni bir sorgu algılandı. |
-| [Olağan dışı bekleme istatistikleri](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | SQL veritabanı performansı etkiler olağan dışı veritabanı bekleme süresini algılandı. |
-| [TempDB çakışması](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | SQL veritabanı performansını etkileyen bir performans sorununa neden aynı tempDB kaynaklara erişmek birden çok iş parçacığı deneyin. |
-| [Elastik havuz DTU eksik](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Elastik havuzdaki kullanılabilen Edtu yetersizliğinden SQL veritabanı performansı etkiler. |
-| [Regresyon planlama](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | SQL veritabanı performansı etkiler yeni bir plan veya var olan bir planı yükündeki bir değişikliği algılandı. |
-| [Veritabanı kapsamlı yapılandırma değeri Değiştir](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Bir yapılandırma değişikliği veritabanında, SQL veritabanı performansı etkiler. |
-| [Yavaş istemci](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | SQL veritabanı performansı etkiler yeterince hızlı SQL veritabanı'ndan çıkış tüketmeye silemiyor bir yavaş uygulama istemcisi algılandı. |
-| [Fiyatlandırma katmanı düşürme](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Bir fiyatlandırma katmanı indirgeme eylemi, SQL veritabanı performansı etkiler kullanılabilir kaynaklar azaltılabilir. |
+| Algılanabilir performans desenleri | Azure SQL veritabanı ve elastik havuzlar için açıklama | Yönetilen örnek veritabanları için açıklama |
+| :------------------- | ------------------- | ------------------- |
+| [Kaynak sınırlarını ulaşma](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Kullanılabilir kaynakları (Dtu), veritabanı iş parçacıklarını veya veritabanı oturum açma oturumları izlenen abonelikte kullanılabilir tüketimini sınırlarına ulaştı. Bu SQL veritabanı performansı etkilediğini. | Yönetilen örnek limitleri CPU kaynaklarının kullanımını ulaştı. Bu veritabanı performansı etkilediğini. |
+| [İş yükü artışı](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | İş yükünü artırmak veya iş yükü veritabanında sürekli birikmesi algılandı. Bu SQL veritabanı performansı etkilediğini. | İş yükü artışı algılandı. Bu veritabanı performansı etkilediğini. |
+| [Bellek baskısı](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | İstenen bellek verir çalışanları, bellek ayırmaları için istatistiksel olarak önemli miktarda zaman için beklemek zorunda. Veya istenen bellek verir çalışanları artan birikmesi yok. Bu SQL veritabanı performansı etkilediğini. | Bellek verir istediniz çalışanları bellek ayırmaları için istatistiksel bir zaman miktarı için bekliyor. Bu veritabanı performansı etkilediğini. |
+| [Kilitleme](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Kilitleme aşırı veritabanı, SQL veritabanı performansını etkileyen algılandı. | Kilitleme aşırı veritabanı, veritabanı performansını etkileyen algılandı. |
+| [Artan MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Maksimum paralellik derecesi (MAXDOP) paralellik seçeneği, sorgu yürütme verimliliği etkileyen değişti. Bu SQL veritabanı performansı etkilediğini. | Maksimum paralellik derecesi (MAXDOP) paralellik seçeneği, sorgu yürütme verimliliği etkileyen değişti. Bu veritabanı performansı etkilediğini. |
+| [Pagelatch çakışması](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Birden çok iş parçacığı, eşzamanlı olarak artan bekleme sürelerini kaynaklanan ve pagelatch Çekişme neden aynı bellek içi verileri arabellek sayfaları erişmeye çalıştığınız. Bu SQL veritabanı performansını etkiliyor. | Birden çok iş parçacığı, eşzamanlı olarak artan bekleme sürelerini kaynaklanan ve pagelatch Çekişme neden aynı bellek içi verileri arabellek sayfaları erişmeye çalıştığınız. Bu veritabanı performansı etkilediğini. |
+| [Dizini yok](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | SQL veritabanı performansını etkileyen eksik bir dizin algılandı. | Eksik bir dizin, veritabanı performansını etkileyen algılandı. |
+| [Yeni sorgu](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Yeni sorgu genel SQL veritabanı performansını etkileyen algılandı. | Yeni sorgu genel veritabanı performansını etkileyen algılandı. |
+| [Olağan dışı bekleme istatistikleri](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | SQL veritabanı performansını etkileyen olağandışı veritabanı bekleme süresini algılandı. | Veritabanı performansını etkileyen olağandışı veritabanı bekleme süresini algılandı. |
+| [TempDB çakışması](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Birden çok iş parçacığı, bir performans sorununa neden aynı TempDB kaynağa erişmeye çalışıyorsunuz. Bu SQL veritabanı performansı etkilediğini. | Birden çok iş parçacığı, bir performans sorununa neden aynı TempDB kaynağa erişmeye çalışıyorsunuz. Bu veritabanı performansı etkilediğini. |
+| [Elastik havuz DTU eksik](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | SQL veritabanı performansı esnek Havuzda kullanılabilir Edtu yetersiz etkiliyor. | Yönetilen örnek için olarak kullanılamaz, vCore modeli kullanır. |
+| [Regresyon planlama](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Yeni plan veya var olan bir planı yükündeki bir değişikliği algılandı. Bu SQL veritabanı performansı etkilediğini. | Yeni plan veya var olan bir planı yükündeki bir değişikliği algılandı. Bu veritabanı performansı etkilediğini. |
+| [Veritabanı kapsamlı yapılandırma değeri Değiştir](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Veritabanı performansını etkileyen SQL veritabanı'nda yapılandırma değişikliği algılandı. | Veritabanı performansını etkileyen veritabanı yapılandırma değişikliği algılandı. |
+| [Yavaş istemci](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | Yavaş uygulama istemci veritabanından çıkış yeterince hızlı tüketen silemiyor. Bu SQL veritabanı performansı etkilediğini. | Yavaş uygulama istemci veritabanından çıkış yeterince hızlı tüketen silemiyor. Bu veritabanı performansı etkilediğini. |
+| [Fiyatlandırma katmanı düşürme](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Fiyatlandırma katmanı indirgeme eylemi kullanılabilir kaynaklar azaltılabilir. Bu SQL veritabanı performansı etkilediğini. | Fiyatlandırma katmanı indirgeme eylemi kullanılabilir kaynaklar azaltılabilir. Bu veritabanı performansı etkilediğini. |
 
 > [!TIP]
 > SQL veritabanı'nın sürekli performans iyileştirme için etkinleştirme [Azure SQL veritabanı otomatik ayarlama](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). SQL veritabanı'nın yerleşik zekası, bu benzersiz özellik sürekli olarak izler, SQL veritabanı, otomatik olarak dizinleri tabanlarını ve sorgu yürütme planı düzeltmeleri uygular.
 >
 
-Aşağıdaki bölümde daha önce listelenen algılanabilir performans desenleri daha ayrıntılı açıklanmaktadır.
+Aşağıdaki bölümde algılanabilir performans modellerini daha ayrıntılı açıklanmaktadır.
 
 ## <a name="reaching-resource-limits"></a>Kaynak sınırlarını ulaşma
 
@@ -59,11 +59,11 @@ Aşağıdaki bölümde daha önce listelenen algılanabilir performans desenleri
 
 Bu algılanabilir performans desen, kullanılabilir kaynak sınırları, çalışan sınırları ve oturum sınırlarını ulaşma için ilgili performans sorunlarını birleştirir. Bu performans sorununu algılandıktan sonra bir açıklama alanı tanılama günlüğü, performans sorunu kaynak, çalışan veya oturum sınırları ilgili olup olmadığını gösterir.
 
-SQL veritabanı'nda kaynaklar genellikle denir [DTU kaynaklarını](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Bunlar, harmanlanmış bir CPU ve g/ç (veri ve işlem günlüğü g/ç) kaynakları oluşur. Kaynak sınırlarını ulaşma desenini algılanan değerlendirilmiştir sorgu performansında nedeni ölçülen kaynak sınırlarını ulaşma.
+SQL veritabanı'nda kaynaklar için genellikle adlandırılır [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) veya [sanal çekirdek](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore) kaynakları. Kaynak sınırlarını ulaşma desenini algılanan değerlendirilmiştir sorgu performansında nedeni ölçülen kaynak sınırlarını ulaşma.
 
 Oturumu sınırları kaynak SQL veritabanı kullanılabilir eşzamanlı oturum açma sayısını gösterir. Bu performans desen, SQL veritabanlarına bağlanan uygulamalar veritabanına kullanılabilir eşzamanlı oturum açma sayısı üst sınırına ulaştınız, tanınır. Uygulamaları bir veritabanı üzerinde bulunandan daha fazla oturumları kullanmayı denerseniz, sorgu performansı etkilenir.
 
-Çalışan sınırlarını ulaşma kullanılabilir çalışanlar DTU kullanımı sayılmaz çünkü kaynak sınırlarını ulaşma, belirli bir durumdur. Bir veritabanı üzerinde çalışan sınırlarını ulaşma sorgu performansında sonuçları kaynağa özgü bekleme süresini Yükselişi neden olabilir.
+Çalışan sınırlarını ulaşma kullanılabilir çalışanlar, DTU veya sanal çekirdek kullanımı sayılmaz çünkü kaynak sınırlarını ulaşma, belirli bir durumdur. Bir veritabanı üzerinde çalışan sınırlarını ulaşma sorgu performansında sonuçları kaynağa özgü bekleme süresini Yükselişi neden olabilir.
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
@@ -283,7 +283,7 @@ Veritabanı kapsamlı yapılandırma değişiklikleri tek tek her veritabanı i�
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
-Tanılama için önceki yedi günlük iş yükü davranışını kıyasla performans düşüşüne neden olan kısa bir süre önce yapılan çıkışları veritabanı kapsamlı yapılandırma değişiklikleri günlüğe yazılır. Önceki değerleri yapılandırma değişiklikleri geri dönebilirsiniz. İstenen işlem boyutu ulaşılana kadar değere göre değeri de ayarlayabilirsiniz. Tatmin edici performansa ile benzer bir veritabanından veritabanı kapsamlı yapılandırma değerlerini kopyalayabilirsiniz. Performans sorunlarını giderme yapamıyorsanız, varsayılan SQL veritabanı varsayılan değerlere geri dönmesi ve bu temelinden başlayarak ince ayar yapma girişimi.
+Tanılama için önceki yedi günlük iş yükü davranışını kıyasla performans düşüşüne neden olan kısa bir süre önce yapılan çıkışları veritabanı kapsamlı yapılandırma değişiklikleri günlüğe yazılır. Önceki değerleri yapılandırma değişiklikleri geri dönebilirsiniz. İstenen bir performans düzeyi ulaşılana kadar değere göre değeri de ayarlayabilirsiniz. Tatmin edici performansa ile benzer bir veritabanından veritabanı kapsamlı yapılandırma değerlerini kopyalayabilirsiniz. Performans sorunlarını giderme yapamıyorsanız, varsayılan SQL veritabanı varsayılan değerlere geri dönmesi ve bu temelinden başlayarak ince ayar yapma girişimi.
 
 Veritabanı kapsamlı yapılandırma ve yapılandırmayı değiştirme T-SQL söz dizimi iyileştirme ile ilgili daha fazla bilgi için bkz: [Alter veritabanı kapsamlı yapılandırma (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 

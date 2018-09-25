@@ -1,6 +1,6 @@
 ---
-title: Bir Linux VM Azure CLI 2.0 ile sorun giderme kullanma | Microsoft Docs
-description: İşletim sistemi diskini bir kurtarma Azure CLI 2.0 kullanarak sanal Makinesine bağlanarak Linux VM sorunlarını giderme hakkında bilgi edinin
+title: Azure CLI ile VM sorunlarını gidermek için bir Linux kullanma | Microsoft Docs
+description: İşletim sistemi diskini bir kurtarma için Azure CLI kullanarak VM bağlanarak Linux VM sorunlarını giderme hakkında bilgi edinin
 services: virtual-machines-linux
 documentationCenter: ''
 authors: cynthn
@@ -13,18 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: 8e164393b58604d74b9a794479f6e614b8da3d6c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7f15e0b63b5f3635bba44184fc057231213a7e0f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931404"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990884"
 ---
-# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>İşletim sistemi diskini bir kurtarma Azure CLI 2.0 ile sanal Makinesine ekleyerek bir Linux VM sorunlarını giderme
-Linux sanal makinenize (VM), önyükleme veya disk bir hatasıyla karşılaşırsa, sanal sabit diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Geçersiz bir giriş, yaygın olarak karşılaşılan örneklerden olacaktır `/etc/fstab` engelleyen sanal makine başarıyla önyükleme airdrop. Bu makalede, sanal sabit diskinizi başka bir Linux tüm hataları düzeltin ve ardından orijinal VM'yi yeniden oluşturmak için VM'ye bağlanmak için Azure CLI 2.0 kullanma işlemi açıklanmaktadır. 
+# <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>İşletim sistemi diskini bir kurtarma VM'si Azure CLI ile ekleyerek bir Linux VM sorunlarını giderme
 
+Linux sanal makinenize (VM), önyükleme veya disk bir hatasıyla karşılaşırsa, sanal sabit diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Geçersiz bir giriş, yaygın olarak karşılaşılan örneklerden olacaktır `/etc/fstab` engelleyen sanal makine başarıyla önyükleme airdrop. Bu makalede, sanal sabit diskinizi başka bir Linux tüm hataları düzeltin ve ardından orijinal VM'yi yeniden oluşturmak için sanal Makineye bağlanmak için Azure CLI kullanma işlemi açıklanmaktadır. 
 
 ## <a name="recovery-process-overview"></a>Kurtarma işlemine genel bakış
+
 Sorun giderme işlemi aşağıdaki gibidir:
 
 1. Sanal sabit diskleri tutmak, sorun yaşayan VM'yi silin.
@@ -35,7 +36,7 @@ Sorun giderme işlemi aşağıdaki gibidir:
 
 Yönetilen disk kullanan bir VM için bkz: [yeni bir işletim sistemi diskini ekleyerek bir yönetilen Disk sanal makinesinin sorunlarını giderme](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
-Bu sorun giderme adımlarını gerçekleştirmek için en son gerekir. [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
+Bu sorun giderme adımlarını gerçekleştirmek için en son gerekir. [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
 
 Aşağıdaki örneklerde, parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında `myResourceGroup`, `mystorageaccount`, ve `myVM`.
 

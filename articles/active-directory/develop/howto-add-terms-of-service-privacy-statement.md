@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: cb05139241f92eb930a99c387e2f06cabac35caf
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 21cd4990e2117cef2d36fa2607a601afd1a4c4e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581735"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990510"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Kayıtlı Azure Active Directory uygulamaları için hizmet ve gizlilik bildirimini koşulları
 
@@ -54,12 +54,14 @@ Uygulamanızın koşullarını hizmet ve gizlilik bildirimi belgelerin bağlant�
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Hizmet ve gizlilik bildirimini koşullarını bağlantılar ekleme
 
 Hizmet ve gizlilik bildirimini koşullarını hazır olduğunuzda, aşağıdaki yöntemlerden birini kullanarak uygulamanızda bu belgelere bağlantılar ekleyebilirsiniz:
+
 * [Azure portalı üzerinden](#registered-in-azure-portal)
 * [Uygulama kayıt portalı veya Geliştirme Merkezi](#registered-in-app-reg-portal)
 * [Uygulama nesnesi JSON kullanma](#app-object-json)
 * [MSGraph beta REST API kullanma](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Uygulamanızı Azure portalında kaydettiyseniz
+
 Uygulamanızı Azure portalında kaydettiyseniz, bu adımları izleyin.
 
 1. Oturum [Azure portalında](https://portal.azure.com/).
@@ -68,9 +70,10 @@ Uygulamanızı Azure portalında kaydettiyseniz, bu adımları izleyin.
 4. Doldurun **hizmet koşulları URL'si** ve **gizlilik bildirimi URL'si** alanları.
 5. Yaptığınız değişiklikleri kaydedin.
 
-![Hizmet ve gizlilik bildirimi URL'leri koşullarıyla uygulama özellikler bölümü](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![Hizmet ve gizlilik bildirimi URL'leri koşullarıyla uygulama özellikler bölümü](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>Uygulamanızı uygulama kayıt Portalı'nda kayıtlı
+
 Uygulamanızı uygulama kayıt portalı veya Geliştirici Merkezi'nde kaydettiyseniz, bu adımları izleyin.
 
 1. Oturum [uygulama kayıt portalı](https://apps.dev.microsoft.com/).
@@ -78,9 +81,10 @@ Uygulamanızı uygulama kayıt portalı veya Geliştirici Merkezi'nde kaydettiys
 3. Doldurun **hizmet koşulları URL'si** ve **gizlilik bildirimi URL'si** alanları.
 4. Yaptığınız değişiklikleri kaydedin.
 
-![Uygulama profili bölümünü koşullarıyla hizmet ve gizlilik bildirimi URL'leri](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![Uygulama profili bölümünü koşullarıyla hizmet ve gizlilik bildirimi URL'leri](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Uygulama nesnesi JSON kullanma
+
 Uygulama nesnesi JSON doğrudan değiştirmek isterseniz, hizmet ve gizlilik bildirimini uygulamanızın koşullarını bağlantılar dahil etmek için Azure portalında veya uygulama kayıt portalı bildirim düzenleyicisini kullanabilirsiniz.
 
 ```json
@@ -91,6 +95,7 @@ Uygulama nesnesi JSON doğrudan değiştirmek isterseniz, hizmet ve gizlilik bil
 ```
 
 ### <a name="msgraph-beta-rest-api"></a>MSGraph beta REST API kullanma
+
 Program aracılığıyla tüm uygulamaları güncelleştirmek için REST API MSGraph beta koşullarını hizmet ve gizlilik bildirimi belgelerin bağlantıları eklemek için tüm uygulamaları güncelleştirmek için kullanabilirsiniz.
 
 ```

@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/20/2018
 ms.author: vanto
-ms.openlocfilehash: 118911687326bfa938c7276337377e3d3cb66bf2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 698014c24d6a3af3fb79980a07e25483554b1007
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715406"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042440"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL veritabanı ve SQL veri ambarı güvenlik duvarı kuralları 
 
@@ -75,7 +75,7 @@ Azure’daki uygulamaların Azure SQL sunucunuza bağlanmasına izin verebilmeni
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>Oluşturma ve güvenlik duvarı kurallarını yönetme
-İlk sunucu düzeyinde güvenlik duvarı ayarı kullanılarak oluşturulabilir. [Azure portalında](https://portal.azure.com/) veya program aracılığıyla kullanarak [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create), veya [ REST API](https://docs.microsoft.com/rest/api/sql/firewallrules). Sunucu düzeyinde sonraki güvenlik duvarı kuralları ise bu yöntemler kullanılarak ve Transact-SQL aracılığıyla oluşturulup yönetilebilir. 
+İlk sunucu düzeyinde güvenlik duvarı ayarı kullanılarak oluşturulabilir. [Azure portalında](https://portal.azure.com/) veya program aracılığıyla kullanarak [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), veya [ REST API](https://docs.microsoft.com/rest/api/sql/firewallrules). Sunucu düzeyinde sonraki güvenlik duvarı kuralları ise bu yöntemler kullanılarak ve Transact-SQL aracılığıyla oluşturulup yönetilebilir. 
 
 > [!IMPORTANT]
 > Veritabanı düzeyinde güvenlik duvarı kuralları yalnızca oluşturulabilir ve Transact-SQL kullanılarak yönetilebilir. 
@@ -167,11 +167,11 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Azure CLI kullanarak güvenlik duvarı kurallarını yönetme
 | Cmdlet | Düzey | Açıklama |
 | --- | --- | --- |
-|[az sql server güvenlik duvarı kuralı oluşturma](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Sunucu|Sunucu güvenlik duvarı kuralı oluşturur.|
-|[az sql server güvenlik duvarı kuralı listesi](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Sunucu|Bir sunucudaki güvenlik duvarı kurallarını listeler|
-|[az sql server güvenlik duvarı-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Sunucu|Bir güvenlik duvarı kuralı ayrıntılarını gösterir|
-|[az sql server güvenlik duvarı kuralı güncelleştirme](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Sunucu|Bir güvenlik duvarı kuralını güncelleştirir|
-|[az sql server güvenlik duvarı kuralını Sil](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Sunucu|Bir güvenlik duvarı kuralını siler|
+|[az sql server güvenlik duvarı kuralı oluşturma](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Sunucu|Sunucu güvenlik duvarı kuralı oluşturur.|
+|[az sql server güvenlik duvarı kuralı listesi](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Sunucu|Bir sunucudaki güvenlik duvarı kurallarını listeler|
+|[az sql server güvenlik duvarı-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Sunucu|Bir güvenlik duvarı kuralı ayrıntılarını gösterir|
+|[az sql server güvenlik duvarı kuralı güncelleştirme](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Sunucu|Bir güvenlik duvarı kuralını güncelleştirir|
+|[az sql server güvenlik duvarı kuralını Sil](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Sunucu|Bir güvenlik duvarı kuralını siler|
 
 Aşağıdaki örnekte Azure CLI kullanarak sunucu düzeyinde güvenlik duvarı kuralı ayarlar: 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0, Azure depolama ile kullanma | Microsoft Docs
-description: Azure komut satırı arabirimi (Azure CLI) 2.0 oluşturmak ve depolama hesaplarını yönetme ve çalışmak için Azure depolama ile Azure BLOB ve dosyalar ile kullanmayı öğrenin. Azure CLI 2.0, Python'da yazılmış bir platformlar arası araçtır.
+title: Azure CLI, Azure depolama ile kullanma | Microsoft Docs
+description: Azure komut satırı arabirimi (Azure CLI) oluşturma ve depolama hesaplarını yönetme ve Azure BLOB'ları ve dosyalarla çalışmak için Azure depolama ile öğreneceksiniz.
 services: storage
 author: roygara
 ms.service: storage
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 10b0d475113e5fcd413c7e62f88dcd434fc72a52
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cd2399e25889cdc9c885b76e002e47415c0629e5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732780"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984403"
 ---
-# <a name="using-the-azure-cli-20-with-azure-storage"></a>Azure CLI 2.0, Azure depolama ile kullanma
+# <a name="using-the-azure-cli-with-azure-storage"></a>Azure Storage ile Azure CLI kullanma
 
-Açık kaynaklı, platformlar arası Azure CLI 2.0, Azure platformu ile çalışmaya yönelik komut kümesini sağlar. Bulunan aynı işlevselliğinin sağlar [Azure portalında](https://portal.azure.com), zengin verilere erişim de dahil olmak üzere.
+Açık kaynaklı, platformlar arası Azure CLI, Azure platformu ile çalışmaya yönelik komut kümesini sağlar. Bulunan aynı işlevselliğinin sağlar [Azure portalında](https://portal.azure.com), zengin verilere erişim de dahil olmak üzere.
 
-Bu kılavuzda, nasıl kullanılacağını göstereceğiz [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) Azure depolama hesabınızdaki kaynaklarla çalışma çeşitli görevleri gerçekleştirmek için. İndirin ve yükleyin veya bu kılavuzu kullanmadan önce CLI 2. 0'ın en son sürüme yükseltme öneririz.
+Bu kılavuzda, nasıl kullanılacağını göstereceğiz [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) Azure depolama hesabınızdaki kaynaklarla çalışma çeşitli görevleri gerçekleştirmek için. İndirin ve yükleyin veya bu kılavuzu kullanmadan önce CLI'ın en son sürüme yükseltme öneririz.
 
 Bu kılavuzdaki örnekler üzerinde Ubuntu'da Bash kabuğunu kullanımını varsayılır, ancak diğer platformlarda benzer şekilde gerçekleştirmeniz gerekir. 
 
@@ -33,9 +33,9 @@ Bu kılavuzda, Azure Depolama'nın temel kavramlarını anladığınızı varsay
 * **Azure hesabı**: Azure aboneliğiniz yoksa, [ücretsiz bir Azure hesabı oluşturun](https://azure.microsoft.com/free/).
 * **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](storage-quickstart-create-account.md) bölümü.
 
-### <a name="install-the-azure-cli-20"></a>Azure CLI 2.0 sürümünü yükleme
+### <a name="install-the-azure-cli"></a>Azure CLI'yı yükleme
 
-İndirme ve bölümünde açıklanan yönergeleri takip ederek Azure CLI 2.0 yükleme [Azure CLI 2.0 yükleme](/cli/azure/install-az-cli2).
+Bölümünde açıklanan yönergeleri takip ederek Azure CLI'yı yükleme ve indirme [Azure CLI'yı yükleme](/cli/azure/install-az-cli2).
 
 > [!TIP]
 > Yüklemeyle ilgili bir sorun varsa, kullanıma [yükleme sorunlarını giderme](/cli/azure/install-az-cli2#installation-troubleshooting) makalenin bölümüne ve [yükleme sorunlarını giderme](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) github'da Kılavuzu.
@@ -96,9 +96,9 @@ Azure aboneliğinizdeki kaynaklarla çalışmak için öncelikle Azure hesabın�
   * Bu, Microsoft hesapları veya çok faktörlü kimlik doğrulaması kullanan hesapları ile çalışmaz.
 * **Hizmet sorumlusu ile oturum**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
-## <a name="azure-cli-20-sample-script"></a>Azure CLI 2.0 örnek betiği
+## <a name="azure-cli-sample-script"></a>Azure CLI örnek betiği
 
-Ardından, size Azure Storage kaynakları ile etkileşim kurmak için birkaç temel Azure CLI 2.0 komutlarını veren küçük bir kabuk betiği ile çalışırsınız. Betik ilk depolama hesabınızda yeni bir kapsayıcı oluşturur, ardından (blob) olarak mevcut bir dosyayı kapsayıcıya yükler. Ardından tüm blobları kapsayıcıda listeler ve son olarak, yerel bilgisayarınızda, belirttiğiniz bir hedef dosya indirir.
+Ardından, size Azure Storage kaynakları ile etkileşim kurmak için birkaç temel Azure CLI komutlarını veren küçük bir kabuk betiği ile çalışırsınız. Betik ilk depolama hesabınızda yeni bir kapsayıcı oluşturur, ardından (blob) olarak mevcut bir dosyayı kapsayıcıya yükler. Ardından tüm blobları kapsayıcıda listeler ve son olarak, yerel bilgisayarınızda, belirttiğiniz bir hedef dosya indirir.
 
 ```bash
 #!/bin/bash
@@ -519,8 +519,8 @@ az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure CLI 2.0 ile çalışma hakkında daha fazla bilgi edinmek için bazı ek kaynaklar aşağıda verilmiştir.
+Azure CLI ile çalışma hakkında daha fazla bilgi edinmek için bazı ek kaynaklar aşağıda verilmiştir. 
 
-* [Azure CLI 2.0 ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Azure CLI 2.0 komut başvurusu](/cli/azure)
-* [Github'da Azure CLI 2.0](https://github.com/Azure/azure-cli)
+* [Azure CLI ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Azure CLI komut başvurusu](/cli/azure)
+* [Github'da Azure CLI](https://github.com/Azure/azure-cli)

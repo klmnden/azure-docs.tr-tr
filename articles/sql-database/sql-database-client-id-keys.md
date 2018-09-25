@@ -1,26 +1,29 @@
 ---
 title: Uygulama kimlik doğrulama - Azure SQL veritabanı değerlerini alma | Microsoft Docs
-description: SQL veritabanı koddan erişmek için bir hizmet sorumlusu oluşturun.
+description: Koddan SQL veritabanına erişmek için bir hizmet sorumlusu oluşturun.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: f6d3599425669a6717a58bb1e5ac0af4b291d4d6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: f9b66a430e1ca5b24853a5ff31ce13393b12b0c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646346"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063804"
 ---
-# <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Bir uygulama kodundan SQL veritabanına erişmek için kimlik doğrulaması için gereken değerleri alma
-Oluşturup koddan SQL veritabanını yönetmek için burada Azure kaynaklarınızı oluşturulan Azure Active Directory (AAD) etki alanında Abonelikteki uygulamanızı kaydetmeniz gerekir.
+# <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Bir uygulama kodundan SQL veritabanına erişmek için kimlik doğrulaması için gerekli değerleri alma
+Oluşturma ve SQL veritabanı koddan yönetmek için Azure kaynaklarınızın nerede oluşturdunuz Azure Active Directory (AAD) etki alanında aboneliği uygulamanızı kaydetmeniz gerekir.
 
-## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Bir hizmet asıl kaynaklarına erişmek için bir uygulama oluşturun
-En son gerek [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) yüklü ve çalışır. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
+## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Bir hizmet sorumlusu kaynaklarına erişmek için dosyasından bir uygulama oluşturma
+En son ihtiyacınız [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) yüklü ve çalışır. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
 Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygulamamızda kimlik doğrulamak için gereken hizmet sorumlusunu oluşturur. Betik önceki C# örneği için gereken değerleri çıkarır. Ayrıntılı bilgi için bkz. [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
@@ -66,6 +69,6 @@ Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygul
 
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [SQL veritabanı C# ile oluşturma](sql-database-get-started-csharp.md)
+* [C# ile bir SQL veritabanı oluşturma](sql-database-get-started-csharp.md)
 * [Azure Active Directory kimlik doğrulamasını kullanarak SQL veritabanına bağlanma](sql-database-aad-authentication.md)
 

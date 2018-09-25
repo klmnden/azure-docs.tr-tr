@@ -1,6 +1,6 @@
 ---
 title: Azure Docker VM uzantısını kullanma | Microsoft Docs
-description: Azure Resource Manager şablonları ve Azure CLI 2.0 kullanarak bir Docker ortamında hızlı ve güvenli bir şekilde dağıtmak için Docker VM uzantısını kullanmayı öğrenin
+description: Azure Resource Manager şablonları ve Azure CLI kullanarak bir Docker ortamında hızlı ve güvenli bir şekilde dağıtmak için Docker VM uzantısını kullanmayı öğrenin
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 44c307a5f21937cd2a3ef345fd4573c67efdaf59
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 59dbbb8374455088d759a5e837b8d3bc22145d3e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928627"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981306"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Docker VM uzantısını kullanarak Azure'da Docker ortamı oluşturma
-Docker bir popüler kapsayıcı yönetimi ve hızlı bir şekilde Linux üzerindeki kapsayıcılar ile çalışın olanak tanıyan görüntüleme platformudur. Azure'da Docker'ı ihtiyaçlarınıza göre dağıtabilirsiniz çeşitli yolları vardır. Bu makalede, Azure CLI 2.0 ile Docker VM uzantısı ve Azure Resource Manager şablonlarını kullanmaya odaklanmıştır. 
+
+Docker bir popüler kapsayıcı yönetimi ve hızlı bir şekilde Linux üzerindeki kapsayıcılar ile çalışın olanak tanıyan görüntüleme platformudur. Azure'da Docker'ı ihtiyaçlarınıza göre dağıtabilirsiniz çeşitli yolları vardır. Bu makalede, Azure CLI ile Docker VM uzantısı ve Azure Resource Manager şablonlarını kullanmaya odaklanmıştır. 
 
 > [!WARNING]
 > Linux için Azure Docker VM uzantısı kullanım dışıdır ve Kasım 2018'den kullanımdan kaldırılacaktır.
@@ -38,7 +39,7 @@ Docker makinesi ve Azure Container Services kullanma dahil olmak üzere farklı 
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Azure Docker VM uzantısı ile bir şablonu dağıtma
-Yüklemek ve Docker konağı yapılandırmak için Azure Docker VM uzantısını kullanan bir Ubuntu VM oluşturmak için var olan bir Hızlı Başlangıç şablonu kullanalım. Şablon buradan görüntüleyebilirsiniz: [basit Docker ile bir Ubuntu VM dağıtımını](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). En son ihtiyacınız [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
+Yüklemek ve Docker konağı yapılandırmak için Azure Docker VM uzantısını kullanan bir Ubuntu VM oluşturmak için var olan bir Hızlı Başlangıç şablonu kullanalım. Şablon buradan görüntüleyebilirsiniz: [basit Docker ile bir Ubuntu VM dağıtımını](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). En son ihtiyacınız [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
 
 Öncelikle [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 

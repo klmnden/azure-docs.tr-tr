@@ -2,20 +2,22 @@
 title: ActiveDirectoryInteractive bağlayan SQL | Microsoft Docs
 description: Açıklamalar, SqlAuthenticationMethod.ActiveDirectoryInteractive modunu kullanarak Azure SQL veritabanı'na bağlanma ile C# kod örneği.
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
+ms.subservice: security
 ms.custom: active directory
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/06/2018
+author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.openlocfilehash: 3d6eb70b3ce9072dc2c51220af89549022b5dacf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.date: 04/06/2018
+manager: craigg
+ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238277"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055535"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Azure SQL veritabanı'na bağlanmak için ActiveDirectoryInteractive modunu kullan
 
@@ -122,13 +124,13 @@ Ad alanı üzerinde C# programı kullanır **Microsoft.IdentityModel.Clients.act
 
 C# örneği dayanan bir ad alanları olan **System.Data.SqlClient**. Sabit özel ilgi çekecektir **SqlAuthenticationMethod**. Bu numaralandırma aşağıdaki değerlere sahip:
 
-- **SqlAuthenticationMethod.ActiveDirectory*etkileşimli ***:&nbsp; multi factor authentication MFA elde etmek için bir Azure AD kullanıcı adı ile bunu kullanın.
+- **SqlAuthenticationMethod.activedirectory * etkileşimli ***:&nbsp; multi factor authentication MFA elde etmek için bir Azure AD kullanıcı adı ile bunu kullanın.
     - Bu değer mevcut makalenin odak noktası olur. Bu, etkileşimli bir deneyim MFA kullanıcı bu tutabildiğini, kullanıcı parolasını ve ardından MFA doğrulama için iletişim kutularını görüntüleme üretir.
     - Bu değer, .NET Framework sürümü 4.7.2 ile başlayarak kullanılabilir.
 
-- **SqlAuthenticationMethod.ActiveDirectory*tümleşik ***:&nbsp; bu iş için bir *Federasyon* hesabı. Birleştirilmiş bir hesap için kullanıcı adı, Windows etki alanına adı verilir. Bu yöntem, mfa'yı desteklemez.
+- **SqlAuthenticationMethod.activedirectory * tümleşik ***:&nbsp; bu iş için bir *Federasyon* hesabı. Birleştirilmiş bir hesap için kullanıcı adı, Windows etki alanına adı verilir. Bu yöntem, mfa'yı desteklemez.
 
-- **SqlAuthenticationMethod.ActiveDirectory*parola ***:&nbsp; bir Azure AD kullanıcısı ve kullanıcının parolasını gerektiren kimlik doğrulaması için bunu kullanın. Azure SQL veritabanı kimlik doğrulaması gerçekleştirir. Bu yöntem, mfa'yı desteklemez.
+- **SqlAuthenticationMethod.activedirectory * parola ***:&nbsp; bir Azure AD kullanıcısı ve kullanıcının parolasını gerektiren kimlik doğrulaması için bunu kullanın. Azure SQL veritabanı kimlik doğrulaması gerçekleştirir. Bu yöntem, mfa'yı desteklemez.
 
 
 

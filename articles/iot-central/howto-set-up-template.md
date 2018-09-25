@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1cff44e8430af0a544da948b33a15439fae56d8e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a076ee5275a4d053613902a1980542590263385c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735663"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034289"
 ---
 # <a name="set-up-a-device-template"></a>Cihaz şablonu ayarlama
 
@@ -74,6 +74,9 @@ Yeni bir telemetri ölçüm eklemek için seçin **şablonu Düzen**ve ardından
 
 Seçtikten sonra **Bitti**, **sıcaklık** ölçüm ölçümleri listesinde görünür. Operatörün cihaz toplama sıcaklık verilerini görselleştirme görebilirsiniz.
 
+> [!NOTE]
+  Çift telemetri ölçümün veri türü.
+
 ### <a name="create-an-event-measurement"></a>Bir olay ölçü oluşturma
 Yeni bir olay ölçüm eklemek için seçin **şablonu Düzen**ve ardından **+ yeni ölçüm** düğmesi. Seçin **olay** ölçüm yazın ve ayrıntılarını girin **olay oluşturma** formu.
 
@@ -91,6 +94,8 @@ Olay hakkında daha fazla ayrıntı görüntülemek için grafikteki olay simges
 
 !["Fan Motor Error" olayla ilgili ayrıntıları](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
+> [!NOTE]
+  Veri türü, olay ölçümü dizedir.
 
 ### <a name="create-a-state-measurement"></a>Bir durum ölçü oluşturma
 Yeni bir durum ölçüm eklemek için seçin **şablonu Düzen**ve ardından **+ yeni ölçüm** düğmesi. Seçin **durumu** ölçüm yazın ve ayrıntılarını girin **oluşturma durumu** formu.
@@ -106,6 +111,9 @@ Seçtikten sonra **Bitti**, **fanı modu** durumu ölçüm ölçümleri listesin
 ![Durum ölçüm grafiği](./media/howto-set-up-template/statemeasurementschart.png)
 
 Cihaz küçük bir süre içinde çok fazla veri noktasının gönderirse, durumu ölçümü ile farklı bir görsel, aşağıdaki ekran görüntüsünde gösterildiği gibi görünür. Grafikte tıklarsanız, bu süre içinde tüm veri noktalarına kronolojik sırada görüntülenir. Grafiği çizilen ölçüm görmek için zaman aralığını da daraltabilirsiniz.
+
+> [!NOTE]
+  Veri türü, durumu ölçümü dizedir.
 
 ## <a name="settings"></a>Ayarlar
 

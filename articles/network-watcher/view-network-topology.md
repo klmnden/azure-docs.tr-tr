@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35982047"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992211"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Bir Azure sanal ağ topolojisini görüntüleme
 
@@ -52,7 +52,7 @@ Aşağıdaki diyagramda gösterilen bir alt kümesi sanal ağda ağ bileşenleri
 
 İzleyen adımları komutları çalıştırabilirsiniz:
 - Azure Cloud shell'de seçerek, **deneyin** üst sağında herhangi bir komutu. Azure Cloud Shell'i yüklenmiştir ve Kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmış yaygın Azure Araçları ücretsiz bir etkileşimli kabuktur.
-- CLI'yı bilgisayarınızdan çalıştırarak. CLI'yı bilgisayarınızdan çalıştırırsanız, bu makaledeki adımlarda, Azure CLI Sürüm 2.0.31 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
+- CLI'yı bilgisayarınızdan çalıştırarak. CLI'yı bilgisayarınızdan çalıştırırsanız, bu makaledeki adımlarda, Azure CLI Sürüm 2.0.31 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
 
 Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissions.md).
 

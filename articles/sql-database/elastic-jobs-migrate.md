@@ -2,18 +2,22 @@
 title: Yeni elastik veritabanı işleri geçirme | Microsoft Docs
 description: Yeni elastik veritabanı işleri geçirin.
 services: sql-database
-author: johnpaulkee
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: johnpaulkee
 ms.author: johnpaulkee
-ms.openlocfilehash: 7b6dd7d3724f486670b07709d317739d01e9fd21
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: cf9520c257b2d3aa133fa4861face02b378af26f
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035315"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055447"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Yeni elastik veritabanı işleri için geçirme
 
@@ -30,7 +34,7 @@ Elastik veritabanı işleri yükseltilmiş sürümünü kullanmak için PowerShe
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
-Yükleme **Azurerm.SQL'e** 4.8.1-preview modülünün en son elastik iş cmdlet'lerini edinin. Aşağıdaki komutlar, yönetici erişimine sahip PowerShell'de çalıştırın.
+En son Elastik İş cmdlet'lerini almak için **AzureRM.Sql** 4.8.1-önizleme modülünü yükleyin. PowerShell'de yönetici erişimiyle aşağıdaki komutları çalıştırın.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on

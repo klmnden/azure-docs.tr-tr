@@ -1,6 +1,6 @@
 ---
-title: Özel IP adresleri VM'ler için (Klasik) - Azure CLI 1.0 yapılandırma | Microsoft Docs
-description: Özel IP adresleri için Azure komut satırı arabirimi (CLI) 1.0 kullanarak sanal makineleri (Klasik) yapılandırma konusunda bilgi edinin.
+title: Özel IP adresleri için VM'ler (Klasik) - Azure Klasik CLI yapılandırma | Microsoft Docs
+description: Klasik Azure komut satırı arabirimi (CLI) kullanarak sanal makineler (Klasik) için özel IP adresleri yapılandırmayı öğrenin.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a18877167d04fdb039070d5315390a846925fd29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f340b9843ed5763a20d2035e3add86123a1298e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31791816"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971153"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Azure CLI 1.0 kullanarak sanal makine (Klasik) için özel IP adreslerini yapılandırın
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak sanal makine (Klasik) için özel IP adreslerini yapılandırın
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
@@ -31,15 +31,15 @@ ms.locfileid: "31791816"
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Bu makale, klasik dağıtım modelini kapsamaktadır. Ayrıca [Resource Manager dağıtım modelinde statik özel IP adresi yönetmek](virtual-networks-static-private-ip-arm-cli.md).
+Bu makale, klasik dağıtım modelini kapsamaktadır. Ayrıca [Resource Manager dağıtım modelinde statik özel IP adresi yönetme](virtual-networks-static-private-ip-arm-cli.md).
 
-Aşağıdaki örnek Azure CLI komutları önceden oluşturulmuş basit bir ortam bekler. Bu belgede gösterildiği komutları çalıştırmak istiyorsanız, önce açıklanan test ortamı oluşturmak [vnet oluşturma](virtual-networks-create-vnet-classic-cli.md).
+Önceden oluşturulmuş basit bir ortam izleyen beklediğiniz Klasik Azure CLI komutları örneği. Bu belgede gösterildiği komutları çalıştırmak istiyorsanız, önce açıklanan test ortamında yapı [vnet oluşturma](virtual-networks-create-vnet-classic-cli.md).
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Bir VM oluşturulurken özel bir statik IP adresi belirtme
-Adlı yeni bir VM oluşturmak için *DNS01* adlı yeni bir bulut hizmetinde *TestService* yukarıdaki senaryoya bağlı olarak, aşağıdaki adımları izleyin:
+Adlı yeni bir VM oluşturmak için *DNS01* adlı yeni bir bulut hizmetinde *TestService* yukarıdaki senaryo temel alınarak, şu adımları izleyin:
 
-1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../cli-install-nodejs.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
-2. Çalıştırma **azure hizmet oluşturma** bulut hizmetini oluşturmak için komutu.
+1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](/cli/azure/install-cli-version-1.0); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
+2. Çalıştırma **azure hizmeti oluşturma** bulut hizmetini oluşturmak için komutu.
    
         azure service create TestService --location uscentral
    
@@ -49,7 +49,7 @@ Adlı yeni bir VM oluşturmak için *DNS01* adlı yeni bir bulut hizmetinde *Tes
         info:    Creating cloud service
         data:    Cloud service name TestService
         info:    service create command OK
-3. Çalıştırma **azure vm oluşturma** VM oluşturmak için komutu. Özel bir statik IP adresi değeri dikkat edin. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır.
+3. Çalıştırma **azure VM'yi oluşturma** VM oluşturmak için komutu. Statik özel IP adresi değeri dikkat edin. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır.
    
         azure vm create -l centralus -n DNS01 -w TestVNet -S "192.168.1.101" TestService bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 adminuser AdminP@ssw0rd
    
@@ -68,17 +68,17 @@ Adlı yeni bir VM oluşturmak için *DNS01* adlı yeni bir bulut hizmetinde *Tes
         info:    OK
         info:    vm create command OK
    
-   * **-l (veya --konum)**. VM oluşturulacağı azure bölgesi. Bizim senaryomuz için bu *centralus* ’tur.
-   * **-n (veya--vm adı)**. Oluşturulacak VM adıdır.
-   * **-w (veya--ağ adı sanal)**. VM oluşturulacağı Vnet'in adı. 
-   * **-S (veya--statik IP)**. Özel için statik IP adresi VM.
-   * **TestService**. VM oluşturulacağı bulut hizmeti adı.
+   * **-l (veya --konum)**. VM'nin oluşturulacağı azure bölgesi. Bizim senaryomuz için bu *centralus* ’tur.
+   * **-n (veya--vm-adı)**. Oluşturulacak VM adı.
+   * **-w (veya--sanal-ağ-adı)**. VM'nin oluşturulacağı Vnet'in adı. 
+   * **-S (veya--statik IP)**. Statik özel IP adresi VM için.
+   * **TestService**. VM'nin oluşturulacağı bulut hizmeti adı.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. VM oluşturmak için kullanılan görüntü.
-   * **AdminUser**. Windows VM için yerel yönetici.
-   * **AdminP@ssw0rd**. Windows VM için yerel yönetici parolası.
+   * **AdminUser**. Windows VM için Yönetici'yi tıklatın.
+   * **AdminP@ssw0rd**. Windows VM yerel yönetici parolası.
 
-## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Bir VM için özel statik IP adresi bilgilerini alma
-Komut dosyası yukarıdaki VM oluşturulan için statik özel IP adresi bilgilerini görüntülemek için Azure CLI ve aşağıdaki komutu çalıştırın değeri gözlemlemek *ağ StaticIP*:
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Bir sanal makine için statik özel IP adresi bilgilerini alma
+Komut dosyası yukarıdaki oluşturulan VM için statik özel IP adresi bilgilerini görüntülemek için aşağıdaki Azure CLI komutunu çalıştırın ve değeri gözlemleyin *ağ StaticIP*:
 
     azure vm static-ip show DNS01
 
@@ -89,8 +89,8 @@ Beklenen çıktı:
     data:    Network StaticIP "192.168.1.101"
     info:    vm static-ip show command OK
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Özel bir statik IP adresi bir VM'den kaldırma
-Özel statik IP adresi kaldırmak için yukarıdaki komut VM'ye aşağıdaki Azure CLI komutu çalıştırın ekledi:
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>VM'den özel statik IP adresi kaldırma
+Statik özel IP adresini kaldırmak için yukarıdaki komut VM'ye aşağıdaki Azure CLI komutunu çalıştırın eklendi:
 
     azure vm static-ip remove DNS01
 
@@ -102,8 +102,8 @@ Beklenen çıktı:
     info:    Updating network configuration
     info:    vm static-ip remove command OK
 
-## <a name="how-to-add-a-static-private-ip-to-an-existing-vm"></a>Mevcut bir VM'yi statik özel IP ekleme
-Statik eklemek için özel IP adresi çalışma yukarıdaki komut dosyası kullanılarak oluşturulan VM için komutu aşağıdaki:
+## <a name="how-to-add-a-static-private-ip-to-an-existing-vm"></a>Mevcut bir VM'ye statik özel IP ekleme
+Statik eklemek için özel IP adresi yukarıda çalışma betiği kullanılarak oluşturulan VM için komutu aşağıdaki:
 
     azure vm static-ip set DNS01 192.168.1.101
 
@@ -118,10 +118,9 @@ Beklenen çıktı:
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>İşletim sistemi içinde IP adreslerini ayarlayın
 
-Statik olarak bir VM işletim sistemi içinde Azure sanal makineye atanan özel IP sürece atadığınız değil, önerilen gerekli. İşletim sistemi içinde özel IP adresini el ile ayarlayın, Azure VM'ye atanan özel IP adresi aynı adresi olduğundan emin olun veya sanal makineye bağlantısını kaybedebilir. Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir.
+Statik olarak bir sanal makinenin işletim sistemi içinde Azure sanal makinesine atanmış özel IP sürece atamayın, önerilen gerekli. İşletim sistemi içinde özel IP adresini el ile ayarlamanız durumunda Azure VM'sine atanan özel IP adresiyle aynı adresi olduğundan emin olun veya sanal makineye bağlantı kaybedebilir. Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [ayrılmış genel IP](virtual-networks-reserved-public-ip.md) adresleri.
-* Hakkında bilgi edinin [örnek düzeyinde ortak IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adresleri.
+* Hakkında bilgi edinin [örnek düzeyi genel IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adresleri.
 * Başvurun [ayrılmış IP REST API'leri](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-

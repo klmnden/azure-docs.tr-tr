@@ -1,6 +1,6 @@
 ---
-title: Bağlama Azure File storage SMB kullanarak Linux vm'lerinde | Microsoft Docs
-description: SMB ile Azure CLI kullanarak Linux vm'lerinde Azure File storage nasıl
+title: Azure dosya depolama bağlama SMB kullanarak Linux vm'lerinde | Microsoft Docs
+description: Azure dosya depolama SMB kullanarak Azure CLI ile Linux vm'lerinde takma
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: cynthn
@@ -14,28 +14,27 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 2019324030b2e4c469d0b9ba937fb40a9d0675f1
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7cd7f0f37f0d351d1d50d4c15e7132f072b5125d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099720"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982214"
 ---
-# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>SMB kullanarak Linux VM'ler üzerinde bağlama Azure dosya depolama
+# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Azure dosya depolama bağlama SMB kullanarak Linux vm'lerinde
 
+Bu makalede bir SMB bağlama ve Azure CLI kullanarak bir Linux VM'de Azure dosya depolama hizmetini kullanma işlemini gösterir. Azure File storage standart SMB protokolü kullanarak bulutta dosya paylaşımları sağlar. 
 
-Bu makalede bir SMB bağlama ile Azure CLI kullanarak bir Linux VM Azure dosya depolama hizmeti kullanmayı gösterir. Azure File storage standart SMB protokolü kullanılarak bulutta dosya paylaşımları sağlar. 
+File storage standart SMB protokolünü kullanan dosya paylaşımları bulutta sağlar. SMB 3.0 destekleyen herhangi bir işletim sisteminizden bir dosya paylaşımı bağlayabilir. Linux üzerinde bir SMB bağlama kullandığınızda, bir SLA ile desteklenen bir sağlam, kalıcı arşivleme depolama konumuna kolay yedekleri alın.
 
-File storage standart SMB protokolünü kullanan dosya paylaşımları bulutta sağlar. SMB 3.0 destekleyen herhangi bir işletim sistemi bir dosya paylaşımı bağlayabilir. Linux üzerinde bir SMB bağlama kullandığınızda, bir SLA tarafından desteklenen bir güçlü, kalıcı arşivleme depolama konumuna kolay yedeklemelerini alın.
+Dosyaları bir VM'den dosya depolama üzerinde barındırılan bir SMB bağlama taşıma, hata ayıklama günlükleri için harika bir yoludur. Aynı SMB paylaşımını yerel olarak, Mac, Linux veya Windows iş istasyonunuzu bağlanabilir. Linux akış için en iyi çözüm SMB değil veya SMB protokolü gibi yoğun günlük görevlerini gerçekleştirmek için tasarlandığından değil çünkü uygulama gerçek zamanlı olarak günlüğe kaydeder. Ayrılmış, birleşik günlük katman aracı Fluentd gibi Linux ve çıkış günlüğü uygulama toplanması için SMB daha iyi bir seçim olacaktır.
 
-Dosyalar bir sanal makineden File storage'ı barındırılan bir SMB bağlama taşıma hata ayıklama günlüklerini için harika bir yoludur. SMB paylaşımı, Mac, Linux veya Windows iş istasyonu yerel olarak bağlanabilir. SMB Linux akış için en iyi çözüm değil veya SMB protokolü gibi yoğun günlük görevlerini işlemek için yerleşik olmayan çünkü uygulama gerçek zamanlı olarak günlüğe kaydeder. Ayrılmış, birleşik günlük katman aracı Fluentd gibi Linux ve çıkış günlüğü uygulama toplanması için SMB daha iyi bir seçim olacaktır.
-
-Bu kılavuz, Azure CLI Sürüm 2.0.4 çalıştırdığınız gerektirir veya sonraki bir sürümü. Sürümü bulmak için **az --version** komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
+Bu kılavuzda Azure CLI 2.0.4 sürüm çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için **az --version** komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Adlı bir kaynak grubu oluşturmak *myResourceGroup* içinde *Doğu ABD* konumu.
+Adlı bir kaynak grubu oluşturma *myResourceGroup* içinde *Doğu ABD* konumu.
 
 ```bash
 az group create --name myResourceGroup --location eastus
@@ -43,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Kullanılarak oluşturulan kaynak grubunda yeni bir depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#create). Bu örnek adlı bir depolama hesabı oluşturur *mySTORAGEACCT<random number>*  ve depolama hesabının adını değişkende yerleştirir **STORAGEACCT**. Depolama hesabı adları kullanarak benzersiz olmalıdır `$RANDOM` birtakım benzersiz hale getirmek amacıyla sonuna ekler.
+Kullanarak, oluşturduğunuz kaynak grubunda yeni bir depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#create). Bu örnek adlı bir depolama hesabı oluşturur *mySTORAGEACCT<random number>*  ve bu depolama hesabının adını değişkenine yerleştirilir **STORAGEACCT**. Depolama hesabı adları kullanarak benzersiz olmalıdır `$RANDOM` benzersiz olacak şekilde sonuna bir sayı ekler.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -54,11 +53,11 @@ STORAGEACCT=$(az storage account create \
     --query "name" | tr -d '"')
 ```
 
-## <a name="get-the-storage-key"></a>Depolama anahtarı alma
+## <a name="get-the-storage-key"></a>Depolama anahtarını alma
 
-Bir depolama hesabı oluşturduğunuzda, hizmet kesintisi Döndürülmüş hesabı anahtarları çiftler halinde oluşturulur. İkinci anahtar çiftindeki için geçiş yaptığınızda, yeni bir anahtar çifti oluşturun. Her zaman en az bir kullanılmayan depolama hesabı anahtarı geçmek hazır olması için yeni depolama hesabı anahtarları her zaman çiftler halinde oluşturulur.
+Bir depolama hesabı oluşturduğunuzda, hizmet kesintilerini Döndürülmüş hesabı anahtarları çiftlerinde oluşturulur. Çiftin ikinci anahtarı geçiş yaptığınızda, yeni bir anahtar çifti oluşturun. Bu nedenle her zaman en az bir kullanılmayan depolama hesabı anahtarı geçmek hazır olması, yeni depolama hesabı anahtarlarını her zaman çiftler halinde oluşturulur.
 
-Depolama hesabı anahtarlarını kullanarak görüntülemek [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys#list). Bu örnek anahtar 1 değerini depolar **depolama anahtarı** değişkeni.
+Kullanarak depolama hesabı anahtarlarını görüntülemek [az depolama hesabı anahtarları listesi](/cli/azure/storage/account/keys#list). Bu örnekte anahtar 1 değerini depolar **depolama anahtarı** değişkeni.
 
 ```bash
 STORAGEKEY=$(az storage account keys list \
@@ -69,11 +68,11 @@ STORAGEKEY=$(az storage account keys list \
 
 ## <a name="create-a-file-share"></a>Dosya paylaşımı oluşturma
 
-Depolama paylaşımı kullanarak dosya oluşturma [az depolama paylaşımı oluşturmak](/cli/azure/storage/share#create). 
+Dosya depolama paylaşımı kullanarak oluşturduğunuz [az depolama alanı paylaşımı oluşturma](/cli/azure/storage/share#create). 
 
-Paylaşım adları tüm büyük küçük harf, rakam ve tek tire olması gerekir, ancak bir tire ile başlayamaz. Dosya paylaşımlarının ve dosyaların adlandırılması hakkında tüm ayrıntılara ulaşmak için bkz. [Paylaşımları, Dizinleri, Dosyaları ve Meta Verileri Adlandırma ve Bunlara Başvuruda Bulunma](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)
+Paylaşım adları tüm küçük harf, rakam ve tek kısa çizgilerden olması gerekir, ancak bir tire ile başlayamaz. Dosya paylaşımlarının ve dosyaların adlandırılması hakkında tüm ayrıntılara ulaşmak için bkz. [Paylaşımları, Dizinleri, Dosyaları ve Meta Verileri Adlandırma ve Bunlara Başvuruda Bulunma](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)
 
-Bu örnek adlı bir paylaşım oluşturur *paylaşımım* 10 Gib'den kota. 
+Bu örnek adlı bir paylaşım oluşturur *myshare* 10 GiB kota. 
 
 ```bash
 az storage share create --name myshare \
@@ -84,9 +83,9 @@ az storage share create --name myshare \
 
 ## <a name="create-a-mount-point"></a>Bir bağlama noktası oluştur
 
-Azure dosya paylaşımını Linux bilgisayarınızda bağlama için olduğundan emin olun gerekir **CIFS yardımcı programları** yüklü paket. Yükleme yönergeleri için bkz: [Linux dağıtımınızı CIFS yardımcı programları paketini Yükle](../../storage/files/storage-how-to-use-files-linux.md#install-cifs-utils).
+Linux bilgisayarınızda Azure dosya paylaşımını bağlama için sahip olduğunuzdan emin olmamız gerekiyor **CIFS-utils** yüklü paket. Yükleme yönergeleri için bkz. [Linux dağıtımınız için CIFS-utils paketini yükleyin](../../storage/files/storage-how-to-use-files-linux.md#install-cifs-utils).
 
-Azure dosyaları 445 numaralı TCP bağlantı noktası üzerinden iletişim kurar SMB protokolünü kullanır.  Azure dosya paylaşımınızı oluşturma ile ilgili sorunlar yaşıyorsanız, güvenlik duvarınızın TCP bağlantı noktası 445 engellemediğinden emin olun.
+Azure dosyaları, TCP bağlantı noktası 445 üzerinden iletişim kuran çalışır durumda SMB protokolünü kullanır.  Azure dosya paylaşımınızı oluşturma ile ilgili sorunlar yaşıyorsanız, güvenlik duvarınızı TCP bağlantı noktası 445'i engellemediğinden emin olun.
 
 
 ```bash
@@ -95,7 +94,7 @@ mkdir -p /mnt/MyAzureFileShare
 
 ## <a name="mount-the-share"></a>Paylaşımını bağlama
 
-Yerel dizin Azure dosya paylaşımına bağlayın. 
+Azure dosya paylaşımını yerel dizine bağlayın. 
 
 ```bash
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
@@ -103,9 +102,9 @@ sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFile
 
 
 
-## <a name="persist-the-mount"></a>Bağlama Sürdür
+## <a name="persist-the-mount"></a>Kalıcı bağlama
 
-Linux VM'i yeniden başlattığınızda takılı SMB paylaşımı kapatma sırasında kaldırılan değil. Önyükleme SMB paylaşımında yeniden bağlamaya yönelik Linux /etc/fstab bir satır ekleyin. Linux önyükleme işlemi sırasında bağlamak için gereken dosya sistemlerini listelemek için fstab dosyasını kullanır. SMB paylaşımı ekleme File storage paylaşımını Linux VM için kalıcı bağlı dosya sistemi olmasını sağlar. Bulut init kullandığınızda, SMB paylaşımı dosya depolama için yeni bir VM ekleme mümkündür.
+Linux VM'yi yeniden başlatın, bağlı bir SMB paylaşım sırasında kaldırılan kapatıldı. Önyükleme SMB paylaşımında yeniden bağlamak için Linux /etc/fstab bir satır ekleyin. Linux, önyükleme işlemi sırasında bağlamak için gereken dosya sistemlerini listelemek için fstab dosyasını kullanır. SMB paylaşımı ekleme, File storage paylaşımını Linux VM için kalıcı bağlı dosya sistemi olmasını sağlar. Cloud-init kullandığınızda, SMB paylaşımı dosya depolama için yeni bir sanal makine ekleme mümkündür.
 
 ```bash
 //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
@@ -114,7 +113,7 @@ Linux VM'i yeniden başlattığınızda takılı SMB paylaşımı kapatma sıras
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bir Linux VM oluşturma sırasında özelleştirmek için bulut init kullanma](using-cloud-init.md)
+- [Bir Linux VM oluşturma sırasında özelleştirmek için cloud-init kullanma](using-cloud-init.md)
 - [Linux VM’ye disk ekleme](add-disk.md)
-- [Azure CLI kullanarak bir Linux VM disklerde şifrele](encrypt-disks.md)
+- [Azure CLI kullanarak bir Linux sanal diskleri şifreleme](encrypt-disks.md)
 

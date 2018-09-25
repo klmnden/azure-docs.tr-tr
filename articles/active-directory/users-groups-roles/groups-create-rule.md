@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9a2eb8ab4e3ee65e97de578c825bf106aee1b829
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: e418316a74ccf27ec730261957a8b6c64de5d063
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480349"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040610"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Dinamik bir grup oluşturun ve durumunu denetle
 
@@ -29,7 +29,7 @@ Bu makalede, Azure portalında güvenlik grupları veya Office 365 gruplarında 
 
 ## <a name="to-create-a-group-membership-rule"></a>Bir grup üyeliği kuralı oluşturmak için
 
-1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com) bir genel yönetici veya kullanıcı hesabı yöneticisi olan bir hesapla.
+1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com) kiracısında genel yönetici, Intune Hizmet Yöneticisi veya kullanıcı hesabı yöneticisi rolü olan bir hesapla.
 2. Seçin **grupları**.
 3. Seçin **tüm grupları**seçip **yeni grup**.
 

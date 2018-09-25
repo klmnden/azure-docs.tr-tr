@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Language Understanding Intelligent Service (LUIS) uygulamalarında varlıklar (anahtar, uygulamanızın etki alanı veri) ekleyin.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ec149b0f100ae3e170f39911eafc399f24509dfa
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630401"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042457"
 ---
 # <a name="entities-in-luis"></a>LUIS varlıkları
 
@@ -29,7 +29,7 @@ Buna karşılık olarak amaç tüm utterance tahminini temsil eder.
 ## <a name="entities-represent-data"></a>Varlık verilerini temsil eder.
 Utterance çekmek için istediğiniz verilerin varlıklardır. Bu, bir ad, tarih, ürün adı veya herhangi bir kelimelerin grubu olabilir. 
 
-|Konuşma|Varlık|Veriler|
+|İfade|Varlık|Veriler|
 |--|--|--|
 |New York 3 bilet satın alma|Önceden oluşturulmuş numarası<br>Location.Destination|3<br>New York|
 |5 Mart Londra New York'tan bilet satın alma|Location.Origin<br>Location.Destination<br>Önceden oluşturulmuş datetimeV2|New York<br>Londra<br>5 Mart 2018|
@@ -46,7 +46,7 @@ Word choice veya word düzenleme aynıdır, ancak aynı şeyi anlamına gelmez, 
 
 Aşağıdaki konuşma, word `fair` olan bir eş sesli sözcük. Aynı yazıldığından, ancak farklı bir anlama sahiptir:
 
-|Konuşma|
+|İfade|
 |--|
 |Ne tür bir ilçe fairs yapıldığını Seattle alanında bu yaz?|
 |Geçerli derecelendirme Seattle gözden geçirilmek üzere adil mi?|

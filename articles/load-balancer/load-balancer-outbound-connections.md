@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842264"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036999"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantıları
 
@@ -69,7 +69,7 @@ Kısa ömürlü bağlantı noktaları yük dengeleyicinin genel IP adresi ön u�
 
 Bölümünde anlatıldığı gibi SNAT bağlantı noktaları önceden ayrılmış [anlama SNAT ve PAT](#snat) bölümü. Bunlar tükenmiş olabilir sınırlı bir kaynak hedeflenmiştir. Nasıl olduğunu anlama açısından önemlidir [tüketilen](#pat). Bu tüketimi için tasarımı ve gerektiği şekilde etkisini anlamak için gözden [yönetme SNAT tükenmesi](#snatexhaust).
 
-Zaman [(Genel) birden çok IP adresi yük dengeleyici temel ile ilişkili](load-balancer-multivip-overview.md), bu genel IP adresleridir bir [giden akışlar için aday](#multivipsnat), ve bir seçili.  
+Zaman [birden çok genel IP adresi yük dengeleyici temel ile ilişkili](load-balancer-multivip-overview.md), bu genel IP adresleri olan bir [giden akışlar için aday](#multivipsnat), ve bir rastgele seçili.  
 
 Temel yük dengeleyici giden bağlantı durumunu izlemek için kullanabileceğiniz [Load Balancer için Log Analytics](load-balancer-monitor-log.md) ve [uyarı olay günlüklerini](load-balancer-monitor-log.md#alert-event-log) SNAT bağlantı noktası tükenmesi iletileri izlemek için.
 

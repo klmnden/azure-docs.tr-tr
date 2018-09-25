@@ -1,27 +1,27 @@
 ---
-title: Depolama hesaplarını Azure maliyet yönetimi için yapılandırma | Microsoft Docs
-description: Bu makalede, Azure depolama hesapları ve AWS depolama demetler Azure maliyet yönetimi için nasıl yapılandırılacağını açıklar.
+title: Depolama hesaplarını Azure Cloudyn için yapılandırma | Microsoft Docs
+description: Bu makalede, Azure depolama hesapları ve AWS depolama demet için Cloudyn nasıl yapılandırılacağını açıklar.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: dab7100c97fab7e086352916ec222ec70a0d0400
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 829995d40a73dc181a28a467e4d16fef0bdeb454
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056362"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990663"
 ---
-# <a name="configure-storage-accounts-for-cost-management"></a>Maliyet yönetimi için depolama hesaplarını yapılandırma
+# <a name="configure-storage-accounts-for-cloudyn"></a>Cloudyn depolama hesaplarını yapılandırma
 
-<!--- intent: As a Cost Management user, I want to configure Cost Management to use my cloud service provider storage account to store my reports. -->
+<!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
-Maliyet Yönetimi raporlarını, Cloudyn portalında, Azure depolama veya AWS depolama demet kaydedebilirsiniz. Cloudyn portalında raporlarınızı kaydetme ücretsizdir. Ancak, bulut hizmeti sağlayıcısının depolama alanına raporlarınızı kaydetme isteğe bağlıdır ve ek ücret doğurur. Bu makalede, Azure depolama hesapları ve raporlarınızı depolamak için depolama demetler Amazon Web Services (AWS) yapılandırmanıza yardımcı olur.
+Cloudyn portalında, Azure depolama veya AWS depolama demet Cloudyn raporlarını kaydedebilirsiniz. Cloudyn portalında raporlarınızı kaydetme ücretsizdir. Ancak, bulut hizmeti sağlayıcısının depolama alanına raporlarınızı kaydetme isteğe bağlıdır ve ek ücret doğurur. Bu makalede, Azure depolama hesapları ve raporlarınızı depolamak için depolama demetler Amazon Web Services (AWS) yapılandırmanıza yardımcı olur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,7 +33,7 @@ AWS yoksa basit depolama hizmeti (S3 için) demetine bir oluşturmanız gerekir.
 
 ## <a name="configure-your-azure-storage-account"></a>Azure depolama hesabınızı yapılandırın
 
-Yapılandırdığınız Azure depolama için maliyet Yönetimi tarafından kullanılacak oldukça basittir. Depolama hesabı ayrıntılarını toplayın ve bunları Cloudyn portalında kopyalayın.
+Yapılandırdığınız Cloudyn tarafından kullanılmak üzere Azure depolama oldukça basittir. Depolama hesabı ayrıntılarını toplayın ve bunları Cloudyn portalında kopyalayın.
 
 1. http://portal.azure.com adresinden Azure portalında oturum açın.
 2. Tıklayın **tüm hizmetleri**seçin **depolama hesapları**, ardından hesabını seçin ve istediğiniz depolama hesabına gidin.
@@ -163,4 +163,4 @@ Raporları, artık Azure depolama alanına kaydedebilirsiniz. Herhangi bir rapor
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Gözden geçirme [anlama maliyet Yönetimi raporlarını](understanding-cost-reports.md) temel yapısını ve maliyet Yönetimi raporlarını işlevleri hakkında bilgi edinmek için.
+- Gözden geçirme [anlama Cloudyn raporlarını](understanding-cost-reports.md) temel yapısını ve Cloudyn raporlarını işlevleri hakkında bilgi edinmek için.

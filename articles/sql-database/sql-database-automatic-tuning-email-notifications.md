@@ -2,20 +2,22 @@
 title: Otomatik ayarlama e-posta bildirimleri ile ilgili nasıl yapılır Kılavuzu - Azure SQL veritabanı | Microsoft Docs
 description: Azure SQL veritabanı sorgu otomatik ayarlama e-posta bildirimlerini etkinleştirin.
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/19/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: 546a21c4be13fdd0d06e29253d73c6b67cb8c91c
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498479"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064110"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-posta bildirimlerini otomatik ayarlama
 
@@ -205,12 +207,12 @@ Sonraki adım, yeni oluşturulan yinelenen akış için üç işleri (get çık�
 1. Ayar önerileri almak için PowerShell Betiği yürütmek için eylem oluşturma
 - Seçin "**+ yeni adım**", ardından"**Eylem Ekle**" içindeki yinelenme akış bölmesi
 - Arama alanı türü "**Otomasyon**"ve"**Azure Otomasyonu – oluşturma işi**" Arama sonuçlarından
-- Oluşturma işi bölmesinde iş özelliklerini yapılandırın. Bu yapılandırma için Azure abonelik kimliği, kaynak grubu ve Otomasyon hesabı ayrıntılarını gerekir **daha önce kaydedilen** adresindeki **Otomasyon hesabı bölmesinde**. Bu bölümdeki seçenekleri hakkında daha fazla bilgi edinmek için [Azure Otomasyonu - işi oluştur](https://docs.microsoft.com/connectors/azureautomation/#Create_job).
+- Oluşturma işi bölmesinde iş özelliklerini yapılandırın. Bu yapılandırma için Azure abonelik kimliği, kaynak grubu ve Otomasyon hesabı ayrıntılarını gerekir **daha önce kaydedilen** adresindeki **Otomasyon hesabı bölmesinde**. Bu bölümdeki seçenekleri hakkında daha fazla bilgi edinmek için [Azure Otomasyonu - işi oluştur](https://docs.microsoft.com/connectors/azureautomation/#create-job).
 - Bu eylem tıklayarak oluşturmayı tamamlayamadı "**akışı Kaydet**"
 
 2. Yürütülen PowerShell komut dosyasından çıkış almak için eylem oluşturma
 - Seçin "**+ yeni adım**", ardından"**Eylem Ekle**" içindeki yinelenme akış bölmesi
-- Arama türü Dosyalanan "**Otomasyon**"ve"**Azure Otomasyonu – Get iş çıktısı**" Arama sonuçlarından. Bu bölümdeki seçenekleri hakkında daha fazla bilgi edinmek için [Azure Otomasyonu – Get iş çıktısı](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output).
+- Arama türü Dosyalanan "**Otomasyon**"ve"**Azure Otomasyonu – Get iş çıktısı**" Arama sonuçlarından. Bu bölümdeki seçenekleri hakkında daha fazla bilgi edinmek için [Azure Otomasyonu – Get iş çıktısı](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
 - Doldur (önceki işi oluşturmaya benzer) gerekli alanları - Otomasyon hesabı ve Azure abonelik kimliği, kaynak grubu, (Otomasyon hesabı bölmesinde girildiği gibi) Doldur
 - ' A tıklayın alanın içine "**iş kimliği**" için "**dinamik içerik**" menüsünde gösterilecek. Bu menü seçeneğini seçin "**iş kimliği**".
 - Bu eylem tıklayarak oluşturmayı tamamlayamadı "**akışı Kaydet**"

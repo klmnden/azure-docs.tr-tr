@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 3a0e2b78de8cea3929ac457bab3d5e07a2b85401
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9b0c58fdbfb0d55b3b8998f4edfc1222b9a3d4aa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603388"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988608"
 ---
 # <a name="working-with-date-time-values-in-log-analytics-queries"></a>Log Analytics sorgu tarih saat değerleri ile çalışma
 
@@ -49,33 +49,33 @@ Timespans zaman birimi tarafından izlenen bir ondalık sayı olarak ifade edili
 
 Tarih saat dizesi kullanarak atayarak oluşturulabilir `todatetime` işleci. Örneğin, belirli bir zaman çerçevesinde gönderilen VM sinyal gözden geçirmek için yapabileceğiniz kullanım [işleci arasında](https://docs.loganalytics.io/docs/Language-Reference/Scalar-operators/between-operator) zaman aralığı belirtmek için uygun olduğu...
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated between(datetime("2018-06-30 22:46:42") .. datetime("2018-07-01 00:57:27"))
 ```
 
 Başka bir yaygın bir senaryo için geçerli bir datetime karşılaştırıyor. Örneğin, son iki dakika boyunca tüm sinyaller görmek için kullanabileceğiniz `now` işleci iki dakika temsil eden bir timespan birlikte:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > now() - 2m
 ```
 
 Kısayol, bu işlev için de kullanılabilir:
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > now(-2m)
 ```
 
 Kısa ve en okunabilir yöntemi ancak kullanarak `ago` işleci:
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(2m)
 ```
 
 Başlangıç ve bitiş zamanı bilerek yerine, başlangıç saatini ve süresini bildiğiniz varsayalım. Sorguyu şu şekilde yeniden yazabilirsiniz:
 
-```KQL
+```Kusto
 let startDatetime = todatetime("2018-06-30 20:12:42.9");
 let duration = totimespan(25m);
 Heartbeat
@@ -86,7 +86,7 @@ Heartbeat
 ## <a name="converting-time-units"></a>Zaman birimi dönüştürme
 Bir tarih/saat veya timespan varsayılan dışında bir zaman birimi olarak ifade etmek yararlı olabilir. Örneğin, son 30 dakika hata olayları gözden geçiriyor olmanızdan varsayalım ve ne kadar zaman önce olayın gerçekleştiği gösteren bir hesaplanmış sütun gerekir:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -95,7 +95,7 @@ Event
 
 Gördüğünüz _timeAgo_ sütun değerleri aşağıdaki gibi tutar: "00:09:31.5118992", yani bunlar hh:mm:ss.fffffff biçimlendirilir. Bu değerleri biçimlendirmek istiyorsanız _numver_ başlangıç zamanından itibaren dakika sayısı, bu değer yalnızca "1 dakika artan" bölün.:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -109,7 +109,7 @@ Belirli süre boyunca belirli bir zaman dilimi içinde istatistiklerini elde iht
 
 Son yarım saat boyunca 5 dakikada gerçekleşen olayların sayısını almak için aşağıdaki sorguyu kullanın:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
@@ -127,7 +127,7 @@ Bu, aşağıdaki tabloda oluşturur:
 
 Demetler sonuçları oluşturmak için başka bir işlevler gibi kullanmaktır `startofday`:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(4d)
 | summarize events_count=count() by startofday(TimeGenerated) 
@@ -147,7 +147,7 @@ Bu, aşağıdaki sonuçları oluşturur:
 ## <a name="time-zones"></a>Saat dilimleri
 Tüm tarih/saat değerleri UTC cinsinden ifade edilir olduğundan, genellikle bu yerel saat dilimi dönüştürmek kullanışlıdır. Örneğin, bu hesaplama için PST saatleri UTC dönüştürmek için kullanın:
 
-```KQL
+```Kusto
 Event
 | extend localTimestamp = TimeGenerated - 8h
 ```

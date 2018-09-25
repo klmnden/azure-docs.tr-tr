@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 10e39a205950d50794169e9bedaa65f480f1e9b5
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 91e9cb6b436cc78a0c5bd4769d38622abda4c04d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35756048"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977579"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure’da Linux VM’nizi iyileştirme
 Bir Linux sanal makinesini (VM) oluşturma, komut satırından veya portalından yapmak kolaydır. Bu öğreticide, Microsoft Azure platformunda performansı iyileştirmek için ayarlamış olduğunuz emin olmak nasıl gösterir. Bu konuda bir Ubuntu Server VM kullanır, ancak Linux kullanarak sanal makine oluşturabilirsiniz [şablonları olarak kendi görüntülerinizi](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu konu, çalışan bir Azure aboneliği zaten sahip olduğunuzu varsayar ([ücretsiz denemeye kaydolmayla](https://azure.microsoft.com/pricing/free-trial/)) ve Azure Aboneliğinize bir VM zaten sağladınız. En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve Azure aboneliğinizde oturum [az login](/cli/azure/reference-index#az_login) , önce [VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Bu konu, çalışan bir Azure aboneliği zaten sahip olduğunuzu varsayar ([ücretsiz denemeye kaydolmayla](https://azure.microsoft.com/pricing/free-trial/)) ve Azure Aboneliğinize bir VM zaten sağladınız. En son sahip olduğunuzdan emin olun [Azure CLI](/cli/azure/install-az-cli2) yüklü ve Azure aboneliğinizde oturum [az login](/cli/azure/reference-index#az_login) , önce [VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure işletim sistemi diski
 Azure'da bir Linux VM oluşturduktan sonra onunla ilişkili iki disk var. **/ dev/sda** , işletim sistemi diski **/dev/sdb** , geçici disk.  Ana işletim sistemi diski kullanmayın (**/dev/sda**) olarak işletim sistemi dışındaki her şey için optimize için hızlı VM önyükleme saati ve iş yükleriniz için iyi bir performans sağlamaz. VM'nize kalıcı almak için bir veya daha fazla disk eklemek istediğiniz ve depolama için verilerinizi en iyi duruma getirilmiş. 
@@ -42,7 +42,7 @@ Burada kendi önbellek ayarlarını ayarlanan olarak Premium depolama diskleri �
 * Kullanırsanız **XFS**, bağlama seçeneği kullanılarak devre dışı bırakma engelleri `nobarrier` (engellerini etkinleştirmek için seçeneği kullanın `barrier`)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Yönetilmeyen depolama hesabında dikkate alınacak noktalar
-Azure CLI 2.0 ile bir VM oluşturduğunuzda, varsayılan eylem Azure yönetilen diskler kullanmaktır.  Bu diskler Azure platformu tarafından işlenir ve depolanması için hazırlık veya konum gerektirmez.  Yönetilmeyen diskler bir depolama hesabı gerektirir ve bazı ek performansla ilgili önemli noktalar vardır.  Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Disklere genel bakış](../windows/managed-disks-overview.md).  Aşağıdaki bölümde, yalnızca yönetilmeyen diskler kullandığınızda performansla ilgili önemli noktalar özetlenmektedir.  Yine, varsayılan ve önerilen depolama çözümü olan yönetilen diskleri kullanma.
+Azure CLI ile bir VM oluşturduğunuzda, varsayılan eylem Azure yönetilen diskler kullanmaktır.  Bu diskler Azure platformu tarafından işlenir ve depolanması için hazırlık veya konum gerektirmez.  Yönetilmeyen diskler bir depolama hesabı gerektirir ve bazı ek performansla ilgili önemli noktalar vardır.  Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Disklere genel bakış](../windows/managed-disks-overview.md).  Aşağıdaki bölümde, yalnızca yönetilmeyen diskler kullandığınızda performansla ilgili önemli noktalar özetlenmektedir.  Yine, varsayılan ve önerilen depolama çözümü olan yönetilen diskleri kullanma.
 
 Yönetilmeyen disklerle bir VM oluşturursanız, yakınında olun ve ağ gecikmesini en aza indirmek için VM ile aynı bölgede bulunan depolama hesaplarından diskleri bağladığınızdan emin olun.  Her standart depolama hesabı, en fazla 20 sahiptir IOPS k ve 500 TB boyut kapasite.  Bu sınır hem işletim sistemi diski hem de oluşturduğunuz herhangi bir veri diskleri dahil olmak üzere yaklaşık 40 yoğun olarak kullanılan diskler için üretir. Premium depolama hesapları için maksimum IOPS sınırı yoktur ancak 32 TB boyut sınırı yoktur. 
 

@@ -11,14 +11,19 @@ ms.component: core
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: eb788f56825166ccaa376d32b07371db0588edc8
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5ca47c8234239b56a2d829903828dda8220d53cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35971939"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967617"
 ---
 # <a name="aerial-image-classification"></a>Havadan görünüm sınıflandırması
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Bu örnek dağıtılmış eğitimi ve kullanıma hazır hale getirme, görüntü sınıflandırma modellerini koordine etmek için Azure Machine Learning Workbench'i kullanma işlemini gösterir. Eğitim için iki yaklaşım kullanıyoruz: iyileştirme (i) bir derin sinir ağı kullanarak bir [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) GPU kümesi ve (ii) kullanarak [(MMLSpark) Apache Spark için Microsoft Machine Learning](https://github.com/Azure/mmlspark) için paket CNTK modelleri kullanan kullanarak özellik kazandırın görüntüleri ve türetilmiş özelliklerini kullanarak sınıflandırıcılar eğitmek için. Biz ardından eğitilen modelleri paralel şekilde büyük görüntü kümesi kullanarak bulut geçerli bir [Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) küme, eğitim ve kullanıma hazır hale getirme hızına ekleyerek veya kaldırarak çalışan düğümlerini ölçeklendirmek bize izin verme.
 
@@ -61,7 +66,7 @@ Aşağıdaki yönergeler bu örneğin yürütme ortamı ayarlama işleminde size
        - Daha az çekirdeğe sahip, sağlanan çalışanların sayısını azaltmak için HDInsight küme şablonu değiştirebilir. Bu yönergeler, "HDInsight Spark kümesi oluşturma" bölümünün altında görüntülenir.
     - Bu örnek, bir Batch AI eğitimi kümesi ile iki NC6 oluşturur. (1 GPU, 6 vCPU) VM'ler. Hesabınızın yeterli sayıda kullanılabilir çekirdek Doğu ABD bölgesinde "kullanım ve kotalar" gözden geçirerek sahip olduğundan emin olun Azure portalında aboneliğinizi için sekmesinde.
 - [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)
-    - İzleyin [yükleme ve oluşturma Hızlı Başlangıç](../service/quickstart-installation.md) deneme ve Model yönetim hesapları oluşturma ve Azure Machine Learning Workbench'i yükleyin.
+    - İzleyin [yükleme ve oluşturma Hızlı Başlangıç](../desktop-workbench/quickstart-installation.md) deneme ve Model yönetim hesapları oluşturma ve Azure Machine Learning Workbench'i yükleyin.
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK'sını ve Azure CLI
     - Aşağıdaki bölümlerde tamamlamak [Batch AI tarifleri Benioku](https://github.com/Azure/BatchAI/tree/master/recipes):
         - "Önkoşullar"

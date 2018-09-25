@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: b54a302c022a8af84c1964c13ffadc52b45c4ca4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b7908f9f9aef51857f0ffb07102e1df245b7a259
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696828"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064467"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure işlevleri ile sunucusuz veritabanı bilgi işlem
 
@@ -110,15 +110,12 @@ Tüm bunların kullanım örnekleri, işlev uygulaması ayrılmış olduğundan,
 ## <a name="tooling"></a>Araç kullanımı
 
 Azure Cosmos DB ile Azure işlevleri arasında yerel tümleştirme, Azure portalında ve Visual Studio 2017'de kullanılabilir.
-* Azure işlevleri portalda bir Azure Cosmos DB tetikleyicisi oluşturabilirsiniz. Hızlı yönergeler için bkz: [Azure portalında bir Azure Cosmos DB tetikleyicisi oluşturma](https://aka.ms/cosmosdbtriggerportalfunc) ![Azure işlevleri portalda bir Azure Cosmos DB tetikleyicisi oluşturma](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
-* Azure işlevleri Portalı'nda tetikleyicileri diğer türleri için de Azure Cosmos DB giriş bağlamaları ve çıkış bağlamaları ekleyebilirsiniz. Hızlı yönergeler için bkz: [Azure işlevleri ve Cosmos DB'yi kullanarak yapılandırılmamış verileri Store](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
-    ![Azure işlevleri portalda bir Azure Cosmos DB tetikleyicisi oluşturma](./media/serverless-computing-database/function-portal-input-binding.png)
-*   Azure Cosmos DB portalında bir Azure Cosmos DB tetikleyicisi, aynı kaynak grubunda var olan bir Azure işlev uygulaması ekleyebilirsiniz.
-    ![Azure işlevleri portalda bir Azure Cosmos DB tetikleyicisi oluşturma](./media/serverless-computing-database/cosmos-db-portal.png)
-* Visual Studio 2017'de tümleşik bir şablonu kullanarak bir Azure Cosmos DB tetikleyicisi oluşturabilirsiniz:
+
+* Azure işlevleri portalda bir Azure Cosmos DB tetikleyicisi oluşturabilirsiniz. Hızlı yönergeler için bkz: [Azure portalında bir Azure Cosmos DB tetikleyicisi oluşturma](https://aka.ms/cosmosdbtriggerportalfunc).
+* Azure Cosmos DB portalında bir Azure Cosmos DB tetikleyicisi, aynı kaynak grubunda var olan bir Azure işlev uygulaması ekleyebilirsiniz.
+* Visual Studio 2017'de kullanarak bir Azure Cosmos DB tetikleyicisi oluşturabilirsiniz [Visual Studio 2017 için Azure işlevleri Araçları](../azure-functions/functions-develop-vs.md):
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
-
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>Sunucusuz bilgi işlem için Azure işlevleri tümleştirmesi neden seçmeliyim?
 
@@ -152,7 +149,6 @@ Artık Azure Cosmos DB ile Azure işlevleri için gerçek yeniliklerden:
 
 * [Azure portalında bir Azure Cosmos DB tetikleyicisi oluşturma](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Bir Azure Cosmos DB giriş bağlama işlemiyle Azure işlevleri HTTP tetikleyicisi oluşturma](https://aka.ms/cosmosdbinputbind)
-* [Azure işlevleri ve Cosmos DB'yi kullanarak yapılandırılmamış verileri Store](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
 * [Azure Cosmos DB bağlamalar ve tetikleyiciler](../azure-functions/functions-bindings-cosmosdb.md)
 
 

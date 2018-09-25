@@ -1,26 +1,25 @@
 ---
-title: PostgreSQL için Azure veritabanı'nda izleme
-description: Bu makalede izleme ve CPU, depolama ve bağlantı istatistikleri de dahil olmak üzere, PostgreSQL için Azure veritabanı için uyarı ölçümleri açıklanır.
+title: İzleme ve PostgreSQL için Azure veritabanı'nda ayarlayın
+description: Bu makalede izleme ve PostgreSQL için Azure veritabanı özellikleri ayarlamayı açıklar.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 09/17/2018
-ms.openlocfilehash: 17b12514e32ad8d1548d834d72e0f7564fe78143
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.topic: conceptual
+ms.date: 09/24/2018
+ms.openlocfilehash: e29186d07d9a060e45ed051d6f7ed0ac81a5e15b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985788"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982673"
 ---
-# <a name="monitoring-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda izleme
-İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. PostgreSQL için Azure veritabanı, PostgreSQL sunucusu destekleyen kaynaklarda davranışını öngörü sunan çeşitli ölçümleri sağlar. 
+# <a name="monitor-and-tune"></a>İzleme ve ayarlama
+İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. 
 
 ## <a name="metrics"></a>Ölçümler
-Tüm Azure ölçümleri bir dakikalık sıklığı, ve 30 günlük geçmişi her ölçüm sağlar. Ölçümler üzerinde uyarılar yapılandırabilirsiniz. Adım adım yönergeler için bkz. [uyarıları ayarlamak nasıl](howto-alert-on-metric.md). Diğer görevler otomatik eylemleri ayarlama, Gelişmiş analiz gerçekleştirme ve geçmiş arşivleme içerir. Daha fazla bilgi için [Azure ölçümlerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+PostgreSQL için Azure veritabanı, PostgreSQL sunucusu destekleyen kaynaklarda davranışını öngörü sunan çeşitli ölçümleri sağlar. Her ölçü bir dakikalık sıklığında yayılır ve 30 güne kadar geçmişi vardır. Ölçümler üzerinde uyarılar yapılandırabilirsiniz. Adım adım yönergeler için bkz. [uyarıları ayarlamak nasıl](howto-alert-on-metric.md). Diğer görevler otomatik eylemleri ayarlama, Gelişmiş analiz gerçekleştirme ve geçmiş arşivleme içerir. Daha fazla bilgi için [Azure ölçümlerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### <a name="list-of-metrics"></a>Ölçümlerin listesi
 Bu ölçümler, PostgreSQL için Azure veritabanı için kullanılabilir:
@@ -41,6 +40,14 @@ Bu ölçümler, PostgreSQL için Azure veritabanı için kullanılabilir:
 |network_bytes_egress|Ağ Çıkışı|Bayt|Ağ çıkışı arasında etkin bağlantılar.|
 |network_bytes_ingress|Ağ Girişi|Bayt|Ağ içinde arasında etkin bağlantılar.|
 
+## <a name="query-store"></a>Sorgu Deposu
+[Query Store](concepts-query-store.md) sorgu süresi dahil olmak üzere üzerinde performans sorgu çalışma zamanı istatistikleri ve olayları bekleyin ve genel Önizleme özelliğidir. Özellik adlı bir sistem veritabanında sorgu çalışma zamanı performans bilgilerini devam ederse **azure_sys** query_store şema altında. Çeşitli yapılandırma düğmelerini aracılığıyla veri depolama ve koleksiyon denetleyebilirsiniz.
+
+## <a name="query-performance-insight"></a>Sorgu Performansı İçgörüleri
+[Sorgu performansı İçgörüleri](concepts-query-performance-insight.md) Query Store, Azure portalından erişilebilir görselleştirmeleri sunmak için birlikte çalışır. Bu grafik, anahtar sorguları tanımlamak için performansı etkileyebilir olanak sağlar. Sorgu performansı İçgörüleri genel Önizleme aşamasındadır ve erişebileceğiniz **destek + sorun giderme** PostgreSQL sunucunuzun portal sayfası için Azure veritabanı bölümü.
+
+## <a name="performance-recommendations"></a>Performans önerileri
+[Performans önerileri](concepts-performance-recommendations.md) iş yükü performansı arttırmaya yönelik fırsatlar özelliği tanımlar. Genel Önizleme sürümü, performans, iş yüklerinizin performansını olanağına sahip yeni bir dizin oluşturmak için öneriler sağlar. Dizin önerileri üretmek için özelliği, şema ve sorgu Store tarafından bildirilen gibi iş yükü dahil olmak üzere, çeşitli veritabanı özelliklerini dikkate alır. Herhangi bir performans önerisi uyguladıktan sonra müşteriler bu değişikliklerin etkisini değerlendirmek için performans test etmeniz gerekir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bkz: [uyarıları ayarlamak nasıl](howto-alert-on-metric.md) bir ölçüme göre bir uyarı oluşturma hakkında yönergeler için.

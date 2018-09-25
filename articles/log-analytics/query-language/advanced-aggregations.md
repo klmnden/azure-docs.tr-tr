@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 661ff7c07ba2bb17eb5830b38bb39e1c3e80bb55
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 288af0eae50634f44d6af8c787b56112bb3119ff
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45602917"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998602"
 ---
 # <a name="advanced-aggregations-in-log-analytics-queries"></a>Log Analytics sorguları Gelişmiş toplamaları
 
@@ -34,7 +34,7 @@ Bu makale, Log Analytics sorguları daha gelişmiş toplama seçeneklerini bazı
 ## <a name="generating-lists-and-sets"></a>Listeler ve kümeleri oluşturma
 Kullanabileceğiniz `makelist` özet verileri belirli bir sütundaki değerleri sıraya göre. Örneğin, en yaygın sipariş olaylar gerçekleştiğinde makinelerinizde incelemek isteyebilirsiniz. Aslında, her makinede Eventıds sıraya göre veri Özet. 
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -50,7 +50,7 @@ Event
 
 Yalnızca benzersiz değerler listesini oluşturmak kullanışlıdır. Bu adlı bir _ayarlamak_ ve ile oluşturulan `makeset`:
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -67,11 +67,12 @@ Gibi `makelist`, `makeset` de çalışır sıralı veri ve içine geçirilen Sat
 ## <a name="expanding-lists"></a>Listeleri Genişletiliyor
 Ters işleyişini `makelist` veya `makeset` olduğu `mvexpand`, satırları ayırmak için değer listesi genişletir. Dinamik sütun, hem JSON hem de dizi herhangi bir sayıda arasında genişletebilirsiniz. Örneğin, iade edilemedi *sinyal* tablo son bir saat içinde bir sinyal gönderilen bilgisayarlardan veri gönderen çözümleri için:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, Solutions
 ```
+
 | Bilgisayar | Çözümler | 
 |--------------|----------------------|
 | Bilgisayar1 | "güvenlik", "güncelleştirmeler", "defteriniz" |
@@ -81,23 +82,28 @@ Heartbeat
 
 Kullanım `mvexpand` her değeri virgülle ayrılmış bir listesi yerine ayrı bir satırda göstermek için:
 
-Sinyal | Burada TimeGenerated > önce (1s) | Proje bilgisayar, bölünmüş (çözümler, ",") | mvexpand çözümleri
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(1h)
+| project Computer, split(Solutions, ",")
+| mvexpand Solutions
 ```
-| Computer | Solutions | 
+
+| Bilgisayar | Çözümler | 
 |--------------|----------------------|
-| computer1 | "security" |
-| computer1 | "updates" |
-| computer1 | "changeTracking" |
-| computer2 | "security" |
-| computer2 | "updates" |
-| computer3 | "antiMalware" |
-| computer3 | "changeTracking" |
+| Bilgisayar1 | "güvenlik" |
+| Bilgisayar1 | "güncelleştirmeler" |
+| Bilgisayar1 | "değişiklik"izleme |
+| bilgisayar2 | "güvenlik" |
+| bilgisayar2 | "güncelleştirmeler" |
+| bilgisayar3 | "kötü amaçlı yazılımdan koruma" |
+| bilgisayar3 | "değişiklik"izleme |
 | ... | ... | ... |
-```
+
 
 Ardından kullanabileceğinizi `makelist` yeniden grubuna öğelerini birlikte ve bu süre çözüm başına bilgisayarların listesini bakın:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, split(Solutions, ",")
@@ -115,7 +121,7 @@ Heartbeat
 ## <a name="handling-missing-bins"></a>Depo eksik işleme
 Yararlı bir uygulamayı `mvexpand` eksik depo için varsayılan değerleri doldurmak için gerekli değildir. Örneğin, belirli bir makine için çalışma süresi, sinyal inceleyerek aradığınız varsayalım. Ayrıca, olan sinyal kaynağını görmek istediğiniz _kategori_ sütun. Normalde, biz basit kullanacağınız deyim şu şekilde özetler:
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
@@ -131,7 +137,7 @@ Heartbeat
 
 Bu ancak ilişkili demetine sonuçları "2017-06-06T19:00:00Z" Bu saat için herhangi bir sinyal veri olmadığından eksik. Kullanım `make-series` boş demet için bir varsayılan değer atamak için işlevi. Bu, her iki ek bir dizi sütun kategorisiyle, değerleri için diğeri için eşleşen zaman demet için bir satır oluşturur:
 
-```KQL
+```Kusto
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
@@ -143,7 +149,7 @@ Heartbeat
 
 Üçüncü öğesine *count_* dizi 0 beklendiği gibi olduğu ve eşleşen bir zaman damgası yok "2017-06-06T19:00:00.0000000Z" içinde _TimeGenerated_ dizisi. Bu dizi biçimi, ancak okuma zordur. Kullanım `mvexpand` diziler genişletin ve aynı biçimi tarafından oluşturulan çıktı üretmek için `summarize`:
 
-```KQL
+```Kusto
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 | mvexpand TimeGenerated, count_
@@ -165,7 +171,7 @@ Heartbeat
 Yaygın bir senaryo, bir ölçüt kümesi temel alınarak belirli bazı varlıklar adını seçin ve daha sonra farklı bir veri kümesi, bir dizi varlık aşağı filtre sağlamaktır. Örneğin, güncelleştirmelerin eksik olduğu bilinen bilgisayarlar bulmak ve tanımlamak için bu bilgisayarları çekilerek IP'ler:
 
 
-```KQL
+```Kusto
 let ComputersNeedingUpdate = toscalar(
     Update
     | summarize makeset(Computer)

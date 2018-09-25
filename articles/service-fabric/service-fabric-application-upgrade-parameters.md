@@ -1,6 +1,6 @@
 ---
 title: 'Uygulama yükseltme: yükseltme parametreleri | Microsoft Docs'
-description: Sistem durumu denetimleri gerçekleştirmek ve otomatik olarak yükseltmeyi geri alma ilkeleri dahil olmak üzere bir Service Fabric uygulaması yükseltmeyle ilgili parametreler açıklanmaktadır.
+description: Service Fabric uygulaması gerçekleştirmek için sistem durumu denetimleri ve otomatik olarak yükseltme geri almak için ilkeler de dahil olmak üzere, yükseltmeyle ilgili parametreler açıklanmıştır.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,65 +12,85 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 9/17/2018
 ms.author: subramar
-ms.openlocfilehash: eb319b0f4e910163572ee62d8bdee735f27be592
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f3f381fddee9c1830202854f02556f73b5aeed23
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212628"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055586"
 ---
 # <a name="application-upgrade-parameters"></a>Uygulama yükseltme parametreleri
-Bu makalede Azure Service Fabric uygulama yükseltme sırasında geçerli çeşitli parametreler açıklanmaktadır. Parametreleri adını ve uygulamanın sürümünü içerir. Zaman aşımları ve yükseltme sırasında uygulanan sistem durumu denetimlerini denetleme düğmelerini oldukları ve bir yükseltme başarısız olduğunda uygulanması gereken ilkeleri belirtin.
+Bu makalede, Azure Service Fabric uygulaması yükseltme sırasında geçerli olan çeşitli parametreler açıklanmaktadır. Uygulama yükseltme parametreleri zaman aşımları ve yükseltme sırasında uygulanan sistem durumu denetimlerini denetleme ve bunlar yükseltme başarısız olduğunda uygulanmalıdır ilkeleri belirtin.
 
-<br>
+Uygulama parametreleri, PowerShell veya Visual Studio kullanarak yükseltme uygulanır. PowerShell ve/veya Visual Studio geçerli gerekli ve isteğe bağlı parametreleri gibi gerekli parametreler ve isteğe bağlı parametreler tablolarda açıklanmıştır.
 
-| Parametre | Açıklama |
-| --- | --- |
-| ApplicationName |Yükseltilmekte olan uygulamanın adı. Örnekler: fabric: / VisualObjects, fabric: / ClusterMonitor |
-| TargetApplicationTypeVersion |Uygulama sürümü yazın yükseltme hedefler. |
-| FailureAction |Yükseltme başarısız olduğunda Service Fabric tarafından gerçekleştirilecek eylem. Uygulama (rollback) güncelleştirme öncesi sürümüne geri alınması veya yükseltme geçerli yükseltme etki alanında durdurulmuş olabilir. İkinci durumda, yükseltme modu da el ile olarak değişir. Geri alma ve el ile izin verilen değerleri şunlardır. |
-| HealthCheckWaitDurationSec |Service Fabric önce yükseltme etki alanı yükseltme tamamlandıktan sonra (saniye cinsinden) beklenecek süreyi uygulamanın durumunu değerlendirir. Bu sürenin sağlıklı değerlendirilebilir önce uygulamanın çalıştırılması zaman olarak kabul edilebilir. Sistem durumu denetimi başarılı olursa, sonraki yükseltme etki alanı yükseltme işlemine devam eder.  Sistem durumu denetimi başarısız olursa, Service Fabric (UpgradeHealthCheckInterval) için bir aralığı HealthCheckRetryTimeout ulaşılana kadar sistem durumu denetimi yeniden denemeden önce bekler. Varsayılan ve önerilen değer 0 ise saniyeyi ifade eder. |
-| HealthCheckRetryTimeoutSec |Süre (saniye cinsinden) yükseltme başarısız olarak bildirme önce sistem durumu değerlendirmesi gerçekleştirmek, Service Fabric devam eder. 600 saniye varsayılandır. Bu süre HealthCheckWaitDuration ulaşıldıktan sonra başlar. Bu HealthCheckRetryTimeout içinde Service Fabric uygulama sistem durumunun birden fazla sistem durumu denetimi gerçekleştirebilir. Varsayılan değer 10 dakikadır ve uygulamanız için uygun şekilde özelleştirilmiş. |
-| HealthCheckStableDurationSec |Süre (saniye cinsinden) uygulamayı bir sonraki yükseltme etki alanına taşıma veya yükseltme işlemini tamamladıktan önce tutarlı olduğunu doğrulamak için. Bu bekleme süresi, sistem durumu denetimi gerçekleştirildikten sonra sistem durumu sağ algılanmayan değişiklikleri önlemek için kullanılır. Varsayılan değer 120 saniye ve uygulamanız için uygun şekilde özelleştirilmiş. |
-| UpgradeDomainTimeoutSec |Tek bir yükseltme etki alanına yükseltmek için en uzun süre (saniye cinsinden). Bu zaman aşımı ulaştıysanız, yükseltme durdurur ve UpgradeFailureAction ayarını temel alınarak devam eder. Varsayılan değer hiçbir zaman'dir (sonsuz) ve uygulamanız için uygun şekilde özelleştirilebilir. |
-| UpgradeTimeout |Tüm yükseltme için geçerli bir zaman aşımı (saniye cinsinden). Bu zaman aşımı ulaştıysanız yükseltme durur ve UpgradeFailureAction tetiklenir. Varsayılan değer hiçbir zaman'dir (sonsuz) ve uygulamanız için uygun şekilde özelleştirilebilir. |
-| UpgradeHealthCheckInterval |Sistem durumu denetlenir sıklığı. Bu parametre ClusterManager bölümünde belirtilen *küme* *bildirim*ve yükseltme cmdlet'inin bir parçası olarak belirtilmemiş. Varsayılan değer 60 saniyedir. |
+Uygulama yükseltmede üç kullanıcı tarafından seçilebilen yükseltme modlarından birini başlatılır. Kendi uygulama parametrelerinin her modu vardır:
+- İzleniyor
+- İzlenmeyen otomatik
+- İzlenmeyen el ile
 
-<br>
+PowerShell kullanarak Service Fabric uygulama yükseltme [başlangıç ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade) komutu. Yükseltme modu ya da geçirerek seçili **izlenen**, **UnmonitoredAuto**, veya **UnmonitoredManual** parametresi [ Başlangıç ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade).
 
-## <a name="service-health-evaluation-during-application-upgrade"></a>Uygulama yükseltme sırasında hizmet sistem durumu değerlendirmesi
-<br>
-Sistem durumu değerlendirme ölçütleri isteğe bağlıdır. Yükseltme başladığında, sistem durumu değerlendirme ölçütleri belirtilmezse, Service Fabric uygulaması örneği ApplicationManifest.xml içinde belirtilen uygulama sistem durumu ilkeleri kullanır.
+Visual Studio Service Fabric uygulama yükseltme parametreleri, Visual Studio Yükseltme Ayarları iletişim kutusu ayarlanır. Visual Studio yükseltme modu kullanılarak seçilen **yükseltme modu** ya da açılan kutuda **izlenen**, **UnmonitoredAuto**, veya **UnmonitoredManual** . Daha fazla bilgi için [Visual Studio'da bir Service Fabric uygulamasının yükseltmesini yapılandırma](service-fabric-visualstudio-configure-upgrade.md).
 
-<br>
+## <a name="required-parameters"></a>Gerekli Parametreler
+(PowerShell, VS PS = Visual Studio =)
 
-| Parametre | Açıklama |
-| --- | --- |
-| ConsiderWarningAsError |Varsayılan değer False olur. Uygulama için uyarı sistem durumu olayları, yükseltme sırasında uygulama durumunu değerlendirilirken hata olarak işler. Varsayılan olarak, Service Fabric uyarı olayları olsa bile yükseltme devam edebilmeniz için hatası (hata) gibi uyarı sistem durumu olayları değerlendirmez. |
-| MaxPercentUnhealthyDeployedApplications |Varsayılan ve önerilen değer: 0. Dağıtılan uygulamalar en fazla sayısını belirtin (bkz [sistem bölümü](service-fabric-health-introduction.md)), olabilir sağlıksız önce uygulama kötü olarak değerlendirilir ve yükseltme başarısız olur. Bu parametre uygulama sistem durumu düğümünde tanımlar ve yükseltme sırasında sorunlarını algılamaya yardımcı olur. Genellikle, yük dengeli sağlıklı, böylece devam etmek için Yükselt sağlar görünmesi uygulama sağlayan başka bir düğüme, uygulama, çoğaltmaları alın. Service Fabric, katı MaxPercentUnhealthyDeployedApplications sağlık durumunu belirterek, uygulama paketi ile ilgili bir sorun hızla algılayabilir ve başarısız hızlı yükseltme oluşturulmasını sağlamak. |
-| MaxPercentUnhealthyServices |Varsayılan ve önerilen değer: 0. Uygulama kötü olarak değerlendirilir ve yükseltme başarısız olduğunda önce düzgün çalışmayan uygulama örneğinde Hizmetleri en fazla sayısını belirtin. |
-| MaxPercentUnhealthyPartitionsPerService |Varsayılan ve önerilen değer: 0. En çok bölüm sayısı hizmet sağlıksız kabul edilmeden önce sağlıksız bir hizmet belirtin. |
-| MaxPercentUnhealthyReplicasPerPartition |Varsayılan ve önerilen değer: 0. Çoğaltmaları sayısının bölüm sağlıksız kabul edilmeden önce sağlıksız bölümünde belirtin. |
-| UpgradeReplicaSetCheckTimeout |<p>**Durum bilgisiz hizmet**--tek bir yükseltme etki alanında ek hizmet örneklerini kullanılabilir olduğundan emin olmak Service Fabric çalışır. Hedef örnek sayısı birden fazla ise, Service Fabric kadar en büyük zaman aşımı değeri kullanılabilir olması birden fazla örneği bekler. Bu zaman aşımı UpgradeReplicaSetCheckTimeout özelliğini kullanarak belirtilir. Zaman aşımı süresi dolarsa, Service Fabric hizmet örneği sayısından bağımsız olarak yükseltme devam eder. Hedef örnek sayısı ise, Service Fabric beklememek ve hemen yükseltme işlemine devam eder.</p><p>**Durum bilgisi olan hizmet**--çoğaltma kümesi çekirdeği olduğundan emin olmak Service Fabric tek bir yükseltme etki alanında çalışır. Service Fabric (UpgradeReplicaSetCheckTimeout özelliği tarafından belirtilen) en büyük zaman aşımı değerine kadar kullanılabilir olması bir çekirdek bekler. Zaman aşımı süresi dolarsa, Service Fabric çekirdek bağımsız olarak yükseltme devam eder. Bu ayar kümesi olarak hiçbir zaman (sonsuz) İleri sunulurken, 1200 saniye ise geri olduğunda.</p> |
-| ForceRestart |Hizmet koduna güncelleştirmeden yapılandırma veya veri paketi güncelleştirirseniz ForceRestart özelliği yalnızca ayarlanmışsa, hizmet yeniden true. Güncelleştirme tamamlandığında, Service Fabric hizmeti, yeni bir yapılandırma paketi veya veri paketi kullanılabilir olduğunu bildirir. Hizmet, değişiklikleri uygulamak için sorumludur. Gerekirse, hizmetin kendisini yeniden başlatabilirsiniz. |
+| Parametre | Şunun İçin Geçerli | Açıklama |
+| --- | --- | --- |
+ApplicationName |PS| Yükseltilmekte olan uygulamanın adı. Örnekler: fabric: / VisualObjects, fabric: / ClusterMonitor. |
+ApplicationTypeVersion|PS|Uygulama sürümü türü yükseltme hedefler. |
+FailureAction |PS, VS|İzin verilen değerler **geçersiz**, **geri alma**, ve **el ile**. Yükseltme başarısız olduğunda, Service Fabric tarafından gerçekleştirilecek eylem. Uygulama güncelleştirme öncesi sürüm (Geri Al) geri alınması veya yükseltme sırasında geçerli yükseltme etki alanı durdurulmuş olabilir. İkinci durumda, yükseltme modu da değiştirilir **el ile**.|
+İzleniyor |PS|Yükseltme modu izlenip izlenmediğini gösterir. Service Fabric, yükseltme etki alanı ve küme durumunu tanımladığınız sistem durumu ilkeleri karşılıyorsanız cmdlet'i bir yükseltme etki alanı için bir yükseltme tamamlandıktan sonra sonraki yükseltme etki alanı yükseltir. Yükseltme etki alanı ya da küme sistem durumu ilkeleri karşılamak başarısız olursa, yükseltme başarısız olur ve Service Fabric geri yükseltme etki alanı için yükseltme yapar veya belirtilen ilke başına el ile moduna döner. Bir üretim ortamında uygulama yükseltmeleri için önerilen mod budur. |
+UpgradeMode | VS | İzin verilen değerler **izlenen** (varsayılan), **UnmonitoredAuto**, veya **UnmonitoredManual**. Ayrıntılar için bu makaledeki her modu için PowerShell parametreleri bakın. |
+UnmonitoredAuto | PS | Yükseltme modu izlenmeyen otomatik olduğunu gösterir. Service Fabric, bir yükseltme etki alanını yükseltildikten sonra Service Fabric uygulaması sistem durumu bağımsız olarak bir sonraki yükseltme etki alanı yükseltir. Bu mod, üretim için tavsiye edilmez ve yalnızca bir uygulamanın geliştirilmesi sırasında yararlıdır. |
+UnmonitoredManual | PS | Yükseltme modu izlenmeyen el ile olduğunu gösterir. Service Fabric, bir yükseltme etki alanını yükseltildikten sonra sonraki yükseltme etki alanı kullanarak yükseltmek bekleyeceği *sürdürme ServiceFabricApplicationUpgrade* cmdlet'i. |
 
-<br>
-<br>
-Hizmet türü için bir uygulama örneği başına MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService ve MaxPercentUnhealthyReplicasPerPartition ölçütlerini belirtilebilir. Bu parametreleri başına hizmet ayarlamayı sağlar farklı değerlendirme ilkeleriyle farklı Hizmetleri türlerini içeren bir uygulama için. Örneğin, bir durum bilgisi olmayan ağ geçidi hizmet türü belirli uygulama örneği için bir durum bilgisi olan Altyapısı hizmeti türünden farklı bir MaxPercentUnhealthyPartitionsPerService sahip olabilir.
+## <a name="optional-parameters"></a>İsteğe bağlı parametreler
+
+Sistem durumu değerlendirme parametreler isteğe bağlıdır. Yükseltme başladığında sistem durumu değerlendirme ölçütleri belirtilmezse, Service Fabric Uygulama örneğinin ApplicationManifest.xml içinde belirtilen uygulama sistem durumu ilkeleri kullanır.
+
+Yatay kaydırma çubuğu, tablonun alt kısmındaki tam açıklama alanı görüntülemek için kullanın.
+
+(PowerShell, VS PS = Visual Studio =)
+
+| Parametre | Şunun İçin Geçerli | Açıklama |
+| --- | --- | --- |
+| ApplicationParameter |PS, VS| Uygulama parametreleri geçersiz kılmalarını belirtir.<br>PowerShell applcation parametreleri hashtable ad/değer çiftleri belirtilir. Örneğin, @{"VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1"}.<br>Visual Studio uygulama parametreleri, Service Fabric uygulamasını Yayımla iletişim belirtilebilir **uygulama parametreleri dosyası** alan.
+| Onayla |PS| İzin verilen değerler **True** ve **False**. Cmdlet'i çalıştırmadan önce onay ister. |
+| ConsiderWarningAsError |PS, VS |İzin verilen değerler **True** ve **False**. Varsayılan ayar, **False** değeridir. Uygulama için uyarı sistem durumu olayları, yükseltme sırasında durumunu değerlendirilirken hata olarak değerlendir. Varsayılan olarak, Service Fabric uyarı olayları olsa bile, yükseltme devam edebilmeniz için hatası (hata) gibi uyarı sistem durumu olayları değerlendirmez. |
+| DefaultServiceTypeHealthPolicy | PS, VS |Sistem durumu ilkesi biçiminde MaxPercentUnhealthyPartitionsPerService, MaxPercentUnhealthyReplicasPerPartition, MaxPercentUnhealthyServices izlenen yükseltme için kullanılacak varsayılan hizmet türünün belirtir. Örneğin, aşağıdaki değerleri 5,10,15 gösterir: MaxPercentUnhealthyPartitionsPerService = 5, MaxPercentUnhealthyReplicasPerPartition = 10, MaxPercentUnhealthyServices = 15. |
+| Zorla | PS, VS | İzin verilen değerler **True** ve **False**. Yükseltme işlemi uyarı iletisi atlar ve sürüm numarasını bile değişmediğinden yükseltme zorlar gösterir. Bu, yerel olarak test etmek için kullanışlıdır ancak kapalı kalma süresini ve olası veri kaybına neden olan mevcut dağıtımı kaldırma gerektirdiği bir üretim ortamında kullanım için önerilmez. |
+| ForceRestart |PS, VS |Hizmet kodu güncelleştirmeden bir yapılandırma veya veri paketi güncelleştirirseniz yalnızca ForceRestart özelliği ayarlanmışsa hizmet yeniden **True**. Güncelleştirme tamamlandığında, Service Fabric hizmeti, yeni yapılandırma paketi veya veri paketi kullanılabilir olduğunu bildirir. Değişiklikleri uygulamak için sorumlu hizmettir. Gerekirse, hizmetin kendisini yeniden başlatabilirsiniz. |
+| HealthCheckRetryTimeoutSec |PS, VS |Süre (saniye cinsinden), yükseltme başarısız olarak bildirme önce sistem durumu değerlendirmesi gerçekleştirmek, Service Fabric devam eder. 600 saniye varsayılandır. Bu süre sonra başlar *HealthCheckWaitDurationSec* ulaşıldı. Bu *HealthCheckRetryTimeout*, Service Fabric uygulama sistem durumunun birden çok sistem durumu denetimleri gerçekleştirmek. Varsayılan değer 10 dakikadır ve uygulamanız için uygun biçimde özelleştirilmelidir. |
+| HealthCheckStableDurationSec |PS, VS |Süre (saniye cinsinden) uygulamanın sonraki yükseltme etki alanına taşıma veya yükseltmeyi tamamlamadan önce kararlı olduğunu doğrulayın. Bu bekleme süresi, sistem durumu denetimini gerçekleştirildikten sonra sistem durumunda algılanmayan değişiklikler önlemek için kullanılır. Varsayılan değer 120 saniyedir ve uygulamanız için uygun biçimde özelleştirilmelidir. |
+| HealthCheckWaitDurationSec |PS, VS | Süre (saniye cinsinden) yükseltme etki alanında önce Service Fabric yükseltmesi tamamlandıktan sonra uygulama durumunu değerlendirir. Bu süre de sağlıklı edilebilmelerini önce uygulamanın çalıştırılması gerektiği zaman olarak kabul edilebilir. Sistem durumu denetimi başarılı olursa, yükseltme işlemi, bir sonraki yükseltme etki alanına devam eder.  Service Fabric sistem durumu denetimi başarısız olursa bekler [UpgradeHealthCheckInterval](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-fabric-settings#clustermanager) sistem yeniden denemeden önce kadar yeniden denetle *HealthCheckRetryTimeoutSec* ulaşıldı. Varsayılan ve önerilen değer olan 0 saniye. |
+| MaxPercentUnhealthyDeployedApplications|PS, VS |Varsayılan ve önerilen değer: 0. Dağıtılan uygulamalar maksimum sayısını belirtin (bkz [durumu bölümünün](service-fabric-health-introduction.md)) olabilecek kötü önce uygulama durumu kötü olarak değerlendirilir ve yükseltme başarısız olur. Bu parametre, düğüm üzerinde uygulama durumunu tanımlar ve yükseltme sırasında sorunları algılamaya yardımcı olur. Genellikle, uygulamanın çoğaltmaların iyi ve bu nedenle devam etmek yükseltme izin görüntülenecek uygulama sağlayan diğer düğüm, yük dengeli alın. Bir katı belirterek *MaxPercentUnhealthyDeployedApplications* sistem durumu, Service Fabric uygulama paketi ile ilgili bir sorun hızlı bir şekilde algılayın ve hızlı yükseltme yük devretme elde etmeye yardımcı. |
+| MaxPercentUnhealthyServices |PS, VS |Bir parametre *DefaultServiceTypeHealthPolicy* ve *ServiceTypeHealthPolicyMap*. Varsayılan ve önerilen değer: 0. Uygulama durumu kötü olarak değerlendirilir ve yükseltme başarısız olduğunda önce iyi durumda olmayan uygulama örneğinde Hizmetleri en fazla sayısını belirtin. |
+| MaxPercentUnhealthyPartitionsPerService|PS, VS |Varsayılan ve önerilen değer: 0. En yüksek bölüm sayısı, hizmet sistem durumu kötü olarak kabul edilmeden önce iyi durumda olmayan bir hizmet belirtin. |
+| MaxPercentUnhealthyReplicasPerPartition|PS, VS |Varsayılan ve önerilen değer: 0. Bölüm iyi durumda olmadığı kabul edebilmesi iyi durumda olmayan bölüm çoğaltmaları sayısı belirtin. |
+| ServiceTypeHealthPolicyMap | PS, VS | Bir hizmet türüne ait hizmetlerin durumunu değerlendirmek için kullanılan sistem durumu ilkesi temsil eder. Şu biçimde bir karma tablo girişi alır: @ {"Servicetypename birlikte belirtilemez": "MaxPercentUnhealthyPartitionsPerService, MaxPercentUnhealthyReplicasPerPartition, MaxPercentUnhealthyServices"} Örneğin: @{"ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5"} |
+| TimeoutSec | PS, VS | İşlemi için saniye cinsinden zaman aşımı süresini belirtir. |
+| UpgradeDomainTimeoutSec |PS, VS |Tek bir yükseltme etki alanını yükseltmek için en uzun süreyi (saniye cinsinden). Bu zaman aşımı ulaşılırsa yükseltme durdurur ve ayarını temel alınarak geçer *FailureAction*. Varsayılan değer hiçbir zaman: (sonsuz) ve uygulamanız için uygun biçimde özelleştirilmelidir. |
+| UpgradeReplicaSetCheckTimeoutSec |PS, VS |**Durum bilgisi olmayan hizmet**--hizmetin ek örneklerini kullanılabilir olmasını sağlamak Service Fabric tek bir yükseltme etki alanında çalışır. Service Fabric hedef örnek sayısı, birden fazla ise, birden fazla örneğini bir maksimum zaman aşımı değeri en fazla kullanılabilir olmasını bekler. Bu zaman aşımı kullanılarak belirtilen *UpgradeReplicaSetCheckTimeoutSec* özelliği. Zaman aşımı süresi dolarsa, Service Fabric service örnek sayısından bağımsız olarak yükseltme işlemine devam eder. Hedef örnek sayısını ise, Service Fabric beklememeyi ve hemen yükseltme işlemine devam eder.<br><br>**Durum bilgisi olan hizmet**--çoğaltma kümesine bir çekirdek olduğundan emin olmak Service Fabric tek bir yükseltme etki alanında çalışır. Service Fabric bir çekirdek bir maksimum zaman aşımı değeri en fazla kullanılabilir olmasını bekler (tarafından belirtilen *UpgradeReplicaSetCheckTimeoutSec* özelliği). Zaman aşımı süresi dolarsa, Service Fabric çekirdek bakılmaksızın yükseltme işlemine devam eder. Bu ayar kümesi olarak hiçbir zaman (sonsuz) İleri sarmadır olduğunda ve 1200 saniye olan zaman geri alınıyor. |
+| UpgradeTimeoutSec |PS, VS |Tüm yükseltme için geçerli bir zaman aşımı (saniye cinsinden). Bu zaman aşımı ulaşılırsa, yükseltme durdurulur ve *FailureAction* tetiklenir. Varsayılan değer hiçbir zaman: (sonsuz) ve uygulamanız için uygun biçimde özelleştirilmelidir. |
+| WhatIf | PS | İzin verilen değerler **True** ve **False**. Cmdlet çalıştırılıyorsa ne olacağını gösterir. Cmdlet çalıştırılmaz. |
+
+*MaxPercentUnhealthyServices*, *MaxPercentUnhealthyPartitionsPerService*, ve *MaxPercentUnhealthyReplicasPerPartition* ölçüt başına belirtilebilir bir uygulama örneği için hizmet türü. Bu parametreleri başına hizmet ayarı sağlayan bir uygulamanın farklı değerlendirme ilkeleriyle farklı Hizmetleri türler bulunur. Örneğin, bir durum bilgisi olmayan bir ağ geçidi hizmet türü olabilir bir *MaxPercentUnhealthyPartitionsPerService* belirli bir uygulama örneği için bir durum bilgisi olan Altyapısı hizmeti türünden farklı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Uygulama kullanarak Visual Studio yükseltme](service-fabric-application-upgrade-tutorial.md) Visual Studio kullanarak bir uygulama yükseltme yol gösterir.
+[Uygulamayı kullanarak Visual Studio yükseltme](service-fabric-application-upgrade-tutorial.md) Visual Studio kullanarak bir uygulama yükseltmesi size yol gösterir.
 
-[Uygulama Powershell kullanarak yükseltme](service-fabric-application-upgrade-tutorial-powershell.md) PowerShell kullanarak bir uygulama yükseltme yol gösterir.
+[Uygulama Powershell kullanarak yükseltme](service-fabric-application-upgrade-tutorial-powershell.md) PowerShell kullanarak bir uygulama yükseltmesi size yol gösterir.
 
-[Linux'ta Service Fabric CLI kullanarak uygulamanızı yükseltme](service-fabric-application-lifecycle-sfctl.md#upgrade-application) Service Fabric CLI kullanarak bir uygulama yükseltme yoluyla anlatılmaktadır.
+[Linux üzerinde Service Fabric CLI kullanarak uygulamanızı yükseltmek](service-fabric-application-lifecycle-sfctl.md#upgrade-application) Service Fabric CLI kullanarak bir uygulama yükseltmesi size yol gösterir.
 
 [Service Fabric Eclipse eklentisi kullanarak uygulamanızı yükseltme](service-fabric-get-started-eclipse.md#upgrade-your-service-fabric-java-application)
 
-Uygulama yükseltme nasıl kullanılacağını öğrenerek uyumlu hale getirmek [veri seri hale getirme](service-fabric-application-upgrade-data-serialization.md).
+Nasıl kullanılacağını öğrenerek, uygulama yükseltmeleri uyumlu olma [veri seri hale getirme](service-fabric-application-upgrade-data-serialization.md).
 
-Gelişmiş işlevselliği başvurarak uygulamanızı yükseltirken kullanmayı öğrenin [Gelişmiş konular](service-fabric-application-upgrade-advanced.md).
+Uygulamanızı yükseltilirken başvurarak gelişmiş işlevselliği kullanmanıza öğrenin [Gelişmiş konular](service-fabric-application-upgrade-advanced.md).
 
-Adımlarına bakarak uygulama yükseltmeleri sık karşılaşılan sorunları düzeltmek [sorun giderme uygulama yükseltmelerini](service-fabric-application-upgrade-troubleshooting.md).
+Yaygın sorunlar uygulama yükseltmeleri adımları başvurarak düzeltme [uygulama yükseltme sorunlarını giderme](service-fabric-application-upgrade-troubleshooting.md).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: efd512395b49d3c274bb5aa409d1cbd527673659
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 35cd773c2a30549dde10a73b2fbe6db1a0c8b34a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781896"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989388"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux için Ağ İzleyicisi Aracısı sanal makine uzantısı
 
@@ -87,7 +87,7 @@ Ağ İzleyicisi Aracısı Uzantı Şeması aşağıdaki JSON'u göstermektedir. 
 
 Azure VM uzantıları Azure Resource Manager şablonu ile dağıtabilirsiniz. Ağ İzleyicisi Aracısı uzantısını dağıtmak için önceki json şeması şablonunuzda kullanın.
 
-## <a name="azure-cli-10-deployment"></a>Azure CLI 1.0 dağıtımı
+## <a name="azure-classic-cli-deployment"></a>Azure Klasik CLI dağıtım
 
 Aşağıdaki örnek, Ağ İzleyicisi Aracısı VM uzantısını Klasik dağıtım modeliyle dağıtılan var olan bir sanal makineye dağıtır:
 
@@ -96,7 +96,7 @@ azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
 
-## <a name="azure-cli-20-deployment"></a>Azure CLI 2.0 dağıtım
+## <a name="azure-cli-deployment"></a>Azure CLI dağıtım
 
 Aşağıdaki örnek Resource Manager üzerinden dağıtılan var olan bir sanal makineye bir Ağ İzleyicisi Aracısı VM uzantısı dağıtır:
 
@@ -110,7 +110,7 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 Azure portal veya Azure CLI kullanarak uzantı dağıtımları durumuyla ilgili veri alabilir.
 
-Aşağıdaki örnek, Azure CLI 1.0 kullanarak Klasik dağıtım modeliyle dağıtılan sanal makine için uzantıları dağıtım durumunu gösterir:
+Aşağıdaki örnek, Klasik Azure CLI kullanarak Klasik dağıtım modeli üzerinden dağıtılmış bir VM için uzantıları dağıtım durumunu gösterir:
 
 ```azurecli
 azure config mode asm
@@ -122,7 +122,7 @@ Uzantı yürütme çıktısı aşağıdaki dizinde bulunan dosyalara kaydedilir:
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
 
-Aşağıdaki örnek Azure CLI 2.0 kullanarak Resource Manager üzerinden dağıtılan bir sanal makine için NetworkWatcherAgentLinux uzantısı dağıtım durumunu gösterir:
+Aşağıdaki örnekte Azure CLI kullanarak Resource Manager üzerinden dağıtılan bir sanal makine için NetworkWatcherAgentLinux uzantısı dağıtım durumunu gösterir:
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1

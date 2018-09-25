@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a30c6a8d02b46656a0d76cf8438bdf0b3361ae91
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: c99186d73886041d92bea38b0dd4dc17f55001e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248470"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977869"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama
 Birçok ekip verilerini ve ayarlarını izlemeye erişim kesinlikle düzenleyen gerekir. Özel İzleme (destek mühendisleri, devops mühendislerine) üzerinde çalışan takım üyeleri sahipseniz veya yönetilen hizmet sağlayıcısı kullanıyorsanız, bunları oluşturmak için kendi yeteneği sınırlandırırken yalnızca izleme verilerine erişimi vermek isteyebilirsiniz, örneğin, değiştirme, veya kaynakları silin. Bu makalede, azure'da bir kullanıcı için bir yerleşik izleme RBAC rolü uygulamak veya izleme sınırlı izinlere ihtiyaç duyan bir kullanıcı için kendi özel rol oluşturma gösterilmektedir. Ardından, Azure İzleyici ile ilgili kaynaklarınızı ve içerdikleri verilere erişimi nasıl sınırlamak için güvenlik konuları açıklanmaktadır.
@@ -171,6 +171,24 @@ Event hubs ile benzer bir desen gelebilir, ancak öncelikle bir adanmış dinlem
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
    New-AzureRmRoleDefinition -Role $role 
    ```
+
+## <a name="monitoring-within-a-secured-virtual-network"></a>Güvenli bir sanal ağ içindeki izleme
+
+Azure İzleyicisi'ni etkinleştirmeniz hizmetleri sağlamak için Azure kaynaklarına erişimi gerekir. Azure kaynaklarınızı yine de bunları erişimden genel Internet'e korurken izlemek istiyorsanız, aşağıdaki ayarları etkinleştirebilirsiniz.
+
+### <a name="secured-storage-accounts"></a>Güvenli Depolama hesapları 
+
+İzleme verileri, genellikle bir depolama hesabına yazılır. Bir depolama hesabına kopyalanan verileri yetkisiz kullanıcılar tarafından erişilemez olduğundan emin olmak isteyebilirsiniz. Ek güvenlik için yalnızca yetkili kaynaklarınızı izin vermek için ağ erişimi ve bir depolama hesabına güvenilen Microsoft Hizmetleri erişim tuşunu "Seçili ağlar" kullanmak üzere bir depolama hesabı kısıtlayarak kilitleyebilirsiniz.
+![Azure depolama Ayarları iletişim kutusu](./media/monitoring-roles-permissions-security/secured-storage-example.png) Azure İzleyici değerlendirilir bunlardan birini "Güvenilen Microsoft Hizmetleri" güvenli depolama alanına erişmek, güvenilen Microsoft hizmetlerinin izin verirseniz, güvenli depolama hesabınıza erişim; Azure İzleyici olacaktır etkinleştirme Depolama hesabınıza korumalı bu koşullar altında Azure İzleyici tanılama günlükleri, etkinlik günlüğü ve ölçümleri yazma. Bu da Log Analytics'i güvenli depolama alanından günlükleri okuyacak şekilde etkinleştirir.   
+
+Daha fazla bilgi için [ağ güvenlik ve Azure depolama](../storage/common/storage-network-security.md)
+ 
+### <a name="secured-virtual-networks-with-service-endpoints"></a>Hizmet uç noktaları ile güvenli sanal ağlar 
+
+Sanal ağlar (Vnet'ler) trafiği Azure kaynaklarınızla iletişim kurabilmesi yalnızca belirtilen trafiğine izin verecek şekilde kısıtlamak sağlar. Vnet'inizi Azure İzleyicisi'ni içerecek şekilde genişletmek için hizmet uç noktaları belirtebilirsiniz; Bu günlük kaydı ve ölçüm bilgileri Azure İzleyici sanal ağlardan güvenli bir şekilde göndermek için conitinue kaynaklarınıza olanak sağlar.  
+
+Daha fazla bilgi için [sanal ağ uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md). 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [RBAC ve izinler de Resource Manager hakkında bilgi edinin](../role-based-access-control/overview.md)

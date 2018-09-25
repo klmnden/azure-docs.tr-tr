@@ -12,14 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 33d95e0c17e8b9b18313cb0854532337ec76cfd1
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: e0f6148e1fb28838bf99c63fbfbfbfe8cd127c8c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057453"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973217"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Soru- cevap bir eşleşen Azure Machine Learning workbench'i kullanma
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Açık bir bitiş soruyu yanıtlayarak zordur ve genellikle el ile emeğinin konu uzmanları (SMEs) gerektirir. İç SMEs taleplerini azaltmak için şirketler genellikle kullanıcılara yardım bir yol sık sorulan sorular (SSS) listesi oluşturun. Bu örnekte, SSS soru/yanıt çifti önceden mevcut açık bitişi sorguları eşleştirmek için çeşitli etkin machine learning yöntemleri gösterir. Bu örnekte, Azure Machine Learning Workbench'i kullanarak çözüm oluşturmaya yönelik bir kolayca geliştirme işlemi gösterilmektedir. 
 
 ## <a name="link-to-the-gallery-github-repository"></a>Galeri GitHub deponuza bağlayın
@@ -42,7 +47,7 @@ Bu çözüm sunmak için gerekli temel adımlar aşağıdaki gibidir:
 Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 
 1. Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz denemeler kullanılabilir).
-2. Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](../service/quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturun.
+2. Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturun.
 3. Bu örnek, her işlem bağlam üzerinde çalıştırılabilir. Ancak, çalıştırmak için çok çekirdekli makine ile en az önerilir 16GB bellek ve 5GB disk alanı.
 
 ## <a name="create-a-new-workbench-project"></a>Workbench yeni bir proje oluşturun
@@ -89,7 +94,7 @@ Doğrudan indirme bağlantıları üç veri kümesi ve veri şeması aşağıdak
 |  | Text0 | Dize | Çoğaltma'nın başlık ve gövde içeren ham metin verileri
 |  | CreationDate | Zaman damgası | Çoğaltma zaman istendi, zaman damgası
 | [yanıtlar](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Kimlik | Dize | Benzersiz yanıt kimliği (birincil anahtar)
-|  | text0 | Dize | Ham metin verileri yanıt
+|  | Text0 | Dize | Ham metin verileri yanıt
 
 
 ## <a name="scenario-structure"></a>Senaryo yapısı
