@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 1a5df1081edeb8b8e7520064a71534f70a9a9d33
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344309"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954407"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan yaygın terimlerin bazıları listelenmektedir.
@@ -21,17 +21,17 @@ Bu makalede IOT hub'ı makalelerinde kullanılan yaygın terimlerin bazıları l
 ## <a name="advanced-message-queueing-protocol"></a>Gelişmiş ileti sıraya alma Protokolü
 [Gelişmiş ileti sıraya alma Protokolü (AMQP)](https://www.amqp.org/) olduğu bir Mesajlaşma protokolleri [IOT hub'ı](#iot-hub) cihazlarla iletişim için destekler. IOT hub'ın desteklediği Mesajlaşma protokolleri hakkında daha fazla bilgi için bkz. [göndermek ve IOT Hub ile ileti alma](iot-hub-devguide-messaging.md).
 
-## <a name="automatic-device-management"></a>Otomatik cihaz Yönetimi
+## <a name="automatic-device-management"></a>Otomatik Cihaz Yönetimi
 Azure IOT hub otomatik cihaz Yönetimi döngülerini tamamına büyük cihaz filolarına yönetme yinelenen ve karmaşık görevlerinin birçoğunu otomatik hale getirir. İle otomatik cihaz yönetimi, bir dizi cihazda özelliklerine göre hedef, istenen yapılandırmasını tanımlamak ve IOT Hub'ın kapsama geldikleri her cihazları güncelleştirmek olanak tanır.  Oluşan [otomatik cihaz yapılandırmaları](iot-hub-auto-device-config.md) ve [IOT Edge otomatik dağıtımlar](../iot-edge/how-to-deploy-monitor.md).
 
 ## <a name="automatic-device-configuration"></a>Otomatik cihaz yapılandırması
 Çözüm arka ucunuz kullanabilirsiniz [otomatik cihaz yapılandırmaları](iot-hub-auto-device-config.md) bir dizi için istenen özellikler atamak [cihaz ikizlerini](#device-twin) ve sistem ölçümlerini ve özel ölçüm kullanarak rapor durumu. 
 
-## <a name="azure-cli"></a>Azure CLI
-[Azure CLI](../cli-install-nodejs.md) oluşturmak ve Microsoft Azure kaynaklarını yönetmek için bir platformlar arası, açık kaynaklı, kabuk tabanlı komut aracı. CLI'ın bu sürümü, Node.js kullanarak uygulanır.
+## <a name="azure-classic-cli"></a>Klasik Azure CLI
+[Azure Klasik CLI](../cli-install-nodejs.md) oluşturmak ve Microsoft Azure kaynaklarını yönetmek için bir platformlar arası, açık kaynaklı, kabuk tabanlı komut aracı. CLI'ın bu sürümü yalnızca klasik dağıtımlar için kullanılmalıdır.
 
-## <a name="azure-cli-20"></a>Azure CLI 2.0
-[Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) oluşturmak ve Microsoft Azure kaynaklarını yönetmek için bir platformlar arası, açık kaynaklı, kabuk tabanlı komut aracı. Python kullanarak CLI'ın bu Önizleme sürümü kullanılır.
+## <a name="azure-cli"></a>Azure CLI
+[Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) oluşturmak ve Microsoft Azure kaynaklarını yönetmek için bir platformlar arası, açık kaynaklı, kabuk tabanlı komut aracı.
 
 
 ## <a name="azure-iot-device-sdks"></a>Azure IOT cihaz SDK'ları
@@ -185,8 +185,8 @@ Kullanabileceğiniz [IOT hub'ı kaynak REST API'si](https://docs.microsoft.com/r
 ## <a name="iot-solution-accelerators"></a>IoT çözüm hızlandırıcıları
 Azure IOT Çözüm Hızlandırıcıları, birden çok Azure hizmeti çözümleriyle birlikte paketleyin. Bu çözümler yaygın IOT senaryolarının uçtan uca uygulamaları ile hızla çalışmaya başlamanızı sağlar. Daha fazla bilgi için [Azure IOT Çözüm Hızlandırıcısı nedir?](../iot-accelerators/about-iot-accelerators.md)
 
-## <a name="the-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0 için IOT uzantısı
-[Azure CLI 2.0 için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) bir platformlar arası komut satırı aracıdır. Aracı, cihazlarınızı yönetmenize olanak tanır [kimlik kayıt defteri](#identity-registry), göndermek ve iletileri ve dosyaları cihazlarınızdan alabilir ve, IOT hub işlemlerini izleme.
+## <a name="the-iot-extension-for-azure-cli"></a>Azure CLI için IOT uzantısı 
+[Azure CLI için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) bir platformlar arası komut satırı aracıdır. Aracı, cihazlarınızı yönetmenize olanak tanır [kimlik kayıt defteri](#identity-registry), göndermek ve iletileri ve dosyaları cihazlarınızdan alabilir ve, IOT hub işlemlerini izleme.
 
 ## <a name="job"></a>İş
 Çözüm arka ucunuz kullanabilirsiniz [işleri](iot-hub-devguide-jobs.md) zamanlayın ve IOT hub'ınıza kayıtlı cihazlar üzerinde etkinlikleri izlemek için. Etkinlikler içeren cihaz ikizi güncelleştirme [istenen özellikleri](#desired-properties), güncelleştirme cihaz ikizi [etiketleri](#tags)ve bunları çağırırken [doğrudan yöntemler](#direct-method). [IOT hub'ı](#iot-hub) için de kullanır [için içeri ve dışarı aktarma](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) gelen [kimlik kayıt defteri](#identity-registry).

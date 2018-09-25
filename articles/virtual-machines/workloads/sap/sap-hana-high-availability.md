@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: dfcb5c7c0b487b8379d89a9b285bae1ca1a9c774
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: e2e76e3cd058e5798b0159923118b050f38d077e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634532"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034646"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
 
@@ -68,6 +68,7 @@ Bu makalede, dağıtın ve sanal makineleri yapılandırma, küme Framework'ü y
 * SAP notu [1984787] SUSE Linux Enterprise Server 12 ilgili genel bilgiler bulunur.
 * SAP notu [1999351] Azure Gelişmiş izleme uzantısı için SAP için ek bilgiler.
 * [SAP topluluk WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tüm gerekli SAP notları için Linux sahiptir.
+* [SAP HANA sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Azure sanal makineleri planlama ve uygulama için Linux üzerinde SAP] [ planning-guide] Kılavuzu.
 * [Azure sanal makineler dağıtım için Linux'ta SAP] [ deployment-guide] (Bu makale).
 * [Linux'ta SAP için Azure sanal makineleri DBMS dağıtım] [ dbms-guide] Kılavuzu.
@@ -114,6 +115,10 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
 
 ### <a name="manual-deployment"></a>El ile dağıtım
 
+> [!IMPORTANT]
+> Seçtiğiniz işletim sistemi kullanmakta olduğunuz belirli VM türleri üzerinde SAP HANA için sertifikalıdır SAP olduğundan emin olun. Bu, aranabilir için VM türleri ve işletim sistemi sürümleri listesi, SAP HANA sertifikalı [SAP HANA sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). SAP HANA tam listesini almak için listelenen VM türü ayrıntılarına tıkladığınızdan emin olun belirli bir VM türü için işletim sistemi sürümleri desteklenir.
+>  
+
 1. Bir kaynak grubu oluşturun.
 1. Sanal ağ oluşturun.
 1. Bir kullanılabilirlik kümesi oluşturun.
@@ -121,12 +126,10 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
 1. Bir yük dengeleyiciye (dahili) oluşturun.
    - 2. adımda oluşturduğunuz sanal ağı seçin.
 1. 1 sanal makine oluşturun.
-   - En düşük SLES4SAP 12 SP1. Bu örnekte SLES4SAP 12 SP2 görüntü https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   - 12 SAP için SLES kullanmak SP2 (Premium).
+   - Seçtiğiniz VM türü üzerinde SAP HANA için desteklenen Azure galerisinde SLES4SAP görüntüsünü kullanın.
    - 3. adımda oluşturduğunuz kullanılabilirlik kümesi seçin.
 1. 2 sanal makine oluşturun.
-   - En düşük SLES4SAP 12 SP1. Bu örnekte SLES4SAP 12 SP1 BYOS görüntü https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM.
-   - 12 SAP için SLES kullanmak SP2 (Premium).
+   - Seçtiğiniz VM türü üzerinde SAP HANA için desteklenen Azure galerisinde SLES4SAP görüntüsünü kullanın.
    - 3. adımda oluşturduğunuz kullanılabilirlik kümesi seçin. 
 1. Veri diski ekleyin.
 1. Yük Dengeleyici yapılandırın. İlk olarak, ön uç IP havuzu oluşturun:
@@ -676,6 +679,9 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
 ### <a name="suse-tests"></a>SUSE testleri
+
+> [!IMPORTANT]
+> Seçtiğiniz işletim sistemi kullanmakta olduğunuz belirli VM türleri üzerinde SAP HANA için sertifikalıdır SAP olduğundan emin olun. Bu, aranabilir için VM türleri ve işletim sistemi sürümleri listesi, SAP HANA sertifikalı [SAP HANA sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). SAP HANA tam listesini almak için listelenen VM türü ayrıntılarına tıkladığınızdan emin olun belirli bir VM türü için işletim sistemi sürümleri desteklenir.
 
 Kullanım Örneğinize bağlı olarak SAP HANA SR performans için iyileştirilmiş senaryonuz ya da SAP HANA SR maliyetini en iyi duruma getirilmiş senaryo Kılavuzu'nda listelenen tüm test çalışmalarını Çalıştır. Kılavuzlar bulabilirsiniz [SAP için SLES en iyi yöntemler sayfa][sles-for-sap-bp].
 
