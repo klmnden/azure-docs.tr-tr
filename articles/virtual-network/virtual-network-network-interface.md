@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 4b584dfa49c42328a44fff0645dcdec2504abaa2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 78578197c5f764c8e197d3426506cb1eb13b838f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904229"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956806"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimini Sil
 
@@ -35,7 +35,7 @@ Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki göre
 - Azure hesabınız yoksa, kaydolmaya bir [ücretsiz deneme hesabınızı](https://azure.microsoft.com/free).
 - Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
 - Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici Azure PowerShell modülünün 5.4.1 gerektirir veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
-- Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici, Azure CLI 2.0.28 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
+- Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici, Azure CLI 2.0.28 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
 
 Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde listelenen uygun eylemleri atanan [izinleri ](#permissions).
 
@@ -164,7 +164,7 @@ Alt ağ, ancak bir ağ arabirimine atanan sanal ağda değil değiştirebilirsin
 Yalnızca bir ağ arabirimine ekleyebilir veya bir ağ arabirimi ağ arabirimi bir sanal makineye bağlıysa, portalı kullanarak bir uygulama güvenlik grubundan kaldırın. Bir ağ arabirimine eklemek için PowerShell veya Azure CLI kullanın veya ağ arabirimi bir sanal makineye veya bağlı olup olmadığını bir ağ arabirimi bir uygulama güvenlik grubundan kaldırın. Daha fazla bilgi edinin [uygulama güvenlik grupları](security-overview.md#application-security-groups) ve nasıl [uygulama güvenlik grubu oluşturma](manage-network-security-group.md#create-an-application-security-group).
 
 1. İçinde *kaynakları, hizmetleri ve belgeleri arayın* kutusunda portalının üst kısmında, eklemek veya bir uygulama güvenlik grubu, kaldırmak istediğiniz bir ağ arabirimi bir sanal makine adını yazmaya başlayın. Sanal makinenizin adı arama sonuçlarında görüntülendiğinde seçin.
-2. Altında **ayarları**seçin **ağ**.  Seçin **uygulama güvenlik gruplarını yapılandırma**, ağ arabirimi için eklemek istediğiniz uygulama güvenlik gruplarını seçin veya ağ arabirimi, kaldırmak istediğiniz uygulama güvenlik grupları seçimini kaldırın ve ardından **Kaydet**. Aynı sanal ağda bulunan ağ arabirimleri, aynı uygulama güvenlik grubuna eklenebilir. Uygulama güvenlik grubu, ağ arabirimi ile aynı konumda bulunmalıdır.
+2. **AYARLAR**'ın altında **Ağ İletişimi**’ni seçin.  Seçin **uygulama güvenlik gruplarını yapılandırma**, ağ arabirimi için eklemek istediğiniz uygulama güvenlik gruplarını seçin veya ağ arabirimi, kaldırmak istediğiniz uygulama güvenlik grupları seçimini kaldırın ve ardından **Kaydet**. Aynı sanal ağda bulunan ağ arabirimleri, aynı uygulama güvenlik grubuna eklenebilir. Uygulama güvenlik grubu, ağ arabirimi ile aynı konumda bulunmalıdır.
 
 **Komutları**
 

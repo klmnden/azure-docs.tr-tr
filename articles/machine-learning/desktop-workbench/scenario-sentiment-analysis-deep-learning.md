@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 97e3a621e291935db2e0c70eb2b596e77c7bffb7
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: e2fbb0b7b0dede198be0e57ffcd2b58a7da7fce7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651358"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947780"
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Derin öğrenme ile Azure Machine Learning kullanarak yaklaşım analizi
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Yaklaşım analizi, doğal dil işleme bölgedeki iyi bilinen bir görevdir. Metinleri bir dizi göz önünde bulundurulduğunda, bir yandan bu metinlerdeki belirlemektir. Amacı, bu çözüm, elde edilen film incelemeleri duyarlılığı tahmin etmede derin öğrenme kullanmaktır.
 
@@ -45,7 +50,7 @@ Yaklaşım analizi değeri almak için işletmelerin geniş yapılandırılmamı
 
 * Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz denemeler kullanılabilir).
 
-* Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](../service/quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturun.
+* Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturun.
 
 * Docker altyapısı yüklü ve yerel olarak çalışan varsa getirmek için en iyisidir. Aksi durumda, küme seçeneğini kullanabilirsiniz. Ancak, bir Azure Container Service (ACS) çalıştırmak pahalı olabilir.
 

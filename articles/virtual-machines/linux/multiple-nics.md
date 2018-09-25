@@ -1,6 +1,6 @@
 ---
 title: Birden çok NIC ile azure'da bir Linux VM oluşturma | Microsoft Docs
-description: Bağlı Azure CLI 2.0 veya Resource Manager şablonlarını kullanarak birden çok NIC içeren bir Linux VM oluşturmayı öğrenin.
+description: Bağlı Azure CLI veya Resource Manager şablonlarını kullanarak birden çok NIC içeren bir Linux VM oluşturmayı öğrenin.
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -14,21 +14,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: iainfou
-ms.openlocfilehash: 77feb52a4ba2013bd6ec0afcd30a20f05227031e
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4982de352af2ce33f4dbf6dba00ff9296cc9b873
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057146"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999764"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Bir Linux sanal makine Azure'da birden çok ağ arabirimi kartları oluşturma
-Bağlı birden çok sanal ağ arabirimlerini (NIC'ler) olan Azure sanal makine (VM) oluşturabilirsiniz. Ön uç ve arka uç bağlantısı veya izleme ya da yedekleme çözüm ayrılmış bir ağ için farklı alt ağlara sahip ortak bir senaryodur. Bu makalede bağlı birden çok NIC ile VM oluşturma ve ekleme veya mevcut bir VM'den NIC Kaldırma ayrıntıları. Farklı [VM boyutları](sizes.md) değişen sayıda NIC desteği, bu nedenle, sanal Makinenizin uygun şekilde boyutu.
 
-Bu makalede, Azure CLI 2.0 ile birden çok NIC ile VM oluşturma işlemi açıklanmaktadır. Bu adımları [Azure CLI 1.0](multiple-nics-nodejs.md) ile de gerçekleştirebilirsiniz.
 
+Bu makalede, Azure CLI ile birden çok NIC ile VM oluşturma işlemi açıklanmaktadır.
 
 ## <a name="create-supporting-resources"></a>Destekleyici kaynakları oluşturma
-Son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index#az_login).
+Son yükleme [Azure CLI](/cli/azure/install-az-cli2) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index#az_login).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *mystorageaccount*, ve *myVM*.
 
@@ -104,7 +103,7 @@ az vm create \
 İçindeki adımları tamamlayarak konuk işletim sistemi için yönlendirme tablolarını ekleyin [birden çok NIC için konuk işletim sistemi yapılandırma](#configure-guest-os-for- multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Bir NIC bir VM'ye ekleme
-Önceki adımları, birden çok NIC içeren bir VM oluşturulur. Azure CLI 2.0 ile mevcut bir VM'yi NIC'ler ekleyebilirsiniz. Farklı [VM boyutları](sizes.md) değişen sayıda NIC desteği, bu nedenle, sanal Makinenizin uygun şekilde boyutu. Gerekirse, [VM'yi yeniden boyutlandırma](change-vm-size.md).
+Önceki adımları, birden çok NIC içeren bir VM oluşturulur. Azure CLI ile mevcut bir VM'yi NIC'ler ekleyebilirsiniz. Farklı [VM boyutları](sizes.md) değişen sayıda NIC desteği, bu nedenle, sanal Makinenizin uygun şekilde boyutu. Gerekirse, [VM'yi yeniden boyutlandırma](change-vm-size.md).
 
 Başka bir NIC ile oluşturma [az ağ NIC oluşturup](/cli/azure/network/nic#az_network_nic_create). Aşağıdaki örnekte adlı bir NIC oluşturur *myNic3* önceki adımlarda oluşturulan arka uç alt ağı ve ağ güvenlik grubuna bağlı:
 
