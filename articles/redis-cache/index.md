@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ed1843226d2b131bd4f98a18b2a48af3e7a3f13c
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d512e4fef83a623604d43aa43115c7b4fd1e1318
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090550"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946961"
 ---
 # <a name="redis-cache-documentation"></a>Redis Önbelleği Belgeleri
 
@@ -150,6 +150,50 @@ Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde eriş
         </a>
     </li>
 </ul>
+
+---
+
+## <a name="build-your-skills-with-microsoft-learn"></a>Microsoft Learn ile becerilerinizi geliştirin
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/learn/modules/optimize-your-web-apps-with-redis/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/optimize-web-apps-with-redis.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3> Salt okunur verileri Redis ile önbelleğe alarak web uygulamalarınızı iyileştirme</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
+        <a href="/learn/modules/work-with-mutable-and-partial-data-in-a-redis-cache/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/work-with-mutable-and-partial-data-in-a-redis-cache.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Redis önbelleğindeki değiştirilebilir ve kısmi verilerle çalışma</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>   
+
+**[Daha fazla etkileşimli öğrenme içeriği...](/learn/browse?products=azure-redis-cache)**
 
 ---
 

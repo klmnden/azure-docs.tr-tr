@@ -1,6 +1,6 @@
 items:
 - name: Azure Bilişsel Hizmetler Belgeleri
-  href: index.yml
+  href: index.md
 - name: Genel Bakış
   items:
   - name: Bilişsel Hizmetler nedir?
@@ -12,20 +12,20 @@ items:
   items:
   - name: Hesap oluşturma
     href: cognitive-services-apis-create-account.md
-  - name: Görüntü sınıflandırıcı derleme
-    href: ./custom-vision-service/getting-started-build-a-classifier.md
-  - name: Ev otomasyonu uygulaması derleme
-    href: ./luis/luis-get-started-create-app.md
-  - name: .NET metin analizi uygulaması oluşturma
-    href: ./text-analytics/quickstarts/csharp.md
 - name: Öğreticiler
   items:
-  - name: Özel arama web sayfası
-    href: ./bing-custom-search/tutorials/custom-search-web-page.md
-  - name: Language Understanding uygulaması
-    href: ./luis/luis-nodejs-tutorial-build-bot-framework-sample.md
-  - name: Komutlar için amaç doğruluğunu iyileştirme
-    href: ./luis/luis-tutorial-batch-testing.md
+  - name: Görüntü İşleme hizmetini kullanarak uygulama geliştirme
+    href: ./Computer-vision/tutorials/csharptutorial.md
+  - name: Konuşma Tanıma SDK'sı ve LUIS ile amaçları tanıma
+    href: ./speech-service/how-to-recognize-intents-from-speech-csharp.md
+  - name: LUIS uygulaması oluşturma
+    href: ./luis/luis-quickstart-intents-only.md
+  - name: Metin Analizi özelliğini Power BI ile kullanma
+    href: ./Text-Analytics/tutorials/tutorial-power-bi-key-phrases.md
+  - name: Bing Web Araması uygulaması oluşturma
+    href: ./bing-web-search/tutorial-bing-web-search-single-page-app.md
+  - name: Bing Resim Arama uygulaması oluşturma
+    href: ./bing-image-search/tutorial-bing-image-search-single-page-app.md
 - name: Kaynaklar
   items:
   - name: Azure Yol Haritası
@@ -42,9 +42,9 @@ items:
     href: http://go.microsoft.com/fwlink/?LinkId=698895
   - name: Bilgi Bankası
     href: https://cognitive.uservoice.com/knowledgebase
-ms.openlocfilehash: 8bd7984fd713a2acbb1ca2cc66e3d64bd49ef5a4
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 233a9bb508c8e6d02fd3e95cb8176f56bc9726b9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023834"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972638"

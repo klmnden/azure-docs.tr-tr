@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: aab2881462eafdc00bb0f3329f68789f07225773
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955838"
 documentType: LandingData
 title: MySQL Belgeleri için Azure Veritabanı
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/13/2017
   ms.author: carolz
-  ms.openlocfilehash: 817fc211b6296490af0a873a88eb76215b44c2dd
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-  ms.translationtype: HT
-  ms.contentlocale: tr-TR
-  ms.lasthandoff: 10/11/2017
-  ms.locfileid: "23070812"
 abstract:
   description: MySQL için Azure Veritabanı, açık kaynak MySQL Server altyapısını temel alan ilişkisel bir veritabanı hizmetidir.  Bu; kritik iş yüklerini teslim edebilen, tahmin edilebilir performans ve dinamik ölçeklenebilirlik sunan, tam olarak yönetilen bir hizmet olarak veritabanıdır. MySQL için Azure Veritabanı ile açık kaynak araçları ve seçtiğiniz platformu kullanarak uygulamalar geliştirin. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, MySQL için Azure Veritabanı’nı kullanmayı öğrenin.
 sections:

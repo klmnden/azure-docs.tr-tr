@@ -1,76 +1,88 @@
+items:
 - name: Rol tabanlı erişim denetimi belgeleri
   href: index.yml
-  items: null
 - name: Genel Bakış
   items:
-    - name: RBAC nedir?
-      href: overview.md
-    - name: Farklı rolleri anlama
-      href: rbac-and-directory-admin-roles.md
+  - name: RBAC nedir?
+    href: overview.md
+  - name: Farklı rolleri anlama
+    href: rbac-and-directory-admin-roles.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Kullanıcıya erişim izni verme
-      href: quickstart-assign-role-user-portal.md
+  - name: Kullanıcıya erişim izni verme
+    href: quickstart-assign-role-user-portal.md
 - name: Öğreticiler
   items:
-    - name: Kullanıcıya erişim izni verme - PowerShell
-      href: tutorial-role-assignments-user-powershell.md
-    - name: Gruba erişim izni verme - PowerShell
-      href: tutorial-role-assignments-group-powershell.md
-    - name: Özel rol oluşturma - PowerShell
-      href: tutorial-custom-role-powershell.md
-    - name: Özel rol oluşturma - CLI
-      href: tutorial-custom-role-cli.md
+  - name: Kullanıcıya erişim izni verme - PowerShell
+    href: tutorial-role-assignments-user-powershell.md
+  - name: Gruba erişim izni verme - PowerShell
+    href: tutorial-role-assignments-group-powershell.md
+  - name: Özel rol oluşturma - PowerShell
+    href: tutorial-custom-role-powershell.md
+  - name: Özel rol oluşturma - CLI
+    href: tutorial-custom-role-cli.md
 - name: Kavramlar
   items:
-    - name: Rol tanımlarını anlama
-      href: role-definitions.md
-    - name: RBAC için Privileged Identity Management (PIM)
-      href: pim-azure-resource.md
-    - name: Azure yönetimi için koşullu erişim
-      href: conditional-access-azure-management.md
+  - name: Rol tanımlarını anlama
+    href: role-definitions.md
+  - name: Reddetme atamalarını anlama
+    href: deny-assignments.md
+  - name: RBAC için Privileged Identity Management (PIM)
+    href: pim-azure-resource.md
+  - name: Azure yönetimi için koşullu erişim
+    href: conditional-access-azure-management.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Erişimi yönetme
-      items:
-        - name: Portal
-          href: role-assignments-portal.md
-        - name: PowerShell
-          href: role-assignments-powershell.md
-        - name: Azure CLI
-          href: role-assignments-cli.md
-        - name: REST API
-          href: role-assignments-rest.md
-        - name: Şablon
-          href: role-assignments-template.md
-    - name: Özel roller
-      href: custom-roles.md
-      items:
-        - name: PowerShell
-          href: custom-roles-powershell.md
-        - name: Azure CLI
-          href: custom-roles-cli.md
-        - name: REST API
-          href: custom-roles-rest.md
-    - name: Etkinlik günlüklerini görüntüleme
-      href: change-history-report.md
-    - name: Genel yönetici erişimini yükseltme
-      href: elevate-access-global-admin.md
-    - name: Dış kullanıcıların erişimini yönetme
-      href: role-assignments-external-users.md
-    - name: Sorun giderme
-      href: troubleshooting.md
+  - name: Erişimi yönetme
+    items:
+    - name: Portal
+      href: role-assignments-portal.md
+    - name: PowerShell
+      href: role-assignments-powershell.md
+    - name: Azure CLI
+      href: role-assignments-cli.md
+    - name: REST API
+      href: role-assignments-rest.md
+    - name: Şablon
+      href: role-assignments-template.md
+  - name: Erişimi engelleme
+    items:
+    - name: REST API
+      href: deny-assignments-rest.md
+  - name: Özel roller
+    href: custom-roles.md
+    items:
+    - name: PowerShell
+      href: custom-roles-powershell.md
+    - name: Azure CLI
+      href: custom-roles-cli.md
+    - name: REST API
+      href: custom-roles-rest.md
+  - name: Etkinlik günlüklerini görüntüleme
+    href: change-history-report.md
+  - name: Genel yönetici erişimini yükseltme
+    href: elevate-access-global-admin.md
+  - name: Dış kullanıcıların erişimini yönetme
+    href: role-assignments-external-users.md
+  - name: Sorun giderme
+    href: troubleshooting.md
 - name: Başvuru
   items:
-    - name: Yerleşik roller
-      href: built-in-roles.md
-    - name: Kaynak sağlayıcısı işlemleri
-      href: resource-provider-operations.md
-    - name: RBAC sınırları
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.resources
-    - name: Azure CLI
-      href: /cli/azure/role?view=azure-cli-latest
-    - name: REST API
-      href: /rest/api/authorization/
+  - name: Yerleşik roller
+    href: built-in-roles.md
+  - name: Kaynak sağlayıcısı işlemleri
+    href: resource-provider-operations.md
+  - name: RBAC sınırları
+    href: ../azure-subscription-service-limits.md#role-based-access-control-limits
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.resources
+  - name: Azure CLI
+    href: /cli/azure/role?view=azure-cli-latest
+  - name: REST API
+    href: /rest/api/authorization/
+ms.openlocfilehash: 8a113e60cd9af0e7f9c0f192bc20ca674c56c0f8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982792"

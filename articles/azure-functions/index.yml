@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c28879b840a5952501339b73c7741b28a1116c5c
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 43c6d96c98ed9ec0451eedfc8848405658904dff
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41927626"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951061"
 documentType: LandingData
 title: Azure İşlevleri Belgeleri
 metadata:
@@ -48,10 +48,6 @@ sections:
       text: Zamanlayıcı
       href: /azure/azure-functions/functions-create-scheduled-function
     - image:
-        src: media/index/octokitty.svg
-      text: GitHub web kancası
-      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
-    - image:
         src: media/index/cosmosdb.svg
       text: Azure Cosmos DB
       href: /azure/azure-functions/functions-create-cosmos-db-triggered-function
@@ -92,6 +88,29 @@ sections:
     items:
     - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
     - html: <a href="/sandbox/functions-recipes/">Azure İşlevleri Tarifleri</a>
+- title: Microsoft Learn ile becerilerinizi geliştirin
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure İşlevleri ile sunucusuz mantık oluşturma
+      href: /learn/modules/create-serverless-logic-with-azure-functions/
+      image:
+        src: /learn/achievements/create-serverless-logic-with-azure-functions.svg
+        href: /learn/modules/create-serverless-logic-with-azure-functions/
+    - title: Tetikleyicilerle Azure İşlevi yürütme
+      href: /learn/modules/execute-azure-function-with-triggers/
+      image:
+        src: /learn/achievements/execute-azure-function-with-triggers.svg
+        href: /learn/modules/execute-azure-function-with-triggers/
+    - title: Giriş ve Çıkış bağlamalarını kullanarak Azure İşlevleriyle verilerini birbirine bağlama
+      href: /learn/modules/chain-azure-functions-data-using-bindings/
+      image:
+        src: /learn/achievements/chain-azure-functions-data-using-bindings.svg
+        href: /learn/modules/chain-azure-functions-data-using-bindings/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-functions">Daha fazla etkileşimli öğrenme içeriği...</a>
 - title: Başvuru
   items:
   - type: list
@@ -103,4 +122,4 @@ sections:
     - title: REST
       html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
     - title: Bağlamalar
-      html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Olay Hub’ı</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Dış dosya</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP ve web kancaları</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Kuyruk depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Tablo depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Zamanlayıcı</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio çıktı bağlaması</a></p>
+      html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Olay Hub’ı</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Dış dosya</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP ve web kancaları</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Kuyruk depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-signalr-service">SignalR Service</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Tablo depolama</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Zamanlayıcı</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio çıktı bağlaması</a></p>

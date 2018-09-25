@@ -1,47 +1,57 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: cad92cb36f3e5e038186e9b97f30bed9525e2fea
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978752"
 documentType: LandingData
 title: Azure Maliyet Yönetimi Belgeleri
 metadata:
   title: Maliyet Yönetimi Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
-  description: Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını kullanmanıza yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin.
+  description: Azure Maliyet Yönetimi, Azure harcamalarınızı izleyip kontrol altına almanıza ve kaynak kullanımını iyileştirmenize yardımcı olan bir maliyet yönetimi çözümüdür. Hızlı başlangıçlarımıza ve öğreticilerimize göz atarak maliyet analizi yapmayı, bütçe oluşturup yönetmeyi, verileri dışarı aktarmayı ve önerileri gözden geçirip gerekli eylemleri gerçekleştirmeyi öğrenin.
   services: cost-management
   author: bandersmsft
-  manager: carmonm
+  manager: dougeby
   ms.service: cost-management
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/27/2018
+  ms.date: 09/14/2019
   ms.author: banders
-  ms.openlocfilehash: d6fa2486944fdecab67996bd7a8c7f656ffb2e72
-  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-  ms.translationtype: HT
-  ms.contentlocale: tr-TR
-  ms.lasthandoff: 03/16/2018
-  ms.locfileid: "29935341"
 abstract:
-  description: Microsoft’un yan kuruluşu olan Cloudyn tarafından lisanslanan Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını en iyi şekilde kullanıp yönetmenize yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin.
+  description: Azure Maliyet Yönetimi, Azure harcamalarınızı izleyip kontrol altına almanıza ve kaynak kullanımını iyileştirmenize yardımcı olan bir maliyet yönetimi çözümüdür. Hızlı başlangıçlarımıza ve öğreticilerimize göz atarak maliyet analizi yapmayı, bütçe oluşturup yönetmeyi, verileri dışarı aktarmayı ve önerileri gözden geçirip gerekli eylemleri gerçekleştirmeyi öğrenin.
 sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: Maliyet Yönetimi ile Azure sözleşmenizi veya aboneliğinizi kaydetme ve maliyet verilerini görüntüleme hakkında bilgi edinin.
+    text: Kuruluşunuzdaki maliyetleri analiz etmek için Azure Maliyet Yönetimi'ni kullanmayı öğrenin.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Maliyet Verilerini Görüntüleme
-      href: quick-register-azure-sub
+      text: Maliyet analizi
+      href: quick-acm-cost-analysis
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: Maliyet Yönetimi ile kullanım ve maliyeti gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin.
+    text: Maliyet Yönetimi ile bütçe oluşturmayı, verileri dışarı aktarmayı ve önerileri gözden geçirip gerekli eylemleri gerçekleştirmeyi öğrenin.
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-review-usage">Anomalileri ve verimlilikleri belirlemek için kullanım ve maliyetleri gözden geçirme</a>
-    - html: <a href="tutorial-forecast-spending">Gelecek harcamaları tahmin etme</a>
-    - html: <a href="tutorial-manage-costs">Maliyet dağıtımı, ücret hesaplama raporları ve ücret yansıtma raporları ile maliyetleri yönetme</a>
-    - html: <a href="tutorial-optimize-reserved-instances">Ayrılmış örnekleri en iyi duruma getirme</a>
-    - html: <a href="tutorial-user-access">Maliyet Yönetimi verilerine erişim atama</a>
+    - html: <a href="tutorial-acm-create-budgets">Bütçe oluşturma ve yönetme</a>
+    - html: <a href="tutorial-export-acm-data">Verileri dışarı aktarma</a>
+    - html: <a href="tutorial-acm-opt-recommendations">Önerileri gözden geçirme ve gerekli eylemleri gerçekleştirme</a>
+- title: Microsoft Learn ile becerilerinizi geliştirin
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure maliyetlerinizi tahmin edin ve harcamalarınızı iyileştirin
+      href: /learn/modules/predict-costs-and-optimize-spending/
+      image:
+        src: /learn/achievements/predict-costs-and-optimize-spending.svg
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-cost-management">Daha fazla etkileşimli öğrenme içeriği...</a>

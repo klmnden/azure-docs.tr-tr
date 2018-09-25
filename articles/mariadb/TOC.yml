@@ -1,0 +1,122 @@
+items:
+- name: MariaDB için Azure DB Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+  - name: MariaDB için Azure DB
+    href: overview.md
+- name: Hızlı Başlangıçlar
+  items:
+  - name: DB Oluşturma - Portal
+    href: quickstart-create-mariadb-server-database-using-azure-portal.md
+  - name: DB Oluşturma - Azure CLI
+    href: quickstart-create-mariadb-server-database-using-azure-cli.md
+  - name: Bağlanma ve sorgulama
+    items:
+    - name: MySQL Workbench
+      href: connect-workbench.md
+  expanded: true
+- name: Öğreticiler
+  items:
+  - name: 1 - Veritabanı Tasarlama
+    items:
+    - name: Azure portal
+      href: tutorial-design-database-using-portal.md
+- name: Kavramlar
+  items:
+  - name: DB ve Sunucular
+    items:
+    - name: Sunucular
+      href: concepts-servers.md
+    - name: Desteklenen sürümler
+      href: concepts-supported-versions.md
+    - name: Sunucu günlükleri
+      href: concepts-server-logs.md
+    - name: Yüksek kullanılabilirlik
+      href: concepts-high-availability.md
+  - name: Kaynaklar
+    items:
+    - name: Fiyatlandırma katmanları
+      href: concepts-pricing-tiers.md
+    - name: Sınırlar
+      href: concepts-limits.md
+  - name: Veri erişimi ve güvenlik
+    items:
+    - name: Güvenlik duvarı kuralları
+      href: concepts-firewall-rules.md
+    - name: SSL’i Yapılandırma
+      href: concepts-ssl-connection-security.md
+  - name: İş sürekliliği
+    items:
+    - name: Genel Bakış
+      href: concepts-business-continuity.md
+    - name: Yedekleme ve geri yükleme
+      href: concepts-backup.md
+  - name: Çoğaltma
+    items:
+    - name: Veri içinde çoğaltma
+      href: concepts-data-in-replication.md
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Güvenlik duvarı kuralları
+    items:
+    - name: Azure portal
+      href: howto-manage-firewall-portal.md
+  - name: Sunucuyu geri yükleme
+    items:
+    - name: Azure portal
+      href: howto-restore-server-portal.md
+  - name: Veritabanını geçirme
+    items:
+    - name: Döküm ve geri yükleme
+      href: howto-migrate-dump-restore.md
+  - name: Uygulamaları bağlama
+    items:
+    - name: Kullanıcı oluşturma
+      href: howto-create-users.md
+    - name: Bağlantı dizeleri
+      href: howto-connection-string.md
+    - name: SSL yapılandırma
+      href: howto-configure-ssl.md
+  - name: Sunucu parametrelerini yapılandırma
+    items:
+    - name: Azure portal
+      href: howto-server-parameters.md
+  - name: Sunucu günlüklerine erişme
+    items:
+    - name: Azure portal
+      href: howto-configure-server-logs-portal.md
+  - name: Çoğaltma
+    items:
+    - name: Veri içinde çoğaltmayı yapılandırma
+      href: howto-data-in-replication.md
+- name: Başvuru
+  items:
+  - name: REST API
+    href: /rest/api/mariadb
+  - name: Veri içi çoğaltma saklı yordamları
+    href: reference-data-in-stored-procedures.md
+- name: Kaynaklar
+  items:
+  - name: Dağıtım şablonları
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/mariadb/
+  - name: MSDN forumu
+    href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-database-mariadb
+  - name: Özellik isteme
+    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+  - name: Bölge kullanılabilirliği
+    href: https://azure.microsoft.com/regions/services/
+  - name: Destek seçenekleri
+    href: https://azure.microsoft.com/support/options/
+ms.openlocfilehash: a1b24ca3800866f00a97647d59e1f7353a0bdcc9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958501"

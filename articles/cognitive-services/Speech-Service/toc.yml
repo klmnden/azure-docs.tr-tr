@@ -1,5 +1,5 @@
 items:
-- name: Konuşma Tanıma Hizmeti ve SDK'sı
+- name: Konuşma Tanıma Hizmeti SDK'sı Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
@@ -34,14 +34,16 @@ items:
     - name: Java kullanma (Windows ve Linux)
       displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
       href: quickstart-java-jre.md
+    - name: JavaScript kullanma (Tarayıcı)
+      displayName: recognize speech, speech recognition, speech to text, stt
+      href: quickstart-js-browser.md
+    - name: Objective-C kullanma (iOS)
+      displayName: recognize speech, speech recognition, speech to text, stt, xcode
+      href: quickstart-objectivec-ios.md
   - name: Konuşma Cihazları SDK’sı ile çalışmaya başlama
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk-qsg.md
 - name: Öğreticiler
-  items:
-  - name: Konuşmada amaçları tanıma (C#)
-    href: how-to-recognize-intents-from-speech-csharp.md
-- name: Nasıl yapılır kılavuzları
   items:
   - name: Konuşma tanıma
     displayName: recognize speech, speech recognition, speech to text, stt
@@ -54,12 +56,11 @@ items:
       href: how-to-recognize-speech-java.md
     - name: REST
       href: how-to-recognize-speech-rest.md
-  - name: Konuşmayı birleştirme (REST)
-    displayName: synthesize speech, speech synthesis, text to speech, tts
-    href: how-to-text-to-speech.md
   - name: Konuşmadan amaçları tanıma
     displayName: recognize intent, intent recognition, language understanding service, luis
     items:
+    - name: C#
+      href: how-to-recognize-intents-from-speech-csharp.md
     - name: C++
       href: how-to-recognize-intents-from-speech-cpp.md
     - name: Java
@@ -73,29 +74,36 @@ items:
       href: how-to-translate-speech-cpp.md
     - name: Java
       href: how-to-translate-speech-java.md
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Konuşmayı birleştirme (REST)
+    displayName: synthesize speech, speech synthesis, text to speech, tts
+    href: how-to-text-to-speech.md
   - name: Toplu iş transkripsiyonu (REST)
     displayName: recognize speech, speech recognition, speech to text, stt
     href: batch-transcription.md
   - name: Konuşma Cihazları SDK’sını edinme
     displayName: roobo, speech devices sdk, download
     href: get-speech-devices-sdk.md
-  - name: Akustik modelleri özelleştirme
-    href: how-to-customize-acoustic-models.md
-  - name: Dil modellerini özelleştirme
-    href: how-to-customize-language-model.md
-  - name: Söyleniş özelleştirme
-    href: how-to-customize-pronunciation.md
-  - name: Ses tiplerini özelleştirme (bot marka sesi)
-    href: how-to-customize-voice-font.md
+  - name: Özelleştirme
+    items:
+    - name: Akustik modelleri özelleştirme
+      href: how-to-customize-acoustic-models.md
+    - name: Dil modellerini özelleştirme
+      href: how-to-customize-language-model.md
+    - name: Söyleniş özelleştirme
+      href: how-to-customize-pronunciation.md
+    - name: Ses tiplerini özelleştirme (bot marka sesi)
+      href: how-to-customize-voice-font.md
+    - name: Cihaz uyandırma sözcüğünü özelleştirme (Cihazlar SDK’sı)
+      displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
+      href: speech-devices-sdk-create-kws.md
   - name: Ses örnekleri kaydetme
     href: record-custom-voice-samples.md
   - name: Transkript hazırlama
     href: prepare-transcription.md
   - name: Özel ses akışları kullanma
     href: how-to-use-audio-input-streams.md
-  - name: Cihaz uyandırma sözcüğünü özelleştirme (Cihazlar SDK’sı)
-    displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
-    href: speech-devices-sdk-create-kws.md
 - name: Kavramlar
   items:
   - name: Konuşmayı Metne Dönüştürme
@@ -180,9 +188,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Gizlilik ve tanımlama bilgileri
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: fd6df22b2d96dd72d6a3da0c6946a461420b3153
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 7b8b81afa5090144f1be7d747d4af1f4a319a0f1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605590"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985886"

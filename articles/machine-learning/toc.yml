@@ -1,6 +1,11 @@
-- name: Azure Machine Learning Services (Önizleme)
+items:
+- name: Azure Machine Learning hizmeti (Önizleme)
   href: service/index.yml
 - name: Azure Machine Learning Studio
   href: studio/index.yml
-- name: Veri Bilimi Sanal Makinesi
-  href: data-science-virtual-machine/index.yml
+ms.openlocfilehash: b0d8ba12becb24c6cd301a76471d96b415ec4068
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946077"

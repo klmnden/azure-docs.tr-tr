@@ -1,40 +1,47 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: d63ae09bdd9b2423f776335ce625018f03548581
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975199"
 documentType: LandingData
 title: Azure Machine Learning Belgeleri
 metadata:
-  title: Azure Machine Learning Belgeleri - Öğreticiler, API Başvurusu
-  description: Uygulamalarda tahmine dayalı analiz kullanan veri uzmanlarına ve geliştiricilere yönelik bir bulut hizmeti olan Machine Learning ile ilgili belgeler, videolar ve örnek modeller.
+  title: Azure Machine Learning Belgeleri - Öğreticiler, API başvurusu | Microsoft Docs
+  description: Uygulamalarınıza, web sitelerinize ve botlarınıza, kullanıcılarınızın ihtiyaçlarını görmek, duymak, dile getirmek ve anlamak için doğal iletişim yöntemlerinden yararlanan akıllı algoritmalar oluşturmayı öğrenin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.
   services: machine-learning
-  author: garyericson
-  manager: jhubbard
+  author: j-martens
+  manager: cgronlund
   ms.service: machine-learning
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/01/2018
-  ms.author: garye
-  ms.openlocfilehash: 6bfeb53dccd9d281cd467b8261eff5cd47cb4dfb
-  ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-  ms.translationtype: HT
-  ms.contentlocale: tr-TR
-  ms.lasthandoff: 04/19/2018
-  ms.locfileid: "31598770"
+  ms.date: 9/24/2018
+  ms.author: jmartens
 abstract:
-  description: Bulutta makine öğrenimi ve yapay zeka modelleri oluşturmaya, dağıtmaya ve yönetmeye ilişkin tam olarak yönetilen hizmetleriyle Azure Machine Learning’i nasıl kullanacağınızı öğrenin. Öğreticiler, hızlı başlangıçlar, başvurular ve örnekler uygulamalarınızdan herhangi biri için nasıl model oluşturup dağıtacağınızı gösterir.
+  description: Bu Azure Machine Learning ürünlerini kullanarak uygulamalara ve web sitelerine akıllı algoritma eklemeyi öğrenin.  Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.
 sections:
-- title: 
-  items:
+- items:
   - type: list
     style: cards
-    className: cardsA
+    className: cardsM
+    columns: 2
     items:
-    - html: <a href="/azure/machine-learning/service/"> <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services"> (önizleme) <br><b>Azure Machine Learning Services</b></a> <p>Bu hizmetlerin, veri bilimcilerine çeşitli Azure verileri ve işlem hizmetleri ile Python araçlarını ve kitaplıklarını kullanarak nasıl yapay zeka çözümleri geliştirme olanağı tanıdığını öğrenin.</p>
-    - html: <a href="/azure/machine-learning/studio/"> <img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg" alt="Azure Machine Learning Studio"> <br><b>Azure Machine Learning Studio</b></a> <p>Verilerinizde tahmine dayalı analiz çözümleri oluşturmak, test etmek ve dağıtmak için işbirliğine dayalı bu sürükle ve bırak özellikli aracı nasıl kullanacağınızı öğrenin.</p>
-    - html: <a href="/azure/machine-learning/data-science-virtual-machine/index"> <img height="48" width="48" src="/azure/machine-learning/media/index/virtualmachine.svg" alt="Data Science Virtual Machine"> <br><b>Veri Bilimi Sanal Makinesi</b></a> <p>Azure’da gelişmiş analiz için akıllı uygulamalar oluşturmak amacıyla kullanılan veri bilimi araçlarıyla yüklü özelleştirilmiş VM görüntüleri olan Veri Bilimi ve Kapsamlı Öğrenim VM’lerini nasıl kullanacağınızı öğrenin.</p>
-- title: 5 Dakikalık Hızlı Başlangıçlar
+    - href: /azure/machine-learning/service/overview-what-is-azure-ml
+      html: <p>Bu hizmetin veri bilimcilerinin yapay zeka çözümlerini geliştirmesine ve yönetmesine nasıl yardımcı olduğunu keşfedin<br/> CLI ve Python araçlarıyla kitaplıklarını çeşitli Azure veri ve işlem hizmetleriyle kullanın. Daha fazla bilgi edinin...</p>
+      image:
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      title: Azure Machine Learning hizmeti (Önizleme)
+    - href: /azure/machine-learning/studio/
+      html: <p>Verilerinizde tahmine dayalı analiz çözümleri oluşturmak, test etmek ve dağıtmak için işbirliğine dayalı bu sürükle ve bırak özellikli aracın nasıl kullanılabileceğini öğrenin. Daha fazla bilgi edinin... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      image:
+        src: /azure/machine-learning/media/index/machine-learning-studio.svg
+      title: Azure Machine Learning Studio
+- title: Hızlı Başlangıçlar ve Öğreticiler
   items:
   - type: paragraph
-    text: 'Azure Machine Learning Services’i (Önizleme), Studio’yu ve Veri Bilimi Sanal Makinesi’ni nasıl hızlıca ayarlayıp kullanacağınızı öğrenin:'
+    text: 'Azure Machine Learning hizmetini (önizleme) ve Studio uygulamasını hızla kurmayı ve kullanmayı öğrenin:'
   - type: table
     style: dataMatrix
     columns:
@@ -42,56 +49,65 @@ sections:
         src: media/index/i_machine-learning.svg
     - image:
         src: media/index/machine-learning-studio.svg
-    - image:
-        src: media/index/virtualmachine.svg
     rows:
-    - title: Kurulum
+    - title: Hizmeti kullanmaya başlama
       values:
-      - href: /azure/machine-learning/service/quickstart-installation
+      - href: /azure/machine-learning/service/quickstart-get-started
       - href: /azure/machine-learning/studio/create-workspace
-      - href: /azure/machine-learning/data-science-virtual-machine/provision-vm
-    - title: Model oluşturma
+    - title: Verileri modelleme için hazırlama
       values:
-      - href: /azure/machine-learning/service/quickstart-installation
-      - href: /azure/machine-learning/studio/create-experiment
-      - href: 
-- title: Adım Adım Öğreticiler
-  items:
-  - type: paragraph
-    text: 'Azure Machine Learning Services’i (Önizleme) ve Studio’yu kullanarak nasıl model oluşturacağınızı, dağıtacağınızı ve kullanacağınızı öğrenin:'
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/i_machine-learning.svg
-    - image:
-        src: media/index/machine-learning-studio.svg
-    rows:
-    - title: Verileri hazırlama
-      values:
-      - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1
+      - href: /azure/machine-learning/service/concept-data-preparation
       - href: /azure/machine-learning/studio/walkthrough-2-upload-data
-    - title: Model oluşturma
+    - title: Kendi makine öğrenme modelinizi oluşturma
       values:
-      - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-2
+      - href: /azure/machine-learning/service/tutorial-train-models-with-aml
       - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
-    - title: Bir modeli kullanıma hazır hale getirme
+    - title: Algoritmaları otomatik olarak oluşturma ve ayarlama
       values:
-      - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-3
+      - href: /azure/machine-learning/service/tutorial-auto-train-models
+      - href: 
+    - title: Modelinizi web hizmeti olarak dağıtma
+      values:
+      - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
       - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
-    - title: Bir modeli kullanma
+    - title: Makine öğrenmesi modellerinizi kullanma
       values:
-      - href: /azure/machine-learning/desktop-workbench/model-management-consumption
+      - href: 
       - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
 - title: Diğer Microsoft Machine Learning Teknolojileri
   items:
   - type: list
     style: cards
-    className: cardsA
+    className: cardsM
+    columns: 2
     items:
-    - html: <a href="/azure/machine-learning/team-data-science-process"> <img src="media/index/tdsp.png" alt="Team Data Science Process" height="32" width="32"> <p><b>Team Data Science Process</b></p> </a> Takımların tahmine dayalı analiz çözümlerini ve akıllı uygulamaları etkili bir şekilde sunmasına yardımcı olan, işbirliğine dayalı bir veri bilimi metodolojisidir.
-    - html: <a href="/sql/advanced-analytics/r/r-services"> <img src="media/index/logo_sql.png" alt="SQL Server Machine Learning Services" height="32" width="32"> <p><b>SQL Server Machine Learning Hizmetleri</b></p> </a> Hem R hem de Python desteği içeren, veritabanında analiz hizmetidir.
-    - html: <a href="/machine-learning-server/"> <img src="media/index/ml-server.png" alt="Microsoft Machine Learning Server" height="32" width="32"> <p><b>Microsoft Machine Learning Server</b></p> </a> Windows, Linux ve HDInsight Spark ile Hadoop kümelerinde R ve Python dağıtımlarını destekleyen esnek kurumsal makine öğrenimi platformudur.
-    - html: <a href="/azure/batch-ai/"> <img src="media/index/batch.png" alt="Batch AI Training" height="32" width="32"> <p><b>Batch AI Eğitimi</b></p> </a> Herhangi bir çerçeveyi kullanarak AI modellerinizle paralel olarak deneme yapmanızı sağlayan ve modelleri kümelenmiş GPU’lar ile büyük ölçekte eğiten, yönetilen bir hizmettir.
-    - html: <a href="/azure/#pivot=products&panel=cognitive"> <img src="media/index/cognitive-services.png" alt="Cognitive Services" height="32" width="32"> <p><b>Bilişsel Hizmetler</b></p> </a> Uygulamalarınız, web siteleriniz ve botlarınız için akıllı algoritmalar sağlayan API’lerdir.
-    - html: <a href="/cognitive-toolkit/"> <img src="media/index/cntk.png" alt="Microsoft Cognitive Toolkit" height="32" width="32"> <p><b>Microsoft Bilişsel Araç Seti</b></p> </a> Kapsamlı öğrenim algoritmalarını eğitmek için kullanılan ücretsiz bir açık kaynak araç setidir.
+    - href: /azure/cognitive-services/
+      html: <p>Uygulamalarınız, web siteleriniz ve botlarınız için akıllı algoritmalar sağlayan API’ler.</p>
+      image:
+        src: /azure/machine-learning/media/index/cognitive-services.png
+      title: Bilişsel Hizmetler
+    - href: /azure/batch-ai/
+      html: <p>Herhangi bir çerçeveyi kullanarak AI modellerinizle paralel olarak deneme yapmanızı sağlayan ve modelleri kümelenmiş GPU’lar ile büyük ölçekte eğiten, yönetilen bir hizmettir.</p>
+      image:
+        src: /azure/machine-learning/media/index/batch.png
+      title: Batch AI Eğitimi
+    - href: /sql/advanced-analytics/r/r-services
+      html: <p>Hem R hem de Python desteği içeren, veritabanında analiz hizmetidir.</p>
+      image:
+        src: /azure/machine-learning/media/index/logo_sql.png
+      title: SQL Server Machine Learning Hizmetleri
+    - href: /machine-learning-server/
+      html: <p>Windows, Linux ve HDInsight Spark ile Hadoop kümelerinde R ve Python dağıtımlarını destekleyen esnek kurumsal makine öğrenimi platformudur.</p>
+      image:
+        src: /azure/machine-learning/media/index/ml-server.png
+      title: Microsoft Machine Learning Sunucusu
+    - href: /azure/machine-learning/team-data-science-process
+      html: <p>Takımların tahmine dayalı analiz çözümlerini ve akıllı uygulamaları etkili bir şekilde sunmasına yardımcı olan, işbirliğine dayalı bir veri bilimi metodolojisidir.</p>
+      image:
+        src: /azure/machine-learning/media/index/tdsp.png
+      title: Team Data Science Process
+    - href: /azure/machine-learning/data-science-virtual-machine/
+      html: <p>Bu Veri Bilimi (DSVM) ve Derin Öğrenme (DLVM) sanal makinelerini kullanarak yazılım yükleme veya yapılandırma konusunda endişe etmeden denemeler yapın. Popüler veri analizi, makine öğrenimi ve yapay zeka araçları önceden yüklenmiştir.</p>
+      image:
+        src: /azure/machine-learning/media/index/virtualmachine.svg
+      title: Veri Bilimi Sanal Makinesi

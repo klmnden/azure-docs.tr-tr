@@ -1,37 +1,38 @@
 # [Scheduler Belgeleri](index.md)
 
 # Genel Bakış
-## [Scheduler nedir?](scheduler-intro.md)
+## [Azure Scheduler nedir?](scheduler-intro.md)
 
 # başlarken
-## [İş oluşturma ve yönetme](scheduler-get-started-portal.md)
-## [Kavramlar ve terminoloji](scheduler-concepts-terms.md)
+## [İş oluşturma ve yönetme - portal](scheduler-get-started-portal.md)
+## [Scheduler'dan Logic Apps'e geçirme](migrate-from-scheduler-to-logic-apps.md)
 
-# Nasıl yapılır
+# Kavramlar
+## [Kavramlar, terimler ve varlıklar](scheduler-concepts-terms.md)
+
+# Nasıl yapılır kılavuzları
 ## Planlama ve tasarım
 ### [Planlar ve faturalandırma](scheduler-plans-billing.md)
-### [Kotalar ve sınırlar](scheduler-limits-defaults-errors.md)
-### [Yüksek düzeyde kullanılabilirlik ve güvenilirlik](scheduler-high-availability-reliability.md)
+### [Limitler, kotalar ve varsayılan değerler](scheduler-limits-defaults-errors.md)
+### [Yüksek kullanılabilirlik ve güvenilirlik](scheduler-high-availability-reliability.md)
 
 ## Geliştirme
-### [REST API’si kullanan karmaşık zamanlamalar](scheduler-advanced-complexity.md)
-
+### [Karmaşık zamanlamalar ve gelişmiş yinelemeler oluşturma](scheduler-advanced-complexity.md)
+### [Zamanlama oluşturma ve yönetme - Azure PowerShell](scheduler-powershell-reference.md)
 
 ## Güvenlik
-### [Giden bağlantı kimlik doğrulaması](scheduler-outbound-authentication.md)
+### [Giden çağrıların kimliğini doğrulama](scheduler-outbound-authentication.md)
 
 # Başvuru
 ## [Azure PowerShell](/powershell/module/azurerm.scheduler)
-## [REST](/rest/api/scheduler)
+## [REST API](/rest/api/scheduler)
 
 # Kaynaklar
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Azure Scheduler yol haritası](https://azure.microsoft.com/updates/?product=scheduler)
+## [Azure yol haritası](https://azure.microsoft.com/updates/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=scheduler)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
-
-
-

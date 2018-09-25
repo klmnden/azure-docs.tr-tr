@@ -1,51 +1,65 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 15863679b42962d414493804f234c9fde46172ea
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: c3120d4fb8fb9377d43cdd2df780810bb4634e52
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781167"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985042"
 documentType: LandingData
-title: Azure Machine Learning Services (Önizleme) Belgeleri
+title: Azure Machine Learning hizmeti (önizleme) Belgeleri
 metadata:
-  title: Azure Machine Learning Services (Önizleme) Belgeleri
-  meta.description: Learn how to use Azure Machine Learning services (preview).
+  title: Azure Machine Learning Belgeleri (önizleme) - Öğreticiler, API başvurusu | Microsoft Docs
+  meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
-  author: garyericson
+  author: j-martens
   manager: jhubbard
   ms.service: machine-learning
   ms.component: core
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2018
-  ms.author: garye
+  ms.date: 09/24/2018
+  ms.author: jmartens
 abstract:
-  description: Azure Machine Learning Services (Önizleme) herhangi bir Python aracını ve kitaplığını kullanarak makine öğrenimi ve yapay zeka modelleri oluşturmaya, dağıtmaya ve bunları yönetmeye olanak sağlar. Azure’da verilerinizi depolamak ve işlemek için çeşitli veri ve işlem hizmetlerini kullanabilirsiniz.
+  description: Uygulamalara ve web sitelerine akıllı algoritmalar eklemeyi öğrenin. Scikit-learn, Tensorflow, Pytorch veya diğer Python tabanlı çerçeveleri kullanarak makine öğrenmesi modelinizi derleyin ve yerel ortamda veya bulutta eğitin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsB
+    columns: 1
+    items:
+    - html: <p>ML modellerinizi bir Azure bulut hizmetinde eğitin ve dağıtın. <a href="overview-what-is-azure-ml.md">Hizmet hakkında daha fazla bilgi edinin...</a></p>
+      image:
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      title: Azure Machine Learning hizmeti
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: İlk Machine Learning projenizi oluşturun
+    text: Kaynaklarınızı Azure Machine Learning hizmeti için ayarlayın.
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-installation.md">Yükleme ve oluşturma</a>
+    - html: <a href="quickstart-get-started.md">Azure portaldan kullanmaya başlayın</a>
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: Verilerinizi hazırlama, deneme ayarlama ve modellerinizi kullanıma hazır hale getirme işlemlerini nasıl yapacağınızı öğrenme
+    text: Deneme ayarlama ve modellerinizi kullanıma hazır hale getirme işlemlerini nasıl yapacağınızı öğrenin.
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-1">Machine Learning Services (Önizleme) hakkındaki temel bilgileri adım adım inceleme</a>
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-2">Machine Learning Workbench’i kullanarak ilk Iris veri kümesi modelinizi derleme</a>
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-3">Machine Learning modelini dağıtma hakkında bilgi edinin</a>
-    - html: <a href="../desktop-workbench/tutorial-bikeshare-dataprep">Gelişmiş veri hazırlama için Azure Machine Learning Workbench’i kullanma</a>
+    - html: <a href="tutorial-train-models-with-aml">Kendi makine öğrenme modelinizi eğitin</a>
+    - html: <a href="tutorial-auto-train-models">Sizin için otomatik olarak bir model oluşturmamıza ve ayarlamamıza izin verin</a>
+    - html: <a href="tutorial-deploy-models-with-aml">Modeli web hizmeti olarak dağıtın</a>
+- title: Başvuru
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="http://aka.ms/aml-sdk">Python için Azure Machine Learning SDK'sı (ana SDK)</a>
+    - html: <a href="https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py">Azure Machine Learning Veri Hazırlama SDK'sı</a>
 - title: Diğer Azure Machine Learning Teknolojileri
   items:
-  - type: paragraph
-    text: 'Azure Machine Learning’de kullanılabilen diğer teknolojiler:'
   - type: list
     style: cards
     className: cardsFTitle
@@ -60,15 +74,3 @@ sections:
       image:
         src: media/index/virtual-machines.svg
         href: /azure/machine-learning/data-science-virtual-machine/
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Paketler
-      html: <p><a href="reference-python-package-overview#amlpcv">Görüntü işleme</a></p><p><a href="reference-python-package-overview#amlpf">Tahmin etme</a></p><p><a href="reference-python-package-overview#amlrealtimeai">FPGA hızlandırma</a></p><p><a href="reference-python-package-overview#amlpta">Metin analizi</a></p>
-    - title: Diller
-      html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">REST yönetim API’leri</a></p>

@@ -1,134 +1,143 @@
+items:
 - name: Soru-Cevap Oluşturma Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Soru-Cevap Oluşturma nedir?
-      href: Overview/overview.md
-    - name: Desteklenen diller
-      href: Overview/languages-supported.md
+  - name: Soru-Cevap Oluşturma nedir?
+    href: Overview/overview.md
+  - name: Desteklenen diller
+    href: Overview/languages-supported.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Yeni bilgi bankası oluşturma
-      items:
-        - name: 'C#'
-          href: Quickstarts/create-new-kb-csharp.md
-        - name: Başlayın
-          href: Quickstarts/create-new-kb-go.md
-        - name: Java
-          href: Quickstarts/create-new-kb-java.md
-        - name: Node.js
-          href: Quickstarts/create-new-kb-nodejs.md
-        - name: Python
-          href: Quickstarts/create-new-kb-python.md
-    - name: Bilgi bankası güncelleştirme
-      items:
-        - name: 'C#'
-          href: Quickstarts/update-kb-csharp.md
-        - name: Başlayın
-          href: Quickstarts/update-kb-go.md
-        - name: Java
-          href: Quickstarts/update-kb-java.md
-        - name: Node.js
-          href: Quickstarts/update-kb-nodejs.md
-        - name: Python
-          href: Quickstarts/update-kb-python.md
-    - name: Bilgi bankası yayımlama
-      items:
-        - name: 'C#'
-          href: Quickstarts/publish-kb-csharp.md
-        - name: Başlayın
-          href: Quickstarts/publish-kb-go.md
-        - name: Java
-          href: Quickstarts/publish-kb-java.md
-        - name: Node.js
-          href: Quickstarts/publish-kb-nodejs.md
-        - name: Python
-          href: Quickstarts/publish-kb-python.md
+  - name: Yeni bilgi bankası oluşturma
+    items:
+    - name: C#
+      href: Quickstarts/create-new-kb-csharp.md
+    - name: Başlayın
+      href: Quickstarts/create-new-kb-go.md
+    - name: Java
+      href: Quickstarts/create-new-kb-java.md
+    - name: Node.js
+      href: Quickstarts/create-new-kb-nodejs.md
+    - name: Python
+      href: Quickstarts/create-new-kb-python.md
+  - name: Bilgi bankası güncelleştirme
+    items:
+    - name: C#
+      href: Quickstarts/update-kb-csharp.md
+    - name: Başlayın
+      href: Quickstarts/update-kb-go.md
+    - name: Java
+      href: Quickstarts/update-kb-java.md
+    - name: Node.js
+      href: Quickstarts/update-kb-nodejs.md
+    - name: Python
+      href: Quickstarts/update-kb-python.md
+  - name: Bilgi bankası yayımlama
+    items:
+    - name: C#
+      href: Quickstarts/publish-kb-csharp.md
+    - name: Başlayın
+      href: Quickstarts/publish-kb-go.md
+    - name: Java
+      href: Quickstarts/publish-kb-java.md
+    - name: Node.js
+      href: Quickstarts/publish-kb-nodejs.md
+    - name: Python
+      href: Quickstarts/publish-kb-python.md
 - name: Kavramlar
   items:
-    - name: Bilgi bankası
-      href: Concepts/knowledge-base.md
-    - name: Bilgi bankası geliştirme yaşam döngüsü
-      href: Concepts/development-lifecycle-knowledge-base.md
-    - name: Güvenilirlik puanı
-      href: Concepts/confidence-score.md
-    - name: Desteklenen veri kaynakları
-      href: Concepts/data-sources-supported.md
+  - name: Bilgi bankası
+    href: Concepts/knowledge-base.md
+  - name: Bilgi bankası geliştirme yaşam döngüsü
+    href: Concepts/development-lifecycle-knowledge-base.md
+  - name: En iyi uygulamalar
+    href: Concepts/best-practices.md
+  - name: Güvenilirlik puanı
+    href: Concepts/confidence-score.md
+  - name: Desteklenen veri kaynakları
+    href: Concepts/data-sources-supported.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Soru-Cevap Oluşturma hizmetini ayarlama
-      href: How-To/set-up-qnamaker-service-azure.md
-    - name: Bilgi bankası oluşturma ve yayımlama
-      href: Quickstarts/create-publish-knowledge-base.md
-    - name: Bilgi bankası oluşturma
-      href: How-To/create-knowledge-base.md
-    - name: GenerateAnswer API'si ile meta verileri kullanma
-      href: How-To/metadata-generateanswer-usage.md
-    - name: Bilgi bankasını Önizleme sürümünden geçirme
-      href: Tutorials/migrate-knowledge-base.md
-    - name: Bilgi bankası düzenleme
-      href: How-To/edit-knowledge-base.md
-    - name: Bilgi bankası üzerinde birlikte çalışma
-      href: How-To/collaborate-knowledge-base.md
-    - name: Bilgi bankasını test etme
-      href: How-To/test-knowledge-base.md
-    - name: Bilgi bankası yayımlama
-      href: How-To/publish-knowledge-base.md
-    - name: Bilgi bankanız hakkında analizler alma
-      href: How-To/get-analytics-knowledge-base.md
-    - name: Anahtarları yönetme
-      href: How-To/key-management.md
-    - name: Farklı bir dilde bilgi bankası oluşturma
-      href: How-To/language-knowledge-base.md
-    - name: Azure Bot Hizmeti ile Soru-Cevap botu oluşturma
-      href: Tutorials/create-qna-bot.md
-    - name: Soru-Cevap Oluşturma ve LUIS’i tümleştirme
-      href: Tutorials/integrate-qnamaker-luis.md
-    - name: Soru-Cevap Oluşturma için iş sürekliliği oluşturma
-      href: How-To/business-continuity-plan.md
-    - name: Soru-Cevap Oluşturma dağıtımınız için kapasite seçme
-      href: Tutorials/choosing-capacity-qnamaker-deployment.md
-    - name: Soru-Cevap Oluşturma hizmetinizi yükseltme
-      href: How-To/upgrade-qnamaker-service.md
-    - name: Soru-Cevap Oluşturma çalışma zamanı için sorun giderme ve güncelleştirme
-      href: How-To/troubleshooting-runtime.md
-    - name: Soru-Cevap Oluşturma API’sini kullanma
-      items:
-        - name: 'C#'
-          href: Quickstarts/csharp.md
-        - name: Java
-          href: Quickstarts/java.md
-        - name: Node.js
-          href: Quickstarts/nodejs.md
-        - name: Python
-          href: Quickstarts/python.md
-        - name: Başlayın
-          href: Quickstarts/go.md
+  - name: Soru-Cevap Oluşturma hizmetini ayarlama
+    href: How-To/set-up-qnamaker-service-azure.md
+  - name: Bilgi bankası oluşturma ve yayımlama
+    href: Quickstarts/create-publish-knowledge-base.md
+  - name: Bilgi bankası oluşturma
+    href: How-To/create-knowledge-base.md
+  - name: Bilgi bankasına yorum özelliği ekleme
+    href: How-to/chit-chat-knowledge-base.md
+  - name: GenerateAnswer API'si ile meta verileri kullanma
+    href: How-To/metadata-generateanswer-usage.md
+  - name: Bilgi bankasını Önizleme sürümünden geçirme
+    href: Tutorials/migrate-knowledge-base.md
+  - name: Bilgi bankası düzenleme
+    href: How-To/edit-knowledge-base.md
+  - name: Bilgi bankası üzerinde birlikte çalışma
+    href: How-To/collaborate-knowledge-base.md
+  - name: Bilgi bankasını test etme
+    href: How-To/test-knowledge-base.md
+  - name: Bilgi bankası yayımlama
+    href: How-To/publish-knowledge-base.md
+  - name: Bilgi bankanız hakkında analizler alma
+    href: How-To/get-analytics-knowledge-base.md
+  - name: Anahtarları yönetme
+    href: How-To/key-management.md
+  - name: Farklı bir dilde bilgi bankası oluşturma
+    href: How-To/language-knowledge-base.md
+  - name: Azure Bot Hizmeti ile Soru-Cevap botu oluşturma
+    href: Tutorials/create-qna-bot.md
+  - name: Soru-Cevap Oluşturma ve LUIS’i tümleştirme
+    href: Tutorials/integrate-qnamaker-luis.md
+  - name: Soru-Cevap Oluşturma için iş sürekliliği oluşturma
+    href: How-To/business-continuity-plan.md
+  - name: Soru-Cevap Oluşturma dağıtımınız için kapasite seçme
+    href: Tutorials/choosing-capacity-qnamaker-deployment.md
+  - name: Soru-Cevap Oluşturma hizmetinizi yükseltme
+    href: How-To/upgrade-qnamaker-service.md
+  - name: Soru-Cevap Oluşturma çalışma zamanı için sorun giderme ve güncelleştirme
+    href: How-To/troubleshooting-runtime.md
+  - name: Soru-Cevap Oluşturma API’sini kullanma
+    items:
+    - name: C#
+      href: Quickstarts/csharp.md
+    - name: Java
+      href: Quickstarts/java.md
+    - name: Node.js
+      href: Quickstarts/nodejs.md
+    - name: Python
+      href: Quickstarts/python.md
+    - name: Başlayın
+      href: Quickstarts/go.md
 - name: Başvuru
   items:
-    - name: API Başvurusu
-      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff'
-    - name: SSS
-      href: faqs.md
-    - name: En İyi Uygulamalar
-      href: Concepts/best-practices.md
-    - name: Sınırlar
-      href: limits.md
-    - name: Sözlük
-      href: glossary.md
+  - name: API Başvurusu
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff
+  - name: SSS
+    href: faqs.md
+  - name: Sınırlar
+    href: limits.md
+  - name: Sözlük
+    href: glossary.md
 - name: Kaynaklar
   items:
-    - name: Bölgesel Kullanılabilirlik
-      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/'
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Fiyatlandırma
-      href: 'https://aka.ms/qnamaker-pricing'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/QnAMaker'
-    - name: UserVoice
-      href: 'https://aka.ms/qnamaker-uservoice'
-    - name: Arama
-      href: 'https://docs.microsoft.com/en-us/search/index?search=QnAMaker'
-    - name: Blog
-      href: 'https://blog.botframework.com/category/QnAMaker/'
+  - name: Bölgesel Kullanılabilirlik
+    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/
+  - name: Fiyatlandırma
+    href: https://aka.ms/qnamaker-pricing
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/QnAMaker
+  - name: UserVoice
+    href: https://aka.ms/qnamaker-uservoice
+  - name: Arama
+    href: https://docs.microsoft.com/en-us/search/index?search=QnAMaker
+  - name: Blog
+    href: https://blog.botframework.com/category/QnAMaker/
+ms.openlocfilehash: 7d36f21bf37a30701709a2993689dbdf46f9b0d5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991003"

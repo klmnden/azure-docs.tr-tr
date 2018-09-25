@@ -1,28 +1,49 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9c9c5671e835e3402fe4dfbf45b295256009caa6
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 7eb8996e786d7ee97569c84d70b808cc4210c947
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185288"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987316"
 documentType: LandingData
-title: Bing Web Araması Belgeleri
+title: Bing Web Araması API'si Belgeleri
 metadata:
   document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
-  title: Bing Web Araması Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
+  title: Bing Web Araması API'si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
   description: Bing Web Araması API’si kullanarak Web’den kullanıcı sorgularıyla alakalı sonuçlar elde etmeyi öğrenin. Öğreticilerde bu hizmeti kullanan uygulamaların nasıl derleneceği gösterilmektedir.
   services: cognitive-services
-  author: v-jerkin
+  author: nitinme
   manager: cgronlun
   ms.service: bing-web-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jerkin
+  ms.date: 9/24/2018
+  ms.author: nitinme
 abstract:
   description: Bing Web Araması API’si, Bing’in kullanıcı sorgusuyla alakalı olduğunu belirlediği sonuçları döndürerek Bing’e çok yakın bir deneyim sunar. Sonuçlar Web sayfalarının yanı sıra resimler, videolar ve daha fazlasını da içerebilir.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-web-search/overview
+      html: <p>Bing Web Araması API’si hakkında bilgi edinin</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Bing Web Araması nedir?
+    - href: /azure/cognitive-services/bing-web-search/search-responses
+      html: <p>Bing Web Araması API’si yanıt gövdesini anlama</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Web Araması yanıtları
+    - href: /azure/cognitive-services/bing-web-search/autosuggest-bing-search-terms
+      html: <p>Arama sorgunuz için otomatik önerilerin nasıl çalıştığını öğrenin</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Bing sorguları için otomatik öneri
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
@@ -65,15 +86,27 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-web-search-single-page-app">Tek sayfalı web uygulaması</a> &#124; <a href="tutorial-bing-web-search-single-page-app-source">Kaynak kodu</a>
-    - html: <a href="computer-vision-web-search-tutorial.md">Görsel Arama mobil uygulaması</a>
+    - html: <a href="tutorial-bing-web-search-single-page-app">Tek sayfalı web uygulaması</a>
+- title: Örnekler
+  items:
+  - type: paragraph
+    text: "Bing Web Araması API'si örneklerini bulun:"
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://github.com/Azure-Samples/cognitive-services-REST-api-samples">REST Örnekleri</a>
+    - html: <a href="sdk-samples.md">SDK Örnekleri</a>
 - title: Başvuru
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: API'ler
+    - title: REST
       html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference">Bing Web Araması API’si v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference/">Bing Web Araması API’si v5</a></p>
     - title: SDK’lar
-      html: <p><a href="sdk-samples.md">Bing Web Araması SDK örnekleri</a></p>
+      html: <p><a href="sdk-samples.md">SDK Başvurusu ve örnekler</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>

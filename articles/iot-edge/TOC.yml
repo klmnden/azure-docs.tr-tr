@@ -55,6 +55,8 @@ items:
       href: module-edgeagent-edgehub.md
   - name: Dağıtımlar
     href: module-deployment-monitoring.md
+  - name: Çevrimdışı özellikler
+    href: offline-capabilities.md
   - name: Ağ geçidi olarak IoT Edge cihazı
     href: iot-edge-as-gateway.md
   - name: Güvenlik
@@ -95,7 +97,9 @@ items:
       href: how-to-auto-provision-simulated-device-linux.md
     - name: Windows
       href: how-to-auto-provision-simulated-device-windows.md
-  - name: Modül geliştirme ve modülde hata ayıklama
+  - name: VS 2017 ile modül geliştirme ve modülde hata ayıklama
+    href: how-to-visual-studio-develop-csharp-module.md
+  - name: VS Code ile modül geliştirme ve modülde hata ayıklama
     items:
     - name: Azure İşlevleri
       href: how-to-develop-csharp-function.md
@@ -135,6 +139,12 @@ items:
       href: how-to-create-transparent-gateway-windows.md
     - name: Modbus protokolü ağ geçidi
       href: deploy-modbus-gateway.md
+  - name: Proxy desteğini yapılandırma
+    href: how-to-configure-proxy-support.md
+  - name: Uçta veri depolama
+    items:
+    - name: IoT Edge üzerinde Azure Blob Depolama
+      href: how-to-store-data-blob.md
   - name: Azure DevOps’ta CI/CD
     href: how-to-ci-cd.md
   - name: Sorun giderme
@@ -207,9 +217,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: d2dcc4e642e997903c01b6b375505e88e412d57b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c3d63ebefed6258798540bdf95f2469b11a89160
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294484"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984192"

@@ -1,32 +1,55 @@
+items:
 - name: Azure SignalR Hizmeti Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Azure SignalR Hizmeti Hakkında
-      href: signalr-overview.md
+  - name: Azure SignalR Hizmeti Hakkında
+    href: signalr-overview.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Sohbet odası oluşturma
-      href: signalr-quickstart-dotnet-core.md
+  - name: ASP.NET Çekirdeği
+    href: signalr-quickstart-dotnet-core.md
+  - name: Azure İşlevleri - JavaScript
+    href: signalr-quickstart-azure-functions-javascript.md
+  - name: Azure İşlevleri - C#
+    href: signalr-quickstart-azure-functions-csharp.md
+  - name: REST API
+    href: signalr-quickstart-rest-api.md
 - name: Öğreticiler
   items:
-    - name: OAuth ile kimlik doğrulama
-      href: signalr-authenticate-oauth.md
+  - name: ASP.NET Core Identity ile Tümleştirme
+    href: signalr-authenticate-oauth.md
+  - name: Kimlik Doğrulama Özelliklerine Sahip Sunucusuz Gerçek Zamanlı Uygulama Derleme
+    href: signalr-authenticate-azure-functions.md
 - name: Örnekler
   items:
-    - name: Kod örnekleri
-      href: 'https://github.com/aspnet/AzureSignalR-samples'
-    - name: Azure CLI
-      href: signalr-cli-samples.md
+  - name: Kod örnekleri
+    href: https://github.com/aspnet/AzureSignalR-samples
+  - name: Azure CLI
+    href: signalr-cli-samples.md
+- name: Kavramlar
+  items:
+  - name: ASP.NET Core SignalR'yi Ölçeklendirme
+    href: signalr-overview-scale-aspnet-core.md
+  - name: Azure İşlevleri ile Gerçek Zamanlı Uygulama Derleme
+    href: signalr-overview-azure-functions.md
 - name: Kaynaklar
   items:
-    - name: SignalR Yol Haritası
-      href: 'https://github.com/aspnet/Home/wiki/Roadmap'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
-    - name: Videolar
-      href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'
-    - name: ASP.NET Forumları
-      href: 'https://forums.asp.net/search?q=title%3A%28SignalR%20Core%29+OR+body%3A%28SignalR%20Core%29+AND+forumid%3A%281255%29'
-    - name: Twitter
-      href: 'https://twitter.com/SignalR'
+  - name: SignalR Yol Haritası
+    href: https://github.com/aspnet/Home/wiki/Roadmap
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/signalr-service/
+  - name: Videolar
+    href: https://www.youtube.com/results?search_query=Azure+SignalR+Core
+  - name: StackOverflow
+    href: https://stackoverflow.com/search?q=signalr+service
+  - name: ASP.NET Forumları
+    href: https://forums.asp.net/1254.aspx
+  - name: Twitter
+    href: https://twitter.com/SignalR
+ms.openlocfilehash: e67749dfa19999658cbb3f63fcd6653d37a1a5f7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946366"

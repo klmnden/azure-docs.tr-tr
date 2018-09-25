@@ -16,11 +16,11 @@ ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: ''
 ms.openlocfilehash: 57869de8a99c65810da0c75f81c75d93eac88412
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35998582"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090825"
 ---
 # <a name="validate-azure-registration"></a>Azure kaydı doğrula 
 Azure Stack hazırlık Denetleyicisi Aracı (AzsReadinessChecker), Azure aboneliğinizin Azure Stack ile kullanıma hazır olduğunu doğrulamak için kullanın. Azure Stack dağıtıma başlamadan önce kayıt doğrulayın. Hazırlık denetleyicisi doğrular:

@@ -1,34 +1,53 @@
+items:
 - name: Sanal WAN Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Sanal WAN Hakkında
-      href: virtual-wan-about.md
+  - name: Sanal WAN Hakkında
+    href: virtual-wan-about.md
 - name: Öğreticiler
   items:
-    - name: Siteden siteye bağlantı oluşturma
-      href: virtual-wan-site-to-site-portal.md
+  - name: Siteden siteye bağlantı oluşturma
+    href: virtual-wan-site-to-site-portal.md
+  - name: ExpressRoute bağlantısı oluşturma
+    href: virtual-wan-expressroute-portal.md
+  - name: Noktadan siteye bağlantı oluşturma
+    href: virtual-wan-point-to-site-portal.md
+- name: Kavramlar
+  items:
+  - name: Konumlar ve iş ortakları
+    href: virtual-wan-locations-partners.md
+  - name: Sanal WAN Office 365 denetim düzlemi
+    href: virtual-wan-office365-overview.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Otomasyonu yapılandırma - WAN İş Ortakları
-      href: virtual-wan-configure-automation-providers.md
+  - name: Sanal WAN iş ortakları - otomasyon
+    href: virtual-wan-configure-automation-providers.md
+  - name: Sanal hub'dan NVA'ya trafik yönlendirme
+    href: virtual-wan-route-table.md
 - name: Başvuru
   items:
-    - name: REST
-      href: /rest/api/azure
+  - name: REST
+    href: /rest/api/azure
 - name: Kaynaklar
   items:
-    - name: SSS
-      href: virtual-wan-faq.md
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=networking'
-    - name: Blog
-      href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Abonelik ve hizmet sınırlamaları
-      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/vpn-gateway'
-    - name: Fiyatlandırma hesaplayıcı
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: SLA
-      href: 'https://azure.microsoft.com/support/legal/sla'
+  - name: SSS
+    href: virtual-wan-faq.md
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Abonelik ve hizmet sınırlamaları
+    href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/vpn-gateway
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: SLA
+    href: https://azure.microsoft.com/support/legal/sla
+ms.openlocfilehash: a8b9bf44a68e389547e08055e5036562457f6175
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957389"

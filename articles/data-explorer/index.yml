@@ -1,0 +1,77 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 8985bfa71532cc73dbfeef8d63109476d6893c7f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975981"
+documentType: LandingData
+title: Azure Veri Gezgini Belgeleri
+metadata:
+  title: Azure Veri Gezgini Belgeleri - Hızlı başlangıçlar, öğreticiler, dil ve API başvuruları | Microsoft Docs
+  description: Azure Veri Gezgini, geçici büyük veri sorguları için iyileştirilmiş olan bir günlük analizi bulut platformudur.
+  author: mgblythe
+  manager: kfile
+  ms.service: data-explorer
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/24/2018
+  ms.author: mblythe
+abstract:
+  description: <p>Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Modern yazılımlar tarafından oluşturulan birçok veri akışını işleyerek verileri toplamanıza, depolamanıza ve analiz etmenize yardımcı olur. Azure Veri Gezgini web siteleri, uygulamalar, IoT cihazları ve benzeri veri kaynaklarından gelen yüksek miktarlardaki çeşitli verileri analiz etmek için idealdir.</p><p>Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve başvuru içeriğiyle Azure Veri Gezgini'ni kullanmayı öğrenin.</p>
+sections:
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: paragraph
+    text: "Azure Veri Gezgini'ni nasıl sağlayacağınızı ve kullanacağınızı öğrenin:"
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/data-explorer/media/index/portal.svg
+      text: Küme ve veritabanı oluşturma
+      href: /azure/data-explorer/create-cluster-database-portal
+    - image:
+        src: /azure/data-explorer/media/index/portal.svg
+      text: Event Hubs'dan akış verilerini alma
+      href: /azure/data-explorer/ingest-data-event-hub
+    - image:
+        src: /azure/data-explorer/media/index/portal.svg
+      text: Web arabirimden verileri sorgulama
+      href: /azure/data-explorer/web-query-data
+    - image:
+        src: /azure/data-explorer/media/index/logo-python.svg
+      text: Python ile kuyruğa alınan verileri alma
+      href: /azure/data-explorer/python-ingest-data
+    - image:
+        src: /azure/data-explorer/media/index/logo-python.svg
+      text: Python ile veri sorgulama
+      href: /azure/data-explorer/python-query-data
+- title: Adım Adım Öğreticiler
+  items:
+  - type: paragraph
+    text: 'Uçtan uca çözümler oluşturmayı öğrenin:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/data-explorer/visualize-power-bi">Azure Veri Gezgini verilerini Power BI'da görselleştirme</a>
+- title: Ücretsiz Pluralsight Video Eğitimi
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Veri Gezgini için sorgu dili
+      href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
+      image:
+        src: /azure/data-explorer/media/index/logo-pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
+- title: Başvuru
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Diller ve API
+      html: <p><a href="https://aka.ms/kustolangref">Sorgu dili, yönetim komutları ve API'ler</a>

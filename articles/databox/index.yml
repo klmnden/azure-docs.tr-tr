@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: f4ef48157896d7cf4947fbc8ef6eba8b59ec414b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986532"
 documentType: LandingData
-title: Azure Data Box Belgeleri
+title: Çevrimdışı aktarım için Azure Data Box
 metadata:
-  title: Azure Data Box Belgeleri
-  description: Azure Data Box hizmeti hızlı, ucuz ve güvenilir bir yolla terabaytlarca veriyi Azure'a aktarmanıza olanak tanır. Microsoft size diskler göndererek ve uçtan uca lojistiği üstlenerek güvenli veri aktarımını hızlandırır.
+  title: Çevrimdışı aktarım için Azure Data Box Belgeleri
+  description: Azure Data Box ailesi hızlı, ucuz ve güvenilir bir yolla yüzlerce terabayt boyutundaki veriyi Azure'a aktarmanıza olanak tanır. Süre, ağ veya maliyet konusunda sınırlarınız varsa çevrimdışı veri aktarımı için Data Box cihazlarını kullanabilirsiniz.
   services: databox
   author: alkohli
   manager: twooley
@@ -11,36 +17,35 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/10/2018
+  ms.date: 09/24/2018
   ms.author: alkohli
-  ms.openlocfilehash: 5077d0ba77b6bdce99f1dfdf258182980a367b6c
-  ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-  ms.translationtype: HT
-  ms.contentlocale: tr-TR
-  ms.lasthandoff: 07/13/2018
-  ms.locfileid: "39010149"
 abstract:
-  description: "Azure Data Box hizmeti hızlı, ucuz ve güvenilir bir yolla terabaytlarca veriyi Azure'a aktarmanıza olanak tanır. Microsoft size diskler göndererek ve uçtan uca lojistiği üstlenerek güvenli veri aktarımını hızlandırır.<p>Büyük miktarlardaki verileri 4 kolay adımda Azure'a aktarın: diskleri sipariş edin, alın, verileri disklere kopyalayın ve diskleri Azure'a iade edin. Diskler alındıktan sonra, veriler Azure'a alınır ve diskler güvenli bir şekilde temizlenir.<p><a href=\"/azure/databox/data-box-disk-overview\">Data Box Disk hakkında daha fazla bilgi edinin</a>.</p>"
+  description: "Azure Data Box ailesi hızlı, ucuz ve güvenilir bir yolla yüzlerce terabayt boyutundaki veriyi Azure'a aktarmanıza olanak tanır. Süre, ağ veya maliyet konusunda sınırlarınız varsa çevrimdışı veri aktarımı için Data Box cihazlarını kullanabilirsiniz.<p>Verilerinizin boyutuna göre Data Box Disk, Data Box<SUP>Önizleme</SUP> veya Data Box Heavy<SUP>Önizleme</SUP> çözümlerinden birini seçebilirsiniz. Her cihazda Azure'a aktarım 4 kolay adımda gerçekleşir: sipariş, teslim alma, verileri cihaza kopyalama ve cihazı Azure'a geri gönderme. Azure veri merkezinde veriler yüklenir ve ardından cihazdan silinir.</p><p>Çevrimdışı veri aktarımı için Data Box ürünlerini kullanma hakkında bilgi edinmek için hızlı başlangıçlara ve öğreticilere göz atın.</p>"
 sections:
 - title: Hızlı Başlangıç
   items:
-  - type: paragraph
-    text: Data Box Disk kullanarak Azure veri aktarmayı öğrenin.
   - type: list
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
+        src: https://docs.microsoft.com/media/common/i_quick-start.svg
+      text: Azure portalda Data Box'ı ayarlama
+      href: /azure/databox/data-box-quickstart-portal
+    - image:
+        src: https://docs.microsoft.com/media/common/i_quick-start.svg
+      text: Azure portalda Data Box Disk<SUP>Önizleme</SUP> hizmetini ayarlama
       href: /azure/databox/data-box-disk-quickstart-portal
-- title: Adım adım öğretici
+    - image:
+        src: https://docs.microsoft.com/media/common/i_quick-start.svg
+      text: Data Box Heavy<SUP>Önizleme</SUP> hizmetine kaydolma
+      href: /azure/databox/data-box-heavy-overview#sign-up
+- title: Öğreticiler
   items:
-  - type: paragraph
-    text: Data Box Disk hizmetinin Azure'a veri aktarmanızı nasıl sağladığını öğrenin.
   - type: list
-    style: ordered
+    style: cards
+    className: cardsD
     items:
-    - html: <a href="data-box-disk-deploy-ordered">Data Box Disk sipariş etme</a>
-    - html: <a href="data-box-disk-deploy-set-up">Data Box Disk ayarlama</a>
-    - html: <a href="data-box-disk-deploy-copy-data">Verileri Data Box Disk'e kopyalama</a>
-    - html: <a href="data-box-disk-deploy-picked-up">Data Box Disk'i iade etme ve verileri Azure'a yükleme</a>
+    - title: Data Box için
+      html: <p><a href="/azure/databox/data-box-deploy-ordered">Azure Data Box sipariş etme</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Azure Data Box'ın kablolarını takma ve bağlantıları kurma</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Azure Data Box'a veri kopyalama</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Azure Data Box'ı geri gönderme ve yükleme işlemini doğrulama</a></p>
+    - title: Data Box Disk<SUP>Önizleme</SUP> için
+      html: <p><a href="/azure/databox/data-box-disk-deploy-ordered">Azure Data Box Disk sipariş etme</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Azure Data Box Disk'i paketinden çıkarma, bağlama, kilidini açma</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Azure Data Box Disk'e veri kopyalama</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Azure Data Box Disk'i geri gönderme ve yükleme işlemini doğrulama</a></p>

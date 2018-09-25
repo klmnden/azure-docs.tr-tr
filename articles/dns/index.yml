@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2ee8284861d62d4405d0f949ee74b1992440b66e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 701bf7db8304189b9348cad1c920f3e5ec1fecf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184569"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991139"
 documentType: LandingData
 title: Azure DNS Belgeleri
 metadata:
@@ -48,11 +48,14 @@ sections:
   - type: paragraph
     text: Azure DNS’te etki alanınızı barındırmayı, Azure DNS kullanarak bir web uygulamasına yönelik özel DNS kayıtları oluşturmayı ve özel bir DNS bölgesi ve kayıtları oluşturmayı öğrenin.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/dns/dns-delegate-domain-azure-dns">Azure DNS’te etki alanınızı barındırma</a>
     - html: <a href="/azure/dns/dns-web-sites-custom-domain">Bir web uygulaması için özel DNS kayıtları oluşturma</a>
     - html: <a href="/azure/dns/private-dns-getstarted-powershell">Özel bir DNS bölgesi ve kaydı oluşturma</a>
+    - html: <a href="/azure/dns/tutorial-alias-pip">Azure Genel IP adresine başvurmak için diğer ad kaydı yapılandırma</a>
+    - html: <a href="/azure/dns/tutorial-alias-tm">Traffic Manager ile tepe etki alanı adlarını desteklemek için diğer ad kaydı yapılandırma</a>
+    - html: <a href="/azure/dns/tutorial-alias-rr">Bölge kayıtları için diğer ad kaydı yapılandırma</a>
 - title: Ücretsiz Pluralsight Video Eğitimi
   items:
   - type: list

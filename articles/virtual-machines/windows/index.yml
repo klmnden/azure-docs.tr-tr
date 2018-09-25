@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 83394520291a44cb2db1f69f82e962caccceb588
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c670ddf7543cc4a88827bed6a495c9f5d83d446f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294422"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950942"
 documentType: LandingData
 title: Windows Sanal Makineleri İle İlgili Belgeler
 metadata:
@@ -82,6 +82,19 @@ sections:
     - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Visual Studio ile sürekli tümleştirme işlem hattı oluşturma</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-iis-sql">SQL/IIS/.NET yığını yükleme</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">SSL ile bir web sunucusunun güvenliğini sağlama</a>
+- title: Microsoft Learn ile becerilerinizi geliştirin
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: " Azure'da bir Windows sanal makinesi oluşturma"
+      href: /learn/modules/create-windows-virtual-machine-in-azure/
+      image:
+        src: /learn/achievements/create-windows-virtual-machine-in-azure.svg
+        href: /learn/modules/create-windows-virtual-machine-in-azure/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-virtual-machines">Daha fazla etkileşimli öğrenme içeriği...</a>
 - title: Ücretsiz Pluralsight Video Eğitimi
   items:
   - type: list
