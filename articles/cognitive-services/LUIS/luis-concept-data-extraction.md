@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) ne tür veriler ayıklanabileceği öğrenin
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d857767e5d94daa0a32997474722cec608e513b0
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 717d02947c4ea74d5805749157d6a691888be72c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630554"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031363"
 ---
 # <a name="data-extraction"></a>Veri ayıklama
 LUIS, bir kullanıcının doğal dil konuşma bilgi almak için sağlar. Bilgiler bir program, uygulama veya sohbet Robotu eyleme kullanılabilmesi için bir şekilde ayıklanır. Aşağıdaki bölümlerde, hangi verilerin hedefleri ve JSON örneklerini varlıklarla döndürülür öğrenin. 

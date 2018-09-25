@@ -1,5 +1,5 @@
 ---
-title: Linux için Azure N serisi sürücü kurulumu | Microsoft Docs
+title: Linux için Azure N serisi GPU sürücü kurulumu | Microsoft Docs
 description: Azure'da Linux çalıştıran N serisi VM'ler için NVIDIA GPU sürücülerini ayarlama
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d85bc79ddd08cb051b2e4d978a931f460020c10
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 822261e74f7da941ac89090e5d493c4be18bc307
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364509"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038893"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux çalıştıran N serisi Vm'lerde NVIDIA GPU sürücüleri yükleyin
 
@@ -55,7 +55,7 @@ Ardından, dağıtım için belirli çalışma yükleme komutları.
 
 1. CUDA sürücüleri yükleyip yeniden açın.
   ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -99,7 +99,7 @@ sudo reboot
 
 ### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS veya Red Hat Enterprise Linux 7.4 ya da 7.3
 
-1. Çekirdek güncelleştirin.
+1. (Önerilen) çekirdek güncelleştirin. Çekirdek güncelleştirmeyi tercih ederseniz sürümleri emin `kernel-devel` ve `dkms` , çekirdek için uygundur.
 
   ```
   sudo yum install kernel kernel-tools kernel-headers kernel-devel
@@ -127,7 +127,7 @@ sudo reboot
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-9.1.85-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
@@ -170,9 +170,9 @@ RDMA özellikli N serisi sanal makineler N serisi Vm'lerde RDMA bağlantısı de
 
 * **CentOS tabanlı 7.4 HPC** -RDMA sürücüleri ve Intel MPI 5.1 sanal makinede yüklü.
 
-## <a name="install-grid-drivers-on-nv-series-vms"></a>NV serisi Vm'lerde GRID sürücüleri yükleyin
+## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>NV veya NVv2 serisi VM'ler GRID sürücüleri yükleyin
 
-NV serisi Vm'lerde NVIDIA GRID sürücüleri yüklemek için her VM için bir SSH bağlantısı ve Linux dağıtımınız için adımları izleyin. 
+NV veya NVv2 serisi VM'ler, NVIDIA GRID sürücüleri yüklemek için her VM için bir SSH bağlantısı ve Linux dağıtımınız için adımları izleyin. 
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
@@ -189,7 +189,7 @@ NV serisi Vm'lerde NVIDIA GRID sürücüleri yüklemek için her VM için bir SS
 
   sudo apt-get install build-essential ubuntu-desktop -y
   ```
-3. NVIDIA sürücüsü ile uyumsuz Nouveau çekirdek sürücüsü devre dışı bırakın. (Yalnızca NV Vm'lerde NVIDIA sürücüsü kullanın.) Bunu yapmak için bir dosyada oluşturmak `/etc/modprobe.d `adlı `nouveau.conf` aşağıdaki içeriklerle:
+3. NVIDIA sürücüsü ile uyumsuz Nouveau çekirdek sürücüsü devre dışı bırakın. (Yalnızca NVIDIA sürücüsü NV veya NVv2 Vm'lerinde kullanın.) Bunu yapmak için bir dosyada oluşturmak `/etc/modprobe.d `adlı `nouveau.conf` aşağıdaki içeriklerle:
 
   ```
   blacklist nouveau
@@ -232,7 +232,7 @@ NV serisi Vm'lerde NVIDIA GRID sürücüleri yüklemek için her VM için bir SS
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS veya Red Hat Enterprise Linux 
 
-1. Çekirdek ve DKMS güncelleştirin.
+1. (Önerilen) DKMS ve çekirdek güncelleştirin. Çekirdek güncelleştirmeyi tercih ederseniz sürümleri emin `kernel-devel` ve `dkms` , çekirdek için uygundur.
  
   ```bash  
   sudo yum update
@@ -244,7 +244,7 @@ NV serisi Vm'lerde NVIDIA GRID sürücüleri yüklemek için her VM için bir SS
   sudo yum install dkms
   ```
 
-2. NVIDIA sürücüsü ile uyumsuz Nouveau çekirdek sürücüsü devre dışı bırakın. (Yalnızca NV Vm'lerde NVIDIA sürücüsü kullanın.) Bunu yapmak için bir dosyada oluşturmak `/etc/modprobe.d `adlı `nouveau.conf` aşağıdaki içeriklerle:
+2. NVIDIA sürücüsü ile uyumsuz Nouveau çekirdek sürücüsü devre dışı bırakın. (Yalnızca NVIDIA sürücüsü NV veya NV2 Vm'lerinde kullanın.) Bunu yapmak için bir dosyada oluşturmak `/etc/modprobe.d `adlı `nouveau.conf` aşağıdaki içeriklerle:
 
   ```
   blacklist nouveau
@@ -304,7 +304,7 @@ Sürücü yüklediyseniz aşağıdakine benzer bir çıktı görürsünüz. Unut
  
 
 ### <a name="x11-server"></a>X11 sunucusu
-Bir X11 gerekiyorsa bir geçici sanal makineye uzaktan bağlantıları için sunucu [x11vnc](http://www.karlrunge.com/x11vnc/) donanım grafik ivmesini izin verdiğinden önerilir. M60 cihazın BusID X11 için el ile eklenmelidir yapılandırma dosyası (genellikle `etc/X11/xorg.conf`). Ekleme bir `"Device"` bölüm aşağıdakine benzer:
+Bir X11 gerekiyorsa bir NV veya NVv2 VM uzak bağlantılar için sunucu [x11vnc](http://www.karlrunge.com/x11vnc/) donanım grafik ivmesini izin verdiğinden önerilir. M60 cihazın BusID X11 için el ile eklenmelidir yapılandırma dosyası (genellikle `etc/X11/xorg.conf`). Ekleme bir `"Device"` bölüm aşağıdakine benzer:
  
 ```
 Section "Device"

@@ -2,22 +2,21 @@
 title: 'Azure Cosmos DB: SQL Node.js API, SDK ve kaynakları | Microsoft Docs'
 description: Tüm SQL Node.js API'si ve yayın tarihleri, sona erme tarihlerini ve her bir Azure Cosmos DB Node.js SDK'sı sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
 services: cosmos-db
-author: rnagpal
-manager: kfile
+author: deborahc
 editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 5/3/2018
+ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e19c1cb7b297d2537e969e0dd632dae3e1c3d211
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b6983b49135b5a8adbef1d0cfc5a407cb7b0c7ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594371"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960558"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API'si için Azure Cosmos DB Node.js SDK: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -40,12 +39,16 @@ ms.locfileid: "39594371"
 |API Belgeleri  |  [JavaScript SDK başvuru belgeleri](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
 |SDK yükleme yönergeleri  |  [Yükleme yönergeleri](https://github.com/Azure/azure-cosmos-js#installation)
 |SDK'sı için katkıda bulunan | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
-| Örnekler | [Node.js kod örneği](sql-api-nodejs-samples-preview.md)
-| Başlangıç Öğreticisi | [JavaScript SDK'sı ile çalışmaya başlama](sql-api-nodejs-get-started-preview.md)
-| Web uygulaması Öğreticisi | [Azure Cosmos DB kullanarak bir Node.js web uygulaması oluşturma](sql-api-nodejs-application-preview.md)
+| Örnekler | [Node.js kod örneği](sql-api-nodejs-samples.md)
+| Başlangıç Öğreticisi | [JavaScript SDK'sı ile çalışmaya başlama](sql-api-nodejs-get-started.md)
+| Web uygulaması Öğreticisi | [Azure Cosmos DB kullanarak bir Node.js web uygulaması oluşturma](sql-api-nodejs-application.md)
 | Geçerli desteklenen platform | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) : SDK'sı sürüm 2.0.0 ve üzeri gerekli.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="2.0.0"/>2.0.0</a>
+* JavaScript SDK 2.0.0 sürümünün GA
+* Çok bölgeli yazma desteği eklendi.
 
 ### <a name="2.0.0-3"/>2.0.0-3</a>
 * RC1'de 2.0.0 sürümünün JavaScript SDK'ın genel önizlemesi için.

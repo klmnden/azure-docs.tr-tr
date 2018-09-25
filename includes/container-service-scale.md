@@ -1,6 +1,6 @@
 [Azure Container Service kümesini dağıttıktan](../articles/container-service/dcos-swarm/container-service-deployment.md) sonra aracı düğüm sayısını değiştirmeniz gerekebilir. Örneğin, daha fazla kapsayıcı uygulaması veya örneği çalıştırmak için daha fazla aracı gerekebilir. 
 
-Azure Portal’ı veya Azure CLI 2.0’ı kullanarak bir DC/OS, Docker Swarm veya Kubernetes kümesindeki Aracısı düğüm sayısını değiştirebilirsiniz. 
+Azure portalında veya Azure CLI kullanarak bir DC/OS, Docker Swarm veya Kubernetes kümesindeki Aracısı düğüm sayısını değiştirebilirsiniz. 
 
 ## <a name="scale-with-the-azure-portal"></a>Azure Portal’da ölçeklendirme
 
@@ -12,9 +12,9 @@ Azure Portal’ı veya Azure CLI 2.0’ı kullanarak bir DC/OS, Docker Swarm vey
 
 4. Yapılandırmayı kaydetmek için **Kaydet**’e tıklayın.
 
-## <a name="scale-with-the-azure-cli-20"></a>Azure CLI 2.0 ile ölçeklendirme
+## <a name="scale-with-the-azure-cli"></a>Azure CLI ile ölçeklendirme
 
-Emin olun, [yüklü](/cli/azure/install-az-cli2) en son Azure CLI 2.0 ve oturum açmış olan bir Azure hesabında (`az login`).
+Emin olun, [yüklü](/cli/azure/install-az-cli2) en son Azure CLI ve Azure hesabınız oturum açtığınızı (`az login`).
 
 ### <a name="see-the-current-agent-count"></a>Geçerli aracı sayısını görme
 Şu anda kümedeki aracıları sayısını görmek için `az acs show` komutunu çalıştırın. Bunu yaptığınızda küme yapılandırması gösterilir. Örneğin, aşağıdaki komut `myResourceGroup` kaynak grubundaki `containerservice-myACSName` adlı kapsayıcı hizmetinin yapılandırmasını gösterir:
@@ -34,7 +34,7 @@ Aracı düğüm sayısını değiştirmek için `az acs scale` komutunu çalış
 az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-Azure CLI 2.0, yeni aracı sayısı da dahil olmak üzere kapsayıcı hizmetinin yeni yapılandırmasını temsil eden bir JSON dizesi döndürür.
+Azure CLI, yeni aracı sayısı da dahil olmak üzere kapsayıcı hizmetinin yeni yapılandırmasını temsil eden bir JSON dizesi döndürür.
 
 Daha fazla komut seçeneği için `az acs scale --help` komutunu çalıştırın.
 
@@ -50,6 +50,6 @@ Daha fazla komut seçeneği için `az acs scale --help` komutunu çalıştırın
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Azure Container Service ile Azure CLI 2.0 komutlarını kullanma hakkında [daha fazla örneğe](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) bakın.
+* Bkz: [daha fazla örnek](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) Azure Container Service ile Azure CLI komutlarını kullanma.
 * Azure Container Service’de [DC/OS aracı havuzları](../articles/container-service/dcos-swarm/container-service-dcos-agents.md) hakkında daha fazla bilgi edinin.
 

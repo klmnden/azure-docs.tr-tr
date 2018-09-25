@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: d2f7769469c9f3ebdbef5fc6ee1f09b1acd573ef
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: c9ade4d61a1b95d5041a13f9436f0d02a7951758
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715838"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981698"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Container Registry'den Azure Kubernetes hizmeti ile kimlik doğrulaması
 
@@ -21,7 +21,7 @@ Azure Kubernetes Service (AKS) ile Azure Container Registry (ACR) kullanırken, 
 
 ## <a name="grant-aks-access-to-acr"></a>ACR verme AKS erişimi
 
-Bir AKS kümesi oluşturduğunuzda, Azure da bir hizmet sorumlusu diğer Azure kaynakları ile küme çalışabilirlik desteklemek için oluşturur. Bu otomatik olarak oluşturulan hizmet sorumlusu, bir ACR kayıt defteri ile kimlik doğrulaması için kullanabilirsiniz. Bunu yapmak için Azure AD'yi oluşturmanız gerekir [rol ataması](../role-based-access-control/overview.md#role-assignment) , kapsayıcı kayıt defterine kümenin hizmet sorumlusu erişimi verir.
+Bir AKS kümesi oluşturduğunuzda, Azure da bir hizmet sorumlusu diğer Azure kaynakları ile küme çalışabilirlik desteklemek için oluşturur. Bu otomatik olarak oluşturulan hizmet sorumlusu, bir ACR kayıt defteri ile kimlik doğrulaması için kullanabilirsiniz. Bunu yapmak için Azure AD'yi oluşturmanız gerekir [rol ataması](../role-based-access-control/overview.md#role-assignments) , kapsayıcı kayıt defterine kümenin hizmet sorumlusu erişimi verir.
 
 Azure container registry AKS tarafından oluşturulan hizmet sorumlusu erişimi vermek için aşağıdaki betiği kullanın. Değiştirme `AKS_*` ve `ACR_*` betiği çalıştırmadan önce ortam değişkenleri.
 

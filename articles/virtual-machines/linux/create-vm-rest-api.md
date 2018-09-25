@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 0f77b46be0207b0ce96e6dc2562fb5298afbe36b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 11d9f5efb452d46e5ca30169861582f6f2bbbd1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928191"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969402"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API ile SSH kimlik doğrulaması kullanan bir Linux sanal makinesi oluşturma
 
@@ -32,7 +32,7 @@ Oluşturun veya bir sanal makineyi güncelleştirmek için aşağıdakileri kull
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-## <a name="create-a-request"></a>Bir isteği oluştur
+## <a name="create-a-request"></a>İstek oluştur
 
 Oluşturulacak *PUT* isteği `{subscription-id}` parametresi gereklidir. Birden fazla aboneliğiniz varsa, bkz. [birden çok abonelik ile çalışma](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). Tanımladığınız bir `{resourceGroupName}` ve `{vmName}` kaynaklarınız için birlikte `api-version` parametresi. Bu makalede `api-version=2017-12-01`.
 
@@ -141,9 +141,9 @@ Sıkıştırılmış bir *201 oluşturuldu* bir VM oluşturur, önceki örnek is
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure REST API'lerini veya Azure CLI 2.0 veya Azure PowerShell gibi diğer yönetim araçları hakkında daha fazla bilgi için aşağıdakilere bakın:
+Azure REST API'lerini veya Azure CLI veya Azure PowerShell gibi diğer yönetim araçları hakkında daha fazla bilgi için aşağıdakilere bakın:
 
 - [Azure işlem sağlayıcısı REST API'si](/rest/api/compute/)
 - [Azure REST API'si ile çalışmaya başlama](/rest/api/azure/)
-- [Azure CLI 2.0](/cli/azure/)
+- [Azure CLI](/cli/azure/)
 - [Azure PowerShell Modülü](/powershell/azure/overview)

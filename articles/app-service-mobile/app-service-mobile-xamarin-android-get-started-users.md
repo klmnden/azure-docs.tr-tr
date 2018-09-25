@@ -1,6 +1,6 @@
 ---
-title: Xamarin Android mobil uygulamalar için kimlik doğrulaması kullanmaya başlama
-description: Xamarin Android uygulamanızın kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli kullanıcıların kimliklerini doğrulamak için Mobile Apps kullanmayı öğrenin.
+title: Xamarin Android Mobile Apps için kimlik doğrulamasını kullanmaya başlama
+description: Kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft gibi çeşitli Xamarin Android uygulamanızdaki kullanıcıların kimliğini doğrulamak için Mobile Apps'ı kullanmayı öğrenin.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
@@ -12,48 +12,48 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: 97207b722b65ccf98c57304cd559b0927aacd5a4
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: d496801894560310a4225eae8a32fced52bcc428
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27595304"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063549"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Xamarin.Android uygulamanıza kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-Bu konuda istemci uygulamanız mobil uygulamasından kullanıcıların kimliklerini gösterilmiştir. Bu öğreticide, Azure Mobile Apps tarafından desteklenen bir kimlik sağlayıcısı kullanarak hızlı başlangıç projesi için kimlik doğrulaması ekleyin. Başarılı bir şekilde kimliği doğrulanmış ve mobil uygulamada yetkili sonra kullanıcı kimliği değeri görüntülenir.
+Bu konu, bir mobil uygulamadan alınan istemci uygulamanızın kullanıcılarının kimlik doğrulaması yapmayı gösterir. Bu öğreticide, Azure Mobile Apps tarafından desteklenen bir kimlik sağlayıcısı kullanarak hızlı başlangıç projesine kimlik doğrulama ekleyin. Başarıyla kimlik doğrulaması ve mobil uygulamada yetkili sonra kullanıcı kimliği değeri görüntülenir.
 
-Bu öğretici, mobil uygulama hızlı başlangıç üzerinde temel alır. Ayrıca ilk öğreticiyi tamamlamanız gereken [Xamarin.Android uygulaması oluşturma]. İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, kimlik doğrulaması uzantısı paketini projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Bu öğretici, mobil uygulama hızlı başlangıcı temel alır. Ayrıca ilk öğreticiyi tamamlamanız gerekir [bir Xamarin.Android uygulaması oluşturma]. İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, kimlik doğrulaması uzantı paketi projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz. [Azure Mobile Apps için .NET arka uç sunucu SDK'sı ile çalışma](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="register"></a>Kimlik doğrulaması için uygulamanızı kaydetme ve uygulama hizmetlerini yapılandırma
+## <a name="register"></a>Kimlik doğrulaması için uygulamanızı kaydetme ve uygulama Hizmetleri'ı yapılandırma
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Uygulamanız için izin verilen dış yönlendirme URL'leri ekleme
+## <a name="redirecturl"></a>İzin verilen dış yönlendirme URL'leri uygulamanıza ekleyin
 
-Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrulaması gerektirir. Bu kimlik doğrulama işlemi tamamlandıktan sonra uygulamanıza geri yönlendirmek bir kimlik doğrulama sistemi sağlar. Bu öğreticide, URL şemasının kullanırız _appname_ boyunca. Ancak, seçtiğiniz herhangi bir URL şeması kullanabilirsiniz. Mobil uygulamanız için benzersiz olmalıdır. Sunucu tarafında yeniden yönlendirmeyi etkinleştirmek için:
+Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrulaması gerektirir. Bu kimlik doğrulama işlemi tamamlandıktan sonra uygulamanıza geri yönlendirmek bir kimlik doğrulama sistemi sağlar. Bu öğreticide, kullandığımız URL şeması _appname_ boyunca. Ancak, seçtiğiniz herhangi bir URL şeması kullanabilirsiniz. Mobil uygulamanız için benzersiz olmalıdır. Sunucu tarafında yeniden yönlendirmeyi etkinleştirmek için:
 
-1. [Azure portalında] uygulama hizmetinizi seçin.
+1. [Azure portalı] uygulama hizmetinizi seçin.
 
-2. Tıklatın **kimlik doğrulama / yetkilendirme** menü seçeneği.
+2. Tıklayın **kimlik doğrulama / yetkilendirme** menü seçeneği.
 
-3. İçinde **yeniden yönlendirme URL'lere izin**, girin `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** Bu dize, mobil uygulamanız için URL düzenidir.  Bir protokol (harf kullanın ve yalnızca sayı ve bir harf ile başlar) için normal URL belirtimi izlemelisiniz.  Çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu ayarlamak ihtiyaç duyacağınız seçtiğiniz dizeyi Not olmanız gerekir.
+3. İçinde **izin verilen dış yönlendirme URL'leri**, girin `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** bu dizesinde mobil uygulamanız için URL şeması aşağıdaki gibidir.  Bu, bir protokol (kullanım harf ve yalnızca sayı ve bir harfle) için normal URL belirtimi izlemeniz gerekir.  Çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu ayarlamak kullanmanız gerektiğinden, seçtiğiniz dizenin Not.
 
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
 
 5. **Kaydet**’e tıklayın.
 
 ## <a name="permissions"></a>Kimliği doğrulanmış kullanıcılar için izinleri kısıtla
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Visual Studio veya Xamarin Studio'da istemci projesi bir cihaz veya öykünücü çalıştırın. Uygulama başlatıldıktan sonra bir durum koduyla işlenmeyen bir özel durum 401 (yetkisiz) tetiklenir doğrulayın. Uygulama Kimliği doğrulanmamış bir kullanıcı olarak, mobil uygulamanızın arka ucuna erişmeye çünkü bu gerçekleşir. *Todoıtem* tablo artık kimlik doğrulaması gerektirir.
+Visual Studio veya Xamarin Studio, bir cihaz veya öykünücü üzerinde istemci projesini çalıştırın. Uygulama başladıktan sonra işlenmeyen bir özel durum ile bir durum kodu 401 (yetkisiz) tetiklenir doğrulayın. Bunun nedeni, uygulama kimliği doğrulanmamış bir kullanıcı olarak mobil uygulama arka ucunuzu erişmeye kullanmasıdır. *Todoıtem* tablo artık kimlik doğrulaması gerektirir.
 
-Ardından, istemci uygulaması isteği kaynaklarına mobil uygulama arka ucundan kimliği doğrulanmış bir kullanıcı ile güncelleştirir.
+Ardından, istemci uygulaması isteği kaynaklarına mobil uygulama arka ucundan ile kimliği doğrulanmış bir kullanıcıyı güncelleştirir.
 
-## <a name="add-authentication"></a>Kimlik doğrulaması için uygulama ekleme
-Uygulama dokunun gerektirmek güncelleştirildi **oturum** düğmesine tıklayın ve veri görüntülenmeden önce kimlik doğrulaması.
+## <a name="add-authentication"></a>Uygulamaya kimlik doğrulaması ekleme
+Uygulama, kullanıcıların dokunarak gerektirecek şekilde güncelleştirilir **oturum** düğmesine tıklayın ve veri görüntülemeden önce kimlik doğrulaması.
 
 1. Aşağıdaki kodu ekleyin **TodoActivity** sınıfı:
    
@@ -93,16 +93,16 @@ Uygulama dokunun gerektirmek güncelleştirildi **oturum** düğmesine tıklayı
             }
         }
    
-    Bu kullanıcı ve yöntemi işleyici yeni bir kimlik doğrulaması için yeni bir yöntem oluşturur **oturum** düğmesi. Yukarıdaki örnek kodda kullanıcı Facebook oturum açma kullanılarak doğrulanır. Bir iletişim kutusu, bir kez kimliği doğrulanmış kullanıcı kimliği görüntülemek için kullanılır.
+    Bu, bir kullanıcı ve bir yöntemin işleyicisi için yeni bir kimlik doğrulaması için yeni bir yöntem oluşturur **oturum** düğmesi. Yukarıdaki örnek kod kullanıcı bir Facebook oturum açma kullanılarak doğrulanır. Bir iletişim kutusu, bir kez kimliği doğrulanmış kullanıcı kimliği görüntülemek için kullanılır.
    
    > [!NOTE]
-   > Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, geçirilen değerini değiştirmek **LoginAsync** yukarıda aşağıdakilerden birine: *MicrosoftAccount*, *Twitter*, *Google*, veya *WindowsAzureActiveDirectory*.
+   > Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, geçirilen değeri değiştirmek **LoginAsync** yukarıda aşağıdakilerden birine: *MicrosoftAccount*, *Twitter*,  *Google*, veya *WindowsAzureActiveDirectory*.
    > 
    > 
-2. İçinde **OnCreate** yöntemi, silmek veya yorum kullanıma aşağıdaki kod satırını:
+2. İçinde **OnCreate** yöntemi, silin veya açıklama çıkış aşağıdaki kod satırını:
    
         OnRefreshItemsSelected ();
-3. Aşağıdaki Activity_To_Do.axml dosyasına ekleyin *LoginUser* düğmesini varolan önce tanımını *addItem* düğmesi:
+3. Activity_To_Do.axml dosyasına aşağıdakileri ekleyin *LoginUser* düğme var olan önce tanımını *addItem* düğmesi:
    
           <Button
             android:id="@+id/buttonLoginUser"
@@ -110,10 +110,10 @@ Uygulama dokunun gerektirmek güncelleştirildi **oturum** düğmesine tıklayı
             android:layout_height="wrap_content"
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
-4. Aşağıdaki öğe Strings.xml kaynaklar dosyasına ekleyin:
+4. Strings.xml kaynak dosyasına şu öğeyi ekleyin:
    
         <string name="login_button_text">Sign in</string>
-5. AndroidManifest.xml dosyasını açın, aşağıdaki kodu ekleyin `<application>` XML öğesi:
+5. AndroidManifest.xml dosyasını açın, içine aşağıdaki kodu ekleyin `<application>` XML öğesi:
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
           <intent-filter>
@@ -124,7 +124,13 @@ Uygulama dokunun gerektirmek güncelleştirildi **oturum** düğmesine tıklayı
           </intent-filter>
         </activity>
 
-6. Visual Studio veya Xamarin Studio, bir cihaz veya öykünücü istemci projesi çalıştırın ve seçilen kimlik sağlayıcınız ile oturum açın. Başarıyla oturum açma, uygulama oturum açma Kimliğiniz ve yapılacaklar öğelerini listesi görüntülenir ve veri güncelleştirmeleri yapabilirsiniz.
+6. Visual Studio veya Xamarin Studio, bir cihaz veya öykünücü üzerinde istemci projesini çalıştırın ve, seçilen kimlik sağlayıcısı ile oturum açın. Başarıyla oturum açma, uygulamanın, oturum açma kimliği ve yapılacaklar öğelerinin listesi görüntülenir ve veri güncelleştirmeleri yapabilirsiniz.
+
+## <a name="troubleshooting"></a>Sorun giderme
+
+**Uygulama ile kilitlendi `Java.Lang.NoSuchMethodError: No static method startActivity`**
+
+Bazı durumlarda, Visual studio, ancak çalışma zamanında özel durum uygulama kilitlenmesi yalnızca bir uyarı olarak görüntülenen Destek paketlerinde çakışıyor. Bu durumda, projenizde başvurulan tüm destek paketleri aynı sürümü kullandığınızdan emin olmanız gerekir. [Azure Mobile Apps NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) sahip `Xamarin.Android.Support.CustomTabs` projenize yeni kullanıyorsa, destek, paketler için Android platformu için bağımlılık doğrudan çakışmalarını önlemek için gerekli sürümü bu paketi yüklemeniz gerekir.
 
 <!-- URLs. -->
-[Xamarin.Android uygulaması oluşturma]: app-service-mobile-xamarin-android-get-started.md
+[Bir Xamarin.Android uygulaması oluşturma]: app-service-mobile-xamarin-android-get-started.md

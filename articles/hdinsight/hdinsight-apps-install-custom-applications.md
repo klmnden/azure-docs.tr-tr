@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9df3b20cd72236d7001aac94bae302b5a6f9eb8d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5e3194b856766502e4cc8c68ffa4bb936634adfa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110581"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983149"
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight'a özel Hadoop uygulamaları yükleme
 
@@ -66,7 +66,7 @@ Bu uygulamayı (Hue) dağıtmak için gerekli dosyalar:
     Bu düğme Azure portalında bir Resource Manager şablonu açar.  Resource Manager şablonu şu konumdadır [ https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json ](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json).  Bu Resource Manager şablonunun nasıl yazılacağını öğrenmek için bkz. [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx).
 2. Küme oluşturmak ve Hue uygulamasını yüklemek için yönergeleri izleyin. HDInsight kümeleri oluşturma hakkında daha fazla bilgi için bkz. [HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 
-Resource Manager şablonlarını çağırmak için Azure portalına ek olarak [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) ve [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-cli) kullanabilirsiniz.
+Azure portalına ek olarak da kullanabilirsiniz [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) ve [Klasik Azure CLI'yı](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-azure-cli) Resource Manager şablonlarını çağırmak için.
 
 ## <a name="validate-the-installation"></a>Yüklemeyi doğrulama
 Uygulama yüklemesini doğrulamak için Azure portalında uygulama durumunu denetleyebilirsiniz. Ayrıca, tüm HTTP uç noktalarının beklenen şekilde geldiğini ve varsa web sayfasını doğrulayabilirsiniz:
@@ -117,8 +117,8 @@ Portaldan kümeyi veya uygulamayı içeren kaynak grubunu da silebilirsiniz.
 ### <a name="use-azure-powershell"></a>Azure PowerShell kullanma
 Azure PowerShell kullanarak kümeyi veya kaynak grubunu silebilirsiniz. Bkz. [Azure PowerShell kullanarak küme silme](hdinsight-administer-use-powershell.md#delete-clusters).
 
-### <a name="use-azure-cli"></a>Azure CLI kullanma
-Azure CLI kullanarak kümeyi veya kaynak grubunu silebilirsiniz. Bkz. [Azure CLI kullanarak küme silme](hdinsight-administer-use-command-line.md#delete-clusters).
+### <a name="use-azure-classic-cli"></a>Klasik Azure CLI kullanma
+Klasik Azure CLI'yı kullanarak kümeyi veya kaynak grubunu silin. Bkz: [Klasik Azure CLI'yı kullanarak küme silme](hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını dağıtmaya yönelik Resource Manager şablonlarını nasıl geliştireceğinizi öğrenin.

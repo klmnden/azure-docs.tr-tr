@@ -1,6 +1,6 @@
 ---
-title: Azure depolama ile Azure CLI 1.0 kullanarak | Microsoft Docs
-description: Azure komut satırı arabirimi (Azure CLI) 1.0 oluşturmak ve depolama hesaplarını yönetme ve çalışmak için Azure depolama ile Azure BLOB ve dosyalar ile kullanmayı öğrenin. Azure CLI'yı bir platformlar arası araçtır
+title: Azure Klasik CLI, Azure depolama ile kullanma | Microsoft Docs
+description: Azure Klasik komut satırı arabirimi (CLI) oluşturma ve depolama hesaplarını yönetme ve Azure BLOB'ları ve dosyalarla çalışmak için Azure Depolama'yı kullanmayı öğrenin.
 services: storage
 author: seguler
 ms.service: storage
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: f406f12b3313670e8e2d89296f7c24478bb58c6c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e563c7000b600bed917f42d8ffb87df883564ef8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521515"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979337"
 ---
-# <a name="using-the-azure-cli-10-with-azure-storage"></a>Azure CLI 1.0 ile Azure depolama kullanma
+# <a name="using-the-azure-classic-cli-with-azure-storage"></a>Azure Klasik CLI ile Azure depolama kullanma
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure CLI, Azure platformu ile birlikte çalışmaya yönelik platformlar arası komut bir dizi açık kaynaklı sağlar. Bulunan aynı işlevselliğinin sağlar [Azure portalında](https://portal.azure.com) da zengin veri erişim işlevleri.
+Klasik Azure CLI, Azure platformu ile birlikte çalışmaya yönelik platformlar arası komut bir dizi açık kaynaklı sağlar. Bulunan aynı işlevselliğinin sağlar [Azure portalında](https://portal.azure.com) da zengin veri erişim işlevleri.
 
-Bu kılavuzda, biz nasıl kullanılacağı hakkında bilgi edineceksiniz [Azure komut satırı arabirimi (Azure CLI)](../../cli-install-nodejs.md) çeşitli Azure Storage ile geliştirme ve yönetim görevlerini gerçekleştirmek için. İndirin ve yükleyin veya bu kılavuzu kullanmadan önce en son Azure CLI sürümüne yükseltme öneririz.
+Bu kılavuzda, biz nasıl kullanılacağı hakkında bilgi edineceksiniz [Azure Klasik CLI](../../cli-install-nodejs.md) çeşitli Azure Storage ile geliştirme ve yönetim görevlerini gerçekleştirmek için. İndirin ve yükleyin veya bu kılavuzu kullanmadan önce Klasik en yeni CLI sürümüne yükseltme öneririz.
 
-Bu kılavuzda, Azure Depolama'nın temel kavramlarını anladığınızı varsayar. Bir dizi betiği, Azure CLI ile Azure depolama kullanımını göstermek için kılavuz sağlar. Her komut dosyasını çalıştırmadan önce yapılandırmasına göre komut dosyası değişkenleri güncelleştirdiğinizden emin olun.
+Bu kılavuzda, Azure Depolama'nın temel kavramlarını anladığınızı varsayar. Bir dizi betiği Azure depolama ile klasik CLI kullanımını göstermek için kılavuz sağlar. Her komut dosyasını çalıştırmadan önce yapılandırmasına göre komut dosyası değişkenleri güncelleştirdiğinizden emin olun.
 
 > [!NOTE]
-> Kılavuz, Klasik depolama hesapları için Azure CLI komutu ve betik örnekleri sağlar. Bkz: [Mac, Linux ve Windows Azure kaynak yönetimi ile Azure CLI kullanarak](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) Resource Manager depolama hesapları için Azure CLI komutlarına ait.
+> Kılavuz, Klasik depolama hesapları için Azure Klasik CLI komutu ve betik örnekleri sağlar. Bkz: [Mac, Linux ve Windows Azure kaynak yönetimi ile Azure CLI kullanarak](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) Resource Manager depolama hesapları için Azure Klasik CLI komutlarına ait.
 >
 >
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>Azure depolama ve Azure CLI ile 5 dakika içinde kullanmaya başlayın
+## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Azure depolama ve Azure Klasik CLI ile 5 dakika içinde kullanmaya başlayın
 Bu kılavuzda Ubuntu örnekler için kullanılır, ancak diğer işletim sistemi platformları benzer şekilde gerçekleştirmeniz gerekir.
 
 **Azure'da yeni:** bir Microsoft Azure aboneliği ve bu abonelikle ilişkili bir Microsoft hesabı alın. Azure satın alma seçenekleri hakkında daha fazla bilgi için bkz: [ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/), [satın alma seçenekleri](https://azure.microsoft.com/pricing/purchase-options/), ve [üye Tekliflerimizi](https://azure.microsoft.com/pricing/member-offers/) (MSDN, Microsoft Partner Network ve BizSpark üyeleri için ve başka Microsoft programlarını).
@@ -41,12 +41,12 @@ Bkz: [Azure Active Directory'de (Azure AD) yönetici rolleri atama](https://docs
 
 **Microsoft Azure aboneliği ve hesabı oluşturduktan sonra:**
 
-1. Bölümünde açıklanan yönergeleri izleyerek Azure CLI yükleyip [Azure CLI'yı yükleme](../../cli-install-nodejs.md).
-2. Azure CLI'yı yüklendikten sonra Azure CLI komutlarına erişmek için azure komut satırı arabiriminizde (Bash, Terminal, komut istemi) komutu kullanmanız mümkün olacaktır. Tür _azure_ komutunu aşağıdaki çıktıyı görmelisiniz.
+1. Bölümünde açıklanan yönergeleri izleyerek Azure Klasik CLI yükleyip [Klasik Azure CLI yükleme](../../cli-install-nodejs.md).
+2. Klasik CLI'yı yüklendikten sonra Klasik CLI komutlarına erişmek için azure komut satırı arabiriminizde (Bash, Terminal, komut istemi) komutu kullanmanız mümkün olacaktır. Tür _azure_ komutunu aşağıdaki çıktıyı görmelisiniz.
 
     ![Azure komut çıktısı](./media/storage-azure-cli/azure_command.png)   
-3. Komut satırı arabiriminde yazın `azure storage` tüm azure depolama komutları listelemek ve işlevlerini bir ilk izlenim Azure CLI sürümünü edinmek için sağlar. Komut adı yazabilirsiniz **-h** parametresi (örneğin, `azure storage share create -h`) komut söz dizimini ayrıntılarını görmek için.
-4. Şimdi, biz, Azure depolama alanına erişmek için temel Azure CLI komutlarını gösteren basit bir komut dosyası verin. Betik ilk olarak, depolama hesabınız ve anahtarı için iki değişkenlerini ayarlamak için sorar. Ardından, betik bu yeni bir depolama hesabında yeni bir kapsayıcı oluşturur ve var olan bir görüntü dosyası (blob), kapsayıcıya yüklemek. Betik bu kapsayıcıdaki tüm blobları listeler sonra yerel bilgisayarda var olan hedef dizine görüntü dosyasını indirir.
+3. Komut satırı arabiriminde yazın `azure storage` tüm azure depolama komutları listelemek ve işlevlerini bir ilk izlenim Klasik CLI sürümünü edinmek için sağlar. Komut adı yazabilirsiniz **-h** parametresi (örneğin, `azure storage share create -h`) komut söz dizimini ayrıntılarını görmek için.
+4. Şimdi, biz, Azure depolama alanına erişmek için temel Klasik CLI komutlarını gösteren basit bir komut dosyası verin. Betik ilk olarak, depolama hesabınız ve anahtarı için iki değişkenlerini ayarlamak için sorar. Ardından, betik bu yeni bir depolama hesabında yeni bir kapsayıcı oluşturur ve var olan bir görüntü dosyası (blob), kapsayıcıya yüklemek. Betik bu kapsayıcıdaki tüm blobları listeler sonra yerel bilgisayarda var olan hedef dizine görüntü dosyasını indirir.
 
     ```azurecli
     #!/bin/bash
@@ -88,9 +88,9 @@ Bkz: [Azure Active Directory'de (Azure AD) yönetici rolleri atama](https://docs
 
 Betik çalıştıktan sonra indirilen görüntü dosyasını içeren bir yerel hedef klasör olmalıdır.
 
-## <a name="manage-storage-accounts-with-the-azure-cli"></a>Depolama hesaplarını Azure CLI ile yönetme
+## <a name="manage-storage-accounts-with-the-azure-classic-cli"></a>Depolama hesaplarını Azure Klasik CLI ile yönetme
 ### <a name="connect-to-your-azure-subscription"></a>Azure aboneliğinize bağlanma
-Depolama komutların çoğu bir Azure aboneliği olmadan çalışır durumdayken Azure CLI üzerinden aboneliğinize bağlanmak için önerilir. Aboneliğiniz ile birlikte çalışmak için Azure CLI'yı yapılandırmak için adımları [Azure clı'dan Azure aboneliğine Bağlan](/cli/azure/authenticate-azure-cli).
+Depolama komutların çoğu bir Azure aboneliği olmadan çalışır ancak klasik CLI üzerinden aboneliğinize bağlanmak için öneririz.
 
 ### <a name="create-a-new-storage-account"></a>Yeni depolama hesabı oluşturma
 Azure depolama kullanmak için bir depolama hesabı gerekir. Aboneliğinize bağlanmak için bilgisayarınızı yeniden yapılandırdıktan sonra yeni bir Azure depolama hesabı oluşturabilirsiniz.
@@ -102,7 +102,7 @@ azure storage account create <account_name>
 Depolama hesabınızın adı 3 ila 24 karakter uzunluğunda olmalı ve sayı ve yalnızca küçük harflerden oluşmalıdır.
 
 ### <a name="set-a-default-azure-storage-account-in-environment-variables"></a>Varsayılan Azure depolama hesabı içinde ortam değişkenlerini ayarlama
-Aboneliğinizde birden fazla depolama hesabı olabilir. Bunlardan birini seçin ve aynı oturum içindeki tüm depolama komutları için ortam değişkenlerini ayarlayın. Bu depolama hesabı belirtmeden Azure CLI'yi depolama komutları çalıştırabilir ve açıkça anahtar sağlar.
+Aboneliğinizde birden fazla depolama hesabı olabilir. Bunlardan birini seçin ve aynı oturum içindeki tüm depolama komutları için ortam değişkenlerini ayarlayın. Bu, depolama hesabı belirtmeden Klasik CLI depolama komutları çalıştırabilir ve açıkça anahtar sağlar.
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -177,7 +177,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Oluşturma ve dosya paylaşımlarını yönetme
-Azure dosyaları standart SMB protokolünü kullanarak uygulamalara paylaşılan depolama sağlar. Şirket içi uygulamaların yanı sıra Microsoft Azure sanal makineler ve bulut Hizmetleri, bağlanan paylaşımlar yoluyla dosya verileri paylaşabilir. Dosya paylaşımları ve dosya verilerini Azure CLI aracılığıyla yönetebilirsiniz. Azure dosyaları hakkında daha fazla bilgi için bkz. [Azure dosyaları'na giriş](../files/storage-files-introduction.md).
+Azure dosyaları standart SMB protokolünü kullanarak uygulamalara paylaşılan depolama sağlar. Şirket içi uygulamaların yanı sıra Microsoft Azure sanal makineler ve bulut Hizmetleri, bağlanan paylaşımlar yoluyla dosya verileri paylaşabilir. Dosya paylaşımları ve dosya verilerini Klasik CLI aracılığıyla yönetebilirsiniz. Azure dosyaları hakkında daha fazla bilgi için bkz. [Azure dosyaları'na giriş](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Dosya paylaşımı oluşturma
 Bir Azure dosya paylaşımı azure'daki bir SMB dosyası paylaşımıdır. Tüm dizin ve dosyaların bir dosya paylaşımı oluşturulması gerekir. Bir hesapta sınırsız sayıda paylaşım olabilir ve dosyaları, depolama hesabının kapasite sınırları sınırsız sayıda paylaşım depolayabilir. Aşağıdaki örnekte adlı bir dosya paylaşımı oluşturur **myshare**.
@@ -214,7 +214,7 @@ azure storage file list myshare myDir
 Dizin adı listeleme işlemi için isteğe bağlı olduğunu unutmayın. Atlanırsa, komut paylaşım kök dizininin içeriğini listeler.
 
 ### <a name="copy-files"></a>Dosyaları kopyalama
-Azure CLI 0.9.8 sürümünden itibaren bir dosyaya kopyalayıp başka bir dosyaya, bir dosyayı bir bloba veya bir blobu bir dosyaya için. Aşağıdaki CLI komutları kullanarak bu kopyalama işlemlerini nasıl gerçekleştireceğinizi gösterir. Bir dosyasını yeni dizine kopyalamak için:
+Klasik CLI 0.9.8 sürümünden itibaren bir dosyaya kopyalayıp başka bir dosyaya, bir dosyayı bir bloba veya bir blobu bir dosyaya için. Aşağıdaki CLI komutları kullanarak bu kopyalama işlemlerini nasıl gerçekleştireceğinizi gösterir. Bir dosyasını yeni dizine kopyalamak için:
 
 ```azurecli
 azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare
@@ -230,9 +230,9 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Burada depolama kaynakları ile çalışmak için Azure CLI 1.0 komut başvurusu bulabilirsiniz:
+Burada depolama kaynakları ile çalışmak için Azure Klasik CLI komut başvurusu bulabilirsiniz:
 
-* [Resource Manager modunda Azure CLI komutları](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Azure Hizmet Yönetimi modunda Azure CLI komutları](../../cli-install-nodejs.md)
+* [Resource Manager modunda Klasik Azure CLI komutları](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Azure Hizmet Yönetimi modunda Klasik Azure CLI komutları](../../cli-install-nodejs.md)
 
-Denemek ister [Azure CLI 2.0](../storage-azure-cli.md), Resource Manager dağıtım modeli ile kullanmak için Python'da yazılmış yeni nesil CLI'mız.
+En son sürümünü denemek da beğenebilirsiniz [Azure CLI](../storage-azure-cli.md), Resource Manager dağıtım modeli ile kullanmak için.

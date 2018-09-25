@@ -9,15 +9,16 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 12628b5a552b864784d780e5f2adc00aac579911
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 13ba4d774cbc347830c32385ba4927a0df687159
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215042"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035479"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumunu ve iş akışları Automation'ı Log Analytics'e iletme
-Log Analytics çalışma alanınıza Automation runbook iş durumunu ve iş akışları yeniden gönderebilirsiniz. İş günlükleri ve iş akışları tek tek işler ve bu sağlayan için basit araştırmalar gerçekleştirmek Azure portalında veya PowerShell ile görünür. Artık Log Analytics ile şunları yapabilirsiniz:
+
+Log Analytics çalışma alanınıza Automation runbook iş durumunu ve iş akışları yeniden gönderebilirsiniz. Bu işlem, çalışma alanı bağlama içermeyen ve tamamen bağımsızdır. İş günlükleri ve iş akışları tek tek işler ve bu sağlayan için basit araştırmalar gerçekleştirmek Azure portalında veya PowerShell ile görünür. Artık Log Analytics ile şunları yapabilirsiniz:
 
 * Otomasyon işlerinizi ilgili Öngörüler edinin.
 * Bir e-posta veya uyarı (örneğin, başarısız olan veya askıya alınmış), runbook iş durumu temelinde tetikleyicisi.
@@ -26,12 +27,12 @@ Log Analytics çalışma alanınıza Automation runbook iş durumunu ve iş akı
 * İş geçmişinizi zaman içinde görselleştirin.
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Önkoşulları ve dağıtım konuları
+
 Otomasyon günlüklerinizi Log Analytics'e gönderme başlamak için ihtiyacınız vardır:
 
 * Kasım 2016 veya sonraki sürümünün [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
 * Log Analytics çalışma alanı. Daha fazla bilgi için [Log Analytics ile çalışmaya başlama](../log-analytics/log-analytics-get-started.md). 
 * Azure Automation hesabınız için ResourceId.
-
 
 Azure Automation hesabınız için ResourceId bulmak için:
 
@@ -159,7 +160,18 @@ Son olarak, zaman içinde iş geçmişini görselleştirmek isteyebilirsiniz. Bu
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
 <br> ![Log Analytics geçmiş iş durumu grafiği](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
+## <a name="remove-diagnostic-settings"></a>Tanılama ayarları Kaldır
+
+Otomasyon hesabından tanılama ayarını kaldırmak için aşağıdaki komutları çalıştırın:
+
+```powershell-interactive
+$automationAccountId = "[resource id of your automation account]"
+
+Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+```
+
 ## <a name="summary"></a>Özet
+
 Otomasyon iş durumu ve akış verileri Log Analytics'e göndererek Otomasyon işlerinizi durumunu daha iyi bir anlayış alabilirsiniz:
 + Bir sorun olduğunda bildirimde bulunacak uyarılar ayarlanması.
 + Runbook sonuçlarınızı görselleştirmek için özel görünümlerinizi ve arama sorgularını kullanarak runbook iş durumu ve diğer önemli göstergeleri veya ölçümleri ilgili.  

@@ -1,6 +1,6 @@
 ---
 title: Azure IOT hub'ı yerleşik uç anlama | Microsoft Docs
-description: Geliştirici Kılavuzu - yerleşik, Event Hub ile uyumlu uç noktası o CİHAZDAN buluta iletileri kullanmayı açıklar.
+description: Geliştirici Kılavuzu - CİHAZDAN buluta iletileri okumak için yerleşik, Event Hub ile uyumlu uç noktası kullanma işlemini açıklar.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 767c91e4926e553b63b8331ac99edcd7823d2c13
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 02624b4f3b0fceb1816f4f43b1f435356f8d5235
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055024"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984050"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Cihazdan buluta iletilerini yerleşik uç noktadan okuma
 
@@ -26,7 +26,7 @@ Varsayılan olarak, iletiler yerleşik hizmet'e yönelik uç noktaya yönlendiri
 
 IOT Hub ayrıca yönetmenize imkan sağlar tüketici grupları yerleşik cihaz-bulut uç noktası alırsınız.
 
-Varsayılan olarak, ileti yönlendirme kuralı açıkça eşleşmeyen tüm iletilerini yerleşik uç noktasına yazılır. Bu geri dönüş rota devre dışı bırakırsanız, açıkça herhangi bir ileti yönlendirme kuralları eşleşmeyen iletiler bırakılır.
+Kullanıyorsanız [ileti yönlendirme](iot-hub-devguide-messages-d2c.md) ve [geri dönüş rota](iot-hub-devguide-messages-d2c.md#fallback-route) olan etkin bir sorgu tüm yönlendiricilerin eşleşmeyen tüm iletileri yerleşik uç noktasına yazılır. Bu geri dönüş rota devre dışı bırakırsanız, herhangi bir sorgu eşleşmeyen iletiler bırakılır.
 
 Elde tutma süresi aşağıdakilerden birini kullanarak program aracılığıyla değiştirebilirsiniz [IOT hub'ı kaynak sağlayıcısı REST API'leri][lnk-resource-provider-apis], veya [Azure portalında] [ lnk-management-portal].
 
@@ -39,9 +39,8 @@ Kullanırken [.NET için Azure hizmet veri yolu SDK'sı] [ lnk-servicebus-sdk] v
 SDK'ları (veya ürün tümleştirmeleri) kullandığınızda, IOT hub'farkında olan, bir Event Hub ile uyumlu uç nokta ve Event Hub ile uyumlu adı almanız gerekir:
 
 1. Oturum [Azure portalında] [ lnk-management-portal] ve IOT hub'ınıza gidin.
-1. **Uç Noktalar**’a tıklayın.
-1. İçinde **yerleşik uç noktaları** bölümünde **olayları**. 
-1. Aşağıdaki değerleri içeren bir özellik sayfasını açar: **Event Hub ile uyumlu uç nokta**, **Event Hub ile uyumlu adı**, **bölümleri**,  **Elde tutma süresi**, ve **tüketici grupları**.
+1. Tıklayın **yerleşik uç noktaları**.
+1. **Olayları** bölümünde aşağıdaki değerleri içerir: **Event Hub ile uyumlu uç nokta**, **Event Hub ile uyumlu adı**, **bölümleri**, **Elde tutma süresi**, ve **tüketici grupları**.
 
     ![Cihazdan buluta ayarları][img-eventhubcompatible]
 
@@ -63,11 +62,9 @@ SDK'ları ve IOT hub'ı sunan Event Hub ile uyumlu uç noktalar ile kullanabilec
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-IOT Hub uç noktaları hakkında daha fazla bilgi için bkz: [IOT Hub uç noktaları][lnk-endpoints].
-
-[Hızlı Başlangıçlar] [ lnk-get-started] sanal cihazlardan CİHAZDAN buluta iletiler gönderir ve iletilerini yerleşik uç noktadan okuma işlemini gösterir. Daha fazla ayrıntı için [yolları kullanarak işlem IOT Hub CİHAZDAN buluta iletileri] [ lnk-d2c-tutorial] öğretici.
-
-Özel uç noktalar için CİHAZDAN buluta iletileri yönlendirmek istiyorsanız, bkz. [CİHAZDAN buluta iletiler için ileti yollarını ve özel uç noktaları kullanma][lnk-custom].
+* IOT Hub uç noktaları hakkında daha fazla bilgi için bkz: [IOT Hub uç noktaları][lnk-endpoints].
+* [Hızlı Başlangıçlar] [ lnk-get-started] sanal cihazlardan CİHAZDAN buluta iletiler gönderir ve iletilerini yerleşik uç noktadan okuma işlemini gösterir. Daha fazla ayrıntı için [yolları kullanarak işlem IOT Hub CİHAZDAN buluta iletileri] [ lnk-d2c-tutorial] öğretici.
+* Özel uç noktalar için CİHAZDAN buluta iletileri yönlendirmek istiyorsanız, bkz. [CİHAZDAN buluta iletiler için ileti yollarını ve özel uç noktaları kullanma][lnk-custom].
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 

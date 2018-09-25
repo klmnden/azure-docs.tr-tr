@@ -1,5 +1,5 @@
 ---
-title: Ethereum kavram yetki Consortium
+title: Ethereum kavram yetki Consortium - Azure
 description: Çoklu üyeli bir konsorsiyum Ethereum ağ yapılandırmak ve dağıtmak Etherereum kavram yetki Consortium çözümü kullanın
 services: azure-blockchain
 keywords: ''
@@ -10,15 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: fcb35f23be384b3625e4e17e5dc2285b7eeb341a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b594a9b1cf6ab0ab2c4c57b35ee79218b65f80b6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531712"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039046"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum yetkilisi kavram consortium
 
+## <a name="overview"></a>Genel Bakış
 [Bu çözüm](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) dağıtmak, yapılandırmak ve Azure ve Ethereum minimum bilgi ile çok üye consortium yetkilisi kavram Ethereum ağ yöneten kolaylaştırmak için tasarlanmıştır.
 
 Birkaç kullanıcı girişleri ve Azure Portalı aracılığıyla tek tıklamayla dağıtım ile her üyenin ağ kaplama alanını kullanarak Microsoft Azure işlem, ağ ve depolama hizmetleri dünya çapında sağlayabilirsiniz. Her üyenin ağ kaplama alanını bir dizi yük dengeleme olanağı sunan bir doğrulayıcı düğümden oluşur. sahip olan bir uygulama veya kullanıcıya Ethereum işlemleri göndermek için etkileşim kurabilirsiniz.
@@ -74,8 +75,6 @@ Genellikle consortium üyesi ağ idaresinde katılmak istiyor ancak çalıştır
 
 5.  **Consortium üye** Doğrulayıcı düğümleri kabul eden bir isteğini imzalamak için kendi özel anahtarı kullandığı **işleci** kendi adınıza katılmak dağıtıldığını
 
-![Kendi işleci Getir](./media/ethereum-poa-deployment-guide/bring-you-own-operator.png)
-
 ### <a name="azure-monitor"></a>Azure İzleyici
 
 Bu çözüm, ayrıca düğüm ve ağ istatistiklerini izlemek için Azure İzleyici ile birlikte gelir. Uygulama geliştiriciler için bu blok nesil istatistikleri izlemek için temel alınan blok zinciri görünürlük sağlar. Ağ İşletmenleri Azure İzleyici, hızlı bir şekilde algılayın ve altyapı istatistikleri ve sorgulanabilir günlükleri aracılığıyla ağ kesintileri önlemek için kullanabilirsiniz. Bkz: [hizmet izleme](#service-monitoring) daha fazla ayrıntı için.
@@ -90,7 +89,7 @@ Bu çözüm, ayrıca düğüm ve ağ istatistiklerini izlemek için Azure İzley
 
 Her consortium üye dağıtım içerir:
 
--   Sanal M ölçek kümeleri (PoA doğrulayıcıları çalıştırmak için VMSS)
+-   Sanal makineler, PoA doğrulayıcıları çalıştırmak için
 
 -   Azure Load Balancer RPC dağıtma, eşleme ve idare DApp istekleri için
 
@@ -128,9 +127,10 @@ Biz, Docker kapsayıcıları için güvenilirlik ve modülerlik yararlanın. Azu
 
     -   İdare sözleşmeleri ile etkileşim kurmak için web arabirimi
 
-## <a name="governance-dapp"></a>İdare DApp
+## <a name="how-to-guides"></a>Nasıl yapılır kılavuzları
+### <a name="governance-dapp"></a>İdare DApp
 
-Yetki başlangıcı kavram merkezi olmayan idare kalbidir. İdare DApp önceden dağıtılan nitelikli akıllı anlaşmalar ve ağ üzerinde yetkilileri yönetmek için kullanılan bir web uygulaması kümesidir.
+Yetki başlangıcı kavram merkezi olmayan idare kalbidir. DApp olan bir dizi idare önceden dağıtılan [akıllı sözleşmeleri](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) ve ağ üzerinde yetkilileri yönetmek için kullanılan bir web uygulaması.
 Yetkilileri, yönetici kimlikleri ve Doğrulayıcı düğümleri ayrılır.
 Yöneticiler, fikir birliğine varılmış katılım Doğrulayıcı düğümleri kümesi için temsilci seçmek için güce sahipsiniz. Yöneticiler ayrıca içine veya dışına ağ diğer yöneticileri oy.
 
@@ -142,7 +142,41 @@ Yöneticiler, fikir birliğine varılmış katılım Doğrulayıcı düğümleri
 
 -   **Denetlenebilir değişiklik geçmişi -** her değişiklik, saydamlık ve denetlenebilirlik sağlama üzerinde blok zinciri kaydedilir.
 
-## <a name="how-to-guides"></a>Nasıl yapılır kılavuzları
+#### <a name="getting-started-with-governance"></a>İdare ile çalışmaya başlama
+Herhangi bir türden idare DApp aracılığıyla işlemlerini gerçekleştirmek için bir Ethereum Cüzdan yararlanarak gerekecektir.  Gibi tarayıcı içi Cüzdan kullanmak için en basit yaklaşımdır [MetaMask](https://metamask.io); ancak, bu ağda dağıtılan nitelikli akıllı anlaşmalar olduğundan etkileşimlerinizi idare sözleşmeye de otomatik hale.
+
+MetaMask yükledikten sonra tarayıcıda idare DApp gidin.  URL, dağıtım onay e-posta veya dağıtım çıktıda Azure Portalı aracılığıyla bulabilirsiniz.  Yüklü bir tarayıcı içi Cüzdan yoksa; eylemleri gerçekleştirmek mümkün olmayacaktır Ancak, yine yönetici durumu okuyamadı mümkün olacaktır.  
+
+#### <a name="becoming-an-admin"></a>Bir yönetici olma
+Ağda dağıtılan ilk üye varsa, daha sonra otomatik olarak bir yönetici olur ve eşlik düğümlerinizi doğrulayıcıları listelenir.  Ağ birleştirilecekse, yönetici olarak varolan bir çoğunluğu tarafından (50 %'den büyük) yönetici Ayarla oy gerekecektir.  Düğümlerinizi hala eşitleme ve blok zinciri doğrulama bir yönetici olmayan bir duruma seçerseniz; ancak blok oluşturma işleminde katılmayacaktır. Bir yönetici olun oylama işlemini başlatmak için tıklatın __Nominate__ Ethereum adresi ve diğer ad girin.
+
+![Belirle](./media/ethereum-poa-deployment-guide/governance-dapp-nominate.png)
+
+#### <a name="candidates"></a>Aday
+Seçme __adayları__ sekmesi, geçerli bir aday Yöneticisi gösterilir.  Bir aday kendisine yapılan bir Çoğunluk oyu geçerli yöneticiler tarafından ulaştığında, aday bir yöneticiye yükseltilen  Bir aday üzerinde oylamak için satırı seçin ve "en üstünde oy"'a tıklayın.  Oy üzerinde fikrinizi değiştirirseniz, aday seçin ve "Rescind oy"'a tıklayın.
+
+![Aday](./media/ethereum-poa-deployment-guide/governance-dapp-candidates.png)
+
+
+#### <a name="admins"></a>Yöneticiler
+__Yöneticileri__ sekmesi yöneticilerin geçerli kümesini Göster ve karşı oy olanağı sunar.  Daha fazla yönetici kaybeder sonra % 50 desteğinden bunlar ağ üzerinde bir yönetici olarak kaldırılır.  Bu yönetici sahip herhangi bir doğrulayıcı düğüm Doğrulayıcı durumunu kaybederekten ve ağ üzerinde işlem düğümler haline gelir.  Bir yönetici, bir dizi nedenden ötürü Kaldırılabilir; Ancak, bu ilke önceden kabul etmek için en fazla consortium olur.
+
+![Yöneticiler](./media/ethereum-poa-deployment-guide/governance-dapp-admins.png)
+
+#### <a name="validators"></a>Doğrulayıcıları
+Seçme __doğrulayıcıları__ sekmesi soldaki menüde, bu örnek ve bunların geçerli durumunu (düğüm türü) için geçerli dağıtılan eşlik düğümleri görüntülenir.  Bu görünümde geçerli dağıtılan consortium üye temsil ettiği her consortium üyesi bu listede doğrulayıcıları farklı bir dizi sahip olduğunu unutmayın.  Bu yeni dağıtılan bir örneği olan ve henüz, doğrulayıcıları eklemediniz, 'Ekle doğrulayıcısına' seçeneği gösterilir.  Bu seçeneğin seçilmesi otomatik olarak bölgesel dengeli bir küme eşlik düğümleri seçin ve bunları Doğrulayıcı kümenize atayın.  Daha fazla düğüm izin verilen kapasiteden dağıttıysanız, kalan düğümleri ağ üzerinde işlem düğümleri olacak.
+
+Her bir doğrulayıcı adresi aracılığıyla otomatik olarak atanır [kimlik deposu](#identity-store) azure'da.  Bir düğüm arıza yaparsa, başka bir düğüme yerini alacak, dağıtımınızdaki izin vererek kimliğini teknisyene.  Bu, fikir birliğine varılmış katılımınızı yüksek oranda kullanılabilir olmasını sağlar.
+
+![Doğrulayıcıları](./media/ethereum-poa-deployment-guide/governance-dapp-validators.png)
+
+#### <a name="consortium-name"></a>Consortium adı
+Herhangi bir yönetici, sayfanın üst kısmında görüntülenen Consortium adı güncelleştirebilir.  Consortium adı güncelleştirmek için sol üst köşedeki dişli simgesini seçin.
+
+#### <a name="account-menu"></a>Hesap menüsü
+Sağ üst köşesinde identicon ve Ethereum hesap diğer adı ' dir.  Bir yöneticiyseniz, diğer imkanına sahip olursunuz.
+
+![Hesap](./media/ethereum-poa-deployment-guide/governance-dapp-account.png)
 
 ### <a name="deploy-ethereum-proof-of-authority"></a>Ethereum kavram yetki dağıtma
 
@@ -160,7 +194,7 @@ Yöneticiler, fikir birliğine varılmış katılım Doğrulayıcı düğümleri
 
 6.  *Üyesi* ve *üye B* hem oy *üye C* yönetici olarak
 
-Bu işlem, birkaç sanal makine ölçek kümeleri dağıtma destekleyebilir ve yönetilen diskleri olan bir Azure aboneliği gerektirir. Gerekirse, [ücretsiz bir Azure hesabı oluşturun](https://azure.microsoft.com/free/) başlamak için.
+Bu işlem, birkaç sanal makine dağıtmaya destekleyebilir ve yönetilen diskleri olan bir Azure aboneliği gerektirir. Gerekirse, [ücretsiz bir Azure hesabı oluşturun](https://azure.microsoft.com/free/) başlamak için.
 
 Bir abonelik güvenli hale getirildikten sonra Azure portalına gidin. Seç '+', ('bkz. tüm'), Market ve Ethereum PoA Consortium arayın.
 
@@ -172,7 +206,7 @@ Altında **Temelleri**, abonelik, kaynak grubu ve temel sanal makine özellikler
 
 Her parametre için ayrıntılı bir açıklaması aşağıdaki gibidir:
 
-Parametre Adı|Açıklama|İzin Verilen Değerler|Varsayılan değerler    
+Parametre adı|Açıklama|İzin verilen değerler|Varsayılan değerler
 ---|---|---|---
 Bir yeni veya mevcut birleşim ağı oluşturulsun mu?|Yeni bir ağ oluşturmak veya önceden var olan bir konsorsiyum ağı katılın|Yeni JOIN varolan oluşturma|Yeni Oluştur
 E-posta adresiniz (isteğe bağlı)|Dağıtımınız hakkında bilgi içeren dağıtımınız tamamlandığında bir e-posta bildirimi alırsınız.|Geçerli bir e-posta adresi|NA
@@ -192,7 +226,7 @@ Ardından, dağıtım bölgeleri altında girdiler için verilen bölge sayısı
 
 Her parametre için ayrıntılı bir açıklaması aşağıdaki gibidir:
 
-  Parametre Adı|Açıklama|İzin Verilen Değerler|Varsayılan değerler
+  Parametre adı|Açıklama|İzin verilen değerler|Varsayılan değerler
   ---|---|---|---
   Bölgelerin sayısı|Konsorsiyum ağı dağıtmak için bölge sayısı|1, 2, 3, 4, 5|1
   İlk bölgeye|İlk bölgeye Konsorsiyum ağı dağıtmak için|Tüm Azure bölgelerinde de izin verilir.|NA
@@ -203,18 +237,30 @@ Her parametre için ayrıntılı bir açıklaması aşağıdaki gibidir:
 
 Aşağıda bir örnek dağıtımı: ![dağıtım bölgeleri](./media/ethereum-poa-deployment-guide/deployment-regions.png)
 
-#### <a name="network-size-and-performance"></a>Ağ boyutu ve performansı 
+#### <a name="network-size-and-performance"></a>Ağ boyutu ve performansı
 
 Ardından, sayı ve Doğrulayıcı düğümlerinin boyutu gibi bir konsorsiyum ağı boyutu için girişler 'ağ boyut ve performans altında' belirtin.
 Doğrulayıcı düğüm depolama boyutu, blok zinciri olası boyutunu gösterecektir. Bu dağıtımdan sonra değiştirilebilir.
 
 Her parametre için ayrıntılı bir açıklaması aşağıdaki gibidir:
 
-  Parametre Adı|Açıklama|İzin Verilen Değerler|Varsayılan değerler
+  Parametre adı|Açıklama|İzin verilen değerler|Varsayılan değerler
   ---|---|---|---
   Yük dengeli Doğrulayıcı düğüm sayısı|Ağın bir parçası olarak sağlamak için Doğrulayıcı düğüm sayısı|2-15|2
-  Doğrulayıcı düğüm depolama performansı|Dağıtılan Doğrulayıcı düğümler yedekleme yönetilen diskin türü.|Standart veya Premium|Standart
+  Doğrulayıcı düğüm depolama performansı|Dağıtılan Doğrulayıcı düğümler yedekleme yönetilen diskin türü.|Standart SSD veya Premium|Standart SSD
   Doğrulayıcı düğüm sanal makine boyutu|Doğrulayıcı düğümleri için kullanılan sanal makine boyutu.|Standart bir standart D, standart D-v2, standart F serisi, standart DS ve standart FS|Standart D1 v2
+
+[Depolama fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/managed-disks/)
+
+[Sanal makine fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+
+Sanal makine ve depolama katmanı ağ performansını etkileyeceğini unutmayın.  İstenen maliyet verimliliği göre aşağıdaki SKU'ları öneririz:
+
+  Sanal makine SKU'su|Depolama katmanı|Fiyat|Aktarım hızı|Gecikme süresi
+  ---|---|---|---|---
+  F1|Standart SSD|Düşük|Düşük|Yüksek
+  D2_v3|Standart SSD|Orta|Orta|Orta
+  F16s|Premium SSD|Yüksek|Yüksek|Düşük
 
 Aşağıda bir örnek dağıtımı: ![ağ, boyut ve performans](./media/ethereum-poa-deployment-guide/network-size-and-performance.png)
 
@@ -224,28 +270,30 @@ Ardından, Ethereum Ayarları'nın altında ağ kimliği ve Ethereum hesap parol
 
 Her parametre için ayrıntılı bir açıklaması aşağıdaki gibidir:
 
-  Parametre Adı|Açıklama|İzin Verilen Değerler|Varsayılan değerler
+  Parametre adı|Açıklama|İzin verilen değerler|Varsayılan değerler
   ---|---|---|---
 Consortium üye kimliği|Çakışma önlemek için IP adresi alanları yapılandırmak için kullanılan consortium ağa katılan her üye ile ilişkili kimlik. Özel bir ağ söz konusu olduğunda, üye kimliği aynı ağda farklı kuruluşlar arasında benzersiz olması gerekir.  Hatta aynı kuruluşa birden fazla bölgeye dağıtırken benzersiz üye kimliği gereklidir. Hiçbir çakışma olduğundan emin olmak için katılan diğer üyeleriyle paylaşmak olması gerektiğinden, bu parametrenin değerini not edin.|0-255|NA
 Ağ Kimliği|Dağıtılan consortium Ethereum ağ ağ kimliği.  Her Ethereum ağ kendi ağ 1 olan ortak ağ kimliği ile kimliği vardır.|5 - 999,999,999|10101010
 Yönetici Ethereum adresi|PoA idaresinde katıldığınız için kullanılan hesap adresi Ethereum.  MetaMask Ethereum adresi oluşturmak için kullanmanızı öneririz.|0 x'ile başlayan 42 alfasayısal karakterler|NA
 Gelişmiş Seçenekler|Ethereum ayarları için Gelişmiş Seçenekleri|Etkinleştirmek veya devre dışı|Devre Dışı Bırak
 Genel IP (Gelişmiş Seçenekler = etkin)|VNet ağ geçidinin arkasında ağ dağıtır ve eşleme erişim kaldırır. Bu seçenek belirlenirse, tüm üyeleri uyumlu olacak şekilde sanal ağ geçidi bağlantısı için kullanmanız gerekir.|Genel IP özel VNet|Genel IP
+Block gaz sınırı (Gelişmiş Seçenekler = etkin)|Ağ başlatma bloğu gaz sınırı|Herhangi bir sayısal|50,000,00
+Blok yeniden mühürleme süresi (sn)|Ağ üzerinde hiçbir işlem olduğunda, boş bir blok oluşturulur sıklığı. Yüksek sıklık, artan depolama maliyetlerine ancak daha hızlı finality sahip olur.|Herhangi bir sayısal|15
 İşlem izin anlaşması (Gelişmiş Seçenekler = etkin)|İşlem adının sözleşmesinin ByteCode. Akıllı sözleşme dağıtım ve yürütme permissioned listesine Ethereum hesapları kısıtlar.|Sözleşme bayt|NA
 
 Aşağıda bir örnek dağıtımı: ![ethereum ayarları](./media/ethereum-poa-deployment-guide/ethereum-settings.png)
 
-#### <a name="azure-monitor"></a>Azure İzleyici
+#### <a name="monitoring"></a>İzleme
 
-Azure İzleyici dikey penceresinde, ağınız için bir Azure İzleyici kaynak yapılandırmanıza olanak sağlar. Azure İzleyici toplar ve yüzey yararlı ölçüm ve günlükleri ağınızdan, hızlı bir şekilde hata ayıklama ve ağ durumu denetleme olanağı tanıyacak verir.
+İzleme dikey penceresinde, ağınız için bir Log Analytics kaynak yapılandırmanıza olanak sağlar. İzleme Aracısı'nı toplar ve yüzey yararlı ölçüm ve günlükleri ağınızdan, hızlı bir şekilde hata ayıklama ve ağ durumu denetleme olanağı tanıyacak verir.
 
-  Parametre Adı|Açıklama|İzin Verilen Değerler|Varsayılan değerler
+  Parametre adı|Açıklama|İzin verilen değerler|Varsayılan değerler
   ---|---|---|---
-İzleme|Azure İzleyicisi'ni etkinleştirmek için seçeneği|Etkinleştirmek veya devre dışı|Etkinleştirme
-Mevcut Log Analytics'e bağlanma|Azure İzleyici bir parçası olarak yeni bir Log Analytics örneği oluşturabilir veya var olan bir örneğini katılın|Yeni veya mevcut katılın|Yeni oluştur
-Azure İzleyici Location(Connect to Existing Azure Monitor = Create new)|Yeni Azure İzleyici dağıtılacağı bölge|Tüm Azure İzleyici bölgeler|NA
-Mevcut Log Analytics çalışma alanı kimliği (var olan Azure İzleyicisi ile bağlantı birleştirme varolan =)|Mevcut Log Analytics çalışma alanı kimliği||NA
-Mevcut Log Analytics birincil anahtarı (var olan Azure İzleyicisi ile bağlantı birleştirme varolan =)|Mevcut Azure İzleyici örneğine bağlanmak için kullanılan birincil anahtar||NA
+İzleme|İzleme özelliğini etkinleştirme seçeneği|Etkinleştirmek veya devre dışı|Etkinleştirme
+Mevcut Log Analytics'e bağlanma|Yeni bir Log Analytics örneği oluşturabilir veya var olan bir örneğini katılın|Yeni veya mevcut katılın|Yeni oluştur
+İzleme konumu (mevcut Log analytics'e Bağlan = Yeni Oluştur)|Yeni Log Analytics örneği dağıtılacağı bölge|Tüm Log Analytics bölgeler|NA
+Mevcut Log Analytics çalışma alanı kimliği (mevcut Log analytics'e Bağlan katılın mevcut =)|Mevcut Log Analytics çalışma alanı kimliği||NA
+Mevcut Log Analytics birincil anahtar (mevcut Log analytics'e Bağlan katılın mevcut =)|Mevcut Log Analytics'e bağlanmak için kullanılan birincil anahtar||NA
 
 
 Aşağıda bir örnek dağıtımı: ![azure İzleyici](./media/ethereum-poa-deployment-guide/azure-monitor.png)
@@ -258,7 +306,7 @@ Yasal ve gizlilik koşullarını gözden geçirin ve dağıtmak için ' Satın A
 
 #### <a name="post-deployment"></a>Dağıtım sonrası
 
-##### <a name="deployment-output"></a>Dağıtım çıkışı 
+##### <a name="deployment-output"></a>Dağıtım çıkışı
 
 Dağıtım tamamlandıktan sonra gerekli parametreleri onay e-posta aracılığıyla veya Azure portalı üzerinden erişmesini mümkün olacaktır. Bu parametreleri bölümünde bulabilirsiniz:
 
@@ -272,7 +320,7 @@ Dağıtım tamamlandıktan sonra gerekli parametreleri onay e-posta aracılığ�
 
 -   VNet ağ geçidi kaynak kimliği (isteğe bağlı)
 
-##### <a name="confirmation-email"></a>Onay e-postası 
+##### <a name="confirmation-email"></a>Onay e-postası
 
 Bir e-posta adresi belirtirseniz ([temel bilgileri bölümüne](#basics)), dağıtım çıkış bilgileri e-posta adresine bir e-posta gönderilir.
 
@@ -293,21 +341,9 @@ Dağıtım başarıyla tamamlandıktan sonra sağlanan tüm kaynakları kaynak g
 ### <a name="growing-the-consortium"></a>Consortium büyüyen
 
 Consortium genişletmek için önce fiziksel ağ bağlanmanız gerekir.
-Genel IP tabanlı bir dağıtım kullanarak bu ilk adım sorunsuz bağlıdır. VPN dağıtma bölümüne bakın [bağlanan sanal ağ geçidi](#connecting-vnet-gateways) parçası olarak ağ bağlantısı kurmaya [2. adım](#step-2-new-admin-deployment).
+Genel IP tabanlı bir dağıtım kullanarak bu ilk adım sorunsuz bağlıdır. VPN dağıtma bölümüne bakın [bağlanan sanal ağ geçidi](#connecting-vnet-gateways) ağ bağlantısı yeni üye dağıtımının parçası olarak gerçekleştirilecek.  Kullanımı dağıtımınız tamamlandıktan sonra [idare DApp](#governance-dapp) bir ağ yöneticisi olmak için
 
-#### <a name="step-1-add-the-new-admin"></a>1. adım: Yeni yönetici ekleme
-
-1.  Yeni yöneticinin genel Ethereum adresi toplayın.
-
-2.  İçin idare DApp gidin ve Ethereum adresi ve uygun bir diğer ad ile yeni bir yönetici oluşturma
-
-3.  Böylece bu yeni yönetici eklemek için oy verebilirsiniz yeni istek var olan diğer üyelerinin bildir
-
-4.  Üye oyu %51 ulaştığında, bir yönetici eklenecek
-
-![Yönetici ekleme](./media/ethereum-poa-deployment-guide/adding-admin.png)
-
-#### <a name="step-2-new-admin-deployment"></a>2. adım: Yeni yönetici dağıtımı
+#### <a name="new-member-deployment"></a>Yeni üye dağıtım
 
 1.  Aşağıdaki bilgileri birleşme üyesi ile paylaşın. Bu bilgiler, dağıtım sonrası e-postanıza veya portal dağıtım çıktıda bulunabilir.
 
@@ -329,27 +365,11 @@ Genel IP tabanlı bir dağıtım kullanarak bu ilk adım sorunsuz bağlıdır. V
 
     -  VPN ağın geri kalanı ise seçin *özel VNet* Gelişmiş bölümünde
 
-#### <a name="step-3-delegate-validators"></a>3. adım: Temsilci doğrulayıcıları
-
-Yeni yönetici kendi adınıza katılmak doğrulayıcıları Yetkilendirme işlemi gerçekleştirmeniz gerekir. Yalnızca üye anahtarlarını denetimleri olduğundan bu otomatik olarak yapılamaz.\*
-
-_\*Biz Doğrulayıcı düğümlerini ağdaki genesis bloğa ön derleme çünkü ağdaki ilk üyenin düğümleri otomatik olarak eklenebilir._
-
-Yeni yönetici, aşağıdaki adımları gerçekleştirmeniz gerekir:
-
-1.  İdare parçası olarak dağıtılan DApp açın *kendi* dağıtım
-
-2.  Doğrulayıcıların sekmesine gidin
-
-3.  Her dağıtıldığını ve doğrulayıcıları **Ekle**
-
-![Doğrulayıcıların ekleme](./media/ethereum-poa-deployment-guide/adding-validators.png)
-
 #### <a name="connecting-vnet-gateways"></a>VNet ağ geçitlerini bağlama
 
-Özel bir ağ söz konusu olduğunda, farklı üyeleri VNet ağ geçidi bağlantıları bağlanır. Üye ağına katılın ve işlem trafiği de görmenize önce varolan bir üye kendi VPN ağ geçidinde bağlantı kabul etmeye son yapılandırmayı gerçekleştirmeniz gerekir. Başka bir deyişle, bir bağlantı kurulana kadar katılma üye Ethereum düğümlerinin çalışmaz. Bir tek hata noktası olasılığını azaltmak için consortium içine boş ağ bağlantılarından (kafes) oluşturmak için önerilir.
+Varsayılan genel IP ayarları kullanarak dağıttıysanız bu adımı yoksayabilirsiniz. Özel bir ağ söz konusu olduğunda, farklı üyeleri VNet ağ geçidi bağlantıları bağlanır. Üye ağına katılın ve işlem trafiği de görmenize önce varolan bir üye kendi VPN ağ geçidinde bağlantı kabul etmeye son yapılandırmayı gerçekleştirmeniz gerekir. Başka bir deyişle, bir bağlantı kurulana kadar katılma üye Ethereum düğümlerinin çalışmaz. Bir tek hata noktası olasılığını azaltmak için consortium içine boş ağ bağlantılarından (kafes) oluşturmak için önerilir.
 
-Yeni üye dağıttıktan sonra varolan bir üye yeni üye bir VNet ağ geçidi bağlantısı kurarak çift yönlü bağlantı tamamlamanız gerekir. Bu varolan bir üye elde etmek gerekir:
+Yeni üye dağıttıktan sonra varolan bir üye yeni üye bir VNet ağ geçidi bağlantısı kurarak çift yönlü bağlantı tamamlamanız gerekir. Bunu başarmak için varolan bir üye gerekir:
 
 1.  VNet ağ geçidinin bağlantı üyenin ResourceId (bkz. dağıtım çıkış)
 
@@ -359,7 +379,7 @@ Varolan bir üye, bağlantıyı tamamlamak için aşağıdaki PowerShell betiği
 
 ![cloud shell](./media/ethereum-poa-deployment-guide/cloud-shell.png)
 
-```bash
+```Powershell
 $MyGatewayResourceId = "<EXISTING_MEMBER_RESOURCEID>"
 $OtherGatewayResourceId = "<NEW_MEMBER_RESOURCEID]"
 $ConnectionName = "Leader2Member"
@@ -425,19 +445,19 @@ ParityLog_CL
 | where Computer == "vl-devn3lgdm-reg1000001"
 | project RawData, TimeGenerated
 | where RawData matches regex PeerCountRegex
-| extend ActivePeers = extract(PeerCountRegex, 1, RawData, typeof(int)) 
+| extend ActivePeers = extract(PeerCountRegex, 1, RawData, typeof(int))
 | summarize avg(ActivePeers) by bin(TimeGenerated, 5m)
 ```
 
 ### <a name="ssh-access"></a>SSH erişimini
 
-Güvenlik nedeniyle, SSH bağlantı noktası erişim varsayılan olarak bir ağ grubu güvenlik kuralı tarafından reddedildi. Erişim sanal makine ölçek kümesi örnekleri PoA ağında, bu kural için değiştirmem gerekecek mi \"izin ver\"
+Güvenlik nedeniyle, SSH bağlantı noktası erişim varsayılan olarak bir ağ grubu güvenlik kuralı tarafından reddedildi. Sanal makine örnekleri PoA ağdaki erişmek için bu kural için değiştirmeniz gerekecektir \"izin ver\"
 
 1.  Azure portalından dağıtılan kaynak grubunun genel bakış bölümünde başlatın.
 
     ![SSH genel bakış](./media/ethereum-poa-deployment-guide/ssh-overview.png)
 
-2.  Ağ güvenlik grubu seçin
+2.  Bölge erişmek isteyen VM için ağ güvenlik grubu seçin
 
     ![SSH nsg](./media/ethereum-poa-deployment-guide/ssh-nsg.png)
 
@@ -452,7 +472,7 @@ Güvenlik nedeniyle, SSH bağlantı noktası erişim varsayılan olarak bir ağ 
 5.  Tıklayın \"Kaydet\" (değişiklikleri uygulamak için birkaç dakika sürebilir)
 
 Artık uzaktan SSH aracılığıyla Doğrulayıcı düğümleri için sanal makineler için sağlanan yönetici kullanıcı adı ve parolası/SSH anahtarı ile bağlanabilirsiniz.
-SSH komutu ilk Doğrulayıcı düğümüne erişmek için çalışacak şekilde şablon dağıtımı çıkış parametresi olarak, listelenen ' SSH\_Kime\_ilk\_VL\_düğüm\_Bölge1 ' (örnek dağıtımı için: ssh - p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com). Ek işlem düğümlerine almak için bağlantı noktası numarası bir artırmasına (örneğin, ilk işlem düğümünü 4000 numaralı bağlantı noktasında olur).
+SSH komutu ilk Doğrulayıcı düğümüne erişmek için çalışacak şekilde şablon dağıtımı çıkış parametresi olarak, listelenen ' SSH\_Kime\_ilk\_VL\_düğüm\_Bölge1 ' (örnek dağıtımı için: ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com). Ek işlem düğümlerine almak için bağlantı noktası numarası bir artırmasına (örneğin, ilk işlem düğümünü 4000 numaralı bağlantı noktasında olur).
 
 Birden fazla bölgeye dağıttıysanız, DNS adı veya IP adresini yük dengeleyici bu bölgede yukarıdaki komutu değiştirin. Kaynak adlandırma kuralları ile DNS adı veya diğer bölgeler IP adresini bulmak için bulma \* \* \* \* \*- lbpip reg\#ve onun DNS adı ve IP adresi özelliklerini görüntüleyin.
 
@@ -474,7 +494,7 @@ Arayın ve seçin \"Traffic Manager profili\" tıkladıktan sonra \"kaynak Oluş
 
 ![Azure traffic manager için arama yapın](./media/ethereum-poa-deployment-guide/traffic-manager-search.png)
 
-Profil benzersiz bir ad verin ve PoA dağıtımı sırasında oluşturduğunuz kaynak grubunu seçin.
+Profil benzersiz bir ad verin ve PoA dağıtımı sırasında oluşturduğunuz kaynak grubunu seçin. Dağıtmak için "Oluştur" düğmesine tıklayın.
 
 ![trafik Yöneticisi oluşturma](./media/ethereum-poa-deployment-guide/traffic-manager-create.png)
 
@@ -482,13 +502,13 @@ Dağıtıldıktan sonra örneğinin kaynak grubunu seçin. Traffic manager eriş
 
 ![Traffic manager DNS bulun](./media/ethereum-poa-deployment-guide/traffic-manager-dns.png)
 
-Uç noktalar sekmesini seçin ve Ekle düğmesine tıklayın. Ardından hedef kaynak türü için genel IP adresini değiştirin. İlk bölgeye genel IP adresini seçip\'s yük dengeleyici.
+Uç noktalar sekmesini seçin ve Ekle düğmesine tıklayın. Uç nokta benzersiz bir ad verin. Hedef kaynak türü, genel IP adresine değiştirin. İlk bölgeye genel IP adresini seçip\'s yük dengeleyici.
 
 ![Traffic manager yönlendirme](./media/ethereum-poa-deployment-guide/traffic-manager-routing.png)
 
 Her bir bölgede dağıtılan ağ için yineleyin. Uç noktaları kez \"etkin\" durumu, bunlar olması otomatik olarak yükler ve bölge dengeli traffic manager DNS adını. Artık bu DNS adı yerine kullanabileceğiniz \[CONSORTIUM\_veri\_URL\] belgenin diğer adımları parametresi.
 
-## <a name="data-api"></a>Veri API'si
+### <a name="data-api"></a>Veri API'si
 
 Her consortium üye başkalarının ağa bağlanmak gerekli bilgileri barındırır. Varolan bir üye [CONSORTIUM_DATA_URL] üyenin dağıtımdan önce sağlar. Dağıtımdan sonra katılma üyesi JSON arabirimi aşağıdaki uç noktasında bilgi alır:
 
@@ -497,102 +517,102 @@ Her consortium üye başkalarının ağa bağlanmak gerekli bilgileri barındır
 Yanıt var olan bir üyeye (Doğrulayıcı adresleri) yararlı bilgilerinin yanı sıra üyeleri (Genesis bloğu, Doğrulayıcı ayarlandı. sözleşme abı, bootnodes) katılmak için faydalı bilgiler içerir. Bulut sağlayıcıları arasında consortium genişletmek için bu Standardizasyon kullanılmasını öneririz. Bu API, aşağıdaki yapıya sahip bir biçimlendirilmiş JSON yanıtı döndürür:
 ```json
 {
-  "$id": "", 
-  "type": "object", 
-  "definitions": {}, 
-  "$schema": "http://json-schema.org/draft-07/schema#", 
+  "$id": "",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "properties": {
     "majorVersion": {
-      "$id": "/properties/majorVersion", 
-      "type": "integer", 
-      "title": "This schema’s major version", 
-      "default": 0, 
+      "$id": "/properties/majorVersion",
+      "type": "integer",
+      "title": "This schema’s major version",
+      "default": 0,
       "examples": [
         0
       ]
-    }, 
+    },
     "minorVersion": {
-      "$id": "/properties/minorVersion", 
-      "type": "integer", 
-      "title": "This schema’s minor version", 
-      "default": 0, 
+      "$id": "/properties/minorVersion",
+      "type": "integer",
+      "title": "This schema’s minor version",
+      "default": 0,
       "examples": [
         0
       ]
-    }, 
+    },
     "bootnodes": {
-      "$id": "/properties/bootnodes", 
-      "type": "array", 
+      "$id": "/properties/bootnodes",
+      "type": "array",
       "items": {
-        "$id": "/properties/bootnodes/items", 
-        "type": "string", 
-        "title": "This member’s bootnodes", 
-        "default": "", 
+        "$id": "/properties/bootnodes/items",
+        "type": "string",
+        "title": "This member’s bootnodes",
+        "default": "",
         "examples": [
-          "enode://a348586f0fb0516c19de75bf54ca930a08f1594b7202020810b72c5f8d90635189d72d8b96f306f08761d576836a6bfce112cfb6ae6a3330588260f79a3d0ecb@10.1.17.5:30300", 
+          "enode://a348586f0fb0516c19de75bf54ca930a08f1594b7202020810b72c5f8d90635189d72d8b96f306f08761d576836a6bfce112cfb6ae6a3330588260f79a3d0ecb@10.1.17.5:30300",
           "enode://2d8474289af0bb38e3600a7a481734b2ab19d4eaf719f698fe885fb239f5d33faf217a860b170e2763b67c2f18d91c41272de37ac67386f80d1de57a3d58ddf2@10.1.17.4:30300"
         ]
       }
-    }, 
+    },
     "valSetContract": {
-      "$id": "/properties/valSetContract", 
-      "type": "string", 
-      "title": "The ValidatorSet Contract Source", 
-      "default": "", 
+      "$id": "/properties/valSetContract",
+      "type": "string",
+      "title": "The ValidatorSet Contract Source",
+      "default": "",
       "examples": [
         "pragma solidity 0.4.21;\n\nimport \"./SafeMath.sol\";\nimport \"./Utils.sol\";\n\ncontract ValidatorSet …"
       ]
-    }, 
+    },
     "adminContract": {
-      "$id": "/properties/adminContract", 
-      "type": "string", 
-      "title": "The AdminSet Contract Source", 
-      "default": "", 
+      "$id": "/properties/adminContract",
+      "type": "string",
+      "title": "The AdminSet Contract Source",
+      "default": "",
       "examples": [
         "pragma solidity 0.4.21;\nimport \"./SafeMath.sol\";\nimport \"./SimpleValidatorSet.sol\";\nimport \"./Admin.sol\";\n\ncontract AdminValidatorSet is SimpleValidatorSet { …"
       ]
-    }, 
+    },
     "adminContractABI": {
-      "$id": "/properties/adminContractABI", 
-      "type": "string", 
-      "title": "The Admin Contract ABI", 
-      "default": "", 
+      "$id": "/properties/adminContractABI",
+      "type": "string",
+      "title": "The Admin Contract ABI",
+      "default": "",
       "examples": [
         "[{\"constant\":false,\"inputs\":[{\"name\":\"proposedAdminAddress\",\"type\":\"address\"},…"
       ]
-    }, 
+    },
     "paritySpec": {
-      "$id": "/properties/paritySpec", 
-      "type": "string", 
-      "title": "The Parity client spec file", 
-      "default": "", 
+      "$id": "/properties/paritySpec",
+      "type": "string",
+      "title": "The Parity client spec file",
+      "default": "",
       "examples": [
         "\n{\n \"name\": \"PoA\",\n \"engine\": {\n \"authorityRound\": {\n \"params\": {\n \"stepDuration\": \"2\",\n \"validators\" : {\n \"safeContract\": \"0x0000000000000000000000000000000000000006\"\n },\n \"gasLimitBoundDivisor\": \"0x400\",\n \"maximumExtraDataSize\": \"0x2A\",\n \"minGasLimit\": \"0x2FAF080\",\n \"networkID\" : \"0x9a2112\"\n }\n }\n },\n \"params\": {\n \"gasLimitBoundDivisor\": \"0x400\",\n \"maximumExtraDataSize\": \"0x2A\",\n \"minGasLimit\": \"0x2FAF080\",\n \"networkID\" : \"0x9a2112\",\n \"wasmActivationTransition\": \"0x0\"\n },\n \"genesis\": {\n \"seal\": {\n \"authorityRound\": {\n \"step\": \"0x0\",\n \"signature\": \"0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\"\n }\n },\n \"difficulty\": \"0x20000\",\n \"gasLimit\": \"0x2FAF080\"\n },\n \"accounts\": {\n \"0x0000000000000000000000000000000000000001\": { \"balance\": \"1\", \"builtin\": { \"name\": \"ecrecover\", \"pricing\": { \"linear\": { \"base\": 3000, \"word\": 0 } } } },\n \"0x0000000000000000000000000000000000000002\": { \"balance\": \"1\", \"builtin\": { \"name\": \"sha256\", \"pricing\": { \"linear\": { \"base\": 60, \"word\": 12 } } } },\n \"0x0000000000000000000000000000000000000003\": { \"balance\": \"1\", \"builtin\": { \"name\": \"ripemd160\", \"pricing\": { \"linear\": { \"base\": 600, \"word\": 120 } } } },\n \"0x0000000000000000000000000000000000000004\": { \"balance\": \"1\", \"builtin\": { \"name\": \"identity\", \"pricing\": { \"linear\": { \"base\": 15, \"word\": 3 } } } },\n \"0x0000000000000000000000000000000000000006\": { \"balance\": \"0\", \"constructor\" : \"…\" }\n }\n}"
       ]
-    }, 
+    },
     "errorMessage": {
-      "$id": "/properties/errorMessage", 
-      "type": "string", 
-      "title": "Error message", 
-      "default": "", 
+      "$id": "/properties/errorMessage",
+      "type": "string",
+      "title": "Error message",
+      "default": "",
       "examples": [
         ""
       ]
-    }, 
+    },
     "addressList": {
-      "$id": "/properties/addressList", 
-      "type": "object", 
+      "$id": "/properties/addressList",
+      "type": "object",
       "properties": {
         "addresses": {
-          "$id": "/properties/addressList/properties/addresses", 
-          "type": "array", 
+          "$id": "/properties/addressList/properties/addresses",
+          "type": "array",
           "items": {
-            "$id": "/properties/addressList/properties/addresses/items", 
-            "type": "string", 
-            "title": "This member’s validator addresses", 
-            "default": "", 
+            "$id": "/properties/addressList/properties/addresses/items",
+            "type": "string",
+            "title": "This member’s validator addresses",
+            "default": "",
             "examples": [
-              "0x00a3cff0dccc0ecb6ae0461045e0e467cff4805f", 
+              "0x00a3cff0dccc0ecb6ae0461045e0e467cff4805f",
               "0x009ce13a7b2532cbd89b2d28cecd75f7cc8c0727"
             ]
           }
@@ -603,7 +623,7 @@ Yanıt var olan bir üyeye (Doğrulayıcı adresleri) yararlı bilgilerinin yan�
 }
 
 ```
-## <a name="development"></a>Geliştirme
+## <a name="tutorials"></a>Öğreticiler
 
 ### <a name="programmatically-interacting-with-a-smart-contract"></a>Program aracılığıyla akıllı bir sözleşme ile etkileşim kurma
 
@@ -619,7 +639,7 @@ pragma solidity ^0.4.11;
 contract postBox {
     string message;
     function postMsg(string text) public {
-        message = text; 
+        message = text;
     }
     function getMsg() public view returns (string) {
         return message;
@@ -655,23 +675,23 @@ var account = wallet.generate();
 var accountAddress = account.getAddressString()
 var privateKey = account.getPrivateKey();
 
- // TODO Replace with your RPC endpoint
- var web3 = new Web3(new Web3.providers.HttpProvider(
+// TODO Replace with your RPC endpoint
+var web3 = new Web3(new Web3.providers.HttpProvider(
     "http://testzvdky-dns-reg1.eastus.cloudapp.azure.com:8545"));
- 
+
 // Get the current nonce of the account
- web3.eth.getTransactionCount(accountAddress, function (err, nonce) {
+web3.eth.getTransactionCount(accountAddress, function (err, nonce) {
    var data = web3.eth.contract(abi).at(address).postMsg.getData("Hello World");
    var rawTx = {
      nonce: nonce,
-     gasPrice: '0x00', 
+     gasPrice: '0x00',
      gasLimit: '0x2FAF080',
-     to: address, 
-     value: '0x00', 
+     to: address,
+     value: '0x00',
      data: data
    }
    var tx = new ethereumjs(rawTx);
-   
+
    tx.sign(privateKey);
 
    var raw = '0x' + tx.serialize().toString('hex');
@@ -682,7 +702,47 @@ var privateKey = account.getPrivateKey();
  });
 ```
 
-### <a name="debug-a-smart-contract-truffle-develop"></a>Hata ayıklama akıllı anlaşması (Truffle geliştirme)
+### <a name="deploy-smart-contract-with-truffle"></a>Akıllı sözleşme Truffle ile dağıtma
+
+-   Gerekli kitaplıkları yükleme
+
+```javascript
+npm init
+
+npm install truffle-hdwallet-provider --save
+```
+-   Kod MetaMask hesabınızın kilidini açın ve PoA düğümü girdisi olarak yapılandırmak için aşağıdaki truffle.js içinde ekleyin noktası anımsatıcı ifade sağlayarak (MetaMask / ayarları / çekirdek sözcükleri Göster)
+
+```javascript
+var HDWalletProvider = require("truffle-hdwallet-provider");
+
+var rpc_endpoint = "XXXXXX";
+var mnemonic = "twelve words you can find in metamask/settings/reveal seed words";
+
+module.exports = {
+  networks: {
+    development: {
+      host: "localhost",
+      port: 8545,
+      network_id: "*" // Match any network id
+    },
+    poa: {
+      provider: new HDWalletProvider(mnemonic, rpc_endpoint),
+      network_id: 3,
+      gasPrice : 0
+    }
+  }
+};
+
+```
+
+-   PoA ağa dağıtma
+
+```javascript
+$ truffle migrate --network poa
+```
+
+### <a name="debug-smart-contract-with-truffle"></a>Akıllı sözleşme Truffle ile hata ayıklama
 
 Truffle akıllı sözleşme hata ayıklama için kullanılabilir olan bir yerel geliştirme ağı sahiptir. Tam öğretici bulabilirsiniz [burada](http://truffleframework.com/tutorials/debugging-a-smart-contract).
 
@@ -694,28 +754,46 @@ WebAssembly destek zaten sizin için yeni dağıtılan PoA ağlarda etkindir. We
 
 -   Eşlik teknik öğreticinin- <https://github.com/paritytech/pwasm-tutorial>
 
-## <a name="faq"></a>SSS
+## <a name="reference"></a>Başvuru
 
-### <a name="i-notice-a-bunch-of-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Ağ üzerinde işlemler bir sürü fark ederim, ı etmedi\'t Gönder. Burada bu nereden geldiğini?
+### <a name="faq"></a>SSS
 
-Kilidini açmak için güvenli değil [kişisel API](https://web3js.readthedocs.io/en/1.0/web3-eth-personal.html). Bot hesapları kilidi Ethereum hesapları için dinleme ve fon boşaltma girişimi. Bot bu hesapların gerçek ether içerir ve ilk Bakiye siphon olmaya varsayar. Ağ üzerindeki kişisel API etkinleştirmeyin. Bunun yerine ya da Cüzdan MetaMask gibi veya programlama yoluyla program aracılığıyla etkileşim akıllı sözleşme ile bölümünde açıklandığı şekilde el ile kullanarak işlem önceden oturum açın.
+#### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Ağ üzerinde birçok işlem fark ederim, ı etmedi\'t Gönder. Burada bu nereden geldiğini?
 
-### <a name="how-to-ssh-onto-a-vm"></a>Bir VM üzerinde SSH nasıl?
+Kilidini açmak için güvenli değil [kişisel API](https://web3js.readthedocs.io/en/1.0/web3-eth-personal.html). Botlar, kilidi Ethereum hesapları için dinleme ve fon boşaltma dener. Bot bu hesapların gerçek ether içerir ve ilk Bakiye siphon olmaya varsayar. Ağ üzerindeki kişisel API etkinleştirmeyin. Bunun yerine ya da bir Cüzdan MetaMask gibi veya programlama yoluyla bölümde açıklandığı gibi el ile kullanarak işlem önceden oturum [program aracılığıyla etkileşim akıllı sözleşme ile](#programmatically-interacting-with-a-smart-contract).
 
-SSH bağlantı noktası güvenlik nedenleriyle aşağı kilitleyin. İzleyin [SSH bağlantı noktasını etkinleştirmek için bu Kılavuzu](#_Accessing_Nodes_via).
+#### <a name="how-to-ssh-onto-a-vm"></a>Bir VM üzerinde SSH nasıl?
 
-### <a name="how-do-i-set-up-an-audit-member-or-transaction-nodes"></a>Bir denetim üyesi veya işlem düğümlerini nasıl ayarlayabilirim?
+SSH bağlantı noktası, güvenlik nedenleriyle gösterilmez. İzleyin [SSH bağlantı noktasını etkinleştirmek için bu Kılavuzu](#ssh-access).
+
+#### <a name="how-do-i-set-up-an-audit-member-or-transaction-nodes"></a>Bir denetim üyesi veya işlem düğümlerini nasıl ayarlayabilirim?
 
 İşlem düğümleri, fikir birliğine varılmış içinde yer almayan ancak ağla eşlendikten eşlik istemciler kümesidir. Bu düğümler, Ethereum işlemleri gönderin ve akıllı Sözleşme durumu okumak için hala kullanılabilir.
-Bu ağın düzenleyiciler için denetlenebilirlik sağlamak için iyi bir mekanizma olarak çalışır. Elde etmek için yalnızca izleyin 2. adım Consortium büyümesini.
+Bu, ağ üzerinde yetkili olmayan consortium üyelerine denetlenebilirlik sağlamak için iyi bir mekanizma olarak çalışır. Elde etmek için yalnızca izleyin 2. adım Consortium büyümesini.
 
-### <a name="why-are-metamask-transactions-taking-a-long-time"></a>Neden MetaMask işlemleri uzun sürüyor?
+#### <a name="why-are-metamask-transactions-taking-a-long-time"></a>Neden MetaMask işlemleri uzun sürüyor?
 
 İşlemler doğru sırayla alınan emin olmak için her Ethereum işlem artan bir nonce ile birlikte gelir. Farklı bir ağda MetaMask içinde bir hesap kullandıysanız, nonce değeri sıfırlamak gerekir. Ayarlar simgesine (3-çubuk) ayarları, hesap sıfırlama tıklayın. İşlem Geçmişi silinecek ve artık işlem yeniden gönderebilirsiniz.
 
-### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>Genel IP dağıtımları özel ağ dağıtımları ile uyumludur?
+#### <a name="do-i-need-to-specify-gas-fee-in-metamask"></a>İçinde MetaMask gaz ücret belirtmek gerekiyor mu?
+
+Ether yetkilisi kavram consortium içinde bir amaca hizmet değil. Bu nedenle gaz ücret MetaMask işlemlerde gönderirken belirtmek için gerek yoktur.
+
+#### <a name="what-should-i-do-if-my-deployment-fails-due-to-failure-to-provision-azure-oms"></a>Azure OMS sağlama hatası nedeniyle dağıtımım başarısız olursa ne yapmalıyım?
+
+İzleme isteğe bağlı bir özelliktir. Bazı nadir durumlarda burada bağlanamama başarıyla Azure İzleyici kaynak sağlama nedeniyle dağıtım başarısız Azure İzleyici yeniden dağıtabilirsiniz.
+
+#### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>Genel IP dağıtımları özel ağ dağıtımları ile uyumludur?
 
 Hayır, eşleme tüm ağ ya da genel veya özel olmalıdır böylece iki yönlü iletişim gerektirir.
+
+#### <a name="what-is-the-expected-transaction-throughput-of-proof-of-authority"></a>Beklenen işlem aktarım hızı yetkilisi kavram nedir?
+
+İşlem aktarım hızı, işlem ve ağ topolojisi türleri üzerinde yüksek oranda bağımlı olacaktır.  Basit işlemler kullanarak, biz 400 saniyede ortalama birden fazla bölgede dağıtılan bir ağla benchmarked.
+
+#### <a name="how-do-i-subscribe-to-smart-contract-events"></a>Akıllı sözleşme olaylarına nasıl abone olabilirim?
+
+Ethereum kavram yetki artık web yuvalarını destekler.  Dağıtım e-posta veya dağıtım web yuvası URL ve bağlantı noktasını bulmak için çıkışı denetleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

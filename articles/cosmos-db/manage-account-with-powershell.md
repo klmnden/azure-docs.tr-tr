@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 90de671d8e57244765f1da439649e57485814533
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 60b13c8284708ce46d62b6659b2631a4f551c2ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051672"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983131"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>PowerShell kullanarak Azure Cosmos DB hesabı oluşturma
 
-Aşağıdaki kılavuzda, Azure Powershell kullanarak Azure Cosmos DB veritabanı hesaplarınızı yönetimini otomatikleştirmek için komutları açıklanır. Ayrıca bir hesap anahtarları ve yük devretme önceliklerini olarak yönetmek için komutlar içerir [çoklu bölge veritabanı hesapları][scaling-globally]. Veritabanı hesabınız güncelleştiriliyor, tutarlılık ilkeleri değiştirebilirsiniz ve bölge Ekle/Kaldır olanak tanır. Azure Cosmos DB hesabınızın platformlar arası yönetimi için ya da kullanabilirsiniz [Azure CLI](cli-samples.md), [kaynak sağlayıcısı REST API'si][rp-rest-api], veya [Azure portalı ](create-sql-api-dotnet.md#create-account).
+Aşağıdaki kılavuzda, Azure Powershell kullanarak Azure Cosmos DB veritabanı hesaplarınızı yönetimini otomatikleştirmek için komutları açıklanır. Ayrıca bir hesap anahtarları ve yük devretme önceliklerini [çoklu bölge veritabanı hesapları] yönetmek için komutlar içerir [dağıtma-data-globally.md]. Veritabanı hesabınız güncelleştiriliyor, tutarlılık ilkeleri değiştirebilirsiniz ve bölge Ekle/Kaldır olanak tanır. Azure Cosmos DB hesabınızın platformlar arası yönetimi için ya da kullanabilirsiniz [Azure CLI](cli-samples.md), [kaynak sağlayıcısı REST API'si][rp-rest-api], veya [Azure portalı ](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -33,7 +33,7 @@ Bölümündeki yönergeleri [Azure PowerShell'i yükleme ve yapılandırma işle
 
 ## <a id="create-documentdb-account-powershell"></a> Bir Azure Cosmos DB hesabı oluşturma
 
-Bu komut, bir Azure Cosmos DB veritabanı hesabı oluşturmanıza olanak sağlar. Yeni veritabanı hesabınız ya da tek bölge yapılandırın veya [çok bölgeli] [ scaling-globally] ile belirli bir [tutarlılık İlkesi](consistency-levels.md).
+Bu komut, bir Azure Cosmos DB veritabanı hesabı oluşturmanıza olanak sağlar. Yeni veritabanı hesabınızın tek bölgeli ya da [çok bölgeli] [dağıtma-data-globally.md] belirli bir ile yapılandırmaya [tutarlılık İlkesi](consistency-levels.md).
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
     $iprangefilter = "<ip-range-filter>"
@@ -60,7 +60,7 @@ Bu komut, bir Azure Cosmos DB veritabanı hesabı oluşturmanıza olanak sağlar
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
 
 ### <a name="notes"></a>Notlar
-* Yukarıdaki örnekte, iki bölgeleri ile bir veritabanı hesabı oluşturur. (Bu yazma bölgesi atanır ve yük devretme öncelik değeri 0 olan) tek bir bölge veya iki bölgeleri ile bir veritabanı hesabı oluşturmanız da mümkündür. Daha fazla bilgi için [çoklu bölge veritabanı hesapları][scaling-globally].
+* Yukarıdaki örnekte, iki bölgeleri ile bir veritabanı hesabı oluşturur. (Bu yazma bölgesi atanır ve yük devretme öncelik değeri 0 olan) tek bir bölge veya iki bölgeleri ile bir veritabanı hesabı oluşturmanız da mümkündür. Daha fazla bilgi için bkz: [çoklu bölge veritabanı hesapları] [dağıtma-data-globally.md].
 * Azure Cosmos DB genel olarak kullanılabildiği bölgeler konumları olmalıdır. Geçerli bölgelerin listesi üzerinde sağlanan [Azure bölgeleri sayfa](https://azure.microsoft.com/regions/#services).
 
 ## <a id="update-documentdb-account-powershell"></a> Bir Azure Cosmos DB veritabanı hesabını güncelleştirme

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 543c30b4d2c960f3c7453369162a62dc4606d06e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 1ac965896dc3356f33e6461cf390e4345663c3d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068636"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982095"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Planlı bakım bildirimlerini Linux sanal makineleri için işleme
 
@@ -108,7 +108,7 @@ az vm perform-maintenance -g rgName -n vmName
 
 ## <a name="classic-deployments"></a>Klasik dağıtımlar
 
-Olan eski Vm'leri hala varsa Klasik dağıtım modeli kullanılarak dağıtılan CLI 1.0 için sorgu VM'ler için ve kullanabilirsiniz Bakımı Başlat.
+Olan eski Vm'leri hala varsa Klasik dağıtım modeli kullanılarak dağıtılmış sorgu için Azure Klasik CLI VM'ler için ve kullanabilirsiniz bakım başlatın.
 
 Yazarak Klasik VM ile çalışmak için doğru modda olduğundan emin olun:
 

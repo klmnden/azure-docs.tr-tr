@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
 ms.component: autoscale
-ms.openlocfilehash: b303632c236e492bbf57ee60d5e7b0cc7b2f9e5c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e96e3abc05353aa3ea134b7d11256a29fe64c300
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448977"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989235"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure'da otomatik ölçeklendirme ile çalışmaya başlama
 Bu makalede, Microsoft Azure portalında kaynağınıza, otomatik ölçeklendirme ayarlarını ayarlamak açıklar.
 
-Azure İzleyici otomatik ölçeklendirme, yalnızca sanal makine ölçek kümeleri, bulut Hizmetleri, Azure App Service planı ve App Service ortamları için geçerlidir. 
+Azure İzleyici otomatik ölçeklendirme için yalnızca geçerlidir [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), ve [APIManagementHizmetleri](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Otomatik ölçeklendirme ayarları, aboneliğinizdeki keşfedin
 Otomatik ölçeklendirme'nin Azure İzleyici'de geçerli olduğu tüm kaynakları bulabilir. Adım adım bir kılavuz için aşağıdaki adımları kullanın:
@@ -47,8 +47,8 @@ Her bir kaynak için geçerli örnek sayısına ve otomatik ölçeklendirme duru
 1. Ölçek ayarı için bir ad belirtin ve ardından **alınabilecek**. Bir bağlam bölmesi sağ tarafındaki açık ölçek kuralı seçeneklerini dikkat edin. Varsayılan olarak, bu yüzde 70 kaynak CPU yüzdesini aşarsa, örnek sayınız 1 ile ölçeklendirme seçeneği ayarlar. Kendi varsayılan değerlerinde bırakın ve tıklayın **Ekle**.
   ![Ölçek ayarı için bir web uygulaması oluşturma][6]
 1. İlk, Ölçek kuralı oluşturdunuz. Not UX en iyi yöntemler önerir ve durumları ", en az bir adet ölçek kuralı olması önerilir." Bunu yapmak için:
-  
-    a. Tıklayın **alınabilecek**. 
+
+    a. Tıklayın **alınabilecek**.
 
     b. Ayarlama **işleci** için **küçüktür**.
 
@@ -62,7 +62,7 @@ Her bir kaynak için geçerli örnek sayısına ve otomatik ölçeklendirme duru
 
 Tebrikler! Şimdi, ilk web uygulamanızı CPU kullanımına göre otomatik ölçeklendirme ölçek ayarı başarıyla oluşturdunuz.
 
-> [!NOTE] 
+> [!NOTE]
 > Aynı adımlar bir sanal makine ölçek kümesi ile kullanmaya başlamak veya Bulut hizmeti rolü için geçerlidir.
 
 ## <a name="other-considerations"></a>Dikkat edilecek diğer noktalar
@@ -105,8 +105,8 @@ Geçerli ölçek ayarı devre dışı bırakmanız ve kaynak el ile ölçeklendi
 Tıklayın **devre dışı bırakmak, otomatik ölçeklendirme** üstünde düğme.
 ![Otomatik ölçeklendirmeyi devre dışı][13]
 
-> [!NOTE] 
-> Bu seçenek yapılandırmanızı devre dışı bırakır. Otomatik ölçeklendirme yeniden etkinleştirdikten sonra ancak kendisine dönebilirsiniz. 
+> [!NOTE]
+> Bu seçenek yapılandırmanızı devre dışı bırakır. Otomatik ölçeklendirme yeniden etkinleştirdikten sonra ancak kendisine dönebilirsiniz.
 
 Artık, el ile ölçeklendirmek istediğiniz örnek sayısını ayarlayabilirsiniz.
 
@@ -133,4 +133,3 @@ Otomatik ölçeklendirme tıklayarak her zaman geri dönebilirsiniz **etkinleşt
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
-

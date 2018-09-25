@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: babanisa
-ms.openlocfilehash: ce0e766a07fd19f523f1f35b9a3cbc865cfb8c71
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42057722"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965472"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid güvenliğini ve kimlik doğrulaması 
 
@@ -39,7 +39,7 @@ HTTP tetikleyicisi tabanlı Azure işlevi gibi başka türde bir uç noktasını
 
 2. **ValidationURL el sıkışması (el ile anlaşması)**: Bazı durumlarda, uç nokta tabanlı ValidationCode el sıkışması uygulamak için kaynak kodu denetimi olmayabilir. Örneğin, bir üçüncü taraf hizmet kullanın (gibi [Zapier](https://zapier.com) veya [IFTTT](https://ifttt.com/)), program aracılığıyla doğrulama koduyla yanıt vermesi mümkün olmayabilir. Bu nedenle, sürümü 2018-05-01-preview ile başlayarak, EventGrid artık el ile doğrulama el sıkışması destekler. Bu yeni API sürümü (2018-05-01-Önizleme) EventGrid gönderir kullanan SDK/araçlarını kullanarak bir olay aboneliği oluşturuyorsanız bir `validationUrl` özelliği (ek olarak `validationCode` özelliği) abonelik doğrulama olayı veri bölümünü bir parçası olarak. Anlaşma tamamlamak için yalnızca bir GET REST istemcisi ya da web tarayıcınızı kullanarak aracılığıyla bu URL'de ister. Sağlanan doğrulama URL'si yalnızca yaklaşık 10 dakika için geçerlidir. Bu süre boyunca, olay aboneliğinin sağlama durumu: `AwaitingManualAction`. 10 dakika içinde el ile doğrulama tamamlamazsanız, sağlama durumu kümesine `Failed`. Olay aboneliği oluşturma, yeniden el ile doğrulama yapmak denemeden önce deneyin gerekecektir.
 
-Bu mekanizma el ile doğrulama Önizleme aşamasındadır. Bunu kullanmak istiyorsanız [AZ CLI 2.0](/cli/azure/install-azure-cli) için [Event Grid uzantısını](/cli/azure/azure-cli-extensions-list) yüklemeniz gerekir. `az extension add --name eventgrid` ile yükleyebilirsiniz. REST API’yi kullanıyorsanız `api-version=2018-05-01-preview` kullandığınızdan emin olun.
+Bu mekanizma el ile doğrulama Önizleme aşamasındadır. Bunu kullanmak istiyorsanız [Azure CLI](/cli/azure/install-azure-cli)’si için [Event Grid uzantısını](/cli/azure/azure-cli-extensions-list) yüklemeniz gerekir. `az extension add --name eventgrid` ile yükleyebilirsiniz. REST API’yi kullanıyorsanız `api-version=2018-05-01-preview` kullandığınızdan emin olun.
 
 ### <a name="validation-details"></a>Doğrulama ayrıntıları
 

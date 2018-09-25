@@ -1,6 +1,6 @@
 ---
-title: Azure sanal ağ geçidi ve bağlantı - Azure CLI 2.0 sorunlarını giderme | Microsoft Docs
-description: Bu sayfa, Azure Ağ İzleyicisi'ni kullanmayı açıklar Azure CLI 2.0 sorun giderme
+title: Azure sanal ağ geçidi ve bağlantı - Azure CLI sorunlarını giderme | Microsoft Docs
+description: Bu sayfa, Azure Ağ İzleyicisi'ni kullanmayı açıklar Azure CLI sorunlarını giderme
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 5f843b42a108968e2fbefacddcd22f331a04691e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5a8ac32f43ecadb8908582fa853fc3f2bec7ac55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091110"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971000"
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>Sanal ağ geçidi ve Azure Ağ İzleyicisi Azure CLI 2.0 kullanarak bağlantı sorunlarını giderme
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Sanal ağ geçidi ve Azure Ağ İzleyicisi Azure CLI kullanarak bağlantı sorunlarını giderme
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
@@ -31,9 +31,7 @@ ms.locfileid: "39091110"
 
 Ağ İzleyicisi, ağ kaynaklarınıza azure'da anlamak için bağlantılı olarak çok sayıda özellik sağlar. Bu özelliklerin biri kaynak sorunlarını giderme. Kaynak sorun giderme portalı, PowerShell, CLI veya REST API çağrılabilir. Çağrıldığında, Ağ İzleyicisi, bir sanal ağ geçidi veya bağlantı durumunu inceler ve bulguları döndürür.
 
-Bu makalede, Windows, Mac ve Linux için kullanılabilir olduğu kaynak yönetimi dağıtım modeli için Azure CLI 2. 0'da, sunduğumuz yeni nesil CLI kullanılmıştır.
-
-Bu makaledeki adımları gerçekleştirmek için yapmanız [Azure komut satırı arabirimi için Mac, Linux ve Windows (Azure CLI) yükleme](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Bu makaledeki adımları gerçekleştirmek için yapmanız [Azure komut satırı arabirimi için Mac, Linux ve Windows (CLI) yükleme](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

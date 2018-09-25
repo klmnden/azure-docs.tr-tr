@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: 0ff14ec2100d47e0edc5288f1c46f4fdd63fa683
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: cbd1a7a3a797cc20be92583bbb5ac163333729fc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171536"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969810"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Azure'da barındırılan hizmetleri için ters DNS yapılandırma
 
@@ -51,7 +51,7 @@ Bulut Hizmetleri için ters DNS aynı kısıtlamalar uygulanır.
 
 ## <a name="reverse-dns-for-publicipaddress-resources"></a>PublicIpAddress kaynaklarını için ters DNS
 
-Bu bölümde, Azure PowerShell, Azure CLI 1.0 veya Azure CLI 2.0 kullanarak Resource Manager dağıtım modelinde PublicIpAddress kaynaklarını için ters DNS yapılandırma hakkında ayrıntılı yönergeler sağlar. PublicIpAddress kaynaklarını için ters DNS yapılandırma, Azure portalı üzerinden şu anda desteklenmiyor.
+Bu bölümde, Azure PowerShell, Azure Klasik CLI veya Azure CLI kullanarak Resource Manager dağıtım modelinde PublicIpAddress kaynaklarını için ters DNS yapılandırma hakkında ayrıntılı yönergeler sağlar. PublicIpAddress kaynaklarını için ters DNS yapılandırma, Azure portalı üzerinden şu anda desteklenmiyor.
 
 Azure şu anda desteklediği yalnızca IPv4 PublicIpAddress kaynaklarını için ters DNS. IPv6 için desteklenmiyor.
 
@@ -77,7 +77,7 @@ $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
 Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klasik Azure CLI
 
 Mevcut bir Publicıpaddress'e ters DNS eklemek için:
 
@@ -91,7 +91,7 @@ Ters DNS'yi bir DNS adı zaten sahip olmayan var olan bir Publicıpaddress'e ekl
 azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f contosoapp1.westus.cloudapp.azure.com.
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 Mevcut bir Publicıpaddress'e ters DNS eklemek için:
 
@@ -115,13 +115,13 @@ Ters DNS özelliği zaten belirtilen yeni Publicıpaddress oluşturmak için:
 New-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "WestUS" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.westus.cloudapp.azure.com."
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klasik Azure CLI
 
 ```azurecli
 azure network public-ip create -n PublicIp -g MyResourceGroup -l westus -d contosoapp3 -f contosoapp3.westus.cloudapp.azure.com.
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network public-ip create --name PublicIp --resource-group MyResourceGroup --location westcentralus --dns-name contosoapp1 --reverse-fqdn contosoapp1.westcentralus.cloudapp.azure.com
@@ -137,13 +137,13 @@ Mevcut bir Publicıpaddress için yapılandırılmış bir değeri görüntülem
 Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klasik Azure CLI
 
 ```azurecli
 azure network public-ip show -n PublicIp -g MyResourceGroup
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network public-ip show --name PublicIp --resource-group MyResourceGroup
@@ -161,13 +161,13 @@ $pip.DnsSettings.ReverseFqdn = ""
 Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Klasik Azure CLI
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup –f ""
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn ""
@@ -176,7 +176,7 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 
 ## <a name="configure-reverse-dns-for-cloud-services"></a>Bulut Hizmetleri için ters DNS yapılandırma
 
-Bu bölümde ayrıntılı Azure PowerShell kullanarak Klasik dağıtım modelinde, Cloud Services için ters DNS yapılandırma hakkında yönergeler sağlar. Azure portalı Azure CLI 1.0 veya Azure CLI 2.0, bulut Hizmetleri için ters DNS yapılandırma desteklenmiyor.
+Bu bölümde ayrıntılı Azure PowerShell kullanarak Klasik dağıtım modelinde, Cloud Services için ters DNS yapılandırma hakkında yönergeler sağlar. Bulut Hizmetleri için ters DNS yapılandırma Azure portalında, Klasik Azure CLI veya Azure CLI desteklenmiyor.
 
 ### <a name="add-reverse-dns-to-existing-cloud-services"></a>Var olan bulut Hizmetleri için ters DNS Ekle
 

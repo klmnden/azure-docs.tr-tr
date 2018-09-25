@@ -1,6 +1,6 @@
 ---
-title: Etki alanına katılmış Azure HDInsight mimarisi
-description: Etki alanına katılmış HDInsight planlama hakkında bilgi edinin.
+title: Kurumsal güvenlik paketi ile Azure HDInsight mimarisi
+description: Kurumsal güvenlik paketi ile HDInsight güvenlik planlama hakkında bilgi edinin.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
@@ -8,15 +8,15 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.openlocfilehash: efdc9cfbbe9a78571e0a56437e512d0cbbc18b3e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.date: 09/24/2018
+ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297289"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998948"
 ---
-# <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Azure etki alanına katılmış Hadoop kümeleri planlama
+# <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight Kurumsal güvenlik paketi kullanma
 
 Standart Azure HDInsight küme tek kullanıcılı bir kümedir. Büyük veri iş yüklerini oluşturan küçük uygulama ekiplerine sahip çoğu şirket için uygundur. Her kullanıcının isteğe bağlı olarak ayrılmış bir küme oluşturabilir ve artık gerekli olmadığında, yok. 
 
@@ -29,7 +29,7 @@ Sağlanan, etki alanına katılmış HDInsight sanal makinelerin (VM'ler) var. B
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>HDInsight’ı Active Directory ile tümleştirin
 
-Açık kaynaklı Hadoop üzerinde Kerberos kimlik doğrulaması ve güvenlik için kullanır. Bu nedenle, HDInsight küme düğümleri Azure AD DS tarafından yönetilen bir etki alanına katılır. Kerberos güvenlik küme üzerindeki Hadoop bileşenleri için yapılandırılır. 
+Açık kaynaklı Hadoop üzerinde Kerberos kimlik doğrulaması ve güvenlik için kullanır. Bu nedenle, HDInsight küme düğümleri Kurumsal güvenlik paketi (ESP) ile Azure AD DS tarafından yönetilen bir etki alanına katılır. Kerberos güvenlik küme üzerindeki Hadoop bileşenleri için yapılandırılır. 
 
 Her bir Hadoop bileşeni için bir hizmet sorumlusunu otomatik olarak oluşturulur. Asıl karşılık gelen bir makine etki alanına katılan her makine için de oluşturulur. Bu hizmet depolamak ve ilkeleri makine için bu ilkeleri yerleştirildiği etki alanı denetleyicisi (Azure AD DS) içinde bir kuruluş birimine (OU) sağlamalısınız. 
 
@@ -45,7 +45,7 @@ Her bir Hadoop bileşeni için bir hizmet sorumlusunu otomatik olarak oluşturul
 
 Aşağıdaki ekran görüntüsünde, contoso.com oluşturulan bir OU gösterir. Ayrıca bazı hizmet sorumluları ve makine sorumluları gösterir.
 
-![Etki alanına katılmış HDInsight kümeleri için kuruluş birimi](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
+![ESP ile HDInsight kümeleri için kuruluş birimi](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>Farklı bir etki alanı denetleyicileri kurun
 HDInsight, küme Kerberos iletişimi için kullandığı ana etki alanı denetleyicisi şu anda yalnızca Azure AD DS destekler. Ancak böyle bir kurulum HDInsight erişim için Azure AD DS'yi etkinleştirmek için müşteri adayları sürece diğer karmaşık Active Directory ayarları mümkündür.
@@ -55,7 +55,7 @@ HDInsight, küme Kerberos iletişimi için kullandığı ana etki alanı denetle
 
 Azure Active Directory'den (Azure AD) kullanıcıları, grupları ve parolaları eşitlenir. Azure AD DS için Azure AD Örneğinize tek yönlü eşitleme kümeye şirket kimlik bilgilerini kullanarak oturum açmalarını sağlar. 
 
-Daha fazla bilgi için [yapılandırma etki alanına katılmış HDInsight kümeleri Azure AD DS kullanarak](./apache-domain-joined-configure-using-azure-adds.md).
+Daha fazla bilgi için [yapılandırma HDInsight kümeleri ile Azure AD DS kullanarak ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
 ### <a name="on-premises-active-directory-or-active-directory-on-iaas-vms"></a>Şirket içi Active Directory veya Iaas Vm'leri üzerinde Active Directory
 
@@ -63,9 +63,10 @@ Etki alanınız için bir şirket içi Active Directory örneğine veya daha kar
 
 Kerberos Parola karmalarının üzerinde kullandığından, gerekecektir [Azure AD DS parola karması eşitlemeyi etkinleştir](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Active Directory Federasyon Hizmetleri (AD FS) ile Federasyon kullanıyorsanız, AD FS altyapınızı başarısız olursa, isteğe bağlı olarak parola karması eşitlemeyi yedek olarak ayarlayabilirsiniz. Daha fazla bilgi için [Azure AD Connect eşitlemesi ile parola karma eşitlemesini etkinleştirme](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
-Kullanarak Active Directory veya tek başına, Iaas vm'lerinde Active Directory etki alanına katılmış HDInsight kümeleri için desteklenen bir yapılandırma değil Azure AD ve Azure AD DS, olmadan şirket içi.
+Azure AD ile Azure AD DS, tek başına, Iaas vm'lerinde, şirket içi Active Directory veya Active Directory kullanarak ESP ile HDInsight kümeleri için desteklenen bir yapılandırma değildir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Etki alanına katılmış HDInsight kümelerini yapılandırma](apache-domain-joined-configure-using-azure-adds.md)
-* [Etki alanına katılmış HDInsight kümeleri için Hive ilkelerini yapılandırma](apache-domain-joined-run-hive.md)
-* [Etki alanına katılmış HDInsight kümelerini yönetme](apache-domain-joined-manage.md) 
+
+* [ESP ile HDInsight kümelerini yapılandırma](apache-domain-joined-configure-using-azure-adds.md)
+* [ESP ile HDInsight kümeleri için Hive ilkelerini yapılandırma](apache-domain-joined-run-hive.md)
+* [ESP ile HDInsight kümelerini yönetme](apache-domain-joined-manage.md) 

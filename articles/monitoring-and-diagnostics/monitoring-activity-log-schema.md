@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d267ffd5085c27c60e9eb229e2d9026fa83ef848
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003840"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998257"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
 **Azure etkinlik günlüğü** Azure'da gerçekleşen herhangi bir abonelik düzeyindeki olayların sağlayan günlüktür. Bu makalede veri kategorisini başına olay şeması. Portal, PowerShell, CLI veya karşı REST API aracılığıyla doğrudan veri okunuyorsa veri şeması bağlı olarak farklı [veri depolama veya günlük profilini kullanarak Event Hubs akış](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Aşağıdaki örnekler, portal, PowerShell, CLI ve REST API kullanıma sunulan teklifinizle şema gösterir. Bu özellikler için bir eşleme [Azure tanılama günlükleri şema](./monitoring-diagnostic-logs-schema.md) makalenin sonunda sağlanır.
@@ -192,6 +192,95 @@ Bu kategori, Azure'da gerçekleşen tüm hizmet durumu olayları kaydını içer
 }
 ```
 Başvurmak [hizmet durumu bildirimlerini](./monitoring-service-notifications.md) makale özelliklerinde değerler hakkındaki belgeleri.
+
+## <a name="resource-health"></a>Kaynak durumu
+Bu kategori, Azure kaynaklarınıza ortaya çıkan herhangi bir kaynak sistem durumu olayları kaydını içerir. Bu kategoride göreceğiniz olay türünü, "sanal makine sistem durumu kullanılamaz değiştirildi." örneğidir Kaynak sistem durumu olayları dört durum durumlardan birini temsil edebilir: kullanılabilir kullanılamıyor, Degraded ve bilinmeyen. Ayrıca, kaynak sistem durumu olayları, Platform tarafından başlatılan veya kullanıcı tarafından başlatılan olacak şekilde sınıflandırılabilir.
+
+### <a name="sample-event"></a>Örnek olay
+
+```json
+{
+    "channels": "Admin, Operation",
+    "correlationId": "28f1bfae-56d3-7urb-bff4-194d261248e9",
+    "description": "",
+    "eventDataId": "a80024e1-883d-37ur-8b01-7591a1befccb",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "ResourceHealth",
+        "localizedValue": "Resource Health"
+    },
+    "eventTimestamp": "2018-09-04T15:33:43.65Z",
+    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "level": "Critical",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Resourcehealth/healthevent/Activated/action",
+        "localizedValue": "Health Event Activated"
+    },
+    "resourceGroupName": "<resource group>",
+    "resourceProviderName": {
+        "value": "Microsoft.Resourcehealth/healthevent/action",
+        "localizedValue": "Microsoft.Resourcehealth/healthevent/action"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
+    "subscriptionId": "<subscription Id>",
+    "properties": {
+        "stage": "Active",
+        "title": "Virtual Machine health status changed to unavailable",
+        "details": "Virtual machine has experienced an unexpected event",
+        "healthStatus": "Unavailable",
+        "healthEventType": "Downtime",
+        "healthEventCause": "PlatformInitiated",
+        "healthEventCategory": "Unplanned"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="property-descriptions"></a>Özellik açıklamaları
+| Öğe adı | Açıklama |
+| --- | --- |
+| kanallar | Her zaman "Yöneticisi işlemi" |
+| correlationId | Dize biçiminde bir GUID. |
+| açıklama |Uyarı olayının açıklaması statik metin. |
+| eventDataId |Uyarı olayı benzersiz tanımlayıcısı. |
+| category | Her zaman "ResourceHealth" |
+| eventTimestamp |Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı", "Bilgilendirici" ve "Ayrıntılı" |
+| operationId |Tek bir işleme karşılık gelen olaylar arasında paylaşılan bir GUID. |
+| operationName |İşlemin adı. |
+| resourceGroupName |Kaynağın bulunduğu kaynak grubunun adı. |
+| resourceProviderName |Her zaman "Microsoft.Resourcehealth/healthevent/action". |
+| Kaynak türü | Kaynak durumu olay tarafından etkilenen kaynak türü. |
+| resourceId | Etkilenen kaynak adı kaynak kimliği. |
+| durum |Sistem durumu olayı durumunu açıklayan bir dize. Değerleri: etkin, çözülmüş, sürüyor, güncelleştirilmiş. |
+| alt durumu | Genellikle, uyarılar için null. |
+| submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
+| subscriptionId |Azure abonelik kimliği |
+| properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük).|
+| Properties.Title | Kaynak sistem durumu tanımlayan kullanıcı dostu bir dize. |
+| Properties.details | Daha fazla olay hakkında ayrıntılar açıklanmaktadır kullanıcı dostu bir dize. |
+| properties.currentHealthStatus | Kaynağın geçerli sistem durumu. Aşağıdaki değerlerden biri: "Kullanılabilir", "Kullanılamıyor", "Degraded" ve "Bilinmeyen". |
+| properties.previousHealthStatus | Kaynak önceki sistem durumu. Aşağıdaki değerlerden biri: "Kullanılabilir", "Kullanılamıyor", "Degraded" ve "Bilinmeyen". |
+| Properties.Type | Kaynak sistem durumu olay türü açıklaması. |
+| Properties.Cause | Kaynak sistem durumu olayı nedenini açıklaması. "UserInitiated" ve "PlatformInitiated". |
+
 
 ## <a name="alert"></a>Uyarı
 Bu kategorideki tüm etkinleştirmeleri Azure uyarıları kaydını içerir. Bu kategoride göreceğiniz olay türünü "myVM üzerindeki CPU % 80'den önceki 5 dakika boyunca bırakıldı." örneğidir Çeşitli Azure sistemleri sahip bir uyarı verme kavramı--tür bir kural tanımlamak ve bu kuralda veya ek koşullarla eşleşen bir bildirim alırsınız. Her bir desteklenen Azure uyarı türü 'etkinleştirir,' veya bir bildirim oluşturmak için koşullar karşılandığında, bir kaydı etkinleştirme etkinlik günlüğü, bu kategoriye de gönderilir.

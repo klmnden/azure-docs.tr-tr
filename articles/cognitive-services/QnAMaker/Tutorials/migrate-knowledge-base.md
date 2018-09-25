@@ -3,19 +3,19 @@ title: Önizleme bilgi bankalarından - soru-cevap Oluşturucu geçirme
 titleSuffix: Azure Cognitive Services
 description: Bilgi Bankası içeri aktarma
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: nstulasi
-ms.openlocfilehash: ba883acc0cd74e5252e704cede837a814c17b975
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.author: tulasim
+ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729952"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031637"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>İçeri dışarı aktarma kullanarak Bilgi Bankası geçirme
 Soru-cevap Oluşturucu 7 Mayıs 2018'den genel kullanılabilirliğini duyurduk \\\build\ konferans. Soru-cevap Oluşturucu GA, Azure'u temel alan yeni bir mimariye sahiptir. Soru-cevap Oluşturucu ücretsiz önizleme ile oluşturulan bilgi bankaları için soru-cevap Oluşturucu büyüyecek geçirilmesi gerekir Soru-cevap Oluşturucu Önizleme Kasım 2018'de kullanımdan kaldırılacaktır. Soru-cevap Oluşturucu GA değişiklikler hakkında daha fazla bilgi için bkz: soru-cevap Oluşturucu GA duyurusundan [blog gönderisi](https://aka.ms/qnamakerga-blog).

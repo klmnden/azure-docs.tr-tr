@@ -1,6 +1,6 @@
 ---
 title: Bir Azure Linux VM erişimi sıfırlama | Microsoft Docs
-description: Yönetici kullanıcıları yönetme ve Linux vm'lerinde VMAccess uzantısı ve Azure CLI 2.0 kullanarak erişimi sıfırlama
+description: Yönetici kullanıcıları yönetme ve VMAccess uzantısı ve Azure CLI kullanarak Linux vm'lerinde erişimi sıfırlama
 services: virtual-machines-linux
 documentationcenter: ''
 author: zroiy
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 51c203c746a5256924033ebe48d9ddfdc3823b16
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415074"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998636"
 ---
-# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Yönetici kullanıcılar, SSH ve onay yönetin veya Azure CLI 2.0 ile VMAccess uzantısını kullanarak Linux vm'lerinde diskler onarın
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Yönetici kullanıcılar, SSH ve onay yönetmek veya VMAccess uzantısı ile Azure CLI kullanarak Linux vm'lerinde diskler onarın
 ## <a name="overview"></a>Genel Bakış
 Linux VM'nizi diskte hatalarını göstermez. Siz şekilde Linux sanal makinenizin kök parolayı sıfırlama veya SSH özel anahtarınızı yanlışlıkla silinmiş. Veri Merkezi gün içinde geri oluştuysa, sürücü vardır ve sunucu konsolunda almak için KVM açın gerekecektir. Azure VMAccess uzantısı, Linux için erişimi sıfırlama veya disk düzeyinde bakım yapmak için konsoluna erişmek izin veren, KVM anahtarı düşünün.
 
@@ -47,10 +47,10 @@ VM erişimi uzantısı bu Linux dağıtımları karşı çalıştırabilirsiniz:
 ## <a name="ways-to-use-the-vmaccess-extension"></a>VMAccess uzantısını kullanmanın yolları
 Linux Vm'lerinizi VMAccess uzantısı kullanabileceğiniz iki yolu vardır:
 
-* Azure CLI 2.0 ve gerekli parametreleri kullanın.
+* Azure CLI ve gerekli parametreleri kullanın.
 * [VMAccess uzantısı işlem ham JSON dosyalarını kullanmak](#use-json-files-and-the-vmaccess-extension) ve bunlar üzerinde işlem yapma.
 
-Aşağıdaki örneklerde [az vm kullanıcı](/cli/azure/vm/user) komutları. Bu adımları gerçekleştirmek için en son gerekir [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
+Aşağıdaki örneklerde [az vm kullanıcı](/cli/azure/vm/user) komutları. Bu adımları gerçekleştirmek için en son gerekir [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="update-ssh-key"></a>SSH anahtarını güncelleştir
 Aşağıdaki örnek, kullanıcı için SSH anahtarı güncelleştirmeleri `azureuser` adlı VM'de `myVM`:

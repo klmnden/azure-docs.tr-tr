@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 4f8ad67fafa20fd9adce62e8beb619999203ef62
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: db9c22acfba0f6f1781348b36a1d253a515cc063
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346670"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977290"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C için Azure IOT cihaz SDK'sı
 
@@ -71,7 +71,7 @@ IOT hub'ınıza yönetmenize yardımcı olmak üzere çeşitli açık kaynak ara
 
 * Adlı bir Windows uygulaması [cihaz Gezgini](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 * Platformlar arası Visual Studio Code uzantısı adlı [Azure IOT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
-* Platformlar arası Python CLI aracı adlı [Azure CLI 2.0 için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension).
+* Platformlar arası Python CLI adlı [Azure CLI için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension).
 
 Bu öğreticide grafik *cihaz Gezgini* aracı. Kullanabileceğiniz *VS Code için Azure IOT Toolkit uzantısını* VS Code'da geliştirme yapıyorsanız. Ayrıca *Azure CLI 2.0 için IOT uzantısı* CLI aracını kullanmayı tercih ederseniz aracı.
 

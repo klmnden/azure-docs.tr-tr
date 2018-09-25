@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: a5531ae256a263f1c34496819ac435ce67156b49
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651041"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996222"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Gerçek dünya senaryoları için Tahmine dayalı bakım
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Çoğu işletme için zamanlanmamış donanım kapalı kalma süresinin olumsuz etkileri olabilir. Kullanımı ve performansı en üst düzeye çıkarmak ve yüksek maliyetli ve zamanlanmamış kapalı kalma süresini en aza indirmek için çalışan alan ekipman tutmak önemlidir. Sorunları erken tanımlaması sınırlı bakım kaynakları uygun maliyetli bir şekilde ayırmanıza ve kalitesini artırmak ve tedarik zinciri işlemleri yardımcı olabilir. 
 
@@ -41,10 +46,10 @@ Bu senaryo fikirlerinden alan [Tahmine dayalı bakım playbook](https://docs.mic
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz denemeler kullanılabilir).
-* Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). İzleyin [Hızlı Yükleme Kılavuzu](../service/quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturun.
+* Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). İzleyin [Hızlı Yükleme Kılavuzu](quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturun.
 * Azure Machine Learning operasyonel hale getirme, yerel dağıtım ortamı gerektirir ve bir [Azure Machine Learning Model Yönetimi hesabı](model-management-overview.md).
 
-Bu örnek tüm Machine Learning Workbench işlem bağlam üzerinde çalıştırılır. Ancak, en az 16 GB bellekle örneği çalıştırmak için önerilir. Bu senaryoda oluşturulan ve bir uzak DS4_V2 standart çalıştıran bir Windows 10 makineye test [Linux (Ubuntu) için veri bilimi sanal makinesi (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
+Bu örnek tüm Machine Learning Workbench işlem bağlam üzerinde çalıştırılır. Ancak, en az 16 GB bellekle örneği çalıştırmak için önerilir. Bu senaryoda oluşturulan ve bir uzak DS4_V2 standart çalıştıran bir Windows 10 makineye test [Linux (Ubuntu) için veri bilimi sanal makinesi (DSVM)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
 Azure Machine Learning CLI'ın sürümü 0.1.0a22 kullanarak modeli kullanıma hazır hale getirme işlemi gerçekleştirildi.
 
@@ -71,7 +76,7 @@ Bu komut bir kimlik doğrulama anahtarı ile https kullanacak şekilde sağlar:\
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-Çalıştırmak için tercih edilir bir [Linux (Ubuntu) için DSVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) bellek ve disk gereksinimleri. DSVM yapılandırdıktan sonra aşağıdaki iki komutu ile uzak Docker ortamını hazırlayın:
+Çalıştırmak için tercih edilir bir [Linux (Ubuntu) için DSVM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) bellek ve disk gereksinimleri. DSVM yapılandırdıktan sonra aşağıdaki iki komutu ile uzak Docker ortamını hazırlayın:
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

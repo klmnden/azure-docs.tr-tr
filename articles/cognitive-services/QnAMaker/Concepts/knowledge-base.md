@@ -3,19 +3,19 @@ title: Bilgi Bankası - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
 description: Soru/yanıt (soru-cevap) çifti ve isteğe bağlı meta veriler her soru-cevap çifti ile ilişkili bir dizi soru-cevap Oluşturucu Bilgi Bankası oluşur.
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: saneppal
-ms.openlocfilehash: e1ac7bd3322f613888ca82cbd3c23c726f0c0e15
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.author: tulasim
+ms.openlocfilehash: cb3426a960a6644b3ae149f02055cdb083febca7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541190"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040770"
 ---
 # <a name="knowledge-base"></a>Bilgi bankası
 

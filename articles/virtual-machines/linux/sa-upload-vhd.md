@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 ile özel bir Linux disk karşıya yükle | Microsoft Docs
-description: Oluşturma ve Azure Resource Manager dağıtım modelini ve Azure CLI 2.0 kullanarak bir sanal sabit disk (VHD) yükleme
+title: Azure CLI ile özel bir Linux disk karşıya yükle | Microsoft Docs
+description: Oluşturma ve Resource Manager dağıtım modelini ve Azure CLI kullanarak Azure'da bir sanal sabit disk (VHD) yükleme
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,22 +15,23 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 4b05c4c7db1e1c1953af2466d2c6a277baa07082
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 1926f0bcf7efca786e97bd973601888e5a8d4463
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737354"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966512"
 ---
-# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Azure CLI 2.0 ile bir özel diskten Linux VM oluşturma ve karşıya yükleme
-Bu makalede Azure CLI 2.0 ile Azure depolama hesabınız için bir sanal sabit disk (VHD) karşıya yükleyin ve bu özel diskten Linux Vm'leri oluşturma gösterilmektedir. Bu işlev, yüklemek ve bir Linux distro gereksinimlerinize yapılandırın ve ardından Azure sanal makineleri (VM) hızlı bir şekilde oluşturmak için bu VHD'yi kullanması sağlar.
+# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Azure CLI ile bir özel diskten Linux VM oluşturma ve karşıya yükleme
+
+Bu makalede Azure CLI ile Azure depolama hesabınız için bir sanal sabit disk (VHD) karşıya yükleyin ve bu özel diskten Linux Vm'leri oluşturma gösterilmektedir. Bu işlev, yüklemek ve bir Linux distro gereksinimlerinize yapılandırın ve ardından Azure sanal makineleri (VM) hızlı bir şekilde oluşturmak için bu VHD'yi kullanması sağlar.
 
 Bu konuda depolama hesapları için son VHD'ler kullanır, ancak bu adımları kullanarak da yapabilirsiniz [yönetilen diskler](upload-vhd.md). 
 
 ## <a name="quick-commands"></a>Hızlı komutlar
 Hızlı bir şekilde, aşağıdaki bölümde ayrıntıları temel görevi gerekirse Azure'a VHD yükleme komutları. Bilgi ve içerik her adım, belgenin geri kalanında bulunabilir ayrıntılı [burada başlangıç](#requirements).
 
-En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
+En son sahip olduğunuzdan emin olun [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil `myResourceGroup`, `mystorageaccount`, ve `mydisks`.
 
@@ -96,7 +97,7 @@ Aşağıdaki adımları tamamlamak için gerekir:
   * Bir depolama hesabı ve kapsayıcı özel disk ve oluşturulan VM'ler için oluşturma
   * Tüm Vm'leriniz oluşturduktan sonra disk güvenli bir şekilde silebilirsiniz
 
-En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
+En son sahip olduğunuzdan emin olun [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil `myResourceGroup`, `mystorageaccount`, ve `mydisks`.
 

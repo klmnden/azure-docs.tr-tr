@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: c2caa9ebbc3a4e6b9180466950775524986fd244
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: dfcd61abd9f995a9bb848c23143adb99b0620956
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364576"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042168"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma
 
-Azure SQL veritabanı yönetilen örneği (Önizleme) içinde bir Azure dağıtılmalıdır [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md). Bu dağıtım aşağıdaki senaryolara olanak tanır: 
+Azure SQL veritabanı yönetilen örneği, bir Azure dağıtılmalıdır [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md). Bu dağıtım aşağıdaki senaryolara olanak tanır: 
 - Bir şirket içi ağdan doğrudan bir yönetilen örneğe bağlanma 
 - Bağlantılı bir sunucu veya başka bir yönetilen örneğe bağlanma veri deposu şirket 
 - Azure kaynakları için yönetilen örneğe bağlanma  
@@ -34,7 +34,7 @@ Bir yönetilen örneği'nde aşağıdaki sorulara verdiğiniz yanıtlar kullanar
 
    Mevcut bir sanal ağı kullanmayı planlıyorsanız, yönetilen Örneğinize uyum sağlamak için bu ağ yapılandırmasını değiştirmeniz gerekir. Daha fazla bilgi için [yönetilen örneği için var olan sanal ağı değiştirme](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   Yeni bir sanal ağ oluşturmayı planlıyorsanız bkz [yönetilen örneği için yeni sanal ağ oluştur](#create-a-new-virtual-network-for-managed-instances).
+   Yeni bir sanal ağ oluşturmayı planlıyorsanız bkz [yönetilen örneği için yeni sanal ağ oluştur](#create-a-new-virtual-network-for-a-managed-instance).
 
 ## <a name="requirements"></a>Gereksinimler
 
@@ -84,7 +84,7 @@ Birden çok yönetilen örnek alt ağ içinde dağıtın ve alt ağı boyutuna g
 > [!IMPORTANT]
 > Yukarıda gösterilen hesaplama geliştirmelerle daha eski hale gelir. 
 
-## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Azure Resource Manager dağıtımını kullanarak yönetilen örneğe'için yeni bir sanal ağ oluşturma
+## <a name="create-a-new-virtual-network-for-a-managed-instance"></a>Yeni bir sanal ağ için bir yönetilen örnek oluşturma
 
 Oluşturma ve sanal ağ yapılandırma en kolay yolu, Azure Resource Manager dağıtım şablonu kullanmaktır.
 
@@ -143,8 +143,6 @@ Alt ağ hazırlama üç basit adımda gerçekleştirilir:
 **Yapılandırılmış özel DNS sunucusu gerekiyor?** 
 
 Yanıt Evet ise bkz [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md). 
-
-- Gerekli bir yol tablosu oluşturun ve ilişkilendirin: bkz [gerekli yol tablosu oluşturun ve ilişkilendirin](#create-the-required-route-table-and-associate-it)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

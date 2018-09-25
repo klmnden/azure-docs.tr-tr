@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: fcc57ea7729f8a907fd39fe346270cc52c148f07
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605598"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981381"
 ---
 # <a name="batch-transcription"></a>Toplu iş transkripsiyonu
 
@@ -100,7 +100,7 @@ Belirteç edindikten sonra transkripsiyonu isteyen bir ses dosyasına işaret ed
 ```cs
    static async Task TranscribeAsync()
         { 
-            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
+            private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
@@ -169,7 +169,7 @@ Belirteç edindikten sonra transkripsiyonu isteyen bir ses dosyasına işaret ed
 ```
 
 > [!NOTE]
-> Önceki kodda, Azure portalında oluşturduğunuz Speech(Preview) kaynak abonelik anahtarını arasındadır. Özel konuşma hizmeti kaynaktan alınan tuşu çalışmıyor.
+> Önceki kodda, Azure portalında oluşturduğunuz konuşma kaynak abonelik anahtarını arasındadır. Özel konuşma hizmeti kaynaktan alınan tuşu çalışmıyor.
 
 Ses gönderme ve döküm durumu almak için zaman uyumsuz Kurulum dikkat edin. Oluşturulan istemci, bir .NET Http istemcidir. Var. bir `PostTranscriptions` ses dosyası ayrıntıları, gönderme yöntemi ve bir `GetTranscriptions` sonuçlarını almak için yöntemi. `PostTranscriptions` bir tanıtıcı döndürür ve `GetTranscriptions` transkripsiyonu durumunu almak için bir tanıtıcı oluşturmak için bu tutamacı kullanır.
 

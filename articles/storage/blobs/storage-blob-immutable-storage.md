@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: e6b016d437011f8e9ebe3e2d3a6f3c9f737f6ecc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 14b5dfb0a12df6c5251ee9f9e6b35a7ce527a1d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129582"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961986"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>İş açısından kritik verilerin Azure Blob Depolama alanında Store
 
@@ -95,7 +95,7 @@ Bu özelliği kullanmak için ek ücret yoktur. Sabit veri aynı şekilde normal
 
 ## <a name="getting-started"></a>Başlarken
 
-En son sürümleri [Azure portalında](http://portal.azure.com) ve [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) önizleme sürümünü yanı sıra [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) sabit depolama Azure Blob Depolama için destek.
+En son sürümleri [Azure portalında](http://portal.azure.com) ve [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) önizleme sürümünü yanı sıra [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) sabit depolama Azure Blob Depolama için destek.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -131,7 +131,7 @@ En son sürümleri [Azure portalında](http://portal.azure.com) ve [Azure CLI 2.
 
 8. Yasal tutma temizlemek için etiketi kaldırmak yeterlidir.
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Bu özellik aşağıdaki komut gruplarını dahildir: `az storage container immutability-policy` ve `az storage container legal-hold`. Çalıştırma `-h` bunlara komutları görmek için.
 

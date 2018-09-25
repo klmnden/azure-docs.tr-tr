@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Bir desen, bir iyi biçimlendirilmiş şablon utterance verileri ayıklamak için kullanın. Şablon utterance konumu kaynak ve hedef konumu gibi ilgili verileri ayıklamak için basit bir varlık ve rollerini kullanır.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: f3ddbad350ed42823ca95136ae2a507c46c3c763
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 07fc753f7f60b51fc6b27e43ffb8c181c570bb5a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634549"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032521"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Öğretici: 4. Bağlamsal ilgili desenleri ayıklayın
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Öğretici: 4. Bağlamsal olarak ilişkili desenleri ayıklama
 
 Bu öğreticide, bir desen bir iyi biçimlendirilmiş şablon utterance verileri ayıklamak için kullanın. Şablon utterance konumu kaynak ve hedef konumu gibi ilgili verileri ayıklamak için basit bir varlık ve rollerini kullanır.  Desenler kullanırken, daha az örnek konuşma amacı için gereklidir.
 
@@ -95,7 +95,7 @@ Bu adımları varlıklarda etiketleme geri bu bölümdeki adımları tamamladık
 
     Rol varlığının amaca etiketleme sırasında belirtmeyin. Daha sonra deseni oluştururken bunu. 
 
-    |Konuşma|Yeniçalışan|NewEmployeeRelocation|
+    |İfade|Yeniçalışan|NewEmployeeRelocation|
     |--|--|--|
     |Taşıma **Bob Jones** gelen **Seattle** için **Los Colinas**|Bob Jones|Seattle, Los Colinas|
     |Taşıma **Dave c Cooper** gelen **Redmond** için **New York City**|Dave c Cooper|Redmond, New York City|
@@ -126,7 +126,7 @@ Bu adımları varlıklarda etiketleme geri bu bölümdeki adımları tamamladık
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-2. Adres çubuğundaki URL'nin sonuna gidip `Move Wayne Berry from Miami to Mount Vernon` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. 
+2. Adres çubuğundaki URL'nin sonuna gidip `Move Wayne Berry from Miami to Mount Vernon` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
 
     ```JSON
     {
@@ -256,7 +256,7 @@ Herhangi bir sözcük ve noktalama karışımını olabilirler, şehirler, kişi
 
 1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Adres çubuğundaki URL'nin sonuna gidip `Move wayne berry from miami to mount vernon` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. 
+2. Adres çubuğundaki URL'nin sonuna gidip `Move wayne berry from miami to mount vernon` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
 
     ```JSON
     {

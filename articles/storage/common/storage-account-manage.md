@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: tamram
-ms.openlocfilehash: 5237be9fd75edc8abf5c5fa043574e8c2deb79e9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 768fd4a715d4c0df154f823d159fd63898c9715b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740715"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981340"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Azure portalında depolama hesabı ayarlarını yönetme
 
@@ -26,6 +26,14 @@ Azure depolama, Blob Depolama ve kuyruk depolama (Önizleme) ile rol tabanlı er
 
 > [!NOTE]
 > Kullanıcılar veya uygulamalar Azure AD kimlik bilgilerini kullanarak kimlik doğrulaması yetkilendirme başka bir yolla üstün güvenlik ve kullanım kolaylığı sağlar. Paylaşılan anahtar yetkilendirme uygulamalarınızı kullanmaya devam ederken, Azure AD kullanarak kodunuzu ile hesap erişim anahtarını depolamak için gereken bozar. Depolama hesabınızdaki kaynaklara ayrıntılı erişim vermek için paylaşılan erişim imzaları (SAS) kullanmaya devam edebilirsiniz, ancak Azure AD'ye SAS belirteçlerini yönetin veya güvenliği aşılmış bir SAS iptal etme hakkında endişelenmenize gerek kalmadan benzer özellikleri sunar. 
+
+## <a name="tags"></a>Etiketler
+
+Azure depolama, özelleştirilmiş bir taksonomi kullanarak Azure kaynaklarınızı düzenlemek için Azure Resource Manager etiketleri destekler. Böylece bunları mantıksal bir şekilde aboneliğinizde gruplandırabilirsiniz, depolama hesaplarınıza etiketler ekleyebilirsiniz. 
+
+Depolama hesapları için bir etiket adı 128 karakterle sınırlıdır ve etiket değeri 256 karakterle sınırlıdır.
+
+Daha fazla bilgi için [Azure kaynaklarınızı düzenlemek için etiketleri kullanma](../../azure-resource-manager/resource-group-using-tags.md).
 
 ## <a name="access-keys"></a>Erişim tuşları
 

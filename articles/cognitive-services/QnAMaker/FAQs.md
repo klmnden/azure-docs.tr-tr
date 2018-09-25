@@ -3,19 +3,19 @@ title: SSS - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
 description: Soru-cevap Oluşturucu hizmeti için sık sorulan sorular listesi
 services: cognitive-services
-author: nstulasi
-manager: cgronlun
+author: tulasim88
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: nstulasi
-ms.openlocfilehash: 0af93682c4a1be4de4d92e9c44e10586f740d8bf
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: tulasim
+ms.openlocfilehash: be1621bb461d491d4304474034a39a83c5293570
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576689"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972649"
 ---
 # <a name="frequently-asked-questions"></a>Sık Sorulan Sorular
 

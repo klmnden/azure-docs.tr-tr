@@ -4,18 +4,18 @@ description: LUIS etiket çeşitleri bir sözcük veya tümcecik yardımcı olma
 services: cognitive-services
 author: diberry
 titleSuffix: Azure
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 12a6cfbe7267d3575fbb33978d7ea6e743802d12
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237171"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036788"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Varlık algılama artırmak için bir liste varlığı kullanın 
 Bu öğretici, kullanımını gösterir. bir [varlık listesinde](luis-concept-entity-types.md) varlık algılama artırmak için. Liste varlıkları, koşulları'nın tam bir eşleşme olarak Etiketlenecek gerekmez.  
@@ -46,7 +46,7 @@ Farklı kültürler ve demografik bilgilere arasında birçok adları olan bir s
 
 İdeal olarak, aşağıdaki konuşma önceden oluşturulmuş varlığa çözümlenmelidir **HomeAutomation.Device**:
 
-|#|utterance|Belirtilen varlık|puan|
+|#|Utterance|Belirtilen varlık|puan|
 |--|--|--|--|
 |1|ac üzerinde Aç|HomeAutomation.Device - "ac"|0.8748562|
 |2|Isı Aç|HomeAutomation.Device - "ısı"|0.784990132|
@@ -211,7 +211,7 @@ Sorgu sonuçları çıkış alınır. Kodunu eklenmiş olduğunuzdan **ayrıntı
 
 Bunlar ayrıca bir thermostat döndürülür görmek için diğer iki konuşma deneyin. 
 
-|#|utterance|varlık|type|değer|
+|#|Utterance|varlık|type|değer|
 |--|--|--|--|--|
 |1|ac üzerinde Aç| AC | DevicesList | Thermostat|
 |2|Isı Aç|Isı| DevicesList |Thermostat|

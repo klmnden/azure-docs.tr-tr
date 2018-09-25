@@ -3,23 +3,26 @@ title: SQL Server veritabanını Azure SQL Veritabanına geçirme | Microsoft Do
 description: SQL Server veritabanını buluttaki Azure SQL Veritabanına nasıl geçireceğinizi öğrenin.
 keywords: veritabanı geçişi,sql server veritabanı geçişi,veritabanı taşıma araçları,veritabanı taşıma,sql veritabanı geçişi
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 88b46fbda3bd459d5ec66b5c9d6eb443e8d275ed
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 65258622c006cc384df24898c18b154b4c523a7f
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735301"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064297"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL veritabanı için SQL Server veritabanı geçişi
 
-Bu makalede, Azure SQL veritabanı'nda tek veya havuza alınmış bir veritabanı için SQL Server 2005 veya üzeri veritabanını geçirmek için birincil yöntem hakkında bilgi edinin. Bir yönetilen örneğe geçirme hakkında daha fazla bilgi için bkz: [SQL Server örneğini Azure SQL veritabanı yönetilen örneği (Önizleme) geçiş](sql-database-managed-instance-migrate.md). 
+Bu makalede, Azure SQL veritabanı'nda tek veya havuza alınmış bir veritabanı için SQL Server 2005 veya üzeri veritabanını geçirmek için birincil yöntem hakkında bilgi edinin. Bir yönetilen örneğe geçirme hakkında daha fazla bilgi için bkz: [Azure SQL veritabanı yönetilen örneği SQL Server örneğine geçiş](sql-database-managed-instance-migrate.md). 
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Tek bir veritabanı veya havuza alınmış bir veritabanı geçişi
 Azure SQL veritabanı'nda tek veya havuza alınmış bir veritabanı için SQL Server 2005 veya üzeri veritabanını geçirmek için iki birincil yöntem vardır. İlk yöntem basittir, ancak geçiş sırasında önemli olabilecek bazı kapalı kalma sürelerine neden olabilir. İkinci yöntem daha karmaşık olmasına karşın, geçiş sırasında kapalı kalma süresini önemli ölçüde ortadan kaldırır.

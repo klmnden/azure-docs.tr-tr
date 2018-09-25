@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 0d675b3efa165f36b93d791975a8007a68b02e12
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cfc71f34f4b1d8027714c9fb610beebf8cd3be47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734767"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978548"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağları içinde HBase kümesi çoğaltma ayarlama
 
@@ -277,7 +277,7 @@ Oluşturmak için bir **kişiler** tablo ve tabloya bazı veriler ekleyin, konum
 
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
-Aşağıdaki adımlar komut dosyası eylemi komut dosyası Azure portalından çağırın açıklanmaktadır. Azure PowerShell ve Azure komut satırı aracı (Azure CLI) kullanarak bir betik eylemi hakkında daha fazla bilgi için bkz [özelleştirme HDInsight kümelerini betik eylemi kullanarak](../hdinsight-hadoop-customize-cluster-linux.md).
+Aşağıdaki adımlar komut dosyası eylemi komut dosyası Azure portalından çağırın açıklanmaktadır. Azure PowerShell ve klasik Azure CLI kullanarak bir betik eylemi hakkında daha fazla bilgi için bkz [özelleştirme HDInsight kümelerini betik eylemi kullanarak](../hdinsight-hadoop-customize-cluster-linux.md).
 
 **HBase çoğaltmasını Azure portalından etkinleştirmek için**
 

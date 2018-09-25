@@ -1,79 +1,82 @@
 ---
-title: Wingtips uygulaması - Azure SQL veritabanı'na Hoş Geldiniz | Microsoft Docs
-description: Veritabanı kiralama modelleri hakkında ve Azure SQL veritabanı'nda bulut ortamı için örnek Wingtips SaaS uygulaması hakkında bilgi edinin.
+title: Wingtips'e app - Azure SQL veritabanı'na | Microsoft Docs
+description: Azure SQL veritabanı'nda bulut ortamı için örnek Wingtips'e SaaS uygulaması ve veritabanı kiralama modelleri hakkında bilgi edinin.
 keywords: sql veritabanı öğreticisi
 services: sql-database
-author: billgib
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: billgib
+manager: craigg
 ms.date: 04/01/2018
-ms.author: billgib
-ms.openlocfilehash: 3c7d1d40af3a0b8f70302171eb13ac0a180b0bfe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a05a8ad495e33734a531405902ce34e3591bfe15
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644401"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056327"
 ---
-# <a name="the-wingtip-tickets-saas-application"></a>Wingtip biletleri SaaS uygulaması
+# <a name="the-wingtip-tickets-saas-application"></a>Wingtip bilet SaaS uygulaması
 
-Aynı *Wingtip biletleri* SaaS uygulamasının her üç örnekleri uygulanır. Uygulama listesi ve küçük görebildikleri - tiyatrolar, Sinek vb. hedefleme SaaS uygulama raporlama basit bir olaydır. Her salonundan uygulamanın bir kiracı olduğunu ve kendi verilerini: salonundan ayrıntıları, olaylar, müşteriler, bilet siparişler, vb. listesi.  Uygulama Yönetimi komut dosyaları ve öğreticiler, birlikte bir uçtan uca SaaS senaryosunu gösterir. Bu, izleme ve performans, şema yönetimi ve çapraz Kiracı raporlama ve analiz yönetme sağlama kiracılar içerir.
+Aynı *Wingtip bilet* SaaS uygulaması, her üç örnekleri uygulanır. Uygulama listesi ve SaaS uygulama küçük venues - sinema salonlarında, kulüpleri hedefleyen çağrı oluşturma basit bir olaydır. Her mekan uygulamasının Kiracı olup kendi veri içerir: mekan ayrıntıları, olayları, müşterilerin, bilet siparişler vb. listeler.  Yönetim betikleri ve öğreticiler, uygulama bir uçtan uca SaaS senaryo gösterilir. Bu, izleme ve performans, şema yönetimi ve kiracılar arası raporlama ve analiz yönetme sağlama kiracılar içerir.
 
-## <a name="three-saas-application-and-tenancy-patterns"></a>Üç SaaS uygulama ve Kiracı desenleri
+## <a name="three-saas-application-and-tenancy-patterns"></a>Üç SaaS uygulaması ve kiracılı desenleri
 
-Uygulamanın üç sürümlerinde kullanılabilir; Her Azure SQL veritabanı farklı bir veritabanı kiralama düzeni araştırır.  İlk Kiracı başına bir tek başına uygulama kendi veritabanıyla kullanır. İkinci bir çok kiracılı uygulama Kiracı başına bir veritabanı kullanır. Üçüncü örnek bir çok kiracılı uygulama parçalı çok Kiracı veritabanları ile kullanır.
+Uygulamanın üç sürümleri mevcuttur; Her Azure SQL veritabanı'nda farklı veritabanı kiralama desen keşfediyor.  İlk Kiracı başına tek başına uygulama ile kendi veritabanı kullanır. İkincisi, Kiracı başına bir veritabanı ile çok kiracılı uygulama kullanır. Üçüncü örnek çok kiracılı uygulama parçalı çok kiracılı veritabanlarıyla kullanır.
 
-![Üç kiralama desenleri][image-three-tenancy-patterns]
+![Üç çok kiracılı desenleri][image-three-tenancy-patterns]
 
- Her bir örnek uygulama kodu, artı yönetim komut dosyaları ve tasarım ve yönetim desenleri çeşitli keşfedin öğreticiler içerir.  Her örnek daha düşük bir değer, en fazla beş dakika dağıtır.  Tasarım ve yönetim farklılıkları karşılaştırmak için üç dağıtılan yan yana olabilir.
+ Her örnek, uygulama kodunun yanı sıra yönetim betikleri ve bir dizi tasarım ve yönetim düzenlerini keşfetmek öğreticiler içerir.  Her örnek, daha düşük bir değer, beş dakika dağıtır.  Tasarım ve yönetim farklılıkları karşılaştırabilmeniz üç dağıtılan yan yana olabilir.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Kiracı deseni başına tek başına uygulama
 
-Kiracı deseni başına tek başına app tek bir kiracı uygulama veritabanı ile her bir kiracı için kullanır. Her bir kiracının uygulaması, kendi veritabanı dahil olmak üzere ayrı Azure kaynak grubuna dağıtılır. Kaynak grubu hizmet sağlayıcısının abonelik veya kiracının abonelik dağıtılmış ve kiracının adınıza sağlayıcısı tarafından yönetilir. Kiracı deseni başına tek başına uygulama büyük Kiracı yalıtımı sağlar, ancak genellikle en. birden çok Kiracı arasında kaynakları paylaşmak için fırsat olarak pahalı.  Bu deseni, daha karmaşık olabilir ve hangi kiracılar küçük sayılara dağıtılan uygulamalar için uygundur.  Tek başına dağıtımlarında uygulama her bir kiracı için daha kolay içinde özelleştirilebilir diğer desenleri.  
+Kiracı deseni başına tek başına uygulama tek kiracılı bir uygulama, her Kiracı için bir veritabanı kullanır. Kendi veritabanı dahil olmak üzere, her bir kiracının uygulama ayrı bir Azure kaynak grubuna dağıtılır. Kaynak grubunu, hizmet sağlayıcının abonelik veya kiracının aboneliğinin dağıtılmış ve kiracının adınıza sağlayıcısı tarafından yönetilen. Kiracı deseni başına tek başına uygulama büyük Kiracı yalıtımı sağlar, ancak genellikle en iyi olan pahalı kaynakları birden çok Kiracı arasında paylaşmak için bir fırsat olarak.  Bu düzen, daha karmaşık olabilir ve kiracıların daha küçük sayılar için dağıtılan uygulamalar için uygundur.  Tek başına dağıtımlarında, uygulamayı her Kiracı için daha kolay özelleştirilebilir diğer desenleri.  
 
-Kullanıma [öğreticileri] [ docs-tutorials-for-wingtip-sa] ve github'daki kod [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
+Kullanıma [öğreticiler] [ docs-tutorials-for-wingtip-sa] ve github'daki [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
-## <a name="database-per-tenant-pattern"></a>Kiracı deseni başına veritabanı
+## <a name="database-per-tenant-pattern"></a>Veritabanı başına Kiracı düzeni
 
-Kiracı deseni başına Kiracı yalıtımı ile ilgili bir kaygınız ve paylaşılan kaynakları ekonomik kullanılmasına merkezi bir hizmeti çalıştırmak istediğiniz hizmet sağlayıcıları için etkili bir veritabanıdır. Her salonundan veya Kiracı için bir veritabanı oluşturulur ve tüm veritabanları merkezi olarak yönetilir. Veritabanları, maliyet tasarrufu sağlamak için esnek havuzlar ve kiracıların öngörülemeyen iş yükü desenlerinden yararlanır kolay performans yönetimi barındırılabilir. Katalog veritabanına kiracılar ve kendi veritabanlarını arasındaki eşlemeyi tutar. Bu eşleme parça eşleme yönetim özelliklerini kullanarak yönetilen [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md), uygulamaya verimli bağlantı yönetimi sağlar.
+Veritabanı başına Kiracı düzeni Kiracı yalıtımı ile ilgili olan ve maliyet açısından verimli paylaşılan kaynaklar kullanımına izin verir, merkezi bir hizmete çalıştırmak istediğiniz hizmet sağlayıcıları için etkili olur. Her mekan veya Kiracı için bir veritabanı oluşturulur ve tüm veritabanlarına merkezi olarak yönetilir. Veritabanları, elastik havuzlar, maliyet tasarrufu sağlamak ve kiracıların öngörülemez iş yükü desenlerinden yararlanır kolay performans yönetimi, barındırılabilir. Katalog veritabanı, kiracılar ve bunların veritabanları arasındaki eşlemeyi içerir. Bu eşleme parça eşleme yönetimi özelliklerini kullanarak yönetilen [elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md), uygulamaya verimli bağlantı yönetimi sağlar.
 
-Kullanıma [öğreticileri] [ docs-tutorials-for-wingtip-dpt] ve github'daki kod [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
+Kullanıma [öğreticiler] [ docs-tutorials-for-wingtip-dpt] ve github'daki [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
-## <a name="sharded-multi-tenant-database-pattern"></a>Parçalı çok Kiracı veritabanı düzeni
+## <a name="sharded-multi-tenant-database-pattern"></a>Parçalı çok kiracılı veritabanı deseni
 
-Çok Kiracı veritabanı, Kiracı ve azaltılmış Kiracı yalıtımı ile kurulumunuza göre daha düşük maliyetli arayan hizmet sağlayıcıları için geçerlidir. Bu desen aşağı Kiracı başına maliyet yürüten tek bir veritabanı içine kiracılar çok sayıda paket sağlar. Yakın sonsuz ölçek tarafından parçalama mümkündür kiracılar birden fazla veritabanı üzerinden. Katalog veritabanına kiracılar veritabanlarına eşler.  
+Çok kiracılı veritabanları, Kiracı ve azaltılmış Kiracı yalıtımı ile tamamdır başına daha düşük maliyetli aranıyor hizmet sağlayıcıları için geçerlidir. Bu düzen, Kiracı başına maliyet aşağı sürüş tek bir veritabanına kiracılar çok sayıda paket sağlar. Neredeyse sınırsız ölçeklendirme ile parçalama mümkündür kiracılar genelinde birden çok veritabanı. Katalog veritabanı için veritabanlarını kiracılar eşler.  
 
-Bu deseni de sağlayan bir *karma* içinde bir veritabanında birden çok kiracıya maliyetle en iyi duruma getirme veya için yalıtım kendi veritabanında tek bir kiracı ile en iyi duruma getirme modeli. Seçimi bir kiracı tarafından Kiracı temelinde ya da Kiracı sağlanan ya da daha sonra uygulama üzerinde hiçbir etkisi olmadan olduğunda yapılabilir.  Kiracılar grupları farklı değerlendirilmesi gerektiğinde bu modeli etkili bir şekilde kullanılabilir. Örneğin, Premium kiracılar kendi veritabanlarına atanabilir sırada paylaşılan veritabanları için düşük maliyetli kiracılar atanabilir. 
+Bu düzen ayrıca sağlar bir *karma* içinde maliyeti ile birden fazla Kiracı veritabanı için en iyi duruma getirme, veya yapabilirsiniz kendi veritabanında tek bir kiracı yalıtımı için en iyi duruma getirme modeli. Kiracı sağlanan ya da daha sonra uygulama üzerinde herhangi bir etkisi olduğunda seçimi ya da bir kiracı tarafından Kiracı temelinde yapılabilir.  Bu model, kiracıların grupları farklı şekilde değerlendirilmesi gerektiğinde etkili bir şekilde kullanılabilir. Örneğin, Premium kiracılar kendi veritabanlarına atanabilirken paylaşılan veritabanları için düşük maliyetli kiracılar atanabilir. 
 
-Kullanıma [öğreticileri] [ docs-tutorials-for-wingtip-mt] ve github'daki kod [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
+Kullanıma [öğreticiler] [ docs-tutorials-for-wingtip-mt] ve github'daki [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 #### <a name="conceptual-descriptions"></a>Kavramsal açıklamaları
 
-- Uygulama kiralama düzenleri daha ayrıntılı bir açıklaması için bkz. [çok kiracılı SaaS veritabanı kiralama desenleri][saas-tenancy-app-design-patterns-md]
+- Daha ayrıntılı bir açıklaması uygulama kiracılı desenleri ve kullanılabilir [çok kiracılı SaaS veritabanı kiracılı desenleri][saas-tenancy-app-design-patterns-md]
 
 #### <a name="tutorials-and-code"></a>Öğreticiler ve kod
 
-- Tek başına app Kiracı başına:
-    - [Tek başına uygulama öğreticileri ] [ docs-tutorials-for-wingtip-sa].
+- Kiracı başına tek başına uygulama:
+    - [Tek başına uygulama için öğreticiler ] [ docs-tutorials-for-wingtip-sa].
     - [Github'da tek başına uygulama kodunu][github-code-for-wingtip-sa].
 
-- Veritabanı Kiracı başına:
-    - [Kiracı başına veritabanı için öğreticileri][docs-tutorials-for-wingtip-dpt].
-    - [Veritabanı github'da Kiracı başına kodunu][github-code-for-wingtip-dpt].
+- Kiracı başına veritabanı:
+    - [Kiracı başına veritabanı için öğreticiler][docs-tutorials-for-wingtip-dpt].
+    - [GitHub üzerinde Kiracı başına veritabanı için kod][github-code-for-wingtip-dpt].
 
 - Parçalı çok kiracılı:
-    - [Öğreticileri parçalı çoklu kiracı için][docs-tutorials-for-wingtip-mt].
-    - [Github'da parçalı çoklu kiracı için kod][github-code-for-wingtip-mt].
+    - [Öğreticileri için parçalı çok kiracılı][docs-tutorials-for-wingtip-mt].
+    - [Github'da parçalı çok kiracılı kodunu][github-code-for-wingtip-mt].
 
 
 
 <!-- Image references. -->
 
-[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Üç kiralama desenleri."
+[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Üç kiracılı desenleri."
 
 <!-- Docs.ms.com references. -->
 

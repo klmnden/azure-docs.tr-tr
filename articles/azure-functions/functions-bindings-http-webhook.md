@@ -1,6 +1,6 @@
 ---
-title: Azure işlevleri HTTP ve Web kancası bağlamaları
-description: Azure işlevleri HTTP ve Web kancası Tetikleyicileri ve bağlamaları kullanma hakkında bilgi edinin.
+title: Azure işlevleri HTTP Tetikleyicileri ve bağlamaları
+description: HTTP Tetikleyicileri ve bağlamaları Azure işlevleri'nde nasıl kullanılacağını anlayın.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: eef84e8c5fb67faef99beec934f29e55365ce811
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a1b34484978ad95f0945e93411ac2e2a74fff238
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715967"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980983"
 ---
-# <a name="azure-functions-http-and-webhook-bindings"></a>Azure işlevleri HTTP ve Web kancası bağlamaları
+# <a name="azure-functions-http-triggers-and-bindings"></a>Azure işlevleri HTTP Tetikleyicileri ve bağlamaları
 
-Bu makalede, HTTP Tetikleyicileri ve Azure işlevleri'nde çıkış bağlamaları ile nasıl çalışılacağı açıklanmaktadır. Azure işlevleri desteklediği HTTP Tetikleyicileri ve çıkış bağlamaları.
+Bu makalede, HTTP Tetikleyicileri ve Azure işlevleri'nde çıkış bağlamaları ile nasıl çalışılacağı açıklanmaktadır.
 
-Yanıt için HTTP tetikleyicisi özelleştirilebilir [Web kancaları](https://en.wikipedia.org/wiki/Webhook). Bir Web kancası tetikleyici yalnızca bir JSON yükü kabul eder ve JSON doğrular. GitHub ve Slack gibi bazı Sağlayıcılarda, gelen Web kancaları işlemek kolaylaştırmak özel Web kancası tetikleyicisine sürümü vardır.
+Yanıt için HTTP tetikleyicisi özelleştirilebilir [Web kancaları](https://en.wikipedia.org/wiki/Webhook).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -312,164 +312,6 @@ public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"
     }
 }
 ```
-     
-## <a name="trigger---webhook-example"></a>Tetikleyici - Web kancası örneği
-
-Dile özgü örneğe bakın:
-
-* [C#](#webhook---c-example)
-* [C# betiği (.csx)](#webhook---c-script-example)
-* [F#](#webhook---f-example)
-* [JavaScript](#webhook---javascript-example)
-
-### <a name="webhook---c-example"></a>Web kancası - C# örneği
-
-Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) genel bir JSON isteğine yanıt olarak bir HTTP 200 gönderir.
-
-```cs
-[FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
-{
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-### <a name="webhook---c-script-example"></a>Web kancası - C# betiği örneği
-
-Aşağıdaki örnek, bir Web kancası tetikleyici bağlama gösterir. bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanan. İşlev GitHub sorunu açıklamaları günlüğe kaydeder.
-
-İşte *function.json* dosyası:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-[Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
-
-C# betik kodunu şu şekildedir:
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System;
-using System.Net;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
-{
-    string jsonContent = await req.Content.ReadAsStringAsync();
-    dynamic data = JsonConvert.DeserializeObject(jsonContent);
-
-    log.Info($"WebHook was triggered! Comment: {data.comment.body}");
-
-    return req.CreateResponse(HttpStatusCode.OK, new {
-        body = $"New GitHub comment: {data.comment.body}"
-    });
-}
-```
-
-### <a name="webhook---f-example"></a>Web kancası - F # örneği
-
-Aşağıdaki örnek, bir Web kancası tetikleyici bağlama gösterir. bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlev GitHub sorunu açıklamaları günlüğe kaydeder.
-
-İşte *function.json* dosyası:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-[Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
-
-F # kodu şu şekildedir:
-
-```fsharp
-open System.Net
-open System.Net.Http
-open FSharp.Interop.Dynamic
-open Newtonsoft.Json
-
-type Response = {
-    body: string
-}
-
-let Run(req: HttpRequestMessage, log: TraceWriter) =
-    async {
-        let! content = req.Content.ReadAsStringAsync() |> Async.AwaitTask
-        let data = content |> JsonConvert.DeserializeObject
-        log.Info(sprintf "GitHub WebHook triggered! %s" data?comment?body)
-        return req.CreateResponse(
-            HttpStatusCode.OK,
-            { body = sprintf "New GitHub comment: %s" data?comment?body })
-    } |> Async.StartAsTask
-```
-
-### <a name="webhook---javascript-example"></a>Web kancası - JavaScript örneği
-
-Aşağıdaki örnek, bir Web kancası tetikleyici bağlama gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlev GitHub sorunu açıklamaları günlüğe kaydeder.
-
-Veri bağlama işte *function.json* dosyası:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-[Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
-
-JavaScript kod aşağıdaki gibidir:
-
-```javascript
-module.exports = function (context, data) {
-    context.log('GitHub WebHook triggered!', data.comment.body);
-    context.res = { body: 'New GitHub comment: ' + data.comment.body };
-    context.done();
-};
-```
 
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
 
@@ -480,7 +322,7 @@ Web kancası türü ve rota şablonu için özelliklerin vardır ve yetkilendirm
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
 public static HttpResponseMessage Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
+    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestMessage req)
 {
     ...
 }
@@ -500,7 +342,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 | <a name="http-auth"></a>**authLevel** |  **authLevel** |Anahtarlar, varsa, işlevin çalıştırılabilmesi için istekte bulunması gerekenleri belirler. Yetkilendirme düzeyi aşağıdaki değerlerden biri olabilir: <ul><li><code>anonymous</code>&mdash;Hiçbir API anahtarı gereklidir.</li><li><code>function</code>&mdash;İşleve özgü API anahtarı gereklidir. Belirtilmezse varsayılan değer budur.</li><li><code>admin</code>&mdash;Ana anahtarı gereklidir.</li></ul> Daha fazla bilgi için konudaki [yetkilendirme anahtarları](#authorization-keys). |
 | **Yöntemleri** |**Yöntemleri** | Bir dizi işlev yanıt vereceği HTTP yöntemleri. Belirtilmemişse, işlev tüm HTTP yöntemlerine yanıt verir. Bkz: [http uç noktasına özelleştirme](#customize-the-http-endpoint). |
 | **yol** | **yol** | İstek, işlevinizin yanıt URL'lerini denetleme için rota şablonu tanımlar. Varsayılan değer sağlanmazsa `<functionname>`. Daha fazla bilgi için [http uç noktasına özelleştirme](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** |HTTP tetikleyicisi olarak davranacak şekilde yapılandırır bir [Web kancası](https://en.wikipedia.org/wiki/Webhook) belirtilen sağlayıcının alıcı. Ayarlamamanız `methods` bu özelliği ayarlarsanız özelliği. Web kancası türü aşağıdaki değerlerden biri olabilir:<ul><li><code>genericJson</code>&mdash;Genel amaçlı bir Web kancası uç noktası olmadan belirli bir sağlayıcı için mantığı. Bu ayar, yalnızca HTTP POST ve ile kullanmak için istekleri kısıtlar `application/json` içerik türü.</li><li><code>github</code>&mdash;İşlev yanıtlar [GitHub Web kancası](https://developer.github.com/webhooks/). Kullanmayın _authLevel_ GitHub Web kancası özellik. Daha fazla bilgi için bu makalenin devamındaki GitHub Web kancaları bölümüne bakın.</li><li><code>slack</code>&mdash;İşlev yanıtlar [Slack Web kancaları](https://api.slack.com/outgoing-webhooks). Kullanmayın _authLevel_ Slack Web kancaları ile özelliği. Daha fazla bilgi için bu makalenin devamındaki Slack Web kancaları bölümüne bakın.</li></ul>|
+| **webHookType** | **WebHookType** | _Yalnızca sürüm 1.x çalışma zamanı için desteklenmiyor._<br/><br/>HTTP tetikleyicisi olarak davranacak şekilde yapılandırır bir [Web kancası](https://en.wikipedia.org/wiki/Webhook) belirtilen sağlayıcının alıcı. Ayarlamamanız `methods` bu özelliği ayarlarsanız özelliği. Web kancası türü aşağıdaki değerlerden biri olabilir:<ul><li><code>genericJson</code>&mdash;Genel amaçlı bir Web kancası uç noktası olmadan belirli bir sağlayıcı için mantığı. Bu ayar, yalnızca HTTP POST ve ile kullanmak için istekleri kısıtlar `application/json` içerik türü.</li><li><code>github</code>&mdash;İşlev yanıtlar [GitHub Web kancası](https://developer.github.com/webhooks/). Kullanmayın _authLevel_ GitHub Web kancası özellik. Daha fazla bilgi için bu makalenin devamındaki GitHub Web kancaları bölümüne bakın.</li><li><code>slack</code>&mdash;İşlev yanıtlar [Slack Web kancaları](https://api.slack.com/outgoing-webhooks). Kullanmayın _authLevel_ Slack Web kancaları ile özelliği. Daha fazla bilgi için bu makalenin devamındaki Slack Web kancaları bölümüne bakın.</li></ul>|
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
 
@@ -508,21 +350,10 @@ C# ve F # işlevleri için ya da giriş, tetikleyici türü bildirebilirsiniz `H
 
 JavaScript işlevleri için istek gövdesi istek nesnesi yerine işlevler çalışma zamanı sağlar. Daha fazla bilgi için [JavaScript tetikleyicisi örneğinde](#trigger---javascript-example).
 
-### <a name="github-webhooks"></a>GitHub Web kancası
-
-GitHub Web kancası için yanıt için ilk işlevinizi ile HTTP tetikleyicisi oluşturma ve ayarlama **webHookType** özelliğini `github`. Ardından kendi URL'sini ve API anahtarını kopyalayın **Web kancası Ekle** GitHub deponuza sayfası. 
-
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-Bir örnek için, bkz. [GitHub web kancası tarafından tetiklenen bir işlev oluşturma](functions-create-github-webhook-triggered-function.md).
-
-### <a name="slack-webhooks"></a>Slack Web kancaları
-
-Slack Web kancası Slack belirteçten ile bir işleve özgü anahtar yapılandırmak için belirtmenize izin verir yerine bir belirteç sizin için oluşturur. Bkz: [yetkilendirme anahtarları](#authorization-keys).
 
 ### <a name="customize-the-http-endpoint"></a>HTTP uç noktasına özelleştirme
 
-Bir işlev için bir HTTP tetikleyicisi veya Web kancasını oluşturduğunuzda varsayılan olarak işlev biçiminde bir yol ile adreslenebilir:
+Bir işlev için bir HTTP tetikleyicisi oluşturduğunuzda varsayılan olarak işlev biçiminde bir yol ile adreslenebilir:
 
     http://<yourapp>.azurewebsites.net/api/<funcname> 
 
@@ -603,10 +434,13 @@ Varsayılan olarak, tüm işlevi yollar ile ön ekli *API*. Ayrıca özelleştir
 
 ### <a name="authorization-keys"></a>Yetkilendirme anahtarları
 
-İşlevler geliştirme sırasında HTTP işlevi uç noktalarınıza erişmek daha zor hale getirmek için anahtarları kullanmanıza imkan tanır.  Standart bir HTTP tetikleyicisi, böyle bir API anahtarı istekteki gerektirebilir. Web kancaları, çeşitli yollarla, sağlayıcı neyi desteklediğine bağlı olarak istekleri yetkilendirmek için anahtarları kullanabilir.
+İşlevler geliştirme sırasında HTTP işlevi uç noktalarınıza erişmek daha zor hale getirmek için anahtarları kullanmanıza imkan tanır.  Standart bir HTTP tetikleyicisi, böyle bir API anahtarı istekteki gerektirebilir. 
 
 > [!IMPORTANT]
 > Anahtarlar, geliştirme sırasında HTTP uç noktalarınızı karartmak yardımcı olabilir, ancak bunlar üretimde HTTP tetikleyicisi güvenliğini sağlamak için bir yol olarak amaçlanmamıştır. Daha fazla bilgi için bkz. [üretimde bir HTTP uç noktası güvenli](#secure-an-http-endpoint-in-production).
+
+> [!NOTE]
+> İşlevleri 1.x çalışma zamanı içinde Web kancası sağlayıcıları, sağlayıcı neyi desteklediğine bağlı olarak çeşitli şekillerde çeşitli isteklerini yetkilendirmek için anahtarları kullanabilir. Bu bölümünde ele alınmıştır [Web kancaları ve anahtarları](#webhooks-and-keys). Sürüm 2.x çalışma zamanı, Web kancası sağlayıcıları için yerleşik destek içermez.
 
 İki tür anahtarlar vardır:
 
@@ -641,26 +475,45 @@ Anahtarları gerektirmeyen anonim isteklere izin verebilirsiniz. Ayrıca ana ana
 > [!NOTE]
 > İşlevleri yerel olarak çalışırken, yetkilendirme bakılmaksızın belirtilen kimlik doğrulama düzeyi ayarı devre dışı bırakıldı. Azure'a yayımlama sonrasında `authLevel` tetikleyicinize ayarı zorunlu tutulur.
 
-### <a name="keys-and-webhooks"></a>Anahtarlar ve Web kancaları
 
-Web kancası yetkilendirme Web kancası alıcı bileşeni tarafından HTTP tetikleyicisi bir parçası olarak işlenir ve mekanizması Web kancası türüne göre değişir. Her mekanizmasının bir anahtara bağlıdır. Varsayılan olarak, "varsayılan" adlı işlev anahtarı kullanılır. Farklı bir anahtar kullanmak için aşağıdaki yollardan biriyle anahtar adı ile istek göndermek için Web kancası sağlayıcı yapılandırın:
-
-* **Sorgu dizesi**: sağlayıcı anahtar adı geçen `clientid` gibi sorgu dizesi parametresi, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-* **İstek üstbilgisi**: sağlayıcı anahtar adı geçen `x-functions-clientid` başlığı.
-
-Bir anahtar ile güvenli bir Web kancası örneği için bkz: [bir GitHub Web kancası tarafından tetiklenen bir işlev oluşturma](functions-create-github-webhook-triggered-function.md).
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Bir HTTP uç noktası üretimde güvenliğini sağlama
 
 Tam olarak üretim ortamında işlevi uç noktalarınızı güvenliğini sağlamak için uygulama aşağıdaki işlevi uygulama düzeyinde güvenlik seçeneklerden birini dikkate almanız gerekir:
 
-* App Service yetkilendirme/kimlik doğrulama işlev uygulamanız için etkinleştirin. App Service platformu, kullanıcıların kimliklerini doğrulamak için güvenilen bir üçüncü taraf kimlik sağlayıcıları Azure Active Directory (AAD) ve hizmet sorumlusu kimlik doğrulaması kullanmak sağlar. Bu özellik etkinleştirildiğinde, işlev uygulamanızı yalnızca kimliği doğrulanmış kullanıcılar erişebilir. Daha fazla bilgi için bkz. [App Service uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+* App Service kimlik doğrulamasını etkinleştirmek / işlev uygulamanız için yetkilendirme. İstemcilerin kimliğini doğrulamak için Azure Active Directory (AAD) ve çeşitli üçüncü taraf kimlik sağlayıcıları kullanan App Service platformu sağlar. İşlevleriniz için özel yetkilendirme kurallarını uygulamak için bunu kullanabilirsiniz ve işlev kodunuzu kullanıcı bilgileri ile çalışabilirsiniz. Daha fazla bilgi için bkz. [kimlik doğrulama ve yetkilendirme Azure App Service'te](../app-service/app-service-authentication-overview.md).
 
 * Azure API Management (APIM) isteklerinin kimliğini doğrulamak için kullanın. APIM API'si güvenlik seçenekleri gelen istekler için çeşitli sağlar. Daha fazla bilgi için bkz. [API Management kimlik doğrulama ilkeleri](../api-management/api-management-authentication-policies.md). Yerinde APIM ile işlev uygulamanızı APIM Örneğinize PI adresini yalnızca gelen istekleri kabul edecek şekilde yapılandırabilirsiniz. Daha fazla bilgi için bkz. [IP adresi sınırlamaları](ip-addresses.md#ip-address-restrictions).
 
 * Bir Azure App Service ortamı (ASE) için işlev uygulamanızı dağıtın. ASE işlevlerinizi çalıştırmak için adanmış bir barındırma ortamı sağlar. ASE gelen tüm istekleri kimliğini doğrulamak için kullanabileceğiniz tek bir ön uç ağ geçidi yapılandırmanızı sağlar. Daha fazla bilgi için [App Service ortamı için bir Web uygulaması Güvenlik Duvarı (WAF) yapılandırma](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
 
 Bu işlev uygulama düzeyinde güvenlik yöntemlerden birini kullanarak, HTTP ile tetiklenen işlev kimlik doğrulama düzeyini ayarlamalısınız `anonymous`.
+
+### <a name="webhooks"></a>Web Kancaları
+
+> [!NOTE]
+> Web kancası modu, yalnızca sürüm için kullanılabilir işlevler çalışma zamanının 1.x.
+
+Web kancası modu için Web kancası yükü ek doğrulama sağlar. Sürüm 2.x temel HTTP tetikleyicisi hala çalışır ve Web kancaları için önerilen yaklaşımdır.
+
+#### <a name="github-webhooks"></a>GitHub Web kancası
+
+GitHub Web kancası için yanıt için ilk işlevinizi ile HTTP tetikleyicisi oluşturma ve ayarlama **webHookType** özelliğini `github`. Ardından kendi URL'sini ve API anahtarını kopyalayın **Web kancası Ekle** GitHub deponuza sayfası. 
+
+![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+
+Bir örnek için, bkz. [GitHub web kancası tarafından tetiklenen bir işlev oluşturma](functions-create-github-webhook-triggered-function.md).
+
+#### <a name="slack-webhooks"></a>Slack Web kancaları
+
+Slack Web kancası Slack belirteçten ile bir işleve özgü anahtar yapılandırmak için belirtmenize izin verir yerine bir belirteç sizin için oluşturur. Bkz: [yetkilendirme anahtarları](#authorization-keys).
+
+### <a name="webhooks-and-keys"></a>Web kancaları ve anahtarlar
+
+Web kancası yetkilendirme Web kancası alıcı bileşeni tarafından HTTP tetikleyicisi bir parçası olarak işlenir ve mekanizması Web kancası türüne göre değişir. Her mekanizmasının bir anahtara bağlıdır. Varsayılan olarak, "varsayılan" adlı işlev anahtarı kullanılır. Farklı bir anahtar kullanmak için aşağıdaki yollardan biriyle anahtar adı ile istek göndermek için Web kancası sağlayıcı yapılandırın:
+
+* **Sorgu dizesi**: sağlayıcı anahtar adı geçen `clientid` gibi sorgu dizesi parametresi, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **İstek üstbilgisi**: sağlayıcı anahtar adı geçen `x-functions-clientid` başlığı.
 
 ## <a name="trigger---limits"></a>Tetikleyici - sınırları
 
@@ -692,7 +545,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 
 Bir HTTP yanıt göndermek için dil standardı yanıt desenleri kullanın. İşlev dönüş türü, C# veya C# betiği olun `HttpResponseMessage` veya `Task<HttpResponseMessage>`. C# ' ta dönen değer özniteliği gerekli değildir.
 
-Örneğin yanıt bkz [tetikleyicisi örneğinde](#trigger---example) ve [Web kancası örnek](#trigger---webhook-example).
+Örneğin yanıt bkz [tetikleyicisi örneğinde](#trigger---example).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

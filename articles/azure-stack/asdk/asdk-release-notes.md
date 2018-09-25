@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/17/2018
 git ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 7770f4c45d974e8ce5750dbd3aee0d8393281151
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 1adfef9c679ccbe7a56178a041175713f4932aac
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984450"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056548"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack Geliştirme Seti sürüm notları  
 Bu makalede, geliştirmeleri, düzeltmeler ve Azure Stack geliştirme Seti'ni'de bilinen sorunlar hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -289,7 +289,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 
 - <!-- 2368581 - IS. ASDK --> Düşük bellek uyarısı alırsanız ve Kiracı sanal makinelerini başarısız ile dağıtmak bir Azure Stack operatörü bir *Fabric VM oluşturma hatası*, Azure Stack damga kullanılabilir bellek yetersiz olabilir. Kullanım [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) iş yükleriniz için kapasite en iyi anlamak için.
 
-- <!-- TBD - IS. ASDK --> Test AzureStack cmdlet (CESARETLENDİRİCİ) ayrıcalık uç noktada çalıştırılırken test ERCS VM için bir uyarı/hata iletisi oluşturur. ASDK kullanmaya devam edebilirsiniz.
+- <!-- TBD - IS. ASDK --> Çalıştırırken **Test AzureStack** ayrıcalıklı uç noktası (CESARETLENDİRİCİ) cmdlet'ini **Azure Stack altyapısını rol örneği performans** test ERCS VM için bir uyarı iletisi üretir. Güvenli bir şekilde UYAR iletiyi yoksayıp ASDK kullanmaya devam edin.
 
 #### <a name="compute"></a>İşlem
 - <!-- 2494144 - IS, ASDK --> Bir sanal makine dağıtımı için bir sanal makine boyutu seçerken, bazı F serisi VM boyutlarının görünür olmayan bir VM oluşturduğunuzda boyut seçici bir parçası olarak. Aşağıdaki VM boyutları seçicide görünmez: *F8s_v2*, *F16s_v2*, *F32s_v2*, ve *F64s_v2*.  

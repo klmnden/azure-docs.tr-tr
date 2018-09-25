@@ -2,20 +2,22 @@
 title: Tablo denetim TDS Yönlendirme ve Azure SQL veritabanı için IP uç noktaları | Microsoft Docs
 description: Denetim, TDS Yönlendirme ve IP uç noktası değişiklikleri Azure SQL veritabanı'nda Tablo denetleme uygularken öğrenin.
 services: sql-database
-author: giladm
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: giladm
 ms.author: giladm
 ms.reviewer: vanto
-ms.openlocfilehash: 9fcb070f41d699cef3ef11ba9b8feb6cdfd83ae5
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 525b699efdbfd2e4e2f8ad7a8b24f20f1d7438d0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541226"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063345"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL veritabanı - alt düzey istemci desteği ve tablo denetimi için IP uç noktası değişiklikleri
 

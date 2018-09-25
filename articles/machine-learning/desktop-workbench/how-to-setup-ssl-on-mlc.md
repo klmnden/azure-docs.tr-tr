@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: 982a6807ccaf393c3aea42f39f7e60bb7e0d3ac3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2a7733468ec082c8954f623f3ebe2cea1fbad561
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650980"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976246"
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Azure Machine Learning işlem (MLC) kümesinde SSL'i etkinleştirin 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 Bu yönergeler için Puanlama çağrıları bir Machine Learning işlem (MLC) kümesinde SSL ayarlama ayarlamanıza olanak sağlar. 
 
@@ -51,7 +55,7 @@ az ml env create -c -g <resource group name> -n <cluster name> --cert-cname <CNA
 
 SSL oluşturulan bir küme hedefliyorsanız, Azure PowerShell cmdlet'lerini kullanarak bir sertifika ekleyebilirsiniz.
 
-Anahtar ve sertifika PEM biçiminde ham sağlamak gerekir. Bu PowerShell değişkenlere okuyabilirsiniz:
+Sertifika ham PEM biçiminde ve anahtarı sağlamanız gerekir. Bu PowerShell değişkenlere okuyabilirsiniz:
 
 ```
 $keyValueInPemFormat = [IO.File]::ReadAllText('<path to key.pem file>')
@@ -65,7 +69,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>CNAME ve IP adresini Eşle
 
-Önkoşullarda seçtiğiniz CNAME ve gerçek zamanlı ön uç (FE) IP adresi arasında bir eşleme oluşturun. FE IP adresini bulmak için aşağıdaki komutu çalıştırın. "Gerçek zamanlı küme ön uç IP adresini içeren Publicıpaddress" adlı bir alan çıktıyı görüntüler. Bir kaydı CNAME genel IP adresi için kullanılan FQDN ayarlanacak DNS sağlayıcınızın yönergelerine bakın.
+Önkoşullarda seçtiğiniz CNAME ve gerçek zamanlı ön uç (FE) IP adresi arasında bir eşleme oluşturun. FE IP adresini bulmak için aşağıdaki komutu çalıştırın. Gerçek zamanlı küme ön uç IP adresini içeren "Publicıpaddress" adlı bir alan çıktıyı görüntüler. Bir kaydı CNAME genel IP adresi için kullanılan FQDN ayarlanacak DNS sağlayıcınızın yönergelerine bakın.
 
 
 

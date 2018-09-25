@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 97836c4160349b8095ba2095176783ae17b46e82
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 9df587d92b9e35db496c787186ff2945db7965ce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216208"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987824"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Otomatik ölçeklendirme ile azure'da özel bir ölçü olarak kullanmaya başlayın
 Bu makalede, Azure portalındaki özel ölçüm kaynağınızı ölçeklendirilmesine açıklar.
 
-Azure İzleyici otomatik ölçeklendirme, yalnızca sanal makine ölçek kümeleri (VMSS), bulut Hizmetleri, app service planları ve app service ortamları için geçerlidir. 
+Azure İzleyici otomatik ölçeklendirme için yalnızca geçerlidir [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), ve [APIManagementHizmetleri](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 # <a name="lets-get-started"></a>Sağlar kullanmaya başlayın
 Bu makalede, application ınsights ile yapılandırılmış bir web uygulaması sahibi olduğunuzu varsayar. Zaten yoksa, şunları yapabilirsiniz [ASP.NET Web siteniz için Application ınsights'ı ayarlama][1]

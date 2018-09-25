@@ -1,42 +1,41 @@
 ---
-title: Destek ve Azure Machine Learning Hizmetleri için eğitim alın
-description: Bu makalede size nasıl destek ve eğitim için Azure Machine Learning Hizmetleri ve Azure Machine Learning Workbench alabileceğiniz bildirir.
+title: Destek ve Azure Machine Learning hizmeti için eğitim alın
+description: Bu makalede, destek ve eğitim Azure Machine Learning hizmeti için nasıl alabileceğiniz bildirir.
 services: machine-learning
-author: j-martens
-ms.author: jmartens
-manager: cgronlund
-ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.topic: article
-ms.date: 03/01/2018
-ms.openlocfilehash: a9529a2b38105274f021483cfce51f30fd38fb62
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.topic: conceptual
+ms.reviewer: jmartens
+author: j-martens
+ms.author: jmartens
+ms.date: 09/24/2018
+ms.openlocfilehash: b5834bfd47cf2ab8462462c43394c8f05e43afa3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648279"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971408"
 ---
-# <a name="get-support-and-training-for-azure-machine-learning-services"></a>Destek ve Azure Machine Learning Hizmetleri için eğitim alın
+# <a name="get-support-and-training-for-azure-machine-learning-service"></a>Destek ve Azure Machine Learning hizmeti için eğitim alın
 
-Bu makalede, yanı sıra Azure Machine Learning hizmetleri hakkında daha fazla bilgi, sorunlar ve sorular için destek alma hakkında bilgi sağlar. 
+Bu makalede, yanı sıra Azure Machine Learning hizmeti hakkında daha fazla bilgi, sorunlar ve sorular için destek alma hakkında bilgi sağlar. 
 
 ## <a name="learn-more-about-azure-machine-learning"></a>Azure Machine Learning hakkında daha fazla bilgi edinin
 
-[Azure Machine Learning Belge Merkezi](../desktop-workbench/overview-what-is-azure-ml.md), video öğreticilerinin yanı sıra nasıl yapılır kılavuzlarını da barındırır. Bu adım adım kılavuzlar Hizmetleri tanıtır ve veri bilimi yaşam döngüsünü açıklar. Machine Learning Merkezi'ne düzenli olarak yeni materyaller ekleriz. 
-
-Ayrıca, vardır [videoları daha fazla bilgi için izleyin](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
+Bu sitedeki belgeleri ek olarak bulabilirsiniz:
++ [Öğreticileri ve nasıl yapılır makaleleri](../service/index.yml)
++ [mimariye genel bakış](../service/concept-azure-machine-learning-architecture.md)
++ [Videolar](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 
 Yapabilecekleriniz **gönderme isteklerinin** makalenin sonunda geri bildirim bağlantısı kullanarak ek öğrenme materyalleri için.
 
-## <a name="get-support-for-azure-machine-learning-services"></a>Azure Machine Learning Hizmetleri için destek alma
+## <a name="get-support-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için destek alma
 
-Aşağıdaki yollarla Azure Machine Learning Hizmetleri için destek alabilirsiniz:
+Bu kontrol destek kaynaklarını:
 
-+ **Teknik Destek**: Azure teknik desteğine başvurun ederek [Azure Destek](https://azure.microsoft.com/support/options/) ve Machine Learning seçme. 
++ **Teknik Destek**: ziyaret [Azure teknik desteğine](https://azure.microsoft.com/support/options/) ve Machine Learning seçin. 
 
-+ **MSDN kullanıcısı Forumu**: sorular sormak, soruları yanıtlamak ve diğer kullanıcılarla connect [Azure Machine Learning Hizmetleri MSDN forum desteği](https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning).
++ **Kullanıcı forumuna**: sorular sormak, soruları yanıtlamak ve diğer kullanıcılarla connect [MSDN Azure Machine Learning hizmeti Destek Forumu](https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning).
 
 + **Stack Overflow**: Azure Machine Learning topluluğu ziyaret [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) "Azure-makine öğrenimi ile" etiketli.
 

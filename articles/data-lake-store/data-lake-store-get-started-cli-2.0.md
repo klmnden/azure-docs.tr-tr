@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake depolama Gen1 ile kullanmaya başlamak için arabirimi kullanarak Azure komut satırı 2.0 | Microsoft Docs
-description: Bir Data Lake depolama Gen1 hesabı oluşturmak ve temel işlemleri gerçekleştirmek için Azure platformlar arası komut satırı 2.0 aracını kullanın
+title: Azure Data Lake depolama Gen1 ile çalışmaya başlamak için Azure CLI'yı kullanın | Microsoft Docs
+description: Bir Data Lake depolama Gen1 hesabı oluşturmak ve temel işlemleri gerçekleştirmek için Azure CLI kullanma
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -10,26 +10,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: b75fc3a96ce4e46fbd9efb03aa2ea9c2c4aaa15c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d8232b1e29a3d2585e79cf56d0f180a5084fd13e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124788"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979075"
 ---
-# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-cli-20"></a>Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure CLI 2.0 kullanarak
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Azure Data Lake Azure CLI kullanarak Store ile çalışmaya başlama
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
-[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+Hesabı, silme, bir Azure Data Lake depolama Gen1 hesabı oluşturmak ve klasör oluşturma karşıya yükleme ve veri dosyalarını indirir temel işlemleri gerçekleştirmek için Azure CLI kullanma hakkında bilgi edinin. Data Lake depolama Gen1 hakkında daha fazla bilgi için bkz: [genel bakış Data Lake depolama Gen1](data-lake-store-overview.md).
 
-Hesabı, silme, bir Azure Data Lake depolama Gen1 hesabı oluşturmak ve klasör oluşturma karşıya yükleme ve veri dosyalarını indirir temel işlemleri gerçekleştirmek için Azure CLI 2.0 kullanma hakkında bilgi edinin. Data Lake depolama Gen1 hakkında daha fazla bilgi için bkz: [genel bakış Data Lake depolama Gen1](data-lake-store-overview.md).
-
-Azure CLI 2.0, Azure kaynaklarını yönetmek için Azure tarafından sunulan yeni komut satırı deneyimidir. MacOS, Linux ve Windows’da kullanılabilir. Daha fazla bilgi edinmek için bkz. [Azure CLI 2.0 aracına genel bakış](https://docs.microsoft.com/cli/azure). Ayrıca bakabilirsiniz [Azure Data Lake depolama Gen1 CLI 2.0 başvurusu](https://docs.microsoft.com/cli/azure/dls) komutlar ve söz dizimi tam listesi için.
+Azure CLI, Azure kaynaklarını yönetmek için Azure tarafından sunulan komut satırı deneyimidir. MacOS, Linux ve Windows’da kullanılabilir. Daha fazla bilgi için [genel bakış, Azure CLI](https://docs.microsoft.com/cli/azure). Ayrıca bakabilirsiniz [Azure Data Lake depolama Gen1 CLI başvuru](https://docs.microsoft.com/cli/azure/dls) komutlar ve söz dizimi tam listesi için.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -37,7 +35,7 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure CLI 2.0** - Yönergeler için kz. [Azure CLI 2.0 aracını yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* **Azure CLI** -bkz [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) yönergeler için.
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
@@ -164,7 +162,7 @@ Bunun çıktısının aşağıdakine benzer olması gerekir:
 
 ## <a name="work-with-permissions-and-acls-for-a-data-lake-storage-gen1-account"></a>Bir Data Lake depolama Gen1 hesabı için izin ve ACL'ler ile çalışma
 
-Bu bölümde, Azure CLI 2.0 aracını kullanarak ACL’leri ve izinleri nasıl yönetebileceğiniz hakkında bilgi edineceksiniz. Azure Data Lake depolama Gen1 ACL'leri nasıl uygulandığı hakkında ayrıntılı bilgi için bkz: [erişim denetimi, Azure Data Lake depolama Gen1](data-lake-store-access-control.md).
+Bu bölümde ACL'leri ve izinleri Azure CLI kullanarak yönetme hakkında bilgi edinin. Azure Data Lake depolama Gen1 ACL'leri nasıl uygulandığı hakkında ayrıntılı bilgi için bkz: [erişim denetimi, Azure Data Lake depolama Gen1](data-lake-store-access-control.md).
 
 * **Bir dosya veya klasörün sahibini güncelleştirmek için** aşağıdaki komutu kullanın:
 

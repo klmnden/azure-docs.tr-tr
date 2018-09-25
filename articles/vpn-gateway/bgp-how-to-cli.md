@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: cherylmc
-ms.openlocfilehash: 98cd606ce930624ec5c591ffd8f13e0feae1a6c4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 657cad69fff66aaaeba9819569442981d229f644
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688566"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971136"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>CLI kullanarak bir Azure VPN ağ geçidinde BGP yapılandırma
 
@@ -55,7 +55,7 @@ Bu bölümde, diğer iki yapılandırma bölümlerinde adımları gerçekleştir
 
 ### <a name="before-you-begin"></a>Başlamadan önce
 
-(2.0 veya üzeri) CLI komutlarının en son sürümünü yükleyin. CLI komutlarını yükleme hakkında bilgi için bkz. [Azure CLI 2.0’ı yükleme](/cli/azure/install-azure-cli) ve [Azure CLI 2.0’ı Kullanmaya Başlama](/cli/azure/get-started-with-azure-cli).
+(2.0 veya üzeri) CLI komutlarının en son sürümünü yükleyin. CLI komutlarını yükleme hakkında daha fazla bilgi için bkz: [Azure CLI'yı yükleme](/cli/azure/install-azure-cli) ve [Azure CLI ile çalışmaya başlama](/cli/azure/get-started-with-azure-cli).
 
 ### <a name="step-1-create-and-configure-testvnet1"></a>1. adım: Oluşturma ve TestVNet1 yapılandırma
 

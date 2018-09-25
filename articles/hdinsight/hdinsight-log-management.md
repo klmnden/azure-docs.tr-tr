@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: aab5be7f98f5fdf6e7304485c3d1fc5ddb7afdba
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 339d5d39c637369420e197acf65df802cefd5cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106926"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988504"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight kümesi için günlükleri yönetme
 
@@ -43,12 +43,13 @@ Aşağıdaki küme ayrıntıları, günlük yönetimi stratejinizin bilgileri to
 * Son durum değişikliği ayrıntılar dahil olmak üzere, küme durumu
 * Tür ve ana, çekirdek ve görev düğümleri belirtilen HDInsight örnek sayısı
 
-Azure portalını kullanarak bu üst düzey bilgilerin çoğunu elde edebilirsiniz.  Alternatif olarak, Azure CLI, HDInsight kümesi hakkında bilgi almak için kullanabilirsiniz:
+Azure portalını kullanarak bu üst düzey bilgilerin çoğunu elde edebilirsiniz.  Alternatif olarak, Azure Klasik CLI, HDInsight kümesi hakkında bilgi almak için kullanabilirsiniz:
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Bu bilgileri görüntülemek için PowerShell de kullanabilirsiniz.  Daha fazla bilgi için [yönetme Hadoop, Azure PowerShell kullanarak HDInsight kümeleri](hdinsight-administer-use-powershell.md).
 

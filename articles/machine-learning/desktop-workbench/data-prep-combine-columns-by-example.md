@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 621601ad3576aad13f2f71062ee2351cf1a394c8
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c952882a0a12e288eaf4f5f1074a9a2e876a21d6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650856"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986243"
 ---
 # <a name="combine-columns-by-example-transformation"></a>Örnek dönüştürme tarafından sütunları Birleştir
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Bu dönüştürme birden fazla sütundaki değerleri birleştiren yeni bir sütun eklemesine izin verir. Kullanıcı, bir ayırıcı belirtin veya bu dönüştürme işlemini gerçekleştirmek için birleşik değerleri örnekleri sağlar. Kullanıcı örnekleri birleşimi sağladığında dönüşümü aynı tarafından işlenir **örnek tarafından** kullanılan altyapısı **sütunu örneğe göre türet** dönüştürün.
 
 ## <a name="how-to-perform-this-transformation"></a>Bu dönüşüm gerçekleştirme

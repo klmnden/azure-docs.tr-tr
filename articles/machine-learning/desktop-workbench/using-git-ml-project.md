@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: 58ab1d77218595344c899dff654ba5b7a5bfb0d8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 16c102641321117f4776d761aba6c2148d15f1f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296645"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995660"
 ---
 # <a name="use-a-git-repo-with-a-machine-learning-workbench-project"></a>Bir Git deposu ile bir Machine Learning Workbench projesini kullanın
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Git'in Azure Machine Learning Workbench sürüm denetimi sağlayın ve veri bilimi denemenizi içinde yeniden üretilebilirliğini emin olmak için nasıl kullandığını öğrenin. Projenize bir Git deposuna (depo) bulutla ilişkilendir öğrenin.
 
 Machine Learning Workbench, Git tümleştirmesi için tasarlanmıştır. Yeni bir proje oluşturduğunuzda, proje klasörü otomatik olarak "Git ile yerel bir Git deposu" başlatılır. İkinci, gizli yerel Git deposu da AzureMLHistory adlı bir dal oluşturulur, /\<GUID proje\>. Dal, her yürütme için proje klasörü değişiklikleri izler. 
@@ -42,7 +47,7 @@ Uzak bir Git deposu ile çalışmaya başlamak için aşağıdaki bölümlerde a
 > Şu anda Azure Machine Learning yalnızca Azure DevOps kuruluşlarına üzerinde Git depolarını destekler.
 
 ## <a name="step-1-create-a-machine-learning-experimentation-account"></a>1. Adım Bir Machine Learning denemesi hesabı oluşturun
-Bir Machine Learning denemesi hesabı oluşturun ve Azure Machine Learning Workbench uygulamasını yükleyin. Daha fazla bilgi için [yükleme ve oluşturma Hızlı Başlangıç](../service/quickstart-installation.md).
+Bir Machine Learning denemesi hesabı oluşturun ve Azure Machine Learning Workbench uygulamasını yükleyin. Daha fazla bilgi için [yükleme ve oluşturma Hızlı Başlangıç](quickstart-installation.md).
 
 ## <a name="step-2-create-an-azure-devops-project-or-use-an-existing-project"></a>2. Adım Azure DevOps projesi oluşturun veya mevcut bir projeyi kullanın
 İçinde [Azure portalında](https://portal.azure.com/), yeni bir proje oluşturun:

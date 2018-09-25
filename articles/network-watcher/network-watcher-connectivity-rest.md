@@ -1,6 +1,6 @@
 ---
-title: Azure Ağ İzleyicisi - Azure REST API bağlantılarıyla ilgili sorunları giderme | Microsoft Docs
-description: Bağlantı kullanmayı öğrenin Özelliği Azure REST API'sini kullanarak Azure Ağ İzleyicisi, sorun giderme.
+title: Azure Ağ İzleyicisi - Azure REST API'si ile bağlantı sorunlarını giderme | Microsoft Docs
+description: Bağlantıyı kullanmayı öğrenin özelliği, Azure REST API'sini kullanarak Azure Ağ İzleyicisi sorun giderme.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,34 +13,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 848db5d0df63707eece4f9f7a2a69135bed2d389
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d04340c340a7285b62ccc68eed4e70f7c4b43bc8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187360"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990034"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Azure REST API'sini kullanarak Azure Ağ İzleyicisi ile bağlantı sorunlarını giderme
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
-> - [Azure REST API'si](network-watcher-connectivity-rest.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
+> - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Bağlantı kullanmayı öğrenin bir doğrudan belirli bir uç noktası TCP bağlantısı bir sanal makineden oluşturulan olup olmadığını doğrulamak için sorun giderme.
+Bağlantı kullanmayı öğrenin belirli bir uç noktaya doğrudan TCP bağlantısı bir sanal makineden oluşturulan olup olmadığını doğrulamak için sorun giderme.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, aşağıdaki kaynaklara sahip olduğunuz varsayılmaktadır:
+Bu makalede, aşağıdaki kaynaklara sahip olduğunu varsayar:
 
-* Ağ İzleyicisi, bir bağlantı sorunlarını giderme istediğiniz bölgede bir örneği.
-* Bağlantıları ile ilgili sorunları giderme için sanal makineler.
+* Ağ İzleyicisi bağlantı sorunlarını gidermek için istediğiniz bölgede bir örneği.
+* Bağlantı sorunlarını gidermek için sanal makineler.
 
 > [!IMPORTANT]
-> Bağlantı sorunlarını giderme, sorun giderme VM olmasını gerektirir `AzureNetworkWatcherExtension` VM uzantısı yüklü. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Hedef uç noktada uzantısı gerekli değildir.
+> Bağlantı sorunlarını giderme, sorun giderme VM'ye sahip olması gerekir `AzureNetworkWatcherExtension` VM uzantısı yüklü. Bir Windows VM'de uzantıyı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ve Linux VM ziyaret [LinuxiçinAzureAğİzleyicisiAracısısanalmakineuzantısı](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Hedef uç noktada bir uzantı gerekli değildir.
 
-## <a name="log-in-with-armclient"></a>Oturum ARMClient oturum
+## <a name="log-in-with-armclient"></a>Oturum ARMClient oturum açın
 
 Armclient Azure kimlik bilgilerinizle oturum açın.
 
@@ -79,9 +79,9 @@ Aşağıdaki çıkışı, aşağıdaki örnekte sanal makinenin kimliği kullan�
 }
 ```
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Bir sanal makineye bağlantısını kontrol edin.
+## <a name="check-connectivity-to-a-virtual-machine"></a>Bir sanal makine bağlantısını kontrol edin
 
-Bu örnekte, bağlantı noktası 80 üzerinden bir hedef sanal makine bağlantısı denetler.
+Bu örnek, bir hedef sanal makinenin bağlantı bağlantı noktası 80 üzerinden denetler.
 
 ### <a name="example"></a>Örnek
 
@@ -108,11 +108,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Bu işlem uzun olduğundan çalıştıran, URI sonucu yanıt üstbilgisinde aşağıdaki yanıtta gösterildiği gibi döndürülür:
+Bu işlem uzun olduğundan çalıştıran, URI sonucu aşağıdaki yanıtında gösterilen yanıt üst bilgisinde döndürülür:
 
-**Önemli değerleri**
+**Önemli değerler**
 
-* **Konum** -bu özellik, işlem tamamlandığında, sonuçları nerede URI içerir.
+* **Konum** -bu özellik, işlem tamamlandığında sonuçları nerede URI içerir
 
 ```
 HTTP/1.1 202 Accepted
@@ -133,7 +133,7 @@ null
 
 ### <a name="response"></a>Yanıt
 
-Aşağıdaki yanıtı önceki örnekten ' dir.  Bu yanıt `ConnectionStatus` olan **ulaşılamıyor**. Tüm araştırmalar başarısız gönderilen görebilirsiniz. Bağlantı başarısız bir kullanıcı tarafından yapılandırılan nedeniyle sanal gereç `NetworkSecurityRule` adlı **UserRule_Port80**, 80 numaralı bağlantı noktasında gelen trafiği engellemek için yapılandırılmış. Bu bilgiler, bağlantı sorunları araştırmak için kullanılabilir.
+Önceki örnekte yanıttır.  Bu yanıt `ConnectionStatus` olduğu **ulaşılamıyor**. Tüm araştırmaları başarısız gönderilen görebilirsiniz. Sanal gereç kullanıcının yapılandırdığı nedeniyle bağlantı başarısız `NetworkSecurityRule` adlı **UserRule_Port80**, 80 numaralı bağlantı noktasında gelen trafiği engellemek için yapılandırılmış. Bu bilgiler, bağlantı sorunlarını araştırmak için kullanılabilir.
 
 ```json
 {
@@ -197,7 +197,7 @@ Aşağıdaki yanıtı önceki örnekten ' dir.  Bu yanıt `ConnectionStatus` ola
 
 ## <a name="validate-routing-issues"></a>Yönlendirme sorunları doğrula
 
-Örnek bir sanal makine ve bir uzak uç noktası arasındaki bağlantıyı denetler.
+Örneğin, bir sanal makine ve uzak uç noktası arasındaki bağlantıyı denetler.
 
 ### <a name="example"></a>Örnek
 
@@ -224,11 +224,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Bu işlem uzun olduğundan çalıştıran, URI sonucu yanıt üstbilgisinde aşağıdaki yanıtta gösterildiği gibi döndürülür:
+Bu işlem uzun olduğundan çalıştıran, URI sonucu aşağıdaki yanıtında gösterilen yanıt üst bilgisinde döndürülür:
 
-**Önemli değerleri**
+**Önemli değerler**
 
-* **Konum** -bu özellik, işlem tamamlandığında, sonuçları nerede URI içerir.
+* **Konum** -bu özellik, işlem tamamlandığında sonuçları nerede URI içerir
 
 ```
 HTTP/1.1 202 Accepted
@@ -291,9 +291,9 @@ Aşağıdaki örnekte, `connectionStatus` olarak gösterilen **ulaşılamıyor**
 }
 ```
 
-## <a name="check-website-latency"></a>Web sitesi gecikme denetleyin
+## <a name="check-website-latency"></a>Onay Web sitesi gecikme süresi
 
-Aşağıdaki örnek bir Web sitesi bağlantısını denetler.
+Aşağıdaki örnek, bir Web sitesi bağlantısını denetler.
 
 ### <a name="example"></a>Örnek
 
@@ -320,11 +320,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Bu işlem uzun olduğundan çalıştıran, URI sonucu yanıt üstbilgisinde aşağıdaki yanıtta gösterildiği gibi döndürülür:
+Bu işlem uzun olduğundan çalıştıran, URI sonucu aşağıdaki yanıtında gösterilen yanıt üst bilgisinde döndürülür:
 
-**Önemli değerleri**
+**Önemli değerler**
 
-* **Konum** -bu özellik, işlem tamamlandığında, sonuçları nerede URI içerir.
+* **Konum** -bu özellik, işlem tamamlandığında sonuçları nerede URI içerir
 
 ```
 HTTP/1.1 202 Accepted
@@ -345,7 +345,7 @@ null
 
 ### <a name="response"></a>Yanıt
 
-Aşağıdaki yanıtta gördüğünüz `connectionStatus` olarak gösterir **erişilebilir**. Bağlantı başarılı olduğunda gecikme değerler sağlanır.
+Aşağıdaki yanıtta gördüğünüz `connectionStatus` olarak gösterir **erişilebilir**. Bağlantı başarılı olduğunda, gecikme süresi değerleri sağlanır.
 
 ```json
 {
@@ -378,9 +378,9 @@ Aşağıdaki yanıtta gördüğünüz `connectionStatus` olarak gösterir **eri�
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Bir depolama uç noktası bağlantısını kontrol edin
+## <a name="check-connectivity-to-a-storage-endpoint"></a>Depolama uç noktası bağlantısını denetleyin
 
-Aşağıdaki örnek, bir sanal makineden bir blog depolama hesabı bağlantı denetler.
+Aşağıdaki örnek, bir sanal makineden bir BLOB Depolama hesabı bağlantısını denetler.
 
 ### <a name="example"></a>Örnek
 
@@ -407,11 +407,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Bu işlem uzun olduğundan çalıştıran, URI sonucu yanıt üstbilgisinde aşağıdaki yanıtta gösterildiği gibi döndürülür:
+Bu işlem uzun olduğundan çalıştıran, URI sonucu aşağıdaki yanıtında gösterilen yanıt üst bilgisinde döndürülür:
 
-**Önemli değerleri**
+**Önemli değerler**
 
-* **Konum** -bu özellik, işlem tamamlandığında, sonuçları nerede URI içerir.
+* **Konum** -bu özellik, işlem tamamlandığında sonuçları nerede URI içerir
 
 ```
 HTTP/1.1 202 Accepted
@@ -432,7 +432,7 @@ null
 
 ### <a name="response"></a>Yanıt
 
-Aşağıdaki örnek, önceki API çağrısı çalışmasını yanıt aynıdır. Onay başarılı olduğu gibi `connectionStatus` özelliği gösterildiğinden **erişilebilir**.  Gecikme süresi ve depolama blobu erişmek için gerekli atlama sayısı ile ilgili ayrıntılar verilmiştir.
+Aşağıdaki örnek, önceki API çağrısının çalışması yanıttır. Onay başarılı olduğu gibi `connectionStatus` özellik gösterilmiştir olarak **erişilebilir**.  Atlama gecikme süresi ve depolama blobu erişmek için gerekli sayısı ile ilgili ayrıntılar verilmiştir.
 
 ```json
 {
@@ -467,9 +467,9 @@ Aşağıdaki örnek, önceki API çağrısı çalışmasını yanıt aynıdır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sanal makine uyarılarla paket yakalamaları görüntüleyerek otomatikleştirmeyi öğrenin [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md).
+Sanal makine uyarılarla paket yakalamaları görüntüleyerek otomatikleştirmeyi öğrenme [uyarı tetiklendi paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md).
 
-Belirli trafik içinde veya dışında VM ziyaret ederek izin verilip verilmediğini Bul [denetleyin IP akış doğrulayın](diagnose-vm-network-traffic-filtering-problem.md).
+Belirli trafiğe içine veya dışına VM'nizi ederek izin verilip verilmediğini Bul [denetleyin IP akışı doğrulama](diagnose-vm-network-traffic-filtering-problem.md).
 
 
 

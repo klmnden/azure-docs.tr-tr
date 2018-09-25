@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: jasonh
-ms.openlocfilehash: c10ff022d54510c4fb81bf1f922aeaaf4e9036bb
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 33458794ad74b367f1278364d7b4ace30f7d13a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104863"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953605"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği
 
@@ -208,13 +208,13 @@ Ambari Web kullanıcı arabirimini (örneğin, YARN için) günlüklerini görü
 
 Bir düğümün boyutu yalnızca küme oluşturma sırasında seçilir. HDInsight üzerinde farklı VM boyutlarının listesini bulabilirsiniz [HDInsight fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Bir küme oluştururken, düğümlerin boyutunu belirtebilirsiniz. Aşağıdaki bilgileri boyutu kullanarak belirleme konusunda rehberlik sağlar [Azure portalında][preview-portal], [Azure PowerShell][azure-powershell]ve [Azure CLI][azure-cli]:
+Bir küme oluştururken, düğümlerin boyutunu belirtebilirsiniz. Aşağıdaki bilgileri boyutu kullanarak belirleme konusunda rehberlik sağlar [Azure portalında][preview-portal], [Azure PowerShell][azure-powershell]ve [Azure Klasik CLI][azure-cli]:
 
 * **Azure portalında**: bir küme oluştururken, küme tarafından kullanılan düğümlerin boyutu ayarlayabileceğiniz:
 
     ![Düğüm boyutu seçimi ile küme oluşturma Sihirbazı'nı görüntüsü](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure CLI**: kullanırken `azure hdinsight cluster create` komutunu kullanarak baş, çalışan ve ZooKeeper düğümleri boyutu ayarlayabileceğiniz `--headNodeSize`, `--workerNodeSize`, ve `--zookeeperNodeSize` parametreleri.
+* **Azure Klasik CLI**: kullanırken `azure hdinsight cluster create` komutunu kullanarak baş, çalışan ve ZooKeeper düğümleri boyutu ayarlayabileceğiniz `--headNodeSize`, `--workerNodeSize`, ve `--zookeeperNodeSize` parametreleri.
 
 * **Azure PowerShell**: kullanırken `New-AzureRmHDInsightCluster` cmdlet'ini kullanarak baş, çalışan ve ZooKeeper düğümleri boyutunu ayarlayabilirsiniz `-HeadNodeVMSize`, `-WorkerNodeSize`, ve `-ZookeeperNodeSize` parametreleri.
 
@@ -223,7 +223,7 @@ Bir küme oluştururken, düğümlerin boyutunu belirtebilirsiniz. Aşağıdaki 
 Bu belgede belirtilen noktalar hakkında daha fazla bilgi için aşağıdaki bağlantıları kullanın.
 
 * [Ambari REST başvurusu](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Azure CLI'yi yükleme ve yapılandırma](../cli-install-nodejs.md)
+* [Azure Klasik CLI'yi yükleme ve yapılandırma](../cli-install-nodejs.md)
 * [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview)
 * [Ambari kullanarak HDInsight'ı yönetme](hdinsight-hadoop-manage-ambari.md)
 * [Linux tabanlı HDInsight kümeleri hazırlama](hdinsight-hadoop-provision-linux-clusters.md)

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: routlaw
 ms.custom: aaddev
-ms.openlocfilehash: eb26101229ad60abae7a8a84f8dfa496488e84ba
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d77af898d5baef4fa7970132b0eb8deddb8f68cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579012"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981806"
 ---
 # <a name="request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-active-directory"></a>OAuth 2.0 erişim web API'leri ve uygulamaları Azure Active Directory tarafından güvenli kullanarak bir erişim belirteci isteği
 
@@ -59,7 +59,7 @@ Aşağıdaki üst bilgiler gereklidir:
 | redirect_uri  | gerekli              | Authorization_code almak için kullanılan aynı redirect_uri değer.                                                                                                                                                                                                                                                                                                                                                             |
 | client_secret | Web apps için gerekli | Uygulama kayıt Portalı'nda uygulamanız için oluşturduğunuz uygulama gizli anahtarı. Yerel bir uygulamada kullanmayın, çünkü client_secrets cihazlarda güvenilir bir şekilde depolanamaz. Web uygulamaları ve web client_secret güvenli bir şekilde sunucu tarafında depolama yeteneği olan API'leri için gereklidir.  İstemci gizli dizileri gönderilmeden önce URL kodlamalı olmalıdır.                                                                                 |
 | code_verifier | isteğe bağlı              | Authorization_code elde etmek için kullanılan aynı code_verifier. PKCE bir yetkilendirme kodu verme istekte kullanılan gereklidir. Daha fazla bilgi için [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
-## <a name="handle-the-response"></a>İşleyici yanıtı
+## <a name="handle-the-response"></a>Yanıtı işleme
 
 Başarılı bir token yanıt JWT belirtecini içerir ve görünür:
 
@@ -75,12 +75,12 @@ Başarılı bir token yanıt JWT belirtecini içerir ve görünür:
 ```
 | Parametre     | Açıklama                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| access_token  | İstenen erişim belirteci. Uygulama, web API'si gibi güvenli kaynağına kimliğini doğrulamak için bu belirteci kullanabilirsiniz.                                                                                                                                                                                                                                                                                                                                    |
+| access_token  | İstenen [erişim belirteci](access-tokens.md). Uygulama, web API'si gibi güvenli kaynağına kimliğini doğrulamak için bu belirteci kullanabilirsiniz.                                                                                                                                                                                                                                                                                                                                    |
 | token_type    | Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür                                                                                                                                                                                                                                                                                                                                                                           |
 | expires_in    | Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil.                                                                                                                                                                                                                                                                                                                                                                                                       |
 | scope         | Access_token için geçerli olan kapsamları.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| refresh_token | OAuth 2.0 yenileme belirteci. Bu belirteç kullanabilecek geçerli erişim belirtecinin süresi dolduktan sonra ek erişim belirteçlerini almak. Refresh_tokens uzun süreli ve uzun süre için kaynaklarına erişimi korumak için kullanılabilir. Daha fazla ayrıntı için başvurmak [v2.0 belirteç başvurusu](v2-id-and-access-tokens.md). <br> **Not:** yalnızca sağlanan if `offline_access` kapsam istendi.                                               |
-| id_token      | Bir işaretsiz JSON Web Token (JWT). Uygulama isteği açan kullanıcı hakkında bilgi için bu belirteci parçalarını çözebilen. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [v2.0 uç noktası belirteç başvurusu](v2-id-and-access-tokens.md). <br> **Not:** yalnızca sağlanan if `openid` kapsam istendi. |
+| refresh_token | OAuth 2.0 yenileme belirteci. Bu belirteç kullanabilecek geçerli erişim belirtecinin süresi dolduktan sonra ek erişim belirteçlerini almak. Refresh_tokens uzun süreli ve uzun süre için kaynaklarına erişimi korumak için kullanılabilir. Daha fazla ayrıntı için başvurmak [v2.0 kod başvurusu vermek](v2-oauth2-auth-code-flow.md#refresh-the-access-token). <br> **Not:** yalnızca sağlanan if `offline_access` kapsam istendi.                                               |
+| id_token      | Bir işaretsiz JSON Web Token (JWT). Uygulama isteği açan kullanıcı hakkında bilgi için bu belirteci parçalarını çözebilen. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [ `id_token reference` ](id-tokens.md). <br> **Not:** yalnızca sağlanan if `openid` kapsam istendi. |
 
 
 

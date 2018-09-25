@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Önceden oluşturulmuş koleksiyonları hedefleri ve varlıkların gelen Language Understanding Intelligent Services (LUIS) önceden oluşturulmuş etki alanları için başvuru.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238905"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040049"
 ---
 # <a name="prebuilt-domain-reference"></a>Önceden derlenmiş etki alanı başvurusu
 Bu başvuru, hakkında bilgi sağlar. [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md), önceden oluşturulmuş koleksiyon hedefleri ve LUIS sunan varlıkların olduğu.
@@ -154,11 +154,11 @@ Etki alanı hedefleri ve filmler, müzik, oyunlar ve TV aramayla ilgili varlıkl
 | ContentRating | Medya, film derecelendirmesi G veya R gibi içerik.|Video çocuk.<br/>PG derecelendirilir.|
 | Tarzı | Film, oyun, uygulama veya şarkı Tarz.|Comedies<br/>Dramas<br/>Komik|
 | Anahtar sözcüğü| Bir genel arama anahtar sözcüğü bir öznitelik belirtmemeye daha belirli ortam yuvalarda yok.|Parçalar<br/>Ay Irmağı<br/>Amelia Earhart|
-| Dil | Ortamda, film veya şarkı konuşulan dili gibi kullanılan dil.|Fransızca <br/>Türkçe<br/>Kore dili|
+| Dil | Ortamda, film veya şarkı konuşulan dili gibi kullanılan dil.|Fransızca<br/>Türkçe<br/>Kore dili|
 | MediaFormat | İçinde medya biçimlendirilmiş ek özel teknik türü.|HD filmler<br/>3B filmler<br/>İndirilebilir|
 | MediaSource | Depolama veya medya almak için Market.|Netflix<br/>Asal|
 | MediaSubTypes| Medya türleri filmler ve oyunlar küçük.|Tanıtımlar<br/>DLC<br/>Tanıtımları|
-| Uyruğu| Bir film, Göster ya da şarkı oluşturulduğu ülke.|Fransızca <br/>Almanca <br/>Kore dili|
+| Uyruğu| Bir film, Göster ya da şarkı oluşturulduğu ülke.|Fransızca<br/>Almanca<br/>Kore dili|
 | Kişi| Aktör, Müdür, üretici, müzisyen veya sanatçı bir film, uygulamayı, oyunu veya TV programı ilişkili.|Madonna<br/>Stanley Kubrick|
 | Rol| Medya oluşturma kişinin oynadığı rolü.|İmzalar<br/>Yöneten<br/>Tarafından|
 | Unvan| Bir film, uygulama, oyun, TV programı veya Şarkı adı.|Arkadaş<br/>Minecraft|
@@ -197,7 +197,7 @@ Hedefleri ve uygunluk etkinliklerini izleme ilgili varlıkları uygunluk etki al
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| ActivityType | İzleyen etkinlik türü. |Çalıştırın<br/>İlerlemesi<br/>Yüzme<br/>Döngüsü |
+| ActivityType | İzleyen etkinlik türü. |Çalıştırın<br/>Yürüme<br/>Yüzme<br/>Döngüsü |
 | Yiyecek | Gıda uygunluk uygulamada izlemek için bir tür. |Muz<br/>Somon<br/>Protein sallama|
 | MealType| Bir sistem durumu veya uygunluk uygulamasında izlemek için bir paket türü.|Kahvaltı<br/>Akşam Yemeği<br/>Öğle yemeği<br/>Supper|
 | Ölçüm| Ölçümleri zaman, uzaklığı veya ağırlık, uygunluk veya sistem durumu uygulamada kullanılmak için bir tür.|Kilometre<br/>Mil<br/>Dakika<br/>Kilogram|
@@ -234,7 +234,7 @@ Hedefleri ve ışıklar ve cihazları gibi Akıllı Giriş cihazları denetlemek
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
 | Cihaz | Açılıp kapatılabilir cihaz türü.|Kahve Oluşturucu<br/>Thermostat<br/>ışıklar|
-| İşlem | Cihaz durumu.|Kilit<br/>aç<br/>açık<br/>kapalı|
+| İşlem | Cihaz durumu.|Kilit<br/>açık<br/>açık<br/>kapalı|
 | Oda | Konuma veya cihaz yer.|Oturma odası<br/>Yatak odası<br/>mutfak|
 
 ## <a name="movietickets"></a>MovieTickets 
@@ -415,7 +415,7 @@ At what time does Safeway close?
 |Derecelendirme|Bir restoran veya yer derecelendirmesi açıklamasını alın.|Kaç yıldızı Contoso Inn var mı?|
 |ReadAloud|Basamak listesini sesli okuyun.|Beni ilk oku<br/>Bana ayrıntıları okuyun|
 |SelectItem|Bir alan veya yer ile ilgili seçimler listesinden bir öğe seçin.|İkinci seçin<br/>İlk seçin|
-|ShowMap|Bir alan haritasını göster.|İkincisi için bir haritasını Göster<br/>Haritayı göster<br/>Harita üzerinde San Francisco Bul|
+|ShowMap|Bir alan haritasını göster.|İkincisi için bir haritasını Göster<br/>Haritasını Göster<br/>Harita üzerinde San Francisco Bul|
 |ShowNext|Bir dizinin sonraki öğeyi gösterir.|Sonrakini Göster<br/>Sonraki Sayfaya Git|
 |ShowPrevious|Önceki öğeyle bir dizide gösterir.|Öncekine Göster<br/>önceki<br/>Öncekine git|
 |StartOver|Uygulamayı yeniden başlatın veya yeni bir oturum başlatın.|Yeniden başlayın<br/>Yeni oturum<br/>
@@ -430,7 +430,7 @@ restart|
 | Atmosfer | Atmosfer bir yer.|Çocuklara yönelik<br/>sıradan bir restoran<br/>sporty|
 | Cuisine | Cuisine bir yer. |Akdeniz<br/>İtalyanca<br/>Hindistan|
 | DestinationAddress| Bir hedef konum veya adresi.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
-| DestinationPlaceName| Bir iş, Restoran, ortak bir çekim veya kurum bir hedef adı.|Orta parka<br/>safeway<br/>walmart|
+| DestinationPlaceName| Bir iş, Restoran, ortak bir çekim veya kurum bir hedef adı.|Orta parka<br/>Safeway<br/>Walmart|
 | DestinationPlaceType | Yerel işletme, Restoran, ortak bir çekim veya kurum bir hedef türü. |Restoran<br/>Opera<br/>sinema|
 | Uzaklık | Bir yer uzaklık.|15 mil<br/>5 mili<br/>10 mil uzaklıkta|
 | MealType | Kahvaltı veya öğle yemeği türü. |Kahvaltı<br/>Akşam Yemeği<br/>Öğle yemeği<br/>Supper|
@@ -546,7 +546,7 @@ Translate this sentence to English
 ### <a name="entities"></a>Varlıklar
 | Varlık adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| TargetLanguage | Bir çeviri hedef dili.|Fransızca <br/>Almanca <br/>Kore dili|
+| TargetLanguage | Bir çeviri hedef dili.|Fransızca<br/>Almanca<br/>Kore dili|
 | Metin | Çevrilecek metin.|Hello World<br/>Günaydın<br/>İyi akşamlar|
 
 ## <a name="tv"></a>TV 

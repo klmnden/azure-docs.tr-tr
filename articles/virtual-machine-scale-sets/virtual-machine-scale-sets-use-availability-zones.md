@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 7297633b5a8954eb39e0a40bfd45b02d3838a734
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 18d9a2dade271e61fa3db423da610a7f982aa47b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42059664"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949681"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Kullanılabilirlik alanları kullanan bir sanal makine ölçek kümesi oluşturma
 
@@ -65,7 +65,7 @@ Bir ölçek kümesi tek bir bölge, hangi bölgede tüm VM örnekleri çalışt�
 Kullanılabilirlik alanları kullanmak için ölçek kümeniz oluşturulmalıdır bir [desteklenen bir Azure bölgesinde](../availability-zones/az-overview.md#regions-that-support-availability-zones). Kullanılabilirlik alanları aşağıdaki yöntemlerden biriyle kullanan bir ölçek kümesi oluşturabilirsiniz:
 
 - [Azure portal](#use-the-azure-portal)
-- [Azure CLI 2.0](#use-the-azure-cli-20)
+- [Azure CLI](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager şablonları](#use-azure-resource-manager-templates)
 
@@ -77,7 +77,7 @@ Bir kullanılabilirlik alanı kullanan bir ölçek kümesi oluşturma işlemi ay
 
 Ölçek kümesi ve Azure yük dengeleyici ve genel IP adresi gibi kaynakları destekleyen, belirttiğiniz tek bir bölgede oluşturulur.
 
-## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanma
+## <a name="use-the-azure-cli"></a>Azure CLI kullanma
 
 Bir kullanılabilirlik alanı kullanan bir ölçek kümesi oluşturma işlemi ayrıntılı olarak aynıdır [makale Başlarken](quick-create-cli.md). Kullanılabilirlik alanları kullanmak için desteklenen bir Azure bölgesinde ölçek kümenizi oluşturmanız gerekir.
 

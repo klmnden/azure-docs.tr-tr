@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 85a7b133655a3b1e4ca60c28e695e3057b293fdc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 91f75fdbe7bc7c66bbe581e9d4b295467acd4cd5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504524"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989677"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Yerel istemci uygulama proxy uygulamaları ile etkileşim kurmak etkinleştirme
 
@@ -30,7 +30,7 @@ Uygulama proxy'si, verilen belirteçler üstbilgisinde gönderilen kabul Azure A
 
 ![Son kullanıcılar, Azure Active Directory ve yayımlanan uygulama arasındaki ilişki](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Yerel uygulamalar yayımlamak için Azure AD kimlik doğrulaması kimlik doğrulaması üstlenir ve çok sayıda istemci ortamlarını destekler, kitaplığını kullanın. Uygulama proxy'si uygun içine [yerel uygulaması Web API'si senaryosu](../develop/authentication-scenarios.md#native-application-to-web-api). 
+Yerel uygulamalar yayımlamak için Azure AD kimlik doğrulaması kimlik doğrulaması üstlenir ve çok sayıda istemci ortamlarını destekler, kitaplığını kullanın. Uygulama proxy'si uygun içine [yerel uygulaması Web API'si senaryosu](../develop/native-app.md). 
 
 Bu makalede uygulama ara sunucusu ve Azure AD kimlik doğrulama kitaplığı ile yerel bir uygulamayı yayımlamak için dört adımlarında size kılavuzluk eder. 
 
@@ -96,6 +96,6 @@ ADAL bu parametrelerle düzenlendikten sonra kullanıcılar kuruluş ağının d
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yerel uygulama akışı hakkında daha fazla bilgi için bkz: [web API'si için yerel uygulama](../develop/authentication-scenarios.md#native-application-to-web-api)
+Yerel uygulama akışı hakkında daha fazla bilgi için bkz: [web API'si için yerel uygulama](../develop/native-app.md)
 
 Ayarlama hakkında bilgi edinin [çoklu oturum açma için uygulama proxy'si](application-proxy-single-sign-on.md)

@@ -2,7 +2,7 @@
 title: Azure SQL Data Sync şema değişikliklerinin çoğaltmayı otomatik hale getirme | Microsoft Docs
 description: Azure SQL Data Sync şema değişikliklerinin çoğaltmayı otomatik hale getirme hakkında bilgi edinin.
 services: sql-database
-ms.date: 06/19/2018
+ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6859784dcb3b3905459e83cfcb7812d7f23ac630
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 6e3f1710d342d97312cfd764726904c1d70ce199
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721866"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035037"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Azure SQL Data Sync şema değişikliklerinin çoğaltmayı otomatik hale getirme
 
@@ -30,7 +30,7 @@ Bu makalede, tüm SQL Data Sync uç noktalar için şema değişiklikleri otomat
 Bu makalede, ALTER TABLE bir şema değişikliği örnek olarak kullanılmıştır, ancak bu çözüm, şema değişikliklerinin diğer türleri için de çalışır.
 
 > [!IMPORTANT]
-> Bu okumanızı öneririz dikkatlice hakkında özellikle bölümleri makalesi [sorun giderme](#troubleshooting) ve [dikkat edilecek diğer noktalar](#other)otomatik şema değişikliği çoğaltmaya uygulamak başlamadan önce Eşitleme ortamınızı. Ayrıca okumanızı öneririz [verileri Eşitle birden fazla Bulut ve şirket içi veritabanında SQL Data Sync ile](sql-database-sync-data.md). Bu makalede açıklanan çözüm bazı veritabanı işlemleri kesilebilir. Bu sorunları gidermek için SQL Server Transact-SQL ve ek etki alanı bilgisini gerekebilir.
+> Bu okumanızı öneririz dikkatlice hakkında özellikle bölümleri makalesi [sorun giderme](#troubleshoot) ve [dikkat edilecek diğer noktalar](#other)otomatik şema değişikliği çoğaltmaya uygulamak başlamadan önce Eşitleme ortamınızı. Ayrıca okumanızı öneririz [verileri Eşitle birden fazla Bulut ve şirket içi veritabanında SQL Data Sync ile](sql-database-sync-data.md). Bu makalede açıklanan çözüm bazı veritabanı işlemleri kesilebilir. Bu sorunları gidermek için SQL Server Transact-SQL ve ek etki alanı bilgisini gerekebilir.
 
 ![Şema değişiklikleri çoğaltmasını otomatikleştirmesi](media/sql-database-update-sync-schema/automate-schema-changes.png)
 

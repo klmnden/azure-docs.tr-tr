@@ -12,48 +12,68 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/21/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: f83ca06843b94aecf44a4e4a58959d35f00532c2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: da8eebb2fc6b87b8916e944495679b45aa34dbf2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125125"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960337"
 ---
-# <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Kapsamlar, izinler ve onay Azure Active Directory v2.0 uç noktası
+# <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>İzinler ve onay Azure Active Directory v2.0 uç noktası
 
-Azure Active Directory (Azure AD) ile tümleştiren uygulamalar, uygulama verilerini nasıl erişebileceğiniz bir denetime kullanıcılara bir yetkilendirme modelini izler. Yetkilendirme modeli v2.0 uygulamasını güncelleştirildi ve bir uygulamayı Azure AD ile nasıl etkileşimde olması değiştirir. Bu makale, kapsamlar, izinler ve onay dahil olmak üzere bu yetkilendirme modeli temel kavramları kapsar.
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
+Microsoft kimlik platformu ile tümleşen uygulamaları, verileri nasıl erişilebileceğini kullanıcıların ve yöneticilerin denetim sağlayan bir yetkilendirme modelini izler. Yetkilendirme modelini uygulamasını v2.0 uç noktada güncelleştirildi ve uygulama Microsoft kimlik platformu ile nasıl etkileşimde olması değiştirir. Bu makale, kapsamlar, izinler ve onay dahil olmak üzere bu yetkilendirme modeli temel kavramları kapsar.
 
 > [!NOTE]
-> V2.0 uç noktası, tüm Azure Active Directory senaryolarını ve özelliklerini desteklemez. V2.0 uç noktası kullanması gerekip gerekmediğini belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
+> V2.0 uç noktası, tüm senaryolar ve Özellikler desteklemez. V2.0 uç noktası kullanması gerekip gerekmediğini belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
 
 ## <a name="scopes-and-permissions"></a>Kapsamlar ve izinleri
 
-Azure AD uygular [OAuth 2.0](active-directory-v2-protocols.md) Yetkilendirme Protokolü. OAuth 2.0, üçüncü taraf bir uygulama bir kullanıcı adına web barındırılan kaynaklara erişebilir bir yöntemdir. Azure AD ile tümleşen bir web barındırılan kaynak bir kaynak tanımlayıcısı olup veya *uygulama kimliği URI'si*. Örneğin, Microsoft'un web bulunan kaynakların bazıları şunlardır:
+Microsoft kimlik platformu uygular [OAuth 2.0](active-directory-v2-protocols.md) Yetkilendirme Protokolü. OAuth 2.0, üçüncü taraf bir uygulama bir kullanıcı adına web barındırılan kaynaklara erişebilir bir yöntemdir. Microsoft kimlik platformu ile tümleşen bir web barındırılan kaynak bir kaynak tanımlayıcısı olup veya *uygulama kimliği URI'si*. Örneğin, Microsoft'un web bulunan kaynakların bazıları şunlardır:
 
-* Office 365 posta API birleşik: `https://outlook.office.com`
-* Azure AD Graph API'si: `https://graph.windows.net`
 * Microsoft Graph: `https://graph.microsoft.com`
+* Office 365 posta API: `https://outlook.office.com`
+* Azure AD Graph: `https://graph.windows.net`
 
-Aynı Azure AD ile tümleşik herhangi bir üçüncü taraf kaynaklar için geçerlidir. Şu kaynaklara, bu kaynağın işlevleri daha küçük öbeklere ayırmak için kullanılan bir izin kümesi de tanımlayabilirsiniz. Örneğin, [Microsoft Graph](https://graph.microsoft.io) Diğerlerinin yanında aşağıdaki görevleri gerçekleştirmek için izinler tanımlanır:
+> [!NOTE]
+> Microsoft Graph kullanmanız Azure AD Graph, Office 365 posta API, vb. yerine öneririz.
+
+Aynı durum Microsoft kimlik platformu ile tümleştirdik herhangi bir üçüncü taraf kaynaklar için geçerlidir. Şu kaynaklara, bu kaynağın işlevleri daha küçük öbeklere ayırmak için kullanılan bir izin kümesi de tanımlayabilirsiniz. Örneğin, [Microsoft Graph](https://graph.microsoft.com) Diğerlerinin yanında aşağıdaki görevleri gerçekleştirmek için izinler tanımlanır:
 
 * Kullanıcının Takvim okuyun
 * Kullanıcının takvim için yazma
 * Bir kullanıcı olarak posta gönderme
 
-Bu tür izinler tanımlayarak, kaynak verileri ve verilerin nasıl sunulduğunu üzerinde ayrıntılı denetime sahiptir. Bir üçüncü taraf uygulama bu izinleri bir uygulama kullanıcıdan isteyebilir. Uygulamanın kullanıcı adına hareket edebilecekleri önce izinleri uygulama kullanıcı tarafından onaylanması gerekir. Daha küçük izin kümeleri kaynağın işlevsellik Öbekleme tarafından üçüncü taraf uygulamaları işlevleri gerçekleştirmek için ihtiyaç duydukları belirli izinleri istemek için oluşturulabilir. Uygulama kullanıcıları tam olarak bir uygulama verilerini nasıl kullanacağını bilmeniz ve uygulama ile kötü amaçlı davranmıyorsa doğrulayabilirse olabilir.
+Bu tür izinler tanımlayarak kaynak verilerini ve API işlevselliğini nasıl sunulduğunu üzerinde ayrıntılı denetime sahiptir. Bir üçüncü taraf uygulaması kullanıcılar ve Yöneticiler, bu izinler isteyebilir kimin önce uygulama isteğini onaylaması veri erişebilir veya bir kullanıcı adına hareket. Daha küçük izin kümeleri kaynağın işlevsellik Öbekleme tarafından üçüncü taraf uygulamaları işlevleri gerçekleştirmek için ihtiyaç duydukları belirli izinleri istemek için oluşturulabilir. Tam olarak hangi verilerin uygulama erişimi olan kullanıcıların ve yöneticilerin bilebilirsiniz ve kötü amaçlı bir eyleme çalışmıyorsa doğrulayabilirse olabilir. Geliştiriciler için yalnızca işlev uygulamalarına ihtiyaç duydukları izinleri isteyen en az ayrıcalık kavramı tarafından her zaman uymanız.
 
-Azure AD'de ve OAuth, bu tür izinler çağrılır *kapsamları*. Bunlar bazen denir *oAuth2Permissions*. Bir kapsam Azure AD'de bir dize değeri temsil edilir. Microsoft Graph örneğiyle devam, her izin için kapsam değerdir:
+OAuth bu tür izinler adlandırılır *kapsamları*. Bunlar çoğunlukla kısaca olarak adlandırılan *izinleri*. Bir izni Microsoft kimlik platformu, dize değeri olarak temsil edilir. Microsoft Graph örneğiyle devam, her izin için dize değeridir:
 
 * Kullanıcının takvim kullanarak okuma `Calendars.Read`
 * Kullanarak bir kullanıcının takvime yazma `Calendars.ReadWrite`
 * Kullanarak bir kullanıcı tarafından olarak posta gönderme `Mail.Send`
 
-Uygulama, v2.0 uç noktasına istek kapsamları belirterek bu izinler isteyebilir.
+Uygulama, v2.0 isteklerinde kapsamları belirterek bu izinleri son noktanın yetkilendirilmesi en yaygın olarak ister. Ancak, bazı yüksek ayrıcalıklı izinlere yalnızca yönetici onayı ve genellikle istenen/verilen kullanılarak verilebilir [yönetici onay uç noktası](v2-permissions-and-consent.md#admin-restricted-scopes). Daha fazla bilgi için okumaya devam edin.
+
+## <a name="permission-types"></a>İzin türleri
+
+Microsoft kimlik platformu destekleyen iki tür izinler: **temsilci izinleri** ve **uygulama izinleri**.
+
+- **Temsilci izinleri** oturum açmış kullanıcı var olan uygulamaları tarafından kullanılır. Bu uygulamalar için kullanıcı veya yönetici izinleri uygulama istekleri ve uygulama olduğunu temsilci atanmış izin, hedef kaynağın çağrı yaparken oturum açmış kullanıcı olarak davranacak şekilde toplanmasına onay verir. Bazı izinleri devralmış yönetici olmayan kullanıcılar tarafından onay, ancak bazı daha yüksek ayrıcalıklı izinlere gerektiren [yönetici onayı](v2-permissions-and-consent.md#admin-restricted-scopes).  
+
+- **Uygulama izinleri** uygulamaları tarafından kullanılan bir oturum açmış kullanıcı mevcut çalıştırın; Örneğin, uygulamaları çalıştıran arka plan Hizmetleri veya daemon'ları olarak.  Uygulama izinleri yalnızca olabilir [bir yönetici tarafından onaylı](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). 
+
+_Geçerli İzinler_ uygulamanızı istekleri hedef kaynağı yaparken sahip olacağı izinler. Hedef kaynak çağrı yaparken yetkilendirilen ve uygulamanızı verilen uygulama izinleri ve etkili izinleri arasındaki farkı anlamak önemlidir.
+
+- Temsilci izinleri için _etkili izinleri_ uygulamanızı app (izni) verilmiş temsilci izinleri en az ayrıcalıklı kesişimi ve şu anda oturum açmış kullanıcının ayrıcalıkları olacaktır. Uygulamanızın ayrıcalıkları hiçbir zaman oturum açmış kullanıcının ayrıcalıklarından fazla olamaz. Kuruluşların içinde, oturum açmış kullanıcının ayrıcalıkları ilkeyle ya da bir veya birden çok yönetici rolü üyeliğiyle belirlenebilir. Yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure Active Directory'de yönetici rolleri atama](../users-groups-roles/directory-assign-admin-roles.md).
+  Örneğin, uygulamanızın verilen varsayın _User.ReadWrite.All_ izin temsilci. Adından da anlaşıldığı gibi bu izin uygulamanıza kuruluştaki her kullanıcının profilini okuma ve güncelleştirme izni verir. Oturum açmış kullanıcının bir genel yönetici olması durumunda, uygulamanız kuruluştaki her kullanıcının profilini güncelleştirebilir. Öte yandan oturum açmış kullanıcı bir yönetici rolünde değilse, uygulamanız yalnızca oturum açmış kullanıcının profilini güncelleştirebilir. Kuruluştaki diğer kullanıcıların profillerini güncelleştiremez çünkü adına çalışma iznine sahip olduğu kullanıcı söz konusu ayrıcalıklara sahip değildir.
+  
+- Uygulama izinleri için _etkili izinleri_ uygulamanızı izinle kapsanan ayrıcalıkları tam düzeyini olacaktır. Örneğin, sahip bir uygulama _User.ReadWrite.All_ uygulama izni, kuruluşunuzdaki her kullanıcının profilini güncelleştirebilirsiniz. 
 
 ## <a name="openid-connect-scopes"></a>Openıd Connect kapsamları
 
@@ -69,7 +89,7 @@ Uygulama oturum açma kullanarak gerçekleştiriyorsa [Openıd Connect](active-d
 
 ### <a name="profile"></a>Profili
 
-`profile` Kapsamı ile kullanılabilir `openid` kapsamı ve diğerleri. Kullanıcı hakkındaki bilgileri önemli miktarda uygulama erişim sağlar. Uygulamaya erişebildiğinizden bilgiler içerir, ancak kullanıcının verilen adı, Soyadı, tercih edilen kullanıcı adı ve nesne kimliği için sınırlı değildir Belirli bir kullanıcı için id_tokens parametresinde kullanılabilir profili talepleri tam bir listesi için bkz. [v2.0 belirteç başvurusu](v2-id-and-access-tokens.md).
+`profile` Kapsamı ile kullanılabilir `openid` kapsamı ve diğerleri. Kullanıcı hakkındaki bilgileri önemli miktarda uygulama erişim sağlar. Uygulamaya erişebildiğinizden bilgiler içerir, ancak kullanıcının verilen adı, Soyadı, tercih edilen kullanıcı adı ve nesne kimliği için sınırlı değildir Belirli bir kullanıcı için id_tokens parametresinde kullanılabilir profili talepleri tam bir listesi için bkz. [ `id_tokens` başvuru](id-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
 
@@ -78,19 +98,6 @@ Uygulama oturum açma kullanarak gerçekleştiriyorsa [Openıd Connect](active-d
 Uygulamanızı değil istemiyorsa `offline_access` kapsamı, yenileme belirteçleri almazsınız. Bunun anlamı bir yetkilendirme kodunda şifrenizi kullandığınızda [OAuth 2.0 yetkilendirme kod akışı](active-directory-v2-protocols.md), yalnızca bir erişim belirteci alırsınız `/token` uç noktası. Erişim belirteci, kısa bir süre için geçerlidir. Erişim belirteci, genellikle bir saat içinde süresi dolar. Noktası, kullanıcı yeniden yönlendirmek uygulamanız gereken en başa `/authorize` yeni bir yetkilendirme kodunu almak için uç nokta. Uygulama türünü bağlı olarak bu yeniden yönlendirme sırasında kullanıcı kimlik bilgilerini yeniden girin veya izinleri yeniden onay gerekebilir.
 
 Alma ve yenileme belirteçleri kullanma hakkında daha fazla bilgi için bkz. [v2.0 protokol başvurusu](active-directory-v2-protocols.md).
-
-## <a name="accessing-v10-resources"></a>V1.0 kaynaklara erişme
-v2.0 uygulama belirteçlerini istemek ve onay v1.0 uygulamalar için (Power BI API gibi `https://analysis.windows.net/powerbi/api` veya Sharepoint API `https://{tenant}.sharepoint.com`).  Bunu yapmak için uygulama URI ve kapsam dizesinde başvurabilirsiniz `scope` parametresi.  Örneğin, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` Powerbı istek `View all Datasets` uygulamanız için izni. 
-
-Birden fazla izin istemek için tüm URI ile bir alanı eklemek veya `+`, örneğin `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Bu hem istekleri `View all Datasets` ve `View all Reports` izinleri.  Tüm Azure AD kapsamları ve izinleri gibi uygulamaları yalnızca bir istek için bir kaynak aynı anda - yapabileceğini lütfen unutmayın böylece istek `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, hem Power BI istekleri `View all Datasets` izne hem de Skype Kurumsal'a `Initiate conversations` izni izinler isteyen iki farklı kaynaklardaki nedeniyle reddedilir.  
-
-### <a name="v10-resources-and-tenancy"></a>V1.0 kaynakları ve kiralama
-V1.0 hem v2.0 Azure AD'ye protokolleri kullanan bir `{tenant}` parametresi katıştırılmış URI'de (`https://login.microsoftonline.com/{tenant}/oauth2/`).  V2.0 uç noktası v1.0 Kurumsal kaynağa erişim için kullanırken `common` ve `consumers` kiracılar kullanılamaz, bu kaynakları yalnızca kuruluş (Azure AD) ile erişilebilir olarak hesaplar.  Bu nedenle, yalnızca Kiracı GUID bu kaynaklara erişirken veya `organizations` olarak kullanılabilir `{tenant}` parametresi.  
-
-Bir uygulama, yanlış bir kiracıyı kullanarak bir kuruluş v1.0 kaynağa erişmeye çalışırsa, aşağıdakine benzer bir hata döndürülür. 
-
-`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
-
 
 ## <a name="requesting-individual-user-consent"></a>Bireysel kullanıcı onay isteme
 
@@ -108,40 +115,51 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
 
-`scope` Parametredir uygulamayı isteyen kapsam boşlukla ayrılmış bir listesi. Her kapsam, kaynak tanımlayıcısı (uygulama kimliği URI'si) için kapsam değeri ekleyerek gösterilir. İstek örnekte, uygulamanın kullanıcının Takvim okuyun ve kullanıcı olarak posta gönderme izni gerekir.
+`scope` Parametre uygulamanın istediği izinleri devralmış boşlukla ayrılmış bir listesi verilmiştir. Her izin, kaynak tanımlayıcısı (uygulama kimliği URI'si) için izin değeri ekleyerek gösterilir. İstek örnekte, uygulamanın kullanıcının Takvim okuyun ve kullanıcı olarak posta gönderme izni gerekir.
 
-Kullanıcı kimlik bilgilerini girdikten sonra v2.0 uç noktası eşleşen bir kayıt için denetler *kullanıcı onayı*. Kullanıcının istenen izinleri birine geçmişte değil etmişse, v2.0 uç noktası istenen izinleri vermek için kullanıcıya sorar.
+Kullanıcı kimlik bilgilerini girdikten sonra v2.0 uç noktası eşleşen bir kayıt için denetler *kullanıcı onayı*. Kullanıcının istenen izinleri birine geçmişte onay verdi değil ya da yöneticinin tüm kuruluş adına bu izinleri seçtiği, v2.0 uç noktası istenen izinleri vermek için kullanıcıya sorar.
 
 ![İş hesabı onayı](./media/v2-permissions-and-consent/work_account_consent.png)
 
-Kullanıcının izni onayladığında, böylece kullanıcının yeniden sonraki hesap oturum açma işlemleri üzerinde onay gerekmez onay kaydedilir.
+Kullanıcı bir izin isteği onayladığında, onay kaydedilir ve kullanıcı yeniden uygulamaya sonraki oturum açma işlemleri üzerinde onay gerekmez.
 
 ## <a name="requesting-consent-for-an-entire-tenant"></a>Tüm bir kiracı için onay isteme
 
-Genellikle, bir kuruluşun bir lisans ya da bir uygulama için bir abonelik satın aldığında kuruluş çalışanlarının uygulamayı tam olarak sağlamak istiyor. Bu işlemin bir parçası, yönetici, uygulamanın adına bir çalışan işlem izin verebilirsiniz. Yönetici, Kiracı genelinde izin verir, kuruluş çalışanları uygulama için bir onay sayfası görmeyeceksiniz.
+Genellikle, bir kuruluşun bir lisans ya da bir uygulama için bir abonelik satın aldığında, kuruluşun tüm üyeleri tarafından kullanılmak üzere uygulama proaktif bir şekilde ayarlamak kuruluş istiyor. Bu işlemin bir parçası, bir yönetici kiracıdaki tüm kullanıcılar adına hareket uygulamaya izin verebilirsiniz. Yönetici, Kiracı genelinde izin verir, kuruluşun kullanıcılar, uygulama için bir onay sayfası görmez.
 
-Bir kiracıdaki tüm kullanıcılar için izin istemek için yönetici onayı uç noktası uygulamanızı kullanabilirsiniz.
+Bir kiracıdaki tüm kullanıcılar için temsilci izinleri izin istemek için yönetici onayı uç noktası uygulamanızı kullanabilirsiniz.
 
-## <a name="admin-restricted-scopes"></a>Admin-kısıtlı kapsamları
+Buna ek olarak, uygulamaların uygulama izinleri istemek için yönetici onayı uç noktası kullanmanız gerekir.
 
-Bazı Microsoft ekosisteminde yüksek ayrıcalıklı izinlere ayarlanabilir *admin-kısıtlı*. Bu tür kapsamları örnekleri aşağıdaki izinler şunlardır:
+## <a name="admin-restricted-permissions"></a>Admin-kısıtlı izinler
 
-* Kullanarak, bir kuruluşun dizin verilerini okuma `Directory.Read`
-* Kullanarak, bir kuruluşun dizine veri yazma `Directory.ReadWrite`
-* Bir kuruluşun Directory'de güvenlik gruplarını kullanarak okuma `Groups.Read.All`
+Bazı Microsoft ekosisteminde yüksek ayrıcalıklı izinlere ayarlanabilir *admin-kısıtlı*. Bu tür izinler örnekleri şunları içerir:
+
+* Kullanarak tüm kullanıcıların tüm profilini okuma `User.Read.All`
+* Kullanarak, bir kuruluşun dizine veri yazma `Directory.ReadWrite.All`
+* Kullanarak, bir kuruluşun dizinindeki tüm grupları okuma `Groups.Read.All`
 
 Bir tüketici kullanıcı verileri bu tür bir uygulama erişimi verebilir olsa da, kurumsal kullanıcılar kümesine hassas şirket verilerinin erişim kısıtlanır. Uygulamanızı erişim bu izinleri birine bir kuruluş kullanıcıdan istemesi durumunda kullanıcı, uygulamanın izinlerini onay yetkiniz yok bildiren bir hata iletisi alır.
 
 Uygulamanızı kuruluşlar için kapsamları admin-kısıtlı erişim gerektiriyorsa bir şirket yöneticisinden doğrudan yönetici onayı sonraki bölümde açıklandığı uç noktası, kullanarak da istemelidir.
 
-Yönetici yönetici onay uç noktası üzerinden bu izin veriyorsa kiracıdaki tüm kullanıcılar için izin verilir.
+Yüksek ayrıcalıklı izinlere temsilci ve yönetici yönetici onay uç noktası aracılığıyla bu izinleri verir. Uygulamanın istediği, kiracıdaki tüm kullanıcılar için izin verilir.
+
+Uygulamanın uygulama izinleri isteyen bir yönetici uç noktası aracılığıyla yönetici bu izinleri kabul veriyorsa, belirli bir kullanıcı adına bu izni yapılmaz. Bunun yerine, istemci uygulama izinleri verilir *doğrudan*. Bu tür İzinler genellikle arka plan programı Services'ı ve arka planda çalışan etkileşimli olmayan diğer uygulamalar tarafından yalnızca kullanılır.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Yönetici onay uç noktası kullanma
 
-Bu adımları izlerseniz, uygulamanızı admin-kısıtlı kapsamlar dahil olmak üzere, bir kiracıdaki tüm kullanıcılar için izinleri toplayabilirsiniz. Adımları uygulayan bir kod örnek görmek için [admin-kısıtlı kapsamları örnek](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
+Şirket Yöneticisi, uygulamanızın kullandığı ve uç noktayı yetkilendirmek için yönlendirilir, Microsoft kimlik platformu kullanıcı rolü algılar ve bunlar için istediğiniz izinleri Kiracı genelinde adına onay isteyip istemediğini isteyin. Ancak, var. Ayrıca proaktif olarak yöneticinin tüm Kiracı adına izin veren istek istiyorsanız kullanabileceğiniz bir adanmış yönetici onay uç noktası Bu uç noktayı kullanarak da (Bu Authorize son noktası kullanarak istenemez) uygulama izinleri istemek için gereklidir.
+
+Bu adımları izlerseniz, uygulamanızı admin-kısıtlı kapsamlar dahil olmak üzere, bir kiracıdaki tüm kullanıcılar için izinler isteyebilir. Bu yüksek ayrıcalıklı bir işlemdir ve yalnızca senaryonuz için gerekirse yapılmalıdır.
+
+Adımları uygulayan bir kod örnek görmek için [admin-kısıtlı kapsamları örnek](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Uygulama kayıt portalında izinlere ilişkin istek
 
+Yönetici onayı bir kapsam parametresi kabul etmiyor, uygulama kaydında izinlerin istenen şekilde statik olarak tanımlanması gerekir. Genel izinler statik olarak belirli bir uygulama için tanımlı bir alt kümesi, dinamik olarak/artımlı olarak isteyen, izinleri olduğundan emin olun en iyi bir uygulamadır.
+
+Bir uygulama için statik olarak istenen izinler listesini yapılandırmak için: 
 1. Uygulamanıza gidin [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya [uygulama oluşturma](quickstart-v2-register-an-app.md) henüz yapmadıysanız.
 2. Bulun **Microsoft Graph izinleri** bölümüne ve ardından uygulamanız için gerekli izinleri ekleyin.
 3. **Kaydet** uygulama kaydı.
@@ -233,3 +251,7 @@ Content-Type: application/json
 HTTP isteklerinde kaynağa erişim belirtecinin kullanabilirsiniz. Güvenilir bir şekilde, kaynağa'nin uygulamanızı belirli bir görevi gerçekleştirmek için uygun izinlere sahip olduğunu gösterir. 
 
 OAuth 2.0 protokolünü ve erişim belirteçlerini almak nasıl hakkında daha fazla bilgi için bkz. [v2.0 uç noktası Protokolü başvurusu](active-directory-v2-protocols.md).
+
+## <a name="troubleshooting"></a>Sorun giderme
+
+Siz veya uygulamanızın kullanıcıları onay işlemi sırasında beklenmeyen hatalar görüyorsanız, lütfen sorun giderme adımları için bu makalede başvuru: [bir uygulama için onay gerçekleştirirken beklenmeyen bir hata](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

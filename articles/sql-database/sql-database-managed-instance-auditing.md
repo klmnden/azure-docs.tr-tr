@@ -8,14 +8,14 @@ ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 09/20/2018
 ms.author: giladm
-ms.openlocfilehash: 7671b49921799e63b01d0eb85e90a8b75b2d5a48
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 3971d6966088ccb19a35ab938408a1c9dc835d3b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544303"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031824"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL veritabanı yönetilen örneği denetimini kullanmaya başlama
 
@@ -104,7 +104,7 @@ Aşağıdaki bölümde, yönetilen Örneğinize denetim yapılandırma açıklan
     Belirtilmezse, `RETENTION_DAYS` 0 (sınırsız bekletme) varsayılandır.
 
     Ek bilgi için:
-    - [Yönetilen örneği, Azure SQL veritabanı ve SQL Server arasındaki farklar denetleme](#subheading-3)
+    - [Yönetilen örneği, Azure SQL veritabanı ve SQL Server arasındaki farklar denetleme](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
     - [SUNUCU DENETİMİ OLUŞTURMA](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER DENETİM](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 

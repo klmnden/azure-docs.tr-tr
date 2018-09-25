@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: f497184b05432d6e32883bb3470f7e4da5fe550f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9941f442ad546155f58967fb3414eb2e7b7c3647
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047194"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973722"
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>REST kullanarak HDInsight üzerinde Hadoop MapReduce işlerle çalışma
 
@@ -141,7 +141,7 @@ HDInsight kümesi üzerinde bir Hadoop MapReduce işlerini çalıştırmak için
 
 6. İş durumunu değiştiği için `SUCCEEDED`, Azure Blob depolama alanından iş sonuçlarını alabilirsiniz. `statusdir` Sorguyla geçirilen parametre içeren çıkış dosyasının konumu. Bu örnekte, konumdur `/example/curl`. Bu adres kümeleri varsayılan depolama alanı tanımlı işlemin çıktısını depolar `/example/curl`.
 
-Liste ve kullanarak bu dosyaları indirmek [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure clı'dan bloblarla çalışma hakkında daha fazla bilgi için bkz. [Azure depolama ile Azure CLI 2.0 kullanarak](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) belge.
+Liste ve kullanarak bu dosyaları indirmek [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure clı'dan bloblarla çalışma hakkında daha fazla bilgi için bkz. [Azure depolama ile Azure CLI kullanarak](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) belge.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 

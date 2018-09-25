@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: e79817ffad139e0a3bcb0ba32b9bc6e5666319d0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3c5084e548bbb72fa38aae8b60aa46fb4d462dca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646765"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990357"
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning deneme hizmeti yapılandırma
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>Genel Bakış
 Azure Machine Learning deneme hizmeti kullanılarak Azure Machine Learning yürütme kendi denemeleri yürütün ve yönetim özellikleri çalıştırmak veri bilimcilerine sağlar. Çevik deneme hızlı yineleme için bir çerçeve sunar. Azure Machine Learning Workbench ile başlaması yerel çalışmalar makinenize ve ayrıca bir kolayca yolu GPU veya çalışan Spark HDInsight kümeleri ile uzak veri bilimi Vm'lerini gibi diğer ortamlara ve genişletilmesini sağlar.
@@ -325,5 +328,5 @@ az ml experiment prepare -c remotevm
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Oluşturma ve Azure Machine Learning'i yükleme](../service/quickstart-installation.md)
+* [Oluşturma ve Azure Machine Learning'i yükleme](quickstart-installation.md)
 * [Model Yönetimi](model-management-overview.md)

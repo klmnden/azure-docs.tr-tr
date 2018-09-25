@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: f72fb6f654b4699214a22a7f96431c605af52f2d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 764c43a382442096a5d130334e54afdc135ba419
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603682"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966695"
 ---
 # <a name="aggregations-in-log-analytics-queries"></a>Log Analytics sorguları toplamaları
 
@@ -37,13 +37,13 @@ Bu makalede, verilerinizi analiz etmek için faydalı teklif Log Analytics sorgu
 Tüm filtreler uygulandıktan sonra sonuç satır sayısı. Aşağıdaki örnek toplam satır sayısı döndürür _Perf_ son 30 dakika tablosundan. Adlı bir sütunu sonuç döndürülmeden *count_* sürece belirli bir ad atayın:
 
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize count()
 ```
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize num_of_records=count() 
@@ -51,7 +51,7 @@ Perf
 
 Bir zaman grafiğini görselleştirme, zaman içinde bir eğilim görmek yararlı olabilir:
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(30m) 
 | summarize count() by bin(TimeGenerated, 5m)
@@ -66,7 +66,7 @@ Bu örnekteki Çıkışta, 5 dakikalık aralıklarla iyileştirilmiş kayıt say
 ### <a name="dcount-dcountif"></a>DCount, dcountif
 Kullanım `dcount` ve `dcountif` belirli bir sütundaki farklı değerleri saymak için. Aşağıdaki sorgu, kaç farklı bilgisayarların sinyal son bir saat içinde gönderilen değerlendirir:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcount(Computer)
@@ -74,7 +74,7 @@ Heartbeat
 
 Sinyal gönderilen Linux bilgisayarları Say kullanın `dcountif`:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcountif(Computer, OSType=="Linux")
@@ -83,7 +83,7 @@ Heartbeat
 ### <a name="evaluating-subgroups"></a>Alt gruplar değerlendiriliyor
 Alt gruplar veri çubuğunda bir sayı veya diğer toplamalar gerçekleştirmek için `by` anahtar sözcüğü. Örneğin, sinyal gönderilen her ülkede ayrı Linux bilgisayarların sayısını saymak için şunu yazın:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry
@@ -100,7 +100,7 @@ Heartbeat
 
 Bile küçük alt grupları verilerinizi analiz etmek için ek sütun adlarına ekleme `by` bölümü. Örneğin, farklı bilgisayarların her ülkenin OSType başına saymak isteyebilirsiniz:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
@@ -112,7 +112,7 @@ Sayısal değerleri değerlendirirken, bir ortak alışkanlıktır bunları orta
 ### <a name="percentile"></a>Yüzdebirlik
 ORTANCA değerini bulmak için kullanmak `percentile` işlevi yüzdelik dilim belirtmek için bir değer ile:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -121,7 +121,7 @@ Perf
 
 Ayrıca, her biri için toplu bir sonuç almak için farklı yüzdebirliklerini belirtebilirsiniz:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -133,7 +133,7 @@ Bu bilgisayar bazı CPU'yu benzer ORTANCA değerlere sahip, ancak bazı ORTANCA 
 ### <a name="variance"></a>Varyans
 Doğrudan bir değerin varyansını değerlendirmek için standart sapma ve varyans yöntemleri kullanın:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -142,7 +142,7 @@ Perf
 
 CPU kullanımı kararlılığını analiz etmek için en iyi yolu ile ORTANCA olan hesaplamayı stdev oluşturmaktır:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(130m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 

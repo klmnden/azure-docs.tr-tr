@@ -2,20 +2,22 @@
 title: Azure SQL veritabanı denetimini kullanmaya başlama | Microsoft Docs
 description: Azure SQL veritabanı denetimi veritabanı olaylarını bir denetim günlüğüne izlemek için kullanın.
 services: sql-database
-author: giladmit
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/10/2018
+author: giladmit
 ms.author: giladm
 ms.reviewer: vanto
-ms.openlocfilehash: 935baf791d9244f2fa4f5be9c02d4778244754de
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: dd1672c0cdae243bf6ff19efa22df66239611b44
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543761"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064189"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bir denetim günlüğüne yazar izler. Ayrıca denetleme:
@@ -98,10 +100,25 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
 11. Denetim ayarlarınızı yapılandırdıktan sonra yeni tehdit algılama özelliğini açmak ve güvenlik uyarıları alacak e-postalar yapılandırın. Tehdit algılama kullandığınızda, olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini etkin uyarılar alırsınız. Daha fazla bilgi için [tehdit algılamayı kullanmaya başlama](sql-database-threat-detection-get-started.md). 
 
 ## <a id="subheading-3"></a>Denetim günlüklerini ve raporları analiz edin
+Denetim günlüklerini Log Analytics'e yazmak isterseniz:
+- Kullanım [Azure portalında](https://portal.azure.com).  İlgili veritabanı açın. Veritabanının üst kısmındaki **denetim** sayfasında **denetim günlüklerini görüntüle**.
+
+    ![Denetim günlüklerini görüntüle](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
+
+- Ardından tıklayarak **OMS'de açın** en üstündeki **Denetim kayıtlarını** sayfa burada özelleştirebilirsiniz zaman aralığını ve arama sorgusu Log Analytics'te günlükleri görünümü açılır.
+
+    ![OMS ile Aç](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+
+- Alternatif olarak, denetim günlüklerini Log Analytics dikey penceresinden de erişebilirsiniz. Log Analytics çalışma alanınızın açın ve altında **genel** bölümünde **günlükleri**. Basit bir sorgu ile gibi başlatın: arama *"SQLSecurityAuditEvents"* denetim görüntülemek üzere günlüğe kaydeder.
+    Buradan ayrıca kullanabileceğiniz [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md) Gelişmiş aramaları, Denetim günlüğü verileri temelinde çalıştırılacak. Log Analytics, tüm iş yüklerinizde ve sunucularınızda milyonlarca kaydı kolayca analiz etmek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı operasyonel içgörüler sunar. OMS Log Analytics arama dili ve komutlar hakkında başka yararlı bilgiler için bkz. [Log Analytics Arama başvurusu](../log-analytics/log-analytics-log-search.md).
+
+Denetim günlükleri Olay Hub'ına yazma seçerseniz:
+- Denetim günlükleri verileri olay hub'ı kullanmak için olayları kullanma ve bir hedef yazmak için bir akış ayarlamanız gerekir. Daha fazla bilgi için [Azure Event Hubs belgeleri](https://docs.microsoft.com/azure/event-hubs/).
+
 Denetim günlükleri bir Azure depolama hesabına yazma seçerseniz, günlükleri görüntülemek için kullanabileceğiniz birkaç yöntem vardır:
 - Denetim günlükleri, Kurulum sırasında seçtiğiniz hesabında toplanır. Denetim günlükleri gibi bir araç kullanarak keşfedebilirsiniz [Azure Depolama Gezgini](http://storageexplorer.com/). Azure depolama alanında, Denetim günlükleri adlı bir kapsayıcı içinde blob dosyaları koleksiyonu olarak kaydedilir **sqldbauditlogs**. Depolama klasörü hiyerarşisi hakkında daha fazla ayrıntı için bkz: adlandırma kuralları ve günlük biçimi, [Blob denetim günlük biçimi başvurusu](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Kullanım [Azure portalında](https://portal.azure.com).  İlgili veritabanı açın. Veritabanının üst kısmındaki **denetim ve tehdit algılama** sayfasında **denetim günlüklerini görüntüle**.
+- Kullanım [Azure portalında](https://portal.azure.com).  İlgili veritabanı açın. Veritabanının üst kısmındaki **denetim** sayfasında **denetim günlüklerini görüntüle**.
 
     ![Gezinti bölmesi][7]
 
@@ -137,16 +154,6 @@ Denetim günlükleri bir Azure depolama hesabına yazma seçerseniz, günlükler
 
      * Kullanım [genişletilmiş olaylar okuyucu](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C# Kitaplığı.
      * [Sorgu genişletilmiş olaylar dosyaları](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) PowerShell kullanarak.
-
-Denetim günlüklerini Log Analytics'e yazmak isterseniz:
-- Log Analytics'te denetim günlüklerini görüntülemek için Log Analytics çalışma alanını açın ve altında **arama ve günlüklerini çözümleme**, tıklayın **günlükleri görüntüleyebilir**. Günlük araması görünümünde tıklatarak başlatabilirsiniz **toplanan tüm verileri**.  
-
-    ![OMS günlük araması](./media/sql-database-auditing-get-started/oms_log_search.png)
-
-   Burada kullandığınız [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md) Gelişmiş aramaları, Denetim günlüğü verileri temelinde çalıştırılacak. Log Analytics, milyonlarca kayıt tüm iş yüklerinizde ve sunucularınızda arasında kolayca analiz etmek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı operasyonel içgörüler sunar. OMS Log Analytics arama dili ve komutlar hakkında başka yararlı bilgiler için bkz. [Log Analytics Arama başvurusu](../log-analytics/log-analytics-log-search.md).
-
-Denetim günlükleri Olay Hub'ına yazma seçerseniz:
-- Denetim günlükleri verileri olay hub'ı kullanmak için olayları kullanma ve bir hedef yazmak için bir akış ayarlamanız gerekir. Daha fazla bilgi için [Azure Event Hubs belgeleri](https://docs.microsoft.com/azure/event-hubs/).
 
 ## <a id="subheading-5"></a>Üretim uygulamaları
 <!--The description in this section refers to preceding screen captures.-->
@@ -210,16 +217,16 @@ Bir komut dosyası örneği için bkz [PowerShell kullanarak denetim ve tehdit a
 
 **REST API - Blob denetimi**:
 
-* [Denetim İlkesi veritabanı Blob güncelle](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate)
-* [Sunucu Blob denetimi İlkesi güncelle](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
-* [Denetim İlkesi veritabanı Blob alma](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
-* [Sunucu Blob denetimi ilkesi alma](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
+* [Denetim İlkesi veritabanı Blob güncelle](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+* [Sunucu Blob denetimi İlkesi güncelle](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+* [Denetim İlkesi veritabanı Blob alma](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+* [Sunucu Blob denetimi ilkesi alma](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Burada yan tümcesi destek ek filtreleme ile genişletilmiş İlkesi:
-* [Oluşturma veya güncelleştirme veritabanı *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-* [Oluşturma veya güncelleştirme sunucusu *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
-* [Veritabanı Al *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
-* [Sunucu Al *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
+* [Oluşturma veya güncelleştirme veritabanı *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [Oluşturma veya güncelleştirme sunucusu *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [Veritabanı Al *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [Sunucu Al *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

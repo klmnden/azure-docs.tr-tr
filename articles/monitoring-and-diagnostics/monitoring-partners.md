@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/08/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: b21afecc27f1550cf557305ef069278ed66acaf0
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3a15cfeb39cea31a24d27fd8b350d7e8a6696f31
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005326"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955376"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure İzleyici iş ortağı tümleştirmeleri
 | İş Ortakları |  |  |
@@ -21,8 +21,8 @@ ms.locfileid: "40005326"
 | [**AlertLogic**<br/>![ortak logosu][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![ortak logosu][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**<br/>![ortak logosu][atlassian-logo]][atlassian-anchor] 
 | [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![ortak logosu][circonus-logo]][circonus-anchor]  | [**CloudHealth**<br/>![ortak logosu][cloudhealth-logo]][cloudhealth-anchor] 
 | [**CloudMonix** <br/> ![ortak logosu][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![ortak logosu][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![ortak logosu][datadog-logo]][datadog-anchor] 
-| [**Dynatrace** <br/> ![ortak logosu][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![ortak logosu][grafana-logo]][grafana-anchor] | [**Mantıksal İzleyici**<br/>![ortak logosu][logicmonitor-logo]][logicmonitor-anchor] 
-| [**Moogsoft**<br/>![ortak logosu][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![ortak logosu][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![ortak logosu][opsgenie-logo]][opsgenie-anchor] 
+| [**Dynatrace** <br/> ![ortak logosu][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![ortak logosu][grafana-logo]][grafana-anchor] | [**Influxdata**<br/>![ortak logosu][influxdata-logo]][influxdata-anchor]
+| [**Mantıksal İzleyici**<br/>![ortak logosu][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![ortak logosu][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![ortak logosu][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![ortak logosu][opsgenie-logo]][opsgenie-anchor] 
 | [**PagerDuty**<br/>![ortak logosu][pagerduty-logo]][pagerduty-anchor] | [**QRadar**<br/>![ortak logosu][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![ortak logosu][sciencelogic-logo]][sciencelogic-anchor] 
 | [**SignalFx**<br/>![ortak logosu][signalfx-logo]<br/>][signalfx-anchor] | [**Sıgnl4**<br/>![ortak logosu][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
 | [**Splunk** <br/> ![ortak logosu][splunk-logo]][splunk-anchor] | [**Sumo mantığı**<br/>![ortak logosu][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![ortak logosu][turbonomic-logo]][turbonomic-anchor] 
@@ -82,6 +82,12 @@ Grafana, zaman serisi ölçüm verileri görselleştirmenize olanak sağlayan bi
 
 [Belgelerine gidin.][grafana-doc]
 
+## <a name="influxdata"></a>InfluxData
+InfluxData, InfluxDB, oluşturan, modern bir açık kaynak ölçümleri ve olayları (zaman serisi verilerini) DevOps ve IOT uygulamaları için analiz için baştan yerleşik platformu sunar. Veri insanlar, algılayıcılar ya da makineleri gelmediğini InfluxData geliştiriciler için tasarlanan yeni nesil yapı izleme, analiz ve IOT uygulamaları daha hızlı, kolay ve hızlı bir şekilde gerçek iş değer sunmaya ölçek güçlendirir. San Francisco içinde InfluxData's göre birden fazla 420 müşteriler Cisco, eBay, IBM ve Siemens içerir.
+
+[Belgelerine gidin.][influxdata-doc]
+
+
 ## <a name="logic-monitor"></a>Mantıksal İzleyicisi
 LogicMonitor® izleme platformu karmaşık BT altyapısı için önde gelen SaaS tabanlı performans ' dir. Teknolojileri binlerce kapsamı ile LogicMonitor altyapı ve uygulama performansını ayrıntılı görünürlük sağlar. LM bulutun kapsamlı Azure izleme, kullanıcıların Azure bulut, şirket içi ve karma bulut kaynaklardan--tümü tek bir platform performansını ilişkilendirmenize olanak tanır. Otomatik kaynak bulma oluşturulan şablonlarını, izleme, uyarı eşiklerini önceden yapılandırılmış ve özelleştirilebilen panolarla birleştirmek vermek için BT başarılı olması için gerekli hızı, esneklik ve görünürlük.
 
@@ -94,7 +100,10 @@ Microsoft Azure Otomasyonu ve denetimi araçları, Azure'daki dağıtılmış mi
 
 Moogsoft AIOps mevcut işlemlerini ve organizasyon yapısını değiştirmeden olay için düzeltme iş akışı otomatikleştirir. 
 
-Moogsoft tümleştirmesi sayesinde Azure, gerçek boyutunuzu, izleme ve Otomasyon araçları hibrit yapısı çalışır. Etkin bir şekilde uygulama etkileyen olayları daha önce algılar, dinamik olarak bunları durumu uyumlu hale getirmek için uygun kaynakların düzenler ve ortalama düzeltme süresi ve müşteri deneyimini olumsuz etkisini azaltır. 
+Moogsoft tümleştirmesi sayesinde Azure, gerçek boyutunuzu, izleme ve Otomasyon araçları hibrit yapısı çalışır. Moogsoft 
+ - etkin bir şekilde uygulama etkileyen olayları daha önce algılar 
+ - bunları durumu uyumlu hale getirmek için uygun kaynakların dinamik olarak düzenler 
+ - Müşteri Deneyimini olumsuz etkisi ve ortalama düzeltme süresi azaltır. 
 
 [Belgelerine gidin.][moogsoft-doc]
 
@@ -107,7 +116,7 @@ OpsGenie, Azure tarafından oluşturulan uyarılar için bir dağıtıcı olarak
 [Belgelerine gidin.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-PagerDuty, önde gelen bir olay Yönetimi çözümüyle, ölçümlere ilişkin Azure uyarıları için birinci sınıf destek sağlamıştır. PagerDuty bildirimleri Azure uyarıları izleme, otomatik ölçeklendirme bildirimleri, Denetim günlüğü olaylarını ve Azure Hizmetleri için platform düzeyi ölçümleri destekliyor. Azure platformu çekirdek görünürlük artırılmış Bu geliştirmeler sağlar. PagerDuty'nın Olay yönetimi özellikleri için gerçek zamanlı yanıt tam avantajlarından yararlanabilirsiniz. Genişletilmiş Azure tümleştirmesi, Web kancaları gerçekleştirilir. Web kancaları, ayarlamak ve hızlı ve kolay bir şekilde çözümü özelleştirmek olanak sağlar.
+PagerDuty, önde gelen bir olay Yönetimi çözümüyle, ölçümlere ilişkin Azure uyarıları için birinci sınıf destek sağlamıştır. PagerDuty bildirimleri Azure İzleyici uyarıları, otomatik ölçeklendirme bildirimleri, etkinlik günlüğü olayları ve Azure Hizmetleri için platform düzeyi ölçümleri destekliyor. Azure platformu çekirdek görünürlük artırılmış Bu geliştirmeler sağlar. PagerDuty'nın Olay yönetimi özellikleri için gerçek zamanlı yanıt tam avantajlarından yararlanabilirsiniz. Genişletilmiş Azure tümleştirmesi, Web kancaları gerçekleştirilir. Web kancaları, ayarlamak ve hızlı ve kolay bir şekilde çözümü özelleştirmek olanak sağlar.
 
 [Belgelerine gidin.][pagerduty-doc]
 
@@ -144,7 +153,7 @@ Sumo mantıksal bir güvenli ve buluta özgü makine veri analizi yığını ve 
 [Daha fazla bilgi edinin.][sumologic-doc]
 
 ## <a name="turbonomic"></a>Turbonomic
-Turbonomic, performansı, maliyeti ve uyumluluğu gerçek zamanlı bir şekilde ve aynı anda en iyi hale getirerek hibrit bulutlarda iş yükü otomatikleştirmesi sağlar. Turbonomic yardımcı kuruluşlar Azure, Emlak Emlak uygulamaları sürekli olarak kendi SLA'sı ve hiçbir şey arasında daha fazla sunmak için gereksinim duydukları kaynakları alma emin olmak için sürekli olarak iyileştirerek elastik bilgi işlem, depolama ve ağ Iaas ve PaaS Katman. Kuruluşlar geçiş benzetimi, düzgün bir şekilde iş yükleri ölçeklendirmek ve depoladığımız Azure zamanı ve Bütçeyi için hem performans hem de uyumluluk aşmadan veri merkezi kaynakları kullanımdan. Turbonomic API tabanlıdır ve Azure ile şirket içi ortamda aracısız bir sanal makine olarak çalışır.
+Turbonomic, performansı, maliyeti ve uyumluluğu gerçek zamanlı bir şekilde ve aynı anda en iyi hale getirerek hibrit bulutlarda iş yükü otomatikleştirmesi sağlar. Turbonomic, kuruluşların kendi Azure Emlak Emlak uygulamaları sürekli Iaas ve PaaS için kendi SLA'sı ve hiçbir şey daha fazla işlem, depolama ve ağ üzerinden teslim etmek için gereksinim duydukları kaynakları alma emin olmak için sürekli olarak iyileştirerek esnek olması yardımcı olur Katman. Kuruluşlar geçiş benzetimi, düzgün bir şekilde iş yükleri ölçeklendirmek ve depoladığımız Azure zamanı ve Bütçeyi için hem performans hem de uyumluluk aşmadan veri merkezi kaynakları kullanımdan. Turbonomic API tabanlıdır ve Azure ile şirket içi ortamda aracısız bir sanal makine olarak çalışır.
 
 [Daha fazla bilgi edinin.][turbonomic-doc]
 
@@ -168,6 +177,7 @@ Turbonomic, performansı, maliyeti ve uyumluluğu gerçek zamanlı bir şekilde 
 [dynatrace-anchor]: #dynatrace "Dynatrace"
 [newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
+[influxdata-anchor]: #Influxdata "Influxdata"
 [logicmonitor-anchor]: #logic-monitor "Mantıksal İzleyicisi"
 [moogsoft-anchor]: #moogsoft "Moogsoft"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
@@ -193,6 +203,7 @@ Turbonomic, performansı, maliyeti ve uyumluluğu gerçek zamanlı bir şekilde 
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
 [newrelic-logo]: ./media/partner-logos/newrelic.png
 [grafana-logo]: ./media/partner-logos/grafana.png
+[influxdata-logo]: ./media/partner-logos/influxdata.png
 [logicmonitor-logo]: ./media/partner-logos/logicmonitor.png
 [moogsoft-logo]: ./media/partner-logos/moogsoft.png
 [opsgenie-logo]: ./media/partner-logos/opsgenie.png
@@ -217,6 +228,7 @@ Turbonomic, performansı, maliyeti ve uyumluluğu gerçek zamanlı bir şekilde 
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog belgeleri."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace belgeleri."
 [grafana-doc]: ./monitor-send-to-grafana.md "Azure İzleyici Grafana tümleştirmesi."
+[influxdata-doc]: ./metrics-store-custom-linux-telegraf.md "Azure İzleyici Influxdata Telegraf tümleştirmesi."
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Mantıksal İzleyici belgeleri."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft belgeleri."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic belgeleri."

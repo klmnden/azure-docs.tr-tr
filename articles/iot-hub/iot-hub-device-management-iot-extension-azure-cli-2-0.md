@@ -1,6 +1,6 @@
 ---
-title: Azure IOT cihaz yönetimi ile IOT uzantısı için Azure CLI 2.0 | Microsoft Docs
-description: IOT uzantısı için doğrudan yöntemleri ve İkizinin istenen özellikleri yönetim seçenekleri, Azure IOT Hub cihaz yönetimi için Azure CLI 2.0 aracını kullanın.
+title: Azure IOT cihaz yönetimi ile IOT uzantısı için Azure CLI | Microsoft Docs
+description: IOT uzantısı için doğrudan yöntemleri ve İkizinin istenen özellikleri yönetim seçenekleri, Azure IOT Hub cihaz yönetimi için Azure CLI aracını kullanın.
 author: chrissie926
 manager: ''
 keywords: Azure IOT cihaz yönetimi, azure IOT hub cihaz yönetimi, cihaz Yönetimi IOT, IOT hub cihaz Yönetimi
@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: dc96e70a031d6080217e71b829ec5de3c64e4cf7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e36b8a680f0dc5bf6b438ab00620d4f2a5b9770c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971763"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980602"
 ---
-# <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>IOT uzantısı, Azure CLI 2.0 için Azure IOT Hub cihaz yönetimi için kullanın.
+# <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>IOT uzantısı, Azure CLI için Azure IOT Hub cihaz yönetimi için kullanın.
 
 ![Uçtan uca diyagramı](media/iot-hub-get-started-e2e-diagram/2.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure CLI 2.0 için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) yeni açık kaynak özelliklerini ekler IOT uzantısı [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Azure CLI 2.0, Azure resource manager ve yönetim uç noktaları ile etkileşime yönelik komutlar içerir. Örneğin, bir Azure VM veya IOT hub'ı oluşturmak için Azure CLI 2.0 kullanabilirsiniz. CLI uzantısı, Azure CLI, ek hizmete özgü özellikler erişmenize olanak tanır genişletmek bir Azure hizmeti sağlar. IOT uzantısı IOT geliştiriciler, tüm IOT Hub, IOT Edge ve IOT Hub cihazı sağlama hizmeti özellikleri için komut satırı erişmenizi sağlar.
+[Azure CLI için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) yeni açık kaynak özelliklerini ekler IOT uzantısı [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Azure CLI, Azure resource manager ve yönetim uç noktaları ile etkileşime yönelik komutlar içerir. Örneğin, bir Azure VM veya IOT hub'ı oluşturmak için Azure CLI'yı kullanabilirsiniz. CLI uzantısı, Azure CLI, ek hizmete özgü özellikler erişmenize olanak tanır genişletmek bir Azure hizmeti sağlar. IOT uzantısı IOT geliştiriciler, tüm IOT Hub, IOT Edge ve IOT Hub cihazı sağlama hizmeti özellikleri için komut satırı erişmenizi sağlar.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -41,11 +41,11 @@ Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve ko
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
-Geliştirme makinenizde çeşitli yönetim seçenekleri ile Azure CLI 2.0 için IOT uzantısı kullanarak bilgi edinin.
+Geliştirme makinenizde çeşitli yönetim seçenekleri ile Azure CLI için IOT uzantısı kullanarak bilgi edinin.
 
 ## <a name="what-you-do"></a>Neler
 
-Azure CLI 2.0 ve IOT uzantısını Azure CLI 2.0 için çeşitli yönetim seçenekler ile Çalıştır.
+Azure CLI ve IOT uzantısını Azure CLI için çeşitli yönetim seçenekler ile Çalıştır.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
@@ -57,9 +57,7 @@ Azure CLI 2.0 ve IOT uzantısını Azure CLI 2.0 için çeşitli yönetim seçen
 - Cihazınız, Bu öğretici sırasında istemci uygulaması ile çalıştığından emin olun.
 
 - [Python 2.7x veya Python 3.x](https://www.python.org/downloads/)
-
-- Azure CLI 2.0 yükleyin. Windows’a yüklemenin kolay bir yolu, [MSI](https://aka.ms/InstallAzureCliWindows) indirip yüklemektir. Ayrıca yükleme yönergeleri izleyebilirsiniz [Microsoft Docs](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ortamınızda Azure CLI 2.0 Kurulumu için. Azure CLI 2.0 sürümünüz en az 2.0.24 veya üzerinde olmalıdır. Doğrulamak için `az –version` kullanın. 
-
+- Azure CLI. Yüklemeniz gerekiyorsa bkz [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). En az 2.0.24 Azure CLI sürümünüzü olmalıdır veya üzeri. Doğrulamak için `az –version` kullanın. 
 - IOT uzantısını yükleyin. En basit yol `az extension add --name azure-cli-iot-ext` komutunu çalıştırmaktır. [IoT uzantısı benioku](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) dosyası, uzantıyı yüklemenin birkaç yolunu açıklar.
 
 

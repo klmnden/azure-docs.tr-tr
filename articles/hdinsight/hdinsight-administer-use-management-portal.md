@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7b39724c3d382637a048dc4fb9a3436ac1dbeae8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 130f684b69a9cfa1936c2a9aa5175f3d5a7631ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108033"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970286"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak HDInsight Windows tabanlı bir Hadoop kümelerini yönetme
 
@@ -207,7 +207,7 @@ Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. 
 
 * Kullanıcı Azure veri fabrikası. Bkz: [Azure HDInsight bağlı hizmeti](../data-factory/compute-linked-services.md) ve [dönüştürmek ve Azure Data Factory kullanarak çözümlemek](../data-factory/transform-data.md) Hizmetleri için isteğe bağlı hem de şirket içinde tanımlanan HDInsight bağlı.
 * Azure PowerShell kullanın.  Bkz: [uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md).
-* Azure CLI kullanın. Bkz: [yönetme HDInsight kümeleri Azure CLI kullanarak](hdinsight-administer-use-command-line.md).
+* Klasik Azure CLI'yi kullanın. Bkz: [yönetme HDInsight kümeleri Klasik Azure CLI kullanarak](hdinsight-administer-use-command-line.md).
 * HDInsight .NET SDK'sını kullanın. Bkz: [gönderme Hadoop işlerini](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Fiyatlandırma bilgileri için bkz. [HDInsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/). Portaldan bir kümeyi silmek için bkz: [küme silme](#delete-clusters)
@@ -364,7 +364,7 @@ Uzak Masaüstü'nü kullanarak kümeye bağlanın ve Hadoop komut satırında ku
 Bu makalede, portalı kullanarak bir HDInsight kümesi oluşturma ve Hadoop komut satırı aracını açmak nasıl öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Azure PowerShell kullanarak HDInsight'ı yönetme](hdinsight-administer-use-powershell.md)
-* [Azure CLI kullanarak HDInsight'ı yönetme](hdinsight-administer-use-command-line.md)
+* [Klasik Azure CLI kullanarak HDInsight'ı yönetme](hdinsight-administer-use-command-line.md)
 * [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md)
 * [Program aracılığıyla Hadoop işlerini gönderme](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Azure HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md)

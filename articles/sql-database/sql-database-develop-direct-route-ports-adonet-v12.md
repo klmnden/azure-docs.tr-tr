@@ -2,19 +2,22 @@
 title: SQL veritabanı için 1433 dışındaki bağlantı noktaları | Microsoft Docs
 description: Azure SQL veritabanı için ADO.NET'ten istemci bağlantılarını, proxy sunucusunu atlamak ve doğrudan 1433 dışındaki bağlantı noktaları kullanarak veritabanıyla etkileşim.
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: MightyPen
+ms.author: genemi
+ms.reviewer: sstein
+manager: craigg
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: e01de4e25285bfac533ae35380b4264fd422906b
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 560d96b188a02f8df0d41b040c90db9b813e3c0a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631812"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063260"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5 için 1433 dışındaki bağlantı noktaları
 Bu konuda, ADO.NET 4.5 veya sonraki bir sürümünü kullanan istemciler için Azure SQL veritabanı bağlantı davranışları açıklanmaktadır. 

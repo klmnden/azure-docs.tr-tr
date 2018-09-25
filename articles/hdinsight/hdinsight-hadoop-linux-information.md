@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 0b22e51814f79b00257433a7e601349ad25cd2b7
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d725bbe31de0f93d1b741ffd008bf39086904b61
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104309"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997514"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux’ta HDInsight kullanma ile ilgili bilgiler
 
@@ -29,7 +29,7 @@ Bu belgedeki adımlarda birçoğu, sisteminizde yüklü olması gereken aşağı
 
 * [cURL](https://curl.haxx.se/) - web tabanlı hizmetler ile iletişim kurmak için kullanılır
 * [jq](https://stedolan.github.io/jq/) - JSON belgelerini ayrıştırmak için kullanılır
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) - uzaktan Azure hizmetlerini yönetmek için kullanılır
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) - uzaktan Azure hizmetlerini yönetmek için kullanılır
 
 ## <a name="users"></a>Kullanıcılar
 
@@ -55,7 +55,7 @@ Bu komut service açıklayan bir JSON belgesini döndürür ve ardından jq yaln
 
 ## <a name="remote-access-to-services"></a>Uzaktan Erişim Hizmetleri
 
-* **Ambari (web)** -https://&lt;clustername >. azurehdinsight.net
+* **Ambari (web)** - https://&lt;clustername >. azurehdinsight.net
 
     Küme Yöneticisi kullanıcı adı ve parola kullanarak kimlik doğrulaması ve Ambari için oturum açın.
 
@@ -66,14 +66,14 @@ Bu komut service açıklayan bir JSON belgesini döndürür ve ardından jq yaln
     >
     > Ambari web kullanıcı Arabirimi tam işlevselliğini kullanmak için bir SSH tüneli küme baş düğümü için proxy web trafiği için kullanın. Bkz: [kullanım Ambari web kullanıcı Arabirimi, ResourceManager, JobHistory, NameNode, Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** -https://&lt;clustername >.azurehdinsight.net/ambari
+* **Ambari (REST)** - https://&lt;clustername >.azurehdinsight.net/ambari
 
     > [!NOTE]
     > Küme Yöneticisi kullanıcı adı ve parola kullanarak kimlik doğrulaması.
     >
     > Düz metin kimlik doğrulama - bağlantının güvenli olduğundan emin olmak için her zaman HTTPS kullanın.
 
-* **WebHCat (templeton olarak da)** -https://&lt;clustername >.azurehdinsight.net/templeton
+* **WebHCat (templeton olarak da)** - https://&lt;clustername >.azurehdinsight.net/templeton
 
     > [!NOTE]
     > Küme Yöneticisi kullanıcı adı ve parola kullanarak kimlik doğrulaması.
@@ -176,7 +176,7 @@ HDInsight küme dışından verileri erişmek için bir çeşitli yolları vard�
 
 Kullanıyorsanız __Azure depolama__, verilerinize erişebilirsiniz yolları için aşağıdaki bağlantılara bakın:
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2): komut satırı arabirimi, Azure ile çalışmak için komutları. Yükledikten sonra `az storage` depolama kullanma hakkında Yardım için komut veya `az storage blob` blob özgü komutlar için.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): komut satırı arabirimi, Azure ile çalışmak için komutları. Yükledikten sonra `az storage` depolama kullanma hakkında Yardım için komut veya `az storage blob` blob özgü komutlar için.
 * [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): bir python betiği Azure depolama blobları ile çalışmak için.
 * Çeşitli SDK'lar:
 
@@ -192,7 +192,7 @@ Kullanıyorsanız __Azure Data Lake Store__, verilerinize erişebilirsiniz yolla
 
 * [Web tarayıcısı](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [Azure CLI 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
+* [Azure CLI](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Visual Studio için Data Lake araçları](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 62c171381201f3cedee869aba301859a7047f5ce
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294926"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032997"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı dağıtma
 
@@ -49,7 +49,7 @@ Başarılı bir şekilde bir runbook worker dağıtımından sonra gözden [bir 
 
 Yükleme ve yapılandırma Windows karma çalışan rolünün otomatik hale getirmek için aşağıdaki adımları gerçekleştirin:
 
-1. New-OnPremiseHybridWorker.ps1 betiği indirin [PowerShell Galerisi](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript) doğrudan karma Runbook çalışanı rolünü çalıştıran bilgisayar veya başka bir bilgisayardan ortamınızdaki. Çalışana betiği kopyalayın.
+1. New-OnPremiseHybridWorker.ps1 betiği indirin [PowerShell Galerisi](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) doğrudan karma Runbook çalışanı rolünü çalıştıran bilgisayar veya başka bir bilgisayardan ortamınızdaki. Çalışana betiği kopyalayın.
 
    New-OnPremiseHybridWorker.ps1 betik yürütme sırasında için aşağıdaki parametreler gereklidir:
 

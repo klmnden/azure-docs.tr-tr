@@ -2,19 +2,22 @@
 title: Azure SQL veritabanı Gelişmiş tehdit koruması - | Microsoft Docs
 description: Bulma ve hassas verileri sınıflandırmak, veritabanı güvenlik açıklarını yönetmeye ve Azure SQL veritabanınız için tehdit oluşturabilecek anormal etkinlikleri algılamaya ilişkin işlevler konusunda bilgi edinin.
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
+ms.subservice: threat-protection
+ms.custom: security
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/17/2018
+author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
-ms.openlocfilehash: 350f43dcb15062b4d44fc537e664b257f77d8e88
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+manager: craigg
+ms.date: 05/17/2018
+ms.openlocfilehash: 90d0784a33b3b80a5b2c78bf4b22dac5654b1450
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497833"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063923"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL veritabanı için Gelişmiş tehdit koruması
 

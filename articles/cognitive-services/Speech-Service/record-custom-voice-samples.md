@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 31bfe954a58d232408fd66a1f98911e079824fb0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3e9907450680d6984a644b43014ba90b1a9d987e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715219"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991938"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Özel ses oluşturma kayıt ses örnekleri
 
@@ -105,11 +105,11 @@ Neyse ki, bu sorunları tamamen önlemek mümkündür. Metin izni veya lisans ku
 
 |Metin kaynak|Açıklama|
 |-|-|
-|[CMU kutup gövde](http://festvox.org/cmu_arctic/)|Yaklaşık 1.100 cümleler çıkış, telif hakkı works konuşma sentezi projelerinde kullanılmak üzere özel olarak seçilir. Harika bir başlangıç noktası.|
-|Artık çalışır<br>Telif hakkı altında|Genellikle, önce 1923 works yayımladı. İngilizce, [proje Gutenberg](https://www.gutenberg.org/) on binlerce gibi çalışır sunar. Dil modern İngilizce'ye yakın olması gerektiğinden yeni çalışır, odaklanmak isteyebilirsiniz.|
+|[CMU kutup gövde](http://festvox.org/cmu_arctic/)|Yaklaşık 1100 cümleler çıkış, telif hakkı works konuşma sentezi projelerinde kullanılmak üzere özel olarak seçilir. Harika bir başlangıç noktası.|
+|Artık çalışır<br>Telif hakkı altında|Genellikle works önce 1923 yayımladı. İngilizce, [proje Gutenberg](https://www.gutenberg.org/) on binlerce gibi çalışır sunar. Yeni çalışır, dil için modern İngilizce yakın olarak odaklanmak isteyebilirsiniz.|
 |Kamu&nbsp;çalışır|Kamu diğer ülkelerde telif hakkı talep ancak ABD hükümeti tarafından oluşturulan çalışır Amerika Birleşik Devletleri'nde telif hakkı vardır değil.|
 |Genel etki alanı|Hangi telif hakkı açıkça elverişlilik veya Works ortak etki alanı için ayrılmış. (Bu tamamen bazı telif hakkı ayları mümkün olmayabilir.)|
-|Permissively lisanslı çalışır|Creative Commons veya GNU ücretsiz belgeleri lisans (GFDL) gibi bir lisans altında dağıtılan çalışır. Wikipedia GFDL kullanır. Bazı lisansları, ancak bir özel sesli modeli oluşturulmasını etkileyebilecek lisanslı içerik performansının kısıtlamalar oluşturabileceğini şekilde okuyun lisans dikkatli bir şekilde.|
+|Permissively lisanslı çalışır|Creative Commons veya GNU ücretsiz belgeleri lisans (GFDL) gibi bir lisans altında dağıtılan çalışır. Wikipedia GFDL kullanır. Bazı lisans ancak bir özel sesli modeli oluşturulmasını etkileyebilecek lisanslı içerik performansının kısıtlamaları dayatır şekilde okuyun lisans dikkatli bir şekilde.|
 
 ## <a name="recording-your-script"></a>Betiğinizi kaydetme
 
@@ -150,7 +150,7 @@ Burada, çoğu (yükseklik) aralığının kullanılmaktadır, ancak üst veya a
 
 Kayıt yüksek kaliteli ses arabirimi ya da bir USB bağlantı noktası'nı kullanarak bilgisayara doğrudan bağlı olarak MIC kullanmakta olduğunuz. Ses zinciri analog için basit tutun: MIC, preamp, ses arabirimi, bilgisayar. Her ikisi de lisans [Avid uzmanı araçlarını](http://www.avid.com/en/pro-tools) ve [Adobe Audition](https://www.adobe.com/products/audition.html) makul bir ücret ödemeden aylık. Bütçenizi çok sıkı olması durumunda, ücretsiz olarak deneyin [Audacity](https://www.audacityteam.org/).
 
-44.1 KHz 16-bit monophonic (CD kalite) kaydettiğinizden ya da daha iyi. Geçerli teknoloji 48-KHz 24-bit donanımınızı destekliyorsa. Özel ses portala göndermeden önce alt örnekleyin ses 16 KHz 16 bit olur. Yine de düzenlemeleri gereken olay, bir yüksek kaliteli özgün kaydı öder.
+44,1 kHz 16 bit monophonic (CD kalitede) kaydettiğinizden ya da daha iyi. Geçerli durumu-ürünü 48 kHz 24 bit ise donanımınızın da destekler. Aşağı ses 16 kHz 16 bit için özel sesli portala göndermeden önce örnek. Yine de düzenlemeleri gerekli olayda bir yüksek kaliteli özgün kaydı öder.
 
 İdeal olarak, Hizmet Yöneticisi, mühendislik ve beceri rollerinde farklı kişilerin sahip. Bunu yapmanın çalışmayın tüm bunları kendiniz. Bir tabletinizde tek bir kişi hem Direktörü hem de mühendisi olabilir.
 
@@ -198,7 +198,7 @@ Normal sonları alabilir ve kendi ses iyi durumda tutmak, sesli yetenek sağlaya
 
 ### <a name="after-the-session"></a>Sonra oturumu
 
-Modern kaydı studios bilgisayarlarda çalıştırın. Oturum sonunda, bir veya daha fazla ses dosyaları, bir bant alırsınız. Bu dosyalar, büyük olasılıkla CD kalite (44,1 KHz 16-bit) ya da WAV AIFF biçiminde olması veya daha yüksek. Sık kullanılan ve istenen 48 kHz 24 bit. 96 KHz gibi daha yüksek bir örnekleme oranı genellikle gerekli değildir.
+Modern kaydı studios bilgisayarlarda çalıştırın. Oturum sonunda, bir veya daha fazla ses dosyaları, bir bant alırsınız. Bu dosyalar, büyük olasılıkla CD kalite (44,1 kHz 16-bit) ya da WAV AIFF biçiminde olması veya daha yüksek. Sık kullanılan ve istenen 48 kHz 24 bit. 96 kHz gibi daha yüksek bir örnekleme oranı genellikle gerekli değildir.
 
 Özel ses portal her sağlanan utterance kendi dosyasında olmasını gerektiriyor. Birden çok konuşma studio tarafından sunulan her bir ses dosyası içerir. Bu nedenle birincil üretim sonrası bölme kayıtlarını ve bunları gönderimi için hazırlamak için bir görevdir. Kayıt mühendisi'ü işaretçileri dosyasına yerleştirilir (veya ayrı işaret liste sağlanmıştır) her utterance başladığı belirtmek için.
 
@@ -208,7 +208,7 @@ Sessizlik başlangıcına ve sonuna ilk dışında her küçük yalnızca yakla�
 
 Her dosya için dikkatli bir şekilde dinler. Bu aşamada bir satırından önce bir hafif LIP smack gibi kayıt sırasında kaçırdığınıza küçük istenmeyen ses çıkış düzenleyebilir, ancak herhangi bir gerçek konuşma kaldırmamanız dikkatli olun. Bir dosya giderilemezse, veri kümesinden kaldırmak ve bunu gerçekleştirmiş dikkat edin.
 
-Her dosya, 16 bit ve 16 KHz örnek oranını kaydedip studio chatter kaydettiyse, ikinci kanalı Kaldır önce dönüştürün. WAV biçimde her bir dosyayı kaydedin ve betiğinizi utterance numarasından dahil ederek dosyaları adlandırın.
+Her dosyayı kaydetmeden önce 16 bit ve bir örnek hızı 16 kHz dönüştürün ve studio chatter kaydettiyse, ikinci kanalı kaldırın. WAV biçimde betiğinizi utterance numarası dosyalarını adlandırma, her bir dosyayı kaydedin.
 
 Son olarak, oluşturma *döküm* , her bir WAV dosyası karşılık gelen utterance metin sürümü ile ilişkilendirir. [Özel ses tipi oluşturma](how-to-customize-voice-font.md) gerekli biçime ayrıntılarını içerir. Doğrudan komut dosyasından metin kopyalayabilirsiniz. WAV dosyalarını ve metin dökümü bir Zip dosyası oluşturun.
 

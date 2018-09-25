@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4c7b46972a8c07675e1318a900c1f07043beb3de
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 51c7bacbfa30a74aef89abba133e48c483375032
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591944"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971459"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 ve Openıd Connect Protokolü
 
@@ -139,7 +139,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parametre | Açıklama |
 | --- | --- |
-| id_token |Uygulama istenen kimlik belirteci. Kullanabileceğiniz `id_token` kullanıcının kimliğini doğrulamak ve kullanıcıyı bir oturum başlatmak için parametre. Kimlik belirteçlerini ve içerikleri hakkında daha fazla bilgi için bkz. [v2.0 uç noktası belirteçler başvuru](v2-id-and-access-tokens.md). |
+| id_token |Uygulama istenen kimlik belirteci. Kullanabileceğiniz `id_token` kullanıcının kimliğini doğrulamak ve kullanıcıyı bir oturum başlatmak için parametre. Kimlik belirteçlerini ve içerikleri hakkında daha fazla bilgi için bkz. [ `id_tokens` başvuru](id-tokens.md). |
 | durum |Varsa bir `state` aynı değeri yanıt olarak görünmesi gereken parametresi istekte bulunur. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir. |
 
 ### <a name="error-response"></a>Hata yanıtı
@@ -175,20 +175,18 @@ Aşağıdaki tabloda, döndürülen hata kodları açıklanmaktadır `error` par
 
 ## <a name="validate-the-id-token"></a>Kimlik belirteci doğrulama
 
-Bir kimlik belirteci alma, kullanıcının kimliğini doğrulamak için yeterli değil. Ayrıca, kimlik belirtecinin imzası doğrulama ve uygulamanızın gereksinimlerini başına belirteçteki talepleri doğrulamak gerekir. V2.0 uç noktası kullanan [JSON Web belirteçleri (Jwt'ler)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) ve Belirteçleri imzalamak ve geçerli olduğunu doğrulamak için ortak anahtar şifrelemesi.
+Yalnızca bir id_token alma, kullanıcının kimliğini doğrulamak için yeterli değildir; id_token'ın imzayı doğrulamak ve uygulamanızın gereksinimlerini başına belirteçteki talepleri doğrulamak gerekir. V2.0 uç noktası kullanan [JSON Web belirteçleri (Jwt'ler)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) ve Belirteçleri imzalamak ve geçerli olduğunu doğrulamak için ortak anahtar şifrelemesi.
 
-İstemci kodu kimlik belirteci doğrulamak seçebilirsiniz, ancak yaygın kimlik belirteci bir arka uç sunucusuna gönderir ve orada doğrulama gerçekleştirmek için bir uygulamadır. Kimlik belirteci imzası doğruladıktan sonra birkaç talep doğrulamanız gerekir. Daha fazla bilgi için daha fazla dahil olmak üzere [belirteçleri doğrulama](v2-id-and-access-tokens.md#validating-tokens) ve [imzalama anahtarı geçiş işlemi hakkında önemli bilgiler](v2-id-and-access-tokens.md#validating-tokens), bkz: [v2.0 belirteç başvurusu](v2-id-and-access-tokens.md). Ayrıştırma ve belirteçleri doğrulamak için bir kitaplık kullanmanızı öneririz. Bu kitaplıklar en az biri diller ve platformlar için mevcut değildir.
+Doğrulamak seçebileceğiniz `id_token` istemci kodu, ancak yaygın bir uygulama olan göndermek için `id_token` bir arka uç sunucusuna ve orada doğrulama gerçekleştirin. İd_token imzası doğruladıktan sonra birkaç talepleri doğrulamak için gerekli vardır. Bkz [ `id_token` başvuru](id-tokens.md) daha fazla bilgi edinmek için de dahil olmak üzere [doğrulama belirteçleri](id-tokens.md#validating-idtokens) ve [önemli bilgiler hakkında imzalama anahtar geçişi](active-directory-signing-key-rollover.md). Öneririz belirteçleri doğrulamak ve ayrıştırmak için bir kitaplık yapmayı kullanımı - en az bir dil ve platform için kullanılabilir.
 <!--TODO: Improve the information on this-->
 
 Senaryonuza bağlı olarak ek istekleri doğrulamak isteyebilirsiniz. Bazı ortak doğrulamaları şunlardır:
 
-* Kullanıcı veya kuruluş uygulama için kaydolmuş emin olun.
-* Kullanıcı, yetkilendirme veya ayrıcalıkları gerekli olduğundan emin olun.
-* Belirli bir kimlik doğrulama gücü, çok faktörlü kimlik doğrulaması gibi oluştuğunu emin olun.
+* Kullanıcı/kuruluş sağlama uygulama için kaydolmuş.
+* Uygun yetkilendirme/ayrıcalıklarına sahip kullanıcı sağlama
+* Belirli bir kimlik doğrulama gücü sağlamak, çok faktörlü kimlik doğrulaması gibi oluştu.
 
-Bir kimliği belirteçteki talepleri hakkında daha fazla bilgi için bkz. [v2.0 uç noktası belirteçler başvuru](v2-id-and-access-tokens.md).
-
-Kimlik belirteci doğrulandıktan sonra kullanıcı ile oturum başlayabilirsiniz. Talep Kimliği belirteçteki uygulamanızda kullanıcı hakkında bilgi almak için kullanın. Görüntü, kayıtları, yetkilendirme ve benzeri için bu bilgileri kullanabilirsiniz.
+İd_token tamamen doğruladıktan sonra bir kullanıcı oturumu başlatmak ve uygulamanızdaki kullanıcı hakkında bilgi edinmek için id_token talepleri kullanın. Bu bilgiler kullanılabilir görüntüleme, kayıtları, kişiselleştirme, vb. için.
 
 ## <a name="send-a-sign-out-request"></a>Oturum kapatma isteği gönder
 
@@ -257,7 +255,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | Parametre | Açıklama |
 | --- | --- |
-| id_token |Uygulama istenen kimlik belirteci. Kimlik belirteci, kullanıcının kimliğini doğrulamak ve kullanıcıyı bir oturum başlatmak için kullanabilirsiniz. Kimlik belirteçlerini ve bunların içeriğini hakkında daha fazla ayrıntı bulabilirsiniz [v2.0 uç noktası belirteçler başvuru](v2-id-and-access-tokens.md). |
+| id_token |Uygulama istenen kimlik belirteci. Kimlik belirteci, kullanıcının kimliğini doğrulamak ve kullanıcıyı bir oturum başlatmak için kullanabilirsiniz. Kimlik belirteçlerini ve bunların içeriğini hakkında daha fazla ayrıntı bulabilirsiniz [ `id_tokens` başvuru](id-tokens.md). |
 | Kod |Uygulama talep yetkilendirme kodu. Uygulama, hedef kaynağı için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Çok kısa süreli bir yetkilendirme kodudur. Genellikle, bir yetkilendirme kodu yaklaşık 10 dakika içinde süresi dolar. |
 | durum |State parametresi istekte yer alıyorsa aynı değeri yanıt olarak görünmelidir. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir. |
 
@@ -280,4 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Olası hata kodları ve önerilen istemci yanıtları açıklaması için bkz: [yetkilendirme uç noktası hataları için hata kodlarını](#error-codes-for-authorization-endpoint-errors).
 
-Bir yetkilendirme kodunu ve bir kimlik belirteci varsa, kullanıcı oturum açın ve kendi adınıza erişim belirteçlerini almak. Kullanıcının oturum açmak için kimlik belirteci doğrulamak [açıklandığı gibi tam olarak](#validate-the-id-token). Erişim belirteçlerini almak için açıklanan adımları izleyin. [OAuth Protokolü belgeleri](v2-oauth2-auth-code-flow.md#request-an-access-token).
+Bir yetkilendirme kodunu ve bir kimlik belirteci varsa, kullanıcı oturum açın ve kendi adınıza erişim belirteçlerini almak. Kullanıcının oturum açmak için kimlik belirteci doğrulamak [açıklandığı gibi tam olarak](id-tokens.md#validating-idtokens). Erişim belirteçlerini almak için açıklanan adımları izleyin. [OAuth kod flow belgeleri](v2-oauth2-auth-code-flow.md#request-an-access-token).

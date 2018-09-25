@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: ergreenl
-ms.openlocfilehash: 72e22fbe61b4e30191bbac553709241e1b13f1f5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 6448e592db8024d911831b0b3634dabb4ed3b101
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502258"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063124"
 ---
 # <a name="suspended-domains"></a>Askıya alınan etki alanları
 Azure Active Directory etki alanı Hizmetleri (Azure AD DS) uzun bir süre için yönetilen bir etki alanı hizmeti mümkün olduğunda, yönetilen etki alanı askıya alınmış bir duruma koyar. Bu makalede, yönetilen etki alanlarını neden askıya alınır ve sorunun nasıl düzeltileceği askıya alınmış bir etki alanı açıklanmaktadır.

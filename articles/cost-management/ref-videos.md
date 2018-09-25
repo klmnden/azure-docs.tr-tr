@@ -1,69 +1,69 @@
 ---
-title: Azure maliyeti yönetimi için videolar eğitim | Microsoft Docs
-description: Azure maliyeti yönetimi için eğitim videoları, getirmenizde size başlatıldı ve özelliklerini kullanma yol.
+title: Azure Cloudyn için video eğitimi | Microsoft Docs
+description: Cloudyn için eğitim videoları, getirmenizde size kullanmaya ve özelliklerini kullanarak yol.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: 197eac4b6904bbbf55e7233e113e64e3af528b3e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fb20661ddf8a92ac0f5ba4141c28111b117c85a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163342"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972224"
 ---
-# <a name="cost-management-training-videos"></a>Maliyet Yönetimi eğitim videoları
+# <a name="cloudyn-training-videos"></a>Cloudyn eğitim videoları
 
-Aşağıdaki videoları, maliyet yönetimine Başlarken aracılığıyla yol gösterim sağlamak ve özelliklerini kullanma. Birden çok bulut maliyet izlemesi ve Microsoft Azure, Amazon Web Hizmetleri ve Google Cloud Platform'un dahil olmak üzere en iyi duruma getirme maliyet yönetimini destekler.
+Aşağıdaki videolarda Başlarken üzerinden geçmek gösterim sağlamak Cloudyn ve özelliklerini kullanma. Cloudyn çoklu bulut maliyet izlemesi ve Microsoft Azure, Amazon Web Services ve Google Cloud Platform dahil olmak üzere en iyi duruma getirme destekler.
 
-[Azure maliyeti yönetimine giriş](https://youtu.be/NWIRny6Wpsk)
+[Cloudyn giriş](https://youtu.be/NWIRny6Wpsk)
 
 >[!VIDEO https://www.youtube.com/embed/NWIRny6Wpsk]
 
-[Bulut faturalama verileriniz Azure Yönetimi maliyeti süresiyle ve analiz etme](https://youtu.be/7LsVPHglM0g)
+[Bulut faturalama verilerinizi zamanla Cloudyn ile karşılaştırmalı olarak çözümleme](https://youtu.be/7LsVPHglM0g)
 
 >[!VIDEO https://www.youtube.com/embed/7LsVPHglM0g]
 
-[Azure maliyeti yönetimi ile kullanıcı ekleme](https://youtu.be/Nzn7GLahx30)
+[Cloudyn kullanıcı eklenirken](https://youtu.be/Nzn7GLahx30)
 
 >[!VIDEO https://www.youtube.com/embed/Nzn7GLahx30?ecver=1]
 
-[Azure maliyeti Yönetimi'nde bir maliyet varlık hiyerarşisi oluşturma](https://youtu.be/dAd9G7u0FmU)
+[Cloudyn'de maliyet varlık hiyerarşisi oluşturma](https://youtu.be/dAd9G7u0FmU)
 
 >[!VIDEO https://www.youtube.com/embed/dAd9G7u0FmU?ecver=1]
 
-[Azure maliyeti yönetim VM boyutu en iyi duruma getirme](https://youtu.be/1xaZBNmV704)
+[Cloudyn'nde VM boyutunu iyileştirme](https://youtu.be/1xaZBNmV704)
 
 >[!VIDEO https://www.youtube.com/embed/1xaZBNmV704?ecver=1]
 
-[Azure maliyeti Yönetimi'nde bir maliyet ayırma modeli tanımlama](https://youtu.be/FJzof_agKHY)
+[Bir maliyet dağıtma modeli Cloudyn'de tanımlama](https://youtu.be/FJzof_agKHY)
 
 >[!VIDEO https://www.youtube.com/embed/FJzof_agKHY?ecver=1]
 
-[Azure maliyeti Yönetimi'nde özel ücretleri tanımlama](https://youtu.be/3HcgkGPQjXE)
+[Özel ücretleri Cloudyn'de tanımlama](https://youtu.be/3HcgkGPQjXE)
 
 >[!VIDEO https://www.youtube.com/embed/3HcgkGPQjXE?ecver=1]
 
-[Bilgisayarınızı EA kayıt kimliği bulmak ve API anahtarını Azure maliyeti Management kullanmak için](https://youtu.be/u_phLs_udig)
+[Bulma EA kayıt Kimliğinizi ve API anahtarı Cloudyn kullanım için nasıl](https://youtu.be/u_phLs_udig)
 
 >[!VIDEO https://www.youtube.com/embed/u_phLs_udig?ecver=1]
 
-[Azure maliyeti Management kullanmak için dizin GUID ve oranı ID bulma](https://youtu.be/PaRjnyaNGMI)
+[Cloudyn kullanım için dizin GUID'i ve oran Kimliğinizi bulma](https://youtu.be/PaRjnyaNGMI)
 
 >[!VIDEO https://www.youtube.com/embed/PaRjnyaNGMI?ecver=1]
 
-[Hesaplar ve abonelikler Azure maliyet yönetim varlıklarda Maliyet atama](https://youtu.be/d9uTWSdoQYo)
+[Hesap ve abonelikleri varlıklarla Cloudyn Maliyet atama](https://youtu.be/d9uTWSdoQYo)
 
 >[!VIDEO https://www.youtube.com/embed/d9uTWSdoQYo?ecver=1]
 
-[Azure Resource Manager ile Azure maliyet yönetim bağlanma](https://youtu.be/oCIwvfBB6kk)
+[Azure Resource Manager'a Cloudyn ile bağlanma](https://youtu.be/oCIwvfBB6kk)
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 
-[Azure maliyeti yönetimi, bulut fatura verilerle analiz etme](https://youtu.be/G0pvI3iLH-Y)
+[Cloudyn ile bulut faturalama verilerinizi çözümleme](https://youtu.be/G0pvI3iLH-Y)
 
 >[!VIDEO https://www.youtube.com/embed/G0pvI3iLH-Y?ecver=1]

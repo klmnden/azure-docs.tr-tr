@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 2802a725bca7f63f6956293048b0e854ebfb59b5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061747"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999877"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -257,5 +257,26 @@ Sanal ağ eşleme bağlantılarını gitmesi *bağlantısı kesilmiş* bir VNet 
 Hayır. Geçişli eşleme desteklenmiyor. C ve VNetC Bunun gerçekleşmesi için eş gerekir.
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Eşleme bağlantıları için herhangi bir bant genişliği sınırlaması var mı?
-Hayır. VNet eşlemesi, yerel veya genel bant genişliği kısıtlamalar uygulamaz. Bant genişliği, VM veya işlem kaynağı tarafından yalnızca limites olur.
+Hayır. VNet eşlemesi, yerel veya genel bant genişliği kısıtlamalar uygulamaz. Yalnızca VM veya işlem kaynak sınırları bant genişliğidir.
 
+## <a name="virtual-network-tap"></a>Sanal ağ TAP
+
+### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Sanal ağ TAP için hangi Azure bölgeleri mevcuttur?
+Geliştirici önizlemesi sırasında yetenek Batı Orta ABD bölgesinde kullanılabilir. İzlenen ağ arabirimleri, sanal ağ TAP kaynağı ve Toplayıcı veya analiz çözümü için aynı bölgede dağıtılması gerekir.
+
+### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>Sanal ağ GİRİŞİ herhangi filtreleme yetenekleri yansıtılmış paketlerde destekliyor mu?
+Filtreleme yetenekleri, sanal ağ TAP önizlemesi ile desteklenmez. Ne zaman DOKUNUN yapılandırma tüm giriş derin bir kopyasını bir ağ arabirimine eklenir ve çıkış trafiği Ağ arabirimindeki DOKUNUN hedefe sağlanacağına.
+
+### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>İzlenen ağ arabirimine birden çok DOKUNUN yapılandırmaları eklenebilir?
+İzlenen ağ arabirimi, yalnızca bir DOKUNUN yapılandırması olabilir. Denetleme ile tek tek [iş ortağı çözümleri](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) birden çok kopyasını analiz araçları, tercih ettiğiniz DOKUNUN trafik akışı yeteneği için.
+
+### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>Aynı sanal ağ TAP kaynağı, izlenen ağ arabirimlerinden birden fazla sanal ağ içinde trafiği toplayabilirsiniz?
+Evet. Aynı sanal ağ TAP kaynak için kullanılabilir yansıtılmış trafik eşlenmiş sanal ağlarda aynı abonelikte veya farklı bir abonelikte bulunan izlenen ağ arabirimlerinden toplama. Sanal ağ TAP kaynak ve hedef yük dengeleyici veya hedef ağ arabirimi aynı abonelikte olması gerekir. Tüm abonelikler aynı Azure Active Directory kiracısı altında olması gerekir.
+
+### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Ben bir ağ arabirimi bir sanal ağ TAP yapılandırmasına etkinleştirirseniz üretim trafiği üzerinde herhangi bir performans değerlendirmeleri vardır?
+
+Sanal ağ TAP Geliştirici Önizleme aşamasındadır. Önizleme sırasında hizmet düzeyi anlaşması yoktur. Özelliği, üretim iş yükleri için kullanılmamalıdır. Bir sanal makinenin ağ arabirimiyle bir DOKUNUN yapılandırmasıyla etkin olduğunda, üretim trafiği göndermek için sanal makineye tahsis edilen azure ana bilgisayarda aynı kaynakları yansıtma işlevi gerçekleştirmek ve yansıtılmış paketleri göndermek için kullanılır. Doğru seçin [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yeterli kaynak üretim ve yansıtılmış trafiği göndermek sanal makine için kullanılabilir olmasını sağlamak için sanal makine boyutu.
+
+### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>Hızlandırılmış için ağ [Linux](create-vm-accelerated-networking-cli.md) veya [Windows](create-vm-accelerated-networking-powershell.md) desteklenen sanal ağ TAP?
+
+Bir DOKUNUN yapılandırması ile hızlandırılmış ağ etkin bir sanal makineye bağlı ağ arabirimi eklemek mümkün olacaktır. Ancak, sanal makinede gecikme süresi ve performans yük boşaltma trafiği yansıtma için şu anda Azure tarafından desteklenmediğinden DOKUNUN yapılandırma hızlandırılmış ağ bağlantısı ekleyerek etkilenecek.

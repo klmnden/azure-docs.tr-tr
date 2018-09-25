@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c33466af6e57264e02a7d5c298f7f1f9fbf4ed8
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7e6a897ed0606d8844f66e318b93449d7790e2be
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717310"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963447"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure sanal makine ölçek ile otomatik ölçeklendirmeye genel bakış ayarlar
 Bir Azure sanal makine ölçek kümesini otomatik olarak artırabilir veya uygulamanızı çalıştıran VM örneği sayısını azaltabilirsiniz. Bu otomatik ve esnek davranışı izlemek ve uygulamanızın performansını en iyi duruma getirmek için yönetim yükünü azaltır. Pozitif bir müşteri deneyimi için kabul edilebilir performans tanımlayan kuralları oluşturun. Bu tanımlı eşikler karşılandığında, otomatik ölçeklendirme kurallarını ölçek kümenizin kapasitesinin ayarlamak için gerekeni yapın. Ayrıca, olayları otomatik olarak artırma veya azaltma ölçek kümenizin kapasitesinin kez sabit zamanlayabilirsiniz. Bu makalede performans ölçümleri kullanılabilir bir genel bakış ve hangi eylemleri otomatik ölçeklendirme gerçekleştirebilir sağlar.
@@ -42,7 +42,7 @@ Konak tabanlı ölçümleri kullanan otomatik ölçeklendirme kuralları aşağ�
 
 - [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure şablonu](tutorial-autoscale-template.md)
 
 Daha ayrıntılı performans ölçümleri kullanan otomatik ölçeklendirme kuralları oluşturmak için [yüklemek ve Azure tanılama uzantısını yapılandırmak](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) VM örneklerinde veya [uygulama kullanımınızı App Insights yapılandırma](#application-level-metrics-with-app-insights).
@@ -139,7 +139,7 @@ Aşağıdaki örnekler, zamanlama tabanlı otomatik ölçeklendirme kuralları k
 Aşağıdaki araçlardan biriyle konak tabanlı ölçümleri kullanan otomatik ölçeklendirme kuralları oluşturabilirsiniz:
 
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure şablonu](tutorial-autoscale-template.md)
 
 Bu genel bakışta yatay olarak genişletmek ve artırmak veya azaltmak için otomatik ölçeklendirme kurallarını kullanma konusunda ayrıntılı bilgi *numarası* ölçek VM örnekleri kümesi. Ayrıca dikey olarak artırabilir veya azaltabilirsiniz VM örneğine ölçeklendirebilirsiniz *boyutu*. Daha fazla bilgi için [sanal makine ölçek kümeleri ile dikey otomatik ölçeklendirme](virtual-machine-scale-sets-vertical-scale-reprovision.md).

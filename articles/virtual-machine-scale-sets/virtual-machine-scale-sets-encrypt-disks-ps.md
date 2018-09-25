@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 850140404d95b77b3494754666e118b3566221c1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c39df127e07601dbc5125d246f25da22ce4a0e40
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630242"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981772"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell-preview"></a>İşletim sistemi ve Azure PowerShell ile (Önizleme) bir sanal makine ölçek kümesi bağlı veri diskleri şifreleme
 
@@ -158,4 +158,4 @@ Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Azure PowerShell bir sanal makine ölçek kümesi şifrelemek için kullanılır. Ayrıca [Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md) veya şablonları [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) veya [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+Bu makalede, Azure PowerShell bir sanal makine ölçek kümesi şifrelemek için kullanılır. Ayrıca [Azure CLI](virtual-machine-scale-sets-encrypt-disks-cli.md) veya şablonları [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) veya [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).

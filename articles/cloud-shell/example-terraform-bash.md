@@ -1,6 +1,6 @@
 ---
-title: Azure bulut Kabuk Bash'te gelen Terraform ile dağıtma | Microsoft Docs
-description: Azure bulut Kabuk Bash'te gelen Terraform ile dağıtma
+title: Azure Cloud Shell'deki Bash hizmetinde gelen Terraform ile dağıtma | Microsoft Docs
+description: Azure Cloud Shell'deki Bash hizmetinde gelen Terraform ile dağıtma
 services: Azure
 documentationcenter: ''
 author: tomarcher
@@ -13,44 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8512c04cb0efc698ca688724c3806291bb02d200
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386529"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947673"
 ---
-# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Azure bulut Kabuk Bash'te gelen Terraform ile dağıtma
-Bu makalede sahip bir kaynak grubu oluşturma ile anlatılmaktadır [Terraform AzureRM sağlayıcı](https://www.terraform.io/docs/providers/azurerm/index.html). 
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Azure Cloud Shell'deki Bash hizmetinde gelen Terraform ile dağıtma
+Bu makalede, bir kaynak grubu oluşturma işlemini gösterir. [Terraform AzureRM sağlayıcısı](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
-[Hashicorp Terraform](https://www.terraform.io/) API'leri düzenlenemez, gözden takım üyeleri arasında paylaşılacak ve sürümü tutulan bildirim temelli yapılandırma dosyalarına kod oluşturur bir açık kaynak aracıdır. Microsoft AzureRM sağlayıcısı AzureRM API'leri aracılığıyla Azure kaynak yöneticisi tarafından desteklenen kaynakları ile etkileşim kurmak için kullanılır. 
+[Hashicorp Terraform](https://www.terraform.io/) düzenlendi, gözden takım üyeleri arasında paylaşılan ve sürümü tutulan bildirim temelli yapılandırma dosyalarına API'leri kod oluşturur bir açık kaynak araçtır. Microsoft AzureRM sağlayıcısı, AzureRM API'ler aracılığıyla Azure Resource Manager tarafından desteklenen kaynaklarla etkileşim kurmak için kullanılır. 
 
-## <a name="automatic-authentication"></a>Otomatik kimlik doğrulama
-Varsayılan olarak, bulut Kabuk Bash'te Terraform yüklenir. Ayrıca, bulut Kabuk otomatik olarak Terraform Azure modülleri kaynaklarına dağıtmak için varsayılan Azure CLI 2.0 aboneliğinizi kimliğini doğrular.
+## <a name="automatic-authentication"></a>Otomatik kimlik doğrulaması
+Varsayılan olarak, Cloud Shell'deki Bash hizmetinde Terraform yüklenir. Ek olarak, Cloud Shell aracılığıyla Terraform Azure modüllerini kaynakları dağıtmak için varsayılan Azure CLI aboneliğinizi otomatik olarak doğrular.
 
-Ayarlanmış varsayılan Azure CLI 2.0 abonelik Terraform kullanır. Varsayılan abonelikleri güncelleştirmek için çalıştırın:
+Terraform ayarlanmış varsayılan Azure CLI abonelik kullanır. Varsayılan abonelikleri güncelleştirmek için şunu çalıştırın:
 
 ```azurecli-interactive
 az account set --subscription mySubscriptionName
 ```
 
 ## <a name="walkthrough"></a>Kılavuz
-### <a name="launch-bash-in-cloud-shell"></a>Bulut Kabuğu'nda Bash'i başlatın
-1. Tercih edilen konumunuz bulut kabuğundan başlatma
+### <a name="launch-bash-in-cloud-shell"></a>Cloud shell'de Bash'i başlatma
+1. Cloud Shell, tercih edilen konumdan başlatın
 2. Tercih edilen aboneliğinizi ayarlandığını doğrulayın
 
 ```azurecli-interactive
 az account show
 ```
 
-### <a name="create-a-terraform-template"></a>Terraform şablonu oluşturma
-Tercih edilen metin düzenleyicisiyle Main.tf adlı yeni bir Terraform şablonu oluşturun.
+### <a name="create-a-terraform-template"></a>Terraform şablon oluşturma
+Tercih edilen bir metin düzenleyiciyle Main.tf adlı yeni bir Terraform şablonu oluşturun.
 
 ```
 vim main.tf
 ```
 
-Kopyalayıp aşağıdaki kodu bulut kabuğundan yapıştırın.
+Kopyalama/aşağıdaki kod Cloud shell'e yapıştırın.
 
 ```
 resource "azurerm_resource_group" "myterraformgroup" {
@@ -59,10 +59,10 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-Dosyanızı kaydedin ve Metin Düzenleyicisi'nden çıkın.
+Dosyanızı kaydedin ve metin düzenleyicinize çıkın.
 
 ### <a name="terraform-init"></a>Terraform başlatma
-Begin çalıştırarak `terraform init`.
+Çalıştırarak başlayın `terraform init`.
 
 ```
 justin@Azure:~$ terraform init
@@ -90,9 +90,9 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-[Terraform init komutu](https://www.terraform.io/docs/commands/init.html) Terraform yapılandırma dosyalarını içeren bir çalışma dizini başlatmak için kullanılır. `terraform init` Yeni Terraform yapılandırması yazma veya mevcut bir sürüm denetiminden kopyalama sonra çalıştırılması gereken ilk komut bir komuttur. Birden çok kez bu komutu çalıştırmak güvenlidir.
+[Terraform init komutunu](https://www.terraform.io/docs/commands/init.html) Terraform yapılandırma dosyalarını içeren bir çalışma dizini başlatmak için kullanılır. `terraform init` Yeni bir Terraform yapılandırmasını yazma ya da mevcut bir sürüm denetiminden kopyalama çalıştırılması gereken ilk komut bir komuttur. Bu komut birden çok kez çalıştırmak güvenlidir.
 
-### <a name="terraform-plan"></a>Terraform planı
+### <a name="terraform-plan"></a>Terraform plan
 Terraform şablonla tarafından oluşturulması için gereken kaynakları Önizleme `terraform plan`.
 
 ```
@@ -126,9 +126,9 @@ can't guarantee that exactly these actions will be performed if
 "terraform apply" is subsequently run.
 ```
 
-[Terraform planı komutu](https://www.terraform.io/docs/commands/plan.html) yürütme planı oluşturmak için kullanılır. Terraform bir yenileme açıkça devre dışı bırakılmamışsa gerçekleştirir ve hangi eylemleri yapılandırma dosyalarında belirtilen istenen durumu elde etmek için gerekli olan belirler. Plan kullanılarak kaydedilebilir-çıkış ve terraform için sağlanan yalnızca önceden planlanmış eylemleri yürütülme emin olmak için geçerlidir.
+[terraform plan komutu](https://www.terraform.io/docs/commands/plan.html), yürütme planı oluşturmak için kullanılır. Terraform açıkça devre dışı bırakılmamışsa, yenileme gerçekleştirir ve ardından hangi eylemleri yapılandırma dosyalarında belirttiğiniz istenen duruma gelmesi için gerekli olan belirler. Plan kullanılarak kaydedilebilir-çıkış ve ardından terraform için sağlanan yalnızca önceden planlanmış eylemleri yürütülür emin olmak için geçerlidir.
 
-### <a name="terraform-apply"></a>Terraform Uygula
+### <a name="terraform-apply"></a>Terraform apply
 İle Azure kaynaklarını hazırlama `terraform apply`.
 
 ```
@@ -142,17 +142,17 @@ azurerm_resource_group.demo: Creation complete after 0s (ID: /subscriptions/mySu
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-[Terraform Uygula komutu](https://www.terraform.io/docs/commands/apply.html) istenen yapılandırma durumunu erişmek için gerekli değişiklikleri uygulamak için kullanılır.
+[Terraform Uygula komutu](https://www.terraform.io/docs/commands/apply.html) istenen durum yapılandırması ile erişmek için gerekli değişiklikleri uygulamak için kullanılır.
 
-### <a name="verify-deployment-with-azure-cli-20"></a>Azure CLI 2.0 ile dağıtımı doğrulama
-Çalıştırma `az group show -n myRgName` kaynak sağlama başarılı doğrulanamadı.
+### <a name="verify-deployment-with-azure-cli"></a>Azure CLI ile dağıtımı doğrulama
+Çalıştırma `az group show -n myRgName` kaynak sağlama başarılı olduğunu doğrulamak için.
 
 ```azcliinteractive
 az group show -n myRgName
 ```
 
-### <a name="clean-up-with-terraform-destroy"></a>Temizleme ile terraform yok
-Temiz ile oluşturulan kaynak grubu [Terraform destroy komutu](https://www.terraform.io/docs/commands/destroy.html) Terraform oluşturulan altyapıyı temizlenemedi.
+### <a name="clean-up-with-terraform-destroy"></a>Temizleme terraform ile yok.
+Temiz kaynak grubu ile oluşturulan [Terraform destroy komutunu](https://www.terraform.io/docs/commands/destroy.html) Terraform oluşturulan altyapıyı temizlemek için.
 
 ```
 justin@Azure:~$ terraform destroy
@@ -185,8 +185,8 @@ azurerm_resource_group.demo: Destruction complete after 45s
 Destroy complete! Resources: 1 destroyed.
 ```
 
-Bir Azure kaynağı Terraform aracılığıyla başarıyla oluşturdunuz. Bulut kabuğu hakkında bilgi almaya devam etmek için sonraki adımlar ziyaret edin.
+Terraform ile bir Azure kaynağı başarıyla oluşturdunuz. Cloud Shell hakkında daha fazla bilgi için sonraki adımlar ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Terraform Azure sağlayıcısı hakkında bilgi edinin](https://www.terraform.io/docs/providers/azurerm/#)<br>
-[Bulut Kabuk hızlı başlangıcı bash](quickstart.md)
+[Bash cloud Shell hızlı başlangıçta](quickstart.md)

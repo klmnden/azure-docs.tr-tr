@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: f11d08e56fe1970aa7a0d82f368eb73589ece2fe
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 08fcb244ada319dccf62c134a0155dd117e79184
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412308"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977052"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Uzantıları Yükleme Linux vm'lerinde kısıtlamak için Azure İlkesi'ni kullanın
 
 Kullanımından ya da Linux Vm'lerinizi belirli uzantılarını yüklenmesini engellemek istiyorsanız, uzantıları VM'ler için bir kaynak grubu içinde kısıtlamak için CLI'yı kullanarak Azure ilkesi oluşturabilirsiniz. 
 
-Bu öğreticide, en son sürüme sürekli olarak güncelleştirilen Azure Cloud Shell içinde CLI kullanılır. Azure CLI'yı yerel olarak çalıştırmak istiyorsanız, 2.0.26 sürümü yüklemeniz gerekir ya da daha sonra. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Bu öğreticide, en son sürüme sürekli olarak güncelleştirilen Azure Cloud Shell içinde CLI kullanılır. Azure CLI'yı yerel olarak çalıştırmak istiyorsanız, 2.0.26 sürümü yüklemeniz gerekir ya da daha sonra. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-rules-file"></a>Kurallar dosyası oluşturma
 

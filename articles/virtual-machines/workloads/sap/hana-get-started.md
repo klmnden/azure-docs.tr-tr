@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 5ce80e85f00c4c3542bf61e910baec9ccd635bcd
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 6355a7ce203f2bf75b5c93d225502f961deeee43
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161314"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032096"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Hızlı Başlangıç: Azure sanal makinelerinde tek örnek SAP hana el ile yükleme
 ## <a name="introduction"></a>Giriş
@@ -93,6 +93,11 @@ SAP NetWeaver veya S/4hana'yı uygulama katmanı tarafından SAP sertifikalı az
 >SAP Linux Azure tümleştirmesi yalnızca Azure Resource Manager ve klasik dağıtım modeli için desteklenir. 
 
 ## <a name="manual-installation-of-sap-hana"></a>SAP hana el ile yükleme
+
+> [!IMPORTANT]
+> Seçtiğiniz işletim sistemi kullanmakta olduğunuz belirli VM türleri üzerinde SAP HANA için sertifikalıdır SAP olduğundan emin olun. Bu, aranabilir için VM türleri ve işletim sistemi sürümleri listesi, SAP HANA sertifikalı [SAP HANA sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). SAP HANA tam listesini almak için listelenen VM türü ayrıntılarına tıkladığınızdan emin olun, işletim sistemi sürümleri için belirli bir sanal makine türü desteklenmiyor. Bu belgedeki örnekte biz M serisi VM'ler üzerinde SAP HANA için SAP tarafından desteklenmeyen bir SLES işletim sistemi sürümü kullandığınız farkında olun.
+>
+
 Bu kılavuz, el ile Azure Vm'leri üzerinde SAP HANA iki farklı şekilde yükleme açıklanmaktadır:
 
 * "Yükleme veritabanı örneği" adımda dağıtılmış NetWeaver yüklemesinin parçası olarak, SAP yazılım sağlama Yöneticisi (SWPM) kullanarak

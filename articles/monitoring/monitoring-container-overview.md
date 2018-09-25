@@ -1,6 +1,6 @@
 ---
-title: Azure kapsayıcı genel bakış izleme | Microsoft Docs
-description: Bu makalede kümeleri durumunu ve kullanılabilirliğini hızla anlamak için Azure kapsayıcılarında izlemek için Azure'nın farklı yöntemlere genel bir bakış sağlar.
+title: Azure kapsayıcıları izlemeye genel bakış | Microsoft Docs
+description: Bu makalede, azure'da bir küme durumunu ve kullanılabilirliğini hızlı bir şekilde anlamak için azure'da kapsayıcılar izlemek için kullanılabilen farklı yöntemleri için genel bir bakış sağlar.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/26/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 0d511c1f6dfd482e5754741da15b2852ee77c11e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: db85f85011154dcc7adfa9d569e9015a9c5c33ca
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33207536"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055076"
 ---
-# <a name="overview-of-monitoring-containers-in-azure"></a>Azure kapsayıcı izleme genel bakış
-Azure ile verimli izleyebilir ve Kubernetes veya Docker çalışan Azure kapsayıcılarında dağıtılan iş yüklerinizi yönetebilirsiniz. Mikro hizmet uygulamalarla birden çok kapsayıcı ölçekte güvenilir bir hizmet sunmak ve izleme planı desteklemek için nasıl çalıştığını anlamak önemlidir. Bu makalede yönetim kısa bir genel bakış sağlar ve izleme kapasiteleri yardımcı olmak için Azure her anlamak ve gereksinimlerinizi temel alarak uygun olduğu.
+# <a name="overview-of-monitoring-containers-in-azure"></a>Kapsayıcıları azure'da izlemeye genel bakış
+Azure ile etkili bir şekilde izleyebilir ve Kubernetes veya Docker'ı çalıştıran Azure kapsayıcıları üzerinde dağıtılan iş yüklerinizi yönetin. Uygun ölçekte güvenilir bir hizmet sunun ve izleme planınızı desteklemek için birden fazla mikro hizmet uygulamaları ile kapsayıcıları nasıl gerçekleştiriyorsunuz anlamak önemlidir. Bu makalede, yönetim ve izleme bunları anlamanıza yardımcı olması için Azure işlevlerini kısa bir genel bakış sağlar ve gereksinimlerinize göre uygun olan.
 
-Kullanarak [Azure İzleyici kapsayıcı sağlık](monitoring-container-health.md), performans ve Linux kapsayıcı altyapınızın durumunu bir bakışta görüntüleyebilir ve sorunları hızla araştırın. Telemetri günlük analizi çalışma alanında depolanır ve burada keşfedebilirsiniz, Azure portalında tümleşik filtrelemek ve veri yükü, performans ve sistem durumu takip panolarla segment bir araya getirilir.  
+Kullanarak [kapsayıcılar için Azure İzleyici](monitoring-container-insights-overview.md), performansı ve durumu Linux kapsayıcı altyapınızın bir bakışta görmek ve sorunları hızlı bir şekilde araştırın. Telemetri bir Log Analytics çalışma alanında depolanır ve burada keşfedebilirsiniz, Azure portalında tümleşik filtrelemek ve segment toplanmış veriler yük, performans ve sistem durumu takip panolarla.  
 
-Barındırılan Azure Kubernetes hizmet dışında günlük analizi çalıştıran kapsayıcıları için [Windows ve Docker kapsayıcısı çözümü](../log-analytics/log-analytics-containers.md) görüntülemenizi ve yönetmenizi, Windows ve Docker kapsayıcısı ana bilgisayar yardımcı olur. Günlük analizi çalışma alanınız stok ayrıntıları, performans ve düğümler ve kapsayıcıları olaylarından ortamda görüntüleyebilirsiniz. Görüntüleme ve Docker veya Windows ana uzaktan erişim gerek kalmadan merkezi günlükleri arama yaparak kapsayıcıları giderebilirsiniz ve kapsayıcılar ile kullanılan komutları gösteren ayrıntılı denetim bilgilerini görüntüleyebilir.
+Barındırılan Azure Kubernetes hizmeti dışında Log Analytics çalışan kapsayıcılar için [Windows ve Docker kapsayıcı çözümü](../log-analytics/log-analytics-containers.md) görüntüleyip yönettiğiniz Windows ve Docker kapsayıcı konaklarınız yardımcı olur. Log Analytics çalışma alanınızda Envanter ayrıntılarını, performans ve düğümlerin ve kapsayıcıların olaylardan ortamına görüntüleyebilirsiniz. Kapsayıcılar ile kullanılan komutları gösteren ayrıntılı denetim bilgileri görüntüleyebilir ve kapsayıcıları, Docker veya Windows konak uzaktan erişmek zorunda kalmadan Merkezi günlük arama ve görüntüleme giderebilirsiniz.
 
-Bu, Azure veya şirket içi kaynak olup olmadığını bütünsel veya uçtan uca uygulamayı izleme elde etmek için herhangi bir bağımlılığı Azure İzleyici veya günlük analizi ile izlenmelidir.  Uygulama katmanı, Application Insights kullanılarak platform ve uygulama düzeyinde hem de sistem durumu tanıma ek katmanı eklemek için eklenmelidir. Platform düzeyinde uygulama Insights SDK'ları olduğundan [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/), ve [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Mikro hizmet uygulamaları için desteği yoktur [Java](../application-insights/app-insights-java-get-started.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), [.Net](../application-insights/app-insights-asp-net.md), [.Net Core](../application-insights/app-insights-asp-net-core.md), yanı sıra diğer sayısı[diller/çerçeveler](../application-insights/app-insights-platforms.md). 
+Bir Azure veya şirket içinde kaynak olup olmadığını bütünsel ya da için uçtan uca uygulamayı izleme elde etmek için herhangi bir bağımlılık Azure İzleyici ya da Log Analytics ile izlenmelidir.  Sistem durumu tanıma, hem Application Insights'ı kullanarak platform ve uygulama düzeyinde ek bir katmanı eklemek için uygulama katmanı eklenmelidir. Platform düzeyinde için Application Insights SDK'ları vardır [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/), ve [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Mikro hizmet uygulamaları için desteği yoktur [Java](../application-insights/app-insights-java-get-started.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), [.Net](../application-insights/app-insights-asp-net.md), [.Net Core](../application-insights/app-insights-asp-net-core.md), diğer sayısıyanısıra[diller/çerçeveler](../application-insights/app-insights-platforms.md). 
 
-Aksi takdirde, sorunları tanımlanamayan gider, uygulamanın kullanılabilirliğini etkileyecek ve hizmet düzeyi hedeflerine karşılanmadı.  
+Aksi takdirde, sorunları tanımlanmamış geçer uygulamanın kullanılabilirliğini etkileyebilir ve hizmet düzeyi hedefleri karşılanmadı.  

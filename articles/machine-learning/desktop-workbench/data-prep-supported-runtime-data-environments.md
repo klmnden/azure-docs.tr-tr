@@ -13,14 +13,19 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 07b9ac8389a2bf06e0356f65d816d75d49cc0cf5
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9168ac1d26432ca3eee5a59b63aa0cec3ae72856
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651394"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989065"
 ---
 # <a name="supported-matrix-for-this-release"></a>Bu sürüm için desteklenen Matrisi 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Azure Machine Learning veri kaynakları veya Azure Machine Learning veri alma ya da bir Pandas hazırlıkları, kullanarak kod veri yükler veya Spark dataframe, aşağıdaki birleşimlerini deneme ortamları ve veri konumları işlem olduğunda desteklenir:
 
 |     |Yerel dosyaları  |Azure Blob depolama  |SQL Server veritabanı ***  |

@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/13/2018
 ms.author: magattus
-ms.openlocfilehash: c3a20bd4fa1cccdca7cba0de52620f09fe01abc5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057134"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997290"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN'de dosyaları sıkıştırarak performansı geliştirme
 Dosya sıkıştırma dosya aktarım hızını artırmak ve sunucudan gönderilmeden önce bir dosyanın boyutunu azaltarak sayfa yükleme performansı artırmak için basit ve etkili bir yöntemdir. Dosya sıkıştırma, bant genişliği maliyetlerini azaltmak ve kullanıcılarınız için daha hızlı bir deneyim sağlayın.
@@ -102,13 +102,14 @@ Standart ve premium CDN katmanları için sıkıştırma işlevsellik sağlasa d
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Azure CDN standart'ı Microsoft profilleri
 
-İçin **Azure CDN standart Microsoft gelen** profilleri, tüm dosyaları sıkıştırma için uygun. Ancak, bir dosya olan bir MIME türü olmalıdır [sıkıştırma için yapılandırılmış](#enabling-compression).
+İçin **Azure CDN standart Microsoft gelen** profilleri, yalnızca uygun dosyaları sıkıştırılır. Sıkıştırma için uygun olması için bir dosya olmalıdır:-yapılmış bir MIME türünde [sıkıştırma için yapılandırılmış](#enabling-compression).
+-Be 1 KB'tan büyük-8 MB'tan küçük olmalıdır
 
 Bu profiller, aşağıdaki sıkıştırma kodlamaları destekler:
 - gzip (GNU zip)
 - brotli 
  
-İsteği birden fazla sıkıştırma türünü destekliyorsa, bu sıkıştırma türleri brotli sıkıştırmasının önceliklidir.
+İsteği birden fazla sıkıştırma türünü destekliyorsa, brotli sıkıştırma önceliklidir.
 
 Bir varlık için bir istek önbellek isabetsizliği gzip sıkıştırma ve istek sonuçları belirttiğinde, Azure CDN POP sunucusunda doğrudan varlığın gzip sıkıştırma gerçekleştirir. Daha sonra sıkıştırılmış dosyayı önbellekten sunulur.
 

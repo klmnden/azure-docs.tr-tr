@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Desenler, daha az örnek konuşma sağlarken amacı ve varlık tahmin artırmak için kullanın. Desen, varlıkları ve Ignorable metin tanımlamak için söz dizimi içeren bir şablon utterance örnek olarak sağlanır.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3b41105a20b765abd084fc387370a49b657d1cba
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ec006d8941d8832d139a09b1e8af13000ff5a43e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634736"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040712"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Öğretici: 3. Ortak utterance biçimleri ekleme
+# <a name="tutorial-3-add-common-utterance-formats"></a>Öğretici: 3. Ortak ifade biçimleri ekleme
 
 Bu öğreticide, desenleri daha az örnek konuşma sağlarken amacı ve varlık tahmin artırmak için kullanın. Desen, varlıkları ve Ignorable metin tanımlamak için söz dizimi içeren bir şablon utterance örnek olarak sağlanır. Bir desen eşleme ifadesinde ve makine öğrenimi birleşimidir.  Şablon utterance örnek hedefi konuşma yanı sıra, amaç hangi konuşma uygun daha iyi LUIS verin. 
 
@@ -104,7 +104,7 @@ Adlı son öğreticisinde oluşturulan uygulama devam **İnsanKaynakları**.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Adres çubuğundaki URL'nin sonuna gidip `Who is the boss of Jill Jones?` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. 
+2. Adres çubuğundaki URL'nin sonuna gidip `Who is the boss of Jill Jones?` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
 
     ```JSON
     {
@@ -222,7 +222,7 @@ Bir utterance için eşleştirilecek desen için sırada utterance varlıkları 
 
 Bu öğreticide, iki yeni hedef ekleme: `OrgChart-Manager` ve `OrgChart-Reports`. 
 
-|Amaç|Konuşma|
+|Amaç|İfade|
 |--|--|
 |Kuruluş Şeması-Manager|Jill Jones kimin için rapor?|
 |Kuruluş Şeması-raporlar|Kimin için Jill Jones raporları?|
@@ -275,7 +275,7 @@ OrgChartManager(employee){
 
 2. Tarayıcı sekmeleri uç nokta URL'si sekmesine geçin.
 
-3. Adres URL'SİNİN sonuna gidin ve girin `Who is the boss of Jill Jones?` utterance olarak. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. 
+3. Adres URL'SİNİN sonuna gidin ve girin `Who is the boss of Jill Jones?` utterance olarak. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
 
     ```JSON
     {
@@ -427,7 +427,7 @@ Köşeli parantezler, isteğe bağlı söz diziminin kullanılması `[]`, bu ist
 
     İlk utterance girdikten sonra Seç **inceleyin** altında sonucu tahmin sonuçlarını görebilirsiniz.
 
-    |Konuşma|
+    |İfade|
     |--|
     |Kimin Jill Jones yöneticisi olacak mı|
     |kimin jill Can'ın yöneticisi olacak mı|

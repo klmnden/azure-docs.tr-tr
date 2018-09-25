@@ -9,73 +9,131 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7f2b97479ffcdb7ec8b3a1a635562d1fe68c3269
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2aec8ba969fb639f2d785a429441f6ed4bbf7dfb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158440"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987688"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Barındırılan UI deneyiminizi yapılandırın
+
 Özel arama örneği kullanımınızın yapılandırdıktan sonra arama sonuçlarını almak ve bunları uygulamanızda görüntülemek için özel arama API'si çağırabilirsiniz. Veya, uygulamanız bir web uygulaması ise, özel arama sağlayan barındırılan bir kullanıcı Arabirimi kullanabilirsiniz.   
 
 ## <a name="configure-custom-hosted-ui"></a>Barındırılan özel kullanıcı Arabirimi yapılandırma
-Web uygulamanıza dahil etmek için barındırılan bir kullanıcı Arabirimi yapılandırmak için aşağıdaki yönergeleri kullanın.
-1.  Özel arama oturum [portalı](https://customsearch.ai).
-2.  Özel arama örneği tıklayın. Örneği oluşturmak için bkz [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).
-3.  Tıklayın **barındırılan UI** sekmesi.
-4.  Bir düzen seçin.
-    - Arama çubuğunu ve sonuçlar (varsayılan) &mdash; bir arama kutusu görüntüleme ve arama sonuçları
-    - Sonuçları yalnızca &mdash; yoksa, bir arama kutusu yalnızca sonuçları göster
-    - POP üzerinden &mdash; yoksa, bir arama kutusu içinde kayan bir katmana yalnızca sonuçları göster
+
+Web uygulamanız için barındırılan bir kullanıcı Arabirimi yapılandırmak için aşağıdaki adımları izleyin:
+
+1. Özel arama oturum [portalı](https://customsearch.ai).  
+  
+2. Özel arama örneği tıklayın. Örneği oluşturmak için bkz [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).  
+
+3. Tıklayın **barındırılan UI** sekmesi.  
+  
+4. Bir düzen seçin.
+  
+  - Arama çubuğunu ve sonuçlar (varsayılan) &mdash; bu düzen, arama kutusu ve arama sonuçları ile geleneksel arama sayfasıdır.
+  - Sonuçları yalnızca &mdash; bu düzeni yalnızca arama sonuçlarını görüntüler. Bu düzen, bir arama kutusu görüntülemez. Sorgu parametresini ekleyerek arama sorgusu sağlamanız gerekir (& q =\<sorgu dizesi >) istek URL'SİNDE JavaScript kod parçacığını veya HTML uç noktası bağlantısını için.
+  - POP üzerinden &mdash; bu düzen, bir arama kutusu sağlar ve bir kayan kaplama arama sonuçlarını görüntüler.
+      
+5. Bir renk temasını seçin. Olası temaları şunlardır: 
+  
+  - Klasik
+  - Koyu
+  - Skyline mavi
+
+  Her temaları temayı ile web uygulamanızı en iyi çalıştığını görmek için tıklayın. Renk teması daha iyi web uygulamanızla tümleştirmek için ince ayar yapmak gerekiyorsa **Özelleştir tema**. Tüm renk yapılandırmaları tüm düzen temaları için geçerlidir. Bir rengini değiştirmek için ilgili metin kutusunda rengin RGB ONALTILIK değerini (örneğin, #366eb8) girin. Veya, renk düğmesini tıklatın ve sizin için uygun Gölge'ye tıklayın. 
+  
+  Bir renk değiştirdikten sonra değişikliğin sağdaki Önizleme örnek etkilemesi denetleyin. Her zaman tıklayabilirsiniz **Varsayılana Sıfırla** seçilen tema için varsayılan renklere dönebilirsiniz.
+
+  > [!NOTE]
+  > Renk teması değiştirdiğinizde, Erişilebilirlik renkleri seçerken göz önünde bulundurun.
+
+5. Altında **ek yapılandırmalar**, uygulamanız için uygun değerleri sağlayın. Bu ayarlar isteğe bağlıdır. Uygulama veya bunları kaldırma etkisini görmek için sağda önizleme bölmesinde görebilirsiniz. Kullanılabilir yapılandırma seçenekleri şunlardır:  
+  
+  - Web araması yapılandırmalar:
+    - Web sonuçları etkin &mdash; web araması etkinleştirilip etkinleştirilmeyeceğini belirler (sayfanın üst kısmındaki bir Web sekmesi görürsünüz).
+    - Etkinleştirme otomatik öneri &mdash; belirler özel otomatik öneri, etkin (bkz [fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) ek maliyet).
+    - Web sayfa başına sonuç &mdash; (50 sonuçların sayfa başına en yüksek değer) bir zaman görüntülemek için Web'de arama sonuçlarıyla sayısı.
+    - Resim yazısı &mdash; görüntüleri arama sonuçları ile gösterilip gösterilmeyeceğini belirler.
+  
+    Eğer aşağıdaki yapılandırmaları gösterilen **Gelişmiş yapılandırmaları Show**.  
+  
+    - Sözcüklerin vurgulanıp &mdash; sonuçları arama terimlerini kalın ile gösterilip gösterilmeyeceğini belirler. 
+    - Bağlantı hedefi &mdash; kullanıcı arama sonucu tıkladığında Web sayfasına yeni bir tarayıcı sekmesinde (boş) veya aynı tarayıcı sekmesini (kendi) açar, belirler. 
+
+  - Görüntü arama yapılandırmalar:
+    - Görüntü etkin sonuçları &mdash; resim arama etkinleştirilip etkinleştirilmeyeceğini belirler (sayfanın üst kısmındaki bir görüntüler sekmesine görürsünüz).   
+    - Sayfa başına sonuç görüntü &mdash; birer birer (150 sonuçların sayfa başına en yüksek değer) görüntülenecek resim araması sonuçları sayısı.  
+  
+    Eğer aşağıdaki yapılandırmayı gösterilen **Gelişmiş yapılandırmaları Show**.  
+  
+    - Filtrelerini etkinleştirme &mdash; kullanıcının Bing döndürür görüntülerini filtrelemek için kullanabileceğiniz filtreler ekler. Örneğin, kullanıcı için yalnızca animasyonlu GIF'leri sonuçlarını filtreleyebilirsiniz.
+
+  - Video arama yapılandırmalar:
+    - Video sonuçları etkin &mdash; video arama etkinleştirilip etkinleştirilmeyeceğini belirler (sayfanın üst kısmındaki videoları sekme görürsünüz).  
+    - Sayfa başına video sonuçları &mdash; birer birer (150 sonuçların sayfa başına en yüksek değer) görüntülenecek video araması sonuç sayısı.
+  
+    Eğer aşağıdaki yapılandırmayı gösterilen **Gelişmiş yapılandırmaları Show**.  
+  
+    - Filtrelerini etkinleştirme &mdash; kullanıcının Bing döndürür videoları filtrelemek için kullanabileceğiniz filtreler ekler. Örneğin, kullanıcının belirli bir çözümleme videoları veya son 24 saat içinde bulunan videolar için sonuçları filtreleyebilirsiniz.
+
+  - Çeşitli yapılandırmalar:
+    - Sayfa başlığı &mdash; (için pop üzerinden düzeni) arama sonuçları sayfasının başlık alanında görüntülenen metin.
+    - Araç çubuğu tema &mdash; arama sonuçları sayfası başlık alanı arka plan rengini belirler.  
+  
+    Eğer aşağıdaki yapılandırmaları gösterilen **Gelişmiş yapılandırmaları Show**.  
+  
+    - Arama kutusu metni yer tutucusu &mdash; girişi için arama kutusunu önceki görüntülenen metin.
+    - Başlık bağlantı URL'si &mdash; odkaz na nadpis hedefi.
+    - Logo URL'si &mdash; başlığı yanında görüntülenen resim. 
+    - Favicon url &mdash; tarayıcının başlık çubuğunda görüntülenen simge.  
+
+    Barındırılan kullanıcı Arabirimi (JavaScript kod parçacığını kullanırsanız, bunlar geçerli değildir) HTML uç noktası aracılığıyla yalnızca tükettiğiniz, şu yapılandırmalar geçerlidir.
     
-   > [!IMPORTANT]
-   > Seçerken customConfig sorgu parametresi eklediğinizden emin olun **yalnızca sonuçları** düzeni bkz [sorgu parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters).
+    - Sayfa başlığı
+    - Araç çubuğu tema
+    - Başlık bağlantı URL'si
+    - Logo URL'si
+    - Faviicon URL'si  
+  
+6. Arama abonelik anahtarını girin veya aşağı açılan listeden seçin. Açılan listede, Azure hesabınızın aboneliklerden anahtarlarla doldurulur. Bkz: [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
 
-5.  Altında **ek yapılandırmalar**, uygulamanız için uygun değerleri sağlayın. Bu ayarlar isteğe bağlıdır. Uygulama veya bunları kaldırma etkisini görmek için sağda önizleme bölmesinde görebilirsiniz.  Kullanılabilir yapılandırma seçenekleri şunlardır:
-    - Web araması yapılandırmalar:
-        - Web sonuçları etkin &mdash; Web'de arama sonuçlarıyla döndürülen olmadığını belirler
-        - Etkinleştirme otomatik öneri &mdash; belirler özel otomatik öneri, etkin
-        - Web sayfa başına sonuç &mdash; sayı aynı anda görüntülenecek web arama sonuçları
-        - Resim yazısı &mdash; görüntüleri arama sonuçları ile gösterilip gösterilmeyeceğini belirler
-        - Sözcüklerin vurgulanıp &mdash; sonuçları arama terimlerini kalın ile gösterilip gösterilmeyeceğini belirler
-    - Görüntü arama yapılandırmalar:
-        - Görüntü etkin sonuçları &mdash; resim araması sonuçları döndürüleceğini belirler
-    - Çeşitli yapılandırmalar:
-        - Sayfa başlığı &mdash; sayfası başlık alanında görüntülenen metin
-        - Araç çubuğu tema &mdash; sayfası başlık alanı arka plan rengini belirler
-        - Arama kutusu metni yer tutucusu &mdash; girişi için arama kutusunu önceki görüntülenen metin
-        - Başlık bağlantı URL'si &mdash; odkaz na nadpis hedefi
-        - Logo URL'si &mdash; başlığı yanında görüntülenen resmi 
-        - Favicon url &mdash; tarayıcının başlık çubuğunda görüntülenen simgesi
-
-   > [!IMPORTANT]
-   > En az bir resim arama veya Web araması etkinleştirilmelidir.
-
-6.  Arama abonelik anahtarını girin veya açılır listeden seçin. Aşağı açılan hesabınızın Azure abonelikleri anahtarlarından doldurulur. Bkz: [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
-7.  Otomatik öneri etkinleştirilirse, otomatik öneri abonelik anahtarını girin veya açılır listeden seçin. Aşağı açılan hesabınızın Azure abonelikleri anahtarlarından doldurulur. Özel otomatik öneri özelliği, belirtilen abonelik katmanı gerektirir, bkz: [fiyatlandırma sayfalarına](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
+7. Otomatik öneri etkinleştirilirse, otomatik öneri abonelik anahtarını girin veya aşağı açılan listeden seçin. Açılan listede, Azure hesabınızın aboneliklerden anahtarlarla doldurulur. Özel otomatik öneri özelliği bir belirli aboneliğe katmanı gerektirir, bkz: [fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
 > [!NOTE]
 > Sağ bölmede, özel barındırılan UI yapılandırmada değişiklik yapmak gibi yapılan değişiklikler için görsel bir başvuru sağlar. Görüntülenen arama sonuçlarını Örneğiniz için gerçek sonuçlar değildir.
 
-[!INCLUDE [publish or revert](./includes/publish-revert.md)]
+[!INCLUDE[publish or revert](./includes/publish-revert.md)]
 
 ## <a name="consume-custom-ui"></a>Özel kullanıcı Arabirimi kullanma
+
 Barındırılan kullanıcı Arabirimi, ya da kullanmak için: 
 
-- Web sayfanızın komut dosyası Ekle
-    ``` html
-    <html>
-        <body>
-            <script type="text/javascript"
-                id="bcs_js_snippet"            
-                src="https://ui.customsearch.ai/api/ux/render?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate">            
-            </script>
-        </body>    
-    </html>
-    ```
+- Web sayfanızın komut dosyası Ekle  
+  
+  ```html
+  <html>
+      <body>
+          <script type="text/javascript" 
+              id="bcs_js_snippet"
+              src="https://ui.customsearch.ai /api/ux/rendering-js?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate&version=latest&q=">
+          </script>
+      </body>    
+  </html>
+  ```
 
-- Sağlanan URL kullanın `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`
+- Veya bir Web tarayıcısından şu URL'yi kullanın.   
+  
+  `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
+  
+  > [!NOTE]
+  > Aşağıdaki sorgu parametreleri, URL'ye gerektiği gibi ekleyin. Bu parametreler hakkında daha fazla bilgi için bkz: [özel arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) başvuru.
+  >
+  > - q
+  > - Mkt
+  > - safesearch
+  > - setlang
 
   > [!IMPORTANT]
   > Gizlilik bildiriminiz veya diğer bildirimler ve koşulları sayfası görüntülenemiyor. Kullanımınız uygunluğu farklılık gösterebilir.  
@@ -83,5 +141,6 @@ Barındırılan kullanıcı Arabirimi, ya da kullanmak için:
 Özel yapılandırma Kimliğinizi dahil olmak üzere ek bilgi için Git **uç noktaları** altında **üretim** sekmesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 - [Metni vurgulayacak şekilde decoration işaretçileri kullanma](./hit-highlighting.md)
 - [Sayfa Web sayfaları](./page-webpages.md)

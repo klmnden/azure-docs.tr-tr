@@ -1,6 +1,6 @@
 ---
-title: 'Oluşturma ve bir Azure expressroute değiştirme: CLI | Microsoft Docs'
-description: Bu makalede, oluşturmak, sağlamak, doğrulayın, güncelleştirme, silme ve CLI kullanarak bir expressroute bağlantı hattı yetkisini kaldırma açıklar.
+title: 'Bir Azure ExpressRoute devre oluşturma ve değiştirme: CLI | Microsoft Docs'
+description: Bu makalede, oluşturma, sağlama, doğrulayın, güncelleştirme, silme ve CLI kullanarak bir ExpressRoute bağlantı hattının sağlamasını Kaldır açıklar.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: cd4e31336fd0e90b13f1c3984de89f24e65b052b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 21cd06692fe1c26cfa276d1f8ec7ace77b11d3c2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23933252"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979992"
 ---
-# <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Oluşturma ve CLI kullanarak bir expressroute bağlantı hattı değiştirme
+# <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>CLI kullanarak bir ExpressRoute devre oluşturma ve değiştirme
 
 
-Bu makalede, komut satırı arabirimi (CLI) kullanarak bir Azure expressroute oluşturmayı açıklar. Bu makalede ayrıca durumu, güncelleştirme veya silme denetleyin ve bir bağlantı hattı yetkisini kaldırma kullanmayı gösterir. ExpressRoute bağlantı hatları ile çalışmak için farklı bir yöntem kullanmak istiyorsanız, aşağıdaki listeden makaleyi seçebilirsiniz:
+Bu makalede komut satırı arabirimi (CLI) kullanarak bir Azure ExpressRoute bağlantı hattı oluşturmayı açıklar. Bu makalede ayrıca durumu, güncelleştirme veya silme kontrol edin ve bir bağlantı hattının sağlamasını kaldırma işlemini gösterir. ExpressRoute bağlantı hatları ile çalışmak için farklı bir yöntem kullanmak istiyorsanız, aşağıdaki listeden makaleyi seçebilirsiniz:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
@@ -37,14 +37,14 @@ Bu makalede, komut satırı arabirimi (CLI) kullanarak bir Azure expressroute ol
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-* Başlamadan önce, CLI komutlarının en son sürümünü (2.0 veya üzeri) yükleyin. CLI komutlarını yükleme hakkında bilgi için bkz. [Azure CLI 2.0’ı yükleme](/cli/azure/install-azure-cli) ve [Azure CLI 2.0’ı Kullanmaya Başlama](/cli/azure/get-started-with-azure-cli).
-* Gözden geçirme [Önkoşullar](expressroute-prerequisites.md) ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
+* Başlamadan önce, CLI komutlarının en son sürümünü (2.0 veya üzeri) yükleyin. CLI komutlarını yükleme hakkında daha fazla bilgi için bkz: [Azure CLI'yı yükleme](/cli/azure/install-azure-cli) ve [Azure CLI ile çalışmaya başlama](/cli/azure/get-started-with-azure-cli).
+* Gözden geçirme [önkoşulları](expressroute-prerequisites.md) ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
 
-## <a name="create"></a>Oluşturma ve bir expressroute bağlantı hattı sağlama
+## <a name="create"></a>Oluşturma ve bir ExpressRoute bağlantı hattı sağlama
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure hesabınızda oturum açın ve aboneliğinizi seçin
 
-Yapılandırmanızı başlamak için Azure hesabınızda oturum açın. Aşağıdaki örnekler bağlanmanıza yardımcı olması için kullanın:
+Yapılandırmanızı başlamak için Azure hesabınızda oturum açın. Bağlanmanıza yardımcı olması için aşağıdaki örnekleri kullanın:
 
 ```azurecli
 az login
@@ -56,15 +56,15 @@ Hesapla ilişkili abonelikleri kontrol edin.
 az account list
 ```
 
-Bir expressroute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
+Bir ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
 
 ```azurecli
 az account set --subscription "<subscription ID>"
 ```
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Desteklenen sağlayıcılar, konumları ve bant genişlikleri listesini alma
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Desteklenen sağlayıcılar, konumları ve bant genişlikleri listesini alın
 
-Bir expressroute bağlantı hattı oluşturmadan önce desteklenen bağlantı sağlayıcıları, konumları ve bant seçeneklerini listesi gerekir. CLI komut 'az ağ hızlı rota listesi-service-providers', sonraki adımlarda kullanacağınız bu bilgileri döndürür:
+Bir ExpressRoute bağlantı hattı oluşturmadan önce desteklenen bağlantı sağlayıcıları ve konumları bant genişliği seçenekleri listesi gerekir. CLI komutu 'az ağ express-route listesi hizmet-sağlayıcıları-', sonraki adımlarda kullanacağınız bu bilgileri döndürür:
 
 ```azurecli
 az network express-route list-service-providers
@@ -123,52 +123,52 @@ Yanıt aşağıdaki örneğe benzer:
   },
 ```
 
-Yanıt bağlantı sağlayıcınız listelenip listelenmediğini denetleyin. Bir bağlantı hattı oluştururken ihtiyacınız olacak aşağıdaki bilgileri not edin:
+Yanıta bağlantı sağlayıcınız listelenip listelenmediğini denetleyin. Bir devreyi oluştururken ihtiyacınız olacak aşağıdaki bilgileri not edin:
 
 * Ad
 * PeeringLocations
 * BandwidthsOffered
 
-Artık bir expressroute bağlantı hattı oluşturmak hazırsınız.
+Bir ExpressRoute bağlantı hattı oluşturmak artık hazırsınız.
 
 ### <a name="3-create-an-expressroute-circuit"></a>3. ExpressRoute bağlantı hattı oluşturma
 
 > [!IMPORTANT]
-> ExpressRoute bağlantı hattınız bir hizmet anahtarı verilen andan itibaren faturalandırılır. Bağlantı sağlayıcı bağlantı hattı sağlamak hazır olduğunda bu işlemi gerçekleştirin.
+> ExpressRoute bağlantı hattı, bir hizmet anahtarı verildiğinde andan itibaren faturalandırılır. Bağlantı sağlayıcısı devreyi sağlamak hazır olduğunda, bu işlemi gerçekleştirin.
 > 
 > 
 
-Bir kaynak grubu zaten yoksa, expressroute bağlantı hattı oluşturmadan önce bir oluşturmanız gerekir. Aşağıdaki komutu çalıştırarak, bir kaynak grubu oluşturabilirsiniz:
+Bir kaynak grubu zaten sahip değilseniz, ExpressRoute devreniz oluşturmadan önce bir oluşturmanız gerekir. Aşağıdaki komutu çalıştırarak bir kaynak grubu oluşturabilirsiniz:
 
 ```azurecli
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
-Aşağıdaki örnek 200 MB/sn expressroute bağlantı hattı üzerinden Equinix Silikon Vadisi'nde oluşturulacağını gösterir. Farklı bir sağlayıcı ve farklı ayarlar kullanıyorsanız, bu bilgileri isteğiniz yaptığınızda değiştirin. 
+Aşağıdaki örnek, 200 MB/sn, Silikon vadisi ExpressRoute bağlantı hattı üzerinden Equinix oluşturma işlemi gösterilmektedir. Farklı bir sağlayıcı ve farklı ayarlar kullanıyorsanız, bu bilgileri, isteğinde bulunduğunda değiştirin. 
 
-SKU ailesi ve doğru SKU katmanı belirttiğinizden emin olun:
+SKU ailesi ve SKU katmanı doğru belirttiğinizden emin olun:
 
-* SKU katmanı, bir ExpressRoute standart ya da bir ExpressRoute premium Eklentisi etkin olup olmadığını belirler. Standart SKU veya 'Premium' premium eklenti için almak için ' Standart' belirtebilirsiniz.
-* SKU ailesi faturalama türü belirler. Ölçülen veri planı ve 'Unlimiteddata' için 'Metereddata' için bir sınırsız veri planı belirtebilirsiniz. Faturalama 'Metereddata' türünden 'Unlimiteddata' için değiştirebilirsiniz, ancak 'Unlimiteddata' türünden 'Metereddata' için değiştirilemiyor.
+* SKU katmanı, bir ExpressRoute standart ya da ExpressRoute premium eklenti etkin olup olmadığını belirler. Standart SKU veya 'Premium' için premium eklentiyi almak için ' Standart' belirtebilirsiniz.
+* SKU ailesi, fatura türü belirler. Ölçülen veri planı ve 'Unlimiteddata' için 'Metereddata' için bir sınırsız veri planı belirtebilirsiniz. Faturalandırma 'Metereddata' türünden 'Unlimiteddata' için değiştirebilirsiniz, ancak 'Unlimiteddata' türünden 'Metereddata' için değiştiremezsiniz.
 
 
-ExpressRoute bağlantı hattınız bir hizmet anahtarı verilen andan itibaren faturalandırılır. Aşağıdaki örnek yeni bir hizmet anahtarı için bir istek verilmiştir:
+ExpressRoute bağlantı hattı, bir hizmet anahtarı verildiğinde andan itibaren faturalandırılır. Aşağıdaki örnek, bir istek için yeni bir hizmet anahtarı verilmiştir:
 
 ```azurecli
 az network express-route create --bandwidth 200 -n MyCircuit --peering-location "Silicon Valley" -g ExpressRouteResourceGroup --provider "Equinix" -l "West US" --sku-family MeteredData --sku-tier Standard
 ```
 
-Yanıt hizmet anahtarını içerir.
+Yanıt hizmet anahtarı içerir.
 
-### <a name="4-list-all-expressroute-circuits"></a>4. Tüm ExpressRoute bağlantı hatları listesi
+### <a name="4-list-all-expressroute-circuits"></a>4. Tüm ExpressRoute devreleri listesi
 
-Oluşturduğunuz tüm expressroute bağlantı hatları listesini almak için 'az ağ hızlı rota listesi' komutunu çalıştırın. Bu komutu kullanarak bu bilgileri dilediğiniz zaman alabilir. Tüm devreler listelemek için hiçbir parametre çağırmaya.
+Oluşturduğunuz tüm ExpressRoute devreleri listesini almak için 'az network express-route list' komutunu çalıştırın. Bu komutu kullanarak bu bilgileri istediğiniz zaman alabilir. Tüm devreler listelemek için parametresiz çağrısı yapın.
 
 ```azurecli
 az network express-route list
 ```
 
-Hizmet anahtarınız listelenen *ServiceKey* yanıtının alan.
+Hizmet anahtarınız listelenen *Servicekey'ini* yanıtın alan.
 
 ```azurecli
 "allowClassicOperations": false,
@@ -199,40 +199,40 @@ Hizmet anahtarınız listelenen *ServiceKey* yanıtının alan.
 "type": "Microsoft.Network/expressRouteCircuits]
 ```
 
-Kullanarak komutu çalıştırarak tüm parametrelerin ayrıntılı açıklamaları alabilirsiniz '-h' parametresi.
+Komutunu çalıştırarak, tüm parametrelerin ayrıntılı açıklamaları alabilirsiniz '-h' parametresi.
 
 ```azurecli
 az network express-route list -h
 ```
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Hizmet anahtarı sağlamak için bağlantı sağlayıcınızı Gönder
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Hizmet anahtarı sağlamak için bağlantı sağlayıcınıza gönderin.
 
-'ServiceProviderProvisioningState' hizmet sağlayıcı tarafında sağlama geçerli durumu hakkında bilgi sağlar. Durum Microsoft tarafında durumunu sağlar. Daha fazla bilgi için bkz: [iş akışları makale](expressroute-workflows.md#expressroute-circuit-provisioning-states).
+'ServiceProviderProvisioningState' hizmet sağlayıcı tarafta sağlama geçerli durumu hakkında bilgi sağlar. Durum Microsoft tarafında durumu sağlar. Daha fazla bilgi için [iş akışları makale](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
-Yeni bir expressroute bağlantı hattı oluşturduğunuzda, bağlantı hattı şu durumda olur:
+Yeni bir ExpressRoute bağlantı hattı'ı oluşturduğunuzda, bağlantı hattı şu durumda olur:
 
 ```azurecli
 "serviceProviderProvisioningState": "NotProvisioned"
 "circuitProvisioningState": "Enabled"
 ```
 
-Bağlantı sağlayıcı onu sizin için etkinleştirme sürecinde olduğunda bağlantı hattı için şu durum değiştirir:
+Bağlantı sağlayıcısı, etkinleştirmeden sürecinde olduğunda bağlantı hattının aşağıdaki duruma değiştirir:
 
 ```azurecli
 "serviceProviderProvisioningState": "Provisioning"
 "circuitProvisioningState": "Enabled"
 ```
 
-Bir expressroute bağlantı hattı kullanabilmek için şu durumda olmalıdır:
+Bir ExpressRoute bağlantı hattı kullanabilmek için şu durumda olmalıdır:
 
 ```azurecli
 "serviceProviderProvisioningState": "Provisioned"
 "circuitProvisioningState": "Enabled
 ```
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Durum ve hattı anahtar durumunu düzenli aralıklarla denetleyin
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Durum ve bağlantı hattı tuşunun durumunu düzenli aralıklarla denetleyin
 
-Durum ve hattı anahtar durumunu denetleme, sağlayıcınız hattınız etkin olduğunda bilmenizi sağlar. Bağlantı hattı yapılandırıldıktan sonra 'ServiceProviderProvisioningState' 'Hazırlandı ', aşağıdaki örnekte gösterildiği gibi görünür:
+Durum ve bağlantı hattı tuşunun durumunu denetleme, sağlayıcınız bağlantı hattınızın etkin olduğunda bilmenizi sağlar. Bağlantı hattı yapılandırıldıktan sonra 'ServiceProviderProvisioningState' 'Sağlanıyor' aşağıdaki örnekte gösterildiği gibi görünür:
 
 ```azurecli
 az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
@@ -269,54 +269,54 @@ Yanıt aşağıdaki örneğe benzer:
 "type": "Microsoft.Network/expressRouteCircuits]
 ```
 
-### <a name="7-create-your-routing-configuration"></a>7. Yönlendirme yapılandırması oluşturma
+### <a name="7-create-your-routing-configuration"></a>7. Kullanarak yönlendirme yapılandırması oluşturma
 
-Adım adım yönergeler için bkz: [expressroute bağlantı hattı yönlendirme yapılandırması](howto-routing-cli.md) oluşturup hattı eşlemeler değiştirmek için makale.
+Adım adım yönergeler için bkz: [ExpressRoute bağlantı hattı yönlendirme yapılandırması](howto-routing-cli.md) makale oluşturma ve değiştirme devre eşlemeleri.
 
 > [!IMPORTANT]
-> Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan bağlantı hatları için geçerlidir. Yönetilen sunan bir hizmet sağlayıcısı kullanıyorsanız, Katman 3 Hizmetleri (genellikle bir IP VPN, MPLS gibi), bağlantı sağlayıcınız yönlendirmeyi sizin için yönetir ve yapılandırır.
+> Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan bağlantı hatları için geçerlidir. Yönetilen sunan bir hizmet sağlayıcısı kullanıyorsanız, Katman 3 Hizmetleri (genellikle bir IP VPN, MPLS gibi), bağlantı sağlayıcınız yapılandırır ve yönlendirmeyi sizin için yönetir.
 > 
 > 
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. ExpressRoute bağlantı hattına bir sanal ağı bağlama
 
-Ardından, bir sanal ağ, expressroute bağlantı hattına bağlayın. Kullanım [ExpressRoute bağlantı hatları için sanal ağları bağlama](howto-linkvnet-cli.md) makalesi.
+Ardından, bir sanal ağ, ExpressRoute bağlantı hattına bağlayın. Kullanım [sanal ağları ExpressRoute devresine bağlama](howto-linkvnet-cli.md) makalesi.
 
-## <a name="modify"></a>Bir expressroute bağlantı hattı değiştirme
+## <a name="modify"></a>Bir ExpressRoute bağlantı hattını değiştirme
 
-Bağlantı etkilemeden belirli bir expressroute bağlantı hattı özelliklerini değiştirebilirsiniz. Kapalı kalma süresi olmadan aşağıdaki değişiklikleri yapabilirsiniz:
+Belirli bir ExpressRoute bağlantı hattı özelliklerini bağlantıyı etkilemeden değiştirebilirsiniz. Kapalı kalma süresi olmadan aşağıdaki değişiklikleri yapabilir:
 
-* Etkinleştirmek veya expressroute bağlantı hattı için ExpressRoute premium eklentisi devre dışı bırakın.
-* Sağlanmış kapasite kullanılabilir bağlantı noktası, expressroute bağlantı hattı bant genişliğini artırabilirsiniz. Ancak, bir bağlantı hattının bant genişliğini önceki sürüme indirme desteklenmiyor. 
+* Etkinleştirebilir veya ExpressRoute bağlantı hattı için ExpressRoute premium eklenti devre dışı bırakın.
+* Sağlanmış kapasite kullanılabilir bağlantı noktası üzerinde ExpressRoute bağlantı hattı bant genişliğini artırabilirsiniz. Ancak, bir bağlantı hattı bant önceki sürüme indirme desteklenmiyor. 
 * Sınırsız veri ölçülen verilerden ölçüm planı değiştirebilirsiniz. Ancak, ölçüm plan sınırsız verilerden ölçülen veri değiştirilmesi desteklenmiyor.
-* Etkinleştirme ve devre dışı *izin Klasik işlemleri*.
+* Etkinleştirebilir ve devre dışı *Klasik işlemlere izin Ver'i*.
 
-Sınırlar ve sınırlamalar hakkında daha fazla bilgi için bkz: [ExpressRoute SSS](expressroute-faqs.md).
+Sınırlar ve sınırlamalar hakkında daha fazla bilgi için bkz. [ExpressRoute SSS](expressroute-faqs.md).
 
 ### <a name="to-enable-the-expressroute-premium-add-on"></a>ExpressRoute premium eklentisi etkinleştirmek için
 
-Aşağıdaki komutu kullanarak, varolan bağlantı hattınız için ExpressRoute premium eklentisi etkinleştirebilirsiniz:
+ExpressRoute premium eklentisi aşağıdaki komutu kullanarak, varolan bağlantı hattınız için etkinleştirebilirsiniz:
 
 ```azurecli
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Premium
 ```
 
-Bağlantı hattı şimdi etkin ExpressRoute premium eklentisi özellikleri vardır. Komut başarıyla çalıştırıldı hemen premium eklenti özellik faturalama başlayın.
+Bağlantı hattı artık etkin ExpressRoute premium eklenti özellikleri vardır. Komut başarıyla çalıştırıldı hemen sonra için premium eklenti özelliğini fatura başlamadan.
 
 ### <a name="to-disable-the-expressroute-premium-add-on"></a>ExpressRoute premium eklentisi devre dışı bırakmak için
 
 > [!IMPORTANT]
-> Standart bağlantı hattı için izin daha büyük olan kaynaklar kullanıyorsanız, bu işlemi başarısız olabilir.
+> Bu işlem için standart devreyi izin daha büyük olan kaynaklar kullanıyorsanız, başarısız olabilir.
 > 
 > 
 
-ExpressRoute premium eklentisi devre dışı bırakmadan önce aşağıdaki ölçütleri anlama:
+ExpressRoute premium eklentisi devre dışı bırakmadan önce aşağıdaki ölçütleri de anlamanız:
 
-* Standart Premium'dan düşürmek önce devresine bağlı 10'dan az sanal ağlara sahip olacak emin olmanız gerekir. Birden fazla 10 varsa, güncelleştirme isteği başarısız olur ve biz premium oranlarda fatura.
-* Tüm sanal ağları diğer coğrafi bölgelerde bağlantısını gerekir. Tüm sanal ağları bağlantısını yok, güncelleştirme isteği başarısız olur ve biz premium oranlarda fatura.
-* Yol tablosu özel eşleme için 4. 000'den az yolları olmalıdır. Rota tablosu boyutunuz 4.000 yolları büyükse, BGP oturumu bırakır. Tanıtılan ön ek sayısı 4.000 kadar oturumu yeniden iler hale olmaz.
+* Premium katmanından standart sürümüne düşürme önce işlem hattına bağlı 10'dan az sanal ağlara sahip emin olmanız gerekir. 10'dan fazla varsa, güncelleştirme isteği başarısız olur ve premium fiyatları üzerinden faturalandırılırsınız.
+* Diğer jeopolitik bölgede tüm sanal ağları bağlantısını kaldırmanız gerekir. Tüm sanal ağları bağlantısını yok ise, güncelleştirme isteği başarısız olur ve premium fiyatları üzerinden faturalandırılırsınız.
+* Özel eşdüzey hizmet sağlama için 4000'den az yollar yol tablonuz olması gerekir. Rota tablosu boyutunuz 4000 yollara kıyasla daha büyükse, BGP oturumu bırakır. Tanıtılan ön ek sayısı 4.000 olana kadar oturumu yeniden iler hale gerekmez.
 
-Aşağıdaki örnek kullanarak var olan bağlantı hattı için ExpressRoute premium eklentisi devre dışı bırakabilirsiniz:
+Aşağıdaki örneği kullanarak mevcut bir devreyi için ExpressRoute premium eklentisi devre dışı bırakabilirsiniz:
 
 ```azurecli
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Standard
@@ -324,25 +324,25 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 ### <a name="to-update-the-expressroute-circuit-bandwidth"></a>ExpressRoute bağlantı hattı bant genişliğini güncelleştirmek için
 
-Denetimi sağlayıcınız için desteklenen bant genişliği seçenekleri için [ExpressRoute SSS](expressroute-faqs.md). Var olan bağlantı hattınız boyutundan büyük herhangi bir boyutta seçebilirsiniz.
+Denetimi sağlayıcınız için desteklenen bir bant genişliği seçenekleri için [ExpressRoute SSS](expressroute-faqs.md). Mevcut bağlantı hattınızın boyutundan daha büyük herhangi bir boyutta seçebilirsiniz.
 
 > [!IMPORTANT]
-> Varolan bir bağlantı üzerinde yetersiz kapasite ise, expressroute bağlantı hattı yeniden oluşturmanız gerekebilir. Varsa hiçbir ek kapasite kullanılabilir o konumda bağlantı hattı yükseltemezsiniz.
+> Var olan bağlantı noktası üzerinde yeterli kapasitesi varsa, ExpressRoute bağlantı hattı yeniden oluşturmanız gerekebilir. Yoksa hiçbir ek kapasite kullanılabilir o konumda devre yükseltemezsiniz.
 >
-> Bir expressroute bağlantı hattı kesintiye uğratmadan bant indiremezsiniz. Bant genişliği eski sürüme düşürmeyi expressroute bağlantı hattı yetkisini kaldırma ve yeni bir expressroute bağlantı hattı yeniden hazırlayana gerektirir.
+> Kesintisiz bir ExpressRoute bağlantı hattı bant indiremezsiniz. Bant genişliği eski sürüme düşürme, ExpressRoute bağlantı hattının sağlamasını kaldırma ve ardından yeni ExpressRoute bağlantı hattı yeniden sağlamak gerektirir.
 >
 
-Gereksinim boyutu karar verdikten sonra bağlantı hattınız yeniden boyutlandırmak için aşağıdaki komutu kullanın:
+Gereksinim boyutu karar verdikten sonra bağlantı hattınızı yeniden boyutlandırmak için aşağıdaki komutu kullanın:
 
 ```azurecli
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --bandwidth 1000
 ```
 
-Bağlantı hattınız Microsoft tarafında boyutlandırılır. Ardından, bu değişikliği eşleşecek şekilde kendi tarafında yapılandırmalar güncelleştirileceğini bağlantı sağlayıcınız başvurmanız gerekir. Bu bildirim yaptıktan sonra güncelleştirilmiş bant seçeneği için faturalama başlayın.
+Bağlantı hattınız Microsoft tarafında boyutlandırılır. Ardından, bu değişikliği eşleşecek şekilde kendi tarafında yapılandırmaları güncelleştirmek için bağlantı sağlayıcınıza başvurmanız gerekir. Bu bildirim yaptıktan sonra güncelleştirilmiş bant seçeneği için faturalama başlayın.
 
-### <a name="to-move-the-sku-from-metered-to-unlimited"></a>SKU taşımak için sınırsız olarak ölçülen
+### <a name="to-move-the-sku-from-metered-to-unlimited"></a>SKU taşımak için sınırsız olarak ölçülür
 
-Aşağıdaki örnek kullanarak ExpressRoute devresi SKU'su değiştirebilirsiniz:
+Aşağıdaki örneği kullanarak bir ExpressRoute bağlantı hattı SKU'su değiştirebilirsiniz:
 
 ```azurecli
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-family UnlimitedData
@@ -350,17 +350,17 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Klasik ve Resource Manager ortamları erişimi denetlemek için
 
-' Ndaki yönergeleri gözden [Resource Manager dağıtım modeline taşıma ExpressRoute bağlantı hatları Klasik](expressroute-howto-move-arm.md).
+Gözden geçirme yönergeleri [Resource Manager dağıtım modeline taşıma ExpressRoute devreleri Klasikten](expressroute-howto-move-arm.md).
 
-## <a name="delete"></a>Sağlamayı kaldırmayı ve bir expressroute bağlantı hattı silme
+## <a name="delete"></a>Sağlama kaldırmayı ve bir ExpressRoute bağlantı hattı siliniyor
 
-Yetkisini kaldırma ve bir expressroute bağlantı hattını silmek için aşağıdaki ölçütleri anladığınızdan emin olun:
+Sağlamasını kaldırma ve bir ExpressRoute bağlantı hattını silmek için aşağıdaki ölçütleri anladığınızdan emin olun:
 
-* Expressroute bağlantı hattı tüm sanal ağlardan bağlantısını gerekir. Bu işlem başarısız olursa, bağlantı hattı için herhangi bir sanal ağa bağlı olan denetleyin.
-* Sağlama durumu ExpressRoute bağlantı hattı hizmet sağlayıcı ise **sağlama** veya **hazırlandı**, kendi tarafında hattı yetkisini kaldırma için hizmet sağlayıcınıza birlikte çalışmalısınız. Kaynakları ayırabilir ve hizmet sağlayıcısı devre sağlama kaldırma işlemi tamamlandıktan ve bize bildiren kadar sizi faturalandırmak devam ediyoruz.
-* Hizmet sağlayıcısı hattı sağlaması kaldırılıyor. sağlaması hattı silebilirsiniz. Bir bağlantı hattı sağlaması kaldırılıyor. sağlaması, hizmet sağlayıcısı sağlama durumu kümesine **sağlanmadı**. Bağlantı hattı için fatura durdurur.
+* ExpressRoute bağlantı hattınızdaki tüm sanal ağların bağlantısını kaldırmanız gerekir. Bu işlem başarısız olursa, tüm sanal ağları işlem hattına bağlı olmadığını denetleyin.
+* ExpressRoute bağlantı hattı Hizmet Sağlayıcısı sağlama durumu ise **sağlama** veya **sağlanan**, kendi tarafında bağlantı hattını sağlamasını kaldırmak için hizmet sağlayıcınızla birlikte çalışmanız gerekir. Kaynak ayırmanıza ve hizmeti sağlayıcısı devreyi sağlamayı kaldırma tamamlandıktan ve bize bildiren kadar faturalandırılırsınız devam ediyoruz.
+* Hizmet sağlayıcısı devreyi sağlamayı durdurduğunda devre silebilirsiniz. Bir devreyi sağlaması, hizmet sağlayıcısı sağlama durumu kümesine **sağlanmadı**. Bu durumda bağlantı hattının faturalandırılması durdurulur.
 
-Aşağıdaki komutu çalıştırarak, expressroute bağlantı hattı silebilirsiniz:
+Aşağıdaki komutu çalıştırarak, ExpressRoute devreniz silebilirsiniz:
 
 ```azurecli
 az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
@@ -368,7 +368,7 @@ az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bağlantı hattınız oluşturduktan sonra aşağıdaki görevleri yaptığınızdan emin olun:
+Bağlantı hattınızı oluşturduktan sonra aşağıdaki görevleri gerçekleştirmek emin olun:
 
-* [Oluşturma ve expressroute bağlantı hattı için yönlendirmeyi değiştirme](howto-routing-cli.md)
-* [Sanal ağ, ExpressRoute devresine bağlama](howto-linkvnet-cli.md)
+* [ExpressRoute bağlantı hattı için yönlendirme oluşturma ve değiştirme](howto-routing-cli.md)
+* [Sanal ağınız, ExpressRoute devresine bağlama](howto-linkvnet-cli.md)

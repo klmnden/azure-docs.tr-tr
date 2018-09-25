@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7ba278a244327e717c114177cd8878cd00dfd7b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497918"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038787"
 ---
 # <a name="using-search-in-application-insights"></a>Uygulama anlayışları'nda arama kullanma
 Arama özelliği, [Application Insights](app-insights-overview.md) bulmak ve sayfa görüntülemeleri, özel durumlar gibi tek bir telemetri öğelerini keşfedin veya web istekleri için kullanın. Ve günlük izlemeleri ve kodlanmış olayları görüntüleyebilir.
@@ -123,8 +123,8 @@ Kullanabileceğiniz arama ifadeleri şunlardır:
 | Örnek sorgu | Etki |
 | --- | --- |
 | `apple` |Alanları "apple" sözcüğünü içeren bir zaman aralığında tüm etkinlikler bulun |
-| `apple AND banana` <br/>`apple banana` |Her iki sözcükleri içeren etkinlikler bulun. Capital "ve" değil kullan "ve". |
-| `apple OR banana` |Her iki word içeren etkinlikler bulun. "Veya", yok "veya".<br/>Kısa biçim. |
+| `apple AND banana` <br/>`apple banana` |Her iki sözcükleri içeren etkinlikler bulun. Capital "ve" değil kullan "ve". <br/>Kısa biçim. |
+| `apple OR banana` |Her iki word içeren etkinlikler bulun. "Veya", yok "veya". |
 | `apple NOT banana` |Bir sözcük, ancak diğer içeren etkinlikler bulun. |
 
 ## <a name="sampling"></a>Örnekleme

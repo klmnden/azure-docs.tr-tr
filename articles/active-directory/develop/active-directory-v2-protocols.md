@@ -13,26 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 645ce394c09f5cdd9f45b085e8d86cdc07ee9158
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4245cd4cf1f67007ced190e15d95929d854e303a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591341"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992754"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokolleri - OAuth 2.0 ve Openıd Connect
+
 Azure AD v2.0 uç noktası kimlik-bir hizmet olarak sektör standardı protokolleri, Openıd Connect ve OAuth 2.0 ile kullanabilirsiniz. Hizmet standartlara uygun olsa da, bu protokolleri herhangi iki uygulamaları arasındaki farklar olabilir. Buradaki bilgileri doğrudan göndererek kodunuzu yazmak isterseniz bu yararlı olacaktır ve HTTP işleme istekleri ya da birini kullanmak yerine bir 3 taraf açık kaynak kitaplığı kullanan müşterilerimizin [açık kaynak kitaplıkları](reference-v2-libraries.md).
 
 > [!NOTE]
 > Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası tarafından desteklenir. V2.0 uç noktası kullanıyorsanız belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
->
->
 
-## <a name="the-basics"></a>Temel bilgileri
+## <a name="the-basics"></a>Temel bilgiler
+
 Neredeyse tüm OAuth ve Openıd Connect akışlar Exchange'de kullanılan dört taraflar vardır:
 
 ![OAuth 2.0 rolleri](../../media/active-directory-v2-flows/protocols_roles.png)
@@ -52,6 +52,7 @@ V2.0 uç noktası kullanan her uygulamanın kayıtlı gerekir [apps.dev.microsof
 Daha ayrıntılı bilgi için [uygulama kaydetmeyi](quickstart-v2-register-an-app.md) öğrenin.
 
 ## <a name="endpoints"></a>Uç Noktalar
+
 Kaydedildikten sonra uygulama v2.0 uç noktasına istek göndererek Azure AD ile iletişim kurar:
 
 ```
@@ -71,15 +72,17 @@ Burada `{tenant}` dört farklı değerden birini alabilir:
 Bu uç noktaları ile etkileşim kurma hakkında daha fazla bilgi için bir belirli uygulama türü seçin.
 
 ## <a name="tokens"></a>Belirteçler
+
 OAuth 2.0 ve Openıd Connect v2.0 uygulamasını taşıyıcı belirteçler, taşıyıcı belirteçleri Jwt'ler temsil dahil olmak üzere kapsamlı kullanımını olun. Taşıyıcı belirteç korumalı bir kaynağın "bearer" erişim veren bir basit güvenlik belirtecidir. Bu anlamda belirteç sunabilir herhangi bir tarafa "bearer" olur. Gerekli adımları iletilmesini ve depolanmasını belirteci güvenliğini sağlamak için alınır değil, bir tarafın ilk taşıyıcı belirteç almak için Azure AD kimlik doğrulaması gerekir ancak kesildi ve istenmeyen bir şahıs tarafından kullanılır. Bazı güvenlik belirteçleri yetkisiz taraflar bunları tüketmesini için yerleşik bir mekanizma olsa da, taşıyıcı belirteçleri Bu mekanizma yoktur ve Aktarım Katmanı Güvenliği (HTTPS) gibi güvenli bir kanal taşınan gerekir. Açık bir şekilde bir taşıyıcı belirteç iletilirse, bir adam-Orta saldırı kötü amaçlı bir şahıs tarafından belirteç almak ve korumalı kaynağa yetkisiz erişim için kullanmak üzere kullanılabilir. Depolama veya daha sonra kullanmak için taşıyıcı belirteçlerini önbelleğe alma aynı güvenlik ilkeleri uygulayın. Uygulamanızı iletir ve güvenli bir şekilde taşıyıcı belirteçleri depolar her zaman emin olmalısınız. Taşıyıcı belirteçleri hakkında daha fazla güvenlik konuları için bkz. [RFC 6750 bölüm 5](http://tools.ietf.org/html/rfc6750).
 
 Daha ayrıntılı bilgi v2.0 uç noktası kullanılan belirteçlerin farklı türdeki kullanılabilir [v2.0 uç noktası belirteç başvurusu](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protokoller
+
 Bazı örnek isteklerini görmek hazırsanız, biri ile çalışmaya başlama öğreticileri aşağıda. Her biri için bir belirli kimlik doğrulama senaryosu karşılık gelir. Sizin için doğru akışı olduğu saptarken yardıma ihtiyacınız varsa, kullanıma [derleme v2.0 uygulama türlerini](v2-app-types.md).
 
-* [Mobil ve OAuth 2.0 ile yerel bir uygulama oluşturun](v2-oauth2-auth-code-flow.md)
-* [Web oluşturma uygulamalarla Open ID Connect](v2-protocols-oidc.md)
+* [OAuth 2.0 ile Mobil ve yerel uygulaması oluşturma](v2-oauth2-auth-code-flow.md)
+* [Open ID Connect ile Web uygulamaları oluşturun](v2-protocols-oidc.md)
 * [OAuth 2.0 örtük akışını kullanarak tek sayfalı uygulamalar oluşturun](v2-oauth2-implicit-grant-flow.md)
-* [Derleme Daemon'ları veya OAuth 2.0 istemci kimlik bilgileri ile sunucu tarafı işlemleri akış](v2-oauth2-client-creds-grant-flow.md)
-* [OAuth 2.0 adına akışı olan bir Web API belirteçleri alın](v2-oauth2-on-behalf-of-flow.md)
+* [Daemon'ları veya sunucu tarafı işlemleri OAuth 2.0 istemci kimlik bilgileri akışı ile derleme](v2-oauth2-client-creds-grant-flow.md)
+* [OAuth 2.0 on-behalf-of akışı ile bir Web API belirteçleri Al](v2-oauth2-on-behalf-of-flow.md)

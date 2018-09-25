@@ -5,22 +5,21 @@ services: active-directory
 keywords: ''
 author: CelesteDG
 manager: mtillman
-editor: PatAltimore
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 07/19/2017
+ms.date: 09/24/2018
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: ab6936d62aac5502d70239bacfbfd15bd6b793ab
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 229f74367262e07128fa9ea6c895d448b854ae0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056098"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958263"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim için Geliştirici Kılavuzu
 
@@ -40,9 +39,9 @@ Bilgi [tek](quickstart-v1-integrate-apps-with-azure-ad.md) ve [çok kiracılı](
 
 ### <a name="app-types-impacted"></a>Etkilenen uygulama türleri
 
-Koşullu erişim, en yaygın durumlarda, bir uygulamanın davranışını değiştirmez veya geliştiriciden herhangi bir değişiklik gerektirmez. Bir uygulamayı bir hizmet için bir belirteç dolaylı olarak ya da sessizce istediğinde yalnızca belirli durumlarda uygulama koşullu erişimi "zorlukları" işlemek için kod değişiklikleri gerektirir. Etkileşimli bir oturum açma isteği gerçekleştirmek kadar basit olabilir. 
+Koşullu erişim, en yaygın durumlarda, bir uygulamanın davranışını değiştirmez veya geliştiriciden herhangi bir değişiklik gerektirmez. Bir uygulamayı bir hizmet için bir belirteç dolaylı olarak ya da sessizce istediğinde yalnızca belirli durumlarda uygulama koşullu erişimi "zorlukları" işlemek için kod değişiklikleri gerektirir. Etkileşimli bir oturum açma isteği gerçekleştirmek kadar basit olabilir.
 
-Özellikle aşağıdaki senaryolarda, koşullu erişim "zorlukları" işlemek için kod gerektirir: 
+Özellikle aşağıdaki senaryolarda, koşullu erişim "zorlukları" işlemek için kod gerektirir:
 
 * Uygulamaları Microsoft Graph erişme
 * Uygulamaları üzerinde-behalf-of akışı gerçekleştirme
@@ -147,7 +146,7 @@ Talep sınama nasıl ele alınacağını gösteren kod örnekleri için başvurm
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Senaryo: uygulama üzerinde-behalf-of akışı gerçekleştirme
 
-Bu senaryoda, yerel bir uygulama bir web hizmetini/API'sini çağıran vakası inceleyeceğiz. Buna karşılık, bu hizmeti yapar ["on-behalf-of" flow](authentication-scenarios.md#application-types-and-scenarios) bir aşağı akış hizmeti çağırmak için. Bizim durumumuzda, bizim koşullu erişim ilkesi aşağı akış hizmetine (Web API 2) uyguladığınız ve bir sunucu/daemon uygulamasının yerine yerel bir uygulama kullanma. 
+Bu senaryoda, yerel bir uygulama bir web hizmetini/API'sini çağıran vakası inceleyeceğiz. Sırayla bu hizmeti [bir aşağı akış hizmeti çağırmak amacıyla he "on-behalf-of" flow. yapar Bizim durumumuzda, bizim koşullu erişim ilkesi aşağı akış hizmetine (Web API 2) uyguladığınız ve bir sunucu/daemon uygulamasının yerine yerel bir uygulama kullanma. 
 
 ![Uygulama üzerinde temsili Akış Diyagramı gerçekleştirme](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -190,7 +189,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 Uygulama ADAL kitaplığı kullanıyorsa, belirteci almak için bir hata her zaman etkileşimli olarak denenir. Bu etkileşimli istek ortaya çıktığında, son kullanıcı koşullu erişim ile uyumlu fırsatına sahiptir. İstek olmadığı sürece bu doğrudur bir `AcquireTokenSilentAsync` veya `PromptBehavior.Never` etkileşimli gerçekleştirmek için bu durumda uygulamanın gereksinim duyduğu ```AcquireToken``` son kullanım ilkesiyle uyumlu fırsatı sunmak için istek. 
 
-## <a name="scenario-single-page-app-spa-using-adaljs"></a>Senaryo: Tek sayfa uygulaması (ADAL.js kullanarak SPA)
+## <a name="scenario-single-page-app-spa-using-adaljs"></a>Senaryo: ADAL.js kullanarak tek sayfalı uygulama (SPA)
 
 Bu senaryoda, biz bir koşullu erişim korumalı web API'sini çağırmak için ADAL.js kullanarak tek sayfalı uygulama (SPA) sahip olduğunuzda vakası inceleyeceğiz. Bu basit bir mimari ancak koşullu erişim geçici bir çözüm geliştirirken dikkate alınması gereken bazı küçük farklar vardır.
 

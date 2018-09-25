@@ -1,0 +1,2 @@
+>[!Note]
+>**Bu makalede kullanım dışı bırakılmıştır.** Bu hizmeti önceki sürümleri için destek artımlı olarak sona erer. [Destek zaman çizelgesini görüntüleyin](../articles/machine-learning/service/overview-what-happened-to-workbench.md#timeline). Bu konuda en son sürümünü kullanmaya başlayın [hızlı](../articles/machine-learning/service/index.yml).

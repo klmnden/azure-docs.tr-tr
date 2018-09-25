@@ -1,161 +1,159 @@
 ---
 title: IOT hub'ı oluşturmak için Azure portalını kullanma | Microsoft Docs
 description: Nasıl-oluşturma, yönetme ve Azure IOT hub'ı Azure portalından silin. Fiyatlandırma katmanları için güvenlik, ölçeklendirme ve yapılandırma Mesajlaşma hakkında bilgi içerir.
-author: dominicbetts
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: dobett
-ms.openlocfilehash: 0b03ae434e93dbab45235fe67c499497e1257064
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.date: 09/06/2018
+ms.author: robinsh
+ms.openlocfilehash: 8f08141f5c14a734f89ba91045767e2a36a44fd2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056253"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985614"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure portalını kullanarak IOT hub oluşturma
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Bu makalede açıklanır:
+Bu makalede oluşturmak ve IOT hub'ları yönetmek nasıl [Azure portalında](https://portal.azure.com).
 
-* IOT Hub hizmeti Azure Portalı'nda bulmak nasıl.
-* Oluşturun ve IOT hub'ları yönetmek nasıl.
-
-## <a name="where-to-find-the-iot-hub-service"></a>IOT Hub hizmeti nerede bulacağını
-
-IOT Hub hizmeti Portalı'nda şu konumlarda bulabilirsiniz:
-
-* Seçin **+ yeni**, ardından **nesnelerin interneti**.
-* Market'te seçin **nesnelerin interneti**.
+Bu öğreticideki adımları uygulayabilmeniz için bir Azure aboneliğinizin olması gerekir. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-Aşağıdaki yöntemleri kullanarak IOT hub'ı oluşturabilirsiniz:
+1. [Azure Portal](https://portal.azure.com)’da oturum açın. 
 
-* **+ Yeni** seçeneği aşağıdaki ekran görüntüsünde gösterilen dikey penceresi açılır. Bu yöntem ve Market aracılığıyla IOT hub'ı oluşturmak için adımları aynıdır.
+2. Seçin +**kaynak Oluştur**, ardından **nesnelerin interneti**.
 
-* Market'te seçin **Oluştur** aşağıdaki ekran görüntüsünde gösterilen dikey penceresini açın.
+3. Tıklayın **IOT hub'ı** sağdaki listeden. IOT hub'ı oluşturmak için ilk ekran görürsünüz.
 
-Aşağıdaki bölümlerde, IOT hub oluşturma adımları açıklanmaktadır.
+   ![Azure portalında bir hub'ı oluşturma gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/iot-hub-create-screen-basics.png)
 
-### <a name="choose-the-name-of-the-iot-hub"></a>IOT hub'ı adını seçin
+   Alanları doldurun.
 
-IOT hub'ı oluşturmak için IOT hub'ı adı olmalıdır. Bu ad, tüm IOT hub'ları arasında benzersiz olması gerekir.
+   **Abonelik**: IOT hub'ınız için kullanılacak aboneliği seçin.
 
-[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   **Kaynak grubu**: yeni bir kaynak grubu oluşturun veya var olanı kullanın. Yeni bir tane oluşturmak için tıklayın **Yeni Oluştur** ve kullanmak istediğiniz adı girin. Mevcut bir kaynak grubunu kullanmak için **var olanı kullan** ve açılır listeden kaynak grubunu seçin.
 
-### <a name="choose-the-pricing-tier"></a>Fiyatlandırma katmanı seçin
+   **Bölge**: hub'ınıza açılır listeden yer almasını istediğiniz bölgeyi seçin.
 
-Bağlı olarak kaç özellikleri birkaç katmanı arasından seçim yapabilirsiniz istediğiniz ve kaç iletileri gönder günde çözümünüz aracılığıyla. Ücretsiz katman, test ve değerlendirme için tasarlanmıştır. Günlük ileti 8000'en fazla ve IOT hub'ına bağlanması 500 CİHAZDAN sağlar. Her Azure aboneliğinin bir IOT Hub ücretsiz katmanında oluşturabilirsiniz. 
+   **IOT hub'ı adı**: IOT Hub'ınızın adını yerleştirin. Bu adın küresel olarak benzersiz olması gerekir. 
 
-Bir katman seçenekleri hakkında daha fazla ayrıntı için bkz: [doğru IOT Hub katmanını seçme](iot-hub-scaling.md).
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-### <a name="iot-hub-units"></a>IOT hub'ı birimleri
+4. Tıklayın **sonraki: boyut ve ölçek** sonraki ekrana gidin.
 
-Günlük birim başına izin verilen ileti sayısı, hub'ın fiyatlandırma katmanına bağlıdır. Örneğin, IOT hub'ı 700.000 iletilerinin giriş desteklemek için isterseniz, iki adet S1 katmanı birimi seçin.
+   ![Ayarı boyut ve ölçek için Azure portalını kullanarak yeni bir IOT hub'ı gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/iot-hub-create-screen-size-scale.png)
 
-### <a name="device-to-cloud-partitions-and-resource-group"></a>Cihaz buluta bölümler ve kaynak grubu
+   Bu ekranda varsayılan değerleri alabilir ve tıklamanız yeterli **gözden geçir + Oluştur** altındaki. Veya gerektiği gibi alanları doldurun.
 
-IOT hub'ı bölüm sayısını değiştirebilirsiniz. Varsayılan bölüm sayısı 4'tür; farklı bir numara aşağı açılan listeden seçebilirsiniz.
+   **Fiyatlandırma ve ölçek katmanı**: bağlı olarak kaç özellikleri birkaç katmanı arasından seçim yapabilirsiniz istediğiniz ve kaç iletileri gönder günde çözümünüz aracılığıyla. Ücretsiz katman, test ve değerlendirme için tasarlanmıştır. Günlük ileti 8000'en fazla ve IOT hub'ına bağlanması 500 CİHAZDAN sağlar. Her Azure aboneliğinin bir IOT Hub ücretsiz katmanında oluşturabilirsiniz. 
 
-Açıkça boş bir kaynak grubu oluşturmanız gerekmez. Bir kaynak oluştururken, yeni bir kaynak grubu oluşturmak için seçin veya mevcut bir kaynak grubunu kullanın.
+   **IOT Hub birimlerinin**: günlük birim başına izin verilen ileti sayısı, hub'ın fiyatlandırma katmanına bağlıdır. Örneğin, IOT hub'ı 700.000 iletilerinin giriş desteklemek için isterseniz, iki adet S1 katmanı birimi seçin.
 
-![Azure portalında bir hub'ı oluşturma gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/location1.png)
+   Bir katman seçenekleri hakkında daha fazla ayrıntı için bkz: [doğru IOT Hub katmanını seçme](iot-hub-scaling.md).
 
-### <a name="choose-subscription"></a>Abonelik seçin
+   **Gelişmiş / CİHAZDAN buluta bölümler**: Bu özellik CİHAZDAN buluta iletileri iletilerin eşzamanlı okuyucu sayısıyla ilgilidir. Çoğu IOT hub'ları, yalnızca dört bölüm gerekir. 
 
-Azure IOT hub'ı otomatik olarak kullanıcı hesabı bağlı olduğu Azure abonelikleri listelenir. IOT hub'ına ilişkilendirmek için Azure abonelik seçebilirsiniz.
+5. Tıklayın **gözden + Oluştur** seçimlerinizi gözden geçirmek için. Bu ekranda gösterilene benzer bir şey görürsünüz.
 
-### <a name="choose-the-location"></a>Konum seçin
+   ![Yeni IOT hub'ı oluşturmak için bilgileri gözden geçirdikten ekran görüntüsü](./media/iot-hub-create-through-portal/iot-hub-create-review.png)
 
-Konum seçeneği, IOT hub'ı kullanılabilir olduğu bölgelerin bir listesini sağlar.
-
-### <a name="create-the-iot-hub"></a>IOT hub'ı oluşturma
-
-Önceki tüm adımları tamamlandığında, IOT hub'ı oluşturabilirsiniz. Tıklayın **Oluştur** oluşturmak ve belirlediğiniz seçeneklere ile IOT hub'ı dağıtmak için arka uç işlemi başlatmak için.
-
-Uygulamanın, uygun konuma sunucularda çalıştırmak arka uç dağıtım Sürüyor olarak IOT hub'ı oluşturmak için birkaç dakika sürebilir.
+5. Tıklayın **Oluştur** yeni IOT hub'ınızı oluşturmak için. Hub'ı oluşturuluyor, birkaç dakika sürer.
 
 ## <a name="change-the-settings-of-the-iot-hub"></a>IOT hub'ının ayarlarını değiştirme
-<!--robinsh these screenshots are out of date -->
 
-IOT Hub dikey penceresinden oluşturulduktan sonra var olan IOT hub'ının ayarlarını değiştirebilirsiniz.
+IOT hub'ı bölmesinden oluşturulduktan sonra var olan IOT hub'ının ayarlarını değiştirebilirsiniz.
 
-![IOT hub'ının ayarları gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/portal-settings.png)
+![IOT hub'ının ayarları gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/iot-hub-settings-panel.png)
 
-**Paylaşılan erişim ilkeleri**: IOT Hub'ına bağlanmak için izinleri cihazlar ve hizmetler için bu ilkeler tanımlayın. Bu ilkeler tıklayarak erişebilirsiniz **paylaşılan erişim ilkeleri** altında **genel**. Bu dikey pencerede, mevcut ilkeleri değiştirme veya yeni bir ilke ekleyin.
+IOT hub'ı için ayarlayabileceğiniz özelliklerden bazıları şunlardır:
 
-### <a name="create-a-policy"></a>İlke oluştur
+**Fiyatlandırma ve ölçek**: farklı bir katmana geçiş veya IOT Hub birimleri ayarlamak için bu özelliği kullanabilirsiniz. 
 
-* Tıklayın **Ekle** bir dikey penceresini açın. Burada, yeni ilke adı ve aşağıdaki resimde gösterildiği gibi bu ilke ile ilişkilendirmek istediğiniz izinleri girebilirsiniz:
+**İşlem izleme**: açma veya kapatma bir CİHAZDAN buluta iletileri veya Bulut-cihaz iletilerini ilgili olayları günlüğe kaydetme gibi farklı izleme kategorileri açın.
 
-    Bu paylaşılan ilkeleriyle ilişkilendirilebilir birkaç izinleri vardır. **Kayıt defterini oku** ve **kayıt defteri yazma** ilkeleri kimlik kayıt defterini okuma ve yazma erişimi hakkı verin. Otomatik olarak yazma seçeneğini seçerken, salt okunur seçeneğini seçer.
+**IP Filtresi**: kabul edilecek veya IOT hub tarafından reddedilen bir IP adresi aralığı belirtin.
 
-    **Hizmetini bağlama** ilkesinin hizmet uç noktaları gibi erişim izni verdiği **CİHAZDAN buluta alma**. **Cihazı bağlayın** İlkesi, IOT Hub cihaz tarafındaki uç noktalarda kullanarak ileti gönderme ve alma için izinler verir.
+**Özellikler**: kopyalayın ve başka bir yerde, kaynak kimliği, kaynak grubu, konum ve benzeri gibi kullanmak özelliklerinin listesini sağlar.
 
-* Tıklayın **Oluştur** Bu ilke mevcut listesine yeni oluşturulan eklemek için.
+### <a name="shared-access-policies"></a>Paylaşılan erişim ilkeleri
 
-   ![Paylaşılan erişim ilkesi ekleme gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/shared-access-policies.png)
+Ayrıca görüntülemek veya paylaşılan erişim ilkeleri listesinde tıklayarak değiştirmek **paylaşılan erişim ilkeleri** içinde **ayarları** bölümü. Bu ilkeler, IOT Hub'ına bağlanmak için cihazlar ve hizmetler için izinler tanımlayın. 
 
-## <a name="endpoints"></a>Uç Noktalar
+Tıklayın **Ekle** açmak için **bir paylaşılan erişim ilkesi ekleme** dikey penceresi.  Yeni ilke adı ve aşağıdaki resimde gösterildiği gibi bu ilke ile ilişkilendirmek istediğiniz izinleri girebilirsiniz:
 
-Tıklayın **uç noktaları** değiştirmekte olduğunuz IOT hub'ının bitiş noktaları listesini görüntüleyin. Uç noktalar için iki tür vardır: IOT hub'ına yerleşik uç noktaları ve IOT hub'ına oluşturulduktan sonra eklediğiniz uç noktaları.
+![Paylaşılan erişim ilkesi ekleme gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-![Bir uç nokta ekleme gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/messaging-settings.png)
+* **Kayıt defterini oku** ve **kayıt defteri yazma** ilkeleri kimlik kayıt defterini okuma ve yazma erişimi hakkı verin. Otomatik olarak yazma seçeneğini seçerken, salt okunur seçeneğini seçer.
 
-### <a name="built-in-endpoints"></a>Yerleşik uç noktaları
+* **Hizmetini bağlama** ilkesinin hizmet uç noktaları gibi erişim izni verdiği **CİHAZDAN buluta alma**. 
 
-İki yerleşik uç nokta vardır: **cihaz geri bildirim buluta** ve **olayları**.
+* **Cihazı bağlayın** İlkesi, IOT Hub cihaz tarafındaki uç noktalarda kullanarak ileti gönderme ve alma için izinler verir.
 
-* **Cihaz geri bildirim buluta** ayarları: iki subsettings bu ayarı vardır: **bulut cihaz TTL** (zaman yaşam) ve **elde tutma süresi** (saat içinde) iletiler için. İlk IOT hub'ı oluşturduğunuzda, bu her iki ayarın bir saatlik varsayılan değere sahip. Bu ayarları ayarlamak için kaydırıcıları kullanın veya değerleri yazın.
+Tıklayın **Oluştur** Bu ilke mevcut listesine yeni oluşturulan eklemek için.
 
-* **Olayları** ayarları: Bu ayar salt okunur bazıları olan birkaç subsettings sahiptir. Aşağıdaki listede, bu ayarları açıklanmaktadır:
+## <a name="message-routing-for-an-iot-hub"></a>Bir IOT hub ileti yönlendirme
 
-  * **Bölümler**: IOT hub'ı oluşturduğunuzda, varsayılan bir değer ayarlanır. Bu ayarı ile bölüm sayısını değiştirebilirsiniz.
+Tıklayın **ileti yönlendirme** altında **Mesajlaşma** tanımladığınız yolları ve özel uç noktaları için hub ileti yönlendirme bölmesini görmek için. [İleti yönlendirme](iot-hub-devguide-messages-d2c.md) veriler için uç noktalarınız cihazlarınızdan nasıl gönderilir yönetmenizi sağlar. İlk adım, yeni bir yol eklemektir. Ardından yol mevcut uç nokta ekleme veya, blob depolama gibi desteklenen türleri için yeni bir tane oluşturun. 
 
-  * **Event Hub ile uyumlu ada ve uç nokta**:, IOT hub oluşturulur, bir olay hub'ı, belirli koşullar altında erişim gerekebilir dahili olarak oluşturulur. Event Hub ile uyumlu ada ve uç nokta değerleri özelleştiremezsiniz ancak tıklayarak kopyalayabilirsiniz **kopyalama**.
+![İleti yönlendirme bölmesi](./media/iot-hub-create-through-portal/iot-hub-message-routing.png)
 
-  * **Elde tutma süresi**: bir gün için varsayılan olarak ayarlanmış ancak bu açılan listeyi kullanarak değiştirebilirsiniz. CİHAZDAN buluta ayarının gün içinde bu değer olur.
+### <a name="routes"></a>Yollar
 
-  * **Tüketici grupları**: tüketici grupları iletileri bağımsız olarak IOT hub'ından okumak birden fazla okuyucuyu kapsayacak etkinleştirin. Her IOT hub ile varsayılan bir tüketici grubu oluşturulur. Ancak, ekleyebilir veya bu ayarı kullanarak, IOT hub tüketici grupları silin.
+İlk ileti yönlendirme bölmesinde sekmesinde rotalarıyla kıyaslandığında. Yeni bir yol eklemek için +**Ekle**. Aşağıdaki ekranı görürsünüz. 
 
-  > [!NOTE]
-  > Varsayılan bir tüketici grubu düzenlenebilir veya silinemez.
+![Yeni bir yol ekleme gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
+
+Hub'ınızı adlandırın. Ad, hub için rotalar listesi içinde benzersiz olmalıdır. 
+
+İçin **uç nokta**, aşağı açılan listeden seçin veya yeni bir tane ekleyin. Bu örnekte, bir depolama hesabı ve kapsayıcı zaten var. Bunları bir uç nokta eklemek için +**Ekle** seçin ve uç nokta açılır yanındaki **Blob Depolama**. Depolama hesabı ve kapsayıcı burada belirtilen aşağıdaki ekran gösterilir.
+
+![Yönlendirme kuralı için bir depolama uç noktası ekleme gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
+
+Tıklayın **bir kapsayıcı seçin** depolama hesabı ve kapsayıcı seçin. Bu alanları seçtikten sonra uç nokta bölmesine döndürür. Geri kalan alanları için varsayılan ayarları kullanın ve **Oluştur** uç nokta için depolama hesabı oluşturma ve yönlendirme kuralları ekleyin.
+
+İçin **veri kaynağı**, cihazın Telemetri iletilerini seçin. 
+
+Ardından, bir yönlendirme sorgu ekleyin. Bu örnekte, adlı bir uygulama özelliğini bulunduran iletileri `level` eşit bir değer ile `critical` depolama hesabına yönlendirilir.
+
+![Yeni bir yönlendirme kuralı kaydediliyor gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/iot-hub-add-route.png)
+
+Tıklayın **Kaydet** yönlendirme kuralını kaydetmek için. İleti yönlendirme bölmesine dönün ve yeni yönlendirme kuralınızı görüntülenir.
 
 ### <a name="custom-endpoints"></a>Özel uç noktalar
 
-Portalı kullanarak IOT hub'ınızda özel uç noktalar ekleyebilirsiniz. Gelen **uç noktaları** dikey penceresinde tıklayın **Ekle** açmak için üstteki **uç noktası ekleme** dikey penceresi. Gerekli bilgileri girin ve ardından tıklayın **Tamam**. Özel uç noktanıza ana listelendiğine **uç noktaları** dikey penceresi.
+Tıklayın **özel uç noktalar** sekmesi. Önceden oluşturulmuş özel uç noktalar görürsünüz. Buradan yeni uç nokta ekleyin veya mevcut uç noktalarını silmelisiniz. 
 
-![Özel uç nokta oluşturma gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/endpoint-creation.png)
+> [!NOTE]
+> Bir rota silerseniz, bu yol için atanmış uç noktaları silmez. Uç noktayı silmek için özel uç noktaları sekmesine tıklayın, silmek istediğiniz uç noktayı seçin ve Sil'e tıklayın.
+>
 
-Daha fazla bilgi edinebilirsiniz özel uç noktalar hakkında [başvuru - IOT hub uç noktaları]( iot-hub-devguide-endpoints.md).
+Daha fazla bilgi edinebilirsiniz özel uç noktalar hakkında [başvuru - IOT hub uç noktaları](iot-hub-devguide-endpoints.md).
 
-## <a name="routes"></a>Yollar
+IOT hub'ı için en fazla 10 özel uç noktalar tanımlayabilirsiniz. 
 
-Tıklayın **yollar** yönetme nasıl IOT hub'ı, CİHAZDAN buluta iletiler gönderir.
+Özel uç noktalar ile yönlendirme kullanma tam bir örneğini görmek için bkz: [ileti IOT Hub ile yönlendirme](tutorial-routing.md).
 
-![Yeni bir yol ekleme gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/routes-list.png)
+## <a name="find-a-specific-iot-hub"></a>Belirli bir IOT hub'ı bulun
 
-IOT hub'ına tıklayarak yollar ekleyebilirsiniz **Ekle** en üstündeki **yollar*** dikey penceresinde gerekli bilgileri girip tıklayarak **Tamam**. Rotanız sonra ana listelenen **yollar** dikey penceresi. Bir rota yollar listesinde tıklayarak düzenleyebilirsiniz. Bir rota etkinleştirmek için yolların listesinde tıklayın ve ayarlama **etkin** geç **kapalı**. Değişikliği kaydetmek için tıklatın **Tamam** dikey pencerenin alt kısmındaki.
+Aboneliğinizde belirli bir IOT hub'ı bulmak için iki yolu vardır:
 
-![Yeni bir yönlendirme kuralı düzenleme gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/route-edit.png)
+1. Kaynak grubunda IOT hub'a ait olduğu biliyorsanız **kaynak grupları**, ardından listeden kaynak grubunu seçin. Kaynak grubu ekran IOT hub'ları da dahil olmak üzere o grubun tüm kaynakları gösterir. İçin aradığınız hub'ı tıklatın.
+
+2. Tıklayın **tüm kaynakları**. Üzerinde **tüm kaynakları** bölmesinde, varsayılan olarak bir açılan listedeki yoktur `All types`. Açılan listeye tıklayın, onay kutusunu temizleyin `Select all`. Bulma `IoT Hub` ve yanıtı denetleyecektir. Açılan liste kutusunu kapatmak için tıklayın ve yalnızca IOT hub'ı gösteren girişler filtrelenir.
 
 ## <a name="delete-the-iot-hub"></a>IOT hub'ını Sil
 
-IOT hub'ına tıklayarak silmek istediğiniz göz atabilirsiniz **Gözat**, silmek için uygun hub'ı seçerek. IOT hub'ı silmek için tıklayın **Sil** düğmesinin altında IOT hub adı.
+IOT hub'ı silmek için Sil'a tıklayın, istediğiniz IOT hub'ı bulun **Sil** düğmesinin altında IOT hub adı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure IOT hub'ı yönetme hakkında daha fazla bilgi için bu bağlantıları izleyin:
 
-* [IoT cihazlarını toplu yönetme](iot-hub-bulk-identity-mgmt.md)
+* [IOT Hub ile ileti yönlendirme](tutorial-routing.md)
 * [IOT hub'ı ölçümleri](iot-hub-metrics.md)
 * [İşlemleri izleme](iot-hub-operations-monitoring.md)
-
-Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
-
-* [IOT Hub Geliştirici Kılavuzu](iot-hub-devguide.md)
-* [Yapay ZEKA, Azure IOT Edge ile uç cihazlarına dağıtma](../iot-edge/tutorial-simulate-device-linux.md)
-* [IOT çözümünüzü baştan güvenli hale getirme](../iot-fundamentals/iot-security-ground-up.md)

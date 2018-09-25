@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/20/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2c2dd2208cf910456fa8f94ca739b7ef8875d475
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: df32ed7a6d3bc0c9e349f576f5f48832bf9906dd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357594"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041932"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Yanlış kullanıcı kümesi için Azure AD galeri uygulaması hazırlanıyor
 
@@ -109,7 +109,7 @@ Sağlama, yapılandırılmış ve bir uygulama zaten çalışıyor olması durum
 >
 >
 
-Grupları sağlama etkinse, "Eşleşen kimliği" için uygun bir alanı kullanıldığından emin olmak için öznitelik eşlemelerini gözden geçirmeyi unutmayın. Bu görünen ad olabilir veya e-posta diğer adı eşleşen özellik boş değilse veya grup ve üyelerini sağlanacak değil olarak bir grup için Azure AD'de doldurulur.
+Grupları sağlama etkinse, "Eşleşen kimliği" için uygun bir alanı kullanıldığından emin olmak için öznitelik eşlemelerini gözden geçirmeyi unutmayın. Bu eşleşen kimlik görünen ad veya e-posta diğer adı olabilir. Eşleşen özellik boş ya da doldurulmuş bir grup için Azure AD'de ise, Grup ve üyelerini sağlanmayan.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure Active Directory ile SaaS Uygulamalarına Kullanıcı Hazırlama ve Sağlamayı Kaldırma İşlemlerini Otomatik Hale Getirme](user-provisioning.md)

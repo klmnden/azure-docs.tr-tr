@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 1321645d97e7f6ff2faed1e61ddb608afcb7b413
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 5087b8a1d675fb6fb2bbfb2b46a09c215bf5e9ae
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059648"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998772"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Özellikler ve Azure Cloud Shell için Araçlar
 
@@ -31,7 +31,7 @@ Azure Cloud Shell çalıştığı `Ubuntu 16.04 LTS`.
 
 ### <a name="secure-automatic-authentication"></a>Güvenli otomatik kimlik doğrulaması
 
-Cloud Shell'i güvenli bir şekilde ve otomatik olarak Azure PowerShell ve Azure CLI 2.0 için hesap erişimi doğrular.
+Cloud Shell'i güvenli bir şekilde ve otomatik olarak Azure PowerShell ve Azure CLI için hesap erişimi doğrular.
 
 ### <a name="home-persistence-across-sessions"></a>Oturumlar arasında $Home kalıcılığı
 
@@ -60,7 +60,7 @@ Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, 
 |Kategori   |Ad   |
 |---|---|
 |Linux araçları            |Bash<br> zsh<br> Göster<br> tmux<br> dıg<br>               |
-|Azure Araçları            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) ve [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
+|Azure Araçları            |[Azure CLI](https://github.com/Azure/azure-cli) ve [Klasik Azure CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Metin düzenleyiciler           |vim<br> nano<br> emacs       |
 |Kaynak denetimi         |git                    |
 |Derleme araçları            |Olun<br> Maven<br> npm<br> pip         |
@@ -82,5 +82,5 @@ Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Bash cloud Shell hızlı başlangıçta](quickstart.md) <br>
 [PowerShell Cloud Shell (Önizleme) hızlı başlangıç](quickstart-powershell.md) <br>
-[Azure CLI 2.0 hakkında bilgi edinin](https://docs.microsoft.com/cli/azure/) <br>
+[Azure CLI hakkında bilgi edinin](https://docs.microsoft.com/cli/azure/) <br>
 [Azure PowerShell hakkında bilgi edinin](https://docs.microsoft.com/powershell/azure/) <br>

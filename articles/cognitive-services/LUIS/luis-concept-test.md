@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Test LUIS için örnek konuşma sağlayan ve LUIS tanınan hedefleri ve varlıkların bir yanıt alma işlemidir. LUIS etkileşimli olarak, test edebilir, her seferinde bir utterance veya konuşma toplu sağlayın. Test ile yayımlanan model geçerli etkin modele karşılaştırın.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 41ba968eb68f2104a2183917c4ef850b2b6a9edc
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 7999f25d9c8bd9a8e44bd858d2860d94be16a62f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629959"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033237"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Örnek konuşma LUIS test etme
 
@@ -49,7 +49,7 @@ LUIS, ücretsiz olarak kullanılabilir sorgu günlüğü günlüğe kaydedilen t
 
 LUIS emin değilseniz, herhangi bir konuşma listelenir **[gözden geçirin, konuşma uç noktası](luis-how-to-review-endoint-utt.md)** sayfasının [LUIS](luis-reference-regions.md) Web sitesi. 
 
-![Uç nokta konuşmasını gözden geçirme](./media/luis-concept-test/review-endpoint-utterances.png)
+![Uç nokta ifadelerini gözden geçirme](./media/luis-concept-test/review-endpoint-utterances.png)
  
 ## <a name="remember-to-train"></a>Eğitim unutmayın
 Unutmayın [eğitme](luis-how-to-train.md) LUIS modeline değişiklikler yaptıktan sonra. LUIS uygulaması değişiklikleri uygulama eğitildi kadar test görülmez. 

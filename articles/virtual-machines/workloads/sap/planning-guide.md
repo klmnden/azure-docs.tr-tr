@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 274f9d89113f583cc7b65ae01f3132d35b82b920
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 6257f1f9c237422174d695489b8ed39c7c37ebe2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380429"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969164"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -823,9 +823,9 @@ Azure CLI, Azure platformu ile birlikte çalışmaya yönelik platformlar arası
 
 Kurulum, yapılandırma ve CLI kullanma hakkında bilgi için bkz: Azure görevleri gerçekleştirmek için komutları
 
-* [Azure CLI yükleme][xplat-cli]
+* [Klasik Azure CLI yükleme][xplat-cli]
 * [Dağıtmak ve Azure Resource Manager şablonları ve Azure CLI kullanarak sanal makineleri yönetme] [../../linux/create-ssh-secured-vm-from-template.md]
-* [Mac, Linux ve Windows Azure Resource Manager ile Azure CLI kullanma][xplat-cli-azure-resource-manager]
+* [Mac, Linux ve Windows Azure Resource Manager ile klasik Azure CLI kullanma][xplat-cli-azure-resource-manager]
 
 Bölüm de okuma [Linux VM'ler için Azure CLI] [ deployment-guide-4.5.2] içinde [Dağıtım Kılavuzu] [ planning-guide] Azure izleme dağıtmak için Azure CLI kullanma hakkında SAP için uzantısı.
 
@@ -959,7 +959,7 @@ Bu durumda veya bilginiz olmaksızın bir işletim sisteminde, bir VHD'yi karş�
 * VM yapılandırması ile yeni VM oluşturma *New-AzureRmVM* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 * İle yeni bir VM'ye veri diski ekleme *Add-AzureRmVMDataDisk* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk>
 
-**Azure CLI 2.0**
+**Azure CLI**
 
 * Aboneliğinizde oturum açın *az oturum açma*
 * Aboneliğinizi seçin *az hesabı set--abonelik `<subscription name or id`>*
@@ -987,7 +987,7 @@ Böyle bir VM veya VHD gerekir bölümde listelenen gereksinimlerini karşılama
   * Yönetilen disk görüntüsü *kümesi AzureRmVMSourceImage* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage>
 * VM yapılandırması ile yeni VM oluşturma *New-AzureRmVM* -bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm>
 
-**Azure CLI 2.0**
+**Azure CLI**
 
 * Kullanım *sysprep* Windows üzerinde veya *waagent-sağlamayı kaldırma* Linux VM'nize - genelleştirmek için bkz. [Sysprep teknik başvuru](https://technet.microsoft.com/library/cc766049.aspx) Windows için veya [yakalama bir Resource Manager şablonu olarak kullanmak üzere Linux sanal makinesi] [ capture-image-linux-step-2-create-vm-image] Linux
 * Aboneliğinizde oturum açın *az oturum açma*
@@ -1036,7 +1036,7 @@ Yönetilen diskler ve VHD'ler indirme olduğu süre boyunca etkin olamaz. Vm'ler
 
   Kaydet-AzureRmVhd cmdlet'inin daha fazla ayrıntı için buraya bakın <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd>.
 
-#### <a name="cli-20"></a>CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
   * Yönetilen Disk indiriliyor  
   İlk erişmek için yönetilen Disk, temel alınan blob gerekir. Ardından yeni bir depolama hesabı için temel alınan blob kopyalayıp bu depolama hesabındaki blob indirin.
   ```
@@ -1074,7 +1074,7 @@ $config = New-AzureRmDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<s
 New-AzureRmDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk $config
 ```
 
-##### <a name="cli-20"></a>CLI 2.0
+##### <a name="azure-cli"></a>Azure CLI
 Bir VHD gösterildiği kopyalamak için Azure CLI kullanabilirsiniz [bu makalede][storage-azure-cli-copy-blobs]. Yeni bir yönetilen Disk oluşturmak için kullanın *az disk oluşturma* aşağıdaki örnekte gösterildiği gibi.
 
 ```
@@ -1115,7 +1115,7 @@ $disk = New-AzureRmDisk -DiskName <disk name> -Disk $diskConfig -ResourceGroupNa
 $vm = Add-AzureRmVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for example 0> -CreateOption attach -ManagedDiskId $disk.Id
 $vm | Update-AzureRmVM
 ```
-##### <a name="cli-20"></a>CLI 2.0
+##### <a name="azure-cli"></a>Azure CLI
 ```
 
 # attach a vhd to a vm
@@ -1158,7 +1158,7 @@ Get-AzureStorageBlobCopyState -Blob <target blob name> -Container <target contai
 
 Örnekler için bkz [bu makalede][storage-powershell-guide-full-copy-vhd].
 
-##### <a name="cli-20"></a>CLI 2.0
+##### <a name="azure-cli"></a>Azure CLI
 * Kopyalama işlemiyle başlayın
 
 ```

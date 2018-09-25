@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9b40a85cf3c4edd26f2fc15045f3d6862d4ac1ff
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 70ec0f1acc54aae7de5f815d62a876ce3d033193
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090495"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966934"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Azure CLI kullanarak Azure Ağ İzleyicisi ile paket yakalamayı yönetme
 
@@ -31,15 +31,13 @@ ms.locfileid: "39090495"
 
 Ağ İzleyicisi paket yakalama, bir sanal makineye gelen ve giden trafiği izlemek için yakalama oturumu oluşturmanıza olanak sağlar. Sağlamak istediğiniz trafiği yakalamak yakalama oturumu için filtreler sağlanır. Paket yakalama ağ anomalileri öngörülebiliyorsa ve proaktif tanılamaya yardımcı olur. Diğer kullanımlar ağ izinsiz girişi, istemci-sunucu iletişimleri ve daha fazlasını hata ayıklamak için bilgi elde etme, ağ istatistikleri toplama içerir. Çağırabildiğinden uzaktan paket yakalamaları tetiklemek için bir paket yakalama el ile ve değerli zaman kazandırır istediğiniz makineye çalışan yükünü bu özellik kolaylaştırır.
 
-Bu makalede, Windows, Mac ve Linux için kullanılabilir olduğu kaynak yönetimi dağıtım modeli için Azure CLI 2. 0'da, sunduğumuz yeni nesil CLI kullanılmıştır.
-
-Bu makaledeki adımları gerçekleştirmek için yapmanız [Azure komut satırı arabirimi için Mac, Linux ve Windows (Azure CLI) yükleme](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Bu makaledeki adımları gerçekleştirmek için yapmanız [Azure komut satırı arabirimi için Mac, Linux ve Windows (Azure CLI) yükleme](/cli/azure/install-azure-cli).
 
 Bu makalede paket yakalaması için şu anda kullanılabilir olan farklı yönetim görevleri alır.
 
 - [**Paket Yakalamayı Başlat**](#start-a-packet-capture)
 - [**Paket Yakalamayı Durdur**](#stop-a-packet-capture)
-- [**Bir paket yakalamasını Sil**](#delete-a-packet-capture)
+- [**bir paket yakalamasını Sil**](#delete-a-packet-capture)
 - [**Paket yakalaması indirin**](#download-a-packet-capture)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
@@ -217,7 +215,7 @@ az network watcher packet-capture stop --name packetCaptureName --location westc
 > [!NOTE]
 > Cmdlet hiç yanıt döndürür, o anda çalışan bir yakalama oturumu veya zaten durduran bir var olan oturumu çalıştı.
 
-## <a name="delete-a-packet-capture"></a>Bir paket yakalamasını Sil
+## <a name="delete-a-packet-capture"></a>bir paket yakalamasını Sil
 
 ```azurecli
 az network watcher packet-capture delete --name packetCaptureName --location westcentralus

@@ -1,6 +1,6 @@
 ---
-title: Geliştiriciler için Azure Active Directory | Microsoft Docs
-description: Bu makale, Azure Active Directory kullanarak Microsoft iş ve okul hesaplarında oturum açmaya genel bakış sunmaktadır.
+title: V1.0 hakkında | Azure
+description: Bu makalede genel bir bakış sağlar. Microsoft imzalama iş ve Okul hesaplarında platform ve Azure Active Directory v1.0 uç nokta kullanarak.
 services: active-directory
 author: CelesteDG
 manager: mtillman
@@ -12,53 +12,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 666a677943811af05cd3403eab4887271c1f87b3
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1efaafabbe82fccab79e64fdee8ce19590e6b6e7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591219"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964147"
 ---
-# <a name="azure-active-directory-for-developers"></a>Geliştiriciler için Azure Active Directory
+# <a name="about-v10"></a>V1.0 hakkında
 
 Azure Active Directory (Azure AD), geliştiricilerin Microsoft iş veya okul hesabına sahip kullanıcıların güvenli şekilde oturumunu açan uygulamalar derlemesine olanak sağlayan bir bulut kimlik hizmetidir. Azure AD, tek kiracılı, iş kolu (LOB) uygulamalarını derleyen geliştiricileri ve çok kiracılı uygulamalar geliştirmek isteyen geliştiricileri destekler. Temel oturum açmaya ek olarak Azure AD, uygulamaların hem [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) gibi Microsoft API’lerini hem de Azure AD platformunda derlenen özel API’leri çağırmasını sağlar. Bu belgeler, OAuth2.0 ve OpenID Connect gibi sektör standardı protokolleri kullanarak Azure AD desteğini uygulamanıza nasıl ekleyeceğinizi göstermektedir.
 
 > [!NOTE]
-> Bu sayfadaki içeriğin büyük bir kısmı, yalnızca Microsoft iş veya okul hesaplarını destekleyen Azure AD v1.0 uç noktası ile ilgilidir. Tüketici veya kişisel Microsoft hesaplarının oturumunu açtırmak istiyorsanız [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview.md) ile ilgili bilgileri görüntüleyin. Azure AD v2.0 uç noktası, Azure AD hesaplarına (iş ve okul) ve kişisel Microsoft hesaplarına sahip kullanıcıların oturumunu açmak isteyen uygulamalar için birleştirilmiş bir geliştirici deneyimi sunar.
+> Bu sayfadaki içeriğin büyük bir v1.0 üzerinde odaklanır uç noktası ve yalnızca Microsoft destekleyen platformu, iş veya Okul hesapları. Tüketici veya kişisel Microsoft hesaplarının oturum açmak istiyorsanız, bilgilere bakın [v2.0 uç noktası ve platform](active-directory-appmodel-v2-overview.md). V2.0 uç noktası, tüm Microsoft kimliklerini oturum açmak istediğiniz uygulamalar için merkezi bir geliştirici deneyimi sunar.
 
 | | |
 | --- | --- |
 |[Kimlik doğrulaması temel bilgileri](authentication-scenarios.md) | Azure AD ile kimlik doğrulamaya giriş. |
-|[Uygulama türleri](authentication-scenarios.md#application-types-and-scenarios) | Azure AD tarafından desteklenen kimlik doğrulama senaryolarına genel bakış. |      
+|[Uygulama türleri](app-types.md) | Azure AD tarafından desteklenen kimlik doğrulama senaryolarına genel bakış. |
 | | |
 
 ## <a name="get-started"></a>başlarken
-Aşağıdaki kılavuzlu kurulum adımları, Azure AD Authentication Library (ADAL) SDK’sını kullanarak tercih ettiğiniz platformda uygulama derleme işlemi boyunca size yol gösterir. Microsoft Authentication Library (MSAL) kullanma hakkında bilgi edinmek için [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview.md) ile ilgili belgelerimize bakın.
 
-|  |  |  |  |
-| --- | --- | --- | --- |
-| <center>![Mobil ve masaüstü uygulamaları](./media/azure-ad-developers-guide/NativeApp_Icon.png)<br />Mobil ve masaüstü uygulamaları</center> | [Genel Bakış](authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](quickstart-v1-ios.md)<br /><br />[Android](quickstart-v1-android.md) | [.NET (WPF)](quickstart-v1-dotnet.md)<br /><br />[Xamarin](quickstart-v1-xamarin.md) |
-| <center>![Web uygulamaları](./media/azure-ad-developers-guide/Web_app.png)<br />Web uygulamaları</center> | [Genel Bakış](authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](quickstart-v1-aspnet-webapp.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](quickstart-v1-openid-connect-code.md) |
-| <center>![Tek sayfa uygulamaları](./media/azure-ad-developers-guide/SPA.png)<br />Tek sayfa uygulamaları</center> | [Genel Bakış](authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](quickstart-v1-angularjs-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
-| <center>![Web API'leri](./media/azure-ad-developers-guide/Web_API.png)<br />Web API'leri</center> | [Genel Bakış](authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](quickstart-v1-dotnet-webapi.md)<br /><br />[Node.js](quickstart-v1-nodejs-webapi.md) | &nbsp; |
-| <center>![Hizmetten hizmete](./media/azure-ad-developers-guide/Service_App.png)<br />Hizmetten hizmete</center> | [Genel Bakış](authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
-|  |  |  |  |  |
+V1.0 kılavuzlarımız ve öğreticilerimizden yararlanarak Azure AD Authentication Library (ADAL) SDK'sını kullanarak tercih ettiğiniz platformda uygulama derleme konusunu inceleyin. Bkz: **v1.0 hızlı Başlangıçlar** ve **v1.0 öğreticiler** içinde [Microsoft kimlik Platformu (geliştiriciler için Azure Active Directory)](index.yml) kullanmaya başlamak için.
 
 ## <a name="how-to-guides"></a>Nasıl yapılır kılavuzları
-Aşağıdaki kılavuzlar, Azure AD’deki bazı yaygın görevler boyunca size yol göstermektedir.
 
-|                                                                           |  |
-|---------------------------------------------------------------------------| --- |
-|[Uygulama kaydı](quickstart-v1-integrate-apps-with-azure-ad.md)           | Bir uygulamayı Azure AD’ye kaydetme. |
-|[Çok kiracılı uygulamalar](howto-convert-app-to-be-multi-tenant.md)    | Herhangi bir Microsoft iş hesabında oturum açma. |
-|[OAuth ve OpenID Connect protokolleri](v1-protocols-openid-connect-code.md)| Microsoft kimlik doğrulama protokollerini kullanarak kullanıcıların oturumunu açma ve web API'lerini çağırma. |
-|  |  |
+Bkz: **nasıl yapılır kılavuzları v1.0** ayrıntılı bilgi ve yönergeler Azure AD'de en yaygın görevleri için.
 
 ## <a name="reference-topics"></a>Başvuru konuları
+
 Aşağıdaki makaleler, Azure AD’de kullanılan API'ler, protokol iletileri ve terimler hakkında ayrıntılı bilgi sağlar.
 
 |                                                                                   | |

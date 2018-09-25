@@ -3,8 +3,8 @@ title: Azure CDN özel HTTPS'yi etkinleştirmek için sertifika yetkililerini iz
 description: Özel bir etki alanı üzerinde HTTPS'yi etkinleştirmek için kendi sertifika kullanıyorsanız, bunu oluşturmak için bir izin verilen bir sertifika yetkilisi (CA) kullanmanız gerekir.
 services: cdn
 documentationcenter: ''
-author: KumudD
-manager: jeconnoc
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: kumud
+ms.date: 09/17/2018
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 28d6d24266c11b1295c57c8ec46c2bd5ec690b28
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9d9f5b053537b3d6881763bcb39d7894ba78869
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005926"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969523"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Azure CDN özel HTTPS'yi etkinleştirmek için sertifika yetkililerini izin
 
@@ -33,6 +33,10 @@ ms.locfileid: "39005926"
 Aşağıdaki CA'lar, kendi sertifikanızı oluşturduğunuzda verilir:
 
 - AddTrust dış CA kök
+- AlphaSSL kök CA
+- DI Infra CA 01
+- DI Infra CA 02
+- Ameroot
 - AP kök CA
 - AP kök sertifika yetkilisi 2013
 - AP kök sertifika yetkilisi 2014
@@ -47,16 +51,25 @@ Aşağıdaki CA'lar, kendi sertifikanızı oluşturduğunuzda verilir:
 - DigiCert genel kök CA
 - DigiCert Yüksek güvence CA-3
 - DigiCert Yüksek güvence EV kök CA
+- Doğrulama sunucu CA DigiCert SHA2 genişletilmiş
 - DigiCert SHA2 Yüksek güvence sunucu sertifika yetkilisi
 - DigiCert SHA2 güvenli sunucu CA
+- DST kök CA'ın X3
+- D güven kök sınıfı 3 CA 2 2009
+- Her yerde şifreleme DV TLS CA
+- Güvenilen kök sertifika yetkilisi
+- Kök sertifika yetkilisi - G2 entrust
+- Entrust.NET sertifika yetkilisi (2048)
 - GeoTrust genel CA
 - GeoTrust birincil sertifika yetkilisi
 - GeoTrust birincil sertifika yetkilisi - G2
+- Geotrust RSA CA 2018
 - GlobalSign
 - Genişletilmiş Doğrulama CA - SHA256 - G2 GlobalSign
 - GlobalSign kuruluş doğrulama CA - G2
 - GlobalSign kök CA
 - Go Daddy kök sertifika yetkilisi - G2
+- G2 Daddy güvenli sertifika yetkilisi - Git
 - Microsoft Authenticode(tm) kök yetkilisi
 - Microsoft Exchange hizmetleri CA 2015
 - Microsoft iç kurumsal kök
@@ -78,6 +91,7 @@ Aşağıdaki CA'lar, kendi sertifikanızı oluşturduğunuzda verilir:
 - MSIT CA Z2
 - MSIT Kurumsal CA'yı 1
 - MSIT Kurumsal CA'yı 3
+- RapidSSL RSA CA 2018
 - Kök kurumu
 - Symantec sınıfı 3 EV SSL CA - G3
 - Symantec sınıf 3 güvenli sunucu CA - G4
@@ -85,7 +99,9 @@ Aşağıdaki CA'lar, kendi sertifikanızı oluşturduğunuzda verilir:
 - Thawte birincil kök CA
 - Thawte birincil kök CA - G2
 - Thawte birincil kök CA - G3
+- Thawte RSA CA 2018
 - Thawte zaman damgası CA
+- TrustAsia TLS RSA CA
 - UTN USERFirst nesnesi
 - VeriSign sınıfı 3 Genişletilmiş Doğrulama SSL CA
 - VeriSign sınıfı 3 Genişletilmiş Doğrulama SSL SGC CA

@@ -1,6 +1,6 @@
 ---
 title: Oluşturma ve Azure CLI ile DevTest Labs'de sanal makineler yönetme | Microsoft Docs
-description: Oluşturma ve Azure CLI 2.0 ile sanal makineleri yönetmek için Azure DevTest Labs'i kullanmayı öğrenin
+description: Oluşturma ve Azure CLI ile sanal makineleri yönetmek için Azure DevTest Labs'i kullanmayı öğrenin
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5e50bc3c6804a6f3d3dafd07b2918605c4cbc6ab
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ccf9b08856fcc652e3ad4b2b31587d43d7ef9cca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434688"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995967"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Oluşturma ve Azure CLI kullanarak DevTest Labs ile sanal makineleri yönetme
 Bu hızlı başlangıçta oluşturma, başlatma, bağlama, güncelleştirme, bir geliştirme makinesi laboratuvarınızda temizleme size yol gösterecektir. 
@@ -27,7 +27,7 @@ Başlamadan önce:
 
 * Bir laboratuvar oluşturulmadı, bu yönergeler bulunabilir [burada](devtest-lab-create-lab.md).
 
-* [CLI 2.0 sürümünü yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). Başlamak için Azure ile bir bağlantı oluşturmak için az login çalıştırın. 
+* [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). Başlamak için Azure ile bir bağlantı oluşturmak için az login çalıştırın. 
 
 ## <a name="create-and-verify-the-virtual-machine"></a>Oluşturma ve bir sanal makine doğrulayın 
 Bir VM ile bir Market görüntüsünden ssh kimlik doğrulaması oluşturun.

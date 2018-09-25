@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: d0720c23e0831b446a92855383fab06b0bfacbc7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e66d896a7df48645dad39b5b978c4f7c2f8d8cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525476"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954560"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Bir CİHAZDAN bir Azure IOT Hub cihazı sağlama hizmeti disenroll nasıl
 
@@ -34,9 +34,12 @@ Geçici olarak cihaz kayıt girdisini devre dışı bırakarak veya kara listeye
 2. Kaynak listesinde, cihazınızın kara listeye istediğiniz sağlama hizmetini seçin.
 3. Sağlama hizmetinizi seçin **kayıtları Yönet**ve ardından **bireysel kayıtlar** sekmesi.
 4. Kara listeye istediğiniz cihaz kayıt girişini seçin. 
-5. Kaydırın ve seçin **devre dışı** üzerinde **etkinleştirme giriş** geçiş yapın ve ardından **Kaydet**.  
 
-   [![Bireysel kayıt girişi portalda devre dışı bırak](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+    ![Bireysel kayıt seçin](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+
+5. Kayıt sayfanızda altına ve seçin **devre dışı** için **etkinleştirme giriş** geçiş yapın ve ardından **Kaydet**.  
+
+   ![Bireysel kayıt girişi portalda devre dışı bırak](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 Kalıcı olarak cihaz kayıt girdisini silerek kara listeye:
 
@@ -47,7 +50,8 @@ Kalıcı olarak cihaz kayıt girdisini silerek kara listeye:
 5. Seçin **Sil** penceresi tıklayın ve ardından üst kısmındaki **Evet** kayıt kaldırmak istediğinizi onaylayın. 
 
    ![Bireysel kayıt girişi portalında Sil](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-    
+
+
 Yordamı tamamladığınızda, bireysel kayıtlar listesinden kaldırılsa giriş görmeniz gerekir.  
 
 ## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Kayıt grubu kullanarak bir X.509 ara veya kök CA sertifikası kara
@@ -91,14 +95,18 @@ Tek bir cihaza bir kayıt grubundaki Engellenenler listesine şu adımları izle
 1. Azure portal ve Seç'i açın **tüm kaynakları** sol menüden.
 2. Kaynak listesinden kara listeye istediğiniz cihaz kayıt grubu içeren sağlama hizmetini seçin.
 3. Sağlama hizmetinizi seçin **kayıtları Yönet**ve ardından **bireysel kayıtlar** sekmesi.
-4. Seçin **Ekle** üstünde düğme. 
-5. Seçin **X.509** cihaz sertifikayı karşıya yükleyin ve cihaz kanıtlama mekanizması olarak. Bu cihazda yüklü imzalı son varlık sertifikadır. Cihaz kimlik doğrulaması için sertifikalar oluşturmak için kullanır.
-6. İçin **IOT Hub cihaz kimliği**, cihazın Kimliğini girin. 
-7. Seçin **devre dışı** üzerinde **etkinleştirme giriş** geçiş yapın ve ardından **Kaydet**. 
+4. Seçin **Ekle bireysel kayıt** üstünde düğme. 
+5. Üzerinde **kayıt ekleme** sayfasında **X.509** kanıtlama olarak **mekanizması** aygıt için.
+
+    Cihaz sertifikayı karşıya yüklemek ve kara listede için cihazın cihaz kimliği girin. Sertifika için cihazda yüklü imzalı son varlık sertifikası kullanın. Cihaz kimlik doğrulaması için imzalı son varlık sertifikası kullanır.
+
+    ![Kara listeye alınan cihaz için cihaz özelliklerini ayarlama](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+
+6. Listenin sonuna kaydırın **kayıt ekleme** sayfasından seçim yapıp **devre dışı** üzerinde **etkinleştirme giriş** geçiş yapın ve ardından **Kaydet**. 
 
     [![Bireysel kayıt girişi portalında Grup kaydı CİHAZDAN devre dışı bırakmak için devre dışı](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-Kaydınız başarılı bir şekilde oluşturduğunuzda, Cihazınızı görünür görmelisiniz **bireysel kayıtlar** sekmesi.
+Kaydınız başarılı bir şekilde oluşturduğunuzda, listelenen devre dışı bırakılmış bir cihaz kaydı sorunlarınızı görmelisiniz **bireysel kayıtlar** sekmesi. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

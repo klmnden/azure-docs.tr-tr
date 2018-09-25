@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 76567820a3d0fcd7dbd27cc7bc1afd09da94715c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f3bc64bd010bed9e177fd18cc6cb238b94669248
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129854"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990244"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config veya .xml ile Application Insights SDK yapılandırma
-Application Insights SDK'ları, NuGet paketlerini birtakım oluşur. [Çekirdek paket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights'a telemetri göndermek için API sağlar. [Ek paketleri](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcılar* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunlardan bazıları için parametreleri ayarlayın.
+Application Insights .NET SDK'sı NuGet paketlerini birtakım oluşur. [Çekirdek paket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights'a telemetri göndermek için API sağlar. [Ek paketleri](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcılar* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunlardan bazıları için parametreleri ayarlayın.
 
-Yapılandırma dosyası adlı `ApplicationInsights.config` (.NET) veya `ApplicationInsights.xml` (Java), uygulama türüne bağlıdır. Otomatik olarak projenize eklenir, siz [SDK'ın çoğu sürümünü birden yüklemek][start]. Ayrıca bir web uygulaması tarafından eklenir [Durum İzleyicisi bir IIS sunucusunda][redfield], veya Application ınsights'ı seçtiğinizde, [için bir Azure Web sitesinde veya sanal makine uzantısı](app-insights-azure-web-apps.md).
+Yapılandırma dosyası adlı `ApplicationInsights.config` veya `ApplicationInsights.xml`, uygulamanın türüne bağlı olarak. Otomatik olarak projenize eklenir, siz [SDK'ın çoğu sürümünü birden yüklemek][start]. Ayrıca bir web uygulaması tarafından eklenir [Durum İzleyicisi bir IIS sunucusunda][redfield], veya Application ınsights'ı seçtiğinizde, [için bir Azure Web sitesinde veya sanal makine uzantısı](app-insights-azure-web-apps.md).
 
 Denetimi eşdeğer bir dosyaya hiç [SDK'sı bir web sayfasında][client].
 
@@ -173,6 +173,8 @@ Ayrıca bir standart olan [telemetri işlemci örnekleme](app-insights-api-filte
 
 ```
 
+
+
 ## <a name="channel-parameters-java"></a>Kanal parametreleri (Java)
 Bu parametreler, Java SDK'sı depolamak ve bunları topladığı telemetri verilerini temizleme nasıl etkiler.
 
@@ -229,6 +231,30 @@ Yerel diskte kalıcı depolama için ayrılan MB en büyük boyutunu belirler. B
       ...
    </ApplicationInsights>
 ```
+
+#### <a name="local-forwarder"></a>Yerel iletici
+
+[Yerel ileticisi](https://docs.microsoft.com/azure/application-insights/local-forwarder) Application Insights tarafından toplanan bir aracı veya [OpenCensus](https://opencensus.io/) çeşitli SDK'lar ve çerçeveleri alınan telemetri ve uygulama anlayışları'na yönlendirir. Bu, Windows ve Linux altında çalıştırma yeteneğine sahiptir. 
+
+```xml
+<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
+<DeveloperMode>false</DeveloperMode>
+<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+<!-- The properties below are optional. The values shown are the defaults for each property -->
+<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
+<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
+</Channel>
+```
+
+SpringBoot başlangıç kullanıyorsanız, aşağıdaki yapılandırma dosyanız (application.properies) ekleyin:
+
+```yml
+azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
+azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
+azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
+```
+
+Varsayılan değerleri SpringBoot application.properties ve applicationınsights.XML yapılandırması için aynıdır.
 
 ## <a name="instrumentationkey"></a>Instrumentationkey
 Bu, verilerinizi göründüğü Application Insights kaynağını belirler. Genellikle, ayrı bir kaynak ayrı bir anahtar ile her uygulamalarınızı oluşturun.

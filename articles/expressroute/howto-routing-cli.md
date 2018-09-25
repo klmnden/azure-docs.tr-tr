@@ -1,6 +1,6 @@
 ---
-title: 'Bir Azure expressroute bağlantı hattı için yönlendirmeyi yapılandırma: CLI | Microsoft Docs'
-description: Bu makalede, oluşturma ve özel, genel ve Microsoft eşlemesi bir expressroute bağlantı hattı sağlama yardımcı olur. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır.
+title: 'Bir Azure ExpressRoute bağlantı hattı için yönlendirmeyi yapılandırma: CLI | Microsoft Docs'
+description: Bu makalede, oluşturma ve özel, genel ve Microsoft eşlemesi bir ExpressRoute bağlantı hattı sağlama yardımcı olur. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,62 +15,62 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: f4ad959de1425e828ce11fb658f8b5304e9d8775
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: cd7a6c43cb791ed607a763f10e781794ef513500
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316435"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950412"
 ---
-# <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Oluşturma ve CLI kullanarak bir expressroute bağlantı hattı için yönlendirmeyi değiştirme
+# <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>CLI kullanarak ExpressRoute devresi için yönlendirme oluşturma ve değiştirme
 
-Bu makale, CLI kullanarak Resource Manager dağıtım modelinde bir expressroute bağlantı hattı için yönlendirme yapılandırması oluşturma ve yönetme yardımcı olur. Ayrıca, durumu, güncelleştirme veya silme denetleyin ve bir expressroute bağlantı hattı için eşlemeler sağlamayı sonlandırın. Bağlantı hattınız ile çalışmak için farklı bir yöntem kullanmak istiyorsanız, bir makale aşağıdaki listeden seçin:
+Bu makale, CLI kullanarak Resource Manager dağıtım modelinde ExpressRoute devresi için yönlendirme yapılandırması oluşturma ve yönetme yardımcı olur. Ayrıca, durum, update veya delete denetleyin ve eşlemeler için ExpressRoute bağlantı hattı sağlamasını kaldırma. Bağlantı hattınız ile çalışmak için farklı bir yöntem kullanmak istiyorsanız, bir makale aşağıdaki listeden seçin:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [Video - özel eşliği](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Video - ortak eşleme](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [Video - Microsoft eşlemesi](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [Video - özel eşdüzey hizmet sağlama](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Video - genel eşdüzey hizmet sağlama](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Video - Microsoft eşdüzey hizmet sağlama](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (klasik)](expressroute-howto-routing-classic.md)
 > 
 
 ## <a name="configuration-prerequisites"></a>Yapılandırma önkoşulları
 
-* Başlamadan önce, CLI komutlarının en son sürümünü (2.0 veya üzeri) yükleyin. CLI komutlarını yükleme hakkında bilgi için bkz. [Azure CLI 2.0’ı yükleme](/cli/azure/install-azure-cli).
-* Gözden geçirdiğinizden emin olun [Önkoşullar](expressroute-prerequisites.md), [yönlendirme gereksinimleri](expressroute-routing.md), ve [iş akışı](expressroute-workflows.md) yapılandırmaya başlamadan önce sayfaları.
-* Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. Devam etmeden önce [ExpressRoute bağlantı hattı oluşturma](howto-circuit-cli.md) yönergelerini izleyin ve bağlantı sağlayıcınızın bağlantı hattını etkinleştirmesini isteyin. Expressroute bağlantı hattı, bu makaledeki komutları çalıştırılabilmesi sağlanmış ve etkin durumda olması gerekir.
+* Başlamadan önce, CLI komutlarının en son sürümünü (2.0 veya üzeri) yükleyin. CLI komutlarını yükleme hakkında daha fazla bilgi için bkz: [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
+* Geçirdiğinizden emin emin [önkoşulları](expressroute-prerequisites.md), [yönlendirme gereksinimleri](expressroute-routing.md), ve [iş akışı](expressroute-workflows.md) yapılandırmaya başlamadan önce sayfaları.
+* Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. Devam etmeden önce [ExpressRoute bağlantı hattı oluşturma](howto-circuit-cli.md) yönergelerini izleyin ve bağlantı sağlayıcınızın bağlantı hattını etkinleştirmesini isteyin. ExpressRoute bağlantı hattı, bu makaledeki komutları çalıştırılabilmesi sağlanmış ve etkin durumda olması gerekir.
 
-Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan bağlantı hatları için geçerlidir. Yönetilen sunan bir hizmet sağlayıcısı kullanıyorsanız, Katman 3 Hizmetleri (genellikle gibi bir IPVPN MPLS), bağlantı sağlayıcınız yapılandırmak ve yönetmek için yönlendirme.
+Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan bağlantı hatları için geçerlidir. Yönetilen sunan bir hizmet sağlayıcısı kullanıyorsanız, Katman 3 Hizmetleri (genellikle gibi bir IPVPN MPLS), bağlantı sağlayıcınız yapılandıracak ve yönlendirmeyi sizin için yönetme.
 
-Bir, iki veya üç eşlemenin tamamını (Azure özel, Azure genel ve Microsoft) bir expressroute bağlantı hattı için yapılandırabilirsiniz. Eşlemeleri seçtiğiniz herhangi bir sırayla yapılandırabilirsiniz. Ancak, her eşlemenin yapılandırmasını birer birer tamamladığınızdan emin olmanız gerekir. Yönlendirme etki alanları ve eşlemeleri hakkında daha fazla bilgi için bkz: [ExpressRoute Yönlendirme etki alanları](expressroute-circuit-peerings.md).
+Bir, iki veya üç eşlemenin tamamını (Azure özel, Azure genel ve Microsoft) bir ExpressRoute bağlantı hattı için yapılandırabilirsiniz. Eşlemeleri seçtiğiniz herhangi bir sırayla yapılandırabilirsiniz. Ancak, her eşlemenin yapılandırmasını birer birer tamamladığınızdan emin olmanız gerekir. Yönlendirme etki alanları ve eşlemeleri hakkında daha fazla bilgi için bkz. [ExpressRoute Yönlendirme etki alanları](expressroute-circuit-peerings.md).
 
 ## <a name="msft"></a>Microsoft eşlemesi
 
-Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı hattı için Microsoft eşleme yapılandırmasını silme yardımcı olur.
+Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılandırmasını silme yardımcı olur.
 
 > [!IMPORTANT]
-> 1 Ağustos 2017 önce yapılandırılmış olan ExpressRoute bağlantı hatları, Microsoft eşlemesi yol filtreleri tanımlanmamış olsa bile eşleme, Microsoft tarafından tanıtılan tüm hizmet ön eklerin sahip olur. Ve 1 Ağustos 2017 sonrasında yapılandırılmış ExpressRoute bağlantı hatları, Microsoft eşlemesi sahip olmaz tüm ön eklerin rota filtre devresine bağlanana kadar tanıtılan. Daha fazla bilgi için bkz: [Microsoft eşliği için rota filtresini Yapılandır](how-to-routefilter-powershell.md).
+> 1 Ağustos 2017'den önce yapılandırılmış olan ExpressRoute devrelerinin Microsoft eşdüzey hizmet sağlama, tüm hizmet ön eklerin rota filtreleri tanımlanmamış olsa bile, Microsoft eşlemesi tanıtılan sahip olur. 1 Ağustos 2017 veya sonrasında yapılandırılmış ExpressRoute devrelerinin Microsoft eşlemesi tüm ön ekleri olmaz bağlantı hattına bir rota filtresinde bağlanana kadar tanıtılan. Daha fazla bilgi için [Microsoft eşlemesi için rota filtresini Yapılandır](how-to-routefilter-powershell.md).
 > 
 > 
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft eşlemesi oluşturmak için
 
-1. Azure CLI'ın en son sürümünü yükleyin. En son sürümü, Azure komut satırı arabirimi (CLI) kullanın. * gözden geçirme [Önkoşullar](expressroute-prerequisites.md) ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
+1. Azure CLI'nin en son sürümünü yükleyin. En son sürümü, Azure komut satırı arabirimi (CLI) kullanın. * gözden geçirme [önkoşulları](expressroute-prerequisites.md) ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
 
   ```azurecli
   az login
   ```
 
-  Expressroute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
+  ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
 
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. ExpressRoute bağlantı hattı oluşturun. Bir [ExpressRoute bağlantı hattı](howto-circuit-cli.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için eşlemeyi Microsoft etkinleştirmek isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için hattınızı oluşturduktan sonra yönetmiyorsa yapılandırmanızı sonraki adımlarla devam edin. 
+2. ExpressRoute bağlantı hattı oluşturun. Bir [ExpressRoute bağlantı hattı](howto-circuit-cli.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için eşlemeyi Microsoft etkinleştirmek isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımları kullanarak yapılandırmanız devam edin. 
 
-3. Sağlanan ve ayrıca etkin emin olmak için expressroute bağlantı hattı denetleyin. Şu örneği kullanın:
+3. ExpressRoute bağlantı hattının sağlanmış olduğundan ve ayrıca etkin olduğundan emin olmak için kontrol edin. Şu örneği kullanın:
 
   ```azurecli
   az network express-route list
@@ -113,12 +113,12 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı 
   * İkincil bağlantı için bir /30 alt ağı. Bu size ait ve bir RIR / IRR içinde kayıtlı bir geçerli ortak IPv4 ön eki olmalıdır.
   * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
-  * Tanıtılan önekler: BGP oturumunda tanıtmayı planladığınız tüm öneklerin bir listesini sağlamanız gerekir. Yalnızca ortak IP adresi ön ekleri kabul edilir. Bir ön ek kümesi göndermeyi planlıyorsanız, virgülle ayrılmış bir liste gönderebilirsiniz. Bu ön ekler size bir RIR / IRR içinde kaydedilmiş olmalıdır.
+  * Tanıtılan önekler: BGP oturumunda tanıtmayı planladığınız tüm öneklerin bir listesini sağlamanız gerekir. Yalnızca ortak IP adresi ön ekleri kabul edilir. Ön ek kümesi göndermeyi planlıyorsanız, virgülle ayrılmış bir liste gönderebilirsiniz. Bu ön ekler size bir RIR / IRR içinde kaydedilmiş olmalıdır.
   * **İsteğe bağlı -** müşteri ASN'si: eşleme AS numarasına kayıtlı olmayan önekler Tanıtıyorsanız, kayıtlı oldukları AS numarasını belirtebilirsiniz.
   * Yönlendirme Kayıt Defteri Adı: AS numarası ve öneklerinin kaydedildiği RIR / IRR’yi belirtebilirsiniz.
   * **İsteğe bağlı -** kullanmayı seçerseniz bir MD5 karma değeri.
 
-   Microsoft bağlantı hattınız için eşlemesini yapılandırmak için aşağıdaki örnekte çalıştırın:
+   Microsoft, bağlantı hattı için eşleme yapılandırmak için aşağıdaki örneği çalıştırın:
 
   ```azurecli
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 123.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 123.0.0.4/30 --vlan-id 300 --peering-type MicrosoftPeering --advertised-public-prefixes 123.1.0.0/24
@@ -126,7 +126,7 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı 
 
 ### <a name="getmsft"></a>Microsoft eşleme ayrıntılarını görüntülemek için
 
-Aşağıdaki örnek kullanarak yapılandırma ayrıntılarını alabilirsiniz:
+Aşağıdaki örneği kullanarak yapılandırma ayrıntılarını alabilirsiniz:
 
 ```azurecli
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzureMicrosoftPeering
@@ -168,13 +168,13 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 
 ### <a name="updatemsft"></a>Microsoft eşleme yapılandırmasını güncelleştirmek için
 
-Yapılandırma, herhangi bir bölümünü güncelleştirebilirsiniz. Aşağıdaki örnekte 124.1.0.0/24 için bağlantı hattının tanıtılan önekler 123.1.0.0/24 güncelleştirilmekte olan:
+Yapılandırmayı herhangi bir bölümünü güncelleştirebilirsiniz. Tanıtılan önekler bağlantı hattının aşağıdaki örnekte 124.1.0.0/24 için 123.1.0.0/24 güncelleştirilmekte olan:
 
 ```azurecli
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroup --peering-type MicrosoftPeering --advertised-public-prefixes 124.1.0.0/24
 ```
 
-### <a name="addIPv6msft"></a>Varolan bir IPv4 yapılandırma IPv6 Microsoft eşleme ayarları eklemek için
+### <a name="addIPv6msft"></a>Mevcut bir IPv4 yapılandırmayı IPv6 Microsoft eşleme ayarları eklemek için
 
 ```azurecli
 az network express-route peering update -g ExpressRouteResourceGroup --circuit-name MyCircuit --peering-type MicrosoftPeering --ip-version ipv6 --primary-peer-subnet 2002:db00::/126 --secondary-peer-subnet 2003:db00::/126 --advertised-public-prefixes 2002:db00::/126
@@ -188,13 +188,13 @@ Aşağıdaki örnek çalıştırarak eşleme yapılandırmanızı kaldırabilirs
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name MicrosoftPeering
 ```
 
-## <a name="private"></a>Azure özel eşleme
+## <a name="private"></a>Azure özel eşdüzey hizmet sağlama
 
-Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı hattı için Azure özel eşleme yapılandırmasını silme yardımcı olur.
+Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı hattı için Azure özel eşleme yapılandırmasını silme yardımcı olur.
 
 ### <a name="to-create-azure-private-peering"></a>Azure özel eşlemesi oluşturmak için
 
-1. Azure CLI'ın en son sürümünü yükleyin. En son sürümü, Azure komut satırı arabirimi (CLI) kullanmanız gerekir. * gözden geçirme [Önkoşullar](expressroute-prerequisites.md) ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
+1. Azure CLI'nin en son sürümünü yükleyin. En son sürümü, Azure komut satırı arabirimi (CLI) kullanmanız gerekir. * gözden geçirme [önkoşulları](expressroute-prerequisites.md) ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
 
   ```azurecli
   az login
@@ -205,9 +205,9 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı 
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. ExpressRoute bağlantı hattı oluşturun. Bir [ExpressRoute bağlantı hattı](howto-circuit-cli.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan özel sizin için Azure eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için hattınızı oluşturduktan sonra yönetmiyorsa yapılandırmanızı sonraki adımlarla devam edin.
+2. ExpressRoute bağlantı hattı oluşturun. Bir [ExpressRoute bağlantı hattı](howto-circuit-cli.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan Azure özel, eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımları kullanarak yapılandırmanız devam edin.
 
-3. Sağlanan ve ayrıca etkin emin olmak için expressroute bağlantı hattı denetleyin. Şu örneği kullanın:
+3. ExpressRoute bağlantı hattının sağlanmış olduğundan ve ayrıca etkin olduğundan emin olmak için kontrol edin. Şu örneği kullanın:
 
   ```azurecli
   az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
@@ -252,7 +252,7 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı 
   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz. Bu eşleme için özel bir AS numarası kullanabilirsiniz. 65515’i kullanmadığınızdan emin olun.
   * **İsteğe bağlı -** kullanmayı seçerseniz bir MD5 karma değeri.
 
-  Bağlantı hattınız için Azure özel eşlemesini yapılandırmak için aşağıdaki örneği kullanın:
+  Bağlantı hattınız için Azure özel eşlemesini yapılandırmak üzere aşağıdaki örneği kullanın:
 
   ```azurecli
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
@@ -271,7 +271,7 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı 
 
 ### <a name="getprivate"></a>Azure özel eşleme ayrıntılarını görüntülemek için
 
-Aşağıdaki örnek kullanarak yapılandırma ayrıntılarını alabilirsiniz:
+Aşağıdaki örneği kullanarak yapılandırma ayrıntılarını alabilirsiniz:
 
 ```azurecli
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
@@ -307,18 +307,18 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 
 ### <a name="updateprivate"></a>Azure özel eşleme yapılandırmasını güncelleştirmek için
 
-Aşağıdaki örnek kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz. Bu örnekte, bağlantı hattının VLAN kimliği 100'den 500'e güncelleştiriliyor.
+Aşağıdaki örneği kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz. Bu örnekte, bağlantı hattının VLAN kimliği 100'den 500'e güncelleştiriliyor.
 
 ```azurecli
 az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
-### <a name="deleteprivate"></a>Azure özel eşlemesini silmek için
+### <a name="deleteprivate"></a>Azure özel eşlemeyi silmek için
 
 Aşağıdaki örnek çalıştırarak eşleme yapılandırmanızı kaldırabilirsiniz:
 
 > [!WARNING]
-> Bu örneği çalıştırmadan önce tüm sanal ağları expressroute bağlantı hattı bağlantısız olduğundan emin olmalısınız. 
+> Bu örneği çalıştırmadan önce tüm sanal ağları ExpressRoute bağlantı bağlantısı olduğundan emin olmanız gerekir. 
 > 
 > 
 
@@ -326,26 +326,26 @@ Aşağıdaki örnek çalıştırarak eşleme yapılandırmanızı kaldırabilirs
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
-## <a name="public"></a>Azure ortak eşleme
+## <a name="public"></a>Azure genel eşdüzey hizmet sağlama
 
-Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı hattı için Azure ortak eşleme yapılandırmasını silme yardımcı olur.
+Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapılandırmasını silme yardımcı olur.
 
 ### <a name="to-create-azure-public-peering"></a>Azure ortak eşlemesi oluşturmak için
 
-1. Azure CLI'ın en son sürümünü yükleyin. En son sürümü, Azure komut satırı arabirimi (CLI) kullanmanız gerekir. * gözden geçirme [Önkoşullar](expressroute-prerequisites.md) ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
+1. Azure CLI'nin en son sürümünü yükleyin. En son sürümü, Azure komut satırı arabirimi (CLI) kullanmanız gerekir. * gözden geçirme [önkoşulları](expressroute-prerequisites.md) ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
 
   ```azurecli
   az login
   ```
 
-  Expressroute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
+  ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
 
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. ExpressRoute bağlantı hattı oluşturun.  Bir [ExpressRoute bağlantı hattı](howto-circuit-cli.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan Azure ortak sizin için eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için hattınızı oluşturduktan sonra yönetmiyorsa yapılandırmanızı sonraki adımlarla devam edin.
+2. ExpressRoute bağlantı hattı oluşturun.  Bir [ExpressRoute bağlantı hattı](howto-circuit-cli.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan Azure genel, eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımları kullanarak yapılandırmanız devam edin.
 
-3. Sağlanan ve ayrıca etkin emin olmak için expressroute bağlantı hattı denetleyin. Şu örneği kullanın:
+3. ExpressRoute bağlantı hattının sağlanmış ve etkin da emin olmak için kontrol edin. Şu örneği kullanın:
 
   ```azurecli
   az network express-route list
@@ -382,7 +382,7 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı 
   "type": "Microsoft.Network/expressRouteCircuits]
   ```
 
-4. Bağlantı hattı için Azure ortak eşlemesini yapılandırın. Devam etmeden önce aşağıdaki bilgilere sahip olduğunuzdan emin olun.
+4. Bağlantı hattı için Azure ortak eşlemesini yapılandırın. Devam etmeden önce aşağıdaki bilgilere sahip olduğundan emin olun.
 
   * Birincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
   * İkincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
@@ -390,7 +390,7 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı 
   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
   * **İsteğe bağlı -** kullanmayı seçerseniz bir MD5 karma değeri.
 
-  Bağlantı hattınız için Azure ortak eşlemesini yapılandırmak için aşağıdaki örnekte çalıştırın:
+  Bağlantı hattınız için Azure ortak eşlemesini yapılandırmak üzere aşağıdaki örneği çalıştırın:
 
   ```azurecli
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering
@@ -407,7 +407,7 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı 
 
 ### <a name="getpublic"></a>Azure ortak eşleme ayrıntılarını görüntülemek için
 
-Aşağıdaki örnek kullanarak yapılandırma ayrıntılarını alabilirsiniz:
+Aşağıdaki örneği kullanarak yapılandırma ayrıntılarını alabilirsiniz:
 
 ```azurecli
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
@@ -442,7 +442,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 
 ### <a name="updatepublic"></a>Azure ortak eşleme yapılandırmasını güncelleştirmek için
 
-Aşağıdaki örnek kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz. Bu örnekte, bağlantı hattının VLAN kimliği 200'den 600 olarak güncelleştiriliyor.
+Aşağıdaki örneği kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz. Bu örnekte, bağlantı hattının VLAN kimliği 200'den 600 olarak güncelleştiriliyor.
 
 ```azurecli
 az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering

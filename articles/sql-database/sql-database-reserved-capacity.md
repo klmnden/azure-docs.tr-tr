@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: carlrab
-ms.openlocfilehash: e14f65c16706f8285b6ce390e75f95ea1a8bede6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 59ec4b109c01a027ce440d3f7749d69af3351571
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295527"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037720"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme
 
@@ -28,7 +28,7 @@ Azure SQL veritabanı'nın ayrılmış kapasite satın alabilirsiniz [Azure port
 - Kurumsal abonelikler için Azure rezervasyon satın alma işlemleri içinde etkinleştirilmelidir [EA portal](https://ea.azure.com).
 -  Bulut çözümü sağlayıcısı (CSP) programı için yönetim aracıları veya satış aracıları yalnızca SQL veritabanı ayrılmış kapasitesi satın alabilirsiniz.
 
-Kurumsal müşteriler ve Kullandıkça Öde müşterileri rezervasyon satın alma işlemleri için nasıl ücretlendirilir Ayrıntılar alınmıştır [sık sorulan sorular](#frequently-asked-questions).
+Rezervasyon satın alma işlemleri için Kurumsal müşteriler ve Kullandıkça Öde müşterileri nasıl ücretlendirilir Ayrıntılar bkz [Kurumsal kayıt için Azure anlamak ayırma kullanım](../billing/billing-understand-reserved-instance-usage-ea.md) ve [anlamak Azure ayırma Kullandıkça Öde Aboneliğinize yönelik kullanım](../billing/billing-understand-reserved-instance-usage.md).
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>Satın almadan önce doğru SQL boyutunu belirler
 

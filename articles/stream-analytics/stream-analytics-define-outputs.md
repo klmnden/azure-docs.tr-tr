@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: d717737bc2b15e57ae32faffaece96f78a7cc013
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d75a91ea0925ef0860b8e6dee310156bef21a1ba
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577829"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056830"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların farklı türde açıklanır. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla. 
@@ -63,7 +63,7 @@ Yetkilendirme, yenilemek için **Durdur** işinizi > Data Lake Store çıkışı
 ![Data Lake Store yetkilendirme](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Veritabanı
-[Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) çıkış olarak kendiliğinden ilişkisel veriler veya ilişkisel bir veritabanında barındırılan içeriğe bağlı uygulamalar için kullanılabilir. Stream Analytics işleri, mevcut bir Azure SQL veritabanı tablosuna yazın.  Tablo şemasını, alanları ve işinizin çıktısı olan türlerini tam olarak eşleşmelidir. Bir [Azure SQL veri ambarı](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) aracılığıyla SQL veritabanı output seçeneği de çıktı olarak belirtilebilir. Özellik adları ve açıklamaları, SQL veritabanı çıktı oluşturmak için aşağıdaki tabloda listelenmiştir.
+[Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) çıkış olarak kendiliğinden ilişkisel veriler veya ilişkisel bir veritabanında barındırılan içeriğe bağlı uygulamalar için kullanılabilir. Stream Analytics işleri, mevcut bir Azure SQL veritabanı tablosuna yazın.  Tablo şemasını, alanları ve işinizin çıktısı olan türlerini tam olarak eşleşmelidir. Bir [Azure SQL veri ambarı](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) aracılığıyla SQL veritabanı output seçeneği de çıktı olarak belirtilebilir. Yazma aktarım hızını iyileştirmek için yollar hakkında bilgi edinmek için bkz [çıktı olarak Azure SQL DB ile bir Stream Analytics](stream-analytics-sql-output-perf.md) makalesi. Özellik adları ve açıklamaları, SQL veritabanı çıktı oluşturmak için aşağıdaki tabloda listelenmiştir.
 
 | Özellik adı | Açıklama |
 | --- | --- |
@@ -297,7 +297,7 @@ Bölüm destek ve çıkış yazarların her çıkış türü sayısı aşağıda
 | Çıkış türü | Bölümleme desteği | Bölüm anahtarı  | Çıkış yazıcılar sayısı | 
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Evet | Kullanım: {date} ve {time} belirteçleri yol ön eki deseni. YYYY/MM/DD, GG/AA/YYYY-AA-GG-YYYY'gibi tarih biçimi seçin. SS saat biçimi için kullanılır. | Giriş bölümleme için aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). | 
-| Azure SQL Database | Hayır | None | Geçerli değildir. | 
+| Azure SQL Database | Evet | Temel sorgu PARTITION BY yan tümcesi | Giriş bölümleme için aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). | 
 | Azure Blob depolama | Evet | Kullanım {date} ve {time} belirteçleri, olay alanlarından yol deseni. YYYY/MM/DD, GG/AA/YYYY-AA-GG-YYYY'gibi tarih biçimi seçin. SS saat biçimi için kullanılır. Bir parçası olarak [Önizleme](https://aka.ms/ASAPreview), blob çıkış bölümlenebilir tek bir özel olay özniteliğiyle {fieldname} veya {datetime:\<belirticisi >}. | Giriş bölümleme için aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). | 
 | Azure Olay Hub'ı | Evet | Evet | Bölüm hizalama bağlı olarak değişir.</br> Olay hub'ı bölümleri sayısı olay Hub'ı bölüm anahtarı (Yukarı Akış önceki) sorgu adımı, yazarların sayısı eşit hizalanır aynıdır çıkış çıkış. Her yazıcı EventHub'ın kullandığı [EventHubSender sınıfı](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) bölüme olayları göndermek için. </br> Çıktı, olay hub'ı bölüm anahtarı (Yukarı Akış önceki) sorgu adımı, yazıcıları sayısını hizalı değil ise, önceki adımda bölüm sayısı ile aynı. Her yazıcı EventHubClient kullanan [SendBatchAsync sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) çıkış bölümlere tüm olayları göndermek için. |
 | Power BI | Hayır | None | Geçerli değildir. | 

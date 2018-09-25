@@ -13,21 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3479aa8dd319c81f320b6c7ead086c266454acc6
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8af6846da78d12460b7866297c9802c5dab20a69
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579604"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967532"
 ---
-# <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin kullanmaya başlama
-[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
+# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Hızlı Başlangıç: Microsoft oturum açma tümleşik bir Xamarin uygulaması derleme
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 Xamarin, C# ' de iOS, Android ve Windows (mobil cihazlar ve bilgisayarlar) üzerinde çalışan mobil uygulamalar yazabilirsiniz. Xamarin kullanarak bir uygulama oluşturuyorsanız, Azure Active Directory (Azure AD) Azure AD hesaplarına sahip kullanıcıların kimlik doğrulamasını kolaylaştırır. Uygulama, Office 365 API'lerini veya Azure API gibi Azure AD tarafından korunan tüm web API'si de güvenli bir şekilde kullanabilir.
 
@@ -37,18 +36,21 @@ Korunan kaynaklara erişmesi gereken Xamarin uygulamaları için Azure AD Active
 * Kullanıcıların kimliğini doğrulama ve belirteçleri almak için Azure AD Graph API için bir tek taşınabilir sınıf kitaplığı (PCL) kullanın.
 * Belirli bir UPN ile kullanıcılar için bir dizini arayın.
 
-## <a name="before-you-get-started"></a>Başlamadan önce
+## <a name="prerequisites"></a>Önkoşullar
+
 * İndirme [çatı projesini](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip), veya indirme [tamamlanan örnek](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Her yükleme, bir Visual Studio 2013 çözümüdür.
 * Ayrıca, kullanıcıların oluşturmak ve uygulamayı kaydetmek Azure AD kiracısı gerekir. Bir kiracı yoksa [edinebileceğinizi öğrenin](quickstart-create-new-tenant.md).
 
 Hazır olduğunuzda, sıradaki dört bölüm konusundaki yordamları izleyin.
 
 ## <a name="step-1-set-up-your-xamarin-development-environment"></a>1. adım: Xamarin geliştirme ortamınızı ayarlama
+
 Bu öğreticide, iOS, Android ve Windows projeleri içerdiğinden, hem Visual Studio ve Xamarin gerekir. Gerekli ortam oluşturmak için işlemin tamamlanması [kümesi ayarlama ve Visual Studio ve Xamarin'i yükleme](https://msdn.microsoft.com/library/mt613162.aspx) MSDN'de. Yönergeleri yüklemeleri tamamlanması beklerken Xamarin hakkında daha fazla bilgi edinmek için gözden geçirebileceğiniz malzemesini içerir.
 
 Kurulumu tamamladıktan sonra çözümü Visual Studio'da açın. Burada, altı projeleri bulacaksınız: beş platforma özel Proje ve bir PCL, tüm platformlar arasında paylaşılan DirectorySearcher.cs.
 
 ## <a name="step-2-register-the-directorysearcher-app"></a>2. adım: DirectorySearcher uygulamayı kaydetme
+
 Belirteçlerini almak sağlamak amacıyla, ilk Azure AD kiracınıza kaydetme ve Azure AD Graph API'sine erişim izni vermeniz gerekir. Bunu yapmak için:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -63,6 +65,7 @@ Belirteçlerini almak sağlamak amacıyla, ilk Azure AD kiracınıza kaydetme ve
 8. Seçin **Microsoft Graph** API olarak. Altında **Temsilcili izinler**, ekleme **dizin verilerini okuma** izni. Bu eylem, kullanıcılar için Graph API sorgulamak uygulamayı etkinleştirir.
 
 ## <a name="step-3-install-and-configure-adal"></a>3. adım: Yükleme ve ADAL'ı yapılandırma
+
 Azure AD'de bir uygulama edindikten sonra ADAL'ı yükleyebilir ve kimlikle ilgili kodunuzu yazın. Azure AD ile iletişim kurmak ADAL'ı etkinleştirmek için uygulama kaydı hakkında bazı bilgiler verir.
 
 1. ADAL, Paket Yöneticisi konsolu kullanarak DirectorySearcher projeye ekleyin.
@@ -96,6 +99,7 @@ Azure AD'de bir uygulama edindikten sonra ADAL'ı yükleyebilir ve kimlikle ilgi
   * *ReturnUri* yeniden yönlendirme URI'si portalda girdiğiniz olan (örneğin, http://DirectorySearcher).
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>4. adım: Kullanımı Azure AD belirteçlerini almak için ADAL
+
 Neredeyse tüm uygulamanın kimlik doğrulaması mantığı kaynaklandığını `DirectorySearcher.SearchByAlias(...)`. Platforma özgü projelerinde gerekli olan tek şey bir bağlam parametresine geçirilecek `DirectorySearcher` PCL.
 
 1. DirectorySearcher.cs açın ve ardından yeni bir parametre ekleyin `SearchByAlias(...)` yöntemi. `IPlatformParameters` ADAL kimlik doğrulaması gerçekleştirmesine gerek platforma özgü nesneler kapsülleyen bağlamsal parametredir.
@@ -154,6 +158,7 @@ Tüm için `DirectorySearcher` PCL ve uygulama kimlikle ilgili kod. Kalan tek ş
     ```
 
 ### <a name="windows-desktop"></a>Windows Masaüstü
+
 MainWindow.xaml.cs içinde çağrı yapmak `SearchByAlias(...)` geçirerek bir `WindowInteropHelper` masaüstünde ın `PlatformParameters` nesnesi:
 
 ```csharp
@@ -180,18 +185,18 @@ List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(
 ...
 ```
 
-## <a name="whats-next"></a>Sırada ne var?
 Artık, kullanıcıların kimliklerini doğrulamak ve güvenli bir şekilde beş farklı platformlar arasında OAuth 2.0 kullanarak web API'leri çağırma Xamarin uygulamanız var.
+
+## <a name="step-5-populate-your-tenant"></a>5. adım: kiracınızı Doldur 
 
 Kullanıcılarla kiracınız zaten doldurulmuş yüklemediyseniz, bunu yapmak için zaman sunulmuştur.
 
 1. DirectorySearcher uygulamanızı çalıştırın ve ardından kullanıcılardan birinin bilgilerinizle oturum açın.
 2. Kendi UPN'e bağlı diğer kullanıcılar için arama yapın.
 
+## <a name="next-steps"></a>Sonraki adımlar
+
 ADAL ortak kimlik özellikleri uygulamanıza kolaylaştırır. Bunu tüm kirli çalışması, önbellek yönetimi gibi OAuth protokol desteği, kullanıcı bir oturum açma kullanıcı Arabirimi, sunma üstlenir ve yenileme belirteçleri süresi doldu. Tek bir API çağrısı yalnızca, bilmeniz gereken `authContext.AcquireToken*(…)`.
 
-Başvuru için indirme [tamamlanan örnek](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip) (olmadan yapılandırma değerlerinize).
-
-Artık için ek kimlik senaryolarında da taşıyabilirsiniz. Örneğin, [.NET Web API'si Azure AD ile güvenli](quickstart-v1-dotnet-webapi.md).
-
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+* İndirme [tamamlanan örnek](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip) (olmadan yapılandırma değerlerinize).
+* Bilgi edinmek için nasıl [.NET Web API'si Azure AD ile güvenli](quickstart-v1-dotnet-webapi.md).

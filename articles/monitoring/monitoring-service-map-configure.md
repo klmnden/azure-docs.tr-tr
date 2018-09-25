@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: faf4e06b714714fce206ef8227a934df8c290447
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: a68c35ba2f740720e3d7940d6fafa2dcfe183589
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057158"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064384"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -41,12 +41,14 @@ Aşağıdaki bölümde, Windows üzerinde bağımlılık aracısını için dest
 >
 
 ### <a name="windows-server"></a>Windows Server
+- Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
 ### <a name="windows-desktop"></a>Windows masaüstü
+- Windows 10, 1803
 - Windows 10
 - Windows 8.1
 - Windows 8
@@ -123,8 +125,8 @@ Aşağıdaki bölümde, Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (
 
 | Dosya | İşletim Sistemi | Sürüm | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 Hizmet eşlemesi kendi verilerini Microsoft Dependency Aracıdan alır. Log Analytics aracısını Log analytics'e bağlantıları için bağımlılık Aracısı'nı kullanır. Başka bir deyişle, bir sunucuya yüklenmiş ve yapılandırılmış bağımlılık aracısını Log Analytics aracısını olması gerekir.  Aşağıdaki tabloda, hizmet eşlemesi çözümünü destekleyen bağlı kaynaklar açıklanmaktadır.

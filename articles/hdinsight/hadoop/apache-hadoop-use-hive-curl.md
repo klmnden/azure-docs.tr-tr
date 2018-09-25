@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
-ms.openlocfilehash: d8816965fb1ab870d7bd93cd1ace45c4e6e57de6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8a9dd45a8d5ebf506899c733107ff2fd01b08a2c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040922"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964539"
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST kullanarak HDInsight Hadoop ile Hive sorguları çalıştırma
 
@@ -171,7 +171,7 @@ Bu belge de Windows PowerShell kullanır ve [Jq](http://stedolan.github.io/jq/) 
 
 6. İş durumu için değiştiğinde **başarılı**, Azure Blob depolama alanından iş sonuçlarını alabilirsiniz. `statusdir` Sorguyla geçirilen parametre içerir; bu durumda, çıkış dosyasının konumu `/example/rest`. Bu adres çıktısında depolar `example/curl` kümeleri varsayılan depolama alanı içindeki dizin.
 
-    Liste ve kullanarak bu dosyaları indirmek [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure depolama ile Azure CLI kullanma ile ilgili daha fazla bilgi için bkz: [kullanımı Azure CLI 2.0 ile Azure depolama](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) belge.
+    Liste ve kullanarak bu dosyaları indirmek [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure depolama ile Azure CLI kullanma ile ilgili daha fazla bilgi için bkz: [kullanımı Azure CLI ile Azure depolama](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) belge.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 

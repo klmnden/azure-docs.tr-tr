@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 00b908fb078a6ad32363c0168b88a162f8735fc3
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 227e6b87e5a131147ffebdeac045b9b27ab20dc8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930554"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991326"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Tanımlamak ve Azure'da çok kapsayıcılı bir uygulama çalıştırmak için Docker ve Compose kullanmaya başlama
 İle [Compose](http://github.com/docker/compose), birden fazla Docker kapsayıcılarını oluşan bir uygulamanın tanımlamak için basit bir metin dosyası kullanın. Ardından, uygulamanızda tanımlanmış ortamınıza dağıtmak için her şeyi yapan tek bir komut, hızla çalıştırın. Bu makalede örnek olarak, arka uç bir Ubuntu sanal MariaDB SQL veritabanı ile WordPress blogu hızlı bir şekilde ayarlama işlemini gösterir. Oluştur, daha karmaşık uygulamalar ayarlamak için de kullanabilirsiniz.
@@ -32,8 +32,8 @@ Bir Linux VM oluşturma ve bir Docker konağı olarak ayarlamak için Azure Mark
 Docker VM uzantısını kullandığınızda, VM otomatik olarak bir Docker konağı olarak ayarlanır ve Compose zaten yüklü.
 
 
-### <a name="create-docker-host-with-azure-cli-20"></a>Azure CLI 2.0 ile Docker konağı oluşturma
-Son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index#az_login).
+### <a name="create-docker-host-with-azure-cli"></a>Azure CLI ile Docker konağı oluşturma
+Son yükleme [Azure CLI](/cli/azure/install-az-cli2) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index#az_login).
 
 İlk olarak, Docker ortamınız için bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 

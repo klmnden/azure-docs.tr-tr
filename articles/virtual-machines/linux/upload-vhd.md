@@ -1,6 +1,6 @@
 ---
-title: Karşıya yükleme veya Azure CLI 2.0 ile özel bir Linux VM'yi kopyalama | Microsoft Docs
-description: Karşıya yükleme veya Resource Manager dağıtım modelini ve Azure CLI 2.0 kullanarak özelleştirilmiş sanal makine kopyalama
+title: Karşıya yükleme veya Azure CLI ile özel bir Linux VM'yi kopyalama | Microsoft Docs
+description: Karşıya yükleme veya Resource Manager dağıtım modelini ve Azure CLI kullanarak özelleştirilmiş sanal makine kopyalama
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 3fb6957cf6af5c09a355b61c7c2440a929d1b837
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b5df02c9f07549aec406cf449bb0ae49ee9e280a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736688"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957440"
 ---
-# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Azure CLI 2.0 ile bir özel diskten Linux VM oluşturma
+# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Azure CLI ile bir özel diskten Linux VM oluşturma
 
 <!-- rename to create-vm-specialized -->
 
@@ -57,7 +57,7 @@ Aşağıdaki adımları tamamlamak için gerekir:
 > 
 
 
-* En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
+* En son sahip olduğunuzdan emin olun [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *mystorageaccount*, ve *mydisks*.
 

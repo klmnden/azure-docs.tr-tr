@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 3b26c5f9a6d75725fb102d89192e77988b295dea
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: b7de39ca8723df2d15da7677b7032c98e84ecb1d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782034"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960626"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Azure Data Box Disk sınırları (Önizleme)
 
@@ -66,7 +66,7 @@ Azure depolama hizmet sınırları ve adlandırma paylaşımları, kapsayıcıla
 
 Depolama hesabına kopyalanır veri boyutu sınırları şunlardır. Karşıya yüklediğiniz veriler için limitler uyduğundan emin olun. Bu sınırlar en güncel bilgiler için Git [Azure blob depolama ölçek hedefleri](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) ve [Azure dosyaları ölçeklendirme hedeflerini](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
-| Azure depolama hesabına kopyalanan verileri boyutu                      | Varsayılan Sınır          |
+| Azure depolama hesabına kopyalanan verileri boyutu                      | Varsayılan limit          |
 |---------------------------------------------------------------------|------------------------|
 | Blok blobu ve sayfa blob                                            | Depolama hesabı başına 500 TB. <br> Bu Data Box Disk dahil olmak üzere tüm kaynaklardan gelen verileri içerir.|
 
@@ -75,7 +75,7 @@ Depolama hesabına kopyalanır veri boyutu sınırları şunlardır. Karşıya y
 
 Azure nesnelerin yazılabilir boyutları aşağıda verilmiştir. Yüklenen tüm dosyalar bu sınırlara uyacak emin olun.
 
-| Azure nesne türü | Varsayılan Sınır                                             |
+| Azure nesne türü | Varsayılan limit                                             |
 |-------------------|-----------------------------------------------------------|
 | Blok Blobu        | ~ 8 TB                                                 |
 | Sayfa Blobu         | 1 TB <br> (Sayfa blobu biçiminde yüklenen her dosya, 512 bayt hizalı (tamsayı katı) olmalıdır, aksi takdirde yükleme başarısız olur. <br> VHD ve VHDX 512 bayt hizalı var.) |
@@ -87,3 +87,7 @@ Azure nesnelerin yazılabilir boyutları aşağıda verilmiştir. Yüklenen tüm
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Kapsayıcı adları için blok blobu ve sayfa blobu | 3-63 karakter uzunluğunda olan geçerli bir DNS adı olmalıdır. <br>  Bir harf veya sayı ile başlamalıdır. <br> Yalnızca küçük harf, sayı ve tire (-) içerebilir. <br> Kısa çizgiden (-) hemen önce ve sonra bir harf veya rakam gelmelidir. <br> Adlarda kısa çizgiler art arda kullanılamaz. |
 | Blok blobu ve sayfa blobu için blob adları      | Blob adları büyük/küçük harfe duyarlıdır ve karakterler herhangi bir düzende sıralanabilir. <br> Blob adı 1 ila 1024 karakter uzunluğunda olmalıdır. <br> Ayrılmış URL karakterleri doğru şekilde atlanmalıdır. <br>Blob adını oluşturan yolun bölümleri 254 karakterden uzun olamaz. Yol bölümü, arka arkaya gelen sınırlayıcı karakterlerinin (örneğin eğik çizgi "/") arasında yer alan ve bir sanal dizinin adına karşılık gelen dizedir. |
+
+
+## <a name="next-steps"></a>Sonraki adımlar
+* Gözden geçirme [Data Box sistem gereksinimleri](data-box-system-requirements.md)

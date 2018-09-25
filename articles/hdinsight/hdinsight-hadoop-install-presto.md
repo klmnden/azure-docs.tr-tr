@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: 1569b5931a24048fa7a88c4a546bbf88547208d1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b9ac9c49e633906e47244eedcb18a4cda4a6228d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109625"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978970"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Yükleme ve Presto HDInsight Hadoop kümelerini kullanma
 
@@ -61,7 +61,7 @@ Bu bölümde, örnek betik Azure portalını kullanarak yeni bir küme oluşturu
 4. Açıklandığı gibi küme sağlama devam [sağlama Linux tabanlı HDInsight kümeleri](hdinsight-hadoop-create-linux-clusters-portal.md).
 
     > [!NOTE]
-    > Azure PowerShell, Azure CLI, HDInsight .NET SDK veya Azure Resource Manager şablonları betik eylemleri uygulamak için de kullanılabilir. Betik eylemleri zaten kümelerini çalıştırmak için de uygulayabilirsiniz. Daha fazla bilgi için [özelleştirme HDInsight kümeleri ile betik eylemleri](hdinsight-hadoop-customize-cluster-linux.md).
+    > Azure PowerShell, Azure Klasik CLI, HDInsight .NET SDK veya Azure Resource Manager şablonları betik eylemleri uygulamak için de kullanılabilir. Betik eylemleri zaten kümelerini çalıştırmak için de uygulayabilirsiniz. Daha fazla bilgi için [özelleştirme HDInsight kümeleri ile betik eylemleri](hdinsight-hadoop-customize-cluster-linux.md).
     > 
     > 
 

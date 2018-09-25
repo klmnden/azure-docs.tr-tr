@@ -13,14 +13,19 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 89a30c070abe3b10414c7284bb33f2c8216ee0c8
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: ed0e6bc4c506535fcb679fc2b4015a61274a77f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648415"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967702"
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Özel kaynak bağlantıları (Python) örneği 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Bu ekte okumadan önce okuma [Python genişletilebilirlik genel bakış](data-prep-python-extensibility-overview.md).
 
 ## <a name="load-data-from-dataworld"></a>Data.world'den veri yükleme

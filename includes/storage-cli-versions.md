@@ -2,5 +2,5 @@
 
 Şu anda kullanılabilir durumda olan iki Azure Komut Satırı Arabirimi (CLI) sürümü vardır:
 
-* [Azure CLI 2.0](../articles/storage/common/storage-azure-cli.md): Resource Manager dağıtım modeliyle kullanılmak üzere tasarlanmış ve Python ile yazılmış yeni nesil CLI.
-* [Azure CLI 1.0](../articles/storage/common/storage-azure-cli-nodejs.md): Hem klasik hem de Resource Manager dağıtım modelleriyle kullanılmak üzere tasarlanmış ve Node.js ile yazılmış CLI.
+* [Azure CLI](../articles/storage/common/storage-azure-cli.md): Resource Manager dağıtım modeli ile kullanmak için Azure CLI'ın geçerli sürümü.
+* [Azure Klasik CLI](../articles/storage/common/storage-azure-cli-nodejs.md): yalnızca klasik dağıtım modeliyle kullanılmak için Azure CLI'ın eski bir sürümü.

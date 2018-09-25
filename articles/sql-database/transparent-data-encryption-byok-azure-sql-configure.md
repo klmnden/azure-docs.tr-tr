@@ -15,15 +15,15 @@ ms.service: sql-database
 ms.tgt_pltfrm: ''
 ms.devlang: azurecli, powershell
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 09/20/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 11e190e1a4d0309bdbdcb7a578fccaf84fabb8e3
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 65f9384bb0ceedd6c2bde8ef513040e198ccc4d2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543786"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036380"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell ve CLI: saydam veri şifrelemesi kullanarak kendi anahtarınızı Azure anahtar Kasası'ndaki etkinleştir
 
@@ -35,11 +35,11 @@ Bu makalede Azure Key vault'tan bir anahtar için saydam veri şifrelemesi (TDE)
 - [İsteğe bağlı ancak önerilen] Bir donanım güvenlik modülü (HSM) veya TDE koruyucusuna anahtar malzemesi yerel bir kopyasını oluşturmak için depolama yerel anahtar vardır.
 - Azure PowerShell sürümü 4.2.0 olmalıdır veya üzerinin yüklü ve çalışıyor. 
 - TDE için kullanılacak bir Azure Key Vault ve anahtarı oluşturun.
-   - [Key vault'tan PowerShell yönergeleri](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
-   - [Bir donanım güvenlik modülü (HSM) ve anahtar Kasası'nı kullanma yönergeleri](https://docs.microsoft.com/azure/key-vault/key-vault-get-started#a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm)
+   - [Key vault'tan PowerShell yönergeleri](../key-vault/key-vault-get-started.md)
+   - [Bir donanım güvenlik modülü (HSM) ve anahtar Kasası'nı kullanma yönergeleri](../key-vault/key-vault-get-started.md#HSM)
  - Anahtar kasası TDE için kullanılacak özelliğine sahip olmalıdır:
-   - [Geçici silme](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-   - [Key Vault geçici silmeyi PowerShell ile kullanma](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) 
+   - [Geçici silme](../key-vault/key-vault-ovw-soft-delete.md)
+   - [Key Vault geçici silmeyi PowerShell ile kullanma](../key-vault/key-vault-soft-delete-powershell.md) 
 - Anahtar TDE için kullanılacak aşağıdaki özniteliklere sahip olmanız gerekir:
    - Sona erme tarihi
    - Devre dışı değil
@@ -201,11 +201,11 @@ Bir sorun oluşursa aşağıdakileri denetleyin:
 - [İsteğe bağlı ancak önerilen] Bir donanım güvenlik modülü (HSM) veya TDE koruyucusuna anahtar malzemesi yerel bir kopyasını oluşturmak için depolama yerel anahtar vardır.
 - Komut satırı arabirimi 2.0 veya sonraki bir sürümü. En son sürümünü yükleyin ve Azure aboneliğinize bağlanmak için bkz: [yükleme ve yapılandırma Azure platformlar arası komut satırı arabirimi 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 - TDE için kullanılacak bir Azure Key Vault ve anahtarı oluşturun.
-   - [CLI 2.0 kullanarak Key Vault yönetme](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2)
-   - [Bir donanım güvenlik modülü (HSM) ve anahtar Kasası'nı kullanma yönergeleri](https://docs.microsoft.com/azure/key-vault/key-vault-get-started#a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm)
+   - [CLI 2.0 kullanarak Key Vault yönetme](../key-vault/key-vault-manage-with-cli2.md)
+   - [Bir donanım güvenlik modülü (HSM) ve anahtar Kasası'nı kullanma yönergeleri](../key-vault/key-vault-get-started.md#HSM)
  - Anahtar kasası TDE için kullanılacak özelliğine sahip olmalıdır:
-   - [Geçici silme](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-   - [Key Vault geçici silmeyi CLI ile kullanma](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli) 
+   - [Geçici silme](../key-vault/key-vault-ovw-soft-delete.md)
+   - [Key Vault geçici silmeyi CLI ile kullanma](../key-vault/key-vault-soft-delete-cli.md) 
 - Anahtar TDE için kullanılacak aşağıdaki özniteliklere sahip olmanız gerekir:
    - Sona erme tarihi
    - Devre dışı değil

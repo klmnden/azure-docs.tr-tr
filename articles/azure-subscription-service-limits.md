@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: byvinyal
-ms.openlocfilehash: a24fc56bf455fbc487cb6f93e06678d52e5b1c0b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c67cc5cb13e2c1112c4752660c82c3ab18360b00
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295775"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056633"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -71,6 +71,7 @@ Aşağıdaki sınırlar yeni bir tablo, Azure Resource Manager kullanırken fark
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [Azure güvenlik duvarı](#azure-firewall-limits)
+* [Ön kapısı](#azure-front-door-service-limits)
 * [IoT Hub’ı](#iot-hub-limits)
 * [IoT Hub Cihazı Sağlama Hizmeti](#iot-hub-device-provisioning-service-limits)
 * [Anahtar Kasası](#key-vault-limits)
@@ -88,6 +89,7 @@ Aşağıdaki sınırlar yeni bir tablo, Azure Resource Manager kullanırken fark
 * [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
 * [Service Bus](#service-bus-limits)
+* [SignalR hizmeti](#signalr-service-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Veri Ambarı](#sql-data-warehouse-limits)
@@ -156,6 +158,9 @@ Aşağıdaki tabloda temel, standart ve Premium sınırlamaları ve özellikleri
 
 #### <a name="azure-firewall-limits"></a>Azure güvenlik duvarı sınırları
 [!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
+
+#### <a name="azure-front-door-service-limits"></a>Azure ön kapısı hizmet sınırları
+[!INCLUDE [azure-front-door-service-limits](../includes/front-door-limits.md)]
 
 ### <a name="storage-limits"></a>Depolama sınırları
 <!--like # storage accts -->
@@ -232,9 +237,6 @@ Sınırları MySQL için Azure veritabanı için bkz: [MySQL için Azure veritab
 
 ### <a name="azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı
 Sınırları PostgreSQL için Azure veritabanı için bkz: [PostgreSQL için Azure veritabanı'nda sınırlamaları](postgresql/concepts-limits.md).
-
-### <a name="mobile-engagement-limits"></a>Mobile Engagement sınırları
-[!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 ### <a name="search-limits"></a>Arama sınırları
 Fiyatlandırma katmanı, kapasitesi ve sınırları, arama hizmetinizin belirleyin. Katmanlar şunlardır:
@@ -315,6 +317,9 @@ Belge boyutuna, sorgu başına saniye, anahtarları, istekleri ve yanıtları gi
 
 ### <a name="backup-limits"></a>Yedekleme sınırları
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+### <a name="signalr-service-limits"></a>SignalR hizmet sınırları
+[!INCLUDE [signalr-service-limits](../includes/signalr-service-limits.md)]
 
 ### <a name="site-recovery-limits"></a>Site Recovery limitleri
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]

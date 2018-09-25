@@ -9,28 +9,28 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 07/24/2018
+ms.date: 09/20/2018
 ms.author: bonova
-ms.openlocfilehash: cf3f7e131b177634318a6114b4f1efefcb9a9cec
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 5aad6060691c796906232d9625ff00b748616a77
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985669"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039008"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği SQL Server örneği geçirme
 
-Bu makalede, bir SQL Server 2005 veya üzeri sürümü örneğine geçirmek için yöntemler hakkında bilgi [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md) (Önizleme).
+Bu makalede, bir SQL Server 2005 veya üzeri sürümü örneğine geçirmek için yöntemler hakkında bilgi [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md).
 
 Yüksek düzeyde, veritabanı geçiş işlemi aşağıdaki gibi görünür:
 
 ![Geçiş işlemi](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Yönetilen örnek uyumluluğunu değerlendirmek](sql-database-managed-instance-migrate.md#assess-managed-instance-compatibility)
-- [Uygulama bağlantı seçeneğini belirleme](sql-database-managed-instance-migrate.md#choose-app-connectivity-option)
-- [En iyi şekilde boyutlandırılmış yönetilen örneğine dağıtma](sql-database-managed-instance-migrate.md#deploy-to-an-optimally-sized-managed-instance)
-- [Geçiş yöntemi seçin ve geçirme](sql-database-managed-instance-migrate.md#select-migration-method-and-migrate)
-- [Uygulama izleme](sql-database-managed-instance-migrate.md#monitor-applications)
+- [Yönetilen örnek uyumluluğunu değerlendirmek](#assess-managed-instance-compatibility)
+- [Uygulama bağlantı seçeneğini belirleme](sql-database-managed-instance-connect-app.md)
+- [En iyi şekilde boyutlandırılmış yönetilen örneğine dağıtma](#deploy-to-an-optimally-sized-managed-instance)
+- [Geçiş yöntemi seçin ve geçirme](#select-migration-method-and-migrate)
+- [Uygulama izleme](#monitor-applications)
 
 > [!NOTE]
 > Tek bir veritabanı tek veritabanı veya elastik havuzun geçirmek için bkz [bir SQL Server veritabanını Azure SQL veritabanı'na geçirme](sql-database-cloud-migrate.md).
@@ -41,7 +41,7 @@ Yüksek düzeyde, veritabanı geçiş işlemi aşağıdaki gibi görünür:
 
 Kullanım [Data Migration Yardımcısı (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) olası algılamak için veritabanı işlevselliğini etkileyen Azure SQL veritabanı uyumluluk sorunları. DMA yönetilen örneğe geçiş hedef olarak henüz desteklemiyor, ancak değerlendirme Azure SQL veritabanınızda çalıştırın ve dikkatli bir şekilde bildirilen özellik eşliği ve uyumluluk sorunlarına karşı ürün belgelerinin listesini incelemek için önerilir. Bkz: [Azure SQL veritabanı özellikleri](sql-database-features.md) denetlemek için bazı bildirilen engelleyici sorunlar yönetilen örneğinde engelleyicilerin ortadan çoğu engelleme sorunları için bir Azure SQL veritabanına geçiş engelleme kaldırıldı, yönetilen ile vardır Örneği. Örnek veritabanları arası sorgular gibi özellikler, aynı örneği, diğer SQL kaynakları, CLR, genel geçici tablolar, bağlantılı sunucuya içinde veritabanları arası işlemler için örnek düzeyi görünümleri, hizmet aracısı ve benzeri yönetilen örnekleri'nde kullanılabilir. 
 
-Varsa bazı bildirilen Azure SQL yönetilen örneği'nde kaldırılmaz engelleme sorunları, alternatif bir seçenek gibi düşünün gerekebilir [azure'daki sanal makinelerde SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/). İşte bazı örnekler:
+Varsa bazı bildirilen Azure SQL veritabanı yönetilen örneği'nde kaldırılmaz engelleme sorunları, alternatif bir seçenek gibi düşünün gerekebilir [azure'daki sanal makinelerde SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/). İşte bazı örnekler:
 
 - İşletim sistemi veya dosya sistemi, yükleme üçüncü taraf veya özel aracıları aynı sanal makinede SQL Server örneği için doğrudan erişim gerekiyorsa.
 - Yine, FILESTREAM gibi desteklenmeyen özelliklerle ilgili katı bağımlılığı varsa / FileTable, PolyBase ve çapraz örnek işlemleri.
@@ -81,7 +81,7 @@ Yönetilen örnek (şu anda bunlar yalnızca desteklenen geçiş yöntemleridir)
 
 [Azure veritabanı geçiş hizmeti (DMS)](../dms/dms-overview.md) birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure Data platformlarına sağlamak için tasarlanmış, tam olarak yönetilen bir hizmettir. Bu hizmeti mevcut üçüncü taraf ve SQL Server veritabanlarını Azure'a taşımak için gereken görevleri kolaylaştırır. Dağıtım seçenekleri genel Önizleme sırasında bir Azure sanal Makineler'de Azure SQL veritabanı yönetilen örneği ve SQL Server içerir. DMS önerilen geçiş, kurumsal iş yükleri için yöntemidir. 
 
-Şirket içi SQL Server üzerinde SQL Server Integration Services (SSIS) kullandığınız DMS SSIS paketlerini depolar geçirme SSIS kataloğunu (SSISDB) henüz desteklemiyor, ancak Azure-SSIS Integration Runtime (IR) Azure Data Factory (ADF) sağlayabilirsiniz, olur Azure SQL veritabanı'nda yeni SSISDB oluşturma/yönetilen örnek ve ardından ona paketlerinizi yeniden, bkz: [ADF içinde Azure-SSIS IR oluşturma](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+Şirket içi SQL Server üzerinde SQL Server Integration Services (SSIS) kullandığınız DMS SSIS paketlerini depolar geçirme SSIS kataloğunu (SSISDB) henüz desteklemiyor, ancak Azure-SSIS Integration Runtime (IR) Azure Data Factory (ADF) sağlayabilirsiniz, olur Azure SQL veritabanı'nda yeni SSISDB oluşturma/yönetilen örnek ve ardından ona paketlerinizi yeniden, bkz: [ADF içinde Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
 DMS için bu senaryo ve yapılandırma adımları hakkında daha fazla bilgi edinmek için [şirket içi veritabanı DMS kullanarak yönetilen örneği'ne geçiş](../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -103,7 +103,7 @@ Aşağıdaki tabloda, kaynak SQL Server sürümüne bağlı olarak kullanabilece
 |Azure depolama biriminden yönetilen örneğine geri yükleyin.|[Geri yükleme kaynak URL ile SAS kimlik bilgisi](sql-database-managed-instance-get-started-restore.md)|
 
 > [!IMPORTANT]
-> - [Saydam Veri Şifrelemesi](transparent-data-encryption-azure-sql.md) ile korunan veritabanı yerel geri yükleme seçeneği kullanılarak Azure SQL Yönetilen Örneği’ne geçirildiğinde, veritabanı geri yüklenmeden önce ilgili sertifikanın şirket içinden veya IaaS SQL Server’dan geçirilmesi gerekir. Ayrıntılı adımlar için bkz. [yönetilen örneğe geçirme TDE cert](sql-database-managed-instance-migrate-tde-certificate.md)
+> - Tarafından korunan bir veritabanını geçirirken [saydam veri şifrelemesi](transparent-data-encryption-azure-sql.md) Azure SQL veritabanı yönetilen yerel bir geri yükleme seçeneğini kullanarak örneği için karşılık gelen sertifika şirket içi veya SQL Server Iaas geçirilmesi gerekiyor Veritabanı geri yükleme işleminden önce. Ayrıntılı adımlar için bkz. [yönetilen örneğe geçirme TDE cert](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Sistem veritabanlarının geri yükleme desteklenmiyor. Örnek düzeyi nesneler (ana veya msdb veritabanlarında depolanan) geçirmek için bunları komut dosyası ve hedef örneğinde T-SQL betiklerini çalıştırma öneririz.
 
 Bir SAS kimlik bilgisi kullanarak yönetilen örneği için veritabanı yedeklemesini geri yükleme işlemini gösteren bir hızlı başlangıç için bkz: [yedekten bir yönetilen örneğe geri](sql-database-managed-instance-get-started-restore.md).

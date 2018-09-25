@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 08/30/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: b4ed1c8b5079ad0984879db6f84138bfdb579d49
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: d87747e60c375f844681ed6cfd40dba84f46a9b2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542608"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963620"
 ---
 # <a name="transparent-data-encryption-with-bring-your-own-key-support-for-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı için kendi anahtarını Getir destekli saydam veri şifrelemesi
 
@@ -57,17 +57,17 @@ TDE varsayılan TDE koruyucusu Key vault'tan kullanmak için yapılandırıldı�
 
 ### <a name="general-guidelines"></a>Genel yönergeler
 - Azure anahtar kasası ve Azure SQL veritabanı seçeceğiz aynı kiracıda olmasını sağlamak.  Kiracılar arası anahtar kasası ve sunucu etkileşimleri **desteklenmez**.
-- Hangi abonelikler gerekli kaynaklar için kullanılan karar verme – sunucusunu daha sonra farklı abonelikler arasında taşıma BYOKs ile TDE, yeni bir kurulum gerektirir. Daha fazla bilgi edinin [kaynaklar taşınıyor](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-move-resources)
-- BYOK ile TDE yapılandırırken anahtar kasasında yinelenen sarmalama/kaydırma işlemleri tarafından yerleştirilen yük dikkate almak önemlidir. Örneğin, kasa beklenmediğini karşı çoğu anahtar işlemleri sunucu veritabanlarında olduğu gibi mantıksal sunucuyla ilişkili tüm veritabanlarını aynı TDE koruyucusuna kullandığından, o sunucunun bir yük devretme tetikler. Deneyimimizi üzerinde temel alır ve belgelenen [anahtar kasası hizmet sınırları](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-service-limits), en fazla 500 standart ilişkilendirme öneririz / genel amaçlı veya 200 Premium / iş açısından kritik veritabanları bir Azure anahtar sağlamak için kasası ile tek bir abonelikte vault'taki TDE koruyucusuna erişilirken sürekli olarak yüksek kullanılabilirlik. 
-- Önerilen: şirket içi TDE koruyucusuna bir kopyasını tutun.  Bu, bir HSM cihazını TDE koruyucusu yerel olarak oluşturmak için ve biri sonucunda TDE koruyucusuna yerel bir kopyasını depolamak için bir anahtar emanet sistemi gerektirir.  Bilgi [bir anahtar yerel HSM'NİZDEN Azure anahtar Kasası'na aktarma](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-hsm-protected-keys).
+- Hangi abonelikler gerekli kaynaklar için kullanılan karar verme – sunucusunu daha sonra farklı abonelikler arasında taşıma BYOKs ile TDE, yeni bir kurulum gerektirir. Daha fazla bilgi edinin [kaynaklar taşınıyor](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+- BYOK ile TDE yapılandırırken anahtar kasasında yinelenen sarmalama/kaydırma işlemleri tarafından yerleştirilen yük dikkate almak önemlidir. Örneğin, kasa beklenmediğini karşı çoğu anahtar işlemleri sunucu veritabanlarında olduğu gibi mantıksal sunucuyla ilişkili tüm veritabanlarını aynı TDE koruyucusuna kullandığından, o sunucunun bir yük devretme tetikler. Deneyimimizi üzerinde temel alır ve belgelenen [anahtar kasası hizmet sınırları](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits), en fazla 500 standart ilişkilendirme öneririz / genel amaçlı veya 200 Premium / iş açısından kritik veritabanları bir Azure anahtar sağlamak için kasası ile tek bir abonelikte vault'taki TDE koruyucusuna erişilirken sürekli olarak yüksek kullanılabilirlik. 
+- Önerilen: şirket içi TDE koruyucusuna bir kopyasını tutun.  Bu, bir HSM cihazını TDE koruyucusu yerel olarak oluşturmak için ve biri sonucunda TDE koruyucusuna yerel bir kopyasını depolamak için bir anahtar emanet sistemi gerektirir.  Bilgi [bir anahtar yerel HSM'NİZDEN Azure anahtar Kasası'na aktarma](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Azure anahtar Kasası'nı yapılandırma yönergeleri
 
-- Key vault ile oluşturma [geçici silme](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) veri kaybı durumunda yanlışlıkla anahtarı – veya anahtar kasası – silinmeye karşı korunmasına yönelik etkin.  Kullanmalısınız ["geçici silme" özelliğini etkinleştirmek için PowerShell](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-powershell) anahtar kasasındaki (Bu seçenek kullanılamaz AKV portalından henüz – ancak SQL tarafından gerekli):  
+- Key vault ile oluşturma [geçici silme](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) veri kaybı durumunda yanlışlıkla anahtarı – veya anahtar kasası – silinmeye karşı korunmasına yönelik etkin.  Kullanmalısınız ["geçici silme" özelliğini etkinleştirmek için PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) anahtar kasasındaki (Bu seçenek kullanılamaz AKV portalından henüz – ancak SQL tarafından gerekli):  
   - Kurtarılamaz veya temizleneceği sürece geçici silinen kaynakları belirli bir süre süreyi 90 gün saklanır.
   - **Kurtarmak** ve **Temizleme** eylemleri bir anahtar kasası erişim ilkesini ilişkili kendi izinlere sahiptir. 
-- Anahtar kasasındaki kimlerin kritik bu kaynağı silmek ve yetkilendirilmemiş veya yanlışlıkla silinmesini engellemek için bir kaynak kilidi ayarlayın.  [Kaynak kilitleri hakkında daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources)
+- Anahtar kasasındaki kimlerin kritik bu kaynağı silmek ve yetkilendirilmemiş veya yanlışlıkla silinmesini engellemek için bir kaynak kilidi ayarlayın.  [Kaynak kilitleri hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
 - Mantıksal sunucu kimliğini Azure Active Directory (Azure AD) kullanarak anahtar kasası erişim.  Portal kullanıcı arabirimini kullanarak, Azure AD kimlik otomatik olarak oluşturulur ve sunucuya anahtar kasası erişim izni verilir.  BYOK ile TDE yapılandırmak için PowerShell kullanarak Azure AD kimlik oluşturulmalı ve tamamlanma doğrulanmalıdır. Bkz: [BYOK ile TDE yapılandırma](transparent-data-encryption-byok-azure-sql-configure.md) PowerShell kullanırken ayrıntılı adım adım yönergeler için.
 
@@ -93,11 +93,11 @@ TDE varsayılan TDE koruyucusu Key vault'tan kullanmak için yapılandırıldı�
     
 - Bir anahtar olmadan bir sona erme tarihi – kullanın ve hiçbir zaman bir anahtar zaten kullanımda bir sona erme tarihi ayarlayın: **anahtarın süresi dolduktan sonra şifreli veritabanlarına kendi TDE koruyucusuna erişimini kaybeder ve 24 saat içinde bırakılır**.
 - Anahtar etkinleştirilir ve gerçekleştirmek için izinlere sahip olun *alma*, *anahtarı sarmalama*, ve *anahtarı kaydırma* operations.
-- Anahtar Azure anahtar Kasası'nda ilk kez kullanmadan önce bir Azure Key Vault anahtarı yedekleme oluşturun. Daha fazla bilgi edinin [Backup-AzureKeyVaultKey](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) komutu.
+- Anahtar Azure anahtar Kasası'nda ilk kez kullanmadan önce bir Azure Key Vault anahtarı yedekleme oluşturun. Daha fazla bilgi edinin [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) komutu.
 - Anahtar herhangi bir değişiklik yapıldığında, yeni bir yedekleme oluşturun (örneğin, ACL'ler, Ekle etiketler ekleyin, anahtar öznitelik ekleyin).
 - **Önceki sürümlerini** anahtarı anahtar kasasındaki anahtarları döndürürken, bu nedenle daha eski bir veritabanı yedeklerini geri yükleyebilirsiniz. Ne zaman TDE koruyucusuna değiştirildiğinde bir veritabanı için veritabanı eski yedeklemeler **güncelleştirilmez** son TDE koruyucusuna kullanılacak.  Her yedekleme, geri yükleme sırasında birlikte oluşturulduğu TDE koruyucusuna gerekir. Anahtar devirlerini yönergeleri izleyerek gerçekleştirilebilir [saydam veri şifrelemesi koruyucu PowerShell kullanarak döndürme](transparent-data-encryption-byok-azure-sql-key-rotation.md).
 - Tüm daha önce kullanılan anahtarlar geri hizmet tarafından yönetilen anahtarlar için değiştirdikten sonra Azure anahtar Kasası'nda tutun.  Bu, Azure Key Vault'ta depolanan TDE koruyucusu ile veritabanı yedeklerini geri sağlar.  TDE koruyucusu Azure anahtar kasası ile oluşturulan tüm depolanan yedeklemeler, hizmet tarafından yönetilen anahtarlarla oluşturulmuş kadar tutulması gerekir.  
-- Kurtarılabilir yedek kopyalarını kullanarak bu anahtarların [Backup-AzureKeyVaultKey](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
+- Kurtarılabilir yedek kopyalarını kullanarak bu anahtarların [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
 - Veri kaybı olmadan bir güvenlik olayı sırasında riskli olabilecek bir anahtar kaldırmak için adımları izleyin. [riskli olabilecek bir anahtarı Kaldır](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
 
 
@@ -123,14 +123,14 @@ Aşağıdaki bölümde, ayrıntılı Kurulum ve yapılandırma adımları üzeri
 
 ### <a name="azure-key-vault-configuration-steps"></a>Azure anahtar kasası yapılandırma adımları
 
-- Yükleme [PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0) 
-- Kullanarak iki farklı bölgelerde iki Azure anahtar kasaları oluşturma ["geçici silme" özelliğini etkinleştirmek için PowerShell](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-powershell) (Bu seçenek kullanılamaz AKV portalından henüz – ancak SQL tarafından gerekli) anahtar kasası üzerinde.
-- Hem Azure anahtar kasaları Azure Coğrafyada çalışmak için yedekleme ve geri yükleme anahtarları için sırada bulunan iki bölgede bulunması gerekir.  SQL Geo-DR gereksinimlerini karşılamak için izleyin, farklı bölgelerde bulunması için iki anahtar kasalarını gerekiyorsa [BYOK işlem](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-hsm-protected-keys) bir şirket içi HSM'NİZDEN içeri aktarılacak anahtarlar sağlar.
+- Yükleme [PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0) 
+- Kullanarak iki farklı bölgelerde iki Azure anahtar kasaları oluşturma ["geçici silme" özelliğini etkinleştirmek için PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) (Bu seçenek kullanılamaz AKV portalından henüz – ancak SQL tarafından gerekli) anahtar kasası üzerinde.
+- Hem Azure anahtar kasaları Azure Coğrafyada çalışmak için yedekleme ve geri yükleme anahtarları için sırada bulunan iki bölgede bulunması gerekir.  SQL Geo-DR gereksinimlerini karşılamak için izleyin, farklı bölgelerde bulunması için iki anahtar kasalarını gerekiyorsa [BYOK işlem](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) bir şirket içi HSM'NİZDEN içeri aktarılacak anahtarlar sağlar.
 - İlk anahtar Kasası'nda yeni bir anahtar oluşturun:  
   - RSA/RSA-HSA 2048 anahtarı 
   - Hiçbir sona erme tarihleri 
   - Anahtar etkin ve anahtar işlemleri sarmalamadan çıkarma get gerçekleştirmek ve anahtarı sarmalama için izinlere sahip 
-- Birincil anahtarı yedeklemek ve anahtar ikinci anahtar Kasası'na geri yükleyin.  Bkz: [BackupAzureKeyVaultKey](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) ve [geri yükleme-AzureKeyVaultKey](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0). 
+- Birincil anahtarı yedeklemek ve anahtar ikinci anahtar Kasası'na geri yükleyin.  Bkz: [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) ve [geri yükleme-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0). 
 
 ### <a name="azure-sql-database-configuration-steps"></a>Azure SQL veritabanı yapılandırma adımları
 
@@ -141,9 +141,9 @@ Yeni bir dağıtım için gerekli adımlar:
 - Mantıksal sunucu TDE bölmesinde seçin ve her mantıksal SQL sunucusu:  
    - Aynı bölgede AKV seçin 
    - TDE koruyucusu olarak kullanılacak anahtarı seçin – her sunucunun TDE koruyucusu, yerel kopyayı kullanır. 
-   - Portalda bunu oluşturacak bir [AppID](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/overview) – anahtar kasasına erişmek için mantıksal SQL Server izinleri atamak için kullanılan mantıksal SQL sunucusu için bu kimlik silmeyin. Erişim izinleri Azure anahtar Kasası'nda bunun yerine anahtar kasasına erişmek için mantıksal SQL Server izinleri atamak için kullanılan mantıksal SQL sunucusu için kaldırarak iptal edilebilir.
+   - Portalda bunu oluşturacak bir [AppID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) – anahtar kasasına erişmek için mantıksal SQL Server izinleri atamak için kullanılan mantıksal SQL sunucusu için bu kimlik silmeyin. Erişim izinleri Azure anahtar Kasası'nda bunun yerine anahtar kasasına erişmek için mantıksal SQL Server izinleri atamak için kullanılan mantıksal SQL sunucusu için kaldırarak iptal edilebilir.
 - Birincil veritabanı oluşturun. 
-- İzleyin [etkin coğrafi çoğaltma Kılavuzu](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) senaryoyu tamamlamak için bu adım, ikincil veritabanı oluşturur.
+- İzleyin [etkin coğrafi çoğaltma Kılavuzu](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) senaryoyu tamamlamak için bu adım, ikincil veritabanı oluşturur.
 
 ![Yük devretme grupları ve coğrafi-dr](./media/transparent-data-encryption-byok-azure-sql/Geo_DR_Config.PNG)
 

@@ -1,6 +1,6 @@
 ---
-title: SQL Server Linux Azure sanal makinelerinde SSS | Microsoft Docs
-description: Bu makalede, Linux Azure Vm'lerinde SQL Server çalıştıran hakkında sık sorulan soruların yanıtlarını sağlar.
+title: SQL Server Linux Azure sanal makineler SSS | Microsoft Docs
+description: Bu makalede, SQL Server Linux Azure VM üzerinde çalıştırmayla ilgili sık sorulan soruların yanıtlarını sağlar.
 services: virtual-machines-linux
 documentationcenter: ''
 author: rothja
@@ -12,100 +12,100 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e8297892c533f3b0126f925f81d3e9bc429828ef
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30190883"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039964"
 ---
-# <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Sık Sorulan Sorular SQL Server için Linux Azure sanal makineleri
+# <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Linux Azure sanal Makineler'de sık sorulan sorular için SQL Server
 
 > [!div class="op_single_selector"]
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](sql-server-linux-faq.md)
 
-Bu makalede çalıştırma hakkında en yaygın sorulara yanıtlar sağlayan [Linux Azure Virtual Machines'de SQL Server](sql-server-linux-virtual-machines-overview.md).
+Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanır [Linux Azure sanal Makineler'de SQL Server](sql-server-linux-virtual-machines-overview.md).
 
 > [!NOTE]
-> Bu makalede SQL Server'da Linux VM'ler için belirli sorunları odaklanır. Windows Vm'lerinde SQL Server çalışıyorsa bkz [Windows SSS](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
+> Bu makalede Linux sanal makinelerinde SQL Server'a özgü sorunları ele alınmaktadır. Windows sanal makinelerinde SQL Server çalıştırıyorsanız bkz [Windows SSS](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
 ## <a id="images"></a> Görüntüleri
 
-1. **Hangi SQL Server sanal makineye Galerisi görüntüleri var mı?**
+1. **Hangi SQL Server sanal makine galeri görüntüleri kullanılabilir mi?**
 
-   Linux ve Windows için Azure sanal makine görüntüleri tüm sürümleri üzerinde SQL Server'ın önde gelen tüm desteklenen sürümleri için tutar. Daha fazla ayrıntı için tam listesi için bkz [Linux VM görüntüleri](sql-server-linux-virtual-machines-overview.md#create) ve [Windows VM görüntüleri](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
+   Azure sanal makine görüntüleri tüm sürümleri üzerinde SQL Server'ın tüm desteklenen ana sürümler için hem Linux hem de Windows için korur. Daha fazla bilgi için tam listesi görmek [Linux VM görüntüleri](sql-server-linux-virtual-machines-overview.md#create) ve [Windows VM görüntüleri](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
-1. **Var olan SQL Server sanal makineye Galerisi görüntüleri güncelleştirilmiş mi?**
+1. **Mevcut SQL Server sanal makine galeri görüntüleri güncelleştirilir mi?**
 
-   Her iki ay sanal makine Galerisi SQL Server görüntülerinde son Linux ile güncelleştirilir ve Windows güncelleştirir. Linux görüntüleri için bu en son sistem güncelleştirmeleri içerir. Windows görüntüleri için bu önemli SQL Server güvenlik güncelleştirmeleri ve hizmet paketleri de dahil olmak üzere Windows Update önemli işaretlenen herhangi bir güncelleştirme içerir. SQL Server toplu güncelleştirmeler, Linux ve Windows için farklı şekilde ele alınır. Linux için SQL Server toplu güncelleştirmeleri de yenileme dahil edilir. Ancak şu anda SQL Server veya Windows Server birikmeli güncelleştirmeleri içeren Windows VM'ler güncelleştirilmez.
+   Her iki ayda, SQL Server görüntüleri sanal makine galerisindeki en son Linux ile güncelleştirilir ve Windows güncelleştirir. Linux görüntüleri için bu sistem güncelleştirmeleri içerir. Windows görüntüleri için bu Windows güncelleştirme önemli SQL Server güvenlik güncelleştirmeleri ve hizmet paketleri dahil olmak üzere, önemli olarak işaretlenmiş tüm güncelleştirmeleri içerir. SQL Server toplu güncelleştirmeler, Linux ve Windows için farklı şekilde ele alınır. Linux için SQL Server toplu güncelleştirmeleri ayrıca yenileme dahil edilir. Ancak şu anda SQL Server veya Windows Server toplu güncelleştirmeleri ile Windows Vm'leri güncelleştirilmez.
 
 1. **Hangi SQL Server paketleri de yüklü ilgili?**
 
-   SQL Server Linux VM'ler üzerinde varsayılan olarak yüklü olan SQL Server paketleri için bkz [yüklü paketleri](sql-server-linux-virtual-machines-overview.md#packages).
+   SQL Server Linux Vm'leri varsayılan olarak yüklü olan SQL Server paketleri için bkz [yüklü paketleri](sql-server-linux-virtual-machines-overview.md#packages).
 
-1. **Galeriden bir SQL Server sanal makine görüntülerini kaldırılmaları?**
+1. **Galeriden bir SQL Server sanal makine görüntüleri kaldırılmaları?**
 
-   Evet. Azure yalnızca bir görüntüsü başına ana sürümü korur. Örneğin, yeni bir SQL Server hizmet paketi yayımlandığında, Azure hizmet paketinin Galerisi'ne yeni bir görüntü ekler. SQL Server görüntüsü önceki hizmet paketi için hemen Azure portalından kaldırıldı. Ancak, sonraki üç ay için Powershell'den sağlamak için kullanılabilir durumda kalır. Üç ay sonra önceki hizmet paketi resmi artık kullanılamıyor. Kendi yaşam döngüsünün sonuna ulaştığında bir SQL Server sürümü desteklenmeyen hale gelirse bu kaldırma İlkesi de geçerli olur.
+   Evet. Azure, yalnızca tek bir görüntü ana sürüm ve sürüm bazında tutar. Örneğin, yeni bir SQL Server hizmet paketi yayımlandığında, Azure galeri için hizmet paketi için yeni bir görüntü ekler. SQL Server görüntüsü önceki hizmet paketi için hemen Azure portalından kaldırılır. Ancak, sonraki üç ay için Powershell'den sağlamak için kullanılabilir durumda kalır. Üç ay sonra önceki hizmet paketi görüntü artık kullanılamıyor. Yaşam döngüsü sonuna ulaştığında bir SQL Server sürümü desteklenmeyen hale gelirse, bu kaldırma İlkesi de geçerli.
 
 ## <a name="creation"></a>Oluşturma
 
-1. **SQL Server ile nasıl bir Linux Azure sanal makine oluşturulsun mu?**
+1. **Bir Linux Azure sanal makinesinde SQL Server ile nasıl oluşturabilirim?**
 
-   SQL Server içeren bir Linux sanal makine oluşturmak için en kolay çözüm olur. Azure'a kaydolma ve Portalı'ndan bir SQL VM oluşturma bir öğretici için bkz: [Azure portalında Linux SQL Server sanal makine sağlama](provision-sql-server-linux-virtual-machine.md). El ile SQL Server üzerinde bir VM ile ya da serbestçe lisanslı bir sürüm (Geliştirici veya Express) yüklemek veya bir şirket içi lisans yeniden kullanma seçeneğiniz de vardır. Kendi lisansını Getir seçerseniz bulunmalıdır [azure'da Yazılım Güvencesi ile lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility).
+   SQL Server içeren bir Linux sanal makine oluşturmak için en kolay çözümdür bakın. Azure'a kaydolma ve Portalı'ndan bir SQL VM oluşturmaya ilişkin öğretici için bkz: [Azure portalında bir Linux SQL Server sanal makinesi sağlama](provision-sql-server-linux-virtual-machine.md). Ayrıca, el ile SQL Server üzerinde bir VM ile ücretsiz lisanslı bir sürüme (Geliştirici veya Express) yükleme ya da şirket içi lisans yeniden kullanma seçeneğiniz de vardır. Kendi lisansınızı getirirseniz, olmalıdır [azure'de Yazılım Güvencesiyle lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility).
 
-1. **Neden ı RHEL veya SLES SQL Server VM bir harcama sınırına sahip bir Azure aboneliği ile sağlayamıyor?**
+1. **Neden bir RHEL veya SLES SQL Server VM'si bir harcama sınırına sahip bir Azure aboneliği ile sağlayabilirim olamaz?**
 
-   RHEL ve SLES sanal makineleri bir abonelik harcama sınırı ve abonelikle ilişkili bir doğrulanmış ödeme yöntemi (genellikle bir kredi kartı) gerektirir. Harcama sınırını kaldırmadan bir RHEL veya SLES VM sağlarsanız, aboneliğiniz devre dışı ve tüm VM'ler/Hizmetleri durduruldu. Abonelik yeniden etkinleştirmek için bu duruma, çalıştırırsanız [harcama sınırını kaldırmak](https://account.windowsazure.com/subscriptions). Kalan kredinizi geçerli fatura dönemi için geri yüklenir, ancak yeniden başlatın ve çalıştırmaya devam etmek seçerseniz bir RHEL veya SLES VM görüntü ek ücret kredi kartınız karşı gidin.
+   RHEL ve SLES sanal makineleri, harcama limiti olmayan ve doğrulanmış ödeme yöntemi (genellikle bir kredi kartı) abonelikle ilişkili olan bir abonelik gerektirir. Harcama limitini kaldırmadan RHEL ya da SLES VM sağlama, aboneliğiniz devre dışı ve tüm VM'ler/Hizmetleri durduruldu. Bu duruma aboneliği yeniden etkinleştirmek için çalıştırırsanız [harcama limitini Kaldır](https://account.windowsazure.com/subscriptions). Kalan kredileriniz geçerli fatura dönemi için geri yüklenir, ancak yeniden başlatın ve çalıştırmaya devam seçerseniz bir RHEL veya SLES VM görüntüsü ek maliyeti kredi kartınızdan geçer.
 
 ## <a name="licensing"></a>Lisanslama
 
-1. **Azure VM temelinde my lisanslı SQL Server kopyası nasıl yükleyebilirim?**
+1. **Bir Azure sanal makinesinde SQL Server lisanslı kopyamı nasıl yükleyebilirim?**
 
-   İlk olarak, Linux işletim sistemi-yalnızca sanal makine oluşturun. Ardından çalıştırın [SQL Server yükleme adımlarını](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) Linux dağıtımınız için. SQL Server'ın serbestçe lisanslı sürümlerinden birini yüklemiyorsanız, ayrıca bir SQL Server Lisansı olmalıdır ve [azure'da Yazılım Güvencesi ile lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/).
+   İlk olarak, bir Linux işletim sistemi yalnızca sanal makine oluşturun. Ardından çalıştırın [SQL Server yükleme adımlarını](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) Linux dağıtımınız için. Ayrıca ücretsiz lisanslı SQL Server sürümleri birini yüklemekte olduğunuz sürece, bir SQL Server Lisansı olmalıdır ve [azure'de Yazılım Güvencesiyle lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/).
 
-1. **SQL Server için Getir bilgisayarınızı-kendi-lisans (KLG) Linux sanal makine görüntüleri var mı?**
+1. **Getir-kendi lisansını (KLG) Linux sanal makine görüntüleri için SQL Server vardır?**
 
-   Şu anda hiçbir KLG Linux sanal makine görüntü SQL Server için vardır. Ancak, el ile SQL Server üzerinde yalnızca Linux VM önceki sorulara anlatıldığı gibi yükleyebilirsiniz.
+   Şu anda hiçbir BYOL Linux sanal makine görüntüleri için SQL Server vardır. Ancak, el ile SQL Server yalnızca Linux VM üzerinde önceki sorulara anlatıldığı gibi yükleyebilirsiniz.
 
-1. **Kullandıkça Öde galeri görüntülerden birini oluşturulduysa, kendi SQL Server lisansınızı kullanmak için bir VM değiştirebilir miyim?**
+1. **Kullandıkça Öde galeri görüntülerden birini oluşturulmuşsa, kendi SQL Server Lisansımı kullanmak için bir VM değiştirebilirim?**
 
-   Hayır. Kendi lisansınızı kullanmak için saniye başına ödeme lisans geçemezsiniz. Yeni bir Linux VM oluşturun, SQL Server yükleyin ve verilerinizi taşımanız gerekir. Kendi lisansını getirme hakkında daha fazla ayrıntı için önceki soruya bakın.
+   Hayır. Kendi lisansınızı kullanarak için saniye başına ödeme lisanslama geçiş yapamazsınız. Yeni bir Linux VM oluşturma, SQL Server yükleme ve verilerinizi taşımanız gerekir. Kendi lisansınızı getirmek hakkında daha fazla ayrıntı için önceki soruda bakın.
 
 ## <a name="administration"></a>Yönetim
 
-1. **Bir Linux SQL Server sanal makine SQL Server Management Studio (SSMS) yönetebilir miyim?**
+1. **Bir Linux SQL Server sanal makinesi SQL Server Management Studio (SSMS) yönetebilirim?**
 
-   Evet, ancak SSMS şu anda yalnızca Windows aracı. Uzaktan SSMS Linux SQL Server VM ile birlikte kullanmak için bir Windows makineden bağlanmanız gerekir. Linux üzerinde yerel olarak yeni [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) araç, birçok yönetim görevleri gerçekleştirebilir. Platformlar arası veritabanı yönetim aracı önizlemek için bkz: [SQL Server işlemleri Studio (Önizleme)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+   Evet, ancak SSMS şu anda yalnızca Windows aracı. SSMS ile Linux SQL Server Vm'leri kullanmak için bir Windows makineden uzaktan bağlanmanız gerekir. Yerel olarak Linux'ta yeni [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) aracı, çoğu yönetim görevlerini gerçekleştirebilir. Platformlar arası veritabanı yönetim aracı için bkz: [Azure veri Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
 
-1. **Bir SQL VM SQL Server tamamen kaldırabilirim?**
+1. **Bir SQL VM üzerindeki SQL Server tamamen kaldırabilirim?**
 
-   Evet, ancak açıklandığı gibi SQL VM için uygulanacak sürdürecektir [Kılavuzu SQL Server Azure VM'ler için fiyatlandırma](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). SQL Server artık ihtiyacınız varsa, yeni bir sanal makine dağıtın ve veri ve uygulamaları yeni bir sanal makine geçirin. Ardından, SQL Server sanal makine kaldırabilirsiniz.
+   Evet, ancak bölümünde anlatıldığı gibi SQL sanal Makineniz için ödeme yapmaya devam edecek [SQL Server Azure Vm'leri için fiyatlandırma Kılavuzu](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). SQL Server artık ihtiyacınız yoksa, yeni bir sanal makine dağıtma ve veri ve uygulamaları yeni sanal makineye geçirin. Ardından, SQL Server sanal makineyi kaldırabilirsiniz.
 
 ## <a name="updating-and-patching"></a>Güncelleştirme ve düzeltme eki uygulama
 
-1. **Bir Azure VM'de SQL Server'ın yeni bir sürümü/yayını için nasıl yükseltme?**
+1. **Azure VM'de SQL Server'ın yeni bir sürümü/yayını için nasıl yükseltebilirim?**
 
-   Şu anda hiçbir yerinde yükseltme bir Azure VM içinde çalışan SQL Server için yoktur. İstenen SQL Server sürümü/yayını ile yeni bir Azure sanal makine oluşturma ve ardından yeni kullanılarak sunucusuna veritabanlarınızı geçiş [standart veri geçiş teknikleri](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
+   Şu anda, bir Azure sanal Makinesinde çalışan SQL Server için yerinde yükseltme yoktur. İstenen SQL Server sürümü ile yeni bir Azure sanal makine oluşturma ve veritabanlarınızı yeni kullanarak sunucuya geçirmenize [standart veri taşıma tekniklerini](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
 
 ## <a name="general"></a>Genel
 
 1. **Azure Vm'lerinde SQL Server yüksek kullanılabilirlik çözümleri destekleniyor mu?**
 
-   Şu anda değil. Always On kullanılabilirlik grupları hem de Yük Devretme Kümelemesi Pacemaker gibi Linux kümeleme bir çözümde gerektirir. Desteklenen Linux dağıtımları için SQL Server, yüksek kullanılabilirlik eklentileri bulutta desteklemez.
+   Şu anda değil. Always On kullanılabilirlik grupları hem de Yük Devretme Kümelemesi Pacemaker gibi Linux'ta bir küme çözümü gerektirir. SQL Server için desteklenen Linux dağıtımları, bulutta, yüksek kullanılabilirlik eklentileri desteklemez.
 
 ## <a name="resources"></a>Kaynaklar
 
-**Linux VM'ler**:
+**Linux Vm'leri**:
 
-* [Bir Linux VM üzerinde SQL Server'ın genel bakış](sql-server-linux-virtual-machines-overview.md)
-* [Bir SQL Server Linux VM sağlama](provision-sql-server-linux-virtual-machine.md)
-* [SQL Server'da Linux belgeleri](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Bir Linux sanal makinesinde SQL Server'a genel bakış](sql-server-linux-virtual-machines-overview.md)
+* [SQL Server Linux VM'si sağlama](provision-sql-server-linux-virtual-machine.md)
+* [Linux üzerinde SQL Server belgeleri](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
-**Windows sanal makineleri**:
+**Windows Vm'leri**:
 
-* [Bir Windows VM üzerinde SQL Server'ın genel bakış](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
-* [SQL Server, Windows VM sağlama](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Sık sorulan sorular (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)
+* [Bir Windows VM üzerinde SQL Server'a genel bakış](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [Bir SQL Server Windows VM sağlama](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
+* [SSS (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)

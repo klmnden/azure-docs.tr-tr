@@ -1,6 +1,6 @@
 ---
-title: Bir Azure sanal ağı - farklı dağıtım modellerini - eşlemesi oluşturmak aynı abonelik | Microsoft Docs
-description: Aynı Azure aboneliğindeki mevcut farklı Azure dağıtım modelleri aracılığıyla oluşturulan sanal ağlar arasında eşleme sanal ağ oluşturmayı öğrenin.
+title: Oluşturma bir Azure sanal ağ eşlemesi - farklı dağıtım modelleri - aynı abonelik | Microsoft Docs
+description: Aynı Azure aboneliğinde mevcut Azure farklı dağıtım modelleriyle oluşturulmuş sanal ağlar arasında eşleme bir sanal ağ oluşturmayı öğrenin.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
@@ -15,137 +15,139 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: bec02b3f3bde9f9cfab615d75cc6f05976ce981a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44cc582bfa0a6940de7eeea9b54e3979735c07e2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726229"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998260"
 ---
-# <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Sanal Ağ eşlemesi bir - farklı oluşturmak dağıtım modelleri, aynı abonelik
+# <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Oluşturma bir sanal ağ eşlemesi - farklı dağıtım modelleri, aynı abonelik
 
-Bu öğreticide, farklı dağıtım modeli oluşturulan sanal ağlar arasında eşleme sanal ağ oluşturmayı öğrenin. Her iki sanal ağlar aynı abonelikte yok. Kaynaklar aynı sanal ağda gibi davranarak birbirleri ile aynı bant genişliği ve gecikme süresi ile iletişim kurmak için farklı sanal ağlar iki sanal ağlar etkinleştirir kaynaklarında eşleme. Daha fazla bilgi edinmek [sanal ağ eşlemesi](virtual-network-peering-overview.md).
+Bu öğreticide, farklı dağıtım modelleriyle oluşturulmuş sanal ağlar arasındaki eşleme bir sanal ağ oluşturmayı öğrenin. Her iki sanal ağ, aynı abonelikte yok. Kaynaklar aynı sanal ağda gibi davranarak birbiriyle aynı bant genişliği ve gecikme süresi ile iletişim kurmak için farklı sanal ağlardaki iki sanal ağları etkinleştirir kaynak eşlemesi. Daha fazla bilgi edinin [sanal ağ eşlemesi](virtual-network-peering-overview.md).
 
-Sanal ağlar aynı ya da farklı olup, abonelikleri ve hangi bağlı olarak farklı bir sanal ağ eşlemesi oluşturmak için aşağıdaki adımları [Azure dağıtım modeli](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağlar üzerinden oluşturulur. Aşağıdaki tabloda senaryodan tıklayarak diğer senaryolarda eşliği bir sanal ağ oluşturmayı öğrenin:
+Sanal ağlar aynı veya farklı olup, abonelikleri ve hangi bağlı olarak farklı bir sanal ağ eşlemesi oluşturmak için adımları [Azure dağıtım modeli](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağlar üzerinden oluşturulur. Diğer senaryolarda aşağıdaki tabloda senaryo tıklayarak eşlemesi sanal ağ oluşturmayı öğrenin:
 
 |Azure dağıtım modeli  | Azure aboneliği  |
 |--------- |---------|
 |[Her iki kaynak yöneticisi](tutorial-connect-virtual-networks-portal.md) |Aynı|
 |[Her iki kaynak yöneticisi](create-peering-different-subscriptions.md) |Fark|
-|[Bir kaynak yöneticisi, bir Klasik](create-peering-different-deployment-models-subscriptions.md) |Fark|
+|[Bir Resource Manager, diğeri Klasik](create-peering-different-deployment-models-subscriptions.md) |Fark|
 
-Klasik dağıtım modeli aracılığıyla dağıtılan iki sanal ağ arasında bir sanal ağ eşlemesi oluşturulamıyor. Klasik dağıtım modeli aracılığıyla her ikisi de oluşturulan sanal ağlara bağlanmak gerekiyorsa, Azure kullanabilirsiniz [VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağlara bağlanma.
+Bir sanal ağ eşlemesi iki sanal ağı Klasik dağıtım modeliyle dağıtılan arasında oluşturulamıyor. Klasik dağıtım modeliyle her ikisi de oluşturulan sanal ağlar bağlanmanız gerekirse, bir Azure kullanabileceğiniz [VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağları bağlamak için.
 
-Bu öğretici, sanal ağlar aynı bölgede eşlere. Ayrıca farklı sanal ağlar eş [bölgeler desteklenen](virtual-network-manage-peering.md#cross-region). Kendinizle tanıyın önerilir [eşleme gereksinimleri ve kısıtlamaları](virtual-network-manage-peering.md#requirements-and-constraints) önce sanal ağlar eşleme.
+Bu öğreticide, aynı bölgedeki sanal ağlar eşler. Ayrıca farklı sanal ağlarda eş [desteklenen bölgeler](virtual-network-manage-peering.md#cross-region). Önerilen ile kendinizi alıştırın [eşleme gereksinimleri ve kısıtlamaları](virtual-network-manage-peering.md#requirements-and-constraints) önce sanal ağları eşleme.
 
-Kullanabileceğiniz [Azure portal](#portal), Azure [komut satırı arabirimi](#cli) (CLI) Azure [PowerShell](#powershell), veya bir [Azure Resource Manager şablonu](#template)bir sanal ağ eşlemesi oluşturmak için. Doğrudan seçeceğiniz araç kullanarak bir sanal ağ eşlemesi oluşturma adımlarını gitmek için önceki aracı bağlantılardan herhangi birine tıklayın.
+Kullanabileceğiniz [Azure portalında](#portal), Azure [komut satırı arabirimi](#cli) (CLI), Azure [PowerShell](#powershell), veya bir [Azure Resource Manager şablonu](#template)bir sanal ağ eşlemesi oluşturmak için. Doğrudan, tercih ettiğiniz araç kullanarak bir sanal ağ eşlemesi oluşturma adımlarını gitmek için önceki aracı bağlantılardan herhangi birine tıklayın.
 
-## <a name="create-peering---azure-portal"></a>Eşlemesi - oluşturmak Azure portalı
+## <a name="create-peering---azure-portal"></a>Oluşturma eşleme - Azure portalı
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinlerin bir listesi için bkz: [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#requirements-and-constraints).
-2. Tıklatın **+ yeni**, tıklatın **ağ**, ardından **sanal ağ**.
-3. İçinde **sanal ağ oluştur** dikey penceresinde girin veya aşağıdaki ayarları için değerleri seçin ve ardından **oluşturma**:
-    - **Ad**: *myVnet1*
+1. [Azure Portal](https://portal.azure.com)’da oturum açın. Oturum açmada hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinleri listesi için bkz. [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#requirements-and-constraints).
+2. Tıklayın **+ yeni**, tıklayın **ağ**, ardından **sanal ağ**.
+3. İçinde **sanal ağ oluştur** dikey penceresinde girin veya aşağıdaki ayarları için değerleri seçin, ardından tıklayın **Oluştur**:
+    - **Adı**: *myVnet1*
     - **Adres alanı**: *10.0.0.0/16*
     - **Alt ağ adı**: *varsayılan*
     - **Alt ağ adres aralığı**: *10.0.0.0/24*
     - **Abonelik**: aboneliğinizi seçin
-    - **Kaynak grubu**: seçin **Yeni Oluştur** ve girin *myResourceGroup*
+    - **Kaynak grubu**: seçin **Yeni Oluştur** girin *myResourceGroup*
     - **Konum**: *Doğu ABD*
-4. **+ Yeni** öğesine tıklayın. İçinde **Market arama** kutusuna *sanal ağ*. Tıklatın **sanal ağ** arama sonuçlarında görüntülendiğinde. 
-5. İçinde **sanal ağ** dikey penceresinde, select **Klasik** içinde **dağıtım modeli seçin** kutusuna ve ardından **oluşturma**.
-6. İçinde **sanal ağ oluştur** dikey penceresinde girin veya aşağıdaki ayarları için değerleri seçin ve ardından **oluşturma**:
-    - **Ad**: *myVnet2*
+4. **+ Yeni** öğesine tıklayın. İçinde **markette Ara** kutusuna *sanal ağ*. Tıklayın **sanal ağ** arama sonuçlarında görüntülendiğinde. 
+5. İçinde **sanal ağ** dikey penceresinde **Klasik** içinde **dağıtım modeli seçin** kutusuna ve ardından **Oluştur**.
+6. İçinde **sanal ağ oluştur** dikey penceresinde girin veya aşağıdaki ayarları için değerleri seçin, ardından tıklayın **Oluştur**:
+    - **Adı**: *myVnet2*
     - **Adres alanı**: *10.1.0.0/16*
     - **Alt ağ adı**: *varsayılan*
     - **Alt ağ adres aralığı**: *10.1.0.0/24*
     - **Abonelik**: aboneliğinizi seçin
     - **Kaynak grubu**: seçin **var olanı kullan** seçip *myResourceGroup*
     - **Konum**: *Doğu ABD*
-7. İçinde **arama kaynakları** kutusunu türü portalı üstündeki *myResourceGroup*. Tıklatın **myResourceGroup** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myresourcegroup** kaynak grubu. Kaynak grubu, önceki adımlarda oluşturduğunuz iki sanal ağ içeriyor.
-8. Tıklatın **myVNet1**.
-9. İçinde **myVnet1** görünür, dikey tıklayın **eşlemeler** dikey pencerenin sol tarafındaki seçenekleri dikey listesinden.
-10. İçinde **myVnet1 - eşlemeler** görünen dikey tıklayın **+ Ekle**
-11. İçinde **Ekle eşliği** görünür, dikey girin veya aşağıdaki seçenekleri belirleyin ve ardından **Tamam**:
-     - **Ad**: *myVnet1ToMyVnet2*
+7. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myResourceGroup*. Tıklayın **myResourceGroup** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myresourcegroup** kaynak grubu. Kaynak grubu, önceki adımlarda oluşturulan iki sanal ağı içerir.
+8. Tıklayın **myVNet1**.
+9. İçinde **myVnet1** görüntülenen dikey **eşlemeler** dikey dikey pencerenin sol tarafındaki Seçenekleri listesinden.
+10. İçinde **myVnet1 - eşlemeler** görünen dikey **+ Ekle**
+11. İçinde **Ekle eşlemesi** görüntülenen dikey girin veya aşağıdaki seçenekleri belirleyin, ardından tıklayın **Tamam**:
+     - **Adı**: *myVnet1ToMyVnet2*
      - **Sanal ağ dağıtım modeli**: seçin **Klasik**. 
      - **Abonelik**: aboneliğinizi seçin
-     - **Sanal ağ**: tıklatın **sanal ağ seçin**, ardından **myVnet2**.
+     - **Sanal ağ**: tıklayın **bir sanal ağ seçin**, ardından **myVnet2**.
      - **Sanal ağ erişimine izin ver:** emin **etkin** seçilir.
-    Diğer bir ayarları, bu öğreticide kullanılır. Tüm eşleme ayarları hakkında bilgi için okuma [sanal ağ eşlemeleri yönetme](virtual-network-manage-peering.md#create-a-peering).
-12. ' I tıklattıktan sonra **Tamam** önceki adımda **Ekle eşliği** dikey penceresi kapanır ve gördüğünüz **myVnet1 - eşlemeler** dikey penceresini yeniden. Birkaç saniye sonra oluşturduğunuz eşliği dikey penceresinde görüntülenir. **Bağlı** içinde listelenen **EŞLİĞİ durumu** sütunu için **myVnet1ToMyVnet2** sizin eşlemeyi oluşturuldu.
+    Diğer bir ayarları, bu öğreticide kullanılır. Tüm eşleme ayarları hakkında bilgi edinmek için [sanal ağ eşlemelerini yönetme](virtual-network-manage-peering.md#create-a-peering).
+12. ' I tıklattıktan sonra **Tamam** önceki adımda **Eşlemesi Ekle** dikey penceresi kapanır ve gördüğünüz **myVnet1 - eşlemeler** yeniden dikey. Birkaç saniye sonra oluşturduğunuz eşleme dikey penceresinde görünür. **Bağlı** listelenir **eşleme durumu** sütunu için **myVnet1ToMyVnet2** , eşleme oluşturulur.
 
-    Eşlemeyi şimdi oluşturulur. Ya da sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adreslerini birbirleri ile iletişim kuramıyor. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, sanal ağlarda bulunan kaynaklar sanal ağlar arasında adlarını çözmek mümkün değildir. Bir eşlemesindeki sanal ağlar arasında adları çözümlemek dilerseniz kendi DNS sunucusu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-13. **İsteğe bağlı**: sanal makineler oluştururken bu öğreticide kapsanmayan olsa, her sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlanabilirliği doğrulamak için bağlanın.
-14. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynaklarını silmek için adımları tamamlamanız [silmek kaynakları](#delete-portal) bu makalenin.
+    Eşleme artık gerçekleştirilir. Her iki sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adresleri birbirleriyle iletişim kurabilir. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, kaynakların sanal ağlarda bulunan sanal ağlar arasında adlarını çözümlemek alamıyoruz. Bir eşleme de sanal ağlar arasında adlarını çözümlemek dilerseniz kendi DNS sunucunuzu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucunuzu kullanarak ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+13. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden, bağlantıyı doğrulamak için bağlantı.
+14. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynakları silmek için'ndaki adımları tamamlayın. [Sil kaynakları](#delete-portal) bu makalenin.
 
-## <a name="cli"></a>Eşlemesi - oluşturmak Azure CLI
+## <a name="cli"></a>Oluşturma eşleme - Azure CLI
 
-1. [Yükleme](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağ (Klasik) oluşturmak için Azure CLI 1.0.
-2. Bir komut oturumu açın ve oturum açma Azure kullanmaya `azure login` komutu.
-3. CLI girerek Hizmet Yönetimi modunda çalışacak `azure config mode asm` komutu.
-4. Sanal ağ (Klasik) oluşturmak için aşağıdaki komutu girin:
- 
-    ```azurecli
-    azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
-    ```
+Azure Klasik CLI ve Azure CLI kullanarak aşağıdaki adımları tamamlayın. Yalnızca'i seçerek Azure Cloud shell'den adımları tamamlayabilirsiniz **deneyin** herhangi biri aşağıdaki adımları veya yükleyerek düğmesini [Klasik CLI](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve Yerel bilgisayarınızda komutları.
 
-5. Bir kaynak grubu ve sanal ağ (Resource Manager) oluşturun. CLI 1.0 veya 2.0 kullanabilirsiniz ([yükleme](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). Bu öğreticide, CLI 2.0 2.0 eşlemesi oluşturmak için kullanılması gereken bu yana (Resource Manager) sanal ağ oluşturmak için kullanılır. CLI 2.0.4 CLI ile yerel makineniz betikten veya üstü yüklü aşağıdaki bash yürütün. Windows istemcisi üzerinde CLI betikleri çalıştırma seçenekleri bash için bkz: [Windows Azure CLI yükleme](/cli/azure/install-azure-cli-windows). Azure bulut Kabuğu'nu kullanarak betik de çalıştırabilirsiniz. Azure Cloud Shell doğrudan Azure portalının içinde çalıştırabileceğiniz ücretsiz bir Bash kabuğudur. Azure CLI, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Tıklatın **deneyin** , oturumu bir bulut Kabuk çağırır aşağıdaki Azure hesabınızla oturum açabildiğinizden komut düğmesi. Betik yürütmek için tıklatın **kopya** düğmesi ve yapıştırma, bulut Kabuğunuzu içeriğine tuşuna `Enter`.
+1. Cloud Shell otomatik olarak, Azure'da oturum açtığı için Cloud Shell kullanıyorsanız, 2. adıma atlayın. Bir komut oturumu açın ve uygulamada oturum açma azure'a `azure login` komutu.
+2. CLI Hizmet Yönetimi modunda girerek çalıştırın `azure config mode asm` komutu.
+3. Sanal ağ (Klasik) oluşturmak için aşağıdaki komutu girin:
 
-    ```azurecli-interactive
-    #!/bin/bash
+   ```azurecli-interactive
+   azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
+   ```
 
-    # Create a resource group.
-    az group create \
-      --name myResourceGroup \
-      --location eastus
+4. CLI, Klasik CLI kullanarak aşağıdaki bash CLI betiği yürütün. Windows bilgisayarda CLI betikleri çalıştırma seçenekleri bash için bkz: [Windows üzerinde Azure CLI'yı yükleme](/cli/azure/install-azure-cli-windows).
 
-    # Create the virtual network (Resource Manager).
-    az network vnet create \
-      --name myVnet1 \
-      --resource-group myResourceGroup \
-      --location eastus \
-      --address-prefix 10.0.0.0/16
-    ```
+   ```azurecli-interactive
+   #!/bin/bash
 
-6. Farklı dağıtım modelleri arasında oluşturulan iki sanal ağlar arasında eşleme sanal ağ oluşturun. Aşağıdaki komut dosyası, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Değiştir `<subscription id>` aboneliğinizle kimliği. Aboneliğinizi kimliği bilmiyorsanız, girin `az account show` komutu. Değeri **kimliği** çıktıda, abonelik kimliği olan CLI oturumunuz için değiştirilmiş betik yapıştırın ve sonra basın `Enter`.
+   # Create a resource group.
+   az group create \
+     --name myResourceGroup \
+     --location eastus
 
-    ```azurecli-interactive
-    # Get the id for VNet1.
-    vnet1Id=$(az network vnet show \
-      --resource-group myResourceGroup \
-      --name myVnet1 \
-      --query id --out tsv)
+   # Create the virtual network (Resource Manager).
+   az network vnet create \
+     --name myVnet1 \
+     --resource-group myResourceGroup \
+     --location eastus \
+     --address-prefix 10.0.0.0/16
+   ```
 
-    # Peer VNet1 to VNet2.
-    az network vnet peering create \
-      --name myVnet1ToMyVnet2 \
-      --resource-group myResourceGroup \
-      --vnet-name myVnet1 \
-      --remote-vnet-id /subscriptions/<subscription id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2 \
-      --allow-vnet-access
-    ```
-7. Betiği çalıştırdıktan sonra sanal ağ (Resource Manager) için eşleme gözden geçirin. Aşağıdaki komutu kopyalayın, CLI oturumunuzda yapıştırın ve ardından basın `Enter`:
+5. CLI kullanarak farklı dağıtım modelleriyle oluşturulan iki sanal ağ arasında eşleme bir sanal ağ oluşturun. Aşağıdaki komut dosyasını bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Değiştirin `<subscription id>` aboneliğinizle kimliği. Aboneliğinizi kimliği bilmiyorsanız, girin `az account show` komutu. Değeri **kimliği** çıktısında olduğundan, abonelik kimliği CLI oturumunuz için de değiştirilmiş betiği yapıştırın ve sonra basın `Enter`.
 
-    ```azurecli-interactive
-    az network vnet peering list \
-      --resource-group myResourceGroup \
-      --vnet-name myVnet1 \
-      --output table
-    ```
-    
-    Çıktısında **bağlı** içinde **PeeringState** sütun. 
+   ```azurecli-interactive
+   # Get the id for VNet1.
+   vnet1Id=$(az network vnet show \
+     --resource-group myResourceGroup \
+     --name myVnet1 \
+     --query id --out tsv)
 
-    Ya da sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adreslerini birbirleri ile iletişim kuramıyor. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, sanal ağlarda bulunan kaynaklar sanal ağlar arasında adlarını çözmek mümkün değildir. Bir eşlemesindeki sanal ağlar arasında adları çözümlemek dilerseniz kendi DNS sunucusu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-8. **İsteğe bağlı**: sanal makineler oluştururken bu öğreticide kapsanmayan olsa, her sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlanabilirliği doğrulamak için bağlanın.
-9. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynaklarını silmek için adımları tamamlamanız [silmek kaynakları](#delete-cli) bu makalede.
+   # Peer VNet1 to VNet2.
+   az network vnet peering create \
+     --name myVnet1ToMyVnet2 \
+     --resource-group myResourceGroup \
+     --vnet-name myVnet1 \
+     --remote-vnet-id /subscriptions/<subscription id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2 \
+     --allow-vnet-access
+   ```
 
-## <a name="powershell"></a>Eşlemesi - oluşturmak PowerShell
+6. Betiği çalıştırdıktan sonra sanal ağ (Resource Manager) için eşleme gözden geçirin. Aşağıdaki komutu kopyalayın, CLI oturumunuzda yapıştırın ve ardından basın `Enter`:
 
-1. PowerShell'ın en son sürümünü yüklemek [Azure](https://www.powershellgallery.com/packages/Azure) ve [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modüller. Azure PowerShell'i kullanmaya yeni başladıysanız [Azure PowerShell'e genel bakış](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) sayfasını inceleyin.
+   ```azurecli-interactive
+   az network vnet peering list \
+     --resource-group myResourceGroup \
+     --vnet-name myVnet1 \
+     --output table
+   ```
+
+   Çıktıda gösterildiği **bağlı** içinde **PeeringState** sütun.
+
+   Her iki sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adresleri birbirleriyle iletişim kurabilir. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, kaynakların sanal ağlarda bulunan sanal ağlar arasında adlarını çözümlemek alamıyoruz. Bir eşleme de sanal ağlar arasında adlarını çözümlemek dilerseniz kendi DNS sunucunuzu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucunuzu kullanarak ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+7. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden, bağlantıyı doğrulamak için bağlantı.
+8. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynakları silmek için'ndaki adımları tamamlayın. [Sil kaynakları](#delete-cli) bu makaledeki.
+
+## <a name="powershell"></a>Oluşturma eşleme - PowerShell
+
+1. En son PowerShell sürümünü [Azure](https://www.powershellgallery.com/packages/Azure) ve [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modüller. Azure PowerShell'i kullanmaya yeni başladıysanız [Azure PowerShell'e genel bakış](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) sayfasını inceleyin.
 2. Bir PowerShell oturumu başlatın.
-3. PowerShell'de `Add-AzureAccount` komutunu girerek Azure oturumu açın. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinlerin bir listesi için bkz: [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#requirements-and-constraints).
-4. PowerShell ile bir sanal ağ (Klasik) oluşturmak için yeni bir oluşturun veya varolan, bir ağ yapılandırma dosyasını değiştirmeniz gerekir. Bilgi edinmek için nasıl [dışarı aktarma, güncelleştirme ve ağ yapılandırma dosyalarını içe](virtual-networks-using-network-configuration-file.md). Dosya aşağıdaki içermelidir **VirtualNetworkSite** öğesi Bu öğreticide kullanılan sanal ağ için:
+3. PowerShell'de `Add-AzureAccount` komutunu girerek Azure oturumu açın. Oturum açmada hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinleri listesi için bkz. [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#requirements-and-constraints).
+4. PowerShell ile bir sanal ağ (Klasik) oluşturmak için yeni oluşturun veya mevcut, bir ağ yapılandırma dosyasını değiştirmeniz gerekir. Bilgi edinmek için nasıl [dışarı aktarma, güncelleştirme ve ağ yapılandırma dosyalarını içe aktarma](virtual-networks-using-network-configuration-file.md). Aşağıdaki dosya içermelidir **VirtualNetworkSite** öğesi Bu öğreticide kullanılan sanal ağ için:
 
     ```xml
     <VirtualNetworkSite name="myVnet2" Location="East US">
@@ -161,9 +163,9 @@ Kullanabileceğiniz [Azure portal](#portal), Azure [komut satırı arabirimi](#c
     ```
 
     > [!WARNING]
-    > Değiştirilen ağ yapılandırma dosyasını içeri varolan sanal ağlar (aboneliğinizde Klasik) yapılan değişiklikler neden olabilir. Yalnızca önceki sanal ağ ekleyin ve verme değiştirir veya var olan tüm sanal ağları aboneliğinizden kaldırırsanız, emin olun. 
-5. Oturum açtığınızda girerek (Resource Manager) sanal ağ oluşturmak için Azure `Connect-AzureRmAccount` komutu. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinlerin bir listesi için bkz: [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#requirements-and-constraints).
-6. Bir kaynak grubu ve sanal ağ (Resource Manager) oluşturun. Betiği kopyalayın, PowerShell içinde yapıştırın ve ardından basın `Enter`.
+    > Değiştirilen ağ yapılandırma dosyasını içeri aktarma, var olan sanal ağları aboneliğinizde (Klasik) değişiklikleri neden olabilir. Yalnızca önceki sanal ağ ekleme ve değiştirme veya yoksa var olan tüm sanal ağları aboneliğinizden kaldırın, emin olun. 
+5. Sanal ağ (Resource Manager) girerek oluşturmak için azure'da oturum `Connect-AzureRmAccount` komutu. Oturum açmada hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinleri listesi için bkz. [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#requirements-and-constraints).
+6. Bir kaynak grubunu ve sanal ağ (Resource Manager) oluşturun. Tuşuna basarak betiği kopyalayın ve PowerShell içinde yapıştırın `Enter`.
 
     ```powershell
     # Create a resource group.
@@ -177,7 +179,7 @@ Kullanabileceğiniz [Azure portal](#portal), Azure [komut satırı arabirimi](#c
       -Location eastus
     ```
 
-7. Farklı dağıtım modelleri arasında oluşturulan iki sanal ağlar arasında eşleme sanal ağ oluşturun. Aşağıdaki komut dosyası, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Değiştir `<subscription id>` aboneliğinizle kimliği. Aboneliğinizi kimliği bilmiyorsanız, girin `Get-AzureRmSubscription` görüntülemek için komutu. Değeri **kimliği** döndürülen çıkış, abonelik kimliği. Betik yürütmek için metin düzenleyici, sonra sağ tıklatın, PowerShell oturumunda değiştirilmiş betiği kopyalayın ve tuşuna basın `Enter`.
+7. Farklı dağıtım modelleriyle oluşturulan iki sanal ağ arasında eşleme bir sanal ağ oluşturun. Aşağıdaki komut dosyasını bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Değiştirin `<subscription id>` aboneliğinizle kimliği. Aboneliğinizi kimliği bilmiyorsanız, girin `Get-AzureRmSubscription` görüntülemek için komutu. Değeri **kimliği** döndürülen çıktısında, abonelik kimliğidir. Betiği yürütmek için metin düzenleyici, sonra sağ tıklatın, bir PowerShell oturumunda değiştirilmiş betiği kopyalayın ve tuşuna `Enter`.
 
     ```powershell
     # Peer VNet1 to VNet2.
@@ -187,7 +189,7 @@ Kullanabileceğiniz [Azure portal](#portal), Azure [komut satırı arabirimi](#c
       -RemoteVirtualNetworkId /subscriptions/<subscription Id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2
     ```
 
-8. Betiği çalıştırdıktan sonra sanal ağ (Resource Manager) için eşleme gözden geçirin. Aşağıdaki komutu kopyalayın, PowerShell oturumunuzda yapıştırın ve ardından basın `Enter`:
+8. Betiği çalıştırdıktan sonra sanal ağ (Resource Manager) için eşleme gözden geçirin. Tuşuna basın aşağıdaki komutu kopyalayın ve PowerShell oturumunuzda yapıştırın `Enter`:
 
     ```powershell
     Get-AzureRmVirtualNetworkPeering `
@@ -196,33 +198,33 @@ Kullanabileceğiniz [Azure portal](#portal), Azure [komut satırı arabirimi](#c
       | Format-Table VirtualNetworkName, PeeringState
     ```
 
-    Çıktısında **bağlı** içinde **PeeringState** sütun.
+    Çıktıda gösterildiği **bağlı** içinde **PeeringState** sütun.
 
-    Ya da sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adreslerini birbirleri ile iletişim kuramıyor. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, sanal ağlarda bulunan kaynaklar sanal ağlar arasında adlarını çözmek mümkün değildir. Bir eşlemesindeki sanal ağlar arasında adları çözümlemek dilerseniz kendi DNS sunucusu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+    Her iki sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adresleri birbirleriyle iletişim kurabilir. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, kaynakların sanal ağlarda bulunan sanal ağlar arasında adlarını çözümlemek alamıyoruz. Bir eşleme de sanal ağlar arasında adlarını çözümlemek dilerseniz kendi DNS sunucunuzu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucunuzu kullanarak ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-9. **İsteğe bağlı**: sanal makineler oluştururken bu öğreticide kapsanmayan olsa, her sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlanabilirliği doğrulamak için bağlanın.
-10. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynaklarını silmek için adımları tamamlamanız [silmek kaynakları](#delete-powershell) bu makalede.
+9. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden, bağlantıyı doğrulamak için bağlantı.
+10. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynakları silmek için'ndaki adımları tamamlayın. [Sil kaynakları](#delete-powershell) bu makaledeki.
  
-## <a name="delete"></a>Kaynakları silin
-Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide oluşturduğunuz kaynakları silmek isteyebilirsiniz. Bir kaynak grubunun silinmesi, kaynak grubunda bulunan tüm kaynakları siler.
+## <a name="delete"></a>Kaynakları silme
+Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide oluşturulan kaynakları silmek isteyebilirsiniz. Bir kaynak grubunun silinmesi kaynak grubundaki tüm kaynakları da siler.
 
 ### <a name="delete-portal"></a>Azure portalı
 
-1. Portal arama kutusuna **myResourceGroup**. Arama sonuçlarında tıklatın **myResourceGroup**.
-2. Üzerinde **myResourceGroup** dikey penceresinde tıklatın **silmek** simgesi.
-3. İçinde silmeyi onaylamak için **türü kaynak grubu adı** kutusuna **myResourceGroup**ve ardından **silmek**.
+1. Portal arama kutusuna **myResourceGroup**. Arama sonuçlarında tıklayın **myResourceGroup**.
+2. Üzerinde **myResourceGroup** dikey penceresinde tıklayın **Sil** simgesi.
+3. İçinde silmeyi onaylamak için **kaynak grubu adını yazın** kutusuna **myResourceGroup**ve ardından **Sil**.
 
 ### <a name="delete-cli"></a>Azure CLI
 
-1. Azure CLI 2.0 aşağıdaki komutu kullanarak sanal ağ (Resource Manager) silmek için kullanın:
+1. Sanal ağ (Resource Manager) silmek için Azure CLI ile aşağıdaki komutu kullanın:
 
     ```azurecli-interactive
     az group delete --name myResourceGroup --yes
     ```
 
-2. Azure CLI 1.0 aşağıdaki komutlarla sanal ağ (Klasik) silmek için kullanın:
+2. CLI Klasik sanal ağ (Klasik) silmek için aşağıdaki komutlarla kullanın:
 
-    ```azurecli
+    ```azurecli-interactive
     azure config mode asm
 
     azure network vnet delete --vnet myVnet2 --quiet
@@ -236,7 +238,7 @@ Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide 
     Remove-AzureRmResourceGroup -Name myResourceGroup -Force
     ```
 
-2. Sanal ağı silmek için PowerShell ile (Klasik), mevcut bir ağ yapılandırma dosyasını değiştirmeniz gerekir. Bilgi edinmek için nasıl [dışarı aktarma, güncelleştirme ve ağ yapılandırma dosyalarını içe](virtual-networks-using-network-configuration-file.md). Bu öğreticide kullanılan sanal ağ için aşağıdaki VirtualNetworkSite öğeyi kaldırın:
+2. Sanal ağını silmek için PowerShell ile (Klasik), mevcut bir ağ yapılandırma dosyasını değiştirmeniz gerekir. Bilgi edinmek için nasıl [dışarı aktarma, güncelleştirme ve ağ yapılandırma dosyalarını içe aktarma](virtual-networks-using-network-configuration-file.md). Bu öğreticide kullanılan sanal ağ için aşağıdaki VirtualNetworkSite öğeyi kaldırın:
 
     ```xml
     <VirtualNetworkSite name="myVnet2" Location="East US">
@@ -252,10 +254,10 @@ Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide 
     ```
 
     > [!WARNING]
-    > Değiştirilen ağ yapılandırma dosyasını içeri varolan sanal ağlar (aboneliğinizde Klasik) yapılan değişiklikler neden olabilir. Önceki sanal ağı yalnızca kaldırmak ve verme değiştirir veya diğer varolan sanal ağlara aboneliğinizden kaldırırsanız, emin olun. 
+    > Değiştirilen ağ yapılandırma dosyasını içeri aktarma, var olan sanal ağları aboneliğinizde (Klasik) değişiklikleri neden olabilir. Yalnızca önceki sanal ağı kaldırmak ve değiştirmek veya yoksa diğer mevcut sanal ağlara aboneliğinizden kaldırın, emin olun. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Baştan sona ile önemli öğrenmeniz [sanal ağ eşleme kısıtlamaları ve davranışları](virtual-network-manage-peering.md#requirements-and-constraints) için üretim eşleme sanal ağ oluşturmadan önce kullanın.
-- Tüm hakkında bilgi edinin [sanal ağ eşleme ayarları](virtual-network-manage-peering.md#create-a-peering).
-- Bilgi edinmek için nasıl [bir hub oluşturmak ve ağ topolojisine bağlı bileşen](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) sanal ağ eşlemesi ile.
+- Kapsamlı ile önemli bilgilenmeli [sanal ağ eşleme kısıtlamaları ve davranışları](virtual-network-manage-peering.md#requirements-and-constraints) bir sanal ağ eşlemesi için üretim oluşturmadan önce kullanın.
+- Hakkında bilgi edinin [sanal ağ eşleme ayarları](virtual-network-manage-peering.md#create-a-peering).
+- Bilgi edinmek için nasıl [bir hub oluşturmak ve ağ topolojisi](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) sanal ağ eşlemesi ile.

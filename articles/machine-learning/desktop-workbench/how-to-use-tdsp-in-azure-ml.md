@@ -8,7 +8,6 @@ ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
-ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
@@ -16,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 05cb2a62cf0f001012f5faa022de233d7cbdce97
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055856"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970933"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Team Data Science Process şablonu ile projeleri yapılandırma
 
-Bu belge, veri bilimi projeleri Azure Machine Learning ile Team Data Science işlem (TDSP) şablonları oluşturma hakkında yönergeler açıklanmaktadır. Bu şablonlar, işbirliği ve yeniden üretilebilirliğini yapısı projelerine yardımcı olur. 
+Bu belge Team Data Science işlem (TDSP) şablonları kullanarak Azure Machine Learning önceki bir sürümde veri bilimi projeleri oluşturma hakkında yönergeler sağlar. Bu şablonlar, işbirliği ve yeniden üretilebilirliğini yapısı projelerine yardımcı olur. 
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 ## <a name="what-is-the-team-data-science-process"></a>Team Data Science Process nedir?
 TDSP yürütme ile Gelişmiş analiz çözümleri sunmak için bir Çevik, yinelemeli, veri bilimi işlemidir. İşbirliği ve kurumsal kuruluşlar, veri bilimi ekipleri verimliliğini artırmak için tasarlanmıştır. Bu, bu hedefleri ile başlıca dört bileşenden destekler:
@@ -52,7 +53,7 @@ Aşağıdaki öğeleri inceleyin *önce* yeni bir proje oluşturun:
 * TDSP Machine Learning gözden [şablon](https://aka.ms/tdspamlgithubrepo).
 * ("Belgeler" klasöründe mevcut olduğunu) dışındaki içeriği boyutu 25 MB'tan küçük olması gerekir. Bu liste aşağıdaki nota bakın.
 * Örnek\_veri klasördür ile kodunuzu test veya geliştirme başlatmak yalnızca küçük veri dosyaları için (5 MB'tan az).
-* Word gibi dosyalar ve PowerPoint dosyaları depolamak, "Belgeler" klasörünün boyutunu önemli ölçüde artırabilir. Biz, öneri, işbirliğine dayalı bir Wiki bulmanızı [SharePoint](https://products.office.com/en-us/sharepoint/collaboration), veya bu tür dosyaları depolamak için işbirliğine dayalı diğer kaynak.
+* Word gibi dosyalar ve PowerPoint dosyaları depolamak, "Belgeler" klasörünün boyutunu önemli ölçüde artırabilir. Biz, öneri, işbirliğine dayalı bir Wiki bulmanızı [SharePoint](https://products.office.com/sharepoint/collaboration), veya bu tür dosyaları depolamak için işbirliğine dayalı diğer kaynak.
 * Büyük dosyaları ve çıkış Machine learning'de nasıl ele alınacağını öğrenmek için [değişiklikleri kalıcı hale getirmeniz ve büyük dosyalarla ilgili](http://aka.ms/aml-largefiles).
 
 > [!NOTE]

@@ -1,77 +1,77 @@
 ---
-title: Azure maliyeti yönetim maliyeti yönetim raporları anlama | Microsoft Docs
+title: Anlama Cloudyn maliyet Yönetimi raporlarını azure'da | Microsoft Docs
 description: Bu makalede, Cloudyn maliyet yönetim raporları temel yapısını ve işlevlerini anlamanıza yardımcı olur.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/18/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e4d4c2115ddae592e9ca7bdf119b36d0ccee2da4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064122"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998721"
 ---
-# <a name="understanding-cost-management-reports"></a>Anlama maliyet yönetim raporları
+# <a name="understanding-cloudyn-cost-management-reports"></a>Maliyet Yönetimi raporlarını anlama Cloudyn
 
-Bu makalede, Cloudyn maliyet yönetim raporları temel yapısını ve işlevlerini anlamanıza yardımcı olur. Çoğu Cloudyn raporlar sezgisel ve Tekdüzen bir görünümüne sahip. Bu makaleyi okuduktan sonra tüm maliyet yönetim raporları kullanabilmek hazır olursunuz. Birçok standart raporları kolayca gidin olanak tanıyan çeşitli raporlar genelinde kullanılabilir özelliklerdir. Raporları özelleştirilebilir ve hesaplamak ve sonuçları görüntülemek için çeşitli seçenekler arasından seçim yapabilirsiniz.
+Bu makalede, Cloudyn maliyet yönetim raporları temel yapısını ve işlevlerini anlamanıza yardımcı olur. Cloudyn raporların çoğu, sezgisel ve Tekdüzen bir görünümüne sahip. Bu makaleyi okuduktan sonra maliyet Yönetimi raporlarını kullanmak hazır olursunuz. Birçok standart özellikler raporları kolayca gezinmenizi sağlayan çeşitli raporlar boyunca kullanılabilir. Raporları özelleştirilebilir ve hesaplamak ve sonuçları görüntülemek için çeşitli seçenekler arasından seçim yapabilirsiniz.
 
-## <a name="report-fields-and-options"></a>Rapor alanları ve seçenekleri
+## <a name="report-fields-and-options"></a>Rapor alanlar ve Seçenekler
 
-Burada, zaman içinde maliyeti raporu örneği göz verilmiştir. Çoğu Cloudyn raporları benzer bir düzeni sahiptir.
+Zaman içinde Maliyet raporu örneği göz aşağıda verilmiştir. Çoğu Cloudyn raporlarında benzer bir düzeni vardır.
 
 ![Örnek rapor](./media/understanding-cost-reports/sample-report.png)
 
-Önceki görüntünün numaralı her alanına aşağıdaki bilgileri ayrıntılı açıklanmıştır:
+Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açıklanmıştır:
 
 1. **Tarih aralığı**
 
-    Hazır veya özel kullanarak bir rapor zaman aralığını tanımlamak için tarih aralığını listesini kullanın.
-2. **Kaydedilen filtresi**
+    Hazır veya özel kullanarak bir raporun zaman aralığını tanımlamak için tarih aralığını listeyi kullanın.
+2. **Kaydedilmiş filtre**
 
-    Kaydedilen filtresi listesi rapora uygulanan filtreler ve geçerli gruplar kaydetmek için kullanın. Kaydedilmiş filtreler gibi maliyet ve performans raporları kullanılabilir:
+    Kaydedilmiş filtre listesi, rapora uygulanan filtreleri ve geçerli gruplar kaydetmek için kullanın. Kayıtlı filtreler gibi maliyet ve performans raporları kullanılabilir:
 
-      - Maliyet çözümleme
-      - Ayırma
+      - Maliyet analizi
+      - ayırma
       - Varlık Yönetimi
       - İyileştirme
 
-  Bir filtre adı ve ardından yazın **kaydetmek**.
+  Bir filtre adı yazıp ardından **Kaydet**.
 
 3. **Etiketler**
 
-    Grup etiketleri alana etiketi kategorilere göre kullanın. Menüde listelenen etiketleri Azure departmanı ya da maliyet merkezi etiketler veya Cloudyn'ın maliyet varlık ve üyelik etiketler. Sonuçları filtrelemek için etiketler seçin. Sonuçları filtrelemek için bir etiket adı (anahtar) de yazabilirsiniz.
+    Grup etiketlerini alana etiketi kategorilere göre kullanın. Menüde listelenen etiketler Azure kullanımında bölümünüzün veya maliyet merkezi etiketleri veya Cloudyn'ın maliyet varlığı ve abonelik etiketler. Sonuçları filtrelemek için etiketler seçin. Sonuçları filtrelemek için bir etiket adı (anahtar) de yazabilirsiniz.
 
-    ![seçenekleri seçin](./media/understanding-cost-reports/select-options.png)
+    ![seçenekleri belirleyin](./media/understanding-cost-reports/select-options.png)
 
-    Tıklatın **Ekle** yeni bir filtre eklemek için.
+    Tıklayın **Ekle** yeni bir filtre ekleyin.
 
-    ![Filtre ekleme](./media/understanding-cost-reports/add-filter.png)
+    ![Filtre Ekle](./media/understanding-cost-reports/add-filter.png)
 
-    Gruplandırma veya filtreleme etiketi Azure kaynakları veya kaynak grubu etiketleri ilgili değildir.
+    Gruplandırma ve süzme etiket, Azure kaynaklarını veya kaynak grubu etiketleri ilişkili değil.
 
-    Maliyet ayırma etiketi gruplandırma ve filtreleme bulunan **grupları** menü seçeneği.
+    Maliyet tahsisatı etiketi gruplandırma ve filtreleme bulunan **grupları** menü seçeneği.
 
-4. **Raporlarda grupları**
+4. **Raporlardaki grupları**
 
-    Grupları kullanma maliyet çözümleme, standart, göstermek için raporları dökümü Raporunuzdaki verileri faturalama gelen kategoriler.  Ancak, maliyet ayırma raporları göster gruplarında etiket tabanlı kategorileri görüntüleyin. Etiket tabanlı kategorileri maliyet ayırma modeli ve faturalama verisi standart dökümü kategorilerden tanımlanır.
+    Grupları kullanma maliyet analizi raporları, standart, gösterilecek dökümü raporunuzdaki faturalama öğesinden kategoriler.  Bununla birlikte, maliyet ayırma raporları show gruplarında etiket tabanlı kategorilerini görüntüleyin. Etiket tabanlı kategoriler, maliyet dağıtma modeli ve faturalama verileri standart dökümü kategorilerden tanımlanır.
 
     ![grupları etiketleri](./media/understanding-cost-reports/groups-tags01.png)
 
     ![grupları etiketleri](./media/understanding-cost-reports/groups-tags02.png)
 
-    Maliyet ayırma raporlarda etiketi tabanlı Grup kategorileri gruplarında şunlar olabilir:
+    Maliyet ayırma raporlarında etiketi tabanlı Grup kategorilerde grupları şunlar olabilir:
       - Etiketler
       - kaynak grubu etiketleri
-      - Varlık etiketleri maliyet Cloudyn
+      - Cloudyn varlık etiketleri maliyeti
       - Maliyet ayırmayı amaçlar için abonelik etiketi kategorileri
 
-  Örnekleri içerebilir:
+  Örnek verilebilir:
      - Maliyet merkezi
      - Bölüm
      - Uygulama
@@ -84,124 +84,124 @@ Burada, zaman içinde maliyeti raporu örneği göz verilmiştir. Çoğu Cloudyn
       - Maliyet türü veya birden çok maliyet türü seçin veya tümünü seçin. Maliyet türleri şunlardır:
         - Tek seferlik bir ücret
         - Destek
-        - Kullanım Maliyeti
+        - Kullanım ücreti
     - **Müşteri**
-        - Belirli bir müşteri, birden çok müşteriyi veya tüm müşteriler seçin.
+        - Belirli bir müşteri, birden çok müşteriyi veya tüm müşterileri seçin.
     - **Hesap adı**
-        - Hesabın veya aboneliğin adı. Azure'da, Azure aboneliğinin adıdır.
+        - Hesabı veya aboneliği adı. Azure'da, Azure aboneliğinin adıdır.
     - **Hesap yok**
-        - Bir hesap, birden fazla hesap ya da tüm hesapları seçin. Azure'da, Azure aboneliğinin GUID değeridir.
-    - **Üst hesabı**
-        - Üst hesabı, birden fazla hesap veya Seç seçin.
+        - Bir hesap, birden çok hesabı veya tüm hesapları seçin. Azure'da, bu Azure aboneliğinin GUID değeridir.
+    - **Ana hesap**
+        - Ana hesap, birden çok hesabı veya Seç'i seçin.
     - **Hizmet**
-        - Birden fazla hizmet, bir hizmet seçin veya tüm hizmetleri seçin.
+        - Bir hizmet birden çok hizmeti seçin veya tüm hizmetleri seçin.
     - **Sağlayıcı**
-        - Varlıklar ve giderler ilişkili olduğu bulut sağlayıcısı.
+        - Varlıklar ve masrafları ilişkili olduğu bulut sağlayıcısı.
     - **Bölge**
-        - Kaynak barındırıldığı bölgesi.
-    - **Kullanılabilirlik bölge**
-        - Bir bölge içinde yalıtılmış AWS konumlar.
+        - Kaynak barındırıldığı bölge.
+    - **Kullanılabilirlik alanı**
+        - Bir bölge içinde yalıtılmış AWS konumları.
     - **Kaynak Türü**
-        - Kullanımdaki kaynak türü.
+        - Kaynak Kullanım türü.
     - **Alt türü**
         - Alt türü seçin.
     - **İşlem**
-        - İşlemi seçin veya **Tümünü Göster**.
+        - İşlem seçin veya **Tümünü Göster**.
     - **Fiyat modeli**
-        - Tüm önceden
-        - Önceden yok
-        - Kısmi önceden
+        - Tüm ön maliyet
+        - Ön maliyet yok
+        - Kısmi ön maliyet
         - İsteğe Bağlı
         - Rezervasyon
         - Nokta
     - **Ücret türü**
-        - Negatif veya pozitif Ücret türü veya her ikisini de seçin.
+        - Negatif veya pozitif farkı türü veya her ikisini de seçin.
     - **Kiralama**
-        - Bir makine adanmış bir makine olarak kullanılıp kullanılmadığını.
+        - Olup bir makine adanmış bir makinede çalışıyorsa.
     -   **Kullanım türü**
-          - Kullanım türü tek seferlik ücretlerinin ya da yinelenen ücretleri olabilir.
+          - Kullanım türü, tek seferlik ücretler veya yinelenen ücretlerini olabilir.
 
 5. **Filtreleri**
 
-    Aralıkları seçili değerlere ayarlamak için tek veya çoklu seçim filtreleri kullanın. Bir filtre ayarlamak için tıklatın **Ekle** ve ardından filtre kategorisi ve değerleri seçin.
+    Aralıkları seçili değerlere ayarlamak için tek veya çoklu seçim filtrelerini kullanın. Bir filtre ayarlamak için tıklayın **Ekle** ve ardından filtre kategorileri ve değerleri seçin.
 
 6. **Maliyet modeli**
 
-    Maliyet modeli maliyet ayırma 360 ile önceden oluşturduğunuz bir maliyet modeli seçmek için kullanın. Maliyet ayırma gereksinimlerinize bağlı olarak birden fazla Cloudyn maliyet modeli olabilir. Bazı kuruluş ekipleriniz diğerlerinden farklı ayırma gereksinimleri maliyet yoluna sahip. Her takım kendi adanmış maliyet modeline sahip olabilir.
+    Maliyet modeli ile 360 maliyet, daha önce oluşturduğunuz bir maliyet modeli seçmek için kullanın. Birden çok Cloudyn maliyet modelleri, maliyet ayırma gereksinimlerinize bağlı olarak olabilir. Kuruluş takımlarınızın bazıları diğerlerinden farklı ayırma gereksinimlerini maliyet. Her ekip kendi özel bir maliyet modeli olabilir.
 
-    Maliyet ayırma modeli tanımı oluşturma hakkında daha fazla bilgi için bkz: [maliyetleri ayırmak üzere özel etiketleri kullanın](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
+    Maliyet ayırma model tanımı oluşturma hakkında daha fazla bilgi için bkz: [maliyetleri dağıtmak için özel etiketler kullanma](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-7. **İtfası**
+7. **İtfa**
 
-    Kullanım dışı görüntülemek için kullanım İtfası maliyet ayırma raporlarında hizmet ücretlerinin ya da tek seferlik borç maliyetleri dayalı ve kendi maliyet süre kendi kullanım ömrü boyunca eşit olarak üzerinden yayılabilir. Tek seferlik ücretleri örnekleri içerebilir:
+    Maliyet ayırmayı raporlarda kullanmak itfa kullanım dışı görüntülemek için hizmet ücretlerini veya tek seferlik borç maliyetleri ve bunların kullanım ömrü boyunca eşit olarak zaman içinde maliyetlerine yayılabilir. Tek seferlik ücretler örnekleri içerebilir:
     - Yıllık destek ücretleri
     - Yıllık güvenlik bileşenleri ücretleri
-    - Ayrılmış örnekler ücretleri satın alma
+    - Ayrılmış örnekler satın alma ücreti
     - Bazı Azure Market öğesi.
 
-  İtfası altında seçin **maliyet Amortized** veya **gerçek maliyet**.
+  İtfa altında seçin **amorti edilmiş maliyet** veya **gerçek maliyet**.
 
 8. **Çözümleme**
 
-    Seçilen tarih aralığı içinde saat çözümleme seçmek üzere çözümü kullanın. Zaman çözünürlüğünüz nasıl birimleri raporda görüntülenen ve olabilir belirler:
+    Çözümleme zamanı çözünürlüğü seçili tarih aralığı içinde seçmek için kullanın. Birimleri nasıl bir raporda görüntülenen ve olabilir, zaman çözünürlüğünü belirler:
     - Günlük
     - Haftalık
     - Aylık
-    - Üç Aylık
+    - Üç aylık
     - Yıllık
 
 9. **Ayırma kuralları**
 
-    Uygulama veya maliyet ayırma maliyet yeniden hesaplama devre dışı bırakmak için ayırma kurallarını kullanın. Etkinleştirmek veya faturalama verisi için maliyet ayırma yeniden hesaplama devre dışı bırakabilirsiniz. Rapor seçili kategorilerde yeniden hesaplama uygular. Ham faturalama verisi karşı maliyet ayırma yeniden hesaplama etkisini değerlendirmenize olanak tanır.
+    Ayırma kurallarını uygulamak veya maliyet ayırma Maliyeti yeniden hesaplama devre dışı bırakmak için kullanın. Etkinleştirmek veya faturalama verileri için maliyet ayırmayı yeniden hesaplama devre dışı bırakabilirsiniz. Rapordaki seçili kategorilerdeki yeniden hesaplama uygular. Fatura ham verilere karşı maliyet ayırma yeniden hesaplama etkisini değerlendirmenize olanak tanır.
 
 10. **Kategorilere ayrılmamış**
 
-    Kategorilere ayrılmamış dahil etmek veya hariç rapordaki Kategorilere ayrılmamış maliyetleri kullanın.
+    Kategorilere ayrılmamış dahil etmek veya rapordaki Kategorilere ayrılmamış maliyetleri hariç tutmak için kullanın.
 
 11. **Alanları Göster/Gizle**
 
-    Göster/Gizle seçeneği herhangi bir etkisi raporlarda sahip değil.
+    Gösterme/gizleme seçeneğini raporlarında hiçbir etkisi yok.
 
 12.   **Görüntü biçimleri**
 
-    Görüntü biçimleri çeşitli grafik veya tablo görünümleri seçmek için kullanın.
+    Görüntü biçimlerini çeşitli graph'i ya da tablo görünümleri seçmek için kullanın.
 
     ![görüntü biçimleri](./media/understanding-cost-reports/display-formats.png)
 
-13. **Çok rengi**
+13. **Çok renkli**
 
-    Raporunuzda grafikleri rengini ayarlamak için çok renk kullanın.
+    Çok renkli raporunuzda grafikleri rengini ayarlamak için kullanın.
 
 14. **Eylemler**
 
-    Kaydet, dışarı veya raporu zamanlama için eylemlerini kullanın.
+    Eylemleri Kaydet, dışarı aktarma veya raporu zamanladığınız kullanın.
 
 15. **İlke**
 
-    Gösterilmediğini rağmen bazı raporlar tahmini maliyeti hesaplama ilke içerir. Bu raporlarda **birleştirilmiş** ilke tüm hesaplar ve abonelikler altında Microsoft kayıt veya AWS ödeyen gibi geçerli varlık için öneriler gösterir. **Tek başına** İlkesi başka bir aboneliği varsa gibi bir hesap veya abonelik için öneriler gösterir. Kuruluşunuz tarafından kullanılan en iyi duruma getirme stratejisi üzerinde seçtiğiniz ilke değişir. Maliyet tahminleri kullanımı son 30 gün üzerinde temel alır.
+    Resimli değil olsa da, bazı raporlar öngörülen maliyet hesaplaması ilke içerir. Bu raporlarda **birleştirilmiş** ilke tüm hesaplar ve abonelikler altında Microsoft kaydı ya da AWS ödeyen gibi geçerli varlığı için öneriler gösterir. **Tek başına** İlkesi, başka bir abonelik yok edildiğinde bir hesap veya abonelik için öneriler gösterir. Kuruluşunuz tarafından kullanılan en iyi duruma getirme stratejisinin temel seçtiğiniz ilke değişir. Maliyet tahminleri üzerinde son 30 gün kullanımı temel alır.
 
 ## <a name="save-and-schedule-reports"></a>Kaydet ve raporları zamanlama
 
-Bir raporu oluşturduktan sonra gelecekte kullanılmak üzere kaydedebilirsiniz. Kaydedilen raporlar kullanılabilir **My Araçları** > **raporlarım**. Var olan bir raporu değişiklikleri yapın ve dosyayı kaydedin, raporun yeni bir sürüm olarak kaydedilir. Veya yeni bir rapor olarak kaydedin.
+Bir rapor oluşturduktan sonra gelecekte kullanılmak üzere kaydedebilirsiniz. Kaydedilen raporlar kullanılabilir **My Araçları** > **raporlarım**. Mevcut bir rapora değişiklikleri yapın ve kaydedin, rapor yeni bir sürüm olarak kaydedilir. Veya yeni bir rapor olarak kaydedin.
 
-### <a name="save-a-report-to-the-cloudyn-portal"></a>Rapor Cloudyn Portalı'na kaydetme
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Cloudyn portalında rapor kaydetme
 
-Herhangi bir raporu görüntülerken tıklatın **Eylemler** ve ardından **raporlarım için Kaydet**. Rapor adı ve ya da eklemek bir kendi URL veya otomatik olarak oluşturulan URL'yi kullan. İsteğe bağlı olarak yapabileceğiniz **paylaşmak** herkese açık şekilde başkalarıyla kuruluşunuzun veya rapor için varlığınız paylaşabilirsiniz. Raporun paylaşmıyorsa kişisel bir rapor kalır ve yalnızca görüntüleyebilirsiniz. Raporu kaydedin.
+Herhangi bir raporu görüntülerken tıklayın **eylemleri** seçip **raporlarım için Kaydet**. Rapor adı ve ekleyin ya da sonra bir kendi URL ya da otomatik olarak oluşturulan URL'yi kullanın. İsteğe bağlı olarak yapabilecekleriniz **paylaşmak** herkese açık şekilde başkalarıyla kuruluşunuz ya da rapor varlığınıza paylaşabilirsiniz. Rapor paylaşmıyorsa, kişisel rapor kalır ve yalnızca görüntüleyebilir. Raporu kaydedin.
 
 
-### <a name="save-a-report-to-cloud-provider-storage"></a>Sağlayıcı depolama bulut için bir rapor Kaydet
+### <a name="save-a-report-to-cloud-provider-storage"></a>Bulut sağlayıcısı depolama için rapor kaydetme
 
-Bulut hizmeti sağlayıcısı için bir raporu kaydetmek için zaten bir depolama hesabı yapılandırmış olmanız gerekir. Herhangi bir raporu görüntülerken tıklatın **Eylemler** ve ardından **zamanlama rapor**. Rapor adı ve ya da eklemek bir kendi URL veya otomatik olarak oluşturulan URL'yi kullan. Seçin **depolamasına kaydetmek** ve ardından depolama hesabını seçin veya yeni bir tane ekleyin. Raporu dosya adına eklenmiş bir önek girin. Bir CSV veya JSON dosyası biçiminde seçin ve ardından raporu kaydedin.
+Bulut hizmet sağlayıcınız bir raporu kaydetmek için zaten bir depolama hesabı yapılandırmış olmanız gerekir. Herhangi bir raporu görüntülerken tıklayın **eylemleri** seçip **rapor zamanla**. Rapor adı ve ekleyin ya da sonra bir kendi URL ya da otomatik olarak oluşturulan URL'yi kullanın. Seçin **depolamaya kaydetme** ve ardından depolama hesabını seçin veya yeni bir tane ekleyin. Raporu dosya adına eklenmiş bir ön eki girin. Bir CSV veya JSON dosya biçimi seçin ve ardından raporu kaydedin.
 
 ### <a name="schedule-a-report"></a>Bir raporu zamanlama
 
-Zamanlanan aralıklarla raporları çalıştırabilirsiniz ve gönderdiğiniz bunları alıcı listesi veya Bulut için bir hizmet sağlayıcısı depolama hesabı. Herhangi bir raporu görüntülerken tıklatın **Eylemler** ve ardından **zamanlama rapor**. Raporu e-posta ile göndermek ve bir depolama hesabına kaydedin. Altında **zamanlama**, aralığı (günlük, haftalık veya aylık) seçin. Haftalık ve aylık için gün veya teslim etmek ve zamanı seçmek için tarihleri seçin. Zamanlanmış raporu kaydedin. Excel raporu biçimini seçerseniz rapor ek olarak gönderilir. E-posta içeriği biçimini seçtiğinizde, grafik biçiminde gösterilen rapor sonuçlarını bir grafik gönderilir.
+Zamanlanan aralıklarda raporlar çalıştırabilir ve gönderdiğiniz bunları bir alıcı listesi veya Bulut hizmeti sağlayıcısı depolama hesabı için. Herhangi bir raporu görüntülerken tıklayın **eylemleri** seçip **rapor zamanla**. Raporun e-posta ile gönderin ve bir depolama hesabına kaydedin. Altında **zamanlama**, aralığı (günlük, haftalık veya aylık) seçin. Haftalık ve aylık için gün veya tarih sunun ve saatini seçin'i seçin. Zamanlanmış raporu kaydedin. Excel rapor biçimini seçerseniz rapor ek olarak gönderilir. İçerik e-posta biçimini seçtiğinizde, grafik biçiminde gösterilen rapor sonuçlarını grafik olarak sunulur.
 
-### <a name="export-a-report-as-a-csv-file"></a>Bir raporu CSV dosyası olarak dışarı aktarın
+### <a name="export-a-report-as-a-csv-file"></a>Bir raporu CSV dosyası olarak dışarı aktarın.
 
-Herhangi bir raporu görüntülerken tıklatın **Eylemler** ve ardından **tüm rapor verilerini dışa**. Açılır pencere görünür ve bir CSV dosyası indirilir.
+Herhangi bir raporu görüntülerken tıklayın **eylemleri** seçip **tüm rapor verilerini dışarı aktar**. Bir açılır pencere görünür ve bir CSV dosyası indirilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Cloudyn yer alan raporlar hakkında bilgi edinmek [maliyet yönetimini kullanma raporları](use-reports.md).
-- Raporları oluşturmak için nasıl kullanılacağı hakkında bilgi edinin [panolar](dashboards.md).
+- Cloudyn dahil edilen raporlar hakkında bilgi edinin [kullanım Cloudyn raporlarını](use-reports.md).
+- Oluşturmak için raporları kullanma hakkında bilgi edinin [panolar](dashboards.md).

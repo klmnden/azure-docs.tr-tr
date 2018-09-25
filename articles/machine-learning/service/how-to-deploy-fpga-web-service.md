@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning ile bir FPGA üzerinde bir web hizmeti olarak modeli dağıtma
-description: Azure Machine Learning ile bir FPGA üzerinde çalışan bir modelle bir web hizmeti dağıtmayı öğrenin.
+title: Model bir FPGA Azure Machine Learning ile bir web hizmeti olarak dağıtma
+description: Azure Machine Learning ile bir FPGA üzerinde çalışan bir modeli ile bir web hizmetini dağıtma konusunda bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,166 +8,212 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 05/07/2018
-ms.openlocfilehash: f3237980a1ad1969b5cf8d42d547ddf96608dd97
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 09/24/2018
+ms.openlocfilehash: ee67585a523ab96b1442d9eee3e9dfd55a758d32
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33789400"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971493"
 ---
-# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Azure Machine Learning ile bir FPGA üzerinde bir web hizmeti olarak modeli dağıtma
+# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Model bir FPGA Azure Machine Learning ile bir web hizmeti olarak dağıtma
 
-Bu belgede, iş istasyonu ortamınızı ayarlayın ve bir model üzerinde bir web hizmeti olarak dağıtma hakkında bilgi edinin [alan programlanabilir kapısı diziler (FPGA)](concept-accelerate-with-fpgas.md). Web hizmeti proje Brainwave model üzerinde FPGA çalıştırmak için kullanır.
+Bir model üzerinde bir web hizmeti olarak dağıtabilirsiniz [alan programlanabilir kapı dizileri (FPGA)](concept-accelerate-with-fpgas.md).  FPGA kullanarak, bir tek bir toplu iş boyutu ile bile son derece düşük gecikme süresi çıkarım sağlar.   
 
-FPGAs kullanarak tek bir toplu iş boyutu ile bile son derece düşük gecikme süresi inferencing sağlar.
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="create-an-azure-machine-learning-model-management-account"></a>Bir Azure Machine Learning modeli yönetim hesabı oluşturun
+- Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-1. Model yönetim hesabı oluşturma sayfaya gidin [Azure Portal](https://aka.ms/aml-create-mma).
+- Bir Azure Machine Learning çalışma alanı ve yüklü Python için Azure Machine Learning SDK'sı. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md) belge.
+ 
+  - Çalışma alanınızda yer alması gerekir *Doğu ABD 2* bölge.
 
-2. Portalda, bir Model yönetim hesabı oluşturun **Doğu ABD 2** bölge.
+  - Contrib ek özellikler yükleyin:
 
-   ![Model yönetim hesabı oluştur ekran görüntüsü](media/how-to-deploy-fpga-web-service/azure-portal-create-mma.PNG)
+    ```shell
+    pip install --upgrade azureml-sdk[contrib]
+    ```  
 
-3. Model yönetim hesabınız bir ad verin, bir abonelik seçin ve bir kaynak grubu seçin.
+## <a name="create-and-deploy-your-model"></a>Modelinizi oluşturup
+Girdi görüntüsünün, özellik kazandırın ResNet-50 üzerinde bir FPGA kullanarak önceden işleme için işlem hattı oluşturma ve Imagenet veri kümesinde eğitilmiş bir classifer aracılığıyla Özellikler'i çalıştırın.
 
-   >[!IMPORTANT]
-   >Konum için seçmelisiniz **Doğu ABD 2** bölge olarak.  Şu anda başka bir bölge yok.
+Yönergeleri izleyin:
 
-4. Bir fiyatlandırma katmanı seçin (S1 yeterli bağlıdır, ancak aynı zamanda iş S2 ve S3).  DevTest katmanı desteklenmiyor.  
-
-5. Tıklatın **seçin** fiyatlandırma katmanı onaylamak için.
-
-6. Tıklatın **oluşturma** soldaki ML Model yönetim.
-
-## <a name="get-model-management-account-information"></a>Model yönetim hesabı bilgileri alma
-
-Model yönetim hesabı (MMA) hakkında bilgi edinmek için tıklayın __Model yönetim hesabı__ Azure portalındaki.
-
-Değerlerin aşağıdaki öğelerden birini kopyalayın:
-
-+ Model yönetim hesabı adı (içinde sol üst köşedeki üzerinde)
-+ Kaynak grubu adı
-+ Abonelik Kimliği
-+ Konum (kullan "eastus2")
-
-![Model yönetim hesabı bilgileri](media/how-to-deploy-fpga-web-service/azure-portal-mma-info.PNG)
-
-## <a name="set-up-your-machine"></a>Makine kurun
-
-İş istasyonunuzu FPGA dağıtımı için ayarlamak için aşağıdaki adımları kullanın:
-
-1. En son sürümünü karşıdan yükleyip [Git](https://git-scm.com/downloads).
-
-2. Yükleme [Anaconda (Python 3.6)](https://conda.io/miniconda.html).
-
-3. Anaconda ortam indirmek için Git komut isteminden aşağıdaki komutu kullanın:
-
-    ```
-    git clone https://aka.ms/aml-real-time-ai
-    ```
-
-4. Ortamı oluşturmak için açık bir **Anaconda istemi** (Azure Machine Learning çalışma ekranı istemi değil) ve aşağıdaki komutu çalıştırın:
-
-    > [!IMPORTANT]
-    > `environment.yml` Önceki adımda kopyaladığınız git deposunda dosyasıdır. Yolun istasyonunuzda dosyasına işaret etmek için gerektiği gibi değiştirin.
-
-    ```
-    conda env create -f environment.yml
-    ```
-
-5. Ortam etkinleştirmek için aşağıdaki komutu kullanın:
-
-    ```
-    conda activate amlrealtimeai
-    ```
-
-6. Jupyter not defteri sunucu başlatmak için aşağıdaki komutu kullanın:
-
-    ```
-    jupyter notebook
-    ```
-
-    Bu komutun çıktısı aşağıdakine benzer:
-
-    ```text
-    Copy/paste this URL into your browser when you connect for the first time, to login with a token:
-        http://localhost:8888/?token=bb2ce89cc8ae931f5df50f96e3a6badfc826ff4100e78075
-    ```
-
-    > [!TIP]
-    > Farklı bir belirteç komutu her çalıştırdığınızda alırsınız.
-
-    Tarayıcınız Jupyter not defteri için otomatik olarak açılmazsa sayfasını açmak için önceki komutu tarafından döndürülen HTTP URL'sini kullanın.
-
-    ![Jupyter not defteri web sayfasının görüntüsü](./media/how-to-deploy-fpga-web-service/jupyter-notebook.png)
-
-## <a name="deploy-your-model"></a>Model dağıtma
-
-Jupyter Not Defteri ' açmak `00_QuickStart.ipynb` dizüstü bilgisayarınızı `notebooks/resnet50` dizin. Not defterini'ndaki yönergeleri izleyin:
-
-* Hizmeti tanımlayın
+* Model işlem hattı tanımlayın
 * Modeli dağıtma
-* Dağıtılan model kullanma
+* Dağıtılan modeli kullanma
 * Dağıtılan Hizmetleri Sil
 
 > [!IMPORTANT]
-> Gecikme süresi ve verimlilik en iyi duruma getirme iş istasyonunuzu uç nokta ile aynı Azure bölgesinde olmalıdır.  Şu anda API'leri Doğu ABD Azure bölgesinde oluşturulur.
+> Gecikme süresi ve aktarım hızını iyileştirmek için istemci uç noktası ile aynı Azure bölgesinde olmalıdır.  Şu anda API'leri, Doğu ABD Azure bölgesi oluşturulur.
 
-## <a name="ssltls-and-authentication"></a>SSL/TLS ve kimlik doğrulaması
+### <a name="get-the-notebook"></a>Not defterini alma
 
-Azure Machine Learning SSL desteği ve anahtar tabanlı kimlik doğrulaması sağlar. Bu, hizmet ve istemcileri tarafından gönderilen güvenli veri erişimini kısıtlama olanak sağlar.
+Kolaylık olması için Bu öğreticide bir Jupyter not defteri kullanılabilir. Çalıştırmak için aşağıdaki yöntemlerden birini kullanın `project-brainwave/project-brainwave-quickstart.ipynb` Not:
 
-> [!NOTE]
-> Bu bölümdeki adımları yalnızca Azure Machine Learning donanım hızlandırılmış modelleri için geçerlidir. Standart Azure Machine Learning hizmetler için bkz: [Azure Machine Learning işlem SSL ayarlamak nasıl](https://docs.microsoft.com/azure/machine-learning/preview/how-to-setup-ssl-on-mlc) belge.
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+
+### <a name="preprocess-image"></a>Görüntü önceden işlenir
+İlk aşamada işlem hattının görüntüleri önişle sağlamaktır.
+
+```python
+import os
+import tensorflow as tf
+
+# Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
+import azureml.contrib.brainwave.models.utils as utils
+in_images = tf.placeholder(tf.string)
+image_tensors = utils.preprocess_array(in_images)
+print(image_tensors.shape)
+```
+### <a name="add-featurizer"></a>Özelliği Oluşturucu Ekle
+Model başlatın ve bir TensorFlow denetim noktası bir özelliği Oluşturucu kullanılacak ResNet50 quantized sürümünü indirin.
+
+```python
+from azureml.contrib.brainwave.models import QuantizedResnet50, Resnet50
+model_path = os.path.expanduser('~/models')
+model = QuantizedResnet50(model_path, is_frozen = True)
+feature_tensor = model.import_graph_def(image_tensors)
+print(model.version)
+print(feature_tensor.name)
+print(feature_tensor.shape)
+```
+
+### <a name="add-classifier"></a>Sınıflandırıcı Ekle
+Bu sınıflandırıcı Imagenet veri kümesinde eğitim.
+
+```python
+classifier_input, classifier_output = Resnet50.get_default_classifier(feature_tensor, model_path)
+```
+
+### <a name="create-service-definition"></a>Hizmet tanımı oluşturma
+Ön işleme görüntü özelliği oluşturucu ve hizmetin üzerinde çalıştığı sınıflandırıcı el edindikten sonra bir hizmet tanımı oluşturabilirsiniz. Hizmet tanımı FPGA hizmete dağıtılan modelinden oluşturulan dosyalar kümesidir. Hizmet tanımı, bir işlem hattı oluşur. İşlem hattı, sırayla çalıştırılır aşamaları dizisidir.  Aşamaları TensorFlow, Keras aşamaları ve BrainWave aşamaları desteklenir.  Aşamalar sırayla her sonraki aşama aşama giriş çıktısı ile hizmet üzerinde çalışır.
+
+TensorFlow aşama oluşturun, grafiğin (Bu durumda varsayılan grafik kullanılır) ve giriş içeren bir oturum belirtin ve bu aşamaya tensors çıkış için.  Bu bilgiler, hizmette çalıştırmak üzere grafiği kaydetmek için kullanılır.
+
+```python
+from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
+
+save_path = os.path.expanduser('~/models/save')
+model_def_path = os.path.join(save_path, 'service_def.zip')
+
+model_def = ModelDefinition()
+with tf.Session() as sess:
+    model_def.pipeline.append(TensorflowStage(sess, in_images, image_tensors))
+    model_def.pipeline.append(BrainWaveStage(sess, model))
+    model_def.pipeline.append(TensorflowStage(sess, classifier_input, classifier_output))
+    model_def.save(model_def_path)
+    print(model_def_path)
+```
+
+### <a name="deploy-model"></a>Model dağıtma
+Bir hizmeti hizmet tanımını oluşturun.  Çalışma alanınız, Doğu ABD 2 konumunda olması gerekiyor.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
+
+from azureml.core.model import Model
+model_name = "resnet-50-rtai"
+registered_model = Model.register(ws, model_def_path, model_name)
+
+from azureml.core.webservice import Webservice
+from azureml.exceptions import WebserviceException
+from azureml.contrib.brainwave import BrainwaveWebservice, BrainwaveImage
+service_name = "imagenet-infer"
+service = None
+try:
+    service = Webservice(ws, service_name)
+except WebserviceException:
+    image_config = BrainwaveImage.image_configuration()
+    deployment_config = BrainwaveWebservice.deploy_configuration()
+    service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
+    service.wait_for_deployment(true)
+```
+
+### <a name="test-the-service"></a>Test hizmeti
+API için bir görüntü gönderme ve yanıt sınamak için bir eşleme Imagenet sınıf adı çıkış sınıfı kimliği ekleyin.
+
+```python
+import requests
+classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
+```
+
+Hizmetinizi arayın ve aşağıda "image.jpg bilgisayarınızı" dosya adı, makineden bir görüntü ile değiştirin. 
+
+```python
+with open('your-image.jpg') as f:
+    results = service.run(f)
+# map results [class_id] => [confidence]
+results = enumerate(results)
+# sort results by confidence
+sorted_results = sorted(results, key=lambda x: x[1], reverse=True)
+# print top 5 results
+for top in sorted_results[:5]:
+    print(classes_entries[top[0]], 'confidence:', top[1])
+``` 
+
+### <a name="clean-up-service"></a>Hizmetini kurma Temizle
+Hizmeti silin.
+
+```python
+service.delete()
+    
+registered_model.delete()
+```
+
+## <a name="secure-fpga-web-services"></a>FPGA web hizmetlerini güvence altına alma
+
+Azure Machine Learning modellerini FPGA üzerinde çalışan, SSL desteği ve anahtar tabanlı kimlik doğrulaması sağlar. Bu, hizmet ve istemcileri tarafından gönderilen güvenli veri erişimi sınırlamak sağlar.
 
 > [!IMPORTANT]
-> Kimlik doğrulaması, yalnızca bir SSL sertifikası ve anahtarı sağlamış Hizmetleri için etkinleştirilir. 
+> Kimlik doğrulaması, yalnızca bir SSL sertifikası ve anahtar sağladığınız Hizmetleri için etkindir. 
 >
 > SSL etkinleştirmezseniz, internet üzerindeki herhangi bir kullanıcı hizmete çağrı yapmak mümkün olacaktır.
 >
-> SSL ve kimlik doğrulama anahtarı etkinleştirirseniz, hizmet erişirken gereklidir.
+> Hizmet erişirken etkinleştirirseniz SSL ve kimlik doğrulama anahtarı gereklidir.
 
-SSL istemci ile hizmet arasında gönderilen verileri şifreler. Bu da sunucunun kimliğini doğrulamak için istemci tarafından kullanılmış.
+SSL istemci ve hizmet arasında gönderilen verileri şifreler. Bu da sunucunun kimliğini doğrulamak için istemci tarafından kullanılmış.
 
-SSL özellikli bir hizmet dağıtmak veya etkinleştirmek için zaten dağıtılmış bir hizmeti güncelleştirin. Aynı adımlar şunlardır:
+SSL etkin bir hizmet dağıtmak veya etkinleştirmek için zaten dağıtılmış bir hizmeti güncelleştirin. Aynı adımlar şunlardır:
 
 1. Bir etki alanı adı satın alır.
 
 2. Bir SSL sertifikası alın.
 
-3. Dağıtın veya hizmet etkin SSL ile güncelleştirin.
+3. Dağıtın veya hizmeti SSL etkin ile güncelleştirin.
 
-4. DNS hizmete işaret edecek şekilde güncelleştirin.
+4. Hizmete işaret edecek şekilde güncelleştirin.
 
-### <a name="acquire-a-domain-name"></a>Bir etki alanı adını Al
+### <a name="acquire-a-domain-name"></a>Bir etki alanı adını alma
 
-Zaten bir etki alanı adına sahip olmadığınız takdirde birinden satın alabilirsiniz bir __etki alanı adı kayıt__. Maliyet yaptığı gibi işlem kaydedicilerin arasında farklılık gösterir. Kayıt şirketi Ayrıca, araçları ile etki alanı adı yönetmek için sağlar. Bu araçlar, hizmetiniz konumunda barındırılan IP adresi için bir tam etki alanı adını (örneğin, www.contoso.com) eşleştirmek için kullanılır.
+Zaten bir etki alanı adına sahip olmadığınız, birinden, satın alabileceğiniz bir __etki alanı adı kayıt şirketi__. Maliyeti gibi işlemi kaydedicilerin arasında farklılık gösterir. Kayıt şirketi, araçlar da ile etki alanı adı yönetmek için sağlar. Bu araçlar, barındırılan hizmetinizin IP adresi için bir tam etki alanı adı (örneğin, www.contoso.com) eşlemek için kullanılır.
 
 ### <a name="acquire-an-ssl-certificate"></a>Bir SSL sertifikası alın
 
-Bir SSL sertifikası almak için birçok yolu vardır. En sık karşılaşılan bir satın almaktır bir __sertifika yetkilisi__ (CA). Sertifikayı nerede alma bağımsız olarak, aşağıdaki dosyaları gerekir:
+Bir SSL sertifikası almak için birçok yolu vardır. En sık karşılaşılan bir satın almaktır bir __sertifika yetkilisi__ (CA). Sertifika burada elde bağımsız olarak, aşağıdaki dosyaları gerekir:
 
-* A __sertifika__. Sertifika tam sertifika zinciri içermelidir ve PEM kodlanmış olmalıdır.
-* A __anahtar__. Anahtar PEM kodlanmış olmalıdır.
+* A __sertifika__. Sertifikayı tüm sertifika zincirine içermelidir ve PEM kodlu olmalıdır.
+* A __anahtar__. Bu anahtar, PEM kodlu olmalıdır.
 
 > [!TIP]
-> Sertifika yetkilisi sertifika ve anahtar PEM kodlu dosyaları olarak sağlayamaz, bir yardımcı programı gibi kullanabilir [OpenSSL](https://www.openssl.org/) biçimini değiştirmek için.
+> Sertifika yetkilisi sertifika ve anahtarı sağlayamazsa ve PEM kodlu dosyaları olarak gibi bir yardımcı programını kullanın [OpenSSL](https://www.openssl.org/) biçimini değiştirmek için.
 
 > [!IMPORTANT]
-> Otomatik olarak imzalanan sertifikalar yalnızca geliştirme için kullanılmalıdır. Bunlar üretimde kullanılmamalıdır.
+> Otomatik olarak imzalanan sertifikalar yalnızca geliştirme için kullanılması gerekir. Bunlar üretim ortamında kullanılmamalıdır.
 >
-> Kendinden imzalı bir sertifika kullanıyorsanız bkz [hizmetleri otomatik olarak imzalanan sertifikalarla kullanma](#self-signed) bölüm özel yönergeler için.
+> Kendinden imzalı bir sertifika kullanıyorsanız bkz [otomatik olarak imzalanan sertifikalarla tüketen](#self-signed) bölümüne ilişkin özel yönergeler.
 
 > [!WARNING]
-> Sertifika isterken, hizmet için kullanmayı planladığınız adresinin tam etki alanı adı (FQDN) sağlamalısınız. Örneğin, www.contoso.com. Sertifika damgalı adresi ve istemciler tarafından kullanılan adres hizmetin kimliğini doğrularken karşılaştırılır.
+> Sertifika isterken, hizmet için kullanmayı planladığınız adresinin tam etki alanı adı (FQDN) sağlamalısınız. Örneğin, www.contoso.com. Sertifikayı damgalı adresi ve istemciler tarafından kullanılan adres, hizmetin kimliğini doğrularken karşılaştırılır.
 >
 > Adresleri eşleşmiyorsa, istemcilerin bir hata alırsınız. 
 
-### <a name="deploy-or-update-the-service-with-ssl-enabled"></a>Dağıtın veya hizmet etkin SSL ile güncelleştirin
+### <a name="deploy-or-update-the-service-with-ssl-enabled"></a>Dağıtma veya SSL ile etkin hizmetini güncelleştir
 
-SSL özellikli hizmeti dağıtmak için ayarlanmış `ssl_enabled` parametresi `True`. Ayarlama `ssl_certificate` parametre değerine __sertifika__ dosya ve `ssl_key` değerine __anahtar__ dosya. Aşağıdaki örnek, hizmet etkin SSL ile dağıtma gösterir:
+SSL etkin hizmeti dağıtmak için ayarlanmış `ssl_enabled` parametresi `True`. Ayarlama `ssl_certificate` parametre değerine __sertifika__ dosya ve `ssl_key` değerine __anahtarı__ dosya. Aşağıdaki örnek, SSL etkin bir hizmeti dağıtmak gösterir:
 
 ```python
 from amlrealtimeai import DeploymentClient
@@ -189,23 +235,23 @@ with open('cert.pem','r') as cert_file:
         service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
 ```
 
-Yanıtın `create_service` işlemi hizmetinin IP adresini içerir. DNS adı IP adresine hizmetinin eşlemek için IP adresi kullanılır.
+Yanıtın `create_service` işlem hizmetinin IP adresini içeriyor. Hizmetin IP adresine DNS adı eşleme IP adresi kullanılır.
 
-Yanıt de içeren bir __birincil anahtar__ ve __ikincil anahtar__ hizmeti kullanmak için kullanılır.
+Yanıtını da içeren bir __birincil anahtar__ ve __ikincil anahtar__ hizmeti kullanmak için kullanılır.
 
-### <a name="update-your-dns-to-point-to-the-service"></a>Hizmete işaret edecek şekilde, DNS güncelleştirme
+### <a name="update-your-dns-to-point-to-the-service"></a>Hizmete işaret edecek şekilde güncelleştirin
 
-Etki alanı adınız için DNS kaydını güncelleştirmek için etki alanı adı kayıt şirketiniz tarafından sağlanan araçları kullanın. Kayıt hizmeti IP adresine işaret etmesi gerekir.
-
-> [!NOTE]
-> Kayıt şirketi ve zaman bağlı olarak (TTL) canlı etki alanı adı için yapılandırılmış, istemciler etki alanı adı çözebilmek için önce birkaç saate kadar birkaç dakika sürebilir.
-
-### <a name="consuming-authenticated-services"></a>Kimliği doğrulanmış Hizmetleri kullanma
-
-Aşağıdaki örnekler, Python ve C# kullanarak bir kimliği doğrulanmış servisini göstermektedir:
+Etki alanı adınız için DNS kaydı güncelleştirmek için etki alanı adı kayıt şirketi tarafından sağlanan araçları kullanın. Kayıt hizmetinin IP adresine işaret etmelidir.
 
 > [!NOTE]
-> Değiştir `authkey` birincil veya ikincil anahtarı ile hizmet oluşturulurken döndürdü.
+> Bağlı olarak kayıt şirketi ve süresi (TTL) canlı etki alanı adı için yapılandırılmış, istemciler etki alanı adı çözümleyebilir önce birkaç saate kadar birkaç dakika sürebilir.
+
+### <a name="consume-authenticated-services"></a>Kimliği doğrulanmış hizmetlerini kullanma
+
+Aşağıdaki örnekler, Python ve C# kullanarak bir kimliği doğrulanmış hizmetinin nasıl kullanılacağı hakkında göstermektedir:
+
+> [!NOTE]
+> Değiştirin `authkey` birincil veya ikincil anahtarı ile hizmet oluşturma sırasında döndürdü.
 
 ```python
 from amlrealtimeai import PredictionClient
@@ -224,9 +270,9 @@ using (var content = File.OpenRead(image))
     }
 ```
 
-Diğer gRPC istemciler bir authorization üstbilgisi ayarlayarak isteklerinin kimliğini doğrulayabilir. Genel yaklaşım oluşturmaktır bir `ChannelCredentials` birleştirir nesne `SslCredentials` ile `CallCredentials`. Bu isteğin yetkilendirme üst bilgisi eklenir. Belirli üstbilgileri desteği uygulama ile ilgili daha fazla bilgi için bkz: [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
+Diğer gRPC istemciler bir yetkilendirme üst bilgisi ayarlayarak isteklerinin kimliğini doğrulayabilir. Genel yaklaşım oluşturmaktır bir `ChannelCredentials` birleştiren nesne `SslCredentials` ile `CallCredentials`. Bu isteğin yetkilendirme üst bilgisi eklenir. Belirli üstbilgilerinizin desteği uygulama konusunda daha fazla bilgi için bkz. [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
 
-Aşağıdaki örnekler üstbilgi C# ve Git içinde nasıl ayarlanacağını göstermektedir:
+Aşağıdaki örnekler, C# ve Git üst bilgi ayarlama işlemini göstermektedir:
 
 ```csharp
 creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
@@ -259,15 +305,15 @@ func (c *authCreds) RequireTransportSecurity() bool {
 }
 ```
 
-### <a id="self-signed"></a>Hizmetleri otomatik olarak imzalanan sertifikalar ile kullanma
+### <a id="self-signed"></a>Otomatik olarak imzalanan sertifikalarla hizmetlerini kullanma
 
-Kendinden imzalı bir sertifikayla güvenli bir sunucu kimlik doğrulaması istemci etkinleştirmenin iki yolu vardır:
+Otomatik olarak imzalanan bir sertifika ile güvenli bir sunucu kimlik doğrulaması istemci etkinleştirmek için iki yolu vardır:
 
 * İstemci sisteminde `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` sertifika dosyasına işaret edecek şekilde İstemci sisteminde ortam değişkeni.
 
-* Oluşturulurken bir `SslCredentials` nesnesi, sertifika dosyasının içeriğini oluşturucuya geçirin.
+* Oluştururken bir `SslCredentials` nesnesine, yapıcısına sertifika dosyasının içeriğini geçirin.
 
-Her iki yöntemi kullanarak sertifikayı kök sertifikası kullanmak üzere gRPC neden olur.
+Her iki yöntemi kullanarak sertifikayı kök sertifika kullanmak üzere gRPC neden olur.
 
 > [!IMPORTANT]
-> Güvenilmeyen Sertifikalar gRPC kabul etmez. Güvenilmeyen bir sertifika kullanarak başarısız olur ile bir `Unavailable` durum kodu. Hata ayrıntıları içeren `Connection Failed`.
+> gRPC güvenilmeyen sertifikaları kabul etmiyor. Güvenilmeyen bir sertifika kullanarak başarısız olacak olan bir `Unavailable` durum kodu. Hata ayrıntılarını içeren `Connection Failed`.

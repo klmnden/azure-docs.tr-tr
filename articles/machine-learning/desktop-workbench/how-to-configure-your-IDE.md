@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 18692fe631a7e1349ead6bc68a87934e6d030913
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8158d6faee5ec4d28f0c7e16963fc3d78392b857
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651014"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978973"
 ---
 # <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>Azure Machine Learning Workbench bir IDE ile çalışacak şekilde yapılandırma 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Azure Machine Learning Workbench, popüler Python IDE (tümleşik geliştirme ortamı) ile çalışacak şekilde yapılandırılabilir. Bu veri hazırlama, kod yazma, çalıştırma, izleme ve kullanıma hazır hale getirme arasında taşıma sorunsuz veri bilimi geliştirme deneyimi sağlar. Şu anda desteklenen IDE'ler şunlardır:
 - Microsoft Visual Studio kodu 

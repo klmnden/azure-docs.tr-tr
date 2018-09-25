@@ -1,6 +1,6 @@
 ---
 title: Azure'da bir Linux sanal makinesinde sanal sabit diskleri genişletin | Microsoft Docs
-description: Azure CLI 2.0 ile Linux sanal makinesinde sanal sabit diskleri genişletme hakkında bilgi edinin
+description: Azure CLI ile Linux sanal makinesinde sanal sabit diskleri genişletme hakkında bilgi edinin
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
@@ -14,21 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: 96d50260663f00f5ae2e9b2e0495c91ecb5da4b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0c2d4d1413b6cfd0b5e457e720b59c6c7b575092
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421197"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974553"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI ile Linux sanal makinesinde sanal sabit diskleri genişletme nasıl
-Varsayılan sanal sabit disk boyutu işletim sistemi (OS) için azure'da bir Linux sanal makinesi (VM) genellikle 30 GB açıktır. Yapabilecekleriniz [veri diskleri ekleme](add-disk.md) ek depolama alanı, ancak için sağlamak ayrıca istediğiniz varolan bir veri diski genişletin. Bu makalede, Azure CLI 2.0 ile Linux VM için yönetilen diskleri genişletme işlemi açıklanmaktadır. 
+
+Varsayılan sanal sabit disk boyutu işletim sistemi (OS) için azure'da bir Linux sanal makinesi (VM) genellikle 30 GB açıktır. Yapabilecekleriniz [veri diskleri ekleme](add-disk.md) ek depolama alanı, ancak için sağlamak ayrıca istediğiniz varolan bir veri diski genişletin. Bu makalede, Azure CLI ile Linux VM için yönetilen diskleri genişletme işlemi açıklanmaktadır. 
 
 > [!WARNING]
 > Her zaman, disk gerçekleştirmeden önce geri verilerinizi işlemleri yeniden boyutlandırma emin olun. Daha fazla bilgi için [azure'da Linux VM'ler yedekleme](tutorial-backup-vms.md).
 
 ## <a name="expand-azure-managed-disk"></a>Azure yönetilen diski genişletin
-En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
+En son sahip olduğunuzdan emin olun [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
 
 Bu makale, mevcut bir VM'yi azure'da bağlı ve hazırlanmış en az bir veri diski gerekir. Kullanabileceğiniz bir VM zaten yoksa bkz [oluşturun ve veri diskleri ile sanal makine hazırlama](tutorial-manage-disks.md#create-and-attach-disks).
 

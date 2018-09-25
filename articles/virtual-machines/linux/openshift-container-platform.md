@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: a275df4567053149688694315ff24ac1ad7f711f
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 48b6287fef673c5f335531b6f230993969fc9e1c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186923"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996341"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Azure'da OpenShift kapsayıcı platformu dağıtma
 
@@ -139,7 +139,7 @@ Aşağıdaki örnek, tüm gerekli girişleri ile azuredeploy.parameters.json adl
 ### <a name="deploy-by-using-azure-cli"></a>Azure CLI kullanarak dağıtma
 
 > [!NOTE] 
-> Aşağıdaki komut, Azure CLI'yı 2.0.8 gerektirir veya üzeri. CLI sürümü ile doğrulayabilirsiniz `az --version` komutu. CLI sürümünü güncelleştirmek için bkz: [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> Aşağıdaki komutu Azure CLI.8 gerektirir veya üzeri. CLI sürümü ile doğrulayabilirsiniz `az --version` komutu. CLI sürümünü güncelleştirmek için bkz: [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 Aşağıdaki örnek, OpenShift kümeyi ve tüm ilgili kaynakları myOpenShiftCluster ile bir dağıtım adı myResourceGroup, adlı bir kaynak grubuna dağıtır. Şablon, doğrudan GitHub deposunu ve adlı azuredeploy.parameters.json dosyasının dosya kullanılan yerel bir parametre olarak başvuruluyor.
 

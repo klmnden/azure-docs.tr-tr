@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056567"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976763"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>X.509 cihaz sertifikaları sunma
 
@@ -41,7 +41,7 @@ Bir cihazdaki sertifikaları her zaman depolanması gibi güvenli bir yerde bir 
 
 Üçüncü bir taraftan sertifikalarınızı geldiyseniz, bunlar sertifikalarını nasıl geri içine aramanız gerekir. İşlem, düzenlemeyle eklenebilir veya ayrı bir hizmet sunulup olabilir. 
 
-Kendi cihaz sertifikaları yönetiyorsanız, sertifikalar güncelleştirmek için kendi işlem hattınızı gerekecektir. Her iki eski ve yeni bir yaprak sertifikanın ortak adı (CN) aynı olduğundan emin olun. Aynı CN sağlayarak, cihazın kendisi yinelenen bir kayıt oluşturmadan yeniden sağlamak.
+Kendi cihaz sertifikaları yönetiyorsanız, sertifikalar güncelleştirmek için kendi işlem hattınızı gerekecektir. Her iki eski ve yeni bir yaprak sertifikanın ortak adı (CN) aynı olduğundan emin olun. Aynı CN sağlayarak, cihazın kendisi yinelenen bir kayıt oluşturmadan yeniden sağlamak. 
 
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>IOT hub'ında sertifika alma
@@ -78,10 +78,13 @@ Yanıt olarak bir güvenlik ihlali sertifikaları bölgelerimizde, geçerli sert
 
     ![Bireysel kayıtlar yönetme](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
-3. Güvenliği aşılmış sertifikanın sağlama hizmetinden kaldırıldıktan sonra IOT hub'ınıza gidin ve riskli sertifikayla ilişkili cihaz kaydı kaldırın.     
+3. Güvenliği aşılmış sertifikanın sağlama hizmetinden kaldırıldıktan sonra onun için bir cihaz kaydı var olduğu sürece IOT hub'ına cihaz bağlantılarını yapmak için sertifika hala kullanılabilir. Bu iki yolla karşılayabilirsiniz: 
+
+    İlk yol, el ile IOT hub'ınıza gidin ve hemen güvenliği aşılmış sertifikayla ilişkili cihaz kaydını kaldırmak için olacaktır. Cihaz güncelleştirilmiş bir sertifika ile yeniden sağlar, yeni bir cihaz kaydı oluşturulur.     
 
     ![IOT hub cihaz kaydı Kaldır](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
+    İkinci yol aynı IOT hub'a cihazı yeniden sağlamak için destek çıkış kullanmak olabilir. Bu yaklaşım, IOT hub'ında cihaz kaydı için sertifikayı değiştirmek için kullanılabilir. Daha fazla bilgi için [cihazları yeniden sağlamak nasıl](how-to-reprovision.md).
 
 ## <a name="individual-enrollments-and-certificate-expiration"></a>Bireysel kayıtlar ve sertifika süre sonu
 
@@ -118,9 +121,14 @@ Yanıt olarak bir güvenlik ihlali bir grup kaydı güncelleştirmek için geçe
 
     ![Yeni kök CA sertifikasını seçin](./media/how-to-roll-certificates/select-new-root-cert.png)
 
-6. Güvenliği aşılmış sertifikanın sağlama hizmetinden kaldırıldıktan sonra güvenliği aşılmış cihaz kayıtları içeren bağlı IOT hub gidin ve riskli sertifikayla ilişkili kayıtlarını kaldırın.
+6. Güvenliği aşılmış sertifikanın sağlama hizmetinden kaldırıldıktan sonra sertifikayı IOT hub'ına cihaz bağlantılarını cihaz kayıtları için mevcut olduğu sürece var. olmak için hala kullanılabilir. Bu iki yolla karşılayabilirsiniz: 
+
+    İlk yol, el ile IOT hub'ınıza gidin ve hemen güvenliği aşılmış sertifikayla ilişkili cihaz kaydını kaldırmak için olacaktır. Cihazlarınızı tekrar güncelleştirilmiş sertifikalarla sağladığınızda, her biri için yeni bir cihaz kaydı oluşturulur.     
 
     ![IOT hub cihaz kaydı Kaldır](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    İkinci yol aynı IOT hub'ına cihazlarınızı yeniden sağlamak için destek çıkış kullanmak olabilir. Bu yaklaşım, IOT hub'ında cihaz kayıtları için sertifikaları değiştirmek için kullanılabilir. Daha fazla bilgi için [cihazları yeniden sağlamak nasıl](how-to-reprovision.md).
+
 
 
 #### <a name="update-compromised-intermediate-certificates"></a>Güvenliği aşılmış Ara sertifikaları güncelleştirme
@@ -134,9 +142,13 @@ Yanıt olarak bir güvenlik ihlali bir grup kaydı güncelleştirmek için geçe
     ![Bireysel kayıtlar yönetme](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
-3. Güvenliği aşılmış sertifikanın sağlama hizmetinden kaldırıldıktan sonra cihaz kaydı içeren bağlı IOT hub gidin ve güvenliği aşılmış sertifikayla ilişkili kaydını kaldırın.
+3. Güvenliği aşılmış sertifikanın sağlama hizmetinden kaldırıldıktan sonra sertifikayı IOT hub'ına cihaz bağlantılarını cihaz kayıtları için mevcut olduğu sürece var. olmak için hala kullanılabilir. Bu iki yolla karşılayabilirsiniz: 
+
+    İlk yol, el ile IOT hub'ınıza gidin ve hemen güvenliği aşılmış sertifikayla ilişkili cihaz kaydını kaldırmak için olacaktır. Cihazlarınızı tekrar güncelleştirilmiş sertifikalarla sağladığınızda, her biri için yeni bir cihaz kaydı oluşturulur.     
 
     ![IOT hub cihaz kaydı Kaldır](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    İkinci yol aynı IOT hub'ına cihazlarınızı yeniden sağlamak için destek çıkış kullanmak olabilir. Bu yaklaşım, IOT hub'ında cihaz kayıtları için sertifikaları değiştirmek için kullanılabilir. Daha fazla bilgi için [cihazları yeniden sağlamak nasıl](how-to-reprovision.md).
 
 
 ## <a name="enrollment-groups-and-certificate-expiration"></a>Kayıt grupları ve sertifika süre sonu

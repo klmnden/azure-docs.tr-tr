@@ -1,6 +1,6 @@
 ---
-title: Linux sanal makineleri Azure üzerinde ilkeleri ile güvenlik zorlama | Microsoft Docs
-description: Bir Azure Resource Manager Linux sanal makine için bir ilke uygulama
+title: Azure'daki Linux vm'lerinde ilkeleri ile güvenlik zorlama | Microsoft Docs
+description: Bir Azure Resource Manager Linux sanal makinesi için bir ilke uygulama
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: fa6c95c3986a398bdb4593235116b305a80616fb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04a172c40c24e4e0daaf17b495d2320f3a897a47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653802"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975268"
 ---
-# <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Azure Resource Manager ile Linux VM'ler için geçerlidir
-İlkeleri kullanarak, bir kuruluşun çeşitli kuralları ve kuruluş genelinde kuralları zorunlu kılabilir. İstenen davranışı zorlama kuruluşun başarısı için katkıda bulunan sırasında risk azaltılmasına yardımcı olur. Bu makalede, kuruluşunuzun sanal makineler için istenen davranışı tanımlamak için Azure Resource Manager ilkelerini nasıl kullanabileceğinizi açıklar.
+# <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Azure Resource Manager ile Linux Vm'leri için ilkelerini uygula
+İlkeleri kullanarak, bir kuruluşun çeşitli kurallar ve kuruluş genelinde kuralları zorunlu kılabilir. İstenen davranışı uygulanması, kuruluşun başarısı için katkıda bulunurken risk azaltmaya Yardım olabilir. Bu makalede, kuruluşunuzun sanal makineler için istediğiniz çalışma biçimini tanımlamak için Azure Resource Manager ilkeleri nasıl kullanabileceğinizi açıklar.
 
-İlkeleri giriş için bkz: [Azure ilke nedir?](../../azure-policy/azure-policy-introduction.md).
+İlkeleri bir giriş için bkz [Azure İlkesi nedir?](../../azure-policy/azure-policy-introduction.md).
 
 ## <a name="permitted-virtual-machines"></a>İzin verilen sanal makineler
-Sanal makineler, kuruluşunuz için bir uygulama ile uyumlu olduğundan emin olmak için izin verilen işletim sistemleri sınırlandırabilirsiniz. Aşağıdaki ilke örnekte yalnızca Ubuntu 14.04.2-LTS oluşturulması için sanal makineleri izin verin.
+Sanal makineler, kuruluşunuz için bir uygulama ile uyumlu olmasını sağlamak için izin verilen işletim sistemleri kısıtlayabilirsiniz. Aşağıdaki ilke örnekte, yalnızca Ubuntu 14.04.2-LTS oluşturulması için sanal makineler sağlar.
 
 ```json
 {
@@ -80,7 +80,7 @@ Sanal makineler, kuruluşunuz için bir uygulama ile uyumlu olduğundan emin olm
 }
 ```
 
-Herhangi bir Ubuntu LTS görüntü izin vermek için önceki ilkeyi değiştirmek için joker kullanın: 
+Joker karakterli bir Ubuntu LTS görüntüsüne izin vermek için önceki ilkesini değiştirmek için kullanın: 
 
 ```json
 {
@@ -89,11 +89,11 @@ Herhangi bir Ubuntu LTS görüntü izin vermek için önceki ilkeyi değiştirme
 }
 ```
 
-İlke alanlarını hakkında daha fazla bilgi için bkz: [İlkesi diğer adlar](../../azure-policy/policy-definition.md#aliases).
+İlke alanlar hakkında daha fazla bilgi için bkz: [ilke diğer adlar](../../governance/policy/concepts/definition-structure.md#aliases).
 
 ## <a name="managed-disks"></a>Yönetilen diskler
 
-Yönetilen disklerin gerektirmek için aşağıdaki ilke kullanın:
+Yönetilen diskler kullanımını zorunlu kılmak için şu ilkeyi kullanın:
 
 ```json
 {
@@ -139,11 +139,11 @@ Yönetilen disklerin gerektirmek için aşağıdaki ilke kullanın:
 }
 ```
 
-## <a name="images-for-virtual-machines"></a>Sanal makineler için görüntüleri
+## <a name="images-for-virtual-machines"></a>Sanal makine görüntüleri
 
-Güvenlik nedenleriyle, yalnızca onaylanan özel resimler ortamınızda dağıtılan gerektirebilir. Özel resimler onaylanmış veya onaylanan görüntüleri içeren kaynak grubu ya da belirtebilirsiniz.
+Güvenlik nedenleriyle, özel görüntüler yalnızca onaylanan ortamınıza dağıtılan gerektirebilir. Onaylanan görüntüleri içeren kaynak grubu ya da belirtebilir veya özel görüntüleri onaylandı.
 
-Aşağıdaki örnek, onaylanan kaynak grubu görüntülerden gerektirir:
+Aşağıdaki örnek, görüntüleri bir onaylı kaynak grubundan gerektirir:
 
 ```json
 {
@@ -170,7 +170,7 @@ Aşağıdaki örnek, onaylanan kaynak grubu görüntülerden gerektirir:
 } 
 ```
 
-Aşağıdaki örnek, onaylanan resim kimlikleri belirtir:
+Aşağıdaki örnek, onaylanan kimliklerini belirtir:
 
 ```json
 {
@@ -181,7 +181,7 @@ Aşağıdaki örnek, onaylanan resim kimlikleri belirtir:
 
 ## <a name="virtual-machine-extensions"></a>Sanal makine uzantıları
 
-Belirli türde bir uzantıları kullanımını yasaklamaz isteyebilirsiniz. Örneğin, bir uzantı belirli özel bir sanal makine görüntüleri ile uyumlu olmayabilir. Aşağıdaki örnek, belirli bir uzantıya engelleme gösterilmektedir. Yayımcı ve türüne engellemek için hangi uzantısı belirlemek için kullanır.
+Belirli türde bir uzantısı kullanımını yasaklayabilme isteyebilirsiniz. Örneğin, bir uzantı belirli özel sanal makine görüntüleri ile uyumlu olmayabilir. Aşağıdaki örnek, belirli bir uzantıya engellemek gösterilmektedir. Hangi uzantısı engellenip engellenmeyeceğini belirlemek için yayımcı ve türü kullanır.
 
 ```json
 {
@@ -210,6 +210,6 @@ Belirli türde bir uzantıları kullanımını yasaklamaz isteyebilirsiniz. Örn
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* (Yukarıdaki örneklerde gösterildiği gibi) bir ilke kuralı tanımladıktan sonra ilke tanımı oluşturun ve bir kapsama atamanız gerekir. Kapsamı bir abonelik, kaynak grubu veya kaynak olabilir. İlkeler atamak için bkz: [atamak ve kaynak ilkelerini yönetmek için kullanım Azure portal](../../azure-policy/assign-policy-definition.md), [kullanım ilkeleri atamak için PowerShell](../../azure-policy/assign-policy-definition-ps.md), veya [ilkeler atamak için kullan Azure CLI](../../azure-policy/assign-policy-definition-cli.md).
-* Kaynak ilkelerini giriş için bkz: [Azure ilke nedir?](../../azure-policy/azure-policy-introduction.md).
+* (Yukarıdaki örneklerde gösterildiği gibi) ilke kuralı tanımladıktan sonra ilke tanımı oluşturma ve bir kapsama atamak gerekir. Kapsam abonelik, kaynak grubu veya kaynak olabilir. İlkeleri atamak için bkz: [atamak ve kaynak ilkelerini yönetmek için Azure portalını kullanın](../../azure-policy/assign-policy-definition.md), [ilkeleri atamak için PowerShell kullanma](../../azure-policy/assign-policy-definition-ps.md), veya [ilkeleri atamak için Azure CLI'yı kullanmak](../../azure-policy/assign-policy-definition-cli.md).
+* Kaynak ilkeleri bir giriş için bkz [Azure İlkesi nedir?](../../azure-policy/azure-policy-introduction.md).
 * Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).

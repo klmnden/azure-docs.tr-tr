@@ -6,25 +6,25 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 06/20/2018
+ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: d9d61762a2e7956c95356cb4e884675e38deeb1b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: a1f6aae69580f2afe5aceabd70cfe8e6fd3151b8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145392"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977953"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure tanılama 1.3 ve üzeri yapılandırma şeması
 > [!NOTE]
 > Azure tanılama uzantısını performans sayaçları ve diğer istatistikleri toplamak için kullanılan bileşendir:
-> - Azure Sanal Makineler 
+> - Azure Sanal Makineler
 > - Sanal Makine Ölçek Kümeleri
-> - Service Fabric 
-> - Cloud Services 
+> - Service Fabric
+> - Cloud Services
 > - Ağ Güvenlik Grupları
-> 
+>
 > Bu sayfada, yalnızca bu hizmetlerden biri kullanıyorsanız geçerlidir.
 
 Bu sayfa, sürüm 1.3 ve daha yeni (Azure SDK 2.4 ve daha yeni) için geçerlidir. Hangi sürüm eklendikleri göstermek için yeni yapılandırma bölümlerini bırakılır.  
@@ -53,7 +53,7 @@ Azure tanılama kullanma hakkında daha fazla bilgi için bkz. [Azure tanılama 
     <WadCfg>  
       <DiagnosticMonitorConfiguration overallQuotaInMB="10000">  
 
-        <PerformanceCounters scheduledTransferPeriod="PT1M">  
+        <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
           <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
         </PerformanceCounters>  
 
@@ -105,13 +105,19 @@ Azure tanılama kullanma hakkında daha fazla bilgi için bkz. [Azure tanılama 
           <CrashDumpConfiguration processName="badapp.exe"/>  
         </CrashDumps>  
 
-        <DockerSources> <!-- Added in 1.9 --> 
+        <DockerSources> <!-- Added in 1.9 -->
           <Stats enabled="true" sampleRate="PT1M" scheduledTransferPeriod="PT1M" />
         </DockerSources>
 
       </DiagnosticMonitorConfiguration>  
 
       <SinksConfig>   <!-- Added in 1.5 -->  
+        <Sink name="AzureMonitorSink">
+            <AzureMonitor> <!-- Added in 1.11 -->
+                <resourceId>{insert resourceId}</ResourceId> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs-->
+                <Region>{insert Azure region of resource}</Region> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs -->
+            </AzureMonitor>
+        </Sink>
         <Sink name="ApplicationInsights">   
           <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>   
           <Channels>   
@@ -139,11 +145,18 @@ Azure tanılama kullanma hakkında daha fazla bilgi için bkz. [Azure tanılama 
   <PrivateConfig>  <!-- Added in 1.3 -->  
     <StorageAccount name="" key="" endpoint="" sasToken="{sas token}"  />  <!-- sasToken in Private config added in 1.8.1 -->  
     <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
-   
+
+    <AzureMonitorAccount>
+        <ServicePrincipalMeta> <!-- Added in 1.11; only needed for classic VMs and Classic cloud services -->
+            <PrincipalId>{Insert service principal clientId}</PrincipalId>
+            <Secret>{Insert service principal client secret}</Secret>
+        </ServicePrincipalMeta>
+    </AzureMonitorAccount>
+
     <SecondaryStorageAccounts>
        <StorageAccount name="secondarydiagstorageaccount" key="{base64 encoded key}" endpoint="https://core.windows.net" sasToken="{sas token}" />
     </SecondaryStorageAccounts>
-   
+
     <SecondaryEventHubs>
        <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
     </SecondaryEventHubs>
@@ -153,10 +166,14 @@ Azure tanılama kullanma hakkında daha fazla bilgi için bkz. [Azure tanılama 
 </DiagnosticsConfiguration>  
 
 ```  
+> [!NOTE]
+> Genel yapılandırma Azure İzleyici havuz tanımı, iki özellik, ResourceId ve bölge vardır. Yalnızca bunlar Klasik Vm'leri ve klasik bulut Hizmetleri için gereklidir. Bu özellikleri için Resource Manager sanal makinelerinde kullanılmamalıdır veya sanal makine ölçek kümeleri.
+> Bir sorumlu kimliği ve parolası geçen Azure Monitor havuzu için ek bir özel yapılandırma öğesi yoktur. Bu, yalnızca klasik Vm'leri ve klasik bulut Hizmetleri için gereklidir. Resource Manager Vm'leri ve Azure İzleyici VMSS için özel bir yapılandırma öğesi tanımı tutulabilir.
+>
 
-Önceki XML yapılandırma dosyasını denk JSON. 
+Önceki XML yapılandırma dosyasını denk JSON.
 
-Çoğu json kullanım durumda farklı bir değişken geçirilen çünkü PublicConfig ve PrivateConfig ayrılır. Bu durumlar: Resource Manager şablonları, PowerShell ve Visual Studio sanal makine ölçek kümesi. 
+Çoğu json kullanım durumda farklı bir değişken geçirilen çünkü PublicConfig ve PrivateConfig ayrılır. Bu durumlar: Resource Manager şablonları, PowerShell ve Visual Studio sanal makine ölçek kümesi.
 
 ```json
 "PublicConfig" {
@@ -168,6 +185,7 @@ Azure tanılama kullanma hakkında daha fazla bilgi için bkz. [Azure tanılama 
             },
             "PerformanceCounters": {
                 "scheduledTransferPeriod": "PT1M",
+                "sinks": "AzureMonitorSink",
                 "PerformanceCounterConfiguration": [
                     {
                         "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
@@ -278,6 +296,14 @@ Azure tanılama kullanma hakkında daha fazla bilgi için bkz. [Azure tanılama 
         "SinksConfig": {
             "Sink": [
                 {
+                    "name": "AzureMonitorSink",
+                    "AzureMonitor":
+                    {
+                        "ResourceId": "{insert resourceId if a classic VM or cloud service, else property not needed}",
+                        "Region": "{insert Azure region of resource if a classic VM or cloud service, else property not needed}"
+                    }
+                },
+                {
                     "name": "ApplicationInsights",
                     "ApplicationInsights": "{Insert InstrumentationKey}",
                     "Channels": {
@@ -324,6 +350,11 @@ Azure tanılama kullanma hakkında daha fazla bilgi için bkz. [Azure tanılama 
 }
 ```
 
+> [!NOTE]
+> Genel yapılandırma Azure İzleyici havuz tanımı, iki özellik, ResourceId ve bölge vardır. Yalnızca bunlar Klasik Vm'leri ve klasik bulut Hizmetleri için gereklidir.
+> Bu özellikleri için Resource Manager sanal makinelerinde kullanılmamalıdır veya sanal makine ölçek kümeleri.
+>
+
 ```json
 "PrivateConfig" {
     "storageAccountName": "diagstorageaccount",
@@ -334,6 +365,12 @@ Azure tanılama kullanma hakkında daha fazla bilgi için bkz. [Azure tanılama 
         "Url": "https://myeventhub-ns.servicebus.windows.net/diageventhub",
         "SharedAccessKeyName": "SendRule",
         "SharedAccessKey": "{base64 encoded key}"
+    },
+    "AzureMonitorAccount": {
+        "ServicePrincipalMeta": {
+            "PrincipalId": "{Insert service principal client Id}",
+            "Secret": "{Insert service principal client secret}"
+        }
     },
     "SecondaryStorageAccounts": {
         "StorageAccount": [
@@ -357,6 +394,11 @@ Azure tanılama kullanma hakkında daha fazla bilgi için bkz. [Azure tanılama 
 }
 
 ```
+
+> [!NOTE]
+> Bir sorumlu kimliği ve parolası geçen Azure Monitor havuzu için ek bir özel yapılandırma öğesi yoktur. Bu, yalnızca klasik Vm'leri ve klasik bulut Hizmetleri için gereklidir. Resource Manager Vm'leri ve Azure İzleyici VMSS için özel bir yapılandırma öğesi tanımı tutulabilir.
+>
+
 
 ## <a name="reading-this-page"></a>Bu sayfa okuma  
  Aşağıdaki etiketler kabaca önceki örnekte gösterilen sırada aşağıdaki gibidir.  Tam açıklamasını burada beklediğiniz görmüyorsanız, sayfanın öğesi veya özniteliği için'ı arayın.  
@@ -396,14 +438,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 ## <a name="wadcfg-element"></a>WadCFG öğesi  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG*
- 
+
  Tanımlar ve telemetri verilerini toplanacak yapılandırır.  
 
 
-## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration öğesi 
+## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration öğesi
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
- Gerekli 
+ Gerekli
 
 |Öznitelikler|Açıklama|  
 |----------------|-----------------|  
@@ -422,14 +464,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**EtwProviders**|Açıklama, başka bir yerde şu sayfada görürsünüz.|  
 |**Ölçümler**|Açıklama, başka bir yerde şu sayfada görürsünüz.|  
 |**PerformanceCounters**|Açıklama, başka bir yerde şu sayfada görürsünüz.|  
-|**WindowsEventLog**|Açıklama, başka bir yerde şu sayfada görürsünüz.| 
-|**DockerSources**|Açıklama, başka bir yerde şu sayfada görürsünüz. | 
+|**WindowsEventLog**|Açıklama, başka bir yerde şu sayfada görürsünüz.|
+|**DockerSources**|Açıklama, başka bir yerde şu sayfada görürsünüz. |
 
 
 
 ## <a name="crashdumps-element"></a>CrashDumps öğesi  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
- 
+
  Kilitlenme bilgi dökümleri koleksiyonunu etkinleştirin.  
 
 |Öznitelikler|Açıklama|  
@@ -442,7 +484,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**CrashDumpConfiguration**|Gereklidir. Her işlem için yapılandırma değerlerini tanımlar.<br /><br /> Aşağıdaki özniteliği de gereklidir:<br /><br /> **processName** -adı işlemi için kilitlenme bilgi dökümü toplamak için Azure tanılama istiyor.|  
 
-## <a name="directories-element"></a>Dizinleri öğesi 
+## <a name="directories-element"></a>Dizinleri öğesi
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - dizinleri*
 
  Bir dizin, IIS başarısız istek günlüklerine erişme ve/veya IIS günlükler içeriğini toplanmasını etkinleştirir.  
@@ -453,7 +495,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**IISLogs**|Bu öğe yapılandırmada dahil olmak üzere IIS günlükler koleksiyonunu sağlar:<br /><br /> **containerName** -Azure depolama hesabınızda IIS günlüklerini depolamak için kullanılacak blob kapsayıcısının adı.|   
 |**FailedRequestLogs**|Bu öğe yapılandırmada dahil olmak üzere bir IIS sitesi veya uygulama başarısız istekler hakkında günlüklerin toplanmasını sağlar. İzleme seçenekleri altında da etkinleştirmeniz gerekir **sistem. Web sunucusu** içinde **Web.config**.|  
-|**Veri kaynakları**|İzlenecek dizinler bir listesi.| 
+|**Veri kaynakları**|İzlenecek dizinler bir listesi.|
 
 
 
@@ -541,14 +583,15 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Alt öğe|Açıklama|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Aşağıdaki öznitelikler gereklidir:<br /><br /> - **counterSpecifier** -performans sayacının adı. Örneğin, `\Processor(_Total)\% Processor Time`. Konağınız üzerinde performans sayaçları listesini almak için komutu çalıştırmak `typeperf`.<br /><br /> - **sampleRate** -sayaç ne sıklıkta örneklenir.<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **Birim** -sayacın ölçü birimi.|  
+|**PerformanceCounterConfiguration**|Aşağıdaki öznitelikler gereklidir:<br /><br /> - **counterSpecifier** -performans sayacının adı. Örneğin, `\Processor(_Total)\% Processor Time`. Konağınız üzerinde performans sayaçları listesini almak için komutu çalıştırmak `typeperf`.<br /><br /> - **sampleRate** -sayaç ne sıklıkta örneklenir.<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **Birim** -sayacın ölçü birimi.|
+|**havuzlar** | 1.5 eklendi. İsteğe bağlı. Bir havuzu de Tanılama verileri gönder konumuna işaret eder. Örneğin, Azure İzleyici ya da olay hub'ları.|    
 
 
 
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog öğesi
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
- 
+
  Windows olay günlükleri, koleksiyonunu etkinleştirir.  
 
  İsteğe bağlı **scheduledTransferPeriod** özniteliği. Önceki Açıklama konusuna bakın.  
@@ -632,7 +675,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Adı**|**dize**|Kanalın başvurmak için benzersiz bir ad|  
 
 
-## <a name="privateconfig-element"></a>PrivateConfig öğesi 
+## <a name="privateconfig-element"></a>PrivateConfig öğesi
  *Ağaç: Kök - DiagnosticsConfiguration - PrivateConfig*
 
  Sürüm 1.3 eklendi.  

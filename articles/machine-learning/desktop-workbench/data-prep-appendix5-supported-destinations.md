@@ -13,14 +13,19 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 123328010758eea6e7eadce29440e204f91dcef6
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: f3d7d10db8cdeb4a1a409650f17d2fc39bf7971f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647125"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969522"
 ---
 # <a name="supported-data-exports-for-this-preview"></a>Bu önizleme için verileri dışarı aktarmaları desteklenir 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Bu, birkaç farklı biçimlerde dışa aktarmak mümkündür. Bu biçimler, Machine Learning iş akışının geri kalanı sonuçları tümleştirmeden önce veri hazırlama Ara sonuçlarını tutmak için kullanabilirsiniz.
 
 ## <a name="types"></a>Türler 

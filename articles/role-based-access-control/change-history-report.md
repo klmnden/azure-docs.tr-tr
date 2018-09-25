@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10e0df78d75763dfcf8636983c9f9092b78b9c3b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d5a67cdcef7f39830b747dec5f2c980483e1ab91
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437662"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978344"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>RBAC değişiklikler için etkinlik günlüklerini görüntüleme
 
@@ -35,7 +35,7 @@ Etkinlik günlüğüne RBAC ile ilgili işlemler şunlardır:
 - Özel rol tanımı oluştur veya güncelleştir
 - Özel rol tanımını sil
 
-## <a name="azure-portal"></a>Azure portalına
+## <a name="azure-portal"></a>Azure portal
 
 Başlamanın en kolay yolu, Azure portalı ile etkinlik günlükleri görüntülemektir. Aşağıdaki ekran görüntüsünde, rol ataması ve rol tanımı işlemleri görüntülemek için filtre uygulanmış bir etkinlik günlüğü örneği gösterilmektedir. CSV dosyası olarak günlükleri indirmek için bağlantıyı da içerir.
 
@@ -125,7 +125,7 @@ Başlamak için temel adımlar şunlardır:
 
    ![Log Analytics portalı seçeneğinde](./media/change-history-report/azure-log-analytics-option.png)
 
-1. İsteğe bağlı olarak [günlük araması](../log-analytics/log-analytics-log-search.md) sayfası veya [Gelişmiş analiz portalını](https://docs.loganalytics.io/docs/Learn) sorgulamak ve günlükleri görüntülemek için. Bu iki seçenek hakkında daha fazla bilgi için bkz: [günlük araması sayfasını veya Gelişmiş analiz portalını](../log-analytics/log-analytics-log-search-portals.md).
+1. İsteğe bağlı olarak [günlük araması](../log-analytics/log-analytics-log-search.md) sayfası veya [Gelişmiş analiz portalını](../log-analytics/query-language/get-started-analytics-portal.md) sorgulamak ve günlükleri görüntülemek için. Bu iki seçenek hakkında daha fazla bilgi için bkz: [günlük araması sayfasını veya Gelişmiş analiz portalını](../log-analytics/log-analytics-log-search-portals.md).
 
 Hedef kaynak sağlayıcısı tarafından düzenlenmiş olan yeni rol atamaları döndüren bir sorgu aşağıda verilmiştir:
 

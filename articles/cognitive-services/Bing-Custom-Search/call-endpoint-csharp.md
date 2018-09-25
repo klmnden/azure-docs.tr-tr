@@ -9,44 +9,45 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 32644fe0cf0a6e1666d2d1ee6efb826bf753f001
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ed00b75fa956d0197d3672d84b097f99ec3c35ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814872"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956399"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>Bing özel arama uç noktası çağrısı (C#)
 
-Bu hızlı başlangıçta, Bing özel arama uç noktasını çağırmak için C# kullanarak arama sonuçlarını özel arama örneğinizin isteği gösterilmektedir. 
+Bu hızlı başlangıçta, arama sonuçlarını Bing özel arama uç noktasını çağırmak için C# kullanarak özel arama örneğinizin isteği gösterilmektedir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
--  Bir kullanıma hazır özel arama örneği. Bkz: [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).
--  [.Net Core](https://www.microsoft.com/net/download/core) yüklü.
-- A [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirin ya da Ücretli abonelik anahtarı, Azure panosundan kullanabilir sağlanan erişim anahtarı gerekir.  
+Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
-  >[!NOTE]  
-  >15 Ekim 2017 tarihinde veya öncesinde sağlanmış bir önizleme anahtarı sahip mevcut Bing özel arama müşteriler kendi anahtarlarını 30 Kasım 2017 tarihine kadar veya bunlar sayısı izin verilen sorgular tüketmiş kadar kullanmanız mümkün olacaktır. Ardından, Azure üzerinde genel kullanıma sunulan sürüme geçirmek gerekir. 
- 
+- Bir kullanıma hazır özel arama örneği. Bkz: [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).
+- [.Net Core](https://www.microsoft.com/net/download/core) yüklü.
+- Bir abonelik anahtarı. Etkinleştirme sırasında bir abonelik anahtarı edinirler, [ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ya da Ücretli abonelik anahtarı, Azure panosundan kullanabilirsiniz (bkz [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+
+
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
 Bu örneği çalıştırmak için aşağıdaki adımları izleyin:
 
-1. Kodunuz için bir klasör oluşturun.
-2. Bir komut istemi veya terminal, az önce oluşturduğunuz klasöre gidin.
+1. Kodunuz için bir klasör oluşturun.  
+  
+2. Bir komut istemi veya terminal, az önce oluşturduğunuz klasöre gidin.  
+  
 3. Aşağıdaki komutları çalıştırın:
     ```
     dotnet new console -o BingCustomSearch
     cd BingCustomSearch
     dotnet add package Newtonsoft.Json
     dotnet restore
-   ```
+    ```
+  
+4. Program.cs'ye aşağıdaki kodu kopyalayın. Değiştirin **YOUR-SUBSCRIPTION-KEY** ve **YOUR-özel-CONFIG-ID** abonelik anahtarınızı ve yapılandırma kimliği
 
-4. Program.cs'ye aşağıdaki kodu kopyalayın.
-5. Değiştirin **YOUR-SUBSCRIPTION-KEY** ve **YOUR-özel-CONFIG-ID** anahtarınızı ve yapılandırma kimliğinizle
-
-    ``` CSharp
+    ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
@@ -118,13 +119,13 @@ Bu örneği çalıştırmak için aşağıdaki adımları izleyin:
         }
     }
     ```
-6. Aşağıdaki komutu kullanarak uygulama oluşturun. Komut çıktısı tarafından başvurulan dll yolu unutmayın.
+6. Aşağıdaki komutu kullanarak uygulama oluşturun. Komut çıktısı tarafından başvurulan DLL yolu unutmayın.
 
     <pre>
     dotnet build 
     </pre>
     
-7. Değiştirerek aşağıdaki komutu kullanarak uygulamayı çalıştırın **yolu için çıkış** derleme adımı tarafından başvurulan yoluna sahip.
+7. Değiştirerek aşağıdaki komutu kullanarak uygulamayı çalıştırın **yolu için çıkış** 6. adımda başvurulan DLL yolu ile.
 
     <pre>    
     dotnet **PATH TO OUTPUT**

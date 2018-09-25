@@ -1,5 +1,5 @@
 
-1. [Azure CLI 1.0’dan Azure’a bağlanma](/cli/azure/authenticate-azure-cli) içinde listelenen adımları kullanarak Azure aboneliğinizde oturum açın.
+1. Listelenen adımları kullanarak Azure aboneliğinizde oturum açın [Klasik Azure clı'dan Azure'a bağlanma](/cli/azure/authenticate-azure-cli).
 
 2. Klasik dağıtım modunda olduğunuzdan emin olmak için aşağıdakileri yapın:
 
@@ -52,5 +52,5 @@
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tüm bu Azure CLI 1.0 sanal makine komutlarıyla ilgili ayrıntılar için [Azure CLI 1.0’ı Klasik dağıtım API’si ile kullanma](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) makalesini okuyun.
+Tüm bu Azure Klasik CLI sanal makine komutlarıyla ilgili daha fazla bilgi için okuma [Klasik Azure CLI kullanarak Klasik dağıtım API'si ile](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 

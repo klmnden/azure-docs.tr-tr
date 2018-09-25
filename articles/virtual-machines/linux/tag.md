@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: c26019bad63a904f8ebd1241d2b58923d786e181
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 297d3bc201b4bc9d9db0b0bed7a364769fa72859
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696761"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993060"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Azure'da bir Linux sanal makinesi etiketleme
 Bu makalede Resource Manager dağıtım modeliyle Azure'da bir Linux sanal makinesi etiketleme için farklı yollar açıklanmaktadır. Etiketler doğrudan bir kaynak veya kaynak grubu üzerinde yerleştirilen kullanıcı tanımlı anahtar/değer çiftleridir. Azure, şu anda kaynak ve kaynak grubu başına en fazla 15 etiket destekler. Etiket oluşturma sırasında bir kaynakta yerleştirilen veya var olan bir kaynağı eklendi. Lütfen unutmayın etiketleri yalnızca Resource Manager dağıtım modeliyle oluşturulan kaynakları için desteklenir.
@@ -28,7 +28,8 @@ Bu makalede Resource Manager dağıtım modeliyle Azure'da bir Linux sanal makin
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Azure CLI ile etiketleme
-Başlamak için en son ihtiyacınız vardır. [Azure CLI 2.0](/cli/azure/install-azure-cli) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az-login).
+
+Başlamak için en son ihtiyacınız vardır. [Azure CLI](/cli/azure/install-azure-cli) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az-login).
 
 Belirtilen etiketler de dahil olmak üzere bu komutu kullanarak sanal makine için tüm özelliklerini görüntüleyebilirsiniz:
 

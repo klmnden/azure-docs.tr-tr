@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9064e0da6dde6c4b30235adf771f06a4f25d709a
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 76b0bab0f2eb34d7283d38eb0442f4f2f2083db3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42059743"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995402"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IOT Edge modüllerini anlama
 
@@ -67,7 +67,7 @@ Twin twin = await client.GetTwinAsync();
 
 ## <a name="offline-capabilities"></a>Çevrimdışı özellikleri
 
-Azure IOT Edge, IOT Edge cihazlarınıza çevrimdışı işlemleri destekler. Şimdilik bu özellikleri sınırlıdır ve ek senaryoları geliştirilmektedir. 
+Azure IOT Edge, IOT Edge cihazlarınıza çevrimdışı işlemleri destekler. Şimdilik bu özellikleri sınırlıdır. 
 
 IOT Edge modülleri, aşağıdaki gereksinimlerin karşılandığından sürece uzun süreler çevrimdışı olabilir: 
 
@@ -75,6 +75,8 @@ IOT Edge modülleri, aşağıdaki gereksinimlerin karşılandığından sürece 
 * **Modüller, IOT Edge hub'ı ile çevrimdışı durumdayken yeniden kimlik doğrulamaya zorlayabilir gerekmez**. Modüller yalnızca IOT hub'ı etkin bir bağlantı olan Edge hub'ları ile kimlik doğrulaması yapabilir. Modüller için herhangi bir nedenle yeniden başlatıldığında yeniden kimlik doğrulamanız gerekir. Kimliklerini SAS belirteci süresi dolduktan sonra modülleri hala Edge hub'a iletileri gönderebilir. Bağlantı geri döndüğünde, Edge hub'ı yeni bir belirteç modülün istekleri ve IOT hub'ı ile doğrular. Başarılı olursa, Edge hub'ı saklanan, modül iletileri modülün belirtecin süresi sona erdi olsa bile gönderilen iletiler gönderir. 
 * **Hata iletileri gönderilen modülü bağlantı çıktığında çevrimdışı hala çalıştığından**. Edge hub'ı, IOT Hub'ına bağlandıklarında (önceki bir tarihte dolduysa) modülü iletileri iletebilir önce yeni bir modül belirteci doğrulamak gerekir. Modül yeni bir belirteç sağlamak kullanılabilir durumda değilse, Edge hub'ı üzerinde depolanan iletilerinize modülün davranamaz. 
 * **Edge hub'ı iletileri depolamak için disk alanı olan**. Varsayılan olarak, iletiler Edge hub'ı kapsayıcının dosya sistemi içinde saklanır. Bunun yerine iletileri depolamak için bir bağlı birimini belirtmek için bir yapılandırma seçeneği yoktur. Her iki durumda da var. ertelenmiş teslim IOT hub'ına iletileri depolamak kullanılabilir alan olması gerekir.  
+
+Ek çevrimdışı özellikleri, genel önizlemede kullanılabilir. Daha fazla bilgi için [anlayın cihazları, modülleri ve alt cihazlar bu çevrimdışı özellikleri IOT Edge için Genişletilmiş](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
  - [Azure IOT Edge çalışma zamanı ve mimarisini anlama][lnk-runtime]

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a214aa51bcd4b7aab7a65cf2989edd9e9dd3dc6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ebc4c918745e273700a0efb54db4408bb702c75e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044900"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991377"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Hive ve Pig, HDInsight, Hadoop üzerinde akış ile kullanıcı tanımlı C# işlevlerini kullanma
 
@@ -31,7 +31,7 @@ Hem Hive ve Pig veri işleme için dış uygulama geçirebilirsiniz. Bu işlem o
 
     * İstediğiniz herhangi bir IDE kullanın. Öneririz [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017, veya [Visual Studio Code](https://code.visualstudio.com/). Bu belgedeki adımlarda Visual Studio 2017'yi kullanın.
 
-* Kümeyi ve çalışma Pig ve Hive işleri için .exe dosyaları karşıya yüklemek için bir yol. Data Lake araçları Visual Studio, Azure PowerShell ve Azure CLI'yı öneririz. Bu belge kullanım dosyaları yüklemek ve örneği çalıştırmak Visual Studio için Data Lake Araçları'ndaki adımları Hive sorgusu.
+* Kümeyi ve çalışma Pig ve Hive işleri için .exe dosyaları karşıya yüklemek için bir yol. Data Lake araçları Visual Studio, Azure PowerShell ve klasik Azure CLI'yı öneririz. Bu belge kullanım dosyaları yüklemek ve örneği çalıştırmak Visual Studio için Data Lake Araçları'ndaki adımları Hive sorgusu.
 
     Çalıştırmak için diğer yollar hakkında bilgi için sorgular ve Pig işleri Hive, aşağıdaki belgelere bakın:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: yeki
-ms.openlocfilehash: 6b20ef98e008d9c5d984ba29eed894b1c5ec8c09
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 935b3ff0fe03984b02dc2e1137f48e53b06ce0c2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263257"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995118"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Otomatik işletim sistemi yükseltmelerini Azure sanal makine ölçek kümesi
 
@@ -199,7 +199,7 @@ az policy assignment create --display-name "Enforce automatic OS upgrades with a
 ```
 
 ## <a name="configure-auto-updates"></a>Otomatik Güncelleştirmeleri Yapılandır
-Otomatik güncelleştirmeleri yapılandırmak için emin olun *automaticosupgrade işlemini* özelliği *true* model tanımı ölçek kümesi. Bu özellik, Azure PowerShell veya Azure CLI 2.0 ile yapılandırabilirsiniz.
+Otomatik güncelleştirmeleri yapılandırmak için emin olun *automaticosupgrade işlemini* özelliği *true* model tanımı ölçek kümesi. Bu özellik, Azure PowerShell veya Azure CLI ile yapılandırabilirsiniz.
 
 ### <a name="powershell"></a>PowerShell
 Aşağıdaki örnek, Azure PowerShell kullanır (4.4.1 veya sonraki) adlı ölçek kümesi için otomatik güncelleştirmeleri yapılandırmak için *myVMSS* adlı kaynak grubunda *myResourceGroup*:
@@ -223,7 +223,7 @@ az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.Aut
 
 
 ## <a name="check-the-status-of-an-automatic-os-upgrade"></a>Otomatik işletim sistemi yükseltme durumunu denetleme
-Azure PowerShell, Azure CLI 2.0 veya REST API'leri ile ölçek kümenizde gerçekleştirilen en son işletim sistemi yükseltme durumunu kontrol edebilirsiniz.
+Azure PowerShell, Azure CLI veya REST API'leri ile ölçek kümenizde gerçekleştirilen en son işletim sistemi yükseltme durumunu kontrol edebilirsiniz.
 
 ### <a name="powershell"></a>PowerShell
 Aşağıdaki örnek için Azure PowerShell kullanır (4.4.1 veya sonraki) adlı ölçek kümesi durumunu denetlemek için *myVMSS* adlı kaynak grubunda *myResourceGroup*:
@@ -232,7 +232,8 @@ Aşağıdaki örnek için Azure PowerShell kullanır (4.4.1 veya sonraki) adlı 
 Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS
 ```
 
-### <a name="cli-20"></a>CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
+
 Aşağıdaki örnek, Azure CLI'yı kullanır (2.0.20 veya sonraki) adlı ölçek kümesi durumunu denetlemek için *myVMSS* adlı kaynak grubunda *myResourceGroup*:
 
 ```azurecli

@@ -2,18 +2,22 @@
 title: En iyi uygulamalar için Azure SQL Data Sync | Microsoft Docs
 description: Yapılandırma ve Azure SQL Data Sync çalıştırmak için en iyi uygulamalar hakkında bilgi edinin.
 services: sql-database
-ms.date: 08/20/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
+ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 96fff35b95a63e4f806258eff59d08afb2db0ffd
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.date: 08/20/2018
+ms.openlocfilehash: 1d292007b06e12b6be28e053bc6def3b12c7befe
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061748"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063668"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL Data Sync için en iyi deneyimler 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ce2c92f984f835c8e8f49ec94d65a9f3390812f9
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 013fd019771fb9994c87e363c78eae36431f91de
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493131"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953234"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API'sini kullanın.
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) B2C kiracıları, çok büyük olma eğilimind
 B2C kiracıları için Graph API ile iletişim birincil iki mod vardır.
 
 * Görevleri gerçekleştirdiğinizde etkileşimli ve bir kez çalıştır görevlerde, B2C kiracısında yönetici hesabı olarak davranmalıdır. Bu mod, bu yönetici için Graph API çağrıları gerçekleştirmek için önce kimlik bilgileriyle oturum açmak bir yönetici gerektirir.
-* Otomatik, sürekli görevleri için herhangi bir türde yönetim görevlerini gerçekleştirmek için gerekli ayrıcalıklara sağladığınız hizmet hesabı kullanmanız gerekir. Azure AD'de, uygulama kaydetme ve Azure AD ile kimlik doğrulaması yapabilirsiniz. Bu kullanılarak yapılır bir **uygulama kimliği** kullanan [OAuth 2.0 istemci kimlik bilgileri verme](../active-directory/develop/authentication-scenarios.md#daemon-or-server-application-to-web-api). Bu durumda, uygulamanın kendisi, Graph API'sini çağırmak için bir kullanıcı değil, olarak olarak görev yapar.
+* Otomatik, sürekli görevleri için herhangi bir türde yönetim görevlerini gerçekleştirmek için gerekli ayrıcalıklara sağladığınız hizmet hesabı kullanmanız gerekir. Azure AD'de, uygulama kaydetme ve Azure AD ile kimlik doğrulaması yapabilirsiniz. Bu kullanılarak yapılır bir **uygulama kimliği** kullanan [OAuth 2.0 istemci kimlik bilgileri verme](../active-directory/develop/service-to-service.md). Bu durumda, uygulamanın kendisi, Graph API'sini çağırmak için bir kullanıcı değil, olarak olarak görev yapar.
 
 Bu makalede, otomatik kullanım örneğini gerçekleştirmeyi öğrenin. .NET 4.5 oluşturacaksınız `B2CGraphClient` gerçekleştiren kullanıcı oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri. İstemci, bir Windows komut satırı çeşitli yöntemlerini çağırmasına izin veren arabirimi (CLI) gerekir. Ancak, kod etkileşimsiz, otomatik bir şekilde davranmasına yazılır.
 

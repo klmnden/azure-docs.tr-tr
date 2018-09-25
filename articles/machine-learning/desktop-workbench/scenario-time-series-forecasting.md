@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 3f32c9048c4b2002e7672b46a4f39e86ffa7b98e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 934d37783165c2e57dcabd0ff764747e1ab4b65e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647615"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946876"
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Enerji talebi zaman serileri tahmini
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 
 Zaman serisi tahmin sonraki değerleri gözlemler zamana göre sıralı bir dizisi içindeki bir görevdir. Sık karşılaşılan bir sorundur ve sektörlerde birçok uygulama vardır. Örneğin, talebi karşılamak üzere, tedarik zinciri etkili bir şekilde düzenleyebilirsiniz için gelecekteki ürün satış tahmini perakende şirketlerin gerekir. Benzer şekilde, paket teslim şirketlerin iş gücü gereksinimleri ve teslimat rotaları önceden planlayabilmemiz hizmetlerini talep tahmin etmek gerekir. Çoğu durumda, finansal risk yanlış tahminleri önemli olabilir. Bu nedenle tahmini genellikle iş kritik bir etkinlik gereklidir.
@@ -57,7 +62,7 @@ Bu senaryo, bir makine öğrenimi enerji talebini tahmin çözümü oluşumu ayr
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz denemeler kullanılabilir).
-- Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](../service/quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturun.
+- Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturun.
 - Bu örnek, Windows 10 ile Azure ML Workbench çalıştığını varsayar [Docker altyapısı](https://www.docker.com/) yerel olarak yüklü. MacOS kullanıyorsanız, yönergeleri büyük ölçüde aynıdır.
 - Azure Machine Learning model Yönetimi hesabı ile ayarlanmış bir yerel dağıtım ortamı ile yüklü kullanıma hazır hale getirme oluşturulan açıklandığı [Kılavuzu](./model-management-configuration.md).
 - Bu örnek Pandas yükleme 0.20.3 sürüme güncelleştirme gerektirir ya da daha yüksek ve girerek matplotlib kitaplığını yükleyin. Tıklayın *komut istemini Aç* gelen *dosya* menüde Workbench ve bu bağımlılıkları yüklemek için aşağıdaki komutları çalıştırın:

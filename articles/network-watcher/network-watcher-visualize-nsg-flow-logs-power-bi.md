@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 8f5bb54e12348fd915b2c4413bbacdc083a2a879
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bcd67d2e879d199296289dbaef2141ba659b2412
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056104"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032693"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI ile visualizing ağ güvenlik grubu akış günlüklerini
 
@@ -54,7 +54,7 @@ Ayrıca, Power BI Desktop istemcisi makinenizde ve makinenize indirmek ve depola
 1. İndirin ve aşağıdaki Power BI şablonu Power BI Desktop uygulamasında açın [şablonu Ağ İzleyicisi Powerbı akış günlükleri](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Gerekli sorgu parametrelerini girin
     1. **StorageAccountName** – yüklenemedi ve görselleştirmek istediğiniz NSG akış günlüklerini içeren depolama hesabı adını belirtir.
-    1. **NumberOfLogFiles** – indirip Power BI'da görselleştirin istediğiniz günlük dosyalarının sayısını belirtir. Örneğin, 50 belirtilirse, en son 50 günlük dosyaları. Bu hesap için NSG akış günlükleri göndermek için etkinleştirilmiş ve yapılandırılmış 2 Nsg'ler sahibiz FF sonra son 25 saat günlüklerinin görüntülenebilir.
+    1. **NumberOfLogFiles** – indirip Power BI'da görselleştirin istediğiniz günlük dosyalarının sayısını belirtir. Örneğin, 50 belirtilirse, en son 50 günlük dosyaları. Biz bu hesap için NSG akış günlükleri göndermek için etkinleştirilmiş ve yapılandırılmış 2 Nsg'ler varsa, son 25 saat günlüklerinin görüntülenebilir.
 
     ![Power BI ana][2]
 

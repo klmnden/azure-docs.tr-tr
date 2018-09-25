@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 05a7dda67ca9747c5d6205952bc9337af628de8f
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296746"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972565"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 Azure depolama, belirli bir ağa izin kümesi, depolama hesaplarınıza güvenli olanak tanıyan bir katmanlı güvenlik modeli sağlar.  Ağ kuralları yapılandırıldığında, yalnızca izin verilen ağları uygulamalardan bir depolama hesabına erişebilir.  İzin verilen bir ağdan çağırırken uygulamalar (geçerli bir erişim anahtarı veya SAS belirteci) depolama hesabına erişmek için uygun yetkilendirme gerektirecek şekilde devam edin.
@@ -70,7 +70,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 ```    
 
 #### <a name="cliv2"></a>CLIv2
-1. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli) ve [oturum açma](/cli/azure/authenticate-azure-cli).
+1. [Azure CLI yükleme](/cli/azure/install-azure-cli) ve [oturum açma](/cli/azure/authenticate-azure-cli).
 2. Depolama hesabı için varsayılan kuralın durumunu görüntüler.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
@@ -152,7 +152,7 @@ Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Na
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli) ve [oturum açma](/cli/azure/authenticate-azure-cli).
+1. [Azure CLI yükleme](/cli/azure/install-azure-cli) ve [oturum açma](/cli/azure/authenticate-azure-cli).
 2. Sanal ağ kuralları listesi
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
@@ -243,7 +243,7 @@ Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Ac
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli) ve [oturum açma](/cli/azure/authenticate-azure-cli).
+1. [Azure CLI yükleme](/cli/azure/install-azure-cli) ve [oturum açma](/cli/azure/authenticate-azure-cli).
 2. Liste IP ağ kuralları
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
@@ -290,7 +290,9 @@ Bu tür bir hizmet beklendiği gibi çalışmaya izin vermek için ağ kurallar�
 |Azure Event Grid|Microsoft.EventGrid|BLOB Depolama olayı yayımlamayı etkinleştirin.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Event Hubs yakalama ile verileri arşivleme.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure Ağı|Microsoft.Networking|Store ve ağ trafik günlüklerini analiz edin.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-||||
+|Azure İzleyici|Microsoft.Insights| İzleme verilerinin güvenli storaage hesabına yazma sağlayan [daha fazla bilgi edinin](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|
+
 
 ### <a name="storage-analytics-data-access"></a>Depolama analizi veri erişimi
 Bazı durumlarda, tanılama günlükleri ve ölçümleri okuma erişimi ağ sınırları dışından gelen gerekli değildir.  Ağ kuralların istisnaları, depolama hesabı günlük dosyaları, tabulky Metrik veya her ikisi de okuma erişimi izni verilebilir. [Depolama Analizi ile çalışma hakkında daha fazla bilgi edinin.](/azure/storage/storage-analytics)
@@ -327,7 +329,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli) ve [oturum açma](/cli/azure/authenticate-azure-cli).
+1. [Azure CLI yükleme](/cli/azure/install-azure-cli) ve [oturum açma](/cli/azure/authenticate-azure-cli).
 2. Depolama hesabı ağ kuralları özel durumlarını görüntüler.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass

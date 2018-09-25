@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 2be65ba185ebc1ad8bde0cdf33f264351301d45a
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 71351a979e8bb443864c975b91539c527bea7f2a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051417"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033439"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure veri şifreleme bekleyen
 
@@ -261,7 +261,7 @@ Azure SQL veritabanı verilerinin istemci tarafı şifreleme aracılığıyla de
 | **Depolama ve veritabanları**        |                    |                    |                    |                    |                    |
 | Disk (Iaas)                      | -                  | Evet, RSA 2048 bit  | Evet               | -                  |
 | SQL Server (IaaS)                | Evet                | Evet, RSA 2048 bit  | Evet                | Evet                |
-| Azure SQL veritabanı (PaaS)        | Evet                | Evet, RSA 2048 bit  | -                  | Evet                |
+| Azure SQL (veritabanı/veri ambarı) | Evet                | Evet, RSA 2048 bit  | -                  | Evet                |
 | Azure depolama (blok/sayfa Blobları) | Evet                | Evet, RSA 2048 bit  | -                  | Evet                |
 | Azure depolama (dosyalar)            | Evet                | Evet, RSA 2048 bit  | -                  | -                  |
 | Azure depolama (tablolar, kuyruklar)   | Evet                | -                  | -                  | Evet                |

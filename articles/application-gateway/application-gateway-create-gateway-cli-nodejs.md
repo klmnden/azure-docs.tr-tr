@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 1.0 - Azure uygulama ağ geçidi oluşturma | Microsoft Docs
-description: Resource Manager'da Azure CLI 1.0 kullanarak bir uygulama ağ geçidi oluşturmayı öğrenin
+title: Azure Application Gateway - Azure Klasik CLI oluşturma | Microsoft Docs
+description: Resource Manager'da Azure Klasik CLI kullanarak bir uygulama ağ geçidi oluşturmayı öğrenin
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 29eec4ad1883db9d824b416bdfc7e984a5af4fbe
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650924"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974434"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Azure CLI kullanarak bir uygulama ağ geçidi oluşturma
 
@@ -29,8 +29,8 @@ ms.locfileid: "35650924"
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Klasik PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
-> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
+> * [Klasik Azure CLI](application-gateway-create-gateway-cli.md)
+> * [Azure CLI](application-gateway-create-gateway-cli.md)
 > 
 > 
 
@@ -38,7 +38,7 @@ Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirke
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Önkoşul: Azure CLI yükleme
 
-Bu makaledeki adımları gerçekleştirmek için yapmanız [Azure komut satırı arabirimi için Mac, Linux ve Windows (Azure CLI) yükleme](../xplat-cli-install.md) ve gerekiyorsa [Azure oturum](/cli/azure/authenticate-azure-cli). 
+Bu makaledeki adımları gerçekleştirmek için yapmanız [Azure CLI'yı yükleme](../xplat-cli-install.md) ve gerekiyorsa [Azure oturum](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
 > Bir Azure hesabınız yoksa, bir gerekir. [Buradaki ücretsiz deneme sürümüyle](../active-directory/fundamentals/sign-up-organization.md) kaydolun.

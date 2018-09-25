@@ -8,14 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/26/2018
-ms.openlocfilehash: 659c33ec0e989003e68b5165fab70f50c607868c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 98c62f54e2413bd67600db182c452d0d5965f239
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591890"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972190"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 HDInsight ile kullanmayı öğrenin bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bir Azure sanal ağı kullanarak aşağıdaki senaryolar sağlar:
 
@@ -70,7 +72,7 @@ Nasıl yeni bir HDInsight mevcut bir Azure sanal ağına eklemek keşfetmek içi
 
     HDInsight, çeşitli bağlantı noktaları kullanan birden çok hizmetleri barındırır. Bu bağlantı noktaları için trafiği engellemediğinizden. Sanal gereç güvenlik duvarlarından izin vermek için bağlantı noktalarının listesi için bkz. [güvenlik](#security) bölümü.
 
-    Mevcut güvenlik yapılandırmanızı bulmak için aşağıdaki Azure PowerShell veya Azure CLI komutları kullanın:
+    Mevcut güvenlik yapılandırmanızı bulmak için aşağıdaki Azure PowerShell veya Azure Klasik CLI komutları kullanın:
 
     * Ağ güvenlik grupları
 
@@ -107,7 +109,7 @@ Nasıl yeni bir HDInsight mevcut bir Azure sanal ağına eklemek keşfetmek içi
 
     * [Azure portalını kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Azure PowerShell kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-    * [Azure CLI 1.0 kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Klasik Azure CLI kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Bir Azure Resource Manager şablonu kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
   > [!IMPORTANT]
@@ -441,7 +443,7 @@ $vnet | Set-AzureRmVirtualNetwork
 > Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 > ```
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-classic-cli"></a>Klasik Azure CLI
 
 Gelen trafiği kısıtlar ancak HDInsight tarafından gerekli IP adreslerinden gelen trafiğe izin veren bir sanal ağ oluşturmak için aşağıdaki adımları kullanın.
 
@@ -510,7 +512,7 @@ Bu örnek aşağıdaki varsayımların yapar:
 
 Özel DNS sunucusunda sanal ağ:
 
-1. Sanal ağın DNS soneki bulmak için Azure PowerShell veya Azure CLI'yı kullanın:
+1. Sanal ağın DNS soneki bulmak için Azure PowerShell veya Azure Klasik CLI kullanın:
 
     ```powershell
     $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
@@ -592,7 +594,7 @@ Bu örnek aşağıdaki varsayımların yapar:
 
 * [Bağlama](https://www.isc.org/downloads/bind/) özel DNS sunucularında yüklü.
 
-1. Her iki sanal ağ DNS sonekini bulmak için Azure PowerShell veya Azure CLI'yı kullanın:
+1. Her iki sanal ağ DNS sonekini bulmak için Azure PowerShell veya Azure Klasik CLI kullanın:
 
     ```powershell
     $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"

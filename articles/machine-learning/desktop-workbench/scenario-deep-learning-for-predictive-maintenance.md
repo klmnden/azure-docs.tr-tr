@@ -13,14 +13,19 @@ ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 83e1f14db317f59ab2063a9d020adbdb6fe78e5f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d52433a32d8dc764c7535dacf5872e55f0082ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651414"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995525"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Tahmine dayalı bakım gerçek dünya senaryoları için ayrıntılı öğrenme
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Derin öğrenme, machine learning'de en popüler eğilimler biridir ve uygulamaları dahil olmak üzere birçok alanlara sahiptir:
 - Sürücüsüz araba ve robotlara ilişkin.
@@ -75,7 +80,7 @@ Bu komut bir kimlik doğrulama anahtarı ile https sağlar:\\aka.ms\devicelogin 
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-Çalıştırmak için tercih edilir bir [Linux (Ubuntu) için veri bilimi sanal makinesi (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) bellek ve disk gereksinimleri. DSVM yapılandırdıktan sonra aşağıdaki iki komutu ile uzak Docker ortamını hazırlayın:
+Çalıştırmak için tercih edilir bir [Linux (Ubuntu) için veri bilimi sanal makinesi (DSVM)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) bellek ve disk gereksinimleri. DSVM yapılandırdıktan sonra aşağıdaki iki komutu ile uzak Docker ortamını hazırlayın:
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

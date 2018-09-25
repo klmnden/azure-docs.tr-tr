@@ -1,6 +1,6 @@
 ---
 title: Yapılandırma ve Azure CLI kullanarak PostgreSQL için sunucu günlüklerine erişme
-description: Bu makalede, yapılandırma ve Azure CLI komut satırını kullanarak Azure veritabanı sunucu günlüklerinde PostgreSQL için erişim açıklar.
+description: Bu makalede, Azure CLI komut satırını kullanarak PostgreSQL için Azure veritabanı'nda sunucu günlüklerini erişmek ve yapılandırma açıklanır.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -10,43 +10,43 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 951dcca562c08698b4ce4528d005fc91152ea337
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: af5a0843acced4611b219088b7662f9ea4b32beb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30235545"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969595"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Yapılandırma ve Azure CLI kullanarak sunucu günlüklerine erişme
-Komut satırı arabirimi (Azure CLI) kullanarak PostgreSQL server Hata günlüklerini indirebilirsiniz. Ancak, işlem günlükleri erişimi desteklenmiyor. 
+Komut satırı arabirimi (Azure CLI) kullanarak PostgreSQL sunucusu hata günlüklerini indirebilirsiniz. Ancak, işlem günlükleri erişimi desteklenmiyor. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Nasıl yapılır bu kılavuzu adım için gerekir:
-- [Azure veritabanı PostgreSQL sunucu için](quickstart-create-server-database-azure-cli.md)
-- [Azure CLI 2.0](/cli/azure/install-azure-cli) komut satırı yardımcı programı veya Azure bulut Kabuk tarayıcıda
+Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:
+- [PostgreSQL sunucusu için Azure veritabanı](quickstart-create-server-database-azure-cli.md)
+- [Azure CLI](/cli/azure/install-azure-cli) komut satırı yardımcı programı veya tarayıcıda Azure Cloud Shell
 
-## <a name="configure-logging-for-azure-database-for-postgresql"></a>Azure veritabanı için günlük kaydını PostgreSQL için yapılandırma
-Sorgu ve hata günlükleri erişmek için sunucu yapılandırabilirsiniz. Hata günlüklerini otomatik vakum, bağlantı ve denetim noktası bilgileri olabilir.
-1. Günlük özelliğini açın.
-2. Sorgu günlüğü etkinleştirmek için güncelleştirme **günlük\_deyimi** ve **günlük\_min\_süresi\_deyimi**.
+## <a name="configure-logging-for-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı için günlük tutmayı yapılandırma
+Sorgu ve hata günlükleri erişmek için sunucu yapılandırabilirsiniz. Hata günlüklerini otomatik elektrikli, bağlantı ve denetim noktası bilgilerini sağlayabilirsiniz.
+1. Günlük özelliğini açar.
+2. Sorgu günlük kaydını etkinleştirmek için güncelleştirme **günlük\_deyimi** ve **günlük\_min\_süresi\_deyimi**.
 3. Saklama dönemi güncelleştirin.
 
-Daha fazla bilgi için bkz: [sunucu yapılandırma parametreleri özelleştirme](howto-configure-server-parameters-using-cli.md).
+Daha fazla bilgi için [sunucu yapılandırma parametrelerini özelleştirme](howto-configure-server-parameters-using-cli.md).
 
-## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Azure veritabanı için liste günlüklerini PostgreSQL sunucusu
-Sunucunuz için kullanılabilir günlük dosyaları listelemek için Çalıştır [az postgres sunucu günlükleri listesi](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) komutu.
+## <a name="list-logs-for-azure-database-for-postgresql-server"></a>PostgreSQL sunucusu için Azure veritabanı için liste günlükleri
+Sunucunuz için kullanılabilir günlük dosyaları için Çalıştır [az postgres server-logs listesi](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) komutu.
 
-Sunucu için günlük dosyalarını listeleyebilirsiniz **mydemoserver.postgres.database.azure.com** kaynak grubu altında **myresourcegroup**. Adlı bir metin dosyasına günlük dosyalarının listesini doğrudan **günlük\_dosyaları\_list.txt**.
+Sunucu için günlük dosyalarını listeleyebilirsiniz **demosunucum.postgres.Database.Azure.com** kaynak grubu altında **myresourcegroup**. Ardından adlı bir metin dosyasına günlük dosyalarının listesi doğrudan **günlük\_dosyaları\_list.txt**.
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
-## <a name="download-logs-locally-from-the-server"></a>Günlükleri sunucusundan yerel olarak yükle
-İle [az postgres server-günlükleri indirmek](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) komutu, sunucunuz için ayrı günlük dosyalarına yükleyebilir. 
+## <a name="download-logs-locally-from-the-server"></a>Günlükleri sunucudan yerel olarak indir
+İle [az postgres server-logs indirme](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) komutunu sunucunuz için ayrı günlük dosyalarına karşıdan yükleyebilirsiniz. 
 
-Sunucu için belirli günlük dosyasını karşıdan yüklemek için aşağıdaki örneği kullanın **mydemoserver.postgres.database.azure.com** kaynak grubu altında **myresourcegroup** yerel ortamınıza.
+Sunucu için belirli günlük dosyasını indirmek için aşağıdaki örneği kullanın **demosunucum.postgres.Database.Azure.com** kaynak grubu altında **myresourcegroup** yerel ortamınıza.
 ```azurecli-interactive
 az postgres server-logs download --name 20170414-mydemoserver-postgresql.log --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-- Sunucu günlükleri hakkında daha fazla bilgi için bkz: [günlüklerini Azure veritabanı'nda PostgreSQL için](concepts-server-logs.md).
-- Sunucu parametreleri hakkında daha fazla bilgi için bkz: [Azure CLI kullanarak sunucu yapılandırma parametreleri özelleştirmek](howto-configure-server-parameters-using-cli.md).
+- Sunucu günlükleri hakkında daha fazla bilgi için bkz: [sunucusu, PostgreSQL için Azure veritabanı'nda oturum](concepts-server-logs.md).
+- Sunucu parametreleri hakkında daha fazla bilgi için bkz: [Azure CLI kullanarak sunucu yapılandırma parametrelerini özelleştirme](howto-configure-server-parameters-using-cli.md).

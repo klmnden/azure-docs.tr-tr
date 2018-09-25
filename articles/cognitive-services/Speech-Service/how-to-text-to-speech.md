@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/08/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2bcba37d5bf0e508c1f9aa1ad30ab1c039cff83f
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 776b8496ea3f46287e2eeec7c150b8d60ca3e553
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497765"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964113"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>"Metin okuma" konuşma hizmeti kullanın
 
@@ -47,12 +47,12 @@ Bir metin okuma HTTP isteği, istek gövdesinde söylenir POST modunda metin ile
 Üst bilgi|Değerler|Yorumlar
 -|-|-
 |`Content-Type` | `application/ssml+xml` | Giriş metin biçimi.
-|`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`audio-16khz-16kbps-mono-siren`<br>`riff-16khz-16kbps-mono-siren`<br>`riff-16khz-16bit-mono-pcm`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | Çıkış ses biçimi.
+|`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`riff-16khz-16bit-mono-pcm`<br>`raw-8khz-8bit-mono-mulaw`<br>`riff-8khz-8bit-mono-mulaw`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | Çıkış ses biçimi.
 |`User-Agent`   |Uygulama adı | Uygulama adı gereklidir ve 255'den az karakter olmalıdır.
 | `Authorization`   | Belirteç Hizmeti için abonelik anahtarınızı sunarak alınan yetkilendirme belirteci. Her belirteç on dakika için geçerlidir. Bkz: [REST API'leri: kimlik doğrulaması](rest-apis.md#authentication).
 
 > [!NOTE]
-> Seçilen ses ve çıkış biçimi farklı bit hızlarında varsa, ses, gerektiği şekilde örneklenmiş. 24khz sesleri desteklemez `audio-16khz-16kbps-mono-siren` ve `riff-16khz-16kbps-mono-siren` Çıkış biçimleri. 
+> Seçilen ses ve çıkış biçimi farklı bit hızlarında varsa, ses, gerektiği şekilde örneklenmiş.
 
 Bir örnek istek aşağıda gösterilmiştir.
 
@@ -87,7 +87,8 @@ Bir hata oluşursa, aşağıdaki durum kodları kullanılır. Hatanın yanıt g�
 |-|-|-|
 400 |Bozuk İstek |Gerekli parametre eksik, boş veya null. Veya, gerekli veya isteğe bağlı parametresi için geçirilen değer geçersiz. Çok uzun üstbilgi buna yaygın bir sorundur.
 401|Yetkilendirilmemiş |İstek yetkili değil. Abonelik anahtarınızı emin olun veya belirteç geçerli değil.
-413|İstek varlığı çok büyük|SSML'yi giriş metni, 1024 karakterden uzun.
+413|İstek varlığı çok büyük|Giriş SSML'yi çok büyük veya 3'den fazla içerdiği `<voice>` öğeleri.
+429|Çok Fazla İstek|Kota veya aboneliğiniz için izin isteği sayısını aştınız.
 |502|Hatalı Ağ Geçidi    | Ağ veya sunucu tarafı sorun. Geçersiz üst bilgileri de gösterebilir.
 
 Metni konuşma REST API'si hakkında daha fazla bilgi için bkz. [REST API'leri](rest-apis.md#text-to-speech).

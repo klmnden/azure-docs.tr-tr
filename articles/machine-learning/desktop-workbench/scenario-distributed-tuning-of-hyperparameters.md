@@ -11,14 +11,19 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 920b019640df9d2da174101e2b1b90dfd4da6f56
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ROBOTS: NOINDEX
+ms.openlocfilehash: f74889cdf727bc132723d16df295849769001ce9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578744"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951976"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Dağıtılmış bir şekilde ayarlama hiperparametreleri Azure Machine Learning Workbench'i kullanma
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Bu senaryoyu ayarlama hiperparametreleri scikit uygulayan machine learning algoritmalarının ölçeklendirmek için Azure Machine Learning Workbench'i kullanma işlemini gösterir-API öğrenin. Yapılandırma ve ayarlama hiperparametreleri için bir yürütme arka uç olarak uzak bir Docker kapsayıcısı ve Spark kümesi kullanma göstereceğiz.
 
@@ -38,7 +43,7 @@ Popüler teknik ayarlama hiperparametreleri, bir *kılavuz arama* birlikte *çap
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz denemeler kullanılabilir).
-* Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [yükleme ve oluşturma Hızlı Başlangıç](../service/quickstart-installation.md) Workbench'i yükleme ve hesapları oluşturun.
+* Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [yükleme ve oluşturma Hızlı Başlangıç](quickstart-installation.md) Workbench'i yükleme ve hesapları oluşturun.
 * Bu senaryo, Azure ML Workbench Windows 10 veya Mac OS x üzerinde yerel olarak yüklü Docker altyapısıyla çalıştığını varsayar. 
 * Senaryo ile uzak bir Docker kapsayıcısında çalıştırmak için Ubuntu veri bilimi sanal makinesi (DSVM) izleyerek sağlama [yönergeleri](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). En az 8 çekirdek ve bellek, 28 Gb ile bir sanal makine kullanmanızı öneririz. Sanal makine örneklerini D4 bu kapasiteye sahip. 
 * Bu senaryo bir Spark kümesi ile çalıştırmak için sağlama Spark HDInsight küme izleyerek [yönergeleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Hem üst hem de çalışan düğümleriniz aşağıdaki yapılandırma ile küme öneririz:

@@ -1,6 +1,6 @@
 ---
-title: Sık kullanılan otomatik ölçeklendirme desenlerini genel bakış
-description: Bazı ölçeği otomatik olarak ortak desenler kaynağınız Azure öğrenin.
+title: Ortak otomatik ölçeklendirme desenleri genel bakış
+description: Azure kaynağınıza otomatik olarak için ortak desenler öğrenin.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,57 +8,57 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 84727ec3694f64d40ad002a248a255df9074d7f4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c7084a10aceafcdd1039893b810fcbd8b74b874b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263272"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967413"
 ---
-# <a name="overview-of-common-autoscale-patterns"></a>Sık kullanılan otomatik ölçeklendirme desenlerini genel bakış
-Bu makalede Azure kaynağınız ölçeklendirmek için ortak desenler bazıları açıklanmaktadır.
+# <a name="overview-of-common-autoscale-patterns"></a>Ortak otomatik ölçeklendirme desenleri genel bakış
+Bu makalede, Azure'da kaynağınızı ölçeklendirmek için ortak desenler bazılarını açıklar.
 
-Azure İzleyici otomatik ölçek yalnızca sanal makine ölçek kümeleri (VMSS), bulut Hizmetleri, uygulama hizmeti planları ve app service ortamları için geçerlidir. 
+Azure İzleyici otomatik ölçeklendirme için yalnızca geçerlidir [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), ve [APIManagementHizmetleri](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
-# <a name="lets-get-started"></a>Sağlar kullanmaya başlama
+# <a name="lets-get-started"></a>Sağlar kullanmaya başlayın
 
-Bu makalede, otomatik ölçekli bilgi sahibi olduğunuzu varsayar. Yapabilecekleriniz [kaynağınız ölçeklendirmek için buradan başlayın][1]. Ortak ölçek desenler bazıları şunlardır:
+Bu makalede, otomatik ölçeklendirme ile ilgili bilgi sahibi olduğunuz varsayılır. Yapabilecekleriniz [kaynağınızı ölçeklendirmek için buradan başlayın][1]. Ortak ölçek desenleri bazıları aşağıda verilmiştir.
 
 ## <a name="scale-based-on-cpu"></a>CPU üzerinde göre ölçeklendirin
 
-Bir web uygulaması (/ VMSS/bulut hizmeti rolü) sahip ve 
+Bir web uygulaması (/ VMSS/bulut hizmeti rolü) sahip ve
 
-- İstediğiniz ölçek genişletme/ölçek dayalı olarak CPU.
-- Ayrıca, en az bir örnek sayısı yoktur sağlamak istiyorsunuz. 
-- Ayrıca, için ölçeklendirebilirsiniz örnek sayısı maksimum bir sınır koymak sağlamak istiyorsunuz.
+- İstediğiniz ölçek dışı/ölçek dayalı olarak CPU.
+- Ayrıca, en az bir örnek sayısı olduğundan emin olmak istersiniz.
+- Ayrıca, örnek için ölçeklendirilebilir sayısı en fazla bir sınır koymak sağlamak istiyorsunuz.
 
 ![CPU üzerinde göre ölçeklendirin][2]
 
-## <a name="scale-differently-on-weekdays-vs-weekends"></a>Haftanın günü vs hafta sonu farklı ölçeklendirme
+## <a name="scale-differently-on-weekdays-vs-weekends"></a>Haftanın günlerini vs sonralı farklı ölçeklendirme
 
 Bir web uygulaması (/ VMSS/bulut hizmeti rolü) sahip ve
 
-- Varsayılan olarak (günlerinde) 3 örneklerinin istediğiniz
-- Hafta sonu trafiği beklemeyen ve hafta sonu aşağıya doğru 1 örneği ölçeklendirmek istiyorsanız bu nedenle.
+- Varsayılan olarak (hafta içi) 3 örnek istiyor
+- Hafta sonu trafiği beklemeyen ve bu nedenle sonralı 1 örnek aşağı ölçeklendirin istiyorsunuz.
 
-![Haftanın günü vs hafta sonu farklı ölçeklendirme][3]
+![Haftanın günlerini vs sonralı farklı ölçeklendirme][3]
 
-## <a name="scale-differently-during-holidays"></a>Farklı tatilleri ölçeklendirme
+## <a name="scale-differently-during-holidays"></a>Farklı tatilleri ölçeklendirin
 
-Bir web uygulaması (/ VMSS/bulut hizmeti rolü) sahip ve 
+Bir web uygulaması (/ VMSS/bulut hizmeti rolü) sahip ve
 
-- Varsayılan olarak CPU kullanımı dikkate alarak yukarı/aşağı ölçeklendirmek istediğiniz
-- Ancak, tatilde (veya işletmeniz için önemli olan belirli gün) sırasında varsayılanlarını geçersiz kıl ve daha fazla kapasite elinizin ister.
+- Varsayılan olarak CPU kullanımına göre ölçeğini artırmanızı/azaltmanızı istiyorsunuz
+- Ancak, mağazalarımızdaki ürünler (ya da işletmeniz için önemli olan, belirli gün) boyunca Varsayılanları geçersiz kılmak ve elinizin daha fazla kapasiteye sahip olmak istiyorsanız.
 
 ![Ölçek farklı üzerinde tatiller][4]
 
-## <a name="scale-based-on-custom-metric"></a>Özel bir ölçü göre ölçeklendirin
+## <a name="scale-based-on-custom-metric"></a>Özel bir ölçüme göre ölçeklendirin
 
-Bir web ön uç ve arka uç ile iletişim kuran bir API katmanı vardır. 
+Bir web ön uç ve arka ucunuzla iletişim kuran bir API katmanı vardır.
 
-- Özel olaylar ön uçtaki temel API katmanı istediğiniz (örnek: alışveriş sepeti öğelerinin sayısına dayalı olarak kullanıma alma işleminizi ölçeklendirmek istediğiniz)
+- Ön uç özel olaylar göre API katmanı ölçeklendirmek istediğiniz (örnek: kullanıma alma işleminizi, öğelerin alışveriş sepetine göre ölçeklendirmek istediğiniz)
 
-![Özel bir ölçü göre ölçeklendirin][5]
+![Özel bir ölçüme göre ölçeklendirin][5]
 
 <!--Reference-->
 [1]: ./monitoring-autoscale-get-started.md

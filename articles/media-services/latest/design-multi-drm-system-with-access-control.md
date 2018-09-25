@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: willzhan;juliako
-ms.openlocfilehash: 3a33c4b157ded3162919494d27488285e52fdd3b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 724d9779293a520cf843013d096f8a99f6b06c0f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531847"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952143"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Erişim denetimi ile birden çok DRM içerik koruma sisteminin tasarımı 
 
@@ -72,7 +72,7 @@ Bu bölümde uygulamak için kullanılan teknolojiler için belirsiz bir başvur
 
 DRM alt aşağıdaki bileşenleri içerir:
 
-* Anahtar Yönetimi
+* Anahtar yönetimi
 * DRM şifreleme paketleme
 * DRM lisansı verme
 * Yetkilendirme onay/erişim denetimi
@@ -303,9 +303,9 @@ Ne anahtar geçişi, Azure AD, bir JWT oluşturduktan sonra ancak JWT DRM lisans
 Birden fazla geçerli ortak anahtar, her zaman bir anahtar herhangi bir anda alınabilir olduğundan, Federasyon meta veri belgesi içinde kullanılabilir. Media Services lisans teslimat belgede belirtilen anahtarları dilediğinizi kullanabilirsiniz. Bir anahtarı olan en kısa sürede alınması çünkü başka değişimi olması ve VS.
 
 ### <a name="where-is-the-access-token"></a>Erişim belirteci nerede?
-Bir web uygulaması bir API uygulaması altında çağırması sırasında baktığınızda [uygulama kimliği ile OAuth 2.0 istemci kimlik bilgileri verme](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), kimlik doğrulaması akışı aşağıdaki gibidir:
+Bir web uygulaması bir API uygulaması altında çağırması sırasında baktığınızda [uygulama kimliği ile OAuth 2.0 istemci kimlik bilgileri verme](../../active-directory/develop/web-api.md), kimlik doğrulaması akışı aşağıdaki gibidir:
 
-* Bir web uygulamasında Azure ad oturum açtığında. Daha fazla bilgi için [web uygulamasına Web tarayıcısı](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
+* Bir web uygulamasında Azure ad oturum açtığında. Daha fazla bilgi için [web uygulamasına Web tarayıcısı](../../active-directory/develop/web-app.md).
 * Azure AD yetkilendirme uç noktası kullanıcı aracısının istemci uygulamaya bir yetkilendirme kodu ile yeniden yönlendirir. Kullanıcı Aracısı istemci uygulamanın yeniden yönlendirme URI'si bir yetkilendirme kodu döndürür.
 * Web API'si için kimlik doğrulaması yapmak ve almak istediğiniz kaynak bir erişim belirteci almak web uygulaması gerekir. Azure AD belirteç uç noktasına bir istek gönderir ve kimlik bilgisi, istemci Kimliğini ve web API'SİNİN uygulama kimliği URI'si sağlar. Bu, kullanıcı onaylı olduğunu kanıtlamak için yetkilendirme kodu gösterir.
 * Azure AD uygulama ve web API'sini çağırmak için kullanılan bir JWT erişim belirtecini döndürür.

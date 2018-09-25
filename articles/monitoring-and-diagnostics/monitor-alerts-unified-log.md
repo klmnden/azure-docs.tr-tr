@@ -8,33 +8,31 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd1fb978fb47c69b2eb672bc27baee73dfdd0a29
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2e2db54f4c356a754144e17b11cf25fdf3f12d9f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056026"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994012"
 ---
-# <a name="log-alerts-in-azure-monitor---alerts"></a>Azure İzleyici - uyarılar günlük uyarıları 
-Bu makalede, günlük uyarı ayrıntıları, bir yeni içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](monitoring-overview-unified-alerts.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
+# <a name="log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları
+Bu makalede, günlük uyarı ayrıntıları, bir içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](monitoring-overview-unified-alerts.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
 
+Günlük araması kuralları için oluşturulan günlük uyarı oluşur [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Kullanımı hakkında daha fazla bilgi için bkz. [Azure'da günlüğü uyarıları oluşturma](alert-log.md)
 
-Günlük araması kuralları için oluşturulan günlük uyarı oluşur [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Günlük uyarıları kullanılabilir fiyatlandırma ayrıntıları [Azure İzleyici fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor/) sayfası. Azure faturaları günlük uyarıları tür olarak temsil edilir `microsoft.insights/scheduledqueryrules` ile:
-- Kaynak grubu ve uyarı özellikleri ile birlikte tam uyarı adı ile gösterilen Application ınsights günlük uyarıları
-- Günlük uyarıları Log Analytics ile uyarı adı gösterilen üzerinde `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` yanı sıra kaynak grubu ve uyarı özellikleri
+> [!NOTE]
+> Popüler günlük verilerini [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) şimdi de Azure İzleyici ölçüm platformda kullanılabilir. Ayrıntılar görünümü için [günlükleri için ölçüm Uyarısı](monitoring-metric-alerts-logs.md)
 
-    > [!NOTE]
-    > Tüm kayıtlı aramalar, çizelgeler ve günlük analizi API'si ile oluşturulan eylem adını, küçük olmalıdır. Geçersiz gibi karakterler varsa `<, >, %, &, \, ?, /` olan kullanılan - bunlar ile değiştirilecek `_` , faturada.
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Günlük araması uyarı kuralı - tanım ve türleri
 
 Belirtilen günlük sorgularını düzenli aralıklarla otomatik olarak çalıştırmak için, Azure Uyarıları tarafından günlük arama kuralları oluşturulur.  Günlük sorgusunun sonuçları belirli ölçütlerle eşleşiyorsa bir uyarı kaydı oluşturulur. Ardından kural, [Eylem Grupları](monitoring-action-groups.md)'nı kullanıp bir veya birden çok eylemi otomatik olarak çalıştırabilir. 
 
 Günlük arama kuralları aşağıdaki ayrıntıları tarafından tanımlanır:
-- **Oturum sorgu**.  Uyarı kural her çalıştığında sorgu tetikler.  Bu sorgu tarafından döndürülen kayıtları, bir uyarı oluşturulup oluşturulmayacağını belirlemek için kullanılır. *Azure Application Insights* sorgu de bulunabilir [çapraz uygulama çağrıları](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), sağlanan kullanıcının dış uygulama için erişim haklarına sahip. 
+- **Oturum sorgu**.  Uyarı kural her çalıştığında sorgu tetikler.  Bu sorgu tarafından döndürülen kayıtları, bir uyarı oluşturulup oluşturulmayacağını belirlemek için kullanılır. Analiz sorgusu de bulunabilir [çapraz uygulama çağrıları](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), [çalışma alanı çağrıları, platformlar arası ve [kaynaklar arası aramalar](../log-analytics/log-analytics-cross-workspace-search.md) sağlanan kullanıcının dış uygulama için erişim haklarına sahip. 
 
     > [!IMPORTANT]
-    > Destek, [uygulama sorgu Application Insights için platformlar arası](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) önizlemede - işlevselliği sınırlı 2 veya daha fazla uygulamaları ile kullanma ve kullanıcı deneyimi değiştirilebilir ise. Kullanımını [çalışma sorgu çapraz](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) ve [Log Analytics için kaynaklar arası sorgu](../log-analytics/log-analytics-cross-workspace-search.md) şu anda **desteklenmiyor** Azure Uyarıları'nda.
+    > Kullanıcı olmalıdır [Azure izleme katılımcı](monitoring-roles-permissions-security.md) rol oluşturma, değiştirme ve güncelleştirme birlikte erişim; Azure İzleyici'de günlük uyarıları & Sorgu analytics hedefleri uyarı kuralı ya da uyarı sorgusu yürütme hakları. Kullanıcı oluşturma uyarı kuralı ya da uyarı sorgusu - tüm analytics hedeflere erişiminiz yoksa, kural oluşturma işlemi başarısız olabilir veya günlük uyarı kuralı ile kısmi sonuçlar yürütülür.
 
 - **Dönem**.  Sorgu için zaman aralığını belirtir. Sorgu yalnızca bu geçerli zaman aralığı içinde oluşturulmuş olan kayıtları döndürür. Süre kötüye kullanımı önlemek günlük sorgusu için alınan verileri sınırlar ve hiçbir zaman komut bozar (önce ister) günlük sorguda kullanılan. <br>*Örneğin, zaman aralığı 60 dakika olarak ayarlanmıştır ve sorguyu, 13: 15'te çalıştırmak, 12:15 PM arasında 13: 15'te oluşturulan kayıtları döndürülür günlük sorgusu yürütülemedi. Günlük sorgusu komutu gibi önce zaman kullanıyorsa, şimdi (7 g), günlük sorgusu çalıştırılması yalnızca 1:15 PM - 12:15 PM arasında verileri için veri yalnızca son 60 dakika için varmış gibi. Yedi günün verilerini günlük sorgusu belirtildiği için değil.*
 - **Sıklık**.  Sorgunun ne sıklıkta çalıştırılması gerektiğini belirtir. Herhangi bir değer 5 dakika ile 24 saat arasında olabilir. Eşittir veya süre değerinden küçük olmalıdır.  Değer süre büyük ise, eksik kayıtları riski oluşur.<br>*Örneğin, 30 dakikalık bir süre ve 60 dakikalık bir sıklık göz önünde bulundurun.  Sorgu 1: 00'da çalışıyorsa, 12:30 ve 1:00 arasında kayıtları döndürür.  Sorgu çalıştıracağınız sonraki 2:00 kayıtlar 1:30 ve 2:00 arasında zaman döndürecekti zamandır.  1:30 ile 1:00 arasında oluşturulan kayıtları hiç hesaplanmadı.*
@@ -59,7 +57,7 @@ Tek bir olay üzerine uyarmak için sonuç sayısı 0'dan daha büyük bir değe
 
 Bazı durumlarda, bir olayın olmaması durumunda bir uyarı oluşturmak isteyebilirsiniz.  Örneğin, bir işlemin düzgün çalıştığını göstermek için normal olaylarla oturum açabilir.  Bu olaylardan biri belirli bir süre içinde oturumu değil, bir uyarı oluşturulmalıdır.  Bu durumda, eşiği ayarlamalısınız **1'den az**.
 
-#### <a name="example"></a>Örnek
+#### <a name="example-of-number-of-records-type-log-alert"></a>Sayı, kayıt türü günlük uyarı örneği
 İstediğiniz zaman web tabanlı uygulama kullanıcılarına kod 500 yanıt verir bilmek bir senaryo düşünün (yani) iç sunucu hatası. Bir uyarı kuralı aşağıdaki ayrıntılarla oluşturacak:  
 - **Sorgu:** istekleri | burada resultCode "500" ==<br>
 - **Zaman aralığı:** 30 dakika<br>
@@ -80,11 +78,11 @@ Uyarı her 5 dakikada bir, sonuç kodu 500 olduğu kayıtlar için aramak için 
 - **Aralığı**: üzerinde verileri toplanır zaman aralığını tanımlar.  Örneğin, belirttiğiniz **beş dakika**, bir kayıt için uyarı belirtilen süre boyunca 5 dakikalık aralıklarla toplanan grup alanının her örneği için oluşturulması.
 
     > [!NOTE]
-    > Depo işlev sorgusunda aralığını belirtmek için kullanılmalıdır. Eşit zaman aralıkları - bin() oluşturacağından uyarı otomatik olarak depo komut bin_at komutuyla uygun zamanda çalışma zamanı, sabit bir nokta sonuçlar sağlamak için dönüştürülecektir
+    > Depo işlev sorgusunda aralığını belirtmek için kullanılmalıdır. Eşit zaman aralıkları - bin() oluşturacağından uyarı otomatik olarak depo komut çalışma zamanı, uygun zamanda bin_at komutuyla sabit bir nokta sonuçlar sağlamak için dönüştürülecektir. Ölçüm ölçüsü günlük uyarı türünü tekil bin() komutu sorgularla çalışmak için tasarlanmıştır
     
 - **Eşik**: ölçüm ölçüsü uyarı kuralları için eşik ihlallerinin sayısı ve toplam değer ile tanımlanır.  Günlük araması'nda herhangi bir veri noktasının bu değeri aşarsa, bir ihlal dikkate almıştır.  Ardından ihlalleriyle sonuçları herhangi bir nesne sayısı belirtilen değeri aşarsa, bu nesne için bir uyarı oluşturulur.
 
-#### <a name="example"></a>Örnek
+#### <a name="example-of-metric-measurement-type-log-alert"></a>Ölçüm ölçüsü türü günlük uyarı örneği
 Burada herhangi bir bilgisayarda, % 90'ın işlemci kullanımı üç kez tekrar 30 dakika aşılırsa bir uyarı istiyordu bir senaryo düşünün.  Bir uyarı kuralı aşağıdaki ayrıntılarla oluşturacak:  
 
 - **Sorgu:** Perf | burada ObjectName "İşlemci" ve CounterName == "% işlemci zamanı" == | Summarize aggregatedvalue = avg(CounterValue) bin (TimeGenerated, 5 milyon), bilgisayar tarafından<br>
@@ -97,45 +95,31 @@ Sorguyu 5 dakikalık aralıklarla her bilgisayar için ortalama bir değer oluş
 
 ![Örnek sorgu sonuçları](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
 
-Bunlar zaman diliminde 3 kez % 90 eşiğini ihlal olduğundan bu örnekte, ayrı uyarılar srv02 srv03 için oluşturulmuş olması.  Varsa **bağlı olarak uyarıyı Tetikle:** üzere değiştirilmiştir **art arda** sonra üç ardışık örnekler eşiği ihlal olduğundan bir uyarı yalnızca srv03 için oluşturulacak.
+Bunlar üç kez zaman aralığında toplanan % 90 eşiğini ihlal olduğundan bu örnekte, ayrı uyarılar srv02 srv03 için oluşturulmuş olması.  Varsa **bağlı olarak uyarıyı Tetikle:** üzere değiştirilmiştir **art arda** sonra üç ardışık örnekler eşiği ihlal olduğundan bir uyarı yalnızca srv03 için oluşturulacak.
+
+## <a name="log-search-alert-rule---firing-and-state"></a>Günlük araması uyarı kuralı - Açmadığınızda ve durumu
+Günlük araması uyarı kuralı yapılandırması ve kullanılan özel bir analytics sorgusunu göre kullanıcı tarafından predicated mantığı üzerinde çalışır. Tam bir koşul veya neden neden uyarı kuralı gereken mantığını itibaren tetikleyici her günlük uyarı kuralı değişebilir bir Analytics sorgusunun içinde-kapsüllenir. Azure uyarıları günlük araması uyarı kuralı eşiğini koşulu karşılanmadığından veya aşıldığından olduğunda belirli temel alınan kök neden günlük sonuçları içinde önemli bilgileri içeriyor. Bu nedenle, günlük uyarıları için olarak durumu olmadan verilir ve günlük arama sonucunu günlük uyarıları içinde belirtilen eşiği aşması yeterli her kullanıldığında harekete *sonuç sayısı* veya *ölçüm ölçüsü* türü koşulu. Ve tarafından sağlanan özel analytics sorgusu sonucunu Uyarı koşulu karşılandı sürece uyarı kuralları sürekli tetikleme tutmak, oturum; uyarı olmadan her çözülmüş. Kullanıcı tarafından sağlanan analytics sorgusunun içindeki nedeninin tam kök-hata izleme mantığını maskelenmiş; yaratacağı eşiği karşılamayan günlük arama sonucunu sorunun çözüm gösterip göstermeyeceğini anlaşılmasını Azure uyarıları hiçbir anlamı yoktur.
+
+Artık olarak adlandırılan bir günlük uyarı kuralı sahibiz varsayar *Contoso günlüğü Uyarısı*, başına yapılandırma gibi [sonuçlarını numarası türü günlüğü uyarısı için sağlanan örneği](#example-of-number-of-records-type-log-alert). 
+- Saat 13:05 Contoso günlüğü uyarısı göre Azure uyarıları ne zaman yürütülmesi'te, 0 kaydı günlük arama sonucunu veriyor; eşiğini ve uyarı tetikleme değil dolayısıyla aşağıda. 
+- 1:10 PM Contoso günlüğü uyarısı göre Azure uyarıları ne zaman yürütülmesi sırasında bir sonraki yinelemede, günlük arama sonucunu 5 kaydı sağlanan; Eşiği aşan ve tetikleyerek hemen sonra uyarı tetikleme [eylem grubu](monitoring-action-groups.md) ilişkili. 
+- 1: saat 15 Contoso günlüğü uyarısı göre Azure uyarıları ne zaman yürütülmesi'te, günlük arama sonucunu 2 kayıtları sağlanan; Eşiği aşan ve tetikleyerek hemen sonra uyarı tetikleme [eylem grubu](monitoring-action-groups.md) ilişkili.
+- Artık 1:20 PM Contoso günlüğü uyarısı Azure uyarı tarafından ne zaman yürütülmesi sırasında bir sonraki yinelemede, günlük arama sonucunu tekrar 0 kaydı sağlanan; eşiğini ve uyarı tetikleme değil dolayısıyla aşağıda.
+
+Ancak, yukarıda listelenen durumda da, 13: 15'te - Azure uyarıları 1: 10'da görüldüğü temel sorunların kalıcı olduğunu ve net yeni hatalar olup olmadığını belirleyemiyor. kullanıcı tarafından sağlanan sorgu hesaba önceki kayıt - katılarak olarak Azure uyarılarına emin olabilirsiniz. Bu nedenle dikkatli kenarındaki hata için Contoso günlüğü uyarısı yeniden saat 13: 15'te tetiklenir aracılığıyla yapılandırılan [eylem grubu](monitoring-action-groups.md). Artık saat 13:20, kayıt görülen - Azure uyarıları emin olamaz'te kayıtları nedenini çözümlendikten; Bu nedenle Contoso günlük uyarı çözümlendi olarak Azure uyarı Pano ve/veya göz uyarının çözümleme belirten gönderilen bildirimleri değişmemiş olur.
 
 
-## <a name="log-search-alert-rule---creation-and-modification"></a>Günlük araması uyarı kuralı - oluşturma ve değiştirme
+## <a name="pricing-and-billing-of-log-alerts"></a>Fiyatlandırma ve faturalama günlük uyarıları
+Günlük uyarıları fiyatlandırması geçerli belirtildikten adresindeki [Azure İzleyici fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor/) sayfası. Azure faturaları günlük uyarıları tür olarak temsil edilir `microsoft.insights/scheduledqueryrules` ile:
+- Kaynak grubu ve uyarı özellikleri ile birlikte tam uyarı adı ile gösterilen Application ınsights günlük uyarıları
+- Günlük uyarıları Log Analytics ile uyarı adı gösterilen üzerinde `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` yanı sıra kaynak grubu ve uyarı özellikleri
 
-Günlüğü uyarısı ve bunun yanı sıra kendi consisting günlük araması uyarı kuralı görüntülenebilir, oluşturulan veya gelen değiştiren:
-- Azure portal
-- REST API (PowerShell dahil)
-- Azure Resource Manager şablonları
-
-### <a name="azure-portal"></a>Azure portal
-Sunulmasından beri [yeni Azure uyarıları](monitoring-overview-unified-alerts.md)artık kullanıcılar tek bir konumdan ile kullanım için benzer adımları her tür uyarılar Azure portalında yönetebilir. Daha fazla bilgi edinin [yeni Azure Uyarıları'nı kullanarak](monitor-alerts-unified-usage.md).
-
-Kullanıcılar ayrıca, azure'da tercih ettiğiniz bir analiz platformuyla sorgularında mükemmel ve ardından *kullanın Uyarılardaki için sorgu kaydederek aktarın*. İzlemeniz gereken adımlar:
-- *Application ınsights*: Go için Analytics portalı, sorgu ve sonuçları doğrulayın. Benzersiz bir ad ile kaydedin *paylaşılan sorgular*.
-- *Log Analytics için*: Go için günlük araması'nı tıklatın, sorgu ve sonuçları doğrulayın. Ardından, herhangi bir kategori benzersiz bir adla kaydedin.
-
-Sonra ne zaman [uyarıları günlük uyarısı oluşturma ](monitor-alerts-unified-usage.md), sinyal türü olarak listelenen kaydedilmiş sorgu gördüğünüz **günlük (kayıtlı sorgu)**; aşağıdaki örnekte gösterildiği: ![uyarıları içe sorgu kaydedildi](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
-
-> [!NOTE]
-> Kullanarak **günlük (kayıtlı sorgu)** uyarılarını alma işleminde sonuçlanır. Bu nedenle Analytics'te sonra yapılan değişiklikler günlük araması uyarı kuralları ve tersi yansıtıcı olmayacaktır.
-
-### <a name="rest-apis"></a>REST API'leri
-Günlük uyarıları RESTful olan ve Azure Resource Manager REST API aracılığıyla erişilebilen olması için API'ler sağlanmıştır. Bu nedenle de diğer seçenekler API'lerden yararlanarak PowerShell erişilebilir.
-
-Lütfen REST API'sini kullanarak örnekler yanı sıra ayrıntılar başvurmak için:
-- [Analytics uyarı REST API oturum](../log-analytics/log-analytics-api-alerts.md) - oluşturma ve Azure Log Analytics için günlük araması uyarı kuralları yönetme
-- [Azure İzleyici zamanlanmış sorgu kuralları REST API'si](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) - oluşturma ve günlük araması uyarı kuralları için Azure Application ınsights'ı yönetme
-
-### <a name="azure-resource-manager-template"></a>Azure Resource Manager Şablonu
-Kullanıcı tarafından sağlanan esneklik de kullanabilir [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) oluşturma veya güncelleştirme günlük uyarıları için kaynaklar - oluşturmak için.
-
-Resource Manager şablonları, lütfen kullanma örnekleri yanı sıra ayrıntılar başvurmak için:
-- [Kaydedilen arama ve uyarılar Yönetim](monitor-alerts-unified-log-template.md#managing-log-alert-on-log-analytics) Azure Log Analytics temelinde göre günlük uyarıları için
-- [Zamanlanmış sorgu kuralını](monitor-alerts-unified-log-template.md#managing-log-alert-on-application-insights) Azure Application Insights tabanlı günlük uyarıları için
- 
+    > [!NOTE]
+    > Tüm kayıtlı aramalar, çizelgeler ve günlük analizi API'si ile oluşturulan eylem adını, küçük olmalıdır. Geçersiz gibi karakterler varsa `<, >, %, &, \, ?, /` olan kullanılan - bunlar ile değiştirilecek `_` , faturada.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+* Hakkında bilgi edinin [azure'da günlüğü uyarıları oluşturma](alert-log.md).
 * Anlamak [günlük uyarıları azure'da Web kancalarıyla](monitor-alerts-unified-log-webhook.md).
-* Yeni hakkında bilgi edinin [Azure uyarıları](monitoring-overview-unified-alerts.md).
+* Hakkında bilgi edinin [Azure uyarıları](monitoring-overview-unified-alerts.md).
 * Daha fazla bilgi edinin [Application Insights](../application-insights/app-insights-analytics.md).
 * Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-overview.md).    

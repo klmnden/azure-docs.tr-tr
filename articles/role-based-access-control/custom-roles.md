@@ -15,12 +15,12 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 002eb9b70c2f3f9d0f6633b2d81425c688495d19
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 26f696c2f54d9cb8a176fe079101e26384ac0a6e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714062"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034459"
 ---
 # <a name="custom-roles-in-azure"></a>Azure'da özel roller
 
@@ -100,7 +100,7 @@ Aşağıdaki özel bir rol JSON biçiminde gösterilen gibi göründüğünü g�
 | `NotActions` | Hayır | String[] | Hariç tutulan yönetim işlemleri belirten bir dize dizisi izin verilen gelen `Actions`. Daha fazla bilgi için [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Hayır | String[] | Bu nesnenin içinde verilerinizin gerçekleştirilecek rolü sağlar veri işlemleri belirten bir dize dizisi. Daha fazla bilgi için [DataActions (Önizleme)](role-definitions.md#dataactions-preview). |
 | `NotDataActions` | Hayır | String[] | Hariç tutulan veri işlemleri belirten bir dize dizisi izin verilen gelen `DataActions`. Daha fazla bilgi için [NotDataActions (Önizleme)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | Evet | String[] | Özel rol atama için kullanılabilir olduğunu kapsamları belirten bir dize dizisi. Şu anda kök kapsamı ayarlanamaz (`"/"`) veya bir yönetim grubu kapsamı. Daha fazla bilgi için [AssignableScopes](role-definitions.md#assignablescopes) ve [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../azure-resource-manager/management-groups-overview.md#custom-rbac-role-definition-and-assignment). |
+| `AssignableScopes` | Evet | String[] | Özel rol atama için kullanılabilir olduğunu kapsamları belirten bir dize dizisi. Şu anda kök kapsamı ayarlanamaz (`"/"`) veya bir yönetim grubu kapsamı. Daha fazla bilgi için [AssignableScopes](role-definitions.md#assignablescopes) ve [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Kimlerin oluşturma, silme, güncelleştirme veya özel bir rol görüntülemek
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 ile bir Linux VM'ye bağlantı noktalarını açın | Microsoft Docs
-description: Bir uç nokta için Azure resource manager dağıtım modelini ve Azure CLI 2.0 kullanarak Linux VM oluşturma / bir bağlantı noktası açma hakkında bilgi edinin
+title: Azure CLI ile Linux VM'ye bağlantı noktalarını açın | Microsoft Docs
+description: Bir uç nokta için Azure resource manager dağıtım modelini ve Azure CLI kullanarak Linux VM oluşturma / bir bağlantı noktası açma hakkında bilgi edinin
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 7125523b051441a2547560ff3af650ccd91f07a0
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 4244520fa30fece53e1d01e50044cfeca496066c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928898"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973346"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Açık bağlantı noktaları ve Azure CLI ile Linux VM uç noktaları
-Bağlantı noktası açma veya bir alt ağ veya VM ağ arabirimi bir ağ filtresi oluşturarak Azure'da sanal makine (VM) için bir uç nokta oluşturma. Trafiği alan kaynağına bağlı bir ağ güvenlik grubu gelen ve giden trafiği denetlemek, bu filtreler yerleştirin. Yaygın olarak karşılaşılan örneklerden web trafiği 80 numaralı bağlantı noktasında kullanalım. Bu makalede, Azure CLI 2.0 ile bir VM için bağlantı noktası açma işlemini göstermektedir. 
 
-Bir ağ güvenlik grubu ve en son ihtiyacınız olan kuralların oluşturulacağını [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
+Bağlantı noktası açma veya bir alt ağ veya VM ağ arabirimi bir ağ filtresi oluşturarak Azure'da sanal makine (VM) için bir uç nokta oluşturma. Trafiği alan kaynağına bağlı bir ağ güvenlik grubu gelen ve giden trafiği denetlemek, bu filtreler yerleştirin. Yaygın olarak karşılaşılan örneklerden web trafiği 80 numaralı bağlantı noktasında kullanalım. Bu makalede, Azure CLI ile bir VM için bağlantı noktası açma işlemini göstermektedir. 
+
+
+Bir ağ güvenlik grubu ve en son ihtiyacınız olan kuralların oluşturulacağını [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *Vm2*, ve *myVnet*.
 

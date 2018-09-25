@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/23/2018
+ms.date: 09/22/2018
 ms.author: bsiva
-ms.openlocfilehash: 6e5946f3f9dcf1c7d941054c844adcf683b485ab
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d15a5b62a148e971c0740f01744fce308e502340
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308652"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056045"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Azure'da Windows Server 2008 çalıştıran sunucularının geçirme
 
@@ -59,14 +59,11 @@ Bu öğreticinin geri kalanını nasıl şirket içi VMware sanal makinelerini v
 
 ## <a name="limitations-and-known-issues"></a>Sınırlamalar ve bilinen sorunlar
 
-- Yapılandırma sunucusu, ek işlem sunucularının ve mobility hizmetini Windows Server 2008 SP2 sunucularını geçirmek için kullanılan Azure Site kurtarma yazılımının 9.18.0.1 sürümünü çalıştırmalıdır. Sürüm 9.18.0.1 yapılandırma sunucusu ve işlem sunucusu için birleşik Kurulumu indirilebileceğini [ https://aka.ms/asr-w2k8-migration-setup ](https://aka.ms/asr-w2k8-migration-setup).
-
-- Bir mevcut yapılandırma sunucusu veya işlem sunucusu, Windows Server 2008 SP2 çalıştıran sunucuları geçirmek için kullanılamaz. Yeni bir yapılandırma sunucusu, Azure Site kurtarma yazılımının 9.18.0.1 sürümü ile sağlanmalıdır. Bu yapılandırma sunucusu, yalnızca Windows sunucularının azure'a geçiş için kullanılmalıdır.
+- Yapılandırma sunucusu, ek işlem sunucularının ve Windows Server 2008 SP2 sunucularını geçirmek için kullanılan mobility hizmetinin sürümü 9.19.0.0 çalıştırılması gerektiği veya Azure Site kurtarma yazılımının sonraki bir sürümü.
 
 - Windows Server 2008 SP2 çalıştıran sunucuların çoğaltma için uygulama tutarlı kurtarma noktalarına ve çoklu VM tutarlılığı özelliği desteklenmez. Bir kilitlenme tutarlı bir kurtarma noktası için Windows Server 2008 SP2 sunucuları geçirilmelidir. Kilitlenme tutarlı kurtarma noktalarına her 5 dakikada bir, varsayılan olarak oluşturulur. Yapılandırılmış uygulama tutarlı anlık görüntü sıklığı ile bir çoğaltma İlkesi'ni kullanarak uygulama tutarlı kurtarma noktalarına eksikliği nedeniyle kritik etkinleştirmek çoğaltma durumu neden olur. Hatalı pozitif sonuçlardan kaçınmak için uygulamayla tutarlı anlık görüntü sıklığı "Kapalı" çoğaltma ilkesi ayarlayın.
 
 - Geçirilmekte olan sunucuların, .NET Framework 3.5 Service Pack çalışmak için 1 mobility hizmeti için sahip olması gerekir.
-
 
 - Dinamik disk sunucunuz varsa, bu diskleri bazı yapılandırmalarda, karşılaşabilirsiniz başarısız sunucusu çevrimdışı ya da gösterilmesini yabancı diskler olarak işaretlenmiş. Ayrıca dinamik diskler arasında yansıtılmış birimler için yansıtılmış kümesi durum, "yedekleme başarısız oldu" olarak işaretlenmiş fark edebilirsiniz. El ile bu diskleri alma ve bunları yeniden etkinleştirme diskmgmt.msc bu sorunu düzeltebilirsiniz.
 
@@ -109,48 +106,8 @@ Yeni kasa, **Pano**’da **Tüm kaynaklar** bölümüne ve ana **Kurtarma Hizmet
 
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>Şirket içi ortamınızı geçiş için hazırlama
 
-- Yapılandırma sunucusunu (Birleşik kurulum) Yükleyici indirin [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)
-- Önceki adımda yüklenen Installer dosyası kullanarak kaynak ortamı ayarlamak için aşağıda açıklanan adımları izleyin.
-
-> [!IMPORTANT]
-> - Yükleme ve yapılandırma sunucusunu kaydetmek için yukarıdaki ilk adımında indirilen kurulum dosyasına kullandığınızdan emin olun. Azure portalından kurulum dosyasını karşıdan yüklemeyin. Kullanılabilir kurulum dosyasını [ https://aka.ms/asr-w2k8-migration-setup ](https://aka.ms/asr-w2k8-migration-setup) Windows Server 2008 geçişi destekler yalnızca sürümüdür.
->
-> - Var olan bir yapılandırma sunucusu, Windows Server 2008 çalıştıran makineleri geçirmek için kullanamazsınız. Yukarıda sağlanan bağlantıyı kullanarak yeni bir yapılandırma sunucusu gerekir.
->
-> - Yapılandırma sunucusunu yüklemek için aşağıda verilen adımları izleyin. Birleşik Kurulumu çalıştırarak doğrudan GUI tabanlı yükleme yordamı kullanmaya çalışmayın. Bunun yapılması bir yanlış internet bağlantısı olmayan olduğunu belirten hata ile başarısız yükleme denemesi neden olur.
-
- 
-1) Portaldan kasa kimlik bilgileri dosyası indirin: Azure portalında, önceki adımda oluşturduğunuz kurtarma Hizmetleri kasasını seçin. Kasası sayfasında menüsünden seçin **Site Recovery altyapısı** > **Configuration Servers**. Ardından **+ sunucusu**. Seçin *fiziksel için yapılandırma sunucusu* açılır sayfasındaki formu açılır. Adım 4 kasa kimlik bilgileri dosyası indirmek için indir düğmesine tıklayın.
-
- ![Kasa kayıt anahtarını indir](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
-
-2) Kasa kimlik bilgileri dosyası, önceki adımda ve birleşik kurulum dosyasını karşıdan kopyalama daha önce indirdiğiniz masaüstüne yapılandırması sunucu makinesinin (Windows Server 2012 R2 veya Windows Server 2016 makine üzerinde seçeceğiz yüklemek için yapılandırma sunucusu yazılım.)
-
-3) Yapılandırma sunucusunu internet bağlantısı olduğundan ve bu makinedeki saat dilimi ayarları ve sistem saati doğru yapılandırıldığından emin olun. İndirme [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) yükleyici ve üzerine yerleştirin *C:\Temp\ASRSetup* (dizin yoksa oluşturun.) 
-
-4) Aşağıdaki satırları içeren bir MySQL kimlik bilgileri dosyası oluşturun ve masaüstünde Yerleştir **C:\Users\Administrator\MySQLCreds.txt** . Değiştir "parola ~ 1" altında uygun ve güçlü bir parola ile:
-
-```
-[MySQLCredentials]
-MySQLRootPassword = "Password~1"
-MySQLUserPassword = "Password~1"
-```
-
-5) Aşağıdaki komutu çalıştırarak masaüstüne indirilen birleşik Kurulum dosyasının içeriğini ayıklayın:
-
-```
-cd C:\Users\Administrator\Desktop
-
-MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
-```
-  
-6) Ayıklanan içerikleri aşağıdaki komutları yürüterek kullanarak yapılandırma sunucusu yazılımı yükleyin:
-
-```
-cd C:\Users\Administrator\Desktop\9.18.1
-
-UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
-```
+- VMware üzerinde çalışan Windows Server 2008 sanal makineleri geçirmek için [şirket içi yapılandırma sunucusu VMware Kurulum](vmware-azure-tutorial.md#set-up-the-source-environment).
+- Yapılandırma sunucusunu bir VMware sanal makinesi olarak Kurulum yoksa [bir şirket içi fiziksel sunucu veya sanal makine yapılandırma sunucusunda Kurulum](physical-azure-disaster-recovery.md#set-up-the-source-environment).
 
 ## <a name="set-up-the-target-environment"></a>Hedef ortamı ayarlama
 

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: e92adc5dbd0da6ab4f60f8cc7bf6dbe7a58694c6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2eebc96b14ee0f06b3bd88ea565dfe9372aba1ff
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128427"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037823"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Windows kapsayıcıları ile kullanmak için Windows Azure IOT Edge çalışma zamanını yükleyin
 
@@ -109,6 +109,10 @@ Ve modüller ile çalışan listesi:
 ```powershell
 iotedge list
 ```
+
+## <a name="tips-and-suggestions"></a>İpuçları ve öneriler
+
+Ağınız proxy sunucusu varsa, adımları [bir proxy sunucu üzerinden iletişim kurmak için IOT Edge Cihazınızı yapılandırma](how-to-configure-proxy-support.md) yüklemek ve IOT Edge çalışma zamanı'nı başlatmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

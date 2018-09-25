@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 5fe292b92557b4786d638ac21c7adb1f50566feb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3edf49484e5bc05a297b8d8969632fb902aa1714
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651350"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953744"
 ---
 # <a name="split-column-by-example-transformation"></a>Örnek dönüştürme tarafından sütunu Böl
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Bu dönüşüm, kullanıcı girişi gerektirmeden bir sütunun anlamlı sınırlarındaki içeriğini predictively böler. Bölünmüş algoritması, sütunun içerik çözümledikten sonra sınırları seçer. Bu sınırları tarafından tanımlanan
 * Sabit bir sınırlayıcı
 * Birden çok, rastgele sınırlayıcılar bağlamı, özellikle görüntülenmesini veya
@@ -182,4 +187,4 @@ Bazı durumlarda, hiçbir gerçek sınırlayıcılar vardır ve veri alanların�
 
 ## <a name="technical-notes"></a>Teknik notlar
 
-Bölme dönüştürme özelliği dayanır **Tahmine dayalı Program sentezi** tekniği. Bu teknikte veri dönüştürme programları girdi verilerini göre otomatik olarak öğrenilen. Program bir etki alanına özgü dili oluşturulan. DSL sınırlayıcıları ve normal ifade bağlamları özellikle oluşan alanları temel alır. Bu teknoloji hakkında daha fazla bilgi bulunabilir bir [bu konuyla ilgili en son yayını](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 
+Bölme dönüştürme özelliği dayanır **Tahmine dayalı Program sentezi** tekniği. Bu teknikte veri dönüştürme programları girdi verilerini göre otomatik olarak öğrenilen. Program bir etki alanına özgü dili oluşturulan. DSL sınırlayıcıları ve normal ifade bağlamları özellikle oluşan alanları temel alır. Bu teknoloji hakkında daha fazla bilgi bulunabilir bir [bu konuyla ilgili en son yayını](https://www.microsoft.com/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 

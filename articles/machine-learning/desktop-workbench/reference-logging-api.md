@@ -11,16 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.openlocfilehash: 101c47f4916ca3fab56800eaf012c55150769302
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7084251102984445e7c2341b78b44f85811ebea7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651300"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958229"
 ---
 # <a name="logging-api-reference"></a>API Başvurusu günlüğe kaydetme
 
-Azure ML'ın günlük kitaplığı, Ölçümler ve daha sonraki analizler için geçmiş hizmet tarafından izlenen dosyaları göstermek program sağlar. Şu anda, Ölçümler ve dosyaları birkaç temel türleri desteklenir ve desteklenen türleri Python paketini gelecek yayınlarla büyüyecektir.
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+Azure ML'ın günlük kitaplığı, Ölçümler ve daha sonraki analizler için geçmiş hizmet tarafından izlenen dosyaları göstermek program sağlar. 
 
 ## <a name="uploading-metrics"></a>Ölçümler yükleniyor
 

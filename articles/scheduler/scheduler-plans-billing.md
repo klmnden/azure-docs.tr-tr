@@ -1,83 +1,87 @@
 ---
-title: Planlar ve faturalandırma Azure scheduler'da
-description: Planlar ve faturalandırma Azure scheduler'da
+title: Planlar ve faturalandırma - Azure Zamanlayıcı
+description: Planlar ve faturalandırma için Azure Zamanlayıcı hakkında bilgi edinin
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 03f335634b7ce1fe4aa6251d6ec21922ed9b84c8
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 74f13628b62d53a84b4d19255a30a6bc4a7367ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887496"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974298"
 ---
-# <a name="plans-and-billing-in-azure-scheduler"></a>Planlar ve faturalandırma Azure scheduler'da
+# <a name="plans-and-billing-for-azure-scheduler"></a>Planlar ve faturalandırma için Azure Zamanlayıcı
+
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) devre dışı bırakılıyor Azure Scheduler değiştiriyor. İşleri zamanlamak için [Azure Logic Apps'i deneyin](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
 ## <a name="job-collection-plans"></a>İş koleksiyonu planları
-İş, Faturalanabilir Azure Scheduler varlık koleksiyonlarıdır. İş koleksiyonları içeren iş sayısı ve aşağıda açıklanan üç planlara – standart, Premium P10 ve P20 Premium – gelir.
 
-| **İş koleksiyonu planı** | **En fazla iş koleksiyonu başına iş sayısı** | **En fazla yinelenme** | **Abonelik başına en fazla iş koleksiyonu** | **Limitler** |
+Azure Scheduler'da işleri belirli bir dizi iş koleksiyonu içerir. İş koleksiyonu, Faturalanabilir bir varlıktır ve burada açıklanan standart, Premium P10 ve P20 Premium planlarını içinde sunulur: 
+
+| İş koleksiyonu planı | Koleksiyon başına en fazla iş | En fazla yinelenme | Abonelik başına en fazla iş koleksiyonu | Sınırlar | 
 |:--- |:--- |:--- |:--- |:--- |
-| **Standart** |İş koleksiyonu başına 50 iş |Dakikada bir kez. İş bir dakikadan daha sık yürütülemiyor |Bir aboneliğin 100'e kadar standart iş koleksiyonu izin verilir |Zamanlayıcı tam özellik kümesi erişimi |
-| **P10 Premium** |İş koleksiyonu başına 50 iş |Dakikada bir kez. İş bir dakikadan daha sık yürütülemiyor |Bir abonelik en fazla 10.000 P10 Premium iş koleksiyonu izin verilir. <a href="mailto:wapteams@microsoft.com">Bizimle iletişime geçin</a> daha fazla bilgi için. |Zamanlayıcı tam özellik kümesi erişimi |
-| **P20 Premium** |İş koleksiyonu başına 1000 iş |Dakikada bir kez. İş bir dakikadan daha sık yürütülemiyor |Bir abonelik en fazla 10.000 P20 Premium iş koleksiyonu izin verilir. <a href="mailto:wapteams@microsoft.com">Bizimle iletişime geçin</a> daha fazla bilgi için. |Zamanlayıcı tam özellik kümesi erişimi |
-
-## <a name="upgrades-and-downgrades-of-job-collection-plans"></a>Yükseltme ve eski sürümü yükleme işlemleri iş koleksiyonu planı
-Yükseltme veya düşürme standart, Premium P10 ve P20 Premium planlar arasında dilediğiniz zaman bir iş koleksiyonu planı.
-
-## <a name="billing-and-azure-plans"></a>Faturalandırma ve Azure planları
-Ardından, 100'den fazla standart iş koleksiyonu (standart 10 faturalandırma birimi) varsa, tüm proje koleksiyonlarında premium plana sahip daha iyi bir fırsat olduğu.
-
-Bir standart iş koleksiyonu ve bir premium iş koleksiyonu varsa, faturalandırılan bir standart faturalandırma birimi olan *ve* bir premium faturalandırma birimidir. Zamanlayıcı hizmeti, standart veya premium ayarlayın etkin iş koleksiyonu sayısına bağlı faturalar; Bu sonraki iki bölümde daha ayrıntılı açıklanmıştır.
-
-## <a name="standard-billable-units"></a>Standart Faturalanabilir birimler
-Standart Faturalanabilir birim, en fazla 10 standart iş koleksiyonu içerebilir. İş koleksiyonu başına en fazla 50 iş standart iş koleksiyonu olabileceğinden, bir standart faturalandırma birimi – neredeyse 22 milyondan iş yürütmeleri ayda en fazla 500'e kadar işleri bir abonelik sağlar.
-
-1 ile 10 standart iş koleksiyonu arasında varsa, bir standart faturalandırma birimi için faturalandırılırsınız. 20 standart iş koleksiyonu ile 11 arasında varsa, iki standart faturalandırma birimi için faturalandırılırsınız. 21 arasında 30 standart iş koleksiyonu varsa, standart üç faturalandırma birimi için faturalandırılırsınız ve benzeri.
-
-## <a name="p10-premium-billable-units"></a>P10 Premium Faturalanabilir birimler
-P10 premium Faturalanabilir birim, en fazla 10.000 P10 premium iş koleksiyonu içerebilir. İş koleksiyonu başına en fazla 50 iş P10 premium iş koleksiyonu olabileceğinden, bir premium faturalandırma birimi en fazla 500.000 işler – kadar her ay yaklaşık 22 milyar iş yürütmeleri bir abonelik sağlar.
-
-1 ila 10.000 premium iş koleksiyonu arasında varsa, bir P10 premium faturalandırma birimi için faturalandırılırsınız. 20.000 premium iş koleksiyonu 10,001 arasında varsa, 2 P10 premium faturalandırma birimi için faturalandırılırsınız ve benzeri.
-
-Bu nedenle, P10 premium iş koleksiyonu standart iş koleksiyonu ile aynı işlevlere sahip ancak birçok iş koleksiyonları uygulamanızın gerektirdiği durumlarda bir fiyat kesmesinden kaçınılmasını sağlar.
-
-## <a name="p20-premium-billable-units"></a>P20 Premium Faturalanabilir birimler
-P20 premium Faturalanabilir birim, en fazla 5000 P20 premium iş koleksiyonu içerebilir. İş koleksiyonu başına en fazla 1.000 iş P20 premium iş koleksiyonu olabileceğinden, bir premium faturalandırma birimi – neredeyse 220 milyar aylık iş yürütmeleri kadar varan 5,000,000 işleri bir abonelik sağlar.
-
-P20 premium iş koleksiyonu P10 premium iş koleksiyonu aynı özellikleri sağlar, ancak iş koleksiyonu başına daha yüksek bir sayı iş ve bir büyük toplam iş sayısıyla genel P10 premium daha fazla ölçeklendirilebilirliğe sahip olmasını sağlayarak daha da destekler.
-
-## <a name="billing-and-active-status"></a>Faturalandırma ve etkin durumu
-Tüm aboneliğiniz fatura sorunları nedeniyle bazı geçici devre dışı duruma geçti sürece iş koleksiyonları her zaman etkindir. İş koleksiyonu faturalandırılmaz sağlamanın tek yolu, iş koleksiyonu silmektir.
-
-Tek bir işlemde bir iş koleksiyonundaki tüm işlerin devre dışı bırakabilirsiniz ancak iş koleksiyonu fatura durumunu değiştirmez – iş koleksiyonu olacak *hala* gibi faturalandırılır. Benzer şekilde, boş iş koleksiyonu etkin olarak kabul edilir ve faturalandırılır.
+| **Standart** | Koleksiyon başına 50 iş | Bir dakika başına. İşleri dakikada birden daha sık çalıştırılamaz. | Her Azure aboneliği, en fazla 100 standart iş koleksiyonu olabilir. | Zamanlayıcı tam özellik kümesi erişimi | 
+| **P10 Premium** | Koleksiyon başına 50 iş | Bir dakika başına. İşleri dakikada birden daha sık çalıştırılamaz. | Her Azure aboneliği, en fazla 10.000 P10 Premium iş koleksiyonu olabilir. Daha fazla koleksiyon <a href="mailto:wapteams@microsoft.com">bizimle</a>. | Zamanlayıcı tam özellik kümesi erişimi |
+| **P20 Premium** | Koleksiyon başına 1000 iş | Bir dakika başına. İşleri dakikada birden daha sık çalıştırılamaz. | Her Azure aboneliği, en fazla 5000 P20 Premium iş koleksiyonu olabilir. Daha fazla koleksiyon <a href="mailto:wapteams@microsoft.com">bizimle</a>. | Zamanlayıcı tam özellik kümesi erişimi |
+|||||| 
 
 ## <a name="pricing"></a>Fiyatlandırma
+
 Fiyatlandırma ayrıntıları için bkz: [Zamanlayıcı fiyatlandırma](https://azure.microsoft.com/pricing/details/scheduler/).
 
-## <a name="see-also"></a>Ayrıca Bkz.
- [Scheduler nedir?](scheduler-intro.md)
+## <a name="upgrade-or-downgrade-plans"></a>Yükseltme veya düşürme planları
 
- [Azure Scheduler kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
+Herhangi bir zamanda, yükseltebilir veya bir iş koleksiyonu planı arasında standart, Premium P10 ve P20 Premium planlar düşürebilirsiniz.
 
- [Azure portalında Scheduler’ı kullanmaya başlama](scheduler-get-started-portal.md)
+## <a name="active-status-and-billing"></a>Etkin durumu ve faturalandırma
 
- [Azure Scheduler REST API başvurusu](https://msdn.microsoft.com/library/mt629143)
+Tüm Azure aboneliğiniz geçici devre dışı durumuna faturalandırma sorunları nedeniyle girmeyeceğini sürece iş koleksiyonları her zaman etkindir. Ve tek bir işlem aracılığıyla bir iş koleksiyonundaki tüm işlerin, devre dışı bırakabilirsiniz ancak iş koleksiyonu, bu nedenle bu eylemi proje koleksiyonunun faturalama durumu değişmez *hala* faturalandırılır. Boş iş koleksiyonu etkin olarak kabul edilir ve faturalandırılır.
 
- [Azure Scheduler PowerShell cmdlet’leri başvurusu](scheduler-powershell-reference.md)
+İş koleksiyonu faturalandırılır olmadığından emin olmak için iş koleksiyonu silmeniz gerekir.
 
- [Yüksek Azure Scheduler kullanılabilirliği ve güvenilirliği](scheduler-high-availability-reliability.md)
+## <a name="standard-billable-units"></a>Standart Faturalanabilir birimler
 
- [Azure Scheduler sınırları, varsayılanları ve hata kodları](scheduler-limits-defaults-errors.md)
+Standart Faturalanabilir birim, en fazla 10 standart iş koleksiyonu olabilir. Standart iş koleksiyonu koleksiyon başına en fazla 50 iş olabileceğinden, 500 projelere veya neredeyse 22 kadar sahip Azure Aboneliğinize bir standart faturalandırma birimi sağlar *milyon* iş yürütme / ay. Bu listeyi nasıl faturalandırılırsınız standart iş koleksiyonu, çeşitli rakamlara dayanan açıklanmaktadır:
 
- [Azure Scheduler giden bağlantı kimlik doğrulaması](scheduler-outbound-authentication.md)
+* 1 ile 10 standart iş koleksiyonu arasında varsa, bir standart faturalandırma birimi için faturalandırılırsınız. 
 
+* 20 standart iş koleksiyonu ile 11 arasında varsa, iki standart faturalandırma birimi için faturalandırılırsınız. 
+
+* 21 arasında 30 standart iş koleksiyonu varsa, standart üç faturalandırma birimi için faturalandırılırsınız ve benzeri.
+
+## <a name="p10-premium-billable-units"></a>P10 premium Faturalanabilir birimler
+
+P10 premium Faturalanabilir birim, en fazla 10.000 P10 Premium iş koleksiyonu olabilir. Koleksiyon başına en fazla 50 iş P10 Premium iş koleksiyonu olabileceğinden, 500.000 projelere veya neredeyse 22 kadar sahip Azure Aboneliğinize bir P10 premium faturalandırma birimi sağlar *milyar* iş yürütme / ay. 
+
+P10 Premium iş koleksiyonu standart iş koleksiyonu aynı özellikleri sağlar, ancak daha fazla ölçeklenebilirlik sağlar ve birçok iş koleksiyonları gerektiren uygulamalar için bir fiyat sonu sunar. Bu listeyi nasıl faturalandırılırsınız P10 Premium iş koleksiyonu, çeşitli rakamlara dayanan açıklanmaktadır:
+
+* 1 ila 10.000 P10 Premium iş koleksiyonu arasında varsa, bir P10 premium faturalandırma birimi için faturalandırılırsınız. 
+
+* 10,001 ve 20.000 P10 Premium iş koleksiyonu arasında varsa, 2 P10 premium faturalandırma birimi için faturalandırılırsınız ve benzeri.
+
+## <a name="p20-premium-billable-units"></a>P20 premium Faturalanabilir birimler
+
+P20 premium Faturalanabilir birim, en fazla 5000 P20 Premium iş koleksiyonu olabilir. İş koleksiyonu başına en fazla 1.000 iş P20 Premium iş koleksiyonu olabileceğinden, 5,000,000 projelere veya neredeyse 220 kadar sahip Azure Aboneliğinize bir P20 premium faturalandırma birimi sağlar *milyar* iş yürütme / ay.
+
+P20 Premium iş koleksiyonu P10 Premium iş koleksiyonu aynı özellikleri sağlar, ancak daha fazla sayıda koleksiyon başına iş ve bir büyük toplam iş sayısıyla genel P10 Premium, daha fazla ölçeklenebilirlik sağlayarak daha da destekler.
+
+## <a name="plan-comparison"></a>Plan karşılaştırması
+
+* 100'den fazla standart iş koleksiyonu (standart 10 faturalandırma birimi) varsa, bir Premium planı tüm iş koleksiyonları sağlayarak daha iyi bir fırsat alabilirsiniz.
+
+* Bir standart iş koleksiyonu ve bir Premium iş koleksiyonu olması durumunda bir standart faturalandırma birimi için faturalandırılırsınız *ve* bir premium faturalandırma birimidir.
+
+  Zamanlayıcı hizmeti, standart veya premium etkin iş koleksiyonu sayısına göre faturalandırır.
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+* [Azure Scheduler nedir?](scheduler-intro.md)
+* [Azure Scheduler kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
+* [Azure Scheduler sınırları, varsayılanları ve hata kodları](scheduler-limits-defaults-errors.md)

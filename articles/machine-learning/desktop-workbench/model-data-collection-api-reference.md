@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: d9fee56d7748cdfd34f982fe79467f7d61c54926
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c047555c30481f34b607197f71483197bc64620c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646825"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961476"
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Azure Machine Learning Model veri koleksiyonu API Başvurusu
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Model veri koleksiyonu, model girişlerini ve tahminlerini bir machine learning web hizmeti'den arşiv olanak tanır. Bkz: [model veri koleksiyonu yapılır kılavuzunda](how-to-use-model-data-collection.md) nasıl yükleneceğini anlamak için `azureml.datacollector` Windows ve Linux makinenizde.
 

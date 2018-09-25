@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 07/18/2018
-ms.openlocfilehash: 61fee0771d6847a0ec56de656057409bbcdcba16
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b45975bc019da2859da87a40e46970d849312e38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433770"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957066"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Azure CLI kullanarak sunucu yapılandırma parametrelerini özelleştirme
 Liste göstermek ve Azure CLI, Azure komut satırı yardımcı programını kullanarak MySQL için Azure veritabanı için yapılandırma parametreleri güncelleştirin. Bir alt kümesini altyapısı yapılandırmaları, sunucu düzeyinde kullanıma sunulmuştur ve değiştirilebilir. 
@@ -23,7 +23,7 @@ Liste göstermek ve Azure CLI, Azure komut satırı yardımcı programını kull
 ## <a name="prerequisites"></a>Önkoşullar
 Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:
 - [MySQL sunucusu için Azure veritabanı](quickstart-create-mysql-server-database-using-azure-cli.md)
-- [Azure CLI 2.0](/cli/azure/install-azure-cli) komut satırı yardımcı programı veya tarayıcıda Azure Cloud Shell kullanın.
+- [Azure CLI](/cli/azure/install-azure-cli) komut satırı yardımcı programı veya tarayıcıda Azure Cloud Shell kullanın.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Sunucu Yapılandırma parametreleri için Azure veritabanı için MySQL server listesi.
 Bir sunucu ve bunların değerlerini tüm değiştirilebilir parametreler listelemek için çalıştırma [az mysql server configuration listesi](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) komutu.

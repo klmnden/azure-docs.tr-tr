@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 73e046c153af5c69ab343a90d1f9027b84b4deb1
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: c23fbf0af7d1a15b0efee8af123150feb42c708e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498462"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966930"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları 
 
-Azure SQL veritabanı yönetilen örneği (Önizleme), şirket içi SQL Server veritabanı altyapısı ile yüksek uyumluluk sağlar. SQL Server veritabanı altyapısı özelliklerin çoğu, yönetilen örneği'nde desteklenir. Yine de bazı farklılıkları söz dizimi ve davranışı olduğundan, bu makalede özetler ve bu farklar açıklanmaktadır.
+Azure SQL veritabanı yönetilen örneği, şirket içi SQL Server veritabanı altyapısı ile yüksek uyumluluk sağlar. SQL Server veritabanı altyapısı özelliklerin çoğu, yönetilen örneği'nde desteklenir. Yine de bazı farklılıkları söz dizimi ve davranışı olduğundan, bu makalede özetler ve bu farklar açıklanmaktadır.
  - [T-SQL farklılıkları ve desteklenmeyen özellikleri](#Differences)
  - [Yönetilen örneği'nde farklı davranışa sahip özellikleri](#Changes)
  - [Geçici sınırlamalar ve bilinen sorunlar](#Issues)
@@ -415,15 +415,58 @@ Bu örnekte, var olan veritabanlarını çalışmaya devam eder ve yeni dosyalar
 
 SQL Server Management Studio ve SQL Server veri araçları, yönetilen örneği erişirken bazı sorunlar olabilir. Genel kullanılabilirlik önce tüm araçları sorunları ele alınacaktır.
 
-### <a name="incorrect-database-names"></a>Yanlış veritabanı adları
+### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Bazı görünümler, günlükleri ve iletileri yanlış veritabanı adları
 
-Yönetilen örnek, geri yükleme sırasında veya bazı hata iletileri veritabanı adı yerine GUID değeri gösterebilir. Bu sorunları önce genel kullanılabilirlik düzeltilecektir.
+Çeşitli sistem görünümleri, performans sayaçları, hata iletileri, Xevent'ler ve hata günlüğü girişleri gerçek veritabanı adları yerine GUID veritabanı tanımlayıcıları görüntüler. Bunlar gerçek veritabanı adları ile gelecekte değiştirilmesi çünkü bu GUID tanımlayıcılarını güvenmeyin.
 
 ### <a name="database-mail-profile"></a>Veritabanı posta profili
 Yalnızca bir veritabanı posta profili olabilir ve çağrılması gerekir `AzureManagedInstance_dbmail_profile`. Kısa süre içinde kaldırılacak geçici bir sınırlama budur.
+
+### <a name="error-logs-are-not-persisted"></a>Kalıcı olmayan hata günlükleri
+Yönetilen örnek'te mevcut hata günlüklerini kaybolacağından ve bunların boyutu en fazla depolama sınırı bulunmaz. Hata günlüklerini otomatik olarak yük devretme durumunda silinmiş.
+
+### <a name="error-logs-are-verbose"></a>Ayrıntılı hata günlükleri
+Yönetilen örnek hata günlüklerinde ayrıntılı bilgileri yerleştirir ve çoğu için uygun değildir. Hata günlüklerinde bilgi miktarını gelecekte de düşürülmesini.
+
+**Geçici çözüm**: özel bir yordam, filtre genişletme ilgili olmayan bazı girişler Hata günlüklerini okumak için kullanın. Ayrıntılar için bkz [Azure SQL DB yönetilen örneği – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>İşlem kapsamı aynı örneği içinde iki veritabanlarında desteklenmiyor
+`TransactionScope` iki veritabanı aynı örneğinde aynı işlem kapsamı altında iki sorgu gönderilir,. NET'te sınıfı çalışmaz:
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+Bu kod içinde aynı örnek verilerle çalışır, ancak MSDTC gereklidir.
+
+**Geçici çözüm**: kullanın [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) diğer veritabanı bağlantı bağlamı iki bağlantı kullanmak yerine kullanılacak.
+
+### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR modülleri ve süre bağlı sunucular, yerel IP adresi başvuramaz
+Yönetilen örnek ve geçerli örnek süre başvuran bağlı sunucuları/dağıtılmış sorguları yerleştirilen CLR modülleri yerel örneğinin IP çözümlenemiyor. Bu geçici bir hatadır.
+
+**Geçici çözüm**: CLR modülünde, mümkün olduğunda bağlamı bağlantıları kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Yönetilen örneği hakkında daha fazla ayrıntı için bkz: [yönetilen örnek nedir?](sql-database-managed-instance.md)
 - Bir özellik için ve karşılaştırma listesini görmek [SQL ortak özellikleri](sql-database-features.md).
-- Yeni bir yönetilen örneğin nasıl oluşturulacağını gösteren bir öğretici için bkz [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).
+- Yeni bir yönetilen örneğin nasıl oluşturulacağını gösteren Hızlı Başlangıç için bkz: [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).

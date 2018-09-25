@@ -11,20 +11,24 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 0abc5e34d2bfa1cf2a9fc0569831e21ed295891c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 07a9d46dff17b43d01a6b411292cf240c32476f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296508"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983727"
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Dolaşım ve işbirliği Azure Machine Learning workbench'te
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 Bu makalede, bilgisayarlar arasında gezici projeler ayarlama ve ekip üyeleriyle işbirliği yaparak Azure Machine Learning Workbench nasıl kullanabileceğiniz açıklanır. 
 
 Uzak bir Git deposuna (depo) bağlantısı olan bir Azure Machine Learning projesi oluşturduğunuzda, anlık görüntüler ve proje meta veriler bulutta depolanır. Proje (dolaşım) farklı bir bilgisayardan erişmek için bulut bağlantısı kullanabilirsiniz. Takım üyelerinizle işbirliği projeye erişimi vererek yapabilirsiniz. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-1. Machine Learning Workbench uygulamasını yükleyin. Bir Azure Machine Learning denemesi hesap erişimi olduğundan emin olun. Daha fazla bilgi için [Yükleme Kılavuzu](../service/quickstart-installation.md).
+1. Machine Learning Workbench uygulamasını yükleyin. Bir Azure Machine Learning denemesi hesap erişimi olduğundan emin olun. Daha fazla bilgi için [Yükleme Kılavuzu](quickstart-installation.md).
 
 2. Erişim [Azure DevOps](https://www.visualstudio.com) ve projenize bağlamak için bir depo oluşturun. Daha fazla bilgi için [bir Git deposu ile bir Machine Learning Workbench projesini kullanarak](using-git-ml-project.md).
 

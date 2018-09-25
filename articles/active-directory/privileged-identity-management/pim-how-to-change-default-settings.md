@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 09/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665443"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039012"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>PIM'de Azure AD dizini rol ayarlarını yapılandırma
 
@@ -63,24 +63,23 @@ Kullanım **multi-Factor Authentication** rollerinin etkinleştirilebilmesi MFA 
 * Microsoft hesapları için e-posta adreslerini sahip kullanıcılar (genellikle @outlook.com, ama her zaman kullanılmaz) Azure MFA için kaydedilemiyor. Microsoft hesabı olan kullanıcılar için rol atamak istiyorsanız, bunları kalıcı yönetici yapmak veya o rol için mfa'yı devre dışı bırakmak gerekir.
 * MFA yüksek ayrıcalıklı rolleri için Azure AD için devre dışı bırakamazsınız ve Office365. Bu, bu rolleri dikkatli bir şekilde korunması için bir güvenlik özelliğidir:  
   
-  * Uygulama yöneticisi
-  * Uygulama Ara sunucusu Yöneticisi
-  * Faturalama yöneticisi  
-  * Uyumluluk yöneticisi  
+  * Faturalama Yöneticisi
+  * Bulut Uygulaması Yöneticisi
+  * Uyumluluk Yöneticisi
+  * Koşullu Erişim Yöneticisi
   * CRM Hizmet Yöneticisi
-  * Müşteri Kasası erişim onaylayıcı
-  * Directory yazıcısı  
-  * Exchange yöneticisi  
-  * Genel yönetici
-  * Intune hizmet yöneticisi
-  * Posta kutusu Yöneticisi  
-  * Partner tier1 desteği  
-  * Partner tier2 desteği  
-  * Ayrıcalıklı rol yöneticisi
-  * Güvenlik yöneticisi  
-  * SharePoint yöneticisi  
-  * Skype Kurumsal yöneticisi  
-  * Kullanıcı hesabı yöneticisi  
+  * Müşteri Kasası Erişim Onaylayıcı
+  * Dizin Yazıcılar
+  * Exchange Yöneticisi
+  * Genel Yönetici
+  * Bilgi Koruma Yöneticisi
+  * Intune Hizmet Yöneticisi
+  * Power BI Hizmet Yöneticisi
+  * Ayrıcalıklı Rol Yöneticisi
+  * Güvenlik Yöneticisi
+  * SharePoint Hizmet Yöneticisi
+  * Skype Kurumsal Yöneticisi
+  * Kullanıcı Yöneticisi
 
 Daha fazla bilgi için [multi factor authentication (MFA) ve PIM](pim-how-to-require-mfa.md).
 

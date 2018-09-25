@@ -1,5 +1,5 @@
 ---
-title: İşlevleri için Azure Cosmos DB bağlamaları 2.x (Önizleme)
+title: İşlevleri için Azure Cosmos DB bağlamaları 2.x
 description: Azure Cosmos DB Tetikleyicileri ve bağlamaları Azure işlevleri'nde nasıl kullanılacağını anlayın.
 services: functions
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ea1403ed8afe6e84a3118d891e8c2d34b390d158
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d39c27614fd4d534db36df1af61b2d419493c4d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093439"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953489"
 ---
-# <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 2.x (Önizleme)
+# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 2.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Sürüm 1 - Genel Kullanım](functions-bindings-cosmosdb.md)
@@ -27,7 +27,7 @@ ms.locfileid: "44093439"
 Bu makalede ile nasıl çalışılacağı açıklanmaktadır [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) Azure işlevleri'nde bağlamaları 2.x. Tetiklemek, giriş ve çıktı bağlaması Azure Cosmos DB için Azure işlevleri destekler.
 
 > [!NOTE]
-> Bu makalede içindir [Azure işlevleri sürüm 2.x](functions-versions.md), Önizleme aşamasında olduğu.  Bu bağlamaları işlevlerini kullanma hakkında daha fazla bilgi için 1.x bkz [Azure işlevleri için Azure Cosmos DB bağlamaları 1.x](functions-bindings-cosmosdb.md).
+> Bu makalede içindir [Azure işlevleri sürüm 2.x](functions-versions.md).  Bu bağlamaları işlevlerini kullanma hakkında daha fazla bilgi için 1.x bkz [Azure işlevleri için Azure Cosmos DB bağlamaları 1.x](functions-bindings-cosmosdb.md).
 >
 > Bu bağlama başlangıçta DocumentDB olarak adlandırılıyordu. İşlevleri sürüm 2.x, tetikleyici, bağlamalar ve paket tüm Cosmos DB adlandırılır.
 

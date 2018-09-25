@@ -5,33 +5,33 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/12/2018
+ms.date: 08/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b7e4665dc3579f357ce1e28bf34be35c931736bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 9c09f473f5d8b399c4fb1b1ad449c783c797f4dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647671"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968518"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Azure sanal makineleri için genişletilmiş ölçümler ekleme
 
-Maliyet Yönetimi kaynakları hakkında bilgi ayrıntılı göstermek için Azure sanal makinelerinize Azure ölçüm verileri kullanır. Ölçüm verilerini, performans sayaçları, olarak da bilinen maliyet yönetimi ile raporlar oluşturmak için kullanılır. Bununla birlikte, maliyet Yönetimi otomatik olarak tüm Azure ölçüm verileri Konuk Vm'lerden toplamak — ölçüm toplama etkinleştirmeniz gerekir. Bu makalede, Azure sanal makineleriniz için ek tanılama ölçümünü yapılandırmak ve etkinleştirmek yardımcı olur.
+Cloudyn Azure vm'lerinizden Azure ölçüm veri kaynakları hakkında bilgi ayrıntılı göstermek için kullanır. Ölçüm verilerini, performans sayaçları, olarak da bilinir, Cloudyn tarafından raporlar oluşturmak için kullanılır. Bununla birlikte, Cloudyn otomatik olarak tüm Azure ölçüm verileri Konuk Vm'lerden toplamak — ölçüm toplama etkinleştirmeniz gerekir. Bu makalede, Azure sanal makineleriniz için ek tanılama ölçümünü yapılandırmak ve etkinleştirmek yardımcı olur.
 
 Ölçüm toplama etkinleştirdikten sonra şunları yapabilirsiniz:
 
 - Vm'lerinizi, bellek, disk ve CPU sınırlarını ulaşma ne zaman bilirsiniz.
 - Kullanım eğilimleri ve anormallikleri algılar.
 - Boyutlandırma kullanım göre maliyetlerinizi kontrol.
-- Maliyet etkin boyutlandırma maliyet Yönetimi iyileştirme önerileri alın.
+- Maliyet etkin boyutlandırma Cloudyn iyileştirme önerileri alın.
 
 Örneğin, Azure sanal makinelerinizin bellek % ve % CPU izlemek isteyebilirsiniz. Azure VM ölçümleri karşılık _[konak] CPU yüzdesi_ ve _[Konuk] bellek yüzdesi_.
 
 > [!NOTE]
-> Genişletilmiş ölçüm verileri toplama yalnızca Azure Konuk düzeyinde izlemeyi ile desteklenir. Maliyet Yönetimi Log Analytics VM uzantısı ile uyumlu değil.
+> Genişletilmiş ölçüm verileri toplama yalnızca Azure Konuk düzeyinde izlemeyi ile desteklenir. Cloudyn Log Analytics VM uzantısı ile uyumlu değil.
 
 ## <a name="verify-that-metrics-are-enabled-on-vms"></a>Ölçümleri VM'ler üzerinde etkinleştirildiğini doğrulayın
 
@@ -68,7 +68,7 @@ Yeni VM'ler oluşturduğunuzda, belirlediğinizden emin olun **konuk işletim si
 
 ## <a name="resource-manager-credentials"></a>Kaynak Yöneticisi kimlik bilgileri
 
-Genişletilmiş ölçümler etkinleştirdikten sonra maliyet Yönetimi erişimi olduğundan emin olun, [Resource Manager kimlik bilgilerini](activate-subs-accounts.md). Kimlik bilgilerinizi toplamak ve Vm'leriniz için performans verilerini görüntülemek maliyet yönetimi için gereklidir. Maliyet iyileştirme önerileri oluşturmak için de kullanılırlar. Maliyet yönetimi, performans verileri örneğini bir aday downsizing önerinin olup olmadığını belirlemek için en az üç gün gerekir.
+Genişletilmiş ölçümler etkinleştirdikten sonra Cloudyn erişimi olduğundan emin olun, [Resource Manager kimlik bilgilerini](activate-subs-accounts.md). Kimlik bilgilerinizi toplamak ve Vm'leriniz için performans verilerini görüntülemek Cloudyn gereklidir. Maliyet iyileştirme önerileri oluşturmak için de kullanılırlar. Cloudyn, en az üç gün örneğinden bir aday downsizing önerinin olup olmadığını belirlemek için performans verilerini gerekir.
 
 ## <a name="enable-vm-metrics-with-a-script"></a>Bir betik ile VM ölçümlerini etkinleştir
 

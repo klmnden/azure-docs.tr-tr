@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 35572f046b3702deba56e86819b8ad0cd7ae6e9b
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 042216d03749273c590ce5ba812f7a6d609f8e83
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842487"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987919"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 
@@ -25,7 +25,7 @@ Az miktarda bir kavram kanıtı için verileri ile başlayabilirsiniz. Ancak dah
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Metin okuma ses özelleştirme özelliği şu anda özel Önizleme aşamasındadır. [Uygulama formu doldurun](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) erişim için kabul edilmesi için.
+**Metin okuma** ses özelleştirme özelliği şu anda özel Önizleme aşamasındadır. [Uygulama formu doldurun](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) erişim için kabul edilmesi için.
 
 Ayrıca bir Azure hesabı ve konuşma hizmeti için bir abonelik gerekir. [Bir oluşturma](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) henüz yapmadıysanız. Aboneliğinizi şu şekilde özel sesli Portalı'na bağlanın.
 

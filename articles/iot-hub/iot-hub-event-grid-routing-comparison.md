@@ -8,18 +8,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: af03f737c082a7fda90104303e018f7b417729b9
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 13cf5861bf39cdd9c192586979b95192a31e9399
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143802"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978684"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>İleti Yönlendirme ve Event Grid için IOT Hub'ı karşılaştırma
 
 Azure IOT Hub, bağlı cihazlarınızdan veri akışını ve bu verileri iş uygulamalarınızla tümleştirin yeteneği sağlar. IOT Hub, IOT olayları diğer Azure Hizmetleri veya iş uygulamalarınızla tümleştirmek için iki yöntem sunar. Bu makalede, hangi senaryonuz için en iyi bir seçenektir seçebilmeniz bu özelliği sağlayan iki özellikleri açıklanmaktadır.
 
-* **IOT Hub ileti yönlendirme**: IOT Hub'ı bu özellik kullanıcılara sağlar [CİHAZDAN buluta iletileri yönlendirmek](iot-hub-devguide-messages-read-custom.md) hizmet uç noktalarına Azure depolama kapsayıcıları, Event Hubs, Service Bus kuyrukları ve Service Bus konuları gibi. Yönlendirme kuralları, sorgu tabanlı yollar gerçekleştirme esnekliği sağlar. Ayrıca tanırlar [kritik uyarılar](iot-hub-devguide-messages-d2c.md) sorguları eylemi tetikleyin ve ileti üstbilgileri ve gövde temel alabilir. 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+* **[IOT Hub ileti yönlendirme](iot-hub-devguide-messages-d2c.md)**: hizmet uç noktaları Azure depolama kapsayıcıları, Event Hubs, Service Bus kuyrukları ve Service Bus konuları gibi cihaz bulut iletilerini yönlendirmek kullanıcılar bu IOT hub'ı özelliği sağlar. Yönlendirme, bir sorgulama uç noktalar için yönlendirme önce verileri filtreleme yeteneği sağlar. Cihazın telemetri verilerine ek olarak da gönderebilirsiniz [olmayan telemetri olayları](iot-hub-devguide-messages-d2c.md#non-telemetry-events) eylemleri tetiklemek için kullanılabilir. 
 * **Event Grid ile IOT hub'ı tümleştirme**: Azure Event Grid; Yayımla kullanan bir tam olarak yönetilen olay yönlendirme hizmetini-abonelik modeli. IOT Hub ve Event Grid için birlikte çalışır [IOT Hub olaylarını Azure ve Azure olmayan hizmetlerle tümleştirme](iot-hub-event-grid.md), neredeyse gerçek zamanlı olarak. 
 
 ## <a name="similarities-and-differences"></a>Benzerlikleri ve farkları
@@ -32,8 +34,8 @@ Azure IOT Hub, bağlı cihazlarınızdan veri akışını ve bu verileri iş uyg
 | **Olay türü** | Evet, ileti yönlendirme ikizi değişiklikleri ve cihaz yaşam döngüsü olaylarını bildirebilirsiniz. | Evet, Event Grid cihazları oluşturulan, silindi, bağlanır ve IOT Hub'ından bağlı olduğunda bildirebilirsiniz |
 | **Sıralama** | Evet, olayların sırası korunur.  | Hayır, olayların sırası garanti edilmez. | 
 | **En büyük ileti boyutu** | 256 KB, CİHAZDAN buluta | 64 KB |
-| **Filtreleme** | Zengin SQL benzeri bir dil filtreleme, ileti üstbilgileri ve gövdeleri filtrelemeyi destekler. Örnekler için bkz [IOT Hub sorgu dili](iot-hub-devguide-query-language.md). | Filtreleme soneki/depolama alanı gibi hiyerarşik Hizmetleri için iyi düşünülerek öneki cihaz kimlikleri temel. |
-| **Uç noktaları** | <ul><li>Event Hubs</li> <li>Depolama blobu</li> <li>Service Bus kuyruğu</li> <li>Hizmet Veri Yolu konuları</li></ul><br>Ücretli IOT hub'ı SKU'lar (S1, S2 ve S3), 10 özel uç noktalar ile sınırlıdır. IOT hub'ı 100 yollar oluşturulabilir. | <ul><li>Azure İşlevleri</li> <li>Azure Otomasyonu</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Depolama Blobu</li> <li>Özel Konu Başlıkları</li> <li>Web kancaları aracılığıyla üçüncü taraf hizmetleri</li></ul><br>Uç noktaları en güncel listesi için bkz. [Event Grid olay işleyicileri](../event-grid/overview.md#event-handlers). |
+| **Filtreleme** | Zengin filtreleme ileti uygulama özelliklerini, ileti sistemi özelliklerini, ileti gövdesi, cihaz ikizi etiketleri ve cihaz özellikleri çifti. Örnekler için bkz [ileti yönlendirme sorgusu söz dizimi](iot-hub-devguide-routing-query-syntax.md). | Filtreleme soneki/depolama alanı gibi hiyerarşik Hizmetleri için iyi düşünülerek öneki cihaz kimlikleri temel. |
+| **Uç noktaları** | <ul><li>Event Hubs</li> <li>Azure Blob Depolama</li> <li>Service Bus kuyruğu</li> <li>Hizmet Veri Yolu konuları</li></ul><br>Ücretli IOT hub'ı SKU'lar (S1, S2 ve S3), 10 özel uç noktalar ile sınırlıdır. IOT hub'ı 100 yollar oluşturulabilir. | <ul><li>Azure İşlevleri</li> <li>Azure Otomasyonu</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Depolama Blobu</li> <li>Özel Konu Başlıkları</li> <li>Web kancaları aracılığıyla üçüncü taraf hizmetleri</li></ul><br>Uç noktaları en güncel listesi için bkz. [Event Grid olay işleyicileri](../event-grid/overview.md#event-handlers). |
 | **Maliyet** | İleti yönlendirme için ayrı bir ücret yoktur. Yalnızca IOT hub'ıyla telemetri girişi ücretlendirilir. Örneğin, üç farklı Uç noktalara yönlendirilmesi ileti varsa, tek bir ileti için faturalandırılırsınız. | IOT Hub'ından ücret ödemenize gerek yoktur. Event Grid aylık ilk 100.000 işlem ücretsiz olarak sağlar ve ardından $0.60 bundan sonra milyon işlem başına. |
 
 IOT Hub ileti yönlendirme ve Event Grid çok benzerlikler, bazıları aşağıdaki tabloda açıklanmıştır:
@@ -52,7 +54,7 @@ IOT Hub ileti yönlendirme ve Event Grid ile IOT hub'ı tümleştirme benzer son
 
 * **Uç noktalar için ne tür veriler gönderdiğiniz?**
 
-   Diğer hizmetler için telemetri verileri göndermek olduğunda, IOT Hub ileti yönlendirme kullanın. Ayrıca ileti üstbilgileri ve İleti gövdeleri sorgulama etkinleştirir yönlendirme iletisi. 
+   Diğer hizmetler için telemetri verileri göndermek olduğunda, IOT Hub ileti yönlendirme kullanın. Ayrıca ileti uygulama ve Sistem özellikleri, ileti gövdesi, cihaz ikizi etiketleri ve cihaz ikizi özelliklerini sorgulama etkinleştirir yönlendirme iletisi.
 
    Event Grid ile IOT hub'ı tümleştirmeyi, IOT Hub hizmeti meydana gelen olayları ile birlikte çalışır. Oluşturulan, silindi, bağlı ve bağlantısı kesilmiş bir cihaz bu IOT Hub olaylarını içerir. 
 
@@ -71,7 +73,6 @@ IOT Hub ileti yönlendirme ve Event Grid ile IOT hub'ı tümleştirme benzer son
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Daha fazla bilgi edinin [IOT Hub ileti yönlendirme](iot-hub-devguide-messages-d2c.md) ve [IOT Hub uç noktaları](iot-hub-devguide-endpoints.md).
-
 * Daha fazla bilgi edinin [Azure Event Grid](../event-grid/overview.md)
-
+* İleti yollarını nasıl oluşturulacağını öğrenmek için bkz: [yolları kullanarak işlem IOT Hub CİHAZDAN buluta iletileri](../iot-hub/tutorial-routing.md) öğretici.
 * Event Grid tümleştirmesi denemek [Logic Apps kullanarak Azure IOT Hub olayları hakkında e-posta bildirimleri gönderme](../event-grid/publish-iot-hub-events-to-logic-apps.md)

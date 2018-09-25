@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: cc4438a770a8092275373ccf8da9cc9951a1f906
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858621"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950055"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Microsoft Azure SUSE Linux VM’lerde SAP NetWeaver’ı çalıştırma
 Bu makalede, Microsoft Azure SUSE Linux sanal makinelerinde (VM'ler) SAP NetWeaver çalıştırırken dikkate alınması gereken çeşitli şeyler açıklanmaktadır. 19 Mayıs 2016 itibariyle resmi olarak Azure SUSE Linux Vm'lerde SAP NetWeaver desteklenir. Linux sürümleri, SAP çekirdek sürümlerini ve diğer ön koşulları ile ilgili tüm ayrıntıları SAP notu 1928533 bulunabilir "azure'da SAP uygulamaları: desteklenen ürünler ve Azure VM türleri".
@@ -119,7 +119,7 @@ Yeni Azure Resource Manager modelinde JSON şablonu dosyalarını kullanarak yen
    ```
 JSON şablonu dosyaları hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../../../resource-group-authoring-templates.md) ve [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/documentation/templates/).
 
-CLI ve Azure Resource Manager hakkında daha fazla bilgi için bkz: [Mac, Linux ve Windows Azure Resource Manager ile Azure CLI kullanmak](../../../xplat-cli-azure-resource-manager.md).
+Klasik Azure CLI ve Azure Resource Manager hakkında daha fazla bilgi için bkz: [Mac, Linux ve Windows Azure Resource Manager ile klasik Azure CLI kullanma](../../../xplat-cli-azure-resource-manager.md).
 
 ## <a name="sap-license-and-hardware-key"></a>SAP lisans ve donanım anahtarı
 Resmi Azure SAP sertifikaları için SAP lisansı için kullanılan SAP donanım anahtarına hesaplamak için yeni bir mekanizma sunulmuştur. SAP çekirdek yapmak için uyarlanmış olması gerekiyordu yeni algoritma kullanın. Linux için eski SAP çekirdek sürümleri, bu kod değişikliği içermiyordu. Bu nedenle, bazı durumlarda (örneğin, Azure VM yeniden boyutlandırma), SAP donanım anahtarı değiştirildi ve SAP lisansı olan artık geçerli. Bir çözüm ile daha yeni SAP Linux çekirdeklerinin sağlanır.  Ayrıntılı SAP çekirdek düzeltme ekleri, SAP notu 1928533 belgelenmiştir.

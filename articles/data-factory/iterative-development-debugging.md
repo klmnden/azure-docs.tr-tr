@@ -4,7 +4,7 @@ description: Geliştirme ve Data Factory işlem hattı çalıştırmalarınızı
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 05/14/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: a4d3f991dbba8a686c7242aabff11d9228300777
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ca1ca616fdd097811b3f02285706b3ae8977d737
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865174"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034150"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Yinelemeli geliştirme ve Azure Data Factory ile hata ayıklama
 
@@ -40,13 +40,21 @@ Bir test çalıştırması başarılı olduktan sonra daha fazla etkinlik ardı�
 
 ![Bir test çalıştırması iptal et](media/iterative-development-debugging/iterative-development-image3.png)
 
-Test çalıştırmaları, seçtiğiniz önce yaptığınız değişiklikleri data factory'de yayımlamak zorunda değilsiniz **hata ayıklama**. Bu değişiklikleri veri fabrikası iş akışı güncelleştirmeden önce beklendiği gibi çalıştığından emin olmak için istediğiniz senaryolarda faydalıdır.
+Test çalıştırmaları, seçtiğiniz önce yaptığınız değişiklikleri data factory'de yayımlamak zorunda değilsiniz **hata ayıklama**. Bu özellik değişiklikleri veri fabrikası iş akışı güncelleştirmeden önce beklendiği gibi çalıştığından emin olmak için istediğiniz senaryolarda yararlıdır.
 
 ## <a name="more-info-about-debugging"></a>Hata ayıklama hakkında daha fazla bilgi
 
 1. İle başlatılan çalıştırmalar **hata ayıklama** özellik listesinde kullanılabilir olmayan **İzleyici** sekmesi. Bkz: ile tetiklenen çalışır yalnızca **şimdi Tetikle**, **zamanlama**, veya **atlayan pencere** içinde tetikler **İzleyici** sekmesi. İle başlatılan son test gördüğünüz **hata ayıklama** özelliği **çıkış** işlem hattı tuvalinde penceresi.
 
 2. Seçme **hata ayıklama** aslında işlem hattını çalıştırır. İşlem hattının kopyalama etkinliği içeriyorsa, bu nedenle, örneğin, test çalıştırması verileri kaynaktan hedefe kopyalar. Sonuç olarak, test klasörleri kopyalama etkinliklerinizi ve diğer etkinlikler ayıklanırken kullanmanızı öneririz. İşlem hattı hata ayıklaması sonra normal işlemlerde kullanmak istediğiniz gerçek klasörleri geçin.
+
+## <a name="visualizing-debug-runs"></a>Görselleştirildiği hata ayıklama çalıştırır
+
+Veri fabrikanızın tek bir yerde sürmekte olan tüm hata ayıklama çalıştırmalarını görselleştirebilirsiniz. Seçin **görünümü hata ayıklama çalıştıran** sayfanın sağ üst köşesindeki. Bu özellik, burada alt işlem hatları için hata ayıklama çalıştırmalarını kapalı başlatılmadan ana işlem hatları sahip ve tek bir görünümde, tüm etkin hata ayıklama çalıştırmalarını görmek için istediğiniz senaryolarda yararlıdır.
+
+![Etkin hata ayıklama çalıştırmalarını görüntüle simgesini seçin](media/iterative-development-debugging/view-debug-runs-image1.png)
+
+![Etkin hata ayıklama çalıştırmalarını örnek listesi](media/iterative-development-debugging/view-debug-runs-image2.png)
 
 ## <a name="setting-breakpoints-for-debugging"></a>Hata ayıklama için kesme noktaları ayarlama
 

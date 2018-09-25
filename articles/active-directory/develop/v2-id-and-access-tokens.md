@@ -17,29 +17,30 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 815311797e1897259b961debc8a0f81157495570
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 23d041311c33110bf11efc78d162243a4bb25778
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596509"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997769"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 belirteç başvurusu
+
 Azure Active Directory (Azure AD) v2.0 uç noktası her güvenlik belirteçleri birkaç tür yayar [kimlik doğrulama akışı](v2-app-types.md). Bu başvuru biçimini, güvenlik özellikleri ve her belirteç türünün içeriğini açıklar.
 
 > [!NOTE]
 > V2.0 uç noktası, tüm Azure Active Directory senaryolarını ve özelliklerini desteklemez. V2.0 uç noktası kullanması gerekip gerekmediğini belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
->
->
 
 ## <a name="types-of-tokens"></a>Belirteç türleri
+
 V2.0 uç noktası destekleyen [OAuth 2.0 Yetkilendirme Protokolü](active-directory-v2-protocols.md), kullanan erişim belirteçlerini ve yenileme belirteçleri. V2.0 uç noktası kimlik doğrulaması ve oturum açma aracılığıyla destekler [Openıd Connect](active-directory-v2-protocols.md). Openıd Connect kimlik belirteci belirteci üçüncü türü sunar. Bu belirteçlerden her biri olarak temsil edilen bir *taşıyıcı* belirteci.
 
 Taşıyıcı belirteç korumalı bir kaynağın taşıyıcı erişim veren bir basit güvenlik belirtecidir. Taşıyıcı belirteç sunabilir herhangi bir tarafa ' dir. Adımları belirteç iletilmesini ve depolanmasını sırasında güvenliğini sağlamak için alınır değil, bir tarafın taşıyıcı belirteç almak için Azure AD kimlik doğrulaması gerekir ancak kesildi ve istenmeyen bir şahıs tarafından kullanılır. Bazı güvenlik belirteçleri yetkisiz taraflar, onları kullanmasına engel olmak için yerleşik bir mekanizma vardır, ancak taşıyıcı belirteçleri kullanmayın. Taşıyıcı belirteçleri Aktarım Katmanı Güvenliği (HTTPS) gibi güvenli bir kanal taşınmasını gerekir. Kötü amaçlı bir taraf, bu tür bir güvenlik bir taşıyıcı belirteç iletilirse, bir "ortadaki-de-ortadaki adam saldırısı" kullanabilir belirteç almak ve korunan bir kaynağa yetkisiz erişim için kullanın. Depolama veya daha sonra kullanmak için taşıyıcı belirteçlerini önbelleğe alma aynı güvenlik ilkeleri uygulayın. Uygulamanız güvenli bir şekilde aktarır ve taşıyıcı belirteçleri depolar her zaman emin olmalısınız. Taşıyıcı belirteçler için daha fazla güvenlik konuları için bkz. [RFC 6750 bölüm 5](http://tools.ietf.org/html/rfc6750).
 
 V2.0 uç noktası tarafından verilen belirteçleri birçoğu, JSON Web belirteçleri (Jwt'ler) uygulanır. JWT'nin, iki taraf arasında bilgi aktarımı yapmak compact, URL güvenli bir yoludur. JWT'nin bilgileri adlı bir *talep*. Taşıyıcı ve belirtecin konu hakkındaki bilgilerin bir olaydır. JWT'nin Taleplerde kodlanmış ve aktarım için seri hale getirilmiş JavaScript nesne gösterimi (JSON) nesneleridir. V2.0 uç noktası tarafından verilen Jwt'ler imzalanmış ancak şifreli olduğundan, kolayca hata ayıklama amacıyla bir JWT içeriğini inceleyebilirsiniz. Jwt'ler hakkında daha fazla bilgi için bkz: [JWT belirtimi](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
-### <a name="id-tokens"></a>Kimliği belirteçleri
+### <a name="id-tokens"></a>Kimlik belirteçleri
+
 Bir kimlik belirteci kullanarak kimlik doğrulaması gerçekleştirdiğinde, uygulamanızı aldığı oturum güvenlik belirteci biçimindedir [Openıd Connect](active-directory-v2-protocols.md). Kimlik belirteçlerini olarak temsil edilir [Jwt'ler](#types-of-tokens), kullanıcı uygulamanızda oturum açmak için kullanabileceğiniz talepleri içerir. Talepler bir kimlik belirteci çeşitli şekillerde kullanabilirsiniz. Genellikle, Yöneticiler, hesap bilgilerini görüntülemek veya erişim denetimi kararları bir uygulama için kimliği belirteçleri kullanın. V2.0 uç noktası yalnızca bir tür talepler, oturum açmış kullanıcı türünden bağımsız olarak tutarlı özellik kümesi olan kimlik belirteci verir. Kimlik belirteçlerini içeriğini ve biçimini iş veya Okul hesapları ve kişisel Microsoft hesabı kullanıcıları için aynıdır.
 
 Şu anda kimlik belirteçlerini imzalı fakat şifrelenmez. Uygulamanıza bir kimlik belirteci aldığında, bu gerekir [imzayı doğrulamak](#validating-tokens) belirtecinin kimliğinin doğruluğunu kanıtlamak ve belirtecin geçerliliğini kanıtlamak için birkaç talepleri doğrulamak için. Bir uygulama tarafından doğrulanmış talep senaryo gereksinimlerine bağlı olarak farklılık gösterir, ancak uygulamanızı bazı gerçekleştirmelidir [ortak talep doğrulamaları](#validating-tokens) her senaryoda.
@@ -47,16 +48,16 @@ Bir kimlik belirteci kullanarak kimlik doğrulaması gerçekleştirdiğinde, uyg
 Talepler hakkında tam Ayrıntılar aşağıdaki bölümlerde, örnek kimlik belirteci yanı sıra kimliği belirteçlerinde sunuyoruz. Kimliği belirteçlere talep belirli bir sırayla döndürülmediğini unutmayın. Ayrıca, yeni bir talep kimliği belirteçlere herhangi bir zamanda tanıtılabilir. Yeni Talep sunulduğunda uygulamanızı kesmemesi. Aşağıdaki liste, uygulamanız şu anda güvenilir bir şekilde yorumlayabilir talepleri içerir. Daha fazla bilgi bulabilirsiniz [Openıd Connect belirtimi](http://openid.net/specs/openid-connect-core-1_0.html).
 
 #### <a name="sample-id-token"></a>Örnek kimlik belirteci
+
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTk4MTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlL3YyLjAiLCJpYXQiOjE0NTIyODUzMzEsIm5iZiI6MTQ1MjI4NTMzMSwiZXhwIjoxNDUyMjg5MjMxLCJuYW1lIjoiQmFiZSBSdXRoIiwibm9uY2UiOiIxMjM0NSIsIm9pZCI6ImExZGJkZGU4LWU0ZjktNDU3MS1hZDkzLTMwNTllMzc1MGQyMyIsInByZWZlcnJlZF91c2VybmFtZSI6InRoZWdyZWF0YmFtYmlub0BueXkub25taWNyb3NvZnQuY29tIiwic3ViIjoiTUY0Zi1nZ1dNRWppMTJLeW5KVU5RWnBoYVVUdkxjUXVnNWpkRjJubDAxUSIsInRpZCI6ImI5NDE5ODE4LTA5YWYtNDljMi1iMGMzLTY1M2FkYzFmMzc2ZSIsInZlciI6IjIuMCJ9.p_rYdrtJ1oCmgDBggNHB9O38KTnLCMGbMDODdirdmZbmJcTHiZDdtTc-hguu3krhbtOsoYM2HJeZM3Wsbp_YcfSKDY--X_NobMNsxbT7bqZHxDnA2jTMyrmt5v2EKUnEeVtSiJXyO3JWUq9R0dO-m4o9_8jGP6zHtR62zLaotTBYHmgeKpZgTFB9WtUq8DVdyMn_HSvQEfz-LWqckbcTwM_9RNKoGRVk38KChVJo4z5LkksYRarDo8QgQ7xEKmYmPvRr_I7gvM2bmlZQds2OeqWLB1NSNbFZqyFOCgYn3bAQ-nEQSKwBaA36jYGPOVG2r2Qv1uKcpSOxzxaQybzYpQ
 ```
 
 > [!TIP]
 > Uygulama için örnek kimliği belirteçteki talepleri incelemek için örnek kimliği belirtece yapıştırın [jwt.ms](http://jwt.ms/).
->
->
 
 #### <a name="claims-in-id-tokens"></a>Kimliği belirteçlere talep
+
 | Ad | İste | Örnek değer | Açıklama |
 | --- | --- | --- | --- |
 | Hedef kitle |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Amaçladığınız alıcının belirtecin tanımlar. Kimliği belirteçlerinde, hedef kitlesi, uygulamanızın uygulama kimliği, Microsoft uygulama kayıt portalında uygulamanıza atanan ' dir. Uygulamanız bu değeri doğrulamak ve değer eşleşmiyorsa belirteci reddetme. |
@@ -82,22 +83,25 @@ V2.0 uç noktası için Web API'leri gibi güvenli kaynaklara erişim belirteçl
 V2.0 uç noktasından bir erişim belirteci isteğinde bulunduğunuzda v2.0 uç noktası de kullanmak için uygulamanızı için erişim belirteci hakkındaki meta verileri döndürür. Bu bilgiler, kapsamlar için geçerlidir ve erişim belirteci süre sonu içerir. Uygulamanıza akıllı erişim belirteçlerinin açık ayrıştırma zorunda kalmadan erişim belirteci önbelleğe alma işlemi bu metaveriyi kullanır.
 
 ### <a name="refresh-tokens"></a>Yenileme belirteçlerini
+
 Yenileme belirteçler, uygulamanızı bir OAuth 2.0 akışı yeni erişim belirteçlerini almak için kullanabileceğiniz güvenlik belirteçleri. Uygulamanızı, yenileme belirteçleri, kullanıcı etkileşimi gerektirmeden bir kullanıcı adına kaynakları için uzun süreli erişim elde etmek için kullanabilirsiniz.
 
 Çok kaynaklı yenileme belirteçleri. Bir kaynak için bir belirteç isteği sırasında alınan bir yenileme belirteci, tamamen farklı bir kaynağa erişim belirteçleri için ödenebilecek.
 
 Bir yenileme belirteci bir yanıt almak için uygulamanızı istemelisiniz ve verilmesi `offline_access` kapsam. Hakkında daha fazla bilgi edinmek için `offline_access` kapsam için bkz: [rızası ve kapsamları](v2-permissions-and-consent.md) makalesi.
 
-Yenileme belirteçlerini olan ve her zaman, uygulamanıza tamamen opak olacaktır. Bunlar Azure AD v2.0 uç noktası tarafından verilen yalnızca inceledi ve v2.0 uç noktası tarafından yorumlanır. Uzun süreli olduklarından, ancak uygulamanızı bir yenileme belirteci süre boyunca en son, bekleyebileceğiniz yazılmamalıdır. Yenileme belirteçleri geçersiz olabilir - Ayrıntılar için çeşitli nedenlerle herhangi bir anda bkz [iptal belirteci](v1-id-and-access-tokens.md#token-revocation). V2.0 uç noktası için bir belirteç isteğini yaparak kullanmak uygulamanızı bir yenileme belirteci geçerli olup olmadığını öğrenmek için tek yolu denemektir.
+Yenileme belirteçlerini olan ve her zaman, uygulamanıza tamamen opak olacaktır. Bunlar Azure AD v2.0 uç noktası tarafından verilen yalnızca inceledi ve v2.0 uç noktası tarafından yorumlanır. Uzun süreli olduklarından, ancak uygulamanızı bir yenileme belirteci süre boyunca en son, bekleyebileceğiniz yazılmamalıdır. Yenileme belirteçleri geçersiz olabilir - Ayrıntılar için çeşitli nedenlerle herhangi bir anda bkz [iptal belirteci](access-tokens.md#revocation). V2.0 uç noktası için bir belirteç isteğini yaparak kullanmak uygulamanızı bir yenileme belirteci geçerli olup olmadığını öğrenmek için tek yolu denemektir.
 
 Pass'inizi ne zaman yeni bir erişim belirteci için bir yenileme belirteci (ve uygulamanızı verilen `offline_access` kapsam), belirteci yanıt olarak yeni bir yenileme belirteci alırsınız. İstekte kullanılan değiştirmek için yeni verilen yenileme belirteci kaydedin. Bu, yenileme belirteçleri mümkün olduğunca uzun bir süre için geçerli kalmasını güvence altına alır.
 
 ## <a name="validating-tokens"></a>Belirteçleri doğrulama
+
 Şu anda, uygulamalarınızı yapmanız yalnızca belirteç doğrulama kimliği belirteçleri doğruluyor. Bir kimlik belirteci doğrulamak için uygulamanızın kimliği belirtecinin imzası hem kimliği belirteçteki talepleri doğrulamalıdır.
 
 <!-- TODO: Link --> Microsoft, kitaplıkları ve belirteç doğrulama kolayca nasıl ele alınacağını gösteren kod örnekleri sağlar. Sonraki bölümlerde, şu temel işlemi açıklar. Çeşitli üçüncü taraf açık kaynak kitaplıkları da JWT doğrulama için kullanılabilir. Neredeyse tüm platform ve dil için en az bir kitaplık seçeneği yoktur.
 
 ### <a name="validate-the-signature"></a>İmza doğrulama
+
 JWT'nin tarafından ayrılmış üç segmentleri içeren `.` karakter. İlk segment olarak bilinen *üstbilgi*, ikinci bir segmenttir *gövdesi*, ve üçüncü kesim *imza*. İmza segment, böylece uygulamanız tarafından güvenilen kimlik belirteci özgünlüğünü doğrulamak için kullanılabilir.
 
 RSA 256 gibi endüstri standardı asimetrik şifreleme algoritmaları kullanarak kimlik belirteçlerini imzalanmıştır. Kimlik belirteci üstbilgisi, belirteç imzalamak için kullanılan anahtar ve şifreleme yöntemi ilgili bilgiler bulunur. Örneğin:
@@ -131,6 +135,7 @@ Bu meta veri belgesi Openıd Connect kimlik doğrulaması için gereken çeşitl
 İmza doğrulama gerçekleştirme, bu belgenin kapsamı dışında olan. Bu konuda yardım sağlayacak birçok açık kaynak kitaplıkları kullanılabilir.
 
 ### <a name="validate-the-claims"></a>Talepleri doğrula
+
 Uygulamanızı kullanıcı oturum açma sırasında bir kimlik belirteci aldığında, bunu birkaç denetimleri talepleri karşı kimlik belirteci gerçekleştirmelisiniz. Bunlar dahil ancak bunlarla sınırlı değildir:
 
 * **Hedef kitle** talep kimlik belirteci uygulamanıza verilmesi amaçlanmamıştır doğrulamak için
@@ -143,6 +148,7 @@ Uygulamanızı gerçekleştirmesi gereken talep doğrulamaları tam bir listesi 
 Bu talepler için beklenen değerle ayrıntıları dahil edilecek [kimlik belirteçlerini](# ID tokens) bölümü.
 
 ## <a name="token-lifetimes"></a>Belirteç kullanım ömrü
+
 Yalnızca bilgi için aşağıdaki belirteç ömrünü sunuyoruz. Geliştirme ve uygulamalarında hata ayıklama bilgileri, yardımcı olabilir. Uygulamalarınızı herhangi birini bu yaşam süreleri sabit kalması beklenir yazılmamalıdır. Belirteç ömürleri olabilir ve herhangi bir zamanda değişir.
 
 | Belirteç | Yaşam süresi | Açıklama |

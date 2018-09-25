@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 8bebec23d7a0199d8efbc55b3cde50c628306f01
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970303"
+ms.locfileid: "47034377"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure stack'teki API sürümü profillerini yönetme
 
@@ -86,7 +86,7 @@ GO SDK, bir profil farklı sürümlerini farklı hizmetlerden farklı kaynak tü
 - **Ruby**  
 Ruby SDK'sı için Azure Stack Kaynak Yöneticisi'ni oluşturmanıza ve altyapınızı yönetmenize yardımcı olacak araçlar sağlar. İşlem, sanal ağlar ve depolama ile Ruby dil SDK kaynak sağlayıcılarını içerir. Bilgi için [kullanımı API sürümü profillerini Ruby ile](azure-stack-version-profiles-ruby.md)
 - **Python**  
-- Python SDK'sı, Azure yığını ve genel Azure gibi farklı bulut platformları hedeflemek için API sürümü profillerini destekler. Hibrit bulut çözümleri oluşturma API profillerini kullanabilirsiniz. Bilgi için [kullanımı API sürümü profillerini ile Python](azure-stack-version-profiles-python.md)
+Python SDK'sı, Azure yığını ve genel Azure gibi farklı bulut platformları hedeflemek için API sürümü profillerini destekler. Hibrit bulut çözümleri oluşturma API profillerini kullanabilirsiniz. Bilgi için [kullanımı API sürümü profillerini ile Python](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

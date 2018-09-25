@@ -1,5 +1,5 @@
 ---
-title: Windows Defender Gelişmiş tehdit Koruması (ATP) ile Azure Güvenlik Merkezi (genel Önizleme) | Microsoft Docs
+title: Windows Defender Gelişmiş tehdit Koruması (ATP) ile Azure Güvenlik Merkezi | Microsoft Docs
 description: Bu belge Azure Güvenlik Merkezi ve Windows Defender ATP arasında tümleştirme sağlar.
 services: security-center
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
+ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: f2cb4edd469d76f79e4134ca261bac5263bf3ce4
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5f604583aeb9a633d34bad633008e0c2ddeb3ef2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296066"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032045"
 ---
-# <a name="windows-defender-advanced-threat-protection-atp-with-azure-security-center-public-preview"></a>Windows Defender Gelişmiş tehdit Koruması (ATP) ile Azure Güvenlik Merkezi (genel Önizleme)
+# <a name="windows-defender-advanced-threat-protection-atp-with-azure-security-center"></a>Windows Defender Gelişmiş tehdit Koruması (ATP) ile Azure Güvenlik Merkezi
 
 Azure Güvenlik Merkezi genişletme bulut iş yükü koruması platformları (CWPP) teklifini ile tümleştirerek [Windows Defender ATP](https://www.microsoft.com/WindowsForBusiness/windows-atp).
 Bu değişiklik, kapsamlı uç nokta algılama ve yanıt (EDR) özellikleri sunar. Prosesler spot, algılamanıza ve bu sunucu uç noktaları ASC tarafından izlenen Gelişmiş saldırıları yanıt olanak tanır.
@@ -43,7 +43,7 @@ Bu özellikler Azure Güvenlik Merkezi'nde artık kullanılabilir:
 
 ![* Şekil 1 tüm resmi ASC * tarafından oluşturulan uyarılar dahil olmak üzere araştırma görme](media/security-center-wdatp/image1.png)
 
-Azure Güvenlik Merkezi'nde uyarı inceleyebilirsiniz:
+Yapabilecekleriniz [araştırmak](security-center-investigation.md) Azure Güvenlik Merkezi'nde Uyarı:
 
 ![Şekil 2 araştırma - Azure Güvenlik Merkezi](media/security-center-wdatp/image2.png)
 
@@ -59,7 +59,15 @@ Yalnızca standart katmanda Abonelikteki sunucuları
 
 ## <a name="onboarding-instructions"></a>Ekleme yönergeleri
 
-- Varsa, zaten yerleşik eklenen ASC ASC standart katman - hiçbir eylem sunuculara gerekli olacak otomatik olarak WDATP sunucularına.
+Windows Defender ATP tümleştirmesi etkin olup olmadığını görmek için Güvenlik Merkezi seçebilirsiniz > Güvenlik İlkesi > abonelik > ayarlarını Düzenle
+
+  ![İlke görüntüleme](media/security-center-wdatp/policy-management.png)
+
+Şu anda etkin tümleştirmeler burada görebilirsiniz
+
+  ![Etkin tümleştirmeleri](media/security-center-wdatp/enable-integrations.png)
+
+- Varsa, zaten ASC standart katman - hiçbir eylem sunuculara gerekir, ASC otomatik olarak yerleşik sunucular için WDATP eklenmedi. Bu 24 saate kadar sürebilir.
 
 - Varsa, hiçbir zaman sunuculara ASC standart katmanı – yerleşik ASC'ye zamanki eklenmedi.
 
@@ -81,7 +89,7 @@ Windows Defender ATP algılayıcısını sistemi bağlamından bağlanıyor gibi
 
 1. Windows Server Vm'leri birine RDP (2012R2 veya 2016) bir komut istemi penceresi açın ve aboneliği
 
-2. Komut isteminde kopyalayın ve aşağıdaki komutu çalıştırın. Komut İstemi penceresi otomatik olarak kapanacak unutmayın.
+2. Komut isteminde kopyalayın ve aşağıdaki komutu çalıştırın. Komut İstemi penceresi otomatik olarak kapatılacak.
 
     (yeni nesne System.NET.WebClient'a) **PowerShell.exe - NoExit - ExecutionPolicy atlama - WindowStyle gizli. DownloadFile ('http://127.0.0.1/1.exe', ' C:\\sınaması WDATP\\invoice.exe'); İşlemini Başlat ' C:\\sınaması WDATP\\invoice.exe' **
 
@@ -95,6 +103,6 @@ Windows Defender ATP algılayıcısını sistemi bağlamından bağlanıyor gibi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
-* [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
+- [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+- [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
+- [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.

@@ -15,131 +15,122 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 94d57abc95dabf1da579f6d2105ca6c74140a86f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: be8ffeae1977fb2f56e0f85a716d982a6d2f84dc
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293741"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060729"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Kullanıcının oturum açmak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanma
 
-1.  `app.js` adlı bir dosya oluşturun. Visual Studio kullanıyorsanız, ' % s'projesi (projenin kök klasöründe) seçin, sağ tıklatın ve seçin: `Add`  >  `New Item`  >  `JavaScript File`:
-2.  Aşağıdaki kodu ekleyin, `app.js` dosyası:
+1. Aşağıdaki kodu ekleyin, `index.html` içinde dosya `<script></script>` etiketler:
 
 ```javascript
-// Graph API endpoint to show user profile
-var graphApiEndpoint = "https://graph.microsoft.com/v1.0/me";
+//Pass null for default authority (https://login.microsoftonline.com/common)
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack,
+    {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 
-// Graph API scope used to obtain the access token to read user profile
-var graphAPIScopes = ["https://graph.microsoft.com/user.read"];
-
-// Initialize application
-var userAgentApplication = new Msal.UserAgentApplication(msalconfig.clientID, null, loginCallback, {
-    redirectUri: msalconfig.redirectUri
-});
-
-//Previous version of msal uses redirect url via a property
-if (userAgentApplication.redirectUri) {
-    userAgentApplication.redirectUri = msalconfig.redirectUri;
+function signIn() {
+    myMSALObj.loginPopup(applicationConfig.graphScopes).then(function (idToken) {
+        //Login Success
+        showWelcomeMessage();
+        acquireTokenPopupAndCallMSGraph();
+    }, function (error) {
+        console.log(error);
+    });
 }
 
-window.onload = function () {
-    // If page is refreshed, continue to display user info
-    if (!userAgentApplication.isCallback(window.location.hash) && window.parent === window && !window.opener) {
-        var user = userAgentApplication.getUser();
-        if (user) {
-            callGraphApi();
-        }
-    }
-}
-
-/**
- * Call the Microsoft Graph API and display the results on the page. Sign the user in if necessary
- */
-function callGraphApi() {
-    var user = userAgentApplication.getUser();
-    if (!user) {
-        // If user is not signed in, then prompt user to sign in via loginRedirect.
-        // This will redirect user to the Azure Active Directory v2 Endpoint
-        userAgentApplication.loginRedirect(graphAPIScopes);
-        // The call to loginRedirect above frontloads the consent to query Graph API during the sign-in.
-        // If you want to use dynamic consent, just remove the graphAPIScopes from loginRedirect call.
-        // As such, user will be prompted to give consent when requested access to a resource that 
-        // he/she hasn't consented before. In the case of this application - 
-        // the first time the Graph API call to obtain user's profile is executed.
-    } else {
-        // If user is already signed in, display the user info
-        var userInfoElement = document.getElementById("userInfo");
-        userInfoElement.parentElement.classList.remove("hidden");
-        userInfoElement.innerHTML = JSON.stringify(user, null, 4);
-
-        // Show sign-out button
-        document.getElementById("signOutButton").classList.remove("hidden");
-
-        // Now Call Graph API to show the user profile information:
-        var graphCallResponseElement = document.getElementById("graphResponse");
-        graphCallResponseElement.parentElement.classList.remove("hidden");
-        graphCallResponseElement.innerText = "Calling Graph ...";
-
-        // In order to call the Graph API, an access token needs to be acquired.
-        // Try to acquire the token used to query Graph API silently first:
-        userAgentApplication.acquireTokenSilent(graphAPIScopes)
-            .then(function (token) {
-                //After the access token is acquired, call the Web API, sending the acquired token
-                callWebApiWithToken(graphApiEndpoint, token, graphCallResponseElement, document.getElementById("accessToken"));
-
+function acquireTokenPopupAndCallMSGraph() {
+    //Call acquireTokenSilent (iframe) to obtain a token for Microsoft Graph
+    myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (accessToken) {
+        callMSGraph(applicationConfig.graphEndpoint, accessToken, graphAPICallback);
+    }, function (error) {
+        console.log(error);
+        // Call acquireTokenPopup (popup window) in case of acquireTokenSilent failure due to consent or interaction required ONLY
+        if (error.indexOf("consent_required") !== -1 || error.indexOf("interaction_required") !== -1 || error.indexOf("login_required") !== -1) {
+            myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (accessToken) {
+                callMSGraph(applicationConfig.graphEndpoint, accessToken, graphAPICallback);
             }, function (error) {
-                // If the acquireTokenSilent() method fails, then acquire the token interactively via acquireTokenRedirect().
-                // In this case, the browser will redirect user back to the Azure Active Directory v2 Endpoint so the user 
-                // can reenter the current username/ password and/ or give consent to new permissions your application is requesting.
-                // After authentication/ authorization completes, this page will be reloaded again and callGraphApi() will be executed on page load.
-                // Then, acquireTokenSilent will then get the token silently, the Graph API call results will be made and results will be displayed in the page.
-                if (error) {
-                    userAgentApplication.acquireTokenRedirect(graphAPIScopes);
-                }
+                console.log(error);
             });
-    }
+        }
+    });
 }
 
-/**
- * Callback method from sign-in: if no errors, call callGraphApi() to show results.
- * @param {string} errorDesc - If error occur, the error message
- * @param {object} token - The token received from sign-in
- * @param {object} error - The error string
- * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
- */
-function loginCallback(errorDesc, token, error, tokenType) {
-    if (errorDesc) {
-        showError(msal.authority, error, errorDesc);
-    } else {
-        callGraphApi();
-    }
+function graphAPICallback(data) {
+    //Display user data on DOM
+    var divWelcome = document.getElementById('WelcomeMessage');
+    divWelcome.innerHTML += " to Microsoft Graph API!!";
+    document.getElementById("json").innerHTML = JSON.stringify(data, null, 2);
 }
 
-/**
- * Show an error message in the page
- * @param {string} endpoint - the endpoint used for the error message
- * @param {string} error - Error string
- * @param {string} errorDesc - Error description
- */
-function showError(endpoint, error, errorDesc) {
-    var formattedError = JSON.stringify(error, null, 4);
-    if (formattedError.length < 3) {
-        formattedError = error;
-    }
-    document.getElementById("errorMessage").innerHTML = "An error has occurred:<br/>Endpoint: " + endpoint + "<br/>Error: " + formattedError + "<br/>" + errorDesc;
-    console.error(error);
+function showWelcomeMessage() {
+    var divWelcome = document.getElementById('WelcomeMessage');
+    divWelcome.innerHTML += 'Welcome ' + myMSALObj.getUser().name;
+    var loginbutton = document.getElementById('SignIn');
+    loginbutton.innerHTML = 'Sign Out';
+    loginbutton.setAttribute('onclick', 'signOut();');
 }
 
+// This function can be removed if you do not need to support IE
+function acquireTokenRedirectAndCallMSGraph() {
+    //Call acquireTokenSilent (iframe) to obtain a token for Microsoft Graph
+    myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (accessToken) {
+      callMSGraph(applicationConfig.graphEndpoint, accessToken, graphAPICallback);
+    }, function (error) {
+        console.log(error);
+        //Call acquireTokenRedirect in case of acquireToken Failure
+        if (error.indexOf("consent_required") !== -1 || error.indexOf("interaction_required") !== -1 || error.indexOf("login_required") !== -1) {
+            myMSALObj.acquireTokenRedirect(applicationConfig.graphScopes);
+        }
+    });
+}
+
+function acquireTokenRedirectCallBack(errorDesc, token, error, tokenType)
+{
+ if(tokenType === "access_token")
+ {
+     callMSGraph(applicationConfig.graphEndpoint, accessToken, graphAPICallback);
+ } else {
+     console.log("token type is:"+tokenType);
+ }
+}
+
+
+// Browser check variables
+var ua = window.navigator.userAgent;
+var msie = ua.indexOf('MSIE ');
+var msie11 = ua.indexOf('Trident/');
+var msedge = ua.indexOf('Edge/');
+var isIE = msie > 0 || msie11 > 0;
+var isEdge = msedge > 0;
+
+//If you support IE, our recommendation is that you sign-in using Redirect APIs
+//If you as a developer are testing using Edge InPrivate mode, please add "isEdge" to the if check
+if (!isIE) {
+    if (myMSALObj.getUser()) {// avoid duplicate code execution on page load in case of iframe and popup window.
+        showWelcomeMessage();
+        acquireTokenPopupAndCallMSGraph();
+    }
+}
+else {
+    document.getElementById("SignIn").onclick = function () {
+        myMSALObj.loginRedirect(applicationConfig.graphScopes);
+    };
+    if (myMSALObj.getUser() && !myMSALObj.isCallback(window.location.hash)) {// avoid duplicate code execution on page load in case of iframe and popup window.
+        showWelcomeMessage();
+        acquireTokenRedirectAndCallMSGraph();
+    }
+}
 ```
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha Fazla Bilgi
 
-Bir kullanıcı tıklattıktan sonra *'Microsoft Graph API çağrısı'* düğmesini ilk kez `callGraphApi` yöntem çağrılarını `loginRedirect` kullanıcısı ile oturum. Kullanıcıya yeniden yönlendirme bu yöntem sonuçlarını *Microsoft Azure Active Directory v2 uç noktası* sor ve kullanıcının kimlik bilgilerini doğrulamak için. Bir oturum açma başarılı sonucu olarak, kullanıcının özgün durumuna geri yönlendirilir *index.html* sayfa ve bir belirteç alındığında, tarafından işlenen `msal.js` ve belirtecinde yer alan bilgileri önbelleğe alınır. Bu belirteci olarak da bilinen *kimlik belirteci* ve kullanıcı görünen adı gibi kullanıcıyla ilgili temel bilgileri içerir. Tüm amaçlar için bu belirteci tarafından sağlanan herhangi bir veri kullanmayı planlıyorsanız, bu belirteç, uygulamanız için geçerli bir kullanıcı için belirteç verildiğini güvence altına almak için arka uç sunucunuzu doğrulayan emin olmanız gerekir.
+Bir kullanıcı tıklattıktan sonra *'Oturum açma'* düğmesini ilk kez `signIn` yöntem çağrılarını `loginPopup` kullanıcısı ile oturum. Bu yöntem ile bir açılan pencere açılırken sonuçları *Microsoft Azure Active Directory v2 uç noktası* sor ve kullanıcının kimlik bilgilerini doğrulamak için. Bir oturum açma başarılı sonucu olarak, kullanıcının özgün durumuna geri yönlendirilir *index.html* sayfa ve bir belirteç alındığında, tarafından işlenen `msal.js` ve belirtecinde yer alan bilgileri önbelleğe alınır. Bu belirteci olarak da bilinen *kimlik belirteci* ve kullanıcı görünen adı gibi kullanıcıyla ilgili temel bilgileri içerir. Tüm amaçlar için bu belirteci tarafından sağlanan herhangi bir veri kullanmayı planlıyorsanız, bu belirteç, uygulamanız için geçerli bir kullanıcı için belirteç verildiğini güvence altına almak için arka uç sunucunuzu doğrulayan emin olmanız gerekir.
 
-Bu kılavuzda oluşturulan SPA kullanmayan doğrudan kimlik belirteci kullanın: bunun yerine çağrı `acquireTokenSilent` ve/veya `acquireTokenRedirect` almak için bir *erişim belirteci* Microsoft Graph API sorgulamak için kullanılır. Kimlik belirteci doğrular bir örnek gerekirse göz atın [bu](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 örnek") github'da – örnek örnek uygulama bir ASP kullanır Belirteç doğrulama için .NET web API'si.
+Bu tarafından oluşturulan SPA Kılavuzu çağrıları `acquireTokenSilent` ve/veya `acquireTokenPopup` almak için bir *erişim belirteci* Microsoft Graph API için kullanıcı profili bilgileri sorgulamak için kullanılan. Kimlik belirteci doğrular bir örnek gerekirse göz atın [bu](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 örnek") github'da – örnek örnek uygulama bir ASP kullanır Belirteç doğrulama için .NET web API'si.
 
 #### <a name="getting-a-user-token-interactively"></a>Etkileşimli bir kullanıcı belirteci alma
 
@@ -148,89 +139,53 @@ Bu kılavuzda oluşturulan SPA kullanmayan doğrudan kimlik belirteci kullanın:
 - Uygulamanızın kullanıcı onay gerektiren bir kaynağa erişim istiyor
 - İki faktörlü kimlik doğrulaması gereklidir
 
-Çağırma *acquireTokenRedirect(scope)* kullanıcılar Azure Active Directory v2 uç noktası için yeniden yönlendirme sonucu (veya *acquireTokenPopup(scope)* sonucu bir açılan pencere üzerinde) etkileşim kurmak, kullanıcıların nerede gerekir kimlik bilgilerini onaylayan, gerekli kaynak için izin vermek ya da Tamamlanıyor iki öğeli kimlik doğrulamasını.
+Çağırma *acquireTokenPopup(scope)* sonuçları bir açılır pencerede (veya *acquireTokenRedirect(scope)* sonuçları kullanıcılarını Azure Active Directory v2 uç noktaya yönlendirme de) burada kullanıcılar gerekir kimlik bilgilerini onaylayan, gerekli kaynak için izin vermek ya da iki faktörlü kimlik doğrulamasını tamamlayan etkileşim kurun.
 
 #### <a name="getting-a-user-token-silently"></a>Bir kullanıcı sessizce belirteci alma
-` acquireTokenSilent` Belirteç edinme ve herhangi bir kullanıcı etkileşimi olmadan yenileme yöntemi işler. Sonra `loginRedirect` (veya `loginPopup`) ilk kez yürütülür `acquireTokenSilent` veya belirteçleri yenileme isteği için çağrıları sessizce yapıldıkça yapılan sonraki çağrılar için-korunan kaynaklara erişim için kullanılan belirteçleri elde etmek için yaygın kullanılan yöntemdir.
+` acquireTokenSilent` Belirteç edinme ve herhangi bir kullanıcı etkileşimi olmadan yenileme yöntemi işler. Sonra `loginPopup` (veya `loginRedirect`) ilk kez yürütülür `acquireTokenSilent` veya belirteçleri yenileme isteği için çağrıları sessizce yapıldıkça yapılan sonraki çağrılar için-korunan kaynaklara erişim için kullanılan belirteçleri elde etmek için yaygın kullanılan yöntemdir.
 `acquireTokenSilent` başarısız olabilir bazı durumlarda – Örneğin, kullanıcı parolasının süresi doldu. Uygulamanız, bu özel durumun iki şekilde işleyebilir:
 
-1.  Çağrı yapmak `acquireTokenRedirect` hemen sonuçlanır kullanıcının oturum açmasını isteyen içinde. Bu düzen çevrimiçi uygulamalarında yaygın olarak kullanılan bulunduğu kimliği doğrulanmamış içerik uygulamada kullanıcı tarafından kullanılabilir. Bu Kılavuzlu kurulum tarafından oluşturulan örnek bu deseni kullanır.
+1.  Çağrı yapmak `acquireTokenPopup` hemen sonuçlanır kullanıcının oturum açmasını isteyen içinde. Bu düzen çevrimiçi uygulamalarında yaygın olarak kullanılan bulunduğu kimliği doğrulanmamış içerik uygulamada kullanıcı tarafından kullanılabilir. Bu Kılavuzlu kurulum tarafından oluşturulan örnek bu deseni kullanır.
 
 2. Uygulamaları bir etkileşimli oturum açma kullanıcı oturum açmak için doğru zamanda seçebilir ya da uygulama yeniden deneyebilir gerekli olan, kullanıcı için bir görsel gösterimi de yapabilir `acquireTokenSilent` daha sonra. Bu yaygın olarak kullanılan kullanıcı uygulamanın diğer işlevleri kesintiye olmadan kullanabilir - Örneğin, kimliği doğrulanmamış içerik uygulamada kullanılabilir olduğunda. Bu durumda, korumalı kaynağa erişmeye veya güncel olmayan bilgileri yenilemek için oturum açmak istediğinizde kullanıcı karar verebilirsiniz.
 
+> [!NOTE]
+> Yukarıdaki kod `loginRedirect` ve `acquireTokenRedirect` kullanılan tarayıcı nedeni Internet Explorer olduğunda yöntemleri bir [bilinen sorun](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) açılır pencereleri işlenmesi için Internet Explorer tarayıcı tarafından ilgili.
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Yalnızca edindiğiniz belirteci kullanarak Microsoft Graph API çağırma
 
-Aşağıdaki kodu ekleyin, `app.js` dosyası:
+Aşağıdaki kodu ekleyin, `index.html` içinde dosya `<script></script>` etiketler:
 
 ```javascript
-/**
- * Call a Web API using an access token.
- * @param {any} endpoint - Web API endpoint
- * @param {any} token - Access token
- * @param {object} responseElement - HTML element used to display the results
- * @param {object} showTokenElement = HTML element used to display the RAW access token
- */
-function callWebApiWithToken(endpoint, token, responseElement, showTokenElement) {
-    var headers = new Headers();
-    var bearer = "Bearer " + token;
-    headers.append("Authorization", bearer);
-    var options = {
-        method: "GET",
-        headers: headers
-    };
-
-    fetch(endpoint, options)
-        .then(function (response) {
-            var contentType = response.headers.get("content-type");
-            if (response.status === 200 && contentType && contentType.indexOf("application/json") !== -1) {
-                response.json()
-                    .then(function (data) {
-                        // Display response in the page
-                        console.log(data);
-                        responseElement.innerHTML = JSON.stringify(data, null, 4);
-                        if (showTokenElement) {
-                            showTokenElement.parentElement.classList.remove("hidden");
-                            showTokenElement.innerHTML = token;
-                        }
-                    })
-                    .catch(function (error) {
-                        showError(endpoint, error);
-                    });
-            } else {
-                response.json()
-                    .then(function (data) {
-                        // Display response as error in the page
-                        showError(endpoint, data);
-                    })
-                    .catch(function (error) {
-                        showError(endpoint, error);
-                    });
-            }
-        })
-        .catch(function (error) {
-            showError(endpoint, error);
-        });
+function callMSGraph(theUrl, accessToken, callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200)
+            callback(JSON.parse(this.responseText));
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous
+    xmlHttp.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+    xmlHttp.send();
 }
 ```
 <!--start-collapse-->
 
 ### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Karşı korumalı bir API REST çağrısı yapma hakkında daha fazla bilgi
 
-Bu kılavuzda, oluşturulan örnek uygulamada `callWebApiWithToken()` yöntemi bir HTTP yapmak için kullanılan `GET` istemek için bir belirteç gerekiyor korunan bir kaynağa karşı ve ardından içeriği çağırana döndürmesi. Bu yöntem alınan belirteç ekler *HTTP yetkilendirme üst bilgisi*. Bu kılavuzda oluşturulan örnek uygulama için Microsoft Graph API kaynaktır *bana* endpoint – kullanıcı profili bilgilerini görüntüler.
+Bu kılavuzda, oluşturulan örnek uygulamada `callMSGraph()` yöntemi bir HTTP yapmak için kullanılan `GET` istemek için bir belirteç gerekiyor korunan bir kaynağa karşı ve ardından içeriği çağırana döndürmesi. Bu yöntem alınan belirteç ekler *HTTP yetkilendirme üst bilgisi*. Bu kılavuzda oluşturulan örnek uygulama için Microsoft Graph API kaynaktır *bana* endpoint – kullanıcı profili bilgilerini görüntüler.
 
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-the-user"></a>Kullanıcının oturumunu kapatmaz için yöntem ekleme
 
-Aşağıdaki kodu ekleyin, `app.js` dosyası:
+Aşağıdaki kodu ekleyin, `index.html` içinde dosya `<script></script>` etiketler:
 
 ```javascript
 /**
  * Sign out the user
  */
-function signOut() {
-    userAgentApplication.logout();
-}
+ function signOut() {
+     myMSALObj.logout();
+ }
 ```

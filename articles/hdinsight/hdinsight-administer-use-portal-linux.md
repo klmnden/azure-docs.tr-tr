@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jasonh
-ms.openlocfilehash: 0e584343e568c5cd0d91a1e6ff51dc899c5434d7
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b00c88e526bf72f51df0d2a3d6a87fbd5bc1f991
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106538"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991989"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak HDInsight Hadoop kümelerini yönetme
 
@@ -207,7 +207,7 @@ Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. 
 
 * Kullanıcı Azure veri fabrikası. Bkz: [oluşturma isteğe bağlı Linux tabanlı Hadoop kümeleri Azure Data Factory kullanarak HDInsight](hdinsight-hadoop-create-linux-clusters-adf.md) isteğe bağlı HDInsight'ı oluşturmak için bağlı hizmetler.
 * Azure PowerShell kullanın.  Bkz: [uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md).
-* Azure CLI kullanın. Bkz: [yönetme HDInsight kümeleri Azure CLI kullanarak](hdinsight-administer-use-command-line.md).
+* Klasik Azure CLI'yi kullanın. Bkz: [yönetme HDInsight kümeleri Klasik Azure CLI kullanarak](hdinsight-administer-use-command-line.md).
 * HDInsight .NET SDK'sını kullanın. Bkz: [gönderme Hadoop işlerini](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Fiyatlandırma bilgileri için bkz. [HDInsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/). Portaldan bir kümeyi silmek için bkz: [küme silme](#delete-clusters)
@@ -291,7 +291,7 @@ HDInsight kümeleri aşağıdaki HTTP web Hizmetleri (Bu hizmetlerin tümü, RES
 * Oozie
 * Templeton da
 
-Varsayılan olarak, bu hizmetler için erişim verilir. İptal etme/kullanarak erişim verme [Azure CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) ve [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
+Varsayılan olarak, bu hizmetler için erişim verilir. İptal etme/kullanarak erişim verme [Klasik Azure CLI'yı](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) ve [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## <a name="find-the-subscription-id"></a>Abonelik kimliği bulunamadı
 
@@ -363,7 +363,7 @@ Azure portalını kullanarak, varsayılan kapsayıcı içeriğini göz atabilirs
 Bu makalede, bazı temel yönetim işlevleri öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Azure PowerShell kullanarak HDInsight'ı yönetme](hdinsight-administer-use-powershell.md)
-* [Azure CLI kullanarak HDInsight'ı yönetme](hdinsight-administer-use-command-line.md)
+* [Klasik Azure CLI kullanarak HDInsight'ı yönetme](hdinsight-administer-use-command-line.md)
 * [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md)
 * [Ambari Web kullanıcı arabirimini kullanma hakkında daha fazla bilgi edinin](hdinsight-hadoop-manage-ambari.md)
 * [Ambari REST API'sini kullanarak ayrıntıları](hdinsight-hadoop-manage-ambari-rest-api.md)

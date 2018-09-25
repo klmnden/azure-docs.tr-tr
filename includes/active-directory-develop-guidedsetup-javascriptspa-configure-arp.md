@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: fc06da3b1ad66aa15237a25d2f50374043c860ba
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: eead4c6a66a317c7404205415cbf04c442ffe8d1
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293671"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060354"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Uygulamanın kayıt bilgilerini uygulamanıza ekleme
 
@@ -31,26 +31,26 @@ Bu adımda, uygulama kayıt bilgileri yeniden yönlendirme URL'sini yapılandır
 Yapılandırma `Redirect URL` alan index.html sayfanızı web sunucunuzda URL'si ile'a tıklayın *güncelleştirme*.
 
 
-> #### <a name="visual-studio-instructions-for-obtaining-redirect-url"></a>Yeniden yönlendirme URL'si almak için visual Studio yönergeleri
-> Yeniden yönlendirme URL'nizi elde etmek için:
-> 1.    İçinde *Çözüm Gezgini*, projeyi seçin ve bakmak `Properties` penceresi (Özellikler penceresini görmüyorsanız, basın `F4`)
-> 2.    Değeri Şuradan Kopyala: `URL` Pano için:<br/> ![Proje Özellikleri](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3.    Değeri olarak yapıştırın bir `Redirect URL` bu sayfanın üst kısmındaki'ye tıklayın `Update`
+> #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>Yeniden yönlendirme URL'sini almak için visual Studio yönergeleri
+> Yeniden yönlendirme URL'sini almak için aşağıdaki adımları izleyin:
+> 1.    İçinde **Çözüm Gezgini**, projeyi seçin ve bakmak **özellikleri** penceresi. Görmüyorsanız, bir **özellikleri** penceresinde, tuşuna **F4**.
+> 2.    Değeri Şuradan Kopyala: **URL** Pano için:<br/> ![Proje Özellikleri](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 3.    Değeri olarak yapıştırın bir **tekrar yönlendirme URL'sini** bu sayfanın üst kısmındaki ardından **güncelleştirme**
 
 <p/>
 
 > #### <a name="setting-redirect-url-for-node"></a>Düğüm ayarı yeniden yönlendirme URL'si
-> Node.js için web sunucusu bağlantı noktası ayarlayabilirsiniz *server.js* dosya. Bu öğreticide, başvuru ancak tüm diğer bağlantı noktası kullanılabilir ücretsiz kullanım için bağlantı noktası 30662 kullanılır. Herhangi bir durumda, bir uygulama kayıt bilgileri yeniden yönlendirme URL'sini ayarlamak için aşağıdaki yönergeleri kullanın:<br/>
-> Ayarlama `http://localhost:30662/` olarak bir `Redirect URL` bu sayfa veya kullanımı üst kısmındaki `http://localhost:[port]/` özel bir TCP bağlantı noktası kullanıyorsanız (burada *[bağlantı noktası]* özel TCP bağlantı noktası numarası) 'Update' i tıklatın
+> Node.js için web sunucusu bağlantı noktası ayarlayabilirsiniz *server.js* dosya. Bu öğretici için başvuru 30662 bağlantı noktasını kullanır ancak kullanılabilir herhangi bir bağlantı kullanabilirsiniz. Uygulama kayıt bilgileri bir yeniden yönlendirme URL'sini ayarlamak için aşağıdaki yönergeleri izleyin:<br/>
+> Ayarlama `http://localhost:30662/` olarak bir **tekrar yönlendirme URL'sini** bu sayfa veya kullanımı üst kısmındaki `http://localhost:[port]/` özel bir TCP bağlantı noktası kullanıyorsanız (burada *[bağlantı noktası]* özel TCP bağlantı noktası numarası) ve ardından  **Güncelleştirme**
 
 ### <a name="configure-your-javascript-spa-application"></a>JavaScript SPA'ya uygulamanızı yapılandırma
 
-1.  Adlı bir dosya oluşturun `msalconfig.js` uygulama kayıt bilgilerini içeren. Visual Studio kullanıyorsanız, proje (projenin kök klasöründe), sütuna sağ tıklayıp seçin: `Add`  >  `New Item`  >  `JavaScript File`. Adlandırın `msalconfig.js`
-2.  Aşağıdaki kodu ekleyin, `msalconfig.js` dosyası:
+1.  İçinde `index.html` dosyası proje Kurulum sırasında oluşturulur, uygulama kayıt bilgilerini ekleyin. Üst içinde aşağıdaki kodu ekleyin `<script></script>` gövdesinde etiketleri, `index.html` dosyası:
 
 ```javascript
-var msalconfig = {
+var applicationConfig = {
     clientID: "[Enter the application Id here]",
-    redirectUri: location.origin
+    graphScopes: ["user.read"],
+    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
-``` 
+```

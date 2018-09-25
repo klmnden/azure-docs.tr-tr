@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 5d2544ec9ef758cf34a846562fa659b28044c52d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b170a675482f69f8188894f8503703c235497503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932696"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982622"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Hataları, başarısız veya reddedildi Azure Linux VM'ye SSH bağlantısı sorunlarını giderme
 Güvenli Kabuk (SSH), SSH bağlantı hataları hatalarla veya SSH, Linux sanal makinesi (VM) bağlanmaya çalıştığınızda reddedildi çeşitli nedenleri vardır. Bu makalede bulmanıza ve sorunları düzeltin yardımcı olur. Azure portalı, Azure CLI veya Linux için VM erişimi uzantısı ve bağlantı sorunlarını gidermek için kullanabilirsiniz.
@@ -50,7 +50,7 @@ Daha ayrıntılı sorun giderme adımları ve açıklamaları için okuma devam 
 Kimlik bilgileri veya aşağıdaki yöntemlerden birini kullanarak SSH yapılandırması sıfırlayabilir:
 
 * [Azure portalında](#use-the-azure-portal) - hızlı bir şekilde SSH yapılandırması veya SSH anahtarını sıfırlamak gereken ve Azure araçlarının yüklü olduğu yoksa harika.
-* [Azure CLI 2.0](#use-the-azure-cli-20) - komut satırında zaten varsa hızlı bir şekilde SSH yapılandırması veya kimlik bilgilerini sıfırlama. Ayrıca [Azure CLI 1.0](#use-the-azure-cli-10)
+* [Azure CLI](#use-the-azure-cli-20) - komut satırında zaten varsa hızlı bir şekilde SSH yapılandırması veya kimlik bilgilerini sıfırlama. Ayrıca [Klasik Azure CLI](#use-the-azure-cli-10)
 * [Azure VMAccessForLinux uzantısını](#use-the-vmaccess-extension) - oluşturma ve SSH yapılandırma veya kullanıcı kimlik bilgilerini sıfırlamak için json tanımı dosyaları yeniden kullanma.
 
 Sorun giderme her adımdan sonra sanal makinenizde yeniden bağlanmayı deneyin. Yine de bağlanamıyorsanız, sonraki adıma deneyin.
@@ -78,8 +78,8 @@ Kullanım [IP akışı doğrulama](../../network-watcher/network-watcher-check-i
 
 Ağ İzleyicisi'nin [sonraki atlama](../../network-watcher/network-watcher-check-next-hop-portal.md) yönlendiriliyor veya bir sanal makineden bir yol trafiği engelleyen değil olduğunu onaylamak için yeteneği. Ayrıca, bir ağ arabirimi için tüm geçerli rotalar görmek için geçerli rotalar gözden geçirebilirsiniz. Daha fazla bilgi için [VM sorunlarını gidermek için geçerli rotaları kullanma trafik akışı](../../virtual-network/diagnose-network-routing-problem.md).
 
-## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanma
-Henüz yapmadıysanız, en son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index#az_login).
+## <a name="use-the-azure-cli"></a>Azure CLI kullanma
+Henüz yapmadıysanız, en son yükleme [Azure CLI](/cli/azure/install-az-cli2) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index#az_login).
 
 Oluşturduysanız ve özel Linux disk görüntüsü karşıya emin [Microsoft Azure Linux Aracısı](../extensions/agent-windows.md) 2.0.5 sürümü veya üzeri yüklü. Galeri görüntüleri kullanılarak oluşturulan VM'ler için bu erişim uzantısı zaten yüklü ve sizin için yapılandırılır.
 
@@ -149,8 +149,8 @@ az vm extension set --resource-group philmea --vm-name Ubuntu \
     --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
-## <a name="use-the-azure-cli-10"></a>Azure CLI 1.0 kullanma
-Henüz kaydolmadıysanız [Azure CLI 1.0 için yükleme ve Azure aboneliğinize bağlayın](../../cli-install-nodejs.md). Resource Manager moduna gibi kullandığınızdan emin olun:
+## <a name="use-the-azure-classic-cli"></a>Klasik Azure CLI kullanma
+Henüz kaydolmadıysanız [Klasik Azure CLI yükleme ve Azure aboneliğinize bağlayın](../../cli-install-nodejs.md). Resource Manager moduna gibi kullandığınızdan emin olun:
 
 ```azurecli
 azure config mode arm
@@ -187,19 +187,19 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 ## <a name="restart-a-vm"></a>Bir VM’yi yeniden başlatma
 SSH yapılandırması ve kullanıcı kimlik bilgilerini sıfırlamak veya Bunun yapılması bir hatayla karşılaştı, temel alınan bilgi işlem sorunları adresine VM'nin yeniden başlatılmasının deneyebilirsiniz.
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 Azure portalını kullanarak bir VM'yi yeniden başlatmak için VM'nizi seçin ve **yeniden** düğme aşağıdaki örnekte olduğu gibi:
 
 ![Azure portalında bir VM'yi yeniden başlatma](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
-### <a name="azure-cli-10"></a>Azure CLI 1.0
+### <a name="azure-classic-cli"></a>Klasik Azure CLI
 Aşağıdaki örnekte adlı VM yeniden `myVM` adlı kaynak grubunda `myResourceGroup`. Kendi değerlerinizi şu şekilde kullanın:
 
 ```azurecli
 azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 Aşağıdaki örnekte [az vm restart](/cli/azure/vm#az_vm_restart) adlı VM'yi yeniden başlatmak için `myVM` adlı kaynak grubunda `myResourceGroup`. Kendi değerlerinizi şu şekilde kullanın:
 
 ```azurecli
@@ -215,19 +215,19 @@ Temel alınan herhangi bir ağ sorunu giderebilir Azure içinde başka bir düğ
 > 
 > 
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 Azure portalını kullanarak bir VM yeniden dağıtmak için VM'nizi seçin ve ekranı aşağı kaydırarak **destek + sorun giderme** bölümü. Tıklayın **yeniden** düğme aşağıdaki örnekte olduğu gibi:
 
 ![Azure portalında bir VM'yi yeniden dağıtma](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
-### <a name="azure-cli-10"></a>Azure CLI 1.0
+### <a name="azure-classic-cli"></a>Klasik Azure CLI
 Aşağıdaki örnekte adlı VM yeniden dağıtır `myVM` adlı kaynak grubunda `myResourceGroup`. Kendi değerlerinizi şu şekilde kullanın:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 Aşağıdaki örnek kullanım [az vm redeploy](/cli/azure/vm#az_vm_redeploy) adlı VM yeniden dağıtmak için `myVM` adlı kaynak grubunda `myResourceGroup`. Kendi değerlerinizi şu şekilde kullanın:
 
 ```azurecli

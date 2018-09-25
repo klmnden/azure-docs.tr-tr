@@ -1,24 +1,26 @@
 ---
-title: C# kullanarak Application Insights'a LUIS veri ekleme | Microsoft Docs
-titleSuffix: Azure
+title: Application Insights verilerini C# kullanarak luıs'den
+titleSuffix: Azure Cognitive Services
 description: LUIS uygulama ve C# kullanarak Application Insights ile tümleşik bir bot oluşturun.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: f1efe305f5659bfab50cee13ac30d56531cc6093
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 83ad70e1242af1e01af06206a3a141f455072a44
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237800"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038961"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>LUIS sonuçları Application Insights'a bir web app botu ekleyin.
-Bu öğreticide LUIS yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur.
+# <a name="add-luis-results-to-application-insights"></a>LUIS sonuçları Application Insights'a Ekle
+Bu öğreticide LUIS yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur. 
+
+Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -231,7 +233,7 @@ Application Insights ile verileri sorgulamak için power size [Kusto](https://do
     ![Özel analiz raporu](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
 
 
-Daha fazla bilgi edinin [Kusto sorgu dili](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) veya [Power BI için verileri dışarı aktarma](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
+Daha fazla bilgi edinin [Kusto sorgu dili](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) veya [Power BI için verileri dışarı aktarma](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework hakkında daha fazla bilgi edinin

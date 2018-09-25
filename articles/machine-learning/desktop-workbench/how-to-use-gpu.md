@@ -11,18 +11,22 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 09d8e3da543cdf4433d986b321697abcad88eb22
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8e8944a9bdfa2b75f6442e03d45dfb6977c2a122
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157999"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974366"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Azure Machine Learning'de GPU kullanma
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Grafik işlem birimi (GPU), genellikle bazı derin sinir ağı modelleri eğitimindeki oluşabilir işlem bakımından yoğun görevlerini işlemek için yaygın olarak kullanılır. GPU'ları kullanarak modellerin eğitim süresini önemli ölçüde azaltabilir. Bu belgede, Azure ML Workbench uygulamasını kullanmak için yapılandırma hakkında bilgi edinin [DSVM (veri bilimi sanal makinesi)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) yürütme hedefi Gpu'lar ile donatılmış. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-- Bu nasıl yapılır kılavuzunda adımlamak için öncelikle gereken [Azure ML Workbench'i yükleme](../service/quickstart-installation.md).
+- Bu nasıl yapılır kılavuzunda adımlamak için öncelikle gereken [Azure ML Workbench'i yükleme](quickstart-installation.md).
 - NVIDIA GPU'ları ile bilgisayarlarda erişiminiz olması gerekir.
     - Komut dosyalarınızı Gpu'lar ile doğrudan yerel makine üzerinde (Windows veya macOS) çalıştırabilirsiniz.
     - Ayrıca GPU ile Linux makinesinde bir Docker kapsayıcısında komut dosyalarını çalıştırabilirsiniz...

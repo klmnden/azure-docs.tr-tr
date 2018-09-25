@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: ca6d36a4f06865b630e869623752bc5d488b6251
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 46789f5f3449baead12133522997936c8a992d3b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732949"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964778"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma
 
@@ -84,7 +84,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanında tek bir 
 |S/W oluşturma|4|4|4|4|4|4|
 |Sanal çekirdekler|1|2|4|8|16|24|
 |Bellek (GB)|7|14|28|56|112|168|
-|Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|
+|Columnstore desteği|Yok|Yok|Yok|Yok|Yok|Yok|
 |Bellek içi OLTP depolama alanı (GB)|1|2|4|8|20|36|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |En yüksek veri boyutu (GB)|1024|1024|1024|1024|1024|1024|
@@ -122,8 +122,52 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanında tek bir 
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 |||
 
+### <a name="hyperscale-service-tier-preview"></a>Hiper ölçekli hizmet Katmanı (Önizleme)
+
+#### <a name="generation-4-compute-platform"></a>4. nesil işlem platformu
+|Performans düzeyi|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |--: |
+|S/W oluşturma|4|4|4|4|4|4|
+|Sanal çekirdekler|1|2|4|8|16|24|
+|Bellek (GB)|7|14|28|56|112|168|
+|Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|
+|Bellek içi OLTP depolama alanı (GB)|Yok|Yok|Yok|Yok|Yok|Yok|
+|Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
+|En yüksek veri boyutu (TB)|100 |100 |100 |100 |100 |100 |
+|Maksimum günlük boyutu (TB)|1 |1 |1 |1 |1 |1 |
+|TempDB boyutu (GB)|32|64|128|256|384|384|
+|Hedef IOPS (64 KB)|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|
+|GÇ gecikmesi (yaklaşık)|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|
+|Maks. eş zamanlı çalışan (istek)|200|400|800|1600|3200|4800|
+|İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
+|Çoğaltma sayısı|2|2|2|2|2|2|
+|Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
+|Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|
+|Yedekleme depolama alanı dahil|7|7|7|7|7|7|
+|||
+### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
+|Performans düzeyi|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|S/W oluşturma|5|5|5|5|5|5|5|5|
+|Sanal çekirdekler|2|4|8|16|24|32|40|80|
+|Bellek (GB)|11|22|44|88|132|176|220|440|
+|Columnstore desteği|Evet|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
+|Bellek içi OLTP depolama alanı (GB)|Yok|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
+|Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
+|En yüksek veri boyutu (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
+|Maksimum günlük boyutu (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
+|TempDB boyutu (GB)|64|128|256|384|384|384|384|384|
+|Hedef IOPS (64 KB)|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|
+|GÇ gecikmesi (yaklaşık)|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|
+|Maks. eş zamanlı çalışan (istek)|200|400|800|1600|2400|3200|4000|8000|
+|İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|30000|
+|Çoğaltma sayısı|2|2|2|2|2|2|2|2|
+|Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
+|Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
+|Dahil edilen yedekleme depolama alanı (sınırlı Önizleme)|7|7|7|7|7|7|7|7|
+|||
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için.
-- Bkz: [genel bakış Azure SQL veritabanı kaynak limitleri](sql-database-resource-limits.md) sunucu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
 - Genel Azure sınırları hakkında daha fazla bilgi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).

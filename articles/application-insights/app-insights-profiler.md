@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b11883ae592999a49db363486fd47a566bdfd360
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 839e462522be4f492010ca1c22631cb4dd6affe4
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498717"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064450"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights ile canlı Azure web apps profili
 
@@ -45,9 +45,9 @@ Kaynak kodunda App Insights SDK'sı dahil ettiyseniz bağımsız olarak, bir Web
 
     ![Profiler uygulama ayarı][profiler-app-setting]
 
-### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Profiler etkinleştirme için Azure işlem kaynakları (Önizleme)
+### <a name="enable-profiler-for-azure-compute-resources"></a>Azure işlem kaynakları için Profiler'ı etkinleştir
 
-Bilgi için [Profiler önizleme sürümünü Azure işlem kaynakları](https://go.microsoft.com/fwlink/?linkid=848155).
+Bilgi için [Profiler bir sürümünü Azure işlem kaynakları](https://go.microsoft.com/fwlink/?linkid=848155).
 
 ## <a name="view-profiler-data"></a>Profil Oluşturucu verileri görüntüle
 

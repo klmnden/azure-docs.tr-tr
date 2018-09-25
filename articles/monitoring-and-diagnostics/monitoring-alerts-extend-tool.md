@@ -1,6 +1,6 @@
 ---
-title: Uyarılar için Azure günlük Analytcs genişletme
-description: Bu makalede olarak, uyarıları günlük Analytics'ten Azure uyarıları genişletebilirsiniz API ve araçları açıklanmaktadır.
+title: Uyarıları günlük Analytcs ' Azure'a genişletme
+description: Bu makalede, uyarıları Log Analytics'ten Azure Uyarıları'na genişletebileceğiniz API ve araçları açıklar.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,57 +8,57 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 21ba95a7b3efff177afe63d22da3f6ba9848ded2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301040"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990255"
 ---
-# <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Uyarıları günlük Analytics'ten Azure Uyarıları ' genişletme
-Azure günlük analizi uyarılar özelliğinde Azure uyarıları ile değiştirilir. Bu geçişin bir parçası olarak Azure günlük analizi başlangıçta yapılandırılmış uyarıları genişletilir. Bunları otomatik olarak Azure taşınmasını beklemek istemiyorsanız, işlem başlatabilirsiniz:
+# <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme
+Azure Log analytics'te uyarıları özelliği, Azure uyarıları ile değiştirilmektedir. Bu geçişin bir parçası olarak, ilk olarak yapılandırdığınız Log Analytics'te uyarıları Azure'a genişletilir. Bunlar otomatik olarak Azure'a taşınması için beklemek istemiyorsanız işlemi başlatabilirsiniz:
 
-- El ile Operations Management Suite portalından. 
-- Program aracılığıyla AlertsVersion API'sini kullanarak.  
+- Operations Management Suite portaldaki el ile. 
+- Program aracılığıyla AlertsVersion API'si kullanarak.  
 
 > [!NOTE]
-> 14 Mayıs 2018 üzerinde tamamlanana kadar yinelenen serisinde başlangıç Microsoft otomatik olarak Azure uyarılar için günlük analizi oluşturulan uyarıların genişletir. Microsoft zamanlamaları, uyarıları Azure, bu geçiş sırasında geçirmek için hem Operations Management Suite portalına hem de Azure portalında uyarılar yönetilebilir. Bu işlem, yıkıcı veya interruptive değil.  
+> Microsoft, tamamlanana kadar yinelenen bir dizide 14 Mayıs 2018'de başlayarak Azure uyarıları Log Analytics'e genel bulut örneklerinde oluşturulan uyarıların otomatik olarak genişletilir. Oluşturma sorunları varsa [Eylem grupları](monitoring-action-groups.md), kullanın [düzeltme adımları](monitoring-alerts-extend-tool.md#troubleshooting) otomatik olarak oluşturulan eylem grupları alınamıyor. 5 Temmuz 2018'e kadar bu adımları kullanabilirsiniz. *Azure Government ve Log Analytics Soveriegn bulut kullanıcıları için uygulanamaz*. 
 
-## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Seçenek 1: Operations Management Suite portalından Başlat
-Aşağıdaki adımlar nasıl çalışma alanı için uyarıları Operations Management Suite Portalı'ndan genişletileceğini açıklar.  
+## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>1. seçenek: Operations Management Suite Portalı'ndan Başlat
+Aşağıdaki adımlarda, çalışma alanı için uyarıları Operations Management Suite Portalı'ndan genişletmek anlatılmaktadır.  
 
-1. Azure portalında seçin **tüm hizmetleri**. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
-2. Günlük analizi abonelikleri bölmesinde, bir çalışma alanını seçin ve ardından **OMS portalı** döşeme.
-![Günlük analizi ekran abonelik bölmesiyle, vurgulanmış OMS portalı döşeme](./media/monitor-alerts-extend/azure-portal-01.png) 
+1. Azure portalında **tüm hizmetleri**. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
+2. Log Analytics abonelikleri bölmesinde, bir çalışma alanı seçin ve ardından **OMS portalında** Döşe.
+![Log Analytics ekran abonelik bölmesinde, vurgulanan OMS portalında kutucuğu](./media/monitor-alerts-extend/azure-portal-01.png) 
 3. Operations Management Suite portalına yönlendirilirsiniz sonra seçin **ayarları** simgesi.
-![Operations Management Suite ekran portalıyla vurgulanmış ayarları simgesi](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
-4. Gelen **ayarları** sayfasında, **uyarıları**.  
-5. Seçin **Azure'da genişletmek**.
-![Operations Management Suite ekran portal uyarı ayarları sayfası, vurgulanmış Azure içine Genişlet](./media/monitor-alerts-extend/ExtendInto.png)
-6. Üç adımlık Sihirbazı görünür **uyarıları** bölmesi. Genel bakış bilgileri okuyun ve seçin **sonraki**.
-![1. adım Sihirbazı'nın ekran görüntüsü](./media/monitor-alerts-extend/ExtendStep1.png)  
-7. İkinci adımda, önerilen değişikliklerin özetini uygun listeleme gördüğünüz [Eylem grupları](monitoring-action-groups.md) uyarılar için. Benzer eylemler arasında birden fazla uyarı görülüyorsa tek eylem grubu bunların tümünün ile ilişkilendirmek sihirbazın önerir.  Adlandırma kuralı aşağıdaki gibidir: *WorkspaceName_AG_ #Number*. Devam etmek için seçmeniz **sonraki**.
-![2. adım Sihirbazı'nın ekran görüntüsü](./media/monitor-alerts-extend/ExtendStep2.png)  
-8. Sihirbazın son adımda seçin **son**ve işlemini başlatmak için istendiğinde onaylayın. İsteğe bağlı olarak, böylece işlemi tamamlandıktan ve tüm uyarıları Azure uyarıları başarıyla taşındığını bildirilir bir e-posta adresi sağlayabilir.
-![Adım 3 Sihirbazı'nın ekran görüntüsü](./media/monitor-alerts-extend/ExtendStep3.png)
+![Operations Management Suite ekran portalıyla vurgulanmış ayarlar simgesi](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
+4. Gelen **ayarları** sayfasında **uyarılar**.  
+5. Seçin **Azure'a Genişlet**.
+![Operations Management Suite ekran portal uyarı ayarları sayfası, vurgulanan azure'a Genişlet](./media/monitor-alerts-extend/ExtendInto.png)
+6. Üç adımlık Sihirbazı görünür **uyarılar** bölmesi. Genel bakışı okuyun ve seçin **sonraki**.
+![1. adım Sihirbazı ekran görüntüsü](./media/monitor-alerts-extend/ExtendStep1.png)  
+7. İkinci adımda, önerilen değişikliklerin özetini listeleme uygun gördüğünüz [Eylem grupları](monitoring-action-groups.md) uyarılar için. Benzer işlemler arasında birden fazla uyarı görülüyorsa bir tek bir eylem grubu tümünün ile ilişkilendirmek sihirbazın önerir.  Adlandırma kuralı aşağıdaki gibidir: *WorkspaceName_AG_ #Number*. Devam etmek için seçmeniz **sonraki**.
+![2. adım Sihirbazı ekran görüntüsü](./media/monitor-alerts-extend/ExtendStep2.png)  
+8. Sihirbazın son adımda seçin **son**ve işlemini başlatmak için sorulduğunda onaylayın. İsteğe bağlı olarak, böylece işlemi tamamlanır ve tüm uyarılar Azure Uyarıları'na başarıyla taşındığını bildirilir bir e-posta adresi sağlayabilir.
+![Adım 3 Sihirbazı ekran görüntüsü](./media/monitor-alerts-extend/ExtendStep3.png)
 
-Sihirbaz olduğunda üzerinde tamamlanmış **uyarı ayarlarını** sayfa, Azure için uyarıları uzatma seçeneği kaldırılır. Arka planda uyarılarınızı Azure'da taşınır ve bu biraz zaman alabilir. İşlem sırasında uyarıları Operations Management Suite Portalı'ndan değişiklik yapamazsınız. Portal üstündeki başlığından geçerli durumunu görebilirsiniz. Bir e-posta adresi daha önce sağlanan, işlemi başarıyla tamamlandığında bir e-posta alırsınız.  
-
-
-Uyarıları bile Azure'da başarıyla taşındıktan sonra Operations Management Suite Portalı'nda listelenmesi için devam edin.
-![Operations Management Suite ekran portal uyarı ayarları sayfası](./media/monitor-alerts-extend/PostExtendList.png)
+Sihirbaz olduğunda üzerinde tamamlanmış **uyarı ayarlarını** sayfasında, uyarıları Azure'a genişletme seçeneği kaldırılır. Arka planda uyarılarınızı Azure'a taşınır ve bu işlem biraz zaman alabilir. İşlem sırasında uyarıları Operations Management Suite Portalı'ndan değişiklik yapamazsınız. Portalın üst kısmındaki başlık geçerli durumunu görebilirsiniz. Daha önce sağladığınız bir e-posta adresi, işlem başarıyla tamamlandığında bir e-posta alırsınız.  
 
 
-## <a name="option-2-use-the-alertsversion-api"></a>Seçenek 2: AlertsVersion API kullanın
-Günlük analizi AlertsVersion API uyarıları günlük Analytics'ten Azure Uyarıları ' bir REST API'si çağırabilirsiniz herhangi bir istemciden genişletmek için kullanabilirsiniz. API Powershell'den kullanarak erişebileceğiniz [ARMClient](https://github.com/projectkudu/ARMClient), açık kaynaklı komut satırı aracı. JSON sonuçları çıkarabilirsiniz.  
+Uyarılar bile Azure'a başarıyla taşındıktan sonra Operations Management Suite portalında listelenmeye devam eder.
+![Ekran Operations Management Suite portalı uyarı ayarları sayfası](./media/monitor-alerts-extend/PostExtendList.png)
 
-API kullanmak için önce bir GET isteği oluşturun. Bu hesaplar ve gerçekte bir POST isteği kullanarak Azure'da genişletme girişiminde bulunmadan önce önerilen değişikliklerin özetini döndürür. Sonuçlar, uyarılar ve önerilen listesini listesinde [Eylem grupları](monitoring-action-groups.md), JSON biçiminde. Benzer eylemler arasında birden fazla uyarı görülüyorsa, bunların tümünü tek eylem grubuyla ilişkilendirilecek hizmet önerir. Adlandırma kuralı aşağıdaki gibidir: *WorkspaceName_AG_ #Number*.
+
+## <a name="option-2-use-the-alertsversion-api"></a>2. seçenek: ' % s'AlertsVersion API'si kullanma
+Log Analytics AlertsVersion API'si uyarıları Log Analytics'ten Azure uyarılarına genişletecektir REST API'sine çağrı yapmadan herhangi bir istemciden genişletmek için kullanabilirsiniz. API kullanarak Powershell'den erişebilirsiniz [ARMClient](https://github.com/projectkudu/ARMClient), açık kaynak komut satırı aracı. JSON sonuçları çıkış sağlayabilir.  
+
+API'yi kullanmak için öncelikle bir GET isteği oluşturun. Bu, değerlendirir ve aslında bir POST isteği kullanarak Azure'a genişletme girişiminde bulunmadan önce önerilen değişikliklerin özetini döndürür. Uyarıları ve önerilen listesini sonuçları listesinde [Eylem grupları](monitoring-action-groups.md), JSON biçiminde. Benzer işlemler arasında birden fazla uyarı görülürse, bunların tümünün tek bir eylem grubuyla ilişkilendirilecek hizmet önerir. Adlandırma kuralı aşağıdaki gibidir: *WorkspaceName_AG_ #Number*.
 
 ```
 armclient GET  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-GET isteğini başarılı olursa, bir HTTP durum kodu 200, uyarıların bir listesi ile birlikte döndürülen ve önerilen eylem grupları JSON veri. Bir örnek yanıt verilmiştir:
+GET isteği başarılı olursa, bir HTTP 200 durum kodu döndürdü, uyarıların bir listesi ile birlikte ve önerilen eylem gruplarında JSON verilerini. Bir yanıt örneği verilmiştir:
 
 ```json
 {
@@ -115,7 +115,7 @@ GET isteğini başarılı olursa, bir HTTP durum kodu 200, uyarıların bir list
 }
 
 ```
-Belirtilen çalışma tanımlı hiçbir uyarı kuralı yoksa, JSON verilerini aşağıdaki döndürür:
+Belirtilen çalışma alanı tanımlı hiçbir uyarı kuralı yoksa, JSON verilerini aşağıdaki döndürür:
 
 ```json
 {
@@ -124,7 +124,7 @@ Belirtilen çalışma tanımlı hiçbir uyarı kuralı yoksa, JSON verilerini a�
 }
 ```
 
-Belirtilen çalışma alanındaki tüm uyarı kuralları Azure'a zaten genişletilmiştir, GET isteğine yanıt şöyledir:
+Belirtilen çalışma alanında uyarı kurallarının tümünü zaten Azure'a genişletilmiş, GET isteğine yanıt şöyledir:
 
 ```json
 {
@@ -132,7 +132,7 @@ Belirtilen çalışma alanındaki tüm uyarı kuralları Azure'a zaten genişlet
 }
 ```
 
-Uyarıları Azure'a geçirme başlatmak için bir POST yanıt başlatır. POST yanıt, amacı, yanı sıra kabul Azure Uyarıları'için günlük analizi genişletilmiş uyarılar onaylar. Etkinlik zamanlanmış ve Uyarıları Al yanıt önceki gerçekleştirildiğinde sonuçlarına dayalı belirtildiği şekilde işlenir. İsteğe bağlı olarak, uyarıları geçirme zamanlanmış arka plan işlemi başarıyla tamamlandığında, günlük analizi rapor gönderdiği e-posta adreslerinin listesini sağlayabilirsiniz. Aşağıdaki isteği örnek kullanabilirsiniz:
+Uyarıları Azure'a geçirmeye başlatmak üzere bir GÖNDERİ yanıtı başlatın. GÖNDERİ yanıtı, amacı, hem de kabul uyarıları Log Analytics'ten Azure Uyarıları'için genişletilmiş onaylar. Etkinlik zamanlandı ve uyarılar, daha önce GET yanıt gerçekleştirildiğinde sonuçlarına göre belirtildiği şekilde işlenir. İsteğe bağlı olarak, uyarıları geçirme zamanlanmış arka plan işlemi başarıyla tamamlandığında, Log Analytics bir rapor gönderdiği e-posta adreslerinin listesini sağlayabilirsiniz. Aşağıdaki isteği örnek kullanabilirsiniz:
 
 ```
 $emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
@@ -140,9 +140,9 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 
 > [!NOTE]
-> Sonucu Azure uyarıları içine geçirme uyarıları bağlı olarak değişir GET yanıt tarafından sağlanan özeti. Zamanlanan günlük analizi uyarıları Operations Management Suite portalına değişiklik için geçici olarak kullanılamıyor. Ancak, yeni uyarılar oluşturabilirsiniz. 
+> Sonucu geçirme uyarılar Azure uyarıları içine GET yanıt tarafından sağlanan özeti göre değişiklik gösterebilir. Zamanlandıysa, Log analytics'teki uyarılar Operations Management Suite portalında değişiklik için geçici olarak kullanılamıyor. Ancak, yeni uyarılar oluşturabilirsiniz. 
 
-POST isteğini başarılı olursa, aşağıdaki yanıtı birlikte bir HTTP 200 Tamam durumu döndürür:
+POST isteği başarılı olursa, şu yanıtı birlikte bir HTTP 200 Tamam durumu döndürür:
 
 ```json
 {
@@ -150,7 +150,7 @@ POST isteğini başarılı olursa, aşağıdaki yanıtı birlikte bir HTTP 200 T
 }
 ```
 
-Bu yanıt uyarıları Azure Uyarıları ' başarılı bir şekilde genişletilmiştir gösterir. Uyarılar için Azure genişletilmiş ve ilişkisi yoktur, yalnızca denetlemek için sürüm özelliğidir [günlük analizi arama API](../log-analytics/log-analytics-api-alerts.md). Uyarıları başarıyla Azure'a genişletilmiş olduğunda ile POST isteği gönderilir sağlanan bir rapor herhangi bir e-posta adresleri. Belirtilen çalışma alanındaki tüm uyarıları zaten genişletilmesi zamanlanan, POST isteğinin yanıtı denemesi (403 durum kodu) yasaklanmış olur. Herhangi bir hata iletisi görüntülemek veya işlem takıldı anlamak için bir GET isteği gönderebilirsiniz. Bir hata iletisi varsa, bu, Özet bilgilerin yanı sıra döndürülür.
+Bu yanıt uyarıları başarılı bir şekilde Azure uyarılarına genişletecektir genişletilmiştir gösterir. Uyarıları Azure'a genişletildi ve bir ilişkisi yoktur, yalnızca denetimi için sürüm özelliğidir [Log Analytics arama API](../log-analytics/log-analytics-api-alerts.md). Uyarılar başarıyla Azure'a genişletilmiş, bir rapor ile POST isteği gönderilir sağlanan herhangi e-posta adresleri. Belirtilen çalışma alanı Uyarılardaki tüm genişletilmesi için zamanlanır, POST isteğinize yanıt denemesi (403 durum kodu) yasaklanmış olur. Herhangi bir hata iletisi görüntülemek veya işlem takılıp takılmadığına anlamak için bir GET isteği gönderebilirsiniz. Bir hata iletisi varsa, bu, Özet bilgilerinin yanı sıra döndürülür.
 
 ```json
 {
@@ -214,12 +214,12 @@ Bu yanıt uyarıları Azure Uyarıları ' başarılı bir şekilde genişletilmi
 ```
 
 
-## <a name="option-3-use-a-custom-powershell-script"></a>Seçenek 3: özel bir PowerShell komut dosyası kullanın
- Microsoft başarıyla uyarılarınızı Operations Management Suite Portalı'ndan Azure'a genişlettiği değil, 5 Temmuz 2018 kadar el ile yapabilirsiniz. El ile uzantısı için iki seçenek önceki iki bölümlerde ele alınmıştır.
+## <a name="option-3-use-a-custom-powershell-script"></a>Seçenek 3: özel bir PowerShell betiğini kullanın.
+ 5 Temmuz 2018'e kadar Microsoft başarıyla uyarıları Operations Management Suite Portalı'ndan Azure'a genişletilmiş değil, el ile yapabilirsiniz. El ile uzantısı için iki seçenek iki önceki bölümlerde ele alınmıştır.
 
-5 Temmuz 2018 sonra tüm uyarıları Operations Management Suite portalından Azure'da genişletilmiştir. Ele kaydetmedi kullanıcılar [önerilen gerekli düzeltme adımları](#troubleshooting) eylemler veya eksikliği nedeniyle bildirimleri tetikleme olmadan çalışan uyarılarını ilişkilendirilmiş olan [Eylem grupları](monitoring-action-groups.md). 
+5 Temmuz 2018'den sonra Azure'a tüm uyarıları Operations Management Suite Portalı'ndan genişletilir. Almak istemediğiniz kullanıcılar [önerilen gerekli düzeltme adımları](#troubleshooting) eylemler veya bildirimleri, olmaması nedeniyle tetikleme olmadan çalışan uyarılarını ilişkilendirilmiş olan [Eylem grupları](monitoring-action-groups.md). 
 
-Oluşturmak için [Eylem grupları](monitoring-action-groups.md) uyarılar için el ile günlük analizi, aşağıdaki örnek komut dosyasını kullanın:
+Oluşturulacak [Eylem grupları](monitoring-action-groups.md) el ile Log analytics'teki uyarılar için aşağıdaki örnek betiği kullanın:
 ```PowerShell
 ########## Input Parameters Begin ###########
 
@@ -437,47 +437,47 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 ```
 
 
-### <a name="about-the-custom-powershell-script"></a>Özel PowerShell komut dosyası hakkında 
-Komut dosyası kullanma hakkında önemli bilgiler aşağıdadır:
-- Yüklemesini bir önkoşuldur [ARMclient](https://github.com/projectkudu/ARMClient), Azure Kaynak Yöneticisi API'si çağırma basitleştiren bir açık kaynak komut satırı aracı.
-- Komut dosyasını çalıştırmak için Azure aboneliğinde katılımcı veya sahibi rolü olmalıdır.
+### <a name="about-the-custom-powershell-script"></a>Özel bir PowerShell Betiği hakkında 
+Komut dosyası kullanma hakkında önemli bilgiler verilmiştir:
+- Yüklenmesini önkoşuldur [ARMclient](https://github.com/projectkudu/ARMClient), Azure Resource Manager API'si çağırma basitleştiren bir açık kaynak komut satırı aracı.
+- Betiği çalıştırmak için Azure aboneliğinde katkıda bulunan veya sahip rolü olmalıdır.
 - Aşağıdaki parametreleri belirtmeniz gerekir:
-    - $subscriptionId: Operations Management Suite günlük analizi çalışma alanı ile ilişkili Azure abonelik kimliği.
-    - $resourceGroup: Operations Management Suite günlük analizi çalışma alanı için Azure kaynak grubu.
-    - $workspaceName: Operations Management Suite günlük analizi çalışma alanı adı.
+    - $subscriptionId: Operations Management Suite Log Analytics çalışma alanı ile ilişkili Azure abonelik kimliği.
+    - $resourceGroup: Azure kaynak grubu için Operations Management Suite Log Analytics çalışma alanı.
+    - $workspaceName: Operations Management Suite Log Analytics çalışma alanının adı.
 
 ### <a name="output-of-the-custom-powershell-script"></a>Özel bir PowerShell komut dosyası çıktısı
-Komut dosyası ayrıntılıdır ve çalışan adımları çıkarır: 
-- Çalışma alanında varolan Operations Management Suite günlük analizi uyarılarla ilgili bilgiler içeren Özet görüntüler. Özet, ilişkili eylemler için oluşturulacak Azure Eylem grupları hakkındaki bilgileri de içerir. 
-- Uzantısı ile devam edin veya Özet görüntüledikten sonra çıkmak istenir.
-- Uzantısı ile devam edin, yeni Azure Eylem grupları oluşturulur ve varolan tüm uyarıları bunlarla ilişkili. 
-- "Tam! uzantısı" iletisini görüntüleyerek betik çıkar Tüm ara başarısızlık durumunda komut sonraki hataları görüntüler.
+Betik ayrıntılıdır ve çalışırken adımları çıkarır: 
+- Bu çalışma alanında mevcut Operations Management Suite Log Analytics Uyarıları hakkında bilgileri içeren özeti görüntüler. Özet, ilişkili eylemler için oluşturulacak Azure Eylem grupları hakkında bilgiler de içerir. 
+- Uzantı ile devam edin veya Özet görüntüledikten sonra çıkmak istenir.
+- Uzantı ile devam edin, yeni Azure Eylem grupları oluşturulur ve var olan tüm uyarıları bunlarla ilişkili. 
+- "Uzantısı tamamlandı!" iletisi görüntüleyerek kodun çıkar Tüm ara hataları olması durumunda betiğin sonraki hataları görüntüler.
 
 ## <a name="troubleshooting"></a>Sorun giderme 
-Uyarıları genişletme işlemi sırasında sorunları sistem gerekli oluşturulurken engelleyebilir [Eylem grupları](monitoring-action-groups.md). Böyle durumlarda, bir başlığı bir hata iletisi bkz **uyarı** bölüm Operations Management Suite portalı ya da Get API için Bitti'yi çağırın.
+Uyarılar genişletme işlemi sırasında sorunları sistem gerekli oluşturmasını engelleyebilirsiniz [Eylem grupları](monitoring-action-groups.md). Bu gibi durumlarda, bir hata iletisi bir başlık görürsünüz **uyarı** bölüm Operations Management Suite portalı veya GET API'sine yapılan çağırın.
 
 > [!IMPORTANT]
-> 5 Temmuz 2018 önce aşağıdaki düzeltme adımları görüntüsünü yok uyarıları Azure üzerinde çalışır, ancak herhangi bir eylem veya bildirim harekete geçmeyecektir. Uyarılar için bildirim almak için el ile düzenleme eklemek ve gerekir [Eylem grupları](monitoring-action-groups.md), veya önceki kullanın [özel bir PowerShell komut dosyası](#option-3---using-custom-powershell-script).
+> Azure genel bulut tabanlı, Log Analytics kullanıcı 5 Temmuz 2018 tarihinden önce aşağıdaki düzeltme adımları yakalayana, uyarılar, Azure'da çalışır ancak herhangi bir eylem veya bildirim tetiklenmez. Uyarılar için bildirim almak için el ile düzenleme ekleyin ve gerekir [Eylem grupları](monitoring-action-groups.md), veya önceki [özel PowerShell Betiği](#option-3---using-custom-powershell-script).
 
-Her hata düzeltme adımları şunlardır:
-- **Hata: Kapsam kilit abonelik/kaynak grubu düzeyinde yazma işlemleri için varsa**: ![Operations Management Suite portal sayfasının uyarı ayarlarını, kapsam kilit hata iletisiyle vurgulanan ekran görüntüsü](./media/monitor-alerts-extend/ErrorScopeLock.png)
+Her hata için düzeltme adımları şunlardır:
+- **Hata: Yazma işlemleri için abonelik/kaynak grubu düzeyinde kapsam kilit mevcut**: ![sayfasının ekran görüntüsü Operations Management Suite portalı uyarı ayarlarını, vurgulanan kapsam kilit hata iletisi](./media/monitor-alerts-extend/ErrorScopeLock.png)
 
-    Kapsam kilidi etkinleştirilmişse, özellik için günlük analizi (Operations Management Suite) çalışma içeren abonelik veya kaynak grubu içinde herhangi bir yeni değişiklik kısıtlar. Azure'da uyarıları genişletmek ve gerekli Eylem grupları oluşturmak sistem alamıyor.
+    Kapsam kilidi etkinleştirildiğinde, özellik (Operations Management Suite) Log Analytics çalışma alanını içeren abonelik veya kaynak grubunu yeni herhangi bir değişiklik kısıtlar. Sistem uyarıları Azure'a genişletme ve gerekli Eylem grupları oluşturma silemiyor.
     
-    Çözmek için silme *ReadOnly* çalışma alanını içeren abonelik veya kaynak grubunuz kilit. Azure portalını, PowerShell'i, Azure CLI veya API kullanarak bunu yapabilirsiniz. Daha fazla bilgi için bkz: [kaynak kilit kullanımı](../azure-resource-manager/resource-group-lock-resources.md). 
+    Çözümlemek için silme *salt okunur* çalışma alanını içeren, abonelik veya kaynak grubu üzerinde kilit. Azure portalı, PowerShell, Azure CLI veya API kullanarak bunu yapabilirsiniz. Daha fazla bilgi için bkz. [kaynak kilidi kullanımı](../azure-resource-manager/resource-group-lock-resources.md). 
     
-    Makalede gösterilen adımları kullanarak hatanın çözümlediğinizde Operations Management Suite içinde sonraki günün zamanlanmış çalıştırmada Azure'da uyarılarınızı genişletir. Başka herhangi bir eylemde veya her şeyi başlatma gerekmez.
+    Makalesinde anlatılan adımları kullanarak Hatayı çözümlediğinizde, Operations Management Suite sonraki günün zamanlanan çalıştırma içinde uyarılarınızı Azure'a genişletir. Herhangi bir şey başlatmak veya başka bir işlem yapması gerekmez.
 
-- **Hata: Abonelik/kaynak grubu düzeyinde ilke varsa**: ![Operations Management Suite portal sayfasının uyarı ayarlarını, ilke hata iletisiyle vurgulanan ekran görüntüsü](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **Hata: Abonelik/kaynak grubu düzeyinde ilke varsa**: ![Operations Management Suite portal sayfasının uyarı ayarlarını, ilke hata iletisiyle vurgulandığı ekran görüntüsü](./media/monitor-alerts-extend/ErrorPolicy.png)
 
-    Zaman [Azure ilke](../azure-policy/azure-policy-introduction.md) olan uygulanan, tüm yeni kaynak grubunda günlük analizi (Operations Management Suite) çalışma alanını içeren bir abonelik veya kaynak kısıtlar. Azure'da uyarıları genişletmek ve gerekli Eylem grupları oluşturmak sistem alamıyor.
+    Zaman [Azure İlkesi](../azure-policy/azure-policy-introduction.md) olduğu uygulanan yeni bir kaynak (Operations Management Suite) Log Analytics çalışma alanı içeren bir abonelik veya kaynak grubu içinde sınırlar. Sistem uyarıları Azure'a genişletme ve gerekli Eylem grupları oluşturma silemiyor.
     
-    Çözmek için neden olan ilkeyi düzenlediğinizde *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* çalışma alanı içerir, abonelik veya kaynak grubu üzerinde yeni kaynaklar oluşturulmasını engeller hata. Azure portalını, PowerShell'i, Azure CLI veya API kullanarak bunu yapabilirsiniz. Hataya neden olan uygun ilke bulmak için eylemlerini denetleyebilirsiniz. Daha fazla bilgi için bkz: [Eylemler denetim için etkinlik günlükleri görüntüleme](../azure-resource-manager/resource-group-audit.md). 
+    Çözümlemek için neden olan ilkeyi Düzenle *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* çalışma alanını içeren, abonelik veya kaynak grubundaki yeni kaynaklarının oluşturulmasını önleyen bir hata. Azure portalı, PowerShell, Azure CLI veya API kullanarak bunu yapabilirsiniz. Hataya neden olduğunu uygun ilkeyi bulmak için eylemleri denetleyebilirsiniz. Daha fazla bilgi için bkz. [eylemleri denetlemek için etkinlik günlüklerini görüntüleme](../azure-resource-manager/resource-group-audit.md). 
     
-    Makalede gösterilen adımları kullanarak hatanın çözümlediğinizde Operations Management Suite içinde sonraki günün zamanlanmış çalıştırmada Azure'da uyarılarınızı genişletir. Başka herhangi bir eylemde veya her şeyi başlatma gerekmez.
+    Makalesinde anlatılan adımları kullanarak Hatayı çözümlediğinizde, Operations Management Suite sonraki günün zamanlanan çalıştırma içinde uyarılarınızı Azure'a genişletir. Herhangi bir şey başlatmak veya başka bir işlem yapması gerekmez.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yeni hakkında daha fazla bilgi [Azure uyarıları deneyimi](monitoring-overview-unified-alerts.md).
-* Hakkında bilgi edinin [uyarıları Azure Uyarıları'nda oturum](monitor-alerts-unified-log.md).
+* Yeni hakkında daha fazla bilgi [Azure Uyarıları'deneyimi](monitoring-overview-unified-alerts.md).
+* Hakkında bilgi edinin [uyarılar Azure Uyarıları'nda oturum](monitor-alerts-unified-log.md).

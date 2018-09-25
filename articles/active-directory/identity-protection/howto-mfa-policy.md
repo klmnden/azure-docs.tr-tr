@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: e626260dba3155ef56ee4a784aab2c6fd6897295
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 792a1fc2403e672c973577efd7a05c9c81d45ad4
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45581366"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054090"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Nasıl yapılır: çok faktörlü kimlik doğrulaması kayıt ilkesi yapılandırma
 
@@ -30,37 +30,52 @@ Azure AD kimlik koruması bir ilkesi yapılandırarak multi factor authenticatio
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>Çok faktörlü kimlik doğrulaması kayıt ilkesi nedir?
 
 Azure çok faktörlü kimlik doğrulaması yalnızca bir kullanıcı adı ve parola kullanılmasını gerektiren kim olduğunuzu doğrulama bir yöntemdir. Bu, ikinci bir kullanıcı oturum açma ve işlemler için güvenlik katmanı sağlar.  
+
 Öneririz çünkü kullanıcı oturum açma işlemleri için Azure multi-Factor authentication gerektirmesine, onu:
 
-* Güçlü kimlik doğrulaması ile çok sayıda kolay doğrulama seçeneği sunar
-* Hazırlanması kuruluşunuz korumak ve hesabı ödün kurtarmak için önemli bir rol oynar
+- Güçlü kimlik doğrulaması ile çok sayıda kolay doğrulama seçeneği sunar
 
-![Kullanıcı riski İlkesi](./media/howto-mfa-policy/1019.png "kullanıcı riski İlkesi")
+- Hazırlanması kuruluşunuz korumak ve hesabı ödün kurtarmak için önemli bir rol oynar
+
 
 Daha fazla ayrıntı için [Azure multi-Factor Authentication nedir?](../authentication/multi-factor-authentication.md)
 
-## <a name="configuration"></a>Yapılandırma
 
-**İlgili yapılandırma iletişim kutusunu açmak için**:
+## <a name="how-do-i-access-the-mfa-registration-policy"></a>MFA kayıt ilkesini nasıl erişim sağlanır?
+   
+MFA kayıt ilkesini bulunduğu **yapılandırma** bölümünde [Azure AD kimlik koruması sayfa](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+   
+![MFA İlkesi](./media/howto-mfa-policy/1014.png)
 
-- Üzerinde **Azure AD kimlik koruması** dikey penceresindeki **yapılandırma** bölümünde **çok faktörlü kimlik doğrulaması kaydı**.
 
-    ![MFA ilkesini](./media/howto-mfa-policy/1019.png "MFA İlkesi")
 
-### <a name="settings"></a>Ayarlar
 
-* Kullanıcıları ve grupları ilkenin uygulanacağı ayarlayın:
+## <a name="policy-settings"></a>İlke ayarları
 
-    ![MFA ilkesini](./media/howto-mfa-policy/1020.png "MFA İlkesi")
-* İlke tetiklendiğinde zorlanacak denetimleri ayarlayın:  
+Oturum açma riski İlkesi yapılandırdığınızda ayarlamanız gerekir:
 
-    ![MFA ilkesini](./media/howto-mfa-policy/1021.png "MFA İlkesi")
-* İlke durumu anahtarı:
+- Kullanıcılar ve ilkenin uygulandığı gruplar:
 
-    ![MFA ilkesini](./media/howto-mfa-policy/403.png "MFA İlkesi")
-* Geçerli kayıt durumunu görüntüleyin:
+    ![Kullanıcılar ve gruplar](./media/howto-mfa-policy/11.png)
 
-    ![MFA ilkesini](./media/howto-mfa-policy/1022.png "MFA İlkesi")
+- Uygulanmasını istediğiniz erişim türünü:  
+
+    ![Kullanıcılar ve gruplar](./media/howto-mfa-policy/12.png)
+
+- İlke durumu:
+
+    ![İlke zorlama](./media/howto-mfa-policy/14.png)
+
+
+İlke yapılandırma iletişim kutusu yapılandırmanızı etkisini tahmin etmek için bir seçenek sağlar.
+
+![Tahmini etki](./media/howto-mfa-policy/15.png)
+
+
+
+
+## <a name="user-experience"></a>Kullanıcı deneyimi
+
 
 İlgili kullanıcı deneyimini genel bakış için bkz:
 

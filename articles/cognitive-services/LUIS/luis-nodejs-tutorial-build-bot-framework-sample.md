@@ -1,24 +1,25 @@
 ---
-title: LUIS ile Bot Builder SDK'sı için azure'da Node.js kullanan bir robotun tümleştirme | Microsoft Docs
+title: LUIS Bot - Web app Botu - Node.js Bot Framework SDK 3.0 ile
+titleSuffix: Azure Cognitive Services
 description: Bot Framework kullanarak bir LUIS uygulaması ile tümleşik bir bot oluşturun.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6d6937105b11d94138b51660dc9f3c5e682e19bc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 0bd191da3f2625bc202ee66100e7dac25d9d65de
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224084"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042338"
 ---
-# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>LUIS ile Bot Builder SDK'sı için Node.js kullanan bir robotun tümleştirin
+# <a name="luis-bot-in-nodejs"></a>Node.js'de LUIS bot
 
-Bu öğreticide, bir bot ile oluştururken size yol gösteren [Bot Framework] [ BotFramework] LUIS uygulaması ile tümleşiktir.
+Node.js kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır. Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu.
 
 ## <a name="prerequisite"></a>Önkoşul
 
@@ -26,7 +27,7 @@ Bot oluşturmadan önce adımları [uygulama oluşturma](./luis-get-started-crea
 
 Bot LUIS uygulaması içinde bulunan HomeAutomation etki alanından hedefleri için yanıt verir. Her biri bu hedefleri için kendisine eşleyen bir hedefi LUIS uygulaması sağlar. Bot LUIS algılar hedefi işleyen bir iletişim kutusu sağlar.
 
-| Hedefi | Örnek utterance | Bot işlevi |
+| Amaç | Örnek utterance | Bot işlevi |
 |:----:|:----------:|---|
 | HomeAutomation.TurnOn | Işıkları aç'ı açın. | Bot çağırır `TurnOnDialog` olduğunda `HomeAutomation.TurnOn` algılandı. Bu iletişim kutusu, burada cihaz kapalıyken üzerinde kullanıcı bir cihazı açın ve bir IOT hizmeti çağırmak ' dir. |
 | HomeAutomation.TurnOff | Yatak odası Işıkları aç. | Bot çağırır `TurnOffDialog` olduğunda `HomeAutomation.TurnOff` algılandı. Burada cihaz devre dışı kullanıcı cihazı kapatıp ve bir IOT hizmeti çağırmak bu iletişim kutusu. |
@@ -45,7 +46,10 @@ Bot LUIS uygulaması içinde bulunan HomeAutomation etki alanından hedefleri i�
 3. İçinde **Bot hizmeti** dikey penceresinde gerekli bilgileri sağlayın ve seçin **Oluştur**. Bu, oluşturur ve Azure bot hizmeti ve LUIS uygulaması dağıtır. Kullanmak istiyorsanız [konuşma Hazırlama işlemi](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), gözden [bölge gereksinimleri](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) botunuzun oluşturmadan önce. 
     * Ayarlama **uygulama adı** botunuzun kişinin adı. Botunuzun (örneğin, mynotesbot.azurewebsites.net) buluta dağıtıldığında alt etki alanı adı kullanılır. <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Aboneliği seçin [kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service planı ve [konumu](https://azure.microsoft.com/regions/).
-    * Seçin **dil anlama (Node.js)** şablonu **Bot şablon** alan.
+    * İçin **Bot şablon**seçin:
+        * **SDK'sı v3**
+        * **Node.js**
+        * **Dil anlama**
     * Seçin **LUIS uygulama konumu**. Bu yazma, [bölge] [ LUIS] uygulama oluşturulur.
     * Yasal bildirimi için onay kutusunu seçin. Yasal bildirimin koşullarını onay kutusunu ' dir.
 

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: dde8881fc446eef0dd6ca0735e5e23a5a19328fa
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 19f066bea9de580cf1245aec74fbe563bf8ba449
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578386"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996562"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Olay hub'ına Stream Azure tanılama günlükleri
-**[Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md)**  portalında veya Azure aracılığıyla bir tanılama ayarını olay hub'ı yetkilendirme kuralı kimliği etkinleştirerek yerleşik "Dışarı aktarmak için Event Hubs" seçeneğini kullanarak herhangi bir uygulama için neredeyse gerçek zamanlı akış PowerShell cmdlet'lerini veya Azure CLI 2.0.
+**[Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md)**  portalında veya Azure aracılığıyla bir tanılama ayarını olay hub'ı yetkilendirme kuralı kimliği etkinleştirerek yerleşik "Dışarı aktarmak için Event Hubs" seçeneğini kullanarak herhangi bir uygulama için neredeyse gerçek zamanlı akış PowerShell cmdlet'leri veya Azure CLI.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Tanılama günlükleri ve Event Hubs ile yapabilecekleriniz
 Akış özelliği için tanılama günlüklerini kullanabilir birkaç yolu vardır:
@@ -91,9 +91,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 Olay hub'ı yetkilendirme kuralı kimliği şu biçime sahip bir dizedir: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, örneğin, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Şu anda PowerShell belirli bir olay hub'ı adıyla seçemezsiniz.
 
-### <a name="via-azure-cli-20"></a>Azure CLI 2.0
+### <a name="via-azure-cli"></a>Azure CLI
 
-Aracılığıyla akışını etkinleştirmek için [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), kullanabileceğiniz [az İzleyici diagnostic-settings oluşturma](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) komutu.
+Aracılığıyla akışını etkinleştirmek için [Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), kullanabileceğiniz [az İzleyici diagnostic-settings oluşturma](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) komutu.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

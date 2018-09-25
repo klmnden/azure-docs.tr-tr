@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426702"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989303"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Günlük uyarı kuralları için Web kancası eylemleri
-Olduğunda bir [uyarı Azure'da oluşturulan ](monitor-alerts-unified-usage.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](monitoring-action-groups.md) bir veya daha fazla eylem gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntıları ve mevcut olan farklı bir Web kancası eylemleri açıklar.
+Olduğunda bir [günlük uyarı Azure'da oluşturulan](alert-log.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](monitoring-action-groups.md) bir veya daha fazla eylem gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntıları ve mevcut olan farklı bir Web kancası eylemleri açıklar.
 
 
 ## <a name="webhook-actions"></a>Web kancası eylemleri
 
-Web kancası eylemleri, bir dış işlem tek bir HTTP POST isteği üzerinden çağrılacak sağlar.  Çağrılan hizmet ve Web kancalarını destekleyen hiçbir yük kullanma belirlemek aldığı.   Bir uyarıya yanıt olarak bir Web kancası kullanma örnekleri gönderirken bir ileti [Slack](http://slack.com) veya içinde bir olay oluşturma [PagerDuty](http://pagerduty.com/).  
+Web kancası eylemleri, bir dış işlem tek bir HTTP POST isteği üzerinden çağrılacak sağlar.  Çağrılan hizmet ve Web kancalarını destekleyen hiçbir yük kullanma belirlemek aldığı.    
 
 Web kancası eylemleri özellikler aşağıdaki tabloda gerektirir:
 
 | Özellik | Açıklama |
 |:--- |:--- |
 | Web kancası URL'si |Web kancası URL'si. |
-| Özel JSON yükü |Uyarı oluşturulurken bu seçenek seçildiğinde, Web kancası ile göndermek için özel bir yükü. Ayrıntılar kullanılabilir [uyarılar Azure Uyarıları'nı kullanarak yönetme ](monitor-alerts-unified-usage.md) |
+| Özel JSON yükü |Uyarı oluşturulurken bu seçenek seçildiğinde, Web kancası ile göndermek için özel bir yükü. Ayrıntılar kullanılabilir [günlük Uyarıları Yönet](alert-log.md) |
 
 > [!NOTE]
-> Web kancası düğmesi yanı sıra test *Web kancası Ekle özel JSON yükü* günlük uyarı seçeneğinin, Web kancası URL'sini test etmek için sahte arama tetikler. Gerçek veri ve günlük uyarıları için kullanılan JSON şeması temsilcisi içermiyor. 
+> Görünümü Web kancası düğmesini yanı sıra *Web kancası Ekle özel JSON yükü* günlük uyarı seçeneğinin, sağlanan özelleştirme için örnek Web kancası yükü görüntülenir. Gerçek veri ve günlük uyarıları için kullanılan JSON şeması temsilcisi içermiyor. 
 
 Web kancaları, bir URL ve dış hizmete gönderilen veriler JSON biçimli bir yükü içerir.  Varsayılan olarak, yük değerleri aşağıdaki tabloda içerir: Bu yükü ile kendi özel bir değiştirilecek seçebilirsiniz.  Bu durumda, değişkenleri tablodaki her parametre için özel yükünüzü değerlerine dahil etmek için kullanabilirsiniz.
 
@@ -54,7 +54,7 @@ Web kancaları, bir URL ve dış hizmete gönderilen veriler JSON biçimli bir y
 | Abonelik Kimliği |#subscriptionid |Application Insights ile kullanılan Azure aboneliğinizin kimliği. 
 
 > [!NOTE]
-> LinkToSearchResults SearchQuery, arama aralığının StartTime & arama aralığının bitiş saati gibi parametreleri Analytics bölümünde izleme için Azure portalı URL'sini geçirir. Azure portal URI yaklaşık 2000 karakter uzunlukta olabilir ve parametrelerin değerleri söz konusu sınırı aşarsa açılacaktır. Kullanıcıları el ile Analytics portalında sonuçları görüntülemek veya kullanmak için ayrıntıları giriş [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) veya [Log Analytics REST API](https://dev.loganalytics.io/reference) programlı olarak sonuçlar almak için 
+> LinkToSearchResults SearchQuery, arama aralığının StartTime & arama aralığının bitiş saati gibi parametreleri Analytics bölümünde izleme için Azure portalı URL'sini geçirir. Azure portalında sahip olur ve yaklaşık 2000 karakter sınırını boyut URI *değil* parametrelerin değerleri söz konusu sınırı aşarsa Uyarıları ' sağlanan bağlantıyı aç. Kullanıcıları el ile Analytics portalında sonuçları görüntülemek veya kullanmak için ayrıntıları giriş [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) veya [Log Analytics REST API](https://dev.loganalytics.io/reference) programlı olarak sonuçlar almak için 
 
 Örneğin, adında tek bir parametre içeren aşağıdaki özel yükü belirtebilirsiniz *metin*.  Bu Web kancasını çağırır hizmet, bu parametre bekleniyor.
 
@@ -198,6 +198,7 @@ Aşağıdaki, tüm günlük uyarısı için bir özel Web kancası eylemi için 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Hakkında bilgi edinin [oturum uyarılar Azure uyarıları ](monitor-alerts-unified-log.md)
+- Anlamak [azure'da managaing günlük uyarıları](alert-log.md)
 - Oluşturma ve yönetme [Azure Eylem grupları](monitoring-action-groups.md)
 - Daha fazla bilgi edinin [Application Insights](../application-insights/app-insights-analytics.md)
 - Daha fazla bilgi edinin [Log Analytics](../log-analytics/log-analytics-overview.md). 

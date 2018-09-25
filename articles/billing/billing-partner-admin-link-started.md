@@ -1,6 +1,6 @@
 ---
-title: Bağlantı kimliği ortağına Azure hesabı | Microsoft Docs
-description: Müşteri'nin kaynakları yönetmek için kullandığınız kullanıcı hesabı için iş ortağı kimliği bağlayarak katılımlar Azure müşteri ile izleyebilirsiniz.
+title: İş ortağı kimliği için Azure hesabınızın bağlamak | Microsoft Docs
+description: İş ortağı kimliği müşterinin kaynakları yönetmek için kullandığınız kullanıcı hesabına bağlayarak Azure müşterileriyle yaşadığımız izleyin.
 services: billing
 author: dhirajgandhi
 ms.author: dhgandhi
@@ -10,130 +10,130 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a48298668e2297cb95f2a2f16eac6387ff509781
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ddfe83bf4d10eb3ee9b61ee1f60e60a965047cf9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608721"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980225"
 ---
-# <a name="link-partner-id-to-your-azure-accounts"></a>Azure hesaplarınıza bağlantı iş ortağı kimliği
+# <a name="link-partner-id-to-your-azure-accounts"></a>Azure hesaplarınızı için iş ortağı Kimliğini bağlama
 
-İş ortağı olarak, müşterinin kaynakları yönetmek için kullanılan hesaplar için iş ortağı Kimliğinizi bağlayarak, etkisi, müşteri katılımlar izleyebilirsiniz.
+Bir iş ortağı olarak, müşterinin kaynaklarını yönetmek için kullanılan hesaplara, iş ortağı Kimliğinizi bağlayarak, etki, müşterilerle yaşadığımız takip edebilirsiniz.
 
-Bu özellik, genel önizleme olarak kullanılabilir.
+Bu özellik, genel önizlemede kullanılabilir.
 
 ## <a name="get-access-from-your-customer"></a>Müşteriden erişin
 
-İş ortağı Kimliğinizi bağlamadan önce müşterinizin Azure kaynaklarını aşağıdaki seçeneklerden birini kullanarak erişmenizi gerekir:
+İş ortağı Kimliğinizin bağlamadan önce müşteri erişim aşağıdaki seçeneklerden birini kullanarak Azure kaynaklarını vermelidir:
 
-- **Konuk kullanıcı:** müşteri Konuk kullanıcı olarak ekleyin ve herhangi bir RBAC rolü atayın. Daha fazla bilgi için bkz: [başka bir dizinden Konuk kullanıcılar eklemek](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Konuk kullanıcı:** müşteriniz Konuk kullanıcı olarak ekleyebilir ve herhangi bir RBAC rolü atayın. Daha fazla bilgi için [başka bir dizinden Konuk kullanıcıları eklemek](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Dizin hesabı:** müşteri directory'lerinde kuruluşunuzdaki yeni bir kullanıcı oluşturun ve herhangi bir RBAC rolü atayın.
+- **Dizin hesabı:** müşterinizin directory'lerinde kuruluşunuzdaki yeni kullanıcı oluşturma ve herhangi bir RBAC rolü atayın.
 
-- **Hizmet sorumlusu:** müşteri kuruluşunuzdaki directory'lerinde bir uygulama ya da komut dosyasını ekleyin ve herhangi bir RBAC rolü atayın. Uygulama veya betik kimliğini hizmet sorumlusu bilinir.
+- **Hizmet sorumlusu:** müşterinizin directory'lerinde kuruluşunuzdaki bir uygulamanızı veya betiğinizi ekleyebilir ve herhangi bir RBAC rolü atayın. Uygulamanızı veya betiğinizi kimliğini, hizmet sorumlusu olarak bilinir.
 
 ## <a name="link-partner-id"></a>İş ortağı kimliğini bağlama
 
-Müşteri'nin kaynaklarına erişimi varsa, Azure portal, PowerShell veya CLI, Microsoft iş ortağı ağ kimliği (MPN kimliği) bağlamak için kullanıcı kimliği veya hizmet sorumlusu kullanın. Her bir müşterinin Kiracı İş ortağı kimliği bağlamak zorunda.
+Müşterinin kaynaklarına erişiminiz olduğunda Azure portalı, PowerShell veya CLI, Microsoft iş ortağı ağ Kimliğini (MPN kimliği) bağlamak için kullanıcı kimliği veya hizmet sorumlusu kullanın. Her müşteri kiracısında iş ortağı kimliği Bağla gerekir.
 
-### <a name="use-azure-portal-to-link-new-partner-id"></a>Yeni iş ortağı kimliği bağlamak için Azure portalını kullanma
+### <a name="use-azure-portal-to-link-new-partner-id"></a>Yeni iş ortağı kimliği Bağla için Azure portalını kullanma
 
-1. Git [ilişkilendirilecek bir iş ortağı kimliği](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) Azure portalında.
+1. Git [bir iş ortağı kimliği Bağla](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) Azure portalında.
 
 2. Azure Portal’da oturum açın.
 
-3. Microsoft iş ortağı kimliğini girin. Kimliktir iş ortağı [Microsoft iş ortağı Network(MPN)](https://partner.microsoft.com/) , kuruluşunuzun kimliği.
+3. Microsoft iş ortağı kimliğini girin. İş ortağı kimliği [Microsoft iş ortağı Network(MPN)](https://partner.microsoft.com/) kuruluş kimliği.
 
-  ![Bağlantı iş ortağı kimliği gösteren ekran görüntüsü](./media/billing-link-partner-id/link-partner-ID.PNG)
+  ![İş ortağı Kimliğini bağlama gösteren ekran görüntüsü](./media/billing-link-partner-id/link-partner-ID.PNG)
 
-4. Başka bir müşteri için iş ortağı kimliği bağlamak için dizin değiştiricisini kullanın. Anahtar dizini altında dizininizi seçin.
+4. Başka bir müşteri için iş ortağı kimliği Bağla için dizin değiştiricisini kullanın. Anahtar dizini altında dizininizi seçin.
 
-  ![Bağlantı iş ortağı kimliği gösteren ekran görüntüsü](./media/billing-link-partner-id/directory-switcher.png)
+  ![İş ortağı Kimliğini bağlama gösteren ekran görüntüsü](./media/billing-link-partner-id/directory-switcher.png)
 
-### <a name="use-powershell-to-link-new-partner-id"></a>Yeni iş ortağı kimliği bağlamak için PowerShell kullanın
+### <a name="use-powershell-to-link-new-partner-id"></a>Yeni iş ortağı kimliği Bağla için PowerShell kullanma
 
 1. Yükleme [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell modülü.
 
-2. Oturum açtığınızda müşterinin Kiracı, kullanıcı hesabı veya hizmet sorumlusu, daha fazla bilgi için bkz: [Powershell ile oturum açma](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
+2. Müşterinin kiracısına kullanıcı hesabı veya daha fazla bilgi için hizmet sorumlusu ile oturum açmak için bkz: [Powershell ile oturum açma](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  
    ```azurepowershell-interactive
     C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
 
 
-3. Yeni iş ortağı kimliğini bağlantı Kimliktir iş ortağı [Microsoft iş ortağı Network(MPN)](https://partner.microsoft.com/) , kuruluşunuzun kimliği.
+3. Yeni bir iş ortağı kimliği Bağla İş ortağı kimliği [Microsoft iş ortağı Network(MPN)](https://partner.microsoft.com/) kuruluş kimliği.
 
     ```azurepowershell-interactive
     C:\> new-AzureRmManagementPartner -PartnerId 12345 
     ```
 
-#### <a name="get-the-linked-partner-id"></a>Bağlantılı iş ortağı Kimliğini Al
+#### <a name="get-the-linked-partner-id"></a>Bağlantılı iş ortağı Kimliğini alın
 ```azurepowershell-interactive
 C:\> get-AzureRmManagementPartner 
 ```
 
-#### <a name="update-the-linked-partner-id"></a>Bağlantılı iş ortağı Kimliğini güncelleştir
+#### <a name="update-the-linked-partner-id"></a>Güncelleştirme bağlı iş ortağı kimliği
 ```azurepowershell-interactive
 C:\> Update-AzureRmManagementPartner -PartnerId 12345 
 ```
-#### <a name="delete-the-linked-partner-id"></a>Bağlantılı iş ortağı Kimliğini Sil
+#### <a name="delete-the-linked-partner-id"></a>Bağlantılı iş ortağı Kimliği Sil
 ```azurepowershell-interactive
 C:\> remove-AzureRmManagementPartner -PartnerId 12345 
 ```
 
-### <a name="use-cli-to-link-new-partner-id"></a>Yeni iş ortağı kimliği bağlamak için CLI kullanın
+### <a name="use-cli-to-link-new-partner-id"></a>Yeni iş ortağı kimliği Bağla için CLI kullanma
 1.  CLI uzantısını yükleyin.
 
     ```azurecli-interactive
     C:\ az extension add --name managementpartner
     ``` 
 
-2.  Müşteri'nin Kiracı hizmet sorumlusu ve kullanıcı hesabı ile oturum açın. Daha fazla bilgi için bkz: [oturum Azure CLI 2.0 oturum](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+2.  Müşterinin Kiracı Kullanıcı hesabı veya hizmet sorumlusu ile oturum açın. Daha fazla bilgi için [Azure CLI ile oturum açın](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
     ``` 
 
-3.  Yeni iş ortağı kimliğini bağlantı Kimliktir iş ortağı [Microsoft iş ortağı Network(MPN)](https://partner.microsoft.com/) , kuruluşunuzun kimliği.
+3.  Yeni bir iş ortağı kimliği Bağla İş ortağı kimliği [Microsoft iş ortağı Network(MPN)](https://partner.microsoft.com/) kuruluş kimliği.
 
      ```azurecli-interactive
      C:\ az managementpartner create --partner-id 12345
       ```  
 
-#### <a name="get-the-linked-partner-id"></a>Bağlantılı iş ortağı Kimliğini Al
+#### <a name="get-the-linked-partner-id"></a>Bağlantılı iş ortağı Kimliğini alın
 ```azurecli-interactive
 C:\ az managementpartner show
 ``` 
 
-#### <a name="update-the-linked-partner-id"></a>Bağlantılı iş ortağı Kimliğini güncelleştir
+#### <a name="update-the-linked-partner-id"></a>Güncelleştirme bağlı iş ortağı kimliği
 ```azurecli-interactive
 C:\ az managementpartner update --partner-id 12345
 ``` 
 
-#### <a name="delete-the-linked-partner-id"></a>Bağlantılı iş ortağı Kimliğini Sil
+#### <a name="delete-the-linked-partner-id"></a>Bağlantılı iş ortağı Kimliği Sil
 ```azurecli-interactive
 C:\ az managementpartner delete --partner-id 12345
 ``` 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Tartışma katılın [Microsoft iş ortağı topluluk](https://aka.ms/PALdiscussion) güncelleştirmeleri almak ya da geri bildirim göndermek için.
+Tartışmaya katılın [Microsoft iş ortağı topluluğu](https://aka.ms/PALdiscussion) güncelleştirmeleri almak ya da geri bildirim göndermek için.
 
 ## <a name="frequently-asked-questions"></a>Sık Sorulan Sorular
 
 **Kimin iş ortağı Kimliğini bağlayabilir miyim?**
 
-Müşteri'nin kaynak yöneten iş ortağı kuruluştan herhangi bir kullanıcı hesabına iş ortağı Kimliğini bağlayabilirsiniz.
+Herhangi bir kullanıcı iş ortağı kuruluştan yöneten müşterinin kaynak iş ortağı Kimliğini hesabınıza bağlayabilirsiniz.
 
-**Bir iş ortağı kimliği bağlı sonra değiştirilebilir mi?**
+**Bir iş ortağı kimliği bağlandığında değiştirilebilir mi?**
 
-Evet, bağlı iş ortağı kimliği değişti, eklenen veya kaldırılabilir.
+Evet, bağlantılı iş ortağı kimliği değişti, eklenen veya kaldırılacak.
 
-**Ne bir kullanıcı bir hesabı birden çok müşteri kiracılar var?**
+**Ne bir kullanıcı birden fazla müşteri Kiracı hesabınız var?**
 
-İş ortağı Kimliğini ve hesap arasındaki bağlantıyı, her bir müşterinin Kiracı için yapılır.  Her bir müşterinin Kiracı İş ortağı kimliği bağlamak zorunda.
+İş ortağı Kimliğini ve hesap arasındaki bağlantı, her bir müşterinin Kiracı için gerçekleştirilir.  Her müşteri kiracısında iş ortağı kimliği Bağla gerekir.
 
-**Diğer ortak veya müşteri düzenleyebilir veya iş ortağı Kimliğini bağlantısını kaldırmak?**
+**Diğer iş ortağı veya müşterinin düzenleyebilir veya iş ortağı Kimliğini bağlantısını kaldırmak?**
 
-Bağlantı hesap düzeyinde ilişkili değil. Yalnızca Düzenle veya iş ortağı kimliğini bağlantısını Kaldır Müşteri ve diğer iş ortağı bağlantı iş ortağı kimliğini değiştirilemiyor 
+Hesap düzeyinde bağlantıyı ilişkilidir. Yalnızca düzenlemek veya iş ortağı kimliğini bağlantısını Kaldır Müşteri ve diğer iş ortağı bağlantısını için iş ortağı kimliğini değiştiremezsiniz 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: e180f0912bdb9145f3d36492fb9bcdcb551037f0
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 56c66418b9f47e0ae0d345cd6e8a7d3ef2914b82
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022925"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986685"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway için sık sorulan sorular
 
@@ -360,6 +360,12 @@ Denetim günlükleri, Application Gateway için kullanılabilir. Portalında **e
 **SORU. Application Gateway uyarılarla ayarlayabilirim?**
 
 Evet, Application Gateway uyarıları destekleyen, uyarılar, ölçümler devre dışı yapılandırılır. Application Gateway şu anda sahiptir yapılandırılabilir "işleme" ölçüsü uyarı. Uyarılar hakkında daha fazla bilgi edinmek için [uyarı bildirimleri alma](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+
+**SORU. Application Gateway için nasıl trafiği istatistikleri analiz?**
+
+Görüntüleyebilir ve birkaç Azure Log Analytics, Excel, Power BI vb. gibi mekanizmalar aracılığıyla erişim günlüklerini analiz edin.
+
+Ayrıca, yükler ve popüler çalışan Resource Manager şablonu yayımladık [GoAccess](https://goaccess.io/) Çözümleyicisi uygulama ağ geçidi günlüklerine erişim için oturum açın. GoAccess benzersiz ziyaretçiler, istenen dosyaları, konaklar, işletim sistemleri, tarayıcılar, HTTP durum kodları ve daha fazlası gibi değerli HTTP trafiğini istatistikler sağlar. Daha fazla ayrıntı için lütfen bkz [GitHub Resource Manager şablonu bir klasörde Benioku dosyası](https://aka.ms/appgwgoaccessreadme).
 
 **SORU. Arka uç sistem durumu bilinmeyen durum, bu durum çözebilmek amacıyla sorunun döndürür?**
 

@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 673faff51c3d06e50941a6982a9f654c28598d86
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133374"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47006533"
 ---
 <a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
@@ -60,6 +60,8 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Kullanıcı tanımlı yol tabloları |200 |
 | Yol tablosu başına kullanıcı tanımlı yol sayısı |400 |
 | VPN Ağ Geçidi başına Noktadan Siteye Kök Sertifika Sayısı |20 |
+| Sanal ağ dokunduğunda |100 |
+| Sanal ağ TAP başına ağ arabirimi DOKUNUN yapılandırması |100 |
 
 #### <a name="publicip-address"></a>Genel IP adresi sınırlamaları
 
@@ -75,17 +77,17 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Kaynak | Varsayılan limit | Üst Sınır |
 | --- | --- | --- |
 | Yük Dengeleyiciler | 100 | 1000 |
-| Her bir kaynak, temel kuralları | 150 | 250 |
-| Her bir kaynak, standart kuralları | 1250 | 1500 |
+| Her bir kaynak, temel kuralları | 250 | 250 |
+| Her bir kaynak, standart kuralları | 1500 | 1500 |
 | IP yapılandırması başına kuralları | 299 |299 |
 | Ön uç IP yapılandırmaları, temel | 10 | 200 |
 | Ön uç IP yapılandırmaları, standart | 10 | 600 |
 | Arka uç havuzu, temel | 100, tek bir kullanılabilirlik kümesi | 100, tek bir kullanılabilirlik kümesi |
 | Arka uç havuzu, standart | 1000, tek bir sanal ağ | 1000, tek bir sanal ağ |
-| Standart yük dengeleyici başına arka uç kaynaklarına &ast; | 50 | 150 |
+| Standart yük dengeleyici başına arka uç kaynaklarına * | 150 | 150 |
 | HA bağlantı noktaları, standart | İç ön uç başına 1 | İç ön uç başına 1 |
 
-&ast; En fazla 150 kaynaklar, tek başına sanal makineler, kullanılabilirlik kümeleri ve sanal makine ölçek kümeleri herhangi bir birleşimi.
+** En fazla 150 kaynaklar, tek başına sanal makineler, kullanılabilirlik kümeleri ve sanal makine ölçek kümeleri herhangi bir birleşimi.
 
 Varsayılan sınırları artırmanız gerekirse [desteğe başvurun](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

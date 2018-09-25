@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ROBOTS: NOINDEX
+ms.openlocfilehash: 762955103aeb48eb8a9b62f4e3ffe193bba71a38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861927"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947226"
 ---
 # <a name="document-collection-analysis"></a>Belge koleksiyonu çözümleme
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Bu senaryo özetlemek ve büyük bir belge, tümcecik öğrenme konu modelleme ve Azure ML Workbench kullanarak konu model analizi gibi teknikler koleksiyonu analiz etme gösterir. Azure Machine Learning Workbench için çok büyük bir belge koleksiyonu için kolay ölçek sağlar ve eğitme ve işlem bağlamı, yerel işlem için veri bilimi sanal makineleri için Spark kümesi arasında çeşitli Modellerinizi ayarlamak için bir mekanizma sağlar. Kolay geliştirme, Azure Machine Learning Workbench içinde Jupyter Notebook aracılığıyla sağlanır.
 
@@ -60,7 +65,7 @@ Makine öğrenme teknikleri/Bu senaryoda kullanılan algoritmalar şunlardır:
 
 Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 
-* Düzgün bir şekilde yüklediğinizden emin olun [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) izleyerek [yükleme ve oluşturma Hızlı Başlangıç](../service/quickstart-installation.md).
+* Düzgün bir şekilde yüklediğinizden emin olun [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) izleyerek [yükleme ve oluşturma Hızlı Başlangıç](quickstart-installation.md).
 
 * Bu örnek, her işlem bağlam üzerinde çalıştırılabilir. Ancak, çalıştırmak için çok çekirdekli makine ile en az önerilir 16GB bellek ve 5GB disk alanı.
 

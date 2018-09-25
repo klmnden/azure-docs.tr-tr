@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2448b1f799c5253b36a18f108af1ff2de8b6ced3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e79419c764229e7dc52a32389b8b1116668dddfc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127457"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039744"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -204,6 +204,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web hizmetleri aynı abonelikte ancak farklı bir abonelikte bir kaynak grubuna taşındı. Diğer Machine Learning kaynakları abonelikler arasında taşınabilir.
+* Bkz: yönetilen diskler - [kısıtlamaları için sanal makineler sınırlamaları](#virtual-machines-limitations)
 * Yönetilen kimlik - kullanıcı tarafından atanan
 * Media Services
 * Mobile Engagement
@@ -254,7 +255,6 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * Lab Services'i - aynı Abonelikteki yeni kaynak grubuna taşıma etkin, ancak çapraz abonelik taşıma etkin değil.
 * Yük Dengeleyiciler - bkz [yük dengeleyici sınırlamaları](#lb-limitations)
 * Yönetilen Uygulamalar
-* Bkz: yönetilen diskler - [sanal makineler sınırlamaları](#virtual-machines-limitations)
 * Microsoft Genomiks
 * NetApp
 * Genel IP - bkz [genel IP kısıtlamaları](#pip-limitations)
@@ -267,22 +267,36 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 
 ## <a name="virtual-machines-limitations"></a>Sanal makineler sınırlamaları
 
-Yönetilen diskler taşımayı desteklemez. Bu kısıtlama, birkaç ilgili kaynakları çok taşınamaması anlamına gelir. Taşınamıyor:
+Yönetilen diskler taşıma 24 Eylül 2018'den itibaren desteklenir. Bu özelliği etkinleştirmek üzere kaydolmanız gerekir
 
-* Yönetilen diskler
+#### <a name="powershell"></a>PowerShell
+`Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute`
+#### <a name="cli"></a>CLI
+`az feature register Microsoft.Compute ManagedResourcesMove`
+
+
+Başka bir deyişle, ayrıca taşıyabilirsiniz:
+
 * Yönetilen disklere sahip sanal makineler
-* Yönetilen diskleri oluşturulan görüntüleri
-* Yönetilen diskleri oluşturulan anlık görüntüleri
+* Yönetilen görüntüleri
+* Yönetilen anlık görüntüler
 * Yönetilen disklere sahip sanal makineleri ile kullanılabilirlik kümeleri
 
-Yönetilen disk taşınamıyor olsa da, bir kopyasını oluşturun ve ardından mevcut bir yönetilen diskten yeni bir sanal makine oluşturun. Daha fazla bilgi için bkz.
+Henüz desteklenmeyen bazı kısıtlamalar şunlardır.
 
-* Yönetilen diskleri aynı abonelikte veya farklı aboneliğe kopyalama [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) veya [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
-* Mevcut bir yönetilen işletim sistemi diski ile kullanarak bir sanal makine oluşturma [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) veya [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
+* Key Vault'ta depolanan bir sertifika ile sanal makineler için yeni bir kaynak grubu ile aynı abonelikte ancak değil, abonelikler arasında taşınabilir.
+* Azure Backup ile yapılandırılmış sanal makineler. Kullanım bu sanal makineleri taşımak için geçici çözüm aşağıda
+  * Sanal makinenizi konumunu bulun.
+  * Aşağıdaki adlandırma deseni ile bir kaynak grubunu bulun: "AzureBackupRG_<location of your VM>_1" örn AzureBackupRG_westus2_1
+  * Azure Portalı'nda, ardından onay "gizli türleri Göster ise"
+  * PowerShell'de varsa, kullanmak `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet'i
+  * CLI, kullanın `az resource list -g AzureBackupRG_<location of your VM>_1`
+  * Artık türüyle olan kaynağı bulun `Microsoft.Compute/restorePointCollections` adlandırma deseni sahip `AzureBackup_<name of your VM that you're trying to move>_###########`
+  * Bu kaynağı silme
+  * Silme işlemi tamamlandıktan sonra sanal makinenizi taşımak mümkün olmayacak
+* Standart SKU yük Dengeleyicide veya standart SKU genel IP ile sanal makine ölçek kümeleri taşınamaz.
+* Market kaynaklardan bağlı planlar ile oluşturulan sanal makineler, kaynak grubu veya abonelik arasında taşınamaz. Geçerli Abonelikteki sanal makine sağlamasını kaldırma ve yeni aboneliği yeniden dağıtın.
 
-Market kaynaklardan bağlı planlar ile oluşturulan sanal makineler, kaynak grubu veya abonelik arasında taşınamaz. Geçerli Abonelikteki sanal makine sağlamasını kaldırma ve yeni aboneliği yeniden dağıtın.
-
-Key Vault'ta depolanan bir sertifika ile sanal makineler için yeni bir kaynak grubu ile aynı abonelikte ancak değil, abonelikler arasında taşınabilir.
 
 ## <a name="virtual-networks-limitations"></a>Sanal ağlar sınırlamaları
 

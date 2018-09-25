@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: ab085d6a5cb38c46cf46a51da6d294732e2fd879
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979057"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060828"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Uygun maliyetli standart depolama ile yönetilmeyen ve yönetilen Azure VM diskleri
 
@@ -25,7 +25,7 @@ Bu makalede, SSD ve HDD standart diskler kullanımı üzerinde odaklanır. Depol
 
 Standart diskler, Azure Vm'leri için oluşturmanın iki yolu vardır:
 
-**Yönetilmeyen diskler**: Bu tür bir disk özgün, VM diskleri için karşılık gelen VHD dosyalarını depolamak için kullanılan depolama hesapları yönettiğiniz yöntemidir. VHD dosyaları, depolama hesaplarındaki sayfa blobları olarak depolanır. Yönetilmeyen diskler, öncelikle DSv2 ve GS serisi gibi Premium depolama kullanan VM'ler dahil olmak üzere, herhangi bir Azure VM boyutu iliştirilebilir. Azure sanal makineler en fazla 256 TB depolama alanı sağlayan birkaç standart diskler, iliştirilmeyi destekler.
+**Yönetilmeyen diskler**: Bu tür bir disk özgün, VM diskleri için karşılık gelen VHD dosyalarını depolamak için kullanılan depolama hesapları yönettiğiniz yöntemidir. VHD dosyaları, depolama hesaplarındaki sayfa blobları olarak depolanır. Yönetilmeyen diskler, öncelikle DSv2 ve GS serisi gibi Premium depolama kullanan VM'ler dahil olmak üzere, herhangi bir Azure VM boyutu iliştirilebilir. Azure VM'ler VM başına en fazla 256 PiB sağlayan birkaç standart diskler, iliştirilmeyi destekler. Önizleme disk boyutları kullanırsanız, sanal makine başına yaklaşık 2 PiB kadar olabilir. 
 
 [**Azure yönetilen diskler**](../articles/virtual-machines/windows/managed-disks-overview.md): Bu özellik, VM diskleri için kullanılan depolama hesapları yönetir. Türü (Premium SSD, standart SSD veya HDD standart) ve boyutunu belirtmeniz duyduğunuz disk ve Azure oluşturur ve diski oluşturup yönetebilmesi. Diskler her şeyi Azure gerçekleştirir, sizin için--depolama hesapları için ölçeklenebilirlik sınırları içinde kalmasını sağlamak için birden çok depolama hesabında yerleştirme hakkında endişelenmeniz gerekmez.
 
@@ -36,15 +36,15 @@ Azure standart depolama ile çalışmaya başlamak için ziyaret [ücretsiz olar
 Yönetilen disklerle bir VM oluşturma hakkında daha fazla bilgi için aşağıdaki makalelerden birine bakın.
 
 * [Resource Manager ve PowerShell kullanarak VM oluşturma](../articles/virtual-machines/windows/quick-create-powershell.md)
-* [Azure CLI 2.0 kullanarak bir Linux VM oluşturma](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Azure CLI kullanarak bir Linux VM’si oluşturma](../articles/virtual-machines/linux/quick-create-cli.md)
 
-## <a name="standard-storage-features"></a>Standart depolama özellikleri 
+## <a name="standard-storage-features"></a>Standart depolama özellikleri
 
 Standart depolama özelliklerinden bazılarını gösteren bir göz atalım. Daha fazla ayrıntı için lütfen bkz [Azure Storage'a giriş](../articles/storage/common/storage-introduction.md).
 
 **Standart depolama**: Azure Standard Storage, Azure diskleri, Azure Blobları, Azure dosyaları, Azure tabloları ve Azure kuyruklarının destekler. İle standart depolama hizmetlerini kullanmak için başlangıç [bir Azure depolama hesabı oluşturma](../articles/storage/common/storage-quickstart-create-account.md).
 
-**Standart SSD disk:** standart SSD disk standart HDD diskleri daha daha güvenilir performans sağlar ve şu anda Önizleme sürümünde kullanılabilir. Standart SSD disk bölge kullanılabilirliği hakkında daha fazla bilgi için bkz. [standart SSD disk (Önizleme) bölge kullanılabilirliği](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+**Standart SSD disk:** standart SSD disk standart HDD diskleri daha daha güvenilir performans sağlar ve şu anda kullanılabilir. Standart SSD disk bölge kullanılabilirliği hakkında daha fazla bilgi için bkz. [bölge kullanılabilirliği standart SSD disk](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
 **Standart HDD diskler:** HDD standart diskler, Premium depolama sayesinde, DSv2 ve GS serisi gibi kullanılan boyutu serisi VM'ler dahil olmak üzere tüm Azure vm'lere eklenebilir. Standart HDD disk yalnızca bir VM'ye iliştirilebilir. Ancak, bu VM boyutu için tanımlanan en fazla disk sayısı kadar bir VM için bir veya daha fazla bu diskleri ekleyebilirsiniz. Standart depolama ölçeklenebilirlik ve performans hedefleri aşağıdaki bölümde, biz özellikleri daha ayrıntılı açıklanmaktadır.
 
@@ -81,11 +81,11 @@ Premium diskler, giriş/çıkış işlemi (IOPS) ve standart disk aktarım hız�
 
 | **VM katmanı**            | **Temel katman sanal makine** | **Standart katman sanal makine** |
 |------------------------|-------------------|----------------------|
-| En fazla Disk boyutu          | 4095 GB           | 4095 GB              |
-| Disk başına en fazla 8 KB IOPS | En fazla 300         | En fazla 500            |
-| Disk başına en fazla bant genişliği | En fazla 60 MB/sn     | En fazla 60 MB/sn        |
+| En fazla Disk boyutu          | 32.767 giB           | 32.767 giB        |
+| Disk başına en fazla 8 KB IOPS | En fazla 2.000         | En fazla 2.000        |
+| Disk başına en fazla bant genişliği | En fazla 500 MB/sn     | En fazla 500 MB/sn      |
 
-İş yükünüz yüksek performanslı ve düşük gecikme süreli disk desteği gerektiriyorsa, Premium depolama kullanmayı düşünmeniz gerekir. Daha fazla Premium depolama avantajlarını öğrenmek için ziyaret [yüksek performanslı Premium depolama ile Azure VM diskleri](../articles/virtual-machines/windows/premium-storage.md). 
+İş yükünüz yüksek performanslı ve düşük gecikme süreli disk desteği gerektiriyorsa, Premium depolama kullanmayı düşünmeniz gerekir. Daha fazla Premium depolama avantajlarını öğrenmek için ziyaret [yüksek performanslı Premium depolama ile Azure VM diskleri](../articles/virtual-machines/windows/premium-storage.md).
 
 ## <a name="snapshots-and-copy-blob"></a>Anlık görüntü ve kopya blob'u
 
@@ -121,9 +121,9 @@ Standart depolama kullanırken aşağıdaki fatura değerlendirmeleri geçerlidi
 
 **Yönetilen diskler:** faturalandırma standart yönetilen diskler için sağlanan disk boyutuna bağlıdır. Azure aşağıdaki tablolarda belirtildiği gibi en yakın yönetilen diskler seçeneğini (yuvarlanır) sağlanan boyut eşlenir. Her yönetilen disk desteklenen sağlanan boyutları birine eşlenir ve buna göre faturalandırılır. Örneğin, standart yönetilen disk oluşturma ve 200 GiB sağlanan bir boyutunu belirtin, S15 Disk türünü fiyatlandırmasına göre faturalandırılır.
 
-| **Yönetilen standart HDD <br>Disk türü** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
-| Disk Boyutu        | 32 giB  | 64 giB  | 128 GiB | 256 giB | 512 GiB | 1024 (1 TiB) giB | 2048 giB (2 tib'a kadar) | 4095 giB (4 tib'a kadar) | 
+| **Yönetilen standart HDD <br>Disk türü** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Disk Boyutu        | 32 giB  | 64 giB  | 128 GiB | 256 giB | 512 GiB | 1024 (1 TiB) giB | 2.048 giB (2 tib'a kadar) | 4.095 giB (4 tib'a kadar) | Olmak üzere 8.192 giB (8 tib'a kadar) | 16,385 giB (16 tib'a kadar) | 32.767 giB (32 tib'a kadar) |
 
 
 **Anlık görüntüleri**: standart diskler, anlık görüntüler, anlık görüntüler görüntülenerek kullanılan ek kapasite için faturalandırılır. Anlık görüntüleri hakkında daha fazla bilgi için bkz: [bir blobun anlık görüntüsünü oluşturma](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
@@ -138,7 +138,7 @@ Standart depolama, sanal makineler ve yönetilen diskler için fiyatlandırma ha
 * [Sanal makineleri fiyatlandırması](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Yönetilen diskler fiyatlandırması](https://azure.microsoft.com/pricing/details/managed-disks)
 
-## <a name="azure-backup-service-support"></a>Azure Backup hizmeti desteği 
+## <a name="azure-backup-service-support"></a>Azure Backup hizmeti desteği
 
 Yönetilmeyen disklere sahip sanal makineleri Azure Backup kullanılarak yedeklenebilir. [Daha fazla ayrıntı](../articles/backup/backup-azure-vms-first-look-arm.md).
 
@@ -154,4 +154,4 @@ Bir yedekleme işi zaman tabanlı yedeklemeler, kolay VM geri yükleme ve yedek 
 
 * [Resource Manager ve PowerShell kullanarak VM oluşturma](../articles/virtual-machines/windows/quick-create-powershell.md)
 
-* [Azure CLI 2.0 kullanarak bir Linux VM oluşturma](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Azure CLI kullanarak bir Linux VM’si oluşturma](../articles/virtual-machines/linux/quick-create-cli.md)

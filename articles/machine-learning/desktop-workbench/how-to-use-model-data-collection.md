@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 5c1a884ebe6216c4e8099f2ada2182ccff68b63e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 435ef29192682f1bf19a9a53923dd043676256ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449788"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954951"
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Veri koleksiyonu kullanarak model verileri toplama
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Azure Machine Learning'de model veri toplama özelliği, model girişlerini ve tahminlerini bir web hizmetinden arşivlemek için kullanabilirsiniz.
 
@@ -105,7 +108,7 @@ Blob depolama alanında toplanan verileri görüntülemek için:
 Verileri Azure bloblarından kullanılabilir olarak çeşitli yollarla, hem Microsoft yazılımlarını hem de açık kaynak araçları aracılığıyla. İşte bazı örnekler:
 - Azure Machine Learning Workbench: .csv dosyasını veri kaynağı olarak ekleyerek, Azure Machine Learning Workbench'te .csv dosyasını açın.
 - Excel: günlük .csv dosyalarını çalışma sayfası olarak açın.
-- [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): BLOB'lar .csv verilerinden çekilen verilerle grafik oluşturun.
+- [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): BLOB'lar .csv verilerinden çekilen verilerle grafik oluşturun.
 - [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): .csv veri büyük bir kısmı bir veri çerçevesi oluşturun.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")

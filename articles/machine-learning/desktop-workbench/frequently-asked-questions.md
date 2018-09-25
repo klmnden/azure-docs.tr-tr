@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 94a1f3bbba83e8e71cf9440b5ded0784f4616c99
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4785f87515663831b1177c6c0958d3d965351797
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674164"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996579"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning hakkında sık sorulan sorular
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Azure Machine Learning oluşturun, test etmek, yönetmek ve makine öğrenimi ve yapay ZEKA modelleri dağıtın olanak tanıyan bir tam olarak yönetilen Azure hizmetidir. Sunduğumuz Hizmetleri ve indirilebilir uygulama bulut, şirket içi ve eğitimi sağlayın, dağıtma, yönetme, edge yararlanan kod öncelikli bir yaklaşım sunar ve modelleri power, hız ve esneklik ile izleyin. Alternatif olarak, Azure Machine Learning Studio kodlama gerekli olduğu bir tarayıcı tabanlı, görsel sürükle ve bırak geliştirme ortamı sunar. 
 
@@ -31,10 +34,6 @@ Azure Blob Depolama ve Azure Container Registry, Azure Machine Learning tarafın
 **SQL Server 2017'de Microsoft Machine Learning Hizmetleri için nasıl Azure Machine Learning ilişkilidir?**   
 
 SQL Server 2017 Machine Learning Hizmetleri makine öğrenimi görevlerini veritabanı iş akışlarınızla tümleştirmek için genişletilebilir, ölçeklenebilir bir platformdur. Bu, şirket içi bir çözüm, örnek veri taşıma pahalı veya untenable olduğu için gerekli olduğu senaryolar için mükemmel olur. Buna karşılık, Bulut veya hibrit iş yükleri için yeni Azure hizmetlerimizi harika uygun olan. 
-
-**Hem Python hem de R destekliyorsunuz? Diğer C++ gibi programlama dilleri hakkında**
-
-Python şu anda yalnızca destekler. Biz, R tümleştirmesi üzerinde çalışıyoruz ve kullanılabilir olan en kısa sürede sahip olmayı beklediğiniz. 
 
 **Azure Machine Learning'i nasıl Spark için Microsoft Machine Learning ile ilişkilidir?**
 
@@ -172,4 +171,4 @@ Hayır, yeni hizmetleri herhangi bir veri kısıtlamaları dayatır değil. Anca
 
 **Azure Machine Learning Microsoft Bilişsel araç seti nasıl ilişkilidir?**
 
-[Microsoft Bilişsel Araç Seti](https://www.microsoft.com/en-us/cognitive-toolkit/) sunduğumuz yeni araçları ve Hizmetleri tarafından desteklenen çok sayıda çerçeveleri biridir. Bilişsel Araç Seti kullanmak ve popüler makine öğrenimi modellerini akış iletme derin sinir ağları, karmaşık ağ dahil olmak üzere birleştirmek sağlayan bir birleşik derin öğrenme araç seti olan Sequence Sequence ve yinelenen ağlar. Microsoft Bilişsel araç seti ile ilgili daha fazla bilgi için müşterilerimize [ürün belgelerine](https://docs.microsoft.com/cognitive-toolkit/). 
+[Microsoft Bilişsel Araç Seti](https://www.microsoft.com/cognitive-toolkit/) sunduğumuz yeni araçları ve Hizmetleri tarafından desteklenen çok sayıda çerçeveleri biridir. Bilişsel Araç Seti kullanmak ve popüler makine öğrenimi modellerini akış iletme derin sinir ağları, karmaşık ağ dahil olmak üzere birleştirmek sağlayan bir birleşik derin öğrenme araç seti olan Sequence Sequence ve yinelenen ağlar. Microsoft Bilişsel araç seti ile ilgili daha fazla bilgi için müşterilerimize [ürün belgelerine](https://docs.microsoft.com/cognitive-toolkit/). 

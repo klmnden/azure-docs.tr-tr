@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 5863160632e544ca542debcf74971e90ea452939
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b6aaf98ca3b5581691b6c70783be5250b506056c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716681"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990969"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir Linux sanal makinesi oluşturma
 
@@ -75,7 +75,7 @@ Bu makale, hızlandırılmış ağ ile Azure CLI kullanarak bir sanal makine olu
 
 ### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-Son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index#az_login). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *Mynıc*, ve *myVm*.
+Son yükleme [Azure CLI](/cli/azure/install-azure-cli) ve Azure hesabınızı kullanarak oturum açma [az login](/cli/azure/reference-index#az_login). Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *Mynıc*, ve *myVm*.
 
 [az group create](/cli/azure/group#az_group_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myResourceGroup* içinde *centralus* konumu:
 

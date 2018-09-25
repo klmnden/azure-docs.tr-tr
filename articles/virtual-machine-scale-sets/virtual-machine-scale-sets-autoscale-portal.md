@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a93467404232b0fff51136cb7648d84a81165bdb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4ae9d8053f7463c069a7305bbd07a91a387e31d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697968"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972309"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Sanal makine ölçek kümesi Azure Portalı'nda otomatik olarak ölçeklendirme
 Ölçek kümesi oluşturduğunuzda, çalıştırmak istediğiniz sanal makine örneği sayısını tanımlarsınız. Uygulamanızın talebi değiştikçe, sanal makine örneklerinin sayısını otomatik olarak artırabilir veya azaltabilirsiniz. Otomatik ölçeklendirme özelliği, uygulamanızın yaşam döngüsü boyunca uygulama performansındaki değişikliklere veya müşteri taleplerine ayak uydurmanıza olanak tanır.
 
-Bu makalede Azure portalında ölçek kümenizdeki VM örneği performansını izleme, otomatik ölçeklendirme kuralları oluşturma işlemini gösterir. Bu otomatik ölçeklendirme kuralları, artırın veya bu performans ölçümlerine yanıt olarak sanal makine örneği sayısını azaltın. Bu adımlar da tamamlayabilirsiniz [Azure PowerShell](tutorial-autoscale-powershell.md) veya [Azure CLI 2.0](tutorial-autoscale-cli.md).
+Bu makalede Azure portalında ölçek kümenizdeki VM örneği performansını izleme, otomatik ölçeklendirme kuralları oluşturma işlemini gösterir. Bu otomatik ölçeklendirme kuralları, artırın veya bu performans ölçümlerine yanıt olarak sanal makine örneği sayısını azaltın. Bu adımlar da tamamlayabilirsiniz [Azure PowerShell](tutorial-autoscale-powershell.md) veya [Azure CLI](tutorial-autoscale-cli.md).
 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Otomatik ölçeklendirme kuralları oluşturmak için mevcut bir sanal makine gerekir. ölçek kümesi. Bir ölçek kümesi oluşturabilirsiniz [Azure portalında](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), veya [Azure CLI 2.0](quick-create-cli.md).
+Otomatik ölçeklendirme kuralları oluşturmak için mevcut bir sanal makine gerekir. ölçek kümesi. Bir ölçek kümesi oluşturabilirsiniz [Azure portalında](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), veya [Azure CLI](quick-create-cli.md).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Otomatik olarak ölçeğini genişletmek için kural oluşturma

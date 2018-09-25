@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanı'nı satın alma modeli | Microsoft Docs
-description: Azure SQL veritabanı için model satın alma hakkında bilgi edinin.
+description: Azure SQL veritabanı hizmetinde kullanılabilir veritabanları satın alma modelleri modeli hakkında bilgi edinin.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
@@ -9,18 +9,21 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 4fe75d8d350ee2d2a97b9d7efb10ff3c1675168d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 651f80c8b8f4bc5f8aa8cf117e3208f4126e964c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737124"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961085"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL veritabanı'nı modelleri ve kaynakları satın alma 
 
 Azure SQL veritabanı, performans ve maliyet ihtiyaçlarınıza uygun veritabanı altyapısı tam olarak yönetilen PaaS kolayca satın almanızı sağlar. Azure SQL veritabanı dağıtım modeline bağlı olarak gereksinimlerinize uyan bir satın alma modeli seçebilirsiniz: 
- - [Mantıksal sunucu](sql-database-logical-servers.md) içinde [Azure SQL veritabanı](sql-database-technical-overview.md) işlem, depolama ve GÇ kaynakları iki satın alma modeli sunar: DTU tabanlı satın alma modeli ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). 
+ - [Mantıksal sunucu](sql-database-logical-servers.md) içinde [Azure SQL veritabanı](sql-database-technical-overview.md) işlem, depolama ve GÇ kaynakları iki satın alma modeli sunar: bir [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Bu satın alma modeli içinde seçtiğiniz [tek veritabanları](sql-database-single-databases-manage.md) veya [elastik havuzlar](sql-database-elastic-pool.md).
  - [Yönetilen örnekler](sql-database-managed-instance.md) Azure SQL veritabanı yalnızca teklifte [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
+
+> [!IMPORTANT]
+> [Hiper ölçekli veritabanları (Önizleme)](sql-database-hyperscale.md) yalnızca bir mantıksal sunucuyla veya yönetilen örneği içinde tek veritabanları için sanal çekirdek tabanlı satın alma modeli vardır. 
 
 Aşağıdaki tablo ve grafik karşılaştırın ve bu iki satın alma modeli.
 
@@ -34,17 +37,12 @@ Aşağıdaki tablo ve grafik karşılaştırın ve bu iki satın alma modeli.
 
 ## <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli 
 
-Sanal çekirdek, fiziksel donanım (örneğin, sayı çekirdekleri, bellek, depolama boyutu) özelliklerini ve donanım Nesilleri arasında seçim yapma olanağı ile sunulan mantıksal CPU'yu temsil eder. Sanal çekirdek tabanlı satın alma modeli, esneklik, denetimi, bireysel kaynak kullanımının saydamlığı sağlar ve basit bir yol çevirmek için şirket iş yükü gereksinimlerini buluta. Bu model, işlem, bellek ve depolama iş yükü gereksinimlerine göre seçmenize olanak sağlar. Sanal çekirdek tabanlı satın alma modeli, müşteriler arasında seçim yapabilirsiniz [genel amaçlı](sql-database-high-availability.md#standardgeneral-purpose-availability) ve [iş açısından kritik](sql-database-high-availability.md#premiumbusiness-critical-availability) hizmet katmanları için her ikisi de [tek veritabanları](sql-database-single-database-scale.md), [yönetilen örnekleri](sql-database-managed-instance.md), ve [elastik havuzlar](sql-database-elastic-pool.md). 
+Sanal çekirdek, fiziksel donanım (örneğin, sayı çekirdekleri, bellek, depolama boyutu) özelliklerini ve donanım Nesilleri arasında seçim yapma olanağı ile sunulan mantıksal CPU'yu temsil eder. Sanal çekirdek tabanlı satın alma modeli, esneklik, denetimi, bireysel kaynak kullanımının saydamlığı sağlar ve basit bir yol çevirmek için şirket iş yükü gereksinimlerini buluta. Bu model, işlem, bellek ve depolama iş yükü gereksinimlerine göre seçmenize olanak sağlar. Sanal çekirdek tabanlı satın alma modeli, arasından seçim yapabilirsiniz [genel amaçlı](sql-database-high-availability.md#standardgeneral-purpose-availability) ve [iş açısından kritik](sql-database-high-availability.md#premiumbusiness-critical-availability) hizmet katmanları için her ikisi de [tek veritabanları](sql-database-single-database-scale.md), [ Yönetilen örnek](sql-database-managed-instance.md), ve [elastik havuzlar](sql-database-elastic-pool.md). Tek veritabanları için de seçebilirsiniz [hiper ölçekli (Önizleme)](sql-database-hyperscale.md) hizmet katmanı.
 
 Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depolama kaynaklarını seçin, aynı şirket içi performans ve fiyat iyileştirme sağlar. Sanal çekirdek tabanlı satın alma modeli, müşteriler için ödeme yapar:
-- İşlem (hizmet katmanı + sanal çekirdek sayısı ve bellek + donanımın miktar) *
+- İşlem (hizmet katmanı + sanal çekirdek sayısı ve bellek + donanımın miktarı)
 - Tür ve veri ve günlük depolama miktarı 
-- IOs ** - geçerli sayısını [mantıksal sunucuları](sql-database-logical-servers.md) yalnızca
-- Yedekleme depolama (RA-GRS) ** 
-
-\* İlk genel önizlemede Gen 4 mantıksal CPU'lar Intel E5-2673 v3 dayalı (Haswell) 2,4 GHz işlemcileri.
-
-\*\* Önizleme sırasında yedeklemeleri ve IOs yedi gün ücretsizdir.
+- Yedek depolama (RA-GRS) 
 
 > [!IMPORTANT]
 > İşlem, IOs, veri ve günlük depolama, veritabanı veya elastik havuz başına ücretlendirilir. Yedekleme depolama, her veritabanı ücretlendirilir. Yönetilen örnek ücretleri ayrıntılarını başvurmak [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md).

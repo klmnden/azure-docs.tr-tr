@@ -1,60 +1,74 @@
 ---
-title: Scheduler giden bağlantı kimlik doğrulaması
-description: Scheduler giden bağlantı kimlik doğrulaması
+title: Giden bağlantı kimlik doğrulaması - Azure Zamanlayıcı
+description: Ayarlamak veya kaldırmak için Azure Scheduler giden bağlantı kimlik doğrulaması hakkında bilgi edinin
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.author: deli
-ms.openlocfilehash: e345b2e22daae5b24c23645f7d2636f66df630ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23926511"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993349"
 ---
-# <a name="scheduler-outbound-authentication"></a>Scheduler giden bağlantı kimlik doğrulaması
-Zamanlayıcı işlerinin kimlik doğrulaması gerektiren hizmetleri çağrısı gerekebilir. Bu şekilde, Scheduler işi kaynaklarına erişebilir, çağrılan hizmet belirleyebilirsiniz. Bu hizmetlerden bazılarını diğer Azure Hizmetleri, Salesforce.com, Facebook ve güvenli özel Web siteleri içerir.
+# <a name="outbound-authentication-for-azure-scheduler"></a>Azure Zamanlayıcı giden bağlantı kimlik doğrulaması
 
-## <a name="adding-and-removing-authentication"></a>Ekleme ve kaldırma kimlik doğrulaması
-Scheduler işi için kimlik doğrulaması basittir – bir JSON alt öğesi ekleyin ekleme `authentication` için `request` oluştururken veya güncelleştirirken bir iş öğesi. Gizli bir parçası olarak bir PUT, PATCH veya POST isteğinde – Zamanlayıcı hizmeti için geçirilen `authentication` nesnesi – hiçbir zaman yanıtları döndürülür. Yanıtları, gizli bilgilerini ayarlamak null veya kimliği doğrulanmış varlık temsil eden bir ortak belirteci olabilir.
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) devre dışı bırakılıyor Azure Scheduler değiştiriyor. İşleri zamanlamak için [Azure Logic Apps'i deneyin](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-Kimlik doğrulama kaldırmak için PUT veya ayarlama işi açıkça, düzeltme eki `authentication` nesne null. Tüm kimlik doğrulama özellikleri geri yanıtında görmezsiniz.
+Azure zamanlayıcı işleri, diğer Azure Hizmetleri, Salesforce.com, Facebook ve güvenli bir özel Web siteleri gibi kimlik doğrulaması gerektiren hizmetleri çağıran gerekebilir. Çağrılan hizmet Scheduler işi istenen kaynaklara erişebileceğini belirleyebilirsiniz. 
 
-Şu anda, yalnızca desteklenen kimlik doğrulama türleridir `ClientCertificate` (için SSL/TLS istemci sertifikalarını kullanarak), model `Basic` (Temel kimlik doğrulaması için), model ve `ActiveDirectoryOAuth` model (için Active Directory OAuth kimlik doğrulaması.)
+Zamanlayıcı, bu kimlik doğrulaması modelleri destekler: 
 
-## <a name="request-body-for-clientcertificate-authentication"></a>İstek gövdesindeki ClientCertificate kimlik doğrulaması için
-Kimlik doğrulaması kullanarak eklerken `ClientCertificate` model, aşağıdaki ek öğeler istek gövdesinde belirtin.  
+* *İstemci sertifikası* SSL/TLS istemci sertifikalarını kullanarak kimlik doğrulaması
+* *Temel* kimlik doğrulaması
+* *Active Directory OAuth* kimlik doğrulaması
 
-| Öğesi | Açıklama |
-|:--- |:--- |
-| *kimlik doğrulaması (üst öğe)* |Bir SSL istemci sertifikası kullanmak için kimlik doğrulaması nesne. |
-| *türü* |Gereklidir. Kimlik doğrulama türü. SSL istemci sertifikaları için değer olmalıdır `ClientCertificate`. |
-| *PFX* |Gereklidir. PFX dosyasının içeriği Base64 ile kodlanmış. |
-| *Parola* |Gereklidir. PFX dosyası erişim için parola. |
+## <a name="add-or-remove-authentication"></a>Ekleme veya kaldırma kimlik doğrulaması
 
-## <a name="response-body-for-clientcertificate-authentication"></a>Yanıt gövdesi ClientCertificate kimlik doğrulaması
-Kimlik bilgileri ile bir istek gönderildiğinde, yanıt kimlik doğrulaması ile ilgili aşağıdaki öğeleri içerir.
+* Oluşturduğunuzda veya işi güncelleştirmek için Scheduler işi, kimlik doğrulaması eklemek için Ekle `authentication` JavaScript nesne gösterimi (JSON) alt öğeye `request` öğesi. 
 
-| Öğesi | Açıklama |
-|:--- |:--- |
-| *kimlik doğrulaması (üst öğe)* |Bir SSL istemci sertifikası kullanmak için kimlik doğrulaması nesne. |
-| *türü* |Kimlik doğrulama türü. SSL istemci sertifikaları için değeri olan `ClientCertificate`. |
-| *certificateThumbprint* |Sertifikanın parmak izi. |
-| *certificateSubjectName* |Sertifika konu ayırt edici adı. |
-| *certificateExpiration* |Sertifikanın sona erme tarihi. |
+  Yanıtları Zamanlayıcı hizmeti için PUT, PATCH veya POST isteğinde geçirilecek gizli anahtarları asla geri dönmemek `authentication` nesne. 
+  Yanıtlar, gizli bilgileri null olarak ayarlayın veya kimliği doğrulanmış varlığı temsil eden bir ortak belirteci kullanabilir. 
 
-## <a name="sample-rest-request-for-clientcertificate-authentication"></a>ClientCertificate kimlik doğrulaması için örnek REST istek
-```
-PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+* Kimlik doğrulaması bir zamanlayıcı işten kaldırmak için açıkça PUT veya PATCH isteği iş üzerinde çalıştırın ve ayarlama `authentication` nesne null. Yanıt, tüm kimlik doğrulaması özelliklerini içermez.
+
+## <a name="client-certificate"></a>İstemci sertifikası
+
+### <a name="request-body---client-certificate"></a>İstek gövdesi - istemci sertifikası
+
+Kimlik doğrulaması kullanarak eklerken `ClientCertificate` model, bu ek öğeler istek gövdesinde belirtin.  
+
+| Öğe | Gerekli | Açıklama |
+|---------|----------|-------------|
+| **kimlik doğrulaması** (üst öğe) | SSL istemci sertifikası kullanılarak kimlik doğrulaması nesnesi |
+| **type** | Evet | Kimlik doğrulaması türü. SSL istemci sertifikaları için değerdir `ClientCertificate`. |
+| **PFX** | Evet | PFX dosyasının base64 ile kodlanmış içeriği |
+| **Parola** | Evet | PFX dosyasına erişim için parola |
+||| 
+
+### <a name="response-body---client-certificate"></a>Yanıt gövdesi - istemci sertifikası 
+
+Yanıt, kimlik doğrulama bilgilerini bir istek gönderildiğinde, bu kimlik doğrulama öğeleri içerir.
+
+| Öğe | Açıklama | 
+|---------|-------------| 
+| **kimlik doğrulaması** (üst öğe) | SSL istemci sertifikası kullanılarak kimlik doğrulaması nesnesi |
+| **type** | Kimlik doğrulaması türü. SSL istemci sertifikaları için değerdir `ClientCertificate`. |
+| **certificateThumbprint** |Sertifikanın parmak izi |
+| **CertificateSubjectName** |Sertifika konu ayırt edici ad |
+| **certificateExpiration** | Sertifikanın sona erme tarihi |
+||| 
+
+### <a name="sample-rest-request---client-certificate"></a>Örnek REST isteği - istemci sertifikası
+
+```json
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -83,15 +97,15 @@ Content-Type: application/json; charset=utf-8
       "endTime": "2016-04-10T08:00:00Z",
       "interval": 1
     },
-    "state": "enabled",
+    "state": "enabled"
   }
 }
 ```
 
-## <a name="sample-rest-response-for-clientcertificate-authentication"></a>Örnek REST yanıt ClientCertificate kimlik doğrulaması
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
+### <a name="sample-rest-response---client-certificate"></a>Örnek REST yanıtı - istemci sertifikası
+
+```json
+HTTP/1.1 200 OKCache-Control: no-cache
 Pragma: no-cache
 Content-Length: 858
 Content-Type: application/json; charset=utf-8
@@ -107,7 +121,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 {
-  "id": "/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+  "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
   "type": "Microsoft.Scheduler/jobCollections/jobs",
   "name": "southeastasiajc/httpjob",
   "properties": {
@@ -144,28 +158,35 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## <a name="request-body-for-basic-authentication"></a>Temel kimlik doğrulaması için istek gövdesi
-Kimlik doğrulaması kullanarak eklerken `Basic` model, aşağıdaki ek öğeler istek gövdesinde belirtin.
+## <a name="basic"></a>Temel
 
-| Öğesi | Açıklama |
-|:--- |:--- |
-| *kimlik doğrulaması (üst öğe)* |Temel kimlik doğrulaması kullanmak için kimlik doğrulaması nesne. |
-| *türü* |Gereklidir. Kimlik doğrulama türü. Temel kimlik doğrulaması için değer olmalıdır `Basic`. |
-| *Kullanıcı adı* |Gereklidir. Kimlik doğrulaması için kullanıcı adı. |
-| *Parola* |Gereklidir. Kimlik doğrulaması için parola. |
+### <a name="request-body---basic"></a>İstek gövdesi - temel
 
-## <a name="response-body-for-basic-authentication"></a>Temel kimlik doğrulaması için yanıt gövdesi
-Kimlik bilgileri ile bir istek gönderildiğinde, yanıt kimlik doğrulaması ile ilgili aşağıdaki öğeleri içerir.
+Kimlik doğrulaması kullanarak eklerken `Basic` model, bu ek öğeler istek gövdesinde belirtin.
 
-| Öğesi | Açıklama |
-|:--- |:--- |
-| *kimlik doğrulaması (üst öğe)* |Temel kimlik doğrulaması kullanmak için kimlik doğrulaması nesne. |
-| *türü* |Kimlik doğrulama türü. Temel kimlik doğrulaması için değerdir `Basic`. |
-| *Kullanıcı adı* |Kimliği doğrulanmış kullanıcı adı. |
+| Öğe | Gerekli | Açıklama |
+|---------|----------|-------------|
+| **kimlik doğrulaması** (üst öğe) | Temel kimlik doğrulamasını kullanarak kimlik doğrulaması nesnesi | 
+| **type** | Evet | Kimlik doğrulaması türü. Temel kimlik doğrulaması için değerdir `Basic`. | 
+| **Kullanıcı adı** | Evet | Kimlik doğrulaması için kullanıcı adı | 
+| **Parola** | Evet | Kimlik doğrulaması için parola |
+|||| 
 
-## <a name="sample-rest-request-for-basic-authentication"></a>Temel kimlik doğrulaması için örnek REST istek
-```
-PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+### <a name="response-body---basic"></a>Yanıt gövdesi - temel
+
+Yanıt, kimlik doğrulama bilgilerini bir istek gönderildiğinde, bu kimlik doğrulama öğeleri içerir.
+
+| Öğe | Açıklama | 
+|---------|-------------|
+| **kimlik doğrulaması** (üst öğe) | Temel kimlik doğrulamasını kullanarak kimlik doğrulaması nesnesi |
+| **type** | Kimlik doğrulaması türü. Temel kimlik doğrulaması için değerdir `Basic`. |
+| **Kullanıcı adı** | Kimliği doğrulanmış kullanıcı adı |
+||| 
+
+### <a name="sample-rest-request---basic"></a>Örnek REST isteği - temel
+
+```json
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -195,13 +216,14 @@ Content-Type: application/json; charset=utf-8
       "endTime": "2016-04-10T08:00:00Z",
       "interval": 1
     },
-    "state": "enabled",
+    "state": "enabled"
   }
 }
 ```
 
-## <a name="sample-rest-response-for-basic-authentication"></a>Temel kimlik doğrulaması için örnek REST yanıt
-```
+### <a name="sample-rest-response---basic"></a>Örnek REST yanıtı - temel
+
+```json
 HTTP/1.1 200 OK
 Cache-Control: no-cache
 Pragma: no-cache
@@ -219,7 +241,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 {  
-   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+   "id":"/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
    "type":"Microsoft.Scheduler/jobCollections/jobs",
    "name":"southeastasiajc/httpjob",
    "properties":{  
@@ -236,14 +258,14 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
                "type":"Basic"
             }
          },
-         "type":"http"
+         "type":"Http"
       },
       "recurrence":{  
-         "frequency":"minute",
+         "frequency":"Minute",
          "endTime":"2016-04-10T08:00:00Z",
          "interval":1
       },
-      "state":"enabled",
+      "state":"Enabled",
       "status":{  
          "nextExecutionTime":"2016-03-16T19:06:00Z",
          "executionCount":0,
@@ -254,35 +276,39 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 }
 ```
 
-## <a name="request-body-for-activedirectoryoauth-authentication"></a>İstek gövdesindeki ActiveDirectoryOAuth kimlik doğrulaması için
-Kimlik doğrulaması kullanarak eklerken `ActiveDirectoryOAuth` model, aşağıdaki ek öğeler istek gövdesinde belirtin.
+## <a name="active-directory-oauth"></a>Active Directory OAuth
 
-| Öğesi | Açıklama |
-|:--- |:--- |
-| *kimlik doğrulaması (üst öğe)* |ActiveDirectoryOAuth kimlik doğrulaması kullanmak için kimlik doğrulaması nesne. |
-| *türü* |Gereklidir. Kimlik doğrulama türü. ActiveDirectoryOAuth kimlik doğrulaması için değer olmalıdır `ActiveDirectoryOAuth`. |
-| *Kiracı* |Gereklidir. Azure AD kiracısı için Kiracı tanımlayıcı. |
-| *Hedef kitle* |Gereklidir. Bu https://management.core.windows.net/ için ayarlanır. |
-| *istemci kimliği* |Gereklidir. İstemci tanımlayıcısı için Azure AD uygulaması sağlar. |
-| *Gizli* |Gereklidir. Belirteç isteme istemci gizli anahtarı. |
+### <a name="request-body---active-directory-oauth"></a>İstek gövdesi - Active Directory OAuth 
 
-### <a name="determining-your-tenant-identifier"></a>Kiracı Tanımlayıcınız belirleme
-Azure AD kiracısı için Kiracı tanımlayıcı çalıştırarak bulabilirsiniz `Get-AzureAccount` Azure PowerShell'de.
+Kimlik doğrulaması kullanarak eklerken `ActiveDirectoryOAuth` model, bu ek öğeler istek gövdesinde belirtin.
 
-## <a name="response-body-for-activedirectoryoauth-authentication"></a>Yanıt gövdesi ActiveDirectoryOAuth kimlik doğrulaması
-Kimlik bilgileri ile bir istek gönderildiğinde, yanıt kimlik doğrulaması ile ilgili aşağıdaki öğeleri içerir.
+| Öğe | Gerekli | Açıklama |
+|---------|----------|-------------|
+| **kimlik doğrulaması** (üst öğe) | Evet | ActiveDirectoryOAuth kimlik doğrulamasını kullanarak kimlik doğrulaması nesnesi |
+| **type** | Evet | Kimlik doğrulaması türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. |
+| **Kiracı** | Evet | Azure AD kiracısı için Kiracı tanımlayıcısı. Azure AD kiracınız için Kiracı tanımlayıcısı için çalıştırın `Get-AzureAccount` Azure PowerShell'de. |
+| **Hedef kitle** | Evet | Bu değeri şuna ayarlı `https://management.core.windows.net/`. | 
+| **ClientID** | Evet | Azure AD uygulamasının istemci tanımlayıcısı | 
+| **Gizli anahtarı** | Evet | Belirteç istediği istemci gizli anahtarı | 
+|||| 
 
-| Öğesi | Açıklama |
-|:--- |:--- |
-| *kimlik doğrulaması (üst öğe)* |ActiveDirectoryOAuth kimlik doğrulaması kullanmak için kimlik doğrulaması nesne. |
-| *türü* |Kimlik doğrulama türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. |
-| *Kiracı* |Azure AD kiracısı için Kiracı tanımlayıcı. |
-| *Hedef kitle* |Bu https://management.core.windows.net/ için ayarlanır. |
-| *istemci kimliği* |Azure AD uygulaması istemci tanımlayıcısı. |
+### <a name="response-body---active-directory-oauth"></a>Yanıt gövdesi - Active Directory OAuth
 
-## <a name="sample-rest-request-for-activedirectoryoauth-authentication"></a>ActiveDirectoryOAuth kimlik doğrulaması için örnek REST istek
-```
-PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+Yanıt, kimlik doğrulama bilgilerini bir istek gönderildiğinde, bu kimlik doğrulama öğeleri içerir.
+
+| Öğe | Açıklama |
+|---------|-------------|
+| **kimlik doğrulaması** (üst öğe) | ActiveDirectoryOAuth kimlik doğrulamasını kullanarak kimlik doğrulaması nesnesi |
+| **type** | Kimlik doğrulaması türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. | 
+| **Kiracı** | Azure AD kiracısı için Kiracı tanımlayıcısı |
+| **Hedef kitle** | Bu değeri şuna ayarlı `https://management.core.windows.net/`. |
+| **ClientID** | Azure AD uygulamasının istemci tanımlayıcısı |
+||| 
+
+### <a name="sample-rest-request---active-directory-oauth"></a>Örnek REST isteği - Active Directory OAuth
+
+```json
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -307,20 +333,21 @@ Content-Type: application/json; charset=utf-8
           "type":"ActiveDirectoryOAuth"
         }
       },
-      "type": "http"
+      "type": "Http"
     },
     "recurrence": {
-      "frequency": "minute",
+      "frequency": "Minute",
       "endTime": "2016-04-10T08:00:00Z",
       "interval": 1
     },
-    "state": "enabled",
+    "state": "Enabled"
   }
 }
 ```
 
-## <a name="sample-rest-response-for-activedirectoryoauth-authentication"></a>Örnek REST yanıt ActiveDirectoryOAuth kimlik doğrulaması
-```
+### <a name="sample-rest-response---active-directory-oauth"></a>REST yanıtı - Active Directory OAuth örneği
+
+```json
 HTTP/1.1 200 OK
 Cache-Control: no-cache
 Pragma: no-cache
@@ -337,59 +364,49 @@ x-ms-routing-request-id: WESTUS:20160316T191003Z:5183bbf4-9fa1-44bb-98c6-6872e3f
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:10:02 GMT
 
-{  
-   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
-   "type":"Microsoft.Scheduler/jobCollections/jobs",
-   "name":"southeastasiajc/httpjob",
-   "properties":{  
-      "startTime":"2015-05-14T14:10:00Z",
-      "action":{  
-         "request":{  
-            "uri":"https://mywebserviceendpoint.com",
-            "method":"GET",
-            "headers":{  
-               "x-ms-version":"2013-03-01"
+{
+   "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+   "type": "Microsoft.Scheduler/jobCollections/jobs",
+   "name": "southeastasiajc/httpjob",
+   "properties": {
+      "startTime": "2015-05-14T14:10:00Z",
+      "action": {  
+         "request": {
+            "uri": "https://mywebserviceendpoint.com",
+            "method": "GET",
+            "headers": {  
+               "x-ms-version": "2013-03-01"
             },
-            "authentication":{  
-               "tenant":"microsoft.onmicrosoft.com",
-               "audience":"https://management.core.windows.net/",
-               "clientId":"dc23e764-9be6-4a33-9b9a-c46e36f0c137",
-               "type":"ActiveDirectoryOAuth"
+            "authentication": {  
+               "tenant": "microsoft.onmicrosoft.com",
+               "audience": "https://management.core.windows.net/",
+               "clientId": "dc23e764-9be6-4a33-9b9a-c46e36f0c137",
+               "type": "ActiveDirectoryOAuth"
             }
          },
-         "type":"http"
+         "type": "Http"
       },
-      "recurrence":{  
-         "frequency":"minute",
-         "endTime":"2016-04-10T08:00:00Z",
-         "interval":1
+      "recurrence": {  
+         "frequency": "minute",
+         "endTime": "2016-04-10T08:00:00Z",
+         "interval": 1
       },
-      "state":"enabled",
-      "status":{  
-         "lastExecutionTime":"2016-03-16T19:10:00.3762123Z",
-         "nextExecutionTime":"2016-03-16T19:11:00Z",
-         "executionCount":5,
-         "failureCount":5,
-         "faultedCount":1
+      "state": "Enabled",
+      "status": {  
+         "lastExecutionTime": "2016-03-16T19:10:00.3762123Z",
+         "nextExecutionTime": "2016-03-16T19:11:00Z",
+         "executionCount": 5,
+         "failureCount": 5,
+         "faultedCount": 1
       }
    }
 }
 ```
 
-## <a name="see-also"></a>Ayrıca Bkz.
- [Scheduler nedir?](scheduler-intro.md)
+## <a name="see-also"></a>Ayrıca bkz.
 
- [Azure Scheduler kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
-
- [Azure portalında Scheduler’ı kullanmaya başlama](scheduler-get-started-portal.md)
-
- [Azure Scheduler’da planlar ve faturalama](scheduler-plans-billing.md)
-
- [Azure Scheduler REST API başvurusu](https://msdn.microsoft.com/library/mt629143)
-
- [Azure Scheduler PowerShell cmdlet’leri başvurusu](scheduler-powershell-reference.md)
-
- [Yüksek Azure Scheduler kullanılabilirliği ve güvenilirliği](scheduler-high-availability-reliability.md)
-
- [Azure Scheduler sınırları, varsayılanları ve hata kodları](scheduler-limits-defaults-errors.md)
-
+* [Azure Scheduler nedir?](scheduler-intro.md)
+* [Azure Scheduler kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
+* [Azure Scheduler sınırları, varsayılanları ve hata kodları](scheduler-limits-defaults-errors.md)
+* [Azure Scheduler REST API](https://msdn.microsoft.com/library/mt629143)
+* [Azure Scheduler PowerShell cmdlet’leri başvurusu](scheduler-powershell-reference.md)

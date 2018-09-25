@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 085df618eb6d3eb78e42261d1b324c3a2374877b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a477554c836a7f84e1694c5d00abd6373f544aa6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123394"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036210"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure işlevleri için Host.JSON başvurusu
 
@@ -442,6 +442,12 @@ Yapılandırma ayarlarını kullanarak oluşturduğunuz günlükleri için bir `
 |---------|---------|---------| 
 |consoleLevel|bilgi|Konsol günlüğü için izleme düzeyi. Seçenekler şunlardır: `off`, `error`, `warning`, `info`, ve `verbose`.|
 |fileLoggingMode|debugOnly|Dosya günlüğü için izleme düzeyi. Seçenekler `never`, `always`, `debugOnly`.| 
+
+## <a name="version"></a>sürüm
+
+*Sürüm 2.x*
+
+Sürüm dizesi `"version": "2.0"` v2 çalışma zamanını hedefleyen bir işlev uygulaması için gereklidir.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

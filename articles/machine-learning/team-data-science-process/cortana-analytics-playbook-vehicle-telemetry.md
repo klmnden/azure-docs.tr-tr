@@ -1,9 +1,10 @@
 ---
-title: Araç durumu tahmin etmek ve alışkanlık - Azure yürüten | Microsoft Docs
-description: Araç sistem durumu ve yürüten gerçek zamanlı ve Tahmine dayalı Öngörüler elde etmek için Cortana Intelligence yeteneklerini kullanabilir alışkanlıklarınıza.
+title: Tahmin araç durumu ve sürüş alışkanlıkları - Azure | Microsoft Docs
+description: Araç durumu ve sürüş üzerinde gerçek zamanlı ve Tahmine dayalı Öngörüler elde etmek için Cortana Intelligence'nın özelliklerini kullanmaya alışkanlıkları.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 09fad60b-2f48-488b-8a7e-47d1f969ec6f
@@ -14,25 +15,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: deguhath
-ms.openlocfilehash: fc8dfbbfc40db33f19d2b183546ed9c6df0159fa
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 02a12e917ed36367ffac1ac2e7a1fef1c6098ea7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836411"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985376"
 ---
-# <a name="vehicle-telemetry-analytics-solution-playbook"></a>Araç Telemetri analiz çözümü playbook
-Bu playbook bölümlerde bu menü bağlantılar: 
+# <a name="vehicle-telemetry-analytics-solution-playbook"></a>Araç Telemetri analizi çözüm kitabı
+Playbook'u bölümlerde bu menü bağlantılar: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Laboratuvarın dışına taşınmış ve şimdi garages içinde yerleşmiş durumdayken Süper bilgisayarlar. Bunlar artık çok algılayıcılar içeren modern otomobiller içinde gönderilme. Bu algılayıcılar bunları izleyebilir ve saniyede milyonlarca olayı izleme olanağı verir. 2020 tarafından çoğu bu araçlar, Internet'e bağlanır. Büyük güvenlik, güvenilirlik, bu bol miktarda veri içine dokunma sağlar ve bu nedenle daha iyi yürüten deneyimi. Microsoft bu gerçekte Cortana Intelligence ile düş hale getirir.
+Süper bilgisayarlar laboratuvarlardan ve şimdi garages unutulmuş. Bunlar artık çok sensörlerden içeren son teknoloji ürünü otomobiller içinde gönderilme. Bu sensörlerden bunları izleyebilir ve her saniyede milyonlarca olayı izleme olanağı sağlayacak. 2020 yılına gelindiğinde, bu araçlar çoğu Internet'e bağlanır. Daha fazla güvenlik, güvenilirlik, bu verileri zengin olarak sağlar ve böylece daha iyi bir sürüş deneyimi. Microsoft Cortana Intelligence ile gerçeğe dream bunu yapar.
 
-Cortana Intelligence tam olarak yönetilen büyük veri ve akıllı eyleme, verilerinizi dönüştürmek için kullanabileceğiniz Gelişmiş analytics suite ' dir. Cortana Intelligence araç Telemetri analizi çözüm şablonu nasıl araba dealerships, otomobil üreticileri ve sigorta şirketler gerçek zamanlı elde etmiş ve Tahmine dayalı Öngörüler araç sistem durumu ve yürüten alışkanlıklarınıza gösterir.
+Cortana Intelligence tam olarak yönetilen büyük veri ve verilerinizi akıllı eylemlere dönüştürmenizi kullanabileceğiniz Gelişmiş analiz özellikleri sunan. Cortana Intelligence araç Telemetri analizi çözüm şablonuyla araba bayileri, otomobil üreticileri ve sigorta şirketlerinin elde gerçek zamanlı ve Tahmine dayalı Öngörüler araç durumu ve sürüş alışkanlıkları nasıl gösterir.
 
-Çözüm olarak uygulanan bir [lambda mimarisi deseni](https://en.wikipedia.org/wiki/Lambda_architecture), gösterilir ve tam için Cortana Intelligence platformun olası gerçek zamanlı ve toplu işleme.
+Çözüm olarak uygulanan bir [lambda mimari yapısı](https://en.wikipedia.org/wiki/Lambda_architecture), gösterilir ve tam için Cortana Intelligence platformunun olası gerçek zamanlı ve toplu işlem.
 
 ## <a name="architecture"></a>Mimari
 Araç Telemetri analizi çözüm mimarisi Bu diyagramda gösterilmiştir:
@@ -40,17 +40,17 @@ Araç Telemetri analizi çözüm mimarisi Bu diyagramda gösterilmiştir:
 ![Çözüm mimarisi diyagramı](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
 
 
-Bu çözüm, aşağıdaki Cortana Intelligence bileşenleri içerir ve kendi tümleştirme genişletilebileceğini gösterir:
+Bu çözüm, Cortana Intelligence aşağıdaki bileşenleri içerir ve kendi tümleştirme gösterir:
 
-* **Azure Event Hubs** Azure'da araç telemetri olayları milyonlarca alır.
-* **Azure Stream Analytics** araç sistem durumunu gerçek zamanlı Öngörüler sağlar ve bu verileri daha zengin toplu analiz için uzun vadeli depolamaya devam eder.
-* **Azure Machine Learning** anormallikleri gerçek zamanlı olarak algılar ve toplu işleme Tahmine dayalı Öngörüler sağlamak için kullanır.
-* **Azure Hdınsight** ölçeğinde veri dönüştürür.
-* **Azure Data Factory** işler orchestration, planlama, kaynak yönetimi ve toplu işleme ardışık düzeni izleme.
-* **Power BI** gerçek zamanlı veri ve Tahmine dayalı analiz görselleştirmeleri için zengin bir Pano bu çözümü sunar.
+* **Azure Event Hubs** Azure'a milyonlarca araç telemetri alır.
+* **Azure Stream Analytics** araç durumu üzerinde gerçek zamanlı Öngörüler sağlar ve bu verileri daha ayrıntılı toplu analizler için uzun vadeli depolamaya devam ettirir.
+* **Azure Machine Learning** anormallikleri gerçek zamanlı olarak algılar ve toplu işlem, Tahmine dayalı Öngörüler sağlamak için kullanır.
+* **Azure HDInsight** uygun ölçekte verileri dönüştürür.
+* **Azure Data Factory** düzenleme, planlama, kaynak yönetimini ve toplu işlem hattının işler.
+* **Power BI** Bu çözüm, gerçek zamanlı verileri ve Tahmine dayalı analiz görselleştirmeleri için zengin bir Pano sağlar.
 
-Bu çözüm iki farklı veri kaynaklarına erişiyor: 
+Bu çözüm, iki farklı veri kaynaklarına erişiyor: 
 
-* **Benzetimli araç sinyalleri ve tanılama**: araç telematik simulator tanılama bilgileri ve karşılık gelen sinyalleri araç ve belirli bir noktada yönlendirmeli düzeni durumuna zamanında yayar. 
-* **Araç katalog**: Bu başvuru veri kümesi Toplamıdır numaraları modellerine eşler.
+* **Benzetimli vehicle sinyaller ve tanılama**: bir araç telematik simülatörü zamanında tanılama bilgilerini ve karşılık gelen sinyalleri için araç ve belirli bir noktada sürüş deseni durumunu yayar. 
+* **Araç Kataloğu**: Bu başvuru veri kümesi Toplamıdır numaraları modellere eşler.
 

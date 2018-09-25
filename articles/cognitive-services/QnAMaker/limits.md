@@ -3,19 +3,19 @@ title: Sınırları ve sınır - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
 description: Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
 services: cognitive-services
-author: nstulasi
-manager: cgronlun
+author: tulasim88
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: nstulasi
-ms.openlocfilehash: da1de0c36033823bd8f615411eed183ffe9701b6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: tulasim
+ms.openlocfilehash: c48a460e180d6c493083624236fd39f6324c5f12
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574558"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995627"
 ---
 # <a name="qna-maker-limits"></a>Soru-cevap Oluşturucu sınırlar
 Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.

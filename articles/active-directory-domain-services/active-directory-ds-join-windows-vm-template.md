@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2b94496895c0ab06127b6c556b1240e3279e572f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 40eb0e8133626e77a1f61ddfc5df69ecf1b958f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504422"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950803"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Bir Windows Server sanal makinesi bir Resource Manager şablonu kullanarak bir yönetilen etki alanına ekleme
 Bu makalede Resource Manager şablonlarını kullanarak bir Azure AD Domain Services yönetilen etki alanına Windows Server sanal makinesinin nasıl gösterir.
@@ -39,7 +39,7 @@ Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
 ## <a name="install-and-configure-required-tools"></a>Yükleme ve gerekli araçları yapılandırma
 Bu belgede özetlenen adımları gerçekleştirmek için aşağıdaki seçeneklerden birini kullanabilirsiniz:
 * **Azure PowerShell**: [yükleyin ve yapılandırın](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Azure platformlar arası komut satırı arabirimi**: [yükleyin ve yapılandırın](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **Azure CLI**: [yükleyin ve yapılandırın](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Seçenek 1: yeni bir Windows Server VM'si sağlama ve yönetilen bir etki alanına katılın

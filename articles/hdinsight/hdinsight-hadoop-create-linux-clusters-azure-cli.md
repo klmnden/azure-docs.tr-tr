@@ -1,6 +1,6 @@
 ---
-title: Komut satırı-Azure HDInsight'ı kullanarak Hadoop kümeleri oluşturma
-description: Platformlar arası Azure CLI 1.0 kullanarak HDInsight kümeleri oluşturmayı öğrenin.
+title: Azure Klasik CLI - Azure HDInsight'ı kullanarak Hadoop kümeleri oluşturma
+description: Platformlar arası Azure Klasik CLI kullanarak HDInsight kümeleri oluşturmayı öğrenin.
 services: hdinsight
 author: jasonwhowell
 ms.reviewer: jasonh
@@ -9,23 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 523c2a85929d8474c283055a8ae38d489cbd4b12
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 84b352fea0c5b9c98cd3b4e814e448cf8b706402
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090983"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992822"
 ---
-# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI kullanarak HDInsight kümeleri oluşturma
+# <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak HDInsight kümeleri oluşturma
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Bu belgeyi kılavuz Azure CLI 1.0 kullanarak bir HDInsight 3.5 kümesi oluşturma adımları.
+Bu belgeyi kılavuz Klasik Azure CLI kullanarak bir HDInsight 3.5 kümesi oluşturma adımları.
 
-> [!IMPORTANT]
-> Bu konuda, bir HDInsight kümesi oluşturmak için Azure CLI 1.0 kullanmayı açıklar. CLI'ın bu sürümü kullanım dışı ve Destek HDInsight kümelerini oluşturmak için Azure CLI 2.0 ile eklenmedi.
->
-> HDInsight küme oluşturmak ve yönetmek için Azure PowerShell de kullanabilirsiniz. Daha fazla bilgi için [oluşturma HDInsight kümeleri Azure PowerShell kullanarak](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) belge.
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,14 +30,11 @@ Bu belgeyi kılavuz Azure CLI 1.0 kullanarak bir HDInsight 3.5 kümesi oluşturm
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Azure CLI**. Bu belgedeki adımlarda en son Azure CLI Sürüm 0.10.14 ile test edilmiştir.
-
-    > [!IMPORTANT]
-    > Azure CLI 1.0 kullanım dışıdır ve HDInsight kümeleri oluşturma desteği, Azure CLI 2.0 ile eklenmedi.
+* **Azure Klasik CLI**. Bu belgedeki adımlarda en son Azure Klasik CLI sürümü 0.10.14 ile test edilmiştir.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
 
-[Azure Komut Satırı Arabirimi'nden (Azure CLI) bir Azure aboneliğine bağlanma](/cli/azure/authenticate-azure-cli) konusunda belgelenen adımları izleyin ve **oturum açma** yöntemini kullanarak aboneliğinze bağlanın.
+Konusunda belgelenen adımları [bir Azure aboneliğine bağlanma Azure komut satırı Arabirimi'nden](/cli/azure/authenticate-azure-cli) ve kullanarak aboneliğinze bağlanın **oturum açma** yöntemi.
 
 ## <a name="create-a-cluster"></a>Küme oluşturma
 
@@ -50,7 +44,7 @@ PowerShell veya Bash gibi bir komut satırından aşağıdaki adımlar gerçekle
 
         azure login
 
-    Adı ve parola sağlamanız istenir. Birden çok Azure aboneliğiniz varsa, `azure account set <subscriptionname>` Azure CLI konutlarını kullanır aboneliği ayarlamak için.
+    Adı ve parola sağlamanız istenir. Birden çok Azure aboneliğiniz varsa, `azure account set <subscriptionname>` Klasik CLI konutlarını kullanır aboneliği ayarlamak için.
 
 2. Şu komutu kullanarak Azure Resource Manager moduna geçin:
 
@@ -124,7 +118,7 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI kullanarak bir HDInsight kümesi başarıyla oluşturuldu, kümenizi ile çalışma hakkında bilgi almak için aşağıdakileri kullanın:
+Klasik CLI kullanarak bir HDInsight kümesi başarıyla oluşturuldu, kümenizi ile çalışma hakkında bilgi almak için aşağıdakileri kullanın:
 
 ### <a name="hadoop-clusters"></a>Hadoop kümeleri
 

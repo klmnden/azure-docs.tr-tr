@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: bf23046b8a80b02bc1667f647cb1d475503a8feb
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e6b4ee3425f6a490f33f998cab4f33734b23df22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125785"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982112"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Başvuru - IOT Hub uç noktaları
 
@@ -61,7 +61,7 @@ Tüm IOT Hub uç noktaları kullanma [TLS] [ lnk-tls] protokol ve uç nokta şif
 
 ## <a name="custom-endpoints"></a>Özel uç noktalar
 
-Aboneliğinizde var olan Azure Hizmetleri, IOT hub ileti yönlendirme için uç nokta olarak yapması bağlayabilirsiniz. Bu uç noktaları, hizmet uç noktaları davranmasına ve havuz ileti yollarını kullanılır. Cihazları doğrudan ek uç noktalar için yazılamıyor. İleti yollar hakkında daha fazla bilgi için Geliştirici Kılavuzu giriş bakın [IOT hub ile ileti gönderme ve alma][lnk-devguide-messaging].
+Aboneliğinizde var olan Azure Hizmetleri, IOT hub ileti yönlendirme için uç nokta olarak yapması bağlayabilirsiniz. Bu uç noktaları, hizmet uç noktaları davranmasına ve havuz ileti yollarını kullanılır. Cihazları doğrudan ek uç noktalar için yazılamıyor. Daha fazla bilgi edinin [ileti yönlendirme](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 IOT hub'ı, şu anda ek uç noktalar olarak aşağıdaki Azure Hizmetleri destekler:
 
@@ -70,32 +70,7 @@ IOT hub'ı, şu anda ek uç noktalar olarak aşağıdaki Azure Hizmetleri destek
 * Service Bus Kuyrukları
 * Service Bus Konuları
 
-IOT Hub ileti yönlendirme çalışmak için bu hizmet uç noktaları yazma erişimi olmalıdır. Azure portalı üzerinden uç noktalarınızı yapılandırırsanız sizin için gerekli izinleri eklenir. Hizmetlerinizi, beklenen aktarım hızıyla destekleyecek şekilde yapılandırdığınızdan emin olun. IOT çözümünüzü ilk kez yapılandırırken, ek uç noktalar izleyin ve gerçek yükleme için gerekli ayarlamaları yapmak gerekebilir.
-
-IOT Hub iletisi için bu endpoint tümü aynı uç noktasını işaret birden çok yönlendiren bir ileti eşleşme, yalnızca bir kez sunar. Bu nedenle, Service Bus kuyruğuna veya konusuna üzerinde yinelenenleri kaldırmayı yapılandırma gerekmez. Bölümlenmiş kuyruklar bölüm benzeşim mesaj sıralama garanti eder.
-
 Uç noktalar ekleyebilirsiniz sayısı limitleri için bkz [kotalar ve azaltma][lnk-devguide-quotas].
-
-### <a name="when-using-azure-storage-containers"></a>Azure depolama kapsayıcıları kullanırken
-
-IOT hub'ı yalnızca destekler bloblar olarak Azure Storage kapsayıcıları için verileri yazma [Apache Avro](http://avro.apache.org/) biçimi. IOT Hub iletilerini toplu işlemleri ve veri bir bloba yazma her:
-
-* Toplu işlem, belirli bir boyuta ulaşır.
-* Veya belirli bir süre geçti.
-
-Yazılacak veri yoksa IOT hub'ı boş bir bloba yazılacaktır.
-
-IOT hub'ı varsayılan olarak aşağıdaki dosya adlandırma kuralı:
-
-```
-{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
-```
-
-Adlandırma kuralı, istediğiniz herhangi bir dosya ancak, listelenen tüm belirteçlerin kullanmalıdır kullanabilir.
-
-### <a name="when-using-service-bus-queues-and-topics"></a>Service Bus kuyrukları ve konuları kullanırken
-
-Service Bus kuyrukları ve konuları IOT Hub uç noktaları değil olarak kullanılan **oturumları** veya **yinelenen algılama** etkin. Bu seçeneklerden birini etkinse, uç nokta olarak görünür **ulaşılamıyor** Azure portalında.
 
 ## <a name="field-gateways"></a>Alan ağ geçitleri
 

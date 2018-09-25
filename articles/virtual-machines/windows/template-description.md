@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 18a9709893533c2c0b606077a126437282f9195e
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055180"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987705"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Sanal makineler bir Azure Resource Manager şablonu
 
@@ -164,7 +164,7 @@ En son API sürümlerini almak için bu fırsatlar kullanın:
 
 - REST API - [tüm kaynak sağlayıcıları Listele](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## <a name="parameters-and-variables"></a>Parametreler ve değişkenler
 
@@ -442,7 +442,7 @@ Yüklü uzantılar portalında uzantılarının ayarlarından durumunu görebili
 
 ![Uzantı durumu alma](./media/template-description/virtual-machines-show-extensions.png)
 
-Uzantı bilgileri kullanarak da alabilirsiniz **Get-AzureRmVMExtension** PowerShell komutunu **vm uzantısı get** Azure CLI 2.0 komutlarının veya **uzantısıbilgialma** REST API.
+Uzantı bilgileri kullanarak da alabilirsiniz **Get-AzureRmVMExtension** PowerShell komutunu **vm uzantısı get** Azure CLI komutunu veya **uzantısı bilgialma**REST API.
 
 ## <a name="deployments"></a>Dağıtımlar
 

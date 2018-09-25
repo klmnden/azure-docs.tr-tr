@@ -11,23 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2018
+ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: 97cf5c06372d416037b875078809aebb7e633456
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542846"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955271"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Log analytics'te veri alım zamanı
-Azure Log Analytics binlerce müşteri terabaytlarca veriyi her ay büyüyen bir hızda gönderme yapan bir büyük ölçekli veri hizmetidir. Genellikle verileri toplandıktan sonra Log Analytics'te kullanılabilir olana kadar geçen süreyi hakkında sorular vardır. Bu makalede, bu gecikme süresini etkileyen faktörleri farklı açıklanmaktadır.
+Azure Log Analytics, binlerce müşteri terabaytlarca veriyi her ay büyüyen bir hızda gönderme yapan bir Azure İzleyici'de büyük ölçekli veri hizmetidir. Genellikle verileri toplandıktan sonra Log Analytics'te kullanılabilir olana kadar geçen süreyi hakkında sorular vardır. Bu makalede, bu gecikme süresini etkileyen faktörleri farklı açıklanmaktadır.
 
 ## <a name="typical-latency"></a>Tipik bir gecikme süresi
 Gecikme süresi verileri izlenen sistemde oluşturulduğu tarih ve analiz Log analytics'te gelen süreyi ifade eder. Log Analytics'e veri almak için tipik bir gecikme süresi arasında 2 ve 5 dakikadır. Herhangi bir veri belirli gecikme sürelerini faktörler aşağıda açıklanan çeşitli bağlı olarak değişir.
 
-## <a name="sla-for-log-analytics"></a>Log Analytics için SLA
-[Log Analytics Hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) hizmet hedeflerini karşılamadığında, Microsoft müşterilerin mahsup işlemleri tanımlayan bir yasal bağlama anlaşması. Bu tipik sistem ancak olası bir yıkıcı durumlar için hesapları, en kötü durumda, performansı temel değil.
 
 ## <a name="factors-affecting-latency"></a>Gecikme süresini etkileyen faktörler
 Toplam alım zaman belirli bir veri kümesi aşağıdaki üst düzey alanlarına ayrılabilir. 

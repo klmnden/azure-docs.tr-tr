@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: c24d79d6983f7c32f5c563192bcfe412da586ef2
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 39a461a27e8d9d6d1b9712449586bfabf6124d22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603497"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989456"
 ---
 # <a name="joins-in-log-analytics-queries"></a>Log Analytics sorguları birleştirir
 
@@ -32,7 +32,7 @@ ms.locfileid: "45603497"
 Birleşimler, aynı sorguda birden çok tablodan veri çözümleme sağlar. İki veri kümesi satırlarını tarafından belirtilen sütun eşleşen değerleri birleştirecek.
 
 
-```KQL
+```Kusto
 SecurityEvent 
 | where EventID == 4624     // sign-in events
 | project Computer, Account, TargetLogonId, LogonTime=TimeGenerated
@@ -64,7 +64,7 @@ on $left.key1 == $right.key2
 ## <a name="lookup-tables"></a>Arama tabloları
 Birleşim yaygın kullanımı, değerleri kullanarak statik eşleme kullanarak `datatable` , sonuçları daha edileni yolu dönüştürme de yardımcı olabilir. Örneğin, güvenlik zenginleştirmek için olay verilerini her olay için olay adıyla kimliği.
 
-```KQL
+```Kusto
 let DimTable = datatable(EventID:int, eventName:string)
   [
     4625, "Account activity",

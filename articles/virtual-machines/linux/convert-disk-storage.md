@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 783dd82041e21242ac4ac136a5d9c91fc9b94e84
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8bd5a6012ef13d4cd63d4e5e63b510e55e75ab63
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666786"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987280"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Dönüştürme Azure yönetilen diskler depolaması standart, premium ve bunun tersi de geçerlidir
 
 Yönetilen diskler, üç depolama seçeneği sunar: [Premium SSD](../windows/premium-storage.md), standart SSD(Preview) ve [standart HDD](../windows/standard-storage.md). Performans ihtiyaçlarınıza göre en düşük kapalı kalma süresi ile seçenekleri arasında kolayca geçiş yapmanızı sağlar. Yönetilmeyen diskler için desteklenmiyor. Ancak kolayca [yönetilen disklere dönüştürme](convert-unmanaged-to-managed-disks.md) disk türleri arasında kolayca geçiş için.
 
-Bu makalede, Premium ve Azure CLI kullanarak tam tersi standart yönetilen diskleri dönüştürme gösterilmektedir. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Bu makalede, Premium ve Azure CLI kullanarak tam tersi standart yönetilen diskleri dönüştürme gösterilmektedir. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme](/cli/azure/install-azure-cli.md). 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

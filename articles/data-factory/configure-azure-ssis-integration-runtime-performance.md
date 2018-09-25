@@ -1,6 +1,6 @@
 ---
-title: Performansı Azure SSIS tümleştirmesi çalışma zamanı için yapılandırma | Microsoft Docs
-description: Yüksek performans için Azure SSIS Integration zamanının özellikleri yapılandırmayı öğrenin
+title: Azure-SSIS tümleştirme çalışma zamanının performansını yapılandırma | Microsoft Docs
+description: Azure-SSIS tümleştirme çalışma zamanı için yüksek performans özelliklerini yapılandırma hakkında bilgi edinin
 services: data-factory
 ms.date: 01/10/2018
 ms.topic: conceptual
@@ -10,23 +10,23 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ac53e1a8a7c6c1b2c2959b92e14c7911065aed6d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2592c81947f48c10891fe920647612d5c30af64f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052037"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989102"
 ---
-# <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Yüksek performans için Azure SSIS tümleştirmesi çalışma zamanı yapılandırma
+# <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Yüksek performans için Azure-SSIS tümleştirme çalışma zamanı yapılandırma
 
-Bu makalede, yüksek performanslı bir Azure SSIS tümleştirmesi çalışma zamanı (IR) yapılandırmak açıklar. Azure SSIS IR dağıtmak ve Azure'da SQL Server Integration Services (SSIS) paketleri çalıştırmak sağlar. Azure SSIS IR hakkında daha fazla bilgi için bkz: [tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#azure-ssis-integration-runtime) makalesi. Dağıtma ve Azure üzerinde çalışan SSIS paketleri hakkında daha fazla bilgi için bkz: [yükseltme ve shift SQL Server Integration Services iş yükleri buluta](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
+Bu makalede, yüksek performanslı bir Azure-SSIS Integration Runtime (IR) yapılandırma açıklanır. Azure-SSIS IR, dağıtmak ve SQL Server Integration Services (SSIS) paketlerini Azure'da çalıştırmak sağlar. Azure-SSIS IR hakkında daha fazla bilgi için bkz: [Integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) makalesi. Dağıtımı ve SSIS paketlerini Azure'da çalıştırma hakkında daha fazla bilgi için bkz. [Lift and shift ile SQL Server Integration Services iş yüklerini buluta](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
 > [!IMPORTANT]
-> Bu makale performans sonuçları ve şirket içi SSIS geliştirme ekibi üyeleri tarafından yapılan test gelen gözlemleri içerir. Sonuçlarınızı farklılık gösterebilir. Maliyet ve performansı etkileyen yapılandırma ayarlarınızı Sonlandır önce kendi test yapabilirsiniz.
+> Bu makalede, performans sonuçları ve test şirket içi SSIS geliştirme ekibi üyeleri tarafından yapılan gözlemler içerir. Sonuçlar farklılık gösterebilir. Hem maliyeti ve performansı etkileyen yapılandırma ayarlarınızı Sonlandır önce kendi testi gerçekleştirin.
 
 ## <a name="properties-to-configure"></a>Özellikleri yapılandırmak için
 
-Bir yapılandırma betiğini aşağıdaki bölümü Azure SSIS tümleştirmesi çalışma zamanı oluşturduğunuzda, sizin yapılandırabileceğiniz özellikleri gösterir. Tam PowerShell komut dosyası ve bir açıklama için bkz: [Azure SQL Server Integration Services dağıtma paketlere](tutorial-deploy-ssis-packages-azure-powershell.md).
+Bir yapılandırma betiği aşağıdaki bölümü, bir Azure-SSIS tümleştirme çalışma zamanını oluştururken yapılandırabileceğiniz özelliklerini gösterir. Tam PowerShell komut dosyası ve açıklaması için bkz. [dağıtma SQL Server Integration Services paketlerini azure'a](tutorial-deploy-ssis-packages-azure-powershell.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"
@@ -51,16 +51,16 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Database Managed Instance
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>"
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
-**AzureSSISLocation** tümleştirmesi çalışma zamanı çalışan düğümüne konumudur. Çalışan düğümüne Azure SQL veritabanı (SSISDB) SSIS katalog veritabanına sabit bir bağlantı tutar. Ayarlama **AzureSSISLocation** SSISDB barındıran SQL veritabanı sunucusu olarak aynı konuma olanak sağlayan mümkün olduğunca verimli bir şekilde çalışması için tümleştirme çalışma zamanı.
+**AzureSSISLocation** Integration runtime çalışan düğümü konumudur. Çalışan düğümü, sabit bir bağlantı için bir Azure SQL veritabanı'nda SSIS Kataloğu veritabanını (SSISDB) tutar. Ayarlama **AzureSSISLocation** SSISDB barındıran SQL veritabanı sunucusuyla aynı konuma olanak tanıyan mümkün olduğunca verimli bir şekilde çalışması için tümleştirme çalışma zamanı.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
-Veri Fabrikası Azure SSIS IR dahil olmak üzere, aşağıdaki seçenekleri destekler:
+Data Factory, Azure-SSIS IR dahil olmak üzere aşağıdaki seçeneklerden destekler:
 -   Standart\_A4\_v2
 -   Standart\_A8\_v2
 -   Standart\_D1\_v2
@@ -68,32 +68,32 @@ Veri Fabrikası Azure SSIS IR dahil olmak üzere, aşağıdaki seçenekleri dest
 -   Standart\_D3\_v2
 -   Standart\_D4\_v2.
 
-Resmi olmayan şirket içi SSIS mühendislik ekibi tarafından testinde, D serisinin A series SSIS paketi yürütme için daha uygun gibi görünüyor.
+Terim ve kısaltmalarla şirket içi SSIS mühendislik ekibi tarafından testinde, D serisi A serisinden SSIS paketi yürütme için daha uygun gibi görünüyor.
 
--   D serisinin performans/fiyat oranı A series yüksektir.
--   Verimlilik D serisinin aynı fiyat üzerinden bir seri daha yüksektir.
+-   D serisinin performansı/fiyat oranı, A serisi yüksektir.
+-   D serisi için aktarım hızı, A serisi ile aynı fiyattan daha yüksektir.
 
-### <a name="configure-for-execution-speed"></a>Yürütme hız için yapılandırma
-Çalıştırmak için çok sayıda paket yok ve hızlı bir şekilde çalıştırmak için paketler istiyorsanız, bilgileri aşağıdaki grafikte senaryonuz için uygun bir sanal makine türü seçmek için kullanın.
+### <a name="configure-for-execution-speed"></a>Yürütme hızını için yapılandırma
+Çalıştırmak için birçok paketi yok ve hızlı bir şekilde çalıştırmak için paketleri istiyorsanız bilgileri aşağıdaki tabloda senaryonuz için uygun bir sanal makine türünü seçmek için kullanın.
 
-Bu verileri tek bir paket yürütme tek çalışan düğümünde temsil eder. Paket adı ve son adı sütunlarla 10 milyon kayıtları Azure Blob depolama alanından yükler, bir tam ad sütunu oluşturur ve Azure Blob depolama alanına 20 karakterden uzun tam ada sahip kayıtları yazar.
+Bu veriler, tek bir çalışan düğümü üzerindeki bir tek bir paket yürütme temsil eder. Paket adının ilk ve son adı sütunlarla 10 milyon kaydı Azure Blob depolama alanından yükler, bir tam ad sütunu oluşturur ve Azure Blob Depolama'ya 20 karakterden uzun tam ada sahip kayıtları yazar.
 
-![SSIS tümleştirmesi çalışma zamanı paketi yürütme hızı](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speed.png)
+![SSIS tümleştirme çalışma zamanı paketi yürütme hızını](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speed.png)
 
-### <a name="configure-for-overall-throughput"></a>Genel üretilen işi için yapılandırma
+### <a name="configure-for-overall-throughput"></a>Toplam aktarım hızı için yapılandırma
 
-Paketleri çalıştırmak için çok sayıda varsa ve sizin için en genel üretilen işi hakkında önemli bilgileri aşağıdaki grafikte senaryonuz için uygun bir sanal makine türü seçmek için kullanın.
+Paketleri çalıştırmak için kullanabileceğiniz birçok seçenek mevcuttur ve genel üretilen işi hakkında en çok değer verdiğiniz bilgileri aşağıdaki tabloda senaryonuz için uygun bir sanal makine türünü seçmek için kullanın.
 
-![SSIS tümleştirmesi çalışma zamanı en fazla genel üretilen işi](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughput.png)
+![SSIS tümleştirme çalışma zamanı en fazla toplam aktarım hızı](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughput.png)
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** Integration zamanının ölçeklenebilirlik ayarlar. Üretilen iş Integration zamanının orantılıdır **AzureSSISNodeNumber**. Ayarlama **AzureSSISNodeNumber** küçük bir değere ilk Integration zamanının verimlilik izleyebilir, ardından senaryonuz için değer ayarlayın. Çalışan düğüm sayısı yapılandırmak için bkz: [Azure SSIS tümleştirmesi çalışma zamanı yönetmek](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** Integration runtime'nın ölçeklenebilirlik ayarlar. Integration runtime'nın aktarım hızı orantılıdır **AzureSSISNodeNumber**. Ayarlama **AzureSSISNodeNumber** küçük bir değere ilk Integration runtime'nın aktarım hızını izleyin, sonra senaryonuz için değeri ayarlayın. Çalışan düğümü sayısı yapılandırmak için bkz: [bir Azure-SSIS tümleştirme çalışma zamanını yönetme](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Paketleri çalıştırmak için güçlü çalışan düğüme zaten kullanırken artırma **AzureSSISMaxParallelExecutionsPerNode** Integration zamanının genel üretilen işi artırabilir. Düğüm başına 1-4 paralel yürütmeleri Standard_D1_v2 düğümleri için desteklenir. Tüm diğer türleri düğümleri için düğüm başına 1-8 paralel yürütmeleri desteklenir.
-Paketinizi ve çalışan düğümleri için aşağıdaki yapılandırmaları maliyetini göre uygun değeri tahmin edebilirsiniz. Daha fazla bilgi için bkz: [genel amaçlı sanal makine boyutlarını](../virtual-machines/windows/sizes-general.md).
+Paketleri çalıştırmak için zaten bir güçlü çalışan düğümü kullanırken, artan **AzureSSISMaxParallelExecutionsPerNode** Integration runtime'nın genel üretilen işi artırabilir. Standard_D1_v2 düğümlerde, düğüm başına 1-4 Paralel yürütme desteklenir. Tüm diğer türleri düğüm için düğüm başına 1-8 Paralel yürütme desteklenir.
+Paketinizi ve çalışan düğümleri için aşağıdaki yapılandırmaları maliyeti temel alarak uygun değeri tahmin edebilirsiniz. Daha fazla bilgi için [genel amaçlı sanal makine boyutları](../virtual-machines/windows/sizes-general.md).
 
 | Boyut             | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maks NIC / Beklenen ağ performansı (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -104,24 +104,24 @@ Paketinizi ve çalışan düğümleri için aşağıdaki yapılandırmaları mal
 | Standart\_A4\_v2 | 4    | 8           | 40                     | 4000/80/40                                             | 8/8x500                         | 4 / 1000                                       |
 | Standart\_A8\_v2 | 8    | 16          | 80                     | 8000/160/80                                            | 16/16x500                       | 8 / 2000                                       |
 
-Doğru değeri ayarlamak için yönergeleri işte **AzureSSISMaxParallelExecutionsPerNode** özelliği: 
+Doğru değeri ayarlamak için yönergeler şunlardır **AzureSSISMaxParallelExecutionsPerNode** özelliği: 
 
-1. İlk küçük bir değere ayarlayın.
-2. Genel üretilen işi geliştirilmiş olup olmadığını denetlemek için bir küçük miktarda artırın.
-3. Genel üretilen işi en büyük değer ulaştığında değeri artırmak durdurun.
+1. Başta küçük bir değere ayarlayın.
+2. Bu hizmetin genel performansını geliştirilmiş olup olmadığını denetlemek için küçük bir miktarda artırır.
+3. Hizmetin genel performansını en büyük değere ulaştığında değeri artırmak durdurun.
 
 ## <a name="ssisdbpricingtier"></a>SSISDBPricingTier
 
-**SSISDBPricingTier** bir Azure SQL veritabanı SSIS Katalog veritabanı (SSISDB) için fiyatlandırma katmanı. Bu ayar, en fazla yürütme günlüğü yüklemeye çalışan IR örnek, bir paket yürütme kuyruğuna hızını ve hızını sayısı etkiler.
+**SSISDBPricingTier** fiyatlandırma katmanı için bir Azure SQL veritabanı'nda SSIS Kataloğu veritabanını (SSISDB). Bu ayar, yürütme günlüğü yüklemek için çalışanların IR örneği, bir paket yürütme kuyruğuna hızını ve hızı maksimum sayısını etkiler.
 
--   Hakkında hızlı sırası paket yürütme ve yürütme günlüğü yüklemek için önemli değil, en düşük veritabanı fiyatlandırma katmanı seçebilirsiniz. Temel fiyatlandırma ile Azure SQL veritabanı 8 çalışanları tümleştirmesi çalışma zamanı örneği destekler.
+-   Hakkında kuyruk paket yürütme ve yürütme günlüğü yüklemek için hızlı umursamaz, en düşük veritabanı fiyatlandırma katmanı seçebilirsiniz. Temel fiyatlandırma ile Azure SQL veritabanı 8 çalışan bir tümleştirme çalışma zamanı örneğini destekler.
 
--   Çalışan sayısı 8'den fazla ya da çekirdek sayısı 50'den fazla temel'den daha güçlü bir veritabanı seçin. Aksi takdirde sıkışıklık tümleştirmesi çalışma zamanı örneğinin veritabanı hale ve genel performansı olumsuz yönde etkilenebilir.
+-   8'den fazla çalışan sayısı veya çekirdek sayısı 50'den fazla olan temel değerinden daha güçlü bir veritabanı seçin. Aksi takdirde veritabanı tümleştirme çalışma zamanı örneğin performans sorunu haline gelir ve genel performansını olumsuz şekilde etkilenir.
 
-Veritabanı fiyatlandırma katmanı göre de ayarlayabilirsiniz [veritabanı işlem birimi](../sql-database/sql-database-what-is-a-dtu.md) (DTU) kullanım bilgilerini kullanılabilir Azure portalındaki.
+Veritabanı fiyatlandırma katmanı göre de ayarlayabilirsiniz [veritabanı işlem birimi](../sql-database/sql-database-what-is-a-dtu.md) (DTU) kullanım bilgilerini kullanılabilir Azure portalında.
 
 ## <a name="design-for-high-performance"></a>Yüksek performans tasarımı
-Azure üzerinde çalışmak için bir SSIS paketi tasarlarken, şirket içi yürütme için paket tasarlama farklıdır. Aynı pakette birden çok bağımsız görevleri birleştirme yerine bunları Azure SSIS IR daha verimli yürütme için çeşitli paketler halinde ayırın Her paket için bir paket yürütme oluşturun, böylece birbirine için bitmesini beklemek zorunda değilsiniz. Bu yaklaşım ölçeklenebilirlik sağlamak Azure SSIS Integration zamanının avantaj ve genel üretilen işi artıran.
+Azure'da çalışan bir SSIS paketi tasarlama, şirket içi yürütme için bir paket tasarlama öğesinden farklıdır. Aynı paket içindeki birden fazla bağımsız görevi birleştirmek yerine, bunları Azure-SSIS IR'yi daha verimli yürütme için çeşitli paketler halinde ayırın Her paket için bir paket yürütme oluşturun, böylece bunlar birbirine için bitmesini beklemek zorunda değilsiniz. Bu yaklaşım, Azure-SSIS Integration runtime'nın ölçeklenebilirlik yararlanır ve hizmetin genel performansını artırır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure SSIS tümleştirmesi çalışma zamanı hakkında daha fazla bilgi edinin. Bkz: [Azure SSIS tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#azure-ssis-integration-runtime).
+Azure-SSIS tümleştirme çalışma zamanı hakkında daha fazla bilgi edinin. Bkz: [Azure-SSIS tümleştirme çalışma zamanı](concepts-integration-runtime.md#azure-ssis-integration-runtime).

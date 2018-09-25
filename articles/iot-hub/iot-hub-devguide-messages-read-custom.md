@@ -1,6 +1,6 @@
 ---
-title: Azure IOT hub'ı özel uç noktaları anlama | Microsoft Docs
-description: Geliştirici Kılavuzu - cihaz bulut iletilerini özel uç noktalara yönlendirmek için yönlendirme kurallarını kullanma.
+title: Özel uç noktalar Azure IOT hub'ı Anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - özel uç noktalar için CİHAZDAN buluta iletileri yönlendirmek için yönlendirme sorgularını kullanarak.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,60 +8,54 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: b035c7ef6dfe56c4b4534e081e70d95ea7c14847
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: af0b819c6c60835089c174a1f9f7c3a6215e362c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808035"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956977"
 ---
-# <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>İleti yollarını ve özel uç noktaları için cihaz bulut iletilerini kullanın
+# <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>CİHAZDAN buluta iletiler için ileti yollarını ve özel uç noktaları kullanma
 
-IOT hub'ı etkinleştirir, yönlendirmek [cihaz bulut iletilerini] [ lnk-device-to-cloud] IOT Hub hizmeti dönük Uç noktalara ileti özelliklerine bağlı. Yönlendirme kuralları nerede ek hizmet veya özel kod gerek kalmadan gitmek ihtiyaç duydukları iletileri göndermek için esneklik sağlar. Yapılandırdığınız her yönlendirme kuralı aşağıdaki özelliklere sahiptir:
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+IOT hub'ı [ileti yönlendirme](iot-hub-devguide-routing-query-syntax.md) hizmet'e yönelik uç noktalar için CİHAZDAN buluta iletileri yönlendirmek kullanıcıların sağlar. Yönlendirme, bir sorgulama uç noktalar için yönlendirme önce verileri filtreleme yeteneği sağlar. Yapılandırdığınız her bir yönlendirme sorgu aşağıdaki özelliklere sahiptir:
 
 | Özellik      | Açıklama |
 | ------------- | ----------- |
-| **Ad**      | Kural tanımlayan benzersiz adı. |
-| **Kaynak**    | Üzerinde işlem yapılması için veri akışı kaynağı. Örneğin, cihaz telemetrisi. |
-| **Koşul** | İleti üstbilgilerini ve gövde karşı çalıştırmak ve uç noktası için bir eşleştirme olup olmadığını belirleyen yönlendirme kuralı için sorgu ifadesi. Yol koşulu oluşturma hakkında daha fazla bilgi için bkz: [başvuru - cihaz çiftlerini ve işleri için sorgu dili][lnk-devguide-query-language]. |
-| **uç noktası**  | Burada IOT hub'ı koşul eşleşen iletileri gönderir uç nokta adı. Uç noktaları, IOT hub'ı ile aynı bölgede olması gerekir, aksi takdirde, çapraz bölge yazma işlemleri için ücret. |
+| **Ad**      | Sorguyu tanımlayan benzersiz adı. |
+| **Kaynak**    | Yapılması gereken veri akışı kaynağı. Örneğin, cihaz telemetrisi. |
+| **Koşul** | İleti uygulama özellikleri, Sistem özellikleri, ileti gövdesi, cihaz ikizi etiketleri ve uç nokta için bir eşleşme olup olmadığını belirlemek için cihaz ikizi özelliklerini karşı çalışan yönlendirme sorgu için sorgu ifadesi. Bir sorgu oluşturma hakkında daha fazla bilgi için bkz [ileti yönlendirme sorgusu söz dizimi](iot-hub-devguide-routing-query-syntax.md) |
+| **Uç noktası**  | IOT Hub sorguyla eşleşen iletileri göndereceği yeri uç nokta adı. IOT hub'ınız ile aynı bölgede bir uç nokta seçmenizi öneririz. |
 
-Tek bir ileti içinde durum IOT hub'ı iletiyi her eşleşen kuralla ilişkili uç teslim birden çok yönlendirme kuralları koşula eşleşmiyor olabilir. IOT hub'ı da otomatik olarak ileti teslimi, deduplicates bir ileti aynı hedefe sahip birden fazla kuralla eşleşirse, yalnızca bir kez bu hedefe yazılması için.
+Tek bir ileti birden çok yönlendirme sorgular, IOT Hub durumu ileti eşleşen her sorgu ile ilişkili uç sunar, koşula eşleşmiyor olabilir. IOT hub'ı da otomatik olarak ileti teslimini deduplicates bir ileti aynı hedefe sahip birden çok sorgu eşleşirse, yalnızca bir kez bu hedefe yazılmış olduğu için.
 
-## <a name="endpoints-and-routing"></a>Uç noktaları ve yönlendirme
+## <a name="endpoints-and-routing"></a>Uç noktalar ve yönlendirme
 
-IOT hub'ı varsayılan olan [yerleşik uç nokta][lnk-built-in]. Hub'ına diğer hizmetler aboneliğinizde bağlayarak iletileri yönlendirmek için özel uç noktaları oluşturabilirsiniz. IOT hub'ı şu anda Azure Storage kapsayıcıları, olay hub'ları, Service Bus kuyrukları ve Service Bus konu başlıklarını özel uç noktalar olarak destekler.
+IOT hub'ı varsayılan sahip [yerleşik uç nokta][lnk-built-in]. Hub'ına aboneliğinizde diğer hizmetler arasında bağlantı kurularak iletileri yönlendirmek için özel uç noktaları oluşturabilirsiniz. IOT hub'ı Azure depolama kapsayıcıları, Event Hubs, Service Bus kuyrukları ve Service Bus konu başlıklarını şu anda özel uç noktalar destekler.
 
-Yönlendirme ve özel uç noktaları kullandığınızda, tüm kurallar eşleşmiyorsa iletiler yalnızca yerleşik uç noktasına teslim edilir. Yerleşik uç da özel bir uç noktası için iletileri sunmak için iletileri gönderen yol eklemek **olayları** uç noktası.
+Yönlendirme ve özel uç noktaları kullandığınızda, herhangi bir sorgu eşleşmiyorsa iletileri yalnızca yerleşik uç noktasına gönderilir. Yerleşik uç noktasına da özel bir uç noktası için farklı iletileri ulaştırmak üzere, iletileri gönderen bir rota ekleyin **olayları** uç noktası.
 
 > [!NOTE]
-> IOT Hub, yalnızca Azure Storage kapsayıcıları bloblar için veri yazma destekler.
+> IOT hub'ı yalnızca verileri Azure depolama kapsayıcıları bloblar için yazma destekler.
 
 > [!WARNING]
-> Service Bus kuyrukları ve konularından ile **oturumları** veya **yinelenen saptama** etkin özel uç noktalar olarak desteklenmez.
+> Service Bus kuyrukları ve konuları ile **oturumları** veya **yinelenen algılama** etkin özel uç noktalar desteklenmez.
 
-Özel uç noktaları IOT Hub oluşturma hakkında daha fazla bilgi için bkz: [IOT Hub uç noktaları][lnk-devguide-endpoints].
+IOT Hub'ında özel uç noktalar oluşturma hakkında daha fazla bilgi için bkz. [IOT Hub uç noktaları][lnk-devguide-endpoints].
 
-Özel uç noktaları okuma hakkında daha fazla bilgi için bkz:
+Özel uç noktalar okuma hakkında daha fazla bilgi için bkz:
 
-* Okuma [Azure Storage kapsayıcıları][lnk-getstarted-storage].
+* Okuma [Azure depolama kapsayıcıları][lnk-getstarted-storage].
 * Okuma [olay hub'ları][lnk-getstarted-eh].
 * Okuma [Service Bus kuyruklarını][lnk-getstarted-queue].
 * Okuma [Service Bus konu başlıklarını][lnk-getstarted-topic].
 
-## <a name="latency"></a>Gecikme süresi
-
-Yerleşik uç noktalarını kullanarak cihaz bulut telemetri iletilerini yönlendirdiğinizde, ilk yol oluşturulduktan sonra artmasına uçtan uca gecikme süresi içinde yok.
-
-Çoğu durumda, ortalama gecikme süresi artış bir saniyeden kısa ' dir. Gecikme kullanarak izleyebilirsiniz **d2c.endpoints.latency.builtIn.events** [IOT hub'ı ölçüm](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics). Oluşturma veya herhangi bir yolun birinci sonra silme uçtan uca gecikme etkilemez.
-
 ### <a name="next-steps"></a>Sonraki adımlar
 
-IOT Hub uç noktaları hakkında daha fazla bilgi için bkz: [IOT Hub uç noktaları][lnk-devguide-endpoints].
-
-Yönlendirme kurallarını tanımlamak için kullandığınız sorgu dili hakkında daha fazla bilgi için bkz: [IOT Hub cihaz çiftlerini, işler ve ileti yönlendirme için sorgu dili][lnk-devguide-query-language].
-
-[Yolları kullanma işlemi IOT Hub cihaz bulut iletilerini] [ lnk-d2c-tutorial] öğretici yönlendirme kuralları ve özel uç noktaları nasıl kullanılacağını gösterir.
+* IOT Hub uç noktaları hakkında daha fazla bilgi için bkz: [IOT Hub uç noktaları][lnk-devguide-endpoints].
+* Yönlendirme sorguları tanımlamak için kullandığınız sorgu dili hakkında daha fazla bilgi için bkz. [ileti yönlendirme sorgusu söz dizimi](iot-hub-devguide-routing-query-syntax.md).
+* [Yolları kullanarak işlem IOT Hub CİHAZDAN buluta iletileri] [ lnk-d2c-tutorial] Öğreticisi, yönlendirme sorgular ve özel uç noktalar nasıl kullanılacağını gösterir.
 
 [lnk-built-in]: iot-hub-devguide-messages-read-builtin.md
 [lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md

@@ -1,6 +1,6 @@
 ---
 title: Azure CLI ile Azure ölçek kümeleri için diskleri şifreleme | Microsoft Docs
-description: Sanal makine örnekleri ve Linux sanal makine ölçek kümesi bağlı diskleri şifrelemek için Azure CLI 2. 0'ı kullanmayı öğrenin
+description: Sanal makine örnekleri ve Linux sanal makine ölçek kümesi bağlı diskleri şifrelemek için Azure CLI'yı kullanmayı öğrenin
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: a01a0ae09b91b550af4617a46f7c0d8647a5f4be
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fecf7e121b1c0404f1ec67d46cc88008250b9d68
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704564"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981068"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-20-preview"></a>İşletim sistemi ve sanal makine ölçek kümesi Azure CLI 2.0 (Önizleme) ile bağlı veri diskleri şifreleme
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>İşletim sistemi ve sanal makine ölçek kümesi Azure CLI (Önizleme) ile bağlı veri diskleri şifreleme
 
 Dosya korumak ve endüstri standardında bir şifreleme teknolojisi kullanılarak, bekleme sırasında verileri korumak için Azure Disk şifrelemesi (ADE) sanal makine ölçek kümelerini destekler. Linux ve Windows sanal makinesi için şifreleme etkinleştirilebilir ölçek kümeleri. Daha fazla bilgi için [Linux ve Windows için Azure Disk şifrelemesi](../security/azure-security-disk-encryption.md).
 
@@ -38,7 +38,7 @@ Geçerli Önizleme sürümünde, Ölçek kümesi VM yeniden görüntü oluşturm
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici, Azure CLI Sürüm 2.0.31 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici, Azure CLI Sürüm 2.0.31 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="register-for-disk-encryption-preview"></a>Disk şifreleme Önizleme için kaydolun
 
@@ -180,6 +180,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Azure CLI 2.0 bir sanal makine ölçek kümesi şifrelemek için kullanılır. Ayrıca [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) veya şablonları [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) veya [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+Bu makalede, Azure CLI'yı bir sanal makine ölçek kümesi şifrelemek için kullanılır. Ayrıca [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) veya şablonları [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) veya [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
 
 Bir Linux ölçek kümesi veri disk şifrelemesi için uçtan uca toplu iş dosyası örneği bulunabilir [burada](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Bu örnek, bir kaynak grubu, Linux ölçek kümesi oluşturur, 5 GB'lık veri diskini bağlar ve sanal makine ölçek kümesi şifreler.

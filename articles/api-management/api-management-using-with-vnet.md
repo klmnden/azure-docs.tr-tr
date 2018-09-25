@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: a74d91ad986b606a36a8040ac849e7fcbec03f16
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18b9e4eac6b183cd02ad2bb93463b4cc043f303a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093201"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040344"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Başlat Azure sanal ağları hakkında daha fazla bilgi edinmek için: [Azure sanal ağa genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşa�
 | Kaynak / hedef bağlantı noktaları | Yön | Aktarım Protokolü | Kaynak / hedef | Amaç (*) | Sanal ağ türü |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Gelen |TCP |INTERNET / VIRTUAL_NETWORK|İstemci iletişimi için API Yönetimi|Dış |
-| * / 3443 |Gelen |TCP |INTERNET / VIRTUAL_NETWORK|Azure portalı ve Powershell yönetim uç noktası |Dış ve iç |
+| * / 3443 |Gelen |TCP |APIMANAGEMENT / VIRTUAL_NETWORK|Azure portalı ve Powershell yönetim uç noktası |Dış ve iç |
 | * / 80, 443 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|**Azure depolama üzerinde bağımlılık**, Azure Service Bus ve Azure Active Directory (uygunsa).|Dış ve iç |
 | * / 1433 |Giden |TCP |VIRTUAL_NETWORK / SQL|**Azure SQL uç noktalarına erişimi** |Dış ve iç |
 | * / 5672 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Olay hub'ı İlkesi ve İzleme Aracısı için günlük bağımlılığı |Dış ve iç |
@@ -158,8 +158,6 @@ API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşa�
 * **Artımlı güncelleştirmeler**: değişiklikler ağınıza yaparken başvurmak [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), API Management hizmeti bağlıdır, kritik kaynaklara erişimini kaybetti değil olduğunu doğrulayın. Bağlantı durumu, her 15 dakikada güncelleştirilmelidir.
 
 * **Kaynak Gezinti Bağlantıları**: Resource Manager stili vnet alt ağa dağıtırken, API Management, alt ağ kaynak Gezinti bağlantısı oluşturarak ayırır. Alt ağ zaten farklı bir sağlayıcı kaynaktan içeriyorsa, dağıtım olacak **başarısız**. Benzer şekilde, bir API Management hizmeti farklı bir alt ağa taşıyın veya silin, o kaynak Gezinti bağlantısı kaldıracağız.
-
-* **API testi Azure portalından**: VNet üzerinde yapılandırılmış DNS sunucuları Azure portal ve API Management örneğinizin API testi bir iç sanal ağ ile tümleştirildiğinde, ad çözümlemesi için kullanılacak. Azure portalından test ederken bir 404 hatası alırsanız, sanal ağ için DNS sunucularını düzgün API Management örneğinizin ana bilgisayar adını çözümleyebileceğinden emin olun. 
 
 ## <a name="subnet-size"> </a> Alt ağ boyutu gereksinimi
 Azure her alt ağ içinde bazı IP adreslerini ayırır ve bu adresi kullanılamaz. Alt ağların ilk ve son IP adresleri, Azure Hizmetleri için kullanılan üç daha fazla adres birlikte protokol uyumluluğu için ayrılmıştır. Daha fazla bilgi için [bu alt ağları içindeki IP adresleri kullanarak herhangi bir kısıtlama var mıdır?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)

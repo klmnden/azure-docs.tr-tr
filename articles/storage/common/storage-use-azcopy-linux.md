@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: d674b0a6a16e22ed06577f7306ed6f4b9755dd0e
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: d441176c55ceb75c3f44df90224647ded802aeb6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42056546"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986648"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux üzerinde AzCopy ile veri aktarma
 
@@ -706,7 +706,7 @@ Azure Depolama ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklar
 * [Azure Depolama’ya giriş](../storage-introduction.md)
 * [Depolama hesabı oluşturma](../storage-create-storage-account.md)
 * [Depolama Gezgini ile blobları yönetme](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
-* [Azure CLI 2.0, Azure depolama ile kullanma](../storage-azure-cli.md)
+* [Azure Depolama ile Azure CLI kullanma](../storage-azure-cli.md)
 * [BLOB depolama alanından C++ kullanma](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Java'da Blob Depolama'yı kullanma](../blobs/storage-java-how-to-use-blob-storage.md)
 * [Node.js'de Blob Depolama'yı kullanma](../blobs/storage-nodejs-how-to-use-blob-storage.md)

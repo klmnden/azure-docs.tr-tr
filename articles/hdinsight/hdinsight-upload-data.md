@@ -1,6 +1,6 @@
 ---
 title: HDInsight'ta Hadoop işleri için veri yükleme
-description: Karşıya yükleme ve Azure CLI, Azure Depolama Gezgini, Azure PowerShell, Hadoop komut satırı veya Sqoop kullanarak bir HDInsight Hadoop işleri için veri erişim hakkında bilgi edinin.
+description: Karşıya yükleme ve Azure Klasik CLI, Azure Depolama Gezgini, Azure PowerShell, Hadoop komut satırı veya Sqoop kullanarak bir HDInsight Hadoop işleri için veri erişim hakkında bilgi edinin.
 keywords: etl hadoop, hadoop, hadoop veri yükleme ile veri alma
 services: hdinsight
 author: jasonwhowell
@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 838444898500ce7127e1a9e999d0b5ee7b1e3687
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 44aaccee436011bd7d27bec87515fde0e898732e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051833"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985988"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>HDInsight'ta Hadoop işleri için veri yükleme
 
@@ -38,22 +38,22 @@ Microsoft Azure depolama ile çalışmak için aşağıdaki yardımcı programla
 
 | Araç | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure komut satırı arabirimi][azurecli] |✔ |✔ |✔ |
+| [Klasik Azure CLI][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Hadoop komutu](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> Azure CLI, Azure PowerShell ve AzCopy tüm Azure dışından kullanılabilse de, Hadoop komut yalnızca HDInsight kümesi üzerinde kullanılabilir. Ve verileri yerel dosya sisteminden Azure Depolama'ya yükleme komutu yalnızca izin verir.
+> Hadoop komutu, yalnızca klasik Azure CLI, Azure PowerShell ve AzCopy tüm Azure dışından kullanılabilse de HDInsight kümesinde kullanılabilir. Ve verileri yerel dosya sisteminden Azure Depolama'ya yükleme komutu yalnızca izin verir.
 >
 >
 
-#### <a id="xplatcli"></a>Azure CLI
-Azure CLI, Azure hizmetlerini yönetmenize olanak tanıyan platformlar arası bir araçtır. Azure Depolama'ya veri yüklemek için aşağıdaki adımları kullanın:
+#### <a id="xplatcli"></a>Klasik Azure CLI
+Klasik Azure CLI, Azure hizmetlerini yönetmenize olanak tanıyan bir platformlar arası araçtır. Azure Depolama'ya veri yüklemek için aşağıdaki adımları kullanın:
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-1. [Yükleme ve Mac, Linux ve Windows için Azure CLI'yı yapılandırma](../cli-install-nodejs.md).
+1. [Yükleme ve yapılandırma Mac, Linux ve Windows için Azure Klasik CLI](../cli-install-nodejs.md).
 2. Bir komut istemi, bash ya da diğer kabuğunu açın ve Azure aboneliğinize kimliğini doğrulamak için aşağıdakileri kullanın.
 
     ```cli

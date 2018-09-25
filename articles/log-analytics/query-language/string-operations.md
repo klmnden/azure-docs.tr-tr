@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2acdc2cc7397e169a32a0257c0fc6020338c944f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6ac697fa12b56840e5dc361500f81e2b7e2ce11a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604493"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950259"
 ---
 # <a name="working-with-strings-in-log-analytics-queries"></a>Log Analytics sorgu dizeleri ile çalışma
 
@@ -38,13 +38,13 @@ Bir dizedeki her karakterin konumuna göre bir dizin numarası var. Dizin 0 ilk 
 ## <a name="strings-and-escaping-them"></a>Dizeler ve kaçış
 Dize değerleri, tek veya çift tırnaklı karakterle ya da ile sarılır. Ters eğik çizgi (\) , \t \n yeni satır için sekmesinde gibi izleyen karaktere karakterleri kaçış için kullanılır ve \" tırnak karakteri.
 
-```KQL
+```Kusto
 print "this is a 'string' literal in double \" quotes"
 ```
 
 Önlemek için "\\" çıkış karakteri olarak yaratmasını, Ekle "@" dize öneki olarak:
 
-```KQL
+```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"
 ```
 
@@ -108,7 +108,7 @@ Arama dizesi kapsayıcıda eşleştirilebildiği sayısı. Düz dize eşleşmele
 
 #### <a name="plain-string-matches"></a>Düz dize eşleşmeleri
 
-```KQL
+```Kusto
 print countof("The cat sat on the mat", "at");  //result: 3
 print countof("aaa", "a");  //result: 3
 print countof("aaaa", "aa");  //result: 3 (not 2!)
@@ -118,7 +118,7 @@ print countof("ababa", "aba");  //result: 2
 
 #### <a name="regex-matches"></a>Normal ifade ile eşleşir
 
-```KQL
+```Kusto
 print countof("The cat sat on the mat", @"\b.at\b", "regex");  //result: 3
 print countof("ababa", "aba", "regex");  //result: 1
 print countof("abcabc", "a.c", "regex");  // result: 2
@@ -131,7 +131,7 @@ Normal bir ifade için bir eşleşme, belirli bir dizeden alır. İsteğe bağl�
 
 ### <a name="syntax"></a>Sözdizimi
 
-```KQL
+```Kusto
 extract(regex, captureGroup, text [, typeLiteral])
 ```
 
@@ -149,7 +149,7 @@ Eşleşme yok, veya tür dönüştürme başarısız olursa null döndürür.
 ### <a name="examples"></a>Örnekler
 
 Aşağıdaki örnekte, son sekizliğini ayıklar *Computerıp* sinyal kaydı:
-```KQL
+```Kusto
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -157,7 +157,7 @@ Heartbeat
 ```
 
 Aşağıdaki örnek son sekizli ayıklar, kendisine bıraktığı bir *gerçek* (sayı) yazın ve İleri IP değeri hesaplar
-```KQL
+```Kusto
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -167,7 +167,7 @@ Heartbeat
 ```
 
 Dize aşağıdaki örnekte *izleme* "Süresi" için bir tanım aranır. Eşleşme türüne dönüştürülür *gerçek* ve bir zaman sabit tarafından çarpılan (1 s) *timespan türü için süre bıraktığı*.
-```KQL
+```Kusto
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567
 print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s);  //result: 00:09:27
@@ -181,14 +181,14 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 
 ### <a name="syntax"></a>Sözdizimi
 
-```
+```Kusto
 isempty(value)
 isnotempty(value)
 ```
 
 ### <a name="examples"></a>Örnekler
 
-```KQL
+```Kusto
 print isempty("");  // result: true
 
 print isempty("0");  // result: false
@@ -213,7 +213,7 @@ parseurl(urlstring)
 
 ### <a name="examples"></a>Örnekler
 
-```KQL
+```Kusto
 print parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
 ```
 
@@ -253,7 +253,7 @@ Yeniden yazma değerlendirmelerde regex tüm eşleşmeleri değiştirdikten sonr
 
 ### <a name="examples"></a>Örnekler
 
-```KQL
+```Kusto
 SecurityEvent
 | take 1
 | project Activity 
@@ -284,7 +284,7 @@ split(source, delimiter [, requestedIndex])
 
 ### <a name="examples"></a>Örnekler
 
-```KQL
+```Kusto
 print split("aaa_bbb_ccc", "_");    // result: ["aaa","bbb","ccc"]
 print split("aa_bb", "_");          // result: ["aa","bb"]
 print split("aaa_bbb_ccc", "_", 1); // result: ["bbb"]
@@ -303,7 +303,7 @@ strcat("string1", "string2", "string3")
 ```
 
 ### <a name="examples"></a>Örnekler
-```KQL
+```Kusto
 print strcat("hello", " ", "world") // result: "hello world"
 ```
 
@@ -318,7 +318,7 @@ strlen("text_to_evaluate")
 ```
 
 ### <a name="examples"></a>Örnekler
-```KQL
+```Kusto
 print strlen("hello")   // result: 5
 ```
 
@@ -339,7 +339,7 @@ substring(source, startingIndex [, length])
 - `length` -Döndürülen substring istenen uzunluğunu belirtmek üzere kullanılan isteğe bağlı bir parametre.
 
 ### <a name="examples"></a>Örnekler
-```KQL
+```Kusto
 print substring("abcdefg", 1, 2);   // result: "bc"
 print substring("123456", 1);       // result: "23456"
 print substring("123456", 2, 2);    // result: "34"
@@ -358,7 +358,7 @@ toupper("value")
 ```
 
 ### <a name="examples"></a>Örnekler
-```KQL
+```Kusto
 print tolower("HELLO"); // result: "hello"
 print toupper("hello"); // result: "HELLO"
 ```

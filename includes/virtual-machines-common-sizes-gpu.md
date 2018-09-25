@@ -5,20 +5,20 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 09/10/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 1527ea5fbd97527312600e74417ac444422ab614
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e9f88a018ba0f40d41bf7ad17a74850a9edf8ae6
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369151"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47043870"
 ---
 GPU için iyileştirilmiş sanal makine boyutları olan özel sanal makineler tek veya birden çok NVIDIA GPU'ları ile kullanılabilir. Bu boyutları görselleştirme yoğun işlem gücü kullanımlı ve grafik kullanımlı iş yükleri için tasarlanmıştır. Bu makalede sayısı ve gpu'ları, Vcpu, veri diskleri ve NIC türü hakkında bilgi sağlar. Depolama aktarım hızı ve ağ bant genişliği de bu gruplandırmaki her boyut için dahil edilir. 
 
-* **NC, NCv2 NCv3 ve ND** boyutları, yoğun işlem ve ağ kullanımlı uygulamalar ve algoritmalar için iyileştirilmiştir. CUDA ve OpenCL tabanlı uygulama ve simülasyonlar, yapay ZEKA ve derin öğrenme örnek verilebilir. NC serisi, NVIDIA Tesla V100 GPU özelliklerine sahip yüksek performanslı bilgi işlem iş yükleri üzerinde odaklanmıştır.  ND serisi, derin öğrenme için eğitim ve çıkarım senaryolarına odaklanır. Bu seri, NVIDIA Tesla P40 GPU’yu kullanır.
-* **NV** boyutları en iyi duruma getirilmiş ve Uzaktan görselleştirme, akışı, oyun, kodlama ve OpenGL ve DirectX gibi çerçeveleri kullanan VDI senaryoları için tasarlanmıştır.  Bu sanal makineler, NVIDIA Tesla M60 GPU tarafından desteklenir.
+* **NC, NCv2 NCv3 ve ND** boyutları, yoğun işlem ve ağ kullanımlı uygulamalar ve algoritmalar için iyileştirilmiştir. CUDA ve OpenCL tabanlı uygulama ve simülasyonlar, yapay ZEKA ve derin öğrenme örnek verilebilir. NCv3 serisi, NVIDIA Tesla V100 GPU özelliklerine sahip yüksek performanslı bilgi işlem iş yükleri üzerinde odaklanmıştır.  ND serisi, derin öğrenme için eğitim ve çıkarım senaryolarına odaklanır. Bu seri, NVIDIA Tesla P40 GPU’yu kullanır.
+* **NV ve NVv2** boyutları en iyi duruma getirilmiş ve Uzaktan görselleştirme, akışı, oyun, kodlama ve OpenGL ve DirectX gibi çerçeveleri kullanan VDI senaryoları için tasarlanmıştır.  Bu sanal makineler, NVIDIA Tesla M60 GPU tarafından desteklenir.
 
 
 ## <a name="nc-series"></a>NC serisi
@@ -125,6 +125,24 @@ NV örnekleri, her bir GPU kılavuz lisansı ile birlikte gelir. Bu lisans size 
 | Standard_NV6 |6 |56 |340 | 1 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
+
+1 GPU = M60 kartın yarısı.
+
+## <a name="nvv2-series-preview"></a>NVv2 serisi (Önizleme)
+
+Premium Depolama: desteklenir
+
+Premium depolama önbelleğe alma: desteklenir
+
+NVv2 serisi sanal makineler tarafından desteklenen [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU'ları ve NVIDIA GRID Intel Broadwell CPU teknolojisi. Bu sanal makineler GPU hızlandırılmış grafik uygulamalar ve sanal masaüstlerini müşteriler istediğiniz yere verilerini görselleştirmek için hedeflenen, sonuçları görüntülemek için CAD veya işleme ve akış içeriği üzerinde çalışan benzetimi. Ayrıca bu sanal makineler kodlama ve işleme gibi tek hassas iş yüklerini de çalıştırabilir. NVv2 sanal makine, Premium depolamayı destekler ve kendi öncellerini NV serisi ile karşılaştırıldığında iki kez sistem belleği (RAM) gelir.  
+
+Her GPU NVv2 durumlarda bir kılavuz lisansı ile birlikte gelir. Bu lisans size NV örneği, tek bir kullanıcı için sanal bir iş istasyonu olarak kullanmak için esneklik veya 25 eş zamanlı kullanıcı bir sanal uygulama senaryosu için VM'ye bağlanabilirsiniz.
+
+| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC | Sanal çalışma İstasyonlarınızı | Sanal uygulamalar | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6s_v2 |6 |112 |320 | 1 | 12 | 4 | 1 | 25 |
+| Standard_NV12s_v2 |12 |224 |640 | 2 | 24 | 8 | 2 | 50 |
+| Standard_NV24s_v2 |24 |448 |1280 | 4 | 32 | 8 | 4 | 100 |
 
 1 GPU = M60 kartın yarısı.
 

@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 42b157a63b76474f6c9482da75072878fe9291e0
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: b91b906db1307343a50ffc3be07d562091f2e335
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466006"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978815"
 ---
 # <a name="log-analytics-data-security"></a>Oturum Analytics veri güvenliği
-Bu belgede Azure Log Analytics hakkında bilgi desteklemek için belirli bilgiler sağlamaya yönelik [Azure Güven Merkezi](../security/security-microsoft-trust-center.md).  
+Bu belge özelliği hakkında bilgiler tamamlamak için Azure İzleyici, Log Analytics, özel bilgiler sağlamak için tasarlanmıştır [Azure Güven Merkezi](../security/security-microsoft-trust-center.md).  
 
 Bu makalede nasıl veri toplanan, işlenen ve Log Analytics tarafından güvenliği sağlanan açıklanmaktadır. Web hizmetine bağlanmak, işletimsel veri toplamak için System Center Operations Manager'ı kullanın veya Log Analytics tarafından kullanılmak üzere Azure Tanılama verileri almak için aracıları'nı kullanabilirsiniz. 
 

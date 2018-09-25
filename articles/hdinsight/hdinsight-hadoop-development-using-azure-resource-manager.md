@@ -9,28 +9,28 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: 1988593fa7cb0d84baffc4264147d350962bb6bc
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d036922d68116689d1c54c2c3e89be5accedb533
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093076"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983495"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçiş
 
-HDInsight, HDInsight için Azure Service Manager ASM tabanlı araçlar kaldırmaktadır. Azure PowerShell, Azure CLI veya HDInsight .NET SDK'ın HDInsight kümeleriyle çalışmak için kullandığınız, PowerShell, CLI ve .NET SDK'sı ileride Azure Resource Manager sürümleri kullanmanız önerilir. Bu makalede, Resource Manager tabanlı yeni yaklaşıma için geçiş yapmaya yönelik işaretçiler sağlar. Geçerli olduğunda, bu belgede ASM ve Resource Manager yaklaşım HDInsight için arasındaki farklar vurgulanmaktadır.
+HDInsight, HDInsight için Azure Service Manager ASM tabanlı araçlar kaldırmaktadır. Azure PowerShell, Azure Klasik CLI veya HDInsight .NET SDK'ın HDInsight kümeleriyle çalışmak için kullandığınız, PowerShell, CLI ve .NET SDK'sı ileride Azure Resource Manager sürümleri kullanmanız önerilir. Bu makalede, Resource Manager tabanlı yeni yaklaşıma için geçiş yapmaya yönelik işaretçiler sağlar. Geçerli olduğunda, bu belgede ASM ve Resource Manager yaklaşım HDInsight için arasındaki farklar vurgulanmaktadır.
 
 > [!IMPORTANT]
 > ASM desteği, PowerShell, CLI, temel alır ve .NET SDK'sı üzerinde sona erecek **1 Ocak 2017**.
 > 
 > 
 
-## <a name="migrating-azure-cli-to-azure-resource-manager"></a>Azure CLI, Azure Resource Manager'a geçiş
+## <a name="migrating-azure-classic-cli-to-azure-resource-manager"></a>Klasik Azure CLI, Azure Resource Manager'a geçiş
 
 > [!IMPORTANT]
-> Azure CLI 2.0, HDInsight kümeleriyle çalışmak için destek sağlamaz. Azure CLI 1.0 kullanım dışıdır, ancak yine de HDInsight ile Azure CLI 1.0 kullanabilirsiniz.
+> Azure CLI, HDInsight kümeleriyle çalışmak için destek sağlamaz. Ancak, Klasik Azure CLI kullanım dışı bırakılmıştır, Klasik Azure CLI'yı HDInsight ile kullanabilirsiniz.
 
-HDInsight ile Azure CLI 1.0 ile çalışmak için temel komutlar şunlardır:
+Klasik Azure CLI aracılığıyla HDInsight ile çalışmak için temel komutlar şunlardır:
 
 * `azure hdinsight cluster create` -Yeni bir HDInsight kümesi oluşturur
 * `azure hdinsight cluster delete` -Mevcut bir HDInsight kümesini siler

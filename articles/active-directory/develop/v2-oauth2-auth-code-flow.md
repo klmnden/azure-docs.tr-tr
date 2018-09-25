@@ -17,29 +17,30 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3fb6cad6243bd6cd0b6a09827d590f7097550e31
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d94aaa93596a18cf92b745267a6be9966454e36f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055224"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971561"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 protokolleri - OAuth 2.0 yetkilendirme kod akışı
+
 OAuth 2.0 yetkilendirme kodu verme, web API'leri gibi korunan kaynakları erişim kazanmak için cihazda yüklü olan uygulamalarda kullanılabilir. Uygulama modeli v2.0'ın uygulama OAuth 2.0 kullanarak oturum açın ve API'ye erişmek için mobil ve Masaüstü uygulamalarınızı da ekleyebilirsiniz. Bu kılavuz dilden bağımsızdır ve HTTP iletileri gönderip herhangi birini kullanmadan açıklar [Azure açık kaynak kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md).
 
 > [!NOTE]
 > Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası tarafından desteklenir. V2.0 uç noktası kullanıyorsanız belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](active-directory-v2-limitations.md).
-> 
-> 
 
 OAuth 2.0 yetkilendirme kod akışı açıklanan [OAuth 2.0 belirtiminin 4.1 bölümünde](http://tools.ietf.org/html/rfc6749). Kimlik doğrulama ve yetkilendirme dahil olmak üzere, uygulama türleri çoğunu gerçekleştirmek için kullanılan [web uygulamaları](v2-app-types.md#web-apps) ve [yerel olarak yüklenen uygulamalar](v2-app-types.md#mobile-and-native-apps). V2.0 uç noktası tarafından güvenli hale getirilmiş kaynaklara erişmek için kullanılan access_tokens güvenli bir şekilde almak üzere uygulama akışını sağlar. 
 
 ## <a name="protocol-diagram"></a>Protokol diyagramı
+
 Yerel/mobil uygulama için tüm kimlik doğrulama akışı, yüksek düzeyde, şöyle bir bit görünür:
 
 ![OAuth yetkilendirme kod akışı](./media/v2-oauth2-auth-code-flow/convergence_scenarios_native.png)
 
 ## <a name="request-an-authorization-code"></a>İstek bir yetkilendirme kodu
+
 Kullanıcıya yönlendiren istemci yetkilendirme kod akışı başlar `/authorize` uç noktası. Bu istekte istemci kullanıcıdan almak için gerekli olan izinleri belirtir:
 
 ```
@@ -57,8 +58,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Bu isteğin yürütülmesi için aşağıdaki bağlantıya tıklayın! Oturum açtıktan sonra tarayıcınızı için yeniden yönlendirilmesi gereken `https://localhost/myapp/` ile bir `code` adres çubuğundaki.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
-> 
-> 
 
 | Parametre             |             | Açıklama                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-----------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -80,6 +79,7 @@ Bu noktada, kullanıcı kimlik bilgilerini girin ve kimlik doğrulamasını tama
 V2.0 uç noktası kullanıcının kimliğini doğrular ve onayı veren sonra uygulamanızı belirtilen bir yanıt döndürür `redirect_uri`, bölümünde belirtilen yöntemi kullanarak `response_mode` parametresi.
 
 #### <a name="successful-response"></a>Başarılı yanıt
+
 Başarılı yanıt kullanarak bir `response_mode=query` gibi görünür:
 
 ```
@@ -94,6 +94,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | durum     | State parametresi istekte yer alıyorsa aynı değeri yanıt olarak görünmelidir. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir.                                            |
 
 #### <a name="error-response"></a>Hata yanıtı
+
 Hata yanıtları da gönderilebilir için `redirect_uri` uygulama bunları uygun şekilde işleyebilmesi için:
 
 ```
@@ -108,6 +109,7 @@ error=access_denied
 | error_description | Bir geliştirici bir kimlik doğrulama hatası kök nedenini belirlemenize yardımcı olabilecek belirli bir hata iletisi.          |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Yetkilendirme uç noktası hataları için hata kodları
+
 Aşağıdaki tabloda, döndürülen çeşitli hata kodları açıklanmaktadır `error` hata yanıtı parametresi.
 
 | Hata Kodu                | Açıklama                                                                                                           | İstemci eylemi                                                                                                                                                                                                                               |
@@ -123,6 +125,7 @@ Aşağıdaki tabloda, döndürülen çeşitli hata kodları açıklanmaktadır `
 |interaction_required       | İstek, kullanıcı etkileşimi gerektirir. | Bir ek kimlik doğrulama adımı veya onay gereklidir. Gerek olmadan isteği yeniden deneyin `prompt=none`. |
 
 ## <a name="request-an-access-token"></a>İstek bir erişim belirteci
+
 Bir authorization_code edindiğiniz ve kullanıcı tarafından izin verilen göre kullanmak `code` için bir `access_token` istenen kaynağa. Göndererek bunu bir `POST` isteği `/token` uç noktası:
 
 ```
@@ -142,8 +145,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Postman içinde bu isteğin yürütülmesi deneyin! (Değiştirmeyi unutmayın `code`) [ ![Postman içinde çalıştırın](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
-> 
-> 
 
 | Parametre     |                       | Açıklama                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |---------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -155,7 +156,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri  | gerekli              | Authorization_code almak için kullanılan aynı redirect_uri değer.                                                                                                                                                                                                                                                                                                                                                             |
 | client_secret | Web apps için gerekli | Uygulama kayıt Portalı'nda uygulamanız için oluşturduğunuz uygulama gizli anahtarı. Client_secrets güvenilir bir şekilde cihazlarda depolanan olamaz çünkü yerel bir uygulamada kullanılmamalıdır. Web uygulamaları ve web client_secret güvenli bir şekilde sunucu tarafında depolama yeteneği olan API'leri için gereklidir.  İstemci gizli anahtarı gönderilmeden önce URL kodlamalı olmalıdır.                                                                                                                    |
 | code_verifier | isteğe bağlı              | Authorization_code elde etmek için kullanılan aynı code_verifier. PKCE bir yetkilendirme kodu verme istekte kullanılan gereklidir. Daha fazla bilgi için [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+
 #### <a name="successful-response"></a>Başarılı yanıt
+
 Başarılı bir token yanıt şöyle görünecektir:
 
 ```json
@@ -174,8 +177,8 @@ Başarılı bir token yanıt şöyle görünecektir:
 | token_type    | Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür                                                                                                                                                                                                                                                                                                                                                                           |
 | expires_in    | Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil.                                                                                                                                                                                                                                                                                                                                                                                                       |
 | scope         | Access_token için geçerli olan kapsamları.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| refresh_token | OAuth 2.0 yenileme belirteci. Bu belirteç kullanabilecek geçerli erişim belirtecinin süresi dolduktan sonra ek erişim belirteçlerini almak. Refresh_tokens uzun süreli ve uzun süre için kaynaklarına erişimi korumak için kullanılabilir. Daha fazla ayrıntı için başvurmak [v2.0 belirteç başvurusu](v2-id-and-access-tokens.md). <br> **Not:** yalnızca sağlanan if `offline_access` kapsam istendi.                                               |
-| id_token      | Bir işaretsiz JSON Web Token (JWT). Uygulama can base64Url isteğini açan kullanıcı hakkında bilgi için bu belirteci parçalarını kodunu çözer. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [v2.0 uç noktası belirteç başvurusu](v2-id-and-access-tokens.md). <br> **Not:** yalnızca sağlanan if `openid` kapsam istendi. |
+| refresh_token | OAuth 2.0 yenileme belirteci. Bu belirteç kullanabilecek geçerli erişim belirtecinin süresi dolduktan sonra ek erişim belirteçlerini almak. Refresh_tokens uzun süreli ve uzun süre için kaynaklarına erişimi korumak için kullanılabilir. Bir erişim belirteci yenileme ile ilgili daha fazla ayrıntı için bkz [bölümüne](#refresh-the-access-token). <br> **Not:** yalnızca sağlanan if `offline_access` kapsam istendi.                                               |
+| id_token      | Bir işaretsiz JSON Web Token (JWT). Uygulama isteği açan kullanıcı hakkında bilgi için bu belirteci parçalarını çözebilen. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [ `id_token reference` ](id-tokens.md). <br> **Not:** yalnızca sağlanan if `openid` kapsam istendi. |
 #### <a name="error-response"></a>Hata yanıtı
 Hata yanıtları gibi görünür:
 
@@ -202,6 +205,7 @@ Hata yanıtları gibi görünür:
 | correlation_id    | Tanılama'da bileşenlerinde yardımcı olabilecek isteği için benzersiz bir tanımlayıcı.                             |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Belirteç uç noktası hataları için hata kodları
+
 | Hata Kodu              | Açıklama                                                                                                           | İstemci eylemi                                                                                                                                                                                                                               |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | invalid_request         | Gerekli parametre eksik gibi protokol hatası.                                                               | Düzeltin ve isteği yeniden gönderin                                                                                                                                                                                                                |
@@ -214,6 +218,7 @@ Hata yanıtları gibi görünür:
 | temporarily_unavailable | Sunucunun geçici olarak isteği işleyemeyecek kadar meşgul.                                                            | İsteği yeniden deneyin. İstemci uygulama, kullanıcıya, yanıtına bir geçici koşul nedeniyle ertelendi açıklayabilir.                                                                                                                |
 
 ## <a name="use-the-access-token"></a>Erişim belirteci kullanın
+
 Başarıyla alındı göre bir `access_token`, içine ekleyerek Web API'lerine isteklerinde belirteci kullanabilirsiniz `Authorization` üst bilgi:
 
 > [!TIP]
@@ -228,6 +233,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ## <a name="refresh-the-access-token"></a>Erişim belirteci yenileyin
+
 Access_tokens kısa süreli ve kaynaklara erişmeye devam etmek için süresi dolduktan sonra bunları yenilemeniz gerekir. Başka bir göndererek yapabilirsiniz `POST` isteği `/token` uç nokta, bu sefer sağlayan `refresh_token` yerine `code`:
 
 ```
@@ -261,6 +267,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_secret | Web apps için gerekli | Uygulama kayıt Portalı'nda uygulamanız için oluşturduğunuz uygulama gizli anahtarı. Client_secrets güvenilir bir şekilde cihazlarda depolanan olamaz çünkü yerel bir uygulamada kullanılmamalıdır. Web uygulamaları ve web client_secret güvenli bir şekilde sunucu tarafında depolama yeteneği olan API'leri için gereklidir.                                                                                                                                                    |
 
 #### <a name="successful-response"></a>Başarılı yanıt
+
 Başarılı bir token yanıt şöyle görünecektir:
 
 ```json
@@ -280,7 +287,7 @@ Başarılı bir token yanıt şöyle görünecektir:
 | expires_in    | Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil.                                                                                                                                                                                                                                                                                                                                                                                                        |
 | scope         | Access_token için geçerli olan kapsamları.                                                                                                                                                                                                                                                                                                                                                                                                          |
 | refresh_token | Yeni bir OAuth 2.0 yenileme belirteci. Eski yenileme belirteci, yenileme belirteçleri için mümkün olan en kısa sürece geçerli kalır emin olmak için bu yeni alım yenileme belirteci ile değiştirmeniz gerekir. <br> **Not:** yalnızca sağlanan if `offline_access` kapsam istendi.                                                                                                                                                                                                |
-| id_token      | Bir işaretsiz JSON Web Token (JWT). Uygulama can base64Url isteğini açan kullanıcı hakkında bilgi için bu belirteci parçalarını kodunu çözer. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [v2.0 uç noktası belirteç başvurusu](v2-id-and-access-tokens.md). <br> **Not:** yalnızca sağlanan if `openid` kapsam istendi. |
+| id_token      | Bir işaretsiz JSON Web Token (JWT). Uygulama isteği açan kullanıcı hakkında bilgi için bu belirteci parçalarını çözebilen. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [ `id_token reference` ](id-tokens.md). <br> **Not:** yalnızca sağlanan if `openid` kapsam istendi. |
 
 #### <a name="error-response"></a>Hata yanıtı
 

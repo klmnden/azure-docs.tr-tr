@@ -1,6 +1,6 @@
 ---
-title: 'Bing özel arama: özel aramanızı paylaşma | Microsoft Docs'
-description: Bir özel arama örneğini açıklar
+title: 'Bing özel arama: özel arama paylaşma | Microsoft Docs'
+description: Özel arama örneği paylaşmayı açıklar
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,20 +9,29 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7e513b3e565e5edf06dae8f11404203b4154e182
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4a9761ce0671b57d802fe332c92e32d1f410fa6f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352853"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960966"
 ---
-# <a name="share-your-custom-search-instance"></a>Özel arama örneğinizi paylaşma
-Yalnızca kendi e-posta adresini kullanarak kimseyle özel arama örneğinizi paylaşabilirsiniz. Paylaşımı özel arama örneklerinizi değiştirme başkalarına sağlar. Oturum [özel arama](https://customsearch.ai), bir özel arama örneği seçin ve (dişli görünür) ayarlar simgesine tıklayın. İçinde **paylaşmak bilgisayarınızı örneği** bölümünde, örneğinizle paylaşmak tıklatıp kişinin e-posta adresini girin **paylaşmak**. E-posta adresi başlıklı listede gösterilen **örneği paylaşılan ile**. Özel aramanızı ile paylaşmak istediğiniz her kişi için yineleyin. 
+# <a name="share-your-custom-search-instance"></a>Özel arama örneğinizin paylaşın
 
-Kişinin e-posta listesine eklemek için bir özel arama hesabınız için gerekli değildir. Yapılandırma değişiklikleri yapmadan önce özel arama için kaydolmanız gerekir. Örneğine sahip biri paylaştıktan sonra kullanıcılar kendi özel arama örnekleri listesinde görürsünüz. Yalnızca bir kişinin bir örneği aynı anda değiştirebilirsiniz. Başka birinin düzenleme örneği değiştirmeye çalışırsanız, bir uyarı gösterilir. Bir örneği en fazla 10 kullanıcı ile paylaşılabilir.
+Kolayca işbirliğine dayalı düzenleme ve takım üyeleri ile paylaşarak örneğiniz test izin verebilirsiniz. Örneğiniz yalnızca e-posta adresi kullanarak herkesle paylaşabilirsiniz. Örneğini paylaşmak için:
 
-## <a name="stop-sharing"></a>Paylaşmayı Durdur
-Birisiyle örneğini paylaşmayı durdurmak için e-posta adreslerini listeden kaldırmak için Kaldır simgesini kullanın.
+- Oturum [özel arama](https://customsearch.ai)
+- Bir özel arama örneği seçin
+- (Bir dişli görünür) ayarlar simgesine tıklayın. 
+- Altında **bilgisayarınızı örneği paylaşma**, örneğinizle paylaşıp tıklayın kişinin e-posta adresi girin **paylaşmak**. 
+
+E-posta adresi ekledikten sonra kümeye eklenirse **paylaşılan örnek** listesi. Örneğinizle paylaşmak istediğiniz her kişi için işlemi tekrarlayın. 
+
+Bir kişinin e-posta listesine eklemek için bir özel arama hesabınız için gerekli değildir. Bunlar yine de yapılandırma değişiklikleri yapmadan önce özel arama için kaydolmak gerekir. Bir örneği biriyle paylaştıktan sonra bunu kendi özel arama örnekleri listesinde görürsünüz. Yalnızca tek bir kişi bir örneği aynı anda değiştirebilirsiniz. Başka birinin düzenlemekte olduğu bir örneği değiştirmeye çalışırsanız, bir uyarı gösterilir. En fazla 10 kullanıcı ile paylaşılan bir örnek.
+
+## <a name="stop-sharing"></a>Paylaşımı Durdur
+
+Örneği biriyle paylaşmayı durdurmak için e-posta adresi listeden kaldırmak için remove simgesini kullanın. Bu örnek ayrıca örnekleri kendi iki listesinden kaldırır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

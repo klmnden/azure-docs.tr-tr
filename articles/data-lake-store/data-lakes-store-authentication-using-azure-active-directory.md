@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: feb35336681376f6f4bd262418146d931f3d1e83
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b74696be433b00a5afb3416295b6317975aa6873
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294892"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967668"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak kimlik doğrulaması ile Azure Data Lake depolama Gen1
 
@@ -35,7 +35,7 @@ Aşağıdaki tabloda, son kullanıcı ve hizmetten hizmete kimlik doğrulama mek
 * Boş hücreleri kimlik doğrulama seçeneği desteklenmediğini gösterir.
 
 
-|Bu kimlik doğrulama seçeneği kullan...                   |.NET         |Java     |PowerShell |CLI 2.0 | Python   |REST     |
+|Bu kimlik doğrulama seçeneği kullan...                   |.NET         |Java     |PowerShell |Azure CLI | Python   |REST     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
 |Son kullanıcı (olmadan MFA **)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔ *](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(kullanım dışı)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
 |Son kullanıcı (MFA ile)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |

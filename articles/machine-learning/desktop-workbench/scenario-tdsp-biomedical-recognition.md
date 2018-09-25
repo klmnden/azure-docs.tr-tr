@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f6ce43c2d290bacee10e102cc6c382981db9917f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 775d0701f9eeaf7d26a83b814711bea630efb2a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42062135"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973771"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Team Data Science işlem (TDSP) şablonu kullanarak biyomedikal varlık tanıma
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Varlık ayıklama, bilgi ayıklama bir alt görevi olan (diğer adıyla [adlandırılmış varlık tanıma (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), varlık Öbekleme ve varlık kimliği). Yapılandırılmamış metinden varlık ayıklama gibi karmaşık bir doğal dil işlemeyi (NLP) görev çözmek için Azure Machine Learning Workbench'i kullanma vurgulamak için bu gerçek dünya senaryoları amacı şöyledir:
 
@@ -95,7 +100,7 @@ Aşağıdaki kodu içeren gerçek senaryosunun ortak GitHub deposu bağlantısı
 ## <a name="prerequisites"></a>Önkoşullar 
 
 * Bir Azure [abonelik](https://azure.microsoft.com/free/)
-* Azure Machine Learning Workbench'i. Bkz: [Yükleme Kılavuzu](../service/quickstart-installation.md). Şu anda Azure Machine Learning Workbench yalnızca şu işletim sistemlerine yüklenebilir: 
+* Azure Machine Learning Workbench'i. Bkz: [Yükleme Kılavuzu](quickstart-installation.md). Şu anda Azure Machine Learning Workbench yalnızca şu işletim sistemlerine yüklenebilir: 
     * Windows 10 veya Windows Server 2016
     * macOS Sierra (veya daha yeni)
 
@@ -118,7 +123,7 @@ Tüm gerekli bağımlılıkları senaryo proje klasörü altında aml_config/con
 
 ### <a name="basic-instructions-for-azure-machine-learning-aml-workbench"></a>Azure Machine Learning (AML) workbench'in temel yönergeler
 * [Genel Bakış](../service/overview-what-is-azure-ml.md)
-* [Yükleme](../service/quickstart-installation.md)
+* [Yükleme](quickstart-installation.md)
 * [TDSP kullanma](how-to-use-tdsp-in-azure-ml.md)
 * [Nasıl dosyalarını okuma ve yazma](how-to-read-write-files.md)
 * [Jupyter not defterlerini kullanma](how-to-use-jupyter-notebooks.md)

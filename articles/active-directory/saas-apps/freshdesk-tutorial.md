@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/17/2018
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: db4750e01b62835cf08fd52e3288e94aea539b26
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ce302db74f831e67b576e4c0001f21473fd7f2e0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161331"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037533"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Öğretici: Azure Active Directory FreshDesk ile tümleştirme
 
@@ -85,7 +85,7 @@ Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adl
 
 Tek iş için oturum açma için Azure AD ne FreshDesk karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının FreshDesk ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Değerini atayarak bu bağlantı ilişki kurulduktan **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** FreshDesk içinde.
+Bu bağlantı ilişki değerini atayarak oluşturulduğunda **kullanıcı adı** değerini Azure AD'de **e-posta adresi** FreshDesk içinde.
 
 Yapılandırma ve Azure AD çoklu oturum açma FreshDesk ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
@@ -116,47 +116,46 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve F
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<tenant-name>.freshdesk.com` veya başka bir değer Freshdesk önerdi.
 
     > [!NOTE]
-    > Bu gerçek değer olmadığını unutmayın. Değerini gerçek oturum açma URL'si ile güncelleştirmeniz gerekir. İlgili kişi [FreshDesk istemci Destek ekibine](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) bu değeri alınamıyor.  
+    > Bu gerçek değer olmadığını unutmayın. Değerini gerçek oturum açma URL'si ile güncelleştirmeniz gerekir. İlgili kişi [FreshDesk istemci Destek ekibine](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) bu değeri alınamıyor.
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+4. Uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir. Varsayılan değer olan **kullanıcı tanımlayıcısı** olduğu **user.userprincipalname** ancak **FreshDesk** bu kullanıcının e-posta adresi ile eşlenmesini bekliyor. Bunun için kullanabileceğiniz **user.mail** listeden öznitelik veya kuruluş yapılandırmanıza göre uygun öznitelik değeri kullanın.
+
+    ![Çoklu oturum açmayı yapılandırın](./media/freshdesk-tutorial/tutorial_attribute.png)
+
+5. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png)
 
     > [!NOTE]
     > Herhangi bir sorun varsa, lütfen bakın [bağlantı](https://support.freshdesk.com/support/discussions/topics/317543).
 
-5. Tıklayın **Kaydet** düğmesi.
+6. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/freshdesk-tutorial/tutorial_general_400.png)
 
-6. Yükleme **OpenSSL** sisteminizde, sisteminizde yüklü değilse.
+7. Yükleme **OpenSSL** sisteminizde, sisteminizde yüklü değilse.
 
-7. Açık **komut istemi** ve aşağıdaki komutları çalıştırın:
+8. Açık **komut istemi** ve aşağıdaki komutları çalıştırın:
 
     a. Girin `openssl x509 -inform DER -in FreshDesk.cer -out certificate.crt` değeri komut isteminde.
 
     > [!NOTE]
     > Burada **FreshDesk.cer** Azure portalından indirilen olan sertifikadır.
 
-    b. Girin `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` değeri komut isteminde. Burada **certificate.crt** önceki adımda oluşturulan çıktı sertifikadır.
+    b. Girin `openssl x509 -noout -fingerprint -sha256 -inform pem -in certificate.crt` değeri komut isteminde. 
+    
+    > [!NOTE]
+    > Burada **certificate.crt** önceki adımda oluşturulan çıktı sertifikadır.
 
     c. Kopyalama **parmak izi** değeri ve Not Defteri'ne yapıştırın. İki nokta üst üste alınan parmak izini kaldırın ve son parmak izi değerini alın.
 
-8. Üzerinde **FreshDesk yapılandırma** bölümünde **yapılandırma FreshDesk** yapılandırma oturum açma penceresini açın. SAML çoklu oturum açma hizmet URL'si ve oturum kapatma URL'si kopyalama **hızlı başvuru** bölümü.
+9. Üzerinde **FreshDesk yapılandırma** bölümünde **yapılandırma FreshDesk** yapılandırma oturum açma penceresini açın. SAML çoklu oturum açma hizmet URL'si ve oturum kapatma URL'si kopyalama **hızlı başvuru** bölümü.
 
     ![Çoklu oturum açmayı yapılandırın](./media/freshdesk-tutorial/tutorial_freshdesk_configure.png)
 
-9. Farklı bir web tarayıcı penceresinde Freshdesk şirket sitenize yönetici olarak oturum.
+10. Farklı bir web tarayıcı penceresinde Freshdesk şirket sitenize yönetici olarak oturum.
 
-10. Üstteki menüden **yönetici**.
-
-    ![Yönetici](./media/freshdesk-tutorial/IC776768.png "yönetici")
-
-11. İçinde **genel ayarlar** sekmesinde **güvenlik**.
-  
-    ![Güvenlik](./media/freshdesk-tutorial/IC776769.png "güvenlik")
-
-12. İçinde **güvenlik** bölümünde, aşağıdaki adımları gerçekleştirin:
+11. Seçin **ayarlar simgesine** ve **güvenlik** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum](./media/freshdesk-tutorial/IC776770.png "tekli oturum")
   
@@ -229,22 +228,19 @@ FreshDesk söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir gö
 
    ![Aracı bilgilerini](./media/freshdesk-tutorial/IC776775.png "aracısı bilgileri")
 
-   a. İçinde **tam adı** metin sağlamak istediğiniz Azure AD hesabı adını yazın.
+   a. İçinde **e-posta** metin sağlamak istediğiniz Azure AD hesabını Azure AD türü e-posta adresi.
 
-   b. İçinde **e-posta** metin sağlamak istediğiniz Azure AD hesabını Azure AD türü e-posta adresi.
+   b. İçinde **tam adı** metin sağlamak istediğiniz Azure AD hesabı adını yazın.
 
    c. İçinde **başlık** metin sağlamak istediğiniz Azure AD hesabı adını yazın.
 
-   d. Seçin **aracıları rol**ve ardından **atama**.
-
-   e. **Kaydet**’e tıklayın.
+   d. **Kaydet**’e tıklayın.
 
     >[!NOTE]
     >Azure AD hesap sahibinin etkinleştirilmeden önce hesabı onaylamak için bir bağlantı içeren bir e-posta alırsınız.
     >
     >[!NOTE]
-    >Herhangi diğer Freshdesk kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak Freshdesk tarafından sağlanan.
-    Freshdesk'e.
+    >Herhangi diğer Freshdesk kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için FreshDesk AAD kullanıcı hesapları sağlamak üzere Freshdesk tarafından sağlanan.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 

@@ -11,14 +11,18 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 5a772f8792c02139e45977e207b5be4bebc63a9c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a2dff4dd57bdb0b010bbb4568d796f1e197a728
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908241"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971510"
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Değişiklikleri devam ettirmeden ve büyük dosyaları ile çalışma
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning denemesi hizmeti ile yürütme hedeflerini çeşitli yapılandırabilirsiniz. Yerel bir yerel bilgisayarda veya yerel bir bilgisayardaki bir Docker kapsayıcısı gibi bazı hedefler. Diğer uzak bir uzak makine veya bir HDInsight kümesi üzerinde bir Docker kapsayıcısı gibi. Daha fazla bilgi için [genel bakış Azure Machine Learning deneme yürütme hizmeti](experimentation-service-configuration.md). 
 
 Bir hedef yürütmeden önce işlem hedef proje klasörüne kopyalamanız gerekir. Bu nedenle bile geçici bir yerel klasör bu amaç için kullanılan bir yerel yürütme ile yapmanız gerekir. 
@@ -48,6 +52,9 @@ Genel kullanım örnekleri şunlardır:
 * Modeli
 * Bir veri kümesi oluşturma
 * Model eğitiminin yürütmeyi bir parçası olarak bir resim dosyası olarak bir grafik çizim 
+
+>[!Note]
+> Çalıştırma sonrasında çıkış klasöründeki izlenen dosyasının en büyük boyutu 512 MB'dir. Bu komut çıktı klasöründe 512 MB değerinden daha büyük bir dosya oluşturur, burada toplanmaz anlamına gelir. 
 
 Ayrıca, bir önceki tarafından üretilmiş bir çıktı dosyası (örneğin, bir model) çalıştırın ve bir sonraki göreve (örneğin, Puanlama) kullanın çalıştığında, select arasında çıkışları karşılaştırmak istediğiniz.
 

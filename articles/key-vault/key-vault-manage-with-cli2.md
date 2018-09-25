@@ -1,6 +1,6 @@
 ---
 title: CLI kullanarak Azure Key Vault yönetme | Microsoft Docs
-description: CLI 2.0 kullanarak anahtar Kasası'nda ortak görevleri otomatik hale getirmek için bu makaleyi kullanın.
+description: Azure CLI kullanarak anahtar Kasası'nda ortak görevleri otomatik hale getirmek için bu makaleyi kullanın.
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: f88e98561a88380fbe40ecc9627ffabe39b0071c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 00d79462fcaad785820e3879079414c88c958a89
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295183"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961493"
 ---
-# <a name="manage-key-vault-using-cli-20"></a>CLI 2.0 kullanarak Key Vault yönetme
+# <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI ile anahtar Kasası'nı yönetme 
 
-Bu makalede, Azure CLI 2.0 kullanarak Azure Key Vault ile çalışmaya başlamak nasıl ele alınmaktadır. Şirket bilgileri görebilirsiniz:
+Bu makalede ele alınmaktadır kullanarak Azure anahtar kasası ile çalışmaya başlamak nasıl Azure CLI.  Şirket bilgileri görebilirsiniz:
 
-- Önkoşullar
 - Azure'da sağlamlaştırılmış bir kapsayıcı (kasa) oluşturma
 - Bir anahtar kasasına bir anahtar, parola veya sertifika ekleme
 - Bir uygulamayı Azure Active Directory'ye kaydetme
@@ -50,7 +49,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Bu makalede Azure CLI komutlarını kullanmak için aşağıdakilerin olması gerekir:
 
 * Bir Microsoft Azure aboneliği. Hesabınız yoksa, [ücretsiz deneme için kaydolabilirsiniz](https://azure.microsoft.com/pricing/free-trial).
-* Komut satırı arabirimi 2.0 veya sonraki bir sürümü. En son sürümünü yüklemek için bkz: [yükleme ve yapılandırma Azure platformlar arası komut satırı arabirimi 2.0](/cli/azure/install-azure-cli).
+* Azure komut satırı arabirimi 2.0 veya sonraki bir sürümü. En son sürümünü yüklemek için bkz: [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 * Bir anahtar ya da bu makalede oluşturduğunuz parola kullanmak için yapılandırılmış bir uygulama. [Microsoft Yükleme Merkezi](http://www.microsoft.com/download/details.aspx?id=45343)'nde örnek bir uygulama kullanılabilir. Yönergeler için dahil edilen Benioku dosyasına bakın.
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Azure platformlar arası komut satırı arabirimi ile Yardım alma
@@ -67,7 +66,7 @@ az account set -h
 Ayrıca Azure platformlar arası komut satırı arabirimi içinde Azure Resource Manager hakkında bilgi almak için aşağıdaki makaleleri okuyabilirsiniz:
 
 * [Azure CLI'yı yükleme](/cli/azure/install-azure-cli)
-* [Azure CLI 2.0 ile çalışmaya başlama](/cli/azure/get-started-with-azure-cli)
+* [Azure CLI ile çalışmaya başlama](/cli/azure/get-started-with-azure-cli)
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Azure'da sağlamlaştırılmış bir kapsayıcı (kasa) oluşturma
 
@@ -200,7 +199,7 @@ Bir anahtar kasası kullanan uygulamaların, Azure Active Directory'den bir beli
 
 Uygulamanın bir belirteç almak için bu değerlerin her ikisini de Azure Active Directory'ye sunması gerekir. Bir uygulama bir belirteç almak üzere nasıl yapılandırılacağı uygulamaya göre değişir. [Key Vault örnek uygulaması](https://www.microsoft.com/download/details.aspx?id=45343) için uygulama sahibi bu değerleri app.config dosyasında ayarlar.
 
-Bir uygulamayı Azure Active Directory'ye kaydetme hakkında ayrıntılı adımlar için başlıklı makaleleri gözden geçirmeniz gereken [uygulamaları Azure Active Directory ile tümleştirme](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md), [Azure Active oluşturmak için portalı kullanma Dizin uygulaması ve kaynaklara erişebilen hizmet sorumlusu](../azure-resource-manager/resource-group-create-service-principal-portal.md), ve [Azure, Azure CLI 2.0 ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli).
+Bir uygulamayı Azure Active Directory'ye kaydetme hakkında ayrıntılı adımlar için başlıklı makaleleri gözden geçirmeniz gereken [uygulamaları Azure Active Directory ile tümleştirme](../active-directory/develop/active-directory-integrating-applications.md), [Azure Active oluşturmak için portalı kullanma Dizin uygulaması ve kaynaklara erişebilen hizmet sorumlusu](../azure-resource-manager/resource-group-create-service-principal-portal.md), ve [Azure, Azure CLI ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Bir uygulamayı Azure Active Directory'ye kaydetmek için:
 

@@ -1,25 +1,25 @@
 ---
 title: Azure Depolama’da Tanılama Verilerini Depolama ve Görüntüleme
-description: Azure Tanılama verileri Azure depolama alanına almak ve görüntüleme
+description: Azure Tanılama verileri Azure Depolama'ya alma ve görüntüleme
 services: azure-monitor
-author: thraka
+author: jpconnock
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
-ms.author: adegeo
+ms.author: jeconnoc
 ms.component: diagnostic-extension
-ms.openlocfilehash: 6590e6991f07b7315c09a995152879c991fafcef
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 733c84ef9e6cee1a8ea488f0007ade1e72f39737
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267671"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033263"
 ---
-# <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Storage deposu ve görünüm Tanılama verileri
-Microsoft Azure storage öykünücüsü veya Azure depolama transfer sürece Tanılama verileri kalıcı olarak depolanmaz. Bir kez depolama biriminde, onu birkaç kullanılabilen araçlar biriyle görüntülenebilir.
+# <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Depolama'da tanılama verilerini Store ve görüntüleme
+Microsoft Azure storage öykünücüsü veya Azure depolama için Aktarım sürece tanılama verilerini kalıcı olarak depolanmaz. Bir kez depolama alanında, çeşitli araçlar biriyle görüntülenebilir.
 
 ## <a name="specify-a-storage-account"></a>Bir depolama hesabı belirtin
-ServiceConfiguration.cscfg dosyasında kullanmak istediğiniz depolama hesabı belirtin. Hesap bilgileri, bir bağlantı dizesi bir yapılandırma ayarı olarak tanımlanır. Aşağıdaki örnek, Visual Studio'da yeni bir bulut hizmeti projesi için oluşturulan varsayılan bağlantı dizesini gösterir:
+ServiceConfiguration.cscfg dosyasında kullanmak istediğiniz depolama hesabını belirtin. Hesap bilgileri, bir bağlantı dizesi bir yapılandırma ayarı olarak tanımlanır. Aşağıdaki örnek, Visual Studio'da yeni bir bulut hizmeti projesi için oluşturulan varsayılan bağlantı dizesi gösterir:
 
 ```
     <ConfigurationSettings>
@@ -27,9 +27,9 @@ ServiceConfiguration.cscfg dosyasında kullanmak istediğiniz depolama hesabı b
     </ConfigurationSettings>
 ```
 
-Bir Azure depolama hesabı için hesap bilgilerini sağlamak için bu bağlantı dizesi değiştirebilirsiniz.
+Bir Azure depolama hesabı için hesap bilgileri sağlamak için bu bağlantı dizesi değiştirebilirsiniz.
 
-Toplanacak tanılama veri türüne bağlı olarak, Azure tanılama Blob hizmeti veya tablo hizmeti kullanır. Aşağıdaki tabloda, kalıcı veri kaynaklarını ve bunların biçimi gösterir.
+Toplanmakta olan tanılama veri türüne bağlı olarak, Azure Tanılama veya Blob hizmeti, hem de tablo hizmeti kullanır. Kalıcı veri kaynakları ve bunların biçimleri aşağıdaki tabloda gösterilmektedir.
 
 | Veri kaynağı | Depolama biçimi |
 | --- | --- |
@@ -42,41 +42,41 @@ Toplanacak tanılama veri türüne bağlı olarak, Azure tanılama Blob hizmeti 
 | Kilitlenme bilgi dökümleri |Blob |
 | Özel hata günlükleri |Blob |
 
-## <a name="transfer-diagnostic-data"></a>Tanılama veri aktarımı girişi
-Tanılama veri aktarım isteği, SDK 2.5 ve daha sonra yapılandırma dosyası aracılığıyla ortaya çıkabilir. Yapılandırmada belirtilen zamanlanan aralıklarla tanılama veri aktarın.
+## <a name="transfer-diagnostic-data"></a>Tanılama veri aktarımı
+SDK 2.5 ve daha sonra tanılama veri aktarım isteğinin yapılandırma dosyası aracılığıyla ortaya çıkabilir. Zamanlanan aralıklarda yapılandırmasında belirtilen tanılama veri aktarabilir.
 
-SDK 2.4 ve önceki Tanılama verileri de yapılandırma dosyası aracılığıyla programlı olarak aktarmak isteyebilir. Programsal yaklaşım isteğe bağlı aktarımları yapmanıza olanak sağlar.
+SDK 2.4 ve önceki Tanılama verileri de yapılandırma dosyası programlı olarak aktarmak isteyebilir. Programlı bir yaklaşım, isteğe bağlı aktarımları da sağlar.
 
 > [!IMPORTANT]
-> Bir Azure depolama hesabına tanılama veri aktarırken tanılama verilerini kullanan depolama alanı kaynakları için ücrete neden.
+> Azure depolama hesabınız için tanılama veri aktarırken, tanılama verilerinizi kullanan depolama kaynakları için ücret yansıtılmaz.
 > 
 > 
 
-## <a name="store-diagnostic-data"></a>Tanılama verileri depola
-Günlük verileri Blob veya tablo depolama aşağıdaki adlarla depolanır:
+## <a name="store-diagnostic-data"></a>Tanılama veri Store
+Günlük verilerini aşağıdaki adlara sahip Blob veya tablo depolama alanında depolanır:
 
-**tabloları**
+**Tabloları**
 
-* **WadLogsTable** - İzleme dinleyicisi kullanarak kod içinde yazılmış günlükleri.
-* **WADDiagnosticInfrastructureLogsTable** -Tanılama izleme ve yapılandırma değişikliklerini.
-* **WADDirectoriesTable** – tanı İzleyicisi İzleme dizinleri.  Bu, IIS günlüklerini içerir, IIS istek günlüklerini ve özel dizinleri başarısız oldu.  Blob günlük dosyasının konumunu kapsayıcı alanında belirtilen ve blob adını RelativePath alanıdır.  Azure sanal makinede var gibi AbsolutePath alan dosyasının adını ve konumunu gösterir.
+* **WadLogsTable** - İzleme dinleyicisi kullanarak kod içinde yazılan günlükleri.
+* **WADDiagnosticInfrastructureLogsTable** -Tanılama izleme ve yapılandırma değişiklikleri.
+* **WADDirectoriesTable** – tanı İzleyicisi İzleme dizinleri.  IIS başarısız istek günlükleri ve özel dizinleri, bu IIS günlükler içerir.  Blob günlük dosyasının konumunu kapsayıcı alanında belirtilir ve blob adını RelativePath alandır.  Azure sanal makinesinde yeterdir AbsolutePath alan dosyasının adını ve konumunu belirtir.
 * **WADPerformanceCountersTable** – performans sayaçları.
 * **WADWindowsEventLogsTable** – Windows olayı günlüğe kaydeder.
 
 **Bloblar**
 
-* **wad denetimi kapsayıcısı** – (yalnızca SDK 2.4 ve önceki) Azure tanılama denetimleri XML yapılandırma dosyalarını içerir.
-* **wad IIS failedreqlogfiles** – IIS isteği başarısız oldu günlüklerdeki bilgiler içerir.
-* **wad IIS logfiles** – IIS günlüklerini hakkında bilgiler içerir.
-* **"özel"** – özel bir kapsayıcı dayalı tanı İzleyicisi tarafından izlenen dizinleri yapılandırma.  Bu blob kapsayıcısının adı WADDirectoriesTable belirtilir.
+* **wad denetim kapsayıcısı** – (yalnızca SDK 2.4 ve önceki) Azure tanılama denetimleri XML yapılandırma dosyalarını içerir.
+* **wad IIS failedreqlogfiles** – IIS başarısız istek günlükleri bilgilerini içerir.
+* **wad IIS logfiles** – IIS günlükler hakkında bilgi içerir.
+* **"özel"** – özel bir kapsayıcı tabanlı tanı İzleyicisi tarafından izlenen dizinleri yapılandırma.  Bu blob kapsayıcının adını WADDirectoriesTable içinde belirtilir.
 
-## <a name="tools-to-view-diagnostic-data"></a>Tanılama verileri görüntülemek için Araçlar
-Depolama birimine aktarıldıktan sonra verileri görüntülemek birkaç araç bulunmaktadır. Örneğin:
+## <a name="tools-to-view-diagnostic-data"></a>Tanılama verilerini görüntülemek için Araçlar
+Çeşitli araçları, depolamaya aktarıldıktan sonra verileri görüntülemek kullanılabilir. Örneğin:
 
-* Microsoft Visual Studio için Azure araçlarını yüklediyseniz, Visual Studio - sunucu Gezgini'nde, Azure Depolama düğümü sunucu Gezgini'nde salt okunur blob ve tablo verileri Azure depolama hesaplarından görüntülemek için kullanabilirsiniz. Yerel depolama öykünücüsü hesabınızdan verileri görüntüleyebilir ve ayrıca depolama hesaplarından Azure için oluşturduğunuz. Daha fazla bilgi için bkz: [gözatma ve Sunucu Gezgini ile depolama kaynaklarını yönetme](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
-* [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md) , Windows, OSX ve Linux Azure Storage ile kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
-* [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) , görüntülemek, indirin ve Azure üzerinde çalışan uygulamalar tarafından toplanan tanılama verilerini yönetmenize olanak sağlayan Azure tanılama Manager içerir.
+* Microsoft Visual Studio için Azure Araçları'nı yüklediyseniz, sunucu Gezgini'nde Visual Studio - Azure Depolama düğümü sunucu Gezgini'nde salt okunur blob ve tablo verilerini Azure depolama hesaplarınızı görüntülemek için kullanabilirsiniz. Yerel depolama öykünücüsü hesabınızdan verileri görüntüleyebilir ve ayrıca depolama hesapları için Azure oluşturduysanız. Daha fazla bilgi için [gözatma ve Sunucu Gezgini ile depolama kaynaklarını yönetme](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
+* [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, OSX ve Linux'ta Azure depolama verileriyle kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
+* [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) görüntüleyin, indirin ve Azure'da çalışan uygulamalar tarafından toplanan Tanılama verileri yönetme olanak tanıyan Azure tanılama Yöneticisi içerir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-[Bulut Hizmetleri uygulaması Azure Tanılama ile akışında izleme](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
+[Azure Tanılama ile bulut Hizmetleri uygulamasında akış izleme](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 

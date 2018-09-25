@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: e172b9d6a59f14f741a09450d31602b0d2d9ee5a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 66c3da4f14141bdb5c357dbabfaec5dabf0ab521
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412636"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971391"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Sanal makine uzantıları ve Linux için özellikleri
 
@@ -83,7 +83,7 @@ Azure VM uzantıları mevcut Vm'lerde çalıştıracağınız başka yapılandı
 
 Aşağıdaki yöntemlerden bir uzantı mevcut bir VM'ye karşı çalıştırmak için kullanılabilir.
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Azure VM uzantıları ile mevcut bir VM'ye karşı çalıştırılabilir [az vm uzantısı kümesi](/cli/azure/vm/extension#az-vm-extension-set) komutu. Aşağıdaki örnek özel betik uzantısı adlı bir VM karşı çalışan *myVM* adlı bir kaynak grubu içinde *myResourceGroup*:
 

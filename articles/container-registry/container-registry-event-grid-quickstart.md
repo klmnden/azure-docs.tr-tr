@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: marsma
-ms.openlocfilehash: 6ff83885ba80f0399f7b085970b1191e8e4cd999
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 4b29804690b951083810d4f75b68ff23fca44a44
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746517"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039624"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>Hızlı Başlangıç: kapsayıcı kayıt defteri olayları Event Grid'e göndermek.
 
@@ -141,20 +141,20 @@ Abonelik tamamlandığında aşağıdaki çıkışı oluşturmalıdır:
 
 ## <a name="trigger-registry-events"></a>Kayıt defteri olayları Tetikle
 
-Örnek uygulamayı açık ve çalışıyor ve Event Grid ile kayıt defteriniz için abone oldunuz göre bazı olaylar oluşturmak hazırsınız. Bu bölümde, ACR derlemesi oluşturun ve bir kapsayıcı görüntüsünü kayıt defterinize gönderme için kullanın. ACR Build Azure Container Registry'nin, yerel makinenizde Docker altyapısı gerek kalmadan bulutta kapsayıcı görüntülerini oluşturmanıza olanak sağlayan bir özelliktir.
+Örnek uygulamayı açık ve çalışıyor ve Event Grid ile kayıt defteriniz için abone oldunuz göre bazı olaylar oluşturmak hazırsınız. Bu bölümde, oluşturup bir kapsayıcı görüntüsünü kayıt defterinize gönderme ACR görevleri kullanın. ACR görevleri Azure Container Registry'nin, yerel makinenizde Docker altyapısı gerek kalmadan bulutta kapsayıcı görüntülerini oluşturmanıza olanak sağlayan bir özelliktir.
 
 ### <a name="build-and-push-image"></a>Derleme ve görüntü gönderme
 
-Bir GitHub deposunun içeriğini bir kapsayıcı görüntüsünü oluşturmak için aşağıdaki Azure CLI komutunu yürütün. Varsayılan olarak, ACR Build otomatik olarak başarıyla oluşturulmuş bir görüntüyü oluşturur, kayıt defterine gönderim `ImagePushed` olay.
+Bir GitHub deposunun içeriğini bir kapsayıcı görüntüsünü oluşturmak için aşağıdaki Azure CLI komutunu yürütün. Varsayılan olarak, ACR görevleri otomatik olarak başarıyla oluşturulmuş bir görüntüyü oluşturur, kayıt defterine gönderim `ImagePushed` olay.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 ```
 
-ACR derlemesi oluşturur ve sonra görüntünüzü gönderim aşağıdakine benzer bir çıktı görmeniz gerekir. Aşağıdaki örnek çıktıda uzatmamak için kısaltıldı.
+ACR görevler oluşturur ve sonra görüntünüzü gönderim aşağıdakine benzer bir çıktı görmeniz gerekir. Aşağıdaki örnek çıktıda uzatmamak için kısaltıldı.
 
 ```console
-$ az acr build -r $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -227,10 +227,10 @@ Azure Container Registry olay iletisi şema başvurusu Event Grid belgelerinde b
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, bir kapsayıcı kayıt defteri dağıtılan, görüntüyü ACR derlemesi ile oluşturulan, silinmiş ve Event grid'den olayların bir örnek uygulaması ile kayıt defterinin tüketilen. Ardından, taşıma hakkında bilgi edinmek için daha fazla bulutta, kapsayıcı görüntüleri oluşturma hakkında da dahil olmak üzere otomatik ACR Build öğreticiye üzerinde temel görüntü güncelleştirme derlemeleri:
+Bu hızlı başlangıçta, bir kapsayıcı kayıt defteri dağıtılan, görüntüyü ACR görevler ile oluşturulan, silinmiş ve Event grid'den olayların bir örnek uygulaması ile kayıt defterinin tüketilen. Ardından, taşıma hakkında bilgi edinmek için daha fazla bulutta, kapsayıcı görüntüleri oluşturma hakkında da dahil olmak üzere otomatik ACR görevleri öğreticiye üzerinde temel görüntü güncelleştirme derlemeleri:
 
 > [!div class="nextstepaction"]
-> [ACR derlemesi ile bulutta kapsayıcı görüntüleri oluşturma](container-registry-tutorial-quick-build.md)
+> [ACR görevler ile bulutta kapsayıcı görüntüleri oluşturma](container-registry-tutorial-quick-task.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

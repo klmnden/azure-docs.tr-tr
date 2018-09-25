@@ -1,142 +1,76 @@
 ---
-title: AudioInputStream kavramları
-description: AudioInputStream API'nin özelliklerine genel bakış.
+title: Konuşma SDK'sı ses giriş akışı kavramları
+description: Konuşma SDK'ın ses giriş akışı API özelliklerine genel bakış.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: b3e12fbc616c8d67b557102c6094467e119a23f1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6c2d7c5787305f60b73ab83ea17367b04e03ac12
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281914"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985189"
 ---
-# <a name="about-the-audio-input-stream-api"></a>API ses giriş akışı
+# <a name="about-the-speech-sdk-audio-input-stream-api"></a>API Speech SDK'sı ses giriş akışı
 
-**Ses giriş Stream** API mikrofon ya da giriş dosyası API'lerini kullanarak yerine tanıyıcıları içine ses akışları akış için bir yol sağlar.
+Konuşma SDK'ın **ses giriş Stream** API mikrofon ya da giriş dosyası API'lerini kullanarak yerine tanıyıcıları içine ses akışları akış için bir yol sağlar.
 
-## <a name="api-overview"></a>API’ye genel bakış
+Giriş akışları ses kullanarak aşağıdaki adımlar gereklidir:
 
-API kullanan iki bileşenden `AudioInputStream` (ses ham verileri) ve `AudioInputStreamFormat`.
+- Ses akışı biçimini tanımlar. Biçim Speech SDK'sı ve konuşma hizmeti tarafından desteklenmesi gerekir. Şu anda yalnızca aşağıdaki yapılandırma desteklenir:
 
-`AudioInputStreamFormat` Ses veri biçimini tanımlar. Standart karşılaştırılabilir `WAVEFORMAT` Windows üzerinde wave dosya yapısı.
+  PCM biçimi, bir kanal, saniyede 32000 bayt / saniye, 16000 örnekleri Ses örneği iki blok (16 bir örnek için doldurma dahil olmak üzere bit) cihazları, örnek başına 16 bit hizalayın.
 
-  - `FormatTag`
+  İlgili ses biçimi oluşturmak için SDK'sı kodda şöyle görünür:
 
-    Ses biçimi. Speech SDK'sı şu anda yalnızca destekler `format 1` (PCM - endian).
+  ```
+  byte channels = 1;
+  byte bitsPerSample = 16;
+  int samplesPerSecond = 16000;
+  var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
+  ```
 
-  - `Channels`
+- Kodunuzu ham ses verileri bu belirtimlere göre sağlayabilir emin olun. Ses kaynağından verilerinizi desteklenen biçimler eşleşmiyorsa, ses gerekli biçime dönüştürülebilir olmalıdır.
 
-    Kanal sayısı. Geçerli konuşma hizmeti yalnızca bir kanal (mono) ses malzeme destekler.
+- Kendi ses giriş akışı sınıfından türetilen oluşturma `PullAudioInputStreamCallback`. Uygulama `Read()` ve `Close()` üyeleri. Tam işlev imzası dile bağlıdır, ancak kod bu kod örneği için benzer olacaktır:
 
-  - `SamplesPerSec`
+  ```
+   public class ContosoAudioStream : PullAudioInputStreamCallback {
+      ContosoConfig config;
 
-    Örnek hızı. Tipik mikrofon kaydı saniyede 16000 örnekleri vardır.
+      public ContosoAudioStream(const ContosoConfig& config) {
+          this.config = config;
+      }
 
-  - `AvgBytesPerSec`
+      public size_t Read(byte *buffer, size_t size) {
+          // returns audio data to the caller.
+          // e.g. return read(config.YYY, buffer, size);
+      }
 
-    İkinci olarak, başına ortalama bayt hesaplanan `SamplesPerSec * Channels * ceil(BitsPerSample, 8)`. Saniye başına ortalama bayt değişken bit hızlarına dönüştürme kullanan ses akışları için farklı olabilir.
+      public void Close() {
+          // close and cleanup resources.
+      }
+   };
+  ```
 
-  - `BlockAlign`
+- Ses üzerinde temel bir ses yapılandırması oluşturma biçimini ve Giriş akışı. Tanıyıcı oluşturduğunuzda normal konuşma yapılandırmanızı ve ses giriş yapılandırmasını geçirin. Örneğin:
 
-    Tek bir çerçeve boyutu olarak hesaplanan `Channels * ceil(wBitsPerSample, 8)`. Doldurma nedeniyle gerçek değeri bu değerden daha yüksek olabilir.
+  ```
+  var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
 
-  - `BitsPerSample`
+  var speechConfig = SpeechConfig.FromSubscription(...);
+  var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
-    Örnek başına bit. Tipik bir ses akışı (CD kalite) örnek başına 16 bit kullanır.
+  // run stream through recognizer
+  var result = await recognizer.RecognizeOnceAsync();
 
-`AudioInputStream` Temel sınıf özel akış bağdaştırıcınız tarafından yazılacak. Bu işlevler uygulamak bu bağdaştırıcı sahiptir:
-
-   - `GetFormat()`
-
-     Ses akışı biçimi almak için bu işlev çağrılır. Bir işaretçi AudioInputStreamFormat arabelleğe alır.
-
-   - `Read()`
-
-     Bu işlev, ses akıştan veri almak için çağrılır. Arabellek ses verileri kopyalamak için bir işaretçi bir parametredir. Arabellek boyutu ikinci parametredir. İşlev için arabellek kopyalanan bayt sayısını döndürür. Dönüş değeri `0` akışın sonuna gösterir.
-
-   - `Close()`
-
-     Ses akışı kapatmak için bu işlev çağrılır.
-
-## <a name="usage-examples"></a>Kullanım örnekleri
-
-Genel olarak, aşağıdaki adımları kullanarak ses giriş akışları ilgilidir:
-
-  - Ses akışı biçimini tanımlar. Biçimi SDK ve konuşma hizmeti tarafından desteklenmesi gerekir. Şu anda aşağıdaki yapılandırma desteklenir:
-
-    Bir ses biçimi etiketi (PCM), bir kanal, saniyede 16000 örnekleri 32000 bayt / saniye, iki Blok Hizalama (16 bir örnek için doldurma dahil olmak üzere bit) cihazları, örnek başına 16 bit
-
-  - Kodunuzu yukarıda tanımlanan özelliklerine dair ses ham veriler sağlayabilir emin olun. Ses kaynağından verilerinizi desteklenen biçimler eşleşmiyorsa, ses gerekli biçime dönüştürülebilir olmalıdır.
-
-  - Kendi özel ses giriş akışı sınıfından türetilir `AudioInputStream`. Uygulama `GetFormat()`, `Read()`, ve `Close()` işlemi. Tam işlev imzası dile bağlıdır, ancak kod bu kod örneği için benzer olacaktır:
-
-    ```
-     public class ContosoAudioStream : AudioInputStream {
-        ContosoConfig config;
-
-        public ContosoAudioStream(const ContosoConfig& config) {
-            this.config = config;
-        }
-
-        public void GetFormat(AudioInputStreamFormat& format) {
-            // returns format data to the caller.
-            // e.g. format.FormatTag = config.XXX;
-            // ...
-        }
-
-        public size_t Read(byte *buffer, size_t size) {
-            // returns audio data to the caller.
-            // e.g. return read(config.YYY, buffer, size);
-        }
-
-        public void Close() {
-            // close and cleanup resources.
-        }
-     };
-    ```
-
-  - Ses giriş akışınız kullanın:
-
-    ```
-    var contosoStream = new ContosoAudioStream(contosoConfig);
-
-    var factory = SpeechFactory.FromSubscription(...);
-    var recognizer = CreateSpeechRecognizerWithStream(contosoStream);
-
-    // run stream through recognizer
-    var result = await recognizer.RecognizeAsync();
-
-    var text = result.GetText();
-
-    // In some languages you need to delete the stream explicitly.
-    // delete contosoStream;
-    ```
-
-  - Bazı dillerde `contosoStream` tanıma tamamlandıktan sonra açıkça silinmelidir. Tam giriş okumadan önce AudioStream serbest bırakılamıyor. Kullanarak bir senaryo `StopContinuousRecognitionAsync` ve `StopContinuousRecognitionAsync` Bu örnekte gösterildiği bir kavram gerektirir:
-
-    ```
-    var contosoStream = new ContosoAudioStream(contosoConfig);
-
-    var factory = SpeechFactory.FromSubscription(...);
-    var recognizer = CreateSpeechRecognizerWithStream(contosoStream);
-
-    // run stream through recognizer
-    await recognizer.StartContinuousRecognitionAsync();
-
-    // ERROR: do not delete the contosoStream before ending recognition!
-    // delete contosoStream;
-
-    await recognizer.StopContinuousRecognitionAsync();
-
-    // OK: Safe to delete the contosoStream.
-    // delete contosoStream;
-    ```
+  var text = result.GetText();
+  ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

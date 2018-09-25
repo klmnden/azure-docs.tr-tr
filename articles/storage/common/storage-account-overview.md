@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c0d028b2e6f5e759b46293bc3e1cbef6902ea8ea
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b942b85c954bb765833426f3f9a010a66f016a90
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740855"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972326"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
@@ -94,8 +94,8 @@ Depolama hesabınızı adlandırırken şu kuralları göz önünde bulundurun:
 
 Genel amaçlı depolama hesapları ya da aşağıdaki performans katmanları yapılandırılabilir:
 
-* Bloblar, dosyalar, tabloları, kuyrukları ve Azure sanal makine disklerini depolamak için bir standart depolama performans katmanı.
-* Yalnızca Azure sanal makine disklerini depolamak için bir premium depolama performans katmanı. Premium Storage’a yönelik ayrıntılı genel bakış için bkz. [Premium Storage: Azure Virtual Machine İş Yükleri için Yüksek Performanslı Depolama](../../virtual-machines/windows/premium-storage.md).
+* Bloblar, dosyalar, tabloları, kuyrukları ve Azure sanal makine disklerini depolamak için standart performans katmanı.
+* Yalnızca Azure sanal makine disklerini depolamak için bir premium performans katmanı. Premium Storage’a yönelik ayrıntılı genel bakış için bkz. [Premium Storage: Azure Virtual Machine İş Yükleri için Yüksek Performanslı Depolama](../../virtual-machines/windows/premium-storage.md).
 
 ## <a name="access-tiers-for-block-blob-data"></a>Blok blobu veri erişim katmanları
 
@@ -107,12 +107,15 @@ Kullanılabilir erişim katmanları şunlardır:
 * **Seyrek erişimli** erişim katmanı, büyük miktarlarda az sıklıkta erişilen ve en az 30 gün saklanan verileri depolamak için optimize edilmiştir. Veri depolama seyrek erişim katmanında daha uygun maliyetlidir, ancak bu verilere erişme biraz daha sık erişimli katmanı veri erişimi daha pahalı olabilir.
 * **Arşiv** katmanı, yalnızca tek bir blok bloblar için kullanılabilir. Arşiv katmanı, birkaç saatlik alma gecikmesinden etkilenmeyecek ve Arşiv katmanında en az 180 gün boyunca kalacak veriler için optimize edilmiştir. Arşiv katmanı verilerini depolamak için en uygun maliyetli bir seçenektir, ancak bu verilere sık erişimli veya seyrek erişimli katmanlarda verilere göre daha pahalıdır. 
 
+> [!NOTE]
+> [Premium erişim katmanı](../blobs/storage-blob-storage-tiers.md#premium-access-tier) Kuzey Avrupa, Doğu ABD 2, ABD Orta ve ABD Batı bölgelerinde yerel olarak yedekli depolama (LRS) hesabı olarak sınırlı önizlemede kullanılabilir. Önizlemeye kaydolmak öğrenmek için bkz: [Azure Premium Blob Depolama ile tanışın](http://aka.ms/premiumblob).
+
 Verilerinizin kullanım düzeninde bir değişiklik olursa herhangi bir zamanda bu erişim katmanları arasında geçiş yapabilirsiniz. 
 
 > [!IMPORTANT]
 > Mevcut bir depolama hesabı veya blob için erişim katmanının değiştirilmesi ek ücretlere neden olabilir.
 
-Erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: sık erişimli, seyrek erişimli ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
+Erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: Premium (Önizleme), sık erişimli, seyrek erişimli ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
 
 ## <a name="replication"></a>Çoğaltma
 

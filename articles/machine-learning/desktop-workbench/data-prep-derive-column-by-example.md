@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 026ffed925606e2fdf31461035c9a0d73ad609e9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ROBOTS: NOINDEX
+ms.openlocfilehash: 311fd39792274ef01b1b03fdf8252eb7ac93c922
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060575"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978871"
 ---
 # <a name="derive-column-by-example-transformation"></a>Örnek dönüştürme tarafından sütunu türetin
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 **Sütunu örneğe göre türet** dönüştürme kullanıcıların bir kullanıcı tarafından sağlanan türetilen sonucu örneklerini kullanarak bir veya daha fazla mevcut sütunların türevi oluşturmasını sağlar. Türev desteklenen dizesi, tarih ve sayı dönüştürmeleri herhangi bir birleşimi olabilir. 
 

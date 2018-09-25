@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 34fe72087a3de133d65ea4a4737ab5dba45242f4
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 52b02460d444464211fc74c8982379424abebb5c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647280"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965532"
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Çalıştırma geçmişini kullanın ve Azure Machine Learning workbench'te modeli ölçümleri
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Azure Machine Learning Workbench destekleyen veri bilimi deneme ile kendi **çalıştırma geçmişi** ve **Model ölçümlerini** özellikleri.
 **Çalıştırma geçmişi** makine öğrenimi denemelerini çıkışlarına izlemek için bir yol sağlar ve sonra da filtreleme ve sonuçları karşılaştırma sağlar.
@@ -27,8 +32,8 @@ Bu makalede, etkili kullanan oranı ve, veri bilimi deneme kalitesini artırmak 
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu nasıl yapılır kılavuzunda adımlamak için için gerekir:
-* [Oluşturma ve Azure Machine Learning'i yükleme](../service/quickstart-installation.md)
-- [Proje oluşturma](../service/quickstart-installation.md)
+* [Oluşturma ve Azure Machine Learning'i yükleme](quickstart-installation.md)
+- [Proje oluşturma](quickstart-installation.md)
 
 
 ## <a name="azure-ml-logging-api-overview"></a>Azure ML günlük API'sine genel bakış
@@ -51,7 +56,7 @@ logger.log("all values", [5, 6, 7])
 Azure ML Workbench projeleriniz içinde Günlükçü kullanmak daha kolaydır ve bu makalede bunun nasıl yapılacağı gösterilmektedir.
 
 ## <a name="create-a-project-in-azure-ml-workbench"></a>Azure ML Workbench'te proje oluşturma
-Bir proje zaten yoksa, bir oluşturabilirsiniz [oluşturma ve yükleme Hızlı Başlangıç](../service/quickstart-installation.md) gelen **proje Panosu**, açabileceğiniz **iris_sklearn.py** (komut dosyası gösterildiği gibi.)
+Bir proje zaten yoksa, bir oluşturabilirsiniz [oluşturma ve yükleme Hızlı Başlangıç](quickstart-installation.md) gelen **proje Panosu**, açabileceğiniz **iris_sklearn.py** (komut dosyası gösterildiği gibi.)
 
 ![kod dosyaları sekmesinden erişme](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b577f697f4467656166b83ea78efdfe6d742941f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982989"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032538"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
 
@@ -145,7 +145,8 @@ Bunlar yeniden bulgudaki olmadan sonraki kontrol noktasına yapmak mümkün olma
 
 Ardından runbook hiç kontrol noktası varsa veya iş ilk kontrol noktası kaldırılıyor önce tamamladı değil baştan başlatılır.
 
-Uzun süreli çalışan görevler için [Karma Runbook Çalışanı](automation-hrw-run-runbooks.md#job-behavior) kullanmanız önerilir. Karma Runbook Çalışanları, dengeli dağıtım sınırlarına tabi değildir ve runbook yürütme uzunluğu konusunda geçerli bir sınırları yoktur.
+Uzun süreli çalışan görevler için [Karma Runbook Çalışanı](automation-hrw-run-runbooks.md#job-behavior) kullanmanız önerilir. Karma Runbook Çalışanları, dengeli dağıtım sınırlarına tabi değildir ve runbook yürütme uzunluğu konusunda geçerli bir sınırları yoktur. Başka bir iş [sınırları](../azure-subscription-service-limits.md#automation-limits) hem Azure sanal hem de karma Runbook çalışanları için geçerlidir.
+
 
 Azure üzerinde PowerShell iş akışı runbook kullanıyorsanız, bir runbook oluştururken iki denetim noktaları arasından herhangi bir etkinlik çalışma süresi üç saat aşmadığından emin olun. Runbook'unuzda bu üç saatlik sınırına ulaşmadığınız veya desteklemez uzun süre sonu emin emin olmak için kontrol noktaları eklemek gerekebilir süreli işlemler. Örneğin, runbook'unuz bir reindex büyük bir SQL veritabanı'nda gerçekleştirebilir. Bu tek işlem adil paylaşım sınırı içinde tamamlanmazsa, ardından iş kaldırıldı ve baştan yeniden. Bu durumda bir kerede bir tablo ölçeklemek gibi birden çok adımlarını reindex işlemi bölmeniz ve işi tamamlamak için son işlemi sonra devam edilemiyor, böylece her işlemden sonra bir denetim noktası ekleyin.
 

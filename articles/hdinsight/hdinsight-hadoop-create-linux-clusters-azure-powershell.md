@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: f788660c0652a70cdc1065dfbef1eefd3c8a9022
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ed9c486dfa548e86e558c093113011cabfd3d63c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107557"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997429"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Linux tabanlı kümeler Azure PowerShell kullanarak HDInsight oluşturma
 
@@ -23,7 +23,7 @@ ms.locfileid: "43107557"
 Azure PowerShell, denetlemek ve dağıtım ve Microsoft azure'da iş yüklerinizi yönetimini otomatikleştirmek için kullanabileceğiniz güçlü bir komut dosyası ortamıdır. Bu belge, Azure PowerShell kullanarak bir Linux tabanlı HDInsight kümesi oluşturma hakkında bilgi sağlar. Ayrıca, bir örnek betiği içerir.
 
 > [!NOTE]
-> Azure PowerShell, Windows istemcilerinde yalnızca kullanılabilir. Linux, Unix ya da Mac OS X istemci kullanıyorsanız bkz [Azure CLI kullanarak Linux tabanlı HDInsight kümesi oluşturmayı](hdinsight-hadoop-create-linux-clusters-azure-cli.md) bir küme oluşturmak için Azure CLI kullanma hakkında bilgi.
+> Azure PowerShell, Windows istemcilerinde yalnızca kullanılabilir. Linux, Unix ya da Mac OS X istemci kullanıyorsanız bkz [Klasik Azure CLI kullanarak Linux tabanlı HDInsight kümesi oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md) bir küme oluşturmak için Klasik CLI kullanma hakkında bilgi.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu yordamı başlatmadan önce aşağıdakilerin olması gerekir:

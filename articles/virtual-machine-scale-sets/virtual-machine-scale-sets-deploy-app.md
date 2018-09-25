@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 25773124fcd479489f5d2d544cc5b6e3b11e325a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301149"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979456"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Sanal makine ölçek kümelerinde uygulamanızı dağıtma
 Bir ölçek kümesindeki sanal makine (VM) örneklerinde uygulamaları çalıştırmak için önce uygulama bileşenlerini ve gerekli dosyaları yüklemeniz gerekir. Bu makalede örnek bir ölçek kümesi veya otomatik olarak var olan VM örneklerinde yükleme betikleri çalıştırma için özel bir VM görüntüsü oluşturmak için yollar sağlar. Ayrıca bir ölçek kümesi üzerinde uygulama veya işletim sistemi güncelleştirmelerini yönetmeyi öğrenin.
@@ -31,14 +31,14 @@ Bir ölçek kümesindeki sanal makine (VM) örneklerinde uygulamaları çalışt
 
 Yapılandırma yönetimi ve bir VM sağlama süresini azaltmak için bir örneğin hazırlandığı hemen sonra ölçek kümesindeki uygulamanızı çalıştırmak hazır olan özel bir VM görüntüsü oluşturabilirsiniz. Oluşturma ve ölçek ile özel VM görüntüsü kullanma hakkında daha fazla bilgi için aşağıdaki öğreticilere bakın:
 
-- [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+- [Azure CLI](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Özel betik uzantısı ile uygulama yükleme
 Özel Betik Uzantısı, Azure VM’lerinde betik indirir ve yürütür. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya diğer yapılandırma/yönetim görevleri için kullanışlıdır. Betikler Azure depolama veya GitHub konumlarından indirilebilir ya da Azure portalına uzantı çalışma zamanında iletilebilir. Oluşturma ve ölçek ile özel VM görüntüsü kullanma hakkında daha fazla bilgi için aşağıdaki öğreticilere bakın:
 
-- [Azure CLI 2.0](tutorial-install-apps-cli.md)
+- [Azure CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Azure Resource Manager şablonu](tutorial-install-apps-template.md)
 

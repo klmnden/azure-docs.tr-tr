@@ -1,21 +1,21 @@
 ---
-title: Azure maliyet Yönetimi Pano Ana ölçümleri görüntüleme | Microsoft Docs
-description: Bu makalede ana ölçümleri Panolar ile Azure maliyet Yönetimi'nde görüntülemekten.
+title: Azure'da Cloudyn panoları ile ana ölçümleri görüntüleme | Microsoft Docs
+description: Bu makalede nasıl Cloudyn'de panolarla ana ölçümleri görüntüleyin.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/12/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4f51598dd2b026f1c3a4b0d763b1547a44eedc7b
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 1d2b4a0cd78f3d68a76bd9186be4174f2dd1d86c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647142"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999724"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Ölçümleri panolarla maliyet anahtarını görüntüle
 
@@ -34,7 +34,7 @@ Pano sürüm Yönetimi (MSP), Enterprise ve Premium Cloudyn kullanıcılar için
 
 Pano kullanılabilirlik panolar görüntülenirken kullanılan bulut hizmet sağlayıcısı hesabı türüne bağlıdır. Panolar, raporlar kullanılabilir ve Cloudyn tarafından toplanan bilgi türünü etkiler. Örneğin, bir AWS hesabınız yoksa S3 İzleyicisi panoyu görmezsiniz. Benzer şekilde, Azure Resource Manager Cloudyn'e erişim izni etkinleştirmezseniz iyileştirici Pano pencere öğeleri herhangi bir Azure özel bilgi görmezsiniz.
 
-Önceden hazırlanmış panolar dilediğinizi kullanabilirsiniz veya kendi panonuzu ile özelleştirilmiş raporlar oluşturabilirsiniz. Cloudyn raporlarla bilmiyorsanız bkz [kullanım maliyet Yönetimi raporlarını](use-reports.md).
+Önceden hazırlanmış panolar dilediğinizi kullanabilirsiniz veya kendi panonuzu ile özelleştirilmiş raporlar oluşturabilirsiniz. Cloudyn raporlarla bilmiyorsanız bkz [kullanım Cloudyn raporlarını](use-reports.md).
 
 ## <a name="create-a-custom-dashboard"></a>Özel bir pano oluşturma
 
@@ -297,4 +297,4 @@ Bu pencere öğesi, Amazon EC2 ile Azure arasında esnek işlem birimleri en iyi
 - Pencere öğesi örnekleri eşleme türü bir raporu açmak için tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Okuma [kullanım maliyet Yönetimi raporlarını](use-reports.md) raporlar hakkında daha fazla bilgi için makale.
+- Okuma [kullanım Cloudyn raporlarını](use-reports.md) raporlar hakkında daha fazla bilgi için makale.

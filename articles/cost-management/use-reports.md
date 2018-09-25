@@ -1,29 +1,31 @@
 ---
-title: Azure maliyet Yönetimi'nde maliyet Yönetimi raporlarını kullanma | Microsoft Docs
-description: Bu makalede, çeşitli maliyet Yönetimi raporlarını Cloudyn portalında kullanmayı açıklar.
+title: Azure'da Cloudyn raporlarını kullanma | Microsoft Docs
+description: Bu makalede, çeşitli raporlar Cloudyn portalında kullanmayı açıklar.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 055584bd27c978fb71e6c09995c28be7348acda8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908276"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976797"
 ---
-# <a name="use-cost-management-reports"></a>Maliyet yönetimi raporlarını kullanma
+# <a name="use-cloudyn-reports"></a>Cloudyn raporlarını kullanma
 
-Bu makalede, Cloudyn portalında dahil edilen maliyet Yönetimi raporlarını amacını açıklar. Ayrıca, raporları etkili bir şekilde nasıl kullanabileceğinizi açıklar. Raporların çoğu, sezgisel ve Tekdüzen bir görünümüne sahip. Çoğu bir raporda gerçekleştirebileceğiniz eylemleri, diğer raporları da yapabilirsiniz. Özelleştirme ve kaydedin veya raporları zamanlamak üzere nasıl dahil olmak üzere maliyet Yönetimi raporlarını kullanma hakkında genel bir bakış için bkz. [maliyet raporlarını anlama](understanding-cost-reports.md).
+Bu makalede, Cloudyn portalında bulunan Cloudyn raporlarını amacını açıklar. Ayrıca, raporları etkili bir şekilde nasıl kullanabileceğinizi açıklar. Raporların çoğu, sezgisel ve Tekdüzen bir görünümüne sahip. Çoğu bir raporda gerçekleştirebileceğiniz eylemleri, diğer raporları da yapabilirsiniz. Özelleştirme ve kaydedin veya raporları zamanlamak üzere nasıl dahil olmak üzere, Cloudyn raporların nasıl kullanılacağı hakkında genel bir bakış için bkz. [maliyet raporlarını anlama](understanding-cost-reports.md).
+
+Azure maliyet Yönetimi Cloudyn'e benzer işlevsellik sunar. Azure maliyet yönetimi, yerel Azure maliyet yönetimi çözümüdür. Maliyetlerini, oluşturma ve bütçelerini yönetin, verileri dışarı aktarma ve gözden geçirin ve paradan tasarruf etmek için iyileştirme önerileri davranmasına yardımcı olur. Daha fazla bilgi için [Azure maliyet Yönetimi](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Rapor türleri
 
-Maliyet Yönetimi raporlarını üç tür vardır:
+Cloudyn raporlarını üç tür vardır:
 
 - Aşırı zaman raporlar. Örneğin, zaman içinde Maliyet raporu. Aşırı zaman raporlar önceden tanımlanmış bir çözümleme seçili bir aralık boyunca bir zaman serisi verilerinin Göster ve son iki ay boyunca haftalık bir çözüm göster. Gruplandırma ve filtreleme, çeşitli veri noktalarına yakınlaştırmak için kullanabilirsiniz.
   - Aşırı zaman raporlar, eğilimleri görüntülemek ve ani artış ve anomalileri algılayın yardımcı olabilir.
@@ -49,7 +51,7 @@ _Maliyet analizi_ raporları, bulut sağlayıcıları fatura verilerini görünt
 
 Bazı _maliyet analizi_ raporları maliyetlerini Kaynak etiketlerine göre grup yok. Ve etiket tabanlı faturalandırma bilgileri kullanarak bir maliyet modeli oluşturarak maliyetleri ayırdıktan sonra raporları yalnızca görünür [360 maliyet](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-_Maliyet tahsisatı_ kullanarak bir maliyet modeli oluşturduktan sonra raporlar kullanılabilir [360 maliyet](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Maliyet yönetimi, maliyet ve faturalama verileri işler ve _eşleşen_ kullanım ve etiket verilerini bulut hesaplarınız için veriler. Verileri eşleştirmek için maliyet Yönetimi kullanım verilerinize erişim gerektirir. Kimlik bilgileri eksik olan hesapları varsa, bunlar olarak etiketlenmiştir _Kategorilere ayrılmamış kaynaklar_.
+_Maliyet tahsisatı_ kullanarak bir maliyet modeli oluşturduktan sonra raporlar kullanılabilir [360 maliyet](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cloudyn maliyet ve fatura verilerini işler ve _eşleşen_ kullanım ve etiket verilerini bulut hesaplarınız için veriler. Verileri eşleştirmek için Cloudyn kullanım verilerinize erişim gerektirir. Kimlik bilgileri eksik olan hesapları varsa, bunlar olarak etiketlenmiştir _Kategorilere ayrılmamış kaynaklar_.
 
 ## <a name="dashboards"></a>Panolar
 
@@ -57,7 +59,7 @@ Cloudy panoları, raporları üst düzey bir görünümünü sağlar. Pano pence
 
 ## <a name="budget-information-in-reports"></a>Raporlardaki bilgilerin bütçe
 
-El ile bir oluşturduktan sonra birçok yönetim raporları show bütçe bilgilerini maliyeti. Bu nedenle bir bütçe oluşturana kadar raporlar bütçe bilgileri gösterilmez. Daha fazla bilgi için [ayarları bütçe](#budget-settings).
+El ile bir oluşturduktan sonra birçok Cloudyn raporlarını bütçe bilgileri gösterir. Bu nedenle bir bütçe oluşturana kadar raporlar bütçe bilgileri gösterilmez. Daha fazla bilgi için [ayarları bütçe](#budget-settings).
 
 ## <a name="reports-and-reporting-features"></a>Raporlar ve raporlama özellikleri
 
@@ -81,7 +83,7 @@ Maliyet analizi raporunda, hesaplama ve Ücret yansıtma, ilkesini temel alarak,
 
 İlkeler kümesinde [360 maliyet](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) kullanılan maliyet analizi raporu ve sonuçları sonra bulut satıcınızın ham verilerden bilgi ile birleştirilir.
 
-Bu rapor nasıl hesaplanır? Maliyet Yönetimi Hizmeti ayırma uygulayarak her bağlı bir hesabı bütünlüğünü korur sağlar _hesap benzeşim_. Belirli bir hizmete kullanmayan bir hesap maliyetlerin ayrılmış bu hizmetin yok benzeşimi sağlar. Hesap bu hesabında kalır ve ayırma ilkeleri tarafından hesaplanmaz maliyetleri tahakkuk. Örneğin, beş bağlantılı hesaplar olabilir. Yalnızca depolama hizmetleri üç tanesi kullanın, ardından depolama hizmetleri maliyetini yalnızca üç hesaplarında etiketleri arasında ayrılır.
+Bu rapor nasıl hesaplanır? Cloudyn hizmeti ayırma uygulayarak her bağlı bir hesabı bütünlüğünü korur sağlar _hesap benzeşim_. Belirli bir hizmete kullanmayan bir hesap maliyetlerin ayrılmış bu hizmetin yok benzeşimi sağlar. Hesap bu hesabında kalır ve ayırma ilkeleri tarafından hesaplanmaz maliyetleri tahakkuk. Örneğin, beş bağlantılı hesaplar olabilir. Yalnızca depolama hizmetleri üç tanesi kullanın, ardından depolama hizmetleri maliyetini yalnızca üç hesaplarında etiketleri arasında ayrılır.
 
 Maliyet analizi raporu kullanın:
 
@@ -147,7 +149,7 @@ Amorti edilmiş maliyet raporları doğrusal duruma gösterir olmayan kullanım 
 - Ayrılmış örnekler satın alma ücreti
 - Bazı Azure Market öğeleri
 
-Tek seferlik ücretler fatura dosyasında belirlenir, hizmet tüketimi başlangıç ve bitiş tarihleri (zaman damgası) eşit değerlere sahip. Maliyet Yönetimi Hizmeti daha sonra bunları amorti edilmiş gibi tek seferlik ücretler tanır. İsteğe bağlı kullanım maliyetleri tüketim tabanlı diğer hizmetlerle amorti edilmiş değil.
+Tek seferlik ücretler fatura dosyasında belirlenir, hizmet tüketimi başlangıç ve bitiş tarihleri (zaman damgası) eşit değerlere sahip. Cloudyn hizmet daha sonra bunları amorti edilmiş gibi tek seferlik ücretler tanır. İsteğe bağlı kullanım maliyetleri tüketim tabanlı diğer hizmetlerle amorti edilmiş değil.
 
 Amorti edilmiş maliyet raporlarında şunlardır:
 
@@ -158,9 +160,9 @@ Amorti edilmiş maliyet raporlarında şunlardır:
 
 Maliyet analizi raporunda, bulut tüketimi ve seçilen bir zaman çerçevesinde harcama öngörü sağlar. İlkeler kümesinde [360 maliyet](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) maliyet analizi raporda kullanılır.
 
-Maliyet yönetimi, bu rapor nasıl hesaplar?
+Cloudyn, bu rapor nasıl hesaplar?
 
-Maliyet yönetimi sağlar ayırma uygulayarak her bağlı bir hesabı bütünlüğünü korur _hesap benzeşim_. Belirli bir hizmete kullanmayan bir hesabı da maliyetlerin ayrılmış bu hizmetin yok benzeşimi sağlar. Hesap bu hesabında kalır ve ayırma ilkeleri tarafından hesaplanan olmayan maliyet tahakkuk. Örneğin, beş bağlantılı hesaplar olabilir. Yalnızca depolama hizmetleri üç tanesi kullanın, ardından depolama hizmetleri maliyetini yalnızca üç hesaplarında etiketleri arasında ayrılır.
+Cloudyn sağlar ayırma uygulayarak her bağlı bir hesabı bütünlüğünü korur _hesap benzeşim_. Belirli bir hizmete kullanmayan bir hesabı da maliyetlerin ayrılmış bu hizmetin yok benzeşimi sağlar. Hesap bu hesabında kalır ve ayırma ilkeleri tarafından hesaplanan olmayan maliyet tahakkuk. Örneğin, beş bağlantılı hesaplar olabilir. Yalnızca depolama hizmetleri üç tanesi kullanın, ardından depolama hizmetleri maliyetini yalnızca üç hesaplarında etiketleri arasında ayrılır.
 
 Maliyet analizi raporu kullanın:
 
@@ -206,7 +208,7 @@ _Bir varlığa ücretleri atandığında, kullanıcılar bunları değiştiremez
 
 360 maliyet, maliyetleri tüketilen bulut kaynaklarına atamak için özel bir maliyet ayırma modelleri oluşturmak için kullanın. Birçok raporlar ile özel bir maliyet modelleri oluşturduğunuz özel maliyet modelleri bilgileri gösterir. Ayrıca, maliyet ayırma ile özel bir maliyet modeli oluşturduktan sonra bazı raporlar yalnızca bilgileri gösterir.
 
-Özel bir maliyet modelleri oluşturma hakkında daha fazla bilgi için bkz. [öğretici: Azure maliyet Yönetimi'ni kullanarak maliyetleri yönetme](tutorial-manage-costs.md).
+Özel bir maliyet modelleri oluşturma hakkında daha fazla bilgi için bkz. [Öğreticisi: Cloudyn kullanarak maliyetleri yönetme](tutorial-manage-costs.md).
 
 ### <a name="cost-vs-budget-over-time-report"></a>Maliyet vs. Zaman içinde Bütçe Raporu
 
@@ -248,11 +250,11 @@ Tamamlandığında, bütçenizi maliyet vs'de ve maliyet analizi raporlarında g
 
 ### <a name="azure-resource-explorer-report"></a>Azure kaynak Gezgini raporu
 
-Azure kaynak Gezgini raporun maliyet Yönetimi'nde kullanılabilir tüm Azure kaynaklarını toplu listesini gösterir. Rapor etkili bir şekilde kullanmak için ölçümleri etkin şekilde Azure hesaplarınızı genişletilmiş. Genişletilmiş ölçümler, Azure Vm'leriniz için maliyet Yönetimi erişim sağlar. Daha fazla bilgi için [ölçümleri Azure sanal makineleri için genişletilmiş Ekle](azure-vm-extended-metrics.md).
+Azure kaynak Gezgini rapor Cloudyn'de kullanılabilir tüm Azure kaynaklarını toplu listesini gösterir. Rapor etkili bir şekilde kullanmak için ölçümleri etkin şekilde Azure hesaplarınızı genişletilmiş. Genişletilmiş ölçümler, Azure Vm'lerinizi Cloudyn erişim sağlar. Daha fazla bilgi için [ölçümleri Azure sanal makineleri için genişletilmiş Ekle](azure-vm-extended-metrics.md).
 
 ### <a name="azure-resources-over-time-report"></a>Azure kaynakları zaman içinde rapor
 
-Azure kaynakları zaman içinde rapor, belirli bir süre içinde çalışan tüm kaynakları dökümünü gösterir. Rapor etkili bir şekilde kullanmak için ölçümleri etkin şekilde Azure hesaplarınızı genişletilmiş. Genişletilmiş ölçümler, Azure Vm'leriniz için maliyet Yönetimi erişim sağlar. Daha fazla bilgi için [ölçümleri Azure sanal makineleri için genişletilmiş Ekle](azure-vm-extended-metrics.md).
+Azure kaynakları zaman içinde rapor, belirli bir süre içinde çalışan tüm kaynakları dökümünü gösterir. Rapor etkili bir şekilde kullanmak için ölçümleri etkin şekilde Azure hesaplarınızı genişletilmiş. Genişletilmiş ölçümler, Azure Vm'lerinizi Cloudyn erişim sağlar. Daha fazla bilgi için [ölçümleri Azure sanal makineleri için genişletilmiş Ekle](azure-vm-extended-metrics.md).
 
 ### <a name="instance-explorer-report"></a>Örnek Gezgini raporu
 
@@ -355,7 +357,7 @@ RI'ları, ama tüm ön üç ödeme seçenekleri:
 - Hiçbir ön maliyet -, RI maliyetini aylık RI süresince taksitli, en düşük indirimi sunan
 - Ön maliyet, hangi ¼ inç - fiyatının ½ Önden, ücretli kısmi ve düşük olan indirim oranı ile aylık taksitlere geri kalanı ancak, tüm ön hızını kapatın
 
-Maliyet yönetimi, son 30 güne ait her makinenin çalışma süresi değerlendirir. Maliyet yönetimi, makine ile bir RI geçerli çalışma süresi düzeyinde çalıştırmak için daha uygun maliyetli olduğunda RI satın alma önerir.
+Cloudyn, son 30 güne ait her makinenin çalışma süresi değerlendirir. Cloudyn, makine ile bir RI geçerli çalışma süresi düzeyinde çalıştırmak için daha uygun maliyetli olduğunda RI satın alma önerir.
 
 Rapor yıldan çoğu tasarruf öneriler gerekçesi gösterir. Öneriler üzerine örnekleri RI ile değiştirme önerin. Raporu doğrudan RI satın alabilirsiniz.
 
@@ -363,9 +365,9 @@ Her sekme, tam bir rapor olarak açılır. Sekmelerdeki önemli bölümleri şun
 
 - **EC2 RI satın alma etkisi** -Bu bölümde, isteğe bağlı vs ayrılmış örnekleri arasındaki fark benzetimini sağlar. Tıklayın **yakınlaştırmak**, öneri için zaten tanımlanmış filtreleri içeren tam EC2 RI satın alma etkisi raporu görmek için. Bu rapor, satın alma etkisi, tüm olası RI satın alma işlemleri gösterir. EC2 ayrılmış örnekler satın kaydederken olası görmek için beklenen ortalama çalışma süresi ayarlayabilirsiniz.
 
-- **Analiz kaydetme** -Bu bölümde elde olası tasarruf ve tasarruf actualized aşağıdaki maliyet Yönetimi önerileri olduğunda ay sağlar. Gerçek tasarruf miktarı ve yüzde kaydedilen kırmızıyla vurgulanır.
+- **Analiz kaydetme** -Bu bölümde elde edilen olası tasarruf ve tasarruf Cloudyn önerileri takip ederken actualized ay sağlar. Gerçek tasarruf miktarı ve yüzde kaydedilen kırmızıyla vurgulanır.
 
-- **EC2 RI türü karşılaştırma** -Bu bölümde, tüm ilgili seçenekleri dahil olmak üzere maliyet Yönetimi'nin önerilen dağıtım ROI konular vurgulanıyor vurgular. Bu rapor sonuçlarında, makine % 100 açık kalma süresi çalıştırdığı varsayılmaktadır. Tıklayın **Yakınlaştır** ayrıntılı bir rapor açın.
+- **EC2 RI türü karşılaştırma** -Bu bölümde, Cloudyn'ın önerilen dağıtım, tüm ilgili seçenekleri dahil olmak üzere ROI konular vurgulanıyor vurgular. Bu rapor sonuçlarında, makine % 100 açık kalma süresi çalıştırdığı varsayılmaktadır. Tıklayın **Yakınlaştır** ayrıntılı bir rapor açın.
 
 - **Zamana göre örnekler** -Bu bölümde bir öneri, OnDemand, ayrılmış örnekleri ve nokta ile ilişkilendirilmiş tüm örnekler dökümünü gösterir. Tıklayın **Yakınlaştır** ayrıntılı bir rapor açın.
 - **Breakeven noktaları** -Bu bölümde, tüm olası önerilen dağıtımları ve yatırım Getirisi ve yatırım Getirisi oluştuğunda ayın bir tablo görüntülenir. Tıklayın **Yakınlaştır** ayrıntılı bir rapor açın.
@@ -394,7 +396,7 @@ RDS RI satın alma önerileri raporu yerine isteğe bağlı örnekleri RDS RI'la
 Her sekme, tam bir rapor olarak açılır. Sekmelerdeki önemli bölümleri şunlardır:
 
 - **RDS RI satın alma etkisi** -Bu bölümde benzetimini arasındaki fark, isteğe bağlı olarak vs ayrılmış örnekleri sağlar. Tıklayın **yakınlaştırmak** , öneri için zaten tanımlanmış filtreleri içeren tam RDS RI satın alma etkisi raporu görmek için. Bu rapor, tüm olası RI satın alma işlemleri, satın alma etkisi görmenizi sağlar.  Beklenen ortalama çalışma süresi ayarlama ve kaydetme RI satın alarak olası bakın.
-- **Analiz kaydetme** – Bu bölüm, olası tasarruf elde edilen ve tasarruf actualized aşağıdaki maliyet Yönetimi önerileri olduğunda ay sağlar. Gerçek tasarruf miktarı ve yüzde kaydedilen kırmızıyla vurgulanır.
+- **Analiz kaydetme** – Bu bölüm, olası tasarruf elde edilen ve tasarruf Cloudyn önerileri takip ederken actualized ay sağlar. Gerçek tasarruf miktarı ve yüzde kaydedilen kırmızıyla vurgulanır.
 
 - **RDS RI türü karşılaştırma** -Bu bölümde tüm ilgili seçenekleri dahil olmak üzere önerilen dağıtım ROI konular vurgulanıyor vurgular. Bu rapor sonuçlarında, makine % 100 açık kalma süresi çalıştırdığı varsayılmaktadır. Tıklayın **Yakınlaştır** seçilen makine için ayrıntılı bir rapor açın.
 - **Zamana göre örnekler** – Bu bölüm öneri, OnDemand, ayrılmış örnekleri ve nokta ile ilişkili tüm örnekleri dökümünü görüntüler. Tıklayın **Yakınlaştır** ayrıntılı bir rapor açın.
@@ -417,7 +419,7 @@ Uygun maliyetli boyutlandırma önerileri raporu, AWS ve Azure için sonuçlar s
 
 Aşağıdaki örnek downsizing göz önünde bulundurun:
 
-Altı m3.xlarge çalışan örneklerini var. Maliyet Yönetimi analizi bunları beş düşük CPU kullanımı olduğunu gösterir. Bunları downsizing göz önünde bulundurun.
+Altı m3.xlarge çalışan örneklerini var. Cloudyn analiz bunları beş düşük CPU kullanımı olduğunu gösterir. Bunları downsizing göz önünde bulundurun.
 
 Maliyet etkileri maliyet etkisi hesaplanır. Bu örnekte, satır öğesi genişleterek, geçerli fiyat (Linux/Unix) m3.xlarge örneği için saat ve bir m3.large (Linux/Unix) örneği maliyetleri başına 0.266 0.133 saatlik maliyetleri görebilirsiniz. Bu nedenle, 11,651 kullanımı % 100 çalışan beş m3.xlarge örnekler için yıllık maliyeti. 5,825 kullanımı % 100 çalışan beş m3.large örnekler için yıllık maliyetidir. Olası tasarruf $5,825 ' dir.
 
@@ -425,7 +427,7 @@ Uygun maliyetli boyutlandırma Gerekçeleri görüntülemek için + satır öğe
 
 - **Öneri gerekçe** bölümü geçerli dağıtımı ve önerilen downsize için örnek sayısını görüntüler.
 - **Maliyet etkisi** bölümü, olası tasarruf belirlemek için kullanılan hesaplama görüntüler.
-- **Olası yıllık tasarrufları** bölüm maliyet Yönetimi'nin öneri downsizing, olası yıllık tasarrufları görüntüler.
+- **Olası yıllık tasarrufları** bölüm Cloudyn'ın öneri downsizing olduğunda olası yıllık tasarrufları görüntüler.
 
 ### <a name="all-sizing-recommendations-report"></a>Tüm boyutlandırma önerileri raporu
 
@@ -483,11 +485,11 @@ Zaman içinde belirli bir örneğine ait ölçümleri görüntülemek için:
 
 ### <a name="rds-sizing-recommendations-report"></a>RDS boyutlandırma önerileri raporu
 
-RDS boyutlandırma önerileri raporu RDS boyutlandırma bulut kullanımınızı iyileştirmek için öneriler sağlar. Bu, downsize için aday niteliği taşıyan az kullanılan örneklerinin bir listesini sağlar. Maliyet Yönetimi öneriler, son 30 gün içinde kullanım ve performans verileri üzerinde temel alır. Hesap adı, bölgeye, örnek türüne ve durum göre öneriler filtreleyebilirsiniz.
+RDS boyutlandırma önerileri raporu RDS boyutlandırma bulut kullanımınızı iyileştirmek için öneriler sağlar. Bu, downsize için aday niteliği taşıyan az kullanılan örneklerinin bir listesini sağlar. Cloudyn, öneriler, son 30 gün içinde kullanım ve performans verileri üzerinde temel alır. Hesap adı, bölgeye, örnek türüne ve durum göre öneriler filtreleyebilirsiniz.
 
 ### <a name="sizing-threshold-manager-report"></a>Boyutlandırma eşiği Manager raporu
 
-Maliyet Yönetimi'nin yerleşik boyutlandırma önerileri, doğru boyutlandırma önerileri sağlamak için bir karmaşık algoritma kullanılarak hesaplanır. Downsizing önerileri için eşikler ayarlayabilir.
+Cloudyn'ın yerleşik boyutlandırma önerileri, doğru boyutlandırma önerileri sağlamak için bir karmaşık algoritma kullanılarak hesaplanır. Downsizing önerileri için eşikler ayarlayabilir.
 
 Eşik boyutlandırma önerileri el ile ayarlamak için:
 

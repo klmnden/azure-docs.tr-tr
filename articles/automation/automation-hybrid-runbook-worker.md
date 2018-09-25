@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 92ebd399cea88440e0f76ee1f34cb5930d3121d9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c4e237af7e85223839b3f26bcc33007f8abb9d0a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578693"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034238"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Veri merkezinde veya bulutta kaynaklarında karma Runbook çalışanı kullanarak otomatik hale getirin.
 
@@ -26,11 +26,11 @@ Aşağıdaki görüntüde bu işlevselliği gösterilmektedir:
 
 Her karma Runbook çalışanı, aracı yükleme sırasında belirttiğiniz bir karma Runbook çalışanı grubunun bir üyesidir. Bir grubu tek bir aracı ekleyebilirsiniz, ancak yüksek kullanılabilirlik için bir grupta birden çok aracı yükleyebilirsiniz.
 
-Bir karma Runbook çalışanı üzerinde bir runbook'u başlattığınızda, üzerinde çalıştığı grubu belirtin. Gruptaki her çalışan tüm işleri olup olmadığını görmek için Azure Otomasyonu yoklar. Bir iş varsa, bu işi almak için ilk worker götürür. Belirli bir alt belirtemezsiniz.
+Bir karma Runbook çalışanı üzerinde bir runbook'u başlattığınızda, üzerinde çalıştığı grubu belirtin. Gruptaki her çalışan tüm işleri olup olmadığını görmek için Azure Otomasyonu yoklar. Bir iş varsa, bu işi almak için ilk worker götürür. Belirli bir alt belirtemezsiniz. İş [sınırları](../azure-subscription-service-limits.md#automation-limits) hem Azure sanal hem de karma Runbook çalışanları için geçerlidir.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Karma Runbook çalışanı'nı yükleme
 
-İşletim sisteminde bir karma Runbook çalışanı yükleme işlemini bağlıdır. Aşağıdaki tabloda, yükleme için kullanabileceğiniz yöntemleri bağlantılar içerir. 
+İşletim sisteminde bir karma Runbook çalışanı yükleme işlemini bağlıdır. Aşağıdaki tabloda, yükleme için kullanabileceğiniz yöntemleri bağlantılar içerir.
 
 Yükleme ve yapılandırma Windows karma Runbook çalışanı için iki yöntem kullanabilirsiniz. Önerilen yöntem, tam bir Windows bilgisayar yapılandırma işlemi otomatik hale getirmek için bir Otomasyon runbook'unu kullanıyor. İkinci yöntem, el ile rolünü yüklemek ve yapılandırmak için adım adım bir yordam kullanılmasıdır. Linux makineler için aracı makinede yüklemeye yönelik bir Python betiği çalıştırın.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: jasonh
-ms.openlocfilehash: e12379dbb63e57ee12e1cebb1761f0b103d50ef1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e9662a0a0def91fa2cace1eb47dceffed5ff1ae6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110536"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978038"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Betik eylemlerini kullanarak Linux tabanlı HDInsight kümeleri özelleştirme
 
@@ -89,7 +89,7 @@ Betik eylemi çalıştıran bir HDInsight kümesindeki düğümler üzerinde Bas
 
 * Çalıştırma **kök düzeyinde ayrıcalıklara** küme düğümlerinde.
 
-* Aracılığıyla kullanılabilir **Azure portalında**, **Azure PowerShell**, **Azure CLI v1.0**, veya **HDInsight .NET SDK'sı**
+* Aracılığıyla kullanılabilir **Azure portalında**, **Azure PowerShell**, **Klasik Azure CLI'yı**, veya **HDInsight .NET SDK'sı**
 
 Kümedeki çalışan sahip tüm betikler bir geçmişini tutar. Geçmiş, yükseltme veya indirgeme işlemleri için bir komut Kimliğini bulmak gerektiğinde faydalıdır.
 
@@ -147,7 +147,7 @@ Betik eylemi betikler aşağıdaki yardımcı programlar kullanılabilir:
 
 * Azure portal
 * Azure PowerShell
-* Azure CLI v1.0
+* Klasik Azure CLI
 * HDInsight .NET SDK'sı
 
 HDInsight, HDInsight kümelerinde aşağıdaki bileşenleri yüklemek için komut dosyaları sağlar:
@@ -292,10 +292,9 @@ Aşağıdaki örnek bir betik eylemi çalıştıran bir kümeye uygulama işlemi
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Betik eylemi çalıştıran bir kümeye Azure CLI'dan uygulayın.
 
-Devam etmeden önce Azure CLI'yı yükleyip yapılandırdığınızdan emin olun. Daha fazla bilgi için [Azure CLI 1.0 için yükleme](../cli-install-nodejs.md).
+Devam etmeden önce Azure CLI'yı yükleyip yapılandırdığınızdan emin olun. Daha fazla bilgi için [Azure Klasik CLI'yı yükleme](../cli-install-nodejs.md).
 
-> [!IMPORTANT]
-> HDInsight, Azure CLI 1.0 gerektirir. Şu anda Azure CLI 2.0, komutları HDInsight ile çalışmak için sağlamaz.
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 1. Azure Resource Manager moduna geçmek için komut satırında aşağıdaki komutu kullanın:
 
@@ -380,7 +379,7 @@ Aşağıdaki örnek betik, yükseltmek ve ardından bir komut dosyası düzeyini
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
-### <a name="using-the-azure-cli"></a>Azure CLI kullanma
+### <a name="using-the-azure-classic-cli"></a>Klasik Azure CLI kullanma
 
 | Aşağıdaki kullan... | Hedef... |
 | --- | --- |

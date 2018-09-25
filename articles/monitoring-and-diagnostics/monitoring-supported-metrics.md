@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: b7e18d943bea179cb6163d7f91a0761311ecf38e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 15cac40e743f44ea7e0954c94683674ad9372a7a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985252"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962956"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyici ile desteklenen ölçümler
 Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümler tam listesi ile Azure İzleyicisi'nin ölçüm ardışık düzen şu anda kullanılabilir. Diğer ölçümleri portalı veya eski API'leri kullanarak mevcut olabilir. Bu listede yalnızca birleştirilmiş Azure İzleyici ölçüm ardışık düzeni'ni kullanarak mevcut olan ölçümler içerir. Sorgulamak ve erişmek için bu ölçümleri lütfen [2018-01-01 API sürümü](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -520,6 +520,24 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |WriteRequests|Yazma istekleri|Sayı|Toplam|Hesabı için yazma isteği veri sayısı.|Boyut yok|
 |ReadRequests|Okuma istekleri|Sayı|Toplam|Okuma istekleri hesabına veri sayısı.|Boyut yok|
 
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
+|---|---|---|---|---|---|
+|cpu_percent|CPU yüzdesi|Yüzde|Ortalama|CPU yüzdesi|Boyut yok|
+|memory_percent|Bellek yüzdesi|Yüzde|Ortalama|Bellek yüzdesi|Boyut yok|
+|io_consumption_percent|G/ç yüzdesi|Yüzde|Ortalama|G/ç yüzdesi|Boyut yok|
+|storage_percent|Depolama yüzdesi|Yüzde|Ortalama|Depolama yüzdesi|Boyut yok|
+|storage_used|Kullanılan depolama|Bayt|Ortalama|Kullanılan depolama|Boyut yok|
+|storage_limit|Depolama sınırı|Bayt|Ortalama|Depolama sınırı|Boyut yok|
+|serverlog_storage_percent|Sunucu günlüğü depolama yüzdesi|Yüzde|Ortalama|Sunucu günlüğü depolama yüzdesi|Boyut yok|
+|serverlog_storage_usage|Kullanılan sunucu günlük depolama alanı|Bayt|Ortalama|Kullanılan sunucu günlük depolama alanı|Boyut yok|
+|serverlog_storage_limit|Sunucu günlük depolama sınırı|Bayt|Ortalama|Sunucu günlük depolama sınırı|Boyut yok|
+|active_connections|Etkin bağlantılar|Sayı|Ortalama|Etkin bağlantılar|Boyut yok|
+|connections_failed|Başarısız Bağlantılar|Sayı|Toplam|Başarısız Bağlantılar|Boyut yok|
+|network_bytes_egress|Ağ Çıkışı|Bayt|Toplam|Etkin bağlantılar arasında ağ çıkışı|Boyut yok|
+|network_bytes_ingress|Ağ Girişi|Bayt|Toplam|Etkin bağlantılar arasında ağ içinde|Boyut yok|
+
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
@@ -748,6 +766,41 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |ObservedCapacity|Gözlenen Kapasite|Sayı|Ortalama|Otomatik ölçeklendirme yürütüldüğünde bildirilen kapasite.|Boyut yok|
 |ScaleActionsInitiated|Başlatılan Ölçeklendirme Eylemleri|Sayı|Toplam|Ölçeklendirme işleminin yönü.|ScaleDirection|
 
+## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
+(Genel Önizleme)
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
+|---|---|---|---|---|---|
+|availabilityResults/süresi|Test süresi|Milisaniye|Ortalama|Test süresi|availabilityResult/ad, availabilityResult/konum, availabilityResult/başarılı|
+|billingMeters/telemetryCount|Veri noktası sayısı|Sayı|Toplam|Bu Application Insights kaynağına gönderilen veri noktası sayısı. Bu ölçüm, en fazla iki saat gecikmeyle işlenir.|Faturalama/telemetryItemType, faturalandırma/telemetryItemSource|
+|billingMeters/telemetrySize|Veri noktası hacmi|Bayt|Toplam|Bu Application Insights kaynağına gönderilen veri hacmi. Bu ölçüm, en fazla iki saat gecikmeyle işlenir.|Faturalama/telemetryItemType, faturalandırma/telemetryItemSource|
+|browserTimings/networkDuration|Sayfa yükleme ağ bağlantı süresi|Milisaniye|Ortalama|Kullanıcı isteği ve ağ bağlantı arasındaki süre. DNS aramasını ve aktarım bağlantısını içerir.|Boyut yok|
+|browserTimings/processingDuration|İstemci işlem süresi|Milisaniye|Ortalama|DOM'un yüklenmesi arasında bir belgenin son bayt alma süresi. Zaman uyumsuz istekler hala işleniyor.|Boyut yok|
+|browserTimings/receiveDuration|Yanıt süresi alınıyor|Milisaniye|Ortalama|İlk ve son bayt veya bağlantının kesilmesi arasındaki süre.|Boyut yok|
+|browserTimings/sendDuration|İstek gönderme süresi|Milisaniye|Ortalama|Ağ bağlantısı ve ilk baytın alınması arasında geçen süre.|Boyut yok|
+|browserTimings/totalDuration|Tarayıcı sayfa yükleme süresi|Milisaniye|Ortalama|Kullanıcı isteğinden DOM, stil sayfaları, betikler ve resimler yüklenene kadar geçen süre.|Boyut yok|
+|bağımlılıkları/sayısı|Bağımlılık çağrıları|Sayı|Sayı|Uygulama tarafından dış kaynaklara yapılan çağrıların sayısı.|Bağımlılık/türü, bağımlılık/performanceBucket, bağımlılık/başarı, işlemi/Sentetik, bulut/Roleınstance, bulut/roleName|
+|bağımlılıkları/süresi|Bağımlılık süresi|Milisaniye|Ortalama|Uygulama tarafından dış kaynaklara yapılan çağrıların süresi.|Bağımlılık/türü, bağımlılık/performanceBucket, bağımlılık/başarı, işlemi/Sentetik, bulut/Roleınstance, bulut/roleName|
+|bağımlılıkları/başarısız oldu|Bağımlılık hataları|Sayı|Sayı|Uygulama tarafından dış kaynaklara yapılan başarısız bağımlılık çağrılarının sayısı.|Bağımlılık/türü, bağımlılık/performanceBucket, işlemi/Sentetik, bulut/Roleınstance, bulut/roleName|
+|Sayfa görüntülemesi/sayısı|Sayfa görünümleri|Sayı|Sayı|Sayfa görüntüleme sayısı.|işlem/Sentetik|
+|Sayfa görüntülemesi/süresi|Sayfa görüntüleme yükleme süresi|Milisaniye|Ortalama|Sayfa görüntüleme yükleme süresi|işlem/Sentetik|
+|performanceCounters/requestExecutionTime|HTTP isteği yürütme süresi|Milisaniye|Ortalama|En son isteğin yürütülme süresi.|Bulut/Roleınstance|
+|performanceCounters/requestsInQueue|Uygulama kuyruğundaki HTTP istekleri|Sayı|Ortalama|Uygulama istek kuyruğunun uzunluğu.|Bulut/Roleınstance|
+|performanceCounters/requestsPerSecond|HTTP isteği oranı|CountPerSecond|Ortalama|Saniyede ASP.NET'ten uygulamaya yapılan tüm isteklerin oranı.|Bulut/Roleınstance|
+|performanceCounters/exceptionsPerSecond|Özel durum oranı|CountPerSecond|Ortalama|Windows'a raporlanan, işlenen ve yakalanamayan özel durumların (.NET özel durumları ve .NET özel durumlarına dönüştürülmüş yönetilmeyen özel durumlar gibi) sayısı.|Bulut/Roleınstance|
+|performanceCounters/processIOBytesPerSecond|İşlem GÇ hızı|BytesPerSecond|Ortalama|Dosyalar, ağ ve cihazlar üzerinde saniyede okunan ve yazılan toplam bayt.|Bulut/Roleınstance|
+|performanceCounters/processCpuPercentage|İşlem CPU'su|Yüzde|Ortalama|Tüm işlem iş parçacıklarının sürenin yüzdesini işlemci yönergeleri yürütmek için kullanılır. Bu, 0 ile 100 arasında değişebilir. Bu ölçüm yalnızca w3wp işleminin performansını gösterir.|Bulut/Roleınstance|
+|performanceCounters/processorCpuPercentage|İşlemci zamanı|Yüzde|Ortalama|İşlemcinin boş olmayan iş parçacıklarında harcadığı sürenin yüzdesi.|Bulut/Roleınstance|
+|performanceCounters/memoryAvailableBytes|Uygun bellek|Bayt|Ortalama|Bir işleme veya sistem kullanımına ayırmak için hemen kullanılabilir fiziksel bellek.|Bulut/Roleınstance|
+|performanceCounters/processPrivateBytes|İşleme özel bayt sayısı|Bayt|Ortalama|İzlenen uygulama işlemleri için özel olarak atanan bellek.|Bulut/Roleınstance|
+|istekleri/süresi|Sunucu yanıt süresi|Milisaniye|Ortalama|Bir HTTP isteğinin alınmasıyla yanıtın gönderilmesi arasında geçen süre.|İstek/performanceBucket, istek/resultCode, işlemi/Sentetik, bulut/Roleınstance, istek/başarı, bulut/roleName|
+|isteği/sayısı|Sunucu istekleri|Sayı|Sayı|Tamamlanan HTTP isteği sayısı.|İstek/performanceBucket, istek/resultCode, işlemi/Sentetik, bulut/Roleınstance, istek/başarı, bulut/roleName|
+|/ başarısız istekleri|Başarısız istekler|Sayı|Sayı|HTTP isteği sayısı, başarısız olarak işaretlemiş. Çoğu durumda bunlar isteği bir yanıt koduna sahip > 400 veya 401 eşit değildir.|İstek/performanceBucket, istek/resultCode, işlemi/Sentetik, bulut/Roleınstance, bulut/roleName|
+|özel durumlar/sayısı|Özel durumlar|Sayı|Toplam|Tüm yakalanmayan özel durumların birleştirilmiş sayısı.|Bulut/roleName, bulut/Roleınstance, istemci/türü|
+|özel durumlar/tarayıcı|Tarayıcı özel durumları|Sayı|Toplam|Tarayıcıda oluşan yakalanmayan özel durum sayısı.|Boyut yok|
+|özel durumlar/sunucu|Sunucu özel durumları|Sayı|Toplam|Sunucu uygulamasında oluşan yakalanmayan özel durum sayısı.|Bulut/roleName, bulut/Roleınstance|
+|izlemeleri/sayısı|İzleme sayısı|Sayı|Toplam|İzleme belgesi sayısı|İzleme/Err, işlemi/Sentetik, bulut/roleName, bulut/Roleınstance|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
@@ -755,6 +808,20 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |ServiceApiHit|Hizmet API'si Toplam İsabet|Sayı|Sayı|Hizmet API'si isabetlerinin toplam sayısı|ActivityType, ActivityName|
 |ServiceApiLatency|Hizmet API'si Toplam Gecikme|Milisaniye|Ortalama|Hizmet API'si isteklerinin toplam gecikme süresi|ActivityType, ActivityName, StatusCode|
 |ServiceApiResult|Hizmet API'si Toplam Sonuç|Sayı|Sayı|Hizmet API'si sonuçlarının toplam sayısı|ActivityType, ActivityName, StatusCode|
+
+## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
+|---|---|---|---|---|---|
+|ClusterDataCapacityFactor|Önbellek kullanımı|Yüzde|Ortalama|Küme kapsamında kullanım düzeyi|Boyut yok|
+|QueryDuration|Sorgu süresi|Milisaniye|Ortalama|Saniye cinsinden sorgu süresi|QueryStatus|
+|IngestionsLoadFactor|Alımı kullanımı|Yüzde|Ortalama|Kümede kullanılan alma yuvası oranı|Boyut yok|
+|IsEngineAnsweringQuery|Canlı|Sayı|Ortalama|Sorgular için küme respondes sağlamlık onay gösterir|Boyut yok|
+|IngestCommandOriginalSizeInMb|Alma birim (MB cinsinden)|Sayı|Toplam|Genel (MB cinsinden) kümeye içe alınan veri hacmi|Boyut yok|
+|EventAgeSeconds|Alma gecikmesi (saniye cinsinden)|Saniye|Ortalama|Alma süresi (örneğin ileti içinde EventHub) kaynak kümeye saniye|Boyut yok|
+|EventRecievedFromEventHub|(Event Hubs için) işlenen olaylar|Sayı|Toplam|Olay Hub'ından başlayan kümeniz, küme tarafından işlenen olay sayısı|Boyut yok|
+|IngestionResult|Alma sonucu|Sayı|Sayı|Alma işlemi sayısı|IngestionResultDetails|
+|EngineCPU|CPU|Yüzde|Ortalama|CPU kullanımı düzeyi|Boyut yok|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -963,6 +1030,19 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |ProbesFailedPercent|% Araştırmaları başarısız oldu|Yüzde|Ortalama|araştırmalar izleme bağlantı başarısız oldu|Boyut yok|
 |AverageRoundtripMs|Ort. Gidiş dönüş süresi (ms)|Milisaniye|Ortalama|Kaynak ve hedef arasında gönderilen yoklamalar izleme bağlantı için ortalama ağ gidiş dönüş süresi (ms)|Boyut yok|
 
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
+|---|---|---|---|---|---|
+|RequestCount|İstek sayısı|Sayı|Toplam|HTTP/S proxy tarafından sunulan istemci isteklerinin sayısı|Httpstatus'a, HttpStatusGroup, ClientRegion, ClientCountry|
+|RequestSize|İstek boyutu|Bayt|Toplam|İstekleri olarak istemcilerden HTTP/S Ara sunucuya gönderilen bayt sayısı|Httpstatus'a, HttpStatusGroup, ClientRegion, ClientCountry|
+|ResponseSize|Yanıt boyutu|Bayt|Toplam|Yanıt HTTP/S proxy sunucudan istemcilere gönderilen bayt sayısı|Httpstatus'a, HttpStatusGroup, ClientRegion, ClientCountry|
+|BackendRequestCount|Arka uç istek sayısı|Sayı|Toplam|İçin arka uçlar HTTP/S Ara sunucuya gönderilen istek sayısı|Httpstatus'a, HttpStatusGroup, arka uç|
+|BackendRequestLatency|Arka uç istek gecikme süresi|Milisaniye|Ortalama|Ara sunucu HTTP/S son yanıt bayt arka uçtan alınan kadar zaman İstek HTTP/S proxy tarafından arka ucuna gönderilen hesaplandığında|Arka uç|
+|TotalLatency|Toplam gecikme süresi|Milisaniye|Ortalama|İstemci, HTTP/S Proxy'den gelen son yanıt bayt onaylanır kadar ne zaman istemci isteği HTTP/S proxy tarafından alındı hesaplandığında|Httpstatus'a, HttpStatusGroup, ClientRegion, ClientCountry|
+|BackendHealthPercentage|Arka uç sistem durumu yüzdesi|Yüzde|Ortalama|Başarılı sistem durumu yüzdesi için arka uçlar HTTP/S Ara sunucuya araştırmaları|Arka uç, BackendPool|
+|WebApplicationFirewallRequestCount|Web uygulaması güvenlik duvarı istek sayısı|Sayı|Toplam|Web uygulaması güvenlik duvarı tarafından işlenen istemci isteklerinin sayısı|PolicyName, RuleName, eylem|
+
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
@@ -1031,72 +1111,80 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |incoming.all.failedrequests|Tüm Gelen Başarısız İstekler|Sayı|Toplam|Bildirim hub'ı için toplam gelen başarısız istek sayısı|Boyut yok|
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
-(Genel Önizleme)
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-Average_ % boş Inode'ları|% Boş Inode'ları|Sayı|Ortalama|Average_ % boş Inode'ları|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ boş alan yüzdesi|% Boş alan|Sayı|Ortalama|Average_ boş alan yüzdesi|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % kullanılan Inode|% Kullanılan Inode|Sayı|Ortalama|Average_ % kullanılan Inode|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % kullanılan alan|% Kullanılan alan|Sayı|Ortalama|Average_ % kullanılan alan|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Disk Okuma Bayt/sn|Disk Okuma Bayt/sn|Sayı|Ortalama|Average_Disk Okuma Bayt/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Disk Okuma/sn|Disk Okuma/sn|Sayı|Ortalama|Average_Disk Okuma/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Disk aktarımı/sn|Disk aktarımı/sn|Sayı|Ortalama|Average_Disk aktarımı/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Disk Yazma Bayt/sn|Disk Yazma Bayt/sn|Sayı|Ortalama|Average_Disk Yazma Bayt/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Disk Yazma/sn|Disk Yazma/sn|Sayı|Ortalama|Average_Disk Yazma/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Free megabayt|Boş megabayt|Sayı|Ortalama|Average_Free megabayt|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Logical Disk Bayt/sn|Mantıksal Disk Bayt/sn|Sayı|Ortalama|Average_Logical Disk Bayt/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % kullanılabilir bellek|% Kullanılabilir bellek|Sayı|Ortalama|Average_ % kullanılabilir bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % kullanılabilir takas alanı|% Kullanılabilir takas alanı|Sayı|Ortalama|Average_ % kullanılabilir takas alanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % kullanılan bellek|% Kullanılan bellek|Sayı|Ortalama|Average_ % kullanılan bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % kullanılan takas alanı|% Kullanılan takas alanı|Sayı|Ortalama|Average_ % kullanılan takas alanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Available MBayt bellek|Kullanılabilir MBayt belleği|Sayı|Ortalama|Average_Available MBayt bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Available MBayt değiştirme|Kullanılabilir MBayt değiştirme|Sayı|Ortalama|Average_Available MBayt değiştirme|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Page Okuma/sn|Sayfa Okuma/sn|Sayı|Ortalama|Average_Page Okuma/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Page Yazma/sn|Sayfa Yazma/sn|Sayı|Ortalama|Average_Page Yazma/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Pages/sn|Sayfa/sn|Sayı|Ortalama|Average_Pages/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Used MBayt takas alanı|Kullanılabilir MBayt belleği|Sayı|Ortalama|Average_Used MBayt takas alanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Used bellek MBayt'ı|Kullanılabilir MBayt değiştirme|Sayı|Ortalama|Average_Used bellek MBayt'ı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-İletilen Average_Total bayt|Aktarılan toplam bayt|Sayı|Ortalama|İletilen Average_Total bayt|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Alınan Average_Total bayt sayısı|Alınan toplam bayt sayısı|Sayı|Ortalama|Alınan Average_Total bayt sayısı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Total bayt|Toplam Bayt|Sayı|Ortalama|Average_Total bayt|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-İletilen Average_Total paket sayısı|Aktarılan toplam paket sayısı|Sayı|Ortalama|İletilen Average_Total paket sayısı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Alınan Average_Total paketleri|Alınan toplam paket sayısı|Sayı|Ortalama|Alınan Average_Total paketleri|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Total Rx hataları|Toplam Rx hataları|Sayı|Ortalama|Average_Total Rx hataları|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Total Tx hataları|Toplam Tx hataları|Sayı|Ortalama|Average_Total Tx hataları|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Total çakışmaları|Toplam çakışmaları|Sayı|Ortalama|Average_Total çakışmaları|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Avg. Disk sn/Okuma|Ort. Disk sn/Okuma|Sayı|Ortalama|Average_Avg. Disk sn/Okuma|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Avg. Disk sn/Aktarım|Ort. Disk sn/Aktarım|Sayı|Ortalama|Average_Avg. Disk sn/Aktarım|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Avg. Disk sn/yazma|Ort. Disk sn/yazma|Sayı|Ortalama|Average_Avg. Disk sn/yazma|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Physical Disk Bayt/sn|Fiziksel Disk Bayt/sn|Sayı|Ortalama|Average_Physical Disk Bayt/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Pct ayrıcalıklı zaman|PCT ayrıcalıklı zaman|Sayı|Ortalama|Average_Pct ayrıcalıklı zaman|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Pct kullanıcı zamanı|PCT kullanıcı zamanı|Sayı|Ortalama|Average_Pct kullanıcı zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Used bellek KB|Kullanılan bellek KB|Sayı|Ortalama|Average_Used bellek KB|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Virtual paylaşılan bellek|Paylaşılan sanal bellek|Sayı|Ortalama|Average_Virtual paylaşılan bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % DPC Zamanı|% DPC Zamanı|Sayı|Ortalama|Average_ % DPC Zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % boş zaman|% Boş zaman|Sayı|Ortalama|Average_ % boş zaman|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % kesme zamanı|% Kesme Zamanı|Sayı|Ortalama|Average_ % kesme zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % GÇ bekleme zamanı|% GÇ bekleme zamanı|Sayı|Ortalama|Average_ % GÇ bekleme zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % iyi olma zamanı|% İyi olma zamanı|Sayı|Ortalama|Average_ % iyi olma zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % ayrıcalıklı zaman|% Ayrıcalıklı Zaman|Sayı|Ortalama|Average_ % ayrıcalıklı zaman|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % işlemci zamanı|% İşlemci zamanı|Sayı|Ortalama|Average_ % işlemci zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % kullanıcı zamanı|% Kullanıcı Zamanı|Sayı|Ortalama|Average_ % kullanıcı zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Free fiziksel bellek|Boş fiziksel bellek|Sayı|Ortalama|Average_Free fiziksel bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Disk belleği dosyalarında Average_Free alanı|Disk belleği dosyasındaki boş alan|Sayı|Ortalama|Disk belleği dosyalarında Average_Free alanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Free sanal bellek|Boş sanal bellek|Sayı|Ortalama|Average_Free sanal bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Processes|İşlemler|Sayı|Ortalama|Average_Processes|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Disk belleği dosyalarında depolanan Average_Size|Disk belleği dosyalarında depolanan boyut|Sayı|Ortalama|Disk belleği dosyalarında depolanan Average_Size|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Uptime|Çalışma Süresi|Sayı|Ortalama|Average_Uptime|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Users|Kullanıcılar|Sayı|Ortalama|Average_Users|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Current Disk kuyruğu uzunluğu|Geçerli Disk Sırası Uzunluğu|Sayı|Ortalama|Average_Current Disk kuyruğu uzunluğu|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Available MBayt|Kullanılabilir MBayt|Sayı|Ortalama|Average_Available MBayt|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_ % kullanılan Kaydedilmiş Bayt yüzdesi|% Kullanılan kaydedilmiş bayt|Sayı|Ortalama|Average_ % kullanılan Kaydedilmiş Bayt yüzdesi|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Bytes alınan/sn|Alınan Bayt/sn|Sayı|Ortalama|Average_Bytes alınan/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Bytes gönderilen/sn|Gönderilen bayt/sn|Sayı|Ortalama|Average_Bytes gönderilen/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Average_Bytes toplam/sn|Toplam Bayt/sn|Sayı|Ortalama|Average_Bytes toplam/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
-Sinyal|Sinyal|Sayı|Ortalama|Sinyal|Computer, OSType, Version, SourceComputerId|
-Güncelleştirme|Güncelleştirme|Sayı|Ortalama|Güncelleştirme|Bilgisayar, ürün, Sınıflandırma, isteğe bağlı, onaylanan UpdateState|
-Olay|Olay|Sayı|Ortalama|Olay|Kaynak, EventLog, bilgisayar, EventCategory, EventLevel, EventLevelName, EventID|
+|Average_ % boş Inode'ları|% Boş Inode'ları|Sayı|Ortalama|Average_ % boş Inode'ları|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ boş alan yüzdesi|% Boş alan|Sayı|Ortalama|Average_ boş alan yüzdesi|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % kullanılan Inode|% Kullanılan Inode|Sayı|Ortalama|Average_ % kullanılan Inode|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % kullanılan alan|% Kullanılan alan|Sayı|Ortalama|Average_ % kullanılan alan|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Disk Okuma Bayt/sn|Disk Okuma Bayt/sn|Sayı|Ortalama|Average_Disk Okuma Bayt/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Disk Okuma/sn|Disk Okuma/sn|Sayı|Ortalama|Average_Disk Okuma/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Disk aktarımı/sn|Disk aktarımı/sn|Sayı|Ortalama|Average_Disk aktarımı/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Disk Yazma Bayt/sn|Disk Yazma Bayt/sn|Sayı|Ortalama|Average_Disk Yazma Bayt/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Disk Yazma/sn|Disk Yazma/sn|Sayı|Ortalama|Average_Disk Yazma/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Free megabayt|Boş megabayt|Sayı|Ortalama|Average_Free megabayt|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Logical Disk Bayt/sn|Mantıksal Disk Bayt/sn|Sayı|Ortalama|Average_Logical Disk Bayt/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % kullanılabilir bellek|% Kullanılabilir bellek|Sayı|Ortalama|Average_ % kullanılabilir bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % kullanılabilir takas alanı|% Kullanılabilir takas alanı|Sayı|Ortalama|Average_ % kullanılabilir takas alanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % kullanılan bellek|% Kullanılan bellek|Sayı|Ortalama|Average_ % kullanılan bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % kullanılan takas alanı|% Kullanılan takas alanı|Sayı|Ortalama|Average_ % kullanılan takas alanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Available MBayt bellek|Kullanılabilir MBayt belleği|Sayı|Ortalama|Average_Available MBayt bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Available MBayt değiştirme|Kullanılabilir MBayt değiştirme|Sayı|Ortalama|Average_Available MBayt değiştirme|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Page Okuma/sn|Sayfa Okuma/sn|Sayı|Ortalama|Average_Page Okuma/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Page Yazma/sn|Sayfa Yazma/sn|Sayı|Ortalama|Average_Page Yazma/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Pages/sn|Sayfa/sn|Sayı|Ortalama|Average_Pages/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Used MBayt takas alanı|Kullanılan MBayt takas alanı|Sayı|Ortalama|Average_Used MBayt takas alanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Used bellek MBayt'ı|Kullanılan bellek MBayt|Sayı|Ortalama|Average_Used bellek MBayt'ı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|İletilen Average_Total bayt|Aktarılan toplam bayt|Sayı|Ortalama|İletilen Average_Total bayt|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Alınan Average_Total bayt sayısı|Alınan toplam bayt sayısı|Sayı|Ortalama|Alınan Average_Total bayt sayısı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Total bayt|Toplam Bayt|Sayı|Ortalama|Average_Total bayt|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|İletilen Average_Total paket sayısı|Aktarılan toplam paket sayısı|Sayı|Ortalama|İletilen Average_Total paket sayısı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Alınan Average_Total paketleri|Alınan toplam paket sayısı|Sayı|Ortalama|Alınan Average_Total paketleri|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Total Rx hataları|Toplam Rx hataları|Sayı|Ortalama|Average_Total Rx hataları|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Total Tx hataları|Toplam Tx hataları|Sayı|Ortalama|Average_Total Tx hataları|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Total çakışmaları|Toplam çakışmaları|Sayı|Ortalama|Average_Total çakışmaları|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Avg. Disk sn/Okuma|Ort. Disk sn/Okuma|Sayı|Ortalama|Average_Avg. Disk sn/Okuma|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Avg. Disk sn/Aktarım|Ort. Disk sn/Aktarım|Sayı|Ortalama|Average_Avg. Disk sn/Aktarım|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Avg. Disk sn/yazma|Ort. Disk sn/yazma|Sayı|Ortalama|Average_Avg. Disk sn/yazma|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Physical Disk Bayt/sn|Fiziksel Disk Bayt/sn|Sayı|Ortalama|Average_Physical Disk Bayt/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Pct ayrıcalıklı zaman|PCT ayrıcalıklı zaman|Sayı|Ortalama|Average_Pct ayrıcalıklı zaman|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Pct kullanıcı zamanı|PCT kullanıcı zamanı|Sayı|Ortalama|Average_Pct kullanıcı zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Used bellek KB|Kullanılan bellek KB|Sayı|Ortalama|Average_Used bellek KB|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Virtual paylaşılan bellek|Paylaşılan sanal bellek|Sayı|Ortalama|Average_Virtual paylaşılan bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % DPC Zamanı|% DPC Zamanı|Sayı|Ortalama|Average_ % DPC Zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % boş zaman|% Boş zaman|Sayı|Ortalama|Average_ % boş zaman|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % kesme zamanı|% Kesme Zamanı|Sayı|Ortalama|Average_ % kesme zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % GÇ bekleme zamanı|% GÇ bekleme zamanı|Sayı|Ortalama|Average_ % GÇ bekleme zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % iyi olma zamanı|% İyi olma zamanı|Sayı|Ortalama|Average_ % iyi olma zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % ayrıcalıklı zaman|% Ayrıcalıklı Zaman|Sayı|Ortalama|Average_ % ayrıcalıklı zaman|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % işlemci zamanı|% İşlemci zamanı|Sayı|Ortalama|Average_ % işlemci zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % kullanıcı zamanı|% Kullanıcı Zamanı|Sayı|Ortalama|Average_ % kullanıcı zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Free fiziksel bellek|Boş fiziksel bellek|Sayı|Ortalama|Average_Free fiziksel bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Disk belleği dosyalarında Average_Free alanı|Disk belleği dosyasındaki boş alan|Sayı|Ortalama|Disk belleği dosyalarında Average_Free alanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Free sanal bellek|Boş sanal bellek|Sayı|Ortalama|Average_Free sanal bellek|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Processes|İşlemler|Sayı|Ortalama|Average_Processes|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Disk belleği dosyalarında depolanan Average_Size|Disk belleği dosyalarında depolanan boyut|Sayı|Ortalama|Disk belleği dosyalarında depolanan Average_Size|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Uptime|Çalışma Süresi|Sayı|Ortalama|Average_Uptime|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Users|Kullanıcılar|Sayı|Ortalama|Average_Users|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Avg. Disk sn/Okuma|Ort. Disk sn/Okuma|Sayı|Ortalama|Average_Avg. Disk sn/Okuma|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Avg. Disk sn/yazma|Ort. Disk sn/yazma|Sayı|Ortalama|Average_Avg. Disk sn/yazma|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Current Disk kuyruğu uzunluğu|Geçerli Disk Sırası Uzunluğu|Sayı|Ortalama|Average_Current Disk kuyruğu uzunluğu|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Disk Okuma/sn|Disk Okuma/sn|Sayı|Ortalama|Average_Disk Okuma/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Disk aktarımı/sn|Disk aktarımı/sn|Sayı|Ortalama|Average_Disk aktarımı/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Disk Yazma/sn|Disk Yazma/sn|Sayı|Ortalama|Average_Disk Yazma/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Free megabayt|Boş megabayt|Sayı|Ortalama|Average_Free megabayt|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ boş alan yüzdesi|% Boş alan|Sayı|Ortalama|Average_ boş alan yüzdesi|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Available MBayt|Kullanılabilir MBayt|Sayı|Ortalama|Average_Available MBayt|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % kullanılan Kaydedilmiş Bayt yüzdesi|% Kullanılan kaydedilmiş bayt|Sayı|Ortalama|Average_ % kullanılan Kaydedilmiş Bayt yüzdesi|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Bytes alınan/sn|Alınan Bayt/sn|Sayı|Ortalama|Average_Bytes alınan/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Bytes gönderilen/sn|Gönderilen bayt/sn|Sayı|Ortalama|Average_Bytes gönderilen/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Bytes toplam/sn|Toplam Bayt/sn|Sayı|Ortalama|Average_Bytes toplam/sn|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_ % işlemci zamanı|% İşlemci zamanı|Sayı|Ortalama|Average_ % işlemci zamanı|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Average_Processor kuyruğu uzunluğu|İşlemci kuyruğu uzunluğu|Sayı|Ortalama|Average_Processor kuyruğu uzunluğu|Bilgisayar, ObjectName, InstanceName, sayaç yolu, Analytics'teki|
+|Sinyal|Sinyal|Sayı|Toplam|Sinyal|Computer, OSType, Version, SourceComputerId|
+|Güncelleştirme|Güncelleştirme|Sayı|Ortalama|Güncelleştirme|Bilgisayar, ürün, Sınıflandırma, isteğe bağlı, onaylanan UpdateState|
+|Olay|Olay|Sayı|Ortalama|Olay|Kaynak, EventLog, bilgisayar, EventCategory, EventLevel, EventLevelName, EventID|
 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
@@ -1205,6 +1293,18 @@ Olay|Olay|Sayı|Ortalama|Olay|Kaynak, EventLog, bilgisayar, EventCategory, Event
 |eDTU_used|kullanılan eDTU|Sayı|Ortalama|kullanılan eDTU|Boyut yok|
 |storage_used|Kullanılan depolama|Bayt|Ortalama|Kullanılan depolama|Boyut yok|
 |xtp_storage_percent|Bellek içi OLTP depolama yüzdesi|Yüzde|Ortalama|Bellek içi OLTP depolama yüzdesi|Boyut yok|
+
+## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
+
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
+|---|---|---|---|---|---|
+|virtual_core_count|Sanal çekirdek sayısı|Sayı|Ortalama|Sanal çekirdek sayısı|Boyut yok|
+|avg_cpu_percent|Ortalama CPU yüzdesi|Yüzde|Ortalama|Ortalama CPU yüzdesi|Boyut yok|
+|reserved_storage_mb|Ayrılan depolama alanı|Sayı|Ortalama|Ayrılan depolama alanı|Boyut yok|
+|storage_space_used_mb|Kullanılan depolama alanı|Sayı|Ortalama|Kullanılan depolama alanı|Boyut yok|
+|io_requests|G/ç isteği sayısı|Sayı|Ortalama|G/ç isteği sayısı|Boyut yok|
+|io_bytes_read|GÇ Okunan Bayt|Bayt|Ortalama|GÇ Okunan Bayt|Boyut yok|
+|io_bytes_written|GÇ yazılan bayt|Bayt|Ortalama|GÇ yazılan bayt|Boyut yok|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 

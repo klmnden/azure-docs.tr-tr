@@ -1,6 +1,6 @@
 ---
 title: Azure'daki bir Linux sanal diskleri şifreleme | Microsoft Docs
-description: Gelişmiş Güvenlik Azure CLI 2.0 kullanarak bir Linux sanal makinesinde sanal diskleri şifreleme
+description: Gelişmiş güvenlik için Azure CLI kullanarak Linux sanal makinesinde sanal diskleri şifreleme
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,19 +15,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 75ec087536d6f833a9a2106b1fdf4ed1fd73ef8e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 044486424f8bcc9d66998f775154eff9c52e7d1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634629"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981238"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Azure'da bir Linux sanal makinesi şifreleme
-Geliştirilmiş sanal makine (VM) güvenlik ve uyumluluk için sanal diskleri ve VM şifrelenebilir. Vm'leri bir Azure Key Vault'ta güvenli şifreleme anahtarları kullanılarak şifrelenir. Bu şifreleme anahtarlarını denetlemek ve bunların kullanılması denetleyebilirsiniz. Bu makalede, Azure CLI 2.0 kullanarak bir Linux VM üzerinde sanal diskleri şifreleme işlemi açıklanmaktadır. 
+
+Geliştirilmiş sanal makine (VM) güvenlik ve uyumluluk için sanal diskleri ve VM şifrelenebilir. Vm'leri bir Azure Key Vault'ta güvenli şifreleme anahtarları kullanılarak şifrelenir. Bu şifreleme anahtarlarını denetlemek ve bunların kullanılması denetleyebilirsiniz. Bu makalede, Azure CLI kullanarak bir Linux sanal makinesinde sanal diskleri şifreleme işlemi açıklanmaktadır. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale, Azure CLI Sürüm 2.0.30 çalıştırdığınız gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale, Azure CLI Sürüm 2.0.30 çalıştırdığınız gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="overview-of-disk-encryption"></a>Disk şifrelemesi'ne genel bakış
 Rest kullanarak Linux sanal makineleri sanal disklerde şifrelenir [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Azure'da sanal diskler şifrelemek için ücret alınmaz. Yazılım koruması kullanarak Azure Key Vault şifreleme anahtarlarını depolanır veya anahtarlarınızı FIPS 140-2 seviye 2 standartlarıyla sertifikalandırılmış donanım güvenlik modüllerinde (HSM'ler) oluşturun veya içeri aktarın. Bu şifreleme anahtarları denetiminizde korumak ve kullanımlarını denetleyebilirsiniz. Bu şifreleme anahtarlarını, şifreleme ve şifre çözme, sanal Makineye eklenmiş sanal diskler için kullanılır. Bir Azure Active Directory Hizmet sorumlusu, Vm'leri açıp desteklenir gibi veren bu şifreleme anahtarları için güvenli bir mekanizma sağlar.

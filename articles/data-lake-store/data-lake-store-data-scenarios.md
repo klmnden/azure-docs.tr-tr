@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: c492709ca3da0f9f3ab4b1457be34dd5d6fc7b35
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 64c7985508ed7f03b32340cbb2c78de61242f7e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391244"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984288"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Azure Data Lake depolama Gen1 büyük veri gereksinimleri için kullanma
 
@@ -40,7 +40,7 @@ Bu, daha küçük veri kümeleri temsil eder bir büyük veri uygulaması protot
 
 | Veri Kaynağı | Kullanarak ayırın |
 | --- | --- |
-| Yerel bilgisayar |<ul> <li>[Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure platformlar arası CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Visual Studio için Data Lake Araçları'nı kullanarak](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Yerel bilgisayar |<ul> <li>[Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li> <li>[Visual Studio için Data Lake Araçları'nı kullanarak](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Azure depolama blobu |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy aracı](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight küme üzerinde çalışan DistCp](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Akış verileri
@@ -61,7 +61,7 @@ Ayrıca ilişkisel veritabanlarından veri kaynağı. Bir süre, önemli öngör
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Web sunucusu günlüğü verilerini (karşıya yükleme özel uygulamaları kullanarak)
 Web sunucusu günlüğü verilerinin analizi büyük veri uygulamaları için yaygın bir kullanım örneği ve günlük dosyaları için Data Lake depolama Gen1 yüklenmek üzere büyük birimleri gerektiriyor çünkü bu tür bir veri kümesi özellikle çağırılır. Betikleri veya bu tür verileri yüklemek için uygulamaları yazmak için aşağıdaki araçlardan herhangi birini kullanabilirsiniz.
 
-* [Azure platformlar arası CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+* [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake depolama Gen1 .NET SDK'sı](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
@@ -81,7 +81,7 @@ HDFS kullanarak makinede yerel olarak mevcut Hadoop kümelerindeki büyük mikta
 | Yaklaşım | Ayrıntılar | Avantajları | Dikkat edilmesi gerekenler |
 | --- | --- | --- | --- |
 | Azure Data Lake depolama Gen1 doğrudan Hadoop kümelerdeki veri kopyalamak için Azure Data Factory (ADF) kullanın |[ADF HDFS veri kaynağı olarak destekler.](../data-factory/connector-hdfs.md) |ADF HDFS ve birinci sınıf için uçtan uca yönetim ve izleme için kullanıma hazır destek sağlar. |Veri Yönetimi ağ geçidi şirket içinde dağıtılabilir veya Iaas küme gerektirir |
-| Verilerin Hadoop'tan dosyaları olarak dışarı aktarın. Ardından uygun mekanizma kullanılarak Azure Data Lake depolama Gen1 dosyaları kopyalayın. |Azure Data Lake depolama Gen1 kullanmaya dosyalarını kopyalayabilirsiniz: <ul><li>[Windows işletim sistemi için Azure PowerShell](data-lake-store-get-started-powershell.md)</li><li>[Azure platformlar arası CLI 2.0 için Windows işletim sistemi olmayan](data-lake-store-get-started-cli-2.0.md)</li><li>Her Data Lake depolama Gen1 SDK'sını kullanarak özel uygulama</li></ul> |Başlamak hızlı. Özelleştirilmiş karşıya yükleme yapabilirsiniz |Çok adımlı işlem birden çok teknoloji içerir. Yönetim ve İzleme Araçları'nın özelleştirilmiş yapısı gereği zaman içinde bir mücadele haline şekilde büyür |
+| Verilerin Hadoop'tan dosyaları olarak dışarı aktarın. Ardından uygun mekanizma kullanılarak Azure Data Lake depolama Gen1 dosyaları kopyalayın. |Azure Data Lake depolama Gen1 kullanmaya dosyalarını kopyalayabilirsiniz: <ul><li>[Windows işletim sistemi için Azure PowerShell](data-lake-store-get-started-powershell.md)</li><li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li><li>Her Data Lake depolama Gen1 SDK'sını kullanarak özel uygulama</li></ul> |Başlamak hızlı. Özelleştirilmiş karşıya yükleme yapabilirsiniz |Çok adımlı işlem birden çok teknoloji içerir. Yönetim ve İzleme Araçları'nın özelleştirilmiş yapısı gereği zaman içinde bir mücadele haline şekilde büyür |
 | Azure depolama için Hadoop veri kopyalamak için Distcp kullanma. Ardından verileri Azure uygun mekanizma kullanılarak depolamadan Data Lake depolama Gen1 için kopyalayın. |Data Lake depolama Gen1 kullanarak Azure Depolama'ya veri kopyalayabilirsiniz: <ul><li>[Azure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[AdlCopy aracı](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp HDInsight kümelerinde çalıştırma](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |Açık kaynak araçları kullanabilirsiniz. |Birden çok teknoloji kapsayan çok adımlı bir işlem |
 
 ### <a name="really-large-datasets"></a>Çok büyük veri kümeleri
@@ -121,7 +121,7 @@ Bu gibi durumlarda, aşağıdaki seçeneklerden herhangi birini kullanabilirsini
 
 Ayrıca, kendi betik/Data Lake depolama Gen1 verileri indirmek için uygulamanızı yazmak için aşağıdaki yöntemleri kullanabilirsiniz.
 
-* [Azure platformlar arası CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+* [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake depolama Gen1 .NET SDK'sı](data-lake-store-get-started-net-sdk.md)
 

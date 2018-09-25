@@ -9,14 +9,14 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: d6852b5b1fe3d0b3c248fc1948fa4c3a9428de89
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2ff7c3482100545c476040ba556d464b9f44e434
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125417"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031127"
 ---
-# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Linux kapsayıcıları ile kullanmak için Windows Azure IOT Edge çalışma zamanını yükleyin
+# <a name="install-the-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Linux kapsayıcıları ile kullanmak için Windows Azure IOT Edge çalışma zamanını yükleyin
 
 Azure IOT Edge çalışma zamanı, ne bir cihaz ile IOT Edge cihazı kapatır ' dir. Çalışma zamanı, cihaz olarak endüstriyel sunucusu olarak büyük veya küçük bir Raspberry Pi üzerinde dağıtılabilir. Bir cihaz IOT Edge çalışma zamanı ile yapılandırıldıktan sonra iş mantığı buluttan dağıttıktan başlayabilirsiniz. 
 
@@ -107,6 +107,10 @@ Ve modüller ile çalışan listesi:
 ```powershell
 iotedge list
 ```
+
+## <a name="tips-and-suggestions"></a>İpuçları ve öneriler
+
+Ağınız proxy sunucusu varsa, adımları [bir proxy sunucu üzerinden iletişim kurmak için IOT Edge Cihazınızı yapılandırma](how-to-configure-proxy-support.md) yüklemek ve IOT Edge çalışma zamanı'nı başlatmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

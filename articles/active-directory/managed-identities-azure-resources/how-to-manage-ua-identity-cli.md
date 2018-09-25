@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 1ba164cdf6d7665077616edc20d133c6912b186f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 19963edc3742cc5f09ed02249d313728410711c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160581"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973512"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Oluşturma, liste veya Azure CLI kullanarak bir kullanıcı tarafından atanan yönetilen kimlik silme
 
@@ -39,11 +39,11 @@ Bu makalede, oluşturmak, liste ve Azure CLI kullanarak bir kullanıcı tarafın
 - CLI betiği örnekleri çalıştırmak için üç seçeneğiniz vardır:
     - Kullanım [Azure Cloud Shell](../../cloud-shell/overview.md) Azure portalından (sonraki bölüme bakın).
     - Katıştırılmış Azure Cloud Shell aracılığıyla her kod bloğunun sağ üst köşesinde bulunan "Try It" düğmesini kullanın.
-    - [CLI 2. 0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 veya üzeri) yerel bir CLI konsol kullanmak istiyorsanız. Oturum açmak için Azure kullanarak `az login`, altında istediğiniz kullanıcı tarafından atanan dağıtmak Azure aboneliği ile ilişkili olan bir hesap kullanarak yönetilen kimliği.
+    - [Azure CLI'ın en son sürümü yükleyin](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 veya üzeri) yerel bir CLI konsol kullanmak istiyorsanız. Oturum açmak için Azure kullanarak `az login`, altında istediğiniz kullanıcı tarafından atanan dağıtmak Azure aboneliği ile ilişkili olan bir hesap kullanarak yönetilen kimliği.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-a-user-assigned-managed-identity"></a>Kullanıcı tarafından atanan bir yönetilen kimlik oluşturma 
+## <a name="create-a-user-assigned-managed-identity"></a>Kullanıcı tarafından atanan yönetilen kimlik oluşturma 
 
 Kullanıcı tarafından atanan bir yönetilen kimlik oluşturmak üzere kullanmak [az kimliği oluşturma](/cli/azure/identity#az-identity-create) komutu. `-g` Parametresi, kullanıcı tarafından atanan yönetilen kimlik, oluşturulacağı kaynak grubunu belirtir ve `-n` parametre adını belirtir. Değiştirin `<RESOURCE GROUP>` ve `<USER ASSIGNED IDENTITY NAME>` parametre değerlerini kendi değerlerinizle:
 

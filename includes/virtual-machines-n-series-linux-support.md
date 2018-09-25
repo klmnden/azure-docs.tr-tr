@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 05/29/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 1813367a2d143f75fb51a3160dd00219c709c57b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: dc03f49a684bfeb43ffd8bac9f551a67f034a04f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935775"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042886"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Desteklenen dağıtımlar ve sürücüler
 
@@ -26,11 +26,11 @@ NVIDIA CUDA sürücüleri NC, NCv2 NCv3 ve ND serisi VM'ler (NV serisi için ist
 
 | Dağıtım | Sürücü |
 | --- | -- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.4 ya da 7.3<br/><br/> CentOS tabanlı 7.3 veya 7.4, CentOS tabanlı 7.4 HPC | NVIDIA CUDA 9.1, sürücü dalı R390 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.4 ya da 7.3<br/><br/> CentOS tabanlı 7.3 veya 7.4, CentOS tabanlı 7.4 HPC | NVIDIA CUDA 10.0, sürücü dalı R410 |
 
 ### <a name="nvidia-grid-drivers"></a>NVIDIA GRID sürücüleri
 
-Microsoft, sanal uygulamaları veya sanal çalışma İstasyonlarınızı kullanılan NV serisi VM'ler için NVIDIA GRID sürücü yükleyiciler yeniden dağıtır. Bu kılavuz sürücüleri yalnızca Azure NV Vm'lerinde yalnızca aşağıdaki tabloda listelenen dağıtımlarında yükleyin. Bu sürücüleri kılavuz Azure'da sanal GPU yazılımı için lisans içerir.
+Microsoft, sanal uygulamaları veya NV ve sanal çalışma İstasyonlarınızı kullanılan NVv2 serisi VM'ler için NVIDIA GRID sürücü yükleyiciler yeniden dağıtır. Bu kılavuz sürücüleri yalnızca Azure NV Vm'lerinde yalnızca aşağıdaki tabloda listelenen dağıtımlarında yükleyin. Bu sürücüleri kılavuz Azure'da sanal GPU yazılımı için lisans içerir.
 
 | Dağıtım | Sürücü |
 | --- | -- |

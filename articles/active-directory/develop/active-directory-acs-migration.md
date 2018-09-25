@@ -1,6 +1,6 @@
 ---
 title: Azure erişim denetimi Hizmeti'nden geçiş | Microsoft Docs
-description: Uygulamaları ve Hizmetleri Azure erişim denetimi hizmeti taşımak için seçenekleri
+description: Uygulamaları ve Hizmetleri Azure Access Control Service (ACS) öğesinden taşıma seçenekleri hakkında bilgi edinin.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 3120bf36c32a8be42f325ef584bfc8a2c5cd04df
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055303"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036550"
 ---
-# <a name="migrate-from-the-azure-access-control-service"></a>Azure erişim denetimi Hizmeti'nden geçiş
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Nasıl yapılır: Azure erişim denetimi Hizmeti'nden geçiş
 
 Microsoft Azure Access Control Service (ACS), Azure Active Directory (Azure AD), bir hizmet 7 Kasım 2018'de kullanımdan kaldırılacaktır. Şu anda erişim denetimi kullanın, uygulamalar ve hizmetler için bir farklı kimlik doğrulama mekanizması tarafından daha sonra tam olarak geçirilmelidir. Bu makalede, erişim denetimi kullanımınız kullanımdan planladığınız geçerli müşteri önerileri açıklanmaktadır. Access Control şu anda kullanmazsanız, herhangi bir eylemde bulunmanız gerekmez.
 
@@ -37,7 +37,7 @@ Erişim denetimi için kullanım örnekleri, üç ana kategoriye ayrılabilir:
 - Web uygulamaları, hem özel hem de önceden paketlenmiş (SharePoint gibi) kimlik doğrulaması ekleme. Erişim denetimi "pasif" kimlik doğrulaması kullanarak web uygulamaları oturum açma Microsoft hesabı (önceki adıyla Live ID) ve Google, Facebook, Yahoo, Azure AD hesapları destekleyebilir ve Active Directory Federasyon Hizmetleri (AD FS).
 - Access Control tarafından verilen belirteçlere ile özel web hizmetleri güvenli hale getirme. "Active" kimlik doğrulaması'nı kullanarak web Hizmetleri, erişim denetimi ile kimlik doğrulamasını yalnızca bilinen istemciler için erişim sağlarlar sağlayabilirsiniz.
 
-Bunların her biri kullanım örneklerinize ve stratejileri açıklanan, önerilen geçiş sağlanmaktadır. 
+Bunların her biri kullanım örneklerinize ve stratejileri açıklanan, önerilen geçiş sağlanmaktadır.
 
 > [!WARNING]
 > Çoğu durumda, var olan uygulamalar ve hizmetler için yeni teknolojileri geçirmek için önemli kod değişikliği gerekir. Planlama hemen başlamanızı öneririz ve olası kesintileri veya kapalı kalma süresini önlemek için geçişiniz yürütülüyor.
@@ -61,6 +61,51 @@ Yönetim işlemleri ve STS ile tüm iletişim bu URL'de gerçekleştirilir. Fark
 Tüm trafik için bunun özel durumu olan `https://accounts.accesscontrol.windows.net`. Bu URL'yi trafiği farklı bir hizmet tarafından zaten işlenmiş ve **değil** erişim denetimi kullanımdan kaldırma tarafından etkilenen. 
 
 Erişim denetimi hakkında daha fazla bilgi için bkz. [erişim denetimi hizmeti (arşivlenmiş) 2.0](https://msdn.microsoft.com/library/hh147631.aspx).
+
+## <a name="find-out-which-of-your-apps-will-be-impacted"></a>Hangi uygulamalarınızın etkilenecek kullanıma Bul
+
+ACS emeklilik tarafından hangi uygulamalarınızın etkilenecek kullanıma bulmak için bu bölümdeki adımları izleyin.
+
+### <a name="download-and-install-acs-powershell"></a>ACS PowerShell'i indirip yükleyin
+
+1. Git PowerShell Galerisi'nden ve indirme [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
+1. Çalıştırarak modülünü yükleme
+
+    ```powershell
+    Install-Module -Name Acs.Namespaces
+    ```
+
+1. Çalıştırarak tüm olası komutların bir listesini alın
+
+    ```powershell
+    Get-Command -Module Acs.Namespaces
+    ```
+
+    Belirli bir komutla ilgili Yardım almak için şunu çalıştırın:
+
+    ```
+     Get-Help [Command-Name] -Full
+    ```
+    
+    Burada `[Command-Name]` ACS komut adıdır.
+
+### <a name="list-your-acs-namespaces"></a>ACS ad alanları listesi
+
+1. ACS kullanarak bağlan **Connect AcsAccount** cmdlet'i.
+  
+    Çalıştırmanız gerekebilir `Set-ExecutionPolicy -ExecutionPolicy Bypass` komutları yürütmeden önce ve komutları yürütmek için bu Aboneliklerdeki yönetici olabilir.
+
+1. Kullanarak mevcut Azure aboneliklerinizi listesinde **Get-AcsSubscription** cmdlet'i.
+1. ACS kullanarak ad alanları listesi **Get-AcsNamespace** cmdlet'i.
+
+### <a name="check-which-applications-will-be-impacted"></a>Hangi uygulamaların etkilenecek denetleyin
+
+1. Önceki adımdan gelen ad alanı kullanın ve Git `https://<namespace>.accesscontrol.windows.net`
+
+    Örneğin, Git ad alanlarından biri contoso-test varsa, `https://contoso-test.accesscontrol.windows.net`
+
+1. Altında **güven ilişkileri**seçin **bağlı olan taraf uygulamaları** ACS emeklilik tarafından etkilenen uygulamaları listesini görmek için.
+1. Sahip olduğunuz tüm diğer ACS namespace (s) için 1 ve 2. adımları tekrarlayın.
 
 ## <a name="retirement-schedule"></a>Kullanımdan kaldırma zamanlaması
 

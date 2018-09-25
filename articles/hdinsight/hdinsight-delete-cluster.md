@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 737cc120877a9d0f06a1f6d209bcf9a233aa7d19
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 39404ff74552b11e982cf5968c0eb131ea642e27
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091318"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979463"
 ---
-# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Tarayıcınız, PowerShell veya Azure CLI kullanarak bir HDInsight kümesini silme
+# <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-classic-cli"></a>Tarayıcınız, PowerShell veya Azure Klasik CLI kullanarak bir HDInsight kümesini silme
 
-HDInsight kümesi faturalandırması küme oluşturulduğunda başlar ve küme silindiğinde sona erer. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz. Bu belgede, Azure portalı, Azure PowerShell ve Azure CLI 1.0 kullanarak küme silme hakkında bilgi edinin.
+HDInsight kümesi faturalandırması küme oluşturulduğunda başlar ve küme silindiğinde sona erer. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz. Bu belgede, Azure portalı, Azure PowerShell ve Azure Klasik CLI'yı kullanarak küme silme hakkında bilgi edinin.
 
 > [!IMPORTANT]
 > Azure depolama hesapları HDInsight küme silme silmez veya Data Lake Store kümeyle ilişkili. Gelecekte bu Hizmetleri'nde depolanan verileri yeniden kullanabilirsiniz.
@@ -41,13 +41,12 @@ Bir PowerShell isteminden kümeyi silmek için aşağıdaki komutu kullanın:
 
 **CLUSTERNAME** değerini HDInsight kümenizin adıyla değiştirin.
 
-## <a name="azure-cli-10"></a>Azure CLI 1.0
+## <a name="azure-classic-cli"></a>Klasik Azure CLI
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Bir isteminden kümeyi silmek için aşağıdakileri kullanın:
 
     azure hdinsight cluster delete CLUSTERNAME
 
 **CLUSTERNAME** değerini HDInsight kümenizin adıyla değiştirin.
-
-> [!NOTE]
-> Azure CLI 2.0 silme HDInsight kümeleri (23 Ekim 2017) şu anda desteklemiyor.

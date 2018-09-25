@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 3446488a5dc2bdd1bb01b39bc25b60137fcbc331
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 353ab846c576a9b133cf640bbc856ec6eddf73f4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040056"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982911"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight’ta Apache Storm nedir?
 
@@ -84,7 +84,7 @@ HDInsight üzerinde dakikalar için yeni bir Storm kümesi oluşturabilirsiniz. 
 
   Daha fazla bilgi için [HDInsight'ı Ambari Web Kullanıcı Arabirimini kullanarak yönetme](../hdinsight-hadoop-manage-ambari.md) ve [Storm kullanıcı arabirimini kullanarak izleme ve yönetme](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) belgelerine bakın.
 
-* __Azure PowerShell ve Azure CLI__: Hem Azure PowerShell hem de CLI, HDInsight ve diğer Azure hizmetleriyle çalışmak için istemci sisteminizde kullanabileceğiniz komut satırı yardımcı programları sunar.
+* __Azure PowerShell ve Azure Klasik CLI__: PowerShell ve klasik CLI hem de HDInsight ve diğer Azure hizmetleriyle çalışmak için istemci sisteminizde kullanabileceğiniz komut satırı yardımcı programları sağlar.
 
 * __Visual Studio tümleştirmesi__: Visual Studio için Azure Data Lake Araçları, SCP.Net çerçevesi kullanarak C# Storm topolojileri oluşturmaya yönelik proje şablonları içerir. Data Lake Araçları ayrıca HDInsight üzerinde Storm ile çözümleri dağıtma, izleme ve yönetmeye yönelik araçlar sağlar.
 

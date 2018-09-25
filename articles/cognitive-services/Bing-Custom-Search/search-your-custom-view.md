@@ -1,6 +1,6 @@
 ---
-title: ': Bing özel özel bir görünüm araması | Microsoft Docs'
-description: Bir özel görünümde Web ara açıklar
+title: 'Bing özel arama: özel bir görünüm arama | Microsoft Docs'
+description: Özel bir web görünümü arama açıklar
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,38 +9,51 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 75f6c8d299c7eed901dda0631fca74b040f72e30
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7a2db7881dfe7efedb1a83637a6281f786652958
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352852"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964914"
 ---
-# <a name="call-your-custom-search"></a>Özel aramanızı çağırın
-Örneğiniz için arama sonuçları almak için ilk çağrıda özel arama API yapmadan önce Bilişsel hizmetler abonelik anahtarı edinmeniz gerekir. Özel arama API için bir anahtar almak için bkz: [deneyin Bilişsel Hizmetler](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+# <a name="call-your-custom-search"></a>Özel arama çağırın
 
-> [!NOTE]
-> Veya bu tarihten önce 15 Ekim 2017 sağlanan bir önizleme anahtara sahip varolan Bing özel arama müşteriler kendi anahtarları 30 Kasım 2017 kadar veya sayısı izin verilen sorgular tüketmiş kadar kullanmanız mümkün olacaktır. Daha sonra Azure ile ilgili genel olarak kullanılabilir sürümüne geçirmek gerekir.
+Örneğiniz için arama sonuçları elde etmek için özel arama API'si için ilk çağrı yapmadan önce bir Bilişsel hizmetler abonelik anahtarı almanız gerekir. Özel arama API'si için bir anahtarı almak için bkz. [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+
 
 ## <a name="try-it-out"></a>Deneyin
-Özel arama deneyiminiz yapılandırdıktan sonra özel arama portal dahilinde yapılandırmasından test edebilirsiniz. Oturum [özel arama](https://customsearch.ai)özel arama örneği ve öğesini tıklatın **üretim** sekmesi. **Uç noktaları** sekmesi görüntülenir. Aboneliğinizi denemek için bkz: hangi uç noktaları kullanılabilir belirleyecek [sayfaları fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/). Bir uç nokta sınamak için açılan listeden seçin ve ilişkili yapılandırma seçeneklerini ayarlayın. 
 
-Mevcut seçenekler şunlardır:
+Özel arama deneyiminizi yapılandırdıktan sonra özel arama portalındaki yapılandırmasından test edebilirsiniz. 
 
-- **Sorgu**: aramak için arama terimi. Yalnızca Web, görüntü ve Autosuggest uç noktaları için kullanılabilir.
-- **Özel yapılandırma kimliği**: seçilen özel arama örneğinin yapılandırması kimliği. Bu alan salt okunur.
-- **Pazar**: sonuçları yeri Pazar. Yalnızca Web, görüntü ve barındırılan UI uç noktaları için kullanılabilir.
-- **Abonelik anahtarı**: test etmek için abonelik anahtarı. Aşağı açılır listeden bir anahtar seçin veya el ile girebilirsiniz.
-- **Güvenli arama**: Web sayfaları yetişkinlere yönelik içeriğe için filtre uygulamak için kullanılan bir filtre. Yalnızca Web, görüntü ve barındırılan UI uç noktaları için kullanılabilir.
-- **Count**: yanıtta döndürmek için arama sonuçları sayısı. Yalnızca Web ve görüntü uç noktaları için kullanılabilir.
-- **Uzaklık**: yanıtta döndürmek için arama sonuçları sayısı. Yalnızca Web ve görüntü uç noktaları için kullanılabilir.
+1. Oturum [özel arama](https://customsearch.ai).
+2. Örnek bir özel arama örneği listenizden tıklayın.
+3. Tıklayın **üretim** sekmesi. 
+4. Altında **uç noktaları** sekmesinde, bir uç nokta (örneğin, Web API'si) seçin. Aboneliğiniz, hangi uç noktaları gösterileceğini belirler (bkz [fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) abonelik seçenekleri için). 
+5. Parametre değerlerini belirtin. 
 
-Web, görüntü veya Autosuggest için gerekli tüm seçenekler belirttikten sonra tıklatın **çağrısı** JSON yanıt sağ bölmede görüntülemek için. 
+    Ayarlayabileceğiniz olası Parametreler aşağıda verilmiştir (gerçek listeden seçilen uç noktada bağlıdır). Bu parametreler hakkında ek bilgi için bkz: [özel arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) başvuru.
 
-UI barındırılan uç noktası seçerseniz, arama deneyimi sağ bölmesinde test edebilirsiniz.
+    - **Sorgu**: aranacak arama terimi. Yalnızca, Web, resim, Video ve otomatik öneri uç noktalar için de kullanılabilir.
+    - **Özel yapılandırma kimliği**: seçilen özel arama örneği yapılandırma kimliği. Bu alan salt okunur.
+    - **Pazar**: sonuçları nereden geldiğini Pazar. Yalnızca, Web, resim, Video ve UI barındırılan uç noktalar için de kullanılabilir.
+    - **Abonelik anahtarı**: test etmek için bir abonelik anahtarı. Açılır listeden bir anahtar seçin veya el ile girin.  
+      
+    Tıklayarak **ek parametreler** aşağıdaki parametreleri gösterir:  
+      
+    - **Güvenli arama**: Web sayfalarında yetişkinlere yönelik içeriğe filtrelemek için kullanılan bir filtre. Yalnızca Web, resim, Video ve UI barındırılan uç noktaları için kullanılabilir.
+    - **Kullanıcı arabirimi dili**: kullanıcı arabirimi dizeleri için kullanılan dili. Örneğin, görüntü ve video kullanıcı arabiriminde, barındırılan etkinleştirirseniz **görüntü** ve **Video** belirtilen dil sekmelerini kullanın.
+    - **Sayısı**: yanıtta döndürülecek arama sonuçlarının sayısı. Yalnızca Web, görüntü ve Video uç noktaları için kullanılabilir.
+    - **Uzaklık**: sonuç döndürülmeden önce atlamak için arama sonuçlarının sayısı. Yalnızca Web, görüntü ve Video uç noktaları için kullanılabilir.
+
+6. Gerekli tüm seçenekler belirttikten sonra tıklayın **çağrı** JSON yanıtı sağ bölmede görüntülemek için. 
+
+UI barındırılan uç noktayı seçin, arama deneyimini alt bölmede test edebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# ile özel görünümünüzde çağırın](./call-endpoint-csharp.md)
-- [Java ile özel görünümünüzde çağırın](./call-endpoint-java.md)
-- [Özel görünümünüzde NodeJs ile çağırın](./call-endpoint-nodejs.md)
-- [Python ile özel görünümünüzde çağırın](./call-endpoint-python.md)
+
+- [Çağrı C# ile özel görünümü](./call-endpoint-csharp.md)
+- [Java ile özel görünümünüzü çağırın](./call-endpoint-java.md)
+- [Çağrı, özel bir görünümü ile NodeJs](./call-endpoint-nodejs.md)
+- [Python ile özel görünümünüzü çağırın](./call-endpoint-python.md)
+
+- [C# SDK'sı ile özel görünümünüzü çağırın](./sdk-csharp-quick-start.md)

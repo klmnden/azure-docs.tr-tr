@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/29/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fb0fb4e0f23413cb56b1bb5ec419c44dfc52e7b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445220"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996851"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>İçin Azure Active Directory'de genel yönetici erişimini yükseltme
 
@@ -37,7 +37,9 @@ Bu yükseltme geçici ve yalnızca gerektiğinde bitti olmalıdır.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>İçin genel Azure portalını kullanarak yönetici erişimini yükseltme
+## <a name="azure-portal"></a>Azure portal
+
+İçin genel Azure portalını kullanarak yönetici erişimini yükseltme için bu adımları izleyin.
 
 1. Oturum [Azure portalında](https://portal.azure.com) veya [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com).
 
@@ -59,7 +61,9 @@ Bu yükseltme geçici ve yalnızca gerektiğinde bitti olmalıdır.
 
 1. Yükseltilmiş erişim sağlamak için gereken görevleri gerçekleştirin. İşiniz bittiğinde, anahtar kümesi geri **Hayır**.
 
-## <a name="list-role-assignment-at-the-root-scope--using-powershell"></a>Rol ataması PowerShell kullanarak kök kapsamda (/) listesi
+## <a name="azure-powershell"></a>Azure PowerShell
+
+### <a name="list-role-assignment-at-the-root-scope-"></a>Liste Rol Ataması (/) kök kapsamda
 
 Kök kapsamda bir kullanıcı için kullanıcı erişimi yöneticisi rol ataması listelemek için (`/`), kullanın [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) komutu.
 
@@ -79,7 +83,7 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>PowerShell kullanarak kök kapsamda (/) bir rol atamasını Kaldır
+### <a name="remove-a-role-assignment-at-the-root-scope-"></a>(/) Kök kapsamda bir rol atamasını Kaldır
 
 Kök kapsamda bir kullanıcı için bir kullanıcı erişimi yöneticisi rolü atamasını kaldırmak için (`/`), kullanın [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) komutu.
 
@@ -88,7 +92,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>İçin genel bir REST API kullanarak yönetici erişimini yükseltme
+## <a name="rest-api"></a>REST API
+
+### <a name="elevate-access-for-a-global-administrator"></a>İçin genel yönetici erişimini yükseltme
 
 Aşağıdaki temel adımları için genel bir REST API kullanarak yönetici erişimini yükseltme için kullanın.
 
@@ -117,7 +123,7 @@ Aşağıdaki temel adımları için genel bir REST API kullanarak yönetici eri�
 
 1. Yeniden ihtiyaç duyulan kadar kullanıcı erişimi yöneticisi ayrıcalıkları kaldırın.
 
-## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>REST API kullanarak kök kapsamda (/) rolü atamalarını listeleme
+### <a name="list-role-assignments-at-the-root-scope-"></a>Rol atamalarını listelemek kök kapsamda (/)
 
 Tüm kök kapsamda bir kullanıcı için rol atamalarını listeleyebilir (`/`).
 
@@ -127,7 +133,17 @@ Tüm kök kapsamda bir kullanıcı için rol atamalarını listeleyebilir (`/`).
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-## <a name="remove-elevated-access-using-the-rest-api"></a>REST API kullanarak yükseltilmiş erişimini kaldırma
+### <a name="list-deny-assignments-at-the-root-scope-"></a>Atamalarını (/) kök kapsamda izin verilmeyenler listesi
+
+Tüm kök kapsamda bir kullanıcı için reddetme atamalarını listeleyebilir (`/`).
+
+- GET denyAssignments çağrı burada `{objectIdOfUser}` ayarlanmış Reddet atamaları almak istediğiniz kullanıcının nesne kimliği.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
+   ```
+
+### <a name="remove-elevated-access"></a>Yükseltilmiş erişimi Kaldır
 
 Çağırdığınızda `elevateAccess`, kendiniz için bir rol ataması oluşturun, böylece bu ayrıcalıkları iptal etme, atama kaldırmanız gerekir.
 

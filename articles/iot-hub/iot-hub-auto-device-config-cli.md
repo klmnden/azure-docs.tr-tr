@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: f81ef3c231874f314d6fe023ba247a0bcff61e90
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 6535eee93b0fcaa2c0888fc6b647811c21e564d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42059210"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971918"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>Yapılandırma ve IOT cihazlarını uygun ölçekte Azure CLI kullanarak izleme
 
@@ -34,8 +34,8 @@ Otomatik cihaz yapılandırmaları iş istediğiniz özelliklere sahip bir dizi 
 ## <a name="cli-prerequisites"></a>CLI önkoşulları
 
 * Bir [IOT hub'ı](../iot-hub/iot-hub-create-using-cli.md) Azure aboneliğinizdeki. 
-* Ortamınızdaki [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 2.0 sürümünüz en az 2.0.24 veya üzerinde olmalıdır. Doğrulamak için `az –-version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar. 
-* [Azure CLI 2.0 için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ortamınızdaki. En az 2.0.24 Azure CLI sürümünüzü olmalıdır veya üzeri. Doğrulamak için `az –-version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar. 
+* [Azure CLI için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Cihazları yapılandırmak için cihaz ikizlerini uygulayın
 
@@ -56,7 +56,7 @@ Bir yapılandırma oluşturmadan önce değiştirmek istediğiniz hangi cihazlar
 
 ## <a name="define-the-target-content-and-metrics"></a>Hedef içerik ve ölçümlerinizi tanımlayın
 
-Hedef içerik ve ölçüm sorguları, aygıtı tanımlayan JSON belgeleri olarak ayarlandığında için istenen özellikleri ve ölçülecek bildirilen özellikleri ikizi olarak belirtilir.  Azure CLI 2.0 kullanarak bir otomatik cihaz yapılandırmasını oluşturmak için Ölçümler ve hedef içerik yerel olarak .txt dosyaları olarak kaydedin. Cihazınıza yapılandırmayı uygulamak için komutu çalıştırdığınızda, daha sonra bir sonraki bölümde dosya yolları kullanın. 
+Hedef içerik ve ölçüm sorguları, aygıtı tanımlayan JSON belgeleri olarak ayarlandığında için istenen özellikleri ve ölçülecek bildirilen özellikleri ikizi olarak belirtilir.  Azure CLI kullanarak bir otomatik cihaz yapılandırmasını oluşturmak için Ölçümler ve hedef içerik yerel olarak .txt dosyaları olarak kaydedin. Cihazınıza yapılandırmayı uygulamak için komutu çalıştırdığınızda, daha sonra bir sonraki bölümde dosya yolları kullanır. 
 
 Temel hedef içerik örneği aşağıdadır:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: echuvyrov
-ms.openlocfilehash: 1af96b686a1502d638b4335e22259b79169d1065
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0943bd1bffb3df7beda97ea0619f1aced4ca3a41
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173256"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946791"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>VM'ler ve diğer altyapı Azure'a sağlamak için Terraform'u yükleme ve yapılandırma
  
@@ -65,17 +65,17 @@ az account set --subscription="${SUBSCRIPTION_ID}"
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-*AppID*, *parola*, *sp_name*, ve *Kiracı* döndürülür. *appId* ve *password* değerlerini not edin.
+`appId`, `password`, `sp_name`, Ve `tenant` döndürülür. Not `appId` ve `password`.
 
 ## <a name="configure-terraform-environment-variables"></a>Terraform ortam değişkenlerini yapılandırma
 
 Terraform, Azure AD hizmet sorumlusu adını kullanmak üzere yapılandırmak için ardından tarafından kullanılan aşağıdaki ortam değişkenlerini ayarlamak [Azure Terraform modüllerini](https://registry.terraform.io/modules/Azure). Ayrıca, bir Azure bulut Azure genel diğer ile çalışıyorsanız, ortamı ayarlayabilirsiniz.
 
-- ARM_SUBSCRIPTION_ID
-- ARM_CLIENT_ID
-- ARM_CLIENT_SECRET
-- ARM_TENANT_ID
-- ARM_ENVIRONMENT
+- `ARM_SUBSCRIPTION_ID`
+- `ARM_CLIENT_ID`
+- `ARM_CLIENT_SECRET`
+- `ARM_TENANT_ID`
+- `ARM_ENVIRONMENT`
 
 Bu değişkenlerini ayarlamak için aşağıdaki örnek Kabuk betiği kullanabilirsiniz:
 

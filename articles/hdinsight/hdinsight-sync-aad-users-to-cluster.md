@@ -5,36 +5,36 @@ services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 08/19/2018
-ms.openlocfilehash: 7e002a43c774bd1a6df9cfe46207ddebd02284b3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 09/24/2018
+ms.openlocfilehash: b63f2566220d556f9695687dc743a7d47e27acf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104232"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984322"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory kullanıcılarını HDInsight kümesine eşitleme
 
-[Etki alanına katılmış HDInsight kümeleri](hdinsight-domain-joined-introduction.md) güçlü kimlik doğrulaması ile Azure Active Directory (Azure AD) kullanıcılarını kullanın, aynı zamanda olarak kullanmak *rol tabanlı erişim denetimi* (RBAC) ilkeleri. Kullanıcıları ve grupları Azure AD'ye ekleme gibi kümenize erişmek isteyen kullanıcılar eşitleyebilirsiniz.
+[HDInsight kümeleri Kurumsal güvenlik paketi (ESP)](hdinsight-domain-joined-introduction.md) güçlü kimlik doğrulaması ile Azure Active Directory (Azure AD) kullanıcılarını kullanın, aynı zamanda olarak kullanmak *rol tabanlı erişim denetimi* (RBAC) ilkeleri. Kullanıcıları ve grupları Azure AD'ye ekleme gibi kümenize erişmek isteyen kullanıcılar eşitleyebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Zaten bunu yapmadıysanız [bir etki alanına katılmış HDInsight kümesi oluşturma](hdinsight-domain-joined-configure.md).
+Zaten bunu yapmadıysanız [Kurumsal güvenlik paketi ile bir HDInsight kümesi oluşturma](hdinsight-domain-joined-configure.md).
 
 ## <a name="add-new-azure-ad-users"></a>Ekleme yeni Azure AD kullanıcıları
 
 Konaklarınız görüntülemek için Ambari Web kullanıcı arabirimini açın. Her düğüm, yeni Katılımsız Yükseltme ayarları ile güncelleştirilecektir.
 
-1. İçinde [Azure portalında](https://portal.azure.com), etki alanına katılmış kümenizle ilişkili Azure AD dizinine gidin.
+1. İçinde [Azure portalında](https://portal.azure.com), ESP kümenizle ilişkili Azure AD dizinine gidin.
 
 2. Seçin **tüm kullanıcılar** sol taraftaki menüden, ardından **yeni kullanıcı**.
 
     ![Tüm kullanıcılar bölmesi](./media/hdinsight-sync-aad-users-to-cluster/aad-users.png)
 
-3. Yeni kullanıcı formu doldurun. Küme tabanlı izinler atamak için oluşturduğunuz gruplar'ı seçin. Bu örnekte, yeni kullanıcılar atayabilirsiniz "HiveUsers" adlı bir grup oluşturun. [Örnek yönergeleri](hdinsight-domain-joined-configure.md) etki alanına katılmış bir küme oluşturmak için iki gruba eklemeyi içeren `HiveUsers` ve `AAD DC Administrators`.
+3. Yeni kullanıcı formu doldurun. Küme tabanlı izinler atamak için oluşturduğunuz gruplar'ı seçin. Bu örnekte, yeni kullanıcılar atayabilirsiniz "HiveUsers" adlı bir grup oluşturun. [Örnek yönergeleri](hdinsight-domain-joined-configure.md) ESP kümeyi oluşturmak için iki gruba eklemeyi içeren `HiveUsers` ve `AAD DC Administrators`.
 
     ![Yeni kullanıcı bölmesi](./media/hdinsight-sync-aad-users-to-cluster/aad-new-user.png)
 
@@ -148,6 +148,6 @@ Yeni kullanıcı (veya herhangi bir etki alanı kullanıcı) için Ambari oturum
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [İçinde etki alanına katılmış HDInsight Hive ilkelerini yapılandırma](hdinsight-domain-joined-run-hive.md)
-* [Etki alanına katılmış HDInsight kümelerini yönetme](hdinsight-domain-joined-manage.md)
+* [ESP ile HDInsight Hive ilkelerini yapılandırma](hdinsight-domain-joined-run-hive.md)
+* [ESP ile HDInsight kümelerini yönetme](hdinsight-domain-joined-manage.md)
 * [Ambari için kullanıcıları yetkilendirme](hdinsight-authorize-users-to-ambari.md)

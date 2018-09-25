@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 7cad09a3fc02d0c25f164f7e45974019ff9bbb71
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b34aca8d8aaf9e2c7dbdd092e14a1ebe1e04963d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367925"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985833"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – veritabanınızı Azure SQL veritabanı'nda yönetme
 
@@ -170,7 +170,7 @@ Express Route 2 katına için ek ücret satın aldığınız bant genişliği s�
 - [İş akışları](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL veritabanı herhangi bir yasal gereksinimleriyle uyumlu olan ve, kendi kuruluşun uyumu nasıl yardımcı olur?
-SQL veritabanı, bir dizi özellikleri ile uyumludur. En son karşılanmış özellikleri görmek için ziyaret edin [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) ve detaya gitme; altında uyumlu Azure hizmetlerini SQL veritabanı dahil edilmiş olup olmadığını görmek için kuruluşunuz için önemli olan özellikleri üzerinde. Uyumlu bir hizmet SQL veritabanı sertifikalı ancak kuruluşunuzun hizmet uyumluluk kolaylık sağlar ancak bunu otomatik olarak garantilemez unutulmaması önemlidir.
+SQL veritabanı, bir dizi özellikleri ile uyumludur. En son karşılanmış özellikleri görmek için ziyaret edin [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) ve detaya gitme; altında uyumlu Azure hizmetlerini SQL veritabanı dahil edilmiş olup olmadığını görmek için kuruluşunuz için önemli olan özellikleri üzerinde. Uyumlu bir hizmet SQL veritabanı sertifikalı ancak kuruluşunuzun hizmet uyumluluk kolaylık sağlar ancak bunu otomatik olarak garantilemez unutulmaması önemlidir.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Akıllı veritabanı izleme ve Bakım geçişten sonra
 

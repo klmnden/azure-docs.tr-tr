@@ -4,20 +4,20 @@ titleSuffix: Azure Cognitive Services
 description: Burada verilerin sonuna kolayca utterance kalan kelimelerinizle aklınızı karıştırabilir ve konuşma olduğu iyi biçimlendirilmiş pattern.any varlık konuşma verileri ayıklamak için kullanın.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: dce75710137f4d4160cb2f55f856066c7c93ac78
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a5b964877f1c089015812abdf365b22c57267bb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628996"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031383"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Öğretici: 5. Serbest biçimli verileri ayıklayın
+# <a name="tutorial-5-extract-free-form-data"></a>Öğretici: 5. Serbest biçimli verileri ayıklama
 
 Bu öğreticide, pattern.any varlık konuşma iyi biçimlendirilmiş olduğu ve burada verilerin sonuna kolayca utterance kalan kelimelerinizle aklınızı karıştırabilir konuşma verileri ayıklamak için kullanın. 
 
@@ -25,7 +25,7 @@ Pattern.any varlık burada ifade varlığın varlık utterance geri kalanından 
 
 İnsan Kaynakları uygulamasında bu, çalışanların şirket formları yardımcı olur. 
 
-|Konuşma|
+|İfade|
 |--|
 |Nerede olduğunu **HRF 123456**?|
 |Kimin yazılan **HRF 123234**?|
@@ -35,7 +35,7 @@ Ancak, her bir form yukarıdaki tabloda, yanı sıra bir kolay ad gibi kullanıl
 
 Konuşma kolay form adı ile şöyle görünür:
 
-|Konuşma|
+|İfade|
 |--|
 |Nerede olduğunu **yeniden konumlandırma çalışan şirket 2018 sürüm 5 yeni Request**?|
 |Kimin yazılan **"Request yeniden konumlandırma çalışan şirket 2018 sürüm 5 yeni"**?|

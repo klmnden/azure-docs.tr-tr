@@ -10,12 +10,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 48876a9cc1e79b99a94e99ced2ad823e7c368a60
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 8cf9df5130f11fd07dbf468ad0ad93dff4584b21
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721679"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031501"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Hızlı Başlangıç için Microsoft soru-cevap Oluşturucu API'si ile Java 
 <a name="HOLTop"></a>
@@ -36,6 +36,8 @@ Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturu
 - [Geçerli uç nokta anahtarları yeniden oluştur.](#PutKeys)
 - [Word değişiklikleri geçerli kümesini alın.](#GetAlterations)
 - [Word değişiklikleri geçerli kümesini değiştirin.](#PutAlterations)
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 

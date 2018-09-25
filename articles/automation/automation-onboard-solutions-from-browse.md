@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 83a768b82172b8736ea06bfed012309ac92734b7
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497969"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039437"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri birden çok VM'de etkinleştir
 
@@ -62,6 +62,43 @@ Seçili çalışma alanı bir Otomasyon hesabına bağlı değilse, aşağıdaki
 Etkinleştirmek için istemediğiniz herhangi bir sanal makineyi yanındaki onay işaretini kaldırın. Zaten seçili sanal makinelerin etkinleştirilemez.
 
 Tıklayın **etkinleştirme** çözümü etkinleştirmek için. Çözümün etkinleştirilmesi 15 dakika sürer.
+
+## <a name="unlink-workspace"></a>Çalışma alanının bağlantısını Kaldır
+
+Aşağıdaki çözümlerden bir Log Analytics çalışma alanına bağlıdır:
+
+* [Güncelleştirme yönetimi](automation-update-management.md)
+* [Değişiklik İzleme](automation-change-tracking.md)
+* [Vm'leri çalışma saatleri dışında başlatma/durdurma](automation-solution-vm-management.md)
+
+Log Analytics ile Otomasyon hesabınızı tümleştirmek istediğiniz karar verirseniz, doğrudan Azure portalından hesabınızı kesebilir. Devam etmeden önce öncelikle daha önce bahsedilen çözümleri kaldırmanız gerekir, bu işlem devam etmeden gelen Aksi takdirde engellenir. Kaldırmak için gerekli adımları anlamak için alınan belirli çözüm makalesini gözden geçirin.
+
+Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kaldırmak için aşağıdaki adımları gerçekleştirebilirsiniz.
+
+> [!NOTE]
+> Azure SQL izleme çözümünün önceki sürümleri dahil olmak üzere bazı çözümler Otomasyon varlıklarından oluşturmuş olabilir ve ayrıca çalışma alanının bağlantısı kaldırılıyor önce kaldırılması gerekebilir.
+
+1. Azure portalından Otomasyon hesabınızı açın ve sayfa seçin üzerinde Otomasyon hesabı **bağlantılı çalışma** bölümünde **ilgili kaynakları** soldaki.
+
+1. Bağlantıyı kaldır çalışma sayfasında tıklayın **çalışma alanının bağlantısını Kaldır**.
+
+   ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+
+   Devam etmek istediğinizi doğrulayan bir ileti alacaksınız.
+
+1. Azure Otomasyonu hesabı Log Analytics çalışma alanınızın bağlantısını dener, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.
+
+İsteğe bağlı olarak, güncelleştirme yönetimi çözümünü kullandıysanız, çözümü kaldırdıktan sonra artık gerekli olmayan aşağıdaki öğeleri kaldırmak isteyebilirsiniz.
+
+* Güncelleştirme zamanlamaları - her oluşturduğunuz güncelleştirme dağıtımlarının eşleşen adlara sahip)
+
+* Çözüm için - oluşturulan karma çalışan grupları her benzer şekilde machine1.contoso.com_9ceb8108 - 26 c 9-4051-b6b3-227600d715c8 için olarak adlandırılır).
+
+İsteğe bağlı olarak, yoğun olmayan saatlerde çözüm sırasında Vm'leri başlatma/durdurma kullandıysanız, çözümü kaldırdıktan sonra artık gerekli olmayan aşağıdaki öğeleri kaldırmak isteyebilirsiniz.
+
+* Başlatma ve durdurma VM runbook zamanlama
+* VM runbook'ları durdurun ve başlatın
+* Değişkenler
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

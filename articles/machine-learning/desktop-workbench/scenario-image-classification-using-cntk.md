@@ -12,14 +12,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: a8c258a9bc8e006d5bbae4b7bbb61c7ef6e95412
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 83d6f529330a05e6a7c46ad45b19f0338f93bfc7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605955"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995100"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench'i kullanarak görüntü sınıflandırması
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Görüntü sınıflandırma yaklaşım, çok sayıda görüntü işleme sorunları çözmek için kullanılabilir.
 Bunlar hangi soruları cevaplamak modeller oluşturma: *görüntüde mevcut bir nesnenin?* burada nesne örneğin olabilir *köpek*, *araba*, veya  *Sevk*. Veya gibi daha karmaşık sorular: *hangi sınıfın göz Hastalık önem derecesi, bu hastanın retinal taramasıyla evinced?*.
@@ -51,7 +56,7 @@ Machine learning ve CNTK önceki deneyimiyle gerekli olmamasına karşın, temel
 Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 
 1. Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz denemeler kullanılabilir).
-2. [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](../service/quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturun.  
+2. [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturun.  
 3. Bir Windows makine. Windows işletim sistemi, Workbench yalnızca Windows ve MacOS, Microsoft Bilişsel Araç Seti sırasında desteklediğinden gereklidir (ayrıntılı öğrenme kitaplık olarak kullandığımız) yalnızca destekleyen Windows ve Linux.
 4. 2. bölümünde açıklanan DNN iyileştirme için gereklidir ancak adanmış bir GPU SVM eğitim bölüm 1, yürütmek için gerekli değildir. Ardından, güçlü GPU alınamadığından, birden fazla GPU üzerinde eğitmek istediğiniz veya bir Windows makine yok, Windows işletim sistemi ile Azure'nın ayrıntılı öğrenme sanal makinesi kullanmayı düşünün. Bkz: [burada](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) 1-tıklatma dağıtım kılavuzu. Dağıtıldıktan sonra bir Uzak Masaüstü bağlantısı aracılığıyla sanal makineye bağlanmak, var. Workbench'i yükleme ve kod VM'den yerel olarak yürütün.
 5. OpenCV gibi çeşitli Python kitaplıkları yüklü olması gerekir. Tıklayın *komut istemini Aç* gelen *dosya* menüde Workbench ve bu bağımlılıkları yüklemek için aşağıdaki komutları çalıştırın:  

@@ -2,20 +2,22 @@
 title: Azure SQL veritabanı ve SQL veri ambarı için erişim verme | Microsoft Docs
 description: Microsoft Azure SQL veritabanı ve SQL veri ambarı için erişim verme hakkında bilgi edinin.
 services: sql-database
-author: VanMSFT
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: sql-data-warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/13/2018
+author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: 5944f757782cf565b60904ac9f0e2f4a3e71d3d8
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 06/13/2018
+ms.openlocfilehash: a39e65d5a3aff6158c189f392e2db8bd8273ad1b
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35982927"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063799"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Azure SQL veritabanı ve SQL veri ambarı erişim denetimi
 Azure güvenlik sağlamak için [SQL veritabanı](sql-database-technical-overview.md) ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) bağlantı kanıtlamasını gerektiren kimlik doğrulama mekanizmaları IP adresine göre sınırlayarak güvenlik duvarı kuralları ile erişim denetimi, kimlik ve kullanıcıları belirli eylemler ve verilerle sınırlayan yetkilendirme sistemleriyle. 

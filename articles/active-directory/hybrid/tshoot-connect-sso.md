@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2b6bd3b04dfbc7446e92dfcb16db64cc3c693c5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315269"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055909"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma sorunlarını giderme
 
@@ -36,7 +36,7 @@ Bu makale size yardımcı olur. sorun giderme bilgilerini ilgili sık karşıla�
 - Bir kullanıcı Active Directory içinde çok fazla gruplarının bir parçası ise, kullanıcının Kerberos anahtarı büyük olasılıkla işlemek için çok büyük olacaktır ve bu sorunsuz SSO başarısız olmasına neden olur. Azure AD HTTPS istekleri üstbilgileri en fazla 50 KB boyutlu olabilir; Kerberos biletleri tanımlama bilgileri gibi diğer Azure AD yapıları (genellikle 2-5 KB) uyum sağlamak için bu sınırdan küçük olması gerekir. Bizim önerimiz, kullanıcının grup üyeliklerini azaltın ve yeniden deneyin sağlamaktır.
 - 30 veya daha fazla Active Directory ormanları eşitliyorsanız, Azure AD Connect ile sorunsuz SSO etkinleştirilemiyor. Geçici bir çözüm olarak yapabilecekleriniz [el ile etkinleştirmeniz](#manual-reset-of-the-feature) kiracınız özelliği.
 - Azure AD hizmet URL'si ekleme (https://autologon.microsoftazuread-sso.com) Güvenilen siteler bölgesine yerel intranet bölgesine yerine *oturum açarken kullanıcıların engeller*.
-- Kullanımını devre dışı bırakma **RC4_HMAC_MD5** Active Directory ayarlarınızdaki şifreleme türü Kerberos için sorunsuz SSO bozar. Grup İlkesi Yönetimi Düzenleyicisi aracınız için ilke değeri emin **RC4_HMAC_MD5** altında **bilgisayar yapılandırması -> Windows Ayarları -> Güvenlik Ayarları -> yerel ilkeler -> güvenlik seçenekleri - > "Ağ güvenliği: Kerberos'ta izin verilen şifreleme türlerini Yapılandır"** "Etkin".
+- Sorunsuz çoklu oturum açma kullanan **RC4_HMAC_MD5** Kerberos için şifreleme türü. Kullanımını devre dışı bırakma **RC4_HMAC_MD5** şifreleme türü Active Directory ayarlarınızdaki sorunsuz çoklu oturum açma bozar. Grup İlkesi Yönetimi Düzenleyicisi aracınız için ilke değeri emin **RC4_HMAC_MD5** altında **bilgisayar yapılandırması -> Windows Ayarları -> Güvenlik Ayarları -> yerel ilkeler -> güvenlik seçenekleri - > "Ağ güvenliği: Kerberos'ta izin verilen şifreleme türlerini Yapılandır"** olduğu **etkin**. Sorunsuz çoklu oturum açma ek olarak, olamaz, diğer şifreleme türlerini kullanmak kadar olduklarından emin olun. **devre dışı**.
 
 ## <a name="check-status-of-feature"></a>Özelliğin durumunu denetleyin
 

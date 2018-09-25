@@ -1,93 +1,88 @@
 ---
-title: Bir FPGA nedir? – Project Brainwave – Azure Machine Learning
-description: Modelleri ve derin sinir ağları ile FPGA hızlandırma konusunda bilgi edinin.
+title: Bir FPGA ve Project Brainwave nedir? -Azure Machine Learning
+description: Azure üzerinde modelleri ve derin sinir ağları ile FPGA hızlandırma konusunda bilgi edinin. Bu makalede bir alanda programlanabilir kapı dizileri (FPGA) ve Azure Machine Learning için bir Azure FPGA modelinizi dağıtırken gerçek zamanlı yapay zeka (AI) nasıl sağladığını tanıtır.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 05/31/2018
-ms.openlocfilehash: 5c8efcbb5f2e9014c9edabfc2aee37c8c29ea0b4
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.reviewer: jmartens
+ms.date: 9/24/2018
+ms.openlocfilehash: fa6ff90c3a573285ec8d6cc6f2e97bf3c75a1e8e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646771"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993301"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>FPGA ve Project Brainwave nedir?
 
-Bu makalede bir alanda programlanabilir kapı dizileri (FPGA) ve FPGA gerçek zamanlı AI sağlamak için Azure machine learning ile nasıl tümleştirildiği tanıtır.
+Bu makalede bir alanda programlanabilir kapı dizileri (FPGA) ve Azure Machine Learning için bir Azure FPGA modelinizi dağıtırken gerçek zamanlı yapay zeka (AI) nasıl sağladığını tanıtır.
+
+FPGA dizi programlanabilir mantıksal bloğu içerir ve sunmanın hiyerarşisini eşitliyor. Bağlantılar çeşitli yolları sonrası üretim yapılandırılması bu blokları izin verin. FPGA programlama ve diğer yongalardan karşılaştırıldığında performansı sağlar.
 
 ## <a name="fpgas-vs-cpu-gpu-and-asic"></a>FPGA vs. CPU, GPU ve ASIC
 
-Sunmanın hiyerarşisini sonra üretim farklı şekilde yapılandırılacak blokları sağlayan bağlantılar ve FPGA programlanabilir mantıksal blokları dizisi içerir.
-
-FPGA programlama ve diğer yongalardan performans karşılaştırma sağlar:
-
 ![Azure Machine Learning FPGA karşılaştırması](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-- **Merkezi işlem birimi (CPU)** genel amaçlı işlemci. CPU performansı, grafik ve video işleme için uygun değil.
-- **Grafik işlem birimi (GPU)** paralel işleme özelliği sunar ve yapay ZEKA hesaplamalar için popüler bir seçenektir. GPU'ları CPU daha hızlı görüntü işleme sonucunda işlemeyi paralel.
-- **Özel uygulama tümleşik devreler (ASIC)**, Google TensorFlow işlemci gibi özelleştirilmiş devreler birimleridir. Bu yongaları en yüksek verimlilik sunarken, ASICS faaliyetini.
-- **FPGA**gibi Azure üzerinde mevcut kodlar, ASIC yakın bir performans sağlar ancak daha sonra yeniden yapılandırılması esnekliği sunar.
-
-FPGA her yeni Azure sunucusu sunulmuştur. Bing arama, sıralama, derin sinir ağı (DNN) değerlendirmesi ve yazılım tanımlı ağ (SDN) hızlandırma Microsoft FPGA zaten kullanıyor. Bu FPGA uygulamalar, diğer görevler için CPU boşaltılırken gecikme süresini azaltın.
+|İşlemci||Açıklama|
+|---|:-------:|------|
+|Özel uygulama tümleşik devreler|ASICS|Özel bağlantı hatları, Google TensorFlow işlemci birimi (TPU) gibi yüksek verimlilik sağlar, ancak esnek olmayan.|
+|Alanda programlanabilir kapı dizileri|FPGA|FPGA, azure'da kullanılabilen gibi ASICS yakın bir performans sağlar, ancak esnek ve sunmanın yeni mantığını uygulamak için zaman içinde.|
+|Grafik işleme birimleri|GPU'ları|Daha hızlı CPU'lar daha görüntü işleme sırasında getirerek paralel işleme özellikleri sunan yapay ZEKA hesaplamalar için popüler bir seçimdir.|
+|Merkezi işlem birimleri|CPU’lar|Genel amaçlı işlemci performansı grafik ve video işleme için uygun değil.|
 
 ## <a name="project-brainwave-on-azure"></a>Azure'da Project Brainwave
 
-Project Brainwave tasarlanmış bir donanım mimarisiyle Intel FPGA cihazlara dayanarak ve gerçek zamanlı AI hesaplamalar hızlandırmak için kullanılan ' dir. Bu ekonomik FPGA özellikli mimarisi ile eğitilmiş bir sinir ağı olabildiğince çabuk şekilde ve daha düşük gecikme süresi ile çalıştırılabilir. Project Brainwave arasında FPGA, hizmetin ölçeğini genişletin için önceden eğitilmiş Dnn'leri paralel hale getirebilirsiniz.
+[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) tabanlı Intel FPGA cihazlarda, veri uzmanlarının ve geliştiricilerin gerçek zamanlı AI hesaplamalar hızlandırmak için kullanın, Microsoft'un ekonomik donanım mimari.  Bu FPGA özellikli mimarisi sunar **performans**, **esneklik**, ve **ölçek** ve Azure'da kullanıma sunuldu.
 
-- Performans
+FPGA gerçek zamanlı çıkarım istekleri için düşük gecikme süresine ulaşmanız mümkün kılar. Toplu işleme, büyük miktarda veri toplama ve donanım kullanımı artırmak için bir işlemci besleme anlamına gelir. Daha fazla veri işlenmesi gerektiğinden, toplu işlem gecikme süresi neden olabilir, ancak üretilen işi artırabilir. Project Brainwave uygulamaları sinir işleme birimi, toplu işleme gerektirmez; Bu nedenle gecikmesi birçok kez daha düşük CPU ve GPU olabilir.
 
-    FPGA gerçek zamanlı çıkarım istekleri için düşük gecikme süresine ulaşmanız mümkün kılar. Toplu işleme, bozucu bir istek küçük parçalara ayarlama ve bunları donanım kullanımı artırmak için bir işlemci besleme anlamına gelir. Toplu işlem etkili değildir ve gecikmeye neden. Toplu işleme brainwave gerektirmez; Bu nedenle gecikme süresi 10 kez daha düşük CPU ve GPU gereklidir.
+### <a name="reconfigurable-power"></a>Sunmanın güç
+FPGA, makine öğrenimi modelleri farklı türleri için yapılandırılabilen. Bu esneklik en iyi sayısal duyarlık ve kullanılan bellek modeli göre uygulamaları hızlandırmak kolaylaştırır.
 
-- Esneklik
+Yeni makine öğrenimi tekniklerinden düzenli bir şekilde Geliştiriliyor ve Project Brainwave'nın donanım tasarımı da hızlı bir şekilde gelişmektedir. FPGA sunmanın olduğundan, hızla değişen yapay ZEKA algoritmalarının gereksinimleri ile güncel kalın mümkündür.
 
-    FPGA, makine öğrenimi modelleri farklı türleri için yapılandırılabilen. Bu esneklik en iyi sayısal duyarlık ve kullanılan bellek modeli göre uygulamaları hızlandırmak kolaylaştırır.
+### <a name="whats-supported-on-azure"></a>Azure'da desteklenen özellikler
+Microsoft Azure, dünyanın en büyük bulut yatırımı FPGA. Azure'nın ölçek altyapısında Project Brainwave çalıştırabilirsiniz.
 
-    Yeni makine öğrenimi tekniklerinden düzenli bir şekilde Geliştiriliyor ve Project Brainwave'nın donanım tasarımı da hızlı bir şekilde gelişmektedir. FPGA sunmanın olduğundan, hızla değişen yapay ZEKA algoritmalarının gereksinimleri ile güncel kalın mümkündür.
+Bu FPGA özellikli donanım mimarisi kullanarak, eğitilen sinir ağları, hızlı ve daha düşük gecikme süresi ile çalıştırın. Project Brainwave arasında FPGA, hizmetin ölçeğini genişletin için önceden eğitilmiş derin sinir ağı (DNN) paralel hale getirebilirsiniz. Dnn'leri, öğrenme veya güncelleştirilmiş ağırlıklara eşleşmiş aktarımı için derin bir özelliği Oluşturucu olarak önceden eğitilmiş.
 
-- Ölçek
+Bugün, Project Brainwave destekler:
++ Görüntü sınıflandırma ve tanıma senaryoları
++ TensorFlow dağıtım
++ Üst: ResNet 50, ResNet 152, VGG-16, SSD VGG ve DenseNet 121
++ Intel FPGA donanım 
 
-    Microsoft Azure, dünyanın en büyük bulut yatırımı FPGA. Azure'nın ölçek altyapısında Brainwave çalıştırabilirsiniz.
+## <a name="scenarios-and-applications"></a>Senaryolar ve uygulamalar
 
-Azure Machine Learning ile tümleştirilmiş Project Brainwave önizlemesi şu anda kullanılabilir. Ve sınırlı bir önizleme bu bilgi işlem hızı işletmelerin ve tesis avantajlarından yararlanabilmeniz için edge Project Brainwave getirmek de kullanılabilir.
-
-Geçerli Önizleme'de, TensorFlow dağıtım ve görüntü sınıflandırma ve tanıma için Intel FPGA donanımda ResNet50 tabanlı sinir ağları Brainwave sınırlıdır. Daha fazla galeri model ve diğer çerçeveleri desteklemeye yönelik planlar mevcuttur.
+Project Brainwave Azure Machine Learning ile tümleşiktir. DNN değerlendirme, Bing Arama derecelendirmesi ve yazılım için Microsoft'un kullandığı FPGA diğer görevler için CPU boşaltılırken gecikme süresini azaltmak için ağ (SDN) hızlandırma tanımlanır.
 
 Aşağıdaki senaryolarda FPGA Project Brainwave mimarisine kullanın:
++ [Optik denetleme sistemi otomatik](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
 
-- Otomatik olarak optik denetleme sistemi. Bkz: [gerçek zamanlı AI: Microsoft Project Brainwave önizlemesini duyurdu](https://blogs.microsoft.com/ai/build-2018-project-brainwave/).
-- Land kapak eşleme. Bkz: [FPGA derin öğrenme çıkarımı için Land kapak havadan görüntüleri terabaytlarca üzerinde eşleme gerçekleştirmek için nasıl kullanılacağını](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/).
++ [Land kapak eşleme](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
 
-## <a name="how-to-deploy-a-web-service-to-an-fpga"></a>Bir web hizmeti için bir FPGA dağıtmayı?
+## <a name="deploy-to-fpgas-on-azure"></a>FPGA azure'da dağıtın
 
-Bir özelliği Oluşturucu ResNet50 kullanarak azure'da bir görüntü tanıma hizmeti oluşturmaya yönelik üst düzey akışı şu şekildedir:
+Azure FPGA dağıtımı için bir özelliği Oluşturucu desteklenen Dnn'leri kullanarak azure'da bir görüntü tanıma hizmeti oluşturmak için iş akışı şu şekildedir:
 
-1. ResNet50 zaten Brainwave içinde dağıtılır. TensorFlow ile diğer grafikleri (tarih girişi, Sınıflandırma ve benzeri) oluşturun ve bir işlem hattı tanımlayın (Giriş -> özellik kazandırın -> sınıflandırmak) bir hizmet tanımı json dosyasını kullanarak. Graflar ve tanımı bir zip dosyası olarak sıkıştırıp ve Azure Blob depolama alanına ZIP dosyasını karşıya yükleyin.
-2. Blob depolamada zip dosyası ile Azure ML Model Yönetimi API'si kullanarak modeli kaydedin.
-3. Azure ML Model Yönetimi API'sini kullanarak kayıtlı modeliyle hizmeti dağıtın.
+1. Bir dosya olan bir hizmet tanımı oluşturmak için Python için Azure Machine Learning SDK'sı kullanan temel TensorFlow üzerinde bir işlem hattı grafiklerin (girdi, özelliği oluşturucu ve sınıflandırıcı) açıklayan. Dağıtım komut otomatik olarak grafikler ve tanımı bir ZIP dosyası olarak sıkıştırıp ve ZIP Azure Blob depolama alanına yükleyin.  DNN FPGA üzerinde çalıştırmak için Project Brainwave üzerinde zaten dağıtılmış.
 
-Makalede, bu işlem hakkında daha fazla bilgi [model üzerinde bir FPGA Azure Machine Learning ile bir web hizmeti olarak dağıtma](how-to-deploy-fpga-web-service.md).
+1. Azure Blob Depolama alanında ZIP dosyasıyla SDK'sını kullanarak modeli kaydedin.
 
+1. Hizmet SDK'sını kullanarak kayıtlı modeli ile dağıtın.
 
-## <a name="start-using-fpga"></a>FPGA kullanmaya başlayın
+Dağıtımına başlamak eğitilen DNN modellere FPGA Azure ile bu makalede, cloud **"[model bir FPGA üzerinde bir web hizmeti olarak dağıtma](how-to-deploy-fpga-web-service.md)"**.
 
-Azure Machine Learning donanım hızlandırılmış modelleri eğitilen DNN modelleri Azure bulutunda FPGA dağıtmanıza izin verin. Başlamak için bkz:
-
-- [Model bir FPGA üzerinde bir web hizmeti olarak dağıtma](how-to-deploy-fpga-web-service.md)
-- [Microsoft Azure Machine Learning donanım hızlandırılmış Project Brainwave tarafından desteklenen modeller](https://github.com/azure/aml-real-time-ai).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Model bir FPGA üzerinde bir web hizmeti olarak dağıtma](how-to-deploy-fpga-web-service.md)
+Bu videoları ve bloglar out denetleyin:
 
-[FPGA SDK'sını yükleme hakkında bilgi edinin](reference-fpga-package-overview.md)
++ [Hiperölçekli donanım: ML uygun ölçekte Azure + FPGA üzerine: Build 2018'e (video)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
 
-[Hiperölçekli donanım: ML uygun ölçekte Azure + FPGA üzerine: Build 2018'e (video)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
++ [Microsoft FPGA tabanlı yapılandırılabilir bulut (video) içinde](https://channel9.msdn.com/Events/Build/2017/B8063)
 
-[Microsoft FPGA tabanlı yapılandırılabilir bulut (video) içinde](https://channel9.msdn.com/Events/Build/2017/B8063)
-
-[Microsoft Project Brainwave için gerçek zamanlı AI'nı sunar](https://www.microsoft.com/research/blog/microsoft-unveils-project-brainwave/)
++ [Project Brainwave için gerçek zamanlı AI: Proje giriş sayfası](https://www.microsoft.com/research/project/project-brainwave/)

@@ -10,12 +10,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: 3fc9ab0505fda84464ead01b4937756707993cf0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 21cd1b171f25d5abdaa89f631ac5bab8e4a351af
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650979"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968890"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Ölçeği genişletilen bulut veritabanlarını yönetme
 
@@ -33,7 +33,7 @@ ms.locfileid: "35650979"
 * [Elastik veritabanı iş bileşenleri](sql-database-elastic-jobs-service-installation.md). 
 * [Elastik veritabanı işleriyle çalışmaya başlama](sql-database-elastic-jobs-getting-started.md).
 * [PowerShell kullanarak iş oluşturma ve yönetme](sql-database-elastic-jobs-powershell.md).
-* [Oluşturma ve Azure SQL veritabanları ölçeği yönetme](sql-database-elastic-jobs-getting-started.md)
+* [Oluşturma ve Azure SQL veritabanlarına ölçeklendirilmiş yönetme](sql-database-elastic-jobs-getting-started.md)
 
 
 
@@ -46,11 +46,11 @@ ms.locfileid: "35650979"
 
 **Raporlar**
 
-Azure SQL veritabanları koleksiyonunu tek hedef tabloya toplama verileri.
+Bir Azure SQL veritabanı koleksiyonunda bulunan verileri tek bir hedef tabloda toplayın.
 
 **Ek yükü azaltın**
 
-Normalde Transact-SQL deyimlerini çalıştırmak veya diğer yönetim görevlerini gerçekleştirmek için veritabanlarına tek tek bağlanmanız gerekir. İşler, hedef gruptaki her bir veritabanında oturum açma görevini üstlenir. Ayrıca tanımlamak, korumak ve Azure SQL veritabanlarından oluşan bir grupta yürütülecek Transact-SQL betikleri kalıcı.
+Normalde Transact-SQL deyimlerini çalıştırmak veya diğer yönetim görevlerini gerçekleştirmek için veritabanlarına tek tek bağlanmanız gerekir. İşler, hedef gruptaki her bir veritabanında oturum açma görevini üstlenir. Azure SQL veritabanı grubunda çalıştırılacak Transact-SQL betiklerinin tanımlama, bakımını yapma ve sürekliliğini sağlama konusunda da denetim sahibi olursunuz.
 
 **Hesap oluşturma**
 
@@ -58,7 +58,7 @@ Normalde Transact-SQL deyimlerini çalıştırmak veya diğer yönetim görevler
 
 **Esneklik**
 
-Bir iş çalıştırmak için zamanlamalar tanımlayın ve Azure SQL veritabanları özel sunucu grupları tanımlayın.
+Azure SQL veritabanlarından oluşan özel gruplar belirleyip işin çalıştırılacağı zamanlamayı tanımlayın.
 
 > [!NOTE]
 > Azure portalında SQL Azure elastik havuzlar için sınırlı işlevleri azaltılmış bir dizi kullanılabilir. Geçerli işlev tam kümesi erişmek için PowerShell API'lerini kullanın.

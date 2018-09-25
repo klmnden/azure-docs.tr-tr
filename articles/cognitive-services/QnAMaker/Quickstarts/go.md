@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: diberry
 ms.openlocfilehash: 320eb7b643d785899482a00bfc0bda1d89e61b3b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714879"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042389"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Hızlı Başlangıç için Microsoft soru-cevap Oluşturucu API'si ile Git 
 <a name="HOLTop"></a>

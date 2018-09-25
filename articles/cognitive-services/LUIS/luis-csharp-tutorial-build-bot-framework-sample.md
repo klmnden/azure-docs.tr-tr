@@ -1,24 +1,25 @@
 ---
-title: Bot Builder SDK - Azure Bilişsel hizmetler kullanarak bir bot ile tümleştirme LUIS kullanarak C# | Microsoft Docs
+title: LUIS bot ile C# - Web app Botu - Bot Framework SDK 3.0
+titleSuffix: Azure Cognitive Services
 description: C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: d0010ccf51fc688fa66e1be82c735ae38455509b
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 0ad95d5683ea10803c2f3986be97617051f191cf
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41987461"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032283"
 ---
-# <a name="web-app-bot-using-the-luis-template-for-c"></a>LUIS şablonu için C# kullanarak Web App Botu
+# <a name="luis-bot-in-c"></a>LUIS bot C#
 
-C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır. 
+C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır. Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu.
 
 ## <a name="prerequisite"></a>Önkoşul
 
@@ -26,7 +27,7 @@ C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturun. Bu
 
 ## <a name="luis-homeautomation-intents"></a>LUIS HomeAutomation hedefleri
 
-| Hedefi | Örnek utterance | Bot işlevi |
+| Amaç | Örnek utterance | Bot işlevi |
 |:----:|:----------:|---|
 | HomeAutomation.TurnOn | Işıkları aç'ı açın. | Zaman LUIS amaç `HomeAutomation.TurnOn` algılandığında, robot çağırır `OnIntent` iletişim işleyici. Bu iletişim kutusu, burada cihaz kapalıyken üzerinde kullanıcı bir cihazı açın ve bir IOT hizmeti çağrısı ' dir. |
 | HomeAutomation.TurnOff | Yatak odası Işıkları aç. | Zaman LUIS amaç `HomeAutomation.TurnOff` algılandığında, robot çağırır `OffIntent` iletişim işleyici. Bu iletişim kutusu, burada cihaz kapatılmış, kullanıcı cihazı kapatıp ve bir IOT hizmeti çağırmak ' dir. |
@@ -46,11 +47,14 @@ C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturun. Bu
 4. İçinde **Bot hizmeti**, gerekli bilgileri sağlayın ve tıklayın **Oluştur**. Bu, oluşturur ve Azure bot hizmeti ve LUIS uygulaması dağıtır. Kullanmak istiyorsanız [konuşma Hazırlama işlemi](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), gözden [bölge gereksinimleri](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) botunuzun oluşturmadan önce. 
     * Ayarlama **uygulama adı** botunuzun kişinin adı. Botunuzun (örneğin, mynotesbot.azurewebsites.net) buluta dağıtıldığında alt etki alanı adı kullanılır. <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Aboneliği seçin [kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service planı ve [konumu](https://azure.microsoft.com/regions/).
-    * Seçin **dil anlama (C#)** şablonu **Bot şablon** alan.
+    * İçin **Bot şablon**seçin:
+        * **SDK'sı v3**
+        * **C#**
+        * **Dil anlama**
     * Seçin **LUIS uygulama konumu**. Bu yazma, [bölge](luis-reference-regions.md) uygulama oluşturulur.
     * Yasal bildirimi için onay kutusunu seçin. Yasal bildirimin koşullarını onay kutusunu ' dir.
 
-    ![Boz Hizmeti](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
+    ![Bot Hizmeti](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
 
 5. Bot hizmeti dağıtıldığını doğrulayın.

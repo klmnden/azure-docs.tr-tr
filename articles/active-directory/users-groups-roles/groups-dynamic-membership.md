@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9c0bb676cc59820d3ae83612893c8920d5d0aebe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c3121f8b303d9f82ed949d598a942906d0d24f7e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424380"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041032"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory'de gruplar için dinamik Üyelik kuralları
 
 Azure Active Directory'de (Azure AD), gruplar için dinamik üyelik etkinleştirmek için karmaşık öznitelik tabanlı kurallar oluşturabilirsiniz. Dinamik grup üyeliği ekleme ve kaldırma kullanıcılara yönelik yönetim yükünü azaltır. Bu makalede kullanıcı veya cihaz için dinamik Üyelik kuralları oluşturmak için sözdizimi ve özellikleri ayrıntılı olarak açıklanmaktadır. Güvenlik gruplarında veya Office 365 gruplarında dinamik üyelik için bir kural ayarlayabilirsiniz.
 
-Bir kullanıcı veya cihaz herhangi bir özniteliği değiştiğinde sistem, herhangi bir grubu ekler veya kaldırır değişiklik tetikleyecek olmadığını görmek için bir dizindeki tüm dinamik Grup kurallarını değerlendirir. Bir kullanıcı veya cihaz bir grup üzerindeki kuralı karşılıyorsa bu grubun bir üyesi eklenir. Bunlar artık kural karşılıyorsanız, bunlar kaldırılır.
+Bir kullanıcı veya cihaz herhangi bir özniteliği değiştiğinde sistem, herhangi bir grubu ekler veya kaldırır değişiklik tetikleyecek olmadığını görmek için bir dizindeki tüm dinamik Grup kurallarını değerlendirir. Bir kullanıcı veya cihaz bir grup üzerindeki kuralı karşılıyorsa bu grubun bir üyesi eklenir. Bunlar artık kural karşılıyorsanız, bunlar kaldırılır. El ile ekleyemez veya dinamik bir grup üyesi kaldırın.
 
 * Kullanıcılar veya cihazlar için dinamik bir grup oluşturabilirsiniz, ancak hem kullanıcılar hem de cihazları içeren bir kural oluşturulamıyor.
 * Cihaz sahipleri özniteliklerine dayalı bir cihaz grubu oluşturulamıyor. Cihaz Üyelik kuralları yalnızca cihaz özniteliklerine başvurabilir.

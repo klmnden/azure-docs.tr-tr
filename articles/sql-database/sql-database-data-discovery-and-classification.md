@@ -2,20 +2,22 @@
 title: Azure SQL veritabanı veri bulma & sınıflandırma | Microsoft Docs
 description: Azure SQL veritabanı veri bulma & sınıflandırma
 services: sql-database
-author: giladmit
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/10/2018
+author: giladmit
 ms.author: giladm
-ms.openlocfilehash: aca01e67339d5f6d003021cb17f1787093b79eda
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: d34bb54729fe0adc4b26d213bfaa4ad4fb210ab7
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543971"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064195"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı veri bulma ve sınıflandırma
 Veri bulma & sınıflandırma (şu anda önizlemede), Azure SQL veritabanı için gelişmiş özellikler sunar **keşfetme**, **sınıflandırma**, **etiketleme**  &  **koruma** veritabanlarınızı hassas verileri.
@@ -115,9 +117,9 @@ Sütun sınıflandırmaları Ekle/Kaldır ek olarak, veritabanının tamamı iç
 > [!NOTE]
 > Etiketleri yönetmek için T-SQL kullanarak, eklenen bir sütuna kuruluş bilgilerini koruma İlkesi (portal önerileri görünen etiket kümesi) mevcut olan doğrulama yoktur. Therefor bunu doğrulamak için size bağlıdır.
 
-* Bir veya daha fazla sütun sınıflandırmasını ekleme/güncelleştirme: [DUYARLIK SINIFLANDIRMASI ekleyin](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* Bir veya daha fazla sütunlarından Sınıflandırmayı kaldırmak: [bırak DUYARLIK SINIFLANDIRMASI](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* Tüm sınıflandırmalar veritabanında görüntüleyin: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+* Bir veya daha fazla sütun sınıflandırmasını ekleme/güncelleştirme: [DUYARLIK SINIFLANDIRMASI ekleyin](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* Bir veya daha fazla sütunlarından Sınıflandırmayı kaldırmak: [bırak DUYARLIK SINIFLANDIRMASI](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* Tüm sınıflandırmalar veritabanında görüntüleyin: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 Sınıflandırmaları programlı olarak yönetmek için REST API de kullanabilirsiniz. Yayımlanan REST API'leri, aşağıdaki işlemleri destekler:
 * [Oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - oluşturur veya belirli bir sütunun duyarlılık etiketi güncelleştirir

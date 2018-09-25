@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 2201455477af2bd871f8e8e401536d45af4a02f7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2ec712dcce1295a91f552176ddcf6572d3f23ecc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294668"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993570"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulama (Önizleme) kullanarak Azure'da bir Linux sanal makinede oturum açın
 
@@ -59,7 +59,7 @@ Aşağıdaki Azure bölgeleri, şu anda bu özellik Önizleme sırasında destek
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici, Azure CLI Sürüm 2.0.31 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici, Azure CLI Sürüm 2.0.31 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-linux-virtual-machine"></a>Linux sanal makinesi oluşturma
 
@@ -117,7 +117,7 @@ az role assignment create \
 > [!NOTE]
 > AAD etki alanı ve oturum açma kullanıcı adı etki alanı eşleşmiyorsa, kullanıcı hesabınızın nesne Kimliğini belirtmeniz gerekir *--atanan nesne kimliği*, kullanıcı adı için yalnızca *--atanan*. Kullanıcı hesabınız için nesne Kimliğini almak [az ad kullanıcı listesi](/cli/azure/ad/user#az-ad-user-list).
 
-Azure abonelik kaynaklarınıza erişimi yönetmek için RBAC kullanma hakkında daha fazla bilgi için bkz [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [Azure portalında](../../role-based-access-control/role-assignments-portal.md), veya [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Azure abonelik kaynaklarınıza erişimi yönetmek için RBAC kullanma hakkında daha fazla bilgi için bkz [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure portalında](../../role-based-access-control/role-assignments-portal.md), veya [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Azure AD kullanarak Linux sanal makineye oturum açmak belirli bir kullanıcı için multi-Factor authentication'ı gerektirecek şekilde de yapılandırabilirsiniz. Daha fazla bilgi için [bulutta Azure multi Factor Authentication kullanmaya başlama](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 

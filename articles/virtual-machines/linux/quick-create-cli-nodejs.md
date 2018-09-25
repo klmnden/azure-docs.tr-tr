@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 1.0 Kullanarak Linux VM Oluşturma | Microsoft Docs
-description: Azure CLI 1.0 kullanarak Azure'da Linux VM'si oluşturma
+title: Klasik Azure CLI kullanarak bir Linux VM oluşturma | Microsoft Docs
+description: Klasik Azure CLI'yi kullanarak Azure'da bir Linux VM oluşturma
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: ea9eab1a02a29005917848ed54ab8ba160b89b63
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 94362256dfb5b8deff233f7c575d0720f29eec5c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30901818"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987864"
 ---
-# <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Azure CLI 1.0 kullanarak bir Linux VM'si oluşturma
+# <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak bir Linux VM oluşturma
 
 Bu makalede, Azure komut satırı arabiriminde (CLI) `azure vm quick-create` komutunu kullanarak Azure'da bir Linux sanal makinesini (VM) hızlı bir şekilde nasıl dağıtacağınız gösterilmektedir. `quick-create` komutu, bir kavramı hızlıca prototipleştirmek veya sınamak için kullanabileceğiniz temel, güvenli bir altyapı içine VM dağıtır.
 
 > [!NOTE]
-Azure CLI 2.0 sürümünü kullanarak VM oluşturmak için bkz. [Azure CLI ile VM oluşturma](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Azure CLI kullanarak VM oluşturmak için bkz: [Azure CLI ile VM oluşturma](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [Azure portalını](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kullanarak da hızlıca bir Linux VM'si dağıtabilirsiniz.
 
-Makaleyi gerektiren bir [SSH ortak ve özel anahtar dosyaları](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Makale bir [SSH ortak ve özel anahtar dosyaları](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

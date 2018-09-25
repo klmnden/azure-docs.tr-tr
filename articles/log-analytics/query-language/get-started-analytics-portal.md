@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2c35d71d127903a67dce2280b2d0ab335079b480
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3bcc5368a99dc7c7c32381ca0226119d81fc2c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604476"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978208"
 ---
 # <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Azure portalında log Analytics ile çalışmaya başlama
 
@@ -47,7 +47,7 @@ Log Analytics, yazma ve Azure Log Analytics sorgularını yürütmek için kulla
 ## <a name="basic-queries"></a>Temel sorgular
 Sorgular, arama terimleri, eğilimleri belirlemenize, biçimlerini çözümleme ve verilerinizi temel alan birçok öngörüden sağlamak için kullanılabilir. Temel bir sorgu başlatın:
 
-```KQL
+```Kusto
 Event | search "error"
 ```
 
@@ -57,7 +57,7 @@ Sorgular, bir tablo adı ile başlatabilir veya **arama** komutu. Yukarıdaki ö
 
 Aynı sorgu yazmak için başka bir yolu şu şekilde olur:
 
-```KQL
+```Kusto
 search in (Event) "error"
 ```
 
@@ -81,7 +81,7 @@ Her tabloda sütun adının yanındaki simge tarafından belirtildiği gibi fark
 ## <a name="filter-the-results"></a>Sonuçları filtreleme
 Her şeyi alınırken Start _olay_ tablo.
 
-```KQL
+```Kusto
 Event
 ```
 
@@ -135,7 +135,7 @@ Sorgu için bir filtre açıkça içeriyorsa _TimeGenerated_Seçici başlık gö
 ## <a name="charts"></a>Grafikler
 Bir tablodaki sonuçları döndüren yanı sıra sorgu sonuçlarını visual biçimlerde sunulabilir. Örnek olarak aşağıdaki sorguyu kullanın:
 
-```KQL
+```Kusto
 Event 
 | where EventLevelName == "Error" 
 | where TimeGenerated > ago(1d) 

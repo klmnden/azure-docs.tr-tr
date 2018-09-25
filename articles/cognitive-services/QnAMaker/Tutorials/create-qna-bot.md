@@ -2,22 +2,22 @@
 title: Azure robot hizmeti - soru-cevap Oluşturucu ile soru-cevap Robotu
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: nstulasi
-ms.openlocfilehash: 0c6feb67b273ec30afba89f2d4d9b59a8a9f5acf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.author: tulasim
+ms.openlocfilehash: 74c7bc5c601cd36a8dd2454506745406bc00dac0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731425"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031297"
 ---
-# <a name="create-a-qna-bot-with-azure-bot-service"></a>Azure Bot hizmeti ile bir soru-cevap Robotu oluşturun
-Bu öğreticide, Azure portalında Azure Bot hizmeti ile bir soru-cevap bot oluşturma sürecinde açıklanmaktadır.
+# <a name="create-a-qna-bot-with-azure-bot-service-v3"></a>Azure ile soru-cevap Robotu oluşturun Bot hizmeti v3
+Bu öğretici Azure portalında Azure Bot hizmeti v3 ile soru-cevap bot oluşturma sürecinde kılavuzluk eder.
 
 ## <a name="prerequisite"></a>Önkoşul
 Derlemeden önce adımları [Bilgi Bankası oluşturma](../How-To/create-knowledge-base.md) sorular ve cevaplar ile soru-cevap Oluşturucu hizmetini oluşturmak için.
@@ -33,16 +33,24 @@ Bot QnAMakerDialog oluşturulan Bilgi Bankası gelen sorulara yanıt verir.
 
     ![bot hizmeti seçimi](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
 
-3. İçinde **Bot hizmeti dikey**, gerekli bilgileri sağlayın ve seçin **Oluştur**. Bu, oluşturur ve QnAMakerDialog ile bot hizmeti, Azure'a dağıtır.
+3. İçinde **Bot hizmeti dikey**, gerekli bilgileri sağlayın:
 
     - Ayarlama **uygulama adı** botunuzun kişinin adı. Botunuzun (örneğin, mynotesbot.azurewebsites.net) buluta dağıtıldığında alt etki alanı adı kullanılır.
     - Abonelik, kaynak grubu, App service planı ve konumu seçin.
-    - Seçin **soru ve yanıt** (Node.js veya C#) şablonu için robot şablon alan.
-    - Yasal bildirimi için onay kutusunu seçin. Yasal bildirimin koşullarını onay kutusunu ' dir.
 
-        ![bot hizmeti seçimi](../media/qnamaker-tutorials-create-bot/bot-service-qna-template.PNG)
+4. Soru-cevap Robotu ile SDK v4 oluşturmaya yönelik yönergelere bakın - görmek için [soru-cevap v4 bot şablon](https://aka.ms/qna-bot-v4). V3 şablonlarını kullanmak için SDK'sı sürümünü seçin **SDK v3** ve SDK'sı dilini **C#** veya **Node.js**.
 
-4. Bot hizmeti dağıtıldığını doğrulayın.
+    ![bot sdk ayarları](../media/qnamaker-tutorials-create-bot/bot-v3.png)
+
+5. Seçin **soru ve yanıt** şablonu için robot şablon alanını, ardından seçerek şablonu ayarlarını kaydedin **seçin**.
+
+    ![bot hizmeti seçimi](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
+
+6. Ayarlarınızı gözden geçirin ve ardından **Oluştur**. Bu, oluşturur ve QnAMakerDialog ile bot hizmeti, Azure'a dağıtır.
+
+    ![bot hizmeti seçimi](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
+
+7. Bot hizmeti dağıtıldığını doğrulayın.
 
     - Seçin **bildirimleri** (Azure portalının üst kenarı bulunan zil simgesi). Bildirim değiştirilecek **dağıtım başlatıldı** için **dağıtım başarılı**.
     - Bildirim değişiklikler yapıldıktan sonra **dağıtım başarılı**seçin **kaynağa Git** bu bildirim.

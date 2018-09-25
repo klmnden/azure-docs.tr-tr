@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 1b9a8e4a8706dea43e33331cd196fbe2ad877a3a
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: ff0514a3432ed74baa6df2574157066daff895bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605564"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961272"
 ---
 # <a name="working-with-json-and-data-structures-in-log-analytics-queries"></a>JSON ve veri yapıları Log Analytics sorguları çalışma
 
@@ -40,7 +40,7 @@ Kullanım `extractjson` belirli bir JSON öğesi bilinen bir yolda erişmek içi
 
 Öğeleri ayırmak için dizinler ve nokta için köşeli ayraç kullanın:
 
-```KQL
+```Kusto
 let hosts_report='{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}';
 print hosts_report
 | extend status = extractjson("$.hosts[0].status", hosts_report)
@@ -48,7 +48,7 @@ print hosts_report
 
 Bu yalnızca köşeli ayraçlar gösterimini kullanarak aynı sonucu.
 
-```KQL
+```Kusto
 let hosts_report='{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}';
 print hosts_report 
 | extend status = extractjson("$['hosts'][0]['status']", hosts_report)
@@ -56,7 +56,7 @@ print hosts_report
 
 Yalnızca bir öğe yoksa yalnızca nokta gösterimi kullanabilirsiniz:
 
-```KQL
+```Kusto
 let hosts_report='{"location":"North_DC", "status":"running", "rate":5}';
 print hosts_report 
 | extend status = hosts_report.status
@@ -68,7 +68,7 @@ print hosts_report
 ### <a name="parsejson"></a>parsejson
 Birden çok öğe, json yapısındaki erişmek için dinamik bir nesne erişmek kolaydır. Kullanım `parsejson` metin verilerine dinamik bir nesne olarak atanamadı. Dinamik bir türe dönüştürülen ek işlevleri ve verileri çözümlemek için kullanılabilir.
 
-```KQL
+```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | extend status0=hosts_object.hosts[0].status, rate1=hosts_object.hosts[1].rate
@@ -79,7 +79,7 @@ print hosts_object
 ### <a name="arraylength"></a>arraylength
 Kullanım `arraylength` bir dizideki öğelerin sayısını:
 
-```KQL
+```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | extend hosts_num=arraylength(hosts_object.hosts)
@@ -88,7 +88,7 @@ print hosts_object
 ### <a name="mvexpand"></a>mvexpand
 Kullanım `mvexpand` bir nesnenin özelliklerini farklı satırlara ayırmak için.
 
-```KQL
+```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | mvexpand hosts_object.hosts[0]
@@ -99,7 +99,7 @@ print hosts_object
 ### <a name="buildschema"></a>buildschema
 Kullanım `buildschema` bir nesnenin tüm değerleri admits şeması get yapılmaya:
 
-```KQL
+```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"location":"South_DC", "status":"stopped", "rate":3}]}');
 print hosts_object 
 | summarize buildschema(hosts_object)
@@ -123,7 +123,7 @@ Bu çıkış nesnesi alanları ve eşleşen veri türlerini açıklar.
 
 İç içe geçmiş nesnelerde aşağıdaki örnekte olduğu gibi farklı şemalar sahip olabilir:
 
-```KQL
+```Kusto
 let hosts_object = parsejson('{"hosts": [{"location":"North_DC", "status":"running", "rate":5},{"status":"stopped", "rate":"3", "range":100}]}');
 print hosts_object 
 | summarize buildschema(hosts_object)

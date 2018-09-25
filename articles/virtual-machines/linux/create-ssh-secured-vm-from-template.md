@@ -16,16 +16,19 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6b431ee55ee73b4f5a69471cca3cc16270198c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 33b0b2b4148a8cfbe97413bf3cdec23d375206bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930248"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983897"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile Linux sanal makinesi oluşturma
-Bu makalede Azure Resource Manager şablonları ve Azure CLI ile Linux sanal makinesi (VM) hızlı bir şekilde dağıtma gösterilmektedir. 
 
+Bu makalede Azure Resource Manager şablonları ve Azure CLI ile Linux sanal makinesi (VM) hızlı bir şekilde dağıtma gösterilmektedir. Bu adımlar da gerçekleştirebilirsiniz [Azure Klasik CLI](create-ssh-secured-vm-from-template-nodejs.md).
+
+
+Bu makalede Azure Resource Manager şablonları ve Azure CLI ile Linux sanal makinesi (VM) hızlı bir şekilde dağıtma gösterilmektedir. 
 
 ## <a name="templates-overview"></a>Şablonlara genel bakış
 Azure Resource Manager şablonları altyapı ve Azure çözümünüzü yapılandırmasını tanımlayan JSON dosyalarıdır. Bir şablon kullanarak çözümünü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. Biçimi şablon ve nasıl oluşturulacağı hakkında daha fazla bilgi için bkz: [ilk Azure Resource Manager şablonunuzu oluşturma](../../azure-resource-manager/resource-manager-create-first-template.md). Kaynak türleri için JSON söz dizimini görüntülemek üzere bkz. [Azure Resource Manager şablonlarında kaynak tanımlama](/azure/templates/).

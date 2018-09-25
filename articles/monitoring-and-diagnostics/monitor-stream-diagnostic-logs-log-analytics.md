@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 134c33ac28c6a094bdc50deb7206db95bf4436fc
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c419a3c44a38f72d56f2b7b362c62e683fc20c7f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574541"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993026"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Log analytics'e Azure tanılama günlükleri
 
-**[Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md)**  portal, PowerShell cmdlet'leri veya Azure CLI 2.0 kullanarak Azure Log analytics'e neredeyse gerçek zamanlı akış.
+**[Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md)**  portal, PowerShell cmdlet'leri veya Azure CLI kullanarak Azure Log analytics'e neredeyse gerçek zamanlı akış.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Tanılama ile neler yapabileceğinizi Log Analytics'te günlüğe kaydeder
 
@@ -73,9 +73,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resour
 
 Tam Azure kaynak kimliği değil çalışma alanı kimliği/anahtarı Log Analytics Portalı'nda gösterilen çalışma alanının çalışma alanı kimliği özelliği aldığını unutmayın.
 
-### <a name="via-azure-cli-20"></a>Azure CLI 2.0
+### <a name="via-azure-cli"></a>Azure CLI
 
-Aracılığıyla akışını etkinleştirmek için [Azure CLI 2.0](insights-cli-samples.md), kullanabileceğiniz [az İzleyici diagnostic-settings oluşturma](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) komutu.
+Aracılığıyla akışını etkinleştirmek için [Azure CLI](insights-cli-samples.md), kullanabileceğiniz [az İzleyici diagnostic-settings oluşturma](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) komutu.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

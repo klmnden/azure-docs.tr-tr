@@ -20,7 +20,7 @@ Aşağıdaki tabloda IOT Hub kaynakları için geçerli olan sınırlar listelen
 | En fazla cihaz kimliği sayısı<br/> (tek bir çağrıda döndürülen) |1000 |
 | Cihazdan buluta iletiler için IoT Hub en fazla ileti bekletme süresi |7 gün |
 | Cihazdan bulut iletinin en büyük boyutu |256 KB |
-| Cihazdan buluta toplu işin en büyük boyutu |256 KB |
+| Cihazdan buluta toplu işin en büyük boyutu |AMQP ve HTTP: Toplu işin tamamını için 256 KB <br/>MQTT: her ileti 256 KB |
 | Cihazdan buluta toplu işte en fazla ileti sayısı |500 |
 | Buluttan cihaza iletinin en büyük boyutu |64 KB |
 | Buluttan cihaza iletiler için en büyük TTL |2 gün |

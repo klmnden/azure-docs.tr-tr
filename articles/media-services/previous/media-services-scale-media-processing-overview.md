@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: a17c08cc66b13a5ec15d32be7e9ec738da73e219
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 698a85244d5341224dd9f513c5617b9086e36844
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129063"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033082"
 ---
 # <a name="scaling-media-processing-overview"></a>Genel Bakış medya işlemeyi ölçeklendirme
 Bu sayfa hakkında genel bakış ve neden medya işlemeyi ölçeklendirme sağlar. 
@@ -30,12 +30,12 @@ Media Services hesabı bir Ayrılmış Birim Türüyle ilişkilendirilir ve bu d
 Ayrılmış birim türünü belirtmenin yanı sıra, ayrılmış birim ile hesabınızı sağlamak için belirtebilirsiniz. Sağlanan ayrılmış birim sayısı, verili bir hesapta eşzamanlı olarak işlenebilecek medya görevlerinin sayısını belirler. Örneğin, beş medya görevi aynı anda uzun çalışacağı beş ayrılmış birim, hesabınız varsa, olarak işlenmek üzere görevleri vardır. Kalan görevlerin kuyrukta bekler ve sıralı olarak çalışan bir görev tamamlandığında işlemek için toplanmış. Sağlanan herhangi bir ayrılmış birim hesabınız yoksa, ardından görevleri sıralı olarak seçilir. Bu durumda, bir görev tamamlama ve ileri bir başlangıç arasındaki bekleme süresini sistemde kaynaklarının kullanılabilirliğine bağlıdır.
 
 ## <a name="choosing-between-different-reserved-unit-types"></a>Farklı ayrılmış birim türlerinden seçme
-Aşağıdaki tabloda farklı kodlama hızlarını arasında seçim yaparken kararı vermenize yardımcı olur. Ayrıca, birkaç Kıyaslama durum sağlar ve kendi testlerinizi gerçekleştirin videoları indirmek için kullanabileceğiniz tüm SAS URL'lerini sağlar:
+Aşağıdaki tabloda farklı kodlama hızlarını arasında seçim yaparken bir karar vermenize yardımcı olur. Şirket birkaç Kıyaslama durum ayrıca sağlar [indirebileceğiniz bir video](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) kendi testleri gerçekleştirmek için:
 
 | Senaryolar | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | Hedeflenen kullanım örneğini |Tek bit hızlı kodlama. <br/>SD veya çözümleri altındaki dosyaları, duyarlı, düşük maliyetli değildir zaman. |Tekli bit hızı ve Çoklu bit hızlı kodlama.<br/>SD hem HD kodlaması için normal kullanım. |Tekli bit hızı ve Çoklu bit hızlı kodlama.<br/>Tam HD ve 4K çözünürlüklü videolar. Kodlama duyarlı, daha hızlı bir döngü süresi. |
-| 5 dakikalık video için Kıyaslama |Tek bit hızlı MP4 dosyası, aynı çözünürlükte, kodlamayı yaklaşık 11 dakika sürer. |"H264 tekli bit hızı ile 720 p" kodlama yaklaşık 5 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 720p" önayarını yaklaşık 11.5 birkaç dakika sürer. |"H264 tekli bit hızı ile 1080 p" kodlama yaklaşık 2.7 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 1080p" önayarını yaklaşık 5.7 birkaç dakika sürer. |
+| Kıyaslama 7 dakikalık video |Tek bit hızlı MP4 dosyası, aynı çözünürlükte, kodlamayı yaklaşık 5 dakika sürer. |"H264 tekli bit hızı ile 720 p" kodlama yaklaşık 8 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 720p" önayarını yaklaşık 16,8 birkaç dakika sürer. |"H264 tekli bit hızı ile 1080 p" kodlama yaklaşık 4 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 1080p" önayarını yaklaşık 8 dakika sürer. |
 
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler

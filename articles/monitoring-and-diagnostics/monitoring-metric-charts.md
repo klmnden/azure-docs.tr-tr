@@ -1,6 +1,6 @@
 ---
 title: Azure İzleyici ölçüm Gezgini
-description: Azure İzleyici ölçüm Gezgini yeni özellikler hakkında bilgi edinin
+description: Azure İzleyici ölçüm Gezgini'nde yeni özellikler hakkında bilgi edinin
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,149 +8,119 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: a2611f89d9eef1ec6bac34389fa4db833aecc087
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 21b0029ff12915c8416ad2366fbf6c45ddfaa288
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264097"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978437"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini
 
-Bu nasıl yapılır genel önizlemede olan ileri nesil Azure İzleyici ölçümleri grafik deneyimi açıklanmıştır. Yeni deneyimi işleme grafikleri çok boyutlu ölçümleri hem temel ölçümleri hiçbir boyutlarla destekler. Ölçümleri farklı kaynak türleri, birden çok kaynak grupları ve abonelikleri kaplama grafikler çizebilirsiniz. Çok boyutlu ölçümleri grafikler, boyut filtreleri uygulayarak yanı sıra gruplandırma özelleştirilebilir. Özelleştirilmiş grafikler dahil olmak üzere herhangi bir grafiğin panolarına sabitlenmiş.
+Bu nasıl yapılır, genel Önizleme aşamasında olan ileri nesil Azure İzleyici ölçümleri grafik deneyimi açıklanmıştır. Yeni deneyim, hem çok boyutlu Ölçümler ve herhangi bir boyutu ile temel ölçümler için grafik işlemeyi destekler. Ölçümleri farklı kaynak türleri, birden çok kaynak grupları ve abonelikler kaplama grafikler çizebilirsiniz. Çok boyutlu ölçüm grafikleri, boyut filtreler uygulayarak yanı sıra göre gruplandırma özelleştirilebilir. Özelleştirilmiş grafikler de dahil olmak üzere herhangi bir grafiğe panolara sabitlenebilir.
 
-Yalnızca hiçbir boyutlarla temel ölçümleri destekleyen eski deneyimi hakkında bilgi arıyorsanız Lütfen bölüm başlıklı "ölçümleri portalı üzerinden erişim" bölümüne bakın [Microsoft Azure ölçümleri genel bakış Kılavuzu](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+Yalnızca hiçbir boyutlarla temel ölçümleri destekleyen eski deneyimi hakkında bilgi arıyorsanız Lütfen başlıklı bölüme "portal aracılığıyla ölçümlere erişmek" bölümüne bakın [Microsoft Azure ölçümlerine genel bakış Kılavuzu](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
-## <a name="what-is-azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini nedir?
+## <a name="what-is-azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini'ni nedir?
 
-Azure İzleyici ölçüm Gezgini grafikleri Çizdirmek, görsel olarak eğilimleri bağıntı ve ani araştırma sağlar ve ölçümleri değerleri dips Microsoft Azure portal'ın bir bileşenidir. Ölçüm Gezgini incelemektedir çeşitli performans ve kullanılabilirlik sorunları, uygulamalar ve Azure üzerinde barındırılan veya Azure İzleyici Hizmetleri tarafından izlenen altyapınız için bir temel başlangıç noktasıdır. 
+Azure İzleyici ölçüm Gezgini'ni grafikler çizme, görsel olarak eğilimleri ilişkilendirme ve ani araştırma sağlar ve düşüşler ölçümleri değerleri Microsoft Azure portalının bir bileşenidir. Ölçüm Gezgini çeşitli performans ve Azure'da barındırılan veya Azure izleme hizmetleri tarafından izlenen altyapı ve uygulamalar ile kullanılabilirlik sorunları araştırma için bir temel başlangıç noktasıdır. 
 
-## <a name="what-are-metrics-in-azure"></a>Azure ölçümlerini nelerdir?
+## <a name="what-are-metrics-in-azure"></a>Azure'da ölçümler nelerdir?
 
-Microsoft Azure ölçümlerini ölçülen değerleri ve zaman içinde depolanan ve toplanan sayılar oluşur. Standart (veya "platform") ölçümleri ve özel ölçümleri vardır. Standart ölçümleri size Azure platformu tarafından kendisini sağlanır. Standart ölçümleri Azure kaynaklarınızın sistem durumunu ve kullanım istatistiklerini yansıtır. Özel ölçümleri kullanarak uygulamalarınızı tarafından Azure'a gönderilir ancak [özel olaylar için Application Insights API'si](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Özel ölçümleri Application Insights kaynakları diğer uygulama belirli ölçümleri birlikte depolanır.
+Microsoft azure'da ölçümleri ölçülen değerleri ve toplanan ve zaman içinde depolanmış olan sayıları oluşur. Standart (veya "platformu") ölçüm ve özel ölçüm vardır. Standart ölçümler, Azure platformu tarafından kendisi sağlanır. Standart ölçümler, Azure kaynaklarınızın durumunu ve kullanım istatistikleri yansıtır. Özel ölçüm kullanarak uygulamalarınızı tarafından Azure'a gönderilir ancak [özel olaylar için Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Özel ölçümler Application Insights kaynakları diğer uygulama belirli ölçümleri birlikte depolanır.
 
-## <a name="what-are-multi-dimensional-metrics"></a>Çok boyutlu ölçümleri nelerdir?
 
-Çoğu Azure'nın kaynakları artık çok boyutlu ölçümleri ortaya çıkarır. Bu ölçümler bir veya daha çok adlandırılmış boyutlar için değerleri birden fazla dizi izler. Örneğin, bir ölçüm "kullanılabilir disk alanı" değerler "C:", "Sürücü" adlı bir boyut ya da kullanılabilir disk alanı her sürücü için veya tüm sürücüler üzerinde tek tek görüntüleme belirleyebilmesini "D:" olabilir. 
-
-Aşağıdaki örnekte, "Ağ verimliliği" adlı bir kuramsal ölçümü için iki veri kümesi gösterilmektedir. İlk veri kümesi herhangi bir boyutu vardır. İkinci veri kümesi, iki boyutları, "IP adresi" ve "Yönünü" değerlerle gösterir:
-
-### <a name="network-throughput"></a>Ağ verimliliği
-(Bu ölçüm hiç boyut yoktur)
-
- |Zaman damgası        | Ölçüm değeri | 
-   | ------------- |:-------------| 
-   | 8/9/2017 8:14 | 1,331.8 KB/sn | 
-   | 8/9/2017 8:15 | 1,141.4 KB/sn |
-   | 8/9/2017 8:16 | 1,110.2 KB/sn |
-
-Yanıt temel soru ister yalnızca "Benim ağ verimliliği belirli bir zamanda neydi?" Bu boyutlu olmayan ölçüm olabilir
-
-### <a name="network-throughput--two-dimensions-ip-and-direction"></a>Ağ verimliliği + iki boyutu ("IP" ve "Yönünü")
-
-| Zaman damgası          | Boyut "IP" | Boyut "Yönünü" | Ölçüm değeri| 
-   | ------------- |:-----------------|:------------------- |:-----------|  
-   | 8/9/2017 8:14 | IP "192.168.5.2" = | Yön "Gönderme" =    | 646.5 KB/sn |
-   | 8/9/2017 8:14 | IP "192.168.5.2" = | Yön "Alma" = | 420.1 KB/sn |
-   | 8/9/2017 8:14 | IP "10.24.2.15" =  | Yön "Gönderme" =    | 150.0 KB/sn | 
-   | 8/9/2017 8:14 | IP "10.24.2.15" =  | Yön "Alma" = | 115.2 KB/sn |
-   | 8/9/2017 8:15 | IP "192.168.5.2" = | Yön "Gönderme" =    | 515.2 KB/sn |
-   | 8/9/2017 8:15 | IP "192.168.5.2" = | Yön "Alma" = | 371.1 KB/sn |
-   | 8/9/2017 8:15 | IP "10.24.2.15" =  | Yön "Gönderme" =    | 155.0 KB/sn |
-   | 8/9/2017 8:15 | IP "10.24.2.15" =  | Yön "Alma" = | 100.1 KB/sn |
-
-Bu ölçüm "her IP adresi için bir ağ verimliliği neydi?" ve "ne kadar veri karşı gönderildiği alınan?" gibi soruları yanıtlamak Çok boyutlu ölçümleri boyutlu olmayan ölçümleri karşılaştırıldığında ek Analitik ve tanılama değeri taşır. 
 
 ## <a name="how-do-i-create-a-new-chart"></a>Yeni bir grafik nasıl oluşturulur?
 
    > [!NOTE]
-   > Bazı eski ölçümleri deneyimi özellikleri henüz yeni ölçümleri Explorer'ın kullanılabilir değil. Yeni deneyimi önizlemede olsa da, Azure İzleyicisi'nin eski (boyut olmayan) ölçümleri görünümü kullanmaya devam edebilirsiniz. 
+   > Eski ölçüm deneyimi özelliklerinden bazıları henüz yeni ölçüm Gezgini'nde kullanılabilir değil. Yeni deneyimi Önizleme aşamasında olduğu sürece, Azure İzleyici'eski (boyutlu olmayan) ölçümler görünümü kullanmaya devam edebilirsiniz. 
 
 1. Azure portalını açın
-2. Yeni gidin **İzleyici** sekmesini tıklatın ve ardından **ölçümleri (Önizleme)**.
+2. Yeni Git **İzleyici** sekmesine tıklayın ve ardından **ölçümler (Önizleme)**.
 
-   ![Ölçümleri Önizleme görünümü](./media/monitoring-metric-charts/001.png)
+   ![Ölçümleri önizleme görüntüsü](./media/monitoring-metric-charts/0001.png)
 
-3. **Ölçüm Seçici** otomatik olarak sizin için açık olacaktır. İlişkili ölçümleri görüntülemek için listeden bir kaynak seçin. Yalnızca ölçümleri kaynaklarla listesinde gösterilir.
+3. **Ölçüm Seçici** otomatik olarak sizin için açık olacaktır. Bir kaynağı kendi ilgili ölçümleri görüntülemek için listeden seçin. Yalnızca kaynakları ölçümlerle listesinde gösterilir.
 
-   ![Ölçümleri Önizleme görünümü](./media/monitoring-metric-charts/002.png)
-
-   > [!NOTE]
-   >Birden fazla Azure aboneliğiniz varsa, ölçüm Gezgini çeken kaynakları Portal ayarlarında seçilmiş olan tüm abonelikler arasında çıkışı Filtresi tarafından abonelik listesi ->. Değiştirmek için ekranın üstünde Portalı Ayarları dişli simgesine tıklayın ve kullanmak istediğiniz abonelikleri seçin.
-
-4. Ölçüm seçmeden önce bazı kaynak türleri için (yani depolama hesapları ve sanal makineler) seçmeniz gerekir bir **alt hizmet**. Her alt hizmet yalnızca bu alt hizmetine ve diğer alt hizmetlerine ilgili ölçümleri kendi kümesini taşır.
-
-   Örneğin, her Azure Storage ölçümleri alt Servisleri "BLOB'lar", "Dosyalar", "Sıraları" ve depolama hesabı bölümlerdir "Tablo" için vardır. Ancak, "sıraya ileti sayısı" ölçüm doğal olarak "Sırası" subservice ve herhangi diğer depolama hesabı alt Servisleri geçerlidir.
-
-   ![Ölçümleri Önizleme görünümü](./media/monitoring-metric-charts/003.png)
-
-5. Bir ölçümü listeden seçin. İstediğiniz ölçüm kısmi adını biliyorsanız, içinde kullanılabilir ölçümler filtre uygulanmış bir listesini görmek için yazarak başlatabilirsiniz:
-
-   ![Ölçümleri Önizleme görünümü](./media/monitoring-metric-charts/004.png)
-
-6. Ölçüm seçtikten sonra grafik seçili ölçümü için varsayılan toplama ile işlemez. Bu noktada yalnızca merkezden tıklatabilirsiniz **ölçümleri Seçici** kapatmak için. Bu gibi durumlarda, grafik Ayrıca isteğe bağlı olarak farklı bir toplama geçebilirsiniz. Bazı ölçümleri toplama geçiş grafikte görmek istediğiniz hangi değerin seçmenize olanak sağlar. Örneğin, ortalama, minimum ve maksimum değerleri arasında geçiş yapabilirsiniz. 
-
-7. Ölçüm Ekle simgesine tıklayarak ![Ölçüm simgesi](./media/monitoring-metric-charts/icon001.png) ve adımları 3-6 yinelenen aynı grafik üzerinde daha fazla ölçümleri ekleyebilirsiniz.
+   ![Ölçümleri önizleme görüntüsü](./media/monitoring-metric-charts/0002.png)
 
    > [!NOTE]
-   > Genellikle bir grafikte ölçümleri farklı ölçü (yani "milisaniye" ve "kilobayt") veya önemli ölçüde farklı ölçek sahip istemezsiniz. Bunun yerine, birden çok grafik kullanmayı düşünün. Ölçümleri Gezgini'nde birden çok grafik oluşturmak için Grafik Ekle düğmesine tıklayın.
+   >Ölçüm Gezgini çeken kaynakları Portal ayarlarında seçili abonelikler genelinde kullanıma birden fazla Azure aboneliğiniz varsa, filtre tarafından abonelik listesi ->. Değiştirmek için ekranın en üstünde Portal ayarları dişli simgesine tıklayın ve kullanmak istediğiniz abonelikleri seçin.
 
-## <a name="how-do-i-apply-filters-to-the-charts"></a>Grafiklere nasıl filtreleri uygulansın mı?
+4. Bir ölçüm seçmeden önce bazı kaynak türleri için (yani depolama hesapları ve sanal makineler), seçmelisiniz bir **Namespace**. Her ad alanı, bu ad alanına ve diğer ad alanları için ilgili ölçümleri kendi kümesini gerçekleştirir.
 
-Ölçümleri boyutlarla gösteren grafikleri için filtreler uygulayabilirsiniz. "İşlem sayısı" ölçüm boyut varsa, "işlemleri yanıttan başarılı veya bu boyuta göre filtreleme başarısız olup olmadığını gösteren yanıt türü", grafik satır için örneğin, çizim yalnızca başarılı (veya yalnızca başarısız) işlemleri. 
+   Örneğin, her bir Azure depolama alt Servisleri "BLOB", "Files", "Kuyrukları" ve tüm bölümleri depolama hesabının "Tablo" için ölçüler vardır. Ancak, "kuyruk mesaj sayısı" ölçüm doğal olarak "Sırası" subservice ve tüm diğer depolama hesabı alt servisleri için geçerlidir.
+
+   ![Ölçümleri önizleme görüntüsü](./media/monitoring-metric-charts/0003.png)
+
+5. Listeden bir ölçüm seçin. İstediğiniz ölçümü kısmi adını biliyorsanız, kullanılabilir ölçümler filtrelenmiş bir listesini görmek için yazmak başlayabilirsiniz:
+
+   ![Ölçümleri önizleme görüntüsü](./media/monitoring-metric-charts/0004.png)
+
+6. Bir ölçüm seçildiğinde, grafik, seçilen ölçüm için varsayılan toplama ile işlenir. Bu noktada yalnızca liste kutusundan tıklayabilirsiniz **ölçümleri Seçici** kapatmak için. Ayrıca isteğe bağlı olarak farklı bir toplama için grafiği geçiş yapabilirsiniz. Bazı ölçümler için toplama geçişi grafikte görmek istediğiniz değer seçmenize olanak sağlar. Örneğin, ortalama, minimum ve maksimum değerleri arasında geçiş yapabilirsiniz. 
+
+7. Ölçüm Ekle simgesine tıklayarak ![Ölçüm simgesi](./media/monitoring-metric-charts/icon001.png) ve adım 3-6 yinelenen daha fazla ölçümleri aynı grafikte ekleyebilirsiniz.
+
+   > [!NOTE]
+   > Genellikle, bir grafikte ölçümleri farklı ölçü (yani "milisaniye" ve "kilobayt") veya önemli ölçüde farklı ölçeklendirme ile sahip istemezsiniz. Bunun yerine, birden çok grafik kullanmayı düşünün. Ölçüm Gezgini'nde birden çok grafik oluşturmak için Hesap Ekle düğmesine tıklayın.
+
+## <a name="how-do-i-apply-filters-to-the-charts"></a>Filtreler grafikleri nasıl uygulayabilirim?
+
+Boyutlarla ölçümleri gösteren grafikler için filtre uygulayabilirsiniz. "İşlem sayısı" ölçüm boyut varsa, "işlem yanıtı başarılı veya daha sonra bu boyutu üzerinde filtreleme başarısız olduğunu gösteren yanıt türü", bir grafik çizgisi için örneğin, çizim yalnızca başarılı (veya yalnızca başarısız) işlemleri. 
 
 ### <a name="to-add-a-filter"></a>Filtre eklemek için:
 
-1. Filtre Ekle simgesine tıklayın ![filtre simgesi](./media/monitoring-metric-charts/icon002.png) grafiğin
+1. Filtre Ekle simgesine tıklayın ![filtre simgesi](./media/monitoring-metric-charts/icon002.png) grafiğin üstünde
 
-2. Filtre uygulamak istediğiniz hangi boyut (özellik) seçin
+2. Filtre uygulamak istediğiniz boyutu (özellik) seçin
 
-   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/006.png)
+   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/0006.png)
 
-3. (Bu örnekte başarılı depolama işlemleri filtreleme gösterir) grafik Çizdirmek zaman dahil etmek istediğiniz hangi boyut değerleri seçin:
+3. (Bu örnekte filtreleme başarılı depolama işlemleri gösterilmiştir) grafik çizim, dahil etmek istediğiniz hangi boyut değerleri seçin:
 
-   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/007.png)
+   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/0007.png)
 
-4. Filtre değerleri seçtikten sonra kapatmak için filtre Seçici çıktığınızda tıklatın. Şimdi ne kadar depolama işlemleri başarısız olmuş grafik gösterir:
+4. Filtre değerleri belirledikten sonra filtre Seçici uzağa kapatmak için tıklayın. Artık grafik kaç depolama işlemi başarısız olmuş gösterir:
 
-   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/008.png)
+   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/0008.png)
 
-5. Aynı grafiklere birden fazla filtre uygulamak için 1-4 arası adımları tekrar edebilirsiniz.
+5. Aynı grafikleri birden fazla filtre uygulamak için 1-4 arası adımları tekrarlayabilirsiniz.
 
-## <a name="how-do-i-segment-a-chart"></a>Bir grafik nasıl segmentlere?
+## <a name="how-do-i-segment-a-chart"></a>Bir grafiğin nasıl segmentlere?
 
-Boyut ölçüm karşılaştırma birbirleriyle nasıl farklı parçalarını görselleştirmek için bir ölçüm bölme ve boyutun sınırdaki segmentleriyle. 
+Bir ölçüm bölme ölçütü: ölçüm karşılaştırma birbirleriyle nasıl farklı parçalarını görselleştirmek için boyut ve boyutun harici segmentleriyle. 
 
 ### <a name="to-segment-a-chart"></a>Bir grafik segmentlere ayırmak için:
 
-1. Ekleme gruplandırma simgesine tıklayın  ![Ölçüm görüntüsü](./media/monitoring-metric-charts/icon003.png) grafiğin.
+1. Gruplama ekleme simgesine tıklayın  ![Ölçüm görüntüsü](./media/monitoring-metric-charts/icon003.png) grafiğin üstünde.
  
    > [!NOTE]
-   > Tek bir grafikte yalnızca bir gruplama ancak birden fazla filtreye sahip olabilir.
+   > Tek bir gruplandırma ancak birden çok filtre herhangi tek grafikte olabilir.
 
-2. Grafiğinizi segmentlere ayırmak istediğiniz boyutu seçin: 
+2. Grafiğinizi segmentlere ayırmak istediğiniz bir boyut seçin: 
 
-   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/010.png)
+   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/0010.png)
 
-   Artık grafik şimdi boyutunun her segment için birden çok satırları gösterir:
+   Şimdi grafik, artık her bir kesim boyutu için birden fazla satır gösterir:
 
-   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/012.png)
+   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/0012.png)
 
-3. Merkezden tıklatın **gruplandırma Seçici** kapatmak için.
+3. Liste kutusundan tıklayın **gruplandırma Seçici** kapatmak için.
 
    > [!NOTE]
-   > Filtreleme ve aynı boyutun gruplandırılması senaryonuz için önemli değildir ve grafikler okunmasını kolaylaştırmak segmentleri gizlemek için kullanın.
+   > Filtreleme ve gruplandırma aynı boyutta hem senaryonuz için ilgisi olmayan ve grafikleri okunmalarını kolaylaştırmak segmentleri gizlemek için kullanın.
 
-## <a name="how-do-i-pin-charts-to-dashboards"></a>Panolar grafiklere nasıl PIN?
+## <a name="how-do-i-pin-charts-to-dashboards"></a>Nasıl grafikleri panolara sabitleyebilirsiniz?
 
-Grafikler yapılandırdıktan sonra böylece yeniden, büyük olasılıkla diğer izleme telemetri bağlamında görüntülemek veya takımınızla paylaşmak için panolar eklemek isteyebilirsiniz. 
+Grafikleri yapılandırdıktan sonra yeniden, büyük olasılıkla diğer izleme telemetri bağlamında görüntülemek veya takımınızla paylaşmak için Pano eklemek isteyebilirsiniz. 
 
 Yapılandırılmış bir grafik bir panoya sabitlemek için:
 
-Grafiğinizi yapılandırdıktan sonra tıklayın **grafik Eylemler** menüsünde sağ üst köşe grafiğin ve tıklatın **panoya Sabitle**.
+Grafiğinizi yapılandırdıktan sonra tıklayarak **grafik Eylemler** menüsü sağ üst köşe grafiğin ve tıklayın **panoya Sabitle**.
 
-   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/013.png)
+   ![Ölçüm görüntüsü](./media/monitoring-metric-charts/0013.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-  Okuma [özel KPI panolar oluşturma](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) Ölçümleriyle tıklatılabilir panoları oluşturmak için en iyi uygulamalar hakkında bilgi edinmek için.
+  Okuma [özel KPI panoları oluşturma](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) Ölçümleriyle eyleme dönüştürülebilir panolar oluşturmak için en iyi uygulamalar hakkında bilgi edinmek için.

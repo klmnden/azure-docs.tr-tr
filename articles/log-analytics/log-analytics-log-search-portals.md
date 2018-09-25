@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: magoedte; bwren
+ms.date: 09/17/2018
+ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 996502ffe5a31fcfa1b73dab9a041c336c4ea98f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4677b8d5601dcafbf4760e6f185ef70393229b1a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45602640"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961068"
 ---
 # <a name="viewing-and-analyzing-data-in-log-analytics"></a>Log analytics'te verileri çözümleme ve görüntüleme
 Azure portalında Log analytics içinde depolanan verileri analiz etmek için ve geçici analiz sorguları oluşturmak için iki seçenek vardır. Bu portalı kullanarak oluşturduğunuz sorguları, uyarılar ve panolar gibi diğer özellikler için kullanılabilir.
@@ -27,7 +27,7 @@ Azure portalında Log analytics içinde depolanan verileri analiz etmek için ve
 ## <a name="log-analytics-page"></a>Log Analytics sayfası
 Log Analytics sayfasından açın **günlükleri** Log Analytics menüsünde. Günlük verileri ile çalışma ve sorgular oluşturmak için yeni bir deneyim budur. Bu portalı giriş yapın ve onun özelliklerini inceleme [Azure portalında Log Analytics sayfası ile çalışmaya başlama](query-language/get-started-analytics-portal.md).
 
-Log Analytics sayfası üzerinde aşağıdaki iyileştirmeleri sağlar [günlük araması](#log-search) karşılaşırsınız.
+Log Analytics sayfası üzerinde aşağıdaki iyileştirmeleri sağlar [günlük araması (Klasik)](#log-search-classic) karşılaşırsınız.
 
 * Birden fazla sekme – birden çok sorgularla çalışmak için ayrı sekmeler oluşturun.
 * Zengin görselleştirmeler – çeşitli grafik seçenekleri.
@@ -44,6 +44,18 @@ Log Analytics sayfası üzerinde aşağıdaki iyileştirmeleri sağlar [günlük
 
 ![Gelişmiş analiz portalı](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
+### <a name="resource-logs"></a>Kaynak günlükleri
+Yeni Log Analytics deneyimi, sanal makineler gibi çeşitli Azure kaynakları ile entegre olur. Başka bir deyişle, Azure İzleyici ya da Log Analytics değiştirme ve kaynak bağlam kaybı olmadan kaynağın izleme menüsü aracılığıyla doğrudan Log Analytics sayfasını açabilirsiniz. **Günlükleri** tüm Azure kaynakları, ancak, farklı kaynaklar için portal menüsünde türleri görünmeye başlayacak için henüz etkinleştirilmedi.
+
+Log Analytics belirli bir kaynaktan açarken, yalnızca o kaynak kayıtlarını günlüğe kaydetmek üzere otomatik olarak kapsamlıdır.   Diğer kayıtlarını içeren bir sorgu yazmak istiyorsanız, Log Analytics veya Azure İzleyici menüsünden açmak gerekir.
+
+Aşağıdaki seçenekler henüz Log Analytics kaynak görünümü kullanılamaz:
+
+- Kaydet
+- Uyarı ayarlama
+- Sorgu gezgini
+- Farklı çalışma / (şu anda değil planlanmış) kaynak için değiştirme
+
 
 ### <a name="firewall-requirements"></a>Güvenlik duvarı gereksinimleri
 Tarayıcınız Log Analytics sayfası ve Gelişmiş analiz portalını erişmek için aşağıdaki adresi erişim gerektirir.  Tarayıcınız Azure portalında bir güvenlik duvarı üzerinden erişiyorsanız, bu adresleri erişimi etkinleştirmeniz gerekir.
@@ -56,7 +68,8 @@ Tarayıcınız Log Analytics sayfası ve Gelişmiş analiz portalını erişmek 
 
 
 ## <a name="log-search-classic"></a>Günlük araması (Klasik)
-Günlük arama sayfasından açın **günlükleri (Klasik)** Log Analytics menüsünde veya gelen **Log Analytics** Azure İzleyici menüsünde. Temel sorgular kullanarak günlük verilerini çözümlemek için uygundur. Bunu birden çok özellik düzenleme sorgular için sorgu dili hakkında tam bilgi zorunda kalmadan sağlar.  Bu özelliklerin bir özetini elde edebilirsiniz [oluşturma günlük arama özelliğini kullanarak Azure Log analytics'te günlük aramaları](log-analytics-log-search-log-search-portal.md). 
+Günlük arama sayfasından açın **günlükleri (Klasik)** Log Analytics menüsünde veya gelen **Log Analytics** Azure İzleyici menüsünde. Bu özellikleri ek eksik Log Analytics sorguları ile çalışmak için kullanılan Klasik sayfasıdır [Log Analytics sayfa](#log-analytics-page) yukarıda listelenen.
+
 
 
 ![Günlük arama sayfası](media/log-analytics-log-search-portals/log-search-portal.png)

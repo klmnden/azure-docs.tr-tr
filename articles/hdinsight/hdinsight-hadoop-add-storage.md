@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 7d37a60ad3ae3bea8490006bdd35dc47d728b88e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: bdf4c7527e2c0056b2de2321fbae280e9008cb1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103863"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990686"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight için ek depolama hesapları ekleme
 
@@ -58,7 +58,7 @@ __Gereksinimleri__:
 
 ## <a name="to-use-the-script"></a>Betiği kullanmak için
 
-Bu betik, Azure portalı, Azure PowerShell veya Azure CLI 1.0 kullanılabilir. Daha fazla bilgi için [özelleştirme Linux tabanlı HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) belge.
+Bu betik, Azure portalı, Azure PowerShell ya da Klasik Azure CLI kullanılabilir. Daha fazla bilgi için [özelleştirme Linux tabanlı HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) belge.
 
 > [!IMPORTANT]
 > Özelleştirme belge içinde sağlanan adımları kullanarak, bu komut dosyasını uygulamak için aşağıdaki bilgileri kullanın:
@@ -71,7 +71,7 @@ Bu betik, Azure portalı, Azure PowerShell veya Azure CLI 1.0 kullanılabilir. D
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Azure portalı veya araçları görüntülenmeyen depolama hesapları
 
-HDInsight kümesi Azure portalında görüntülerken seçerek __depolama hesapları__ altında girdisi __özellikleri__ bu betik eylemi eklenen depolama hesaplarına görüntülemez. Azure PowerShell ve Azure CLI, ek depolama alanı hesabı ya da görüntülemez.
+HDInsight kümesi Azure portalında görüntülerken seçerek __depolama hesapları__ altında girdisi __özellikleri__ bu betik eylemi eklenen depolama hesaplarına görüntülemez. Azure PowerShell ve klasik Azure CLI'yı ek depolama alanı hesabı ya da görüntülemez.
 
 Komut dosyası, yalnızca küme için core-site.xml yapılandırmasını değiştirir çünkü depolama bilgilerini görüntülenmiyor. Bu bilgiler, Azure yönetim API'lerini kullanarak küme bilgileri alınırken kullanılmaz.
 

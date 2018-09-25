@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248175"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983132"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -45,7 +45,7 @@ Tanılama günlükleri ile yapabileceklerinizden bazıları şunlardır:
 Günlükleri yayan biri ile aynı abonelikte değil Event Hubs ad alanı veya bir depolama hesabını kullanabilirsiniz. Ayarı yapılandıran kullanıcının her iki aboneliğin uygun RBAC erişiminiz olması gerekir.
 
 > [!NOTE]
->  Şu anda arşivlenemiyor verileri bir depolama hesabı, güvenli bir sanal ağda.
+>  Şu anda arşivlenemiyor ağ akışı günlükleri bir depolama hesabı, güvenli bir sanal ağda.
 
 > [!WARNING]
 > Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
@@ -145,9 +145,9 @@ Birden çok çıkış seçeneği etkinleştirmek için şu parametreleri birleş
 
 Şu anda, Azure PowerShell kullanarak Kiracı tanılama ayarlarını yapılandıramazsınız.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Kaynak tanılama günlükleri, Azure CLI 2.0 aracılığıyla koleksiyonunu etkinleştir
+### <a name="enable-collection-of-resource-diagnostic-logs-via-the-azure-cli"></a>Kaynak tanılama günlükleri, Azure CLI aracılığıyla koleksiyonunu etkinleştir
 
-Azure CLI 2.0 aracılığıyla kaynak tanılama günlükleri toplamayı etkinleştirmek için kullandığınız [az İzleyici diagnostic-settings oluşturma](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) komutu.
+Azure CLI aracılığıyla kaynak tanılama günlükleri toplamayı etkinleştirmek için kullandığınız [az İzleyici diagnostic-settings oluşturma](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) komutu.
 
 Tanılama günlükleri bir depolama hesabında depolama etkinleştirmek için:
 

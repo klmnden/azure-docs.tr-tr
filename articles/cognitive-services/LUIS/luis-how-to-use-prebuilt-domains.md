@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 'Language Understanding (LUIS), önceden oluşturulmuş hedefleri ve etki alanları için birlikte çalışan bir varlık kümesi veya istemci uygulamaların genel kategorileri şunlardır: önceden oluşturulmuş etki alanları sağlar. Önceden oluşturulmuş etki alanları önceden eğitilmiş ve LUIS uygulamanıza eklemek hazırdır.'
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 80a83fdb1e2b84ac03d0ae0cf969f1635f00cca0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1aa7e1bf9c1a584803a60a5061b4ae4cc8664ff4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053732"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037380"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>LUIS uygulamalarında önceden oluşturulmuş etki alanları kullanın  
 
@@ -26,7 +26,7 @@ Gözat **önceden oluşturulmuş etki alanları** uygulamanızda kullanabileceğ
 > [!TIP]
 > Önceden oluşturulmuş etki alanları içindeki tam listesini bulabilirsiniz [önceden oluşturulmuş etki alanları başvuru](./luis-reference-prebuilt-domains.md).
 
-![Önceden oluşturulmuş etki alanı ekleme](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
+![Önceden oluşturulmuş etki alanını ekleme](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
 
 
 ## <a name="add-a-prebuilt-domain"></a>Önceden oluşturulmuş bir alan ekleme

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40238847"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060373"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -101,7 +101,7 @@ Müşteriler, yönetilen disk anlık görüntüsünü alın ve sonra başka bir 
 
 Evet, yönetilmeyen ve yönetilen diskleri desteklenir. Yeni iş yükleri için yönetilen diskleri kullanma ve geçerli iş yüklerinizi yönetilen disklere geçirme öneririz.
 
-**128 GB disk oluşturun ve ardından 130 GB'a artırırsanız, sonraki disk boyutu (256 GB) ücretlendirilirim?**
+**128 GB disk oluşturun ve ardından 130 GiB boyutunu artırın, sonraki disk boyutu (256 GiB) ücretlendirilirim?**
 
 Evet.
 
@@ -137,10 +137,10 @@ Hayır, yeni disk oluşturulurken o anda o blobu tam tek başına bir kopyası o
 
 Yönetilen diskler için bunları yeniden adlandıramazsınız. Ancak, şu anda bir VHD veya VM'ye bağlı değil sürece yönetilmeyen disk yeniden adlandırabilirsiniz.
 
-## <a name="standard-ssd-disks-preview"></a>Standart SSD disk (Önizleme)
+## <a name="standard-ssd-disks"></a>Standart SSD disk
 
 **Azure standart SSD disk nelerdir?**
-Standart SSD disk olarak daha düşük IOPS düzeylerinde tutarlı bir performans gerektiren iş yükleri için düşük maliyetli depolama için iyileştirilmiş katı hal medya tarafından desteklenen standart disklerdir. Önizleme aşamasında oldukları bölgesiyle sınırlı yönetilebilirlik (Resource Manager şablonları kullanılabilir) sınırlı sayıda kullanılabilir.
+Standart SSD disk olarak daha düşük IOPS düzeylerinde tutarlı bir performans gerektiren iş yükleri için düşük maliyetli depolama için iyileştirilmiş katı hal medya tarafından desteklenen standart disklerdir.
 
 <a id="standard-ssds-azure-regions"></a>**Standart SSD disk için şu anda desteklenen bölgeler nelerdir?**
 Tüm Azure bölgelerinde artık standart SSD diskleri destekler.
@@ -275,7 +275,7 @@ Her disk boyutu, IOPS ve aktarım hızı belirli sınırları ile sağlanan birl
 
 **IOPS ve disk önbellekten alabilirim işleme sınırları nelerdir?**
 
-Önbellek için birleşik sınırları ve DS serisi için yerel SSD 4000 IOPS çekirdek başına çekirdek başına saniyede 33 MB içindir. GS serisi, çekirdek başına 5.000 IOPS ve çekirdek başına saniyede 50 MB sunar.
+Önbellek için birleşik sınırları ve yerel SSD DS serisi için çekirdek başına 4000 IOPS ve çekirdek başına saniyede 33 MiB olan. GS serisi, çekirdek başına 5.000 IOPS ve çekirdek başına saniyede 50 MiB sunar.
 
 **Yerel SSD için yönetilen diskler VM destekleniyor mu?**
 
@@ -287,38 +287,60 @@ TRIM Azure disklerde, premium veya standart diskler kullanımı için herhangi b
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Yeni disk boyutları: yönetilen ve yönetilmeyen
 
-**İşletim sistemi ve veri diskleri için desteklenen en büyük disk boyutu nedir?**
+**İşletim sistemi ve veri diskleri için desteklenen en büyük yönetilen disk boyutu nedir?**
 
-Azure destekleyen bir işletim sistemi diski için bölüm ana önyükleme kaydı (MBR) türüdür. Diskin MBR biçimini destekleyen en fazla 2 TB boyut. Azure destekleyen bir işletim sistemi diski için en büyük boyut 2 TB'dir. Azure veri diskleri için 4 TB'a kadar destekler. 
+Azure destekleyen bir işletim sistemi diski için bölüm ana önyükleme kaydı (MBR) türüdür. 2 TiB kadar bir disk boyutu MBR biçimini destekler. Bir işletim sistemi diski için Azure'un desteklediği en büyük boyutu 2 TiB ' dir. Azure yönetilen diskleri için en fazla 32 TiB destekler. 4 TiB daha büyük yönetilen Disk boyutları Önizleme aşamasındadır. Bunlar üzerinde daha fazla bilgi için bkz. bizim [blog gönderisi](http://aka.ms/azure-large-disk-32TB-preview-blog).
+
+**İşletim sistemi ve veri diskleri için desteklenen en büyük yönetilmeyen Disk boyutu nedir?**
+
+Azure destekleyen bir işletim sistemi diski için bölüm ana önyükleme kaydı (MBR) türüdür. 2 TiB kadar bir disk boyutu MBR biçimini destekler. Azure için işletim sistemi yönetilmeyen disk destekleyen en büyük boyutu 2 TiB ' dir. Azure veri yönetilmeyen diskler için en fazla 4 TiB destekler.
 
 **Desteklenen en büyük sayfa blob boyutu nedir?**
 
-Azure'un desteklediği en büyük sayfa blob boyutu 8 TB (8191 GB) ' dir. Bir VM'ye veri veya işletim sistemi diskleri olarak bağlanıldığında en fazla sayfa blog (4.095 GB) 4 TB boyutudur.
+8 TiB, Azure'un desteklediği en büyük sayfa blob boyutu olan (8191 GiB). Bir VM'ye veri veya işletim sistemi diskleri olarak bağlanıldığında en fazla sayfa blog 4 TiB boyutudur (4.095 GiB).
 
-**Azure Araçları'nın yeni bir sürüm oluşturma, ekleme, yeniden boyutlandırma ve 1 TB'den büyük diskleri karşıya yükleme için kullanılacak gerekiyor mu?**
+**Azure Araçları'nın yeni bir sürüm oluşturma, ekleme, yeniden boyutlandırma ve 1 TiB büyük diskler karşıya yükleme için kullanılacak gerekiyor mu?**
 
-Oluşturma, ekleme veya 1 TB'den büyük diskleri yeniden boyutlandırmak için mevcut Azure araçlarınızı yükseltmeniz gerekmez. Bir sayfa blobu veya yönetilmeyen disk olarak doğrudan azure'a şirket içi, VHD dosyası yüklemek için en son araç kümeleri kullanmanız gerekir:
+Oluşturma, ekleme veya 1 TiB büyük diskleri yeniden boyutlandırmak için mevcut Azure araçlarınızı yükseltmeniz gerekmez. Bir sayfa blobu veya yönetilmeyen disk olarak doğrudan azure'a şirket içi, VHD dosyası yüklemek için aşağıda listelenen en son araç kümeleri kullanmanız gerekir. Yalnızca VHD olarak karşıya yükleme 8 TiB kadar destekliyoruz.
 
 |Azure Araçları      | Desteklenen sürümler                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Sürüm numarası 4.1.0: Haziran 2017 sürümü veya üzeri|
 |Azure CLI v1     | Sürüm numarası 0.10.13: Mayıs 2017 sürümü veya üzeri|
+|Azure CLI v2     | Sürüm numarası 2.0.12: Temmuz 2017 sürümü veya üzeri|
 |AzCopy           | Sürüm numarası 6.1.0: Haziran 2017 sürümü veya üzeri|
-
-Azure CLI v2 ve Azure Depolama Gezgini için destek yakında sunulacaktır. 
 
 **P4 ve P6 disk boyutları, yönetilmeyen diskler veya sayfa blobları için destekleniyor mu?**
 
-Hayır. P4 (32 GB) ve P6 (64 GB) disk boyutları, yalnızca yönetilen diskler için desteklenir. Yönetilmeyen diskler ve sayfa blobları için destek yakında sunulacaktır.
+P4 (32 GiB) ve P6 (64 GiB) disk boyutları yönetilmeyen diskler için varsayılan disk Katmanlar olarak desteklenmez ve sayfa blobları. Açıkça gereken [Blob katmanı ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) P4 ve P6 bu katmanlara eşlenmiş, diske sahip. Disk boyutu veya içerik uzunluğu daha az 32 GiB veya 32 Gib'a yeniden Blob katmanı ayarlama olmadan 64 GiB arasında yönetilmeyen disk veya sayfa blob'u dağıtırsanız, 500 IOPS ve 100 MiB/sn eşlenen fiyatlandırma katmanını P10 temel yerleşmesi devam eder.
 
-**Nasıl daha az 64 GB (Haziran 15 2017) küçük disk etkinleştirilmeden önce oluşturulan mevcut my premium yönetilen disk, faturalandırılır?**
+**Nasıl daha az 64 GiB (Haziran 15 2017) küçük disk etkinleştirilmeden önce oluşturulan mevcut my premium yönetilen disk, faturalandırılır?**
 
-Var olan küçük premium P10 fiyatlandırma katmanına göre faturalandırılmaya devam 64 GB değerinden diskler. 
+Var olan küçük premium P10 fiyatlandırma katmanına göre faturalandırılmaya devam 64 GiB daha az disk.
 
-**P4 veya P6 64 GB P10 ile değerinden daha küçük premium diskler, disk katmanı nasıl geçiş yapabilirim?**
+**Nasıl küçük premium diskler, disk katmanı P10'ndan en az 64 GiB P4 veya P6 geçiş yapabilir miyim?**
 
-Küçük disklerinizi anlık görüntüsünü alın ve ardından otomatik olarak fiyatlandırma katmanını P4 veya P6 sağlanan boyutuna göre geçiş yapmak için bir disk oluşturun. 
+Küçük disklerinizi anlık görüntüsünü alın ve ardından otomatik olarak fiyatlandırma katmanını P4 veya P6 sağlanan boyutuna göre geçiş yapmak için bir disk oluşturun.
 
+**Mevcut yönetilen diskler boyutlarından 32 TiB kadar yeni yeni kullanıma sunulan disk boyutları için 4'ten az TiB boyutlandırabilirsiniz?**
+
+8 TiB TiB 16 ve 32 TiB yeni yönetilen Disk boyutları şu anda Önizleme aşamasındadır. Henüz mevcut disk boyutları yeni disk boyutları için yeniden boyutlandırma desteklemiyoruz.
+
+**Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük disk boyutları nedir?**
+
+Azure Backup ve Azure Site Recovery hizmeti tarafından desteklenen en büyük disk boyutu 4 TiB ' dir.
+
+**Nelerdir önerilen VM boyutları için büyük disk boyutları (> 4TiB) IOPS ve bant genişliği elde etmek için standart bir SSD ve HDD standart diskler en iyi duruma getirilmiş için disk?**
+
+Standart SSD ve HDD standart büyük disk boyutlarını disk aktarım hızı elde etmek için (> 4TB) 500 IOPS ve 60 MiB/sn dışında aşağıdaki VM boyutlarından birini, performansı iyileştirmek için kullanmanız gerekir: B serisi, DSv2 serisi, Dsv3 serisi, ESv3 serisi, Fs serisi Fsv2 serisi, M serisi, GS serisi, NCv2 serisi, NCv3 serisi veya Ls serisi VM'ler.
+
+**Hangi bölgeler 4 TiB desteklenenden daha büyük bir yönetilen disk boyutları misiniz?**
+
+Şu anda önizlemede yönetilen disk boyutları Batı Orta ABD yalnızca desteklenir.
+
+**Yeni disk boyutları ana bilgisayar önbelleğe almayı etkinleştirme destekliyor musunuz?**
+
+ReadOnly ana bilgisayar önbelleğe alma ve okuma/yazma 4TiB değerinden küçük disk boyutlarına destekliyoruz. Disk boyutları için 4'ten fazla TiB önbelleği seçeneğini hiçbiri dışında ayarlama desteklemiyoruz. Burada VM önbelleğe alınmış veri ile daha iyi performans artışının gözlemlemek için bekleyebilirsiniz, daha küçük disk boyutları için önbelleğe alma yararlanarak öneririz.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Peki sorumun cevabı burada bulamadığınız?
 

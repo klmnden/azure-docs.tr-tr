@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Intents sorularınız ya da aynı amaçları olan komutları gruplarını tanımlamak için LUIS uygulamanızı ekleyin.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 687cbad9d1e493e07fc5f813fdd7c52dee3b97d4
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 9b7207a16a89e48ad64b2dbc48a5293d0cf8aa25
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634634"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036091"
 ---
 # <a name="manage-intents"></a>Intents yönetme 
 Ekleme [hedefleri](luis-concept-intent.md) LUIS uygulamanızı sorularınız ya da aynı amaçları olan komutları gruplarını tanımlamak için. 

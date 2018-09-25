@@ -1,6 +1,6 @@
 ---
-title: Özel konuşma hizmet Ölçümler ve Azure ile ilgili kotalar | Microsoft Docs
-description: Azure Ölçümler ve özel konuşma hizmetinin kotaları hakkında bilgiler.
+title: Özel konuşma hizmeti ölçümleri ve Azure ile ilgili kotalar | Microsoft Docs
+description: Azure ölçümleri ve özel konuşma Hizmeti kotaları hakkında bilgiler.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,44 +9,45 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ms.openlocfilehash: d2225dec818c600febfad2f9ebc42594f6ac09ac
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0ddd6274051fed5de86a88270a0dcc2e8288d885
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351472"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974536"
 ---
-# <a name="custom-speech-service-meters-and-quotas"></a>Özel konuşma hizmet Ölçümler ve kotaları
+# <a name="custom-speech-service-meters-and-quotas"></a>Özel konuşma hizmeti ölçümleri ve kotalar
 
-Bulut tabanlı özel konuşma hizmetiyle konuşma modelleri konuşma metin transcription için özelleştirebilirsiniz.
+Bulut tabanlı özel konuşma hizmeti sayesinde konuşma modelleri için metne dönüştürme konuşma transkripsiyonu özelleştirebilirsiniz.
 
-Özel konuşma hizmeti kullanmaya başlamak için Git [özel konuşma hizmet portalı](https://cris.ai).
+Özel konuşma hizmeti kullanmaya başlamak için Git [özel konuşma hizmeti portalı](https://cris.ai).
 
-Geçerli fiyatlandırma ölçümler, Git [Bilişsel hizmetler için özel konuşma hizmeti fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/) sayfası.
+Geçerli fiyatlandırma ölçümleri, Git [özel konuşma hizmeti için Bilişsel hizmetler fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/) sayfası.
 
 ## <a name="tiers-explained"></a>Açıklanan katmanları
-Test etme ve yalnızca prototip için ücretsiz F0 katmanı kullanmak önerin. Üretim sistemleri için biz S2 katmanı kullanmak üzere önerin. S2 katmanı kullanarak dağıtımınızı senaryonuz gerektirir ölçek birimleri (SUs) sayıda ölçeklendirebilirsiniz.
+Test ve yalnızca prototip için ücretsiz F0 katmanı kullanmak önerin. Üretim sistemleri için S2 katmanı kullanmak, biz önerin. S2 katmanı kullanarak dağıtımınıza senaryonuz gerektiren, Ölçek birimleri (su) sayısını ölçeklendirebilirsiniz.
 
 > [!NOTE]
 > *Olamaz* F0 katmanı ve S2 katmanı arasında geçirme.
 >
 
-## <a name="meters-explained"></a>Açıklanan ölçümler
+## <a name="meters-explained"></a>Açıklanan ölçümleri
 
 ### <a name="scale-out"></a>Ölçeklendirme
-Ölçek çıkışı, yeni fiyatlandırma modeli ile yayımlandı yeni bir özelliktir. Ölçeği Genişlet kullanarak modelinizi işleyebilir eşzamanlı istek sayısını kontrol edebilirsiniz.
+Ölçeği genişletme, yeni fiyatlandırma modeliyle yayımlandı yeni bir özelliktir. Ölçeği genişletme kullanarak modelinizi işleyebileceği eş zamanlı istek sayısını kontrol edebilirsiniz.
 
-SU ölçü kullanarak eşzamanlı istek ayarlayabilirsiniz **oluşturma modeli dağıtım** görünümü. Daha fazla bilgi için bkz: [özel bir konuşma metin uç noktası oluşturma](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md). Model tüketen envisage trafik miktarını bağlı olarak, SUs uygun sayıda seçebilirsiniz. 
+SU ölçü kullanarak eş zamanlı istek ayarlayabilirsiniz **Model dağıtımı oluşturma** görünümü. Daha fazla bilgi için [özel bir konuşmayı metne uç noktası oluşturma](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md). Model tüketen öngörülmesine trafik miktarını bağlı olarak, uygun sayıda SUs seçebilirsiniz. 
 
 > [!NOTE]
-> Her bir ölçek birimi 5 eşzamanlı istek güvence altına alır. Uygun olarak 1 veya daha çok SUs satın alabilirsiniz. 1 artışlarla SUs sayısını artırır çünkü eşzamanlı istek sayısı 5 artışlarla artırmak garanti.
+> Her ölçek birimi 5 eşzamanlı istek garanti eder. 1 veya daha çok SUs uygun olarak satın alabilirsiniz. SUs sayısı 1 artışlarla artar çünkü eş zamanlı istek sayısını 5 artışlarla artırmak için garanti edilir.
 >
 
-### <a name="log-management"></a>Günlüğü Yönetimi
-Ek bir ücret ödemeden yeni dağıtılan bir model için ses izleri kapalı geçiş yapmak için tercih edebilirsiniz. Özel konuşma hizmet ses istekleri ya da dökümleri bu modelden günlüğe kaydetmez.
+### <a name="log-management"></a>Günlük yönetimi
+Yeni dağıtılan bir modelde ek bir ücret ödemeden ses izlemeleri kapalı geçiş seçebilirsiniz. Özel konuşma hizmeti adet ses isteği veya dökümleri, modelden günlüğe kaydetmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Özel konuşma hizmetini kullanma hakkında daha fazla bilgi için Git [özel konuşma hizmet portalı](https://cris.ai).
+Özel konuşma hizmeti kullanma hakkında daha fazla bilgi için Git [özel konuşma hizmeti portalı](https://cris.ai).
 
 * [Kullanmaya başlama](cognitive-services-custom-speech-get-started.md)
 * [SSS](cognitive-services-custom-speech-faq.md)

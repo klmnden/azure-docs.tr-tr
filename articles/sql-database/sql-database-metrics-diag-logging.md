@@ -8,28 +8,29 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 09/20/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: aa031b87df51bd9f7dec40a6c3e56023e2d82d96
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 2c848ba87d7f42f6329e7b3166a4410cadbd63a0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579505"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037958"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri 
-Azure SQL veritabanı, ölçümleri ve tanılama yayabilir izlemeyi kolaylaştırmak için günlükleri. SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
 
-* **Azure depolama**: maliyetlerle çok sayıda küçük için telemetri arşivleme için kullanılır.
+Yönetilen örnek veritabanları ve Azure SQL veritabanı performans izlemeyi kolaylaştırmak için ölçümleri ve tanılama günlüklerini gönderebilir. Bir veritabanı stream kaynak kullanımını, çalışanları ve oturumları ve bu Azure kaynaklarından birine bağlantısını için yapılandırabilirsiniz:
+
+* **Azure SQL Analytics**: tümleşik Azure veritabanı performans akıllı izleme çözümü, raporlama, uyarı ve azaltma özelliklerine sahip olarak kullanılır.
 * **Azure Event Hubs**: SQL veritabanı telemetrisini özel izleme çözümünüz veya yoğun işlem hatlarıyla tümleştirmek için kullanılır.
-* **Azure Log Analytics**: Raporlama, uyarı ve azaltma özelliklerine sahip bir kullanıma hazır izleme çözümü için kullanılır. Bu bir [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) özelliğidir
+* **Azure depolama**: maliyetlerle çok sayıda küçük için telemetri arşivleme için kullanılır.
 
     ![Mimari](./media/sql-database-metrics-diag-logging/architecture.png)
 
-## <a name="enable-logging"></a>Günlü kaydını etkinleştir
+## <a name="enable-logging-for-a-database"></a>Bir veritabanı için günlük kaydını etkinleştirme
 
-Ölçümler ve günlüğe kaydetme Tanılama, varsayılan olarak etkinleştirilmedi. Etkinleştirin ve ölçümleri ve Tanılama Günlüğü aşağıdaki yöntemlerden birini kullanarak Yönet:
+Ölçümler ve SQL veritabanı veya veritabanı yönetilen örneği günlüğe kaydetme Tanılama, varsayılan olarak etkinleştirilmedi. Etkinleştirin ve aşağıdaki yöntemlerden birini kullanarak bir veritabanında günlüğe kaydetme, ölçümleri ve tanılama telemetrisini yönetme:
 
 - Azure portal
 - PowerShell
@@ -37,40 +38,56 @@ Azure SQL veritabanı, ölçümleri ve tanılama yayabilir izlemeyi kolaylaştı
 - Azure İzleyici REST API 
 - Azure Resource Manager şablonu
 
-Ölçümleri ve tanılama günlüğünü etkinleştirdiğinizde, seçilen verilerin toplandığı bir Azure kaynak belirtmeniz gerekir. Kullanılabilir seçenekler şunlardır:
+Ölçümleri ve tanılama günlüğünü etkinleştirdiğinizde, seçilen verileri nerede toplanacağını Azure kaynak belirtmeniz gerekir. Kullanılabilir seçenekler şunlardır:
 
-- Log Analytics
+- SQL analizi
 - Event Hubs
 - Depolama 
 
-Yeni bir Azure kaynak sağlayın veya mevcut bir kaynağı seçin. Depolama kaynağı seçtikten sonra hangi verileri toplamak için belirtmeniz gerekir. Kullanılabilir seçenekler şunlardır:
+Yeni bir Azure kaynak sağlayın veya mevcut bir kaynağı seçin. Bir veritabanı tanılama ayarları seçeneğini kullanarak, bir kaynak seçtikten sonra hangi verileri toplamak için belirtmeniz gerekir. Azure SQL veritabanı ve yönetilen örnek veritabanı desteği ile mevcut Seçenekler şunlardır:
 
-- [Tüm ölçümleri](sql-database-metrics-diag-logging.md#all-metrics): içeren DTU yüzdesi, DTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma ve yüzde başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi ve XTP depolama yüzdesi.
-- [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU kullanımı ve sorgu süresi gibi sorgu çalışma zamanı istatistikleri hakkında bilgiler içerir.
-- [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): ne sorgularınızı, CPU, günlük ve KİLİTLEME gibi beklediğini bildirir sorgu bekleme istatistikleri hakkında bilgiler içerir.
-- [Hataları](sql-database-metrics-diag-logging.md#errors-dataset): Bu veritabanı üzerinde gerçekleşen SQL hatalar hakkında bilgi içerir.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): bir veritabanı hakkında ne kadar zaman harcanan farklı bekleme türleri üzerinde bekleyen bilgileri içerir.
-- [Zaman aşımları](sql-database-metrics-diag-logging.md#time-outs-dataset): bir veritabanı üzerinde gerçekleşen zaman aşımları hakkındaki bilgileri içerir.
-- [Blokları](sql-database-metrics-diag-logging.md#blockings-dataset): bir veritabanı üzerinde gerçekleşen olayları engelleme hakkında bilgi içerir.
-- [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Intelligent Insights'ı içerir. [Akıllı İçgörüler hakkında daha fazla bilgi](sql-database-intelligent-insights.md).
-- **Denetim** / **SQLSecurityAuditEvents**: şu anda kullanılamıyor.
+| Telemetri izleme | Azure SQL veritabanı desteği | Veritabanı yönetilen örneği desteği |
+| :------------------- | ------------------- | ------------------- |
+| [Tüm ölçümleri](sql-database-metrics-diag-logging.md#all-metrics): içeren DTU/CPU yüzdesi, DTU/CPU limit, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi ve XTP depolama yüzdesi. | Evet | Hayır |
+| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): bilgileri içeren sorgu çalışma zamanı istatistikleri hakkında CPU kullanım içindir ve süresi istatistikleri sorgu. | Evet | Evet |
+| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): ne sorgularınızı, CPU, günlük ve KİLİTLEME gibi beklediğini bildirir sorgu bekleme istatistikleri hakkında bilgiler içerir. | Evet | Evet |
+| [Hataları](sql-database-metrics-diag-logging.md#errors-dataset): Bu veritabanı üzerinde gerçekleşen SQL hatalar hakkında bilgi içerir. | Evet | Hayır |
+| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): bir veritabanı hakkında ne kadar zaman harcanan farklı bekleme türleri üzerinde bekleyen bilgileri içerir. | Evet | Hayır |
+| [Zaman aşımları](sql-database-metrics-diag-logging.md#time-outs-dataset): bir veritabanı üzerinde gerçekleşen zaman aşımları hakkındaki bilgileri içerir. | Evet | Hayır |
+| [Blokları](sql-database-metrics-diag-logging.md#blockings-dataset): bir veritabanı üzerinde gerçekleşen olayları engelleme hakkında bilgi içerir. | Evet | Hayır |
+| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): performans akıllı Öngörüler içerir. [Akıllı İçgörüler hakkında daha fazla bilgi](sql-database-intelligent-insights.md). | Evet | Evet |
+
+**Lütfen unutmayın**: Bu seçenekler veritabanı tanılama ayarları içinde kullanılabilir ancak günlükleri, Denetim ve SQLSecurityAuditEvents kullanmak için bu günlükleri yalnızca aracılığıyla etkinleştirilmelidir **SQL denetim** çözümü yapılandırmak için Log Analytics, olay hub'ı veya depolama telemetri akış.
 
 Olay hub'ları veya bir depolama hesabı seçerseniz, bekletme ilkesi belirtebilirsiniz. Bu ilke, seçilen zaman süresinden daha eski olan verileri siler. Log Analytics belirtirseniz, bekletme ilkesi seçili fiyatlandırma katmanına bağlıdır. Daha fazla bilgi için [Log Analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-Günlük kaydını etkinleştirmek ve çeşitli Azure Hizmetleri tarafından desteklenen Ölçümler ve günlük kategorileri anlama hakkında bilgi edinmek için okumanızı öneririz: 
+## <a name="enable-logging-for-elastic-pools-or-managed-instance"></a>Elastik havuzlar veya yönetilen örneği için günlüğe kaydetmeyi etkinleştirme
+
+Ölçümleri ve tanılama günlüğü elastik havuzlar veya yönetilen örneği, varsayılan olarak etkin değildir. Etkinleştirme ve ölçüm ve elastik havuz veya yönetilen örneği için tanılama telemetrisi günlüğünü yönetme. Aşağıdaki veri toplama için kullanılabilir:
+
+| Telemetri izleme | Elastik havuz desteği | Yönetilen örnek destek |
+| :------------------- | ------------------- | ------------------- |
+| [Tüm ölçümleri](sql-database-metrics-diag-logging.md#all-metrics) (elastik havuzları): içeren eDTU/CPU yüzdesi, eDTU/CPU sınırı, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, depolama sınırına ve XTP depolama yüzdesi . | Evet | Yok |
+| [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) (yönetilen örnek): sanal çekirdek sayısı, ortalama CPU yüzdesi, g/ç istekleri, okunan/yazılan bayt içeriyor, ayrılmış depolama alanı, kullanılan depolama alanı. | Yok | Evet |
+
+Ölçüleri anlama ve çeşitli Azure Hizmetleri tarafından desteklenen kategoriler oturum için okumanızı öneririz:
 
 * [Microsoft azure'da ölçümlere genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 * [Azure tanılama günlüklerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. Portalında ölçümleri ve tanılama günlükleri toplamayı etkinleştirmek için SQL veritabanı veya elastik havuz sayfasına gidin ve ardından **tanılama ayarları**.
+- Ölçümleri ve tanılama günlüklerini toplama alanının SQL veritabanları ya da yönetilen örnek veritabanları etkinleştirmek için veritabanına gidin ve ardından **tanılama ayarları**. Seçin **+ tanılama ayarı ekleme** yeni bir ayar yapılandırmak için veya **ayarını Düzenle** var olan bir ayarı düzenlemek için.
 
    ![Azure portalında etkinleştirin](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
-2. Yeni oluştur veya hedef ve telemetri seçerek mevcut tanılama ayarları düzenleyin.
+- İçin **Azure SQL veritabanı** yeni oluştur veya hedef ve telemetri'ı seçerek mevcut tanılama ayarları düzenleyin.
 
    ![Tanılama ayarları](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
+
+- İçin **yönetilen örnek veritabanı** yeni oluştur veya hedef ve telemetri'ı seçerek mevcut tanılama ayarları düzenleyin.
+
+   ![Tanılama ayarları](./media/sql-database-metrics-diag-logging/diagnostics-portal-mi.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -174,7 +191,7 @@ SQL veritabanı fleet izleme Log Analytics ile basit bir işlemdir. Üç adım g
 
 2. Kayıt ölçümleri ve tanılama günlükleri için veritabanları, oluşturduğunuz Log Analytics kaynağını yapılandırın.
 
-3. Yükleme **Azure SQL Analytics** çözüm galerisinden Log analytics'te.
+3. Yükleme **Azure SQL Analytics** Azure marketi'ndeki çözüm.
 
 ### <a name="create-a-log-analytics-resource"></a>Log Analytics kaynak oluştur
 
@@ -259,15 +276,52 @@ Bilgi edinmek için nasıl [depolamadan ölçümleri ve tanılama günlüklerini
 
 ## <a name="metrics-and-logs-available"></a>Ölçümleri ve günlük yok
 
-### <a name="all-metrics"></a>Tüm ölçümleri
+Lütfen ayrıntılı izleme telemetri içeriği ölçümlerini ve günlüklerini kullanılabilir Azure SQL veritabanı, elastik havuzlar, yönetilen örneği ve veritabanı yönetilen örneği'nde bulabilirsiniz.
+
+## <a name="all-metrics"></a>Tüm ölçümleri
+
+### <a name="all-metrics-for-elastic-pools"></a>Elastik havuzlar için tüm ölçümleri
 
 |**Kaynak**|**Ölçümler**|
 |---|---|
-|Database|DTU yüzdesi DTU kullanıldığında, DTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, XTP depolama yüzdesi ve kilitlenmeler |
 |Elastik havuz|eDTU yüzdesi eDTU kullanıldığında, eDTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, depolama sınırı, XTP depolama yüzdesi |
-|||
 
-### <a name="logs"></a>Günlükler
+### <a name="all-metrics-for-azure-sql-database"></a>Azure SQL veritabanı için tüm ölçümleri
+
+|**Kaynak**|**Ölçümler**|
+|---|---|
+|Azure SQL Database|DTU yüzdesi DTU kullanıldığında, DTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma yüzdesi, başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi, XTP depolama yüzdesi ve kilitlenmeler |
+
+## <a name="logs"></a>Günlükler
+
+### <a name="logs-for-managed-instance"></a>Yönetilen örnek için günlükleri
+
+### <a name="resource-usage-stats"></a>Kaynak kullanım İstatistiği
+
+|Özellik|Açıklama|
+|---|---|
+|TenantId|Kiracı kimliğiniz|
+|SourceSystem|Her zaman: Azure|
+|TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası.|
+|Tür|Her zaman: AzureDiagnostics|
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL|
+|Kategori|Kategori adı. Her zaman: ResourceUsageStats|
+|Kaynak|Kaynağın adı.|
+|ResourceType|Kaynak türünün adı. Her zaman: MANAGEDINSTANCES|
+|SubscriptionId|Abonelik veritabanının ait GUID.|
+|ResourceGroup|Veritabanının ait kaynak grubunun adı.|
+|LogicalServerName_s|Yönetilen örnek adı.|
+|ResourceId|Kaynak URI'si.|
+|SKU_s|Yönetilen örnek Ürün SKU'su|
+|virtual_core_count_s|Numver, kullanılabilir sanal çekirdekler|
+|avg_cpu_percent_s|Ortalama CPU yüzdesi|
+|reserved_storage_mb_s|Ayrılmış depolama kapasitesi yönetilen örneği|
+|storage_space_used_mb_s|Kullanılan depolama yönetilen örneği|
+|io_requests_s|IOPS sayısı|
+|io_bytes_read_s|Okunan bayt IOPS|
+|io_bytes_written_s|Yazılan bayt IOPS|
+
+### <a name="logs-for-azure-sql-database-and-managed-instance-database"></a>Azure SQL veritabanı ve yönetilen örnek veritabanı için günlükleri
 
 ### <a name="query-store-runtime-statistics"></a>Query Store çalışma zamanı istatistikleri
 

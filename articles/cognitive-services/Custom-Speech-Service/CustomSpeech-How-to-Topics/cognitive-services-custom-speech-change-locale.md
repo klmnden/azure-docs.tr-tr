@@ -1,6 +1,6 @@
 ---
-title: Desteklenen yerel ayarlar ve diller Azure ile ilgili özel konuşma hizmetindeki | Microsoft Docs
-description: Bilişsel hizmetler özel konuşma hizmetinin desteklenen diller genel bakış.
+title: Desteklenen yerel ayarlar ve dilleri içinde Azure üzerinde özel konuşma hizmeti | Microsoft Docs
+description: Özel konuşma hizmeti Bilişsel hizmetler, desteklenen diller genel bakış.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,26 +9,27 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: c378fd951f9cd04884f44fbec5accb5d9a886bfe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1f186681c7e46d2e47ed7eee55c8f61290c48fcb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351406"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987535"
 ---
-# <a name="supported-locales-in-custom-speech-service"></a>Özel konuşma hizmetindeki desteklenen yerel ayarlar
-Özel konuşma Hizmet şu anda aşağıdaki yerlerde modellerin özelleştirme destekler:
+# <a name="supported-locales-in-custom-speech-service"></a>Özel konuşma hizmeti, desteklenen yerel ayarlar
+Özel konuşma hizmeti, şu anda aşağıdaki yerel ayarlarda modellerin özelleştirmeyi destekler:
 
 | Model türü | Dil desteği |
 |----|-----|
-| Akustik modelleri | Türkçe (tr-tr) |
-| Dil modelleri | Türkçe (tr-tr), Çince (zh-CN) |
+| Akustik modeller | ABD İngilizce (en-US) |
+| Dil modelleri | ABD İngilizce (en-US), Çince (zh-CN) |
 
-Akustik modeli özelleştirme yalnızca ABD İngilizcesi desteklenmesine karşın, Çince akustik veri alma çevrimdışı özelleştirilmiş Çince dil modellerinin sınama amacıyla desteklenir.
+Akustik Model özelleştirme yalnızca ABD İngilizcesi desteklenir, ama Çince akustik verilerini alma çevrimdışı özelleştirilmiş Çince dil modelleri, test amacıyla için desteklenir.
 
-Herhangi bir işlem gerçekleştirmeden önce uygun yerel seçilmesi gerekir. Geçerli yerel ayar, tüm verileri, model ve dağıtım sayfaları tablo başlık gösterilir. Yerel ayarları değiştirmek için tablo başlık altında bulunan "Yerel ayarını değiştirme" düğmesini tıklatın. Bu bir yerel ayar onay sayfasına götürür. Tabloya geri dönmek için "Tamam" düğmesini tıklatın.
+Eylem gerçekleştirilmeden önce uygun dil ayarının seçilmesi gerekir. Geçerli yerel ayar tüm veri, model ve dağıtım sayfalarında tablo başlığında belirtilir. Yerel ayarı değiştirmek için tablonun başlık altında bulunan "Yerel ayarı Değiştir" düğmesine tıklayın. Bu bir yerel ayar doğrulama sayfasına götürür. Tabloya geri dönmek için "OK" (Tamam) düğmesine tıklayın.
 
-Sonraki adımlara izlenmesi
-* Bilgi [özel akustik modeli oluşturmak nasıl](cognitive-services-custom-speech-create-acoustic-model.md) tanıma doğruluğunu artırmak için
-* Bilgi [özel dil modeli oluşturmak nasıl](cognitive-services-custom-speech-create-language-model.md) tanıma oranını artırmak için
-* İzleyin [transcription yönergeleri](cognitive-services-custom-speech-transcription-guidelines.md) verilerinizi hazırlama
+Sonraki adımlara takip
+* Bilgi [özel akustik model oluşturmak nasıl](cognitive-services-custom-speech-create-acoustic-model.md) tanıma doğruluğunu artırmak için
+* Bilgi [özel dil modeli oluşturmak nasıl](cognitive-services-custom-speech-create-language-model.md) , tanıma oranını artırmak için
+* İzleyin [transkripsiyonu yönergeleri](cognitive-services-custom-speech-transcription-guidelines.md) verilerinizi hazırlama

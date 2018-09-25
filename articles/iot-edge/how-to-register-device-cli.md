@@ -1,6 +1,6 @@
 ---
 title: Yeni bir Azure IOT Edge cihazı (CLI) kaydetme | Microsoft Docs
-description: Yeni bir IOT Edge cihazı kaydetmek için Azure CLI 2.0 için IOT uzantısını kullanma
+description: Yeni bir IOT Edge cihazı kaydetmek için Azure CLI için IOT uzantısını kullanma
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 451f4df31cd1c520b14227829923f72fe80c38c3
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: ee5e68d45c7d966619238312dabedc1628a4bf61
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325505"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998041"
 ---
-# <a name="register-a-new-azure-iot-edge-device-with-azure-cli-20"></a>Azure CLI 2.0 ile yeni bir Azure IOT Edge cihazı kaydetme
+# <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Azure CLI ile yeni bir Azure IOT Edge cihazı kaydetme
 
 IOT cihazlarınızı Azure IOT Edge ile kullanabilmeniz için önce bunları IOT hub'ınıza kaydetmeniz gerekir. Bir cihaz kaydettiğinizde, Edge iş yükleri için Cihazınızı ayarlamak için kullanılan bir bağlantı dizesi alır. 
 
-[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), IoT Edge gibi Azure kaynaklarını yönetmeye yönelik açık kaynaklı bir platformlar arası komut satırı aracıdır. Azure IOT Hub kaynaklarını, cihaz sağlama hizmeti örneklerini ve bağlı hub'ları hazır yönetmenizi sağlar. IoT uzantısı, Azure CLI 2.0’ı cihaz yönetimi ve tam IoT Edge kapasitesi gibi özelliklerle zenginleştirir.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) çapraz platform komut satırı aracı IOT Edge gibi Azure kaynaklarını yönetmek için bir açık kaynak. Azure IOT Hub kaynaklarını, cihaz sağlama hizmeti örneklerini ve bağlı hub'ları hazır yönetmenizi sağlar. Yeni IOT uzantısı, Azure CLI cihaz yönetimi ve tam IOT Edge özelliği gibi özelliklerle zenginleştirir.
 
-Bu makalede, Azure CLI 2.0 kullanarak yeni bir IOT Edge cihazı kaydettirmek gösterilmektedir.
+Bu makalede, Azure CLI kullanarak yeni bir IOT Edge cihazı kaydettirmek gösterilmektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Bir [IOT hub'ı](../iot-hub/iot-hub-create-using-cli.md) Azure aboneliğinizdeki. 
-* Ortamınızdaki [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 2.0 sürümünüz en az 2.0.24 veya üzerinde olmalıdır. Doğrulamak için `az –-version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar. 
-* [Azure CLI 2.0 için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ortamınızdaki. En az 2.0.24 Azure CLI sürümünüzü olmalıdır veya üzeri. Doğrulamak için `az –-version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar. 
+* [Azure CLI için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="create-a-device"></a>Bir cihaz oluşturma
 
@@ -67,4 +67,4 @@ Cihaz kimliği parametresi büyük/küçük harf duyarlıdır. Bağlantı dizesi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi nasıl [modülleri Azure CLI 2.0 ile bir cihaza dağıtın](how-to-deploy-modules-cli.md)
+Bilgi nasıl [modülleri bir cihaza Azure CLI ile dağıtma](how-to-deploy-modules-cli.md)

@@ -1,6 +1,6 @@
 ---
-title: İçeri aktarma ve Azure CLI 2.0 kullanarak Azure DNS için bir etki alanı bölgesi dosyasını dışarı | Microsoft Docs
-description: İçeri aktarma ve Azure CLI 2.0 kullanarak Azure DNS ile DNS bölge dosyasını dışarı aktarma hakkında bilgi edinin
+title: İçeri aktarma ve Azure CLI kullanarak Azure DNS'ye bir etki alanı bölgesi dosyası dışarı | Microsoft Docs
+description: İçeri aktarma ve Azure CLI kullanarak Azure DNS ile DNS bölge dosyasını dışarı aktarma hakkında bilgi edinin
 services: dns
 documentationcenter: na
 author: vhorne
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 7578d078b147b5c4bf42f5343d3fdfdf6f0bc42e
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171614"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956362"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanarak DNS bölge dosyasını içeri ve dışarı 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI kullanarak DNS bölge dosyasını içeri ve dışarı 
 
-Bu makalede, alma ve Azure CLI 2.0 kullanarak Azure DNS için DNS bölge dosyalarının verme konusunda yol göstermektedir.
+Bu makalede, alma ve Azure CLI kullanarak Azure DNS için DNS bölge dosyalarının verme konusunda yol göstermektedir.
 
 ## <a name="introduction-to-dns-zone-migration"></a>DNS bölgesi geçişe giriş
 
@@ -30,7 +30,7 @@ DNS bölge dosyasını bölgedeki her etki alanı adı sistemi (DNS) kaydı ayr�
 
 Azure DNS, alma ve Azure komut satırı arabirimi (CLI) kullanarak bölge dosyalarının verme destekler. Bölge dosyasını içeri aktarma **değil** Azure PowerShell veya Azure portalı şu anda desteklenmiyor.
 
-Azure CLI 2.0 Azure hizmetlerini yönetmek için kullanılan bir platformlar arası komut satırı aracıdır. Windows, Mac ve Linux platformlarını için kullanılabilir [Azure indirme sayfası](https://azure.microsoft.com/downloads/). Platformlar arası destek, içeri aktarma ve bölge dosyalarını dışarı aktarmak için önemlidir çünkü en sık kullanılan adı sunucu yazılımı [bağlama](https://www.isc.org/downloads/bind/), genellikle Linux üzerinde çalışır.
+Azure CLI'yı Azure hizmetlerini yönetmek için kullanılan bir platformlar arası komut satırı aracıdır. Windows, Mac ve Linux platformlarını için kullanılabilir [Azure indirme sayfası](https://azure.microsoft.com/downloads/). Platformlar arası destek, içeri aktarma ve bölge dosyalarını dışarı aktarmak için önemlidir çünkü en sık kullanılan adı sunucu yazılımı [bağlama](https://www.isc.org/downloads/bind/), genellikle Linux üzerinde çalışır.
 
 
 ## <a name="obtain-your-existing-dns-zone-file"></a>Var olan, DNS bölge dosyasını edinin

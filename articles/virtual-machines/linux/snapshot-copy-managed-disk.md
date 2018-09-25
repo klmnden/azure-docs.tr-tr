@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 224f017decc3f48a23cb3fbf14f9a4e744bfaded
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9fbbbb4f73b5295b648008878c8145fe926fbaad
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007014"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974400"
 ---
 # <a name="create-a-snapshot"></a>Anlık görüntü oluşturma 
 
@@ -26,7 +26,7 @@ Yedekleme için veya VM sorunlarını gidermek için bir işletim sistemi veya v
 
 ## <a name="use-azure-cli"></a>Azure CLI kullanma 
 
-Aşağıdaki örnek kullanmanızı gerektirir. [Cloud Shell](https://shell.azure.com/bash) veya Azure CLI 2.0 yüklü. Sürümü bulmak için **az --version** komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
+Aşağıdaki örnek kullanmanızı gerektirir. [Cloud Shell](https://shell.azure.com/bash) veya Azure CLI'ın yüklü olması gerekmektedir.
 
 Aşağıdaki adımlarda bir anlık görüntü kullanarak nasıl **az anlık görüntü oluşturma** komutunu **--kaynak disk** parametresi. Aşağıdaki örnekte adlı bir VM olduğu varsayılmaktadır. *myVM* içinde *myResourceGroup* kaynak grubu.
 
@@ -60,7 +60,7 @@ az snapshot list \
    - table
 ```
 
-## <a name="use-azure-portal"></a>Azure portalını kullanma 
+## <a name="use-azure-portal"></a>Azure portalı kullanma 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Sol üstten başlayarak, tıklayın **kaynak Oluştur** araması **anlık görüntü**. Seçin **anlık görüntü** Arama sonuçlarından.

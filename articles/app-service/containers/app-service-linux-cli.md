@@ -1,7 +1,7 @@
 ---
-title: Web uygulaması için Azure CLI 2.0 kullanarak kapsayıcıları yönetme | Microsoft Docs
-description: Web uygulaması için Azure CLI kullanarak kapsayıcıları yönetin.
-keywords: Azure uygulama hizmeti, web uygulaması, CLI, linux, oss
+title: Azure CLI kullanarak kapsayıcılar için Web uygulamasını yönetme | Microsoft Docs
+description: Azure CLI kullanarak kapsayıcılar için Web App yönetin.
+keywords: Azure app service, web uygulaması, CLI, linux, oss
 services: app-service
 documentationCenter: ''
 author: ahmedelnably
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 024ca5bcf9c1f82f07656691d6ef5358ca3d5111
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24105398"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998500"
 ---
-# <a name="manage-web-app-for-containers-using-azure-cli"></a>Web uygulaması için Azure CLI kullanarak kapsayıcıları yönetme
+# <a name="manage-web-app-for-containers-using-azure-cli"></a>Azure CLI kullanarak kapsayıcılar için Web uygulamasını yönetme
 
-Bu makalede komutları kullanarak oluşturmak ve bir Web uygulaması için Azure CLI 2.0 kullanarak kapsayıcıları yönetmek kullanabilirsiniz.
-CLI yeni sürümünü kullanarak iki yolla başlatabilirsiniz:
+Bu makalede Azure CLI kullanarak kapsayıcılar için Web uygulaması oluşturma ve yönetmeden komutları kullanarak.
+CLI'ın yeni sürümü iki şekilde kullanmaya başlayabilirsiniz:
 
-* [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) makinenizde.
-* Kullanarak [Azure bulut Kabuğu (Önizleme)](../../cloud-shell/overview.md)
+* [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) makinenizde.
+* Kullanarak [Azure Cloud Shell'i (Önizleme)](../../cloud-shell/overview.md)
 
-## <a name="create-a-linux-app-service-plan"></a>Linux uygulama hizmeti planı oluştur
+## <a name="create-a-linux-app-service-plan"></a>Bir Linux App Service planı oluşturma
 
 Bir Linux App Service planı oluşturmak için aşağıdaki komutu kullanabilirsiniz:
 
@@ -40,31 +40,31 @@ az appservice plan create -n appname -g rgname --is-linux -l "South Central US" 
 
 ## <a name="create-a-custom-docker-container-web-app"></a>Özel bir Docker kapsayıcısı Web uygulaması oluşturma
 
-Bir web uygulaması ve özel bir Docker kapsayıcısı çalıştırmak için yapılandırma oluşturmak için aşağıdaki komutu kullanabilirsiniz:
+Bir web uygulaması ve özel bir Docker kapsayıcısını çalıştırma yapılandırma oluşturmak için aşağıdaki komutu kullanabilirsiniz:
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -i elnably/dockerimagetest
 ```
 
-## <a name="activate-the-docker-container-logging"></a>Docker kapsayıcısı günlüğe kaydetmeyi etkinleştirmek
+## <a name="activate-the-docker-container-logging"></a>Docker kapsayıcı günlüğe kaydetme etkinleştir
 
-Docker kapsayıcısı günlüğe kaydetmeyi etkinleştirmek için aşağıdaki komutu kullanabilirsiniz:
+Docker kapsayıcı günlüğe kaydetmeyi etkinleştirmek için aşağıdaki komutu kullanabilirsiniz:
 
 ```azurecli-interactive
 az webapp log config -n sname -g rgname --web-server-logging filesystem
 ```
 
-## <a name="change-the-custom-docker-container-for-an-existing-web-app-for-containers-app"></a>Özel Docker kapsayıcısı kapsayıcıları uygulama için var olan bir Web uygulaması için değiştirme
+## <a name="change-the-custom-docker-container-for-an-existing-web-app-for-containers-app"></a>Özel Docker kapsayıcısı için mevcut bir Web uygulaması için kapsayıcı uygulamasında değiştirin.
 
-Yeni bir görüntüye geçerli Docker görüntüden daha önce oluşturulmuş bir uygulama değiştirmek için aşağıdaki komutu kullanabilirsiniz:
+Geçerli bir Docker görüntüsü yeni bir görüntüye önceden oluşturulmuş bir uygulama değiştirmek için aşağıdaki komutu kullanabilirsiniz:
 
 ```azurecli-interactive
 az webapp config container set -n sname -g rgname -c apurvajo/mariohtml5
 ```
 
-## <a name="using-docker-images-from-a-private-registry"></a>Özel bir kayıt defterinden Docker görüntüleri kullanma
+## <a name="using-docker-images-from-a-private-registry"></a>Özel bir kayıt defterinden Docker görüntülerini kullanma
 
-Özel bir kayıt defterinden görüntüleri kullanmak için uygulamanızı yapılandırabilirsiniz. Kayıt defteri, kullanıcı adı ve parola URL'sini sağlamanız gerekir. Bu aşağıdaki komutu kullanarak elde edilir:
+Bir özel kayıt defterinizdeki görüntüleri kullanacak şekilde yapılandırabilirsiniz. Kayıt defteri, kullanıcı adı ve parola URL'sini sağlamanız gerekir. Bu, aşağıdaki komutu kullanarak gerçekleştirilebilir:
 
 ```azurecli-interactive
 az webapp config container set -n sname1 -g rgname -c <container name> -r <server url> -u <username> -p <password>
@@ -72,23 +72,23 @@ az webapp config container set -n sname1 -g rgname -c <container name> -r <serve
 
 ## <a name="enable-continuous-deployments-for-custom-docker-images"></a>Özel Docker görüntüleri için sürekli dağıtımı etkinleştirme
 
-Aşağıdaki komutla CD işlevselliğini etkinleştirmek ve Web kancası URL'si alın. Bu url, DockerHub ya da Azure kapsayıcı kayıt depoları yapılandırmak için kullanılabilir.
+Aşağıdaki komutla CD işlevselliğini etkinleştirmek ve Web kancası URL'sini alın. Bu url, DockerHub veya Azure Container Registry deposu yapılandırmak için kullanılabilir.
 
 ```azurecli-interactive
 az webapp deployment container config -n sname -g rgname -e true
 ```
 
-## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Kapsayıcıları bizim yerleşik çalışma zamanı çerçeveleri birini kullanarak uygulama için bir Web uygulaması oluşturma
+## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>Bir Web uygulaması için kapsayıcı bizim yerleşik çalışma zamanı çerçeveleri kullanarak uygulama oluşturma
 
-Kapsayıcıları uygulaması için bir PHP 5.6 Web uygulaması oluşturmak için aşağıdaki komutu kullanabilirsiniz.
+Kapsayıcı uygulaması için PHP 5.6 Web uygulaması oluşturmak için aşağıdaki komutu kullanabilirsiniz.
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -r "php|5.6"
 ```
 
-## <a name="change-framework-version-for-an-existing-web-app-for-containers-app"></a>Kapsayıcıları için var olan bir Web uygulaması için framework sürümünü Değiştir
+## <a name="change-framework-version-for-an-existing-web-app-for-containers-app"></a>Mevcut bir Web uygulaması için kapsayıcı uygulamasında framework sürümünü Değiştir
 
-Önceden oluşturulmuş bir uygulama Node.js 6.11 geçerli framework sürümüne değiştirmek için aşağıdaki komutu kullanabilirsiniz:
+Node.js 6.11 geçerli framework sürümünden daha önce oluşturulmuş bir uygulama değiştirmek için aşağıdaki komutu kullanabilirsiniz:
 
 ```azurecli-interactive
 az webapp config set -n sname -g rgname --linux-fx-version "node|6.11"
@@ -105,7 +105,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Linux üzerinde Azure App Service nedir?](app-service-linux-intro.md)
-* [Azure CLI 2.0 yükleyin](https://docs.microsoft.com/cli/azure/install-azure-cli)
-* [Azure bulut Kabuğu (Önizleme)](../../cloud-shell/overview.md)
-* [Hazırlık Azure App Service ortamları ayarlama](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Web uygulaması ile sürekli dağıtımın kapsayıcıları için](app-service-linux-ci-cd.md)
+* [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Azure Cloud Shell'i (Önizleme)](../../cloud-shell/overview.md)
+* [Azure App Service’te hazırlık ortamları ayarlama](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Kapsayıcılar için Web App ile sürekli dağıtım](app-service-linux-ci-cd.md)

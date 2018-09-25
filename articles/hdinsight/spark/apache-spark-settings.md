@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/26/2018
-ms.openlocfilehash: 5678cc17cde833c02c21090a7b5f7b70c01eec9e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 926ce58872b06b41a0c7942b7090dcb4d5c8df03
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045322"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956500"
 ---
 # <a name="configure-spark-settings"></a>Spark ayarlarını yapılandırma
 
@@ -37,7 +37,7 @@ Yeni bir küme oluşturduğunuzda, aralarından seçim yapabileceğiniz geçerli
 Spark 2.x 1.x Spark daha çok daha iyi çalışabilir. Spark 2.x sahip bir dizi Tungsten Catalyst sorgu iyileştirme ve daha fazlası gibi performans iyileştirmeleri.  
 
 > [!NOTE]
-> Apache Spark'ın varsayılan sürüm HDInsight hizmetinde değiştirilebilir. Bir sürüm bağımlılığı varsa, Microsoft .NET SDK'sı / Azure PowerShell ve Azure CLI kullanarak kümeleri oluşturduğunuzda, bu belirli sürümü belirttiğiniz önerir.
+> Apache Spark'ın varsayılan sürüm HDInsight hizmetinde değiştirilebilir. Bir sürüm bağımlılığı varsa, Microsoft .NET SDK'sı, Azure PowerShell ve klasik Azure CLI kullanarak kümeleri oluşturduğunuzda, bu belirli sürümü belirttiğiniz önerir.
 
 Apache Spark, üç sistem yapılandırma konuma sahiptir:
 

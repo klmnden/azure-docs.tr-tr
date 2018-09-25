@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: d97766b0a8c0df3b414d78f563406530f67c313b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 38d73f38a5e04a42ee15c9206ce760936e3e10c9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125383"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980313"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
 Azure işlevleri'nde belirli işlevleri birkaç temel teknik kavramlar ve bileşenler, dil veya kullandığınız bağlama bağımsız olarak paylaşın. Belirtilen dil veya bağlama için belirli ayrıntıları öğrenme moduna kullanmaya başlamadan önce bunların tümüne uygulanan bu genel bakışta aracılığıyla okuduğunuzdan emin olun.
@@ -55,12 +55,15 @@ Ayarlama `disabled` özelliğini `true` yürütülmekte olan işlevin önlemek i
 | `name` |dize |İşlevde bağlı veriler için kullanılan ad. C# için bu bir bağımsız değişken adıdır; JavaScript için bir anahtar/değer listesinde anahtardır. |
 
 ## <a name="function-app"></a>İşlev uygulaması
-Bir işlev uygulaması birlikte Azure App Service tarafından yönetilen bir veya daha fazla tekil işlevler içerir. Tüm işlevlerin bir işlev uygulaması, aynı fiyatlandırma planı, sürekli dağıtım ve çalışma zamanı sürümü paylaşır. Birden çok dilde yazılmış işlevleri tüm işlev uygulamasının paylaşabilirsiniz. Bir işlev uygulaması düzenlemek ve topluca işlevlerinizi yönetmek için bir yol düşünün. 
+Bir işlev uygulaması, işlevlerinizin çalıştığı azure'da bir yürütme bağlamı sağlar. Bir işlev uygulaması birlikte Azure App Service tarafından yönetilen bir veya daha fazla tekil işlevler içerir. Tüm işlevlerin bir işlev uygulaması, aynı fiyatlandırma planı, sürekli dağıtım ve çalışma zamanı sürümü paylaşır. Bir işlev uygulaması düzenlemek ve topluca işlevlerinizi yönetmek için bir yol düşünün. 
 
-## <a name="runtime-script-host-and-web-host"></a>Çalışma zamanı (komut dosyası ana bilgisayarı ve web ana bilgisayarı)
-Çalışma zamanı veya komut dosyası ana bilgisayarı, olayları dinleyen, toplar ve veri gönderen ve sonuçta kodunuzun çalıştığı temel Web işleri SDK'sı ana bilgisayardır. 
+> [!NOTE]
+> İle başlayarak [sürüm 2.x](functions-versions.md) aynı dilde Azure işlevleri çalışma zamanı, bir işlev uygulamasında tüm işlevleri yazılması gerekir.
 
-HTTP Tetikleyicileri kolaylaştırmak için de mevcuttur, komut dosyası ana bilgisayarı üretim senaryolarında önünde sit için tasarlanmış bir web ana bilgisayarı. İki ana sahip web ana bilgisayar tarafından yönetilen trafiği ön betik konaktan ayırmaya yardımcı sonlandırın.
+## <a name="runtime"></a>Çalışma Zamanı
+Azure işlevleri çalışma zamanı veya komut dosyası ana bilgisayarı, olayları dinleyen, toplar ve veri gönderen ve sonuçta kodunuzun çalıştığı temel alınan ana bilgisayardır. Bu aynı konak Web işleri SDK'sı tarafından kullanılır.
+
+Çalışma zamanı için HTTP tetikleyici istekleri işleyen bir web ana bilgisayarı yok. İki ana sahip Önden çalışma zamanının ayırmaya yardımcı web ana bilgisayar tarafından yönetilen trafiği sonlandırın.
 
 ## <a name="folder-structure"></a>klasör yapısı
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
@@ -75,21 +78,12 @@ Azure portalda yerleşik işlev Düzenleyicisi, güncelleştirmenizi sağlar *fu
 
 İşlev uygulamaları App Service üzerinde bu nedenle tüm yerleşik [standart web Apps'e dağıtım seçeneklerini](../app-service/app-service-deploy-local-git.md) işlev uygulamaları için kullanılabilir. Karşıya yükleme veya güncelleştirme işlevini uygulama dosyaları için kullanabileceğiniz bazı yöntemleri aşağıda verilmiştir. 
 
-#### <a name="to-use-app-service-editor"></a>App Service Düzenleyicisi kullanmak için
-1. Azure işlevleri portalında **Platform özellikleri**.
-2. İçinde **geliştirme araçları** bölümünde **App Service Düzenleyicisi**.   
-   App Service Düzenleyicisi yüklendikten sonra göreceğiniz *host.json* dosya ve işlev klasörlerinin *wwwroot*. 
-5. Bunları, düzenlemek veya sürükleyip dosyaları karşıya yüklemek için geliştirme makinenizden dosyalarını açın.
-
-#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>İşlevi uygulamanın SCM (Kudu) uç noktası kullanılacak
-1. Gidin: `https://<function_app_name>.scm.azurewebsites.net`.
-2. Tıklayın **konsol hata ayıklama > CMD**.
-3. Gidin `D:\home\site\wwwroot\` güncelleştirilecek *host.json* veya `D:\home\site\wwwroot\<function_name>` işlevin dosyalarını güncelleştirmek için.
-4. Sürükle ve bırak dosya kılavuzuna uygun klasöre karşıya yüklemek istediğiniz bir dosya. Bir dosya yere bırakabilirsiniz dosya kılavuzda iki alan vardır. İçin *.zip* dosyaları, etiketle bir kutusu görünür "sürükleyin buraya yükleyin ve sıkıştırmasını açın." Diğer dosya türlerinde, dosya kılavuzunda, ancak "sıkıştırmasını" kutusunu dışında bırakın.
+#### <a name="use-local-tools-and-publishing"></a>Yerel araçlarını kullanın ve yayımlama
+İşlev uygulamaları yazılabilir ve dahil olmak üzere çeşitli araçları kullanarak yayımlanan [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [Intellij](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md)ve [Azure işlevleri çekirdek Araçları](./functions-develop-local.md). Daha fazla bilgi için [kod ve test, Azure işlevleri yerel olarak](./functions-develop-local.md).
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
-#### <a name="to-use-continuous-deployment"></a>Sürekli dağıtımı kullanmak için
+#### <a name="continuous-deployment"></a>Sürekli dağıtım
 Konu başlığı altındaki yönergeleri [Azure işlevleri için sürekli dağıtım](functions-continuous-deployment.md).
 
 ## <a name="parallel-execution"></a>Paralel yürütme
@@ -97,7 +91,7 @@ Birden çok tetikleyici olayı işlevi tek iş parçacıklı çalışma zamanı 
 
 ## <a name="functions-runtime-versioning"></a>İşlevler çalışma zamanı sürümü oluşturma
 
-Kullanarak işlevler çalışma zamanı sürümünü yapılandırabilirsiniz `FUNCTIONS_EXTENSION_VERSION` uygulama ayarı. Örneğin, "~ 1" değeri işlev uygulamanızı kendi ana sürüm 1 kullanacağını belirtir. İşlev uygulamaları, yayınlandıkça her yeni ikincil sürümüne yükseltilir. İşlev uygulamanızı'nün tam sürümünü görüntüleme dahil olmak üzere daha fazla bilgi için bkz. [Azure işlevleri çalışma zamanı sürümlerini hedeflemek nasıl](set-runtime-version.md).
+Kullanarak işlevler çalışma zamanı sürümünü yapılandırabilirsiniz `FUNCTIONS_EXTENSION_VERSION` uygulama ayarı. Örneğin, "~ 2" değerini işlev uygulamanızı kendi ana sürüm 2.x kullanacağını gösterir. İşlev uygulamaları, yayınlandıkça her yeni ikincil sürümüne yükseltilir. İşlev uygulamanızı'nün tam sürümünü görüntüleme dahil olmak üzere daha fazla bilgi için bkz. [Azure işlevleri çalışma zamanı sürümlerini hedeflemek nasıl](set-runtime-version.md).
 
 ## <a name="repositories"></a>Depolar
 Azure işlevleri kodu açık kaynaktır ve GitHub depolarında depolanan:

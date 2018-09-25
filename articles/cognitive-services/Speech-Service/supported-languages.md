@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 09/08/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a4307ee0ff210dafee5afe51bd9cb90db9be22e5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d28c67b1c7039f6e139a897196d88464b3bcf977
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295437"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064348"
 ---
 # <a name="supported-languages-for-speech-service"></a>Konuşma hizmeti için desteklenen diller
 
@@ -22,41 +22,54 @@ Farklı diller için farklı bir konuşma hizmeti işlevleri desteklenir. Aşağ
 
 ## <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
 
-Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. 
+Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı düzeyde özelleştirme, her dil için kullanılabilir.  
 
-  Kod | Dil | Akustik uyarlama | Dil uyarlama | Söyleniş uyarlama
+  Kod | Dil | [Akustik uyarlama](how-to-customize-acoustic-models.md) | [Dil uyarlama](how-to-customize-language-model.md) | [Söyleniş uyarlama](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar EG | Arapça (Mısır) modern standart | Hayır | Evet | Hayır
- İt-IT | İtalyanca (İtalya) | Hayır | Evet | Hayır 
- de-DE | Almanca (Almanya) | Hayır | Evet | Evet
- fr-FR | Fransızca (Fransa) | Hayır | Evet | Hayır
+ CA-ES | Katalanca (İspanya) | Hayır | Hayır | Hayır
+ v-DK | Danca (Danimarka) | Hayır | Hayır | Hayır
+ de-DE | Almanca (Almanya) | Evet | Evet | Hayır
+ tr-AU | İngilizce (Avustralya) | Evet | Evet | Evet
+ CA tr | İngilizce (Kanada) | Evet | Evet | Evet
+ en-GB | İngilizce (Birleşik Krallık) | Evet | Evet | Evet
+ tr-giriş | English (India) | Hayır | Evet | Evet
+ tr NZ | İngilizce (Yeni Zelanda) | Evet | Evet | Evet  
  tr-TR | İngilizce (ABD) | Evet | Evet | Evet
- en-GB | İngilizce (İngiltere) | Hayır | Evet | Hayır
- CA tr | İngilizce (Kanada) | Hayır | Evet | Hayır
- tr-AU | İngilizce (Avustralya) | Hayır | Evet | Hayır
- es-ES | İspanyolca (İspanya) | Hayır | Evet | Hayır
- NL-NL | Hollanda dili (Hollanda) | Hayır | Evet | Hayır
- pt-PT | Portoguese (Portogal) | Hayır | Evet | Hayır
- tr-TR | Türkçe (Türkiye) | Hayır | Evet | Hayır
- pt-BR | Portekizce (Brezilya) | Hayır | Evet | Hayır
- ru-RU | Rusça (Rusya) | Hayır | Evet | Hayır
- zh-CN | Çince (Basitleştirilmiş Mandarin) | Hayır | Evet | Hayır
- zh-HK | Çince (Mandarin, Geleneksel) | Hayır | Evet | Hayır
- zh-TW | Çince (Tayvan Mandarin) | Hayır | Evet | Hayır
+ es-ES | İspanyolca (İspanya) | Evet | Evet | Hayır
+ es-MX | İspanyolca (Meksika) | Evet | Evet | Hayır 
+ FI-FI | Fince (Finlandiya) | Hayır | Hayır | Hayır 
+ fr-CA | Fransızca (Kanada) | Evet | Evet | Hayır 
+ fr-FR | Fransızca (Fransa) | Evet | Evet | Hayır
+ yüksek giriş | Hintçe (Hindistan) | Hayır | Evet | Hayır 
+ İt-IT | İtalyanca (İtalya) | Evet | Evet | Hayır
  ja-JP | Japonca (Japonya) | Hayır | Evet | Hayır
  ko-KR | Korece (Kore) | Hayır | Evet | Hayır
+ NB-yok | Norveççe (Bokmal) (Norveç) | Hayır | Hayır | Hayır 
+ NL-NL | Hollanda dili (Hollanda) | Hayır | Evet | Hayır
+ pl-PL | Lehçe (Polonya) | Hayır | Hayır | Hayır
+ pt-BR | Portekizce (Brezilya) | Hayır | Evet | Hayır
+ pt-PT | Portekizce (Portekiz) | Hayır | Evet | Hayır
+ ru-RU | Rusça (Rusya) | Hayır | Evet | Hayır
+ sv-SE | İsveççe (İsveç) | Hayır | Hayır | Hayır 
+ zh-CN | Çince (Basitleştirilmiş Mandarin) | Evet | Evet | Hayır
+ zh-HK | Çince (Mandarin, Geleneksel) | Hayır | Evet | Hayır
+ zh-TW | Çince (Tayvan Mandarin) | Hayır | Evet | Hayır
+ TH TH | Tay dili (Tayland) | Hayır | Hayır | Hayır
+
 
 ## <a name="text-to-speech"></a>Metin Okuma
 
 Konuşma sentezi API'si her biri belirli bir dil ve yerel ayar tarafından tanımlanan diyalekti, destekleyen aşağıdaki sesi sunar.
 
-Yerel ayar | Dil | Cinsiyet | Hizmet adı eşleme
+Yerel Ayar | Dil | Cinsiyet | Hizmet adı eşleme
 -------|----------|---------|--------------------
-ar-Örneğin * | Arapça (Mısır) | Kadın | "Microsoft sunucu konuşma Sesli konuşmayı metne (ar-Örneğin, Hoda)"
+ar EG\* | Arapça (Mısır) | Kadın | "Microsoft sunucu konuşma Sesli konuşmayı metne (ar-Örneğin, Hoda)"
 ar-SA | Arapça (Suudi Arabistan) | Erkek | "Microsoft Server Konuşma metin konuşma ses (ar-SA, Naayf)"
 BG-BG | Bulgarca | Erkek | "Microsoft Server Konuşma metin okuma ses (bg-BG, çalışan Ivan)"
 CA-ES | Katalanca (İspanya) | Kadın | "Microsoft Server Konuşma metin okuma ses (ca-ES, HerenaRUS)"
 cs-CZ | Çekçe | Erkek | "Microsoft sunucu konuşma Sesli konuşmayı metne (cs-CZ, Jakub)"
+cs-CZ | Çekçe | Erkek | "Microsoft sunucu konuşma Sesli konuşmayı metne (cs-CZ, Vit)"
 v-DK | Danca | Kadın | "Microsoft Server Konuşma metin konuşma ses (v-DK, HelleRUS)"
 de-AT | Almanca (Avusturya) | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-AT, Michael)"
 de-CH | Almanca (İsviçre) | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-CH, Karsten)"
@@ -72,6 +85,7 @@ en-GB | English (UK) | Kadın | "Microsoft Server Konuşma metin konuşma ses (e
 | | |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-GB, HazelRUS)"
 | | |Erkek | "Microsoft Server Konuşma metin konuşma ses (en-GB, George, Apollo)"
 IE tr | İngilizce (İrlanda) |Erkek | "Microsoft Server Konuşma metin konuşma ses (tr-IE, Sean)"
+IE tr | İngilizce (İrlanda) |Erkek | "Microsoft Server Konuşma metin konuşma ses (tr-IE, Shaun)"
 tr-giriş | English (India) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN Heera, Apollo)"
 | | |Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN, PriyaRUS)"
 | | |Erkek | "Microsoft Server Konuşma metin konuşma ses (en-IN Ravi, Apollo)"
@@ -116,13 +130,14 @@ Ro-RO | Rumence | Erkek | "Microsoft Server Konuşma metin konuşma ses (ro-RO, 
 ru-RU |Rusça| Kadın | "Microsoft Server Konuşma metin okuma ses (ru-RU, Irina, Apollo)"
 | | |Erkek | "Microsoft Server Konuşma metin okuma ses (ru-RU, Pavel, Apollo)"
 | | |Kadın | "Microsoft Server Konuşma metin okuma ses (ru-RU, EkaterinaRUS)"
-SK-SK | Slovakça | Erkek | "Microsoft Server Konuşma metin okuma ses (sk-SK, Filip)"
-SL SI | Slovence | Erkek | "Microsoft Server Konuşma metin okuma ses (sl-sı, Lado)"
-sv-SE | İsveç dili | Kadın | "Microsoft Server Konuşma metin konuşma ses (sv-SE, HedvigRUS)"
-Veri-ın | Tamil dili (Hindistan) | Erkek | "Microsoft Server Konuşma metin konuşma ses (veri-ın, Valluvar)"
-TH TH | Tay Dili | Erkek | "Microsoft Server Konuşma metin okuma ses (th-TH, Pattara)"
-tr-TR |Türkçe | Kadın | "Microsoft Server Konuşma metin okuma ses (tr-TR, SedaRUS)"
-VI VN | Vietnam dili | Erkek | "Microsoft Server Konuşma metin okuma ses (vi-VN bir)"
+SK-SK | Slovakça|Erkek | "Microsoft Server Konuşma metin okuma ses (sk-SK, Filip)"
+SL SI | Slovence|Erkek | "Microsoft Server Konuşma metin okuma ses (sl-sı, Lado)"
+sv-SE | İsveç dili|Kadın | "Microsoft Server Konuşma metin konuşma ses (sv-SE, HedvigRUS)"
+Veri-ın | Tamil dili (Hindistan) |Erkek | "Microsoft Server Konuşma metin konuşma ses (veri-ın, Valluvar)"
+metin-giriş | Telugu dili (Hindistan) |Kadın | "Microsoft Server Konuşma metin konuşma ses (metin-IN, Chitra)"
+TH TH | Tay Dili|Erkek | "Microsoft Server Konuşma metin okuma ses (th-TH, Pattara)"
+tr-TR |Türkçe| Kadın | "Microsoft Server Konuşma metin okuma ses (tr-TR, SedaRUS)"
+VI VN | Vietnam dili|Erkek | "Microsoft Server Konuşma metin okuma ses (vi-VN bir)"
 zh-CN | Çince (ana kara)|Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, HuihuiRUS)"
 | | |Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, Yaoyao, Apollo)"
 | | |Erkek | "Microsoft Server Konuşma metin konuşma ses (zh-CN, Kangkang, Apollo)"

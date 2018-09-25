@@ -2,21 +2,22 @@
 title: Azure Active Directory kimlik doğrulama - SQL yapılandırma | Microsoft Docs
 description: SQL veritabanı yönetilen örneği ve SQL veri ambarı için Azure AD yapılandırdıktan sonra Azure Active Directory kimlik - kullanarak bağlanmayı öğreneceksiniz.
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: data warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/07/2018
+author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
-ms.openlocfilehash: f04846275fbad1673a00d820e8b44adc402b0242
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: efec5b3d8ac2ec3f757d06e88df65fe5f50aae17
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294212"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064314"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Yapılandırma ve SQL veritabanı, yönetilen örneği veya SQL veri ambarı ile Azure Active Directory kimlik doğrulamasını Yönet
 
@@ -195,10 +196,10 @@ Azure Active Directory Yöneticisi REST API'lerini kullanarak da sağlayabilirsi
 Aşağıdaki CLI komutları çağırarak, bir Azure AD Yöneticisi ayrıca sağlayabilirsiniz:
 | Komut | Açıklama |
 | --- | --- |
-|[az sql server ad Yöneticisi oluşturma](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) |Azure SQL server veya Azure SQL veri ambarı için Azure Active Directory yönetici sağlar. (Geçerli abonelikten olması gerekir.) |
-|[az sql server ad Yöneticisi Sil](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) |Azure SQL server veya Azure SQL veri ambarı için Azure Active Directory yönetici kaldırır. |
-|[az sql server yönetici ad listesi](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) |Şu anda Azure SQL veri ambarı ve Azure SQL sunucusu için yapılandırılmış bir Azure Active Directory Yöneticisi hakkında bilgi döndürür. |
-|[az sql server ad Yöneticisi güncelleştirme](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) |Bir Azure SQL server veya Azure SQL veri ambarı için Active Directory Yöneticisi güncelleştirir. |
+|[az sql server ad Yöneticisi oluşturma](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Azure SQL server veya Azure SQL veri ambarı için Azure Active Directory yönetici sağlar. (Geçerli abonelikten olması gerekir.) |
+|[az sql server ad Yöneticisi Sil](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) |Azure SQL server veya Azure SQL veri ambarı için Azure Active Directory yönetici kaldırır. |
+|[az sql server yönetici ad listesi](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) |Şu anda Azure SQL veri ambarı ve Azure SQL sunucusu için yapılandırılmış bir Azure Active Directory Yöneticisi hakkında bilgi döndürür. |
+|[az sql server ad Yöneticisi güncelleştirme](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) |Bir Azure SQL server veya Azure SQL veri ambarı için Active Directory Yöneticisi güncelleştirir. |
 
 CLI komutları hakkında daha fazla bilgi için bkz. [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
 

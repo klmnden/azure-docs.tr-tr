@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: b816d94c8d85ad7d28dfc76072627423a30f6704
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2a4c389d063bb63f2fa2293d54236f99d7035e0e
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293574"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060427"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Bir JavaScript tek sayfalı uygulama (SPA) Microsoft Graph API çağırma
 
@@ -47,6 +47,7 @@ Bu kılavuz, aşağıdaki kitaplığı kullanır:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|JavaScript Preview için Microsoft kimlik doğrulama kitaplığı|
 
 > [!NOTE]
-> *msal.js* hedefleri *Azure Active Directory v2 uç noktası* -oturum açmak ve belirteçleri almak kişisel, okul ve iş hesapları sağlar. *Azure Active Directory v2 uç noktası* sahip [bazı sınırlamalar](..\articles\active-directory\develop\active-directory-v2-limitations.md). Yalnızca çalışabilir ve Okul hesaplarında ilgileniyorsanız kullanın *adal.js* ve *V1 uç noktası*. Okuma v1 ve v2 uç noktaları arasındaki farkları [v1-v2 karşılaştırması](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
+> *msal.js* hedefleri *Azure Active Directory v2 uç noktası* -oturum açmak ve belirteçleri almak kişisel, okul ve iş hesapları sağlar. *Azure Active Directory v2 uç noktası* sahip [bazı sınırlamalar](..\articles\active-directory\develop\active-directory-v2-limitations.md).
+> Okuma v1 ve v2 uç noktaları arasındaki farkları [v1-v2 karşılaştırması](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

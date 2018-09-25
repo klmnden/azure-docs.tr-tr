@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0df08eaa2de27dbcc1ea93db1e040d81d071bf80
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ac117994140f96ec993e4fed739626f736ad7efc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126012"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965288"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u tetiklemek için bir uyarı kullanın
 
-Kullanabileceğiniz [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md?toc=%2fazure%2fautomation%2ftoc.json) temel düzeyde ölçümlerini ve günlüklerini çoğu Azure Hizmetleri için izleme. Azure Otomasyonu runbook'ları kullanarak çağırabilirsiniz [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) veya uyarılara göre görevleri otomatikleştirmek için Klasik uyarıları kullanarak. Bu makalede uyarıları kullanarak bir runbook'u çalıştırma ve yapılandırma gösterilmektedir.
+Kullanabileceğiniz [Azure İzleyici](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) temel düzeyde ölçümlerini ve günlüklerini çoğu Azure Hizmetleri için izleme. Azure Otomasyonu runbook'ları kullanarak çağırabilirsiniz [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) veya uyarılara göre görevleri otomatikleştirmek için Klasik uyarıları kullanarak. Bu makalede uyarıları kullanarak bir runbook'u çalıştırma ve yapılandırma gösterilmektedir.
 
 ## <a name="alert-types"></a>Uyarı türleri
 
@@ -32,8 +32,8 @@ Uyarı runbook çağırdığında, gerçek bir Web kancası HTTP POST isteği ç
 |Uyarı  |Açıklama|Yükü şeması  |
 |---------|---------|---------|
 |[Klasik ölçüm Uyarısı](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |Herhangi bir platform düzeyi ölçümü belirli bir koşulu karşıladığında bir bildirim gönderir. Örneğin, değeri **CPU %** bir VM'de büyüktür **90** son 5 dakika.| [Sınıf ölçüm uyarı yükü şeması](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
-|[Etkinlik günlüğü Uyarısı](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Azure etkinlik günlüğü her yeni olay belirli koşullar eşleştiğinde bir bildirim gönderir. Örneğin, bir `Delete VM` işlemi oluşuyor **myProductionResourceGroup** veya yeni bir Azure hizmet durumu olay ile bir **etkin** durumu görüntülenir.| [Etkinlik günlüğü uyarısı yükü şeması](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)        |
-|[Gerçek zamanlı ölçüm Uyarısı](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Bir veya daha fazla platform düzeyi ölçümleri belirtilen koşulları karşıladığında bir bildirim daha hızlı ölçüm uyarıları gönderir. Örneğin, değeri **CPU %** bir VM'de büyüktür **90**ve değeri **ağ içinde** büyüktür **500 MB** için geçmiş 5 dakika.| [Gerçek zamanlı ölçüm uyarı yükü şeması](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
+|[Etkinlik günlüğü Uyarısı](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Azure etkinlik günlüğü her yeni olay belirli koşullar eşleştiğinde bir bildirim gönderir. Örneğin, bir `Delete VM` işlemi oluşuyor **myProductionResourceGroup** veya yeni bir Azure hizmet durumu olay ile bir **etkin** durumu görüntülenir.| [Etkinlik günlüğü uyarısı yükü şeması](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)        |
+|[Gerçek zamanlı ölçüm Uyarısı](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Bir veya daha fazla platform düzeyi ölçümleri belirtilen koşulları karşıladığında bir bildirim daha hızlı ölçüm uyarıları gönderir. Örneğin, değeri **CPU %** bir VM'de büyüktür **90**ve değeri **ağ içinde** büyüktür **500 MB** için geçmiş 5 dakika.| [Gerçek zamanlı ölçüm uyarı yükü şeması](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
 
 Her uyarı türü tarafından sağlanan veri farklı olduğundan, her uyarı türünün farklı şekilde ele alınır. Sonraki bölümde, farklı uyarı türleri işlemek için bir runbook'un nasıl oluşturulacağını öğrenin.
 

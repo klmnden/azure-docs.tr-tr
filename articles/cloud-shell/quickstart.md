@@ -1,6 +1,6 @@
 ---
-title: Azure bulut Kabuk hızlı başlangıcı bash | Microsoft Docs
-description: Bulut Kabuk Bash'te için hızlı başlangıç
+title: Bash Azure Cloud Shell hızlı başlangıçta | Microsoft Docs
+description: Cloud shell'de Bash için hızlı başlangıç
 services: ''
 documentationcenter: ''
 author: jluk
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: juluk
-ms.openlocfilehash: 4b7e4302bba2efed12e19043da1f592bed12a2fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b3616a723e793ab1ce8d7bcca1f53ca10ec4f96
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608891"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970677"
 ---
-# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure bulut Kabuk Bash'te için hızlı başlangıç
+# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud shell'de Bash için hızlı başlangıç
 
-Bu belgede Azure bulut Kabuğu'nda Bash kullanmak nasıl ayrıntıları [Azure portal](https://ms.portal.azure.com/).
+Azure Cloud Shell'de Bash kullanma ayrıntılı [Azure portalında](https://ms.portal.azure.com/).
 
 > [!NOTE]
-> A [Azure bulut Kabuk PowerShell'de](quickstart-powershell.md) hızlı başlangıç kullanılabilir de.
+> A [Azure Cloud shell'de PowerShell](quickstart-powershell.md) hızlı başlangıç, ayrıca kullanılabilir.
 
-## <a name="start-cloud-shell"></a>Bulut Kabuğu'nu başlatın
-1. Başlatma **bulut Kabuk** üst gezinti Azure Portalı'ndan. <br>
+## <a name="start-cloud-shell"></a>Cloud Shell'i Başlat
+1. Başlatma **Cloud Shell** Azure portalının üst gezinti bölmesinden. <br>
 ![](media/quickstart/shell-icon.png)
 
-2. Bir depolama hesabı oluşturmak için bir abonelik seçin ve Microsoft Azure dosyaları paylaşın.
+2. Bir depolama hesabının oluşturulacağı bir abonelik seçin ve Microsoft Azure dosyaları paylaşın.
 3. "Depolama oluştur" seçeneğini belirleyin
 
 > [!TIP]
-> Her oturum için Azure CLI 2.0 otomatik olarak doğrulanır.
+> Azure CLI için her oturumda otomatik olarak doğrulanır.
 
-### <a name="select-the-bash-environment"></a>Bash ortamını seçin
-Ortamdan açılan taraftaki Kabuk penceresinin yazan onay `Bash`. <br>
+### <a name="select-the-bash-environment"></a>Bash ortamı seçin
+Ortam açılan sol tarafı Kabuk penceresinin bildiren bir onay `Bash`. <br>
 ![](media/quickstart/env-selector.png)
 
-### <a name="set-your-subscription"></a>Aboneliğinizi
+### <a name="set-your-subscription"></a>Aboneliğinizi ayarlama
 1. Liste abonelikler erişebilirsiniz.
 ```azurecli-interactive
 az account list
@@ -54,7 +54,7 @@ az account set --subscription my-subscription-name`
 ```
 
 > [!TIP]
-> Aboneliğinizi kullanarak sonraki oturumlar için hatırlanır `/home/<user>/.azure/azureProfile.json`.
+> Aboneliğinizi kullanarak sonraki oturumlar için anımsanır `/home/<user>/.azure/azureProfile.json`.
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 İçinde WestUS "MyRG" adlı yeni bir kaynak grubu oluşturun.
@@ -63,28 +63,28 @@ az group create --location westus --name MyRG
 ```
 
 ### <a name="create-a-linux-vm"></a>Linux VM oluşturma
-Bir Ubuntu VM, yeni kaynak grubu oluşturun. Azure CLI 2.0 SSH anahtarları oluşturma ve bunlarla VM ayarlayın. <br>
+Yeni kaynak grubunda Ubuntu sanal makinesi oluşturun. Azure CLI, SSH anahtarları oluşturma ve bunları VM ayarlayın. <br>
 
 ```azurecli-interactive
 az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ```
 
 > [!NOTE]
-> Kullanarak `--generate-ssh-keys` oluşturmak ve ortak ve özel anahtarlar, VM'deki ayarlamak için Azure CLI 2.0 bildirir ve `$Home` dizin. Varsayılan olarak bulut kabuğunda anahtarları yerleştirilir `/home/<user>/.ssh/id_rsa` ve `/home/<user>/.ssh/id_rsa.pub`. `.ssh` Klasörü, ekli dosya paylaşımının 5 GB görüntüde sürdürmek için kullanılan kalıcı `$Home`.
+> Kullanarak `--generate-ssh-keys` oluşturmak ve sanal makinenizin genel ve özel anahtarları ayarlamak için Azure CLI'yı bildirir ve `$Home` dizin. Varsayılan olarak Cloud shell'de anahtarları yerleştirilir `/home/<user>/.ssh/id_rsa` ve `/home/<user>/.ssh/id_rsa.pub`. `.ssh` Klasörü, bağlı dosya paylaşımının 5 GB'lık görüntüde kalıcı hale getirmek için kullanılan kalıcı `$Home`.
 
-Bulut Kabuğu'nda kullanılan kullanıcı adı, kullanıcı adı bu VM'de olacaktır ($User@Azure:).
+Bu VM üzerinde kullanıcı adınızı Cloud Shell içinde kullanılan kullanıcı adı olacaktır ($User@Azure:).
 
-### <a name="ssh-into-your-linux-vm"></a>SSH, Linux VM'NİZDE içine
-1. Azure portal arama çubuğunda, VM adını arayın.
-2. Sanal makine adını ve genel IP adresi almak için "Bağlan" düğmesine tıklayın. <br>
+### <a name="ssh-into-your-linux-vm"></a>SSH Linux vm'nize
+1. Azure portal arama çubuğunda sanal Makinenizin adını arayın.
+2. VM adı ve genel IP adresini almak için "Bağlan" düğmesine tıklayın. <br>
 ![](media/quickstart/sshcmd-copy.png)
 
-3. SSH VM ile içine `ssh` cmd
+3. SSH ile VM'ye `ssh` cmd'yi
 ```
 ssh username@ipaddress
 ```
 
-SSH bağlantı kurulduktan sonra Ubuntu Hoş Geldiniz istemi görmeniz gerekir. <br>
+SSH bağlantısı kurulduktan sonra Ubuntu Hoş Geldiniz istemini görmeniz gerekir. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Temizleme 
@@ -93,12 +93,12 @@ SSH bağlantı kurulduktan sonra Ubuntu Hoş Geldiniz istemi görmeniz gerekir. 
 exit
 ```
 
-2. Kaynak grubu ve içerdiği tüm kaynaklar silin.
+2. Kaynak grubunuzu ve içerdiği tüm kaynakları silin.
 ```azurecli-interactive
 az group delete -n MyRG
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Bulut Kabuk Bash'te için kalıcı dosyaları hakkında bilgi edinin](persisting-shell-storage.md) <br>
-[Azure CLI 2.0 hakkında bilgi edinin](https://docs.microsoft.com/cli/azure/) <br>
-[Azure dosyaları depolama hakkında bilgi edinin](../storage/files/storage-files-introduction.md) <br>
+[Cloud Shell'deki Bash hizmetinde kalıcı dosyaları hakkında bilgi edinin](persisting-shell-storage.md) <br>
+[Azure CLI hakkında bilgi edinin](https://docs.microsoft.com/cli/azure/) <br>
+[Azure dosya depolama hakkında bilgi edinin](../storage/files/storage-files-introduction.md) <br>

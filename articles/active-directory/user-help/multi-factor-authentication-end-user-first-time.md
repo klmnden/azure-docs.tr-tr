@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: d4ebecd11f4ca3d12a55cf25db31e31d7f528db8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b6d548183cfa548f9ad35f06922752c929e318ac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343738"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041964"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Hesabım için iki aşamalı doğrulama ayarlayın
 İki aşamalı doğrulama, kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır. Bu makalede okuyorsanız, büyük olasılıkla bir e-posta iş veya Okul yöneticinizin multi-Factor Authentication hakkında aldığınız. Veya belki de oturum açmaya ve ek güvenlik doğrulama ayarlayın isteyen bir ileti alındı. Bu durum söz konusuysa **otomatik kayıt işlemini tamamlayıncaya kadar oturum açamazsınız**.
@@ -47,6 +47,9 @@ Oturum açtığınızda böyle bir ekran görmüyorsanız bölümündeki yönerg
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>İletişim yönteminiz olarak mobil uygulama kullan
 Bu yöntemi kullanarak, telefon veya tablette bir doğrulayıcı uygulaması yüklemeniz gerekir. Bu makaledeki adımları için kullanılabilir olan Microsoft Authenticator uygulamasını dayalı [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), ve [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+
+>[!NOTE]
+>Microsoft Authenticator uygulamasını kullanmak zorunda değilsiniz. Başka bir kimlik doğrulayıcı uygulamasını kullanıyorsanız, bunu kullanmaya devam edebilirsiniz.
 
 1. Seçin **mobil uygulama** aşağı açılan listeden.
 2. Şunlardan birini seçin **doğrulama bildirimleri Al** veya **doğrulama kodunu kullan**, ardından **ayarlanan**.

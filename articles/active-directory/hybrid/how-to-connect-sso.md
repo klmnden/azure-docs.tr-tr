@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: be46933ee77b261107a6d22d26ba81538f0fd9d1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4e9292b5932c36d55069ff300bf7c0a99b280fc5
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314527"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054193"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma
 
@@ -62,16 +62,19 @@ Sorunsuz çoklu oturum açma ile birleştirilebilir [parola karması eşitleme](
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Evet\*|Hayır|Evet|Evet\*\*|Yok
-|Windows 8.1|Evet\*|Yok|Evet|Evet\*\*|Yok
-|Windows 8|Evet\*|Yok|Evet|Evet\*\*|Yok
-|Windows 7|Evet\*|Yok|Evet|Evet\*\*|Yok
-|Mac OS X|Yok|Yok|Evet\*\*|Evet\*\*|Evet\*
+|Windows 10|Evet\*|Hayır|Evet|Evet\*\*\*|Yok
+|Windows 8.1|Evet\*|Yok|Evet|Evet\*\*\*|Yok
+|Windows 8|Evet\*|Yok|Evet|Evet\*\*\*|Yok
+|Windows 7|Evet\*|Yok|Evet|Evet\*\*\*|Yok
+|Windows Server 2012 R2 veya üzeri|Evet\*\*|Yok|Evet|Evet\*\*\*|Yok
+|Mac OS X|Yok|Yok|Evet\*\*\*|Evet\*\*\*|Evet\*\*\*
 
 
 \*Internet Explorer sürüm 10 gerektirir veya üzeri
 
-\*\*Gerektirir [ek yapılandırma](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*Internet Explorer sürüm 10 gerektirir veya üzeri. Devre dışı bırakma geliştirilmiş korumalı mod
+
+\*\*\*Gerektirir [ek yapılandırma](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >Windows 10 için zamanlayıcısının [Azure AD'ye katılımı](../active-directory-azureadjoin-overview.md) en iyi çoklu oturum açma deneyimi için Azure AD ile.

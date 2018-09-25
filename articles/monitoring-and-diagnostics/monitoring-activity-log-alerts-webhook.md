@@ -1,6 +1,6 @@
 ---
-title: Etkinlik günlüğü uyarıları kullanılan Web kancası şema anlama
-description: Bir etkinlik günlüğü uyarı etkinleştirdiğinde, bir Web kancası URL'si gönderilen JSON şeması hakkında bilgi edinin.
+title: Etkinlik günlüğü uyarıları kullanılan Web kancası şeması anlama
+description: Bir etkinlik günlüğü uyarısı etkinleştirirken, bir Web kancası URL'sine gönderilen JSON şeması hakkında bilgi edinin.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 3935da72cb747a642ee1f360dc5318fc2d34e763
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e989406c852b7c87123681dd875f9cd8229524c1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263251"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971935"
 ---
-# <a name="webhooks-for-azure-activity-log-alerts"></a>Azure etkinlik günlüğü uyarılar için Web kancaları
-Bir eylem grubu tanımının bir parçası olarak, etkinlik günlüğü uyarı bildirimlerini almak için Web kancası uç noktalarını yapılandırabilirsiniz. Web kancası ile işlem sonrası ya da özel eylemler için diğer sistemlere bu bildirimler yönlendirebilirsiniz. Bu makalede, bir Web kancası için HTTP POST için yükü nasıl göründüğünü gösterir.
+# <a name="webhooks-for-azure-activity-log-alerts"></a>Azure etkinlik günlüğü uyarıları için Web kancaları
+Bir eylem grubu tanımının bir parçası olarak, etkinlik günlüğü uyarı bildirimleri almak için Web kancası uç noktaları yapılandırabilirsiniz. Web kancaları sayesinde işlem sonrası veya özel eylemler için diğer sistemlere bu bildirimleri yönlendirebilirsiniz. Bu makalede bir Web kancası HTTP POST yükü nasıl göründüğünü gösterir.
 
-Etkinlik günlüğü uyarılar hakkında daha fazla bilgi için bkz: nasıl yapılır [Azure etkinlik günlüğü uyarı oluşturma](monitoring-activity-log-alerts.md).
+Etkinlik günlüğü Uyarıları hakkında daha fazla bilgi için bkz. nasıl [Azure etkinlik günlüğü uyarıları oluşturma](monitoring-activity-log-alerts.md).
 
-Eylem grupları hakkında daha fazla bilgi için bkz: nasıl yapılır [Eylem grupları oluşturma](monitoring-action-groups.md).
+Eylem grupları hakkında daha fazla bilgi için bkz. nasıl [Eylem grupları oluşturma](monitoring-action-groups.md).
 
 ## <a name="authenticate-the-webhook"></a>Web kancası kimlik doğrulaması
-Web kancası kimlik doğrulaması için isteğe bağlı olarak belirteç tabanlı bir yetkilendirme kullanabilirsiniz. URI kaydedilir belirteci Kimliğine sahip, örneğin, Web kancası `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
+Web kancası, isteğe bağlı olarak kimlik doğrulaması için belirteç tabanlı yetkilendirme kullanabilirsiniz. URI kaydedildiğinde bir belirteç Kimliğiyle, örneğin, Web kancası `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
 
 ## <a name="payload-schema"></a>Yükü şeması
-POST işleminde yer alan JSON yükü yükü 's data.context.activityLog.eventSource alana göre farklılık gösterir.
+POST işlemi içinde yer alan JSON yükü yükü'nın data.context.activityLog.eventSource alanı göre farklılık gösterir.
 
 ### <a name="common"></a>Common
 ```json
@@ -124,43 +124,80 @@ POST işleminde yer alan JSON yükü yükü 's data.context.activityLog.eventSou
 }
 ```
 
-Belirli şeması hakkında ayrıntılı bilgi için hizmet sistem durumu bildirimi etkinlik günlüğü uyarıları görmek [hizmet durumu bildirimlerine](monitoring-service-notifications.md). Ayrıca, bilgi nasıl [mevcut sorun yönetimi çözümleriyle hizmet sistem durumu Web kancası bildirimleri yapılandırmak](../service-health/service-health-alert-webhook-guide.md).
+### <a name="resourcehealth"></a>ResourceHealth
+```json
+{
+    "schemaId": "Microsoft.Insights/activityLogs",
+    "data": {
+        "status": "Activated",
+        "context": {
+            "activityLog": {
+                "channels": "Admin, Operation",
+                "correlationId": "a1be61fd-37ur-ba05-b827-cb874708babf",
+                "eventSource": "ResourceHealth",
+                "eventTimestamp": "2018-09-04T23:09:03.343+00:00",
+                "eventDataId": "2b37e2d0-7bda-4de7-ur8c6-1447d02265b2",
+                "level": "Informational",
+                "operationName": "Microsoft.Resourcehealth/healthevent/Activated/action",
+                "operationId": "2b37e2d0-7bda-489f-81c6-1447d02265b2",
+                "properties": {
+                    "title": "Virtual Machine health status changed to unavailable",
+                    "details": "Virtual machine has experienced an unexpected event",
+                    "currentHealthStatus": "Unavailable",
+                    "previousHealthStatus": "Available",
+                    "type": "Downtime",
+                    "cause": "PlatformInitiated",
+                },
+                "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+                "resourceGroupName": "<resource group>",
+                "resourceProviderName": "Microsoft.Resourcehealth/healthevent/action",
+                "status": "Active",
+                "subscriptionId": "<subscription Id",
+                "submissionTimestamp": "2018-09-04T23:11:06.1607287+00:00",
+                "resourceType": "Microsoft.Compute/virtualMachines"
+            }
+        }
+    }
+}
+```
+
+Belirli şeması hakkında ayrıntılı bilgi için hizmet sistem durumu bildirimi etkinlik günlüğü uyarıları görmek [hizmet durumu bildirimlerini](monitoring-service-notifications.md). Ayrıca, bilgi nasıl [mevcut sorun yönetimi çözümleriyle hizmet sistem durumu Web kancası bildirimleri yapılandırma](../service-health/service-health-alert-webhook-guide.md).
 
 Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlüğü uyarıları görmek [Azure etkinlik günlüğü'ne genel bakış](monitoring-overview-activity-logs.md).
 
 | Öğe adı | Açıklama |
 | --- | --- |
-| durum |Ölçüm uyarılar için kullanılır. Her zaman "etkinlik günlüğü uyarıları için etkinleştirilmiş" olarak ayarlayın. |
-| bağlam |Olayın bağlamı. |
-| resourceProviderName |Etkilenen kaynağının kaynak sağlayıcısı. |
-| Koşul türü |Her zaman "olayını." |
+| durum |Ölçüm uyarıları için kullanılır. Her zaman "için etkinlik günlüğü uyarıları etkin" olarak ayarlayın. |
+| Bağlam |Olayın bağlamı. |
+| resourceProviderName |Etkilenen kaynak kaynak sağlayıcısı. |
+| Koşul türü |Her zaman "olay." |
 | ad |Uyarı kuralı adı. |
 | id |Uyarının kaynak kimliği. |
 | açıklama |Uyarı açıklaması uyarı oluşturulduğunda ayarlayın. |
 | subscriptionId |Azure abonelik kimliği |
-| timestamp |Olay istek işlenmeden Azure hizmeti tarafından oluşturulduğu saat. |
-| resourceId |Etkilenen kaynağının kaynak kimliği. |
-| resourceGroupName |Etkilenen kaynak kaynak grubu adı. |
-| properties |Kümesi `<Key, Value>` çiftleri (diğer bir deyişle, `Dictionary<String, String>`) olay ayrıntılarını içerir. |
+| timestamp |Olay isteği işleyen Azure hizmeti tarafından oluşturulduğu zaman. |
+| resourceId |Etkilenen kaynak kaynak kimliği. |
+| resourceGroupName |Etkilenen kaynak için kaynak grubunun adı. |
+| properties |Kümesi `<Key, Value>` çiftleri (diğer bir deyişle, `Dictionary<String, String>`), olay hakkındaki ayrıntıları içerir. |
 | event |Olay hakkında meta veriler içeren öğe. |
-| Yetkilendirme |Olay rol tabanlı erişim denetimi özellikleri. Bu özellikler, eylem, rolü ve kapsamı genellikle içerir. |
-| category |Olay kategorisi. Yönetim, uyarı, güvenlik, ServiceHealth ve öneri desteklenen değerler içerir. |
-| çağıran |İşlem, UPN Talebi veya kullanılabilirliğine göre SPN talep gerçekleştiren kullanıcı e-posta adresi. Belirli sistem çağrıları için null olabilir. |
-| correlationId |Genellikle bir GUID dize biçiminde. Correlationıd değeri olaylarla aynı büyük eyleme ait ve genellikle bir correlationıd değeri paylaşın. |
+| Yetkilendirme |Olay rol tabanlı erişim denetimi özellikleri. Bu özellikler genellikle eylemi, rolü ve kapsamı içerir. |
+| category |Olayın kategorisi. Desteklenen değerler, yönetim, uyarı, güvenlik, ServiceHealth ve öneri içerir. |
+| çağıran |İşlem, UPN Talebi veya SPN talep kullanılabilirliğine göre gerçekleştiren kullanıcının e-posta adresi. Belirli sistem çağrıları için null olabilir. |
+| correlationId |Genellikle bir GUID dize biçiminde. Correlationıd olaylarla aynı büyük eyleme ait ve genellikle bir Correlationıd paylaşın. |
 | eventDescription |Olay açıklaması statik metin. |
-| eventDataId |Olay için benzersiz tanımlayıcı. |
-| EventSource |Azure hizmet veya olayı oluşturan altyapı adı. |
-| httpRequest |İstek genellikle clientRequestId, clientIpAddress ve HTTP yöntemini içerir (örneğin, PUT). |
-| düzey |Aşağıdaki değerlerden birini: Kritik hata, uyarı ve bilgi. |
-| operationId |Tek bir işlem için karşılık gelen olayları arasında paylaşılan genellikle bir GUID. |
+| eventDataId |Olayın benzersiz tanımlayıcısı. |
+| EventSource |Azure hizmeti veya olayı oluşturan altyapı adı. |
+| HTTP isteği |İstek Clientrequestıd'ye clientIpAddress ve HTTP yöntemi genellikle içerir (örneğin, PUT). |
+| düzey |Aşağıdaki değerlerden biri: Kritik hata, uyarı ve bilgilendirici. |
+| operationId |Tek işlem için karşılık gelen olaylar arasında paylaşılan genellikle bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Olay Özellikleri. |
-| durum |Dize. İşlem durumu. Ortak değerleri başlatıldı, devam eden, başarılı, başarısız, etkin ve Çözümlenmiş içerir. |
-| alt durum |Genellikle, karşılık gelen REST çağrısı HTTP durum kodunu içerir. Ayrıca, bir alt durum açıklayan diğer dizeleri de içerebilir. Ortak substatus değerler Tamam (HTTP durum kodu: 200), oluşturulan (HTTP durum kodu: 201), kabul edilen (HTTP durum kodu: 202), Hayır içeriği (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400), bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409), iç sunucu hatası (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503) ve ağ geçidi zaman aşımı (HTTP durum kodu : 504). |
+| durum |dize. İşlemin durumu. Başlarken, sürüyor, başarılı, başarısız, etkin ve Çözümlenmiş ortak değerlerini içerir. |
+| alt durumu |Genellikle, karşılık gelen REST çağrısı HTTP durum kodunu içerir. Ayrıca, alt açıklayan diğer dizeleri de içerebilir. Ortak substatus değerler arasında Tamam (HTTP durum kodu: 200), oluşturulan (HTTP durum kodu: 201), kabul edilen (HTTP durum kodu: 202), içeriği yok (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400), bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409 ), İç sunucu hatası (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503) ve ağ geçidi zaman aşımı (HTTP durum kodu: 504). |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Etkinlik günlüğü hakkında daha fazla bilgi](monitoring-overview-activity-logs.md).
-* [Azure Otomasyon betikleri (Runbook'lar) Azure uyarılar yürütme](http://go.microsoft.com/fwlink/?LinkId=627081).
-* [Twilio aracılığıyla bir SMS gelen Azure uyarı göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Bu örnek için ölçüm uyarıları olmakla birlikte, bir etkinlik günlüğü uyarı ile çalışmak için değiştirilebilir.
-* [Bir Azure uyarıdan Slack ileti göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Bu örnek için ölçüm uyarıları olmakla birlikte, bir etkinlik günlüğü uyarı ile çalışmak için değiştirilebilir.
-* [Bir Azure uyarıdan bir Azure kuyruğuna ileti göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Bu örnek için ölçüm uyarıları olmakla birlikte, bir etkinlik günlüğü uyarı ile çalışmak için değiştirilebilir.
+* [Azure uyarılarını Azure Otomasyon betikleri (Runbook'lar) yürütme](http://go.microsoft.com/fwlink/?LinkId=627081).
+* [Azure bir uyarıdan Twilio aracılığıyla SMS göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Bu örnek için ölçüm uyarıları, ancak bir etkinlik günlüğü uyarısı ile çalışacak şekilde değiştirilebilir.
+* [Azure bir uyarıdan bir Slack iletisi göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Bu örnek için ölçüm uyarıları, ancak bir etkinlik günlüğü uyarısı ile çalışacak şekilde değiştirilebilir.
+* [Azure bir uyarıdan bir Azure kuyruğuna bir ileti göndermek için bir mantıksal uygulama kullanma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Bu örnek için ölçüm uyarıları, ancak bir etkinlik günlüğü uyarısı ile çalışacak şekilde değiştirilebilir.

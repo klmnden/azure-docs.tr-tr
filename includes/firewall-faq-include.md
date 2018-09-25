@@ -5,37 +5,35 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 8/13/2018
+ms.date: 9/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: a63a12658bd0a4b4d018d51824af9814691a3cbf
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 4c6aaea836302732b1af3d22923c965575cfc9d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40182255"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47020481"
 ---
 ### <a name="what-is-azure-firewall"></a>Azure Güvenlik Duvarı nedir?
 
-Azure Güvenlik Duvarı, Azure Sanal Ağ kaynaklarınızı koruyan yönetilen, bulut tabanlı bir güvenlik hizmetidir. Bir durum bilgisi olan tam olarak güvenlik duvarı olarak-hizmet ile yerleşik yüksek kullanılabilirlik ve ölçeklenebilirlik sınırsız bulut var. Aboneliklerle sanal ağlarda uygulama ve ağ bağlantısı ilkelerini merkezi olarak oluşturabilir, zorlayabilir ve günlüğe alabilirsiniz. Azure Güvenlik Duvarı şu anda genel Önizleme aşamasındadır.
+Azure Güvenlik Duvarı, Azure Sanal Ağ kaynaklarınızı koruyan yönetilen, bulut tabanlı bir güvenlik hizmetidir. Bir durum bilgisi olan tam olarak güvenlik duvarı olarak-hizmet ile yerleşik yüksek kullanılabilirlik ve ölçeklenebilirlik sınırsız bulut var. Aboneliklerle sanal ağlarda uygulama ve ağ bağlantısı ilkelerini merkezi olarak oluşturabilir, zorlayabilir ve günlüğe alabilirsiniz.
 
-### <a name="which-capabilities-are-supported-in-the-azure-firewall-public-preview-release"></a>Azure güvenlik duvarı genel Önizleme sürümünde hangi özellikler destekleniyor?  
+### <a name="what-capabilities-are-supported-in-azure-firewall"></a>Azure Güvenlik Duvarı'nda hangi özellikler destekleniyor?  
 
 * Hizmet olarak durum bilgisi olan güvenlik duvarı
 * Sınırsız bulut ölçeklenebilirliği içeren yerleşik yüksek kullanılabilirlik
-* FQDN filtreleme 
+* FQDN filtreleme
+* FQDN etiketleri
 * Ağ trafiği filtreleme kuralları
 * Giden SNAT desteği
-* Merkezi olarak oluşturma yeteneği zorlamak ve Azure abonelikleri ve sanal ağlar arasında bağlantı ilkeleri uygulama ve ağ oturum
-* Günlüğe kaydetme ve analiz için Azure İzleyici ile tam tümleştirme 
-
-### <a name="how-can-i-join-the-azure-firewall-public-preview"></a>Azure güvenlik duvarı genel önizlemeye nasıl birleştirebilir miyim?
-
-Azure Güvenlik Duvarı şu anda Register-AzureRmProviderFeature PowerShell komutunu kullanarak katılabilirsiniz yönetilen bir genel Önizleme aşamasındadır. Bu komut Azure güvenlik duvarı genel önizlemeye sunuldu belgelerinde açıklanmıştır.
+* Gelen dnat'ı destekler
+* Merkezi olarak oluşturma, zorlama ve Azure abonelikleri ve sanal ağlar arasında bağlantı ilkeleri uygulama ve ağ oturum
+* Günlüğe kaydetme ve analiz için tamamen tümleşik Azure İzleyici 
 
 ### <a name="what-is-the-pricing-for-azure-firewall"></a>Azure Güvenlik Duvarı için fiyatlandırma nedir?
 
-Azure Güvenlik Duvarı bir sabit ve değişken maliyeti vardır. Fiyatlar aşağıdaki gibidir ve genel Önizleme süresince % 50 daha fazla indirim uygulanır.
+Azure güvenlik duvarı sabit maliyete + değişken maliyet vardır:
 
 * Sabit Ücret: $1.25/firewall/hour
 * Değişken ücreti: (giriş veya çıkış) duvarıyla işlenen $0.03/ GB
@@ -59,7 +57,7 @@ Kural koleksiyonları iki tür vardır:
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure güvenlik duvarı, gelen trafiği filtreleme destekliyor mu?
 
-Azure güvenlik duvarı genel Önizleme, yalnızca giden filtrelemeyi destekler. HTTP/S olmayan protokolleri (örneğin, RDP, SSH veya FTP) için gelen koruma için Azure güvenlik duvarı büyüyecek kesin planlanan  
+Azure güvenlik duvarı, gelen ve giden filtrelemeyi destekler. HTTP/S dışındaki protokoller için gelen korumadır. Örneğin RDP, SSH ve FTP protokolleri.
  
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Günlüğe kaydetme ve Analiz Hizmetleri Azure güvenlik duvarı tarafından destekleniyor mu?
 
@@ -110,3 +108,11 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 * Azure merkez sanal ağ içinde çalıştırılan Güvenlik Duvarı'nın bir örneğini sanal ağ sınırlamaları, en fazla 50 uç sanal ağ eşlemesi var.  
 * Bölge başına en az bir güvenlik duvarı dağıtım olmalıdır böylece azure güvenlik duvarı genel eşleme ile çalışmaz.
 * Azure güvenlik duvarı, 10 k uygulama kuralları ve 10 bin ağ kurallarını destekler.
+
+### <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>Azure Güvenlik Duvarı bir hub sanal ağında İleri olabilir ve iki ağlı sanal ağlar arasındaki ağ trafiğini filtreleme?
+
+Evet, hub sanal ağında iki uç sanal ağ arasında yönlendirme ve filtreleme trafiği Azure Güvenlik Duvarı'nı kullanabilirsiniz. Her bağlı sanal ağlar, alt ağları düzgün çalışması için Azure Güvenlik Duvarı bu senaryo için bir varsayılan ağ geçidi olarak işaret eden UDR olması gerekir.
+
+### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>Azure güvenlik duvarı İleri yapabilirsiniz ve aynı sanal ağda alt ağlar arasındaki ağ trafiğini filtreleme?
+
+Varsayılan ağ geçidi olarak Azure güvenlik duvarı, UDR işaret bile aynı sanal ağda veya doğrudan eşlenmiş sanal ağdaki alt ağlar arasındaki trafiği doğrudan yönlendirilir. İç ağ kesimleme için önerilen yöntem, ağ güvenlik grupları kullanmaktır. Bu senaryoda bir güvenlik duvarı alt ağ için alt ağ trafiği göndermek için UDR her iki alt ağ üzerinde açıkça hedef alt ağ ön eki içermesi gerekir.

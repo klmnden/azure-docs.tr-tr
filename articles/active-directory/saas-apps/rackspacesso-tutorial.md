@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/20/2018
 ms.author: jeedes
-ms.openlocfilehash: e7a4dd57c7da3350e610b5f005aa59ea9d51dd56
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b825fb1d7f56aae923f6760c4fd6384e03274b7a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607790"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042066"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Öğretici: Azure Active Directory Rackspace SSO ile tümleştirme
 
@@ -49,12 +49,14 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 - Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
+
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden rackspace SSO ekleme
 2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-rackspace-sso-from-the-gallery"></a>Galeriden rackspace SSO ekleme
+
 Azure AD'de Rackspace SSO tümleştirmesini yapılandırmak için Rackspace SSO Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden rackspace SSO eklemek için aşağıdaki adımları gerçekleştirin:**
@@ -66,7 +68,7 @@ Azure AD'de Rackspace SSO tümleştirmesini yapılandırmak için Rackspace SSO 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
-    
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
@@ -100,7 +102,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açma iletişim kutusu](./media/rackspacesso-tutorial/tutorial_rackspacesso_samlbase.png)
 
 3. Üzerinde **Rackspace SSO etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
@@ -111,7 +113,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
 
 4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/rackspacesso-tutorial/tutorial_rackspacesso_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/rackspacesso-tutorial/tutorial_rackspacesso_certificate.png)
 
 5. Tıklayın **Kaydet** düğmesi.
 
@@ -150,16 +152,16 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="create-a-rackspace-sso-test-user"></a>Rackspace SSO test kullanıcısı oluşturma
 
-Bu bölümde, Rackspace SSO, Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Rackspace SSO Destek ekibine](https://support.rackspace.com/) Rackspace SSO platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde aşağıdakilerle çalışacaksınız [Rackspace SSO Destek ekibine](https://support.rackspace.com/) eklenecek hesabınızda Rackspace SSO platform.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Rackspace SSO için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200]
 
 **Britta Simon Rackspace SSO atamak için aşağıdaki adımları gerçekleştirin:**
 
@@ -184,7 +186,7 @@ Bu bölümde, Rackspace SSO için erişim izni verdiğinizde, Azure çoklu oturu
 6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
@@ -196,8 +198,6 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -212,4 +212,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/rackspacesso-tutorial/tutorial_general_201.png
 [202]: ./media/rackspacesso-tutorial/tutorial_general_202.png
 [203]: ./media/rackspacesso-tutorial/tutorial_general_203.png
-

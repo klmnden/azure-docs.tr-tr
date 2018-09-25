@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 57ad5541bb7b61f8d26002168bb069fad3058965
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5267ce5c50e8a57843f0bc54165289b38013ad91
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339084"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986124"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Bir ağ yapılandırma dosyası kullanarak bir sanal ağ (Klasik) yapılandırma
 > [!IMPORTANT]
 > Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bu makale klasik dağıtım modelini incelemektedir. Microsoft, en yeni dağıtımların Resource Manager dağıtım modelini kullanmasını önerir.
 
-Oluşturun ve bir ağ yapılandırma dosyası Azure komut satırı arabirimi (CLI) 1.0 veya Azure PowerShell kullanarak sanal ağ (Klasik) yapılandırma. Oluşturamaz veya bir sanal ağ bir ağ yapılandırma dosyasını kullanarak Azure Resource Manager dağıtım modeliyle değiştirin. Azure portalı, bir ağ yapılandırma dosyası kullanmadan oluşturmak veya bir sanal ağ (Klasik) oluşturmak için Azure portalını kullanabilirsiniz ancak bir ağ yapılandırma dosyası kullanarak bir sanal ağ (Klasik) değiştirmek için kullanamazsınız.
+Oluşturun ve bir ağ yapılandırma dosyası Klasik Azure komut satırı arabirimi (CLI) veya Azure PowerShell kullanarak sanal ağ (Klasik) yapılandırma. Oluşturamaz veya bir sanal ağ bir ağ yapılandırma dosyasını kullanarak Azure Resource Manager dağıtım modeliyle değiştirin. Azure portalı, bir ağ yapılandırma dosyası kullanmadan oluşturmak veya bir sanal ağ (Klasik) oluşturmak için Azure portalını kullanabilirsiniz ancak bir ağ yapılandırma dosyası kullanarak bir sanal ağ (Klasik) değiştirmek için kullanamazsınız.
 
 Oluşturma ve bir ağ yapılandırma dosyası ile bir sanal ağ (Klasik) yapılandırma dosyasını içeri dışarı aktarma ve değiştirme gerektirir.
 
 ## <a name="export"></a>Bir ağ yapılandırma dosyasını dışarı aktar
 
-Bir ağ yapılandırma dosyasını dışarı aktarmak için PowerShell veya Azure CLI'yı kullanabilirsiniz. PowerShell, Azure CLI'yı bir json dosyası verirken bir XML dosyasına dışarı aktarır.
+Bir ağ yapılandırma dosyasını dışarı aktarmak için PowerShell veya Azure Klasik CLI'yı kullanabilirsiniz. PowerShell, Azure Klasik CLI bir json dosyası verirken bir XML dosyasına dışarı aktarır.
 
 ### <a name="powershell"></a>PowerShell
  
@@ -44,9 +44,9 @@ Bir ağ yapılandırma dosyasını dışarı aktarmak için PowerShell veya Azur
     Get-AzureVNetConfig -ExportToFile c:\azure\networkconfig.xml
     ```
 
-### <a name="azure-cli-10"></a>Azure CLI 1.0
+### <a name="azure-classic-cli"></a>Klasik Azure CLI
 
-1. [Azure CLI 1.0 yükleme](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure CLI 1.0 komut isteminden kalan adımları tamamlayın.
+1. [Klasik Azure CLI yükleme](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Klasik CLI komut isteminde kalan adımları tamamlayın.
 2. Azure'da girerek oturum açma `azure login` komutu.
 3. Asm moduna girerek emin olun `azure config mode asm` komutu.
 4. Dizini değiştirmek (ve onu var olduğundan emin olun) ve aşağıdaki komutu istenen dosya ardından ağ yapılandırma dosyasını dışarı aktarmak için komutu çalıştırın:
@@ -57,7 +57,7 @@ Bir ağ yapılandırma dosyasını dışarı aktarmak için PowerShell veya Azur
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Bir ağ yapılandırma dosyasını oluşturun veya değiştirin
 
-Bir ağ yapılandırma (PowerShell kullanırken) bir XML dosyasına veya bir json dosyası (Azure CLI'yı kullanırken) dosyasıdır. Tüm metin veya XML/json düzenleyicide dosyayı düzenleyebilirsiniz. [Ağ yapılandırma dosyası şeması ayarları](https://msdn.microsoft.com/library/azure/jj157100.aspx) makale tüm ayarlarının ayrıntılarını içerir. Ayarları ek açıklaması için bkz: [sanal ağlar ve ayarları görüntüleme](manage-virtual-network.md#view-virtual-networks-and-settings). Dosyaya yaptığınız değişiklikler:
+Bir ağ yapılandırma (PowerShell kullanırken) bir XML dosyasına veya bir json dosyası (Klasik CLI'yı kullanırken) dosyasıdır. Tüm metin veya XML/json düzenleyicide dosyayı düzenleyebilirsiniz. [Ağ yapılandırma dosyası şeması ayarları](https://msdn.microsoft.com/library/azure/jj157100.aspx) makale tüm ayarlarının ayrıntılarını içerir. Ayarları ek açıklaması için bkz: [sanal ağlar ve ayarları görüntüleme](manage-virtual-network.md#view-virtual-networks-and-settings). Dosyaya yaptığınız değişiklikler:
 
 - Şema veya ağ yapılandırma dosyasını başarısız olur alma ile uyumlu olmalıdır.
 - Aboneliğiniz için var olan tüm ağ ayarlarının üzerine, bu nedenle değişiklikler yaparken dikkatli. Örneğin, aşağıdaki örnek ağ yapılandırma dosyalarını başvuru. Söyleyin özgün dosya bulunan iki **VirtualNetworkSite** örnekleri ve değiştirildi, örnekte gösterildiği gibi. Dosyayı içeri aktardığınızda, Azure sanal ağ için siler **VirtualNetworkSite** örneği dosyasında kaldırıldı. Kaynak sanal ağında olan Basitleştirilmiş bu senaryo varsayar yokmuş gibi sanal ağ silinemedi ve içeri aktarma başarısız olur.
@@ -92,7 +92,7 @@ Aşağıdaki örnek ağ yapılandırma dosyası adlı bir sanal ağ oluşturur *
 
 Ağ yapılandırma dosyasını dışarı aktardığınız hiç içerik içeriyorsa, önceki örnekte XML'ini kopyalayın ve yeni bir dosyaya yapıştırın.
 
-### <a name="example-json-for-use-with-the-azure-cli-10"></a>Azure CLI 1.0 ile kullanmak için örnek JSON
+### <a name="example-json-for-use-with-the-classic-cli"></a>Örnek JSON Klasik CLI ile kullanmak için
 
 Aşağıdaki örnek ağ yapılandırma dosyası adlı bir sanal ağ oluşturur *myVirtualNetwork* bir adres alanı ile *10.0.0.0/16* içinde *Doğu ABD* Azure bölge. Sanal ağ adlı bir alt ağ içeren *mySubnet* bir adres ön eki ile *10.0.0.0/24*.
 
@@ -121,7 +121,7 @@ Ağ yapılandırma dosyasını dışarı aktardığınız hiç içerik içeriyor
 
 ## <a name="import"></a>Bir ağ yapılandırma dosyasını içe aktarın
 
-Bir ağ yapılandırma dosyasını içeri aktarmak için PowerShell veya Azure CLI'yı kullanabilirsiniz. PowerShell, Azure CLI'yı bir json dosyası içeri aktarırken bir XML dosyasını içeri aktarır. İçeri aktarma başarısız olursa, dosyanın uygun onaylayın [ağ yapılandırma şeması](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
+Bir ağ yapılandırma dosyasını içeri aktarmak için PowerShell veya Klasik CLI'yı kullanabilirsiniz. PowerShell Klasik CLI bir json dosyası içeri aktarırken bir XML dosyasını içeri aktarır. İçeri aktarma başarısız olursa, dosyanın uygun onaylayın [ağ yapılandırma şeması](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
 ### <a name="powershell"></a>PowerShell
  
@@ -132,9 +132,9 @@ Bir ağ yapılandırma dosyasını içeri aktarmak için PowerShell veya Azure C
     Set-AzureVNetConfig  -ConfigurationPath c:\azure\networkconfig.xml
     ```
 
-### <a name="azure-cli-10"></a>Azure CLI 1.0
+### <a name="azure-classic-cli"></a>Klasik Azure CLI
 
-1. [Azure CLI 1.0 yükleme](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure CLI 1.0 komut isteminden kalan adımları tamamlayın.
+1. [Klasik Azure CLI yükleme](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Klasik CLI komut isteminde kalan adımları tamamlayın.
 2. Azure'da girerek oturum açma `azure login` komutu.
 3. Asm moduna girerek emin olun `azure config mode asm` komutu.
 4. Ardından ağ yapılandırma dosyasını içeri aktarma komutu çalıştırın dizin ve dosya adı olduğu aşağıdaki komutta değiştirin:

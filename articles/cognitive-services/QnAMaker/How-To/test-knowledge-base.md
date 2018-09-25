@@ -3,19 +3,19 @@ title: Bilgi Bankası - soru-cevap Oluşturucu test etme
 titlesuffix: Azure Cognitive Services
 description: Soru-cevap Oluşturucu bankanızı test etme, verilen yanıtları doğruluğunu artırmak için bir süreçtir önemli bir parçasıdır. Bilgi Bankası düzenlemeler yapmak da sağlayan gelişmiş sohbet arabiriminden test edebilirsiniz.
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: saneppal
-ms.openlocfilehash: d2b93e62513f256e151d3ab3b34d6dc6d9a49d79
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.author: tulasim
+ms.openlocfilehash: 6ce3fc774d23914ab150e1dc1371391fc9fc548b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542625"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034394"
 ---
 # <a name="test-your-knowledge-base"></a>Bilgi bankanızı test
 

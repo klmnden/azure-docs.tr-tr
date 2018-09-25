@@ -1,22 +1,23 @@
 ---
 title: Çok kiracılı SaaS düzenlerinin - Azure SQL veritabanı | Microsoft Docs
 description: Gereksinimler ve ortak veri mimarisi düzenlerine ilişkin çok kiracılı yazılım Azure bulut ortamında çalışan bir hizmet (SaaS) veritabanı uygulamaları olarak öğrenin.
-keywords: sql veritabanı öğreticisi
 services: sql-database
-author: billgib
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib, sstein
+manager: craigg
 ms.date: 09/14/2018
-ms.reviewer: genemi
-ms.author: billgib
-ms.openlocfilehash: 5b50ba11f2af19d81d9dea2f28295e34a6a5ecb9
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b9009452ada6ebfb7626532b1fac406563704ef3
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985033"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056698"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Çok kiracılı SaaS veritabanı kiracılı desenleri
 

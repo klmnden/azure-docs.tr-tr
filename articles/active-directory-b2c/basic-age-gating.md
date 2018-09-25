@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9d24e37642a41e4d60b33f42a60d7e56cb4b35b5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9a9a86d445deaea4872615f443ad53f76638a758
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446733"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056531"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Azure AD B2C'de geçerlilik süresi geçişi kullanma
 
 >[!IMPORTANT]
->Bu özellik, özel Önizleme aşamasındadır.  Lütfen bkz. bizim [service blog](https://blogs.msdn.microsoft.com/azureadb2c/) olarak bu Ayrıntılar için kullanılabilir veya kişi olur AADB2CFeedback@microsoft.com.  Üretim dizinleri kullanmayın, bu yeni özellikleri kullanarak veri kaybına neden olabilir ve olabilir ki genel kullanıma oluncaya kadar davranış beklenmeyen değişiklikleri.  
+>Bu özellik, özel Önizleme aşamasındadır.  Lütfen bkz. bizim [service blog](https://blogs.msdn.microsoft.com/azureadb2c/) olarak bu Ayrıntılar için kullanılabilir veya kişi olur AADB2CPreview@microsoft.com.  Üretim dizinleri kullanmayın, bu yeni özellikleri kullanarak veri kaybına neden olabilir ve olabilir ki genel kullanıma oluncaya kadar davranış beklenmeyen değişiklikleri.  
 >
 
 ##<a name="age-gating"></a>Yaş geçidi
@@ -56,13 +56,3 @@ Yukarı ya da oturum izin, oturum ve kullanıcı akışları veya her ikisi içi
 Yukarı ya da oturum izin, oturum ve kullanıcı akışları veya her ikisi için reşit olmayanların uygulamadan onayınız olmadan engellemeyi seçebilirsiniz.  Engellenen kullanıcılar Azure AD B2C'yi işlemek için iki seçenek vardır:
 * Uygulamaya bir JSON gönder - Bu seçenek bir ikincil engellenen uygulama geri yanıt gönderir.
 * Bir hata sayfası - kullanıcının uygulama erişemeyeceklerini bildiren bir sayfası gösterilecek Göster
-
-##<a name="known-issues"></a>Bilinen sorunlar
-###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Küçük engellendiğinde, yanıt biçimi.
-Yanıt şu anda doğru şekilde biçimlendirilmemiş, gelecek bir güncelleştirmede bu hatayı ele alınacaktır.
-
-###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>Kurulum sırasında eklenen özel öznitelikler silme dizininize yaş geçidi kullanamaz hale getirebilirsiniz.
-Kurulum yaş geçidi için dizin seçeneği ile yapılandırılan, `Properties`.  Ya da silerseniz `legalCountry` veya `dateOfBirth` Graph dizin artık yaş geçidi kullanabilirsiniz ve bu özellikleri yeniden oluşturulamıyor.
-
-###<a name="list-of-countries-is-incomplete"></a>Ülkelerin listesi eksik
-Şu anda için legalCountry ülkelerin listesi tam değil, gelecek bir güncelleştirmede ülkelerde rest ekleyeceğiz.

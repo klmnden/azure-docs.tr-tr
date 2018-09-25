@@ -1,6 +1,6 @@
 ---
-title: Yeni Azure İzleyici ölçüm uyarıları için desteklenen kaynaklar
-description: Destek Ölçümler ve yeni Azure gerçek zamanlıya yakın ölçüm uyarıları için günlükleri başvurusu.
+title: Azure İzleyici ölçüm uyarılarını kaynakları desteklenir
+description: Destek ölçümlerini ve günlüklerini Azure İzleyici ölçüm uyarılarını başvurusu
 author: snehithm
 services: monitoring
 ms.service: azure-monitor
@@ -8,17 +8,18 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 019f245a7cc1feedcbd520c336f53a60ed1e9ddc
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 102f087f31aa304aaaee49e0e39ff8c6874127b4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579098"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966809"
 ---
-# <a name="supported-resources-for-newer-azure-monitor-metric-alerts"></a>Yeni Azure İzleyici ölçüm uyarıları için desteklenen kaynaklar
-Azure İzleyicisi'ni destekler bir [yeni ölçüm uyarı türü](monitoring-overview-unified-alerts.md) olduğu önemli avantajlar eski [Klasik ölçüm uyarıları](insights-alerts-portal.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Yeni uyarılarda kaynak türlerini (artan) kümesini destekler. Bu makalede, bu alt listeler. 
+# <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure İzleyici ölçüm uyarılarını kaynakları desteklenir
 
-Yeni ölçüm uyarılarının ölçümleriniz ölçümler (Önizleme) günlüklerinden bir parçası olarak ayıklanan popüler Log Analytics günlükleri üzerinde de uygulayabilirsiniz  
+Azure İzleyicisi'ni destekler bir [yeni ölçüm uyarı türü](monitoring-overview-unified-alerts.md) olduğu önemli avantajlar eski [Klasik ölçüm uyarıları](insights-alerts-portal.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Yeni uyarılarda kaynak türlerini (artan) kümesini destekler. Bu makalede, bu alt listeler.
+
+Yeni ölçüm uyarılarının ölçümleriniz günlüklerinden ölçümleri bir parçası olarak ayıklanan popüler Log Analytics günlükleri üzerinde de uygulayabilirsiniz 
 - [Performans sayaçları](../log-analytics/log-analytics-data-sources-performance-counters.md) Windows ve Linux makineler için
 - [Aracı sistem durumu sinyal kayıtları](../operations-management-suite/oms-solution-agenthealth.md)
 - [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md) kayıtları
@@ -28,7 +29,7 @@ Yeni ölçüm uyarılarının ölçümleriniz ölçümler (Önizleme) günlükle
 > Özel ölçüm ve/veya boyut yalnızca veriler için seçilen süre içinde olup olmadığını gösterilir. Bu ölçümler, Azure Log Analytics çalışma alanlarında Doğu ABD, Batı Orta ABD ve Batı Avrupa sahip müşteriler için kullanılabilir. Log Analytics ölçümleri şu anda genel Önizleme aşamasındadır ve dedir aşamasındadır.
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, destek PowerShell, CLI, REST
-Şu anda yalnızca Azure portalında yeni ölçüm uyarılarının oluşturabilirsiniz [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) veya [Resource Manager şablonları](monitoring-create-metric-alerts-with-templates.md). PowerShell ve Azure komut satırı arabirimi (Azure CLI 2.0) kullanarak yeni uyarılar yapılandırma desteği yakında sunulacaktır.
+Şu anda yalnızca Azure portalında yeni ölçüm uyarılarının oluşturabilirsiniz [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) veya [Resource Manager şablonları](monitoring-create-metric-alerts-with-templates.md). PowerShell ve Azure CLI Sürüm 2.0 ve daha yüksek kullanarak yeni uyarılar yapılandırma desteği yakında sunulacaktır.
 
 ## <a name="metrics-and-dimensions-supported"></a>Ölçümler ve desteklenen boyutlar
 Yeni ölçüm uyarılarının boyutlar kullanmak için ölçümleri uyarı destekler. Ölçümünüzün doğru düzeyine filtrelemek için boyutları kullanabilirsiniz. Geçerli boyut yanı sıra tüm desteklenen ölçümler incelediniz ve gelen görselleştirilmiş [Azure İzleyici - ölçüm Gezgini (Önizleme)](monitoring-metric-charts.md).
@@ -66,7 +67,9 @@ Yeni uyarıları ile desteklenen Azure İzleyici ölçüm kaynağı tam listesi 
 |Microsoft.Storage/storageAccounts/services     |     Evet    | [BLOB Hizmetleri](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Dosya Hizmetleri](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [kuyruk Hizmetleri](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) ve [Tablo Hizmetleri](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  Yok       | [Akış Analizi](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 | Microsoft.Web/serverfarms | Evet | [App Service planları](monitoring-supported-metrics.md#microsoftwebserverfarms)  |
-|Microsoft.OperationalInsights/workspaces (Önizleme) | Evet|[Log Analytics çalışma alanları](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
+| Microsoft.Web/sites | Evet | [Uygulama Hizmetleri](monitoring-supported-metrics.md#microsoftwebsites-excluding-functions) ve [işlevleri](monitoring-supported-metrics.md#microsoftwebsites-functions)|
+| Microsoft.Web/sites/slots | Evet | [App Service yuvası](monitoring-supported-metrics.md#microsoftwebsitesslots)|
+|Microsoft.OperationalInsights/workspaces| Evet|[Log Analytics çalışma alanları](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
 
 
 

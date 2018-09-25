@@ -1,6 +1,6 @@
 ---
-title: 'Bir sanal ağ için bir expressroute bağlantı: CLI: Azure | Microsoft Docs'
-description: Bu belge, CLI ve Resource Manager dağıtım modeli kullanarak, ExpressRoute bağlantı hatları için sanal ağlar (Vnet'ler) bağlamak nasıl bir genel bakış sağlar.
+title: 'Bir sanal ağı ExpressRoute devresine bağlama: CLI: Azure | Microsoft Docs'
+description: Bu belge, CLI ve Resource Manager dağıtım modeli kullanarak ExpressRoute devresine bağlama sanal ağları (Vnet) genel bakış sağlar.
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: 5e8d1739aa3d7f5be6c6450edcad43bc83db71fb
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8e896b70d0da143151d57b45e62a5c14d4d4e3b0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29875411"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969612"
 ---
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI kullanarak bir expressroute bağlantı hattı için bir sanal ağa bağlanma
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI kullanarak bir ExpressRoute bağlantı hattına bir sanal ağı bağlama
 
-Bu makale, CLI kullanarak Azure ExpressRoute bağlantı hatları için sanal ağlar (Vnet'ler) bağlantı yardımcı olur. Azure CLI kullanarak bağlamak için sanal ağlar Resource Manager dağıtım modeli kullanılarak oluşturulmuş olması gerekir. Bunlar aynı abonelik veya başka bir abonelik parçası olabilir. Bir expressroute bağlantı hattı ağınıza bağlanmak için farklı bir yöntem kullanmak istiyorsanız, aşağıdaki listeden bir makale seçebilirsiniz:
+Bu makalede, sanal ağlar (Vnet'ler) bağlantı CLI kullanarak Azure ExpressRoute bağlantı hatları için yardımcı olur. Azure CLI kullanarak bağlamak için sanal ağları Resource Manager dağıtım modeli kullanılarak oluşturulmuş olması gerekir. Bunlar aynı abonelik veya başka bir abonelik parçası olabilir. Bir ExpressRoute bağlantı hattı için sanal ağınıza bağlanmak için farklı bir yöntem kullanmak istiyorsanız, aşağıdaki listeden bir makale seçebilirsiniz:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -36,25 +36,25 @@ Bu makale, CLI kullanarak Azure ExpressRoute bağlantı hatları için sanal ağ
 
 ## <a name="configuration-prerequisites"></a>Yapılandırma önkoşulları
 
-* Komut satırı arabirimi (CLI) en son sürümünü gerekir. Daha fazla bilgi için bkz: [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Komut satırı arabirimi (CLI) en son sürümü gerekir. Daha fazla bilgi için [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-* Gözden geçirmeniz gereken [Önkoşullar](expressroute-prerequisites.md), [yönlendirme gereksinimleri](expressroute-routing.md), ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
+* Gözden geçirmeniz gereken [önkoşulları](expressroute-prerequisites.md), [yönlendirme gereksinimleri](expressroute-routing.md), ve [iş akışları](expressroute-workflows.md) yapılandırmaya başlamadan önce.
 
 * Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. 
-  * Yönergeleri izleyerek [bir expressroute bağlantı hattı oluşturma](howto-circuit-cli.md) ve bağlantı sağlayıcınız tarafından etkinleştirilmiş hattı sahip. 
-  * Bağlantı hattınız için yapılandırılmış Azure özel eşleme olduğundan emin olun. Bkz: [yönlendirmeyi yapılandırma](howto-routing-cli.md) yönlendirme yönergeleri için makalenin. 
-  * Azure özel eşleme yapılandırıldığından emin olun. Uçtan uca bağlantı etkinleştirebilmeniz için ağınız ve Microsoft arasında eşleme BGP yukarı olması gerekir.
-  * Bir sanal ağ ve oluşturulan ve tam olarak sağlanan bir sanal ağ geçidi olduğundan emin olun. Yönergeleri izleyerek [ExpressRoute için bir sanal ağ geçidi yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Kullandığınızdan emin olun `--gateway-type ExpressRoute`.
+  * Yönergelerini izleyin [ExpressRoute devresi oluşturma](howto-circuit-cli.md) ve bağlantı hattı, bağlantı sağlayıcı tarafından etkin. 
+  * Bağlantı hattınız için yapılandırılmış Azure özel eşleme olduğundan emin olun. Bkz: [yönlendirmeyi yapılandırma](howto-routing-cli.md) makale için yönlendirme yönergeleri. 
+  * Azure özel eşdüzey hizmet sağlama yapılandırıldığından emin olun. Böylece uçtan uca bağlantıyı etkinleştirmek BGP ağınız ile Microsoft arasında eşleme ayarlama olması gerekir.
+  * Bir sanal ağ ve oluşturulan ve tam olarak sağlanan sanal ağ geçidi olduğundan emin olun. Yönergelerini izleyin [ExpressRoute için sanal ağ geçidi yapılandırma](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Kullandığınızdan emin olun `--gateway-type ExpressRoute`.
 
-* Standart bir expressroute bağlantı hattı için en fazla 10 sanal ağlara bağlantı oluşturabilirsiniz. Tüm sanal ağları, standart bir expressroute bağlantı hattını kullanırken aynı coğrafi bölgede olması gerekir. 
+* Standart bir ExpressRoute bağlantı hattı için en fazla 10 sanal ağlara bağlayabilirsiniz. Tüm sanal ağları, standart bir ExpressRoute bağlantı hattını kullanırken aynı jeopolitik bölgede olması gerekir. 
 
-* En fazla dört ExpressRoute bağlantı hatları için tek bir sanal ağa bağlanabilir. Bağlanmakta olduğunuz her expressroute bağlantı hattı için yeni bir bağlantı nesnesi oluşturmak için aşağıdaki işlemi kullanın. Expressroute bağlantı hatları aynı abonelik, farklı Aboneliklerde veya her ikisinin bir karışımı olabilir.
+* En fazla dört ExpressRoute bağlantı hatları için tek bir sanal ağa bağlanabilir. Bağlanmakta olduğunuz her bir ExpressRoute bağlantı hattı için yeni bir bağlantı nesnesi oluşturmak için aşağıdaki işlemi kullanın. ExpressRoute bağlantı hatları, aynı abonelik, farklı Aboneliklerde veya her ikisinin bir karışımı olabilir.
 
-* ExpressRoute premium eklentisi etkinleştirirseniz, bir sanal ağ expressroute bağlantı hattı coğrafi bölge dışında bağlantı ya da çok sayıda sanal ağlar, ExpressRoute devreme bağlayabilir. Premium eklentisi hakkında daha fazla bilgi için bkz: [SSS](expressroute-faqs.md).
+* ExpressRoute premium eklentisi etkinleştirirseniz, bir sanal ağ ExpressRoute bağlantı hattının coğrafi bölge dışında bağlama veya çok sayıda sanal ağları ExpressRoute devreniz bağlanın. Premium eklenti hakkında daha fazla bilgi için bkz: [SSS](expressroute-faqs.md).
 
-## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Bir sanal ağ ile aynı abonelikte bir devreye bağlanmak
+## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Bir sanal ağ ile aynı abonelikte devreye bağlama
 
-Bir expressroute bağlantı hattı için bir sanal ağ geçidi örneğini kullanarak bağlanabilir. Sanal ağ geçidi oluşturulur ve komutu çalıştırmadan önce bağlama için hazır olduğundan emin olun.
+Örnek kullanarak ExpressRoute bağlantı hattına bir sanal ağ geçidine bağlanabilir. Sanal ağ geçidi oluşturulur ve komutu çalıştırmadan önce bağlama için hazır olduğundan emin olun.
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
@@ -62,36 +62,36 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Farklı abonelikteki bir sanal ağı devreye bağlama
 
-Bir expressroute bağlantı hattı birden çok abonelik paylaşabilirsiniz. Aşağıdaki şekilde arasında birden çok abonelik basit bir ExpressRoute bağlantı hatları için nasıl paylaşım works'ün şematik gösterilmektedir.
+Bir ExpressRoute bağlantı hattı birden çok farklı abonelikler arasında paylaşabilirsiniz. Aşağıdaki şekilde basit bir ExpressRoute bağlantı hatları için nasıl paylaşım Works şematik, birden fazla aboneliği analiz gösterilmektedir.
 
-Her büyük bulut içinde daha küçük bulut, kuruluş içindeki farklı departmanlara ait abonelikleri temsil etmek için kullanılır. Her kuruluş içinde bölümlerin dağıtmak için kendi hizmetlerini--ancak kendi aboneliği kullanabilirsiniz, şirket içi ağınıza bağlanmak için tek bir expressroute bağlantı hattı paylaşabilirsiniz. Tek bir bölüm (Bu örnekte: BT) expressroute bağlantı hattına sahip olabilir. Kuruluştaki diğer abonelikler expressroute bağlantı hattı kullanabilirsiniz.
+Her küçük bulutların büyük bulut içinde bir kuruluştaki farklı departmanlara ait abonelikleri temsil etmek için kullanılır. Her kuruluş içindeki bölümlerin dağıtmak için kendi hizmetlerini--ancak kendi aboneliğini kullanabilirsiniz, şirket içi ağınıza bağlanmak için tek bir ExpressRoute bağlantı hattı paylaşabilirsiniz. Tek bir bölüm (Bu örnekte: BT) ExpressRoute bağlantı hattına sahip olabilir. Kuruluştaki diğer abonelikler, ExpressRoute bağlantı hattı kullanabilirsiniz.
 
 > [!NOTE]
-> Bağlantı ve bant genişliği ücretleri ayrılmış bağlantı hattı için ExpressRoute bağlantı hattı sahibine uygulanır. Tüm sanal ağları aynı bant genişliğini paylaşır.
+> ExpressRoute bağlantı hattı sahibinden için adanmış bir bağlantı hattı için bağlantı ve bant genişliği ücretleri uygulanır. Tüm sanal ağları, aynı bant genişliğini paylaşır.
 > 
 > 
 
 ![Çapraz abonelik bağlantısı](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
-### <a name="administration---circuit-owners-and-circuit-users"></a>Yönetim - hattı sahipleri ve hattı kullanıcılar
+### <a name="administration---circuit-owners-and-circuit-users"></a>Yönetim - bağlantı hattı sahibi ve bağlantı hattı kullanıcıları
 
-'Devre sahibinden' ExpressRoute bağlantı hattı kaynak yetkili bir güç kullanıcısıdır. Devre sahibinden 'hattı kullanıcılar tarafından kullanılan yetkilerini oluşturabilirsiniz. Bağlantı hattı, expressroute bağlantı hattı aynı abonelik içinde olmayan sanal ağ geçitlerini sahipleri kullanıcılardır. Bağlantı hattı kullanıcıların yetkilerini (sanal ağ başına bir yetkilendirme) kullanmak.
+'Bağlantı hattı sahibinden' ExpressRoute bağlantı hattı kaynak yetkili bir güç kullanıcıdır. Bağlantı hattı sahibinden 'bağlantı hattı kullanıcılar tarafından ödenebilecek yetkilendirmeleri oluşturabilirsiniz. ExpressRoute bağlantı hattı aynı abonelik içinde olmayan sanal ağ geçitleri sahipleri bağlantı hattını kullanıcılardır. Devre kullanıcılarının, yetkilendirmeleri (sanal ağ başına bir yetkilendirme) kullanmak.
 
-Devre sahibinden yetkilerini herhangi bir zamanda iptal etme ve değiştirmek için power sahiptir. Bir yetkilendirme iptal edildiğinde, tüm bağlantı erişimini iptal edildi abonelikten silinir.
+Bağlantı hattı sahibinden yetkilendirme dilediğiniz zaman iptal et ve değiştirmek için gücüne sahiptir. Bir yetkilendirme iptal edildiğinde, tüm bağlantı erişimini iptal edildi abonelikten silinir.
 
-### <a name="circuit-owner-operations"></a>Sahip işlem hattı
+### <a name="circuit-owner-operations"></a>Bağlantı hattı sahibi işlemleri
 
 **Bir yetkilendirme oluşturmak için**
 
-Devre sahibinden devre kullanıcı tarafından kendi sanal ağ geçitlerini expressroute bağlantı hattına bağlanmak için kullanılan bir yetkilendirme anahtarı oluşturur bir yetkilendirme oluşturur. Bir yetkilendirme yalnızca bir bağlantı için geçerli değil.
+Bağlantı hattı sahibinden bağlantı hattı kullanıcı tarafından ExpressRoute bağlantı hattına kendi sanal ağ geçitlerine bağlanmak için kullanılan bir yetkilendirme anahtarı oluşturur bir yetkilendirme oluşturur. Bir yetkilendirme yalnızca bir bağlantı için geçerli değil.
 
-Aşağıdaki örnekte bir yetkilendirme oluşturulacağını gösterir:
+Aşağıdaki örnek, bir yetkilendirme oluşturma işlemi gösterilmektedir:
 
 ```azurecli
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization
 ```
 
-Yanıt, durum ve yetkilendirme anahtar içerir:
+Yanıt, durum ve yetkilendirme anahtarını içerir:
 
 ```azurecli
 "authorizationKey": "0a7f3020-541f-4b4b-844a-5fb43472e3d7",
@@ -103,25 +103,25 @@ Yanıt, durum ve yetkilendirme anahtar içerir:
 "resourceGroup": "ExpressRouteResourceGroup"
 ```
 
-**Yetkilerini gözden geçirmek için**
+**Yetkilendirmeleri gözden geçirmek için**
 
-Devre sahibinden aşağıdaki örnekte çalıştırarak belirli bir bağlantı hattı üzerinde verilen tüm yetkilerini gözden geçirebilirsiniz:
+Bağlantı hattı sahibinden belirli bir bağlantı hattı üzerinde aşağıdaki örneği çalıştırmadan tarafından verilen tüm yetkilendirmeleri gözden geçirebilirsiniz:
 
 ```azurecli
 az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResourceGroup
 ```
 
-**Yetkilerini eklemek için**
+**Yetkilendirmeleri eklemek için**
 
-Devre sahibinden yetkilerini aşağıdaki örneği kullanarak ekleyebilirsiniz:
+Bağlantı hattı sahibinden yetkilendirme, aşağıdaki örneği kullanarak ekleyebilirsiniz:
 
 ```azurecli
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
 ```
 
-**Yetkilerini silmek için**
+**Yetkilendirmeleri silmek için**
 
-Devre sahibinden revoke/yetkilerini kullanıcıya aşağıdaki örnekte çalıştırarak silme:
+Bağlantı hattı sahibinden iptal etme/yetkilendirmeleri kullanıcıya aşağıdaki örnekte çalıştırarak ya da silebilir:
 
 ```azurecli
 az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
@@ -129,23 +129,23 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 
 ### <a name="circuit-user-operations"></a>Bağlantı hattı kullanıcı işlemleri
 
-Bağlantı hattı kullanıcı eş kimliği ve devre sahibinden yetkilendirme anahtarından gerekir. Yetkilendirme anahtarının bir GUID değeridir.
+Bağlantı hattı kullanıcısı eş kimliği ve bağlantı hattı sahibinden yetkilendirme anahtarı gerekir. Yetkilendirme anahtarı bir GUID'dir.
 
 ```azurecli
 Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
-**Bir bağlantı yetkilendirme kullanmak için**
+**Bağlantı Yetkilendirme kullanmak için**
 
-Bağlantı hattı kullanıcı bağlantısı yetkilendirme kullanmak için aşağıdaki örnekte çalıştırabilirsiniz:
+Bağlantı hattı kullanıcısı bağlantı yetkilendirme kullanmak için aşağıdaki örnek çalıştırabilirsiniz:
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit --authorization-key "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ```
 
-**Bir bağlantı yetkilendirme serbest bırakmak için**
+**Bağlantı Yetkilendirme serbest bırakmak için**
 
-Bir yetkilendirme bağlanan sanal ağ expressroute bağlantı hattı bağlantı silerek serbest bırakabilirsiniz.
+Sanal ağı ExpressRoute bağlantı hattına bağlayan bağlantı silerek bir yetkilendirme serbest bırakabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

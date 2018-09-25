@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 7fe4fdbf6c6b3cbbd6d01ef5309699c3d3991d53
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3a74450ca8025f07b00dc18c9b81b147afa7439c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003823"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975307"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ekleme, değiştirme veya bir Azure ağ arabirimi için IP adreslerini kaldırın
 
@@ -35,7 +35,7 @@ Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki göre
 - Azure hesabınız yoksa, kaydolmaya bir [ücretsiz deneme hesabınızı](https://azure.microsoft.com/free).
 - Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
 - Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
-- Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici, Azure CLI Sürüm 2.0.31 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
+- Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici, Azure CLI Sürüm 2.0.31 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
 
 Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde listelenen uygun eylemleri atanan [ağ Arabirim izinleri](virtual-network-network-interface.md#permissions).
 
@@ -92,7 +92,7 @@ Kaldırabilirsiniz [özel](#private) ve [genel](#public) bir ağ arabirimi IP ad
 1. Metni içeren kutuya *kaynak Ara* Azure portalının üst kısmında, yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** arama sonuçlarında görünmesini, onu seçin.
 2. IP adresleri listesinden kaldırmak istediğiniz ağ arabirimi seçin.
 3. Altında **ayarları**seçin **IP yapılandırmaları**.
-4. Sağ tıklayarak seçin bir [ikincil](#secondary) IP yapılandırması (nelze odstranit [birincil](#primary) yapılandırması) seçin, silmek istediğiniz **Sil**, ardından ** Evet**, silmeyi onaylamak için. Yapılandırma ile ilişkili bir genel IP adresi kaynağı varsa, kaynak IP yapılandırmasından ilkenin ilişkisi, ancak kaynak silinmez.
+4. Sağ tıklayarak seçin bir [ikincil](#secondary) IP yapılandırması (nelze odstranit [birincil](#primary) yapılandırması) seçin, silmek istediğiniz **Sil**, ardından  **Evet**, silmeyi onaylamak için. Yapılandırma ile ilişkili bir genel IP adresi kaynağı varsa, kaynak IP yapılandırmasından ilkenin ilişkisi, ancak kaynak silinmez.
 
 **Komutları**
 
@@ -188,7 +188,7 @@ Her ağ arabirimi olması gerekir [birincil](#primary) atanan bir IP yapılandı
 Sıfır veya bir özel atayabilirsiniz [IPv6](#ipv6) adresine bir ağ arabirimi bir ikincil IP yapılandırması. Ağ arabirimi var olan tüm ikincil IP yapılandırmaları sahip olamaz. Portalı kullanarak bir IPv6 adresi, IP yapılandırması ekleyemezsiniz. Varolan bir ağ arabirimi IP yapılandırması ile özel bir IPv6 adresi eklemek için PowerShell veya CLI kullanın. Mevcut bir VM'ye ağ arabirimi iliştirilemez.
 
 > [!NOTE]
-> Portalı kullanarak bir IPv6 adresiyle bir ağ arabirimi oluşturabilirsiniz ancak mevcut bir ağ arabirimi portalı kullanarak yeni veya mevcut bir sanal makineye ekleyemezsiniz. PowerShell veya Azure CLI 2.0 ile özel bir IPv6 adresi bir ağ arabirimi oluşturmak için kullanın, sonra bir sanal makine oluştururken, ağ arabirimi ekleyin. Varolan bir sanal makineye atanmış özel bir IPv6 adresi ile bir ağ arabirimine eklenemiyor. Herhangi bir aracı (portal, CLI veya PowerShell) kullanarak bir sanal makineye bağlı her ağ arabirimi için bir IP yapılandırmasına özel bir IPv6 adresi ekleyemezsiniz.
+> Portalı kullanarak bir IPv6 adresiyle bir ağ arabirimi oluşturabilirsiniz ancak mevcut bir ağ arabirimi portalı kullanarak yeni veya mevcut bir sanal makineye ekleyemezsiniz. Özel bir IPv6 adresi ile bir ağ arabirimi oluşturmak için PowerShell veya Azure CLI'yı kullanın ve ardından ağ arabirimi bir sanal makine oluştururken ekleyin. Varolan bir sanal makineye atanmış özel bir IPv6 adresi ile bir ağ arabirimine eklenemiyor. Herhangi bir aracı (portal, CLI veya PowerShell) kullanarak bir sanal makineye bağlı her ağ arabirimi için bir IP yapılandırmasına özel bir IPv6 adresi ekleyemezsiniz.
 
 Bir birincil veya ikincil IP yapılandırması için genel IPv6 adresi atanamıyor.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: jasonh
 ms.custom: hdinsightactive
-ms.openlocfilehash: db460c6ebe934fa9ca9b6b42d517f39acbecf0c9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 54e5a5b72627dc9cd2d842ccb24d10e2f9ab9dce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105322"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957185"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>HDInsight üzerinde Mono yükleme veya güncelleştirme
 
@@ -44,7 +44,7 @@ __Gereksinimleri__:
 
 ## <a name="to-use-the-script"></a>Betiği kullanmak için
 
-Bu betik, HDInsight ile kullanma hakkında daha fazla bilgi için bkz: [özelleştirme Linux tabanlı HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) belge. Azure portalı, Azure PowerShell veya Azure CLI aracılığıyla betiği kullanabilirsiniz.
+Bu betik, HDInsight ile kullanma hakkında daha fazla bilgi için bkz: [özelleştirme Linux tabanlı HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) belge. Azure portalı, Azure PowerShell veya Azure Klasik CLI aracılığıyla betiği kullanabilirsiniz.
 
 Betik eylemi belgesi aşağıdaki çalışırken, aşağıdaki URI kullanın:
 
