@@ -13,14 +13,17 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: c0f51e47038737d6aa743be718ad6b28c161c766
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 07f8a31244acca48a0bbae8ad26b0c5b509f0c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651061"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959589"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning Model Yönetimi hesabı API Başvurusu
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Dağıtım ortamını ayarlama hakkında daha fazla bilgi için bkz. [Model Yönetimi hesabı kurulumu](deployment-setup-configuration.md).
 
@@ -34,7 +37,7 @@ Azure Machine Learning Model Yönetimi hesabı API aşağıdaki işlemleri gerç
 Bu görüntü, yerel veya uzak bir Azure Container Service kümesi ya da tercih ettiğiniz başka bir Docker desteklenen ortam üzerinde bir web hizmeti oluşturmak için kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Yükleme adımları aracılığıyla gitti olduğundan emin olun [yükleme ve oluşturma Hızlı Başlangıç](../service/quickstart-installation.md) belge.
+Yükleme adımları aracılığıyla gitti olduğundan emin olun [yükleme ve oluşturma Hızlı Başlangıç](quickstart-installation.md) belge.
 
 Devam etmeden önce aşağıdakiler gereklidir:
 1. Model Yönetimi hesabı sağlama
@@ -248,7 +251,7 @@ Bir Docker görüntüsü Azure Container Registry'de bir görüntü oluşturur.
 | accountName | yol | Model Yönetimi hesabının adı. | Evet | dize |
 | API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | dize |
 | Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." gibi bir şey olmalıdır | Evet | dize |
-| imageRequest | body | Bir görüntü oluşturmak için kullanılan yükü. | Evet | [ImageRequest](#imagerequest) |
+| imageRequest | body | Bir görüntü oluşturmak için kullanılan yükü. | Evet | [imageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Üst bilgiler | Şema |

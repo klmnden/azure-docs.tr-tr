@@ -3,19 +3,19 @@ title: Sık sorulan sorular - Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
 description: Bu makale, Language Understanding (LUIS) hakkında sık sorulan soruların yanıtlarını içerir.
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c338f874f426eef047f29e958877368c61db7e62
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 0edb7b27df03541421e27f14b65b78eded2e8c96
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630266"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032317"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding hakkında SSS
 

@@ -10,12 +10,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: giladm
-ms.openlocfilehash: 27870b5ab36cb9bbd191c130ab9035ad00205404
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b4a2894c92b85d777d2be3b1f5ffd53e2c92b88e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716919"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951636"
 ---
 # <a name="securing-your-sql-database"></a>SQL Veritabanınızı güvenli hale getirme
 
@@ -79,7 +79,7 @@ SQL Veritabanı Denetimi, veritabanı etkinliklerini izler ve veritabanı olayla
 Tehdit algılama, ek bir erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı girişimlerini algılar, Azure SQL veritabanı hizmetine yerleşik güvenlik zekası katmanı ekleyerek denetim özelliklerini tamamlar. Şüpheli etkinlikler, olası güvenlik açıklarına ve SQL ekleme saldırılarına karşı yanı hakkında anormal veritabanı erişim modellerinin uyarılırsınız. Tehdit algılama uyarıları görüntülenebilir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) şüpheli etkinlik ayrıntılarını sağlayın ve eylemi araştırmak ve tehdidi azaltmak için önerilir. Tehdit algılama, sunucu/15 ABD Doları/ay maliyeti. İlk 60 gün boyunca ücretsizdir. Daha fazla bilgi için bkz. [SQL Veritabanı Tehdit Algılamayı kullanmaya başlayın](sql-database-threat-detection.md).
  
 ## <a name="compliance"></a>Uyumluluk
-Yukarıdaki özelliklerine ve uygulamanızı Azure SQL veritabanı çeşitli güvenlik gereksinimlerini karşılamasına yardımcı olan işlevselliği ek olarak, düzenli olarak denetimden geçmektedir ve karşı bir dizi uyumluluk standardı için belgelendirilmiştir. Daha fazla bilgi için günceli [SQL Veritabanı uyumluluk sertifikası](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) listesine ulaşabileceğiniz [Microsoft Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/) sayfasına bakın.
+Yukarıdaki özelliklerine ve uygulamanızı Azure SQL veritabanı çeşitli güvenlik gereksinimlerini karşılamasına yardımcı olan işlevselliği ek olarak, düzenli olarak denetimden geçmektedir ve karşı bir dizi uyumluluk standardı için belgelendirilmiştir. Daha fazla bilgi için günceli [SQL Veritabanı uyumluluk sertifikası](https://www.microsoft.com/trustcenter/compliance/complianceofferings) listesine ulaşabileceğiniz [Microsoft Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/) sayfasına bakın.
 
 
 ## <a name="security-management"></a>Güvenlik yönetimi

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 395080409b06ef868b28550a21dc177e9dd28a05
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580540"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033932"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Bir Azure depolama kesinti oluşursa yapmanız gerekenler
 Microsoft'ta, sabit hizmetlerimizin her zaman kullanılabilir olduğundan emin olmak için çalışıyoruz. Bazen bizim denetim etkisi bize bir veya daha fazla bölgede plansız bir hizmet kesintisi neden yollarla zorlar. Bu ender örnekleri işlemek yardımcı olmak için Azure depolama hizmetleri için aşağıdaki ileri düzey rehberlik sağlarız.
@@ -43,18 +43,16 @@ Seçerseniz, [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](storage
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Bir depolama yük devretme oluşursa beklenmesi gerekenler
 Seçerseniz, [coğrafi olarak yedekli depolama (GRS)](storage-redundancy-grs.md) veya [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (önerilen), Azure depolama, verilerinizi iki bölgeleri (birincil ve ikincil) dayanıklı tutar. Her iki bölgede de Azure depolama, sürekli verilerinizi birden çok kopyasını tutar.
 
-Bölgesel bir olağanüstü durum, birincil bölge etkilediğinde, ilk sağlar için en iyi RTO ve RPO birleşimi bu bölgede hizmetini geri yüklemek deneyeceğiz. Olağanüstü durum ve bazı nadir durumlarda, kendi etkileri yapısını bağımlı biz birincil bölgeye geri yüklemeniz mümkün olmayabilir. Bu noktada, biz bir coğrafi olarak yük devretme gerçekleştirir. Bölgeler arası veri çoğaltma olası ikincil bölgeye henüz çoğaltılmamış değişiklikler kaybolabilir, bu nedenle, bir gecikme içeren zaman uyumsuz bir işlemdir. Sorgulayabilirsiniz ["Son eşitleme zamanı" depolama hesabınızın](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) çoğaltma durumu ayrıntıları alınamıyor.
+Bölgesel bir olağanüstü durum, birincil bölge etkilediğinde, ilk sağlar için en iyi RTO ve RPO birleşimi bu bölgede hizmetini geri yüklemek deneyeceğiz. Olağanüstü durum ve bazı nadir durumlarda, kendi etkileri yapısını bağımlı biz birincil bölgeye geri yüklemeniz mümkün olmayabilir. Bu noktada, biz bir coğrafi olarak yük devretme gerçekleştirir. Bölgeler arası veri çoğaltma olası ikincil bölgeye henüz çoğaltılmamış değişiklikler kaybolabilir, bu nedenle, bir gecikme içeren zaman uyumsuz bir işlemdir.
 
 Birkaç depolama coğrafi olarak yük devretme deneyimi ilgili noktaları:
 
 * Depolama coğrafi olarak yük devretme yalnızca Azure depolama ekibi tarafından tetiklenir: Müşteri Eylem gerekmiyor. Yük devretme, Azure depolama ekibi en iyi kombinasyonu RTO ve RPO sağlayan aynı bölgede verilerin geri yüklenmesi tüm seçeneklerin tüketmiş durumlarda tetiklenir.
 * Var olan depolama hizmet uç noktalarınıza blobları, tablolar, kuyruklar ve dosyalar için aynı yük devretme sonrasında kalır; Microsoft tarafından sağlanan DNS girişini birincil bölgeden ikincil bölgeye geçiş yapmak için güncelleştirilmesi gerekir. Microsoft, bu güncelleştirme coğrafi olarak yük devretme işleminin parçası olarak otomatik olarak gerçekleştirir.
 * Önce ve coğrafi olarak yük devretme sırasında olağanüstü durum etkisi nedeniyle, depolama hesabına yazma erişimi olmaz ancak yine de, depolama hesabı RA-GRS yapılandırılmış olması halinde ikincil okuyabilirsiniz.
-* Coğrafi olarak yük devretme tamamlandı ve DNS değişiklikleri yayılır, okuma ve yazma erişimi depolama hesabınıza devam edecek; başka bir işaret ne ikincil uç noktanız olması için kullanılır. 
-* Yazma erişimi, GRS veya RA-GRS depolama hesabı için yapılandırılmış olacağını unutmayın. 
-* Sorgulayabilirsiniz ["Son coğrafi yük devretme zamanı" depolama hesabınızın](https://msdn.microsoft.com/library/azure/ee460802.aspx) daha ayrıntılı bilgi edinmek için.
+* GRS veya RA-GRS varsa coğrafi olarak yük devretme tamamlandı ve DNS değişiklikleri yayılır, okuma ve yazma erişimi depolama hesabınıza geri yüklenir. Daha önce ikincil uç noktanız olan uç nokta birincil uç noktanız olur. 
+* Son coğrafi olarak yük devretme zamanını depolama hesabınız için birincil konum ve sorgu durumunu kontrol edebilirsiniz. Daha fazla bilgi için [depolama hesapları - özellik alma](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/getproperties).
 * Yük devretmeden sonra depolama hesabınızın tam olarak çalışmıyor olabilir, ancak bir "bozuk" durumda olarak ile hiçbir coğrafi çoğaltma olası bir tek başına bölgede barındırılır. Bu riski azaltmak için biz özgün birincil bölgeye geri yükleyecek ve ardından bir coğrafi-özgün durumunu geri yüklemek için yeniden çalışma yapın. Özgün birincil bölgeye kurtarılamaz ise, biz başka bir ikincil bölgeye ayırır.
-  Azure depolama coğrafi çoğaltma'nın altyapısı hakkında daha fazla ayrıntı için lütfen depolama ekibi blogu makaleye hakkında bakın [Yedeklilik seçenekleri ve RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ## <a name="best-practices-for-protecting-your-data"></a>Verilerinizi korumak için en iyi uygulamalar
 Düzenli olarak, depolama verileri yedeklemek için bazı önerilen yaklaşım vardır.

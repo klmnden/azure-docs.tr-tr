@@ -13,19 +13,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d89abfd0ec2ae5de8366a12bb38d9358aa8ab76d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a9a4b7728eff3057b9677d12df51cc8c477744ca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42062115"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953948"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure-SSIS tümleştirme çalışma zamanını bir sanal ağa katılın
 Bir Azure sanal ağına aşağıdaki senaryolarda, Azure-SSIS Integration runtime (IR) katılın: 
 
 - Şirket içi veri depolarına bir Azure-SSIS tümleştirme çalışma zamanı üzerinde çalışan SSIS paketlerinden bağlanmak istiyorsanız. 
 
-- Sanal ağ hizmet uç noktaları/yönetilen örnek (Önizleme) ile Azure SQL veritabanı'nda SQL Server Integration Services (SSIS) katalog veritabanını barındırır. 
+- Sanal ağ hizmet uç noktaları/yönetilen örnek ile Azure SQL veritabanı'nda SQL Server Integration Services (SSIS) Katalog veritabanı barındırır. 
 
  Azure Data Factory, Azure-SSIS tümleştirme çalışma zamanınızın Klasik dağıtım modeli veya Azure Resource Manager dağıtım modeli oluşturulan bir sanal ağa eklemenize olanak tanır. 
 
@@ -42,11 +42,11 @@ Dikkat edilecek bazı önemli noktalar şunlardır:
  
 - Mevcut Azure Resource Manager sanal ağ ' Azure-SSIS IR farklı bir konumda şirket içi ağınıza bağlı ise, ilk oluşturabileceğiniz bir [Azure Resource Manager sanal ağı](../virtual-network/quick-create-portal.md##create-a-virtual-network) Azure-SSIS için IR katılın. Ardından, bir Azure Resource Manager Azure Resource Manager sanal ağ bağlantısı yapılandırın. Veya, oluşturabileceğiniz bir [Klasik sanal ağ](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) katılmak Azure-SSIS IR için. Ardından, yapılandırma bir [Klasik Azure Resource Manager sanal ağı](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) bağlantı. 
 
-## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance-preview"></a>Sanal ağ hizmet uç noktaları/yönetilen örnek (Önizleme) ile Azure SQL veritabanı'nda SSIS Kataloğu veritabanını barındırmak
-SSIS kataloğunu Azure SQL veritabanı'nda sanal ağ hizmet uç noktaları veya yönetilen örneği (Önizleme) ile barındırılıyorsa için Azure-SSIS IR birleştirebilirsiniz: 
+## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance"></a>Sanal ağ hizmet uç noktaları/yönetilen örnek ile Azure SQL veritabanı'nda SSIS Kataloğu veritabanını barındırmak
+SSIS kataloğunu Azure SQL veritabanı'nda sanal ağ hizmet uç noktaları veya yönetilen örneği ile barındırılıyorsa için Azure-SSIS IR birleştirebilirsiniz: 
 
 - Aynı sanal ağ 
-- Sanal ağ hizmet uç noktaları/yönetilen ile örneği (Önizleme) Azure SQL veritabanı için kullanılan bir ağ ve ağ bağlantısı olan farklı bir sanal ağ 
+- Sanal ağ hizmet uç noktaları/yönetilen ile örneğini Azure SQL veritabanı için kullanılan bir ağ ve ağ bağlantısı olan farklı bir sanal ağ 
 
 Yönetilen örneği aynı sanal ağ için Azure-SSIS IR katılırsanız, Azure-SSIS IR yönetilen örneği'den farklı bir alt ağda olduğundan emin olun. Azure-SSIS IR, yönetilen örneğe farklı bir sanal ağa katılırsanız, (Bu aynı bölgeye sınırlıdır) sanal ağ eşlemesi veya sanal ağ için sanal ağ bağlantısı öneririz. Bkz: [uygulamanızı Azure SQL veritabanı yönetilen örneği bağlamak](../sql-database/sql-database-managed-instance-connect-app.md).
 
@@ -72,7 +72,7 @@ Aşağıdaki bölümlerde daha ayrıntılı bilgi verilmektedir.
 
 -   Seçtiğiniz alt ağı kullanmak Azure-SSIS IR için yeterli kullanılabilir adres alanı olduğundan emin olun. En az 2 bırakın * IR düğüm numarasını kullanılabilir IP adresleri. Azure her alt ağ içinde bazı IP adreslerini ayırır ve bu adresi kullanılamaz. Alt ağların ilk ve son IP adresleri, Azure Hizmetleri için kullanılan üç daha fazla adres birlikte protokol uyumluluğu için ayrılmıştır. Daha fazla bilgi için [bu alt ağları içindeki IP adresleri kullanarak herhangi bir kısıtlama var mıdır?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). 
 
--   Diğer Azure Hizmetleri ile (örneğin, SQL veritabanı yönetilen örneği (Önizleme), App Service, vb.) özel olarak dolu bir alt ağ kullanmayın. 
+-   Diğer Azure Hizmetleri ile (örneğin, SQL veritabanı yönetilen örneği, App Service, vb.) özel olarak dolu bir alt ağ kullanmayın. 
 
 ### <a name="dns_server"></a> Etki alanı adı Hizmetleri sunucusu 
 Azure-SSIS tümleştirme çalışma zamanı tarafından birleştirilmiş bir sanal ağ kendi etki alanı Hizmetleri (DNS) sunucusu kullanmanız gerekiyorsa, Azure genel ana bilgisayar adları çözümlemek emin olun (örneğin, bir Azure depolama blob adı `<your storage account>.blob.core.windows.net`). 
@@ -92,7 +92,7 @@ Gelen/giden trafik bir ağ güvenlik grubu (NSG), Azure-SSIS tümleştirme çal�
 |---|---|---|---|---|---|---|
 | Gelen | TCP | Internet | * | VirtualNetwork | 29876, 29877'numaralı (bir Azure Resource Manager sanal ağı'de IR katılırsanız) <br/><br/>10100, 20100, 30100'numaralı (klasik bir sanal ağ'de IR katılırsanız)| Data Factory hizmetinin bu bağlantı noktaları sanal ağ, Azure-SSIS tümleştirme çalışma zamanı düğümleri ile iletişim kurmak için kullanır. <br/><br/> Veya bir alt ağ düzeyinde NSG oluşturmak ister, Data Factory her zaman bir NSG Azure-SSIS IR'yi barındıran sanal makinelere bağlı ağ arabirim kartı (NIC) düzeyinde yapılandırır Bu NIC düzeyinde NSG tarafından yalnızca belirtilen bağlantı noktalarında veri fabrikası IP adreslerinden gelen trafiğe izin verilir. Alt ağ düzeyinde Internet trafiği için bu bağlantı noktalarını açmanız bile NIC düzeyinde Data Factory IP adresleri olan IP adreslerinden gelen trafik engellenir. |
 | Giden | TCP | VirtualNetwork | * | Internet | 443 | Sanal ağ, Azure-SSIS tümleştirme çalışma zamanı düğümleri, Azure depolama ve Azure Event Hubs gibi Azure hizmetlerine erişmek için bu bağlantı noktasını kullanın. |
-| Giden | TCP | VirtualNetwork | * | Internet veya Sql | 11000 11999, 14000 14999 1433 | SSISDB erişmek için bu bağlantı noktaları - Azure SQL veritabanı sunucunuz tarafından barındırılan sanal ağ kullanma, Azure-SSIS tümleştirme çalışma zamanı düğümleri bu amaç yönetilen örneği (Önizleme) tarafından barındırılan SSISDB için geçerli değildir. |
+| Giden | TCP | VirtualNetwork | * | Internet veya Sql | 11000 11999, 14000 14999 1433 | SSISDB erişmek için bu bağlantı noktaları - Azure SQL veritabanı sunucunuz tarafından barındırılan sanal ağ kullanma, Azure-SSIS tümleştirme çalışma zamanı düğümleri bu amaç yönetilen örneği tarafından barındırılan SSISDB için geçerli değildir. |
 ||||||||
 
 ### <a name="route"></a> Azure ExpressRoute veya kullanıcı tanımlı yol kullanın
@@ -357,6 +357,6 @@ Bu komutun tamamlanması 20-30 dakika sürer.
 Azure-SSIS çalışma zamanı hakkında daha fazla bilgi için aşağıdaki konulara bakın: 
 - [Azure-SSIS tümleştirme çalışma zamanı](concepts-integration-runtime.md#azure-ssis-integration-runtime). Azure-SSIS IR'yi dahil olmak üzere genel olarak, bu makalede tümleştirme çalışma zamanları hakkında kavramsal bilgiler sağlar 
 - [Öğretici: SSIS paketlerini Azure’a dağıtma](tutorial-create-azure-ssis-runtime-portal.md). Bu makale bir Azure-SSIS IR oluşturmak için adım adım yönergeler sağlar SSIS kataloğunu barındırmak için Azure SQL veritabanı kullanır. 
-- [Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale öğreticiyi genişletip ve Azure SQL veritabanı, SSIS kataloğunu barındırmak için sanal ağ hizmet uç noktaları/yönetilen ile örneği (Önizleme) kullanma ve IR'yi bir sanal ağa ekleme hakkında yönergeler sağlar. 
+- [Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale öğreticiyi genişletip ve Azure SQL veritabanı, SSIS kataloğunu barındırmak için sanal ağ hizmet uç noktaları/yönetilen ile örneği kullanma ve IR'yi bir sanal ağa ekleme hakkında yönergeler sağlar. 
 - [Azure-SSIS IR’yi izleme](monitor-integration-runtime.md#azure-ssis-integration-runtime). Bu makalede bir Azure-SSIS IR ile ilgili bilgileri ve döndürülen bilgilerdeki durumların açıklamalarını alma işlemi gösterilmektedir. 
 - [Azure-SSIS IR’yi yönetme](manage-azure-ssis-integration-runtime.md). Bu makale bir Azure-SSIS IR’yi durdurma, başlatma veya kaldırma işlemini gösterir. Ayrıca, düğüm ekleyerek Azure-SSIS IR ölçeklendirmek nasıl gösterir. 

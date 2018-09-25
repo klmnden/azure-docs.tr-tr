@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: acc327bd9fa6828a65243b6d0ad0c6da4b98f48d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857108"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963398"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB tanılama günlüğüne kaydetme
 
@@ -29,9 +29,9 @@ Aşağıdaki görüntüde, farklı türlerde kullanılabilir Azure günlükleri 
 
 ![Çeşitli Azure günlükleri](./media/logging/azurelogging.png)
 
-Görüntüde **işlem kaynaklarını** kendisi için erişebileceğiniz Microsoft konuk işletim sistemi Azure kaynaklarını temsil eder. Örneğin, Azure sanal makineler, sanal makine ölçek kümeleri, Azure Container Service, ve bu şekilde dikkate alınan bilgi işlem kaynakları. İşlem kaynakları etkinlik günlükleri, tanılama günlükleri ve uygulama günlüklerini oluşturur. Daha fazla bilgi edinmek için bkz [Azure izleme: işlem kaynaklarını](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset) makalesi.
+Görüntüde **işlem kaynaklarını** kendisi için erişebileceğiniz Microsoft konuk işletim sistemi Azure kaynaklarını temsil eder. Örneğin, Azure sanal makineler, sanal makine ölçek kümeleri, Azure Container Service, ve bu şekilde dikkate alınan bilgi işlem kaynakları. İşlem kaynakları etkinlik günlükleri, tanılama günlükleri ve uygulama günlüklerini oluşturur. Daha fazla bilgi edinmek için bkz [azure'da veri izleme kaynakları](../monitoring/monitoring-data-sources.md#) makalesi.
 
-**Olmayan işlem kaynakları** içinde edemez temel işletim sistemi erişmek ve iş doğrudan kaynak kaynaklardır. Örneğin, ağ güvenlik grupları, Logic Apps ve benzeri. Azure Cosmos DB işlem dışı bir kaynaktır. Etkinlik günlüğü'nde olmayan işlem kaynakları için günlükleri görüntüleyebilir veya Portalı'nda tanılama günlükleri seçeneğini etkinleştirin. Daha fazla bilgi edinmek için bkz [Azure izleme: işlem olmayan kaynakları](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else) makalesi.
+**Olmayan işlem kaynakları** içinde edemez temel işletim sistemi erişmek ve iş doğrudan kaynak kaynaklardır. Örneğin, ağ güvenlik grupları, Logic Apps ve benzeri. Azure Cosmos DB işlem dışı bir kaynaktır. Etkinlik günlüğü'nde olmayan işlem kaynakları için günlükleri görüntüleyebilir veya Portalı'nda tanılama günlükleri seçeneğini etkinleştirin. Daha fazla bilgi edinmek için bkz [Azure İzleyici'de veri kaynaklarını](../monitoring/monitoring-data-sources.md) makalesi.
 
 Etkinlik günlüğü, Azure Cosmos DB için abonelik düzeyinde işlemleri kaydeder. Listkeys'i DatabaseAccounts yazma ve daha fazlası gibi işlemleri günlüğe kaydedilir. Tanılama günlükleri daha ayrıntılı günlük kaydı sağlayın ve DataPlaneRequests (oluşturma, okuma, sorgu vb.) ve MongoRequests oturum olanak sağlar.
 
@@ -445,14 +445,14 @@ Aşağıdaki tabloda, her günlük girişinin içeriğini açıklar.
 | **OperationName** | **OperationName** | İşlemin adı. Bu değer, aşağıdaki işlemlerden birini olabilir: oluşturma, güncelleştirme, okuma, ReadFeed, Sil, Değiştir, Execute, SqlQuery, sorgu, JSQuery, Head, HeadFeed veya Upsert.   |
 | **Özellikleri** | yok | Bu alanın içeriğini izleyen satırları açıklanmaktadır. |
 | **activityId** | **activityId_g** | Oturum işlemi için benzersiz GUID. |
-| **userAgent** | **userAgent_s** | İsteği gerçekleştiren istemcinin kullanıcı aracısı belirten bir dize. Biçimdir {kullanıcı aracısı adı} / {version}.|
+| **UserAgent** | **userAgent_s** | İsteği gerçekleştiren istemcinin kullanıcı aracısı belirten bir dize. Biçimdir {kullanıcı aracısı adı} / {version}.|
 | **resourceType** | **Kaynak türü** | Erişilen kaynak türü. Bu değer, aşağıdaki kaynak türlerinden herhangi birinde olabilir: veritabanı, kapsayıcı, belge, ek, kullanıcı, izin, StoredProcedure, tetikleyici, UserDefinedFunction veya teklif. |
 | **statusCode** | **statusCode_s** | İşlem yanıt durumu. |
 | **requestResourceId** | **ResourceId** | İsteği ilgilidir ResourceId. Değer databaseRid, collectionRid veya documentRid yapılan işleme bağlı olarak işaret edebilir.|
 | **clientIpAddress** | **clientIpAddress_s** | İstemcinin IP adresi. |
 | **requestCharge** | **requestCharge_s** | İşlem tarafından kullanılan RU sayısı |
 | **collectionRid** | **collectionId_s** | Koleksiyon için benzersiz kimliği.|
-| **süresi** | **duration_s** | Saat döngüsü içindeki işlem süresi. |
+| **Süresi** | **duration_s** | Saat döngüsü içindeki işlem süresi. |
 | **requestLength** | **requestLength_s** | İstek, bayt cinsinden uzunluğu. |
 | **responseLength** | **responseLength_s** | Yanıtın bayt cinsinden uzunluğu.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Bu değer boş olduğunda [kaynak belirteçleri](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) kimlik doğrulaması için kullanılır. Değer, kullanıcının kaynak Kimliğini işaret eder. |

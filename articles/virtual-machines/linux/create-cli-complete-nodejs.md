@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 1.0 ile eksiksiz bir Linux ortamı oluşturma | Microsoft Docs
-description: Depolama, bir Linux VM, sanal ağ ve alt ağ, yük dengeleyici, bir NIC, genel bir IP ve tüm yönleriyle Azure CLI 1.0 kullanarak bir ağ güvenlik grubu oluşturun.
+title: Klasik Azure CLI'de eksiksiz bir Linux ortamı oluşturma | Microsoft Docs
+description: Depolama, bir Linux VM, sanal ağ ve alt ağ, yük dengeleyici, bir NIC, genel bir IP ve tüm yönleriyle Azure Klasik CLI kullanarak bir ağ güvenlik grubu oluşturun.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 1fb5542af77fbb584effca24a74b9e233359cf0e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 560d1c55b159ed817c0b080171862c28ebe73f3e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932354"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952809"
 ---
-# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Azure CLI 1.0 ile eksiksiz bir Linux ortamı oluşturma
+# <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Klasik Azure CLI'de eksiksiz bir Linux ortamı oluşturma
 Bu makalede, bir yük dengeleyici ve bir çift geliştirme ve basit bilgi işlem için yararlı olan Vm'leri içeren basit bir ağ ekleriz. İki çalışma, güvenli, gelen herhangi bir Internet'te bağlanabileceği sanal makineleri bulunana kadar komutu komut sürecinde inceleyeceğiz. Ardından, daha karmaşık ağlar ve ortam geçebilirsiniz.
 
 Bu doğrultuda, bağımlılık hiyerarşi, Resource Manager dağıtım modeli sağlar ve bu hakkında ne kadar güç sağlar öğrenin. Sistemin nasıl oluşturulduğunu gördükten sonra bu çok daha hızlı bir şekilde kullanarak yeniden oluşturabilirsiniz [Azure Resource Manager şablonları](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ortamınızı bölümlerini nasıl bir araya getireceğinizi öğrendikten sonra Ayrıca bunları otomatik hale getirmek için şablonları oluşturma daha kolay olur.
@@ -33,20 +33,20 @@ Ortam içerir:
 * Bir yük dengeleyici ile bağlantı noktası 80 üzerinde bir yük dengeleyici kuralı.
 * İstenmeyen trafiği, sanal Makineyi korumak için ağ güvenlik grubu (NSG) kuralları.
 
-Bu özel ortamımı oluşturmak için en gereken [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Resource Manager modunda (`azure config mode arm`). Ayrıca bir JSON ayrıştırma Aracı gerekir. Bu örnekte [jq](https://stedolan.github.io/jq/).
+Bu özel ortamımı oluşturmak için en gereken [Klasik Azure CLI'yı](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Resource Manager modunda (`azure config mode arm`). Ayrıca bir JSON ayrıştırma Aracı gerekir. Bu örnekte [jq](https://stedolan.github.io/jq/).
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>Görevi tamamlamak için kullanılacak CLI sürümleri
 Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
 
-- [Azure CLI 1.0](#quick-commands) : Klasik ve kaynak yönetimi dağıtım modellerine (Bu makale) yönelik CLI'mız
-- [Azure CLI 2.0](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız
+- [Azure Klasik CLI](#quick-commands) : Klasik ve kaynak yönetimi dağıtım modellerine (Bu makale) yönelik CLI'mız
+- [Azure CLI](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -müşterilerimize yönelik yeni nesil CLI kaynak yönetimi dağıtım modeline
 
 
 ## <a name="quick-commands"></a>Hızlı komutlar
 Hızlı bir şekilde, aşağıdaki bölümde ayrıntıları temel görevi gerekiyorsa, Azure'a bir VM'yi karşıya yükleme komutları. Bilgi ve içerik her adımda başlangıç belgenin geri kalanında bulunabilir ayrıntılı [burada](#detailed-walkthrough).
 
-Sahip olduğunuzdan emin olun [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) oturum açmış ve Resource Manager moduna kullanarak:
+Sahip olduğunuzdan emin olun [Azure Klasik CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) oturum açmış ve Resource Manager moduna kullanarak:
 
 ```azurecli
 azure config mode arm
@@ -270,7 +270,7 @@ azure group export myResourceGroup
 ## <a name="detailed-walkthrough"></a>Ayrıntılı kılavuz
 Her komut ortamınızı oluşturdukça ne yaptığını ayrıntılı adımları açıklanmaktadır. Geliştirme veya üretim için kendi özel ortamlarda oluşturduğunuzda bu kavramlar yararlı olur.
 
-Sahip olduğunuzdan emin olun [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) oturum açmış ve Resource Manager moduna kullanarak:
+Sahip olduğunuzdan emin olun [Azure Klasik CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) oturum açmış ve Resource Manager moduna kullanarak:
 
 ```azurecli
 azure config mode arm

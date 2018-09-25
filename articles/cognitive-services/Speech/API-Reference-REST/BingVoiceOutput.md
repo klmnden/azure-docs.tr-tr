@@ -10,12 +10,13 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: 1b8e13712d75920573104ba90dfea891b27370db
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 664b696d5323177eaac2e7ce7b80a7c81ce601f1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367942"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949409"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing metin okuma API'si
 
@@ -187,7 +188,7 @@ Uygulama ayrıntıları için bkz. [Visual C# .NET metin okuma örnek uygulamas�
 
 Aşağıdaki tabloda bazı desteklenen yerel ayarlar ve ilgili ses tipi olarak tanımlar.
 
-Yerel ayar | Cinsiyet | Hizmet adı eşleme
+Yerel Ayar | Cinsiyet | Hizmet adı eşleme
 ---------|--------|------------
 ar-Örneğin * | Kadın | "Microsoft sunucu konuşma Sesli konuşmayı metne (ar-Örneğin, Hoda)"
 ar-SA | Erkek | "Microsoft Server Konuşma metin konuşma ses (ar-SA, Naayf)"

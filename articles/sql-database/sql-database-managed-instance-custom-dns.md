@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 09/23/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: be32bc4b3f91fbc71305ee9f16fec17ff472cd4c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2d1bb7e8522da32dd33933261ea41b578f8afac1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049584"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949494"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Özel DNS yapılandırma için Azure SQL veritabanı yönetilen örneği
 
-Azure SQL veritabanı yönetilen örneği (Önizleme) içinde bir Azure dağıtılmalıdır [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md). Yönetilen örnek çözülmesi özel konak adlarını gerektiren bazı senaryolar (yani, Bulut veya karma ortamınızdaki diğer SQL örneklerine bağlı sunucular) vardır. Bu durumda, Azure içinde özel bir DNS yapılandırmanız gerekir. Yönetilen örneği için kendi iç işleyişini aynı DNS kullandığından, sanal ağ DNS yapılandırmasını yönetilen örneği ile uyumlu olması gerekir. 
+Azure SQL veritabanı yönetilen örneği, bir Azure dağıtılmalıdır [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md). Yönetilen örnek çözülmesi özel konak adlarını gerektiren bazı senaryolar (yani, Bulut veya karma ortamınızdaki diğer SQL örneklerine bağlı sunucular) vardır. Bu durumda, Azure içinde özel bir DNS yapılandırmanız gerekir. Yönetilen örneği için kendi iç işleyişini aynı DNS kullandığından, sanal ağ DNS yapılandırmasını yönetilen örneği ile uyumlu olması gerekir. 
 
 Özel bir DNS yapılandırmasını yapmak için yönetilen örneği ile uyumludur, şunları yapmanız gerekir: 
 - Genel etki alanı adlarını çözümlemek için bu nedenle özel DNS sunucusunu yapılandırma 

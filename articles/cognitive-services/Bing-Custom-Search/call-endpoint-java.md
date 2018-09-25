@@ -1,6 +1,6 @@
 ---
-title: Uç nokta Java - Bing özel arama - Microsoft Bilişsel hizmetler kullanarak çağırma
-description: Bu hızlı başlangıç Bing özel arama uç noktasını çağırmak için Java kullanarak özel arama örneğinden arama sonuçlarında istek gösterilmektedir.
+title: Microsoft Bilişsel hizmetler - Bing özel arama - Java kullanarak uç noktasını çağırmak
+description: Bu hızlı başlangıçta, Bing özel arama uç noktasını çağırmak için Java kullanarak arama sonuçlarını özel arama örneğinizin isteği gösterilmektedir.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,34 +9,34 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 03d622e3c7a3315238f2bceedae529bbe06af299
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355739"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951823"
 ---
 # <a name="call-bing-custom-search-endpoint-java"></a>Çağrı Bing özel arama uç noktası (Java)
 
-Bu hızlı başlangıç Bing özel arama uç noktasını çağırmak için Java kullanarak özel arama örneğinden arama sonuçlarında istek gösterilmektedir. 
+Bu hızlı başlangıçta, arama sonuçlarını Bing özel arama uç noktasını çağırmak için Java kullanarak özel arama örneğinizin isteği gösterilmektedir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
-- Bir özel arama örneği. Bkz: [ilk Bing özel arama örneğinizi oluşturmak](quick-start.md).
 
+- Bir kullanıma hazır özel arama örneği. Bkz: [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).
 - [Java](https://www.java.com) yüklü.
-
-- A [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir.
+- Bir abonelik anahtarı. Etkinleştirme sırasında bir abonelik anahtarı edinirler, [ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ya da Ücretli abonelik anahtarı, Azure panosundan kullanabilirsiniz (bkz [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
-Bing özel arama uç noktasını çağırmak için aşağıdaki adımları izleyin:
+Bu örneği çalıştırmak için aşağıdaki adımları izleyin:
 
-1. Java IDE'yi tercih kullanarak bir paket oluşturun.
-2. CustomSrchJava.java dosyası oluşturun ve aşağıdaki kodu kopyalayın.
-3. Değiştir **YOUR ABONELİK anahtarı** ve **YOUR-özel-CONFIG-ID** , anahtar ve yapılandırma kimliği
-
-    ``` Java
+1. Tercih ettiğiniz Java IDE'nizi kullanarak, bir paket oluşturun.  
+  
+2. Pakette CustomSrchJava.java adlı bir dosya oluşturun ve içine aşağıdaki kodu kopyalayın. Değiştirin **YOUR-SUBSCRIPTION-KEY** ve **YOUR-özel-CONFIG-ID** abonelik anahtarınızı ve yapılandırma kimliği  
+  
+    ```java
     import java.io.InputStream;
     import java.net.URL;
     import java.net.URLEncoder;
@@ -58,9 +58,9 @@ Bing özel arama uç noktasını çağırmak için aşağıdaki adımları izley
         static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
         static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
     
-        static String searchTerm = "Microsoft";  // Replace with search term specific to your defined sources.
+        static String searchTerm = "Microsoft";  // Replace with search term specific to your search scenario.
     
-        public static SearchResults SearchImages (String searchQuery) throws Exception {
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
             // construct URL of search request (endpoint + query string)
             URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
             HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -96,15 +96,15 @@ Bing özel arama uç noktasını çağırmak için aşağıdaki adımları izley
     
         public static void main (String[] args) {
             if (subscriptionKey.length() != 32) {
-                System.out.println("Invalid Bing Search API subscription key!");
+                System.out.println("Invalid Custom Search subscription key!");
                 System.out.println("Please paste yours into the source code.");
                 System.exit(1);
             }
     
             try {
-                System.out.println("Searching the Web for: " + searchTerm);
+                System.out.println("Searching your slice of the Web for: " + searchTerm);
     
-                SearchResults result = SearchImages(searchTerm);
+                SearchResults result = SearchWeb(searchTerm);
     
                 System.out.println("\nRelevant HTTP Headers:\n");
                 for (String header : result.relevantHeaders.keySet())
@@ -130,11 +130,11 @@ Bing özel arama uç noktasını çağırmak için aşağıdaki adımları izley
         }
     
     }
-    
-    ```
-4. Programını çalıştırın.
+    ```  
+  
+4. Programı çalıştırın.
     
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Barındırılan UI deneyiminizi yapılandırın](./hosted-ui.md)
-- [Metni vurgulama için decoration işaretlerini kullanın](./hit-highlighting.md)
+- [Metni vurgulayacak şekilde decoration işaretçileri kullanma](./hit-highlighting.md)
 - [Sayfa Web sayfaları](./page-webpages.md)

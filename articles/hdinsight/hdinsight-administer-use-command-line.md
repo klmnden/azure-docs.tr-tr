@@ -1,6 +1,6 @@
 ---
-title: Azure CLI - Azure HDInsight'ı kullanarak Hadoop kümelerini yönetme
-description: Azure HDInsight Hadoop kümelerini yönetmek için Azure komut satırı arabirimi kullanmayı öğrenin. Azure CLI'yı, Windows, Mac ve Linux üzerinde çalışır.
+title: Azure Klasik CLI - Azure HDInsight'ı kullanarak Hadoop kümelerini yönetme
+description: Azure HDInsight Hadoop kümelerini yönetmek için Azure Klasik CLI'yı kullanmayı öğrenin.
 services: hdinsight
 ms.reviewer: jasonh
 author: jasonwhowell
@@ -9,32 +9,32 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 8d77f6f902ad0d1f6ee2b3dd1da5a38364f1da9b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2586b9219eb145b2033fe2d8fc64b8ae72f34eda
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103753"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958297"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Azure CLI kullanarak bir HDInsight Hadoop kümelerini yönetme
+# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak bir HDInsight Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Nasıl kullanacağınızı öğrenin [Azure komut satırı arabirimi](../cli-install-nodejs.md) Azure HDInsight Hadoop kümelerini yönetmek için. Azure CLI, Node.js içinde uygulanmıştır. Windows, Mac ve Linux da dahil olmak üzere, Node.js'yi destekleyen herhangi bir platformda kullanılabilir. HDInsight şu anda desteklemiyor [Azure CLI 2.0](https://docs.microsoft.com/cli/azure).
+Nasıl kullanacağınızı öğrenin [Klasik Azure CLI'yı](../cli-install-nodejs.md) Azure HDInsight Hadoop kümelerini yönetmek için. Klasik CLI, Node.js içinde uygulanmıştır. Windows, Mac ve Linux da dahil olmak üzere, Node.js'yi destekleyen herhangi bir platformda kullanılabilir.
 
-Bu makale yalnızca HDInsight ile Azure CLI kullanarak kapsar. Azure CLI kullanma hakkında genel bir kılavuz için bkz [yüklemek ve Azure CLI yapılandırma][azure-command-line-tools].
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Azure CLI** - Yükleme ve yapılandırma bilgileri için bkz. [Azure CLI'yı yükleme ve yapılandırma](../cli-install-nodejs.md).
+* **Azure Klasik CLI** -bkz [yüklemek ve Azure Klasik CLI yapılandırma](../cli-install-nodejs.md) yükleme ve yapılandırma bilgileri için.
 * **Azure'a bağlanma**, aşağıdaki komutu kullanarak:
 
     ```cli
     azure login
     ```
   
-    Bir iş veya okul hesabı kullanarak kimlik doğrulama gerçekleştirme konusunda daha fazla bilgi için bkz. [Azure CLI'dan Azure aboneliğine bağlanma](/cli/azure/authenticate-azure-cli).
+    Bir iş veya Okul hesabını kullanarak kimlik doğrulaması ile ilgili daha fazla bilgi için bkz: [Klasik Azure clı'dan Azure aboneliğine Bağlan](/cli/azure/authenticate-azure-cli).
 * Şu komutu kullanarak **Azure Resource Manager moduna geçin**:
   
     ```cli
@@ -48,7 +48,7 @@ azure hdinsight cluster create -h
 ```
 
 ## <a name="create-clusters-with-the-cli"></a>CLI ile küme oluşturma
-Bkz: [Azure CLI kullanarak HDInsight kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+Bkz: [Klasik Azure CLI kullanarak HDInsight kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## <a name="list-and-show-cluster-details"></a>Küme ayrıntıları Listele ve Göster
 Liste ve küme ayrıntıları göstermek için aşağıdaki komutları kullanın:
@@ -101,7 +101,7 @@ Bu makalede, farklı HDInsight küme yönetim görevlerinin nasıl gerçekleşti
 * [HDInsight Azure portalını kullanarak yönetme][hdinsight-admin-portal]
 * [HDInsight, Azure PowerShell kullanarak yönetme][hdinsight-admin-powershell]
 * [Azure HDInsight'ı Kullanmaya Başlama][hdinsight-get-started]
-* [Azure CLI kullanma][azure-command-line-tools]
+* [Klasik Azure CLI kullanma][azure-command-line-tools]
 
 [azure-command-line-tools]: ../cli-install-nodejs.md
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md

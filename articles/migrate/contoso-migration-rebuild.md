@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/20/2018
 ms.author: raynew
-ms.openlocfilehash: 58ea0859af42f7614e69d1693bbd9f8e3a17ccb8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f0dc199f8a91ac06993f4ccbc9dff7dfad9f8a19
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300554"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042491"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso geçiş: şirket içi bir uygulamayı Azure'da yeniden oluşturun
 
@@ -55,7 +55,7 @@ Contoso bulut ekibi, uygulama gereksinimleri bu geçiş için aşağı sabitlenm
  - Uygulama Iaas bileşenleri kullanmamanız gerekir. Her şeyi PaaS veya sunucusuz Hizmetleri oluşturulmalıdır.
  - Uygulama yapıları bulut hizmetlerindeki çalışması gerektiğini ve bulutta özel Kurumsal Çapta kapsayıcı kayıt defterindeki kapsayıcı bulunmalıdır.
  - Uygulama tarafından alınan kararları, Oteller kabul gerekir bu yana evcil hayvan fotoğraflar için kullanılan API hizmeti doğru ve güvenilir, gerçek dünyadaki olmalıdır. Herhangi bir evcil hayvan Oteller kalmak için erişime izin verildi.
- - DevOps işlem hattı gereksinimlerini karşılamak üzere Contoso için kaynak kodu Yönetimi (SCM), Git depoları ile Visual Studio Team Services (VSTS) kullanır.  Otomatik derleme ve yayınlar kod oluşturmak için kullanılan ve Azure Web Apps, Azure işlevleri ve AKS dağıtma.
+ - DevOps işlem hattı gereksinimlerini karşılamak üzere Contoso için kaynak kodu Yönetimi (SCM), Git depoları ile Azure DevOps kullanır.  Otomatik derleme ve yayınlar kod oluşturmak için kullanılan ve Azure Web Apps, Azure işlevleri ve AKS dağıtma.
  - Farklı bir CI/CD işlem hatları, ön uç web sitesinde yanı sıra, arka uçtaki mikro hizmetler için gereklidir.
  - Arka uç Hizmetleri ön uç web uygulamasını döngüsü farklı bir sürüm var.  Bu gerekliliği karşılamak için bunlar iki farklı DevOps işlem hatları dağıtır.
  - Contoso, tüm ön uç Web sitesi dağıtımı için yönetim onay gerekir ve CI/CD işlem hattı bu sağlamanız gerekir.
@@ -81,7 +81,7 @@ Hedefleri ve gereksinimleri sabitleme sonra Contoso tasarlar ve bir dağıtım �
 - Evcil hayvan fotoğraf işlevi, Bilişsel hizmetler görüntü işleme API'si ve CosmosDB yararlanır.
 - Sitenin arka uç, mikro hizmetler kullanılarak oluşturulmuştur. Bu yönetilen Azure Kubernetes Service'i (AKS) kapsayıcıları dağıtılır.
 - Kapsayıcıları Azure DevOps kullanılarak oluşturulan ve Azure Container Registry (ACR) gönderdiniz.
-- Şimdilik, Contoso Web app ve işlev kodunuzu Visual Studio kullanarak el ile dağıtır.
+- Şimdilik, Contoso Web app ve işlev kodunuzu Visual Studio kullanarak el ile dağıtım
 - Mikro hizmetler, Kubernetes komut satırı araçları çağıran bir PowerShell Betiği kullanılarak dağıtılır.
 
     ![Senaryo mimarisi](./media/contoso-migration-rebuild/architecture.png) 
@@ -224,15 +224,15 @@ Contoso bir Azure DevOps projesi oluşturur ve kapsayıcı oluşturmak için bir
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts1.png) 
 
 
-3. Bunlar, GitHub deposunu içeri aktarın.
+3. Bunlar içeri aktarma [GitHub deposunu](https://github.com/Microsoft/SmartHotel360-Azure-backend.git).
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts2.png)
     
-4. İçinde **derleme ve yayın**, bunlar bir kaynaktan alınan olarak Azure depoları Git kullanarak yeni bir işlem hattı oluşturma **smarthotel** depo. 
+4. İçinde **işlem hatları**, simgeye **derleme**ve Azure depoları Git deposundan bir kaynak olarak kullanarak bir işlem hattı oluşturacaksınız. 
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts3.png)
 
-6. Boş bir işlem hattı ile başlatmak için seçin.
+6. Boş bir işlemle başlatmak için seçin.
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts4.png)  
 
@@ -252,7 +252,7 @@ Contoso bir Azure DevOps projesi oluşturur ve kapsayıcı oluşturmak için bir
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts8.png)
 
-9. Bunlar yolunu belirtin **docket compose.yaml** dosyasındaki **src** deposunun klasör. Hizmet görüntülerinizi oluşturmak ve son etiket eklemek için seçin. Eylem değiştiğinde **derleme hizmeti görüntüleri**, Azure DevOps görev adını değişiklikleri **derleme hizmetleri otomatik olarak**
+9. Bunlar yolunu belirtin **docker compose.yaml** dosyasındaki **src** deposunun klasör. Hizmet görüntülerinizi oluşturmak ve son etiket eklemek için seçin. Eylem değiştiğinde **derleme hizmeti görüntüleri**, Azure DevOps görev adını değişiklikleri **derleme hizmetleri otomatik olarak**
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts9.png)
 
@@ -303,7 +303,7 @@ Bunlar gibi dağıtın:
 
 - Hizmetlere gelen trafiğe izin veren NGINX giriş denetleyicisine dağıtın.
 - Mikro hizmetler için AKS kümesi dağıtın.
-- İlk adım olarak, VSTS kullanarak mikro hizmetler için bağlantı dizelerini güncelleştirin. Bunlar daha sonra mikro hizmetlerin dağıtımı için yeni VSTS yayın işlem hattı yapılandırın.
+- İlk adım olarak, Azure DevOps kullanarak mikro hizmetler için bağlantı dizelerini güncelleştirin. Bunlar daha sonra mikro hizmetlerin dağıtımı için yeni Azure DevOps yayın işlem hattı yapılandırın.
 - Bu yönergeleri bölümdeki [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) depo.
 - Bazı yapılandırma ayarları (örneğin Active Directory B2C) bu makalenin kapsamında olmayan unutmayın. Bu depo ayarları hakkında daha fazla bilgi edinin.
 
@@ -313,17 +313,14 @@ Bunlar, işlem hattı oluşturun:
 
     ![DB bağlantıları](./media/contoso-migration-rebuild/back-pipe1.png)
 
-2. VSTS açın ve SmartHotel360 proje, **yayınlar**, simgeye **+ yeni işlem hattı**.
+2. Azure DevOps açın ve SmartHotel360 proje, **yayınlar**, simgeye **+ yeni işlem hattı**.
 
     ![Yeni ardışık düzen](./media/contoso-migration-rebuild/back-pipe2.png)
 
 3. Simgeye **boş iş** şablon olmadan işlem hattı başlatmak için.
+4. Bunlar, aşama ve işlem hattı adları sağlar.
 
-    ![Boş proje](./media/contoso-migration-rebuild/back-pipe3.png)
-
-4. Bunlar, ortam ve işlem hattı adları sağlar.
-
-      ![Ortam adı](./media/contoso-migration-rebuild/back-pipe4.png)
+      ![Aşama adı](./media/contoso-migration-rebuild/back-pipe4.png)
 
       ![İşlem hattı adı](./media/contoso-migration-rebuild/back-pipe5.png)
 
@@ -465,18 +462,18 @@ Azure portalında işlev uygulaması Contoso yöneticileri sağlayın.
 
 Contoso yöneticileri, ön uç sitesinin iki farklı projeler oluşturun. 
 
-1. VSTS'de, bunlar bir proje oluşturma **SmartHotelFrontend**.
+1. Azure DevOps, proje oluşturma **SmartHotelFrontend**.
 
     ![Ön uç projesi](./media/contoso-migration-rebuild/function-app1.png)
 
 2. Bunlar içeri aktarma [SmartHotel360 ön uç](https://github.com/Microsoft/SmartHotel360-public-web.git) Git deposuna yeni bir proje.
-3. İşlev uygulaması için bunlar başka bir VSTS projesi (SmartHotelPetChecker) oluşturabilir ve içeri [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) bu projeye Git deposu.
+3. İşlev uygulaması için bunlar başka bir Azure DevOps projesi (SmartHotelPetChecker) oluşturma ve içeri aktarma [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) bu projeye Git deposu.
 
 ### <a name="configure-the-web-app"></a>Web uygulamasını yapılandırma
 
 Artık Contoso yöneticileri Contoso kaynakları kullanmak için Web uygulaması yapılandırırsınız.
 
-1. Bunlar VSTS projesine bağlanın ve yerel olarak geliştirme makinesini deposunu kopyalayın.
+1. Bunlar Azure DevOps projesi için bağlanın ve yerel olarak geliştirme makinesini deposunu kopyalayın.
 2. Visual Studio'da, depodaki tüm dosyaları göstermek için klasörü açın.
 
     ![Depoya dosyaları](./media/contoso-migration-rebuild/configure-webapp1.png)
@@ -513,23 +510,20 @@ Artık Contoso yöneticileri Contoso kaynakları kullanmak için Web uygulaması
 Contoso yöneticileri Web sitesi artık yayımlayabilirsiniz.
 
 
-1. VSTS, açtıklarında ve **SmartHotelFrontend** içinde proje **derleme ve yayınlar**, simgeye **+ yeni işlem hattı**.
-2. Seçmeleri **VSTS Gıt** kaynağı olarak.
-
-    ![Yeni ardışık düzen](./media/contoso-migration-rebuild/vsts-publishfront1.png)
-
+1. Azure DevOps açtıklarında ve **SmartHotelFrontend** içinde proje **derleme ve yayınlar**, simgeye **+ yeni işlem hattı**.
+2. Seçmeleri **Azure DevOps Git** kaynağı olarak.
 3. Seçmeleri **ASP.NET Core** şablonu.
 4. İşlem hattı gözden geçirin ve bu maddeyi **Web projeleri yayımlamak** ve **yayınlanmış projelerine Zip** seçilir.
 
     ![Ardışık düzen ayarları](./media/contoso-migration-rebuild/vsts-publishfront2.png)
 
-5. İçinde **Tetikleyicileri**, sürekli tümleştirme çözümünü ve ana dal ekleyin. Bu çözüm ana dala kabul edilen yeni kod sahiptir, her tim derleme işlem hattı başlar sağlar.
+5. İçinde **Tetikleyicileri**, sürekli tümleştirme çözümünü ve ana dal ekleyin. Bu çözüm süresini ana dalına işlendi yeni kodu her derleme işlem hattı başladığını sağlar.
 
     ![Sürekli tümleştirme](./media/contoso-migration-rebuild/vsts-publishfront3.png)
 
 6. Simgeye **Kaydet ve kuyruğa** derlemeyi başlatmak için.
 7. Derleme tamamlandıktan sonra bunlar kullanarak sürüm işlem hattınızdan yapılandırma **Azure uygulama hizmeti dağıtımının**.
-8. Ortam adı sağladıkları **hazırlama**.
+8. Aşama adı sağladıkları **hazırlama**.
 
     ![Ortam adı](./media/contoso-migration-rebuild/vsts-publishfront4.png)
 
@@ -537,28 +531,24 @@ Contoso yöneticileri Web sitesi artık yayımlayabilirsiniz.
 
      ![Yapıt ekleme](./media/contoso-migration-rebuild/vsts-publishfront5.png)
 
-6. Bunlar artifcat ışık Şimşek simgesine tıklayın ve sürekli dağıtımı etkinleştirme.
+10. Bunlar, yapıt ışık Şimşek simgesine tıklayın ve sürekli dağıtımı etkinleştirme.
 
     ![Sürekli dağıtım](./media/contoso-migration-rebuild/vsts-publishfront6.png)
-
-7. İçinde **ortam**, simgeye **1. Aşama, 1 görev** altında **hazırlama**.
-8. Abonelik ve uygulama adı'nı seçtikten sonra bunlar açık **Azure App Service'e dağıtma** görev. Dağıtımı kullanmak üzere yapılandırılmış **hazırlama** dağıtım yuvası. Bu kod inceleme ve onaya bu yuvadaki otomatik olarak oluşturur.
+11. İçinde **ortam**, simgeye **1 iş, 1 görev** altında **hazırlama**.
+12. Abonelik ve uygulama adı'nı seçtikten sonra bunlar açık **Azure App Service'e dağıtma** görev. Dağıtımı kullanmak üzere yapılandırılmış **hazırlama** dağıtım yuvası. Bu kod inceleme ve onaya bu yuvadaki otomatik olarak oluşturur.
 
      ![Yuva](./media/contoso-migration-rebuild/vsts-publishfront7.png)
 
-9. İçinde **yeni yayın işlem hattı**, bunlar yeni bir ortam ekleyin.
+13. İçinde **işlem hattı**, bunlar yeni aşama ekleyin.
 
     ![Yeni ortam](./media/contoso-migration-rebuild/vsts-publishfront8.png)
 
-10. Seçmeleri **yuva ile Azure App Service dağıtımı**ve ortamı adı **Prod**.
-
-    ![Ortam adı](./media/contoso-migration-rebuild/vsts-publishfront9.png)
-
-11. Bunlar tıklayarak **Aşama 1, 2 görevler**, uygulama hizmeti adı, abonelik seçin ve **hazırlama** yuvası.
+14. Seçmeleri **yuva ile Azure App Service dağıtımı**ve ortamı adı **Prod**.
+15. Bunlar tıklayarak **1 iş, 2 görev**, abonelik, uygulama hizmeti adı seçin ve **hazırlama** yuvası.
 
     ![Ortam adı](./media/contoso-migration-rebuild/vsts-publishfront10.png)
 
-12. Bunlar kaldırmak **yuvası Azure App Service'e dağıtma** işlem hattından. Ayrıca, önceki adımları tarafından var. yerleştirildi.
+16. Bunlar kaldırmak **yuvası Azure App Service'e dağıtma** işlem hattından. Ayrıca, önceki adımları tarafından var. yerleştirildi.
 
     ![Komut zincirinden Kaldır](./media/contoso-migration-rebuild/vsts-publishfront11.png)
 
@@ -571,8 +561,8 @@ Contoso yöneticileri Web sitesi artık yayımlayabilirsiniz.
     ![Dağıtım sonrası onayı](./media/contoso-migration-rebuild/vsts-publishfront13.png)
 
 15. Derleme işlem hattı, bunlar elle bir yapı tetiklersiniz. Bu sitenin hazırlama yuvasını dağıtır yeni yayın işlem hattını tetikler. Contoso için yuva URL'sidir **https://smarthotelcontoso-staging.azurewebsites.net/**.
-16. Yapı tamamlanana ve yayın yuvaya dağıtır sonra VSTS Geliştirme lideri onay e-posta gönderir.
-17. Geliştirme lideri tıklama **görüntülemek onay**ve onaylama veya reddetme isteğini VSTS Portalı'nda.
+16. Yapı tamamlanana ve yayın yuvaya dağıtır sonra Azure DevOps Geliştirme lideri onay e-posta gönderir.
+17. Geliştirme lideri tıklama **görüntülemek onay**ve onaylama veya reddetme DevOps Azure Portalı'nda istek.
 
     ![Onay e-postası](./media/contoso-migration-rebuild/vsts-publishfront14.png)
 
@@ -591,19 +581,19 @@ Contoso yöneticileri Web sitesi artık yayımlayabilirsiniz.
 
 Contoso yöneticileri gibi uygulamayı dağıtın.
 
-1. Bunlar, VSTS projesine bağlanarak deposunu yerel olarak geliştirme makinesini kopyalayın.
+1. Bunlar, Azure DevOps projesi için bağlanarak deposunu yerel olarak geliştirme makinesini kopyalayın.
 2. Visual Studio'da, depodaki tüm dosyaları göstermek için klasörü açın.
 3. Açtıklarında **src/PetCheckerFunction/local.settings.json** dosya ve depolama, Cosmos veritabanı ve görüntü işleme API'si için uygulama ayarları ekleyin.
 
     ![İşlev dağıtma](./media/contoso-migration-rebuild/function5.png)
 
-4. Bunlar kod işle ve değişiklikleri gönderme VSTS'ye yeniden eşitleyin.
-5. Yeni bir derleme işlem hattı ekleyin ve seçin **VSTS Gıt** kaynağı için.
+4. Bunlar, kod tamamlama ve geri Azure yaptıkları değişiklikleri gönderme DevOps için eşitleme.
+5. Yeni bir derleme işlem hattı ekleyin ve seçin **Azure DevOps Git** kaynağı için.
 6. Seçmeleri **ASP.NET Core (.NET Framework)** şablonu.
 7. Bunlar, şablon için Varsayılanları kabul edin.
 8. İçinde **Tetikleyicileri**seçin sonra **sürekli tümleştirmeyi etkinleştir**, tıklatıp **Kaydet ve kuyruğa** derlemeyi başlatmak için.
 9. Derleme başarılı olduktan sonra bir yayın ardışık düzeni oluşturdukları ekleme **yuva ile Azure App Service dağıtımı**.
-10. Bunlar ortam adı **Prod**ve aboneliği seçin. Ayarladıkları **uygulama türü** için **işlevi Ap**ve app service adı olarak **smarthotelpetchecker**.
+10. Bunlar ortam adı **Prod**ve aboneliği seçin. Ayarladıkları **uygulama türü** için **işlev uygulaması**ve app service adı olarak **smarthotelpetchecker**.
 
     ![İşlev uygulaması](./media/contoso-migration-rebuild/petchecker2.png)
 

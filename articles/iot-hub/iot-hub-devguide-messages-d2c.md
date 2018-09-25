@@ -1,89 +1,93 @@
 ---
-title: Azure IOT Hub CİHAZDAN buluta iletileri anlama | Microsoft Docs
-description: Geliştirici Kılavuzu - IOT Hub ile cihaz-bulut Mesajlaşma kullanma. Telemetri hem telemtry olmayan veri göndermeye başlamak ve yönlendirme iletileri ulaştırmak üzere kullanma hakkında bilgi içerir.
-author: dominicbetts
-manager: timlt
+title: Azure IOT Hub ileti yönlendirme anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - ileti yönlendirme CİHAZDAN buluta iletileri göndermeye kullanma. Telemetri hem telemtry olmayan veri gönderme hakkında bilgi içerir.
+author: ash2017
+manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: be87b00f27f0d0b25cd77a0634ab1c653a85e5ac
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.date: 08/13/2018
+ms.author: asrastog
+ms.openlocfilehash: 7c36ab2f0d4d3e5c772f8ef62c13161a2649362f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126451"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966750"
 ---
-# <a name="send-device-to-cloud-messages-to-iot-hub"></a>IOT Hub'ına CİHAZDAN buluta ileti gönderme
+# <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Farklı uç noktalar için CİHAZDAN buluta iletileri göndermek için ileti yönlendirme kullanın
 
-Zaman serisi telemetri ve Uyarılar için çözüm arka ucunuz cihazlarınızdan göndermek için IOT hub'ınıza CİHAZDAN buluta iletileri cihazınızdan gönderin. IOT Hub tarafından desteklenen diğer cihaz-bulut seçeneklerinin bir açıklaması için bkz. [CİHAZDAN buluta iletişim Kılavuzu][lnk-d2c-guidance].
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Bir cihaz'e yönelik uç noktası aracılığıyla CİHAZDAN buluta iletileri gönderme (**/devices/ {DeviceID} / iletiler/olaylar**). Yönlendirme kuralları ardından IOT hub'ınızdaki hizmet dönük uç noktalardan biri için iletiler yönlendirebilirsiniz. Yönlendirme kuralları, üst bilgiler ve CİHAZDAN buluta ileti gövdesini bunları nereye belirlemek için kullanın. Varsayılan olarak, iletiler yerleşik hizmet'e yönelik uç noktaya yönlendirilir (**iletiler/olaylar**), diğer bir deyişle uyumlu [Event Hubs][lnk-event-hubs]. Bu nedenle, standart kullanabilirsiniz [Event Hubs tümleştirme ve SDK'ları] [ lnk-compatible-endpoint] çözüm arka ucu CİHAZDAN buluta iletileri almak için.
+İleti yönlendirme, otomatik, ölçeklenebilir ve güvenilir bir şekilde bulut Hizmetleri için cihazlarınızdan alınan iletileri göndermesini sağlar. İleti yönlendirme için kullanılabilir: 
 
-IOT Hub CİHAZDAN buluta ileti gönderme akış bir Mesajlaşma deseni kullanılarak uygular. IOT Hub'ınızın CİHAZDAN buluta iletileri gibi daha fazla [Event Hubs] [ lnk-event-hubs] *olayları* daha [Service Bus] [ lnk-servicebus] *iletileri* olayları birden çok okuyucular tarafından okunan hizmeti üzerinden geçen yüksek hacimli olmasını durumunda.
+* **Cihazın telemetri iletileri ve bunun yanı sıra olayları gönderme** yani, cihaz yaşam döngüsü olayları ve değişiklik olayları uç yerleşik ve özel uç noktalar için cihaz ikizi. Hakkında bilgi edinin [yönlendirme uç noktaları](##routing-endpoints).
 
-CİHAZDAN buluta iletileri IOT Hub ile aşağıdaki özelliklere sahiptir:
+* **Çeşitli uç noktalar ile yönlendirme önce verileri filtreleme** zengin sorguların uygulayarak. İleti yönlendirme sorgu ileti özellikleri ve ileti gövdesi hem de cihaz ikizi etiketleri ve cihaz ikizi özelliklerini sağlar. Kullanma hakkında daha fazla bilgi edinin [sorguları içinde ileti yönlendirme](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
-* CİHAZDAN buluta iletileri, dayanıklı ve bir IOT hub'ın varsayılan saklama **iletiler/olaylar** yedi güne kadar uç noktası.
-* CİHAZDAN buluta iletileri en fazla 256 KB olabilir ve gönderen iyileştirmek için toplu olarak gruplandırılabilir. Toplu en fazla 256 KB olabilir.
-* İçinde anlatıldığı gibi [IOT hub'a erişimi denetleme] [ lnk-devguide-security] bölümde, IOT Hub cihaz başına kimlik doğrulaması ve erişim denetimi sağlar.
-* IOT Hub, en fazla 10 özel uç noktaları oluşturmanıza olanak sağlar. İletileri, IOT hub'ınızda yapılandırılmış rota tabanlı uç noktalarına gönderilir. Daha fazla bilgi için [yönlendirme kuralları](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
-* IOT Hub, eşzamanlı olarak bağlanan milyonlarca sağlar (bkz [kotalar ve azaltma][lnk-quotas]).
-* IOT hub'ı rastgele bölümleme izin vermez. CİHAZDAN buluta iletileri bölümlenmiş kendi kaynak tabanlı **DeviceID**.
+IOT Hub ileti yönlendirme çalışmak için bu hizmet uç noktaları yazma erişimi olmalıdır. Azure portalı üzerinden uç noktalarınızı yapılandırırsanız sizin için gerekli izinleri eklenir. Hizmetlerinizi, beklenen aktarım hızıyla destekleyecek şekilde yapılandırdığınızdan emin olun. IOT çözümünüzü ilk kez yapılandırırken, ek uç noktalar izleyin ve gerçek yükleme için gerekli ayarlamaları yapmak gerekebilir.
 
-IOT Hub ile Event Hubs arasındaki farklar hakkında daha fazla bilgi için bkz. [karşılaştırma Azure IOT Hub ve Azure Event Hubs][lnk-comparison].
+IOT hub'ı tanımlayan bir [ortak biçimi](../iot-hub/iot-hub-devguide-messages-construct.md) için tüm cihaz-bulut Mesajlaşma için interoperatbility protokolleri. IOT Hub iletisi için bu endpoint bir ileti aynı uç noktaya işaret eden yolların eşleşirse, yalnızca bir kez sunar. Bu nedenle, Service Bus kuyruğuna veya konusuna üzerinde yinelenenleri kaldırmayı yapılandırma gerekmez. Bölümlenmiş kuyruklar bölüm benzeşim mesaj sıralama garanti eder. [İleti yönlendirme] nasıl yapılandırılacağını öğrenmek için bu öğreticiyi kullanın (https://docs.microsoft.com/azure/iot-hub/tutorial-routing).
 
-## <a name="send-non-telemetry-traffic"></a>Telemetri dışı trafiği gönderme
+## <a name="routing-endpoints"></a>Yönlendirme uç noktaları
 
-Genellikle, telemetri yanı sıra cihazları, iletileri ve ayrı yürütme ve çözüm arka ucu işlemede gerektiren istekleri gönderir. Örneğin, belirli bir eylemi geri tetiklemelidir kritik uyarılar sonlandırın. Yazabileceğiniz bir [yönlendirme kuralı] [ lnk-devguide-custom] ya da ileti üzerinde bir üst bilgi veya bir değeri ileti gövdesi göre kendi işlemeye ayrılmış bir uç nokta bu tür iletileri göndermek için.
+IOT hub'ı varsayılan yerleşik-all-ın-bitiş noktası vardır (**iletiler/olaylar**) Event Hubs ile uyumlu. Oluşturabileceğiniz [özel uç noktalar](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints) rota iletileri IOT Hub'ına aboneliğinizde diğer hizmetler arasında bağlantı kurarak. IOT hub'ı, şu anda özel uç noktalar şu Hizmetleri destekler:
 
-Bu tür bir iletiyi işlemek için en iyi yolu hakkında daha fazla bilgi için bkz: [Öğreticisi: IOT Hub CİHAZDAN buluta iletiler nasıl işlenir] [ lnk-d2c-tutorial] öğretici.
+### <a name="built-in-endpoint"></a>Yerleşik uç noktası
+Standart kullanabileceğiniz [Event Hubs tümleştirme ve SDK'ları](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) CİHAZDAN buluta iletilerini yerleşik uç noktadan almak için (**iletiler/olaylar**). Bir rota için bu endpoint yapılandırılmadığı sürece bir rota oluşturulduktan sonra veri dahili-all-ın-uç noktaya akan durdurur unutmayın.
 
-## <a name="route-device-to-cloud-messages"></a>CİHAZDAN buluta iletiler
+### <a name="azure-blob-storage"></a>Azure Blob Depolama
+IOT hub'ı yalnızca destekler verileri Azure Blob depolama alanına yazma [Apache Avro](http://avro.apache.org/) biçimi. IOT Hub iletilerini toplu işlemleri ve her toplu işin belirli bir boyuta ulaştığında veya belirli bir süre geçtikten verileri bir blob olarak yazar.
 
-Arka uç uygulamalarınızı CİHAZDAN buluta iletileri yönlendirmek için iki seçeneğiniz vardır:
-
-* Yerleşik kullanın [Event Hub ile uyumlu uç nokta] [ lnk-compatible-endpoint] hub tarafından alınan CİHAZDAN buluta iletileri okumak arka uç uygulamalarını etkinleştirmek için. Yerleşik Event Hub ile uyumlu uç nokta hakkında bilgi edinmek için [CİHAZDAN buluta iletilerini yerleşik uç noktadan okuma][lnk-devguide-builtin].
-* Özel uç noktalar IOT hub'ınızdaki iletileri göndermek için yönlendirme kuralları kullanın. Özel uç noktalar, Event Hubs, Service Bus kuyrukları ve Service Bus konu başlıklarını kullanarak CİHAZDAN buluta iletileri okumak arka uç uygulamalarınızı etkinleştirin. Yönlendirme ve özel uç noktaları hakkında bilgi edinmek için [özel uç noktalar ve yönlendirme kuralları için CİHAZDAN buluta iletileri kullanın][lnk-devguide-custom].
-
-## <a name="anti-spoofing-properties"></a>Sahtekarlığına karşı koruma özellikleri
-
-Tüm Damgalar cihaz IOT hub'ı, CİHAZDAN buluta iletileri kimlik sahtekarlığı önlemek için aşağıdaki özelliklere sahip iletileri:
-
-* **ConnectionDeviceId**
-* **ConnectionDeviceGenerationId**
-* **ConnectionAuthMethod**
-
-İlk iki içeren **DeviceID** ve **Generationıd** kaynak cihazın olarak başına [cihaz kimlik özelliklerini][lnk-device-properties].
-
-**ConnectionAuthMethod** özelliği, aşağıdaki özelliklere sahip bir seri hale getirilmiş JSON nesnesi içerir:
-
-```json
-{
-  "scope": "{ hub | device }",
-  "type": "{ symkey | sas | x509 }",
-  "issuer": "iothub"
-}
+IOT hub'ı varsayılan olarak aşağıdaki dosya adlandırma kuralı:
+```
+{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 ```
 
+Ancak, listelenen tüm belirteçleri kullanmanız gerekir, hiçbir dosya adlandırma kuralını kullanabilirsiniz. Yazılacak veri yoksa IOT hub'ı boş bir bloba yazılacaktır.
+
+### <a name="service-bus-queues-and-service-bus-topics"></a>Service Bus kuyrukları ve Service Bus konuları
+Service Bus kuyrukları ve konuları IOT Hub uç noktaları değil olarak kullanılan **oturumları** veya **yinelenen algılama** etkin. Bu seçeneklerden birini etkinse, uç nokta olarak görünür **ulaşılamıyor** Azure portalında.
+
+### <a name="event-hubs"></a>Event Hubs
+Dahili Event hub uyumlu uç dışında veri Event Hubs türünde özel uç noktalar için de yönlendirebilirsiniz. 
+
+Yönlendirme ve özel uç noktaları kullandığınızda, tüm kuralları eşleşmiyorsa iletileri yalnızca yerleşik uç noktasına gönderilir. Özel uç noktalar ve yerleşik uç nokta iletileri ulaştırmak üzere olaylar uç noktasına iletileri gönderen bir rota ekleyin.
+
+## <a name="reading-data-that-has-been-routed"></a>Yönlendirilmiş verileri okuma
+Bir yolu takip ederek yapılandırabileceğiniz [öğretici](https://docs.microsoft.com/azure/iot-hub/tutorial-routing).
+
+İleti bir uç noktasından okumak hakkında bilgi edinmek için aşağıdaki öğreticileri kullanın.
+
+* Okuma [dahili uç noktası](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node)
+* Okuma [Blob Depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart)
+* Okuma [olay hub'ları](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+* Okuma [hizmet veri yolu kuyrukları](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues)
+* Okuma [hizmet veri yolu konuları](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
+
+## <a name="fallback-route"></a>Temel yol
+Geri dönüş rota herhangi bir yerleşik olay hub'ları için mevcut yolları sorgu koşulları karşılamayan tüm iletiler gönderir (**iletiler/olaylar**), diğer bir deyişle uyumlu [Event Hubs](https://docs.microsoft.com/azure/event-hubs/). İleti yönlendirme açıksa, geri dönüş rota özelliğini etkinleştirebilirsiniz. Bir rota için bu endpoint yapılandırılmadığı sürece bir rota oluşturulduktan sonra veri dahili-all-ın-uç noktaya akan durdurur unutmayın. Dahili-içeren uç noktası için yol yok ve bir geri dönüş yol etkin yollar üzerindeki sorgu koşulları eşleşmeyen iletiler dahili-all-ın-uç noktasına gönderilir. Ayrıca, mevcut tüm yolları silinirse, dahili-all-ın-uç noktasında tüm verileri almak için geri dönüş rota etkinleştirilmelidir. 
+
+Etkinleştirebilir / Azure geri dönüş yolda devre dışı bırakabilir Portal dikey penceresinde ileti yönlendirme ->. Azure Resource Manager için de kullanabilirsiniz [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) özel uç nokta için geri dönüş yolu kullanmak için.
+
+## <a name="non-telemetry-events"></a>Olmayan telemetri olayları
+Cihaz telemetrisini yanı sıra ileti yönlendirme ayrıca gönderen cihazın ikiz değişiklik olayları ve cihaz yaşam döngüsü olayları sağlar. Örneğin, bir yol ayarlamak veri kaynağı ile oluşturulursa **cihaz ikiz değişiklik olayları**, IOT Hub cihaz ikizinde değişikliği içeren uç noktasına iletileri gönderir. Benzer şekilde, bir yol ayarlamak veri kaynağı ile oluşturulursa **cihaz yaşam döngüsü olaylarını**, IOT Hub cihaz oluşturulan veya silinmiş olup olmadığını belirten bir ileti gönderir. 
+[IOT Hub ayrıca Azure Event Grid ile tümleşir](iot-hub-event-grid.md) gerçek zamanlı tümleştirmeler ve bu etkinliklere göre iş akışı Otomasyonu desteklemek için cihaz olaylarını yayımlamak için. Anahtar bkz [ileti yönlendirme ve Event Grid arasındaki farklar](iot-hub-event-grid-routing-comparison.md) senaryonuz için en iyi çalıştığı öğrenin.
+
+## <a name="testing-routes"></a>Test yolları
+Yeni bir rota oluşturduğunuzda veya var olan bir rota, örnek bir ileti ile rota sorgu test etmelisiniz. Tekil yollar test ya da aynı anda tüm yolları test edin ve ileti, test sırasında Uç noktalara yönlendirilir. Azure portalı, Azure Resource Manager, Azure PowerShell ve Azure CLI'yı test etmek için kullanılabilir. Sonuçlar örnek ileti sorguyla eşleşen, ileti sorguyu eşleşmedi veya örnek ileti veya sorgu söz dizimi yanlış olduğundan test çalıştırılamıyor olup olmadığını belirlemenize yardımcı olur. Daha fazla bilgi için bkz. [Test rota](https://docs.microsoft.com/rest/api/iothub/iothubresource/testroute) ve [tüm yolları Test](https://docs.microsoft.com/rest/api/iothub/iothubresource/testallroutes).
+
+## <a name="latency"></a>Gecikme süresi
+CİHAZDAN buluta telemetri iletilerini yerleşik uç noktalarını kullanarak yönlendirdiğinizde ilk yolun oluşturulduktan sonra artmasına uçtan uca gecikme yoktur.
+
+Çoğu durumda, ortalama gecikme küçüktür 500ms artıştır. Gecikme süresi kullanarak izleyebileceğiniz **yönlendirme: ileti iletiler/olaylar için gecikme süresini** veya **d2c.endpoints.latency.builtIn.events** IOT hub'ı ölçümü. Uçtan uca gecikme süresi, ilk öğe sonra hiçbir yolu silmesini veya yaratmasını etkilemez.
+
+## <a name="monitoring-and-troubleshooting"></a>İzleme ve sorun giderme
+Uç nokta ilgili ölçümleri size gönderilen iletiler ve hub'a durumunu genel bakış sağlayacak ve çeşitli yönlendirme IOT hub'ı sağlar. Sorunların kök nedenini belirlemek için birden çok Ölçüm bilgilerini birleştirebilirsiniz. Örneğin ölçümünü kullanın **yönlendirme: telemetri iletilerini bırakılan** veya **d2c.telemetry.egress.dropped** yolların herhangi birine sorgular ile eşleşmedi, bırakılan ileti sayısını belirlemek için ve geri dönüş rota devre dışı bırakıldı. [IOT hub'ı ölçümleri](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) IOT Hub'ınız için varsayılan olarak etkin olan tüm ölçümleri listeler.
+
+Kullanarak **yollar** tanılama günlüklerine yönelik Azure İzleyicisi'nde [tanılama ayarları](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health), örneğin IOT Hub tarafından algılanan gibi yönlendirme sorgu ve uç nokta sistem durumu değerlendirmesi sırasında oluşan parçaları hataları olabilir ne zaman bir uç nokta etkin değil. Bu tanılama günlüklerini Log Analytics, Event Hubs veya Azure depolama için özel işleme gönderilebilir.
+
 ## <a name="next-steps"></a>Sonraki adımlar
-
-CİHAZDAN buluta iletileri göndermek için kullanabileceğiniz SDK'lar hakkında bilgi için bkz. [Azure IOT SDK'ları][lnk-sdks].
-
-[Hızlı Başlangıçlar] [ lnk-get-started] sanal cihazlardan CİHAZDAN buluta ileti gönderme işlemini gösterir. Daha fazla ayrıntı için [yolları kullanarak işlem IOT Hub CİHAZDAN buluta iletileri] [ lnk-d2c-tutorial] öğretici.
-
-[lnk-devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
-[lnk-devguide-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-comparison]: iot-hub-compare-event-hubs.md
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[lnk-get-started]: quickstart-send-telemetry-node.md
-
-[lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
-[lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-compatible-endpoint]: iot-hub-devguide-messages-read-builtin.md
-[lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
-[lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-d2c-tutorial]: tutorial-routing.md
+* İleti yollarını nasıl oluşturulacağını öğrenmek için bkz: [yolları kullanarak işlem IOT Hub CİHAZDAN buluta iletileri](../iot-hub/tutorial-routing.md) öğretici.
+* [Hızlı Başlangıçlar](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node) sanal cihazlardan CİHAZDAN buluta ileti gönderme işlemini gösterir.
+* CİHAZDAN buluta iletileri göndermek için kullanabileceğiniz SDK'lar hakkında bilgi için bkz. [Azure IOT SDK'ları](../iot-hub/iot-hub-devguide-sdks.md).

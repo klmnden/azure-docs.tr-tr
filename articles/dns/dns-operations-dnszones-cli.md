@@ -1,6 +1,6 @@
 ---
-title: Azure DNS'de - Azure CLI 2.0 DNS bölgelerini yönetme | Microsoft Docs
-description: Azure CLI 2.0 kullanarak DNS bölgelerini yönetebilirsiniz. Bu makalede, güncelleştirme, silme ve Azure DNS DNS bölgeleri oluşturma gösterilmektedir.
+title: Azure DNS'de - Azure CLI DNS bölgelerini yönetme | Microsoft Docs
+description: Azure CLI kullanarak DNS bölgelerini yönetebilirsiniz. Bu makalede, güncelleştirme, silme ve Azure DNS DNS bölgeleri oluşturma gösterilmektedir.
 services: dns
 documentationcenter: na
 author: vhorne
@@ -13,30 +13,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
-ms.openlocfilehash: c81d8add7ae37e03a98da0ad86deaa1d9d7ec8e0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 7f132c513354a87b4f1bd37db4c6c6ed8e0fd041
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172628"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949970"
 ---
-# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Azure CLI 2.0 ile Azure DNS'te DNS bölgelerini yönetme
+# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Azure CLI ile Azure DNS'te DNS bölgelerini yönetme
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+> * [Azure CLI](dns-operations-dnszones-cli.md)
 
 
 Bu kılavuz, Windows, Mac ve Linux için kullanılabildiği platformlar arası Azure CLI kullanarak DNS bölgelerini yönetme işlemi gösterilmektedir. Kullanarak DNS bölgelerini de yönetebilirsiniz [Azure PowerShell](dns-operations-dnszones.md) veya Azure portalında.
 
-Bu kılavuz, özellikle Genel DNS bölgelerini ile ilgilidir. Azure CLI kullanarak Azure DNS özel bölgelerini yönetme hakkında daha fazla bilgi için bkz: [Azure CLI 2.0 kullanarak Azure DNS özel bölgelerini kullanmaya başlama](private-dns-getstarted-cli.md).
+Bu kılavuz, özellikle Genel DNS bölgelerini ile ilgilidir. Azure CLI kullanarak Azure DNS özel bölgelerini yönetme hakkında daha fazla bilgi için bkz: [Azure CLI kullanarak Azure DNS özel bölgelerini kullanmaya başlama](private-dns-getstarted-cli.md).
 
 ## <a name="introduction"></a>Giriş
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-## <a name="set-up-azure-cli-20-for-azure-dns"></a>Azure DNS için Azure CLI 2.0'ı ayarlama
+## <a name="set-up-azure-cli-for-azure-dns"></a>Azure DNS için Azure CLI'yi ayarlama
 
 ### <a name="before-you-begin"></a>Başlamadan önce
 
@@ -44,7 +44,7 @@ Yapılandırmanıza başlamadan önce aşağıdaki öğelerin bulunduğunu doğr
 
 * Azure aboneliği. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 
-* Azure CLI 2.0, Windows, Linux veya Mac için kullanılabilen en son sürümünü yükleyin Daha fazla bilgi için bkz. [Azure CLI 2.0'ı yükleme](https://docs.microsoft.com/cli/azure/install-az-cli2).
+* Windows, Linux veya Mac için Azure CLI'nin son sürümünü yüklemeniz gerekir. Daha fazla bilgi için bkz. [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ### <a name="sign-in-to-your-azure-account"></a>Azure hesabınızda oturum açma
 
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Yardım alma
 
-Azure DNS ile ilgili tüm CLI 2.0 komutlarını başlayın `az network dns`. Her komutu kullanmak için Yardım kullanılabilir `--help` seçeneği (kısa form `-h`).  Örneğin:
+Azure DNS ile ilgili tüm Azure CLI komutları ile başlayan `az network dns`. Her komutu kullanmak için Yardım kullanılabilir `--help` seçeneği (kısa form `-h`).  Örneğin:
 
 ```azurecli
 az network dns --help

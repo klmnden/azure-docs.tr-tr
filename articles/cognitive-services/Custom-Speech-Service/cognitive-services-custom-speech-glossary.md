@@ -1,6 +1,6 @@
 ---
-title: Terimler sözlüğü için Azure özel konuşma hizmette | Microsoft Docs
-description: Özel konuşma hizmetiyle çalışacak şekilde karşılaşabileceğiniz terimlere sözlüğe terminolojisinde tanımlar.
+title: Azure'da özel konuşma hizmeti için terimler sözlüğü | Microsoft Docs
+description: Özel konuşma hizmeti ile çalışırken karşılaşabileceğiniz terimleri sözlüğü terminolojisinde tanımlar.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,20 +9,21 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 2b6c54f023eccfa813817256bdcc1cbde83d49a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: f57809fee463213cbb427146325666656b022e41
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351670"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956753"
 ---
 # <a name="glossary"></a>Sözlük
 
 ## <a name="a"></a>A
 
-### <a name="acoustic-model"></a>Akustik modeli
+### <a name="acoustic-model"></a>Akustik Model
 
-Ses kısa parçalarını Fonem ya da belirli bir dilde ses birim sayısını birine etiketler bir sınıflandırıcı akustik modelidir. Örneğin İngilizcedeki “speech” (konuşma) sözcüğü, “s p iy ch” şeklinde dört fonemden oluşur. Bu sınıflandırmalarını üzerinde sırasına göre 100 kez saniyede yapılır
+Akustik model bir dizi Fonem ya da ses birimi, belirli bir dilde birine kısa ses parçalarını etiketleyen bir sınıflandırıcıdır. Örneğin İngilizcedeki “speech” (konuşma) sözcüğü, “s p iy ch” şeklinde dört fonemden oluşur. Bu Sınıflandırmalar, saniyede yaklaşık 100 kez yapılır
 
 ## <a name="b"></a>B
 
@@ -30,13 +31,13 @@ Ses kısa parçalarını Fonem ya da belirli bir dilde ses birim sayısını bir
 
 ### <a name="conversational-model"></a>Konuşma modeli
 
-Konuşma stilde konuşulan konuşma tanıma için uygun olan bir model. Microsoft Conversational AM genellikle başka bir kişinin yönlendirilmiş konuşma için uyarlanmış ' dir.
+Bir stile damıtarak konuşma bağlamında kullanılabilen konuşulan konuşma tanıma için uygun olan bir model. Microsoft Conversational AM genellikle başka bir kişinin yönlendirilmiş konuşma için.
 
 ## <a name="d"></a>D
 
 ### <a name="deployment"></a>Dağıtım
 
-İşlem içinden uyarlanmış özel model hizmet olur ve bir URI gösterir
+Uyarlanmış özel model, bir hizmet haline gelir ve sunan bir URI işlemi
 
 ## <a name="e"></a>E
 
@@ -50,7 +51,7 @@ Konuşma stilde konuşulan konuşma tanıma için uygun olan bir model. Microsof
 
 ### <a name="inverse-text-normalization"></a>Ters metin normalleştirme
 
-Biçimlendirilmiş metin, yani büyük/küçük harf ve noktalama işaretleri, "ham" biçimlendirilmemiş metin geri dönüştürme işlemi ters metin normalleştirme (ITN) adı verilir.
+"Ham" biçimlendirilmemiş metin büyük/küçük harf ve noktalama işaretleri, yani ile biçimlendirilmiş metin geri dönüştürme işleminin ters metin normalleştirme (edemezsiniz) adı verilir.
 
 ## <a name="j"></a>K
 
@@ -60,7 +61,7 @@ Biçimlendirilmiş metin, yani büyük/küçük harf ve noktalama işaretleri, "
 
 ### <a name="language-model"></a>Dil Modeli
 
-Dil modeli, sözcük dizileri üzerine bir olasılık dağılımıdır. Dil modeli benzer, ses word dizilerini olasılığını dayalı sözcükler dizilerini arasında karar sistemi yardımcı olur
+Dil modeli, sözcük dizileri üzerine bir olasılık dağılımıdır. Dil modeli, sözcük dizileri olasılığını üzerinde temel benzer, ses sözcük dizileri arasında karar sistem yardımcı olur.
 
 ## <a name="m"></a>M
 
@@ -68,7 +69,7 @@ Dil modeli, sözcük dizileri üzerine bir olasılık dağılımıdır. Dil mode
 
 ### <a name="normalization"></a>Normalleştirme
 
-Normalleştirme (metin): Sonuçta elde edilen metin (yani transcription) dönüşümü bir forma standart, anlaşılır sistem tarafından okunabilir.
+Normalleştirme (metin): Sonuçta elde edilen metin (yani, döküm) dönüştürülmesini bir forma standart, benzersiz sistem tarafından okunabilir.
 
 ## <a name="o"></a>O
 
@@ -82,17 +83,17 @@ Normalleştirme (metin): Sonuçta elde edilen metin (yani transcription) dönü�
 
 ### <a name="search-and-dictate-model"></a>Arama ve dikte modeli
 
-Bir akustik modeli komutları işlemek için uygun. Microsoft Search ve dikte AM gibi bir uygulama veya cihaz, komutları gibi yönlendirilmiş konuşma için uygun
+Akustik model komutları işlemek için uygun. Dikte AM ve Microsoft Search gibi bir uygulama veya cihaz, komutları gibi yönlendirilmiş konuşma için uygun
 
 ### <a name="subscription-key"></a>Abonelik anahtarı
 
-Abonelik, herhangi bir özel konuşma hizmet modeli çağırmak için bir sorgu dizesi parametresi belirtmeniz gerekir dize bir anahtardır. Abonelik anahtarı elde edilen [Azure Portal](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) ve bir kez elde özel konuşma hizmet Portalı'nda "My Aboneliklerde" bulunabilir.
+Abonelik anahtarı herhangi bir özel konuşma hizmeti model çağırmak için bir sorgu dizesi parametresi belirtmeniz gereken bir dizedir. Bir abonelik anahtarı elde edilen [Azure portalı](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) ve bir kez elde şu "My aboneliklerinde" özel konuşma hizmeti Portalı'nda bulunabilir.
 
 ## <a name="t"></a>T
 
-### <a name="transcription"></a>Transcription
+### <a name="transcription"></a>Döküm
 
-Transcription: Ses .wav dosya parçası işleminden sonuçları metin parçası
+Transkripsiyonu: Ses .wav dosyasının bir işlemden sonuçları metin parçası
 
 ## <a name="u"></a>U
 

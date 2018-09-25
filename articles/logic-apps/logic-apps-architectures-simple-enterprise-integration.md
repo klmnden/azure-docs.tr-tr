@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 7081c9e4f6e6deee196255f04180a8f2cc792876
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5ed6fa9f514bae3ea651edba6702714e2680091f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122504"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955954"
 ---
 # <a name="simple-enterprise-integration-architecture"></a>Basit Kurumsal tümleştirme mimarisi
 
@@ -162,7 +162,7 @@ API Management adı verilen nesneleri kullanarak gizli dizileri yönetir *değer
 
 ## <a name="diagnostics-and-monitoring"></a>Tanılama ve izleme
 
-Kullanabileceğiniz [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) işletimsel hem de izleme [API Management](../api-management/api-management-howto-use-azure-monitor.md) ve [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md). Azure İzleyici, her hizmet için yapılandırılmış ölçümleri temel alan bilgiler sağlar ve varsayılan olarak etkindir.
+Kullanabileceğiniz [Azure İzleyici](../azure-monitor/overview.md) işletimsel hem de izleme [API Management](../api-management/api-management-howto-use-azure-monitor.md) ve [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md). Azure İzleyici, her hizmet için yapılandırılmış ölçümleri temel alan bilgiler sağlar ve varsayılan olarak etkindir.
 
 Her hizmet ayrıca bu seçenekler vardır:
 

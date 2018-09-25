@@ -11,16 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2018
-ms.openlocfilehash: 0e37e1839d2248507a30de08e2ac4c975bd3b859
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 06e85845d41b240638a5b5b4d75d64fd460a99bf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648286"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953336"
 ---
 # <a name="install-and-use-the-machine-learning-cli-for-top-tasks-in-azure-machine-learning"></a>Yükleme ve Azure Machine Learning, üst görev için CLI öğrenme machine kullanma
 
-Azure Machine Learning Hizmetleri, tümleşik, uçtan uca veri bilimi ve Gelişmiş analiz çözümüdür. Uzman veri bilimcilerinin veri hazırlamasını, deney geliştirmesini ve bulut ölçeğinde modeller dağıtmak için Azure Machine Learning hizmetlerini kullanabilirsiniz. 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning hizmeti, tümleşik, uçtan uca veri bilimi ve Gelişmiş analiz çözümüdür. Uzman veri bilimcilerinin veri hazırlamasını, deney geliştirmesini ve bulut ölçeğinde modeller dağıtmak için Azure Machine Learning hizmetini kullanabilirsiniz. 
 
 Azure Machine Learning komut satırı arabirimi (CLI) olan yapabilecekleriniz ile sağlar:
 + Çalışma alanı ve projelerinizi yönetme
@@ -39,7 +42,7 @@ Bu makale size kolaylık sağlamak için en kullanışlı CLI komutları bazıla
 Bir Azure aboneliği veya Modellerinizi dağıtabileceğiniz bir kaynak grubu için katkıda bulunan erişmeniz gerekir. Ayrıca, Azure Machine Learning Workbench CLI'yı çalıştırmak için yüklemeniz gerekir. 
 
 >[!IMPORTANT]
->Azure Machine Learning Hizmetleri ile sunulan CLI farklıdır [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), Azure kaynaklarını yönetmek için kullanılır.
+>CLI ile Azure Machine Learning hizmeti farklı teslim [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), Azure kaynaklarını yönetmek için kullanılır.
 
 ## <a name="get-and-start-cli"></a>Alın ve CLI başlayın
 
@@ -201,7 +204,7 @@ az ml env set -n <environment name> -g <resource group name>
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu makalelerin biri ile başlayın: 
-+ [Yükleme ve Azure Machine Learning'i kullanmaya başlayın](../service/quickstart-installation.md)
++ [Yükleme ve Azure Machine Learning'i kullanmaya başlayın](quickstart-installation.md)
 + [Sınıflandırma Iris veri öğretici: Bölüm 1](tutorial-classifying-iris-part-1.md)
 
 Şu makalelerden birini daha derinlemesine inceleyelim:

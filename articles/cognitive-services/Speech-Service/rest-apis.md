@@ -8,16 +8,16 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 8f01130d46bce1e3b3e0b37f26e25d552c6002e5
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498122"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032436"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
-Birleşik konuşma hizmeti REST API'ları tarafından sağlanan API'leri benzerdir [Bing konuşma API'si](https://docs.microsoft.com/azure/cognitive-services/Speech). Bing konuşma hizmeti tarafından kullanılan uç noktalarını uç noktalarına farklıdır. Bölgesel uç noktaları kullanılabilir ve kullanmakta olduğunuz uç noktaya karşılık gelen bir abonelik anahtarı kullanması gerekir.
+Azure Bilişsel hizmetler REST API'lerini birleşik konuşma hizmeti tarafından sağlanan API'leri benzer [Bing konuşma API'si](https://docs.microsoft.com/azure/cognitive-services/Speech). Bing konuşma hizmeti tarafından kullanılan uç noktalarını uç noktalarına farklıdır. Bölgesel uç noktaları kullanılabilir ve kullanmakta olduğunuz uç noktaya karşılık gelen bir abonelik anahtarı kullanması gerekir.
 
 ## <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
 
@@ -28,7 +28,7 @@ Konuşmayı metne dönüştürme REST API'si uç noktaları aşağıdaki tabloda
 > [!NOTE]
 > Akustik model veya dil modeli ya da telaffuz özelleştirdiyseniz, özel uç noktanıza kullanın.
 
-Bu API yalnızca kısa konuşma destekler. İstekleri 10 saniyeye kadar ses içeren ve en son 14 saniyede toplam en fazla. REST API, yalnızca kısmi veya Ara sonuçlar Nihai sonuç döndürür. Konuşma hizmeti de sahip bir [toplu transkripsiyonu](batch-transcription.md) uzun ses özelliği API.
+Bu API yalnızca kısa konuşma destekler. İstekleri 10 saniyeye kadar ses içeren ve en son 14 saniyede toplam en fazla. REST API, kısmi veya Ara sonuçlar yalnızca Nihai sonuç döndürür. Konuşma hizmeti de sahip bir [toplu transkripsiyonu](batch-transcription.md) uzun ses özelliği API.
 
 ### <a name="query-parameters"></a>Sorgu parametreleri
 
@@ -51,15 +51,15 @@ Aşağıdaki alanlar, HTTP istek bağlığında gönderilir.
 |`Content-type`|Biçimi ve verilerin ses codec açıklar. Şu anda, bu değer olmalıdır `audio/wav; codec=audio/pcm; samplerate=16000`.|
 |`Transfer-Encoding`|İsteğe bağlı. Verilen olmalıdır `chunked` yerine tek bir dosyayı birden çok küçük öbekler halinde gönderilmesi ses verilerin sağlamak için.|
 |`Expect`|Öbekli aktarım kullanıyorsanız, gönderme `Expect: 100-continue`. Konuşma hizmeti, ilk istek bildirir ve ek veri bekler.|
-|`Accept`|İsteğe bağlı. Sağlanırsa, içermelidir `application/json`gibi konuşma tanıma hizmeti sonuçları JSON biçiminde sağlar. (Bir uyumsuz varsayılan değer her zaman için iyi bir uygulama, bu nedenle, bir belirtmezseniz dahil bazı Web isteği çerçeveleri sağlar `Accept`)|
+|`Accept`|İsteğe bağlı. Sağlanırsa, içermelidir `application/json`gibi konuşma tanıma hizmeti sonuçları JSON biçiminde sağlar. (Bir uyumsuz varsayılan değer her zaman için iyi bir uygulama, bu nedenle, bir belirtmezseniz dahil bazı Web isteği çerçeveleri sağlar `Accept`.)|
 
 ### <a name="audio-format"></a>Ses biçimi
 
-Ses HTTP gövdesi gönderilen `PUT` istemek ve 16-bit WAV PCM tek kanalda (tekli) 16 KHz biçiminde olmalıdır.
+Ses HTTP gövdesi gönderilen `PUT` isteği. 16-bit WAV PCM tek kanalda (tekli) 16 KHz biçiminde olmalıdır.
 
 ### <a name="chunked-transfer"></a>Öbekli aktarım
 
-Öbekli aktarım (`Transfer-Encoding: chunked`) tanıma gecikme süresi, aktarım sırasında ses dosyası işlemesi konuşma tanıma hizmeti izin verdiğinden azaltmaya yardımcı olabilir. REST API, kısmi veya Ara sonuçlar sağlamaz; Bu seçenek, yalnızca yanıt verme hızını artırmak için tasarlanmıştır.
+Öbekli aktarım (`Transfer-Encoding: chunked`) tanıma gecikme süresi, aktarım sırasında ses dosyası işlemesi konuşma tanıma hizmeti izin verdiğinden azaltmaya yardımcı olabilir. REST API, kısmi veya Ara sonuçlar sağlamaz. Bu seçenek, yalnızca yanıt verme hızını artırmak için tasarlanmıştır.
 
 Aşağıdaki kod öbekler halinde ses gönderme işlemini gösterir. `request` HTTPWebRequest nesneyi uygun REST uç noktasına bağlanır. `audioFile` ses dosyası diskte yoludur.
 
@@ -126,7 +126,7 @@ Sonuçları JSON biçiminde döndürülür. `simple` Biçimi yalnızca aşağıd
 |`Offset`|Tanınan konuşma tanıma ses akışı başlar süre (100 nanosaniyelik birimleri).|
 |`Duration`|Ses akışı olarak tanınan konuşma süresi (100 nanosaniyelik birimlerindeki).|
 
-`RecognitionStatus` Alan, aşağıdaki değerleri içerebilir.
+`RecognitionStatus` Alan aşağıdaki değerleri içerebilir.
 
 |Durum değeri|Açıklama
 |-|-|
@@ -138,6 +138,7 @@ Sonuçları JSON biçiminde döndürülür. `simple` Biçimi yalnızca aşağıd
 
 > [!NOTE]
 > Ses yalnızca küfür oluşuyorsa ve `profanity` sorgu parametresi ayarlandığında `remove`, hizmeti bir konuşma sonuç döndürmez. 
+
 
 `detailed` Biçimi içeren aynı alanları `simple` , bunların ile biçimde bir `NBest` alan. `NBest` Alan büyük olasılıkla'den az büyük olasılıkla sıralanmış aynı konuşma alternatif ınterpretations listesi verilmiştir. İlk giriş ana tanıma işleminin sonucu aynıdır. Her girişin aşağıdaki alanları içerir:
 
@@ -162,7 +163,7 @@ Tipik bir yanıt için verilmiştir `simple` tanıma.
 }
 ```
 
-Tipik bir yanıt aşağıdadır `detailed` tanıma.
+Tipik bir yanıt için verilmiştir `detailed` tanıma.
 
 ```json
 {
@@ -221,8 +222,8 @@ Kullanılabilir ses çıkış biçimleri (`X-Microsoft-OutputFormat`) bir bit h�
 
 |||
 |-|-|
-`raw-16khz-16bit-mono-pcm`         | `audio-16khz-16kbps-mono-siren`
-`riff-16khz-16kbps-mono-siren`     | `riff-16khz-16bit-mono-pcm`
+`raw-16khz-16bit-mono-pcm`         | `raw-8khz-8bit-mono-mulaw`
+`riff-8khz-8bit-mono-mulaw`     | `riff-16khz-16bit-mono-pcm`
 `audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3`
 `audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm`
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
@@ -266,23 +267,23 @@ HTTP kodu|Anlamı|Olası neden
 413|İstek varlığı çok büyük|SSML'yi giriş metni, 1024 karakterden uzun.
 |502|Hatalı Ağ Geçidi    | Ağ veya sunucu tarafı sorun. Geçersiz üst bilgileri de gösterebilir.
 
-HTTP durum ise `200 OK`, yanıt gövdesi istenen biçiminde bir ses dosyası içerir. Bu dosya, aktarılan ya bir arabellek veya daha sonra kayıttan yürütmek ya da diğer kullanım için Dosya kaydedildi olarak yürütülen.
+HTTP durum ise `200 OK`, yanıt gövdesi istenen biçiminde bir ses dosyası içerir. Bu dosya, aktarılan veya bir arabellek veya daha sonra kayıttan yürütmek ya da diğer kullanım için Dosya kaydedildi çalınabilir.
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
-Konuşma hizmetin REST API'sine bir istek göndermek için bir abonelik anahtarı ya da bir erişim belirteci gerektirir. Genel olarak, abonelik anahtarını doğrudan göndermek kolay; Konuşma hizmeti erişim belirteci, ardından alır. Ancak, yanıt süresi en aza indirmek için bunun yerine bir erişim belirteci kullanmak isteyebilirsiniz.
+Konuşma hizmetin REST API'sine bir istek göndermek için bir abonelik anahtarı ya da bir erişim belirteci gerektirir. Genel olarak, abonelik anahtarını doğrudan göndermek en kolay yoldur. Konuşma hizmeti erişim belirteci, ardından alır. Yanıt süresi en aza indirmek için bir erişim belirteci yerine kullanmak isteyebilirsiniz.
 
-Bölgesel bir konuşma hizmeti için abonelik anahtarınızı sunarak belirteç edinme `issueToken` uç noktası, aşağıdaki tabloda gösterilen. Eşleşen abonelik bölgenizi uç noktası kullanma.
+Bir belirteç almak için bölgesel bir konuşma hizmeti için abonelik anahtarınızı sunmak `issueToken` uç noktası, aşağıdaki tabloda gösterildiği gibi. Eşleşen abonelik bölgenizi uç noktası kullanma.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
-Her bir erişim belirteci 10 dakika için geçerlidir. Dilediğiniz zaman yeni bir belirteci edinebilirsiniz — dahil olmak üzere, isterseniz, her konuşma REST API istekten önce yeni. Ağ trafiğini ve gecikme süresini en aza indirmek için ancak aynı belirteci dokuz dakikalığına kullanmanızı öneririz.
+Her bir erişim belirteci 10 dakika için geçerlidir. Dilediğiniz zaman yeni bir belirteç elde edebilirsiniz. İsterseniz, her konuşma REST API isteği hemen önce bir belirteç elde edebilirsiniz. Ağ trafiğini ve gecikme süresini en aza indirmek için aynı belirteci dokuz dakikalığına kullanmanızı öneririz.
 
 Aşağıdaki bölümlerde, bir belirteç almak üzere nasıl ve bir istekte kullanma işlemini gösterir.
 
-### <a name="getting-a-token-http"></a>Bir belirteç alınırken: HTTP
+### <a name="get-a-token-http"></a>Bir belirteç almak: HTTP
 
-Aşağıda bir belirteç almak için örnek HTTP isteğidir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Aboneliğiniz, Batı ABD bölgesinde değil ise, yerine `Host` üst bilgi, bölgenin ana bilgisayar adına sahip.
+Aşağıdaki örnek, bir belirteç almak için bir örnek HTTP isteğidir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Aboneliğiniz Batı ABD bölgesinde değil, yerini `Host` üst bilgi, bölgenin ana bilgisayar adına sahip.
 
 ```
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -294,9 +295,9 @@ Content-Length: 0
 
 Bu istek için yanıt gövdesinin Java Web Token (JWT) biçiminde bir erişim belirtecidir.
 
-### <a name="getting-a-token-powershell"></a>Bir belirteç alınırken: PowerShell
+### <a name="get-a-token-powershell"></a>Bir belirteç almak: PowerShell
 
-Aşağıdaki Windows PowerShell Betiği, bir erişim belirteci almak nasıl gösterir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Aboneliğiniz, Batı ABD bölgesinde değil ise, ana bilgisayar adı verilen URI'ın buna göre değişir.
+Aşağıdaki Windows PowerShell Betiği, bir erişim belirteci almak nasıl gösterir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Verilen URI ana bilgisayar adını, Batı ABD bölgesinde aboneliğiniz yoksa, buna göre değişir.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -313,12 +314,12 @@ $OAuthToken
 
 ```
 
-### <a name="getting-a-token-curl"></a>Bir belirteç alınırken: cURL
+### <a name="get-a-token-curl"></a>Bir belirteç almak: cURL
 
-cURL Linux (ve Linux için Windows alt sistemi) kullanılabilir komut satırı aracıdır. Aşağıdaki cURL komutu bir erişim belirteci almak nasıl gösterir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Aboneliğiniz, Batı ABD bölgesinde değil ise, ana bilgisayar adı verilen URI'ın buna göre değişir.
+cURL Linux (ve Linux için Windows alt sistemi) kullanılabilir komut satırı aracıdır. Aşağıdaki cURL komutu bir erişim belirteci almak nasıl gösterir. Değiştirin `YOUR_SUBSCRIPTION_KEY` konuşma hizmeti abonelik anahtarınız ile. Verilen URI ana bilgisayar adını, Batı ABD bölgesinde aboneliğiniz yoksa, buna göre değişir.
 
 > [!NOTE]
-> Komutu okunabilirlik için birden çok satırda gösterilir, ancak tek bir satırda bir kabuk isteminde girdiğiniz.
+> Komut okunabilirlik için birden çok satırda gösterilir, ancak bir kabuk isteminde tek bir satıra girin.
 
 ```
 curl -v -X POST 
@@ -328,9 +329,9 @@ curl -v -X POST
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-### <a name="getting-a-token-c"></a>Bir belirteç alınırken: C#
+### <a name="get-a-token-c"></a>Bir belirteç almak: C#
 
-C# sınıfı aşağıdaki bir erişim belirteci almak nasıl gösterir. Konuşma hizmeti abonelik anahtarınızı sınıfı örneği oluşturulurken geçirin. Aboneliğiniz, Batı ABD bölgesinde değil ise, ana bilgisayar adını değiştirmek `FetchTokenUri` uygun şekilde.
+Aşağıdaki C# sınıfı, bir erişim belirteci almak nasıl gösterir. Konuşma hizmeti abonelik anahtarınızı sınıfı başlattığınızda geçirin. Batı ABD bölgesinde aboneliğiniz yoksa, ana bilgisayar adını değiştirmek `FetchTokenUri` uygun şekilde.
 
 ```cs
 /*
@@ -369,9 +370,9 @@ public class Authentication
 }
 ```
 
-### <a name="using-a-token"></a>Bir belirteç kullanma
+### <a name="use-a-token"></a>Bir belirteç kullanın
 
-Bir REST API isteğinde bir belirteç kullanmak için bunu sağlamak `Authorization` sözcüğü aşağıdaki üst bilgi, `Bearer`. Örneğin, işte bir örnek metin içeren bir belirteç konuşma REST isteği. Gerçek belirtecinizin yerine `YOUR_ACCESS_TOKEN` ve doğru ana bilgisayar adı `Host` başlığı.
+Bir REST API isteğinde bir belirteç kullanmak için bunu sağlamak `Authorization` sözcüğü aşağıdaki üst bilgi, `Bearer`. Bir belirteç içeren konuşma REST istekleri için metin örneği aşağıdadır. Gerçek belirtecinizin yerine `YOUR_ACCESS_TOKEN`. Doğru konak adında kullanmak `Host` başlığı.
 
 ```xml
 POST /cognitiveservices/v1 HTTP/1.1
@@ -387,16 +388,16 @@ Connection: Keep-Alive
 </voice></speak>
 ```
 
-### <a name="renewing-authorization"></a>Yetkilendirme yenileniyor
+### <a name="renew-authorization"></a>Yetkilendirmeyi yenile
 
-Yetkilendirme belirtecini, 10 dakika sonra süresi dolar. Süresi dolmadan önce yeni bir belirteç elde yetki yenileme — Örneğin, dokuz dakika sonra. 
+Yetkilendirme belirtecini, 10 dakika sonra süresi dolar. Süresi dolmadan önce yeni bir belirteç elde yetki yenileyin. Örneğin, dokuz dakika sonra yeni bir belirteç elde edebilirsiniz.
 
-Aşağıdaki C# kod daha önce gösterilen sınıfı mongodb'nin ' dir. `Authentication` Sınıfı kullanarak bir zamanlayıcıyı dokuz dakikada otomatik olarak yeni bir erişim belirteci alır. Bu yaklaşım, program çalışırken geçerli bir belirteç her zaman kullanılabilir olmasını sağlar.
+Aşağıdaki C# kod daha önce gösterilen sınıfı mongodb'nin ' dir. `Authentication` Sınıfı otomatik olarak edinir yeni bir erişim belirteci dokuz dakikada bir zamanlayıcı kullanarak. Bu yaklaşım, program çalışırken geçerli bir belirteç her zaman kullanılabilir olmasını sağlar.
 
 > [!NOTE]
-> Bir zamanlayıcı kullanmak yerine, bir zaman damgası, son belirteç alınamadı, daha sonra yalnızca geçerlilik süresi bitmeye yakın olması durumunda, yeni bir istek saklayabilirsiniz. Bu yaklaşım, yeni belirteçleri gereksiz yere isteyen önler ve seyrek konuşma isteklerde programları için daha uygun olabilir.
+> Bir zamanlayıcı kullanmak yerine, bir zaman damgası, son belirteç zaman edinilen depolayabilirsiniz. Yalnızca, süresi dolmak üzere olduğunda yeni bir talep edebilir. Bu yaklaşım yeni belirteçleri gereksiz yere isteyen önler ve seyrek konuşma isteklerde programları için daha uygun olabilir.
 
-Önceki örneklerde olduğu gibi emin `FetchTokenUri` değerle eşleşen abonelik bölgenizi. Abonelik anahtarınızı sınıfı örneği oluşturulurken geçirin.
+Önceki örneklerde olduğu gibi emin `FetchTokenUri` değerle eşleşen abonelik bölgenizi. Abonelik anahtarınızı sınıfı başlattığınızda geçirin.
 
 ```cs
 /*

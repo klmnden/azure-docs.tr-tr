@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7fec050f43ed6facef548ea19d1d67030458fbb1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b4e1e01d54f6e0043709e0dadef41d7ea513a9b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380259"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963296"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Geliştirme ve C# modülleri, Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
@@ -48,7 +48,7 @@ Modülünüzün bir cihazda test etmek için oluşturulan en az bir IOT Edge cih
 
 ## <a name="create-a-new-solution-with-c-module"></a>C# modülü ile yeni bir çözüm oluşturma
 
-Visual Studio Code ve Azure IOT Edge uzantısını kullanarak .NET Core 2.0 üzerinde dayalı bir IOT Edge modülünüzü oluşturmak için bu adımları uygulayın. İlk olarak, bir çözüm oluşturun ve ardından ilk Modül içindeki çözümü oluşturun. Her çözüm, birden fazla modülü içerebilir. 
+Visual Studio Code ve Azure IOT Edge uzantısını kullanarak .NET Core 2.1 üzerinde dayalı bir IOT Edge modülünüzü oluşturmak için bu adımları uygulayın. İlk olarak, bir çözüm oluşturun ve ardından ilk Modül içindeki çözümü oluşturun. Her çözüm, birden fazla modülü içerebilir. 
 
 1. Visual Studio Code'da seçin **görünümü** > **tümleşik Terminalini**.
 3. Seçin **görünümü** > **komut paleti**. 

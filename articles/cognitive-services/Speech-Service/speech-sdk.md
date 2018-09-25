@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: c26aeb1d29c3b2c8b5b43d1a1face818295e9d2f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 169d421ddccf33ac239b69ab78ca7dca0f0b8261
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122091"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958430"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Bilişsel hizmetler konuşma SDK hakkında
 
@@ -35,7 +35,7 @@ Windows için biz aşağıdaki dilleri destekler:
   SDK'sı NuGet kullanarak Visual Studio'da yüklenebilir; Arama `Microsoft.CognitiveServices.Speech`.
 
 * Java: Başvurabilir ve yalnızca Windows x64 destekleyen bizim konuşma SDK Maven paketini en son sürümünü kullanın.
-  Maven projenizde ekleyin `https://csspeechstorage.blob.core.windows.net/maven/` bir ek bir depo ve başvuru olarak `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` bağımlılık olarak. 
+  Maven projenizde ekleyin `https://csspeechstorage.blob.core.windows.net/maven/` bir ek bir depo ve başvuru olarak `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0` bağımlılık olarak. 
 
 ### <a name="linux"></a>Linux
 
@@ -53,11 +53,11 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
   SDK'ya başvurmak için şu paket başvuruyu projenize ekleyin:
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="0.6.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.0.0" />
   ```
 
 * Java: Başvurabilir ve bizim konuşma SDK Maven paketini en son sürümünü kullanın.
-  Maven projenizde ekleyin `https://csspeechstorage.blob.core.windows.net/maven/` bir ek bir depo ve başvuru olarak `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` bağımlılık olarak. 
+  Maven projenizde ekleyin `https://csspeechstorage.blob.core.windows.net/maven/` bir ek bir depo ve başvuru olarak `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0` bağımlılık olarak. 
 
 * C++: SDK'yı indirin bir [.tar paketinin](https://aka.ms/csspeech/linuxbinary) ve tercih ettiğiniz bir dizine dosyalarında paket. Aşağıdaki tabloda, SDK klasörü yapısı gösterilmektedir.
 
@@ -74,7 +74,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 ### <a name="android"></a>Android
 
 Android için Java SDK'sı olarak paketlenmiş bir [AAR (Android kitaplık)](https://developer.android.com/studio/projects/android-library), gerekli kitaplıkların yanı sıra kullanım Android gerekli izinleri içerir.
-Maven deponun barındırılan `https://csspeechstorage.blob.core.windows.net/maven/` paketi olarak `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`.
+Maven deponun barındırılan `https://csspeechstorage.blob.core.windows.net/maven/` paketi olarak `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`.
 Android Studio projenizden paketi kullanmak için aşağıdaki değişiklikleri yapın:
 
 * Proje düzeyi `build.gradle` dosyasında, aşağıdaki ekleyin `repository` bölümü:
@@ -86,7 +86,7 @@ Android Studio projenizden paketi kullanmak için aşağıdaki değişiklikleri 
 * Modül düzeyi `build.gradle` dosyasında, aşağıdaki ekleyin `dependencies` bölümü:
 
   ```text
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.6.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.0.0'
   ```
 
 Java SDK'sını da olan parçası [konuşma cihaz SDK'sı](speech-devices-sdk.md).

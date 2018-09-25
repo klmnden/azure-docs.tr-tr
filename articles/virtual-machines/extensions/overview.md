@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: ec201f7f82aea97b9927b85a6b185fad51f6081d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c54bcc1239c2d8b8a88d5e30b06f8856b73b47ae
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412609"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960694"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure sanal makine uzantıları ve özellikleri
 Azure sanal makine (VM) uzantıları Azure Vm'leri üzerinde dağıtım sonrası yapılandırma ve otomasyon görevleri sunan küçük uygulamalar, mevcut görüntülerinizi kullanın ve ardından onları, dağıtımlarınızın bir parçası olarak özel faaliyet alma özelleştirin görüntü oluşturuluyor.
@@ -41,7 +41,7 @@ Uzantılar, yeni bir VM dağıtımı ile gönderilebilir. Örneğin, uygulamalar
 Kullanılabilir uzantılar portalında uzantılarının altında VM dikey penceresinde görüntüleyebilirsiniz, bu yalnızca küçük bir miktar, temsil eder tam listesi için CLI araçlarından yararlanın, bkz: [Linux için VM uzantıları bulma](features-linux.md) ve [ Windows için VM uzantıları bulma](features-windows.md).
 
 ## <a name="how-can-i-install-an-extension"></a>Bir uzantıyı nasıl yükleyebilirim?
-Azure VM uzantıları, Azure CLI 2.0, Azure PowerShell, Azure Resource Manager şablonları ve Azure portalı kullanılarak yönetilebilir. Uzantı denemek için Azure portalında, select özel betik uzantısı gidin, ardından bir komuta geçirin / komut dosyası ve Uzantıları'nı çalıştırın.
+Azure VM uzantıları, Azure CLI, Azure PowerShell, Azure Resource Manager şablonları ve Azure portalı kullanılarak yönetilebilir. Uzantı denemek için Azure portalında, select özel betik uzantısı gidin, ardından bir komuta geçirin / komut dosyası ve Uzantıları'nı çalıştırın.
 
 CLI veya Resource Manager şablonu tarafından portalda eklenen aynı uzantı istiyorsanız, farklı bir uzantı belgeler gibi bkz [Windows özel betik uzantısı](custom-script-windows.md) ve [Linux özel betik uzantısı'nı](custom-script-linux.md).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 639eff5806ef84c526ae8d0d0ed55ca790bdac08
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 67624e7ad21e6c3526b3ca47ff4b8e2df3b6ae54
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498037"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962275"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud shell'e genel bakış
 Azure Cloud Shell'i Azure kaynaklarını yönetmek için etkileşimli ve tarayıcı erişilebilir bir kabuktur.
@@ -48,7 +48,7 @@ Windows kullanıcıları (Önizleme) Cloud Shell'de PowerShell kullanabilirsiniz
 ![(Önizleme) Cloud shell'de PowerShell](media/overview/overview-ps-pic.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Kimliği doğrulanmış ve yapılandırılmış Azure iş istasyonu
-Cloud Shell'i Microsoft tarafından yönetiliyorsa, popüler komut satırı araçları ve dil desteği ile gelecektir. Cloud Shell'i de güvenli bir şekilde otomatik olarak Azure CLI 2.0 veya Azure PowerShell cmdlet'leri aracılığıyla kaynaklarınıza hızlı erişim için kimlik doğrulaması yapar.
+Cloud Shell'i Microsoft tarafından yönetiliyorsa, popüler komut satırı araçları ve dil desteği ile gelecektir. Cloud Shell'i de güvenli bir şekilde otomatik olarak Azure CLI veya Azure PowerShell cmdlet'leri aracılığıyla kaynaklarınıza hızlı erişim için kimlik doğrulaması yapar.
 
 Tamamını görüntülemek [Cloud Shell'de yüklü Araçlar listesi.](features.md#tools)
 
@@ -61,7 +61,7 @@ Cloud Shell'i üzerinde açık kaynak Monaco düzenleyicisine alan bir Tümleşi
 Cloud Shell'i gelen kullanılabilen esnek bir araçtır:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI 2.0 belgelerine "Deneyin"](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+* [Azure CLI belgeleri "Deneyin"](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 * [Azure mobil uygulaması](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [VS Code Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

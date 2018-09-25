@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca089672cf645af58952205dada66aa96ba0b65d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e8bd5ddab4553807f59b7afdf32fbfc1703e3d75
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578252"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949545"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>İş bir on Azure sanal makinelerinde SAP
 Bu belgede, SAP Business One Azure sanal Makineler'de dağıtma konusunda rehberlik sağlar. Belgeler yükleme belgelerine SAP iş yerine değil. Belgeler, bir iş uygulamaları çalıştırmak Azure altyapısı için temel planlama ve dağıtım yönergeleri kapsamalıdır.
@@ -39,7 +39,7 @@ Bu kılavuzu kullanmak için aşağıdaki Azure bileşenlerini temel bilgiye iht
 - [Linux üzerinde Azure sanal makineleri](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [PowerShell ile yönetim Azure ağ ve sanal ağlar](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
 - [Azure ağ ve CLI ile sanal ağlar ](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-- [Azure CLI 2.0 ile Azure disklerini yönetme](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Azure CLI ile Azure disklerini yönetme](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Bir iş ilgilendiğiniz olsa bile yalnızca belgenin [planlama Azure sanal makineleri ve SAP NetWeaver uygulamasını](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) iyi bir bilgi kaynağı olabilir.
 

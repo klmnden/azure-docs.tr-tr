@@ -1,5 +1,5 @@
 ---
-title: Bing özel arama nedir? | Microsoft Docs
+title: Bing Özel Arama nedir? | Microsoft Docs
 description: Bing özel arama üst düzey bir genel bakış sağlar
 services: cognitive-services
 author: brapel
@@ -9,39 +9,55 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7cd61fc63d0d7734b842ed222c67c6753da9a418
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6f50844d6571cca6d63c1db7a85863e3d22d411
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352882"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948086"
 ---
-# <a name="what-is-bing-custom-search"></a>Bing özel arama nedir?
+# <a name="what-is-bing-custom-search"></a>Bing Özel Arama nedir?
 
-Bing özel arama uyarlanmış arama deneyimleri hakkında önemli konular için oluşturmanıza olanak sağlar. Örneğin, bir arama deneyimi sağlayan bir Web sitesi sahibiyseniz, etki alanı, Web siteleri ve Bing arar Web sayfaları belirtebilirsiniz. Bunlar çok önem verdiğiniz yerine içerik uyarlanmış arama sonuçları, kullanıcılarınızın görmek ilgisiz içeriğe sahip arama sonuçları aracılığıyla sayfasına.
+Bing özel arama, önem verdiğiniz konulara özel olarak uyarlanmış arama deneyimleri oluşturmanıza olanak sağlar. Örneğin, bir arama deneyimi sağlayan bir Web sitesi sahipseniz, etki alanı, Web siteleri ve Bing arama, Web sayfaları belirtebilirsiniz. Arama sonuçları içerik, önem verdiğiniz yerine uyarlanmış kullanıcıların görmesi aracılığıyla ilgisiz içerik arama sonuçları sayfası.
 
-Web özel görünümünü oluşturmak için Bing özel arama kullanın [portal](https://customsearch.ai). Portal, etki alanları, Web siteleri ve Bing arama yapmak istediğiniz Web sayfalarını ve onu aramak için istemediğiniz Web siteleri belirten bir özel arama örneği oluşturmanızı sağlar. URL'ler hakkında bilmeniz içeriğin belirtmeye ek olarak portal eklemek isteyebilirsiniz ilgili içeriği bulmak için de kullanabilirsiniz.
+Özel web görünümünü oluşturmak için Bing özel arama kullanın [portalı](https://customsearch.ai). Portal, etki alanları, Web siteleri ve Bing arama yapmak istediğiniz Web sayfalarını ve arayacak şekilde istemediğiniz Web sitelerini belirten bir özel arama örneği oluşturmanızı sağlar. URL'leri hakkında bilmeniz içeriğin belirtmeye ek olarak, portal eklemek isteyebilirsiniz ilgili içeriği bulmak için de kullanabilirsiniz.
 
-Portal Ayrıca, kullanıcı belirli bir arama terimi girerse belirli bir Web sayfası arama sonucu üstüne Sabitle olanak tanır. 
+Portal Ayrıca, kullanıcı belirli bir arama terimi girerse belirli bir Web sayfası arama sonucu en üstüne Sabitle sağlar. 
 
-Örneğinizi tanımladıktan sonra özel arama Web sitesine, masaüstü uygulaması veya mobil uygulama özel arama API'sini çağırarak tümleştirebilirsiniz. Bir web tabanlı site veya uygulama varsa, arama arabirimi işlenmesini barındırılan UI izin verebilirsiniz.
+Örneğinizin tanımladıktan sonra özel arama, Web, masaüstü uygulaması veya mobil uygulamanıza özel arama API'si çağırarak tümleştirebilirsiniz. Bir web tabanlı bir site veya uygulama varsa, arama arabirimi işlenmesini barındırılan UI izin verebilirsiniz.
 
-Aşağıdaki resimde, özel bir arama tümleştirme basitliği gösterir.
+Aşağıdaki görüntüde, özel arama tümleştirme basitliğinin gösterilmektedir.
 
 ![Resim alt](./media/bcs-overview.png "nasıl Bing özel arama çalışır.")
 
-## <a name="customize-search-suggestions"></a>Arama önerilerini özelleştirme
+## <a name="adding-custom-search-box-suggestions"></a>Özel arama kutusunu önerileri ekleme
 
-Uygun düzeyde özel aranacak abone (bkz [sayfaları fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), özel arama deneyiminiz yapılan arama önerileri özelleştirebilirsiniz. Otomatik öneri özel API kullanıcı sağlayan bir kısmi sorgu dizesine dayalı önerilen sorguların listesini döndürür. Özel otomatik öneri ile arama deneyiminizi ilgili özel arama önerileri sağlar. Yalnızca özel öneriler dönmek mi, yoksa Bing önerileri eklemek için belirtin. Bing önerileri eklenirse özel öneriler Bing sağlar önerileri önce görünür. Bing önerileri özel arama örneğinizi bağlamına kısıtlanır.
+Özel arama deneyiminizi özel arama kutusunun öneriler zenginleştirebilirsiniz. Bu özellik, arama deneyiminizle ilgili özel arama önerilerini sağlamanıza olanak tanır. Arama kutusuna kullanıcı türleri olarak açılan listede kullanıcının kısmi sorgu dizesine göre önerilen sorgu dizelerini içerir. Yalnızca özel önerilerinizi döndürür veya Bing önerileri de belirtebilirsiniz. [Daha fazla bilgi edinin](define-custom-suggestions.md).
+
+## <a name="adding-custom-image-search-experience"></a>Özel resim arama deneyimi ekleme
+
+Özel arama deneyiminizi görüntülerle zenginleştirebilirsiniz. Benzer şekilde web sonuçları, Web siteleri listesinin örneğinizin görüntüleri arama özel arama destekler. [Daha fazla bilgi edinin](get-images-from-instance.md).
+
+## <a name="adding-custom-video-search-experience"></a>Özel video arama deneyimi ekleme
+
+Özel arama deneyiminizi videoları zenginleştirebilirsiniz. Benzer şekilde web sonuçları, Web siteleri listesinin örneğinizin videoları arama özel arama destekler. [Daha fazla bilgi edinin](get-videos-from-instance.md).
+
+## <a name="sharing-your-custom-search-instance-with-others"></a>Özel arama örneği kullanımınızın başkalarıyla paylaşma
+
+Kolayca işbirliğine dayalı düzenleme ve takım üyeleri ile paylaşarak örneğiniz test izin verebilirsiniz. [Daha fazla bilgi edinin](share-your-custom-search.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hızlıca başlamak için bkz: [ilk Bing özel arama örneğinizi oluşturmak](quick-start.md).
+Hızlıca başlamak için bkz: [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).
 
-Arama örneğinizi özelleştirmek için kullanılabilir seçenekler hakkında daha fazla ayrıntı için bkz: [özel arama örneği tanımlama](define-your-custom-view.md).
+Arama örneğinizin özelleştirme hakkında daha fazla ayrıntı için bkz. [özel arama örneği tanımlama](define-your-custom-view.md).
 
-İle öğrenmeniz [özel arama API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) başvuru. Başvuru uç noktaları, üstbilgi ve arama sonuçlarını istemek için kullanacağınız sorgu parametreleri listesini içerir. Ayrıca yanıt nesnelerin tanımları içerir.
+Başvuru içeriği ile her özel arama uç noktaları için edinin. Uç noktaları, üst bilgiler ve arama sonuçlarını istemek için kullanacağınız sorgu parametreleri bir başvuru içerir. Ayrıca yanıt nesnelerinin tanımları da bulunur.
 
-Öneriler özelleştirmek öğrenmek için bkz: [özel arama önerileri tanımlamak](define-custom-suggestions.md).
+- [Özel arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
+- [Özel görüntü API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
+- [Özel video API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [Özel otomatik öneri API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
 
-Okuduğunuzdan emin olun [Bing kullanın ve görüntü gereksinimleri](./use-and-display-requirements.md) arama sonuçlarını kullanma hakkında kurallardan herhangi birinin kesmeyin şekilde.
+
+Arama sonuçlarını kullanma kurallarına uygun hareket ettiğinizden emin olmak için [Bing Kullanım ve Görüntüleme Gereksinimleri](./use-and-display-requirements.md)'ni okumayı unutmayın.

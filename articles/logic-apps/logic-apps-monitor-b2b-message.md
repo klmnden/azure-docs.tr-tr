@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: decc0271ae0e7c359f72648d7c4d0076892285da
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125184"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948018"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>B2B iletilerini izleme ve Azure Logic apps'te tümleştirme hesapları için günlük kaydını ayarlama
 
@@ -32,7 +32,7 @@ ms.locfileid: "43125184"
 
 ## <a name="turn-on-diagnostics-logging-for-your-integration-account"></a>Tanılama, tümleştirme hesabı için oturum açın
 
-Doğrudan tümleştirme hesabınızdan ya da oturum açın veya [Azure İzleyici hizmeti aracılığıyla](#azure-monitor-service). Azure İzleyici, temel altyapı düzeyinde veriler ile izleme sağlar. Daha fazla bilgi edinin [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
+Doğrudan tümleştirme hesabınızdan ya da oturum açın veya [Azure İzleyici hizmeti aracılığıyla](#azure-monitor-service). Azure İzleyici, temel altyapı düzeyinde veriler ile izleme sağlar. Daha fazla bilgi edinin [Azure İzleyici](../azure-monitor/overview.md).
 
 ### <a name="turn-on-diagnostics-logging-directly-from-your-integration-account"></a>Tanılama doğrudan tümleştirme hesabından oturum açın
 

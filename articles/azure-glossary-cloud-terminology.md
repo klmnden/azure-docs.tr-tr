@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b262f42fffdbfd00f0c57c987e36346957f0f25c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650870"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963605"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure sözlüğünü: Azure platformunda bulut terimleri sözlüğü
 
@@ -47,7 +47,7 @@ Bkz: [Windows sanal makinelerin kullanılabilirliğini yönetme](virtual-machine
 İki birini [dağıtım modelleri](resource-manager-deployment-model.md) (Azure Resource Manager yeni modeli olduğundan) Azure kaynakları dağıtmak için kullanılır. Bazı Azure Hizmetleri yalnızca Resource Manager dağıtım modelini destekleyen, bazı yalnızca klasik dağıtım modelini destekler ve bazı her ikisini de destekler. Her bir Azure hizmeti için belgelere destekledikleri hangi modellere belirtir.
 
 ## <a name="cli"></a>Azure komut satırı arabirimi (CLI)
-Windows, macOS ve Linux'tan Azure hizmetlerini yönetmek için kullanılan bir komut satırı arabirimi.  Bazı hizmetler ve hizmet özellikleri yalnızca PowerShell veya CLI aracılığıyla yönetilebilir. Bkz: [Azure CLI 2.0](/cli/azure)
+Windows, macOS ve Linux'tan Azure hizmetlerini yönetmek için kullanılan bir komut satırı arabirimi.  Bazı hizmetler ve hizmet özellikleri yalnızca PowerShell veya CLI aracılığıyla yönetilebilir. Bkz: [Azure CLI](/cli/azure)
 
 ## <a name="powershell"></a>Azure PowerShell
 Windows bilgisayarlarından Azure hizmetlerini bir komut satırı üzerinden yönetmek için bir komut satırı arabirimi. Bazı hizmetler ve hizmet özellikleri yalnızca PowerShell veya CLI aracılığıyla yönetilebilir.

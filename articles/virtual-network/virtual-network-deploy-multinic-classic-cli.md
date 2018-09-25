@@ -1,6 +1,6 @@
 ---
-title: Birden çok NIC içeren - Azure CLI 1.0 (Klasik) VM oluşturma | Microsoft Docs
-description: Azure komut satırı arabirimi (CLI) 1.0 kullanarak birden çok NIC ile VM (Klasik) oluşturmayı öğrenin.
+title: Birden çok NIC - Klasik Azure CLI ile VM (Klasik) oluşturma | Microsoft Docs
+description: Azure Klasik komut satırı arabirimi (CLI) kullanarak birden çok NIC ile VM (Klasik) oluşturmayı öğrenin.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b56ab474ff23748487c50bd34487c80242c6429
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4ea53048819bfdad5c45e522115aa6e493dfc8bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651995"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953387"
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Azure CLI 1.0 kullanarak birden çok NIC ile VM (Klasik) oluşturma
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak birden çok NIC ile VM (Klasik) oluşturma
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 

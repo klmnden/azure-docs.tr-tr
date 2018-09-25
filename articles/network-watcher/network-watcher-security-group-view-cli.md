@@ -1,6 +1,6 @@
 ---
-title: Azure Ağ İzleyicisi güvenlik grubu görünümü - Azure CLI 2.0 ile ağ güvenlik analiz | Microsoft Docs
-description: Bu makalede, bir sanal makine güvenliği'güvenlik grubu görünümü ile analiz etmek için Azure CLI 2.0 kullanmayı anlatmaktadır.
+title: Azure Ağ İzleyicisi güvenlik grubu görünümü - Azure CLI ile ağ güvenlik analiz | Microsoft Docs
+description: Bu makalede, bir sanal makine güvenliği'güvenlik grubu görünümü ile analiz etmek için Azure CLI'yı kullanmayı anlatmaktadır.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 82cd0d97a64819ae8528850ba9a44800bf960afc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2b96c82f92ea49fa5bcb35d180240eb939d29d04
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090573"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962904"
 ---
-# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>Azure CLI 2.0 kullanarak bir güvenlik grubu görünümü ile sanal makine güvenlik analiz edin
+# <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Azure CLI kullanarak bir güvenlik grubu görünümü ile sanal makine güvenlik analiz edin
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
@@ -30,10 +30,7 @@ ms.locfileid: "39090573"
 
 Güvenlik grubu görünümü bir sanal makineye uygulanan yapılandırılmış ve etkin ağ güvenlik kuralları döndürür. Bu yetenek, Denetim ve ağ güvenlik grupları ve trafiği okunuyor emin olmak için bir VM üzerinde yapılandırılan kurallardan tanılamak kullanışlıdır doğru bir şekilde izin verilen veya reddedilen. Bu makalede, biz, Azure CLI kullanarak bir sanal makine için yapılandırılmış ve etkili güvenlik kuralları nasıl alınacağını göstermektedir
 
-
-Bu makalede, Windows, Mac ve Linux için kullanılabilir olduğu kaynak yönetimi dağıtım modeli için Azure CLI 2. 0'da, sunduğumuz yeni nesil CLI kullanılmıştır.
-
-Bu makaledeki adımları gerçekleştirmek için yapmanız [Azure komut satırı arabirimi için Mac, Linux ve Windows (Azure CLI) yükleme](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Bu makaledeki adımları gerçekleştirmek için yapmanız [Azure komut satırı arabirimi için Mac, Linux ve Windows (CLI) yükleme](/cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

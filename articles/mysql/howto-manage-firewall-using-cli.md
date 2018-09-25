@@ -10,18 +10,18 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: e6bb06d8ae46afbb946754113e1d81a90e3ddc57
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 45df284d29ea2d5eb799697b22deeab03cb66622
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423700"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956687"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Oluşturma ve Azure veritabanı Azure CLI kullanarak MySQL için güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya bir IP adresi aralığı MySQL Server için Azure veritabanı'na yönetme olanağı sağlar. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı için MySQL güvenlik duvarları için bkz: genel bakış [MySQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
-* [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Azure CLI’yı yükleyin](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * Bir [MySQL sunucusu ve veritabanı için Azure veritabanı](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Güvenlik duvarı kuralı komutlar:

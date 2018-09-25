@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a7a4e4b487c324bada818d4815f253110f7f7a60
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235154"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060922"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Standart SSD yönetilen diskler için Azure sanal makine iş yükleri
 
@@ -39,9 +39,12 @@ Aşağıdaki tabloda, şu anda sunulan için standart SSD disk boyutları içeri
 |E10     |128 GiB         |En fazla 500         |Saniye başına en fazla 60 MiB         |
 |E15     |256 giB         |En fazla 500         |Saniye başına en fazla 60 MiB         |
 |E20     |512 GiB         |En fazla 500         |Saniye başına en fazla 60 MiB         |
-|E30     |1024 giB         |En fazla 500         |Saniye başına en fazla 60 MiB         |
-|E40     |2048 giB         |En fazla 500         |Saniye başına en fazla 60 MiB         |
-|E50     |4095 giB         |En fazla 500         |Saniye başına en fazla 60 MiB         |
+|E30     |1.024 giB       |En fazla 500         |Saniye başına en fazla 60 MiB         |
+|E40     |2.048 giB       |En fazla 500         |Saniye başına en fazla 60 MiB         |
+|E50     |4.095 giB       |En fazla 500         |Saniye başına en fazla 60 MiB         |
+|E60     |8192 giB       |En fazla 1.300       |Saniye başına en fazla 300 MiB        |
+|E70     |16.384 giB      |En fazla 2.000       |Saniye başına en fazla 500 MiB        |
+|E80     |32.767 giB      |En fazla 2.000       |Saniye başına en fazla 500 MiB        |
 
 Standart SSD GÇ işlemlerinin çoğu için Tek haneli milisaniyelik gecikme süreleri sağlamak ve IOPS ve aktarım hızı yukarıdaki tabloda açıklanan limitlerde sağlamak üzere tasarlanmıştır. Bazen gerçek IOPS ve aktarım hızı trafik düzenlerini bağlı olarak değişiklik gösterebilir. Standart SSD daha düşük gecikme süresiyle HDD diskleri daha tutarlı performans sağlar.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a48b3ff9769e2757ac7930feb14d6537d96fae3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109247"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961323"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak HDInsight Hadoop kümeleri oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -27,7 +27,7 @@ Bu makalede, Azure Resource Manager şablonları kullanarak Azure HDInsight küm
 Bu makalede bulunan yönergeleri takip etmek için ihtiyacınız vardır:
 
 * Bir [Azure aboneliği](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell ve/veya Azure CLI.
+* Azure PowerShell ve/veya Azure Klasik CLI.
 
 ### <a name="resource-manager-templates"></a>Resource Manager şablonları
 Resource Manager şablonu tek ve eşgüdümlü bir işlemle uygulamanız için aşağıdaki resoruces oluşturmak daha kolay hale getirir:
@@ -49,7 +49,7 @@ Resource Manager, farklı araçlar kullanarak aboneliğinizdeki mevcut kaynaklar
 
 - Azure portalı: bkz [mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: Bkz [dışarı Azure Resource Manager şablonları PowerShell ile](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Azure CLI: Bkz [dışarı Azure Resource Manager şablonları Azure CLI ile](../azure-resource-manager/resource-manager-export-template-cli.md).
+- Azure CLI Klasik: Bkz [Klasik Azure CLI ile dışarı aktarma Azure Resource Manager şablonları](../azure-resource-manager/resource-manager-export-template-cli.md).
 
 
 ## <a name="deploy-using-the-portal"></a>Portalı kullanarak dağıtma
@@ -60,9 +60,9 @@ Azure portalını kullanarak Resource Manager şablonu dağıtabilirsiniz. Daha 
 
 Azure PowerShell kullanarak Resource Manager şablonu dağıtabilirsiniz. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md) ve [SAS belirteci ve Azure PowerShell ile özel Resource Manager şablonu dağıtma](../azure-resource-manager/resource-manager-powershell-sas-token.md).
 
-## <a name="deploy-using-cli"></a>CLI kullanarak dağıtma
+## <a name="deploy-using-azure-cli"></a>Azure CLI kullanarak dağıtma
 
-Azure CLI kullanarak Resource Manager şablonu dağıtabilirsiniz. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](../azure-resource-manager/resource-group-template-deploy-cli.md) ve [SAS belirteci ve Azure CLI ile özel Resource Manager şablonu dağıtma](../azure-resource-manager/resource-manager-cli-sas-token.md).
+Klasik CLI kullanarak Resource Manager şablonu dağıtabilirsiniz. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](../azure-resource-manager/resource-group-template-deploy-cli.md) ve [SAS belirteci ve Azure CLI ile özel Resource Manager şablonu dağıtma](../azure-resource-manager/resource-manager-cli-sas-token.md).
 
 ## <a name="deploy-using-the-rest-api"></a>REST API kullanarak dağıtma
 REST API kullanarak bir Resource Manager şablonu dağıtabilirsiniz. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Resource Manager REST API'si ile dağıtma](../azure-resource-manager/resource-group-template-deploy-rest.md).

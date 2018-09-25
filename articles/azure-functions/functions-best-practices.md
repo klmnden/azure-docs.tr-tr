@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fe8b2cc09c7a08ab6d897a0fe1f1204d1903eca
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: dbb21e63a25d6e357287f2f91181f2326850a898
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090872"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952860"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure işlevleri'nin güvenilirliği ve performansı en iyi duruma getirme
 
@@ -73,6 +73,10 @@ Azure işlevleri platform kullandığınız bileşenleri için zaten sağlanan s
 ## <a name="scalability-best-practices"></a>Ölçeklenebilirlik en iyi uygulamalar
 
 Nasıl örnekleri işlev uygulamanızın ölçeğini etkileyen bir dizi etkene vardır. Ayrıntılar için belgelerinde verilmiştir [işlevi ölçeklendirme](functions-scale.md).  Bir işlev uygulaması, en iyi ölçeklenebilirlik sağlamak için en iyi yöntemlerden bazıları aşağıda verilmiştir.
+
+### <a name="share-and-manage-connections"></a>Paylaşın ve bu bağlantıları yönetme
+
+Mümkün olduğunda, dış kaynaklara yeniden kullanın.  Bkz: [Azure işlevleri'nde bağlantılarını yönetme](./manage-connections.md).
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Test ve üretim kodu aynı işlev uygulamasında bir arada kullanmayın
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: b735f93b2d7ad093ef752fd5f26be729a1157b37
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 15d2e40127579fbd278cc3dc18653d782a515caa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090691"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957321"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure işlevleri'nde desteklenen diller
 
@@ -31,23 +31,23 @@ Destek üç düzeyi vardır:
 
 ## <a name="languages-in-runtime-1x-and-2x"></a>Çalışma zamanı dillerde 1.x ve 2.x'i
 
-[İki Azure işlevleri çalışma zamanı sürümünü](functions-versions.md) kullanılabilir. 1.x çalışma zamanı büyüyecek olan Bu, üretim uygulamaları için onaylanmış yalnızca çalışma zamanı olur. Şu anda 2.x çalışma zamanı Önizleme aşamasında olduğundan, onu destekleyen diller Önizleme aşamasındadır. Aşağıdaki tabloda, her çalışma zamanı sürümünde desteklenen hangi diller gösterilmektedir.
+[İki Azure işlevleri çalışma zamanı sürümünü](functions-versions.md) kullanılabilir. Aşağıdaki tabloda, her çalışma zamanı sürümünde desteklenen hangi diller gösterilmektedir.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 ### <a name="experimental-languages"></a>Deneysel dil
 
-Deneysel dil sürümünde 1.x düzgün ölçeklendirilemediği ve tüm bağlamaları desteklemez. Örneğin, İşlevler çalışma zamanı çalıştığı için Python yavaş *python.exe* her işlev Çağırma ile. Ve Python HTTP bağlantıları desteklese de, istek nesnesi erişemez.
+Deneysel dil sürümünde 1.x düzgün ölçeklendirilemediği ve tüm bağlamaları desteklemez. Örneğin, İşlevler çalışma zamanı çalıştığından 1.x Python yavaş *python.exe* her işlev Çağırma ile. Ve Python HTTP bağlantıları desteklese de, istek nesnesi erişemez.
 
-Varsayılan olarak hangi işlev uygulamaları çalıştırın Vm'lerde yüklü olduğu için sürüm 5.1, PowerShell için Deneysel desteği sınırlıdır. PowerShell betikleri çalıştırmak istiyorsanız, göz önünde bulundurun [Azure Otomasyonu](https://azure.microsoft.com/services/automation/).
+Varsayılan olarak hangi işlev uygulamaları çalıştırın Vm'lerde yüklü olduğu için Deneysel desteği 1.x PowerShell sürüm 5.1 sınırlıdır. PowerShell betikleri çalıştırmak istiyorsanız, göz önünde bulundurun [Azure Otomasyonu](https://azure.microsoft.com/services/automation/).
 
-1.x çalışma zamanı modülü yalnızca içinde 1.x kullanılabilir dilleri birini kullanmak istiyorsanız, kalın. Ancak bunları resmi desteği olduğu Deneysel dillerden, bağlı olduğunuz her şey için kullanmayın. Tarafından Yardım isteğinde bulunabilirsiniz [GitHub sorunları oluşturmak](https://github.com/Azure/azure-webjobs-sdk-script/issues), ancak destek çalışmaları değil açılmalıdır Deneysel dili ile ilgili sorunlar için. 
+Bunları resmi desteği olduğu Deneysel dillerden, bağlı olduğunuz her şey için kullanmayın. Deneysel dil ile ilgili sorunlar için destek gerektiren durumlarda açılmamalıdır. 
 
 Sürüm 2.x çalışma zamanı, Deneysel dilleri desteklemez. Yalnızca dil üretimde desteklenen yeni diller için destek eklenir. 
 
 ### <a name="language-extensibility"></a>Dil genişletilebilirliği
 
-2.x çalışma zamanı sunmak üzere tasarlanmıştır [dil genişletilebilirlik](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Bu genişletilebilirlik alan ilk diller arasında 2.x önizlemede olan Java modelidir.
+2.x çalışma zamanı sunmak üzere tasarlanmıştır [dil genişletilebilirlik](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). 2.x çalışma zamanı JavaScript ve Java dillerinde bu genişletilebilirlik ile oluşturulur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

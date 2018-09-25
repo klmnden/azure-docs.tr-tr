@@ -5,11 +5,12 @@ Zaten Azure CLI’yı yükleyip aboneliğinizi bağlamadıysanız [Azure CLI Yü
 ## <a name="cli-versions-to-complete-the-task"></a>Görevi tamamlamak için kullanılacak CLI sürümleri
 Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
 
-- Azure CLI 10: Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI’mız (bu makale)
-- [Azure CLI 2.0](../articles/virtual-machines/linux/cli-manage.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız
+- Azure Klasik CLI: Klasik ve kaynak yönetimi dağıtım modellerine (Bu makale) yönelik CLI'mız
+- [Azure CLI](../articles/virtual-machines/linux/cli-manage.md) -müşterilerimize yönelik yeni nesil CLI kaynak yönetimi dağıtım modeline
 
-## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Azure CLI’daki Temel Azure Resource Manager komutları
-Bu makalede, Azure aboneliğinizdeki kaynakları (ağırlıklı olarak VM’ler) yönetmek ve bunlarla etkileşim kurmak için Azure CLI ile kullanmak isteyebileceğiniz temel komutlar ele alınmıştır.  Belirli komut satırı anahtarları ve seçenekleri hakkında daha ayrıntılı yardım almak için `azure <command> <subcommand> --help` veya `azure help <command> <subcommand>` yazarak çevrimiçi komut yardımını ve seçeneklerini kullanabilirsiniz.
+## <a name="basic-azure-resource-manager-commands-in-azure-classic-cli"></a>Azure Klasik CLI temel Azure Resource Manager komutları
+
+Bu makalede, Klasik Azure CLI ile yönetme ve Azure aboneliğinizdeki kaynakları (ağırlıklı olarak VM'ler) etkileşim kurmak için kullanmak isteyebileceğiniz temel komutlar ele alınmıştır.  Belirli komut satırı anahtarları ve seçenekleri hakkında daha ayrıntılı yardım almak için `azure <command> <subcommand> --help` veya `azure help <command> <subcommand>` yazarak çevrimiçi komut yardımını ve seçeneklerini kullanabilirsiniz.
 
 > [!NOTE]
 > Bu örnekler, genel olarak Resource Manager’da VM dağıtımları için önerilmeyen şablon tabanlı işlemleri içermez. Bilgi edinmek için bkz. [Azure CLI’yı Azure Resource Manager ile kullanma](../articles/xplat-cli-azure-resource-manager.md) ve [Azure Resource Manager şablonlarını ve Azure CLI’yı kullanarak sanal makine dağıtma ve yönetme](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

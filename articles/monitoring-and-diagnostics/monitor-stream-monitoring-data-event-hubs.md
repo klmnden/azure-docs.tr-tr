@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049133"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954849"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure harici bir aracı tarafından veri tüketimi için olay hub'ına izleme
 
@@ -76,7 +76,7 @@ Azure kaynaklarını izleme verilerinin iki tür göstermiyor:
 Her iki tür veri kaynak tanılama ayarı kullanarak bir olay hub'ına gönderilir. [Bu kılavuzu izleyerek](./monitoring-stream-diagnostic-logs-to-event-hubs.md) kaynak tanılama ayarı belirli bir kaynak üzerinde ayarlamak için. Kaynak tanılama ayarı günlükleri toplamak istediğiniz her kaynaktan üzerinde ayarlayın.
 
 > [!TIP]
-> Azure İlkesi belirli bir kapsamdaki tüm kaynakların her zaman bir tanılama ayarı ile kurulduğundan emin olmak için kullanabileceğiniz [Deployıfnotexists etkisi ilke kuralında kullanarak](../azure-policy/policy-definition.md#policy-rule). Bugün Deployıfnotexists yalnızca yerleşik ilkeleri desteklenir.
+> Azure İlkesi belirli bir kapsamdaki tüm kaynakların her zaman bir tanılama ayarı ile kurulduğundan emin olmak için kullanabileceğiniz [Deployıfnotexists etkisi ilke kuralında kullanarak](../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="guest-os-data"></a>Konuk işletim sistemi veri
 

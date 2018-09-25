@@ -1,6 +1,6 @@
 ---
-title: Sık sorulan sorular özel konuşma hizmeti için Azure üzerinde | Microsoft Docs
-description: Burada, özel konuşma hizmeti hakkında en popüler sorulan soruların yanıtları bulunur.
+title: Azure üzerinde sık sorulan sorular için özel konuşma hizmeti | Microsoft Docs
+description: Özel konuşma hizmeti ile ilgili en yaygın soruların yanıtları aşağıdadır.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,138 +9,139 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: panosper
-ms.openlocfilehash: a929869b36387b3257b672308ceca36c84ff8cae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5ab4adefbfbfa1a295f980fd31bffaeaa957ce0c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351857"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955291"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Özel konuşma hizmet sık sorulan sorular
+# <a name="custom-speech-service-frequently-asked-questions"></a>Özel konuşma hizmeti hakkında sık sorulan sorular
 
-Bu SSS sorularınızın yanıtlarını bulamazsanız, üzerinde özel konuşma hizmeti topluluğu isteyen deneyin [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ve [UserVoice](https://cognitive.uservoice.com/)
+Bu SSS'de sorularınızın yanıtlarını bulamazsanız, üzerinde özel konuşma hizmeti Topluluğu'na sorun deneyin [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ve [UserVoice](https://cognitive.uservoice.com/)
 
 ## <a name="general"></a>Genel
 
-**Soru**: nasıl bilebilirim my veri kümesi veya model işlenmesi tamamlandığında?
+**Soru**: olduğunu nasıl öğrenebilirim my veri kümesi veya model işlenmesi tamamlandığında?
 
-**Yanıt**: şu anda, model veya tablosu veri kümesinde yalnızca bilmek istiyorsanız durumudur.
-İşlem tamamlandığında, durum "Hazır" olur.
-E-posta bildirimi gibi durumu işlenirken iletişimi için geliştirilmiş yöntemlerde çalışıyoruz.
+**Yanıt**: şu anda durumu modeli veya tabloya veri kümesinde, yalnızca bilmek istiyorum değil.
+İşleme tamamlandığında, durum "Hazır" olacaktır.
+İletişim e-posta bildirimi gibi bir durum işleme için gelişmiş yöntemleri üzerinde çalışıyoruz.
 
-**Soru**: aynı anda birden fazla model oluşturabilirim?
+**Soru**: aynı anda birden fazla model oluşturabilirsiniz?
 
-**Yanıt**: kaç modelleri, koleksiyonda yer alan bir sınır yoktur ancak tek zaman her sayfada oluşturulabilir.
+**Yanıt**: kaç modelleri, koleksiyonda yer alan bir sınır yoktur ancak tek bir zaman her sayfada oluşturulabilir.
 Örneğin, varsa şu anda bir dil modeli işlem aşamasında bir dil modeli oluşturma işlemi başlatılamıyor.
-Ancak, bir akustik modeli ve aynı anda işleme dil modeli olabilir. 
+Ancak, bir akustik model ve aynı anda işlenirken bir dil modeli olabilir. 
 
-**Soru**: t hata yaptığım gerçekleşmiş. Nasıl veri içe aktarma işlemi iptal edin veya devam ediyor oluşturma model? 
+**Soru**: Ben hata yaptığım gerçekleşmiş. Veri içe aktarma işlemi iptal etmek veya nasıl devam eden oluşturma modeli? 
 
-**Yanıt**: şu anda bir kullanım veya dil uyarlama işlemi geri alamazsınız.
-Alma işlemi tamamlandıktan sonra içeri aktarılan veriler silinebilir
+**Yanıt**: şu anda bir akustik veya dil uyarlama işlemi geri alamazsınız.
+İçeri aktarma tamamlandıktan sonra içeri aktarılan veriler silinebilir
 
 **Soru**: arama & dikte modelleri ve konuşma modelleri arasındaki fark nedir?
 
-**Yanıt**: iki temel akustik & dil modelleri özel konuşma hizmetinde seçilecek vardır.
-sorgular veya dikte arayın. Microsoft Conversational AM konuşma stilde konuşulan konuşma tanıma için uygundur.
-Bu tür bir konuşma genellikle başka bir kişinin, gibi çağrı merkezleri veya toplantılar yönlendirilir.
+**Yanıt**: iki temel akustik ve dil modellerini özel konuşma hizmeti seçilecek vardır.
+arama sorguları veya dikte. Microsoft Conversational AM, konuşma bir stile damıtarak konuşma bağlamında kullanılabilen konuşulan tanımayı için uygundur.
+Bu tür bir konuşma genellikle başka bir kişinin, gibi çağrı merkezi veya toplantı yönlendirilir.
 
-**Soru**: (modeli yığınlama) my varolan modeli güncelleştirmek?
+**Soru**: benim mevcut model (model yığınlama) güncelleştirebilirim?
 
-**Yanıt**: yeni veriler ile varolan bir modeli güncelleştirme olanağı sunmaz.
-Yeni bir veri kümesine sahip ve var olan bir model özelleştirmek istiyorsanız, bunu yeni verileri ve kullandığınız eski veri kümesinin yeniden uyarlamanız gerekir.
-Eski ve yeni veri kümeleri (Akustik veri ise) tek bir .zip birleştirilmelidir veya .txt dosyası dil veri kez uyarlama ise yeni bir uç noktası edinmek için XML'deki dağıtılmış olması yeni güncelleştirilmiş model gereken yapılır
+**Yanıt**: mevcut bir model yeni verilerle güncelleştirme olanağı sunmuyoruz.
+Yeni bir veri kümesine sahip olursunuz ve mevcut modelini özelleştirmek istiyorsanız, bunu yeni veriler ile kullanılan eski veri kümesini yeniden uyarlamanız gerekir.
+(Akustik verilerini ise) eski ve yeni veri kümeleri tek bir .zip birleştirilmesini veya dil veri kez uyarlama ise bir .txt dosyasına yeni bir uç noktası almak için XML'deki dağıtılmış olması yeni güncelleştirilmiş model gereken gerçekleştirilir
 
-**Soru**: varsayılan değerinden daha yüksek eşzamanlılık ne ihtiyacım. 
+**Soru**: varsayılan değerinden daha yüksek Eş zamanlılık ihtiyacım olursa ne yapabilirim. 
 
-**Yanıt**: modelinizi ölçek birimleri dediğimiz 5 eş zamanlı istek artışlarla yukarı ölçeklendirebilirsiniz. Her bir ölçek birimi modelinizi 5 ses akışı aynı anda işleyebilir güvence altına alır. 100 ölçek birimleri (veya 500 eşzamanlı istek) satın alabilirsiniz.
+**Yanıt**: modelinizi artışlarla ölçek birimleri diyoruz 5 eşzamanlı istek sayısı'kurmak ölçeklendirebilirsiniz. Her ölçek birimi, modelinizi 5 ses akışı aynı anda işleyebilir garanti eder. 100 ölçek birimi (veya 500 eş zamanlı istek) satın alabilirsiniz.
 
-Daha yüksek gerekiyorsa lütfen bizimle iletişime geçin.
+Daha yüksek ihtiyacınız varsa lütfen bizimle iletişime geçin.
 
-**Soru**: t my modeli indirebilir ve yerel olarak çalıştırma?
+**Soru**: Ben my modeli indirebilir ve yerel olarak çalıştırma?
 
-**Yanıt**: modellerini yüklenebilir ve yerel olarak yürütülen etkinleştirmeyin.
+**Yanıt**: indirilir ve yerel olarak yürütüldüğü modellerini etkinleştirmeyin.
 
-**Soru**: olan oturum isteklerim?
+**Soru**: isteklerim oturum açmış olan?
 
-**Yanıt**: transcriptions oturum açmış olmanız ya da izleme devre dışı, bu noktada hiçbir ses geçiş yapmak için bir dağıtım oluşturulması sırasında seçenekleriniz vardır. Aksi takdirde istekleri Azure'da genellikle güvenli depolama kaydedilir. Daha fazla Bize Ulaşın özel konuşma hizmet Lütfen kullanarak yasaktır Gizlilik sorunları varsa.
+**Yanıt**: izleme devre dışı, bu noktada hiçbir ses geçiş yapmak için bir dağıtımın oluşturulması sırasında vardır veya döküm kaydedilir. Aksi takdirde isteği Azure'da genellikle güvenli depolama veritabanında kaydedilir. Bizimle iletişime geçin, lütfen özel konuşma hizmeti kullanarak engelle Gizlilik sorunları başka varsa.
 
 ## <a name="importing-data"></a>Veri alma
 
 **Soru**: veri kümesi boyutu sınırı nedir? Neden? 
 
-**Yanıt**: geçerli bir veri kümesi için 2 GB ' HTTP yüklemek için bir dosya boyutu sınırlaması nedeniyle sınırlıdır. 
+**Yanıt**: geçerli bir veri kümesi için 2 GB, HTTP yüklemek için bir dosya boyutu kısıtlaması nedeniyle sınırlıdır. 
 
-**Soru**: metin dosyalarımı ı daha büyük bir metin dosyasını karşıya yüklemek için ZIP? 
+**Soru**: metin dosyalarımı miyim daha büyük bir metin dosyasını karşıya yükleme için zip? 
 
-**Yanıt**: Hayır, şu anda yalnızca sıkıştırılmamış metin dosyalarını izin verilir.
+**Yanıt**: Hayır, şu anda yalnızca sıkıştırılmamış metin dosyalarına izin verilir.
 
-**Soru**: başarısız utterances vardı veri raporu söyler. Bu sorun mı?
+**Soru**: başarısız konuşma vardı veri raporu söyler. Bu, bir sorunla mı?
 
-**Yanıt**: yalnızca birkaç utterances başarıyla içeri aktarılacak başarısız oldu, bu bir sorun değildir.
-Bir kullanım veya dil veri utterances çoğunluğu ayarlarsanız (örneğin > % 95) başarıyla içeri veri kümesi kullanışlı olabilir. Ancak, utterances neden geçemediğini anlamak ve sorunları düzeltmek deneyin önerilir.
+**Yanıt**: yalnızca birkaç konuşma başarıyla içeri aktarıldı başarısız oldu. Bu bir sorun değildir.
+Konuşma akustik veya dil verilerde büyük çoğunluğu ayarlarsanız (örneğin > % 95) başarıyla içeri aktarıldı, veri kümesi kullanışlı olabilir. Ancak, konuşma başarısız olmasının anlamanıza ve sorunları düzeltmek deneyin önerilir.
 Hataları, biçimlendirme gibi en sık karşılaşılan sorunları düzeltmek kolaydır. 
 
 ## <a name="creating-am"></a>AM oluşturma
 
-**Soru**: akustik ne kadar veri ihtiyacım var?
+**Soru**: akustik ne kadar veri yapmam gerekir mi?
 
-**Yanıt**: 30 dakika akustik verilerin bir saat ile başlayan öneririz
+**Yanıt**: akustik verilerin bir saat 30 dakika ile başlamanızı öneririz
 
-**Soru**: t ne tür bir veri toplamanız gerekir?
+**Soru**: Ben ne tür bir veri toplamanız gerekir?
 
-**Yanıt**: uygulama senaryo olarak yakın olan verileri toplamak ve mümkün olduğunca çalışması kullanmanız gerekir.
-Bu, veri toplama hedef uygulama ve kullanıcılara cihaz veya cihazları, ortamları ve konuşmacılar türleri açısından eşleşmesi gerektiği anlamına gelir. Genel olarak, mümkün olduğunca konuşmacılar çeşitli geniş olarak verileri toplamanız gerekir. 
+**Yanıt**: uygulama senaryosuna gibi yakın olan veri toplama ve kullanım örneği mümkün olduğunca.
+Başka bir deyişle, veri toplama, cihaz veya cihazları, ortamlar ve konuşmacıları türleri açısından kullanıcılar ve hedef uygulama eşleşmesi gerekir. Genel olarak, mümkün olduğunca konuşmacıları bir dizi geniş kapsamlı olarak verileri toplamanız gerekir. 
 
-**Soru**: nasıl ı toplamak onu? 
+**Soru**: nasıl miyim toplamak? 
 
-**Yanıt**: bir tek başına veri toplama uygulaması oluşturabilir veya bazı raf ses kaydını yazılım kapalı kullanın.
+**Yanıt**: bağımsız veri koleksiyonu uygulama oluşturma veya bazı raf ses kaydı yazılım kapalı kullanın.
 Ses verilerini günlüğe kaydeder ve kullanan uygulamanızın sürümünü de oluşturabilirsiniz. 
 
-**Soru**: uyarlama veri kendim transcribe gerekiyor mu? 
+**Soru**: uyarlama veri kendim özelliği gerekiyor mu? 
 
-**Yanıt**: veri transcribed gerekir. Kendiniz transcribe ya da professional transcription hizmeti kullanın. Bu kullanım profesyonel transcribers ve diğerleri bazıları kitle kaynak kullanın. Ayrıca bir transcription hizmet istek üzerine öneririz.
+**Yanıt**: veri transcribed gerekir. Kendiniz özelliği ya da professional transkripsiyonu hizmet kullanın. Bu kullanım profesyonel transcribers ve diğer bazı, kitle kaynak kullanır. Ayrıca bir döküm hizmet istek üzerine öneririz.
 
-**Soru**: ne kadar özel akustik modeli oluşturmak için sürer?
+**Soru**: ne kadar bir özel akustik model oluşturmak için sürer?
 
-**Yanıt**: akustik veri kümesi uzunluğu ile aynı özel akustik model oluşturma için işleme süresi hakkındadır.
-Bu nedenle, bir beş saat veri kümesinden oluşturulan özelleştirilmiş bir akustik modelini yaklaşık beş saat arasında zaman alacak işleyemedi. 
+**Yanıt**: uzunluğu akustik veri kümesi ile aynı özel akustik model oluşturmak için işleme süresi hakkındadır.
+Bu nedenle, beş saat veri kümesinden oluşturulan özelleştirilmiş bir akustik model yaklaşık beş saat sürer işlenecek. 
 
 ## <a name="offline-testing"></a>Çevrimdışı Test
 
-**Soru**: Çevrimdışı özel dil modeli kullanarak my özel akustik modelinin testi gerçekleştirebilirsiniz?
+**Soru**: Çevrimdışı bir özel dil modeli kullanarak kendi özel akustik modelini, test yapabilir miyim?
 
-**Yanıt**: Evet, yalnızca çevrimdışı test ayarlandığında aşağı açılan özel dil modelini seçin
+**Yanıt**: Evet, özel dil modeli çevrimdışı test ayarlandığında aşağı açılan seçmeniz yeterlidir
 
-**Soru**: Çevrimdışı özel akustik modelini kullanarak my özel dil modelinin testi gerçekleştirebilirsiniz?
+**Soru**: Çevrimdışı bir özel akustik model kullanarak kendi özel dil modelini, test yapabilir miyim?
 
-**Yanıt**: Evet, çevrimdışı test ayarladığınızda açılır menüde yalnızca özel akustik modelini seçin.
+**Yanıt**: Evet, çevrimdışı test ayarladığınızda özel akustik model açılan menüde seçmeniz yeterlidir.
 
-**Soru**: Word hata oranı nedir ve nasıl, hesaplanan?
+**Soru**: sözcük hata oranı nedir ve nasıl bunu hesaplanır?
 
-**Yanıt**: Word hata hızıdır konuşma tanıma için değerlendirme ölçüm. Eklemeler, silme ve kısaltmaları bölü başvuru transcription sözcükleri toplam sayısı, içeren hatalarının toplam sayısını, olarak sayılır.
+**Yanıt**: sözcük hata oranı, konuşma tanıma için değerlendirme ölçüm olur. Eklemeler, silme ve değişimler, bölü başvuru transkripsiyonu sözcükleri toplam sayısı içeren hatalarının toplam sayısını, olarak sayılır.
 
-**Soru**: t şimdi my özel model test sonuçlarını bilmeniz, bu bir iyi ya da hatalı numarasıdır?
+**Soru**: ben artık benim özel modeli test sonuçlarını bilmeniz, iyi veya kötü birkaç budur?
 
-**Yanıt**: temel model ve, özelleştirilmiş bir arasında bir karşılaştırma sonuçları gösterir.
-Özelleştirme faydalı yapmak için temel model uluslararası hedeflemeniz gerektiğini
+**Yanıt**: temel model ve, özelleştirilmiş bir arasında bir karşılaştırma sonuçlarını göster.
+Özelleştirmenin faydalı hale getirmek için temel model beat hedeflemeyi
 
-**Soru**: nasıl ı şekil temel modelleri WER geliştirme olup olmadığını görebilmeniz için? 
+**Soru**: nasıl miyim şekil temel modellerin WER geliştirme olup olmadığını görebilmeniz için? 
 
-**Yanıt**: Çevrimdışı test sonuçları temel doğruluğunu özel model ve geliştirme doğruluğunu temel gösterir.
+**Yanıt**: Çevrimdışı test sonuçlarını temel doğruluğunu özel model ve geliştirme doğruluğunu taban çizgisi Göster
 
 ## <a name="creating-lm"></a>LM oluşturma
 
-**Soru**: ne kadar metin verileri karşıya yüklemek yapmalıyım?
+**Soru**: metin veri miktarını karşıya yükleme için değiştirmem gerekiyor mu?
 
-**Yanıt**: Bu kesin bir yanıt vermek için zor bir soru, farklı nasıl bağlı olduğu gibi dağarcığı ve uygulamanızda kullanılan tümcecikleri başlangıç dili modellerinden. Tüm yeni sözcükler için bu sözcükleri kullanımını mümkün olduğu kadar örnekler sağlamak kullanışlıdır. Bu koşulları için dinleme sisteme bildirdiğinde uygulamanızda kullanılan ortak tümcecikleri dil verileri de dahil olmak üzere de yararlıdır.
-En az yüz ve genellikle birkaç yüz utterances dil veri kümesi ya da daha fazla bilgi için yaygın bir durumdur.
-Ayrıca, belirli türleri *, sorguları diğerlerinden daha sık olması bekleniyor, veri kümesinde Genel sorgular birden çok kopyasını ekleyebilirsiniz.
+**Yanıt**: Bu kesin bir yanıt vermek zor bir soru, bunu nasıl farklı olarak sözlük ve uygulamanızda kullanılan ifadeleri başlangıç dil modellerinin. Tüm yeni sözcükler için bu bir kelimelerin kullanımı mümkün olduğunca çok örnekleri sağlamak kullanışlıdır. Bu terimler için dinlemek üzere sisteme söyler gibi uygulamanızda kullanılan genel ifadeleri için dil verileri de dahil olmak üzere de yararlıdır.
+En az yüz ve genellikle birkaç yüz konuşma dilini veri kümesi veya daha çok daha yaygındır.
+Ayrıca, bazı türleri *, sorguları diğerlerinden daha sık olması bekleniyor, veri kümesinde birden çok kopyasını ortak sorgular ekleyebilirsiniz.
 
-**Soru**: yalnızca sözcüklerin listesini karşıya yükleyebilir?
+**Soru**: yalnızca sözcüklerin listesi karşıya yükleyebilirsiniz?
 
 **Yanıt**: sözcüklerin listesini karşıya sözcüklere sözlük için alma ancak sistem nasıl sözcükler genellikle kullanılan öğretmek değildir.
-Tam veya kısmi utterances (cümleleri veya kullanıcıların söylemek büyük olasılıkla şeyleri tümceleri) sağlayarak dil modeli yeni sözcükleri ve bunların nasıl kullanıldığı bilgi edinebilirsiniz. Özel dil modeli sistemindeki yeni sözcükleri almak için yalnızca aynı zamanda, uygulamanız için bilinen sözcükler olasılığını ayarlamak için uygundur. Tam utterances sağlayarak, bu bilgi sistem yardımcı olur. 
+Dil modeli tam veya kısmi konuşma (cümleler ya da tümcelere nesnelerin interneti kullanıcılar söyleyin doğan) sağlayarak yeni sözcükler ve nasıl kullanıldıkları öğrenebilirsiniz. Özel dil modeli sistemin yeni sözcükleri almak için yalnızca aynı zamanda uygulamanız için bilinen bir kelimelerin olasılığını ayarlamak için uygundur. Tam bir konuşma sağlayan, sistemin bunu öğrenmesine yardımcı olur. 
 
 -----
 

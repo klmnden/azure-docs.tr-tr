@@ -16,14 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39460250"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964710"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Birkaç terabayt veri üzerinde sunucu iş yükü tahmini
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 Bu makale, veri uzmanları, büyük veri kullanımı gerektiren çözümler geliştirmek için Azure Machine Learning Workbench nasıl kullanabileceğinizi kapsar. Büyük bir veri kümesi bir örnekten başlatma, veri hazırlama, özellik Mühendisliği ve makine öğrenimi yineleme yapmak ve sonra tüm büyük veri kümesini işleme genişletin. 
 
@@ -49,11 +52,11 @@ Bu senaryoda, her makine (veya sunucu) için iş yükü tahmin odaklanır. Özel
 Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 
 * Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz denemeler kullanılabilir).
-* Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Çalışma alanı oluşturma ve programı yüklemek için bkz: [Hızlı Yükleme Kılavuzu](../service/quickstart-installation.md). Birden fazla aboneliğiniz varsa [geçerli etkin aboneliği olmasını istediğiniz aboneliği ayarlamak](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
+* Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Çalışma alanı oluşturma ve programı yüklemek için bkz: [Hızlı Yükleme Kılavuzu](quickstart-installation.md). Birden fazla aboneliğiniz varsa [geçerli etkin aboneliği olmasını istediğiniz aboneliği ayarlamak](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (Bu örnekteki yönergeleri genellikle macOS sistemleri için aynıdır).
 * Bir veri bilimi sanal makinesi (DSVM) Linux (Ubuntu), tercihen Doğu ABD bölgesinde veri yeri bulur. Bir Ubuntu DSVM izleyerek sağlayabileceğiniz [bu yönergeleri](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Ayrıca bkz [Bu hızlı başlangıçta](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). En az 8 çekirdek ve 32 GB bellek ile bir sanal makine kullanmanızı öneririz. 
 
-İzleyin [yönerge](../service/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) AML Workbench için VM'de parola olmadan sudoer erişimi etkinleştirmek için.  Kullanmayı da tercih edebilirsiniz [oluşturup AML Workbench'te kullanarak VM için SSH anahtar tabanlı kimlik doğrulaması](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Bu örnekte, sanal Makineye erişmek için parola kullanın.  Aşağıdaki tabloda, sonraki adımlara DSVM bilgileri ile kaydedin:
+İzleyin [yönerge](../desktop-workbench/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) AML Workbench için VM'de parola olmadan sudoer erişimi etkinleştirmek için.  Kullanmayı da tercih edebilirsiniz [oluşturup AML Workbench'te kullanarak VM için SSH anahtar tabanlı kimlik doğrulaması](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Bu örnekte, sanal Makineye erişmek için parola kullanın.  Aşağıdaki tabloda, sonraki adımlara DSVM bilgileri ile kaydedin:
 
  Alan adı| Değer |  
  |------------|------|

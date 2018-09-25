@@ -16,14 +16,15 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6dc156e94ee8b30bef8c25b3dcaa1d70f76e26e5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: bd9d3a677d9fea54331200258d4b9b8e07a54312
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581939"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956906"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>OAuth 2.0 kodu verme akışı kullanarak Azure Active Directory web uygulamalarına erişim yetkisi verme
+
 Web uygulamalarına ve Azure AD kiracınızdaki web API'lerine erişim yetkisi vermek sağlamak için azure Active Directory (Azure AD) kullanan OAuth 2.0. Bu kılavuz dilden bağımsızdır ve HTTP iletileri gönderip herhangi birini kullanmadan açıklar bizim [açık kaynak kitaplıkları](active-directory-authentication-libraries.md).
 
 OAuth 2.0 yetkilendirme kod akışı açıklanan [OAuth 2.0 belirtiminin 4.1 bölümünde](https://tools.ietf.org/html/rfc6749#section-4.1). Bu kimlik doğrulama ve yetkilendirme, web uygulamaları dahil olmak üzere çoğu uygulama türlerinde gerçekleştirmek için kullanılır ve yerel olarak yüklenen uygulamalar.
@@ -31,11 +32,13 @@ OAuth 2.0 yetkilendirme kod akışı açıklanan [OAuth 2.0 belirtiminin 4.1 bö
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
 ## <a name="oauth-20-authorization-flow"></a>OAuth 2.0 yetkilendirme akışı
+
 Yüksek düzeyde, bir uygulama için tüm yetkilendirme akışı biraz şuna benzer:
 
 ![OAuth yetkilendirme kod akışı](./media/v1-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>İstek bir yetkilendirme kodu
+
 Kullanıcıya yönlendiren istemci yetkilendirme kod akışı başlar `/authorize` uç noktası. Bu istekte istemcinin kullanıcıdan almak için gerekli olan izinleri belirtir. Kiracınız için OAuth 2.0 yetkilendirme uç noktası seçerek alabilirsiniz **uygulama kayıtları > uç noktalar** Azure portalında.
 
 ```
@@ -56,15 +59,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_id |gerekli |Azure AD ile kaydettiğinizde, uygulamanıza atanan uygulama kimliği. Bunu Azure Portal'da bulabilirsiniz. Tıklayın **Azure Active Directory** Hizmetleri Kenar çubuğunda tıklatın **uygulama kayıtları**, uygulamayı seçin. |
 | response_type |gerekli |İçermelidir `code` yetkilendirme kod akışı için. |
 | redirect_uri |Önerilen |Burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alınan uygulamanızın redirect_uri. Bu url olarak kodlanmış olması dışında Portalı'nda kayıtlı redirect_uris biri tam olarak eşleşmesi gerekir. Yerel & mobil uygulamaları için varsayılan değeri kullanması gereken `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |Önerilen |Uygulamanıza elde edilen belirteç geri göndermek için kullanılması gereken yöntemini belirtir. Olabilir `query`, `fragment`, veya `form_post`. `query` kod, yeniden yönlendirme URI'si üzerinde bir sorgu dizesi parametresi olarak sağlar. Örtük akışını kullanarak bir kimlik belirteci istediği, kullanamazsınız `query` belirtilmiş [Openıd spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Yalnızca kodum istediği, kullanabileceğiniz `query`, `fragment`, veya `form_post`. `form_post` kodu, yeniden yönlendirme URI'sini içeren bir GÖNDERİ yürütür. |
+| response_mode |isteğe bağlı |Uygulamanıza elde edilen belirteç geri göndermek için kullanılması gereken yöntemini belirtir. Olabilir `query`, `fragment`, veya `form_post`. `query` kod, yeniden yönlendirme URI'si üzerinde bir sorgu dizesi parametresi olarak sağlar. Örtük akışını kullanarak bir kimlik belirteci istediği, kullanamazsınız `query` belirtilmiş [Openıd spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Yalnızca kodum istediği, kullanabileceğiniz `query`, `fragment`, veya `form_post`. `form_post` kodu, yeniden yönlendirme URI'sini içeren bir GÖNDERİ yürütür. Varsayılan değer `query` kod akış.  |
 | durum |Önerilen |Ayrıca belirteci yanıtta döndürülen isteğinde bulunan bir değer. Rastgele oluşturulmuş bir benzersiz değer için genellikle kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12). Durum, uygulama kullanıcının durumu hakkındaki bilgileri sayfasında ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için de kullanılır. |
 | kaynak | Önerilen |Hedef web API (kaynak güvenli) uygulama kimliği URI'si. Uygulama Kimliği URI'si, Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklayın **uygulama kayıtları**, uygulamanın açın **ayarları** sayfasında ve 'ıtıklatın. **Özellikleri**. Gibi bir dış kaynağa olabilir `https://graph.microsoft.com`. Bu, yetkilendirme veya belirteç isteklerini birinde gereklidir. Daha az kimlik doğrulaması sağlamak için istemleri onay kullanıcıdan alınan emin olmak için yetkilendirme isteği yerleştirin. |
 | scope | **yoksayıldı** | V1 Azure AD uygulamaları için kapsamları uygulamaları altında Azure portalında statik olarak yapılandırılmalıdır **ayarları**, **gerekli izinler**. |
 | istemi |isteğe bağlı |Gerekli olan kullanıcı etkileşimi türünü gösterir.<p> Geçerli değerler şunlardır: <p> *oturum açma*: kullanıcının yeniden kimlik doğrulamaya zorlayabilir sorulması. <p> *select_account*: kullanıcı bir hesap seçmek için çoklu oturum açma üzerinde kesintiye uğratma istenir. Kullanıcının, var olan bir oturum açma hesabını seçin, hatırlanan bir hesabın kimlik bilgilerini girin veya tamamen farklı bir hesap kullanmak için seçin. <p> *onay*: kullanıcı onayı verildi, ancak güncelleştirilmesi gerekiyor. Kullanıcı onayı istenir. <p> *admin_consent*: yönetici, kuruluş içindeki tüm kullanıcılar adına kabul sorulması gerekir |
 | login_hint |isteğe bağlı |Önceden, kullanıcı adını biliyorsanız, kullanıcı için oturum açma sayfası kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir. Uygulamalar genellikle kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan yeniden kimlik doğrulaması sırasında bu parametreyi kullanın `preferred_username` talep. |
 | domain_hint |isteğe bağlı |Kiracı veya kullanıcı, oturum açmak için kullanması gereken etki alanı ile ilgili bir ipucu sağlar. Kaydedilmiş bir etki alanı kiracının domain_hint değeridir. AAD Kiracı için bir şirket içi dizin birleştiriliyorsa belirtilen Kiracı federasyon sunucusuna yeniden yönlendirir. |
-| code_challenge_method | isteğe bağlı    | Kodlamak için kullanılan yöntemin `code_verifier` için `code_challenge` parametresi. Herhangi birini `plain` veya `S256`. Dışlanırsa, `code_challenge` düz metin olarak kabul edilir `code_challenge` dahildir. Azure AAD v1.0 destekler `plain` ve `S256`. Daha fazla bilgi için [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| code_challenge ile        | isteğe bağlı    | Yetkilendirme kodu elde kavram anahtarı aracılığıyla kod Exchange (PKCE) için yerel veya genel bir istemciden güvenliğini sağlamak için kullanılır. Gerekli if `code_challenge_method` dahildir. Daha fazla bilgi için [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | Önerilen    | Kodlamak için kullanılan yöntemin `code_verifier` için `code_challenge` parametresi. Herhangi birini `plain` veya `S256`. Dışlanırsa, `code_challenge` düz metin olarak kabul edilir `code_challenge` dahildir. Azure AAD v1.0 destekler `plain` ve `S256`. Daha fazla bilgi için [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge ile        | Önerilen    | Yetkilendirme kodu elde kavram anahtarı aracılığıyla kod Exchange (PKCE) için yerel veya genel bir istemciden güvenliğini sağlamak için kullanılır. Gerekli if `code_challenge_method` dahildir. Daha fazla bilgi için [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > Kullanıcı, bir kuruluşun parçasıysa, kuruluş yöneticisi onayı veya kullanıcı adına reddedebilir veya kullanıcının onayını istemeniz izin. Kullanıcı seçeneği yalnızca yönetici izin verdiğinde izin verilir.
@@ -149,7 +152,7 @@ grant_type=authorization_code
 Uygulama Kimliği URI'si, Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklayın **uygulama kayıtları**, uygulamanın açın **ayarları** sayfasında ve 'ıtıklatın. **Özellikleri**.
 
 ### <a name="successful-response"></a>Başarılı yanıt
-Azure AD erişim belirteci bağlı başarılı bir yanıt döndürür. Ağ çağrıları istemci uygulaması ve bunların ilişkili gecikme süresini en aza indirmek için istemci uygulaması önbellek erişim belirteçleri OAuth 2.0 yanıtta belirtilen belirteç ömrü. Belirteç süresini belirlemek için kullanın `expires_in` veya `expires_on` parametre değerleri.
+Azure AD döndürür bir [erişim belirteci](access-tokens.md) başarılı bir yanıt temel alır. Ağ çağrıları istemci uygulaması ve bunların ilişkili gecikme süresini en aza indirmek için istemci uygulaması önbellek erişim belirteçleri OAuth 2.0 yanıtta belirtilen belirteç ömrü. Belirteç süresini belirlemek için kullanın `expires_in` veya `expires_on` parametre değerleri.
 
 Bir web API'si kaynağına döndürürse bir `invalid_token` hata kodu, bu gösterebilir kaynak belirtecin süresinin dolduğunu algıladı. İstemci ve kaynak saatleri farklı (bir "zaman eğimi" olarak bilinir), kaynak belirteci istemci önbelleğinden temizlenmeden önce süresi dolmuş belirteç göz önünde bulundurabilirsiniz. Bu meydana gelirse, yine de hesaplanan yaşam süresi içinde olsa bile, önbellekten belirteç temizleyin.
 
@@ -171,59 +174,16 @@ Başarılı bir yanıt şöyle görünebilir:
 
 | Parametre | Açıklama |
 | --- | --- |
-| access_token |İstenen erişim belirteci olarak bir imzalı JSON Web Token (JWT). Uygulama, web API'si gibi güvenli kaynağına kimliğini doğrulamak için bu belirteci kullanabilirsiniz. |
+| access_token |İstenen [erişim belirteci](access-tokens.md) olarak bir imzalı JSON Web Token (JWT). Uygulama, web API'si gibi güvenli kaynağına kimliğini doğrulamak için bu belirteci kullanabilirsiniz. |
 | token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil. |
 | expires_on |Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır. |
 | kaynak |Uygulama Kimliği URI'si, web API (kaynak güvenli). |
 | scope |Kimliğe bürünme, istemci uygulamaya verilen izinler. Varsayılan izin `user_impersonation`. Güvenli kaynağın sahibi ek değerler Azure AD'ye kaydedebilir. |
 | refresh_token |OAuth 2.0 yenileme belirteci. Uygulama geçerli erişim belirtecinin süresi dolduktan sonra ek erişim belirteçlerini almak için bu belirteci kullanabilirsiniz. Yenileme belirteçleri uzun süreli ve uzun süre için kaynaklarına erişimi korumak için kullanılabilir. |
-| id_token |Bir işaretsiz JSON Web Token (JWT). Uygulama can base64Url isteğini açan kullanıcı hakkında bilgi için bu belirteci parçalarını kodunu çözer. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. |
+| id_token |JSON Web Token (JWT) işaretsiz bir temsil eden bir [kimlik belirteci](id-tokens.md). Uygulama can base64Url isteğini açan kullanıcı hakkında bilgi için bu belirteci parçalarını kodunu çözer. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. |
 
-### <a name="jwt-token-claims"></a>JWT belirteci talepleri
-Değerini JWT belirteç `id_token` parametre aşağıdaki taleplerine çözülmüş:
-
-```
-{
- "typ": "JWT",
- "alg": "none"
-}.
-{
- "aud": "2d4d11a2-f814-46a7-890a-274a72a7309e",
- "iss": "https://sts.windows.net/7fe81447-da57-4385-becb-6de57f21477e/",
- "iat": 1388440863,
- "nbf": 1388440863,
- "exp": 1388444763,
- "ver": "1.0",
- "tid": "7fe81447-da57-4385-becb-6de57f21477e",
- "oid": "68389ae2-62fa-4b18-91fe-53dd109d74f5",
- "upn": "frank@contoso.com",
- "unique_name": "frank@contoso.com",
- "sub": "JWvYdCWPhhlpS1Zsf7yYUxShUwtUm5yzPmw_-jX3fHY",
- "family_name": "Miller",
- "given_name": "Frank"
-}.
-```
-
-JSON web belirteçlerini hakkında daha fazla bilgi için bkz: [JWT IETF taslak belirtimi](http://go.microsoft.com/fwlink/?LinkId=392344). Talepler ve belirteç türleri hakkında daha fazla bilgi için okuma [desteklenen belirteç ve talep türleri](v1-id-and-access-tokens.md)
-
-`id_token` Parametresi, aşağıdaki talep türlerini içerir:
-
-| Talep türü | Açıklama |
-| --- | --- |
-| aud |Belirtecin hedef kitlesi. Bir istemci uygulama bir belirteç hedef kitlesi olur `client_id` istemcinin. |
-| exp |Süre sonu. Belirtecin süresinin sona erdiği zaman. Belirteç geçerli olması, geçerli tarih/saat değerinden küçük veya buna eşit olmalıdır `exp` değeri. Zamanı saniye sayısı 1 Ocak 1970'ten gösterilir (1970-01-01T0:0:0Z) kadar belirtecin geçerlilik süresinin dolduğu zamanı UTC.|
-| family_name |Kullanıcının soyadı. Uygulama, bu değer görüntüleyebilirsiniz. |
-| given_name |Kullanıcının adı. Uygulama, bu değer görüntüleyebilirsiniz. |
-| IAT |Zaman verilmiş. JWT zaman verilmiş saat. Zamanı saniye sayısı 1 Ocak 1970'ten gösterilir (1970-01-01T0:0:0Z) belirteci verildiği zamana kadar UTC. |
-| ISS |Belirteci veren tanımlar |
-| NBF |Değil zamanından önce. Belirteç etkin duruma geldiğinde süre. Geçerli olması için belirteci, geçerli tarih/saat Nbf değerine eşit veya daha büyük olmalıdır. Zamanı saniye sayısı 1 Ocak 1970'ten gösterilir (1970-01-01T0:0:0Z) belirteci verildiği zamana kadar UTC. |
-| OID |Azure AD'de kullanıcı nesnesinin nesne tanımlayıcısı (kimliği). |
-| alt |Belirteç konu tanımlayıcısı. Belirteç açıklayan kullanıcı için kalıcı ve sabit bir tanımlayıcı budur. Mantıksal önbelleğe alma, bu değeri kullanın. |
-| TID |Kiracı tanımlayıcısı, belirteci veren Azure AD kiracısını (ID). |
-| unique_name |Benzersiz bir tanımlayıcı söz konusu kullanıcı için görüntülenebilir. Bir kullanıcı asıl adı (UPN) genellikle budur. |
-| UPN |Kullanıcının kullanıcı asıl adı. |
-| ver |Sürüm. JWT belirteci, genellikle 1.0 sürümü. |
+JSON web belirteçlerini hakkında daha fazla bilgi için bkz: [JWT IETF taslak belirtimi](http://go.microsoft.com/fwlink/?LinkId=392344).   Hakkında daha fazla bilgi edinmek için `id_tokens`, bkz: [v1.0 Openıd Connect akışı](v1-protocols-openid-connect-code.md).
 
 ### <a name="error-response"></a>Hata yanıtı
 İstemci belirteci verme uç noktası doğrudan çağırdığı belirteç yayınında uç noktası HTTP hata kodları hatalardır. HTTP durum kodu yanı sıra, Azure AD belirteç yayınında uç noktası da nesnelerle hatayı açıklayan bir JSON belgesini döndürür.
@@ -313,6 +273,7 @@ RFC 6750 belirtimi taşıyıcı düzeni ve WWW-Authenticate üstbilgisi yanıt o
 | 403 |insufficient_access |Belirtecin konu kaynağa erişmek için gerekli izinlere sahip değil. |Farklı bir hesap kullanın veya belirtilen kaynak için izin istemek için kullanıcıya sor |
 
 ## <a name="refreshing-the-access-tokens"></a>Erişim belirteçlerini yenileme
+
 Erişim belirteçleri kısa ömürlüdür ve kaynaklara erişmeye devam etmek için süresi dolduktan sonra yenilenmesi gerekiyor. Yenileme işlemini `access_token` başka göndererek `POST` isteği `/token` uç noktası, ancak bu zaman sağlama `refresh_token` yerine `code`.
 
 Yenileme belirteçleri belirtilen ömre sahip değil. Genellikle, yenileme belirteçleri ömrü oldukça uzun olabilir. Ancak, bazı durumlarda, yenileme belirteçleri sona, iptal edilen veya istenen eylemi için yeterli ayrıcalıkları yok. Beklediğiniz ve doğru belirteci verme uç noktası tarafından döndürülen hataları işlemek uygulamanız gerekir.

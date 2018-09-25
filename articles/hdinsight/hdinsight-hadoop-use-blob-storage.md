@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 027204065429a9eebd2e8121cbac8bc18b9d9ce6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 91be34468dae0fb1c24080fbe53c3c8056e8c1a3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091444"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967861"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri ile Azure Depolama'yı kullanma
 
@@ -133,11 +133,11 @@ Portal’da HDInsight kümesi oluştururken, depolama hesabı ayrıntılarını 
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="use-azure-cli"></a>Azure CLI kullanma
+### <a name="use-azure-classic-cli"></a>Klasik Azure CLI kullanma
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-[Azure CLI yüklenmiş ve yapılandırılmışsa](../cli-install-nodejs.md), aşağıdaki komut bir depolama hesabı ve kapsayıcı için kullanılabilir.
+Varsa [Azure Klasik CLI yükleyip](../cli-install-nodejs.md), aşağıdaki komut bir depolama hesabı ve kapsayıcı için kullanılabilir.
 
     azure storage account create <storageaccountname> --type LRS
 
@@ -264,24 +264,24 @@ $clusterName = "<HDInsightClusterName>"
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-### <a name="use-azure-cli"></a>Azure CLI kullanma
+### <a name="use-azure-classic-cli"></a>Klasik Azure CLI kullanma
 Blob ile ilgili komutları listelemek için aşağıdaki komutu kullanın:
 
     azure storage blob
 
-**Bir dosyayı karşıya yüklemek için Azure CLI kullanma örneği**
+**Bir dosyayı karşıya yüklemek için Klasik Azure CLI kullanma örneği**
 
     azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Bir dosyayı indirmek için Azure CLI kullanma örneği**
+**Bir dosyayı indirmek için Klasik Azure CLI kullanma örneği**
 
     azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Bir dosyayı silmek için Azure CLI kullanma örneği**
+**Bir dosyayı silmek için Klasik Azure CLI kullanma örneği**
 
     azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Dosyaları listelemek için Azure CLI kullanma örneği**
+**Dosyaları listelemek için Klasik Azure CLI kullanma örneği**
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 

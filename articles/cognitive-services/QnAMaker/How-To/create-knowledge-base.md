@@ -3,55 +3,67 @@ title: Bilgi Bankası - soru-cevap Oluşturucu Oluşturma
 titleSuffix: Azure Cognitive Services
 description: Botunuz için Sohbet chit ekleyerek daha damıtarak konuşma bağlamında kullanılabilen ve ilgi çekici kolaylaştırır. Soru-cevap Oluşturucu üst chit-sohbet, önceden doldurulmuş bir dizi, KB kolayca eklemenize olanak sağlar. Bu, botun chit-sohbet için bir başlangıç noktası olabilir ve bunları sıfırdan yazmak maliyeti ve zaman Kaydet.
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: saneppal
-ms.openlocfilehash: 66705a0afdcdb04fe49bea0bfc03286df3611071
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.author: tulasim
+ms.openlocfilehash: 274c2289c75f44c5a1c8dd3799612a23f46a6d67
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543367"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037703"
 ---
 # <a name="create-a-knowledge-base"></a>Bilgi bankası oluşturma
 
-Soru-cevap Oluşturucu çok ekleme Bilgi Bankası oluşturmak için var olan veri kaynaklarınızı kolaylaştırır. Yeni soru-cevap Oluşturucu Bilgi Bankası, SSS sayfaları, ürünlerini el kitabı, yapılandırılmış belgeler oluşturma veya düzenleme şeklinde ekleyin.
+Soru-cevap Oluşturucu Bilgi Bankası oluştururken, mevcut veri kaynaklarınızı eklemek basit hale getirir. Yeni bir soru-cevap Oluşturucu Bilgi Bankası aşağıdaki belge türlerinden oluşturabilirsiniz:
+
+<!-- added for scanability -->
+* SSS sayfaları
+* Ürünleri kılavuzları
+* Yapılandırılmış belgeleri
 
 ## <a name="steps"></a>Adımlar
 
-1. Başlamak için oturum [soru-cevap Oluşturucu portalı](https://qnamaker.ai) tıklayın ve azure kimlik bilgileri ile **yeni hizmet oluşturma**.
+1. İçine oturum [soru-cevap Oluşturucu portalı](https://qnamaker.ai) seçin ve Azure kimlik bilgileri ile **yeni hizmet oluşturma**.
 
     ![KB oluşturma ](../media/qnamaker-how-to-create-kb/create-new-service.png)
 
-2. Soru-cevap Oluşturucu hizmetini zaten oluşturmadıysanız seçin **soru-cevap hizmeti oluşturma**. Aksi takdirde, 2. adım açılan menülerde soru-cevap Oluşturucu hizmetini seçin. Bilgi Bankası barındıracak soru-cevap Oluşturucu hizmeti seçin.
+2. Soru-cevap Oluşturucu hizmetini zaten oluşturmadıysanız seçin **soru-cevap hizmeti oluşturma**. 
+
+3. Bir Azure kiracısı, Azure abonelik adı ve listelerden soru-cevap Oluşturucu hizmeti ile ilişkili Azure kaynağı adı seçin **2. adım** soru-cevap Oluşturucu Portalı'nda. Bilgi Bankası barındıracak Azure soru-cevap Oluşturucu hizmetini seçin.
 
     ![Soru-cevap hizmetini ayarlama](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
 
-3. Bilgi Bankası oluşturmak için aşağıdaki bilgileri girin.
+4. Yeni Bilgi Bankası için bilgi bankanızı ve veri kaynakları adını girin.
 
     ![Kümesi veri kaynakları](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
-    - Hizmetinize vermek bir **adı.** Yinelenen adları desteklenir ve özel karakterler de desteklenir.
-    - Gelen ayıklanan URL'ler yapıştırın. Desteklenen kaynakları türleri hakkında daha fazla bilgi [burada](../Concepts/data-sources-supported.md).
-    - Alternatif olarak, verilerin ayıklandığı dosyaları karşıya yükleyin. Bkz: [fiyatlandırma bilgileri](https://aka.ms/qnamaker-pricing
-) kaç belgeleri görmek için ekleyebilirsiniz.
-    - Bankalarıyla el ile eklemek istiyorsanız, dosyaları bağlantılandırma atlayabilirsiniz.
+    - Hizmetinize vermek bir **adı.** Yinelenen adları ve özel karakterler desteklenir.
+    - URL için ayıklanan istediğiniz verileri ekleyin. Desteklenen kaynakları türleri hakkında daha fazla bilgi [burada](../Concepts/data-sources-supported.md).
+    - Ayıklanan istediğiniz veri dosyalarını karşıya yükleyin. Bkz: [fiyatlandırma bilgileri](https://aka.ms/qnamaker-pricing) kaç belgeleri görmek için ekleyebilirsiniz.
+    - Bankalarıyla el ile eklemek istiyorsanız, atlayabilirsiniz **4. adım** önceki görüntüde gösterildiği.
 
-4. **Oluştur**’u seçin.
+5. Ekleme **Chit sohbet** , KB. 3 önceden tanımlanmış inancı birini seçerek, botunuzun chit sohbet desteği eklemek seçin. 
+
+    <!-- TBD: add back in when chit chat how-to is merged
+    ![Add chit-chat to KB ](../media/qnamaker-how-to-chitchat/create-kb-chit-chat.png)
+    -->
+
+6. Seçin **, KB oluşturma**.
 
     ![KB oluşturma](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-5. Ayıklanacak veri birkaç dakika sürer.
+7. Ayıklanacak veri birkaç dakika sürer.
 
     ![Ayıklama](../media/qnamaker-how-to-create-kb/hang-tight-extraction.png)
 
-6. Bilgi bankanızı başarıyla oluşturulduysa, yönlendirilecek **Bilgi Bankası** sayfası.
+8. Bilgi bankanızı başarıyla oluşturulduğunda yönlendirilirsiniz **Bilgi Bankası** sayfası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bilgi Bankası içeri aktarma](../Tutorials/migrate-knowledge-base.md)
+> [Sohbet chit kişisel Ekle](./chit-chat-knowledge-base.md)

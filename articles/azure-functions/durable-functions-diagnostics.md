@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e1211241ec3a2b32647260d1a5c7dc561019cfdf
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1ebca858632a64b5822658182a3b83c48f310164
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092250"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953047"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) hizmetinde tanılama
 
@@ -80,7 +80,7 @@ Ayrıntılı düzenleme yeniden yürütme olayları yayınlama etkinleştirmek i
 
 ### <a name="single-instance-query"></a>Tek örnek sorgu
 
-Geçmiş izleme verilerini tek bir örneği için aşağıdaki sorguyu gösterir [Hello dizisi](durable-functions-sequence.md) işlev düzenleme. Kullanılarak yazılmış [Application Insights sorgu dili (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Yalnızca yeniden yürütme yürütme filtreler *mantıksal* yürütme yolu gösterilir. Olayları göre sıralayarak sıralanabileceği `timestamp` ve `sequenceNumber` sorguda gösterildiği gibi: 
+Geçmiş izleme verilerini tek bir örneği için aşağıdaki sorguyu gösterir [Hello dizisi](durable-functions-sequence.md) işlev düzenleme. Kullanılarak yazılmış [Application Insights sorgu dili (AIQL)](https://aka.ms/LogAnalyticsLanguageReference). Yalnızca yeniden yürütme yürütme filtreler *mantıksal* yürütme yolu gösterilir. Olayları göre sıralayarak sıralanabileceği `timestamp` ve `sequenceNumber` sorguda gösterildiği gibi: 
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";

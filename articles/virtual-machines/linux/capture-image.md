@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 kullanarak bir Linux VM görüntüsü yakalama | Microsoft Docs
-description: Azure CLI 2.0 kullanarak toplu dağıtımları için kullanmak üzere bir Azure VM görüntüsü yakalayın.
+title: Azure CLI kullanarak azure'da bir Linux VM görüntüsü yakalama | Microsoft Docs
+description: Azure CLI kullanarak toplu dağıtımları için kullanmak üzere bir Azure VM görüntüsü yakalayın.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: ea202cad06130cfaaa134cad94ac08bede2f41a9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 98d98c1337830ce54c7ff96c19812169be129584
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867710"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946825"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Bir sanal makine veya VHD görüntüsü oluşturma
 
@@ -38,7 +38,7 @@ Aşağıdaki önkoşulları karşıladığından emin olun:
 
 * Azure yönetilen diskleri kullanarak Resource Manager dağıtım modelinde oluşturulan VM ihtiyacınız vardır. Bir Linux VM oluşturmadıysanız, kullanabileceğiniz [portalı](quick-create-portal.md), [Azure CLI](quick-create-cli.md), veya [Resource Manager şablonları](create-ssh-secured-vm-from-template.md). VM, gerektiği şekilde yapılandırın. Örneğin, [veri diskleri ekleme](add-disk.md)güncelleştirmelerini uygulamak ve uygulamaları yükleyin. 
 
-* Ayrıca en son gerekir [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açma [az login](/cli/azure/reference-index#az_login).
+* Ayrıca en son gerekir [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açma [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Hızlı komutlar
 
@@ -62,7 +62,7 @@ Size, makine belirli dosyaları ve verileri silmek için Azure VM Aracısı'nı 
 4. Komut tamamlandıktan sonra yazın **çıkmak**. Bu adım, SSH istemcisi kapanır.
 
 ## <a name="step-2-create-vm-image"></a>2. adım: Sanal makine görüntüsü oluşturma
-Azure CLI 2.0, VM genelleştirilmiş olarak işaretleme ve görüntü yakalamak için kullanın. Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myVnet*, ve *myVM*.
+VM genelleştirilmiş olarak işaretleme ve görüntü yakalamak için Azure CLI'yı kullanın. Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myVnet*, ve *myVM*.
 
 1. İle sağlaması VM'yi serbest bırakın [az vm deallocate](/cli//azure/vm#deallocate). Aşağıdaki örnekte adlı VM serbest bırakılır *myVM* adlı kaynak grubunda *myResourceGroup*:
    
@@ -146,4 +146,4 @@ Kaynak sanal makine görüntüsünden birden çok VM oluşturabilirsiniz. Görü
 - Yeniden sağlamasını kaldırma ve serbest bırakın, generalize ve görüntü oluşturma adımlarını izleyin.
 - Bu yeni görüntüyü gelecekteki dağıtımlar için kullanın. İsterseniz, orijinal görüntüyü silin.
 
-Vm'lerinizi CLI ile yönetme ile ilgili daha fazla bilgi için bkz: [Azure CLI 2.0](/cli/azure).
+Vm'lerinizi CLI ile yönetme ile ilgili daha fazla bilgi için bkz: [Azure CLI](/cli/azure).

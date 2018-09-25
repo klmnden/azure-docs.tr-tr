@@ -1,6 +1,6 @@
 ---
-title: Azure CLI kullanarak Linux VM için bir veri diski Ekle | Microsoft Docs
-description: Azure ile Linux VM için kalıcı veri diski eklemeyi öğrenin
+title: Azure CLI kullanarak Linux VM için bir veri diski ekleme | Microsoft Docs
+description: Azure CLI ile Linux sanal makinenize kalıcı veri diski eklemeyi öğrenin
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,20 +15,20 @@ ms.devlang: azurecli
 ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41090943e4053ddf0ea46e9da1b3b5c7dbbf132
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 578488163482dd0b7b486ca152455ff9686f1a43
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331232"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949222"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM'ye disk ekleme
-Bu makalede, verilerinizi - koruyabilmeniz için VM'yi yeniden sağlaması yapılana Bakım veya yeniden boyutlandırma nedeniyle olsa bile kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir. 
+Bu makalede verilerinizi - koruyabilmeniz için bile, sanal Makinenizin Bakım veya yeniden boyutlandırma nedeniyle daralıp kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir. 
 
 
-## <a name="attach-a-new-disk-to-a-vm"></a>Yeni bir disk bir VM'e ekleyin
+## <a name="attach-a-new-disk-to-a-vm"></a>Bir VM'ye yeni bir disk ekleme
 
-Yeni, boş veri diski de kendi VM'nizi eklemek istiyorsanız, kullanmak [az vm diskini](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) komutunu `--new` parametresi. VM'yi bir kullanılabilirlik dilimindeyse disk VM ile aynı bölgedeki otomatik olarak oluşturulur. Daha fazla bilgi için bkz: [kullanılabilirlik bölgeleri genel bakış](../../availability-zones/az-overview.md). Aşağıdaki örnek adlı bir disk oluşturur *myDataDisk* yani 50 Gb boyutunda:
+Yeni, boş veri diski sanal Makinenize eklemek istediğiniz kullanırsanız [az vm disk ekleme](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) komutunu `--new` parametresi. Sanal makinenize bir kullanılabilirlik alanı, disk VM ile aynı bölgedeki otomatik olarak oluşturulur. Daha fazla bilgi için [kullanılabilirlik alanlarına genel bakış](../../availability-zones/az-overview.md). Aşağıdaki örnekte adlı bir disk oluşturur *myDataDisk* yani 50 Gb boyutunda:
 
 ```azurecli
 az vm disk attach \
@@ -41,7 +41,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>Var olan bir diski ekleme 
 
-Varolan bir disk eklemek için disk Kimliğini bulun ve Kimliğine geçirin [az vm diskini](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) komutu. Aşağıdaki örnek sorgularda adlı bir disk için *myDataDisk* içinde *myResourceGroup*, adlı VM'ye iliştirir *myVM*:
+Var olan bir diski için disk Kimliğini bulun ve Kimliğine geçirmek [az vm disk ekleme](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) komutu. Adlı bir disk için aşağıdaki örnek sorgularda *myDataDisk* içinde *myResourceGroup*, ardından adlı VM'ye ekler *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
@@ -50,14 +50,14 @@ az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
 
-## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Yeni diski Linux VM'ye bağlanın
-Bölüm, biçimlendirme ve Linux VM, VM'yi içine SSH kullanabilmesi için yeni disk bağlamak için. Daha fazla bilgi için bkz. [Azure’da Linux ile SSH kullanma](mac-create-ssh-keys.md). Aşağıdaki örnek genel DNS girişi ile VM bağlanır *mypublicdns.westus.cloudapp.azure.com* kullanıcı *azureuser*: 
+## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Yeni disk bağlanacak Linux VM'ye bağlanma
+İçin bölüm, biçimlendirmek ve Linux VM'nize, VM'ye SSH kullanabilmesi için yeni diski bağlayın. Daha fazla bilgi için bkz. [Azure’da Linux ile SSH kullanma](mac-create-ssh-keys.md). Aşağıdaki örnek, Genel DNS girişi ile bir VM bağlandığı *mypublicdns.westus.cloudapp.azure.com* kullanıcı *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-VM'nize bağlandıktan sonra disk eklemek hazırsınız. İlk olarak, disk kullanarak Bul `dmesg` (yeni diskinizin bulmak için kullandığınız yöntem farklı olabilir). Aşağıdaki örnek, filtre uygulamak için dmesg kullanır. *SCSI* diskler:
+VM'nize bağlandıktan sonra bir disk eklemek hazırsınız. İlk olarak, disk kullanarak bulma `dmesg` (yeni diskinizi bulmak için kullandığınız yöntem farklılık gösterebilir). Aşağıdaki örnek dmesg filtrelemek için kullanır. *SCSI* diskler:
 
 ```bash
 dmesg | grep SCSI
@@ -73,13 +73,13 @@ dmesg | grep SCSI
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Burada, *sdc* istiyoruz disktir. Diskle bölüm `fdisk`, birincil disk bölüm 1 yapın ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `fdisk` üzerinde işlem */dev/sdc*:
+Burada, *sdc* istiyoruz disktir. İle diski bölümlendirin `fdisk`birincil disk 1 bölüme kolaylaştırır ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `fdisk` üzerinde işlem */dev/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Kullanım `n` yeni bir bölüm eklemek için komutu. Bu örnekte, biz de seçin `p` için birincil bölüm ve geri kalan varsayılan değerler kabul edin. Çıktı aşağıdaki örneğe benzer olacaktır:
+Kullanım `n` yeni bir bölüm eklemek için komutu. Bu örnekte, biz de tercih `p` için birincil bölüm ve varsayılan değerleri kabul edin. Çıktı aşağıdaki örneğe benzer olacaktır:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -101,7 +101,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Bölüm tablosuna yazarak yazdırma `p` ve ardından `w` disk ve çıkmak için tablo yazmak için. Çıktı aşağıdaki örneğe benzer görünmelidir:
+Bölüm tablosu yazarak yazdırma `p` ve ardından `w` diske yükleyin ve çıkın tablo yazmak. Çıktı aşağıdaki örneğe benzer olmalıdır:
 
 ```bash
 Command (m for help): p
@@ -123,7 +123,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Şimdi, bir dosya sistemi olan bölüm yazma `mkfs` komutu. Dosya sistemi türünüz ve cihaz adı belirtin. Aşağıdaki örnekte bir *ext4* dosya sistemi üzerinde */dev/sdc1* , önceki adımlarda oluşturulan bölümüne:
+Artık, bir dosya sistemi bölümü yazma `mkfs` komutu. Dosya sistemi türünüz ve cihaz adı belirtin. Aşağıdaki örnek, oluşturur bir *ext4* dosya sisteminde */dev/sdc1* , önceki adımlarda oluşturulan bölümüne:
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
@@ -154,19 +154,19 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-Şimdi, dosya sistemini kullanarak bağlamak için bir dizin oluşturun `mkdir`. Aşağıdaki örnek dizini */datadrive*:
+Şimdi kullanarak dosya sistemini bağlamak için bir dizin oluşturun `mkdir`. Aşağıdaki örnek, bir dizin oluşturur. */datadrive*:
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-Kullanım `mount` filesystem bağlamak için. Aşağıdaki örnek bağlar */dev/sdc1* için bölüm */datadrive* bağlama noktası:
+Kullanım `mount` sonra dosya sistemi bağlamak için. Aşağıdaki örnek bağlar */dev/sdc1* için bölüm */datadrive* bağlama noktası:
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-Sürücünün bir yeniden başlatmadan sonra otomatik olarak yeniden emin olmak için onu eklenmeli */etc/fstab* dosya. Ayrıca (evrensel benzersiz tanıtıcı) UUID kullanılıyor önerilir */etc/fstab* yalnızca aygıt adı yerine sürücü başvurmak için (gibi */dev/sdc1*). İşletim Sisteminin önyükleme sırasında disk hatası algılarsa, UUID kullanarak belirli bir konuma bağlı hatalı disk önler. Veri diskleri kalan sonra bu aynı aygıt kimlikleri atanması. Yeni sürücü UUID'si bulmak için `blkid` yardımcı programı:
+Sürücüyü otomatik olarak yeniden başlatma sonrası yeniden emin olmak için onu eklenmelidir */etc/fstab* dosya. UUID (evrensel benzersiz tanımlayıcı) kullanıldığını da önemle tavsiye edilir */etc/fstab* yalnızca cihaz adı yerine sürücü başvurmak için (gibi */dev/sdc1*). İşletim sistemi önyüklemesi sırasında disk hata algılarsa, UUID kullanarak belirli bir konuma bağlı hatalı disk önler. Veri diskleri kalan sonra bu cihaz kimlikleri aynı atanır. Sürücünün UUID'sini, yeni bulmak için kullanın `blkid` yardımcı programı:
 
 ```bash
 sudo -i blkid
@@ -181,7 +181,7 @@ sudo -i blkid
 ```
 
 > [!NOTE]
-> Yanlış bir şekilde düzenleyerek **/etc/fstab** dosya önyüklenemez bir sisteme neden. Emin değilseniz, düzgün şekilde bu dosyayı düzenlemek hakkında bilgi için dağıtım 's belgelerine bakın. Ayrıca, düzenlemeye başlamadan önce /etc/fstab dosyanızın bir yedeğini oluşturduğunuz önerilir.
+> Yanlış düzenleme **/etc/fstab** dosya yapılamamasına bir sistemde neden olabilir. Emin değilseniz, düzgün bir şekilde bu dosya düzenleme hakkında daha fazla bilgi için ait dağıtım belgelerine bakın. Ayrıca düzenlemeden önce /etc/fstab dosyasının yedek bir kopyası oluşturulur önerilir.
 
 Ardından, açık */etc/fstab* gibi bir metin düzenleyicisinde dosya:
 
@@ -189,28 +189,28 @@ Ardından, açık */etc/fstab* gibi bir metin düzenleyicisinde dosya:
 sudo vi /etc/fstab
 ```
 
-Bu örnekte, UUID değeri kullanmak */dev/sdc1* oluşturulduğu önceki adımları ve mountpoint, aygıt */datadrive*. Sonuna aşağıdaki satırı ekleyin */etc/fstab* dosyası:
+Bu örnekte, UUID değeri kullanın */dev/sdc1* oluşturulduğu önceki adımları ve takma noktası, cihaz */datadrive*. Sonuna aşağıdaki satırı ekleyin */etc/fstab* dosyası:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
 > [!NOTE]
-> Daha sonra bir veri diski fstab düzenlemeden kaldırma VM önyükleme başarısız olmasına neden olabilir. Çoğu dağıtımları ya da sağlamak *nofail* ve/veya *nobootwait* fstab seçenekleri. Bu seçenekler, önyükleme sırasında bağlamak disk başarısız olsa bile önyükleme sistemi sağlar. Bu parametreler hakkında daha fazla bilgi için dağıtım ait belgelere bakın.
+> Daha sonra fstab düzenleme olmadan veri diski kaldırma VM önyükleme başarısız olmasına neden olabilir. Çoğu dağıtımları ya da sağlamak *nofail* ve/veya *nobootwait* fstab seçenekleri. Bu seçenekler, önyükleme sırasında bağlamak disk başarısız olsa bile önyüklemek bir sistem sağlar. Bu parametreler hakkında daha fazla bilgi için dağıtım 's belgelerine başvurun.
 > 
-> *Nofail* seçeneği sağlar VM dosya sistemi bozuk ya da önyükleme sırasında diski yok olsa bile başlatır. Bu seçenek olmadan, davranış açıklandığı gibi karşılaşabilirsiniz [olamaz SSH FSTAB hatalar nedeniyle Linux VM](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> *Nofail* seçeneği, sanal makine bile dosya sistemi bozuk ya da diskin önyükleme sırasında yok başlatılmadan sağlar. Bu seçenek olmadan davranışı açıklandığı karşılaşabilirsiniz [olamaz SSH için Linux VM'si FSTAB hataları nedeniyle](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
 
-### <a name="trimunmap-support-for-linux-in-azure"></a>KIRPMA/UNMAP Azure Linux desteği
-Bazı Linux tekrar disk üzerindeki kullanılmayan blokları atmak için KIRPMA/UNMAP işlemleri desteklemez. Bu özellik sayfaları silinmiş Azure artık geçerli değil ve iptal ve büyük dosyaları oluşturmak ve bunları silerseniz paradan tasarruf edebilirsiniz bilgilendirmek için standart depolama özellikle yararlıdır.
+### <a name="trimunmap-support-for-linux-in-azure"></a>Azure'da Linux TRIM/UNMAP desteği
+Bazı Linux çekirdeklerinin diskte kullanılmayan blokları atmak TRIM/UNMAP işlemleri destekler. Bu özellik sayfaları silinmiş Azure artık geçerli değil ve iptal edilecek ve büyük dosyaları oluşturmak ve bunları silin, para tasarrufu yapabileceğiniz bilgilendirmek için standart depolama alanında özellikle yararlıdır.
 
-KIRPMA etkinleştirmenin iki yolu desteği, Linux VM'NİZDE vardır. Her zamanki gibi dağıtımınız için önerilen yaklaşım bakın:
+TRIM etkinleştirmek için iki şekilde destek Linux VM'nize vardır. Her zamanki şekilde dağıtımınız için önerilen yaklaşım bakın:
 
 * Kullanım `discard` bağlama seçeneği */etc/fstab*, örneğin:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* Bazı durumlarda, `discard` seçeneği performans etkileri olabilir. Alternatif olarak, çalıştırabilirsiniz `fstrim` komutunu el ile komut satırından veya düzenli olarak çalışacak şekilde crontab için ekleyin:
+* Bazı durumlarda, `discard` seçeneği performans etkileri olabilir. Alternatif olarak, çalıştırabileceğiniz `fstrim` komutunu el ile komut satırından veya düzenli olarak çalıştırmak için crontab ekleyin:
   
     **Ubuntu**
   
@@ -230,6 +230,6 @@ KIRPMA etkinleştirmenin iki yolu desteği, Linux VM'NİZDE vardır. Her zamanki
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Linux VM doğru şekilde yapılandırıldığından emin olmak için gözden [Linux makine performansı en iyi duruma](optimization.md) öneriler.
-* İlave diskler eklenerek, depolama kapasitesi ve [RAID yapılandırma](configure-raid.md) ek performans.
+* Linux sanal makinenizin doğru şekilde yapılandırıldığından emin olmak için gözden [Linux makine performansınızı en iyi duruma getirme](optimization.md) öneriler.
+* Ek diskler eklenerek, depolama kapasitesi ve [RAID yapılandırma](configure-raid.md) ek performans için.
 

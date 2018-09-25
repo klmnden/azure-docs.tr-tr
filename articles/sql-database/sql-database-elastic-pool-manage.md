@@ -7,16 +7,16 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 08/01/2018
+ms.date: 09/20/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: 4c5bb0ab3431fa951871e64d7bdd8a3a313f480f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ab37a714635b716a80bd869cffd2d5a37d76aff0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721509"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040372"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuzları oluşturma ve yönetme
 
@@ -70,12 +70,12 @@ Oluşturma ve SQL veritabanı elastik havuzları yönetme [Azure CLI](/cli/azure
 
 | Cmdlet | Açıklama |
 | --- | --- |
-|[az sql elastic-pool oluşturma](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Elastik havuz oluşturur.|
-|[az sql elastic-pool listesi](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Bir sunucu elastik havuzları listesini döndürür.|
-|[az sql elastic-pool DB'leri-Listele](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Elastik havuzdaki veritabanlarının listesini döndürür.|
-|[az sql elastic-pool sürümleri Listele](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Ayrıca depolama sınırları, kullanılabilir havuz DTU ayarlarını içerir ve veritabanı ayarları başına. Ayrıntı düzeyi, ek depolama alanı sınırları azaltmak için ve veritabanı başına ayarları varsayılan olarak gizlidir.|
-|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Elastik havuz güncelleştirir.|
-|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Esnek havuz siler.|
+|[az sql elastic-pool oluşturma](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|Elastik havuz oluşturur.|
+|[az sql elastic-pool listesi](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Bir sunucu elastik havuzları listesini döndürür.|
+|[az sql elastic-pool DB'leri-Listele](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Elastik havuzdaki veritabanlarının listesini döndürür.|
+|[az sql elastic-pool sürümleri Listele](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Ayrıca depolama sınırları, kullanılabilir havuz DTU ayarlarını içerir ve veritabanı ayarları başına. Ayrıntı düzeyi, ek depolama alanı sınırları azaltmak için ve veritabanı başına ayarları varsayılan olarak gizlidir.|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Elastik havuz güncelleştirir.|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Esnek havuz siler.|
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: havuza alınmış veritabanlarını yönetme
 

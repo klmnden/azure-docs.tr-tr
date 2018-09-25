@@ -1,82 +1,78 @@
 ---
-title: Yüksek Scheduler kullanılabilirliği ve güvenilirliği
-description: Yüksek Scheduler kullanılabilirliği ve güvenilirliği
+title: Yüksek kullanılabilirlik ve güvenilirlik - Azure Zamanlayıcı
+description: Yüksek kullanılabilirlik ve güvenilirlik Azure scheduler'da hakkında bilgi edinin
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.author: deli
-ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866096"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947933"
 ---
-# <a name="scheduler-high-availability-and-reliability"></a>Yüksek Scheduler kullanılabilirliği ve güvenilirliği
-## <a name="azure-scheduler-high-availability"></a>Yüksek Azure Scheduler kullanılabilirliği
-Çekirdek Azure platformu hizmet olarak Azure Scheduler yüksek oranda kullanılabilir ve coğrafi olarak yedekli hizmet dağıtımı ve coğrafi bölge iş çoğaltma özellikleri.
+# <a name="high-availability-and-reliability-for-azure-scheduler"></a>Yüksek kullanılabilirlik ve güvenilirlik için Azure Zamanlayıcı
+
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) devre dışı bırakılıyor Azure Scheduler değiştiriyor. İşleri zamanlamak için [Azure Logic Apps'i deneyin](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+Azure Zamanlayıcı sağlar hem de [yüksek kullanılabilirlik](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) ve işleriniz için güvenilirlik. Daha fazla bilgi için [Zamanlayıcı için SLA](https://azure.microsoft.com/support/legal/sla/scheduler).
+
+## <a name="high-availability"></a>Yüksek kullanılabilirlik
+
+Azure Zamanlayıcı [yüksek] ve coğrafi olarak yedekli hizmet dağıtımı hem iş coğrafi bölge çoğaltma kullanır.
 
 ### <a name="geo-redundant-service-deployment"></a>Coğrafi olarak yedekli hizmet dağıtımı
-Azure Scheduler, Azure'da bugün olduğu neredeyse her coğrafi bölgede kullanıcı Arabirimi aracılığıyla kullanılabilir. Azure Scheduler kullanılabilir bölgelerin listesi [burada listelenen](https://azure.microsoft.com/regions/#services). Bir veri merkezi barındırılan bir bölgede kullanılamıyor işlenir, hizmeti başka bir veri merkezinden kullanılabilir olacak şekilde, Azure Scheduler yük devretme yeteneklerini demektir.
+
+Azure Zamanlayıcı, Azure portalı kullanılabilir neredeyse [bugün Azure tarafından desteklenen her coğrafi bölge](https://azure.microsoft.com/global-infrastructure/regions/#services). Azure veri merkezinde barındırılan bir bölgede kullanılamaz duruma gelirse, hizmetin yük devretme özellikleri Zamanlayıcı başka bir veri merkezinden kullanılabilir hale getirmek için bu nedenle, Azure Scheduler kullanmaya devam edebilirsiniz.
 
 ### <a name="geo-regional-job-replication"></a>Coğrafi bölge iş çoğaltma
-Yalnızca kendi iş ancak yönetim istekleri için de coğrafi olarak çoğaltılmış kullanılabilir ön uç Azure Scheduler ' dir. Bir bölgede bir kesinti olduğunda Azure Scheduler yöneltilir ve eşleştirilmiş coğrafi bölgede başka bir veri merkezi iş çalışmasını sağlar.
 
-Örneğin, bir iş Orta Güney ABD içinde oluşturduysanız, Azure Scheduler Kuzey Orta ABD o işe otomatik olarak çoğaltır. Olduğunda hata Orta Güney ABD içinde Azure Scheduler işi Kuzey merkezi Bizden çalıştırıldığını sağlar. 
+Azure Scheduler kendi işlerinde Azure bölgeleri arasında çoğaltılır. Bu nedenle bir bölgenin kesinti varsa, Azure Scheduler devreder ve işinizi eşleştirilmiş coğrafi bölgede başka bir veri merkezinden çalışmasını sağlar.
 
-![][1]
+Örneğin, Güney Orta ABD bir proje oluşturursanız, Azure Scheduler, Orta Kuzey ABD işinde otomatik olarak çoğaltır. Güney Orta ABD başarısız olursa, Azure Scheduler, Kuzey Orta ABD işi olarak çalıştırır. 
 
-Sonuç olarak, Azure Scheduler, verilerinizi Azure hatası durumunda aynı daha geniş coğrafi bölge içinde kalmasını sağlar. Sonuç olarak, işinizi eklemeniz yeterlidir yüksek kullanılabilirlik için yinelenen olmayan – Azure Scheduler otomatik olarak işleriniz için yüksek kullanılabilirlik yetenekleri sağlar.
+![Coğrafi bölge iş çoğaltma](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png)
 
-## <a name="azure-scheduler-reliability"></a>Azure Zamanlayıcı güvenilirlik
-Azure Zamanlayıcı kendi yüksek oranda kullanılabilirlik garanti eder ve kullanıcı tarafından oluşturulan işleri için farklı bir yaklaşım alır. Örneğin, işinizi kullanılamaz bir HTTP uç noktası çağırabilir. Azure Zamanlayıcı hata ile mücadele etmek için diğer seçenekleri vererek işinizi başarıyla yürütmek yine de çalışır. Azure Scheduler bunu iki şekilde yapar:
+Azure Zamanlayıcı da Azure'da bir hatası oluşursa ihtimale verilerinizi aynı ancak daha geniş bir coğrafi bölge içinde kalmasını sağlar. Bu nedenle, yalnızca yüksek kullanılabilirlik istediğinizde işlerinizi yinelenen gerekmez. Azure Zamanlayıcı, işleriniz için otomatik olarak yüksek kullanılabilirlik sağlar.
 
-### <a name="configurable-retry-policy-via-retrypolicy"></a>"RetryPolicy" aracılığıyla yapılandırılabilir yeniden deneme ilkesi
-Azure Zamanlayıcı, bir yeniden deneme ilkesi yapılandırmanıza olanak sağlar. Bir işi başarısız olursa, varsayılan olarak 30 saniyelik aralıklarda yeniden dört kez daha, iş Zamanlayıcı dener. Bu yeniden deneme ilkesi (örneğin, on kez 30 saniyelik aralıklarda) daha katı olması için yeniden yapılandırabilir veya ok (örneğin, iki kez günlük aralıklarla.)
+## <a name="reliability"></a>Güvenilirlik
 
-Ne zaman bu yardımcı olabilecek örnek olarak, haftada bir kez çalıştırır ve bir HTTP uç noktası çağıran bir iş oluşturabilirsiniz. HTTP uç noktası için birkaç saat işiniz çalıştırıldığında çalışmıyorsa, bile varsayılan yeniden deneme ilkesi başarısız olur beri yeniden çalıştırmak işi için daha fazla bir hafta bekleyin istemeyebilirsiniz. Böyle durumlarda, her 30 saniyede yerine üç saatte (örneğin) yeniden denemek için standart yeniden deneme ilkesi yapılandırabilir.
+Azure Zamanlayıcı, kendi yüksek kullanılabilirliği garanti eder, ancak kullanıcı tarafından oluşturulan işler için farklı bir yaklaşım alır. Örneğin, işiniz kullanılamıyor HTTP uç noktası çağırır varsayalım. Azure Zamanlayıcı yine de iş, başarıyla alternatif yolları hataların işlenmesi için veren tarafından çalıştırmayı dener: 
 
-Bir yeniden deneme ilkesi yapılandırma konusunda bilgi için bkz [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
+* Yeniden deneme ilkeleri ayarlayın.
+* Alternatif uç noktaları ayarlama ayarlayın.
 
-### <a name="alternate-endpoint-configurability-via-erroraction"></a>"ErrorAction" yoluyla diğer uç nokta yapılandırılabilirlik
-Azure Scheduler işi için hedef uç noktaya erişilemiyor kalırsa, Azure Scheduler, yeniden deneme ilkesi izledikten sonra alternatif hata işleme uç noktasına geri döner. Alternatif bir hata işleme uç noktasını yapılandırdıysanız, Azure Scheduler bunu çağırır. Başka bir uç nokta ile kendi işleri karşısında hatası yüksek oranda kullanılabilir.
+<a name="retry-policies"></a>
 
-Örneğin, aşağıdaki çizimde, New York web hizmeti isabet kendi yeniden deneme ilkesi Azure Scheduler izler. Yeniden deneme başarısız olduktan sonra alternatif olup olmadığını denetler. Sonra ilerler ve aynı yeniden deneme ilkesi ile diğer istekleri yapan başlatır.
+### <a name="retry-policies"></a>Yeniden deneme ilkelerine
 
-![][2]
+Azure Zamanlayıcı, yeniden deneme ilkeleri ayarlamanıza olanak tanır. Sonra varsayılan olarak, bir işi, başarısız olursa Zamanlayıcı İş dört kez 30 saniyelik aralıklarla yeniden dener. Bu yeniden deneme ilkesi daha agresif, gibi 10 kez aralıklarla 30 saniye veya daha az agresiftir, gibi iki kez, günlük aralıklarla yapabilirsiniz.
 
-Aynı yeniden deneme ilkesi orijinal eylem ve diğer hata eylemi için geçerli olduğunu unutmayın. Diğer hata eylemin eylem türü ana eylemin eylem türünden farklı bir değer olması mümkündür. Örneğin, ana eylemi bir HTTP uç noktası çağırma, ancak hata eylemi bunun yerine bir depolama kuyruğu, hizmet veri yolu kuyruğu ya da hata günlüğünü olmadığından hizmet veri yolu konusu eylemi olabilir.
+Örneğin, bir HTTP uç noktasına çağrı haftalık bir işi oluşturduğunuzu varsayalım. HTTP uç noktası için birkaç saate işiniz çalıştırıldığında kullanılamaz duruma gelirse, işi yeniden çalıştırmak varsayılan yeniden deneme ilkesi bu durumda çalışmaz gerçekleşen için başka bir hafta bekleyin istemeyebilirsiniz. Bu nedenle, böylece Örneğin, üç saatte yerine her 30 saniyede yeniden denemeler meydana standart yeniden deneme ilkesi değiştirmek isteyebilirsiniz. 
 
-Başka bir uç nokta yapılandıracağınızı öğrenmek için bkz [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
+Bir yeniden deneme ilkesi ayarlama konusunda bilgi almak için bkz: [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
 
-## <a name="see-also"></a>Ayrıca Bkz.
- [Scheduler nedir?](scheduler-intro.md)
+### <a name="alternate-endpoints"></a>Alternatif uç noktaları
 
- [Azure Scheduler kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
+Azure Zamanlayıcı İş erişilemiyor, yeniden deneme ilkesi izledikten sonra bile bir uç nokta çağırırsa, Zamanlayıcı, bu tür hatalar işleyebilen bir alternatif uç noktasına geri döner. Bu nedenle, bu uç nokta ayarlarsanız, Zamanlayıcı hata gerçekleştiğinde kendi işlerinizi yüksek oranda kullanılabilir olmasını sağlayan Bu uç nokta çağırır.
 
- [Azure portalında Scheduler’ı kullanmaya başlama](scheduler-get-started-portal.md)
+Örneğin, New York'da bulunan bir web hizmetini çağırırken Zamanlayıcı yeniden deneme ilkesi nasıl izlediği Bu diyagramda gösterilmektedir. Yeniden deneme işlemleri başarısız olursa Zamanlayıcı için alternatif bir uç nokta denetler. Uç nokta varsa, Zamanlayıcı istekleri alternatif uç noktaya gönderme başlatır. Aynı yeniden deneme ilkesi, hem özgün eylemi hem de alternatif eylem için geçerlidir.
 
- [Azure Scheduler’da planlar ve faturalama](scheduler-plans-billing.md)
+![Yeniden deneme ilkesi ve diğer uç nokta ile Zamanlayıcı davranışı](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png)
 
- [Azure Scheduler ile karmaşık zamanlamalar ve gelişmiş yineleme oluşturma](scheduler-advanced-complexity.md)
+Diğer eylem için eylem türü özgün eylemden farklı olabilir. Orijinal eylem bir HTTP uç noktasına çağrı olsa da, örneğin, diğer eylem hatalar bir depolama kuyruğu, hizmet veri yolu kuyruğu ya da hizmet veri yolu konusu eylemi kullanarak oturum.
 
- [Azure Scheduler REST API başvurusu](https://msdn.microsoft.com/library/mt629143)
+Diğer uç nokta ayarlamayı öğrenmek için bkz. [errorAction](scheduler-concepts-terms.md#error-action).
 
- [Azure Scheduler PowerShell cmdlet’leri başvurusu](scheduler-powershell-reference.md)
+## <a name="see-also"></a>Ayrıca bkz.
 
- [Azure Scheduler sınırları, varsayılanları ve hata kodları](scheduler-limits-defaults-errors.md)
-
- [Azure Scheduler giden bağlantı kimlik doğrulaması](scheduler-outbound-authentication.md)
-
-[1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
-
-[2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
+* [Azure Scheduler nedir?](scheduler-intro.md)
+* [Kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
+* [Karmaşık zamanlamalar ve Gelişmiş yineleme oluşturma](scheduler-advanced-complexity.md)
+* [Limitler, kotalar, varsayılan değerleri ve hata kodları](scheduler-limits-defaults-errors.md)

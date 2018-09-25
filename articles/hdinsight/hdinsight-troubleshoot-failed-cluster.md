@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: f18e667e86c310e4d2950ba195911307aec5426d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047034"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950727"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme
 
@@ -57,12 +57,13 @@ Azure portalı bu bilgileri sağlayabilir:
 
 ![HDInsight Azure portalı bilgileri](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-Azure CLI de kullanabilirsiniz:
+Azure Klasik CLI'yı da kullanabilirsiniz:
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Başka bir seçenek PowerShell kullanıyor. Daha fazla bilgi için [yönetme Hadoop kümeleri, Azure PowerShell ile HDInsight](hdinsight-administer-use-powershell.md).
 
@@ -100,7 +101,7 @@ Küme sürümünü en son HDInsight sürüm ile karşılaştırın. Her bir HDIn
 
 #### <a name="restart-your-cluster-services"></a>Küme hizmetlerinizi yeniden başlatın
 
-Kümenizde yavaşlamalara karşılaşıyorsanız, hizmetlerinizi Ambari UI veya Azure CLI aracılığıyla yeniden başlatmayı düşünün. Kümeyi geçici hataları yaşıyor olabilirsiniz ve yeniden başlatmayı ortamınızı Sabitle ve büyük olasılıkla performansı artırmak için en hızlı yoludur.
+Kümenizde yavaşlamalara karşılaşıyorsanız, hizmetlerinizi Ambari UI veya Azure Klasik CLI aracılığıyla yeniden başlatmayı düşünün. Kümeyi geçici hataları yaşıyor olabilirsiniz ve yeniden başlatmayı ortamınızı Sabitle ve büyük olasılıkla performansı artırmak için en hızlı yoludur.
 
 ## <a name="step-3-view-your-clusters-health"></a>3. adım: kümenizin sistem durumu görüntüleme
 

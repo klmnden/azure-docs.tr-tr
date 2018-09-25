@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8f7c6c2bef747d00188cac2c3601fdad739b92a8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: eb43589b04be8b2b9c3be45d33c94592e97d308e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581854"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948273"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Hizmetten hizmete çağrılar (paylaşılan gizli diziyi veya sertifika) istemci kimlik bilgileri kullanma
 OAuth 2.0 istemci kimlik bilgileri yetki akışı bir web hizmeti izin verir (*gizli istemci*) başka bir web hizmetini çağırırken bir kullanıcının kimliğine bürünmek yerine kendi kimlik bilgilerini kullanmak için. Bu senaryoda istemci genellikle bir orta katman web hizmeti, arka plan programı hizmeti veya web sitesi olur. Daha yüksek bir güvence düzeyi için Azure AD (yerine, paylaşılan gizlilik) bir sertifika bir kimlik bilgisi olarak kullanılacak arama hizmeti de olanak tanır.
@@ -61,7 +61,7 @@ Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği 
 | kaynak |gerekli |Alıcı web hizmeti uygulama kimliği URI'si girin. Uygulama Kimliği URI'si Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklayın **uygulama kayıtları**hizmet uygulaması'nı tıklatın ve ardından **ayarları** ve  **Özellikleri**. |
 
 #### <a name="example"></a>Örnek
-Aşağıdaki HTTP POST istekleri için bir erişim belirteci https://service.contoso.com/ web hizmeti. `client_id` Erişim belirteci ister web hizmeti tanımlar.
+Aşağıdaki HTTP POST isteklerini bir [erişim belirteci](access-tokens.md) için https://service.contoso.com/ web hizmeti. `client_id` Erişim belirteci ister web hizmeti tanımlar.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1

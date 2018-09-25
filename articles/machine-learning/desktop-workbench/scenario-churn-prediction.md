@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 7c7b50098cfd1bcac534156dd905b37affab80bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0210e65c0859b00caac0fe66baa1c73063f644c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648222"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947950"
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Azure Machine Learning ile müşteri karmaşıklığı tahmini
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Ortalama olarak, mevcut müşterilerin beş kat daha yeni bir tane işe alma maliyetini. Sonuç olarak, Pazarlama yöneticileri genellikle kendilerini müşteri dalgalanması olasılığını tahmin etmeye ve dalgalanma oranını en aza indirmek için gerekli eylemleri bulmaya çalışır bulun.
 
@@ -61,7 +66,7 @@ Bu çözümde Tahmine dayalı bir müşteri karmaşıklığı modeli için Telek
 
 * Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz denemeler kullanılabilir)
 
-* Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](../service/quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturmak için
+* Yüklü bir kopyasını [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturmak için
 
 * Docker altyapısı yüklü ve yerel olarak çalışan varsa getirmek için en iyisidir. Aksi takdirde küme seçeneğini kullanın ancak bir Azure Container Service (ACS) çalıştıran pahalı olabileceğini unutmayın.
 

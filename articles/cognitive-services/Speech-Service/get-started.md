@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: cbb73b199255af7e7a91b1586b331acde035bfd7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 601588e0c7257fc939f884b2e9b2774ab12ea872
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124521"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950851"
 ---
 # <a name="try-the-speech-service-for-free"></a>Konuşma tanıma hizmetini ücretsiz olarak deneyin
 
@@ -36,7 +36,7 @@ Son olarak, konuşma hizmeti uygulamaları geliştirmek için uygun olan ücrets
 
    ![Konuşma Hizmetleri sekmesi](media/index/try-speech-api-free-trial1.png)
    
-1. Altında **konuşma Hizmetleri <sup>Önizleme</sup>** seçin **API anahtarı alma** düğmesi.
+1. Altında **konuşma Hizmetleri**seçin **API anahtarı alma** düğmesi.
 
    ![API anahtarı](media/index/try-speech-api-free-trial2.png)
 
@@ -75,11 +75,11 @@ Azure hesabınızda bir konuşma hizmeti kaynak (ücretsiz veya Ücretli katman)
 
 1. İçinde **yeni** penceresinde, arama **konuşma**.
 
-1. Arama sonuçlarında seçin **konuşma tanıma (Önizleme)**.
+1. Arama sonuçlarında seçin **konuşma**.
 
-    ![Konuşma tanıma (Önizleme) seçin](media/index/try-speech-api-create-speech2.png)
+    ![Konuşma seçin](media/index/try-speech-api-create-speech2.png)
 
-1. Altında **konuşma tanıma (Önizleme)**, tıklayın **Oluştur** düğmesi.
+1. Altında **konuşma**seçin **Oluştur** düğmesi.
 
     ![Oluştur düğmesine seçin](media/index/try-speech-api-create-speech3.png)
 

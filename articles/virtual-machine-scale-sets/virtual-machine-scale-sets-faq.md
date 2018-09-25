@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9ec049ebbfaa8e6ee5dbf585488d5c2e8ff25802
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715072"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949715"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek kümeleri hakkında SSS
 
@@ -49,7 +49,7 @@ Azure'da sanal makine ölçek kümeleri hakkında sık sorulan soruların yanıt
 
 **S.** Özel bir görüntü kullanarak nasıl ölçek kümesi oluşturabilirim?
 
-**C.** Oluşturma ve bir VM görüntüsü yakalayabilir ve ardından, Ölçek kümeniz için kaynak olarak kullanın. Özel bir VM görüntüsü oluşturma ve kullanma hakkında bir öğretici için kullandığınız [Azure CLI 2.0](tutorial-use-custom-image-cli.md) veya [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+**C.** Oluşturma ve bir VM görüntüsü yakalayabilir ve ardından, Ölçek kümeniz için kaynak olarak kullanın. Özel bir VM görüntüsü oluşturma ve kullanma hakkında bir öğretici için kullandığınız [Azure CLI](tutorial-use-custom-image-cli.md) veya [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **S.** Ölçek kümemin kapasitesini 20’den 15’e düşürürsem hangi VM’ler kaldırılır?
 
@@ -129,7 +129,7 @@ Tüm VM performans sayacı için uyarı ayarlama için ölçüm olarak seçebili
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>PowerShell kullanarak bir sanal makine ölçek otomatik ölçeklendirme nasıl ayarlayabilirim?
 
-Otomatik ölçeklendirmeyi PowerShell kullanarak bir sanal makine ölçek ayarlamak için bkz: [bir sanal makine ölçek kümesini otomatik ölçeklendirme](tutorial-autoscale-powershell.md). Ayrıca otomatik ölçeklendirme ile yapılandırabileceğiniz [Azure CLI 2.0](tutorial-autoscale-cli.md) ve [Azure şablonları](tutorial-autoscale-template.md)
+Otomatik ölçeklendirmeyi PowerShell kullanarak bir sanal makine ölçek ayarlamak için bkz: [bir sanal makine ölçek kümesini otomatik ölçeklendirme](tutorial-autoscale-powershell.md). Ayrıca otomatik ölçeklendirme ile yapılandırabileceğiniz [Azure CLI](tutorial-autoscale-cli.md) ve [Azure şablonları](tutorial-autoscale-template.md)
 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>(Durduruldu serbest bırakıldı) durdurduysanız, bir VM olan başlatılan bir otomatik ölçeklendirme işleminin bir parçası bu VM'ye?

@@ -5,23 +5,29 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 04/06/2018
+ms.date: 09/21/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d166a77a0636efea3b63660fde2187e3f2ec15c0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f1b53c53b1e5fb089eb9b8a9b816b11a1eea126d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38943052"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044518"
 ---
-İşlevleri yerel olarak geliştirme yaptığınızda, Azure işlevleri çekirdek araçları Terminal veya komut satırından kullanarak gereksinim duyduğunuz uzantıların yükleyebilirsiniz. 
+İşlevleri yerel olarak geliştirme yaptığınızda, Azure işlevleri çekirdek araçları Terminal veya komut satırından kullanarak gereksinim duyduğunuz uzantıların yükleyebilirsiniz.
 
-Güncelleştirdikten sonra *function.json* işlevinizi çalıştırmak gerekli tüm bağlamaları içeren dosyaya `func extensions install` proje klasöründeki komutu. Komut okur *function.json* gerekir ve ardından bunları yükler paketler görmek için dosya.
+Güncelleştirdikten sonra *function.json* dosyasını proje klasöründe aşağıdaki komutu çalıştırın, işlevinizi gereken tüm bağlamaları içerecek şekilde.
+
+```bash
+func extensions install
+```
+
+Komut okur *function.json* ihtiyacınız paketler görmek için bir dosya yükler ve uzantıları projesi oluşturur. Geçerli sürümde yeni bağlamalar ekler, ancak var olan bağlamaları güncelleştirmez. Kullanım `--force` yenilerini yüklerken mevcut bağlamaları en son sürüme güncelleştirmek için seçeneği.
 
 Bir paketin belirli bir sürümünü yüklemek istediğiniz veya düzenlemeden önce paketleri yüklemek isterseniz *function.json* dosya, kullanın `func extensions install` aşağıdaki örnekte gösterildiği gibi paket adı ile komutu:
 
-```
+```bash
 func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
 ```
 

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: ef7eae503eaf8194b287b9f080d8f635d9b3a485
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2c78e1d39227153dd65f145512fab4769b09e5c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094791"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966580"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -129,14 +129,15 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 Aşağıdaki örnek, bir olay hub'ı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanan. İşlevi, olay hub'ı tetikleyicisi ileti gövdesi günlüğe kaydeder.
 
-Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk örnek için olan 1.x işlevleri ve ikincisi için işlevleri olan 2.x. 
+Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk örnek için olan 2.x işlevleri ve ikincisi için işlevleri olan 1.x. 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -145,7 +146,7 @@ Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk ör
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -203,14 +204,15 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 Aşağıdaki örnek, bir olay hub'ı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlevi, olay hub'ı tetikleyicisi ileti gövdesi günlüğe kaydeder.
 
-Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk örnek için olan 1.x işlevleri ve ikincisi için işlevleri olan 2.x. 
+Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk örnek için olan 2.x işlevleri ve ikincisi için işlevleri olan 1.x. 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -219,7 +221,7 @@ Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk ör
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -235,14 +237,15 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 Aşağıdaki örnek, bir olay hub'ı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlev okur [olay meta verilerinin](#trigger---event-metadata) ve iletiyi günlüğe kaydeder.
 
-Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk örnek için olan 1.x işlevleri ve ikincisi için işlevleri olan 2.x. 
+Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk örnek için olan 2.x işlevleri ve ikincisi için işlevleri olan 1.x. 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -251,7 +254,7 @@ Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk ör
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -269,14 +272,14 @@ module.exports = function (context, eventHubMessage) {
 };
 ```
 
-Bir toplu işte olayları almak için ayarlanmış `cardinality` için `many` içinde *function.json* aşağıdaki örneklerde gösterildiği gibi dosya. İlk örnek için olan 1.x işlevleri ve ikincisi için işlevleri olan 2.x. 
+Bir toplu işte olayları almak için ayarlanmış `cardinality` için `many` içinde *function.json* aşağıdaki örneklerde gösterildiği gibi dosya. İlk örnek için olan 2.x işlevleri ve ikincisi için işlevleri olan 1.x. 
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "eventHubMessages",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -286,7 +289,7 @@ Bir toplu işte olayları almak için ayarlanmış `cardinality` için `many` i�
   "type": "eventHubTrigger",
   "name": "eventHubMessages",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -426,13 +429,13 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 Aşağıdaki örnek, bir olay hub'ı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanan. İşlevi, bir olay hub'ına bir ileti yazar.
 
-Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk örnek için olan 1.x işlevleri ve ikincisi için işlevleri olan 2.x. 
+Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk örnek için olan 2.x işlevleri ve ikincisi için işlevleri olan 1.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -441,7 +444,7 @@ Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk ör
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -476,13 +479,13 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 Aşağıdaki örnek, bir olay hub'ı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanan. İşlevi, bir olay hub'ına bir ileti yazar.
 
-Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk örnek için olan 1.x işlevleri ve ikincisi için işlevleri olan 2.x. 
+Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk örnek için olan 2.x işlevleri ve ikincisi için işlevleri olan 1.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -491,7 +494,7 @@ Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk ör
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -510,13 +513,13 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 Aşağıdaki örnek, bir olay hub'ı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlevi, bir olay hub'ına bir ileti yazar.
 
-Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk örnek için olan 1.x işlevleri ve ikincisi için işlevleri olan 2.x. 
+Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk örnek için olan 2.x işlevleri ve ikincisi için işlevleri olan 1.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -525,7 +528,7 @@ Event Hubs, veri bağlama Aşağıdaki örnekler *function.json* dosya. İlk ör
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }

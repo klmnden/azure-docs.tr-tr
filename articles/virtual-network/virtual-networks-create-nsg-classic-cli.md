@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 1.0 kullanarak bir ağ güvenlik grubu (Klasik) oluşturmak | Microsoft Docs
-description: Oluşturma ve Azure CLI 1.0 kullanarak bir ağ güvenlik grubu (Klasik) dağıtma hakkında bilgi edinin.
+title: Klasik Azure CLI kullanarak bir ağ güvenlik grubu (Klasik) oluşturun | Microsoft Docs
+description: Oluşturma ve Azure Klasik CLI kullanarak bir ağ güvenlik grubu (Klasik) dağıtma hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: 5468801e56849498d712f51e71cfb31bf068398a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5e81fa709589e5fa4a109cdf7709b87bc446ac3c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696627"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947243"
 ---
-# <a name="create-a-network-security-group-classic-using-the-azure-cli-10"></a>Azure CLI 1.0 kullanarak bir ağ güvenlik grubu (Klasik) oluşturun
+# <a name="create-a-network-security-group-classic-using-the-azure-classic-cli"></a>Bir ağ güvenlik grubu oluşturma (Klasik) Klasik Azure CLI kullanma
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -37,7 +37,7 @@ Aşağıdaki örnek Azure CLI komutlarını senaryo temel alınarak oluşturulmu
 
 ## <a name="create-an-nsg-for-the-front-end-subnet"></a>Ön uç alt ağı için bir NSG oluşturma
 
-1. Hiç Azure CLI kullanmadıysanız, [Azure CLI'yi yükleme ve yapılandırma](../cli-install-nodejs.md).
+1. Hiç Azure CLI kullanmadıysanız, [Azure CLI'yi yükleme ve yapılandırma](/cli/azure/install-cli-version-1.0).
 2. Klasik moda geçin:
 
     ```azurecli

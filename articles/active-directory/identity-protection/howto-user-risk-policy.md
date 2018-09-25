@@ -16,128 +16,76 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: bcfab9ab95e41b723cb8a8e49d7390a2894d5219
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a54403b7794d26d87c810f5cd20050db35c078f1
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45581373"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054352"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Nasıl yapılır: kullanıcı riski ilkesi yapılandırma
 
-Tüm etkin [risk olayları](../reports-monitoring/concept-risk-events.md) , algılandı Azure Active Directory tarafından katkıda bulunan bir kullanıcı için mantıksal bir kavramken kullanıcı riski çağrılır. Riskli olduğu belirlenen bir kullanıcı gizliliği bozulmuş olabilecek bir kullanıcı hesabının göstergesidir.
+Kullanıcı riski ile Azure AD kullanıcı hesabının tehlikede olduğunu olasılık algılar. Bir yönetici olarak bir belirli bir kullanıcı risk düzeyi için otomatik olarak yanıt vermek için bir kullanıcı risk koşullu erişim ilkesi yapılandırabilirsiniz.
+ 
+Bu makalede, bir kullanıcı risk İlkesi yapılandırmak için gereken bilgileri ile sunulmaktadır.
 
-![Riskli oldukları belirlenen kullanıcılar](./media/howto-user-risk-policy/1200.png)
+
+## <a name="what-is-a-user-risk-policy"></a>Kullanıcı riski İlkesi nedir?
+
+Azure AD, her oturum, bir kullanıcının analiz eder. Analiz amacı, oturum açma ile birlikte gelen kuşkulu eylemleri algılar sağlamaktır. Azure AD'de sistem algılayabilir şüpheli olarak da bilinen risk olayları eylemlerdir. While bazı risk olayları algılanamıyor gerçek zamanlı olarak, risk olayları daha çok zaman gerektiren de vardır. Örneğin, bir alışılmadık konumlara imkansız seyahat algılamak için sistem bir kullanıcının normal davranış hakkında bilgi edinmek için 14 günlük bir öğrenme dönemi gerekir. Algılanan risk olayları çözümlemek için birkaç seçenek vardır. Örneğin, tek tek risk olayları el ile çözümlemeniz veya bunları bir oturum açma riski veya bir kullanıcı risk koşullu erişim ilkesi kullanılarak sorun Çözüldü alabilirsiniz.
+
+Bir kullanıcı için tespit ettik ve çözülmesi yaramadı tüm risk olayları etkin risk olayları olarak bilinir. Bir kullanıcı ile ilişkilendirilmiş active risk olaylarını kullanıcı riski bilinir. Azure AD kullanıcı riskine bağlı olarak, kullanıcı gizliliğinin bozulduğunu olasılık (düşük, Orta, yüksek) hesaplar. Olasılık kullanıcı risk düzeyi adı verilir.
+
+![Kullanıcı risk](./media/howto-user-risk-policy/1031.png)
+
+Kullanıcı riski İlkesi belirli bir kullanıcı risk düzeyi için yapılandırdığınız otomatik yanıt ' dir. Kullanıcı riski İlkesi ile kaynaklarınıza erişimi engellemek ya da bir kullanıcı hesabı temiz bir duruma geri dönmek için bir parola değişikliği iste.
 
 
-## <a name="user-risk-level"></a>Kullanıcı risk düzeyi
+## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Oturum açma riski İlkesi nasıl erişim sağlanır?
+   
+Oturum açma riski İlkesi bulunduğu **yapılandırma** bölümünde [Azure AD kimlik koruması sayfa](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+   
+![Kullanıcı riski ilkesi](./media/howto-user-risk-policy/1014.png)
 
-Bir kullanıcı risk düzeyi (yüksek, Orta veya düşük) kullanıcının kimliğini tehlikede olasılığını göstergesidir. Bir kullanıcı kimliğiyle ilişkili kullanıcı risk olaylarına göre hesaplanır.
 
-Risk olayı durumu bozulmuş **etkin** veya **kapalı**. Olayları yalnızca risk **etkin** kullanıcı risk düzeyi hesaplamaya katkıda bulunun.
 
-Kullanıcı risk düzeyi, aşağıdaki girişleri kullanılarak hesaplanır:
+## <a name="policy-settings"></a>İlke ayarları
 
-* Kullanıcıyı etkileyen active risk olayları
-* Bu olayların risk düzeyi
-* Tüm düzeltme eylemlerini alınmış olup olmadığı
+Oturum açma riski İlkesi yapılandırdığınızda ayarlamanız gerekir:
 
-![Kullanıcı risk](./media/howto-user-risk-policy/1031.png "kullanıcı risk")
+- Kullanıcılar ve ilkenin uygulandığı gruplar:
 
-Riskli kullanıcıların oturum açarken engelleyen koşullu erişim ilkeleri oluşturmak için kullanıcı risk düzeyleri kullanın veya bunları parolalarını güvenli bir şekilde değiştirmek için zorla.
+    ![Kullanıcılar ve gruplar](./media/howto-user-risk-policy/11.png)
 
-## <a name="closing-risk-events-manually"></a>Risk olaylarını elle kapatma
+- İlke tetikler oturum açma riski düzeyi:
 
-Çoğu durumda, düzeltme eylemleri risk olayları otomatik olarak kapatmak için bir güvenli parola sıfırlama gibi gerçekleştirir. Ancak, bu her zaman mümkün olmayabilir.  
-Bu, örneğin, bir durumdur, ne zaman:
+    ![Kullanıcı risk düzeyi](./media/howto-user-risk-policy/12.png)
 
-* Etkin risk olayları sahip bir kullanıcı silindi
-* Bir araştırma bildirilen risk olayı sahip olan gerçekleştireceğini meşru bir kullanıcı tarafından ortaya çıkarır.
+- Oturum açma riski düzeyinizi sağlandığında uygulanmasını istediğiniz erişim türünü:  
 
-Risk olayları olduğundan **etkin** katkıda bulunmak için kullanıcı risk hesaplama, risk olaylarını elle kapatma tarafından el ile bir risk düzeyi daha düşük olabilir.  
-Araştırma Kurs sırasında herhangi bir risk olayını durumunu değiştirmek için aşağıdaki eylemlerden birini tercih edebilirsiniz:
+    ![Access](./media/howto-user-risk-policy/13.png)
 
-![Eylemler](./media/howto-user-risk-policy/34.png "eylemleri")
+- İlke durumu:
 
-* **Çözmek** - bir risk olayını araştırdıktan sonra uygun düzeltme eylemi dışında kimlik koruması sürdü ve risk olayı kapatıldı, değerlendirilmesi gerektiğini düşünüyorsanız olayı Çözüldü olarak işaretleyin. Olayları risk olayın durumu kapalı olarak ayarlanır ve risk olayının artık kullanıcı riski katkıda bulunan çözüldü.
-* **Hatalı pozitif olarak işaretleme** -bazı durumlarda, bir risk olayını araştırmak ve olabilirsiniz, yanlış riskli işaretlenmiş olduğunu keşfedin. Risk olayı hatalı pozitif sonuç olarak işaretleyerek böyle oluşum sayısını azaltmaya yardımcı olabilir. Bu, makine öğrenimi algoritmaları sınıflandırma benzer olayların gelecekte artırmak için yardımcı olur. Yanlış pozitif sonuç veren olayların durumunu sağlamaktır **kapalı** ve kullanıcı riski artık katkıda bulunur.
-* **Yoksay** - herhangi bir düzeltme eylemi olmamıştır, ancak etkin listesinden kaldırılması için risk olayı istiyorsanız, bir risk olayını yoksay işaretleyebilirsiniz ve olay durumu kapatılır. Kullanıcı riski yok sayılan olayları katkıda bulunmuyor. Bu seçenek yalnızca olağan dışı durumlarda kullanılmalıdır.
-* **Yeniden** -Risk el ile kapatılmış olayları (seçerek **çözmek**, **hatalı pozitif sonuç**, veya **Yoksay**) olay ayarlama etkinleştirilebilir Durum geri **etkin**. Yeniden etkinleştirilen risk olayları için kullanıcı risk düzeyi hesaplama katkıda bulunur. (Güvenli parola sıfırlama gibi) düzeltme aracılığıyla kapatılan risk olayları yeniden etkinleştirilemez.
+    ![İlke zorlama](./media/howto-user-risk-policy/14.png)
 
-**İlgili yapılandırma iletişim kutusunu açmak için**:
+İlke yapılandırma iletişim kutusu yapılandırmanızı etkisini tahmin etmek için bir seçenek sağlar.
 
-1. Üzerinde **Azure AD kimlik koruması** dikey altında **Araştır**, tıklayın **Risk olayları**.
+![Tahmini etki](./media/howto-user-risk-policy/15.png)
 
-    ![El ile parola sıfırlama](./media/howto-user-risk-policy/1002.png "el ile parola sıfırlama")
-2. İçinde **Risk olayları** listesinde, bir risk tıklayın.
+## <a name="what-you-should-know"></a>Bilmeniz gerekenler
 
-    ![El ile parola sıfırlama](./media/howto-user-risk-policy/1003.png "el ile parola sıfırlama")
-3. Risk dikey penceresinde, bir kullanıcıya sağ tıklayın.
+Risk düzeyine bağlı olarak oturum açma sonrası kullanıcıları engellemek için bir kullanıcı riski ilkesi ayarlayabilirsiniz.
 
-    ![El ile parola sıfırlama](./media/howto-user-risk-policy/1004.png "el ile parola sıfırlama")
+![Engelleme](./media/howto-user-risk-policy/16.png)
 
-## <a name="closing-all-risk-events-for-a-user-manually"></a>Bir kullanıcı için tüm risk olaylarını elle kapatma
-El ile bir kullanıcının risk olayları ayrı ayrı kapatmak yerine, Azure Active Directory kimlik koruması da, tek bir tıklamayla bir kullanıcı için tüm olayları kapatmak için bir yöntem sağlar.
 
-![Eylemler](./media/howto-user-risk-policy/2222.png "eylemleri")
+Bir oturum açma engelleme:
 
-Tıkladığınızda **tüm olayları kapatılamadı**, tüm olayları kapatılır ve etkilenen kullanıcı artık risk altındadır.
+* Etkilenen kullanıcı için yeni kullanıcı risk olayları oluşturulmasını engeller
+* Yöneticilerin el ile kullanıcı kimliğini etkileyen risk olaylarını düzeltmek ve güvenli bir duruma geri sağlar
 
-## <a name="remediating-user-risk-events"></a>Düzeltme kullanıcı risk olayları
-
-Bir düzeltme bir kimlik veya daha önce olduğundan şüphelenilen veya tehlikeye bilinen bir cihazı güvenli hale getirmek için bir eylemdir. Bir düzeltme eylemi kimliği veya cihaz güvenli bir duruma geri yükler ve kimlik ya da cihaz ile ilişkili önceki risk olayları giderir.
-
-Kullanıcı risk olaylarını düzeltmek için şunları yapabilirsiniz:
-
-* Güvenli parola sıfırlama kullanıcı risk olaylarını elle düzeltmek için gerçekleştirin
-* Kullanıcı risk olaylarını otomatik olarak düzeltmek veya gidermek için bir kullanıcı riski ilkesi yapılandırma
-* Etkilenen cihaz yeniden görüntü  
-
-### <a name="manual-secure-password-reset"></a>El ile güvenli parola sıfırlama
-Güvenli parola sıfırlama birçok risk olayları için geçerli bir düzeltme ve ne zaman gerçekleştirileceğini otomatik olarak bu risk olaylarını kapatır ve kullanıcı risk düzeyi yeniden hesaplar. Kimlik koruması Panosu, parola sıfırlama için riskli kullanıcı başlatmak için kullanabilirsiniz.
-
-İlgili iletişim kutusu, bir parola sıfırlama için iki farklı yöntem sunar:
-
-**Parolayı Sıfırla** - seçin **kullanıcının parolasını sıfırlamasını gerektirmek** kullanıcı çok faktörlü kimlik doğrulaması için kayıtlı olmadığını Self kurtarmaya izin vermek için. Kullanıcının sonraki oturum açma sırasında kullanıcı çok faktörlü kimlik doğrulaması sınaması başarılı bir şekilde çözmek için gerekli ve daha sonra parolayı değiştirmek zorunda. Kullanıcı hesabı zaten kayıtlı çok faktörlü kimlik doğrulaması değilse, bu seçenek kullanılamaz.
-
-**Geçici parola** - seçin **geçici bir parola oluştur** hemen mevcut parolayı geçersiz kılmak ve kullanıcı için yeni bir geçici parola oluşturun. Yeni bir geçici parola kullanıcı için bir alternatif e-posta adresi veya Kullanıcı Yöneticisi gönderin. Geçici bir parola olduğundan, kullanıcı oturum açma sırasında parola değiştirme istenir.
-
-![İlke](./media/howto-user-risk-policy/1005.png "İlkesi")
-
-**İlgili yapılandırma iletişim kutusunu açmak için**:
-
-1. Üzerinde **Azure AD kimlik koruması** dikey penceresinde tıklayın **risk için işaretlenen kullanıcılar**.
-
-    ![El ile parola sıfırlama](./media/howto-user-risk-policy/1006.png "el ile parola sıfırlama")
-2. En az bir risk olayı bir kullanıcıyla kullanıcılar listesinden seçin.
-
-    ![El ile parola sıfırlama](./media/howto-user-risk-policy/1007.png "el ile parola sıfırlama")
-3. Kullanıcı dikey penceresinde tıklayın **parolayı Sıfırla**.
-
-    ![El ile parola sıfırlama](./media/howto-user-risk-policy/1008.png "el ile parola sıfırlama")
-
-## <a name="user-risk-security-policy"></a>Kullanıcı riski İlkesi
-Bir kullanıcı riski İlkesi belirli bir kullanıcı risk düzeyi değerlendirir ve önceden tanımlanmış koşullar ve kurallara dayanan düzeltme ve risk azaltma eylemleri geçerli bir koşullu erişim ilkesi var.
-
-![Kullanıcı riski İlkesi](./media/howto-user-risk-policy/1009.png "kullanıcı riski İlkesi")
-
-Azure AD kimlik koruması risk azaltma ve olanak tanıyarak, riskli olduğu belirlenen kullanıcıları düzeltme yönetmenize yardımcı olur:
-
-* Kullanıcıları ve grupları ilkenin uygulanacağı ayarlayın:
-
-    ![Kullanıcı riski İlkesi](./media/howto-user-risk-policy/1010.png "kullanıcı riski İlkesi")
-* İlke tetikleyen kullanıcı risk düzeyi eşiği (düşük, Orta veya yüksek) ayarlayın:
-
-    ![Kullanıcı riski İlkesi](./media/howto-user-risk-policy/1011.png "kullanıcı riski İlkesi")
-* İlke tetiklendiğinde zorlanacak denetimleri ayarlayın:
-
-    ![Kullanıcı riski İlkesi](./media/howto-user-risk-policy/1012.png "kullanıcı riski İlkesi")
-* İlke durumu anahtarı:
-
-    ![Kullanıcı riski İlkesi](./media/howto-user-risk-policy/403.png "MFA kaydı")
-* Gözden geçirin ve bunu etkinleştirdikten önce bir değişikliğin etkisini değerlendirin:
-
-    ![Kullanıcı riski İlkesi](./media/howto-user-risk-policy/1013.png "kullanıcı riski İlkesi")
+## <a name="best-practices"></a>En iyi uygulamalar
 
 Seçim bir **yüksek** eşiği ilke tetiklenir ve kullanıcılara etkisini en aza indirir sayısını azaltır.
 Ancak, dışlar **düşük** ve **orta** kimlikleri cihazları, güvenli veya değil ilkeyi, risk için işaretlenmiş kullanıcılar daha önce olduğundan şüphelenilen veya tehlikeye bilinen.
@@ -162,13 +110,7 @@ Ancak, dışlar **düşük** ve **orta** kimlikleri cihazları, güvenli veya de
 
     ![Kullanıcı riski İlkesi](./media/howto-user-risk-policy/1009.png "kullanıcı riski İlkesi")
 
-## <a name="mitigating-user-risk-events"></a>Kullanıcı risk olaylarını azaltma
-Yöneticiler, risk düzeyine bağlı olarak oturum açma sonrası kullanıcıları engellemek için bir kullanıcı riski ilkesi ayarlayabilirsiniz.
 
-Bir oturum açma engelleme:
-
-* Etkilenen kullanıcı için yeni kullanıcı risk olayları oluşturulmasını engeller
-* Yöneticilerin el ile kullanıcı kimliğini etkileyen risk olaylarını düzeltmek ve güvenli bir duruma geri sağlar
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

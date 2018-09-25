@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 51cc4c37ba661feb63880c138e98200c981f6054
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5288dc508c35c72f3c1996ce665ccf83a84a4ea3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918490"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948977"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -43,11 +43,12 @@ Etkinlik günlüğü Tanıtımı aşağıdaki videoyu izleyin.
 Etkinlik günlüğü birkaç veri kategorilerini içerir. Bu kategorilerin şemaların ilgili tam Ayrıntılar için [bu makaleye bakın](monitoring-activity-log-schema.md). Bunlar:
 * **Yönetim** -Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemlerine Resource Manager aracılığıyla gerçekleştirilir. Görmek Bu kategoride olay türlerini örnekleri arasında "sanal makine oluşturma" ve "bir kullanıcı ya da Resource Manager kullanarak uygulama tarafından gerçekleştirilen her eylemi modellenmiş bir işlemi belirli bir kaynak türü olarak ağ güvenlik grubunu sil". İşlem türü, yazma, silme veya eylem ise, hem Başlangıç hem de başarılı kayıtlar veya bu işlemin başarısız yönetim kategorisi kaydedilir. Yönetim kategorisi, bir abonelikte rol tabanlı erişim denetimi değişiklikleri de içerir.
 * **Hizmet durumu** -bu kategori, Azure'da ortaya çıkan tüm hizmet durumu olayları kaydını içerir. Bu kategoride göreceğiniz olay türünü "SQL Azure Doğu ABD, kesinti yaşanıyor." örneğidir Hizmet durumu olayları beş çeşit olarak gelir: eylem gerekli, Kurtarma Yardımlı, olay, bakım, bilgi veya güvenlik, olaydan etkilenen aboneliğindeki bir kaynak varsa yalnızca görünür.
+* **Kaynak durumu** -bu kategori, Azure kaynaklarınıza ortaya çıkan herhangi bir kaynak sistem durumu olayları kaydını içerir. Bu kategoride göreceğiniz olay türünü, "sanal makine sistem durumu kullanılamaz değiştirildi." örneğidir Kaynak sistem durumu olayları dört durum durumlardan birini temsil edebilir: kullanılabilir kullanılamıyor, Degraded ve bilinmeyen. Ayrıca, kaynak sistem durumu olayları, Platform tarafından başlatılan veya kullanıcı tarafından başlatılan olacak şekilde sınıflandırılabilir.
 * **Uyarı** -bu kategorideki tüm etkinleştirmeleri Azure uyarıları kaydını içerir. Bu kategoride göreceğiniz olay türünü "myVM üzerindeki CPU % 80'den önceki 5 dakika boyunca bırakıldı." örneğidir Çeşitli Azure sistemleri sahip bir uyarı verme kavramı--tür bir kural tanımlamak ve bu kuralda veya ek koşullarla eşleşen bir bildirim alırsınız. Her bir desteklenen Azure uyarı türü 'etkinleştirir,' veya bir bildirim oluşturmak için koşullar karşılandığında, bir kaydı etkinleştirme etkinlik günlüğü, bu kategoriye de gönderilir.
 * **Otomatik ölçeklendirme** -kayıt işlemi herhangi bir otomatik ölçeklendirme ayarı, aboneliğinizde tanımlanmış temel otomatik ölçeklendirme altyapısı ilgili olayların bu kategorisi içerir. Bu kategoride göreceğiniz olay türünü, "Otomatik ölçek ölçeği artırma eylemi başarısız oldu." örneğidir Otomatik ölçeklendirme kullanarak, otomatik olarak ölçeği genişletme veya ölçeklendirme desteklenen kaynak türü örneği sayısını gün ve/veya yük (ölçüm) verileri kullanarak bir otomatik ölçeklendirme ayarı zamanında temel. Ne zaman ölçeği artırmak veya azaltmak için başlangıç ve başarılı veya başarısız olayları koşulların kaydedilir bu kategorideki.
 * **Öneri** -Azure Danışmanı için öneri olaylardan bu kategorisi içerir.
 * **Güvenlik** -Azure Güvenlik Merkezi tarafından oluşturulan herhangi bir uyarı kaydı bu kategorisi içerir. Bu kategoride göreceğiniz olay türünü, "şüpheli çift uzantılı dosya yürütüldü." örneğidir
-* **İlke ve kaynak durumu** -kategorilerine meydana gelen olayları içermez; gelecekte kullanılmak üzere ayrılmıştır.
+* **İlke** -bu kategorideki tüm olayları içermez; gelecekte kullanılmak üzere ayrılmıştır. 
 
 ## <a name="event-schema-per-category"></a>Kategori başına olay şeması
 [Kategori başına etkinlik günlüğü olay şeması anlamak için bu makaleye bakın.](monitoring-activity-log-schema.md)
@@ -106,7 +107,7 @@ Günlükleri yayan bir aynı abonelikte değil bir depolama hesabına veya olay 
 >  Şu anda arşivlenemiyor verileri bir depolama hesabı, güvenli bir sanal ağda.
 
 > [!WARNING]
-> Depolama hesabı günlüğü verileri biçimi JSON satırlarına 1 Kasım 2018'de değişir. [Etki ve yeni biçime işlemek için araçlarınızı güncelleştirmek nasıl bir açıklaması için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
+> Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -158,7 +159,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanarak günlük profillerini yapılandırma
+### <a name="configure-log-profiles-using-the-azure-cli"></a>Azure CLI'yı kullanarak günlük profillerini yapılandırma
 
 #### <a name="get-existing-log-profile"></a>Var olan günlük profilini Al
 

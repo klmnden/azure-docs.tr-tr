@@ -10,15 +10,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 68077e576fe3451627d8a5c8e1ff1b26d06d96b7
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 93e6b8c606c0a6d7abebeb515b938a45001757c1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091858"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950378"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Openapı 2.0 (Önizleme) Azure işlevleri'nde meta veri desteği
 Openapı 2.0 (eski adıyla Swagger) meta verileri desteği Azure işlevleri bir Openapı 2.0 tanımı bir işlev uygulaması içinde yazmak için kullanabileceğiniz bir önizleme özelliği değil. Ardından, işlev uygulamasını kullanarak bu dosyayı barındırabilirsiniz.
+
+> [!IMPORTANT]
+> Openapı önizleme özelliği yalnızca 1.x çalışma zamanı'nda bugün kullanılabilir. 1.x işlev uygulaması oluşturma hakkında bilgi [burada bulunabilir](./functions-versions.md#creating-1x-apps).
 
 [Openapı meta verileri](http://swagger.io/) çok çeşitli diğer yazılımlar tarafından kullanılması için bir REST API'sini barındıran bir işlev verir. Bu yazılım PowerApps gibi Microsoft teklifleriyle içerir ve [Azure App Service API Apps özelliklerinden](../app-service/app-service-web-overview.md), gibi üçüncü taraf geliştirici araçları [Postman](https://www.getpostman.com/docs/importing_swagger), ve [diğer birçok paket](http://swagger.io/tools/).
 

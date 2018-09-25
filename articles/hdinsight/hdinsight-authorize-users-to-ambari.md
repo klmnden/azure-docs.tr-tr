@@ -1,6 +1,6 @@
 ---
 title: Kullanıcıları Ambari Views - Azure HDInsight için yetkilendirme
-description: Etki alanına katılmış HDInsight kümeleri Ambari kullanıcı ve grup izinlerini yönetmek nasıl.
+description: Kümeleri etkin ESP ile HDInsight Ambari kullanıcı ve grup izinlerini yönetin.
 services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: f1aa80ec9df8faee4cf5ea98910e28cfc11a7920
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4e05d4ff9c090fac0242921e15ef16439d3ed27f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782136"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954458"
 ---
 # <a name="authorize-users-for-ambari-views"></a>Kullanıcıları Ambari Views için yetkilendirme
 
-[Etki alanına katılmış HDInsight kümeleri](./domain-joined/apache-domain-joined-introduction.md) Azure Active Directory tabanlı kimlik doğrulaması dahil kurumsal sınıf özellikler sunar. Yapabilecekleriniz [yeni kullanıcıları eşitleme](hdinsight-sync-aad-users-to-cluster.md) belirli kullanıcılarla belirli eylemleri gerçekleştirmek izin verme kümesine erişim sağlanan Azure AD gruplarına eklenebilir. Kullanıcılar, gruplar ve izinler Ambari ile çalışma, etki alanına katılmış HDInsight kümesi ve standart HDInsight kümesi için desteklenir.
+[Kurumsal güvenlik paketi (ESP) HDInsight kümelerini etkin](./domain-joined/apache-domain-joined-introduction.md) Azure Active Directory tabanlı kimlik doğrulaması dahil kurumsal sınıf özellikler sunar. Yapabilecekleriniz [yeni kullanıcıları eşitleme](hdinsight-sync-aad-users-to-cluster.md) belirli kullanıcılarla belirli eylemleri gerçekleştirmek izin verme kümesine erişim sağlanan Azure AD gruplarına eklenebilir. Kullanıcılar, gruplar ve izinler Ambari ile çalışma ESP HDInsight kümeleri hem de standart HDInsight kümeleri için desteklenir.
 
 Active Directory Kullanıcıları küme düğümlerine, etki alanı kimlik bilgilerini kullanarak oturum açabilir. Bunlar ayrıca, etki alanı kimlik küme etkileşim Hue, Ambari Views, ODBC, JDBC, PowerShell ve REST API'leri gibi diğer onaylanmış uç noktaların kimlik doğrulaması için kullanabilirsiniz.
 
 > [!WARNING]
 > Linux tabanlı HDInsight kümenizdeki Ambari bekçi (hdinsightwatchdog) parolasını değiştirmeyin. Parola değiştirme betik eylemlerini kullanın veya kümenizle ölçeklendirme işlemleri gerçekleştirme olanağı keser.
 
-Zaten yapmadıysanız, izleyin [bu yönergeleri](./domain-joined/apache-domain-joined-configure.md) yeni bir etki alanına katılmış kümesi sağlamak için.
+Zaten yapmadıysanız, izleyin [bu yönergeleri](./domain-joined/apache-domain-joined-configure.md) yeni bir ESP kümesi sağlamak için.
 
 ## <a name="access-the-ambari-management-page"></a>Ambari Yönetim sayfasına erişin
 
@@ -116,7 +116,7 @@ Liste görünümüne iki kategoride hızlı düzenleme özellikleri sağlar: kul
 
     ![Liste Görünümü - Kullanıcı rolleri](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* Tüm grupları ve her gruba atanan rolü liste görünümüne Grup kategorisini görüntüler. Bizim örneğimizde, belirtilen Azure AD gruplarındaki gruplarının listesini eşitlenir **erişim kullanıcı grubu** kümenin etki alanı ayarlarını özelliği. Bkz: [bir etki alanına katılmış HDInsight kümesi oluşturma](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
+*  Tüm grupları ve her gruba atanan rolü liste görünümüne Grup kategorisini görüntüler. Bizim örneğimizde, belirtilen Azure AD gruplarındaki gruplarının listesini eşitlenir **erişim kullanıcı grubu** kümenin etki alanı ayarlarını özelliği. Bkz: [ile ESP etkin bir HDInsight kümesi oluşturma](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
 
     ![Liste Görünümü - grupları rolleri](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 
@@ -136,7 +136,7 @@ Azure AD etki alanı kullanıcı "hiveuser2" biz atadığınız *küme kullanıc
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [İçinde etki alanına katılmış HDInsight Hive ilkelerini yapılandırma](./domain-joined/apache-domain-joined-run-hive.md)
-* [Etki alanına katılmış HDInsight kümelerini yönetme](./domain-joined/apache-domain-joined-manage.md)
+* [ESP ile HDInsight Hive ilkelerini yapılandırma](./domain-joined/apache-domain-joined-run-hive.md)
+* [ESP HDInsight kümelerini yönetme](./domain-joined/apache-domain-joined-manage.md)
 * [HDInsight, Hadoop ile Hive görünümünü kullanma](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Azure AD kullanıcılarının kümeye Eşitle](hdinsight-sync-aad-users-to-cluster.md)

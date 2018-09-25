@@ -3,19 +3,19 @@ title: Destekleniyor - veri kaynakları soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
 description: Soru-cevap Oluşturucu SSS ve ürün kılavuzlarını gibi ortak yarı yapılandırılmış içerik biçimlerden soru-cevap çiftlerini otomatik olarak ayıklayabilir. İçeriği, yapılandırılmış dosyalarından Bilgi Bankası'na da eklenebilir.
 services: cognitive-services
-author: nstulasi
+author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: saneppal
-ms.openlocfilehash: 0436d5015ee4b369aeead7691f87ef313259d391
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.date: 09/24/2018
+ms.author: tulasim
+ms.openlocfilehash: b9214d44061edad967212a1f904c2cdb6687dba2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544005"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039063"
 ---
 # <a name="data-sources"></a>Veri kaynakları 
 Soru-cevap Oluşturucu SSS ve ürün kılavuzlarını gibi ortak yarı yapılandırılmış içerik biçimlerden soru-cevap çiftlerini otomatik olarak ayıklayabilir. İçeriği, yapılandırılmış dosyalarından Bilgi Bankası'na da eklenebilir.
@@ -71,7 +71,7 @@ Bilgi Bankası doldurmak için önceden var olan içerik yoksa, ayrıca bunları
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bir soru-cevap Oluşturucu hizmetini ayarlama](../How-To/set-up-qnamaker-service-azure.md)
+> [Kişilik chit sohbet kişilikler yanıtlarla ekleyin](../How-To/chit-chat-knowledge-base.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 

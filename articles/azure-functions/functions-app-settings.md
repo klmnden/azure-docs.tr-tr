@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: f7299b9193c5ab24431feb9c73a0a3cf97596da3
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4e40a731530e9423c7be6f2e2449aad970bb327c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734950"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040253"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
 Uygulama ayarlarında, bir işlev uygulaması, işlev uygulaması için tüm işlevleri etkiler genel yapılandırma seçenekleri içerir. Yerel olarak çalıştırdığınızda, bu ortam değişkenleri ayarlardır. Bu makalede, işlev uygulamalarında kullanılabilir uygulama ayarlarını listeler.
 
-[! Dahil etme [işlev uygulaması ayarları] (.. /.. /includes/Functions-App-Settings.MD]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Diğer genel yapılandırma seçeneği yoktur [host.json](functions-host-json.md) dosya ve [local.settings.json](functions-run-local.md#local-settings-file) dosya.
 
@@ -40,6 +40,9 @@ Günlükleri depolamak ve bunları görüntülemek için isteğe bağlı bir dep
 |Anahtar|Örnek değer|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [anahtar]|
+
+> [!TIP]
+> Performans ve deneyimi için yerine AzureWebJobsDashboard izleme için appınsıghts_ınstrumentatıonkey ve App Insights'ı kullanmak için önerilir
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -111,11 +114,19 @@ Geçerli değerler şunlardır: "readwrite" ve "salt okunur".
 
 ## <a name="functionsextensionversion"></a>İŞLEVLERİ\_UZANTISI\_SÜRÜMÜ
 
-Bu işlev uygulamasında kullanmak için Azure işlevleri çalışma zamanı sürümü. Bir tilde ana sürümle (örneğin, "~ 1") bu ana sürüm en son sürümünü kullanmanız anlamına gelir. Aynı ana sürüm için yeni sürümler kullanılabilir olduğunda işlev uygulamasına otomatik olarak yüklenirler. Belirli bir sürüme uygulamayı sabitlemek için tam sürüm numarası (örneğin, "1.0.12345") kullanın. "~ 1" varsayılandır.
+Bu işlev uygulamasında kullanmak için Azure işlevleri çalışma zamanı sürümü. Bir tilde ana sürümle (örneğin, "~ 2") bu ana sürüm en son sürümünü kullanmanız anlamına gelir. Aynı ana sürüm için yeni sürümler kullanılabilir olduğunda işlev uygulamasına otomatik olarak yüklenirler. Belirli bir sürüme uygulamayı sabitlemek için tam sürüm numarası (örneğin, "2.0.12345") kullanın. "~ 2" varsayılandır.
 
 |Anahtar|Örnek değer|
 |---|------------|
-|İŞLEVLERİ\_UZANTISI\_SÜRÜMÜ|~1|
+|İŞLEVLERİ\_UZANTISI\_SÜRÜMÜ|~ 2|
+
+## <a name="functionsworkerruntime"></a>İŞLEVLERİ\_ÇALIŞAN\_ÇALIŞMA ZAMANI
+
+İşlev uygulamasına yüklemek için dil alt çalışma zamanı.  Bu, uygulamada (örneğin, "dotnet") kullanılan dil karşılık gelir. Birden çok dilde işlevler için her bir karşılık gelen alt çalışma zamanı değeri ile birden fazla uygulama yayımlamak gerekir.  Geçerli değerler `dotnet`, `node`, ve `java`.
+
+|Anahtar|Örnek değer|
+|---|------------|
+|İŞLEVLERİ\_ÇALIŞAN\_ÇALIŞMA ZAMANI|DotNet|
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -138,19 +149,19 @@ Yalnızca tüketim planları için. İşlev uygulaması kod ve yapılandırma do
 İşlev uygulaması için ölçeğini genişletebilirsiniz örneklerinin sayısı. Varsayılan olarak sınır yoktur.
 
 > [!NOTE]
-> Bu ayar için bir önizleme özelliğidir.
+> Bu ayar, Önizleme aşamasında yalnızca güvenilir ise bir değere ayarlayın ve özellik - < = 5
 
 |Anahtar|Örnek değer|
 |---|------------|
-|WEB SİTESİ\_MAX\_DİNAMİK\_UYGULAMA\_ÖLÇEK\_ÇIKIŞ|10|
+|WEB SİTESİ\_MAX\_DİNAMİK\_UYGULAMA\_ÖLÇEK\_ÇIKIŞ|5|
 
 ## <a name="websitenodedefaultversion"></a>WEB SİTESİ\_DÜĞÜM\_DEFAULT_VERSION
 
-"6.5.0" varsayılandır.
+"8.11.1" varsayılandır.
 
 |Anahtar|Örnek değer|
 |---|------------|
-|WEB SİTESİ\_DÜĞÜM\_DEFAULT_VERSION|6.5.0|
+|WEB SİTESİ\_DÜĞÜM\_DEFAULT_VERSION|8.11.1|
 
 ## <a name="websiterunfrompackage"></a>WEB SİTESİ\_ÇALIŞTIRMA\_FROM\_PAKET
 

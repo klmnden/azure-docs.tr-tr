@@ -8,19 +8,20 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f64645db782b055e1c544f257149411f29fc99d7
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 2ab2ac1e98e25da4065611d32fb50aa8ce809361
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34806324"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060958"
 ---
 ## <a name="about-vhds"></a>VHD'ler hakkında
+
 Azure’da kullanılan VHD’ler, Azure’daki standart veya premium depolama hesabında sayfa blobları olarak depolanır. Sayfa blobları hakkında bilgi için bkz. [Blok bloblarını ve sayfa bloblarını anlama](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Premium depolama hakkında daha fazla ayrıntı için bkz. [Yüksek performanslı premium depolama ve Azure VM'leri](../articles/virtual-machines/windows/premium-storage.md).
 
-Azure, sabit bir disk VHD biçimini destekler. Sabit biçim, mantıksal diski dosya içinde doğrusal olarak düzenlediğinden, disk farkı X'in içeriği blob farkı X konumunda depolanır. Blob'un sonundaki küçük bir alt bilgi VHD'nin özelliklerini tanımlar. Genellikle, çoğu diskleri büyük kullanılmayan aralıkları olması nedeniyle sabit biçimli wastes boşluk. Ancak, Azure .vhd dosyalarını seyrek biçimde depoladığından aynı anda hem sabit hem de dinamik disklerin avantajlarından yararlanırsınız. Daha fazla bilgi için bkz: [sanal sabit diskler ile çalışmaya başlama](https://technet.microsoft.com/library/dd979539.aspx).
+Azure, sabit bir disk VHD biçimini destekler. Sabit biçim, mantıksal diski dosya içinde doğrusal olarak düzenlediğinden, disk farkı X'in içeriği blob farkı X konumunda depolanır. Blob'un sonundaki küçük bir alt bilgi VHD'nin özelliklerini tanımlar. Genellikle, çünkü çoğu diskte kullanılmayan büyük aralıklar Yürütülebilirler içlerinde sabit biçimli wastes boşluk. Ancak, Azure .vhd dosyalarını seyrek biçimde depoladığından aynı anda hem sabit hem de dinamik disklerin avantajlarından yararlanırsınız. Daha fazla bilgi için [sanal sabit diskleri kullanmaya başlama](https://technet.microsoft.com/library/dd979539.aspx).
 
-Diskleri veya görüntüleri oluşturmak için bir kaynak olarak kullanmak istediğiniz Azure tüm VHD dosyaları, salt okunur, .vhd dosyaları karşıya veya Azure depolama birimine (olabilen okuma-yazma veya salt okunur) kullanıcı tarafından kopyalanan dışında. Bir disk veya görüntü oluşturduğunuzda, Azure .vhd dosyalarını kaynağı kopyalarını oluşturur. Bu kopyalar, VHD’yi nasıl kullandığınıza bağlı olarak salt okunur veya okuma-yazma niteliktedir.
+Azure'da disk veya görüntü oluşturmak için bir kaynak olarak kullanmak istediğiniz tüm VHD dosyaları salt okunur, .vhd dosyaları karşıya veya Azure depolama alanına (hangi salt okunur veya salt okunur olabilir) kullanıcı tarafından kopyalanan dışında. Bir disk veya görüntü oluşturduğunuzda, Azure .vhd dosyalarının kaynak kopyasını getirir. Bu kopyalar, VHD’yi nasıl kullandığınıza bağlı olarak salt okunur veya okuma-yazma niteliktedir.
 
 Bir görüntüden sanal makine oluşturduğunuzda Azure, sanal makine için kaynak .vhd dosyasının kopyası olan bir disk oluşturur. Yanlışlıkla silmeye karşı korumak üzere Azure, bir görüntü, işletim sistemi diski ya da veri diski oluşturmak için kullanılan her kaynak .vhd dosyasına kira koyar.
 
@@ -29,40 +30,47 @@ Bir kaynak .vhd dosyasını silmeden önce diski veya görüntüyü silerek kira
 > [!WARNING]
 > Kaynak .vhd dosyasını depolama alanından silerseniz veya depolama hesabınızı silerseniz, Microsoft bu verileri kurtaramaz.
 
-## <a name="types-of-disks"></a>Disk türleri 
-Azure Diskleri %99,999 kullanılabilirlik sunacak şekilde tasarlanmıştır. Azure diskleri tutarlı bir şekilde endüstri lideri ile Kurumsal düzeyde dayanıklılık sıfır % Annualized hata oranı teslim.
+## <a name="types-of-disks"></a>Disk türleri
 
-Disklerinizi--Premium SSD diskleri, standart SSD (Önizleme) ve standart HDD depolama oluştururken seçebileceğiniz depolama için üç performans katmanı vardır. Ayrıca, yönetilmeyen ve yönetilen diskleri--iki tür vardır.
+Azure Diskleri %99,999 kullanılabilirlik sunacak şekilde tasarlanmıştır. Azure diskleri ile sektör lideri Kurumsal düzeyde dayanıklılık sunarak hata oranı % tutarlı bir şekilde teslim.
+
+Disklerinizi Premium SSD diskleri, standart SSD (Önizleme) ve standart HDD depolama oluştururken seçebileceğiniz depolama için üç performans katmanı vardır. Ayrıca, yönetilmeyen ve yönetilen diskler--iki tür vardır.
 
 ### <a name="standard-hdd-disks"></a>Standart HDD diskler
-Standart HDD diskler HDD tarafından desteklenir ve düşük maliyetli depolama teslim. Standart HDD depolama yerel olarak bir veri merkezine çoğaltılabilir veya coğrafi birincil ve ikincil veri merkezleri ile yedekli. Depolama çoğaltma hakkında daha fazla bilgi için bkz: [Azure Storage çoğaltma](../articles/storage/common/storage-redundancy.md). 
 
-Standart HDD diskleri kullanma hakkında daha fazla bilgi için bkz: [standart depolama ve disk](../articles/virtual-machines/windows/standard-storage.md).
+Standart HDD diskler, HDD'ler ile desteklenir ve düşük maliyetli depolama sunar. Standart HDD depolama bir veri merkezinde yerel olarak çoğaltılabilir veya birincil ve ikincil veri merkezleri ile coğrafi olarak yedekli. Depolama çoğaltma hakkında daha fazla bilgi için bkz. [Azure depolama çoğaltma](../articles/storage/common/storage-redundancy.md). 
 
-### <a name="standard-ssd-disks-preview"></a>Standart SSD diskleri (Önizleme)
-Standart SSD diskleri standart HDD diskleri aynı türdeki iş yüklerini adres, ancak daha tutarlı performans ve güvenilirlik HDD sunmak üzere tasarlanmıştır. Standart SSD diskleri disklerde yüksek IOPS gerekmez web sunucuları gibi uygulamalar için uygun öğeleri Premium SSD diskleri ve uygun maliyetli bir çözüm en iyi forma standart HDD disklerinin birleştirin. Kullanılabilir olduğunda, standart SSD diskleri çoğu iş yükleri için önerilen dağıtım seçenektir. Standart SSD diskleri yalnızca yönetilen diskleri olarak kullanılabilir ve while Önizleme'de yalnızca kullanılabilir [seçin bölgeleri](../articles/virtual-machines/windows/faq-for-disks.md) ile yerel olarak yedekli depolama (LRS) dayanıklılık türü.
+Standart HDD diskleri kullanma hakkında daha fazla bilgi için bkz. [standart depolama ve diskler](../articles/virtual-machines/windows/standard-storage.md).
 
-### <a name="premium-ssd-disks"></a>Premium SSD diskleri 
-Premium SSD diskleri SSD tarafından desteklenir ve g/Ç kullanımı yoğun iş yükleri çalıştıran VM'ler için yüksek performanslı, düşük gecikmeli disk desteği sunar. Genellikle seri adında bir "s" boyutlarıyla Premium SSD diskleri kullanabilirsiniz. Örneğin, Dv3 serisi yoktur ve Dsv3 serisi, Dsv3 serisi Premium SSD disk ile kullanılabilir.  Daha fazla bilgi için bkz. [Premium Depolama](../articles/virtual-machines/windows/premium-storage.md).
+### <a name="standard-ssd-disks"></a>Standart SSD disk
+
+Standart SSD disk standart HDD diskleri aynı türde iş yükleri adres, ancak daha tutarlı performans ve güvenilirlik HDD sunmak üzere tasarlanmıştır. Standart SSD disk Premium SSD diskleri ve uygun maliyetli bir çözüme en iyi forma standart HDD disklerinin yüksek IOPS disklerde gerekmeyen web sunucuları gibi uygulamalar için uygun öğeleri birleştirin. Standart SSD disk, mümkün olan durumlarda iş yüklerinin çoğu için önerilen dağıtım seçeneği olan. Standart SSD disk olarak yönetilen diskler tüm bölgelerde kullanılabilir, ancak şu anda yalnızca yerel olarak yedekli depolama (LRS) dayanıklılık türü ile kullanılabilir.
+
+### <a name="premium-ssd-disks"></a>Premium SSD diskleri
+
+Premium SSD diskleri, SSD'ler ile desteklenir ve g/Ç açısından yoğun iş yükleri için yüksek performanslı, düşük gecikme süreli disk desteği sunar. Genellikle serisi adında "s" boyutları ile Premium SSD diskleri kullanabilirsiniz. Örneğin, Dv3 serisi yoktur ve Dsv3 serisi, Dsv3 serisi Premium SSD diskleri ile kullanılabilir.  Daha fazla bilgi için bkz. [Premium Depolama](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Yönetilmeyen diskler
-Yönetilmeyen diskler, VM'ler tarafından kullanılan geleneksel türdeki disklerdir. Bu diskleri kendi depolama hesabı oluşturun ve disk oluşturduğunuzda, bu depolama hesabı belirtin. Aştığından aynı depolama hesabında çok sayıda disk put yok emin olun [ölçeklenebilirlik hedefleri](../articles/storage/common/storage-scalability-targets.md) depolama hesabının (örneğin 20.000 IOPS) karşılaşıldığı VM'ler sonuçlanır. Yönetilmeyen disklerde, VM’lerinizden en iyi performansı elde etmek için, bir veya daha fazla depolama hesabının kullanımını nasıl en üst düzeye çıkarabileceğinizi anlamanız gerekir.
 
-### <a name="managed-disks"></a>Yönetilen diskler 
-Yönetilen Diskler, depolama hesabı oluşturma/yönetme işlemini arka planda gerçekleştirir ve depolama hesabının ölçeklenebilirlik sınırları hakkında endişe etmeniz gerekmez. Azure’un diski oluşturup yönetebilmesi için disk boyutunu ve performans katmanını (Standart/Premium) belirtmeniz yeterlidir. Disk eklediğinizde veya VM ölçeğini artırıp azalttığınızda kullanılan depolama alanı konusunda endişelenmeniz gerekmez. 
+Yönetilmeyen diskler, VM'ler tarafından kullanılan geleneksel türdeki disklerdir. Bu disklerle kendi depolama hesabı oluşturun ve diski oluştururken bu depolama hesabı belirtin. Neden olmayan yerleştirdiğiniz çok fazla disk aynı depolama hesabında emin [ölçeklenebilirlik hedefleri](../articles/storage/common/storage-scalability-targets.md) depolama hesabının (örneğin 20.000 IOPS) aşarak VM'lerin kaynaklanan. Yönetilmeyen disklerde, VM’lerinizden en iyi performansı elde etmek için, bir veya daha fazla depolama hesabının kullanımını nasıl en üst düzeye çıkarabileceğinizi anlamanız gerekir.
+
+### <a name="managed-disks"></a>Yönetilen diskler
+
+Yönetilen Diskler, depolama hesabı oluşturma/yönetme işlemini arka planda gerçekleştirir ve depolama hesabının ölçeklenebilirlik sınırları hakkında endişe etmeniz gerekmez. Azure’un diski oluşturup yönetebilmesi için disk boyutunu ve performans katmanını (Standart/Premium) belirtmeniz yeterlidir. Disk eklediğinizde veya VM ölçeğini artırıp azalttığınızda kullanılan depolama alanı konusunda endişelenmeniz gerekmez.
 
 Ayrıca, her Azure bölgesinde bir depolama hesabındaki özel görüntülerinizi yönetebilir ve aynı abonelikte yüzlerce VM oluşturmak için kullanabilirsiniz. Yönetilen Diskler hakkında daha fazla bilgi için bkz. [Yönetilen Disklere Genel Bakış](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 Yeni VM’ler için Azure Yönetilen Diskleri kullanmanız ve Yönetilen Disklerde sunulan çok sayıda özellikten yararlanmak için önceki yönetilmeyen diskleri yönetilen disklere dönüştürmeniz önerilir.
 
 ### <a name="disk-comparison"></a>Disk karşılaştırması
-Aşağıdaki tabloda standart HDD, standart SSD ve yönetilen ve yönetilmeyen diskler için Premium SSD ne kullanmaya karar vermenize yardımcı olacak karşılaştırması sağlar.
 
-|    | Azure Premium Disk |Azure standart SSD Disk (Önizleme)| Azure standart HDD Disk 
-|--- | ------------------ | ------------------------------- | ----------------------- 
+Aşağıdaki tablo standart HDD, standart bir SSD ve yönetilen ve yönetilmeyen diskler için Premium SSD kullanacağınız seçeneğe karar vermenize yardımcı olacak bir karşılaştırma sağlar. Bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındadır.
+
+|    | Azure Premium Disk |Azure standart SSD Disk | Azure standart HDD Disk
+|--- | ------------------ | ------------------------------- | -----------------------
 | Disk Türü | Katı Hal Sürücüleri (SSD) | Katı Hal Sürücüleri (SSD) | Sabit Disk Sürücüleri (HDD)  
-| Genel Bakış  | G/Ç yoğunluklu iş yükleri çalıştıran veya görev açısından kritik üretim ortamı barındıran VM’ler için SSD tabanlı, yüksek performans ve düşük gecikme süresi sunan disk desteği |Daha tutarlı performansı ve güvenilirliği HDD daha. Düşük IOPS iş yükleri için en iyi duruma getirilmiş| Sık erişim için uygun maliyetli disk HDD tabanlı
-| Senaryo  | Üretim ve performansa duyarlı iş yükleri |Web sunucuları, hafifçe kullanılan Kurumsal uygulama ve geliştirme ve Test| Yedekleme, kritik olmayan, sık erişim 
-| Disk Boyutu | P4: 32 Gib'den (yalnızca yönetilen diskleri)<br>P6: 64 Gib'den (yalnızca yönetilen diskleri)<br>P10: 128 Gib'den<br>P15: 256 Gib'den (yalnızca yönetilen diskleri)<br>P20: 512 Gib'den<br>P30: 1024 Gib'den<br>P40: 2048 Gib'den<br>P50: 4095 Gib'den |Yalnızca yönetilen disklerde:<br>E10: 128 Gib'den<br>E15: 256 Gib'den<br>E20: 512 Gib'den<br>E30: 1024 Gib'den<br>E40: 2048 Gib'den<br>E50: 4095 Gib'den | Yönetilmeyen diskler: 1 Gib'den – 4 Tıb (4095 GiB) <br><br>Yönetilen Diskler:<br> S4: 32 Gib'den <br>S6: 64 Gib'den <br>S10: 128 Gib'den <br>S15: 256 Gib'den <br>S20'in: 512 Gib'den <br>S30: 1024 Gib'den <br>S40: 2048 Gib'den<br>S50: 4095 Gib'den
-| Disk Başına En Fazla Aktarım Hızı | 250 MIB/s | Fazla 60 MIB/s | Fazla 60 MIB/s 
-| Disk başına en fazla IOPS | 7500 IOPS | Fazla 500 IOPS | Fazla 500 IOPS 
+| Genel Bakış  | G/Ç yoğunluklu iş yükleri çalıştıran veya görev açısından kritik üretim ortamı barındıran VM’ler için SSD tabanlı, yüksek performans ve düşük gecikme süresi sunan disk desteği |Daha tutarlı performans ve güvenilirlik HDD. Düşük IOPS iş yükleri için iyileştirilmiş| Seyrek erişim için uygun maliyetli disk HDD tabanlı
+| Senaryo  | Üretim ve performansa duyarlı iş yükleri |Web sunucuları, az kullanılan Kurumsal uygulama ve geliştirme/Test| Yedekleme, kritik olmayan, seyrek erişim
+| Disk Boyutu | P4: 32 GiB (yalnızca yönetilen diskler)<br>P6: 64 GiB (yalnızca yönetilen diskler)<br>P10: 128 Gib'a<br>P15: 256 GiB (yalnızca yönetilen diskler)<br>P20: 512 Gib'a<br>P30: 1024 GiB<br>P40: 2048 GiB<br>P50: 4.095 GiB<br>P60: 8192 GiB * (8 tib'a kadar)<br>P70: 16.384 GiB * (16 tib'a kadar)<br>P80: 32.767 GiB * (32 tib'a kadar) |Yalnızca yönetilen diskler:<br>E10: 128 Gib'a<br>E15: 256 GiB<br>E20: 512 Gib'a<br>E30: 1024 GiB<br>E40: 2048 GiB<br>E50: 4095 GiB<br>E60: 8192 GiB * (8 tib'a kadar)<br>E70: 16.384 GiB * (16 tib'a kadar)<br> E80: 32.767 GiB * (32 tib'a kadar) | Yönetilmeyen diskler: 1 GiB – 4 TiB (4095 GiB) <br><br>Yönetilen Diskler:<br> S4: 32 GiB <br>S6: 64 GiB <br>S10: 128 Gib'a <br>S15: 256 GiB <br>S20: 512 Gib'a <br>S30: 1024 GiB <br>S40: 2048 GiB<br>S50: 4095 GiB<br>S60: 8192 GiB * (8 tib'a kadar)<br>S70: 16.384 GiB * (16 tib'a kadar)<br>S80: 32,384 GiB * (32 tib'a kadar)
+| Disk Başına En Fazla Aktarım Hızı | P4: 25 MiB/sn<br> P6: 50 MiB/sn<br> P10: 100 MiB/sn<br> P15: 200 MiB/sn<br> P20: 150 MiB/sn<br> P30: 200 MiB/sn<br> P40 P50: 250 MiB/sn<br> P60: 480 MiB/sn<br> P70 P80: 750 MiB/sn | E10 E50: En fazla 60 MiB/sn<br> E60: en fazla 300 MiB/sn *<br> E70 E80: 500 MiB/sn *| S4 - S50: Upt o 60 MiB/sn<br> S60: en fazla 300 MiB/sn *<br> S70 S80: en fazla 500 MiB/sn *
+| Disk başına en fazla IOPS | P4: 120 IOPS<br> P6: 240 IOPS<br> P10: 500 IOPS<br> P15: 1100 IOPS<br> P20: 2300 IOPS<br> P30: 500 IOPS<br> P40 P50: 7500 IOPS<br> P60: 12.500 IOPS *<br> P70: 15.000 IOPS *<br> P80: 20.000 IOPS * | E10 E50: en fazla 500 IOPS<br> E60: 1300 IOPS kadar *<br> E70 E80: en fazla 2000 IOPS * | S4-S50: en fazla 500 IOPS<br> S60: 1300 IOPS kadar *<br> S70 S80: en fazla 2000 IOPS *

@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/20/2018
 ms.author: raynew
-ms.openlocfilehash: d42839bb744d3ed09feb482d09946ccee2f691e7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 39444b20dfefd947abb2f2bc00a9945398996dd0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297409"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040542"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso geçiş: bir şirket içi uygulamayı bir Azure Web uygulaması ve Azure SQL veritabanını yeniden düzenleme
 
@@ -57,7 +57,7 @@ Contoso bulut takım hedeflerini bu geçiş için aşağı sabitlenmiş. Bu hede
 **Uygulama** | Uygulamanızı Azure'a bugün olduğu gibi kritik olarak kalır.<br/><br/> Şu anda bir VMWare içinde olduğu gibi aynı performans özelliklerine sahip olmalıdır.<br/><br/> Takım, uygulamada yatırım yapmaya istememektedir. Şimdilik, yöneticileri yalnızca uygulama güvenli bir şekilde buluta taşır.<br/><br/> Takım, uygulama şu anda çalıştığı Windows Server 2008 R2 desteğini durduracak istiyorsunuz.<br/><br/> Ayrıca takım Yönetimi gereksinimini en aza indirecek bir modern PaaS veritabanı platform, SQL Server 2008 R2 uzağa gitme istemektedir.<br/><br/> Contoso istediğiniz mümkün olduğunda kendi SQL Server Lisanslama ve Yazılım Güvencesi yatırım yararlanın.<br/><br/> Ayrıca, Contoso tek web katmanındaki hata noktasını gidermek istiyor.
 **Sınırlamalar** | Bir ASP.NET uygulaması ve aynı VM'de çalışan bir WCF hizmeti uygulaması oluşur. Bunlar bu Azure App Service kullanarak iki web uygulaması arasında bölmek isteyebilirsiniz. 
 **Azure** | Contoso, uygulamayı Azure'a taşımak istiyor, ancak Vm'lerinde çalıştırmak istememektedir. Contoso Azure PaaS Hizmetleri web ve veri katmanları için yararlanmak istiyor. 
-**DevOps** | Contoso, kendi derlemeleri için Visual Studio Team Services (VSTS) kullanarak bir DevOps modeline taşıma ve yayın işlem hatları ister.
+**DevOps** | Azure DevOps için yapılarını kullanarak bir DevOps modeline taşıma ve yayın işlem hatları contoso istiyor.
 
 ## <a name="solution-design"></a>Çözüm tasarımı
 
@@ -80,7 +80,7 @@ Hedefleri ve gereksinimleri sabitleme sonra Contoso tasarlar ve bir dağıtım �
     - Yazılım Güvencesi içeren SQL Server için Azure hibrit Avantajı'ı kullanarak bir SQL veritabanı, indirimli Fiyatlardan için var olan lisans Contoso değiştirebilir. Bu değer % 30 tasarruf sağlayabilir.
     - SQL veritabanı, her zaman şifreli, dinamik veri maskeleme ve satır düzeyi güvenlik/tehdit algılama gibi güvenlik özellikleri sağlar.
 - Uygulama web katmanı için Contoso Azure App Service kullanmaya karar vermiştir. Bu PaaS hizmeti, yalnızca birkaç yapılandırma değişikliğiyle uygulama dağıtmanıza olanak sağlar. Contoso değişiklik yapmak için Visual Studio'yu kullanın ve iki web uygulaması dağıtın. Web sitesi için diğeri için WCF hizmeti.
-- DevOps işlem hattı gereksinimlerini karşılamak üzere Contoso VSTS kullanmayı seçti. Git depoları ile kaynak kodu Yönetimi (SCM), VSTS dağıtacaksınız. Otomatik derleme ve yayın Kodu derlemek için kullanılan ve Azure Web Apps'e dağıtın.
+- DevOps işlem hattı gereksinimlerini karşılamak üzere, Azure DevOps, Git depoları ile kaynak kodu Yönetimi (SCM) kullanmak için Contoso seçildi. Otomatik derleme ve yayın Kodu derlemek için kullanılan ve Azure Web Apps'e dağıtın.
   
 ### <a name="solution-review"></a>Çözümü gözden geçirme
 Contoso, Artıları ve eksileri listesini birbirine koyarak önerilen tasarımlarına değerlendirir.
@@ -109,6 +109,7 @@ Contoso, Artıları ve eksileri listesini birbirine koyarak önerilen tasarımla
 [Veritabanı geçiş Yardımcısı (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso, azure'daki veritabanı işlevselliğini etkileyebilecek uyumluluk sorunlarını algılamak ve değerlendirmek için DMA'yı kullanın. DMA, SQL kaynaklar ve hedefler arasında özellik eşliği değerlendirir ve performans ve güvenilirlik iyileştirmeleri önerir. | Ücretsiz olarak indirilebilir bir araçtır.
 [Azure SQL Veritabanı](https://azure.microsoft.com/services/sql-database/) | Akıllı, tam olarak yönetilen bir ilişkisel bulut veritabanı hizmeti. | Özellikler, aktarım hızı ve boyutuna bağlı olarak maliyet. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 [Azure uygulama Hizmetleri - Web uygulamaları](https://docs.microsoft.com/azure/app-service/app-service-web-overview) | Tam olarak yönetilen bir platform kullanarak güçlü bulut uygulamaları oluşturun | Boyut, konum ve kullanım süresine göre maliyeti. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/app-service/windows/).
+[Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Sürekli tümleştirme ve sürekli dağıtım (CI/CD) işlem hattı için uygulama geliştirme sağlar. İşlem hattı uygulama kodu, paketleri ve diğer derleme yapıtlarının üretmek için bir yapı sistemi ve değişiklikleri geliştirme, test ve üretim ortamlarına dağıtmak için bir Release Management sisteminden yönetmek için bir Git deposu başlar. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -128,9 +129,9 @@ Contoso geçişi nasıl çalışacağını aşağıda verilmiştir:
 > * **1. adım: Azure SQL veritabanı örneğinde sağlama**: Contoso azure'da bir SQL örneği sağlar. WCF service web uygulaması, uygulama Web sitesi olan geçirdikten sonra Azure'a bu örneğine işaret edecek.
 > * **2. adım: DMA veritabanıyla geçirme**: Contoso uygulaması veritabanıyla veritabanı geçiş Yardımcısı'nı geçirir.
 > * **3. adım: Sağlama Web Apps**: Contoso hükümlerine iki web uygulamaları.
-> * **4. adım: VSTS'yi ayarlama**: Contoso yeni VSTS projesi oluşturur ve Git deposunu içeri aktarır.
+> * **4. adım: Azure DevOps ' ayarlama**: Contoso yeni bir Azure DevOps projesi oluşturur ve Git deposunu içeri aktarır.
 > * **5. adım: bağlantı dizelerini yapılandırma**: Contoso web katmanı web uygulaması, WCF service web uygulaması ve SQL örneğinin iletişim kurabilmesi için bağlantı dizelerini yapılandırır.
-> * **6. adım: Yapı ayarlayın ve yayın VSTS'yi hatlarında**: son adım olarak, Contoso yapıyı ayarlar ve sürüm uygulamayı oluşturmak için işlem hatları ve bunları iki ayrı Azure Web uygulaması dağıtır.
+> * **6. adım: Yapı ayarlayın ve yayın işlem hatları**: son adım olarak, Contoso yapıyı ayarlar ve sürüm uygulamayı oluşturmak için işlem hatları ve bunları iki ayrı Azure Web uygulaması dağıtır.
 
 
 ## <a name="step-1-provision-an-azure-sql-database"></a>1. adım: Azure SQL veritabanı sağlama
@@ -236,26 +237,26 @@ Veritabanı geçişi, Contoso yöneticileri artık iki web uygulaması sağlayab
 4. İşiniz bittiğinde sonra başarıyla oluşturulan denetlemek için uygulamaları adresine göz atın.
 
 
-## <a name="step-4-set-up-vsts"></a>4. adım: VSTS ayarlama
+## <a name="step-4-set-up-azure-devops"></a>4. adım: Azure DevOps ayarlama
 
 
-Contoso uygulaması için işlem hatları ve DevOps altyapı oluşturmak gerekir.  Bunu yapmak için Contoso yöneticileri yeni VSTS projesi oluşturma, kod alın ve ardından derlemeyi Ayarla ve yayın işlem hatları.
+Contoso uygulaması için işlem hatları ve DevOps altyapı oluşturmak gerekir.  Bunu yapmak için Contoso yöneticileri yeni bir DevOps projesi oluşturma, kod alın ve ardından derlemeyi Ayarla ve yayın işlem hatları.
 
-1.   Bunlar Contoso VSTS hesabında yeni bir proje oluşturun (**ContosoSmartHotelRefactor**) seçip **Git** sürüm denetimi.
+1.   Bunlar Contoso Azure DevOps hesabında yeni bir proje oluşturun (**ContosoSmartHotelRefactor**) seçip **Git** sürüm denetimi.
 
     ![Yeni proje](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
-
 2. Bunlar, şu anda uygulama kodlarını tutan Git deposunu içeri aktarma. İçinde bir [genel deponun](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) ve indirebilirsiniz.
 
     ![Uygulama kodu indirin](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
-
+    
 3. Kod içeri aktardıktan sonra bunlar Visual Studio depoya bağlanın ve Takım Gezgini kullanarak kodu kopyalayın.
 
-    ![Depoya bağlanın](./media/contoso-migration-refactor-web-app-sql/vsts3.png)
+    ![Projesine Bağlan](./media/contoso-migration-refactor-web-app-sql/devops1.png)
 
 4. Deponun bir geliştirici makinesinde kopyasını sonra uygulama için çözüm dosyasını açın. Her web app ve wcf hizmeti projesi dosyası içinde ayırın.
 
     ![Çözüm dosyası](./media/contoso-migration-refactor-web-app-sql/vsts4.png)
+    
 
 ## <a name="step-5-configure-connection-strings"></a>5. adım: bağlantı dizelerini yapılandırma
 
@@ -277,15 +278,15 @@ Web apps emin olmak contoso yöneticilerinin gerekir ve tüm veritabanı iletiş
 5. Kodda değişiklik olduktan sonra değişiklikleri kaydetmek yöneticilerinin gerekir. Visual Studio'da Takım Gezgini'ni kullanarak bunlar commmit ve eşitleme.
 
 
-## <a name="step-6-set-up-build-and-release-pipelines-in-vsts"></a>6. adım: Yapı ayarlayın ve VSTS'yi hatlarında yayın
+## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>6. adım: Yapı ayarlayın ve yayın işlem hatları, Azure DevOps
 
-Contoso yöneticileri artık VSTS derleme gerçekleştirmek ve eylem işlemine DevOps uygulamalarını serbest bırakmak için yapılandırın.
+Contoso yöneticileri artık Azure DevOps, derleme ve yayın işlem yapılandırın.
 
-1. Bunlar, VSTS'de tıklayın **derleme ve yayın** > **yeni işlem hattı**.
+1. Azure DevOps, bunlar tıklayın **derleme ve yayın** > **yeni işlem hattı**.
 
     ![Yeni ardışık düzen](./media/contoso-migration-refactor-web-app-sql/pipeline1.png)
 
-2. Seçmeleri **VSTS Gıt** ve ilgili depo.
+2. Seçmeleri **Azure depoları Git** ve ilgili depo.
 
     ![Git ve depo](./media/contoso-migration-refactor-web-app-sql/pipeline2.png)
 
@@ -293,15 +294,15 @@ Contoso yöneticileri artık VSTS derleme gerçekleştirmek ve eylem işlemine D
 
      ![ASP.NET şablon](./media/contoso-migration-refactor-web-app-sql/pipeline3.png)
     
-4. Derleme ContosoSmartHotelRefactor ASP.NET CI adını belirtin ve tıklayın **Kaydet ve kuyruğa**.
+4. Adı **ContosoSmartHotelRefactor ASP.NET CI** yapı için kullanılır. Simgeye **Kaydet ve kuyruğa**.
 
      ![Kaydet ve kuyruğa](./media/contoso-migration-refactor-web-app-sql/pipeline4.png)
 
-5. Bu ilk derlemesi başlatıyor. Bunlar işlemini izlemek için yapı sayıya tıklayın. Tamamlandıktan sonra işlem geri bildirim görebilir.
+5. Bu ilk derleme başlatıyor. Bunlar işlemini izlemek için yapı sayıya tıklayın. Tamamlandıktan sonra işlem geri bildirim görebildikleri ve tıklayın **Yapıtları** yapı sonuçlarını gözden geçirmek için.
 
-    ![Geri Bildirim](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
+    ![İncele](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
 
-6. Başarılı bir derleme, ardından derleme açın ve'a tıklayın, sonra'ı tıklatın **Yapıtları**. Bu klasör, yapı sonuçlarını içerir.
+6. Klasör **bırak** yapı sonuçlarını içerir.
 
     - İki zip dosyaları uygulamaları içeren paketlerdir.
     - Bu dosyalar, yayın işlem hattı, Azure Web Apps'e dağıtım için kullanılır
@@ -316,11 +317,11 @@ Contoso yöneticileri artık VSTS derleme gerçekleştirmek ve eylem işlemine D
 
     ![Azure App Service şablonu](./media/contoso-migration-refactor-web-app-sql/pipeline8.png)
 
-9. Bunlar, yayın işlem hattı adı **ContosoSmartHotelRefactor**ve ortam adı (EUS2 SHWCF) WCF web uygulamasının adını belirtin.
+9. Bunlar, yayın işlem hattı adı **ContosoSmartHotel360Refactor**ve (EUS2 SHWCF) WCF web uygulamasının adı belirtme **aşama** adı.
 
     ![Ortam](./media/contoso-migration-refactor-web-app-sql/pipeline9.png)
 
-10. Bir ortamda bunlar tıklayın **1. Aşama, 1 görev** WCF Hizmeti dağıtımını yapılandırmak için.
+10. Aşamalar altında kullanıcılar'ı tıklatın **1 iş, 1 görev** WCF Hizmeti dağıtımını yapılandırmak için.
 
     ![WCF dağıtımı](./media/contoso-migration-refactor-web-app-sql/pipeline10.png)
 
@@ -328,7 +329,7 @@ Contoso yöneticileri artık VSTS derleme gerçekleştirmek ve eylem işlemine D
 
      ![App service'ı seçin](./media/contoso-migration-refactor-web-app-sql/pipeline11.png)
 
-12. İçinde **Yapıtları**, seçtikleri **+ bir yapıt ekleme**ve ile oluşturmak için Seç **ContosoSmarthotelRefactor ASP.NET CI** işlem hattı.
+12. İşlem hattında > **Yapıtları**, seçtikleri **+ bir yapıt ekleme**ve ile oluşturmak için Seç **ContosoSmarthotel360Refactor** işlem hattı.
 
      ![Oluşturma](./media/contoso-migration-refactor-web-app-sql/pipeline12.png)
 
@@ -336,11 +337,11 @@ Contoso yöneticileri artık VSTS derleme gerçekleştirmek ve eylem işlemine D
 
      ![Şimşek](./media/contoso-migration-refactor-web-app-sql/pipeline13.png)
 
-16. Ayrıca, sürekli dağıtım tetikleyicisi ayarlanmış olması gerekir, Not **etkin**.
+16. Sürekli dağıtım tetikleyicisi ayarlanmalıdır **etkin**.
 
    ![Sürekli dağıtım etkin](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
-17. Şimdi, bunlar için tıklatın **Azure App Service'e dağıtma**.
+17. Şimdi, aşama 1 işe geri taşınabilecek miyim görevleri ve tıklayın **Azure App Service'e dağıtma**.
 
     ![App service dağıtma](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
@@ -348,7 +349,7 @@ Contoso yöneticileri artık VSTS derleme gerçekleştirmek ve eylem işlemine D
 
     ![WCF Kaydet](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 
-19. Simgeye **işlem hattı** >**+ Ekle**eklemek için bir ortam için **SHWEB EUS2**, başka bir Azure App Service dağıtımı seçme.
+19. Simgeye **işlem hattı** > **aşamaları** **+ Ekle**eklemek için bir ortam için **SHWEB EUS2**. Bunlar, başka bir Azure App Service dağıtımı seçin.
 
     ![Ortam Ekle](./media/contoso-migration-refactor-web-app-sql/pipeline17.png)
 
@@ -368,7 +369,7 @@ Contoso yöneticileri artık VSTS derleme gerçekleştirmek ve eylem işlemine D
 
     ![İşlem hattı Kaydet](./media/contoso-migration-refactor-web-app-sql/pipeline21.png)
 
-24. Contoso yöneticileri, yapı izleyin ve işlem hattı işlemden VSTS yayın. Yayın derleme tamamlandıktan sonra başlar.
+24. Contoso yöneticileri, yapı izleyin ve Azure DevOps işlem hattı işlemden bırakın. Yayın derleme tamamlandıktan sonra başlar.
 
     ![Derleme ve yayın uygulama](./media/contoso-migration-refactor-web-app-sql/pipeline22.png)
 

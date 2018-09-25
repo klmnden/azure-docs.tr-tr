@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bryanla
-ms.openlocfilehash: 0554e2e184ce3f3140d3b9e90eb33c20774ed789
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 73ece43c26c3957a1b7dba02a673099f7d35e8d6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303015"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951789"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Key Vault geçici silmeyi CLI ile kullanma
 
@@ -25,9 +25,9 @@ Azure Key Vault'un geçici silme özelliği silinen kasa ve kasa nesneleri kurta
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure CLI 2.0 - ortamınız için bu ayarı yoksa bkz [yönetme CLI 2.0 kullanarak Key Vault](key-vault-manage-with-cli2.md).
+- Bu kurulum, ortamınız için bkz: yoksa, azure CLI - [yönetme Azure CLI ile anahtar kasası](key-vault-manage-with-cli2.md).
 
-CLI için Key Vault özel referans bilgileri için bkz. [Azure CLI 2.0 Key Vault başvurusunu](https://docs.microsoft.com/cli/azure/keyvault).
+CLI için Key Vault özel referans bilgileri için bkz. [Azure CLI Key Vault başvurusunu](https://docs.microsoft.com/cli/azure/keyvault).
 
 ## <a name="required-permissions"></a>Gerekli izinler
 

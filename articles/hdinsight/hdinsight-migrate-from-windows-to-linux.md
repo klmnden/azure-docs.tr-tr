@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: jasonh
-ms.openlocfilehash: cb2ca9ac3be0034f5a90add58249a2c2043975d0
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ee97d2005752c9e0cd40de238d1f4a946bb9ee3d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094093"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948426"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows tabanlı HDInsight kümesinden bir Linux tabanlı bir kümeye geçirme
 
@@ -97,7 +97,7 @@ Alternatif olarak kullanmak isteyebilirsiniz `Start-AzureStorageBlobCopy` HDInsi
 
 ## <a name="client-side-technologies"></a>İstemci tarafı teknolojileri
 
-İstemci tarafı teknolojilerin gibi [Azure PowerShell cmdlet'lerini](/powershell/azureps-cmdlets-docs), [Azure CLI](../cli-install-nodejs.md), veya [Hadoop için .NET SDK'sı](https://hadoopsdk.codeplex.com/) Linux tabanlı kümeler çalışmaya devam eder. Bu teknolojiler arasında her iki küme işletim sistemi türleri aynı olan REST API'lerini kullanır.
+Gibi istemci tarafı teknolojilerin [Azure PowerShell cmdlet'lerini](/powershell/azureps-cmdlets-docs), [Klasik Azure CLI'yı](../cli-install-nodejs.md), veya [Hadoop için .NET SDK'sı](https://hadoopsdk.codeplex.com/) Linux tabanlı kümeler çalışmaya devam eder. Bu teknolojiler arasında her iki küme işletim sistemi türleri aynı olan REST API'lerini kullanır.
 
 ## <a name="server-side-technologies"></a>Sunucu tarafı teknolojileri
 
@@ -106,7 +106,7 @@ Aşağıdaki tabloda, Windows özgü olan geçirme sunucu tarafı bileşenleri r
 | Bu teknoloji kullanıyorsanız... | Bu eyleme... |
 | --- | --- |
 | **PowerShell** (sunucu tarafı betikleri, betik eylemleri, küme oluşturma sırasında kullanılan dahil) |Bash betiklerini yeniden yazın. Betik eylemleri için bkz: [özelleştirme Linux tabanlı HDInsight ile betik eylemleri](hdinsight-hadoop-customize-cluster-linux.md) ve [betik eylemi geliştirme için Linux tabanlı HDInsight](hdinsight-hadoop-script-actions-linux.md). |
-| **Azure CLI** (sunucu tarafı komut dosyaları) |Azure CLI'yı Linux üzerinde mevcut olsa da, bunu HDInsight küme baş düğümleri üzerinde önceden yüklü gelmez. Azure CLI yükleme hakkında daha fazla bilgi için bkz. [Azure CLI 2.0 ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). |
+| **Azure Klasik CLI** (sunucu tarafı komut dosyaları) |Azure Klasik CLI'yı Linux üzerinde mevcut olsa da, bunu HDInsight küme baş düğümleri üzerinde önceden yüklü gelmez. Klasik Azure CLI yükleme hakkında daha fazla bilgi için bkz. [Klasik Azure CLI ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). |
 | **.NET bileşenleri** |.NET üzerinde Linux tabanlı HDInsight ile desteklenen [Mono](https://mono-project.com). Daha fazla bilgi için [geçirme .NET çözümlerini Linux tabanlı HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
 | **Win32 bileşenlerini veya diğer yalnızca Windows teknolojileri** |Bileşen veya teknoloji Kılavuzu bağlıdır. Linux ile uyumlu bir sürümünü bulamıyor olabilir. Değilse, alternatif bir çözüm bulmak veya bu bileşeni yeniden yazın. |
 

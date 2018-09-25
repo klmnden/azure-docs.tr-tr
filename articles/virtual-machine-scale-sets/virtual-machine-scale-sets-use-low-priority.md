@@ -1,6 +1,6 @@
 ---
-title: Düşük öncelikli sanal makineleri (Önizleme) kullanan bir Azure ölçek kümesi oluşturma | Microsoft Docs
-description: Düşük öncelikli sanal makineleri giderlerinden tasarruf edersiniz kullanmasını Azure sanal makine ölçek kümeleri oluşturma hakkında bilgi edinin
+title: Düşük öncelikli VM'ler (Önizleme) kullanan bir Azure ölçek kümesi oluşturma | Microsoft Docs
+description: Düşük öncelikli VM'ler maliyet tasarrufu için kullandığınız bir Azure sanal makine ölçek kümeleri oluşturmayı öğrenin
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mmccrory
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: 5c0726ea0da288d5306e28b101e4d3b59605b443
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894919"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953883"
 ---
-# <a name="low-priority-vms-on-scale-sets-preview"></a>Düşük öncelikli sanal makine ölçek kümeleri (Önizleme)
+# <a name="low-priority-vms-on-scale-sets-preview"></a>Düşük öncelikli VM'ler, Ölçek kümesi (Önizleme)
 
-Düşük öncelikli sanal makineleri ölçek kümeleri kullanarak önemli maliyet tasarrufları bizim unutilized kapasite yararlanmak sağlar. Azure kapasite geri gerektiği zaman zaman içinde herhangi bir noktada, Azure altyapı düşük öncelikli sanal makineleri çıkarırsınız. Bu nedenle, düşük öncelikli sanal makineleri toplu işleri, geliştirme ve test ortamları, büyük hesaplama iş yüklerini ve daha fazla işleme gibi kesintilerine işleyebilir iş yükleri için mükemmeldir.
+Düşük öncelikli VM'ler, Ölçek kümelerinde kullanarak, bir önemli maliyet tasarrufları bizim unutilized kapasite yararlanmak sağlar. Herhangi bir noktada Azure kapasitesi geri gerektiğinde, Azure altyapısının düşük öncelikli VM'ler çıkarırsınız. Bu nedenle, düşük öncelikli VM'ler toplu işler, geliştirme ve test ortamları, büyük işlem iş yükleri ve daha fazla işleme gibi kesintiler işleyebileceği iş yükleri için mükemmeldir.
 
-Kullanılabilir unutilized kapasite miktarı boyutu, bölge, günün saatini ve daha fazla göre değişebilir. Düşük öncelikli sanal makine ölçek dağıtma ayarladığında Azure VM'ler kullanılabilir kapasite, ancak bu VM'ler için hiçbir SLA ayırır. Düşük öncelikli ölçek kümesini tek hata etki alanında dağıtılır ve yüksek kullanılabilirliği garanti sunar.
+Unutilized kullanılabilir kapasite miktarı, boyut, bölge, günün saati ve daha fazla göre değişebilir. Düşük öncelikli VM'ler ölçekte dağıtma ayarlar, Azure Vm'leri kullanılabilir kapasite yoktur, ancak bu sanal makineler için SLA yoktur ayırır. Düşük öncelikli ölçek kümesi, bir tek hata etki alanında dağıtılan ve yüksek kullanılabilirlik garantileri sunar.
 
 ## <a name="eviction-policy"></a>Çıkarma İlkesi
 
-Düşük öncelikli ölçek kümeleri oluştururken, çıkarma ilkesi ayarlayabilirsiniz *Deallocate* (varsayılan) veya *silmek*. 
+Düşük öncelikli ölçek kümesi oluştururken, çıkarma ilkesini ayarlayın *serbest* (varsayılan) veya *Sil*. 
 
-*Deallocate* İlkesi çıkarılan örnekleri yeniden dağıtmak sağlayarak durduruldu-serbest durumu çıkarılan Vm'leriniz taşır. Ancak, ayırmayı başarılı olur garanti yoktur. Deallocated VM ölçek kümesi örnek kotanızı karşı sayılacaktır ve temel diskleriniz için sizden ücret alınır. 
+*Serbest* ilke çıkarılan örnekleri yeniden olanak tanıyan durduruldu-serbest durumu çıkarılan Vm'lerinizi taşır. Ancak, bu ayırma başarılı olur garantisi yoktur. Serbest VM ölçek kümesi örneği kotanız sayılır ve temel alınan diskleriniz için ücretlendirilirsiniz. 
 
-Düşük öncelikli ölçeği çıkarılacak zaman silinecek Ayarla Vm'leriniz kullanmak isterseniz, çıkarma İlkesi ayarlayabileceğiniz *silmek*. Silmek üzere ayarlanmış çıkarma İlkesi ile ölçek kümesi örnek sayısı özelliği artırarak yeni VM'ler oluşturabilirsiniz. Çıkarılan VM'ler kendi temel diskleri birlikte silinir ve bu nedenle, depolama alanı için ücret alınmaz. Otomatik olarak deneyin ve çıkarılan VM'ler için dengelemek için ölçek kümeleri otomatik ölçeklendirme özelliğini de kullanabilirsiniz, ancak ayırma başarılı olur garanti yoktur. Disklerinizi ve kota sınırları basarsa maliyetini önlemek için silmek için çıkarma İlkesi ayarladığınızda, yalnızca düşük öncelikli ölçek kümeleri üzerinde otomatik ölçeklendirmeye özelliği kullanmanız önerilir. 
+Bunlar çıkarılacak zaman silinmesi, düşük öncelikli ölçek kümesinde sanal makinelerinizin esnetmek istiyorsanız, çıkarma ilkesini ayarlayın *Sil*. Silmek üzere ayarlanmış çıkarma İlkesi ile ölçek kümesi örneği sayısı özelliği artırarak yeni VM'ler oluşturabilirsiniz. Çıkarılan sanal makineleri, temel alınan diskleriyle birlikte silinir ve bu nedenle, depolama alanı için ücretlendirilmez. Otomatik olarak deneyin ve çıkarılan VM'ler için dengelemek için ölçek kümelerini otomatik ölçeklendirme özelliğini de kullanabilirsiniz, ancak ayırma başarılı bir garanti yoktur. Disklerinizi ve kota sınırlarını ulaşma maliyetini önlemek için silmek için çıkarma İlkesi ayarladığınızda, yalnızca düşük öncelikli ölçek kümelerinde otomatik ölçeklendirme özelliğini kullanmanız önerilir. 
 
 > [!NOTE]
-> Önizleme sırasında kullanarak çıkarma ilkenizi ayarlamak kullanamazsınız [Azure portal](#use-the-azure-portal) ve [Azure Resource Manager şablonları](#use-azure-resource-manager-templates). 
+> Önizleme süresince, kullanarak, çıkarma İlkesi ayarlamak mümkün olmayacak [Azure portalında](#use-the-azure-portal) ve [Azure Resource Manager şablonları](#use-azure-resource-manager-templates). 
 
-## <a name="deploying-low-priority-vms-on-scale-sets"></a>Düşük öncelikli sanal makine ölçek dağıtma ayarlar
+## <a name="deploying-low-priority-vms-on-scale-sets"></a>Düşük öncelikli VM'ler ölçekte dağıtma ayarlar
 
-Düşük öncelikli VM ölçek kümesi üzerinde dağıtmak için yeni ayarlayabileceğiniz *öncelik* bayrağını *düşük*. Düşük öncelikli ölçek kümenizdeki tüm VM'ler ayarlanır. Düşük öncelikli sanal makineleri ile ayarlamak ölçeği oluşturmak için aşağıdaki yöntemlerden birini kullanın:
-- [Azure Portal](#use-the-azure-portal)
-- [Azure CLI 2.0](#use-the-azure-cli-20)
+Düşük öncelikli VM'ler, Ölçek kümesi dağıtmak için yeni ayarlayabileceğiniz *öncelik* bayrak *düşük*. Ölçek kümesindeki tüm sanal makineler, düşük öncelikli olacak şekilde ayarlanacaktır. Düşük öncelikli VM ile bir ölçek kümesi oluşturmak için aşağıdaki yöntemlerden birini kullanın:
+- [Azure portal](#use-the-azure-portal)
+- [Azure CLI](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager şablonları](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Azure portalı kullanma
 
-Düşük öncelikli sanal makineleri kullanan bir ölçek kümesi oluşturmak için işlem içinde ayrıntılı olarak aynıdır [makale Başlarken](quick-create-portal.md). Ölçek kümesini dağıtırken, düşük öncelik bayrağını ve çıkarma ilkesini ayarlamayı da seçebilirsiniz: ![ölçeği olan düşük öncelikli VM'ler Ayarla oluşturma](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
+Düşük öncelikli VM'ler kullanan bir ölçek kümesi oluşturma işlemi ayrıntılı olarak aynıdır [makale Başlarken](quick-create-portal.md). Bir ölçek kümesi dağıtırken, düşük öncelik bayrağını ve çıkarma ilkesini ayarlamayı da seçebilirsiniz: ![düşük öncelikli VM ile bir ölçek kümesi oluşturma](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
-## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanın
+## <a name="use-the-azure-cli"></a>Azure CLI kullanma
 
-Düşük öncelikli sanal makineleri ile ayarlamak ölçek oluşturma işlemi içinde ayrıntılı olarak aynıdır [makale Başlarken](quick-create-cli.md). Yalnızca Ekle '--öncelik ' CLI parametresi çağırın ve ayarlamak *düşük* aşağıdaki örnekte gösterildiği gibi:
+Düşük öncelikli VM ile bir ölçek kümesi oluşturma işlemi ayrıntılı olarak aynıdır [makale Başlarken](quick-create-cli.md). Yalnızca Ekle '--öncelik ' parametresi için CLI'yı arayın ve ayarlamak *düşük* aşağıdaki örnekte gösterildiği gibi:
 
 ```azurecli
 az vmss create \
@@ -68,8 +68,8 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell kullanma
 
-Düşük öncelikli sanal makineleri ile ayarlamak ölçek oluşturma işlemi içinde ayrıntılı olarak aynıdır [makale Başlarken](quick-create-powershell.md).
-Yalnızca Ekle '-öncelik ' parametresi [yeni AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) ve ayarlamak *düşük* aşağıdaki örnekte gösterildiği gibi:
+Düşük öncelikli VM ile bir ölçek kümesi oluşturma işlemi ayrıntılı olarak aynıdır [makale Başlarken](quick-create-powershell.md).
+Yalnızca Ekle '-öncelik ' parametresini [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) ve *düşük* aşağıdaki örnekte gösterildiği gibi:
 
 ```powershell
 $vmssConfig = New-AzureRmVmssConfig `
@@ -80,13 +80,13 @@ $vmssConfig = New-AzureRmVmssConfig `
     -Priority "Low"
 ```
 
-## <a name="use-azure-resource-manager-templates"></a>Azure Resource Manager şablonları kullanın
+## <a name="use-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanma
 
-Düşük öncelikli sanal makineleri kullanan bir ölçek kümesi oluşturma işlemi için alma başlatılan makalesinde ayrıntılı olarak aynıdır [Linux](quick-create-template-linux.md) veya [Windows](quick-create-template-windows.md). 'Priority' özelliği Ekle *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* kaynak şablonunuzda ve *düşük* değeri olarak. Kullandığınızdan emin olun *2018-03-01* API sürümü veya daha yüksek. 
+Düşük öncelikli VM'ler kullanan bir ölçek kümesi oluşturma işlemi başlangıç makalesinde için ayrıntılı aynıdır [Linux](quick-create-template-linux.md) veya [Windows](quick-create-template-windows.md). 'Priority' özelliği için ekleme *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* kaynak türü, şablonunuzda ve belirtin *düşük* değeri. Kullandığınızdan emin olun *2018-03-01* API sürümü veya üzeri. 
 
-Silme için çıkarma İlkesi'ni ayarlamak için 'evictionPolicy' parametresini ekleyin ve ayarlamak *silmek*.
+Silme işlemini çıkarma ilkesini ayarlamak için 'evictionPolicy' parametresini ekleyin ve değerini *Sil*.
 
-Aşağıdaki örnek, bir Linux düşük öncelikli ölçeği adlandırılmış Ayarla oluşturur *myScaleSet* içinde *Batı Orta ABD*, hangilerinin *silmek* Vm'lerde ölçeği çıkarma üzerinde ayarla:
+Aşağıdaki örnekte adlı bir Linux düşük öncelikli ölçek kümesi oluşturur *myScaleSet* içinde *Batı Orta ABD*, hangilerinin *Sil* VM ölçek kümesindeki çıkarma üzerinde:
 
 ```json
 {
@@ -129,21 +129,21 @@ Aşağıdaki örnek, bir Linux düşük öncelikli ölçeği adlandırılmış A
 ## <a name="faq"></a>SSS
 
 ### <a name="can-i-convert-existing-scale-sets-to-low-priority-scale-sets"></a>Düşük öncelikli ölçek kümeleri için var olan ölçek kümeleri dönüştürebilir miyim?
-Hayır, düşük öncelik bayrağını ayarı yalnızca oluşturma sırasında desteklenir.
+Hayır, düşük öncelik bayrağını ayarlama yalnızca oluşturma sırasında desteklenir.
 
-### <a name="can-i-create-a-scale-set-with-both-regular-vms-and-low-priority-vms"></a>Normal VM'ler ve düşük öncelikli sanal makineleri ile ayarlanmış bir ölçek oluşturabilir miyim?
-Hayır, Ölçek kümesini birden fazla öncelik türünü desteklemiyor.
+### <a name="can-i-create-a-scale-set-with-both-regular-vms-and-low-priority-vms"></a>Normal Vm'lere ve düşük öncelikli VM'ler ile ölçek oluşturabilir miyim?
+Hayır, bir ölçek kümesi birden fazla öncelik türünü desteklemiyor.
 
-### <a name="how-is-quota-managed-for-low-priority-vms"></a>Kota düşük öncelikli VM'ler için nasıl yönetilir?
-Düşük öncelikli sanal makineleri ve normal sanal makineleri aynı kota havuzu paylaşır. 
+### <a name="how-is-quota-managed-for-low-priority-vms"></a>Kota, düşük öncelikli VM'ler için nasıl yönetilir?
+Düşük öncelikli VM'ler ve normal Vm'leri aynı kota havuzu paylaşır. 
 
-### <a name="can-i-use-autoscale-with-low-priority-scale-sets"></a>Düşük öncelikli ölçek kümeleri otomatik ölçeklendirme kullanabilir miyim?
-Evet, düşük öncelikli ölçek kümesinde otomatik ölçeklendirmeyi kurallar ayarlayabilirsiniz. Vm'leriniz çıkarılacak varsa, otomatik ölçeklendirme yeni düşük öncelikli sanal makineleri oluşturmayı deneyebilirsiniz. Unutmayın, bu kapasite ancak garanti edilmez. 
+### <a name="can-i-use-autoscale-with-low-priority-scale-sets"></a>Düşük öncelikli ölçek kümeleriyle otomatik ölçeklendirme kullanabilir miyim?
+Evet, düşük öncelikli ölçek kümenizi otomatik ölçeklendirme kuralları ayarlayabilirsiniz. Sanal makinelerinizin çıkarılan, yeni düşük öncelikli VM'ler oluşturmak otomatik ölçeklendirme deneyebilirsiniz. Unutmayın, bu kapasiteyi yine de garanti edilmez. 
 
-### <a name="does-autoscale-work-with-both-eviction-policies-deallocate-and-delete"></a>Mu otomatik ölçeklendirme iş hem çıkarma ilkeleriyle (serbest bırakma ve silme)?
-Otomatik ölçeklendirme kullanırken silmek için çıkarma ilkesi ayarlamanız önerilir. Deallocated örnekleri kapasite sayınız karşı ölçek kümesinde sayılır olmasıdır. Otomatik ölçeklendirme kullanırken, büyük olasılıkla hedef örnek sayınız kaldırıldığından, çıkarılan örnekleri nedeniyle hızlı bir şekilde karşılaşır. 
+### <a name="does-autoscale-work-with-both-eviction-policies-deallocate-and-delete"></a>Her iki çıkarma ilkeleri ile otomatik ölçeklendirme işi yapar (serbest bırakma ve silme)?
+Otomatik ölçeklendirme kullanırken silmek için çıkarma ilkesini ayarlamanız önerilir. Serbest örnekleri, Ölçek kümesinde kapasite sayınız karşı sayılan olmasıdır. Otomatik ölçeklendirme kullanırken, büyük olasılıkla hedef örnek sayınız kaldırıldığından, çıkarılan örnekleri nedeniyle hızlı bir şekilde ulaşırsınız. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Düşük öncelikli sanal makineleri ile ayarlamak ölçek oluşturduğunuza göre dağıtmayı deneyin bizim [düşük öncelikli kullanarak otomatik ölçek şablonunu](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
+Düşük öncelikli VM ile bir ölçek kümesi oluşturduğunuza göre dağıtmayı deneyin. bizim [düşük öncelikli kullanarak otomatik ölçek şablon](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
-Kullanıma [fiyatlandırma sayfası sanal makine ölçek kümesi](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) fiyatlandırma ayrıntıları için.
+Kullanıma [Fiyatlandırma sayfasında sanal makine ölçek kümesi](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) fiyatlandırma ayrıntıları için.

@@ -19,7 +19,7 @@ Bilgisayarınızda `kubectl` yükleyip yapılandırmak için şu adımları taki
 > 
 
 ### <a name="install-kubectl"></a>Kubectl yükleyin
-Bu aracı yüklemenin kolay yollarından biri, Azure CLI 2.0 `az acs kubernetes install-cli` komutunu kullanmaktır. Bu komutu çalıştırmak için olduğundan emin olun, [yüklü](/cli/azure/install-az-cli2) 2.0 ve oturum açmış olan bir Azure hesabı için en son Azure CLI (`az login`).
+Bu aracı yüklemenin bir yolu `az acs kubernetes install-cli` Azure CLI komutu. Bu komutu çalıştırmak için emin olun, [yüklü](/cli/azure/install-az-cli2) Azure CLI'nin en son sürümünü ve bir Azure hesabı için oturum açtınız (`az login`).
 
 ```azurecli
 # Linux or macOS

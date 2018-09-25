@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.openlocfilehash: 1aa55728b222c2838026cf5b06175736c5c84194
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 75094ad17474cd07039724fb0b5e5e377808b51f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123299"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956688"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>İzleyin ve mantıksal uygulama çalıştırmaları Log Analytics ile ilgili Öngörüler edinin
 
@@ -135,7 +135,7 @@ Mantıksal uygulamanızı oluştururken Log Analytics temelinde zaten etkinleşt
      ![Eylemler ve bir mantıksal uygulama çalıştırması ayrıntılarını görüntüleme](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
      Burada Azure Log Analytics sayfasında sorguları güncelleştirebilirsiniz ve tablodan sonuçları görüntüleyin. 
-     Bu sorgu kullanan [Kusto sorgu dili](https://docs.loganalytics.io/docs/Language-Reference), farklı sonuçlar görüntülemek istiyorsanız, düzenleyebilirsiniz. 
+     Bu sorgu kullanan [Kusto sorgu dili](https://aka.ms/LogAnalyticsLanguageReference), farklı sonuçlar görüntülemek istiyorsanız, düzenleyebilirsiniz. 
 
      ![Azure Log Analytics - sorgu görünümü](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

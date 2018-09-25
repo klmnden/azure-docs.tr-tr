@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ROBOTS: NOINDEX
+ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972638"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950644"
 ---
 # <a name="consuming-web-services"></a>Web hizmetlerini kullanma
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Model bir gerçek zamanlı web hizmeti olarak dağıtma sonra veri göndermek ve çeşitli Platform ve uygulama arasından Öngörüler edinin. Gerçek zamanlı web hizmetini, Öngörüler almak için bir REST API gösterir. Aynı anda bir veya daha fazla Öngörüler almak için tek veya çok satırlı biçimde web hizmetine veri gönderebilir.
 
 İle [Azure Machine Learning Web hizmetini](model-management-service-deploy.md), bir dış uygulamanın zaman uyumlu olarak Tahmine dayalı modelle hizmet URL'sine HTTP POST çağrı yaparak iletişim kurar. Web hizmeti çağrısı yapmak için istemci uygulama bir tahmin dağıtıp POST isteğinin gövdesi içinde istek verilerinizden oluşturulan API anahtarını belirtmesi gerekir.

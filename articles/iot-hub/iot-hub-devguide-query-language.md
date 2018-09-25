@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: f6959e0fec77ff046e4db86bad30502259775a49
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022848"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952486"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Cihaz ve modül ikizleri, işler ve ileti yönlendirme için IOT Hub sorgu dili
 
 IOT hub'ı sağlayan bilgi almak için bir güçlü SQL benzeri dil ilgili [cihaz ikizlerini] [ lnk-twins] ve [işleri][lnk-jobs]ve [ileti yönlendirme][lnk-devguide-messaging-routes]. Bu makalede sunar:
 
 * IOT Hub sorgu dili, önemli özelliklere giriş ve
-* Dil ayrıntılı açıklaması.
+* Dil ayrıntılı açıklaması. İleti yönlendirme için sorgu dili hakkında daha fazla bilgi için bkz: [sorguları içinde ileti yönlendirme](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -305,126 +305,6 @@ WHERE devices.jobs.jobId = 'myJobId'
 * Proje Özellikleri (önceki bölüme bakın) yanı sıra cihaz ikizi başvuran koşulları.
 * Toplamalar, sayısı, ortalama, grup tarafından gerçekleştiriliyor.
 
-## <a name="device-to-cloud-message-routes-query-expressions"></a>CİHAZDAN buluta ileti yollarını sorgu ifadeleri
-
-Kullanarak [CİHAZDAN buluta yollar][lnk-devguide-messaging-routes], IOT Hub'ı CİHAZDAN buluta iletilerini farklı uç noktalarına dağıtmak için yapılandırabilirsiniz. Gönderme iletilere karşı değerlendirilen ifade temel alır.
-
-Rota [koşul] [ lnk-query-expressions] koşullar ikizi ve iş sorguları, ancak yalnızca bir alt işlevlerin kullanılabilir olarak IOT Hub sorgu dili sözdizimini kullanır. Yol koşulları ileti üstbilgileri ve gövde değerlendirilir. Yönlendirme, sorgu ifadesi yalnızca ileti gövdesi, yalnızca ileti üstbilgilerini içerebilir veya her ikisi de üst bilgileri iletisi ve ileti gövdesi. IOT hub'ı iletileri yönlendirmek için başlık ve ileti gövdesi için belirli bir şemaya varsayar ve aşağıdaki bölümlerde IOT Hub'ın düzgün bir şekilde yönlendirmek gereklidir.
-
-### <a name="routing-on-message-headers"></a>İleti üstbilgilerini yönlendirme
-
-IOT Hub ileti yönlendirme iletisi üst bilgi aşağıdaki JSON gösterimine varsayılır:
-
-```json
-{
-  "message": {
-    "systemProperties": {
-      "contentType": "application/json",
-      "contentEncoding": "utf-8",
-      "iothub-message-source": "deviceMessages",
-      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
-    },
-    "appProperties": {
-      "processingPath": "<optional>",
-      "verbose": "<optional>",
-      "severity": "<optional>",
-      "testDevice": "<optional>"
-    },
-    "body": "{\"Weather\":{\"Temperature\":50}}"
-  }
-}
-```
-
-İleti sistemi özellikleri önekiyle `'$'` simgesi.
-Kullanıcı özellikleri her zaman kendi adı ile erişilir. Bir kullanıcı özellik adı bir sistem özelliği ile örtüşür varsa (gibi `$contentType`), kullanıcı özelliği alınan `$contentType` ifade.
-Köşeli ayraçlar kullanarak sistem özelliği her zaman erişebileceğiniz `{}`: Örneğin, bir ifadeyi kullanabilirsiniz `{$contentType}` sistem özelliği erişmeye `contentType`. Köşeli parantez içindeki özellik adları her zaman karşılık gelen bir sistem özelliği alır.
-
-Özellik adlarını büyük küçük harfe duyarlı olduğunu unutmayın.
-
-> [!NOTE]
-> Tüm ileti özelliklerini dizelerdir. Sistem Özellikleri bölümünde anlatıldığı gibi [Geliştirici Kılavuzu][lnk-devguide-messaging-format], şu anda sorguları kullanmak için kullanılabilir değildir.
->
-
-Örneğin, kullandığınız bir `messageType` özelliği, bir uç nokta ve başka bir uç nokta için tüm uyarılar tüm telemetri yönlendirmek isteyebilirsiniz. Telemetri yönlendirmek için aşağıdaki ifade yazabilirsiniz:
-
-```sql
-messageType = 'telemetry'
-```
-
-Ve uyarı iletileri yönlendirmek için aşağıdaki deyimi:
-
-```sql
-messageType = 'alert'
-```
-
-Boolean ifadeler ve işlevler de desteklenir. Bu özelliği, örneğin önem düzeyi arasında ayrım sağlar:
-
-```sql
-messageType = 'alerts' AND as_number(severity) <= 2
-```
-
-Başvurmak [ifade ve koşullar] [ lnk-query-expressions] bölümünü tam listesi için desteklenen bir işleç ve işlevlerini.
-
-### <a name="routing-on-message-bodies"></a>İleti gövdeleri üzerinde yönlendirme
-
-IOT Hub, ileti gövdesinde göre yalnızca yönlendirebilir ileti gövdesi doğru ise, içeriği doğru biçimlendirilmiş JSON olarak kodlanmış UTF-8, UTF-16 veya UTF-32. İletinin içerik türünü ayarlama `application/json`. İçerik kodlama iletisi üst bilgilerinde UTF kodlamaları birine ayarlayın. Üst bilgi ya da belirtilmezse, IOT hub'ı karşı ileti gövdesini içeren herhangi bir sorgu ifadesini değerlendirin denemez. İleti bir JSON ileti değilse veya iletinin içerik türünü ve içerik kodlamasını belirtmezse, ileti yönlendirme iletinin ileti üst bilgilere göre yönlendirmek için kullanmaya devam edebilirsiniz.
-
-Aşağıdaki örnek, doğru biçimlendirilmiş ve kodlanmış JSON gövdesi ile bir ileti oluşturma işlemi gösterilmektedir:
-
-```csharp
-string messageBody = @"{ 
-                            ""Weather"":{ 
-                                ""Temperature"":50, 
-                                ""Time"":""2017-03-09T00:00:00.000Z"", 
-                                ""PrevTemperatures"":[ 
-                                    20, 
-                                    30, 
-                                    40 
-                                ], 
-                                ""IsEnabled"":true, 
-                                ""Location"":{ 
-                                    ""Street"":""One Microsoft Way"", 
-                                    ""City"":""Redmond"", 
-                                    ""State"":""WA"" 
-                                }, 
-                                ""HistoricalData"":[ 
-                                    { 
-                                    ""Month"":""Feb"", 
-                                    ""Temperature"":40 
-                                    }, 
-                                    { 
-                                    ""Month"":""Jan"", 
-                                    ""Temperature"":30 
-                                    } 
-                                ] 
-                            } 
-                        }"; 
- 
-// Encode message body using UTF-8 
-byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
- 
-using (var message = new Message(messageBytes)) 
-{ 
-    // Set message body type and content encoding. 
-    message.ContentEncoding = "utf-8"; 
-    message.ContentType = "application/json"; 
- 
-    // Add other custom application properties.  
-    message.Properties["Status"] = "Active";    
- 
-    await deviceClient.SendEventAsync(message); 
-}
-```
-
-Kullanabileceğiniz `$body` iletisini yönlendirmek için sorgu ifadesi içinde. Sorgu ifadesi içinde bir basit gövdesi başvuru, gövde dizi başvuru ya da birden fazla gövdesi başvuru kullanabilirsiniz. Sorgu ifadesi, ayrıca ileti üst bilgisi başvurusuyla gövdesi başvuru birleştirebilirsiniz. Örneğin, tüm geçerli sorgu ifadeleri şunlardır:
-
-```sql
-$body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
-length($body.Weather.Location.State) = 2
-$body.Weather.Temperature = 50 AND Status = 'Active'
-```
-
 ## <a name="basics-of-an-iot-hub-query"></a>Bir IOT Hub sorgu temelleri
 Her IOT Hub sorgu seçin ve ile isteğe bağlı bir WHERE yan tümceleri ve GROUP BY yan tümcesi oluşur. Her sorgu, JSON belgelerini, örneğin cihaz çiftleri koleksiyonu üzerinde çalıştırılır. FROM yan tümcesi belge koleksiyonunun üzerinde çalışmalar gösterir (**cihazları** veya **devices.jobs**). Ardından, WHERE yan tümcesinde filtre uygulanır. Bu adımın sonuçları toplama ile gruplandırılır GROUP BY yan tümcesinde belirtildiği gibi. Her bir grup için bir satır oluşturulur SELECT yan tümcesinde belirtildiği gibi.
 
@@ -614,8 +494,7 @@ Sorguları kullanarak uygulamalarınızda çalıştırma hakkında bilgi edinmek
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-read-custom.md
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
 [lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

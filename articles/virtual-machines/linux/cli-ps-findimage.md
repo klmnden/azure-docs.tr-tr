@@ -16,19 +16,19 @@ ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f1091b9d252f32086c237e7c62f11c166eb558a6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 33ffb9d1685f3d76e884ae0d90545f659b5ec87c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345166"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953365"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI ile Azure Marketi'nde, Linux VM görüntüleri bulma
-Bu konu, sanal makine görüntüleri Azure Market'te bulmak için Azure CLI 2.0 kullanmayı açıklar. Bir VM CLI ile programlı olarak oluşturduğunuzda, bir Market görüntüsü belirtmek için bu bilgileri kullanın. Resource Manager şablonları ya da başka araçlar.
+Bu konuda, VM görüntüleri Azure Market'te bulmak için Azure CLI kullanmayı açıklar. Bir VM CLI ile programlı olarak oluşturduğunuzda, bir Market görüntüsü belirtmek için bu bilgileri kullanın. Resource Manager şablonları ya da başka araçlar.
 
 Kullanılabilir görüntüleri ve teklifler kullanarak da göz [Azure Marketi](https://azuremarketplace.microsoft.com/) vitrini, [Azure portalında](https://portal.azure.com), veya [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
-En son yüklü olduğundan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabına kaydedilir (`az login`).
+En son yüklü olduğundan emin olun [Azure CLI](/cli/azure/install-azure-cli) ve bir Azure hesabına kaydedilir (`az login`).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 

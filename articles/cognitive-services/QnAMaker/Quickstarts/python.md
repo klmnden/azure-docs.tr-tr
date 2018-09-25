@@ -10,12 +10,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 6e87268d5b26642f2ea6eedbfef096c3792bb715
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 5e95bf768cc00935067edd3365cc3d101be6a00a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734867"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034750"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Hızlı Başlangıç için Microsoft soru-cevap Oluşturucu API'si ile Python 
 <a name="HOLTop"></a>
@@ -36,6 +36,8 @@ Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturu
 - [Geçerli uç nokta anahtarları yeniden oluştur.](#PutKeys)
 - [Word değişiklikleri geçerli kümesini alın.](#GetAlterations)
 - [Word değişiklikleri geçerli kümesini değiştirin.](#PutAlterations)
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 

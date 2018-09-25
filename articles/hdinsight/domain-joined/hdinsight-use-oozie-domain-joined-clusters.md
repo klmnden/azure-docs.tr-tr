@@ -1,22 +1,22 @@
 ---
-title: Etki alanına katılmış Azure HDInsight kümelerinde Apache Hadoop Oozie iş akışları
-description: Bir Linux tabanlı HDInsight, Hadoop Oozie kullanma-Kurumsal güvenlik paketi etki. Bir Oozie iş akışının tanımlayın ve Oozie işi gönderme hakkında bilgi edinin.
+title: Kurumsal güvenlik paketi Azure HDInsight kümeleriyle Apache Hadoop Oozie iş akışları
+description: Bir Linux tabanlı HDInsight Kurumsal güvenlik paketi Hadoop Oozie kullanma. Bir Oozie iş akışının tanımlayın ve Oozie işi gönderme hakkında bilgi edinin.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.openlocfilehash: 69bf885ad5d6244997c7ce9cf61bdee9e05c1826
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: 563a4c14d78b7edd228c998817f44c6b3f14efe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048983"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947511"
 ---
-# <a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>Apache Oozie etki alanına katılmış HDInsight Hadoop kümeleri çalıştırın.
+# <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Apache Oozie HDInsight Hadoop kümeleri Kurumsal güvenlik paketi ile çalıştırın.
 Oozie, Hadoop işlerini yöneten bir iş akışı ve koordinasyon sistemidir. Oozie Hadoop yığını ile tümleştirilir ve aşağıdaki işler destekler:
 - Apache MapReduce
 - Apache Pig
@@ -26,12 +26,12 @@ Oozie, Hadoop işlerini yöneten bir iş akışı ve koordinasyon sistemidir. Oo
 Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanabilirsiniz.
 
 ## <a name="prerequisite"></a>Önkoşul
-- Bir etki alanına katılmış Azure HDInsight Hadoop kümesi. Bkz: [etki alanına katılmış HDInsight kümelerini yapılandırma](./apache-domain-joined-configure-using-azure-adds.md).
+- Azure HDInsight Hadoop kümesi ile Kurumsal güvenlik paketi (ESP). Bkz: [yapılandırma HDInsight kümeleri ile ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
-    > Etki alanına katılmış kümeleri üzerinde Oozie kullanma hakkında ayrıntılı yönergeler için bkz. [Azure HDInsight Linux tabanlı Hadoop Oozie kullanma akışlarında](../hdinsight-use-oozie-linux-mac.md).
+    > ESP olmayan kümelerinde Oozie kullanma hakkında ayrıntılı yönergeler için bkz. [Azure HDInsight Linux tabanlı Hadoop Oozie kullanma akışlarında](../hdinsight-use-oozie-linux-mac.md).
 
-## <a name="connect-to-a-domain-joined-cluster"></a>Bir etki alanına katılmış kümeye bağlanma
+## <a name="connect-to-an-esp-cluster"></a>ESP bir kümeye bağlanma
 
 Üzerinde güvenli Kabuk (SSH) daha fazla bilgi için [SSH kullanarak HDInsight (Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -166,7 +166,7 @@ nano workflow.xml
  ```
 4. Değiştirin `clustername` ile kümesinin adı. 
 
-5. Dosyayı kaydetmek için Ctrl + X'i seçin. Girin `Y`. Ardından **Enter**.
+5. Dosyayı kaydetmek için Ctrl + X'i seçin. `Y` yazın. Ardından **Enter**.
 
     İş akışı, iki bölüme ayrılır:
     *   **Kimlik bilgisi bölümü.** Bu bölümde, Oozie eylemleri kimlik doğrulaması için kullanılan kimlik bilgilerini alır:
@@ -262,7 +262,7 @@ Hive server 1 ve Hive server 2 Aşağıdaki bölümlerde gösterildiği gibi iki
     ```
 
 ## <a name="submit-oozie-jobs"></a>Oozie işlerini gönderme
-Etki alanına katılmış kümeleri için Oozie işlerini gönderme, etki alanına katılmış kümeleri Oozie işleri gönderme gibi olur.
+ESP kümeleri için Oozie işlerini göndermenin ESP olmayan kümelerinde Oozie işleri gönderme gibi olur.
 
 Daha fazla bilgi için [tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma](../hdinsight-use-oozie-linux-mac.md).
 
@@ -311,7 +311,7 @@ Daha fazla bilgi için [Oozie yükleme ve yapılandırma](https://oozie.apache.o
 Hive server burada eklenti Ranger desteklenen veya kullanılabilir değil 1 gibi bileşenleri için parçalı HDFS yetkilendirme mümkündür. Ayrıntılı yetkilendirme yalnızca Ranger eklentileri kullanılabilir.
 
 ## <a name="get-the-oozie-web-ui"></a>Oozie web kullanıcı Arabirimi alın
-Oozie web kullanıcı Arabirimi, küme üzerinde Oozie işlerin durumunu web tabanlı bir görünüm sağlar. Web kullanıcı Arabirimi almak için etki alanına katılmış kümeleri, aşağıdaki adımları uygulayın:
+Oozie web kullanıcı Arabirimi, küme üzerinde Oozie işlerin durumunu web tabanlı bir görünüm sağlar. Web kullanıcı Arabirimi almak için ESP kümeleri, aşağıdaki adımları uygulayın:
 
 1. Ekleme bir [kenar düğümüne](../hdinsight-apps-use-edge-node.md) ve etkinleştirme [SSH Kerberos kimlik doğrulaması](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

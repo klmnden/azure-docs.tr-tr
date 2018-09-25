@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 5e4d96df7d6a43418aad92fdf6509a5ca7ec623a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4eaf615de712715d35021aa2ba9eba4141d41e51
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734673"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952503"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Uygulamanızı Azure SQL Veritabanı Yönetilen Örneği'ne bağlayın
 
@@ -22,7 +22,7 @@ Bugün nasıl ve nerede uygulamanızı barındırmak verirken birden çok seçen
  
 Azure App Service veya Azure App Service ortamı, sanal makine, sanal makine ölçek kümesi gibi Azure'nın tümleşik sanal ağ (VNet) seçeneklerinden bazılarını kullanılarak uygulamayı bulutta barındırmak tercih edebilirsiniz. Ayrıca hibrit bulut yaklaşımı benimseyin ve uygulamaları şirket içi tutun. 
  
-Oluşturduğunuz her seçenek bir yönetilen örneğe (Önizleme) bağlanabilirsiniz.  
+Oluşturduğunuz her seçenek bir yönetilen örneğe bağlanabilir.  
 
 ![yüksek kullanılabilirlik](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 ## <a name="connect-an-application-inside-the-same-vnet"></a>Aynı sanal ağ içindeki bir uygulama bağlama 
@@ -136,7 +136,7 @@ Yönetilen örneğe bağlanmak istiyorsanız aşağıdaki en düşük sürümler
 |JDBC sürücüsü    | 6.4.0 |
 |Node.js sürücüsü | 2.1.1 |
 |OLEDB sürücüsü   | 18.0.2.0 |
-|SSMS   | 17.8.1 veya [daha yüksek](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
+|SSMS   | 17.8.1 veya [daha yüksek](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

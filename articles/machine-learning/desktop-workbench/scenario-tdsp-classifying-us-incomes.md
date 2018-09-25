@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8533023a16cb350828127d0603e6add0876b37a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056370"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948858"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Team Data Science işlem (TDSP) proje ile gelir sınıflandırma
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="introduction"></a>Giriş
 
@@ -55,7 +60,7 @@ Bkz: [takım veri bilimi Process (TDSP) yaşam döngüsü](https://github.com/Az
 1. Bir Azure [abonelik](https://azure.microsoft.com). Alabileceğiniz bir [ücretsiz abonelik](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) Bu örnek ayrıca yürütülecek.
 2. Bir [Azure veri bilimi sanal makinesi (DSVM) Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm), (sanal makine boyutu: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)4 sanal CPU'lar ve 14 Gb RAM). Bir Azure DSVM üzerinde test olsa da, herhangi bir Windows 10 makinede çalışması olasıdır.
 3. Azure Machine Learning ve ilgili kendi belgelerini gözden geçirin (bağlantılar için aşağıya bakın) Hizmetleri.
-4. Azure Machine Learning tarafından düzgün bir şekilde yüklediğinizden emin olun [hızlı başlangıç Yükleme Kılavuzu](../service/quickstart-installation.md).
+4. Azure Machine Learning tarafından düzgün bir şekilde yüklediğinizden emin olun [hızlı başlangıç Yükleme Kılavuzu](quickstart-installation.md).
 
 Bu örnek için bir veri kümesini UCI ML depodur [[LINK]](https://archive.ics.uci.edu/ml/datasets/adult). 1994 BİZE Görselleştirmenizdeki veritabanından alınır ve yaklaşık 50.000 kişiler için görselleştirmenizdeki ve gelir bilgilerini içerir. Sayısal sahip yapılandırılmış bir veri kümesi, kategorik özellikleri ve iki gelir kategorisi oluşan bir kategorik hedef budur ('> 50 K' veya ' < 50 bin ='). 
 
@@ -65,7 +70,7 @@ Kaydetmek istiyorsanız ve sürüm projenizi ve içeriği, burada bu yapılabili
 ### <a name="informational-about-azure-machine-learning"></a>Bilgi amaçlı: Azure Machine Learning hakkında
 * [SSS - kullanmaya nasıl başlayacağınızı](frequently-asked-questions.md)
 * [Genel Bakış](../service/overview-what-is-azure-ml.md)
-* [Yükleme](../service/quickstart-installation.md)
+* [Yükleme](quickstart-installation.md)
 * [Yürütme](experimentation-service-configuration.md)
 * [TDSP kullanma](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Dosyaları okuma ve yazma](how-to-read-write-files.md)

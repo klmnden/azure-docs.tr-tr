@@ -11,12 +11,13 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: d2fe951a97b18c95e647b45d799843a982100367
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 094fd6d8c6c6d647533cf5409d1a85283c71c80e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35980642"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953251"
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>En yüksek doğruluğa ve en düşün süreye çalıştırmaları bulma
 Birden çok çalıştırma göz önünde bulundurulduğunda, bir kullanım durumu en yüksek doğruluk oranıyla çalıştırmaları bulma olmaktır. İle komut satırı arabirimi (CLI) kullanmak üzere bir yaklaşım ise bir [JMESPath](http://jmespath.org/) sorgu. JMESPath Azure CLI kullanma hakkında daha fazla bilgi için bkz. [Azure CLI ile kullanma JMESPath sorgularını](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). Aşağıdaki örnekte, dört çalıştırmaları 0, 0,98, 1 ve 1 doğruluğu değerlerle oluşturulur. Çalıştırmaları aralığında olmaları durumunda filtrelenir `[MaxAccuracy-Threshold, MaxAccuracy]` nerede `Threshold = .03`.

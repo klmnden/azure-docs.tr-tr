@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: f7594b7d1eb7d41508be435cdd0a6203433727c1
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603065"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958569"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Gelişmiş Log Analytics sorguları yazma
 
@@ -32,7 +32,7 @@ ms.locfileid: "45603065"
 ## <a name="reusing-code-with-let"></a>Let koduyla yeniden kullanma
 Kullanım `let` sonuçları bir değişkene atayın ve sorgu daha sonra başvurmak için:
 
-```KQL
+```Kusto
 // get all events that have level 2 (indicates warning level)
 let warning_events=
 Event
@@ -44,7 +44,7 @@ warning_events
 
 Ayrıca, değişkenler sabit değerler atayabilirsiniz. Bu, her sorgu çalıştırmanızda değiştirmek için gereken alanları parametrelerini ayarlamak için bir yöntem destekler. Bu parametre gerektiği gibi değiştirin. Örneğin, boş disk alanı ve boş bellek (yüzdebirliklerini), belirli bir zaman penceresinde hesaplamak için şunu yazın:
 
-```KQL
+```Kusto
 let startDate = datetime(2018-08-01T12:55:02);
 let endDate = datetime(2018-08-02T13:21:35);
 let FreeDiskSpace =
@@ -65,7 +65,7 @@ Bu sorguyu daha sonra çalıştırdığınızda bitiş saati başlangıç deği�
 ### <a name="local-functions-and-parameters"></a>Yerel işlevler ve parametreleri
 Kullanım `let` deyimlerini aynı sorguda kullanılan işlevler oluşturun. Örneğin, bir datetime alanı (UTC biçimi) alan ve standart bir ABD biçimine dönüştürür bir fonksiyon tanımlayın. 
 
-```KQL
+```Kusto
 let utc_to_us_date_format = (t:datetime)
 {
   strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
@@ -80,7 +80,7 @@ Event
 ## <a name="functions"></a>İşlevler
 Diğer sorgular tarafından başvurulabilir, böylece sorgu bir işlev diğer adı ile kaydedebilirsiniz. Örneğin, aşağıdaki standart sorgu son gün içinde bildirilen tüm eksik güvenlik güncelleştirmelerini döndürür:
 
-```KQL
+```Kusto
 Update
 | where TimeGenerated > ago(1d) 
 | where Classification == "Security Updates" 
@@ -89,7 +89,7 @@ Update
 
 Bu sorguyu bir işlev olarak kaydetmek ve gibi bir diğer ad vermek _security_updates_last_day_. Ardından, başka bir sorguda SQL ile ilgili gerekli güvenlik güncelleştirmeleri aramak için kullanabilirsiniz:
 
-```KQL
+```Kusto
 security_updates_last_day | where Title contains "SQL"
 ```
 
@@ -102,7 +102,7 @@ Bir işlev olarak bir sorguyu kaydetmek için seçin **Kaydet** düğmesi portal
 ## <a name="print"></a>Yazdır
 `print` tek bir sütun ve hesaplama sonucunu gösteren tek bir satır içeren bir tablo döndürür. Bu genellikle, bir basit calcuation gereken durumlarda kullanılır. Örneğin, Pasifik saati geçerli zamanı bulup EST sahip bir sütun ekleyin:
 
-```KQL
+```Kusto
 print nowPst = now()-8h
 | extend nowEst = nowPst+3h
 ```
@@ -110,7 +110,7 @@ print nowPst = now()-8h
 ## <a name="datatable"></a>DataTable
 `datatable` bir veri kümesini tanımlamanızı sağlar. Ardından tabloda herhangi bir sorgu öğeleri eklemek kanal oluşturarak ve bir şeması ve bir değerler kümesi sağlar. Örneğin RAM kullanımını bir tablo oluşturun ve saatlik, ortalama değerini hesaplamak için:
 
-```KQL
+```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)
 [
   "2018-06-02T15:15:46.3418323Z", 15.5,
@@ -127,7 +127,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 
 DataTable yapıları ayrıca arama tablosu oluştururken çok yararlıdır. Örneğin, olay kimlikleri gibi tablo verilerini eşlemek için _SecurityEvent_ kullanarak olay türleri ile arama tablosu oluşturma, tablo, olay türü için başka bir yerde listelenen `datatable` ve bu datatable katılın  _SecurityEvent_ veri:
 
-```KQL
+```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)
 [
     4625, "Account activity",
