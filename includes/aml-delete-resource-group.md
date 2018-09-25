@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/27/2018
-ms.openlocfilehash: 2ce7e083444eb6c4e02f04f36eb0810ea37d8ae7
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dcd2854585e2c776f361aa4718af6b99d8cbb593
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39513776"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47002075"
 ---
 >[!IMPORTANT]
 >Oluşturduğunuz kaynaklar, diğer Azure Machine Learning öğreticileri ve nasıl yapılır makalelerinde önkoşul olarak kullanılabilir. 
@@ -32,4 +32,4 @@ Burada oluşturduğunuz kaynakları kullanmayacaksanız ücret ödememek için b
 
 1. Kaynak grubu adını yazın ve **Sil**'i seçin.
 
-   "İç içe kaynaklar silinmeden önce kaynak silinemiyor" hatasını alırsanız önce iç içe kaynakları silmeniz gerekir. Ayrıntılar için [bu sorun giderme bölümüne bakın](../articles/machine-learning/service/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 
+   "İç içe kaynaklar silinmeden önce kaynak silinemiyor" hatasını alırsanız önce iç içe kaynakları silmeniz gerekir. Ayrıntılar için [bu sorun giderme bölümüne bakın](../articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 
