@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 17398a9f74e40a7d513912d654fa609d9837d805
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d178fe3caa121c51ef081708ca440113871938e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165417"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996919"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Log Analytics ile Kubernetes kümesini izleme
 
@@ -153,7 +153,7 @@ Log Analytics portalında, panodaki **Kapsayıcılar** özet kutucuğunu bulun. 
 
 Benzer şekilde, Azure portalında **Log Analytics**’e gidip çalışma alanınızın adını seçin. **Kapsayıcılar** özet kutucuğunu görmek için **Çözümler** > **Kapsayıcılar**’a tıklayın. Ayrıntıları görmek için kutucuğa tıklayın.
 
-Verileri sorgulamaya ve analiz etmeye ilişkin ayrıntılı yönergeler için [Azure Log Analytics belgelerine](../../log-analytics/index.yml) bakın.
+Verileri sorgulamaya ve analiz etmeye ilişkin ayrıntılı yönergeler için [Azure Log Analytics belgelerine](../../log-analytics/log-analytics-queries.md) bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

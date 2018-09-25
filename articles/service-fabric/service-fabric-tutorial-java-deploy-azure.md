@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 4614eedd08eabf5c1c2eec6f26e542e20b0875bf
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 53ad780ff0b199764c354327439fa69c360e7cb5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040512"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996817"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Öğretici: Azure’da bir Service Fabric kümesine Java uygulamasını dağıtma
 
@@ -46,7 +46,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 Bu öğreticiye başlamadan önce:
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
-* [Azure CLI 2.0’ı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Mac](service-fabric-get-started-mac.md) veya [Linux](service-fabric-get-started-linux.md) için Service Fabric SDK’yı yükleyin
 * [Python 3'ü yükleme](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -72,7 +72,7 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
-4. *service-fabric-java-quickstart/AzureCluster* klasöründen, Azure Key Vault'ta bir küme sertifikası oluşturmak için aşağıdaki komutu çalıştırın. Bu sertifika, Service Fabric kümenizin güvenliğini sağlamak için kullanılır. Bölgeyi (Service Fabric kümenizle aynı olmalıdır), anahtar kasası kaynak grubu adını, anahtar kasası adını, sertifika parolasını ve küme DNS adını sağlayın.
+4. *service-fabric-java-quickstart/AzureCluster* klasöründen, Anahtar Kasası’nda bir küme sertifikası oluşturmak için aşağıdaki komutu çalıştırın. Bu sertifika, Service Fabric kümenizin güvenliğini sağlamak için kullanılır. Bölgeyi (Service Fabric kümenizle aynı olmalıdır), anahtar kasası kaynak grubu adını, anahtar kasası adını, sertifika parolasını ve küme DNS adını sağlayın.
 
     ```bash
     ./new-service-fabric-cluster-certificate.sh [REGION] [KEY-VAULT-RESOURCE-GROUP] [KEY-VAULT-NAME] [CERTIFICATE-PASSWORD] [CLUSTER-DNS-NAME-FOR-CERTIFICATE]
