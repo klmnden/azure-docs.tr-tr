@@ -18,32 +18,42 @@ items:
   items:
   - name: Beklenmeyen maliyetleri engelleme
     href: billing-getting-started.md
-  - name: Fatura uyarılarını ayarlama
-    href: billing-set-up-alerts.md
-  - name: Fiyatlandırmayı hesaplama
-    href: https://azure.microsoft.com/pricing/calculator/
   - name: Kaynak etiketlerini kullanma
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
+  - name: Maliyet analizini başlatma - yalnızca EA
+    href: ../cost-management/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json
+  - name: Bütçe oluşturma ve yönetme - yalnızca EA
+    href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
+  - name: Önerileri iyileştirme - yalnızca EA
+    href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: Fiyatlandırmayı hesaplama
+    href: https://azure.microsoft.com/pricing/calculator/
   - name: Harcama limitini anlama
     href: billing-spending-limit.md
-  - name: Maliyet analizi
-    href: billing-cost-analysis.md
+  - name: Fatura uyarılarını ayarlama
+    href: billing-set-up-alerts.md
   - name: Azure Ayırmaları ile kaydetme
     items:
     - name: Azure Ayırmaları nedir?
       href: billing-save-compute-costs-reservations.md
     - name: Ayırma satın alma
       items:
-      - name: Sanal makine
-        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: Cosmos DB
+        href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SQL Veritabanı
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SUSE Linux yazılımı
         href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+      - name: Sanal makine
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
     - name: İndirim nasıl uygulanır?
       items:
       - name: Ayrılmış VM Örnekleri
         href: billing-understand-vm-reservation-charges.md
+      - name: SQL Veritabanı ayrılmış kapasitesi
+        href: billing-understand-reservation-charges.md
+      - name: Cosmos DB ayrılmış kapasitesi
+        href: billing-understand-cosmosdb-reservation-charges.md
       - name: SUSE Linux yazılım planları
         href: billing-understand-suse-reservation-charges.md
     - name: Yazılım maliyetleri dahil değil
@@ -170,9 +180,9 @@ items:
     items:
     - name: Kurumsal raporlama REST API’si
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 52efe9fa438aea7b47f1fb32568ffcb2eb6bfd0a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0090b62d3738804877687e2071d96b13f7c9dd13
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302397"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063566"

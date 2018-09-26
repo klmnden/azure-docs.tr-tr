@@ -1,73 +1,81 @@
+items:
 - name: Veri Bilimi Sanal Makineleriyle ilgili belgeler
   href: index.yml
-  items: null
 - name: Genel Bakış
-  expanded: true
   items:
-    - name: Veri Bilimi VM nedir?
-      href: overview.md
-    - name: Derin Öğrenme VM nedir?
-      href: deep-learning-dsvm-overview.md
-    - name: Coğrafi AI Veri Bilimi VM nedir?
-      href: geo-ai-dsvm-overview.md
+  - name: Veri Bilimi VM nedir?
+    href: overview.md
+  - name: Derin Öğrenme VM nedir?
+    href: deep-learning-dsvm-overview.md
+  - name: Coğrafi AI Veri Bilimi VM nedir?
+    href: geo-ai-dsvm-overview.md
+  expanded: true
 - name: başlarken
   items:
-    - name: Windows Veri Bilimi VM’si oluşturma
-      href: provision-vm.md
-    - name: Ubuntu Veri Bilimi VM’si oluşturma
-      href: dsvm-ubuntu-intro.md
-    - name: CentOS Veri Bilimi VM’si oluşturma
-      href: linux-dsvm-intro.md
-    - name: Derin Öğrenme VM’si oluşturma
-      href: provision-deep-learning-dsvm.md
-    - name: Coğrafi AI Veri Bilimi VM'si oluşturma
-      href: provision-geo-ai-dsvm.md
+  - name: Windows Veri Bilimi VM’si oluşturma
+    href: provision-vm.md
+  - name: Ubuntu Veri Bilimi VM’si oluşturma
+    href: dsvm-ubuntu-intro.md
+  - name: CentOS Veri Bilimi VM’si oluşturma
+    href: linux-dsvm-intro.md
+  - name: Derin Öğrenme VM’si oluşturma
+    href: provision-deep-learning-dsvm.md
+  - name: Coğrafi AI Veri Bilimi VM'si oluşturma
+    href: provision-geo-ai-dsvm.md
 - name: Nasıl yapılır
   items:
-    - name: Windows Veri Bilimi VM’si kullanma
-      href: vm-do-ten-things.md
-    - name: Linux Veri Bilimi VM’si kullanma
-      href: linux-dsvm-walkthrough.md
-    - name: Derin Öğrenme VM’si kullanma
-      href: use-deep-learning-dsvm.md
-    - name: Coğrafi AI Veri Bilimi VM'si kullanma
-      href: use-geo-ai-dsvm.md
+  - name: Windows Veri Bilimi VM’si kullanma
+    href: vm-do-ten-things.md
+  - name: Linux Veri Bilimi VM’si kullanma
+    href: linux-dsvm-walkthrough.md
+  - name: Derin Öğrenme VM’si kullanma
+    href: use-deep-learning-dsvm.md
+  - name: Coğrafi AI Veri Bilimi VM'si kullanma
+    href: use-geo-ai-dsvm.md
 - name: Kurumsal kılavuz
   items:
-    - name: Genel Bakış
-      href: dsvm-enterprise-overview.md
-    - name: Ölçeklendirme
-      href: dsvm-pools.md
-    - name: Active Directory Tümleştirmesi
-      href: dsvm-common-identity.md
-    - name: Kaynak erişim kimlik bilgilerini koruma
-      href: dsvm-secure-access-keys.md
+  - name: Genel Bakış
+    href: dsvm-enterprise-overview.md
+  - name: Ölçeklendirme
+    href: dsvm-pools.md
+  - name: Active Directory Tümleştirmesi
+    href: dsvm-common-identity.md
+  - name: Kaynak erişim kimlik bilgilerini koruma
+    href: dsvm-secure-access-keys.md
 - name: Başvuru
-  expanded: true
   items:
-    - name: DSVM’yi keşfetme
-      href: dsvm-tools-overview.md
-    - name: Derin Öğrenme ve AI çerçeveleri
-      href: dsvm-deep-learning-ai-frameworks.md
-    - name: ML ve veri bilimi araçları
-      href: dsvm-ml-data-science-tools.md
-    - name: Diller
-      href: dsvm-languages.md
-    - name: Geliştirme araçları
-      href: dsvm-tools-development.md
-    - name: Veri alma araçları
-      href: dsvm-tools-ingestion.md
-    - name: Veri keşfi ve görselleştirme araçları
-      href: dsvm-tools-explore-and-visualize.md
-    - name: Veri platformları
-      href: dsvm-data-platforms.md
-    - name: Örnekler ve yönergeler
-      href: dsvm-samples-and-walkthroughs.md
+  - name: DSVM’yi keşfetme
+    href: dsvm-tools-overview.md
+  - name: Derin Öğrenme ve AI çerçeveleri
+    href: dsvm-deep-learning-ai-frameworks.md
+  - name: ML ve veri bilimi araçları
+    href: dsvm-ml-data-science-tools.md
+  - name: Diller
+    href: dsvm-languages.md
+  - name: Geliştirme araçları
+    href: dsvm-tools-development.md
+  - name: Veri alma araçları
+    href: dsvm-tools-ingestion.md
+  - name: Veri keşfi ve görselleştirme araçları
+    href: dsvm-tools-explore-and-visualize.md
+  - name: Veri platformları
+    href: dsvm-data-platforms.md
+  - name: Örnekler ve yönergeler
+    href: dsvm-samples-and-walkthroughs.md
+  expanded: true
 - name: Kaynaklar
   items:
-    - name: Blog
-      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
-    - name: MSDN forumu
-      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/search?q=dsvm'
+  - name: R geliştirici kılavuzu
+    href: ../r-developers-guide.md
+  - name: Blog
+    href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
+  - name: MSDN forumu
+    href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=dsvm
+ms.openlocfilehash: e1617f3f5c36a5b006003e2f375dfac4143af7cd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032573"

@@ -9,7 +9,7 @@ items:
   items:
   - name: Azure portalda oluşturma
     href: quick-create-portal.md
-  - name: Azure CLI 2.0 ile oluşturma
+  - name: Azure CLI ile oluşturma
     href: quick-create-cli.md
   - name: Azure PowerShell ile oluşturma
     href: quick-create-powershell.md
@@ -24,25 +24,25 @@ items:
   items:
   - name: 1 - Ölçek kümesi oluşturup yönetme
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-create-and-manage-cli.md
     - name: Azure PowerShell
       href: tutorial-create-and-manage-powershell.md
   - name: 2 - Veri disklerini kullanma
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-use-disks-cli.md
     - name: Azure PowerShell
       href: tutorial-use-disks-powershell.md
   - name: 3 - Özel VM görüntüsü kullanma
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-use-custom-image-cli.md
     - name: Azure PowerShell
       href: tutorial-use-custom-image-powershell.md
   - name: 4 - Uygulamaları ölçek kümesine dağıtma
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-install-apps-cli.md
     - name: Azure PowerShell
       href: tutorial-install-apps-powershell.md
@@ -50,7 +50,7 @@ items:
       href: tutorial-install-apps-template.md
   - name: 5 - Ölçek kümesini otomatik olarak ölçeklendirme
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-autoscale-cli.md
     - name: Azure PowerShell
       href: tutorial-autoscale-powershell.md
@@ -58,7 +58,7 @@ items:
       href: tutorial-autoscale-template.md
 - name: Örnekler
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: cli-samples.md
   - name: PowerShell
     href: powershell-samples.md
@@ -205,7 +205,7 @@ items:
       items:
       - name: PowerShell kullanma
         href: virtual-machine-scale-sets-encrypt-disks-ps.md
-      - name: Azure CLI 2.0 kullanma
+      - name: Azure CLI kullanma
         href: virtual-machine-scale-sets-encrypt-disks-cli.md
     - name: Büyük ölçek kümeleriyle çalışma
       href: virtual-machine-scale-sets-placement-groups.md
@@ -217,10 +217,17 @@ items:
     items:
     - name: Genel yönetim görevleri
       items:
-      - name: Azure CLI 2.0 kullanma
+      - name: Azure CLI kullanma
         href: virtual-machine-scale-sets-manage-cli.md
       - name: Azure PowerShell kullanma
         href: virtual-machine-scale-sets-manage-powershell.md
+    - name: Paylaşılan resim galerileri (önizleme)
+      href: shared-image-galleries.md
+      items:
+      - name: CLI kullanarak paylaşılan görüntüler oluşturma
+        href: shared-images-cli.md
+      - name: Paylaşılan görüntü sorunlarını giderme
+        href: troubleshooting-shared-images.md
     - name: Ölçek kümesinde dikey ölçeklendirme
       href: virtual-machine-scale-sets-vertical-scale-reprovision.md
     - name: Otomatik işletim sistemi yükseltmeleri
@@ -265,9 +272,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
-ms.openlocfilehash: 4700df5aa7d3f0a253ef66cd612187f2d187aa11
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2b6b47ca021bca978f1a2fca7d9404d11e86024e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714336"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042284"

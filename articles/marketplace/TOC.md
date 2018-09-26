@@ -7,6 +7,7 @@
 #### [Geliştirme Merkezi'ne Kaydolma](./register-dev-center.md) 
 #### [Azure Market için faturalandırma seçenekleri](./billing-options-azure-marketplace.md)  
 #### [Azure iş ortağı müşteri kullanımı ilişkilendirmesi](./azure-partner-customer-usage-attribution.md)
+#### [Bulut marketi için müşteri adayı yönetimi](./lead-management-for-cloud-marketplace.md)
 
 ### [Vitrinler](./comparing-appsource-azure-marketplace.md)  
 

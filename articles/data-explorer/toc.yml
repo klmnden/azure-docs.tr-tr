@@ -1,0 +1,66 @@
+items:
+- name: Azure Veri Gezgini Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+  - name: Veri Gezgini nedir?
+    href: data-explorer-overview.md
+- name: Hızlı Başlangıçlar
+  items:
+  - name: Küme oluşturma - Azure portal
+    href: create-cluster-database-portal.md
+  - name: Veriyi çekme
+    items:
+    - name: Veri akışı - Olay hub'ı
+      href: ingest-data-event-hub.md
+    - name: Veri işlem grubu oluşturma - Python
+      href: python-ingest-data.md
+    expanded: true
+  - name: Verileri sorgulama
+    items:
+    - name: Web kullanıcı arabirimi
+      href: web-query-data.md
+    - name: Python
+      href: python-query-data.md
+    expanded: true
+  expanded: true
+- name: Öğreticiler
+  items:
+  - name: Verileri görselleştirme - Power BI
+    href: visualize-power-bi.md
+- name: Kavramlar
+  items:
+  - name: Veri almaya genel bakış
+    href: ingest-data-overview.md
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Sorgu yazma
+    href: write-queries.md
+  - name: Örnek verileri ekleme
+    href: ingest-sample-data.md
+  - name: Verileri silme
+    href: delete-data.md
+  - name: Veritabanı izinlerini yönetme
+    href: manage-database-permissions.md
+  - name: Küme durumunu denetleme
+    href: check-cluster-health.md
+  - name: Küme ölçeklendirmeyi yönetme
+    href: manage-cluster-scaling.md
+  - name: Sorun giderme
+    items:
+    - name: Küme oluşturma
+      href: troubleshoot-create-cluster.md
+    - name: Kümeye bağlanma
+      href: troubleshoot-connect-cluster.md
+    - name: Veritabanları ve tablolarla çalışma
+      href: troubleshoot-database-table.md
+- name: Başvuru
+  items:
+  - name: Dil başvurusu
+    href: https://aka.ms/kustolangref
+ms.openlocfilehash: 9a14c56c049bae31f2a741e7ddab1d01df1209fb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031195"

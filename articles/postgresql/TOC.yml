@@ -1,175 +1,206 @@
+items:
 - name: PostgreSQL Belgeleri için Azure DB
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: PostgreSQL için Azure DB
-      href: overview.md
+  - name: PostgreSQL için Azure DB
+    href: overview.md
 - name: Hızlı Başlangıçlar
-  expanded: true
   items:
-    - name: DB Oluşturma - Portal
-      href: quickstart-create-server-database-portal.md
-    - name: DB Oluşturma - Azure CLI
-      href: quickstart-create-server-database-azure-cli.md
-    - name: Bağlanma ve sorgulama
-      items:
-        - name: Python
-          href: connect-python.md
-        - name: Node.js
-          href: connect-nodejs.md
-        - name: Java
-          href: connect-java.md
-        - name: Ruby
-          href: connect-ruby.md
-        - name: PHP
-          href: connect-php.md
-        - name: .NET
-          href: connect-csharp.md
-        - name: Başlayın
-          href: connect-go.md
+  - name: DB Oluşturma - Portal
+    href: quickstart-create-server-database-portal.md
+  - name: DB Oluşturma - Azure CLI
+    href: quickstart-create-server-database-azure-cli.md
+  - name: Bağlanma ve sorgulama
+    items:
+    - name: Python
+      href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Java
+      href: connect-java.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: PHP
+      href: connect-php.md
+    - name: .NET
+      href: connect-csharp.md
+    - name: Başlayın
+      href: connect-go.md
+  expanded: true
 - name: Öğreticiler
   items:
-    - name: 1 - Veritabanı Tasarlama
-      items:
-        - name: Azure portalına
-          href: tutorial-design-database-using-azure-portal.md
-        - name: Azure CLI
-          href: tutorial-design-database-using-azure-cli.md
-    - name: 2 - Web Uygulaması Tasarlama - Python
-      href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+  - name: 1 - Veritabanı Tasarlama
+    items:
+    - name: Azure portal
+      href: tutorial-design-database-using-azure-portal.md
+    - name: Azure CLI
+      href: tutorial-design-database-using-azure-cli.md
+  - name: 2 - Web Uygulaması Tasarlama - Python
+    href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+  - name: 3 - İzleme ve ayarlama
+    href: tutorial-monitor-and-tune.md
 - name: Örnekler
   items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
 - name: Kavramlar
   items:
-    - name: DB ve Sunucular
-      items:
-        - name: Sunucular
-          href: concepts-servers.md
-        - name: Desteklenen sürümler
-          href: concepts-supported-versions.md
-        - name: PostgreSQL uzantıları
-          href: concepts-extensions.md
-        - name: Sunucu günlükleri
-          href: concepts-server-logs.md
-        - name: Yüksek kullanılabilirlik
-          href: concepts-high-availability.md
-    - name: Kaynaklar
-      items:
-        - name: Fiyatlandırma katmanları
-          href: concepts-pricing-tiers.md
-        - name: Sınırlar
-          href: concepts-limits.md
-    - name: Veri erişimi ve güvenlik
-      items:
-        - name: Güvenlik duvarı kuralları
-          href: concepts-firewall-rules.md
-        - name: SSL yapılandırma
-          href: concepts-ssl-connection-security.md
-        - name: Sanal ağ
-          href: concepts-data-access-and-security-vnet.md
-    - name: İş sürekliliği
-      items:
-        - name: Genel Bakış
-          href: concepts-business-continuity.md
-        - name: Yedekleme ve geri yükleme
-          href: concepts-backup.md
-    - name: İzleme
+  - name: DB ve Sunucular
+    items:
+    - name: Sunucular
+      href: concepts-servers.md
+    - name: Desteklenen sürümler
+      href: concepts-supported-versions.md
+    - name: PostgreSQL uzantıları
+      href: concepts-extensions.md
+    - name: Sunucu günlükleri
+      href: concepts-server-logs.md
+    - name: Yüksek kullanılabilirlik
+      href: concepts-high-availability.md
+  - name: Kaynaklar
+    items:
+    - name: Fiyatlandırma katmanları
+      href: concepts-pricing-tiers.md
+    - name: Sınırlar
+      href: concepts-limits.md
+  - name: Veri erişimi ve güvenlik
+    items:
+    - name: Güvenlik duvarı kuralları
+      href: concepts-firewall-rules.md
+    - name: SSL yapılandırma
+      href: concepts-ssl-connection-security.md
+    - name: Gelişmiş Tehdit Koruması
+      href: concepts-data-access-and-security-threat-protection.md
+    - name: Sanal ağ
+      href: concepts-data-access-and-security-vnet.md
+  - name: İş sürekliliği
+    items:
+    - name: Genel Bakış
+      href: concepts-business-continuity.md
+    - name: Yedekleme ve geri yükleme
+      href: concepts-backup.md
+  - name: İzleme ve ayarlama
+    items:
+    - name: İzleme ve ayarlama
       href: concepts-monitoring.md
-    - name: Geliştirme
+    - name: Sorgu Deposu
       items:
-        - name: Bağlantı kitaplıkları
-          href: concepts-connection-libraries.md
+      - name: Sorgu Deposu
+        href: concepts-query-store.md
+      - name: Sorgu Deposu kullanım senaryoları
+        href: concepts-query-store-scenarios.md
+      - name: Sorgu Deposu en iyi yöntemleri
+        href: concepts-query-store-best-practices.md
+    - name: Sorgu Performansı İçgörüleri
+      href: concepts-query-performance-insight.md
+    - name: Performans Önerileri
+      href: concepts-performance-recommendations.md
+  - name: Geliştirme
+    items:
+    - name: Bağlantı kitaplıkları
+      href: concepts-connection-libraries.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Kullanıcı oluşturma
-      href: howto-create-users.md
-    - name: Güvenlik duvarını yönetme
-      items:
-        - name: Azure portalına
-          href: howto-manage-firewall-using-portal.md
-        - name: Azure CLI
-          href: howto-manage-firewall-using-cli.md
-    - name: Sunucuyu geri yükleme
-      items:
-        - name: Azure portalına
-          href: howto-restore-server-portal.md
-        - name: Azure CLI
-          href: howto-restore-server-cli.md
-    - name: Veritabanını geçirme
-      items:
-        - name: Döküm ve geri yükleme
-          href: howto-migrate-using-dump-and-restore.md
-        - name: İçeri ve dışarı aktarma
-          href: howto-migrate-using-export-and-import.md
-        - name: En düşük kapalı kalma süresiyle geçiş
-          href: howto-migrate-online.md
-    - name: Sunucu parametrelerini yapılandırma
-      items:
-        - name: Azure portalına
-          href: howto-configure-server-parameters-using-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-parameters-using-cli.md
-    - name: Sunucu günlüklerine erişme
-      items:
-        - name: Azure portalına
-          href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-using-cli.md
-    - name: İzleme
-      items:
-        - name: Ölçümler üzerinde uyarı oluşturma
-          href: howto-alert-on-metric.md
-    - name: Sanal Ağ
-      items:
-        - name: Azure portalına
-          href: howto-manage-vnet-using-portal.md
-        - name: Azure CLI
-          href: howto-manage-vnet-using-cli.md
+  - name: Kullanıcı oluşturma
+    href: howto-create-users.md
+  - name: Güvenlik duvarını yönetme
+    items:
+    - name: Azure portal
+      href: howto-manage-firewall-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-firewall-using-cli.md
+  - name: Sunucuyu geri yükleme
+    items:
+    - name: Azure portal
+      href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
+  - name: Veritabanını geçirme
+    items:
+    - name: Döküm ve geri yükleme
+      href: howto-migrate-using-dump-and-restore.md
+    - name: İçeri ve dışarı aktarma
+      href: howto-migrate-using-export-and-import.md
+    - name: En düşük kapalı kalma süresiyle geçiş
+      href: howto-migrate-online.md
+  - name: Sunucu parametrelerini yapılandırma
+    items:
+    - name: Azure portal
+      href: howto-configure-server-parameters-using-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-parameters-using-cli.md
+  - name: Sunucu günlüklerine erişme
+    items:
+    - name: Azure portal
+      href: howto-configure-server-logs-in-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-logs-using-cli.md
+  - name: İzleme
+    items:
+    - name: Ölçümler üzerinde uyarı oluşturma
+      href: howto-alert-on-metric.md
+  - name: Gelişmiş Tehdit Koruması
+    items:
+    - name: Azure portal
+      href: howto-database-threat-protection-portal.md
+  - name: Sanal Ağ
+    items:
+    - name: Azure portal
+      href: howto-manage-vnet-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-using-cli.md
 - name: Başvuru
   items:
-    - name: Azure CLI
-      href: /cli/azure/postgres
-    - name: REST API
-      href: /rest/api/postgresql
+  - name: Azure CLI
+    href: /cli/azure/postgres
+  - name: REST API
+    href: /rest/api/postgresql
 - name: Kaynaklar
   items:
-    - name: Dağıtım şablonları
-      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/postgresql/'
-    - name: MSDN forumu
-      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-database-postgresql'
-    - name: Videolar
+  - name: Microsoft Learn ile becerilerinizi geliştirin
+    href: /learn/browse/
+  - name: Dağıtım şablonları
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/postgresql/
+  - name: MSDN forumu
+    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
+  - name: Videolar
+    items:
+    - name: Ürün videoları
+      href: videos.md
+    - name: Nasıl yapılır video serisi
       items:
-        - name: Ürün videoları
-          href: videos.md
-        - name: Nasıl yapılır video serisi
-          items:
-            - name: Ürün özelliklerini ve avantajlarını öğrenin
-              href: 'https://aka.ms/postg-intro-vid'
-            - name: PostgreSQL uygulamanızı Azure’a geçirme
-              href: 'https://aka.ms/postg-migrate-vid'
-            - name: Bilişsel Hizmetler ile akıllı uygulamalar oluşturma
-              href: 'https://aka.ms/postg-cogsvs-vid'
-            - name: OSBA kullanarak kapsayıcılara bağlanma
-              href: 'https://aka.ms/postg-osba-vid'
-            - name: Uygulamanızın verilerini Power BI’a bağlama
-              href: 'https://aka.ms/postg-powerbi-vid'
-    - name: Geri Bildirim forumu
-      href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
-    - name: Bölge kullanılabilirliği
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Destek seçenekleri
-      href: 'https://azure.microsoft.com/support/options/'
-    - name: Müşteri hikayeleri
-      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'
-    - name: İş Ortakları
-      href: partners-migration-postgresql.md
-    - name: Veritabanı Geçiş Kılavuzu
-      href: 'https://datamigration.microsoft.com/'
+      - name: Ürün özelliklerini ve avantajlarını öğrenin
+        href: https://aka.ms/postg-intro-vid
+      - name: PostgreSQL uygulamanızı Azure’a geçirme
+        href: https://aka.ms/postg-migrate-vid
+      - name: Bilişsel Hizmetler ile akıllı uygulamalar oluşturma
+        href: https://aka.ms/postg-cogsvs-vid
+      - name: OSBA kullanarak kapsayıcılara bağlanma
+        href: https://aka.ms/postg-osba-vid
+      - name: Uygulamanızın verilerini Power BI’a bağlama
+        href: https://aka.ms/postg-powerbi-vid
+  - name: Geri Bildirim forumu
+    href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
+  - name: Bölge kullanılabilirliği
+    href: https://azure.microsoft.com/regions/services/
+  - name: Destek seçenekleri
+    href: https://azure.microsoft.com/support/options/
+  - name: Müşteri hikayeleri
+    href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"
+  - name: İş Ortakları
+    href: partners-migration-postgresql.md
+  - name: Veritabanı Geçiş Kılavuzu
+    href: https://datamigration.microsoft.com/
+ms.openlocfilehash: 21bcff530d362451133ab983dfcd4d32591457bf
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033881"

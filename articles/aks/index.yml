@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: ca2cba56bd84b1e1b5056e3308410ced3b620193
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063634"
 documentType: LandingData
 title: Azure Kubernetes Hizmeti (AKS)
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: 081e54a6ed04fa74f96b327b2c9e9e63c9fc01cb
-  ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
-  ms.translationtype: HT
-  ms.contentlocale: tr-TR
-  ms.lasthandoff: 06/29/2018
-  ms.locfileid: "37132631"
 abstract:
   description: Azure Kubernetes Hizmeti (AKS), barındırılan Kubernetes ortamınızı yöneterek kapsayıcılı uygulamaları, kapsayıcı yönetimi uzmanlığı gerekmeden hızla ve kolayca dağıtma olanağı sunar. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır.
 sections:
@@ -52,6 +52,29 @@ sections:
     - html: <a href="/azure/aks/tutorial-kubernetes-scale">Bir uygulamayı ve Kubernetes altyapısını ölçeklendirme</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Kubernetes’te çalışan bir uygulamayı güncelleştirme</a>
     - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">AKS kümesini yükseltme</a>
+- title: Microsoft Learn ile becerilerinizi geliştirin
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure'daki kapsayıcılara giriş
+      href: /learn/modules/intro-to-containers/
+      image:
+        src: /learn/achievements/intro-to-containers.svg
+        href: /learn/modules/intro-to-containers/
+    - title: Azure Container Instances ile Docker kapsayıcılarını çalıştırma
+      href: /learn/modules/run-docker-with-azure-container-instances/
+      image:
+        src: /learn/achievements/run-docker-with-azure-container-instances.svg
+        href: /learn/modules/run-docker-with-azure-container-instances/
+    - title: Azure Container Registry ile kapsayıcı görüntüsü oluşturma ve depolama
+      href: /learn/modules/build-and-store-container-images/
+      image:
+        src: /learn/achievements/build-and-store-container-images.svg
+        href: /learn/modules/build-and-store-container-images/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">Daha fazla etkileşimli öğrenme içeriği...</a>
 - title: Başvuru
   items:
   - type: list

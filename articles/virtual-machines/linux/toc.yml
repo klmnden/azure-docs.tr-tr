@@ -107,6 +107,8 @@ items:
       href: premium-storage.md
     - name: Standart SSD’ler
       href: disks-standard-ssd.md
+    - name: Ultra SSD'ler
+      href: disks-ultra-ssd.md
     - name: Premium depolama performansı
       href: premium-storage-performance.md
     - name: Standart depolama
@@ -243,6 +245,14 @@ items:
       href: reserved-vm-instance-size-flexibility.md
   - name: Görüntüleri Kullanma
     items:
+    - name: Paylaşılan resim galerileri (önizleme)
+      items:
+      - name: Genel Bakış
+        href: shared-image-galleries.md
+      - name: CLI kullanarak paylaşılan görüntüler oluşturma
+        href: shared-images.md
+      - name: Paylaşılan görüntü sorunlarını giderme
+        href: troubleshooting-shared-images.md
     - name: Görüntüleri bulma ve kullanma
       href: cli-ps-findimage.md
     - name: Özel görüntü oluşturma
@@ -413,8 +423,10 @@ items:
       href: mount-azure-file-storage-on-linux-using-smb.md
     - name: Şablon ile diskleri dağıtma
       href: using-managed-disks-template-deployments.md
-    - name: Yazma hızlandırıcıyı etkinleştirme
+    - name: Yazma hızlandırıcıyı kullanma
       href: how-to-enable-write-accelerator.md
+    - name: Ultra SSD'yi etkinleştirme
+      href: disks-enable-ultra-ssd.md
     - name: Performansı iyileştirme
       href: optimization.md
       items:
@@ -555,6 +567,8 @@ items:
   items:
   - name: Yazar şablonları
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Microsoft Learn ile becerilerinizi geliştirin
+    href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Yol Haritası
     href: https://azure.microsoft.com/roadmap/
   - name: Topluluk şablonları
@@ -569,9 +583,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: SSS
     href: faq.md
-ms.openlocfilehash: 9207b3d95c1ea8b665ff8f8c0712aed81521f7db
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 5ac900d783b72689759bdfe5d2ba47c11aa2157c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982955"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035604"

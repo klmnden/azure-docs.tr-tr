@@ -99,6 +99,8 @@ items:
       href: premium-storage.md
     - name: Standart SSD’ler
       href: disks-standard-ssd.md
+    - name: Ultra SSD'ler
+      href: disks-ultra-ssd.md
     - name: Premium depolama performansı
       href: premium-storage-performance.md
     - name: Standart depolama
@@ -231,6 +233,14 @@ items:
       href: reserved-vm-instance-size-flexibility.md
   - name: Görüntüleri Kullanma
     items:
+    - name: Paylaşılan görüntüler (önizleme)
+      items:
+      - name: Genel Bakış
+        href: shared-image-galleries.md
+      - name: CLI kullanarak paylaşılan görüntüler oluşturma
+        href: ../linux/shared-images.md
+      - name: Paylaşılan görüntü sorunlarını giderme
+        href: troubleshooting-shared-images.md
     - name: Görüntüleri bulma ve kullanma
       href: cli-ps-findimage.md
     - name: VM’yi karşıya yükleme işlemine hazırlama
@@ -320,6 +330,8 @@ items:
       href: using-managed-disks-template-deployments.md
     - name: Yazma hızlandırıcıyı etkinleştirme
       href: how-to-enable-write-accelerator.md
+    - name: Ultra SSD'leri kullanma
+      href: disks-enable-ultra-ssd.md
     - name: Yönetilen Disklere geçme
       href: migrate-to-managed-disks.md
       items:
@@ -482,6 +494,8 @@ items:
   items:
   - name: Yazar şablonları
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Microsoft Learn ile becerilerinizi geliştirin
+    href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Yol Haritası
     href: https://azure.microsoft.com/roadmap/
   - name: Topluluk şablonları
@@ -496,9 +510,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: SSS
     href: faq.md
-ms.openlocfilehash: af9685fcf53366785a7473a5e6c246907929a3fc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 84b76400e029c835f3a070fa7bdc80afe3f147d1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985524"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035904"

@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: c0a12a4f5f3004eb304116a7c8dc4056b5386fc1
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055467"
+documentType: LandingData
+title: Azure Kaynak Grafiği Belgeleri
+metadata:
+  title: Azure Kaynak Grafiği Belgeleri - Öğreticiler, API Başvurusu
+  description: Azure Kaynak Grafiği, büyük ölçekteki kaynaklarda karmaşık sorgular çalıştırılmasını sağlayan bir Azure hizmetidir.
+  services: resource-graph
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: resource-graph
+  ms.topic: landing-page
+  ms.date: 09/18/2018
+  ms.author: dacoulte
+abstract:
+  description: Azure Kaynak Grafiği Belgeleri büyük ölçekteki kaynaklarınızı keşfetmek için yapılandırma gerçekleştirmenize ve sorgu dilini öğrenmenize yardımcı olur.
+sections:
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: paragraph
+    text: Kaynak Grafiğini yapılandırın ve ilk sorgunuzu çalıştırın.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/cli.svg
+      text: Azure CLI
+      href: first-query-azurecli.md
+    - image:
+        src: ./media/powershell.svg
+      text: Azure PowerShell
+      href: first-query-powershell.md
+- title: Geri Bildirim
+  items:
+  - type: paragraph
+    text: Bu özellikle ilgili geri bildirimde bulunmak veya sorgularla ilgili yardım almak için Azure portalında <b>Azure İlkesi</b> <b>Kaynak Grafiği (önizleme)</b> sayfasını ziyaret edin ve geri bildirim seçeneğine tıklayın. Ayrıca <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a> sayfasından bize önerilerinizi gönderebilirsiniz.

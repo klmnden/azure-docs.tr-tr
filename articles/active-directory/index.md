@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: mtillman
-ms.openlocfilehash: 43da4d780a93418a12cb0cbadc6a801da300188b
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 8b28ca8d0aef745600539ab2785e67e3d67e95f9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465835"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063821"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -63,7 +63,6 @@ ms.locfileid: "46465835"
                                                     </div>
                                                 </a>
                                             </li>
-<!--This is the learning section 
                                             <li>
                                                 <a href="">
                                                     <div class="cardSize">
@@ -71,14 +70,14 @@ ms.locfileid: "46465835"
                                                             <div class="card">
                                                                 <div class="cardImageOuter">
                                                                     <div class="cardImage">
-                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
+                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="">Build your skills with Microsoft Learn</a></h3> 
+                                                                    <h3><a href="">Microsoft Learn ile becerilerinizi geliştirin</a></h3> 
                                                                     <p>
-                                                                        <a href="https://docs.microsoft.com/learn/modules/secure-azure-resources-with-conditional-access">Secure your Azure resources with conditional access</a><br>
-                                                                        <a href="">More interactive learning ...</a><br>
+                                                                        <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Koşullu erişim ile Azure kaynaklarınızın güvenliğini sağlayın</a><br>
+                                                                        <a href="/learn/browse/?products=azure-active-directory">Daha fazla etkileşimli öğrenme içeriği...</a><br>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -86,7 +85,6 @@ ms.locfileid: "46465835"
                                                     </div>
                                                 </a>
                                             </li>
- End of the learning section -->
                                         </ul>
                                     </li>
                                     <li>
@@ -101,7 +99,7 @@ ms.locfileid: "46465835"
                                                             <a href="manage-apps/application-proxy.md">Şirket içi uygulamalar için Uygulama Ara Sunucusu</a><br>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="authentication/index.yml">Kimlik doğrulama yöntemleri</a></h3>
+                                                        <h3><a href="authentication/index.yml">Kimlik doğrulaması</a></h3>
                                                         <p>
                                                             <a href="authentication/tutorial-mfa-applications.md">Azure portalı için MFA'yı etkinleştirme</a><br>
                                                             <a href="authentication/quickstart-sspr.md">Self servis parola sıfırlamayı etkinleştirme</a><br>
@@ -122,11 +120,11 @@ ms.locfileid: "46465835"
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">ASP.NET web API'sine erişim verme</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="governance/access-reviews-overview.md">Erişim gözden geçirmeleri</a></h3>
+                                                        <h3><a href="conditional-access/index.yml">Koşullu erişim</a></h3>
                                                         <p>
-                                                            <a href="governance/create-access-review.md">Erişim gözden geçirmesi oluşturma</a><br>
-                                                            <a href="governance/perform-access-review.md">Erişim değerlendirmesi gerçekleştirme</a><br>
-                                                            <a href="governance/active-directory-tou.md">Kullanım koşulları</a>
+                                                            <a href="conditional-access/app-based-mfa.md">Belirli uygulamalar için MFA gerektirme</a><br>
+                                                            <a href="conditional-access/require-tou.md">Kullanım koşullarının kabul edilmesini gerektirme</a><br>
+                                                            <a href="conditional-access/app-sign-in-risk.md">Oturum riski algılandığında erişimi engelleme</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -138,18 +136,11 @@ ms.locfileid: "46465835"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="conditional-access/index.yml">Koşullu erişim</a></h3>
+                                                        <h3><a href="develop/index.yml">Geliştiriciler</a></h3>
                                                         <p>
-                                                            <a href="conditional-access/app-based-mfa.md">Belirli uygulamalar için MFA gerektirme</a><br>
-                                                            <a href="conditional-access/require-tou.md">Kullanım koşullarının kabul edilmesini gerektirme</a><br>
-                                                            <a href="conditional-access/app-sign-in-risk.md">Oturum riski algılandığında erişimi engelleme</a>
-                                                        </p>
-                                                        <br><br>
-                                                        <h3><a href="develop/azure-ad-developers-guide.md">Geliştiriciler</a></h3>
-                                                        <p>
-                                                            <a href="develop/authentication-scenarios.md">Uygulama senaryoları</a><br>
-                                                            <a href="develop/active-directory-authentication-libraries.md">Azure AD v1.0 kimlik doğrulama kitaplıkları</a><br>
-                                                            <a href="develop/reference-v2-libraries.md">Azure AD v2.0 kimlik doğrulama kitaplıkları</a>
+                                                            <a href="develop/about-microsoft-identity-platform.md">Microsoft Identity Platform hakkında</a><br>
+                                                            <a href="develop/azure-ad-developers-guide.md">v1.0 platformu</a><br>
+                                                            <a href="develop/v2-overview.md">v2.0 platformu</a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="devices/index.yml">Cihaz yönetimi</a></h3>
@@ -161,9 +152,9 @@ ms.locfileid: "46465835"
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-domain-services/index">Etki alanı hizmetleri</a></h3>
                                                         <p>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started.md">Azure AD Domain Services'i etkinleştirme</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md">Windows Server VM’yi yönetilen etki alanına ekleme</a><br>
-                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md">Güvenli LDAP'yi yapılandırma</a>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Azure AD Domain Services'i etkinleştirme</a><br>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">Windows Server VM’yi yönetilen etki alanına ekleme</a><br>
+                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">Güvenli LDAP'yi yapılandırma</a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="users-groups-roles/index.yml">Kurumsal kullanıcılar</a></h3>
@@ -171,6 +162,13 @@ ms.locfileid: "46465835"
                                                             <a href="users-groups-roles/directory-assign-admin-roles.md">Yönetici rolleri atama</a><br>
                                                             <a href="users-groups-roles/licensing-groups-assign.md">Gruplara lisans atama</a><br>
                                                             <a href="users-groups-roles/groups-create-rule.md">Dinamik grup oluşturma</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="hybrid/index.yml">Karma kimlik</a></h3>
+                                                        <p>
+                                                            <a href="hybrid/how-to-connect-install-roadmap.md">Azure AD Connect'i yükleme</a><br>
+                                                            <a href="hybrid/how-to-connect-sso.md">Azure AD Connect ile çoklu oturum açma</a><br>
+                                                            <a href="hybrid/how-to-connect-fed-whatis.md">Azure AD Connect ve federasyon</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -182,11 +180,11 @@ ms.locfileid: "46465835"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="hybrid/index.yml">Karma kimlik</a></h3>
+                                                        <h3><a href="governance/access-reviews-overview.md">Erişim gözden geçirmeleri</a></h3>
                                                         <p>
-                                                            <a href="hybrid/tutorial-password-hash-sync.md">Azure AD Connect</a><br>
-                                                            <a href="hybrid/tutorial-passthrough-authentication.md">AD ormanını bulutla tümleştirme</a><br>
-                                                            <a href="hybrid/tutorial-federation.md">AD ormanını bulutta federasyona ekleme</a>
+                                                            <a href="governance/create-access-review.md">Erişim gözden geçirmesi oluşturma</a><br>
+                                                            <a href="governance/perform-access-review.md">Erişim değerlendirmesi gerçekleştirme</a><br>
+                                                            <a href="governance/active-directory-tou.md">Kullanım koşulları</a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="identity-protection/index.yml">Kimlik koruması</a></h3>
@@ -203,14 +201,14 @@ ms.locfileid: "46465835"
                                                             <a href="managed-identities-azure-resources/services-support-msi.md">Yönetilen kimliği destekleyen hizmetler</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="privileged-identity-management/index.yml">PIM</a></h3>
+                                                        <h3><a href="privileged-identity-management/index.yml">Ayrıcalıklı kimlik yönetimi (PIM)</a></h3>
                                                         <p>
                                                             <a href="privileged-identity-management/pim-getting-started.md">PIM kullanmaya başlama</a><br>
                                                             <a href="privileged-identity-management/pim-how-to-activate-role.md">Dizin rollerimi etkinleştirme</a><br>
                                                             <a href="privileged-identity-management/pim-how-to-add-role-to-user.md">Dizin rolleri atama</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="reports-monitoring/index.yml">Raporlama ve izleme</a></h3>
+                                                        <h3><a href="reports-monitoring/index.yml">Raporlar ve izleme</a></h3>
                                                         <p>
                                                             <a href="reports-monitoring/howto-find-activity-reports.md">Etkinlik raporlarını bulma</a><br>
                                                             <a href="reports-monitoring/concept-activity-logs-in-azure-monitor.md">Azure İzleyici'deki Azure AD günlüklerini kullanma</a><br>

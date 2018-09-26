@@ -6,12 +6,12 @@ description: Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 9b9bbb9f584cf5fb071e75ea731c2325e334d10d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9a1d5378ea5717514a2b247afad2db7d88986fb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605972"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033779"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -96,6 +96,7 @@ ms.locfileid: "45605972"
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/virtual-machines/linux/">Linux sanal makineleri</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/">Windows sanal makineleri</a></li>
+                                                    <li><a class="barLink" href="/azure/governance/blueprints/">Azure Blueprints</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -114,7 +115,7 @@ ms.locfileid: "45605972"
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Geçişi</a></li>
-                                                    <li><a class="barLink" href="/azure/azure-policy/">Azure İlkesi</a></li>
+                                                    <li><a class="barLink" href="/azure/governance/policy/">Azure İlkesi</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -247,6 +248,16 @@ Azure PowerShell </a>
                                                 <h3>DevOps</h3>
                                                 <ul class="noBullet">
                                                     <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
+Azure DevOps </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops/pipelines/index">
+                                                            <img src="https://docs.microsoft.com/azure/devops/_img/index/devopsiconpipelines96.svg" alt="">
+Azure Pipelines </a>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/azure/ansible/">
                                                             <img src="media/index/ansible.svg" alt="">
 Ansible </a>
@@ -267,19 +278,50 @@ Jenkins </a>
 Terraform </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops/">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-Azure DevOps </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/azure/devops">
-                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-Azure ile DevOps öğrenme </a>
-                                                    </li>
-                                                    <li>
                                                         <a class="barLink" href="/azure/devops-project/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
 Azure DevOps Projesi </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>Microsoft Learn ile becerilerinizi geliştirin</h3>
+                                                <ul class="noBullet">
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
+                                                            <img src="/learn/achievements/tour-azure-services-and-features.svg" alt="">
+Azure hizmetleri ve özellikleri turuna katılın </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/principles-cloud-computing/">
+                                                            <img src="/learn/achievements/principles-cloud-computing.svg" alt="">
+Bulut bilgi işlem ilkeleri </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/build-a-serverless-web-app/">
+                                                            <img src="/learn/achievements/build-a-serverless-web-app.svg" alt="">
+Sunucusuz web uygulaması derleme </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">
+                                                            <img src="/learn/achievements/control-azure-services-with-cli.svg" alt="">
+Azure hizmetlerini CLI ile denetleme </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/modules/automate-azure-tasks-with-powershell/">
+                                                            <img src="/learn/achievements/automate-azure-tasks-with-powershell.svg" alt="">
+PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/learn/browse/?products=azure">Daha fazla etkileşimli öğrenme içeriği...</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -387,6 +429,12 @@ Azure DevOps Projesi </a>
                                                 <p>Azure üzerinde SAP HANA Büyük Örnekleri</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/cyclecloud/">
+                                                <img src="media/index/logo_cyclecloud.svg" alt="" />
+                                                <p>CycleCloud</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Veritabanları</h3>
                                     <ul>
@@ -448,6 +496,12 @@ Azure DevOps Projesi </a>
                                             <a href="/azure/mysql/">
                                                 <img src="media/index/MySQL.svg" alt="" />
                                                 <p>MySQL için Azure Veritabanı</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/mariadb/">
+                                                <img src="media/index/MariaDB.svg" alt="" />
+                                                <p>MariaDB için Azure Veritabanı</p>
                                             </a>
                                         </li>
                                         <li>
@@ -695,6 +749,12 @@ Azure DevOps Projesi </a>
                                             <a href="/azure/firewall/">
                                                 <img src="media/index/azure_firewall.svg" alt="" />
                                                 <p>Azure Güvenlik Duvarı</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/frontdoor/">
+                                                <img src="media/index/frontdoor.svg" alt="" />
+                                                <p>Azure Front Door Hizmeti</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1095,6 +1155,12 @@ Azure DevOps Projesi </a>
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-explorer/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                <p>Azure Veri Gezgini</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1658,9 +1724,21 @@ Azure DevOps Projesi </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-policy/">
+                                            <a href="/azure/governance/policy/">
                                                 <img src="media/index/governance.svg" alt="" />
                                                 <p>Azure İlkesi</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/governance/blueprints/">
+                                                <img src="media/index/blueprints.svg" alt="" />
+                                                <p>Azure Blueprints</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/governance/resource-graph/">
+                                                <img src="media/index/resource-graph.svg" alt="" />
+                                                <p>Azure Kaynak Grafiği</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1942,6 +2020,25 @@ Azure DevOps Projesi </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/cyclecloud/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_cyclecloud.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>CycleCloud</h3>
+                                                    <p>Herhangi bir ölçekte yüksek performanslı bilgi işlem (HPC) ve işlem kümeleri oluşturma, yönetme, işletme ve iyileştirme</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -2188,6 +2285,25 @@ Azure DevOps Projesi </a>
                                                 <div class="cardText">
                                                     <h3>Sanal WAN</h3>
                                                     <p>Güvenli küresel ölçekli dal bağlantısı oluşturma</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/frontdoor/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/frontdoor.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Front Door Hizmeti</h3>
+                                                    <p>Global web uygulamaları sunmak için ölçeklenebilir ve güvenli giriş noktası</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3056,6 +3172,25 @@ Azure DevOps Projesi </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/mariadb/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MariaDB.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>MariaDB için Azure Veritabanı</h3>
+                                                    <p>Uygulama geliştiricileri için yönetilen MariaDB veritabanı hizmeti</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/dms/dms-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3149,6 +3284,25 @@ Azure DevOps Projesi </a>
                                                 <div class="cardText">
                                                     <h3>Data Factory</h3>
                                                     <p>Veri dönüştürmeyi ve taşımayı planlayın ve yönetin</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-explorer/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_azure.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Veri Gezgini</h3>
+                                                    <p>Günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5122,7 +5276,7 @@ Azure DevOps Projesi </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-policy/">
+                                <a href="/azure/governance/policy/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5134,6 +5288,44 @@ Azure DevOps Projesi </a>
                                                 <div class="cardText">
                                                     <h3>Azure İlkesi</h3>
                                                     <p>Azure kaynakları için uygun ölçekte kurumsal idare ve standartlar uygulayın</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/governance/blueprints/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/blueprints.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Blueprints</h3>
+                                                    <p>Birleştirilebilir yapıtları kullanarak bulut ortamlarını tekrarlanabilir şekilde dağıtın ve güncelleştirin</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/governance/resource-graph/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/resource-graph.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Kaynak Grafiği</h3>
+                                                    <p>Zengin sorgu diliyle büyük ölçekteki kaynakları keşfedin</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5953,7 +6145,7 @@ Service Fabric SDK’sı ve Araçları </h3>
                                                 <h3>
 SQL Araçları </h3>
                                                 <p>
-                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio <sup>ÖNİZLEME</sup></a>
+                                                    <a href="/sql/azure-data-studio/download">Azure Data Studio <sup>ÖNİZLEME</sup></a>
                                                 </p>
                                                 <p>
                                                     <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
