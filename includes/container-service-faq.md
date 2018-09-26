@@ -32,13 +32,13 @@ Ek ayrıntılar için lütfen [kapsayıcılar için destek ilkemize](https://sup
 
 Kümeniz için Linux sanal makinelerinde kimlik doğrulamasına yönelik bir SSH RSA genel ve özel anahtar çifti oluşturmak için, işletim sisteminizde standart araçları kullanabilirsiniz. Adımlar için [OS X ve Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) veya [Windows](../articles/virtual-machines/linux/ssh-from-windows.md) yönergelerine bakın. 
 
-Bir kapsayıcı hizmeti kümesini dağıtmak için [Azure CLI 2.0 komutlarını](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) kullanırsanız kümenize yönelik SSH anahtarları otomatik olarak oluşturulabilir.
+Bir kapsayıcı hizmeti kümesini dağıtmak için [Azure CLI komutlarını](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) kullanırsanız kümenize yönelik SSH anahtarları otomatik olarak oluşturulabilir.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Kubernetes kümem için nasıl hizmet sorumlusu oluşturabilirim?
 
 Azure Container Service’te bir Kubernetes kümesi oluşturmak için ayrıca bir Azure Active Directory hizmet sorumlusu kimliği ve parolası gereklidir. Daha fazla bilgi için bkz. [Bir Kubernetes kümesi için hizmet sorumlusu hakkında](../articles/container-service/kubernetes/container-service-kubernetes-service-principal.md).
 
-Bir Kubernetes kümesini dağıtmak için [Azure CLI 2.0 komutlarını](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) kullanırsanız kümenize yönelik hizmet sorumlusu kimlik bilgileri otomatik olarak oluşturulabilir.
+Bir Kubernetes kümesini dağıtmak için [Azure CLI komutlarını](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) kullanırsanız kümenize yönelik hizmet sorumlusu kimlik bilgileri otomatik olarak oluşturulabilir.
 
 ### <a name="how-large-a-cluster-can-i-create"></a>Ne kadar büyük bir küme oluşturabilirim?
 1, 3 veya 5 ana düğüm içeren bir küme oluşturabilirsiniz. En fazla 100 aracı düğümü seçebilirsiniz.
@@ -105,4 +105,4 @@ Windows’da, düzeltmeleri halen etkin olarak kaldırılmakta olan bazı biline
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Azure Container Service hakkında [daha fazla bilgi edinin](../articles/container-service/kubernetes/container-service-intro-kubernetes.md).
-* [Portal](../articles/container-service/dcos-swarm/container-service-deployment.md)’ı veya [Azure CLI 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) aracını kullanarak bir Container Service kümesi dağıtın.
+* [Portal](../articles/container-service/dcos-swarm/container-service-deployment.md)’ı veya [Azure CLI](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) aracını kullanarak bir kapsayıcı hizmeti kümesi dağıtın.
