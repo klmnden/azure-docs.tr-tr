@@ -2,19 +2,22 @@
 title: DMA kullanarak SQL Server DB’yi Azure SQL Veritabanı’na geçirme | Microsoft Docs
 description: DMA kullanarak SQL Server veritabanınızı Azure SQL Veritabanı’na geçirmeyi öğrenin.
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,migrate
-ms.topic: tutorial
-ms.date: 07/02/2018
-ms.author: carlrab
-ms.openlocfilehash: 1d8ec772293354c059f21aaae8006f5c40540058
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 58016636dad24b9b7d5278ce89643e6cd8d5be9e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050213"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162874"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>DMA kullanarak SQL Server veritabanınızı Azure SQL Veritabanı’na geçirme
 
@@ -33,7 +36,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
@@ -246,11 +249,11 @@ Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsin
 
 ## <a name="change-database-properties"></a>Veritabanı özelliklerini değiştirme
 
-SQL Server Management Studio'yu kullanarak hizmet katmanını, performans düzeyini ve uyumluluk düzeyini değiştirebilirsiniz. İçeri aktarma aşamasında, en iyi performansı elde etmek için daha yüksek bir performans katmanındaki veritabanına aktarmanızı öneririz; ama içeri aktarma tamamlandıktan sonra, içeri aktarılan veritabanını etkin bir şekilde kullanmaya hazır olana kadar paradan tasarruf etmek için ölçeği aşağı çekin. Uyumluluk düzeyinin değiştirilmesi daha iyi bir performans getirebilir ve Azure SQL Veritabanı hizmetinin en yeni özelliklerine erişim sağlar. Daha eski bir veritabanını geçirirken, onun veritabanı uyumluluk düzeyi desteklenen ve içeri aktarılan veritabanıyla uyumlu olan en düşük düzeyde tutulur. Daha fazla bilgi için bkz. [Azure SQL Veritabanı'nda uyumluluk düzeyi 130 ile geliştirilen sorgu performansı](sql-database-compatibility-level-query-performance-130.md).
+Hizmet katmanını değiştirebilirsiniz, işlem boyutu ve SQL Server Management Studio'yu kullanarak uyumluluk düzeyi. İçeri aktarma aşamasında, daha yüksek bir hizmet katmanına almak veya boyutu en iyi performans için işlem, ancak içeri aktarılan veritabanını etkin bir şekilde kullanmaya hazır olana kadar paradan tasarruf etmek için içeri aktarma tamamlandıktan sonra ölçeği aşağı öneririz. Uyumluluk düzeyinin değiştirilmesi daha iyi bir performans getirebilir ve Azure SQL Veritabanı hizmetinin en yeni özelliklerine erişim sağlar. Daha eski bir veritabanını geçirirken, onun veritabanı uyumluluk düzeyi desteklenen ve içeri aktarılan veritabanıyla uyumlu olan en düşük düzeyde tutulur. Daha fazla bilgi için bkz. [Azure SQL Veritabanı'nda uyumluluk düzeyi 130 ile geliştirilen sorgu performansı](sql-database-compatibility-level-query-performance-130.md).
 
 1. Nesne Gezgini’nde **mySampleDatabase** öğesine sağ tıklayın ve sonra da **Yeni Sorgu**’ya tıklayın. Veritabanınıza bağlı bir sorgu penceresi açılır.
 
-2. Hizmet katmanını **Standart** ve performans düzeyini **S1** olarak ayarlamak için aşağıdaki komutu yürütün.
+2. Hizmet katmanını ayarlamak için aşağıdaki komutu yürütün **standart** ve işlem boyutu için **S1**.
 
     ```sql
     ALTER DATABASE mySampleDatabase 

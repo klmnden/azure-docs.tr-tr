@@ -2,19 +2,22 @@
 title: Coğrafi olarak dağıtılan Azure SQL Veritabanı çözümü uygulama | Microsoft Docs
 description: Çoğaltılan bir veritabanına yük devretme için Azure SQL Veritabanınızı ve uygulamanızı yapılandırmayı ve test yük devretme işlemi gerçekleştirmeyi öğreneceksiniz.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,business continuity
-ms.topic: tutorial
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 65cf954f5d91176715181620671f620264069bdc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416628"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166274"
 ---
 # <a name="implement-a-geo-distributed-database"></a>Coğrafi olarak dağıtılmış bir veritabanı uygulama
 
@@ -30,7 +33,7 @@ Bu öğreticide, uzak bir bölgeye yük devretme için Azure SQL veritabanı ve 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
@@ -38,8 +41,8 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 - Bir Azure SQL veritabanı yüklenmiş olmalıdır. Bu öğreticide, şu hızlı başlangıçlardan birinde yer alan **mySampleDatabase** adıyla AdventureWorksLT örnek veritabanı kullanılmaktadır:
 
    - [DB Oluşturma - Portal](sql-database-get-started-portal.md)
-   - [DB oluşturma - CLI](sql-database-get-started-cli.md)
-   - [DB Oluşturma - PowerShell](sql-database-get-started-powershell.md)
+   - [DB oluşturma - CLI](sql-database-cli-samples.md)
+   - [DB Oluşturma - PowerShell](sql-database-powershell-samples.md)
 
 - SQL betiklerini veritabanına karşı yürütme yöntemini belirledikten sonra aşağıdaki sorgu araçlarından birini kullanabilirsiniz:
    - [Azure portalındaki](https://portal.azure.com) sorgu düzenleyici. Azure portalındaki sorgu düzenleyiciyi kullanma hakkında daha fazla bilgi için bkz. [Sorgu Düzenleyiciyi kullanarak bağlanma ve sorgulama](sql-database-get-started-portal.md#query-the-sql-database).
@@ -54,7 +57,7 @@ Aşağıdaki sorgu araçlarından birini kullanarak veritabanınıza bağlanın 
 - SQL Server Management Studio
 - Visual Studio Code
 
-Bu kullanıcı hesapları otomatik olarak ikincil sunucunuza çoğaltılır (ve eşitlenmiş şekilde tutulur). SQL Server Management Studio veya Visual Studio Code’u kullanmak için, henüz güvenlik duvarı yapılandırmadığınız bir IP adresindeki istemciden bağlanmanız durumunda bir güvenlik duvarı kuralı yapılandırmanız gerekebilir. Ayrıntılı adımlar için bkz. [Sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+Bu kullanıcı hesapları otomatik olarak ikincil sunucunuza çoğaltılır (ve eşitlenmiş şekilde tutulur). SQL Server Management Studio veya Visual Studio Code’u kullanmak için, henüz güvenlik duvarı yapılandırmadığınız bir IP adresindeki istemciden bağlanmanız durumunda bir güvenlik duvarı kuralı yapılandırmanız gerekebilir. Ayrıntılı adımlar için bkz. [Sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma](sql-database-get-started-portal-firewall.md).
 
 - Sorgu penceresinde aşağıdaki sorguyu yürüterek veritabanınızda iki kullanıcı hesabı oluşturun. Bu betik, **app_admin** hesabına **db_owner** izinleri verir ve **app_user** hesabına da **SELECT** ve **UPDATE** izinleri verir. 
 
@@ -70,7 +73,7 @@ Bu kullanıcı hesapları otomatik olarak ikincil sunucunuza çoğaltılır (ve 
 
 ## <a name="create-database-level-firewall"></a>Veritabanı düzeyinde güvenlik duvarı oluşturma
 
-SQL veritabanınız için [veritabanı düzeyinde güvenlik duvarı kuralı](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) oluşturun. Bu veritabanı düzeyinde güvenlik duvarı kuralı, bu öğreticide oluşturduğunuz ikincil sunucuya otomatik olarak çoğaltma yapar. (Bu öğreticide) kolaylık sağlamak için, bu öğreticideki adımları gerçekleştirdiğiniz bilgisayarın genel IP adresini kullanın. Geçerli bilgisayarınıza yönelik sunucu düzeyinde güvenlik duvarı kuralı için kullanılan IP adresini belirlemek için bkz. [Sunucu düzeyinde güvenlik duvarı oluşturma](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
+SQL veritabanınız için [veritabanı düzeyinde güvenlik duvarı kuralı](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) oluşturun. Bu veritabanı düzeyinde güvenlik duvarı kuralı, bu öğreticide oluşturduğunuz ikincil sunucuya otomatik olarak çoğaltma yapar. (Bu öğreticide) kolaylık sağlamak için, bu öğreticideki adımları gerçekleştirdiğiniz bilgisayarın genel IP adresini kullanın. Geçerli bilgisayarınıza yönelik sunucu düzeyinde güvenlik duvarı kuralı için kullanılan IP adresini belirlemek için bkz. [Sunucu düzeyinde güvenlik duvarı oluşturma](sql-database-get-started-portal-firewall.md).  
 
 - Açık sorgu pencerenizde, IP adreslerini ortamınız için uygun IP adresleriyle değiştirerek önceki sorguyu aşağıdaki sorguyla değiştirin.  
 
@@ -390,8 +393,8 @@ Bu öğreticide, uzak bir bölgeye yük devretme için Azure SQL veritabanı ve 
 > * Azure SQL veritabanını sorgulamak için Java uygulaması oluşturma ve derleme
 > * Olağanüstü durum kurtarma tatbikatı gerçekleştirme
 
-Yönetilen Örneğin nasıl oluşturulacağını öğrenmek için sonraki öğreticiye geçin.
+Azure SQL veritabanı yönetilen DMS kullanarak örneği için SQL Server'ı geçirme için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
->[Yönetilen Örnek oluşturma](sql-database-managed-instance-create-tutorial-portal.md)
+>[DMS kullanarak SQL Server’ı Azure SQL Veritabanı Yönetilen Örneği’ne geçirme](../dms/tutorial-sql-server-to-managed-instance.md)
 
