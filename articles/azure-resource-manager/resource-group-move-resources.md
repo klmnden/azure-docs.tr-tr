@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: e79419c764229e7dc52a32389b8b1116668dddfc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0970f5d4e61a40df7454cc850e59d86708d4aa1c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039744"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159116"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -220,14 +220,14 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Service Bus
 * Service Fabric
 * Service Fabric Mesh
-* SignalR hizmeti
+* SignalR Service
 * Depolama - depolama hesapları farklı bölgelerde, aynı işlem içinde taşınamaz. Bunun yerine, her bölge için ayrı işlem kullanın.
 * Depolama alanı (Klasik) - [Klasik dağıtım sınırlamalarını](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics işleri çalıştırırken buna taşınamaz durumu.
 * SQL veritabanı sunucusu - veritabanı ve sunucu, aynı kaynak grubunda bulunmalıdır. Bir SQL server taşıdığınızda, tüm veritabanlarını da taşınır. Bu davranış, Azure SQL veritabanı ve Azure SQL veri ambarı veritabanları için geçerlidir.
 * Time Series Insights
 * Traffic Manager
-* Sanal makineler - yönetilen disklere sahip VM'ler taşınamaz. Bkz: [sanal makineler sınırlamaları](#virtual-machines-limitations)
+* Sanal makineler - sahip VM'ler için yönetilen diskler için bkz: [sanal makineler sınırlamaları](#virtual-machines-limitations)
 * Sanal makineler (Klasik) - bkz [Klasik dağıtım sınırlamalarını](#classic-deployment-limitations)
 * Sanal makine ölçek kümeleri - bkz [sanal makineler sınırlamaları](#virtual-machines-limitations)
 * Sanal ağlar - bkz [sanal ağlar sınırlamaları](#virtual-networks-limitations)
@@ -267,28 +267,30 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 
 ## <a name="virtual-machines-limitations"></a>Sanal makineler sınırlamaları
 
-Yönetilen diskler taşıma 24 Eylül 2018'den itibaren desteklenir. Bu özelliği etkinleştirmek üzere kaydolmanız gerekir
+Yönetilen diskler taşıma 24 Eylül 2018'den itibaren desteklenir. Bu özelliği etkinleştirmek üzere kaydolmanız gerekir.
 
-#### <a name="powershell"></a>PowerShell
-`Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute`
-#### <a name="cli"></a>CLI
-`az feature register Microsoft.Compute ManagedResourcesMove`
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+```
 
+```azurecli-interactive
+az feature register Microsoft.Compute ManagedResourcesMove
+```
 
-Başka bir deyişle, ayrıca taşıyabilirsiniz:
+Bu destek, ayrıca geçiş yapabileceğiniz anlamına gelir:
 
 * Yönetilen disklere sahip sanal makineler
 * Yönetilen görüntüleri
 * Yönetilen anlık görüntüler
 * Yönetilen disklere sahip sanal makineleri ile kullanılabilirlik kümeleri
 
-Henüz desteklenmeyen bazı kısıtlamalar şunlardır.
+Henüz desteklenmeyen bazı kısıtlamalar şunlardır:
 
 * Key Vault'ta depolanan bir sertifika ile sanal makineler için yeni bir kaynak grubu ile aynı abonelikte ancak değil, abonelikler arasında taşınabilir.
 * Azure Backup ile yapılandırılmış sanal makineler. Kullanım bu sanal makineleri taşımak için geçici çözüm aşağıda
   * Sanal makinenizi konumunu bulun.
-  * Aşağıdaki adlandırma deseni ile bir kaynak grubunu bulun: "AzureBackupRG_<location of your VM>_1" örn AzureBackupRG_westus2_1
-  * Azure Portalı'nda, ardından onay "gizli türleri Göster ise"
+  * Aşağıdaki adlandırma deseni ile bir kaynak grubunu bulun: `AzureBackupRG_<location of your VM>_1` örn AzureBackupRG_westus2_1
+  * Azure portalında, ardından onay "gizli türleri Göster ise"
   * PowerShell'de varsa, kullanmak `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet'i
   * CLI, kullanın `az resource list -g AzureBackupRG_<location of your VM>_1`
   * Artık türüyle olan kaynağı bulun `Microsoft.Compute/restorePointCollections` adlandırma deseni sahip `AzureBackup_<name of your VM that you're trying to move>_###########`

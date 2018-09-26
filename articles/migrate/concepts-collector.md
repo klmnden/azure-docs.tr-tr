@@ -1,234 +1,159 @@
 ---
-title: Azure geçişi, Toplayıcı gerecini | Microsoft Docs
-description: Toplayıcı gerecini ve nasıl yapılandırılacağına ilişkin genel bir bakış sağlar.
-author: ruturaj
+title: Azure geçişi, Toplayıcı gerecini hakkında | Microsoft Docs
+description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
+author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.author: ruturajd
+ms.date: 09/25/2018
+ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 6822bd149d5542d577fa18db3c9f50007ae48d35
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 88bc0bdc29d1f578bd0d314c5c7425026dfd2d22
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605071"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160887"
 ---
-# <a name="collector-appliance"></a>Toplayıcı Gereci
+# <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
-[Azure geçişi](migrate-overview.md) Azure'a geçiş için şirket içi iş yüklerini değerlendirir. Bu makalede, Toplayıcı gerecini kullanma hakkında bilgi sağlar.
+ Bu makalede, Azure geçişi toplayıcısı hakkında bilgi sağlar.
 
-## <a name="overview"></a>Genel Bakış
+Azure geçişi toplayıcısı bir şirket içi vCenter ortam ile değerlendirme amaçları için keşfetmek için kullanılan basit bir gereçtir [Azure geçişi](migrate-overview.md) service, azure'a geçiş işleminden önce.  
 
-Azure geçişi toplayıcısı şirket içi vCenter ortamınızı bulmak için kullanılan basit bir gereçtir. Bu gerecin şirket içi VMware makinelerini bulur ve bunlar hakkındaki meta veriler Azure geçişi hizmetine gönderir.
 
-Toplayıcı gerecini Azure geçişi projeden indirebileceğiniz bir OVF ' dir. 4 çekirdek, 8 GB RAM ve 80 GB'lık bir disk ile VMware sanal makine örneğini oluşturduğunda. Windows Server 2012 R2 (64-bit) gerecinin işletim sistemidir.
+## <a name="deploying-the-collector"></a>Toplayıcı dağıtımı
 
-Toplayıcı adımları izleyerek oluşturabilirsiniz burada - [Toplayıcı VM'yi oluşturma işlemini](tutorial-assessment-vmware.md#create-the-collector-vm).
+Bir OVF şablonunu kullanarak Toplayıcı gerecini dağıtın:
 
-## <a name="discovery-methods"></a>Bulma yöntemleri
+- Azure portalında bir Azure geçişi projesi OVF şablonunu indirin. Vcenter Server VM Toplayıcı gerecini ayarlamak için indirilen dosyayı içeri aktarın.
+- OVF 4 çekirdek, 8 GB RAM ve 80 GB'lık bir disk ile VM VMware ayarlar. Windows Server 2012 R2 (64-bit) işletim sistemidir.
+- Toplayıcı çalıştırdığınızda, Azure geçişi için toplayıcı bağlanabildiğinden emin olmak için bir dizi önkoşul denetimlerini çalıştırın.
+ 
+- [Daha fazla bilgi edinin](tutorial-assessment-vmware.md#create-the-collector-vm) Toplayıcı oluşturma hakkında daha fazla. 
 
-Şirket içi ortamınızı bulduğunuz iki yöntem vardır:
 
-a. **Tek seferlik:** Bu model, Toplayıcının vCenter sanal makineleri ile ilgili meta verileri toplamak için sunucu ile iletişim kurar. Performans verileri toplama VM'lerin geçmiş performans verileri vCenter Server'da depolanan kullanır ve son bir ayın performans geçmişi toplar. Bu modelde, Azure geçişi, her bir ölçüm için (en yüksek sayacı) ve ortalama sayacını toplar. Bir kerelik bulma olduğundan, gereç bu durumda sürekli olarak projeye bağlı değil. Bulma tamamlandıktan sonra bu nedenle, şirket içi ortamda değişiklikleri Azure geçişi içinde yansıtılmaz. Aynı projeye aynı ortamın bir yeniden bulma yapmak zorunda isterseniz yansıtacak şekilde değişir.
+## <a name="collector-prerequisites"></a>Toplayıcı önkoşulları
 
-> [!NOTE]
-> Bu yöntem, 3. düzey vcenter Server istatistik ayarları ayarlayın ve gerekli performans ölçümleri toplamak için keşif başlatmadan önce en az bir gün bekleyin gerektirir.
+Toplayıcı sağlamak için Azure geçişi hizmetini internet üzerinden bağlanabilir ve verileri karşıya yükleme bulunan birkaç önkoşul denetimleri geçmesi gerekir. 
 
-b. **Sürekli bulma:** Toplayıcı gerecini Bu model için sürekli olarak Azure geçişi projesine bağlıdır. Sürekli olarak, şirket içi ortamda, her 20 saniyede gerçek zamanlı kullanım verilerini toplamak için profil. Gereç ardından pay 20 saniye örnekleri yukarı ve Azure'a gönderilen en yüksek değer seçerek boyunca 15 dakikada bir tek veri noktası oluşturur. Bu model için performans verilerini toplama vCenter Server'ın istatistik ayarları, bağlı değildir. Sürekli dilediğiniz zaman Gereci profil oluşturma durdurabilirsiniz.
+- **İnternet bağlantısı kontrol**: Toplayıcı doğrudan İnternet'e veya bir ara sunucu aracılığıyla bağlanabilirsiniz.
+    - Önkoşul denetimi bağlantıyı doğrular [gerekli ve isteğe bağlı URL'leri](#connect-to-urls).
+    - İnternet'e doğrudan bir bağlantı varsa, belirli bir eylem, Toplayıcı gerekli URL'lere erişebildiğinden emin emin olma dışında gereklidir.
+    - Bir ara sunucu bağlanıyorsanız, Not [aşağıdaki gereksinimleri](#connect-via-a-proxy).
+- **Zaman eşitleme doğrulayın**: Toplayıcı hizmetine yapılan istekler yetkilendirilmesini sağlamak için internet saat sunucusuyla eşitlenmiş.
+    - Böylece zaman doğrulanmış portal.azure.com url Toplayıcısından erişilebilir olmalıdır.
+    - Makine eşitlenmemiş ise, saatin geçerli saati eşleştirilecek Toplayıcı VM üzerinde değiştirmeniz gerekir. Bunu yapmak için bir yönetici istemi VM'de çalıştırmak açın **w32tm /tz** saat dilimini denetlemek için. Çalıştırma **w32tm/resync** zaman eşitlenecek.
+- **Toplayıcı hizmeti çalışıyor denetleyin**: Azure geçişi Toplayıcısı hizmeti, Toplayıcı VM üzerinde çalıştırıyor olması gerekir.
+    - Makinenin önyükleme işlemi sırasında bu hizmeti otomatik olarak başlatılır.
+    - Hizmet çalışmıyorsa başlatın Denetim Masası'ndan.
+    - Toplayıcı hizmetinin vCenter Server'a bağlanır, VM meta verileri ve performans verilerini toplar ve Azure geçişi hizmetine gönderir.
+- **VMware Powerclı 6.5 yüklendi denetleyin**: VMware Powerclı 6.5 PowerShell modülü, vCenter Server ile iletişim kurabilmesi için toplayıcı VM üzerinde yüklenmelidir.
+    - Toplayıcı modülü yüklemek için gereken URL'leri erişebiliyorsa, yükleme otomatik olarak Toplayıcı dağıtımı sırasında olur.
+    - Toplayıcı, dağıtım sırasında modülü yükleyemezse, şunları yapmalısınız [el ile yükleyin](#install-vwware-powercli-module-manually).
+- **VCenter sunucusu bağlantısını denetleyin**: toplayıcı için vCenter Server ve Vm'leri, meta verileri ve performans sayaçları için bir sorgu olmalıdır. [Önkoşulları doğrulama](#connect-to-vcenter-server) bağlanma.
 
-> [!NOTE]
-> Sürekli bulma işlevi Önizleme aşamasındadır. VCenter Server istatistik ayarları düzeyini 3 olarak yoksa, bu yöntemi kullanmak için önerilir.
 
-[Daha fazla bilgi edinin] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) Azure geçişi tarafından toplanan performans sayaçları ile ilgili.
+### <a name="connect-to-the-internet-via-a-proxy"></a>Bir ara sunucu üzerinden İnternet'e bağlanın
 
-## <a name="collector-communication-diagram"></a>Toplayıcı iletişim diyagramı
+- Proxy sunucusu kimlik doğrulaması gerektiriyorsa, Toplayıcı ayarladığınızda, kullanıcı adı ve parola belirtebilirsiniz.
+- Proxy sunucusunun IP adresini/FQDN'yi olarak belirtilen *http://IPaddress* veya *http://FQDN*.
+- Yalnızca HTTP proxy’si desteklenir. HTTPS tabanlı Ara sunucuları toplayıcı tarafından desteklenmiyor.
+- Araya giren bir proxy Web sunucusunda ise Toplayıcı VM proxy sertifikasını içeri aktarmanız gerekir.
+    1. Toplayıcı sanal makinesi, Git **Başlat menüsü** > **bilgisayar sertifikalarını yönetme**.
+    2. Sertifika Aracı'nda altında **sertifikalar - yerel bilgisayar**, bulma **Güvenilen Yayımcılar** > **sertifikaları**.
+
+        ![Sertifika aracı](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+    3. Proxy sertifikası, Toplayıcı VM'yi kopyalayın. Ağ yöneticinizden alması gerekebilir
+    4. Sertifika açmak için çift tıklatın ve **sertifikayı yükle**.
+    5. Sertifika İçeri Aktarma Sihirbazı'nda > Store konumu seçin **yerel makine**.
+
+    ![Sertifika depolama konumu](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+    6. Seçin **tüm sertifikaları aşağıdaki depolama alanına yerleştir** > **Gözat** > **Güvenilen Yayımcılar**. Tıklayın **son** sertifikayı içeri aktarmak için.
+    
+    ![Sertifika deposu](./media/concepts-intercepting-proxy/certificate-store.png)
+
+    7. Sertifika beklendiği gibi alınır ve internet bağlantısı Önkoşul denetimi works olarak beklenen denetleyin.
+
+    
+
+
+### <a name="connect-to-urls"></a>URL'lerle
+
+Bağlantı denetimi URL'lerin bir listesini bağlanarak doğrulanır.
+
+**URL** | **Ayrıntılar**  | **Önkoşul denetimi**
+--- | --- | ---
+*.portal.azure.com | Zaman eşitleme ve Azure hizmet bağlantısını denetler. | Erişim URL'si gereklidir.<br/><br/> Bağlantı yoksa Önkoşul denetimi başarısız olur.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *. powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| VCenter Powerclı PowerShell modülünü yüklemek için kullanılır. | İsteğe bağlı URL'lere erişim.<br/><br/> Önkoşul denetimi başarısız olmaz.<br/><br/> Toplayıcı VM üzerinde otomatik Modül yükleme başarısız olur. Modül el ile yüklemeniz gerekir.
+ 
+
+### <a name="install-vmware-powercli-module-manually"></a>VMware Powerclı modülünü el ile yükleme
+
+1. Modülünü kullanarak yükleme [adımları](https://blogs.vmware.com/PowerCLI/2017/04/powercli-install-process-powershell-gallery.html). Çevrimiçi ve çevrimdışı yükleme adımları açıklanmaktadır.
+2. Toplayıcı VM'yi çevrimdışı ve internet erişimi olan farklı bir makinede modülü yüklerseniz, Toplayıcı VM için bu makineden VMware.* dosyaları kopyalamanız gerekir.
+3. Yükleme sonrasında Powerclı yüklendiğinden emin olmak için önkoşul denetimlerini yeniden başlatabilirsiniz.
+
+### <a name="connect-to-vcenter-server"></a>VCenter Server'a bağlanma
+
+Toplayıcı, vCenter Server'a bağlanır ve VM meta verileri ve performans sayaçları için sorgular. Bağlantı için ihtiyacınız olanlar aşağıda verilmiştir.
+
+- Yalnızca vCenter Server sürümleri 5.5, 6.0 ve 6.5 desteklenir.
+- Bulma için aşağıda özetlenen izinleri ile salt okunur bir hesabınız olması gerekir. Bulma için veri merkezlerinden erişilebilir hesapla yalnızca erişilebilir.
+- Varsayılan olarak bir FQDN veya IP adresine sahip vCenter Server'a bağlanın. VCenter sunucusu farklı bir bağlantı noktasında dinliyorsa, formu kullanarak bağlanma *IPAddress:Port_Number* veya *FQDN:Port_Number*.
+- Depolama ve ağ için performans verilerini toplamak için vCenter için istatistik ayarları düzeyini üç sunucu olarak ayarlanması gerekir.
+- Düzey üç düşükse bulma performans verileri toplanmaz çalışır. Bazı sayaçları toplanabilir, ancak diğer sıfır olarak ayarlanır.
+- Depolama ve ağ için performans verileri toplanmaz, değerlendirme boyut önerileri, CPU ve bellek ve disk ve ağ bağdaştırıcıları için yapılandırma verilerine göre performans verilerini demektir. 
+- Toplayıcı, bir ağ görebilmesi için vCenter sunucusuna sahip olmalıdır.
+
+#### <a name="account-permissions"></a>Hesap izinleri
+
+**Hesap** | **İzinler**
+--- | ---
+En az bir salt okunur kullanıcı hesabı | Veri Merkezi nesnesi –> Alt Nesneye Yay, role=Read-only   
+
+
+## <a name="collector-communications"></a>Toplayıcı iletişimleri
+
+Toplayıcı, aşağıdaki diyagramda ve tabloda özetlendiği gibi iletişim kurar.
 
 ![Toplayıcı iletişim diyagramı](./media/tutorial-assessment-vmware/portdiagram.PNG)
 
 
-| Bileşen      | Şununla iletişim kurmak için   | Gereken bağlantı noktası                            | Neden                                   |
-| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
-| Toplayıcı      | Azure Geçişi hizmeti | TCP 443                                  | Toplayıcı SSL bağlantı noktası 443 üzerinden hizmetiyle iletişim kurabilir |
-| Toplayıcı      | vCenter Server        | Varsayılan 443                             | Toplayıcı vCenter sunucusu ile iletişim kurabildiğini olmalıdır. 443 üzerinden vCenter varsayılan olarak bağlanır. VCenter farklı bir bağlantı noktasında dinliyorsa, bağlantı noktası Toplayıcı üzerinde giden bağlantı noktası olarak kullanılabilir olması gerekir |
-| Toplayıcı      | RDP|   | TCP 3389 | Toplayıcı makineye yönelik RDP kullanabilmek için |
-
-## <a name="collector-pre-requisites"></a>Toplayıcı ön koşullar
-
-Azure geçişi hizmetine bağlanın ve bulunan verileri karşıya yükleme emin olmak için birkaç önkoşul denetimlerini geçmek Toplayıcı gerekir. Bu makalede her Önkoşullar görünür ve neden gerekli olduğunu anlar.
-
-### <a name="internet-connectivity"></a>İnternet bağlantısı
-
-Toplayıcı gerecini bulunan makineler bilgileri göndermek için internet'e bağlı olması gerekir. Makine aşağıdaki iki yöntemden biri bir internet'e bağlanabilir.
-
-1. Doğrudan internet bağlantınız için toplayıcıyı yapılandırabilirsiniz.
-2. Proxy sunucu üzerinden bağlanmak için toplayıcı yapılandırabilirsiniz.
-    * Proxy sunucusu kimlik doğrulaması gerektiriyorsa, kullanıcı adı ve parola bağlantı ayarlarında belirtebilirsiniz.
-    * Proxy sunucusunun IP adresini/FQDN'yi biçiminde olmalıdır http://IPaddress veya http://FQDN. Yalnızca http proxy'si desteklenir.
-
-> [!NOTE]
-> HTTPS tabanlı Ara sunucuları toplayıcı tarafından desteklenmez.
-
-#### <a name="internet-connectivity-with-intercepting-proxy"></a>Kesintiye proxy ile Internet bağlantısı
-
-Proxy sunucunun internet'e bağlanmak için kullandığınız bir araya giren bir proxy varsa, Toplayıcı VM proxy sertifikasını içeri aktarmak için gereklidir. Toplayıcı sanal makinesi sertifikanın nasıl içeri aktarabilirsiniz adımlar aşağıda verilmiştir.
-
-1. Toplayıcı sanal makinesi, Git **Başlat menüsü** ve bulma ve açma **bilgisayar sertifikalarını yönetme**.
-2. Sol bölmede, sertifikaları aracında altında **sertifikalar - yerel bilgisayar**, bulma **Güvenilen Yayımcılar**. Altında **Güvenilen Yayımcılar**, tıklayın **sertifikaları** sağ taraftaki bölmede sertifikaların listesini görmek için.
-
-    ![Sertifika aracı](./media/concepts-intercepting-proxy/certificates-tool.png)
-
-3. Toplayıcı sanal makinesi, proxy sertifikasını kopyalayın. Bu sertifikayı edinmek için kuruluşunuzdaki ağ yöneticisi ekibine ulaşmak olabilir.
-4. Sertifika açmak için çift tıklayın. Tıklayın **Sertifika Yükle**. Bu Sertifika Alma Sihirbazı götürür.
-5. Sertifika İçeri Aktarma Sihirbazı'nda Store konumu seçin **yerel makine**. **İleri'ye**.
-
-    ![Sertifika depolama konumu](./media/concepts-intercepting-proxy/certificate-store-location.png)
-
-6. Seçeneği için **tüm sertifikaları aşağıdaki depolama alanına yerleştir**. Tıklayın **Gözat** seçip **Güvenilen Yayımcılar** gündeme sertifikalar listesinden. **İleri**’ye tıklayın.
-
-    ![Sertifika deposu](./media/concepts-intercepting-proxy/certificate-store.png)
-
-7. **Son**'a tıklayın. Bu sertifikayı içeri aktaracaksınız.
-8. İsteğe bağlı olarak, adım 1 ve 2 numaralı olduğu gibi sertifika Aracı'nı açarak sertifika içeri doğrulayabilirsiniz.
-9. Azure geçişi toplayıcısı uygulama, internet bağlantısı Önkoşul denetimi başarılı olduğunu doğrulayın.
-
-
-#### <a name="whitelisting-urls-for-internet-connection"></a>İnternet bağlantısı için URL'leri beyaz listeye ekleme
-
-Önkoşul denetimi Toplayıcı sağlanan ayarları aracılığıyla İnternet'e bağlanabiliyorsa başarılı olur. Bağlantı denetimi URL'lerin bir listesini aşağıdaki tabloda verilen bağlanarak doğrulanır. Herhangi bir URL tabanlı güvenlik duvarı proxy'si kullanıyorsanız giden bağlantıyı denetlemek için bu URL'ler gerekli izin verilenler listesine emin olun:
-
-**URL** | **Amacı**  
---- | ---
-*.portal.azure.com | Azure hizmeti bağlantısını denetleyin ve zaman eşitleme doğrulamak için gereken sorunlar.
-
-Ayrıca, onay ayrıca aşağıdaki URL'lere bağlantı doğrulamaya çalışır ancak onay erişilemiyor, başarısız olmaz. Aşağıdaki URL'ler için beyaz liste yapılandırmak isteğe bağlıdır, ancak Önkoşul denetimi azaltmak için el ile adımları uygulamanız gerekir.
-
-**URL** | **Amacı**  | **Beyaz liste olmadığında ne olur**
+**Toplayıcı ile iletişim kurar** | **Bağlantı Noktası** | **Ayrıntılar**
 --- | --- | ---
-*.oneget.org:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yüklemesi başarısız olur. Modül el ile yükleyin.
-*.windows.net:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yüklemesi başarısız olur. Modül el ile yükleyin.
-*.windowsazure.com:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yüklemesi başarısız olur. Modül el ile yükleyin.
-*. powershellgallery.com:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yüklemesi başarısız olur. Modül el ile yükleyin.
-*.msecnd.net:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yüklemesi başarısız olur. Modül el ile yükleyin.
-*.visualstudio.com:443 | Gerekli powershell indirmek için vCenter Powerclı modülü temel. | Powerclı yüklemesi başarısız olur. Modül el ile yükleyin.
+Azure Geçişi hizmeti | TCP 443 | Toplayıcı SSL 443 üzerinden Azure geçişi hizmeti ile iletişim kurar.
+vCenter Server | TCP 443 | Toplayıcı, vCenter Server ile iletişim kurabildiğini olmalıdır.<br/><br/> Varsayılan olarak 443 üzerinden vcenter bağlanır.<br/><br/> VCenter sunucusu farklı bir bağlantı noktasında dinliyorsa, bağlantı noktası Toplayıcı üzerinde giden bağlantı noktası olarak kullanılabilir olması gerekir.
+RDP | TCP 3389 | 
 
-### <a name="time-is-in-sync-with-the-internet-server"></a>Internet sunucusuyla eşitlenmiş saat
 
-Toplayıcı hizmet isteklerine kimlik doğrulaması sağlamak için internet saat sunucusuyla eşitlenmiş olması gerekir. Böylece zaman doğrulanmış portal.azure.com url Toplayıcısından erişilebilir olmalıdır. Makine eşitleme dışı ise, saatin geçerli zamanı, aşağıdaki şekilde eşleşecek şekilde Toplayıcı VM üzerinde değişiklik gerekir:
 
-1. VM üzerinde bir yönetici komut istemi açın.
-1. Saat dilimi denetlemek için w32tm /tz çalıştırın.
-1. Zaman eşitlenecek w32tm/resync çalıştırın.
 
-### <a name="collector-service-should-be-running"></a>Toplayıcı hizmetinin çalışıyor olması gerekir
+## <a name="securing-the-collector-appliance"></a>Toplayıcı gerecini güvenliğini sağlama
 
-Azure geçişi Toplayıcısı hizmeti makinede çalıştırılması. Makinenin önyükleme işlemi sırasında bu hizmeti otomatik olarak başlatılır. Hizmet çalışmıyorsa başlatabilirsiniz *Azure geçişi toplayıcısı* Denetim Masası aracılığıyla hizmet. VCenter sunucusuna bağlanmak için makine meta verileri ve performans verilerini toplama ve hizmete göndermek için toplayıcı hizmetinin sorumludur.
 
-### <a name="vmware-powercli-65"></a>VMware Powerclı 6.5
+Toplayıcı gerecini güvenliğini sağlamak için aşağıdaki adımları öneriyoruz:
 
-VMware powerclı'yı powershell modülü Toplayıcı makine ayrıntılarını ve performans verileri için sorgu ve vCenter sunucusu ile iletişim kurabilmesi için yüklenmesi gerekir. Powershell modülü otomatik olarak indirilir ve önkoşul denetimi bir parçası olarak yüklenir. Otomatik Yükleme gerektirir ya da sağlayan başarısız birkaç URL'leri beyaz beyaz listeye ekleme tarafından erişim veya modülünü el ile yükleme.
+- Paylaşma veya yönetici parolaları yetkisiz kişilerle misplace kullanmayın.
+- Gereç kullanımda olmadığında kapatın.
+- Güvenli bir ağ Gereci yerleştirin.
+- Geçiş tamamlandıktan sonra gereç örneğini silin.
+- Ayrıca, diskler üzerinde önbelleğe vCenter kimlik bilgilerini olabilir geçişten sonra da disk yedekleme dosyalarının (Vmdk) silin.
 
-Modül aşağıdaki adımları kullanarak el ile yükleyin:
+## <a name="updating-the-collector-vm"></a>Toplayıcı sanal makinesi güncelleştiriliyor
 
-1. Powerclı Toplayıcısında internet bağlantısı olmadan yüklemek için verilen adımları izleyin. [bu bağlantıyı](https://blogs.vmware.com/PowerCLI/2017/04/powercli-install-process-powershell-gallery.html) .
-2. İnternet erişimi olan başka bir bilgisayardakiler de PowerShell modülü yükledikten sonra dosyaları VMware.* bu makineden Toplayıcı makineye kopyalayın.
-3. Önkoşul denetimleri yeniden başlatın ve Powerclı yüklü olduğunu onaylayın.
+Toplayıcı gerecini üzerinde sürekli Windows güncelleştirmeleri çalıştırmanızı öneririz.
 
-## <a name="connecting-to-vcenter-server"></a>VCenter Server'a bağlanma
+- Toplayıcı 60 gün boyunca güncelleştirilmemesi durumunda otomatik olarak makinesi kapatılıyor başlatır.
+- Bulma çalışıyorsa, 60 gün geçtiğinde bile makine kapatılmış gerekmez. Bulma tamamlandıktan sonra makine kapatılır.
+- Toplayıcı 45 gün boyunca kullandıysanız, çalışan Windows update tarafından her zaman güncelleştirme makine tutma öneririz.
 
-Toplayıcı, vCenter Server'a bağlanın ve sanal makineler, bunların meta verileri ve performans sayaçlarıyla sorgulayabilir. Bu veriler, proje tarafından bir değerlendirme hesaplamak için kullanılır.
+## <a name="upgrading-the-collector-appliance-version"></a>Toplayıcı Gereci sürümüne yükseltme
 
-1. VCenter Server'a bağlanmak için aşağıdaki tabloda verilen izinlerine sahip salt okunur bir hesap bulmayı çalıştırmak için kullanılabilir.
+OVA yeniden indirmeden Toplayıcı en son sürüme yükseltebilirsiniz.
 
-    |Görev  |Gerekli rol/hesap  |İzinler  |
-    |---------|---------|---------|
-    |Toplayıcı Gereci tabanlı bulma    | En az bir salt okunur kullanıcı gerekir        |Veri Merkezi nesnesi –> Alt Nesneye Yay, role=Read-only         |
-
-2. Bulma için yalnızca belirtilen vCenter hesabı tarafından erişilebilen veri merkezlerinden erişilebilir.
-3. VCenter vCenter sunucusuna bağlanmak için FQDN/IP adresi belirtmeniz gerekir. Varsayılan olarak, bu bağlantı noktası 443 üzerinden bağlanır. VCenter farklı bir bağlantı noktası üzerinde dinleyecek şekilde yapılandırdıysanız, sunucu adresi IPAddress:Port_Number veya FQDN:Port_Number biçiminde bir parçası olarak belirtebilirsiniz.
-4. Dağıtımı başlatmadan önce vCenter Server için istatistik ayarları düzeyini 3 olarak ayarlanması gerekir. Düzey 3'ten daha düşükse bulma tamamlanır, ancak depolama ve ağ için performans verileri toplanmaz. Değerlendirme boyut önerileri, CPU ve bellek için performans verilerini ve yapılandırma verilerini disk ve ağ bağdaştırıcıları için yalnızca bu durumda hesaplanır. [Daha fazla bilgi edinin](./concepts-collector.md) hangi verilerin toplandığını ve değerlendirme nasıl etkiler.
-5. Toplayıcı, bir ağ görebilmesi için vCenter sunucusuna sahip olmalıdır.
-
-> [!NOTE]
-> Yalnızca vCenter Server sürümleri 5.5, 6.0 ve 6.5 resmi olarak desteklenir.
-
-> [!IMPORTANT]
-> Böylece tüm sayaçları düzgün toplanan istatistikleri düzeyi için en yüksek genel düzeyde (3) ayarlamanızı öneririz. Daha düşük bir düzeyde ayarlamak vCenter varsa, yalnızca birkaç sayaçları 0 olarak ayarlamak geri kalanı ile tamamen toplanabilir. Değerlendirmeyi, ardından eksik veri gösterebilir.
-
-### <a name="selecting-the-scope-for-discovery"></a>Bulma kapsamını seçme
-
-VCenter bağlandıktan sonra bulmak için bir kapsamı seçebilirsiniz. Kapsam seçilmesi, tüm sanal makineler belirtilen vCenter stok yolundan bulur.
-
-1. Kapsam, bir veri merkezi, bir klasör veya ESXi konağı olabilir.
-2. Aynı anda yalnızca bir kapsamı seçebilirsiniz. Daha fazla sanal makine seçmek için bir bulma tamamlamak ve yeni bir kapsam ile keşif işlemini yeniden başlatın.
-3. Yalnızca olan kapsamı seçebilirsiniz *1500'den küçük sanal makineler*.
-
-## <a name="specify-migration-project"></a>Geçiş projesi belirtin
-
-Şirket içi vCenter bağlı ve kapsam belirtilen sonra Keşif ve değerlendirme için kullanılması gereken geçiş proje ayrıntılarını artık belirtebilirsiniz. Proje kimliği ve anahtarını belirtin ve bağlanın.
-
-## <a name="start-discovery-and-view-collection-progress"></a>Bulma ve görüntüleme toplama ilerleme durumunu Başlat
-
-Bulma işlemi başladıktan sonra vCenter sanal makineler bulunur ve meta verileri ve performans verilerini sunucuya gönderilir. İlerleme durumunu, aşağıdaki kimlikler bildirir:
-
-1. Toplayıcı kimliği: Toplayıcı makinenize verilen benzersiz bir kimliği. Bu kimliği, belirli bir makine için farklı bulmaların arasında değiştirmez. Bu kimliği hataları durumunda Microsoft Support sorunu bildirirken kullanabilirsiniz.
-2. Oturum kimliği: Çalışan iş koleksiyonu için benzersiz bir kimliği. Bulma iş tamamlandığında Portalı'nda aynı oturum Kimliğine başvurabilirsiniz. Bu kimliği her toplama işine değiştirir. Hataları olması durumunda, bu kimliği Microsoft Support bildirebilirsiniz.
-
-### <a name="what-data-is-collected"></a>Verilerin ne toplanır?
-
-Seçili sanal makinelerle ilgili olarak aşağıdaki statik meta veri toplayıcı gerecini bulur.
-
-1. VM görünen adı (temel, vCenter)
-2. Sanal makinenin envanteri yolu (konak/klasör vcenter)
-3. IP adresi
-4. MAC adresi
-5. İşletim sistemi
-5. Çekirdek, disk, NIC sayısı
-6. Bellek boyutu, Disk boyutları
-7. Ve VM, disk ve aşağıdaki tabloda listelendiği gibi ağ performans sayaçları.
-
-Aşağıdaki tabloda, zamanında bulma modeli için toplanır ve aynı zamanda belirli bir sayaç alınamadı, etkilenen değerlendirme sonuçları listeler tam performans sayaçları listeler.
-
-Sürekli bulma için sayaçları (20 saniye aralığı) gerçek zamanlı olarak toplanır. vCenter istatistikleri düzeyi üzerinde hiçbir bağımlılık şekilde. Gereç ardından pay en yüksek değeri 20 saniye örnekleri seçerek boyunca 15 dakikada bir tek veri noktası oluşturmak için 20 saniye örnekleri yukarı ve Azure'a gönderir.
-
-|Sayaç                                  |Düzey    |Cihaz başına düzeyi  |Etki değerlendirmesi                               |
-|-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.average                        | 1       |NA                |Önerilen VM boyutu ve maliyet                    |
-|mem.Usage.average                        | 1       |NA                |Önerilen VM boyutu ve maliyet                    |
-|virtualDisk.read.average                 | 2       |2                 |Disk boyutu, depolama maliyetini ve VM boyutu         |
-|virtualDisk.write.average                | 2       |2                 |Disk boyutu, depolama maliyetini ve VM boyutu         |
-|virtualDisk.numberReadAveraged.average   | 1       |3                 |Disk boyutu, depolama maliyetini ve VM boyutu         |
-|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Disk boyutu, depolama maliyetini ve VM boyutu         |
-|NET.Received.average                     | 2       |3                 |VM boyutu ve ağ maliyeti                        |
-|NET.transmitted.average                  | 2       |3                 |VM boyutu ve ağ maliyeti                        |
-
-> [!WARNING]
-> Daha yüksek bir istatistik düzeyini yalnızca ayarladıysanız, tek seferlik bulma için bir gün için performans sayaçları oluşturma sürer. Bu nedenle, bir gün sonra bulma çalıştırmanızı öneririz. Sürekli bulma modeli için ortamı profili ve ardından değerlendirme oluşturmak Gereci için bulma işlemi başlatılıyor sonra en az bir gün bekleyin.
-
-### <a name="time-required-to-complete-the-collection"></a>Koleksiyon tamamlamak için gereken süre
-
-**Tek seferlik bulma**
-
-Bu modelde, Toplayıcı VM yapılandırma ve performans geçmişi vCenter Server'dan toplar ve projeye gönderir. Gereç bu durumda sürekli olarak projeye bağlı değil. Seçilen kapsamda sanal makinelerin sayısına bağlı olarak, projeye yapılandırma meta verilerini gönderme 15 dakika sürer. Yapılandırma meta verileri portalda kullanılabilir duruma geldikten sonra portalda makineler listesini görmek ve grupları oluşturmaya başlayın. Yapılandırma verileri toplandıktan sonra portalda kullanılabilir olması performans verileri için bir saate kadar sürebilir seçilen kapsam içindeki sanal makinelerin sayısına dayalı olarak.
-
-**Sürekli bulma**
-
-Bu modelde, bulma ve performans verilerini tetiklemenin 1 saat 2 saat sonra kullanılabilir hale gelmeden başladıktan sonra yapılandırma verilerini şirket içi sanal makinelerin kullanılabilir. Bu sürekli bir modeli olduğundan, Toplayıcı sürekli olarak performans verileri için Azure geçişi projesini göndermeye devam eder.
-
-## <a name="locking-down-the-collector-appliance"></a>Toplayıcı gerecini kilitleme
-Toplayıcı gerecini üzerinde sürekli Windows güncelleştirmeleri çalıştırmanızı öneririz. Bir Toplayıcı 60 gün boyunca güncelleştirilmezse, Toplayıcı makinesi otomatik olarak kapatılıyor başlar. Bir bulma çalışıyorsa, 60 günlük süresi olsa bile makine kapalı, açılır değil. POST bulma işi tamamlar, makine kapatılır. Toplayıcı 45 günden fazla bir süre için kullanıyorsanız, her zaman çalışan Windows update tarafından güncelleştirme zamanı makine tutma öneririz.
-
-Ayrıca gerecinize güvenliğini sağlamak için aşağıdaki adımları öneririz
-1. Paylaşım değil veya yönetici parolaları yetkisiz kişilerle misplace.
-2. Gereç kullanımda olmadığında kapatın.
-3. Güvenli bir ağ Gereci yerleştirin.
-4. Geçiş işi tamamlandıktan sonra gereç örneğini silin. Diskler üzerinde önbelleğe vCenter kimlik bilgilerini olabilir (Vmdk) dosyalarını yedekleme disk da silmek emin olun.
-
-## <a name="how-to-upgrade-collector"></a>Toplayıcı yükseltme
-
-OVA yine indirmeden Toplayıcı en son sürüme yükseltebilirsiniz.
-
-1. En son sürümünü indirin [yükseltme paketi](https://aka.ms/migrate/col/upgrade_9_14) (sürüm 1.0.9.14).
+1. İndirme [en son listelenen yükseltme paketi](concepts-collector-upgrade.md) 
 2. İndirilen düzeltme güvenli olmasını sağlamak için yönetici komut penceresi açın ve karma ZIP dosyası oluşturmak için aşağıdaki komutu çalıştırın. Oluşturulan karma karşı belirli bir sürüm belirtilen karma değeri ile eşleşmesi gerekir:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -238,47 +163,96 @@ OVA yine indirmeden Toplayıcı en son sürüme yükseltebilirsiniz.
 4. Zip dosyasını sağ tıklatın ve tümünü Ayıkla'ı seçin.
 5. Setup.ps1 üzerinde sağ tıklayın ve PowerShell ile Çalıştır'ı seçin ve güncelleştirmeyi yüklemek için ekrandaki yönergeleri izleyin.
 
-### <a name="list-of-updates"></a>Güncelleştirmelerin listesi
 
-#### <a name="upgrade-to-version-10914"></a>1.0.9.14 sürümüne yükseltin
+## <a name="discovery-methods"></a>Bulma yöntemleri
 
-Karma değerleri yükseltme [paketini 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14)
+Toplayıcı gerecini bulma, tek seferlik veya sürekli bulma için kullanabileceğiniz iki yöntem vardır.
 
-**Algoritma** | **Karma değeri**
---- | ---
-MD5 | c5bf029e9fac682c6b85078a61c5c79c
-SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
-SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
-#### <a name="upgrade-to-version-10913"></a>1.0.9.13 sürümüne yükseltin
+### <a name="one-time-discovery"></a>Tek seferlik bulma
 
-Karma değerleri yükseltme [paketini 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)
+Toplayıcı, bir kerelik vCenter sanal makineleri ile ilgili meta verileri toplamak için sunucu ile iletişim kurar. Bu yöntemi kullanarak:
 
-**Algoritma** | **Karma değeri**
---- | ---
-MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
-SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
-SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
+- Gerecin Azure geçişi projesi için sürekli olarak bağlı değil.
+- Bulma tamamlandıktan sonra Azure geçişi şirket içi ortamda değişiklikleri yansıtılmıyor. Değişiklikleri yansıtacak şekilde, aynı projede aynı ortamı yeniden bulmak gerekir.
+- Bu keşif yöntemi için üçüncü düzey için vcenter Server istatistik ayarları ayarlamanız gerekir.
+- Düzeyi üç ayarladıktan sonra bunu bir gün için performans sayaçlarını oluşturmak için kapladığı. Bu nedenle, bir günün ardından bulma çalıştırırken öneririz.
+- Bir VM için performans verilerini toplamak, Gereci vCenter Server'da depolanan geçmiş performans verilerini kullanır. Bu performans geçmişi için geçtiğimiz ay toplar.
+- Azure geçişi, her bir ölçüm için ortalama bir sayaç (yoğun sayacı yerine) toplar.
+     
 
-#### <a name="upgrade-to-version-10911"></a>1.0.9.11 sürümüne yükseltin
 
-Karma değerleri yükseltme [paketini 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)
+### <a name="continuous-discovery"></a>Sürekli bulma
 
-**Algoritma** | **Karma değeri**
---- | ---
-MD5 | 0e36129ac5383b204720df7a56b95a60
-SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
-SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
+Toplayıcı gerecini sürekli olarak Azure geçişi projesine bağlıdır.
 
-#### <a name="upgrade-to-version-1097"></a>Sürüm 1.0.9.7 yükseltme
+- Toplayıcı, gerçek zamanlı kullanım verilerine her 20 saniyede toplamak için şirket içi ortamı sürekli olarak profilleri.
+- Bu model, performans verilerini toplamak için vCenter Server istatistik ayarları üzerinde bağımlı değildir.
+- Gereç 20 saniye örneklerini yapar ve her 15 dakikada bir tek veri noktası oluşturur.
+- Verileri oluşturmak için Gereci noktası en yüksek değeri 20 saniye örnekleri seçer ve Azure'a gönderir.
+- Sürekli, dilediğiniz zaman Toplayıcı profil oluşturma durdurabilirsiniz.
+     
+> [!NOTE]
+> Sürekli bulma işlevi Önizleme aşamasındadır. Düzey 3 vCenter Server istatistik ayarları ayarlanmamış ise bu yöntem kullanmanızı öneririz.
 
-Karma değerleri yükseltme [paketini 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
 
-**Algoritma** | **Karma değeri**
---- | ---
-MD5 | 01ccd6bc0281f63f2a672952a2a25363
-SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
-SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
+## <a name="discovery-process"></a>Bulma işlemi 
+
+Gereç ayarlandıktan sonra bulma çalıştırabilirsiniz. Nasıl çalıştığını şu şekildedir:
+
+- Bir bulma kapsamı ile çalıştırın. Tüm sanal makineler belirtilen vCenter stok yolunda bulunur.
+    - Aynı anda bir kapsam ayarladığınız.
+    - Kapsam 1500 sanal makine içerebilir veya daha az.
+    - Kapsam, bir veri merkezi, klasör ya da ESXi konağı olabilir.
+- VCenter Server'ı bağladıktan sonra bir geçiş projesi koleksiyonu için belirterek bağlanın.
+- VM'ler bulunduktan ve meta verileri ve performans verilerini Azure'a gönderilir. Bu Eylemler, bir toplama işi bir parçasıdır.
+    - Toplayıcı gerecini bulmalar arasında belirli bir makine için kalıcı olan belirli bir Toplayıcı kimliği verilir.
+    - Çalışan bir toplama işi belirli bir oturum kimliği verilir. Kimlik her toplama işine değiştirir ve sorun giderme için kullanılabilir.
+
+
+### <a name="collected-metadata"></a>Toplanan meta verileri
+
+Toplayıcı gerecini VM'ler için statik aşağıdaki meta verileri bulur:
+
+- VM görünen adı (temel, vCenter sunucusu)
+- Sanal makinenin envanteri yolu (konak/klasörü vCenter Server)
+- IP adresi
+- MAC adresi
+- İşletim sistemi
+- Çekirdek, disk, NIC sayısı
+- Bellek boyutu, Disk boyutları
+- VM, disk ve ağ performans sayaçları.
+
+
+
+#### <a name="performance-counters"></a>Performans sayaçları
+
+
+- **Tek seferlik**: sayaçları için bir kerelik bulma toplandığında, aşağıdakilere dikkat edin: 
+        
+    - Bu, toplamak ve yapılandırma meta verilerini projeye göndermek için 15 dakika sürebilir.
+    - Yapılandırma verileri toplandıktan sonra portalda kullanılabilir olması performans verilerini bir saate kadar sürebilir.
+    - Meta verileri portalda kullanılabilir olduktan sonra VM'lerin listesi görüntülenir ve değerlendirmesi için grupları oluşturmaya başlayabilir.
+- **Sürekli bulma**: sürekli bulma için aşağıdakilere dikkat edin:
+    - Yapılandırma verileri VM için bulmayı Başlat sonraki bir saat kullanılabilir
+    - Performans verilerini 2 saat sonra kullanılabilir hale gelmeden başlatır.
+    - Bulma başlattıktan sonra ortamı değerlendirmeleri oluşturmadan önce profil cihaz için en az bir gün bekleyin.
+    
+   
+
+**Sayaç** | **Düzey** | **Cihaz başına düzeyi** | **Etki değerlendirmesi** 
+--- | --- | --- | ---
+CPU.Usage.average | 1 | NA | Önerilen VM boyutu ve maliyet  
+mem.Usage.average | 1 | NA | Önerilen VM boyutu ve maliyet  
+virtualDisk.read.average | 2 | 2 | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+virtualDisk.write.average | 2 | 2  | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+virtualDisk.numberReadAveraged.average | 1 | 3 |  Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+virtualDisk.numberWriteAveraged.average | 1 | 3 |   Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
+NET.Received.average | 2 | 3 |  VM boyutu ve ağ maliyeti hesaplar                        |
+NET.transmitted.average | 2 | 3 | VM boyutu ve ağ maliyeti hesaplar    
+
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

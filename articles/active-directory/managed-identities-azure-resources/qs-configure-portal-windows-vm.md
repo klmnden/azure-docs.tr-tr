@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 77953884253002c6da7b0151151d97bb65a6c659
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b73a79676be559ad491bd7bb16691369dd8fa271
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377097"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158640"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Azure kaynakları için yönetilen kimlikleri Azure portalını kullanarak bir VM yapılandırma
 
@@ -46,10 +46,15 @@ Bu bölümde, Azure portalını kullanarak sanal makine için sistem tarafından
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-a-vm"></a>Yönetilen kimlik sistem tarafından atanan bir VM oluşturma sırasında etkinleştir
 
-Şu anda Azure portalında bir VM oluşturma sırasında sistem tarafından atanan kimliği etkinleştirme desteklemez. Bunun yerine, öncelikle bir VM oluşturmak için aşağıdaki VM oluşturma Hızlı Başlangıç makalelerini birine bakın ve ardından sanal makine üzerindeki sistem tarafından atanan kimliği etkinleştirme ile ilgili ayrıntılar için sonraki bölüme devam edin:
+Yönetilen kimlik sistem tarafından atanan bir VM oluşturma sırasında altında etkinleştirmek için **Yönetim** sekmesinde **kimlik** bölümünde, geçiş **yönetilen hizmet kimliği** için **Üzerinde**.  
 
-- [Azure portalı ile bir Windows sanal makine oluşturun](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
-- [Azure portal ile Linux sanal makinesi oluşturma](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
+![VM oluşturma sırasında sistem tarafından atanan kimlik etkinleştir](./media/msi-qs-configure-portal-windows-vm/enable-system-assigned-identity-vm-creation.png)
+
+Bir VM oluşturmak için şu hızlı Başlangıçlarda için bakın: 
+
+- [Azure portalı ile bir Windows sanal makine oluşturun](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) 
+- [Azure portal ile Linux sanal makinesi oluşturma](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
+
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-vm"></a>Mevcut VM'yi yönetilen kimlik sistem tarafından atanan etkinleştir
 

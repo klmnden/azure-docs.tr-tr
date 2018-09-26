@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 273b0f1105d8b71b90a06e2627e201b97f12a754
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651260"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095404"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest labs'deki bir laboratuvara içinde bir VM'yi yeniden dağıtma
 Bir sanal makineye (VM) bir Uzak Masaüstü bağlantısı aracılığıyla bir laboratuvarda bağlanamıyorsanız, VM'yi yeniden dağıtma ve ona conencting yeniden deneyin. DevTest Labs VM yeniden dağıtırken, VM, Azure altyapısı içinde yeni bir düğüm için çalıştığı düğümünden taşır. Daha sonra tüm yapılandırma seçenekleri ve ilişkili kaynakları korurken VM'yi başlatır. Bu özellik, Uzak Masaüstü Bağlantısı ya da uygulama erişimi için Windows tabanlı Vm'leri Laboratuvardaki sorun giderme için harcanan süre kaydeder. 

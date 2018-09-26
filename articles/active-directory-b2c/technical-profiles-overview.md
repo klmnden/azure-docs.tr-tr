@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: aad6aa788e9d7c7ca2c438bdeb63e77e91e4791a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 496f411224a8d7424f85fed6e5eb105369863791
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714488"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161259"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C özel ilkeleri teknik profilleri hakkında
 
@@ -55,12 +55,10 @@ Tüm tür teknik profili, aynı kavramı paylaşır. Giriş talepleri göndermek
     - Parametreleri InputClaims gönderme ve bilgi OutputClaims olarak geri alma sırasında bir REST API çağrısı.
     - Veya kullanıcı hesabı güncelleştirilemiyor.
     - Gönderir ve mesaj MFA doğrular.
-4. **ValidationTechnicalProfiles** - bir [teknik profil otomatik olarak onaylanan](self-asserted-technical-profile.md), girdi çağırabilirsiniz [doğrulama teknik profili](validation-technical-profile.md). Doğrulama teknik profili, kullanıcı tarafından sağlanan verileri doğrular ve bir hata iletisi veya Tamam ile veya çıkış talep olmadan döndürür. Örneğin, ciddi bir şekilde Azure AD B2C'yi yeni bir hesap oluşturmadan önce Dizin Hizmetleri'nde kullanıcı zaten var olup olmadığını denetler. Kendi iş mantığınızı eklemek için bir REST API teknik profili çağırabilirsiniz.
-5. **OutputClaims** -talep geri talep paketi için döndürülen. Bu talep sonraki düzenleme adımları kullanabilir veya çıkış talep dönüşümleri.
-6. **OutputClaimsTransformations** - giriş taleplerini her çıkış talep dönüştürme toplanmış talep paketi. Yanı sıra çıkış talep giriş talepleri dönüşümlerinin ilk adımındaki önceki adımdan teknik profil çıkış talep giriş talepleri çıkış talep dönüşümünün olabilir. Yürütmeden sonra çıkış talep, talep paketindeki geri yerleştirilir. Bir çıkış talep dönüştürme, çıkış talep giriş talepleri bir sonraki çıkış talep dönüştürme de olabilir.
-7. **ValidationTechnicalProfiles** - bir [kendi kendine teknik profil onaylanan](self-asserted-technical-profile.md), girdi çağırabilirsiniz [doğrulama teknik profili](validation-technical-profile.md). Doğrulama teknik profili, kullanıcı tarafından profili verileri doğrular ve bir hata iletisi veya Tamam ile veya çıkış talep olmadan döndürür. Örneğin, ciddi bir şekilde Azure AD B2C'yi yeni bir hesap oluşturmadan önce Dizin Hizmetleri'nde kullanıcı zaten var olup olmadığını denetler. Kendi iş mantığınızı eklemek için bir REST API teknik profili çağırabilirsiniz.
-8. **OutputClaims** -talep geri talep paketi için döndürülen. Bu talep sonraki düzenlemeleri adım veya çıkış talep dönüştürmeleri kullanabilirsiniz.
-9. **OutputClaimsTransformations** -giriş her çıkış talep [dönüştürme talep](claimstransformations.md) talep paketinden seçilir. Önceki adımdan teknik profil çıkış talep giriş talepleri çıkış talep dönüşümünün olabilir. Yürütmeden sonra çıkış talep, talep paketindeki geri yerleştirilir. Bir çıkış talep dönüştürme, çıkış talep giriş talepleri bir sonraki çıkış talep dönüştürme de olabilir.
+4. **ValidationTechnicalProfiles** - bir [kendi kendine teknik profil onaylanan](self-asserted-technical-profile.md), girdi çağırabilirsiniz [doğrulama teknik profili](validation-technical-profile.md). Doğrulama teknik profili, kullanıcı tarafından profili verileri doğrular ve bir hata iletisi veya Tamam ile veya çıkış talep olmadan döndürür. Örneğin, ciddi bir şekilde Azure AD B2C'yi yeni bir hesap oluşturmadan önce Dizin Hizmetleri'nde kullanıcı zaten var olup olmadığını denetler. Kendi iş mantığınızı eklemek için bir REST API teknik profili çağırabilirsiniz.<p>Doğrulama teknik profili ' çıkış taleplerini kapsamını doğrulama teknik profil ve diğer doğrulama teknik profiller aynı teknik profili altındaki çağıran teknik profil sınırlıdır. Çıkış talep düzenleme sonraki adımda kullanmak istiyorsanız, çıkış talep doğrulama teknik profili çağıran teknik profile eklemeniz gerekir.
+5. **OutputClaims** -talep geri talep paketi için döndürülen. Bu talep sonraki düzenlemeleri adım veya çıkış talep dönüştürmeleri kullanabilirsiniz.
+6. **OutputClaimsTransformations** -giriş her çıkış talep [dönüştürme talep](claimstransformations.md) talep paketinden seçilir. Önceki adımdan teknik profil çıkış talep giriş talepleri çıkış talep dönüşümünün olabilir. Yürütmeden sonra çıkış talep, talep paketindeki geri yerleştirilir. Bir çıkış talep dönüştürme, çıkış talep giriş talepleri bir sonraki çıkış talep dönüştürme de olabilir.
+7. **Çoklu oturum açma (SSO) oturum yönetimi** - [SSO oturum yönetimi](active-directory-b2c-reference-sso-custom.md) kullanıcı zaten doğrulandıktan sonra bir kullanıcı etkileşimi denetler. Örneğin, yönetici kimlik sağlayıcıları seçimini görüntülenip görüntülenmeyeceğini veya yerel hesap ayrıntılarını yeniden girilmesi gerekip gerekmediğini kontrol edebilirsiniz.
 
 Teknik profil ayarlarını değiştirebilir veya yeni işlevler eklemek için başka bir teknik profili devralabilir.  **IncludeTechnicalProfile** teknik profil türetilmiş, temel teknik profiline başvuru bir öğedir.  
 

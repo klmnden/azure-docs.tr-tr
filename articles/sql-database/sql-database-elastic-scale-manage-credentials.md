@@ -1,77 +1,80 @@
 ---
-title: Esnek veritabanı istemci Kitaplığı'nda kimlik bilgilerini yönetme | Microsoft Docs
-description: Doğru düzeyde kimlik bilgileri, yönetici salt okunur, esnek veritabanı uygulamaları için nasıl kurulur
+title: Elastik veritabanı istemci Kitaplığı'nda kimlik bilgilerinin yönetimiyle | Microsoft Docs
+description: Doğru düzeylerine salt okunur, elastik veritabanı uygulamaları için yönetici kimlik bilgileri, ayarlama
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 3a371a2c055ed2d5c3c5c2ddf825bea4ad7e33f0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 116afab3a4481511ed6e1e8420b4bfa783add3d7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646343"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161242"
 ---
-# <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Esnek veritabanı istemci kitaplığına erişmek için kullanılan kimlik bilgileri
-[Esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) erişmek için kullandığı kimlik bilgilerini üç farklı türde [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md). Gereken bağlı olarak, kimlik bilgisi erişim olası en düşük düzeyde ile kullanın.
+# <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Elastik veritabanı istemci kitaplığı erişmek için kullanılan kimlik bilgileri
+[Elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) üç farklı türde kimlik bilgilerine erişmek için kullandığı [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md). İhtiyacınıza göre erişim olası en düşük düzeyi ile kimlik bilgileri kullanın.
 
-* **Yönetim kimlik bilgilerini**: oluşturmak veya bir parça eşleme Yöneticisi düzenleme. (Bkz [sözlüğü](sql-database-elastic-scale-glossary.md).) 
-* **Erişim kimlik bilgilerini**: parça hakkında bilgi edinmek için mevcut bir parça eşleme Yöneticisi'ne erişmek için.
-* **Bağlantı kimlik bilgilerini**: parça için bağlanmak için. 
+* **Yönetim kimlik bilgilerini**: oluşturma veya düzenleme parça eşleme Yöneticisi. (Bkz [sözlüğü](sql-database-elastic-scale-glossary.md).) 
+* **Erişim kimlik bilgilerini**: parçaları hakkında bilgi edinmek için mevcut bir parça eşleme Yöneticisi erişmek için.
+* **Bağlantı kimlik bilgilerini**: parçalara bağlanmak için. 
 
-Ayrıca bkz. [veritabanları ve Azure SQL veritabanında oturumları yönetme](sql-database-manage-logins.md). 
+Ayrıca bkz: [veritabanlarını ve oturum açma bilgileri Azure SQL veritabanı'nda yönetme](sql-database-manage-logins.md). 
 
 ## <a name="about-management-credentials"></a>Yönetim kimlik bilgileri ayrıntıları
-Yönetim kimlik bilgileri oluşturmak için kullanılan bir **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) nesne parça eşlemeleri işleyen uygulamalar için. (Örneğin, [esnek veritabanı araçlarını kullanarak bir parça ekleme](sql-database-elastic-scale-add-a-shard.md) ve [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md)). Esnek ölçeklendirme istemci kitaplığı kullanıcı SQL oturum açma bilgileri ve SQL kullanıcılar oluşturur ve her genel parça eşleme veritabanını ve tüm parça veritabanlarını da okuma/yazma izinleri verilir emin olur. Bu kimlik bilgileri, parça eşleme değişiklikleri gerçekleştirildiğinde genel parça eşleme ve yerel parça eşlemeleri korumak için kullanılır. Örneğin, parça eşleme Yöneticisi nesnesi oluşturmak için yönetim kimlik bilgilerini kullanın (kullanarak **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)): 
+Yönetim kimlik bilgilerini oluşturmak için kullanılan bir **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) parça eşlemesi işlemek uygulamalar için nesne. (Örneğin, [esnek veritabanı araçlarını kullanarak bir parça ekleme](sql-database-elastic-scale-add-a-shard.md) ve [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md)). Esnek ölçek istemcisi kitaplığını kullanıcısı SQL oturum açma bilgileri ve SQL kullanıcılar oluşturur ve her genel parça eşleme veritabanını ve tüm parça veritabanlarına de okuma/yazma izinleri verilir emin olur. Bu kimlik bilgileri, parça eşlemesine değişiklikleri gerçekleştirildiğinde genel parça eşleme ve yerel parça eşlemesi korumak için kullanılır. Örneğin, parça eşleme Yöneticisi nesnesi oluşturmak için gereken yönetim kimlik bilgilerini kullanın (kullanarak **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)): 
 
 ```
 // Obtain a shard map manager. 
 ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(smmAdminConnectionString,ShardMapManagerLoadPolicy.Lazy); 
 ```
 
-Değişkeni **smmAdminConnectionString** yönetim kimlik bilgilerini içeren bir bağlantı dizesi. Kullanıcı kimliği ve parola parça eşleme veritabanı ve tek tek parça okuma/yazma erişimi sağlar. Yönetim bağlantı dizesini de sunucu adını ve genel parça eşleme veritabanını tanımlamak için veritabanı adını içerir. Bu amaç için tipik bağlantı dizesi şöyledir:
+Değişken **smmAdminConnectionString** yönetim kimlik bilgilerini içeren bir bağlantı dizesidir. Kullanıcı kimliği ve parola parça eşleme veritabanını hem tek parça okuma/yazma erişimi sağlar. Yönetim bağlantı dizesi, sunucu adını ve veritabanı adı, genel parça eşleme veritabanını tanımlamak için de içerir. Bu amaç için bir bağlantı dizesi şöyledir:
 
 ```
 "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 ```
 
-Değerler biçiminde kullanmayın "username@server" — yalnızca "username" değerini kullanın.  Bu durum, kimlik bilgileri parça eşleme manager veritabanı ve farklı sunucularda olabilir tek tek parça karşı çalışmanız gerekir çünkü.
+Değerler biçiminde kullanmayın "username@server" — Bunun yerine yalnızca "username" değerini kullanın.  Kimlik bilgileri parça eşleme Yöneticisi veritabanını ve farklı sunucularda olabilecek tek parça karşı çalışmalıdır olmasıdır.
 
 ## <a name="access-credentials"></a>Erişim kimlik bilgileri
-Bir parça parça eşlemeleri yönetme olmayan bir uygulamada harita Yöneticisi oluştururken, genel parça harita üzerinde salt okuma izinlerine sahip kimlik bilgileri kullanın. Bu kimlik bilgileri altında genel parça eşlemesinden alındı bilgileri için kullanılan [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) ve istemci üzerindeki parça eşleme önbelleğini doldurmak için. Aynı çağrı düzeni aracılığıyla sağlanan kimlik bilgileri **GetSqlShardMapManager**: 
+Parça eşlemeleri yönetmek olmayan bir uygulamada bir parça eşleme Yöneticisi oluştururken genel parça eşlemesinde salt okunur izinlere sahip kimlik bilgilerini kullanın. Bu kimlik bilgileri altında genel parça eşlemesinden alındı bilgileri için kullanılan [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) ve parça eşlemesi önbelleğini doldurmak için. Aynı çağrı desen aracılığıyla sağlanan kimlik bilgileri **GetSqlShardMapManager**: 
 
 ```
 // Obtain shard map manager. 
 ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(smmReadOnlyConnectionString, ShardMapManagerLoadPolicy.Lazy);  
 ```
 
-Kullanımına dikkat edin **smmReadOnlyConnectionString** adına bu erişimi için farklı kimlik bilgileri kullanımını yansıtacak şekilde **yönetici olmayan** kullanıcılar: Bu kimlik bilgileri yazma izinleri sağlamalıdır değil Genel parça eşleme. 
+Kullanımına dikkat edin **smmReadOnlyConnectionString** adına bu erişimi için farklı kimlik bilgileri kullanımını yansıtacak şekilde **yönetici olmayan** kullanıcılar: Bu kimlik bilgilerini yazma izinleri üzerinde sağlamalıdır değil Genel parça eşleme. 
 
 ## <a name="connection-credentials"></a>Bağlantı kimlik bilgileri
-Ek kimlik bilgileri kullanılırken gereklidir **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkey), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)) parçalama anahtar ile ilişkili bir parça erişim yöntemi. Bu kimlik bilgileri parça üzerinde bulunan yerel parça eşleme tablolarını salt okunur erişim izinlerini sağlamanız gerekir. Bu, veri bağımlı üzerinde parça yönlendirme için bağlantı doğrulama gerçekleştirmek için gereklidir. Bu kod parçacığını veri erişimini veri bağımlı yönlendirme bağlamında sağlar: 
+Ek kimlik bilgileri kullanırken gereken **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkey), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)) bir parçalama anahtarı ile ilişkili bir parçaya erişimi için yöntemi. Bu kimlik bilgilerinin parça üzerinde bulunan yerel parça eşleme tablolarını salt okunur erişim için gerekli izinleri sağlamanız gerekir. Bu, parça verilere bağımlı yönlendirme için bağlantı doğrulamayı gerçekleştirmek için gereklidir. Bu kod parçacığı verilere bağımlı yönlendirme bağlamında veri erişimi sağlar: 
 
 ```csharp
 using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate)) 
 ```
 
-Bu örnekte, **smmUserConnectionString** kullanıcı kimlik bilgileri için bağlantı dizesini içerir. Azure SQL DB için kullanıcı kimlik bilgileri için tipik bağlantı dizesini şöyledir: 
+Bu örnekte, **smmUserConnectionString** kullanıcı kimlik bilgileri için bağlantı dizesini içerir. Azure SQL DB için kullanıcı kimlik bilgileri için bir bağlantı dizesi şu şekildedir: 
 
 ```
 "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 ```
 
-Yönetici kimlik bilgileriyle biçiminde değerler kullanmayın gibi "username@server". Bunun yerine, yalnızca "username" kullanın.  Ayrıca, bağlantı dizesi bir sunucu adı ve veritabanı adı içermediğini unutmayın. Çünkü **OpenConnectionForKey** çağrısı anahtarına göre doğru parça bağlantısı otomatik olarak yönlendirir. Bu nedenle, sunucu adını ve veritabanı adı sağlanmadı. 
+Yönetici kimlik bilgileriyle biçiminde değerler kullanmayın gibi "username@server". Bunun yerine, yalnızca "username" kullanın.  Ayrıca, bağlantı dizesini bir sunucu adını ve veritabanı adını içermediğini unutmayın. Çünkü **OpenConnectionForKey** çağrı doğru parça anahtarına göre bağlantı otomatik olarak yönlendirir. Bu nedenle, sunucu adını ve veritabanı adını sağlanmaz. 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 [Azure SQL Veritabanında veritabanlarını ve oturum açma bilgilerini yönetme](sql-database-manage-logins.md)
 
 [SQL Veritabanınızı güvenli hale getirme](sql-database-security-overview.md)
 
-[Esnek veritabanı işlerine Başlarken](sql-database-elastic-jobs-getting-started.md)
+[Elastik veritabanı işleriyle çalışmaya başlama](sql-database-elastic-jobs-getting-started.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

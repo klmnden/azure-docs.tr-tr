@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 0732fe06db77ab96c909c5f84f69825036fedf4e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031603"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163027"
 ---
 # <a name="load-balancer-outbound-rules"></a>Yük Dengeleyici giden kuralları
 
-Azure yük dengeleyici, gelen ek bir sanal ağdan giden bağlantı sağlar.  Giden kuralları, yapılandırma basit genel hale [Standard Load Balancer](load-balancer-standard-overview.md)'s giden ağ adresi çevirisi (NAT).  Ölçeklendirme ve kendi özel gereksinimlerinize göre bu özelliği ayarlamak için giden bağlantı üzerinde tam bildirim temelli denetiminiz vardır.
+Azure yük dengeleyici, gelen ek bir sanal ağdan giden bağlantı sağlar.  Giden kuralları, yapılandırma basit genel hale [Standard Load Balancer](load-balancer-standard-overview.md)'s giden ağ adresi çevirisi.  Ölçeklendirme ve kendi özel gereksinimlerinize göre bu özelliği ayarlamak için giden bağlantı üzerinde tam bildirim temelli denetiminiz vardır.
 
 ![Yük Dengeleyici giden kuralları](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
@@ -213,4 +213,5 @@ Genel bir Standard Load Balancer ayrıca yapılandırılana dek iç bir Standard
 
 - Kullanma hakkında bilgi edinin [giden bağlantılar için yük dengeleyici](load-balancer-outbound-connections.md).
 - Hakkında bilgi edinin [standart Load Balancer](load-balancer-standard-overview.md).
-- Hakkında bilgi edinin [çift TCP sıfırlama yönlü boşta kalma zaman aşımı üzerinde](https://aka.ms/lbtcpreset).
+- Hakkında bilgi edinin [çift TCP sıfırlama yönlü boşta kalma zaman aşımı üzerinde](load-balancer-tcp-reset.md).
+- [Azure CLI 2.0 ile giden kuralları yapılandırma](configure-load-balancer-outbound-cli.md).

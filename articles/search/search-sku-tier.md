@@ -7,34 +7,59 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 140daf4903c64d734182545cd4dc58db60274852
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d86fc1930f1d7b29dc3ce57e9b4d28e053bb44a0
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576129"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181899"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
-Azure Search'te bir [sağlanan hizmet](search-create-service-portal.md) belirli fiyatlandırma katmanı veya SKU. Seçenekleriniz **ücretsiz**, **temel**, veya **standart**burada **standart** yapılandırmaları ve kapasiteler içinde bulunabilir. 
+Azure Search'te bir [sağlanan hizmet](search-create-service-portal.md) sabit fiyatlandırma katmanı veya SKU: **ücretsiz**, **temel**, veya **standart**burada  **Standart** yapılandırmaları ve kapasiteler içinde bulunabilir. Çoğu müşteri başlayın **ücretsiz** katmanı için değerlendirme ve ardından ölçeğine geçin **standart** geliştirme için. Üzerindeki tüm Hızlı başlangıçlar ve öğreticilerle tamamlayabilirsiniz **ücretsiz** katmanı, kaynak kullanımı yoğun bilişsel arama için dahil olmak üzere. 
 
-Bu makalenin amacı, bir katman seçmenize yardımcı olmaktır. Tamamlayıcı niteliktedir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/search/) ve [hizmet sınırları](search-limits-quotas-capacity.md) fatura kavramlar ve tüketim düzenlerine çeşitli katmanları ile ilişkili bir Özet sayfası. Ayrıca, en iyi hangi katmanın ihtiyaçlarınıza uygun anlamak için yinelemeli bir yaklaşım önerir. 
+Katmanları tarafından ayrım ile değil özellikleri kapasitesini belirler:
 
-Katmanları kapasite değil özellikleri belirler. Çok düşük bir katmanın kapasitesini ettik, yeni bir hizmet yüksek katmandan sağlamanız gerekir ve ardından [dizinlerinizi yeniden](search-howto-reindex.md). Hiçbir aynı SKU bir hizmetten diğerine yerinde yükseltmesini yoktur.
++ Oluşturabileceğiniz dizin sayısı
++ Boyutuna ve hızına bölümleri (fiziksel depolama)
 
-Özellik kullanılabilirliği birincil katmanını göz önünde bulundurarak değil. Tüm katmanlarda, dahil olmak üzere **ücretsiz** katmanı, dizin oluşturucu desteği S3HD dışında özellik eşliği sunar. Ancak, dizin oluşturma ve kaynak kısıtlamaları etkili bir şekilde özellik kullanımı kapsamını sınırlayabilirsiniz. Örneğin, [bilişsel arama](cognitive-search-concept-intro.md) dizin sahip uzun süre çalışan becerileri, zaman aşımı ücretsiz bir hizmet veri kümesi çok daha düşük olacağını sürece.
+Tüm katmanları olsa da dahil olmak üzere **ücretsiz** katman, genellikle özellik eşliği teklif daha büyük iş yükleri, daha yüksek katmanlara yönelik gereksinimleri dikte. Örneğin, [bilişsel arama](cognitive-search-concept-intro.md) dizin sahip uzun süre çalışan becerileri, zaman aşımı ücretsiz bir hizmet veri kümesi çok daha düşük olacağını sürece.
 
-> [!TIP]
-> Çoğu müşteri başlayın **ücretsiz** katmanı için değerlendirme ve ardından ölçeğine geçin **standart** geliştirme için. Bir katmanı seçin sonra ve [bir arama hizmeti sağlama](search-create-service-portal.md), yapabilecekleriniz [çoğaltma ve bölüm sayısını artırmak](search-capacity-planning.md) performans ayarlama. Ne zaman ve neden kapasiteyi ayarlamak hakkında daha fazla bilgi için bkz. [performans ve iyileştirme konuları](search-performance-optimization.md).
+> [!NOTE] 
+> Özellik eşliği var. dışında katmanlarında [dizin oluşturucular](search-indexer-overview.md), S3HD üzerinde kullanılabilir değil.
 >
 
-## <a name="billing-concepts"></a>Faturalandırma kavramları
+Bir katman içinde yapabilecekleriniz [çoğaltma ve bölüm kaynakları](search-capacity-planning.md) performans ayarlama. İki veya üç her ile başlayabilir ancak dizin oluşturma ağır bir iş yükü için kaynak düzeyinde geçici olarak artırabilir. Bir katman içinde kaynak düzeylerini ayarlama olanağı esneklik kazandırır ancak biraz da analiz karmaşık hale getirir. Daha düşük bir katmana daha yüksek kaynak/yinelemeler ile daha iyi değeri ve daha düşük kaynak ile daha yüksek bir katmana performans sunar görmek için denemeniz gerekebilir. Ne zaman ve neden kapasiteyi ayarlamak hakkında daha fazla bilgi için bkz: [performans ve iyileştirme konuları](search-performance-optimization.md).
 
-Katman seçimi için anlamanız gereken kavramlar kapasite tanımları, hizmet sınırları ve hizmet birimlerini içerir. 
+> [!Important] 
+> Dizinler ve depolama için gelecekteki gereksinimlerini tahmin etme gibi kararın düşünüyorsanız olsa da, bunun yapılması değer var. Çok düşük bir katmanın kapasitesini ettik, yeni bir hizmet yüksek katmandan sağlamanız gerekir ve ardından [dizinlerinizi yeniden](search-howto-reindex.md). Hiçbir aynı SKU bir hizmetten diğerine yerinde yükseltmesini yoktur.
+>
 
-### <a name="capacity"></a>Kapasite
+<!---
+The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
+--->
+
+## <a name="how-billing-works"></a>Faturalandırma nasıl çalışır?
+
+Azure Search'te anlamak için en önemli fatura kavramdır bir *arama birimi* (SU). Azure Search çoğaltmaları hem işlevi bölümlere bağlı olduğundan, yalnızca birini veya diğerini tarafından faturalandırmak için anlam ifade etmez. Bunun yerine, her iki bileşik üzerinde üzerinden faturalandırılır. 
+
+Formulaically, bir SU ürünüdür *çoğaltma* ve *bölümleri* hizmeti tarafından kullanılan: **`(R X P = SU)`**
+
+En az 1 SU (bir çoğaltma bir bölüm ile çarpılmış) ile her hizmeti başlatılır, ancak daha büyük iş yükleri için daha gerçekçi bir model 9 SUs faturalandırılır Yineleme 3, 3 bölümlü bir hizmet olabilir. 
+
+Fatura oranı **SU başına saatlik**, giderek daha yüksek fiyatlarla sahip her bir katman ile. Genel olarak daha yüksek bir saatlik ücret söz konusu katman için katkıda bulunan, daha büyük ve daha hızlı bölümleri olan daha yüksek katmanlarında sunulur. Her katmanın bulunabilir için derecelendirir [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/search/). 
+
+Her katman aşamalı olarak daha yüksek kapasite sunmasına karşın, getirebilirsiniz bir *bölümü* rest yedekte bulunduran toplam kapasite çevrimiçi. Faturalama bakımından, bölümler ve çoğaltmalar çevrimiçi, hesaplanmış, aslında ödersiniz belirleyen SU formülü kullanarak Getir sayısıdır.
+
+### <a name="tips-for-lowering-the-bill"></a>Fatura maliyetlerini düşürmek için ipuçları
+
+Fatura düşürmek için hizmeti Kapat olamaz. Ayrılmış bölümler ve çoğaltmalar için işletimsel 24-ömrü boyunca hizmetinizi özel kullanımınız için rezerve tutulan 7 kaynaklardır. Fatura azaltmak için tek yolu çoğaltmalar ve bölümler hala kabul edilebilir bir performans sunan en düşük düzeye azaltmaktır. 
+
+Başka bir seviyesini bir katmanı daha düşük bir saatlik ücret seçmektir. Saatlik ücretler S1, S2 veya S3 saatlik ücretler düşük. Bir hizmeti, projeksiyonlar alt sonunda sağlayın ve, aşıyorsa, bir ikinci büyük katmanlı hizmet oluşturup, ikinci bir hizmet üzerinde yeniden ve ilk silin.
+
+### <a name="capacity-drill-down"></a>Kapasite detaya gitme
 
 Kapasite olarak yapılandırıldığı *çoğaltmaları* ve *bölümler*. 
 
@@ -45,15 +70,7 @@ Kapasite olarak yapılandırıldığı *çoğaltmaları* ve *bölümler*.
 > [!NOTE]
 > Tüm **standart** destek katmanları [esnek birleşimleri çoğaltma ve bölümler](search-capacity-planning.md#chart) destesinin [hızı veya depolama sisteminizin ağırlık](search-performance-optimization.md) Bakiye değiştirerek. **Temel** üç çoğaltmaları yedeklemek için yüksek kullanılabilirlik ancak yalnızca bir bölüm sunar. **Ücretsiz** katmanları olarak ayrılmış kaynaklarda sağlamaz: bilgi işlem kaynakları, birden çok ücretsiz hizmetler tarafından paylaşılır.
 
-### <a name="search-units"></a>Arama birimleri
-
-Anlamak için en önemli fatura kavram bir *arama birimi* (SU) olan Azure Search yönelik faturalandırma birimidir. Azure Search çoğaltmaları hem işlevi bölümlere bağlı olduğundan, biri veya diğeri faturalandırmak için anlam ifade etmez. Bunun yerine, her iki bileşik üzerinde üzerinden faturalandırılır. Formulaically, bir SU çoğaltma ve bir hizmet tarafından kullanılan bölümler ürünüdür: (R X P SU =). En az 1 SU (bir çoğaltma bir bölüm ile çarpılmış) ile her hizmeti başlatılır, ancak daha gerçekçi bir model 9 SUs faturalandırılır Yineleme 3, 3 bölümlü bir hizmet olabilir. 
-
-Her katman aşamalı olarak daha yüksek kapasite sunmasına karşın, rest yedekte bulunduran bir kısmını çevrimiçi, toplam kapasite getirebilirsiniz. Faturalama bakımından, bölümler ve çoğaltmalar çevrimiçi, hesaplanmış, aslında ödersiniz belirleyen SU formülü kullanarak Getir sayısıdır.
-
-Faturalandırma saatlik SU her bir katman farklı bir oran olması hızıdır. Her katmanın bulunabilir için derecelendirir [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/search/).
-
-### <a name="limits"></a>Sınırlar
+### <a name="more-about-service-limits"></a>Hizmet sınırları hakkında daha fazla bilgi
 
 Dizin, dizin oluşturucular ve benzeri gibi ana bilgisayar kaynakları Hizmetleri. Her katman uygular [hizmet sınırları](search-limits-quotas-capacity.md) miktarı kaynakların oluşturabilirsiniz. Bu nedenle, dizinleri (ve diğer nesneler) sayısı için üst sınır ikinci ayırt edici katmanlarda özelliğidir. Her seçeneği portalında gözden geçirirken, dizinlerin sayısı sınırlamaları unutmayın. Uzmanlık becerileri, dizin oluşturucular ve veri kaynakları gibi diğer kaynaklar için dizin sınırları pegged.
 

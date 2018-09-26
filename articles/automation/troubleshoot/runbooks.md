@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1954393c9fe544c33919c8f9fb8ee04e430e7639
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542574"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163911"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -93,11 +93,18 @@ Abonelik adı geçerli değil veya abonelik ayrıntıları get yapılmaya çalı
 
 Düzgün bir şekilde Azure'a kimliği doğrulanmış ve seçmek için çalıştığınız abonelik erişimi belirlemek için aşağıdaki adımları uygulayın:  
 
-1. Siz çalıştırdığınızdan emin olun **Add-AzureAccount** çalıştırmadan önce **Select-AzureSubscription** cmdlet'i.  
-2. Ekleyerek bu hatayı görmeye devam ediyorsanız, kodunuzu değiştirmeniz **Get-AzureSubscription** cmdlet'i aşağıdaki **Add-AzureAccount** cmdlet'ini ve ardından kod yürütün. Şimdi, Get-AzureSubscription çıktısını abonelik bilgilerinizi içerip içermediğini doğrulayın.  
+1. Siz çalıştırdığınızdan emin olun **Add-AzureAccount** cmdlet'ini çalıştırmadan önce **Select-AzureSubscription** cmdlet'i.  
+2. Ekleyerek bu hatayı görmeye devam ediyorsanız, kodunuzu değiştirin **- AzureRmContext** parametre **Add-AzureAccount** cmdlet'ini ve ardından kod yürütün.
 
-   * Herhangi bir abonelik ayrıntıları çıktıda görmüyorsanız, bu abonelik henüz başlatılmadı anlamına gelir.  
-   * Abonelik Ayrıntıları çıktıda görürseniz doğru abonelik adını veya kimliği ile kullandığınızdan emin olun **Select-AzureSubscription** cmdlet'i.
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $context = Get-AzureRmContext
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
+   ```
 
 ### <a name="auth-failed-mfa"></a>Senaryo: çok faktörlü kimlik doğrulaması etkin olmadığından Azure kimlik doğrulaması başarısız oldu
 
@@ -151,7 +158,7 @@ Alt runbook'un doğru bağlamı çalıştırırken kullanmıyor.
 
 #### <a name="resolution"></a>Çözüm
 
-Birden çok aboneliği ile çalışırken, abonelik bağlamına alt runbook'ları çağrılırken kaybolmuş olabilir. Abonelik bağlamına alt runbook'larına geçirilir emin olmak için ekleme `DefaultProfile` cmdlet'i ve ona geçiş bağlam parametresi.
+Birden çok aboneliği ile çalışırken, abonelik bağlamına alt runbook'ları çağrılırken kaybolmuş olabilir. Abonelik bağlamına alt runbook'larına geçirilir emin olmak için ekleme `AzureRmContext` cmdlet'i ve ona geçiş bağlam parametresi.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
@@ -171,7 +178,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRmContext $AzureContext `
     –Parameters $params –wait
 ```
 

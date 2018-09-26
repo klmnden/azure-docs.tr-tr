@@ -2,23 +2,22 @@
 title: Azure SQL veritabanı ve veri ambarı için saydam veri şifrelemesi | Microsoft Docs
 description: SQL veritabanı ve veri ambarı için saydam veri şifrelemesi genel bakış. Belge, aboneliğin avantajları ve hizmetle yönetilen şeffaf veri şifreleme ve kendi anahtarını Getir içeren yapılandırma seçeneklerini kapsar.
 services: sql-database
-author: becczhang
-manager: craigg
-ms.prod: ''
-ms.reviewer: vanto
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
-ms.tgt_pltfrm: ''
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/09/2018
+author: becczhang
 ms.author: aliceku
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 8c1db822c1c0e7b91843687fdc1e6f6808cf60c1
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 07/09/2018
+ms.openlocfilehash: 50b433c65dec1f667f32aaf60148a6e393c67320
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544171"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165935"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL veritabanı ve veri ambarı için saydam veri şifrelemesi
 

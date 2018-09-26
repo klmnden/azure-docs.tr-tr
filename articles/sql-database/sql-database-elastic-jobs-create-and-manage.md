@@ -2,19 +2,22 @@
 title: Azure SQL veritabanı grupları yönetme | Microsoft Docs
 description: Oluşturulması ve esnek bir iş yönetimi yol.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 8c83513838170d18cfc2f1d4f7cd42df2ec617e1
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: dca4ae2c8aa75b7af40ed4f8430968b8477c6802
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717497"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165679"
 ---
 # <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Oluşturma ve elastik işleri (Önizleme) kullanarak Azure SQL veritabanlarına ölçeği yönetme
 

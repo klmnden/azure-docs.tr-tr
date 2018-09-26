@@ -1,5 +1,5 @@
 ---
-title: Boşta kalma zaman aşımı üzerinde yük dengeleyici TCP sıfırlama | Microsoft Docs
+title: Yük Dengeleyici TCP Sıfırla boşta | Microsoft Docs
 description: Boşta kalma zaman aşımı çift yönlü TCP lk paketlere sahip yük dengeleyici
 services: load-balancer
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: b33c701bde082404ea86c9882dcb7bf50d1f1df9
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 212212d4650fe25b4ced591d4d4f1ee184e3fc44
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036193"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163333"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-timeout-public-preview"></a>Boşta kalma zaman aşımı (genel Önizleme) üzerinde yük dengeleyici ile TCP Sıfırla
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer ile TCP boşta kalma (genel Önizleme) Sıfırla
 
 Kullanabileceğiniz [Standard Load Balancer](load-balancer-standard-overview.md) her yapılandırılabilir boşta kalma zaman aşımı için çift yönlü TCP sıfırlar (TCP lk paket) ile senaryolarınız için daha öngörülebilir bir uygulama davranışı oluşturmak için.  Load Balancer'ın varsayılan davranışı, Akışlar bir akışın boşta kalma zaman aşımı ulaşıldığında sessizce bırak sağlamaktır.
 
@@ -75,6 +75,7 @@ Bu parametre aşağıdaki bölgelerde şu anda etkilidir.  Burada listelenmeyen 
 
 | Bölge |
 |---|
+| Güneydoğu Asya |
 | ABD Doğu 2 |
 | ABD Kuzey |
 | ABD Batı |
@@ -89,4 +90,4 @@ Bu tablo, Önizleme, diğer bölgelere ayrıntılı olarak güncelleştirilecekt
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Hakkında bilgi edinin [standart Load Balancer](load-balancer-standard-overview.md).
-- Hakkında bilgi edinin [giden kuralları](https://aka.ms/lboutboundrules).
+- Hakkında bilgi edinin [giden kuralları](load-balancer-outbound-rules-overview.md).

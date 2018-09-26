@@ -10,14 +10,14 @@ ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 07fc753f7f60b51fc6b27e43ffb8c181c570bb5a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2c3705d28d6496c3d20999231de98572bc26e3be
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032521"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160256"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Öğretici: 4. Bağlamsal olarak ilişkili desenleri ayıklama
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Öğretici 4: bağlamsal ilgili desenleri ayıklayın
 
 Bu öğreticide, bir desen bir iyi biçimlendirilmiş şablon utterance verileri ayıklamak için kullanın. Şablon utterance konumu kaynak ve hedef konumu gibi ilgili verileri ayıklamak için basit bir varlık ve rollerini kullanır.  Desenler kullanırken, daha az örnek konuşma amacı için gereklidir.
 

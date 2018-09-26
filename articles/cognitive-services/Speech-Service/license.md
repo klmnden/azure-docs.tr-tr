@@ -9,18 +9,18 @@ ms.topic: article
 ms.component: speech-service
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 6e5f3128a6a62ef27bdc0d24ddda0afc54d78b03
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a56b50e8bd01c8eab9e8935b0d250f1b0da59bc
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994760"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181853"
 ---
 # <a name="microsoft-software-license-termsbrmicrosoft-cognitive-services-speech-sdk"></a>MICROSOFT YAZILIMI LİSANS KOŞULLARI<br>MICROSOFT BİLİŞSEL HİZMETLER KONUŞMA SDK'SI
 
 **CANLI (VEYA ASIL YERİNİZİ İŞLETMENİN İLE BİR İŞLETME OLDUĞUMUZDAN VARSA) AMERİKA BİRLEŞİK DEVLETLERİ, LÜTFEN AŞAĞIDAKİ "BAĞLAMA TAHKİM VE FERAGAT BİLDİRİMİ" BÖLÜMÜNÜ OKUYUN. BUNU NASIL ANLAŞMALARIN.**
 
-Bu lisans koşulları Microsoft Corporation arasındaki bir anlaşma (veya kuruluşlarından biri) olur. Yukarıda adlı Önizleme yazılımı ve Microsoft hizmet ve yazılım güncelleştirmeleri için geçerlidir (ölçüde tür hizmetlerin veya güncelleştirmelerin yeni veya ek koşullarla haricinde farklı bu durumda koşulları haklarınızda değişikliğe neden uygulamak ve değiştirmemesi, veya Microsoft'un haklarını) önceden güncelleştirilmiş yazılım veya hizmetlerle ilgili. BU LİSANS KOŞULLARINA UYDUĞUNUZ TAKDİRDE AŞAĞIDAKİ HAKLARA SAHİP OLURSUNUZ. YAZILIMI KULLANMAKLA BU KOŞULLARI KABUL EDİN.
+Bu lisans koşulları Microsoft Corporation arasındaki bir anlaşma (veya kuruluşlarından biri) olur. Bunlar, yukarıda adlandırılan yazılım ve Microsoft hizmet ve yazılım güncelleştirmeleri için geçerlidir (ölçüde tür hizmetlerin veya güncelleştirmelerin yeni veya ek koşullarla haricinde farklı bu durumda koşulları haklarınızda değişikliğe neden uygulamak ve değiştirmemesi, veya Microsoft'un haklarını) önceden güncelleştirilmiş yazılım veya hizmetlerle ilgili. BU LİSANS KOŞULLARINA UYDUĞUNUZ TAKDİRDE AŞAĞIDAKİ HAKLARA SAHİP OLURSUNUZ.  YAZILIMI KULLANMAKLA BU KOŞULLARI KABUL EDİN.
 
 ## <a name="1-installation-and-use-rights"></a>1. YÜKLEME VE KULLANIM HAKLARI.
 

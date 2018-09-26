@@ -2,21 +2,22 @@
 title: Azure SQL veritabanı ölçümleri ve tanılama günlüğünü | Microsoft Docs
 description: Kaynak kullanımı, bağlantı ve sorgu yürütme istatistikleri depolamak için Azure SQL veritabanı yapılandırma hakkında bilgi edinin.
 services: sql-database
-documentationcenter: ''
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 2c848ba87d7f42f6329e7b3166a4410cadbd63a0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: bf9185ece171ef0595aa3470fd52b839eb5d6136
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037958"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165968"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri 
 

@@ -4,14 +4,14 @@ description: Azure geçişi hizmetinde değerlendirme hesaplamaları genel bir b
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 9f1986e2ebf406762916869d9dc1cb3d73174f93
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574887"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165696"
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
@@ -39,7 +39,7 @@ Azure geçişi, şirket içi VM, Azure üzerinde bir VM çalıştırıp çalış
 **Özellik** | **Ayrıntılar** | **Azure için hazır olma durumu**
 --- | --- | ---
 **Önyükleme türü** | Azure, BIOS ve UEFI değil olarak önyükleme türündeki sanal makineleri destekler. | Önyükleme türü UEFI ise koşullu olarak hazır.
-**Çekirdek** | Makineleri çekirdek sayısına eşit veya daha az bir Azure sanal makinesi için desteklenen en yüksek çekirdek sayısı (32) olmalıdır.<br/><br/> Performans geçmişi kullanılabilir haldeyse, Azure geçişi, karşılaştırma için kullanılan çekirdek olarak değerlendirir. Konfor katsayısı değerlendirme ayarlarında belirtilmişse konfor katsayısı tarafından kullanılan çekirdek sayısı çarpılır.<br/><br/> Performans geçmişi yok ise, Azure geçişi, konfor katsayısı uygulamadan ayrılmış çekirdekler kullanır. | Hazır değilse, küçüktür veya eşittir sınırları.
+**Çekirdek** | Çekirdek makinelerde eşit veya çekirdek (128 çekirdek) bir Azure sanal makinesi için desteklenen en fazla sayısından daha az olmalıdır.<br/><br/> Performans geçmişi kullanılabilir haldeyse, Azure geçişi, karşılaştırma için kullanılan çekirdek olarak değerlendirir. Konfor katsayısı değerlendirme ayarlarında belirtilmişse konfor katsayısı tarafından kullanılan çekirdek sayısı çarpılır.<br/><br/> Performans geçmişi yok ise, Azure geçişi, konfor katsayısı uygulamadan ayrılmış çekirdekler kullanır. | Hazır değilse, küçüktür veya eşittir sınırları.
 **Bellek** | Makine bellek boyutu eşit veya en yüksek belleğinden daha az olmalıdır (Azure M serisi Standard_M128m 3892 GB&nbsp;<sup>2</sup>) bir Azure sanal makine için izin verilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Performans geçmişi kullanılabilir haldeyse, Azure geçişi, karşılaştırma için kullanılan bellek kabul eder. Konfor katsayısı belirtilirse, kullanılan bellek konfor katsayısı ile çarpılır.<br/><br/> Geçmiş yok ise konfor katsayısı uygulamadan ayrılan bellek kullanılır.<br/><br/> | Varsa sınırları içinde hazır.
 **Depolama diski** | Ayrılmış bir diskin boyutu 4 TB (4096 GB) olması gerekir ya da daha az.<br/><br/> Makineye bağlı disk sayısı, 65 veya less, işletim sistemi diskini dahil olmak üzere olması gerekir. | Varsa sınırları içinde hazır.
 **Ağ** | Daha az NIC bağlı veya bir makine 32 olmalıdır. | Varsa sınırları içinde hazır.
@@ -61,7 +61,8 @@ Windows Server 2008 R2 ile tüm Sp'ler | Azure, tam destek sağlar.| Azure için
 Windows Server 2008 (32-bit ve 64-bit) | Azure, tam destek sağlar. | Azure için hazır
 Windows Server 2003, Server 2003 R2 | Bu işletim sistemlerinin kendi destek tarihi ve gereksinim sonuna başarılı bir [özel destek anlaşması (CSA)](https://aka.ms/WSosstatement) Azure desteği için. | Koşullu olarak Azure için hazır, Azure'a geçiş yapmadan önce işletim sistemini yükseltmeyi düşünün.
 Windows 2000, 98, 95 ' NT 3.1, MS-DOS | Bu işletim sistemlerinin kendi destek sonu tarihi geçtiğinde, makine Azure'da önyüklenebilir ancak Azure tarafından işletim sistemi desteği sağlanmaz. | Azure için koşullu olarak hazır, Azure'a geçiş yapmadan önce işletim sistemi yükseltmesi önerilir.
-Windows istemci 7, 8 ve 10 | Azure, yalnızca Visual Studio aboneliği içeren destek sağlar. | Azure için koşullu olarak hazır
+Windows istemci 7, 8 ve 10 | Azure desteği ile sağlar [yalnızca Visual Studio aboneliği.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Azure için koşullu olarak hazır
+Windows 10 Pro Masaüstü | Azure desteği ile sağlar [çok Kiracılı barındırma hakları.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Azure için koşullu olarak hazır
 Windows Vista, XP Professional | Bu işletim sistemlerinin kendi destek sonu tarihi geçtiğinde, makine Azure'da önyüklenebilir ancak Azure tarafından işletim sistemi desteği sağlanmaz. | Azure için koşullu olarak hazır, Azure'a geçiş yapmadan önce işletim sistemi yükseltmesi önerilir.
 Linux | Azure bu onayladığı [Linux işletim sistemleri](../virtual-machines/linux/endorsed-distros.md). Diğer Linux işletim sistemleri, Azure'da önyüklenebilir ancak Azure'a geçiş yapmadan önce işletim Sisteminin desteklenen bir sürüme yükseltmek için tavsiye edilir. | Sürüm desteklenen, Azure için hazır.<br/><br/>Sürüm değil onaylı koşullu olarak hazır.
 Diğer işletim sistemleri<br/><br/> Örneğin, Oracle Solaris Apple Mac işletim sistemi vb., FreeBSD, vs. | Azure, bu işletim sistemlerini desteklemez. Makine Azure'da önyüklenebilir ancak Azure tarafından işletim sistemi desteği sağlanır. | Koşullu olarak Azure için hazır, Azure'a geçiş yapmadan önce desteklenen bir işletim sistemini yüklemeniz önerilir.  

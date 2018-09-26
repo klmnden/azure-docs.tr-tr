@@ -2,19 +2,22 @@
 title: Azure SQL veritabanı ile ölçek genişletme | Microsoft Docs
 description: Yazılım olarak hizmet (SaaS) geliştiricileri bu araçları kullanarak bulutta kolayca esnek, ölçeklenebilir veritabanları oluşturabilirsiniz
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: b28b61dc9faf94c21854a73f99af47e302c8d153
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: ab787e8f659d2f57f23bb87397608736e7f6848a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729935"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164922"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Azure SQL Database ile ölçek genişletme
 Out kullanarak Azure SQL veritabanlarını kolayca ölçeklendirebilirsiniz **esnek veritabanı** araçları. Bu araçlar ve özellikler, veritabanı kaynaklarını kullanmanıza olanak tanır **Azure SQL veritabanı** hizmet (SaaS) uygulamaları olarak işlem tabanlı iş yüklerinizi ve özellikle yazılım çözümleri oluşturun. Elastik veritabanı özellikleri oluşur:

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 587540430dc4089973186c2862f402ccde73df65
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f79be44d33a327f3ead8d950885cb5d47ce3a015
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048370"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163815"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure sanal makineler için performans tanılama
 
@@ -35,15 +35,15 @@ Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Yükleme ve sanal makinenizde performans tanılama çalıştırma
 Performans Tanılama VM uzantısı adlı bir Tanılama aracını çalıştıran yükler [Perfınsights](https://aka.ms/perfinsights). Yükleme ve performans tanılama çalıştırmak için aşağıdaki adımları izleyin:
-1)  Komutları sol sütununda seçin **sanal makineler**.
-2)  VM adları listesinden tanılama çalıştırmak istediğiniz VM'yi seçin.
-3)  Komutları sağ sütunda seçin **Performans Tanılama**.
+1.  Komutları sol sütununda seçin **sanal makineler**.
+1.  VM adları listesinden tanılama çalıştırmak istediğiniz VM'yi seçin.
+1.  Komutları sağ sütunda seçin **Performans Tanılama**.
 
     ![Azure portalının ekran görüntüsü, yükleme performans tanılama düğmesi vurgulanan](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
     > Bu ekran görüntüsünde, bir sanal makine adı'nın dikey penceresini gizlenir.
-4) (İsteğe bağlı) depolama hesabı seçin
+1. (İsteğe bağlı) depolama hesabı seçin
 
     Birden çok VM için performans tanılama sonuçlarını depolamak için bir tek bir depolama hesabı kullanmak istiyorsanız, tıklayarak bir depolama hesabı seçebilirsiniz **ayarları** araç çubuğu düğmesi. Tıklayın **Tamam** depolama hesabını seçin sonra düğme.
 
@@ -53,8 +53,8 @@ Performans Tanılama VM uzantısı adlı bir Tanılama aracını çalıştıran 
 
     ![Performans Tanılama ayarları dikey penceresinde depolama hesabını seçiminin ekran görüntüsü](media/performance-diagnostics/select-storage-account.png)
 
-5) Seçin **yükleme Performans Tanılama** düğmesi.
-6) Seçin **tanılama Çalıştır** yükleme tamamlandıktan sonra bir tanılama çalıştırmak istiyorsanız kutuyu. Bu seçimi yaparsanız, ilgili seçenekleri ve Performans Analizi senaryosu tercih mümkün olacaktır.
+1. Seçin **yükleme Performans Tanılama** düğmesi.
+1. Seçin **tanılama Çalıştır** yükleme tamamlandıktan sonra bir tanılama çalıştırmak istiyorsanız kutuyu. Bu seçimi yaparsanız, ilgili seçenekleri ve Performans Analizi senaryosu tercih mümkün olacaktır.
 
     ![Ekran görüntüsü / performans tanılama Yükle düğmesi](media/performance-diagnostics/install-diagnostics-button.png)
 
@@ -148,13 +148,13 @@ Microsoft ile bir destek bileti açtığınızda, performans tanılama raporu pa
 
 **2. seçenek:** tanılama raporu sıkıştırılmış dosya için paylaşılan erişim imzası oluşturma  
 Paylaşılan erişim imzaları'nı kullanarak raporları sıkıştırılmış dosyanın bir bağlantısını paylaşabilir. Bunu yapmak için şu adımları uygulayın: 
-1)  Azure portalında, tanılama verilerin depolandığı depolama hesabına gidin.
-2)  Seçin **Blobları** altında **Blob hizmeti** bölümü. 
-3)  Seçin **azdiagextnresults** kapsayıcı.
-4)  Paylaşmak istediğiniz performans tanılama çıkışı sıkıştırılmış dosyayı seçin.
-5)  Üzerinde **Generate SAS** sekmesinde, paylaşımı ölçütlerini seçin. 
-6)  Tıklayın **blob SAS belirteci ve URL üretmek**.
-7)  Kopyalama **Blob SAS URL'si**ve Destek mühendisiyle paylaşın. 
+1.  Azure portalında, tanılama verilerin depolandığı depolama hesabına gidin.
+1.  Seçin **Blobları** altında **Blob hizmeti** bölümü. 
+1.  Seçin **azdiagextnresults** kapsayıcı.
+1.  Paylaşmak istediğiniz performans tanılama çıkışı sıkıştırılmış dosyayı seçin.
+1.  Üzerinde **Generate SAS** sekmesinde, paylaşımı ölçütlerini seçin. 
+1.  Tıklayın **blob SAS belirteci ve URL üretmek**.
+1.  Kopyalama **Blob SAS URL'si**ve Destek mühendisiyle paylaşın. 
 
 **Seçenek 3:** depolama hesabından raporunu indirin
 
@@ -162,8 +162,8 @@ Performans tanılama raporu sıkıştırılmış dosya seçeneği 2'de 1-4 aras�
 
 ### <a name="how-do-i-capture-the-diagnostics-data-at-the-correct-time"></a>Doğru zamanda nasıl Tanılama verileri yakalamayı?
 Her performans tanılama Çalıştır iki aşamadan oluşur: 
-1)  Yükleme veya Performans Tanılama VM uzantısı güncelleştirme.
-2)  Tanılama belirtilen süre için çalıştırın.
+1.  Yükleme veya Performans Tanılama VM uzantısı güncelleştirme.
+1.  Tanılama belirtilen süre için çalıştırın.
 
 Şu anda tam olarak VM uzantısı yükleme işlemi tamamlandıktan sonra öğrenmek için kolay bir yolu yoktur. Genellikle VM uzantısı'nı yüklemek için yaklaşık 45 saniye ila 1 dakika sürer. VM uzantısı yüklendikten sonra sorun giderme için veri kümesini doğru yakalama performans tanılama için yeniden oluşturma adımlarınızı çalıştırabilirsiniz. 
 

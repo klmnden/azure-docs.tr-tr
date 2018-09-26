@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: c8a8598640e31f59476b5b3351fdb2eab7b66a6c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5c9211486fa40e49afd91eba7c432990b0ee860b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952928"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160630"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Log Analytics veya Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da bunlar model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden üzere tasarlanmamıştır.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
@@ -99,11 +99,11 @@ Bir VM için tanımlanan sistem durumları şunlardır:
 * **Uyarı** -bir veya daha fazla sorun algılandığında, ilgilenilmesi gereken ya da sağlık durumu kritik duruma gelebilir.  
 * **Bilinmeyen** – hizmet durumu değişiklikleri bilinmeyen bir duruma VM ile bağlantı kurmak tamamlayamadı.  
 
-Seçme **görüntüleme durumu tanılama** ilişkili durumu ölçütlerini, durum değişikliklerini ve diğer önemli sorunları VM'le ilgili bileşenler izlenerek karşılaşıldı sanal makinenin tüm bileşenleri gösteren bir sayfa açar. Başvurmak [sistem tanılama](#health-diagnostics) daha fazla ayrıntı için. 
+Seçme **görüntüleme durumu tanılama** VM, ilişkili durumu ölçütlerini, durum değişikliklerini ve diğer önemli sorunları VM'le ilgili bileşenler izlenerek karşılaşıldı tüm bileşenlerini gösteren bir sayfa açar. Daha fazla bilgi için [sistem tanılama](#health-diagnostics). 
 
 Altında **bileşen sistem durumu** bölümü, tablo gösterir sistem durumu toplaması durumunu özellikle bu alanların sistem durumu ölçütlerini tarafından izlenen birincil performans kategorileri **CPU**,  **Bellek**, **Disk**, ve **ağ**.  Bileşenleri herhangi birini seçerek, tüm yönlerini söz konusu bileşen ve her birinin kendi sistem durumu izleme tek tek sistem durumu ölçütü listeleyen bir sayfa açılır.  
 
-Sistem durumu Windows işletim sistemini çalıştıran bir Azure VM'den erişirken, en çok kullanılan 5 çekirdek Windows Hizmetleri sistem durumunu gösterilen bölümü altında **çekirdek sistem durumu Hizmetleri**.  Hizmetlerden herhangi birini seçtiğinizde, söz konusu bileşen ve sistem durumunu izleme durumu ölçütlerini listelendiği bir sayfa açılır.  Sistem durumu ölçütlerini adına tıklayarak özellik bölmesi açılır ve burada tanımlanan karşılık gelen bir Azure İzleyici uyarı durumu ölçütlerini varsa dahil olmak üzere yapılandırma ayrıntılarını gözden geçirebilirsiniz. Bunun hakkında daha fazla bilgi edinmek için [sistem durumu tanılama ve çalışma durumu ölçütlerini](#health-diagnostics).  
+Sistem durumu Windows işletim sistemini çalıştıran bir Azure VM'den erişirken, en çok kullanılan 5 çekirdek Windows Hizmetleri sistem durumunu gösterilen bölümü altında **çekirdek sistem durumu Hizmetleri**.  Hizmetlerden herhangi birini seçtiğinizde, söz konusu bileşen ve sistem durumunu izleme durumu ölçütlerini listelendiği bir sayfa açılır.  Sistem durumu ölçütlerini adına tıklayarak özellik bölmesi açılır ve burada tanımlanan karşılık gelen bir Azure İzleyici uyarı durumu ölçütlerini varsa dahil olmak üzere yapılandırma ayrıntılarını gözden geçirebilirsiniz. Daha fazla bilgi için bkz. [sistem durumu tanılama ve çalışma durumu ölçütlerini](#health-diagnostics).  
 
 ## <a name="aggregate-virtual-machine-perspective"></a>Toplam sanal makine perspektifi
 Portalı Gezinti listeden bir kaynak grubundaki tüm sanal makinelerinizin için sistem durumu toplama görüntülemek için seçin **Azure İzleyici** seçip **sanal makineler (Önizleme)**.  
@@ -136,7 +136,7 @@ Herhangi bir sütun öğe üzerinde - tıklayabilirsiniz **VM sayısı**, **krit
 
 ![Red Hat Linux sanal makinelerinin örnek paketi](./media/monitoring-vminsights-health/vminsights-rollup-vm-rehl-01.png)
  
-Üzerinde **sanal makineler** sayfa adı sütunu altında bir sanal Makineyi seçerseniz **VM adı**, uyarıların daha fazla ayrıntı içeren VM örneği sayfasına yönlendirilir ve sistem durumu ölçütlerini sorunlar tanımlandı olan Seçili VM etkileyen.  Buradan tıklayarak sağlık durumunu Ayrıntılar filtreleyebilirsiniz **sistem durumu** hangi bileşenlerin sağlıksız olduğunu görmek için sayfayı veya üst sol köşesindeki simgeyi sağlıksız bir bileşen tarafından gerçekleştirilen VM sistem durumu uyarılarını görüntüleyebilirsiniz Uyarı önem derecesine göre kategorilere ayrılmıştır.    
+Üzerinde **sanal makineler** sayfa adı sütunu altında bir sanal Makineyi seçerseniz **VM adı**, uyarıların daha fazla ayrıntı içeren VM örneği sayfasına yönlendirilir ve sistem durumu ölçütlerini sorunlar tanımlandı olan Seçili VM etkileyen.  Buradan, sistem durumu ayrıntıları tıklayarak filtreleyebilirsiniz **sistem durumu** hangi bileşenlerin sağlıksız olduğunu görmek için sayfayı veya üst sol köşesindeki simgeyi sağlıksız bir bileşen tarafından gerçekleştirilen VM sistem durumu uyarılarını görüntüleyebilirsiniz Uyarı önem derecesine göre kategorilere ayrılmıştır.    
 
 Bir sanal makine adına tıklayarak VM liste görünümünde açılır **sistem durumu** seçtiyseniz, sayfa için VM, benzer şekilde seçildi. **Insights (Önizleme)** VM'den doğrudan.
 
@@ -153,7 +153,7 @@ Seçme **tüm sistem durumu ölçütlerini görüntülemek** bu özellik ile kul
 
 * **Kategori** -durumu ölçütlerini raporlama amacıyla benzer bir tür ölçütünü gruplamak için kullanılan tür.  Bunlar **kullanılabilirlik** veya **performans**.
 
-Hangi örneklerinin altındaki bir değere tıklayarak sağlıksız olduğunu görmek için aşağıya inebilir **sağlıksız bileşen** sütun.  Sayfada bir tablo, bir kritik sağlık durumunda olan bileşenler listelenir.    
+Hangi örneklerinin altındaki bir değere tıklayarak sağlıksız olduğunu görmek için aşağıya inebilir **sağlıksız bileşen** sütun.  Sayfasında, bir tablo bir kritik sağlık durumunda bileşenlerini listeler.    
 
 ## <a name="health-diagnostics"></a>Sistem durumu tanılama
 **Sistem durumu tanılama** sayfası VM'nin, ilişkili durumu ölçütlerini, durum değişikliklerini, tüm bileşenleri görmenizi sağlar ve diğer önemli sorunları nesneleri izlerken karşılaştı VM ilgili. 
@@ -175,7 +175,7 @@ Sistem durumu tanılama sistem durumu bilgilerini şu kategorilere göre düzenl
  
 Seçili hedef uygun kategoride görüntüler için tanımlanan tüm sistem durumu ölçütlerini. 
 
-Sistem durumu ölçütü için sistem durumu – üç durumdan birini tanımlanır *kritik*, *uyarı* ve *sağlıklı*. Başka bir durum yoktur *bilinmeyen*, sistem durumu ile ilişkili değil, ancak özellik tarafından bilinen izleme durumunu temsil eder.  
+Sistem durumu ölçütü için sistem durumu – üç durumdan birini tanımlanır *kritik*, *uyarı*, ve *sağlıklı*. Başka bir durum yoktur *bilinmeyen*, sistem durumu ile ilişkili değil, ancak özellik tarafından bilinen izleme durumunu temsil eder.  
 
 Aşağıdaki tabloda, sistem durumu Tanılama'da gösterilen sistem durumları hakkında ayrıntılı bilgi sağlar.
 
@@ -197,7 +197,7 @@ Sistem durumu tanılama sayfası üç ana bölümü vardır:
 ### <a name="component-model"></a>Bileşen modeli
 Bir sistem durumu tanılama sayfası en soldaki sütunda bileşen modelidir. Tüm bileşenleri ve VM ile ilişkili, keşfedilen örnekleri bu sütunda görüntülenir. 
 
-Aşağıdaki örnekte bulunan disk, mantıksal disk, işlemci, bellek ve işletim sistemi bileşenlerdir. Bu bileşenlerin birden çok örneği bulundu ve bu sütunda, iki mantıksal disk örnekleri ile görüntülenen **/**, **/önyükleme**, ve   **/mnt/kaynak**, ağ bağdaştırıcısının bir örnek **eth0**, iki disk örnekleri **sda** ve **sdb**, işlemci iki örneğini **0 ve 1**ve bir **Red Hat Enterprise Linux Server sürüm 7.4 (Maipo) (işletim sistemi)**. 
+Aşağıdaki örnekte bulunan disk, mantıksal disk, işlemci, bellek ve işletim sistemi bileşenlerdir. Bu bileşenlerin birden çok örneği bulundu ve bu sütunda, iki mantıksal disk örnekleri ile görüntülenen **/**, **/önyükleme**, ve   **/mnt/kaynak**, ağ bağdaştırıcısının bir örnek **eth0**, iki disk örnekleri **sda** ve **sdb**, işlemci iki örneğini **0 ve 1**ve **Red Hat Enterprise Linux Server sürüm 7.4 (Maipo) (işletim sistemi)**. 
 
 ![Sistem durumu tanılamada sunulan örnek bileşen modeli](./media/monitoring-vminsights-health/health-diagnostics-page-component.png)
 
@@ -208,7 +208,7 @@ Sistem durumu tanılama sayfası merkezi sütunda **durumu ölçütlerini** süt
 
 Sistem durumu ölçüt bir eşik değeri veya bir varlık, vb. durumunda bazı ölçütleri ile izlenen örnek sağlığını ölçer. Bir sistem durumu ölçütü, yukarıdaki bölümde açıklandığı gibi iki veya üç sistem durumuna sahiptir. Belirli bir noktada, sistem durumu ölçütü potansiyel durumlarının sadece birinde olabilir. 
 
-Bir hedef genel durumunu, her birinin sistem durumu modeli içerisinde belirlenen sistem durumu ölçütlerini sağlığı'ndan belirlenir. Bu hedefte doğrudan hedeflenen durumu ölçütlerini durumu ölçütlerini bağımlılık sistem durumu ölçütü aracılığıyla hedefine çalışırken bileşenleri hedeflenmiş bir birleşimi olacaktır. Bu hiyerarşi gösterilmiştir **durumu ölçütlerini** sistem tanılama sayfası bölümü. Sistem durumu nasıl toplanır İlkesi toplam değer ve bağımlılık durumu ölçütlerini yapılandırmasının bir parçasıdır. Bölümü altında bu özelliği bir parçası olarak çalışan sistem durumu ölçütlerini varsayılan kümesini listesini bulabilirsiniz [izleme yapılandırma ayrıntılarını](#monitoring-configuration-details).  
+Bir hedef genel durumunu, her birinin sistem durumu modeli içerisinde belirlenen sistem durumu ölçütlerini sağlığı'ndan belirlenir. Bu hedefte doğrudan hedeflenen durumu ölçütlerini durumu ölçütlerini bağımlılık sistem durumu ölçütü aracılığıyla hedefine çalışırken bileşenleri hedeflenmiş bir birleşimi olacaktır. Bu hiyerarşi gösterilmiştir **durumu ölçütlerini** sistem tanılama sayfası bölümü. Sistem durumu Toplama İlkesi toplam değer ve bağımlılık durumu ölçütlerini yapılandırmasının bir parçasıdır. Bölümü altında bu özelliği bir parçası olarak çalışan sistem durumu ölçütlerini varsayılan kümesini listesini bulabilirsiniz [izleme yapılandırma ayrıntılarını](#monitoring-configuration-details).  
 
 Aşağıdaki örnekte, toplama sistem durumu ölçütü **çekirdek Windows Hizmetleri dökümü** Windows tabanlı bir VM için ayrı ayrı hizmet sistem durumu ölçütlere göre en önemli Windows hizmetlerinin sistem durumunu değerlendirir. DNS, DHCP vb. gibi her bir hizmetin durumunu değerlendirilir ve sistem durumu için karşılık gelen toplama sistem durumu ölçütü (aşağıda gösterildiği gibi) toplanır.  
 
@@ -228,7 +228,8 @@ Bu örnekte Seçilen sistem durumu ölçütlerini için yapılandırma bölmesin
 
 ![Bir sistem durumu ölçütlerini bir birim İzleyicisi örneği yapılandırma](./media/monitoring-vminsights-health/health-diagnostics-linuxvm-example-04.png)
 
-
+Bilgi edinmek daha fazla sistem durumu göstergesi hakkında bilgi bankası makaleleri içerdiği istiyorsanız, sorunları, nedenleri ve çözümlemeleri belirlemenize yardımcı olur.  Tıklayarak **bilgilerini görüntüleyin** sayfasındaki bağlantısını ve belirli bir Bilgi Bankası makalesi gösteren, tarayıcınızda yeni bir sekmede açılır.  Herhangi bir zamanda tüm Vm'leri sistem durumu özelliği için Azure İzleyici ile dahil sistem durumu ölçütü Bilgi Bankası makalelerini inceleyebilirsiniz [burada](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+  
 ### <a name="state-changes"></a>Durum değişiklikleri
 Sistem durumu Tanılama sayfasında en sağdaki sütunda **durum değişikliklerini**. Seçili durumu ölçütlerini ilişkilendirilmiş tüm durum değişikliklerini listeler **durumu ölçütlerini** bölüm veya bir VM'ye gelen seçildiyse sanal makinenin durumu değişikliği **bileşen modeli** veya **Durumu ölçütlerini** tablosunda sütun. 
 
@@ -263,7 +264,7 @@ Bu görünümde, sayfanın üst kısmındaki açılan menüler, değerleri seçe
 |Severity |Uyarı önem seçmeniz ya da seçin *tüm* her türlü önem derecesi, uyarı eklenecek. | 
 |İzleme Koşulu |Uyarıları filtrelemek için bir izleme koşulu verilmiş olması durumunda seçin *Fired* sistem tarafından veya *çözümlenmiş* koşul artık etkin olduğunda sistem tarafından. Veya *tüm* tüm koşulların uyarıları eklemek için. | 
 |Uyarı durumu |Bir uyarı durumu seçin *yeni*, *kabul*, *kapalı*, ya da seçin *tüm* tüm durumların uyarıları eklemek için. | 
-|İzleme hizmet |Bir hizmet veya seçin, *tüm* tüm hizmetleri dahil etmek için. Altyapı öngörüleri uyarılardan yalnızca bu özellik için destekleniyor. | 
+|İzleme hizmet |Bir hizmet veya seçin, *tüm* tüm hizmetleri dahil etmek için. Altyapı öngörüleri uyarılardan yalnızca bu özellik için desteklenir. | 
 |Zaman aralığı| Yalnızca seçili zaman penceresi içinde tetiklenen uyarılar görünümünde dahil edilir. Desteklenen değerler şunlardır: son bir saat, son 24 saat, son 7 günde ve son 30 gün. | 
 
 **Uyarı ayrıntısı** sayfası, bir uyarı durumuna değiştirmenize olanak tanır ve uyarının ayrıntılarını sağlayan seçtiğinizde görüntülenir. Uyarı kuralları ile çalışma ve Uyarıları yönetme hakkında daha fazla bilgi için bkz: [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
@@ -273,4 +274,4 @@ Bu görünümde, sayfanın üst kısmındaki açılan menüler, değerleri seçe
 Uyarı durumu da değiştirilebilir bir veya birden çok uyarı için bunları seçip ardından seçerek **durumunu değiştir** gelen **tüm uyarıları** sayfasında sol üst köşesinde. Üzerinde **uyarı durumunu değiştir** durumlardan biriyle seçtiğiniz bölmesi ekleme değişiklik açıklamasını **açıklama** alan ve ardından **Tamam** değişikliklerinizi işleyebilirsiniz. Bilgiler doğrulanır ve değişiklikler uygulanır, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Performans sorunlarını ve genel kullanımı ile Vm'leri performansınızı tanımlamak için bkz. [Azure VM performansını görüntüleme](monitoring-vminsights-performance.md), ya da bulunan Uygulama bağımlılıklarını görüntülemek için bkz: [Vm'leri harita görünümü Azure İzleyici](monitoring-vminsights-maps.md). 
+Performans sorunlarını ve Vm'leri performansınızı ile genel kullanımı belirlemek için bkz: [Azure VM performansını görüntüleme](monitoring-vminsights-performance.md), ya da bulunan Uygulama bağımlılıklarını görüntülemek için bkz: [Vm'leri harita görünümü Azure İzleyici](monitoring-vminsights-maps.md). 

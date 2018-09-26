@@ -1,26 +1,29 @@
 ---
 title: SQL veritabanı için bağlantı kitaplıkları | Microsoft Docs
-description: SQL Server ve SQL veritabanı geniş çeşitli programlama dillerinde istemci bağlantıyı etkinleştir modüllerin yüklemeler için bağlantılar sağlar.
+description: İndirmeler modüllerinin istemci programlama dillerinin geniş çeşitli SQL Server ve SQL veritabanı bağlantısını etkinleştirmek için bağlantılar sağlar.
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: cb9bc6dc21d043bfa2d5b278eec4d91494263515
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 40de6a93516a556958c1fd0cd3f861304e55a600
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647536"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165526"
 ---
-# <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Bağlantı kitaplıklarını ve çerçevelerini SQL Server için
+# <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Bağlantı kitaplıkları ve SQL Server için çerçeveleri
 
-Kullanıma bizim [alma öğreticileri başlatılan](http://aka.ms/sqldev) ile programlama dilleri C#, Java, Node.js, PHP ve Python gibi hızlı bir şekilde başlamak için. Ardından Linux veya Windows veya Docker macOS üzerinde SQL Server kullanarak bir uygulama oluşturun.
+Kullanıma sunduğumuz [alma Eğitmenleri](http://aka.ms/sqldev) C#, Java, Node.js, PHP ve Python gibi programlama ile hızlı bir şekilde kullanmaya başlamak için. MacOS üzerinde SQL Server Linux veya Windows veya Docker kullanarak ardından bir uygulama oluşturun.
 
-Aşağıdaki tabloda bağlantı kitaplıkları listeler veya *sürücüleri* istemci uygulamaları bağlanmak ve şirket içi çalışan SQL Server kullanmak için dilleri veya bulutta değişik kullanabilirsiniz. Linux, Windows veya Docker kullanın ve bunları Azure SQL Database ve Azure SQL Data Warehouse bağlanmak için kullanın. 
+Aşağıdaki tabloda bağlantı kitaplıkları listeler veya *sürücüleri* istemci uygulamalarını değişik bağlanmak ve şirket içinde çalışan SQL Server kullanmak için dilleri içinde veya bulutta kullanabilirsiniz. Linux, Windows veya Docker kullanın ve Azure SQL veritabanı ve Azure SQL veri ambarı bağlanmak için bunları kullanın. 
 
 | Dil | Platform | Ek kaynaklar | İndirme | başlarken |
 | :-- | :-- | :-- | :-- | :-- |
@@ -28,25 +31,25 @@ Aşağıdaki tabloda bağlantı kitaplıkları listeler veya *sürücüleri* ist
 | Java | Windows, Linux, macOS | [SQL Server için Microsoft JDBC sürücüsü](http://msdn.microsoft.com/library/mt484311.aspx) | [İndir](https://go.microsoft.com/fwlink/?linkid=852460) |  [Kullanmaya başlama](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [SQL Server için PHP SQL sürücüsü](http://msdn.microsoft.com/library/dn865013.aspx) | İşletim Sistemi: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=55642) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Kullanmaya başlama](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu)
 | Node.js | Windows, Linux, macOS | [SQL Server için node.js sürücüsü](http://msdn.microsoft.com/library/mt652093.aspx) | [Yükleme](https://msdn.microsoft.com/library/mt652094.aspx) |  [Kullanmaya başlama](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
-| Python | Windows, Linux, macOS | [Python SQL sürücüsü](http://msdn.microsoft.com/library/mt652092.aspx) | Seçimler yükleyin: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Kullanmaya başlama](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, macOS | [SQL Server için Söyleniş sürücüsü](http://msdn.microsoft.com/library/mt691981.aspx) | [Yükleme](https://msdn.microsoft.com/library/mt711041.aspx) | [Kullanmaya başlama](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| Python | Windows, Linux, macOS | [SQL Python sürücüsü](http://msdn.microsoft.com/library/mt652092.aspx) | Seçenekler'i yükleyin: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Kullanmaya başlama](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [SQL Server için Ruby sürücüsü](http://msdn.microsoft.com/library/mt691981.aspx) | [Yükleme](https://msdn.microsoft.com/library/mt711041.aspx) | [Kullanmaya başlama](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [SQL Server için Microsoft ODBC sürücüsü](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [İndir](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
 
-Nesne İlişkisel eşleme (ORM) çerçeveler ve istemci uygulamaları veya şirket içi çalışan SQL Server ile kullanabileceğiniz web çerçeveleri bulutta örnekleri aşağıdaki tabloda listelenmektedir. Linux, Windows veya Docker çerçeveleri kullanın ve bunları SQL Database ve SQL Data Warehouse bağlanmak için kullanın. 
+Aşağıdaki tabloda, bulutta nesne ilişkisel eşleme (ORM) çerçeveleri ve istemci uygulamaları veya şirket içinde çalışan SQL Server ile kullanabileceğiniz web çerçeveleri örneklerini listeler. Linux, Windows veya Docker çerçeveleri kullanın ve SQL veritabanı ve SQL veri ambarına bağlanmak için bunları kullanın. 
 
 | Dil | Platform | ORM(s) |
 | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Çekirdek](https://docs.microsoft.com/ef/core/index) |
+| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
 | Java | Windows, Linux, macOS |[ORM hazırda bekleme](http://hibernate.org/orm)|
 | PHP | Windows, Linux | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
 | Node.js | Windows, Linux, macOS | [ORM sequelize](http://docs.sequelizejs.com) |
 | Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
-| Ruby | Windows, Linux, macOS | [Ruby rayları üzerinde](http://rubyonrails.org/) |
+| Ruby | Windows, Linux, macOS | [Ruby on Rails](http://rubyonrails.org/) |
 ||||
 
 ## <a name="related-links"></a>İlgili bağlantılar
-- [SQL Server sürücüleri](http://msdn.microsoft.com/library/mt654049.aspx) istemci uygulamalarından bağlanmak için kullanılan
-- SQL veritabanına bağlan:
+- [SQL Server sürücüleri](http://msdn.microsoft.com/library/mt654049.aspx) istemci uygulamalarından bağlanmak için kullanılabilir
+- SQL veritabanı'na bağlanma:
     - [.NET (C#) kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-dotnet.md)
     - [PHP kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-php.md)
     - [Node.js kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-nodejs.md)
@@ -54,8 +57,8 @@ Nesne İlişkisel eşleme (ORM) çerçeveler ve istemci uygulamaları veya şirk
     - [Python kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-python.md)
     - [Ruby kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-ruby.md)
 - Yeniden deneme mantığı kod örnekleri:
-    - [SQL ADO.NET ile resiliently bağlanma][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-    - [PHP ile SQL resiliently bağlanma][step-4-connect-resiliently-to-sql-with-php-p42h]
+    - [Dayanıklı ADO.NET ile SQL bağlantısı kurma][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+    - [Dayanıklı PHP ile SQL bağlantısı kurma][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 
 <!-- Link references. -->

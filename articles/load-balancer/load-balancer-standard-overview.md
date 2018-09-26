@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 17b4bc68b2dc996134626b1822cfd17f0a9a7572
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005884"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161650"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard genel bakış
 
@@ -232,6 +232,8 @@ Standart Load Balancer, Yük Dengeleme kuralları yapılandırılmış ve işlen
 - Hakkında bilgi edinin [standart yük dengeleyici tanılama](load-balancer-standard-diagnostics.md).
 - Hakkında bilgi edinin [çok boyutlu ölçümler desteklenen](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) tanılama yenilikleri [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md).
 - Kullanma hakkında bilgi edinin [giden bağlantılar için yük dengeleyici](load-balancer-outbound-connections.md).
+- Hakkında bilgi edinin [giden kuralları](load-balancer-outbound-rules-overview.md).
+- Hakkında bilgi edinin [TCP boşta üzerinde sıfırlama](load-balancer-tcp-reset.md).
 - Hakkında bilgi edinin [standart Load Balancer ile yüksek kullanılabilirlik bağlantı noktaları Yük Dengeleme kuralları](load-balancer-ha-ports-overview.md).
 - Kullanma hakkında bilgi edinin [birden çok ön uç yük Dengeleyiciyle](load-balancer-multivip-overview.md).
 - Hakkında bilgi edinin [sanal ağlar](../virtual-network/virtual-networks-overview.md).

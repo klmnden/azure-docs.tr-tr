@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/17/2018
 ms.author: subramar
-ms.openlocfilehash: f3f381fddee9c1830202854f02556f73b5aeed23
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3f321775ba112471760e627e6b43ed17ff8c5b6b
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055586"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182884"
 ---
 # <a name="application-upgrade-parameters"></a>Uygulama yükseltme parametreleri
 Bu makalede, Azure Service Fabric uygulaması yükseltme sırasında geçerli olan çeşitli parametreler açıklanmaktadır. Uygulama yükseltme parametreleri zaman aşımları ve yükseltme sırasında uygulanan sistem durumu denetimlerini denetleme ve bunlar yükseltme başarısız olduğunda uygulanmalıdır ilkeleri belirtin.
@@ -42,7 +42,7 @@ Visual Studio Service Fabric uygulama yükseltme parametreleri, Visual Studio Y�
 | --- | --- | --- |
 ApplicationName |PS| Yükseltilmekte olan uygulamanın adı. Örnekler: fabric: / VisualObjects, fabric: / ClusterMonitor. |
 ApplicationTypeVersion|PS|Uygulama sürümü türü yükseltme hedefler. |
-FailureAction |PS, VS|İzin verilen değerler **geçersiz**, **geri alma**, ve **el ile**. Yükseltme başarısız olduğunda, Service Fabric tarafından gerçekleştirilecek eylem. Uygulama güncelleştirme öncesi sürüm (Geri Al) geri alınması veya yükseltme sırasında geçerli yükseltme etki alanı durdurulmuş olabilir. İkinci durumda, yükseltme modu da değiştirilir **el ile**.|
+FailureAction |PS, VS|İzin verilen değerler **geri alma**, **el ile**, ve **geçersiz**. Ne zaman telafi gerçekleştirilecek bir *izlenen* ilke ihlallerini ilke veya sistem durumu izleme karşılaştığı yükseltin. <br>**Geri alma** yükseltme otomatik olarak yükseltme öncesi sürüme geri döner olduğunu belirtir. <br>**El ile** yükseltme geçer gösterir *UnmonitoredManual* yükseltme modu. <br>**Geçersiz** hatası eylemi geçersiz olduğunu gösterir.|
 İzleniyor |PS|Yükseltme modu izlenip izlenmediğini gösterir. Service Fabric, yükseltme etki alanı ve küme durumunu tanımladığınız sistem durumu ilkeleri karşılıyorsanız cmdlet'i bir yükseltme etki alanı için bir yükseltme tamamlandıktan sonra sonraki yükseltme etki alanı yükseltir. Yükseltme etki alanı ya da küme sistem durumu ilkeleri karşılamak başarısız olursa, yükseltme başarısız olur ve Service Fabric geri yükseltme etki alanı için yükseltme yapar veya belirtilen ilke başına el ile moduna döner. Bir üretim ortamında uygulama yükseltmeleri için önerilen mod budur. |
 UpgradeMode | VS | İzin verilen değerler **izlenen** (varsayılan), **UnmonitoredAuto**, veya **UnmonitoredManual**. Ayrıntılar için bu makaledeki her modu için PowerShell parametreleri bakın. |
 UnmonitoredAuto | PS | Yükseltme modu izlenmeyen otomatik olduğunu gösterir. Service Fabric, bir yükseltme etki alanını yükseltildikten sonra Service Fabric uygulaması sistem durumu bağımsız olarak bir sonraki yükseltme etki alanı yükseltir. Bu mod, üretim için tavsiye edilmez ve yalnızca bir uygulamanın geliştirilmesi sırasında yararlıdır. |

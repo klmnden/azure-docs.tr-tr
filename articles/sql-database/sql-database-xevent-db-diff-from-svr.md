@@ -1,113 +1,115 @@
 ---
-title: SQL veritabanı olaylar genişletilmiş | Microsoft Docs
-description: Azure SQL veritabanında genişletilmiş olaylar (Xevent'ler) ve nasıl olay oturumları biraz Microsoft SQL Server'ın olay oturumlarından farklılıklar açıklanmıştır.
+title: Genişletilmiş olaylar SQL veritabanı'nda | Microsoft Docs
+description: Azure SQL veritabanı'nda genişletilmiş olaylar (Xevent'ler), ve olay oturumları biraz Microsoft SQL Server'daki olay oturumlarından farklılıklar açıklanmıştır.
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
-ms.workload: On Demand
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: 9c0115254fc3368868584e76ead8da812656e4d1
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 8852fc75658298a2c6887d8fef154d5a0b59affd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028855"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159918"
 ---
-# <a name="extended-events-in-sql-database"></a>SQL veritabanında genişletilmiş olaylar
+# <a name="extended-events-in-sql-database"></a>SQL veritabanı'nda genişletilmiş olaylar
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Bu konuda Microsoft SQL Server Genişletilmiş olaylara göre nasıl genişletilmiş olaylar Azure SQL veritabanında biraz farklı uygulamasıdır açıklanmaktadır.
+Bu konu Azure SQL veritabanı'nda genişletilmiş olaylar uygulanmasının biraz daha farklı olmasına nasıl Microsoft SQL Server Genişletilmiş olaylar ile karşılaştırıldığında açıklar.
 
-- SQL Database V12 genişletilmiş olaylar özelliği ikincide Takvim 2015 yarısı kazanılan.
-- SQL Server 2008'den beri genişletilmiş olaylar oluşturdu.
-- SQL veritabanı üzerinde Genişletilmiş olaylar özellik kümesini sağlam bir SQL Server'ın özellikleri alt kümesidir.
+- SQL veritabanı V12 genişletilmiş olaylar özellik ikinci yarısında Takvim 2015 kavuştu.
+- SQL Server 2008'den itibaren genişletilmiş olaylar oluşturdu.
+- SQL veritabanı'nda genişletilmiş olaylar özellik kümesi, SQL Server'ın özellikleri hakkında güçlü bir alt kümesidir.
 
-*Xevent'ler* 'için genişletilmiş olayları' bazen kullanılan bir resmi olmayan takma blogları ve diğer resmi olmayan konumlara adıdır.
+*Xevent'ler* blogları ve diğer resmi olmayan konumlara 'için genişletilmiş olaylar' bazen kullanılan resmi olmayan bir takma ad kullanılabilir.
 
-Azure SQL Database ve Microsoft SQL Server için genişletilmiş olaylar hakkında ek bilgi şu adresten edinilebilir:
+Azure SQL veritabanı ve Microsoft SQL Server için genişletilmiş olaylar hakkında ek bilgi şuradan ulaşabilirsiniz:
 
 - [Hızlı Başlangıç: SQL Server Genişletilmiş olaylar](http://msdn.microsoft.com/library/mt733217.aspx)
 - [Genişletilmiş olaylar](http://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu konu, zaten bazı bilgisine sahip varsayar:
+Bu konuda, biraz bilgi zaten sahip olduğunuz varsayılır:
 
-- [Azure SQL veritabanı hizmetinin](https://azure.microsoft.com/services/sql-database/).
-- [Olaylar Genişletilmiş](http://msdn.microsoft.com/library/bb630282.aspx) Microsoft SQL Server'da.
+- [Azure SQL veritabanı hizmeti](https://azure.microsoft.com/services/sql-database/).
+- [Genişletilmiş olaylar](http://msdn.microsoft.com/library/bb630282.aspx) Microsoft SQL Server.
 
 - Belgelerimizi genişletilmiş olaylar hakkında toplu SQL Server ve SQL veritabanı için geçerlidir.
 
-Olay dosyası olarak seçerken aşağıdaki öğeleri önceki maruz yararlıdır [hedef](#AzureXEventsTargets):
+Olay dosyası olarak seçerken aşağıdaki öğeleri önceki maruz kalma riskinizi yararlı [hedef](#AzureXEventsTargets):
 
 - [Azure depolama hizmeti](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell
-    - [Azure Storage ile Azure PowerShell'i kullanarak](../storage/common/storage-powershell-guide-full.md) -PowerShell ve Azure depolama hizmeti hakkında kapsamlı bilgi sağlar.
+    - [Azure PowerShell kullanarak Azure depolama ile](../storage/common/storage-powershell-guide-full.md) -PowerShell ve Azure depolama hizmeti hakkında kapsamlı bilgi sağlar.
 
 ## <a name="code-samples"></a>Kod örnekleri
 
 İlgili Konular iki kod örnekleri sağlar:
 
 
-- [Halka arabelleği hedef kod SQL veritabanında genişletilmiş olaylar](sql-database-xevent-code-ring-buffer.md)
-    - Kısa basit Transact-SQL komut dosyası.
-    - Biz halka arabelleği hedefle bittiğinde, kaynaklarını alter bırak yürüterek serbest bırakmalısınız, kod örnek konudaki vurgulamak `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` deyimi. Halka arabelleği ile başka bir örneği daha sonra ekleyebilirsiniz `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
+- [Halka arabelleği hedef kodu için SQL veritabanı'nda genişletilmiş olaylar](sql-database-xevent-code-ring-buffer.md)
+    - Kısa basit Transact-SQL betiği.
+    - Biz bir halka arabelleği hedef ile işiniz bittiğinde, kaynaklarını alter bırak yürüterek serbest bırakmalısınız, kod örnek konusunda vurgulamak `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` deyimi. Halka arabelleği ile başka bir örneği daha sonra ekleyebilirsiniz `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
 
-- [SQL veritabanı genişletilmiş olaylar için olay dosya hedef kodu](sql-database-xevent-code-event-file.md)
-    - 1 bir Azure depolama kapsayıcısı oluşturmak için PowerShell aşamasıdır.
-    - Aşama 2 Azure Storage kapsayıcısını kullanan Transact-SQL ' dir.
+- [SQL veritabanı'nda genişletilmiş olaylar için olay dosyası hedef kodu](sql-database-xevent-code-event-file.md)
+    - 1. Aşama, bir Azure depolama kapsayıcısı oluşturmak için powershell'dir.
+    - 2. Aşama, Azure depolama kapsayıcısını kullanan Transact-SQL ' dir.
 
 ## <a name="transact-sql-differences"></a>Transact-SQL farklılıkları
 
 
-- Çalıştırdığınızda [oluşturma olay OTURUMU](http://msdn.microsoft.com/library/bb677289.aspx) kullandığınız SQL Server üzerinde komut **ON SERVER** yan tümcesi. Ancak SQL veritabanında kullandığınız **ON veritabanı** yan tümcesi yerine.
+- Yürüttüğünüzde [olay OTURUMU oluşturma](http://msdn.microsoft.com/library/bb677289.aspx) komutunu SQL Server'da kullandığınız **ON SERVER** yan tümcesi. Ancak, kullandığınız SQL veritabanı'nda **üzerinde veritabanı** yan tümcesi bunun yerine.
 
 
-- **ON veritabanı** yan tümcesi de uygulanır [ALTER olay OTURUMU](http://msdn.microsoft.com/library/bb630368.aspx) ve [bırakma olay OTURUMU](http://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL komutları.
+- **Üzerinde veritabanı** yan tümcesi de uygulanır [ALTER olay OTURUMU](http://msdn.microsoft.com/library/bb630368.aspx) ve [bırakın olay oturumunu](http://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL komutlarını.
 
 
-- Olay oturumu seçeneği, dahil etmek için en iyi uygulamadır **STARTUP_STATE ON =** içinde **oluşturma olay OTURUMU** veya **ALTER olay OTURUMU** deyimleri.
-    - **ON =** değeri, bir yük devretme nedeniyle mantıksal veritabanı yapılandırılmasına sonra otomatik yeniden başlatma destekler.
+- Olay oturumu seçeneği, dahil etmek için en iyi uygulamadır **STARTUP_STATE = ON** içinde **olay OTURUMU oluşturma** veya **ALTER olay OTURUMU** deyimleri.
+    - **= ON** değeri bir yeniden yapılandırma nedeniyle yük devretme mantıksal veritabanının sonra otomatik yeniden başlatma destekler.
 
 ## <a name="new-catalog-views"></a>Yeni Katalog görünümleri
 
-Genişletilmiş olaylar özelliği birkaçı tarafından desteklenir [Katalog görünümleri](http://msdn.microsoft.com/library/ms174365.aspx). Katalog görünümleri hakkında size bildirmek *meta verileri veya tanımları* kullanıcı tarafından oluşturulan olay oturumlarının geçerli veritabanında. Görünümleri etkin olay oturumları örnekleri hakkında bilgi döndürmeyin.
+Genişletilmiş olaylar özelliği birkaç tarafından desteklenen [Katalog görünümleri](http://msdn.microsoft.com/library/ms174365.aspx). Katalog görünümleri hakkında size bilgi *meta verileri veya tanımları* geçerli veritabanında kullanıcı tarafından oluşturulan olay oturumu. Görünümler, etkin olay oturumları örnekleri hakkında bilgi gitmez.
 
 | Adı<br/>Katalog görünümü | Açıklama |
 |:--- |:--- |
-| **sys.database_event_session_actions** |Her bir olay oturumu olayda her eylem için bir satır döndürür. |
-| **sys.database_event_session_events** |Her olay için bir satır, bir olay oturumunda döndürür. |
-| **sys.database_event_session_fields** |Olayları ve hedefleri açık olarak ayarlanıp özelleştirme-mümkün her sütun için bir satır döndürür. |
+| **sys.database_event_session_actions** |Her bir olay oturumuna olayının üzerinde her eylem için bir satır döndürür. |
+| **sys.database_event_session_events** |Bir olay oturumunda her olay için bir satır döndürür. |
+| **sys.database_event_session_fields** |Olayları ve hedefler üzerinde açık olarak özelleştirilebilir her sütun için bir satır döndürür. |
 | **sys.database_event_session_targets** |Her olay hedefi için bir satır için bir olay oturumu döndürür. |
-| **sys.database_event_sessions** |SQL veritabanı veritabanındaki her olay oturumu için bir satır döndürür. |
+| **sys.database_event_sessions** |SQL veritabanı veritabanındaki her bir olay oturumu için bir satır döndürür. |
 
 Microsoft SQL Server'da benzer Katalog görünümleri içeren adları sahip *klasöründe\_*  yerine *.database\_*. Ad deseni benzer **sys.server_event_%**.
 
-## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>Yeni dinamik yönetim görünümlerini [(Dmv'leri)](http://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>Yeni dinamik yönetim görünümlerini [(Dmv'ler)](http://msdn.microsoft.com/library/ms188754.aspx)
 
-Azure SQL veritabanı sahip [dinamik yönetim görünümlerini (Dmv'leri)](http://msdn.microsoft.com/library/bb677293.aspx) genişletilmiş olaylar destekler. Dmv'leri hakkında size bildirmek *etkin* olay oturumları.
+Azure SQL veritabanı olan [dinamik yönetim görünümlerini (Dmv'ler)](http://msdn.microsoft.com/library/bb677293.aspx) genişletilmiş olaylar destekler. Dmv'leri hakkında size bilgi *etkin* olay oturumları.
 
 | DMV adı | Açıklama |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |Olay oturumu eylemler hakkında bilgi döndürür. |
-| **sys.dm_xe_database_session_events** |Oturum olaylar hakkında bilgi döndürür. |
-| **sys.dm_xe_database_session_object_columns** |Bir oturuma bağlı olan nesneleri için yapılandırma değerlerini gösterir. |
-| **sys.dm_xe_database_session_targets** |Oturum hedefleri hakkında bilgi verir. |
-| **sys.dm_xe_database_sessions** |Bir satır kapsamlıdır her bir olay oturumu için geçerli veritabanına döndürür. |
+| **sys.dm_xe_database_session_events** |Oturum olayları hakkında bilgi döndürür. |
+| **sys.dm_xe_database_session_object_columns** |Bir oturuma bağlı nesneler için yapılandırma değerlerini gösterir. |
+| **sys.dm_xe_database_session_targets** |Oturum hedefleri hakkında bilgi döndürür. |
+| **sys.dm_xe_database_sessions** |Bir satır kapsamı her bir olay oturumu için geçerli veritabanına döndürür. |
 
-Microsoft SQL Server'da benzer Katalog görünümleri olmadan adlı  *\_veritabanı* adı kısmını gibi:
+Microsoft SQL Server'da benzer Katalog görünümleri olmadan adlı  *\_veritabanı* adı kısmı gibi:
 
 - **sys.dm_xe_sessions**, adı yerine<br/>**sys.dm_xe_database_sessions**.
 
-### <a name="dmvs-common-to-both"></a>Dmv'leri ortak
-Genişletilmiş olaylar için Azure SQL Database ve Microsoft SQL Server için ortak olan ek Dmv'leri vardır:
+### <a name="dmvs-common-to-both"></a>Ortak Dmv'ler
+Genişletilmiş olaylar için Azure SQL veritabanı ve Microsoft SQL Server için ortak olan ek DMV vardır:
 
 - **sys.dm_xe_map_values**
 - **sys.dm_xe_object_columns**
@@ -116,9 +118,9 @@ Genişletilmiş olaylar için Azure SQL Database ve Microsoft SQL Server için o
 
  <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
-## <a name="find-the-available-extended-events-actions-and-targets"></a>Olaylar, Eylemler ve hedefleri genişletilmiş kullanılabilir Bul
+## <a name="find-the-available-extended-events-actions-and-targets"></a>Genişletilmiş olayları, eylemleri ve hedefleri kullanılabilir Bul
 
-Basit bir SQL çalıştırabilirsiniz **seçin** kullanılabilir olaylar, eylemleri ve hedef listesini elde etmek için.
+Basit bir SQL çalıştırabileceğiniz **seçin** kullanılabilir olayları, eylemleri ve hedef listesi elde etmek için.
 
 ```sql
 SELECT
@@ -143,30 +145,30 @@ SELECT
 
 <a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
 
-## <a name="targets-for-your-sql-database-event-sessions"></a>SQL veritabanı olay oturumları için hedefleri
+## <a name="targets-for-your-sql-database-event-sessions"></a>İçin SQL veritabanı olayı oturumlarına hedefleri
 
-SQL veritabanı üzerinde olay oturumları sonuçlarından yakalayabilirsiniz hedefleri şunlardır:
+SQL veritabanı, etkinlik oturumlarına sonuçlardan yakalayabilirsiniz hedefleri şunlardır:
 
-- [Halka arabelleği hedef](http://msdn.microsoft.com/library/ff878182.aspx) -kısaca bellekte olay verileri tutar.
-- [Olay sayaç hedef](http://msdn.microsoft.com/library/ff878025.aspx) -genişletilmiş olaylar oturumu sırasında oluşan tüm olaylar sayar.
-- [Olay dosya hedef](http://msdn.microsoft.com/library/ff878115.aspx) -bir Azure depolama kapsayıcısı için tam arabellek yazar.
+- [Halka arabelleği hedefine](http://msdn.microsoft.com/library/ff878182.aspx) -kısaca bellekte olay verileri tutar.
+- [Sayaç hedefi olay](http://msdn.microsoft.com/library/ff878025.aspx) -bir genişletilmiş olaylar oturumu sırasında gerçekleşen tüm olayları sayar.
+- [Olay dosya hedefine](http://msdn.microsoft.com/library/ff878115.aspx) -bir Azure depolama kapsayıcısı için tüm arabellekler yazar.
 
-[Olay izleme için Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) API SQL veritabanı üzerinde Genişletilmiş olaylar için kullanılabilir değil.
+[Olay izleme için Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) API SQL veritabanı'nda genişletilmiş olaylar için uygun değildir.
 
 ## <a name="restrictions"></a>Kısıtlamalar
 
-Birkaç SQL veritabanının bulut ortamı befitting güvenlikle ilgili farklar vardır:
+Birkaç SQL veritabanı'nın bulut ortamı befitting güvenlikle ilgili farklar vardır:
 
-- Genişletilmiş olaylar tek Kiracı yalıtımı model üzerinde kurulan. Bir veritabanında bir olay oturumu başka bir veritabanından veri ve olayları erişemez.
-- Veremez bir **oluşturma olay OTURUMU** deyimi bağlamında **ana** veritabanı.
+- Genişletilmiş olaylar tek kiracılı yalıtım modeline bulunmuş. Bir olay oturumuna bir veritabanındaki verileri veya olayları başka bir veritabanından erişemez.
+- Veremez bir **olay OTURUMU oluşturma** deyimi bağlamında **ana** veritabanı.
 
-## <a name="permission-model"></a>İzni modeli
+## <a name="permission-model"></a>Bir izin modeli
 
-Sahip olmanız gerekir **denetim** izin vermek için veritabanında bir **oluşturma olay OTURUMU** deyimi. Veritabanı sahibi (dbo) sahip **denetim** izni.
+Olmalıdır **denetimi** veritabanı izinlerini vermek için bir **olay OTURUMU oluşturma** deyimi. Veritabanı sahibinin (dbo) **denetimi** izni.
 
-### <a name="storage-container-authorizations"></a>Depolama kapsayıcısı yetkilerini
+### <a name="storage-container-authorizations"></a>Depolama kapsayıcısı yetkilendirmeleri
 
-Azure depolama kapsayıcısının belirtmelisiniz için oluşturduğunuz SAS belirteci **rwl** izinler için. **Rwl** değeri, aşağıdaki izinleri sağlar:
+Azure depolama kapsayıcınızda belirtmelisiniz için SAS belirteci oluşturmak **rwl** izinleri. **Rwl** değeri, aşağıdaki izinleri sağlar:
 
 - Okuma
 - Yazma
@@ -174,35 +176,35 @@ Azure depolama kapsayıcısının belirtmelisiniz için oluşturduğunuz SAS bel
 
 ## <a name="performance-considerations"></a>Performansla ilgili önemli noktalar
 
-Yoğun kullanımını genişletilmiş olaylar için genel sistem sağlıklı olandan daha etkin bellek burada birikebilir senaryo vardır. Bu nedenle Azure SQL veritabanı sistem dinamik olarak ayarlar ve bir olay oturumu tarafından toplanabilir etkin bellek miktarını sınırları ayarlar. Birçok faktöre dinamik hesaplama gidin.
+Genişletilmiş olaylar yoğun kullanımı için genel olarak sistemin iyi durumda olandan daha etkin bir bellek burada birikebilir senaryo vardır. Bu nedenle Azure SQL veritabanı sistem dinamik olarak ayarlar ve bir olay oturumu tarafından toplanabilir active bellek miktarını sınırlar ayarlar. Pek çok etken dinamik hesaplaması gidin.
 
-En fazla bellek zorlanmış bildiren bir hata iletisi alırsanız, bazı düzeltici eylemleri şunlardır:
+En fazla bellek zorlandı bildiren bir hata iletisi alırsanız, uygulayabileceğiniz bazı düzeltici eylemler şunlardır:
 
-- Daha az sayıda eşzamanlı olay oturumları çalıştırın.
-- Aracılığıyla, **oluşturma** ve **ALTER** deyimleri olay oturumları için sizin belirttiğiniz bellek miktarını azaltmak **MAX\_bellek** yan tümcesi.
+- Daha az eş zamanlı etkinlik oturumları çalıştırın.
+- Aracılığıyla, **Oluştur** ve **ALTER** olay oturumları için deyimleri, belirttiğiniz bellek miktarını azaltmak **MAX\_bellek** yan tümcesi.
 
 ### <a name="network-latency"></a>Ağ gecikmesi
 
-**Olay dosyası** hedef ağ gecikmesi veya hatalar için Azure Storage bloblarını kalıcı veriler deneyimi. SQL veritabanı diğer olaylarla tamamlamak ağ iletişimi için beklerken gecikebilir. Bu gecikme, iş yükü yavaşlatabilir.
+**Olay dosyası** hedef ağ gecikmesi ya da hataları kalıcı veriler Azure depolama bloblarına yaşayabilir. Bunlar ağ iletişimi tamamlamak beklerken SQL veritabanı'nda diğer olayları gecikebilir. Bu gecikme, iş yükünüz yavaşlatabilir.
 
-- Bu performans riski azaltmak için ayarı kaçının **EVENT_RETENTION_MODE** için seçenek **NO_EVENT_LOSS** olay oturumu tanımlarında.
+- Bu performans riski azaltmak için ayar önlemek **EVENT_RETENTION_MODE** seçeneğini **NO_EVENT_LOSS** olay oturumu tanımlarındaki.
 
 ## <a name="related-links"></a>İlgili bağlantılar
 
-- [Azure Storage ile Azure PowerShell'i kullanma](../storage/common/storage-powershell-guide-full.md).
+- [Azure PowerShell'i Azure Depolama'yla kullanma](../storage/common/storage-powershell-guide-full.md).
 - [Azure depolama cmdlet'leri](https://docs.microsoft.com/powershell/module/Azure.Storage)
-- [Azure Storage ile Azure PowerShell'i kullanarak](../storage/common/storage-powershell-guide-full.md) -PowerShell ve Azure depolama hizmeti hakkında kapsamlı bilgi sağlar.
-- [BLOB depolama alanından .NET kullanma](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+- [Azure PowerShell kullanarak Azure depolama ile](../storage/common/storage-powershell-guide-full.md) -PowerShell ve Azure depolama hizmeti hakkında kapsamlı bilgi sağlar.
+- [Net'ten BLOB storage kullanma](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
 - [Olay OTURUMU (Transact-SQL) oluşturma](http://msdn.microsoft.com/library/bb677289.aspx)
-- [Microsoft SQL Server'da genişletilmiş olaylar hakkında Jonathan Kehayias blog yazılarını](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [Microsoft SQL Server Genişletilmiş olaylar hakkında Jonathan Kehayias blog gönderileri](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
-- Azure *hizmet güncelleştirmeleri* Web sayfası, Azure SQL veritabanı parametresi tarafından daraltıldığı:
+- Azure *hizmet güncelleştirmeleri* Web sayfasını, Azure SQL veritabanı parametresi tarafından daraltıldığı:
     - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 
-Aşağıdaki bağlantılarda diğer kod örnek konuları genişletilmiş olaylar için kullanılabilir. Ancak, örnek Microsoft SQL Server Azure SQL veritabanına karşı hedefler olup olmadığını görmek için herhangi bir örnek düzenli olarak denetlemeniz gerekir. Ardından, küçük değişiklikler örneği çalıştırmak için gerekli olup olmadığını karar verebilirsiniz.
+Diğer kod örnek konuları genişletilmiş olaylar için aşağıdaki bağlantılarda kullanılabilir. Ancak, Microsoft Azure SQL veritabanı ve SQL Server örneği mı hedeflediği görmek için herhangi bir örnek düzenli olarak işaretlemeniz gerekir. Ardından, küçük değişiklikler örneği çalıştırmak için gerekli olup olmadığını karar verebilirsiniz.
 
 <!--
 ('lock_acquired' event.)

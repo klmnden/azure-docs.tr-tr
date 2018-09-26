@@ -2,20 +2,22 @@
 title: Azure SQL veritabanı yönetilen örnek sanal ağ yapılandırması | Microsoft Docs
 description: Bu konuda, bir Azure SQL veritabanı yönetilen örneği ile bir sanal ağın (VNet) için yapılandırma seçenekleri açıklanmaktadır.
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/20/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: dfcd61abd9f995a9bb848c23143adb99b0620956
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 9d3f867dad40017e8e97ec4f5e370533b018263c
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042168"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181184"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma
 
@@ -42,7 +44,7 @@ Bir yönetilen örnek oluşturmak için aşağıdaki gereksinimlere uygun bir sa
 - **Ayrılmış alt**: yönetilen örnek alt kendisiyle ilişkilendirilmiş diğer bulut hizmeti içermemelidir ve bir ağ geçidi alt ağı olmamalıdır. Yönetilen örnek haricinde kaynaklar içeren bir alt ağdaki bir yönetilen örnek oluşturma mümkün olmayacaktır ve daha sonra diğer kaynaklar alt ağdaki ekleyebilirsiniz değil.
 - **Uyumlu ağ güvenlik grubu (NSG)**: bir yönetilen örnek alt ağ ile ilişkilendirilmiş bir NSG kuralları önüne başka kurallar aşağıdaki tablolarda (zorunlu gelen güvenlik kuralları ve zorunlu giden güvenlik kuralları) gösterilen içermesi gerekir. 1433 numaralı bağlantı noktasında trafiği filtreleyerek, tam olarak yönetilen örnek veri uç noktası erişimi denetlemek için bir NSG kullanabilirsiniz. 
 - **Uyumlu kullanıcı tanımlı yol tablosu (UDR)**: yönetilen örnek alt, bir kullanıcı rota tablosuyla olmalıdır **0.0.0.0/0 sonraki atlama Internet** atanmış zorunlu UDR olarak. Ayrıca, bir hedef sanal ağ geçidi veya sanal ağ Gereci (NVA) üzerinden şirket içi özel IP aralıklarına sahip bu trafiği yönlendirir UDR ekleyebilirsiniz. 
-- **İsteğe bağlı bir özel DNS**: sanal ağ özel bir DNS belirtilirse, Azure'nın yinelemeli çözümleyici IP adresi (örneğin, 168.63.129.16) listeye eklenmelidir. Daha fazla bilgi için [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md). Özel DNS sunucusunun ana bilgisayar adlarını aşağıdaki etki alanları ve bunların alt çözümleyebilmesi gerekir: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, ve *microsoftonline-p.com*. 
+- **İsteğe bağlı bir özel DNS**: sanal ağda özel DNS belirtilirse, Azure'nın yinelemeli çözümleyici IP adresi (örneğin, 168.63.129.16) listeye eklenmelidir. Daha fazla bilgi için [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md). Özel DNS sunucusunun ana bilgisayar adlarını aşağıdaki etki alanları ve bunların alt çözümleyebilmesi gerekir: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, ve *microsoftonline-p.com*. 
 - **Hizmet uç noktası yok**: yönetilen örnek alt ilişkili bir hizmet uç noktası değil olmalıdır. Hizmet uç noktaları seçeneğini sanal ağ oluştururken, devre dışı emin olun.
 - **Yeterli IP adresi**: yönetilen örnek alt en az 16 IP adresi olmalıdır (en az 32 IP adresleri önerilir). Daha fazla bilgi için [yönetilen örnekler için alt ağ boyutunu belirler](#determine-the-size-of-subnet-for-managed-instances)
 

@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 20b98fa9656c9c66a81ff98a70fcdbfb29d4dad6
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35978312"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093189"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Rollerin geri dönüştürülmesine neden olan yaygın sorunlar
 Bu makalede, bazı yaygın nedenleri dağıtım sorunlarını ele alır ve bu sorunları çözmenize yardımcı olacak sorun giderme ipuçları sağlar. Bir uygulama ile bir sorun olduğunu rol örneği başlatılamıyor veya başlatılıyor, meşgul ve durdurma durumlar arasında döngüleri göstergesidir.

@@ -9,31 +9,31 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f4a8ff272e498871f4a31ce76487509673f48328
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cbd475ae4ce944db3ebf57b415b60e7abdd52677
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034255"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163860"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Otomatik makine öğrenimi deneme yapılandırma
 
-Otomatik machine learning, sizin için bir algoritma seçer ve dağıtım için hazır bir model oluşturur. Model, daha fazla özelleştirilmiş de indirilebilir. Otomatik makine öğrenimi denemelerini yapılandırmak için kullanabileceğiniz birkaç seçenek vardır. Bu kılavuzda, çeşitli yapılandırma ayarlarını tanımlamanızı öğreneceksiniz.
+Otomatik machine learning (ML otomatik) bir algoritmaya ve hiperparametreleri sizin için seçer ve dağıtım için hazır bir model oluşturur. Model, daha fazla özelleştirilmiş de indirilebilir. Otomatik ML denemeleri yapılandırmak için kullanabileceğiniz birkaç seçenek vardır. Bu kılavuzda, çeşitli yapılandırma ayarlarını tanımlamanızı öğreneceksiniz.
 
-Otomatik machine learning örnekleri görüntülemek için bkz: [Öğreticisi: otomatik olarak bir sınıflandırma modeli eğitme](tutorial-auto-train-models.md) veya [otomatik olarak bulutta modelleri eğitme](how-to-auto-train-remote.md).
+Bir otomatik ML örneklerini görüntülemek için bkz: [Öğreticisi: otomatik machine learning ile bir sınıflandırma modeli eğitme](tutorial-auto-train-models.md) veya [eğitme modelleri bulutta otomatik machine learning ile](how-to-auto-train-remote.md).
 
 Otomatik machine learning'de kullanılabilen yapılandırma seçenekleri:
 
 * Örneğin, Sınıflandırma, regresyon, deneme türünü seçin 
 * Veri kaynağı, biçimleri ve verileri getirme
 * (Yerel veya uzak) işlem hedef seçin
-* `AutoML` Deneme ayarları
-* Çalıştırma `AutoML` denemeler yapın
+* ML denemesi otomatikleştirilmiş
+* Otomatik bir ML denemeyi çalıştırma
 * Model ölçümleri keşfedin
 * Kaydolun ve model dağıtma
 
 ## <a name="select-your-experiment-type"></a>Deneme türünüzü seçin
-Denemenizi başlamadan önce çözümü machine learning sorun türünü belirlemeniz gerekir. Otomatik machine learning iki kategoriye denetimli öğrenme destekler: sınıflandırma ve regresyon. Otomatik machine learning, otomasyon ve ayarlama işlemi sırasında aşağıdaki algoritmalarını destekler. Bir kullanıcı olarak, algoritma belirtmek gerek yoktur.
+Denemenizi başlamadan önce çözümü machine learning sorun türünü belirlemeniz gerekir. Denetimli öğrenmede iki kategoriye otomatik ML destekler: sınıflandırma ve regresyon. Otomasyon ve ayarlama işlemi sırasında otomatik olarak aşağıdaki algoritmalarını ML destekler. Bir kullanıcı olarak, algoritma belirtmek gerek yoktur.
 Sınıflandırma | Regresyon
 --|--
 sklearn.linear_model. LogisticRegression | sklearn.linear_model. ElasticNet
@@ -51,8 +51,8 @@ sklearn.ensemble.GradientBoostingClassifier |
 lightgbm. LGBMClassifier |
 
 
-## <a name="data-source-and-format-for-automl-experiment"></a>Veri kaynağı ve biçimini `AutoML` denemeler yapın
-`AutoML` Yerel masaüstüne veya Azure Blob Depolama bulutta bulunan verileri destekler. Verilerin scikit okunacağı-desteklenen veri biçimlerinden öğrenin. Verileri X (1) Numpy diziler (özellikleri) ve y (hedef değişkeni veya olarak da bilinen etiket) veya 2) Pandas dataframe okuyabilirsiniz. 
+## <a name="data-source-and-format"></a>Veri kaynağı ve biçimi
+Otomatik ML yerel masaüstüne veya Azure Blob Depolama bulutta bulunan verileri destekler. Verilerin scikit okunacağı-desteklenen veri biçimlerinden öğrenin. Verileri X (1) Numpy diziler (özellikleri) ve y (hedef değişkeni veya olarak da bilinen etiket) veya 2) Pandas dataframe okuyabilirsiniz. 
 
 Örnekler:
 
@@ -79,9 +79,9 @@ lightgbm. LGBMClassifier |
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Uzak işlem üzerinde denemeyi çalıştırmak için veri alma
 
-Veri getirme AutoML denemenizi çalıştırmak için uzak bir işlem kullanıyorsanız ayrı bir python komut dosyasında alınmalıdır `GetData()`. Bu betik, AutoML denemeyi çalıştırıldığı uzak işlem üzerinde çalıştırılır. `GetData` her yineleme için kablo üzerinden verileri getirme gereksinimini ortadan kaldırır. Olmadan `GetData`, uzak işlem üzerinde çalıştırdığınızda, deneme başarısız olur.
+Denemenizi çalıştırmak için uzak bir işlem kullanıyorsanız, veri getirme, ayrı bir python betiği alınmalıdır `get_data()`. Bu betik, otomatik ML denemeyi çalıştırıldığı uzak işlem üzerinde çalıştırılır. `get_data` her yineleme için kablo üzerinden verileri getirme gereksinimini ortadan kaldırır. Olmadan `get_data`, uzak işlem üzerinde çalıştırdığınızda, deneme başarısız olur.
 
-İşte bir örnek `GetData`:
+İşte bir örnek `get_data`:
 
 ```python
 %%writefile $project_folder/get_data.py 
@@ -100,13 +100,13 @@ def get_data(): # Burning man 2016 data
     return { "X" : df, "y" : y }
 ```
 
-İçinde `AutoMLConfig` nesne, belirttiğiniz `data_script` parametresi ve yolunu belirtin `GetData` aşağıdakine benzeyen bir komut dosyası:
+İçinde `AutoMLConfig` nesne, belirttiğiniz `data_script` parametresi ve yolunu belirtin `get_data` aşağıdakine benzeyen bir komut dosyası:
 
 ```python
-automl_config = AutoMLConfig(****, data_script=project_folder + "./get_data.py", **** )
+automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
 ```
 
-`GetData` betik aşağıdaki döndürebilirsiniz:
+`get_data` betik aşağıdaki döndürebilirsiniz:
 Anahtar | Tür |    İle birbirini dışlayan | Açıklama
 ---|---|---|---
 X | Pandas Dataframe veya Numpy dizisi | data_train, etiket, sütunları |  Tüm özellikleri ile eğitme
@@ -140,17 +140,17 @@ Rastgele bölünmüş kabul edilebilir değilse, özel doğrulama veri kümesini
 
 ## <a name="compute-to-run-experiment"></a>Denemeyi çalıştırmak için işlem
 
-Daha sonra modeli eğitimi burada belirleyin. Bir otomatik machine learning eğitim denemesini kendi ve yöneten bir işlem hedefine çalıştırır. 
+Daha sonra modeli eğitimi burada belirleyin. Bir otomatik ML eğitim denemesini kendi ve yöneten bir işlem hedefine çalıştırır. 
 
 Desteklenen işlem seçenekleri şunlardır:
 1.  Yerel makinenizde yerel Masaüstü veya dizüstü – gibi genel olarak küçük veri kümesi olduğunda ve hala keşif aşamasında demektir.
 2.  Buluttaki – uzak bir makine [Azure veri bilimi sanal makinesi](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) – Linux çalıştıran bir büyük veri kümeniz ve Azure bulutunda kullanılabilir büyük bir makineye ölçeklendirmek istiyorsunuz. 
-3.  Azure Batch AI kümesi – A paralel olarak kullanıma alındı ve çalışma AutoML yinelemeler ölçeklendirmek üzere ayarlayabildiği küme yönetilen. 
+3.  Azure Batch AI kümesi – A ölçeği ve ML otomatik yinelemeler paralel olarak çalıştırmak üzere ayarlayabildiği küme yönetilen. 
 
 
 ## <a name="configure-your-experiment-settings"></a>Deneme ayarlarınızı yapılandırın
 
-AutoML denemenizi yapılandırmak için kullanabileceğiniz birkaç düğmelerini vardır. Bu parametreleri örnekleme tarafından ayarlanan bir `AutoMLConfig` nesne.
+Otomatik ML denemenizi yapılandırmak için kullanabileceğiniz birkaç düğmelerini vardır. Bu parametreleri örnekleme tarafından ayarlanan bir `AutoMLConfig` nesne.
 
 Bazı örnekler:
 
@@ -205,7 +205,7 @@ Bu tabloda parametre ayarlarını denemenizi ve varsayılan değerleri için kul
 `data_script`  |    Get_data yöntemi içeren dosyanın yolu.  Uzaktan çalıştırmalar için gereklidir.   |None
 
 
-## <a name="run-automl-experiment"></a>Çalıştırma `AutoML` denemeler yapın
+## <a name="run-experiment"></a>Denemeyi çalıştırma
 
 Ardından, biz bizim için bir model oluşturmak ve çalıştırmak için bir deneme başlatabilir. Geçirmek `AutoMLConfig` için `submit` modeli oluşturmak için yöntemi.
 
@@ -219,7 +219,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 
 ## <a name="explore-model-metrics"></a>Model ölçümleri keşfedin
-Bir not defteri kullanıyorsanız, sonuçlarınızı bir pencere öğesi veya satır içi görüntüleyebilirsiniz. "İzlemek ve modellerin değerlendirmesi" için ayrıntılara bakın. (AML içeriği AutoML ilgili bilgileri sağlamak)
+Bir not defteri kullanıyorsanız, sonuçlarınızı bir pencere öğesi veya satır içi görüntüleyebilirsiniz. "İzlemek ve modellerin değerlendirmesi" için ayrıntılara bakın. (otomatik ML ilgili bilgilere AML içeriği sağlamak)
 
 Aşağıdaki ölçümler her yinelemede kaydedilir
 * AUC_macro
@@ -247,3 +247,5 @@ Aşağıdaki ölçümler her yinelemede kaydedilir
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Daha fazla bilgi edinin [nasıl ve nerede model dağıtma](how-to-deploy-and-where.md).
+
+Daha fazla bilgi edinin [otomatik ML ile bir sınıflandırma modeli eğitme](tutorial-auto-train-models.md) veya [otomatik ML kullanarak uzak bir kaynağa eğitme](how-to-auto-train-remote.md). 

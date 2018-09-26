@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 7ac0a5c00e0badf8882010ae0643f8ead98b56e0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: bb1b1e2934de052479f39d40bfe143345e91bc26
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651001"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094103"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application ınsights'ta sistem performans sayaçları
 Windows sağlayan çok çeşitli [performans sayaçları](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) CPU doluluğu, bellek, disk ve ağ kullanımı gibi. Ayrıca kendi tanımlayabilirsiniz. [Application Insights](app-insights-overview.md) bu performans sayaçlarını bir şirket içi konak veya sanal makinede yönetimsel erişim sahibi uygulamanızı IIS altında çalışıp çalışmadığını gösterebilir. Grafik Canlı uygulamanızın kullanabileceği kaynakları belirtmek ve sunucu örnekleri arasında dengesiz yük belirlemenize yardımcı olabilir.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/25/2018
 ms.author: barclayn
 ms.openlocfilehash: 0addad1db4d9f897736a7793c5489897bca2cd38
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647638"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093435"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Güvenlik Hizmetleri ve teknolojileri Azure üzerinde kullanılabilir
 

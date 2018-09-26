@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 2f6ced6603c6736200f4474fbb1dc9b0ef1535d9
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: dc1f076a6450a7b6fa33a959e79b0fd5a68a99d4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056813"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162400"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 
@@ -31,7 +31,7 @@ HDInsight küme sürümleri ile ilişkili bileşen sürümü aşağıdaki tablod
 > [!NOTE]
 > HDInsight hizmeti için varsayılan sürüm verilmeksizin. .NET SDK'sı ile Azure PowerShell ve klasik Azure CLI ile kümeleri oluşturduğunuzda, bir sürüm bağımlılığı varsa, HDInsight sürüm belirtin.
 
-| Bileşen | HDInsight 4.0 | HDInsight 3.6 (varsayılan) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
+| Bileşen | HDInsight (Önizleme) 4.0 | HDInsight 3.6 (varsayılan) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Veri Platformu |3.0 |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop ve YARN |2.9.1 |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
@@ -78,7 +78,7 @@ Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer dağıtım yönteml
 
 | HDInsight sürümü | HDP sürümü | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure Portal kullanılabilirliği | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |HDP 3.0 |16.0.4 ubuntu LTS |24 Eylül 2018 | | |Evet |Evet |
+| HDInsight 4.0 <br> (Önizleme) |HDP 3.0 |16.0.4 ubuntu LTS |24 Eylül 2018 | | |Evet |Evet |
 | HDInsight 3.6 |HDP 2.6 |16.0.4 ubuntu LTS |4 Nisan 2017 | | |Evet |Evet |
 
 > [!NOTE]

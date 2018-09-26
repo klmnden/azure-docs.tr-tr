@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell (Önizleme) hızlı başlangıç PowerShell'de | Microsoft Docs
+title: Azure Cloud Shell hızlı başlangıç PowerShell'de | Microsoft Docs
 description: Hızlı Başlangıç için Cloud shell'de PowerShell
 services: Azure
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2018
 ms.author: damaerte
-ms.openlocfilehash: cb4b7f8851c6c891ca43f6c215ba812a0c784d28
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 83fb07d718681a9d14176868d11b45a199f60543
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108147"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166221"
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Hızlı Başlangıç için (Önizleme) Azure Cloud shell'de PowerShell
+# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Hızlı Başlangıç için Azure Cloud shell'de PowerShell
 
-Cloud Shell içinde PowerShell kullanma ayrıntılı [Azure portalında](https://aka.ms/PSCloudPreview).
+Cloud Shell içinde PowerShell kullanma ayrıntılı [Azure portalında](https://portal.azure.com/).
 
 > [!NOTE]
 > A [Azure Cloud Shell'de Bash](quickstart.md) hızlı başlangıç, ayrıca kullanılabilir.

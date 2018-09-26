@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 724cdb82f601805ffd93f1afd0c27983cc1ef96b
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b165d7a21399fad0949953e733d7ee25a9dd0271
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389482"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159389"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights ve Log Analytics tarafından kullanılan IP adresleri
 [Azure Application Insights](app-insights-overview.md) hizmeti IP adresi sayısını kullanır. İzlemekte olduğunuz uygulamanın bir güvenlik duvarının arkasında barındırılıyorsa bu adresleri bilmeniz gerekebilir.
@@ -275,6 +275,12 @@ Not: *. loganalytics.io etki alanı Log Analytics ekibi tarafından ait.
 | --- | --- | --- | --- |
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net | Dinamik | 80,443 |
 | Application Insights Java SDK'sı | aijavasdk.blob.core.windows.net | Dinamik | 80,443 |
+
+## <a name="alert-webhooks"></a>Uyarı Web kancaları
+
+| Amaç | IP | Bağlantı Noktaları
+| --- | --- | --- | --- |
+| Uyarı | 23.96.11.4 | 443 |
 
 ## <a name="profiler"></a>Profil Oluşturucu
 

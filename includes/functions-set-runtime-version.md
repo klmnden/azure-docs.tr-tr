@@ -1,2 +1,2 @@
 
-İşlevler çalışma zamanı Önizleme 2.0 sürümünü kullanmanız işlevi uygulamanızı hale getirmek için ayarlanmış `FUNCTIONS_EXTENSION_VERSION` uygulama ayarı için değerini işlevi uygulamanızda `beta`.
+İşlev uygulamanızı işlevler çalışma zamanı 2.0 önizleme sürümünü kullanmak için ayarlayın `FUNCTIONS_EXTENSION_VERSION` uygulama ayarının değerini işlev uygulamanızda `beta`.

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.openlocfilehash: 4e1444f385859044b2dadd83c8e9841d8fc78bb0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646831"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096420"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme
 Machine Learning yeni ve Klasik Web Hizmetleri Microsoft Azure Machine Learning Web Hizmetleri portalını kullanarak yönetebilirsiniz. Klasik Web Hizmetleri ve yeni Web hizmetleri üzerinde farklı temel teknolojileri aldığından, biraz farklı yönetim özellikleri bunların her biri için sizde.

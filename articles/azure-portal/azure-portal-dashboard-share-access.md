@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: c07a9d92cac13d6325e66f44426f1a64e8ac53cb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35972208"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096209"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Rol tabanlı erişim denetimi kullanarak Azure panoları paylaşma
 Bir Pano yapılandırdıktan sonra uygulamayı yayımlayın ve kuruluşunuzdaki diğer kullanıcılarla paylaşabilirsiniz. Diğerlerinin Azure kullanarak panonuza görüntülemesine izin vermek [rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md). Bir role bir kullanıcı veya kullanıcı grubuna atayın ve bu role kullanıcılar görüntüleyebilir veya değiştirebilirsiniz Panosu yayımlandı olup olmadığını tanımlar. 

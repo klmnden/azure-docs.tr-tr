@@ -7,18 +7,18 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/24/2018
 ms.author: spelluru
-ms.openlocfilehash: d141ac284b1ed8e128588e1a49a0594e0c61707f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 293cde00e53171e848263df8564ec85f273c1a40
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974060"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166342"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure Service Bus ölçümleri
 
-Service Bus ölçümleri, Azure aboneliğinizdeki kaynaklar durumunu sağlar. Zengin bir ölçüm verileri kümesiyle, yalnızca ad alanı düzeyinde, aynı zamanda varlık düzeyinde, hizmet veri yolu kaynaklarını genel durumunu değerlendirebilirsiniz. Bu istatistikler, hizmet veri yolu durumunu izlemek için yardımcı önemli olabilir. Ölçümler, Azure desteğine başvurun gerek kalmadan kök neden sorunlarını da yardımcı olabilir.
+Service Bus ölçümler durumu, Azure aboneliğinizdeki kaynaklar sunar. Zengin bir ölçüm verileri kümesiyle, yalnızca ad alanı düzeyinde, aynı zamanda varlık düzeyinde, hizmet veri yolu kaynaklarını genel durumunu değerlendirebilirsiniz. Bu istatistikler, hizmet veri yolu durumunu izlemek için yardımcı önemli olabilir. Ölçümler, Azure desteğine başvurun gerek kalmadan kök neden sorunlarını da yardımcı olabilir.
 
 Azure İzleyici, çeşitli Azure Hizmetleri genelinde izleme için birleştirilmiş bir kullanıcı arabirimi sağlar. Daha fazla bilgi için [Microsoft Azure'da izleme](../monitoring-and-diagnostics/monitoring-overview.md) ve [almak Azure İzleyici ölçümleri .NET ile](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) GitHub üzerinde örnek.
 
@@ -37,7 +37,7 @@ Zaman içinde ölçümleri izleyebilirsiniz [Azure portalında](https://portal.a
 
 ![][1]
 
-Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanını seçin ve ardından **ölçümleri (Peview)**. Varlık kapsamına filtrelenmiş ölçümleri görüntülemek için bir varlık seçin ve ardından **ölçümler (Önizleme)**.
+Ad alanı aracılığıyla doğrudan ölçümleri de erişebilirsiniz. Bunu yapmak için ad alanını seçin ve ardından **ölçümler (Önizleme)**. Varlık kapsamına filtrelenmiş ölçümleri görüntülemek için bir varlık seçin ve ardından **ölçümler (Önizleme)**.
 
 ![][2]
 
@@ -90,6 +90,9 @@ Aşağıdaki iki türde hatalar, kullanıcı hataları sınıflandırılan:
 |Bağlantı kapalı (Önizleme)|Kapalı bağlantılarının sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Kaynak kullanım ölçümleri
+
+> [!NOTE] 
+> Yalnızca aşağıdaki ölçümler kullanılabilir **premium** katmanı. 
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |

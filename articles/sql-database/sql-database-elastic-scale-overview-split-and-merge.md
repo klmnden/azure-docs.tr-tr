@@ -1,25 +1,28 @@
 ---
-title: Ölçeklendirilen bulut veritabanları arasında veri taşıma | Microsoft Docs
-description: Parça işlemek ve esnek veritabanı API'leri kullanarak bir kendi kendini barındıran hizmet veri taşımak açıklanmaktadır.
+title: Ölçeği genişletilen bulut veritabanları arasında veri taşıma | Microsoft Docs
+description: Parçalar işlemek ve elastik veritabanı API'lerini kullanarak şirket içinde barındırılan bir hizmete veri taşıma açıklanmaktadır.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 3c68b18a96ae79cd32cd3059eab837e6051847dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 518d7659df603ed0fcab4aebf5f35c3b92e75ccf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647427"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162637"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Ölçeği genişletilen bulut veritabanları arasında veri taşıma
-Bir hizmet geliştiricisi olarak yazılımlardır ve aniden uygulamanızı inanılmaz isteğe bağlı olduğunda, büyüme uyum sağlaması gerekmektedir. Bu nedenle daha fazla veritabanı (bölümler) ekleyin. Nasıl veri bütünlüğü kesintiye uğratmadan yeni veritabanları için veri dağıtabilir? Kullanım **bölünmüş Birleştirme aracı** verileri kısıtlanmış veritabanlarından yeni veritabanlarını taşımak için.  
+Bir hizmet geliştirici olarak bir yazılım olan ve uygulamanızı Bilim insanları için inanılmaz isteğe aniden uğradığında, büyümeye uyum sağlamak gerekir. Bu nedenle daha fazla veritabanları (parçalar) ekleyin. Yeni veritabanları için veriler nasıl dağıtabilir veri bütünlüğü kesintiye uğratmadan? Kullanım **bölme-birleştirme aracını** verileri kısıtlanmış veritabanlarından yeni veritabanlarını taşımak için.  
 
-Bölünmüş Birleştirme aracı bir Azure web hizmeti olarak çalışır. Bir yönetici veya Geliştirici shardlets (bir parça verilerden) farklı veritabanlarını (bölümler) arasında taşıma Aracı'nı kullanır. Aracı parça eşleme yönetim hizmeti meta veri veritabanının bakımını yapmak ve tutarlı eşlemeleri sağlamak için kullanır.
+Ayırma-Birleştirme aracı, bir Azure web hizmeti olarak çalışır. Bir yöneticinizle veya geliştiricinizle parçacıklara (parça verileri) farklı veritabanları (parçalar) arasında taşımak için Aracı'nı kullanır. Aracı parça eşleme Yönetimi Hizmeti meta verileri veritabanı koruyup tutarlı eşlemeleri sağlamak için kullanır.
 
 ![Genel Bakış][1]
 
@@ -27,63 +30,63 @@ Bölünmüş Birleştirme aracı bir Azure web hizmeti olarak çalışır. Bir y
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>Belgeler
-1. [Esnek veritabanı bölünmüş Birleştirme aracı Öğreticisi](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-2. [Bölünmüş birleştirme güvenlik yapılandırması](sql-database-elastic-scale-split-merge-security-configuration.md)
-3. [Bölünmüş birleştirme güvenlik konuları](sql-database-elastic-scale-split-merge-security-configuration.md)
+1. [Elastik veritabanı bölme-Birleştirme aracı Öğreticisi](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+2. [Ayırma-birleştirme güvenliği yapılandırma](sql-database-elastic-scale-split-merge-security-configuration.md)
+3. [Ayırma-birleştirme güvenliği konuları](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [Parça eşleme yönetimi](sql-database-elastic-scale-shard-map-management.md)
 5. [Ölçeği genişletilen mevcut veritabanlarını geçirme](sql-database-elastic-convert-to-use-elastic-tools.md)
 6. [Esnek veritabanı araçları](sql-database-elastic-scale-introduction.md)
-7. [Esnek veritabanı araçlarını sözlüğü](sql-database-elastic-scale-glossary.md)
+7. [Esnek veritabanı araçları sözlüğü](sql-database-elastic-scale-glossary.md)
 
-## <a name="why-use-the-split-merge-tool"></a>Bölünmüş Birleştirme aracı neden kullanılır?
+## <a name="why-use-the-split-merge-tool"></a>Ayırma-Birleştirme aracı neden kullanmalısınız?
 **Esneklik**
 
-Tek bir Azure SQL DB veritabanı sınırlarının dışına esnek uzatmak uygulamaları gerekir. Veri bütünlüğü koruyarak yeni veritabanları için gerektiği şekilde taşımak için Aracı'nı kullanın.
+Uygulamalar esnek bir şekilde tek bir Azure SQL DB veritabanı sınırları aşacak esnetme gerekir. Veri bütünlüğü koruyarak yeni veritabanları için gerektiği şekilde taşımak için Aracı'nı kullanın.
 
-**Büyümeye Böl** 
+**Büyüme için Böl** 
 
-Patlayıcı büyüme işlemek için genel kapasitesini artırmak gerekir. Bunu yapmak için ek kapasite parçalama veri ve kapasite gereksinimleri karşılandıktan kadar artımlı olarak daha fazla veritabanı arasında dağıtma tarafından oluşturun. Bu, 'bölme' özelliğinin prime bir örnektir. 
+Büyümeleri işlemek için genel kapasitesini artırmak gerekir. Bunu yapmak için ek kapasite parçalama veri ve kapasite gereksinimleri karşılandıktan kadar kademeli olarak daha fazla veritabanı arasında dağıtma göre oluşturun. Bu, 'bölme' özelliğinin prime bir örnektir. 
 
 **Daraltmak için birleştirme**
 
-Kapasite bir iş Mevsimlik yapısı nedeniyle Küçült. Aracı için daha az ölçek birimleri ölçek iş yavaşlatır zaman sağlar. Esnek ölçek bölme birleştirme hizmetindeki 'merge' özelliği bu gereksinim kapsar. 
+Kapasite, bir iş dönemsel niteliği nedeniyle Daralt. Aracı için daha az ölçek birimleri iş yavaşlatır, ölçeği sağlar. Bu gereksinim 'merge' özelliğinde esnek ölçek bölme-birleştirme hizmetini kapsar. 
 
-**Etkin noktalarına shardlets taşıyarak yönetme**
+**Parçacıklara taşıyarak etkin noktaları yönetme**
 
-Veritabanı başına birden çok Kiracı ile kapasite darboğazları üzerinde bazı parça parça shardlets ayırma yol açabilir. Bu, shardlets yeniden ayırma veya yeni veya daha az kullanılan parça meşgul shardlets taşıma gerektirir. 
+Veritabanı başına birden çok kiracıyla parçacıklara parçalara ayırma kapasitesini darboğazları bazı parçalar üzerinde neden olabilir. Bu parçacıklarda yeniden ayırma veya meşgul parçacıklara yeni veya daha az kullanılan parçalara taşıma gerektirir. 
 
-## <a name="concepts--key-features"></a>Kavramları ve anahtar özellikler
-**Müşteri barındırılan hizmetleri**
+## <a name="concepts--key-features"></a>Kavramlar ve önemli özellikler
+**Müşteri tarafından barındırılan hizmetleri**
 
-Bölünmüş birleştirme müşteri tarafından barındırılan bir hizmet olarak teslim edilir. Dağıtmak ve Microsoft Azure aboneliğiniz hizmetini barındırır. Nuget'ten yükleme paketi belirli dağıtımınız için bilgilerle tamamlamak için bir yapılandırma şablonu içerir. Bkz: [bölünmüş birleştirme öğretici](sql-database-elastic-scale-configure-deploy-split-and-merge.md) Ayrıntılar için. Azure aboneliğinizde hizmeti çalışır olduğundan, denetlemek ve hizmet çoğu güvenlik özelliklerini yapılandırın. Varsayılan şablonu SSL istemci sertifikası tabanlı kimlik doğrulaması, şifreleme depolanan kimlik bilgileri, kullanılan koruyarak DoS ve IP kısıtlamalarını yapılandırmak için seçenekleri içerir. Aşağıdaki belgede güvenlik konuları hakkında daha fazla bilgi bulabilirsiniz [bölünmüş birleştirme Güvenlik Yapılandırması](sql-database-elastic-scale-split-merge-security-configuration.md).
+Ayırma-birleştirme, müşteri tarafından barındırılan bir hizmet olarak teslim edilir. Dağıtma ve Microsoft Azure aboneliğiniz hizmeti barındırma gerekir. Nuget'ten indirme paketi, belirli bir dağıtım için bilgi ile tamamlamak için bir yapılandırma şablonu içerir. Bkz: [bölme-birleştirme öğretici](sql-database-elastic-scale-configure-deploy-split-and-merge.md) Ayrıntılar için. Azure aboneliğinizdeki hizmetin çalıştığından kontrol edebilir ve hizmet çoğu güvenlik özelliklerini yapılandırın. Varsayılan şablonu SSL istemci sertifikası tabanlı kimlik doğrulaması, şifreleme için depolanan kimlik bilgileri, kullanılan koruyarak DoS ve IP kısıtlamalarını yapılandırmak için seçenekleri içerir. Güvenlik konuları hakkında daha fazla bilgi belgesinde bulabilirsiniz [ayırma-birleştirme güvenliği yapılandırma](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-Varsayılan hizmeti çalıştığında bir çalışan ve bir web rolü ile birlikte dağıtılır. Her Azure Cloud Services A1 VM boyutu kullanır. Paket dağıtımı sırasında bu ayarları değiştiremezsiniz, ancak (Azure Portal'dan) çalışan bulut hizmeti başarılı bir dağıtım sonrasında değiştirebilirsiniz. Çalışan rolü birden çok tek bir örnek için teknik nedenlerle yapılandırılmamalıdır olduğunu unutmayın. 
+Varsayılan bir çalışan ve bir web rolü hizmeti çalıştığında dağıtıldı. Her Azure bulut Hizmetleri'nde A1 VM boyutunu kullanır. Paket dağıtımı sırasında bu ayarları değiştiremezsiniz, ancak çalışan bulut hizmetini (Azure portalından) başarılı bir dağıtım sonrasında değiştirebilir. Çalışan rolü için birden çok tek bir örnek teknik nedenlerle yapılandırılmamalıdır olduğunu unutmayın. 
 
-**Parça eşleme tümleştirme**
+**Parça Haritası tümleştirmesi**
 
-Bölünmüş birleştirme hizmetine uygulama parça eşleme ile etkileşime girer. Bölünmüş birleştirme hizmeti ayırmak veya aralıklar birleştirme veya shardlets parça arasında taşımak için kullanırken, hizmetin otomatik olarak parça eşleme güncel tutar. Bunu yapmak için hizmet uygulama parça eşleme manager veritabanına bağlar ve aralıkları ve eşlemeleri birleştirme/bölünmüş/taşıma isteği ilerleme durumunu korur. Bu bölme birleştirme işlemleri yükleyecekseniz parça eşleme her zaman güncel bir görünüm sunar sağlar. Bölme, birleştirme ve shardlet taşıma işlemleri shardlets toplu kaynak parça hedef parça taşıyarak uygulanır. Shardlet taşıma işlemi sırasında geçerli toplu işlem tabi shardlets parça eşlemesinde çevrimdışı olarak işaretlenir ve kullanarak veri bağımlı yönlendirme bağlantılarında kullanılamaz **OpenConnectionForKey** API. 
+Ayırma-birleştirme hizmetini uygulamanın parça eşlemesi ile etkileşime girer. Ayırma-birleştirme hizmeti aralıklarını ayırmak veya birleştirmek veya parçacıklara parçalar arasında taşımak için kullanılırken, hizmeti otomatik olarak parça eşlemesi güncel tutar. Bunu yapmak için hizmet uygulamasının parça eşleme Yöneticisi veritabanına bağlanır ve aralıkları ve eşlemeleri Birleştir/Böl/taşıma istekler devam ettikçe tutar. Bu bölme-birleştirme işlemleri bittiğini tıklattığınızda parça eşlemesini her zaman güncel bir görünüm sunan sağlar. Bölme, birleştirme ve parçacık taşıma işlemleri parçacıklara toplu kaynak parçadan veri hedef parçaya taşıyarak uygulanır. Parçacık taşıma işlemi sırasında geçerli toplu tabi parçacıklara parça eşlemesinde çevrimdışı olarak işaretlenir ve kullanarak verilere bağımlı yönlendirme bağlantılarında kullanılamaz **OpenConnectionForKey** API. 
 
-**Tutarlı shardlet bağlantıları**
+**Tutarlı parçacık bağlantıları**
 
-Veri taşıma shardlets yeni toplu için başladığında shardlet depolama parça parça eşleme sağlanan veri bağımlı yönlendirme bağlantılarına kli ve sonraki API'leri parça eşlemesinden bu bağlantılardır shardlets veri taşımayı Tutarsızlıklardan kaçınmak için işlemi devam ederken engellenir. Diğer shardlets aynı parça üzerinde de sonlandırıldı, ancak yeniden başarılı olur hemen üzerinde yeniden deneyin. Toplu taşındıktan sonra shardlets yeniden hedef parça için çevrimiçi olarak işaretlenir ve veri kaynağını kaynak parça kaldırılır. Tüm shardlets taşınana kadar hizmet her toplu işlemi için bu adımları geçer. Bu, tam birleştirme/bölünmüş/taşıma işlemi sürecinde birkaç bağlantı sonlandırma işlemleri neden olacaktır.  
+Veri taşıma parçacıklara yeni toplu için başladığında, herhangi bir parça eşlemesini verilere bağımlı yönlendirme bağlantıları parçacık sonlandırılan parça depolamak için ve olsa da veri taşımayı parçacıklara API'lerine engellenen parça eşlemesinden sonraki bağlantılar sağlanmaktadır. tutarsızlıkları önlemek için devam ediyor. Başka parçacıklara işaret aynı parça üzerindeki bağlantı da sonlandırılan, ancak yeniden başarılı olur hemen üzerinde yeniden deneyin. Batch taşındıktan sonra parçacıklara yeniden hedef parça için çevrimiçi işaretlenmiş ve kaynak veri kaynağı parçadan veri kaldırılır. Tüm parçacıklarda taşınana kadar adımları her batch hizmeti geçer. Bu, tam Birleştir/Böl/taşıma işleminin Kurs sırasında birkaç bağlantı sonlandırma işlemleri önünü açacak.  
 
-**Shardlet kullanılabilirlik yönetme**
+**Parçacık kullanılabilirliğini yönetme**
 
-Yukarıda açıklanan şekilde shardlets geçerli yığını sonlandırılması bağlantı sınırlaması kullanılamazlık kapsamını aynı anda shardlets bir toplu iş kısıtlar. Bu bir yaklaşım tam parça bölme veya birleştirme işlemi sürecinde burada kendi shardlets için çevrimdışı kalarak tercih edilir. Bir kerede taşımak için ayrı shardlets sayısı olarak tanımlanan bir toplu bir yapılandırma parametresi boyutudur. Her bölme ve birleştirme işlemi uygulamanın kullanılabilirliğini ve performansını gereksinimlerine bağlı olarak tanımlanabilir. Parça eşlemesinde kilitli aralığın belirtilen toplu boyuttan büyük olabileceğine dikkat edin. Gerçek veri anahtar değerlerini parçalama yaklaşık toplu iş boyutu sayısıyla eşleştiğini şekilde hizmet aralık boyutu Çekmeleri olmasıdır. Bu, özellikle seyrek doldurulmuş parçalama tuşları unutmamak önemlidir. 
+Yukarıda da tartışıldığı parçacıklara geçerli dizi için sonlandırmayı bağlantı sınırlaması kullanılamazlık kapsamını teker teker parçacıklara bir toplu iş kısıtlar. Bu bir yaklaşım üzerinde tam parça bir bölme ve birleştirme işleminin Kurs sırasında burada kendi parçacıklara için çevrimdışı kalır tercih edilir. Bir anda taşımak için ayrı parçacıklara sayısı olarak tanımlanan bir toplu işin boyutunu yapılandırma parametredir. Uygulamanın, kullanılabilirlik ve performans gereksinimlerine bağlı olarak her bölme ve birleştirme işlemi için tanımlanabilir. Parça eşlemesinde kilitli aralığın belirtilen toplu iş boyutu büyük olabileceğine dikkat edin. Veri parçalama anahtarı değerleri gerçek sayısını yaklaşık olarak toplu iş boyutu şekilde hizmet aralık boyutu seçer olmasıdır. Bu, özellikle seyrek doldurulmuş parçalama tuşları unutmamak önemlidir. 
 
 **Meta veri depolama**
 
-Bölünmüş birleştirme hizmet durumunu korumak için ve günlükleri isteği işleme sırasında tutmak için bir veritabanı kullanır. Kullanıcı kendi abonelikte bu veritabanı oluşturur ve bağlantı dizesi için hizmet dağıtımı için yapılandırma dosyası sağlar. Kullanıcının kuruluş yöneticileri aynı zamanda isteği ilerleme durumunu incelemek ve olası hataları ile ilgili ayrıntılı bilgileri incelemek için bu veritabanına bağlanabilir.
+Ayırma-birleştirme hizmetini durumunu korumak için ve isteği işleme sırasında günlüklerini tutmak için bir veritabanı kullanır. Kullanıcı, abonelikte bu veritabanı oluşturur ve bağlantı dizesi için hizmet dağıtımı için yapılandırma dosyasında sağlar. Kullanıcının kuruluş yöneticileri ayrıca istek ilerlemeyi gözden geçirin ve olası hataları ile ilgili ayrıntılı bilgileri incelemek için bu veritabanına bağlanabilirsiniz.
 
 **Parçalama tanıma**
 
-Bölünmüş birleştirme hizmetine (1) parçalı tabloları, (2) başvuru tabloları ve (3) normal tablolar arasında ayırır. Bir birleştirme/bölünmüş/taşıma işlemi semantiği kullanılan tablo türüne bağlıdır ve şu şekilde tanımlanır: 
+Ayırma-birleştirme hizmetini (1) parçalı tablolar, (2) başvuru tabloları ve (3) normal tablolar arasında ayırır. Birleştir/Böl/taşıma işlemi semantiği kullanılan tablo türüne bağlıdır ve şu şekilde tanımlanır: 
 
-* **Parçalı tabloları**: bölünmüş, birleştirme ve taşıma işlemleri taşıyın shardlets kaynaktan hedef parça. Genel istek başarıyla tamamlandıktan sonra bu shardlets artık kaynağında yok. Hedef tablolar üzerinde hedef parça mevcut gerekir ve veri işleme işleminin önce hedef aralıktaki içermemelidir unutmayın. 
-* **Başvuru tabloları**: başvuru tabloları, bölünmüş birleştirme ve kopyalama işlemlerini verileri kaynak sunucudan hedef parça taşıyın. Ancak, herhangi bir satırın hedef bu tablodaki zaten herhangi bir değişiklik belirli bir tablodaki hedef parça üzerinde ortaya olduğunu unutmayın. Tablo işlenen tüm başvuru tablosu kopyalama işlemi için boş olması gerekir.
-* **Diğer tablolar**: kaynak veya hedef bölme ve birleştirme işleminin diğer tablolarla mevcut olabilir. Bölünmüş birleştirme hizmetine herhangi bir veri taşıma veya kopyalama işlemleri için bu tablolar yok sayar. Ancak, bunlar bu işlemleri kısıtlamaları durumunda olan etkileyebilir unutmayın.
+* **Parçalı tablo**: bölünmüş, birleştirme ve taşıma işlemlerini taşıyın parçacıklara kaynaktan hedef parça için. Genel istek başarıyla tamamlandıktan sonra bu parçacıklarda artık kaynak yok. Hedef tablo üzerinde hedef parça olması gerekir ve veri işleme işleminin önce hedef aralıktaki içermemelidir unutmayın. 
+* **Başvuru tabloları**: başvuru tabloları, bölme, birleştirme ve kopyalama işlemlerini veriler kaynaktan hedef parçaya taşıma. Ancak, herhangi bir satır zaten hedef bu tablodaki mevcut herhangi bir değişiklik belirli bir tabloya ait hedef parça üzerinde olduğunda olduğunu unutmayın. Tablo işlenemedi hiçbir başvurusu Tablo kopyalama işlemi için boş olması gerekir.
+* **Diğer tablolar**: kaynak veya hedef bir bölme ve birleştirme işleminin diğer tablolar mevcut olabilir. Ayırma-birleştirme hizmetini herhangi bir veri taşıma veya kopyalama işlemleri için bu tablolar yok sayar. Ancak, bunlar kısıtlamaları durumunda bu işlemleri ile engelleyebilir unutmayın.
 
-Parçalı tablolar ve başvuru bilgileri tarafından sağlanan **SchemaInfo** API'leri parça harita üzerinde. Aşağıdaki örnekte verilen parça eşleme Yöneticisi nesnesi smm bu API'leri kullanımını göstermektedir: 
+Parçalı tablolar ve başvuru bilgileri tarafından sağlanan **adet Schemaınfo** parça eşlemesi API'leri. Aşağıdaki örnekte verilen parça eşleme Yöneticisi nesnesi smm üzerinde şu API'lerin kullanımını göstermektedir: 
 
     // Create the schema annotations 
     SchemaInfo schemaInfo = new SchemaInfo(); 
@@ -99,57 +102,57 @@ Parçalı tablolar ve başvuru bilgileri tarafından sağlanan **SchemaInfo** AP
     // Publish 
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo); 
 
-Tablo 'bölge' ve 'ulus' başvuru tabloları tanımlanır ve birleştirme/bölünmüş/taşıma işlemleriyle kopyalanacak. sırayla 'Müşteri' ve 'Siparişler' parçalı tablo olarak tanımlanır. C_CUSTKEY ve O_CUSTKEY parçalama anahtarı olarak görev yapar. 
+Tablolar 'region' ve 'ulus' başvuru tabloları tanımlanır ve ile Birleştir/Böl/taşıma işlemlerini kopyalanır. 'Müşteri' ve 'Siparişler' sırayla parçalı tablo olarak tanımlanır. C_CUSTKEY ve O_CUSTKEY parçalama anahtarı olarak hizmet eder. 
 
 **Bilgi tutarlılığı**
 
-Bölünmüş birleştirme hizmetine tabloları arasındaki bağımlılıkları analiz eder ve başvuru tabloları ve shardlets taşımak için işlem hazırlamak için yabancı anahtar birincil anahtar ilişkileri kullanır. Genel olarak, shardlets bağımlılıklarını her yığın içindeki sırasına kopyalanır sonra başvuru tabloları ilk bağımlılık sırayla kopyalanır. Böylece yeni veri ulaştığında hedef parça FK PK kısıtlamalar dikkate alınır, bu gereklidir. 
+Ayırma-birleştirme hizmetini tabloları arasındaki bağımlılıkları analiz eder ve hazırlamak için başvuru tabloları ve Parçacıkların taşıma işlemleri için birincil anahtarı yabancı anahtar ilişkilerini kullanır. Genel olarak, parçacıklara bağımlılıklarını her yığın içindeki sırasına göre kopyalanır sonra başvuru tabloları ilk bağımlılık sırayla kopyalanır. Böylece yeni veriler ulaştıkça hedef parça FK PK kısıtlamalar dikkate alınır, bu gereklidir. 
 
 **Parça eşleme tutarlılık ve nihai tamamlama**
 
-Hatalar, söz konusu olduğunda bölünmüş birleştirme hizmet işlemleri herhangi kesinti sonra devam eder ve ilerleme isteklerinde tamamlayın amaçlar. Ancak, kurtarılamaz durumlar olabilir, örneğin, hedef parça kaybolduğunda veya onarım tehlikeye. Bu koşullar altında kaynak parça bulunmasını taşınması gereken bazı shardlets devam edebilir. Hizmetin gerekli verileri hedef başarıyla kopyalandı sonra shardlet eşlemeleri yalnızca güncelleştirilmesini sağlar. Shardlets yalnızca kaynağında tüm verilerini, hedef kopyalanan ve karşılık gelen eşlemeleri başarıyla güncelleştirdiniz silinir. Aralık zaten hedef parça çevrimiçi durumdayken silme işlemi arka planda gerçekleşir. Bölünmüş birleştirme hizmeti her zaman parça eşlemesinde depolanan eşlemeleri doğruluk sağlar.
+Hatalar varsa ayırma-birleştirme hizmetini operations sonra herhangi bir kesinti sürdürür ve ilerleme isteklerinde tamamlayın amaçlar. Ancak, kurtarılamaz durumlar olabilir, örneğin, hedef parça kayıp ya da onarılamayacak şekilde tehlikeye. Bu koşullar altında taşınacak beklenen bazı parçacıklara kaynak parça üzerinde bulunan devam edebilir. Hizmet gerekli verileri hedefine başarıyla kopyalandıktan sonra parçacık eşlemeleri yalnızca güncelleştirilmesini sağlar. Hedef, tüm verilerin kopyalandığından ve karşılık gelen eşlemeleri başarıyla güncelleştirildi, parçacıklara kaynağında yalnızca silinir. Aralık zaten hedef parça üzerinde çevrimiçi durumdayken silme işlemi arka planda gerçekleşir. Ayırma-birleştirme hizmetini her zaman parça eşlemesinde depolanan eşlemeleri doğruluğunu sağlar.
 
-## <a name="the-split-merge-user-interface"></a>Bölünmüş birleştirme kullanıcı arabirimi
-Bölünmüş birleştirme hizmet paketi çalışan rolü ve bir web rolü içerir. Web rolü, etkileşimli bir şekilde bölünmüş birleştirme istekleri göndermek için kullanılır. Kullanıcı arabirimi ana bileşenlerini aşağıdaki gibidir:
+## <a name="the-split-merge-user-interface"></a>Ayırma-birleştirme kullanıcı arabirimi
+Ayırma-birleştirme hizmeti paketi, bir çalışan rolü ve bir web rolü içerir. Web rolü, etkileşimli bir şekilde ayırma-birleştirme isteklerini göndermek için kullanılır. Kullanıcı arabirimi ana bileşenleri aşağıdaki gibidir:
 
-* İşlem türü: Bu istek için hizmeti tarafından gerçekleştirilen işlem türü denetleyen radyo düğmesi işlemi türüdür. Bölme arasındaki seçin, birleştirme ve taşıma senaryoları. Ayrıca, daha önce gönderilen işlemi iptal edebilirsiniz. Bölünmüş kullanın, birleştirme ve aralığı parça eşlemeleri için istekleri taşıyın. Liste parça yalnızca destek taşıma işlemleri eşler.
-* Parça eşleyin: İstek parametreleri sonraki bölümü parça eşleme ve parça haritanızı barındırma veritabanı hakkındaki bilgileri kapsar. Özellikle, Azure SQL veritabanı sunucusunun adını ve veritabanı shardmap parça eşleme veritabanı ve parça eşleme adını son olarak bağlanmak için kimlik bilgilerini barındırma sağlamanız gerekir. Şu anda işlemi yalnızca tek bir kimlik bilgileri kümesi kabul eder. Bu kimlik bilgileri parça parça eşleme için kullanıcı verilerini de değişiklikleri gerçekleştirmek için yeterli izinlere sahip olmanız gerekir.
-* Kaynak (bölme ve birleştirme) aralığı: bölme ve birleştirme işlemi, düşük ve yüksek anahtarı kullanarak bir aralık işler. Bir işlem ile sınırsız yüksek anahtar değeri belirtmek için "yüksek anahtar max" onay kutusunu işaretleyin ve yüksek anahtar alanı boş bırakın. Belirttiğiniz aralık anahtar değerleri tam olarak bir eşleme ve kendi sınırları içinde parça haritanızı eşleşmesi gerekmez. Tüm aralığı sınırları hiç belirtmezseniz, hizmet yakın aralığı sizin için otomatik olarak Infer. Verilen parça eşleme geçerli eşlemelerin almak için GetMappings.ps1 PowerShell betiğini kullanabilirsiniz.
-* Bölünmüş kaynak davranış (bölme): bölünmüş işlemleri için kaynak aralığı bölüneceği noktasını tanımlayın. Bunun için gerçekleşmesi için bölünmüş istediğiniz parçalama anahtarı sağlayarak. Kullan radyo düğmesi olup (bölme anahtar hariç) aralığı alt kısmı taşımak istediğiniz ya da (bölme anahtar dahil) taşımak için üst kısmındaki isteyip istemediğinizi belirtin.
-* Kaynak Shardlet (taşıma): kaynağını tanımlamak için bir aralığı gerektirmeyen gibi işlemleri bölme veya birleştirme işlemlerini farklı taşıyın. Taşıma için bir kaynak yalnızca taşımayı planlıyorsanız parçalama anahtar değeri tarafından tanımlanır.
-* Hedef parça (bölme): bölme işlemi kaynağında bilgileri girdikten sonra hedef Azure SQL Db sunucusu ve veritabanı adını sağlayarak kopyalanmasını verilerin istediğiniz tanımlamanız gerekir.
-* Hedef aralık (merge): birleştirme işlemleri için varolan bir parça shardlets taşıyın. Varolan parça ile birleştirmek istediğiniz varolan aralığının aralığı sınırları sağlayarak tanımlayın.
-* Toplu iş boyutu: Toplu iş boyutu veri taşıma sırasında zaman çevrimdışı duruma shardlets sayısını denetler. Burada shardlets için kapalı kalma süresi dönemlerini uzun hassas olduğunda küçük değerler kullanabilirsiniz bir tamsayı değeri budur. Daha büyük değerler verilen shardlet süreyi artıracaktır çevrimdışı ancak performansı iyileştirebilir.
-* İşlem kimliği (İptal): artık gerekli olmadığında devam eden bir işlem varsa, işlemi, işlem kimliği bu alandaki sağlayarak iptal edebilirsiniz. İstek durumu tablosundan işlem kimliği alabilirsiniz (Bölüm 8.1 bakın) veya istek gönderildiği web tarayıcısında çıktısından.
+* İşlem türü: Bu istek için hizmeti tarafından gerçekleştirilen işlem türünü denetleyen bir radyo düğmesi işlemi türüdür. Bölme arasındaki seçin, birleştirme ve taşıma senaryoları. Ayrıca, daha önce gönderilen işlemi iptal edebilirsiniz. Bölünmüş kullanın, birleştirme ve taşıma istekler için aralık parça eşlemesi. Liste parça yalnızca destek taşıma işlemlerini eşler.
+* Parça eşlemesi: İstek parametreleri, bir sonraki bölümüne parça eşlemesi ve veritabanı, parça eşlemesi barındırma yönelik bilgiler ele alınmaktadır. Özellikle, parça eşleme veritabanını ve parça eşlemesi adı için son bağlanmak için kimlik bilgilerini shardmap barındırma veritabanı ve Azure SQL veritabanı sunucusu adını vermeniz gerekir. Şu anda, işlemi yalnızca tek bir kimlik bilgileri kümesi kabul eder. Kullanıcı verileri için de parça eşlemesine değişiklikleri parçalar üzerinde gerçekleştirmek için yeterli izinlere sahip bu kimlik bilgileri gerekir.
+* Kaynak (bölme ve birleştirme) aralığı: bir bölme ve birleştirme işlemi, düşük ve yüksek anahtarı kullanarak bir aralık işler. Bir işlem ile sınırsız yüksek anahtar değeri belirtmek için "yüksek anahtar en fazla bir" onay kutusunu işaretleyin ve yüksek anahtar alanı boş bırakın. Belirlediğiniz aralığın anahtar değerleri bir eşleme ve alt sınırları, parça eşlemesindeki tam olarak eşleşmesi gerekmez. Herhangi bir aralığı sınırlarını hiç belirtmezseniz, hizmetin en yakın aralığı sizin için otomatik olarak çıkarımlar. Verilen parça eşlemesi geçerli eşlemelerin alınacak GetMappings.ps1 PowerShell betiğini kullanabilirsiniz.
+* Bölünmüş kaynak davranışı (bölme): bölme işlemleri için kaynak aralığı bölmek için noktası tanımlayın. Bölme gerçekleşmesini istediğiniz parçalama anahtarı sağlayarak bunu yapabilirsiniz. Radyo düğmesini kullanın olup (bölme anahtar hariç) aralığının alt bölümünde taşımak istediğiniz veya üst kısmındaki (bölme anahtar dahil) taşımak isteyip istemediğinizi belirtin.
+* Kaynak parçacık (taşıma): kaynağı tanımlamak için bir aralık gerektirmeyen gibi işlemleri bölme ve birleştirme işlemlerinin farklı taşıyın. Bir kaynak taşıma için yalnızca taşımayı planlıyorsanız parçalama anahtarı değeri tarafından tanımlanır.
+* Hedef parça (bölme): bölünmüş işleminizi kaynağında bilgileri girdikten sonra hedef Azure SQL Db sunucusu ve veritabanı adı sağlayarak kopyalanacağı verilerin istediğiniz tanımlamanız gerekir.
+* Hedef aralığı (birleştirme): birleştirme işlemi var olan bir parçaya parçacıklara taşıyın. Var olan parça, birleştirmek istediğiniz varolan aralığın aralığı sınırlarını sağlayarak belirleyin.
+* Toplu iş boyutu: Toplu iş boyutu, veri taşıma sırasında bir zaman çevrimdışı duruma parçacıklarda sayısını denetler. Bu uzun parçacıklara kalma süreleri önemli olduğunda, küçük değerler kullanabileceğiniz bir tamsayı değeridir. Daha büyük değerler, belirli bir parçacık zamanı artırır ancak çevrimdışı performansı artırabilir.
+* İşlem kimliği (İptal): artık gerekli olmadığında, devam eden bir işlem varsa, işlemi bu alandaki işlem Kimliğini sağlayarak iptal edebilirsiniz. İşlem kimliği istek durumu tablosundan alabilirsiniz (8.1 bölümüne bakın) veya isteği gönderdiğiniz yeri web tarayıcısında çıktısından.
 
 ## <a name="requirements-and-limitations"></a>Gereksinimler ve sınırlamalar
-Geçerli bölünmüş birleştirme hizmetine aşağıdaki gereksinimleri ve sınırlamaları tabi uygulamasıdır: 
+Geçerli ayırma-birleştirme hizmetini aşağıdaki gereksinimleri ve sınırlamaları tabi uygulamasıdır: 
 
-* Parça var ve bu parça üzerinde bir bölme birleştirme işlemi gerçekleştirilmeden önce parça eşlemesinde kayıtlı olması gerekir. 
-* Hizmet, tablolar veya başka bir veritabanı nesneleri işlemlerinin bir parçası olarak otomatik olarak oluşturmaz. Bu, hedef parça herhangi bir birleştirme/bölünmüş/taşıma işlemi önce mevcut tüm parçalı tablolar ve başvuru tabloları için şema gerektiği anlamına gelir. Parçalı tablolar özellikle bir birleştirme/bölünmüş/taşıma işlemi tarafından eklenecek yeni shardlets nerede aralıktaki boş olması gerekir. Aksi takdirde işlem hedef parça üzerinde ilk tutarlılık denetimi başarısız olur. Ayrıca, bu başvuruyu başvuru tablosu boştur ve tutarlılığı garanti diğer eşzamanlı açısından olduğunu yazma işlemi başvuru tabloları veri yalnızca kaynaklanıyorsa unutmayın. Bu öneririz: bölünmüş/birleştirme işlemleri çalışırken, başka bir yazma işlemleri için başvuru tabloları değişiklikleri yapın.
-* Hizmet bir benzersiz dizin veya performansı ve güvenilirliği büyük shardlets artırmak için parçalama anahtar içerir anahtar tarafından oluşturulan satır kimliği kullanır. Bu, yalnızca parçalama anahtar değerinden daha hassas bir ayrıntı düzeyi, verileri taşımak hizmet sağlar. Bu günlük alanının ve işlem sırasında gerekli kilitler maksimum azaltılmasına yardımcı olur. Benzersiz bir dizin ya da bu tabloyu birleştirme/bölünmüş/taşıma isteği ile kullanmak istiyorsanız, belirli bir tablodaki parçalama anahtarı da dahil olmak üzere bir birincil anahtar oluşturmayı düşünün. Performans nedenleriyle parçalama anahtar anahtar veya dizin başında sütunu olmalıdır.
-* İstek işleme sürecinde bazı shardlet veriler hem kaynak ve hedef parça mevcut olabilir. Bu shardlet taşıma sırasında arızalarına karşı korunmak gereklidir. Bölünmüş birleştirme parça eşleme ile tümleştirme sağlar bağımlı yönlendirme API'lerini kullanarak verileri aracılığıyla bağlantıları **OpenConnectionForKey** yöntemi parça harita üzerinde tutarsız bir ara durum göremezsiniz. Ancak, kaynak veya hedef parça kullanmadan bağlanırken **OpenConnectionForKey** yöntemi, tutarsız Ara durumlar olabilir görünür birleştirme/bölünmüş/taşıma isteği yükleyecekseniz. Bu bağlantıları, kısmi veya yinelenen sonuçları zamanlama veya arka plandaki bağlantı parça bağlı olarak gösterebilir. Bu sınırlama, şu anda esnek ölçek çok-Shard-sorgular tarafından yapılan bağlantılar içerir.
-* Bölünmüş birleştirme hizmet için meta veri veritabanı farklı rolleri arasında paylaşılmayan gerekir. Örneğin, hazırlamada çalışan bölünmüş birleştirme hizmeti rolü üretim rol daha farklı meta veriler veritabanına işaret etmesi gerekir.
+* Parçalar var ve bu parçaları bir bölme-birleştirme işlemi gerçekleştirilmeden önce parça eşlemesinde kayıtlı olması gerekir. 
+* Hizmet, tablolar veya diğer veritabanı nesnelerini işlemlerini bir parçası olarak otomatik olarak oluşturulmaz. Bu, parçalı tüm tabloları ve başvuru tabloları için şema üzerinde herhangi bir bölünmüş/Birleştir/taşıma işlemi öncesinde hedef parça mevcut olması gerektiğini anlamına gelir. Parçalı tablo özellikle boş bir bölme/Birleştir/taşıma işlemiyle eklenecek yeni parçacıklara nerede aralığında olması gerekir. Aksi takdirde işlemi hedef parça ilk tutarlılık denetimi başarısız olur. Ayrıca, başvuru tablosu boştur ve diğer eşzamanlı onaylamaz tutarlılık garantisi yoktur yazma işlemi başvuru tabloları veri yalnızca kaynaklanıyorsa bu başvuruyu unutmayın. Bunu önermemizin: ayırma/birleştirme işlemleri çalışırken, başka bir yazma işlemleri için başvuru tabloları değişiklikleri yapın.
+* Hizmet bir benzersiz dizin veya performansını ve güvenilirliğini büyük parçacıklara parçalama anahtarı içeren bir anahtar tarafından kurulan satır kimliği kullanır. Bu, yalnızca parçalama anahtarı değerinden daha bir ayrıntı düzeyi, verileri taşımak hizmet verir. Bu, en fazla günlük alanı ve işlem sırasında gerekli kilitler azaltmaya yardımcı olur. Benzersiz bir dizin ya da bu tabloyu Birleştir/Böl/taşıma istekler ile kullanmak istiyorsanız, belirli bir tabloda parçalama anahtarı dahil olmak üzere bir birincil anahtar oluşturmayı düşünün. Performansla ilgili nedenlerden dolayı önde gelen bir anahtar veya dizin sütununda parçalama anahtarı olmalıdır.
+* İsteğin işlenmesinin Kurs sırasında bazı parçacık verileri kaynak ve hedef parça mevcut olabilir. Bu, parçacık taşıma zamanı hatalarına karşı korumak gereklidir. Ayırma-birleştirme parça eşlemesi ile tümleştirmesini sağlar bağımlı yönlendirme API'leri kullanarak verileri aracılığıyla bağlantıları **OpenConnectionForKey** parça eşlemesi metodunda tutarsız bir ara durum göremezsiniz. Ancak, kaynak veya hedef parçalar kullanmadan bağlanırken **OpenConnectionForKey** yöntemi, tutarsız Ara durumları olabilir görünür Birleştir/Böl/taşıma istekler bittiğini tıklattığınızda. Bu bağlantılar kısmi veya yinelenen bir zamanlama veya arka plandaki bağlantı parça bağlı olarak sonuçlara neden olabilir. Bu sınırlama, şu anda esnek ölçeklendirme çok-Shard-sorgular tarafından yapılan bağlantıları içerir.
+* Ayırma-birleştirme hizmeti için meta verileri veritabanı farklı rolleri arasında Paylaşılmaması gerekir. Örneğin, bir üretim rolü farklı meta verileri veritabanı işaret edecek şekilde hazırlamada çalışan bölme-birleştirme hizmeti rolü gerekiyor.
 
 ## <a name="billing"></a>Faturalandırma
-Bölünmüş birleştirme hizmeti Microsoft Azure aboneliğiniz bulut hizmetinde çalışır. Bu nedenle ücretleri bulut Hizmetleri için hizmet Örneğiniz için geçerlidir. Birleştirme/bölünmüş/taşıma işlemleri sık gerçekleştirmediğiniz sürece, bölünmüş birleştirme bulut hizmetini silin öneririz. Çalışan maliyetlerini kaydeder veya Bulut hizmeti örnekleri dağıtılır. Yeniden dağıtın ve bölme veya birleştirme işlemlerini gerçekleştirmek ihtiyaç duyduğunuzda taşımalarına runnable yapılandırmanızı başlatın. 
+Ayırma-birleştirme hizmetini, Microsoft Azure Aboneliğinize bir bulut hizmeti olarak çalışır. Hizmet Örneğiniz için bulut Hizmetleri için ücret alınır. Birleştir/Böl/taşıma işlemlerini sık gerçekleştirmediğiniz sürece, bölme-birleştirme bulut hizmetinizi silmeniz önerilir. Çalıştırma maliyetinden tasarruf veya Bulut hizmeti örnekleri dağıtılmış. Yeniden Dağıt ve bölme ve birleştirme işlemleri gerçekleştirme ihtiyacınız olduğunda kolayca çalıştırılabilir yapılandırmanızı başlatın. 
 
 ## <a name="monitoring"></a>İzleme
 ### <a name="status-tables"></a>Durum tabloları
-Bölünmüş birleştirme hizmetidir **RequestStatus** tamamlanmış ve devam eden isteklerinin izleme meta veri deposu veritabanı tablosunda. Tablo, bu bölme birleştirme hizmeti örneğine gönderilen her bölme birleştirme isteği için bir satır listeler. Her istek için aşağıdaki bilgileri sağlar:
+Ayırma-birleştirme hizmeti sağlar **RequestStatus** tamamlanan ve Süren istekleri izlemek için meta veri deposu veritabanından tablo. Ayırma-birleştirme hizmetinin bu örneği için gönderilen her bölme-birleştirme isteği için bir satır tabloda listelenmiştir. Bunu her istek için aşağıdaki bilgileri sağlar:
 
 * **Zaman damgası**: İstek zaman başlatıldı tarih ve saat.
-* **Operationıd**: İstek benzersiz olarak tanımlayan bir GUID. Bu istek ederken hala devam eden işlemi iptal etmek için de kullanılabilir.
-* **Durum**: isteğin geçerli durumu. Devam eden istekler için istek olduğu geçerli aşama da listeler.
-* **CancelRequest**: istek iptal olup olmadığını belirten bir bayrak.
-* **İlerleme**: işlem için tamamlanma yüzdesi tahmin. Bir değeri 50 işlemi yaklaşık %50 tamamlanmış olduğunu gösterir.
-* **Ayrıntılar**: ayrıntılı ilerleme raporu sağlar XML değeri. Satır kümeleri kaynaktan hedefe kopyalanır gibi İlerleme raporu düzenli olarak güncelleştirilir. Hataları veya özel durumları durumunda, bu sütun ayrıca hata hakkında daha ayrıntılı bilgi içerir.
+* **Operationıd**: İstek benzersiz olarak tanımlayan bir GUID. Bu istek işlemi hala devam ederken iptal etmek için de kullanılabilir.
+* **Durum**: isteğin geçerli durumu. Devam eden istekleri için istek olduğu geçerli aşama ayrıca listelenir.
+* **CancelRequest**: istek iptal olup olmadığını gösteren bir bayrak.
+* **İlerleme**: işlemi tamamlama bir yüzdesini tahmin. Bir değeri 50 işlemi yaklaşık %50 tamamlandı olduğunu gösterir.
+* **Ayrıntılar**: XML değeri, daha ayrıntılı bir İlerleme raporu sağlar. İlerleme raporu satır kümesi kaynaktan hedefe kopyalanır düzenli olarak güncelleştirilir. Hataları veya özel durumlar olması durumunda, bu sütunda ayrıca hata hakkında daha ayrıntılı bilgi içerir.
 
 ### <a name="azure-diagnostics"></a>Azure Tanılama
-Bölünmüş birleştirme hizmeti Azure Tanılama izleme ve tanılama için Azure SDK 2.5 üzerinde temel kullanır. Burada açıklandığı gibi Tanılama yapılandırmasını kontrol: [Azure Cloud Services ve sanal makineleri etkinleştirme tanılamada](../cloud-services/cloud-services-dotnet-diagnostics.md). İndirme paketini iki tanılama yapılandırması - bir web rolü ve çalışan rolü için bir tane içerir. Bu tanılama yapılandırmalar hizmeti için kılavuzluğu izleyin [Microsoft Azure bulut hizmeti temel bilgileri](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Performans sayaçları, IIS günlükleri, Windows olay günlüklerini ve bölünmüş birleştirme uygulama olay günlüklerini oturum için tanımları içerir. 
+Ayırma-birleştirme hizmetini izleme ve tanılama için Azure SDK 2.5 üzerinde temel Azure Tanılama'yı kullanır. Burada açıklandığı gibi tanılama yapılandırması denetimi: [Azure bulut Hizmetleri ve sanal Makineler'de tanılamayı etkinleştirme](../cloud-services/cloud-services-dotnet-diagnostics.md). İndirme paketini iki tanılama yapılandırması - bir web rolü ve çalışan rolü için bir tane içerir. Bu hizmet için tanılama yapılandırması Kılavuzu izleyin [Microsoft azure'da bulut hizmeti Temelleri](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Bu, performans sayaçları, IIS günlükleri, Windows olay günlükleri ve ayırma-birleştirme uygulama olay günlüklerini açmak için tanımları içerir. 
 
 ## <a name="deploy-diagnostics"></a>Tanılama dağıtma
-İzleme ve tanılama NuGet paketi tarafından sağlanan web ve çalışan rolleri için tanılama Yapılandırması'nı kullanarak etkinleştirmek için Azure PowerShell kullanarak aşağıdaki komutları çalıştırın: 
+İzleme ve tanılama yapılandırması için NuGet paketi tarafından sağlanan web ve çalışan rollerini kullanarak tanılamayı etkinleştirmek için Azure PowerShell kullanarak aşağıdaki komutları çalıştırın: 
 
     $storage_name = "<YourAzureStorageAccount>" 
 
@@ -171,38 +174,38 @@ Bölünmüş birleştirme hizmeti Azure Tanılama izleme ve tanılama için Azur
 
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
-Burada tanılama ayarlarını yapılandırmak ve dağıtmak hakkında daha fazla bilgi bulabilirsiniz: [Azure Cloud Services ve sanal makineleri etkinleştirme tanılamada](../cloud-services/cloud-services-dotnet-diagnostics.md). 
+Tanılama ayarlarını yapılandırmak ve dağıtmak hakkında daha fazla bilgi bulabilirsiniz: [Azure bulut Hizmetleri ve sanal Makineler'de tanılamayı etkinleştirme](../cloud-services/cloud-services-dotnet-diagnostics.md). 
 
 ## <a name="retrieve-diagnostics"></a>Tanılama alma
-Sunucu Gezgini ağacının Azure bölümü Visual Studio sunucu Gezgini'nde, tanılama kolayca erişebilirsiniz. Visual Studio örneğini açın ve menü çubuğunda Görünüm ve Server Explorer'ı tıklatın. Azure aboneliğinize bağlanmak için Azure simgesine tıklayın. Azure'a gidin depolama -> -> <your storage account> -> tabloları WADLogsTable ->. Daha fazla bilgi için bkz: [Sunucu Gezgini ile depolama kaynaklarını gözatma](http://msdn.microsoft.com/library/azure/ff683677.aspx). 
+Visual Studio sunucu Gezgini'nde Azure bölümünde Sunucu Gezgini ağacının tanılama kolayca erişebilirsiniz. Visual Studio örneği açın ve menü çubuğunda Görünüm'ü ve Sunucu Gezgini tıklayın. Azure aboneliğinize bağlanmak için Azure simgesine tıklayın. Ardından Azure'a gidin -> depolama -> <your storage account> -> tabloları WADLogsTable ->. Daha fazla bilgi için [Sunucu Gezgini ile depolama kaynaklarını gözatma](http://msdn.microsoft.com/library/azure/ff683677.aspx). 
 
 ![WADLogsTable][2]
 
-Yukarıdaki çizimde vurgulanan WADLogsTable ayrıntılı bölünmüş birleştirme hizmetin uygulama günlüğündeki olaylar içerir. İndirilen paketi varsayılan yapılandırması Üretim dağıtımı sağlamıştır olduğunu unutmayın. Bu nedenle, günlükleri ve sayaçları hizmet örneklerden alınır büyük (5 dakika) aralığıdır. Test ve geliştirme için tanılama ayarları web veya çalışan rolü gereksinimlerinize ayarlayarak aralığını azaltın. Visual Studio Sunucu Gezgini (yukarıya bakın) rolüne sağ tıklayın ve ardından tanılama yapılandırma ayarları iletişim kutusunda aktarım süresini ayarlamak: 
+Yukarıdaki çizimde vurgulanan WADLogsTable bölme-birleştirme hizmetinin uygulama günlüğüne ayrıntılı olayları içerir. İndirilen paketi varsayılan yapılandırmasını doğru bir üretim dağıtımı yöneliktir unutmayın. Bu nedenle, günlükleri ve sayaçları hizmet örneklerden alınır büyük (5 dakika) aralığıdır. Test ve geliştirme için aralık, web veya çalışan rolü ihtiyaçlarınıza tanılama ayarlarını ayarlayarak düşürün. Visual Studio sunucu Gezgini'ndeki (yukarıya bakın) rolüne sağ tıklayın ve sonra iletişim kutusunda tanılama yapılandırma ayarları için aktarım süresi ayarlayın: 
 
 ![Yapılandırma][3]
 
 ## <a name="performance"></a>Performans
-Genel olarak, daha iyi performans arttıkça, daha fazla kullanıcı hizmet katmanlarındaki Azure SQL veritabanında olması beklenir. Daha yüksek hizmet katmanları için daha yüksek g/ç, CPU ve bellek ayırmaları toplu kopyalama yararlanabilir ve bölünmüş birleştirme hizmetinin kullandığı işlemleri silin. Bu nedenle, yalnızca bu veritabanları için hizmet katmanına bir tanımlanan, sınırlı süre artırın.
+Genel olarak, daha iyi performans arttıkça, daha yüksek performanslı hizmet katmanlarında Azure SQL veritabanı'ndan olması beklenir. Daha yüksek hizmet katmanlarına yönelik daha yüksek g/ç, CPU ve bellek ayırmaları toplu kopyalama avantajından yararlanabilir ve ayırma-birleştirme hizmetinin kullandığı silme. Bu nedenle, yalnızca söz konusu veritabanları için hizmet katmanına bir tanımlanmış, sınırlı süre için artırın.
 
-Hizmet ayrıca doğrulama sorguları normal işlemlerinin bir parçası olarak gerçekleştirir. Bu doğrulama sorgular hedef aralığındaki verileri beklenmeyen varlığını denetlemek ve herhangi bir birleştirme/bölünmüş/taşıma işlemi ile tutarlı bir durumdan başladığından emin olmak. Tüm bu sorguları parçalama anahtar aralıklarına işlemi kapsam tarafından tanımlanan ve istek tanımının bir parçası olarak sağlanan toplu iş boyutu üzerinde çalışır. Dizin başında sütun parçalama anahtara sahip mevcut olduğunda bu sorguları en iyi şekilde çalışır. 
+Hizmet doğrulama sorguları, normal işlemlerin parçası olarak da gerçekleştirir. Bu doğrulama sorguları beklenmeyen hedef aralıktaki veri varlığını denetlemek ve herhangi bir bölünmüş/Birleştir/taşıma işlemi tutarlı bir durumdan başladığından emin olmak. Tüm bu sorguları işleminin kapsamı tarafından tanımlanan parçalama anahtarı aralık ve istek tanımının bir parçası sağlanan toplu iş boyutu üzerinde çalışır. Önde gelen bir sütun olarak parçalama anahtarı içeren geçerli bir dizin olduğunda bu sorguları en iyi şekilde çalışır. 
 
-Ayrıca, bir Benzersizlik özelliği parçalama anahtarla başında sütun olarak günlük alanının ve bellek açısından kaynak tüketimini sınırlandırır en iyi duruma getirilmiş bir yaklaşım kullanmak hizmet izin verir. Bu benzersizlik özelliği (genellikle yukarıdaki 1 GB) büyük veri boyutları taşımak için gereklidir. 
+Ayrıca, önde gelen bir sütun olarak parçalama anahtarı bir Benzersizlik özelliğiyle sınırlar kaynak tüketimi günlük alanı ve bellek açısından iyileştirilmiş bir yaklaşım kullanmak için hizmet sağlayacaktır. Bu benzersiz özellik, büyük veri boyutları (genellikle yukarıda 1 GB) taşımak için gereklidir. 
 
 ## <a name="how-to-upgrade"></a>Yükseltme
-1. Adımları [bölünmüş birleştirme hizmet dağıtma](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-2. Bulut hizmeti yapılandırma dosyanızı yeni yapılandırma parametreleri yansıtacak şekilde bölünmüş birleştirme dağıtımınız için değiştirin. Yeni gerekli parametre şifreleme için kullanılan sertifika hakkındaki bilgilerdir. Bunu yapmak için kolay bir indirme varolan yapılandırmanızı karşı yeni yapılandırma şablon dosyasından Karşılaştırılacak yoludur. Hem web hem de çalışan rolü için "DataEncryptionPrimaryCertificateThumbprint" ve "DataEncryptionPrimary" ayarlarını eklediğinizden emin olun.
-3. Güncelleştirme Azure'a dağıtmadan önce tüm çalışmakta bölünmüş birleştirme işlemlerinin tamamlandığından emin olun. Bu, devam eden istekleri için bölünmüş birleştirme meta veri veritabanındaki RequestStatus ve PendingWorkflows tabloları sorgulayarak kolayca yapabilirsiniz.
-4. Mevcut bulut hizmeti dağıtımınızı Azure aboneliğinizde bölünmüş birleştirme için yeni paket ve güncelleştirilmiş hizmet yapılandırma dosyanızı güncelleştirin.
+1. Bağlantısındaki [ayırma-birleştirme hizmetini dağıtma](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+2. Ayırma-birleştirme dağıtımınızın yeni yapılandırma parametrelerini yansıtmak bulut hizmeti yapılandırma dosyanızı değiştirin. Yeni bir gerekli parametre şifreleme için kullanılan sertifika hakkındaki bilgilerdir. Bunu yapmanın kolay bir yolu, yeni bir yapılandırma şablon dosyası karşıdan yükleme yapılandırmanızda karşı karşılaştırma sağlamaktır. Hem web hem de çalışan rolü için "DataEncryptionPrimaryCertificateThumbprint" ve "DataEncryptionPrimary" ayarlarını eklediğinizden emin olun.
+3. Güncelleştirme Azure'a dağıtmadan önce tüm çalışmakta bölme-birleştirme işlemleri tamamlandığından emin olun. Bu, devam eden istekler için bölme-birleştirme meta verileri veritabanı RequestStatus ve PendingWorkflows tabloları sorgulayarak kolayca yapabilirsiniz.
+4. Mevcut bulut hizmeti dağıtımınız için bölme-birleştirme, Azure aboneliğinizdeki yeni paket ve güncelleştirilmiş hizmet yapılandırma dosyanızı güncelleştirin.
 
-Yükseltme bölünmüş-birleştirme için yeni bir meta veri veritabanı sağlamak gerekmez. Yeni sürümü, yeni sürüme varolan meta verileri veritabanınızı otomatik olarak yükseltir. 
+Yükseltmek bölme-birleştirme için yeni bir meta veri veritabanı sağlanması gerekmez. Yeni sürümü, mevcut meta verileri veritabanını otomatik olarak yeni sürüme yükseltir. 
 
 ## <a name="best-practices--troubleshooting"></a>En iyi yöntemler ve sorun giderme
-* Birden fazla parça en önemli birleştirme/bölünmüş/taşıma işlemlerinizin test kiracısı ile çalışma ve test Kiracı tanımlayın. Tüm meta veriler parça eşlemesinde doğru şekilde tanımlandığından ve işlemleri kısıtlamaları veya yabancı anahtarlar ihlal etmemek emin olun.
-* Test Kiracı tutmak, değil karşılaşmadan veri boyutu emin olmak için en büyük Kiracı maksimum veri boyutu yukarıda veri boyutu ile ilgili sorunlar. Bu, tek bir kiracı taşımak için geçen süreyi üzerinde bir üst sınır değerlendirmenize yardımcı olur. 
-* Şemanızı silme izin verdiğinden emin olun. Bölünmüş birleştirme hizmetine verileri hedef başarıyla kopyalandı sonra veri kaynağı parça kaldırma özelliği gerektirir. Örneğin, **Tetikleyicileri silme** hizmetin veri kaynağı üzerinde silmesini önlemek ve işlemleri başarısız olmasına neden olabilir.
-* Parçalama anahtar başında sütun birincil anahtar veya benzersiz dizin tanımı içinde olmalıdır. Bölünmüş veya birleştirme doğrulama sorgular için ve her zaman parçalama anahtar aralıklarına üzerinde çalışan gerçek veri taşıma ve silme işlemleri için en iyi performans sağlar.
-* Bölünmüş birleştirme hizmetinizi veritabanlarınızı bulunduğu bölgeye ve veri merkezi içinde bir arada. 
+* Bir de test kiracılığınız tanımlayın ve birden fazla parçaya Birleştir/Böl/taşıma işlemlerinizi en önemli test kiracısı ile çalışma. Tüm meta verileri, parça eşlemesinde doğru şekilde tanımlanır ve işlemleri kısıtlamaları veya yabancı anahtarlar ihlal etmemek emin olun.
+* Test Kiracı tutun büyük kiracınızın veri boyutu değil karşılaştığınızı emin olmak için en yüksek veri boyutu Yukarıdaki veri boyutu ile ilgili sorunlar. Bu, tek bir kiracının gezinebilirsiniz süresini üzerinde bir üst sınır değerlendirmenize yardımcı olur. 
+* Şemanızı silme izin verdiğinden emin olun. Ayırma-birleştirme hizmetini veri hedefine başarıyla kopyalandı sonra veri kaynağı parçadan veri kaldırma özelliği gerektirir. Örneğin, **tetikleyicilerini Sil** hizmet kaynak verileri silmesi engelleyebilir ve işlemlerinin başarısız olmasına neden olabilir.
+* Parçalama anahtarı önde gelen sütun birincil anahtar veya benzersiz dizin tanımı içinde olması gerekir. Her zaman parçalama anahtarı aralıklarda çalışan gerçek veri taşıma ve silme işlemlerinin yanı sıra, bölme ve birleştirme doğrulama sorgular için en iyi performansı sağlar.
+* Ayırma-birleştirme hizmetinizi veritabanlarınızı bulunduğu bölgeye ve veri merkezinde ISS'de. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

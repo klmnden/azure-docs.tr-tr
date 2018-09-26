@@ -2,20 +2,22 @@
 title: Esnek veritabanı araçları sözlüğü | Microsoft Docs
 description: Esnek veritabanı araçları için kullanılan terimler açıklaması
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 387f40204c8ab07ba0205fd74b5c6a549efff0ef
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 354d972e78a7fb7270b1b09f4af5aa95709fcd06
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728855"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162585"
 ---
 # <a name="elastic-database-tools-glossary"></a>Esnek veritabanı araçları sözlüğü
 Aşağıdaki terimler için tanımlanan [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md), Azure SQL veritabanı'nın bir özelliği. Yönetmek için kullanılan araçları [parça eşlemeleri](sql-database-elastic-scale-shard-map-management.md)ve [istemci Kitaplığı](sql-database-elastic-database-client-library.md), [bölme-birleştirme aracını](sql-database-elastic-scale-overview-split-and-merge.md), [elastik havuzlar](sql-database-elastic-pool.md)ve [sorguları](sql-database-elastic-query-overview.md). 

@@ -1,95 +1,66 @@
 ---
-title: Openıd Connect kimlik sağlayıcıları Azure Active Directory B2C, yerleşik ilkeleri ekleme | Microsoft Docs
-description: Openıd Connect sağlayıcısının içinde Azure AD B2C'yi yerleşik ilkeler ekleme kılavuzuna genel bakış.
+title: Azure Active Directory B2C kullanarak Openıd Connect ile kaydolma ve oturum açma ayarlama | Microsoft Docs
+description: Azure Active Directory B2C kullanarak Openıd Connect ile kaydolma ve oturum açma ayarlayın.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 09/19/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e5baf95cd2426c9753620cba7c5a67b4c1672788
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 30bc3e0f1a8230bdbcad653c8c2db7dc078629bb
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444234"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180357"
 ---
-# <a name="azure-active-directory-b2c-add-a-custom-openid-connect-identity-provider-in-built-in-policies"></a>Azure Active Directory B2C: özel Openıd Connect kimlik sağlayıcı yerleşik ilkeleri ekleyin.
+# <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak Openıd Connect ile kaydolma ve oturum açma ayarlama
 
 >[!NOTE]
 > Bu özellik genel Önizleme aşamasındadır. Bu özellik, üretim ortamında kullanmayın.
 
 [Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) kullanıcıların güvenli bir şekilde oturum açmak için kullanılan OAuth 2.0 üzerinde yerleşik bir kimlik doğrulama protokolüdür. Gibi bu protokolü kullanan çoğu kimlik sağlayıcıları [Azure AD'ye](active-directory-b2c-setup-oidc-azure-active-directory.md), Azure AD B2C'de desteklenir. Bu makalede, özel Openıd Connect kimlik sağlayıcıları, yerleşik ilkeleri nasıl ekleyebileceğinizi açıklar.
 
-## <a name="configuring-a-custom-openid-connect-identity-provider"></a>Özel Openıd Connect kimlik sağlayıcısını yapılandırma
+## <a name="add-the-identity-provider"></a>Kimlik sağlayıcısı Ekle
 
-Özel Openıd Connect kimlik sağlayıcısı eklemek için:
+1. Oturum [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel Yöneticisi olarak.
+2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
+4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.
+5. İçin **kimlik sağlayıcısı türü**seçin **Openıd Connect (Önizleme)**.
 
-1. Bu adımları [Azure AD B2C ayarlarına gidin](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) Azure portalında.
-1. Tıklayarak **kimlik sağlayıcıları**.
-1. **Ekle**'ye tıklayın.
-1. İçin **kimlik sağlayıcısı türü**seçin **Openıd Connect**.
+## <a name="configure-the-identity-provider"></a>Kimlik sağlayıcısı yapılandırma
 
-### <a name="setting-up-the-openid-connect-identity-provider"></a>Openıd Connect kimlik sağlayıcısını ayarlama
+Her Openıd Connect kimlik sağlayıcısı oturum açma gerçekleştirmek için gereken bilgilerin çoğunu içeren bir meta veri belgesinin açıklar. Bu, hizmetin ortak İmzalama anahtarları konumunu ve kullanılacak URL'leri gibi bilgileri içerir. Openıd Connect meta veri belgesi her zaman ile biten bir uç nokta şu konumdadır: `.well-known\openid-configuration`. Openıd Connect kimlik sağlayıcısı için aradığınız eklemek için meta veri URL'sini girin.
 
-#### <a name="metadata-url"></a>Meta veri URL'si
-
-Belirtimine göre her Openıd Connect kimlik sağlayıcısı oturum açma gerçekleştirmek için gereken bilgilerin çoğunu içeren bir meta veri belgesinin açıklar. Bu, hizmetin ortak İmzalama anahtarları konumunu ve kullanılacak URL'leri gibi bilgileri içerir. Openıd Connect meta veri belgesi her zaman ile biten bir uç nokta şu konumdadır: `.well-known\openid-configuration`.
-
-Openıd Connect kimlik sağlayıcısı için aradığınız eklemek için meta veri URL'sini girin.
-
-#### <a name="client-id-and-secret"></a>İstemci kimliği ve parolası
-
-Oturum açmasına izin vermek için kimlik sağlayıcısı geliştiricilerin kendi hizmetinde uygulamayı kaydetme gerektirir. Bu uygulama bir Kimliğe sahip (olarak adlandırılan **istemci kimliği**) ve bir **gizli**. Kimlik sağlayıcısı'ndan bu değerleri kopyalayın ve bunlara karşılık gelen alanlara girin.
+Oturum açmasına izin vermek için geliştiricilerin kendi hizmetinde uygulamayı kaydetme kimlik sağlayıcısı gerektirir. Bu uygulama şeklinde adlandırılan bir Kimliğe sahip **istemci kimliği** ve **gizli**. Kimlik sağlayıcısı'ndan bu değerleri kopyalayın ve bunlara karşılık gelen alanlara girin.
 
 > [!NOTE]
 > Gizli anahtar isteğe bağlıdır. Ancak, kullanmak istiyorsanız, bir istemci parolası girmeniz gerekir [yetkilendirme kod akışı](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), belirteç kodunu değişimi için gizli anahtarı kullanır.
 
-#### <a name="scope"></a>Kapsam
+Kapsam bilgileri ve izinleri toplamak için özel kimlik sağlayıcınızdan aradığınız tanımlar. Openıd Connect istekleri içermelidir `openid` kimlik sağlayıcısından gelen kimlik belirteci almak için kapsam değeri. Kimlik belirteci kullanıcılar Azure AD B2C'ye oturum olmayan özel kimlik sağlayıcısı kullanarak. Diğer kapsamları, boşlukla ayrılmış eklenmiş. Ne diğer kapsamları olabilir görmek için özel kimlik sağlayıcısının belgelerine başvurun kullanılabilir.
 
-Kapsamlar ve bilgi toplamak için özel kimlik sağlayıcınızdan aradığınız izinleri tanımlayın. Openıd Connect istekleri içermelidir `openid` kimlik sağlayıcısından gelen kimlik belirteci almak için kapsam değeri. Kimlik belirteci kullanıcılar Azure AD B2C'ye açmanız mümkün olmayacaktır özel kimlik sağlayıcısı kullanarak.
+Hangi tür bilgiler için ilk çağrıda geri gönderilen yanıt türü tanımlayan `authorization_endpoint` özel kimlik sağlayıcısının. Aşağıdaki yanıt türleri kullanılabilir:
 
-Diğer kapsamları (boşlukla ayrılmış) eklenmiş. Ne diğer kapsamları olabilir görmek için özel kimlik sağlayıcısının belgelerine başvurun kullanılabilir.
+- `code`: Olarak başına [yetkilendirme kod akışı](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), kodu bir Azure AD B2C geri döndürülür. Azure AD B2C geçer çağrılacak `token_endpoint` belirteç kodunu Exchange.
+- `token`: Bir erişim belirteci, özel bir kimlik sağlayıcısından Azure AD B2C geri döndürülür.
+- `id_token`: Bir kimlik belirteci, özel bir kimlik sağlayıcısından Azure AD B2C geri döndürülür.
 
-#### <a name="response-type"></a>Yanıt türü
+Yanıt modu verileri özel bir kimlik sağlayıcısından Azure AD B2C'ye göndermek için kullanılması gereken yöntemi tanımlar. Şu yanıt modları kullanılabilir:
 
-Hangi tür bilgiler için ilk çağrıda geri gönderilecek yanıt türü tanımlayan `authorization_endpoint` özel kimlik sağlayıcısının. 
+- `form_post`: Yanıt modu bu en iyi güvenlik için önerilir. Yanıt, HTTP üzerinden aktarılan `POST` kodunu veya belirteci kullanarak gövdesi kodlanmakta yöntemi `application/x-www-form-urlencoded` biçimi.
+- `query`: Kodunu veya belirteci bir sorgu parametresi olarak döndürülür.
 
-* `code`: Olarak başına [yetkilendirme kod akışı](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), kodu bir Azure AD B2C geri döndürülür. Azure AD B2C çağrılacak sonra devam `token_endpoint` belirteç kodunu Exchange.
-* `token`: Bir erişim belirteci, özel bir kimlik sağlayıcısından Azure AD B2C geri döndürülür.
-* `id_token`: Bir kimlik belirteci, özel bir kimlik sağlayıcısından Azure AD B2C geri döndürülür.
+Etki alanı ipucu doğrudan oturum açma sayfasında kullanıcı yap kullanılabilir kimlik sağlayıcıları listesi arasında bir seçim yerine, belirtilen kimlik sağlayıcısının atlamak için kullanılabilir. Bu tür bir davranış izin vermek için etki alanı ipucu için bir değer girin. Parametreyi atlamak için özel kimlik sağlayıcısı eklemek `domain_hint=<domain hint value>` sonuna kadar oturum açma için Azure AD B2C çağırırken isteğiniz.
 
+Sonra özel kimlik sağlayıcısı, Azure AD B2C, Azure AD B2C alınan belirteci gelen talepler için Azure AD B2C tanır ve kullanır talepleri eşlenebilmesi için gerekiyorsa geri dön kimlik belirteci gönderir. Her biri aşağıdaki eşlemeler için özel kimlik sağlayıcısının kimlik sağlayıcısının belirteçleri geri döndürülen talepleri anlamak için belgelere bakın:
 
-#### <a name="response-mode"></a>Yanıt modu
+- `User ID`: Oturum açmış olan kullanıcı için benzersiz tanımlayıcı sağlar talep girin.
+- `Display Name`: Kullanıcının tam adını ve görünen ad sağlayan talep girin.
+- `Given Name`: Kullanıcının ilk adını sağlayan talep girin.
+- `Surname`: Son kullanıcı adını sağlayan talep girin.
+- `Email`: Kullanıcının e-posta adresi sağlayan talep girin.
 
-Yanıt modu verileri özel bir kimlik sağlayıcısından Azure AD B2C'ye göndermek için kullanılması gereken yöntemi tanımlar.
-
-* `form_post`: Yanıt modu bu en iyi güvenlik için önerilir. Yanıt, HTTP üzerinden aktarılan `POST` kodunu veya belirteci kullanarak gövdesi kodlanmakta yöntemi `application/x-www-form-urlencoded` biçimi.
-* `query`: Kodunu veya belirteci, sorgu parametresi olarak döndürülür.
-
-
-#### <a name="domain-hint"></a>Etki alanı ipucu
-
-Etki alanı ipucu doğrudan oturum açma sayfasında kullanıcı yap kullanılabilir kimlik sağlayıcıları listesi arasında bir seçim yerine, belirtilen kimlik sağlayıcısının atlamak için kullanılabilir. Bu tür bir davranış izin vermek için etki alanı ipucu için bir değer girin.
-
-Parametreyi atlamak için özel kimlik sağlayıcısı eklemek `domain_hint=<domain hint value>` sonuna kadar oturum açma için Azure AD B2C çağırırken isteğiniz.
-
-
-### <a name="mapping-the-claims-from-the-openid-connect-identity-provider"></a>Openıd Connect kimlik sağlayıcısından gelen talepleri eşleme
-
-Sonra özel kimlik sağlayıcısı, Azure AD B2C, Azure AD B2C alınan belirteci gelen talepler için Azure AD B2C tanır ve kullanır talepleri eşlenebilmesi için gerekiyorsa geri dön kimlik belirteci gönderir. 
-
-Her biri aşağıdaki eşlemeleri için kimlik sağlayıcısının belirteçleri geri döndürülen talepleri anlamak için özel kimlik sağlayıcısının belgelerine başvurun.
-
-* `User ID`: Oturum açmış olan kullanıcı için benzersiz tanımlayıcı sağlar talep girin.
-* `Display Name`: Kullanıcının tam adını ve görünen ad sağlayan talep girin.
-* `Given Name`: Kullanıcının ilk adını sağlayan talep girin.
-* `Surname`: Son kullanıcı adını sağlayan talep girin.
-* `Email`: Kullanıcının e-posta adresi sağlayan talep girin.
-
-## <a name="next-steps"></a>Sonraki adımlar
-
-Özel Openıd Connect kimlik sağlayıcısına eklemek, [yerleşik ilke](active-directory-b2c-reference-policies.md).

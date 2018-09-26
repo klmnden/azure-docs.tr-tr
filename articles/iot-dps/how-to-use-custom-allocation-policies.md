@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 503a8026fe11d1cdb3d0fc0c2680d8d545a1c992
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89cb44366d4752052d990a1506482c9108cde103
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955268"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161718"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Özel ayırma ilkelerini kullanma
 
 
-Bir özel ayırma ilkesi, cihazların bir IOT hub'ına nasıl atanacağını üzerinde daha fazla denetim sağlar. Bu özel kodda kullanılarak başarılır bir [Azure işlevi](../azure-functions/functions-overview.md) cihazların bir IOT hub'ına atamak için. Cihaz sağlama hizmeti, IOT hub grubu sağlayan Azure işlevi kodu çağırır. İşlev kodunuzu için IOT hub cihaz sağlama bilgileri döndürür.
+Bir özel ayırma ilkesi, cihazların bir IOT hub'ına nasıl atanacağını üzerinde daha fazla denetim sağlar. Bu özel kodda kullanılarak başarılır bir [Azure işlevi](../azure-functions/functions-overview.md) cihazların bir IOT hub'ına atamak için. Cihaz sağlama hizmeti, cihaz ve kayıt ilgili tüm bilgileri sağlayan Azure işlevi kodu çağırır. İşlev kodunuzu çalıştırılır ve cihaz sağlama için kullanılan IOT hub bilgilerini döndürür.
 
 Özel ayırma ilkelerini kullanarak cihaz sağlama hizmeti tarafından sağlanan ilkeleri, senaryonuzun gereksinimlerini karşılamıyor, kendi ayırma ilkeleri tanımlarsınız.
 
@@ -107,7 +107,9 @@ Bu bölümde, özel ayırma ilkesini kullanan yeni bir kayıt grubu oluşturur. 
     ![Simetrik anahtar kanıtı için özel ayırma kayıt grubu Ekle](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
 
-4. Üzerinde **kayıt grubu Ekle**, tıklayın **yeni bir IOT hub bağlantı** bölümsel, yeni IOT hub'larının her ikisini bağlamak için.
+4. Üzerinde **kayıt grubu Ekle**, tıklayın **yeni bir IOT hub bağlantı** bölümsel, yeni IOT hub'larının her ikisini bağlamak için. 
+
+    Bu adımı her iki bölümsel, IOT hub'larınız için yürütmeniz gerekir.
 
     **Abonelik**: birden fazla aboneliğiniz varsa bölümsel IOT hub'ları oluşturduğunuz aboneliği seçin.
 
@@ -278,9 +280,9 @@ Bu bölümde, özel ayırma ilkesini kullanan yeni bir kayıt grubu oluşturur. 
 
 Bu bölümde, iki benzersiz cihaz anahtarları oluşturacaksınız. Bir anahtar toaster sanal cihaz için kullanılır. Başka bir tuşa ısı pompa sanal cihaz için kullanılır.
 
-Cihaz anahtarı oluşturmak için **birincil anahtar** hesaplamak için daha önce Not [HMAC SHA256](https://wikipedia.org/wiki/HMAC) her bir cihaz ve sonucu Base64 biçimine dönüştürmek için cihaz kayıt kimliği.
+Cihaz anahtarı oluşturmak için kullanacağınız **birincil anahtar** hesaplamak için daha önce Not [HMAC SHA256](https://wikipedia.org/wiki/HMAC) her bir cihaz ve sonucu Base64 biçimine dönüştürmek için cihaz kayıt kimliği. Kayıt grupları ile türetilen cihaz anahtarları oluşturma hakkında daha fazla bilgi için Grup kayıtları bölümüne bakın. [simetrik anahtar kanıtı](concepts-symmetric-key-attestation.md).
 
-Aşağıdaki iki cihaz kayıt kimliklerini ve cihaz anahtarı hem de cihazlar için işlem. Her iki kayıt kimlikleri özel ayırma ilkesi için örnek kod ile çalışmak için geçerli bir son eke sahiptir:
+Örneğin bu makalede, aşağıdaki iki cihaz kayıt kimliklerini ve cihaz anahtarı hem de cihazlar için işlem. Her iki kayıt kimlikleri özel ayırma ilkesi için örnek kod ile çalışmak için geçerli bir son eke sahiptir:
 
 - **contoso tstrsd 007 breakroom499**
 - **contoso hpsd 088 mainbuilding167**
@@ -289,53 +291,53 @@ Aşağıdaki iki cihaz kayıt kimliklerini ve cihaz anahtarı hem de cihazlar i�
 
 Bir Linux iş istasyonu kullanıyorsanız, aşağıdaki örnekte gösterildiği gibi türetilen cihaz anahtarları oluşturmak için openssl kullanabilirsiniz.
 
-Değiştirin **anahtarı** ile **birincil anahtar** daha önce not ettiğiniz.
+1. Değiştirin **anahtarı** ile **birincil anahtar** daha önce not ettiğiniz.
 
-```bash
-KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+    ```bash
+    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
 
-REG_ID1=breakroom499-contoso-tstrsd-007
-REG_ID2=mainbuilding167-contoso-hpsd-088
+    REG_ID1=breakroom499-contoso-tstrsd-007
+    REG_ID2=mainbuilding167-contoso-hpsd-088
 
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
 
-echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-```
+    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+    ```
 
-```bash
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```bash
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 #### <a name="windows-based-workstations"></a>Windows tabanlı iş istasyonları
 
 Windows tabanlı bir iş istasyonu kullanıyorsanız, aşağıdaki örnekte gösterildiği gibi türetilen cihaz anahtarı oluşturmak için PowerShell kullanabilirsiniz.
 
-Değiştirin **anahtarı** ile **birincil anahtar** daha önce not ettiğiniz.
+1. Değiştirin **anahtarı** ile **birincil anahtar** daha önce not ettiğiniz.
 
-```PowerShell
-$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+    ```PowerShell
+    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-$REG_ID1='breakroom499-contoso-tstrsd-007'
-$REG_ID2='mainbuilding167-contoso-hpsd-088'
+    $REG_ID1='breakroom499-contoso-tstrsd-007'
+    $REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-$hmacsha256.key = [Convert]::FromBase64String($key)
-$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-$derivedkey1 = [Convert]::ToBase64String($sig1)
-$derivedkey2 = [Convert]::ToBase64String($sig2)
+    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+    $hmacsha256.key = [Convert]::FromBase64String($key)
+    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+    $derivedkey1 = [Convert]::ToBase64String($sig1)
+    $derivedkey2 = [Convert]::ToBase64String($sig2)
 
-echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-```
+    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+    ```
 
-```PowerShell
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```PowerShell
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 Sanal cihazlar, simetrik anahtar kanıtı gerçekleştirmek için her bir kayıt kimliği ile türetilen cihaz anahtarlarını kullanır.

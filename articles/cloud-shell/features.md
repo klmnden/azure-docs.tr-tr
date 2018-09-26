@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 5087b8a1d675fb6fb2bbfb2b46a09c215bf5e9ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2184d006bb99d57f50e71c0096d68b7a0b69a219
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998772"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162296"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Özellikler ve Azure Cloud Shell için Araçlar
 
@@ -44,7 +44,7 @@ Dışında dosyaları `$Home` ve makine durumu oturumlar arasında sürdürülme
 
 ### <a name="azure-drive-azure"></a>Azure sürücüsü (Azure:)
 
-(Önizleme) Cloud shell'de PowerShell Azure sürücüsü başlar (`Azure:`).
+Cloud shell'de PowerShell Azure sürücüsü başlar (`Azure:`).
 Azure sürücüsü kolay keşfe ve işlem, ağ, depolama vb. için dosya sistemi gezintisi benzer gibi Azure kaynaklarının gezinme sağlar.
 Tanıdık kullanmaya devam edebilirsiniz [Azure PowerShell cmdlet'lerini](https://docs.microsoft.com/powershell/azure) bulunduğunuz sürücü bağımsız olarak bu kaynakları.
 Azure kaynakları, doğrudan Azure portalında veya Azure PowerShell cmdlet'leri aracılığıyla yapılan ya da yapılan tüm değişiklikler Azure sürücüde yansıtılır.  Çalıştırabileceğiniz `dir -Force` kaynaklarınızı yenilenemedi.
@@ -81,6 +81,6 @@ Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Bash cloud Shell hızlı başlangıçta](quickstart.md) <br>
-[PowerShell Cloud Shell (Önizleme) hızlı başlangıç](quickstart-powershell.md) <br>
-[Azure CLI hakkında bilgi edinin](https://docs.microsoft.com/cli/azure/) <br>
+[PowerShell Cloud Shell hızlı başlangıç](quickstart-powershell.md) <br>
+[Azure CLI 2.0 hakkında bilgi edinin](https://docs.microsoft.com/cli/azure/) <br>
 [Azure PowerShell hakkında bilgi edinin](https://docs.microsoft.com/powershell/azure/) <br>

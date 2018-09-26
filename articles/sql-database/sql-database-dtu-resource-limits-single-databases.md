@@ -2,19 +2,22 @@
 title: Azure SQL veritabanı DTU tabanlı kaynak sınırları tek veritabanları | Microsoft Docs
 description: Bu sayfa, Azure SQL veritabanı'nda tek veritabanları için bazı ortak DTU tabanlı kaynak sınırları açıklar.
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: single-database
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 09/20/2018
-ms.author: carlrab
-ms.openlocfilehash: 3e52f007a1baa53eca8ae0b55721e7e3cda8e61e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: aab532bb01e1ec0392f0b1c3ef155097a9f826f9
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033609"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159644"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları 
 

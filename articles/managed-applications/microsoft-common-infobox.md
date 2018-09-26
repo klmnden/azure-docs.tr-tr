@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/15/2018
 ms.author: tomfitz
 ms.openlocfilehash: abd1329f2ebac90bf846dfd5fc5b307ddb5e52bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35982044"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095489"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox kullanıcı Arabirimi öğesi
 Bir bilgi kutusu ekler denetimi. Önemli bir metin kutusu içeren veya bunlar sunuyorsunuz değerleri, iş kullanıcılarının yardımcı uyarıları anlıyor. Daha fazla bilgi için bir URI da bağlayabilirsiniz.

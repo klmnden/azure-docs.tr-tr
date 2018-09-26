@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 09/24/2018
-ms.openlocfilehash: d9f34345275efbb8aec422e5fa14234c7d6a61a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1181d07ed51b1edf5da68d759d871703bd1540f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997854"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162789"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>İşlem hatları ve Azure Machine Learning
 
@@ -34,7 +34,7 @@ Aşağıdaki diyagramda bir örnek işlem hattı gösterilmektedir:
 
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>Neden Azure Machine Learning ile işlem hatları oluşturabilir?
 
-Python için Azure Machine Learning SDK'sı gönderin ve tek bir işlem hattı çalıştırmaları izlemek için de ML işlem hatları oluşturmak için kullanılabilir.
+[Python için Azure Machine Learning SDK](#the-python-sdk-for-pipelines) gönderin ve tek bir işlem hattı çalıştırmaları izlemek için de ML işlem hatları oluşturmak için kullanılabilir.
 
 İşlem hattı ile akışınızı Basitlik, hız, taşınabilirlik ve yeniden iyileştirebilirsiniz. İşlem hattı Azure Machine Learning ile derleme yaparken, en iyi bilgilerinize odaklanabilirsiniz &mdash; makine öğrenimi &mdash; altyapı yerine.
 
@@ -42,7 +42,7 @@ Farklı adımları kullanarak yalnızca ihtiyacınız ince ve iş akışınızı
 
 İşlem hattı tasarlanmıştır sonra genellikle işlem hattının eğitim döngüsü daha ince ayar yoktur. Ne zaman bir işlem hattı, bir güncelleştirilmiş bir eğitim betiği gibi yeniden çalıştırmanız adımları çalışma atlar yeniden çalıştırın ve hangi değişmediğinden atlar. Aynı paradigma adımının yürütülmesi için kullanılan aynı komut için geçerlidir. 
 
-Azure Machine Learning ile farklı araç setleri ve Microsoft Bilişsel Araç Seti veya TensorFlow gibi çerçeveleri her adım için işlem hattınızda kullanabilirsiniz. Çeşitli arasında Azure koordinatları [hedefleri işlem](concept-azure-machine-learning-architecture.md) aşağı akış işlem hedefleriyle Ara verilerinizi kolayca paylaşılabilir böylece kullanırsınız. 
+Azure Machine Learning ile çeşitli araç setleri ve Microsoft Bilişsel Araç Seti veya TensorFlow gibi çerçeveleri her adım için işlem hattınızda kullanabilirsiniz. Çeşitli arasında Azure koordinatları [hedefleri işlem](concept-azure-machine-learning-architecture.md) aşağı akış işlem hedefleriyle Ara verilerinizi kolayca paylaşılabilir böylece kullanırsınız. 
 
 ## <a name="key-advantages"></a>Başlıca avantajları
 
@@ -63,7 +63,7 @@ Bildirim temelli veriler bağımlılıkları kullanarak, görevlerinizi en iyi d
 
 İşlem hatları, şablon olarak kaydedilebilir ve toplu Puanlama veya yeniden eğitme işleri zamanlamak için de bir REST uç noktasına dağıtılabilir.
 
-Kullanıma [işlem hatları için Python SDK başvuru belgeleri](http://aka.ms/aml-sdk).
+Kullanıma [işlem hatları için Python SDK başvuru belgeleri](http://aka.ms/aml-sdk) ve kendi yapı öğrenmek için sonraki bölümde Not.
 
 ## <a name="example-notebooks"></a>Örnek Not Defterleri
  

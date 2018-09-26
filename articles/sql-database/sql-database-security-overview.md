@@ -2,20 +2,22 @@
 title: Azure SQL Veritabanı Güvenliğine Genel Bakış | Microsoft Belgeleri
 description: SQL Server şirket içi ve bulut arasındaki farklar dahil olmak üzere, Azure SQL veritabanı ve SQL Server güvenliği hakkında bilgi edinin.
 services: sql-database
-author: giladm
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/20/2018
+author: giladm
 ms.author: giladm
-ms.openlocfilehash: b4a2894c92b85d777d2be3b1f5ffd53e2c92b88e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 04/20/2018
+ms.openlocfilehash: 01399544dc4817060ca797383743e673182e3653
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951636"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163078"
 ---
 # <a name="securing-your-sql-database"></a>SQL Veritabanınızı güvenli hale getirme
 

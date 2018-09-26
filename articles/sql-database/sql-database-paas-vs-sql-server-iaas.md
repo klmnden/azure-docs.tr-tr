@@ -1,21 +1,24 @@
 ---
 title: SQL (PaaS) Veritabanı ile VM'lerdeki bulutta bulunan SQL Server (IaaS) karşılaştırması | Microsoft Docs
 description: "Hangi bulut SQL Server seçeneğinin uygulamanıza uygun olduğunu öğrenin: Azure SQL (PaaS) Veritabanı veya Azure Virtual Machines'deki bulutta bulunan SQL Server."
-services: sql-database, virtual-machines
+services: sql-database
+ms.service: sql-database
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 keywords: SQL Server bulut, bulutta SQL Server, PaaS veritabanı, bulut SQL Server, DBaaS
 author: CarlRabeler
-manager: craigg
-ms.service: sql-database
-ms.custom: DBs & servers
-ms.topic: conceptual
-ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 66ed36ea3d7b38166b9214e36289e32119659856
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: a841f2f8e848caaf5174f68bdf3525ebefc73b33
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965475"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162738"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Bir bulut SQL Server seçeneği seçin: Azure SQL (PaaS) Veritabanı ya da Azure VM'lerde SQL Server (IaaS)
 

@@ -1,21 +1,22 @@
 ---
 title: İzleme ve performansı - Azure SQL veritabanı | Microsoft Docs
 description: Azure SQL veritabanı, geçerli sorgu performansını iyileştirebilir alanları tanımlamanıza yardımcı olması için performans araçları sağlar.
-services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 5d739787d5b268ddfcf5bb9e6494c3cba6b3cdc2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 35af3a926ab3c3a3046eab921e86b6610edc309c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718789"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162969"
 ---
 # <a name="monitor-and-improve-performance"></a>İzleme ve performansı geliştirin
 Azure SQL veritabanı, veritabanı olası sorunları tanımlar ve akıllı ayarlama işlemleri ve öneriler sağlayarak İş yükünüzün performansını iyileştirebilir Eylemler önerir.

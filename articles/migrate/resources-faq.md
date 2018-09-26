@@ -4,14 +4,14 @@ description: Azure geçişi hakkında sık sorulan sorular adresleri
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 16fce3eb5ab3874f7106d05bf99dc795cc22a528
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d6677aa741b18bb6dbb6b90c07c5e7bd3f4d5afb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377558"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161871"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -41,7 +41,7 @@ Azure geçişi, şirket içi iş yüklerinizi bulmak ve azure'a geçişinizi pla
 Azure geçişi planlama aracı geçiş ve Azure Site Recovery dağıtım planlayıcısı aracı planlama bir olağanüstü durum kurtarma (DR).
 
 **Vmware'den azure'a geçiş**: şirket içi iş yüklerinizi Azure'a geçirmek istiyorsanız, Azure geçişi geçiş planlaması için kullanın. Azure geçişi, şirket içi iş yüklerini değerlendirir ve rehberlik, Öngörüler ve Azure'a geçirmenizde yardımcı mekanizmaları sağlar. Geçiş planınızla hazır olduktan sonra makineleri Azure'a geçirmek için Azure Site Recovery ve Azure veritabanı geçiş hizmeti gibi hizmetleri kullanabilirsiniz.
- 
+
 **Hyper-v'den azure'a geçiş**: Azure geçişi şu anda yalnızca destekler değerlendirme VMware sanal makinelerini Azure'a geçiş için. Hyper-V desteği, Azure geçişi için yol haritası açıktır. Bu arada, Site Recovery dağıtım Planlayıcısı'nı kullanabilirsiniz. Hyper-V desteği, Azure Geçişi'nde etkinleştirildikten sonra Azure geçişi Hyper-V iş yüklerinin geçişini planlama için kullanabilirsiniz.
 
 **Vmware'den/Hyper-v'den azure'a olağanüstü durum kurtarma**: Azure Site Recovery (Site Recovery) kullanarak azure'da olağanüstü durum kurtarma (DR) yapmak istiyorsanız, Site Recovery dağıtım Planlayıcısı planlama DR için kullanın. Site Recovery dağıtım Planlayıcısı, bir şirket içi ortamınızı kapsamlı ve ASR özgü değerlendirmesinin yapar. Bu, çoğaltma, yük devretme sanal makinelerinizin gibi başarılı DR işlemler için Site Recovery tarafından gerekli önerileri sağlar.  
@@ -58,7 +58,7 @@ Bağlantı ortak eşleme ExpressRoute kullanabilir veya internet üzerinden olab
 
 Ek bileşenler (örneğin, virüsten koruma) içine eklenebilir. OVA şablonu çalışmak Azure geçişi Gereci için gerekli iletişim ve güvenlik duvarı kuralları olarak bırakılır sürece içindir.   
 
-## <a name="discovery-and-assessment"></a>Keşif ve değerlendirme
+## <a name="discovery"></a>Bulma
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>Azure geçişi tarafından verilerin ne toplanır?
 
@@ -130,11 +130,14 @@ Kiracılar genelinde paylaşılan bir ortamda varsa ve bir kiracının başka bi
 
 Tek geçişi projesinde 1500 sanal makineler bulabilir. Daha fazla makine şirket içi ortamınızda varsa [daha fazla bilgi edinin](how-to-scale-assessment.md) hakkında Azure Geçişi'ndeki büyük bir ortamı nasıl bulabilir.
 
+## <a name="assessment"></a>Değerlendirme
+
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Kurumsal Anlaşma (EA) Azure geçişi desteği maliyet tahmini mu?
 
 Azure geçişi şu anda desteklemediği için maliyet tahmini [Kurumsal Anlaşma teklif](https://azure.microsoft.com/offers/enterprise-agreement-support/). Geçici çözüm, teklif ve indirim yüzdesindeki (abonelik için geçerli) değerlendirme Özellikleri 'İndirim' alanına el ile belirtme olarak Kullandıkça Öde belirtmektir.
 
   ![İndirim](./media/resources-faq/discount.png)
+  
 
 ## <a name="dependency-visualization"></a>Bağımlılık görselleştirme
 
@@ -144,7 +147,34 @@ Azure Geçişi ek ücret ödenmeden kullanılabilir. Azure Geçişi fiyatlandır
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Bağımlılık görselleştirmesi için mevcut bir çalışma alanını kullanabilir miyim?
 
-Azure geçişi, bağımlılık görselleştirmesi için mevcut bir çalışma alanı kullanmayı desteklemez, ancak Microsoft Monitoring Agent (MMA) çoklu yönlendirmeyi destekler ve birden çok çalışma alanına veri göndermesini sağlar. Bu nedenle aracıları dağıttıktan ve yapılandırdıktan bir çalışma alanına zaten varsa, MMA aracısını, birden çok giriş yararlanın ve bunu Azure geçişi çalışma alanına (ek olarak var olan çalışma alanına) yapılandırabilir ve çalışması. [Burada](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) MMA Aracısı çoklu yönlendirmeyi nasıl olanak sağlayabileceğiniz üzerinde bir Web günlüğü.
+Evet, Azure geçişi, geçiş projesine mevcut bir çalışma alanı ekleyin ve bağımlılık görselleştirmesi için yararlanarak olanak sağlıyor. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization#how-does-it-work).
+
+### <a name="can-i-export-the-dependency-visualization-report"></a>Bağımlılık görselleştirme raporunu dışarı aktarabilir miyim?
+
+Hayır, bağımlılık görselleştirmesi dışarı aktarılamaz. Ancak, Azure geçişi kullandığı hizmet eşlemesi için bağımlılık görselleştirmeyi kullanabilirsiniz [hizmet eşlemesi REST API'lerini](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) bağımlılıkları bir json biçiminde alın.
+
+### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Microsoft Monitoring Agent (MMA) ve bağımlılık aracısını yükleme nasıl otomatikleştirebilirim?
+
+[Burada](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) bağımlılık aracısını yükleme için kullanabileceğiniz bir komut dosyasıdır. MMA için [burada](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) yararlanabileceğiniz TechNet üzerindeki bir komut dosyası kullanılabilir.
+
+Betiklerin yanı sıra System Center Configuration Manager (SCCM) gibi dağıtım araçları da yararlanabilirsiniz [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) vb. aracıları dağıtmak için.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>MMA'yı tarafından desteklenen işletim sistemleri nelerdir?
+
+MMA'yı tarafından desteklenen Windows işletim sistemleri listesi [burada](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+MMA'yı tarafından desteklenen Linux işletim sistemleri listesi [burada](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Bağımlılık aracısı tarafından desteklenen işletim sistemleri nelerdir?
+
+Bağımlılık aracısı tarafından desteklenen Windows işletim sistemleri listesi [burada](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+Bağımlılık aracısı tarafından desteklenen Linux işletim sistemleri listesi [burada](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Bağımlılıklar Azure Geçişi'ndeki bir saat süresinden daha fazla bilgi için görselleştirebilirsiniz?
+Hayır, Azure geçişi, en fazla bir saatlik süre için bağımlılıkları görselleştirme sağlar. Azure geçişi belirli bir tarihe kadar son bir ay için geçmişte dönün sağlar, ancak için bağımlılıkları görselleştirebilirsiniz en fazla süre 1 saate kadar uzun. Örneğin, Dün için bağımlılıkları görüntülemek için bağımlılık Haritası saati süresi işlevleri kullanabilirsiniz ancak yalnızca bir için bir saat penceresinde görüntüleyebilirsiniz.
+
+### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Bağımlılık görselleştirmesi 10'dan fazla Vm'leri gruplar için destekleniyor mu?
+Yapabilecekleriniz [grupları için bağımlılıkları görselleştirme](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) sahip yukarı 10 VM için 10'dan fazla vm'lerle grubunuz varsa öneririz, grupta küçük kullanıcı gruplarına bölün ve bağımlılıklarını görselleştirin.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 6a9ecbcc5161f47a192d5bf3a893a42b3ee9ce2f
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 10e6c440fe669f4bc8a18eb0a7a0f833675ab923
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379511"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182233"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) için bağlamaları
 
@@ -143,7 +143,7 @@ Dahili olarak bir işlev uygulaması için varsayılan depolama hesabını sıra
 Etkinlik tetikleyicisi ile ilgili bazı notlar şunlardır:
 
 * **İş parçacığı** -düzenleme tetikleyici, etkinlik Tetikleyicileri iş parçacığı etrafında herhangi bir kısıtlama yok veya g/ç. Normal işlevler gibi işlenebilir.
-* **Poising ileti işleme** -etkinlik Tetikleyicileri içinde zehirli ileti desteği yoktur.
+* **Poison ileti işleme** -etkinlik Tetikleyicileri içinde zehirli ileti desteği yoktur.
 * **Mesaj görünürlük** -etkinlik tetikleyici iletileri sıradan çıkarılan ve yapılandırılabilir bir süre için görünmez tutulur. İşlev uygulaması çalışır ve iyi durumda olduğu sürece bu iletiler görünürlüğünü otomatik olarak yenilenir.
 * **Dönüş değerleri** -değerler için JSON seri hale getirilmiş ve orchestration geçmiş tablosu, Azure tablo depolamadaki kalıcı döndürür.
 

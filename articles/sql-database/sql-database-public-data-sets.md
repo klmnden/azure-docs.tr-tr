@@ -1,55 +1,58 @@
 ---
-title: Genel veri kümeleri için Azure analizi | Microsoft Docs
-description: Genel veri kümeleri hakkında prototip için kullanın ve Azure Analiz Hizmetleri ve çözümleri test öğrenin.
+title: Azure analiz için ortak veri kümelerine | Microsoft Docs
+description: Genel veri kümeleri hakkında bilgi edinin prototip kullanın ve test Azure Analiz Hizmetleri ve çözümleri.
 services: sql-database
-author: douglaslMS
-manager: craigg
-ms.custom: reference
 ms.service: sql-database
-ms.topic: conceptual
-ms.date: 04/01/2018
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
+ms.topic: reference
+author: douglaslMS
 ms.author: douglasl
-ms.openlocfilehash: be93dbff39c47ed1d8834efa3ef6c033525b4bea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 6977995fb33d221b48a633076f61d3ee39d6ba40
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648923"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160426"
 ---
-# <a name="public-data-sets-for-testing-and-prototyping"></a>Test ve prototipi oluşturulurken ortak veri kümeleri
+# <a name="public-data-sets-for-testing-and-prototyping"></a>Ortak veri kümelerine test etme ve prototip oluşturma
 
-Bu prototip ve test depolama ve Analiz Hizmetleri ve çözümleri için kullanabileceğiniz veriler için ortak veri kümeleri listesini bulun.
+Prototip ve test depolama ve Analiz Hizmetleri ve çözümleri için kullandığınız veriler için ortak veri kümelerine bu listesine göz atın.
 
-## <a name="us-government-and-agency-data"></a>ABD Kamu ve Teşkilatı verileri
-
-| Veri kaynağı | Veriler hakkında | Dosyaları hakkında |
-|---|---|---|
-| [ABD devlet kurumları veri](https://www.census.gov/data.html) | Üzerinde 190,000 veri kümelerini kapsayan Tarım, iklim, tüketici, ekosistemlerini, eğitim, enerji, Finans, sistem durumu, yerel kamu, üretim, maritime, Okyanusu, genel güvenlik ve Bilim ve ABD'de araştırma | HTML, XML, CSV, JSON, Excel ve diğer birçok dahil olmak üzere çeşitli biçimlerde çeşitli boyutlarda dosyaları. Dosya biçimi tarafından kullanılabilir veri kümelerini filtreleyebilirsiniz. |
-| [ABD Census veri](https://www.census.gov/data.html) | ABD popülasyonunu hakkında istatistiksel veriler | Veri, çeşitli biçimlerde kümeleridir. |
-| [NASA Earth Bilim verileri](https://earthdata.nasa.gov/) | Tarım, Atmosfer, biosphere, iklim, cryosphere, İnsan boyutları, hydrosphere, kara yüzeyini, oceans, sun earth etkileşimleri ve daha fazlasını kapsayan üzerinde 32.000 veri koleksiyonları. | Veri, çeşitli biçimlerde kümeleridir. |
-| [Uçak uçuş gecikmeleri ve diğer taşıma verileri](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "ABD Departman, taşıma (nokta) kuruluşu parçalarının yurtiçi uçuşlar zamanında performansını işletilen taşıma istatistikleri (BTS) büyük hava hizmet sağlayıcılar tarafından kullanıcının. Özet bilgileri zamanında, Gecikmeli, iptal edilmiş ve yolu saptırabilir uçuşlar sayısı... Bu Web sitesinde yayınlanan Özet tabloları görüntülenir." | CSV biçiminde dosyalardır. |
-| [Trafik fatalities - BİZE Fatality analiz raporlama sistemi (FARS)](http://www.nhtsa.gov/FARS) | "FARS NHTSA, Kongre, sağlama ülke çapında bir census olduğu ve motor araç trafiği kilitlenmelere önemli injuries ilgili Amerikan ortak yıllık verileri başlayamıyorsa." | "FARS sorgu sistemi kullanarak çevrimiçi çalıştırmak için kendi fatality verilerinizi oluşturun. Veya tüm FARS veri FTP sitesinden sunmak için 1975'ten indirin." |
-| [Toxic kimyasal verileri - EPA Toxicity ForeCaster (ToxCast™)](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "En güncel, genel kullanıma açık yüksek verimlilik toxicity verileri chemicals binlerce EPA'ın. Bu veriler EPA'ın ToxCast araştırma çaba oluşturulur." | Veri kümeleri, elektronik tablolar, R paketleri ve MySQL veritabanı dosyaları dahil olmak üzere çeşitli biçimlerde kullanılabilir. |
-| [Toxic kimyasal data - NIH Tox21 veri sınama 2014](https://tripod.nih.gov/tox21/challenge/) | "2014 Tox21 veri sınama bilimcilerine chemicals ve toxic efektleri sonuçlanabilir yolla Biyolojik yollarıyla kesintiye girişimi 21, Toxicology aracılığıyla sınanan bileşimlerini olasılığı anlamanıza yardımcı olmak için tasarlanmıştır." | Veri kümeleri GÜLÜMSEMELER ve SDF kullanılabilir biçimleri. Veri sağlayan "assay etkinlik verileri ve ~ 10.000 bileşimlerini Tox21 koleksiyonunu kimyasal yapıları (Tox21 10K)." |
-| [NCBI biotechnology ve genome verileri](https://www.ncbi.nlm.nih.gov/guide/data-software/) | Birden çok veri kümesi genes, genomes ve proteins kapsayan. | Veri kümeleri, metin, XML, topluca ve diğer biçimlere ' dir. TOPLUCA uygulama kullanılamaz. |
-
-## <a name="other-statistical-and-scientific-data"></a>Diğer istatistiksel ve bilimsel veri
+## <a name="us-government-and-agency-data"></a>ABD Kamu ve Aracısı verileri
 
 | Veri kaynağı | Veriler hakkında | Dosyaları hakkında |
 |---|---|---|
-| [New York şehrinde ücreti verileri](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Toplama yakalama alanları ücreti seyahat kayıtları içerir ve teslim tarih/zaman, toplama ve teslim konumları, seyahat uzaklıkları, dökümü fares, oranı türleri, ödeme türleri ve sürücü bildirilen yolcu sayar." | Veri kümeleri CSV aya göre dosyalarıdır. |
-| [Microsoft Research veri kümelerini - "Research için veri bilimi"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Birden çok veri bilgisayar insan etkileşimi, ses/video, veri araştırma/bilgi alma, Jeo-uzamsal/konum, doğal dil işleme ve robotics/bilgisayar görme kapsayan ayarlar. | Veri indirme için daraltılmış çeşitli biçimlerde kümeleridir. |
-| [Ortak genome veri](http://www.completegenomics.com/public-data/) | "Tüm İnsan genomes farklı bir veri kümesinin hiçbir genomic incelemesi geliştirmek... genel kullanım için ücretsiz kullanılabilir" Sağlayıcı, tam Genomics bir özel for-profit bir şirkettir. | Veri kümeleri, ayıklama işleminden sonra UNIX metin biçimindedir. Çözümleme Araçları de kullanılabilir. |
-| [Açık Bilim veri bulut veri](https://www.opensciencedatacloud.org/) | "Açık Bilim veri bulut depolama, paylaşımı ve terabayt ve Petabayt ölçekli bilimsel veri kümeleri çözümleme kaynaklarla bilimsel topluluk sağlar."| Veri, çeşitli biçimlerde kümeleridir. |
-| [Genel iklim data - WorldcLIM](http://worldclim.org/) | "WorldClim genel iklim Katmanlar (gridded iklim veri) yaklaşık 1 km2 uzamsal çözünürlüğü ile kümesidir. Bu verileri eşleştirmesi ve uzamsal modelleme için kullanılabilir." | Bu dosyalar Jeo-uzamsal verileri içerir. Daha fazla bilgi için bkz: [veri biçimi](http://worldclim.org/formats1). |
-| [Veri İnsan topluluğu - GDELT Project hakkında](http://www.gdeltproject.org/data.html) | "GDELT projedir en büyük, en kapsamlı ve en yüksek çözünürlük İnsan topluluğu şimdiye kadar oluşturulan veritabanı açın." | Ham verileri, CSV biçiminde dosyalardır. |
-| [Reklam tahmin veri Criteo gelen machine learning için tıklatın](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "En büyük herhangi bir zamanda genel olarak yayımlanan ML dataset." Daha fazla bilgi için bkz: [Criteo'nın 1 TB'ı tıklatın tahmin Dataset](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
-| [ClueWeb09 metin araştırma veri Lemur Project kümesinden](http://www.lemurproject.org/clueweb09.php/) | "ClueWeb09 dataset araştırma bilgileri alma ve ilgili İnsan dil teknolojilerini desteklemek için oluşturuldu. Yaklaşık 1 milyar web sayfaları Ocak ve Şubat 2009 toplanan 10 dillerde oluşur." | Bkz: [veri kümesi bilgilerini](http://www.lemurproject.org/clueweb09/datasetInformation.php).|
+| [ABD devlet kurumları veri](https://www.census.gov/data.html) | Tarım, iklim, tüketici, Eko, eğitim, enerji, kapsayan veri kümeleri üzerinde 190,000 Finans, sistem durumu, yerel devlet, üretim, maritime, Okyanus, kamu güvenliği ve Bilim ve ABD'de araştırma | HTML, XML, CSV, JSON, Excel ve diğer birçok dahil olmak üzere çeşitli biçimlerde çeşitli boyutlardaki dosyaları. Dosya biçimi tarafından kullanılabilir veri kümelerini filtreleyebilirsiniz. |
+| [ABD Görselleştirmenizdeki verilerin](https://www.census.gov/data.html) | ABD nüfuslarıyla ilgili istatistiksel veriler | Çeşitli biçimlerde veri kümeleridir. |
+| [NASA Earth bilimi verileri](https://earthdata.nasa.gov/) | Tarım, Atmosfer, biosphere, iklim, cryosphere, İnsan boyutları, hydrosphere, land surface, oceans, sun earth etkileşimleri ve daha fazlasını kapsayan üzerinde 32.000 veri koleksiyonları. | Çeşitli biçimlerde veri kümeleridir. |
+| [Havayolu uçuş gecikme ve diğer taşıma verileri](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "ABD Büyük hava operatörler tarafından işletilen yurtiçi uçuşlar tarihlere ait zamanında kalkış performansı nakliye istatistikleri (BTS) parçalar (nokta) bürosu ulaştırma Bakanlığı güçlendirin. Özet bilgileri zamanında, geciken, iptal edilen ve yolu saptırabilir uçuşlar sayısı... Bu Web sitesine gönderilen Özet tabloları görüntülenir." | CSV biçiminde dosyalardır. |
+| [Trafik fatalities - BİZE Fatality analiz raporlama sistemi (FARS)](http://www.nhtsa.gov/FARS) | "Sağlama NHTSA, Kongre, ülke çapında bir sayım FARS olduğundan ve ilgili önemli injuries Amerikan genel yıllık verileri motor vehicle trafiği kilitlenmelere çalışmaya başlayamıyorsa." | "Çevrimiçi çalıştırmak FARS sorgu sistemini kullanarak kendi fatality veri oluşturun. Veya tüm FARS veri 1975 FTP sitesinden sunmak için indirin." |
+| [Toxic kimyasal verileri - EPA Toxicity ForeCaster (ToxCast™)](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "Chemicals binlerce EPA'ın en güncel, genel kullanıma açık yüksek performanslı toxicity verileri. Bu veriler EPA'ın ToxCast araştırma çaba oluşturulur." | Veri kümeleri, elektronik tablolar, R paketleri ve MySQL veritabanı dosyaları dahil olmak üzere çeşitli biçimlerde kullanılabilir. |
+| [Toxic kimyasal veri - NIH Tox21 veri sınama 2014](https://tripod.nih.gov/tox21/challenge/) | "2014 Tox21 veri sınama uzmanları chemicals ve Toxicology Biyolojik yollarla toxic etkilere neden olabilir bir şekilde kesintiye 21. yüzyıla uygun girişim de aracılığıyla test edilen bileşimden anlamanıza yardımcı olmak için tasarlanmıştır." | Veri kümeleri GÜLÜMSEMELER ve SDF kullanılabilir biçimleri. Veri sağlayan "assay etkinlik verilerinizi ve yaklaşık 10.000 bileşimden Tox21 koleksiyonunu kimyasal yapıları (Tox21 10K)." |
+| [NCBI biotechnology ve genom verileri](https://www.ncbi.nlm.nih.gov/guide/data-software/) | Birden çok veri kümesi genes, genom ve geliyor. | Veri kümeleri, metin, XML, ÖLÇEKTEYDİ ve diğer biçimlere ' dir. ÖLÇEKTEYDİ uygulaması kullanılabilir. |
+
+## <a name="other-statistical-and-scientific-data"></a>Diğer istatistiksel ve bilimsel veriler
+
+| Veri kaynağı | Veriler hakkında | Dosyaları hakkında |
+|---|---|---|
+| [New York taksi verilerini](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Toplama yakalama alanları taksi seyahat kayıtları içerir ve teslim tarihleri/saatleri, toplama ve bırakma konumlarını, seyahat uzaklıkları, listelenen fares, oranı türleri, ödeme tipleri, ve yolcular sürücüsü tarafından bildirilen sayılarını." | Veri kümeleri, aya göre CSV dosyalar sahiptir. |
+| [Microsoft Research veri kümeleri - "Araştırma için veri bilimi"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Birden çok veri bilgisayar insan etkileşimi, ses/video, veri araştırma/bilgi alma, Jeo-uzamsal/konum, doğal dil işleme ve robotlara ilişkin/görüntü işleme kapsayan ayarlar. | Çeşitli biçimlerdeki indirme için daraltılmış veri kümesidir. |
+| [Ortak olarak genom veri](http://www.completegenomics.com/public-data/) | "Farklı bir veri kümesinin tamamını İnsan genom genetik bir araştırma geliştirmek üzere... genel kullanım için ücretsiz olarak kullanılabilir" Sağlayıcı, tam Genomiks bir özel açık bir şirkettir. | Veri kümeleri, ayıklama sonra UNIX metin biçimindedir. Analiz Araçları de mevcuttur. |
+| [Açık bilimi verileri bulut veri](https://www.opensciencedatacloud.org/) | "Açık bilimi verileri bulut depolama, paylaşma ve terabayt ve Petabayt ölçekli bilimsel veri kümeleri çözümleme için kaynaklar ile bilimsel community sunuyor."| Çeşitli biçimlerde veri kümeleridir. |
+| [Genel iklim verilerini - WorldcLIM](http://worldclim.org/) | "WorldClim genel iklim katmanları (gridded iklim verilerini) yaklaşık 1 km2 bir uzamsal çözünürlüğü kümesidir. Bu veri eşleme ve uzamsal modelleme için kullanılabilir." | Bu dosyalar, Jeo-uzamsal veriler içerir. Daha fazla bilgi için bkz. [veri biçimi](http://worldclim.org/formats1). |
+| [İnsan society - GDELT Project ilgili veriler](http://www.gdeltproject.org/data.html) | "GDELT projedir en büyük, en kapsamlı ve yüksek çözünürlük bugüne kadar oluşturulmuş İnsan society veritabanı açın." | CSV biçiminde ham veriler dosyalarıdır. |
+| [Machine learning hizmetinden Criteo tahmin verilerini reklam tıklayın](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "En büyük hiç olmadığı kadar genel olarak yayımlanan ML veri kümesi." Daha fazla bilgi için bkz. [Criteo'nın 1 TB'ı tıklatın tahmin Dataset](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
+| [Lemur projeden ClueWeb09 metin araştırma veri kümesi](http://www.lemurproject.org/clueweb09.php/) | "ClueWeb09 veri kümesini araştırma bilgi alma ve ilgili İnsan dil teknolojileri desteklemek üzere oluşturulmuştur. Yaklaşık 1 milyar web sayfaları'nda Ocak ve Şubat 2009 toplanmış olan 10 dil oluşur." | Bkz: [veri kümesi bilgilerini](http://www.lemurproject.org/clueweb09/datasetInformation.php).|
 
 ## <a name="online-service-data"></a>Çevrimiçi hizmet verileri
 
 | Veri kaynağı | Veriler hakkında | Dosyaları hakkında |
 |---|---|---|
-| [GitHub arşiv](https://www.githubarchive.org/) | "GitHub arşiv ortak GitHub zaman çizelgesi [events] kaydetmek, arşivlemek ve daha fazla çözümleme için kolayca erişilebilir hale getirmek için bir projedir." | JSON encloded olay arşivler .gz (Gzip) biçiminde bir web istemcisinden indirin. |
-| [GitHub etkinlik verileri GHTorrent projeden](http://ghtorrent.org/) | "GHTorrent [GitHub REST API aracılığıyla sunulan veri ölçeklenebilir, sorgulanabilir, çevrimdışı bir yansıtma oluşturmak için çaba projedir]. GHTorrent GitHub genel olay zaman çizelgesi izler. Her olay için içeriği ve onların bağımlılıkları ayrıntısına alır." | MySQL veritabanı dökümleri CSV biçimindedir. |
-| [Yığın Taşması Veri dökümü](https://archive.org/details/stackexchange) | "[Yığın taşması dahil olmak üzere] yığını Exchange ağ üzerindeki tüm kullanıcı katkıda bulunan içerik anonim bir döküm olduğu." | "[Yığın taşması] gibi-her site XML dosyalarını oluşan ayrı bir arşiv aracılığıyla daraltılmış olarak biçimlendirilmiş 7-zip bzıp2 sıkıştırma kullanılarak. Her site arşiv gönderileri, kullanıcılar, oyları, yorumlar, PostHistory ve PostLinks içerir." |
+| [GitHub arşiv](https://www.githubarchive.org/) | "GitHub arşiv genel GitHub çizelgesine [olayların ile] kaydetmesini, arşivlemek ve daha fazla çözümleme için kolayca erişilebilir olması için bir proje var." | JSON encloded olay arşivleri .gz (Gzip) biçiminde bir web istemcisinde indirin. |
+| [GitHub etkinlik verisinden GHTorrent proje](http://ghtorrent.org/) | "GHTorrent [GitHub REST API aracılığıyla sunulan veri ölçeklenebilir, sorgulanabilir, çevrimdışı bir yansıtma oluşturmak için çaba projedir]. GitHub genel olay zaman çizelgesinin GHTorrent izler. Her olay için içeriği ve bunların bağımlılıklarını ayrıntısına alır." | MySQL veritabanı dökümleri CSV biçimindedir. |
+| [Yığın Taşması Veri dökümü](https://archive.org/details/stackexchange) | "[Stack Overflow dahil olmak üzere] Stack Exchange ağdaki tüm kullanıcı tarafından katkıda bulunulan içeriğin anonim bir döküm sağlıyor." | "[Stack Overflow] gibi-her sitenin aracılığıyla XML dosyasından oluşan ayrı bir arşiv daraltılmış olarak biçimlendirilmiş 7-zip bzıp2 sıkıştırın. Her site arşiv gönderileri, kullanıcılar, oy, yorumlar, PostHistory ve PostLinks içerir." |

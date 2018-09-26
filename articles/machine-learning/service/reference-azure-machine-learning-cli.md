@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 7e430d1b590413f497c851b687abcaa98e04d0e4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053870"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158912"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>Azure Machine Learning CLI nedir?
 
@@ -56,6 +56,8 @@ CLI'yı daha iyi Otomasyon için bir geliştirme işlemleri kişi veya sürekli 
 Azure ML SDK'sını veri uzmanlarının önerilir.
 
 ## <a name="common-machine-learning-cli-commands"></a>Yaygın machine learning CLI komutları
+> [!NOTE]
+> Dosyalar başarılı bir şekilde yürütmek için kullanabileceğiniz örnek aşağıdaki komutları bulunabilir [burada.](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli)
 
 Zengin kullanın `az ml` portalı Azure cloud Shell'i dahil olmak üzere herhangi bir komut satırı ortamı hizmetinde etkileşim kurmak için komutları.
 
@@ -73,7 +75,7 @@ Sık kullanılan komutlar bir örneği aşağıda verilmiştir:
    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
    ```
 
-+ Bir DSVM (veri bilimi sanal makinesi) için eğitim modeller oluşturun. Dağıtılmış eğitim BatchAI kümeleri de oluşturabilirsiniz.
++ Bir DSVM (veri bilimi sanal makinesi) oluşturun. Ayrıca, dağıtılmış eğitim BatchAI kümeleri veya dağıtım için AKS kümeleri oluşturabilirsiniz.
   ```AzureCLI
   az ml computetarget setup dsvm -n mydsvm
   ```
@@ -84,7 +86,7 @@ Sık kullanılan komutlar bir örneği aşağıda verilmiştir:
   az ml project attach --experiment-name myhistory
   ```
 
-+ Seçtiğiniz işlem hedef Azure Machine Learning hizmetinde bir deney olarak gönderin. Bu örnek, yerel işlem ortamınızda karşı yürütür. Bir örnek train.py betiği bulabilirsiniz [burada](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/train.py).
++ Seçtiğiniz işlem hedef Azure Machine Learning hizmetinde bir deney olarak gönderin. Bu örnek, yerel işlem ortamınızda karşı yürütülür. Python bağımlılıklarınızı conda ortam dosyanızı yakalar emin olun.
 
   ```AzureCLI
   az ml run submit -c local train.py
@@ -99,17 +101,17 @@ az ml history list
 
 + Bir modeli Azure Machine Learning ile kaydedin.
   ```AzureCLI
-  az ml model register -n mymodel -m mymodel.pkl  -w myworkspace -g myresourcegroup
+  az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
 + Görüntü, makine öğrenimi modeli ve bağımlılıkları içerecek şekilde oluşturun. 
   ```AzureCLI
-  az ml image create -n myimage -r python -m mymodel.pkl -f score.py -c myenv.yml
+  az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
 + Paketlenmiş modelinizi ACI ve AKS dahil olmak üzere hedeflere dağıtın.
   ```AzureCLI
-  az ml service create aci -n myaciservice -i myimage:1
+  az ml service create aci -n myaciservice --image-id myimage:1
   ```
     
 ## <a name="full-command-list"></a>Tam komut listesi

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c49ebcf31df950920574af05a9411e463b908bad
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381654"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161837"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -173,8 +173,8 @@ Bir düzenleme adımı türü `ClaimsProviderSelection` veya `CombinedSignInAndS
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | Hayır | Talep sağlayıcı seçiminin sonraki düzenleme adımı içinde yürütülen talep değişimi tanımlayıcısı. Bu öznitelik ValidationClaimsExchangeId özniteliğinin belirtilmelidir. | 
-| ValidationClaimsExchangeId | Hayır | Talep sağlayıcı seçimi doğrulamak için geçerli düzenleme adımı yürütülür talep değişimi tanımlayıcısı. Bu öznitelik TargetClaimsExchangeId özniteliğinin belirtilmelidir. |
+| TargetClaimsExchangeId | Hayır | Talep sağlayıcı seçiminin sonraki düzenleme adımı içinde yürütülen talep değişimi tanımlayıcısı. Bu öznitelik veya ValidationClaimsExchangeId öznitelik belirtilen, ancak ikisi birden değil olmalıdır. | 
+| ValidationClaimsExchangeId | Hayır | Talep sağlayıcı seçimi doğrulamak için geçerli düzenleme adımı yürütülür talep değişimi tanımlayıcısı. Bu öznitelik veya TargetClaimsExchangeId öznitelik belirtilen, ancak ikisi birden değil olmalıdır. |
 
 ### <a name="claimsproviderselection-example"></a>ClaimsProviderSelection örneği
 

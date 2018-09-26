@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.openlocfilehash: 5cfa82067d28b05f32bd87e0e83d55a03da8d508
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38665223"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095438"
 ---
 # <a name="connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>Bing haber arama API'si için Visual Studio bağlı Hizmetler'i kullanarak bağlanma
 

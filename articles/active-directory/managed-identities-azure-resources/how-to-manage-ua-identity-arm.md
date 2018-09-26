@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
 ms.openlocfilehash: 9e1ea4e35c1d8b90aa3d0fdf5e619f7b7f7db400
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157142"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47107046"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Oluşturma, listeleme ve Azure Resource Manager kullanarak bir kullanıcı tarafından atanan yönetilen kimlik Sil
 
@@ -49,7 +49,7 @@ Olarak ile Azure portal ve komut dosyası, Azure Resource Manager şablonları b
 - Yerel bir kullanarak [JSON Düzenleyicisi (örneğin, VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), karşıya yükleme ve ardından PowerShell veya CLI kullanarak dağıtma.
 - Visual Studio kullanarak [Azure kaynak grubu projesi](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) hem oluşturma hem de bir şablonu dağıtmak için. 
 
-## <a name="create-a-user-assigned-managed-identity"></a>Kullanıcı tarafından atanan bir yönetilen kimlik oluşturma 
+## <a name="create-a-user-assigned-managed-identity"></a>Kullanıcı tarafından atanan yönetilen kimlik oluşturma 
 
 Kullanıcı tarafından atanan bir yönetilen kimlik oluşturmak için aşağıdaki şablonu kullanın. Değiştirin `<USER ASSIGNED IDENTITY NAME>` değerini kendi değerlerinizle:
 

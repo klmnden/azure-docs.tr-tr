@@ -2,20 +2,22 @@
 title: İçin Azure SQL veritabanı sorgu performansı öngörüleri | Microsoft Docs
 description: Sorgu performansı izleme için Azure SQL veritabanı çoğu CPU kullanan sorguları tanımlar.
 services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 5069b4e69c53ed93e9018cef2517f6125b838d12
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: f46d5a31667f52f553bcfdbd20ff56439d526144
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524174"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163316"
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL veritabanı sorgu performansı İçgörüleri
 İlişkisel veritabanlarının performansını ayarlama ve yönetme önemli uzmanlık ve zaman yatırım gerektiren bir görevdir. Sorgu performansı İçgörüleri, veritabanı performans sorunlarını giderme aşağıdakileri sağlayarak daha az süre beklemesini sağlar:

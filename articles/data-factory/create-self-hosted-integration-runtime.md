@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 7cd5fc965a57052323d4b916f0f2b7dbc0feb7b3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: e22d26850114162c6dbd38797071120d388ac6b0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715423"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162279"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration Runtime (IR) Azure Data Factory tarafından farklı ağ ortamları veri tümleştirme özellikleri sağlamak için kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -187,18 +187,20 @@ Paylaşılacak şirket içinde barındırılan IR,
 
 1. Tek şirket içinde barındırılan IR altında oluşturulabilecek bağlı IR varsayılan sayısıdır **20**. Daha sonra daha ihtiyacınız varsa desteğe başvurun. 
 
-2. Bağlantılı IR olduğu oluşturulacak veri fabrikasının MSI olmalıdır ([yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Varsayılan olarak, veri fabrikaları Ibiza portalında oluşturulan veya PowerShell cmdlet'lerini MSI örtük olarak oluşturulmuş olur. Bir Azure noktaları Kaynak Yöneticisi şablonu veya SDK kullanarak data factory oluşturdunuz, ancak bazı durumlarda "**kimlik**" **özelliği ayarlanmalıdır** açıkça Azure noktaları Kaynak Yöneticisi'ni bir veri fabrikası oluşturur emin olmak için bir MSI içeren. 
+2. Bağlantılı IR olduğu oluşturulacak veri fabrikasının MSI olmalıdır ([yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Varsayılan olarak, Azure portalında veri fabrikaları oluşturulan veya PowerShell cmdlet'lerini MSI örtük olarak oluşturulmuş olur. Bir Azure noktaları Kaynak Yöneticisi şablonu veya SDK kullanarak data factory oluşturdunuz, ancak bazı durumlarda "**kimlik**" **özelliği ayarlanmalıdır** açıkça Azure noktaları Kaynak Yöneticisi'ni bir veri fabrikası oluşturur emin olmak için bir MSI içeren. 
 
 3. Şirket içinde barındırılan IR sürümü eşit veya 3.8.xxxx.xx'dan büyük olmalıdır. Lütfen [son sürümünü indirin](https://www.microsoft.com/download/details.aspx?id=39717) şirket içinde barındırılan IR
 
-4. Bağlantılı IR olduğu oluşturulacak veri fabrikasının MSI olmalıdır ([yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Varsayılan olarak, MSI Ibiza portalında veya PowerShell cmdlet'lerini oluşturulan veri fabrikaları olacaktır ([yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
-örtük olarak oluşturulan, Bununla birlikte, Azure Resource Manager (ARM) şablonu veya SDK'sı ile oluşturulan veri fabrikaları gerektirir "Kimlik" özelliği bir MSI oluşacağından emin olmak için ayarlanacak.
+4. Bağlantılı IR olduğu oluşturulacak veri fabrikasının MSI olmalıdır ([yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Varsayılan olarak, Azure portal veya PowerShell cmdlet'lerini oluşturulan veri fabrikaları MSI olacaktır ([yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
+  örtük olarak oluşturulan, Bununla birlikte, Azure Resource Manager şablonu veya SDK'sı ile oluşturulan veri fabrikaları gerektirir "**kimlik**" bir MSI emin olmak için ayarlanacak özelliği oluşturulur.
 
 5. ADF .net SDK, bu özelliği destekleyen sürümüdür > 1.1.0 =
 
 6. Bu özelliği destekleyen Azure PowerShell sürümüdür > 6.6.0 = (AzureRM.DataFactoryV2 > 0.5.7 =)
 
-7. İzin vermek için kullanıcıyı "Sahip" rolü veya paylaşılan IR bulunduğu Data factory'de devralınan "sahip" rolü gerektirir. 
+7. Kullanıcı izinleri vermeniz gerekir "**sahibi**" rolü veya devralınan "**sahibi**" paylaşılan IR bulunduğu Data factory'de rol. 
+
+8. Active Directory için  **[Konuk kullanıcılar](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)**, (arama anahtar sözcüğü kullanarak tüm veri Fabrikalarını Listeleme) arama işlevleri kullanıcı arabiriminde [çalışmıyor](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Ancak Konuk kullanıcı olduğu sürece "**sahibi**"Veri fabrikası, IR arama işlevlerinde olmadan doğrudan yönetilen hizmet kimliği ile IR gerekiyor, paylaşılan veri fabrikasının yazarak paylaşabilirler"**Atama Pemission**"metin kutusuna tıklayıp"**Ekle**"ADF arabiriminde. 
 
   > [!NOTE]
   > Bu özellik yalnızca Azure Data Factory sürüm 2 kullanılabilir 

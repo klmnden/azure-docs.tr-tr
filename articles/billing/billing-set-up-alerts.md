@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: adpick
 ms.openlocfilehash: 094bfe041ae04e52b6d998ccfd1d964abf192d6a
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35982903"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095108"
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Microsoft Azure Abonelikleriniz için fatura veya kredi uyarıları ayarlama
 Bir Azure aboneliğine yönelik hesap yöneticisi değilseniz, özelleştirilmiş oluşturmak için Azure fatura uyarısı Hizmeti'ni kullanabilirsiniz yardımcı faturalama uyarılarını izleme ve Azure hesaplarınızı için faturalandırma etkinliğini yönetin.

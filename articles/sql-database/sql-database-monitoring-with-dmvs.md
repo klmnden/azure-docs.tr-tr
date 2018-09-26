@@ -2,19 +2,22 @@
 title: Dinamik Yönetim görünümlerini kullanarak Azure SQL veritabanı izleme | Microsoft Docs
 description: Algılama ve dinamik yönetim görünümlerini kullanarak Microsoft Azure SQL veritabanı izlemek için genel performans sorunlarını tanılayın öğrenin.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/08/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 8750670f2acc41cd712254ba11b4d2ec20aa58aa
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: ''
+manager: craigg
+ms.date: 08/08/2018
+ms.openlocfilehash: 97907eee9982fdf6a804bc13edbf8c14efa4ce42
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981856"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161395"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Dinamik yönetim görünümlerini kullanarak Azure SQL Database’i izleme
 Microsoft Azure SQL veritabanı, engellenen veya uzun süre çalışan sorguları, kaynak darboğazları, zayıf sorgu planlarına ve benzeri tarafından kaynaklanabilir performans sorunları tanılamak için dinamik yönetim görünümlerini kümesini sağlar. Bu konuda, dinamik yönetim görünümlerini kullanarak sık karşılaşılan performans sorunlarını algılamak nasıl hakkında bilgiler sağlar.

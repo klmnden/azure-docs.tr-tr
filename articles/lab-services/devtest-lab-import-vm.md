@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 4585d151e286917c67586a02539a10ade32bdd4c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651268"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094553"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>Azure DevTest Labs başka bir laboratuvarda Vm'lerden içeri aktarma
 Azure DevTest Labs hizmeti geliştirme ve test etkinlikleri için sanal makinelerin (VM'ler) yönetim önemli ölçüde artırır. Başka bir takım olarak bir laboratuvarda bir VM'yi taşıma izin verir veya altyapı gereksinimleri değiştirin. Burada Bunu yapmak gerekebilir bazı yaygın senaryolar aşağıda verilmiştir: 

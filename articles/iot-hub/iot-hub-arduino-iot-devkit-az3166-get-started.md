@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 6ecddefd264bf4a6f57dd7fcd09c3a8cc10ec54a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 55901d6f3bcbf5511b6921939fdcba03972efed3
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377321"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182850"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IOT DevKit AZ3166 Azure IOT hub'a bağlama
 
@@ -128,29 +128,34 @@ Geliştirme ortamı için DevKit hazırlamak için aşağıdaki adımları izley
     * **macOS**: sürükle ve bırak ayıklanan **Arduino.app** içine `/Applications` klasör.
     * **Ubuntu**: gibi bir klasöre çıkartın `$HOME/Downloads/arduino-1.8.5`
 
-1. Yükleme [Visual Studio Code](https://code.visualstudio.com/), platformlar arası kaynak kod Düzenleyicisi, IntelliSense kod tamamlama gibi araçları ve hata ayıklama güçlü Geliştirici ile.
+2. Yükleme [Visual Studio Code](https://code.visualstudio.com/), platformlar arası kaynak kod Düzenleyicisi, IntelliSense kod tamamlama gibi araçları ve hata ayıklama güçlü Geliştirici ile.
 
-1. Aranacak **Azure IOT Workbench** uzantı Market'te ve yükleyin.
+3. Aranacak **Azure IOT Workbench** uzantı Market'te ve yükleyin.
     ![Azure IOT Workbench'i yükleme](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png) bağımlı diğer uzantılar IOT Workbench ile birlikte yüklenir.
 
-1. Açık **Dosya > tercih > ayarları** ve Arduino yapılandırmak için satırları ekleyin.
+4. Açık **Dosya > tercih > ayarları** ve Arduino yapılandırmak için satırları ekleyin.
     * **Windows**:
-    ```javascript
+
+    ```json
     "arduino.path": "C:\\Program Files (x86)\\Arduino",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
+
     * **macOS**:
-    ```javascript
+
+    ```json
     "arduino.path": "/Applications",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
+
     * **Ubuntu**:
-    ```javascript
+
+    ```json
     "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
 
-1. Tıklayın `F1` komut paleti, türü ve select açmak için **Arduino: Pano Yöneticisi'ni**. Arama **AZ3166** ve en son sürümünü yükleyin.
+5. Tıklayın `F1` komut paleti, türü ve select açmak için **Arduino: Pano Yöneticisi'ni**. Arama **AZ3166** ve en son sürümünü yükleyin.
     ![DevKit SDK'sını yükleyin](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-sdk.png)
 
 ### <a name="install-st-link-drivers"></a>ST bağlantı sürücüleri yükleyin

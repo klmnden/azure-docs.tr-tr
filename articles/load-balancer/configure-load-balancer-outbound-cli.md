@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: dd549005776656bb755b78fc0ca73d24edcc77bd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a6d442452fe5ffc61648b3c004c03f1756f8f57e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973754"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160664"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Standart yük Azure CLI kullanarak dengeleyici Yük Dengeleme ve giden kuralları yapılandırma
 
@@ -155,6 +155,9 @@ az network lb outbound-rule create \
  --outbound-ports 10000 \
  --address-pool bepool
 ```
+
+Bu noktada, sanal makinenizin arka uç havuzuna eklemeye devam *bepool* güncelleştirerek ilgili NIC kaynakları IP yapılandırması.
+
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Artık gerekli değilse, [az group delete](/cli/azure/group#az-group-delete) komutunu kullanarak kaynak grubunu, yük dengeleyiciyi ve tüm ilgili kaynakları kaldırabilirsiniz.

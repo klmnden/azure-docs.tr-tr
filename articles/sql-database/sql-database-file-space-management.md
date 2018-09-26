@@ -2,19 +2,22 @@
 title: Azure SQL veritabanı dosya alanı yönetimi | Microsoft Docs
 description: Bu sayfada Azure SQL veritabanı ile dosya alanı yönetme işlemi açıklanır ve nasıl gerçekleştirmek için bir veritabanı küçültme işlemi nasıl de bir veritabanı küçültme gerekip gerekmediğini belirlemek için kod örneği sağlanmıştır.
 services: sql-database
-author: oslake
-manager: craigg
 ms.service: sql-database
-ms.custom: how-to
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: oslake
 ms.author: moslake
-ms.openlocfilehash: 09b7df861f65a5fb4b3c9727f61f73a0ff4e0d65
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730250"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159950"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL veritabanı'nda dosya alanı yönetme
 Bu makalede, Azure SQL veritabanı ve açıkça yönetilecek gereksinimlerini elastik havuzlar ve veritabanları için ayrılan dosya alanı gerçekleştirilen adımlar, depolama alanının farklı türleri açıklanmaktadır.

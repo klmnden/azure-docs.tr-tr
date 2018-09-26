@@ -2,59 +2,62 @@
 title: Parça eşleme yöneticisi için performans sayaçları
 description: ShardMapManager sınıf ve veri bağımlı Yönlendirme performans sayaçları
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 9c134ee96f7749529ab665df041cfc51c979acde
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 03/31/2018
+ms.openlocfilehash: d4ecfe700c90beb94455e3607cee4ea30227bd0e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647332"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166259"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Parça eşleme yöneticisi için performans sayaçları
-Performansını yakalamak için bir [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md), özellikle kullanırken [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md). Sayaçları Microsoft.Azure.SqlDatabase.ElasticScale.Client sınıfı yöntemleri ile oluşturulur.  
+Performansını yakalayabilirsiniz bir [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md), özellikle kullanılırken [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md). Sayaçları Microsoft.Azure.SqlDatabase.ElasticScale.Client sınıfı yöntemleri ile oluşturulur.  
 
-Sayaçları performansını izlemek için kullanılan [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) işlemleri. Bu sayaçlar, "Esnek veritabanı: Parça Yönetimi" kategorisi altında Performans İzleyicisi'nde erişilebilir.
+Sayaçları performansını izlemek için kullanılan [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) operations. Bu sayaçlar, "Elastik veritabanı: Shard Management" kategorisi altında Performans İzleyicisi'nde erişilebilir.
 
-**En son sürümü için:** Git [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Ayrıca bkz. [son esnek veritabanı istemci kitaplığı kullanmak için bir uygulama yükseltme](sql-database-elastic-scale-upgrade-client-library.md).
+**En son sürümü:** Git [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Ayrıca bkz: [en yeni elastik veritabanı istemci kitaplığı kullanmak için bir uygulamayı yükseltme](sql-database-elastic-scale-upgrade-client-library.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Performans kategorisi ve sayaçları oluşturmak için kullanıcının yerel bir parçası olması gerekir **Yöneticiler** uygulamayı barındıran makinede grup.  
-* Bir performans sayacı örneği oluşturmak ve sayaçları güncelleştirmek için kullanıcı ya da bir üyesi olmalıdır **Yöneticiler** veya **Performance Monitor Users** grubu. 
+* Performans kategorisi ve sayaçları oluşturmak için kullanıcı yerel bir parçası olmalıdır **Yöneticiler** grubunu uygulamayı barındıran makinede.  
+* Bir performans sayacı örneği oluşturmak ve sayaçları güncelleştirmek için kullanıcının ya da bir üyesi olmanız gerekir **Yöneticiler** veya **Performance Monitor Users** grubu. 
 
 ## <a name="create-performance-category-and-counters"></a>Performans kategorisi ve sayaçları oluşturma
-Sayaçları oluşturmak için CreatePeformanceCategoryAndCounters yöntemini çağırın [ShardMapManagmentFactory sınıfı](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Yalnızca bir yönetici yöntemi yürütebilir: 
+Sayaçlarınızı oluşturma işlemleri CreatePeformanceCategoryAndCounters yöntemini çağırabilirsiniz. [ShardMapManagmentFactory sınıfı](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Yalnızca yönetici yöntem yürütebilirsiniz: 
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
-Aynı zamanda [bu](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) yöntemi yürütmek için PowerShell Betiği. Yöntemi, aşağıdaki performans sayaçları oluşturur:  
+Ayrıca [bu](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) metodunu yürütmek için PowerShell Betiği. Yöntemi aşağıdaki performans sayaçları oluşturur:  
 
-* **Eşlemeleri önbelleğe**: parça eşleme için önbelleğe alınmış eşlemeleri sayısı.
-* **DDR işlemi/sn**: parça harita veri bağımlı yönlendirme işlemlerinin hızıdır. Bu sayaç bir çağrı onayladığında [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) hedef parça başarılı bir bağlantı sonuçlanıyor. 
-* **Arama Önbelleği İsabetli Okuma/sn eşleme**: parça eşlemesindeki eşlemeleri başarılı önbellek arama işlemlerinin hızıdır. 
-* **Arama önbellek isabetsizliği/sn eşleme**: parça eşlemesindeki eşlemeleri başarısız önbellek arama işlemlerinin hızıdır.
-* **Eşleme eklendi veya Önbellek/sn güncelleştirildi**: hangi eşlemeleri eklenir veya parça harita içinde güncelleştirilmiş önbelleğine hızda. 
-* **Eşlemeleri kaldırılan Önbellek/sn**: hangi eşlemeleri kaldırılır parça harita önbelleğinden oranı. 
+* **Eşlemeleri önbelleğe**: parça eşlemesi için önbelleğe alınmış eşlemeleri sayısı.
+* **DDR işlemi/sn**: parça eşlemesi için veri bağımlı yönlendirme işlemlerinin hızıdır. Bu sayaç, bir çağrı zaman güncelleştirilir [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) başarılı bir bağlantı hedef parçaya sonuçlanıyor. 
+* **Arama Önbelleği İsabetli Okuma/sn eşleme**: başarılı bir önbellek parça eşlemesindeki eşlemeleri için arama işlemlerinin hızıdır. 
+* **Arama önbellek isabetsizliği/sn eşleme**: eşlemeleri parça eşlemesindeki başarısız önbellek arama işlemlerinin hızıdır.
+* **Eşlemeleri eklendiğinde veya Önbellek/sn**: hangi eşlemeleri eklenir veya parça eşlemesi için güncelleştirilmiş içinde önbellek fiyatı. 
+* **Önbellek/sn eşlemeleri kaldırıldı**: hangi eşlemeleri kaldırılıyor parça eşlemesi için önbelleğinden oranı. 
 
-Performans sayaçları, işlem başına her önbelleğe alınmış parça eşleme için oluşturulur.  
+Performans sayaçları, işlem başına her önbelleğe alınmış parça eşlemesi için oluşturulur.  
 
 ## <a name="notes"></a>Notlar
-Aşağıdaki olaylar, performans sayaçlarını oluşturulmasını tetikler:  
+Aşağıdaki olaylar, performans sayaçları oluşturma tetikleyin:  
 
-* Başlatma [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) ile [istekli yükleme](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx), ShardMapManager herhangi parça eşlemeler içeriyorsa. Bunlar [GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) ve [TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) yöntemleri.
+* Başlatma [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) ile [istekli yükleme](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx), her parça eşlemesi ShardMapManager içerir. Bunlar [GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) ve [TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) yöntemleri.
 * Parça eşleme başarılı arama (kullanarak [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) veya [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)). 
-* Parça eşleme CreateShardMap() kullanarak başarılı oluşturma.
+* Parça eşlemesi CreateShardMap() kullanarak başarıyla oluşturuldu.
 
-Performans sayaçları, parça eşleme ve eşlemeleri gerçekleştirilen tüm önbellek işlemleri tarafından güncelleştirilir. Başarılı kaldırma DeleteShardMap () sonuç performans sayaçları örneği silinmesine kullanarak parça eşleme.  
+Performans sayaçlarını eşlemeleri ve parça eşlemesi üzerinde gerçekleştirilen tüm önbellek işlemleri tarafından güncelleştirilir. Performans sayaçları örneği silinmesine DeleteShardMap () sonuç kullanarak parça eşlemesi başarıyla kaldırılması.  
 
 ## <a name="best-practices"></a>En iyi uygulamalar
-* Performans kategorisi ve sayaçları oluşturulmasını ShardMapManager nesne oluşturması işleminden önce yalnızca bir kez gerçekleştirilmesi gerekir. Her komutun yürütülmesi için CreatePerformanceCategoryAndCounters() (tüm örnekleri tarafından bildirilen veri kaybı) önceki sayaçları temizler ve yenilerini oluşturur.  
-* Performans sayacı örnekleri her işlem için oluşturulur. Herhangi bir uygulama kilitlenme veya önbellekten parça eşleme kaldırılmasını performans sayaçları örnekleri silinmesine neden olacak.  
+* Performans kategorisi ve sayaçları oluşturulmasını ShardMapManager nesnesinin oluşturulmasını önce yalnızca bir kez gerçekleştirilmesi gerekir. Her komutun yürütülmesi CreatePerformanceCategoryAndCounters() (tüm örnekleri tarafından bildirilen veri kaybı) önceki sayaçları temizler ve yeni bir tane oluşturur.  
+* Performans sayacı örneklerinin, işlem başına oluşturulur. Herhangi bir uygulama kilitlenme veya önbellekten bir parça eşlemesini kaldırma işlemi performans sayaçları örneklerin silinmesine neden olacak.  
 
 ### <a name="see-also"></a>Ayrıca bkz.
 [Elastik Veritabanı özelliklerine genel bakış](sql-database-elastic-scale-introduction.md)  

@@ -2,19 +2,22 @@
 title: Azure SQL veritabanı sorguları çoğaltmalarındaki okuma - | Microsoft Docs
 description: Azure SQL veritabanı kullanarak okuma ölçeği genişletme adlı salt okunur çoğaltmalar - kapasitesini dengelemek salt okunur iş yüklerini yükleme olanağı sağlar.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/18/2018
+author: anosov1960
 ms.author: sashan
-ms.openlocfilehash: d29886b5c8693e4465053c8816fc38376a51fafc
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: d82f4e03176911804702db2ea18a5bc9a95583a3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363609"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158711"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Yük Dengeleme (Önizleme) salt okunur sorgu iş yükleri için salt okunur çoğaltmalar kullanın
 

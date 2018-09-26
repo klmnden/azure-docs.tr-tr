@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9aa61e95eb808c38646fa9b8cefd4004f5477ee6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2b6dfe7c8f8ac8d7207659b848abecd04f56c232
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974672"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181451"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>.NET Standard kullanıcı tanımlı işlevler (Önizleme) Azure Stream Analytics Edge işleri için geliştirin
 
@@ -31,7 +31,7 @@ UDF uygulamak için üç yolu vardır:
 
 ## <a name="package-path"></a>Paket yolu
 
-Herhangi bir UDF paket biçimi yoluna sahip `/UserCustomCode/CLR/*`. Dinamik bağlantı kitaplıklarını (DLL'ler) ve kaynakları altında kopyalanır `/UserCustomCode/CLR/*` yardımcı olan, kullanıcı DLL'leri sisteminden ve Azure Stream Analytics DLL'leri yalıtmak klasörü.
+Herhangi bir UDF paket biçimi yoluna sahip `/UserCustomCode/CLR/*`. Dinamik bağlantı kitaplıklarını (DLL'ler) ve kaynakları altında kopyalanır `/UserCustomCode/CLR/*` yardımcı olan, kullanıcı DLL'leri sisteminden ve Azure Stream Analytics DLL'leri yalıtmak klasörü. Bu paket yolu bunları kullanmak istemiyorsunuz kullanılan yöntem ne olursa olsun tüm işlevler için kullanılır.
 
 ## <a name="supported-types-and-mapping"></a>Desteklenen türler ve eşleme
 
@@ -59,10 +59,10 @@ Yerel bir proje başvurusu için:
 
 1. Çözümünüzde bir yeni sınıf kitaplığı oluşturun.
 2. Kod Sınıfınız içinde yazın. Sınıflar olarak tanımlanması gerekir unutmayın *genel* ve nesneleri olarak tanımlanması gerektiğini *statik genel*. 
-3. Projenizi derleyin.
+3. Projenizi derleyin. Araçları tüm yapılar bin klasörü bir zip dosyasına paketleyin ve zip dosyasını depolama hesabına yükleyin. Dış başvurular için bütünleştirilmiş kod başvurusu yerine NuGet paketini kullanın.
 4. Azure Stream Analytics projenizde yeni sınıf başvurusu.
 5. Yeni bir işlev, Azure Stream Analytics projenize ekleyin.
-6. Proje yapılandırma dosyasına bütünleştirilmiş kod yolu yapılandırma `EdgeJobConfig.json`.
+6. Proje yapılandırma dosyasına bütünleştirilmiş kod yolu yapılandırma `JobConfig.json`. Derleme yolunu ayarlamak **yerel proje başvurusu ya da CodeBehind**.
 7. İşlev projesi hem Azure Stream Analytics projeyi yeniden derleyin.  
 
 ### <a name="example"></a>Örnek
@@ -109,19 +109,19 @@ Tercih ettiğiniz herhangi bir IDE'de .NET standart UDF'ler yazabilir ve bunlar�
 
 Azure depolama hesabınıza derleme ZIP paketlerine karşıya yüklendikten sonra Azure Stream Analytics sorguları işlevleri kullanabilirsiniz. Tek yapmak için ihtiyacınız olan Stream Analytics Edge işi yapılandırmasında depolama bilgilerini içerir. Visual Studio Araçları, paketi indirmez çünkü işlevi yerel olarak bu seçenek ile test edilemez. Paket yolu doğrudan hizmete ayrıştırılır. 
 
-İşlem yapılandırma dosyasında 'EdgeJobConfig.json' derleme yolu yapılandırmak için:
+Proje yapılandırma dosyasına bütünleştirilmiş kod yolu yapılandırmak için `JobConfig.json`:
 
 Genişletin **kullanıcı tanımlı kod yapılandırma** bölümünde ve yapılandırmanın önerilen aşağıdaki değerlerle doldurun:
 
  |**Ayar**  |**Önerilen değer**  |
  |---------|---------|
- |Bütünleştirilmiş Kod Kaynağı  |  Yerel proje başvurusu ya da CodeBehind   |
+ |Bütünleştirilmiş Kod Kaynağı  | Bulut mevcut derleme paketlerden    |
  |Kaynak  |  Geçerli hesaptaki veri seçin   |
  |Abonelik  |  Aboneliğinizi seçin.   |
  |Depolama Hesabı  |  Depolama hesabınızı seçin.   |
  |Kapsayıcı  |  Depolama hesabınızda oluşturduğunuz kapsayıcıya seçin.   |
 
-    ![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
+![Visual Studio'da Azure Stream Analytics Edge işi yapılandırması](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
 
 ## <a name="limitations"></a>Sınırlamalar
 UDF önizlemesi şu anda aşağıdaki sınırlamalara sahiptir:

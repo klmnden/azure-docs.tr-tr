@@ -15,11 +15,11 @@ ms.date: 06/12/2018
 ms.author: v-deasim
 ms.custom: mvc
 ms.openlocfilehash: 16a939c69d9ed9be597306765f316ffe32db6665
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651075"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094045"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Bir Azure CDN uç noktası oluşturma
 Bu makalede oluşturmak için ayarları açıklar bir [Azure Content Delivery Network (CDN)](cdn-overview.md) var olan bir CDN profilinde uç noktası. Bir profil ve uç nokta oluşturduktan sonra müşterilerinize içerik sunmaya başlayabilirsiniz. Bir profil ve uç nokta oluşturma Hızlı Başlangıç için bkz: [hızlı başlangıç: bir Azure CDN profili ve uç noktası oluşturma](cdn-create-new-endpoint.md).

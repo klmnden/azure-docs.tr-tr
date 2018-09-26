@@ -2,20 +2,22 @@
 title: Azure SQL veritabanını bir yedekten geri yükleyin. | Microsoft Docs
 description: Azure SQL veritabanı (en fazla 35 gün) zaman içinde önceki bir noktaya geri olanak tanıyan, zaman içinde nokta geri yükleme hakkında bilgi edinin.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: bcb533fbaa788498734776147c9bd053d35bef60
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 4c9edd60ffa1cd9ed5d95b37592fa49f44117818
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733605"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161344"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 SQL veritabanı kullanarak veritabanı kurtarma için bu seçenekleri sağlar [otomatik veritabanı yedeklemelerini](sql-database-automated-backups.md) ve [uzun süreli saklama kapsamındaki yedekleri](sql-database-long-term-retention.md). Veritabanı yedeklemesini geri yükleyebilirsiniz:

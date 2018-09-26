@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 66ef3330a435574405dbfb8b8c82d984bb877efe
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 4c35f4366b2290164036316be8de730e20aa99bf
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651138"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092671"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Application ınsights'ta ölçümleri keşfederken
 Ölçümlerde [Application Insights] [ start] ölçülen değerleri ve telemetriyi uygulamanızdan gönderilen olayların sayısı. Performans sorunları tespit edin ve eğilimler, uygulamanızın nasıl kullanıldığını izleyin yardımcı olur. Çok çeşitli standart ölçüm vardır ve kendi özel Ölçümler ve olaylar da oluşturabilirsiniz.

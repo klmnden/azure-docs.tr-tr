@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 09/25/2018
 ms.author: maheshu
-ms.openlocfilehash: 5740f36889b8c4d6ce1604e6d0138f840e88ef1a
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 22c97da35416ba1ff593dfa5e41f557ea2ab1cc0
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505206"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182255"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) bir Azure AD Domain Services yönetilen etki alanı için yapılandırma
 Bu makalede, Azure AD Domain Services yönetilen etki alanınıza Güvenli Basit Dizin Erişim Protokolü (LDAPS) nasıl olanak sağlayabileceğiniz açıklanmaktadır. Güvenli LDAP olan olarak da bilinen ' Basit Dizin Erişim Protokolü (LDAP) Güvenli Yuva Katmanı (SSL) üzerinden / Aktarım Katmanı Güvenliği (TLS)'.
@@ -81,7 +81,7 @@ Windows bilgisayarınızda olarak yeni bir PowerShell penceresi açın **yöneti
 
 ```powershell
 $lifetime=Get-Date
-New-SelfSignedCertificate -Subject *.contoso100.com `
+New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
   -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```

@@ -10,12 +10,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f23e8987a3abd9cdace85b0a3dc52ca464245df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cb1abdce3bbd7349695ece70ff336c7e513c0918
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995440"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162194"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning donanım hızlandırma paket
 
@@ -34,7 +34,7 @@ Veri bilimcileri ve yapay ZEKA geliştiricilerine hızla sağlayan Azure Machine
 
 1. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-1. Bir Azure Machine Learning Model Yönetimi hesabı oluşturmanız gerekir. Hesap oluşturmayla ilgili daha fazla bilgi için [Azure Machine Learning hızlı ve Workbench'i yükleme](../desktop-workbench/quickstart-installation.md) belge. 
+1. Bir Azure Machine Learning Model Yönetimi hesabı. Hesap oluşturmayla ilgili daha fazla bilgi için [Azure Machine Learning hızlı ve Workbench'i yükleme](../desktop-workbench/quickstart-installation.md) belge. 
 
 1. Paketin yüklenmesi gerekir. 
 

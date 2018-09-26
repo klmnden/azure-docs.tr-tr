@@ -2,58 +2,58 @@
 
 
 ## <a name="attach-an-empty-disk"></a>Boş disk ekleme
-Boş bir diski ekleme, çünkü Azure .vhd dosyası sizin için oluşturur ve depolama hesabında depolayan bir veri diski eklemek için basit bir yoludur.
+Boş disk ekleme, Azure .vhd dosyasını oluşturur ve depolama hesabında depoluyor çünkü bir veri diski eklemek için basit bir yoludur.
 
-1. Tıklatın **sanal makineleri (Klasik)** ve ardından uygun VM seçin.
+1. Tıklayın **sanal makineler (Klasik)** ve ardından uygun sanal Makineyi seçin.
 
 2. Ayarlar menüsünde tıklatın **diskleri**.
 
    ![Yeni bir boş diski kullanıma açın](./media/howto-attach-disk-windows-linux/menudisksattachnew.png)
 
-3. Komut çubuğunda **Attach yeni**.  
-    **Attach yeni disk** iletişim kutusu görüntülenir.
+3. Komut çubuğunda **iliştirme yeni**.  
+    **Yeni disk Attach** iletişim kutusu görüntülenir.
 
-    ![Yeni bir diski kullanıma açın](./media/howto-attach-disk-windows-linux/newdiskdetail.png)
+    ![Yeni bir disk ekleme](./media/howto-attach-disk-windows-linux/newdiskdetail.png)
 
-    Aşağıdaki bilgileri girin:
-    - İçinde **dosya adı**, varsayılan adı kabul edin veya başka bir .vhd dosyası için yazın. .Vhd dosyası için başka bir ad yazın olsa bile veri diski otomatik olarak oluşturulan bir ad kullanır.
-    - Seçin **türü** veri diski. Tüm sanal makineler standart diskler destekler. Çok sayıda sanal makineler ayrıca premium diskleri destekler.
-    - Seçin **boyutu (GB)** veri diski.
-    - İçin **ana bilgisayar önbelleğe alma**, hiçbiri seçin veya salt okunur.
-    - Bitirmek için Tamam'ı tıklatın.
+    Aşağıdaki bilgileri doldurun:
+    - İçinde **dosya adı**varsayılan adı kabul edin veya başka bir .vhd dosyasının yazın. .Vhd dosya için başka bir ad yazın bile veri diski otomatik olarak oluşturulan bir ad kullanır.
+    - Seçin **türü** veri diskinin. Standart diskler, tüm sanal makineleri destekler. Çok sayıda sanal makineyi premium diskleri de destekler.
+    - Seçin **boyutu (GB)** veri diskinin.
+    - İçin **ana bilgisayar önbelleğe alma**, Yok'u seçin veya salt okunur.
+    - Bitirmek için Tamam'a tıklayın.
 
-4. Veri diski oluşturduktan ve bağlı sonra VM diskleri bölümünde listelenir.
+4. Veri diski oluşturulup eklendikten sonra VM diskleri bölümünde listelenir.
 
    ![Yeni ve boş veri diski başarıyla eklendi](./media/howto-attach-disk-windows-linux/newdiskemptysuccessful.png)
 
 > [!NOTE]
-> Bir veri diski ekledikten sonra VM'de oturum açma ve böylece bu kullanılabilir disk başlatma gerekir.
+> Veri diski ekledikten sonra VM'de oturum açma ve kullanılabilir böylece diski başlatmanız gerekir.
 
-## <a name="how-to-attach-an-existing-disk"></a>Nasıl yapılır: varolan bir diski kullanıma açın
-Var olan bir diskin eklenmesi için depolama hesabında bir .vhd olmalıdır. Kullanım [Ekle AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) .vhd dosyası depolama hesabına yüklemek için cmdlet'i. Oluşturulan ve .vhd dosyasını karşıya sonra bir VM'ye ekleyebilirsiniz.
+## <a name="how-to-attach-an-existing-disk"></a>Nasıl yapılır: var olan bir diski kullanıma açın
+Var olan bir diskin eklenmesi için depolama hesabında bir .vhd olmalıdır. Kullanım [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet'ini .vhd dosyasını depolama hesabına yükleyin. Oluşturulan ve .vhd dosyasını karşıya sonra bir VM'ye ekleyebilirsiniz.
 
-1. Tıklatın **sanal makineleri (Klasik)** ve ardından uygun sanal makine seçin.
+1. Tıklayın **sanal makineler (Klasik)** ve ardından uygun sanal makineyi seçin.
 
 2. Ayarlar menüsünde tıklatın **diskleri**.
 
-3. Komut çubuğunda **Attach varolan**.
+3. Komut çubuğunda **iliştirme varolan**.
 
     ![Veri diski ekleme](./media/howto-attach-disk-windows-linux/menudisksattachexisting.png)
 
-4. Tıklatın **konumu**. Kullanılabilir depolama hesaplarını görüntüler. Ardından, uygun depolama hesabı listeden seçin.
+4. Tıklayın **konumu**. Kullanılabilir depolama hesapları görüntülenir. Ardından, uygun bir depolama hesabı listeden seçin.
 
     ![Disk depolama hesabı sağlayın](./media/howto-attach-disk-windows-linux/existdiskstorageaccounts.png)
 
-5. A **depolama hesabı** disk sürücülerini (VHD) içeren bir veya daha fazla kapsayıcıları tutar. Uygun bir kapsayıcı listeden seçin.
+5. A **depolama hesabı** disk sürücülerini (VHD) içeren bir veya daha fazla kapsayıcı tutar. Uygun bir kapsayıcı listeden seçin.
 
-    ![Makineler windows sanal kapsayıcının sağlayın](./media/howto-attach-disk-windows-linux/existdiskcontainers.png)
+    ![Sanal-makineler-windows kapsayıcısı sağlayın](./media/howto-attach-disk-windows-linux/existdiskcontainers.png)
 
-6. **VHD'ler** paneli kapsayıcısında tutulan disk sürücüleri listeler. Disklerden birini tıklatın ve Seç'i tıklatın.
+6. **VHD'ler** paneli kapsayıcı içinde tutulan disk sürücüleri listeler. Disklerden birini tıklatın ve Seç'e tıklayın.
 
-    ![Sanal makineler-windows için disk görüntüsü belirtin](./media/howto-attach-disk-windows-linux/existdiskvhds.png)
+    ![Sanal makineler-windows için disk görüntüsü sağlayın](./media/howto-attach-disk-windows-linux/existdiskvhds.png)
 
-7. **Varolan bir diski İlişti** paneli görüntüler yeniden, depolama hesabı, kapsayıcı ve seçilen sabit sanal makineye eklemek için disk (vhd) bulunduğu konum.
+7. **Mevcut diski** panelini görüntüler yeniden, depolama hesabı, kapsayıcı ve seçili sanal makineye eklemek için sabit diske (vhd) bulunduğu konum.
 
-  Ayarlama **ana bilgisayar önbelleğe alma** yok veya okuma yalnızca, ardından Tamam'ı tıklatın.
+  Ayarlama **ana bilgisayar önbelleğe alma** yok veya okuma yalnızca, sonra Tamam'ı tıklatın.
 
     ![Veri diski başarıyla eklendi](./media/howto-attach-disk-windows-linux/exisitingdisksuccessful.png)

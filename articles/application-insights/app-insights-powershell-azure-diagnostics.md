@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: 5e3a577f8c4759dec2d85a431ae31b61b2d582e0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 0a95da39b73201ea15bd6d3be64de9a12571028d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650891"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095194"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Bir Azure web uygulaması için Application Insights’ı kurmak üzere PowerShell’i kullanma
 [Microsoft Azure](https://azure.com), [Azure Application Insights](app-insights-overview.md)'a [Azure Tanılama verileri gönderecek şekilde yapılandırılabilir.](app-insights-azure-diagnostics.md) Tanılama verileri Azure Cloud Services ve Azure VM’leriyle ilişkilidir. Uygulama içinde Application Insights SDK’sı kullanarak gönderdiğiniz telemetriyi tamamlar. Azure’da yeni kaynaklar oluşturma işlemini otomatikleştirmenin bir parçası olarak tanılamayı PowerShell kullanarak yapılandırabilirsiniz.

@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: sajagtap
-ms.openlocfilehash: 808ee3637d67ff4874c5d4837d5c53cbe7b18680
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f0e0867728e8a7e9ab4f54d6a0ec68038260997d
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024599"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182781"
 ---
 # <a name="create-video-reviews-using-net"></a>Görüntü incelemeleri .NET kullanarak oluşturun
 
@@ -129,9 +129,9 @@ Belirtilen yerlerde, bu özellikler için örnek değerleri değiştirin.
             /// </summary>
             /// <remarks>This must be the team name you used to create your 
             /// Content Moderator account. You can retrieve your team name from
-            /// the Conent Moderator web site. Your team name is the Id associated 
+            /// the Content Moderator web site. Your team name is the Id associated 
             /// with your subscription.</remarks>
-            public static readonly string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
+            private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
 
             /// <summary>
             /// The base URL fragment for Content Moderator calls.
@@ -161,7 +161,7 @@ Aşağıdaki yöntem tanımını ad alanına VideoReviews, Program sınıfı ekl
     {
         return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
         {
-            BaseUrl = AzureBaseURL
+            Endpoint = AzureBaseURL
         };
     }
 
@@ -402,7 +402,7 @@ Ekleme **ana** yöntem tanımını ad alanına VideoReviews, Program sınıfı. 
 
             Console.WriteLine("Open your Content Moderator Dashboard and select Review > Video to see the review.");
             Console.WriteLine("Press any key to close the application.");
-            Console.Read();
+            Console.ReadKey();
         }
     }
 

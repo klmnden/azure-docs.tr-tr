@@ -10,26 +10,26 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 80a227b57c8df157890337f0e207519c71ae5bd6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2ec0dea7e50747f8af337874c8f12463cecb8df7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034629"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163486"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Bulutta otomatik machine learning ile modellerini eğitin
 
-Azure Machine Learning'de modelinizi yönettiğiniz işlem kaynakları farklı türleri hakkında eğitebilirsiniz. İşlem hedefi, yerel bir bilgisayar veya bulutta bir bilgisayar olabilir. 
+Azure Machine Learning'de modelinizi yönettiğiniz işlem kaynakları farklı türleri hakkında eğitebilirsiniz. İşlem hedefi, yerel bir bilgisayar veya bulutta bir bilgisayar olabilir.
 
 Kolayca artırın veya machine learning denemenizi Ubuntu tabanlı veri bilimi sanal makinesi (DSVM) veya Azure Batch AI gibi ek işlem hedefleri ekleyerek ölçeklendirin. Microsoft Azure bulutunda veri bilimi yapmak için özel olarak oluşturulmuş özel bir VM görüntüsü dsvm'dir. Bu, çok sayıda popüler veri bilimi ve önceden yüklenmiş ve önceden yapılandırılmış diğer araçları vardır.  
 
-Bu makalede, ML otomatik DSVM'nin kullanarak model oluşturma öğrenin.  
+Bu makalede, otomatik ML DSVM'nin kullanarak model oluşturma konusunda bilgi edinin. Azure Batch AI, kullanan örnekler bulabilirsiniz [github'da Bu örnek not defterleri](https://aka.ms/aml-notebooks).  
 
 ## <a name="how-does-remote-differ-from-local"></a>Uzaktan yerel bilgisayardan farkı nedir?
 
-Öğreticiyi "[otomatik ML ile bir sınıflandırma modeli eğitme](tutorial-auto-train-models.md)" yerel bilgisayarda otomatik ML ile modeli eğitmek için nasıl kullanılacağını size öğretir.  Yerel olarak da eğitimindeki iş akışı uzak hedefleri için de geçerlidir. Uzak işlem ile otomatik ML deneme yinelemelerini zaman uyumsuz olarak yürütülür. Bu belirli bir yinelemeye iptal sağlar, yürütme durumunu izleyin, Jupyter not defteri diğer hücreler üzerinde çalışmaya devam eder. Uzaktan eğitmek için ilk Azure DSVM gibi uzak işlem hedefi oluşturmak, yapılandırmak ve oradaki koda gönderin.
+Öğreticiyi "[otomatik machine learning ile bir sınıflandırma modeli eğitme](tutorial-auto-train-models.md)" yerel bilgisayarda otomatik ML ile modeli eğitmek için nasıl kullanılacağını size öğretir.  Yerel olarak da eğitimindeki iş akışı uzak hedefleri için de geçerlidir. Ancak, uzak işlem ile otomatik ML deneme yinelemelerini zaman uyumsuz olarak yürütülür. Bu, belirli bir yinelemeye iptal etme, yürütme durumunu izlemek veya diğer Jupyter not defteri hücrelerde üzerinde çalışmaya devam sağlar. Uzaktan eğitmek için öncelikle bir Azure DSVM gibi uzak işlem hedefi oluşturun.  Ardından uzak kaynak yapılandırın ve kodunuzu var. gönderin.
 
-Bu makalede, bir uzak DSVM'nin otomatik ML çalıştırmak için gereken ek adımlar denemeniz gösterilmektedir.  Çalışma alanı nesnesi `ws`, öğreticinin buraya kod kullanılır.
+Bu makalede, bir uzak DSVM'nin otomatik ML deneme çalıştırmak için gereken ek adımlar gösterilmektedir.  Çalışma alanı nesnesi `ws`, öğreticinin buraya kod kullanılır.
 
 ```python
 ws = Workspace.from_config()
@@ -50,6 +50,7 @@ try:
     print('found existing dsvm.')
 except:
     print('creating new dsvm.')
+    # Below is using a VM of SKU Standard_D2_v2 which is 2 core machine. You can check Azure virtual machines documentation for additional SKUs of VMs.
     dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
     dsvm_compute = DsvmCompute.create(ws, name = dsvm_name, provisioning_configuration = dsvm_config)
     dsvm_compute.wait_for_completion(show_output = True)
@@ -69,10 +70,12 @@ DSVM adı kısıtlamaları şunlardır:
 >    1. VM oluşturmadan Çık
 >    1. Yeniden oluşturma kodu
 
+Bu kod, bir kullanıcı adı veya parola, sağlanan DSVM için oluşturmaz. Doğrudan VM'ye bağlanmak istiyorsanız, Git [Azure portalında](https://portal.azure.com) sağlama kimlik bilgileri.  
 
-## <a name="access-data-using-get-data-file"></a>Veri dosyası kullanarak erişim veri alma
 
-Eğitim verilerinizi uzak bir kaynağa erişim sağlar. Veriler uzak bir işlem üzerinde çalışan otomatik ML denemeleri için kullanarak getirilmesi gerekir bir `get_data()` işlevi.  
+## <a name="access-data-using-getdata-file"></a>Verilere get_data dosyası kullanma
+
+Eğitim verilerinizi uzak bir kaynağa erişim sağlar. Uzak işlem üzerinde çalışan otomatik makine öğrenimi denemeleri için verilerin kullanarak getirilmesi gerekir. bir `get_data()` işlevi.  
 
 Erişim sağlamak için yapmanız gerekir:
 + Get_data.py içeren dosyayı oluşturma bir `get_data()` işlevi 
@@ -81,7 +84,7 @@ Erişim sağlamak için yapmanız gerekir:
 Bir blob depolama veya yerel disk get_data.py dosyasındaki verileri okumak için kod yalıtabilirsiniz. Aşağıdaki kod örneğinde, veriler sklearn öğesini paketten gelir.
 
 >[!Warning]
->Uzak işlem kullandığınız sonra kullanmalısınız `get_data()` veri Bağlantılarınızdaki gerçekleştirilecek.
+>Uzak işlem kullandığınız sonra kullanmalısınız `get_data()` veri Bağlantılarınızdaki gerçekleştirildiği. Veri Dönüşümleri için ek kitaplıklar get_data() bir parçası olarak yüklemeniz gerekiyorsa, izlenmesi için ek adımlar vardır. Başvurmak [otomatik ml dataprep örnek not defteri](https://aka.ms/aml-auto-ml-data-prep ) Ayrıntılar için.
 
 
 ```python
@@ -105,7 +108,7 @@ def get_data():
     return { "X" : X_digits, "y" : y_digits }
 ```
 
-## <a name="configure-automated-machine-learning-experiment"></a>Otomatik makine öğrenimi denemesi yapılandırma
+## <a name="configure-experiment"></a>Deneme yapılandırma
 
 Ayarlarını belirtin `AutoMLConfig`.  (Bkz: bir [parametrelerin tam listesi]() ve olası değerleri.)
 
@@ -136,7 +139,7 @@ automl_config = AutoMLConfig(task='classification',
                             )
 ```
 
-## <a name="submit-automated-machine-learning-training-experiment"></a>Otomatik machine learning eğitim denemesini gönderin
+## <a name="submit-training-experiment"></a>Eğitim denemesini gönderin
 
 Algoritma, Hiper parametre otomatik olarak seçmek için yapılandırma şimdi gönderin ve modeli eğitme. (Bilgi [ayarları hakkında daha fazla bilgi]() için `submit` yöntemi.)
 

@@ -15,11 +15,11 @@ ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.author: mbullwin
 ms.openlocfilehash: cdb395a590fb200a24c68e56728a270b968e53b5
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35648486"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091432"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Azure Application Insights ile Azure Tanılama'yı tümleştirme kullanarak Azure bulut hizmetlerinde olduğunda uyar
 

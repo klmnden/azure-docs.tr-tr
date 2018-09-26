@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 1987ebf76f06cb60e8ce1fb5c8215b6520d44d52
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: b566b204ca9cf13b412d750740836db8bf8930a5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651040"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093994"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Akıllı algılama - hata Anomalileri
 [Application Insights](app-insights-overview.md) otomatik olarak web uygulamanızın olağandışı başarısız istek oranı artışı karşılaşırsa neredeyse gerçek zamanlı olarak bildirir. Bu, HTTP isteklerini veya başarısız olarak raporlanır bağımlılık çağrıları oranını olağan dışı bir artış algılar. Başarısız istekler, istekleri için yanıt kodları 400 veya daha yüksek olan genellikle biçimindedir. Önceliklendirmenize ve sorunu tanılamanıza yardımcı olmak için hataları ve ilgili telemetriyi özelliklerini analizini bildiriminde sağlanır. Daha ileri tanılama için Application Insights portalına bağlantıları vardır. Normal hata oranı tahmin etmek için makine öğrenimi algoritmaları kullanır gibi özellik Kurulum ya da yapılandırması gerekir.

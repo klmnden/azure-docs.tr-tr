@@ -2,21 +2,22 @@
 title: Azure SQL veritabanı hiper ölçekli genel bakış | Microsoft Docs
 description: Bu konuda Azure SQL veritabanı'ndaki sanal çekirdek tabanlı satın alma modeli hiper ölçekli hizmet katmanında ve genel amaçlı ve iş açısından kritik hizmet katmanı arasından farklı nasıl açıklar.
 services: sql-database
-author: CarlRabeler
-ms.reviewer: carlrab
-manager: craigg
 ms.service: sql-database
-ms.subservice: managed-instance
-ms.custom: DBs & servers
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/23/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: b50d049d051a57ba12239d4619572dc0dbd7e32f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/23/2018
+ms.openlocfilehash: 314a2182c3be5c5f10e075cdbda27f4a716f2536
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962973"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160409"
 ---
 # <a name="what-is-the-hyperscale-service-tier-preview-in-azure-sql-database"></a>Azure SQL veritabanı'nda hiper ölçekli hizmet Katmanı (Önizleme) nedir?
 

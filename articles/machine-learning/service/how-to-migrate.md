@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 2182a39836f02596d22168722e6ece7a2872dccc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969497"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158573"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Azure Machine Learning hizmetinin en son sürüme geçirme 
 
@@ -54,13 +54,13 @@ Daha fazla bilgi edinin [bu sürümdeki değişiklikler](overview-what-happened-
 
 En son sürüm ile bir Azure Machine Learning çalışma alanı içinde oluşturmaya başlama [Azure portalında](quickstart-get-started.md). Portal'ın çalışma Pano yalnızca Edge, Chrome ve Firefox tarayıcılarda desteklenir.
 
-Bu yeni çalışma alanı, üst düzey hizmet kaynak ve Azure Machine Learning hizmetinin en son özelliklerin tümünü kullanmanıza olanak tanır. [Bu çalışma alanı ve mimarisi hakkında daha fazla bilgi](concept-azure-machine-learning-architecture.md).
+Bu yeni çalışma alanı, üst düzey hizmet kaynak ve Azure Machine Learning hizmetinin en son özelliklerin tümünü kullanmanıza olanak tanır. Bu konu hakkında daha fazla bilgi edinin [çalışma ve mimari](concept-azure-machine-learning-architecture.md).
 
 <a name="projects"></a>
 
 ## <a name="projects"></a>Projeler
 
-Projelerinizi bulutta bir çalışma alanında olması yerine projeleri artık en son sürümü yerel makinenizde dizinlerdir. [En son mimarisi diyagramı bkz](concept-azure-machine-learning-architecture.md). 
+Projelerinizi bulutta bir çalışma alanında olması yerine projeleri artık en son sürümü yerel makinenizde dizinlerdir. Bir diyagramı bkz [son mimarisi](concept-azure-machine-learning-architecture.md). 
 
 Dosyaları ve komut dosyalarını içeren yerel dizine kullanmaya devam etmek için dizinin adını belirtin. ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python komutunu ya da 'az ml proje ekleme' CLI komutunu kullanarak.
 

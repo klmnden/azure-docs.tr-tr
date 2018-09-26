@@ -1,12 +1,12 @@
 
-## <a name="configure-your-aspnet-web-app-with-the-applications-registration-information"></a>ASP.NET Web uygulamanız uygulamanın kayıt bilgileri ile yapılandırma
+## <a name="configure-your-aspnet-web-app-with-the-applications-registration-information"></a>ASP.NET Web uygulamanızı uygulama kayıt bilgileriyle yapılandırın
 
-Bu adımda, projenizin SSL kullanacak şekilde yapılandırın ve uygulamanızın kayıt bilgilerini yapılandırmak için SSL URL'sini kullanın. Bundan sonra uygulama Ekle ' kayıt bilgileri çözümünüze *web.config*.
+Bu adımda, SSL kullanacak şekilde projenizi yapılandırmak ve ardından uygulamanızın kayıt bilgileri yapılandırmak için SSL URL'sini kullanın. Bundan sonra uygulamayı eklemek ' kayıt bilgilerini çözümünüze *web.config*.
 
-1.  Çözüm Gezgini'nde, proje seçip bakmak `Properties` (bir özellik penceresinde F4 tuşuna basın görmüyorsanız) penceresi
+1.  Çözüm Gezgini'nde projeyi seçin ve bakmak `Properties` (bir Özellikler penceresinde, F4 tuşuna görmüyorsanız) penceresi
 2.  Değişiklik `SSL Enabled` için `True`
-3.  Değerinden kopyalama `SSL URL` yukarıda ve yapıştırın `Redirect URL` alan bu sayfanın üst kısmında ve ardından *güncelleştirme*:<br/><br/>![Proje Özellikleri](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-4.  Aşağıdakileri ekleyin `web.config` bölümünde kökün klasörde bulunan dosya `configuration\appSettings`:
+3.  Değeri Şuradan Kopyala: `SSL URL` yukarıda yapıştırın `Redirect URL` alan bu sayfanın üst kısmındaki'a tıklayın *güncelleştirme*:<br/><br/>![Proje Özellikleri](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+4.  Aşağıdakileri eklemek `web.config` bölümünde kökünün klasörde bulunan dosya `configuration\appSettings`:
 
 ```xml
 <add key="ClientId" value="[Enter the application Id here]" />

@@ -4,14 +4,14 @@ description: Makine bağımlılıkları kullanan Azure geçişi hizmeti ile bir 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: 31cbec8eab499fac116eac6fa2addac4ec2a340b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737117"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163435"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşlemesi kullanan Grup makineleri
 
@@ -55,6 +55,7 @@ Bir Windows makinede aracı yüklemek için:
 4. İçinde **Aracı Kurulum Seçenekleri**seçin **Azure Log Analytics** > **sonraki**.
 5. Tıklayın **Ekle** yeni bir Log Analytics çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
 
+[Daha fazla bilgi edinin](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) hakkında MMA tarafından Windows işletim sistemleri desteği listesi.
 
 Bir Linux makinesinde aracıyı yüklemek için:
 
@@ -63,6 +64,7 @@ Bir Linux makinesinde aracıyı yüklemek için:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+[Daha fazla bilgi edinin](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) hakkında MMA tarafından Linux işletim sistemleri desteği listesi.
 
 ### <a name="install-the-dependency-agent"></a>Bağımlılık aracısını yükleme
 1. Bir Windows makinede bağımlılık Aracısı'nı yüklemek için kurulum dosyasına çift tıklayın ve sihirbazı izleyin.
@@ -102,5 +104,6 @@ Grup oluşturulduktan sonra grubun tüm makinelerde aracıları yüklemek ve tü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bilgi nasıl](how-to-create-group-dependencies.md) Grup bağımlılıklarını görselleştirerek grubu geliştirmek için
+- [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) bağımlılık görselleştirme hakkında sık sorulan sorular hakkında.
+- [Bilgi nasıl](how-to-create-group-dependencies.md) Grup bağımlılıklarını görselleştirerek grubu geliştirmek için.
 - Değerlendirmelerin nasıl hesaplandığı hakkında [daha fazla bilgi](concepts-assessment-calculation.md) edinin.

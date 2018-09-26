@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: wesmc
 ms.openlocfilehash: 3cf906830965959709a8c7e8dc7d2acc3f3a6f32
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35982874"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096981"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>ASP.NET çıktı önbelleği sağlayıcısı için Azure Redis önbelleği
 Redis çıktı önbelleği sağlayıcısı, çıkış verileri önbelleğe almak için bir işlem dışı depolama mekanizmasıdır. Özellikle tam HTTP yanıtları için bu verilerdir (çıkış önbelleğe alma sayfası). ASP.NET 4'te kullanılmaya başlanan yeni çıktı önbelleği sağlayıcısı genişletilebilirlik noktasına sağlayıcı yararlanmanıza imkan sağlar.

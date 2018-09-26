@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: 2157af8d6c3b8eea372c060a70c78559d8ffe6ad
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 30ef00fa1bfd2933df5e5c966cb8266d7c598a47
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35647227"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162177"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohortlar
 
@@ -110,7 +110,7 @@ Olayların kohortlar de yapabilirsiniz. Bu bölümde, tanımladığınız bir ko
 
     * Kohort bir analytics sorgusunu kullanarak tanımladığınız bir sorgu bölümü.
 
-    Sorgu bölümünde, [bir analytics sorgusunu yazmak](https://docs.loganalytics.io/index). Sorgu, belirli bir kümesini tanımlamak istediğiniz kohort açıklayan satırları seçer. Kohortlar aracı ekler ardından örtük olarak bir "| user_Id değerini tanımlayarak özetleme"yan tümcesi için sorgu. Sorgunuzu sonuçlar döndürüyor emin olabilmeniz bu verileri bir tablo, sorguda aşağıdaki önizlemesini görebilirsiniz.
+    Sorgu bölümünde, [bir analytics sorgusunu yazmak](/azure/kusto/query). Sorgu, belirli bir kümesini tanımlamak istediğiniz kohort açıklayan satırları seçer. Kohortlar aracı ekler ardından örtük olarak bir "| user_Id değerini tanımlayarak özetleme"yan tümcesi için sorgu. Sorgunuzu sonuçlar döndürüyor emin olabilmeniz bu verileri bir tablo, sorguda aşağıdaki önizlemesini görebilirsiniz.
 
     > [!NOTE]
     > Sorgu görmüyorsanız, uzun yapın ve sorgu ortaya çıkarmak için bölüm yeniden boyutlandırmayı deneyin. Bu bölümün başında animasyonlu .gif, yeniden boyutlandırma davranışını gösterir.

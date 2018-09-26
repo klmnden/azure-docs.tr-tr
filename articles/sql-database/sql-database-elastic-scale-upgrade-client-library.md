@@ -2,19 +2,22 @@
 title: En son elastik veritabanı istemci kitaplığını yükseltme | Microsoft Docs
 description: Nuget yükseltme elastik veritabanı istemci kitaplığını kullanın.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: c91650000400d3564a6d42aecdfb0974c4a64022
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 9fb29b18397be83f5dc56464b3366d91c47f43b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715933"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160800"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>En yeni elastik veritabanı istemci kitaplığı kullanmak için bir uygulamayı yükseltme
 Yeni sürümlerini [elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) NuGetand Visual Studio'daki NuGetPackage Yöneticisi arabirimi aracılığıyla kullanılabilir. Yükseltmeleri hata düzeltmelerini içeren ve istemci Kitaplığı'nın yeni özelliklerini destekler.

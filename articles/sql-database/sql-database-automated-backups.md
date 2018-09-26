@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 8fd8bf6128d09d6431a8542206430b9bb6df095d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 09/25/2018
+ms.openlocfilehash: 5c6ebfcb7eae52915af24fc67e9b3c774656149d
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063736"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181150"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Otomatik SQL veritabanını yedekleme hakkında bilgi edinin
 
@@ -83,6 +83,10 @@ Daha fazla bilgi için [uzun süreli yedek saklama](sql-database-long-term-reten
 ## <a name="are-backups-encrypted"></a>Yedeklemeleri şifrelenir?
 
 Veritabanınız ile TDE şifrelenmişse, yedeklemeleri otomatik olarak LTR yedekleme de dahil olmak üzere, bekleme sırasında şifrelenir. Bir Azure SQL veritabanı için TDE etkin olduğunda, yedeklemeler de şifrelenir. Tüm yeni Azure SQL veritabanları, varsayılan olarak etkin TDE ile yapılandırılır. TDE hakkında daha fazla bilgi için bkz. [Azure SQL veritabanı ile saydam veri şifrelemesi](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+
+## <a name="how-does-microsoft-ensure-backup-integrity"></a>Microsoft, yedekleme tutarlılığı nasıl emin
+
+Sürekli olarak, Azure SQL veritabanı mühendislik ekibi, veritabanlarının otomatik veritabanı yedeklerini geri otomatik olarak hizmet arasında sınar. Geri yükleme sonrasında veritabanları DBCC CHECKDB kullanarak bütünlük denetimi de alır. Bütünlük denetimi sırasında bulunan tüm sorunları mühendislik ekibine bir uyarıya neden olur. Azure SQL veritabanında veri bütünlüğü hakkında daha fazla bilgi için bkz: [Azure SQL veritabanında veri bütünlüğü](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
 ## <a name="how-do-automated-backups-impact-my-compliance"></a>Otomatik yedekleri my uyumluluk nasıl etkilediği?
 

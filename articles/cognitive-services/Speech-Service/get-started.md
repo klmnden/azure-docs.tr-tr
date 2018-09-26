@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 601588e0c7257fc939f884b2e9b2774ab12ea872
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1615e3a492cd91fb998680094f131db454945303
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950851"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182578"
 ---
 # <a name="try-the-speech-service-for-free"></a>Konuşma tanıma hizmetini ücretsiz olarak deneyin
 
@@ -111,7 +111,7 @@ Bir abonelikten diğerine geçmek için örneğin, ücretsiz deneme süresinin s
 > [!NOTE]
 > Ücretsiz deneme anahtarlarının yer olan Batı ABD'de oluşturulur (`westus`) bölge. Dilerseniz Azure Panosu oluşturulan bir aboneliği bazı başka bir bölgede olabilir.
 
-* Uygulamanız kullanıyorsa bir [Speech SDK'sı](speech-sdk.md), bölge kodu gibi sağladığınız `westus`, örneklerken `RecognizerFactory`. 
+* Uygulamanız kullanıyorsa bir [Speech SDK'sı](speech-sdk.md), bölge kodu gibi sağladığınız `westus`, konuşma yapılandırma oluştururken.
 * Uygulamanızı konuşma hizmetin birini kullanıp kullanmadığını [REST API'leri](rest-apis.md), bölge uç noktası URI'si istekleri yaparken kullandığınız bir parçasıdır.
 
 Bir bölgede oluşturulan anahtarları yalnızca bu bölgede geçerlidir. Diğer bölgeler ile kullanılmaya çalışılırsa, kimlik doğrulama hataları neden olur.

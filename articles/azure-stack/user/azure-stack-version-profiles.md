@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 8bebec23d7a0199d8efbc55b3cde50c628306f01
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1b63a75a2505ecbd82896932018ef4f0936b9b37
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034377"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182901"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure stack'teki API sürümü profillerini yönetme
 
@@ -77,6 +77,7 @@ Bir geliştirici olarak, çözümünüzü yazmaya odaklanmasına olanak tanır. 
 
 Profilleri kullanılarak çözümünüzü Azure Stack ile tercih ettiğiniz dili ile tümleştirmenize yardımcı olmak için kod örnekleri bulabilirsiniz. Şu anda aşağıdaki diller için yönergeler ve örnekler bulabilirsiniz:
 
+- **.NET** .NET API profili, bir kaynak sağlayıcısı paketindeki her kaynak türünün en son ve en çok kararlı sürümünü almak için kullanabilirsiniz. Daha fazla bilgi için [.NET ile Azure Stack ile kullanım API Sürüm profillerini](azure-stack-version-profiles-net.md).
 - **PowerShell**  
 Kullanabileceğiniz **AzureRM.Bootstrapper** modülü PowerShell cmdlet'leri ile API Sürüm profillerini çalışması için gereken almak için PowerShell Galerisi aracılığıyla kullanılabilir. Bilgi için [kullanımı API sürümü profillerini PowerShell](azure-stack-version-profiles-powershell.md).
 - **Azure CLI**  

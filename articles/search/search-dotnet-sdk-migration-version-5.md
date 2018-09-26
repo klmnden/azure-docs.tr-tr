@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: brjohnst
 ms.openlocfilehash: b08507d7685ce87a4c176385f750a72d6ae51ba3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35971952"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091149"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK sürüm 5 yükseltme
 4.0 Önizleme veya, eski bir sürümü kullanıyorsanız [Azure Search .NET SDK'sı](https://aka.ms/search-sdk), bu makalede, uygulamanızı 5 sürümünü kullanacak şekilde yükseltmek yardımcı olur.

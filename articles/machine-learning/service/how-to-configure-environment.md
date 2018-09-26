@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 7796accffb7041e567c5e18857d09e105b5268ce
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 87b3bc4128d800e4f76d71dc5f9d081dffa0e3a7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961578"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163452"
 ---
 # <a name="how-to-configure-a-development-environment-for-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için bir geliştirme ortamı yapılandırma
 
@@ -39,17 +39,31 @@ Continuum Anaconda kullanmak için önerilen yaklaşımdır [sanal conda ortamla
 
 Çalışma alanı yapılandırma dosyası, Azure Machine Learning hizmeti çalışma alanı ile iletişim kurmak için SDK'sı tarafından kullanılır.  Bu dosya almanın iki yolu vardır:
 
-* Tamamlandığında, [hızlı](quickstart-get-started.md), dosyanın `config.json` Azure not defterlerinde sizin için oluşturulur.  Bu dosya, çalışma alanınız için yapılandırma bilgilerini içerir.  Betikleri veya ona başvuran not defterleri ile aynı dizine indirin.
+* Tamamlamak [hızlı](quickstart-get-started.md) bir çalışma alanı ve yapılandırma dosyası oluşturun. Dosya `config.json` Azure not defterlerinde sizin için oluşturulur.  Bu dosya, çalışma alanınız için yapılandırma bilgilerini içerir.  İndirme veya betikleri veya ona başvuran not defterleri ile aynı dizine kopyalayın.
+
 
 * Yapılandırma dosyasını kendiniz adımları izleyerek oluşturun:
 
     1. Çalışma alanınızda açın [Azure portalında](https://portal.azure.com). Kopyalama __çalışma alanı adı__, __kaynak grubu__, ve __abonelik kimliği__. Bu değerler, yapılandırma dosyası oluşturmak için kullanılır.
 
-       Portal'ın çalışma Pano yalnızca Edge, Chrome ve Firefox tarayıcılarda desteklenir.
-    
         ![Azure portal](./media/how-to-configure-environment/configure.png) 
     
-    3. Bir metin düzenleyicisinde adlı bir dosya oluşturun **config.json**.  Portaldan değerlerinizi eklemek, bu dosyaya aşağıdaki içeriği ekleyin:
+    1. Dosyayı bu Python kodu oluşturun. Betikleri veya çalışma alanına başvuru not defterlerini aynı dizinde kodu çalıştırın:
+        ```
+        from azureml.core import Workspace
+
+        subscription_id ='<subscription-id>'
+        resource_group ='<resource-group>'
+        workspace_name = '<workspace-name>'
+        
+        try:
+           ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)
+           ws.write_config()
+           print('Library configuration succeeded')
+        except:
+           print('Workspace not found')
+        ```
+        Bu aşağıdaki Yazar `aml_config/config.json` dosyası: 
     
         ```json
         {
@@ -58,12 +72,11 @@ Continuum Anaconda kullanmak için önerilen yaklaşımdır [sanal conda ortamla
         "workspace_name": "<workspace-name>"
         }
         ```
-    
-        >[!NOTE] 
-        >Daha sonra kodunuzda bu dosyayla okuyun:  `ws = Workspace.from_config()`
-    
-    4. Kaydettiğinizden emin olun **config.json** betikleri veya ona başvuran not defterleri ile aynı dizine.
-    
+        Kopyalayabilirsiniz `aml_config` dizin veya yalnızca `config.json` dosyasına çalışma başvuran başka bir dizin.
+
+>[!NOTE] 
+>Diğer betikleri ya da aynı dizinde veya aşağıda not defterleri ile çalışma yükler `ws=Workspace.from_config()`
+
 ## <a name="azure-notebooks-and-data-science-virtual-machine"></a>Azure not defterleri ve veri bilimi sanal makinesi
 
 Azure Machine Learning hizmeti ile çalışacak şekilde önceden yapılandırılmış Azure not defterleri ve Azure veri bilimi sanal makineleri (DSVM). Azure Machine Learning SDK'yı gibi gerekli bileşenler bu ortamda önceden yüklenmiş durumdadır.
@@ -98,7 +111,7 @@ Azure Machine Learning hizmeti ile Azure not defterleri kullanma örneği için 
 3. Azure Machine Learning SDK'sı ile dizüstü ek özellikler yüklemek için aşağıdaki komutu kullanın:
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl,contrib]
+    pip install --upgrade azureml-sdk[notebooks,automl]
     ```
 
     Uygulamanın, SDK'yı yüklemek için birkaç dakika sürebilir.
@@ -155,7 +168,7 @@ Azure Machine Learning hizmeti ile Azure not defterleri kullanma örneği için 
 2. Azure Machine Learning SDK'sını yüklemek için aşağıdaki komutu kullanın:
  
     ```shell
-    pip install --upgrade azureml-sdk[automl,contrib]
+    pip install --upgrade azureml-sdk[automl]
     ```
 
 4. Yapay ZEKA için Visual Studio code araçları yüklemek için Visual Studio Market girdisine bakın [yapay ZEKA Araçları](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai). 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 54812ed8b53143d8fa156149bfb2c7adff7da98d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b731b280b3e97076014f609571766a07a3dde1ea
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381737"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159899"
 ---
 # <a name="string-claims-transformations"></a>Dize talep dönüşümleri
 
@@ -150,7 +150,7 @@ Bu dönüşüm talep kullanımı bir dize ClaimType değeri ayarlayın.
 
 ## <a name="compareclaims"></a>CompareClaims
 
-Tek bir dize talep diğerine eşit olup olmadığını belirler. Yeni bir Boole ClaimType boolean değerini sonucudur `true` veya `false`.
+Tek bir dize talep diğerine eşit olup olmadığını belirler. Değerine sahip yeni bir Boole ClaimType sonucudur `true` veya `false`.
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
