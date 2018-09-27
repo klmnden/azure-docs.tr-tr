@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52aabcfd908afeea3bb9bf36eefad706b74d8ba9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954407"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227155"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan yaygın terimlerin bazıları listelenmektedir.
@@ -27,7 +27,7 @@ Azure IOT hub otomatik cihaz Yönetimi döngülerini tamamına büyük cihaz fil
 ## <a name="automatic-device-configuration"></a>Otomatik cihaz yapılandırması
 Çözüm arka ucunuz kullanabilirsiniz [otomatik cihaz yapılandırmaları](iot-hub-auto-device-config.md) bir dizi için istenen özellikler atamak [cihaz ikizlerini](#device-twin) ve sistem ölçümlerini ve özel ölçüm kullanarak rapor durumu. 
 
-## <a name="azure-classic-cli"></a>Klasik Azure CLI
+## <a name="azure-classic-cli"></a>Azure klasik CLI
 [Azure Klasik CLI](../cli-install-nodejs.md) oluşturmak ve Microsoft Azure kaynaklarını yönetmek için bir platformlar arası, açık kaynaklı, kabuk tabanlı komut aracı. CLI'ın bu sürümü yalnızca klasik dağıtımlar için kullanılmalıdır.
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -136,7 +136,7 @@ A [cihaz ikizi](iot-hub-devguide-device-twins.md) meta veriler, yapılandırmala
 Cihaz ikizi, modül ikizi meta veriler, yapılandırmalar ve koşullar gibi modülü durum bilgilerini depolayan JSON belgesini benzer. IOT Hub, IOT hub'ınızda bir cihaz kimliği altında sağlamanız her bir modül kimliği için bir modül ikizi'ni kalıcıdır. Modül ikizlerini modülü koşullar ve yapılandırmaları modülü ve çözüm arka ucu arasında eşitleme sağlar. Modül ikizlerini belirli modüller bulun ve uzun süre çalışan işlemlerinin durumunu sorgulamak için sorgu oluşturabilirsiniz.
 
 ## <a name="twin-queries"></a>Çifti sorguları
-[Cihaz ve modül ikizi sorgularını](iot-hub-devguide-query-language.md) cihaz ikizlerini ya da modül ikizlerini bilgileri almak için SQL benzeri IOT Hub sorgu dili kullanın. Aynı IOT Hub sorgu dili hakkında bilgi almak için kullanabileceğiniz [ ](#job) IOT hub'ına çalışıyor.
+[Cihaz ve modül ikizi sorgularını](iot-hub-devguide-query-language.md) cihaz ikizlerini ya da modül ikizlerini bilgileri almak için SQL benzeri IOT Hub sorgu dili kullanın. Aynı IOT Hub sorgu dili hakkında bilgi almak için kullanabileceğiniz [](#job) IOT hub'ına çalışıyor.
 
 ## <a name="twin-synchronization"></a>İkiz eşitleme
 İkiz eşitleme kullandığı [istenen özellikleri](#desired-properties) cihazlar veya modülleri yapılandırmak ve almak için cihaz ikizlerini veya modül ikizlerini [bildirilen özellikler](#reported-properties) onlardan çiftine depolamak için.
@@ -177,7 +177,7 @@ IOT Hub, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü ileti�
 [IOT hub'ı ölçümleri](iot-hub-metrics.md) IOT hub'ı durumuyla ilgili size, [Azure aboneliği](#subscription). IOT hub'ı ölçümleri, hizmet ve ona bağlı cihazların genel durumunu değerlendirmek etkinleştirin. IOT hub'ı ölçümleri, IOT hub'ınıza neler olduğunu görebilir ve Azure desteğine başvurun gerek kalmadan kök neden sorunları araştırmanıza yardımcı olabilir.
 
 ## <a name="iot-hub-query-language"></a>IOT Hub sorgu dili
-[IOT Hub sorgu dili](iot-hub-devguide-query-language.md) sorguya sağlayan bir SQL benzeri dili, [ ](#job) ve cihaz ikizleri.
+[IOT Hub sorgu dili](iot-hub-devguide-query-language.md) sorguya sağlayan bir SQL benzeri dili, [](#job) ve cihaz ikizleri.
 
 ## <a name="iot-hub-resource-rest-api"></a>IOT hub'ı kaynak REST API
 Kullanabileceğiniz [IOT hub'ı kaynak REST API'si](https://docs.microsoft.com/rest/api/iothub/iothubresource) IOT hub'ı yönetmek için [Azure aboneliği](#subscription) oluşturma, güncelleştirme ve hub'ları silme gibi işlemleri gerçekleştirme.
@@ -219,7 +219,7 @@ Bağlamında bir [cihaz ikizi](iot-hub-devguide-device-twins.md), özellikleri i
 [Azure Resource Manager](#azure-resource-manager) ilgili kaynakları bir araya gruplamak için kaynak gruplarını kullanır. Bir kaynak grubu, tüm kaynak grubunda aynı anda işlemleri için kullanabilirsiniz.
 
 ## <a name="retry-policy"></a>Yeniden deneme ilkesi
-İşlemek için bir yeniden deneme ilkesini kullanacak [geçici hatalar](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) bir bulut hizmetine bağladığınızda.
+İşlemek için bir yeniden deneme ilkesini kullanacak [geçici hatalar](/azure/architecture/best-practices/transient-faults) bir bulut hizmetine bağladığınızda.
 
 ## <a name="routing-rules"></a>Yönlendirme kuralları
 Yapılandırdığınız [yönlendirme kuralları](iot-hub-devguide-messages-read-custom.md) CİHAZDAN buluta iletileri yönlendirmek için IOT hub'ınızda bir [yerleşik uç nokta](#built-in-endpoints) veya [özel uç noktalar](#custom-endpoints) çözüm arka ucunuz tarafından işlenmek .

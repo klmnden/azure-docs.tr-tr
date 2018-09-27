@@ -10,12 +10,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: b7a6d449e7b8d0f3980a38767147e6b3a37f8e0f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f2f5aebf32cf5860ca8fc32ab741177c6df15c60
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996018"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227206"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Spark'tan Azure Cosmos DB Cassandra API'sine bağlanma
 
@@ -24,12 +24,12 @@ Bu makalede bir dizi makale Azure Cosmos DB Cassandra API'sine tümleştirme spa
 ## <a name="prerequisites"></a>Önkoşullar
 * [Bir Azure Cosmos DB Cassandra API hesabı sağlayın.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Spark ortam tercih ettiğiniz sağlama [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | [Diğer].
+* Spark ortam tercih ettiğiniz sağlama [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Diğer].
 
 ## <a name="dependencies-for-connectivity"></a>Bağlantı için bağımlılıklar
-* **Cassandra için Datastax Spark Bağlayıcısı:** Datastax Spark Bağlayıcısı Azure Cosmos DB Cassandra API'sine bağlanmak için kullanılır.  Tanımlamak ve bulunan bağlayıcı sürümünü kullanmanız [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) Spark ortamınızı Spark ve Scala sürümleriyle uyumlu.
+* **Cassandra için Spark Bağlayıcısı:** Spark Bağlayıcısı Azure Cosmos DB Cassandra API'sine bağlanmak için kullanılır.  Tanımlamak ve bulunan bağlayıcı sürümünü kullanmanız [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) Spark ortamınızı Spark ve Scala sürümleriyle uyumlu.
 
-* **Cassandra API'si için Azure Cosmos DB yardımcı kitaplık:** Datastax bağlayıcı ek olarak, adlı başka bir kitaplığı ihtiyacınız [azure-cosmos-cassandra-spark-Yardımcısı]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) Azure Cosmos DB'den. Bu kitaplık bir bağlantısı üretecini ve özel bir yeniden deneme ilkesi sınıfları içerir.
+* **Cassandra API'si için Azure Cosmos DB yardımcı kitaplık:** yanı sıra Spark Bağlayıcısı, adlı başka bir kitaplığı ihtiyacınız [azure-cosmos-cassandra-spark-Yardımcısı]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) Azure Cosmos DB'den. Bu kitaplık bir bağlantısı üretecini ve özel bir yeniden deneme ilkesi sınıfları içerir.
 
   Azure Cosmos DB'de yeniden deneme ilkesi, HTTP durum kodu 429 ("istek oranı büyük") özel durumları işlemek için yapılandırılır. Azure Cosmos DB Cassandra API'SİNİN bu özel durumları aşırı yüklenmiş hatalara Cassandra yerel protokolüne çeviren ve arka istenmesi ile yeniden deneyebilirsiniz. Azure Cosmos DB, sağlanan aktarım hızı modeli kullandığından, giriş/çıkış artış derecelendirir istek hızı sınırlama özel durumları ortaya çıkar. Yeniden deneme ilkesi, spark işleri kısa bir süre içinde koleksiyonunuz için ayrılan aktarım hızını aşmayı veri ani karşı korur.
 
@@ -40,7 +40,7 @@ Bu makalede bir dizi makale Azure Cosmos DB Cassandra API'sine tümleştirme spa
     
 ## <a name="spark-connector-throughput-configuration-parameters"></a>Spark Bağlayıcısı aktarım hızı yapılandırma parametreleri
 
-Aşağıdaki tablo, Azure Cosmos DB Cassandra API'si-özel bağlayıcı tarafından sağlanan aktarım hızı yapılandırma parametreleri listeler. Tüm yapılandırma parametreleri ayrıntılı bir listesi için bkz. [yapılandırma başvurusu](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) DataStax Spark Cassandra bağlayıcı GitHub deposunun sayfası.
+Aşağıdaki tablo, Azure Cosmos DB Cassandra API'si-özel bağlayıcı tarafından sağlanan aktarım hızı yapılandırma parametreleri listeler. Tüm yapılandırma parametreleri ayrıntılı bir listesi için bkz. [yapılandırma başvurusu](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) Spark Cassandra bağlayıcı GitHub deposunun sayfası.
 
 | **Özellik adı** | **Varsayılan değer** | **Açıklama** |
 |---------|---------|---------|
@@ -80,14 +80,14 @@ Yukarıdaki bölümlerde Azure Spark tabanlı PaaS hizmetlerine belirli olmakla 
 
 #### <a name="connector-dependencies"></a>Bağlayıcı bağımlılıkları:
 
-1. Ekleme için maven koordinatları [Spark için Datastax Cassandra Bağlayıcısı](cassandra-spark-generic.md#dependencies-for-connectivity)
+1. Maven koordinatları alınacak ekleme [Cassandra Spark Bağlayıcısı](cassandra-spark-generic.md#dependencies-for-connectivity)
 2. Ekleme için maven koordinatları [Azure Cosmos DB yardımcı kitaplık](cassandra-spark-generic.md#dependencies-for-connectivity) Cassandra API'si
 
 #### <a name="imports"></a>İçeri aktarmalar:
 
 ```scala
 import org.apache.spark.sql.cassandra._
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 
