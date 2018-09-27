@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: 143e6c2856485e33022254abfcf0cf3806b30cef
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: a0d75b13369cff4e99bef6f57a3b01f3d8eee6e4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025782"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227172"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack sanal makinelerine giriş
 
@@ -99,7 +99,7 @@ Aşağıdaki tablodaki kaynaklar VM tarafından kullanılır ve mevcut veya sana
 |Kaynak|Gerekli|Açıklama|
 |---------|---------|---------|
 |Kaynak grubu|Evet|VM bir kaynak grubunda yer almalıdır.|
-|Depolama hesabı|Hayır|VM mu değil, yönetilen diskler kullanıyorsanız, sanal sabit disklerini depolamak için depolama hesabı gerekir. <br>VM, yönetilmeyen diskler kullanıyorsanız, sanal sabit disklerini depolamak için depolama hesabınızın olması gerekir.|
+|Depolama hesabı|Hayır|VM'yi yönetilen diskleri kullanıyorsanız, sanal sabit disklerini depolamak için depolama hesabı gerektirmez. <br>VM, yönetilmeyen diskler kullanıyorsanız, sanal sabit disklerini depolamak için depolama hesabınızın olması gerekir.|
 |Sanal ağ|Evet|VM’in bir sanal ağa üye olması gerekir.|
 |Genel IP adresi|Hayır|VM, uzaktan erişim için atanmış bir genel IP adresine sahip olabilir.|
 |Ağ arabirimi|Evet|VM’in ağda iletişim kurabilmek için ağ arabirimine ihtiyacı vardır.|

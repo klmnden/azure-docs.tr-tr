@@ -19,12 +19,14 @@
 #### [Azure Uygulamaları: Yönetilen uygulamalar](./marketplace-managed-apps.md)
 #### [SaaS Uygulamaları](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [Kapsayıcılar](./marketplace-containers.md)
+#### [IoT Edge modülleri](./iot-edge-module.md) 
 #### [Danışmanlık Hizmetleri](./consulting-services.md)  
 #### [Office 365, Dynamics 365 ve Power BI yayımlama kılavuzu](./appsource-offer-publishing-guide.md)
 #### [Azure Active Directory kullanarak Microsoft AppSource ve Azure Marketi listesini etkinleştirme](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [İşletmenizi market ile büyütme](./grow-your-business-with-azure-marketplace.md)  
 #### [Tercih edilen çözümler](./preferred-solutions.md) 
+#### [Market içerik doğrulaması](./marketplace-criteria-content-validation.md)
 
 ### [Azure Market ve AppSource desteği](./support-azure-marketplace.md)  
 

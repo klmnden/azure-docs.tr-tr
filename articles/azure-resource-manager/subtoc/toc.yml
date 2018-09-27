@@ -273,10 +273,10 @@ items:
   - name: Diskler
     href: /azure/templates/Microsoft.Compute/disks
     maintainContext: true
-  - name: Galeriler
+  - name: Paylaşılan Görüntü Galerisi
     href: /azure/templates/Microsoft.Compute/galleries
     items:
-    - name: Görüntüler
+    - name: Görüntü Tanımı
       href: /azure/templates/Microsoft.Compute/galleries/images
       items:
       - name: Sürümler
@@ -974,22 +974,6 @@ items:
   - name: Arama Hizmetleri
     href: /azure/templates/Microsoft.Search/searchServices
     maintainContext: true
-- name: Sunucu Yönetimi
-  items:
-  - name: Ağ geçitleri
-    href: /azure/templates/Microsoft.ServerManagement/gateways
-    maintainContext: true
-  - name: Düğümler
-    href: /azure/templates/Microsoft.ServerManagement/nodes
-    items:
-    - name: Oturumlar
-      href: /azure/templates/Microsoft.ServerManagement/nodes/sessions
-      items:
-      - name: PS Oturumları
-        href: /azure/templates/Microsoft.ServerManagement/nodes/sessions/features/pssessions
-        maintainContext: true
-      maintainContext: true
-    maintainContext: true
 - name: Service Bus
   items:
   - name: Ad Alanları
@@ -1040,18 +1024,77 @@ items:
   - name: Sunucular
     href: /azure/templates/Microsoft.Sql/servers
     items:
+    - name: Yöneticiler
+      href: /azure/templates/Microsoft.Sql/servers/administrators
+      maintainContext: true
+    - name: Danışmanlar
+      href: /azure/templates/Microsoft.Sql/servers/advisors
+      maintainContext: true
+    - name: Denetim İlkeleri
+      href: /azure/templates/Microsoft.Sql/servers/auditingPolicies
+      maintainContext: true
+    - name: Yedekleme ve Uzun Süre Tutma Kasaları
+      href: /azure/templates/Microsoft.Sql/servers/backupLongTermRetentionVaults
+      maintainContext: true
+    - name: İletişim Bağlantıları
+      href: /azure/templates/Microsoft.Sql/servers/communicationLinks
+      maintainContext: true
+    - name: Bağlantı İlkeleri
+      href: /azure/templates/Microsoft.Sql/servers/connectionPolicies
+      maintainContext: true
     - name: Veritabanları
       href: /azure/templates/Microsoft.Sql/servers/databases
       items:
+      - name: Danışmanlar
+        href: /azure/templates/Microsoft.Sql/servers/databases/advisors
+        maintainContext: true
+      - name: Denetim İlkeleri
+        href: /azure/templates/Microsoft.Sql/servers/databases/auditingPolicies
+        maintainContext: true
       - name: Denetim Ayarları
         href: /azure/templates/Microsoft.Sql/servers/databases/auditingSettings
         maintainContext: true
       - name: Yedekleme Uzun Süreli Saklama İlkeleri
         href: /azure/templates/Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies
         maintainContext: true
+      - name: Bağlantı İlkeleri
+        href: /azure/templates/Microsoft.Sql/servers/databases/connectionPolicies
+        maintainContext: true
+      - name: Veri Maskeleme İlkeleri
+        href: /azure/templates/Microsoft.Sql/servers/databases/dataMaskingPolicies
+        items:
+        - name: Kurallar
+          href: /azure/templates/Microsoft.Sql/servers/databases/dataMaskingPolicies/rules
+          maintainContext: true
+        maintainContext: true
+      - name: Genişletilmiş Denetim Ayarları
+        href: /azure/templates/Microsoft.Sql/servers/databases/extendedAuditingSettings
+        maintainContext: true
+      - name: Uzantılar
+        href: /azure/templates/Microsoft.Sql/servers/databases/extensions
+        maintainContext: true
+      - name: Coğrafi Yedekleme İlkeleri
+        href: /azure/templates/Microsoft.Sql/servers/databases/geoBackupPolicies
+        maintainContext: true
+      - name: Güvenlik Uyarısı İlkeleri
+        href: /azure/templates/Microsoft.Sql/servers/databases/securityAlertPolicies
+        maintainContext: true
+      - name: Eşitleme Grupları
+        href: /azure/templates/Microsoft.Sql/servers/databases/syncGroups
+        items:
+        - name: Eşitleme Üyeleri
+          href: /azure/templates/Microsoft.Sql/servers/databases/syncGroups/syncMembers
+          maintainContext: true
+        maintainContext: true
       - name: Saydam Veri Şifrelemesi
         href: /azure/templates/Microsoft.Sql/servers/databases/transparentDataEncryption
         maintainContext: true
+      maintainContext: true
+    - name: Olağanüstü Durum Kurtarma Yapılandırması
+      href: /azure/templates/Microsoft.Sql/servers/disasterRecoveryConfiguration
+      maintainContext: true
+    - name: DNS Diğer Adları
+      href: /azure/templates/Microsoft.Sql/servers/dnsAliases
       maintainContext: true
     - name: Esnek Havuzlar
       href: /azure/templates/Microsoft.Sql/servers/elasticPools
@@ -1059,14 +1102,43 @@ items:
     - name: Şifreleme Koruyucusu
       href: /azure/templates/Microsoft.Sql/servers/encryptionProtector
       maintainContext: true
+    - name: Genişletilmiş Denetim Ayarları
+      href: /azure/templates/Microsoft.Sql/servers/extendedAuditingSettings
+      maintainContext: true
     - name: Yük Devretme Grupları
       href: /azure/templates/Microsoft.Sql/servers/failoverGroups
       maintainContext: true
     - name: Güvenlik Duvarı Kuralları
       href: /azure/templates/Microsoft.Sql/servers/firewallRules
       maintainContext: true
+    - name: İş Aracıları
+      href: /azure/templates/Microsoft.Sql/servers/jobAgents
+      items:
+      - name: Kimlik Bilgileri
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/credentials
+        maintainContext: true
+      - name: İşler
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs
+        items:
+        - name: Yürütmeler
+          href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs/executions
+          maintainContext: true
+        - name: Adımlar
+          href: /azure/templates/Microsoft.Sql/servers/jobAgents/jobs/steps
+          maintainContext: true
+        maintainContext: true
+      - name: Hedef Gruplar
+        href: /azure/templates/Microsoft.Sql/servers/jobAgents/targetgroups
+        maintainContext: true
+      maintainContext: true
     - name: Anahtarlar
       href: /azure/templates/Microsoft.Sql/servers/keys
+      maintainContext: true
+    - name: Güvenlik Uyarısı İlkeleri
+      href: /azure/templates/Microsoft.Sql/servers/securityAlertPolicies
+      maintainContext: true
+    - name: Eşitleme Aracıları
+      href: /azure/templates/Microsoft.Sql/servers/syncAgents
       maintainContext: true
     - name: Sanal Ağ Kuralları
       href: /azure/templates/Microsoft.Sql/servers/virtualNetworkRules
@@ -1232,9 +1304,9 @@ items:
         maintainContext: true
       maintainContext: true
     maintainContext: true
-ms.openlocfilehash: f54d4b1a72752571605a894a3be94025e8fce451
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b635a83e709da5ea4ff91d5bb4d6914059ea23a8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984433"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166121"

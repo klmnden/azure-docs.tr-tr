@@ -514,8 +514,6 @@ items:
           href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Sorun giderme
           href: ../monitoring/monitoring-container-insights-troubleshoot.md
-      - name: AKS kapsayıcı durumu
-        href: ../monitoring/monitoring-container-health.md?toc=/azure/azure-monitor/toc.json
       - name: Docker ve Windows Kapsayıcıları’nı izleme
         href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
       - name: Docker uygulamalarını izleme
@@ -639,8 +637,6 @@ items:
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Günlük verilerini sorgulama
       items:
-      - name: Dil başvurusu
-        href: https://docs.loganalytics.io
       - name: başlarken
         items:
         - name: Analytics portalını kullanmaya başlama
@@ -678,7 +674,9 @@ items:
       - name: Dil başvurusu
         items:
         - name: Dil başvurusu
-          href: https://aka.ms/LogAnalyticsLanguageReference
+          href: /azure/kusto/query
+        - name: Kusto ile farklılıklar
+          href: ../log-analytics/query-language/kusto.md
         - name: uygulama ifadesi
           href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
         - name: çalışma alanı ifadesi
@@ -980,9 +978,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kod örnekleri
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: c0706842080ab163e74e0eb085c8e80bd01800e7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ef2057d55903d3fdc4d2fc7f914f29e84cffc638
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056735"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181974"

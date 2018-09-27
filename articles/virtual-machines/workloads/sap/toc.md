@@ -45,8 +45,9 @@
 ### [Azure üzerinde SAP HANA kullanılabilirliğine genel bakış](sap-hana-availability-overview.md)
 ### [Tek Azure bölgesi içinde Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-one-region.md)
 ### [Azure bölgeleri arasında Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-across-regions.md)
-## [SLES üzerinde SAP HANA Sistem Çoğaltması ayarlama](sap-hana-high-availability.md)
-## [RHEL üzerinde SAP HANA Sistem Çoğaltması ayarlama](sap-hana-high-availability-rhel.md)
+### [SLES üzerinde SAP HANA Sistem Çoğaltması ayarlama](sap-hana-high-availability.md)
+### [RHEL üzerinde SAP HANA Sistem Çoğaltması ayarlama](sap-hana-high-availability-rhel.md)
+### [SAP HANA ölçeğini genişletme ve SLES üzerinde Pacemaker sorunlarını giderme](hana-vm-troubleshoot-scale-out-ha-on-sles.md)
 ## [SAP HANA yedeklemesine genel bakış](sap-hana-backup-guide.md)
 ## [SAP HANA dosya düzeyi yedekleme](sap-hana-backup-file-level.md)
 ## [SAP HANA depolama anlık görüntüsü yedekleri](sap-hana-backup-storage-snapshots.md)
@@ -107,3 +108,4 @@
 ## [Azure Data Factory, SAP HANA ve Business Warehouse veri tümleştirmesi sunuyor](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
+

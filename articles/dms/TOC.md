@@ -8,6 +8,7 @@
 ## [SQL Server’ı Azure SQL DB’ye çevrimdışı geçirme](tutorial-sql-server-to-azure-sql.md)
 ## [SQL Server’ı Azure SQL DB’ye çevrimiçi geçirme](tutorial-sql-server-azure-sql-online.md)
 ## [SQL Server’ı Azure SQL DB Yönetilen Örneğine çevrimdışı geçirme](tutorial-sql-server-to-managed-instance.md)
+## [SQL Server’ı Azure SQL DB Yönetilen Örneğine çevrimiçi geçirme](tutorial-sql-server-managed-instance-online.md)
 ## [MySQL’i MySQL için Azure DB’ye çevrimiçi geçirme](tutorial-mysql-azure-mysql-online.md)
 ## [PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure DB‘ye geçirme](tutorial-postgresql-azure-postgresql-online.md)
 

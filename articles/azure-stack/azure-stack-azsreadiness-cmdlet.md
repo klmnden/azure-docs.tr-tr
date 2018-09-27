@@ -1,6 +1,6 @@
 ---
-title: Start-AzsReadinessChecker cmdlet başvurusu | Microsoft Docs
-description: Azure yığın hazırlık denetleyicisi modülü için PowerShell cmdlet Yardımı.
+title: Başlangıç AzsReadinessChecker cmdlet başvurusu | Microsoft Docs
+description: Azure Stack hazırlık denetleyicisi modülü için PowerShell cmdlet Yardımı.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 09/26/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 8481fbd6c7cb82b34070f9bc8cc6d7f3f4b2518c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a5b2a30549072387df0ae9300de6523ba4069514
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937871"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221290"
 ---
-# <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet başvurusu
+# <a name="start-azsreadinesschecker-cmdlet-reference"></a>Başlangıç AzsReadinessChecker cmdlet başvurusu
 
 Modül: Microsoft.AzureStack.ReadinessChecker
 
-Bu modül, yalnızca tek bir cmdlet içerir.  Bu cmdlet bir veya daha fazla dağıtım öncesi veya önceden bakım işlevleri için Azure yığın gerçekleştirir.
+Bu modül, yalnızca tek bir cmdlet içerir.  Bu cmdlet, Azure Stack için bir veya daha fazla dağıtım öncesi veya önceden bakım işlemleri gerçekleştirir.
 
 ## <a name="syntax"></a>Sözdizimi
 ```PowerShell
@@ -168,36 +168,36 @@ Start-AzsReadinessChecker
 
 
  ## <a name="description"></a>Açıklama
-**Başlangıç AzsReadinessChecker** cmdlet, sertifikaları, Azure hesapları, Azure abonelikleri ve Azure Active dizinleri doğrular. Doğrulama Azure yığın dağıtmadan önce ya da Azure gizli döndürme gibi eylemleri bakım yığını önce çalıştırın. Cmdlet, altyapı sertifikaları ve isteğe bağlı olarak PaaS sertifikaları için sertifika imzalama istekleri oluşturmak için de kullanılabilir.  Son olarak, cmdlet paketleme ile ilgili genel sorunları düzeltmek için PFX sertifikaları paketleyebilirsiniz.
+**Başlangıç AzsReadinessChecker** cmdlet'i, sertifikaları, Azure hesapları, Azure abonelikleri ve Azure Active dizin doğrular. Azure Stack dağıtmadan önce ya da Azure Stack gizli döndürme gibi eylemleri bakım önce doğrulama çalıştırın. Cmdlet, altyapı sertifikaları ve isteğe bağlı olarak PaaS sertifikalar için sertifika imzalama isteği oluşturmak için de kullanılabilir.  Son olarak, cmdlet ortak paketleme sorunlarını düzeltmek için PFX sertifikaları paketleyebilirsiniz.
 
 ## <a name="examples"></a>Örnekler
-**Örnek: Sertifika imzalama isteği oluştur**
+**Örnek: Sertifika imzalama isteği oluşturma**
 
 ```PowerShell
 $regionName = 'east'
 $externalFQDN = 'azurestack.contoso.com'
 $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
-Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subjectName $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
+Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subject $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
 ```
 
-Bu örnekte, birden çok sertifika imzalama isteği (CSR) için bir bölge adı "Doğu" ile bir ADFS Azure yığın dağıtım için uygun sertifikaların ve "azurestack.contoso.com" dış FQDN'si başlangıç AzsReadinessChecker oluşturur
+Bu örnekte, birden çok sertifika imzalama isteği (CSR) bölge adı "Doğu" ile ADFS Azure Stack dağıtımı için uygun sertifikaların ve "azurestack.contoso.com" dış FQDN'si başlangıç AzsReadinessChecker oluşturur
 
-**Örnek: sertifikaları doğrular**
+**Örnek: Sertifika doğrulama**
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-Bu örnekte, PFX parola için güvenli bir şekilde istenir ve geçerli bir AAD dağıtımı "Doğu" ve "azurestack.contoso.com" dış FQDN'si için bir bölge adı ile sertifikalar için "Sertifikalar" göreli klasör başlangıç AzsReadinessChecker denetler 
+Bu örnekte, PFX parolasını güvenli bir şekilde istenir ve geçerli bir AAD dağıtımı "Doğu" ve "azurestack.contoso.com" dış FQDN'si için bir bölge adı ile sertifikalar için göreli klasörü "Sertifikalar" Başlangıç AzsReadinessChecker denetler 
 
-**Örnek: dağıtım verilerle (dağıtım ve destek) sertifika doğrulama**
+**Örnek: sertifikaları dağıtım verileri (dağıtım ve destek) ile doğrulama**
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
-Bu dağıtım ve Destek örnekte PFX parola için güvenli bir şekilde istenir ve başlangıç AzsReadinessChecker sertifikalar burada kimlik, bölge ve dış FQDN okunur gelen bir dağıtım için geçerli göreli klasör "Sertifikalar" denetler dağıtımı için oluşturulan dağıtım veri JSON dosyası. 
+Bu dağıtım ve Destek örnekte PFX parolasını güvenli bir şekilde istenir ve başlangıç AzsReadinessChecker sertifikalar burada kimlik, bölge ve dış FQDN okunur gelen bir dağıtım için geçerli göreli klasörü "Sertifikalar" denetler dağıtım için oluşturulan dağıtım verileri JSON dosyası. 
 
-**Örnek: PaaS sertifikaları doğrular**
+**Örnek: PaaS sertifikalarını doğrulama**
 ```PowerShell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -209,9 +209,9 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates – RegionName east -FQDN azurestack.contoso.com
 ```
 
-Bu örnekte, bir karma tablosu yolları ve her PaaS sertifika için parola ile oluşturulur. Sertifikaları atlanabilir. Başlangıç AzsReadinessChecker her PFX yolunun var olduğunu ve bölge 'Doğu' kullanarak bunları ve dış FQDN 'azurestack.contoso.com' doğrular denetler.
+Bu örnekte, bir karma tablosu yolları ve her bir PaaS sertifikanın parolaları ile oluşturulur. Sertifikaları atlanabilir. Başlangıç AzsReadinessChecker her PFX yolun mevcut olduğunu ve bölge 'Doğu' kullanarak bunları ve dış FQDN 'azurestack.contoso.com' doğrular denetler.
 
-**Örnek: Dağıtım verilerle PaaS sertifika doğrulama**
+**Örnek: PaaS sertifikalarla dağıtım verileri doğrulama**
 ```PowerShell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -223,7 +223,7 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-Bu örnekte, bir karma tablosu yolları ve her PaaS sertifika için parola ile oluşturulur. Sertifikaları atlanabilir. Başlangıç AzsReadinessChecker her PFX yolunun var olduğunu ve bölge kullanarak bunları doğrular ve dış FQDN dağıtımı için oluşturulan dağıtım veri JSON dosyasından okunan denetler. 
+Bu örnekte, bir karma tablosu yolları ve her bir PaaS sertifikanın parolaları ile oluşturulur. Sertifikaları atlanabilir. Başlangıç AzsReadinessChecker her PFX yolun mevcut olduğunu ve bölge kullanarak bunları doğrular ve dağıtım için oluşturulan dağıtım verileri JSON dosyasından dış FQDN okuma denetler. 
 
 **Örnek: Azure kimlik doğrulama**
 ```PowerShell
@@ -231,7 +231,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-Bu örnekte, Hizmet Yöneticisi hesap kimlik bilgilerini güvenli bir şekilde istenir ve Azure Active Directory ve Azure hesabın geçerli bir AAD dağıtımı "azurestack.contoso.com" için bir kiracı dizin adı ile başlangıç AzsReadinessChecker denetler
+Bu örnekte, hizmet yönetici hesabının kimlik bilgilerini güvenli bir şekilde istenir ve Azure Active Directory ve Azure hesabı, geçerli bir AAD dağıtımı "azurestack.contoso.com" için bir kiracı dizin adı ile başlangıç AzsReadinessChecker denetler.
 
 
 **Örnek: Veri dağıtımı (dağıtım desteği) ile Azure kimlik doğrulama**
@@ -240,7 +240,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-depploymentdata.json
 ```
 
-Bu örnekte, Hizmet Yöneticisi hesap kimlik bilgilerini güvenli bir şekilde istenir ve başlangıç AzsReadinessChecker Azure hesabı ve Azure Active Directory AzureCloud ve TenantName dağıtım verilerinden burada okunan bir AAD dağıtım için geçerli olup olmadığını denetler Dağıtımı için oluşturulan JSON dosyası.
+Bu örnekte, hizmet yönetici hesabının kimlik bilgilerini güvenli bir şekilde istenir ve Azure hesabı ve Azure Active Directory AzureCloud ve Kiracıadı dağıtım verileri nerede okumak bir AAD dağıtım için geçerli olan başlangıç AzsReadinessChecker denetler Dağıtım için oluşturulan JSON dosyası.
 
 
 **Örnek: Azure kaydı doğrula**
@@ -250,7 +250,7 @@ $subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment AzureCloud
 ```
 
-Bu örnekte, abonelik sahibi kimlik bilgileri güvenli bir şekilde istenir ve başlangıç AzsReadinessChecker verilen hesap karşı doğrulama gerçekleştirir ve emin olmak için abonelik Azure yığın kaydı için kullanılabilir. 
+Bu örnekte, abonelik sahibi kimlik bilgilerini güvenli bir şekilde istenir ve başlangıç AzsReadinessChecker belirli bir hesaba karşı doğrulama gerçekleştirir ve abonelik emin olmak için Azure Stack kayıt için kullanılabilir. 
 
 
 **Örnek: Veri dağıtımı (dağıtım ekibi) ile Azure kaydı doğrula**
@@ -260,7 +260,7 @@ $subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-Bu örnekte, abonelik sahibi kimlik bilgileri güvenli bir şekilde istenir ve başlangıç AzsReadinessChecker verilen hesap karşı doğrulama gerçekleştirir ve abonelik emin olmak için ek ayrıntılar nerede Azure yığın kaydı için kullanılabilir dağıtımı için oluşturulan dağıtım verileri JSON dosyası okunamıyor.
+Bu örnekte, abonelik sahibi kimlik bilgilerini güvenli bir şekilde istenir ve başlangıç AzsReadinessChecker belirli bir hesaba karşı doğrulama gerçekleştirir ve abonelik emin olmak için ek ayrıntılar olduğu Azure Stack kayıt için kullanılabilir dağıtım için oluşturulan dağıtım verileri JSON dosyasından okuyun.
 
 **Örnek: İçeri/dışarı aktarma PFX paketi**
 ```PowerShell
@@ -268,60 +268,60 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
 ```
 
-Bu örnekte, PFX parolası için güvenli bir şekilde istenir. Ssl.pfx dosyası yerel makine sertifika deposuna içe ve aynı parolayı yeniden dışarı ve ssl_new.pfx kaydedilir.  Bu yordamı bir özel anahtar yerel makine özniteliği kümesine sahip değildir, sertifika zinciri bozuk olduğundan, ilgisiz sertifikaların PFX mevcut olduğunu veya sertifika zinciri yanlış sırayla, sertifika doğrulama bayrak eklendiğinde kullanımı içindir.
+Bu örnekte, PFX parolasını güvenli bir şekilde istenir. Ssl.pfx dosya yerel makine sertifika deposuna ve aynı parola ile yeniden dışarı ve ssl_new.pfx kaydedilir.  Sertifika doğrulaması yerel makine öznitelik kümesi özel bir anahtara sahip değil, sertifika zinciri bozuk, ilgisiz sertifikaların PFX'e mevcut olduğunu veya sertifika zinciri yanlış sırada bayrak eklendiğinde bu yordamı için kullanılır.
 
 
-**Örnek: Görünümü doğrulama raporu (dağıtım desteği)**
+**Örnek: Görünüm doğrulama raporu (dağıtım desteği)**
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 ```
 
-Bu örnekte, dağıtım veya destek ekibi müşteri (Contoso) hazırlık raporu alır ve başlangıç AzsReadinessChecker Contoso gerçekleştirilen doğrulama yürütmeleri durumunu görüntülemek için kullanın.
+Bu örnekte, dağıtım veya destek ekibi hazırlık raporu (Contoso) müşteriden almak ve başlangıç AzsReadinessChecker Contoso gerçekleştirilen doğrulama yürütme durumunu görüntülemek için kullanın.
 
-**Örnek: Sertifika doğrulama yalnızca (dağıtım ve destek) Özet doğrulama raporunu görüntüle**
+**Örnek: sertifika doğrulaması yalnızca (dağıtım ve destek) Özet doğrulama raporunu görüntüle**
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary
 ```
 
-Bu örnekte, dağıtım veya destek ekibi müşteri Contoso hazırlık raporu alır ve başlangıç AzsReadinessChecker Contoso yapılan sertifika doğrulama yürütmeleri özetlenen durumunu görüntülemek için kullanın.
+Bu örnekte, dağıtım veya destek ekibi müşteriden Contoso Hazırlık raporunu almak ve başlangıç AzsReadinessChecker özetlenen Contoso yapılan sertifika doğrulama yürütme durumunu görüntülemek için kullanın.
 
 
 
 ## <a name="required-parameters"></a>Gerekli Parametreler
 > -RegionName
 
-Azure yığın dağıtımın bölge adı belirtir.
+Azure Stack dağıtımın bölge adı belirtir.
 |  |  |
 |----------------------------|--------------|
 |Şunu yazın:                       |Dize        |
-|Konum:                   |Adlı         |
+|Konum:                   |adlı         |
 |Varsayılan değer:              |None          |
-|Ardışık Düzen giriş kabul edin:      |False         |
+|Ardışık giriş yapılabilir:      |False         |
 |Joker karakterler kabul edin: |False         |
 
 > -FQDN    
 
-Azure yığın dağıtımın dış FQDN, ayrıca diğer ExternalFQDN ve ExternalDomainName olarak belirtir.
+Azure Stack dağıtımın dış FQDN, ayrıca diğer adlı ExternalFQDN ve ExternalDomainName olarak belirtir.
 |  |  |
 |----------------------------|--------------|
 |Şunu yazın:                       |Dize        |
-|Konum:                   |Adlı         |
+|Konum:                   |adlı         |
 |Varsayılan değer:              |ExternalFQDN, ExternalDomainName |
-|Ardışık Düzen giriş kabul edin:      |False         |
+|Ardışık giriş yapılabilir:      |False         |
 |Joker karakterler kabul edin: |False         |
 
  
 
 > -IdentitySystem    
 
-Azure yığın dağıtımın kimlik sistemi geçerli değerler, AAD veya ADFS, Azure Active Directory ve Active Directory Federasyon Hizmetleri için sırasıyla belirtir.
+Azure Stack dağıtımın kimlik sistemi geçerli değerler, AAD veya ADFS, Azure Active Directory ve Active Directory Federasyon Hizmetleri için sırasıyla belirtir.
 |  |  |
 |----------------------------|--------------|
 |Şunu yazın:                       |Dize        |
-|Konum:                   |Adlı         |
+|Konum:                   |adlı         |
 |Varsayılan değer:              |None          |
 |Geçerli değerler:               |'AAD', 'ADFS'  |
-|Ardışık Düzen giriş kabul edin:      |False         |
+|Ardışık giriş yapılabilir:      |False         |
 |Joker karakterler kabul edin: |False         |
 
 > -PfxPassword    
@@ -330,79 +330,79 @@ PFX sertifika dosyaları ile ilişkili parolayı belirtir.
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |SecureString |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -PaaSCertificates
 
-Yollar ve PaaS sertifikalar için parola içeren hashtable belirtir.
+Yollar ve parolaları PaaS sertifikaları içeren karma tablo belirtir.
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Hashtable |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -DeploymentDataJSONPath
 
-Azure yığın dağıtım veri JSON yapılandırma dosyası belirtir. Bu dosya, dağıtım için oluşturulur.
+Azure Stack dağıtım verileri JSON yapılandırma dosyasını belirtir. Bu dosya, dağıtım için oluşturulur.
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Dize   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -PfxPath
 
-İçeri/dışarı aktarma yordamı düzeltmek için bu aracı sertifika doğrulama belirtildiği gibi gerektirir sorunlu bir sertifika yolunu belirtir.
+Bu araç, sertifika doğrulama tarafından belirtildiği şekilde düzeltmek için içeri/dışarı aktarma yordamı gerektiren sorunlu bir sertifika yolunu belirtir.
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Dize   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -ExportPFXPath  
 
-İçeri/dışarı aktarma yordamı sonuç PFX dosyasından hedef yolunu belirtir.  
+Sonuç PFX dosyasından içeri/dışarı aktarma yordamı için hedef yolu belirtir.  
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Dize   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -Konu
 
-Konu sıralı bir sözlüğü için sertifika isteği oluşturma belirtir.
+Bir sıralanmış sözlük konu için sertifika isteği oluşturma belirtir.
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |OrderedDictionary   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -RequestType
 
-Sertifika isteği SAN türünü belirtir. Geçerli değerler MultipleCSR, SingleCSR.
-- *MultipleCSR* birden çok sertifika isteklerini, her hizmet için bir tane oluşturur.
-- *SingleCSR* tüm hizmetler için tek bir sertifika isteği oluşturur.   
+Sertifika isteği SAN türünü belirtir. Geçerli değerler, MultipleCSR SingleCSR.
+- *MultipleCSR* birden çok sertifika istekleri, her hizmet için bir tane oluşturur.
+- *SingleCSR* tüm hizmetler için bir sertifika isteği oluşturur.   
 
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Dize   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
 |Geçerli değerler:               |'MultipleCSR', 'SingleCSR' |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -OutputRequestPath
@@ -411,76 +411,76 @@ Hedef yolu belirtir sertifika isteği dosyaları için dizin zaten mevcut olmal�
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Dize   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -AADServiceAdministrator
 
-Azure yığın dağıtımı için kullanılacak Azure Active Directory Hizmet Yöneticisi belirtir.
+Azure Stack dağıtımı için kullanılacak Azure Active Directory Hizmet Yöneticisi belirtir.
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |PSCredential   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -AADDirectoryTenantName
 
-Azure yığın dağıtımı için kullanılacak Azure Active Directory adını belirtir.
+Azure Stack dağıtımı için kullanılacak Azure Active Directory adını belirtir.
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Dize   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -AzureEnvironment
 
-Azure yığın dağıtım ve kayıt için kullanılacak Azure Hizmetleri hesapları, dizinler ve abonelikleri içeren örneğini belirtir.
+Azure Stack dağıtım ve kayıt için kullanılacak Azure hesapları, dizinler ve abonelikler içeren Services örneğini belirtir.
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Dize   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
 |Geçerli değerler:               |'AzureCloud', 'AzureChinaCloud', 'AzureGermanCloud' |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -RegistrationAccount
 
-Kayıt Azure yığın kaydı için kullanılacak hesabı belirtir.
+Azure Stack kayıt için kullanılacak kayıt hesabı belirtir.
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Dize   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -RegistrationSubscriptionID
 
-Azure yığın kaydı için kullanılacak kayıt abonelik Kimliğini belirtir.
+Azure Stack kayıt için kullanılacak kayıt abonelik Kimliğini belirtir.
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Guid     |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 > -ReportPath
 
-İçin geçerli dizini ve varsayılan rapor adı varsayılan olarak, Hazırlık raporunu yolunu belirtir.
+Hazırlık raporunu yolunu belirtir, varsayılan olarak geçerli dizin ve varsayılan rapor adı.
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Dize   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |Tümü      |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 
@@ -488,100 +488,100 @@ Azure yığın kaydı için kullanılacak kayıt abonelik Kimliğini belirtir.
 ## <a name="optional-parameters"></a>İsteğe bağlı parametreler
 > -CertificatePath     
 
-Sertifika klasörleri mevcut altında yalnızca sertifikası gerekli yolunu belirtir.
+Sertifika klasörlerin var olduğundan, altında yalnızca sertifikası gerekli yolunu belirtir.
 
-Azure Active Directory kimlik sistemi ile Azure yığın dağıtımı için gerekli klasörleri şunlardır:
+Azure Active Directory kimlik sistemi ile Azure Stack dağıtımı için gerekli klasörler şunlardır:
 
-ACSBlob, ACSQueue, ACSTable, Yönetim Portalı, ARM yönetici ARM ortak, KeyVault, KeyVaultInternal, ortak portalı
+Genel, anahtar kasası, KeyVaultInternal, genel kullanıma açık portala ACSBlob, ACSQueue, ACSTable, Yönetim Portalı, ARM yönetici ARM
 
-Klasör için Azure Active Directory Federasyon Hizmetleri kimlik sistemi dağıtımı olan yığınına gerekli:
+Klasörü dağıtım Active Directory Federasyon Hizmetleri kimlik sistemi olan Azure Stack için gerekli:
 
-ACSBlob, ACSQueue, ACSTable, ADFS, Admin portalı, ARM yönetici, ARM ortak, grafik, KeyVault, KeyVaultInternal, ortak portalı
+ACSBlob, ACSQueue, ACSTable, ADFS, Yönetim Portalı, ARM yönetici, ARM genel, grafik, anahtar kasası, KeyVaultInternal, genel kullanıma açık portala
 
 
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Dize   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |. \Certificates |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 
 > -IncludePaaS  
 
-PaaS Hizmetleri/ana bilgisayar adları için sertifika istekleri eklenip eklenmeyeceğini belirler.
+PaaS Hizmetleri/ana bilgisayar adları için sertifika istekleri eklenip eklenmeyeceğini belirtir.
 
 
 |  |  |
 |----------------------------|------------------|
 |Şunu yazın:                       |SwitchParameter   |
-|Konum:                   |Adlı             |
+|Konum:                   |adlı             |
 |Varsayılan değer:              |False             |
-|Ardışık Düzen giriş kabul edin:      |False             |
+|Ardışık giriş yapılabilir:      |False             |
 |Joker karakterler kabul edin: |False             |
 
 
 > -ReportSections        
 
-Ayrıntı raporu Özet, yalnızca göstermek için olup olmadığını atlar belirtir.
+Ayrıntılı rapor yalnızca Özet, gösterecek şekilde olmadığını atlar belirtir.
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Dize   |
-|Konum:                   |Adlı    |
+|Konum:                   |adlı    |
 |Varsayılan değer:              |Tümü      |
 |Geçerli değerler:               |'Sertifika', 'AzureRegistration', 'AzureIdentity', 'İşler', 'All' |
-|Ardışık Düzen giriş kabul edin:      |False    |
+|Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 
 
 > -Özet 
 
-Ayrıntı raporu Özet, yalnızca göstermek için olup olmadığını atlar belirtir.
+Ayrıntılı rapor yalnızca Özet, gösterecek şekilde olmadığını atlar belirtir.
 |  |  |
 |----------------------------|------------------|
 |Şunu yazın:                       |SwitchParameter   |
-|Konum:                   |Adlı             |
+|Konum:                   |adlı             |
 |Varsayılan değer:              |False             |
-|Ardışık Düzen giriş kabul edin:      |False             |
+|Ardışık giriş yapılabilir:      |False             |
 |Joker karakterler kabul edin: |False             |
 
 
 > -CleanReport  
 
-Önceki yürütme ve doğrulama geçmişi kaldırır ve yeni bir rapor doğrulamaları yazar.
+Önceki yürütme ve doğrulamayı geçmişini kaldırır ve Doğrulamalar için yeni bir rapor yazar.
 |  |  |
 |----------------------------|------------------|
 |Şunu yazın:                       |SwitchParameter   |
 |Diğer adlar:                    |cf                |
-|Konum:                   |Adlı             |
+|Konum:                   |adlı             |
 |Varsayılan değer:              |False             |
-|Ardışık Düzen giriş kabul edin:      |False             |
+|Ardışık giriş yapılabilir:      |False             |
 |Joker karakterler kabul edin: |False             |
 
 
 > -OutputPath    
 
-Hazırlık JSON raporunu ve ayrıntılı günlük dosyası kaydetmek için özel yolunu belirtir.  Yolu zaten mevcut değilse aracı dizin oluşturmayı deneyecek.
+Özel JSON hazırlık raporu kaydedip ayrıntılı günlük dosyası yolu belirtir.  Yol zaten mevcut değilse, aracı dizini dener.
 |  |  |
 |----------------------------|------------------|
 |Şunu yazın:                       |Dize            |
-|Konum:                   |Adlı             |
+|Konum:                   |adlı             |
 |Varsayılan değer:              |$ENV: TEMP\AzsReadinessChecker  |
-|Ardışık Düzen giriş kabul edin:      |False             |
+|Ardışık giriş yapılabilir:      |False             |
 |Joker karakterler kabul edin: |False             |
 
 
-> -Onayla  
+> -Onaylayın  
 
 Cmdlet'i çalıştırmadan önce onay ister.
 |  |  |
 |----------------------------|------------------|
 |Şunu yazın:                       |SwitchParameter   |
 |Diğer adlar:                    |cf                |
-|Konum:                   |Adlı             |
+|Konum:                   |adlı             |
 |Varsayılan değer:              |False             |
-|Ardışık Düzen giriş kabul edin:      |False             |
+|Ardışık giriş yapılabilir:      |False             |
 |Joker karakterler kabul edin: |False             |
 
 
@@ -592,9 +592,9 @@ Cmdlet çalıştırılıyorsa ne olacağını gösterir. Cmdlet çalıştırılm
 |----------------------------|------------------|
 |Şunu yazın:                       |SwitchParameter   |
 |Diğer adlar:                    |Wi                |
-|Konum:                   |Adlı             |
+|Konum:                   |adlı             |
 |Varsayılan değer:              |False             |
-|Ardışık Düzen giriş kabul edin:      |False             |
+|Ardışık giriş yapılabilir:      |False             |
 |Joker karakterler kabul edin: |False             |
 
  

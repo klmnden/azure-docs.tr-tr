@@ -7,32 +7,30 @@ items:
     href: overview-what-is-azure-ml.md
   - name: Workbench'e ne oldu?
     href: overview-what-happened-to-workbench.md
-  - name: Geçiş yapma
-    href: how-to-migrate.md
   - name: Microsoft ML ürünlerini karşılaştırma
     href: overview-more-machine-learning.md
   expanded: true
 - name: Hızlı Başlangıçlar
   items:
-  - name: Kullanmaya başlayın - Portal
+  - name: başlarken
     href: quickstart-get-started.md
 - name: Öğreticiler
   items:
-  - name: 1. Modelleri eğitme
+  - name: 'Modelleri eğitme: 1. Bölüm'
     href: tutorial-train-models-with-aml.md
-  - name: 2. Modelleri dağıtma
+  - name: 'Modelleri dağıtma: 2. Bölüm'
     href: tutorial-deploy-models-with-aml.md
   - name: Otomatik ML modellerini eğitme
     href: tutorial-auto-train-models.md
 - name: Kavramlar
   items:
-  - name: Mimari ve terimler
+  - name: Bu hizmet nasıl çalışır?
     href: concept-azure-machine-learning-architecture.md
   - name: Model yönetimi
     href: concept-model-management-and-deployment.md
-  - name: FPGA hızlandırma
+  - name: FPGA’lar ile hızlandırma
     href: concept-accelerate-with-fpgas.md
-  - name: ML işlem hatları
+  - name: Makine öğrenmesi işlem hatları
     href: concept-ml-pipelines.md
 - name: Nasıl yapılır kılavuzları
   items:
@@ -122,6 +120,8 @@ items:
     href: support-for-aml-services.md
   - name: Kullanım dışı belgeler
     items:
+    - name: Geçiş yapma
+      href: how-to-migrate.md
     - name: Workbench hızlı başlangıcı
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Öğretici 1: Verileri hazırlama'
@@ -322,9 +322,9 @@ items:
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
     - name: Destek
       href: support-for-aml-services.md
-ms.openlocfilehash: 963961d43bf455d735bc46e01c919a932a06a6ca
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0e069ce7bb04a4aef2e631488ec807a1539c32e5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036669"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162160"
