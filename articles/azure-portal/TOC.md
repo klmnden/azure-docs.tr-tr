@@ -5,7 +5,7 @@
 # Kavramlar
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Klavye kısayolları](azure-portal-keyboard-shortcuts.md)
-## [Desteklenen tarayıcılar ve cihazlar](../azure-preview-portal-supported-browsers-devices.md)
+## [Desteklenen tarayıcılar ve cihazlar](azure-portal-supported-browsers-devices.md)
 ## [Azure Panolarının yapısı](azure-portal-dashboards-structure.md)
 # Nasıl yapılır kılavuzları
 ## Dağıtma
