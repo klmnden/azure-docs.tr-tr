@@ -14,13 +14,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: cjiang
-ms.openlocfilehash: 8368055ed017d8a9e9af92ae6461086abf1d0cff
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: cwatson
+ms.openlocfilehash: d48b55af705eddb42853fb236e5eb6a214d1a0ff
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450438"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394068"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Azure hesabınızı kullanarak Office 365 aboneliği için kaydolun
 Azure abonesi iseniz, bir Office 365 aboneliğine kaydolmak için Azure hesabınızı kullanabilirsiniz. Bir Azure aboneliğine sahip bir kuruluş bir parçası kullanıyorsanız, var olan Azure Active Directory'de (Azure AD) kullanıcıları için Office 365 abonelikleri oluşturabilirsiniz. Azure Active Directory kiracınızda genel yönetici veya faturalama yöneticisi izinlerine sahip bir hesap kullanarak Office 365 için kaydolun. Daha fazla bilgi için [hesabı İzinlerim Azure AD'de denetleyin](#RoleInAzureAD) ve [Azure Active Directory'de yönetici rolleri atama](../active-directory/users-groups-roles/directory-assign-admin-roles.md).

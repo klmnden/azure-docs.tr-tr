@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: cc259e89bf6e4bcde5635d13951eaedb6f7b8849
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: acd5c1e1ae4aefa94ca4d1f6ef510ab1b028c3dd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035020"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164905"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX ve Azure Machine Learning: oluşturma ve birlikte çalışabilen yapay ZEKA modelleri dağıtma
 
@@ -48,17 +48,15 @@ ONNX modelleri çeşitli yollarla oluşturabilirsiniz:
 ## <a name="exportconvert-your-models-to-onnx"></a>Dışarı aktarma/modellerinize ONNX Dönüştür
 
 Ayrıca, mevcut Modellerinizi ONNX için dönüştürebilirsiniz.
-+ İçin **PyTorch** modelleri denemek [bu Jupyter not defteri](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)
 
-+ İçin **Microsoft Cognitive Toolkit (CNTK)** modelleri denemek [bu Jupyter not defteri](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)
-
-+ İçin **Chainer** modelleri denemek [bu Jupyter not defteri](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)
-
-+ İçin **MXNet** modelleri denemek [bu Jupyter not defteri](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)
-
-+ İçin **TensorFlow** modellerini kullanacak [tensorflow onnx dönüştürücü](https://github.com/onnx/tensorflow-onnx).
-
-+ İçin **Keras**, **ScitKit öğrenin**, **CoreML**, **XGBoost**, ve **libSVM** modelleri için ONNX Dönüştür kullanarak [WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools) paket.
+|Model için bir çerçeve|Dönüştürme örnek veya aracı|
+|-----|-------|
+|PyTorch|[Jupyter not defteri](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
+|Microsoft&nbsp;Bilişsel&nbsp;Araç Seti&nbsp;(CNTK)|[Jupyter not defteri](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
+|TensorFlow|[tensorflow onnx dönüştürücü](https://github.com/onnx/tensorflow-onnx)|
+|Chainer|[Jupyter not defteri](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
+|MXNet|[Jupyter not defteri](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
+|Keras, ScitKit-Learn ve CoreML<br/>XGBoost ve libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
 
 Desteklenen çerçeveler ve dönüştürücüler en son listesini bulabilirsiniz [ONNX öğreticiler site](https://github.com/onnx/tutorials).
 

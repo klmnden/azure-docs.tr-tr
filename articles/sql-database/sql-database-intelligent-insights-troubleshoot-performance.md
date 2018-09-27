@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 311d1e1fc048e65182fbcbc8ca4b6f8c338da0de
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163877"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222463"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Öngörüler sayesinde Azure SQL veritabanı performans sorunlarını giderme
 
@@ -41,7 +41,7 @@ Akıllı İçgörüler otomatik olarak algılar performans sorunlarını sorgu y
 | [Pagelatch çakışması](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Birden çok iş parçacığı, eşzamanlı olarak artan bekleme sürelerini kaynaklanan ve pagelatch Çekişme neden aynı bellek içi verileri arabellek sayfaları erişmeye çalıştığınız. Bu SQL veritabanı performansını etkiliyor. | Birden çok iş parçacığı, eşzamanlı olarak artan bekleme sürelerini kaynaklanan ve pagelatch Çekişme neden aynı bellek içi verileri arabellek sayfaları erişmeye çalıştığınız. Bu veritabanı performansı etkilediğini. |
 | [Dizini yok](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | SQL veritabanı performansını etkileyen eksik bir dizin algılandı. | Eksik bir dizin, veritabanı performansını etkileyen algılandı. |
 | [Yeni sorgu](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Yeni sorgu genel SQL veritabanı performansını etkileyen algılandı. | Yeni sorgu genel veritabanı performansını etkileyen algılandı. |
-| [Olağan dışı bekleme istatistikleri](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | SQL veritabanı performansını etkileyen olağandışı veritabanı bekleme süresini algılandı. | Veritabanı performansını etkileyen olağandışı veritabanı bekleme süresini algılandı. |
+| [Artan bekleme istatistikleri](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Artan veritabanı bekleme süresini, SQL veritabanı performansını etkileyen algılandı. | Artan veritabanı bekleme süresini, veritabanı performansını etkileyen algılandı. |
 | [TempDB çakışması](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Birden çok iş parçacığı, bir performans sorununa neden aynı TempDB kaynağa erişmeye çalışıyorsunuz. Bu SQL veritabanı performansı etkilediğini. | Birden çok iş parçacığı, bir performans sorununa neden aynı TempDB kaynağa erişmeye çalışıyorsunuz. Bu veritabanı performansı etkilediğini. |
 | [Elastik havuz DTU eksik](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | SQL veritabanı performansı esnek Havuzda kullanılabilir Edtu yetersiz etkiliyor. | Yönetilen örnek için olarak kullanılamaz, vCore modeli kullanır. |
 | [Regresyon planlama](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Yeni plan veya var olan bir planı yükündeki bir değişikliği algılandı. Bu SQL veritabanı performansı etkilediğini. | Yeni plan veya var olan bir planı yükündeki bir değişikliği algılandı. Bu veritabanı performansı etkilediğini. |
@@ -203,17 +203,17 @@ Tanılama çıktıları bilgi kendi sorgu karmaları dahil olmak üzere iki yeni
 
 Kullanmayı [Azure SQL veritabanı sorgu performansı İçgörüleri](sql-database-query-performance.md).
 
-## <a name="unusual-wait-statistic"></a>Olağan dışı bekleme istatistikleri
+## <a name="increased-wait-statistic"></a>Artan bekleme istatistikleri
 
 ### <a name="what-is-happening"></a>Ne oluyor
 
 Bu algılanabilir performans Düzen düşük performanslı sorgular son yedi günlük iş yükü taban çizgisine göre tanımlanan bir iş yükü performans düşüşü gösterir.
 
-Bu durumda, sistemin herhangi bir algılanabilir standart performans kategoriler altında düşük performanslı sorgular sınıflandırılamıyor ancak bekleme istatistikleri için gerileme sorumlu algılandı. Bu nedenle, bunları sorgularla olarak göz önünde bulundurur *olağan dışı bekleme istatistikleri*, burada olağan dışı bekleme istatistikleri için gerileme sorumlu de sunulur. 
+Bu durumda, sistemin herhangi bir algılanabilir standart performans kategoriler altında düşük performanslı sorgular sınıflandırılamıyor ancak bekleme istatistikleri için gerileme sorumlu algılandı. Bu nedenle, bunları sorgularla olarak göz önünde bulundurur *artırılmış bekleme istatistikleri*, gerileme için sorumlu bekleme istatistikleri de burada gösterilir. 
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
-Tanılama Günlüğü olağan dışı bir bekleme süresi ayrıntılar hakkında bilgi, etkilenen sorgular ve bekleme süresini sorgu karmaları çıkarır.
+Tanılama artan bekleme süresi ayrıntıları ve sorgu karmaları etkilenen sorguların çıktıları bilgi oturum açın.
 
 Sistem başarıyla düşük performanslı sorgular için kök nedeni tanımlanamadı çünkü tanılama bilgilerini el ile sorun giderme için iyi bir başlangıç noktası var. Bu sorguların performansını en iyi duruma getirebilirsiniz. Yalnızca kullanın ve basitleştirmek ve karmaşık sorgulara daha küçük depolara bölmek için ihtiyacınız olan verileri getirme iyi bir uygulamadır. 
 

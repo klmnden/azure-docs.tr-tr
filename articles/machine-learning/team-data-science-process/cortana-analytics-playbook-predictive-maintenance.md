@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7802aa8ea9798b18d5424c2342ba63c01406b25a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972392"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221715"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Tahmine dayalı bakım çözümleri için Azure yapay ZEKA Kılavuzu
 
@@ -156,7 +156,7 @@ Statik özellikler ekipman hakkındaki meta verileri alır. Örnekler donanım o
 
 İlgili verileri örnekleri [örnek PdM kullanım örnekleri](#Sample-PdM-use-cases) aşağıdaki tabloda verilmiştir:
 
-| Kullanım örneği | İlgili veri örnekleri |
+| Kullanım Örneği | İlgili veri örnekleri |
 |:---------|---------------------------|
 |_Uçuş gecikmesini ve iptalleri_ | Rota bilgilerini uçuş Bacak biçiminde uçuş ve günlükleri sayfasında. Uçuş oluşturan veri kalkış/varış tarihi, saati, havaalanı, layovers vb. gibi yönlendirme ayrıntılarını içerir. Sayfa günlük, hata ve bakım kodları, baştan sonra bakım personeli tarafından kaydedilen bir dizi içerir.|
 |_Uçak motoru bölümleri hatası_ | Çeşitli parçalarının koşula bilgilerini uçak, sensörlerden alınan veri toplanmadı. Bakım kayıt bileşeni hataları oluştu ve bunların yerini belirlemenize yardımcı olur.|
@@ -426,19 +426,19 @@ Bu kılavuz son bölümü PdM çözüm şablonları, öğreticiler ve Azure'da g
 
 ## <a name="training-resources-for-predictive-maintenance"></a>Tahmine dayalı bakım için eğitim kaynakları
 
-[Tahmine dayalı bakım için Azure yapay ZEKA öğrenme yolu](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md) kavramlar ve matematik algoritmalar ve teknikler PdM sorunlarını kullanılan arkasında daha iyi anlamak için eğitim materyalleri sağlar. 
-
-Microsoft Azure ücretsiz içeriği ve eğitim genel AI kavramlar ve yöntem sunar.
+Microsoft Azure, PdM teknikleri, içerik ve yapay ZEKA kavramları ve uygulama Genel eğitim yanı sıra temel kavramları öğrenme yollarını sunar.
 
 | Eğitim kaynağı  | Kullanılabilirlik |
 |:-------------------|--------------|
+| [PdM ağaçları ile rastgele orman için öğrenme yolu](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Genel | 
+| [PdM kullanarak derin öğrenme için öğrenme yolu](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Genel |
 | [Azure'da yapay ZEKA geliştiricisi](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Genel |
 | [Microsoft yapay ZEKA Okul](http://aischool.microsoft.com/learning-paths) | Genel |
 | [Github'dan Azure yapay ZEKA öğrenme](https://github.com/Azure/connectthedots/blob/master/readme.md) | Genel |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Genel |
 | [Microsoft yapay ZEKA Youtube Web Seminerleri](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Genel |
 | [Microsoft yapay ZEKA Göster](http://channel9.msdn.com/Shows/AI-Show) | Genel |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Microsoft iş ortakları için |
-| [Microsoft iş ortağı ağı](http://learningportal.microsoft.com) | Microsoft iş ortakları için |
+| [LearnAI@MS](http://learnanalytics.microsoft.com) | İş Ortakları |
+| [Microsoft iş ortağı ağı](http://learningportal.microsoft.com) | İş Ortakları |
 
 Ayrıca, yapay ZEKA MOOCS (açık çevrimiçi kurslara) ücretsiz Stanford ve MIT gibi akademik kurumları tarafından çevrimiçi sunulan ve diğer eğitim şirketlerdir.

@@ -1,52 +1,51 @@
 ---
 title: Bir Azure sanal ağı ile bir uygulamayı tümleştirin
-description: Bir uygulamayı Azure App Service'te bir yeni veya var olan Azure sanal ağa bağlanmak nasıl gösterir
+description: Azure uygulama Hizmeti'nde bir uygulamanın bir yeni veya var olan Azure sanal ağa bağlama işlemi gösterilmektedir
 services: app-service
 documentationcenter: ''
 author: ccompy
-manager: erikre
-editor: cephalin
+manager: stefsch
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 83f5c64926eb9b718463c415a5478af374245f31
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5eab09d5dffe16517e8c18eb0281716618ca0286
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789216"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166251"
 ---
-# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı Azure sanal ağı ile tümleştirme
-Bu belgede Azure App Service sanal ağ tümleştirme özelliğini açıklar ve uygulamalar ile ayarlanması gösterilmektedir [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Azure sanal ağlar (Vnet'ler) ile bilginiz yoksa, bu Azure kaynaklarınızı çoğunu erişimi denetlemek Internet olmayan routeable ağ yerleştirmek izin veren bir yetenektir. Bu ağlar sonra VPN teknolojileri çeşitli kullanarak, şirket içi ağlara bağlanabilir. Azure sanal ağlar hakkında daha fazla bilgi edinmek için burada bilgilerle Başlat: [Azure Virtual Network'e genel bakış][VNETOverview]. 
+# <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı bir Azure sanal ağı ile tümleştirme
+Bu belge, Azure App Service sanal ağ tümleştirme özelliğini açıklar ve uygulamalar ile ayarlama işlemi gösterilmektedir [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Azure sanal ağları (Vnet) ile alışkın değilseniz, bu birçok Azure kaynaklarınızın erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlayan bir özelliktir. Bu ağlar ardından çeşitli teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Azure sanal ağları hakkında daha fazla bilgi edinmek için buradaki bilgileri ile Başlat: [Azure sanal ağa genel bakış][VNETOverview]. 
 
-Azure uygulama hizmeti iki tür vardır. 
+Azure App Service iki biçimi vardır. 
 
-1. Fiyatlandırma planı tam kapsamlı destekleyen çok kiracılı sistemleri
-2. Ağınızı dağıtır uygulama hizmeti ortamı (ana) premium özelliği. 
+1. Fiyatlandırma planı tam aralığını destekleyen çok kiracılı sistemleri
+2. Vnet'te dağıtılır. App Service ortamı (ASE) premium özelliği. 
 
-Bu belge, VNet tümleştirme ve uygulama hizmeti ortamı gider. ANA özelliği hakkında daha fazla bilgi edinmek istiyorsanız, buradaki bilgiler ile Başlat: [uygulama hizmeti ortamı giriş][ASEintro].
+Bu belge, VNet tümleştirmesi ve App Service ortamı gider. ASE özelliği hakkında daha fazla bilgi edinmek istiyorsanız, buradaki bilgileri ile Başlat: [App Service ortamı giriş][ASEintro].
 
-VNet tümleştirme, web app sanal ağınızdaki kaynaklara erişmenizi sağlar ancak özel erişim, web uygulamanızın sanal ağdan vermez. Özel site erişimi uygulamanızı özel ağdan gibi bir Azure sanal ağı içinde yalnızca erişilebilir hale getirmek için ifade eder. Özel site yalnızca bir dahili yük dengeleyici (ILB) ile yapılandırılmış bir ana ile erişilebilir. Bir ILB ana kullanılması hakkında daha fazla ayrıntı için buraya makale ile başlayın: [oluşturma ve bir ILB ana kullanarak][ILBASE]. 
+VNet tümleştirmesi, web uygulaması sanal ağınızdaki kaynaklara erişmenizi sağlar, ancak sanal ağdan web uygulamanıza özel erişim sağlamaz. Özel site erişimi, uygulamanızı yalnızca özel ağdan gibi bir Azure sanal ağı içinde erişilebilir hale getirmek için ifade eder. Özel site erişimi yalnızca bir iç yük dengeleyici (ILB) ile yapılandırılmış bir ASE ile kullanılabilir. ILB ASE kullanma hakkında daha fazla ayrıntı için buraya makale ile başlayın: [oluşturma ve ILB ASE kullanarak][ILBASE]. 
 
-VNet tümleştirme nerede kullanacağınız yaygın bir senaryo bir veritabanı veya Azure sanal ağınızda bir sanal makinede çalışan bir web hizmeti, web uygulamasından erişimi etkinleştirme. VNet tümleşme VM ancak can uygulamaları özel dışındaki Internet yönlendirilebilir adresleri kullanmanız için genel bir uç nokta kullanıma gerekmez. 
+Burada VNet tümleştirmesi kullanmak yaygın bir senaryo, bir veritabanı veya Azure sanal ağınızdaki bir sanal makinede çalışan bir web hizmeti web uygulamanızdan erişim etkileştirir. VNet Tümleştirmesi ile VM ancak can uygulamaları özel dışı Internet yönlendirilebilir adreslerini kullanmanız için genel bir uç nokta kullanıma sunmak gerekmez. 
 
-VNet tümleştirme özelliği:
+VNet tümleştirmesi özelliği:
 
-* Standart, Premium ya da planı fiyatlandırma Isolated gerektirir 
-* Klasik veya Resource Manager Vnet'i ile çalışır 
+* Standart, Premium veya yalıtılmış fiyatlandırma planı gerektirir 
+* Klasik veya Resource Manager sanal ağı ile çalışır 
 * TCP ve UDP destekler
-* çalışır ile Web, mobil, API uygulamaları ve işlev uygulamalarının
-* aynı anda yalnızca 1 Vnet'e bağlanmak bir uygulama sağlar
-* bir uygulama hizmeti planı'nda tümleştirilmesini ile en fazla beş sanal ağlar sağlar 
-* bir uygulama hizmeti planında birden çok uygulamalar tarafından kullanılmak üzere aynı Vnet'i sağlar
-* sanal ağ geçidinde SLA nedeniyle % 99,9 SLA destekler
+* Web, mobil, API uygulamalarıyla çalışır ve işlev uygulamaları
+* aynı anda yalnızca 1 sanal ağa bağlanmak bir uygulama sağlar
+* bir App Service planında tümleştirilmesini ile beş adede kadar sanal ağlar sağlar 
+* bir App Service planı içinde birden fazla uygulama tarafından kullanılmak üzere aynı sanal ağda izin verir
+* VNet ağ geçidinde nedeniyle SLA'sı % 99,9 SLA destekler
 
-VNet tümleştirme de dahil olmak üzere desteklemiyor bazı şeyler vardır:
+VNet tümleştirmesi dahil olmak üzere desteklemeyen bazı şeyler vardır:
 
 * bir sürücü bağlama
 * AD tümleştirmesi 
@@ -54,53 +53,54 @@ VNet tümleştirme de dahil olmak üzere desteklemiyor bazı şeyler vardır:
 * Özel site erişimi
 
 ### <a name="getting-started"></a>Başlarken
-Web uygulamanızı bir sanal ağa bağlanmadan önce göz önünde bulundurmanız gereken bazı şeyler şunlardır:
+Aşağıda, web uygulamanızı bir sanal ağa bağlamadan önce göz önünde bulundurmanız gereken bazı hususlar verilmiştir:
 
-* VNet tümleştirme yalnızca çalışır uygulamaları ile bir **standart**, **Premium**, veya **Isolated** planı fiyatlandırma. Özelliği etkinleştirmek ve uygulama hizmet planınızdaki uygulamalarınızı kullanmakta olduğunuz sanal ağlara bağlantıları kesilir desteklenmeyen fiyatlandırma planı ölçeklendirmek istiyorsanız. 
-* Hedef sanal ağınız zaten varsa, noktadan siteye VPN ile dinamik yönlendirme ağ geçidi etkin bir uygulama için bağlı önce olmalıdır. Ağ geçidi, statik yönlendirme ile yapılandırılmışsa, noktadan siteye sanal özel ağ (VPN) etkinleştiremezsiniz.
+* Sanal ağ tümleştirmesi yalnızca çalışır Apps bir **standart**, **Premium**, veya **yalıtılmış** fiyatlandırma planı. Varsa özelliği etkinleştirmek ve ardından App Service planınızın uygulamalarınızı kullanmakta oldukları sanal ağlar için bağlantıları kesilir desteklenmeyen fiyatlandırma planı ölçeklendirin. 
+* Hedef sanal ağınız zaten varsa, noktadan siteye VPN dinamik yönlendirme ağ geçidi ile bir uygulama için bağlı önce etkinleştirilmiş olması gerekir. Statik yönlendirme ağ geçidi yapılandırılmışsa, noktadan siteye sanal özel ağ (VPN) etkinleştiremezsiniz.
 * Sanal ağ, App Service Plan(ASP) ile aynı abonelikte olması gerekir.
-* Ağ geçidiniz noktası etkin siteye ile zaten var ve temel SKU'da değil, IKEv2 noktası site yapılandırmanızda devre dışı bırakılmalıdır.
-* Bir VNet ile tümleştirmek uygulamalar, bu sanal ağ için belirtilen DNS kullanır.
-* Varsayılan olarak tümleştirme uygulamalarınızı trafiği, sanal ağınızda tanımlanan rotaları göre sanal ağınızı içine yalnızca rota. 
+* Ağ geçidi-etkin siteye ile zaten varsa ve temel SKU'da değil, IKEv2 noktadan siteye yapılandırmanızda devre dışı bırakılmalıdır.
+* Bir sanal ağ ile tümleştirilen uygulamalar, o VNet için belirtilen DNS kullanın.
+* Varsayılan olarak tümleştirme uygulamalarınızı trafiği sanal ağınızda tanımlanmış rotalar dayalı olarak yalnızca rota. 
 
-## <a name="enabling-vnet-integration"></a>VNet Integration etkinleştirme
+## <a name="enabling-vnet-integration"></a>VNet tümleştirmesi etkinleştiriliyor
 
-Uygulamanızı yeni veya var olan bir sanal ağa bağlanmak için seçeneğiniz vardır. Yeni bir ağ tümleştirmenize bir parçası olarak oluşturursanız, yalnızca sanal ağ oluşturmaya ek olarak, dinamik yönlendirme ağ geçidi sizin için önceden yapılandırılmıştır ve Site VPN noktasına etkindir. 
+Uygulamanızı yeni veya mevcut bir sanal ağa bağlamak için bir seçenekleri var. Yeni bir ağ tümleştirmenizi bir parçası olarak oluşturursanız, yalnızca sanal ağ oluşturmaya ek olarak, dinamik yönlendirme ağ geçidi sizin için önceden yapılandırılmıştır ve noktadan siteye VPN etkinleştirilmiş. 
 
 > [!NOTE]
-> Yeni bir sanal ağ tümleştirme yapılandırması birkaç dakika sürebilir. 
+> Yeni bir sanal ağ tümleştirmesi yapılandırılıyor, birkaç dakika sürebilir. 
 > 
 > 
 
-VNet tümleştirmeyi etkinleştirmek için uygulamanızın ayarlarını açın ve ardından ağ seçin. Açılan UI üç ağ seçenek sunar. Bu kılavuz yalnızca VNet tümleştirmeye ancak karma bağlantılar geçiyor ve App Service ortamları bu belgenin sonraki bölümlerinde ele alınmaktadır. 
+VNet tümleştirmesi etkinleştirmek için uygulama ayarlarınızı açın ve ağ'ı seçin. Açılan kullanıcı Arabirimi, üç ağ seçenekleri sunar. Bu kılavuz yalnızca sanal ağ tümleştirme ancak karma bağlantılar geçiyor ve App Service ortamları bu belgenin sonraki bölümlerinde ele alınmıştır. 
 
-Uygulamanız doğru durumda planı fiyatlandırma olduğunu değil, kullanıcı arabirimini daha yüksek bir fiyatlandırma Planı tercih ettiğiniz planınıza ölçeklendirmenizi sağlar.
+Uygulamanızın doğru fiyatlandırma planını olduğu değil, kullanıcı Arabirimi, planınız için daha yüksek bir fiyatlandırma planı, tercih ettiğiniz şekilde ölçeklendirmenize olanak sağlar.
 
 ![][1]
 
-### <a name="enabling-vnet-integration-with-a-pre-existing-vnet"></a>Önceden var olan bir VNet ile VNet tümleştirme etkinleştirme
-VNet tümleştirme UI, sanal ağlar listesinden seçmenize olanak sağlar. Klasik sanal ağlar oldukları gibi VNet adının yanında parantez içinde "Klasik" sözcüğüyle olduğunu gösterir. Resource Manager sanal ağlar ilk listelenen şekilde liste sıralanır. Aşağıda gösterilen görüntüdeki yalnızca bir VNet seçilebilir görebilirsiniz. Bir sanal ağ dahil olmak üzere çıkışı gri olduğunu birden çok nedeni vardır:
+### <a name="enabling-vnet-integration-with-a-pre-existing-vnet"></a>Önceden var olan bir sanal ağ ile sanal ağ tümleştirmesi etkinleştiriliyor
+VNet tümleştirmesi kullanıcı Arabirimi, sanal ağlar listesinden seçmenizi sağlar. Klasik sanal ağlar oldukları gibi VNet adının yanında parantez içinde "Klasik" sözcüğüyle olduğunu gösterir. Liste, Resource Manager sanal ağlarına ilk sırada olacağı şekilde sıralanır. Aşağıda gösterilen resimde yalnızca bir VNet seçilebilir görebilirsiniz. Bir sanal ağ da dahil olmak üzere kullanıma gri, birden çok nedeni vardır:
 
-* hesabınıza erişimi olan başka bir abonelik sanal ağ kullanılıyor
-* sanal ağ sitesine etkin noktası yok
-* VNet dinamik yönlendirme ağ geçidi yok
+* hesabınıza erişimi olan başka bir Abonelikteki sanal ağ olan
+* sanal ağa noktadan siteye etkin yok
+* Sanal Ağ Dinamik yönlendirme ağ geçidi yok
 
 ![][2]
 
-Etkinleştirmek için tümleştirme tıklamanız yeterlidir, ile tümleştirmek istediğiniz VNet üzerinde. VNet seçtikten sonra değişikliklerin etkili olması için uygulamanızı otomatik olarak yeniden başlatılır. 
+Tümleştirmeyi etkinleştirmek için ile tümleştirmek istediğiniz sanal ağa tıklayın. Sanal Ağ'ı seçtikten sonra değişikliklerin etkili olması için uygulamanızı otomatik olarak yeniden başlatılır. 
 
-##### <a name="enable-point-to-site-in-a-classic-vnet"></a>Klasik bir VNet sitede noktasının etkinleştir
-Sanal ağınızı bir ağ geçidi yok veya siteye noktası sahip değilse, ilk ayarlamanız gerekir. Klasik bir VNet için bunu yapmak için şu adrese gidin [Azure portal] [ AzurePortal] ve sanal Networks(classic) listesi ayarlamak duruma getirin. Buradan, tümleştirileceğini ve VPN bağlantıları adlı Essentials altındaki büyük kutuya tıklayın istediğiniz ağı tıklayın. Buradan, VPN site ve bir ağ geçidi oluşturmak bile sağlamak için noktanız oluşturabilirsiniz. Site ağ geçidi oluşturma deneyimi ile noktasından gidin sonra yaklaşık 30 dakika önce hazır olur. 
+##### <a name="enable-point-to-site-in-a-classic-vnet"></a>Etkinleştir-siteye klasik bir sanal ağ
+
+Sanal ağınızı bir ağ geçidi yok ya da Noktadan siteye sahip, ilk kümesi gerekir. Klasik bir VNet için bir ağ geçidi yapılandırmak için portala gidin ve sanal Networks(classic) listesinde taşıyın. İle tümleştirmek istediğiniz ağı seçin. VPN bağlantıları seçin. Buradan, VPN sitesi ve bir ağ geçidi oluşturmanız bile sağlamak için noktanız oluşturabilirsiniz. Ağ geçidi görünmesi yaklaşık 30 dakika sürer.
 
 ![][8]
 
-##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Resource Manager Vnet'i sitede noktasına etkinleştirme
-Bir ağ geçidi ve Site noktasına sahip bir Resource Manager Vnet'i yapılandırmak için her iki PowerShell belirtildiği gibi burada kullanabilirsiniz [PowerShell kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma] [ V2VNETP2S] veya burada açıklandığı gibi Azure portalını kullanma [Azure portalını kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma][V2VNETPortal]. Bu özellik gerçekleştirmek için kullanıcı Arabirimi henüz kullanılabilir değil. Site Yapılandırması noktasına için sertifikaları oluşturmanız gerekmez unutmayın. Vnet'e, WebApp bağlandığında otomatik olarak yapılandırılır. 
+##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Noktadan siteye bir Resource Manager sanal ağı içinde etkinleştirme
+Resource Manager Vnet'i bir ağ geçidi ve noktadan siteye ile yapılandırmak için ya da PowerShell belgelendiği gibi burada kullanabileceğiniz [PowerShell kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma] [ V2VNETP2S] veya burada açıklandığı gibi Azure portalını kullanma [Azure portalını kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma][V2VNETPortal]. Bu özellik gerçekleştirmek için kullanıcı Arabirimi henüz kullanılamıyor. Noktadan siteye yapılandırması için sertifikalar oluşturmanız gerekmez. Uygulamanız portalı kullanarak sanal ağa bağlandığında, sertifikalar otomatik olarak oluşturulur. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Önceden yapılandırılmış bir sanal ağ oluşturma
-Bir ağ geçidi ile yapılandırılmış yeni bir VNet ve noktadan siteye oluşturmak istiyorsanız, uygulama kullanıcı Arabirimi ağ hizmeti yalnızca Resource Manager Vnet'i için bunu yapmak için yeteneğine sahiptir. Bir ağ geçidi ve noktadan siteye klasik bir VNet oluşturmak istiyorsanız, bu ağ kullanıcı arabirimi aracılığıyla el ile yapmanız gerekir. 
+Ardından bir ağ geçidiyle yapılandırılmış yeni bir sanal ağ ve siteden siteye noktası oluşturmak istiyorsanız, UI ağ App Service, ancak yalnızca Resource Manager Vnet'i için bunu yeteneğine sahiptir. Bir ağ geçidi ve noktadan siteye ile klasik sanal ağ oluşturmak istiyorsanız, bu ağ kullanıcı arabirimi aracılığıyla el ile yapmanız gerekir. 
 
-Resource Manager Vnet'i Vnet'e tümleştirme kullanıcı Arabirimi aracılığıyla oluşturmak için seçmeniz yeterlidir **yeni sanal ağ oluştur** ve sağlar:
+VNet tümleştirmesi kullanıcı Arabirimi aracılığıyla bir Resource Manager sanal ağı oluşturmak için Seç **yeni sanal ağ oluştur** ve sağlayın:
 
 * Sanal ağ adı
 * Sanal Ağ Adresi Bloğu
@@ -109,181 +109,201 @@ Resource Manager Vnet'i Vnet'e tümleştirme kullanıcı Arabirimi aracılığı
 * Ağ geçidi adres bloğu
 * Noktadan Siteye Adres Bloğu
 
-Başka bir ağa bağlanmak için bu VNet istiyorsanız, bu ağ ile çakışıyor IP adresi alanı çekme kaçınmanız gerekir. 
+Başka bir ağa bağlanmak için bu sanal ağ istiyorsanız, bu ağlarla örtüşüyor IP adres alanı çekme kaçınmanız gerekir. 
 
 > [!NOTE]
-> Bir ağ geçidi ile Resource Manager Vnet'i oluşturulması yaklaşık 30 dakika sürer ve şu anda VNet uygulamanızla tümleştirin değil. Sanal ağınızın ağ geçidi ile oluşturulduktan sonra uygulamaya VNet tümleştirme UI geri dönün ve yeni sanal ağınızı seçmek gerekir.
+> Bir ağ geçidi ile Resource Manager sanal ağı oluşturma işlemi yaklaşık 30 dakika sürer ve şu anda sanal ağ, uygulama ile tümleştirilmezse. Sanal ağ geçidi ile oluşturulduktan sonra VNet tümleştirmesi UI uygulamanıza geri dönün ve yeni VNet gerekir.
 > 
 > 
 
 ![][3]
 
-Azure sanal özel ağ adresleri içinde normal olarak oluşturulur. Varsayılan olarak VNet tümleştirme özelliği bu IP adresi aralıklarını sanal ağınızı hedefleyen trafik yönlendirir. Özel IP adres aralıklarını şunlardır:
+Azure sanal ağ içindeki özel ağ adresleri normalde oluşturulur. VNet tümleştirmesi varsayılan özellik sanal ağınızdaki bu IP adresi aralıklarını hedefleyen tüm trafiği yönlendirir. Özel IP adresi aralıklarını şunlardır:
 
-* -Bu aynıdır 10.0.0.0 - 10.0.0.0/8 10.255.255.255
-* -Bu aynıdır 172.16.0.0 - 172.16.0.0/12 172.31.255.255 
-* -Bu aynıdır 192.168.0.0 - 192.168.0.0/16 192.168.255.255
+* -Bu, 10.0.0.0 ile aynı - 10.0.0.0/8 10.255.255.255
+* -Bu, 172.16.0.0 ile aynı - 172.16.0.0/12 172.31.255.255 
+* -Bu, 192.168.0.0 ile aynı - 192.168.0.0/16 192.168.255.255
 
-VNet adres alanı CIDR gösteriminde belirtilmelidir. İle CIDR gösteriminde bilginiz yoksa, bu adres blokları IP adresi ve ağ maskesi temsil eden bir tamsayı kullanarak belirtmek için bir yöntemdir. Hızlı başvuru olarak 10.1.0.0/24 256 adresleri olacaktır ve 10.1.0.0/25 128 adresleri olacağını göz önünde bulundurun. Bir /32 bir IPv4 adresiyle yalnızca 1 adresi olacaktır. 
+VNet adres alanı CIDR gösteriminde belirtilmelidir. CIDR gösterimiyle alışkın değilseniz, bir IP adresi ve ağ maskesi temsil eden bir tamsayı kullanarak adres bloklarını belirtmek için bir yöntem var. Hızlı başvuru olarak 10.1.0.0/24 256 adresleri olacaktır ve 10.1.0.0/25 128 adres olacağını göz önünde bulundurun. Bir IPv4 adresi bir özelliğini/32 ile yalnızca 1 adresi olacaktır. 
 
-DNS sunucusu bilgileri burada ayarlarsanız, ağınız için ayarlanır. VNet oluşturulduktan sonra VNet kullanıcı deneyimleri bu bilgileri düzenleyebilirsiniz. VNet DNS değiştirirseniz, bir eşitleme ağ işlemi gerçekleştirmek için gerekir.
+DNS sunucusu bilgileri buraya ayarlarsanız, sanal ağınıza ait ayarlanır. VNet oluşturulduktan sonra VNet kullanıcı deneyimleri bu bilgileri düzenleyebilirsiniz. Sanal ağın DNS değiştirirseniz, bir eşitleme ağ işlemi gerçekleştirmeniz gerekir.
 
-Klasik bir VNet tümleştirme kullanıcı arabirimini kullanarak VNet oluşturduğunuzda, uygulamanız ile aynı kaynak grubunda bir sanal ağ oluşturur. 
+Klasik bir VNet tümleştirmesi kullanıcı arabirimini kullanarak sanal ağ oluşturduğunuzda, uygulamanızla aynı kaynak grubunda bir sanal ağ oluşturur. 
 
-## <a name="how-the-system-works"></a>Sistem nasıl çalışır?
-Uygulamanızı Vnet'iniz bağlanmak için noktadan siteye VPN teknolojisi üstünde bu özellik perde arkasında oluşturur. Azure uygulama hizmetinde uygulamaları bir uygulamada doğrudan bir sanal ağ sanal makinelerle gerçekleştirilir gibi sağlama önleyen bir çok kiracılı sistem mimarisi vardır. Noktadan siteye teknolojisine oluşturarak, biz yalnızca uygulamayı barındıran sanal makine ağ erişimi sınırlayın. Uygulamalarınızı erişmeleri için yapılandırdığınız ağlar yalnızca erişebilmesi için ağ erişimi daha fazla bu uygulama konaklarda sınırlıdır. 
+## <a name="how-the-system-works"></a>Sistemin nasıl çalışır?
+Arka planda bu özellik, uygulamanızı sanal ağınıza bağlanmak için noktadan siteye VPN teknolojisi üzerine oluşturur. Sanal makineler ile olduğu gibi doğrudan bir sanal ağ içindeki bir uygulama sağlama önleyen bir çok kiracılı sistem mimarisi, uygulamanız Azure App Service'te. Noktadan siteye teknolojisine oluşturarak, biz yalnızca uygulamayı barındıran sanal makine ağ erişimi sınırlayın. Uygulamalarınıza erişmek için bunları yapılandırmanız ağları yalnızca erişebilmesi için ağ erişimi daha fazla uygulama konaklarda sınırlıdır. 
 
 ![][4]
 
-Bir DNS sunucusu ile sanal ağınızı yapılandırmadıysanız, uygulamanızın VNet kaynak ulaşmak için IP adreslerini kullanmak gerekir. IP adresleri kullanırken, bu özellik önemli faydası, özel ağınızdaki özel adresler kullanmanızı sağlar olduğunu unutmayın. Uygulamanızı ayarlarsanız kullanacak Vm'leriniz biri için ortak IP adresleri, sonra VNet tümleştirme özelliği kullanmadığınız ve Internet üzerinden iletişim kuran.
+Sanal ağınız ile bir DNS sunucusu yapılandırmadıysanız, uygulamanızı sanal ağ içindeki kaynak ulaşmak için IP adreslerini kullanmanız gerekir. IP adresleri kullanırken, bu özelliğin önemli avantajlarından özel ağınızın içinden özel adreslerini kullanır, sağlar olduğunu unutmayın. Uygulamanızı ayarlarsanız kullanacak Vm'lerinizi biri için genel IP adresleri, sonra VNet tümleştirme özelliğini kullanmıyorsanız ve internet üzerinden iletişim.
 
 ## <a name="managing-the-vnet-integrations"></a>VNet tümleştirmeler yönetme
-Bağlanmak ve bir sanal ağa bağlantısını kesmek için bir uygulama düzeyinde yeteneğidir. Birden çok uygulama arasında VNet tümleştirme etkileyen bir ASP düzeyinde işlemleridir. Uygulama düzeyinde gösterilen UI, sanal ağınızda ayrıntılarını alabilirsiniz. Aynı bilgilerin çoğunu ASP düzeyinde da gösterilmektedir. 
+Bağlanmak ve bir sanal ağa bağlantısını kesmek için bir uygulama düzeyinde yeteneğidir. Birden fazla uygulama arasında VNet tümleştirmesi etkileyen işlemleri bir ASP düzeyindedir. Uygulama düzeyinde gösterilen Arabiriminden sanal ağınızda ayrıntılarını alabilirsiniz. Aynı bilgilerin çoğu da ASP düzeyinde gösterilir. 
 
 ![][5]
 
-Ağ özellik durumu sayfasından uygulamanızı Vnet'iniz bağlı olup olmadığını görebilirsiniz. Sanal ağ geçidiniz için herhangi bir nedenle çalışmıyorsa, ardından bu değil bağlı olarak gösterir. 
+Ağ özelliği durumu sayfasından uygulamanızı sanal ağınıza bağlı olup olmadığını görebilirsiniz. Vnet'in VNet ağ geçidinizi aşağı herhangi bir nedenle, ardından bu not bağlı olarak gösterir. 
 
-Şimdi de uygulama düzeyinde VNet tümleştirme UI ASP alma hakkında ayrıntılı bilgi ile aynıdır elinizdeki bilgileri. Bu öğeler şunlardır:
+Artık uygulama düzeyi VNet tümleştirmesi UI ASP'den alma hakkında ayrıntılı bilgi ile aynıdır, kullanılabilir olan bilgiler. Bu öğeler şunlardır:
 
-* Azure sanal ağı UI VNet adı - bu bağlantıyı açar
-* Konumu - bu ağınızı konumunu yansıtır. Başka bir konumda bir VNet ile tümleştirmek mümkündür.
-* Sertifika durumu - VPN bağlantısı uygulama ve sanal ağ arasında güvenli hale getirmek için kullanılan sertifikaları vardır. Bu eşitlenmiş olduklarından emin olmak için bir test yansıtır.
-* Ağ geçidi durumu -, ağ geçitleri için herhangi bir nedenle aşağı olmalıdır sonra uygulamanızı VNet içindeki kaynaklara erişemez. 
-* VNet adres alanı - Vnet'inizi için IP adresi alanını budur. 
-* Noktası Site adres alanı - site IP adres alanı sanal ağınızı noktasına budur. Uygulamanız bu adres alanındaki IP birinden gelen olarak iletişimi gösterir. 
-* Site adres alanı - siteye ağınızı şirket içi kaynaklarınıza veya diğer sanal ağa bağlanmak için siteden siteye VPN'ler kullanabilirsiniz. VPN bağlantısı burada gösterir IP aralıkları ile tanımlanmış sonra yapılandırılmış olması gerekir.
-* DNS sunucuları - burada listelenen sonra VNet ile yapılandırılmış DNS sunucuları varsa.
-* Vnet'e - orada yönlendirilmiş IP de Vnet'inizi için tanımlanan yönlendirme olan IP adresleri ve bu adresleri göster listesi. 
+* VNet adı: Bu bağlantıyı Azure sanal ağı kullanıcı arabirimini açar
+* Konumu - bu, sanal ağınızın konumunu yansıtır. Başka bir konumda bir VNet ile tümleştirmek mümkündür.
+* Sertifika durumu - uygulama ve sanal ağ arasında VPN bağlantısı güvenliğini sağlamak için kullanılan sertifikaları vardır. Bu, eşitlenmiş olduklarından emin olmak için bir test yansıtır.
+* Ağ geçidi durumu - ağ geçitlerinizi herhangi bir nedenle kapalı olmalıdır sonra uygulamanızı sanal ağ içindeki kaynaklara erişemez. 
+* VNet adres alanının - sanal ağınızdaki IP adres alanı budur. 
+* Noktadan siteye adres alanı - bu noktasıdır sitesine IP adres alanı sanal ağınıza ait. Uygulama olarak, bu adres alanı IP'ler birinden gelen iletişimi gösterir. 
+* Site adres alanına - site sanal ağınızı şirket içi kaynaklarınıza veya diğer sanal ağa bağlanmak için siteden siteye VPN'ler kullanabilirsiniz. VPN bağlantısı burada gösterildiğinden emin IP aralıkları ile tanımlanan ardından yapılandırılmış olması gerekir.
+* DNS sunucuları - DNS, bir VNet ile yapılandırılan sunucular varsa burada listelenir.
+* Bir listesi, sanal ağ için tanımlanan yönlendirme olan IP adresleri ve bu adresleri show - burada Vnet'e yönlendirilmiş IP var. 
 
-Uygulamanız şu anda bağlı olduğu sanal ağ bağlantısını kesmek için sanal ağ tümleştirmesinin uygulama görünümünde gerçekleştirebileceğiniz tek işlem var. Yapmak için bu tıklamanız yeterlidir bağlantıyı kes en üstünde. Bu eylem, sanal ağınızı değiştirmez. Sanal ağ ve ağ geçitleri de dahil olmak üzere yapılandırmasıyla değişmeden kalır. Ardından sanal ağınızı silmek istiyorsanız, önce ağ geçitleri de dahil olmak üzere kaynakları silmeniz gerekir. 
+VNet tümleştirmenizi uygulama görünümünü gerçekleştirebileceğiniz tek işlem uygulamanız şu anda bağlı olduğu sanal ağ bağlantısını kesmeyi sağlamaktır. Uygulamanızı bir sanal ağdan bağlantısını kesmek için üst kısmında bağlantısını kesin. Bu eylem, sanal ağınıza değiştirmez. Sanal ağ ve ağ geçitleri de dahil olmak üzere yapılandırmasını değişmeden kalır. Ardından sanal ağınıza silmek istiyorsanız, önce ağ geçitleri de dahil olmak üzere içindeki kaynakları silmek gerekir. 
 
-Uygulama hizmeti planı görünümün birkaç ek işlem vardır. Bu aynı zamanda farklı daha uygulamadan erişilebilir. Ulaşmak için ağ ASP UI açmanız yeterlidir ASP UI ve kaydırma kapalı. Ağ özellik durumu adlı bir kullanıcı Arabirimi öğesi yok. VNet tümleştirme geçici küçük bazı ayrıntılar sağlar. Bu kullanıcı Arabirimi üzerindeki tıklatarak Ağ özellik durumu kullanıcı arabirimini açar. "Yönetmek için üzerinde burayı tıklatın"'i tıklatırsanız bu ASP VNet tümleştirmeler listeler kullanıcı arabirimini açar.
+App Service planı görünümü, birkaç ek işlem vardır. Bu ayrıca farklı daha uygulamadan erişilebilir. ASP ağ UI ulaşmak için aşağı kaydırma ve ASP UI'ı açın. "Ağ özelliği ağ özelliği durumu kullanıcı arabirimini açmak için durumu" seçin. Bu ASP VNet tümleştirmeler listesine "yönetmek için buraya tıklayın"'i seçin.
 
 ![][6]
 
-ASP ile tümleştirme Vnet konumlarında bakarken anımsaması iyi konumudur. VNet başka bir konumda olduğunda ne kadar büyük olasılıkla gecikmesi sorunlarını görürsünüz. 
+ASP konumu ile tümleştirme vnet'in konumda ararken unutmayın iyi olur. Sanal ağ başka bir konumda olduğunda, gecikme sorunlarını görmek çok daha yüksektir. 
 
-Sanal ağlar ile tümleşik uygulamalarınızı ile bu ASP ve kaç tane sağlayabilirsiniz tümleşik olduğu bir anımsatıcı kaç tane sanal ağlar üzerinde değil. 
+Sanal ağlar ile tümleşik uygulamalarınız ile bu ASP ve kaç tane sağlayabilirsiniz tümleşik olduğu bir anımsatıcı kaç sanal ağlar üzerinde değil. 
 
-Her VNet üzerinde eklenen ayrıntıları görmek için yalnızca ilgilendiğiniz VNet tıklayın. Daha önce not ettiğiniz Ayrıntılar ek olarak, bu ASP, VNet kullanarak uygulamaların bir listesini görebilirsiniz. 
+Her VNet üzerinde ek ayrıntıları görmek için yalnızca ilgilendiğiniz sanal ağa tıklayın. Daha önce Not ayrıntıları ek olarak, VNet kullanarak bu ASP uygulamalarında listesini görebilirsiniz. 
 
-Eylemler göre iki birincil eylemler vardır. İlk sanal ağınızı uygulamanızı trafiğe sürücü yollar ekleme yeteneğidir. Sertifikaları ve ağ bilgilerini eşitleme becerisi ikinci eylemdir.
+Eylemler ile ilgili iki birincil eylemler vardır. İlk Vnet'inizi uygulamanızı trafiğe sürücü yollar ekleme yeteneğidir. Sertifikalar ve ağ bilgilerini eşitlemek yeteneği ikinci eylemdir.
 
 ![][7]
 
-**Yönlendirme** , sanal ağınızda tanımlanan yollar, ne sanal ağınızı uygulamanızdan içine trafiği yönlendirerek için kullanılan daha önce belirtildiği gibi. Müşteriler ek giden trafiği bir uygulamadan VNet içine ve bunlar için bu özelliği göndermek istediğiniz yere sağlanan karşın bazı kullanımları vardır. Müşteri kendi sanal nasıl yapılandırır kadar olan sonra ne trafiği olur. 
+**Yönlendirme** ağınızda tanımlanan yollar, uygulamanızı ağınızdan içine trafiği yönlendiren için kullandığınız kadar daha önce belirtildiği gibi. Müşteriler ek giden trafik bir uygulamadan VNet ve bunlar için bu özelliği göndermek istediğiniz sağlanan olsa bazı kullanımlarını vardır. Trafiği, müşteri kendi sanal nasıl yapılandırdığını kadar sonraki ne olur. 
 
-**Sertifikaları** VPN bağlantısı için kullanıyoruz sertifikaların iyi olduğunu doğrulamak için App Service tarafından gerçekleştirilen bir onay sertifika durumunu yansıtır. VNet tümleştirme etkinleştirildiğinde, ardından bu ilk tümleştirme bu Vnet'e bu ASP tüm uygulamalardan ise var. gerekli bir bağlantının güvenliğini sağlamak için sertifika alışverişi Sertifikalar ile birlikte DNS yapılandırmasını, yollar ve ağ açıklayan benzer başka şeyler alın.
-Bu sertifikalar veya ağ bilgilerini değiştirdiyseniz "Eşitleme ağ" tıklatın gerekir. **Not**: kısa bir kesinti uygulamanızı ve ağınızı arasında Bağlantısı'nda neden "Eşitleme ağ" tıklattığınızda. Uygulamanızı yeniden başlatılmamış durumdayken bağlantı kaybı düzgün sitenize çalışmamasına neden olabilir. 
+**Sertifikaları** sertifika durumu VPN bağlantısı için kullanıyoruz sertifikaların iyi olduğunu doğrulamak için App Service tarafından gerçekleştirilen bir denetimi gösterir. VNet tümleştirmesi etkin olduğunda, ardından bu ilk tümleştirme bu Vnet'e tüm uygulamalarda bu ASP ise var. gerekli bir bağlantının güvenliğini sağlamak için sertifika alışverişi Sertifikaları yanı sıra DNS yapılandırmasını, yollar ve ağ açıklayan başka benzer bir şeyler alın.
+Bu sertifikalar veya ağ bilgileri değiştirilirse, "eşitleme ağı" gerekir. **Not**: kısa bir kesinti uygulamanızı sanal ağınıza arasında bağlantı neden "Ağı Eşitle" tıkladığınızda. Uygulamanızı yeniden başlatılmaz, ancak bağlantı kaybı düzgün sitenize çalışmamasına neden olabilir. 
 
-## <a name="accessing-on-premises-resources"></a>Erişme şirket içi kaynakları
-Uygulamalarınızı şirket içi kaynaklarınıza uygulamanızdan erişebileceğini sonra sanal ağınızı şirket içi ağınıza bir siteden siteye VPN ile bağlıysa, VNet tümleştirme özelliği avantajlarından biri olmasıdır. Bunu şirket içi VPN ağ geçidinizi noktanızın Site IP için yollar güncelleştirmeniz gerekebilir olsa çalışması aralık. Siteden siteye VPN ilk olarak ayarlandığında, daha sonra yapılandırmak için kullanılan komut noktanızın Site VPN dahil olmak üzere yollar ayarlamanız gerekir. Siteden siteye VPN oluşturduktan sonra Site VPN noktası eklerseniz, yollarını el ile güncelleştirmeniz gerekir. Bunun nasıl yapılacağını ayrıntıları her geçidi değişir ve burada açıklanmamaktadır. 
+## <a name="accessing-on-premises-resources"></a>Erişim şirket içi kaynaklara
+Uygulamalarınızı şirket içi kaynaklarınıza uygulamanızdan erişebilirsiniz ağınıza bir siteden siteye VPN ile şirket içi ağınıza bağlıysa VNet tümleştirmesi özelliğin avantajlarından biri olmasıdır. Bunu, şirket içi VPN ağ geçidinize noktadan siteye IP'niz rotalarla güncelleştirme gerekebilir ancak çalışması aralık. Siteden siteye VPN ilk kurulduğunda yapılandırmak için kullanılan komut rotaları, noktadan siteye VPN dahil olmak üzere ayarlamanız gerekir. Noktadan siteye VPN, siteden siteye VPN oluşturduktan sonra eklerseniz, yolların el ile güncelleştirmeniz gerekir. Bunu nasıl yapacağınız hakkında ayrıntılı bilgi, ağ geçidi değişir ve burada açıklanmamaktadır. 
 
 > [!NOTE]
-> VNet tümleştirme özelliği, bir ExpressRoute ağ geçidi sahip bir VNet ile birlikte bir uygulamayı tümleştirin değil. ExpressRoute ağ geçidi olarak yapılandırılmış olsa bile [bir arada bulunma modu] [ VPNERCoex] VNet tümleştirme çalışmıyor. ExpressRoute bağlantısı kaynaklara erişmeye ihtiyacınız sonra kullanabileceğiniz bir [uygulama hizmeti ortamı][ASE], sanal ağınızda çalışır.
+> VNet tümleştirme özelliğini bir uygulama, bir ExpressRoute ağ geçidi olan bir VNet ile tümleşmez. ExpressRoute ağ geçidi olarak yapılandırılmış olsa bile [bir arada bulunma modu] [ VPNERCoex] VNet tümleştirmesi çalışmaz. Bir ExpressRoute bağlantısı üzerinden kaynaklara erişmeye ihtiyacınız sonra kullanabileceğiniz bir [App Service ortamı][ASE], ağınızda çalışır.
 > 
 > 
 
 ## <a name="pricing-details"></a>Fiyatlandırma ayrıntıları
-Birkaç vardır VNet tümleştirme özelliği kullanırken bilmeniz gereken nüanslarını fiyatlandırma. Bu özelliğin kullanımının 3 ilişkili giderleri vardır:
+Birkaç VNet tümleştirme özelliğini kullanırken bilmeniz gereken farklılıklarına fiyatlandırma. Bu özelliğin kullanımı için 3 ilgili ücretler vardır:
 
 * ASP fiyatlandırma katmanı gereksinimleri
 * Veri aktarım maliyetleri
-* VPN ağ geçidi maliyetleri.
+* VPN ağ geçidi maliyet.
 
-Bu özelliği kullanabilmek, uygulamalarınız için bunlar standart veya Premium App Service planı içinde olması gerekir. Burada bu maliyetlerini hakkında daha fazla ayrıntı görebilirsiniz: [App Service fiyatlandırması][ASPricing]. 
+Uygulamalarınızı bu özelliği kullanabilmek, bunların bir standart veya Premium App Service planı içinde olması gerekir. Burada bu maliyetlerinden daha fazla bilgi görebilirsiniz: [App Service fiyatlandırması][ASPricing]. 
 
-Site VPN'ler noktası şekilde kaynaklanır VNet aynı veri merkezinde olsa bile işlenmiş, her zaman giden veriler için bir ücret VNet tümleştirme bağlantınızı sahip. Bu giderleri nelerdir görmek için buraya bakın: [veri aktarım fiyatlandırma ayrıntıları][DataPricing]. 
+Sanal ağ aynı veri merkezinde olsa bile, noktadan siteye VPN'lerde nasıl işleneceğini nedeniyle her zaman giden veri için ücret, VNet tümleştirmesi bağlantınız. Bu ücretler nelerdir görmek için buraya bakın: [veri aktarma fiyatlandırma ayrıntıları][DataPricing]. 
 
-Son öğeyi VNet ağ geçitleri maliyetidir. Siteden siteye VPN gibi başka bir şey için ağ geçitleri gerek duymuyorsanız, VNet tümleştirme özelliği desteklemek ağ geçitleri için ödeme yapıyorsanız. Burada bu maliyetlerinde ayrıntıları vardır: [VPN ağ geçidi fiyatlandırma][VNETPricing]. 
+Son öğeyi VNet ağ geçitleriniz maliyetidir. Ağ geçitleri siteden siteye VPN'ler gibi başka bir şey için gereksinim duymuyorsanız ağ geçitleri için VNet tümleştirme özelliğini desteklemek ücret ödersiniz. Burada bu maliyetleri ayrıntıları vardır: [VPN Gateway fiyatlandırması][VNETPricing]. 
 
 ## <a name="troubleshooting"></a>Sorun giderme
-Özelliği ayarlamak kolay olmakla birlikte, deneyiminizi sorun boş olacaktır anlamına gelmez. Karşılaşmamanız gerekir istenen uç noktanızı var. erişme uygulama konsol bağlantısını test etme için kullanabileceğiniz bazı yardımcı programları sorunlardır. Kullanabileceğiniz iki konsol deneyimleri vardır. Kudu konsolundan biridir ve diğer Azure portalında ulaşabileceği konsoludur. Kudu konsola uygulamanızdan almak için Araçlar -> Kudu. Bu [sitename] giderek ile aynı olur. scm.azurewebsites.net. Yalnızca açılır sonra hata ayıklama Konsolu sekmesine gidin. Azure portal barındırılan konsola sonra uygulamanızdan almak için Araçlar -> konsol. 
+Özellik ayarlamak kolay olsa da, bu deneyiminiz sorun ücretsiz olacaktır anlamına gelmez. Karşılaşmamanız gerekir, istenen uç noktası var. erişme uygulama konsolundan bağlantıyı test etmek için kullanabileceğiniz bazı yardımcı programlar sorunlardır. Kullanabileceğiniz iki konsol deneyimleri vardır. Kudu konsolunu biridir ve diğer Azure portalında erişebileceğiniz konsoludur. Araçlar Git Kudu konsoluna uygulamanızdan almak için Kudu ->. Bu [siteadı] için giderek ile aynı olur. scm.azurewebsites.net. Açıldıktan sonra hata ayıklama Konsolu sekmesine gidin. Git araçları için Azure portal barındırılan konsola ardından uygulamanızdan almak için konsolu ->. 
 
 #### <a name="tools"></a>Araçlar
-Araçlar ping, nslookup ve tracert güvenlik kısıtlamaları nedeniyle konsolu üzerinden çalışmaz. Doldurmak için void orada olmuştur iki ayrı araçları eklendi. DNS işlevselliğini test etmek için nameresolver.exe adında bir aracı eklediğimiz. Söz dizimi aşağıdaki gibidir:
+Araçlar **ping**, **nslookup** ve **tracert** güvenlik kısıtlamaları nedeniyle konsolu üzerinden çalışmaz. Doldurmak için void orada olduğu iki ayrı Araçlar eklendi. DNS işlevselliğini test etmek için nameresolver.exe adlı bir araç ekledik. Söz dizimi aşağıdaki gibidir:
 
     nameresolver.exe hostname [optional: DNS Server]
 
-Uygulamanızı bağlıdır ana bilgisayar adları denetlemek için nameresolver kullanabilirsiniz. DNS ile yanlış yapılandırılmış herhangi bir şey varsa veya belki de, DNS sunucusuna erişiminiz yoksa bu şekilde, test edebilirsiniz.
+Kullanabileceğiniz **nameresolver** uygulamanızın bağımlı ana bilgisayar adları kontrol etmek için. Herhangi bir şey yanlış DNS ile yapılandırılmış olması ya da belki de, DNS sunucusuna erişiminiz yoksa, bu şekilde, test edebilirsiniz.
 
-Sonraki aracı ana bilgisayarı ve bağlantı noktası bileşimi için TCP bağlantısı için test etmenizi sağlar. Bu araç tcpping.exe olarak adlandırılır ve sözdizimi aşağıdaki gibidir:
+Sonraki aracı, bir konak ve bağlantı noktası birleşimi TCP bağlantısını test etmek sağlar. Bu aracı adlı **tcpping** ve söz dizimi şu şekildedir:
 
     tcpping.exe hostname [optional: port]
 
-Tcpping yardımcı programı, belirli bir ana bilgisayarı ve bağlantı noktası ulaşmak varsa bildirir. Yalnızca başarı gösterebilir,: ana bilgisayar ve bağlantı noktası bileşimi dinleyen bir uygulamanın yoktur ve bağlantı noktası ve belirtilen konak uygulamanızdan ağ erişimi yoktur.
+**Tcpping** yardımcı programı bildirir belirli ana bilgisayarı ve bağlantı noktası ulaşması durumunda. Yalnızca başarı gösterebilirsiniz varsa: konak ve bağlantı noktası birleşimini dinleyen bir uygulamanın yoktur ve belirtilen konak ve bağlantı noktası uygulamanızdan ağ erişimi yoktur.
 
-#### <a name="debugging-access-to-vnet-hosted-resources"></a>Barındırılan kaynaklara erişim vnet'e hata ayıklama
-Uygulamanızı belirli bir ana bilgisayarı ve bağlantı noktası ulaşmasını engellemeniz şey vardır. Çoğu zaman üç şey biridir:
+#### <a name="debugging-access-to-vnet-hosted-resources"></a>Kaynakları barındıran sanal ağdan sanal ağa erişim hata ayıklama
+Uygulamanız belirli ana bilgisayarı ve bağlantı noktası ulaşmasını önleyen etmenizi vardır. Çoğu zaman bu üç şeylerden biri değil:
 
-* **Biçiminde bir güvenlik duvarı olduğundan** biçiminde bir güvenlik duvarınız varsa, TCP zaman aşımı karşılaşır. 21 saniye bu durumda olur. Bağlantıyı sınamak için tcpping Aracı'nı kullanın. TCP zaman aşımı, güvenlik duvarları ötesinde pek çok nedeni olabilir ancak var. başlatın. 
-* **DNS erişilebilir değil** DNS zaman aşımı olan üç saniyede bir DNS sunucusu. İki DNS sunucusu varsa, zaman aşımı 6 saniyedir. DNS çalışıp çalışmadığını görmek için nameresolver kullanın. Sanal ağınızı ile yapılandırılmış DNS kullanmaz nslookup kullanamazsınız unutmayın.
-* **Geçersiz P2S IP aralığı** site IP aralığı noktasına RFC 1918 özel IP aralıkları olması gerekir (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255). Aralık dışında IP'leri kullanıyorsa şeyler çalışmaz. 
+* **Biçiminde bir güvenlik duvarı olup** biçiminde bir güvenlik duvarı varsa, TCP zaman aşımı ulaşırsınız. Bu durumda, 21 saniye olur. Kullanım **tcpping** bağlantısını test etmek için aracı. TCP zaman aşımı, güvenlik duvarları ötesinde pek çok nedeni olabilir ancak kavramla başlayacağız. 
+* **DNS erişilebilir değil** DNS zaman aşımı olan üç saniye başına DNS sunucusu. İki DNS sunucusu varsa, zaman aşımı 6 saniyedir. DNS çalışıp çalışmadığını görmek için nameresolver kullanın. Ağınız ile yapılandırılmış DNS kullanmaz olarak nslookup kullanamazsınız unutmayın.
+* **Geçersiz P2S IP aralığı** site IP aralığı noktasına RFC 1918 özel IP aralığı olması gerekir (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255). Aralığın dışında IP'ler kullanıyorsa şeyler işe yaramaz. 
 
-Bu öğeleri sorununuzu alamıyorsanız, gibi basit şeyleri için ilk bakış: 
+Bu öğeleri sorununuzu alamıyorsanız, gibi basit şeyler için ilk bakış: 
 
-* Ağ geçidi portalda yukarı olduğu gösteriyor mu?
-* Sertifikaları eşit olacak şekilde gösteriyor?
-* Bir "eşitleme ağında" Etkilenen ASP yapmadan herkes ağ yapılandırmasını değiştirmek mi? 
+* Ağ geçidini oluşturan portalda olacak şekilde gösteriyor mu?
+* Sertifikalar eşit olacak şekilde gösteriyor?
+* Etkilenen ASP'ler içinde "eşitleme ağ" yapmadan herkes ağ yapılandırması değişti? 
 
-Ağ geçidi kapalı ise, getirmeniz yedekleyin. Sertifikalarınızı eşitlenmemiş varsa, VNet tümleştirme ASP görünümüne gidin ve "Eşitleme ağ" isabet. VNet yapılandırmanızı yapılan bir değişikliği açıldı şüpheleniyorsanız ve eşitleme değildi ile yaptığınız, ASP sonra VNet tümleştirme ASP görünümüne gidin ve "Eşitleme ağ" sadece bir anımsatıcı olarak isabet, bu kısa bir kesinti VNet bağlantınızı ve uygulamalarınızı neden olur. 
+Ağ geçidiniz kapalı ise, getirmeniz yedekleyin. Sertifikalarınızı eşitleme dışı ise, VNet tümleştirmesi ASP görünümüne gidin ve "Ağı Eşitle" isabet. İle sanal ağ yapılandırması için yapılan bir değişikliği yapılmış yükselmiyor ve eşitleme bölümdü gerekir, ASP sonra sanal ağ tümleştirmesi ASP görünümüne gidin ve "Ağı Eşitle" sadece bir anımsatıcı olarak isabet, bu sanal ağ bağlantınızı ve uygulamalarınız ile kısa bir kesintiye neden. 
 
-Tümünü ise sorun, biraz daha derin derinliklerine gerekir:
+Tüm bu durumda, iyi biraz daha ayrıntılı incelemek gerekir:
 
-* Aynı sanal kaynaklara ulaşmak için VNet tümleştirme kullanan diğer uygulamalar var mı? 
-* Uygulama konsoluna gidin ve ağınızı alanındaki herhangi bir kaynağa erişmek için tcpping kullanılsın mı? 
+* Aynı sanal ağ kaynaklarına ulaşmak için VNet Tümleştirmesi'ni kullanarak diğer tüm uygulamalar var mı? 
+* Uygulama konsoluna gidin yapabilir ve ağınızdaki diğer bir kaynaklarına ulaşmak için tcpping kullanabilirsiniz? 
 
-Yukarıdaki biri doğruysa, sonra VNet tümleştirme uygundur ve başka bir yere bir sorundur. Burada ana bilgisayar: bağlantı noktası neden ulaşamıyor görmek için basit bir yolu olduğundan daha zor olarak alır budur. Bazı nedenler şunlardır:
+Yukarıdaki doğruysa, ardından, sanal ağ tümleştirmesi uygundur ve başka bir yerde bir sorundur. Burada bir konak: bağlantı noktası neden ulaşılamıyor görmek için basit bir yolu olmadığından daha zor olmasını alır budur. Nedenlerden bazıları şunlardır:
 
-* bir güvenlik duvarı erişim noktanızın site IP aralığına uygulama bağlantı noktasına engelleyen ana bilgisayarınızda çalışır duruma getirdikten. Çapraz alt ağlar genellikle ortak erişim gerektirir.
-* Hedef ana bilgisayar kullanılamıyor
-* Uygulamanızı çalışmıyor
-* yanlış IP veya ana bilgisayar adı vardı
-* Uygulamanızı beklediğiniz daha farklı bir bağlantı noktasında dinliyor. Bunu barındıran giderek ve "netstat - aon" kullanarak komut isteminden denetleyebilirsiniz. Bu kimliği hangi bağlantı noktası üzerinde dinleme hangi işlemin gösterir. 
-* Ağ güvenlik grupları bunlar erişim uygulama ana bilgisayarı ve bağlantı noktasına noktanızın site IP aralığına engellemek, şekilde yapılandırılır
+* bir güvenlik duvarı erişim noktanız site IP aralığı uygulama bağlantı noktasına engelleyen konağınızdaki sahip. Çapraz alt ağlar genellikle ortak erişim gerektirir.
+* Hedef ana bilgisayarınızda çalışmıyor
+* Uygulamanızı kapalı
+* yanlış IP veya ana bilgisayar adı olan
+* Uygulamanızın beklediğiniz değerinden farklı bir bağlantı noktasında dinliyor. Bu, ana bilgisayar gidip ve "netstat - aon" kullanarak komut istemi'nden denetleyebilirsiniz. Bu, kimliği hangi bağlantı noktası üzerinde dinleme işlemi gösterilmektedir. 
+* Bunlar erişim bağlantı noktası ve uygulama ana bilgisayarı, noktadan siteye IP aralığına engelleyecek şekilde yapılandırılmış, ağ güvenlik grupları
 
-Hangi IP noktanız tüm aralığı erişime izin verecek şekilde gerekir böylece uygulamanız kullanacağı Site IP aralığına tanımadığınız olduğunu unutmayın. 
+Noktadan siteye IP aralığındaki tüm aralığından erişim izin vermeniz gerekir böylece uygulamanızın kullanacağı hangi IP bilmiyorum unutmayın. 
 
 Ek hata ayıklama adımları içerir:
 
-* Sanal ağınızı başka bir VM'de oturum ve kaynak konak: bağlantı noktanızın buradan ulaşmaya çalışır. Bazı TCP ping yardımcı programları vardır bu amaçla kullanabileceğiniz veya telnet değilse bile kullanabilirsiniz olması gerekir. Burada yalnızca bağlantısı bu bir sanal makineden olup olmadığını belirlemek için amaçtır. 
-* bir uygulamayı başka bir VM ve test erişim o ana bilgisayar ve bağlantı noktası uygulamanızdan konsolundan Getir
+* Sanal ağınızdaki bir sanal makineye bağlanın ve, kaynak konak: bağlantı noktası buradan ulaşmaya çalışır. Erişim için TCP test etmek için şu PowerShell komutunu kullanın **test-netconnection**. Söz dizimi aşağıdaki gibidir:
 
-#### <a name="on-premises-resources"></a>Şirket içi kaynakları ####
-Uygulamanızı kaynakları şirket erişemiyorsa, denetlemeniz gereken ilk şey, sanal ağınızda ulaşabileceği bir kaynak olur. VM sanal ağ ile şirket içi uygulamasından erişmek, çalışıyorsa, deneyin. Telnet veya TCP ping yardımcı programını kullanabilirsiniz. VM, şirket içi kaynağa bağlanamazsa, siteden siteye VPN bağlantınızın çalıştığından emin olun. Çalışıyorsa, şirket içi ağ geçidi yapılandırma ve durum yanı sıra daha önce not ettiğiniz aynı şeyleri denetleyin. 
+      test-netconnection hostname [optional: -Port]
 
-Şimdi sanal ağınızı barındırılıyorsa VM şirket içi sisteminizi ulaşabilir ancak nedeni büyük olasılıkla aşağıdakilerden birini sonra uygulamanızı olamaz:
+* VM ve test erişim uygulama söz konusu konakta ve bağlantı noktası uygulamanızdan konsolundan getirecek
 
-* yollarınızı noktanızın site IP aralıkları şirket içi ağ geçidiniz için yapılandırılmamış
-* Ağ güvenlik grupları noktanızın Site IP aralığına için erişimi engelliyor
-* Şirket içi güvenlik duvarlarında Site IP aralığı noktanız trafiğini engelliyor
-* Şirket içi ağınıza ulaşmasını noktanızın Site göre trafiği engelleyen ağınızı kullanıcı tanımlı bir Route(UDR) var
+#### <a name="on-premises-resources"></a>Şirket içi kaynaklara ####
 
-## <a name="powershell-automation"></a>PowerShell Otomasyon
+Uygulamanızı, şirket içi kaynak ulaşamazsa, ağınızdan ulaşabileceği kaynak denetleyin. Kullanım **test-netconnection** Bunu yapmak için PowerShell komutu. Ardından, şirket içi kaynak Makinenizin ulaşamazsa, siteden siteye VPN bağlantınızın çalıştığından emin olun. Ardından çalışıyorsa, durumu ve şirket içi ağ geçidi yapılandırması yanı sıra daha önce Not aynı şey olup olmadığını denetleyin. 
 
-Uygulama hizmeti bir Azure sanal PowerShell kullanarak ağ ile tümleştirebilirsiniz. Hazır Çalıştır komut dosyaları için bkz: [bir Azure sanal ağı Azure App Service'te bir uygulamaya Bağlan](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+Vnet'inizi barındırıyorsa, VM, şirket içi sisteminizi ulaşabilir ancak nedeni büyük olasılıkla aşağıdakilerden birini sonra uygulamanızı yapamaz:
 
-## <a name="hybrid-connections-and-app-service-environments"></a>Karma bağlantılar ve uygulama hizmeti ortamları
-Barındırılan sanal ağ kaynaklarına erişimi etkinleştirme üç özellikler vardır. Bunlar:
+* yollarınızı noktanızın site IP aralıkları, şirket içi ağ geçidi için yapılandırılmadı
+* Ağ güvenlik gruplarınızda noktadan siteye IP aralığınızı erişimi engelliyor
+* Şirket içi güvenlik duvarlarınızdan noktadan siteye IP aralığınızı gelen trafiği engelliyor
+* Noktadan siteye bağlı trafiğiniz şirket içi ağınıza erişmesini engelleyen sanal ağınızdaki bir kullanıcı tanımlı Route(UDR) sahip
 
-* VNet tümleştirme
+## <a name="powershell-automation"></a>PowerShell Otomasyonu
+
+App Service, bir Azure PowerShell kullanarak sanal ağ ile tümleştirebilirsiniz. Çalıştırılmaya hazır bir betik için bkz: [Azure uygulama Hizmeti'nde bir uygulamanın bir Azure sanal ağına bağlama](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+
+## <a name="hybrid-connections-and-app-service-environments"></a>Karma bağlantılar ve App Service ortamları
+Barındırılan bir sanal ağ kaynaklarına erişimi etkinleştirme üç özellik vardır. Bunlar:
+
+* VNet tümleştirmesi
 * Karma Bağlantılar
 * App Service ortamları
 
-Karma bağlantılar, ağınızda karma bağlantı Manager(HCM) adlı bir geçiş aracısı yüklemenizi gerektirir. HCM Azure ve uygulamanızı bağlanabilmesi gerekir. Bu şirket içi ağınız gibi uzak bir ağdan özellikle harika bir çözümdür veya bir internet erişilebilir uç nokta gerektirmediğinden bile başka bir bulut ağ barındırılabilir. HCM yalnızca Windows çalıştıran ve en fazla beş örnek yüksek kullanılabilirlik sağlamak için çalışıyor olabilir. Karma bağlantılar yalnızca destekler TCP ancak ve belirli ana bilgisayar: bağlantı noktası bileşimi için her HC bitiş eşleşmelidir. 
+Karma bağlantılar, karma bağlantı Manager(HCM) ağınızdaki adlı bir geçiş aracısı yüklemek gerektirir. HCM, Azure ve uygulamanızı bağlanabilmesi gerekir. Bu gibi şirket içi ağınıza uzak bir ağ üzerinden özellikle harika bir çözümdür veya internet erişilebilir uç nokta gerektirmediğinden, hatta başka bir bulut ağ barındırılabilir. HCM, yalnızca Windows üzerinde çalışır ve yüksek kullanılabilirlik sağlamak için çalışan en fazla beş örnek olabilir. Karma bağlantılar yalnızca destekler TCP olsa ve her HC uç noktası için bir özel konak: bağlantı noktası bileşimi ile eşleştirmek. 
 
-Uygulama hizmeti ortamı özelliği, sanal ağınızda Azure App Service örneği çalıştırmanıza olanak sağlar. Bu uygulamalar erişim kaynaklarınızı ağınızı ek adımlar olmadan sağlar. Bir uygulama hizmeti ortamı'nın diğer yararları 14 GB ile RAM Dv2 bağlı çalışanları kullanabileceğiniz bazılarıdır. Başka bir avantajı, sistem gereksinimlerinizi karşılayacak şekilde ölçeklendirebilirsiniz ' dir. ASP 20 örneklerine sınırlı olduğu çok kiracılı ortamlarının aksine, ASE'de en fazla 100 ASP Örnekleri ölçeklendirebilirsiniz. VNet tümleşme olmayan bir ana ile alma şeyleri bir uygulama hizmeti ortamı ExpressRoute VPN ile çalışabilirsiniz biridir. 
+App Service ortamı Özelliği Azure App Service örneği ağınızda çalıştırmanıza olanak sağlar. Bu, uygulamaları herhangi bir ekstra adım olmadan sanal ağınızdaki kaynaklara erişmek sağlar. Bir App Service ortamı avantajlarını en fazla 14 GB RAM ile Dv2 bağlı çalışanları kullanabileceğiniz bazılarıdır. Sistem gereksinimlerinizi karşılamak için ölçeği, başka bir avantajdır. Çok kiracılı ortamlarının aksine, ASP 20 örneklerine sınırlı olduğu bir ASE'de, en fazla 100 ASP örneklerinin ölçeklendirebilirsiniz. ASE ile VNet tümleştirmesi yok kullanmaya şeyler bir App Service ortamı ile bir ExpressRoute VPN çalışabilir biridir. 
 
-Varken bazı servis talebi çakışma kullanır, bu özellik hiçbiri diğerlerinden değiştirebilirsiniz. Hangi özelliği kullanacağınıza gereksinimlerinize bağlı bilerek. Örneğin:
+Olsa bazı büyük/küçük harf çakışma kullanır, bu özelliklerin hiçbiri diğerlerinden değiştirebilirsiniz. Bilerek hangi özelliği kullanacağınıza gereksinimlerinize bağlıdır. Örneğin:
 
-* Geliştirici misiniz ve yalnızca bir site ile Azure çalıştırmak ve bu iş istasyonunda masanızın altında veritabanına erişmek istiyorsanız daha sonra kullanmak için kolay karma bağlantılar şeydir. 
-* Çok sayıda yerleştirilecek isteyen büyük bir kuruluş ise ortak web özelliklerinde bulut, kendi ağ yönetmek ve sonra uygulama hizmeti ortamı ile gitmek ister. 
-* Uygulama hizmeti sayıda varsa uygulamalar barındırılan ve kullanarak sanal ağınızdaki kaynaklara erişmek istiyorsanız, sonra VNet tümleştirme gitmek için bir yoludur. 
+* Bir geliştirici olan ve Azure'da bir site çalıştırmak ve bu iş istasyonunda masanızın altında veritabanına erişmek istiyorsanız, kullanılacak kolay şey karma bağlantılar olur. 
+* Çok sayıda yerleştirmek ister büyük bir kuruluş ise web özellikleri genel Bulut ve kendi ağınızda yönetmek ve ardından App Service ortamı ile gitmek istiyorsanız. 
+* Sanal ağınızdaki kaynaklara erişmek için gereken birden fazla uygulama varsa, daha sonra VNet tümleştirmesi Git yoludur. 
 
-Kullanım örnekleri bazı Basitlik vardır ilgili yönü. Sanal ağınızı şirket içi ağınıza zaten bağlıysa, VNet tümleştirme ya da bir uygulama hizmeti ortamı kullanarak şirket içi kaynakları kullanmak için kolay bir yoludur. Sanal ağınızı şirket içi ağınıza bağlı değilse diğer yandan, sonra onu HCM yükleme ile karşılaştırıldığında sanal ağınızı ile siteden siteye VPN ayarlamak için çok daha fazla getirdiği yüktür. 
+Sanal ağınızı şirket içi ağınıza bağlıysa, ardından sanal ağ tümleştirmesi veya App Service Ortamı'nı kullanarak şirket içi kaynakları kullanmasını kolay bir yoludur. Ardından sanal ağınızı şirket içi ağınıza bağlı değilse, bunu bir siteden siteye VPN HCM yükleme ile karşılaştırıldığında, sanal ağ ile ayarlamak için çok daha fazla getirdiği yüktür. 
 
-İşlevsel farklılıklar dışında var. Ayrıca farklar fiyatlandırma. Premium uygulama hizmeti ortamı özelliktir hizmet teklifi ancak en ağ diğer harika özellikler ek yapılandırma olanaklar sunar. VNet tümleştirme standart veya Premium ASP kullanılabilir ve güvenli bir şekilde uygulama hizmeti çok kiracılı ağınızdan kaynaklarında tüketen için mükemmeldir. Karma bağlantılar şu anda bağlı olan, ücretsiz başlayıp aşamalı olarak daha pahalı alma düzeyleri fiyatlandırma olan hesap ihtiyacınız miktarına bağlı BizTalk. Ancak birçok ağlarda çalışmaya geldiğinde, 100'den de ayrı ağlarda, kaynaklara erişmek etkinleştirebilirsiniz karma bağlantılar gibi diğer hiçbir özellik yok. 
+İşlevsel farklılıklar dışında burada da fiyatlandırma farklarını göz. Bir Premium App Service ortamı özelliği olan hizmet teklifi ancak en iyi ağ diğer harika özelliklerin yanı sıra yapılandırma olanakları sunar. VNet tümleştirmesi standart veya Premium ASP'ler ile kullanılabilir ve güvenli bir şekilde ağınızdan çok kiracılı App Service kaynakları kullanan için idealdir. Karma bağlantılar şu anda bağlı olarak gereksinim duyduğunuz fiyatlandırması, ücretsiz olarak başlayın ve ardından aşamalı olarak daha pahalı düzeylerine olan hesap temel BizTalk. Ancak birçok ağlarda çalışmaya söz konusu olduğunda, 100'den de ayrı ağlar kaynaklara erişmek etkinleştirebilirsiniz karma bağlantılar gibi diğer özellik yoktur. 
+
+## <a name="new-vnet-integration"></a>Yeni VNet tümleştirmesi ##
+
+Noktadan siteye VPN teknolojisine bağımlı değil VNet tümleştirme özelliğini yeni bir sürümü var. Bu yeni sürümü Önizleme aşamasındadır. Yeni VNet tümleştirme özelliği, aşağıdaki özelliklere sahiptir.
+
+- Yeni özellik, Resource Manager Vnet'i kullanılmayan bir alt ağ gerektirir
+- Bir adres, her bir App Service planı örneği için kullanılır. Alt ağ boyutu atamasından sonra değiştirilemez olduğundan, birden fazla maksimum ölçek boyutunuzu ele bir alt ağ kullanın. 32 adreslerine sahip bir/27, 20 örnek için ölçeklendirilebilir bir App Service planı kapsayan önerilen boyutu aynıdır.
+- Hizmet uç yeni VNet tümleştirme özelliğini kullanarak güvenli hale getirilmiş kaynaklara kullanabilir. Hizmet uç noktaları ile uygulamanızı yapılandırmak için uygulamanıza atanan alt ağından erişime olanak
+- Herhangi bir ek yapılandırma olmadan ExpressRoute bağlantısı üzerinden kaynaklara erişebilir
+- Ağ geçidi yok yeni VNet tümleştirme özelliğini kullanmak için gereklidir
+- App Service planınızın standart, Premium veya PremiumV2 planına olmalıdır
+- Yeni özelliği yalnızca yeni Azure App Service ölçek birimleri kullanılabilir. Uygulamanızı yeni VNet tümleştirme özelliğini kullanırsanız, portal size bildirir. 
+- Uygulama ve sanal ağ aynı bölgede olması gerekir
+
+Yeni VNet tümleştirme özelliğini başlangıçta yalnızca Kuzey Avrupa ve Doğu ABD bölgelerinde kullanılabilir.
+
 
 <!--Image references-->
 [1]: ./media/web-sites-integrate-with-vnet/vnetint-upgradeplan.png

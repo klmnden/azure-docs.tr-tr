@@ -1,72 +1,73 @@
 ---
-title: Azure içerik denetleyici içerik yönetimini işleri çalıştırma | Microsoft Docs
-description: API konsolunda içerik yönetimini işlerini çalıştırmak öğrenin.
+title: API Konsolu - Content Moderator içerik denetleme işleri çalıştırma
+titlesuffix: Azure Cognitive Services
+description: API konsolunda içerik denetleme işleri çalıştırmayı öğrenin.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6f741be1001ae70d5fdbf6f374204aaad1601abe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 240b26cd86a6985825e3145c5bc43ef31524d7b7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351592"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227121"
 ---
-# <a name="start-a-moderation-job-from-the-api-console"></a>API konsolundan denetleme işi Başlat
+# <a name="start-a-moderation-job-from-the-api-console"></a>API konsolundan denetimi işi başlatın
 
-Gözden geçirme API'nin kullanmak [iş işlemleri](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) Azure içeriği denetleyici görüntü veya metin içeriği için uçtan uca içerik yönetimini işleri başlatmasını. 
+Gözden geçirme API'nin kullanın [iş işlemleri](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) Azure Content Moderator, görüntü veya metin içeriği için uçtan uca içerik denetleme işleri başlatmak için. 
 
-Denetleme işi içerik denetleyici Görüntü Yönetimi API veya metin denetleme API kullanarak içeriğinizi tarar. Ardından, denetleme işi incelemeler gözden geçirme aracında oluşturmak için iş akışları (gözden geçirme aracında tanımlanan) kullanır. 
+Denetimi işi içeriği Moderator resim denetimi API'si veya metin denetimi API'si kullanarak içeriğinizi tarar. Ardından, denetimi işi gözden geçirmeleri gözden geçirme Aracı'nda oluşturmak için iş akışları (İnceleme aracında tanımlanır) kullanır. 
 
-İnsan denetleyici otomatik atanan etiketleri ve öngörü verileri gözden geçirir ve son denetleme karar gönderdikten sonra gözden geçirme API, API uç tüm bilgileri gönderir.
+İnsan moderatör otomatik olarak atanan etiketleri ve tahmin verilerini gözden geçirmeleri ve son denetimi karar gönderdikten sonra gözden geçirme API, API uç noktanıza tüm bilgileri gönderir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Gidin [aracı gözden](https://contentmoderator.cognitive.microsoft.com/). Siz bunu henüz yapmadıysanız kaydolun. Gözden geçirme araç içinde [özel bir iş akışında tanımlayın](Review-Tool-User-Guide/Workflows.md) bu kullanmak için `Job` işlemi.
+Gidin [İnceleme aracında](https://contentmoderator.cognitive.microsoft.com/). Henüz yapmadıysanız, kaydolun. İnceleme aracını içinde [özel bir iş akışını tanımlayan](Review-Tool-User-Guide/Workflows.md) bu kullanılacak `Job` işlemi.
 
 ## <a name="use-the-api-console"></a>API Konsolu
-Çevrimiçi konsolunu kullanarak API dediğini konsola girmek için birkaç değerleri gerekir:
+API çevrimiçi Konsolu aracılığıyla dediğini konsoluna girmek için bazı değerler gerekir:
     
-- `teamName`: Kullanın `Id` gözden geçirme aracın kimlik bilgilerini ekranından alan. 
-- `ContentId`: Bu dize API için geçirilen ve geri döndürüldü. **ContentID** iç tanımlayıcıları veya meta veri sonuçlarını bir denetleme işi ile ilişkilendirmek için yararlıdır- `Workflowname`: adını [oluşturduğunuz iş akışı](Review-Tool-User-Guide/Workflows.md) önceki bölümdeki.
-- `Ocp-Apim-Subscription-Key`: Üzerinde bulunduğu **ayarları** sekmesi. Daha fazla bilgi için bkz: [genel bakış](overview.md).
+- `teamName`: Kullanın `Id` gözden geçirme aracının kimlik bilgileri ekran alanını. 
+- `ContentId`: Bu dize API için geçirilen ve geri döndürdü. **ContentID** iç tanımlayıcılar veya meta veri denetleme işlemi sonuçları ile ilişkilendirmek için kullanışlıdır- `Workflowname`: adını [oluşturduğunuz iş akışı](Review-Tool-User-Guide/Workflows.md) önceki bölümde.
+- `Ocp-Apim-Subscription-Key`: Üzerinde bulunduğu **ayarları** sekmesi. Daha fazla bilgi için [genel bakış](overview.md).
 
-Erişim API Konsolu olan **kimlik bilgileri** penceresi.
+Erişim API Konsolu geldiği **kimlik bilgilerini** penceresi.
 
-### <a name="navigate-to-the-api-reference"></a>API referansı gidin
-İçinde **kimlik bilgileri** penceresinde, seçin [API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5).
+### <a name="navigate-to-the-api-reference"></a>API başvuruya Git
+İçinde **kimlik bilgilerini** penceresinde [API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5).
 
   `Job.Create` Sayfası açılır.
 
 ### <a name="select-your-region"></a>Bölgenizi seçin
-İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklar bölgeyi seçin.
-  ![Proje - Sayfası bölge seçimi oluşturma](images/test-drive-job-1.png)
+İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin.
+  ![İş - kayıt seçimi sayfası oluşturma](images/test-drive-job-1.png)
 
   `Job.Create` API konsolu açılır. 
 
 ### <a name="enter-parameters"></a>Parametreleri girin
 
-Gerekli sorgu parametrelerini ve abonelik anahtarınızı değerlerini girin. İçinde **istek gövdesinde** kutusunda, taramak istediğiniz bilgilerin konumunu belirtin. Bu örnekte, bu kullanalım [örnek görüntü](https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png).
+Gerekli sorgu parametreleri ve abonelik anahtarınız için değerleri girin. İçinde **istek gövdesi** kutusunda, taramak istediğiniz bilgilerin konumunu belirtin. Bu örnekte, bu kullanalım [örnek görüntü](https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png).
 
-  ![Proje - konsol sorgu parametreleri, üstbilgi ve istek gövdesi kutusu oluşturma](images/job-api-console-inputs.PNG)
+  ![Proje - konsol sorgu parametreleri, üst bilgileri ve istek gövdesi kutusu oluşturma](images/job-api-console-inputs.PNG)
 
 ### <a name="submit-your-request"></a>İsteğinizi gönderin
-**Gönder**’i seçin. Bir iş kimliği oluşturulur. Bu sonraki adımlarda kullanmak üzere kopyalayın.
+**Gönder**’i seçin. Bir iş kimliği oluşturulur. Bu sonraki adımlarda kullanılacak kopyalayın.
 
   `"JobId": "2018014caceddebfe9446fab29056fd8d31ffe"`
 
 ### <a name="open-the-get-job-details-page"></a>Alma işi Ayrıntılar sayfasını açın
-Seçin **almak**ve ardından API bölgenizi eşleşen düğmesini seçerek açın.
+Seçin **alma**ve API bölgenizi eşleşen düğmesini seçerek açın.
 
-  ![Proje - konsol Get sonuçları oluşturma](images/test-drive-job-4.png)
+  ![İş oluşturma - konsol Get sonuçları](images/test-drive-job-4.png)
 
-### <a name="review-the-response"></a>Yanıt gözden geçirin
+### <a name="review-the-response"></a>Gözden geçirme yanıtı
 
-İçin değerler girin **teamName** ve **JobId**. Abonelik anahtarınızı girin ve ardından **Gönder**. Aşağıdaki yanıtı örnek iş durumu ve ayrıntıları gösterir.
+İçin değerler girin **teamName** ve **JobId**. Abonelik anahtarınızı girin ve ardından **Gönder**. Örnek İş durumu ve ayrıntıları şu yanıtı gösterir.
 
 ```
     {
@@ -96,11 +97,11 @@ Seçin **almak**ve ardından API bölgenizi eşleşen düğmesini seçerek açı
     }
 ```
 
-## <a name="navigate-to-the-review-tool"></a>Gözden geçirme Aracı'na gidin
-İçerik denetleyici Panoda seçin **gözden geçirme** > **görüntü**. Taranan görüntü görünür, İnsan gözden geçirme için hazır.
+## <a name="navigate-to-the-review-tool"></a>Gözden geçirme aracına gidin
+Content Moderator Panoda seçin **gözden geçirme** > **görüntü**. Taranan görüntü görünür, insan tarafından İnceleme için hazır.
 
-  ![Üç cyclists aracı görüntüsünü gözden geçirin](images/ocr-sample-image.PNG)
+  ![Gözden geçirme aracı üç cyclists görüntüsü](images/ocr-sample-image.PNG)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-REST API kodunuzdaki kullanın veya başlayın [işleri .NET quickstart](moderation-jobs-quickstart-dotnet.md) uygulamanızla tümleştirmek için.
+Kodunuzda REST API kullanma veya ile başlayan [işleri .NET Hızlı Başlangıç](moderation-jobs-quickstart-dotnet.md) uygulamanızla tümleştirmek için.

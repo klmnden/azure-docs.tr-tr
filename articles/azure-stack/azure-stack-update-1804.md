@@ -3,7 +3,7 @@ title: Azure Stack 1804 güncelleştirme | Microsoft Docs
 description: Azure Stack 1804 güncelleştirmesi nedir hakkında bilgi edinin tümleşik sistemleri, bilinen sorunlar ve nerede güncelleştirmeyi indirin.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
-ms.author: brenduns
+ms.date: 09/26/2018
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 16f12d8119a14e668a7502d99fa2d9c976d23833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413525"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393528"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 güncelleştirme
 
@@ -56,7 +56,7 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 
 
 
-## <a name="fixed-issues"></a>Giderilen sorunlar
+## <a name="fixed-issues"></a>Düzeltilen sorunlar
 
 - <!-- IS, ASDK -->  Yönetim Portalı'nda artık bir bilgi görüntülemeden önce güncelleştirme kutucuk yenilemeniz gerekir.
  
@@ -102,6 +102,9 @@ Aşağıdaki kullanıma sunulmuştur, ancak Azure Stack güncelleştirme 1804 ge
 Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180513.1**.
 
 #### <a name="portal"></a>Portal
+
+- Azure Stack teknik belgeleri, en son sürüm üzerinde odaklanır. Sürümler arasında Portal değişiklikleri nedeniyle Azure Stack portalı kullanırken gördüğünüz belgelerinde gördüğünüz verilerden değişebilir. 
+
 - <!-- TBD - IS ASDK --> OEM uzantı paketinin bu sürümü Azure Stack ile kullanarak, sürücü güncelleştirmelerini uygulayamazsınız.  Bu sorun için geçici çözüm yoktur.
 
 - <!-- 1272111 - IS --> Bu Azure Stack sürümüne güncelleştirin veya yükledikten sonra Yönetim Portalı'nda Azure Stack ölçek birimlerini görüntülemek mümkün olmayabilir.  

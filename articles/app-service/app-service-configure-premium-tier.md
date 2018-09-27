@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
-ms.openlocfilehash: 04996e772c2989be89ce551bfa45c57154de7b2d
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 59e5825554843ef7265cbccdd9a63db0426891fa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307798"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226318"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Azure App Service için PremiumV2 katmanını yapılandırma
 
@@ -55,7 +55,7 @@ Seçin **üretim**, ardından **P1V2**, **P2V2**, veya **P3V2**, ardından **Uyg
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> Görmüyorsanız **P1V2**, **P2V2**, ve **P3V2** seçeneklerle veya seçenekleri gri, çıkış, ardından **PremiumV2** büyük olasılıkla kullanılabilir değil App Service planı içeren temel bir App Service dağıtımı. Bkz: bkz [desteklenmeyen kaynak grubunda ve bölgede bileşiminden ölçeği](#unsupported) daha fazla ayrıntı için.
+> Görmüyorsanız **P1V2**, **P2V2**, ve **P3V2** seçeneklerle veya seçenekleri gri, çıkış, ardından **PremiumV2** büyük olasılıkla kullanılabilir değil App Service planı içeren temel bir App Service dağıtımı. Bkz: [desteklenmeyen kaynak grubunda ve bölgede bileşiminden ölçeği](#unsupported) daha fazla ayrıntı için.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Mevcut bir uygulamaya PremiumV2 katmanı ölçeğini
 

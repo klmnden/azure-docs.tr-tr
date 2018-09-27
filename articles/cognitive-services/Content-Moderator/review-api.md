@@ -1,48 +1,49 @@
 ---
-title: Azure içerik aracı - yönetimini işleri ve İnsan-içinde--döngü incelemeler | Microsoft Docs
-description: İnsan gözetim makine destekli yönetimini en iyi sonuçlar için geçerlidir.
+title: Denetimi işleri ve İnsan içinde--döngüsü incelemeleri - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: İnsan gözetiminin en iyi sonuçlar için makine Yardımlı resim denetimi için geçerlidir.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 35b3cdaa410712c3fd08d3df4ebe4c83e3955d50
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351767"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223268"
 ---
-# <a name="moderation-jobs-and-reviews"></a>Denetleme işler ve gözden geçirme
+# <a name="moderation-jobs-and-reviews"></a>Denetimi işleri ve gözden geçirmeler
 
-Azure içerik denetleyici kullanarak makine destekli yönetimini insan-içinde--döngü özellikleri ile birleştirme [gözden geçirme API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) işletmeniz için en iyi sonuçları almak için.
+Azure Content Moderator'ı kullanarak makine Yardımlı resim denetimi İnsan içinde--döngüsü özellikleriyle birleştirerek [gözden geçirme API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) işletmeniz için en iyi sonuçları almak için.
 
-Gözden geçirme API İnsan gözetim içerik yönetimini işleminize eklemek için aşağıdaki yöntemleri sunar:
+Gözden geçirme API İnsan gözetiminin içerik denetleme işleminize dahil etmek için aşağıdaki yöntemleri sunar:
 
-* `Job` işlemler, makine destekli denetleme ve İnsan gözden geçirme oluşturma bir adım olarak başlatmak için kullanılır.
-* `Review` işlemleri denetleme adım dışında İnsan gözden geçirme oluşturmak için kullanılır.
-* `Workflow` işlemleri gözden geçirme oluşturma eşiklerle tarama otomatikleştiren iş akışlarını yönetmek için kullanılır.
+* `Job` işlemler, makine Yardımlı resim denetimi ve insan tarafından İnceleme oluşturulurken bir adım olarak başlatmak için kullanılır.
+* `Review` işlemleri denetleme adım dışında insan tarafından İnceleme oluşturmak için kullanılır.
+* `Workflow` işlem gözden geçirme oluşturma için eşikler ile tarama otomatik hale getiren iş akışlarını yönetmek için kullanılır.
 
-`Job` Ve `Review` işlemleri durumunu ve sonuçları almak için geri çağırma noktalarınızı kabul edin.
+`Job` Ve `Review` işlemleri kabul durumunu ve sonuçlarını almak için geri çağırma uç noktalarınızı.
 
-Bu makalede yer almaktadır `Job` ve `Review` işlemleri. Okuma [iş akışlarına genel bakış](workflow-api.md) nasıl oluşturulacağı hakkında bilgi için düzenleme ve iş akışı tanımları alın.
+Bu makalede ele alınmaktadır `Job` ve `Review` operations. Okuma [iş akışlarına genel bakış](workflow-api.md) nasıl oluşturulacağı hakkında bilgi için düzenleme ve iş akışı tanımları alın.
 
 ## <a name="job-operations"></a>İş işlemleri
 
-### <a name="start-a-job"></a>Bir işi Başlat
-Kullanım `Job.Create` denetleme ve İnsan gözden geçirme oluşturma işi başlatmak için işlemi. İçerik denetleyici içeriğini tarar ve belirtilen iş akışı değerlendirir. İş akışı sonuçlarına bağlı olarak incelemeler oluşturur ya da adım atlar. Ayrıca, geri çağırma uç noktanızı sonrası denetleme ve sonrası gözden geçirme etiketleri gönderir.
+### <a name="start-a-job"></a>Bir işi başlatma
+Kullanım `Job.Create` denetleme ve insan tarafından İnceleme oluşturma işi başlatmak için işlemi. Content Moderator, içerik tarar ve belirtilen iş akışı değerlendirir. İş akışı sonuçlarına göre incelemeleri oluşturur ya da adım atlar. Ayrıca, geri çağırma uç noktanıza sonrası denetleme ve sonrası gözden geçirme etiketleri gönderir.
 
-Girdiler aşağıdaki bilgileri içerir:
+Girişler, aşağıdaki bilgileri ekleyin:
 
-- Gözden geçirme takım kimliği
-- Aracılı içeriği.
-- İş akışı adı. ("Varsayılan" iş akışı varsayılandır.)
-- API geri bildirimleri için gelin.
+- Gözden geçirme takım kimliği.
+- Denetlenen içeriği.
+- İş akışının adı. ("Varsayılan" iş akışı varsayılandır.)
+- API çağırmanıza için bildirimler noktası.
  
-Aşağıdaki yanıtı başlatıldı iş tanımlayıcısını gösterir. İş durumunu almak ve ayrıntılı bilgi almak için iş tanımlayıcısı kullanın.
+Başlatılan iş tanıtıcısı şu yanıtı gösterir. İşin durumunu alın ve ayrıntılı bilgi almak için iş tanımlayıcısı kullanın.
 
     {
         "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
@@ -50,16 +51,16 @@ Aşağıdaki yanıtı başlatıldı iş tanımlayıcısını gösterir. İş dur
 
 ### <a name="get-job-status"></a>İş durumunu Al
 
-Kullanım `Job.Get` işlemi ve çalışan ya da tamamlanmış bir iş ayrıntılarını almak için iş tanımlayıcısı. İşlemi hemen denetleme işi zaman uyumsuz olarak çalışırken döndürür. Sonuçları geri çağırma uç noktası aracılığıyla döndürülür.
+Kullanım `Job.Get` işlemi ve çalışan veya tamamlanmış bir işin ayrıntılarını almak için iş kimliği. İşlem, zaman uyumsuz olarak hemen denetimi iş çalışırken döndürür. Geri çağırma uç noktası aracılığıyla sonuçlar döndürülür.
 
-Girişlerinizi aşağıdaki bilgileri içerir:
+Girişlerinizi aşağıdaki bilgileri ekleyin:
 
 - Gözden geçirme Takım Kimliği: önceki işlem tarafından döndürülen iş tanımlayıcısı
 
 Yanıt aşağıdaki bilgileri içerir:
 
-- Oluşturulan gözden geçirme tanımlayıcısı. (Bu kimliği son gözden sonuçları almak için kullanın.)
-- (Tamamlanmış veya devam eden) işinin durumu: atanan yönetimini etiketler (anahtar-değer çiftleri).
+- Oluşturulan gözden geçirme tanımlayıcısı. (Son gözden geçirme sonuçlarını almak için bu kimliği kullanın.)
+- (Tamamlanan veya devam eden) işin durumunu: atanan denetimi etiketleri (anahtar-değer çiftleri).
 - İş yürütme raporu.
  
  
@@ -109,46 +110,46 @@ Yanıt aşağıdaki bilgileri içerir:
             ]
         }
  
-![İnsan araburucu için görüntü gözden geçirme](images/ocr-sample-image.PNG)
+![İnsan Moderatörler için resim incelemesi](images/ocr-sample-image.PNG)
 
 ## <a name="review-operations"></a>Gözden geçirme işlemleri
 
 ### <a name="create-reviews"></a>Gözden geçirmeler oluşturma
 
-Kullanım `Review.Create` İnsan incelemeler oluşturma işlemi. Başka bir yerde Orta ya da özel mantık denetleme etiketleri atamak için kullanın.
+Kullanım `Review.Create` incelemelere oluşturma işlemi. Başka bir yerde Orta ya da denetimi etiketleri atamak için Özel mantık kullanın.
 
-Bu işlem için girişlerinizi şunları içerir:
+Bu işlem için girişlerinizi şunlardır:
 
-- Gözden geçirilecek içeriği.
-- Gözden geçirme için İnsan araburucu tarafından atanan etiketler (anahtar değer çiftleri).
+- Gözden geçirilmesi içeriği.
+- İnsan Moderatörler tarafından gözden geçirme için atanan etiketleri (anahtar-değer çiftlerinin).
 
-Aşağıdaki yanıtı gözden geçirme tanımlayıcısını gösterir:
+Gözden geçirme tanımlayıcısı şu yanıtı gösterir:
 
     [
         "201712i46950138c61a4740b118a43cac33f434",
     ]
 
 
-### <a name="get-review-status"></a>Gözden geçirme durumunu Al
-Kullanım `Review.Get` aracılı görüntü İnsan gözden tamamlandıktan sonra sonuçları alma işlemi. Sağlanan geri çağırma uç noktanızı bilgi edinin. 
+### <a name="get-review-status"></a>Gözden geçirme durumu alma
+Kullanım `Review.Get` aracılı görüntünün bir insan tarafından İnceleme tamamlandıktan sonra sonuçları almak için işlemi. Sağlanan geri çağırma uç noktanız ile bildirim alın. 
 
-İşlemi iki etiketlerin döndürür: 
+İşlem, iki etiket döndürür: 
 
-* Denetleme hizmeti tarafından atanan etiketleri
-* İnsan İnceleme tamamlandıktan sonra etiketleri
+* Denetimi hizmeti tarafından atanan etiketleri
+* İnsan tarafından İnceleme tamamlandıktan sonra etiketleri
 
-Girişlerinizi en azından aşağıdakileri içerir:
+En azından girişlerinizi şunlardır:
 
-- Gözden geçirme ekip adı
+- Gözden geçirme takım adı
 - Önceki işlem tarafından döndürülen gözden geçirme tanımlayıcısı
 
 Yanıt aşağıdaki bilgileri içerir:
 
-- Durumunu gözden geçir
-- İnsan Gözden Geçiren tarafından onaylanan etiketler (anahtar-değer çiftleri)
-- Denetleme hizmeti tarafından atanan etiketler (anahtar-değer çiftleri)
+- Gözden geçirme durumu
+- İnsan tarafından inceleme tarafından onaylanan etiketleri (anahtar-değer çiftleri)
+- Denetimi hizmeti tarafından atanan etiketleri (anahtar-değer çiftleri)
 
-Her iki İnceleme atanan etiketler konusuna bakın (**reviewerResultTags**) ve ilk etiketleri (**meta verileri**) aşağıdaki örnek yanıt:
+Her iki İnceleme atanan etiketleri görürsünüz (**reviewerResultTags**) ve başlangıç etiketleri (**meta verileri**) aşağıdaki örnek yanıt:
 
     {
         "reviewId": "201712i46950138c61a4740b118a43cac33f434",
@@ -183,6 +184,6 @@ Her iki İnceleme atanan etiketler konusuna bakın (**reviewerResultTags**) ve i
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Test sürücü [iş API Konsolu](try-review-api-job.md)ve REST API kod örnekleri kullanır. Visual Studio ve C# ile sahibiyseniz, ayrıca kullanıma [işleri .NET quickstart](moderation-jobs-quickstart-dotnet.md). 
-* İncelemeler için kullanmaya başlama [gözden geçirme API Konsolu](try-review-api-review.md)ve REST API kod örnekleri kullanır. Daha sonra bkz [incelemeler .NET quickstart](moderation-reviews-quickstart-dotnet.md).
-* Video incelemeleri kullanın [Video gözden geçirme quickstart](video-reviews-quickstart-dotnet.md)ve öğrenin nasıl [video incelemeye dökümleri eklemek](video-transcript-reviews-quickstart-dotnet.md).
+* Sürücü test [iş API Konsolu](try-review-api-job.md)ve REST API kod örnekleri kullanın. Visual Studio ve C# ile ilgili bilgi sahibi değilseniz, ayrıca kullanıma [işleri .NET Hızlı Başlangıç](moderation-jobs-quickstart-dotnet.md). 
+* İncelemeleri için kullanmaya başlama [gözden geçirme API Konsolu](try-review-api-review.md)ve REST API kod örnekleri kullanın. Daha sonra bkz [incelemeleri .NET Hızlı Başlangıç](moderation-reviews-quickstart-dotnet.md).
+* Görüntü incelemeleri kullanın [Video gözden geçirme Hızlı Başlangıç](video-reviews-quickstart-dotnet.md)ve öğrenin nasıl [dökümleri video gözden geçirici ekleyin](video-transcript-reviews-quickstart-dotnet.md).

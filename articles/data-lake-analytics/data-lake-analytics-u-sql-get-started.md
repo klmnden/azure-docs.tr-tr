@@ -9,12 +9,12 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: 1822ac9b539aa196601c6c07ccc8d0544fd5f3dd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: daef00bc7b39326b79e5f56bf803dc6aad1ac0ff
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042437"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221954"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics U-SQL ile çalışmaya başlama
 U-SQL sorgu dili gibi kesinlik temelli izin için C# ile birleştiren bir dil olan verileri dilediğiniz ölçekte işleyin. U-SQL'nin ölçeklenebilir, dağıtılmış sorgu özelliği, Azure SQL veritabanı gibi ilişkisel depoları arasında veri verimli bir şekilde çözümleyebilirsiniz. U-SQL ile yapılandırılmamış verileri okuma sırasında şema uygulama ve Özel mantık ve UDF'ler eklemeden işleyebilir. Ayrıca, U-SQL, uygun ölçekte yürütmek nasıl üzerinde ayrıntılı denetim sağlar genişletilebilirlik içerir. 
@@ -226,4 +226,4 @@ Gelişmiş toplama senaryoları için U-SQL başvuru belgelerine bakın [toplama
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Microsoft Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)
-* [Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md)
+* [Visual Studio için Data Lake araçları kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md)

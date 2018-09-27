@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: afaa4c090508ee5a2306c2be1515076e6bd4f100
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688737"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225734"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Depolama hesabı kimlik bilgilerinizi yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
 
@@ -143,7 +143,7 @@ Bir depolama hesabı oluşturduğunuzda, Microsoft Azure depolama hesabına eri�
 
 Genellikle, uygulamaları yalnızca birini anahtarları verilerinize erişmek için kullanın. Belirli bir süre saat sonra ikinci anahtarınızı kullanmaya geçiş yapın, uygulamalarınız olabilir. Uygulamalarınız için ikincil anahtar geçirildikten sonra ilk anahtarı devre dışı bırakma ve ardından yeni bir anahtar oluşturun. Bu şekilde iki anahtar kullanarak veri uygulamaları erişiminizi herhangi kapalı kalma süresi olmaksızın sağlar.
 
-Depolama hesabı anahtarları, her zaman şifrelenmiş biçimde hizmetinde depolanır. Ancak, bu StorSimple cihaz Yöneticisi hizmeti ile sıfırlanabilir. Birincil anahtar ve ikincil anahtar tüm depolama hesapları için bir StorSimple cihaz Yöneticisi hizmeti olduğunda oluşturulan varsayılan depolama hesaplarının yanı sıra depolama hizmetinde oluşturulan hesapları dahil olmak üzere aynı abonelikte, hizmet alabilirsiniz ilk oluşturuldu. StorSimple cihaz Yöneticisi hizmeti, her zaman bu anahtarlar Azure Klasik Portalı'ndan almak ve bunları şifrelenmiş olarak depolayın.
+Depolama hesabı anahtarları, her zaman şifrelenmiş biçimde hizmetinde depolanır. Ancak, bu StorSimple cihaz Yöneticisi hizmeti ile sıfırlanabilir. Birincil anahtar ve ikincil anahtar tüm depolama hesapları için bir StorSimple cihaz Yöneticisi hizmetine ilk kez yüklendiğinde oluşturulan varsayılan depolama hesaplarının yanı sıra depolama hizmetinde oluşturulan hesapları dahil olmak üzere aynı abonelikte, hizmet alabilirsiniz oluşturuldu. StorSimple cihaz Yöneticisi hizmeti, her zaman bu anahtarlar Azure Klasik Portalı'ndan almak ve bunları şifrelenmiş olarak depolayın.
 
 ## <a name="rotation-workflow"></a>Döndürme iş akışı
 

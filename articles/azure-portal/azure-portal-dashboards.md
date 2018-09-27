@@ -1,6 +1,6 @@
 ---
-title: Oluşturma ve Azure portalı panoları paylaşma | Microsoft Docs
-description: Bu makalede, oluşturma ve Azure portalında panolar düzenleme açıklanmaktadır.
+title: Azure portalı panoları oluşturma ve paylaşma | Microsoft Docs
+description: Bu makalede, Azure Portalındaki Panolar oluşturup açıklanmaktadır.
 services: azure-portal
 documentationcenter: ''
 author: sewatson
@@ -13,86 +13,86 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: sewatson
-ms.openlocfilehash: 3bdeb3255c8dc97d2867eca0b9cdec8223d31b21
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.author: cwatson
+ms.openlocfilehash: 6062e54f0fb584dec4c2db540565c5860ae92a2d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165358"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394973"
 ---
-# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Oluşturma ve Azure portalındaki pano paylaşma
-Birden çok panolar oluşturun ve bunları Azure aboneliklerinize erişimi başkalarıyla paylaşabilir.  Bu makalede oluşturma, düzenleme, yayımlama ve panolar erişimi yönetme temellerini geçer.
+# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure portalında panoları oluşturma ve paylaşma
+Birden çok Pano oluşturma ve Azure aboneliklerinizi erişimi olan diğer kişilerle paylaşabilirsiniz.  Bu makalede, oluşturma, düzenleme, yayımlama ve Pano erişimini yönetme temelleri gider.
 
-## <a name="create-a-dashboard"></a>Bir pano oluşturun
+## <a name="create-a-dashboard"></a>Bir pano oluşturma
 Bir pano oluşturmak için geçerli pano adının yanındaki **Yeni pano** düğmesini seçin.  
 
-![bir pano oluşturun](./media/azure-portal-dashboards/new-dashboard.png)
+![Pano oluşturma](./media/azure-portal-dashboards/new-dashboard.png)
 
-Bu işlem yeni, boş ve özel bir pano oluşturur ve panonuzu adlandırıp kutucuklar ekleyebileceğiniz ya da yeniden düzenleyebileceğiniz özelleştirme modunu açar.  Bu modda olduğunda, sol gezinti menüsü daraltılabilir döşeme galeri alır.  Döşeme galeri Azure kaynaklarınızın çeşitli şekillerde döşeme bulmanıza olanak sağlar: tarafından göz atabilirsiniz [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups), göre kaynak türü, göre [etiketi](../azure-resource-manager/resource-group-using-tags.md), ya da kaynak ada göre arayarak.  
+Bu işlem yeni, boş ve özel bir pano oluşturur ve panonuzu adlandırıp kutucuklar ekleyebileceğiniz ya da yeniden düzenleyebileceğiniz özelleştirme modunu açar.  Bu modda, sol gezinti menüsü daraltılabilir kutucuk Galerisi alır.  Kutucuk Galerisi çeşitli yollarla Azure kaynaklarınız için kutucuklar bulmanıza olanak tanır: göre göz atabilirsiniz [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups)kullanarak, kaynak türü, göre [etiketi](../azure-resource-manager/resource-group-using-tags.md), veya bir kaynak adına göre arama yapın.  
 
-![Pano özelleştirme](./media/azure-portal-dashboards/customize-dashboard.png)
+![Panoyu özelleştirin](./media/azure-portal-dashboards/customize-dashboard.png)
 
-Döşeme sürükleyip istediğiniz yere Pano yüzeyine bırakarak ekleyin.
+Kutucuklar, sürükleyip istediğiniz yere Pano yüzeyi bırakarak ekleyin.
 
-Yeni bir kategori yok **genel** belirli bir kaynakla ilişkili olmayan kutucuklar için.  Bu örnekte, Markdown kutucuğu sabitleyin.  Özel içerik panonuza eklemek için bu kutucuğu kullanın.  Düz metin kutucuğu destekleyen [Markdown söz dizimi](https://daringfireball.net/projects/markdown/syntax)ve HTML sınırlı sayıda.  (Güvenlik için ekleme gibi işlemler yapamayacağı `<script>` etiketler veya belirli portalıyla engelleyebilmesi CSS stil öğesi kullanın.) 
+Adlı yeni bir kategori yok **genel** belirli bir kaynakla ilişkili olmayan kutucukları için.  Bu örnekte biz Markdown kutucuğu sabitleyebilirsiniz.  Bu kutucuk, panonuza özel içerik eklemek için kullanın.  Düz metin, kutucuğu destekler [Markdown söz dizimi](https://daringfireball.net/projects/markdown/syntax)ve HTML sınırlı bir dizi.  (Ekleme gibi işlemler yapamayacağınız güvenliği için `<script>` etiketleri veya belirli portalıyla engelleyebilmesi CSS stil öğesi kullanın.) 
 
-![markdown Ekle](./media/azure-portal-dashboards/add-markdown.png)
+![markdown'ı Ekle](./media/azure-portal-dashboards/add-markdown.png)
 
-## <a name="edit-a-dashboard"></a>Bir Pano Düzenle
-Panonuz oluşturduktan sonra kutucukları döşeme galeri veya dikey pencereleri döşe gösterimini sabitleyebilirsiniz. Şimdi, kaynak grubu gösterimini sabitleyin. Öğe göz atarken veya kaynak grubu dikey ya da PIN olabilir. Her iki yaklaşım, kaynak grubu döşeme gösterimini sabitleme neden.
+## <a name="edit-a-dashboard"></a>Bir panoyu Düzenle
+Pano oluşturduktan sonra kutucukları kutucuk Galerisi ya da dikey pencereleri döşe gösterimini sabitleyebilirsiniz. Şimdi kaynak grubumuz gösterimini sabitleyin. Öğe göz atarken veya kaynak grubu dikey penceresinden ya da PIN oluşturabilirsiniz. Her iki yaklaşım, kaynak grubunu kutucuk gösterimini sabitleme neden.
 
 ![Panoya Sabitle](./media/azure-portal-dashboards/pin-to-dashboard.png)
 
 Öğeyi sabitleme sonra Panonuzda görüntülenir.
 
-![Görünüm Panosu](./media/azure-portal-dashboards/view-dashboard.png)
+![Panoyu görüntüle](./media/azure-portal-dashboards/view-dashboard.png)
 
-Bir Markdown döşeme sahibiz ve bir kaynak grubu panosuna sabitlediğiniz göre biz yeniden boyutlandırma ve uygun bir düzen kutucukları yeniden.
+Markdown kutucuğu sunuyoruz ve bir kaynak grubu panoya sabitlenmiş göre biz yeniden boyutlandırabilir ve kutucuklar uygun bir düzen yeniden düzenleyin.
 
-Vurgulama ve seçerek "..." veya bir kutucuğa sağ tıklayarak bu kutucuğu tüm bağlamsal komutlarını görebilirsiniz. Varsayılan olarak, iki öğe vardır:
+Vurgulama ve seçerek "..." veya bir kutucuğa sağ tıklayarak ilgili kutucuğa bağlamsal tüm komutları görebilirsiniz. Varsayılan olarak, iki öğe vardır:
 
-1. **Panodan sabitleme** – kutucuğu panodan kaldırır
+1. **Panodan Kaldır** – kutucuğu panodan kaldırır
 2. **Özelleştirme** – girer modu özelleştirme
 
-![Döşeme özelleştirme](./media/azure-portal-dashboards/customize-tile.png)
+![kutucuğu özelleştirme](./media/azure-portal-dashboards/customize-tile.png)
 
-Seçerek özelleştirme, yeniden boyutlandırma ve kutucukları yeniden Sırala. Bir kutucuk yeniden boyutlandırmak için aşağıdaki görüntüde gösterildiği gibi bağlamsal menüsünden Yeni boyutunu seçin.
+Seçerek özelleştirme, yeniden boyutlandırabilir ve kutucukları. Bir kutucuğu yeniden boyutlandırmak için aşağıdaki görüntüde gösterildiği gibi bağlam menüsünden Yeni boyutunu seçin.
 
-![Döşeme yeniden boyutlandırma](./media/azure-portal-dashboards/resize-tile.png)
+![kutucuğu yeniden boyutlandırma](./media/azure-portal-dashboards/resize-tile.png)
 
-Ya da döşeme herhangi bir boyutta destekliyorsa, istenen boyuta alt sağ köşesinde sürükleyebilirsiniz.
+Veya herhangi bir boyutta kutucuğu destekliyorsa, istenen boyuta sağ alt köşedeki sürükleyebilirsiniz.
 
-![Döşeme yeniden boyutlandırma](./media/azure-portal-dashboards/resize-corner.png)
+![kutucuğu yeniden boyutlandırma](./media/azure-portal-dashboards/resize-corner.png)
 
-Kutucukları yeniden boyutlandırma sonra Pano görüntüleyin.
+Kutucukları yeniden boyutlandırıldıktan sonra panoyu görüntüleyebilir.
 
-![Görünümü kutucuğu](./media/azure-portal-dashboards/view-tile.png)
+![kutucuğu görüntüle](./media/azure-portal-dashboards/view-tile.png)
 
-Bir Pano özelleştirme bittiğinde seçmeniz yeterlidir **özelleştirme Bitti** çıkmak için özelleştirme moduna veya sağ tıklatın ve seçin **özelleştirme Bitti** ve bağlam menüsünden.
+Bir panoyu özelleştirme tamamladıktan sonra seçmeniz yeterlidir **özelleştirme Bitti** çıkmak için özelleştirme moduna veya sağ tıklayıp **özelleştirme Bitti** bağlam menüsünden.
 
-## <a name="publish-a-dashboard-and-manage-access-control"></a>Bir Pano yayımlayın ve erişim denetimi yönetin
+## <a name="publish-a-dashboard-and-manage-access-control"></a>Bir panoyu yayımlama ve erişim denetimini yönetme
 Bir pano oluşturulduğunda varsayılan olarak gizlidir, yani onu yalnızca siz görebilirsiniz.  Panoyu başkalarının görebilmesi için, diğer pano komutlarıyla birlikte görünen **Paylaş** düğmesini kullanın.
 
-![Pano paylaşımı](./media/azure-portal-dashboards/share-dashboard.png)
+![Panoyu Paylaş](./media/azure-portal-dashboards/share-dashboard.png)
 
-Panonuzun yayımlanması için bir abonelik ve kaynak grubu seçmeniz istenir. (Size bir e-posta adresi yazarak paylaşamaz şekilde) sorunsuz bir şekilde panolar ekosistemi tümleştirmek için paylaşılan panoları Azure kaynaklarını uyguladık.  Portal döşemeleri çoğu tarafından görüntülenen bilgilere erişim tarafından yönetilir [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md). Bir erişim denetimi açısından bakıldığında, paylaşılan Pano sanal makine ya da bir depolama hesabı hiç farklı değildir.  
+Panonuzun yayımlanması için bir abonelik ve kaynak grubu seçmeniz istenir. (Bir e-posta adresini yazarak paylaşamazsınız şekilde) panolar ekosistemi ile sorunsuz bir şekilde tümleştirmek için paylaşılan panolar Azure kaynaklarını uyguladık.  Portalda kutucukları çoğu tarafından görüntülenen bilgilere erişim tabidir [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md). Bir erişim denetimi açısından bakıldığında, paylaşılan panoları farklı bir sanal makine ya da depolama hesabı yok.  
 
-Bir Azure aboneliğiniz varsa ve ekibinizin üyeleri rolleri atanmış düşünelim **sahibi**, **katkıda bulunan**, veya **okuyucu** abonelik.  Sahipler veya katkıda bulunanlar kullanıcılar listesinde, görüntülemek, oluşturmak, değiştirmek veya bu abonelik içindeki panolar silmek kullanabilirsiniz.  Okuyucular kullanıcılar listesi ve görünümü panolarına kullanabilirsiniz ancak değiştirin veya silin.  Okuyucu erişimi olan kullanıcılar bir paylaşılan Pano yerel düzenlemeler yapabilir, ancak bu değişiklikleri geri sunucuya yayımlayın mümkün değildir.  Ancak, bunlar Pano kendi kullanmak için özel bir kopyasını yapabilirsiniz.  Her zaman olduğu gibi tek tek döşeme Panoda için karşılık gelen kaynaklara göre kendi erişim denetim kurallarını uygulayın.  
+Diyelim ki bir Azure aboneliğiniz varsa ve takımınızın üyelerinin rollerine atanmış **sahibi**, **katkıda bulunan**, veya **okuyucu** abonelik.  Sahip veya katkıda bulunan kullanıcılar listesinde, görüntülemek, oluşturmak, değiştirmek veya bu Abonelikteki panoları silmesine olanağına sahip olursunuz.  Okuyucular kullanıcılar edebilir listeleyip görüntüleyin panolara, ancak değiştiremez veya silemezsiniz.  Okuyucu erişimi olan kullanıcılar için paylaşılan bir panoyu yerel düzenlemeler yapabilir, ancak bu değişiklikleri sunucuya geri yayımlamak mümkün değildir.  Ancak, bunlar panonun kendi kullanımları için özel bir kopyasını yapabilirsiniz.  Her zaman olduğu gibi tek tek kutucuklara Panoda için karşılık gelen kaynakları göre kendi erişim denetim kuralları uygular.  
 
 Kolaylık olması için portalın yayımlama deneyimi, bir kaynak grubuna panoları yerleştirdiğiniz **panolar** adlı bir modelde size kılavuzluk eder.  
 
-![Pano yayımlama](./media/azure-portal-dashboards/publish-dashboard.png)
+![Panoyu yayımlama](./media/azure-portal-dashboards/publish-dashboard.png)
 
-Belirli bir kaynak grubunu için bir Pano yayımlamayı seçebilirsiniz.  Bu Pano için erişim denetimi, kaynak grubu için erişim denetimi ile eşleşir.  Bu kaynak grubundaki kaynakları yönetebilir kullanıcılar da panoları erişiminiz.
+Belirli bir kaynak grubu için bir Pano yayımlamayı seçebilirsiniz.  Bu Pano için erişim denetimi, kaynak grubu için erişim denetimi ile eşleşir.  Bu kaynak grubundaki kaynakları yönetebilir kullanıcılar panoları da erişebilir.
 
-![kaynak grubu için Pano yayımlama](./media/azure-portal-dashboards/publish-to-resource-group.png)
+![kaynak grubu için panoyu yayımlama](./media/azure-portal-dashboards/publish-to-resource-group.png)
 
-Panonuz yayımlandıktan sonra **paylaşım + erişim** denetim bölmesinde yenileyin ve Pano kullanıcı erişimini yönetmek için bir bağlantı da dahil olmak üzere yayımlanan Pano hakkında bilgi gösterir.  Bu bağlantı, herhangi bir Azure kaynak erişimi yönetmek için kullanılan standart rol tabanlı erişim denetimi dikey penceresini başlatır.  Her zaman geri bu görünüme seçerek alabilirsiniz **paylaşımı**.
+Panonuzu yayımlandıktan sonra **paylaşım ve erişim** kontrol bölmesini yenileyin ve panoya kullanıcı erişimini yönetmek için bir bağlantı da dahil olmak üzere yayımlanan Pano hakkında bilgi gösterir.  Bu bağlantı, tüm Azure kaynakları için erişimi yönetmek için kullanılan standart rol tabanlı erişim denetimi dikey penceresini başlatır.  Her zaman bu görünüme seçerek dönebilirsiniz **paylaşımı**.
 
-![erişim denetimi yönetme](./media/azure-portal-dashboards/manage-access.png)
+![erişim denetimini yönetme](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kaynakları yönetmek için bkz: [yönetmek Azure kaynakları portal üzerinden](../azure-resource-manager/resource-group-portal.md).
-* Kaynakları dağıtmak için bkz: [kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](../azure-resource-manager/resource-group-template-deploy-portal.md).
+* Kaynakları yönetmek için bkz: [Azure kaynaklarınızı portal üzerinden yönetme](../azure-resource-manager/resource-group-portal.md).
+* Kaynakları dağıtmak için bkz. [kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](../azure-resource-manager/resource-group-template-deploy-portal.md).
 

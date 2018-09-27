@@ -1,20 +1,20 @@
 ---
-title: Bing Visual arama API tarafından döndürülen görüntüleri için gereksinimleri görüntülemesini kullanmak ve | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Bing Visual arama API döndürür içeriği görüntülenmesine yönelik gereksinimleri açıklanmaktadır.
+title: Görüntüleri - Bing görsel arama gereksinimlerini görüntülemek ve kullanın
+titleSuffix: Azure Cognitive Services
+description: Bing görsel arama API'sine döndüren içeriği görüntülemek için gereksinimleri açıklanır.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: scottwhi
-ms.openlocfilehash: f2087379fbb820adfb43ec85c93ce7f6ea4f7493
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a9305034102c9ca9e721f18841054d9473acfac9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355181"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221137"
 ---
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

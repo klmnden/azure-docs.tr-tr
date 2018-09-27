@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator incelemelere kullanarak içeriği Orta | Microsoft Docs
+title: API Konsolu - Content Moderator incelemelere kullanarak içeriği Orta
+titlesuffix: Azure Cognitive Services
 description: Content Moderator API'si konsolda incelemelere oluşturmayı öğrenin.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: 214695ed3e23d1f501d6d4691104b3f8a91f6efc
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: bb95341a09f09ce8020f34476e720270fd401909
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866517"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219762"
 ---
 # <a name="create-reviews-from-the-api-console"></a>API Konsolu incelemeleri oluşturma
 

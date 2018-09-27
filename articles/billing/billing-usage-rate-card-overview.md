@@ -14,19 +14,19 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 5/10/2018
-ms.author: mobandyo
-ms.openlocfilehash: 650fac6208adf8f904384454b2e66e26e45893f1
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: erikre
+ms.openlocfilehash: 79cc543e2a106fa8cbff31bdd0e6bb35afe68e4b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918861"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392049"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure faturalandırma API'lerini program aracılığıyla Azure kullanımınızı öngörü almak için kullanın
-Azure faturalandırma API'lerini kullanımı ve kaynak veri çekmek üzere, tercih edilen veri analizi araçları kullanın. Azure kaynak kullanım ve RateCard API'leri, doğru şekilde tahmin edip, maliyetleri yönetmenize yardımcı olabilir. API'ler, bir kaynak sağlayıcısı ve Azure Resource Manager tarafından kullanıma sunulan API'ler ailesinin bir parçası olarak uygulanır.  
+Azure faturalandırma API'lerini kullanımı ve kaynak veri çekmek üzere, tercih edilen veri analizi araçları kullanın. Azure Kaynak Kullanımı ve RateCard API'leri maliyetlerinizi doğru tahmin etmenize ve yönetmenize yardımcı olabilir. API'ler, bir kaynak sağlayıcısı ve Azure Resource Manager tarafından kullanıma sunulan API'ler ailesinin bir parçası olarak uygulanır.  
 
 > [!div class="nextstepaction"]
-> [Azure faturalama belgeleri geliştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Azure faturalama belgelerinin iyileştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="azure-invoice-download-api-preview"></a>Azure fatura indirme API'si (Önizleme)
 Bir kez [katılımı tam](billing-manage-access.md#opt-in), önizleme sürümünü kullanarak indirme faturalar [fatura API](/rest/api/billing). Özellikler şunlardır:
@@ -65,7 +65,7 @@ Kullanım ve RateCard API'leri ile birlikte olası yapılan senaryolardan bazıl
   * Başka bir Azure Teklif türü bir Azure kaynağında daha iyi bir fiyat sağlar, ayrıca belirleyebilirsiniz.
   
 ## <a name="partner-solutions"></a>İş ortağı çözümleri
-[Cloud Cruiser ve Microsoft Azure faturalama API tümleştirmesi](billing-usage-rate-card-partner-solution-cloudcruiser.md) açıklar nasıl [Azure Pack için Cloud Cruiser'ın Express](http://www.cloudcruiser.com/partners/microsoft/) doğrudan Windows Azure Pack (WAP) portaldan çalışır. Bu gibi durumlarda, Microsoft Azure özel veya barındırılan genel bulutta işletimsel ve finansal yönleri sorunsuz bir şekilde tek bir kullanıcı arabiriminden yönetebilirsiniz.   
+[Cloud Cruiser ve Microsoft Azure Faturalama API'si Tümleştirmesi](billing-usage-rate-card-partner-solution-cloudcruiser.md) altında, [Cloud Cruiser'dan Express for Azure Pack](http://www.cloudcruiser.com/partners/microsoft/)'in doğrudan Windows Azure Paketi (WAP) portalının altından nasıl çalıştığı açıklanır. Tek bir kullanıcı arabiriminden Microsoft Azure'un özel veya barındırılan genel bulutunun işletim ve finans yönlerini sorunsuzca yönetebilirsiniz.   
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Github'daki kod örneklerine bakın:

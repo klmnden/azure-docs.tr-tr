@@ -1,0 +1,118 @@
+---
+title: Market ölçütleri içerik doğrulama - Azure | Microsoft Docs
+description: Bu makalede, bir yayımcının Market'te haline açıklar.
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
+documentationcenter: ''
+author: yijenj
+manager: nunoc
+editor: ''
+ms.assetid: ''
+ms.service: marketplace
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.topic: article
+ms.date: 09/20/2018
+ms.author: yijenj
+ms.openlocfilehash: 0b971535120e51a9aeec7b57da133c6b8db6a09e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219423"
+---
+# <a name="azure-marketplace-listing-guidelines"></a>Azure Market listelemesi yönergeleri
+
+Bu belge, yeni teklifler ve Azure Market'te listelenen hizmetler için gözden geçirenler için gereksinim kuralları ve bunun yanı sıra bir denetim listesi içerir.
+
+Tüm teklifleri, "tüm liste gereksinimleri" karşılaması gerekir. Ek gereksinimler ve denetim listeleri de dahil olmak üzere belirli bir liste türleri için sağlanan: teklifleri, SaaS uygulamaları ve kapsayıcılarınızı danışmanlık ekli deneme ile sunar.
+
+**Örnekleri burada listelemek iyi bakın:**
+| Teklif Türü | Teklif bağlantı
+|:--- |:--- |
+| Genel | <br> https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.waf?tab=Overview <br> https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-altavault-cloud-integrated-storage-solution?tab=Overview |
+| Deneme | https://azuremarketplace.microsoft.com/en-us/marketplace/apps/intigua.intigua-agent-manager-trial?tab=Overview |
+| SaaS Uygulamaları | https://azuremarketplace.microsoft.com/en-us/marketplace/apps/apptimized.isvtesting?tab=Overview |
+| Kapsayıcılar |https://azuremarketplace.microsoft.com/en-us/marketplace/apps/couchbase.couchbase-server-enterprise-containercouchbase-enterprise-server-container-byol?tab=Overview |
+| Danışmanlık Hizmetleri | https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/wipro-ltd.cmp-wipro?page=1 |
+
+
+
+## <a name="all-listing-requirements"></a>Tüm listeyi gereksinimleri
+
+|  | Liste öğesi | Temel gereksinimleri | En iyi gereksinimleri |
+|:--- |:--- |:--- |:--- |
+| 1 | Hedef yol | Yapılandırılmış bir müşteri adayı hedefi| OCP Kataloğu ayrıca iş ortağı çözümü sekmesinde listelenen sağlama hedef CRM bilgisi yok | 
+| 2 | Teklif başlığı | Çözüm teklifini tanımlayıcı. İş ortağı Web sitesi çözümde, eşleşme çevrimiçi Tanıtımı | Anahtar arama sözcükleri içerir |
+| 3 | Logo | Logo doğru görüntüler | Logo içerir ve doğru görüntüler [hero görüntüsü](https://cloudpartner.azure.com/#documentation/publish-solution-template) biçimi büyük görüntünün Azure Portalı'nda olduğu |
+| 4 |  Teklif açıklaması | <br>• 2-3 paragrafta <br>• Çözüm teklifini bir bakışta kolay anlaşılıyor mu <br>• Teklif açıklaması yazım ve dilbilgisi hatalara ücretsizdir <br>• Teklif açıklaması kapsamlı ve yakalar: hedef kitlesi, neden olduğu değerli kullanıcı türü (değer prop) <br>• Teklif açıklamasıdır kavrama kolay paragraf anlatım biçiminde kısa bir cümle ile | <br>• Hedef sektör, (uygunsa) gösterilmiştir. <br>• İyi stili bir cümleden veya tümceciği içerik, izler ve kapsamlı madde işareti, özetleme her paragraf başlığını biçimlendirme (uygun olduğunda) temel avantajlar vurgulamak için işaret eder. Burada amaç, teklifi kolay biçimi görüntüleyip paragraflar okumak zorunda değil bir bakışta anlamak okuyucu içindir. <br>• Her bir paragraf ve okuma gibi bir araba Broşürü arasındaki aralığı yok. Kod lingo açıklayıcı sunan basit bir deyişle, ancak değil teknik özellikleri anlamına gelir ve kapsamlı. | 
+| 5 | Kategorileri ve sektörler | <br>• Kategorilerini özellikleri sunan bir çözüm eşleştir <br>• Çözüm uymayan kategorilerini genişletme değil <br>• En iyi sektör veya tüm seçildi (değilse en iyi sektörler) | <br>• En fazla. 3 kategorileri <br>• En fazla. 3 sektörler |
+| 6 | Görüntüler | <br>Sağlanan gerekir, ancak hiçbir görüntü gereken • görüntü ve yüksek çözünürlüklü bir görüntü. <br>• Görüntü gereksinimleri, CPP içinde listelenir ve ayrıca burada <br>• Metin ekran görüntüsünde yer Temizle görüntüsüyle okunaklı | Çözüm teklifini bir bakışta kolay anlaşılıyor mu |
+| 7 | Videolar | <br>• Videolar, gerekmez ancak varsa sağlanan herhangi bir hata olmadan kayıttan yürütme gerekir. <br>• Sağlanırsa, rakip şirketler için bir geçiş çözümü gösteren sürece başvuruda bulunamaz |<br>• İdeal olarak 3 dakika veya daha fazla bilgi <br>• Çözüm kolayca teklifi video içeriği anladım <br>• Çözüm özellikleri Tanıtımı |
+| 8 | Liste durumu (eylem çağrısı) | <br>Aşağıdaki türde etiketli gerekir: <ul>o benimle iletişime geçin</ul><ul>Artık o deneme/Get deneme / Start deneme/Test Sürüşü</ul><ul>o hemen satın alın / şimdi edinin</ul> | Müşteri, kullanılabilir sonraki adımlar nelerdir kolayca anlayabilir: <ul>1. Deneme</ul> <ul>2. Şimdi Satın Alın</ul><ul>3. PoC, değerlendirme veya bilgilendirme düzenlemek için e-posta veya telefon numarası yoluyla başvurun.</ul> | 
+| 9 | Çözümü fiyatlandırması | Fiyatlandırma sekmesi/ayrıntıları çözüme sahip olmalıdır ve iş ortağı çözüm teklifini yerel para birimi | Kullanılabilir birden çok faturalandırma seçenekleri-fiyatlandırma katmanını seçenekleri sağlamak müşteri ile |    
+| 10 | Daha Fazla Bilgi Edinin | (Açıklama, Market bağlantıları soldaki değil altında) alt kısımdaki bağlantılara çözüm hakkında daha fazla bilgi için müşteri adayları ve doğru şekilde genel olarak kullanılabilir ve görüntüleme |   Belirli öğeleri (örneğin iş ortağı sitesindeki özellikler sayfaları) ve yalnızca iş ortağı giriş sayfası site bağlantıları | 
+| 11 | Çözüm destek & Yardımı | En az biri aşağıdaki için bağlantı: <br>o telefon numaraları <br>o e-posta desteği <br>o sohbet aracıları <br>o topluluk forumları |<br>• Tüm listelenen yöntemleri destekler: telefon ve e-posta desteği. <br>Ücretli destek • deneme veya test sürücü dönemi boyunca ücretsiz olarak sunulan | 
+| 12 | Yasal Bilgiler | İlkeleri veya koşulları genel bir URL ile kullanılabilir |  | 
+
+----
+## <a name="trial-offer-requirements"></a>Deneme teklifi gereksinimleri
+
+|  | Liste öğesi | Temel gereksinimleri | En iyi gereksinimleri | 
+|:--- |:--- |:--- |:--- |
+|  | Listesi durumu | Bağlantı müşteri destekli deneme sürümü deneyimi için müşteri adayı | Diğer CTAs (örn: hemen satın alın) de kullanılabilir | 
+
+----
+## <a name="saas-apps-requirements"></a>SaaS uygulama gereksinimleri
+
+|  | Liste öğesi | Temel gereksinimleri | En iyi gereksinimleri | 
+|:--- |:--- |:--- |:--- |
+| 1 | Teklif başlığı |<br>• Yalnızca küçük harf, alfasayısal karakter, kısa çizgi veya alt çizgi oluşmalıdır. Yayımlandıktan sonra değiştirilemez. <br>• Çözüm teklifini tanımlayıcı.<br>• Çözüm iş ortağı Web sitesinde, çevrimiçi Tanıtımı eşleşir. | Anahtar arama sözcükleri içerir |
+| 2 | Teknik bilgi: yapılandırma |<br>• SaaS uygulamasının müşterilerin, uygulamanızı Azure üzerinden satın almak istiyorsanız ya da yalnızca uygulamanızı listeleyin isteyip istemediğinizi seçin.<br>• Mac'te ürününüzün edinme düğmesine istediğiniz uygun bir metin: ücretsiz, ücretsiz deneme sürümü veya benimle iletişime geçin<br>• Yalnızca seçin (açılır kutu)-uygulamanızı teknolojisi kullanır, bu geçerli ürünlerinden biri: Cortana Intelligence, Power BI çözüm şablonları, Power Apps |  |
+| 3 | Test Sürüşü | Seçim: Evet veya Hayır | Müşteri, kullanılabilir sonraki adımlar nelerdir kolayca anlayabilir: <br>1. Deneme <br>2. Şimdi Satın Alın <br>3. PoC, değerlendirme veya bilgilendirme düzenlemek için e-posta veya telefon numarası yoluyla başvurun. |
+| 4 | StoreFront ayrıntıları: Teklif özeti | Bu, uygulamanızın arama sayfasında en fazla 100 karakter ile görünür | |
+| 5 | StoreFront ayrıntıları: sektörler | Sektörler (en fazla 2): uygulamanızı en iyi şekilde hizalanmış ve uygulanabilir olduğunu sektör seçin. | |
+| 6 | Teklif açıklaması | <br>• Basit bir HTML, dahil olmak üzere, p, em, ul, li, ol ve başlık etiketleri izin verilir. En çok 3000 karakter. <br>• 2-3 paragrafta <br>• Çözüm teklifini bir bakışta kolay anlaşılıyor mu <br>• Açıklama kapsamlı ve yakalar: hedef kitle *, neden olduğu değerli kullanıcı türü (değer prop) <br>• Teklif kavrama kolay paragraf anlatım biçiminde kısa bir cümle ile açıklamasıdır. | <br>• Hedef sektör, (uygunsa) gösterilmiştir. <br>• İyi stili bir cümleden veya tümceciği içerik, izler ve kapsamlı madde işareti, özetleme her paragraf başlığını biçimlendirme (uygun olduğunda) temel avantajlar vurgulamak için işaret eder. Burada amaç, teklifi kolay biçimi görüntüleyip paragraflar okumak zorunda değil bir bakışta anlamak okuyucu içindir. <br>• Her bir paragraf ve okuma gibi bir araba Broşürü arasındaki aralığı yok. Kod lingo açıklayıcı sunan basit bir deyişle, ancak değil teknik özellikleri anlamına gelir ve kapsamlı. | 
+| 7 | Pazarlama Yapıtları | Logo doğru görüntüleme | <br>• Logosu "Azure Portalı'nda biçimi büyük görüntüdür hero görüntüsü" içerir <br>• Logoları: küçük (48 x 48) ve (216 x 216) büyük olan gereksinimleri <br>• Hero resim gereksinimleri: https://cloudpartner.azure.com/#documentation/publish-solution-template <br>• Ekran (en fazla 5): bir .png görüntü çözünürlüğü 1280 x 720 CPP gerektirir. |
+| 8 | Kategorileri ve sektörler | <br>• Kategorilerini özellikleri sunan bir çözüm eşleştir <br>• En az 1 öğe açılır kutusundan seçilmelidir <br>• Çözüm uymayan kategorilerini genişletme değil <br>• En iyi sektör veya tüm seçildi (değilse en iyi sektörler <br>• Çözüm uymayan kategorilerini genişletme değil <br>• En iyi sektör veya tüm seçildi (değilse en iyi sektörler) | En çok, 3 kategori varsa seçili. |
+| 9 | Tedarik Yönetimi | Müşteri adaylarınızı depolanacağı sistem seçin. CRM sisteminize bağlamayı öğrenin [burada](https://aka.ms/cppdocs/get-customer-leads/how-to-connect-your-crm-system-with-the-cloud-partner-portal) |  |
+| 10 | Kişiler: Çözüm destek & Yardımı | <br>• Mühendislik ilgili kişi adı: mühendislik birimi ilgili kişisi uygulamanız için bir ad girin. Bu kişi Microsoft Teknik iletişimleri alırsınız.<br>• Mühendislik iletişim e-posta: uygulamanız için mühendislik birimi ilgili kişisi e-posta adresini girin.<br>• Mühendislik telefon iletişim kurar: mühendislik ilgili kişi telefon numarasını girin. ISO telefon numarası gösterimler desteklenir; Ayrıntılar için bkz https://en.wikipedia.org/wiki/E.123.<br>• Destek kişi adı: uygulamanız için destek ilgili kişisi adını girin. Bu kişi Microsoft desteğe ilişkin iletişimleri alırsınız.<br>• Destek iletişim e-posta: uygulamanız için destek ilgili kişisi e-posta adresini girin. <br>• Destek ilgili kişi telefon: Destek iletişim telefon numarası girin. ISO telefon numarası gösterimler desteklenir; Ayrıntılar için bkz https://en.wikipedia.org/wiki/E.123. <br>• Destek URL'si: Destek sayfanız URL'sini girin. | <br>• Tüm listelenen yöntemleri destekler: telefon ve e-posta desteği. <br>Ücretli destek • deneme veya test sürücü dönemi boyunca ücretsiz olarak sunulan |
+| 11 | Yasal Bilgiler |<br>• Gizlilik İlkesi URL'si: uygulamanızın gizlilik ilkesi CPP gizlilik ilkesi URL'si alanında URL'sini girin. <br>• Kullanım koşullarını: uygulamanızın kullanım koşulları girin. Müşterilerin uygulamanızı deneyebilmeniz için önce bu koşulları kabul etmek için gereklidir. |  İlkeleri veya koşulları genel bir URL sitesi kullanılabilir |
+
+----
+
+## <a name="container-offer-requirements"></a>Kapsayıcı teklif gereksinimleri
+|  | Liste öğesi | Temel gereksinimleri | En iyi gereksinimleri | 
+|:--- |:--- |:--- |:--- |
+|1 |Teklif ayarları | <br>• Teklif kimliği: en çok 50 karakter <br>• Yayımcı kimliği: açılan listeden seçin <br>• Adı: en fazla 50 karakter | Başlık stili açıklama içinde zaten kullanılabilir istemediğiniz yansıtmalar başlıkları uzun. | 
+| 2 | SKU'lar | İş ortağı yeni SKU'larında tıklar.| Başlık stili açıklama içinde zaten kullanılabilir istemediğiniz yansıtmalar başlıkları uzun.  |  |
+| 3 | Market Yapıtları | Logo doğru görüntüleme |<br>• Logosu "Azure Portalı'nda biçimi büyük görüntüdür hero görüntüsü" içerir <br>• Logoları: küçük (48 x 48) ve (216 x 216) büyük olan gereksinimleri <br>• Hero resim gereksinimleri: https://cloudpartner.azure.com/#documentation/publish-solution-template<br>• Ekran (en fazla 5): bir .png görüntü çözünürlüğü 1280 x 720 CPP gerektirir.|
+| 4 | Tedarik Yönetimi |<br>• Yönetim neden: müşteri adaylarınızı depolanacağı sistem seçin. <br>• Öğrenin, CRM sistemine bağlanmak [burada](https://aka.ms/cppdocs/get-customer-leads/how-to-connect-your-crm-system-with-the-cloud-partner-portal) | |
+
+----
+
+## <a name="consulting-offer-requirements"></a>Danışmanlık teklif gereksinimleri
+|  | Liste öğesi | Temel gereksinimleri | En iyi gereksinimleri |
+|:--- |:--- |:--- |:--- |
+| 1 | Teklif başlığı  |  <br>• Gerekir açıkça listesinde hizmet türü ve süresi şu biçimde: ad: süre türü. (yani, "Teklif Engagement: 1 hafta kavram kanıtı")  | <br>• Yayımcı adı yinelemez <br>Başlık stili tanımı zaten kullanılabilir • yansıtır-uzun başlıkları istiyor musunuz. | 
+| 2 | Teklif açıklaması  |<br>• Sağlamak uygun kullanımını [Microsoft ürün adları](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx) <br>• Teklifler fiyat işaretlenmiş: gereken tahmini bir not ya (Seyahat istemci, Geçirilmekte olan sunucu sayısını, vs.) değişkenlik açıklamak için teklif ortasından altına veya üstüne sahip <br>• Her bir teklif türü aşağıdaki gibi açıklama gereksinimleri vardır: <ul><br>o bilgilendirmelerden yararlanıyor gereken en az 4 ila 5 madde işaretleri ile bilgilendirme içinde kapsanan konular hakkında bilgi </ul> <ul><br>o tüm atölyeler Gündem gerekir </ul><ul><br>o tüm gündemi günlük veya haftalık Atölyesi süresi bağlı olarak ayrılmış gerekir </ul><ul><br>o değerlendirmeyi, Pt, eğitim atölyeler, uygulama teklifler teslim edilebilirleri gerekir. </ul><ul><br>o eğitim atölyeler teslim edilebilirleri gerekmez ancak bunlar ele alınacak konuları daha ayrıntılı bir gündemi gerekir. | <br>• Herhangi gündem ve teslim edilebilirler sunar <br>• Teklif en üst bölümünde hizmeti sunan şirket içeriğine sahip bir paragraf içerir <br>• Teklif paragrafı üst kısmında olarak hizmetin kendisini değerini içerir. |
+| 3 | Markdown biçimlendirme  | Tüm teklifler için HTML dönüştürüldüğünde teklif düzgün bir şekilde işler, böylece Markdown biçimlendirme kullanmanız gerekir  |  |
+| 4 | Kategorileri ve sektörler | İlgili olmayan kategorileri |  | 
+| 5 | (CTA) listesi durumu | Otomatik olarak benimle iletişim kurun listelenen |  | 
+| 6 | Çözüm destek & Yardımı  | Destek ve Yardım gerekli değildir  | | 
+| 7 | Kullanım Koşulları'nı kullanılabilir & Gizlilik İlkesi  |  İlkeleri veya koşulları gerekli değildir  | | 
+| 8 | Hizmet türleri | Hizmet türü ile eşleşen başlık emin olun. | |
+| 9 | Yetkinlikler |<br>• En az aşağıdakilerden biri olmalıdır:<br>• Uygulama geliştirme <br>• Uygulama tümleştirmesi <br>• Uygulama yaşam döngüsü yönetimi <br>• Bulut platformu <br>• Veri analizi <br>• Veri Merkezi <br>• Veri Platformu <br>• DevOps |
+| 10 | Ürünler | Azure olmalıdır | |
+| 11 | Ülke/Bölge | Para birimi seçilen ülke ve bölgeye eşleşme emin olun | |
+| 12 | Daha Fazla Bilgi Edinin  | <br>• Bağlantılar alt (altında açıklama, Market bağlantıları soldaki değil) çözümü hakkında daha fazla bilgi için müşteri adayları ve doğru şekilde genel olarak kullanılabilir ve görüntüleme. <br>• Bağlantılar bir "kolay adı" olmalıdır ve dosya adı herhangi bir indirme olarak görünmeyen | |
+
+
+
+
+## <a name="next-steps"></a>Sonraki adımlar
+* Farklı teklif türlerinin Market'te hakkında bilgi edinin <br>[SaaS Uygulamaları](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Kapsayıcılar](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Danışmanlık Hizmetleri](https://docs.microsoft.com/azure/marketplace/consulting-services)
+*   [Çözümünüz için liste türü belirlenemiyor](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+
+ 
+---  

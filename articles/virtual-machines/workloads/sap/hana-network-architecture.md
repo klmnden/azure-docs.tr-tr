@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2ab917f701ebcb78ae01a4ed97915858e5b95db
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 1262ed841fe8f6f9c2d5339d79abf06c1ab15a25
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028647"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392882"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA (büyük örnekler) ağ mimarisi
 
@@ -79,7 +79,7 @@ Azure'da SAP dağıtımları için fark vardır:
 - SAP uygulama mimarisi ağ gecikmesine daha tipik senaryolar şirket içi ile Azure arasında veri alışverişi burada daha hassastır.
 - Sanal ağ geçidi en az iki ExpressRoute bağlantılarına sahiptir. Her iki bağlantı için sanal ağ geçidinin gelen verileri maksimum bant genişliğini paylaşır.
 
-Karşılaşılan ağ gecikme sürelerini VM'ler ve HANA büyük örneği arasında birimleri bir tipik VM VM ağ gidiş dönüş gecikmesi yüksek olabilir. Bağımlı Azure bölgesi, ölçülen değerleri aşağıda ortalama olarak sınıflandırılan 0,7 ms gidiş dönüş gecikmesi da aşabilir [SAP notu #1100926 - SSS: ağ performansı](https://launchpad.support.sap.com/#/notes/1100926/E). Bununla birlikte, müşteriler SAP HANA büyük örneği başarıyla üzerinde SAP HANA tabanlı üretim SAP uygulamaları dağıtın. Raporu harika iyileştirmeleri HANA büyük örneği birimleri kullanarak SAP HANA'da SAP uygulamalarını çalıştırarak dağıtan müşteriler. Azure HANA büyük örneği İş süreçlerinizi kapsamlı olarak test emin olun.
+Karşılaşılan ağ gecikme sürelerini VM'ler ve HANA büyük örneği arasında birimleri bir tipik VM VM ağ gidiş dönüş gecikmesi yüksek olabilir. Bağımlı Azure bölgesi, ölçülen değerleri aşağıda ortalama olarak sınıflandırılan 0,7 ms gidiş dönüş gecikmesi da aşabilir [SAP notu #1100926 - SSS: ağ performansı](https://launchpad.support.sap.com/#/notes/1100926/E). Azure bölgesi ve aracı bir Azure VM ve HANA büyük örneği birim arasındaki gidiş dönüş ağ gecikmesini ölçmek için bağımlı, ölçülen gecikme süresi en fazla ve 2 milisaniye geçici olabilir. Bununla birlikte, müşteriler SAP HANA büyük örneği başarıyla üzerinde SAP HANA tabanlı üretim SAP uygulamaları dağıtın. Azure HANA büyük örneği İş süreçlerinizi kapsamlı olarak test emin olun.
  
 VM'ler ve HANA büyük örneği arasındaki belirleyici ağ gecikme süresi sağlamak için seçtiğiniz sanal ağ geçidi SKU'su gereklidir. Şirket içi VM'ler arasındaki trafiği desenlerinden farklı olarak, HANA büyük örneği ile VM'ler arasındaki trafik desenini aktarılacak istekleri ve veri birimlerini küçük ancak yüksek ani artışlara geliştirebilirsiniz. İyi tür artışlarını işlemek için UltraPerformance ağ geçidi SKU'SUNUN kullanılmasını öneririz. HANA büyük örneği SKU'ları Type II sınıfı için bir sanal ağ geçidi olarak UltraPerformance ağ geçidi SKU'sunu kullanımını zorunludur.
 

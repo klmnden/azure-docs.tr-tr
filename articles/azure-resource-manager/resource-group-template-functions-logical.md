@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager şablonu işlevleri - mantıksal | Microsoft Docs
-description: Mantıksal değerleri belirlemek için bir Azure Resource Manager şablonu kullanmak üzere işlevleri açıklanmaktadır.
+description: Mantıksal değerleri belirlemek için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,44 +12,44 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359076"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164796"
 ---
-# <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için mantıksal işlevleri
+# <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için mantıksal işlevler
 
-Resource Manager şablonlarınızı içinde karşılaştırmaları yapmak için çeşitli işlevleri sağlar.
+Resource Manager şablonlarınızı karşılaştırmaları yapmak için çeşitli işlevler sunar.
 
-* [Ve](#and)
+* [ve](#and)
 * [bool](#bool)
 * [Eğer](#if)
 * [değil](#not)
-* [Veya](#or)
+* [veya](#or)
 
 ## <a name="and"></a>ve
 `and(arg1, arg2)`
 
-Her iki parametre değeri doğru olup olmadığını denetler.
+Her iki parametre değerlerini true olup olmadığını denetler.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |boole |Denetlenecek ilk değer olup olmadığını doğrudur. |
-| arg2 |Evet |boole |Denetlenecek ikinci değer olup olmadığını doğrudur. |
+| arg1 |Evet |boole |Denetlenecek ilk değer olup olmadığını geçerlidir. |
+| arg2 |Evet |boole |Kontrol edilecek ikinci değerle olmadığını geçerlidir. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Döndürür **True** her iki değeri varsa true, aksi takdirde **False**.
+Döndürür **True** her iki değer ise true; Aksi takdirde **False**.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) mantıksal işlevlerinin nasıl kullanılacağı gösterilmektedir.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) mantıksal İşlevler'i kullanmayı gösterir.
 
 ```json
 {
@@ -73,7 +73,7 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Önceki örnekte çıktısı şöyledir:
+Önceki örnekte çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -81,13 +81,13 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 | orExampleOutput | bool | True |
 | notExampleOutput | bool | False |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
@@ -102,14 +102,14 @@ Parametresi bir boolean değerine dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |dize veya int |Bir boolean değerine dönüştürmek için değer. |
+| arg1 |Evet |dize veya tamsayı |Bir boolean değerine dönüştürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 Dönüştürülen değerin bir Boole değeri.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) bool bir string veya tamsayı ile nasıl kullanılacağını gösterir.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) bir dize veya tamsayı ile bool kullanmayı gösterir.
 
 ```json
 {
@@ -137,7 +137,7 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Önceki örnekte varsayılan değerlere sahip çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -146,13 +146,13 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 | trueInt | bool | True |
 | falseInt | bool | False |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
@@ -161,23 +161,23 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="if"></a>Eğer
 `if(condition, trueValue, falseValue)`
 
-Bir değer olup olmadığına göre göre döndürür bir koşul true veya false.
+Bağlı değeri döndürür, bir koşul true veya false.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| koşul |Evet |boole |Doğru olup olmadığını denetlemek için değer. |
-| trueValue |Evet | dize, int, nesne veya dizi |Koşul doğru olduğunda döndürülecek değer. |
-| false değerini |Evet | dize, int, nesne veya dizi |Koşul yanlış ise döndürülecek değer. |
+| koşul |Evet |boole |True olup olmadığını denetlemek için değer. |
+| trueValue |Evet | dize, int, nesne veya dizi |Koşul true olduğunda döndürülecek değer. |
+| false değerini |Evet | dize, int, nesne veya dizi |Koşul false ise döndürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-İkinci parametre ilk parametre olduğunda döndürür **True**; Aksi halde, üçüncü parametre döndürür.
+İkinci parametresi ilk parametre olduğunda döndürür **True**; Aksi takdirde, üçüncü parametresinin döndürür.
 
 ### <a name="remarks"></a>Açıklamalar
 
-Koşullu bir kaynak özelliği ayarlamak için bu işlevi kullanabilirsiniz. Aşağıdaki örnek, tam bir şablon değildir, ancak koşullu kullanılabilirlik kümesi ayarlamak için ilgili bölümleri gösterir.
+Koşullu olarak bir kaynak özelliği ayarlamak için bu işlevi kullanabilirsiniz. Aşağıdaki örnek, tam bir şablon değildir, ancak koşullu olarak kullanılabilirlik kümesini ayarlamak için ilgili kısımlarını gösterir.
 
 ```json
 {
@@ -223,7 +223,7 @@ Koşullu bir kaynak özelliği ayarlamak için bu işlevi kullanabilirsiniz. Aş
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) nasıl kullanılacağını gösterir `if` işlevi.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) nasıl kullanılacağını gösterir `if` işlevi.
 
 ```json
 {
@@ -239,25 +239,30 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
         "noOutput": {
             "type": "string",
             "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
         }
     }
 }
 ```
 
-Önceki örnekte çıktısı şöyledir:
+Önceki örnekte çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | yesOutput | Dize | evet |
 | noOutput | Dize | hayır |
+| objectOutput | Nesne | {"test": "value1"} |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
@@ -266,7 +271,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="not"></a>değil
 `not(arg1)`
 
-Boole değeri ters değerine dönüştürür.
+Boolean değerini ters değerine dönüştürür.
 
 ### <a name="parameters"></a>Parametreler
 
@@ -276,11 +281,11 @@ Boole değeri ters değerine dönüştürür.
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Döndürür **True** parametresi olduğunda **False**. Döndürür **False** parametresi olduğunda **doğru**.
+Döndürür **True** parametre olduğunda **False**. Döndürür **False** parametre olduğunda **True**.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) mantıksal işlevlerinin nasıl kullanılacağı gösterilmektedir.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) mantıksal İşlevler'i kullanmayı gösterir.
 
 ```json
 {
@@ -304,7 +309,7 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Önceki örnekte çıktısı şöyledir:
+Önceki örnekte çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -312,19 +317,19 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 | orExampleOutput | bool | True |
 | notExampleOutput | bool | False |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) kullanan **değil** ile [eşittir](resource-group-template-functions-comparison.md#equals).
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) kullanan **değil** ile [eşittir](resource-group-template-functions-comparison.md#equals).
 
 ```json
 {
@@ -340,19 +345,19 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
     }
 ```
 
-Önceki örnekte çıktısı şöyledir:
+Önceki örnekte çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | checkNotEquals | bool | True |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
@@ -361,22 +366,22 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="or"></a>or
 `or(arg1, arg2)`
 
-Her iki parametre değeri doğru olup olmadığını denetler.
+Her iki parametre değeri true olup olmadığını denetler.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |boole |Denetlenecek ilk değer olup olmadığını doğrudur. |
-| arg2 |Evet |boole |Denetlenecek ikinci değer olup olmadığını doğrudur. |
+| arg1 |Evet |boole |Denetlenecek ilk değer olup olmadığını geçerlidir. |
+| arg2 |Evet |boole |Kontrol edilecek ikinci değerle olmadığını geçerlidir. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Döndürür **True** ya da değeri geçerliyse true, aksi takdirde **False**.
+Döndürür **True** ya da bir değerse true; Aksi takdirde **False**.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) mantıksal işlevlerinin nasıl kullanılacağı gösterilmektedir.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) mantıksal İşlevler'i kullanmayı gösterir.
 
 ```json
 {
@@ -400,7 +405,7 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Önceki örnekte çıktısı şöyledir:
+Önceki örnekte çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -408,21 +413,21 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 | orExampleOutput | bool | True |
 | notExampleOutput | bool | False |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir Azure Resource Manager şablonu bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
+* Bir Azure Resource Manager şablonu olarak bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 * Birden fazla şablon birleştirmek için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
-* Belirtilen sayıda yinelemek için kaynak türünü oluştururken bkz [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
-* Oluşturduğunuz şablon dağıtma hakkında bilgi için bkz: [Azure Resource Manager şablonu ile bir uygulamayı dağıtmak](resource-group-template-deploy.md).
+* Belirtilen sayıda yineleme için bir kaynak türünü oluştururken bkz [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
+* Oluşturduğunuz bir şablonu dağıtmayı öğrenmek için bkz [Azure Resource Manager şablonu ile uygulama dağıtma](resource-group-template-deploy.md).
 

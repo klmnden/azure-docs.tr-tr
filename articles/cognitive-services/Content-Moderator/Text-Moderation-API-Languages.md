@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator tarafından desteklenen diller | Microsoft Docs
+title: Dil desteği - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Content Moderator tarafından desteklenen dillerin bir listesi aşağıda verilmiştir.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 973e4efcbe9d0627ca261def2449a237819559ad
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1cb61a5d2357b6e75c04cba371604794338892f3
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441157"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220194"
 ---
 # <a name="text-moderation---supported-languages-by-feature"></a>Metin denetimi - özellik tarafından desteklenen diller
 
@@ -28,38 +29,38 @@ ms.locfileid: "37441157"
 | -------------------- |-------------|--------|---------------------|
 | Arapça (Romanized)   | Afrikaner dili   | Arapça   | Arapça
 | Bali dili | Arnavutça | Çince (Basitleştirilmiş)    | Danca
-| Bengali | Amhara dili | Çince (Geleneksel)     | Felemenkçe
+| Bengali | Amhara dili | Çince (Geleneksel)     | Hollanda dili
 | Bugi dili | Arapça | Çekçe                     | Türkçe
 | Buhid | Ermenice | Danca                     | Fince
-| Carian | Assam dili | Felemenkçe                     | Fransızca 
+| Carian | Assam dili | Hollanda dili                     | Fransızca
 | Çince (Basitleştirilmiş) | Azerice | Türkçe  | Yunanca (modern)
 | Çince (Geleneksel) | Bangla - Bangladeş | Fince  | İtalyanca
-| Church (Slavca) | Bangla - Hindistan | Fransızca      | Kore dili
-| Koptikleri | Bask dili | Almanca                       | Norveççe
+| Church (Slavca) | Bangla - Hindistan | Fransızca     | Kore dili
+| Koptikleri | Bask dili | Almanca                      | Norveççe
 | Çekçe |  Belarusça | Yunanca (modern)         | Lehçe
 | Dhivehi | Boşnakça - Kiril | Macarca      | Portekizce
-| Felemenkçe | Boşnakça - Latin | İtalyanca             | Rumence
+| Hollanda dili | Boşnakça - Latin | İtalyanca             | Rumence
 | Türkçe | (Kreyolu) | Bretonca [GeoPol olmayan] | Japonca  | Rusça
 | Farsça | Bulgarca | Kore dili                        | Slovakça
-| Fransızca  | Katalanca | Norveççe                        | İspanyolca 
-| Almanca  | Orta Kürtçe | Lehçe        | Türkçe
+| Fransızca | Katalanca | Norveççe                        | İspanyolca
+| Almanca | Orta Kürtçe | Lehçe        | Türkçe
 | Yunanca | Çeroki dili | Portekizce
 | Haiti Kreyolu | Çince (Basitleştirilmiş) | Rumence
 | İbranice | Çince (Geleneksel) - Hong Kong ÖİB | Rusça
 | Hintçe | Çince (Geleneksel) - Tayvan | Sırpça Kiril
 | Hmong | Hırvatça | Sırpça Latin
 | Macarca | Çekçe | Slovakça
-| İtalyanca | Danca | İspanyolca 
+| İtalyanca | Danca | İspanyolca
 | Japonca | Dari dili | İsveç dili
-| Kore dili | Felemenkçe | Türkçe
+| Kore dili | Hollanda dili | Türkçe
 | Kürtçe (Arapça) | Türkçe
 | Kürtçe (Latin) | Estonca
 | Lepça dili | Filipin dili
 | Limbu dili | Fince
-| Lu | Fransızca 
+| Lu | Fransızca
 | Lycian | Galiçya dili
 | Lydian | Gürcüce
-| Mycenaean (Yunanca) | Almanca 
+| Mycenaean (Yunanca) | Almanca
 | Nko | Yunanca
 | Norveççe (Bokmål) | Gucerat dili
 | Norveççe (Nynorsk) |  Hausa dili
@@ -67,7 +68,7 @@ ms.locfileid: "37441157"
 | Peştuca | Hintçe
 | Lehçe | Macarca
 | Portekizcesi | İzlanda dili
-| Pencap dili | Igbo dili
+| Pencap dili | İgbo dili
 | Rejang | Endonezya dili
 | Rusça | İnuit dili
 | Santali | İrlanda dili
@@ -77,18 +78,18 @@ ms.locfileid: "37441157"
 | Sırpça (Latin) | Japonca
 | Sinhali dili | Kannada dili
 | Slovence | Kazakça
-| İspanyolca  | Khmer dili
+| İspanyolca | Khmer dili
 | İsveç dili | Kiçe dili
 | Sylheti | Kinyarvanda dili
 | Süryanice | Svahili dili
-| Tagbanwa | Konkan dili
+| Tagbanwa | Konkani dili
 | Tai (Nua) | Kore dili
 | Tamashek | Kırgızca
 | Türkçe | Lao dili
 | Ugaritic | Letonca
 | Özbekçe (Kiril) | Litvanca
 | Özbekçe (Latin) | Lüksemburg dili
-| Vai | Makedonca (EYC)
+| Vai | Makedonca
 | Yi dili | Malay dili
 | Zhuang, Chuang | Malayalam dili
 | | Malta dili
@@ -121,7 +122,7 @@ ms.locfileid: "37441157"
 | | Sinhali dili
 | | Slovakça
 | | Slovence
-| | İspanyolca 
+| | İspanyolca
 | | İsveç dili
 | | Tacik dili
 | | Tamil dili

@@ -1,6 +1,6 @@
 ---
-title: Azure enterprise maliyet Görünümlerle ilgili sorunları giderme | Microsoft Docs
-description: Azure portalındaki kuruluş maliyet görünümlerle sahip olabileceğiniz sorunları çözmeyi öğrenin.
+title: Azure Kurumsal Maliyet görünümleri sorunlarını giderme | Microsoft Docs
+description: Azure portalında Kurumsal Maliyet görünümlerle sahip olabileceğiniz tüm sorunları çözmeyi öğrenin.
 author: rthorn17
 manager: rithorn
 editor: ''
@@ -11,38 +11,38 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
-ms.author: rithorn
-ms.openlocfilehash: 2a9639103b494e3af54a6a21ed769cf4f7bd6259
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 853307f24574e6cea5841bcace815fea2bbcf2c8
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063201"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47390673"
 ---
-# <a name="troubleshoot-enterprise-cost-views"></a>Görünümleri maliyet Kurumsal sorun giderme 
+# <a name="troubleshoot-enterprise-cost-views"></a>Kurumsal Maliyet görünümleri sorunlarını giderme 
 
-Kurumsal kayıtları içinde maliyetleri görüntülemek üzere olmayan kullanıcıların kayıt içinde neden olabilecek birden çok ayarları vardır.  Kayıt doğrudan Microsoft'a satın değil, bu ayarlar kayıt yönetici tarafından veya iş ortağı tarafından yönetilir.  Bu makalede, ayarları nelerdir ve bunlar kayıt nasıl etkiler anlamanıza yardımcı olur. Bu ayarları bağımsız olarak [Azure RBAC rolleri](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
+Kurumsal kayıtları içinde maliyetleri görüntülemek üzere olmayan kullanıcıların kayıt içinde neden olabilecek birden çok ayar vardır.  Kayıt doğrudan Microsoft'tan satın aldıysanız değil, bu ayarlar, kayıt Yöneticisi tarafından veya iş ortağı tarafından yönetilir.  Bu makalede ayarlar nelerdir ve bunların kaydı nasıl etkilediği anlamanıza yardımcı olur. Bu ayarlar bağımsızdır [Azure RBAC rolleri](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
 
 ## <a name="enabling-access-to-costs"></a>Maliyetleri erişimini etkinleştirme
 
-Misiniz bir ileti yetkisiz, görme veya *"Maliyet görünümleri devre dışı bırakılır ilişkin kaydınızı."* Maliyet bilgileri bakarken? ![yetkisiz](media/billing-enterprise-mgmt-groups/unauthorized.png)
+Misiniz, yetkisiz bir iletiyi görmekten veya *"Maliyet görünümleri devre dışı bırakıldı'na kaydınızı."* Maliyet bilgileri ararken? ![yetkisiz](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
-Aşağıdaki nedenlerden biri olabilir:
+Bunun nedeni aşağıdakilerden biri olabilir:
 
-1. Bir kurumsal iş ortağı üzerinden Azure satın aldığınız ve iş ortağı henüz fiyatlandırma yayımlanan kurmadı. Fiyatlandırma serbest bırakmak için ayarı içinde güncelleştirmek için iş ortağınıza başvurun [Enterprise portal](https://ea.azure.com).
-2. Alternatif olarak, EA doğrudan bir müşteri değilseniz, birkaç olanakları vardır:
-    * Bir hesap sahibi olduğunuz ve kayıt yöneticiniz "ayarı AO görünüm ücretleri" devre dışı bıraktı.  
-    * Bir bölüm yöneticisiyseniz ve kayıt yöneticiniz "ayarını DA görünüm ücretleri" devre dışı bıraktı.
-    * Kayıt erişim almak için yöneticinize başvurun. Kayıt yönetim ziyaret edebilirsiniz [Enterprise portal](https://ea.azure.com/manage/enrollment) ve burada görüldüğü gibi ayarını güncelleştirin:
+1. Azure bir kurumsal iş ortağı aracılığıyla satın aldığınız ve iş ortağı henüz bir fiyatlandırmaya serbest edilmemiş. Fiyatlandırma yayımlamayı içinde ayarını güncelleştirmek için ortağınızla iletişim kurun [kurumsal portal](https://ea.azure.com).
+2. Alternatif olarak, bir EA Direct müşterisiyseniz, birkaç olasılık vardır:
+    * Bir hesap sahibi olduğunuz ve kayıt yöneticiniz "ayarını AO ücretleri görüntüle" devre dışı bıraktı.  
+    * Bir bölüm yöneticisiyseniz ve kayıt yöneticiniz "ayarını DA ücretleri görüntüle" devre dışı bıraktı.
+    * Kayıt erişim almak için yöneticinize başvurun. Kayıt Yöneticisi ziyaret edebilirsiniz [kurumsal portal](https://ea.azure.com/manage/enrollment) ve burada görüldüğü gibi ayarını güncelleştirin:
 
-![Enterprise Portal ayarları](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
+![Kurumsal Portal ayarları](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
 
 
-## <a name="asset-is-unavailable"></a>Varlık kullanılamıyor? 
-"Bu varlık kullanılamıyor" hata iletisi alıyorsanız, bir abonelik veya yönetim grubu, sonra erişmeye sahip olmadığında bu öğeyi görüntülemek için doğru rol.  
+## <a name="asset-is-unavailable"></a>Varlık kullanılamıyor mu? 
+"Bu varlık kullanılamıyor" hata iletisi alıyorsanız, ne zaman bir abonelik veya yönetim grubu, ardından erişmeye gerekmez bu öğeyi görüntülemek için doğru rol.  
 
-![varlık olmayan bulundu](media/billing-enterprise-mgmt-groups/asset-not-found.png)
+![Varlık bulunamadı](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
-Erişim verilecek abonelik veya yönetim gruplarının Yönet başvurun.  
-* Abonelikler için başvuru [Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) belge rolü gerekli Yardım için.
+Yönetici erişim verilmesi için abonelik veya yönetim gruplarının başvurun.  
+* Abonelikler için başvuru [Azure rol tabanlı Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) belge Yardım rolü gereklidir.

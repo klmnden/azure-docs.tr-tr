@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 09/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0dc0ebd94abaa9dacd685034a46da1a7f204bfff
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 0be5f9842cd3aa90d82f3efe44451e624ed5d371
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700080"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395687"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Java ile Service Bus konu başlıklarını ve aboneliklerini kullanma
 
@@ -32,9 +32,9 @@ Service Bus konuları ve abonelikleri *publish/subscribe* mesajlaşma iletişim 
 
 ![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
 
-Service Bus kuyruklarının tersine, burada her ileti bir tüketici tarafından işlenir; konular ve abonelikler, publish/subscribe modelini kullanarak iletişimin "bir-çok" biçimini sağlar. Bir konuya birden fazla abonelik kaydedilebilir. Bir konuya ileti gönderildiğinde, bundan sonra, bağımsız olarak ele almak/işlemek amacıyla her abonelik için kullanılabilir hale getirilir.
+Service Bus kuyrukları, her ileti tek bir tüketici tarafından işlenir kullanılmasının konuları ve abonelikleri bir yayımlama/abone olma modelini kullanarak iletişimin bir-çok biçimi sağlayın. Bir konuya birden fazla abonelik kaydedilebilir. Bir konuya ileti gönderildiğinde, bundan sonra, bağımsız olarak ele almak/işlemek amacıyla her abonelik için kullanılabilir hale getirilir.
 
-Bir konuya abone olunması, konuya gönderilmiş olan iletilerin kopyaların alan sanal kuyruğa benzer. İsteğe bağlı olarak bir konuyu/hangi konu aboneliklerinin bir konuya hangi mesajları alınan filtre kısıtlama olanak tanıyan bir başına abonelik temelinde filtre kuralları da kaydedebilirsiniz.
+Bir konuya abone olunması, konuya gönderilmiş olan iletilerin kopyaların alan sanal kuyruğa benzer. İsteğe bağlı olarak, bir konu filtreleyin veya hangi konu aboneliklerinin bir konuya hangi mesajları kısıtlayabilirsiniz olanak tanıyan bir abonelik başına temelinde filtre kuralları da kaydedebilirsiniz.
 
 Service Bus konuları ve Abonelikleri, çok sayıda kullanıcılar ve uygulamalar arasında çok sayıda iletileri işlemek üzere ölçeği sağlar.
 
@@ -103,7 +103,7 @@ Kullanabileceğiniz **listTopics** metodunda **ServiceBusContract** nesneleri be
 Konu abonelikleri ile de oluşturulur **ServiceBusService** sınıfı. Abonelikler adlandırılır ve aboneliğin sanal kuyruğuna gönderilen ileti kümesini sınırlayan isteğe bağlı bir filtre içerebilir.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Varsayılan (MatchAll) filtreyle abonelik oluşturma
-Yeni bir abonelik oluşturulurken filtre belirtilmezse kullanılan varsayılan filtre **MatchAll** filtresidir. Zaman **MatchAll** filtresinin kullanılacağının, konu başlığında yayımlanan tüm iletiler aboneliğin sanal kuyruğuna yerleştirilir. Aşağıdaki örnekte "AllMessages" adlı bir abonelik oluşturulur ve varsayılan **MatchAll** filtresi kullanılır.
+Yeni bir abonelik oluşturulurken filtre belirtilmezse kullanılan varsayılan filtre **MatchAll** filtresidir. Zaman **MatchAll** filtresinin kullanılacağının, konu başlığında yayımlanan tüm iletiler aboneliğin sanal kuyruğuna yerleştirilir. Aşağıdaki örnekte adlı bir abonelik oluşturur `AllMessages` ve varsayılan `MatchAll` filtre.
 
 ```java
 SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
@@ -233,11 +233,11 @@ catch (Exception e) {
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Uygulama çökmelerini ve okunmayan iletileri giderme
-Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi işlemek için herhangi bir nedenle silemiyor sonra çağırabilirsiniz **unlockMessage** yöntemi alınan iletide (yerine **deleteMessage** yöntemi). Bu, Service Bus konu başlığı içindeki iletinin kilidini açmasına ve iletiyi aynı kullanıcı uygulama veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale neden olur.
+Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi işlemek için herhangi bir nedenle silemiyor sonra çağırabilirsiniz **unlockMessage** yöntemi alınan iletide (yerine **deleteMessage** yöntemi). Bu yöntem çağrısı, Service Bus konu başlığı içindeki iletinin kilidini açmasına ve iletiyi aynı kullanıcı uygulama veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale neden olur.
 
 Ayrıca konusu içinde kilitli iletiye ilişkin bir zaman aşımı yoktur ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) Service Bus otomatik olarak iletinin kilidini açar ve alınabilmesini kilit zaman aşımı dolmadan tekrar kullanılabilir.
 
-Uygulama iletiyi ancak önce çökmesi durumunda, **deleteMessage** isteği bildirilmeden, sonra yeniden başlatıldığında ileti uygulamaya yeniden teslim. Bu işlem genellikle çağrılırken **en az bir kez işleme**; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu genellikle kullanılmasıdır **getMessageId** yöntemi iletinin teslim denemeleri arasında sabit kalır.
+Uygulama iletiyi ancak önce çökmesi durumunda, **deleteMessage** isteği bildirilmeden, sonra yeniden başlatıldığında ileti uygulamaya yeniden teslim. Bu işlem genellikle çağrılırken **en az bir kez işlenmesini**, diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Kullanarak bunu yapabilirsiniz **getMessageId** yöntemi iletinin teslim denemeleri arasında sabit kalır.
 
 ## <a name="delete-topics-and-subscriptions"></a>Konu başlıklarını ve abonelikleri silme
 Konuları ve abonelikleri silmek için birincil yolu bir **ServiceBusContract** nesne. Bir konu başlığı silindiğinde bu konu başlığıyla kaydedilen tüm abonelikler de silinir. Ayrıca, abonelikler bağımsız olarak da silinebilir.
@@ -253,7 +253,7 @@ service.deleteTopic("TestTopic");
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Service Bus kuyruklarına ilişkin temel bilgileri öğrendiğinize göre artık bkz [Service Bus kuyrukları, konular ve abonelikler] [ Service Bus queues, topics, and subscriptions] daha fazla bilgi için.
+Daha fazla bilgi için [Service Bus kuyrukları, konular ve abonelikler] [ Service Bus queues, topics, and subscriptions] daha fazla bilgi için.
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md

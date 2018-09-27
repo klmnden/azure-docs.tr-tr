@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 63213e38dab5ef2edd5150fe0adb620fecb2041c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 63a2d5a62cf2cdfa2a1a08c56ef5a87aaaa13529
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714454"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395552"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio kullanarak Azure işlevleri geliştirme  
 
@@ -72,7 +72,7 @@ Oluşturma ve dağıtma işlevleri için de gerekir:
 
 4. Güncelleştirme tamamlandıktan sonra seçin **Kapat** ve Visual Studio'yu yeniden başlatın.
 
-## <a name="create-an-azure-functions-project"></a>Azure işlevleri projesi oluşturma
+## <a name="create-an-azure-functions-project"></a>Azure İşlevleri projesi oluşturma
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
@@ -171,7 +171,9 @@ Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirm
 
 Çalışan proje ile dağıtılan işlevi test ettiğiniz gibi kodunuzu test edebilirsiniz. Daha fazla bilgi için [kodunuzu Azure işlevleri'nde test stratejileri](functions-test-a-function.md). Hata ayıklama modunda çalışırken, kesme noktaları Visual Studio'da beklendiği gibi ulaşıldığından. 
 
-Kuyruk ile tetiklenen işlevi test etmek nasıl bir örnek için bkz [kuyruk ile tetiklenen işlev hızlı başlangıç öğreticisinde](functions-create-storage-queue-triggered-function.md#test-the-function).  
+<!---
+For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 Azure işlevleri çekirdek araçları kullanma hakkında daha fazla bilgi edinmek için [kod ve Azure işlevleri yerel olarak test](functions-run-local.md).
 

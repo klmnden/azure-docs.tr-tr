@@ -1,7 +1,7 @@
 ---
-title: Machine Learning ve veri bilimi araçları - Azure | Microsoft Docs
-description: Machine learning ve veri bilimi araçları
-keywords: Veri bilimi araçları, veri bilimi sanal makine, veri bilimi, linux veri bilimi için Araçlar
+title: Makine öğrenimi ve veri bilimi araçları - Azure | Microsoft Docs
+description: Makine öğrenimi ve veri bilimi araçları
+keywords: veri bilimi araçları, veri bilimi sanal makinesi, veri bilimi için araçlar, linux veri bilimi
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,27 +15,38 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: cf73f792bcce906a673da0c6fb2eec099239c1c2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a9dc868c4f22f95ca5027e3c95513d176c69eac
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409559"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392413"
 ---
-# <a name="machine-learning-and-data-science-tools"></a>Machine learning ve veri bilimi araçları
-Veri bilimi sanal makine (DSVM) zengin birtakım Araçlar ve Python, R, Jale gibi popüler dilde kullanılabilir machine learning için kitaplıkları sahiptir. 
+# <a name="machine-learning-and-data-science-tools"></a>Makine öğrenimi ve veri bilimi araçları
+Veri bilimi sanal makinesi (DSVM) zengin birtakım Araçlar ve kitaplıklar için machine learning Python, R, Julia gibi popüler dilde kullanılabilir sahiptir. 
 
-Makine öğrenimi araçları ve kitaplıkları DSVM'bazıları aşağıda verilmiştir. 
+Makine öğrenimi araçlarını ve kitaplıklarını temel DSVM bazıları aşağıda verilmiştir. 
+
+## <a name="azure-machine-learning-servicehttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>[Azure Machine Learning hizmeti](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) SDK'sı
+|    |           |
+| ------------- | ------------- |
+| Nedir?   |   Azure Machine Learning hizmeti geliştirmek ve makine öğrenimi modelleri dağıtmak için kullanabileceğiniz bir bulut hizmetidir.  Oluşturmak, eğitmek, ölçeklendirme ve Python SDK'sını kullanarak bunları yönetirken, Modellerinizi izleyebilirsiniz. Modelleri kapsayıcıları olarak dağıtma ve bulutta, şirket içi veya IOT Edge üzerinde çalıştırın.   |
+| Desteklenen DSVM sürümleri     | Windows (Conda ortam: AzureML), Linux (Conda ortam: py36)    |
+| Tipik kullanımları      | Genel ML platformu      |
+| Nasıl, yapılandırılmış / DSVM üzerinde yüklü?      |  GPU desteğine sahip yüklü   |
+| Kullanma / çalıştırın nasıl?      | Python SDK'sını ve Azure komut satırı aracı (AZ CLI). Conda ortama etkinleştirme `AzureML` Windows sürümü veya çok `py36` Linux Edition.      |
+| Örneklere bağlantılar      | Örnekleri Jupyter not defterleri dahil edilecek `AzureML` not defterlerini altında dizin  |
+| DSVM ilgili araçları      | Visual Studio kodu, Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   |    Hızlı, taşınabilir ve dağıtılmış gradyan artırma (GBDT, GBRT veya GBM) kitaplığı, Python, R, Java, Scala, C++ ve daha fazla bilgi için. Tek makinede Hadoop, Spark çalıştırır    |
+| Nedir?   |    Hızlı, taşınabilir ve dağıtılmış gradyan artırma (GBDT, GBRT veya GBM) kitaplığı, Python, R, Java, Scala, C++ ve daha fazlası. Tek makine üzerinde Hadoop, Spark çalışır    |
 | Desteklenen DSVM sürümleri     | Windows, Linux     |
-| Tipik kullanır      | Genel ML kitaplığı      |
-| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?      |  GPU desteğiyle yüklü   |
-| Kullanın / çalıştırmak için nasıl?      | Python kitaplığı (2.7 ve 3.5) olarak R paketi ve yol komut satırı aracı (`C:\dsvm\tools\xgboost\bin\xgboost.exe` Windows, `/dsvm/tools/xgboost/xgboost` Linux için)    |
-| Örnekleri bağlantılar      | Örnekleri dahil edilmiştir VM üzerinde `/dsvm/tools/xgboost/demo` Linux'ta ve `C:\dsvm\tools\xgboost\demo` Windows   |
+| Tipik kullanımları      | Genel ML kitaplığı      |
+| Nasıl, yapılandırılmış / DSVM üzerinde yüklü?      |  GPU desteğine sahip yüklü   |
+| Kullanma / çalıştırın nasıl?      | Python kitaplığı (2.7 ve 3.5) olarak R paketi ve yolu komut satırı aracı (`C:\dsvm\tools\xgboost\bin\xgboost.exe` , Windows için `/dsvm/tools/xgboost/xgboost` Linux)    |
+| Örneklere bağlantılar      | Örnekleri dahil edilecek VM'de `/dsvm/tools/xgboost/demo` Linux'ta ve `C:\dsvm\tools\xgboost\demo` Windows üzerinde   |
 | DSVM ilgili araçları      | LightGBM, MXNet   |
 
 
@@ -43,23 +54,23 @@ Makine öğrenimi araçları ve kitaplıkları DSVM'bazıları aşağıda verilm
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
 |    |           |
 | ------------- | ------------- |
-| Nedir?   |   Bir açık kaynak hızlı çıkış-in-sistem kitaplığı öğrenme core Vowpal Wabbit (olarak da bilinen "VW") değil    |
+| Nedir?   |   Vowpal Wabbit (diğer adıyla "VW") olan açık kaynaklı hızlı çıkış,-sistem kitaplığı öğrenme çekirdek    |
 | Desteklenen DSVM sürümleri     | Windows, Linux     |
-| Tipik kullanır      | Genel ML kitaplığı      |
-| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?      |  Windows - MSI yükleyicisi, Linux - get apt |
-| Kullanın / çalıştırmak için nasıl?      | Açık bir yol komut satırı aracı olarak (`C:\Program Files\VowpalWabbit\vw.exe` , Windows'da `/usr/bin/vw` Linux)    |
-| Örnekleri bağlantılar      | [VowPal Wabbit örnekleri](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
+| Tipik kullanımları      | Genel ML kitaplığı      |
+| Nasıl, yapılandırılmış / DSVM üzerinde yüklü?      |  Windows - MSI yükleyici, Linux - apt-get |
+| Kullanma / çalıştırın nasıl?      | Açık bir yol komut satırı aracı olarak (`C:\Program Files\VowpalWabbit\vw.exe` , Windows üzerinde `/usr/bin/vw` Linux üzerinde)    |
+| Örneklere bağlantılar      | [VowPal Wabbit örnekleri](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
 | DSVM ilgili araçları      |LightGBM, MXNet, XGBoost   |
 
 
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| Nedir?   |  Weka, veri araştırma görevleri için machine learning algoritmaları koleksiyonudur. Algoritmalar doğrudan bir veri kümesine uygulanan veya kendi Java koddan çağrılır. Weka verileri ön işleme, Sınıflandırma, regresyon, kümeleme, ilişkilendirme kuralları ve görselleştirme için araçları içerir. |
+| Nedir?   |  Weka veri araştırma görevleri için makine öğrenimi algoritmaları koleksiyonudur. Algoritmalar doğrudan bir veri kümesine uygulanan veya kendi Java koddan çağrılır. Weka veri ön işleme, Sınıflandırma, regresyon, kümeleme, ilişkilendirme kuralları ve görselleştirme araçları içerir. |
 | Desteklenen DSVM sürümleri     | Windows, Linux     |
-| Tipik kullanır      | Genel ML aracı     |
-| Kullanın / çalıştırmak için nasıl?      | Windows, Başlat menüsündeki Weka arayın. Linux üzerinde oturum X2Go oturum açın, sonra gidin uygulamaları geliştirme -> Weka ->. |
-| Örnekleri bağlantılar      | [Weka örnekleri](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Tipik kullanımları      | Genel ML aracı     |
+| Kullanma / çalıştırın nasıl?      | Windows üzerinde Başlat menüsündeki Weka arayın. Linux üzerinde X2Go bilgilerinizle oturum açın, sonra gidin uygulamaları geliştirme -> Weka ' ->. |
+| Örneklere bağlantılar      | [Weka örnekleri](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | DSVM ilgili araçları      |LightGBM, Çıngırağı, XGBooost   |
 
 ## <a name="rattle"></a>Çıngırağı
@@ -67,30 +78,30 @@ Makine öğrenimi araçları ve kitaplıkları DSVM'bazıları aşağıda verilm
 | ------------- | ------------- |
 | Nedir?   |   R kullanarak veri araştırma için bir grafik kullanıcı arabirimi   |
 | Desteklenen DSVM sürümleri     | Windows, Linux     |
-| Tipik kullanır      | R için genel UI veri araştırma aracı    |
-| Kullanın / çalıştırmak için nasıl?      | Kullanıcı Arabirimi aracıdır. Windows, bir komut istemi başlatın, ardından Çalıştır R içinde R çalıştırmak `rattle()`. Linux üzerinde X2Go ile bağlanmak, bir terminal başlatın, ardından Çalıştır R içinde R çalıştırmak `rattle()`. |
-| Örnekleri bağlantılar      | [Çıngırağı](https://togaware.com/onepager/) |
+| Tipik kullanımları      | R için genel kullanıcı Arabirimi veri araştırma aracı    |
+| Kullanma / çalıştırın nasıl?      | Kullanıcı Arabirimi aracıdır. Windows, bir komut istemi açın, R, ardından R çalıştırma içinde çalıştırma `rattle()`. Linux üzerinde X2Go ile bağlanmak, bir terminal Başlat, R, ardından R çalıştırma içinde çalıştırmak `rattle()`. |
+| Örneklere bağlantılar      | [Çıngırağı](https://togaware.com/onepager/) |
 | DSVM ilgili araçları      |LightGBM, Weka, XGBoost   |
 
 ## <a name="lightgbm"></a>LightGBM
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | Derecelendirme, Sınıflandırma ve görevleri öğrenme birçok makine için kullanılan karar ağacı algoritmalarını göre (GBDT, GBRT, GBM veya MART) framework artırmanın hızlı, dağıtılmış, yüksek performanslı gradyan.    |
+| Nedir?   | Hızlı, dağıtılmış, yüksek performanslı gradyan derecelendirme, Sınıflandırma ve görevleri birçok diğer makine öğrenimi için kullanılan karar ağacı algoritmalarını göre (GBDT, GBRT, GBM veya REYONU) framework artırma.    |
 | Desteklenen DSVM sürümleri      | Windows, Linux    |
-| Tipik kullanır      | Genel amaçlı gradyan artırma framework      |
-| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?      | Windows üzerinde LightGBM Python paket olarak yüklenir. Komut satırı yürütülebilir dosyasını bulunduğu Linux üzerinde `/opt/LightGBM/lightgbm`R paketi yüklenir ve Python paketlerini yüklenir.     |
-| Örnekleri bağlantılar      | [LightGBM Kılavuzu](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
+| Tipik kullanımları      | Genel amaçlı gradyan artırırken framework      |
+| Nasıl, yapılandırılmış / DSVM üzerinde yüklü?      | Windows üzerinde LightGBM bir Python paketi olarak yüklenir. Linux üzerinde komut satırı yürütülebilir dosyasını bulunduğu `/opt/LightGBM/lightgbm`R paketinin yüklü olduğu ve Python paketleri yüklenir.     |
+| Örneklere bağlantılar      | [LightGBM Kılavuzu](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
 | DSVM ilgili araçları      | MXNet, XgBoost  |
 
 ## <a name="h2o"></a>H2O
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | Bellek içi, dağıtılmış, hızlı ve ölçeklenebilir machine learning destekleyen bir açık kaynak AI platformu  |
+| Nedir?   | Bellek içi, dağıtılmış, hızlı ve ölçeklenebilir makine öğrenimi destekleyen bir açık kaynak yapay ZEKA platformu  |
 | Desteklenen DSVM sürümleri      | Linux   |
-| Tipik kullanır      | Dağıtılmış, genel amaçlı ölçeklenebilir ML   |
-| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?      | H2O yüklü `/dsvm/tools/h2o`.      |
-| Kullanın / çalıştırmak için nasıl?      | X2Go kullanarak VM'ye bağlanın. Yeni bir terminal Başlat ve Çalıştır `java -jar /dsvm/tools/h2o/current/h2o.jar`. Daha sonra bir web tarayıcı başlatmak ve bağlanmak `http://localhost:54321`.      |
-| Örnekleri bağlantılar      | Örnekleri bulunur altında Jupyter VM'yi `h2o` dizin.      |
-| DSVM ilgili araçları      | Apache Spark, MXNet, XGBoost, Sparkling su, derin su    |
+| Tipik kullanımları      | Genel amaçlı dağıtılmış, ölçeklenebilir ML   |
+| Nasıl, yapılandırılmış / DSVM üzerinde yüklü?      | H2O yüklü `/dsvm/tools/h2o`.      |
+| Kullanma / çalıştırın nasıl?      | X2Go kullanarak VM'ye bağlanın. Yeni bir terminal Başlat ve Çalıştır `java -jar /dsvm/tools/h2o/current/h2o.jar`. Ardından bir web tarayıcı başlatmak ve bağlanma `http://localhost:54321`.      |
+| Örneklere bağlantılar      | Örnekleri vm'sinde Jupyter altında kullanılabilir `h2o` dizin.      |
+| DSVM ilgili araçları      | Apache Spark, MXNet, XGBoost, Sparkling Water, derin su    |
 
-Vardır birkaç diğer ML kitaplıkları gibi popüler DSVM `scikit-learn` üzerinde DSVM yüklenmiş Anaconda Python dağıtım bir parçası olarak gelen paket. İlgili paketi yöneticileri çalıştırarak, Python, R ve Jale kullanılabilir olan paketlerin listesini dışarı denetlediğinizden emin olun. 
+Popüler gibi DSVM üzerinde birçok ML kitaplıkları vardır `scikit-learn` DSVM'nin yüklenmiş Anaconda Python dağıtımının bir parçası olarak gelen paket. İlgili paket yöneticileri çalıştırarak, Python, R ve Julia'nın kullanılabilir paketler listesini dışarı denetlediğinizden emin olun. 

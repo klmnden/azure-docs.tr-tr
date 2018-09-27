@@ -6,20 +6,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 149840157c5e9bb47be70f669b2078585fe4b56c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 03f22a7975e8f331efa9dcc30fd088f32bee1649
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953044"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393508"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Query Store ile performans izleme
 
 **İçin geçerlidir:** 9.6 ve 10 PostgreSQL için Azure veritabanı
 
 > [!IMPORTANT]
-> Query Store özelliği genel Önizleme aşamasındadır.
+> Query Store genel önizlemeye sınırlı sayıdaki bölgede özelliğidir.
 
 
 PostgreSQL için Azure veritabanı için Query Store özelliği zaman içinde sorgu performansını izlemek için bir yol sağlar. Query Store performans sorunlarını giderme hızlı bir şekilde yardımcı olarak basitleştirir, uzun süre çalışan ve en yoğun kaynak sorgularını bulun. Query Store geçmişini sorgular ve çalışma zamanı İstatistikleri otomatik olarak yakalar ve bunları gözden geçirmeniz için saklar. Veritabanı kullanım modellerini görebilmeniz için veri zaman pencereleri tarafından ayırır. Adlı bir veritabanında depolanan tüm kullanıcılar, veritabanları ve sorgular için veri **azure_sys** örneği PostgreSQL için Azure veritabanı'nda.
@@ -117,7 +117,7 @@ Bu görünüm Query Store tüm verileri döndürür. Her ayrı bir veritabanı k
 |query_id   |bigint  || Deyimin ayrıştırma ağacından hesaplanan iç karma kodu|
 |query_sql_text |VARCHAR(10000)  || Temsilci bildirimi metni. Aynı yapıya sahip farklı sorgular birlikte kümelenmiş; Bu metin sorguların kümedeki ilk alınmıştır.|
 |plan_id    |bigint |   |Bu sorguya kullanılamıyor henüz karşılık gelen bir plan kimliği|
-|start_time |timestamp  ||  Sorguları zaman demetlere göre toplanır - bir demet zaman aralığını yapılandırılabilir ancak varsayılan değer 15 dakikadır. Bu giriş süresi Demetin karşılık gelen başlangıç zamanı budur.|
+|start_time |timestamp  ||  Sorguları zaman demetlere göre toplanır - bir demet zaman aralığını varsayılan değer 15 dakikadır. Bu giriş süresi Demetin karşılık gelen başlangıç zamanı budur.|
 |end_time   |timestamp  ||  Bu giriş süresi Demetin karşılık gelen bitiş saati.|
 |çağrı  |bigint  || Sorgu çalıştırılmış sayısı|
 |TOTAL_TIME |çift duyarlık   ||  Milisaniye cinsinden toplam sorgu yürütme süresi|
@@ -168,6 +168,10 @@ Query_store.qs_reset() void döndürür
 Query_store.staging_data_reset() void döndürür
 
 `staging_data_reset` bellekte Query Store (diğer bir deyişle, veriler değil temizlendi bellekte henüz veritabanına) tarafından toplanan tüm istatistikleri atar. Bu işlev, yalnızca sunucu yöneticisi rolü tarafından gerçekleştirilebilir.
+
+## <a name="limitations-and-known-issues"></a>Sınırlamalar ve bilinen sorunlar
+- Bir PostgreSQL sunucusu parametresi default_transaction_read_only sahip, Query Store veri yakalayamaz.
+- Uzun Unicode sorgular karşılaşırsa, Query Store İşlevler'in kesilmesi (> = 6000 bayt).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 60b4658d18d39797d30055e86cb21689cfb661fa
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 5224829b59e7ad425fb01a242a702e0d4cad8657
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631676"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392389"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 güncelleştirme
 
@@ -91,6 +91,9 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 ### <a name="portal"></a>Portal  
+
+- Azure Stack teknik belgeleri, en son sürüm üzerinde odaklanır. Sürümler arasında Portal değişiklikleri nedeniyle Azure Stack portalı kullanırken gördüğünüz belgelerinde gördüğünüz verilerden değişebilir. 
+
 - <!-- 2931230 – IS  ASDK --> Kullanıcı aboneliği plan kaldırdığınızda bile, bir kullanıcı abonelikte eklenti planı eklendiği planları silinemiyor. Eklenti planı başvuru abonelikleri de silinene kadar plan kalır. 
 
 - <!-- TBD - IS ASDK --> OEM uzantı paketinin bu sürümü Azure Stack ile kullanarak, sürücü güncelleştirmelerini uygulayamazsınız.  Bu sorun için geçici çözüm yoktur.

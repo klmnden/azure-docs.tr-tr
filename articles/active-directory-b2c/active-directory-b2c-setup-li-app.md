@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a2bab2ebd6af5d69e233ff52cf3a472d1eaea504
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 1719da96a849bb5390745ec3df3ed11374bb8700
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714522"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180504"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir LinkedIn hesabıyla kaydolma ve oturum açma ayarlama
 
@@ -33,10 +33,7 @@ Bir LinkedIn hesabıyla bir kimlik sağlayıcısı olarak Azure Active Directory
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Bir LinkedIn hesabıyla bir kimlik sağlayıcısı olarak yapılandırma
 
 1. Oturum [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel Yöneticisi olarak.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme. 
-
-    ![Azure AD B2C kiracınıza geçiş yapma](./media/active-directory-b2c-setup-li-app/switch-directories.png)
-
+2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.
 5. Sağlayan bir **adı**. Örneğin, *LinkedIn*.

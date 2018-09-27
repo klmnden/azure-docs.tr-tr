@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 8e0a73f800a2b56577b5684762e125d0a67b188d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bb4a34e7036c532ca1800c70347a4f2c55a33da2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032300"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221732"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack için kullanılabilir olan Azure Market öğeleri
 
@@ -230,6 +230,8 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![Barracuda uygulama güvenlik denetimi Merkezi](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda uygulama güvenlik denetimi Merkezi](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Birden çok Barracuda Web uygulaması güvenlik duvarları (WAF) merkezi olarak yönetin. | Barracuda Networks, Inc. |
 | ![Barracuda e-posta güvenlik ağ geçidi](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda e-posta güvenlik ağ geçidi](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | Gelen e-posta kaynaklı tehditlere karşı koruma için e-posta güvenlik ağ geçidi. | Barracuda Networks, Inc. |
 | ![Barracuda Web uygulaması Güvenlik Duvarı (WAF)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web uygulaması Güvenlik Duvarı (WAF)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | Güvenlik ve Otomatik & hedeflenen saldırılara karşı DDoS koruma. | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen Güvenlik Duvarı denetim merkezi](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen Güvenlik Duvarı denetim merkezi](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-cc) | Barracuda CloudGen güvenlik duvarları yüzlerce bağımsız olarak, konum ve form faktörü merkezi olarak yönetin. | Barracuda Networks, Inc. |
+| ![Azure için Barracuda CloudGen duvarı](media/azure-stack-marketplace-azure-items/barracuda.png) | [Azure için Barracuda CloudGen duvarı](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-firewall) | Uygulama ve verilerin, yalnızca burada bağlantıyı sonlandırır yerine bulunduğu güvenlik duvarı koruması sağlar. | Barracuda Networks, Inc. |
 | ![Denetim noktası vSEC güvenlik yönetimi](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Denetim noktası vSEC güvenlik yönetimi](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Denetim noktası vSEC, Azure müşteri varlıkları kötü amaçlı yazılım ve Gelişmiş tehditlerden korumak için Gelişmiş, çok katmanlı tehdit önleme sunar. **Her iki denetim noktası vSEC Market öğelerini indirme.** | Denetim Noktası |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef ile otomatikleştirme](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Oluşturmanızı, dağıtmanızı ve Chef Automate, sürekli Otomasyon platformu ile yönetin. **Her iki Chef Market öğelerini indirme** | Chef yazılımı, dahil edilen |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Denetim, izleyin ve sanal makineleri kolayca ve güvenle ile şifreleme. **Tüm CloudLink SecureVM öğeleri indirin.** | Dell EMC |

@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator - .NET kullanarak video deşifre metni incelemeleri oluştur | Microsoft Docs
-description: .NET için Azure Content Moderator SDK'sını kullanarak video deşifre metni oluşturma işlemini gözden geçirmeleri
+title: Video deşifre metni incelemeleri .NET - Content Moderator'ı kullanarak oluşturma
+titlesuffix: Azure Cognitive Services
+description: .NET için Content Moderator SDK'sını kullanarak video deşifre metni incelemeleri oluşturma
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: sajagtap
-ms.openlocfilehash: 1bb1a61f8ee4cd1cffcd7ce0b466947bbb0cbeaa
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 4e862a8b74339bc8dd1de6c0b231ddb15425974c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182068"
+ms.locfileid: "47220953"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Video deşifre metni incelemeleri .NET kullanarak oluşturun
 

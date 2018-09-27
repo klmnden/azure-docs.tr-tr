@@ -1,43 +1,35 @@
 ---
-title: Azure IOT Hub'ına bağlanan fiziksel cihazların kullanmaya başlama | Microsoft Docs
-description: Fiziksel cihazlar ve panoları Azure IOT Hub'ına nasıl bağlayacağınızı öğrenin. Cihazlarınızı IOT hub'ı ve IOT hub'ı telemetri izlemek ve cihazlarınızı yönetin gönderebilirsiniz.
-author: dominicbetts
+title: Azure IOT Hub'ına fiziksel cihazlar bağlama çalışmaya başlama | Microsoft Docs
+description: Fiziksel cihazlar ve panoları Azure IOT Hub'ına bağlanmayı öğreneceksiniz. Cihazlarınızı IOT Hub ve IOT Hub'ına telemetri izleyebilir ve cihazlarınızı yönetmeye gönderebilirsiniz.
+author: wesmc7777
 manager: timlt
-keywords: Azure IOT hub Öğreticisi
+keywords: Azure IOT hub'ı Öğreticisi
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/22/2017
-ms.author: dobett
-ms.openlocfilehash: e7911c190ded59f758eff868add6440f5add6579
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: wesmc
+ms.openlocfilehash: 5dcd588d525fe296348bd01252846bc498261018
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634004"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394752"
 ---
-# <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IOT Hub, fiziksel cihazların öğreticileri ile Başlarken
+# <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IOT hub'ı fiziksel cihazlar öğreticileri ile çalışmaya başlama
 
-Bu öğreticiler Azure IOT Hub ve cihaz SDK'ları tanıtır. Öğreticiler IOT hub'ı özelliklerini göstermek için yaygın IOT senaryolarını ele. Öğreticiler ayrıca diğer Azure Hizmetleri ve daha güçlü IOT çözümleri oluşturmak için Araçlar IOT hub'ı birleştirmek nasıl gösterilmektedir. Aşağıdaki tabloda listelenen öğreticiler fiziksel IOT cihazları oluşturulacağını gösterir.
+Bu öğreticiler size Azure IOT Hub ve cihaz SDK'ları için tanıtır. Öğreticiler, IOT Hub'ının özelliklerini tanıtmak için yaygın IOT senaryolarını kapsar. Öğreticiler, ayrıca diğer Azure Hizmetleri ve daha güçlü IOT çözümleri oluşturmak için Araçlar ile IOT hub'ı birleştirerek oluşturulacağını göstermektedir. Aşağıdaki tabloda listelenen öğreticiler fiziksel IOT cihazları nasıl oluşturulacağını gösterir.
 
-| IOT cihaz                       | Programlama dili |
+| IoT cihazı                       | Programlama dili |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [Python][Pi_Py], [Node.js][Pi_Nd], [C][Pi_C]  |
-| IOT DevKit                      | [VSCode Arduino][DevKit]     |
-| Intel Edison                    | [Node.js][Ed_Nd], [C][Ed_C]           |
-| Adafruit yumuşatma HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
-| Sparkfun ESP8266 şey geliştirme      | [Arduino][Th_Ard]              |
-| Adafruit yumuşatma M0             | [Arduino][M0_Ard]              |
+| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C]  |
+| IOT DevKit                      | [VSCode içinde Arduino][DevKit]     |
+| Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 
 
 [Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
 [Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
-[Pi_Py]: iot-hub-raspberry-pi-kit-python-get-started.md
 [DevKit]: iot-hub-arduino-iot-devkit-az3166-get-started.md
-[Ed_Nd]: iot-hub-intel-edison-kit-node-get-started.md
-[Ed_C]: iot-hub-intel-edison-kit-c-get-started.md
 [Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
-[Th_Ard]: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
-[M0_Ard]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md

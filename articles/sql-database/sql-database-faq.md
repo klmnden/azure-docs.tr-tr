@@ -2,19 +2,22 @@
 title: Azure SQL veritabanı SSS | Microsoft Docs
 description: Yaygın soruların müşterilere yanıtlar, bulutta bir hizmet olarak bulut veritabanları ve Azure SQL veritabanı, Microsoft'un ilişkisel veritabanı yönetim sistemi (RDBMS) ve veritabanı hakkında isteyin.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: reference
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 479f7df740e75ae44a5198414036ff0b0c216471
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8aaf89426cf392faaf6339f49300bf7d2b7dcfcd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730656"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166631"
 ---
 # <a name="sql-database-faq"></a>SQL Veritabanı SSS
 

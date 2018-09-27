@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6257f1f9c237422174d695489b8ed39c7c37ebe2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b190e539c411811e8e77b39e7b0738e9d7c3c8c6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969164"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227614"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -450,7 +450,7 @@ Kümelerin her VM kümesi her VM adları aynı olduğu paralel olarak dağıtıl
 ### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>Şirket içi - dağıtımı tek veya birden çok SAP VM şirket içi ağa tam olarak tümleştirilmiş gereksiniminin azure'a
 ![VPN siteden siteye bağlantı (şirket içi)][planning-guide-figure-300]
 
-Bu senaryo, birçok olası dağıtım desen ile şirketler arası bir senaryodur. Bunu olarak yatay şirket içi SAP bazı bölümlerini çalıştıran ve Azure üzerinde SAP diğer bölümlerini yatay olarak açıklanabilir. SAP bileşenlerinin bir parçası, Azure üzerinde çalışıyorsa olgu tüm yönlerini, son kullanıcılar için saydam olmalıdır. Bu nedenle SAP aktarım düzeltme sisteminin (STMS), RFC iletişimi, yazdırma, (SSO gibi) güvenlik, vb. sorunsuz bir şekilde Azure üzerinde çalışan SAP sistemlerini için çalışır. Ancak içi ve dışı karışık senaryo da burada tam SAP ortamı Müşteri'nin etki alanı ile Azure'da çalışan ve DNS Azure'a genişletilmiş bir senaryo açıklanmaktadır.
+Bu senaryo, birçok olası dağıtım desen ile şirketler arası bir senaryodur. Azure'da SAP yatay şirket bazı bölümlerini ve diğer bölümlerini bir SAP ortamının çalıştırma olarak açıklanabilir. SAP bileşenlerinin bir parçası, Azure üzerinde çalışıyorsa olgu tüm yönlerini, son kullanıcılar için saydam olmalıdır. Bu nedenle SAP aktarım düzeltme sisteminin (STMS), RFC iletişimi, yazdırma, (SSO gibi) güvenlik, vb. sorunsuz bir şekilde Azure üzerinde çalışan SAP sistemlerini için çalışır. Ancak içi ve dışı karışık senaryo da burada tam SAP ortamı Müşteri'nin etki alanı ile Azure'da çalışan ve DNS Azure'a genişletilmiş bir senaryo açıklanmaktadır.
 
 > [!NOTE]
 > Üretken SAP sistemlerini çalıştırmak üzere desteklenen dağıtım senaryosunu da budur.

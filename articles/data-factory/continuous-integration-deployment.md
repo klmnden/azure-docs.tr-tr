@@ -1,6 +1,6 @@
 ---
-title: Sürekli tümleştirme ve dağıtım Azure Data factory'de | Microsoft Docs
-description: Data Factory işlem hatları (geliştirme, test ve üretim) bir ortamdan diğerine taşımak için sürekli tümleştirme ve dağıtım'ı kullanmayı öğrenin.
+title: Sürekli tümleştirme ve teslim Azure Data factory'de | Microsoft Docs
+description: Data Factory işlem hatları (geliştirme, test ve üretim) bir ortamdan diğerine taşımak için sürekli tümleştirme ve teslim kullanmayı öğrenin.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 94c4a3fbd1c854401c42af5787c22db0e5dd6083
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 587c4c0804de809431bf9e731e7533f0d75770d9
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365006"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392627"
 ---
-# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Sürekli tümleştirme ve dağıtım Azure Data factory'de
+# <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Sürekli tümleştirme ve teslim (CI/CD) Azure Data factory'de
 
-Sürekli tümleştirme, sistemi, yapılan her değişikliği testin uygulamadır, otomatik olarak ve mümkün olduğunca erken kod tabanı. Sürekli dağıtım, test sırasında sürekli tümleştirme olur ve değişiklikler bir hazırlık veya üretim sistemine gönderim izler.
+Sürekli tümleştirme, sistemi, yapılan her değişikliği testin uygulamadır, otomatik olarak ve mümkün olduğunca erken kod tabanı. Sürekli teslim, test sırasında sürekli tümleştirme olur ve değişiklikler bir hazırlık veya üretim sistemine gönderim izler.
 
-Azure Data Factory için sürekli tümleştirme ve dağıtım taşıma Data Factory işlem hatları (geliştirme, test ve üretim) bir ortamdan diğerine gösterir. Sürekli tümleştirme ve dağıtım yapmak için Azure Resource Manager şablonları ile tümleştirme Data Factory kullanıcı Arabirimi kullanabilirsiniz. Data Factory kullanıcı arabirimini seçtiğinizde bir Resource Manager şablonu oluşturabilir **ARM şablonu** seçenekleri. Seçtiğinizde, **dışarı ARM şablonu**, portalda Resource Manager şablonu için veri fabrikasını ve tüm bağlantı dizeleri ve diğer parametreleri içeren bir yapılandırma dosyası oluşturur. Ardından, bir yapılandırma dosyası her bir ortamda (geliştirme, test ve üretim) oluşturmanız gerekir. Ana Resource Manager şablon dosyası tüm ortamlar için aynı kalır.
+Azure Data Factory için sürekli tümleştirme ve teslim taşıma Data Factory işlem hatları (geliştirme, test ve üretim) bir ortamdan diğerine gösterir. Sürekli tümleştirme ve teslim yapmak için Azure Resource Manager şablonları ile tümleştirme Data Factory kullanıcı Arabirimi kullanabilirsiniz. Data Factory kullanıcı arabirimini seçtiğinizde bir Resource Manager şablonu oluşturabilir **ARM şablonu** seçenekleri. Seçtiğinizde, **dışarı ARM şablonu**, portalda Resource Manager şablonu için veri fabrikasını ve tüm bağlantı dizeleri ve diğer parametreleri içeren bir yapılandırma dosyası oluşturur. Ardından, bir yapılandırma dosyası her bir ortamda (geliştirme, test ve üretim) oluşturmanız gerekir. Ana Resource Manager şablon dosyası tüm ortamlar için aynı kalır.
 
 Dokuz dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
 
@@ -53,9 +53,9 @@ Seçin **yük dosyası** dışarı aktarılan Resource Manager şablonu seçin v
 ![Bağlantı dizesini görmek için kod görünümü Aç](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Sürekli Tümleştirme yaşam döngüsü
-Sürekli tümleştirme ve kullanabileceğiniz dağıtımı için tüm yaşam döngüsüne İşte Azure DevOps Hizmetleri GIT tümleştirmesi Data Factory kullanıcı arabiriminde etkinleştirdikten sonra:
+Sürekli tümleştirme ve teslim kullanabileceğiniz için tüm yaşam döngüsüne İşte Azure depoları Git tümleştirmesi Data Factory kullanıcı arabiriminde etkinleştirdikten sonra:
 
-1.  Azure DevOps tüm geliştiriciler işlem hatları, veri kümeleri ve diğerleri gibi Data Factory kaynaklarını yazabilirsiniz Hizmetleri ile geliştirme veri fabrikası oluşturun.
+1.  Azure tüm geliştiriciler işlem hatları, veri kümeleri ve diğerleri gibi Data Factory kaynaklarını yazabilirsiniz depoları ile geliştirme veri fabrikası oluşturun.
 
 1.  Geliştiriciler, işlem hatları gibi kaynakları daha sonra değiştirebilirsiniz. Bunlar, değişiklikler gibi seçebilirsiniz **hata ayıklama** işlem hattı en son değişikliklerle nasıl çalıştığını görmek için.
 
@@ -67,23 +67,23 @@ Sürekli tümleştirme ve kullanabileceğiniz dağıtımı için tüm yaşam dö
 
 1.  Dışarı aktarılan Resource Manager şablonu test Fabrika hem de üretim fabrikası için farklı parametre dosyaları ile dağıtılabilir.
 
-## <a name="automate-continuous-integration-with-azure-devops-services-releases"></a>Azure DevOps Hizmetleri sürümleri ile sürekli tümleştirme otomatikleştirin
+## <a name="automate-continuous-integration-with-azure-pipelines-releases"></a>Azure işlem hatları sürümleri ile sürekli tümleştirme otomatikleştirin
 
-Veri Fabrikası birden çok ortama dağıtımı otomatik hale getirmek için bir Azure DevOps Hizmetleri yayını Ayarla için adımlar aşağıda verilmiştir.
+Veri Fabrikası birden çok ortama dağıtımı otomatik hale getirmek için bir Azure işlem hatları yayını Ayarla için adımlar aşağıda verilmiştir.
 
-![Azure DevOps hizmetleriyle sürekli tümleştirme diyagramı](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Azure işlem hatları ile sürekli tümleştirme diyagramı](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Gereksinimler
 
--   Bir Azure aboneliğine bağlı Team Foundation Server veya Azure DevOps Hizmetleri kullanılarak [ *Azure Resource Manager hizmet uç noktası*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Bir Azure aboneliğine bağlı Team Foundation Server veya Azure depoları kullanarak [ *Azure Resource Manager hizmet uç noktası*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   Azure DevOps Hizmetleri yapılandırılmış Git ile veri fabrikası.
+-   Data Factory ile Azure depoları Git tümleştirmesi.
 
 -   Bir [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) gizli dizileri içeren.
 
-### <a name="set-up-an-azure-devops-services-release"></a>Bir Azure DevOps Hizmetleri yayını Ayarla
+### <a name="set-up-an-azure-pipelines-release"></a>Bir Azure işlem hatları yayını Ayarla
 
-1.  Data Factory ile yapılandırılmış bir olarak aynı projede Azure DevOps Hizmetleri sayfanıza gidin.
+1.  Data Factory ile yapılandırılmış bir olarak aynı projede Azure depo sayfanıza gidin.
 
 1.  Üst menü çubuğunda **Azure işlem hatları** &gt; **yayınlar** &gt; **Oluştur yayın tanımı**.
 
@@ -121,7 +121,7 @@ Veri Fabrikası birden çok ortama dağıtımı otomatik hale getirmek için bir
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>İsteğe bağlı: Azure Key Vault'tan gizli dizileri Al
 
-Bir Azure Resource Manager şablonunda geçirmek için gizli dizileri varsa, Azure Key Vault Azure DevOps Hizmetleri sürümüyle kullanmanızı öneririz.
+Bir Azure Resource Manager şablonunda geçirmek için gizli dizileri varsa, Azure anahtar kasası Azure işlem hatlarını sürümde kullanmanızı öneririz.
 
 Gizli dizileri işlemek için iki yolu vardır:
 
@@ -156,13 +156,13 @@ Gizli dizileri işlemek için iki yolu vardır:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-azure-devops-services-agent"></a>Azure DevOps Hizmetleri aracısına izin ver
-Azure Key Vault Görev ilk kez bir erişim reddedildi hatası ile başarısız olabilir. Yayın günlükleri indirmek ve bulun `.ps1` Azure DevOps Hizmetleri aracıya izin vermek için komut dosyası. Komutu doğrudan çalıştırabilirsiniz veya asıl kimliği dosyasından kopyalayın ve erişim ilkesi, Azure portalında el ile ekleyin. (*Alma* ve *listesi* olan gerekli en düşük izinleri).
+### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Azure işlem hatları aracısına izin ver
+Azure Key Vault Görev ilk kez bir erişim reddedildi hatası ile başarısız olabilir. Yayın günlükleri indirmek ve bulun `.ps1` Azure işlem hatları aracıya izin vermek için komut dosyası. Komutu doğrudan çalıştırabilirsiniz veya asıl kimliği dosyasından kopyalayın ve erişim ilkesi, Azure portalında el ile ekleyin. (*Alma* ve *listesi* olan gerekli en düşük izinleri).
 
 ### <a name="update-active-triggers"></a>Güncelleştirme etkin Tetikleyicileri
 Etkin Tetikleyicileri güncelleştirmeye çalışırsanız, dağıtım başarısız olabilir. Etkin Tetikleyicileri güncelleştirmek için el ile sonlandırmasına ve bunları dağıtımdan sonra başlatmak gerekir. Aşağıdaki örnekte gösterildiği gibi bu amaç için bir Azure Powershell görev ekleyebilirsiniz:
 
-1.  Azure DevOps Hizmetleri yayın görevleri sekmede arama **Azure Powershell** ve ekleyin.
+1.  Yayın görevleri sekmede arama **Azure Powershell** ve ekleyin.
 
 1.  Seçin **Azure Resource Manager** bağlantı olarak yazın ve aboneliğinizi seçin.
 
@@ -180,7 +180,7 @@ Benzer adımları izleyin ve benzer bir kod kullanın (ile `Start-AzureRmDataFac
 
 ## <a name="sample-deployment-template"></a>Örnek dağıtım şablonu
 
-Azure DevOps Hizmetleri'nde aktarabileceğiniz bir örnek dağıtım şablonu aşağıda verilmiştir.
+Azure işlem hatlarında aktarabileceğiniz bir örnek dağıtım şablonu aşağıda verilmiştir.
 
 ```json
 {

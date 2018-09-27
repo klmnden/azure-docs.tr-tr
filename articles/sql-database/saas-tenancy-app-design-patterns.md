@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: b9009452ada6ebfb7626532b1fac406563704ef3
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056698"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227495"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Çok kiracılı SaaS veritabanı kiracılı desenleri
 
@@ -138,7 +138,7 @@ Genel olarak, en düşük maliyeti Kiracı başına çok kiracılı veritabanın
 
 ## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Tek bir çok kiracılı veritabanına sahip çok kiracılı uygulama
 
-En basit desen çok kiracılı veritabanı, tüm kiracılar için verileri barındırmak için tek tek bir veritabanı kullanır.  Daha fazla Kiracı eklendikçe veritabanı ile daha fazla depolama ve işlem kaynaklarını ölçeği.  Her zaman bir ultimate ölçek sınırına olsa gereklidir, bu ölçek olabilir.  Ancak, veritabanı bu sınırı dolmadan önce uzun yönetmek için zahmetli hale gelir.
+En basit desen çok kiracılı veritabanı, tüm kiracılar için verileri barındırmak için tek bir veritabanı kullanır.  Daha fazla Kiracı eklendikçe veritabanı ile daha fazla depolama ve işlem kaynaklarını ölçeği.  Her zaman bir ultimate ölçek sınırına olsa gereklidir, bu ölçek olabilir.  Ancak, veritabanı bu sınırı dolmadan önce uzun yönetmek için zahmetli hale gelir.
 
 Tek tek kiracının odaklı yönetim işlemlerini bir çok kiracılı veritabanında uygulamak için daha karmaşıktır.  Ve uygun ölçekte bu işlemleri edilemeyecek kadar düşük olabilir.  Tek bir kiracının verileri zaman içinde nokta geri yüklemeye bir örnektir.
 

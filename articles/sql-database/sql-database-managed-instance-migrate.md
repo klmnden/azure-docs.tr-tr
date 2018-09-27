@@ -1,22 +1,23 @@
 ---
 title: Azure SQL veritabanı yönetilen örneği için SQL Server örneği geçirme | Microsoft Docs
 description: Azure SQL veritabanı yönetilen örneği için bir SQL Server örneği geçirmeyi öğrenin.
-keywords: veritabanı geçişi,sql server veritabanı geçişi,veritabanı taşıma araçları,veritabanı taşıma,sql veritabanı geçişi
 services: sql-database
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 author: bonova
+ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.service: sql-database
-ms.custom: managed instance
-ms.topic: conceptual
-ms.date: 09/20/2018
-ms.author: bonova
-ms.openlocfilehash: 5aad6060691c796906232d9625ff00b748616a77
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.date: 09/26/2018
+ms.openlocfilehash: 7653ce7b0823b4e91685e77701a307370261f7e6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039008"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394076"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği SQL Server örneği geçirme
 
@@ -107,6 +108,8 @@ Aşağıdaki tabloda, kaynak SQL Server sürümüne bağlı olarak kullanabilece
 > - Sistem veritabanlarının geri yükleme desteklenmiyor. Örnek düzeyi nesneler (ana veya msdb veritabanlarında depolanan) geçirmek için bunları komut dosyası ve hedef örneğinde T-SQL betiklerini çalıştırma öneririz.
 
 Bir SAS kimlik bilgisi kullanarak yönetilen örneği için veritabanı yedeklemesini geri yükleme işlemini gösteren bir hızlı başlangıç için bkz: [yedekten bir yönetilen örneğe geri](sql-database-managed-instance-get-started-restore.md).
+
+> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 ## <a name="monitor-applications"></a>Uygulamaları izleme
 

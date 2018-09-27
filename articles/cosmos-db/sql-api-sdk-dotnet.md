@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26de3545c5d79c711703fa97cb796cd6c504f663
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8ba241ccfdaed8694d3dfb9513e56975e39cdb1c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346485"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395789"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API'si için Azure Cosmos DB .NET SDK: indirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -50,6 +50,11 @@ ms.locfileid: "44346485"
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+
+* Eklenen çok bölgeli yazma desteği.
+* Bölüm sorgu performansı geliştirmelerinin üst ve MaxBufferedItemCount çapraz.
+
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 
 * Eklenen isteği iptal etme desteği.
@@ -318,6 +323,7 @@ Devre dışı bırakılan bir SDK'sı kullanarak Azure Cosmos DB yapılan tüm i
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |21 Eylül 2018 |--- |
 | [2.0.0](#2.0.0) |07 Eylül 2018'den |--- |
 | [1.22.0](#1.22.0) |19 Nisan 2018 |--- |
 | [1.21.1](#1.20.1) |09 Mart 2018 |--- |

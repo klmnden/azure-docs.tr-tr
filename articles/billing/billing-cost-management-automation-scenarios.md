@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: c5445eb5e936fe73d51a41936b052f6495b1bcc6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 97f6339e5c9532250245a97a81dade12db139e98
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39635576"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227376"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>Faturalandırma ve maliyet Yönetimi Otomasyon senaryoları
 
@@ -95,7 +95,7 @@ Faturalandırma kullanabilirsiniz ve maliyet Yönetimi API'leri yanıt maliyet v
 ### <a name="what-is-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>Kurumsal raporlama API'lerini ve tüketim API'ları arasındaki fark nedir? Her ne zaman kullanmalıyım?
 Bu API'ler, benzer bir işlev kümesi olması ve aynı sayıda faturalandırma ve maliyet Yönetimi alanındaki sorular yanıt verebilirsiniz. Ancak, her API, farklı Hedef Kitleleri hedefler: 
 
-- **Kurumsal raporlama API'lerini**: Bu API üzerinde anlaşılan parasal taahhüdüyle ve özel fiyatlandırma erişim verir Microsoft ile Kurumsal Sözleşme imzalayan müşteriler tarafından kullanılabilir. API'ler aracılığıyla edinilen kullanmak için anahtar gerektiren [Enterprise Portal](https://ea.azure.com). Bu API için bir açıklama için bkz [genel bakış, raporlama API'lerini Kurumsal müşteriler için](billing-enterprise-api.md).
+- **Kurumsal raporlama API'lerini**: Bu API üzerinde anlaşılan parasal taahhüdüyle ve özel fiyatlandırma erişim verir Microsoft ile Kurumsal Sözleşme imzalayan müşteriler tarafından kullanılabilir. API'ler aracılığıyla edinilen kullanmak için anahtar gerektiren [Enterprise Portal](https://ea.azure.com). Bu API'ler ile ilgili açıklama için bkz: [genel bakış, raporlama API'lerini Kurumsal müşteriler için](billing-enterprise-api.md).
 
 - **Tüketim API'leri**: Bu API'ler birkaç istisna dışında tüm müşteriler tarafından kullanılabilir. Daha fazla bilgi için [Azure kullanım API'si genel bakış](billing-consumption-api-overview.md) ve [Azure tüketim API Başvurusu](https://docs.microsoft.com/rest/api/consumption/). Sağlanan API'leri, en son geliştirme senaryoları için önerilen çözümdür. 
 

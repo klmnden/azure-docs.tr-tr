@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 217e36b7814bb7fe092ca915afd09bfc76b6ffa3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 68352db238b92d39119b420ed0d573e88a95bc78
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094680"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394463"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure kuyruk depolama bağlamaları
 
@@ -535,14 +535,15 @@ JavaScript işlevleri'nde kullanmak `context.bindings.<name>` çıkış kuyruk i
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+* [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)
+
+<!--
 > [!div class="nextstepaction"]
-> [Kuyruk depolama tetikleyicisi kullanan bir hızlı başlangıca gidin](functions-create-storage-queue-triggered-function.md)
+> [Go to a quickstart that uses a Queue storage trigger](functions-create-storage-queue-triggered-function.md)
+-->
 
 > [!div class="nextstepaction"]
 > [Kuyruk depolama kullanan bir öğretici Git çıktı bağlaması](functions-integrate-storage-queue-output-binding.md)
-
-> [!div class="nextstepaction"]
-> [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)
 
 <!-- LINKS -->
 

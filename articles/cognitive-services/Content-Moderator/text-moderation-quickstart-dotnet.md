@@ -1,24 +1,26 @@
 ---
-title: Azure Content Moderator - .NET kullanarak metin | Microsoft Docs
-description: Nasıl yapılır .NET için Azure Content Moderator SDK'sını kullanarak metin
+title: Metin - Content Moderator, .NET
+titlesuffix: Azure Cognitive Services
+description: Nasıl yapılır .NET için Content Moderator SDK'sını kullanarak metin
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 11f0cf523b6a6cfac2fb25924e5e03992945975e
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 6db97231b2dc8905f1a3b3a6bc63580e9f371f84
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182595"
+ms.locfileid: "47227274"
 ---
 # <a name="moderate-text-using-net"></a>.NET kullanarak metin
 
 Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri, kullanmaya başlama [Content Moderator SDK'sı .NET için](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için:
+
 - Terim tabanlı filtrelemeyle metin olası küfürleri algılamanıza
 - Makine öğrenme tabanlı modeller için kullanma [metin sınıflandırma](text-moderation-api.md#classification) üç kategoride.
 - ABD ve UK telefon numaraları, e-posta adreslerini ve ABD adresleriniz gibi kişisel bilgileri (PII) algılar.

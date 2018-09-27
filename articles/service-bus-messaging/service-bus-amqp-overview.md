@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 8fd87897a70b0a7bb629e185473374837cf1026e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b43cdfa0b5f9e5bf6a94f4f59034e07f59ddb163
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701943"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393341"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Hizmet veri yolu AMQP 1.0 desteği
 Azure Service Bus bulut hizmeti ve şirket içi [Windows Server için hizmet veri yolu (hizmet veri yolu 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) Gelişmiş ileti sıraya alma Protokolü (AMQP) 1.0 desteği. AMQP, platformlar arası, açık standart protokolü kullanılarak karma uygulamalar oluşturmanıza olanak sağlar. Farklı diller ve çerçeveler kullanılarak oluşturulur ve farklı işletim sistemleri üzerinde çalışan bileşenlerini kullanarak uygulama oluşturabilirsiniz. Tüm bu bileşenler, Service Bus ve sorunsuz bir şekilde bağlanabilir, verimli bir şekilde ve tam uygunlukta yapılandırılmış iş mesaj alışverişi.

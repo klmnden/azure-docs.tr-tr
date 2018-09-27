@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: dc1f076a6450a7b6fa33a959e79b0fd5a68a99d4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 5be239fd3c77872a59b37efc6de5fc42aca9bb0c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162400"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395823"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 
@@ -80,6 +80,9 @@ Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer dağıtım yönteml
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 <br> (Önizleme) |HDP 3.0 |16.0.4 ubuntu LTS |24 Eylül 2018 | | |Evet |Evet |
 | HDInsight 3.6 |HDP 2.6 |16.0.4 ubuntu LTS |4 Nisan 2017 | | |Evet |Evet |
+| HDInsight 3.5 <br> (Spark) * |HDP 2.6 |16.0.4 ubuntu LTS |30 Eylül 2016 |13 Mart 2019 |13 Mart 2019 |Evet |Evet |
+
+*Spark küme türleri için yalnızca HDInsight 3.5 desteği genişletildi*
 
 > [!NOTE]
 > Bir sürümünün süresi doldu için destek sonra onu Microsoft Azure Portalı aracılığıyla kullanılabilir olmayabilir. Ancak, küme sürümleri kullanılabilir kullanarak devam `Version` Windows PowerShell parametresi [New-Azurermhdınsightcluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) komut ve .NET SDK'sı sürüm devre dışı bırakılacağı tarihten kadar.
@@ -91,7 +94,7 @@ Aşağıdaki tabloda, HDInsight sürümleri listelenmiştir **değil** Azure Por
 
 | HDInsight sürümü | HDP sürümü | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure Portal kullanılabilirliği | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 |HDP 2.5 |16.0.4 ubuntu LTS |30 Eylül 2016 |5 Eylül 2017 |28 Haziran 2018'e |Evet |Hayır |
+| HDInsight 3.5 <br> (Spark olmayan) |HDP 2.5 |16.0.4 ubuntu LTS |30 Eylül 2016 |5 Eylül 2017 |28 Haziran 2018'e |Evet |Hayır |
 | HDInsight 3.4 |HDP 2.4 |14.0.4 ubuntu LTS |29 Mart 2016 |29 Aralık 2016 |9 Ocak 2018 |Evet |Hayır |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2018 |Evet |Hayır |
 | HDInsight 3.3 |HDP 2.3 |14.0.4 ubuntu LTS |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2017 |Evet |Hayır |

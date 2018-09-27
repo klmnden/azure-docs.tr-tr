@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d1a34a4c341a48f594f37da9fb34420adab390ac
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574683"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227325"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri kopyalama kaynak ve hedef (Common Data Service) Dynamics 365 veya Dynamics CRM
 
@@ -158,7 +158,8 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 | EntityName | Alınacak varlığın mantıksal adı. | Evet, havuz için (etkinlik kaynağı "sorgu" belirtilmişse) kaynak için Hayır |
 
 > [!IMPORTANT]
->- Dynamics verileri kopyaladığınızda, "yapı" bölümünde Dynamics kümesinde gereklidir. Sütun adı ve veri türü üzerinde kopyalamak istediğiniz Dynamics verileri tanımlar. Daha fazla bilgi için bkz. [Dataset yapısını](concepts-datasets-linked-services.md#dataset-structure) ve [Dynamics için veri türü eşlemesi](#data-type-mapping-for-dynamics).
+>- Dynamics verileri kopyaladığınızda, "yapı" bölümüne Dynamics kümesinde belirleyici kopyalama sonucu emin olmak için gereklidir. Sütun adı ve veri türü üzerinde kopyalamak istediğiniz Dynamics verileri tanımlar. Daha fazla bilgi için bkz. [Dataset yapısını](concepts-datasets-linked-services.md#dataset-structure) ve [Dynamics için veri türü eşlemesi](#data-type-mapping-for-dynamics).
+>- Kullanıcı Arabiriminde yazma sırasında ADF içinde hiçbir değer büyük/küçük harf sütunlarla performans iyileştirmesi nedeniyle Dynamics hizmeti tarafından atlanacak yapısı oluşturma başlatmak için Dynamics sorgu sonuç üst satırları yeniden örnekleyerek şema çıkarabilir. Gözden geçirin ve kopyalama çalışma zamanı sırasında kullanılacaktır Dynamics veri kümesi şema/yapıda gerektiğinde daha fazla sütun ekleyin. 
 >- Dynamics verileri kopyaladığınızda, "yapı" bölümünde Dynamics kümesinde isteğe bağlıdır. Hangi sütunların kopyalayın kaynak veri şema tarafından belirlenir. Kaynağınız bir üst bilgi içermeyen bir CSV dosyası ise giriş veri kümesi "yapı" sütun adı ve veri türü ile belirtin. Bunlar sırayla CSV dosyasındaki tek tek alanları eşleyin.
 
 **Örnek:**

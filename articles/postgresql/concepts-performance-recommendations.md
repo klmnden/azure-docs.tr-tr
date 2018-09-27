@@ -6,20 +6,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 25ab2f735cfd4b0870729cb86992665fa8984580
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 6de302dbcfa9d6d1d2b311f41b03d8e54aeb63f6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976385"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395449"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı performans önerileri
 
 **İçin geçerlidir:** 9.6 ve 10 PostgreSQL için Azure veritabanı
 
 > [!IMPORTANT]
-> Performans önerileri şu genel Önizleme aşamasındadır.
+> Performans önerileri olduğu sınırlı sayıdaki bölgede genel önizlemede.
 
 Performans önerileri özellik performansı için Azure veritabanı içinde PostgreSQL sunucusu oluşturulabilecek üst dizinleri tanımlar. Dizin önerileri üretmek için özelliği, şema ve sorgu Store tarafından bildirilen gibi iş yükü dahil olmak üzere, çeşitli veritabanı özelliklerini dikkate alır. Herhangi bir performans önerisi uyguladıktan sonra müşteriler bu değişikliklerin etkisini değerlendirmek için performans test etmeniz gerekir. 
 

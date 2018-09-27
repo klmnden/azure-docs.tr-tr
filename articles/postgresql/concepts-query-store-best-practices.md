@@ -6,20 +6,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4e133458476a61538c2bddaaeb2f6d56d4ea5a26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: c449aaff9741250cfcfaaa4ee490aafc857c4369
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954917"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395313"
 ---
 # <a name="best-practices-for-query-store"></a>Query Store için en iyi uygulamalar
 
 **İçin geçerlidir:** 9.6 ve 10 PostgreSQL için Azure veritabanı
 
 > [!IMPORTANT]
-> Query Store özelliği genel Önizleme aşamasındadır.
+> Query Store genel önizlemeye sınırlı sayıdaki bölgede özelliğidir.
 
 
 Bu makalede, PostgreSQL için Azure veritabanı'nda Query Store kullanmak için en iyi uygulamalar özetlenmektedir.

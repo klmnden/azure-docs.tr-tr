@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3f3a8c8a8bce59d1757e9ad53c8ebdbd06a7f33f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9c9c04a8310a46605cf5733131db1418b7cb7f7a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294178"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218793"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IOT Edge çalışma zamanı ve mimarisini anlama
 
@@ -31,9 +31,9 @@ IOT Edge çalışma zamanı, IOT Edge cihazlarında aşağıdaki işlevleri ger�
 
 ![IOT Edge çalışma zamanı öngörüleri ve IOT hub'ına modül durumunu iletişim kurar.][1]
 
-IOT Edge çalışma zamanı sorumluluklarını iki kategoriye ayrılır: modül yönetimi ve iletişimi. Bu iki rolden IOT Edge çalışma zamanını oluşturan iki bileşen tarafından gerçekleştirilir. IOT Edge hub'ı, IOT Edge Aracısı'nı dağıtma ve izleme modüllerini yönetirken siz iletişimi için sorumludur. 
+IOT Edge çalışma zamanı sorumluluklarını iki kategoriye ayrılır: iletişim ve modül yönetimi. Bu iki rolden IOT Edge çalışma zamanını oluşturan iki bileşen tarafından gerçekleştirilir. IOT Edge hub'ı, IOT Edge Aracısı'nı dağıtma ve izleme modüllerini yönetirken siz iletişimi için sorumludur. 
 
-Edge aracısı ve Edge hub'ı hem, bir IOT Edge cihaz üzerinde çalışan yalnızca diğer modüllerin gibi modüllerdir. 
+Edge hub'ı hem Edge Aracısı, bir IOT Edge cihaz üzerinde çalışan yalnızca diğer modüllerin gibi modüllerdir. 
 
 ## <a name="iot-edge-hub"></a>IOT Edge hub'ı
 

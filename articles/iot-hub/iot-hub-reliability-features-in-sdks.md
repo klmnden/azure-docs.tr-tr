@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f6cfb7bb988b080189da444cb77e0c258417b1ac
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9a07fa2010eef22c4d1477641d07dee70ab5a9cb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574719"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227461"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Bağlantı ve Azure IOT Hub cihazı SDK'larını kullanarak güvenilir Mesajlaşma yönetme
 
@@ -54,7 +54,7 @@ Birçok düzeylerini bağlantı hataları oluşabilir:
 - HTTP, AMQP ve MQTT protokolünü düzeyindeki hataları gibi bağlantıları ayrılmış veya süresi dolmuş oturumlar taşıma
 - Geçersiz kimlik bilgileri gibi ya da yerel hatalardan kaynaklanır ya da hizmet kotasını veya azaltma gibi davranışları uygulama düzeyi hataları
 
-Cihaz SDK'ları, tüm üç düzeyden birinde hataları algılayın.  İşletim sistemi ile ilgili hataları ve donanım hataları algılanmaz ve cihaz SDK'ları tarafından işlenir.  Tasarım dayanır [işleme geçici hata Kılavuzu](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) Azure Mimari Merkezi.
+Cihaz SDK'ları, tüm üç düzeyden birinde hataları algılayın.  İşletim sistemi ile ilgili hataları ve donanım hataları algılanmaz ve cihaz SDK'ları tarafından işlenir.  Tasarım dayanır [işleme geçici hata Kılavuzu](/azure/architecture/best-practices/transient-faults#general-guidelines) Azure Mimari Merkezi.
 
 ### <a name="retry-patterns"></a>Desenler yeniden deneyin
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: c9595b0e6313dc4620b48296fdca6dc2c6ae6413
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 8c3d208b12166a590c68753fb4f58c9bb6e55610
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628146"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225540"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma
 
@@ -252,4 +252,4 @@ Bu makaledeki örneklerde aşağıdaki şablonu kullanılır. Kopyalayıp storag
 * Şablonunuzda parametreleri tanımlayan anlamak için bkz. [yapısını ve Azure Resource Manager şablonları söz dizimini anlamak](resource-group-authoring-templates.md).
 * Sık karşılaşılan dağıtım hataları çözümleme hakkında daha fazla ipucu için bkz. [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md).
 * Bir SAS belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [SAS belirteci ile özel şablonu Dağıt](resource-manager-cli-sas-token.md).
-* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).
+* Hizmetinizi birden çok bölge arasında güvenli bir şekilde piyasaya çıkma için görmeniz [Azure Deployment Manager](deployment-manager-overview.md).

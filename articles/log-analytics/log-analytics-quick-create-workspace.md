@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 08/23/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: bdf1d1a62bd8e2e1d0a0a8ad30f2d4c4833be0e4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a52654ab620908b9c8c07edf3fcdfbf70068528d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125102"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220803"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Azure portalında Log Analytics çalışma alanı oluşturma
 Kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir Log Analytics ortamı olan Azure portalında, Log Analytics çalışma alanı ayarlayabilirsiniz.  Bu makalede açıklanan adımları aşağıdaki kaynaklardan veri toplama işlemini istiyorsanız gereklidir:
@@ -28,7 +28,7 @@ Kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir Log Analy
 * Aboneliğinizdeki Azure kaynakları
 * Şirket içi bilgisayarlar System Center Operations Manager tarafından izlenen
 * System Center Configuration Manager cihaz koleksiyonları 
-* Azure depolama biriminden tanılama veya günlük verileri
+* Azure depolama biriminden Tanılama veya günlük verileri
 
 Azure sanal makinelerini ve Windows veya Linux Vm'leri, ortamınızda gibi diğer kaynakları için aşağıdaki konulara bakın:
 
@@ -48,7 +48,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
   
 2. **Oluştur**’a tıklayın, ardından şu öğeler için seçim yapın:
 
-  * Yeni **OMS Çalışma Alanı** için *DefaultLAWorkspace* gibi bir ad sağlayın. 
+  * Yeni bir ad verin **Log Analytics çalışma alanı**, gibi *DefaultLAWorkspace*. 
   * Varsayılan seçili abonelik uygun değilse açılan listeden bağlanacak bir **Abonelik** seçin.
   * İçin **kaynak grubu**, mevcut bir kaynağı kullanmayı da tercih Kurulumu zaten grup veya yeni bir tane oluşturun.  
   * Kullanılabilir seçin **konumu**.  Daha fazla bilgi için bkz [Log Analytics'in sunulduğu bölgeler](https://azure.microsoft.com/regions/services/).
@@ -56,7 +56,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)  
 
-3. **OMS Çalışma Alanı** bölmesinde gerekli bilgileri girdikten sonra **Tamam**’a tıklayın.  
+3. Gerekli bilgileri girdikten sonra **Log Analytics çalışma alanı** bölmesinde tıklayın **Tamam**.  
 
 Bilgilerin doğrulanıp çalışma alanının oluşturulması sırasında işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz. 
 
@@ -66,4 +66,4 @@ Bir çalışma alanı kullanılabilir olduğuna göre telemetri izleme koleksiyo
 * Azure Tanılama veya Azure depolama ile Azure kaynaklarından veri toplamayı etkinleştirmek için bkz: [toplamak Azure hizmeti günlükleri ve Log analytics'teki kullanım ölçümlerini](log-analytics-azure-storage.md).  
 * [System Center Operations Manager veri kaynağı olarak ekleme](log-analytics-om-agents.md) , Operations Manager yönetim grubuna bildirimde bulunan aracılardan veri toplamak ve Log Analytics çalışma alanınızda depolamak için. 
 * Connect [Configuration Manager](log-analytics-sccm.md) hiyerarşideki koleksiyona üye olan bilgisayarlara aktarmak için.  
-* Gözden geçirme [yönetim çözümleri](log-analytics-add-solutions.md) kullanılabilir ve ekleme veya bir çözüm çalışma alanınızdan kaldırın.
+* Gözden geçirme [yönetim çözümleri](https://docs.microsoft.com/azure/monitoring/monitoring-solutions-inventory?toc=%2fazure%2flog-analytics%2ftoc.json) kullanılabilir ve ekleme veya bir çözüm çalışma alanınızdan kaldırın.

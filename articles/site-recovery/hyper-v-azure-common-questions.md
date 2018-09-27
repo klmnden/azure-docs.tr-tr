@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 16c4ab4601dbe57e014bfcb06ff9b35d02c60cfa
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7600fc81d0d3e3607f2185ad2c793255a0c68634
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721917"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227308"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Sık sorulan sorular - Hyper-V'den Azure'a çoğaltma
 
@@ -104,7 +104,7 @@ Herhangi bir uygulamayı veya ile uyumlu bir Hyper-V VM olarak çalışan iş y�
 
 ### <a name="whats-the-replication-process"></a>Çoğaltma işlemi nedir?
 
-1. İlk çoğaltma tetiklendiğinde bir Hyper-V VM anlık görüntüsü anlık görüntü alınır.
+1. İlk çoğaltma tetiklendiğinde bir Hyper-V VM anlık görüntüsü alınır.
 2. Tamamı Azure'a kopyalanana kadar birer birer çoğaltılır, VM üzerindeki sanal sabit diskleri olan. Bu VM boyutuna bağlı olarak biraz zaman ve ağ bant genişliği. Ağ bant genişliğini artırın öğrenin.
 3. İlk çoğaltma devam ederken disk değişiklikleri meydana gelirse, Hyper-V çoğaltma çoğaltma İzleyicisi bu değişiklikleri Hyper-V çoğaltma günlükleri (.hrl) izler. Bu günlük dosyaları disklerle aynı klasörde yer alır. Her diskin ikincil depolamaya gönderilir bir ilişkili .hrl dosyası vardır. İlk çoğaltma sırasında anlık görüntü ve günlük dosyaları disk kaynaklarını kullanır.
 4. İlk çoğaltma tamamlandığında, VM anlık görüntüsü silinir.

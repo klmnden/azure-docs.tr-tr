@@ -1,5 +1,5 @@
 ---
-title: Azure faturanızı anlamak | Microsoft Docs
+title: Azure faturanızı anlama | Microsoft Docs
 description: Azure aboneliğinizin kullanımını ve faturasını okuma ve anlama hakkında bilgi edinin
 services: ''
 documentationcenter: ''
@@ -13,106 +13,106 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
-ms.openlocfilehash: 6601ade7db52043de8150a3fca671591b9b469fd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 4bfaaa51e39a7db297626a8009306eef9e3efa80
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063468"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393790"
 ---
-# <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure fatura koşullarınızda anlama
+# <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure faturanızla ilgili koşulları anlama
 
-Fatura ücretlerinizi özetini sağlar ve ödeme için yönergeler sağlar. Taşınabilir Belge Biçimi (.pdf) İndirilebilecek [Azure portal](https://portal.azure.com/) veya e-posta ile gönderilebilir. Daha fazla bilgi için bkz: [faturayı ve günlük kullanım verileri faturalama Azure alma](billing-download-azure-invoice-daily-usage-date.md).
+Fatura ücretlerinizin özetini ve ödeme yönergeleri sağlar. Taşınabilir Belge Biçimi (.pdf) indirme için kullanılabilir [Azure portalında](https://portal.azure.com/) veya e-posta ile gönderilebilir. Daha fazla bilgi için [Azure faturanızı ve günlük kullanım verilerinizi edinme](billing-download-azure-invoice-daily-usage-date.md).
 
 Dikkat edilecek bazı noktalar:
 
--   Ücretsiz bir deneme aboneliği kullanıyorsanız, Azure portalından, ayrıntılı kullanım bilgilerini alabilir ancak fatura bulunmuyor.
+-   Ücretsiz bir deneme aboneliği kullanıyorsanız, Azure Portalı'ndan ayrıntılı kullanım bilgilerinizi alabilirsiniz ancak fatura zorunda değilsiniz.
 
--   Önceki fatura döneminin sonunda kullanım 24 saat kadar geçerli faturanıza gösterebilir.
+-   24 saatlik kullanım önceki fatura döneminin sonuna kadar geçerli faturanıza gösterebilir.
 
--   Uluslararası müşteriler için fatura tablolarda listelenen ücretleri, yalnızca tahmin amaçlıdır. Banka dönüştürme oranları farklı maliyetlerini olabilir.
+-   Uluslararası müşterilerin fatura tablolarda listelenen ücretler yalnızca tahmin amaçlıdır. Bankalar, dönüştürme oranlarını farklı maliyetlerini olabilir.
 
 >[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>Ayrıntılı hüküm ve faturanızı açıklamaları
-Aşağıdaki bölümlerde her dönem için fatura ve açıklamaları üzerinde gördüğünüz önemli terimler listelenmektedir.
+Aşağıdaki bölümlerde her dönem için fatura ve açıklamaları görmek önemli terimleri listelenmektedir.
 
 ### <a name="account-information"></a>Hesap bilgileri
 
-Fatura hesap bilgileri bölümünü ilk sayfanın üst kısmında olduğu ve profil ve abonelik hakkında bilgi gösterir.
+Fatura hesap bilgileri bölümü, ilk sayfa üst kısmındaki ve profili ve üyelik bilgilerini gösterir.
 
-![Fatura hesabı bilgi bölümü](./media/billing-understand-your-invoice/1.png)
+![Fatura hesap bilgileri bölümü](./media/billing-understand-your-invoice/1.png)
 
 | Sözleşme Dönemi | Açıklama |
 | --- | --- |
-| Müşteri SAS No |Sizin tarafınızdan izleme için atanan bir isteğe bağlı satınalma siparişi numarası |
-| Fatura No. |İzleme amaçları için kullanılan benzersiz bir oluşturulan Microsoft fatura numarası |
-| Fatura döngüsü |Bu fatura kapsayan tarih aralığı |
-| Fatura tarihi |Fatura, genellikle bir gün sonra Faturalama döngüsünün sonuna oluşturulduğu tarih |
+| Müşteri Sipariş No |İzleme için size atanan bir isteğe bağlı satınalma siparişi numarası |
+| Fatura No. |İzleme amacıyla kullanılan benzersiz bir Microsoft oluşturulan fatura numarası |
+| Fatura döngüsü |Bu fatura kapsar ve tarih aralığı |
+| Fatura tarihi |Fatura, genellikle bir günün ardından faturalama döngüsü sonuna oluşturulduğu tarih |
 | Ödeme yöntemi |Hesapta kullanılan ödeme türü (ör. fatura veya kredi kartı) |
-| Fatura adresi |Hesap için listelenen faturalama adresi |
-| Abonelik sunar ("Kullandıkça Öde") |Satın alınan (Kullandıkça Öde, BizSpark artı, Azure geçişi, vb.) abonelik Teklif türü. Daha fazla bilgi için bkz: [Azure teklif türleri](https://azure.microsoft.com/support/legal/offer-details/). |
-| Hesap sahibinin e-postası | Microsoft Azure hesabının kayıtlı olduğu hesaba ait e-posta adresi. <br /><br />E-posta adresini değiştirmek için bkz: [Azure hesabınızın iletişim e-posta adresi ve telefon numarası gibi profil bilgileri değiştirmek nasıl](billing-how-to-change-azure-account-profile.md). |
+| Fatura adresi |Hesap için listelenen fatura adresi |
+| Abonelik teklifi ("Kullandıkça Öde") |Satın alınan (Kullandıkça Öde, BizSpark Plus, Azure Pass, vb.) abonelik Teklif türü. Daha fazla bilgi için [Azure teklif türleri](https://azure.microsoft.com/support/legal/offer-details/). |
+| Hesap sahibinin e-postası | Microsoft Azure hesabının kayıtlı olduğu hesaba ait e-posta adresi. <br /><br />E-posta adresini değiştirmek için bkz [Azure hesabınızla ilgili kişi e-posta adresi ve telefon numarası gibi profil bilgilerini değiştirme](billing-how-to-change-azure-account-profile.md). |
 
 ### <a name="understand-the-invoice-summary"></a>Fatura özetini anlama
-**Fatura özeti** fatura bölümünü son, fatura döneminin ve geçerli Kullanım ücretlerinizi itibaren toplam işlem tutarlar listeler.
+**Fatura özeti** fatura bölümünü son fatura döneminize ve geçerli Kullanım ücretlerinizi bu yana toplam işlem miktarları listeler.
 
-![Fatura Özet bölümü](./media/billing-understand-your-invoice/2.png)
+![Fatura Özeti bölümü](./media/billing-understand-your-invoice/2.png)
 
-Abonelik adı ("üretim depolama") bu fatura için abonelik adıdır.
+Abonelik adı ("üretim depolama"), bu fatura aboneliği adıdır.
 
 #### <a name="understand-the-previous-charges"></a>Önceki ücretlerini anlama
-Önceki bakiyesi, ödemeler ve bekleyen Bakiye fatura bölümünü son fatura süreniz itibaren işlemleri özetlenmektedir.
+Önceki Bakiye, ödemeler ve bekleyen Bakiye fatura bölümünü son fatura döneminize beri işlemler özetlenir.
 
 | Sözleşme Dönemi | Açıklama |
 | --- | --- |
-| Önceki bakiye |Toplam tutar nedeniyle son fatura döneminden |
-| Ödemeler |Toplam ödemeler ve son fatura süreniz uygulanan KREDİLERİ |
-| Borç-alacak bakiyesi (önceki fatura döngüsünden) |Herhangi bir KREDİLERİ veya kalan bakiyesi hesabınızda son fatura süreniz itibaren |
+| Önceki bakiye |Kalan ödenmemiş toplam tutar son fatura döneminden |
+| Ödemeler |Toplam ödemeler ve krediler son fatura döneminize uygulanan |
+| Borç-alacak bakiyesi (önceki fatura döngüsünden) |Herhangi bir kredi veya kalan Bakiye, son fatura döneminden itibaren hesabınızdaki |
 
 #### <a name="understand-the-current-charges"></a>Geçerli ücretleri anlama
-Fatura geçerli ücretler bölümünü geçerli fatura dönemi için aylık ücretler ayrıntılarını gösterir.
+Fatura geçerli ücretler bölümü, geçerli fatura dönemi için aylık ücretlerinizle ilgili ayrıntıları gösterir.
 
 | Sözleşme Dönemi | Açıklama |
 | --- | --- |
-| Kullanım ücretleri |Bir abonelikte geçerli fatura dönemi için toplam Aylık Ücretler kullanım ücretleri var|
-| İndirimler |Geçerli fatura dönemi için uygulanan hizmet indirim|
-| Düzeltmeler |Çeşitli krediler (boş kullanım, KREDİLERİ, vb.) veya ödenmemiş borçları, geçerli fatura dönemi için uygulanır.<br/><br/>Örneğin, Visual Studio Enterprise MSDN teklif ile varsa, aylık krediyi bakın. Aboneliğinizi iptal ederseniz, abonelik teklifiniz ile elde edilen aylık krediyi aşan herhangi aylık kullanım ücretlerine bakın. Aboneliği iptal tarihine kadar geçerli fatura dönemi başlangıcında ücretler uygulanır. |
+| Kullanım ücretleri |Kullanım ücretleri bir Abonelikteki geçerli fatura dönemi için aylık toplam ücretlerdir|
+| İndirimler |Geçerli fatura döneminize uygulanan hizmet indirimleri|
+| Düzeltmeler |(Ücretsiz kullanım KREDİLERİ, vb.) çeşitli krediler veya ödenmemiş geçerli fatura döneminize uygulanır.<br/><br/>Örneğin, Visual Studio Enterprise with MSDN teklifinden varsa, bir aylık kredi görürsünüz. Aboneliğinizi iptal ederseniz, abonelik teklifinizle alma aylık KREDİLERİ aşan aylık kullanım ücretlerine bakın. Aboneliğinizin iptal edildiği tarihe kadar geçerli fatura döneminizin başındaki ücretleri. |
 
-#### <a name="sold-to-and-payment-instructions"></a>İçin satılan ve ödeme yönergeleri
+#### <a name="sold-to-and-payment-instructions"></a>Kime satıldı ve ödeme yönergeleri
 
-Aşağıdaki tablo için satılan açıklar ve ödeme yönergeleri faturanızı ikinci sayfasında gösterilir.
+Aşağıdaki tablo için satılan açıklar ve faturanızı ikinci sayfada gösterilen ödeme yönergeleri.
 
 | Sözleşme Dönemi |Açıklama |
 | --- | --- |
-| Kime Satıldı |Üzerinde hesap profili adresi. <br/><br/>Adres değiştirmeniz gerekiyorsa, bkz: [Azure hesabınızın iletişim e-posta adresi ve telefon numarası gibi profil bilgileri değiştirmek nasıl](billing-how-to-change-azure-account-profile.md).|
-| Ödeme yönergeleri |Ödeme yöntemine bağlı olarak ödeme konusunda yönergeler (gibi olarak göre karta veya fatura kredisi). |
+| Kime Satıldı |Hesapta profili adresi. <br/><br/>Adresini değiştirmeniz gerekirse, bkz. [Azure hesabınızla ilgili kişi e-posta adresi ve telefon numarası gibi profil bilgilerini değiştirme](billing-how-to-change-azure-account-profile.md).|
+| Ödeme yönergeleri |Ödeme yöntemine bağlı olarak ödeme yapma (örneğin ile kartı veya fatura kredi) hakkında yönergeler. |
 
 #### <a name="usage-charges"></a>Kullanım Ücretleri
 
-Fatura kullanım ücretleri bölümünü ücretlerinizi üzerinde ölçer düzey bilgileri görüntüler.
+Fatura kullanım ücretleri bölümünü üzerinde yapılacak bir ücret ölçüm düzey bilgileri görüntüler.
 
 ![Kullanım ücretleri bölümü](./media/billing-understand-your-invoice/3.png)
 
-Aşağıdaki tabloda, fatura üzerinde gösterilen kullanım ücretleri sütun üst bilgileri açıklar.
+Aşağıdaki tabloda, faturanızı üzerinde gösterilen kullanım ücretleri sütun üst bilgilerini açıklar.
 
 | Sözleşme Dönemi |Açıklama |
 | --- | --- |
-| Ad |Kullanım için üst düzey hizmet tanımlar |
-| Tür |Hızı etkileyebilir Azure hizmet türünü tanımlar |
-| Kaynak |Tüketilen ölçer ölçü tanımlar |
-| Bölge |Veri merkezi konum temelinde fiyatlandırılır belirli hizmetler için veri merkezi konumunu tanımlar |
-| Kullanılan |Fatura döneminde kullanılan ölçer miktarı |
-| Dahil |Ücret ödemeden, geçerli fatura dönemi içinde bulunan ölçer miktarı |
-| Faturalanabilir |Tüketilen miktarı ve dahil edilen miktar arasındaki farkı gösterir. Bu tutar için fatura. Teklifi dahil herhangi bir tutar ile Kullandıkça Öde tekliflere bu toplam Tüketilen Miktar aynıdır |
-| Fiyat |Faturalanabilir birim başına ücret ödersiniz oranı |
-| Değer |Fazla kullanım miktarı sütun oranı sütuna göre çarparak sonucunu gösterir. Tüketilen Miktar dahil edilen miktar aşmadığından, bu sütunda hiçbir ücret yoktur. |
+| Ad |Kullanımı için üst düzey hizmeti belirtir |
+| Tür |Hızı etkileyen Azure hizmet türü tanımlar. |
+| Kaynak |Tüketilen ölçüm için ölçü birimini belirtir |
+| Bölge |Veri Merkezi konumuna göre ücretlendirilen belirli hizmetler için veri merkezinin konumunu belirtir |
+| Kullanılan |Fatura dönemi boyunca kullanılan ölçüm miktarı |
+| Dahil |Geçerli fatura döneminize ücretsiz dahil olan ölçüm miktarı |
+| Faturalanabilir |Tüketilen Miktar dahil edilen miktar arasındaki fark gösterir. Bu miktar için faturalandırılırsınız. İle teklife hiçbir miktarın dahil olmadığı Kullandıkça Öde teklifleri için bu toplam tüketilen miktara aynıdır |
+| Fiyat |Faturalanabilir birim başına ücretlendirildiğiniz oranı |
+| Değer |Fazla kullanım miktarı sütununun ücret sütunuyla çarpılmasıyla elde edilen sonucu gösterir. Tüketilen Miktar dahil edilen miktarı aşmıyorsa, bu sütunda ücret alınmaz. |
 | Alt toplam |Bu fatura dönemi için tüm ücretleri öncesi vergi toplamı |
-| Genel toplam |Bu fatura dönemi için vergi sonra tüm ücretlerinizi toplamı |
+| Genel toplam |Bu fatura dönemi için vergi sonra tüm ücretlerinizin toplamı |
 
-## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>My fatura ücretlere doğru olup olmadığını nasıl emin?
-Daha fazla ayrıntı istediğiniz faturanızı üzerinde bir ücret ise bakın [Microsoft Azure için faturanızı anlamak.](billing-understand-your-bill.md)
+## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>My fatura ücretleri doğru olduğunu nasıl emin olabilirim?
+Daha fazla ayrıntı istediğiniz faturanızla ilgili bir ücret yoksa bkz [Microsoft Azure için faturanızı anlayın.](billing-understand-your-bill.md)
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
-Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

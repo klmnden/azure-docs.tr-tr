@@ -1,20 +1,21 @@
 ---
-title: Dışarı aktarma veya Content Moderator - Azure Bilişsel hizmetler kendi verilerini silme | Microsoft Docs
+title: Dışarı aktarma veya verilerinizi - Content Moderator Sil
+titlesuffix: Azure Cognitive Services
 description: Content Moderator verilerinizi silme veya dışarı öğrenin.
 services: cognitive-services
 author: v-jaswel
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fb496837560fe28f1a2e53d8c4ca67e23ada8f64
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9e671fa9735406ec425b105bb121d3a029ef19dc
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576808"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227240"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Dışarı aktarma veya Content Moderator kullanıcı verilerini silme
 

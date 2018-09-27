@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: chlandsi
-ms.openlocfilehash: e21348ccd694baf6b7eccf2787ec0a9f21a73b11
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e343c24a5ef223e1fd6dc618f41d4acf89fc2f5d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985665"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226033"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>Hızlı Başlangıç: Bilişsel hizmetler konuşma SDK'sı kullanarak iOS Objective-C, konuşma tanıma
 
@@ -46,7 +46,7 @@ Xcode başlatın ve tıklayarak yeni bir proje başlatın **dosya** > **yeni** >
 
 1. Proje Seçenekleri iletişim kutusu
     1. Hızlı Başlangıç uygulaması için bir ad girin, örneğin `helloworld`.
-    1. Bir kuruluş adı girin `TestOrg`ve bir kuruluş tanımlayıcısı gibi `testorg`.
+    1. Apple Geliştirici hesabınız zaten varsa, bir uygun kuruluş adı ve kuruluş tanımlayıcısı girin. Test amacıyla gibi herhangi bir ad yalnızca seçebilir `testorg`. Uygulamayı imzalamak için de uygun bir sağlama profili çok gerekir. Lütfen [Apple Geliştirici sitesine](https://developer.apple.com/) Ayrıntılar için.
     1. Objective-C proje dili olarak seçilmiş olduğundan emin olun.
     1. Testleri ve temel veri tüm onay kutularını devre dışı bırakın.
     ![Proje ayarları](media/sdk/qs-objectivec-project-settings.png)
@@ -54,13 +54,11 @@ Xcode başlatın ve tıklayarak yeni bir proje başlatın **dosya** > **yeni** >
     1. Proje yerleştirmek için giriş dizininizi seçin. Bu oluşturacak bir `helloworld` dizin giriş dizininizde Xcode projesi için tüm dosyaları içerir.
     1. Bu örnek proje için bir Git deposu oluşturma devre dışı bırakın.
     1. SDK'yı yolları Ayarla *proje ayarları*.
-        1. İçinde **genel** sekmesinde altında **bağlantılı çerçeveler ve kitaplıklar** üst bilgi bir çerçeve SDK'sı kitaplığı Ekle: **Add framework** > **Ekle Diğer...**  > Giriş dizinine gidin ve dosyayı seçin `MicrosoftCognitiveServicesSpeech.framework`.
+        1. İçinde **genel** sekmesinde altında **katıştırılmış ikili dosyalar** üst bilgi bir çerçeve SDK'sı kitaplığı Ekle: **Ekle katıştırılmış ikili dosyalar** > **diğer Ekle ...**  > Giriş dizinine gidin ve dosyayı seçin `MicrosoftCognitiveServicesSpeech.framework`. Bu da otomatik olarak üst SDK'sı kitaplığı ekler **bağlı çerçeve ve kitaplıklar**.
         ![Eklenen Framework](media/sdk/qs-objectivec-framework.png)
         1. Git **Build Settings** sekme ve etkinleştirme **tüm** ayarları.
         1. Dizin Ekle `$(SRCROOT)/..` için *çerçeve arama yollarını* altında **arama yollarını** başlığı.
         ![Çerçeve arama yolu ayarını](media/sdk/qs-objectivec-framework-search-paths.png)
-        1. Dizin Ekle `$(SRCROOT)/..` için *Runpath arama yollarını* altında **bağlama** başlığı.
-        ![Runpath arama yolu ayarı](media/sdk/qs-objectivec-runpaths.png)
 
 
 ## <a name="set-up-the-ui"></a>UI'yi Kur
@@ -79,16 +77,21 @@ Tıklayın **son** ayarları değiştirmeden aşağıdaki iletişim.
 1. Otomatik olarak oluşturulan içeriklerini `ViewController.m` tarafından dosya:
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
-1. Dize değiştirin `YourSubscriptionKey` abonelik.
+1. Mikrofon erişimi için istek ekleyin. Proje ağacında Info.plist girişi sağ tıklatın ve seçin **farklı Aç...**   >  **Kaynak kodu**. İçine aşağıdaki satırları ekleyin `<dict>` bölümüne ve ardından dosyayı kaydedin.
+    ```xml
+    <key>NSMicrophoneUsageDescription</key>
 
+    <string>Need microphone access for speech recognition from microphone.</string>
+    ```
+1. Dize değiştirin `YourSubscriptionKey` abonelik.
 1. Dize değiştirin `YourServiceRegion` ile [bölge](regions.md) aboneliğinizle ilişkili (örneğin, `westus` ücretsiz deneme aboneliği için).
 
 
 ## <a name="building-and-running-the-sample"></a>Oluşturma ve çalıştırma örneği
 
 1. Hata ayıklama çıkışını görünür hale getirmek (**görünümü** > **hata ayıklama alan** > **etkinleştirme konsol**).
-1. Derlemek ve örnek kod seçerek iOS simulator'da çalıştırmak **ürün** -> **çalıştırma** menüsünden veya **Play** düğmesi.
-1. "Tanı!" düğmesine tıkladıktan sonra uygulamada, düğme görmeniz gerekir "Gibi bir hava durumu nedir?" içeriğini ses dosyası Benzetimli ekranın alt bölümünde üzerinde.
+1. Derlemek ve örnek kod seçerek iOS simulator'da çalıştırmak **ürün** -> **çalıştırma** menüsünden veya **Play** düğmesi. Bir iOS cihaz üzerinde çalışan, geliştirme makinenize cihazı bağlayın ve çalışan hedef cihaz seçin. Şu anda Speech SDK'sı, yalnızca 64 bit iOS platformunu destekler.
+1. "Tanı!" düğmesine tıkladıktan sonra uygulamada, düğme görmeniz gerekir "Gibi bir hava durumu nedir?" içeriğini ses dosyası ekranın alt bölümünde üzerinde.
 
  ![Benzetimli iOS uygulaması](media/sdk/qs-objectivec-simulated-app.png)
 

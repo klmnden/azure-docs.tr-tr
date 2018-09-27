@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/16/2018
+ms.date: 09/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e98012a012c8569a40fe454a777e5f108bfe0e2e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 72503c9f073a046b81001322cdbb4fb8a1af76cf
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311048"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224129"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Otomatik yükseltme
 Bu özellik, derleme ile tanıtılan [(Şubat 2016'da yayımlanan) 1.1.105.0](reference-connect-version-history.md#111050).  Bu özellik, güncelleştirildiği [1.1.561 derleme](reference-connect-version-history.md#115610) ve artık daha önce desteklenmiyordu ek senaryoları destekler.
@@ -39,7 +39,7 @@ Otomatik yükseltme geçerli durumu PowerShell cmdlet'iyle görüntülenebilir `
 | Durum | Açıklama |
 | --- | --- |
 | Etkin |Otomatik yükseltme etkinleştirilir. |
-| Askıya Alındı |Yalnızca sistem tarafından ayarlayın. Sistem artık otomatik güncelleştirmeleri almak uygun değildir. |
+| Askıya Alındı |Yalnızca sistem tarafından ayarlayın. Sistem **şu anda** otomatik güncelleştirmeleri almak uygun. |
 | Devre dışı |Otomatik yükseltme devre dışı bırakıldı. |
 
 Arasında değiştirebilirsiniz **etkin** ve **devre dışı bırakılmış** ile `Set-ADSyncAutoUpgrade`. Sistem durumu ayarlamalıdır yalnızca **askıya alındı**.

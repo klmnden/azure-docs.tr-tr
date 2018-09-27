@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 686d911c7a59fa33508d130382a3fda4af28e665
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: f1541a0523ce0178ad3616a956d5188ef7df0ded
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466073"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395721"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
 
@@ -146,6 +146,8 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 ### <a name="portal"></a>Portal
 
+- Azure Stack teknik belgeleri, en son sürüm üzerinde odaklanır. Sürümler arasında Portal değişiklikleri nedeniyle Azure Stack portalı kullanırken gördüğünüz belgelerinde gördüğünüz verilerden değişebilir. 
+
 - <!-- TBD - IS ASDK --> Bir boş Pano portalında görebilirsiniz. Pano kurtarmak için **Pano düzenleme**, sonra sağ tıklatın ve seçin **varsayılan durumuna sıfırlansın**.
 
 - <!-- 2930718 - IS ASDK --> Yönetici portalında herhangi bir kullanıcı aboneliği ayrıntıları tıklandığında ve dikey pencereyi kapatmadan sonra erişirken **son**, kullanıcı abonelik adı görünmez.
@@ -217,6 +219,8 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - <!-- 2724873 - IS --> PowerShell cmdlet'lerini kullanırken **başlangıç AzsScaleUnitNode** veya **Stop-AzsScaleunitNode** ölçek birimleri yönetmek için başlatma veya durdurma ölçek birimi için yapılan ilk girişim başarısız olabilir. İlk çalıştırılmasında cmdlet'i başarısız olursa, cmdlet'in ikinci kez çalıştırın. İkinci çalıştırma işlemi tamamlamak için başarılı olmalıdır. 
 
 - <!-- TBD - IS ASDK --> Portal, Azure Stack kullanıcı portalında sanal makine oluşturduğunuzda, DS serisi VM ekleyebilirsiniz veri diskleri yanlış sayıda görüntüler. DS serisi VM'ler gibi çok sayıda veri diski Azure yapılandırması sağlayabilir.
+
+- <!-- TBD - IS ASDK --> Çok kiracılı bir ortam kullanıyorsanız, varsayılan kiracıya ait olmayan bir Abonelikteki yönetilen disk ile VM sağlama şu hatayla başarısız oluyor: *kaynak işlemi terminal sağlama durumu 'Başarısız' ile tamamlandı.*
 
 - <!-- TBD - IS ASDK --> VM dağıtımı üzerinde bir uzantı sağlama çok uzun sürerse, kullanıcıların serbest bırakma veya VM silme işlemini durdurulmaya çalışılırken yerine sağlama zaman aşımı izin vermelisiniz.  
 

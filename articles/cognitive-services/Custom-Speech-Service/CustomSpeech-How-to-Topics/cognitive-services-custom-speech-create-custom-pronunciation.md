@@ -1,21 +1,22 @@
 ---
-title: Azure'da özel konuşma hizmeti ile özel telaffuz kullanma | Microsoft Docs
-description: Bilişsel hizmetler, özel konuşma hizmeti ile bir dil modeli oluşturmayı öğrenin.
+title: Özel Söyleniş - özel konuşma hizmeti kullanın
+titlesuffix: Azure Cognitive Services
+description: Özel konuşma hizmeti sayesinde bir dil modeli oluşturmayı öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/23/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: c51ef6b25b454d0b8bf450b791f5c0fa9c6dfdee
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6442eec3e622282ecf6a3bf884110cd435fc18be
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999384"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223483"
 ---
 # <a name="enable-custom-pronunciation"></a>Özel telaffuz etkinleştir
 Özel Söyleniş kullanıcıların fonetik formu ve görüntüleme bir sözcük veya terimi tanımlamasına olanak sağlar. Ürün adları veya kısaltmalar gibi özelleştirilmiş koşullarını işlemek için kullanışlıdır. İhtiyacınız olan telaffuz dosyası (Basit .txt dosyası).

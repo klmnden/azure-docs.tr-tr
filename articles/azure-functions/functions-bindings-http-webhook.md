@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a1b34484978ad95f0945e93411ac2e2a74fff238
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e989152ece19168138597a96d1246ec64498ce69
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980983"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227563"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure işlevleri HTTP Tetikleyicileri ve bağlamaları
 
@@ -483,7 +483,7 @@ Tam olarak üretim ortamında işlevi uç noktalarınızı güvenliğini sağlam
 
 * App Service kimlik doğrulamasını etkinleştirmek / işlev uygulamanız için yetkilendirme. İstemcilerin kimliğini doğrulamak için Azure Active Directory (AAD) ve çeşitli üçüncü taraf kimlik sağlayıcıları kullanan App Service platformu sağlar. İşlevleriniz için özel yetkilendirme kurallarını uygulamak için bunu kullanabilirsiniz ve işlev kodunuzu kullanıcı bilgileri ile çalışabilirsiniz. Daha fazla bilgi için bkz. [kimlik doğrulama ve yetkilendirme Azure App Service'te](../app-service/app-service-authentication-overview.md).
 
-* Azure API Management (APIM) isteklerinin kimliğini doğrulamak için kullanın. APIM API'si güvenlik seçenekleri gelen istekler için çeşitli sağlar. Daha fazla bilgi için bkz. [API Management kimlik doğrulama ilkeleri](../api-management/api-management-authentication-policies.md). Yerinde APIM ile işlev uygulamanızı APIM Örneğinize PI adresini yalnızca gelen istekleri kabul edecek şekilde yapılandırabilirsiniz. Daha fazla bilgi için bkz. [IP adresi sınırlamaları](ip-addresses.md#ip-address-restrictions).
+* Azure API Management (APIM) isteklerinin kimliğini doğrulamak için kullanın. APIM API'si güvenlik seçenekleri gelen istekler için çeşitli sağlar. Daha fazla bilgi için bkz. [API Management kimlik doğrulama ilkeleri](../api-management/api-management-authentication-policies.md). Yerinde APIM ile işlev uygulamanızı APIM Örneğinize IP adresi yalnızca gelen istekleri kabul edecek şekilde yapılandırabilirsiniz. Daha fazla bilgi için bkz. [IP adresi sınırlamaları](ip-addresses.md#ip-address-restrictions).
 
 * Bir Azure App Service ortamı (ASE) için işlev uygulamanızı dağıtın. ASE işlevlerinizi çalıştırmak için adanmış bir barındırma ortamı sağlar. ASE gelen tüm istekleri kimliğini doğrulamak için kullanabileceğiniz tek bir ön uç ağ geçidi yapılandırmanızı sağlar. Daha fazla bilgi için [App Service ortamı için bir Web uygulaması Güvenlik Duvarı (WAF) yapılandırma](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
 

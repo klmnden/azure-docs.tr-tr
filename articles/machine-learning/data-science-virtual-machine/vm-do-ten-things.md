@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2017
+ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: ce73d1ef5425ee2fe66655571a6d6bbbff372af5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: faabdb4c2d2e434863a6bed0b2cd85a05c94eab1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502820"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395738"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows veri bilimi sanal makinesi üzerinde yapabileceğiniz on işlem
 
@@ -47,7 +47,7 @@ Bu makalede, çeşitli veri bilimi görevlerini gerçekleştirmek ve diğer Azur
 **Önkoşullar**
 
 * Bir Azure aboneliği gerekir. Ücretsiz deneme için kaydolabilirsiniz [burada](https://azure.microsoft.com/free/).
-* Azure portalında bir veri bilimi sanal makinesi sağlama yönergeleri [bir sanal makine oluştururken](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+* Azure portalında bir veri bilimi sanal makinesi sağlama yönergeleri [bir sanal makine oluştururken](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
 
 ## <a name="1-explore-data-and-develop-models-using-microsoft-ml-server-or-python"></a>1. Verileri araştırmak ve Microsoft ML Server veya Python kullanarak modeller geliştirin
 R ve Python gibi dillerle DSVM üzerinde veri analiz yapmak için kullanabilirsiniz.
@@ -56,7 +56,7 @@ R için bir IDE için Visual Studio Başlangıç menüsünde veya masaüstü vey
 
 Python için bir IDE olan Visual Studio (PTVS) uzantısı önceden yüklenmiş için Python araçları Visual Studio Community Edition gibi kullanabilirsiniz. Varsayılan olarak, yalnızca Python 3.6, kök conda ortam PTVS üzerinde yapılandırılır. Anaconda Python 2.7 etkinleştirmek için aşağıdakileri yapmanız gerekir:
 
-* Her sürüm için özel ortamlarda giderek oluşturma **Araçları** -> **Python Araçları** -> **Python ortamları** tıklayıp " **+ Özel**"in Visual Studio 2015 Community Edition
+* Her sürüm için özel ortamlarda giderek oluşturma **Araçları** -> **Python Araçları** -> **Python ortamları** tıklayıp " **+ Özel**"in Visual Studio Community Edition
 * Bir açıklama girin ve ortam ön ek yolu olarak ayarlamak *c:\anaconda\envs\python2* Anaconda Python 2.7 için
 * Tıklayın **otomatik algıla** ve ardından **Uygula** ortam kaydedin.
 
@@ -66,7 +66,7 @@ Python için bir IDE olan Visual Studio (PTVS) uzantısı önceden yüklenmiş i
 
 Bkz: [PTVS dokümantasyonu](http://aka.ms/ptvsdocs) Python ortamları oluşturma hakkında daha fazla ayrıntı için.
 
-Artık, yeni Python projesi oluşturmak için ayarlanır. Gidin **dosya** -> **yeni** -> **proje** -> **Python** ve türünü seçin Python uygulaması oluşturuyorsunuz. Sağ tıklayarak (Anaconda 2.7 veya 3.6) istenen sürüm için geçerli proje için Python ortamı ayarlayabilirsiniz **Python ortamı**u seçerek **Ekle/Kaldır Python ortamları**ve ardından olduğu istenen ortama çekme. Üründe PTVS ile çalışma hakkında daha fazla bilgi bulabilirsiniz [belgeleri](http://aka.ms/ptvsdocs).
+Artık, yeni Python projesi oluşturmak için ayarlanır. Gidin **dosya** -> **yeni** -> **proje** -> **Python** ve türünü seçin Python uygulaması oluşturuyorsunuz. Sağ tıklayarak (Python 2.7 ya da 3.6) istenen sürüm için geçerli proje için Python ortamı ayarlayabilirsiniz **Python ortamları**u seçerek **Ekle/Kaldır Python ortamları**ve ardından olduğu istenen ortama çekme. Üründe PTVS ile çalışma hakkında daha fazla bilgi bulabilirsiniz [belgeleri](http://aka.ms/ptvsdocs).
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Jupyter Not Defteri kullanarak keşfedin ve Python veya R ile verilerinizi modelleyin
 Jupyter not defteri veri keşfi ve modelleme için bir tarayıcı tabanlı "IDE" sağlayan güçlü bir ortamdır. Python 2, 3 Python veya R (açık kaynak ve Microsoft R Server) bir Jupyter not defteri kullanabilirsiniz.

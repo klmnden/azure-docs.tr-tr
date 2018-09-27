@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4101f6819dff81376dcab47adb57e4b8ef35e094
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: fc26e1d32332bb0ed9624b7442e38ea79b7bfb1d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40034794"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393562"
 ---
 # <a name="rendering-using-azure"></a>Azure ile işleme
 
@@ -69,7 +69,7 @@ Azure Batch, birçok iş yükleri için kullanılır, ancak aşağıdaki özelli
   * Azure Market VM görüntülerini kullanılabilir içeren popüler grafik ve işleme uygulamaları, uygulamaları kendiniz yükleyin veya yüklü uygulamalar ile kendi özel görüntülerinizi oluşturmak için gereğinden kurtulursunuz. 
 * Kullanım başına ödeme işleme uygulamaları için lisans:
   * Uygulamalar tarafından önler, bilgi işlem için sanal makineleri, ödeme ek dakika, lisans satın alın ve olabilecek uygulamalar için bir lisans sunucusu yapılandırmak zorunda için ödeme yapmayı seçebilirsiniz.  Kullanım için ödeme yapmak da değil sabit sayıda lisansları olduğu için değişen ve beklenmeyen yük gereksinimini karşılamak mümkün olduğunu gösterir.
-  * Önceden yüklenmiş uygulamalara kendi lisansları olan ve olmayan lisans kullanım başına ödeme kullanmak mümkündür.
+  * Önceden yüklenmiş uygulamalara kendi lisansları olan ve olmayan lisans kullanım başına ödeme kullanmak mümkündür. Bunu yapmak için genellikle şirket içi veya Azure tabanlı yüklemeniz sunucu lisansı ve lisans sunucusuna işleme havuzu için bir Azure sanal ağı kullanın.
 * Eklentileri istemci tasarım ve modelleme uygulamalarının için:
   * Eklentilere izin ver doğrudan istemci uygulamasından Azure Batch kullanmaya son kullanıcılar, Autodesk Maya havuzları oluşturmak bunları etkinleştirmek, iş göndermek ve yapmak gibi daha fazla kullanımını işlem kapasitesini daha hızlı işleme gerçekleştirmek için.
 * Tümleşmesi işleme:

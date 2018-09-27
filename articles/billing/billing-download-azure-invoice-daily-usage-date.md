@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: e2985882b2e72b6e2f23945aa54c7a282137ce4e
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: f0cdfef50c07674a08766933f2f7edfc946462a4
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918991"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395024"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>İndirme veya Azure fatura ve günlük kullanım verilerini görüntüleme
 Faturanızı dan indirebileceğiniz [Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) veya e-posta ile gönderilen sahip. Günlük kullanımınızla indirmek için Git [Azure hesap Merkezi](https://account.azure.com/Subscriptions). Yalnızca bazı rollerde fatura ve kullanım bilgilerini, Hesap Yöneticisi gibi alma iznine sahip. Faturalama bilgilerine erişme hakkında daha fazla bilgi için bkz. [Rolleri kullanarak Azure faturalamasına erişimi yönetme](billing-manage-access.md).
@@ -30,7 +30,7 @@ Bu makalede, Kurumsal Anlaşma (EA) müşterileri için geçerli değildir. Bir 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 > [!div class="nextstepaction"]
-> [Azure faturalama belgeleri geliştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Azure faturalama belgelerinin iyileştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Faturanızı (.pdf) e-posta ile alın
 Kabul et ve Azure'ı almak için ek alıcılar yapılandırma faturayı e. Bu özellik Destek teklifleri, Kurumsal Anlaşma ya da Open ile Azure gibi bazı abonelikler için kullanılamıyor olabilir.

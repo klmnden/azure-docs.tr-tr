@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: byvinyal
-ms.openlocfilehash: c67cc5cb13e2c1112c4752660c82c3ab18360b00
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: efaca1b9506ada02c52ad0833139d3b4e441d456
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056633"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393622"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -89,7 +89,7 @@ Aşağıdaki sınırlar yeni bir tablo, Azure Resource Manager kullanırken fark
 * [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
 * [Service Bus](#service-bus-limits)
-* [SignalR hizmeti](#signalr-service-limits)
+* [SignalR Service](#signalr-service-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Veri Ambarı](#sql-data-warehouse-limits)
@@ -165,8 +165,6 @@ Aşağıdaki tabloda temel, standart ve Premium sınırlamaları ve özellikleri
 ### <a name="storage-limits"></a>Depolama sınırları
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
-
-[!INCLUDE [storage-limits-increase-include](../includes/storage-limits-increase-include.md)]
 
 Depolama hesabı sınırları hakkında ek bilgi için bkz. [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage/common/storage-scalability-targets.md).
 

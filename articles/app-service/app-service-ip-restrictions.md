@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 7/30/2018
 ms.author: ccompy
-ms.openlocfilehash: fb26d91ae772c4da1055da80366d6e8c6b80a6ac
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffeb01a46b62202292f6e1ea91f47cd87954387
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364317"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219137"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Azure App Service'e statik IP kısıtlamaları #
 
@@ -29,7 +29,7 @@ IP kısıtlamaları özelliği içeren iş yükleri, App Service barındırılan
 
 Uygulamanız için bir istek yapıldığında, gelen IP adresi IP kısıtlamaları listesine göre değerlendirilir. Adres listesinde yer alan kurallara göre erişim izin verilmiyorsa, hizmet ile yanıtlar bir [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) durum kodu.
 
-IP kısıtlamaları özelliği, kodunuzun çalıştığı çalışan ana Yukarı Akış olan App Service ön uç rollerinde gerçekleştirilir. IP kısıtlamaları therefor etkili bir şekilde ağ ACL'leri gibidir.  
+IP kısıtlamaları özelliği, kodunuzun çalıştığı çalışan ana Yukarı Akış olan App Service ön uç rollerinde gerçekleştirilir. Bu nedenle, IP kısıtlamaları, etkili bir şekilde ağ ACL'leri altındadır.  
 
 ![IP kısıtlamaları akışı](media/app-service-ip-restrictions/ip-restrictions-flow.png)
 

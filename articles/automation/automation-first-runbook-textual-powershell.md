@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f5d2f3634545001dc6dc1419530223b5a1a85a3
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 8f3185a2c7633ba0cb5a9b266bcddf023d3c36e1
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435800"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166461"
 ---
 # <a name="my-first-powershell-runbook"></a>İlk PowerShell runbook’um
 
@@ -83,7 +83,17 @@ Oluşturduğunuz runbook hala Taslak modundadır. Üretimde çalıştırılabilm
 12. Runbook’u başlattığınızda, görüntülediğiniz iş bölmesini açmak için bu işe tıklayabilirsiniz. Böylece zaman içinde geri dönerek, belirli bir runbook için oluşturulan herhangi bir işin ayrıntılarını görüntüleyebilirsiniz.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>5. Adım- Azure kaynaklarını yönetmek için kimlik doğrulaması ekleme
-Runbook uygulamanızı test ettiniz ve yayımladınız, ancak şu ana kadar faydalı bir şey yapmadı. Bu runbook’un Azure kaynaklarını yönetmesini istiyorsunuz. Sahip olduğunuz sürece kimlik doğrulaması karşın başvurulan kimlik bilgilerini kullanarak bunu mümkün değil [önkoşulları](#prerequisites). Bunu şu şekilde **Connect-AzureRmAccount** cmdlet'i.
+Runbook uygulamanızı test ettiniz ve yayımladınız, ancak şu ana kadar faydalı bir şey yapmadı. Bu runbook’un Azure kaynaklarını yönetmesini istiyorsunuz. Sahip olduğunuz sürece kimlik doğrulaması karşın başvurulan kimlik bilgilerini kullanarak bunu mümkün değil [önkoşulları](#prerequisites). Bunu şu şekilde **Connect-AzureRmAccount** cmdlet'i. Kaynakları birden çok farklı abonelikler arasında yönetiyorsanız, kullanmanız gereken **- AzureRmContext** parametresi ile birlikte [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
+
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $AzureContext
+   ```
 
 1. Tıklayarak metin düzenleyicisini açın **Düzenle** MyFirstRunbook-PowerShell sayfasında.
 2. İhtiyacınız olmayan **Write-Output** satırı artık, bu nedenle bir tane silin.

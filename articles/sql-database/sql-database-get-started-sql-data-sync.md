@@ -2,20 +2,22 @@
 title: Azure SQL Data Sync'i Ayarla | Microsoft Docs
 description: Bu öğreticide Azure SQL Data Sync'i ayarlama işlemi gösterilmektedir
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/10/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: ccdffaf0c224cc4579f24ca5f3ca60a6c53f3bd6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+manager: craigg
+ms.date: 04/10/2018
+ms.openlocfilehash: f1d439d043feb36fba0cc6c9c9d1b5569a4d8182
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160412"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166784"
 ---
 # <a name="set-up-sql-data-sync"></a>SQL Data Sync'i Ayarla
 Bu öğreticide, hem Azure SQL veritabanı ve SQL Server örneklerini içeren bir karma eşitleme grubu oluşturarak Azure SQL Data Sync'i ayarlama konusunda bilgi edinin. Yeni eşitleme grubu tam olarak yapılandırılmış ve ayarladığınız zamanlamaya göre eşitler.

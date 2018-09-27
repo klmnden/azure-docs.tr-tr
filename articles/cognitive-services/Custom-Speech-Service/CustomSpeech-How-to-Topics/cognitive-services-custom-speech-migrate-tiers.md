@@ -1,21 +1,22 @@
 ---
-title: Azure üzerinde fiyatlandırma katmanları özel konuşma Hizmeti uç noktaları, geçiş | Microsoft Docs
-description: Bilişsel hizmetler, S2 özel konuşma Hizmeti uç noktalarına S0 ve S1 katmanı arasından dağıtımlarını geçirmeyi öğrenin.
+title: Fiyatlandırma katmanları uç noktalar - özel konuşma hizmeti geçirme
+titlesuffix: Azure Cognitive Services
+description: Özel konuşma hizmeti S2 Uç noktalara S0 ve S1 katmanı arasından dağıtımlarını geçirmeyi öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 44411e0c92f4e24e274761821dd99efbe60c5f5d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 560aa0a7b9748f75cdde99691db7f33e2fc10221
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964982"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224860"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Dağıtımlar için yeni fiyatlandırma modeline geçirme
 Temmuz 2017'den itibaren özel konuşma hizmeti sunan bir [yeni fiyatlandırma modeline](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/). Yeni model *daha kolay anlaşılır*, *maliyetleri hesaplamak daha basit*, ve *daha esnek* ölçeklendirme bakımından. Ölçeklendirme için bir ölçek birimi kavramı Microsoft sundu. Her ölçek birimi, beş eş zamanlı istekleri işleyebilir. 5 eşzamanlı istek S0 katmanı için en eski modeldeki eş zamanlı istekleri için ölçeklendirme ayarlandı ve S1 katmanı için 12 eş zamanlı istek sırasında ayarlandı. Biz size daha fazla esneklik, kullanım örneği gereksinimlerine sahip sunmak için limitler açtınız.

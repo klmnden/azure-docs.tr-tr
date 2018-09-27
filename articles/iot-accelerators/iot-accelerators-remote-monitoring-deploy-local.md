@@ -6,18 +6,18 @@ manager: timlt
 ms.author: asdonald
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5853730a5e3408e33deb483f6ce6652c1c22efab
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 477ef11a02f67e511396c3efc8f2b331c976c801
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034986"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219983"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak dağıtma
 
-Bu makalede, test ve geliştirme için yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtma işlemini göstermektedir. Bu yaklaşım, mikro hizmetler için yerel bir Docker kapsayıcısı dağıtır ve bulutta IOT Hub, Cosmos DB ve Azure Time Series Insights Hizmetleri kullanır.
+Bu makalede, test ve geliştirme için yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtma işlemini göstermektedir. Bu makalede açıklanan yaklaşımı, mikro hizmetler için yerel bir Docker kapsayıcısı dağıtır ve bulutta IOT Hub, Cosmos DB ve Azure Time Series Insights Hizmetleri kullanır. Uzaktan izleme çözüm Hızlandırıcısını IDE içinde yerel makinenizde çalıştırma hakkında bilgi edinmek için bkz: [başlangıç mikro hizmetler yerel ortamda](https://github.com/Azure/remote-monitoring-services-java/blob/master/docs/LOCAL_DEPLOYMENT.md) GitHub üzerinde.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -75,13 +75,19 @@ Gerekli Azure kaynakları henüz oluşturduysanız, şu adımları izleyin:
 
     Betik, çözümünüzün adına ile Azure'da kaynak grubu oluşturur. Bu kaynak grubu, çözüm Hızlandırıcısını Azure kaynaklarını içerir.
 
-3. Betik tamamlandığında ortam değişkenlerinin bir listesini görüntüler. Bu değişkenlere kaydetmek için yönergeleri izleyin **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** dosya.
+3. Betik tamamlandığında ortam değişkenlerinin bir listesini görüntüler. Bu değişkenlere kaydetmek için komuttan Çıkış'ndaki yönergeleri izleyin **azure-iot-pcs-remote-monitoring-dotnet\\Hizmetleri\\betikleri\\yerel\\.env** dosya.
 
 ### <a name="use-existing-azure-resources"></a>Mevcut Azure kaynakları
 
-Zaten oluşturduysanız, gerekli Azure kaynakları ortam değişkeni tanımlarında Düzenle **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\.env** gerekli değerleri içeren dosya. **.Env** dosyası gerekli değerleri nerede bulunacağı hakkında ayrıntılı bilgi içerir.
+Zaten oluşturduysanız, gerekli Azure kaynakları ortam değişkeni tanımlarında Düzenle **azure-iot-pcs-remote-monitoring-dotnet\\Hizmetleri\\betikleri\\yerel\\.env**  gerekli değerleri içeren dosya. **.Env** dosyası gerekli değerleri nerede bulunacağı hakkında ayrıntılı bilgi içerir.
 
 ## <a name="run-the-microservices-in-docker"></a>Mikro hizmetler Docker'da çalıştırma
+
+Yerel Docker kapsayıcılarda çalıştırılan mikro hizmetler, Azure'da çalışan hizmetleri erişmeniz gerekebilir. Küçük bir kapsayıcı başlayıp internet adresine ping atmayı çalıştığında aşağıdaki komutu kullanarak Docker ortamınızın internet bağlantısını test edebilirsiniz:
+
+```cmd/sh
+docker run --rm -ti library/alpine ping google.com
+```
 
 Çözüm Hızlandırıcısını çalıştırma için gidin **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local** klasöründe komut satırı ortamı ve şu komutu çalıştırın:
 
@@ -97,7 +103,7 @@ Uzaktan izleme çözümü panosuna erişmek için gidin [ http://localhost:8080 
 
 ## <a name="clean-up"></a>Temizleme
 
-Test işlemini bitirdikten sonra gereksiz ücretlerden kaçınmak için bulut hizmetlerini Azure aboneliğinizden kaldırın. Gidilecek hizmetlerini kaldırmak için en kolay yolu olan [Azure portalında](https://ms.portal.azure.com) ve çalıştırdığınızda oluşturduğunuz kaynak grubunu silin **start.cmd** betiği.
+Gereksiz önlemek için test bittiğinde ücretleri, bulut Hizmetleri Azure aboneliğinizden kaldırın. Gidilecek hizmetlerini kaldırmak için en kolay yolu olan [Azure portalında](https://ms.portal.azure.com) ve çalıştırdığınızda oluşturduğunuz kaynak grubunu silin **start.cmd** betiği.
 
 Kullanım `docker-compose down --rmi all` Docker görüntülerini kaldırmak ve yerel makinenizde alan boşaltmak için komutu. Ayrıca, kaynak kodunu github'dan kopyaladığınız oluşturulan uzaktan izleme depo yerel kopyasını silebilirsiniz.
 

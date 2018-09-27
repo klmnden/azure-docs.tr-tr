@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 78578197c5f764c8e197d3426506cb1eb13b838f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 110b97cdb4de6e866ac8ce17a1f05d0231ff5071
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956806"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221608"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimini Sil
 
@@ -88,7 +88,7 @@ Görüntüleyebilir ve oluşturulduktan sonra bir ağ arabirimi için çoğu aya
     - **Özellikler:** anahtar var, MAC adresini (ağ arabirimi bir sanal makineye bağlı değil ise boş) ve abonelik dahil olmak üzere ağ arabiriminin ayarlarını görüntüler.
     - **Geçerli güvenlik kuralları:** güvenlik kuralları, ağ arabirimi çalışan bir sanal makineye bağlı ve bir NSG ağ arabirimi, atanan için alt ağ veya her ikisi de ilişkili listelenir. Nelerin görüntüleneceğini hakkında daha fazla bilgi için bkz: [geçerli güvenlik kuralları görüntüleyebiliriz](#view-effective-security-rules). Nsg'ler hakkında daha fazla bilgi edinmek için [ağ güvenlik grupları](security-overview.md).
     - **Geçerli rotalar:** ağ arabirimi çalışan bir sanal makineye bağlıysa yollar listelenir. Azure varsayılan yolları, tüm kullanıcı tanımlı rotalar ve ağ arabirimine atanmış bir alt ağ için mevcut tüm BGP yolları yollardır. Nelerin görüntüleneceğini hakkında daha fazla bilgi için bkz: [görüntülemek geçerli rotalar](#view-effective-routes). Azure varsayılan yollar ve kullanıcı tanımlı yollar hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
-    - **Genel Azure Resource Manager ayarları:** genel Azure Resource Manager ayarları hakkında daha fazla bilgi için bkz: [etkinlik günlüğü](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [etiketleri](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Kilitler](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ve [Otomasyon betiği](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Genel Azure Resource Manager ayarları:** genel Azure Resource Manager ayarları hakkında daha fazla bilgi için bkz: [etkinlik günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [etiketleri](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Kilitler](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ve [Otomasyon betiği](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Komutları**
 

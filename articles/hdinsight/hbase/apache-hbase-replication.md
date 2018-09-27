@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: cfc71f34f4b1d8027714c9fb610beebf8cd3be47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51f5f3b9742de45b1b72104c8cf08079d0719763
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978548"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224394"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağları içinde HBase kümesi çoğaltma ayarlama
 
@@ -109,6 +109,7 @@ Bağlama yüklemek için yon iki DNS sanal makinelerin genel IP adresini bulmak 
 2. DNS sanal makine seçerek açın **kaynak grupları > [kaynak grubu adı] > [vnet1DNS]**.  Kaynak grubu adı son yordamda oluşturduğunuz paroladır. Varsayılan DNS sanal makine adları *vnet1DNS* ve *vnet2NDS*.
 3. Seçin **özellikleri** sanal ağın özellikleri sayfasını açın.
 4. Not **genel IP adresi**ve ayrıca doğrulayın **özel IP adresi**.  Özel IP adresi olmalıdır **10.1.0.4** vnet1DNS için ve **10.2.0.4** vnet2DNS için.  
+5. DNS sunucuları her iki sanal ağ için aşağıdaki adımlarda bağlama yüklenecek paketleri indirmek gelen ve giden erişime izin vermek için varsayılan (Azure tarafından sağlanan) DNS sunucuları kullanmak üzere değiştirin.
 
 Bağlama yüklemek için aşağıdaki yordamı kullanın:
 
@@ -217,7 +218,7 @@ Bağlama yüklemek için aşağıdaki yordamı kullanın:
 
     ```bash
     sudo apt install dnsutils
-    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
     > [!IMPORTANT]

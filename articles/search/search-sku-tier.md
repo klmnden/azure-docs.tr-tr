@@ -9,18 +9,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: d86fc1930f1d7b29dc3ce57e9b4d28e053bb44a0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: ddb60631f54e1b635ae5ec036b7d35d47ca0a519
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181899"
+ms.locfileid: "47221767"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
-Azure Search'te bir [sağlanan hizmet](search-create-service-portal.md) sabit fiyatlandırma katmanı veya SKU: **ücretsiz**, **temel**, veya **standart**burada  **Standart** yapılandırmaları ve kapasiteler içinde bulunabilir. Çoğu müşteri başlayın **ücretsiz** katmanı için değerlendirme ve ardından ölçeğine geçin **standart** geliştirme için. Üzerindeki tüm Hızlı başlangıçlar ve öğreticilerle tamamlayabilirsiniz **ücretsiz** katmanı, kaynak kullanımı yoğun bilişsel arama için dahil olmak üzere. 
+Azure Search'te bir [sağlanan hizmet](search-create-service-portal.md) fiyatlandırma katmanı veya hizmet ömrü boyunca sabit SKU. Katmanlar **ücretsiz**, **temel**, veya **standart**burada **standart** yapılandırmaları ve kapasiteler içinde bulunabilir. Çoğu müşteri başlayın **ücretsiz** katmanı için değerlendirme ve ardından ölçeğine geçin **standart** geliştirme ve üretim dağıtımları için. Üzerindeki tüm Hızlı başlangıçlar ve öğreticilerle tamamlayabilirsiniz **ücretsiz** katmanı, kaynak kullanımı yoğun bilişsel arama için dahil olmak üzere. 
 
-Katmanları tarafından ayrım ile değil özellikleri kapasitesini belirler:
+Katmanları değil özellikleri, kapasite belirlemek ve tarafından ayrılır:
 
 + Oluşturabileceğiniz dizin sayısı
 + Boyutuna ve hızına bölümleri (fiziksel depolama)
@@ -28,14 +28,10 @@ Katmanları tarafından ayrım ile değil özellikleri kapasitesini belirler:
 Tüm katmanları olsa da dahil olmak üzere **ücretsiz** katman, genellikle özellik eşliği teklif daha büyük iş yükleri, daha yüksek katmanlara yönelik gereksinimleri dikte. Örneğin, [bilişsel arama](cognitive-search-concept-intro.md) dizin sahip uzun süre çalışan becerileri, zaman aşımı ücretsiz bir hizmet veri kümesi çok daha düşük olacağını sürece.
 
 > [!NOTE] 
-> Özellik eşliği var. dışında katmanlarında [dizin oluşturucular](search-indexer-overview.md), S3HD üzerinde kullanılabilir değil.
+> Özellik eşliği istisnası [dizin oluşturucular](search-indexer-overview.md), hangi S3HD üzerinde mevcut değildir.
 >
 
-Bir katman içinde yapabilecekleriniz [çoğaltma ve bölüm kaynakları](search-capacity-planning.md) performans ayarlama. İki veya üç her ile başlayabilir ancak dizin oluşturma ağır bir iş yükü için kaynak düzeyinde geçici olarak artırabilir. Bir katman içinde kaynak düzeylerini ayarlama olanağı esneklik kazandırır ancak biraz da analiz karmaşık hale getirir. Daha düşük bir katmana daha yüksek kaynak/yinelemeler ile daha iyi değeri ve daha düşük kaynak ile daha yüksek bir katmana performans sunar görmek için denemeniz gerekebilir. Ne zaman ve neden kapasiteyi ayarlamak hakkında daha fazla bilgi için bkz: [performans ve iyileştirme konuları](search-performance-optimization.md).
-
-> [!Important] 
-> Dizinler ve depolama için gelecekteki gereksinimlerini tahmin etme gibi kararın düşünüyorsanız olsa da, bunun yapılması değer var. Çok düşük bir katmanın kapasitesini ettik, yeni bir hizmet yüksek katmandan sağlamanız gerekir ve ardından [dizinlerinizi yeniden](search-howto-reindex.md). Hiçbir aynı SKU bir hizmetten diğerine yerinde yükseltmesini yoktur.
->
+Bir katman içinde yapabilecekleriniz [çoğaltma ve bölüm kaynakları](search-capacity-planning.md) performans ayarlama. İki veya üç her ile başlayabilir ancak, işlem gücünü ağır bir dizin oluşturma iş yükü için geçici olarak oluşturabilen. Bir katman içinde kaynak düzeylerini ayarlama olanağı esneklik kazandırır ancak biraz da analiz karmaşık hale getirir. Daha düşük bir katmana daha yüksek kaynak/yinelemeler ile daha iyi değeri ve daha düşük kaynak ile daha yüksek bir katmana performans sunar görmek için denemeniz gerekebilir. Ne zaman ve neden kapasiteyi ayarlamak hakkında daha fazla bilgi için bkz: [performans ve iyileştirme konuları](search-performance-optimization.md).
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -53,15 +49,15 @@ Fatura oranı **SU başına saatlik**, giderek daha yüksek fiyatlarla sahip her
 
 Her katman aşamalı olarak daha yüksek kapasite sunmasına karşın, getirebilirsiniz bir *bölümü* rest yedekte bulunduran toplam kapasite çevrimiçi. Faturalama bakımından, bölümler ve çoğaltmalar çevrimiçi, hesaplanmış, aslında ödersiniz belirleyen SU formülü kullanarak Getir sayısıdır.
 
-### <a name="tips-for-lowering-the-bill"></a>Fatura maliyetlerini düşürmek için ipuçları
+### <a name="tips-for-reducing-costs"></a>Maliyetleri azaltmak için ipuçları
 
-Fatura düşürmek için hizmeti Kapat olamaz. Ayrılmış bölümler ve çoğaltmalar için işletimsel 24-ömrü boyunca hizmetinizi özel kullanımınız için rezerve tutulan 7 kaynaklardır. Fatura azaltmak için tek yolu çoğaltmalar ve bölümler hala kabul edilebilir bir performans sunan en düşük düzeye azaltmaktır. 
+Fatura düşürmek için hizmeti Kapat olamaz. Ayrılmış bölümler ve çoğaltmalar için işletimsel 24-hizmetinizin ömrü, özel kullanım için ayrılan 7 kaynaklardır. Çoğaltmalar ve bölümler hala kabul edilebilir performans sağlayan düşük bir düzeyde azaltarak tek yolu bir fatura daha düşük olan ve [SLA Uyumluluk](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Başka bir seviyesini bir katmanı daha düşük bir saatlik ücret seçmektir. Saatlik ücretler S1, S2 veya S3 saatlik ücretler düşük. Bir hizmeti, projeksiyonlar alt sonunda sağlayın ve, aşıyorsa, bir ikinci büyük katmanlı hizmet oluşturup, ikinci bir hizmet üzerinde yeniden ve ilk silin.
+Maliyetleri azaltmak için başka bir seviyesini bir katmanı daha düşük bir saatlik ücret seçmektir. Saatlik ücretler S1, S2 veya S3 ücretlerinden daha düşük. Uygulamanızın yük projeksiyonlar alt sonunda amaçlayan bir hizmet için kaynak sağlanamadı. Hizmet aşıyorsa, daha büyük katmanlı ikinci bir hizmet oluşturun, bu ikinci bir hizmet üzerinde yeniden ve ilk silin. İçin şirket içi sunucularda "Gelecekteki büyümeyi işleyebilmeniz kaydolabileceksiniz için" yaygındır. Bir bulut hizmeti ile maliyet tasarrufu ele Geçiren, ancak en agresif bir biçimde geçerli bir yetersizse, daha yüksek katmanlı bir hizmet için her zaman geçebilirsiniz bilerek.
 
 ### <a name="capacity-drill-down"></a>Kapasite detaya gitme
 
-Kapasite olarak yapılandırıldığı *çoğaltmaları* ve *bölümler*. 
+Azure Search'te kapasite olarak yapılandırılmış *çoğaltmaları* ve *bölümler*. 
 
 + Çoğaltmaları arama hizmetinin, her çoğaltma dizin yük dengeli bir kopyasını barındırdığı örnekleridir. Örneğin, 6 çoğaltma ile bir hizmeti, hizmete yüklenen her dizin 6 kopyasını içerir. 
 
@@ -105,7 +101,11 @@ Kapasite ve hizmeti çalıştırmanın maliyetlerini el yakından gidin. Katmanl
 
 İş gereksinimleri genellikle ihtiyacınız olacak dizinleri sayısı gerektirir. Örneğin, belgeler, büyük bir depo için genel bir dizin veya belki de bölgesi, uygulama veya iş talebini göre birden çok dizin.
 
-Bir dizinin boyutunu belirlemek için gerekir [bir yapı](search-create-index-portal.md). Azure Search'te veri yapısı öncelikle olduğu bir [dizin ters](https://en.wikipedia.org/wiki/Inverted_index), kaynak verileri daha farklı özelliklere sahiptir. Tersine çevrilmiş bir dizin için boyutu ve karmaşıklığı içeriği, mutlaka içine akış veri miktarı belirlenir. Çok büyük artıklık ile büyük veri kaynağı, yüksek oranda değişken içeriğini içeren daha küçük bir veri kümesini daha küçük bir dizinde neden olabilir.  Bu nedenle, özgün veri kümesinin boyutuna bağlı dizin boyutu çıkarsanacak nadiren mümkündür.
+Bir dizinin boyutunu belirlemek için gerekir [bir yapı](search-create-index-portal.md). Azure Search'te veri yapısı öncelikle olduğu bir [dizin ters](https://en.wikipedia.org/wiki/Inverted_index), kaynak verileri daha farklı özelliklere sahiptir. Tersine çevrilmiş bir dizin için boyutu ve karmaşıklığı içeriği, mutlaka içine akış veri miktarı belirlenir. Çok büyük artıklık ile büyük veri kaynağı, yüksek oranda değişken içeriğini içeren daha küçük bir veri kümesini daha küçük bir dizinde neden olabilir. Bu nedenle, özgün veri kümesinin boyutuna bağlı dizin boyutu çıkarsanacak nadiren mümkündür.
+
+> [!NOTE] 
+> Dizinler ve depolama için gelecekteki gereksinimlerini tahmin etme gibi kararın düşünüyorsanız olsa da, bunun yapılması değer var. Çok düşük bir katmanın kapasitesini ettik, yeni bir hizmet yüksek katmandan sağlamanız gerekir ve ardından [dizinlerinizi yeniden](search-howto-reindex.md). Hiçbir aynı SKU bir hizmetten diğerine yerinde yükseltmesini yoktur.
+>
 
 ### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>1. adım: ücretsiz katman kullanılarak kaba tahminleri geliştirin
 

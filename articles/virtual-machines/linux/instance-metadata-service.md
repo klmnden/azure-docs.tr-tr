@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: f2b6ba4b7faaeb7092c24d964d32c69946264906
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 229f3dd11a90c4f6d65c9cae2a5dd3447eedf83e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023302"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225268"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
@@ -382,7 +382,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="getting-azure-environment-where-the-vm-is-running"></a>Azure VM çalıştığı ortamı alma 
 
-Azure, çeşitli soverign Bulutları gibi sahiptir [Azure kamu](https://azure.microsoft.com/overview/clouds/government/) , bazen Azure ortamına bazı çalışma zamanı kararlar gerekir. Aşağıdaki örnek Bunu başarmak nasıl gösterir
+Azure, çeşitli bağımsız bulutlarda gibi sahiptir [Azure kamu](https://azure.microsoft.com/overview/clouds/government/). Bazı durumlarda, bazı çalışma zamanı kararlar almak için Azure ortamı gerekir. Aşağıdaki örnek Bunu başarmak nasıl gösterir.
 
 **İstek**
 
@@ -445,7 +445,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Evet meta veri hizmetine ölçek kümesi örnekleri için kullanılabilir. 
 8. Hizmet için nasıl destek alabilirim?
    * Hizmet için destek almak için uzun denemeden sonra meta veri yanıtını almanız mümkün olmadığı bir VM için Azure portalında bir destek sorunu oluşturun 
-9. My çağrısı zaman aşımına uğradı isteği alabilirim hizmet?
+9. My hizmet çağrısı zaman aşımına uğradı isteği alabilirim?
    * Meta veri çağrıları VM'nin ağ kartına birincil IP adresinden yapılması gerekir, ayrıca, değişmesi durumunda yollarınızı var. ağ kartınıza dışında 169.254.0.0/16 adresi için bir yol olmalıdır.
 10. Ben Etiketlerim sanal makine ölçek kümesindeki güncelleştirildi ancak Vm'leri farklı örneklerinde görünmüyor?
    * Şu anda ScaleSets için etiketleri yalnızca VM yeniden başlatma/yeniden görüntü oluşturma/bir disk örneği değiştirin ya da gösterilir. 

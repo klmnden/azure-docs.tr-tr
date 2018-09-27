@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: a67d0a6387201362199c0f96fba3f338d906bbda
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052102"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222702"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB ile iletişim
 İçinde bir yüksek düzeyde birbirine society yaşayan anlamına gelir hayatta belirli bir noktada, bir parçası haline gelir, bir **sosyal ağ**. Sosyal ağlar arkadaşlarınız, iş arkadaşlarınızın, ailesi sürdürebilecek tutmak veya bazen Tutkunuzu ortak ilgi alanlarına kişilerle paylaşmak için kullanın.
@@ -39,7 +39,7 @@ Neden bu senaryoda en iyi seçenek SQL değil mi? Bir sorgu ile yapmanız gereki
 Elbette, devasa bir SQL örneği yeterli gücüyle binlerce sorgusu bu sayıda birleştirme içeriğinizi ancak gerçek anlamda, daha basit bir çözüm varsa, neden olduğu hizmet ile çözmeyi kullanabilirsiniz?
 
 ## <a name="the-nosql-road"></a>NoSQL yol
-Bu makalede Azure'nın NoSQL veritabanı ile sosyal platformun veri modelleme içine yönlendirecektir [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) gibi özellikler diğer Azure Cosmos DB kullanırken uygun maliyetli bir şekilde [Gremlin Gremlin API ](../cosmos-db/graph-introduction.md). Kullanarak bir [NoSQL](https://en.wikipedia.org/wiki/NoSQL) yaklaşım, verileri JSON biçiminde depolamak ve uygulama [normalleştirilmişlikten çıkarma](https://en.wikipedia.org/wiki/Denormalization), daha önce karmaşık post tek bir dönüştürülebilir [belge](https://en.wikipedia.org/wiki/Document-oriented_database):
+Bu makalede Azure'nın NoSQL veritabanı ile sosyal platformun veri modelleme içine yönlendirecektir [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) gibi özellikler diğer Azure Cosmos DB kullanırken uygun maliyetli bir şekilde [Gremlin API](../cosmos-db/graph-introduction.md). Kullanarak bir [NoSQL](https://en.wikipedia.org/wiki/NoSQL) yaklaşım, verileri JSON biçiminde depolamak ve uygulama [normalleştirilmişlikten çıkarma](https://en.wikipedia.org/wiki/Denormalization), daha önce karmaşık post tek bir dönüştürülebilir [belge](https://en.wikipedia.org/wiki/Document-oriented_database):
 
 
     {

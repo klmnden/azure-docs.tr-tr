@@ -1,63 +1,64 @@
 ---
-title: Azure içerik Aracı alanında metin denetleme API'sini kullanarak metin Orta | Microsoft Docs
-description: Metin denetleme online konsolunda metin denetleme API'sini kullanarak dediğini.
+title: Metin denetimi API'si - Content Moderator'ı kullanarak metin
+titlesuffix: Azure Cognitive Services
+description: Metin denetimi, çevrimiçi konsolda metin denetimi API'si kullanarak test edin.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: ed696c31a886626819414c45eb7995edaf161fff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95fd5507287a9294f4fca6af9cc5f01f0ea9fe1c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352721"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219796"
 ---
-# <a name="moderate-text-from-the-api-console"></a>API konsolundan Orta metin
+# <a name="moderate-text-from-the-api-console"></a>API Konsolu Orta metni
 
-Kullanım [metin denetleme API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) Azure içeriği metin içeriğinizi tarama geçirilmesini içinde. İşlem içeriğiniz uygunsuz metin için tarar ve özel ve paylaşılan blacklists içerikte karşılaştırır.
+Kullanım [metin denetimi API'si](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) metin içeriğinizi taramak için Azure Content Moderator içinde. İşlem, içeriğinizi küfür tarar ve kara özel ve paylaşılan içerikte karşılaştırır.
 
 
 ## <a name="get-your-api-key"></a>API anahtarınızı alın
-Çevrimiçi konsolunda API dediğini önce abonelik anahtarınızı gerekir. Bu bulunan **ayarları** sekmesinde **Apim abonelik anahtar Ocp** kutusu. Daha fazla bilgi için bkz: [genel bakış](overview.md).
+Çevrimiçi konsolunda API'yi test sürüşü önce abonelik anahtarınızı gerekir. Bu dosya çubuğunda bulunur **ayarları** sekmesinde **Ocp-Apim-Subscription-Key** kutusu. Daha fazla bilgi için [genel bakış](overview.md).
 
-## <a name="navigate-to-the-api-reference"></a>API referansı gidin
-Git [metin denetleme API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
+## <a name="navigate-to-the-api-reference"></a>API başvuruya Git
+Git [metin denetimi API'si başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
 
   **Metin - ekran** sayfası açılır.
 
-## <a name="open-the-api-console"></a>API konsolunu açın
-İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklar bölgeyi seçin. 
+## <a name="open-the-api-console"></a>API Konsolu
+İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin. 
 
-  ![Metin - ekran sayfa bölge seçimi](images/test-drive-region.png)
+  ![Metin - ekran sayfası kayıt seçimi](images/test-drive-region.png)
 
   **Metin - ekran** API konsolu açılır.
 
-## <a name="select-the-inputs"></a>Girdi seçin
+## <a name="select-the-inputs"></a>Girişleri seçin
 
 ### <a name="parameters"></a>Parametreler
-Metin ekranınızı kullanmak istediğiniz sorgu parametreleri seçin. Bu örnekte, varsayılan değeri kullanın **dil**. İşlemi yürütülmesinin bir parçası olarak otomatik olarak büyük olasılıkla dil algılar çünkü aynı zamanda boş bırakılabilir.
+Metin ekranınızın kullanmak istediğiniz sorgu parametreleri seçin. Bu örnekte, varsayılan değeri kullanın **dil**. İşlem yürütme işleminin bir parçası otomatik olarak olasılığı dil algılar olduğundan aynı zamanda boş bırakılabilir.
 
 > [!NOTE]
 > İçin **dil** parametresi, Ata `eng` veya makine destekli görmek için boş bırakın **sınıflandırma** yanıt (Önizleme özelliği). **Bu özellik yalnızca İngilizce destekler**.
 >
-> İçin **uygunsuz metin koşulları** algılama, kullanım [ISO 639-3 kodu](http://www-01.sil.org/iso639-3/codes.asp) , bu konuda listelenen desteklenen diller makale veya bu alanı boş bırakın.
+> İçin **küfür koşulları** algılama, kullanımı [ISO 639-3 kodu](http://www-01.sil.org/iso639-3/codes.asp) bu konuda listelenen desteklenen dillerin makale veya boş bırakın.
 
-İçin **düzeltme**, **PII**, ve **(Önizleme) sınıflandırmak**seçin **doğru**. Bırakın **ListId** alanı boş.
+İçin **düzeltme**, **PII**, ve **(Önizleme) sınıflandırmak**seçin **true**. Bırakın **ListId** boş.
 
   ![Metin - ekran konsol sorgu parametreleri](images/text-api-console-inputs.PNG)
 
 ### <a name="content-type"></a>İçerik türü
-İçin **Content-Type**, ekran istediğiniz içerik türünü seçin. Bu örnekte, varsayılan kullanmak **metin/düz** içerik türü. İçinde **Apim abonelik anahtar Ocp** kutusuna, abonelik anahtarınızı girin.
+İçin **Content-Type**, ekran istediğiniz içerik türü seçin. Bu örnekte, varsayılan kullanmak **metin/düz** içerik türü. İçinde **Ocp-Apim-Subscription-Key** kutusuna, abonelik anahtarınızı girin.
 
 ### <a name="sample-text-to-scan"></a>Örnek metin taramak için
-İçinde **istek gövdesinde** kutusuna, belirli bir metin girin. Aşağıdaki örnek kasıtlı bir yazım hatası metinde gösterir.
+İçinde **istek gövdesi** kutusunda, metin girin. Aşağıdaki örnek, kasıtlı bir yazım yanlışı metni gösterir.
 
 > [!NOTE]
-> Aşağıdaki örnek metin geçersiz sosyal güvenlik numarası kasıtlıdır. Amacı iletmek örnek giriş ve çıkış biçimi sağlamaktır.
+> Aşağıdaki örnek metni geçersiz sosyal güvenlik numarası kasıtlıdır. Amacı, iletmek örnek giriş ve çıkış biçimi sağlamaktır.
 
 ```
     Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -67,21 +68,21 @@ Metin ekranınızı kullanmak istediğiniz sorgu parametreleri seçin. Bu örnek
 
 ### <a name="text-classification-feature"></a>Metin sınıflandırma özelliği
 
-Aşağıdaki örnekte, içerik denetleyicinin makine destekli metin sınıflandırma yanıt görürsünüz. Bu olası istenmeyen içerikleri algılama yardımcı olur. Bağlam bağlı olarak uygun olarak işaretli içerik olarak kabul. Her kategori olasılığını saymayı ek olarak, içerik İnsan gözden önerebilir. Özellik bir modeli olası kullanım, negatif veya discriminatory dil tanımlamak için kullanır. Bu argo, kısaltılmış sözcükler, gözden geçirme için rahatsız edici ve bilerek yanlış yazılmış sözcükleri içerir. 
+Aşağıdaki örnekte, Content Moderator'ın makine destekli metin sınıflandırma yanıt görürsünüz. Potansiyel olarak istenmeyen içeriği belirlemenize yardımcı olur. Bayrak eklenen içeriği bağlama bağlı olarak uygun olarak sayılabilecek. Her kategori olasılığını yaygınlaşmıştır ek olarak, bu içeriğin bir insan tarafından İnceleme önerebilir. Özelliği, olası uygunsuz, negatif veya discriminatory dil tanımlamak için eğitilen bir modeli kullanır. Bu argo kullanımlar, kısaltılmış sözcükler, gözden geçirme için rahatsız edici ve bilerek yanlış yazılan sözcükleri içerir. 
 
 #### <a name="explanation"></a>Açıklama
 
-- `Category1` cinsel açık veya bazı durumlarda yetişkinlere yönelik olarak kabul dil olası varlığını temsil eder.
-- `Category2` cinsel müstehcen veya bazı durumlarda yetişkin olarak kabul dil olası varlığını temsil eder.
-- `Category3` Belirli durumlarda rahatsız edici olabilecek dil olası varlığını temsil eder.
-- `Score` 0 ile 1 arasında değil. Yüksek puanı kategori uygulanabilen yüksek modeli tahmin etmektir. Bu önizleme el ile kodlanmış sonuçlar yerine bir istatistik modeli kullanır. Her kategoride gereksinimlerinizi için nasıl hizalandığını belirlemek için kendi içerikle sınama öneririz.
-- `ReviewRecommended` true veya false iç puan üzerinde eşikleri bağlı değil. Müşteriler bu değeri kullanın ya da kendi içerik ilkelerine dayalı özel eşikler karar değerlendirmelisiniz.
+- `Category1` cinsel açık veya bazı durumlarda yetişkinlere yönelik olarak kabul edilebilir dil olası varlığını temsil eder.
+- `Category2` cinsel müstehcen veya bazı durumlarda olgun düşünülebilecek dil olası varlığını temsil eder.
+- `Category3` Belirli durumlarda rahatsız edici olduğu düşünülebilecek dil olası varlığını temsil eder.
+- `Score` 0 ile 1 arasındadır. Yüksek puanı, kategori uygun olabilir yüksek modeli tahmin etmektir. Bu önizleme, el ile kodlanmış sonuçları yerine istatistiksel bir model kullanır. Her kategori için gereksinimlerinizi nasıl hizalandığını belirlemek için kendi içeriğe sahip test etmenizi öneririz.
+- `ReviewRecommended` true veya false iç puanına göre eşikleri bağlı değil. Müşteriler, bu değeri kullanın veya kendi içerik ilkelere dayalı özel eşikler karar değerlendirmelisiniz.
 
-### <a name="analyze-the-response"></a>Yanıt Çözümle
-Aşağıdaki yanıtı çeşitli Öngörüler API'SİNDEN gösterir. Olası uygunsuz metin, PII, sınıflandırma (Önizleme) ve otomatik olarak düzeltileceğini sürümünü içerir.
+### <a name="analyze-the-response"></a>Yanıt analiz edin
+Şu yanıtı çeşitli içgörüler API'den gösterir. Bu, olası küfürleri, PII, sınıflandırma (Önizleme) ve otomatik olarak düzeltti sürümünü içerir.
 
 > [!NOTE]
-> Makine destekli 'Sınıflandırma' özellik Önizleme aşamasındadır ve yalnızca İngilizce destekler.
+> Makine destekli 'Sınıflandırma' özellik Önizleme aşamasındadır ve yalnızca İngilizce dilini desteklemektedir.
 
 ```
 {
@@ -161,8 +162,8 @@ Aşağıdaki yanıtı çeşitli Öngörüler API'SİNDEN gösterir. Olası uygun
 }
 ```
 
-JSON yanıt tüm bölümlerde ayrıntılı bir açıklaması için başvurmak [metin denetleme API genel bakış](text-moderation-api.md).
+JSON yanıtı tüm bölümlerinde ayrıntılı bir açıklaması için başvurmak [metin denetimi API'si genel bakış](text-moderation-api.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-REST API kodunuzdaki kullanın veya başlayın [metin denetleme .NET quickstart](text-moderation-quickstart-dotnet.md) uygulamanızla tümleştirmek için.
+Kodunuzda REST API kullanma veya ile başlayan [metin denetimi .NET hızlı](text-moderation-quickstart-dotnet.md) uygulamanızla tümleştirmek için.

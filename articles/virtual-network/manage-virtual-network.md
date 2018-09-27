@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8d92c5d01e977fc64e823a0229b5f2ede944743
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d72faa99c15fdbebb299e416fd902bae261f31f9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985663"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221188"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Oluşturma, değiştirme veya bir sanal ağı silme
 
@@ -89,7 +89,7 @@ Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki göre
     - **Özellikler**: sanal ağın kaynak Kimliğini ve içinde bir Azure aboneliği de dahil olmak üzere sanal ağ ayarlarını görüntüler.
     - **Diyagram**: diyagram sanal ağa bağlı tüm cihazlara görsel bir gösterimini sağlar. Diyagram cihazlarla ilgili bazı temel bilgileri yok. Bu görünümde, diyagramdaki bir cihazı yönetmek için cihazı seçin.
     - **Azure ortak ayarları**: Genel Azure ayarları hakkında daha fazla bilgi için aşağıdaki bilgileri bakın:
-        *   [Etkinlik Günlüğü](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+        *   [Etkinlik Günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
         *   [Erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
         *   [Etiketler](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Kilitler](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

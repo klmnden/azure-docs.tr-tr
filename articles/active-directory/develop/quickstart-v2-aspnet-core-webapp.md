@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: f57dc1707a9e25e4ea308142e804cdbc80d4308a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba67acec778a48c084897095aa457e5637240a57
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984951"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227457"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Oturum açma Microsoft ile bir ASP.NET Core web uygulamasına ekleme
 
@@ -62,7 +62,7 @@ Bu hızlı başlangıçta nasıl bir ASP.NET Core Web uygulaması kişisel oturu
 
 1. Zip dosyasını yerel bir klasöre ayıklar (örneğin, **C:\Azure-Samples**)
 1. Visual Studio 2017 kullanırsanız, projeyi (isteğe bağlı) Visual Studio'da açın.
-1. Düzen **appsettings.json** ve değeri değiştirin `ClientId` ile yeni kaydettiğiniz uygulamayı uygulama kimliği:
+1. Düzen **appsettings.json** ve değeri değiştirin `ClientId` yeni kaydettiğiniz uygulamadan uygulama kimliği:
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"

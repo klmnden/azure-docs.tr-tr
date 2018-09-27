@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: b8e36480269259f38453593973d1f362c136e6be
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: bb62f892ec3d171958764d10f4b069bbd536d2ea
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349067"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223449"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Şablonları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -34,8 +34,10 @@ Bu makalede, Azure Resource Manager dağıtım şablonu kullanarak, Azure sanal 
 - Azure Resource Manager dağıtım şablonu kullanmaya bilmiyorsanız, kullanıma [genel bakış bölümünde](overview.md). **Gözden geçirmeyi unutmayın [sistem tarafından atanan ve kullanıcı tarafından atanan bir yönetilen kimlik arasındaki farkı](overview.md#how-does-it-work)**.
 - Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
 - Bu makalede yönetim işlemlerini gerçekleştirmek için aşağıdaki Azure rol tabanlı erişim denetimi atamalarını hesabınızın gerekir:
+
     > [!NOTE]
     > Hiçbir ek Azure AD dizini rol atamaları gerekli.
+
     - [Sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) bir VM oluşturun ve etkinleştirin ve sistem ve/veya yönetilen kimlik kullanıcı tarafından atanan bir Azure VM'den kaldırın.
     - [Yönetilen kimlik Katılımcısı](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rolüne bir kullanıcı tarafından atanan oluşturmak için yönetilen kimliği.
     - [Yönetilen kimlik işleci](/azure/role-based-access-control/built-in-roles#managed-identity-operator) gelen ve sanal makine rolü atamak ve bir kullanıcı tarafından atanan kaldırmak için yönetilen kimliği.
@@ -358,7 +360,7 @@ Artık bir kullanıcı tarafından atanan bir yönetilen kimlik gereken bir VM'n
 
 1. Azure'da yerel olarak oturum açın ya da Azure portal aracılığıyla Azure aboneliği ile ilişkili olan bir hesap kullanın, VM içerir.
 
-2. Şablona yük bir [Düzenleyicisi](#azure-resource-manager-templates) bulun `Microsoft.Compute/virtualMachines` içinde ilgi kaynak `resources` bölümü. Yalnızca kullanıcı tarafından atanan yönetilen kimlik sahip bir VM varsa, bunu değiştirerek devre dışı bırakabilirsiniz kimlik türü için `None`.
+2. Şablona yük bir [Düzenleyicisi](#azure-resource-manager-templates) bulun `Microsoft.Compute/virtualMachines` içinde ilgi kaynak `resources` bölümü. Yalnızca kullanıcı tarafından atanan yönetilen kimlik sahip bir VM varsa, bu kimlik türü için değiştirerek devre dışı bırakabilirsiniz `None`.
  
    Aşağıdaki örnek hiçbir sistem tarafından atanan yönetilen kimliklerle bir VM'den nasıl kullanıcı tarafından atanan tüm yönetilen kimlikleri kaldırmak gösterir:
    
@@ -381,7 +383,7 @@ Artık bir kullanıcı tarafından atanan bir yönetilen kimlik gereken bir VM'n
  
    **Microsoft.Compute/virtualMachines API Sürüm 2017-12-01**
 
-   Kaldırmak için bir tek bir kullanıcı tarafından atanan yönetilen kimlik bir VM'den öğesinden kaldırın `identityIds` dizisi.
+   Tek bir kullanıcı tarafından atanan yönetilen kimlik bir sanal makineden kaldırmak için oradan kaldırın `identityIds` dizisi.
 
    Sistem tarafından atanan bir yönetilen kimlik varsa, bunu tutmak içinde `type` altındaki `identity` değeri.
    

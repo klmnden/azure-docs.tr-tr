@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: rajraj
-ms.openlocfilehash: 4d3af3b7c7084c3c410bc936356d9caff643b805
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 1ca0ec7185707d9b9f9712c2ace8dacb361f7b5b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182136"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394378"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Otomatik işletim sistemi görüntüsü yükseltmeleri Azure sanal makine ölçek kümesi
 
@@ -38,17 +38,15 @@ Otomatik işletim sistemi yükseltmesi, aşağıdaki özelliklere sahiptir:
 
 ## <a name="how-does-automatic-os-image-upgrade-work"></a>Otomatik işletim sistemi nasıl yaptığını görüntü yükseltme iş?
 
-Bir VM'nin işletim sistemi diski en son görüntü sürümü kullanılarak oluşturulmuş yeni bir tane ile değiştirerek bir yükseltme çalışır. Tüm uzantıları yapılandırılır ve özel veri komut dosyaları çalıştırılır, kalıcı veri diskleri korunur. Uygulama kapalı kalma süresini en aza indirmek için makineleri geçiremediğiniz en fazla %20 ölçek herhangi bir zamanda yükseltme kümesinin yerinde yükseltmeler yararlanın. Ayrıca, bir Azure Load Balancer uygulama sistem durumu araştırması tümleştirmek için seçeneğiniz de vardır. Bu, özellikle bir uygulama sinyal birleştirmek ve yükseltme işlemi için her toplu yükseltme başarılı doğrulamak için önerilir.
+Bir VM'nin işletim sistemi diski en son görüntü sürümü kullanılarak oluşturulmuş yeni bir tane ile değiştirerek bir yükseltme çalışır. Tüm uzantıları yapılandırılır ve özel veri komut dosyaları çalıştırılır, kalıcı veri diskleri korunur. Uygulama kapalı kalma süresini en aza indirmek için makineleri geçiremediğiniz en fazla %20 ölçek herhangi bir zamanda yükseltme kümesinin yerinde yükseltmeler yararlanın. Ayrıca, bir Azure Load Balancer uygulama sistem durumu araştırması tümleştirmek için seçeneğiniz de vardır. Bir uygulama sinyal birleştirmek ve yükseltme işlemi, her batch için yükseltme başarısını doğrulama önemle tavsiye edilir. Yürütme adımlar şunlardır: 
 
-Yürütme adımları şunlardır: 
-
-1. Yükseltme işlemine başlamadan önce en fazla %20 örneklerinin sağlıklı olduğundan emin olun. 
+1. Orchestrator yükseltme işlemine başlamadan önce en fazla %20 örneklerinin sağlıksız sağlayacaktır. 
 2. Batch VM örnekleri, en fazla %20 toplam örnek sayısı, sahip batch ile yükseltmek için belirleyin.
 3. VM örnekleri bu toplu işletim sistemi görüntüsü yükseltin.
-4. Uygulama sistem durumu Araştırmalarının müşteri yapılandırdıysa, yükseltme sağlıklı duruma için araştırmalar için 5 dakika bekler ve ardından hemen sonraki toplu devam eder. 
+4. Müşteri uygulama sistem durumu araştırmaları yapılandırdıysa, yükseltmeden sonraki toplu yükseltme geçmeden önce iyi ve olmak araştırmaları 5 dakikaya kadar bekler. 
 5. Yükseltmek için örnekleri kaldığı, goto 1. adım) sonraki toplu işlem için; Aksi takdirde yükseltme işlemi tamamlanmış olur.
 
-Her batch yükseltmeden önce işletim sistemi yükseltme altyapısı denetimleri genel VM örneği durumu için ölçek kümesi. Bir batch yükseltirken, olabilir diğer eş zamanlı planlanmış veya planlanmamış bakım Azure sanal makinelerinizin kullanılabilirliğini etkileyebilecek veri merkezlerinde'olmuyor. Bu nedenle, 20'den fazla geçici olarak % örnekleri çalışmıyor olabilir mümkündür. Bu gibi durumlarda, geçerli toplu işlem, sonunda yükseltme durdurur ölçek kümesi.
+Her batch yükseltmeden önce işletim sistemi yükseltme orchestrator denetimleri genel VM örneği durumu için ölçek kümesi. Bir batch yükseltirken, olabilir diğer eş zamanlı planlanmış veya planlanmamış bakım Azure sanal makinelerinizin kullanılabilirliğini etkileyebilecek veri merkezlerinde'olmuyor. Bu nedenle, 20'den fazla geçici olarak % örnekleri çalışmıyor olabilir mümkündür. Bu gibi durumlarda, geçerli toplu işlem, sonunda yükseltme durdurur ölçek kümesi.
 
 ## <a name="supported-os-images"></a>Desteklenen işletim sistemi görüntüleri
 Yalnızca belirli işletim sistemi platform görüntüleri şu anda desteklenmiyor. Kendi oluşturduğunuz sahip özel görüntüler şu anda kullanamazsınız. 
@@ -72,7 +70,8 @@ Aşağıdaki SKU'ları şu anda desteklenen (daha fazla gelecekte eklenecektir):
 
 - *Sürüm* platform görüntüsü özelliği ayarlanmalıdır *son*.
 - Uygulama sistem durumu araştırmaları olmayan Service Fabric ölçek kümeleri için kullanın.
-- Kaynakları emin kullanılabilir ve güncel kalmasını ölçek kümesi modeline başvurma. Modelinde gizli dizileri için VM uzantısı özellikleri, depolama hesabı, yükteki önyükleme yükteki Exa.SAS URI başvurusu. 
+- Kaynakları emin kullanılabilir ve güncel kalmasını ölçek kümesi modeline başvurma. 
+  Modelinde gizli dizileri için VM uzantısı özellikleri, depolama hesabı, yükteki önyükleme yükteki Exa.SAS URI başvurusu. 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Otomatik işletim sistemi görüntüsü yükseltmeyi yapılandırma
 Otomatik işletim sistemi görüntüsü yükseltme yapılandırmak için emin olun *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* özelliği *true* model tanımı ölçek kümesi. 
@@ -117,7 +116,7 @@ Yük Dengeleyici araştırması içinde başvurulabilir *networkProfile* ölçek
   ...
 ```
 > [!NOTE]
-> Bu bölüm, yalnızca Service Fabric olmadan ölçek kümeleri için geçerlidir. Service Fabric uygulama durumunu kendi kavramı vardır. Otomatik işletim sistemi yükseltmelerini Service Fabric ile kullanırken, yeni işletim sistemi görüntüsü güncelleştirme etki alanı güncelleştirme Service Fabric'te çalışan hizmetler yüksek kullanılabilirliğini sürdürmek için etki alanı tarafından kullanıma alınır. Service Fabric kümeleri dayanıklılık özellikleri hakkında daha fazla bilgi için lütfen bkz [bu belgeleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+> Otomatik işletim sistemi yükseltmelerini Service Fabric ile kullanırken, yeni işletim sistemi görüntüsü güncelleştirme etki alanı güncelleştirme Service Fabric'te çalışan hizmetler yüksek kullanılabilirliğini sürdürmek için etki alanı tarafından kullanıma alınır. Service Fabric kümeleri dayanıklılık özellikleri hakkında daha fazla bilgi için lütfen bkz [bu belgeleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Kimlik bilgileri güncel tutun
 Ölçek kümeniz, depolama hesabı için bir SAS belirteci kullanan bir VM uzantısı yapılandırılmışsa, örneğin dış kaynaklara erişmek için herhangi bir kimlik bilgisi kullanıyorsa kimlik bilgileri güncel tutulduğundan emin olmanız gerekir. Sertifikalar ve simgeleri dahil olmak üzere tüm kimlik bilgilerinin süresi dolduysa yükseltme başarısız olur ve sanal makinelerin ilk batch başarısız durumda kalır.
@@ -130,7 +129,7 @@ Vm'leri geri yükleme ve bir kaynak kimlik doğrulama hatası varsa, otomatik i�
 * Başarısız olanlar da dahil olmak üzere tüm sanal makine örnekleri güncelleştirecek güncelleştirilmiş ölçek kümesi dağıtın. 
 
 ## <a name="get-the-history-of-automatic-os-image-upgrades"></a>Otomatik işletim sistemi görüntüsü yükseltme geçmişini alma 
-Azure PowerShell, Azure CLI 2.0 veya REST API'leri ile ölçek kümenizde gerçekleştirilen en son işletim sistemi yükseltme geçmişini kontrol edebilirsiniz. Son 2 ay içinde son 5 işletim sistemi yükseltme girişimi için geçmiş alabilirsiniz.
+Azure PowerShell, Azure CLI 2.0 veya REST API'leri ile ölçek kümenizde gerçekleştirilen en son işletim sistemi yükseltme geçmişini kontrol edebilirsiniz. Son iki ay içinde son beş işletim sistemi yükseltme girişimi için geçmiş alabilirsiniz.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Aşağıdaki örnekte adlı ölçek kümesi durumunu denetlemek için Azure PowerShell kullanan *myVMSS* adlı kaynak grubunda *myResourceGroup*:

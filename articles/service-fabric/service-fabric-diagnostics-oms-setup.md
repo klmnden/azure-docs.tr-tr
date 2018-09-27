@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: srrengar
-ms.openlocfilehash: 5fa7b7ebfb1495a737a6d037566101df632764aa
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a73a288852eea713623b65324853761e10fad282
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377760"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220475"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Bir kümesi için log Analytics'i ayarlama
 
@@ -80,7 +80,7 @@ Kullanabilir ve değiştirme [Bu örnek şablonu](https://github.com/Azure-Sampl
 
 * 5 düğümlü Service Fabric kümesi oluşturur
 * Bir Log Analytics çalışma alanı ve Service Fabric çözümü oluşturur
-* Toplamak ve 2 örnek performans sayaçlarıyla çalışma alanına göndermek için OMS Aracısı'nı yapılandırır
+* Toplamak ve çalışma alanı için 2 örnek performans sayaçları göndermek için OMS Aracısı'nı yapılandırır
 * Service Fabric toplanacak WAD yapılandırır ve bunları Azure depolama tabloları gönderir (WADServiceFabric * EventTable)
 * Bu tablodan olayları okumak için Log Analytics çalışma alanı yapılandırır
 

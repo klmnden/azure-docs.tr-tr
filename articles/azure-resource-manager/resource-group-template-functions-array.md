@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: cdc8222675a9f0099edccb24310bcea03bf963f4
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e0269e17a419c6b611d72a7d00668fe9c9519894
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929690"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166200"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Dizi ve nesne işlevleri için Azure Resource Manager şablonları 
 
 Resource Manager, nesneleri ve dizileri ile çalışmak için çeşitli işlevler sunar.
 
-* [dizi](#array)
+* [Dizi](#array)
 * [birleşim](#coalesce)
 * [concat](#concat)
 * [içerir](#contains)
@@ -35,10 +35,10 @@ Resource Manager, nesneleri ve dizileri ile çalışmak için çeşitli işlevle
 * [kesişimi](#intersection)
 * [JSON](#json)
 * [Son](#last)
-* [uzunluğu](#length)
+* [Uzunluğu](#length)
 * [en fazla](#max)
 * [Min](#min)
-* [aralığı](#range)
+* [Aralığı](#range)
 * [Atla](#skip)
 * [sınav zamanı](#take)
 * [birleşim](#union)
@@ -738,6 +738,10 @@ Bir JSON nesnesi döndürür.
 
 JSON nesnesinde belirtilen dize veya boş bir nesneyi zaman **null** belirtilir.
 
+### <a name="remarks"></a>Açıklamalar
+
+JSON nesnesi, bir parametre veya değişken eklemeniz kullanırsanız [concat](resource-group-template-functions-string.md#concat) işlevine geçirebileceğimiz dizesi oluşturmak için işlevi.
+
 ### <a name="example"></a>Örnek
 
 Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) json işlev nesneleri ve dizileri ile kullanma işlemini gösterir:
@@ -746,6 +750,12 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testValue": {
+            "type": "string",
+            "defaultValue": "demo value"
+        }
+    },
     "resources": [
     ],
     "outputs": {
@@ -756,6 +766,10 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
         "nullOutput": {
             "type": "bool",
             "value": "[empty(json('null'))]"
+        },
+        "paramOutput": {
+            "type": "object",
+            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
         }
     }
 }
@@ -767,6 +781,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | jsonOutput | Nesne | {"a": "b"} |
 | nullOutput | Boole | True |
+| paramOutput | Nesne | {"a": "tanıtım değeri"}
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -831,7 +846,7 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | arrayOutput | Dize | üç |
-| stringOutput | Dize | e |
+| stringOutput | Dize | E |
 
 Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
@@ -847,7 +862,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="length" />
 
-## <a name="length"></a>uzunluğu
+## <a name="length"></a>Uzunluğu
 `length(arg1)`
 
 Bir dizi ya da bir dizedeki karakter öğelerin sayısını döndürür.
@@ -1058,7 +1073,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="range" />
 
-## <a name="range"></a>aralığı
+## <a name="range"></a>Aralığı
 `range(startingInteger, numberOfElements)`
 
 Bir tamsayı başlatma ve birçok öğe içeren tamsayı dizisi oluşturur.
@@ -1122,7 +1137,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="skip" />
 
-## <a name="skip"></a>Atla
+## <a name="skip"></a>atla
 `skip(originalValue, numberToSkip)`
 
 Sonra belirtilen sayı dizisindeki tüm öğeleri olan bir dizi döndürür veya belirtilen dizede sonra tüm karakterleri içeren bir dize döndürür.

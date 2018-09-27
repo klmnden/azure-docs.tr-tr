@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: tamram
-ms.openlocfilehash: 8a0b823a12178df56417b05de28c2125ec155829
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6e77c4836531a7efd0b52b9a411ac40ff6a613fa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740820"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224503"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Genel amaçlı v2 depolama hesabı için yükseltme
 
@@ -77,7 +77,7 @@ Gereksinimleriniz için en iyi erişim katmanına karar vermek için ne kadar ka
 
 Geçişten önce depolama hesabınız için kullanım verilerini toplamak için depolama hesabı kullanarak izleyebileceğiniz [Azure İzleyici](../../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure İzleyici, günlüğe kaydetme işlemlerini gerçekleştiren ve Azure depolama gibi Azure Hizmetleri için ölçüm verileri sağlar. 
 
-Depolama hesabınızda bloblar için kullanım verilerini izlemek için kapasite ölçümlerini Azure İzleyicisi'nde etkinleştirin. Kapasite ölçümleri ne kadar depolama hesabınızdaki BLOB, günlük olarak kullanıyorsanız ilgili verileri kaydedin. Kapasite ölçüm verilerini depolama hesabına depolama maliyetini tahmin etmek için kullanılabilir. Nasıl Blob Depolama kapasitesi için her hesap türü için fiyatlandırılır bilgi edinmek için [blok blobu fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Depolama hesabınızda bloblar için kullanım verilerini izlemek için kapasite ölçümlerini Azure İzleyicisi'nde etkinleştirin. Kapasite ölçümleri ne kadar depolama hesabınızdaki BLOB, günlük olarak kullanıyorsanız ilgili verileri kaydedin. Kapasite ölçüm verilerini depolama hesabına depolama maliyetini tahmin etmek için kullanılabilir. Blob Depolama kapasite her hesap türü için nasıl fiyatlandırılır bilgi edinmek için [blok blobu fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 Blob Depolama için veri erişim desenlerini izlemek için Azure İzleyici'de işlem ölçümlerini etkinleştirin. Her ne sıklıkta adlandırılır tahmin etmek için farklı Azure depolama işlemleri filtreleyebilirsiniz. Bilgi edinmek için farklı türlerdeki işlemlerin bloğu için ücretlendirilir ve ekleme blobları her hesap türü için bkz [blok blobu fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/blobs/).  
 

@@ -11,23 +11,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 09/26/2018
 ms.author: shlo
-ms.openlocfilehash: 5bb1099dee919de50d2c2fc110f3a204e580b66c
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 8132f89423883422d70981edd3ddaf86147830e2
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465988"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394438"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de görsel yazma
 Görsel olarak yazma ve herhangi bir kod yazmak zorunda kalmadan, veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi deneyimi (UX) sağlar. Etkinlikler bir işlem hattı tuvaline sürükleyin, test çalıştırmaları yapın, yinelemeli olarak, hata ayıklama ve dağıtabilir ve işlem hattı çalıştırmalarınızı izleyin. Görsel yazma gerçekleştirmek için kullanıcı Deneyimini kullanarak iki yaklaşım vardır:
 
 - Data Factory hizmeti ile doğrudan yazar.
-- Yazarın işbirliği, kaynak denetimi ve sürüm oluşturma için Azure depolarla Git tümleştirme.
+- İşbirliği, kaynak denetimi ve sürüm oluşturma için Azure depoları Git tümleştirmesiyle yazar.
 
 ## <a name="author-directly-with-the-data-factory-service"></a>Data Factory hizmeti ile doğrudan Yazar
-Data Factory hizmetine görsel yazma visual Azure DevOps hizmetleriyle iki yolla geliştirme farklıdır:
+Data Factory hizmetine görsel yazma görsel iki yolla Git tümleştirmesiyle yazma öğesinden farklıdır:
 
 - Data Factory hizmeti JSON varlıklar için yaptığınız değişiklikleri depolamak için bir depo içermez.
 - Data Factory hizmetinin birlikte çalışma veya sürüm denetimi için iyileştirilmedi.
@@ -38,8 +38,8 @@ UX kullandığınızda **yazma tuvalinde** doğrudan Data Factory hizmetine, yal
 
 ![Yayımlama modu](media/author-visually/data-factory-publish.png)
 
-## <a name="author-with-git-integration-with-azure-repos"></a>Azure depolarla Git tümleştirmesiyle yazma
-Azure depolarla Git tümleştirmesiyle görsel yazma data factory işlem hatlarınızı çalışma için kaynak denetimi ve işbirliği destekler. Kaynak denetimi, işbirliği, sürüm oluşturma ve benzeri için bir Azure depoları Git kuruluş deposuna bir veri fabrikası ilişkilendirebilirsiniz. Tek bir Azure depoları Git kuruluştaki birden çok deposu olabilir, ancak bir Azure depoları Git deposu yalnızca bir data factory ile ilişkili olabilir. Bir Azure depoları kuruluş ya da depo yoksa izleyin [bu yönergeleri](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) kaynaklarınızı oluşturmak için.
+## <a name="author-with-azure-repos-git-integration"></a>Azure depoları Git tümleştirmesiyle yazma
+Azure depoları Git tümleştirmesiyle görsel yazma data factory işlem hatlarınızı çalışma için kaynak denetimi ve işbirliği destekler. Kaynak denetimi, işbirliği, sürüm oluşturma ve benzeri için bir Azure depoları Git kuruluş deposuna bir veri fabrikası ilişkilendirebilirsiniz. Tek bir Azure depoları Git kuruluştaki birden çok deposu olabilir, ancak bir Azure depoları Git deposu yalnızca bir data factory ile ilişkili olabilir. Bir Azure depoları kuruluş ya da depo yoksa izleyin [bu yönergeleri](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) kaynaklarınızı oluşturmak için.
 
 > [!NOTE]
 > Bir Azure depoları Git deposunda betiğini ve veri dosyaları depolayabilir. Ancak, dosyaları Azure depolama alanına el ile karşıya yüklemeniz gerekir. Data Factory işlem hattı, Azure depolama için bir Azure depoları Git deposunda depolanan kod veya veri dosyaları otomatik olarak yüklenmez.
@@ -61,7 +61,7 @@ Bölmesinde, aşağıdaki Azure depoları kod depo ayarları gösterir:
 
 | Ayar | Açıklama | Değer |
 |:--- |:--- |:--- |
-| **Depo türü** | Azure depoları kod deposu türü.<br/>**Not**: GitHub şu anda desteklenmiyor. | Azure Dev Ops Git |
+| **Depo türü** | Azure depoları kod deposu türü.<br/>**Not**: GitHub şu anda desteklenmiyor. | Azure depoları Git |
 | **Azure Active Directory** | Azure AD Kiracı adı. | <your tenant name> |
 | **Azure depoları kuruluş** | Azure depoları kuruluşunuzun adı. Azure depoları kuruluş adınızı bulabilirsiniz `https://{organization name}.visualstudio.com`. Yapabilecekleriniz [Azure depoları kuruluşunuz oturum](https://www.visualstudio.com/team-services/git/) Visual Studio profilinize erişmek ve projeleri ve depoları bakın. | <your organization name> |
 | **projectName** | Azure depoları proje adı. Azure depoları proje adınızı bulabilirsiniz `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
@@ -70,7 +70,7 @@ Bölmesinde, aşağıdaki Azure depoları kod depo ayarları gösterir:
 | **Kök klasör** | Kök klasör Azure depoları işbirliği dalınızdaki. | <your root folder name> |
 | **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** Azure depoları Git deponuzla. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
 
-#### <a name="configuration-method-2--azure-repos-git-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine (Azure depoları Git deposu) 2: UX yazma tuvali
+#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine (Azure depoları Git deposu) 2: UX yazma tuvali
 Azure Data Factory UX içinde **yazma tuvalinde**, veri fabrikanızın bulun. Seçin **Data Factory** öğelerine tıklayın ve ardından **kod deposunu Yapılandır**.
 
 Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında daha fazla ayrıntı için bkz: açıklamasında <a href="#method1">yapılandırma yöntemi 1</a>.

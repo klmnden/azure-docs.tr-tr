@@ -1,21 +1,22 @@
 ---
-title: Desteklenen yerel ayarlar ve dilleri içinde Azure üzerinde özel konuşma hizmeti | Microsoft Docs
+title: Desteklenen yerel ayarlar ve dilleri - özel konuşma hizmeti
+titlesuffix: Azure Cognitive Services
 description: Özel konuşma hizmeti Bilişsel hizmetler, desteklenen diller genel bakış.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f186681c7e46d2e47ed7eee55c8f61290c48fcb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34af6673689244364ab3a1fe3f2a6ab056ea8598
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987535"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223964"
 ---
 # <a name="supported-locales-in-custom-speech-service"></a>Özel konuşma hizmeti, desteklenen yerel ayarlar
 Özel konuşma hizmeti, şu anda aşağıdaki yerel ayarlarda modellerin özelleştirmeyi destekler:

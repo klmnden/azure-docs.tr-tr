@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 320489f27a3c00cf4d13f7db37c6eb9fda39f5f1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064156"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221160"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -123,7 +123,7 @@ Kurtarma sisteminizde etkin coğrafi çoğaltma ve otomatik yük devretme grupla
 > 
 
 ### <a name="perform-a-geo-restore"></a>Bir coğrafi geri yükleme gerçekleştirme
-Otomatik yedeklemelerini coğrafi olarak yedekli depolama (varsayılan olarak etkindir) ile kullanıyorsanız, veritabanı kullanarak kurtarabileceğiniz [coğrafi geri yükleme](sql-database-disaster-recovery.md#recover-using-geo-restore). Kurtarma genellikle son saatlik değişiklik yedeği geçen ve çoğaltılan tarafından belirlenen en fazla bir saatlik veri kaybı - 12 saat içinde gerçekleşir. Kurtarma işlemi tamamlanana kadar veritabanı işlem kaydedemez ve sorgulara yanıt veremez. Unutmayın, coğrafi geri yükleme son kullanılabilir noktaya veritabanını yalnızca zaman içinde geri yükler.
+Otomatik yedeklemelerini coğrafi olarak yedekli depolama (varsayılan olarak etkindir) ile kullanıyorsanız, veritabanı kullanarak kurtarabileceğiniz [coğrafi geri yükleme](sql-database-disaster-recovery.md#recover-using-geo-restore). Kurtarma genellikle son günlük yedeği geçen ve çoğaltılan tarafından belirlenen en fazla bir saatlik veri kaybı - 12 saat içinde gerçekleşir. Kurtarma işlemi tamamlanana kadar veritabanı işlem kaydedemez ve sorgulara yanıt veremez. Unutmayın, coğrafi geri yükleme son kullanılabilir noktaya veritabanını yalnızca zaman içinde geri yükler.
 
 > [!NOTE]
 > Kurtarılan veritabanı için uygulamanızı geçebilir önce veri merkezi tekrar çevrimiçi olursa kurtarma işlemini iptal edebilirsiniz.  

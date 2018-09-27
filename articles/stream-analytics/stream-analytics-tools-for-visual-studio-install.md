@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: ba00d859dcfa968dcff7b321d571d61aea98463f
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 54eef98d85337f14ff9e10837f97ccd28a58afdf
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057065"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223466"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Visual Studio için Azure Stream Analytics araçları yükleme
 Azure Stream Analytics araçları, Visual Studio 2017, 2015 ve 2013 destekler. Bu makalede, yükleme ve kaldırma araçları açıklar.
@@ -34,6 +34,9 @@ Etkinleştirme **Azure geliştirme** gösterildiği gibi iş yükü:
 
 ![Azure geliştirme iş yükü seçili](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-02.png)
 
+* Araçlar menüsünde **Uzantılar ve güncelleştirmeler**. Yüklü uzantılar tıklayıp Bul Azure Data Lake ve Stream Analytics Araçları **güncelleştirme** son uzantıyı yüklemek için. 
+
+![Visual Studio uzantıları ve güncelleştirmeler](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-extensions-updates.png)
 
 ### <a name="visual-studio-2013-2015"></a>Visual Studio 2013, 2015
 * Visual Studio 2015 veya Visual Studio 2013 güncelleştirme 4 yükleyin. Enterprise (Ultimate/Premium), Professional ve Community sürümleri desteklenir. Express sürümü desteklenmez. 
@@ -43,7 +46,9 @@ Etkinleştirme **Azure geliştirme** gösterildiği gibi iş yükü:
 ## <a name="update"></a>Güncelleştirme
 
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
-Yeni sürüm anımsatıcı Visual Studio bildirimde gösterilir. 
+Yeni sürüm anımsatıcı Visual Studio bildirimde gösterilir.
+
+![Visual Studio yeni sürüm anımsatıcı](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-new-version-reminder-vs-tools.png)
 
 ### <a name="visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 ve Visual Studio 2015
 Visual Studio için yüklü olan Stream Analytics araçları, yeni sürümleri için otomatik olarak denetleyin. En son sürümünü yüklemek için açılır penceredeki yönergeleri izleyin. 

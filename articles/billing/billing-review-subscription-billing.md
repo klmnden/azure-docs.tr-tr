@@ -1,6 +1,6 @@
 ---
-title: REST API ile Azure abonelik faturalama verileri gözden | Microsoft Docs
-description: Abonelik faturalama ayrıntıları gözden geçirmek için Azure REST API'lerini kullanmayı öğrenin.
+title: REST API'si ile Azure abonelik faturalama verileri gözden geçirin | Microsoft Docs
+description: Abonelik fatura ayrıntılarını gözden geçirmek için Azure REST API'lerini kullanmayı öğrenin.
 services: billing
 documentationcenter: na
 author: lleonard-msft
@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: alleonar
-ms.openlocfilehash: cc29d1f613af67604d50654be794cc90080098bb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: erikre
+ms.openlocfilehash: d0199711370dae6a23626337946e45e84fd33047
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064051"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394735"
 ---
-# <a name="review-subscription-billing-using-rest-apis"></a>Abonelik faturalama REST API'lerini kullanarak gözden geçirme
+# <a name="review-subscription-billing-using-rest-apis"></a>Abonelik faturalama REST API'lerini kullanarak gözden geçirin
 
-Azure API Yardım raporlama gözden geçirmenizi ve Azure maliyetleriniz yönetin.  
+Gözden geçirin ve Azure maliyetlerinizi yönetin, azure API'leri raporlama Yardımı.  
 
-Filtreler gereksinimlerinizi karşılayacak şekilde sonuçlarını özelleştirme yardımcı olur.
+Filtre sonuçlarını gereksinimlerinizi karşılayacak şekilde özelleştirmek yardımcı olur.
 
-Burada, belirtilen tarih aralığı için abonelik faturalama ayrıntıları döndürmek için bir REST API kullanmayı öğrenin.
+Burada, aboneliğe ait fatura ayrıntılarını belirli bir tarih aralığındaki için döndürülecek bir REST API'sini kullanmayı öğrenin.
 
 ``` http
 GET https://management.azure.com/subscriptions/${subscriptionID}/providers/Microsoft.Billing/billingPeriods/${billingPeriod}/providers/Microsoft.Consumption/usageDetails?$filter=properties/usageEnd ge '${startDate}' AND properties/usageEnd le '${endDate}'
@@ -35,24 +35,24 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-## <a name="build-the-request"></a>Oluşturma isteği  
+## <a name="build-the-request"></a>Derleme isteği  
 
 `{subscriptionID}` Parametresi gereklidir ve hedef abonelik tanımlar.
 
-`{billingPeriod}` Parametresi gereklidir ve geçerli bir belirtir [fatura döneminde](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod).
+`{billingPeriod}` Parametresi gereklidir ve bir geçerli belirtir [fatura döneminde](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod).
 
-`${startDate}` Ve `${endDate}` Bu örnek için gerekli, ancak uç noktası için isteğe bağlı parametre.  Bunlar YYYY-AA-GG biçiminde dizeleri olarak tarih aralığını belirtin (örnek: `'20180501'` ve `'20180615'`). 
+`${startDate}` Ve `${endDate}` parametreleri, bu örnek için gerekli, ancak uç noktası için isteğe bağlıdır.  Bunlar YYYY-AA-GG biçiminde bir dize olarak tarih aralığını belirtin (örnek: `'20180501'` ve `'20180615'`). 
 
 Aşağıdaki üst bilgiler gereklidir: 
 
 |İstek üstbilgisi|Açıklama|  
 |--------------------|-----------------|  
-|*Content-Type:*|Gereklidir. Kümesine `application/json`.|  
-|*Yetkilendirme:*|Gereklidir. Geçerli bir ayarla `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*İçerik türü:*|Gereklidir. Kümesine `application/json`.|  
+|*Yetkilendirme:*|Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ## <a name="response"></a>Yanıt  
 
-Durum kodu 200 (Tamam) hesabınız için ayrıntılı maliyetlerin bir listesini içeren başarılı bir yanıt döndürdü.
+Durum kodu 200 (Tamam) ayrıntılı maliyetlerin hesabınız için bir listesini içeren başarılı bir yanıt döndürdü.
 
 ``` json
 {
@@ -79,23 +79,23 @@ Durum kodu 200 (Tamam) hesabınız için ayrıntılı maliyetlerin bir listesini
 } 
 ```  
 
-Her öğe **değeri** hizmet kullanımına ilişkin ayrıntılar temsil eder:
+Her öğe **değer** hizmet kullanımına ilişkin bir ayrıntı temsil eder:
 
 |Yanıt özelliği|Açıklama|
 |----------------|----------|
-|**subscriptionGuid** | Abonelik için genel benzersiz kimliği. | 
-|**startDate** | Başlatılan kullanım tarihi. |
-|**endDate** | Sona erdi kullanım tarihi. |
+|**subscriptionGuid** | Abonelik için genel olarak benzersiz kimliği. | 
+|**startDate** | Başlatılan kullanımı tarih. |
+|**endDate** | Sona erdi kullanımı tarih. |
 |**useageQuantity** | Kullanılan miktar. | 
-|**billableQuantity** | Miktar gerçekte faturalandırılır. |
-|**pretaxCost** | , Geçerli vergileri önce Faturalandı maliyeti. | 
-|**meterDetails** | Kullanımı hakkında ayrıntılı bilgi. |
-|**nextLink**| Ne zaman ayarlama, sonraki "sayfasının" Ayrıntıları URL'sini belirtir. Sayfa sonuncu olduğunda boş. |  
+|**billableQuantity** | Miktar gerçekten faturalandırılır. |
+|**pretaxCost** | , Vergileri önce Faturalanan Maliyet. | 
+|**meterDetails** | Kullanımı hakkında ayrıntılı bilgi sağlar. |
+|**nextLink**| Ne zaman ayarlama, sonraki "sayfasının" Ayrıntıları URL'sini belirtir. Sonuncu sayfanın olduğunda boş. |  
 ||
   
-Bu örnek kadar kısaltılmıştır; bkz: [listesinde kullanım ayrıntıları](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) her yanıtı alanının eksiksiz bir açıklaması. 
+Bu örnekte kadar kısaltılmıştır; bkz: [listesinde kullanım ayrıntıları](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) her yanıt alan eksiksiz bir açıklaması. 
 
-Diğer durum kodları hata koşulları belirtin. Bu durumlarda, isteğin neden başarısız yanıt nesnesi açıklanmaktadır.
+Diğer durum kodları hata koşulları belirtin. Bu gibi durumlarda, isteğin neden başarısız yanıt nesnesini açıklar.
 
 ``` json
 {  
@@ -108,6 +108,6 @@ Diğer durum kodları hata koşulları belirtin. Bu durumlarda, isteğin neden b
 ```  
 
 ## <a name="next-steps"></a>Sonraki adımlar 
-- Gözden geçirme [Kurumsal raporlamaya genel bakış](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Araştırmak [REST API faturalama Enterprise](https://docs.microsoft.com/rest/api/billing/)   
+- Gözden geçirme [Kurumsal raporlama genel bakış](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
+- Araştırma [Kurumsal faturalama REST API'si](https://docs.microsoft.com/rest/api/billing/)   
 - [Azure REST API'si ile çalışmaya başlama](https://docs.microsoft.com/rest/api/azure/)   

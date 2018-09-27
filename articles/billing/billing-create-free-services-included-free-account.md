@@ -1,6 +1,6 @@
 ---
-title: Ücretsiz hizmetlere ücretsiz Azure hesabı oluşturma | Microsoft Docs
-description: Ücretsiz Azure hesabı dahil hizmetleri oluşturmayı öğrenin.
+title: Ücretsiz Hizmetler ile ücretsiz Azure hesabı oluşturma | Microsoft Docs
+description: Azure ücretsiz hesaba dahil hizmetler oluşturmayı öğrenin.
 documentationcenter: ''
 author: amberbhargava
 manager: amberb
@@ -11,29 +11,29 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 84b73d3f1481c0c1a551da50b9f6292cd835d567
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: cwatson
+ms.openlocfilehash: ab0b48f8c8579af8a3314bad14dafbe79f9a9781
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771414"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393749"
 ---
-# <a name="create-services-included-with-azure-free-account"></a>Ücretsiz Azure hesabı dahil hizmetleri oluşturma
+# <a name="create-services-included-with-azure-free-account"></a>Azure ücretsiz hesaba dahil hizmetler oluşturma
 
-Ücretsiz Azure hesabına 12 ay boyunca Ücretsiz Hizmetler sınırlı miktarını içerir. Daha fazla bilgi için bkz: [ücretsiz Azure hesabına nedir](https://azure.microsoft.com/free/free-account-faq/). Azure kullanımınızı her hizmetin izler ve sınırı aşan sürece, uyguladığınız değil. Bu sınırlar içinde ücretsiz Azure hesabına gereksinimlerinizi karşılamak için çeşitli hizmet yapılandırması kullanma esnekliği sağlar. 
+Ücretsiz Azure hesabı, sınırlı bir miktar 12 ay boyunca Ücretsiz Hizmetler içerir. Daha fazla bilgi için [Azure ücretsiz hesabı nedir](https://azure.microsoft.com/free/free-account-faq/). Azure, her hizmet kullanımını izler ve limitlerin sürece ücret uygulamaz. Bu sınırlar içinde ücretsiz Azure hesabı, ihtiyaçlarınızı karşılamak için çeşitli hizmet yapılandırması kullanma esnekliği sağlar. 
 
 ## <a name="create-free-services-in-the-azure-portal"></a>Azure portalında Ücretsiz Hizmetler oluşturma
-Şunu kullanmanızı öneririz [ücretsiz hizmet sayfa](https://go.microsoft.com/fwlink/?linkid=859151) yeni hizmetler oluşturmak için. Veya oturum açarak [Azure portal](http://portal.azure.com)seçin **tüm hizmetleri** solda ve arama **serbest Hizmetleri**. 
+Kullanmanızı öneririz [ücretsiz hizmet sayfasında](https://go.microsoft.com/fwlink/?linkid=859151) yeni hizmetler oluşturmak için. Ya da oturum açarak [Azure portalında](http://portal.azure.com)seçin **tüm hizmetleri** solda ve arama **Ücretsiz Hizmetler**. 
 
-## <a name="services-can-be-created-in-any-region"></a>Hizmetleri herhangi bir bölgede oluşturulabilir
-Sınırlarda sürece Hizmetleri kullanılabildiği herhangi bir bölgede ücretsiz olarak hizmetler oluşturabilirsiniz. Örneğin, her ay ücretsiz Azure hesabına sahip B1S Windows sanal makine boş 750 saatlik alın. B-serisi sanal makinelerin kullanılabildiği herhangi bir bölgede sanal makine oluşturabilirsiniz. 750 saatleri aşan sürece, azure, uyguladığınız değil. Örneğin, bir müşteri ABD Batı Avrupa'da B1S Windows sanal makine sağlamak ve 750 saattir ücretsiz kullanın. 
+## <a name="services-can-be-created-in-any-region"></a>Hizmetleri, herhangi bir bölgede oluşturulabilir
+Sınırlar içinde olduğu sürece, hizmetleri kullanılabilir olduğu herhangi bir bölgede Hizmetleri ücretsiz oluşturabilirsiniz. Örneğin, Azure ücretsiz hesabı kapsamında her ay ücretsiz bir B1S Windows sanal makineyi 750 saat alın. B serisi sanal makineler kullanılabilir olduğu herhangi bir bölgesinde sanal makine oluşturabilirsiniz. Azure 750 saat aşan sürece ücret uygulamaz. Örneğin, bir müşteri ABD Batı Avrupa bir B1S Windows sanal makinesi sağlama ve 750 saat boyunca ücretsiz kullanın. 
 
-Bölgeye göre Azure hizmet kullanılabilirliği hakkında bilgi edinmek için [bölgeye göre ürünleri](https://azure.microsoft.com/regions/services/).
+Bölgeye göre Azure hizmet kullanılabilirliği hakkında bilgi edinmek için bkz. [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/regions/services/).
 
 ## <a name="multiple-instances-of-services-can-be-created-within-allowed-limits"></a>İzin verilen sınırlarda Hizmetleri birden çok örneği oluşturulabilir
-Kullanım toplamını kullanım sınırı içinde olduğu sürece, birden çok örneğini Hizmetleri ücretsiz oluşturabilirsiniz. Örneğin, boş bir B1S Windows sanal makine 750 saatlik Azure ücretsiz hesabınız ile her ay alın. 750 saat istediğiniz herhangi bir bileşimini kullanabilirsiniz. Örneğin, 5 B1S Windows sanal makineler oluşturun ve 150 saat her kullanın. 
+Kullanım sınırı içinde kullanım toplamı olduğu sürece ücretsiz Hizmetleri birden çok örneğini oluşturabilirsiniz. Örneğin, Azure ücretsiz hesabınızla her ay ücretsiz bir B1S Windows sanal makineyi 750 saat olursunuz. 750 saat istediğiniz herhangi bir bileşimini kullanabilirsiniz. Örneğin, 5 B1S Windows sanal makineler oluşturmak ve bunları 150 saat boyunca her kullanın. 
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
-Yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

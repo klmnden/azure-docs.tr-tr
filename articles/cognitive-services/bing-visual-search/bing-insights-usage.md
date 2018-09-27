@@ -1,21 +1,21 @@
 ---
-title: Bing ınsights örnekleri | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: Bing ınsights - Bing görsel arama örnekleri
+titleSuffix: Azure Cognitive Services
 description: Resim öngörüleri Bing.com üzerinde gösterilen örneklerini gösterir.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 927a02b400c7a7b250b315ad5668feb198fd590a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ce0c056ace550d3db2f4f51030177436fb194e0f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005698"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219847"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Bing ınsights kullanım örnekleri
 

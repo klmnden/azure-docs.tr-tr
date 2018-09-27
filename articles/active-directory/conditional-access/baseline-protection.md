@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ef2b5dd393974ddf700235991b60ec66031e34c2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024082"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222276"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Taban çizgisi protection (Önizleme) nedir?  
 
@@ -56,7 +56,7 @@ Bu temel ilke kullanıcıları ve grupları Dışla seçeneği sağlar. Biri har
 
 ## <a name="enable-a-baseline-policy"></a>Temel ilke etkinleştir 
 
-Temel ilkeleri önizlemede olsa da, bunlar varsayılan olarak etkin. El ile etkinleştirmek istiyorsanız bir İlkesi'ni etkinleştirmeniz gerekir. Bu özellik genel kullanılabilirlik ulaştı hemen sonra varsayılan olarak etkinleştirilen ilkelerdir. Planlanan davranış değişikliği etkinleştirmek ve bir ilke durumunu ayarlamak için üçüncü bir seçenek devre dışı bırakmak için ayrıca sahip olmasının nedeni nedeni: **ilke gelecekte otomatik olarak etkinleştir**. Bu seçeneği belirterek, bir ilkeyi etkinleştirmek ne zaman karar Microsoft olanak tanır.      
+Temel ilkeleri önizlemede olsa da, bunlar varsayılan olarak etkin. El ile etkinleştirmek istiyorsanız bir İlkesi'ni etkinleştirmeniz gerekir. Önizleme aşamasında açıkça temel ilkeleri etkinleştirirseniz, bu özellik genel kullanılabilirlik ulaştığında, etkin kalır. Buna ek olarak etkinleştirin ve devre dışı bırakmak için bir ilke durumunu ayarlamak için üçüncü bir seçenek sahip, planlanan davranış değişikliği nedeni budur: **ilke gelecekte otomatik olarak etkinleştir**. Bu seçeneği tercih ederek, ilkeleri Önizleme sırasında devre dışı bırakın ancak Microsoft bunları otomatik olarak bu özellik genel kullanılabilirlik ulaştığında etkinleştirmek sahip. Temel ilkeleri artık açıkça etkinleştirmeyin ve seçmeyin **ilke gelecekte otomatik olarak etkinleştir** seçeneği, ilkeler devre dışı kalır bu özellik genel kullanılabilirlik ulaştığında.
 
 
 **Bir taban çizgisi ilkesini etkinleştirmek için:**  

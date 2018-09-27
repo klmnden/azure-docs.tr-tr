@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: aaa18e5bc4a95ed0c7334232417f68064fd26ca7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 40ed6105dca5ea14c64fb2b103c5623cd56333af
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734916"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393375"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -878,8 +878,9 @@ JavaScript'te, blob kullanarak veri erişim `context.bindings.<name from functio
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Blob Depolama tetikleyicisi kullanan bir hızlı başlangıca gidin](functions-create-storage-blob-triggered-function.md)
+* [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Blob storage trigger](functions-create-storage-blob-triggered-function.md)
+--->

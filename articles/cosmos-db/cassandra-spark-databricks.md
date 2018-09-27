@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 3f1bdb63253506aee211f3733df2a339824de7a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1d8f41c55ffd453507804b005d10620665b512c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994658"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222044"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Azure Cosmos DB Cassandra API'SİNİN verileri Azure Databricks erişim
 
@@ -32,9 +32,9 @@ Bu makalede ayrıntıları veritabanlarıyla Azure Cosmos DB Cassandra API'SİN�
 
 * [Bu nedenle tercih ederseniz cqlsh doğrulama için kullanın.](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Cassandra API örnek yapılandırması Datastax Cassandra Bağlayıcısı için:**
+* **Cassandra API örnek yapılandırması Cassandra Bağlayıcısı için:**
 
-  Cassandra Datastax bağlayıcısının Cassandra bağlantı ayrıntılarının spark bağlamı bir parçası olarak başlatılması gerekir. Bir Databricks not defteri başlattığında, spark bağlamı zaten başlatıldı ve durdurup yeniden başlatın önerilir değil. Tek bir çözüm düzeyinde bir kümesi küme spark yapılandırmasında Cassandra API'si örnek yapılandırması eklemektir. Bu, Küme başına tek seferlik bir etkinliktir. Anahtar değer çifti boşlukla ayrılmış olarak Spark yapılandırması için aşağıdaki kodu ekleyin:
+  Spark bağlamı bir parçası olarak başlatılması için Cassandra bağlantı ayrıntıları Cassandra API'si için bağlayıcı gerektirir. Bir Databricks not defteri başlattığında, spark bağlamı zaten başlatıldı ve durdurup yeniden başlatın önerilir değil. Tek bir çözüm düzeyinde bir kümesi küme spark yapılandırmasında Cassandra API'si örnek yapılandırması eklemektir. Bu, Küme başına tek seferlik bir etkinliktir. Anahtar değer çifti boşlukla ayrılmış olarak Spark yapılandırması için aşağıdaki kodu ekleyin:
  
   ```scala
   spark.cassandra.connection.host YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmosdb.azure.com
@@ -46,11 +46,11 @@ Bu makalede ayrıntıları veritabanlarıyla Azure Cosmos DB Cassandra API'SİN�
 
 ## <a name="add-the-required-dependencies"></a>Gerekli bağımlılıkları Ekle
 
-* **Datastax Cassandra Spark Bağlayıcısı:** - Azure Cosmos DB Cassandra API'SİNİN Spark Bağlayıcısı Azure Databricks kümesine bağlı Datastax Cassandra ile tümleştirmek için. Kümeye eklemek için:
+* **Cassandra Spark Bağlayıcısı:** - Azure Cosmos DB Cassandra API'SİNİN Spark Bağlayıcısı Azure Databricks kümesine bağlı Cassandra ile tümleştirmek için. Kümeye eklemek için:
 
-  * Spark sürümü Databricks çalışma zamanı sürümünü gözden geçirin. Ardından bulun [maven koordinatları](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) , Datastax Cassandra Spark Bağlayıcısı ile uyumlu olan ve kümeye ekleyin. Bkz: ["Maven paketini veya Spark paketini karşıya yükle"](https://docs.databricks.com/user-guide/libraries.html) makale bağlayıcı kitaplık kümeye eklemek için. Örneğin, maven koordinatı "Databricks çalışma zamanı modülü sürümü 4.3", "2.3.1 Spark" ve "Scala 2.11" olan `spark-cassandra-connector_2.11-2.3.1`
+  * Spark sürümü Databricks çalışma zamanı sürümünü gözden geçirin. Ardından bulun [maven koordinatları](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) Cassandra Spark Bağlayıcısı ile uyumludur ve kümeye ekleyin. Bkz: ["Maven paketini veya Spark paketini karşıya yükle"](https://docs.databricks.com/user-guide/libraries.html) makale bağlayıcı kitaplık kümeye eklemek için. Örneğin, maven koordinatı "Databricks çalışma zamanı modülü sürümü 4.3", "2.3.1 Spark" ve "Scala 2.11" olan `spark-cassandra-connector_2.11-2.3.1`
 
-* **Azure Cosmos DB Cassandra API özgü kitaplığı:** -özel bağlantı üreteci için Azure Cosmos DB Cassandra API'SİNİN Datastax Spark Bağlayıcıdan yeniden deneme ilkesi yapılandırmak için gereklidir. Ekleme `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [maven koordinatları](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) kümeye kitaplık ekleme için.
+* **Azure Cosmos DB Cassandra API özgü kitaplığı:** -özel bağlantı üreteci için Azure Cosmos DB Cassandra API'SİNİN Cassandra Spark Bağlayıcıdan yeniden deneme ilkesi yapılandırmak için gereklidir. Ekleme `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` [maven koordinatları](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) kümeye kitaplık ekleme için.
 
 ## <a name="sample-notebooks"></a>Örnek Not Defterleri
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: ef2288e2f756db6529f1ec5f7b3a49067b2998aa
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: b9897fd0030c2b6efed0fefc47dd6720a61978cd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35650901"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165151"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service ortamı ağ konuları #
 
@@ -67,6 +67,8 @@ Bir ASE barındırmak için kullanılan alt ağ boyutunu, ASE dağıtıldıktan 
 
 ## <a name="ase-dependencies"></a>ASE bağımlılıkları ##
 
+### <a name="ase-inbound-dependencies"></a>ASE gelen bağımlılıklar ###
+
 ASE gelen bağımlılıklar erişim:
 
 | Kullanım | Kimden | Alıcı |
@@ -84,26 +86,23 @@ Azure load balancer ile ASE alt arasındaki iletişimin açık olması gereken m
 
 Uygulamayı atanmış uygulamalarınıza ASE alt ağına atanmış ıp'lerden trafiğine izin vermek için ihtiyacınız olan IP adresleri kullanıyorsa.
 
-Giden erişim için bir ASE birden çok dış sisteme bağlıdır. Bu sistem bağımlılıkları DNS adları ile tanımlanır ve sabit bir IP adresleri kümesini eşleme yok. Bu nedenle, ASE çeşitli bağlantı noktaları tüm dış IP'ler ASE alt ağından giden erişim gerektirir. Bir ASE aşağıdaki giden bağımlılıklar vardır:
+454 ve 455 bağlantı noktalarında gelen TCP trafiğine geri aynı belirtmediyseniz VIP'yi gider gerekir veya bir asimetrik yönlendirme sorununu olacaktır. 
 
-| Kullanım | Kimden | Alıcı |
-|-----|------|----|
-| Azure Storage | ASE alt | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 yalnızca gereklidir için ASEv1.) |
-| Azure SQL Database | ASE alt | Database.Windows.NET: 1433 |
-| Azure Yönetimi | ASE alt | Management.Core.Windows.NET, management.azure.com admin.core.windows.net: 443 |
-| SSL sertifika doğrulama |  ASE alt            |  OCSP.msocsp.com, mscrl.microsoft.com crl.microsoft.com: 443 |
-| Azure Active Directory        | ASE alt            |  Login.Windows.NET: 443 |
-| App Service Yönetim        | ASE alt            |  Gr-prod -<regionspecific>. cloudapp.net, az prod.metrics.nsatc .net: 443 |
-| Azure DNS                     | ASE alt            |  Internet: 53 |
-| ASE iç iletişimi    | ASE alt: tüm bağlantı noktaları |  ASE alt: tüm bağlantı noktaları |
+### <a name="ase-outbound-dependencies"></a>ASE giden bağımlılıklar ###
 
-ASE Bu bağımlılıklar erişimi kaybederse, çalışmayı durdurur. Yeterince başardığınızda, ASE askıya alınır.
+Giden erişim için bir ASE birden çok dış sisteme bağlıdır. Bu sistem bağımlılıkların çoğu DNS adları ile tanımlanır ve sabit bir IP adresleri kümesini eşleme yok. Bu nedenle, ASE çeşitli bağlantı noktaları tüm dış IP'ler ASE alt ağından giden erişim gerektirir. 
+
+Tam listesi, giden bağımlılıklar açıklayan belgede listelenen [App Service ortamı giden trafiği kilitleme](./firewall-integration.md). ASE bağımlılıklarını erişimi kaybederse, çalışmayı durdurur. Yeterince başardığınızda, ASE askıya alınır. 
 
 ### <a name="customer-dns"></a>Müşteri DNS ###
 
 Kiracı iş yüklerini, sanal ağ, müşteri tanımlı bir DNS sunucusu ile yapılandırılmışsa, bunu kullanın. ASE, yönetim amaçları için Azure DNS ile iletişim kurmak hala gerekir. 
 
 VNet DNS diğer tarafındaki VPN müşteri ile yapılandırılmışsa, DNS sunucusu ASE içeren alt ağdan erişilebilir olmalıdır.
+
+Web uygulamanızdan çözümü test etmek için konsol komutunu kullanabilirsiniz *nameresolver*. Scm siteniz için uygulamanızı hata ayıklama penceresine gidin veya Portalı'nda uygulama gidin ve konsolu'nu seçin. Komut kabuğu istemiyle verebilir *nameresolver* aramak istediğiniz adres yanı sıra. Geri alma sonuç aynı arama yaparken uygulamanızı elde edebileceğiniz aynıdır. Nslookup kullanıyorsanız, bunun yerine Azure DNS kullanarak bir arama yapar.
+
+ASE'NİZİN olan sanal ağın DNS ayarı değiştirirseniz, ASE'nizi yeniden başlatmanız gerekir. ASE'NİZİN yeniden başlatılmasını önlemek için ASE'nizi oluşturmak için sanal ağınıza DNS ayarlarınızı yapılandırmak önerilir.  
 
 <a name="portaldep"></a>
 
@@ -205,9 +204,6 @@ Aynı yollar el ile oluşturmak için aşağıdaki adımları izleyin:
 ## <a name="service-endpoints"></a>Hizmet Uç Noktaları ##
 
 Hizmet Uç Noktaları, çok kiracılı hizmetlere erişimi bir dizi Azure sanal ağı ve alt ağı ile kısıtlamanızı sağlar. [Sanal Ağ Hizmet Uç Noktaları][serviceendpoints] belgelerinde Hizmet Uç Noktaları hakkında daha fazla bilgi edinebilirsiniz. 
-
-   > [!NOTE]
-   > SQL bulunan hizmet uç noktaları, US Government bölgelerinde ASE ile çalışmaz. Bu bilgiler, yalnızca Azure ortak bölgelerde geçerlidir.
 
 Bir kaynakta Hizmet Uç Noktalarını etkinleştirdiğinizde, diğer tüm yönlendiricilerden daha yüksek öncelikle oluşturulmuş rotalar vardır. ASE’ye zorlamalı tünel uygulanmış şekilde Hizmet Uç Noktalarını kullanırsanız, Azure SQL ve Azure Depolama yönetimi trafiğine zorlamalı tünel uygulanmaz. 
 

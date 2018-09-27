@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e9472f0fb6ca7c9924df57bb61a3f234bc7d4b13
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 262c4e622d7ef915e59f29c8f4272e488acaeccf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381646"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166920"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory B2C özel ilke otomatik olarak onaylanan teknik profil tanımlama
 
@@ -135,6 +135,7 @@ Ayrıca, bir REST API teknik profili iş mantığınızı çağrı, giriş talep
 | ContentDefinitionReferenceId | Evet | Tanımlayıcısını [içerik tanımı](contentdefinitions.md) Bu teknik profil ile ilişkili. |
 | EnforceEmailVerification | Hayır | İçin kaydolma veya düzenleme profili, e-posta doğrulama zorlar. Olası değerler: `true` (varsayılan) veya `false`. | 
 | setting.showSignupLink | Hayır | Kaydolun düğmesi görüntüler. Olası değerler: `true` (varsayılan), veya `false` |
+| setting.retryLimit | Hayır | Bir kullanıcının doğrulama teknik profili karşı denetlenir verilerini sağlamak için deneme sayısını denetler. Örneğin, bir kullanıcı zaten var ve sınırına kadar denemeye tutan bir hesapla kaydolmak için çalışır.
 | SignUpTarget | Hayır | Kaydolma hedef exchange tanımlayıcısı. Kullanıcı Kaydolma düğmesine tıkladığında, Azure AD B2C'yi belirtilen exchange tanımlayıcısı yürütür. |
 
 ## <a name="cryptographic-keys"></a>Şifreleme anahtarları

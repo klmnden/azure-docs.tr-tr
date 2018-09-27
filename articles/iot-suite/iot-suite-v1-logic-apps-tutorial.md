@@ -1,12 +1,12 @@
 ---
 title: Azure IOT paketi ve Logic Apps | Microsoft Docs
-description: "Azure IOT paketi için Logic Apps için iş sürecini bağlanacağını konusunda bir öğretici."
-services: 
+description: Azure IOT Suite için Logic Apps iş süreci için bağlama hakkında bir öğretici.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
 ms.service: iot-suite
 ms.devlang: na
@@ -16,41 +16,42 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
 ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47107053"
 ---
-# <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Öğretici: Mantıksal uygulama, Azure IOT paketi uzaktan önceden yapılandırılmış izleme çözümüne bağlama
-[Microsoft Azure IOT paketi] [ lnk-internetofthings] IOT çözümünü exemplifies bir uçtan uca özellik kümesini hızlıca başlamak için harika bir uzaktan izleme çözümü yoludur. Bu öğreticide, mantıksal uygulama, Microsoft Azure IOT paketi Uzaktan izleme çözümü ekleme konusunda açıklanmaktadır. Bu adımlarda, bir iş sürecini bağlanarak daha IOT çözümünüzü nasıl yararlanabileceğinizi gösterilmektedir.
+# <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Öğretici: Mantıksal uygulama için Azure IOT paketi uzaktan önceden yapılandırılmış izleme çözümünüzü bağlayın.
+[Microsoft Azure IOT paketi] [ lnk-internetofthings] Uzaktan izleme çözümü bir IOT çözümü exemplifies bir uçtan uca özellik kümesiyle hızlı bir şekilde kullanmaya başlamak için harika bir yoludur. Bu öğretici mantıksal uygulama, Microsoft Azure IOT paketi Uzaktan izleme çözümü ekleme konusunda size kılavuzluk eder. İş işleme bağlanarak daha IOT çözümünüzü nasıl alabilir adımları gösterilmektedir.
 
-*Önceden yapılandırılmış çözümü Uzaktan izleme sağlama hakkında bir kılavuz arıyorsanız bkz [Öğreticisi: IOT önceden yapılandırılmış çözümleri kullanmaya başlama][lnk-getstarted].*
+*Uzaktan izleme çözümüne sağlama hakkında kılavuz arıyorsanız bkz [Öğreticisi: IOT önceden yapılandırılmış çözümleri kullanmaya başlama][lnk-getstarted].*
 
-Bu öğretici başlamadan önce aşağıdakileri yapmanız gerekir:
+Bu öğreticiye başlamadan önce şunları yapmalısınız:
 
-* Uzaktan izleme önceden yapılandırılmış çözümü Azure aboneliğinize sağlayın.
-* İş süreciniz tetikleyen bir e-posta göndermesini sağlamak için bir SendGrid hesabı oluşturun. Ücretsiz bir deneme hesabı için kaydolabilirsiniz [SendGrid](https://sendgrid.com/) tıklayarak **ücretsiz deneyin**. Ücretsiz deneme hesabınız için kaydedilen sonra oluşturmak gereken bir [API anahtarı](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) posta göndermek için izinler veren SendGrid içinde. Öğreticide daha sonra bu API anahtarı gerekir.
+* Uzaktan izleme önceden yapılandırılmış çözümü, Azure aboneliğinizdeki sağlayın.
+* Sağlamak iş sürecinizin tetikleyen bir e-posta göndermek SendGrid hesabı oluşturun. Ücretsiz bir deneme hesabı için kaydolabilirsiniz [SendGrid](https://sendgrid.com/) tıklayarak **ücretsiz olarak deneyin**. Oluşturmanıza gerek için ücretsiz deneme hesabınızı kaydettikten sonra bir [API anahtarı](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) posta göndermek için izinler veren SendGrid içinde. Öğreticinin ilerleyen bölümlerinde bu API anahtarı gerekir.
 
-Bu öğreticiyi tamamlamak için Visual Studio 2015 veya Visual Studio 2017 önceden yapılandırılmış çözüm arka ucu Eylemler değiştirmeniz gerekir.
+Bu öğreticiyi tamamlamak için Visual Studio 2015 veya Visual Studio 2017 önceden yapılandırılmış çözüm arka ucu eylemleri değiştirmeniz gerekir.
 
-Önceden yapılandırılmış Çözüm zaten sağladığınız Uzaktan izleme varsayıldığında, bu çözüm için kaynak grubuna gidin [Azure portal][lnk-azureportal]. Kaynak grubu çözüm adı ile aynı ada sahip seçtiğiniz zaman Uzaktan izleme çözümünüz sağlandı. Kaynak grubunda çözümünüz için tüm sağlanmış Azure kaynaklarını görebilirsiniz. Aşağıdaki ekran görüntüsünde bir örneği gösterir **kaynak grubu** Uzaktan izleme için dikey önceden yapılandırılmış çözüm:
+Varsayılarak zaten sağladığınız Uzaktan izleme önceden yapılandırılmış çözüm, bu çözüm için kaynak grubuna gidin [Azure portalında][lnk-azureportal]. Kaynak grubu çözüm adı aynı ada sahip, seçtiğiniz zaman Uzaktan izleme çözümünüzü sağladığınız. Kaynak grubunda çözümünüz için sağlanan tüm Azure kaynaklarını görebilirsiniz. Aşağıdaki anlık görüntüde bir örnek gösterilmektedir **kaynak grubu** dikey penceresi, Uzaktan izleme önceden yapılandırılmış çözümü:
 
 ![](media/iot-suite-v1-logic-apps-tutorial/resourcegroup.png)
 
-Başlamak için önceden yapılandırılmış çözümü ile kullanmak için mantıksal uygulama ayarlayın.
+Başlamak için önceden yapılandırılmış çözüm ile kullanılacak mantıksal uygulama oluşturun.
 
-## <a name="set-up-the-logic-app"></a>Mantıksal uygulama ayarlama
-1. Tıklatın **Ekle** Azure Portal'daki kaynak grubu dikey pencerenizi üstünde.
-2. Arama **mantıksal uygulama**, onu seçin ve ardından **oluşturma**.
-3. Doldurmak **adı** ve aynı **abonelik** ve **kaynak grubu** Uzaktan izleme çözümünüz sağladığında kullanılır. **Oluştur**'a tıklayın.
+## <a name="set-up-the-logic-app"></a>Mantıksal uygulamasını ayarlama
+1. Tıklayın **Ekle** Azure portalında kaynak grubu dikey penceresinin üstünde.
+2. Arama **mantıksal uygulama**, onu seçin ve ardından **Oluştur**.
+3. Doldurun **adı** ve aynı **abonelik** ve **kaynak grubu** , Uzaktan izleme çözümünüzü sağlarken kullanılan. **Oluştur**’a tıklayın.
    
     ![](media/iot-suite-v1-logic-apps-tutorial/createlogicapp.png)
-4. Dağıtımınız tamamlandığında, mantıksal uygulama kaynağı, kaynak grubu olarak listelendiğini görebilirsiniz.
-5. Mantıksal uygulama dikey penceresine, select gitmek için mantıksal uygulamaya tıklayın **boş mantıksal uygulama** açmak için şablon **Logic Apps Tasarımcısı**.
+4. Dağıtım tamamlandığında, mantıksal uygulama, kaynak grubunuzda bir kaynak olarak listelenip listelenmediğini görebilirsiniz.
+5. Mantıksal uygulama dikey penceresine, select gitmek için mantıksal uygulamaya tıklayın **boş mantıksal uygulama** açmak için şablon **Logic Apps Tasarımcısı'nda**.
    
     ![](media/iot-suite-v1-logic-apps-tutorial/logicappsdesigner.png)
-6. Seçin **isteği**. Bu eylem, gelen HTTP isteğiyle belirli bir JSON yükü davranır tetikleyici olarak biçimlendirilmiş belirtir.
-7. İstek gövdesi JSON şemaya aşağıdaki kodu yapıştırın:
+6. Seçin **istek**. Bu eylem, gelen HTTP isteği ile belirli bir JSON yükü davranır tetikleyici olarak biçimlendirilmiş belirtir.
+7. İstek gövdesi JSON Şeması aşağıdaki kodu yapıştırın:
    
     ```json
     {
@@ -80,40 +81,40 @@ Başlamak için önceden yapılandırılmış çözümü ile kullanmak için man
     ```
    
    > [!NOTE]
-   > Mantıksal uygulama kaydedebilir, ancak öncelikle bir eylem eklemeniz gerekir sonra HTTP post için URL kopyalayabilirsiniz.
+   > Sonra mantıksal uygulamayı kaydedin, ancak önce bir eylem eklemeniz gerekir, HTTP post için URL'yi kopyalayabilirsiniz.
    > 
    > 
-8. Tıklatın **+ yeni adım** el ile tetikleyici altında. Ardından **Eylem Ekle**.
+8. Tıklayın **+ yeni adım** el ile tetikleyici altında. Ardından **Eylem Ekle**.
    
     ![](media/iot-suite-v1-logic-apps-tutorial/logicappcode.png)
-9. Arama **SendGrid - e-postası gönderme** ve tıklatın.
+9. Arama **SendGrid - e-postası gönderme** bulup tıklayın.
    
     ![](media/iot-suite-v1-logic-apps-tutorial/logicappaction.png)
-10. Bağlantı için bir ad girin **SendGridConnection**, girin **SendGrid API anahtarı** SendGrid hesabınızı ayarlama'ı tıklattığınızda, oluşturduğunuz **oluşturma**.
+10. Bağlantı için bir ad girmeniz **SendGridConnection**, girin **SendGrid API anahtarı** SendGrid hesabınızı ayarlama ve'a tıklayın, oluşturduğunuz **Oluştur**.
     
     ![](media/iot-suite-v1-logic-apps-tutorial/sendgridconnection.png)
-11. Sahip olduğunuz her iki e-posta adreslerini ekleyin **gelen** ve **için** alanları. Ekleme **Uzaktan izleme uyarı [DeviceID]** için **konu** alan. İçinde **e-posta gövdesi** alanında, eklemek **aygıt [DeviceID], [measurementName] [measuredValue] değerle bildirdi.** Ekleyebileceğiniz **[DeviceID]**, **[measurementName]**, ve **[measuredValue]** konumunda öğesini tıklatarak **veri önceki adımları ekleyebilirsiniz** bölümü.
+11. Sahip olduğunuz her iki e-posta adreslerini ekleme **gelen** ve **için** alanları. Ekleme **Uzaktan izleme uyarısı [cihaz kimliği]** için **konu** alan. İçinde **e-posta gövdesi** Ekle, alan **cihaz [cihaz kimliği], [measurementName] [measuredValue] değeriyle bildirdi.** Ekleyebileceğiniz **[cihaz kimliği]**, **[measurementName]**, ve **[measuredValue]** içinde tıklayarak **önceki adımlardan veri ekleyebilirsiniz** bölümü.
     
     ![](media/iot-suite-v1-logic-apps-tutorial/sendgridaction.png)
-12. Tıklatın **kaydetmek** üst menüde.
-13. Tıklatın **isteği** tetikleyici ve kopyalama **bu URL için Http Post** değeri. Bu URL'yi daha sonra Bu öğreticide gerekir.
+12. Tıklayın **Kaydet** üst menüdeki.
+13. Tıklayın **istek** tetikleyici ve kopyalama **bu URL için Http Post** değeri. Daha sonra Bu öğreticide bu URL'ye ihtiyacınız var.
 
 > [!NOTE]
-> Logic Apps etkinleştirmek, çalıştırmak [farklı türlerde eylem] [ lnk-logic-apps-actions] Office 365'te Eylemler dahil olmak üzere. 
+> Logic Apps çalıştırmanıza olanak [farklı türlerde eylem] [ lnk-logic-apps-actions] Office 365'te Eylemler dahil olmak üzere. 
 > 
 > 
 
-## <a name="set-up-the-eventprocessor-web-job"></a>EventProcessor Web işi ayarlayın
-Bu bölümde, önceden yapılandırılmış çözümünüzün oluşturduğunuz mantıksal uygulama bağlayın. Bu görevi tamamlamak için bir aygıt algılayıcı değeri bir eşiği aştığında harekete eyleme mantıksal uygulama tetiklemek için URL'sini ekleyin.
+## <a name="set-up-the-eventprocessor-web-job"></a>EventProcessor Web işi ayarlama
+Bu bölümde, oluşturduğunuz mantıksal uygulamanızı önceden yapılandırılmış çözümünüzü bağlayın. Bu görevi tamamlamak için mantıksal uygulama bir cihaz sensörü değeri bir eşiği aştığında tetiklenen eylemi tetiklemesine URL'sini ekleyin.
 
-1. En son sürümünü kopyalamak için git istemciniz kullanmak [azure-iot-remote-monitoring github deposunu][lnk-rmgithub]. Örneğin:
+1. En son sürümünü kopyalamak için git istemci kullanmak [azure-IOT-remote-monitoring github deposu][lnk-rmgithub]. Örneğin:
    
     ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
-2. Visual Studio'da açın **RemoteMonitoring.sln** depo yerel kopyadan.
-3. Açık **ActionRepository.cs** dosyasını **altyapı\\depo** klasör.
-4. Güncelleştirme **actionIds** sözlüğü ile **bu URL için Http Post** mantığı uygulamanızdan gibi Not:
+2. Visual Studio'da açın **RemoteMonitoring.sln** deposunun yerel kopyasındaki.
+3. Açık **ActionRepository.cs** dosyası **altyapı\\depo** klasör.
+4. Güncelleştirme **actionIds** sözlük ile **bu URL için Http Post** gibi mantıksal uygulamanızdan Not:
    
     ```csharp
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
@@ -122,43 +123,43 @@ Bu bölümde, önceden yapılandırılmış çözümünüzün oluşturduğunuz m
         { "Raise Alarm", "<Http Post to this URL>" }
     };
     ```
-5. Çözümde değişiklikleri kaydetmek ve Visual Studio çıkın.
+5. Çözümdeki değişiklikleri kaydetmek ve Visual Studio çıkın.
 
 ## <a name="deploy-from-the-command-line"></a>Komut satırından dağıtma
-Bu bölümde, Azure'da şu anda çalışan sürümü değiştirmek için Uzaktan izleme çözümü güncelleştirilmiş sürümüne dağıtın.
+Bu bölümde, Azure'da şu anda çalışan sürümünü değiştirmek için Uzaktan izleme çözümü, güncelleştirilmiş sürümünü dağıtın.
 
-1. Aşağıdaki [geliştirme Kurulum] [ lnk-devsetup] dağıtım için ortamınızı ayarlamak üzere yönergeler.
-2. Yerel olarak dağıtmak için izlemeniz [yerel dağıtım] [ lnk-localdeploy] yönergeler.
-3. Buluta dağıtmak ve var olan bulut dağıtımınızı güncelleştirmek için izleyin [bulut dağıtımı] [ lnk-clouddeploy] yönergeler. Dağıtım adı olarak özgün dağıtımınızın adı kullanın. Örneğin özgün dağıtım çağrıldı **demologicapp**, aşağıdaki komutu kullanın:
+1. Aşağıdaki [geliştirme Kurulum] [ lnk-devsetup] dağıtımı için ortamınızı kurma konusunda yönergeler.
+2. Yerel olarak dağıtmak için izlemeniz [yerel dağıtım] [ lnk-localdeploy] yönergeleri.
+3. Buluta dağıtın ve mevcut bulut dağıtımınızı güncelleştirmek için izleyin [bulut dağıtımı] [ lnk-clouddeploy] yönergeleri. Dağıtım adı özgün dağıtımınız adını kullanın. Örneğin özgün dağıtım çağrıldı **demologicapp**, aşağıdaki komutu kullanın:
    
    ```cmd
    build.cmd cloud release demologicapp
    ```
    
-   Yapı komut dosyası çalıştığında, aynı Azure hesabınız, abonelik, bölgeye ve çözüm sağladığında, kullanılan Active Directory örneğini kullandığınızdan emin olun.
+   Yapı komut dosyası çalıştığında, aynı Azure hesabı, abonelik, bölge ve Active Directory örneğine çözümü sağladığınız yapılandırırken kullandığınız kullandığınızdan emin olun.
 
-## <a name="see-your-logic-app-in-action"></a>Mantıksal uygulamanızı eylem bakın
-Önceden yapılandırılmış Uzaktan izleme çözümü bir çözüm sağladığınızda, varsayılan olarak ayarlanan iki kuralları vardır. Her iki kural bulunan **SampleDevice001** aygıt:
+## <a name="see-your-logic-app-in-action"></a>Mantıksal uygulamanızı çalışır halde bakın
+Önceden yapılandırılmış Uzaktan izleme çözümüne bir çözüm sağladığınızda, varsayılan olarak ayarlanan iki kurallara sahiptir. Hem kuralları bulunan **SampleDevice001** cihaz:
 
 * Sıcaklık > 38.00
 * Nem > 48.00
 
-Sıcaklık kural Tetikleyicileri **yükseltmek Alarm** eylem ve nem kural Tetikleyicileri **SendMessage** eylem. Her iki eylemler için aynı URL'ye kullanılan varsayılarak **ActionRepository** sınıfı, her iki kural için logic app Tetikleyicileri. E-posta göndermek için SendGrid hem kuralları kullanın **için** uyarı ayrıntılarını adresiyle.
+Sıcaklık kural tetiklendiğinde **yükseltmek Alarm** eylem ve nem kural Tetikleyicileri **SendMessage** eylem. İçin her iki eylem aynı URL'yi kullanılan varsayılarak **ActionRepository** ya da kural için mantıksal uygulama Tetikleyicileri sınıfı. Hem kuralları, bir e-posta göndermek için SendGrid kullanın. **için** uyarının ayrıntılarını adresiyle.
 
 > [!NOTE]
-> Mantıksal uygulama eşiğine her zaman tetiklemek devam eder. Gereksiz e-postaları önlemek için çözüm Portalı'nda kuralları devre dışı bırakmak veya mantıksal uygulama devre dışı [Azure portal][lnk-azureportal].
+> Mantıksal uygulama eşiğine her zaman tetikleme devam ediyor. Gereksiz e-postaları önlemek için çözüm portalında kurallar devre dışı bırakın veya mantıksal uygulamayı devre dışı [Azure portalında][lnk-azureportal].
 > 
 > 
 
-Portalda mantıksal uygulama çalıştığında, e-posta alırken yanı sıra da görebilirsiniz:
+Portalda mantıksal uygulama çalıştığında, e-posta alırken yanı sıra de görebilirsiniz:
 
 ![](media/iot-suite-v1-logic-apps-tutorial/logicapprun.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Önceden yapılandırılmış çözümü bir iş sürecini bağlanmak için bir mantıksal uygulama kullandıysanız, önceden yapılandırılmış çözümleri özelleştirme seçenekleri hakkında daha fazla bilgi edinebilirsiniz:
+Mantıksal uygulama iş süreci için önceden yapılandırılmış çözümü bağlanmak için kullandığınız, önceden yapılandırılmış çözümleri özelleştirme seçenekleri hakkında daha fazla bilgi edinebilirsiniz:
 
-* [Önceden yapılandırılmış Uzaktan izleme çözümü ile dinamik telemetri kullanın][lnk-dynamic]
-* [Önceden yapılandırılmış Uzaktan izleme çözümü cihaz bilgileri meta veriler][lnk-devinfo]
+* [Uzaktan izleme önceden yapılandırılmış çözümüyle dinamik telemetri kullanma][lnk-dynamic]
+* [Cihaz önceden yapılandırılmış Uzaktan izleme çözümünü bilgi meta veriler][lnk-devinfo]
 
 [lnk-dynamic]: iot-suite-v1-dynamic-telemetry.md
 [lnk-devinfo]: iot-suite-v1-remote-monitoring-device-info.md

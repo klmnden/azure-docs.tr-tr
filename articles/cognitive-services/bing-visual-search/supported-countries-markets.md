@@ -1,21 +1,21 @@
 ---
-title: Desteklenen ülkeler/bölgeler ve diller için Bing görsel arama API'si | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: Desteklenen ülkeler/bölgeler ve diller - Bing görsel arama
+titleSuffix: Azure Cognitive Services
 description: Hangi ülkeler/bölgeler ve diller Bing görsel arama API'si tarafından desteklendiğini öğrenin.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 068459f4959bf3f8daea8fe949ec324879ee260c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5f7b865422730734e31480deb00f7e8f4f44417b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001237"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227087"
 ---
 # <a name="bing-visual-search-countriesregions-and-languages"></a>Bing görsel arama ülkeler/bölgeler ve diller
 
@@ -80,28 +80,28 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 
 |Ülke/bölge|Dil|Pazar kod|
 |-------|--------|-----------|
-|Arjantin|İspanyolca |ES AR|
+|Arjantin|İspanyolca|ES AR|
 |Avustralya|Türkçe|tr-AU|
-|Avusturya|Almanca |de-AT|
-|Belçika|Felemenkçe|NL-olabilir|
-|Belçika|Fransızca |FR-olabilir|
+|Avusturya|Almanca|de-AT|
+|Belçika|Hollanda dili|NL-olabilir|
+|Belçika|Fransızca|FR-olabilir|
 |Brezilya|Portekizce|pt-BR|
 |Kanada|Türkçe|CA tr|
-|Kanada|Fransızca |fr-CA|
-|Şili|İspanyolca |ES-CL|
+|Kanada|Fransızca|fr-CA|
+|Şili|İspanyolca|ES-CL|
 |Danimarka|Danca|v-DK|
 |Finlandiya|Fince|FI-FI|
-|Fransa|Fransızca |fr-FR|
-|Almanya|Almanca |de-DE|
+|Fransa|Fransızca|fr-FR|
+|Almanya|Almanca|de-DE|
 |Hong Kong|Geleneksel Çince|zh-HK|
 |Hindistan|Türkçe|tr-giriş|
 |Endonezya|Türkçe|tr kimliği|
-|İtalya|İtalyanca|it-IT|
+|İtalya|İtalyanca|İt-IT|
 |Japonya|Japonca|ja-JP|
 |Kore|Kore dili|ko-KR|
 |Malezya|Türkçe|MY tr|
-|Meksika|İspanyolca |es-MX|
-|Hollanda|Felemenkçe|NL-NL|
+|Meksika|İspanyolca|es-MX|
+|Hollanda|Hollanda dili|NL-NL|
 |Yeni Zelanda|Türkçe|tr NZ|
 |Çin|Çince|zh-CN|
 |Polonya|Lehçe|pl-PL|
@@ -110,12 +110,12 @@ Alternatif olarak, ülke/bölge kullanarak belirtebilirsiniz `cc` sorgu parametr
 |Rusya|Rusça|ru-RU|
 |Suudi Arabistan|Arapça|ar-SA|
 |Güney Afrika|Türkçe|tr-ZA|
-|İspanya|İspanyolca |es-ES|
+|İspanya|İspanyolca|es-ES|
 |İsveç|İsveç dili|sv-SE|
-|İsviçre|Fransızca |FR-CH|
-|İsviçre|Almanca |de-CH|
+|İsviçre|Fransızca|FR-CH|
+|İsviçre|Almanca|de-CH|
 |Tayvan|Geleneksel Çince|zh-TW|
 |Türkiye|Türkçe|tr-TR|
 |Birleşik Krallık|Türkçe|en-GB|
 |Amerika Birleşik Devletleri|Türkçe|tr-TR|
-|Amerika Birleşik Devletleri|İspanyolca |ES-ABD|
+|Amerika Birleşik Devletleri|İspanyolca|ES-ABD|

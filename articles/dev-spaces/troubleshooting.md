@@ -11,12 +11,12 @@ ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: c6ca3003c1338f3e057c76d9e04d8b0cbd2210c7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 91bec065b2c83eac6b646ae6a55bc1ae0aae01db
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721203"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226900"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -28,11 +28,11 @@ Sorunları daha etkili bir şekilde gidermek için ayrıntılı günlükleri gö
 
 Visual Studio uzantısı için `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` ortam değişkeni 1. Visual Studio ortam değişkeni için etkili olması için yeniden emin olun. Etkinleştirildikten sonra ayrıntılı günlükler yazılır, `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` dizin.
 
-CLI, komut yürütme sırasında daha fazla bilgi kullanarak çıkarabilirsiniz `--verbose` geçin.
+CLI, komut yürütme sırasında daha fazla bilgi kullanarak çıkarabilirsiniz `--verbose` geçin. Daha ayrıntılı günlükleri de göz atabilirsiniz `%TEMP%\Azure Dev Spaces`. Mac bilgisayarlarda, çalıştırarak TEMP dizininde bulunabilir `echo $TMPDIR` bir terminal penceresinden. Bir Linux bilgisayarında, TEMP dizini genellikle olan `/tmp`.
 
 ## <a name="debugging-services-with-multiple-instances"></a>Birden çok örnek ile hata ayıklama Hizmetleri
 
-Şu anda, Azure geliştirme alanları yalnızca tek bir örneği üzerinde (pod) hata ayıklamayı destekler. Bir ayar, hizmetiniz için çalıştırılan örnek sayısını gösteren replicaCount azds.yaml dosya içerir. Belirli bir hizmet için birden çok örneğini çalıştırmak için uygulamanızı yapılandırma replicaCount değiştirirseniz, hata ayıklayıcı davranışını beklendiği gibi olmayabilir.
+Şu anda Azure geliştirme alanları tek bir örnek (pod) hata ayıklama sırasında en iyi şekilde çalışır. Azds.yaml dosya hizmetinizde çalıştıracağı pod'ların sayısını gösteren replicaCount bir ayar içeriyor. Belirli bir hizmet için birden çok podunuz çalıştırmak için uygulamanızı yapılandırma replicaCount değiştirirseniz (alfabetik olarak listelenen olduğunda) ilk pod hata ayıklayıcının. Bu pod herhangi bir nedenle dönüştürülürse, farklı bir pod için büyük olasılıkla beklenmeyen davranışlara neden olur hata ayıklayıcının.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>'Azure geliştirme alanları denetleyicisi oluşturmak için başarısız' hatası
 

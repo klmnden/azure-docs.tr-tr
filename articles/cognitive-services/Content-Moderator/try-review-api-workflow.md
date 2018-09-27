@@ -1,39 +1,40 @@
 ---
-title: Azure içerik aracı - içerik yönetimini iş akışları API konsolundan | Microsoft Docs
-description: API konsolundan İçerik Yönetimi iş akışlarının nasıl kullanılacağını öğrenin.
+title: API Konsolu - Content Moderator içerik denetleme akışlarından
+titlesuffix: Azure Cognitive Services
+description: İçerik denetleme akışlarından API Konsolu kullanmayı öğrenin.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: sajagtap
-ms.openlocfilehash: 700b2bea5e902141659266a94d61ceb810c1b802
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4ef8951b30fa7aede08a1af3c834192b5ed18649
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351773"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223859"
 ---
-# <a name="workflows-from-the-api-console"></a>API konsolundan iş akışları
+# <a name="workflows-from-the-api-console"></a>API konsolu iş akışlarından
 
-Kullanım [iş akışı işlemlerini](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) oluşturmak veya bir iş akışını güncelleştirme veya gözden geçirme API'sini kullanarak iş akışı ayrıntıları almak için Azure içerik denetleyicinin içinde. Bu API kullanarak, iş akışları için basit, karmaşık ve hatta iç içe geçmiş ifadeler tanımlayabilirsiniz. İş akışları kullanılacak ekibiniz için İnceleme aracı görünür. İş akışları da gözden geçirme API'nin iş işlemleri tarafından kullanılır.
+Kullanım [iş akışı işlemlerini](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) oluşturmak veya bir iş akışını güncelleştirme veya gözden geçirme API'sini kullanarak iş akışı ayrıntıları almak için Azure Content Moderator içinde. Bu API kullanarak basit, karmaşık ve hatta iç içe geçmiş ifadeler için iş akışlarınızı tanımlayabilirsiniz. İnceleme aracını kullanmak, takımınız için iş akışlarını görünür. İş akışları da gözden geçirme API'nin iş işlemleri tarafından kullanılır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-1. Git [gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com/). Bunu henüz yapmadıysanız kaydolun. 
-2. Gözden geçirme aracında altında **ayarları**seçin **iş akışları** sekmesinde, gözden geçirme aracının gösterildiği gibi [iş akışı Öğreticisi](Review-Tool-User-Guide/Workflows.md).
+1. Git [gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com/). Henüz yapmadıysanız kaydolun. 
+2. Gözden geçirme Aracı'nda altında **ayarları**seçin **iş akışları** sekmesinde, gözden geçirme aracının gösterildiği [iş akışı öğretici](Review-Tool-User-Guide/Workflows.md).
 
-### <a name="browse-to-the-workflows-screen"></a>İş akışları ekranına gidin
+### <a name="browse-to-the-workflows-screen"></a>İş akışları ekrana Gözat
 
-İçerik denetleyici Panoda seçin **gözden geçirme** > **ayarları** > **iş akışları**. Varsayılan iş akışı bakın.
+Content Moderator Panoda seçin **gözden geçirme** > **ayarları** > **iş akışları**. Varsayılan iş akışı görürsünüz.
 
   ![Varsayılan iş akışı](images/default-workflow-listed.PNG)
 
 ### <a name="get-the-json-definition-of-the-default-workflow"></a>Varsayılan iş akışı JSON tanımını Al
 
-Seçin **Düzenle** iş akışınız için seçeneğini ve ardından **JSON** sekmesi. JSON ifadesini görürsünüz:
+Seçin **Düzenle** akışınız için seçeneğini ve ardından **JSON** sekmesi. Aşağıdaki JSON ifadesini görürsünüz:
 
     {
         "Type": "Logic",
@@ -56,38 +57,38 @@ Seçin **Düzenle** iş akışınız için seçeneğini ve ardından **JSON** se
         }
     }
 
-## <a name="get-workflow-details"></a>İş akışı ayrıntıları alma
+## <a name="get-workflow-details"></a>İş akışı ayrıntılarını Al
 
-Kullanım **iş akışı - Get** , var olan varsayılan iş akışı ayrıntılarını alma işlemi.
+Kullanım **iş akışı - Get** var olan varsayılan iş ayrıntılarını almak için işlemi.
 
-Gözden geçirme Aracı'nda Git [kimlik bilgileri](Review-Tool-User-Guide/credentials.md#the-review-tool) bölümü.
+İnceleme aracında Git [kimlik bilgilerini](Review-Tool-User-Guide/credentials.md#the-review-tool) bölümü.
 
-### <a name="browse-to-the-api-reference"></a>API referansı Gözat
+### <a name="browse-to-the-api-reference"></a>API Başvurusu için Gözat
 
-1. İçinde **kimlik bilgileri** görünümü, select [API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). 
-2. Zaman **iş akışı - oluştur veya Güncelleştir** sayfası açılır, Git [iş akışı - Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58) başvuru.
+1. İçinde **kimlik bilgilerini** görüntülenecek [API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). 
+2. Zaman **iş akışı - oluşturma veya güncelleştirme** sayfası açıldıktan sonra Git [iş akışı - Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58) başvuru.
 
 ### <a name="select-your-region"></a>Bölgenizi seçin
 
-İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklar bölgeyi seçin.
+İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin.
 
-  ![İş akışı - Get bölge seçimi](images/test-drive-region.png)
+  ![İş akışı - Get kayıt seçimi](images/test-drive-region.png)
 
   **İş akışı - Get** API konsolu açılır.
 
 ### <a name="enter-parameters"></a>Parametreleri girin
 
-İçin değerler girin **takım**, **workflowname**, ve **Apim abonelik anahtar Ocp** (abonelik anahtarınızı):
+İçin değerler girin **takım**, **workflowname**, ve **Ocp-Apim-Subscription-Key** (abonelik anahtarınızı):
 
-- **Takım**: ayarlarken oluşturduğunuz takım kimliği, [gözden aracı hesabı](https://contentmoderator.cognitive.microsoft.com/). 
+- **Takım**: ayarlarken oluşturduğunuz takım kimliği, [gözden geçirme aracı hesabı](https://contentmoderator.cognitive.microsoft.com/). 
 - **workflowname**: iş akışınızı adı. Kullanım `default`.
-- **Ocp Apim abonelik anahtar**: bulunan **ayarları** sekmesi. Daha fazla bilgi için bkz: [genel bakış](overview.md).
+- **Ocp-Apim-Subscription-Key**: bulunan **ayarları** sekmesi. Daha fazla bilgi için [genel bakış](overview.md).
 
-  ![Sorgu parametrelerinin ve üst bilgileri alma](images/workflow-get-default.PNG)
+  ![Sorgu parametrelerinin ve üst bilgileri Al](images/workflow-get-default.PNG)
 
 ### <a name="submit-your-request"></a>İsteğinizi gönderin
   
-**Gönder**’i seçin. İşlem başarılı olursa, **yanıt durumu** olan `200 OK`ve **yanıt içeriği** kutusu aşağıdaki JSON iş akışı görüntüler:
+**Gönder**’i seçin. İşlem başarılı olursa **yanıt durumu** olduğu `200 OK`ve **yanıt içeriği** kutusu görüntüler aşağıdaki JSON iş akışı:
 
     {
         "Name": "default",
@@ -117,36 +118,36 @@ Gözden geçirme Aracı'nda Git [kimlik bilgileri](Review-Tool-User-Guide/creden
     }
 
 
-## <a name="create-a-workflow"></a>İş akışı oluşturma
+## <a name="create-a-workflow"></a>Bir iş akışı oluşturma
 
-Gözden geçirme Aracı'nda Git [kimlik bilgileri](Review-Tool-User-Guide/credentials.md#the-review-tool) bölümü.
+İnceleme aracında Git [kimlik bilgilerini](Review-Tool-User-Guide/credentials.md#the-review-tool) bölümü.
 
-### <a name="browse-to-the-api-reference"></a>API referansı Gözat
+### <a name="browse-to-the-api-reference"></a>API Başvurusu için Gözat
 
-İçinde **kimlik bilgileri** görünümü, select [API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). **İş akışı - oluştur veya Güncelleştir** sayfası açılır.
+İçinde **kimlik bilgilerini** görüntülenecek [API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59). **İş akışı - oluşturma veya güncelleştirme** sayfası açılır.
 
 ### <a name="select-your-region"></a>Bölgenizi seçin
 
-İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklar bölgeyi seçin.
+İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin.
 
   ![İş akışı - oluşturma veya güncelleştirme sayfa bölge seçimi](images/test-drive-region.png)
 
-  **İş akışı - oluştur veya Güncelleştir** API konsolu açılır.
+  **İş akışı - oluşturma veya güncelleştirme** API konsolu açılır.
 
 ### <a name="enter-parameters"></a>Parametreleri girin
 
-İçin değerler girin **takım**, **workflowname**, ve **Apim abonelik anahtar Ocp** (abonelik anahtarınızı):
+İçin değerler girin **takım**, **workflowname**, ve **Ocp-Apim-Subscription-Key** (abonelik anahtarınızı):
 
-- **Takım**: ayarlarken oluşturduğunuz takım kimliği, [gözden aracı hesabı](https://contentmoderator.cognitive.microsoft.com/). 
+- **Takım**: ayarlarken oluşturduğunuz takım kimliği, [gözden geçirme aracı hesabı](https://contentmoderator.cognitive.microsoft.com/). 
 - **workflowname**: yeni iş akışınızı adı.
-- **Ocp Apim abonelik anahtar**: bulunan **ayarları** sekmesi. Daha fazla bilgi için bkz: [genel bakış](overview.md).
+- **Ocp-Apim-Subscription-Key**: bulunan **ayarları** sekmesi. Daha fazla bilgi için [genel bakış](overview.md).
 
-  ![İş akışı - veya güncelleştirme konsol sorgu parametreleri ve üstbilgi oluşturma](images/workflow-console-parameters.PNG)
+  ![İş akışı - güncelleştirme veya konsol Sorgu parametrelerinin ve üst bilgileri oluşturma](images/workflow-console-parameters.PNG)
 
 ### <a name="enter-the-workflow-definition"></a>İş akışı tanımı girin
 
-1. Düzen **istek gövdesinde** ayrıntılarını JSON istekle girmek için kutusunu **açıklama** ve **türü** (görüntü veya metin). 
-2. İçin **ifade**, aşağıda gösterildiği gibi önceki bölümünden varsayılan iş akışı ifade kopyalayın:
+1. Düzen **istek gövdesi** JSON isteği ayrıntılarını girmek için kutusu **açıklama** ve **türü** (görüntü veya metin). 
+2. İçin **ifade**, burada gösterildiği gibi varsayılan iş akışı ifadesi önceki bölümden kopyalayın:
 
         {
             "Description": "Default workflow from API console",
@@ -155,7 +156,7 @@ Gözden geçirme Aracı'nda Git [kimlik bilgileri](Review-Tool-User-Guide/creden
                 // Copy the default workflow expression from the preceding section
         }
 
-    İstek gövdesi aşağıdaki JSON istek gibi görünür:
+    İstek gövdesi, aşağıdaki JSON istek gibi görünür:
 
         {
             "Description": "Default workflow from API console",
@@ -184,23 +185,23 @@ Gözden geçirme Aracı'nda Git [kimlik bilgileri](Review-Tool-User-Guide/creden
  
 ### <a name="submit-your-request"></a>İsteğinizi gönderin
   
-**Gönder**’i seçin. İşlem başarılı olursa, **yanıt durumu** olan `200 OK`ve **yanıt içeriği** kutusunda görüntüler `true`.
+**Gönder**’i seçin. İşlem başarılı olursa **yanıt durumu** olduğu `200 OK`ve **yanıt içeriği** kutusunda görüntüler `true`.
 
 ### <a name="check-out-the-new-workflow"></a>Yeni iş akışını denetleme
 
-Gözden geçirme Aracı'nda seçin **gözden geçirme** > **ayarları** > **iş akışları**. Yeni iş akışınızı görünür ve kullanıma hazırdır.
+İnceleme aracında seçin **gözden geçirme** > **ayarları** > **iş akışları**. Yeni akışınız görüntülenir ve kullanıma hazır.
 
-  ![İş akışları aracı listesini gözden geçirin](images/workflow-console-new-workflow.PNG)
+  ![İş akışlarının listesini gözden geçirme aracı](images/workflow-console-new-workflow.PNG)
   
 ### <a name="review-your-new-workflow-details"></a>Yeni iş akışı ayrıntılarını gözden geçirin
 
-1. Seçin **Düzenle** iş akışınız için seçeneğini ve ardından **Tasarımcısı** ve **JSON** sekmeleri.
+1. Seçin **Düzenle** akışınız için seçeneğini ve ardından **Tasarımcısı** ve **JSON** sekmeler.
 
-   ![Tasarımcı sekmesi seçili iş akışı](images/workflow-console-new-workflow-designer.PNG)
+   ![Seçili bir iş akışı için Tasarımcı sekmesi](images/workflow-console-new-workflow-designer.PNG)
 
 2. İş akışı JSON görünümünü görmek için seçin **JSON** sekmesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Daha karmaşık iş akışı örnekleri için bkz: [iş akışlarına genel bakış](workflow-api.md).
-* İş akışları ile kullanmayı öğrenin [içerik yönetimini işleri](try-review-api-job.md).
+* Daha karmaşık iş akışı örnekleri için bkz. [iş akışlarına genel bakış](workflow-api.md).
+* İş akışlarıyla kullanmayı öğrenin [içerik denetimi işleri](try-review-api-job.md).

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: dc912ded6f879d14689a267c7ee63245c11c0bd0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: bd766dfb712921a57dd23c4fdecc25dd623eb833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054957"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393273"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Kiracılar arası Analytics'i kullanarak veri - tek kiracılı uygulama ayıklanan
  
@@ -212,7 +212,7 @@ Bilet satış desenleri Öngörüler, kendi iş modeli iyileştirmek için Wingt
 Bu arada, bazı Wingtip bilet müşterilerin service maliyetleri açıklamaya yeterli bileti satmak uğraşır şikayet. Belki de bu ınsights'ta venues yeterli performansa sahip olmayan için bilet satışları artırın olanağı yoktur. Daha yüksek satış hizmet algılanan değerini artırır. Fact_Tickets sağ tıklatın ve seçin **yeni ölçü**. Adlı yeni bir ölçü için aşağıdaki ifadeyi girin **AverageTicketsSold**:
 
 ```
-AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
+AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CALCULATE( SUM(TableName[Tickets Sold] ) ) )
 ```
 
 Göreli başarılarını belirlemek için her mekan tarafından satılan yüzdesi biletleri çizmek için aşağıdaki görselleştirme seçeneklerini belirtin.

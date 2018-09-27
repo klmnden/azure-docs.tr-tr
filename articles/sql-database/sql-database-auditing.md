@@ -12,12 +12,12 @@ ms.author: giladm
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/10/2018
-ms.openlocfilehash: dd1672c0cdae243bf6ff19efa22df66239611b44
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8ba07b22d247cb9263890a747bd166d63af27e3b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064189"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395756"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bir denetim günlüğüne yazar izler. Ayrıca denetleme:
@@ -109,7 +109,7 @@ Denetim günlüklerini Log Analytics'e yazmak isterseniz:
 
     ![OMS ile Aç](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
-- Alternatif olarak, denetim günlüklerini Log Analytics dikey penceresinden de erişebilirsiniz. Log Analytics çalışma alanınızın açın ve altında **genel** bölümünde **günlükleri**. Basit bir sorgu ile gibi başlatın: arama *"SQLSecurityAuditEvents"* denetim görüntülemek üzere günlüğe kaydeder.
+- Alternatif olarak, denetim günlüklerini Log Analytics dikey penceresinden de erişebilirsiniz. Log Analytics çalışma alanınızın açın ve altında **genel** bölümünde **günlükleri**. Gibi basit bir sorgu başlatın: *"SQLSecurityAuditEvents" arama* denetim görüntülemek üzere günlüğe kaydeder.
     Buradan ayrıca kullanabileceğiniz [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md) Gelişmiş aramaları, Denetim günlüğü verileri temelinde çalıştırılacak. Log Analytics, tüm iş yüklerinizde ve sunucularınızda milyonlarca kaydı kolayca analiz etmek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı operasyonel içgörüler sunar. OMS Log Analytics arama dili ve komutlar hakkında başka yararlı bilgiler için bkz. [Log Analytics Arama başvurusu](../log-analytics/log-analytics-log-search.md).
 
 Denetim günlükleri Olay Hub'ına yazma seçerseniz:

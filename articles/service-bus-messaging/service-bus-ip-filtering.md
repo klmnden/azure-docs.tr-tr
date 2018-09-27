@@ -1,6 +1,6 @@
 ---
-title: Azure hizmet veri yolu IP bağlantı filtrelerini | Microsoft Docs
-description: Azure hizmet veri yolu için belirli IP adreslerinden bloğu bağlantıları filtreleme IP kullanmayı.
+title: Azure Service Bus IP bağlantı filtreleri | Microsoft Docs
+description: IP bloğu bağlantıları, Azure Service Bus belirli IP adreslerinden filtrelemesini kullanma
 services: service-bus
 documentationcenter: ''
 author: clemensv
@@ -8,54 +8,54 @@ manager: timlt
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: e009bb9120fafc6edf60b68fab3336b9d1add507
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: ccb759a9151d734aa99a6f6b9c68e6072874dd84
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036355"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394837"
 ---
-# <a name="use-ip-filters"></a>IP filtreleri kullanın
+# <a name="use-ip-filters"></a>IP filtreleri kullanma
 
-Azure Service Bus olduğu yalnızca iyi bilinen belirli sitelerinden erişilebilir senaryoları için *IP Filtresi* özelliği reddetme veya belirli IPv4 adresleri olan trafiği kabul edilmesi için kuralları yapılandırmanıza olanak sağlar. Örneğin, bu adresleri bir kurumsal ağ geçidi NAT içeriğiyle olabilir.
+Azure Service Bus olduğu yalnızca bilinen belirli sitelerden erişilebilir senaryoları için *IP Filtresi* özelliği özel IPv4 adreslerinden gelen trafiği kabul etmesini ya da reddetme kurallarını yapılandırmanıza olanak sağlar. Örneğin, bu adresler kurumsal bir NAT ağ geçidinin bu olabilir.
 
 ## <a name="when-to-use"></a>Kullanılması gereken durumlar
 
-Belirli IP adresleri için Service Bus uç noktaları engellemek yararlı olan iki belirli kullanım örnekleri şunlardır:
+Service Bus uç noktaları belirli IP adresleri için engellemek yararlı olan iki belirli kullanım örnekleri vardır:
 
-- Hizmet veri yolu, yalnızca belirtilen IP adreslerinden trafiğini almasına ve şey Reddet gerekir. Örneğin, Service Bus ile kullanarak [Azure Express rota] [ express-route] şirket içi altyapınıza özel bağlantılar oluşturmak için.
-- Kuşkulu olarak Service Bus yönetici tarafından belirlenen IP adreslerinden gelen trafiği reddetmeye gerekir.
+- Service Bus, yalnızca belirtilen IP adreslerinden trafiğini almasına ve diğer her şeyi reddet. Örneğin, Service Bus ile kullandığınız [Azure Express Route] [ express-route] şirket içi altyapınız ile özel bağlantılar oluşturmak için.
+- Service Bus yönetici tarafından kuşkulu olarak belirlenmiştir IP adreslerinden gelen trafiği reddetmek gerekir.
 
-## <a name="how-filter-rules-are-applied"></a>Filtre kuralları nasıl uygulanır
+## <a name="how-filter-rules-are-applied"></a>Filtre kurallarının uygulanma yöntemi
 
-IP filtre kuralları hizmet veri yolu ad alanı düzeyinde uygulanır. Bu nedenle, kurallar herhangi bir desteklenen protokolünü kullanarak istemcilerinden gelen tüm bağlantılara uygulanır.
+IP Filtresi kurallarının Service Bus ad alanı düzeyinde uygulanır. Bu nedenle, kurallar, istemcilerden herhangi bir desteklenen protokolünü kullanarak tüm bağlantıları için geçerlidir.
 
-Service Bus ad alanı bir rejecting IP kuralı olarak reddedilir eşleşmeleri yetkisiz bir IP adresi herhangi bağlantı girişimi. Yanıt IP kural Bahsediyor değil.
+Herhangi bir bağlantı denemesi bir IP adresinden yetkisiz eşleşmeler bir Service Bus ad alanı rejecting IP kuralı olarak reddedilir. Yanıt IP kuralı başvurmayacak.
 
 ## <a name="default-setting"></a>Varsayılan ayar
 
-Varsayılan olarak, **IP Filtresi** hizmet veri yolu için portal kılavuzunda boştur. Bu varsayılan ayarı ad alanınızı herhangi bir IP adresi bağlantılarını kabul anlamına gelir. Bu varsayılan ayarı 0.0.0.0/0 IP adresi aralığı kabul eden bir kural eşdeğerdir.
+Varsayılan olarak, **IP Filtresi** portalında hizmet veri yolu için kılavuz boştur. Bu varsayılan ayar, ad alanınız herhangi bir IP adresi bağlantılarını kabul anlamına gelir. Bu varsayılan ayarı 0.0.0.0/0 IP adresi aralığı kabul eden bir kural eşdeğerdir.
 
-## <a name="ip-filter-rule-evaluation"></a>IP filtre kural değerlendirmesi
+## <a name="ip-filter-rule-evaluation"></a>IP filtresi kuralı değerlendirme
 
-IP filtre kuralları sırayla uygulanır ve IP adresi ile eşleşen ilk kural kabul etme veya reddetme eylemi belirler.
+IP Filtresi kurallarının sırayla uygulanır ve IP adresi ile eşleşen ilk kural kabul etme veya reddetme eylemi belirler.
 
-Örneğin, aralığı 70.37.104.0/24 adresleri kabul edin ve başka her şeyi Reddet istiyorsanız, ilk kural kılavuzunda adres aralığı 70.37.104.0/24 kabul etmelidir. Sonraki kural aralığı 0.0.0.0/0 kullanarak tüm adresleri reddedecek.
+Örneğin, aralığı 70.37.104.0/24 adresleri kabul edin ve diğer her şeyi Reddet istiyorsanız, kılavuzdaki ilk kural adres aralığı 70.37.104.0/24 kabul etmelidir. Sonraki kural aralığı 0.0.0.0/0 kullanarak tüm adresleri reddedecek.
 
 > [!NOTE]
-> IP adreslerini reddetme (Azure akış analizi, Azure sanal makineleri veya portal aygıt Explorer'da gibi) diğer Azure hizmetleriyle Service Bus ile etkileşim engelleyebilir.
+> Reddetme IP adresleri, diğer Azure Hizmetleri (örneğin, Azure Stream Analytics, Azure sanal makineler veya Portalı'nda Device Explorer) Service Bus ile etkileşim engelleyebilirsiniz.
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile bir sanal ağ kuralı oluşturma
+### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile bir sanal ağ kuralı oluşturuluyor
 
-Varolan hizmet veri yolu ad alanı için bir sanal ağ kuralı ekleme aşağıdaki Resource Manager şablonu sağlar.
+Aşağıdaki Resource Manager şablonu var olan bir Service Bus ad alanı için bir sanal ağ kuralı ekleyerek sağlar.
 
 Şablon parametreleri:
 
-- **ipFilterRuleName** benzersiz, büyük küçük harf duyarsız, alfasayısal bir dize en çok 128 karakter uzunluğunda olmalıdır.
-- **ipFilterAction** ya **Reddet** veya **kabul** IP filtre kuralı için uygulanacak eylem olarak.
-- **ipMask** tek bir IPv4 adresi veya IP adreslerinin CIDR gösteriminde. Örneğin, içinde CIDR gösterimi 70.37.104.0/24 256 IPv4 adresleri 70.37.104.0 aralığı için önemli önek bit sayısını belirten 24 ile 70.37.104.255 temsil eder.
+- **ipFilterRuleName** en fazla 128 karakter benzersiz, büyük/küçük harf, alfasayısal bir dize olmalıdır.
+- **ipFilterAction** ya da **Reddet** veya **kabul** için IP filtresi kuralı uygulamak için eylem olarak.
+- **ipMask** tek bir IPv4 adresi veya IP adresleri CIDR gösteriminde bir bloğu. Örneğin, CIDR gösterimi 70.37.104.0/24 256 IPv4 adresi 70.37.104.0 70.37.104.255, aralığı için önemli bir önek bit sayısını gösteren 24 ile temsil eder.
 
 ```json
 {  
@@ -103,13 +103,13 @@ Varolan hizmet veri yolu ad alanı için bir sanal ağ kuralı ekleme aşağıda
 }
 ```
 
-Şablonu dağıtmak için yönergeleri izleyin [Azure Resource Manager][lnk-deploy].
+Şablonu dağıtmak için yönergeleri izleyin. [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure sanal ağlar için hizmet veri yolu için kısıtlayan erişim için şu bağlantıya bakın:
+Azure sanal ağları, Service Bus kısıtlayan erişmek için şu bağlantıya bakınız:
 
-- [Hizmet veri yolu için sanal ağ hizmet uç noktaları][lnk-vnet]
+- [Sanal ağ hizmet uç noktaları için hizmet veri yolu][lnk-vnet]
 
 <!-- Links -->
 

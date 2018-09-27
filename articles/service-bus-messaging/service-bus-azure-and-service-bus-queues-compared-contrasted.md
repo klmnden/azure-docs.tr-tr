@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 49694780f4fe32f8068c1d7c4cc87cfb88f77fe5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: f48e9a5600dca1e13d6ee94a675d5bc824915118
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700989"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393970"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Depolama kuyrukları ve Service Bus kuyrukları - benzerlikler ve karşıtlıklar
 Bu makalede, iki tür kuyruk bugün Microsoft Azure tarafından sunulan arasındaki benzerlikleri ve farkları Çözümler: depolama kuyrukları ve Service Bus kuyrukları. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
@@ -65,7 +65,7 @@ Aşağıdaki bölümlerde tablolar kuyruk özellikleri mantıksal bir gruplandı
 ## <a name="foundational-capabilities"></a>Temel özellikleri
 Bu bölümde depolama kuyrukları ve Service Bus kuyrukları ile sağlanan temel sıraya alma özelliklerden bazılarını karşılaştırılmıştır.
 
-| Karşılaştırma ölçütleri | Depolama kuyrukları | Hizmet Veri Yolu kuyrukları |
+| Karşılaştırma ölçütleri | Depolama kuyrukları | Service Bus kuyrukları |
 | --- | --- | --- |
 | Sıralama garantisi |**Hayır** <br/><br>Daha fazla bilgi için ilk Not "Ek bilgileri" bölümüne bakın.</br> |**Evet - ilk-giren ilk çıkar (FIFO)**<br/><br>(ileti oturumları kullanarak) |
 | Teslimi garanti |**En az bir kez** |**En az bir kez**<br/><br/>**En büyük bir kez** |
@@ -97,7 +97,7 @@ Bu bölümde depolama kuyrukları ve Service Bus kuyrukları ile sağlanan temel
 ## <a name="advanced-capabilities"></a>Gelişmiş Özellikler
 Bu bölümde, depolama kuyrukları ve Service Bus kuyrukları tarafından sağlanan gelişmiş özellikleri karşılaştırır.
 
-| Karşılaştırma ölçütleri | Depolama kuyrukları | Hizmet Veri Yolu kuyrukları |
+| Karşılaştırma ölçütleri | Depolama kuyrukları | Service Bus kuyrukları |
 | --- | --- | --- |
 | Zamanlanmış teslim |**Evet** |**Evet** |
 | Otomatik geçersiz yazımın ardından gerçekleşen |**Hayır** |**Evet** |
@@ -128,7 +128,7 @@ Bu bölümde, depolama kuyrukları ve Service Bus kuyrukları tarafından sağla
 ## <a name="capacity-and-quotas"></a>Kapasiteyi ve kotayı
 Bu bölümde, depolama kuyrukları ve Service Bus kuyrukları açısından karşılaştırır [kapasiteyi ve kotayı](service-bus-quotas.md) geçerli olabilir.
 
-| Karşılaştırma ölçütleri | Depolama kuyrukları | Hizmet Veri Yolu kuyrukları |
+| Karşılaştırma ölçütleri | Depolama kuyrukları | Service Bus kuyrukları |
 | --- | --- | --- |
 | En büyük sıra boyutu |**500 TB**<br/><br/>(sınırlı bir [tek bir depolama hesabı kapasitesi](../storage/common/storage-introduction.md#queue-storage)) |**80 GB için 1 GB**<br/><br/>(bir kuyruğun oluşturulduktan sonra tanımlanmış ve [bölümleme etkinleştirme](service-bus-partitioning.md) – "Ek bilgiler" bölümüne bakın) |
 | En büyük ileti boyutu |**64 KB**<br/><br/>(48 kullanırken KB **Base64** kodlaması)<br/><br/>Azure kuyrukları ve blobları – bu noktada, şunları yapabilirsiniz kuyruğa birleştirerek büyük iletileri destekleyen tek bir öğe için en fazla 200 GB. |**256 KB** veya **1 MB**<br/><br/>(hem üst hem de gövde, en fazla üstbilgi boyutu da dahil olmak üzere: 64 KB).<br/><br/>Bağımlı [hizmet katmanı](service-bus-premium-messaging.md). |
@@ -147,7 +147,7 @@ Bu bölümde, depolama kuyrukları ve Service Bus kuyrukları açısından karş
 ## <a name="management-and-operations"></a>Yönetim ve işlemler
 Bu bölümde, depolama kuyrukları ve Service Bus kuyrukları tarafından sağlanan yönetim özellikleri karşılaştırılır.
 
-| Karşılaştırma ölçütleri | Depolama kuyrukları | Hizmet Veri Yolu kuyrukları |
+| Karşılaştırma ölçütleri | Depolama kuyrukları | Service Bus kuyrukları |
 | --- | --- | --- |
 | Yönetim Protokolü |**HTTP/HTTPS üzerinden REST** |**HTTPS üzerinden REST** |
 | Çalışma zamanı Protokolü |**HTTP/HTTPS üzerinden REST** |**HTTPS üzerinden REST**<br/><br/>**AMQP 1.0 Standart (TCP TLS ile)** |
@@ -171,7 +171,7 @@ Bu bölümde, depolama kuyrukları ve Service Bus kuyrukları tarafından sağla
 ## <a name="authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme
 Bu bölümde, depolama kuyrukları ve Service Bus kuyrukları tarafından desteklenen kimlik doğrulama ve yetkilendirme özellikleri açıklanmaktadır.
 
-| Karşılaştırma ölçütleri | Depolama kuyrukları | Hizmet Veri Yolu kuyrukları |
+| Karşılaştırma ölçütleri | Depolama kuyrukları | Service Bus kuyrukları |
 | --- | --- | --- |
 | Kimlik Doğrulaması |**Simetrik anahtar** |**Simetrik anahtar** |
 | Güvenlik modeli |Temsilcili erişim aracılığıyla SAS belirteçleri. |SAS |

@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: c67efa84df2e5eb336d2702fc9c32ffae890d64d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0eec1100c5246bb9f5c281971453ac60abc0339f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034663"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225031"
 ---
 # <a name="web-apps"></a>Web uygulamaları
 
@@ -44,7 +44,7 @@ Web tarayıcısına web uygulaması senaryoları için kod örneklere bakın. Ve
 
 ## <a name="app-registration"></a>Uygulama kaydı
 
-Bir web uygulamasını kaydetmek için bkz: bkz [bir uygulamayı Azure AD'ye v1.0 uç noktası ile kaydetme](quickstart-v1-add-azure-ad-app.md).
+Bir web uygulamasını kaydetmek için bkz: [bir uygulamayı Azure AD'ye v1.0 uç noktası ile kaydetme](quickstart-v1-add-azure-ad-app.md).
 
 * Tek bir Kiracı - yalnızca kuruluşunuz için bir uygulama oluşturuyorsanız, bunu şirketinizin dizininde Azure portalını kullanarak kayıtlı olması gerekir.
 * Multi-kuruluşunuzun dışındaki kullanıcılar tarafından kullanılabilen bir uygulama oluşturuyorsanız tenan -, bunu şirketinizin dizinde kayıtlı olması gerekir, ancak uygulamayı kullanarak her kuruluşun dizininde da kayıtlı olması gerekir. Uygulamanızı directory'lerinde kullanılabilir hale getirme için uygulamanıza onay verme tanıyan müşterileriniz için bir kayıt işlemi dahil edebilirsiniz. Bunlar, uygulamanız için oturum açarken uygulama izinleri gösteren bir iletişim kutusu, ardından onay seçeneği ile sunulur. Gerekli izinlere bağlı olarak diğer kuruluştaki bir yöneticisinin izni vermek için gerekebilir. Kullanıcı veya yönetici onay verdiğinde, uygulama, dizinde kayıtlı.

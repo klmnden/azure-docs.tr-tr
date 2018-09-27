@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: efdded28fa4554bf58399d997bf663781a08755e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9e180e15801a7100349c7334a2452adfeab95500
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714710"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394498"
 ---
 # <a name="about-the-speech-to-text-api"></a>Konuşmayı metne dönüştürme API'si
 
@@ -26,7 +26,7 @@ ms.locfileid: "44714710"
 
 - Gerçek zamanlı sürekli tanıma. **Konuşmayı metne dönüştürme** kullanıcıların gerçek zamanlı olarak metne ses özelliği sağlar. Şu ana kadar tanınan bir kelimelerin Ara sonuçlar alma destekler. Hizmet, konuşma sonu otomatik olarak tanır. Kullanıcılar ayrıca büyük/küçük harf ve noktalama işaretleri, maskeleme küfür ve ters metin normalleştirme dahil olmak üzere ek biçimlendirme seçenekleri tercih edebilirsiniz.
 
-- En iyi duruma getirilmiş **Konuşmayı metne dönüştürme** etkileşimli, konuşma, sonuçları ve dikte senaryoları. 
+- En iyi duruma getirilmiş **Konuşmayı metne dönüştürme** etkileşimli, konuşma, sonuçları ve dikte senaryoları. Tanınan sonuçları Lexical hem de görüntüleme formlarında döndürülür (sözcük sonuçlar için DetailedSpeechRecognitionResult örnekler ya da API bakın).
 
 - Pek çok konuşulan dil ve diyalektler desteği. Her tanıma modunda desteklenen dillerin tam listesi için bkz. [desteklenen diller](supported-languages.md#speech-to-text).
 

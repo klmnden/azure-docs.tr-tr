@@ -2,19 +2,22 @@
 title: Azure SQL veritabanında Query Store çalıştırma
 description: Azure SQL veritabanında Query Store çalışması hakkında bilgi edinin
 services: sql-database
-author: bonova
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 37cb77b6738ba1354034dcf77d22a19b96c4ef23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 8795930c6b676e7e710f112e8d9eedd6ab9084b5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903107"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164574"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Azure SQL veritabanında Query Store çalıştırma
 Query Store azure'da sürekli olarak toplayan ve tüm sorguları hakkında ayrıntılı geçmiş bilgiler sunan bir tam olarak yönetilen veritabanı özelliğidir. Query Store hakkında önemli ölçüde kolaylaştırır hem de bulut için sorun giderme sorgu performansı ve şirket içinde müşteriler uçak 's uçuş veri Kaydedicisi benzer olarak düşünebilirsiniz. Bu makalede, azure'da Query Store işletim belirli yönlerini açıklar. Bu önceden toplanan verileri kullanarak, hızlı bir şekilde tanılayın ve performans sorunlarını ve böylece kendi işletmelerini odaklanarak daha fazla zaman ayırıyor. 
@@ -54,6 +57,6 @@ Daha fazla bilgi için geçirin makaleleri:
 
 * [Veritabanınız için uçuş verileri Kaydedici](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database) 
 * [Query Store kullanarak performans izleme](https://msdn.microsoft.com/library/dn817826.aspx)
-* [Query Store kullanım senaryoları](https://msdn.microsoft.com/library/mt614796.aspx)
+* [Query Store Kullanım Senaryoları](https://msdn.microsoft.com/library/mt614796.aspx)
  
 

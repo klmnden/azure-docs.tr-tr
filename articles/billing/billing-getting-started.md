@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: tonguyen
-ms.openlocfilehash: 9396e954305ecc9ff6cbdd664c6cb71846bd5bfa
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: d17215fe05a4795bd539759d98695ec2f6b0df3d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919135"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393511"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen ücretlerden
 
@@ -33,7 +33,7 @@ Azure için kaydolduğunuzda, harcamalarınızı hakkında daha iyi bir fikir ed
 - İçin imzaladıysanız [ücretsiz Azure hesabı](https://azure.microsoft.com/free/), [bazı en popüler Azure Hizmetleri 12 ay boyunca ücretsiz kullanabileceğiniz](billing-create-free-services-included-free-account.md). Aşağıda listelenen öneriler birlikte bkz [ücretsiz hesap ücret önlemek](billing-avoid-charges-free-account.md).
 
 > [!div class="nextstepaction"]
-> [Azure faturalama belgeleri geliştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
+> [Azure faturalama belgelerinin iyileştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Azure Hizmetleri eklemeden önce tahmini maliyetleri alın
 
@@ -138,7 +138,7 @@ Daha fazla bilgi için [Advisor maliyet önerileri](../advisor/advisor-cost-reco
 
 Faturalandırma döngünüz sonunda faturanızı kullanılabilir hale gelir. Ayrıca [faturalar indirin ve ayrıntılı kullanım dosyalarını](billing-download-azure-invoice-daily-usage-date.md) herhangi bir ücret doğru emin olmak için. Günlük kullanımınızla faturanızı ile karşılaştırması hakkında daha fazla bilgi için bkz. [Microsoft Azure için faturanızı anlayın bölümü](billing-understand-your-bill.md).
 
-### <a name="billing-api"></a>Faturalandırma API’si
+### <a name="billing-api"></a>Faturalama API’si
 
 Program aracılığıyla kullanım verilerini almak için fatura API'mizi kullanın. RateCard API'si ve kullanım API'si faturalandırılan kullanım almak için birlikte kullanın. Daha fazla bilgi için [Microsoft Azure kaynak tüketiminize öngörü](billing-usage-rate-card-overview.md).
 

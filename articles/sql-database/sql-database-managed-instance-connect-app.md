@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 2228f4664acc8fd63c781897ef77ccd0197c0d7d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f57d582aacad568811314494c0ed614839ccabba
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161472"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221749"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Uygulamanızı Azure SQL Veritabanı Yönetilen Örneği'ne bağlayın
 
@@ -60,7 +60,7 @@ Yönetilen örnek, yalnızca özel bir IP adresi erişilebilir. Şirket içinden
 Yönetilen örnek yalnızca özel bir IP adresi, geliştirici kutusundan erişmek için bu nedenle erişilebilir, önce Geliştirici box'ınızı ve yönetilen örnek VNet arasında bir bağlantı yapmanız gerekir. Bunu yapmak için yerel Azure sertifika doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırın. Daha fazla bilgi için [şirket içi bilgisayardan bir Azure SQL veritabanı yönetilen örneğine bağlanmak için noktadan siteye bağlantı yapılandırma](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="connect-from-on-premises-with-vnet-peering"></a>Şirket içinden sanal ağ eşlemesi ile bağlanma
-Müşteriler tarafından uygulanan başka bir VPN ağ geçidi ayrı bir sanal ağ ve bir abonelikten bir barındırma yönetilen örneği, yüklü olduğu bir senaryodur. İki sanal etworks ardından eşlenmiş. Aşağıdaki örnek mimarisi diyagramı gösterildiği nasıl olabileceğini uygulanmalıdır.
+Müşteriler tarafından uygulanan başka bir VPN ağ geçidi ayrı bir sanal ağ ve bir abonelikten bir barındırma yönetilen örneği, yüklü olduğu bir senaryodur. İki sanal etworks ardından eşlenmiş. Aşağıdaki örnek mimarisi diyagramı, bunu nasıl uygulanabileceği gösterilmektedir.
 
 ![VNet eşlemesi](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 

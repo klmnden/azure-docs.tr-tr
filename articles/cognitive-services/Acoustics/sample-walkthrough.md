@@ -9,19 +9,19 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b738cc2fc7db6987b8f4ad54a2c53cc9e69989b3
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: e0c28645de8c45aaf89afb6b5116aa9a3cb04768
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181739"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227512"
 ---
 # <a name="unity-sample-walkthrough"></a>Unity için izlenecek örnek yol
 Proje akustik örnek bir kılavuz budur. Hangi proje akustik hakkında daha fazla bilgi için kullanıma [proje akustik giriş](what-is-acoustics.md). Önceden varolan bir Unity proje için proje akustik paket ekleme daha fazla yardım almak için kullanın [Başlarken kılavuzunda](getting-started.md).
 
 ## <a name="requirements-for-running-the-sample-project"></a>Örnek projeyi çalıştırmak için gereksinimler
 * Unity 2018.2 .NET 4.x komut dosyası çalışma zamanı sürümü kullanılarak +,
-* Windows 64-bit Unity Düzenleyicisi
+* Windows 64 bit Unity Düzenleyicisi
 * Windows Masaüstü, UWP ve baş monte görüntüler (HMDs) dahil olmak üzere Android hedefleri örneği destekler.
 * Azure Batch aboneliği Hazırlama işlemi için gereklidir
 
@@ -43,7 +43,7 @@ Unity editor denetimindeki yürütme düğmesine tıklayarak Sahne nasıl ses i�
 ![VR etkinleştir](media/VRSupport.png)  
 
 VR kulaklık bilgisayarınıza bağlayın. Git **Dosya > Yapı ayarları**, tıklatıp **derleme ve çalıştırma** VR kendi kulaklık örnek dağıtmak için. İçin kendi kulaklık hareket denetleyicileri kullanarak Sahne gezinmek ya da kullanmayı deneyin W, A, S, klavyedeki D.    
-Android ve Oculus Git hedeflemek için Android seçin **Build Settings** menüsü. Tıklayın **geçiş hedef**, ardından **derleme ve çalıştırma**. Bu örnek Sahne bağlı Android cihazınıza dağıtır. Android için Unity geliştirme hakkında bilgi için bkz [Unity belgeleri](https://docs.unity3d.com/Manual/android-GettingStarted.html).
+Android ve Oculus Git hedeflemek için Android seçin **Build Settings** menüsü. Tıklayın **geçiş hedef**, ardından **derleme ve çalıştırma**. Bu örnek Sahne bağlı Android cihazınıza dağıtır. Android için Unity geliştirme hakkında daha fazla bilgi için bkz: [Unity belgeleri](https://docs.unity3d.com/Manual/android-GettingStarted.html).
 
 ![Hedef Android](media/TargetAndroid.png)  
 

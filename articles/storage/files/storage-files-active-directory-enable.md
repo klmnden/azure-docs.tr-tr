@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: tamram
-ms.openlocfilehash: 31bfcd99e23cc7fe0575a293e3dc22507dbd9e13
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec8ad5a509b4fd4b6fd59212ac0df17f98f417fd
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973278"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222446"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Active Directory kimlik doğrulaması SMB üzerinden Azure dosyaları (Önizleme) için etkinleştirin.
 
@@ -103,8 +103,6 @@ Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
 ```
 
 **CLI**
-
-"Bu, önce depolama Önizleme uzantısını ekleyin ve ardından örnek bDüşük izleyin gerekir. Yer tutucu değerlerini kendi değerlerinizle değiştirmeyi unutmayın. Bu makalede Azure CLI uzantılar ekleme hakkında daha fazla bilgi için bkz."
 
 Azure CLI 2.0 SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirmek için önce yükleme *depolama Önizleme* uzantısı:
 
@@ -274,7 +272,7 @@ Ardından, Azure dosya paylaşımını bağlamak için aşağıdaki komutu kulla
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
 ```
 
-Artık başarıyla SMB üzerinden Azure AD kimlik doğrulaması etkin ve bir Azure AD kimlik için bir dosya paylaşımına erişim sağlayan bir özel rolü atanmış. Ek kullanıcılar için dosya paylaşımına erişim izni vermek için 2. adımda verilen yönergeleri izleyin.
+Artık başarıyla SMB üzerinden Azure AD kimlik doğrulaması etkin ve bir Azure AD kimlik için bir dosya paylaşımına erişim sağlayan bir özel rolü atanmış. Ek kullanıcılar için dosya paylaşımına erişim izni vermek için 2 ve 3. adımda verilen yönergeleri izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

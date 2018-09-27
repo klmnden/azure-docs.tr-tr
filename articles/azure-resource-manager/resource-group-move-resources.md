@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0970f5d4e61a40df7454cc850e59d86708d4aa1c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: cf7d3df6d2e419a700b0be74da3fe2edc5ac24e1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159116"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393290"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -274,7 +274,29 @@ Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNames
 ```
 
 ```azurecli-interactive
-az feature register Microsoft.Compute ManagedResourcesMove
+az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+```
+
+Kayıt isteğinin durumunu başlangıçta döndürür `Registering`. Geçerli durumuyla denetleyebilirsiniz:
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+```
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+```
+
+Durumu değiştirmek birkaç dakika bekleyin `Registered`.
+
+Özellik kaydedildikten sonra kaydetme `Microsoft.Compute` kaynak sağlayıcısı. Daha önce kaynak sağlayıcısına kayıtlı olsa bile bu adımı gerçekleştirin.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
 ```
 
 Bu destek, ayrıca geçiş yapabileceğiniz anlamına gelir:
@@ -289,7 +311,7 @@ Henüz desteklenmeyen bazı kısıtlamalar şunlardır:
 * Key Vault'ta depolanan bir sertifika ile sanal makineler için yeni bir kaynak grubu ile aynı abonelikte ancak değil, abonelikler arasında taşınabilir.
 * Azure Backup ile yapılandırılmış sanal makineler. Kullanım bu sanal makineleri taşımak için geçici çözüm aşağıda
   * Sanal makinenizi konumunu bulun.
-  * Aşağıdaki adlandırma deseni ile bir kaynak grubunu bulun: `AzureBackupRG_<location of your VM>_1` örn AzureBackupRG_westus2_1
+  * Aşağıdaki adlandırma deseni ile bir kaynak grubunu bulun: `AzureBackupRG_<location of your VM>_1` örneğin AzureBackupRG_westus2_1
   * Azure portalında, ardından onay "gizli türleri Göster ise"
   * PowerShell'de varsa, kullanmak `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet'i
   * CLI, kullanın `az resource list -g AzureBackupRG_<location of your VM>_1`

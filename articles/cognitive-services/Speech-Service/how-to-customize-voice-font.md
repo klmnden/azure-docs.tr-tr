@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 042216d03749273c590ce5ba812f7a6d609f8e83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4219878673bbb3560ca13f09eb0fde940b2b17e3
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987919"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222769"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 
@@ -25,9 +25,7 @@ Az miktarda bir kavram kanıtı için verileri ile başlayabilirsiniz. Ancak dah
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-**Metin okuma** ses özelleştirme özelliği şu anda özel Önizleme aşamasındadır. [Uygulama formu doldurun](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) erişim için kabul edilmesi için.
-
-Ayrıca bir Azure hesabı ve konuşma hizmeti için bir abonelik gerekir. [Bir oluşturma](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) henüz yapmadıysanız. Aboneliğinizi şu şekilde özel sesli Portalı'na bağlanın.
+Bir Azure hesabı ve konuşma hizmeti için bir abonelik gerekir. [Bir oluşturma](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) henüz yapmadıysanız. Aboneliğinizi şu şekilde özel sesli Portalı'na bağlanın.
 
 1. Oturum [özel sesli portalı](https://customvoice.ai) uygulamak için kullandığınız erişim için aynı Microsoft hesabını kullanarak.
 
@@ -35,16 +33,13 @@ Ayrıca bir Azure hesabı ve konuşma hizmeti için bir abonelik gerekir. [Bir o
 
     ![Abonelikler](media/custom-voice/subscriptions.png)
 
-3. 'Subscriptions' sayfasında 'Connect mevcut aboneliği' seçin.
+3. 'Subscriptions' sayfasında 'Connect mevcut aboneliği' seçin. Konuşma Hizmetleri farklı bölgelerdeki desteklediğini unutmayın. Abonelik anahtarınız bir nerede oluşturulacağını bölgeyi denetleyin ve doğru alt portala anahtarınızı bağlandığınızdan emin olun.  
 
 4. Abonelik anahtarınız, aşağıda gösterildiği gibi tablosu içine yapıştırın. Her aboneliğin iki anahtarı vardır ve bunlardan birini kullanabilir.
 
      ![Abonelik Ekle](media/custom-voice/add-subscription.png)
 
 Başlamaya hazırsınız!
-
-> [!IMPORTANT]
-> Özel önizleme aşamasında abonelikler, özel sesli özelliğini kullanmak için izin verilenler listesinde olmalıdır. Sayfasında, abonelik beyaz listeye almak için adımları izleyin.
 
 ## <a name="prepare-recordings-and-transcripts"></a>Kayıtları ve dökümler hazırlama
 
@@ -232,4 +227,4 @@ Ses özelleştirme ABD İngilizce (en-US), ana kara Çince (zh-CN) ve İtalyanca
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
-- [C# ' de Konuşma tanıma](quickstart-csharp-dotnet-windows.md)
+- [Ses örneklerinizi kaydedin](record-custom-voice-samples.md)

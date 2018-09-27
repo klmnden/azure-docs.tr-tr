@@ -2,21 +2,22 @@
 title: Azure SQL veritabanı yönetilen örneği'ne genel bakış | Microsoft Docs
 description: Bu konu Azure SQL veritabanı yönetilen örneği ve nasıl çalıştığını ve nasıl tek bir veritabanının Azure SQL veritabanı'nda farklı olduğunu açıklar.
 services: sql-database
-author: bonova
-ms.reviewer: carlrab
-manager: craigg
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: DBs & servers
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 711a076409ed1d90c197bbf97a6e15144c0a4d38
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/26/2018
+ms.openlocfilehash: 626dd362248027831c78d1505662ca12d2ff334d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956634"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392831"
 ---
 # <a name="what-is-a-managed-instance"></a>Yönetilen örnek nedir?
 
@@ -205,7 +206,10 @@ Yetkilendirme hangi kullanıcının bir Azure SQL veritabanında yapabilir ve ku
 Azure blob depolama için yedeklemeleri SQL geçiş yaklaşımı yararlanır. Azure depolama blobu'nda depolanan yedeklemeler doğrudan geri yükleyebilirsiniz yönetilen örneğe kullanarak [T-SQL RESTORE komutunu](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
   - Wide World Importers - standart veritabanı yedek dosyasını geri yükleme işlemini gösteren Hızlı Başlangıç için bkz. [yönetilen örneğe yedek dosyayı geri](sql-database-managed-instance-get-started-restore.md). Bu hızlı başlangıçta, Azure Web günlüğü depolama ve güvenli bir paylaşılan erişim imzası (SAS) anahtarı kullanarak bir yedekleme dosyası karşıya yüklemeniz gösterilmektedir.
   - URL'den geri yükleme hakkında daha fazla bilgi için bkz. [yerel geri URL'den](sql-database-managed-instance-migrate.md#native-restore-from-url).
-  
+
+> [!IMPORTANT]
+> Bir yönetilen örnek yedeklerden yalnızca başka bir yönetilen örneğe geri yüklenebilir. Bunlar, bir şirket içi SQL Server'a veya tek veya havuza alınmış Azure SQL veritabanı mantıksal sunucusu veritabanına geri yüklenemez.
+
 ### <a name="data-migration-service"></a>Veri geçiş hizmeti
 
 Azure veritabanı geçiş hizmeti, birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure Data platformlarına sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir. Bu hizmeti mevcut üçüncü taraf ve SQL Server veritabanlarını Azure'a taşımak için gereken görevleri kolaylaştırır. Dağıtım seçenekleri Azure VM'de genel Önizleme sırasında Azure SQL veritabanı yönetilen örneği ve SQL Server'ı içerir. Bkz: [DMS kullanarak yönetilen örneği'ne şirket içi veritabanınızı geçirme](https://aka.ms/migratetoMIusingDMS).
@@ -233,7 +237,7 @@ Yönetilen örnek avantajları engeller her zaman yukarı-başından bu yana bul
 
 ### <a name="managed-instance-administration-features"></a>Yönetilen örnek yönetim özellikleri  
 
-Örnek etkinleştirme Sistem Yöneticisi, iş için en önemli şeylere odaklanmak için yönetilen. Birçok sistem yönetici/DBA etkinlikleri gerekli değildir veya bunların basittir. Örneğin, işletim sistemi / RDBMS yükleme ve düzeltme eki uygulama, dinamik örnek yeniden boyutlandırma ve yapılandırma, yedekleme, veritabanı çoğaltması (sistem veritabanları dahil olmak üzere), yüksek kullanılabilirlik yapılandırması ve sistem durumu ve performans izleme verilerini yapılandırma akışları. 
+Örnek etkinleştirme Sistem Yöneticisi, iş için en önemli şeylere odaklanmak için yönetilen. Birçok sistem yönetici/DBA etkinlikleri gerekli değildir veya bunların basittir. Örneğin, işletim sistemi / RDBMS yükleme ve düzeltme eki uygulama, dinamik boyutlandırma ve yapılandırması, yedekleme, örnek [veritabanı çoğaltması](replication-with-sql-database-managed-instance.md) (sistem veritabanları dahil olmak üzere), yüksek kullanılabilirlik yapılandırması ve yapılandırma sistem durumu ve performans veri akışları. 
 
 > [!IMPORTANT]
 > Desteklenen, kısmen desteklenen ve desteklenmeyen özelliklerin bir listesi için bkz. [SQL veritabanı özellikleri](sql-database-features.md). SQL Server yerine yönetilen örneğinde T-SQL farklılıkları listesi için bkz [SQL Server'dan yönetilen örnek T-SQL farklılıkları](sql-database-managed-instance-transact-sql-information.md)

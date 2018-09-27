@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 1e0d8358519ae53875e63de9975d0b2b0ce588cf
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 9408323e58ec4df8ca806aea39fdf40c2ddb8a4f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182085"
+ms.locfileid: "47226776"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware’den Azure’a senaryosu için Azure Site Recovery dağıtım planlayıcısını çalıştır
 Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
@@ -269,7 +269,7 @@ Aktarım hızı belirli bir zaman noktasında ölçülür ve diğer tüm faktör
 
 ### <a name="example"></a>Örnek
 ```
-ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_ProfiledData -Virtualization VMware -VMListFile E:\vCenter1_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 >[!NOTE]

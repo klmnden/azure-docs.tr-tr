@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5ded04f564439be332152bfad0fc571fe8eaf8c2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5bc1e0faf01125f498eb339bba841b96f6de9d82
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720982"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181813"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Amazon hesabıyla kaydolma ve oturum açma ayarlama
 
@@ -34,10 +34,7 @@ Amazon hesabınız Azure Active Directory (Azure AD) B2C'de kimlik sağlayıcıs
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Bir Amazon hesap kimlik sağlayıcısı olarak yapılandırın
 
 1. Oturum [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel Yöneticisi olarak.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme. 
-
-    ![Azure AD B2C kiracınıza geçiş yapma](./media/active-directory-b2c-setup-amzn-app/switch-directories.png)
-
+2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.
 5. Girin bir **adı**. Örneğin, *Amazon*.

@@ -2,20 +2,22 @@
 title: Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları | Microsoft Docs
 description: Bu makalede, Azure SQL veritabanı yönetilen örneği SQL Server arasındaki T-SQL farklılıkları açıklar.
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: carlrab, bonova
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/13/2018
+author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: carlrab, bonova
 manager: craigg
-ms.openlocfilehash: c23fbf0af7d1a15b0efee8af123150feb42c708e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 08/13/2018
+ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966930"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166512"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları 
 
@@ -89,7 +91,7 @@ Dosyaları Azure blob depolama alanından içeri aktarılmalıdır şekilde yön
  
 ### <a name="certificates"></a>Sertifikalar 
 
-Aşağıdaki kısıtlamalar uygulamak için yönetilen örnek, dosya paylaşımları ve Windows klasörleri erişilemiyor: 
+Yönetilen Örnek, Windows klasörlerindeki dosya paylaşımlarına erişemediğinden aşağıdaki kısıtlamalar geçerli olacaktır: 
 - `CREATE FROM`/`BACKUP TO` dosya için sertifikalar desteklenmiyor
 - `CREATE`/`BACKUP` gelen sertifika `FILE` / `ASSEMBLY` desteklenmiyor. Özel anahtar dosyaları kullanılamaz.  
  
@@ -106,7 +108,7 @@ WITH PRIVATE KEY ( <private_key_options> )
  
 ### <a name="clr"></a>CLR 
 
-Aşağıdaki kısıtlamalar uygulamak için yönetilen örnek, dosya paylaşımları ve Windows klasörleri erişilemiyor: 
+Yönetilen Örnek, Windows klasörlerindeki dosya paylaşımlarına erişemediğinden aşağıdaki kısıtlamalar geçerli olacaktır: 
 - Yalnızca `CREATE ASSEMBLY FROM BINARY` desteklenir. Bkz: [ikili oluşturma DERLEMESİNDEN](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` desteklenmiyor. Bkz: [Oluştur derleme DOSYASINDAN](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` dosyaları başvuruda bulunamaz. Bkz: [ALTER derleme](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).

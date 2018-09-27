@@ -4,14 +4,14 @@ description: Azure geçişi hizmeti ve sorun giderme ipuçları için sık karş
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/24/2018
 ms.author: raynew
-ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ca0931810fd78ce4cc684ad307efeb866cee3353
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126373"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165306"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -34,6 +34,12 @@ Disk ve ağ performans verileri toplamayı etkinleştirmek için istatistik ayar
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Yüklenen aracıları ve bağımlılık görselleştirmesi grupları oluşturmak için kullanılan bildirimi. Şimdi yük devretme, "aracı yükleme" eylem "Bağımlılıkları görüntüle" yerine makineleri Göster gönderin.
 * POST planlanmış veya planlanmamış yük devretme, şirket içi makineleri kapatılır ve eşdeğer makineler çalışmaya Azure'da başlar. Bu makineler, farklı bir MAC adresi alın. Bunlar olup kullanıcı veya şirket içi IP adresi korumak seçiminize bağlı olarak farklı bir IP adresi al. MAC ve IP adresleri farklıysa, Azure geçişi ile herhangi bir hizmet eşlemesi bağımlılık verileri şirket içi makinelerin ilişkilendirmez ve bağımlılıklarını görüntüleme yerine aracıları yüklemek için kullanıcıya sorar.
 * Test yük devretme sonrası beklendiği gibi şirket içi makineleri açık kalır. Azure'da küme çalışmaya başladıktan eşdeğer makineler farklı MAC adresini ve farklı IP adresini almanızdan. Kullanıcı bu makinelerden giden Log Analytics trafiği engeller sürece, Azure geçişi şirket içi makineler hiçbir hizmet eşlemesi bağımlılık verilerle ilişkilendirmez ve bağımlılıklarını görüntüleme yerine aracıları yüklemek için kullanıcıya sorar.
+
+### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Ben Azure coğrafyası, bir geçiş projesi olduğunu nasıl bulabilirim burada bulunan meta verileri depolanan tam Azure bölgesinde oluşturulurken belirtilen?
+
+Gidebilirsiniz **Essentials** konusundaki **genel bakış** meta verilerin depolandığı konumun tam tanımlamak için proje sayfası. Konumun Azure geçişi tarafından coğrafyada rastgele seçilir ve üzerinde değişiklik yapamazsınız. Yalnızca belirli bir bölgede bir proje oluşturmak istiyorsanız, geçiş projesi oluşturabilir ve istediğiniz bölgeyi geçirmek için REST API'lerini kullanabilirsiniz.
+
+   ![Proje konumu](./media/troubleshooting-general/geography-location.png)
 
 ## <a name="collector-errors"></a>Toplayıcı hataları
 
@@ -102,6 +108,37 @@ Sorunu hala en son sürümde olursa, Toplayıcı makinesi belirtilen bağlantı 
 2. 1 adım başarısız olursa, IP adresi üzerinden vCenter Server’a bağlanmayı deneyin.
 3. vCenter’a bağlanmak için doğru bağlantı noktasını belirleyin.
 4. Son olarak vCenter Server’ın çalışır durumda olup olmadığını denetleyin.
+
+## <a name="troubleshoot-dependency-visualization-issues"></a>Bağımlılık görselleştirme sorunlarını giderme
+
+### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Şirket içi Vm'lerimi Microsoft Monitoring Agent (MMA) ve bağımlılık aracısını yükledim ancak bağımlılıkları artık Azure geçişi Portalı'nda gösterildiğini.
+
+Aracıları yükledikten sonra Azure geçişi Portalı'nda bağımlılıkları görüntülemek için 15-30 dakika genellikle alır. 30 dakikadan uzun süre bekledi, MMA aracısını takip ederek OMS çalışma alanına konuşabilir olmasına aşağıdaki adımları:
+
+Windows VM için:
+1. Git **Denetim Masası** ve başlatma **Microsoft İzleme Aracısı**
+2. Git **Azure Log Analytics (OMS)** açılır MMA özelliklerinde sekmesi
+3. Emin **durumu** çalışma yeşil için.
+4. Durum yeşil, değilse çalışma alanı kaldırıp MMA için yeniden eklemeyi deneyin.
+        ![MMA durumu](./media/troubleshooting-general/mma-status.png)
+
+Linux VM için MMA ve bağımlılık aracısını yükleme komutlarını başarılı olun.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>MMA'yı tarafından desteklenen işletim sistemleri nelerdir?
+
+MMA'yı tarafından desteklenen Windows işletim sistemleri listesi [burada](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+MMA'yı tarafından desteklenen Linux işletim sistemleri listesi [burada](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Bağımlılık aracısı tarafından desteklenen işletim sistemleri nelerdir?
+
+Bağımlılık aracısı tarafından desteklenen Windows işletim sistemleri listesi [burada](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+Bağımlılık aracısı tarafından desteklenen Linux işletim sistemleri listesi [burada](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Bir saat süresinden daha fazla bilgi için Azure Geçişi'ndeki bağımlılıkları görselleştirin oluşturamıyorum?
+Azure geçişi en fazla bir saatlik süre için bağımlılıklar görmenize olanak tanır. Azure geçişi belirli bir tarihe kadar son bir ay için geçmişte dönün olanak tanısa da için bağımlılıkları görselleştirebilirsiniz en fazla süre 1 saate kadar ' dir. Örneğin, Dün için bağımlılıkları görüntülemek için bağımlılık Haritası saati süresi işlevleri kullanabilirsiniz ancak yalnızca bir için bir saat penceresinde görüntüleyebilirsiniz.
+
+### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>10'dan fazla Vm'leri gruplar için bağımlılıkları görselleştirme oluşturamıyorum?
+Yapabilecekleriniz [grupları için bağımlılıkları görselleştirme](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) sahip yukarı 10 VM için 10'dan fazla vm'lerle grubunuz varsa öneririz, grupta küçük kullanıcı gruplarına bölün ve bağımlılıklarını görselleştirin.
 
 ## <a name="troubleshoot-readiness-issues"></a>Hazır olma durumu sorunlarını giderme
 

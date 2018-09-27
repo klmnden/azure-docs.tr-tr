@@ -4,7 +4,7 @@ description: 'Bu konuda, bir şirket içi Kodlayıcı tek bit hızlı canlı ak�
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061137"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222072"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services aracılığıyla canlı akış gerçekleştirerek çoklu bit hızına sahip akışlar oluşturma
 
@@ -166,7 +166,7 @@ Bir kanalın giriş uç noktası sağlar (alma URL'si) Kodlayıcı gönderebilir
 
 Bir kanal oluşturduktan sonra içe alma URL'lerini alabilirsiniz. Bu URL'leri almak için kanal olması gerekmez **çalıştıran** durumu. Kanal veri göndermeye başlamak için hazır olduğunuzda olmalıdır **çalıştıran** durumu. Veri alma kanal başladıktan sonra akışınızı Önizleme URL yoluyla önizleyebilirsiniz.
 
-Parçalanmış MP4 almak bir seçeneğiniz vardır (kesintisiz akış) canlı akış bir SSL bağlantısı üzerinden. SSL üzerinden alımı için alma URL'si için HTTPS güncelleştirdiğinizden emin olun. Şu anda AMS SSL ile özel etki alanları, desteklemez.  
+Parçalanmış MP4 almak bir seçeneğiniz vardır (kesintisiz akış) canlı akış bir SSL bağlantısı üzerinden. SSL üzerinden alımı için alma URL'si için HTTPS güncelleştirdiğinizden emin olun. Şu anda AMS SSL ile özel etki alanlarını desteklemiyor.  
 
 ### <a name="allowed-ip-addresses"></a>İzin verilen IP adresleri
 Bu kanala video yayımlamasına izin verilen IP adreslerini tanımlayabilirsiniz. İzin verilen IP adresleri tek IP bir IP adresi kullanarak bir IP aralığı (örneğin, '10.0.0.1'), adresi ve CIDR alt ağ maskesi (örneğin, ' 10.0.0.1/22') veya bir IP aralığı (örneğin bir IP adresi ve noktalı ondalık alt ağ maskesi kullanılarak belirtilebilir. , ' 10.0.0.1(255.255.252.0)').

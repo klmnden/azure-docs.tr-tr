@@ -10,14 +10,14 @@ ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ec006d8941d8832d139a09b1e8af13000ff5a43e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f4b267dda3c05d490d91fe02fbcfde4e49674603
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040712"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166410"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Öğretici: 3. Ortak ifade biçimleri ekleme
+# <a name="tutorial-3-add-common-utterance-formats"></a>Öğretici 3: ortak utterance biçimleri ekleme
 
 Bu öğreticide, desenleri daha az örnek konuşma sağlarken amacı ve varlık tahmin artırmak için kullanın. Desen, varlıkları ve Ignorable metin tanımlamak için söz dizimi içeren bir şablon utterance örnek olarak sağlanır. Bir desen eşleme ifadesinde ve makine öğrenimi birleşimidir.  Şablon utterance örnek hedefi konuşma yanı sıra, amaç hangi konuşma uygun daha iyi LUIS verin. 
 

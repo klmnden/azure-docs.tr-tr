@@ -1,6 +1,6 @@
 ---
-title: Bir Cassandra küme Linux Azure üzerinde adresinden node.js'yi çalıştırın.
-description: Cassandra küme Linux Azure Virtual Machines'de bir Node.js uygulamasını çalıştırma
+title: Bir Cassandra kümesi azure'da Linux üzerinde Node.js ile çalıştırın.
+description: Azure sanal Makineler'de Linux üzerinde Node.js uygulamasından bir Cassandra kümesi çalıştırmayı öğrenin
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: craigshoemaker
@@ -15,105 +15,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: b1945c68f0e320c834ae93a590f420403263a0fd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: d99c9732bb1bf494b87d2073ba002264c7a51634
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098949"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221256"
 ---
-# <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Node.js ile Azure Linux üzerinde bir Cassandra küme çalıştırın
+# <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Azure'da Node.js ile Linux üzerinde bir Cassandra kümesi çalıştırın
 
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager şablonları için bkz: [Datastax Kurumsal](https://azure.microsoft.com/documentation/templates/datastax) ve [Spark küme ve Cassandra CentOS üzerinde](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager şablonları için [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) ve [CentOS üzerinde Küme ve Cassandra Spark](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
 ## <a name="overview"></a>Genel Bakış
-Microsoft Azure, hem Microsoft hem de işletim sistemleri, uygulama sunucuları, ileti Ara yanı sıra NoSQL ve SQL veritabanlarını hem ticari ve açık kaynak modellerinden Microsoft dışı yazılımlar çalışan bir açık bulut platformudur. Azure dahil olmak üzere genel Bulutları dayanıklı hizmetler oluşturma dikkatli planlama ve kasıtlı mimarisi iyi depolama katmanları olarak hem uygulama sunucuları için gerektirir. Doğal olarak Cassandra'nın dağıtılmış depolama mimarisi hataya dayanıklı küme hataları için yüksek oranda kullanılabilir sistemlerini oluşturmaya yardımcı olur. Cassandra bulut ölçeği cassandra.apache.org Apache yazılım Foundation tarafından tutulan NoSQL veritabanı değil. Cassandra Java'da yazılmış olmalıdır. Bu nedenle hem Windows ve Linux platformlarında çalışır.
+Microsoft Azure, hem Microsoft hem de işletim sistemleri, uygulama sunucuları, Mesajlaşma bir ara yazılım yanı sıra SQL ve NoSQL veritabanlarından hem ticari hem de açık kaynak modelleri içeren Microsoft olmayan yazılımları çalıştıran bir açık bir bulut platformudur. Azure dahil olmak üzere genel bulutlarda dayanıklı hizmetler derleme süreci dikkatlice planlanmalı ve bilinçli mimari iyi depolama katmanları olarak hem uygulama sunucuları için gerektirir. Cassandra'nın dağıtılmış depolama mimarisi doğal olarak hataya dayanıklı küme hataları için yüksek oranda kullanılabilir sistemlerini oluşturmaya yardımcı olur. Cassandra bulut ölçeğinde NoSQL veritabanı cassandra.apache.org Apache Software Foundation tarafından tutulan ' dir. Cassandra Java dilinde yazılır. Bu nedenle hem de Windows ve Linux platformlarında çalışır.
 
-Bu makaleyi odağını, Azure sanal makineler ve sanal ağlar kullanan tek ve birden çok veri merkezi küme olarak Ubuntu üzerinde Cassandra dağıtım göstermektir. Küme dağıtımı en iyi duruma getirilmiş üretim iş yükleri için birden çok disk düğüm yapılandırması, uygun halka topolojisi tasarımı ve gerekli çoğaltma, veri tutarlılığı, üretilen iş ve yüksek desteklemek için modelleme verileri gerektirir, bu makalenin kapsamı dışında aynıdır Kullanılabilirlik gereksinimleri.
+Bu makalenin odak noktası, Azure sanal Makineler'i ve sanal ağları kullanan bir tek ve çoklu veri merkezi kümesi Ubuntu'da Cassandra dağıtımı göstermektir. Küme dağıtımı için iyileştirilmiş üretim iş yükleri için çok disk düğüm yapılandırması, uygun halka topolojisi tasarımı ve gerekli çoğaltma, veri tutarlılığı, aktarım hızı ve yüksek desteklemek için modelleme verileri gerektirir, bu makalenin kapsamı dışında aynıdır Kullanılabilirlik gereksinimleri.
 
-Ne göstermek için temel bir yaklaşım Cassandra küme oluşturma ile ilgili bu makalede alır, Docker, Chef veya altyapı dağıtımı çok kolaylaştırabilir Puppet karşılaştırılan.  
+Göstermek için temel bir yaklaşım Cassandra kümesi oluşturma ile ilgili bu makale alır karşılaştırıldığında, Docker, Chef veya Puppet, altyapı dağıtımı çok daha kolay hale getirebilirsiniz.  
 
 ## <a name="the-deployment-models"></a>Dağıtım modelleri
-Microsoft Azure ağ erişimini hassas ağ güvenliği elde kısıtlanabilir yalıtılmış özel kümeleri dağıtımını sağlar.  Bu makalede temel düzeyde Cassandra dağıtım gösteren ilgili olduğundan, tutarlılık düzeyi ve verimlilik için en iyi depolama tasarımı odağı değil. Ağ gereksinimleri kuramsal kümesi için listesi aşağıdadır:
+Microsoft Azure ağ erişimi ayrıntılı ağ güvenliği elde etmek için sınırlı yalıtılmış özel kümeleri dağıtımını sağlar.  Bu makalede temel düzeyde Cassandra dağıtımı gösteren ilgili olduğundan, tutarlılık düzeyi ve aktarım hızı için en uygun depolama tasarımı üzerinde odaklanın değil. Aşağıda, kuramsal bir küme için ağ gereksinimleri listesi verilmiştir:
 
-* Dış sistemler Cassandra veritabanından içinde veya Azure dışına erişemiyor
-* Cassandra küme thrift trafiği için yük dengeleyici arkasında olması gerekir
-* Her veri merkezinde bir Gelişmiş küme kullanılabilirlik için iki grup Cassandra düğümler dağıtma
-* Uygulama sunucusu grubu veritabanına doğrudan erişimi yalnızca kümeyi bu nedenle, kilitleme
-* Ortak ağ uç nokta SSH dışında
-* Her Cassandra düğümü sabit bir iç IP adresi gerekiyor
+* Dış sistemler Cassandra veritabanı içinde veya Azure dışına erişemiyor
+* Cassandra kümesi thrift trafiği için bir yük dengeleyicinin arkasına olması gerekir
+* Her veri merkezinde bir Gelişmiş küme kullanılabilirlik için iki gruplardaki düğümleri Cassandra dağıtma
+* Uygulama sunucu grubu doğrudan veritabanına erişime sahip yalnızca kümeyi bu nedenle, kilitleme
+* SSH dışında hiçbir ortak ağ uç noktası
+* Cassandra Çekirdekte sabit bir iç IP adresi gerekiyor
 
-Tek bir Azure bölgesine veya iş yükü dağıtılmış niteliğine göre birden çok bölgeye Cassandra dağıtılabilir. Son kullanıcıların belirli bir coğrafi konum aynı Cassandra altyapısı aracılığıyla yakın hizmet bölgeli dağıtım modelini kullanabilirsiniz. Cassandra'nın yerleşik düğümü çoğaltma alır dikkatli çok ana eşitleme birden çok veri merkezleri kaynaklanan yazar ve uygulamalar verilere tutarlı bir görünümünü sunar. Çok bölge dağıtımı daha geniş Azure hizmet kesintisi risk azaltma ile de yardımcı olabilir. Cassandra'nın ince ayarlanabilir tutarlılık ve çoğaltma topolojisini uygulamaları farklı RPO ihtiyaçlarını karşılamak için yardımcı olur.
+Cassandra, tek bir Azure bölgesinde veya birden çok bölgeye temel iş yükü dağıtılmış yapısını üzerinde dağıtılabilir. Son kullanıcılarınıza yaklaştırarak belirli bir coğrafyaya aynı Cassandra altyapısı aracılığıyla sunmak için çok bölgeli dağıtım modelini kullanabilirsiniz. Cassandra'nın yerleşik düğümü çoğaltma alır özen çok yöneticili eşitleme birden çok veri merkezlerinden kaynaklanan yazar ve uygulamaları verileri tutarlı bir görünüm sunar. Çok bölgeli dağıtımlar daha geniş bir Azure hizmet kesintisi ile risk azaltma da yardımcı olabilir. Cassandra'nın ayarlanabilir tutarlılık ve çoğaltma topolojisi, uygulamaların farklı RPO gereksinimlerini karşılama konusunda yardımcı olur.
 
 ### <a name="single-region-deployment"></a>Tek bölge dağıtımı
-Şimdi tek bölge dağıtımı ile başlamalı ve bir bölgeli modeli oluşturma learnings elde etme. Azure sanal ağı, yukarıda belirtilen ağ güvenliği gereksinimleri karşılanabilir yalıtılmış alt ağlar oluşturmak için kullanılır.  Tek bölge dağıtımı oluşturma'da açıklandığı işlemi Ubuntu 14.04 LTS ve Cassandra 2.08 kullanır. Ancak, işlem kolayca diğer Linux çeşitleri benimsenen. Tek bölge dağıtımı sistemle ilgili özelliklerini bazıları şunlardır:  
+Şimdi tek bölge dağıtımı ile başlayın ve çok bölgeli modeli oluşturma dersleri toplar. Azure sanal ağı, böylece yukarıda belirtilen ağ güvenliği gereksinimleri karşılanmadığı yalıtılmış alt ağlar oluşturmak için kullanılır.  Ubuntu 14.04 LTS ve Cassandra 2.08 tek bölge dağıtımı oluştururken açıklanan işlemi kullanır. Ancak, işlem diğer Linux çeşitleri kolayca önemsenmeksizin devralınabilir. Tek bölge dağıtımı sistemle ilgili özellikleri bazıları aşağıda verilmiştir.  
 
-**Yüksek Kullanılabilirlik:** böylece düğümleri yüksek kullanılabilirlik için birden çok hata etki alanları arasında yayılır Şekil 1'de gösterilen Cassandra düğümler için iki kullanılabilirlik kümeleri dağıtılır. Her kullanılabilirlik kümesiyle açıklama VM'ler 2 hata etki alanları için eşlenmedi. Azure hata etki alanı kavramı süresini (örneğin, donanım veya yazılım hatası) planlanmamış yönetmek için kullanır. Yükseltme etki alanı (örneğin konak veya konuk işletim sistemi düzeltme eki uygulama/yükseltmeler, uygulama yükseltmelerini) kavramı, zamanlanan saati yönetmek için kullanılır. Lütfen bakın [Azure uygulamaları için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](http://msdn.microsoft.com/library/dn251004.aspx) yüksek kullanılabilirlik modemle hızlı bağlantılar sağlama, hata ve yükseltme etki alanlarının rolü.
+**Yüksek Kullanılabilirlik:** böylece yüksek kullanılabilirlik için birden çok hata etki alanları arasında düğümlere yayılır mı Şekil 1'de gösterilen Cassandra düğümleri için iki kullanılabilirlik kümesi dağıtılır. Her kullanılabilirlik kümesi ile açıklanan Vm'leri 2 hata etki alanı için eşlenmiş. Azure hata etki alanı kavramını süresini (örneğin, donanım veya yazılım hatası) planlanmamış yönetmek için kullanır. Yükseltme etki alanı (örneğin, konak veya konuk işletim sistemi düzeltme eki uygulama/yükseltme işlemleri, uygulama yükseltmeleri) kavramı, zamanlanan saati yönetmek için kullanılır. Lütfen [Azure uygulamaları için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](http://msdn.microsoft.com/library/dn251004.aspx) rolünü yüksek kullanılabilirlik'ı modemle hızlı bağlantılar sağlama, hata ve yükseltme etki alanları için.
 
 ![Tek bölge dağıtımı](./media/cassandra-nodejs/cassandra-linux1.png)
 
 Şekil 1: Tek bölge dağıtımı
 
-Bu yazma zaman gruba belirli hata etki alanı VM'ler açık eşleme Azure izin vermeyen unutmayın; Bu nedenle, Şekil 1'de gösterilen bile dağıtım modeliyle, istatistiksel olarak olası tüm sanal makineleri iki hata etki alanlarını dört yerine eşlenmiş.
+Not; Bu makalenin yazıldığı sırada, Azure Vm'leri belirli hata etki alanı için bir grup açık eşleme izin vermez Sonuç olarak, Şekil 1'de gösterilen bile dağıtım modeliyle, istatistiksel olarak olası tüm sanal makinelerin iki hata etki alanlarına yerine dört eşlenebilir.
 
-**Yük Dengeleme Thrift trafiği:** Thrift istemci kitaplıkları web sunucusu içinde bağlanmak aracılığıyla bir iç yük dengeleyici kümeye. Bu "data" alt ağına iç yük dengeleyici ekleme işlemini gerektirir (Şekil 1 bakın) Cassandra küme barındıran bulut hizmetini bağlamında. İç yük dengeleyicisi tanımlandıktan sonra her düğüm ile önceden tanımlanmış yük dengeleyicisi adı ile bir yük dengelenmiş küme ek açıklamalar eklenmesi için yük dengeli uç nokta gerektiriyor. Bkz: [Azure iç Yük Dengeleme ](../../../load-balancer/load-balancer-internal-overview.md)daha fazla ayrıntı için.
+**Yük Dengeleme Thrift trafiğini:** Thrift istemci kitaplıkları web sunucu içindeki iç yük dengeleyici aracılığıyla bağlanır. Bu "veri" alt ağına iç yük dengeleyici ekleme işlemini gerektirir (Şekil 1 bakın) Cassandra kümesi barındıran bulut hizmetinin bağlamında. İç load balancer tanımlandıktan sonra her düğüm ile önceden tanımlanmış bir yük dengeleyici adı ile bir yük dengeli küme, ek açıklamalar eklenmesi için yük dengeli uç nokta gerektirir. Bkz: [Azure iç Yük Dengeleme ](../../../load-balancer/load-balancer-internal-overview.md)daha fazla ayrıntı için.
 
-**Küme oluştururken çekirdeği:** en yüksek oranda kullanılabilir düğümleri oluştururken çekirdeği için yeni düğümler küme topolojisini bulmak için çekirdek düğümleriyle iletişim olarak seçmek önemlidir. Her kullanılabilirlik kümesinden bir düğümü tek hata noktası önlemek için çekirdek düğüm olarak atanır.
+**Küme çekirdekler:** yeni düğümler ile çekirdek düğümleri küme topolojisini bulmak için olarak çekirdekler için en yüksek oranda kullanılabilir düğümleri seçmek önemlidir. Her kullanılabilirlik kümesinden bir düğümü tek hata noktasını önlemek için çekirdek düğümleri atanır.
 
-**Çoğaltma faktörünü ve tutarlılık düzeyi:** Cassandra'nın yerleşik yüksek kullanılabilirlik ve veri dayanıklılığı işlemleri çoğaltma faktörüyle (RF - kopya kümesinde depolanan her bir satır sayısı) ve tutarlılık düzeyi (için yineleme sayısı sonucu çağırana döndürmeden önce okunan ve yazılan olabilir). Tutarlılık düzeyi CRUD sorgu verme sırasında belirtilen ancak çoğaltma faktörü KEYSPACE (ilişkisel bir veritabanına benzer) oluşturma sırasında belirtilir. Cassandra belgelerine bakın [tutarlılık için yapılandırma](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html) tutarlılık ayrıntılarını ve çekirdek hesaplama formülü için.
+**Çoğaltma faktörü ve tutarlılık düzeyi:** Cassandra'nın yerleşik yüksek kullanılabilirlik ve veri dayanıklılığı nitelenen çoğaltma faktörü (RF - kopya kümesinde depolanan her bir satır sayısı) ve tutarlılık düzeyi (için yineleme sayısı sonucu çağırana döndürülmeden önce okunan/yazılan olabilir). CRUD sorgu verme sırasında tutarlılık düzeyi belirtildi ancak çoğaltma faktörü (bir ilişkisel veritabanına benzer) anahtar alanı oluşturma sırasında belirtilir. Cassandra belgelerine bakın [tutarlılık için yapılandırma](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html) tutarlılık Ayrıntılar ve çekirdek hesaplama formülü.
 
-Cassandra iki tür veri bütünlüğü modelleri – tutarlılık ve nihai tutarlılık destekler; Çoğaltma faktörünü ve tutarlılık düzeyi birlikte tam ya da sonuçta tutarlı bir yazma işlemi hemen verilerin tutarlı olup olmadığını belirler. Örneğin, çekirdek belirten tutarlılık düzeyi her zaman veri tutarlılığı gerektiğinde (örneğin bir) ÇEKİRDEĞİNİ elde etmek için yazılacak çoğaltmaların sayısı altındaki herhangi bir tutarlılık düzeyi bağlanırken sağlar gibi sonuçta tutarlı olan verileri sonuçlanır.
+Cassandra veri bütünlüğü modelleri – tutarlılık ve nihai tutarlılık iki türünü destekler; Tutarlılık düzeyi ve çoğaltma faktörü birlikte tam ya da sonunda tutarlı bir yazma işlemi olarak verileri tutarlı olup olmadığını belirler. Örneğin, çekirdek belirten tutarlılık düzeyi veri tutarlılığı çekirdek (örneğin bir) elde etmek için gerektiği şekilde yazılacak yineleme sayısı aşağıdaki herhangi bir tutarlılık düzeyi bağlanırken her zaman sağlanır gibi sonunda tutarlı olan verileri sonuçlanır.
 
-Yukarıda, 3 ve çekirdek çoğaltma faktörüyle 8 düğüm kümesi (2 düğümleri okumak veya tutarlılık için yazılan) okuma/yazma tutarlılık düzeyi, çoğaltma grubu başına en fazla 1 düğümü teorik kaybı uygulama başlangıç bildirimde bulunmadan önce varlığını sürdürmesini hata oluştu. Bu, tüm anahtar alanları iyi dengelenmiş okuma/istekleri yazma olduğunu varsayar.  Dağıtılan küme için kullanılan parametreler şunlardır:
+Yukarıda, çoğaltma faktörü 3 ve çekirdek ile 8 düğüm kümesi (2 düğüm yazılamaz veya okunamaz tutarlılık) okuma/yazma tutarlılık düzeyi, uygulama başlangıç bildirimde bulunmadan önce çoğaltma grubu başına en fazla 1 düğüm teorik kaybı hayatta kalamaz hata oluştu. Bu, tüm anahtar alanları da dengeli okuma/istekleri yazma olduğunu varsayar.  Dağıtılan bir küme için kullanılan parametreler şunlardır:
 
-Tek bölge Cassandra küme yapılandırması:
+Aynı bölgede Cassandra kümesi yapılandırması:
 
-| Küme parametresi | Değer | Açıklamalar |
+| Parametre kümesi | Değer | Açıklamalar |
 | --- | --- | --- |
-| Düğüm (N) sayısı |8 |Kümedeki düğümler toplam sayısı |
+| Düğüm (N) |8 |Kümedeki düğümlerin toplam sayısı |
 | Çoğaltma faktörü (RF) |3 |Belirli bir satırın çoğaltmaların sayısı |
-| Tutarlılık düzeyi (yazma) |QUORUM[(RF/2) +1) = 2] formülü sonucu yuvarlanan |Yanıt çağırana gönderilmeden önce en çok 2 çoğaltma Yazar; 3 çoğaltma sonunda tutarlı bir şekilde yazılır. |
-| Tutarlılık düzeyi (okuma) |Çekirdek [(RF/2) + 1 = 2] formül sonucu yuvarlanan |2 çoğaltma, yanıtını çağırana göndermeden önce okur. |
-| Çoğaltma stratejisi |NetworkTopologyStrategy bakın [veri çoğaltma](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) Cassandra belgelerinde daha fazla bilgi için |Dağıtım topolojisi anlar ve çoğaltmalar, düğümlerde yerleştirir, böylece tüm çoğaltmaların aynı rafa monte şunun yok |
-| Snitch |GossipingPropertyFileSnitch bakın [anahtarları](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) Cassandra belgelerinde daha fazla bilgi için |NetworkTopologyStrategy snitch kavramı topoloji anlamak için kullanır. GossipingPropertyFileSnitch veri merkezi ve raf her düğüme eşleme daha iyi denetim olanağı verir. Küme, dedikodu sonra bu bilgileri yaymak için kullanır. Bu dinamik IP ayarında PropertyFileSnitch göre çok daha kolaydır |
+| Tutarlılık düzeyi (yazma) |QUORUM[(RF/2) +1) = 2] formülün sonucu yuvarlanır |En fazla 2 çoğaltma, yanıtını çağırana gönderilmeden önce yazar; 3 çoğaltma sonunda tutarlı bir şekilde yazılır. |
+| Tutarlılık düzeyi (okuma) |Çekirdek [(RF/2) + 1 = 2] formülün sonucu yuvarlanır |2 çoğaltma, yanıtını çağırana göndermeden önce okur. |
+| Çoğaltma stratejisi |NetworkTopologyStrategy bakın [veri çoğaltma](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) Cassandra belgelerinde daha fazla bilgi için |Dağıtım topolojisi anlar ve çoğaltmaları, düğümlerde yerleştirir, böylece tüm çoğaltmalar aynı rafa bitirme |
+| Snitch |GossipingPropertyFileSnitch bakın [anahtarları](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) Cassandra belgelerinde daha fazla bilgi için |NetworkTopologyStrategy snitch kavramı topoloji anlamak için kullanır. GossipingPropertyFileSnitch her düğüm için veri merkezi ve raf eşlemesi daha iyi kontrol sağlar. Küme, ardından bu bilgileri yaymak için dedikodu kullanır. Bu dinamik IP ayarı PropertyFileSnitch göre çok daha kolay olacaktır |
 
-**Cassandra küme Azure dikkate alınacak noktalar:** Microsoft Azure sanal makineleri özelliğine disk kalıcılığını; Azure Blob Depolama kullanır Azure depolama her disk yüksek dayanıklılık için üç çoğaltmalarının kaydeder. Her bir Cassandra tabloya eklenen veri satırının üç yinelemede zaten depolanmış anlamına gelir. Bu nedenle veri tutarlılığını zaten (RF) çoğaltma faktörü 1 olsa bile dikkate. Ana çoğaltma faktörle 1 olan tek bir Cassandra düğüm başarısız olsa bile uygulama kapalı kalma süresi karşılaştığında sorunudur. Ancak, bir düğüm Azure yapı denetleyicisi tarafından tanınan sorunları (örneğin donanım, sistem yazılım hataları) çalışmıyorsa, aynı depolama sürücülerini kullanarak onun yerine yeni bir düğüm sağlamasını yapar. Eski bir değiştirmek için yeni bir düğüm sağlama birkaç dakika sürebilir.  Benzer şekilde konuk işletim sistemi değişiklikleri gibi planlı bakım etkinlikler, Cassandra yükseltildikten ve kümedeki düğümlerin çalışırken Azure yapı denetleyicisi uygulama değişiklikleri gerçekleştirir.  Çalışırken yükseltme de birkaç düğüm aynı anda sürebilir ve bu nedenle küme birkaç bölümler için kısa kapalı kalma süresi karşılaşabilirsiniz. Ancak, veri yerleşik Azure Storage artıklık nedeniyle kayıp değildir.  
+**Cassandra kümesi için Azure konuları:** Microsoft Azure sanal makineleri özelliğine disk kalıcılığı; Azure Blob Depolama kullanır Azure depolama, yüksek bir dayanıklılık düzeyine ulaşmak için her bir disk üç kopyaya kaydeder. Her bir Cassandra tablosuna veri satırının zaten üç yinelemede depolanmış anlamına gelir. Bu nedenle veri tutarlılığı zaten (RF) çoğaltma faktörü 1 olsa bile dikkate. Çoğaltma faktörü 1 olması ile ilgili temel sorun, tek bir Cassandra düğüm başarısız olsa bile uygulama kapalı kalma süresi deneyimleri ' dir. Ancak, bir düğüm Azure yapı denetleyicisi tarafından tanınan sorunları (örneğin, donanım, sistem yazılım hataları) çalışmıyorsa, aynı depolama sürücülerini kullanarak onun yerine yeni bir düğüm sağlar. Eskisini değiştirmek için yeni bir düğüm sağlama birkaç dakika sürebilir.  Benzer şekilde planlı bakım etkinlikleri konuk işletim sistemi değişiklikleri gibi Cassandra yükseltir ve uygulama değişiklikleri Azure yapı denetleyicisi kümedeki düğümler çalışırken gerçekleştirir.  Toplu yükseltmeler da birkaç düğüm aynı anda sürebilir ve bu küme kısa kapalı kalma süresi birkaç bölümleri için bu nedenle karşılaşabilirsiniz. Ancak, yerleşik Azure depolama yedekliliği nedeniyle veriler kaybolmaz.  
 
-Yüksek kullanılabilirlik gerektirmeyen Azure dağıtılan sistemler için (örneğin yaklaşık 99,9 olduğu 8.76 SA/yılına eşdeğer; bkz [yüksek kullanılabilirlik](http://en.wikipedia.org/wiki/High_availability) Ayrıntılar için) RF ile çalıştırmanız mümkün olabilir = 1 ve tutarlılık düzeyi = ONE.  Yüksek oranda kullanılabilirlik gereksinimleri, RF olan uygulamalar için 3 ve tutarlılık düzeyi = = çekirdek göstereceği çoğaltmaları biri düğümlerinden biri aşağı saati. RF = 1 geleneksel dağıtımlarda (örneğin şirket içi), disk hataları gibi sorunlar kaynaklanan olası veri kaybı nedeniyle kullanılamaz.   
+Yüksek kullanılabilirlik gerektirmeyen Azure'a dağıtılan sistemler için (örneğin yaklaşık % 99,9 olan 8.76 SA/yıl için eşdeğer; bkz [yüksek kullanılabilirlik](http://en.wikipedia.org/wiki/High_availability) Ayrıntılar için) ile RF çalıştırmak mümkün olabilir = 1 ve tutarlılık düzeyi bir =.  RF yüksek kullanılabilirlik gereksinimleri olan uygulamalar için 3 ve tutarlılık düzeyi = = çekirdek göstereceği düğümlerinden biri çoğaltmaları aşağı saati. RF = 1 geleneksel dağıtımlarında (örneğin şirket içi), disk hataları gibi sorunlardan kaynaklanan olası veri kaybı nedeniyle kullanılamaz.   
 
-## <a name="multi-region-deployment"></a>Çok bölge dağıtımı
-Yukarıda açıklanan Cassandra'nın veri merkezi kullanmayan çoğaltma ve tutarlılık modeli dış bir araç gerek kalmadan bölgeli dağıtımına yardımcı olur. Burada, birden çok yöneticili yazmalar için veritabanı yansıtma için Kurulum karmaşık olabilir bu geleneksel ilişkisel veritabanlarından farklı değildir. Bölgeli kurulumunda Cassandra senaryolar da dahil olmak üzere kullanım senaryoları ile yardımcı olabilir:
+## <a name="multi-region-deployment"></a>Çok bölgeli dağıtım
+Yukarıda açıklanan Cassandra'nın veri merkezi-kullanan çoğaltma ve tutarlılık modeli, tüm dış araçları gerek kalmadan çok bölgeli dağıtım ile yardımcı olur. Burada çok yöneticili yazma işlemleri için veritabanı yansıtma için Kurulum karmaşık olabilir geleneksel ilişkisel veritabanlarından farklı budur. Çok bölgeli kurulumunda Cassandra senaryolarda da dahil olmak üzere kullanım senaryoları ile yardımcı olabilir:
 
-**Yakınlık dayalı dağıtım:** Kiracı Kullanıcı Temizle eşleme ile çok kiracılı uygulamalara-için-bölge bölgeli kümenin düşük gecikme tarafından benefited. Örneğin, bir öğrenme yönetim sistemleri için eğitim kurumları, Doğu ABD ve Batı ABD bölgeler için ilgili artık kampüsünde sunmak için Dağıtılmış bir kümede dağıtabilir analytics yanı sıra işlem. Verileri zaman okuma ve yazma işlemleri sırasında yerel olarak tutarlı olabilir ve bölgeler arasında sonuçta tutarlı olabilir. Medya dağıtım, e-ticaret ve herhangi bir şey gibi diğer örnekler vardır ve yoğunlaşmıştır coğrafi kullanıcı temel görevi gören her şeyi, bu dağıtım modeli için iyi durumdur.
+**Yakınlık tabanlı dağıtım:** Kiracı Kullanıcı Temizle eşleme ile çok kiracılı uygulamaları-için-bölge, çok bölgeli küme tarafından düşük gecikme süreleriyle benefited. Örneğin, bir öğrenme yönetim sistemleri için eğitim kurumları, Doğu ABD ve Batı ABD bölgeleri için ilgili kampüsler sunmak için Dağıtılmış bir kümede dağıtabilirsiniz analytics yanı sıra işlem. Verileri zaman okuma ve yazma işlemleri sırasında yerel olarak tutarlı olabilir ve her iki bölgede sonunda tutarlı olabilir. Ortam dağıtım, e-ticaret ve herhangi bir şey gibi diğer örnekleri vardır ve coğrafi yoğunlaşmıştır kullanıcı temel hizmet her şeyi, bu dağıtım modeli için iyi bir kullanım şeklidir.
 
-**Yüksek Kullanılabilirlik:** artıklık yazılım ve donanım yüksek kullanılabilirliğini modemle hızlı bağlantılar sağlama bir anahtar etken; yapı güvenilir bulut sistemleri Microsoft Azure üzerinde ayrıntılı bilgi için bkz. Microsoft Azure üzerinde doğru artıklık elde yalnızca güvenilir bir bölgeli küme dağıtarak yoludur. Uygulamaları bir etkin-etkin veya etkin-Pasif modu dağıtılabilir ve Azure trafik Yöneticisi bölgelerinden kapalı ise, etkin bölge trafiği yönlendirebilirsiniz.  Kullanılabilirlik 99,9, ise tek bölge dağıtımı ile iki bölge dağıtımı bir formülün hesaplanan 99.9999 kullanılabilirliğini elde edebilirsiniz: (1-(1-0.999) * (1-0.999)) * 100); Ayrıntılar için yukarıdaki incelemesine bakın.
+**Yüksek Kullanılabilirlik:** Yedeklilik yazılım ve donanım yüksek kullanılabilirliğini'ı modemle hızlı bağlantılar sağlama önemli bir etken; güvenilir bulut sistemleri oluşturma, Microsoft Azure üzerinde ayrıntılı bilgi için bkz. Microsoft Azure üzerinde true yedeklilik elde yalnızca güvenilir bir çok bölgeli küme dağıtarak yoludur. Uygulamaları bir aktif-aktif veya Aktif-Pasif modunda dağıtılabilir ve bölgelerinden birini kapalı ise, Azure Traffic Manager için etkin bölgeyi trafiği yönlendirebilirsiniz.  Kullanılabilirlik 99,9, ise tek bölge dağıtımı ile bir kullanılabilirlik kümesinin 99,9999 formül tarafından hesaplanan iki bölgeli bir dağıtım elde edebilirsiniz: (1-(1-0.999) * (1-0.999)) * 100); Ayrıntılar için yukarıdaki incelemeye bakın.
 
-**Olağanüstü durum kurtarma:** bölgeli Cassandra küme düzgün bir şekilde tasarlanmış, dayanacak geri dönülemez veri merkezi kesintilerini. Bir bölge kapalı ise, son kullanıcıların hizmet veren diğer bölgelere dağıtılan uygulamayı başlatabilirsiniz. Diğer iş sürekliliği belirtilmesinden gibi uygulama verileri zaman uyumsuz ardışık düzeninde kaynaklanan bazı veri kaybıyla dayanıklı olması gerekir. Ancak, Kurtarma Cassandra geleneksel veritabanı kurtarma işlemleri tarafından harcanan süre çok swifter yapar. Şekil 2 sekiz düğümlerle tipik bölgeli dağıtım modeli, her bölgede gösterir. Her iki bölgeden yansıtma görüntülerini simetrisi aynı için; yine de uygun istiyor musunuz? gerçek dünya tasarımları iş yükü türünü (örneğin işlemsel veya analitik), RPO, RTO, veri tutarlılığı ve kullanılabilirlik gereksinimlerine bağlıdır.
+**Olağanüstü durum kurtarma:** çok bölgeli Cassandra kümesi düzgün bir şekilde tasarlanmış, dayanacak geri dönülemez veri merkezi kesintilerine. Tek bir bölge kapalı ise, son kullanıcıya hizmet veren diğer bölgelere dağıtılan uygulamayı başlatabilirsiniz. Diğer iş sürekliliği belirtilmesinden gibi uygulama verileri zaman uyumsuz işlem hattındaki kaynaklanan bazı verilerin kaybolması için dayanıklı olması gerekir. Ancak, Cassandra kurtarma geleneksel veritabanı kurtarma işlemleri tarafından geçen süre çok swifter yapar. Şekil 2, her bölgede sekiz düğümleri tipik çok bölgeli dağıtım modeliyle gösterir. Her iki bölgeleri yansıtma görüntülerini Simetri aynı için olan; gerçek dünya tasarımları, iş yükü türü (örneğin işlem veya analiz), RPO, RTO, veri tutarlılığı ve kullanılabilirlik gereksinimlerine bağlıdır.
 
-![Çoklu bölge dağıtımı](./media/cassandra-nodejs/cassandra-linux2.png)
+![Çok bölgeli dağıtım](./media/cassandra-nodejs/cassandra-linux2.png)
 
-Şekil 2: Bölgeli Cassandra dağıtımı
+Şekil 2: Birden çok bölgede Cassandra dağıtımı
 
-### <a name="network-integration"></a>Ağ tümleştirme
-Kümeleri üzerinde iki bölgede bulunan özel ağlara dağıtılan sanal makinelerin birbirleriyle VPN tüneli kullanarak iletişim kurar. VPN tüneli ağ dağıtım işlemi sırasında sağlanan iki yazılım ağ geçidi bağlanır. Her iki bölgeden "web" ve "data" alt bakımından benzer ağ mimarisi; yine de sahip istiyor musunuz? Azure ağı gerektiğinde kadar alt ağlar oluşturulmasına izin verir ve ağ güvenliği tarafından gerektiği şekilde ACL'ler uygulayın. Küme topolojisi tasarlarken, veri merkezi iletişim gecikmesi ve ekonomik etkisi olarak kabul edilmesi için ağ trafiğini gereksiniminin ağlar arası.
+### <a name="network-integration"></a>Ağ tümleştirmesi
+Kümeleri iki bölgeleri üzerinde bulunan özel ağlar için dağıtılan sanal makinelerin bir VPN tüneli aracılığıyla birbirleriyle iletişim kurar. VPN tüneli ağ dağıtım işlemi sırasında sağlanan iki yazılım ağ geçidi bağlanır. Her iki bölgeleri benzer ağ mimarisi bakımından "web" ve "verileri" alt ağlara sahip; Azure ağı, gereken sayıda alt ağı oluşturulmasına izin verir ve ağ güvenliği tarafından gerektiği şekilde ACL'leri uygulayın. Küme topolojisi tasarlarken, veri merkezi iletişim gecikmesi ve ekonomik etkisi göz önünde bulundurulması gereken trafiği ağ arası.
 
-### <a name="data-consistency-for-multi-data-center-deployment"></a>Birden çok veri merkezi dağıtım için veri tutarlılığı
-Dağıtılmış dağıtımları performans ve yüksek kullanılabilirlik küme topolojisi etkisini farkında olması gerekiyor. RF ve tutarlılık düzeyi çekirdek tüm veri merkezleri kullanılabilirliğine bağlı olmadığından bu şekilde seçilmesi gerekir.
-Yüksek tutarlılık gereken bir sistem LOCAL_QUORUM tutarlılık düzeyi (için okuma ve yazma) veri uzak veri merkezleri için zaman uyumsuz olarak kopyalandığı sırada yerel okuma ve yazma işlemleri yerel düğümlerden karşılanır olduğundan emin olur.  Tablo 2 yazma daha sonra özetlenen bölgeli küme yapılandırma ayrıntılarını özetlemektedir.
+### <a name="data-consistency-for-multi-data-center-deployment"></a>Veri tutarlılığı için çoklu veri merkezi dağıtım
+Aktarım hızı ve yüksek kullanılabilirlik kümesi topolojisi etkisi dikkat edilmesi gereken dağıtımları gerek dağıtılmış. Tutarlılık düzeyi ve RF çekirdek tüm veri merkezlerini kullanılabilirliğine bağlı olmayan böyle bir şekilde seçilmesi gerekir.
+Yüksek tutarlılık gerektiren bir sistem için bir LOCAL_QUORUM tutarlılık düzeyi (için okuma ve yazma) veriler zaman uyumsuz olarak uzak bir veri merkezine çoğaltılır sırasında yerel okuma ve yazma işlemleri yerel düğümleri yerine getirildiğinden emin emin yapar.  Tablo 2 yazma daha sonra açıklandığı çok bölgeli küme için yapılandırma ayrıntılarını özetlemektedir.
 
-**İki bölge Cassandra küme yapılandırması**
+**İki bölgeli Cassandra kümesi yapılandırma**
 
-| Küme parametresi | Değer | Açıklamalar |
+| Parametre kümesi | Değer | Açıklamalar |
 | --- | --- | --- |
-| Düğüm (N) sayısı |8 + 8 |Kümedeki düğümler toplam sayısı |
+| Düğüm (N) |8 + 8 |Kümedeki düğümlerin toplam sayısı |
 | Çoğaltma faktörü (RF) |3 |Belirli bir satırın çoğaltmaların sayısı |
-| Tutarlılık düzeyi (yazma) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] formül sonucu yuvarlanan |2 düğümleri yazılmış ilk veri merkezine zaman uyumlu olarak; Çekirdek için gereken ek 2 düğümleri 2 veri merkezine zaman uyumsuz olarak yazılır. |
-| Tutarlılık düzeyi (okuma) |LOCAL_QUORUM ((RF/2) + 1) = formül sonucu aşağı yuvarlanmasını 2 |Okuma isteği yalnızca bir bölgesinden karşılanır; yanıt istemciye gönderilmeden önce 2 düğümleri salt okunurdur. |
-| Çoğaltma stratejisi |NetworkTopologyStrategy bakın [veri çoğaltma](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) Cassandra belgelerinde daha fazla bilgi için |Dağıtım topolojisi anlar ve çoğaltmalar, düğümlerde yerleştirir, böylece tüm çoğaltmaların aynı rafa monte şunun yok |
-| Snitch |GossipingPropertyFileSnitch bakın [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) Cassandra belgelerinde daha fazla bilgi için |NetworkTopologyStrategy snitch kavramı topoloji anlamak için kullanır. GossipingPropertyFileSnitch veri merkezi ve raf her düğüme eşleme daha iyi denetim olanağı verir. Küme, dedikodu sonra bu bilgileri yaymak için kullanır. Bu dinamik IP ayarında PropertyFileSnitch göre çok daha kolaydır |
+| Tutarlılık düzeyi (yazma) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] formülün sonucu yuvarlanır |2 düğüm yazılmış ilk veri merkezine zaman uyumlu olarak; Çekirdek için gereken ek 2 düğüm 2 veri merkezi için zaman uyumsuz olarak yazılır. |
+| Tutarlılık düzeyi (okuma) |LOCAL_QUORUM ((RF/2) + 1) = 2 formülün sonucu aşağı yuvarlanır |Okuma istekleri yalnızca bir bölgeden karşılanır; yanıtı istemciye gönderilmeden önce 2 düğüm okunur. |
+| Çoğaltma stratejisi |NetworkTopologyStrategy bakın [veri çoğaltma](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) Cassandra belgelerinde daha fazla bilgi için |Dağıtım topolojisi anlar ve çoğaltmaları, düğümlerde yerleştirir, böylece tüm çoğaltmalar aynı rafa bitirme |
+| Snitch |GossipingPropertyFileSnitch bakın [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) Cassandra belgelerinde daha fazla bilgi için |NetworkTopologyStrategy snitch kavramı topoloji anlamak için kullanır. GossipingPropertyFileSnitch her düğüm için veri merkezi ve raf eşlemesi daha iyi kontrol sağlar. Küme, ardından bu bilgileri yaymak için dedikodu kullanır. Bu dinamik IP ayarı PropertyFileSnitch göre çok daha kolay olacaktır |
 
-## <a name="the-software-configuration"></a>YAZILIM YAPILANDIRMA
+## <a name="the-software-configuration"></a>YAZILIM YAPILANDIRMASI
 Aşağıdaki yazılım sürümlerinden dağıtımı sırasında kullanılır:
 
 <table>
@@ -124,57 +124,57 @@ Aşağıdaki yazılım sürümlerinden dağıtımı sırasında kullanılır:
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
-JRE yüklediğinizde Oracle lisans el ile kabul etmeniz gerekir. Bu nedenle, dağıtım basitleştirmek için gerekli tüm yazılımı masaüstüne indirin. Ardından, Küme dağıtımı için bir precursor olarak oluşturmak için Ubuntu şablon görüntüsü için karşıya yükleyin.
+JRE indirdiklerinde, Oracle lisans el ile kabul etmeniz gerekir. Bu nedenle, dağıtımın basitleştirilmesi için gerekli olan tüm yazılımların masaüstüne indirin. Ardından, Küme dağıtımı için bir precursor olarak oluşturmak için Ubuntu şablon görüntüsü yükleyin.
 
-Yukarıdaki yazılımın bir dizine iyi bilinen yükleme (örneğin Windows %TEMP%/downloads veya ~/Downloads çoğu Linux dağıtımları veya Mac üzerinde) yerel bilgisayarda indirin.
+Yukarıdaki yazılımın, yerel bilgisayarı iyi bilinen yükleme dizinine (örneğin, Windows üzerinde %TEMP%/downloads veya ~/Downloads birçok Linux dağıtımı veya Mac) indirin.
 
-### <a name="create-ubuntu-vm"></a>UBUNTU VM OLUŞTURMA
-Böylece görüntü birçok Cassandra düğümlerini sağlamak için yeniden kullanılabilir işleminin bu adımında, Ubuntu görüntü önkoşul yazılımı ile oluşturun.  
+### <a name="create-ubuntu-vm"></a>UBUNTU SANAL MAKİNESİ OLUŞTURMA
+Görüntünün birden fazla Cassandra düğümleri sağlamak için yeniden kullanılabilir, böylece işleminin bu adımında, Ubuntu görüntüsünü önkoşul yazılımlarının ile oluşturun.  
 
 #### <a name="step-1-generate-ssh-key-pair"></a>1. adım: SSH anahtar çifti oluşturma
-Azure sağlama aynı anda PEM ya da DER ortak anahtar kodlanmış bir X509 gerekir. Nasıl yapılır Linux Azure üzerinde ile SSH kullanma konumunda bulunan yönergeleri kullanarak bir genel/özel anahtar çifti oluşturur. Bir SSH istemcisi Windows veya Linux olarak putty.exe kullanmayı planlıyorsanız, kodlanmış PEM dönüştürmeniz gerekir puttygen.exe kullanarak PPK biçimine RSA özel anahtarı. Bunun için yönergeler yukarıdaki web sayfasında bulunabilir.
+Azure, sağlama zamanında PEM veya DER ortak anahtarla kodlanmış x X509 gerekir. Azure'da Linux ile SSH kullanma nasıl konumunda bulunan yönergeleri kullanarak bir ortak/özel anahtar çifti oluşturun. Windows veya Linux üzerinde bir SSH istemcisi olarak putty.exe kullanmayı planlıyorsanız, PEM kodlu dönüştürmek zorunda puttygen.exe kullanarak PPK biçimine RSA özel anahtar. Bu yönergeler yukarıdaki web sayfasında bulunabilir.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>2. adım: Ubuntu şablonu VM oluşturma
-VM şablonu oluşturmak için Azure portalında oturum açın ve aşağıdaki sırayı kullanır: yeni, işlem, sanal makine, başlangıç Galerisi, UBUNTU, Ubuntu Server 14.04 LTS tıklatın ve ardından sağ oka tıklayın. Bir Linux VM oluşturmayı açıklar bir öğretici için çalışan bir sanal makine Linux bkz.
+VM şablonu oluşturmak için Azure portalında oturum açın ve aşağıdaki sırayı kullanın: yeni, bilgi işlem, sanal makine, ilk GALERİ, UBUNTU, Ubuntu Server 14.04 LTS tıklayın ve ardından sağ oka tıklayın. Bir Linux VM oluşturma açıklayan bir öğretici için çalışan bir sanal makine Linux bkz.
 
 #1 "sanal makine yapılandırma" ekranında aşağıdaki bilgileri girin:
 
 <table>
 <tr><th>ALAN ADI              </td><td>       ALAN DEĞERİ               </td><td>         AÇIKLAMALAR                </td><tr>
 <tr><td>SÜRÜM YAYIN TARİHİ    </td><td> Aşağı açılan listeden bir tarih seçin</td><td></td><tr>
-<tr><td>SANAL MAKİNE ADI    </td><td> CASS şablonu                   </td><td> Bu VM ana adıdır </td><tr>
-<tr><td>KATMANI                     </td><td> STANDART                           </td><td> Varsayılan adı bırakın              </td><tr>
-<tr><td>BOYUT                     </td><td> A1                              </td><td>G/ç gereksinimlerine göre VM seçin; Bu amaç için varsayılan adı bırakın </td><tr>
-<tr><td> YENİ BİR KULLANICI ADI             </td><td> yerelyönetici                       </td><td> "Yönetici" Ubuntu 12. xx ve sonra ayrılmış kullanıcı adı sağlanmış</td><tr>
-<tr><td> KİMLİK DOĞRULAMASI         </td><td> Onay kutusu                 </td><td>Bir SSH anahtarı ile güvenli isteyip istemediğinizi denetleyin </td><tr>
-<tr><td> SERTİFİKA             </td><td> Ortak anahtar sertifikası dosya adı </td><td> Daha önce oluşturulan ortak anahtarı kullanın</td><tr>
+<tr><td>SANAL MAKİNE ADI    </td><td> CASS şablonu                   </td><td> Bu sanal makinenin adıdır </td><tr>
+<tr><td>KATMANI                     </td><td> STANDART                           </td><td> Varsayılan değeri bırakın              </td><tr>
+<tr><td>BOYUT                     </td><td> A1                              </td><td>G/ç gereksinimlerine göre VM; seçin. Bu amaç için varsayılan değeri bırakın. </td><tr>
+<tr><td> YENİ KULLANICI ADI             </td><td> yerelyönetici                       </td><td> "Yönetici" Ubuntu 12. xx ve sonra bir ayrılmış kullanıcı adı olan</td><tr>
+<tr><td> KİMLİK DOĞRULAMASI         </td><td> Onay kutusu                 </td><td>Bir SSH anahtarı ile güvenli istiyorsanız işaretleyin </td><tr>
+<tr><td> SERTİFİKA             </td><td> Ortak anahtar sertifikası dosya adı </td><td> Daha önce oluşturulan ortak anahtarı kullanma</td><tr>
 <tr><td> Yeni Parola    </td><td> güçlü parola </td><td> </td><tr>
 <tr><td> Parolayı Onayla    </td><td> güçlü parola </td><td></td><tr>
 </table>
 
-"Sanal makine yapılandırma" ekranında #2 aşağıdaki bilgileri girin:
+"Sanal makine yapılandırma" #2 ekranında aşağıdaki bilgileri girin:
 
 <table>
 <tr><th>ALAN ADI             </th><th> ALAN DEĞERİ                       </th><th> AÇIKLAMALAR                                 </th></tr>
-<tr><td> BULUT HİZMETİ    </td><td> Yeni bir bulut hizmeti oluştur    </td><td>Sanal makineler gibi bir kapsayıcı işlem kaynaklarını bulut hizmetidir</td></tr>
+<tr><td> BULUT HİZMETİ    </td><td> Yeni bir bulut hizmeti oluştur    </td><td>Bir kapsayıcı işlem kaynaklarını sanal makineler gibi bulut hizmetidir.</td></tr>
 <tr><td> BULUT HİZMETİ DNS ADI    </td><td>ubuntu-template.cloudapp.net    </td><td>Bir makine belirsiz yük dengeleyici ad verin</td></tr>
-<tr><td> BÖLGE/BENZEŞİM GRUBU/SANAL AĞ </td><td>    Batı ABD    </td><td> Web uygulamalarınızın Cassandra küme erişimlerin bir bölge seçin</td></tr>
-<tr><td>DEPOLAMA HESABI </td><td>    Varsayılanı kullan    </td><td>Belirli bir bölgedeki varsayılan depolama hesabı ya da önceden oluşturulmuş depolama hesabı kullanın</td></tr>
+<tr><td> BÖLGE/BENZEŞİM GRUBU/SANAL AĞ </td><td>    Batı ABD    </td><td> Cassandra kümesi, web uygulamalarınızın içinden erişmek için bir bölge seçin</td></tr>
+<tr><td>DEPOLAMA HESABI </td><td>    Varsayılanı kullan    </td><td>Belirli bir bölgede varsayılan depolama hesabını ya da önceden oluşturulmuş depolama hesabı kullanın</td></tr>
 <tr><td>KULLANILABİLİRLİK KÜMESİ </td><td>    None </td><td>    Boş bırakın</td></tr>
-<tr><td>UÇ NOKTALARI    </td><td>Varsayılanı kullan </td><td>    Varsayılan SSH yapılandırmasını kullanın </td></tr>
+<tr><td>UÇ NOKTALARI    </td><td>Varsayılanı kullan </td><td>    Varsayılan SSH yapılandırmasını kullan </td></tr>
 </table>
 
-Sağ oka tıklayın, #3 ekranda Varsayılanları bırakabilir. VM sağlama işlemini tamamlamak için "denetimi" düğmesini tıklatın. Birkaç dakika sonra VM adı "ubuntu-şablon" ile "çalışır" durumda olması gerekir.
+Sağ oka tıklayın, #3 ekranda varsayılan değerleri bırakın. VM sağlama işlemini tamamlamak için "onay" düğmesine tıklayın. Birkaç dakika sonra sanal makine "ubuntu-template" adı ile bir "çalışıyor" durumda olması gerekir.
 
 ### <a name="install-the-necessary-software"></a>GEREKLİ YAZILIMI YÜKLEYİN
 #### <a name="step-1-upload-tarballs"></a>1. adım: Karşıya yükleme tarballs
-SCP veya pscp kullanarak, önceden indirilen yazılım aşağıdaki komut biçimi kullanarak ~/downloads dizinine kopyalayın:
+SCP veya pscp'ı kullanarak, daha önce indirilen yazılım komutu aşağıdaki biçimi kullanarak ~/downloads dizinine kopyalayın:
 
 ##### <a name="pscp-server-jre-8u5-linux-x64targz-localadminhk-cas-templatecloudappnethomelocaladmindownloadsserver-jre-8u5-linux-x64targz"></a>pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
-Yukarıdaki komut için olduğu gibi Cassandra BITS de JRE yineleyin.
+Yukarıdaki komut da JRE Cassandra bitleri için yineleyin.
 
-#### <a name="step-2-prepare-the-directory-structure-and-extract-the-archives"></a>2. adım: dizin yapısını hazırlamak ve arşivler Ayıkla
-VM oturum ve dizin yapısını oluşturun ve yazılım bash komut dosyası kullanarak bir süper kullanıcı olarak ayıklayın:
+#### <a name="step-2-prepare-the-directory-structure-and-extract-the-archives"></a>2. adım: dizin yapısı hazırlamak ve arşivleri ayıklayın
+VM'de oturum açın, dizin yapısını oluşturmak ve yazılım bash komut dosyası kullanarak bir süper kullanıcı olarak ayıklayın:
 
     #!/bin/bash
     CASS_INSTALL_DIR="/opt/cassandra"
@@ -252,7 +252,7 @@ VM oturum ve dizin yapısını oluşturun ve yazılım bash komut dosyası kulla
     echo "installation is complete"
 
 
-Bu komut dosyası VIM penceresine yapıştırın, satır başı kaldırdığınızdan emin olun ('\r ") aşağıdaki komutu kullanarak:
+Bu betik vim penceresine yapıştırın, satır başı kaldırdığınızdan emin olun ('\r ") aşağıdaki komutu kullanarak:
 
     tr -d '\r' <infile.sh >outfile.sh
 
@@ -267,44 +267,44 @@ Sonunda aşağıdakileri ekleyin:
     export PATH
 
 #### <a name="step-4-install-jna-for-production-systems"></a>4. adım: Yükleme JNA üretim sistemleri için
-Aşağıdaki komut dizisi kullanın: jna 3.2.7.jar aşağıdaki komutu yükler ve platform jna 3.2.7.jar /usr/share.java directory sudo apt get için libjna java yükleyin
+Aşağıdaki komut dizisi kullanın: aşağıdaki komutu jna 3.2.7.jar yükler ve platform jna 3.2.7.jar /usr/share.java dizin sudo apt-Get libjna java yükleyin
 
-Sembolik bağlantılar $CASS_HOME/lib dizininde oluşturun, böylece Cassandra başlangıç betiği bu Kavanoz bulabilirsiniz:
+Cassandra başlangıç betiği bu jar dosyaları dışındaki bulabilmesi $CASS_HOME/lib dizininde simgesel bağlantılar oluştur:
 
     ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
 
     ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
-#### <a name="step-5-configure-cassandrayaml"></a>Adım 5: cassandra.yaml yapılandırma
-[, Gerçek sağlama sırasında bu yapılandırmayı ince ayar] tüm sanal makineler için gerekli yapılandırmayı yansıtacak şekilde her bir VM üzerinde cassandra.yaml düzenleyin:
+#### <a name="step-5-configure-cassandrayaml"></a>5. adım: cassandra.yaml yapılandırma
+[Bu yapılandırma, gerçek sağlama sırasında ince] tüm sanal makineler için gerekli yapılandırmayı yansıtacak şekilde her VM'de cassandra.yaml düzenleyin:
 
 <table>
 <tr><th>Alan Adı   </th><th> Değer  </th><th>    Açıklamalar </th></tr>
 <tr><td>küme_adı </td><td>    "CustomerService"    </td><td> Dağıtımınızı yansıtır adı kullan</td></tr>
 <tr><td>listen_address    </td><td>[boş bırakın]    </td><td> "Localhost" Sil </td></tr>
 <tr><td>rpc_addres   </td><td>[boş bırakın]    </td><td> "Localhost" Sil </td></tr>
-<tr><td>oluştururken Çekirdeği    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>Şu oluştururken çekirdeği atanan tüm IP adresleri listesi.</td></tr>
-<tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> Bu veri merkezi ve VM raf çıkarımını yapma NetworkTopologyStrateg tarafından kullanılır</td></tr>
+<tr><td>çekirdekler    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>Çekirdekler atanan tüm IP adresleri listesi.</td></tr>
+<tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> Bu veri merkezi ile sanal makinenin rafa çıkarımını yapma NetworkTopologyStrateg tarafından kullanılır.</td></tr>
 </table>
 
-#### <a name="step-6-capture-the-vm-image"></a>6. adım: VM görüntüsü yakalama
-Ana bilgisayar adı (hk-CA-template.cloudapp.net) ve daha önce oluşturulan SSH özel anahtar kullanılarak sanal makinede oturum açın. Bkz: nasıl yapılır Linux üzerinde ssh komutunu kullanarak veya putty.exe oturum hakkında ayrıntılar için Azure ile SSH kullanma.
+#### <a name="step-6-capture-the-vm-image"></a>6. adım: sanal makine görüntüsünü yakalama
+Ana bilgisayar adı (hk-CA-template.cloudapp.net) ve daha önce oluşturulan SSH özel anahtarı kullanarak sanal makinede oturum açın. Bkz. nasıl ssh komutunu kullanarak veya putty.exe oturum hakkında ayrıntılar için azure'da Linux ile SSH kullanma.
 
-Görüntü yakalama eylemleri aşağıdaki dizisini yürütün:
+Aşağıdaki görüntü yakalamak için eylem dizisini yürütün:
 
-##### <a name="1-deprovision"></a>1. Deprovision
-Komutunu "sudo waagent-deprovision + kullanıcı" sanal makine örneği belirli bilgileri kaldırmak için. İçin bkz: [Linux sanal makine yakalama](capture-image-classic.md) görüntü yakalama işlemi hakkında daha fazla ayrıntı şablon olarak kullanmak için.
+##### <a name="1-deprovision"></a>1. Sağlamayı kaldırma
+Komutunu "sudo waagent – sağlamayı kaldırma + kullanıcı" sanal makine örneği belirli bilgileri kaldırmak için. İçin bkz: [Linux sanal makinesi yakalama](capture-image-classic.md) görüntü yakalama işlemi hakkında daha fazla ayrıntı şablon olarak kullanmak için.
 
-##### <a name="2-shut-down-the-vm"></a>2: VM kapatma
+##### <a name="2-shut-down-the-vm"></a>2: sanal makineyi
 Sanal makine vurgulanmış olduğundan emin olun ve altındaki komut çubuğundan kapatma bağlantısına tıklayın.
 
-##### <a name="3-capture-the-image"></a>3: görüntü yakalama
-Sanal makine vurgulanmış olduğundan emin olun ve altındaki komut çubuğundan YAKALAMA bağlantısını tıklatın. Sonraki ekranda, verin (örneğin hk-cas-2-08-ub-14-04-2014071) bir görüntü adı, uygun görüntü açıklaması ve tıklatın YAKALAMA işlemini tamamlamak için "denetimi" işaretleyin.
+##### <a name="3-capture-the-image"></a>3: Görüntü Yakala
+Sanal makine vurgulanmış olduğundan emin olun ve alt komut çubuğundan YAKALAMA bağlantısına tıklayın. Sonraki ekranda, verin (örneğin hk-cas-2-08-ub-14-04-2014071) bir görüntü adı, uygun görüntü açıklaması ve tıklayın "onay" YAKALAMA işlemini tamamlamak için işaretleyin.
 
-Bu işlem birkaç saniye sürer ve görüntünün görüntü Galerisi GÖRÜNTÜLERİM bölümünde kullanılabilir olmalıdır. Kaynak VM görüntüsü başarıyla yakalandı sonra otomatik olarak silinir. 
+Bu işlem birkaç saniye sürer ve görüntünün görüntü Galerisi GÖRÜNTÜLERİM bölümünde kullanılabilir olması gerekir. Kaynak VM görüntüsü başarıyla yakalandı sonra otomatik olarak silinir. 
 
 ## <a name="single-region-deployment-process"></a>Tek bölge dağıtım işlemi
-**1. adım: sanal ağ oluşturma** Azure portalı günlüğüne ve aşağıdaki tabloda gösterilen özniteliklere sahip bir sanal ağ (Klasik) oluşturun. Bkz: [Azure portalını kullanarak bir sanal ağ (Klasik) oluşturmak](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) işleminin ayrıntılı adımlar için.      
+**1. adım: sanal ağ oluşturma** Azure portalında oturum açın ve aşağıdaki tabloda gösterilen özniteliklere sahip bir sanal ağ (Klasik) oluşturun. Bkz: [Azure portalını kullanarak bir sanal ağ (Klasik) oluşturmak](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) işleminin ayrıntılı adımlar için.      
 
 <table>
 <tr><th>VM öznitelik adı</th><th>Değer</th><th>Açıklamalar</th></tr>
@@ -316,42 +316,42 @@ Bu işlem birkaç saniye sürer ve görüntünün görüntü Galerisi GÖRÜNTÜ
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
 
-Aşağıdaki alt ağlar ekleyin:
+Şu alt ağlar ekleyin:
 
 <table>
 <tr><th>Ad</th><th>Başlangıç IP</th><th>CIDR</th><th>Açıklamalar</th></tr>
-<tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Alt ağ web grubu</td></tr>
+<tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Web grubu için alt ağ</td></tr>
 <tr><td>veri</td><td>10.1.2.0</td><td>/24 (251)</td><td>Veritabanı düğümleri için alt ağ</td></tr>
 </table>
 
-Veri ve Web alt ağlar, ağ güvenlik grupları kapsamını bu makalenin kapsamı dışındadır üzerinden korunabilir.  
+Veri ve Web alt ağlar, ağ güvenlik grupları kapsamını, bu makalenin kapsamı dışındadır aracılığıyla korunabilir.  
 
-**2. adım: Sanal makine sağlamak** daha önce oluşturduğunuz görüntü kullanarak bulut sunucusu "hk-c-svc-Batı" şu sanal makineleri oluşturmak ve bunları aşağıda gösterildiği gibi ilgili alt ağlara bağlamak:
+**2. adım: Sanal makineler sağlayın** önceden oluşturulmuş görüntüyü kullanarak bulut sunucusu "hk-c-svc-Batı" şu sanal makineleri oluşturun ve bunları aşağıda gösterildiği gibi ilgili alt ağlarına bağlayın:
 
 <table>
 <tr><th>Makine Adı    </th><th>Alt ağ    </th><th>IP Adresi    </th><th>Kullanılabilirlik kümesi</th><th>DC/raf</th><th>Çekirdek?</th></tr>
-<tr><td>HK-c1-Batı-ABD    </td><td>veri    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 = </td><td>Evet</td></tr>
-<tr><td>HK-c2-Batı-ABD    </td><td>veri    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 =    </td><td>Hayır </td></tr>
-<tr><td>HK-c3-Batı-ABD    </td><td>veri    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Evet</td></tr>
-<tr><td>HK-c4-Batı-ABD    </td><td>veri    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Hayır </td></tr>
-<tr><td>HK-c5-Batı-ABD    </td><td>veri    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Evet</td></tr>
-<tr><td>HK-c6-Batı-ABD    </td><td>veri    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Hayır </td></tr>
-<tr><td>HK-c7-Batı-ABD    </td><td>veri    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Evet</td></tr>
-<tr><td>HK-c8-Batı-ABD    </td><td>veri    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c1-Batı-ABD    </td><td>veri    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = WESTUS raf raf1 = </td><td>Evet</td></tr>
+<tr><td>HK-c2-Batı-ABD    </td><td>veri    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC = WESTUS raf raf1 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c3-Batı-ABD    </td><td>veri    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = WESTUS raf rack2 =    </td><td>Evet</td></tr>
+<tr><td>HK-c4-Batı-ABD    </td><td>veri    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC = WESTUS raf rack2 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c5-Batı-ABD    </td><td>veri    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC = WESTUS raf rack3 =    </td><td>Evet</td></tr>
+<tr><td>HK-c6-Batı-ABD    </td><td>veri    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC = WESTUS raf rack3 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c7-Batı-ABD    </td><td>veri    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = WESTUS raf rack4 =    </td><td>Evet</td></tr>
+<tr><td>HK-c8-Batı-ABD    </td><td>veri    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC = WESTUS raf rack4 =    </td><td>Hayır </td></tr>
 <tr><td>HK-w1-Batı-ABD    </td><td>web    </td><td>10.1.1.4    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
 <tr><td>HK-w2-Batı-ABD    </td><td>web    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
 </table>
 
-Yukarıdaki listeye VM'lerin oluşturulması aşağıdaki işlem gerektirir:
+Aşağıdaki işlem yukarıdaki VM'lerin listesini oluşturulmasını gerektirir:
 
-1. Belirli bir bölgedeki bir boş bulut hizmeti oluşturma
-2. Daha önce yakalanan görüntüden bir VM oluşturun ve daha önce oluşturduğunuz sanal ağa bağlayın; Bu tüm VM'ler için yineleyin
-3. Bir iç yük dengeleyici bulut hizmetine eklemek ve "data" alt ağına bağlayın
-4. Yük dengeli uç nokta yük dengelenmiş bir küme önceden oluşturulmuş iç yük dengeleyiciye bağlı aracılığıyla thrift trafiği için daha önce oluşturduğunuz her VM için ekleme
+1. Boş bir bulut hizmetinde belirli bir bölgede oluşturun.
+2. Daha önce yakalanan görüntüden VM oluşturma ve daha önce oluşturduğunuz sanal ağa ekleyin; Bu VM'ler için yineleyin.
+3. İç yük dengeleyici bulut hizmetine ekleme ve "verileri" alt ağına ekleme
+4. Daha önce oluşturduğunuz her VM için önceden oluşturulmuş bir iç yük dengeleyiciye bağlı yük dengeli bir küme ile thrift trafiği için bir yük dengeli uç nokta Ekle
 
-Azure portalını kullanarak yukarıdaki işlem çalıştırılabilir; Windows makine (kullanın) bir Windows makinesine erişiminiz yoksa azure'da VM bir kullan tüm 8 sanal makineleri otomatik olarak sağlamak için aşağıdaki PowerShell betiğini kullanın.
+Yukarıdaki işlem, Azure portalını kullanarak yürütülebilecek; Windows makine (bir Windows makinesine erişiminiz yoksa azure'da VM kullanın) kullanın, tüm 8 VM otomatik olarak sağlamak için aşağıdaki PowerShell betiğini kullanın.
 
-**Listesi 1: PowerShell Betiği sanal makineleri sağlama**
+**Liste 1: sanal makine sağlama yönelik PowerShell Betiği**
 
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
@@ -396,7 +396,7 @@ Azure portalını kullanarak yukarıdaki işlem çalıştırılabilir; Windows m
         #Create internal load balancer
         Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
         Write-Host "Created $ilbName"
-        #Add add the thrift endpoint to the internal load balancer for all the VMs
+        #Add the thrift endpoint to the internal load balancer for all the VMs
         foreach($vmName in $vmNames)
         {
             Get-AzureVM -ServiceName $serviceName -Name $vmName |
@@ -406,48 +406,48 @@ Azure portalını kullanarak yukarıdaki işlem çalıştırılabilir; Windows m
             Write-Host "created $vmName"     
         }
 
-**3. adım: Her VM Cassandra yapılandırma**
+**3. adım: Her VM'de Cassandra yapılandırma**
 
-VM oturum açın ve aşağıdakileri gerçekleştirin:
+VM'de oturum açın ve aşağıdakileri gerçekleştirin:
 
 * Veri merkezi ve raf özelliklerini belirtmek için $CASS_HOME/conf/cassandra-rackdc.properties düzenleyin:
   
        dc =EASTUS, rack =rack1
-* Çekirdek düğümlerini aşağıdaki gibi yapılandırmak için cassandra.yaml düzenleyin:
+* Çekirdek düğümleri aşağıdaki gibi yapılandırmak için cassandra.yaml düzenleyin:
   
        Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
 
-**4. adım: sanal makineleri başlatın ve küme test etme**
+**4. adım: sanal makineleri başlatın ve kümeyi test edin**
 
-Düğümler (örneğin hk-c1-Batı-us) birine oturum açın ve küme durumunu görmek için aşağıdaki komutu çalıştırın:
+Düğümlerin (örneğin hk-c1-Batı-ABD) birinde oturum açın ve küme durumunu görmek için aşağıdaki komutu çalıştırın:
 
        nodetool –h 10.1.2.4 –p 7199 status
 
-Benzer şekilde bir 8 düğüm kümesi için bir görüntü görmeniz gerekir:
+Bir 8 düğüm kümesi için aşağıdakine benzer bir ekran görmeniz gerekir:
 
 <table>
-<tr><th>Durum</th><th>Adres    </th><th>Yükleme    </th><th>Belirteçler    </th><th>Sahibi </th><th>Ana bilgisayar kimliği    </th><th>Raf</th></tr>
-<tr><th>KALDIRMA    </td><td>10.1.2.4     </td><td>87.81 KB    </td><td>256    </td><td>38.0%    </td><td>GUID (kaldırılır)</td><td>raf1</td></tr>
-<tr><th>KALDIRMA    </td><td>10.1.2.5     </td><td>41.08 KB    </td><td>256    </td><td>68.9%    </td><td>GUID (kaldırılır)</td><td>raf1</td></tr>
-<tr><th>KALDIRMA    </td><td>10.1.2.6     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırılır)</td><td>rack2</td></tr>
-<tr><th>KALDIRMA    </td><td>10.1.2.7     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırılır)</td><td>rack2</td></tr>
-<tr><th>KALDIRMA    </td><td>10.1.2.8     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırılır)</td><td>rack3</td></tr>
-<tr><th>KALDIRMA    </td><td>10.1.2.9     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırılır)</td><td>rack3</td></tr>
-<tr><th>KALDIRMA    </td><td>10.1.2.10     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırılır)</td><td>rack4</td></tr>
-<tr><th>KALDIRMA    </td><td>10.1.2.11     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırılır)</td><td>rack4</td></tr>
+<tr><th>Durum</th><th>Adres    </th><th>Yükleme    </th><th>Belirteçler    </th><th>Sahibi </th><th>Konak kimliği    </th><th>Raf</th></tr>
+<tr><th>GERİ AL    </td><td>10.1.2.4     </td><td>87.81 KB    </td><td>256    </td><td>38.0%    </td><td>GUID (kaldırıldı)</td><td>raf1</td></tr>
+<tr><th>GERİ AL    </td><td>10.1.2.5     </td><td>41.08 KB    </td><td>256    </td><td>68.9%    </td><td>GUID (kaldırıldı)</td><td>raf1</td></tr>
+<tr><th>GERİ AL    </td><td>10.1.2.6     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırıldı)</td><td>rack2</td></tr>
+<tr><th>GERİ AL    </td><td>10.1.2.7     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırıldı)</td><td>rack2</td></tr>
+<tr><th>GERİ AL    </td><td>10.1.2.8     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırıldı)</td><td>rack3</td></tr>
+<tr><th>GERİ AL    </td><td>10.1.2.9     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırıldı)</td><td>rack3</td></tr>
+<tr><th>GERİ AL    </td><td>10.1.2.10     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırıldı)</td><td>rack4</td></tr>
+<tr><th>GERİ AL    </td><td>10.1.2.11     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırıldı)</td><td>rack4</td></tr>
 </table>
 
-## <a name="test-the-single-region-cluster"></a>Tek bölge kümesi test
+## <a name="test-the-single-region-cluster"></a>Test tek bölgeli küme
 Küme test etmek için aşağıdaki adımları kullanın:
 
-1. Powershell komutu Get-AzureInternalLoadbalancer komutunu kullanarak, iç yük dengeleyicisi (örneğin 10.1.2.101) IP adresini alın. Komutun sözdizimi aşağıda gösterilmiştir: Get-AzureLoadbalancer – [IP adresini yanı sıra iç yük dengeleyicisi ayrıntılarını görüntüler] ServiceName "hk-c-svc-Batı-us"
-2. Web grubu VM (örneğin hk-w1-Batı-us) günlüğüne Putty kullanarak veya ssh
+1. Powershell komutu Get-Azureınternalloadbalancer komutu kullanarak iç yük dengeleyici (örneğin 10.1.2.101) IP adresini alın. Komutun sözdizimi aşağıda gösterilmiştir: Get-AzureLoadbalancer – [iç yük dengeleyici IP adresini birlikte ayrıntılarını görüntüler] ServiceName "hk-c-svc-Batı-ABD"
+2. Web grubu VM (örneğin hk-w1-Batı-ABD) oturum Putty kullanarak veya ssh
 3. $CASS_HOME/bin/cqlsh 10.1.2.101 yürütme 9160
 4. Kümenin çalışıp çalışmadığını doğrulamak için aşağıdaki CQL komutları kullanın:
    
-     İLE çoğaltma oluşturma KEYSPACE customers_ks = {'sınıfı': 'SimpleStrategy', 'replication_factor': 3};   Customers_ks; kullanın.   Tablo Customers(customer_id int PRIMARY KEY, firstname text, lastname text); oluşturma   INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) değerleri (2, 'Jane', 'Etikan');
+     İLE çoğaltma oluşturma anahtar alanı customers_ks = {'class': 'SimpleStrategy', 'replication_factor': 3};   Customers_ks kullanın.   Tablo Customers(customer_id int PRIMARY KEY, firstname text, lastname text); oluşturun   INSERT içine Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Etikan');
    
-     SEÇİN * MÜŞTERİLERDEN;
+     SEÇİN *; MÜŞTERİLERDEN
 
 Aşağıdaki sonuçları gibi bir şey görmeniz gerekir:
 
@@ -457,17 +457,17 @@ Aşağıdaki sonuçları gibi bir şey görmeniz gerekir:
   <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
 </table>
 
-4. adımda oluşturduğunuz keyspace SimpleStrategy 3'ün bir replication_factor kullanır. SimpleStrategy NetworkTopologyStrategy çok veri merkezi ancak dağıtımlar için tek bir veri merkezi dağıtımları önerilir. Replication_factor 3 düğümü hataları için dayanıklılık sağlar.
+4. adımda oluşturulan anahtar ile 3 bir replication_factor SimpleStrategy kullanır. SimpleStrategy NetworkTopologyStrategy çok veri merkezinde ise dağıtımlar için tek bir veri merkezi dağıtımları önerilir. Bir replication_factor 3 düğüm hataları için dayanıklılık sağlar.
 
-## <a id="tworegion"> </a>Bölgeli dağıtım işlemi
-İkinci bölge yüklemek için aynı işlemi yineleyin ve tek bölge dağıtımı tamamlandı yararlanın. Bir veya birden çok bölge dağıtımı arasındaki temel farklılık arası bölge iletişimi için VPN tüneli kurulduğundan; sanal makineleri sağlamak ağ yüklemesiyle başlayın ve Cassandra yapılandırın.
+## <a id="tworegion"> </a>Çok bölgeli dağıtım işlemi
+Tek bölge dağıtımı tamamlandı yararlanın ve ikinci bir bölgeye yüklemek için aynı işlemi yineleyin. Tek ve birden çok bölgeli dağıtımlar arasındaki temel fark, bölgeler arası iletişimi VPN tüneli kurulumu.; Vm'leri hazırlama ağ yüklemesiyle başlamanız ve Cassandra yapılandırın.
 
-### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>1. adım: 2 bölge sanal ağ oluşturma
-Azure portalında oturum açın ve tablodaki öznitelikleri göster ile bir sanal ağ oluşturun. Bkz: [Azure portalında Cloud-Only sanal ağ yapılandırma](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) işleminin ayrıntılı adımlar için.      
+### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>1. adım: 2 bölge düzeyinde sanal ağ oluşturma
+Azure portalında oturum açın ve tabloda öznitelikleri göster ile bir sanal ağ oluşturun. Bkz: [Cloud-Only sanal ağ yapılandırma Azure portalında](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) işleminin ayrıntılı adımlar için.      
 
 <table>
 <tr><th>Öznitelik Adı    </th><th>Değer    </th><th>Açıklamalar</th></tr>
-<tr><td>Ad    </td><td>vnet-cass-Doğu-us</td><td></td></tr>
+<tr><td>Ad    </td><td>vnet-cass-Doğu-ABD</td><td></td></tr>
 <tr><td>Bölge    </td><td>Doğu ABD</td><td></td></tr>
 <tr><td>DNS Sunucuları        </td><td></td><td>Bir DNS sunucusu kullanmıyorsanız gibi bu iletiyi yoksayın</td></tr>
 <tr><td>Noktadan siteye VPN bağlantısını yapılandırma</td><td></td><td>        Bu iletiyi yoksayın</td></tr>
@@ -477,122 +477,122 @@ Azure portalında oturum açın ve tablodaki öznitelikleri göster ile bir sana
 <tr><td>CIDR    </td><td>/16 (65531)</td><td></td></tr>
 </table>
 
-Aşağıdaki alt ağlar ekleyin:
+Şu alt ağlar ekleyin:
 
 <table>
 <tr><th>Ad    </th><th>Başlangıç IP    </th><th>CIDR    </th><th>Açıklamalar</th></tr>
-<tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Alt ağ web grubu</td></tr>
+<tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Web grubu için alt ağ</td></tr>
 <tr><td>veri    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Veritabanı düğümleri için alt ağ</td></tr>
 </table>
 
 
 ### <a name="step-2-create-local-networks"></a>2. adım: Yerel ağlar oluşturma
-Azure sanal ağ yerel bir ağda özel bir bulut ya da başka bir Azure bölgesi de dahil olmak üzere uzak bir siteye eşleyen bir proxy adresi alanıdır. Bu proxy adres alanı bir uzak ağ geçidi yönlendirme ağ için doğru ağ hedeflerine bağlıdır. Bkz: [Vnet'i Vnet'e bağlantı yapılandırma](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) VNET-VNET bağlantı kurma hakkında yönergeler için.
+Azure sanal ağ içinde yerel bir ağ özel bir bulut ya da başka bir Azure bölgesine dahil olmak üzere uzak bir siteye eşleyen bir proxy adresi alandır. Bu proxy adres alanı bir uzak ağ geçidi yönlendirme ağ için doğru ağ hedeflere bağlıdır. Bkz: [bir Vnet'ten Vnet'e bağlantı yapılandırma](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) VNET-VNET bağlantısı oluşturma hakkında yönergeler için.
 
-Aşağıdaki ayrıntıları başına iki yerel ağlar oluşturun:
+Aşağıdaki ayrıntıları başına iki yerel ağ oluşturun:
 
 | Ağ Adı | VPN Ağ Geçidi Adresi | Adres Alanı | Açıklamalar |
 | --- | --- | --- | --- |
-| HK-lnet-Map-to-East-us |23.1.1.1 |10.2.0.0/16 |Yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Ağ geçidi oluşturulduktan sonra gerçek ağ geçidi adresi girilir. İlgili uzak VNET adres alanı tam olarak eşleştiğinden emin olun; Bu durumda Doğu ABD bölgesinde sanal ağ oluşturuldu. |
-| HK-lnet-Map-to-West-us |23.2.2.2 |10.1.0.0/16 |Yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Ağ geçidi oluşturulduktan sonra gerçek ağ geçidi adresi girilir. İlgili uzak VNET adres alanı tam olarak eşleştiğinden emin olun; Bu durumda Batı ABD bölgesinde sanal ağ oluşturuldu. |
+| HK-lnet-Map-to-East-us |23.1.1.1 |10.2.0.0/16 |Yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Gerçek ağ geçidi adresi, ağ geçidi oluşturulduktan sonra doldurulur. İlgili uzak sanal ağ adres alanı eşleştiğinden emin olun; Bu örnekte Doğu ABD bölgesinde sanal ağ oluşturulur. |
+| HK-lnet-Map-to-West-us |23.2.2.2 |10.1.0.0/16 |Yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Gerçek ağ geçidi adresi, ağ geçidi oluşturulduktan sonra doldurulur. İlgili uzak sanal ağ adres alanı eşleştiğinden emin olun; Bu örnekte Batı ABD bölgesinde sanal ağ oluşturulur. |
 
-### <a name="step-3-map-local-network-to-the-respective-vnets"></a>"3. adım: Eşleme yerel" ağa ilgili sanal ağları
-Azure portalından, her sanal ağ seçin, "Yapılandır"'ı tıklatın, "Yerel ağa bağlan" denetleyin ve aşağıdaki ayrıntıları başına yerel ağları seçin:
+### <a name="step-3-map-local-network-to-the-respective-vnets"></a>3. adım: Harita "Yerel" ağ için ilgili sanal ağları
+Azure portalı, her sanal ağ'ı seçin, "Yapılandır"'a tıklayın, "Yerel ağa bağlan" denetleyin ve aşağıdaki ayrıntıları başına yerel ağlar'ı seçin:
 
 | Sanal Ağ | Yerel ağ |
 | --- | --- |
 | hk-vnet-west-us |HK-lnet-Map-to-East-us |
 | hk-vnet-east-us |HK-lnet-Map-to-West-us |
 
-### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>4. adım: Ağ geçitleri VNET1 ve vnet2'yi oluşturma
-Her iki sanal ağlar panodan sağlama işlemi VPN ağ geçidi tetiklemek için ağ geçidi Oluştur'ı tıklatın. Birkaç dakika sonra her sanal ağ Panosu gerçek ağ geçidi adresi görüntülemelidir.
+### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>4. adım: Ağ geçitleri ve VNET1'den vnet2'ye oluşturma
+Her iki sanal ağ panosundan, VPN ağ geçidi sağlama işlemi tetiklemek için ağ geçidi Oluştur'a tıklayın. Birkaç dakika sonra her bir sanal ağ Pano gerçek bir ağ geçidi adresini görüntülemelidir.
 
 ### <a name="step-5-update-local-networks-with-the-respective-gateway-addresses"></a>5. adım: Güncelleştirme "Yerel" ağlarla ilgili "ağ geçidi" adresleri
-Yalnızca sağlanan ağ geçitleri gerçek IP adresiyle yer tutucu ağ geçidi IP adresini değiştirmek için hem yerel ağlar düzenleyin. Aşağıdaki eşleme kullanın:
+Yalnızca sağlanan ağ geçitleri gerçek IP adresiyle yer tutucu ağ geçidi IP adresini değiştirmek için her iki yerel ağ düzenleyin. Aşağıdaki eşleme kullanın:
 
 <table>
 <tr><th>Yerel ağ    </th><th>Sanal Ağ Geçidi</th></tr>
-<tr><td>HK-lnet-Map-to-East-us </td><td>Ağ geçidi hk-vnet-Batı-ABD</td></tr>
+<tr><td>HK-lnet-Map-to-East-us </td><td>Ağ geçidi için hk-vnet-Batı-ABD</td></tr>
 <tr><td>HK-lnet-Map-to-West-us </td><td>Ağ geçidi hk-vnet-Doğu-ABD</td></tr>
 </table>
 
-### <a name="step-6-update-the-shared-key"></a>6. adım: paylaşılan anahtar güncelleştir
-Her VPN ağ geçidi [hem ağ geçitleri için artırmak amacıyla anahtarını kullanın] IPSec anahtarı güncelleştirmek için aşağıdaki Powershell betiğini kullanın: Set-AzureVNetGatewayKey - vnetname adlı hk-vnet-Doğu-us - LocalNetworkSiteName hk-lnet-map-to-west-us - SharedKey D9E76BKK Set-AzureVNetGatewayKey - vnetname adlı hk-vnet-Batı-us - LocalNetworkSiteName hk-lnet-map-to-east-us - SharedKey D9E76BKK
+### <a name="step-6-update-the-shared-key"></a>6. adım: paylaşılan anahtarı güncelleştirme
+Her VPN ağ geçidi [her iki ağ geçitleri için çok anahtarını kullanın] IPSec anahtarını güncelleştirmek için aşağıdaki Powershell betiğini kullanın: Set-AzureVNetGatewayKey - VNetName hk-vnet-Doğu-ABD - LocalNetworkSiteName hk-lnet-map-to-west-us - SharedKey D9E76BKK Set-AzureVNetGatewayKey - VNetName hk-vnet-Batı-ABD - LocalNetworkSiteName hk-lnet-map-to-east-us - SharedKey D9E76BKK
 
 ### <a name="step-7-establish-the-vnet-to-vnet-connection"></a>7. adım: VNET-VNET bağlantısı
-Azure portalından, ağ geçidi için ağ geçidi bağlantısı kurmak için her iki sanal ağlar "PANO" menüsünü kullanın. "BAĞLAN" menü öğeleri alt kısımdaki araç kullanın. Birkaç dakika sonra Pano için grafik bağlantı ayrıntılarını görüntüleme.
+Azure portalından, ağ geçidi için ağ geçidi bağlantısı kurmak için her iki sanal ağ "PANO" menüsünü kullanın. "BAĞLAN" menü öğeleri alt araç çubuğunun kullanın. Birkaç dakika sonra panoyu bağlantı ayrıntılarını grafik görüntülemelidir.
 
-### <a name="step-8-create-the-virtual-machines-in-region-2"></a>8. adım: Bölge #2 sanal makineler oluşturma
-Aynı Azure depolama hesabı görüntüsünü VHD dosyasına #2 bölgede bulunan kopyalama veya adımları izleyerek bölge #1 dağıtımı'nda açıklandığı gibi Ubuntu görüntüsünü oluşturmak ve görüntü oluşturun. Bu görüntüyü kullanın ve aşağıdaki sanal makinelerin listesini yeni bir bulut hizmeti hk-c-svc-Doğu-us oluşturun:
+### <a name="step-8-create-the-virtual-machines-in-region-2"></a>8. adım: sanal makineleri #2 bölgesinde oluşturun.
+Bölge #1 dağıtımda aynı Azure depolama hesabına görüntü VHD dosyasını #2 bölgede kopyalama veya adımları izleyerek açıklandığı gibi bir Ubuntu görüntüsünü oluşturun ve görüntü oluşturun. Bu görüntü kullanın ve yeni bir bulut hizmetinde bir araya hk-c-svc-Doğu-ABD aşağıdaki listede yer alan sanal makineler oluşturun:
 
 | Makine Adı | Alt ağ | IP Adresi | Kullanılabilirlik kümesi | DC/raf | Çekirdek? |
 | --- | --- | --- | --- | --- | --- |
-| HK-c1-Doğu-us |veri |10.2.2.4 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Evet |
-| HK-c2-Doğu-us |veri |10.2.2.5 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Hayır |
-| HK-c3-Doğu-us |veri |10.2.2.6 |HK-c-aset-1 |DC EASTUS raf = rack2 = |Evet |
-| HK-c5-Doğu-us |veri |10.2.2.8 |HK-c-aset-2 |DC EASTUS raf = rack3 = |Evet |
-| HK-c6-Doğu-us |veri |10.2.2.9 |HK-c-aset-2 |DC EASTUS raf = rack3 = |Hayır |
-| HK-c7-Doğu-us |veri |10.2.2.10 |HK-c-aset-2 |DC EASTUS raf = rack4 = |Evet |
-| HK-c8-Doğu-us |veri |10.2.2.11 |HK-c-aset-2 |DC EASTUS raf = rack4 = |Hayır |
-| HK-w1-Doğu-us |web |10.2.1.4 |HK-w-aset-1 |Yok |Yok |
-| HK-w2-Doğu-us |web |10.2.1.5 |HK-w-aset-1 |Yok |Yok |
+| HK-c1-Doğu-ABD |veri |10.2.2.4 |HK-c-aset-1 |DC = EASTUS raf raf1 = |Evet |
+| HK-c2-Doğu-ABD |veri |10.2.2.5 |HK-c-aset-1 |DC = EASTUS raf raf1 = |Hayır |
+| HK-c3-Doğu-ABD |veri |10.2.2.6 |HK-c-aset-1 |DC = EASTUS raf rack2 = |Evet |
+| HK-c5-Doğu-ABD |veri |10.2.2.8 |HK-c-aset-2 |DC = EASTUS raf rack3 = |Evet |
+| HK-c6-Doğu-ABD |veri |10.2.2.9 |HK-c-aset-2 |DC = EASTUS raf rack3 = |Hayır |
+| HK-c7-Doğu-ABD |veri |10.2.2.10 |HK-c-aset-2 |DC = EASTUS raf rack4 = |Evet |
+| HK-c8-Doğu-ABD |veri |10.2.2.11 |HK-c-aset-2 |DC = EASTUS raf rack4 = |Hayır |
+| HK-w1-Doğu-ABD |web |10.2.1.4 |HK-w-aset-1 |Yok |Yok |
+| HK-w2-Doğu-ABD |web |10.2.1.5 |HK-w-aset-1 |Yok |Yok |
 
-Bölge #1 olarak aynı yönergeleri izleyin, ancak 10.2.xxx.xxx adres alanı kullanın.
+Bölge #1 olarak aynı yönergeleri izleyin ancak 10.2.xxx.xxx adres alanı kullanın.
 
-### <a name="step-9-configure-cassandra-on-each-vm"></a>9. adım: Her VM Cassandra yapılandırma
-VM oturum açın ve aşağıdakileri gerçekleştirin:
+### <a name="step-9-configure-cassandra-on-each-vm"></a>9. adım: Her VM'de Cassandra yapılandırma
+VM'de oturum açın ve aşağıdakileri gerçekleştirin:
 
-1. Veri merkezi ve raf özellikleri biçiminde belirtmek için $CASS_HOME/conf/cassandra-rackdc.properties Düzenle: dc EASTUS raf = raf1 =
-2. Çekirdek düğümlerini yapılandırmak için cassandra.yaml Düzenle: oluştururken çekirdeği: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
+1. Veri merkezi ve raf özelliklerini biçiminde belirtmek için $CASS_HOME/conf/cassandra-rackdc.properties Düzenle: dc = EASTUS raf raf1 =
+2. Çekirdek düğümleri yapılandırmak için cassandra.yaml Düzenle: çekirdekler: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 
 ### <a name="step-10-start-cassandra"></a>10. adım: Cassandra Başlat
-Her bir VM oturum ve aşağıdaki komutu çalıştırarak arka planda Cassandra Başlat: $CASS_HOME/bin/cassandra
+Oturum her VM'ye ve aşağıdaki komutu çalıştırarak arka planda Cassandra Başlat: $CASS_HOME/bin/cassandra
 
-## <a name="test-the-multi-region-cluster"></a>Bölgeli küme test
-Artık her Azure bölgesindeki 8 düğümlerle 16 düğüme Cassandra dağıtıldı. Aynı kümedeki ortak küme adı ve çekirdek düğüm yapılandırması, bu düğümler şunlardır. Küme sınamak için aşağıdaki yordamı kullanın:
+## <a name="test-the-multi-region-cluster"></a>Çok bölgeli küme test
+Artık her bir Azure bölgesinde 8 düğüm ile 16 düğüme Cassandra dağıtıldı. Bu düğümler aynı kümedeki ortak küme adı ve çekirdek düğüm yapılandırması da var. Küme test etmek için aşağıdaki işlemi kullanın:
 
-### <a name="step-1-get-the-internal-load-balancer-ip-for-both-the-regions-using-powershell"></a>1. adım: PowerShell kullanarak her iki bölgeler için iç yük dengeleyici IP Al
-* Get-AzureInternalLoadbalancer - ServiceName "hk-c-svc-Batı-us"
-* Get-AzureInternalLoadbalancer - ServiceName "hk-c-svc-Doğu-us"  
+### <a name="step-1-get-the-internal-load-balancer-ip-for-both-the-regions-using-powershell"></a>1. adım: PowerShell kullanarak iki bölgeleri için iç yük dengeleyici IP alma
+* Get-Azureınternalloadbalancer - ServiceName "hk-c-svc-Batı-ABD"
+* Get-Azureınternalloadbalancer - ServiceName "hk-c-svc-Doğu-ABD"  
   
-    IP adreslerini not alın (örnek Batı - 10.1.2.101, Doğu - için 10.2.2.101) görüntülenir.
+    IP adreslerini Not (için örnek Batı - 10.1.2.101, Doğu - 10.2.2.101) görüntülenir.
 
-### <a name="step-2-execute-the-following-in-the-west-region-after-logging-into-hk-w1-west-us"></a>2. adım: aşağıdakileri oturum hk-w1-Batı-us açtıktan sonra Batı bölgesinde yürütün
+### <a name="step-2-execute-the-following-in-the-west-region-after-logging-into-hk-w1-west-us"></a>2. adım: hk-w1-Batı-ABD oturum açtıktan sonra Batı bölgesinde aşağıdakileri yürütün
 1. $CASS_HOME/bin/cqlsh 10.1.2.101 yürütme 9160
 2. Aşağıdaki CQL komutları yürütün:
    
-     İLE çoğaltma oluşturma KEYSPACE customers_ks = {'sınıfı': 'NetworkToplogyStrategy', 'WESTUS': 3 'EASTUS': 3};   Customers_ks; kullanın.   Tablo Customers(customer_id int PRIMARY KEY, firstname text, lastname text); oluşturma   INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) değerleri (2, 'Jane', 'Etikan');   SEÇİN * MÜŞTERİLERDEN;
+     İLE çoğaltma oluşturma anahtar alanı customers_ks = {'class': 'NetworkToplogyStrategy', 'WESTUS': 3, 'EASTUS': 3};   Customers_ks kullanın.   Tablo Customers(customer_id int PRIMARY KEY, firstname text, lastname text); oluşturun   INSERT içine Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Etikan');   SEÇİN *; MÜŞTERİLERDEN
 
-Bir görünüm aşağıdaki gibi görmeniz gerekir:
+Bir ekran aşağıdaki gibi görmeniz gerekir:
 
 | customer_id | firstName | Soyadı |
 | --- | --- | --- |
 | 1 |John |Doe |
 | 2 |Jane |Doe |
 
-### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-east-us"></a>3. adım: oturum hk-w1-Doğu-us açtıktan sonra Doğu bölgesinde aşağıdakileri yürütün:
+### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-east-us"></a>3. adım: hk-w1-Doğu-ABD oturum açtıktan sonra Doğu bölgesinde aşağıdakileri yürütün:
 1. $CASS_HOME/bin/cqlsh 10.2.2.101 yürütme 9160
 2. Aşağıdaki CQL komutları yürütün:
    
-     Customers_ks; kullanın.   Tablo Customers(customer_id int PRIMARY KEY, firstname text, lastname text); oluşturma   INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) değerleri (2, 'Jane', 'Etikan');   SEÇİN * MÜŞTERİLERDEN;
+     Customers_ks kullanın.   Tablo Customers(customer_id int PRIMARY KEY, firstname text, lastname text); oluşturun   INSERT içine Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Etikan');   SEÇİN *; MÜŞTERİLERDEN
 
-Batı bölgesini görüldüğü gibi aynı görüntü görmeniz gerekir:
+Batı bölgesi görüldüğü gibi aynı ekranı görmeniz gerekir:
 
 | customer_id | firstName | Soyadı |
 | --- | --- | --- |
 | 1 |John |Doe |
 | 2 |Jane |Doe |
 
-Birkaç daha fazla eklemeleri yürütün ve olanlar için Batı çoğaltıldığından emin bakın-bize kümesinin parçası.
+Birkaç daha fazla ekler yürütün ve olanlar için Batı çoğaltılması bakın-bize kümenin parçası.
 
-## <a name="test-cassandra-cluster-from-nodejs"></a>Test Cassandra Node.js kümeden
-"Web" katmanında daha önce oluşturduğunuz Linux VM'ler birini kullanarak, daha önce eklenen verileri okumak için basit bir Node.js betiğini yürütün
+## <a name="test-cassandra-cluster-from-nodejs"></a>Node.js test Cassandra kümesi
+"Web" katmanı daha önce oluşturduğunuz Linux Vm'leri birini kullanarak, daha önce eklenen verileri okumak için basit bir Node.js komut yürütme
 
-**1. adım: Node.js ve Cassandra istemcisi yükleme**
+**1. adım: Node.js ile Cassandra istemcisi yükleme**
 
-1. Node.js ve npm yükleme
-2. Düğüm paketi "cassandra-istemci" yükleme npm kullanma
-3. Alınan veriler json dizesi görüntüleyen Kabuk isteminde aşağıdaki betiği yürütün:
+1. Node.js ve npm'yi yükleyin
+2. Düğüm paket "cassandra-istemci" yükleme npm kullanarak
+3. Json dizesi alınan verilerin görüntülendiği Kabuk isteminde aşağıdaki komutu yürütün:
    
         var pooledCon = require('cassandra-client').PooledConnection;
         var ksName = "custsupport_ks";
@@ -678,7 +678,7 @@ Birkaç daha fazla eklemeleri yürütün ve olanlar için Batı çoğaltıldığ
         readCustomer(ksConOptions)
 
 ## <a name="conclusion"></a>Sonuç
-Microsoft Azure tarafından bu alıştırmada gösterildiği gibi hem Microsoft, hem de açık kaynak yazılımının çalışmasını sağlayan esnek bir platformdur. Yüksek oranda kullanılabilir Cassandra kümeler, küme düğümlerini birden fazla hata etki alanlarında yayılmak aracılığıyla tek bir veri merkezi üzerinde dağıtılabilir. Cassandra kümeleri de olağanüstü durum kanıtını sistemler için birden çok coğrafi olarak birbirinden uzak Azure bölgeleri üzerinden dağıtılabilir. Azure ve Cassandra birlikte yüksek düzeyde ölçeklenebilir, yüksek oranda kullanılabilir yapımı sağlar ve olağanüstü durum kurtarılabilir bulut Hizmetleri tarafından bugünün internet Hizmetleri ölçeği.  
+Microsoft Azure, bu alıştırmada gösterildiği gibi hem Microsoft hem de açık kaynak yazılım çalıştırılmasını sağlayan esnek bir platformdur. Yüksek oranda kullanılabilir Cassandra kümeleri, birden çok hata etki alanlarında küme düğümlerine yayılması aracılığıyla tek bir veri merkezi üzerinde dağıtılabilir. Cassandra kümeleri, birden çok bölgede coğrafi olarak uzak Azure olağanüstü durum düzeltme sistemler için de dağıtılabilir. Azure ve Cassandra birlikte yüksek oranda ölçeklenebilir, yüksek oranda kullanılabilir oluşumu etkinleştirir ve olağanüstü durum kurtarılabilir bulut Hizmetleri, günümüzün internet hizmetlerinin ölçeği.  
 
 ## <a name="references"></a>Başvurular
 * [http://cassandra.apache.org](http://cassandra.apache.org)

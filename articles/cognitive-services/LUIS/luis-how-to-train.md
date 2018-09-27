@@ -1,23 +1,23 @@
 ---
-title: LUIS uygulamanızı eğitin
+title: LUIS sürümünüzü eğitin
 titleSuffix: Azure Cognitive Services
-description: Eğitim, doğal dil anlama geliştirmek için Language Understanding (LUIS) uygulamanızı eğitiminde işlemidir. Ekleme, düzenleme, etiketleme veya varlıkları, amacı veya konuşma silme gibi bir Modeli'ne güncelleştirmelerinden sonra LUIS uygulamanızı eğitin.
+description: Eğitim, doğal dil anlama geliştirmek için Language Understanding (LUIS) uygulama sürümü eğitiminde işlemidir. Ekleme, düzenleme, etiketleme veya varlıkları, amacı veya konuşma silme gibi bir Modeli'ne güncelleştirmelerinden sonra LUIS uygulamanızı eğitin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6ed76e35ce07f2848c67ef007ad7d3f062f465f7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f27716cc416b162a5b2df5542d709058f3b3e903
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036771"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182051"
 ---
-# <a name="train-your-luis-app"></a>LUIS uygulamanızı eğitin
+# <a name="train-your-luis-app-version"></a>LUIS uygulaması sürümünüz eğitin
 
 Eğitim, doğal dil anlama geliştirmek için Language Understanding (LUIS) uygulamanızı eğitiminde işlemidir. Ekleme, düzenleme, etiketleme veya varlıkları, amacı veya konuşma silme gibi bir Modeli'ne güncelleştirmelerinden sonra LUIS uygulamanızı eğitin. 
 
@@ -26,7 +26,7 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 Eğitim ve [test](luis-concept-test.md) uygulama yinelemeli bir işlemdir. LUIS uygulamanızı eğitme sonra varlıkları ve hedefleri doğru olarak tanınır olmadığını görmek için örnek Konuşma ile test edin. Değilseniz, güncelleştirmeleri LUIS uygulaması, eğitin ve test için yeniden yapın. 
 
-## <a name="train-your-app"></a>Uygulamanızı eğitme
+## <a name="how-to-train"></a>Eğitme
 Yinelemeli işlemini başlatmak için önce en az bir kez LUIS uygulamanızı geliştirmek gerekir. Eğitim önce en az bir utterance her hedefi olduğundan emin olun.
 
 1. Adını seçerek uygulamanıza erişmek **uygulamalarım** sayfası. 
@@ -39,6 +39,9 @@ Yinelemeli işlemini başlatmak için önce en az bir kez LUIS uygulamanızı ge
 
 >[!NOTE]
 >Örnek konuşma içermeyen bir veya daha fazla ıntents uygulamanızda varsa, uygulamanızı eğitme olamaz. Tüm amaçlar için konuşma ekleyin. Daha fazla bilgi için [örnek Konuşma ekleme](luis-how-to-add-example-utterances.md).
+
+## <a name="train-with-all-data"></a>Tüm verilerle eğitim
+Eğitim negatif örnekleme küçük bir yüzdesine kullanır. Tüm veriler yerine negatif yapabileceğini kullanmak istiyorsanız, kullanın [sürüm ayarları API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) ile `UseAllTrainingData` bu özelliği devre dışı bırakmak için true olarak ayarlanmış. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

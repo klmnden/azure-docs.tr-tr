@@ -9,41 +9,38 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: 634f33b6d4ed6e272dfb3d1443b0afc63f822d43
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: d3e0b63d42ad8c6d4765f5120c26c5dfdf5ad6fb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055892"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166546"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning"></a>Yönetin, dağıtın ve modeller Azure Machine Learning ile izleme
 
 Bu makalede, Azure Machine Learning dağıtma, yönetme ve sürekli olarak geliştirmek için Modellerinizi izlemek için nasıl kullanılacağını öğrenebilirsiniz. Azure Machine Learning ile yerel makinenizde veya diğer kaynaklardan eğitilmiş modeller dağıtabilirsiniz. 
 
-[!['Azure Machine Learning sürekli tümleştirme/sürekli dağıtım (CI/CD) döngüsü'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+Tam dağıtım iş akışı aşağıdaki diyagramda gösterilmektedir: [ ![Azure Machine Learning için dağıtım iş akışı](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
-## <a name="deployment-workflow"></a>Dağıtım iş akışı
-
-Dağıtım iş akışı içinde oluşur: 
+Dağıtım iş akışı, aşağıdaki adımları içerir:
 1. **Modeli kaydetmeyi** Azure Machine Learning çalışma alanınızda barındırılan bir kayıt defterinde
 1. **Bir görüntüyü kaydedin** , bir model Puanlama betiğine ve taşınabilir bir kapsayıcıda bağımlılıkları ile eşleşmesini 
 1. **Dağıtma** bulutta veya uç cihazlarında bir web hizmeti olarak görüntüsü
 1. **İzleme ve veri toplama**
 
-Her adım, bağımsız olarak veya tek dağıtım komutun bir parçası olarak yapabilirsiniz. 
+Her adım, bağımsız olarak veya tek dağıtım komutun bir parçası olarak gerçekleştirilebilir. Ayrıca, dağıtımı ile tümleştirebilirsiniz bir **CI/CD iş akışı** Bu grafikte gösterildiği gibi.
 
-Aşağıdaki diyagramda, tam bir dağıtım işlem hattı gösterilmektedir:
+[ !['Azure Machine Learning sürekli tümleştirme/sürekli dağıtım (CI/CD) döngüsü'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-[![Dağıtım işlem hattı](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
-## <a name="step-1-model-registration"></a>1. adım: Model kaydı
+## <a name="step-1-register-model"></a>1. adım: Kayıt modeli
 
 Model kayıt defteri, Azure Machine Learning çalışma alanınızdaki tüm modelleri izler.
 Modelleri, ada ve sürüme göre tanımlanır. Mevcut bir aynı ada sahip bir model her kaydettirdiğinizde, kayıt defteri sürüm artırır. Ek meta veri etiketleri aramak modellerinde kullanılabilir kayıt sırasında de sağlayabilirsiniz.
 
 Görüntü tarafından kullanılmakta olan modeller nelze odstranit.
 
-## <a name="step-2-image-registration"></a>2. adım: Görüntü kayıt
+## <a name="step-2-register-image"></a>2. adım: Kaydı görüntüsü
 
 Model kullanmak için gereken tüm bileşenler birlikte güvenilir model dağıtımı için görüntüler sağlar. Görüntü, aşağıdaki öğeleri içerir:
 
@@ -59,24 +56,24 @@ Azure Machine Learning en popüler çerçeveleri destekler, ancak genel pıp'in 
 Bu nedenle çalışma alanınızı oluştururken diğer birçok diğer Azure kaynakları bu çalışma alanı tarafından kullanıldı.
 Görüntüyü oluşturmak için kullanılan tüm nesneler, çalışma alanınızda Azure depolama hesabında depolanır. Görüntü oluşturulur ve Azure Container Registry'de depolanır. Ayrıca görüntü kayıt depolanır ve görüntünüzü bulmak için sorgulanabilir görüntü oluşturulurken, ek meta veri etiketleri sağlayabilirsiniz.
 
-## <a name="step-3-deployment"></a>Adım 3: dağıtımı
+## <a name="step-3-deploy-image"></a>3. adım: görüntüsü dağıtma
 
 Buluta veya uç cihazlarında kayıtlı görüntülerini dağıtabilirsiniz. Tüm izlemek için gerekli kaynaklar, Yük Dengeleme ve otomatik ölçeklendirme, dağıtım işlemi modeliniz oluşturur. Dağıtılan hizmetlere erişmek için sertifika tabanlı kimlik doğrulaması ile dağıtım sırasında güvenlik varlıklar sağlayarak güvenliği sağlanabilir. Ayrıca, daha yeni bir görüntüyü kullanmak için mevcut bir dağıtımı yükseltebilirsiniz.
 
 Web hizmeti dağıtımları da aranabilir. Örneğin, belirli bir model veya görüntü tüm dağıtımları için arama yapabilirsiniz.
 
-Aşağıdaki hedeflere bulutta görüntülerinizi dağıtabilirsiniz:
+[ ![Çıkarım hedefleri](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+
+Aşağıdakiler için kendi görüntülerinizi dağıtabilirsiniz [dağıtım hedefleri](how-to-deploy-and-where.md) bulutta:
 
 * Azure Container Örneği
 * Azure Kubernetes Service
 * Azure FPGA makineler
 * Azure IOT Edge cihazları
 
-[Dağıtabileceğiniz hakkında daha fazla bilgi](how-to-deploy-and-where.md).
+Hizmetinizi dağıtılan gibi çıkarım isteği otomatik olarak yük dengeli ve isteğe bağlı herhangi bir ani artış karşılamak için küme Ölçeklendirildi. [Hizmetinizi hakkında telemetri](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py) çalışma alanınızla ilişkili Azure Application Insights hizmetine yakalanabilir.
 
-Hizmetinizi dağıtılan gibi çıkarım isteği otomatik olarak yük dengeli ve isteğe bağlı herhangi bir ani artış karşılamak için küme Ölçeklendirildi. Hizmetinizi hakkında telemetri çalışma alanınızla ilişkili Azure Application Insights hizmetine yakalanır.
-
-## <a name="step-4-monitoring-models-and-data-collection"></a>4. adım: İzleme modeller ve veri toplama
+## <a name="step-4-monitor-models-and-collect-data"></a>4. adım: modelleri izlemek ve veri toplama
 
 Giriş, çıkış ve diğer ilgili veri modelinizden izleyebilmek model günlük ve veri yakalama için bir SDK'sı kullanılabilir. Veriler, çalışma alanınız için Azure depolama hesabındaki bir blob olarak depolanır.
 

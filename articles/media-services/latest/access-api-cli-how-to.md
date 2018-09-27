@@ -13,11 +13,11 @@ ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
 ms.openlocfilehash: e20cac5f1063589bdbfee0f384ac6af5a39811ed
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724032"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096800"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Azure CLI ile API erişim Azure medya Hizmetleri
  
@@ -32,7 +32,7 @@ Bu makalede bir Azure AD uygulaması ve hizmet sorumlusu oluşturma ve Azure Med
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-Açıklanan şekilde yeni bir Azure Media Services hesabı oluşturma [Bu hızlı başlangıçta](create-account-cli-quickstart.md).
+[Bu hızlı başlangıçta](create-account-cli-quickstart.md) açıklandığı gibi yeni bir Azure Media Services hesabı oluşturun.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -40,7 +40,7 @@ Açıklanan şekilde yeni bir Azure Media Services hesabı oluşturma [Bu hızl�
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 

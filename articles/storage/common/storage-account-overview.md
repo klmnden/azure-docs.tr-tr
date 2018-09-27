@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b942b85c954bb765833426f3f9a010a66f016a90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b2d51f356538724d567654c0de3decbf19c838c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972326"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222106"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
@@ -57,7 +57,7 @@ Genel amaçlı v2 depolama hesabı için en son Azure depolama özelliklerini de
 
 Microsoft, çoğu senaryo için bir genel amaçlı v2 depolama hesabı kullanmanızı önerir. Genel amaçlı v2 hesabına kapalı kalma süresi veya uygulama taşıyabilmenizi sağlar ve veri kopyalamak zorunda kalmadan kolayca bir genel amaçlı v1 veya Blob Depolama hesabına yükseltebilirsiniz. Genel amaçlı v2 hesabına yükseltme hakkında daha fazla bilgi için bkz. [yükseltmek için bir genel amaçlı v2 depolama hesabı](storage-account-upgrade.md). 
 
-Genel amaçlı v2 depolama hesaplarının, kullanım düzenlerini esas alarak verileri depolamak için birden çok erişim katmanı sunar. Daha fazla bilgi için [erişim katmanları için blob verilerini](#access-tiers-for-blob-data).
+Genel amaçlı v2 depolama hesaplarının, kullanım düzenlerini esas alarak verileri depolamak için birden çok erişim katmanı sunar. Daha fazla bilgi için [erişim katmanları için blok blob verilerine](#access-tiers-for-block-blob-data).
 
 ### <a name="general-purpose-v1-accounts"></a>Genel amaçlı v1 hesapları
 
@@ -81,7 +81,7 @@ Genel amaçlı v1 hesapları, genel amaçlı v2 hesapları çoğu durumda öneri
 
 Blob Depolama hesabı, blok blobları olarak yapılandırılmamış nesne verilerini depolamak için bir özel depolama hesabıdır. BLOB Depolama hesapları, dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve genel amaçlı v2 depolama hesapları ile kullanılabilen performans özellikleri sağlar. BLOB Depolama hesapları depolama blok bloblarını destekler ve blobları ve sayfa bloblarını desteklemez.
 
-BLOB Depolama hesapları, kullanım düzenlerini esas alarak verileri depolamak için birden çok erişim katmanı sunar. Daha fazla bilgi için [erişim katmanları için blob verilerini](#access-tiers-for-blob-data).
+BLOB Depolama hesapları, kullanım düzenlerini esas alarak verileri depolamak için birden çok erişim katmanı sunar. Daha fazla bilgi için [erişim katmanları için blok blob verilerine](#access-tiers-for-block-blob-data).
 
 ## <a name="naming-storage-accounts"></a>Depolama hesabı adlandırma
 

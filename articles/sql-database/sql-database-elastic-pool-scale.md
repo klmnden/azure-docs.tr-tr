@@ -2,19 +2,22 @@
 title: Elastik havuz kaynak - Azure SQL veritabanı ölçeklendirme | Microsoft Docs
 description: Bu sayfada Azure SQL veritabanındaki elastik havuzlar için ölçeklendirme kaynaklar açıklanır.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: oslake
+ms.author: moslake
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 09/20/2018
-ms.author: carlrab
-ms.openlocfilehash: b0dce3a21a2d254a593db88246097b255f74a024
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2b304ac26f9a18b0e98cb4c42de3ca386637d864
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033099"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164728"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuz kaynakları ölçeklendirin
 

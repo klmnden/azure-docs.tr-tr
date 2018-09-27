@@ -10,19 +10,19 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2018
+ms.topic: conceptual
+ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 97cc6d6e922ab0bedd729eddca754ae016f041bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0413357b6e17bf66b0ae9b504bc23b9702d03c91
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958025"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220984"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
-Azure İzleyici bulut alınan telemetri üzerinde çalışan toplama ve analiz için kapsamlı bir çözüm sunarak kullanılabilirlik ve uygulamalarınızın performansını en üst düzeye çıkarır ve şirket içi Ortamlarınızdaki. Bu, uygulamalarınızın performansını anlamanıza yardımcı olur ve bunları ve bunların bağımlı kaynakları etkileyen sorunları proaktif olarak tanımlar.
+Azure İzleyici bulut alınan telemetri üzerinde çalışan toplama ve analiz için kapsamlı bir çözüm sunarak kullanılabilirlik ve uygulamalarınızın performansını en üst düzeye çıkarır ve şirket içi Ortamlarınızdaki. Uygulamalarınızın performansını anlamanıza ve uygulamalarla bağlı oldukları kaynakları etkileyen sorunları önceden tespit etmenize yardımcı olur.
 
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
@@ -47,7 +47,7 @@ Log Analytics sorgu dili basit günlük sorguları için uygundur, ancak ayrıca
 ![Günlükler](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Azure İzleyici hangi verileri toplar?
-Log Analytics, çeşitli kaynaklardan veri toplayabilir. Uygulamanız, hiçbir işletim ve Hizmetleri, platform aşağı kullanır arasında değişen katmanlarındaki uygulamalarınız için veri izleme düşünebilirsiniz. Azure İzleyici her aşağıdaki katmanları alanından veri toplar:
+Azure İzleyici, çeşitli kaynaklardan veri toplayabilir. Uygulamanız, hiçbir işletim ve Hizmetleri, platform aşağı kullanır arasında değişen katmanlarındaki uygulamalarınız için veri izleme düşünebilirsiniz. Azure İzleyici her aşağıdaki katmanları alanından veri toplar:
 
 - **Uygulama izleme verilerini**: kodun işlevselliğini ve performansı hakkındaki verileri yazdığınız, kendi platformları ne olursa olsun.
 - **Konuk işletim sistemi izleme verileri**: uygulamanızın üzerinde çalıştığı işletim sistemi hakkındaki verileri. Bu Azure, başka bir bulutta veya şirket içinde çalışıyor olabilir. 
@@ -145,9 +145,6 @@ Birden çok API'ları okuyup ölçüm ve günlükleri için ve Azure İzleyici'd
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdakiler hakkında daha fazla bilgi edinin:
 
-* Temel izleme ölçümlerini ve uyarılarını kullanmaya başlamak için [Azure İzleyici](https://azure.microsoft.com/services/monitor/).
-* App Service web uygulamanızda sorunları tanılamaya çalışıyorsanız [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/).
-* Toplanan izleme verilerini ve günlüklerini analiz etmek için [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/).
-
-
-
+* [Ölçüm ve günlükleri](../monitoring/monitoring-data-collection.md) Azure İzleyici tarafından toplanan veriler için.
+* [Veri kaynakları](../monitoring/monitoring-data-sources.md) nasıl uygulamanızın farklı bileşenlerini telemetri göndermek için.
+* [Log Analytics](../log-analytics/log-analytics-queries.md) toplanan verileri analiz etmek için.

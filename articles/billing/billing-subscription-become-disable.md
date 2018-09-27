@@ -1,6 +1,6 @@
 ---
-title: Yeniden etkinleştirme Azure aboneliği devre dışı | Microsoft Docs
-description: Ne zaman devre dışı bir Azure aboneliğine sahip ve onu yeniden etkinleştirmeyi açıklar.
+title: Azure aboneliği yeniden etkinleştirme devre | Microsoft Docs
+description: Azure aboneliğiniz devre dışı olduğunda ve yeniden etkinleştirmek nasıl açıklar.
 keywords: azure aboneliği devre dışı
 services: ''
 documentationcenter: ''
@@ -15,52 +15,52 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: d76d02ba326cf93582c03937b3ab54d806acaff1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: cwatson
+ms.openlocfilehash: 81f4830691f423e51d6c1f0b71a8fc62160ea92e
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067614"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393018"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Neden Azure Aboneliğim devre dışı bırakıldı ve nasıl yeniden?
 
-Azure aboneliğinize kredi süresi dolduğu için devre dışı olabilir, harcama limitine ulaşıldı, süresi geçmiş bir fatura sahip, kredi kartı sınırına veya aboneliğin Hesap Yöneticisi tarafından iptal edildi. Bkz. hangi sorunu için geçerlidir ve aboneliğinizi yeniden almak için bu makaledeki adımları izleyin.
+Kredinizin süresi dolduğu, harcama limitinize ulaştığınız, süresi geçmiş bir faturanız olduğu, kredi kartı limitinize ulaştığınız veya abonelik Hesap Yöneticisi tarafından iptal edildiği için Azure aboneliğiniz devre dışı bırakılmış olabilir. Bkz. sorunun ne için geçerlidir ve aboneliğinizi yeniden almak için bu makaledeki adımları izleyin.
 
-## <a name="your-credit-is-expired"></a>Kredi süresi doldu
+## <a name="your-credit-is-expired"></a>Kredinizin süresi doldu
 
-Azure ücretsiz hesap için kaydolduğunuzda, 200 ABD Doları içinde Azure kredisi 30 gün ve 12 ay ücretsiz hizmetleri sağlayan ücretsiz bir deneme aboneliği alın. 30 gün sonunda, Azure aboneliğiniz devre dışı bırakır. Aboneliğinize kredi ve aboneliğinizde yer alan Ücretsiz Hizmetler dışında kullanım ücretleri yanlışlıkla yansıtılmasını korumak için devre dışıdır. Azure hizmetlerini kullanmaya devam etmek için size gereken [aboneliğinizi Kullandıkça Öde aboneliğine yükseltme](billing-upgrade-azure-subscription.md). Yükseltmeden sonra aboneliğiniz hala hizmetlerini 12 ay boyunca boşaltmak için erişebilir. Yalnızca ücretsiz hizmetlere ve miktarları ötesinde kullanım için ücret.
+Azure ücretsiz hesabı için kaydolduğunuzda, 200 ABD Doları değerinde Azure kredisine sahip 30 gün ve 12 aylık ücretsiz hizmetler sağlayan bir ücretsiz deneme aboneliği alın. 30 günün sonunda, Azure aboneliğiniz devre dışı bırakır. Yanlışlıkla kredi ve aboneliğinize dahil olan Ücretsiz Hizmetler kullanımlarda ücretlerden korunmanız için aboneliğiniz devre dışı bırakıldı. Azure hizmetlerini kullanmaya devam etmek için [aboneliğinizi Kullandıkça Öde aboneliğine yükseltin](billing-upgrade-azure-subscription.md). Yükseltmeden sonra aboneliğinizi, yine de ücretsiz hizmetlere 12 ay boyunca erişimine sahiptir. Yalnızca Ücretsiz Hizmetler ve miktarların dışında kullanım için ücretlendirilirsiniz.
 
 ## <a name="you-reached-your-spending-limit"></a>Harcama limitine ulaşıldı
 
-Azure ücretsiz deneme sürümü ve Visual Studio Enterprise gibi kredi aboneliklerle üzerlerinde harcama limitlerini vardır. Bu hizmetler dahil alacak kadar yalnızca kullanabileceğiniz anlamına gelir. Kullanımınızı harcama sınırına ulaştığında aboneliğinizi geri kalanı, fatura döneminin Azure devre dışı bırakır. Aboneliğinizde yer alan kredi ötesinde kullanım ücretleri yanlışlıkla yansıtılmasını korumak için aboneliğiniz devre dışı. Harcama limitinizi kaldırmak için bkz: [hesap Merkezi'nde harcama sınırını kaldırmak](billing-spending-limit.md#remove).
+Ücretsiz deneme sürümü ve Visual Studio Enterprise gibi kredi ile Azure aboneliklerini üzerlerinde harcama limitleri vardır. Bu hizmetleri yer alacak en fazla yalnızca kullanabileceğiniz anlamına gelir. Azure kullanımınızı harcama sınırına ulaştığında, söz konusu fatura dönemindeki kalan aboneliğiniz devre dışı bırakır. Yanlışlıkla aboneliğinize dahil olan kredi kullanımlarda ücretlerden korunmanız için aboneliğiniz devre dışı bırakıldı. Harcama limitinizi kaldırmak için bkz: [hesap Merkezi'nde harcama limitini Kaldır](billing-spending-limit.md#remove).
 
 > [!NOTE] 
-> Ücretsiz deneme aboneliği varsa ve harcama sınırını kaldırmak, aboneliğinizi Kullandıkça Öde ücretsiz deneme sonunda dönüştürür. Tam abonelik oluşturduğunuz sonraki 30 gün için kalan kredinizi tutun. Ayrıca Hizmetleri 12 ay boyunca boşaltmak için erişebilirsiniz.
+> Ücretsiz deneme aboneliği varsa ve harcama limitini kaldırın, sonunda ücretsiz deneme, Kullandıkça Öde aboneliğinizi dönüştürür. Tam abonelik oluşturduğunuz sonraki 30 gün için kalan kredilerinizi kullanmaya devam. Ayrıca Hizmetleri 12 ay boyunca ücretsiz erişebilirsiniz.
 
-İzlemek ve Azure için fatura etkinlik yönetmek için bkz: [Azure faturalama ve maliyet yönetimi ile beklenmeyen maliyetleri önlemek](billing-getting-started.md) ve [uyarılar, Microsoft Azure abonelikleri için ödeme yukarı ayarlamak](billing-set-up-alerts.md).
+İzleme ve Azure için faturalandırma etkinliğini yönetme hakkında bilgi için bkz: [Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen maliyetleri engelleme](billing-getting-started.md) ve [uyarılar, Microsoft Azure abonelikleri için fatura ayarlama](billing-set-up-alerts.md).
 
 
-## <a name="your-bill-is-past-due"></a>Faturanızı geçmişe ait
+## <a name="your-bill-is-past-due"></a>Faturanızı süresi geçti.
 
-Vadesi geçmiş çözümlemek için dengelemek için bkz: [vadesi geçmiş gidermek Azure'dan bir e-posta alma sonra Azure aboneliğiniz için eşit olarak dengele](billing-azure-subscription-past-due-balance.md).
+Vadesi geçmiş çözmek için dengelemek için bkz: [vadesi geçmiş çözümleme Azure'dan bir e-posta alma sonra Azure aboneliğiniz için Bakiye](billing-azure-subscription-past-due-balance.md).
 
 ## <a name="the-bill-exceeds-your-credit-card-limit"></a>Fatura kredi kartı sınırınızı aşıyor
 
-Bu sorunu çözmek için [geçiş için farklı bir kredi kartı](billing-how-to-change-credit-card.md). Veya bir iş temsil eden, [fatura ile ödeme anahtar](billing-how-to-pay-by-invoice.md).
+Bu sorunu çözmek için [geçmek için farklı bir kredi kartı](billing-how-to-change-credit-card.md). Veya bir işletme temsil eden varsa [faturayla ödeme anahtar](billing-how-to-pay-by-invoice.md).
 
 ## <a name="the-subscription-was-accidentally-canceled-and-you-want-to-reactivate"></a>Aboneliği yanlışlıkla iptal edildi ve yeniden etkinleştirmek istediğiniz
 
-Hesap Yöneticisi iseniz ve yanlışlıkla bir Kullandıkça Öde aboneliği iptal hesap Merkezi'nde yeniden etkinleştirebilirsiniz.
+Hesap Yöneticisi olduğunuzu ve Kullandıkça Öde aboneliği yanlışlıkla iptal edildi, hesap Merkezi'nde yeniden etkinleştirebilir.
 
-1. Oturum [hesap Merkezi'nde](https://account.windowsazure.com/Subscriptions).
-1. İptal edilen aboneliği seçin.
-1. Tıklatın **yeniden**.
+1. Oturum [hesap Merkezi](https://account.windowsazure.com/Subscriptions).
+1. İptal edilen bir abonelik seçin.
+1. Tıklayın **yeniden**.
 
-    ![Gösteren ekran görüntüsü yeniden sağ bölmede bağlantılar](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+    ![Yeniden sağ bölmede bağlantıları gösteren ekran görüntüsü](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
-Diğer abonelik türleri [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) aboneliğinizi yeniden üzere.
+Diğer abonelik türlerinde [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) aboneliğinizi yeniden sağlamak için.
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
-Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

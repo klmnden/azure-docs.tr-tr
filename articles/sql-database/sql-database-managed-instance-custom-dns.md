@@ -2,20 +2,22 @@
 title: Azure SQL veritabanı yönetilen örneği özel DNS | Microsoft Docs
 description: Bu konuda, bir Azure SQL veritabanı yönetilen örneği ile özel bir DNS yapılandırma seçenekleri açıklanmaktadır.
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/23/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 2d1bb7e8522da32dd33933261ea41b578f8afac1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: craigg
+ms.date: 09/23/2018
+ms.openlocfilehash: f26ea763d48d03fe7e981b7abbbe64e573ec0b3a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949494"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224282"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Özel DNS yapılandırma için Azure SQL veritabanı yönetilen örneği
 
@@ -36,7 +38,7 @@ Azure SQL veritabanı yönetilen örneği, bir Azure dağıtılmalıdır [sanal 
    ![Özel dns seçeneği](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > Azure'nın yinelemeli çözümleyici DNS ayarları listesi hatalı durumuna girmeyi yönetilen örneğe neden olur. Gelen durum yeni bir örneğini bir sanal ağ ile uyumlu ağ ilkeleri oluşturmanıza olanak gerektirebilir kurtarma, örnek düzeyinde veri oluşturun ve veritabanlarınızı geri yüklemek. Bkz: [VNet yapılandırmasını](sql-database-managed-instance-vnet-configuration.md).
+   > Azure'nın yinelemeli çözümleyici DNS listesinde ayarlanmaması, herhangi bir nedenden dolayı özel DNS sunucuları kullanılamaz bir hatalı durumuna geçilmesidir yönetilen örneğe neden olabilir. Gelen durum yeni bir örneğini bir sanal ağ ile uyumlu ağ ilkeleri oluşturmanıza olanak gerektirebilir kurtarma, örnek düzeyinde veri oluşturun ve veritabanlarınızı geri yüklemek. Tüm özel DNS sunucuları bile başarısız olursa, DNS listedeki son girişi sağlar olarak Azure'nın yinelemeli çözümleyici ayarlama, ortak adları hala çözülebilir. Bkz: [VNet yapılandırmasını](sql-database-managed-instance-vnet-configuration.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

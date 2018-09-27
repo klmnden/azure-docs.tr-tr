@@ -1,6 +1,6 @@
 ---
-title: Azure panolar yapısını | Microsoft Docs
-description: Bu makale, Azure Pano JSON yapısını açıklar.
+title: Azure panolarının yapısı | Microsoft Docs
+description: Bu makalede bir Azure panosunu JSON yapısını açıklar.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: adamab
-ms.openlocfilehash: 2eb9289957968db04b78087413fb9df8ed1b085b
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: cwatson
+ms.openlocfilehash: 405e0d5184880a00c07de55bd968210fa28e45fc
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301681"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393086"
 ---
-# <a name="the-structure-of-azure-dashboards"></a>Azure panolar yapısı
-Bu belge, örnek olarak aşağıdaki Panoyu kullanarak bir Azure panonun yapısı size yol göstermektedir:
+# <a name="the-structure-of-azure-dashboards"></a>Azure panolarının yapısı
+Bu belgede örnek olarak aşağıdaki Panoyu kullanarak bir Azure panosunu yapısını anlatılmaktadır:
 
 ![Örnek Pano](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Paylaşılan beri [Azure panolar olan kaynakları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), bu panoyu JSON olarak temsil edilebilir.  Aşağıdaki JSON yukarıda görselleştirilen Pano temsil eder.
+Paylaşılan beri [Azure panoları kaynaklar olduğundan](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), bu panoyu JSON olarak gösterilebilir.  Aşağıdaki JSON yukarıda görselleştirilmiş Pano temsil eder.
 
 ```json
 
@@ -291,60 +291,60 @@ Paylaşılan beri [Azure panolar olan kaynakları](https://docs.microsoft.com/az
 
 ## <a name="common-resource-properties"></a>Genel kaynak özellikleri
 
-Şimdi JSON ilgili bölümleri bölün.  Üst düzey özellikleri __kimliği__, __adı__, __türü__, __konumu__, ve __etiketleri__ özellikleri Tüm Azure kaynak türleri arasında paylaşılan. Diğer bir deyişle, bunlar çok Panodaki içerikle yapmanız gerekmez.
+Şimdi JSON ilgili bölümlerine bölün.  Üst düzey özellikler __kimliği__, __adı__, __türü__, __konumu__, ve __etiketleri__ özellikleri Tüm Azure kaynak türleri arasında paylaşılan. Diğer bir deyişle, bunlar çok Panodaki içerikle yapmanız gerekmez.
 
 ### <a name="the-id-property"></a>ID özelliği
 
-Konu için Azure kaynak kimliği [adlandırma kuralları Azure kaynaklarınızın](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Portal bir Pano oluşturduğunda, genellikle bir GUID biçiminde bir kimliği seçer, ancak programlı olarak oluşturduğunuzda, geçerli bir ad kullanmak boş. 
+Konu için Azure kaynak kimliğine [adlandırma kuralları Azure kaynaklarınızın](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Portal bir Pano oluşturur, genellikle bir kimliği bir GUID biçiminde seçer, ancak programlı olarak oluşturduğunuzda, geçerli bir ad kullanmak ücretsizdir. 
 
 ### <a name="the-name-property"></a>Name özelliği
-Kaynak abonelik, kaynak türü veya kaynak grubu bilgileri içermez kimliği segment adıdır. Esas olarak, kaynak kimliği son segmenti değil.
+Kaynak abonelik, kaynak türü ya da kaynak grubu bilgileri içerip içermediğini kimliğini segmentini addır. Esas olarak, kaynak kimliğini son segmenti olduğu.
 
-### <a name="the-type-property"></a>Tür özelliği
-Tüm panolar türlerinin __Microsoft.Portal/dashboards__.
+### <a name="the-type-property"></a>Type özelliği
+Tüm panoları türlerinin __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>Konum özelliği
-Diğer kaynaklar bir çalışma zamanı bileşeni panonuz yok.  Panolar için konumun Panodaki JSON gösterimi depolar birincil coğrafi konumu gösterir. Değer kullanılarak getirilen konum kodlarından birini olmalıdır [konumları API abonelikleri kaynakta](https://docs.microsoft.com/rest/api/resources/subscriptions).
+Diğer kaynaklarının aksine, bir çalışma zamanı bileşeni panonuz yok.  Panolar için Panodaki JSON gösterimi depolayan birincil coğrafi konumu konumu gösterir. Değer kullanarak en iyi duruma getirilebilir konum kodlarından birini olmalıdır [abonelikler kaynak konumları API](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>Etiketler özelliği
-Etiketler, kaynağınız rasgele ad değer çifti tarafından düzenlemenize olanak sağlayan Azure kaynaklarınızın ortak bir özelliktir. Panolar için bir olduğundan özel etiket adı verilen __gizli başlık__. Panonuz doldurulmuş bu özellik varsa, panonuz Portalı'nda görünen adı olarak kullanılır. Azure kaynak kimlikleri yeniden adlandırılamaz ancak etiketleri kullanabilirsiniz. Bu etiket panonuz renamable görünen adı için bir yol sağlar.
+Etiketler, kaynağınızı rastgele ad değer çiftleri olarak düzenlemenize olanak tanıyan Azure kaynaklarınızın genel bir özelliğidir. Panolar için bir tane olduğunu özel etiket __gizli başlık__. Doldurulmuş bu özellik panonuz varsa panonuzu portalında görünen adı olarak kullanılır. Azure kaynak kimliklerini yeniden adlandırılamaz, ancak etiketleri kullanabilirsiniz. Bu etiket, panonuzu renamable görünen adı için bir yol sunar.
 
 `"tags": { "hidden-title": "Created via API" }`
 
 ### <a name="the-properties-object"></a>Özellikleri nesnesi
-Özellikleri nesnesi iki özellikler içeren __lensleri__ ve __meta verileri__. __Odaklar__ özelliği döşeme hakkında bilgileri (paketini içerir Panoda parçaların).  __Meta veri__ özelliği olduğu için gelecekteki olası özellikler.
+İki özellik, özellikler nesneyi içeren __merceklerden__ ve __meta verileri__. __Merceklerden__ özelliği içeren kutucukları hakkında bilgi (yani) Panoda bölümleri).  __Meta verileri__ özelliği için olası gelecek özellikleri oradadır.
 
-### <a name="the-lenses-property"></a>Lenslerin özelliği
-__Odaklar__ özelliği, Pano içerir. Lenslerin Bu örnekte nesne Not "0" olarak adlandırılan tek bir özellik içerir. Lenslerin panolarında şu anda uygulanmamaktadır gruplandırma kavramıdır. Şimdilik, tüm panoları "0" olarak adlandırılan bu tek özellik yeniden Mercek nesnesinde sahip.
+### <a name="the-lenses-property"></a>Merceklerden özelliği
+__Merceklerden__ Pano özelliğini içerir. Not merceklerden Bu örnekte, nesne, "0" adlı tek bir özellik içerir. Merceklerden panoları şu anda uygulanmamaktadır bir gruplandırma kavramdır. Şimdilik, tüm panolarınıza "0" olarak adlandırılan tek tuto vlastnost nelze upravovat yeniden lens nesnesi vardır.
 
-### <a name="the-lens-object"></a>Mercek nesnesi
-Nesne "0" altında iki özellikler içeren __sipariş__ ve __bölümleri__.  Panolar, geçerli sürümde __sipariş__ olduğu her zaman 0. __Bölümleri__ özelliği, tek tek parçaları (paketini tanımlayan bir nesne içerir Panoda bölmeleri).
+### <a name="the-lens-object"></a>Odağı nesnesi
+İki özellik, "0" altında nesneyi içeren __sipariş__ ve __bölümleri__.  Panolar,'ın geçerli sürümünde __sipariş__ olduğundan her zaman 0. __Bölümleri__ özelliği, tek tek bölümleri (diğer adıyla) tanımlayan bir nesne içerir Panoda kutucuğu).
 
-__Bölümleri__ nesne özelliğinin adı bir sayı olduğu her bölüm için bir özellik içerir. Bu sayı önemli değildir. 
+__Bölümleri__ nesne birkaç olduğu özelliğin adı, her parça için bir özellik içerir. Bu sayı, önemli değildir. 
 
 ### <a name="the-part-object"></a>Bölümü nesnesi
-Her bireysel bölümü nesnesi bir __konumu__, ve __meta verileri__.
+Her ayrı bölümü nesnesinin bir __konumu__, ve __meta verileri__.
 
 ### <a name="the-position-object"></a>Konum nesnesi
-__Konumu__ özelliğinin bir parçası olarak ifade edilen için boyut ve konum bilgileri içerir __x__, __y__, __rowSpan__ve __colSpan__. Kılavuz birimler cinsinden değerlerdir. Bu kılavuz birimleri, Pano, aşağıda gösterildiği gibi Özelleştir modunda olduğunda görünür. İki kılavuz birimleri genişliğini sağlamak için bir kutucuğa isterseniz, konumu obejct şöyle sonra bir kılavuz birim yüksekliğini ve bir konum üst sol alt köşe panonun:
+__Konumu__ özelliği bir parçası olarak ifade edilen için boyut ve konum bilgileri içeren __x__, __y__, __rowSpan__ve __colSpan__. Kılavuz birimleri cinsinden değerlerdir. Bu kılavuz birimleri, Pano, burada gösterildiği gibi Özelleştir modunda olduğunda görünür. İki Kılavuz birim genişliğini sağlamak için bir kutucuk istiyorsanız konumu obejct şöyle sonra bir yükseklikte bir kılavuz biriminin yanı sıra, bir konum üst köşe panosunun sol:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
 ![Grid-birimleri](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>Meta veri nesnesi
-Meta veri özelliği her bir parçası olan, bir nesne olarak adlandırılan tek gerekli özelliği içeriyor __türü__. Bu dize portal söyler göstermek için hangi döşeme. Bizim örnek Pano kutucukları bu türünü kullanır:
+Her parça bir metadata özelliğine sahip, bir nesne olarak adlandırılan tek gerekli özellik sahip __türü__. Bu dize portalı söyler kutucuktan gösterilecek. Bizim örnek Pano kutucukları bu tür kullanır:
 
 
-1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Göstermek için kullanılan ölçümleri izleme
-1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Metin veya resim listeleri, bağlantılar, temel biçimlendirmesiyle ile göstermek için kullanılan vb.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` – YouTube, Channel9 ve başka türden herhangi bir html video etiketinde çalışır video videolar göstermek için kullanılır.
-1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Adını ve bir Azure sanal makine durumunu göstermek için kullanılır.
+1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Göstermek için kullanılan ölçümlerini izleme
+1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Metin veya bağlantılar, listeler için temel biçimlendirmeye sahip görüntü ile göstermek için kullanılan vb.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Başka türde bir video html etiketinde çalışır video YouTube'da ve Channel9 videoları göstermek için kullanılır.
+1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Bir Azure sanal makinesinin durumu ve adını göstermek için kullanılır.
 
-Her bölümü kendi yapılandırma türü. Olası yapılandırma özelliklerini adlı __girişleri__, __ayarları__, ve __varlık__. 
+Her bölüm kendi yapılandırma türündedir. Olası yapılandırma özelliklerini adlı __girişleri__, __ayarları__, ve __varlık__. 
 
 ### <a name="the-inputs-object"></a>Giriş nesnesi
-Giriş nesnesi genellikle bir kutucuk bir kaynak örneğine bağlar bilgileri içerir.  Bizim örnek Pano sanal makine bölümünde bağlama express için Azure kaynak kimliği kullanan tek bir giriş içerir.  Bu kaynak kimliği biçimi tüm Azure kaynaklarına arasında tutarlıdır.
+Giriş nesnesi, genellikle bir kutucuk bir kaynak örneğine bağlanan bilgileri içerir.  Bizim örnek Panosu sanal makine bölümünde bağlama ifade etmek için Azure kaynak kimliğini kullanan tek bir giriş içerir.  Bu kaynak kimliği biçimi, tüm Azure kaynakları arasında tutarlı olur.
 
 ```json
 "inputs":
@@ -356,7 +356,7 @@ Giriş nesnesi genellikle bir kutucuk bir kaynak örneğine bağlar bilgileri i�
 ]
 
 ```
-Ölçümleri grafik bölümü görüntülenmesini metric(s) hakkında bilgi yanı sıra bağlamak için kaynak yoğunlaştıracaklardır tek bir giriş var. Ağ giriş ve çıkış ağ ölçümleri gösteren döşeme için giriş aşağıdadır.
+Ölçüm grafiği bölümü, görüntülenmekte metric(s) hakkında bilgilerinin yanı sıra bağlamak için kaynak ifade tek bir giriş vardır. Ağ giriş ve çıkış ağ ölçümleri gösteren bir kutucuk için giriş aşağıda verilmiştir.
 
 ```json
 “inputs”:
@@ -391,7 +391,7 @@ Giriş nesnesi genellikle bir kutucuk bir kaynak örneğine bağlar bilgileri i�
 ```
 
 ### <a name="the-settings-object"></a>Ayarlar nesnesi
-Ayarlar nesnesini bir bölümü yapılandırılabilir öğelerini içerir.  Bizim örnek Panoda Markdown bölümü yapılandırılabilir başlık ve alt başlık yanı sıra içerik özel markdown depolamak için ayarları kullanır.
+Ayarlar nesnesini bölümünün yapılandırılabilir öğeleri içerir.  Bizim örnek Panoda Markdown bölümü özel markdown yapılandırılabilir başlığı ve alt konu başlığını yanı sıra içerik depolamak için ayarları kullanır.
 
 ```json
 "settings": 
@@ -409,7 +409,7 @@ Ayarlar nesnesini bir bölümü yapılandırılabilir öğelerini içerir.  Bizi
 
 ```
 
-Benzer şekilde, video döşeme yürütmek için video gösteren bir işaretçi içeren, kendi ayarları, bir Otomatik Yürüt'ü ayarı ve isteğe bağlı başlık bilgilerini içerir.
+Benzer şekilde, bir işaretçi oynatmak için video içeren kendi ayarlarını, bir otomatik ayarlama ve isteğe bağlı başlık bilgilerini video kutucuğunu sahiptir.
 
 ```json
 "settings": 
@@ -429,6 +429,6 @@ Benzer şekilde, video döşeme yürütmek için video gösteren bir işaretçi 
 ```
 
 ### <a name="the-asset-object"></a>Varlık nesnesi
-(Varlıklar olarak adlandırılır) ilk sınıfı yönetilebilir portal nesnelere bağlı kutucuklar varlık nesnesini ifade bu ilişkisine sahip.  Bizim örnek panosunda, sanal makine kutucuğu bu varlık açıklaması içerir.  __İdInputName__ özellik kimliği içeren bu durumda kaynak kimliği varlık için benzersiz tanımlayıcı giriş portal söyler. Çoğu Azure kaynak türleri Portalı'nda tanımlanan varlıklar vardır.
+(Varlıklar olarak adlandırılır) yönetilebilir birinci sınıf portal nesnelere bağlı kutucuklar, varlık nesnesi ile ifade edilen bu ilişkisine sahiptir.  Bizim örnek Panoda sanal makine kutucuğu bu varlık açıklamasını içerir.  __İdInputName__ özelliği içeren varlık, bu durumda kaynak kimliği için benzersiz tanımlayıcı kimliği giriş portalı söyler. Çoğu Azure kaynak türlerini Portalı'nda tanımlanan varlıkları vardır.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

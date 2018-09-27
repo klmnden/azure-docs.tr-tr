@@ -2,19 +2,22 @@
 title: Olağanüstü durum kurtarma için Azure SQL veritabanı güvenliğini yapılandırma | Microsoft Docs
 description: Yapılandırma ve veritabanı geri yükleme veya ikincil sunucuya Yük devretme sonrasında güvenlik yönetmeye yönelik güvenlik konuları hakkında bilgi edinin.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: anosov1960
 ms.author: sashan
-ms.openlocfilehash: 03bb4e2e8d202e13edf41c925b9341436515d8a8
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 2f5a455cecfbf4b40b1a410a756117d70c4a4b69
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465631"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166835"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Yapılandırma ve Azure SQL veritabanı güvenliğini coğrafi geri yükleme ya da yük devretme için yönetme 
 

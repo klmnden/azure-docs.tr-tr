@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f2fa055af63ab3920fec79ad93c25b8ea7e5ed9
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6d79cdf279022320f654fbbeadb870f82db88cab
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42056737"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392797"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch işleme özellikleri
 
@@ -50,9 +50,12 @@ Kullanılacak ve lisans ücreti olan uygulamalar havuz yapılandırmasına belir
 * Belirtin `applicationLicenses` özelliği olduğunda [bir havuz oluşturma](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Aşağıdaki değerleri dizisini - "vray", "arnold", "3dsmax", "maya" belirtilebilir.
 * Daha sonra bir veya daha fazla uygulama belirttiğinizde, sanal makinelerinin maliyeti için söz konusu uygulamaların maliyeti eklenir.  Uygulama fiyatları listelenen [Azure fiyatlandırma sayfasını Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
+> [!NOTE]
+> Bunun yerine, işleme uygulamalarını kullanmak için bir lisans sunucusuna bağlanmanız durumunda, belirtmeyin `applicationLicenses` özelliği.
+
 Azure portalı ya da Batch Gezgini, uygulamaları seçin ve uygulama fiyatlar göstermek için kullanabilirsiniz.
 
-Bir uygulamayı kullanmak için bir girişimde, ancak uygulama içinde belirtilmedi `applicationLicenses` havuz yapılandırmasına ve ardından uygulama yürütme özelliğini bir lisans hatası ve sıfır olmayan çıkış kodu ile başarısız olur.
+Bir uygulamayı kullanmak için bir girişimde, ancak uygulama içinde belirtilmedi `applicationLicenses` havuz yapılandırmasını veya yoksa lisans sunucusu, uygulama yürütme başarısız olursa bir lisans hatası ve sıfır olmayan çıkış kodu ile ulaşma özelliği.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Önceden yüklenmiş uygulamalara için ortam değişkenleri
 

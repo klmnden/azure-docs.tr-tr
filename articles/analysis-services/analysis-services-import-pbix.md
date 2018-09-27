@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/26/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a2855ca5dbb76d3fcc30c4b1007c20bb48c91c9b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a4bb5f59e7aa99a676145ba7a6dbd1883cb860cf
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42061108"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394342"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Power BI Desktop dosyasını içeri aktarın
 
@@ -22,11 +22,13 @@ Azure Analysis Services'e Power BI Desktop dosyası (pbıx) veri modelinde içer
 **Kısıtlamaları**   
 
 - Olan portalında kullanan web Tasarımcısı özelliğiyle bir pbıx dosyasından içeri aktarma **Önizleme**. İşlevselliği sınırlıdır. Daha gelişmiş model geliştirme ve test için Visual Studio (SSDT) ve SQL Server Management Studio (SSMS) en iyisidir.
+- İçeri aktarılırken aşağıdaki hata iletisini alırsanız pbıx dosyasını henüz Azure Analysis Services'de desteklenmemektedir etkin Önizleme özellikleri vardır.
+
+    ![Uyumluluk düzeyi Uyarısı](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)
 - Bir pbıx dosyasından içeri aktarmak için sunucu yöneticisi izinleri olmalıdır.
 - Pbıx modelin bağlanıp **Azure SQL veritabanı** ve **Azure SQL veri ambarı** veri kaynakları yalnızca.
 - Pbıx modeli Canlı olamaz veya DirectQuery bağlantıları. 
 - Pbıx veri modelinizi Analysis Services'de desteklenmeyen meta veri içeriyorsa, içeri aktarma işlemi başarısız.
-
 
 ## <a name="to-import-from-pbix"></a>Pbıx dosyasını içeri aktarmak için
 

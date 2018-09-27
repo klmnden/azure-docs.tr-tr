@@ -4,16 +4,16 @@ description: Bu yöntem Azure İlkesi'nde ilkelerine uyumlu olmayan kaynakları 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 09/25/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 747650bc47644cdca07f705f42d063c995ebe9bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: adba2322bce5f0884cba51078e65feeaeaf193d9
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980262"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392711"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure İlkesi ile uyumlu olmayan kaynakları Düzelt
 
@@ -27,7 +27,7 @@ ms.locfileid: "46980262"
 ![Yönetilen kimlik - eksik rol](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> Bir kaynak tarafından değiştirilirse **Deployıfnotexists** atamanın yönetilen kimlik ilke ataması kapsamı olmalıdır program aracılığıyla dış erişim izni verilir veya düzeltme dağıtımı başarısız olur.
+> Bir kaynak tarafından değiştirilirse **Deployıfnotexists** ilke ataması veya şablon kapsamı dışında ilke ataması kapsamı dışında kaynaklara erişir özellikleri, atamanın yönetilen kimlik olmalıdır[el ile erişim izni](#manually-configure-the-managed-identity) veya düzeltme dağıtımı başarısız olur.
 
 ## <a name="configure-policy-definition"></a>İlke tanımı'nı yapılandırma
 
@@ -53,6 +53,79 @@ az role definition list --name 'Contributor'
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Contributor'
 ```
+
+## <a name="manually-configure-the-managed-identity"></a>Yönetilen kimlik el ile yapılandırma
+
+Portalı kullanarak bir atama oluştururken, ilkeyi hem yönetilen kimlik oluşturur ve tanımlanan rolleri verir **roleDefinitionIds**. Aşağıdaki durumlarda, yönetilen bir kimlik oluşturmak ve izinleri atamak için adımların el ile gerçekleştirilmesi gerekir:
+
+- (Örneğin, Azure PowerShell) SDK'sı kullanırken
+- Atama kapsamı dışında bir kaynağa şablon tarafından değiştirildiğinde
+- Atama kapsamı dışında bir kaynağa şablon tarafından ne zaman okuma
+
+> [!NOTE]
+> Şu anda bu özelliği destekleyen yalnızca SDK'ları şunlardır: Azure PowerShell ve .NET.
+
+### <a name="create-managed-identity-with-powershell"></a>PowerShell ile yönetilen kimlik oluşturma
+
+İlke ataması sırasında yönetilen bir kimlik oluşturmak için **konumu** tanımlanmalıdır ve **Assignıdentity** kullanılır. Aşağıdaki örnek, yerleşik ilke tanımı alır **dağıtmak, SQL veritabanı saydam veri şifrelemesi**, hedef kaynak grubu ayarlar ve ardından ataması oluşturulur.
+
+```azurepowershell-interactive
+# Login first with Connect-AzureRmAccount if not using Cloud Shell
+
+# Get the built-in "Deploy SQL DB transparent data encryption" policy definition
+$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+
+# Get the reference to the resource group
+$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+
+# Create the assignment using the -Location and -AssignIdentity properties
+$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+```
+
+`$assignment` Değişkeni artık yönetilen kimlikle birlikte bir ilke ataması oluştururken, döndürülen değerlerin standart asıl kimliği içeriyor. Aracılığıyla erişilebilir `$assignment.Identity.PrincipalId`.
+
+### <a name="grant-defined-roles-with-powershell"></a>PowerShell ile rol verme tanımlanan
+
+Gerekli rolleri verilmeden önce yeni bir yönetilen kimlik Azure Active Directory aracılığıyla çoğaltma tamamlamanız gerekir. Çoğaltma tamamlandıktan sonra aşağıdaki örnekte ilke tanımında yinelenen `$policyDef` için **roleDefinitionIds** ve kullandığı [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) yeni vermek için yönetilen kimlik rolleri.
+
+```azurepowershell-interactive
+# Use the $policyDef to get to the roleDefinitionIds array
+$roleDefinitionIds = $policyDef.Properties.policyRule.then.details.roleDefinitionIds
+
+if ($roleDefinitionIds.Count -gt 0)
+{
+    $roleDefinitionIds | ForEach-Object {
+        $roleDefId = $_.Split("/") | Select-Object -Last 1
+        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+    }
+}
+```
+
+### <a name="grant-defined-roles-through-portal"></a>Portal üzerinden rolleri verme tanımlanan
+
+Portalı kullanarak tanımlanmış rollere atamanın yönetilen kimlik vermek için iki yolu vardır **erişim denetimi (IAM)** veya ilke veya girişim ataması düzenleme ve tıklatarak **Kaydet**.
+
+Rol atama için yönetilen kimlik eklemek için aşağıdaki adımları izleyin:
+
+1. Azure portalında **Tüm hizmetler**’e tıkladıktan sonra **İlke**'yi arayıp seçerek Azure İlkesi hizmetini başlatın.
+
+1. Azure İlkesi sayfasının sol tarafından **Atamalar**'ı seçin.
+
+1. Yönetilen bir kimliğe sahip ataması bulun ve adına tıklayın.
+
+1. Bulma **atama kimliği** düzenleme sayfası özelliği. Atama kimliği gibi bir şey olacaktır:
+
+   ```
+   /subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5
+   ```
+
+   Yönetilen kimlik adı olduğundan ataması kaynak kimliği son bölümüdür `2802056bfc094dfb95d4d7a5` Bu örnekte. Atama kaynak kimliği. Bu bölümü kopyalayın
+
+1. Kaynak veya el ile eklenen rol tanımı gereken kaynakları üst kapsayıcının (kaynak grubu, abonelik, yönetim grubu) gidin.
+
+1. Tıklayın **erişim denetimi (IAM)** tıklayın ve bağlantı Kaynaklar sayfasında **+ Ekle** erişim denetimi sayfanın üstünde.
+
+1. Eşleşen uygun rolü seçin bir **roleDefinitionIds** ilke tanımından. Bırakın **erişim Ata** 'Azure AD kullanıcı, Grup veya uygulama' varsayılan olarak ayarla. İçinde **seçin** kutusuna yapıştırın veya önceden bulunan ataması kaynak kimliği bölümünü yazın. Arama tamamlandığında, kimliği'ni seçin ve aynı ada sahip nesneye tıklayın **Kaydet**.
 
 ## <a name="create-a-remediation-task"></a>Düzeltme görev oluşturma
 

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 6ff28443dda65e91fa69fececaff95aa8e872603
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: f613fb9bd3e9cf6d070b34403bab617e23261c56
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604269"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226460"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) ile sanal Kubelet kullanın
 
@@ -36,7 +36,7 @@ Virtual Kubelet yüklemek için [Helm](https://docs.helm.sh/using_helm/#installi
 
 ### <a name="for-rbac-enabled-clusters"></a>Kümeler için RBAC etkin
 
-AKS kümenizi RBAC etkinse, hizmet hesabını ve kullanmak için rol bağlama Tiller ile oluşturmanız gerekir. Daha fazla bilgi için [Helm rol tabanlı erişim denetimi][helm-rbac]. Hizmet hesabını ve rol bağlama oluşturmak için adlı bir dosya oluşturun. *rbac virtualkubelet.yaml* aşağıdaki tanımını yapıştırın:
+AKS kümenizi RBAC etkinse, hizmet hesabını ve kullanmak için rol bağlama Tiller ile oluşturmanız gerekir. Daha fazla bilgi için [Helm rol tabanlı erişim denetimi][helm-rbac]. Hizmet hesabını ve rol bağlama oluşturmak için adlı bir dosya oluşturun. *rbac sanal-kubelet.yaml* aşağıdaki tanımını yapıştırın:
 
 ```yaml
 apiVersion: v1
@@ -59,7 +59,7 @@ subjects:
     namespace: kube-system
 ```
 
-Hizmet hesabını uygular ve ile bağlama [kubectl uygulamak] [ kubectl-apply] ve belirtin, *rbac virtualkubelet.yaml* aşağıdaki örnekte gösterildiği gibi dosya:
+Hizmet hesabını uygular ve ile bağlama [kubectl uygulamak] [ kubectl-apply] ve belirtin, *rbac sanal-kubelet.yaml* aşağıdaki örnekte gösterildiği gibi dosya:
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -158,7 +158,7 @@ NAME                                READY     STATUS    RESTARTS   AGE       IP 
 aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux
 ```
 
-## <a name="run-windows-container"></a>Windows kapsayıcı çalıştırma
+## <a name="run-windows-container"></a>Windows kapsayıcısı çalıştırma
 
 Adlı bir dosya oluşturun `virtual-kubelet-windows.yaml` aşağıdaki YAML'ye kopyalayın. Değiştirin `kubernetes.io/hostname` Windows Virtual Kubelet düğümün adı ile değeri. Bu Not bir [nodeSelector] [ node-selector] ve [toleration] [ toleration] düğümdeki kapsayıcı zamanlamak için kullanılır.
 
@@ -182,7 +182,9 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
       tolerations:
-      - key: azure.com/aci
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
         effect: NoSchedule
 ```
 

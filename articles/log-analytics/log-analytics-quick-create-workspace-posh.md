@@ -15,16 +15,16 @@ ms.topic: conceptal
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 4629d84ccf0749cb0c5a83a4955f281daa546c16
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 9abd46bf75e2a0113f44243d7c1695d96f9c1057
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055826"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220662"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Azure PowerShell ile bir Log Analytics çalışma alanı oluşturma
 
-Azure PowerShell modülü, PowerShell komut satırından veya betik içinden Azure kaynakları oluşturmak ve yönetmek için kullanılır. Bu Hızlı Başlangıç için Azure PowerShell modülü bir Log Analytics çalışma alanını kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir ortamı olan azure'da dağıtmak için nasıl kullanılacağını gösterir.  Bu makalede açıklanan adımları aşağıdaki kaynaklardan veri toplama işlemini istiyorsanız gereklidir:
+Azure PowerShell modülü, PowerShell komut satırından veya betik içinden Azure kaynakları oluşturmak ve yönetmek için kullanılır. Bu hızlı başlangıçta Azure PowerShell modülünün bir Log Analytics çalışma alanını kendi veri deposu, veri kaynakları ve çözümleri olan benzersiz bir ortamı olan azure'da dağıtmak için nasıl kullanılacağını gösterir.  Bu makalede açıklanan adımları aşağıdaki kaynaklardan veri toplama işlemini istiyorsanız gereklidir:
 
 * Aboneliğinizdeki Azure kaynakları  
 * Şirket içi bilgisayarlar System Center Operations Manager tarafından izlenen  

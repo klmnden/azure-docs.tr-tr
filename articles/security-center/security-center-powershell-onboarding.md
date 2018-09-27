@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 9/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6328f4f2a3b9d657cef537ed9da339f2b9b8a6e8
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4664a9f84a92b7a223409d764971fda81317bbf0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131234"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222259"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell kullanarak Azure Güvenlik Merkezi'nin ekleme otomatikleştirin
 
@@ -98,7 +98,7 @@ Güvenlik Merkezi cmdlet'leri çalıştırmadan önce bu adımlar gerçekleştir
 
 Başarıyla eklenen Azure Güvenlik Merkezi artık PowerShell ile!
 
-Şimdi, program aracılığıyla abonelikler ve kaynaklar arasında yineleme yapmak için Otomasyon betikleri ile bu PowerShell cmdlet'lerini kullanabilirsiniz. Bu zaman kaydeder ve azaltır İnsan hatası olasılığını. Bu [örnek komut dosyası](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) başvuru olarak.
+Şimdi, program aracılığıyla abonelikler ve kaynaklar arasında yineleme yapmak için Otomasyon betikleri ile bu PowerShell cmdlet'lerini kullanabilirsiniz. Bu, zaman tasarrufu sağlar ve İnsan hatası olasılığını azaltır. Bu [örnek komut dosyası](https://github.com/Microsoft/Azure-Security-Center/blob/master/quickstarts/ASC-Samples.ps1) başvuru olarak.
 
 
 

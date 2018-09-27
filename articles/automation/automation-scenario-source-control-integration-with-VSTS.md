@@ -9,12 +9,12 @@ ms.service: automation
 ms.component: process-automation
 ms.topic: conceptual
 ms.date: 03/19/2017
-ms.openlocfilehash: 022fca09b9e748c030df6b5fc944f7930942a6f7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ef21060e98972dd7bc561f9a4311fa0c4bdec3b4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302417"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227070"
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-azure-devops"></a>Azure otomasyonu senaryosu - Azure DevOps ile Otomasyon kaynak denetimi tümleştirmesi
 
@@ -47,7 +47,7 @@ Oluşturma bir [güvenli değişkeni](automation-variables.md) Otomasyon hesabı
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-Runbook'ları veya Otomasyon hesabının yapılandırmalarına eşitlenen runbook'u içeri aktarın. Kullanabileceğiniz [Azure DevOps örnek runbook](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) veya [Git örnek runbook ile Azure DevOps](https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) PowerShellGallery.com if bağlı olarak, Azure DevOps kaynak denetimi veya Azure DevOps ile Git kullanmak ve Otomasyon hesabınıza dağıtın.
+Runbook'ları veya Otomasyon hesabının yapılandırmalarına eşitlenen runbook'u içeri aktarın. Kullanabileceğiniz [Azure DevOps örnek runbook](https://www.powershellgallery.com/packages/Sync-VSTS) veya [Git örnek runbook ile Azure DevOps](https://www.powershellgallery.com/packages/Sync-VSTSGit) gelen [PowerShell Galerisi](https://www.powershellgallery.com) bağlı olarak, Azure DevOps kaynak kullanın denetimi veya Git ile Azure DevOps ve bunları Otomasyon hesabınıza dağıtın.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 

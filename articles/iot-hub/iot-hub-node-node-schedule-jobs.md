@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: juanpere
-ms.openlocfilehash: 2161cd12f8bdb6aa3018d81a7864816a97ed122a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 69469d6b302f951301c92c0ee7984df95911624e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187759"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221307"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Zamanlama ve yayınlama işleri (Node)
 
@@ -115,7 +115,7 @@ Bu bölümde, bir sanal tetikler bulut tarafından çağrılan doğrudan bir yö
 8. Kaydet ve Kapat **simDevice.js** dosya.
 
 > [!NOTE]
-> Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. [Geçici Hata İşleme][lnk-transient-faults] adlı MSDN makalesinde önerildiği üzere, üretim kodunda yeniden deneme ilkelerini (üstel geri alma gibi) uygulamanız gerekir.
+> Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (örneğin, bir üstel geri alma), makalesinde önerildiği uygulamalıdır [geçici hata işleme](/azure/architecture/best-practices/transient-faults).
 > 
 > 
 
@@ -268,4 +268,3 @@ IOT Hub kullanmaya başlamaya devam etmek için bkz: [Azure IOT Edge'i kullanmay
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

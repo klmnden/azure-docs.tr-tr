@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: f71f5fa71d685af103bd82b3ccd2a910ab81d90f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34293ffc70ebbc2a8639913aefe3b62ed8e618d4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962922"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222786"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Erişim Azure Cosmos DB Cassandra API'si YARN üzerinde spark'tan HDInsight ile
 
@@ -32,7 +32,7 @@ Bu makalede Azure Cosmos DB Cassandra API'SİNİN Spark HDInsight Spark ile YARN
 
 * [Bu nedenle tercih ederseniz cqlsh doğrulama için kullanın.](cassandra-spark-generic.md##connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Cassandra API Spark2 yapılandırmasında** -Cassandra için Datastax bağlayıcısının gerektirdiği Cassandra bağlantı Spark bağlamı bir parçası olarak başlatılması için ayrıntıları. Jupyter not defteri başlattığında, bağlam ve spark oturumunun zaten başlatılmış ve durdurmak ve tam HDInsight varsayılan Jupyter not defteri başlatma bir parçası olarak her bir yapılandırmaya sahip olmadığı sürece Spark bağlamı yeniden başlatmak için önerilir değil. Bir geçici çözüm, Ambari, doğrudan Spark2 hizmet yapılandırması Cassandra örnek ayrıntıları eklemektir. Bu, Spark2 hizmeti yeniden başlatma gerektiren Küme başına tek seferlik bir etkinliktir.
+* **Cassandra API Spark2 yapılandırmasında** -Cassandra için Spark Bağlayıcısı, Cassandra bağlantı Spark bağlamı bir parçası olarak başlatılması için ayrıntıları gerektirir. Jupyter not defteri başlattığında, bağlam ve spark oturumunun zaten başlatılmış ve durdurmak ve tam HDInsight varsayılan Jupyter not defteri başlatma bir parçası olarak her bir yapılandırmaya sahip olmadığı sürece Spark bağlamı yeniden başlatmak için önerilir değil. Bir geçici çözüm, Ambari, doğrudan Spark2 hizmet yapılandırması Cassandra örnek ayrıntıları eklemektir. Bu, Spark2 hizmeti yeniden başlatma gerektiren Küme başına tek seferlik bir etkinliktir.
  
   1. Ambari, Spark2 hizmet gidin ve yapılandırmaları üzerinde tıklayın
 
@@ -68,7 +68,7 @@ Spark shell test keşif amacıyla kullanılır.
   import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType,LongType,FloatType,DoubleType, TimestampType}
   import org.apache.spark.sql.cassandra._
 
-  //datastax Spark connector
+  //Spark connector
   import com.datastax.spark.connector._
   import com.datastax.spark.connector.cql.CassandraConnector
 

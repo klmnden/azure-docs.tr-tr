@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 8b76dc8c121101c1aee5ebf980e6ba6f37391274
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4be80bfa7354f4a4b6a13a7a34150c7052a2117b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972241"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227138"
 ---
 # <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Azure Cosmos DB Cassandra API'SİNİN spark'tan Tablo kopyalama işlemleri
 
@@ -24,7 +24,7 @@ Bu makalede, Azure Cosmos DB Cassandra API'SİNİN spark'tan içindeki tablolar 
 
 ```scala
 import org.apache.spark.sql.cassandra._
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 

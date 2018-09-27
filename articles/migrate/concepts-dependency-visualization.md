@@ -4,14 +4,14 @@ description: Azure geçişi hizmetinde değerlendirme hesaplamaları genel bir b
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 84ce20186b882bf07177305291a6f7512ed9ac62
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 923a2a137bb4510e9490ce4077f744a43619a2c6
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732032"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165033"
 ---
 # <a name="dependency-visualization"></a>Bağımlılık görselleştirme
 
@@ -32,7 +32,7 @@ Azure geçişi kullanan [hizmet eşlemesi](../operations-management-suite/operat
     ![Log Analytics çalışma alanını ilişkilendir](./media/concepts-dependency-visualization/associate-workspace.png)
 
 - Yeni bir çalışma alanı oluşturduğunuzda, çalışma alanı için bir ad belirtmeniz gerekir. Çalışma alanı aynı bölgede oluşturulduktan sonra [her Azure coğrafyası](https://azure.microsoft.com/global-infrastructure/geographies/) geçiş projesi olarak.
-- İlişkili çalışma alanı anahtarı ile etiketlenmiş **geçiş projesi**ve değer ** proje adı, Azure portalında aramak için kullanabilirsiniz.
+- İlişkili çalışma alanı anahtarı ile etiketlenmiş **geçiş projesi**ve değer **proje adı**, hangi Azure portalında aramak için kullanabilirsiniz.
 - Projeyle ilişkili çalışma alanına gidin, gidebilirsiniz **Essentials** projenin bölümünü **genel bakış** sayfasında ve çalışma alanına erişim
 
     ![Log Analytics çalışma alanına gidin](./media/concepts-dependency-visualization/oms-workspace.png)
@@ -62,5 +62,5 @@ Log Analytics çalışma alanını Azure geçişi dışında kullanabilirsiniz. 
 Geçiş projesi silmediğiniz sürece, Azure geçişi tarafından oluşturulan çalışma alanını silme. Bunu yaparsanız, bağımlılık görselleştirme işlevini beklendiği gibi çalışmaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-[Makine bağımlılıkları kullanan Grup makineleri](how-to-create-group-machine-dependencies.md)
+- [Makine bağımlılıkları kullanan Grup makineleri](how-to-create-group-machine-dependencies.md)
+- [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) bağımlılık görselleştirme hakkında sık sorulan sorular hakkında.

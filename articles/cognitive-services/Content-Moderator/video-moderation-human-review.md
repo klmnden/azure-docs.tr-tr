@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator - Video denetimi | Microsoft Docs
+title: İnsan tarafından İnceleme - Content Moderator ile video denetimi
+titlesuffix: Azure Cognitive Services
 description: Uygunsuz içeriği Orta için makine destekli video denetimi ve insan tarafından İnceleme araçları kullanın
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: d9c01d4c2590535a4106e8e4ee79a12bdc60d956
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 33956e1986265b36f6df9a2d19909cb974bd3197
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714505"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222089"
 ---
-# <a name="video-moderation"></a>Video denetimi
+# <a name="video-moderation-with-human-review"></a>İnsan tarafından İnceleme ile video denetimi
 
 Kullanım Content Moderator'ın makine destekli [video denetimi](video-moderation-api.md) ve [insan tarafından İnceleme aracı](Review-Tool-User-Guide/human-in-the-loop.md) Orta videoları ve dökümleri için yetişkin (açık) ve en iyi sonuçları almak için (müstehcen) müstehcen içerik işletmenizi.
 
