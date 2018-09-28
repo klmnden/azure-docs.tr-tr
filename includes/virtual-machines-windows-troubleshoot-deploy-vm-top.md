@@ -1,4 +1,4 @@
 Aşağıdaki en önemli sorunlardan, sorunu gidermenize yardımcı olabilir. Sorun gidermeye başlamak için adımları gözden geçirin:
 
-- [İstenen VM boyutu küme desteği](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
-- [Kümenin boş kaynak yok](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)
+- [İstenen VM boyutu küme desteği](../articles/virtual-machines/troubleshooting/troubleshoot-deploy-vm-windows.md#the-cluster-cannot-support-the-requested-vm-size)
+- [Kümenin boş kaynak yok](../articles/virtual-machines/troubleshooting/troubleshoot-deploy-vm-windows.md#the-cluster-does-not-have-free-resources)

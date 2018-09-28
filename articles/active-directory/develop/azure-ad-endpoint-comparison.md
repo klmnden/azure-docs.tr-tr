@@ -3,7 +3,7 @@ title: Azure AD v2.0 uç noktası v1.0 uç noktası ile karşılaştırma | Micr
 description: Azure AD v2.0 uç noktası v1.0 uç nokta arasındaki farkları bilmeniz
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/27/2018
 ms.author: andret
-ms.reviewer: hirsin, celested
+ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: 02c7edc84d2ac3a91c33d8f266d022db5cd5cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948974"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406541"
 ---
-# <a name="comparing-the-azure-ad-v20-endpoint-with-v10-endpoint"></a>Azure AD v2.0 uç noktası v1.0 uç noktası ile karşılaştırma
+# <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Azure AD v2.0 uç noktası v1.0 uç noktası ile karşılaştırma
 
 Yeni bir uygulama geliştirirken, v1.0 ve v2.0 uç noktaları arasındaki farkları bilmeniz önemlidir. Aşağıda, v2.0 uç noktası için var olan bazı sınırlamalar yanı sıra temel farklılıklar verilmiştir.
 
 > [!NOTE]
-> Tüm Azure AD senaryolar ve Özellikler v2.0 uç noktası tarafından desteklenir. V2.0 uç noktası kullanıyorsanız belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](#limitations).
+> Tüm Azure Active Directory (Azure AD) senaryolar ve Özellikler v2.0 uç noktası tarafından desteklenir. V2.0 uç noktası kullanıyorsanız belirlemek için aşağıdaki hakkında bilgi edinin: [v2.0 sınırlamaları](#limitations).
 
 ## <a name="who-can-sign-in"></a>Kim oturum
 
@@ -37,7 +37,7 @@ Yeni bir uygulama geliştirirken, v1.0 ve v2.0 uç noktaları arasındaki farkla
 
 * Uygulamanıza (Azure AD) oturum açmak yalnızca iş ve Okul hesaplarında v1.0 uç nokta sağlar
 
-* V2.0 uç noktası, iş ve Okul hesapları Azure Active Directory'den ve kişisel hesapları (MSA) (hotmail.com, outlook.com, msn.com) oturum açmak için sağlar.
+* V2.0 uç noktası, iş ve Okul hesapları Azure AD'den ve kişisel hesapları (MSA) (hotmail.com, outlook.com, msn.com) oturum açmak için sağlar.
 
 * V1.0 hem v2.0 uç noktaları ayrıca oturum açma işlemlerini kabul *[Konuk kullanıcılar](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* olarak yapılandırılan uygulamalar için bir Azure AD Directory *[tek kiracılı](single-and-multi-tenant-apps.md)* veya *çok kiracılı* kiracıya özgü uç noktaya işaret edecek şekilde yapılandırılmış uygulamaların (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
@@ -119,7 +119,7 @@ Bilgi, `openid` kapsam ortaya koymaktadır, uygulamanıza erişimi, artık sın�
 
 Bu sayede uygulamanızı açığa en az bir şekilde kod – kullanılabilmesi için uygulamanızın gerektirdiği bilgiler kümesi için yalnızca kullanıcı isteyebilir. Bu kapsamları hakkında daha fazla bilgi için bkz. [v2.0 kapsam başvurusu](v2-permissions-and-consent.md).
 
-## <a name="token-claims"></a>Belirteç Talepleri
+## <a name="token-claims"></a>Belirteç taleplerinden
 
 V2.0 uç noktası tarafından verilen belirteçlere talep sunuldu tarafından verilen belirteçlere aynı olmayacaktır Azure AD'ye uç noktaları. Yeni hizmete geçiş uygulamalar belirli bir talep id_tokens veya access_tokens mevcut varsayımında bulunmamalıdır. Daha ayrıntılı bilgi v2.0 uç noktası kullanılan belirteçlerin farklı türdeki kullanılabilir [erişim belirteci](access-tokens.md) başvuru ve [ `id_token` başvurusu](id-tokens.md)
 
@@ -214,15 +214,13 @@ Uygulama kayıt Portalı'nda bir uygulamayı kaydetme hakkında bilgi için bkz:
 
 V2.0 uç noktası, SAML veya WS-Federation desteklemez; yalnızca, Open ID Connect ve OAuth 2.0 de destekler. Tüm özellikler ve yetenekler OAuth kurallarının v2.0 uç noktasında eklenmiştir.
 
-Şu anda aşağıdaki protokolü özellikleri ve yetenekleri olan *kullanılamıyor* v2.0 uç noktasını:
+Şu anda aşağıdaki protokolü özellikleri ve yetenekleri olan *kullanılamıyor* veya *desteklenmiyor* v2.0 uç noktasını:
 
-* Şu anda `email` talep yalnızca döndürülen isteğe bağlı bir talep yapılandırılır ve kapsam kapsam = e-posta, istekte belirtildi. Ancak, bu davranışı, v2.0 uç noktası daha da Open ID Connect ve OAuth2.0 standartlarına uymak için güncelleştirilmiş şekilde değiştirir.
+* `email` Talep yalnızca döndürülen isteğe bağlı bir talep yapılandırılır ve kapsam kapsam = e-posta, istekte belirtildi. Bununla birlikte, daha da Open ID Connect ve OAuth2.0 standartlarına uymak için v2.0 uç noktası güncelleştirildikçe değiştirmek için bu davranışı unutmayın.
 
 * V2.0 uç noktası kimliği belirteçler veren bir rol veya grup talepleri desteklemez.
 
-* [OAuth 2.0 kaynak sahibi parola kimlik bilgileri verme](https://tools.ietf.org/html/rfc6749#section-4.3) v2.0 uç noktası tarafından desteklenmiyor.
-
-Ayrıca, v2.0 uç noktası, herhangi bir biçimde SAML veya WS-Federasyon protokolünü desteklemiyor.
+* V2.0 uç noktası desteklemediği [OAuth 2.0 kaynak sahibi parola kimlik bilgileri verme](https://tools.ietf.org/html/rfc6749#section-4.3).
 
 V2.0 uç noktasına desteklenen protokol işlevselliği daha iyi anlamak için okuyun bizim [Openıd Connect ve OAuth 2.0 protokolü başvurusu](active-directory-v2-protocols.md).
 

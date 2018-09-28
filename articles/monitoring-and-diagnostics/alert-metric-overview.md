@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 1ec47ddf5769dd8ed624277a86db57f449581b90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948698"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405929"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Nasıl iş ölçüm uyarıları anlamak Azure İzleyici'de
 
-Azure İzleyici ölçüm uyarıları çok boyutlu ölçümler üzerinde çalışır. Bu ölçümler, platform ölçümleri, özel ölçümler (Önizleme) popüler günlüklerinden Log Analytics ölçümlerine, Application Insights standart ölçüm dönüştürülen olabilir. Ölçüm uyarıları olmadığını denetlemek için düzenli aralıklarla değerlendirin koşulları bir ya da ölçüm, zaman serisi doğruysa ve değerlendirmeleri karşılandığında size bildirir. Ölçüm uyarıları diğer bir deyişle, durumu değiştiğinde yalnızca bildirimleri gönderdikleri bilgisi yok.
+Azure İzleyici ölçüm uyarıları çok boyutlu ölçümler üzerinde çalışır. Bu ölçümler platform ölçümleri olabilir [özel ölçümler](metrics-custom-overview.md), [Log Analytics popüler günlüklerinden dönüştürülen ölçümlerini](monitoring-metric-alerts-logs.md), Application Insights standart ölçümler. Ölçüm uyarıları olmadığını denetlemek için düzenli aralıklarla değerlendirin koşullara göre bir veya daha fazla ölçüm zaman serisi doğruysa ve değerlendirmeleri karşılandığında size bildirir. Ölçüm Uyarıları durum bilgisi olan, durumu değiştiğinde diğer bir deyişle, bunlar yalnızca bildirimleri gönderin.
 
 ## <a name="how-do-metric-alerts-work"></a>Ölçüm uyarıları nasıl çalışır
 
@@ -75,11 +75,17 @@ Söyleyin, yoğun talep görmesini bir web uygulamasına sahip ve daha fazla ör
 
 Bu kural için örnek yani tüm değerleri otomatik olarak izler Ölçüm uyarı kuralınızı yeniden değiştirmek zorunda kalmadan çıktıkça örneklerinizin izleyebilirsiniz.
 
-### <a name="monitoring-multiple-resource-using-metric-alerts"></a>Birden çok kaynak ölçüm uyarıları kullanarak izleme
+### <a name="monitoring-multiple-resources-using-metric-alerts"></a>Birden çok kaynak ölçüm uyarıları kullanarak izleme
 
-Önceki bölümde görüldüğü gibi tek tek boyut birleşimi (yani her izleyen tek bir ölçüm uyarısı kuralının olma olasılığı vardır bir ölçüm zaman serisi). Ancak, aynı anda bir kaynak yapmayı hala sınırını aşmamanız gerekir. Ölçüm uyarıları artık de önizleme bir kuralda birden fazla kaynaklarla izleme desteği sunar. VM'lerin 100'lük Bloklar, aboneliğinizde varsa, bu yeni özellik, hızlı bir şekilde bunlar için izleme işlevini ayarlama yardımcı olur. 
+Önceki bölümde görüldüğü gibi tek tek boyut birleşimi (yani her izleyen tek bir ölçüm uyarısı kuralının olma olasılığı vardır bir ölçüm zaman serisi). Ancak, daha önce bir kerede tek bir kaynak yapmayı hala sınırlıydı. Azure İzleyici ayrıca bir ölçüm uyarısı kuralının ile birden çok kaynak izlenmesini de destekler. Bu özellik şu anda Önizleme ve yalnızca sanal makineler için kullanılabilir. Ayrıca, tek bir ölçüm Uyarısı, bir Azure bölgesindeki kaynaklarını izleyebilir.
 
-Bu özellik şu anda önizleme sürümündedir. Birden çok kaynak izleme ölçüm uyarı kuralları oluşturma, Azure portalından şu anda desteklenmiyor. Azure Resource Manager şablonları aracılığıyla bu kurallar oluşturabilirsiniz.
+Tek bir ölçüm uyarısı üç yoldan biriyle göre izleme kapsamını belirleyebilirsiniz:
+
+- bir aboneliği bir Azure bölgesinde sanal makineler listesi olarak
+- bir Abonelikteki bir veya daha fazla kaynak gruplarındaki tüm sanal makineler (bir Azure bölgesinde)
+- bir Abonelikteki tüm sanal makineler (bir Azure bölgesinde)
+
+Birden çok kaynak izleme ölçüm uyarı kuralları oluşturma, Azure portalından şu anda desteklenmiyor. Bu kuralları ile oluşturabileceğiniz [Azure Resource Manager şablonları](monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). Her sanal makine için ayrı bildirim alırsınız. 
 
 ## <a name="typical-latency"></a>Tipik bir gecikme süresi
 

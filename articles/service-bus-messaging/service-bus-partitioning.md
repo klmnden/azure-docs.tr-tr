@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: ccdd17bf5a6b3ff00fd3fdada8f4ae02a071274c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392468"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423179"
 ---
 # <a name="partitioned-queues-and-topics"></a>Bölümlenmiş kuyruklar ve konular
 
@@ -140,7 +140,7 @@ Service Bus, için ya da bölümlenen varlıklar arasında iletme otomatik ileti
 
 Şu anda Service Bus, bölümlenmiş kuyruklar ve konular aşağıdaki kısıtlamaları getirir:
 
-* Bölümlenmiş kuyruklar ve konular Premium Mesajlaşma katmanında desteklenmiyor.
+* Bölümlenmiş kuyruklar ve konular Premium Mesajlaşma katmanında desteklenmiyor. Oturumlarının, oturum kimliği kullanarak premier katmanda desteklenir. 
 * Bölümlenmiş kuyruklar ve konular, farklı oturumlarında tek bir işlemde ait iletileri gönderme desteklemez.
 * Service Bus şu anda ad alanı başına en çok 100 bölümlenmiş kuyruğa veya konuya izin vermektedir. Kota (Premium katmanı için geçerli değildir) ad alanı başına 10.000 varlıkların doğrultusunda her bölümlenmiş bir kuyruk veya konuda sayar.
 

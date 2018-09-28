@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 28f572ee61271c4c81319f7c263172012788765a
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 1e74a0c915471fecb3b8e0662559eb5bfe189b3d
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055552"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423026"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL veritabanı kullanan bir tek başına tek kiracılı uygulamasını dağıtma ve keşfetme
 
@@ -27,7 +27,7 @@ Tek başına uygulama veya Kiracı başına uygulama düzeni her Kiracı için b
 
 Bu öğreticide, Azure aboneliğinizde oturum üç kiracılar için üç tek başına uygulama dağıtır.  Size keşfedin ve tek tek uygulama bileşenleri ile çalışmak için tam erişime sahiptir.
 
-Uygulama kaynak kodu ve yönetim komut dosyaları kullanılabilir [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub deposu.
+Uygulama kaynak kodu ve yönetim komut dosyaları kullanılabilir [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub deposu. Uygulamayı Visual Studio 2015 kullanılarak oluşturulmuş ve başarıyla açın ve Visual Studio 2017'de güncelleştirmeden.
 
 
 Bu öğreticide şunları öğrenirsiniz:

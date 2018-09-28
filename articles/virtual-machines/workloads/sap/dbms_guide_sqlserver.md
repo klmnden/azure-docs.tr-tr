@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2018
+ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db0d796a407c8e33501b0a312c78e8508f17297d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076494"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406932"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver için SQL Server Azure sanal makineleri DBMS dağıtım
 
@@ -381,8 +381,10 @@ SQL Server 2014 ve üzeri sürümlerde açık olasılığını doğrudan Azure B
 
 * Depolama hesabı gereksinimlerini VM SQL Server'ı dağıtmak için kullanılan bir çalıştırıyorsa aynı Azure bölgesinde olacak şekilde kullanılır.
 * VHD dağıtım ile ilgili farklı Azure depolama hesapları daha önce listelenen konular bu dağıtımlar da yöntem için geçerlidir. Azure depolama hesabı sınırları karşı g/ç işlemlerinin sayısı anlamına gelir.
-* Sanal makinenin depolama g/ç kota karşı hesap yerine depolama blobları SQL Server veri ve günlük dosyalarını temsil eden karşı trafiğin muhasebesi sanal makinenin ağ bant genişliği belirli VM türü. Belirli bir sanal makine türü ağ bant genişliği için makalesine başvurun [boyutları için Windows azure'da sanal makineler](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* Sanal makinenin depolama g/ç kota karşı hesap yerine depolama blobları SQL Server veri ve günlük dosyalarını temsil eden karşı trafiğin muhasebesi sanal makinenin ağ bant genişliği belirli VM türü. Ağ ve depolama için bant genişliği belirli bir VM türünün, makalesine başvurun [boyutları için Windows azure'da sanal makineler](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* Dosya g/ç ağ kotası aracılığıyla gönderme, sonucu olarak depolama kotası çoğunlukla stranding ve ile sanal makinenin toplam bant genişliği yalnızca kısmen kullanın.
 * Azure Premium depolama için farklı bir disk boyutlarına sahip IOPS ve g/ç aktarım hızı performans hedeflerini artık geçerli değildir. Azure Premium depolama blobları, oluşturduğunuz bile bulunur. Hedefleri belgelenen makaleyi [yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). SQL Server veri dosyaları ve günlük dosyalarını doğrudan Azure Premium depolama alanında depolanan blobları yerleştirme sonucu olarak performans özellikleri VHD'lerde Azure Premium depolama ile karşılaştırıldığında farklı olabilir.
+* Azure Premium depolama diskleri olarak önbelleğe alma tabanlı bir konak, doğrudan Azure BLOB'ları üzerinde SQL Server veri dosyaları yerleştirirken kullanılabilir değil.
 * M serisi sanal makineler üzerinde SQL Server işlem günlüğü dosyasına yönelik milisaniyenin yazma desteklemek için Azure yazma Hızlandırıcı kullanılamaz. 
 
 Bu işlevlerin bilgi makalesinde bulunabilir [Microsoft azure'da SQL Server veri dosyaları](https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-2017)

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: bb4a34e7036c532ca1800c70347a4f2c55a33da2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.reviewer: ''
+ms.openlocfilehash: 8e9d40451cd0d9c3a6505ee24ca02852d9d4c527
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221732"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423485"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack için kullanılabilir olan Azure Market öğeleri
 
@@ -143,6 +143,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | Güçlü dağıtılmış ileti sistemi yayımlama-abonelik. | Bitnami |
 | ![Kafka kümesi](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka kümesi](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka olan Yayımla-abone ol olarak dağıtılan işleme oturum rethought Mesajlaşma. Bu çözüm, birden fazla Kafka aracıları ve Zookeeper örnekleri sağlayarak Kafka kümesi güvenilirliğini artırır. **Bu çözüm şablonu ayrıca Debian 8 ve özel betik için Linux 2.0 uzantısı gerektirir.** | Bitnami |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky hibrit bulut güvenliği](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Sorunsuz bir şekilde düzenlenmiş ve Uyarlamalı siber güvenlik ekosistemi Kaspersky hibrit bulut güvenliği sağlar. | Kaspersky Laboratuvar |
+| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | Bu çözüm, tek başına küme ACS-Engine kullanılarak oluşturulan şablonlarını ile çalışan bir Kubernetes kümesi dağıtır.<br>**Bu çözüm şablonu ayrıca Ubuntu Server 16.04 LTS ve özel betik için Linux 2.0 gerektirir.**| Microsoft |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | Tam olarak tümleşik ve geliştirme ortamında çalışmaya hazır. | Bitnami |
 | ![LAPP](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lappstack) | PHP, PostgreSQL ve Apache geliştirme ortamı'nı tamamlayın. | Bitnami |
 | ![Sohbet edelim](media/azure-stack-marketplace-azure-items/letschat.png) | [Sohbet edelim](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.letschat) | Açık kaynak kalıcı bir Mesajlaşma uygulaması. | Bitnami |
@@ -207,6 +208,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![ResourceSpace](media/azure-stack-marketplace-azure-items/resourcespace.png) | [Resourcespace](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.resourcespace) | Gelişmiş işbirliğine yönelik dijital varlık yönetim sistemi. | Bitnami |
 | ![Roundcube](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.roundcube) | Tarayıcı tabanlı IMAP istemci MIME desteği gibi işlevlere sahip. | Bitnami |
 | ![Ruby](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rubystack) | Ruby on Rails için kullanımı kolay bir geliştirme ortamı. | Bitnami |
+| ![Service Fabric Kümesi](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric kümesi](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | Bu çözüm, Service Fabric sanal makine ölçek kümesi üzerinde bir tek başına küme olarak çalışmayı dağıtır. <br>**Bu çözüm şablonu, ayrıca Windows Server 2016 Datacenter'ı indirmek gerektirir**| Microsoft |
 | ![SEO paneli](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO paneli](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.seopanel) | Birden fazla Web sitesi izleme için açık kaynak SEO yönetimi uygulaması. | Bitnami |
 | ![Shopware](media/azure-stack-marketplace-azure-items/shopware.png) | [Shopware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.shopware) | Açık kaynak e-ticaret Platform. | Bitnami |
 | ![Basit makineler Forumu](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Basit makineler Forumu](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Kendi çevrimiçi topluluğu oluşturmak için basit bir forum yazılımı. | Bitnami |
@@ -241,6 +243,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![KEMP LoadMaster yük dengeleyici ADC içerik anahtarı](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster yük dengeleyici ADC içerik anahtarı](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 4-7. Katman uygulama teslim denetleyicisini (ADC) yük dengeleyici, içerik anahtarı ve Traffic Manager. | KEMP Technologies Inc. |
 | ![NRI mPLAT paketi - çoklu bulut Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT paketi - çoklu bulut Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Bir tek bölmesinde, izlemek için cam yapılandırma, sağlama, otomatikleştirin ve herhangi bir iş yükü veya Bulut yönetir. | NRI |
 | ![NooBaa karma AWS S3 uyumlu - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa karma AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Genel yayılan ve şirket içi kapasite kaynaklara S3 ile uyumlu depolama hizmeti. | NooBaa |
+| ![Multipoint, sıfır NetFoundry ağ geçidi, Azure Stack bağlantıları güven](media/azure-stack-marketplace-azure-items/netfoundry.png) | [Multipoint, sıfır NetFoundry ağ geçidi, Azure Stack bağlantıları güven](https://azuremarketplace.microsoft.com/marketplace/apps/tata_communications.netfoundry_cloud_gateway) | Azure Stack ve sektörün önde gelen sıfır güven güvenlik ile 5 x VPN ve sınırsız sayıda eş zamanlı kullanıcı verimini herhangi bir ağ bağlantısı üzerinden her yerde arasında yalnızca yazılım tabanlı, çok nokta bağlantısı. | NetFoundry |
 | ![Palo Alto VM serisi yeni nesil güvenlik duvarı](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM serisi yeni nesil güvenlik duvarı](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM serisi tasarlanan yeni nesil Güvenlik Duvarı'nı müşterilerin Azure Stack için uygulamalarına ve verilerine güvenli bir şekilde geçirmek bunları uygulama beyaz listeye ekleme ve tehdit önleme ilkeleri ile bilinen ve bilinmeyen tehditlere karşı koruma sağlar. **Bu görüntü dağıtmak için bir şablon gerektirir; bkz. Bu [makale](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) önemli bilgileri.**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall, bilinen ve bilinmeyen güvenlik açıklarına algılar ve web apps'te saldırıları engeller. **Her iki PT Market öğelerini indirme.** | Pozitif teknolojileri |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Kurumsal tüm yaşam döngüsü, Azure Stack altyapısının otomatikleştirmenizi sağlar. **Her iki Puppet Market öğelerini indirme.** | Puppet |

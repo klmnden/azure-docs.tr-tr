@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/21/2018
-ms.openlocfilehash: 18f6647a8412477384a48aa777461f99b2fbcb0a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.date: 09/27/2018
+ms.openlocfilehash: 696932135cdd3850e04d25370867c0273b99b3bf
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379559"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423553"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Fiyatlandırma katmanları PostgreSQL için Azure veritabanı
 
@@ -74,6 +74,11 @@ Bir sunucu oluşturduktan sonra sanal çekirdek, donanım oluşturma ve fiyatlan
 | Japonya Batı | X | X |
 | Kore Orta |  | X |
 | Kore Güney |  | X |
+| Almanya Orta |  | X |
+| US DoD Orta  | X |  |
+| US DoD Doğu  | X |  |
+| ABD Devleti Arizona |  | X |
+| ABD Devleti Texas |  | X |
 
 ## <a name="storage"></a>Depolama
 
@@ -120,4 +125,4 @@ En güncel fiyatlandırma bilgileri için bkz: hizmeti [fiyatlandırma sayfası]
 
 - Bilgi edinmek için nasıl [portalda bir PostgreSQL sunucusu oluşturma](tutorial-design-database-using-azure-portal.md).
 - Bilgi edinmek için nasıl [izleme ve Azure CLI kullanarak PostgreSQL için Azure veritabanı ölçeklendirme](scripts/sample-scale-server-up-or-down.md).
-- Hakkında bilgi edinin [hizmet sınırlamaları](concepts-limits.md).
+- Hakkında bilgi edinin [hizmet sınırlamaları](concepts-limits.md). 

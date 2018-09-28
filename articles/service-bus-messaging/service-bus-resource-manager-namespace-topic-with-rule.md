@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: dd0ef94c7efb27641d5f0bf50d87bf852bcd1e9a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7774d67d02b2b0f0080cbff2ffc3606b99450f26
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696345"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404970"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Konusu, aboneliği ve kuralı bir Azure Resource Manager şablonu kullanarak bir Service Bus ad alanı oluşturma
 
@@ -43,7 +43,7 @@ Tam şablon için bkz: [konusu, aboneliği ve kuralı ile Service Bus ad alanı]
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>Ne dağıtacaksınız?
+## <a name="what-do-you-deploy"></a>Ne dağıtacağınız?
 
 Bu şablonu kullanarak bir Service Bus ad alanı konusu, aboneliği ve kuralı (filtre) ile dağıtın.
 
@@ -51,7 +51,7 @@ Bu şablonu kullanarak bir Service Bus ad alanı konusu, aboneliği ve kuralı (
 
 ## <a name="what-are-rules-filters"></a>(Filtreler) kuralları nelerdir?
 
-Birçok senaryoda belirli özelliklere sahip iletileri farklı yollarla işlenmesi gerekir. Bu özel işlemeyi etkinleştirmek için belirli özelliklere sahip ve ardından bu değişiklikleri uygulamak iletilerini bulmak için abonelik yapılandırabilirsiniz. Service Bus abonelikleri konu başlığına gönderilen tüm iletilerin görmenize karşın, yalnızca sanal abonelik kuyruğuna iletiler kümesini kopyalayabilirsiniz. Bu abonelik filtreleri kullanarak gerçekleştirilir. (Filtreler) kuralları hakkında daha fazla bilgi için bkz: [kurallar ve Eylemler](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+Birçok senaryoda belirli özelliklere sahip iletileri farklı yollarla işlenmesi gerekir. Bu özel işlemeyi etkinleştirmek için belirli özelliklere sahip ve ardından bu değişiklikleri uygulamak iletilerini bulmak için abonelik yapılandırabilirsiniz. Service Bus abonelikleri konu başlığına gönderilen tüm iletilerin görmenize karşın, yalnızca sanal abonelik kuyruğuna iletiler kümesini kopyalayabilirsiniz. Abonelik filtreleri kullanarak gerçekleştirilir. (Filtreler) kuralları hakkında daha fazla bilgi için bkz: [kurallar ve Eylemler](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıklayın:
 
@@ -59,7 +59,7 @@ Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıkla
 
 ## <a name="parameters"></a>Parametreler
 
-Azure Resource Manager ile şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini tanımlamanız gerekir. Şablon, tüm parametre değerlerini içeren `Parameters` adlı bir bölüm içerir. Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama göre değişen değerler için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
+Azure Resource Manager ile şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini tanımlayın. Şablon, tüm parametre değerlerini içeren `Parameters` adlı bir bölüm içerir. Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama temel farklılık, bu değerler için parametre tanımlayın. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
 
 Şablon aşağıdaki parametreleri tanımlar:
 
@@ -180,7 +180,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Oluşturulan ve dağıtılan kaynakları Azure Resource Manager kullanarak göre bu kaynakları Bu makaleler görüntüleyerek yönetmeyi öğrenin:
 
 * [Azure Service Bus'ı yönetme](service-bus-management-libraries.md)
-* [Service Bus PowerShell ile yönetme](service-bus-manage-with-ps.md)
+* [Service Bus’ı PowerShell ile yönetme](service-bus-manage-with-ps.md)
 * [Service Bus Explorer ile Service Bus kaynaklarını yönetme](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
