@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: değişiklik, izleme, otomasyon
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 08/27/2018
+ms.date: 09/12/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: fd94fd234067f63eab424c7f757d4adf842e7b46
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 16d5a025f0c0ff571298e0f528fb9119e37950f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43120594"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995284"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Ortamınızdaki değişikliklerle ilgili sorunları giderme
 
@@ -32,6 +32,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > * Etkinlik günlüğü bağlantısını etkinleştirme
 > * Bir olay tetikleme
 > * Değişiklikleri görüntüleme
+> * Uyarı yapılandırma
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -41,7 +42,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 * İzleyiciyi, eylem runbook'larını ve İzleyici Görevi'ni barındıracak bir [Otomasyon hesabı](automation-offering-get-started.md).
 * Sisteme eklenecek bir [sanal makine](../virtual-machines/windows/quick-create-portal.md).
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 http://portal.azure.com adresinden Azure portalında oturum açın.
 
@@ -57,7 +58,7 @@ Bu öğreticide ilk yapmanız gereken VM'inizde Değişiklik İzleme ve Stok öz
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) çalışma alanı, Stok gibi özellikler ve hizmetler tarafından oluşturulan verileri toplamak için kullanılır.
 Çalışma alanı, birden fazla kaynaktan alınan verilerin incelenip analiz edilebileceği ortak bir konum sağlar.
 
-Ekleme sırasında VM, Microsoft Monitoring Agent (MMA) ve karma çalışan ile sağlanır.
+Ekleme sırasında VM’ye Microsoft Monitoring Agent (MMA) ve karma çalışanı sağlanır.
 Bu aracı, VM ile iletişim kurmak ve yüklü yazılım hakkında bilgi almak için kullanılır.
 
 Çözümün etkinleştirilmesi 15 dakika sürebilir. Bu süre boyunca tarayıcı penceresini kapatmamanız gerekir.
@@ -66,20 +67,22 @@ Verilerin çözümlemeye hazır hale gelmesi 30 dakika ile 6 saat arasında sür
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Log Analytics'teki Değişiklik izleme özelliğini kullanma
 
-Değişiklik izleme özelliği ile oluşturulan günlük verileri Log Analytics'e gönderilir. Sorgu çalıştırarak günlüklerde arama yapmak için **Değişiklik izleme** penceresinin en üstünde bulunan **Log Analytics**'i seçin.
-Değişiklik izleme verileri **ConfigurationChange** türü altında depolanır. Aşağıdaki örnek Log Analytics sorgusu, durdurulmuş olan tüm Windows Hizmetleri'ni döndürür.
+Değişiklik izleme özelliği ile oluşturulan günlük verileri Log Analytics'e gönderilir.
+Sorgu çalıştırarak günlüklerde arama yapmak için **Değişiklik izleme** penceresinin en üstünde bulunan **Log Analytics**'i seçin.
+Değişiklik izleme verileri **ConfigurationChange** türü altında depolanır.
+Aşağıdaki örnek Log Analytics sorgusu, durdurulmuş olan tüm Windows Hizmetleri'ni döndürür.
 
 ```
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Log Analytics'te sorgu çalıştırma ve günlük dosyalarında arama yapma hakkında daha fazla bilgi edinmek için bkz. [Azure Log Analytics](https://docs.loganalytics.io/index).
+Log Analytics'te sorgu çalıştırma ve günlük dosyalarında arama yapma hakkında daha fazla bilgi edinmek için bkz. [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ## <a name="configure-change-tracking"></a>Değişiklik izlemeyi yapılandırma
 
 Değişiklik izleme, VM üzerindeki yapılandırma değişikliklerini izlemenizi sağlar. Aşağıdaki adımlar kayıt defteri anahtarlarının ve dosyaların izlenmesini yapılandırma konusunda yol göstermektedir.
- 
+
 Toplanıp izlenecek dosyaları ve Kayıt defteri anahtarlarını belirlemek için **Değişiklik izleme** sayfasının üst kısmından **Ayarları düzenle**'yi seçin.
 
 > [!NOTE]
@@ -92,7 +95,7 @@ Toplanıp izlenecek dosyaları ve Kayıt defteri anahtarlarını belirlemek içi
 1. **Windows Kayıt Defteri** sekmesinde **Ekle**'yi seçin.
     **Değişiklik İzleme için Windows Kayıt Defteri Ekle** penceresi açılır.
 
-3. **Değişiklik İzleme için Windows Kayıt Defteri ekleme** bölümünde izlenecek anahtar bilgisini girip **Kaydet**’e tıklayın
+1. **Değişiklik İzleme için Windows Kayıt Defteri ekleme** bölümünde izlenecek anahtar bilgisini girip **Kaydet**’e tıklayın
 
 |Özellik  |Açıklama  |
 |---------|---------|
@@ -168,6 +171,49 @@ Bir **WindowsServices** değişikliğini seçtiğinizde **Değişiklik Ayrıntı
 
 ![Değişiklik ayrıntılarını portalda görüntüleme](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
+## <a name="configure-alerts"></a>Uyarı yapılandırma
+
+Azure portalda değişiklikleri görüntülemek faydalı olabilir ancak durdurulan bir hizmet gibi bir değişiklik olduğunda uyarılmak daha faydalıdır.
+
+Azure portalda durdurulmuş hizmetler için bir uyarı eklemek istiyorsanız **İzleme**’ye gidin. Ardından **Paylaşılan Hizmetler** altında **Uyarılar**’ı seçin ve **+ Yeni uyarı kuralı**’na tıklayın
+
+**1. Uyarı şartını tanımlayın**, **+ Hedefi seç**’e tıklayın. **Kaynak türüne göre filtrele** bölümünden **Log Analytics**’i seçin. Log Analytics çalışma alanınızı ve ardından **Bitti**'yi seçin.
+
+![Bir kaynak seçin](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
+
+**+ Ölçüt ekle**'yi seçin.
+**Sinyal mantığını yapılandırma** bölümündeki tablodan **Özel günlük araması**'nı seçin. Arama sorgusu metin kutusuna aşağıdaki sorguyu girin:
+
+```loganalytics
+ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
+```
+
+Bu sorgu, belirtilen zaman çerçevesinde W3SVC hizmeti durdurulan bilgisayarları döndürür.
+
+**Uyarı mantığı** bölümünde **Eşik** alanına **0** değerini girin. İşiniz bittiğinde **Bitti**'yi seçin.
+
+![Sinyal mantığını yapılandırma](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
+
+**2. Uyarı ayrıntılarını tanımlama** bölümünde uyarı adını ve açıklamasını girin. **Önem derecesi** değerini **Bilgilendirici (önem derecesi 2)**, **Uyarı (önem derecesi 1)**, veya **Kritik (önem derecesi 0)** olarak ayarlayın.
+
+![Uyarı ayrıntılarını tanımlama](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
+
+**3. Eylem grubunu tanımlama** bölümünde **Yeni eylem grubu**'nu seçin. Eylem grubu, birden çok uyarıda kullanabileceğiniz eylemlerden oluşan bir gruptur. Eylemlere e-posta bildirimleri, runbook'lar, web kancaları ve diğer birçok şey dahildir. Eylem grupları hakkında daha fazla bilgi edinmek için bkz. [Eylem grupları oluşturma ve yönetme](../monitoring-and-diagnostics/monitoring-action-groups.md).
+
+**Eylem grubu adı** kutusuna uyarı için ad ve kısa ad. Bu eylem grubu kullanılarak bildirim gönderildiğinde tam grup adı yerine kısa ad kullanılır.
+
+**Eylemler** bölümünde eyleme için **E-posta Yöneticileri** gibi bir ad girin. **EYLEM TÜRÜ** bölümünde **E-posta/SMS/Anında İletme/Ses**'i seçin. **AYRINTILAR** bölümünden **Ayrıntıları düzenle**’yi seçin.
+
+![Eylem grubu ekle](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+
+**E-posta/SMS/Anında İletme/Ses** bölmesine bir ad girin. **E-posta** onay kutusunu seçip geçerli bir e-posta adresi girin. **E-posta/SMS/Anında İletme/Ses** sayfasında **Tamam**’a tıklayın ve ardından **Eylem grubu ekle** sayfasında **Tamam**’a tıklayın.
+
+Uyarı e-postasının konusunu özelleştirmek için **Eylemleri Özelleştirin** bölümündeki **Kural oluştur**, kısmında **E-posta konusu**'nu seçin. İşleminiz bittiğinde **Uyarı kuralı oluştur**'u seçin. Bu uyarı, bir güncelleştirme dağıtımı başarılı olduğunda sizi uyarır ve güncelleştirme dağıtımı çalıştırmasının hangi makineleri kapsadığını bildirir.
+
+Aşağıdaki görüntüde W3SVC hizmeti durduğunda alınan örnek bir e-posta vardır.
+
+![e-posta](./media/automation-tutorial-troubleshoot-changes/email.png)
+
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
@@ -179,6 +225,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Etkinlik günlüğü bağlantısını etkinleştirme
 > * Bir olay tetikleme
 > * Değişiklikleri görüntüleme
+> * Uyarı yapılandırma
 
 Daha fazla bilgi edinmek için Değişiklik izleme ve Stok çözümü özetine göz atın.
 

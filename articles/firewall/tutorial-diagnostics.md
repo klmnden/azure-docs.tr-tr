@@ -1,27 +1,22 @@
 ---
-title: 'Öğretici: Azure Güvenlik Duvarı günlüklerini izleme'
-description: Bu öğreticide Azure Güvenlik Duvarı günlüklerini etkinleştirmeyi ve yönetmeyi öğreneceksiniz.
+title: Öğretici - Azure Güvenlik Duvarı günlüklerini ve ölçümlerini izleme
+description: Bu öğreticide Azure Güvenlik Duvarı günlükleri ile ölçümlerini etkinleştirmeyi ve yönetmeyi öğreneceksiniz.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/11/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: a4922fda80b957138a9929090f9d3c349348185d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991962"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991054"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs"></a>Öğretici: Azure Güvenlik Duvarı günlüklerini izleme
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Öğretici: Azure Güvenlik Duvarı günlüklerini ve ölçümlerini izleme
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Azure Güvenlik Duvarı makalelerinde yer alan örneklerde Azure Güvenlik Duvarı'nın genel önizleme sürümünü etkinleştirdiğiniz kabul edilmektedir. Daha fazla bilgi için bkz. [Azure Güvenlik Duvarı genel önizleme sürümünü etkinleştirme](public-preview.md).
-
-Güvenlik duvarı günlüklerini kullanarak Azure Güvenlik Duvarı'nı izleyebilirsiniz. Ayrıca etkinlik günlüklerini kullanarak Azure Güvenlik Duvarı kaynaklarıyla ilgili işlemleri denetleyebilirsiniz.
+Güvenlik duvarı günlüklerini kullanarak Azure Güvenlik Duvarı'nı izleyebilirsiniz. Ayrıca etkinlik günlüklerini kullanarak Azure Güvenlik Duvarı kaynaklarıyla ilgili işlemleri denetleyebilirsiniz. Ölçümleri kullanarak portalda performans sayaçlarını görüntüleyebilirsiniz. 
 
 Bu günlüklerden bazılarına portaldan erişebilirsiniz. Günlükler [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Depolama ve Event Hubs'a gönderilebilir, Log Analytics'te veya Excel ve Power BI gibi farklı araçlarda analiz edilebilir.
 
@@ -32,69 +27,12 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * PowerShell ile günlüğe kaydetmeyi etkinleştirme
 > * Etkinlik günlüğünü görüntüleme ve analiz etme
 > * Ağ ve uygulama kuralı günlüklerini görüntüleme ve analiz etme
+> * Ölçümleri görüntüle
 
-## <a name="diagnostic-logs"></a>Tanılama günlükleri
+## <a name="prerequisites"></a>Ön koşullar
 
- Azure Güvenlik Duvarı'nda aşağıdaki tanılama günlükleri mevcuttur:
+Bu öğreticiye başlamadan önce, Azure Güvenlik Duvarında kullanılabilen tanılama günlüklerine ve ölçümlere genel bir bakış için [Azure Güvenlik Duvarı günlükleri ve ölçümleri](logs-and-metrics.md) yazısını okumanız gerekir.
 
-* **Uygulama kuralı günlüğü**
-
-   Uygulama kuralı günlüğünü depolama hesabına kaydetmek, Event Hubs'a aktarmak ve/veya Log Analytics'e göndermek için her bir Azure Güvenlik Duvarı'nda etkinleştirmiş olmanız gerekir. Yapılandırdığınız uygulama kurallarınızla eşleşen yeni bağlantılar kabul edilen/reddedilen bağlantı için bir günlük oluşturur. Veriler aşağıdaki örnekte gösterildiği gibi JSON biçiminde günlüğe kaydedilir:
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-   {
-    "category": "AzureFirewallApplicationRule",
-    "time": "2018-04-16T23:45:04.8295030Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallApplicationRuleLog",
-    "properties": {
-        "msg": "HTTPS request from 10.1.0.5:55640 to mydestination.com:443. Action: Allow. Rule Collection: collection1000. Rule: rule1002"
-    }
-   }
-   ```
-
-* **Ağ kuralı günlüğü**
-
-   Ağ kuralı günlüğünü depolama hesabına kaydetmek, Event Hubs'a aktarmak ve/veya Log Analytics'e göndermek için her bir Azure Güvenlik Duvarı'nda etkinleştirmiş olmanız gerekir. Yapılandırdığınız ağ kurallarınızla eşleşen yeni bağlantılar kabul edilen/reddedilen bağlantı için bir günlük oluşturur. Veriler aşağıdaki örnekte gösterildiği gibi JSON biçiminde günlüğe kaydedilir:
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-  {
-    "category": "AzureFirewallNetworkRule",
-    "time": "2018-06-14T23:44:11.0590400Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallNetworkRuleLog",
-    "properties": {
-        "msg": "TCP request from 111.35.136.173:12518 to 13.78.143.217:2323. Action: Deny"
-    }
-   }
-
-   ```
-
-Günlüklerinizi depolamak için kullanabileceğiniz üç seçenek vardır:
-
-* **Depolama hesabı**: Depolama hesaplarının en iyi kullanım amacı, günlüklerin uzun süre depolanması ve ihtiyaç duyulduğunda gözden geçirilmesi durumlarıdır.
-* **Event Hubs**: Event Hubs, kaynaklarınızla ilgili uyarılar almak için diğer güvenlik bilgisi ve olay yönetimi (SEIM) araçlarıyla tümleştirmek için idealdir.
-* **Log Analytics**: Log Analytics'in en iyi kullanım amacı, uygulamanızın gerçek zamanlı olarak izlenmesi veya eğilimlerin incelenmesidir.
-
-## <a name="activity-logs"></a>Etkinlik günlükleri
-
-   Etkinlik günlüğü girişleri varsayılan olarak toplanır ve bunları Azure portalda görüntüleyebilirsiniz.
-
-   [Azure etkinlik günlüklerini](../azure-resource-manager/resource-group-audit.md) (eski adıyla işlem günlükleri ve denetim günlükleri) kullanarak Azure aboneliğinize gönderilmiş olan tüm işlemleri görüntüleyebilirsiniz.
 
 ## <a name="enable-diagnostic-logging-through-the-azure-portal"></a>Azure portaldan tanılama günlüğüne kaydetmeyi etkinleştirme
 
@@ -105,8 +43,8 @@ Tanılama günlüğüne kaydetme işlemi etkinleştirildikten sonra verilerin g�
 
    Azure Güvenlik Duvarı için hizmete özgü iki günlük vardır:
 
-   * Uygulama kuralı günlüğü
-   * Ağ kuralı günlüğü
+   * AzureFirewallApplicationRule
+   * AzureFirewallNetworkRule
 
 3. Veri toplamaya başlamak için **Tanılamayı aç**'a tıklayın.
 4. **Tanılama ayarları** sayfasında tanılama günlükleriyle ilgili ayarlar bulunur. 
@@ -116,7 +54,7 @@ Tanılama günlüğüne kaydetme işlemi etkinleştirildikten sonra verilerin g�
 8. OMS Çalışma Alanları sayfasında **Yeni Çalışma Alanı Oluştur**'a tıklayın.
 9. **Log Analytics çalışma alanı** sayfasında yeni **OMS Çalışma Alanı** adı olarak **firewall-oms** yazın.
 10. Aboneliğinizi seçin, var olan güvenlik duvarı kaynak grubunu (**Test-FW-RG**) kullanın, konum olarak **Doğu ABD** seçin ve **Ücretsiz** fiyatlandırma katmanını belirleyin.
-11. **Tamam**’a tıklayın.
+11. **Tamam** düğmesine tıklayın.
    ![Yapılandırma işlemini başlatma][1]
 12. **Günlük** bölümünde uygulama ve ağ kuralları için günlükleri toplamak için **AzureFirewallApplicationRule** ve **AzureFirewallNetworkRule** girişlerini seçin.
    ![Tanılama ayarlarını kaydetme][2]
@@ -163,10 +101,12 @@ Dilerseniz depolama hesabınıza bağlanabilir ve JSON erişim günlüklerini ve
 > [!TIP]
 > Visual Studio ve C# ile sabit ve değişken değerlerini değiştirme konusunda temel kavramlara hakimseniz GitHub'daki [günlük dönüştürücü araçlarını](https://github.com/Azure-Samples/networking-dotnet-log-converter) kullanabilirsiniz.
 
+## <a name="view-metrics"></a>Ölçümleri görüntüle
+Bir Azure Güvenlik Duvarına gidin, **İzleme** bölümünde **Ölçümler**’e tıklayın. Kullanılabilir değerleri görüntülemek için **ÖLÇÜM** açılan listesini seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Güvenlik duvarınızı günlükleri toplayacak şekilde yapılandırdığınıza göre artık Log Anaytics'e göz atarak verilerinizi görüntüleyebilirsiniz.
+Güvenlik duvarınızı günlükleri toplayacak şekilde yapılandırdığınıza göre artık Log Analytics'e göz atarak verilerinizi görüntüleyebilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Log Analytics'teki ağ izleme çözümleri](../log-analytics/log-analytics-azure-networking-analytics.md)

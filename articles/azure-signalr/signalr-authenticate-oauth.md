@@ -14,16 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 4856f4cdba7618884a42341f16d4828cb062e75c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667659"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974332"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Öğretici: Azure SignalR Hizmeti kimlik doğrulaması
-
-Microsoft Azure SignalR Hizmeti şu an [Genel Önizleme](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) aşamasındadır.
 
 Bu öğretici, hızlı başlangıçta tanıtılan sohbet odası uygulamasını temel alır. [SignalR Hizmeti ile sohbet odası oluşturma](signalr-quickstart-dotnet-core.md) alıştırmasını tamamlamadıysanız, önce o alıştırmayı tamamlayın. 
 
@@ -396,7 +394,7 @@ Bu bölümde, hub sınıfına `Authorize` özniteliğini ekleyerek ve hub yönte
 
 Bu bölümde, Azure'da ASP.NET uygulamanızı barındıracak yeni bir [Azure Web Uygulaması](https://docs.microsoft.com/azure/app-service/) oluşturmak için Azure Cloud Shell'den Azure komut satırı arabirimini (CLI) kullanacaksınız. Web uygulaması, yerel Git dağıtımını kullanacak şekilde yapılandırılacak. Web uygulaması ayrıca SignalR bağlantı dizenizle, GitHub OAuth uygulaması parolalarıyla ve dağıtım kullanıcısıyla da yapılandırılacak.
 
-Bu bölümdeki adımlarda Azure CLI için *signalr* uzantısı kullanılır. Aşağıdaki komutu yürüterek Azure CLI 2.0 için *signalr* uzantısını yükleyin:
+Bu bölümdeki adımlarda Azure CLI için *signalr* uzantısı kullanılır. Aşağıdaki komutu yürüterek Azure CLI için *signalr* uzantısını yükleyin:
 
 ```azurecli-interactive
 az extension add -n signalr

@@ -1,51 +1,52 @@
 ---
-title: Azure Video Indexer için kaydolun ve ilk videonuzu karşıya yükleyin | Microsoft Docs
-description: Bu konuda, kaydolma ve Video Indexer Web sitesini kullanarak ilk videonuzu karşıya yükleme gösterilmektedir.
+title: 'Öğretici: Video Indexer’a kaydolma ve ilk videonuzu karşıya yükleme'
+titlesuffix: Azure Cognitive Services
+description: Video Indexer portalını kullanarak kaydolmak ve ilk videonuzu karşıya yüklemek hakkında bilgi edinin.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: tutorial
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2bb1e88b4c06a8c6a91485a9a190b26ec2863a45
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
-ms.translationtype: MT
+ms.openlocfilehash: f7c86985d12d52ac2dc8b4d2952f048969d3c339
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45540863"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984482"
 ---
-# <a name="sign-up-and-upload-your-first-video"></a>Kaydolun ve ilk videonuzu karşıya yükleyin
+# <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>Öğretici: Kaydolma ve ilk videonuzu karşıya yükleme
 
-Video Indexer Web sitesine oturum açma ve ilk karşıya yükleme, bu kullanmaya başlama öğreticilerinde video gösterir.
+Bu kullanmaya başlama öğreticisinde, Video Indexer web sitesinde oturum açma ve ilk videonuzu karşıya yükleme açıklanmaktadır.
 
-Video Indexer hesabınız oluşturulurken (belirli sayıda boş dizin dakika nereden) ücretsiz bir deneme hesabı veya Ücretli bir seçeneğe (burada, kota tarafından sınırlı değildir) seçebilirsiniz. Ücretsiz deneme ile 2400 dakika sayısı en fazla ücretsiz API kullanıcılara dizin oluşturma ve Video Indexer, ücretsiz Web sitesi kullanıcılara dizin 600 dakika sağlar. Bir Video Indexer hesabı oluşturduğunuz Ücretli seçeneğiyle [Azure aboneliğinizi ve Azure Media Services hesabına bağlı](connect-to-azure.md). Yanı sıra ilgili ücretler Azure Media Services hesabı dizine dakikalar için ödeme yaparsınız. 
+Video Indexer hesabınızı oluştururken ücretsiz bir deneme hesabı (belirli sayıda ücretsiz dizin oluşturma dakikası elde edersiniz) veya ücretli bir seçenek (kota sınırlaması olmaz) arasından seçim yapabilirsiniz. Ücretsiz deneme kullanıldığında Video Indexer, web sitesi kullanıcılarına 600 dakikaya kadar ve API kullanıcılarına ise 2400 dakikaya kadar ücretsiz dizin oluşturma olanağı sunar. Ücretli seçenek kullanıldığında [Azure aboneliğinize ve bir Azure Media Services hesabına bağlı](connect-to-azure.md) bir Video Indexer hesabı oluşturulur. Dizin oluşturma faaliyeti yapılan dakika sayısının yanı sıra Azure Media Services hesabıyla ilgili ücretler için ödeme yaparsınız. 
 
-## <a name="sign-up-for-video-indexer"></a>Video Indexer için kaydolun
+## <a name="sign-up-for-video-indexer"></a>Video Indexer’a kaydolma
 
-Video Indexer ile geliştirmeye başlamak için Gözat [Video Indexer](https://www.videoindexer.com) Web sitesi ve kaydolun.
+Video Indexer ile geliştirme çalışmalarına başlamak için [Video Indexer](https://www.videoindexer.com) web sitesine gidip kaydolun.
 
-## <a name="upload-a-video-using-the-video-indexer-website"></a>Video Indexer Web sitesini kullanarak bir videoyu karşıya yükle
+## <a name="upload-a-video-using-the-video-indexer-website"></a>Video Indexer web sitesini kullanarak karşıya video yükleme
 
-1. Oturum [Video Indexer](https://www.videoindexer.ai/) Web sitesi.
-2. Karşıya video yükleme için basın **karşıya** düğme veya bağlantı.
+1. [Video Indexer](https://www.videoindexer.ai/) web sitesinde oturum açın.
+2. Karşıya video yüklemek için **Karşıya Yükle** düğme veya bağlantısına basın.
 
     ![Karşıya Yükle](./media/video-indexer-get-started/video-indexer-upload.png)
 
-    Videonuz karşıya yüklendikten sonra Video Indexer dizin oluşturma ve video çözümleme başlatır.
+    Videonuz karşıya yüklendikten sonra Video Indexer videoyu dizinlemeye ve analiz etmeye başlar.
 
     ![Karşıya yüklendi](./media/video-indexer-get-started/video-indexer-uploaded.png) 
 
-    Video Indexer tamamlandıktan sonra analiz, videonuza bağlantısını içeren bir bildirim alırsınız ve hangi kısa bir açıklamasını videonuza bulunamadı. Örneğin: kişiler, karakterlerini konuları.
+    Video Indexer analizi tamamladıktan sonra videonuzun bağlantısını ve videonuzda neler bulunduğunun kısa bir açıklamasını içeren bir bildirim alırsınız. Örnek: kişiler, konular, OCR’ler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Artık [Video Indexer](video-indexer-view-edit.md) webiste veya [Video Indexer Geliştirici Portalı](video-indexer-use-apis.md) video öngörüleri görmek için. 
+Artık [Video Indexer](video-indexer-view-edit.md) web sitesini veya [Video Indexer Geliştirici Portalı](video-indexer-use-apis.md)’nı kullanarak videoya ilişkin içgörüleri görebilirsiniz. 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[Video Indexer genel bakış](video-indexer-overview.md)
+[Video Indexer’a genel bakış](video-indexer-overview.md)
 
-[API'leri kullanmaya başlamak](video-indexer-use-apis.md).
+[API’leri kullanmaya başlama](video-indexer-use-apis.md).
 

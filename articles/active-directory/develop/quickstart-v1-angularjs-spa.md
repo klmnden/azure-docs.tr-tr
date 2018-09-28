@@ -1,6 +1,6 @@
 ---
-title: Azure AD AngularJS ile çalışmaya başlama | Microsoft Docs
-description: Oturum açma için Azure AD ile tümleştirilir ve OAuth kullanarak Azure AD ile korunan API'leri çağıran bir AngularJS tek sayfa uygulaması oluşturmayı öğrenin.
+title: Azure Active Directory ile oturum açmak ve oturum kapatmak için AngularJS tek sayfalı uygulaması oluşturma | Microsoft Docs
+description: Oturum açma işlemi için Azure AD ile tümleştirilen ve OAuth kullanarak Azure AD korumalı API'leri çağıran bir AngularJS tek sayfalı uygulaması oluşturmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,65 +12,80 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: article
-ms.date: 11/30/2017
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c7f6a0e447e3b48cdd1df684dc105ece1e98f66
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
-ms.translationtype: MT
+ms.openlocfilehash: 23912f9d004d051c422f93e8b10f1aa6cb8b2626
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581927"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959504"
 ---
-# <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS ile çalışmaya başlama
+# <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Hızlı başlangıç: Azure Active Directory ile oturum açmak ve oturum kapatmak için AngularJS tek sayfalı uygulaması oluşturma
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-Azure Active Directory (Azure AD) sağlar, tek sayfalı uygulamalar için oturum açma, oturum kapatma ve güvenli bir OAuth API eklemenize olanak sade ve çağırır. Ancak, uygulamalarınızı herhangi bir web API'si Azure AD, Office 365 API'lerini veya Azure API gibi korunmasına yardımcı olan Windows Server Active Directory hesaplarıyla kullanıcıların kimliğini doğrulamak ve etkinleştirir.
+Azure Active Directory (Azure AD), basit ve anlaşılır bir şekilde tek sayfalı uygulamalarınıza oturum açma, oturum kapatma ve güvenli OAuth API'si çağrıları yapmanızı sağlar. Uygulamalarınızın kullanıcıların kimliklerini Windows Server Active Directory hesaplarıyla doğrulamasına ve Office 365 API'leri veya Azure API'si gibi Azure AD'nin korunmasına yardımcı olduğu herhangi bir web API'sini kullanmasına olanak tanır.
 
-Bir tarayıcıda çalışan JavaScript uygulamaları için Azure AD Active Directory Authentication Library (ADAL) veya adal.js sağlar. Tek amacı, adal.js erişim belirteçlerini almak uygulamanızı kolaylaştırır sağlamaktır. Ne kadar kolay olduğunu göstermek için buraya bir Yapılacaklar listesi AngularJS uygulama, oluşturacağız:
+Tarayıcıda çalıştırılan JavaScript uygulamaları için, Azure AD Active Directory Authentication Library (ADAL) veya adal.js sağlar. Adal.js'nin tek amacı uygulamanızın erişim belirteçleri almasını kolaylaştırmaktır.
 
-* Kullanıcının uygulamaya kimlik sağlayıcısı olarak Azure AD kullanarak oturum açtığında.
+Bu hızlı başlangıçta, aşağıdakileri yapan bir AngularJS To Do List uygulaması oluşturmayı öğreneceksiniz:
 
-* Kullanıcı hakkında bazı bilgiler görüntüler.
-* Azure AD'den taşıyıcı belirteçlerini kullanarak güvenli bir şekilde uygulamanın için yapmak listesi API'sini çağırır.
-* Uygulama dışında oturum açtığında.
+* Kimlik sağlayıcısı olarak Azure AD'yi kullanıp kullanıcının uygulama oturumunu açma.
+* Kullanıcı hakkında bazı bilgileri görüntüleme.
+* Azure AD'den taşıyıcı belirteçleri kullanarak uygulamanın To Do List API'sine güvenli çağrı yapma.
+* Kullanıcının uygulamada oturumunu kapatma.
 
-Eksiksiz, çalışan uygulamayı oluşturmak için şunları yapmanız:
+Eksiksiz, çalışan bir uygulama oluşturmak için şunları yapmalısınız:
 
-1. Uygulamanızı Azure AD'ye kaydedin.
-2. ADAL'ı yükleyin ve tek sayfalı uygulamayı yapılandırma.
-3. Tek sayfa uygulamasında güvenli sayfaları için ADAL'ı kullanın.
+1. Uygulamanızı Azure AD'ye kaydetme.
+2. ADAL'ı yükleme ve tek sayfalı uygulamayı yapılandırma.
+3. Tek sayfalı uygulamada sayfaların güvenliğini sağlamaya yardımcı olmak için ADAL'ı kullanma.
 
-Başlamak için [uygulama çatıyı indirmeniz](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) veya [tamamlanan örnek indirme](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip). Ayrıca kullanıcılar oluşturur ve bir uygulamayı kaydetme Azure AD kiracısı gerekir. Bir kiracı yoksa [edinebileceğinizi öğrenin](quickstart-create-new-tenant.md).
+## <a name="prerequisites"></a>Ön koşullar
 
-## <a name="step-1-register-the-directorysearcher-application"></a>1. adım: DirectorySearcher uygulamayı kaydetme
-Kullanıcıların kimliğini doğrulama ve belirteçleri almak üzere uygulamanızı etkinleştirme için ilk Azure AD kiracınıza kaydetmek gerekir:
+Başlamak için şu önkoşulları tamamlayın:
+
+* [Uygulama çatısını indirin](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) veya [tamamlanmış örneği indirin](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
+* Altında kullanıcıları oluşturabileceğiniz ve uygulamayı kaydedebileceğiniz bir Azure AD kiracınız olsun. Henüz kiracınız yoksa, [nasıl alabileceğinizi öğrenin](quickstart-create-new-tenant.md).
+
+## <a name="step-1-register-the-directorysearcher-application"></a>1. Adım: DirectorySearcher uygulamasını kaydetme
+
+Uygulamanızın kullanıcı kimliklerini doğrulamasını ve belirteçleri almasını sağlamak için, ilk olarak uygulamayı Azure AD kiracısına kaydetmeniz gerekir:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Birden çok dizini için oturum doğru dizinde görüntülediğiniz emin olmak gerekebilir. Bunu, üst çubukta yapmak için hesabınızı'ı tıklatın. Altında **dizin** listesinde, istediğiniz uygulamanızı kaydetmek için Azure AD kiracısı seçin.
-3. Tıklayın **tüm hizmetleri** sol bölmesi ve ardından **Azure Active Directory**.
-4. Tıklayın **uygulama kayıtları**ve ardından **Ekle**.
-5. Komut istemlerini izleyin ve yeni web uygulaması ve/veya web API oluşturun:
-  * **Adı** uygulamanızı kullanıcılara açıklar.
-  * **Oturum açma URL'si** istediğiniz Azure AD belirteçleri döndürecektir konumdur. Bu örnek için varsayılan konum `https://localhost:44326/`.
-6. Kayıt işlemini tamamladıktan sonra Azure AD uygulamanız için benzersiz uygulama Kimliğidir atar. Bu değer gerekir sonraki bölümlerde, bu nedenle uygulama sekmesinden kopyalayın.
-7. Adal.js OAuth örtük akış Azure AD ile iletişim kurmak için kullanır. Örtük akış, uygulamanız için etkinleştirmeniz gerekir:
-  1. Uygulama tıklayıp **bildirim** satır içi bildirim düzenleyicisini açın.
-  2. Bulun `oauth2AllowImplicitFlow` özelliği. Değerini ayarlamak `true`.
-  3. Tıklayın **Kaydet** bildirimi kaydetmek için.
-8. Uygulamanız için kiracınız genelinde izinleri verin. Git **ayarları** > **gerekli izinler**, tıklatıp **izin ver** üst çubukta düğmesi. Onaylamak için **Evet**’e tıklayın.
+1. Birden çok dizinde oturum açtıysanız, doğru dizini görüntülediğinizden emin olmalısınız. Bunu yapmak için, üst çubukta hesabınıza tıklayın. **Dizin** listesi altında, uygulamanızı kaydetmek istediğiniz Azure AD kiracısını seçin.
+1. Sol bölmede **Tüm hizmetler**'e tıklayın ve ardından **Azure Active Directory**'yi seçin.
+1. **Uygulama kayıtları**'na tıklayın ve **Ekle**'yi seçin.
+1. İstemleri izleyerek yeni web uygulaması ve/veya web API'si oluşturun:
 
-## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>2. adım: Yükleme ADAL ve tek sayfalı uygulamayı yapılandırma
-Azure AD'de bir uygulamanız olduğuna göre adal.js yükleyebilir ve kimlikle ilgili kodunuzu yazın.
+    * **Ad**, uygulamanızı kullanıcılara açıklar.
+    * **Oturum açma URL'si** Azure AD'nin belirteçleri döndüreceği konumdur. Bu örnek için varsayılan konum `https://localhost:44326/` konumudur.
+
+1. Kaydı bitirdikten sonra, Azure AD uygulamanıza benzersiz bir uygulama kimliği atar. Bu değeri sonraki bölümlerde kullanacağınız için, uygulama sekmesinden kopyalayın.
+1. Adal.js. Azure AD ile iletişim kurmak için OAuth örtük akışını kullanır. Uygulamanızda örtük akışı etkinleştirmeniz gerekir:
+
+    1. Satır içi bildirim düzenleyicisini açmak için uygulamaya tıklayın ve **Bildirim**'i seçin.
+    1. `oauth2AllowImplicitFlow` özelliğini bulun. Değerini `true` olarak ayarlayın.
+    1. Bildirimi kaydetmek için **Kaydet**’e tıklayın.
+
+1. Uygulamanız için kiracı genelinde izinleri verin. **Ayarlar > Gerekli izinler**'e gidin ve üst çubuktaki **İzin ver** düğmesini seçin.
+1. Onaylamak için **Evet**'i seçin.
+
+## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>2. Adım: ADAL'ı yükleme ve tek sayfalı uygulamayı yapılandırma
+
+Artık Azure AD'de bir uygulamanız olduğuna göre, adal.js'yi yükleyebilir ve kimlikle ilgili kodunuzu yazabilirsiniz.
 
 ### <a name="configure-the-javascript-client"></a>JavaScript istemcisini yapılandırma
-Paket Yöneticisi konsolu kullanarak adal.js TodoSPA projeye ekleyerek başlayın:
-  1. İndirme [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js) ve eklemeniz `App/Scripts/` proje dizini.
-  2. İndirme [angular.js adal](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js) ve eklemeniz `App/Scripts/` proje dizini.
-  3. Her komut dosyası bitmeden önce yük `</body>` içinde `index.html`:
+
+Başlangıç olarak Paket Yöneticisi Konsolu'nu kullanıp adal.js'yi TodoSPA projesine ekleyin:
+
+1. [Adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js)'yi indirin ve `App/Scripts/` proje dizinine ekleyin.
+2. [Adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js)'yi indirin ve `App/Scripts/` proje dizinine ekleyin.
+3. Her betiği `index.html` dosyasında `</body>` bölümünün sonundan önceye ekleyin:
 
     ```js
     ...
@@ -79,15 +94,18 @@ Paket Yöneticisi konsolu kullanarak adal.js TodoSPA projeye ekleyerek başlayı
     ...
     ```
 
-### <a name="configure-the-back-end-server"></a>Arka uç sunucusu yapılandırın
-Tek sayfalı uygulamanın arka uç için yapmak liste tarayıcısından belirteçlerini kabul etmesini API için arka uç uygulama kaydı hakkında yapılandırma bilgilerini gerekir. TodoSPA projeyi `web.config`. Öğe değerlerini değiştirin `<appSettings>` Azure portalda kullanılan değerleri yansıtacak şekilde bölümü. ADAL kullandığında, kodunuzun bu değerleri başvurur.
-  * `ida:Tenant` Azure AD kiracınızın--Örneğin, contoso.onmicrosoft.com etki alanıdır.
-  * `ida:Audience` portaldan kopyaladığınız uygulama kimliğidir.
+### <a name="configure-the-back-end-server"></a>Arka uç sunucusunu yapılandırma
 
-## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>3. adım: Kullanım tek sayfalı uygulama güvenli sayfalarında yardımcı olmak için ADAL
-Tek sayfalı uygulamanızı güvenli tek bir görünüm yardımcı olabilmemiz Adal.js AngularJS yolu ve HTTP sağlayıcıları ile tümleştirilir.
+Tek sayfalı uygulamanın arka uç To Do List API'sinin tarayıcıdan belirteçleri kabul etmesi için, arka uca uygulama kaydı hakkında yapılandırma bilgileri gerekir. TodoSPA projesinde `web.config` dosyasını açın. `<appSettings>` bölümündeki öğelerin değerlerini, Azure portalında kullandığınız değerleri yansıtacak şekilde değiştirin. Kodunuz ADAL'ı her kullandığında bu değerlere başvurur.
 
-1. İçinde `App/Scripts/app.js`, adal.js modülünde getirin:
+   * `ida:Tenant`, Azure AD kiracınızın etki alanıdır (örneğin, contoso.onmicrosoft.com).
+   * `ida:Audience`, portaldan kopyaladığınız uygulamanızın istemci kimliğidir.
+
+## <a name="step-3-use-adal-to-help-secure-pages-in-the-single-page-app"></a>3. Adım: Tek sayfalı uygulamada sayfaların güvenliğini sağlamaya yardımcı olmak için ADAL'ı kullanma
+
+Adal.js AngularJS yoluyla ve HTTP sağlayıcılarıyla tümleştirildiğinden, tek sayfalı uygulamanızda tek tek görünümleri güvenlik altına almaya yardımcı olabilirsiniz.
+
+1. `App/Scripts/app.js` içinde, adal.js modülünü getirin:
 
     ```js
     angular.module('todoApp', ['ngRoute','AdalAngular'])
@@ -95,7 +113,7 @@ Tek sayfalı uygulamanızı güvenli tek bir görünüm yardımcı olabilmemiz A
      function ($routeProvider, $httpProvider, adalProvider) {
     ...
     ```
-2. Başlatma `adalProvider` uygulama kaydınızı yapılandırma değerlerini de kullanarak `App/Scripts/app.js`:
+2. `App/Scripts/app.js` içinde de uygulama kaydınızın yapılandırma değerlerini kullanarak `adalProvider` öğesini başlatın:
 
     ```js
     adalProvider.init(
@@ -109,7 +127,7 @@ Tek sayfalı uygulamanızı güvenli tek bir görünüm yardımcı olabilmemiz A
       $httpProvider
     );
     ```
-3. Korunmasına yardımcı olma `TodoList` tek satırlık bir kod kullanarak uygulamayı görünümünde: `requireADLogin`.
+3. Tek bir kod satırı kullanarak uygulamada `TodoList` görünümünün korunmasına yardımcı olun: `requireADLogin`.
 
     ```js
     ...
@@ -121,11 +139,12 @@ Tek sayfalı uygulamanızı güvenli tek bir görünüm yardımcı olabilmemiz A
     ```
 
 ## <a name="summary"></a>Özet
-Artık kullanıcılar oturum ve taşıyıcı belirteci korumalı istekleri arka uç API'si için sorun güvenli bir tek sayfalı uygulama vardır. Kullanıcı tıkladığında **TodoList** bağlantı adal.js otomatik olarak yönlendirir ve Azure ad oturum açma için gerekirse. Ayrıca, adal.js otomatik olarak bir erişim belirteci uygulamanın arka uca gönderilen tüm Ajax istekleri bağlanacağı. 
 
-Önceki adal.js kullanarak tek sayfalı uygulama oluşturmak için tam en düşük gerekli adımlardır. Ancak bazı özellikler tek sayfalı uygulamada yararlıdır:
+Artık kullanıcıların oturumunu açabilen ve arka uç API'sine taşıyıcı belirteçle korunan istekler gönderebilen güvenli, tek sayfalı bir uygulamanız vardır. Kullanıcı **TodoList** bağlantısına tıkladığında, adal.js gerekiyorsa oturum açma için otomatik olarak Azure AD'ye yeniden yönlendirir. Buna ek olarak, adal.js uygulamanın arka ucuna gönderilen tüm Ajax isteklerine otomatik olarak bir erişim belirteci ekler.
 
-* Açıkça oturum açma ve oturum kapatma isteklerini yürütmek için denetleyicilerinizi içinde adal.js çağırma işlevleri tanımlayabilirsiniz. İçinde `App/Scripts/homeCtrl.js`:
+Önceki adımlar, adal.js kullanarak tek sayfalı uygulama oluşturmak için gereken en az işlemin adımlarıdır. Ama tek sayfalı uygulamada yararlı birkaç özellik daha vardır:
+
+* Oturum açma ve oturum kapatma isteklerini açıkça göndermek için, denetleyicilerinizde adal.js'yi çağıran işlevler tanımlayabilirsiniz. `App/Scripts/homeCtrl.js` içinde:
 
     ```js
     ...
@@ -137,7 +156,7 @@ Artık kullanıcılar oturum ve taşıyıcı belirteci korumalı istekleri arka 
     };
     ...
     ```
-* Kullanıcı bilgilerini uygulamanın kullanıcı Arabiriminde sunmak isteyebilirsiniz. ADAL hizmeti için zaten eklenmiş `userDataCtrl` erişebilmesi için bu denetleyici `userInfo` ilişkili görünümünde, nesne `App/Views/UserData.html`:
+* Kullanıcı bilgilerinin uygulamanın kullanıcı arabiriminde gösterilmesini isteyebilirsiniz. ADAL hizmeti `userDataCtrl` denetleyicisine zaten eklenmişti, dolayısıyla ilişkili `App/Views/UserData.html` görünümünde `userInfo` nesnesine erişebilirsiniz:
 
     ```js
     <p>{{userInfo.userName}}</p>
@@ -146,20 +165,22 @@ Artık kullanıcılar oturum ve taşıyıcı belirteci korumalı istekleri arka 
     ...
     ```
 
-* Kullanıcı veya oturum açtıysa bilmek isteyebilirsiniz birçok senaryo vardır. Ayrıca `userInfo` bu bilgileri toplamak için nesne. Örneğin, `index.html`, ya da gösterebilirsiniz **oturum açma** veya **oturum kapatma** düğmesi tabanlı kimlik doğrulama durumu:
+* Kullanıcının oturumunun açık mı yoksa kapalı mı olduğunu bilmek isteyeceğiniz birçok senaryo vardır. Bu bilgiyi toplamak için `userInfo` nesnesini de kullanabilirsiniz. Örneğin, `index.html` altında, kimlik doğrulama durumuna göre **Oturum Aç** veya **Oturumu Kapat** düğmesini gösterebilirsiniz:
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>
     <li><a class="btn btn-link" ng-hide=" userInfo.isAuthenticated" ng-click="login()">Login</a></li>
     ```
 
-Azure AD ile tümleşik tek sayfalı uygulama kullanıcıların kimliğini doğrulamak, güvenli bir şekilde arka ucuna OAuth 2.0 kullanarak çağırmayı ve kullanıcı ile ilgili temel bilgileri alın. Henüz yapmadıysanız, kiracınızın bazı kullanıcılar ile doldurmak için zaman sunulmuştur. Yapılacaklar listesi tek sayfalı uygulamanızı çalıştırın ve oturum kullanıcılarla birini açın. Kullanıcının yapılacaklar listesini görevleri ekleyin, oturumu kapatın ve yeniden oturum açın.
+Azure AD ile tümleşik tek sayfalı uygulamanız kullanıcıların kimliğini doğrulayabilir, OAuth 2.0 kullanarak güvenle arka ucunu çağırabilir ve kullanıcı hakkında temel bilgiler alabilir. Henüz yapmadıysanız, kiracınızı biraz kullanıcıyla doldurmanın zamanı geldi. To Do List tek sayfalı uygulamanızı çalıştırın ve bu kullanıcılardan biriyle oturum açın. Kullanıcının yapılacaklar listesine görev ekleyin, oturumu kapatın ve yeniden oturum açın.
 
-Adal.js ortak kimlik özellikleri uygulamanıza eklemenize kolaylaştırır. Bu tüm kirli iş sizin için üstlenir: önbellek yönetimi, kullanıcı ve süresi dolan yenileme bir oturum açma kullanıcı Arabirimi ile sunma OAuth protokol desteği.
+Adal.js, yaygın kimlik özelliklerini uygulamanıza eklemenizi kolaylaştırır. Sizin yerinize tüm sıkıcı işleri yapar: önbellek yönetimi, OAuth protokol desteği, kullanıcıya oturum açma kullanıcı arabirimini gösterme, süresi dolmuş belirteçleri yenileme ve dahası.
 
-Başvuru için tamamlanmış bir örnek (olmadan yapılandırma değerlerinize) kullanılabilir [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
+Tamamlanan örnek, başvuru için (yapılandırma değerleriniz olmadan) [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip)'da sağlanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık için ilave senaryolar da taşıyabilirsiniz. Denemek isteyebilirsiniz: [tek sayfalı bir uygulamadan CORS web API'si çağırma](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+Artık ek senaryolara geçebilirsiniz.
+
+> [!div class="nextstepaction"]
+> [Tek sayfalı uygulamadan CORS web API'si çağırma](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).

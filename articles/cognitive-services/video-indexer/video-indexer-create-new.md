@@ -1,60 +1,61 @@
 ---
-title: Mevcut videolardan video öngörüleri oluşturmak için Azure Video Indexer'ı kullanma | Microsoft Docs
-description: Bu konu oluşturma ve yayımlama hakkında bazı bir video dayalı içgörüler gösterilmektedir.
+title: 'Öğretici: Mevcut videolardan video içgörüleri oluşturma'
+titlesuffix: Azure Cognitive Services
+description: Bu konuda, mevcut video dosyalarından video içgörüleri oluşturma ve yayımlama açıklanmaktadır.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 09/09/2018
+ms.component: video-indexer
+ms.topic: tutorial
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: a713a85a3301b211f922268d6afc4d047bd12023
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
-ms.translationtype: MT
+ms.openlocfilehash: 3a3e5c62d9eb96563d395106db62cc91a8307658
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541709"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983925"
 ---
-# <a name="create-highlights-from-existing-videos"></a>Mevcut videolardan öne çıkan özellikleri oluşturma
+# <a name="tutorial-create-highlights-from-existing-videos"></a>Öğretici: Mevcut videolardan öne çıkanların özetlerini oluşturma
 
-Bu konu oluşturma ve yayımlama hakkında bazı bir video dayalı içgörüler gösterilmektedir.
+Bu konuda, başka bir videodan video içgörüleri oluşturma ve yayımlama açıklanmaktadır.
 
-1. Gözat [Video Indexer](https://www.videoindexer.ai/) Web sitesine gidin ve oturum açma.
+1. [Video Indexer](https://www.videoindexer.ai/) web sitesine gidip oturum açın.
 2. Video içgörülerinizi oluşturmak istediğiniz videoyu bulun.
-3. Tuşuna **Play**.
+3. **Oynat**’a basın.
 
-    Sayfada özetlenen ınsights video gösterilir. 
+    Sayfada videoya ilişkin özetlenmiş içgörüler gösterilir. 
 
     ![Insights](./media/video-indexer-create-new/video-indexer-summarized-insights.png)
 
-3. Tuşuna **Düzenle** düğmesi.
+3. **Düzenle** düğmesine basın.
 
-    Bu sayfa bir video tam dökümünü gösterir. Dökümü bloklara ayrılır. Blokları verilerine geçin kolay hale getirmek için aşağıda verilmiştir. Örneğin, blok konuşmacıları değiştirin ya da uzun duraklama temel alınarak bölünmesine. İstediğiniz satırları içeren kendi çalma listesi oluşturabilirsiniz. Video kaynağı yalnızca belirli bölümlerini göstermek için filtre uygulayabilirsiniz konuları/anahtar sözcükler, yaklaşım, kişiler, konuşmacıları. Yalnızca videonun döküm veya OCR görüntülemek seçebilirsiniz.    
+    Bu sayfada videonun tam bir çözümlemesi gösterilir. Çözümleme bloklara ayrılır. Bloklara ayrılması, verileri daha kolayca incelemenize olanak tanır. Örneğin, blok ne zaman konuşmacının değiştiğine ya da uzun duraklamalar olduğuna bağlı olarak çözümlenebilir. Sadece istediğiniz satırları içeren kendi oynatma listenizi oluşturabilirsiniz. Kaynak videonun yalnızca belirli bölümlerini göstermek için konular/anahtar sözcükler, yaklaşımlar, kişiler veya konuşmacılara göre filtreleyebilirsiniz. Videonun yalnızca transkriptini veya OCR’sini görüntülemeyi seçebilirsiniz.    
 
     ![Insights](./media/video-indexer-create-new/video-indexer-create-new-playlist.png)
 
-4. Oynatma listeniz oluşturun.
+4. Oynatma listenizi oluşturun.
 
-    Ekleme veya/oynatma listeniz satırları kaldırmak için basın **+** / **-**.
+    Oynatma listenize satır eklemek veya listeden satır kaldırmak için **+**/**-** düğmelerine basın.
 
-5. Oynatma listeniz önizlemesini görüntüleyin.
+5. Oynatma listenizin önizlemesini görüntüleyin.
 
-    İşiniz bittiğinde çalma listesi oluşturma, basın **Önizleme**.
-6. Çalma listesi yayımlayın.
+    Oynatma listesini oluşturmayı tamamladığınızda **Önizleme**’ye basın.
+6. Oynatma listesini yayımlayın.
 
-    Çalma listesi Önizleme sonra bunu yayımlayabilirsiniz.
+    Oynatma listesinin önizlemesini görüntüledikten sonra listeyi yayımlayabilirsiniz.
 
-    Çalma listesi yayımladıktan sonra bu video içgörülerinizi listesine eklenir.
+    Oynatma listesi yayımlandıktan sonra video içgörülerinizin listesine eklenir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 
-Yeni çalma listesi oluşturduktan sonra aşağıdaki konulardan birine açıklandığı gibi işleme geçebilirsiniz: 
+Yeni oynatma listesini oluşturduktan sonra işlemeye devam edebilirsiniz. Aşağıdaki konularda buna ilişkin bilgiler verilmektedir: 
 
 - [Video Indexer REST API'si ile içerik işleme](video-indexer-use-apis.md)
 - [Görsel pencere öğelerini uygulamanıza ekleme](video-indexer-embed-widgets.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[Video Indexer genel bakış](video-indexer-overview.md) 
+[Video Indexer’a genel bakış](video-indexer-overview.md) 

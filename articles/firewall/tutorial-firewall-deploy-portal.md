@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 7/11/2018
+ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576009"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983523"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -31,7 +31,9 @@ Ağ trafiğinizi güvenlik duvarından alt ağın varsayılan ağ geçidi olarak
 
 Uygulama ve ağ kuralları, *kural koleksiyonları* halinde depolanır. Kural koleksiyonu, aynı eylemi ve önceliği paylaşan kuralların listesidir.  Ağ kuralı koleksiyonu ağ kurallarından, uygulama kuralı koleksiyonu ise uygulama kurallarından oluşan bir listedir.
 
-Ağ kuralı koleksiyonları her zaman uygulama kuralı koleksiyonlarından önce işleme alınır. Tüm kurallar birbirini sonlandırıcı niteliktedir. Başka bir deyişle ağ kuralı koleksiyonunda eşleşme bulunduğunda o oturum için takip eden uygulama kuralı koleksiyonları işleme alınmaz.
+Azure Güvenlik Duvarında gelen kuralları ve giden kuralları kavramı yoktur. Uygulama kuralları ve ağ kuralları mevcuttur, bunlar güvenlik duvarına gelen tüm trafiğe uygulanır. Önce ağ kuralları, sonrasında uygulama kuralları uygulanır ve kurallar sonlandırıcıdır.
+
+Örneğin bir ağ kuralı eşleşirse paket uygulama kuralları tarafından değerlendirilmez. Ağ kuralı eşleşmesi yoksa ve paket protokolü HTTP/HTTPS ise paket ardından uygulama kuralları tarafından değerlendirilir. Hala eşleşme bulunamamışsa paket, altyapı kural koleksiyonu ile değerlendirilir. Ardından hala eşleşme yoksa paket varsayılan olarak reddedilir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -46,10 +48,6 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Azure Güvenlik Duvarı makalelerindeki örnekler Azure Güvenlik Duvarı genel önizlemesini önceden etkinleştirmiş olduğunuzu varsayar. Daha fazla bilgi için bkz. [Azure Güvenlik Duvarı genel önizleme sürümünü etkinleştirme](public-preview.md).
 
 Bu öğreticide üç alt ağa sahip tek bir sanal ağ oluşturmanız gerekir:
 - **FW-SN**: Güvenlik duvarı bu alt ağda yer alır.
@@ -83,9 +81,7 @@ Bu öğreticide kolay dağıtım için basitleştirilmiş bir ağ yapılandırı
 7. **Abonelik** bölümünde aboneliğinizi seçin.
 8. **Kaynak grubu** için **Var olanı kullan**’ı ve **Test-FW-RG** girişini seçin.
 9. **Konum** alanında önceden kullandığınız konumu seçin.
-10. **Alt ağ** bölümünde **Ad** alanına **AzureFirewallSubnet** yazın.
-
-    Güvenlik duvarı bu alt ağda yer alacaktır ve alt ağ adının **mutlaka** AzureFirewallSubnet olması gerekir.
+10. **Alt ağ** bölümünde **Ad** alanına **AzureFirewallSubnet** yazın. Güvenlik duvarı bu alt ağda yer alacaktır ve alt ağ adının **mutlaka** AzureFirewallSubnet olması gerekir.
 11. **Adres aralığı** için **10.0.1.0/24** yazın.
 12. Diğer alanlar için varsayılan değerleri kullanın ve ardından **Oluştur**'a tıklayın.
 
@@ -207,25 +203,21 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 
 
 1. **Test-FW-RG** öğesini açın ve **Test-FW01** güvenlik duvarına tıklayın.
-1. **Test-FW01** sayfasının **Ayarlar** bölümünde **Kurallar**'a tıklayın.
-2. **Uygulama kuralı koleksiyonu ekle**'ye tıklayın.
-3. **Ad** alanına **App-Coll01** yazın.
-1. **Öncelik** alanına **200** yazın.
-2. **Eylem** alanında **İzin ver**'i seçin.
+2. **Test-FW01** sayfasının **Ayarlar** bölümünde **Kurallar**'a tıklayın.
+3. **Uygulama kuralı koleksiyonu ekle**'ye tıklayın.
+4. **Ad** alanına **App-Coll01** yazın.
+5. **Öncelik** alanına **200** yazın.
+6. **Eylem** alanında **İzin ver**'i seçin.
+7. **Kurallar** bölümünde **Ad** alanında **AllowGH** yazın.
+8. **Kaynak Adresler** alanına **10.0.2.0/24** yazın.
+9. **Protokol:bağlantı noktası** alanına **http, https** yazın. 
+10. **Hedef FQDNS** alanına **github.com** yazın.
+11. **Ekle**'ye tıklayın.
 
-6. **Kurallar** bölümünde **Ad** alanında **AllowGH** yazın.
-7. **Kaynak Adresler** alanına **10.0.2.0/24** yazın.
-8. **Protokol:bağlantı noktası** alanına **http, https** yazın. 
-9. **Hedef FQDNS** alanına **github.com** yazın.
-10. **Ekle**'ye tıklayın.
+Azure Güvenlik Duvarı'nda varsayılan olarak izin verilen altyapı FQDN'leri için yerleşik bir kural koleksiyonu bulunur. Bu FQDN'ler platforma özgüdür ve başka amaçlarla kullanılamaz. Daha fazla bilgi için bkz. [Altyapı FQDN'leri](infrastructure-fqdns.md).
 
-> [!NOTE]
-> Azure Güvenlik Duvarı'nda varsayılan olarak izin verilen altyapı FQDN'leri için yerleşik bir kural koleksiyonu bulunur. Bu FQDN'ler platforma özgüdür ve başka amaçlarla kullanılamaz. İzin verilen altyapı FQDN'leri şunlardır:
->- Depolama Platform Görüntüsü Deposu (PIR) için işlem erişimi.
->- Yönetilen disk durumu depolama erişimi.
->- Windows Tanılama Özellikleri
->
-> En son işlenen bir *tümünü reddet* uygulama kuralı koleksiyonu oluşturarak yerleşik altyapı kuralı koleksiyonunu geçersiz kılabilirsiniz. Bu kural her zaman altyapı kuralı koleksiyonundan önce işlenir. Altyapı kuralı koleksiyonunda bulunmayan öğeler varsayılan olarak reddedilir.
+> [!Note]
+> FQDN etiketleri şu anda yalnızca Azure PowerShell ve REST ile yapılandırılabilir. Daha fazla bilgi için [buraya](https://aka.ms/firewallapplicationrule) tıklayın. 
 
 ## <a name="configure-network-rules"></a>Ağ kurallarını yapılandırma
 

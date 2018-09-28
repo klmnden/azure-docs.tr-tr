@@ -8,18 +8,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: b65a5dec63bdc625dda64e101620f56cd6dd7308
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 23f10280cd34927e2e74cb7c5001850bedc6dd35
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41920640"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967549"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Azure Güvenlik Duvarı test ortamı oluşturma
-
-[!INCLUDE [firewall-preview-notice](../../../includes/firewall-preview-notice.md)]
-
-Azure Güvenlik Duvarı makalelerindeki örnekler Azure Güvenlik Duvarı genel önizlemesini önceden etkinleştirmiş olduğunuzu varsayar. Daha fazla bilgi için bkz. [Azure Güvenlik Duvarı genel önizlemesini etkinleştirme](../public-preview.md).
 
 Bu betik örneği, bir güvenlik duvarı ve bir test ağ ortamı oluşturur. Ağın bir Sanal Ağı ve üç alt ağı vardır: *AzureFirewallSubnet*, *ServersSubnet* ve *JumpboxSubnet*. ServersSubnet ve JumpboxSubnet'ten her birinin içinde bir tane 2 çekirdekli Windows Server bulunur.
 
@@ -29,7 +25,7 @@ Güvenlik duvarı kurallarının uygulandığı güvenlik duvarı üzerinden Ser
 
 Azure [Cloud Shell](https://shell.azure.com/powershell)’den veya yerel bir PowerShell yüklemesinden betiği çalıştırabilirsiniz. 
 
-PowerShell’i yerel olarak çalıştırıyorsanız, bu betik için AzureRM PowerShell modülünün 6.4.0 veya üzeri sürümleri gerekir. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. 
+PowerShell’i yerel olarak çalıştırıyorsanız, bu betik için güncel AzureRM PowerShell modülü gerekir. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. 
 
 Yükseltmeniz gerekiyorsa, Windows 10 ve Windows Server 2016'da yerleşik olarak sağlanan `PowerShellGet` komutunu kullanabilirsiniz.
 
@@ -39,12 +35,6 @@ Yükseltmeniz gerekiyorsa, Windows 10 ve Windows Server 2016'da yerleşik olarak
 Daha fazla bilgi için bkz. [PowerShellGet ile Windows'a Azure PowerShell yükleme](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0)
 
 Web Platformu yükleyicisiyle yapılmış mevcut Azure PowerShell yüklemeleri PowerShellGet yüklemesiyle çakışır ve kaldırılması gerekir.
-
-Buna ek olarak, AzureRM.Network'ün önizleme sürümünü (sürüm 6.4.0) yüklemelisiniz. Daha eski bir modülünüz varsa, `Uninstall-Module AzureRM.Network -Force` komutunu çalıştırarak o modülü kaldırın. Ardından şunu çalıştırın:
-
- `Install-Module -Name AzureRM.Network -Repository PSGallery -RequiredVersion 6.4.0-preview -AllowPrerelease -Force`
-
-ve sürüm 6.4.0'ı yükleyin.
 
 PowerShell'i yerel olarak çalıştırırsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerektiğini unutmayın.
 

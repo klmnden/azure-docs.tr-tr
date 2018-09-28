@@ -1,6 +1,6 @@
 ---
-title: Azure AD Android ile çalışmaya başlama | Microsoft Docs
-description: Azure AD oturum açma ve Azure AD aramaları için ile tümleşen bir Android uygulaması oluşturmak nasıl OAuth2.0 kullanarak API'leri korumalı.
+title: Android uygulamasından kullanıcıların oturumunu açma ve Microsoft Graph API’sini çağırma | Microsoft Docs
+description: Android uygulamanızdan kullanıcıların oturumunu açmayı ve Microsoft Graph API'sini çağırmayı öğrenin.
 services: active-directory
 documentationcenter: android
 author: CelesteDG
@@ -12,41 +12,46 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c548f9287ce1326de3322950f297176b67ae61c6
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
-ms.translationtype: MT
+ms.openlocfilehash: c3ab241e42c431ae4e95e8154343a949bb9e596e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600253"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970195"
 ---
-# <a name="azure-ad-android-getting-started"></a>Azure AD Android kullanmaya başlama
-[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Hızlı başlangıç: Android uygulamasından kullanıcıların oturum açma ve Microsoft Graph API'sini çağırma
 
-Bir Android uygulaması geliştiriyorsanız, Microsoft, Azure Active Directory (Azure AD) kullanıcılarının oturumunu açmak sade ve basit kılar. Azure AD, uygulamanızın Microsoft Graph veya kendi korumalı web API'si aracılığıyla kullanıcı verilerine erişim sağlar. 
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-Azure AD Authentication Library (ADAL) Android kitaplığı uygulamanızı kullanmaya başlamak olanağı sağlar. [Microsoft Azure bulut](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) destekleyerek [ Microsoft Azure Active Directory hesaplarını](https://azure.microsoft.com/services/active-directory/) sektör kullanarak standart OAuth2 ve Openıd Connect. Bu örnek, uygulamanızın dahil olmak üzere deneyimi tüm normal yaşam döngüleri gösterir:
+Android uygulaması geliştiriyorsanız, Microsoft Azure Active Directory (Azure AD) kullanıcılarının oturum açmasını kolaylaştırıyor ve basit hale getirir. Azure AD, Microsoft Graph veya kendi korumalı web API’niz üzerinden uygulamanızın kullanıcı verilerine erişmesini sağlar.
 
-* Microsoft Graph için bir belirteç Al
-* Bir belirteci yenileyin
-* Microsoft Graph'i çağırmaya
-* Kullanıcının oturumunu kapatmaz
+Azure AD Authentication Library (ADAL) Android kitaplığı, endüstri standardı OAuth 2.0 ve OpenID Connect'i kullanarak [Microsoft Azure Active Directory hesapları](https://azure.microsoft.com/services/active-directory/) için destek sağladığından, uygulamanıza [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API'si](https://graph.microsoft.io) kullanabilme olanağı getirir.
 
-Başlamak için kullanıcı oluşturma ve bir uygulamayı kaydetme Azure AD kiracısı gerekir. Bir kiracı yoksa [edinebileceğinizi öğrenin](quickstart-create-new-tenant.md).
+Bu hızlı başlangıçta şunları yapmayı öğreneceksiniz:
 
-## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Senaryo: kullanıcıların oturumu ve Microsoft Graph'i çağırmaya
+* Microsoft Graph için belirteç alma
+* Belirteci yenileme
+* Microsoft Graph'ı çağırma
+* Kullanıcının oturumu kapatma
+
+## <a name="prerequisites"></a>Ön koşullar
+
+Başlamak için, kullanıcıları oluşturabildiğiniz ve uygulama kaydedebildiğiniz bir Azure AD kiracısına ihtiyacınız vardır. Henüz kiracınız yoksa, [nasıl alabileceğinizi öğrenin](quickstart-create-new-tenant.md).
+
+## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Senaryo: Kullanıcıların oturumunu açma ve Microsoft Graph'ı çağırma
 
 ![Topoloji](./media/quickstart-v1-android/active-directory-android-topology.png)
 
-Bu uygulama, tüm Azure AD hesapları için kullanılabilir. Bu, hem tek hem de çok kuruluş senaryoları (adımlarda açıklanmıştır) destekler. Bir geliştirici Kurumsal kullanıcılarla bağlantı kurun ve bunların Azure + O365 erişmek için uygulamaları nasıl oluşturabileceğinizi gösterir Microsoft Graph aracılığıyla veri. Kimlik doğrulama akışı sırasında son kullanıcılar oturum açmak için gereklidir ve uygulamanın ve bazı durumlarda izinler için izin bir yönetici uygulamaya onayı gerektirebilir. Bu örnekteki mantıksal çoğunu nasıl bir son kullanıcı kimlik doğrulama ve oluşturma için temel bir çağırmak için Microsoft Graph gösterir.
+Bu uygulamayı tüm Azure AD hesaplarında kullanabilirsiniz. Hem tek kiracılı hem de çok kiracılı senaryoları destekler (adımlarda açıklanmıştır). Kurumsal kullanıcılarla bağlantı kurmak ve Microsoft Graph üzerinden onların Azure + O365 verilerine erişmek için nasıl uygulama oluşturabileceğinizi gösterir. Kimlik doğrulaması akışı sırasında son kullanıcıların oturum açması ve uygulama izinlerini onaylaması gerekebilir. Bazı durumlarda da yöneticinin uygulamaya onay vermesi gerekebilir. Bu örnekteki mantığın büyük bölümü, son kullanıcının kimliğini doğrulamayı ve Microsoft Graph’a temel bir çağrı yapmayı gösterir.
 
-## <a name="example-code"></a>Örnek kod
+## <a name="sample-code"></a>Örnek kod
 
-Tam örnek kodu bulabilirsiniz [github'da](https://github.com/Azure-Samples/active-directory-android). 
+Tam örnek kodu [Github’da](https://github.com/Azure-Samples/active-directory-android) bulabilirsiniz.
 
 ```Java
 // Initialize your app with MSAL
@@ -71,66 +76,65 @@ mAuthContext.acquireToken(
 mAuthResult.getAccessToken()
 ```
 
-## <a name="steps-to-run"></a>Çalıştırmak için adımlar
+## <a name="step-1-register-and-configure-your-app"></a>1. Adım: Uygulamanızı kaydetme ve yapılandırma
 
-### <a name="register-and-configure-your-app"></a>Kaydetme ve uygulamanızı yapılandırma 
-Yerel istemci uygulaması kullanarak Microsoft ile kayıtlı olması gerekir [Azure portalında](https://portal.azure.com). 
+[Azure portalını](https://portal.azure.com) kullanarak Microsoft'a kaydedilmiş yerel bir istemci uygulamanız olması gerekir.
 
-1. Uygulama kaydı alma
-    - [Azure portalına](https://aad.portal.azure.com) gidin. 
-    - Seçin ***Azure Active Directory*** > ***uygulama kayıtları***. 
+1. Uygulama kaydını alma
+    - [Azure portalına](https://aad.portal.azure.com) gidin.
+    - ***Azure Active Directory*** > ***Uygulama kayıtları***’nı seçin.
 
 2. Uygulama oluşturma
-    - **Yeni uygulama kaydı**’nı seçin. 
-    - Bir uygulama adı girin **adı** alan. 
-    - İçinde **uygulama türü** seçin **yerel**. 
-    - İçinde **yeniden yönlendirme URI'si**, girin `http://localhost`. 
+    - **Yeni uygulama kaydı**’nı seçin.
+    - **Ad** alanına bir uygulama adı girin.
+    - **Uygulama türü**’nde **Yerel**’i seçin.
+    - **Yeniden yönlendirme URI'si** olarak `http://localhost` girin.
 
-3. Microsoft Graph'ı yapılandırma
-    - Seçin **Ayarları > gerekli izinler**.
-    - Seçin **Ekle**içine **bir API seçin** seçin ***Microsoft Graph***. 
-    - İzin Seç **oturum açın ve kullanıcı profilini okuma**, ardından isabet **seçin** kaydetmek için. 
-        - Bu izne eşlendiği `User.Read` kapsam. 
-    - İsteğe bağlı: İç **gerekli izinler > Windows Azure Active Directory**, seçili izinleri kaldırmak **oturum açın ve kullanıcı profilini okuma**. Bu izni iki kez listeleniyor kullanıcı onay sayfası uğraşmasına gerek kalmaz. 
+3. Microsoft Graph’ı yapılandırma
+    - **Ayarlar > Gerekli izinler**’i seçin.
+    - **Ekle**’yi seçin, **Bir API seçin** alanında ***Microsoft Graph***’ı seçin.
+    - **Oturum açma ve kullanıcı profilini okuma** iznini seçin ve kaydetmek için **Seç**'e basın.
+        - Bu izin `User.Read` kapsamıyla eşleşir.
+    - İsteğe bağlı: **Gerekli izinler > Windows Azure Active Directory**'nin altında, seçilen **Oturum açma ve kullanıcı profilini okuma** iznini kaldırın. Bu, kullanıcı onayı sayfasında iznin iki kez listelemesini önler.
 
-4. Tebrikler! Uygulamanız başarıyla yapılandırıldı. Sonraki bölümde, şunları yapmanız gerekir:
+4. Tebrikler! Uygulamanız başarıyla yapılandırıldı. Sonraki bölümde size gerekecekler:
     - `Application ID`
     - `Redirect URI`
 
-### <a name="get-the-sample-code"></a>Örnek kodunu alma
+## <a name="step-2-get-the-sample-code"></a>2. Adım: Örnek kodu alma
 
 1. Kodu kopyalayın.
     ```
     git clone https://github.com/Azure-Samples/active-directory-android
     ```
-2. Örnek Android Studio'da açın.
-    - Seçin **var olan bir Android Studio projesini Aç**.
+2. Örneği Android Studio’da açın.
+    - **Var olan Android Studio projesini aç**'ı seçin.
 
-### <a name="configure-your-code"></a>Kodunuzu yapılandırın
+## <a name="step-3-configure-your-code"></a>3. Adım: Kodunuzu yapılandırma
 
-Bu kod örneğinde için tüm yapılandırma bulabilirsiniz ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java*** dosya. 
+Bu kod örneğinin tüm yapılandırmasını ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java*** dosyasında bulabilirsiniz.
 
-1. Sabit değiştirin `CLIENT_ID` ile `ApplicationID`.
-2. Sabit değiştirin `REDIRECT URI` ile `Redirect URI` daha önce yapılandırılmış (`http://localhost`). 
+1. `CLIENT_ID` sabitini `ApplicationID` ile değiştirin.
+2. `REDIRECT URI` sabitini daha önce yapılandırdığınız `Redirect URI` ile (`http://localhost`) değiştirin.
 
-### <a name="run-the-sample"></a>Örneği çalıştırma
+## <a name="step-4-run-the-sample"></a>4. Adım: Örneği çalıştırma
 
-1. Seçin **Yapı > temiz proje**. 
-2. Seçin **çalıştırın > Uygulama Çalıştırma**. 
-3. Uygulamayı oluşturun ve bazı temel UX'i Göster Tıkladığınızda `Call Graph API` düğmesi, bu oturum açma istemi ve sessiz bir şekilde yeni bir belirteç ile Microsoft Graph API çağrısı. 
+1. **Derle > Projeyi Temizle**’yi seçin.
+2. **Çalıştır > Uygulamayı çalıştır**’ı seçin.
+3. Uygulama oluşturulmuş olma.ı biraz temel UX göstermelidir. `Call Graph API` düğmesine tıkladığınızda, oturum açılmasını isteyecek ve ardından sessizce yeni belirteçle Microsoft Graph API'sini çağıracaktır.
 
-## <a name="important-info"></a>Önemli bilgiler
+## <a name="next-steps"></a>Sonraki adımlar
 
-1. Kullanıma alma [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) kitaplığı mekanizması ve yeni senaryolar ve Özellikler'i yapılandırma konusunda daha fazla bilgi için. 
-2. Yerel senaryolarda uygulama katıştırılmış bir Webview kullanır ve uygulama bırakmamasını. `Redirect URI` Rastgele olabilir. 
-3. Sorunları bulmak veya istekleri mı? Sorun oluştur veya sonrası Stackoverflow etiketiyle `azure-active-directory`. 
+1. Kitaplığı mekanizması ve yeni senaryolarla özellikleri yapılandırma hakkında daha fazla bilgi için [ADAL Android Wiki'sini](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) gözden geçirin.
+2. Yerel senaryolarda uygulama, eklenmiş bir Webview kullanır ve uygulamadan çıkılmaz. `Redirect URI` rastgele olabilir.
+3. Sorun mu buldunuz yoksa istekleriniz mi var? Bir sorun oluşturabilir veya `azure-active-directory` etiketiyle Stackoverflow'a gönderi ekleyebilirsiniz.
 
-### <a name="cross-app-sso"></a>Uygulamalar arası SSO'nun
-Bilgi [ADAL kullanarak uygulamalar arası SSO'yu android'de nasıl](howto-v1-enable-sso-android.md). 
+### <a name="cross-app-sso"></a>Uygulamalar arası SSO
 
-### <a name="auth-telemetry"></a>Kimlik doğrulama telemetri
-ADAL kitaplığı, uygulama geliştiricilerin uygulamalarını nasıl davranmakta anlamak ve daha iyi deneyimleri oluşturmanıza yardımcı olmak için kimlik doğrulama telemetri kullanıma sunar. Bu oturum açma başarı, etkin kullanıcılar ve diğer birçok ilgi çekici bilgiler yakalamanıza olanak sağlar. Auth telemetri kullanarak uygulama geliştiricileri, toplama ve olayları depolamak için bir telemetri hizmeti oluşturmak gerekli.
+[ADAL kullanarak Android’de uygulamalar arası SSO’nun nasıl etkinleştirildiğini](howto-v1-enable-sso-android.md) öğrenin.
 
-Kimlik doğrulama telemetrisi hakkında daha fazla bilgi edinmek için kullanıma alma [Android ADAL kimlik doğrulaması telemetri](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Telemetry). 
+### <a name="auth-telemetry"></a>Kimlik doğrulaması telemetrisi
 
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+ADAL kitaplığı, uygulama geliştiricilerin kendi uygulamalarının davranışlarını anlamalarına ve daha iyi deneyimler oluşturmalarına yardımcı olmak için kimlik doğrulama telemetrisi sunar. Bu sayede başarılı oturum açma işlemlerini, etkin kullanıcıları ve bunlar dışında bazı ilginç içgörüleri yakalayabilirsiniz. Kimlik doğrulama telemetrisini kullanmak için, uygulama geliştiricilerin olayları toplamak ve depolamak üzere bir telemetri hizmeti kurması gerekmez.
+
+Kimlik doğrulaması telemetrisi hakkında daha fazla bilgi için [ADAL Android kimlik doğrulaması telemetrisi](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Telemetry) konusunu gözden geçirin.
