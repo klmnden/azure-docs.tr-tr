@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: b5512186913eb59be2b89ce8b8bb9fb881f59cd8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 08b4ef6ea59123524500188428eb0bc03d85138b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699830"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409992"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Konusu ve aboneliği bir Azure Resource Manager şablonu kullanarak olan bir Service Bus ad alanı oluşturma
 
 Bu makalede, Service Bus ad alanı ve bir konu aboneliğinde bu ad alanı oluşturur ve bir Azure Resource Manager şablonunun nasıl kullanılacağı gösterilmektedir. Makalede nasıl belirtmek için hangi kaynaklara dağıtılır ve parametrelerin nasıl dağıtıldığının ve dağıtım yürütülürken belirtilen açıklanmaktadır. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz
 
-Şablonları oluşturma hakkında daha fazla bilgi için lütfen bkz [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
+Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
 
 Tam şablon için bkz: [konu ve abonelik ile Service Bus ad alanı] [ Service Bus namespace with topic and subscription] şablonu.
 
@@ -41,7 +41,7 @@ Tam şablon için bkz: [konu ve abonelik ile Service Bus ad alanı] [ Service Bu
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>Ne dağıtacaksınız?
+## <a name="what-do-you-deploy"></a>Ne dağıtacağınız?
 
 Bu şablonu kullanarak bir Service Bus ad alanı konu ve abonelik ile dağıtın.
 
@@ -53,9 +53,9 @@ Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıkla
 
 ## <a name="parameters"></a>Parametreler
 
-Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Adlı bir bölüm şablonu içerir `Parameters` , tüm parametre değerlerini içerir. Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama göre değişen değerler için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
+Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Adlı bir bölüm şablonu içerir `Parameters` , tüm parametre değerlerini içerir. Dağıtmakta projeye veya dağıtım ortama bağlı değişir bu değerler için parametre tanımlayın. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
 
-Şablon aşağıdaki parametreleri tanımlar.
+Şablon aşağıdaki parametreleri tanımlar:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Oluşturmak için Service Bus ad alanı adı.
@@ -149,7 +149,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>Sonraki adımlar
 Oluşturulan ve dağıtılan kaynakları Azure Resource Manager kullanarak göre bu kaynakları Bu makaleler görüntüleyerek yönetmeyi öğrenin:
 
-* [Service Bus PowerShell ile yönetme](service-bus-manage-with-ps.md)
+* [Service Bus’ı PowerShell ile yönetme](service-bus-manage-with-ps.md)
 * [Service Bus Explorer ile Service Bus kaynaklarını yönetme](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md

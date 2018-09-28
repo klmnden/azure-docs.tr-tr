@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 39ec7c979294860967deb3307f5d87112b762257
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b019523227bcd45e502ec84055cfb09025918331
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107086"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406133"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Yedekleme ve kurtarma hesabı kimlik bilgileriyle Microsoft Authenticator uygulaması
 
@@ -78,12 +78,12 @@ Kişisel Microsoft hesapları için alternatif bir e-posta veya telefon numaras�
 
     ![Microsoft Authenticator uygulaması, kullanılabilir hesaplar, ilişkili açılan oklarla gösteriliyor](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
 
-2.  Seçin **tarama QR kodunu, kurtarılır**ve ardından, yöneticiniz tarafından sağlanan QR kodu tarama
+2.  Seçin **tarama QR kodunu, kurtarılır**ve ardından QR kodunu tarayın.
 
     ![QR kodunuz tarama olanak tanıyan, Microsoft Authenticator uygulaması](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >QR kodu alma hakkında daha fazla bilgi için bkz. [ekleme Get bölümünü hesaplar Microsoft Authenticator uygulaması ile çalışmaya](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) makalesi.
+    >QR kodu alma hakkında daha fazla bilgi için bkz. [Microsoft Authenticator uygulaması ile çalışmaya başlama](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) veya [authenticator uygulamasını kullanmak için güvenlik bilgileri ' ayarlayın](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app)bağlı olarak, yöneticiniz güvenlik bilgilerini açık olup olmadığı.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Yedekleme ve kurtarma sorunlarını giderme
 Yedekleme kullanılabilir olmamasının birkaç nedeni vardır:

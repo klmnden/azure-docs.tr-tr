@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: d17215fe05a4795bd539759d98695ec2f6b0df3d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393511"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423009"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen ücretlerden
 
@@ -54,17 +54,6 @@ Fiyatlandırma hakkında daha fazla bilgi için bkz. Bu [SSS](https://azure.micr
 Genellikle Azure Portalı'nda hizmet eklediğinizde, benzer bir tahmini maliyeti aylık gösteren bir görünüm yok. Örneğin, Windows sanal makinenizin boyutunu seçtiğinizde, işlem saatleri için tahmini aylık maliyet bakın:
 
 ![Örnek: bir A1 Windows VM 66.96 ABD Doları aylık maliyet tahmini](./media/billing-getting-started/vm-size-cost.PNG)
-
-### <a name="set-up-billing-alerts"></a>Fatura uyarılarını ayarlama
-
-Kullanım maliyetleriniz belirlediğiniz miktarı aşması durumunda e-postaları almak için faturalandırma Uyarıları ayarlayın. Aylık KREDİLERİ varsa, belirtilen bir miktarı kullandığınızda için uyarılar ayarlayın. Daha fazla bilgi için [uyarılar, Microsoft Azure abonelikleri için fatura ayarlama](billing-set-up-alerts.md).
-
-![Faturalandırma bir uyarı e-postanın ekran görüntüsü](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> Bu özellik hala Önizleme aşamasında olduğundan, kullanımınızı düzenli olarak denetlemeniz gerekir.
-
-Fiyatlandırma hesaplayıcısını maliyet tahminden, ilk uyarı için bir kılavuz olarak kullanmak isteyebilirsiniz.
 
 ### <a name="spending-limit"></a> Harcama limiti varsa kontrol edin
 
@@ -166,7 +155,7 @@ Kurumsal Maliyet görünümleri şu anda genel Önizleme aşamasındadır. Alın
     - Bir bölüm yöneticisiyseniz ve kayıt yöneticiniz "ayarını DA ücretleri görüntüle" devre dışı bıraktı.  Kayıt erişim elde etmek için yöneticinize başvurun. 
     - Bir kanal iş ortağı aracılığıyla satın aldığınız Azure ve iş ortağı fiyatlandırma bilgileri yayımlamadı.  
 - Maliyet erişimi ile ilgili ayarları Enterprise portalında güncelleştirildiğinde, Azure portalında değişikliklerin uygulanması birkaç dakika gecikme yoktur.
-- Harcama limiti, faturalama uyarılarını ve fatura Kılavuzu EA abonelikleri ait değil.
+- Harcama limiti ve fatura Kılavuzu EA abonelikleri için geçerli değildir.
 
 ### <a name="check-your-subscription-and-access"></a>Abonelik ve erişim denetimi
 

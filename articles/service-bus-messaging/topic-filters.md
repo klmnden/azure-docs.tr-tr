@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: a1616150ebf696654bc0ca9a79d39c3877c363d9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 08a90811356f508eebfed9f88500a694f2fbd83e
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699395"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407136"
 ---
 # <a name="topic-filters-and-actions"></a>Konu başlığı filtreleri ve eylemleri
 
@@ -30,7 +30,7 @@ Service Bus üç filtre koşulları destekler:
 
 -   *Boolean filtreleri* - **TrueFilter** ve **FalseFilter** ya da tüm gelen iletileri neden (**true**) veya gelen iletileri hiçbiri (**false**) için abonelik seçilmelidir.
 
--   *SQL filtresi* - **SqlFilter** Aracısı gelen iletileri kullanıcı tanımlı özellikler ve Sistem özellikleri karşı değerlendirilen SQL benzeri bir koşullu ifade tutan. Tüm sistem özellikleri ile önek eklenmelidir `sys.` koşullu ifadede. [Filtre koşulları için SQL dil alt kümesi](service-bus-messaging-sql-filter.md) testleri bulunup bulunmadığını özellikleri (mevcut) de null-değerleri (NULL olan), mantıksal değil/ve/veya, ilişkisel işleçler, basit sayısal aritmetik ve basit metin düzeni ile benzer eşleştirme.
+-   *SQL filtresi* - **SqlFilter** Aracısı gelen iletileri kullanıcı tanımlı özellikler ve Sistem özellikleri karşı değerlendirilen SQL benzeri bir koşullu ifade tutan. Tüm sistem özellikleri ile önek eklenmelidir `sys.` koşullu ifadede. [Filtre koşulları için SQL dil alt kümesi](service-bus-messaging-sql-filter.md) testleri özellikleri bulunup bulunmadığını (`EXISTS`), null değerleri gibi yanı (`IS NULL`), mantıksal değil/ve/veya ilişkisel işleçler, basit sayısal aritmetik ve basit metin ile desen eşleştirme `LIKE`.
 
 -   *Bağıntı filtresi* - **SQL filtresidir** bir veya daha fazla gelen iletinin kullanıcı ve sistem özellik karşı eşleşen koşullar kümesini içerir. Eşleştirilecek yaygın olan **Correlationıd** özelliği ancak uygulama de seçebilir eşleştirilecek **ContentType**, **etiket**,  **MessageID**, **ReplyTo**, **ReplyToSessionId**, **SessionID**, **için**ve her kullanıcı tanımlı özellikleri. Bir özellik için değer gelen iletinin bağıntı filtrede belirtilen değere eşit olduğunda bir eşleşme varsa. Dize ifadeleri için karşılaştırma büyük/küçük harf duyarlıdır. Birden çok eşleşme özellikleri belirtirken, bunları birleştirir filtre filtre eşleştirilecek anlamına gelen bir mantıksal ve koşulu olarak, tüm koşullara uyması gerekir.
 
@@ -40,7 +40,7 @@ Karmaşık filtre kuralları işlem kapasitesi gerektirir. Özellikle, abonelik,
 
 ## <a name="actions"></a>Eylemler
 
-SQL filtresi koşullarla ve yalnızca bu ile ileti ekleme, kaldırma veya özellikleri ve değerlerini değiştirerek açıklama ekleyebilirsiniz bir eylem tanımlayabilirsiniz. Eylem [SQL benzeri bir ifade kullanır](service-bus-messaging-sql-filter.md) SQL UPDATE deyimi sözdizimi, gevşek leans. Eylem iletide, eşleşen sonra konuya ileti seçilmeden önce gerçekleştirilir. İleti özelliklerini değişiklikleri aboneliğe kopyalanan iletisi özeldir.
+SQL filtresi koşullarla ileti ekleme, kaldırma veya özellikleri ve değerlerini değiştirerek açıklama ekleyebilirsiniz bir eylem tanımlayabilirsiniz. Eylem [SQL benzeri bir ifade kullanır](service-bus-messaging-sql-filter.md) SQL UPDATE deyimi sözdizimi, gevşek leans. Eylem iletide, eşleşen sonra konuya ileti seçilmeden önce gerçekleştirilir. İleti özelliklerini değişiklikleri aboneliğe kopyalanan iletisi özeldir.
 
 ## <a name="usage-patterns"></a>Kullanım desenleri
 
@@ -50,7 +50,7 @@ Filtreleri ve eylemleri desenlerinin iki daha fazla Grup etkinleştir: bölümle
 
 İletileri arasında birçok konu abonelikleri tahmin edilebilir ve birbirini dışlayan bir şekilde dağıtmak için kullandığı filtreleri bölümleme. Bir sistem her bir genel veri alt kümesini tutmak işlevsel olarak aynı bölmeleri birçok farklı bağlamlardaki işlemek için kullanıma ölçeklendirilir bölümleme düzeni kullanılır; Örneğin, müşteri profili bilgileri. Bölümlendirme ile yayımcı ileti bir konu başlığında bölümleme modelinin herhangi bir Bilgi Bankası gerek kalmadan gönderir. İletiyi daha sonra bunu ardından bölümün ileti işleyicisi tarafından alınabilmesi için doğru aboneliğin taşınır.
 
-Yönlendirme filtreleri iletiler konu abonelikleri tahmin edilebilir bir biçimde dağıtmasına için kullanır ancak mutlaka özel. İle birlikte [otomatik iletme](service-bus-auto-forwarding.md) konu filtreleri, karmaşık yönlendirme oluşturmak için kullanılabilir özelliği, grafik bir Azure bölgesi içinde ileti dağıtım için bir Service Bus ad alanı içinde. Azure işlevleri veya Azure Service Bus ad alanları arasında bir köprü işlevi gören Azure Logic Apps ile iş kolu uygulamaları doğrudan tümleştirmeye genel karmaşık topolojileri oluşturabilirsiniz.
+Yönlendirme filtreleri iletiler konu abonelikleri tahmin edilebilir bir biçimde dağıtmasına için kullanır ancak mutlaka özel. İle birlikte [otomatik iletme](service-bus-auto-forwarding.md) konu filtreleri, karmaşık yönlendirme oluşturmak için kullanılabilir özelliği, grafik bir Azure bölgesi içinde ileti dağıtım için bir Service Bus ad alanı içinde. Azure işlevleri veya Azure Service Bus ad alanları arasında bir köprü işlevi gören Azure Logic Apps ile doğrudan tümleştirme satır iş kolu uygulamalarına genel karmaşık topolojileri oluşturabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

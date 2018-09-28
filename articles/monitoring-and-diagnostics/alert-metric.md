@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 479fd902ef68bf24306bcd699da0be08415592a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ac31818a68aa2b4624410b423b7559b84275777
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956998"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409380"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve ölçümü Azure İzleyicisi'ni kullanarak Uyarıları yönetme
+# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve ölçüm uyarıları Azure İzleyicisi'ni kullanarak yönetme
 
 Azure İzleyici ölçüm uyarılarını bildirim almak için bir yol sağlar bir eşiği ölçümlerinizi birini çapraz zaman. Ölçüm uyarıları, bir dizi platform çok boyutlu ölçümler, özel ölçümler, Application Insights standart ve özel ölçümler üzerinde çalışır. Bu makalede, biz oluşturun, görüntüleyin ve Azure portalı ve Azure CLI aracılığıyla ölçüm uyarı kurallarını yönetme konusunda açıklanmıştır. Ölçüm uyarı kuralları açıklanan Azure Resource Manager şablonlarını kullanarak da oluşturabilirsiniz [ayrı bir makale](monitoring-enable-alerts-using-template.md).
 
 Daha fazla hakkında nasıl ölçüm uyarıları çalıştığınızın edinebilirsiniz [ölçüm uyarıları genel bakış](alert-metric-overview.md).
 
-## <a name="create-a-metric-alert-rule-using-azure-portal"></a>Azure portalını kullanarak bir ölçüm uyarı kuralı oluşturma
+## <a name="create-with-azure-portal"></a>Azure portalı ile oluşturma
 
 Aşağıdaki yordamda, Azure portalında bir ölçüm uyarısı kuralının oluşturulacağı açıklanmaktadır:
 
@@ -58,7 +58,7 @@ Aşağıdaki yordamda, Azure portalında bir ölçüm uyarısı kuralının olu�
 > [!NOTE]
 > Ölçüm uyarı kuralları portalı üzerinden oluşturuldu, hedef kaynağın aynı kaynak grubunda oluşturulur.
 
-## <a name="view-and-manage-metric-alert-rules-using-azure-portal"></a>Görüntüleme ve ölçüm uyarı kuralları Azure portalını kullanarak yönetme
+## <a name="view-and-manage-with-azure-portal"></a>Görüntüleme ve Azure portalıyla yönetme
 
 Görüntüleyebilir ve ölçüm uyarı kuralları altında uyarı kurallarını yönet dikey penceresini kullanarak yönetin. Aşağıdaki yordam, ölçüm uyarı kuralları görüntüleyin ve bunlardan birinin Düzenle gösterilmektedir.
 
@@ -80,7 +80,7 @@ Görüntüleyebilir ve ölçüm uyarı kuralları altında uyarı kurallarını 
 
 6. Tıklayın **Bitti** yaptığınız düzenlemeleri kaydetmek için.
 
-## <a name="create-view-and-manage-metric-alert-rules-using-azure-cli"></a>Oluşturun, görüntüleyin ve Azure CLI kullanarak ölçüm uyarı kurallarını yönet
+## <a name="with-azure-cli"></a>Azure CLI ile
 
 Önceki bölümlerde oluşturun, görüntüleyin ve Azure portalını kullanarak ölçüm uyarı kuralları yönetmek nasıl kaydedileceği açıklanır. Bu bölümde, platformlar arası kullanarak aynı şeyi nasıl anlatılacaktır [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Hızlı şekilde kullanmaya başlamak Azure CLI aracılığıyladır [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest). Bu makalede, Cloud Shell'i kullanacağız.
 

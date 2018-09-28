@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 76fdf532a35cbe16543bc49b5c02fad5d86690d5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 364600d4c1c53f4e5fe726d443287bf1a5f2d4ec
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719007"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419177"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -268,7 +268,7 @@ Azure AD B2C, çeşitli el ile veri talep için talep türü girerken kullanıla
 
 ### <a name="datetimedropdown"></a>DateTimeDropdown
 
-**DateTimeDropdown** kullanıcı girişi türü bir dizi bir gün, ay ve yıl seçmek için açılır listeleri sağlamak amacıyla kullanılır.
+**DateTimeDropdown** kullanıcı girişi türü bir dizi bir gün, ay ve yıl seçmek için açılır listeleri sağlamak amacıyla kullanılır. Minimum ve maksimum tarih değerleri denetlemek için koşulları ve PredicateValidations öğeleri kullanabilirsiniz. Daha fazla bilgi için **tarih aralığını yapılandırma** bölümünü [doğrulamaları ve PredicateValidations](predicates.md).
 
 ![Talep türü datetimedropdown ile kullanma](./media/claimsschema/datetimedropdown.png)
 

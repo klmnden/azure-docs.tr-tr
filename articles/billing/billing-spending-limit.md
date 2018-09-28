@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: 20b664e8a194c394f90b1d060dbd081fc1507528
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 614102d65407485d31963afa9185400938a7d95b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395619"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423094"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Azure harcama limiti ve nasıl kaldırılacağını anlama
 
 Azure harcama, kredi tutarı harcama önlemek için mevcut. Birden çok aya yayılan kredi içeren tekliflere ve deneme için kaydolun tüm yeni müşteriler varsayılan olarak açık harcama limiti vardır. Harcama sınırı $0 olan. Değiştirilemez. Harcama limiti; Kullandıkça Öde abonelikleri ve taahhüt planları gibi abonelik türlerinde kullanılamaz. Bkz: [tam listesini Azure tekliflerini ve harcama limiti kullanılabilirliğini](https://azure.microsoft.com/support/legal/offer-details/).
-
-**Fatura uyarılarını mi arıyorsunuz?** Bkz: [Azure abonelikleri için fatura veya kredi uyarıları ayarlama](billing-set-up-alerts.md).
 
 ## <a name="what-happens-when-i-reach-the-spending-limit"></a>Harcama limitine ulaştığımda ne olur?
 
@@ -78,7 +76,7 @@ Bu özellik yalnızca harcama limitini süresiz olarak kaldırılmış olsa kull
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>Özel bir harcama sınırına nasıl ayarlayabilirim?
 
-Size özel sınırları bugün harcama yok. Bununla birlikte, kabul etmek [denetlemek için faturalama uyarılarını kullanın, harcama](billing-set-up-alerts.md).
+Özel harcama sınırları mevcut değildir.
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Harcama limiti azure'dan tüm ücretlerden mu?
 

@@ -9,19 +9,19 @@ ms.author: estfan
 ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
-ms.date: 09/24/2018
-ms.openlocfilehash: fd92b093b70dba2df3ec645b3ecb77233d3ebd5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 36e8161eb8be16b75d843a2b7a65fc3dd70d9c02
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958365"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405297"
 ---
 # <a name="create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Oluşturma ve otomatik mantıksal uygulama iş akışlarını - Visual Studio Code yönetme
 
 İle [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ve Visual Studio Code, oluşturma ve yönetme yardımcı olan mantıksal uygulamalar görevleri, iş akışları ve uygulamaları, verileri, sistemleri ve Hizmetleri kurum ve kuruluşların arasında tümleştirmeye yönelik işlemleri otomatik hale getirin. Bu makalede nasıl oluşturabileceğinizi ve mantıksal uygulama iş akışı tanımları kod tabanlı bir deneyimde çalışarak Düzenle gösterilir. Ayrıca önceden dağıtılan mantıksal uygulamalar üzerinde çalışabilir <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> bulutta. 
 
-Aynı görevleri de gerçekleştirebilirsiniz ancak <a href="https://portal.azure.com" target="_blank">Azure portalında</a> ve doğrudan kod içinde çalışmak istediğiniz zaman Visual Studio'da daha hızlı bir şekilde Visual Studio Code'da başlayabilirsiniz. Örneğin, de devre dışı, etkinleştirme, silme ve önceden oluşturulmuş mantıksal uygulamalar yenileyin.
+Aynı görevleri de gerçekleştirebilirsiniz ancak <a href="https://portal.azure.com" target="_blank">Azure portalında</a> ve doğrudan kod içinde çalışmak istediğiniz zaman Visual Studio'da daha hızlı bir şekilde Visual Studio Code'da başlayabilirsiniz. Örneğin, de devre dışı, etkinleştirme, silme ve önceden oluşturulmuş mantıksal uygulamalar yenileyin. Ayrıca, logic apps ve tümleştirme hesapları Visual Studio Code çalıştırıldığı herhangi bir geliştirme platformu, Linux, Windows ve Mac gibi üzerinde çalışabilir
 
 Bu makalede olarak aynı mantıksal uygulama oluşturabilirsiniz [Azure portalında bir mantıksal uygulama oluşturmaya yönelik hızlı başlangıç](../logic-apps/quickstart-create-first-logic-app-workflow.md), hangi odaklanılmıştır fazla temel kavramlara. Visual Studio Code'da mantıksal uygulama bu örnekteki gibi görünür:
 
@@ -43,7 +43,7 @@ Başlamadan önce şunlara sahip olduğundan emin olun:
 
   * Azure Logic Apps için Visual Studio Code uzantısı
 
-    Bu uzantıyı yüklemeniz Visual Studio Code içinde. 
+    Bu uzantıyı yükleyeceğiniz [Visual Studio Market](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) veya doğrudan Visual Studio Code içinde. 
     Yükledikten sonra Visual Studio Code'u yeniden yükleyip emin olun. 
 
     !["Azure Logic Apps için Visual Studio Code uzantısı" bulun](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
@@ -52,7 +52,7 @@ Başlamadan önce şunlara sahip olduğundan emin olun:
 
     ![Yüklü uzantı](./media/create-logic-apps-visual-studio-code/installed-extension.png)
 
-    Daha fazla bilgi için <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">uzantı Marketi</a>. 
+    Daha fazla bilgi için <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">uzantı Marketi</a>. Ayrıca görüntüleyebilir ve bu uzantının açık kaynak sürümü Katkıları ederek gönderme [GitHub üzerinde Visual Studio Code için Azure Logic Apps uzantısı](https://github.com/Microsoft/vscode-azurelogicapps). 
 
 <a name="sign-in-azure"></a>
 

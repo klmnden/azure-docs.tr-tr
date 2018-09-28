@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2a7842a50690049507e00b85c8736e63da002503
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950174"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419313"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -348,9 +348,9 @@ Mevcut bağlantı hattınız için Office 365 ve Dynamics 365 öneklerinin rekla
 
 * 1 Ağustos 2017 veya sonrasında yapılandırılmış ExpressRoute devrelerinin Microsoft eşlemesi tüm ön ekleri olmaz bağlantı hattına bir rota filtresinde bağlanana kadar tanıtılan. Varsayılan olarak, hiçbir ön ekleri görürsünüz.
 
-## <a name="globalreach"></a>ExpressRoute doğrudan (Önizleme)
+## <a name="expressRouteDirect"></a>ExpressRoute doğrudan (Önizleme)
 
-[!INCLUDE [Global Reach](../../includes/expressroute-direct-faq-include.md)]
+[!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 
 ## <a name="globalreach"></a>Küresel erişim (Önizleme)
 

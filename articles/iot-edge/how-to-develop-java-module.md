@@ -6,19 +6,19 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 09/04/2018
+ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6e3bbe996a2f0c37905aa990b39d324fd540952b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a5e86b7c93344a6c61fecaa41b98bc1daa20f36f
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057268"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423230"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>Geliştirme ve Java modülleri, Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
-İş mantığınızı için Azure IOT Edge modülleri açarak ucuna çalışılacak gönderebilirsiniz. Bu makalede, Java modülleri geliştirmek için ana geliştirme aracı olarak Visual Studio Code (VS Code) kullanmaya yönelik ayrıntılı yönergeler sağlar.
+İş mantığınızı için Azure IOT Edge modülleri açarak ucuna çalışılacak gönderebilirsiniz. Bu makalede, geliştirme ve hata ayıklama Java modüller için ana geliştirme aracı olarak Visual Studio Code (VS Code) kullanmaya yönelik ayrıntılı yönergeler sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, bir bilgisayarı veya Windows, macOS veya Linux geliştirme makinenizde olarak çalıştıran sanal makine kullandığınızı varsayar. IOT Edge Cihazınızı başka bir fiziksel cihaz olabilir.
@@ -33,7 +33,7 @@ Bu makalede ana geliştirme aracı olarak Visual Studio Code kullandığından, 
 * [Docker uzantısı](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 Bir modülü oluşturmak için Java ve Maven modülü kodunu, modülü görüntüsü ve bir kapsayıcı kayıt defteri oluşturmak için Docker derleme ve çalıştırma için modülü görüntüsü tutacak gerekir:
-* [Java SE Geliştirme Seti 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html), ve [ayarlamak `JAVA_HOME` ortam değişkeni](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) JDK yüklemenize işaret edecek şekilde.
+* [Java SE Development Kit 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html) ve [`JAVA_HOME` ortam değişkenini](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) JDK yüklemenize göre ayarlama.
 * [Maven](https://maven.apache.org/)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure kapsayıcı kayıt defteri](https://docs.microsoft.com/azure/container-registry/) veya [Docker hub'ı](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
@@ -63,7 +63,7 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT Edge uzantısını kullana
 6. Çözümünüz için bir ad sağlayın. 
 7. Seçin **Java Modülü** çözüm içinde ilk modül için şablon olarak.
 8. Modülünüzün için bir ad belirtin. Kapsayıcı kayıt defterinizde içinde benzersiz bir ad seçin. 
-8. GroupID için bir değer girin veya varsayılan değerleri kabul **com.edgemodule**.
+8. groupId için bir değer girin veya varsayılan **com.edgemodule** değerini kabul edin.
 9. Görüntü deposu için modülü sağlar. VS Code autopopulates modül adı, yalnızca değiştirmek zorunda **localhost:5000** kendi kayıt defteri bilgileri. Test etmek için yerel bir Docker kayıt defteri kullanıyorsanız localhost uygundur. Azure Container Registry kullanırsanız, oturum açma sunucusu defterinizin ayarlarından'ni kullanın. Oturum açma sunucusu benzer  **\<kayıt defteri adı\>. azurecr.io**. Dizenin yalnızca localhost bölümünü değiştirin, modülünüzün adını silmeyin.
 
    ![Docker görüntü deposunu sağlama](./media/how-to-develop-node-module/repository.png)

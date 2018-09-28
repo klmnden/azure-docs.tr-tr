@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: ac57c27cf973a2ba236ad1812129e29284deb211
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1250851386b9423b66bdbfd03292de56fd38850d
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696131"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410111"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Bir Service Bus yetkilendirme kuralı için ad alanı ve bir Azure Resource Manager şablonu kullanarak kuyruk oluşturma
 
@@ -167,7 +167,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>Sonraki adımlar
 Oluşturulan ve dağıtılan kaynakları Azure Resource Manager kullanarak göre bu kaynakları Bu makaleler görüntüleyerek yönetmeyi öğrenin:
 
-* [Service Bus PowerShell ile yönetme](service-bus-powershell-how-to-provision.md)
+* [Service Bus’ı PowerShell ile yönetme](service-bus-powershell-how-to-provision.md)
 * [Service Bus Explorer ile Service Bus kaynaklarını yönetme](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 * [Service Bus kimlik doğrulama ve yetkilendirme](service-bus-authentication-and-authorization.md)
 

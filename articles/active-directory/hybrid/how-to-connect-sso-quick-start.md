@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 532a37c5de7b69c44f0f8502613ac534f57c8ef9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312343"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405997"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı Başlangıç
 
@@ -124,9 +124,9 @@ Kullanıcıların Intranet bölge ayarlarını değiştirmek için iki yolu vard
 
     Sonucu şöyle görünür:
 
-    Değer:https://autologon.microsoftazuread-sso.com
+    Değer adı: https://autologon.microsoftazuread-sso.com
   
-    Veriler: 1
+    Değer (veriler): 1
 
    >[!NOTE]
    > Bazı kullanıcıların (örneğin, bu kullanıcılar üzerinde paylaşılan bilgi noktaları oturum açarsanız) kullanarak sorunsuz çoklu oturum açmayı engellemek istiyorsanız, önceki değerlerini ayarlamak **4**. Bu eylem, Azure AD URL'si için kısıtlı bölge ekler ve her zaman sorunsuz çoklu oturum açma başarısız.

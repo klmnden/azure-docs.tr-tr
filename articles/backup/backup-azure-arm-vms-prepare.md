@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 80987408e65785afba1df2d2f6b6fc9981fd2dbf
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 00432e1b5a181c57e4901b684d0a86c1cc843037
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542829"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408989"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -47,7 +47,7 @@ Bu koşullar, ortamınızda zaten mevcutsa devam [Vm'lerinizi yedekleyin](backup
 Ortamınızı hazırlama önce bu sınırlamalar anladığınızdan emin olun:
 
 * Standart SSD ile Vm'leri yedekleme şu anda desteklenmiyor.
-* 16'dan fazla veri diski içeren sanal makineleri yedekleme desteklenmez.
+* 32'den fazla veri diski içeren sanal makineleri yedekleme desteklenmez.
 * Ayrılmış IP adresi ve tanımlanmış uç nokta içeren sanal makineleri yedeklemeyi desteklemez.
 * Linux Linux birleşik anahtar Kurulum (LUKS) şifreleme ile şifrelenmiş VM'ler için yedekleme desteklenmez.
 * Küme Paylaşılan birimleri (CSV) veya genişleme dosya sunucusu yapılandırması içeren VM'lerin yedeklenmesi önerilmemektedir. Bu yapıldığında, CSV yazıcılar hata beklenir. Bunlar, bir anlık görüntü görevi sırasında küme yapılandırmasında bulunan tüm sanal makineler içeren gerektirir. Azure Backup, çoklu VM tutarlılığı desteklememektedir. 

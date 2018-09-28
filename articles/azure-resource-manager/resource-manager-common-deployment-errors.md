@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8da582750b5e20ddd7018f59292e7342f1628c8c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9ef0b3d9ae0cea5082a5c764012958f02113fe9a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425392"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408496"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme
 
@@ -32,7 +32,7 @@ Bu makalede sık kullanılan bazı Azure dağıtım hatalarını karşılaşabil
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Depolama hesapları için adlandırma kısıtlamaları izleyin. | [Depolama hesabı adı çözümlenemedi](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Kullanılabilir depolama hesabı özelliklerini denetleyin. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | Küme veya bölge kullanılabilir kaynak yok veya istenen VM boyutu destekleyemez. Daha sonra isteği yeniden deneyin veya farklı bir VM boyutu isteyin. | [Linux için sağlama ve ayırma sorunları](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Windows için sağlama ve ayırma sorunları](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) ve [ayırma hatalarını giderme](../virtual-machines/windows/allocation-failure.md)|
+| AllocationFailed | Küme veya bölge kullanılabilir kaynak yok veya istenen VM boyutu destekleyemez. Daha sonra isteği yeniden deneyin veya farklı bir VM boyutu isteyin. | [Linux için sağlama ve ayırma sorunları](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Windows için sağlama ve ayırma sorunları](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) ve [ayırma hatalarını giderme](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Eş zamanlı işlemin tamamlanmasını bekleyin. | |
 | AuthorizationFailed | Hesabınız veya hizmet sorumlusu dağıtımı tamamlamak için yeterli erişimi yok. Hesabınız için ait rolü ve dağıtım kapsamına erişim kontrol edin. | [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md) |
 | BadRequest | Resource Manager tarafından beklenen eşleşmeyen dağıtım değerlerini gönderdiğiniz. Sorun giderme konusunda yardım için iç durum iletisini inceleyin. | [Şablon başvurusu](/azure/templates/) ve [desteklenen konumlar](resource-manager-templates-resources.md#location) |

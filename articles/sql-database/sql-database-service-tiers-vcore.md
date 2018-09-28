@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 8947a34f43f09281712c0e211c3dc6b8db9da6b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/26/2018
+ms.openlocfilehash: 3fb1357b7a70579fa527a896d5bd359749b10ad6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160681"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407664"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Sanal çekirdek hizmet katmanı seçme, bilgi işlem, bellek, depolama ve GÇ kaynakları
 
@@ -89,7 +89,7 @@ Veritabanı Yedeklemeleri için depolama noktası zaman geri yükleme (PITR içi
 
 ### <a name="hyperscale-service-tier-preview"></a>Hiper ölçekli hizmet Katmanı (Önizleme)
 
-Anlık görüntü tabanlı Yedekleme Azure uzak depolama ve geri yükler, bu anlık görüntüler Hızlı Kurtarma için kullanın. Yedeklemeler anlıktır ve işlem GÇ performansını etkilemez. Geri yüklemeler çok hızlı ve değil veri işlemleri boyutunu (dakika cinsinden saat/gün).
+Hiper ölçekli hizmet katmanında, anlık görüntü tabanlı ve uzak Azure Depolama'da depolanan yedeklemeler. Geri yüklemeler bu anlık görüntüler, Hızlı Kurtarma için kullanın. Yedeklemeler anlıktır ve işlem GÇ performansını etkilemez. Geri yüklemeler çok hızlı ve değil veri işlemleri boyutunu (dakika cinsinden saat/gün).
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hibrit Kullanım Teklifi
 

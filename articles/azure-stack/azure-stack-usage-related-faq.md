@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ffe3dbf975984eb8df341728075e628d14080ada
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e4bb17bd068076a9ffa9bcab5826f0efa84a19d7
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380242"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406014"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Sık sorulan sorular, Azure Stack kullanım API'si
 
@@ -321,10 +321,10 @@ Aşağıdaki kaynak sağlayıcıları için kullanımı bildirilir:
 **Notları**: toplam gelen istek yanıtı bayt sayısı ve toplam giden istek bayt + toplam gelen FTP istek yanıtı bayt sayısı ve toplam gelen web dağıtma istek yanıtı bayt sayısı.  
   
 
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Bunu nasıl API'leri karşılaştırmak için Azure Stack kullanım [Azure kullanım API'si](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (şu anda genel önizlemede)?
+## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Bunu nasıl API'leri karşılaştırmak için Azure Stack kullanım [Azure kullanım API'si](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (şu anda genel önizlemede)?
 * Kiracı kullanım API'si, bir özel durum ile bir Azure API tutarlıdır: *showDetails* bayrağı şu anda desteklenmeyen Azure Stack'te.
 * Sağlayıcı kullanım API'si, yalnızca Azure Stack için geçerlidir.
-* Şu anda [RateCard API'si](https://msdn.microsoft.com/library/azure/mt219004.aspx) diğer bir deyişle azure'da kullanılabilir Azure Stack'te kullanılabilir değil.
+* Şu anda [RateCard API'si](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) diğer bir deyişle azure'da kullanılabilir Azure Stack'te kullanılabilir değil.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Kullanım ve bildirilen saat arasındaki fark nedir?
 Kullanım verileri raporlar, iki ana saat değerleri vardır:

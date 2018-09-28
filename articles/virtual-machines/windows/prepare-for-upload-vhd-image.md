@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 293671ac3426a92453e0c1642d421038824ac02c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4787f5b9657afbcedbd3803d6a17af9c8cf9099
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886982"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407001"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX yüklemek için hazırlama
 Bir Windows sanal makinelerine (VM) şirket içi Microsoft Azure'ı yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure'un destekledikleri **yalnızca 1. kuşak Vm'leri** VHD dosyası biçiminde ve sabit boyutlu bir diske sahip. VHD için izin verilen boyut 1,023 GB'dir. Nesil 1 VM'den VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [oluşturmalıyım 1 veya 2. nesil Hyper-v VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -374,7 +374,7 @@ Bunun yerine, yalnızca bir diskten bir VM oluşturmak istiyorsanız sysprep kul
 Özelleştirilmiş diskten VM oluşturma hakkında daha fazla bilgi için bkz:
 
 - [Özelleştirilmiş diskten VM oluşturma](create-vm-specialized.md)
-- [Özel bir VHD diskten VM oluşturma](https://review.docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
+- [Özel bir VHD diskten VM oluşturma](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
 Genelleştirilmiş görüntü oluşturmak istiyorsanız, sysprep'nı çalıştırmanız gerekir. Sysprep hakkında daha fazla bilgi için bkz. [Sysprep işlemini kullanma: Giriş](http://technet.microsoft.com/library/bb457073.aspx). 
 

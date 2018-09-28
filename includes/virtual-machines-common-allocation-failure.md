@@ -9,11 +9,11 @@ ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 2eb7fb82b358d4ec8628bfa546b572ee3cbe47fa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40209386"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47414743"
 ---
 Sanal makine (VM) oluşturma, durduruldu (serbest bırakıldı) Vm'leri yeniden başlatma veya VM'yi yeniden boyutlandırma, Microsoft Azure aboneliğinize işlem kaynakları ayırır. Biz sürekli olarak ek altyapı ve her zaman müşteri talebini desteklemek mevcut tüm VM türleri sahibiz emin olmak için Özellikler'de yatırım yapıyor. Ancak, belirli bölgelerde Azure Hizmetleri için talepte eşi görülmemiş büyüme nedeniyle bazen kaynak ayırma hatalarıyla karşılaşabilirsiniz. Bu sorun, oluşturma veya aşağıdaki hata kodu ve şu iletiyle Vm'leri görüntüleme sırada bir bölgede VM'lerin başlatma çalıştığınızda oluşabilir:
 

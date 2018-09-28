@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 477ef11a02f67e511396c3efc8f2b331c976c801
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7007b1406dbcfab3af4700418ac2ce07b9e521c0
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219983"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407442"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak dağıtma
 
@@ -42,17 +42,13 @@ Uzaktan izleme kaynak kodu GitHub deposu indirin, yapılandırma ve mikro hizmet
 Java mikro hizmet uygulamaları en son sürümünü indirmek için çalıştırın:
 
 ```cmd/sh
-git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
-cd azure-iot-pcs-remote-monitoring-java
-git submodule foreach git pull origin master
+git clone https://github.com/Azure/remote-monitoring-services-java.git
 ```
 
 .NET mikro hizmet uygulamaları en son sürümünü indirmek için çalıştırın:
 
 ```cmd\sh
-git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
-cd azure-iot-pcs-remote-monitoring-dotnet
-git submodule foreach git pull origin master
+git clone https://github.com/Azure/remote-monitoring-services-dotnet.git
 ```
 
 > [!NOTE]
@@ -66,7 +62,7 @@ Bu makalede, mikro Hizmetleri yerel olarak çalıştırmak nasıl gösterir, anc
 
 Gerekli Azure kaynakları henüz oluşturduysanız, şu adımları izleyin:
 
-1. Komut satırı ortamınızda gidin **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local\launch** kopyaladığınız deponun klasöründe.
+1. Komut satırı ortamınızda gidin **Uzaktan izleme hizmetleri dotnet\scripts\local\launch** kopyaladığınız deponun klasöründe.
 
 2. Çalıştırma **start.cmd** betiği ve yönergeleri izleyin. Betik, Azure hesabınızda oturum açın ve komut dosyasını yeniden ister. Betik daha sonra aşağıdaki bilgileri ister:
     * Bir çözüm adı.
@@ -75,11 +71,11 @@ Gerekli Azure kaynakları henüz oluşturduysanız, şu adımları izleyin:
 
     Betik, çözümünüzün adına ile Azure'da kaynak grubu oluşturur. Bu kaynak grubu, çözüm Hızlandırıcısını Azure kaynaklarını içerir.
 
-3. Betik tamamlandığında ortam değişkenlerinin bir listesini görüntüler. Bu değişkenlere kaydetmek için komuttan Çıkış'ndaki yönergeleri izleyin **azure-iot-pcs-remote-monitoring-dotnet\\Hizmetleri\\betikleri\\yerel\\.env** dosya.
+3. Betik tamamlandığında ortam değişkenlerinin bir listesini görüntüler. Bu değişkenlere kaydetmek için komuttan Çıkış'ndaki yönergeleri izleyin **Uzaktan izleme hizmetleri dotnet\\betikleri\\yerel\\.env** dosya.
 
 ### <a name="use-existing-azure-resources"></a>Mevcut Azure kaynakları
 
-Zaten oluşturduysanız, gerekli Azure kaynakları ortam değişkeni tanımlarında Düzenle **azure-iot-pcs-remote-monitoring-dotnet\\Hizmetleri\\betikleri\\yerel\\.env**  gerekli değerleri içeren dosya. **.Env** dosyası gerekli değerleri nerede bulunacağı hakkında ayrıntılı bilgi içerir.
+Zaten oluşturduysanız, gerekli Azure kaynakları ortam değişkeni tanımlarında Düzenle **Uzaktan izleme hizmetleri dotnet\\betikleri\\yerel\\.env** ile dosya Gerekli değerler. **.Env** dosyası gerekli değerleri nerede bulunacağı hakkında ayrıntılı bilgi içerir.
 
 ## <a name="run-the-microservices-in-docker"></a>Mikro hizmetler Docker'da çalıştırma
 
@@ -89,7 +85,7 @@ Yerel Docker kapsayıcılarda çalıştırılan mikro hizmetler, Azure'da çalı
 docker run --rm -ti library/alpine ping google.com
 ```
 
-Çözüm Hızlandırıcısını çalıştırma için gidin **azure-iot-pcs-remote-monitoring-dotnet\services\scripts\local** klasöründe komut satırı ortamı ve şu komutu çalıştırın:
+Çözüm Hızlandırıcısını çalıştırma için gidin **Uzaktan izleme hizmetleri dotnet\\betikleri\\yerel** klasöründe komut satırı ortamı ve şu komutu çalıştırın:
 
 ```cmd\sh
 docker-compose up

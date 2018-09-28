@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: ee1df77dc18350a64082cb62c297a53700cad223
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128754"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410162"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Toplu işlem iletileri Azure Logic apps'te gönderme ve alma
 
@@ -60,7 +60,7 @@ Bir toplu iletileri göndermeden önce toplu iletiler göndermek burada hedef ol
    |----------|-------------|
    | **Toplu iş modu** | - **Satır içi**: yayın ölçütü toplu tetikleyici içinde tanımlama <br>- **Tümleştirme hesabı**: birden çok yayın ölçütleri yapılandırmalarını tanımlamak için bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Bir tümleştirme hesabıyla bu yapılandırmalar, tek bir yerde yerine ayrı mantıksal uygulamalar bulundurabilirsiniz. | 
    | **Toplu işlem adı** | Bu örnekte "TestBatch" olması ve yalnızca, batch, adı **satır içi** toplu iş modu |  
-   | **Yayın ölçütü** | Yalnızca geçerli **satır içi** toplu iş modu ve her toplu işin işlenmeden önce karşılamak için ölçütü belirtir: <p>- **İleti sayısı tabanlı**: Toplu işlemde, örneğin, 10 ileti toplanacak ileti sayısı <br>- **Bağlı boyutu**: bayt, örneğin, 100 MB maksimum toplu iş boyutu <br>- **Zamanlama tabanlı**: aralık ve sıklık arasında toplu sürümleri, örneğin, 10 dakika. Başlangıç tarihi ve saati belirtebilirsiniz. <br>- **Tümünü Seç**: belirtilen ölçütleri kullanın. | 
+   | **Yayın ölçütü** | Yalnızca geçerli **satır içi** toplu iş modu ve her toplu işin işlenmeden önce karşılamak için ölçütleri seçer: <p>- **İleti sayısı tabanlı**: Toplu işlemde, örneğin, 10 ileti toplanacak ileti sayısı <br>- **Bağlı boyutu**: bayt, örneğin, 100 MB maksimum toplu iş boyutu <br>- **Zamanlama tabanlı**: aralık ve sıklık arasında toplu sürümleri, örneğin, 10 dakika. En az yinelenme 60 saniye veya 1 dakika ' dir. Kesirli dakika değerleri 1 dakika için etkili bir şekilde yuvarlanır. Başlangıç tarihini ve saatini belirtmek için **Gelişmiş Seçenekleri Göster**. <br>- **Tümünü Seç**: belirtilen ölçütleri kullanın. | 
    ||| 
    
    Bu örnekte, tüm ölçütlerini seçer:
@@ -107,9 +107,7 @@ Bir toplu iletileri göndermeden önce toplu iletiler göndermek burada hedef ol
 
    * İçinde **gövdesi** kutusu, dinamik içerik listesi göründüğünde seçin **ileti kimliği** alan. 
 
-     Bu eylem bir dizi girdi olarak kabul ettiğinden Logic Apps Tasarımcısı'nda otomatik olarak e-posta gönderme eylemi bir "For each" döngüsü ekler. 
-     Bu döngü toplu işlemde her ileti için bir e-posta gönderir. 
-     Toplu tetikleyici 10 iletileri olarak ayarlandığında, alabilmeniz tetikleyici 10 e-postaları her zaman.
+     Bu eylem bir toplu iş yerine, bir koleksiyon olarak önceki eylem çıktısı davrandığı için Logic Apps Tasarımcısı'nda otomatik olarak e-posta gönderme eylemi bir "For each" döngüsü ekler. 
 
      !["Body" için "İleti kimliği" seçin](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
@@ -216,6 +214,7 @@ Batch gönderen mantıksal uygulamanız her dakika çalışan bir ile beş aras�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+* [EDI iletilerini toplayıp gönderme](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [JSON'ı kullanarak mantıksal uygulama tanımları üzerinde oluşturma](../logic-apps/logic-apps-author-definitions.md)
 * [Visual Studio'da Azure Logic Apps ve işlevler ile sunucusuz uygulama oluşturma](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Logic apps için hata günlüğünü ve özel durum işleme](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

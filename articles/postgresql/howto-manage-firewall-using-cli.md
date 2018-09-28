@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 05/4/2018
-ms.openlocfilehash: f5133b5da055710208390bfe7fd5d6d7d85696df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 041f1c426f8f181255e315978878d146a14bc88b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965356"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410264"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Oluşturma ve Azure veritabanı Azure CLI kullanarak PostgreSQL için güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya IP adresi aralığı PostgreSQL sunucusu için Azure veritabanı'na yönetme olanağı sağlar. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı'nın için PostgreSQL güvenlik duvarı kuralları için bkz: genel bakış [PostgreSQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](concepts-firewall-rules.md)
@@ -40,11 +40,8 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server-
 ## <a name="create-firewall-rule"></a>Güvenlik duvarı kuralı oluşturma
 Sunucuda yeni bir güvenlik duvarı kuralı oluşturmak için çalıştırın [az postgres server-güvenlik duvarı oluşturma](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) komutu. 
 
-0.0.0.0 olarak belirterek `--start-ip-address` olarak 255.255.255.255'i `--end-ip-address` aralığı, aşağıdaki örnekte, tüm IP adreslerinin sunucuya erişmek sağlar **demosunucum.postgres.Database.Azure.com**
-```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
-Tekil bir IP adresi erişmesine izin vermek için aynı adresi sağlayın. `--start-ip-address` ve `--end-ip-address`, bu örnekte olduğu gibi.
+To allow access to a singular IP address, provide the same address in the `--start-ip-address` and `--end-ip-address`, as in this example, replacing the IP shown here with your specific IP.
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowSingleIpAddress --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
 ```
@@ -62,7 +59,7 @@ Başarılı olduktan sonra komut çıktısı varsayılan olarak JSON biçiminde,
 ## <a name="update-firewall-rule"></a>Güvenlik duvarı kuralını güncelleştir 
 Sunucu kullanarak mevcut bir güvenlik duvarı kuralını Güncelleştir [az postgres server güvenlik duvarı kuralı güncelleştirme](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_update) komutu. Mevcut güvenlik duvarı kuralı adı girişi ve başlangıç güncelleştirmek için IP ve bitiş IP öznitelikler sağlar.
 ```azurecli-interactive
-az postgres server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.255
+az postgres server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.0
 ```
 Başarılı olduktan sonra komut çıktısı varsayılan olarak JSON biçiminde güncelleştirdik güvenlik duvarı kuralı ayrıntılarını listeler. Bir hata varsa, çıktı bunun yerine bir hata iletisi gösterir.
 > [!NOTE]

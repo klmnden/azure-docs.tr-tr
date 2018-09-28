@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: cwatson
-ms.openlocfilehash: f7ec113a7fa51fc6d3684c2e7ee9379bd1534e30
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: be2e774bc4220d5d93f555263fa9f342f449f8b2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392423"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423451"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure faturanızı anlama
 Azure faturanızı anlama faturanızı ayrıntılı günlük kullanım dosyası ve Azure portalında maliyet Yönetimi raporlarını ile karşılaştırın.
@@ -141,7 +141,6 @@ Azure 1. taraf ücretleri, doğrudan geliştirilen ve Azure tarafından sunulan 
 
 ## <a name="tips-for-cost-management"></a>Maliyet yönetimi için ipuçları
 - Kullanarak maliyetleri tahmin etme [fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/) ve [toplam sahiplik hesaplayıcı maliyeti](https://aka.ms/azure-tco-calculator)ve [ayrıntılı fiyatlandırma bilgileri her hizmet için](https://azure.microsoft.com/pricing/).
-- [Fatura uyarılarını ayarlama](billing-set-up-alerts.md).
 - [Kullanımı ve maliyetleri Azure portalında düzenli olarak gözden geçirme](billing-getting-started.md#costs).
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.

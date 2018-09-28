@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 776d5957ee2c11354c350523cbc8fde12fbcafaf
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498190"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407884"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault geçici silmeyi genel bakış
 
@@ -41,12 +41,22 @@ Bu özellik ile nesne silindikten görünümünü sağlarken, geçici etkili bir
 
 Geçici silme isteğe bağlı bir Key Vault davranışı ve **varsayılan olarak etkin değildir** bu sürümde. 
 
-### <a name="do-not-purge-flag"></a>Bayrağını temizlemek değil
-Kasa veya kasa nesne silinmesini zorlamak için isteyen bir kullanıcı bunu yapabilirsiniz. Bu kasa için geçici silme açık olsa bile bir kasa veya kasanın içindeki bir nesneyi silme izni olan bir kullanıcı temizleme zorlamak, olmasıdır. Ancak, kasa veya kasa nesne zorla silinmesini önlemek kullanıcı istiyorsa, bunlar ayarlayabilirsiniz--temizleme koruma etkinleştirme bayrağını true olması. Bir kasayı oluşturduğunuzda bunu yaparak bayrağı etkinleştirebilirsiniz. Temizleme korumayı etkinleştirme için geçici silme açık olmalıdır önkoşuldur. Azure CLI 2. Bunu yapmak için komut
+### <a name="purge-protection--flag"></a>Koruma bayrağını Temizle
+Koruma Temizle (**--temizleme koruma etkinleştirme** Azure clı'daki) bayrak varsayılan olarak kapalıdır. Bu bayrak, kasa etkin veya bir nesne silinmiş durumda kadar temizlenemiyor 90 gün saklama süresi geçti. Böyle bir kasa veya nesne hala kurtarılabilir. Bu bayrak, saklama süresi bitene kadar bir kasa veya bir nesne hiçbir zaman kalıcı olarak silinmez, müşterilere ek güvence sunar. Yalnızca geçici silmeyi bayrağı açıktır veya kasa oluşturma sırasında üzerinde hem geçici silmeyi açın ve koruma temizleme temizleme koruma bayrağı kapatabilirsiniz.
+
+[!NOTE] Temizleme korumayı etkinleştirme için geçici silme açık olmalıdır önkoşuldur. Azure CLI 2. Bunu yapmak için komut
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
 ```
+
+### <a name="permitted-purge"></a>İzin verilen temizleme
+
+Kalıcı olarak siliniyor, temizleme, anahtar kasası proxy kaynak üzerinde bir POST işlemi aracılığıyla mümkündür ve özel ayrıcalıklar gerektirir. Genellikle, yalnızca abonelik sahibi, bir anahtar kasasını Temizle mümkün olacaktır. GÖNDERME işlemi, kasa anında ve kurtarılamaz silme işlemi tetikler. 
+
+Bunun bir istisnası
+- Azure aboneliği olarak işaretlenmiş olduğundan söz konusu *silinemez*. Bu durumda, yalnızca hizmet ardından gerçek silme işlemini gerçekleştirebilir ve zamanlanmış bir işlem olarak bunu yapar. 
+- --Temizleme koruma etkinleştirme bayrağını kasa üzerinde etkinleştirilir. Bu durumda, özgün gizli nesne silme nesne kalıcı olarak silmek için işaretlendiğinde 90 gün içinde Key Vault bekler.
 
 ### <a name="key-vault-recovery"></a>Anahtar kasası kurtarma
 
@@ -70,12 +80,6 @@ Geçici silinen kaynaklar süre 90 gün boyunca belirli bir süre için korunur.
 - Yalnızca özel ayrıcalıklı bir kullanıcısı zorla bir anahtar kasası veya anahtar kasası nesne karşılık gelen proxy kaynak üzerinde bir silme komutu göndererek silebilir.
 
 Bir anahtar kasası veya anahtar kasası nesne, kurtarılır sürece, bekletme aralığın sonunda bir temizleme işlemini geçici silinen anahtar kasasını veya anahtar kasası nesne ve içeriğini hizmet gerçekleştirir. Kaynak silme işlemini yeniden değil.
-
-### <a name="permitted-purge"></a>İzin verilen temizleme
-
-Kalıcı olarak siliniyor, temizleme, anahtar kasası proxy kaynak üzerinde bir POST işlemi aracılığıyla mümkündür ve özel ayrıcalıklar gerektirir. Genellikle, yalnızca abonelik sahibi, bir anahtar kasasını Temizle mümkün olacaktır. GÖNDERME işlemi, kasa anında ve kurtarılamaz silme işlemi tetikler. 
-
-Azure aboneliği olarak işaretlenmiş olan bu konuda bir özel durumdur *silinemez*. Bu durumda, yalnızca hizmet ardından gerçek silme işlemini gerçekleştirebilir ve zamanlanmış bir işlem olarak bunu yapar. 
 
 ### <a name="billing-implications"></a>Faturalandırma etkileri
 

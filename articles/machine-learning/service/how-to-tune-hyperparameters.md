@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 205a4d454be02d64058e3d0fcffda35df5b831a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6370fd9125c5b14df781b27e028c139175b7589
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971686"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405810"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>İçin model ayarlama hiperparametreleri
 
@@ -240,7 +240,7 @@ max_concurrent_runs=4
 Bu, en fazla 4 yapılandırmaları aynı anda çalışan 20 toplam çalıştırma kullanmak için deneme ayarlama hiper parametre yapılandıracaksınız.
 
 ## <a name="configure-your-hyperparameter-tuning-experiment"></a>Deneme ayarlama, Hiper parametre yapılandırma
-Yukarıdaki bölümlerde tanımlanan hyperpameter arama alanı, erken sonlandırma İlkesi, birincil ölçüm ve kaynak ayırmayı kullanarak deneme ayarlama, Hiper parametre yapılandırabilirsiniz. Ayrıca, sağlamak ihtiyacınız olacak bir `estimator` ile örneklenen hiperparametreleri çağrılır. `estimator` Eğitim betiği çalıştırarak, kaynakları (tek veya birden çok gpu) iş başına ve kullanmak için işlem hedef açıklanmaktadır. Deneme ayarlama, Hiper parametre kullanılabilir kaynakları Geçitli için eşzamanlılık beri işlem hedef içinde belirtilen emin olmak ihtiyacınız olacak `estimator` istenen eşzamanlılık yeterli kaynaklara sahip. (Bkz [bağlantı](/how-to-train-ml-models.md) estimators hakkında daha fazla bilgi için).
+Yukarıdaki bölümlerde tanımlanan hyperpameter arama alanı, erken sonlandırma İlkesi, birincil ölçüm ve kaynak ayırmayı kullanarak deneme ayarlama, Hiper parametre yapılandırabilirsiniz. Ayrıca, sağlamak ihtiyacınız olacak bir `estimator` ile örneklenen hiperparametreleri çağrılır. `estimator` Eğitim betiği çalıştırarak, kaynakları (tek veya birden çok gpu) iş başına ve kullanmak için işlem hedef açıklanmaktadır. Deneme ayarlama, Hiper parametre kullanılabilir kaynakları Geçitli için eşzamanlılık beri işlem hedef içinde belirtilen emin olmak ihtiyacınız olacak `estimator` istenen eşzamanlılık yeterli kaynaklara sahip. (Bkz [modelleri eğitme](how-to-train-ml-models.md) estimators hakkında daha fazla bilgi için).
 
 Aşağıda, Hiper parametre ayarlama deneyinizi nasıl yapılandırabileceğiniz bir örnek-
 
@@ -314,5 +314,5 @@ Bu not alın:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Bir deney izleyin](/how-to-track-experiments.md)
-* [Eğitilen model dağıtma](/how-to-deploy-and-where.md)
+* [Bir deney izleyin](how-to-track-experiments.md)
+* [Eğitilen model dağıtma](how-to-deploy-and-where.md)

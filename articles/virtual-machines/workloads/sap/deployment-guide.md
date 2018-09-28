@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
+ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: c6d7b4515546ea51264b094316c5da52dbb321c2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9208f2cb207daff2b122550fede48a8dda11d1db
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957032"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407935"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure sanal makineler dağıtım için SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1000,6 +1000,10 @@ Bu onay SAP uygulamanızın içinde görüntülenen tüm performans ölçümleri
 
 Azure Gelişmiş izleme uzantısı yüklü değil veya AzureEnhancedMonitoring hizmeti çalışmıyor, uzantının düzgün yapılandırılmadı. Uzantı dağıtma hakkında ayrıntılı bilgi için bkz. [SAP için Azure izleme altyapısının sorun giderme][deployment-guide-5.3].
 
+> [!NOTE]
+> Azperflib.exe kendi amacıyla kullanılan bir bileşenidir. Azure VM'de SAP konak aracısı için ilgili verileri izleme sağlayan bir bileşendir.
+> 
+
 ##### <a name="check-the-output-of-azperflibexe"></a>Onay azperflib.exe çıktısı
 Tüm Azure performans sayaçları için SAP doldurulmuş Azperflib.exe çıktısını gösterir. Toplanan sayaçlarının listesi sonunda bir özeti ve sistem durumu göstergesi Azure izleme durumunu gösterir.
 
@@ -1093,6 +1097,10 @@ Bazı izleme, veri açıklanan test tarafından belirtildiği şekilde doğru ş
 
 Her sistem durumu denetimi sonucu olduğundan emin olun **Tamam**. Bazı denetimleri görüntüleme, **Tamam**, açıklanan şekilde güncelleştirmeyi cmdlet'i çalıştırın [Azure Gelişmiş izleme uzantısını SAP için yapılandırmak][deployment-guide-4.5]. 15 dakika bekleyin ve açıklanan denetimleri [Azure SAP Gelişmiş izleme için hazır olma denetimi] [ deployment-guide-5.1] ve [Azure izleme altyapısı yapılandırmasınıiçinsistemdurumudenetimi] [deployment-guide-5.2]. Denetimler hala bazı veya tüm sayaçları ile ilgili bir sorun gösteriyorsa, bkz. [SAP için Azure izleme altyapısının sorun giderme][deployment-guide-5.3].
 
+> [!Note]
+> Bazı uyarılar oluştu, standart Azure diskler yönetilen kullandığınız durumlarda oluşabilir. "Tamam" döndüren testleri yerine uyarılar görüntülenir. Normal ve amaçlanan durumunda, disk türü budur. Ayrıca bkz: bkz [SAP için Azure izleme altyapı sorunlarını giderme][deployment-guide-5.3]
+> 
+
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>SAP için Azure izleme altyapı sorunlarını giderme
 
 #### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Azure performans sayaçları hiç gösterilmez
@@ -1144,6 +1152,23 @@ Dizin \\var\\LIB\\waagent\\ Azure Gelişmiş izleme uzantısı için bir alt diz
 
 ###### <a name="solution"></a>Çözüm
 Uzantısı yüklü değil. (Daha önce açıklandığı gibi) bu Ara sunucu sorunu olup olmadığını belirler. Makineyi yeniden başlatın ve/veya yeniden çalıştırmak ihtiyacınız olabilecek `Set-AzureRmVMAEMExtension` yapılandırma betiği.
+
+##### <a name="the-execution-of-set-azurermvmaemextension-and-test-azurermvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>Set-AzureRmVMAEMExtension ve Test-AzureRmVMAEMExtension yürütülmesini standart yönetilen diskler desteklenmediğini belirten bir uyarı iletilerini göster
+
+###### <a name="issue"></a>Sorun
+Ne zaman yürütülen Set-AzureRmVMAEMExtension veya Test-AzureRmVMAEMExtension iletileri bunlar gibi gösterilir:
+
+<pre><code>
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+</code></pre>
+
+Daha önce açıklandığı gibi azperfli.exe yürütme iyi durumda olmayan bir durumu gösteren bir sonuç elde edebilirsiniz. 
+
+###### <a name="solution"></a>Çözüm
+İletileri, standart yönetilen diskler standart Azure depolama hesapları istatistiklerle denetlemek için izleme uzantısı tarafından kullanılan API'ler sunan değil olgu kaynaklanır. Bu, birkaç önemli değildir. Standart Disk Depolama hesapları için izleme ile tanışın nedeni sık oluşan g/ç azaltma. Yönetilen diskler, bu tür bir depolama hesabındaki diskleri sayısını sınırlayarak azaltma kaçınır. Bu nedenle, bu türü izleme verilerinin olmaması önemli değildir.
+
 
 #### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Bazı Azure performans sayaçları kayboluyor
 Azure'da performans ölçümleri, çeşitli kaynaklardan veri alır bir arka plan programı tarafından toplanır. Bazı yapılandırma verilerini yerel olarak toplanır ve bazı performans ölçümlerini Azure Tanılama'ya okunur. Depolama sayaçları, depolama aboneliğinizdeki günlüklerinden gelir.

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 831b52a27a1ccfc349b9b54f8c3d874e41ddc322
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: ''
+ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363152"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423521"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log analytics'te özel günlükler
 Log analytics'te özel günlükleri veri kaynağı, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olaylarını toplamanıza olanak sağlar. Birçok uygulama için Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerinin yerine metin dosyaları bilgileri günlüğe kaydetmek.  Toplandığında, her bir kayıtta tek tek alanları kullanarak oturum açma ayrıştırabilirsiniz [özel alanlar](log-analytics-custom-fields.md) Log Analytics özelliğidir.
@@ -40,6 +40,10 @@ Günlük dosyaları toplanacak, aşağıdaki ölçütlere uymalıdır.
 >Log Analytics günlük dosyasında yinelenen girişler varsa bunları toplar.  Ancak, arama sonuçlarını filtre sonuçlarını sonucu sayısından daha fazla olay burada Göster tutarsız olur.  Günlük oluşturduğu uygulama bu davranış neden olup olmadığını belirlemek ve eğer mümkünse bunu özel günlük koleksiyonu tanımı oluşturmadan önce çözmek için doğrulama önemli olacaktır.  
 >
   
+>[!NOTE]
+> Her gün veya belirli bir boyuta ulaştığında, uygulamanızın yeni bir günlük dosyası oluşturur, yeniden başlatıldıktan sonra Linux için Log Analytics aracısını kadar bunları bulmaz. Aracı yalnızca numaralandırır ve başlatılması sırasında belirtilen günlükleri desenler için izlemeye başlar ve bu nedenle yeniden başlatma aracı işlemi otomatik hale getirerek etrafında planlamanız gerekir çünkü budur.  Bu sınırlama Windows için Log Analytics aracısı yok.  
+>
+
 ## <a name="defining-a-custom-log"></a>Özel günlük tanımlama
 Özel bir günlük dosyası tanımlamak için aşağıdaki yordamı kullanın.  Özel günlük ekleme örnek bir kılavuz bu makalenin sonuna kaydırın.
 
@@ -66,9 +70,13 @@ Zaman damgası ayırıcı kullanılırsa, Log Analytics içinde depolanan her ka
 5. **İleri**’ye tıklayın.
 
 ### <a name="step-3-add-log-collection-paths"></a>3. Adım Günlük koleksiyonu yolları ekle
-Özel günlük burada bulabilirsiniz aracı üzerinde bir veya daha fazla yol tanımlamanız gerekir.  Belirli bir yol ve günlük dosyasının adı ya da sağlayabilir veya adı için joker karakter içeren bir yol belirtebilirsiniz.  Bu, her gün veya bir dosyada belirli bir boyuta ulaştığında yeni bir dosya oluşturun, uygulamaları destekler.  Ayrıca, tek bir günlük dosyası için birden çok yol sağlayabilir.
+Özel günlük burada bulabilirsiniz aracı üzerinde bir veya daha fazla yol tanımlamanız gerekir.  Belirli bir yol ve günlük dosyasının adı ya da sağlayabilir veya adı için joker karakter içeren bir yol belirtebilirsiniz. Bu, her gün veya bir dosyada belirli bir boyuta ulaştığında yeni bir dosya oluşturun, uygulamaları destekler. Ayrıca, tek bir günlük dosyası için birden çok yol sağlayabilir.
 
 Örneğin, adında log20100316.txt olduğu gibi dahil tarihi olan bir uygulama bir günlük dosyası her gün oluşturabilirsiniz. Bu tür bir günlük için bir düzen olabilir *günlük\*.txt* düzeni adlandırma uygulama aşağıdaki herhangi bir günlük dosyası için geçerli.
+
+>[!NOTE]
+> Her gün veya belirli bir boyuta ulaştığında, uygulamanızın yeni bir günlük dosyası oluşturur, yeniden başlatıldıktan sonra Linux için Log Analytics aracısını kadar bunları bulmaz. Aracı yalnızca numaralandırır ve başlatılması sırasında belirtilen günlükleri desenler için izlemeye başlar ve bu nedenle yeniden başlatma aracı işlemi otomatik hale getirerek etrafında planlamanız gerekir çünkü budur.  Bu sınırlama Windows için Log Analytics aracısı yok.  
+>
 
 Aşağıdaki tabloda farklı günlük dosyaları belirtmek için geçerli düzeni örnekleri sağlar.
 

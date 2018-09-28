@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: ca880ea273552198b4bc84cbe594489ef0adf5e0
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0b19bb0d77bb600258596ce369713464641a7d2f
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393205"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423247"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Rezervasyonlar Azure kaynaklarını yönetme
 
@@ -28,7 +28,7 @@ Azure ayrılmış sanal makine örnekleri satın aldıysanız, ayırma için İy
 
 ## <a name="change-the-scope-for-a-reservation"></a>Rezervasyon için kapsam değiştirme
 
- Ayırma indirimi, sanal makineler, SQL veritabanları veya rezervasyonunuzun eşleşen ve ayırma kapsamı içinde çalıştırılan diğer kaynaklar için geçerlidir. Ayırma kapsamı tek bir abonelik veya tüm abonelikler, faturalama bağlamında olabilir. Tek bir abonelik için kapsamı ayarlarsanız, seçili Abonelikteki kaynaklar çalışan ayırma eşleştirilir. Paylaşılan kapsam ayarlarsanız, Azure faturalandırma bağlam içinde tüm abonelikleri çalışan kaynaklar ayırmaya eşleşir. Fatura bağlamı, rezervasyon satın almak için kullanılan abonelik üzerinde bağlıdır.
+ Ayırma indirimi, sanal makineler, SQL veritabanları, Azure Cosmos DB veya rezervasyonunuzun eşleşen ve ayırma kapsamı içinde çalıştırılan diğer kaynaklar için geçerlidir. Ayırma kapsamı tek bir abonelik veya tüm abonelikler, faturalama bağlamında olabilir. Tek bir abonelik için kapsamı ayarlarsanız, seçili Abonelikteki kaynaklar çalışan ayırma eşleştirilir. Paylaşılan kapsam ayarlarsanız, Azure faturalandırma bağlam içinde tüm abonelikleri çalışan kaynaklar ayırmaya eşleşir. Fatura bağlamı, rezervasyon satın almak için kullanılan abonelik üzerinde bağlıdır.
 
 Rezervasyon kapsamı güncelleştirilemedi:
 
@@ -122,6 +122,7 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 - [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md)
+- [Azure Cosmos DB ayrılmış kapasite ile Azure Cosmos DB kaynaklarını için ön ödeme](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Azure ayırmalardan SUSE yazılım planları için ön ödeme](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [VM ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
 - [SUSE Linux Enterprise yazılım planı indirim nasıl uygulanacağını anlama](../billing/billing-understand-suse-reservation-charges.md)

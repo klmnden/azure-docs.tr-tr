@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26f696c2f54d9cb8a176fe079101e26384ac0a6e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034459"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405623"
 ---
 # <a name="custom-roles-in-azure"></a>Azure'da özel roller
 
-[Yerleşik roller](built-in-roles.md) kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi özel rollerinizi oluşturabilirsiniz. Yerleşik roller gibi yalnızca kullanıcıları, grupları ve abonelik, kaynak grubu ve kaynak kapsamları hizmet sorumluları için özel roller atayabilirsiniz. Özel roller, bir Azure Active Directory (Azure AD) kiracısı içinde depolanır ve abonelikler arasında paylaşılabilir. Her Kiracı en fazla 2000 özel roller olabilir. Özel roller, Azure PowerShell, Azure CLI veya REST API'yi kullanarak oluşturulabilir.
+[Yerleşik roller](built-in-roles.md) kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi özel rollerinizi oluşturabilirsiniz. Yerleşik roller gibi yalnızca kullanıcıları, grupları ve abonelik, kaynak grubu ve kaynak kapsamları hizmet sorumluları için özel roller atayabilirsiniz. Özel roller, bir Azure Active Directory (Azure AD) dizinde depolanır ve abonelikler arasında paylaşılabilir. Her bir dizinde en fazla 2000 özel roller olabilir. Özel roller, Azure PowerShell, Azure CLI veya REST API'yi kullanarak oluşturulabilir.
 
 ## <a name="custom-role-example"></a>Özel rol örneği
 
@@ -92,7 +92,7 @@ Aşağıdaki özel bir rol JSON biçiminde gösterilen gibi göründüğünü g�
 
 | Özellik | Gerekli | Tür | Açıklama |
 | --- | --- | --- | --- |
-| `Name` | Evet | Dize | Özel rol görünen adı. Kiracınız için benzersiz olmalıdır. Harf, sayı, boşluk ve özel karakterler içerebilir. En fazla karakter sayısı 128'dir. |
+| `Name` | Evet | Dize | Özel rol görünen adı. Rol tanımı bir abonelik düzeyinde kaynak olsa da, bir rol tanımı aynı Azure AD dizini paylaşan birden çok abonelik içinde kullanılabilir. Bu görünen ad, Azure AD dizini kapsamında benzersiz olması gerekir. Harf, sayı, boşluk ve özel karakterler içerebilir. En fazla karakter sayısı 128'dir. |
 | `Id` | Evet | Dize | Özel rol benzersiz kimliği. Yeni bir rol oluşturduğunuzda, Azure PowerShell ve Azure CLI için bu kimliği otomatik olarak oluşturulur. |
 | `IsCustom` | Evet | Dize | Bu özel bir rol olup olmadığını gösterir. Kümesine `true` özel roller için. |
 | `Description` | Evet | Dize | Özel rol tanımı. Harf, sayı, boşluk ve özel karakterler içerebilir. En fazla karakter sayısı 1024'tür. |
