@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: bdc2eec30c44ddd9512ffdb33210a6b287d3debf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 18befb5c26879642b371a2ea084fb5c27349addb
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47003959"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47401562"
 ---
-## <a name="data-lake"></a>Data Lake
+## <a name="data-lake-storage-gen1"></a>Data Lake Storage Gen1
 
 |  |  |
 |---------|---------|
-| [Data Lake Store şifrelemesini zorunlu kıl](../articles/governance/policy/samples/enforce-datalakestore-encryption.md) | Şifrelemesi etkin olmayan Data Lake Store hesaplarını reddeder. |
+| [Data Lake Storage 1. Nesil şifrelemesini zorlama](../articles/governance/policy/samples/enforce-datalakestore-encryption.md) | Şifrelemesi etkin olmayan Data Lake Storage 1. Nesil hesaplarını reddeder. |

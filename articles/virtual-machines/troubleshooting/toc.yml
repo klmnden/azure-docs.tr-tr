@@ -1,0 +1,120 @@
+items:
+- name: Azure VM’lerinde Sorun Giderme
+  href: index.md
+- name: Ayırma hataları
+  items:
+  - name: Ayırma hataları
+    href: allocation-failure.md
+  - name: Klasik dağıtımlarıyla ilgili ayırma hataları
+    href: allocation-failure-classic.md
+- name: Önyükleme tanılamaları
+  href: boot-diagnostics.md
+- name: RDP
+  items:
+  - name: RDP’yi sıfırlama
+    href: reset-rdp.md
+  - name: RDP sorunlarını giderme
+    href: troubleshoot-rdp-connection.md
+  - name: RDP sorunlarını gidermeyle ilgili ayrıntılar
+    href: detailed-troubleshoot-rdp.md
+  - name: Belirli hatalarda sorun giderme
+    href: troubleshoot-specific-rdp-errors.md
+- name: SSH
+  items:
+  - name: SSH hakkındaki sorunları giderme
+    href: troubleshoot-ssh-connection.md
+  - name: SSH hakkındaki sorunları gidermeyle ilgili ayrıntılar
+    href: detailed-troubleshoot-ssh-connection.md
+- name: Genel hata iletileri
+  href: error-messages.md
+- name: Windows VM’leriyle ilgili performans sorunları
+  href: performance-diagnostics.md
+  items:
+  - name: PerfInsights’ı kullanma
+    href: how-to-use-perfInsights.md
+  - name: Performans tanılama uzantısı
+    href: performance-diagnostics-vm-extension.md
+- name: Windows VM aracısını çevrimdışı olarak yükleme
+  href: install-vm-agent-offline.md
+- name: Bir VM’yi yeniden dağıtma
+  items:
+  - name: Linux
+    href: redeploy-to-new-node-linux.md
+  - name: Windows
+    href: redeploy-to-new-node-windows.md
+- name: VM parolasını sıfırlama
+  items:
+  - name: Windows
+    href: reset-local-password-without-agent.md
+  - name: Linux
+    href: reset-password.md
+- name: NIC’yi sıfırlama
+  href: reset-network-interface.md
+- name: VM’yi yeniden başlatma veya yeniden boyutlandırma
+  href: restart-resize-error-troubleshooting.md
+- name: Seri konsolu kullanma
+  items:
+  - name: Linux VM
+    href: serial-console-linux.md
+    items:
+    - name: Seri Konsol GRUB/Tek kullanıcı modu
+      href: serial-console-grub-single-user-mode.md
+    - name: Seri Konsol NMI/SysRq
+      href: serial-console-nmi-sysrq.md
+  - name: Windows VM
+    href: serial-console-windows.md
+    items:
+    - name: CMD ve PowerShell komutları
+      href: serial-console-cmd-ps-commands.md
+- name: Depolama alanı kaynaklarını silerken karşılaşılan hatalar
+  href: storage-resource-deletion-errors.md
+- name: Ekli VHD’ler ile VM’lerin beklenmeyen yeniden başlatmaları
+  href: unexpected-reboots-attached-vhds.md
+- name: Windows etkinleştirme sorunları
+  href: troubleshoot-activation-problems.md
+- name: 0Uygulama erişimi sorunları
+  href: troubleshoot-app-connection.md
+- name: Yeni VM dağıtımları
+  items:
+  - name: Linux
+    href: troubleshoot-deployment-new-vm-linux.md
+  - name: Windows
+    href: troubleshoot-deployment-new-vm-windows.md
+- name: Dağıtımlarla ilgili sorunları giderme
+  items:
+  - name: Linux
+    href: troubleshoot-deploy-vm-linux.md
+  - name: Windows
+    href: troubleshoot-deploy-vm-windows.md
+- name: Cihaz adları değiştirildi
+  href: troubleshoot-device-names-problems.md
+- name: VM kurtarma erişimi
+  items:
+  - name: Windows
+    items:
+    - name: PowerShell
+      href: troubleshoot-recovery-disks-windows.md
+    - name: Azure portal
+      href: troubleshoot-recovery-disks-portal-windows.md
+  - name: Linux
+    items:
+    - name: CLI
+      href: troubleshoot-recovery-disks-linux.md
+    - name: Azure portal
+      href: troubleshoot-recovery-disks-portal-linux.md
+- name: BitLocker hataları
+  href: troubleshoot-bitlocker-boot-error.md
+- name: Dosya sistemi hatalarını denetleme
+  href: troubleshoot-check-disk-boot-error.md
+- name: Azaltma hataları
+  href: troubleshooting-throttling-errors.md
+- name: İç içe geçmiş sanallaştırma kullanımı
+  href: troubleshoot-vm-by-use-nested-virtualization.md
+- name: Sistemin yeniden başlatılma nedenini anlama
+  href: understand-vm-reboot.md
+ms.openlocfilehash: b00e785c3ae31171ce3189edd9cffe094bc71024
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410784"

@@ -25,7 +25,7 @@ Ad    |Açıklama                                        |Tür       | İşlemle
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Kimlik      |Varlık Kimliği                                          |Int64      |Eşittir
 Za      |Kağıt başlığı                                        |Dize     |Eşittir<br/>StartsWith
-L       |Kağıt dil kodu çizgilerle "\@@@"            |Dize     |Eşittir
+L       |Kağıt dil kodu çizgilerle "\@@@\"            |Dize     |Eşittir
 E       |Kağıt yıl                                         |Int32      |Eşittir<br/>IsBetween
 D       |İnceleme Tarihi                                         |Tarih       |Eşittir<br/>IsBetween
 BİLGİ      |Alıntı sayısı                                     |Int32      |yok  
