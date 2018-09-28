@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/1/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 99329dd812ad47cf98845ba794bc108d26d85352
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 2f990f22d762c5f95d3274b740caf30691ded90e
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543713"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409853"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -31,6 +31,9 @@ Geçerli çözümdeki sınırlamalar aşağıda verilmiştir:
 - Bu çözüm, herhangi bir bölgedeki Vm'leri yönetir, ancak yalnızca, Azure Otomasyonu hesabı ile aynı abonelikte kullanılabilir.
 - Bu çözüm, Log Analytics çalışma alanı, bir Azure Otomasyonu hesabını ve Uyarıları destekleyen herhangi bir bölgesine AzureGov ve Azure ile kullanılabilir. E-posta işlevselliği AzureGov bölgeler şu anda desteklemez.
 
+> [!NOTE]
+> Klasik VM'ler için çözümü kullanıyorsanız, tüm Vm'leriniz sıralı olarak bulut hizmeti başına işlenir. Paralel işi işleme olması desteklenmeye farklı bulut hizmetleri arasında.
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu çözüm için runbook'ları ile çalışır bir [Azure farklı çalıştır hesabı](automation-create-runas-account.md). Sona ya da sık değişebilecek bir parola yerine sertifika doğrulaması kullandığından farklı çalıştır hesabı tercih edilen kimlik doğrulama yöntemidir.
@@ -45,28 +48,28 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
 
    > [!NOTE]
    > Ayrıca, her yerden oluşturabileceğiniz tıklayarak Azure portalında **kaynak Oluştur**. Market sayfasını içinde bir anahtar sözcüğü gibi yazın **Başlat** veya **Başlat/Durdur**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Alternatif olarak, bir veya daha fazla sözcüklerden çözüm tam adını yazın ve Enter tuşuna basın. Seçin **Vm'leri çalışma saatleri dışında başlatma/durdurma** Arama sonuçlarından.
-1. İçinde **Vm'leri çalışma saatleri dışında başlatma/durdurma** sayfasında seçilen çözüm için özet bilgilerini gözden geçirin ve ardından **Oluştur**.
+2. İçinde **Vm'leri çalışma saatleri dışında başlatma/durdurma** sayfasında seçilen çözüm için özet bilgilerini gözden geçirin ve ardından **Oluştur**.
 
    ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
 
-1. **Çözüm Ekle** sayfası görüntülenir. Çözümü Otomasyon aboneliğinize aktarmadan önce yapılandırmanız istenir.
+3. **Çözüm Ekle** sayfası görüntülenir. Çözümü Otomasyon aboneliğinize aktarmadan önce yapılandırmanız istenir.
 
    ![VM Management Çözüm Ekle sayfası](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-1. Üzerinde **Çözüm Ekle** sayfasında **çalışma**. Otomasyon hesabının bulunduğu Azure aboneliğine bağlı bir Log Analytics çalışma alanını seçin. Bir çalışma alanınız yoksa, seçin **yeni çalışma alanı oluştur**. Üzerinde **Log Analytics çalışma alanı** sayfasında, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **Çözüm Ekle** sayfasında **çalışma**. Otomasyon hesabının bulunduğu Azure aboneliğine bağlı bir Log Analytics çalışma alanını seçin. Bir çalışma alanınız yoksa, seçin **yeni çalışma alanı oluştur**. Üzerinde **Log Analytics çalışma alanı** sayfasında, aşağıdaki adımları gerçekleştirin:
    - Yeni bir ad belirtin **Log Analytics çalışma alanı**.
    - Seçin bir **abonelik** varsayılan seçili uygun değilse açılan listeden seçerek bağlamak için.
    - İçin **kaynak grubu**, yeni bir kaynak grubu oluşturun veya varolan bir tanesini seçin.
    - Bir **Konum** seçin. Şu anda yalnızca mevcut konumlarının **Avustralya Güneydoğu**, **Kanada orta**, **Orta Hindistan**, **Doğu ABD**, **Doğu Japonya**, **Güneydoğu Asya**, **UK Güney**, ve **Batı Avrupa**.
    - Bir **Fiyatlandırma katmanı** seçin. Seçin **GB başına (tek başına)** seçeneği. Log Analytics'e güncelleştirdi [fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) ve GB başına katman tek seçenektir.
 
-1. Gerekli bilgileri girdikten sonra **Log Analytics çalışma alanı** sayfasında **Oluştur**. Altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüden döndüren size **Çözüm Ekle** işiniz bittiğinde sayfa.
-1. Üzerinde **Çözüm Ekle** sayfasında **Otomasyon hesabı**. Yeni bir Log Analytics çalışma alanı oluşturuyorsanız, kendisiyle ilişkilendirilmiş olması için yeni bir Otomasyon hesabı oluşturun veya bir günlük analiz çalışma alanına bağlı olmayan bir Otomasyon hesabı seçin. Mevcut bir Otomasyon hesabı seçin veya **Otomasyon hesabı oluşturma**ve **Otomasyon hesabı Ekle** sayfasında, aşağıdaki bilgileri sağlayın:
+5. Gerekli bilgileri girdikten sonra **Log Analytics çalışma alanı** sayfasında **Oluştur**. Altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüden döndüren size **Çözüm Ekle** işiniz bittiğinde sayfa.
+6. Üzerinde **Çözüm Ekle** sayfasında **Otomasyon hesabı**. Yeni bir Log Analytics çalışma alanı oluşturuyorsanız, kendisiyle ilişkilendirilmiş olması için yeni bir Otomasyon hesabı oluşturun veya bir günlük analiz çalışma alanına bağlı olmayan bir Otomasyon hesabı seçin. Mevcut bir Otomasyon hesabı seçin veya **Otomasyon hesabı oluşturma**ve **Otomasyon hesabı Ekle** sayfasında, aşağıdaki bilgileri sağlayın:
    - **Ad** alanına Otomasyon hesabının adını girin.
 
     Diğer tüm seçenekler seçili Log Analytics çalışma alanı otomatik olarak doldurulur. Bu seçenekler değiştirilemez. Bu çözüme dahil olan runbook'lar için varsayılan kimlik doğrulama yöntemi, bir Azure Farklı Çalıştır hesabıdır. Tıkladıktan sonra **Tamam**, yapılandırma seçenekleri doğrulanır ve Otomasyon hesabı oluşturulur. Bu işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.
 
-1. Son olarak, üzerinde **Çözüm Ekle** sayfasında **yapılandırma**. **Parametreleri** sayfası görüntülenir.
+7. Son olarak, üzerinde **Çözüm Ekle** sayfasında **yapılandırma**. **Parametreleri** sayfası görüntülenir.
 
    ![Çözüm için parametreleri sayfası](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
@@ -83,7 +86,7 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
      > [!IMPORTANT]
      > İçin varsayılan değer **hedef ResourceGroup adları** olduğu bir **&ast;**. Bu, bir Abonelikteki tüm sanal makineler hedefler. Aboneliğinizdeki tüm sanal makineleri hedeflemek için çözüm istemiyorsanız bu değeri zamanlamaları etkinleştirilmeden önce kaynak grubu adları listesine güncelleştirilmesi gerekiyor.
 
-1. Çözüm için gereken ve ilk ayarları yapılandırdıktan sonra tıklayın **Tamam** kapatmak için **parametreleri** sayfasından seçim yapıp **Oluştur**. Tüm ayarlar doğrulandıktan sonra çözümün aboneliğinize dağıtılır. Bu işlemin tamamlanması birkaç saniye sürebilir ve altında ilerleme durumunu izleyebilir **bildirimleri** menüsünde.
+8. Çözüm için gereken ve ilk ayarları yapılandırdıktan sonra tıklayın **Tamam** kapatmak için **parametreleri** sayfasından seçim yapıp **Oluştur**. Tüm ayarlar doğrulandıktan sonra çözümün aboneliğinize dağıtılır. Bu işlemin tamamlanması birkaç saniye sürebilir ve altında ilerleme durumunu izleyebilir **bildirimleri** menüsünde.
 
 ## <a name="scenarios"></a>Senaryolar
 

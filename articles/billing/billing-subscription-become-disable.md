@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 81f4830691f423e51d6c1f0b71a8fc62160ea92e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 3fc7e316289201f5a800b56a7dc63f559c1f90a2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393018"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422669"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Neden Azure Aboneliğim devre dışı bırakıldı ve nasıl yeniden?
 
@@ -38,7 +38,7 @@ Azure ücretsiz hesabı için kaydolduğunuzda, 200 ABD Doları değerinde Azure
 > [!NOTE] 
 > Ücretsiz deneme aboneliği varsa ve harcama limitini kaldırın, sonunda ücretsiz deneme, Kullandıkça Öde aboneliğinizi dönüştürür. Tam abonelik oluşturduğunuz sonraki 30 gün için kalan kredilerinizi kullanmaya devam. Ayrıca Hizmetleri 12 ay boyunca ücretsiz erişebilirsiniz.
 
-İzleme ve Azure için faturalandırma etkinliğini yönetme hakkında bilgi için bkz: [Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen maliyetleri engelleme](billing-getting-started.md) ve [uyarılar, Microsoft Azure abonelikleri için fatura ayarlama](billing-set-up-alerts.md).
+İzleme ve Azure için faturalandırma etkinliğini yönetme hakkında bilgi için bkz: [Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen maliyetleri engelleme](billing-getting-started.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Faturanızı süresi geçti.

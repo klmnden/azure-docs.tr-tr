@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: danlep
-ms.openlocfilehash: fc245d38af90e0c395389e24b14d061fcfe0c10c
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: abb0ba6eace2e837ea2f74a0d919097f8801101e
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056371"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407425"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure'da Windows ile SSH anahtarlarını kullanma
 
-Bu makalede, oluşturmak ve güvenli Kabuk (SSH) anahtarları oluşturmak ve azure'da bir Linux sanal makinesi (VM) bağlamak için bir Windows bilgisayarda yollarını açıklar. Bir Linux veya Macos'ta istemciden SSH anahtarları kullanmak için bkz: [hızlı](mac-create-ssh-keys.md) veya [ayrıntılı](create-ssh-keys-detailed.md) Kılavuzu.
+Bu makalede oluşturma ve kullanma yolları *secure shell* (SSH) anahtarları oluşturmak ve azure'da bir Linux sanal makinesi (VM) bağlamak için bir Windows bilgisayarda. Bir Linux veya Macos'ta istemciden SSH anahtarları kullanmak için bkz: [hızlı](mac-create-ssh-keys.md) veya [ayrıntılı](create-ssh-keys-detailed.md) Kılavuzu.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -33,32 +33,32 @@ Bu makalede, oluşturmak ve güvenli Kabuk (SSH) anahtarları oluşturmak ve azu
 ## <a name="windows-packages-and-ssh-clients"></a>Windows paketlerini ve SSH istemcileri
 Bağlanmak ve kullanarak azure'da Linux sanal makineleri yönetme bir *SSH istemcisi*. SSH komut oluşturma ve SSH anahtarlarını yönetme ve SSH bağlantılarına takımının bir Linux veya Macos'ta genellikle çalıştıran bilgisayarlar vardır. 
 
-Windows bilgisayarlar, her zaman yüklü karşılaştırılabilir SSH komutları yoktur. Windows 10 'un en son sürümlerini sağlamak [OpenSSH istemcisi komutları](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) oluşturmak ve SSH anahtarlarını yönetme ve bir komut istemi'nden SSH bağlantıları oluşturmak için. Yeni Windows 10 sürümleri de dahil [Linux için Windows alt sistemi](https://docs.microsoft.com/windows/wsl/about) çalıştırın ve yardımcı programları gibi bir SSH istemcisi bir Bash kabuğunda içinde yerel olarak erişmek için. 
+Windows bilgisayarlar, her zaman yüklü karşılaştırılabilir SSH komutları yoktur. Windows 10 'un en son sürümlerini sağlamak [OpenSSH istemcisi komutları](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) oluşturmak ve SSH anahtarlarını yönetme ve bir komut isteminden SSH bağlantıları oluşturmak için. Yeni Windows 10 sürümleri de dahil [Linux için Windows alt sistemi](https://docs.microsoft.com/windows/wsl/about) çalıştırın ve yardımcı programları gibi bir SSH istemcisi bir Bash kabuğunda içinde yerel olarak erişmek için. 
 
-Yerel olarak yükleyebilirsiniz ortak Windows SSH istemcileri, Windows için başka bir SSH aracını kullanmak istiyorsanız, aşağıdaki paketleri dahil edilmiştir:
+Yerel olarak yükleyebilirsiniz diğer ortak Windows SSH istemcileri aşağıdaki paketlerinde bulunur:
 
 * [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Windows için Git](https://git-for-windows.github.io/)
 * [MobaXterm](http://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
-Başka bir seçenek SSH yardımcı programları bash hizmetinde kullanılabilir kullanmaktır [Azure Cloud Shell](../../cloud-shell/overview.md). 
+Bash hizmetinde kullanılabilir SSH yardımcı programları da kullanabilirsiniz [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
 * Cloud Shell web tarayıcınızda erişim [ https://shell.azure.com ](https://shell.azure.com) veya [Azure portalında](https://portal.azure.com). 
 * Erişim Cloud Shell olarak Visual Studio Code içindeki bir terminal yükleyerek [Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## <a name="create-an-ssh-key-pair"></a>SSH anahtar çifti oluşturma
-Bu bölümde, Windows üzerinde SSH anahtar çifti oluşturmak için iki seçenek gösterir.
+Windows üzerinde SSH anahtar çifti oluşturmak için iki seçenek aşağıdaki bölümlerde açıklanmaktadır. Kabuk komutu kullanabilirsiniz (`ssh-keygen`) veya bir GUI aracını (PuTTYgen).
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>Ssh-keygen ile SSH anahtarları oluşturma
 
-Windows üzerinde SSH istemci araçlarını destekleyen bir komut kabuğunu çalıştırın (veya Azure Cloud Shell'i kullanırsanız) kullanarak bir SSH anahtar çifti oluşturma `ssh-keygen` komutu. Aşağıdaki komutu yazın ve istemlerini yanıtlayın. Geçerli konumu bir SSH anahtar çiftiniz varsa bu dosyaların üzerine yazılır. 
+Windows üzerinde SSH istemci araçlarını destekleyen bir komut kabuğunu çalıştırın (veya Azure Cloud Shell'i kullanırsanız) kullanarak bir SSH anahtar çifti oluşturma `ssh-keygen` komutu. Aşağıdaki komutu yazın ve istemlerini yanıtlayın. Seçilen konumda bir SSH anahtar çiftiniz varsa bu dosyaların üzerine yazılır. 
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-Daha fazla arka plan ve bilgi için bkz. [hızlı](mac-create-ssh-keys.md) veya [ayrıntılı](create-ssh-keys-detailed.md) anahtarları oluşturmak için adımları `ssh-keygen`.
+Daha fazla arka plan ve bilgi için bkz. [hızlı](mac-create-ssh-keys.md) veya [ayrıntılı](create-ssh-keys-detailed.md) kullanarak SSH anahtarları oluşturma adımları `ssh-keygen`.
 
 ### <a name="create-ssh-keys-with-puttygen"></a>PuTTYgen ile SSH anahtarları oluşturma
 
@@ -70,32 +70,32 @@ PuTTYgen ile bir SSH RSA anahtar çifti oluşturmak için:
 
 2. Tıklayın **oluşturmak**. Varsayılan olarak, 2048 bit SSH-2 RSA anahtarı PuTTYgen oluşturur.
 
-4. Fare üzerindeyken bazı rastgele anahtarı oluşturmak için boş alan.
+4. Rastgele olma durumu için anahtar sağlamak için boş alanı fareyi hareket ettirin.
 
-5. Ortak anahtar oluşturulduktan sonra isteğe bağlı olarak girin ve bir parolayı onaylayın. VM'ye SSH anahtarınız doğrulandığında için parola istenir. Birisi özel anahtarınızı alırsa bir parola olmadığında, bunlar herhangi bir VM veya bu anahtarı kullanan bir hizmet için oturum açabilir. Bir parola oluşturmanız önerilir. Ancak, parolayı unutursanız, bunu kurtarma yolu yoktur.
+5. Ortak anahtar oluşturulduktan sonra isteğe bağlı olarak girin ve bir parolayı onaylayın. VM ile özel SSH anahtarı kimlik doğrulaması sırasında için parola istenir. Birisi özel anahtarınızı alırsa bir parola olmadığında, bunlar herhangi bir VM veya bu anahtarı kullanan bir hizmet için oturum açabilir. Bir parola oluşturmanız önerilir. Ancak, parolayı unutursanız, bunu kurtarma yolu yoktur.
 
-6. Ortak anahtarı, pencerenin en üstünde görüntülenir. Kopyalayın ve bir Linux VM'si oluşturduğunuzda bu tek satırlı biçimde ortak anahtarı Azure portalı veya Azure Resource Manager şablonu yapıştırın. Ayrıca **ortak anahtarı Kaydet** bilgisayarınıza bir kopyasını kaydetmek için:
+6. Ortak anahtarı, pencerenin en üstünde görüntülenir. Tüm bu ortak anahtarı kopyalayın ve bir Linux VM oluşturduğunuzda, Azure portalında veya Azure Resource Manager şablonu yapıştırın. Belirleyebilirsiniz **ortak anahtarı Kaydet** bilgisayarınıza bir kopyasını kaydetmek için:
 
     ![PuTTY ortak anahtar dosyasını Kaydet](./media/ssh-from-windows/save-public-key.png)
 
-7. İsteğe bağlı olarak, özel anahtarı PuTTy özel anahtar biçiminde (.ppk dosyasını) kaydetmek için tıklatın **özel anahtarı Kaydet**. .Ppk dosyasını ihtiyacınız olan PuTTY daha sonra VM'ye SSH bağlantısı için kullanmak istediğiniz.
+7. Özel anahtarı PuTTy özel anahtar biçiminde (.ppk dosyasını) kaydetmek için isteğe bağlı olarak seçin **özel anahtarı Kaydet**. Daha sonra VM'ye SSH bağlantısı için PuTTY kullanmak üzere .ppk dosyasını gerekir.
 
     ![PuTTY özel anahtar dosyasını seçin](./media/ssh-from-windows/save-ppk-file.png)
 
-    Özel anahtarı OpenSSH biçiminde kaydetmek istiyorsanız, birçok SSH istemcileri tarafından kullanılan özel anahtar biçimi tıklayın **dönüştürmeler** > **OpenSSH anahtarını dışarı aktar**.
+    Özel anahtarı OpenSSH biçiminde kaydetmek istiyorsanız, birçok SSH istemcileri tarafından kullanılan özel anahtar biçimi seçin **dönüştürmeler** > **OpenSSH anahtarını dışarı aktar**.
 
-## <a name="provide-ssh-public-key-when-deploying-a-vm"></a>Bir VM dağıtılırken SSH ortak anahtarı sağlayın
+## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Bir VM dağıtılırken bir SSH ortak anahtarı sağlayın
 
 Kimlik doğrulaması için SSH anahtarları kullanan bir Linux VM oluşturmak için Azure portalı veya diğer yöntemleri kullanarak VM oluşturma sırasında SSH ortak anahtarınızı sağlayın.
 
-Aşağıdaki örnek nasıl kopyalayıp bir Linux VM'si oluşturduğunuzda bu ortak anahtar Azure portalına gösterir. Ortak anahtarı genellikle ardından depolanan `~/.ssh/authorized_keys` yeni vm'nizde.
+Aşağıdaki örnek nasıl kopyalayıp bir Linux VM'si oluşturduğunuzda bu ortak anahtar Azure portalına gösterir. Ortak anahtarı genellikle ~/.ssh/authorized_key dizininde yeni sanal makinenize daha sonra depolanır.
 
    ![Azure portalında bir VM oluşturduğunuzda ortak anahtarı kullanır.](./media/ssh-from-windows/use-public-key-azure-portal.png)
 
 
 ## <a name="connect-to-your-vm"></a>Sanal Makinenize bağlanın
 
-Windows, Linux VM'ye SSH bağlantısından yapmanın bir yolu, bir SSH istemcisi kullanmaktır. Tercih edilen yöntem Windows sisteminizde bir SSH istemcisi yüklü veya Azure Cloud Shell'deki bash hizmetinde SSH araçları kullanırsanız budur. GUI tabanlı bir araç tercih ederseniz, PuTTY ile bağlanabilirsiniz.  
+Windows, Linux VM'ye SSH bağlantısından yapmanın bir yolu, bir SSH istemcisi kullanmaktır. Windows sisteminizde yüklü olan bir SSH istemcisi varsa veya Azure Cloud Shell'deki bash hizmetinde SSH Araçları'nı kullanıyorsanız tercih edilen yöntem budur. GUI tabanlı bir araç tercih ederseniz, PuTTY ile bağlanabilirsiniz.  
 
 ### <a name="use-an-ssh-client"></a>Bir SSH istemcisi kullanma
 Ortak anahtarı, Azure VM üzerinde dağıtılmış ve yerel sisteminizde, IP adresini veya VM'nizi DNS adını kullanarak sanal makinenize yönelik SSH özel anahtarı ile. Değiştirin *azureuser* ve *myvm.westus.cloudapp.azure.com* yönetici kullanıcı adı ve tam etki alanı adı (veya IP adresi) ile aşağıdaki komutta:
@@ -108,7 +108,7 @@ Anahtar çiftinizi oluştururken bir parola yapılandırdıysanız, oturum açma
 
 ### <a name="connect-with-putty"></a>PuTTY ile bağlanma
 
-Yüklediyseniz [PuTTY yükleme paketini](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) ve PuTTY özel anahtar (.ppk dosyasını) daha önce oluşturulan PuTTY ile Linux VM'ye bağlanabilirsiniz.
+Yüklediyseniz [PuTTY yükleme paketini](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) ve bir PuTTY özel anahtar (.ppk) dosyası, daha önce oluşturulan bir Linux VM PuTTY ile bağlanabilirsiniz.
 
 1. Putty'yi başlatın.
 
@@ -116,7 +116,7 @@ Yüklediyseniz [PuTTY yükleme paketini](http://www.chiark.greenend.org.uk/~sgta
 
     ![PuTTY yeni bağlantı Aç](./media/ssh-from-windows/putty-new-connection.png)
 
-3. Seçmeden önce **açık**, tıklayın **bağlantı** > **SSH** > **Auth** sekmesi. Göz atın ve kendi PuTTY özel anahtar (.ppk dosyasını) seçin:
+3. Seçin **bağlantı** > **SSH** > **Auth** kategorisi. Göz atın ve kendi PuTTY özel anahtar (.ppk dosyasını) seçin:
 
     ![Kimlik doğrulaması için PuTTY özel anahtarınızı seçin](./media/ssh-from-windows/putty-auth-dialog.png)
 
@@ -128,4 +128,4 @@ Yüklediyseniz [PuTTY yükleme paketini](http://www.chiark.greenend.org.uk/~sgta
 
 * SSH anahtarları oluşturma ve Linux Vm'leri için SSH bağlantıları oluşturmak için Azure Cloud Shell'de PowerShell de kullanabilirsiniz. Bkz: [PowerShell Hızlı Başlangıç](../../cloud-shell/quickstart-powershell.md#ssh).
 
-* SSH kullanarak Linux Vm'lerinizi bağlanmak için bkz yaşıyorsanız [sorun giderme SSH bağlantıları için bir Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* SSH kullanarak Linux Vm'lerinizi bağlanmak için bkz zorlanıyorsanız [sorun giderme SSH bağlantıları için bir Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

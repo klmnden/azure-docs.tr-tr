@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b8d5208992e8f12fae3c010748b2c494e0d50ee8
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: b6e6e8eeea7ee442ccdbb0524cafb2f51ff30268
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465666"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409618"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Döküm ve geri yükleme kullanarak PostgreSQL veritabanınızı geçirme
 Kullanabileceğiniz [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) bir döküm dosyası bir PostgreSQL veritabanı ayıklanacak ve [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) PostgreSQL veritabanı pg_dump tarafından oluşturulan bir arşiv dosyasını geri.
@@ -36,9 +36,6 @@ pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <datab
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
-> [!IMPORTANT]
-> Yedekleme dosyalarını Azure bir blob/deposuna kopyalamak ve buradan Internet üzerinden geri yükleme işlemi daha çok daha hızlı olması gereken, geri yükleme gerçekleştirin.
-> 
 
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Verileri pg_restore kullanarak PostrgeSQL için hedef Azure veritabanını geri yükleyin
 Hedef veritabanı oluşturduktan sonra döküm dosyasını hedef veritabanına veri geri yüklemek için pg_restore komut -d,--dbname parametresini kullanabilirsiniz.
@@ -74,7 +71,7 @@ Var olan PostgreSQL veritabanınızın PostgreSQL hizmeti için Azure veritaban�
     ```
 
 ### <a name="for-the-restore"></a>Geri yüklemek için
-- Yedekleme dosyalarını bir Azure blob/deposu içinde kopyalayın ve oradan geri yükleme yapın. Geri yükleme Internet üzerinden yapmaktan daha hızlı olması gerekir. 
+- PostgreSQL sunucusu için geçiş yaptığınız ve ağ gecikme süresini azaltmak için o VM'den pg_restore yapmak için Azure veritabanı ile aynı bölgede bir Azure VM yedekleme dosyasını gitme öneririz. Ayrıca VM yaratılırken öneririz [accelerated networking](..\virtual-network\create-vm-accelerated-networking-powershell.md) etkin.
 - Varsayılan olarak yapılması gerekir, ancak veri ekleme sonra create INDEX deyimi doğrulamak için döküm dosyasını açın. Böyle değilse, veri eklendikten sonra create INDEX deyimi taşıyın.
 - Anahtarlar geri yükleme -Fc ve -j *#* geri paralel hale getirmek için. *#* hedef sunucuda çekirdek sayısıdır. İle deneyebilirsiniz *#* yönelik etkisini öğrenmek için iki kez hedef sunucu çekirdek sayısı için ayarlayın. Örneğin:
 

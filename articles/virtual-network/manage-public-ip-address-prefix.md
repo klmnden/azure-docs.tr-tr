@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 1426bddb6e9e3e110fe5a86ed451ec40c2677e78
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 71dee9f36a3e8e11cc23f966c9157f6409a3b5e0
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957522"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405742"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Oluşturma, değiştirme veya genel bir IP adresi ön eki Sil
 
@@ -78,7 +78,6 @@ Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir
     |Ad|Evet|Genel IP adresinin adı kaynak grubu içinde benzersiz olmalıdır.|
    |Boşta kalma zaman aşımı (dakika)|Hayır|Etkin tutma iletileri göndermek için istemcileri kullanmadan bir TCP veya HTTP bağlantısını açık tutmak için kaç dakika. |
    |DNS ad etiketi|Hayır|(Tüm abonelikler ve müşteriler arasında) ad oluşturma Azure bölgesi içinde benzersiz olmalıdır. Ada sahip bir kaynak için bağlanabilmesi için azure otomatik olarak adı ve IP adresi, DNS kaydeder. Azure varsayılan alt ağ gibi ekler *location.cloudapp.azure.com* (konum seçtiğiniz konum olduğu) adına, DNS adı tam olarak nitelenmiş oluşturulacağını sağladığınız. Daha fazla bilgi için [Azure genel bir IP adresi ile Azure DNS kullanma](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
-   |Kullanılabilirlik bölgesi|  Hayır | Bu ayar, yalnızca desteklenen bir bölge seçtiğinizde görünür. Desteklenen konumların bir listesi için bkz. [kullanılabilirlik alanlarına genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bölgesel olarak yedekli sizin için otomatik olarak seçilir ve veri yolunuz bölge hatasına dayanıklı hale getirir. Bölge hatalarına karşı dayanıklı değil, belirli bir bölgenin sağlamak isterseniz belirli bir bölgenin seçebilirsiniz.
 
 ## <a name="view-or-delete-a-prefix"></a>Görüntülemek veya bir ön eki Sil
 

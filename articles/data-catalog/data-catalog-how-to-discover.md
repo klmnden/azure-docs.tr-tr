@@ -2,18 +2,18 @@
 title: Azure veri Kataloğu'nda veri kaynaklarını bulma
 description: Bu makalede, arama, filtreleme ve Azure veri Kataloğu portalının isabet vurgulama özellikleri kullanarak da dahil olmak üzere, Azure veri Kataloğu ile kayıtlı veri varlıklarını nasıl bulacağınızı vurgulanır.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: f72ae3a3-6573-4710-89a7-f13555e1968c
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: f8e722073db967752747511e47921aec3c4a281a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 11216640a4f4f78e0b0de850f32f0ff85bbc9ef2
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053608"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407068"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Azure veri Kataloğu'nda veri kaynaklarını bulma
 ## <a name="introduction"></a>Giriş

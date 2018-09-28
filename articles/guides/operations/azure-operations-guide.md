@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 28eeae8906480a5a160bfe11386da96b646f7427
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296865"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423502"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure BT operatörleri için Başlarken
 
@@ -228,10 +228,6 @@ Daha fazla bilgi için [Microsoft Azure kaynak tüketiminize öngörü](../../bi
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Fiyatlandırma hesaplayıcı ile tahmini maliyet
 
 Her Azure hizmeti için fiyatlandırma farklılık gösterir. Çoğu Azure hizmeti temel, standart ve Premium Katmanlar sunar. Genellikle, her katmanda, çeşitli fiyat ve performans düzeyleri vardır. Kullanarak [çevrimiçi fiyatlandırma hesaplayıcı](http://azure.microsoft.com/pricing/calculator), fiyatlandırma tahminler oluşturabilirsiniz. Hesaplayıcı, tek bir kaynak veya kaynak grubunun maliyetini tahmin etmek için esneklik içerir.
-
-### <a name="set-up-billing-alerts"></a>Fatura uyarılarını ayarlama
-
-Uygulamanız veya çözümünüz azure'da dağıttıktan sonra harcama limitleri yaklaşım uyarıda tanımlandığında, e-posta gönderen uyarılar oluşturabilirsiniz. Daha fazla bilgi için [uyarılar, Microsoft Azure abonelikleri için fatura ayarlama](../../billing/billing-set-up-alerts.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 68a7883e7f8b3fb62265375208f66b761d43d82e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 20c7d20399392e653668953029bcb81886863ce4
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391218"
+ms.locfileid: "47404628"
 ---
 # <a name="manually-create-and-use-kubernetes-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>El ile oluşturma ve Azure diskleri Azure Kubernetes Service (AKS) ile Kubernetes hacmi kullanma
 
@@ -24,7 +24,7 @@ Kubernetes birimleri hakkında daha fazla bilgi için bkz. [Kubernetes birimleri
 
 Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
 
-Ayrıca Azure CLI Sürüm 2.0.46 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. [Azure CLI yükleme] [yükleme-azure-cli] yüklemeniz veya yükseltmeniz gerekirse, bkz.
+Ayrıca Azure CLI Sürüm 2.0.46 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Bir Azure diskinin oluşturma
 
@@ -91,7 +91,7 @@ Artık takılı olduğu bir Azure diskinin ile çalışan bir pod sahip `/mnt/az
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-AKS hakkında daha fazla bilgi için kümeleri ile Azure disklerini etkileşim, bkz: [Azure diskleri için Kubernetes eklentisi][kubernetes-disks]
+AKS hakkında daha fazla bilgi için kümeleri ile Azure disklerini etkileşim, bkz: [Azure diskleri için Kubernetes eklentisi][kubernetes-disks].
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
@@ -106,3 +106,4 @@ AKS hakkında daha fazla bilgi için kümeleri ile Azure disklerini etkileşim, 
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[install-azure-cli]: /cli/azure/install-azure-cli

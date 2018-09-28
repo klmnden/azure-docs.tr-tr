@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2582284f56da1dd1c49c4183ba07a4f60d4f6061
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 85fbbc4e489c7b48f7dc95de1738636b7383de16
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381648"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419415"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -37,15 +37,15 @@ ms.locfileid: "44381648"
     <ClaimsSchema>
       ...
     </ClaimsSchema>
-    <ClaimsTransformations>
-      ...
-    </ClaimsTransformations>
     <Predicates>
     ...
     </Predicates>
     <PredicateValidations>
     ...
     </PredicateValidations>
+    <ClaimsTransformations>
+      ...
+    </ClaimsTransformations>
     <ContentDefinitions>
       ...
     </ContentDefinitions>
@@ -55,9 +55,11 @@ ms.locfileid: "44381648"
  </BuildingBlocks>
 ```
 
-**BuildingBlocks** öğesi aşağıdaki öğeleri içerir:
+**BuildingBlocks** öğesi tanımlı sırada belirtilen aşağıdaki öğeleri içerir:
 
 - [ClaimsSchema](claimsschema.md) -ilkenin bir parçası başvurulabilir talep türlerini tanımlar. Talep şema, talep türleri bildirme burada yerdir. Bir talep türü, birçok programlama dili bir değişkende benzerdir. Özel ilkeniz tarafından kullanılan iç veri depolamak veya uygulamanızın kullanıcıdan veri toplamak, sosyal kimlik sağlayıcılarını talepleri almak, veri göndermek ve özel bir REST API'si almak için talep türünü kullanın. 
+
+- [Koşullar ve PredicateValidationsInput](predicates.md) -düzgün biçimlendirilmiş veriler yalnızca bir talep girildiğinden emin olmak için bir doğrulama işlemi gerçekleştirmenizi sağlar.
  
 - [ClaimsTransformations](claimstransformations.md) -ilkenizde kullanılabilir talep dönüştürmeleri listesini içerir.  Talep dönüştürme bir talep diğerine dönüştürür. Talep dönüştürme bir dönüştürme yöntemi gibi belirtin: 
     - Belirtilen dize talep durumunu değiştirme. Örneğin, bir dize küçük büyük harf olarak değiştiriliyor.
@@ -70,4 +72,4 @@ ms.locfileid: "44381648"
 
 - [Yerelleştirme](localization.md) -birden çok dil desteği sağlar. Varsayılan bir dil seçin ve bir ilkede desteklenen dillerin listesini ayarlayın ilkelerinde yerelleştirme desteğini sağlar. Dile özgü dizeleri ve koleksiyonları da desteklenir.
 
-- [Koşullar ve PredicateValidationsInput](predicates.md) -düzgün biçimlendirilmiş veriler yalnızca bir talep girildiğinden emin olmak için bir doğrulama işlemi gerçekleştirmenizi sağlar.
+

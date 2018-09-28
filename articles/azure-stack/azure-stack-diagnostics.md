@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616958"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419619"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack tanılama araçları
 
@@ -124,7 +124,7 @@ if($s)
  |ACSFabric|DatacenterIntegration|KeyVaultControlPlane|SeedRingServices|
  |ACSFrontEnd|DeploymentMachine|KeyVaultDataPlane|SLB|
  |ACSMetrics|DiskRP|KeyVaultInternalControlPlane|SlbVips|
- |ACSMigrationService|Etki alanı|KeyVaultInternalDataPlane|SQL|
+ |ACSMigrationService|Domain|KeyVaultInternalDataPlane|SQL|
  |ACSMonitoringService|ECE|KeyVaultNamingService|SRP|
  |ACSSettingsService|EventAdminRP|MDM|Depolama|
  |ACSTableMaster|EventRP|MetricsAdminRP|StorageAccounts|
@@ -143,14 +143,6 @@ if($s)
  |Bulut|Identityprovider|OnboardRP|     |   
  |Küme|IDN'ler|PXE|     |
  |   |   |   |    |
-
-
-### <a name="bkmk_gui"></a>Bir grafik kullanıcı arabirimi kullanarak günlük toplama
-Azure Stack günlükleri almak Get-AzureStackLog cmdlet'i için gerekli parametreleri sağlamak yerine, ana Azure Stack araçları GitHub araçları deponun bulunan kullanılabilir açık kaynak Azure Stack araçları da yararlanabilirsiniz http://aka.ms/AzureStackTools.
-
-**ERCS_AzureStackLogs.ps1** PowerShell Betiği, GitHub araçları deposunda depolanır ve düzenli olarak güncelleştirilir. Kullanılabilir en son sürüme sahip, doğrudan indirmelisiniz emin olmak için http://aka.ms/ERCS. Bir yönetici PowerShell oturumundan başlatıldı, betik, ayrıcalıklı uç noktasına bağlanır ve Get-AzureStackLog sağlanan parametrelerle çalıştırılır. Betik parametre belirtilirse, bir grafik kullanıcı arabirimi aracılığıyla parametreler için sormadan için varsayılan olarak ayarlanır.
-
-ERCS_AzureStackLogs.ps1 PowerShell komut dosyası hakkında daha fazla bilgi için izleyebilirsiniz [kısa bir video](https://www.youtube.com/watch?v=Utt7pLsXEBc) veya betiğin görüntüleme [Benioku dosyası](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) Azure Stack araçları GitHub deposunda bulunur. 
 
 ### <a name="additional-considerations"></a>Diğer konular
 

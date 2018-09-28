@@ -2,18 +2,18 @@
 title: Azure veri Kataloğu'nda 'büyük veri' veri kaynaklarıyla çalışma
 description: Nasıl yapılır makalesi için Azure veri kataloğu kullanarak Azure Blob Depolama, Azure Data Lake ve Hadoop HDFS gibi 'büyük veri' veri kaynaklarıyla desenleri vurgulama.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: 626d1568-0780-4726-bad1-9c5000c6b31a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: d59b637d1c5ad2335492883503e738a80071a8dd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 42b002e3494d84084979f2f5b27e9679e61cbeb5
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053645"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407731"
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Azure veri Kataloğu'nda büyük veri kaynaklarıyla çalışma
 ## <a name="introduction"></a>Giriş

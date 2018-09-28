@@ -2,18 +2,18 @@
 title: Azure veri Kataloğu'ndaki Yenilikler
 description: Bu makalede, Azure veri Kataloğu'na eklenen yeni özellikler genel bir bakış sağlar.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 61f837fbe7f53cdf9f313e5498c6f99ea14203a7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047014"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406337"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure veri Kataloğu'ndaki Yenilikler
 Güncelleştirmeleri **Azure veri Kataloğu** düzenli olarak kullanıma sunulur. Her sürüm bazı sürümler arka uç hizmeti özelliklerine odaklanan yeni kullanıcıya yönelik özellikler içerir. Bu sayfa Azure veri Kataloğu hizmetine eklenen yeni kullanıcıya yönelik özellikler vurgulamaktadır.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 41e7f1aacfaf228b271aee0547d5f26a5967dafe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bb9a2a884439b00f52adfa9b7c1010a4610a77f7
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47011318"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47401611"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra yüksek SSD (Önizleme) yönetilen diskler için Azure sanal makine iş yükleri
 
@@ -46,12 +46,12 @@ Aşağıdaki tabloda farklı disk boyutları için farklı yapılandırmalar öz
 |4     |1,200         |300         |
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
-|32     |9,600         |2.000         |
-|64     |19.200         |2.000         |
-|128     |38,400         |2.000         |
-|256     |76,800         |2.000         |
-|512     |80,000         |2.000         |
-|1024-65.536 (boyutları 1 TiB artışlarla artan bu aralıkta)     |160,000         |2.000         |
+|32     |9,600         |2,000         |
+|64     |19.200         |2,000         |
+|128     |38,400         |2,000         |
+|256     |76,800         |2,000         |
+|512     |80,000         |2,000         |
+|1024-65.536 (boyutları 1 TiB artışlarla artan bu aralıkta)     |160,000         |2,000         |
 
 ## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
 
@@ -64,7 +64,7 @@ Ultra yüksek SSD kullanırken aşağıdaki fatura değerlendirmeleri geçerlidi
 
 ### <a name="managed-disk-size"></a>Yönetilen disk boyutu
 
-Yönetilen diskler, sağlanan boyutları faturalandırılır. Azure (en yakın disk boyutu teklife yuvarlanır) sağlanan boyut eşler. Sağlanan disk boyutları Ayrıntılar için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın. Her disk desteklenen sağlanan disk boyutuna eşler ve saatlik olarak buna uygun olarak faturalandırılır. Örneğin, bir 200 GiB Ultra SSD Disk sağlanır ve 20 saat sonra silindi, 256 GiB disk boyutu teklifine eşler ve 256 GiB için 20 saat için faturalandırılırsınız. Diske yazılan gerçek veri miktarından bağımsız olarak budur.
+Yönetilen diskler, sağlanan boyutları faturalandırılır. Azure sağlanan boyutu (yukarı yuvarlayarak) en yakın disk boyutu teklifiyle eşleştirir. Sağlanan disk boyutları Ayrıntılar için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın. Her disk desteklenen sağlanan disk boyutuna eşler ve saatlik olarak buna uygun olarak faturalandırılır. Örneğin, bir 200 GiB Ultra SSD Disk sağlanır ve 20 saat sonra silindi, 256 GiB disk boyutu teklifine eşler ve 256 GiB için 20 saat için faturalandırılırsınız. Diske yazılan gerçek veri miktarından bağımsız olarak budur.
 
 ### <a name="managed-disk-provisioned-iops"></a>Yönetilen diskin sağlanan IOPS
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f8aa37dbc2d3fb5f560d899626a84a2ab86ff223
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294586"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423604"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -310,9 +310,3 @@ Azure faturalandırma REST kaynak tüketimi ve Azure abonelikleri için meta ver
 Önceden maliyetlerini tahmin etmek zor olsa da, Azure sahip bir [fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/) dağıtılan kaynakların maliyetini tahmin ederken kullanabilirsiniz. Portal ve faturalandırma REST API'lerini faturalama dikey penceresine, geçerli tüketimini temel alarak, gelecekteki maliyetlerini tahmin etmek için de kullanabilirsiniz.
 
 >**Başlama**: bkz [Azure faturalama kullanım ve RateCard API'leri genel bakış](../../billing-usage-rate-card-overview.md).
-
-#### <a name="set-up-billing-alerts"></a>Fatura uyarılarını ayarlama
-
-Uygulamanız veya çözümünüz azure'da dağıttıktan sonra uyarıda tanımlanmış olan harcama sınırlarını yaklaştığında e-posta gönderen uyarılar oluşturabilirsiniz.
-
->**Başlama**: daha fazla bilgi için bkz. [uyarılar, Microsoft Azure abonelikleri için fatura ayarlama](../../billing-set-up-alerts.md).

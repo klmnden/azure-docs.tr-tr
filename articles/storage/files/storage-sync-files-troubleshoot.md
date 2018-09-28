@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 88c73b3c9fd3ffc0c323b9971e245e6f6d9695a0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095547"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409482"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -22,7 +22,7 @@ Bu makalede, sorun giderme ve Azure dosya eşitleme dağıtımınıza karşıla�
 
 1. [Azure depolama Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft desteği. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesinde **Yardım + Destek** düğmesini ve ardından **yeni destek isteği**.
+3. Microsoft Desteği. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesinde **Yardım + Destek** düğmesini ve ardından **yeni destek isteği**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>My server (eşitleme, bulut katmanlama, vb..) Azure dosya eşitleme ile ilgili bir sorun yaşıyorum. Kaldırın ve paylaşabilirim my server uç noktası yeniden?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -233,17 +233,16 @@ Bu hataları görmek için şunu çalıştırın **FileSyncErrorsReport.ps1** Po
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. Azure dosya eşitleme, günde bir kez açık tanıtıcıları içeren dosyaları eşitleyin sunucudaki geçici bir VSS anlık görüntüsü oluşturur. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Bir dosya veya dizin değişiklik henüz bağımlı bir klasörü henüz eşitlenmedi olduğundan eşitlenemiyor. Bu öğe, bağımlı değişiklikleri eşitlendiğinde eşitler. | Eylem gerekmiyor. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Bir dosya eşitleme sırasında değiştirildi, yeniden eşitlenmesi gerekir. | Eylem gerekmiyor. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Eşitleme sırasında bir dosya değiştirildiğinden yeniden eşitlenmesi gerekiyor. | Eylem gerekmiyor. |
 
 #### <a name="handling-unsupported-characters"></a>İşleme desteklenmeyen karakterler
-Varsa **FileSyncErrorsReport.ps1** PowerShell Betiği, desteklenmeyen karakterler nedeniyle hataları gösterir (0x7b hata kodları ve 0x8007007b), kaldırmalı veya ilgili dosyalarından hata karakterde yeniden adlandırın. Çoğu bu karakterlerden biri standart görsel kodlaması olduğundan PowerShell büyük olasılıkla bu karakterler soru işareti ya da boş dikdörtgenler yazdırın.
+Varsa **FileSyncErrorsReport.ps1** PowerShell Betiği, desteklenmeyen karakterler nedeniyle hataları gösterir (0x7b hata kodları ve 0x8007007b), kaldırmalı veya ilgili dosyalarından hata karakterde yeniden adlandırın. Çoğu bu karakterlerden biri standart görsel kodlaması olduğundan PowerShell büyük olasılıkla bu karakterler soru işareti ya da boş dikdörtgenler yazdırın. [Değerlendirmeden aracı](storage-sync-files-planning.md#evaluation-tool) desteklenmeyen karakterler tanımlamak için kullanılabilir.
 
 Aşağıdaki tabloda, Azure dosya eşitleme henüz desteklemediği unicode karakterlerin tümünü içerir.
 
 | Karakter kümesi | Karakter sayısı |
 |---------------|-----------------|
 | <ul><li>0x0000009D (osc işletim sistemi komut)</li><li>0x00000090 (DC'leri cihaz denetimi dize)</li><li>0x0000008F (ss3 tek kaydırma üç)</li><li>0x00000081 (yüksek sekizli hazır)</li><li>0x0000007F (del Sil)</li><li>0x0000008D (RI ters satır besleme)</li></ul> | 6 |
-| <ul><li>0x0000200F (sağdan sola işareti)</li><li>0x0000200E (soldan sağa işareti)</li><li>0x0000202E (sağdan sola geçersiz kılma)</li><li>0x0000202D (soldan sağa geçersiz kılma)</li><li>0x0000202C (pop yönlü biçimlendirme)</li><li>0x0000202B (sağdan sola ekleme)</li><li>0x0000202A (soldan sağa ekleme)</li></ul> | 7 |
 | 0x0000FDD0 - 0x0000FDEF (Arapça sunu forms-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (özel) | 16 |
 | <ul><li>0x0001FFFE - 0x0001FFFF = 2 (karakter olmayan)</li><li>0x0002FFFE - 0x0002FFFF = 2 (karakter olmayan)</li><li>0x0003FFFE - 0x0003FFFF = 2 (karakter olmayan)</li><li>0x0004FFFE - 0x0004FFFF = 2 (karakter olmayan)</li><li>0x0005FFFE - 0x0005FFFF = 2 (karakter olmayan)</li><li>0x0006FFFE - 0x0006FFFF = 2 (karakter olmayan)</li><li>0x0007FFFE - 0x0007FFFF = 2 (karakter olmayan)</li><li>0x0008FFFE - 0x0008FFFF = 2 (karakter olmayan)</li><li>0x0009FFFE - 0x0009FFFF = 2 (karakter olmayan)</li><li>0x000AFFFE - 0x000AFFFF = 2 (karakter olmayan)</li><li>0x000BFFFE - 0x000BFFFF = 2 (karakter olmayan)</li><li>0x000CFFFE - 0x000CFFFF = 2 (karakter olmayan)</li><li>0x000DFFFE - 0x000DFFFF = 2 (karakter olmayan)</li><li>0x000EFFFE - 0x000EFFFF = 2 (tanımsız)</li><li>0x000FFFFE - 0x000FFFFF = 2 (tamamlayıcı özel kullanım alanı)</li></ul> | 30 |
@@ -423,7 +422,7 @@ Kuruluşunuz, SSL sonlandırma proxy kullanıyorsa veya kötü amaçlı bir varl
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-Bu kayıt defteri değerini ayarlayarak, Azure dosya eşitleme aracısının yerel olarak güvenilir bir SSL sertifikası sunucu ve bulut hizmeti arasında veri aktarımı yaparken kabul eder.
+Bu kayıt defteri değeri ayarlandığında Azure Dosya Eşitleme aracısı, verileri sunucu ile bulut hizmeti arasında aktarırken yerel olarak güvenilen herhangi bir SSL sertifikasını kabul eder.
 
 <a id="-2147012894"></a>**Hizmetle bağlantı kurulamadı.**  
 | | |
@@ -516,7 +515,7 @@ Durumlarda olduğu dosya eşitleme hatalarını çok sayıda, Eşitleme oturumla
 | **Hata dizesi** | ECS_E_SYNC_INVALID_PATH |
 | **Düzeltme gerekli** | Evet |
 
-Yolun var, yerel bir NTFS biriminde olduğundan ve bir yeniden ayrıştırma noktası veya mevcut bir sunucu uç noktası değil emin olun.
+Yolun var olduğundan, yerel bir NTFS biriminde bulunduğundan ve bir yeniden ayrıştırma noktası veya mevcut bir sunucu uç noktası olmadığından emin olun.
 
 <a id="-2134376373"></a>**Hizmet şu anda kullanılamıyor.**  
 | | |

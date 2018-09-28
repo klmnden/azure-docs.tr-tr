@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: d1a34a4c341a48f594f37da9fb34420adab390ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ce3c494dc0b8c962c8dae0af38d3cb5476cdf48b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227325"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406184"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri kopyalama kaynak ve hedef (Common Data Service) Dynamics 365 veya Dynamics CRM
 
@@ -158,8 +158,8 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 | EntityName | Alınacak varlığın mantıksal adı. | Evet, havuz için (etkinlik kaynağı "sorgu" belirtilmişse) kaynak için Hayır |
 
 > [!IMPORTANT]
->- Dynamics verileri kopyaladığınızda, "yapı" bölümüne Dynamics kümesinde belirleyici kopyalama sonucu emin olmak için gereklidir. Sütun adı ve veri türü üzerinde kopyalamak istediğiniz Dynamics verileri tanımlar. Daha fazla bilgi için bkz. [Dataset yapısını](concepts-datasets-linked-services.md#dataset-structure) ve [Dynamics için veri türü eşlemesi](#data-type-mapping-for-dynamics).
->- Kullanıcı Arabiriminde yazma sırasında ADF içinde hiçbir değer büyük/küçük harf sütunlarla performans iyileştirmesi nedeniyle Dynamics hizmeti tarafından atlanacak yapısı oluşturma başlatmak için Dynamics sorgu sonuç üst satırları yeniden örnekleyerek şema çıkarabilir. Gözden geçirin ve kopyalama çalışma zamanı sırasında kullanılacaktır Dynamics veri kümesi şema/yapıda gerektiğinde daha fazla sütun ekleyin. 
+>- Dynamics verileri kopyaladığınızda, "yapı" bölümünde isteğe bağlıdır, ancak bir belirleyici kopyalama sonuç emin olmak için Dynamics kümesindeki recommanded ' dir. Sütun adı ve veri türü üzerinde kopyalamak istediğiniz Dynamics verileri tanımlar. Daha fazla bilgi için bkz. [Dataset yapısını](concepts-datasets-linked-services.md#dataset-structure) ve [Dynamics için veri türü eşlemesi](#data-type-mapping-for-dynamics).
+>- Şema ADF Infer UI yazma şeması alınırken üst satırları Dynamics sorgu sonuç yok değerleri büyük/küçük harf sütunlarla atlanacak yapısı oluşturma başlatmak için yeniden örnekleyerek. Gözden geçirin ve kopyalama çalışma zamanı sırasında kullanılacaktır Dynamics veri kümesi şema/yapıda gerektiğinde daha fazla sütun ekleyin.
 >- Dynamics verileri kopyaladığınızda, "yapı" bölümünde Dynamics kümesinde isteğe bağlıdır. Hangi sütunların kopyalayın kaynak veri şema tarafından belirlenir. Kaynağınız bir üst bilgi içermeyen bir CSV dosyası ise giriş veri kümesi "yapı" sütun adı ve veri türü ile belirtin. Bunlar sırayla CSV dosyasındaki tek tek alanları eşleyin.
 
 **Örnek:**

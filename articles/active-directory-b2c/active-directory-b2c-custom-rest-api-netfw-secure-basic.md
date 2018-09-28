@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f157602ce3a9c5b6f15a03ad816d8aece4e22805
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e6cff4e2daf86b63bc0db0d4f2d537322d2841df
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339176"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409312"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP temel kimlik doğrulaması kullanarak, RESTful Hizmetleri güvenli hale getirme
 
@@ -237,7 +237,7 @@ RESTful hizmetiniz istemci kimliği (kullanıcı adı) ve gizli dizi tarafından
 
 6. İçinde **gizli** kutusunda, daha önce tanımlanan uygulama kimliği girin.
 
-7. İçin **anahtar kullanımı**seçin **gizli**.
+7. İçin **anahtar kullanımı**seçin **imza**.
 
 8. **Oluştur**’u seçin.
 
@@ -257,7 +257,7 @@ RESTful hizmetiniz istemci kimliği (kullanıcı adı) ve gizli dizi tarafından
 
 6. İçinde **gizli** kutusunda, daha önce tanımlanan uygulama gizli anahtarı girin.
 
-7. İçin **anahtar kullanımı**seçin **gizli**.
+7. İçin **anahtar kullanımı**seçin **imza**.
 
 8. **Oluştur**’u seçin.
 

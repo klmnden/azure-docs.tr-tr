@@ -1,6 +1,6 @@
 ---
-title: Var olan Azure App Service için MySQL Azure veritabanına bağlan
-description: Nasıl düzgün şekilde var olan bir Azure uygulama hizmeti için MySQL Azure veritabanına bağlanmak için yönergeler
+title: Mevcut Azure App Service, MySQL için Azure veritabanı'na bağlanma
+description: Düzgün mevcut bir Azure App Service'in MySQL için Azure veritabanı'na bağlanma yönergeleri
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,58 +8,49 @@ editor: jasonwhowell
 manager: kfile
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ff4a28e2f9a0149016d0e47c24e4665ab2e0500d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/26/2018
+ms.openlocfilehash: 4aecc4941f2181216ea537c0019152ce822ac4b0
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265512"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408952"
 ---
-# <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Var olan bir Azure uygulama hizmeti MySQL sunucusu için Azure veritabanına bağlan
-Bu konuda, var olan bir Azure uygulama hizmeti MySQL sunucusu için Azure veritabanınıza bağlanmak açıklanmaktadır.
+# <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Mevcut bir Azure App Service, MySQL sunucusu için Azure veritabanı'na bağlanma
+Bu konu, mevcut bir Azure App Service'in MySQL için Azure veritabanı sunucunuza bağlanmak nasıl açıklar.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-[Azure Portal](https://portal.azure.com)’da oturum açın. MySQL sunucusu için bir Azure veritabanı oluşturun. Ayrıntılar için başvurmak [portalından MySQL sunucusu için Azure veritabanı oluşturmak nasıl](quickstart-create-mysql-server-database-using-azure-portal.md) veya [CLI kullanarak MySQL sunucusu için Azure veritabanı oluşturmak nasıl](quickstart-create-mysql-server-database-using-azure-cli.md).
+[Azure Portal](https://portal.azure.com)’da oturum açın. MySQL için Azure veritabanı oluşturma. Ayrıntılar için başvurmak [portalından MySQL için Azure veritabanı oluşturma işlemini](quickstart-create-mysql-server-database-using-azure-portal.md) veya [CLI kullanarak MySQL sunucusu için Azure veritabanı oluşturma işlemini](quickstart-create-mysql-server-database-using-azure-cli.md).
 
-Şu anda bir Azure uygulama hizmeti bir erişimden Azure veritabanı için MySQL etkinleştirmek için iki çözümü vardır. Her iki çözüm de sunucu düzeyinde güvenlik duvarı kurallarını ayarlama içerir.
+Şu anda MySQL için Azure veritabanı, bir Azure App Service'in erişimi etkinleştirmek için iki çözümü vardır. Her iki çözüm de, sunucu düzeyinde güvenlik duvarı kurallarını ayarlama içerir.
 
-## <a name="solution-1---create-a-firewall-rule-to-allow-all-ips"></a>Çözüm 1 - tüm IP'ler izin veren bir güvenlik duvarı kuralı oluşturma
-Azure veritabanı için MySQL verilerinizi korumak için bir Güvenlik Duvarı'nı kullanarak erişim güvenliği sağlar. Bir Azure uygulama hizmetinden MySQL sunucusu için Azure veritabanına bağlanırken giden uygulama IP'leri hizmeti doğası gereği dinamik olduğunu aklınızda bulundurun. 
+## <a name="solution-1---allow-azure-services"></a>Çözüm 1 - Azure hizmetlerine izin ver
+MySQL için Azure veritabanı, verilerinizi korumak için bir Güvenlik Duvarı'nı kullanarak erişim güvenliğini sağlar. Bir Azure App Service'ten MySQL server için Azure veritabanına bağlanırken, giden IP'ler, App Service dinamik nitelikte olduğunu aklınızda bulundurun. "Azure hizmetlerine erişime izin ver" seçeneği, MySQL sunucusuna bağlanmak app service izin verir.
 
-Azure uygulama hizmetiniz kullanılabilirliğini sağlamak için tüm IP'ler izin vermek için bu çözüm kullanmanızı öneririz.
+1. MySQL sunucusu dikey penceresinde ayarlar altındaki başlığı tıklayın **bağlantı güvenliği** bağlantı güvenlik dikey penceresi için MySQL için Azure veritabanı açmak için.
 
-> [!NOTE]
-> Microsoft Azure Hizmetleri için tüm IP'ler için MySQL Azure veritabanına bağlanmak izin verme önlemek için uzun vadeli bir çözüm üzerinde çalışmaktadır.
+   ![Azure portalı - bağlantı güvenliği](./media/howto-connect-webapp/1-connection-security.png)
 
-1. MySQL server dikey penceresinde, ayarlar altında başlığını tıklatın **bağlantı güvenliği** MySQL için Azure veritabanı için bağlantı güvenliği dikey penceresini açmak için.
+2. Seçin **ON** içinde **Azure hizmetlerine erişime izin ver**, ardından **Kaydet**.
+   ![Azure portal - Azure izin erişim](./media/howto-connect-webapp/allow-azure.png)
 
-   ![Azure portal - bağlantı güvenliği](./media/howto-manage-firewall-using-portal/1-connection-security.png)
+## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>2 - çözüm giden IP'ler açıkça izin vermek için bir güvenlik duvarı kuralı oluşturma
+Azure App Service, tüm giden IP'ler açıkça ekleyebilirsiniz.
 
-2. Girin **kural adı**, **başlangıç IP**, ve **bitiş IP**ve ardından **kaydetmek**.
-   - Kural adı: izin ver-tüm-IP'leri
-   - Başlangıç IP: 0.0.0.0
-   - Bitiş IP: 255.255.255.255
+1. App Service özellikleri dikey penceresinde görüntülemek, **giden IP adresi**.
 
-   ![Azure portal - tüm IP'leri Ekle](./media/howto-connect-webapp/1_2-add-all-ips.png)
+   ![Azure portalı - görünüm giden IP'ler](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
 
-## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Çözüm 2 - açıkça giden IP'leri izin veren bir güvenlik duvarı kuralı oluşturma
-Azure uygulama hizmetiniz tüm giden IP'leri açıkça ekleyebilirsiniz.
+2. MySQL bağlantı güvenlik dikey penceresinde, giden IP'ler tek tek ekleyin.
 
-1. Uygulama hizmeti özellikler dikey penceresini görüntülemek, **giden IP adresi**.
+   ![Azure portalı - açık IP'ler Ekle](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
 
-   ![Azure portal - görünüm giden IP'leri](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
+3. Unutmayın **Kaydet** , güvenlik duvarı kuralları.
 
-2. MySQL bağlantı güvenlik dikey penceresinde, giden IP'leri tek tek ekleyin.
-
-   ![Azure portal - açık IP'leri Ekle](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
-
-3. Unutmayın **kaydetmek** , güvenlik duvarı kuralları.
-
-IP adreslerini zamanla sabit tutmak Azure uygulama hizmeti çalışır ancak burada IP adresleri değişebilir durumlar vardır. Örneğin, bu durum ortaya çıkabilir zaman uygulama dönüştürür veya bir ölçeklendirme işlemi oluşur veya yeni bilgisayarlar Azure bölgesel verilerinde zaman eklenen merkezleri kapasitesini artırmak için. IP adresleri, artık MySQL sunucusuna bağlanabilir durumunda uygulama kapalı kalma süresi karşılaşabilir. Bu göz önünde bulundurarak, yukarıdaki çözümlerden birini seçerken göz önünde bulundurun.
+Azure App service, zaman içinde IP adresleri değişmemesi dener ancak burada IP adresleri değişebilir durumlar vardır. Örneğin, bu durum ortaya çıkabilir ne zaman uygulama geri dönüşümlerine genel ya da bir ölçeklendirme işlemi gerçekleşir veya kapasitesini artırmak için Azure bölgesel veri yeni bilgisayarlar zaman eklenir ortalar. IP adresleri, artık MySQL sunucusuna bağlanabilir durumunda uygulama kapalı kalma süresiyle karşılaşabilir. Bu durum, önceki çözümlerden birini seçerken göz önünde bulundurun.
 
 ## <a name="ssl-configuration"></a>SSL yapılandırması
-Azure veritabanı MySQL için varsayılan olarak etkin SSL sahiptir. Uygulamanız veritabanına bağlanmak için SSL kullanmıyorsa, SSL MySQL sunucuda devre dışı bırakmanız gerekir. SSL nasıl yapılandırılacağı hakkında daha fazla bilgi için bkz: [SSL kullanarak Azure veritabanı için MySQL ile](howto-configure-ssl.md).
+MySQL için Azure veritabanı, varsayılan olarak etkin SSL sahiptir. Uygulamanız veritabanına bağlanmak için SSL kullanmıyorsa, MySQL sunucunuzda SSL'yi devre dışı bırakmak gerekir. SSL yapılandırma hakkında daha fazla ayrıntı için bkz. [SSL kullanarak MySQL için Azure veritabanı ile](howto-configure-ssl.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bağlantı dizeleri hakkında daha fazla bilgi için bkz [bağlantı dizeleri](howto-connection-string.md).
+Bağlantı dizeleri hakkında daha fazla bilgi için [bağlantı dizeleri](howto-connection-string.md).

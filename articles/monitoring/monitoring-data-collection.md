@@ -7,17 +7,17 @@ manager: carmonm
 editor: tysonn
 ms.service: monitoring
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: d71dc77eac89fef3ae7f8aeb69a05197456ac865
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962939"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406049"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure İzleyici tarafından toplanan verileri izleme
 [Azure İzleyici](../azure-monitor/overview.md) yardımcı olan bir hizmeti izlemek, uygulamalarınızın ve bunların bağımlı kaynakları olduğundan. Telemetri ve diğer verileri izlenen kaynaklardan bu işleve merkezi depolamadır. Bu makalede, Azure İzleyici tarafından kullanılan bu veriler nasıl depolanır ve kapsamlı bir açıklama sağlar.
@@ -155,7 +155,7 @@ Log Analytics, çeşitli kaynaklardan hem Azure içindeki ve şirket içi kaynak
 Günlükleri ile gerçekleştirebileceğiniz görevler aşağıdakileri içerir:
 
 - Kullanım [Log Analytics sayfa](../log-analytics/query-language/get-started-analytics-portal.md) Azure portalında günlük verilerini analiz sorguları yazma.  Sabitleme, tablolar veya grafikler için çizilir sonuçları bir [Azure panosuna](../azure-portal/azure-portal-dashboards.md).
-- Yapılandırma bir [günlük uyarı kuralı](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) bildirim gönderen veya alan [eylemi otomatik](../monitoring-and-diagnostics/monitoring-action-groups.md) zaman sorgunun sonuçlarını eşleşen belirli bir sonuç.
+- Yapılandırma bir [günlük uyarı kuralı](../monitoring-and-diagnostics/alert-log.md) bildirim gönderen veya alan [eylemi otomatik](../monitoring-and-diagnostics/monitoring-action-groups.md) zaman sorgunun sonuçlarını eşleşen belirli bir sonuç.
 - Log Analytics kullanarak verileri temel alan bir iş akışı derleme [Logic Apps]().
 - Sorgu sonuçlarını dışarı aktarma [Power BI](../log-analytics/log-analytics-powerbi.md) farklı görselleştirme kullanın ve Azure dışındaki kullanıcılarla paylaşmak için.
 - Bir komut satırı veya özel bir uygulama kullanarak ölçüm değerleri erişim [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) veya [REST API](https://dev.loganalytics.io/).
@@ -175,7 +175,7 @@ Azure kaynaklardan ölçümleri toplamaya yönelik rehberlik alabilirsiniz [topl
 ### <a name="logs-to-metrics"></a>Ölçümler için günlükleri
 Daha düşük gecikme süresi ve daha düşük bir maliyetle uyarılar oluşturmak için yukarıda açıklandığı gibi günlükleri, daha hızlı yanıt ölçümleridir. Log Analytics önemli ölçüde ölçümler için uygun olabilir, ancak Azure ölçümleri deposunda saklanan değil sayısal veri toplar.  Aracılar ve yönetim çözümlerinden toplanan performans verilerini buna yaygın bir örnektir. Bu değerlerden bazıları burada ölçüm Gezgini ile analizi ve Uyarılar için kullanılabilir ölçümleri deposuna kopyalanabilir.
 
-Bu özellik açıklaması kullanılabilir [daha hızlı ölçüm uyarıları artık sınırlı genel Önizleme günlükler için](https://azure.microsoft.com/blog/faster-metric-alerts-for-logs-now-in-limited-public-preview/). Değerleri destek listesi kullanılabilir [desteklenen Ölçümler ve oluşturma yöntemleri için yeni ölçüm uyarıları](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
+Bu özellik açıklaması kullanılabilir [Azure İzleyici günlükler için ölçüm uyarıları oluşturma](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). Değerleri destek listesi kullanılabilir [Azure İzleyici ile desteklenen ölçümler](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Stream veri harici sistemlere bağlanma
 İzleme verilerini analiz etmek için Azure'da araçlarını kullanabilmenin yanı sıra güvenlik bilgileri ve Olay yönetimi (SIEM) ürün gibi bir dış araç iletmek için bir gereksinim olabilir. Bu iletme genellikle doğrudan izlenen kaynakları üzerinden yapılır [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 

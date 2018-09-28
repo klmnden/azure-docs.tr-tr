@@ -2,17 +2,17 @@
 title: Azure veri Kataloğu'nda ilgili veri varlıklarını görüntüleme
 description: Bu makalede, Azure veri Kataloğu'nda, seçilen veri varlığının ilgili veri varlıklarını görüntülemek açıklanmaktadır.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: d680cc69d27681883014a414255ad0ea4d022cd4
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 156673bfac9bfa38772e4daca166e3431f81c09a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053587"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405021"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Azure veri Kataloğu'nda ilgili veri varlıklarını görüntülemek nasıl?
 Azure veri Kataloğu, aralarında seçili veri varlığına ve görünümü ilişkiler ilgili veri varlıklarını görüntülemenizi sağlar. 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e325335d43ef31c44ac812aca66309132f5372a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951619"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410009"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve ölçümü Azure İzleyicisi'ni kullanarak Uyarıları yönetme
+# <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Klasik ölçüm uyarılarını yönetme
 
 Azure İzleyici'de klasik ölçüm uyarılarını bildirim almak için bir yol sağlayan bir eşiği ölçümlerinizi birini çapraz zaman. Klasik ölçüm uyarıları yalnızca boyutsuz ölçümler üzerinde uyarı veren bir eski işlevi olur. Klasik ölçüm uyarıları gelişmiş işlevselliği olan ölçüm uyarıları adlı bir var olan yeni işlevi yoktur. Yeni ölçüm uyarıları işlevleri hakkında daha fazla bilgi [ölçüm uyarıları genel bakış](alert-metric-overview.md). Bu makalede, biz oluşturun, görüntüleyin ve klasik ölçüm uyarı kuralları Azure Portalı aracılığıyla Azure CLI ve Powershell yönetme konusunda açıklanmıştır.
 
-## <a name="create-a-classic-metric-alert-rule-using-azure-portal"></a>Azure portalını kullanarak Klasik ölçüm uyarı kuralı oluşturma
+## <a name="with-azure-portal"></a>Azure portalı ile
 
 1. İçinde [portalı](https://portal.azure.com/), izlemek istediğiniz olan kaynağı bulun ve seçin.
 
@@ -46,15 +46,13 @@ Azure İzleyici'de klasik ölçüm uyarılarını bildirim almak için bir yol s
 
 Birkaç dakika içinde uyarı etkin ve daha önce açıklandığı gibi tetikler.
 
-## <a name="manage-your-classic-metric-alert-rules-using-azure-portal"></a>Azure portalını kullanarak Klasik ölçüm uyarı kurallarınızı yönetme
-
 Bir uyarı oluşturduktan sonra seçin ve aşağıdaki görevlerden birini gerçekleştirebilirsiniz:
 
 * Ölçüm eşiği ve gerçek değerler önceki gün gösteren bir grafiği görüntüleyin.
 * Düzenleyin veya silin.
 * **Devre dışı** veya **etkinleştirme** , geçici olarak durdurmak veya bu uyarı için bildirimleri almaya devam etmek istiyorsanız.
 
-## <a name="creating-and-managing-classic-metric-alert-rule-using-azure-cli"></a>Oluşturma ve Azure CLI kullanarak Klasik ölçüm uyarısı kuralının yönetme
+## <a name="with-azure-cli"></a>Azure CLI ile
 
 Önceki bölümlerde oluşturun, görüntüleyin ve Azure portalını kullanarak ölçüm uyarı kuralları yönetmek nasıl kaydedileceği açıklanır. Bu bölümde, platformlar arası kullanarak aynı şeyi nasıl anlatılacaktır [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Hızlı şekilde kullanmaya başlamak Azure CLI aracılığıyladır [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest).
 
@@ -86,7 +84,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
 az monitor alert delete --name <alert name> --resource-group <group name>
 ```
 
-### <a name="create-view-and-manage-classic-metric-alerts-using-powershell"></a>Oluşturun, görüntüleyin ve PowerShell kullanarak Klasik ölçüm uyarılarını yönetme
+## <a name="with-powershell"></a>PowerShell ile
 
 Bu bölüm, komutları oluşturun, görüntüleyin ve klasik ölçüm uyarılarını yönetme PowerShell'in nasıl kullanılacağı gösterilmektedir. Makaledeki örnekler, Azure İzleyici cmdlet'leri için Klasik ölçüm uyarıları nasıl kullanabileceğinizi gösterir.
 

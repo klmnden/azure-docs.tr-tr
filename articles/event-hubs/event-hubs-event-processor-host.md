@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 672e31109b71a8a4238a05851a58a7c83e275b19
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 14db9ec9e4cd90d0c2d224bd944e2bc5b591a53b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576330"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405912"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Azure Event Hubs olay işlemcisi konağı genel bakış
 
@@ -88,7 +88,8 @@ Ardından, örneği bir [EventProcessorHost](/dotnet/api/microsoft.azure.eventhu
 - **eventHubConnectionString:** bağlantı dizesini Azure portaldan alınabilir olay hub'ına. Bu bağlantı dizesi olmalıdır **dinleme** olay hub'ında izinleri.
 - **storageConnectionString:** iç kaynak yönetimi için kullanılan depolama hesabı.
 
-Son olarak, tüketicilerin kaydetme [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) örneği ile Event Hubs hizmeti. Kayıt talimatı verir tüketici uygulama bazı bölümleri olaylardan tükettiğini beklenir ve çağırmak için Event Hubs hizmeti [Ieventprocessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) kullanmak için olaylar gönderir her uygulama kodu.
+Son olarak, tüketicilerin kaydetme [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) örneği ile Event Hubs hizmeti. Bir olay işlemcisi sınıfı EventProcessorHost örneğini kaydetme, olay işleme başlar. Kayıt talimatı verir tüketici uygulama bazı bölümleri olaylardan tükettiğini beklenir ve çağırmak için Event Hubs hizmeti [Ieventprocessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) kullanmak için olaylar gönderir her uygulama kodu. 
+
 
 ### <a name="example"></a>Örnek
 
@@ -123,7 +124,7 @@ Burada, her konağın belirli bir süre için (kiralama süresi) bir bölüm sah
 
 Her çağrı [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) olaylar koleksiyonu sunar. Bu olayları işlemek için sizin sorumluluğunuzdur. Görece şeyler yapmanız önerilir. diğer bir deyişle, mümkün olduğunca az miktarda işleme olarak yapın. Bunun yerine, tüketici gruplarını kullanın. Depolama alanına yazmak ve bazı üretim yapmanız gerekiyorsa, iki tüketici grubu kullanın ve iki genellikle daha iyi [Ieventprocessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) ayrı olarak çalıştırılan uygulamalar.
 
-İşleme sırasında belirli bir noktada ne artık okuma tamamlandı ve izlemek isteyebilirsiniz. Akış başlangıcına döndürmeyin için okuma, yeniden başlatırsanız izleme tutmak önemlidir. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) kullanarak bu izleme basitleştirir *kontrol noktaları*. Bir konum veya uzaklık, belirli bir tüketici grubundaki belirli bir bölüm için bir denetim noktası, işlenen olduğunuz bu noktaya memnun iletileri. Bir denetim noktasında işaretleme **EventProcessorHost** çağrılarak gerçekleştirilir [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) metodunda [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) nesne. Bu işlem genellikle gerçekleştirilir [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) yöntemi de gitmeniz gerekir, ancak [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
+İşleme sırasında belirli bir noktada ne artık okuma tamamlandı ve izlemek isteyebilirsiniz. Akış başlangıcına döndürmeyin için okuma, yeniden başlatırsanız izleme tutmak önemlidir. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) kullanarak bu izleme basitleştirir *kontrol noktaları*. Bir konum veya uzaklık, belirli bir tüketici grubundaki belirli bir bölüm için bir denetim noktası, işlenen olduğunuz bu noktaya memnun iletileri. Bir denetim noktasında işaretleme **EventProcessorHost** çağrılarak gerçekleştirilir [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) metodunda [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) nesne. Bu işlem gerçekleştirilir [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) yöntemi de gitmeniz gerekir, ancak [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 
 ## <a name="checkpointing"></a>Denetim noktası oluşturma
 
@@ -140,6 +141,7 @@ Varsayılan olarak, [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.p
 Son olarak, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) tüm bölüm okuyucular, temiz kapatma sağlar ve her zaman örneğini kapatılırken çağrılmalıdır [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Bunun yapılmaması diğer örneğini başlatırken gecikmelere neden olabilir **EventProcessorHost** kira sona erme ve dönem çakışmaları nedeniyle. Bu ayrıntılı kapsanan dönem Yönetim [blog gönderisi](https://blogs.msdn.microsoft.com/gyan/2014/09/02/event-hubs-receiver-epoch/)
 
 ## <a name="lease-management"></a>Kiralama Yönetimi
+Bir olay işlemcisi sınıfı EventProcessorHost örneğini kaydetme, olay işleme başlar. Ana bilgisayar örneği, büyük olasılıkla tüm konak örneklerinde bölümlerin eşit dağıtımı üzerinde uygun sonuç verir şekilde diğer konak örneklerden bazıları kapmasını bazı bölümlerini bir olay hub'ı üzerinde kiraları alır. Kiralanmış her bölüm için ana bilgisayar örneği sağlanan olay işlemcisi sınıfının bir örneğini oluşturur, ardından bu bölümün dışında olaylarını alır ve bunları olay işlemcisi örneğine geçirir. Daha fazla örnek eklenir ve daha fazla kira yakaladı EventProcessorHost sonunda tüm tüketicileri arasında yük dengeleyen.
 
 Daha önce açıklandığı şekilde, otomatik ölçeklendirme yapısını izleme tablosu büyük ölçüde basitleştirir. [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync). Bir örneği olarak **EventProcessorHost** başlatır, mümkün olduğunca çok kiraları alır ve olayları okumaya başlar. Kiralar, süresi dolmak üzere olarak **EventProcessorHost** rezervasyon yerleştirerek yenilemek çalışır. Kira yenileme için kullanılabilir, işlemci okumaya devam eder, ancak değilse, okuyucu kapatılana ve [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync) çağrılır. **CloseAsync** için o bölümün son tüm temizleme işlemlerini gerçekleştirmek için iyi bir zamandır.
 

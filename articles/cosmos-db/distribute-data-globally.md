@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
-ms.openlocfilehash: fef4d14e6f5a9dcba1f7e111f9a54c3e1a9fbfa9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 227c243d82665dc533e3bfa6a1fe3e9bb775a262
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959867"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408904"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Azure Cosmos DB ile verileri küresel dağıtım
 
@@ -24,7 +24,7 @@ Azure bulunabilen - 50'den fazla coğrafi bölgeler arasında bir küresel kapla
 
 ## <a name="global-distribution-with-multi-master"></a>Çok yöneticili ile genel dağıtım
 
-Bir yerel olarak born bulut hizmetinde, Azure Cosmos DB dikkatli bir şekilde baştan ayarlama ile çok kiracılı, genel dağıtım ve birden çok ana belge, anahtar-değer, grafik ve sütun ailesi veri modelleri için tasarlanmıştır.
+Bir bulut hizmeti olan Azure Cosmos DB belge, anahtar-değer, grafik ve sütun ailesi veri modelleri için çok kiracılı, genel dağıtım ve çok yöneticili desteklemek için dikkatli bir şekilde tasarlanmıştır.
 
 ![Bölümlenmiş ve üç bölgeler arasında dağıtılmış azure Cosmos DB kapsayıcısı](./media/distribute-data-globally/global-apps.png)
 

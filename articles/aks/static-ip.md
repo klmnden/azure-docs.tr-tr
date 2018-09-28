@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: a7e592e9911c596f2cf74724e73c469ed616e5f0
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 8aab091ed992a946cd78ecf4f0c8fdfff4185a08
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391359"
+ms.locfileid: "47407561"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Azure Kubernetes Service (AKS) yük dengeleyiciyle bir statik genel IP adresi kullanın
 
@@ -24,7 +24,7 @@ Bu makalede bir statik genel IP adresi oluşturun ve Kubernetes hizmetinizi atay
 
 Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
 
-Ayrıca Azure CLI Sürüm 2.0.46 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. [Azure CLI yükleme] [yükleme-azure-cli] yüklemeniz veya yükseltmeniz gerekirse, bkz.
+Ayrıca Azure CLI Sürüm 2.0.46 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="create-a-static-ip-address"></a>Statik bir IP adresi oluşturma
 
@@ -69,20 +69,26 @@ $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Statik IP adresini kullanarak bir hizmet oluşturma
 
-Statik IP adresiyle bir hizmet oluşturmak için Ekle `loadBalancerIP` özelliği ve statik IP değerini aşağıdaki örnekte gösterildiği gibi YAML bildirimi için adres:
+Statik genel IP adresiyle bir hizmet oluşturmak için Ekle `loadBalancerIP` özelliği ve değerini bir statik genel IP adresi için YAML bildirimi. Adlı bir dosya oluşturun `load-balancer-service.yaml` aşağıdaki YAML'ye kopyalayın. Önceki adımda oluşturulan kendi genel IP adresi sağlayın.
 
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-front
+  name: azure-load-balancer
 spec:
   loadBalancerIP: 40.121.183.52
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
+    app: azure-load-balancer
+```
+
+Hizmet oluşturup dağıtımla `kubectl apply` komutu.
+
+```console
+kubectl apply -f load-balancer-service.yaml
 ```
 
 ## <a name="troubleshoot"></a>Sorun giderme
@@ -90,17 +96,17 @@ spec:
 Statik IP adresi olarak tanımlanmışsa *loadBalancerIP* Kubernetes hizmet bildiriminin özelliği mevcut olmadığından veya düğüm kaynak grubunda oluşturulan değil, yük dengeleyici hizmet oluşturma başarısız olur. Sorun gidermek için ile hizmet oluşturma olayları gözden geçirme [kubectl açıklayan] [ kubectl-describe] komutu. YAML bildiriminde belirtilen hizmet adı, aşağıdaki örnekte gösterildiği gibi sağlayın:
 
 ```console
-kubectl describe service azure-vote-front
+kubectl describe service azure-load-balancer
 ```
 
 Kubernetes Hizmet kaynağı hakkında bilgiler görüntülenir. *Olayları* bildiren aşağıdaki örnek çıktıda sonunda *sağlanan IP adresi bulunamadı kullanıcı*. Bu senaryolarda, düğüm kaynak grubunda oluşturulan statik genel IP adresini ve Kubernetes hizmet bildiriminde belirtilen IP adresinin doğru olduğundan emin olun.
 
 ```
-Name:                     azure-vote-front
+Name:                     azure-load-balancer
 Namespace:                default
 Labels:                   <none>
 Annotations:              <none>
-Selector:                 app=azure-vote-front
+Selector:                 app=azure-load-balancer
 Type:                     LoadBalancer
 IP:                       10.0.18.125
 IP:                       40.121.183.52
@@ -114,7 +120,7 @@ Events:
   Type     Reason                      Age               From                Message
   ----     ------                      ----              ----                -------
   Normal   CreatingLoadBalancer        7s (x2 over 22s)  service-controller  Creating load balancer
-  Warning  CreatingLoadBalancerFailed  6s (x2 over 12s)  service-controller  Error creating load balancer (will retry): Failed to create load balancer for service default/azure-vote-front: user supplied IP Address 40.121.183.52 was not found
+  Warning  CreatingLoadBalancerFailed  6s (x2 over 12s)  service-controller  Error creating load balancer (will retry): Failed to create load balancer for service default/azure-load-balancer: user supplied IP Address 40.121.183.52 was not found
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -133,3 +139,4 @@ Uygulamalarınıza ağ trafiği üzerinde ek denetim için bunun yerine isteyebi
 [aks-static-ingress]: ingress-static-ip.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

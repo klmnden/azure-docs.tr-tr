@@ -5,15 +5,15 @@ services: container-registry
 author: mmacy
 manager: jeconnoc
 ms.service: container-registry
-ms.topic: quickstart
-ms.date: 04/10/2018
+ms.topic: article
+ms.date: 09/27/2018
 ms.author: marsma
-ms.openlocfilehash: a3932ff621782b8ab97f27ef052aeee8e1d2a3ac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 9bb1f7682338f1d9e591ed1350e1940d85462bd1
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423513"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409346"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry için en iyi yöntemler
 
@@ -66,31 +66,25 @@ Azure Container Registry kimlik doğrulaması hakkında ayrıntılı bilgi edinm
 
 Her bir [kapsayıcı kayıt defteri SKU][container-registry-skus] öğesinde tipik senaryolara uygun depolama alanı kısıtlamaları mevcuttur: Başlangıç için **Temel**, üretim uygulamalarının çoğu için **Standart**, çok geniş ölçekli performans ve [coğrafi çoğaltma][container-registry-geo-replication] için **Premium**. Kayıt defterinizin kullanım ömrü boyunca kullanılmayan içerikleri düzenli olarak silerek boyutunu yönetmeniz gerekir.
 
-Bir kayıt defterinin geçerli kullanım durumunu kapsayıcı kayıt defterinin Azure portalındaki **Genel Bakış** sayfasında bulabilirsiniz:
+Azure CLI komutunu [az acr show-usage] [ az-acr-show-usage] geçerli kayıt defterinizin boyutunu görüntülemek için:
+
+```console
+$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+NAME      LIMIT         CURRENT VALUE    UNIT
+--------  ------------  ---------------  ------
+Size      536870912000  185444288        Bytes
+Webhooks  100                            Count
+```
+
+Kullanılan geçerli depolama da bulabilirsiniz **genel bakış** Azure portalında kayıt defterinizin:
 
 ![Azure portalındaki kayıt defteri kullanım bilgileri][registry-overview-quotas]
 
-Kayıt defterinizin boyutunu [Azure CLI][azure-cli] veya [Azure portalı][azure-portal] aracılığıyla yönetebilirsiniz. Yalnızca yönetilen SKU'lar (Temel, Standart, Premium) depo ve görüntü silme desteği sunar. Klasik kayıt defterindeki depoları, görüntüleri veya etiketleri silemezsiniz.
+### <a name="delete-image-data"></a>Görüntü verilerini sil
 
-### <a name="delete-in-azure-cli"></a>Azure CLI ile silme
+Azure Container Registry, kapsayıcı kayıt defterinden görüntü verilerini silmek için çeşitli yöntemler destekler. Etikete göre görüntüleri silin veya Özet bildirim veya tam bir depoyu Sil.
 
-Bir depoyu veya bir depo içindeki içeriği silmek için [az acr repository delete][az-acr-repository-delete] komutunu kullanın.
-
-Bir depoyu içindeki tüm etiketler ve görüntü katmanı verileriyle birlikte silmek için [az acr repository delete][az-acr-repository-delete] komutuyla birlikte yalnızca depo adını belirtin. Aşağıdaki örnekte *myapplication* deposunu ve içindeki tüm etiketleri ve görüntü katmanı verilerini siliyoruz:
-
-```azurecli
-az acr repository delete --name myregistry --repository myapplication
-```
-
-`--tag` ve `--manifest` bağımsız değişkenlerini kullanarak bir depodaki görüntü verilerini de silebilirsiniz. Bu bağımsız değişkenler hakkında ayrıntılı bilgi için [az acr repository delete komutu başvurusuna][az-acr-repository-delete] bakın.
-
-### <a name="delete-in-azure-portal"></a>Azure portalında silme
-
-Kayıt defterindeki bir depoyu Azure portalından silmek için ilk olarak kapsayıcı kayıt defterinize gidin. Ardından **HİZMETLER**'in altında **Depolar**'ı seçip silmek istediğiniz depoya sağ tıklayın. Depoyu ve içindeki Docker görüntülerini silmek için **Sil**'i seçin.
-
-![Azure portalındaki bir depoyu silme][delete-repository-portal]
-
-Benzer şekilde bir depodaki etiketleri de silebilirsiniz. Depoya gidin, **ETİKETLER** bölümünde silmek istediğiniz etikete sağ tıklayın ve **Sil**'i seçin.
+Kayıt defterinizden görüntü verileri silme hakkında daha fazla ayrıntı için de dahil olmak üzere (bazen çağrılan "sarkan" veya "yalnız bırakılmış") etiketlenmemiş görüntüleri görmek [Sil kapsayıcı görüntülerini Azure Container Registry'de](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -102,6 +96,7 @@ Azure Container Registry, SKU adı verilen ve her biri farklı özellikler sağl
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md
