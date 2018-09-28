@@ -125,6 +125,8 @@ items:
     href: infrastructure-automation.md
   - name: Güvenlik ve ilke
     href: security-policy.md
+  - name: Durumlar ve yaşam döngüsü
+    href: states-lifecycle.md
   - name: İzleme
     href: monitor.md
   - name: Yedekleme ve kurtarma
@@ -235,11 +237,11 @@ items:
       href: metrics-vm-usage-rest.md
   - name: Maliyetleri yönetme
     items:
-    - name: VM’ler için ön ödeme yapma - Azure Ayırmaları
+    - name: VM'ler için ön ödeme yapma - Azure ayırmaları
       href: prepay-reserved-vm-instances.md
     - name: SUSE yazılımı için ön ödeme yapma
       href: prepay-suse-software-charges.md
-    - name: Azure Ayırmaları nedir?
+    - name: Azure ayırmaları nedir?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: Sanal makine örneği boyut esnekliği
       href: reserved-vm-instance-size-flexibility.md
@@ -498,55 +500,7 @@ items:
       - name: SSS
         href: migration-classic-resource-manager-faq.md
   - name: Sorun giderme
-    items:
-    - name: SSH bağlantıları
-      href: troubleshoot-ssh-connection.md
-      items:
-      - name: Ayrıntılı sorun giderme adımları
-        href: detailed-troubleshoot-ssh-connection.md
-    - name: Linux VM parolasını sıfırlama
-      href: reset-password.md
-    - name: Sistemin yeniden başlatılma nedenini anlama
-      href: understand-vm-reboot.md
-    - name: Önyükleme tanılamaları
-      href: boot-diagnostics.md
-    - name: Seri konsol
-      href: serial-console.md
-      items:
-      - name: Seri Konsol GRUB/Tek kullanıcı modu
-        href: serial-console-grub-single-user-mode.md
-      - name: Seri Konsol NMI/SysRq
-        href: serial-console-nmi-sysrq.md
-    - name: Uygulamalara erişim
-      href: troubleshoot-app-connection.md
-    - name: Ayırma hataları
-      href: allocation-failure.md
-    - name: Ayırma hataları-klasik VM
-      href: allocation-failure-classic.md
-    - name: Dağıtım sorunları
-      href: troubleshoot-deploy-vm.md
-    - name: VM oluşturma
-      href: troubleshoot-deployment-new-vm.md
-    - name: Cihaz adları değiştirildi
-      href: troubleshoot-device-names-problems.md
-    - name: VM’yi yeni Azure düğümüne yeniden dağıtma
-      href: redeploy-to-new-node.md
-    - name: Genel hata iletileri
-      href: error-messages.md
-    - name: VM kurtarma erişimi
-      items:
-      - name: Azure CLI
-        href: troubleshoot-recovery-disks.md
-      - name: Azure portal
-        href: troubleshoot-recovery-disks-portal.md
-    - name: Ekli VHD’ler
-      items:
-      - name: Depolama kaynağı silme hataları
-        href: storage-resource-deletion-errors.md
-      - name: Ekli VHD’ler ile VM’lerin beklenmeyen yeniden başlatmaları
-        href: unexpected-reboots-attached-vhds.md
-    - name: Azaltma hataları
-      href: troubleshooting-throttling-errors.md
+    href: ../troubleshooting/index.md
 - name: Başvuru
   items:
   - name: Azure CLI
@@ -583,9 +537,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: SSS
     href: faq.md
-ms.openlocfilehash: 5ac900d783b72689759bdfe5d2ba47c11aa2157c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9887abf2965b7122c6d0fda1954cc249d67f3380
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035604"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409012"

@@ -77,22 +77,38 @@ items:
   items:
   - name: Olay hub’ı oluşturma
     href: event-hubs-create.md
-  - name: .NET Framework kullanarak olayları gönderme
-    href: event-hubs-dotnet-framework-getstarted-send.md
-  - name: .NET Framework kullanarak olayları alma
-    href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-  - name: Go kullanarak olayları gönderme
-    href: event-hubs-go-get-started-send.md
-  - name: Go kullanarak olayları alma
-    href: event-hubs-go-get-started-receive-eph.md
-  - name: Python kullanarak olayları gönderme
-    href: event-hubs-python-get-started-send.md
-  - name: Python kullanarak olayları alma
-    href: event-hubs-python-get-started-receive.md
-  - name: Node.js kullanarak olayları gönderme
-    href: event-hubs-node-get-started-send.md
-  - name: Node.js kullanarak olayları alma
-    href: event-hubs-node-get-started-receive.md
+  - name: Olayları gönderme
+    items:
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-getstarted-send.md
+    - name: Java
+      href: event-hubs-java-get-started-send.md
+    - name: C
+      href: event-hubs-c-getstarted-send.md
+    - name: Başlayın
+      href: event-hubs-go-get-started-send.md
+    - name: Python
+      href: event-hubs-python-get-started-send.md
+    - name: Node.js
+      href: event-hubs-node-get-started-send.md
+  - name: Olayları alma
+    items:
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+    - name: Java
+      href: event-hubs-java-get-started-receive-eph.md
+    - name: Başlayın
+      href: event-hubs-go-get-started-receive-eph.md
+    - name: Python
+      href: event-hubs-python-get-started-receive.md
+    - name: Node.js
+      href: event-hubs-node-get-started-receive.md
+    - name: Apache Storm
+      href: event-hubs-storm-getstarted-receive.md
   - name: Apache Kafka için Event Hubs
     items:
     - name: Apache Kafka özellikli Event Hubs oluşturma
@@ -106,22 +122,6 @@ items:
       href: event-hubs-dotnet-standard-api-overview.md
     - name: .NET Framework
       href: event-hubs-dotnet-framework-api-overview.md
-  - name: Olayları gönderme
-    items:
-    - name: .NET Standard
-      href: event-hubs-dotnet-standard-getstarted-send.md
-    - name: Java
-      href: event-hubs-java-get-started-send.md
-    - name: C
-      href: event-hubs-c-getstarted-send.md
-  - name: Olayları alma
-    items:
-    - name: .NET Standard
-      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
-    - name: Java
-      href: event-hubs-java-get-started-receive-eph.md
-    - name: Apache Storm
-      href: event-hubs-storm-getstarted-receive.md
   - name: Olayları yakalama
     items:
     - name: Event Hubs Capture için Azure portalı kullanma
@@ -186,9 +186,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: 64a8fb01a8857d58de32c17b97c68104db4f453a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d2ceee656e4194bcf61b5e12a3992140dc02df66
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995695"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405963"
