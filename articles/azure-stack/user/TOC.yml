@@ -32,7 +32,7 @@ items:
     href: azure-stack-solution-hybrid-identity.md
   - name: Hibrit bulut bağlantısı yapılandırma
     href: azure-stack-solution-hybrid-connectivity.md
-  - name: Teklife abone olma
+  - name: Bir teklife abone olma
     href: azure-stack-subscribe-services.md
   - name: Bir şablondan VM oluşturma
     href: azure-stack-create-vm-template.md
@@ -62,7 +62,7 @@ items:
     items:
     - name: Dikkat edilmesi gereken temel konular
       href: azure-stack-considerations.md
-    - name: Bilgi İşlem
+    - name: İşlem
       items:
       - name: Genel Bakış
         href: azure-stack-compute-overview.md
@@ -141,13 +141,15 @@ items:
       - name: Azure Stack araçlarını indirin
         href: ../azure-stack-powershell-download.md
         maintainContext: true
-      - name: Visual Studio Yükleme
+      - name: Visual Studio yükleme
         href: azure-stack-install-visual-studio.md
       - name: API Sürüm profillerini kullanma
         href: azure-stack-version-profiles.md
         items:
         - name: .NET
           href: azure-stack-version-profiles-net.md
+        - name: Java
+          href: azure-stack-version-profiles-java.md
         - name: PowerShell
           href: azure-stack-version-profiles-powershell.md
         - name: Azure CLI
@@ -206,9 +208,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Eğitim ve sertifika
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: c4571c10617033cdfec2e89e0dc0fe124ec515a2
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: a67adb5f0b641f5f4eadfeb08c9802214d9f217b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181109"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405419"
