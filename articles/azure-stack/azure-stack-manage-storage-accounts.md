@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8914391a586bb508192200beaba7f591649a1e99
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139381"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452284"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Azure stack'teki depolama hesapları yönetme
 Bulma, kurtarma ve iş ihtiyaçlarına göre depolama kapasiteyi geri kazanmak için Azure stack'teki depolama hesapları'nı yönetmeyi öğrenin.
@@ -28,19 +27,19 @@ Bulma, kurtarma ve iş ihtiyaçlarına göre depolama kapasiteyi geri kazanmak i
 ## <a name="find"></a>Bir depolama hesabı bulunamadı
 Bölgede depolama hesaplarının listesi Azure yığını tarafından görüntülenebilir:
 
-1. Bir Internet tarayıcısında gidin https://adminportal.local.azurestack.external.
-2. Bulut işleci (dağıtım sırasında sağladığınız kimlik bilgileri kullanılarak) olarak Azure Stack yönetim portalında oturum açın
-3. Varsayılan Panoda – bulmak **bölge Yönetimi** keşfedin, örneğin istediğiniz bölgeyi seçin ve liste **(yerel**).
+1. Oturum [Yönetici portalı](https://adminportal.local.azurestack.external).
+
+2. Seçin **tüm hizmetleri** > **bölge Yönetimi** altında **Yönetim**.
+
+3. Seçin **depolama** gelen **kaynak sağlayıcıları** listesi.
    
-   ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. Seçin **depolama** gelen **kaynak sağlayıcıları** listesi.
+   ![Depolama Kaynak Sağlayıcısı](media/azure-stack-manage-storage-accounts/image1.png)
+
+5. Seçin **depolama hesapları** içinde **depolama**.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Aşağı kaydırarak depolama kaynak sağlayıcısı yönetici bölmesinde – şimdi **depolama hesapları** sekme ve bu seçeneği belirleyin.
    
-   ![](media/azure-stack-manage-storage-accounts/image3.png)
-   
-   Bu bölgede depolama hesaplarının listesi sonuçta elde edilen sayfasıdır.
+   Dikey pencerede, bu bölgede depolama hesaplarının listesi görüntülenir.
    
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
@@ -76,12 +75,12 @@ Silinen hesabı kurtarma için gerek duyduğunuz bir durumda olabilir.
 
 Azure Stack'te Bunu yapmak için basit bir yolu yoktur:
 
-1. Depolama hesapları listesine göz atın. Bkz: [bir depolama hesabı bulunamadı](#find) daha fazla bilgi için bu konuda.
+1. Depolama hesapları listesine göz atın. Bkz: [bir depolama hesabı bulunamadı](#find) daha fazla bilgi için bu makaledeki.
 2. Bu belirli hesabını listede bulun. Filtre gerekebilir.
 3. Denetleme *durumu* hesabının. Söyleyin **silinmiş**.
 4. Hesap ayrıntıları bölmesi açılır hesabı seçin.
 5. Bu bölmede üzerinde bulun **kurtarmak** düğmesini tıklatın ve seçin.
-6. Seçin **Evet** onaylamak için.
+6. Onaylamak için **Evet**'i seçin.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. Yer artık kurtarma *bekleyin... işlem* için başarılı olduğunu göstergesidir.
@@ -97,19 +96,18 @@ Azure Stack'te Bunu yapmak için basit bir yolu yoktur:
   Silinen hesabı saklama süresini aştı ve olmayabilir kurtarılabilir dışında bekletme anlamına gelir.
 * Silinen hesabınızı hesaplar listesinde göstermez.
   
-  Silinen hesabı zaten atık bırakıldığında hesabınız hesap listesinde gösterilmeyebilir. Bu durumda, kurtarılamaz. Bkz: [kapasiteyi geri kazanmak](#reclaim) bu konuda.
+  Silinen hesabı zaten atık bırakıldığında hesabınız hesap listesinde gösterilmeyebilir. Bu durumda, kurtarılamaz. Bkz: [kapasiteyi geri kazanmak](#reclaim) bu makaledeki.
 
 ## <a name="set-the-retention-period"></a>Bekletme süresini ayarlama
 Saklama dönemi ayarı aşamasında olası tüm silinen hesabı kurtarılabilir gün içinde (0 ve 9999 gün arasında) bir zaman aralığı belirtmek bir bulut işlecini verir. Varsayılan saklama süresi 0 gün olarak ayarlanır. Tüm silinen hesabı hemen bekletme dışında olan ve düzenli çöp toplama için işaretlenmiş, "0" anlamına gelir değeri ayarlanamadı.
 
 **Bekletme süresini değiştirmek için:**
 
-1. Bir internet tarayıcısında gidin https://adminportal.local.azurestack.external.
-2. Bulut işleci (dağıtım sırasında sağladığınız kimlik bilgileri kullanılarak) olarak Azure Stack yönetim portalında oturum açın
-3. Varsayılan Panoda – bulmak **bölge Yönetimi** – örneğin keşfetmek istediğiniz bölgeyi seçin ve liste **(yerel**).
-4. Seçin **depolama** gelen **kaynak sağlayıcıları** listesi.
-5. Seçin **ayarları** ayarı bölmesini açmak için üstteki.
-6. Seçin **yapılandırma** Bekletme dönemi değerini düzenleyin.
+1. Oturum [Yönetici portalı](https://adminportal.local.azurestack.external).
+2. Seçin **tüm hizmetleri** > **bölge Yönetimi** altında **Yönetim**.
+3. Seçin **depolama** gelen **kaynak sağlayıcıları** listesi.
+4. Seçin **ayarları** ayarı bölmesini açmak için üstteki.
+5. Seçin **yapılandırma** Bekletme dönemi değerini düzenleyin.
 
    Gün sayısını ayarlayın ve kaydedin.
    
@@ -142,7 +140,7 @@ Ayrıca Bekletme dönemi açıkça geçersiz kılmak için PowerShell kullanın 
    Azure Resource Manager cmdlet'leri hakkında daha fazla bilgi için bkz: [Azure PowerShell'i Azure Resource Manager ile kullanma](http://go.microsoft.com/fwlink/?LinkId=394767)
 2. Aşağıdaki cmdlet'leri çalıştırın:
 
-> [!NOTE]
+> [!NOTE]  
 > Bu cmdlet'leri çalıştırmak, hesabını ve içeriğini kalıcı olarak sil. Kurtarılabilir değil. Bu, dikkatli kullanın.
 
 ```PowerShell  

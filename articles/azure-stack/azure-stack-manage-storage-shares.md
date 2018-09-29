@@ -6,23 +6,22 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: b0e694e4-3575-424c-afda-7d48c2025a62
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: cdfdaf9195f14e3cbe3db2a4507bd91a3133a26e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071394"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452335"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack için depolama kapasitesi yönetme
+# <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack için depolama kapasitesi yönetme 
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
@@ -86,10 +85,15 @@ Bulut operatörü olarak, PowerShell kullanarak bir paylaşım depolama kapasite
 - **Kullanılan kapasite** tüm kapsamları kiracısına ilişkin veriler ve ilişkili meta verileri depolayan dosyalarından tarafından kullanılan veri bayt miktarı.
 
 ### <a name="use-the-administrator-portal"></a>Yönetici portalını kullanma
-Bulut operatörü olarak, tüm paylaşımlar depolama kapasitesini görüntülemek için Yönetim Portalı kullanabilirsiniz. **Depolama Git** > **dosya paylaşımları** kullanım bilgileri görüntüleyebileceğiniz dosya paylaşımı listesini açın.
-![Örnek: Depolama dosya paylaşımları](media/azure-stack-manage-storage-shares/storage-file-shares.png)
-- **Toplam** paylaşımında kullanılabilir bayt cinsinden toplam alan. Bu alan, veri ve depolama hizmetleri tarafından korunur meta verileri için kullanılır.
-- **KULLANILAN** tüm kapsamları kiracısına ilişkin veriler ve ilişkili meta verileri depolayan dosyalarından tarafından kullanılan veri bayt miktarı.
+Bulut operatörü olarak, tüm paylaşımlar depolama kapasitesini görüntülemek için Yönetim Portalı kullanabilirsiniz.
+
+1. Oturum [Yönetici portalı](https://adminportal.local.azurestack.external).
+2. Seçin **tüm hizmetleri** > **depolama** kullanım bilgileri görüntüleyebileceğiniz dosya paylaşımı listesini açın. 
+
+  ![Örnek: Depolama dosya paylaşımları](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+
+  - **Toplam** paylaşımında kullanılabilir bayt cinsinden toplam alan. Bu alan, veri ve depolama hizmetleri tarafından korunur meta verileri için kullanılır.
+  - **KULLANILAN** tüm kapsamları kiracısına ilişkin veriler ve ilişkili meta verileri depolayan dosyalarından tarafından kullanılan veri bayt miktarı.
 
 ### <a name="storage-space-alerts"></a>Depolama alanı uyarıları
 Yönetim Portalı'nı kullandığınızda, alan düşük paylaşımlar hakkında uyarılar alırsınız.

@@ -1,6 +1,6 @@
 ---
-title: Fiziksel bellek kapasitesi Azure yığınının yönetme | Microsoft Docs
-description: İzleme ve kullanılabilir depolama alanı için Azure yığınına yönetme.
+title: Azure Stack için fiziksel bellek kapasitesi yönetme | Microsoft Docs
+description: İzleme ve Azure Stack için kullanılabilir depolama alanı yönetin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,44 +12,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: dc572353c2e27ddfbae2398f1aece56586955e26
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: a914d20f61b5b632e792ca29f6c201964db4a203
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34074866"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452148"
 ---
-<!---Loc Comment: Please, check the comment in coversation section---> 
-# <a name="manage-physical-memory-capacity-for-azure-stack"></a>Fiziksel bellek kapasitesi Azure yığınının yönetme
+# <a name="manage-physical-memory-capacity-for-azure-stack"></a>Azure Stack için fiziksel bellek kapasitesi yönetme
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-Azure yığın toplam kullanılabilir bellek kapasitesini artırmak için ek bellek ekleyebilirsiniz. Azure yığınında fiziksel sunucu olarak da adlandırılan bir *ölçek birimi düğümü*. Tek ölçek biriminin üyesi olan tüm ölçek birimi düğümleri aynı miktarda bellek olmalıdır.
+Azure Stack için toplam kullanılabilir bellek kapasitesini artırmak için ek bellek ekleyebilirsiniz. Azure Stack'te, fiziksel sunucu olarak da adlandırılan bir *ölçek birimi düğüm*. Tek bir ölçek biriminin üyesi olan tüm ölçek birimi düğümleri aynı miktarda bellek olmalıdır.
 
 > [!note]  
-> Devam etmeden önce olmadığını görmek için donanım üreticisinin sağladığı belgelere bir üreticiniz fiziksel bellek yükseltmeyi destekler. OEM donanım satıcısı destek sözleşmesi satıcı fiziksel sunucu rafa yerleştirme ve aygıt üretici yazılımı güncelleştirmesi gerçekleştirmek gerektirebilir.
+> Devam etmeden önce görmek için donanım üreticisinin sağladığı belgelere başvurun bir üreticiniz bir fiziksel bellek yükseltmeyi destekler. OEM donanım satıcısı Destek sözleşmeniz, satıcı fiziksel sunucu raf yerleşimi ve cihaz üretici yazılımı güncelleştirmesi gerçekleştirmek gerekebilir.
 
-Aşağıdaki akış diyagramı her ölçek birimi düğüme bellek eklemek için genel süreç gösterilmektedir.
+Her ölçek birimi düğüme bellek eklemek için genel süreç aşağıdaki akış diyagramı gösterir.
 
-![Bellek her ölçek birimi düğümüne ekleyin](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
+![Bellek her ölçek birimi düğümüne ekleyin.](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
 
-## <a name="add-memory-to-an-existing-node"></a>Varolan bir düğümü için bellek ekleyin
-Aşağıdaki adımlar Ekle bellek işlemi üst düzey bir genel bakış sağlar. 
-
-> [!Warning]  
-OEM tarafından sağlanan belgelerinize bakarak olmadan adımları izlemeyin.
+## <a name="add-memory-to-an-existing-node"></a>Bellek için var olan bir düğüm Ekle
+Aşağıdaki adımlar, bellek ekleme işlemi üst düzey bir genel bakış sağlar. 
 
 > [!Warning]  
-Bellek yükseltme desteklenmiyor gibi tüm ölçek birimi kapatılmalıdır.
+OEM tarafından sağlanan belgelerinize başvuruda bulunmadan bu adımları izlemeyin.
 
-1. Azure konusunda belgelenen adımları kullanarak yığın Durdur [başlatma ve durdurma Azure yığın](azure-stack-start-and-stop.md) makalesi.
-2. Donanım üreticisinin sağladığı belgelere kullanan her fiziksel bilgisayarda bellek yükseltin.
-3. Azure içinde yer alan adımları kullanarak yığını başlatmak [başlatma ve durdurma Azure yığın](azure-stack-start-and-stop.md) makalesi.
+> [!Warning]  
+Sıralı yükseltme bellek desteklenmediğinden ölçek biriminin tamamı kapatılmalıdır.
+
+1. Azure Stack konusunda belgelenen adımları kullanarak Durdur [başlatma ve durdurma Azure Stack](azure-stack-start-and-stop.md) makalesi.
+2. Bellek her fiziksel bilgisayardaki donanım üreticisinin sağladığı belgelere kullanarak yükseltin.
+3. İçindeki adımları kullanarak Azure Stack Başlat [başlatma ve durdurma Azure Stack](azure-stack-start-and-stop.md) makalesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- - Azure bulmak, kurtarmak ve iş ihtiyaçlarına göre depolama kapasiteyi geri kazanmak için yığın depolama hesapları yönetmek öğrenmek için bkz: [depolama hesaplarını Azure yığınında yönetmek](azure-stack-manage-storage-accounts.md).
- - Azure yığın bulut operatörü izler ve bunların Azure yığın dağıtımına depolama kapasitesini yönetir öğrenmek için bkz: [Azure yığın depolama kapasitesi yönetmek](azure-stack-manage-storage-shares.md). 
+ - Bulmak, kurtarma ve iş ihtiyaçlarına göre depolama kapasiteyi geri kazanmak için Azure stack'teki depolama hesapları yönetme konusunda bilgi almak için bkz: [Azure stack'teki depolama hesapları yönetme](azure-stack-manage-storage-accounts.md).
+ - Azure Stack bulut operatörü izler ve bunların Azure Stack dağıtım depolama kapasitesi yönetir öğrenmek için bkz: [Azure Stack için depolama kapasitesi yönetme](azure-stack-manage-storage-shares.md). 
