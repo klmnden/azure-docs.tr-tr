@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4ec09f5ed57dca89934efa750eed05e1ebcb1216
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5bb820d816115dccf470b6c32d080862495e8310
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298294"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434985"
 ---
 # <a name="move-operation-support-for-resources"></a>İşlem desteği kaynakları Taşı
 
@@ -190,6 +190,7 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | kayıt defterleri | Evet | Evet |
 | kayıt defterleri/buildtasks | Evet | Evet |
 | kayıt defterleri/çoğaltmalar | Hayır | Hayır |
+| kayıt defterleri/görevleri | Evet | Evet |
 | kayıt defterleri/Web kancaları | Evet | Evet |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
@@ -197,6 +198,7 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | ------------- | -------------- | ------------ |
 | containerservices | Hayır | Hayır |
 | managedclusters | Hayır | Hayır |
+| openshiftmanagedclusters | Hayır | Hayır |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -276,6 +278,15 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | ------------- | -------------- | ------------ |
 | servergroups | Hayır | Hayır |
 | sunucu | Evet | Evet |
+
+## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
+| Kaynak türü | Kaynak grubu | Abonelik |
+| ------------- | -------------- | ------------ |
+| artifactsources | Hayır | Hayır |
+| Piyasaya çıkarma | Hayır | Hayır |
+| servicetopologies | Hayır | Hayır |
+| servicetopologies/hizmetler | Hayır | Hayır |
+| servicetopologies/services/serviceunits | Hayır | Hayır |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -417,6 +428,11 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | ------------- | -------------- | ------------ |
 | accounts | Evet | Evet |
 
+## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
+| Kaynak türü | Kaynak grubu | Abonelik |
+| ------------- | -------------- | ------------ |
+| çalışma alanı | Evet | Evet |
+
 ## <a name="microsoftmanagedidentity"></a>Microsoft.managedıdentity
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | -------------- | ------------ |
@@ -449,15 +465,22 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | ------------- | -------------- | ------------ |
 | applicationgateways | Hayır | Hayır |
 | applicationsecuritygroup | Evet | Evet |
+| azurefirewalls | Evet | Evet |
 | bağlantılar | Evet | Evet |
 | ddosprotectionplans | Hayır | Hayır |
 | dnszones | Evet | Evet |
 | expressroutecircuits | Hayır | Hayır |
+| expressroutecrossconnections | Hayır | Hayır |
+| expressroutegateways | Hayır | Hayır |
 | expressrouteports | Hayır | Hayır |
+| frontdoors | Evet | Evet |
+| frontdoorwebapplicationfirewallpolicies | Evet | Evet |
+| interfaceendpoints | Hayır | Hayır |
 | sonraki | Evet | Evet |
 | localnetworkgateways | Evet | Evet |
 | networkintentpolicies | Evet | Evet |
 | networkınterface'lerden bazıları | Evet | Evet |
+| networkprofiles | Hayır | Hayır |
 | networksecuritygroups | Evet | Evet |
 | networkwatchers | Evet | Evet |
 | networkwatchers/connectionmonitors | Evet | Evet |
@@ -467,9 +490,16 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | publicipprefixes | Evet | Evet |
 | routefilters | Hayır | Hayır |
 | routetables | Evet | Evet |
+| serviceendpointpolicies | Evet | Evet |
 | trafficmanagerprofiles | Evet | Evet |
+| virtualhubs | Evet | Evet |
 | virtualnetworkgateways | Evet | Evet |
 | virtualnetworks | Evet | Evet |
+| virtualnetworktaps | Hayır | Hayır |
+| virtualwans | Evet | Evet |
+| vpngateways | Evet | Evet |
+| vpnsites | Evet | Evet |
+| webapplicationfirewallpolicies | Evet | Evet |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -568,6 +598,8 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | -------------- | ------------ |
+| managedinstances | Evet | Evet |
+| managedinstances/veritabanları | Evet | Evet |
 | sunucu | Evet | Evet |
 | sunucuları/veritabanları | Evet | Evet |
 | sunucuları/elasticpools | Evet | Evet |

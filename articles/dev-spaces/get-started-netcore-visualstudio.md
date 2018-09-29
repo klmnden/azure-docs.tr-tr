@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: ac1872cf3f5ee8b83da9fa4c489188504aa8ad22
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 43cf75d875b2f5fbfea46fb2c8fbae809668057d
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161552"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405181"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>.NET Core ve Visual Studio ile Azure Dev Spaces’ı Kullanmaya Başlama
 
@@ -29,9 +29,39 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 - İki ayrı hizmeti bağımsız olarak geliştirin ve Kubernetes’in DNS hizmet bulma yöntemini kullanarak başka bir hizmete çağrı yapın.
 - Kodunuzu bir ekip ortamında verimli bir şekilde geliştirip test edin.
 
-[!INCLUDE [](includes/see-troubleshooting.md)]
+> [!Note]
+> Herhangi bir zamanda **kilitlenirseniz** [Sorun giderme](troubleshooting.md) bölümüne başvurun veya bu sayfada bir yorum paylaşın.
 
-[!INCLUDE [](includes/portal-aks-cluster.md)]
+
+## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Spaces için bir Kubernetes kümesi oluşturma
+
+1. http://portal.azure.com adresinden Azure portalında oturum açın.
+1. **Kaynak oluştur**’u seçin > **Kubernetes** ifadesini arayın > **Kubernetes Hizmeti** > **Oluştur** seçeneğini belirleyin.
+
+   AKS kümesi oluşturma formunun her bir başlığının altında aşağıdaki adımları tamamlayın.
+
+    - **PROJE AYRINTILARI**: Bir Azure aboneliği ve yeni veya mevcut bir Azure kaynak grubu seçin.
+    - **KÜME AYRINTILARI**: AKS kümesi için ad, bölge (şu an için EastUS, Central US, WestEurope, WestUS2, CanadaCentral veya CanadaEast seçmeniz gerekir), sürüm ve DNS adı ön eki girin.
+    - **ÖLÇEK**: AKS aracısı düğümleri için bir VM boyutu ve düğüm sayısı seçin. Azure Dev Spaces kullanmaya yeni başlıyorsanız tüm özellikleri keşfetmek için bir düğüm yeterli olacaktır. Küme dağıtıldıktan sonra da dilediğiniz zaman düğüm sayısını kolayca ayarlayabilirsiniz. AKS kümesi oluşturulduktan sonra VM boyutunu değiştiremeyeceğinizi unutmayın. Ancak ölçeklendirmeniz gerekirse AKS kümesi dağıtıldıktan sonra kolayca daha büyük VM'lere sahip yeni bir AKS kümesi oluşturabilir ve Dev Spaces özelliğini kullanarak bu büyük kümeye yeniden dağıtabilirsiniz.
+
+   Kubernetes sürüm 1.9.6 veya üzerini seçtiğinizden emin olun.
+
+   ![Kubernetes yapılandırma ayarları](media/common/Kubernetes-Create-Cluster-2.PNG)
+
+   Tamamladığınızda **İleri: Kimlik doğrulaması**'nı seçin.
+
+1. Rol Tabanlı Erişim Denetimi (RBAC) için dilediğiniz ayarı seçin. Azure Dev Spaces, RBAC'nin etkin veya devre dışı olduğu kümeleri destekler.
+
+    ![RBAC ayarı](media/common/k8s-RBAC.PNG)
+
+1. Http Uygulama Yönlendirmesi seçeneğinin etkin olduğundan emin olun.
+
+   ![HTTP Uygulama Yönlendirmesi'ni etkinleştirme](media/common/Kubernetes-Create-Cluster-3.PNG)
+
+    > [!Note]
+    > Mevcut bir küme üzerinde [Http Uygulama Yönlendirmesi](/azure/aks/http-application-routing)'ni etkinleştirmek için şu komutu kullanın: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
+
+1. **Gözden geçir + oluştur**’u seçin ve sonra tamamlandığında **Oluştur**’a tıklayın.
 
 ## <a name="get-the-visual-studio-tools"></a>Visual Studio araçlarını edinme
 1. En son [Visual Studio 2017](https://www.visualstudio.com/vs/) sürümünü yükleme
@@ -52,7 +82,6 @@ Visual Studio 2017’de yeni bir proje oluşturun. Şu anda, projenin bir **ASP.
 **Web Uygulaması (Model-Görünüm-Denetleyici)** şablonunu seçin ve iletişim kutusunun üstündeki iki açılır listede **.NET Core** ve **ASP.NET Core 2.0**’ı hedeflediğinizden emin olun. Projeyi oluşturmak için **Tamam**'a tıklayın.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
-
 
 ### <a name="enable-dev-spaces-for-an-aks-cluster"></a>AKS kümesi için Azure Dev Spaces'i etkinleştirme
 

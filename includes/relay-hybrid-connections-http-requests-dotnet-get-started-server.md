@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: 2784102cdc778188f0874a15e3ff02e4cc2e3eb8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5c7c2fe101315959d07ce4912905bbf59a7ee664
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33905004"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452826"
 ---
 ### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
@@ -22,8 +22,10 @@ Visual Studio'da yeni bir **Konsol Uygulaması (.NET Framework)** projesi oluşt
 ### <a name="add-the-relay-nuget-package"></a>Geçiş NuGet paketini ekleme
 
 1. Yeni oluşturulan projeye sağ tıklayıp **NuGet Paketlerini Yönet**'i seçin.
-2. **Göz at**'ı seçip **Microsoft.Azure.Relay** araması yapın. Arama sonuçlarında **Microsoft Azure Geçişi**'ni seçin. 
-3. Yüklemeyi tamamlamak için **Yükle**'yi seçin. İletişim kutusunu kapatın.
+2. **Ön sürümü dahil et** seçeneğini işaretleyin. 
+3. **Göz at**'ı seçip **Microsoft.Azure.Relay** araması yapın. Arama sonuçlarında **Microsoft Azure Geçişi**'ni seçin.
+4. Sürüm alanında **2.0.0-preview1-20180523** girişini seçin. 
+5. Yüklemeyi tamamlamak için **Yükle**'yi seçin. İletişim kutusunu kapatın.
 
 ### <a name="write-code-to-receive-messages"></a>İleti almak için kod yazma
 
@@ -35,13 +37,21 @@ Visual Studio'da yeni bir **Konsol Uygulaması (.NET Framework)** projesi oluşt
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
+    using System.Net;
     ```
 2. Karma bağlantı ayrıntıları için sabitleri `Program` sınıfına ekleyin. Köşeli ayraçlar içindeki yer tutucuları, karma bağlantıyı oluştururken aldığınız değerlerle değiştirin. Tam ad alanı adını kullandığınızdan emin olun.
    
     ```csharp
+    // replace {RelayNamespace} with the name of your namespace
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
+
+    // replace {HybridConnectionName} with the name of your hybrid connection
     private const string ConnectionName = "{HybridConnectionName}";
+
+    // replace {SAKKeyName} with the name of your Shared Access Policies key, which is RootManageSharedAccessKey by default
     private const string KeyName = "{SASKeyName}";
+
+    // replace {SASKey} with the primary key of the namespace you saved earlier
     private const string Key = "{SASKey}";
     ```
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 6e58429567e447002b1c9191bb8e50a4351649a9
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 6e9813d989a54dbb1609a58dd502a7493d973faa
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42059956"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433727"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process'in çalışması: SQL Server'ı kullanma
 Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak makine öğrenme modeli dağıtma sürecinde size yol-- [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi iş akışı yordamdan sonraki: alma ve verileri, mühendislik işlevlerini, öğrenme süreçlerini kolaylaştırmasına sonra yapı ve model dağıtma keşfedin.
@@ -582,7 +582,7 @@ Bu alıştırmada biz zaten incelediniz ve SQL Server'daki verileri mühendislik
 2. Seçin **Azure SQL veritabanı** olarak **veri kaynağı** içinde **özellikleri** paneli.
 3. Veritabanı bir DNS adı girmeniz **veritabanı sunucu adı** alan. Biçim: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Girin **veritabanı adı** karşılık gelen alandaki.
-5. Girin **SQL kullanıcı adı** içinde ** sunucu kullanıcı aqccount adını ve parolayı **Server kullanıcı hesabı parolası**.
+5. Girin **SQL kullanıcı adı** içinde **Server kullanıcı hesabı adı**ve **parola** içinde **Server kullanıcı hesabı parolası**.
 7. İçinde **veritabanı sorgusu** metin alanını düzenleme, gerekli veritabanı alanları (etiketler gibi tüm hesaplanan alanları dahil) ayıklayan sorguyu yapıştırın ve aşağı istenen örnek boyutu için verileri örnekler.
 
 Aşağıdaki çizimde SQL Server veritabanından doğrudan verileri okuma bir ikili sınıflandırma deneme örneğidir. Benzer denemeleri, çok sınıflı sınıflandırma ve regresyon sorunları için oluşturulabilir.

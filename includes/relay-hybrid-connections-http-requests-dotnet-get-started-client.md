@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: e07d82b8a3aea4f0db0f5a071d78ea360cd611ab
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 8d73a22473ffff358c7424249c7581f6af740718
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177262"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452827"
 ---
 ### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
@@ -24,8 +24,10 @@ Visual Studio'da yeni bir **Konsol Uygulaması (.NET Framework)** projesi oluşt
 ### <a name="add-the-relay-nuget-package"></a>Geçiş NuGet paketini ekleme
 
 1. Yeni oluşturulan projeye sağ tıklayıp **NuGet Paketlerini Yönet**'i seçin.
-2. **Göz at**'ı seçip **Microsoft.Azure.Relay** araması yapın. Arama sonuçlarında **Microsoft Azure Geçişi**'ni seçin. 
-3. Yüklemeyi tamamlamak için **Yükle**'yi seçin. İletişim kutusunu kapatın.
+2. **Ön sürümü dahil et** seçeneğini işaretleyin. 
+3. **Göz at**'ı seçip **Microsoft.Azure.Relay** araması yapın. Arama sonuçlarında **Microsoft Azure Geçişi**'ni seçin.
+4. Sürüm alanında **2.0.0-preview1-20180523** girişini seçin. 
+5. Yüklemeyi tamamlamak için **Yükle**'yi seçin. İletişim kutusunu kapatın.
 
 ### <a name="write-code-to-send-requests"></a>İstek göndermek için kod yazma
 

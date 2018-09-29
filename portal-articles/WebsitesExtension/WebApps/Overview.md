@@ -8,12 +8,12 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 0d4121bd68611c1f3c6a8c89a0d60251401d670a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301302"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432232"
 ---
 # <a name="app-service-documentation"></a>App Service Belgeleri
 Azure App Service, altyapıyı veya dilin ya da web çerçevesinin çalışma zamanını yönetmeye gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Azure DevOps Services veya herhangi bir Git deposundan otomatik dağıtımlar sağlar. Hızlı başlangıçlarımız, öğreticilerimiz ve örneklerimizle Azure App Service’i kullanmayı öğrenin.
@@ -40,7 +40,7 @@ Azure'da güvenli web uygulamaları dağıtma, yönetme ve izleme hakkında bilg
   - [Azure SQL DB ile .NET](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [MongoDB ile Node.js](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [MySQL ile Java](/app-service/app-service-web-tutorial-java-mysql)
-  - [PostgreSQL ile Python](/app-service/containers/tutorial-docker-python-postgresql-app)
+  - [PostgreSQL ile Python](/app-service/containers/tutorial-python-postgresql-app)
 - [Mevcut bir özel etki alanını uygulamanıza eşleme](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Mevcut bir SSL sertifikasını uygulamanıza bağlama](/azure/app-service/app-service-web-tutorial-custom-SSL)
 

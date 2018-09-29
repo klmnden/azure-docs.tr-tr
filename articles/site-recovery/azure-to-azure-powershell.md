@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: dbc092a9a6984a74cb59f287f12b06892c68fe4a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1bf2fe84f9695993dacb6d197d75c18e5db86c4e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296898"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433438"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarmayı ayarlama
 
@@ -34,7 +34,6 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!NOTE]
 > Portal aracılığıyla sunulan tüm senaryo özellikleri, Azure PowerShell aracılığıyla kullanıma sunulabilir. Azure PowerShell aracılığıyla şu anda desteklenmeyen senaryo özelliklerden bazıları şunlardır:
-> - Yönetilen diskler kullanan Azure sanal makinelerini çoğaltma olanağı.
 > - Sanal makinedeki tüm diskler her disk sanal makinenin açıkça belirtmek zorunda kalmadan çoğaltılacak belirtme olanağı.  
 
 ## <a name="prerequisites"></a>Önkoşullar

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 1b893518ec67d6c11c2bcee3acc52c01cd573f86
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fef057b5d1e1ba8b03b04852376b1e5a49926008
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091575"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432414"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server için Azure Hibrit Teklifi
 Yazılım Güvencesi olan müşteriler için Windows Server için Azure hibrit avantajı, şirket içi Windows Server lisanslarınızı kullanın ve Windows sanal makineler, düşük bir maliyet karşılığında Azure üzerinde çalıştırmak sağlar. Windows işletim sistemi ile yeni sanal makineleri dağıtmak için Windows Server için Azure hibrit Avantajı'nı kullanabilirsiniz. Bu makale Windows Server için Azure hibrit avantajı ile yeni VM'ler dağıtmayı ve varolan nasıl güncelleştirebilirsiniz adımları üzerinden Vm'leri çalıştıran gider. Windows Server için Azure hibrit Avantajı hakkında daha fazla bilgi için bkz: Lisans ve maliyet tasarrufu [Windows Server için Azure hibrit avantajı lisans sayfası](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -114,7 +114,7 @@ VM dikey portalından Azure hibrit avantajı "Yapılandırma" seçeneğini belir
     ```azurecli
     az vm update --resource-group myResourceGroup --name myVM --set licenseType=Windows_Server
     ```
-    
+
 ### <a name="how-to-verify-your-vm-is-utilizing-the-licensing-benefit"></a>VM'nize nasıl, lisans avantajından yararlanarak
 PowerShell, Resource Manager şablonu veya portal üzerinden sanal makinenizin dağıttıktan sonra aşağıdaki yöntemlerden ayarında doğrulayabilirsiniz.
 
@@ -145,6 +145,10 @@ LicenseType              :
 ```azurecli
 az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windows_Server]' -o table
 ```
+
+> [!NOTE]
+> VM'de lisans türünü değiştirerek sistemin yeniden başlatma veya hizmet interuption neden neden olmaz. Bu bayrağı yalnızca lisans meta veri olur.
+>
 
 ## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Windows Server için Azure hibrit avantajı ile tüm VM'lerin bir abonelikte listesi
 Windows Server için Azure hibrit avantajı ile dağıtılan tüm sanal makinelerin sayısı ve görmek için aboneliğinizden aşağıdaki komutu çalıştırabilirsiniz:

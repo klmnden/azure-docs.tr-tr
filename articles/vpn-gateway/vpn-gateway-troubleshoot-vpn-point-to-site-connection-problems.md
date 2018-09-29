@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cd89c41b43be1da339ca7dcc64110e7145a93903
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 72cf094dc6206fcb156a3e4dae6e89662e2085d8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857339"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434866"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Giderme: Azure noktadan siteye bağlantı sorunlarını
 
@@ -51,7 +51,7 @@ Bu sorunu çözmek için aşağıdaki adımları izleyin:
     | Azuregateway -*GUID*. cloudapp.net  | Geçerli User\Trusted kök sertifika yetkilileri|
     | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Yerel bilgisayar/güvenilen kök sertifika yetkilileri|
 
-3. Kullanıcılar Git\<kullanıcıadı > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, el ile sertifika (*.cer dosyası) kullanıcı ve bilgisayar deposuna yükleyin.
+3. C:\Users Git\<kullanıcıadı > \AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID >, el ile sertifika (*.cer dosyası) kullanıcı ve bilgisayar deposuna yükleyin.
 
 İstemci sertifikasını yükleme hakkında daha fazla bilgi için bkz. [noktadan siteye bağlantılar için sertifikaları oluşturma ve dışarı aktarma](vpn-gateway-certificates-point-to-site.md).
 
@@ -276,7 +276,7 @@ Noktadan siteye VPN bağlantısı kaldırıp sonra da VPN istemcisini yeniden y�
 
 ### <a name="solution"></a>Çözüm
 
-Bu sorunu gidermek için eski VPN istemcisi yapılandırma dosyalarını silin. **C:\users\username\AppData\Microsoft\Network\Connections\<sanal ağ kimliği >**, ve ardından VPN istemci yükleyiciyi yeniden çalıştırın.
+Bu sorunu gidermek için eski VPN istemcisi yapılandırma dosyalarını silin. **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<sanal ağ kimliği >**, ve ardından VPN istemci yükleyiciyi yeniden çalıştırın .
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Noktadan siteye VPN istemcisi yerel etki alanındaki kaynaklara FQDN'si çözümlenemiyor
 
@@ -361,7 +361,7 @@ Azure VPN ağ geçidi türü VPN olmalıdır ve VPN türünde olmalıdır **Rout
 
 ### <a name="solution"></a>Çözüm
 
-Eski VPN istemcisi yapılandırma dosyalarını Sil **C:\users\username\AppData\Microsoft\Network\Connections\<sanal ağ kimliği >** ve VPN istemci yükleyiciyi yeniden çalıştırın. 
+Eski VPN istemcisi yapılandırma dosyalarını Sil **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<sanal ağ kimliği >** ve VPN istemci yükleyiciyi yeniden çalıştırın. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>VPN istemcisi, hazırda bekleme veya bir süre sonra uyku
 

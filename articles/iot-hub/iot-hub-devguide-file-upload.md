@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Hub dosya karşıya yükleme anlama | Microsoft Docs
-description: Geliştirici Kılavuzu - IOT hub'ı yüklemeyi yönetmek için dosya karşıya yükleme özelliği bir Azure depolama blob kapsayıcısına bir aygıttan dosyaları kullanın.
+title: Azure IOT hub'ı dosya karşıya yükleme anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - karşıya yükleme yönetmek için IOT Hub'ın karşıya dosya yükleme özelliğiyle bir CİHAZDAN bir Azure depolama blob kapsayıcısına dosyaları kullanın.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,39 +8,39 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: e16d32bdba1374540c03d1034a94192a54e6a109
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8fee8dd727623e81140656a070e6855547693154
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634905"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451163"
 ---
 # <a name="upload-files-with-iot-hub"></a>IOT Hub ile dosyaları karşıya yükleme
 
-İçinde ayrıntılı olarak [IOT Hub uç noktaları] [ lnk-endpoints] makale, bir cihaz başlatabilir dosyanın karşıya bir aygıt'e yönelik uç noktası aracılığıyla bir bildirim göndererek (**/devices/ {DeviceID} / dosyaları**). Bir cihaz IOT hub'ı bir karşıya yükleme tamamlanana bildirdiğinde, IOT hub'ı aracılığıyla dosya karşıya yükleme bildirim iletisi gönderir **/messages/servicebound/filenotifications** service'e yönelik uç noktası.
+Ayrıntılarıyla açıklandığı gibi [IOT Hub uç noktaları](iot-hub-devguide-endpoints.md) makale, bir cihaz başlatabilir dosyanın karşıya bir cihaz'e yönelik uç noktası bir bildirim göndererek (**/devices/ {DeviceID} / dosyaları**). Bir cihaz IOT hub'ı bir karşıya yükleme tamamlandıktan bildirdiğinde, IOT Hub aracılığıyla bir dosyayı karşıya yükleme bildirim iletisi gönderir. **/messages/servicebound/filenotifications** yönelik hizmet uç noktası.
 
-Aracılığı yapmaktan IOT Hub kendisi aracılığıyla iletileri yerine, IOT hub'ı bir dağıtıcı ilişkili bir Azure depolama hesabı yerine görür. Bir aygıtın depolama belirteci cihaz karşıya istediği dosyasına özel IOT hub'dan ister. Dosya depolama alanına karşıya SAS URI'sini aygıt kullanır ve karşıya yükleme tamamlandığında cihaz IOT Hub'ına tamamlanma bir bildirim gönderir. IOT hub'ı dosya karşıya yükleme tamamlandı ve ardından hizmet dönük dosya bildirim uç noktası için bir dosya karşıya yükleme bildirim iletisi ekler denetler.
+Aracılığını destekleyen kendini IOT Hub aracılığıyla iletileri yerine, IOT hub'ı bir dağıtıcısıyla ilişkili Azure depolama hesabınız yerine görür. Bir cihaz IOT hub'dan cihaz yüklemek isteyen dosyanın belirli bir depolama belirteci ister. Dosya depolama alanına yüklemek için SAS URI'sini cihaz kullanır ve karşıya yükleme tamamlandığında, cihaz bildirim tamamlama IOT Hub'ına gönderir. IOT Hub, dosyayı karşıya yükleme tamamlandı ve ardından hizmeti kullanıma yönelik dosya bildirim uç noktası için bir dosya karşıya yükleme bildirim iletisi ekler denetler.
 
-Bir CİHAZDAN IOT Hub'ına bir dosyayı karşıya yüklemeden önce hub'ınızı tarafından yapılandırmalısınız [bir Azure Storage ilişkilendirme] [ lnk-associate-storage] için hesap.
+Bir CİHAZDAN IOT Hub'ına bir dosyayı karşıya yüklemeden önce hub'ınıza tarafından yapılandırmalısınız [bir Azure depolama ilişkilendirme](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub) için hesap.
 
-Cihazınızı böylece [karşıya yükleme başlatma] [ lnk-initialize] ve ardından [IOT hub'ı bildir] [ lnk-notify] karşıya yükleme tamamlandığında. İsteğe bağlı olarak, bir cihaz IOT hub'ı yükleme tamamlandığını bildirir, hizmet oluşturabilir bir [bildirim iletisi][lnk-service-notification].
+Cihazınızı böylece [karşıya yükleme başlatmak](iot-hub-devguide-file-upload.md#initialize-a-file-upload) ardından [IOT hub'ı bildirim](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) karşıya yükleme tamamlandığında. İsteğe bağlı olarak, bir cihaz IOT hub'ı karşıya yükleme tamamlandıktan bildirdiğinde, hizmeti oluşturabilir bir [bildirim iletisi](iot-hub-devguide-file-upload.md#file-upload-notifications).
 
 ### <a name="when-to-use"></a>Kullanılması gereken durumlar
 
-Karşıya dosya yükleme, ortam dosyaları ve aralıklı bağlı cihazlar tarafından karşıya veya bant genişliğini korumak amacıyla Sıkıştırılmış büyük telemetri toplu göndermek için kullanın.
+Karşıya dosya yükleme, medya dosyaları ve aralıklı olarak bağlanan cihazlarla tarafından karşıya veya bant genişliğinden tasarruf etmek sıkıştırılmış toplu işlemleri büyük telemetri göndermek için kullanın.
 
-Başvurmak [cihaz bulut iletişimi Kılavuzu] [ lnk-d2c-guidance] IF bildirilen özellikleri, cihaz bulut iletilerini veya karşıya dosya yükleme kullanarak arasında şüpheli.
+Başvurmak [CİHAZDAN buluta iletişim Kılavuzu](iot-hub-devguide-d2c-guidance.md) bildirilen özellikleri, CİHAZDAN buluta iletileri ya da Karşıya Dosya Yükleme'nın kullanımı arasındaki şüpheli ise.
 
-## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Bir Azure Storage hesabı IOT Hub ile ilişkilendirme
+## <a name="associate-an-azure-storage-account-with-iot-hub"></a>IOT hub'ı ile bir Azure depolama hesabı ilişkilendirin
 
-Dosya karşıya yükleme işlevselliği kullanmak için öncelikle bir Azure Storage hesabı IOT Hub'ına bağlamanız gerekir. Aracılığıyla bu görevi tamamlayabilirsiniz [Azure portal][lnk-management-portal], program aracılığıyla aracılığıyla veya [IOT hub'ı kaynak sağlayıcısı REST API'leri] [ lnk-resource-provider-apis]. IOT Hub'ınıza bir Azure Storage hesabı ilişkilendirdikten sonra hizmet bir cihaza bir SAS URI'sini cihaz dosya karşıya yükleme isteği başlattığında döndürür.
+Dosya karşıya yükleme işlevselliği kullanmak için bir Azure depolama hesabı IOT Hub'ına bağlamanız gerekir. -Bu görevi tamamlayabilirsiniz [Azure portalında](https://portal.azure.com), program aracılığıyla aracılığıyla veya [IOT hub'ı kaynak sağlayıcısı REST API'leri](/rest/api/iothub/iothubresource). Bir Azure depolama hesabı ile IOT Hub'ınıza ilişkilendirdikten sonra cihaz bir dosya karşıya yükleme isteği gerçekleştirildiğinde hizmeti bir cihaza bir SAS URI döndürür.
 
 > [!NOTE]
-> [Azure IOT SDK'ları] [ lnk-sdks] SAS URI'sini alma, dosyayı karşıya yükleme ve tamamlanan karşıya yükleme, IOT Hub bildiren otomatik olarak işler.
+> [Azure IOT SDK'ları](iot-hub-devguide-sdks.md) SAS URI'sini alma, dosyayı karşıya yükledikten ve tamamlanan bir karşıya yükleme, IOT hub'bildiren otomatik olarak işler.
 
 
-## <a name="initialize-a-file-upload"></a>Bir dosyayı karşıya yükleme başlatma
-IOT hub'ı bir SAS URI'sini depolama için bir dosyayı karşıya yüklemeyi istemek özellikle aygıtları için bir uç nokta vardır. Dosya karşıya yükleme işlemini başlatmak için cihaz bir POST isteği gönderir `{iot hub}.azure-devices.net/devices/{deviceId}/files` aşağıdaki JSON gövdesi ile:
+## <a name="initialize-a-file-upload"></a>Karşıya dosya yüklemeyi Başlat
+IOT hub'ı bir dosyayı karşıya yüklemek için bir SAS URI depolama istemek özellikle cihazlar için bir uç nokta vardır. Dosya karşıya yükleme işlemini başlatmak için cihaz bir POST isteği gönderir `{iot hub}.azure-devices.net/devices/{deviceId}/files` aşağıdaki JSON gövdesi ile:
 
 ```json
 {
@@ -48,7 +48,7 @@ IOT hub'ı bir SAS URI'sini depolama için bir dosyayı karşıya yüklemeyi ist
 }
 ```
 
-IOT Hub cihaz dosyayı karşıya yüklemeyi kullanır aşağıdaki veriler döndürür:
+IOT Hub cihaz dosyayı karşıya yüklemek için kullandığı aşağıdaki veriler döndürür:
 
 ```json
 {
@@ -60,19 +60,20 @@ IOT Hub cihaz dosyayı karşıya yüklemeyi kullanır aşağıdaki veriler dönd
 }
 ```
 
-### <a name="deprecated-initialize-a-file-upload-with-a-get"></a>Kullanım dışı: karşıya dosya yükleme GET ile başlatma
+### <a name="deprecated-initialize-a-file-upload-with-a-get"></a>Kullanım dışı: Dosyanın karşıya bir GET ile başlatılamıyor
 
 > [!NOTE]
-> Bu bölümde IOT hub'dan bir SAS URI'sini alma için kullanım dışı bırakılan işlevsellik açıklanmaktadır. Daha önce açıklanan POST yöntemini kullanın.
+> Bu bölümde, IOT Hub'ından SAS URI'sini alma için kullanım dışı işlevler açıklanmaktadır. Daha önce açıklanan POST yöntemini kullanın.
 
-IOT hub'ı dosya karşıya yükleme, tamamlanan karşıya yükleme IOT hub'ını bildirmek için SAS URI'sini için depolama ve diğer Al birine desteklemek için iki REST uç nokta vardır. Cihaz IOT hub'ına bir GET göndererek dosya karşıya yükleme işlemi başlatır `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. IOT hub'ı döndürür:
+IOT hub'ı dosya karşıya yükleme, tamamlanan bir karşıya yükleme, IOT hub'ı bildirmek için SAS URI'si için depolama ve diğer kazanmak için desteklemek için iki REST uç noktası vardır. Cihaz IOT hub'da bir GET göndererek dosya karşıya yükleme işlemini başlatır. `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. IOT hub'ı döndürür:
 
-* Bir SAS karşıya yüklenecek URI dosyasına özgüdür.
-* Karşıya yükleme tamamlandıktan sonra kullanılması için bir bağıntı kimliği.
+* SAS karşıya yüklenecek URI'si dosyasına özgüdür.
 
-## <a name="notify-iot-hub-of-a-completed-file-upload"></a>IOT hub'ı bir tamamlanmış dosyanın karşıya yüklenmesi bildir
+* Karşıya yükleme tamamlandıktan sonra kullanılacak bir bağıntı kimliği.
 
-Aygıt dosyası Azure depolama SDK'ları kullanarak depolama alanına yüklemek için sorumludur. Karşıya yükleme tamamlandığında, cihaz bir POST isteği gönderir `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` aşağıdaki JSON gövdesi ile:
+## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Tamamlanmış bir dosyayı karşıya yükleme, IOT hub'bildir
+
+Cihaz, Azure depolama SDK'larını kullanarak depolama alanına dosya yüklemek için sorumludur. Karşıya yükleme tamamlandığında, cihaz bir POST isteği gönderir. `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` aşağıdaki JSON gövdesi ile:
 
 ```json
 {
@@ -83,28 +84,28 @@ Aygıt dosyası Azure depolama SDK'ları kullanarak depolama alanına yüklemek 
 }
 ```
 
-Değeri `isSuccess` dosyası başarıyla karşıya yüklendi olup olmadığını Boolean temsil eden bir değil. Durum kodunu `statusCode` depolama, dosyayı karşıya yükleme durumu ve `statusDescription` karşılık gelen `statusCode`.
+Değerini `isSuccess` dosyası başarıyla karşıya yüklendi olup olmadığını bir Boolean temsil eden olduğu. Durum kodunu `statusCode` depolama, dosyanın karşıya yükleme durumu ve `statusDescription` karşılık gelen `statusCode`.
 
 ## <a name="reference-topics"></a>Başvuru konuları:
 
-Aşağıdaki başvuru konuları aygıttan dosyaları karşıya yükleme hakkında daha fazla bilgi sağlar.
+Aşağıdaki başvuru konuları, dosyaları bir CİHAZDAN karşıya yükleme hakkında daha fazla bilgi sağlar.
 
 ## <a name="file-upload-notifications"></a>Dosya karşıya yükleme bildirimleri
 
-İsteğe bağlı olarak, bir cihaz IOT hub'ı bir karşıya yükleme tamamlanana bildirdiğinde, IOT hub'ı dosyasının adını ve depolama konumunu içeren bir bildirim iletisi oluşturur.
+İsteğe bağlı olarak, bir cihaz IOT hub'ı bir karşıya yükleme tamamlandıktan bildirdiğinde, IOT hub'ı dosyasının adını ve depolama konumunu içeren bir bildirim iletisi oluşturur.
 
-İçinde anlatıldığı gibi [uç noktaları][lnk-endpoints], IOT hub'ı sunan bir hizmet'e yönelik uç noktası aracılığıyla dosya karşıya yükleme bildirimleri (**/messages/servicebound/fileuploadnotifications**) iletileri olarak. Dosya karşıya yükleme bildirimlerini alma anlamları bulut-cihaz iletilerini aynıdır ve aynı olan [ileti yaşam döngüsü][lnk-lifecycle]. Dosya karşıya yükleme bildirim uç noktasından alınan her ileti, aşağıdaki özelliklere sahip bir JSON kaydıdır:
+İçinde anlatıldığı gibi [uç noktaları](iot-hub-devguide-endpoints.md), IOT Hub hizmeti'e yönelik uç nokta üzerinden dosya karşıya yükleme bildirimleri sunar (**/messages/servicebound/fileuploadnotifications**) iletileri. Dosya karşıya yükleme bildirimleri alma semantiği bulut-cihaz iletilerini ile aynıdır ve aynı [ileti yaşam döngüsü](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Dosya karşıya yükleme bildirim uç noktasından alınan her ileti, aşağıdaki özelliklere sahip bir JSON kaydıdır:
 
 | Özellik | Açıklama |
 | --- | --- |
-| EnqueuedTimeUtc |Bildirim ne zaman oluşturulduğunu belirten bir zaman damgası. |
-| DeviceId |**DeviceID** olan dosya karşıya cihaz. |
-| BlobUri |Yüklenen dosya URI'si. |
-| BlobName |Karşıya yüklenen dosyanın adı. |
-| LastUpdatedTime |Dosyanın en son güncelleştirildiği belirten bir zaman damgası. |
+| EnqueuedTimeUtc |Bildirimin ne zaman oluşturulduğunu belirten bir zaman damgası. |
+| DeviceId |**DeviceID** dosya karşıya cihazın. |
+| BlobUri |Karşıya yüklenen dosya URI'si. |
+| BlobName |Karşıya yüklenen dosya adı. |
+| LastUpdatedTime |Dosyanın en son ne zaman güncelleştirildiğini belirten bir zaman damgası. |
 | BlobSizeInBytes |Karşıya yüklenen dosyanın boyutu. |
 
-**Örnek**. Bu örnek, bir dosya gövdesi karşıya bildirim iletisi gösterir.
+**Örnek**. Bu örnek, bir dosya gövdesinin karşıya yükleme, bildirim iletisini gösterir.
 
 ```json
 {
@@ -119,56 +120,43 @@ Aşağıdaki başvuru konuları aygıttan dosyaları karşıya yükleme hakkınd
 
 ## <a name="file-upload-notification-configuration-options"></a>Dosya karşıya yükleme bildirim yapılandırma seçenekleri
 
-Her IOT hub'ı dosya karşıya yükleme bildirimleri için aşağıdaki yapılandırma seçeneklerini gösterir:
+Her IOT hub'ı dosya karşıya yükleme bildirimleri için aşağıdaki yapılandırma seçeneklerini sunar:
 
-| Özellik | Açıklama | Aralık ve varsayılan |
+| Özellik | Açıklama | Aralığı ve varsayılan |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Dosya karşıya yükleme bildirimlerini dosya bildirimleri uç noktası için yazılmış olup olmadığını denetler. |Bool. Varsayılan: True. |
-| **fileNotifications.ttlAsIso8601** |Dosya karşıya yükleme bildirimleri için varsayılan TTL değeri. |ISO_8601 aralığı ' 48 H kadar (en az 1 dakika). Varsayılan: 1 saat. |
-| **fileNotifications.lockDuration** |Dosya karşıya yükleme bildirimleri sırası süresince kilitleyin. |5 ile 300 saniye (en az 5 saniye). Varsayılan: 60 saniye sayısı. |
-| **fileNotifications.maxDeliveryCount** |Dosya için maksimum teslimat sayısı bildirim sırası karşıya yükleyin. |1 ile 100. Varsayılan: 100. |
+| **enableFileUploadNotifications** |Dosya karşıya yükleme bildirim dosyası bildirimleri uç noktaya yazılıp yazılmayacağını denetler. |Bool. Varsayılan: True. |
+| **fileNotifications.ttlAsIso8601** |Varsayılan TTL dosya karşıya yükleme bildirimleri. |ISO_8601 aralığı ' 48 saat kadar (en az 1 dakika). Varsayılan: 1 saat. |
+| **fileNotifications.lockDuration** |Kilit süresi için dosya karşıya yükleme bildirim sırası. |5 ile 300 saniye (en az 5 saniye). Varsayılan: 60 saniye. |
+| **fileNotifications.maxDeliveryCount** |En fazla teslim sayısı bildirim sırası karşıya yükleyin. |1-100. Varsayılan: 100. |
 
-## <a name="additional-reference-material"></a>Ek başvuru bilgileri
+## <a name="additional-reference-material"></a>Ek başvuru malzemesi
 
-IOT Hub Geliştirici Kılavuzu'ndaki diğer başvuru konuları içerir:
+IOT Hub Geliştirici Kılavuzu'nda olan diğer başvuru konularını içerir:
 
-* [IOT Hub uç noktaları] [ lnk-endpoints] her IOT hub'ı çalışma zamanı ve yönetim işlemleri için kullanıma sunan çeşitli uç noktaları açıklar.
-* [Azaltma ve kotaları] [ lnk-quotas] kotaları açıklar ve IOT hub'ı hizmete uygulamak davranışları azaltma.
-* [Azure IOT cihaz ve hizmet SDK'ları] [ lnk-sdks] çeşitli dil IOT Hub ile etkileşim hem cihaz hem de hizmet uygulamaları geliştirirken kullanabilir SDK'ları listeler.
-* [IOT hub'ı sorgu dili] [ lnk-query] IOT Hub'ından, cihaz çiftlerini ve işleri hakkında bilgi almak için kullanabileceğiniz sorgu dili açıklar.
-* [IOT Hub MQTT Destek] [ lnk-devguide-mqtt] IOT hub'ı desteği hakkında daha fazla bilgi için MQTT Protokolü sağlar.
+* [IOT Hub uç noktaları](iot-hub-devguide-endpoints.md) her IOT hub'ı ortaya koyan çalışma zamanı ve yönetim işlemleri için çeşitli uç noktaları açıklar.
+
+* [Azaltma ve kotalar](iot-hub-devguide-quotas-throttling.md) kotaları açıklar ve IOT Hub hizmetine geçerli davranışlara azaltma.
+
+* [Azure IOT cihaz ve hizmet SDK'ları](iot-hub-devguide-sdks.md) çeşitli dil IOT hub'ı ile etkileşim kuran hem cihaz hem de hizmet uygulamaları geliştirirken kullanabileceğiniz SDK'ları listeler.
+
+* [IOT Hub sorgu dili](iot-hub-devguide-query-language.md) IOT Hub'ından, cihaz ikizleri ve işler hakkında bilgi almak için kullanabileceğiniz bir sorgu dili açıklar.
+
+* [IOT hub'ı MQTT desteği](iot-hub-mqtt-support.md) ve MQTT protokolünü için IOT hub'ı desteği hakkında daha fazla bilgi sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-IOT hub'ı kullanarak cihazları dosyaları karşıya yüklemek öğrendiniz artık aşağıdaki IOT Hub Geliştirici Kılavuzu konuları ilgilenen olabilir:
+IOT hub'ı kullanarak cihazlardan karşıya dosya yükleme gerçekleştirmeyi öğrendiniz artık aşağıdaki IOT Hub Geliştirici Kılavuzu konuları ilginizi çekebilir:
 
-* [IOT Hub cihaz kimliklerini yönetme][lnk-devguide-identities]
-* [IOT Hub'ına erişimi denetleme][lnk-devguide-security]
-* [Cihaz çiftlerini durumu ve yapılandırmaları eşitlemek için kullanın][lnk-devguide-device-twins]
-* [Bir cihazda doğrudan bir yöntem çağırma][lnk-devguide-directmethods]
-* [Birden çok aygıta işleri zamanla][lnk-devguide-jobs]
+* [IOT hub cihaz kimliklerini yönetme](iot-hub-devguide-identity-registry.md)
 
-Bu makalede açıklanan kavramları bazıları denemek için aşağıdaki IOT hub'ı öğretici bakın:
+* [IoT Hub’a erişimi denetleme](iot-hub-devguide-security.md)
 
-* [IOT Hub ile bulut aygıtlardan dosyaları karşıya yükleme yapma][lnk-fileupload-tutorial]
+* [Durum ve yapılandırmaları eşitlemek için cihaz ikizlerini kullanma](iot-hub-devguide-device-twins.md)
 
-[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-query]: iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-management-portal]: https://portal.azure.com
-[lnk-fileupload-tutorial]: iot-hub-csharp-csharp-file-upload.md
-[lnk-associate-storage]: iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub
-[lnk-initialize]: iot-hub-devguide-file-upload.md#initialize-a-file-upload
-[lnk-notify]: iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload
-[lnk-service-notification]: iot-hub-devguide-file-upload.md#file-upload-notifications
-[lnk-lifecycle]: iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
+* [Bir cihazda doğrudan yöntem çağırma](iot-hub-devguide-direct-methods.md)
 
-[lnk-devguide-identities]: iot-hub-devguide-identity-registry.md
-[lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
-[lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
-[lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+* [Birden fazla cihazda işleri zamanlama](iot-hub-devguide-jobs.md)
+
+Bu makalede açıklanan kavramları bazıları denemek için aşağıdaki IOT hub'ı öğreticiye bakın:
+
+* [IOT Hub ile buluta cihazlardan dosya karşıya yükleme](iot-hub-csharp-csharp-file-upload.md)

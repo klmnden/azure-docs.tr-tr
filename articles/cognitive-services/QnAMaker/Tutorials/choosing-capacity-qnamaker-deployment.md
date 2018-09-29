@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 3acf7ccd9d8a4091dba8ff0ff8ef53369ea9402d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 01548cf2de8db8f4dc9984598a5e5544bf97fd49
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041981"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432662"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>Soru-cevap Oluşturucu dağıtımınız için kapasite seçme
 
@@ -38,7 +38,7 @@ Aşağıdaki tabloda bazı üst düzey yönergeler verilmektedir.
 |                        | Soru-cevap Oluşturucu Yönetimi | App Service | Azure Search | Sınırlamalar                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | Deneme        | Ücretsiz SKU             | Ücretsiz Katmanı   | Ücretsiz Katmanı    | En fazla 2 KB'leri, 50 MB boyutunda yayımlama  |
-| Geliştirme/Test Ortamı   | Standart SKU         | Paylaşılan      | Temel        | En fazla 4 KB, 2 GB boyutunu yayımlama    |
+| Geliştirme/Test Ortamı   | Standart SKU         | Paylaşılan      | Temel        | 14 adede kadar KB'leri, 2 GB boyutunu yayımlama    |
 | Üretim ortamı | Standart SKU         | Temel       | Standart     | En fazla 49 KB'leri, 25 GB boyutunu yayımlama |
 
 Soru-cevap Oluşturucu yığın yükseltmek için bkz: [soru-cevap Oluşturucu hizmetini](../How-To/upgrade-qnamaker-service.md).

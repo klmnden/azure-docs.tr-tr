@@ -5,16 +5,16 @@ services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.author: spelluru
-ms.date: 05/22/2018
+ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 07ad8fc873a483b5d71d7ddd21f8f2a820bbfadc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ad315b822a908212a95b3a2ab9420a343a1803f9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982384"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404953"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Öğretici: CLI'yi ve konuları/abonelikleri kullanarak envanter güncelleştirme
 
@@ -343,7 +343,7 @@ Service Bus’ın yayımlama/abone olma özelliklerini kullanma hakkında daha f
 > [!div class="nextstepaction"]
 > [PowerShell ve konular/abonelikler kullanarak stok güncelleştirme](service-bus-tutorial-topics-subscriptions-portal.md)
 
-[ücretsiz hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

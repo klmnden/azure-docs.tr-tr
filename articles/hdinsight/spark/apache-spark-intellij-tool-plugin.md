@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk
-ms.openlocfilehash: ed0118584d51f08d64a88dc1e7e6e2ba5f95cb0a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 07c2b506007daccd53a8b06a43064e6e274ac43b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042600"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433367"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Spark uygulamaları için bir HDInsight kümesi oluşturmak için Intellij için Azure Araç Seti'ni kullanma
 
@@ -181,8 +181,12 @@ Ambari yönetilen kullanıcı adı kullanarak, normal bir HDInsight kümesine ba
 
         ![Main sınıfı seçin iletişim kutusu](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
 
-      * Uygulama kodu bu örnekteki komut satırı bağımsız değişkenleri gerektirmez veya jar dosyaları dışındaki veya dosyalara başvurmak için diğer kutuları boş bırakabilirsiniz. İletişim kutusu, tüm bilgileri verdikten sonra aşağıdaki görüntüde benzemelidir.
+      * İstediğiniz bilgileri sağlayabilir. Hakkında **proje yapılandırmaları**, varsayılan değer sahibiz. Ve başvurabilirsiniz [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html) anahtarları hakkında daha fazla bilgi için. **Komut satırı bağımsız değişkenleri**, **başvurulan Jar'lar** ve **başvurulan dosyaları** gibi görünmelidir aşağıdaki görüntüde. Başvurabilirsiniz [Spark Yapılandırması](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) hakkında daha fazla bilgi için **başvurulan Jar'lar** ve **başvurulan dosyaları**. Yapmak **başvurulan Jar'lar** ve **başvurulan dosyaları** iyi çalışması, gönderdiğiniz ilk küme kaynakları yüklemeniz gerekir. Başvurmak [küme kaynaklarını karşıya nasıl](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). Gönder iletişim kutusu, aşağıdaki görüntüye benzer olacaktır.
         
+        ![Spark gönderim iletişim kutusu iş yapılandırma anlama](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
+
+        ![Anlamı Spark gönderim iletişim kutusu jar dosyaları](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
+
         ![Spark gönderim iletişim kutusu](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
    c. **Spark gönderimi** pencerenin alt kısmındaki sekme, ilerleme durumunu görüntüleme başlamalıdır. Kırmızı düğmeye seçerek uygulama durdurabilirsiniz **Spark gönderimi** penceresi.
