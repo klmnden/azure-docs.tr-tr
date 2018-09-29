@@ -1,6 +1,6 @@
 ---
-title: PaaS web ve mobil uygulamaları Azure uygulama hizmeti kullanarak güvenli hale getirme | Microsoft Docs
-description: " Azure uygulama hizmeti güvenliği hakkında bilgi edinme PaaS web ve mobil uygulamaların güvenliğini sağlamaya yönelik en iyi uygulamalar. "
+title: PaaS web ve mobil uygulamalarının Azure App Service kullanarak güvenli hale getirme | Microsoft Docs
+description: 'Azure App Service güvenliği hakkında PaaS web ve mobil uygulamalarınızın güvenliğini sağlamak için en iyi adımları öğrenin. '
 services: security
 documentationcenter: na
 author: techlake
@@ -12,33 +12,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: d2e606fe23a3a6eb9d2310b0932ccec8fcfc518c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 99f706a3b24991e7f5a3473d40a568971b71a979
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415085"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451995"
 ---
-# <a name="securing-paas-web-and-mobile-applications-using-azure-app-service"></a>PaaS web ve mobil uygulamaları Azure uygulama hizmeti kullanarak güvenli hale getirme
+# <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>PaaS web ve mobil uygulamalarının Azure App Service kullanarak güvenliğini sağlamaya yönelik en iyi yöntemler
 
-Bu makalede, bir koleksiyonu aşağıdakiler ele [Azure App Service](https://azure.microsoft.com/services/app-service/) PaaS web ve mobil uygulamaların güvenliğini sağlamaya yönelik en iyi güvenlik uygulamaları. Bu en iyi uygulamaları Azure ile deneyimi bizim ve kendiniz gibi müşterilerin deneyimleri türetilir.
+Bu makalede ele koleksiyonu [Azure App Service](../app-service/app-service-web-overview.md) PaaS web ve mobil uygulamalarınızın güvenliğini sağlamak için en iyi güvenlik uygulamaları. Bu en iyi Azure ile deneyimimizi ve sizin gibi müşteri deneyimleri türetilmiştir.
 
-## <a name="azure-app-service"></a>Azure App Service
-[Azure uygulama hizmeti](../app-service/app-service-web-overview.md) teklifini bir PaaS sağlar, web ve tüm platform veya cihazlar için mobil uygulamalar oluşturun ve her yerden, veri Bulut veya şirket içi bağlanmak değil. Uygulama hizmeti web ve daha önce ayrı olarak Azure Web siteleri ve Azure Mobile Services teslim mobil özelliklerini içerir. Ayrıca iş süreçlerini otomatikleştirmek ve bulut API'leri barındırmak için yeni özellikler içerir. Tek bir tümleşik hizmet olarak App Service özellikleri web, mobil ve tümleştirme senaryolarına zengin kümesi getirir.
+Azure App Service web uygulamaları ve herhangi bir platform veya cihaz için mobil uygulamalar oluşturmak ve bulutta veya şirket içinde her yerden, veri bağlama sağlayan bir platform-bir hizmet olarak (PaaS) teklifidir. App Service, web ve daha önce ayrı olarak Azure Web siteleri ve Azure mobil hizmetler teslim edilen mobil özelliklerini içerir. Ayrıca iş süreçlerini otomatikleştirmek ve bulut API'leri barındırmak için yeni özellikler içerir. Tek bir tümleşik hizmet olarak App Service özellikleri, Web, mobil ve tümleştirme senaryolarına ilişin zengin.
 
-## <a name="best-practices"></a>En iyi uygulamalar
+## <a name="authenticate-through-azure-active-directory-ad"></a>Azure Active Directory (AD) ile kimlik doğrulama
+App Service kimlik sağlayıcınız için bir OAuth 2.0 hizmeti sunar. OAuth 2.0 istemci Geliştirici Basitlik, web uygulamaları, Masaüstü uygulamaları ve mobil telefonlar için özel yetkilendirme akışları sağlarken odaklanır. Azure AD OAuth 2.0 web uygulamaları ve mobil erişim yetkisi vermek sağlamak için kullanır. Daha fazla bilgi için bkz. [kimlik doğrulama ve yetkilendirme Azure App Service'te](../app-service/app-service-authentication-overview.md).
 
-Uygulama hizmeti kullanırken, bu en iyi uygulamaları izleyin:
+## <a name="restrict-access-based-on-role"></a>Rol tabanlı erişimi kısıtlama 
+Erişim sınırlama, veri erişimi için güvenlik ilkelerini zorlamak istediğinizde kuruluşlar için zorunludur. Bilinmesi gerekenler ve en az ayrıcalık güvenlik ilkeleri gibi kullanıcılara, gruplara ve uygulamalara belirli bir kapsamda izinleri atamak için rol tabanlı erişim denetimi (RBAC) kullanabilirsiniz. Kullanıcılar uygulamalara erişim verme hakkında daha fazla bilgi için bkz: [rol tabanlı erişim denetimi nedir](../role-based-access-control/overview.md).
 
-- [Azure Active Directory (AD) aracılığıyla kimlik doğrulaması](../app-service/app-service-authentication-overview.md). App Service kimlik sağlayıcınız için OAuth 2.0 hizmeti sağlar. OAuth 2.0 istemci Geliştirici Basitlik, Web uygulamaları, Masaüstü uygulamaları ve cep telefonları için özel yetkilendirme akışları sağlarken odaklanır. Azure AD, web uygulamaları ve mobil erişim yetkisi vermek etkinleştirmek için OAuth 2.0 kullanır.
-- Bilmeniz gereken ve en az ayrıcalık güvenlik ilkelerine göre erişimi kısıtlayın. Erişimi kısıtlamak, veri erişimi için güvenlik ilkelerini zorlamak istiyorsanız kuruluşlar için zorunludur. Rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve uygulamalar belirli bir kapsamda izinleri atamak için kullanılabilir. Kullanıcılar uygulamalara erişim izni verme hakkında daha fazla bilgi için bkz: [access management ile çalışmaya başlama](../role-based-access-control/overview.md).
-- Anahtarlarınızı koruyun. Güvenlik ne kadar iyi olduğu önemli değildir, abonelik anahtarlarınızı kaybetmeniz durumunda. Azure Anahtar Kasası, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarının ve gizli anahtarların korunmasına yardımcı olur. Anahtar Kasası'nı kullanarak anahtarları ve gizli anahtarları (kimlik doğrulaması anahtarları, depolama hesabı anahtarları, veri şifreleme anahtarları, .PFX dosyaları ve parolalar gibi), donanım güvenlik modülleri tarafından korunan anahtarları kullanarak şifreleyebilirsiniz. Ek güvenlik için HSM'lerde anahtarları içeri aktarabilir veya oluşturabilirsiniz. Bkz: [Azure anahtar kasası](../key-vault/key-vault-whatis.md) daha fazla bilgi için. Anahtar kasası, TLS sertifikalarınızı otomatik yenileme ile yönetmek için de kullanabilirsiniz.
-- Gelen kaynak IP adreslerini kısıtlayın. [Uygulama hizmeti ortamı](../app-service/environment/intro.md) ağ güvenlik grupları (Nsg'ler) üzerinden gelen kaynak IP adresleri kısıtlamanıza yardımcı olan bir sanal ağ tümleştirme özelliği vardır. Azure sanal ağlar (Vnet'ler) ile bilginiz yoksa, bu Azure kaynaklarınızı çoğunu erişimini denetleyen bir dışındaki Internet yönlendirilebilir ağı yerleştirmek izin veren bir yetenektir. Daha fazla bilgi için bkz: [uygulamanız bir Azure sanal ağı ile tümleştirmek](../app-service/web-sites-integrate-with-vnet.md).
+## <a name="protect-your-keys"></a>Anahtarlarınızı korumak
+Güvenlik ne kadar iyi olduğunu fark etmez, abonelik anahtarlarınızın kaybetmeniz durumunda. Azure Anahtar Kasası, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarının ve gizli anahtarların korunmasına yardımcı olur. Anahtar kasası ile anahtarları ve gizli anahtarları (örneğin, kimlik doğrulaması anahtarları, depolama hesabı anahtarları, veri şifreleme anahtarları şifrelemenize PFX dosyaları ve parolalar), donanım güvenlik modülleri (HSM'ler) tarafından korunan anahtarları kullanarak. Ek güvenlik için HSM'lerde anahtarları içeri aktarabilir veya oluşturabilirsiniz. Key Vault, otomatik olarak yenilenmesi, TLS sertifikalarını yönetmek için de kullanabilirsiniz. Bkz: [Azure anahtar kasası nedir](../key-vault/key-vault-whatis.md) daha fazla bilgi için. 
+
+## <a name="restrict-incoming-source-ip-addresses"></a>Gelen kaynak IP adreslerini kısıtlamak
+[App Service ortamları](../app-service/environment/intro.md) ağ güvenlik grupları (Nsg'ler) üzerinden gelen kaynak IP adreslerini kısıtlamak yardımcı olan bir sanal ağ tümleştirme özelliğine sahiptir. Azure sanal ağları (Vnet) ile alışkın değilseniz, birçok Azure kaynaklarınıza erişimi denetleyen internet olmayan, yönlendirilebilir bir ağda yerleştirmenize olanak sağlayan bir özellik budur. Daha fazla bilgi için bkz. [uygulamanızı bir Azure sanal ağ ile tümleştirme](../app-service/web-sites-integrate-with-vnet.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede bir koleksiyonuna PaaS web ve mobil uygulamaların güvenliğini sağlamak için uygulama hizmeti en iyi güvenlik uygulamalarını kullanıma sunuldu. PaaS dağıtımları güvenliğini sağlama hakkında daha fazla bilgi için bkz:
+Bu makalede, PaaS web ve mobil uygulamalarınızın güvenliğini sağlamak için App Service en iyi güvenlik uygulamaları koleksiyonunu kullanıma sunuldu. PaaS dağıtımlarının güvenliğini sağlama hakkında daha fazla bilgi için bkz:
 
 - [PaaS dağıtımlarının güvenliğini sağlama](security-paas-deployments.md)
-- [PaaS web ve mobil uygulamaları Azure SQL Database ve SQL Data Warehouse kullanarak güvenli hale getirme](security-paas-applications-using-sql.md)
+- [Azure PaaS veritabanlarının güvenliğini sağlama](security-paas-applications-using-sql.md)

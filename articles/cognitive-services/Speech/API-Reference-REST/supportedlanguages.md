@@ -1,28 +1,28 @@
 ---
-title: Bing konuşma desteklenen diller | Microsoft Docs
-titlesuffix: Azure Cognitive Services
-description: Bing konuşma tarafından desteklenen konuşulan dillerin bir listesi.
+title: Dil desteği - konuşma tanıma API'si
+titleSuffix: Azure Cognitive Services
+description: Doğal konuşma tanıma API'si tarafından desteklenen dillerin listesi.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/25/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX
-ms.openlocfilehash: c1051ebec815a2bcb2832f7dd2fcb570b8c53223
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eeb0f475193a43ab8b0b0ca562364cbdef8a21d2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968093"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433149"
 ---
-# <a name="supported-languages"></a>Desteklenen diller
+# <a name="language-and-region-support-for-speech-api"></a>Dil ve bölge desteği için konuşma tanıma API'si
 
 ## <a name="interactive-and-dictation-mode"></a>Etkileşimli ve Dikte modu
 
-Microsoft konuşma tanıma API'si, aşağıdaki dilleri desteklemektedir `interactive` ve `dictation` modu. 
+Microsoft konuşma tanıma API'si, aşağıdaki dilleri desteklemektedir `interactive` ve `dictation` modu.
 
 |Kod | Dil | Kod | Dil |
 |-----|-----|-----|-----|
@@ -40,11 +40,12 @@ Microsoft konuşma tanıma API'si, aşağıdaki dilleri desteklemektedir `intera
 | es-MX | İspanyolca (Meksika) |zh-CN | Çince (Basitleştirilmiş Mandarin)  |
 | FI-FI | Fince (Finlandiya) |zh-HK | Çince (Hong Kong ÖİB) |
 | fr-CA | Fransızca (Kanada) | zh-TW | Çince (Mandarin, Tayvanca)|
-| fr-FR | Fransızca (Fransa) | ||
+| fr-FR | Fransızca (Fransa) | gu açma | Gucerat dili (Hindistan) |
+| Veri-ın |Tamil dili (Hindistan) | metin-giriş | Telugu dili (Hindistan) |
 
 ## <a name="conversation-mode"></a>Konuşma modu
 
-Microsoft konuşma tanıma API'si, aşağıdaki dilleri desteklemektedir `conversation` modu. 
+Microsoft konuşma tanıma API'si, aşağıdaki dilleri desteklemektedir `conversation` modu.
 
 | Kod | Dil | Kod | Dil |
 |-----|-----|-----|-----|

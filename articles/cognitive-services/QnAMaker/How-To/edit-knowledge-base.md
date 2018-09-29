@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: ca35e13c502efadad07ef78077271923951ae4b1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038230"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451893"
 ---
 # <a name="edit-a-knowledge-base"></a>Bilgi bankası düzenleme
 
@@ -30,8 +30,24 @@ Soru-cevap Oluşturucu, kullanımı kolay bir düzenleme deneyimi sunarak bilgi 
     ![My bilgi Bankalarından](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 2. Düzenlemeler yapmak için belirli bir Bilgi Bankası'nı seçin.
+ 
+3. **Ayarlar**’a tıklayın.
 
-3. Bilgi Bankası değişiklikleri tamamladıktan sonra tıklayarak **kaydedin ve eğitme** değişiklikleri kalıcı hale getirmek için sayfanın sağ üst köşesindeki içinde.    
+   Burada zorunlu alan hizmet adını düzenleyebilirsiniz.
+  
+   Tıklayarak, Bilgi Bankası için yeni SSS içeriği eklemek için yeni URL'leri ekleyebilirsiniz **knowledgebase Yönet -> ' + URL Ekle '** bağlantı.
+   
+   Tıklayarak mevcut URL'ler silebilirsiniz **Sil simgesi**.
+   
+   En son içeriği mevcut URL'ler gezinmesi için bilgi istiyorsanız, onay kutusu adı işaretleyerek **'Yenile'**, bu Bilgi Bankası son URL içeriklerle güncelleştirir.
+   
+Tıklayarak Bilgi Bankası, bir parçası olarak desteklenen dosya belge ekleyebilirsiniz **Yönet Bilgi Bankası -> ' + Dosya Ekle '**
+
+Var olan herhangi bir Bilgi Bankası tıklayarak da içeri aktarabilirsiniz **'Ímport Bilgi Bankası'** düğmesi. 
+   
+Bilgi Bankası'nın updation bağlıdır **Yönetimi fiyatlandırma katmanı** , knowledgbase ile ilgili soru-cevap Oluşturucu hizmetini oluştururken kullanılan. Gerekli olursa yönetim katmanı Azure Portal'dan da güncelleştirebilirsiniz.
+
+4. Bilgi Bankası değişiklikleri tamamladıktan sonra tıklayarak **kaydedin ve eğitme** değişiklikleri kalıcı hale getirmek için sayfanın sağ üst köşesindeki içinde.    
 
     ![Kaydet ve eğitme](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 

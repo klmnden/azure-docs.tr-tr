@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: cf7d3df6d2e419a700b0be74da3fe2edc5ac24e1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393290"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452165"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -196,6 +196,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * DNS
 * Event Grid
 * Event Hubs
+* Ön kapısı
 * Bkz: HDInsight kümeleri - [HDInsight sınırlamaları](#hdinsight-limitations)
 * IoT Central
 * IoT Hub
@@ -207,7 +208,6 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Bkz: yönetilen diskler - [kısıtlamaları için sanal makineler sınırlamaları](#virtual-machines-limitations)
 * Yönetilen kimlik - kullanıcı tarafından atanan
 * Media Services
-* Mobile Engagement
 * Notification Hubs
 * Operasyonel İçgörüler
 * Operations Management
@@ -267,37 +267,39 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 
 ## <a name="virtual-machines-limitations"></a>Sanal makineler sınırlamaları
 
-Yönetilen diskler taşıma 24 Eylül 2018'den itibaren desteklenir. Bu özelliği etkinleştirmek üzere kaydolmanız gerekir.
+Yönetilen diskler taşıma 24 Eylül 2018'den itibaren desteklenir. 
 
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-```
+1. Bu özelliği etkinleştirmek üzere kaydolmanız gerekir.
 
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
-```
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-Kayıt isteğinin durumunu başlangıçta döndürür `Registering`. Geçerli durumuyla denetleyebilirsiniz:
+  ```azurecli-interactive
+  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
-```
+1. Kayıt isteğinin durumunu başlangıçta döndürür `Registering`. Geçerli durumuyla denetleyebilirsiniz:
 
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
-```
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-Durumu değiştirmek birkaç dakika bekleyin `Registered`.
+  ```azurecli-interactive
+  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-Özellik kaydedildikten sonra kaydetme `Microsoft.Compute` kaynak sağlayıcısı. Daha önce kaynak sağlayıcısına kayıtlı olsa bile bu adımı gerçekleştirin.
+1. Durumu değiştirmek birkaç dakika bekleyin `Registered`.
 
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-```
+1. Özellik kaydedildikten sonra kaydetme `Microsoft.Compute` kaynak sağlayıcısı. Daha önce kaynak sağlayıcısına kayıtlı olsa bile bu adımı gerçekleştirin.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Compute
+  ```
 
 Bu destek, ayrıca geçiş yapabileceğiniz anlamına gelir:
 

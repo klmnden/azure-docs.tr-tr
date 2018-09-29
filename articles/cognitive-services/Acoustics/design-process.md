@@ -9,18 +9,18 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 3b35f78d66a6ae66b0a56818f5d4be455ce00de5
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 8f594be67c4677fae00cb01598d3899e30dae1e8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181799"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433233"
 ---
 # <a name="design-process-overview"></a>Tasarım işlemine genel bakış
-Proje akustik iş akışı, tüm üç aşamada tasarım amacınızla ifade edebilirsiniz: önceden hazırlama tasarım, ses kaynak yerleştirme ve sonrası hazırlama tasarım. Tasarımcı denetime nasıl Sahne sesleri korurken Yankı birimler yerleştirme ile ilişkili daha az biçimlendirme işlemi gerektirir.
+Proje akustik iş akışı, tüm üç aşamada tasarım amacınızla ifade edebilirsiniz: önceden hazırlama Sahne Kurulum, ses kaynak yerleştirme ve sonrası hazırlama tasarım. Tasarımcı denetime nasıl Sahne sesleri korurken Yankı birimler yerleştirme ile ilişkili daha az biçimlendirme işlemi gerektirir.
 
 ## <a name="pre-bake-design"></a>Tasarım önceden hazırlama
-Önceden hazırlama tasarım süreci Sahne ve Sahne öğeleri occlusions, yansıma ve reverberation sağlamak için benzetim katılacak seçerek içeren ses wave simülasyonu için kullanılan meta veriler üretir. Sahne için meta veriler, her Sahne öğesi için akustik malzemelerin seçimdir. Akustik malzemeleri her yüzeyinden yansımasını ses enerji miktarını denetler.
+Önceden hazırlama Sahne Kurulum işlemi Sahne ve Sahne öğeleri occlusions, yansıma ve reverberation sağlamak için benzetim katılacak seçerek içeren ses wave simülasyonu için kullanılan meta veriler üretir. Sahne için meta veriler, her Sahne öğesi için akustik malzemelerin seçimdir. Akustik malzemeleri her yüzeyinden yansımasını ses enerji miktarını denetler.
 
 Varsayılan içe alma tüm yüzeyleri için 0.04, yüksek oranda yansıtıcı olduğu katsayısıdır. Bunlar bir çalışma alanından diğerine geçiş sahnenin duyduğunuzda, dinleyicilere özellikle önemli olan farklı malzeme Sahne boyunca içe alma katsayıları ayarlayarak estetik ve oyun efektleri elde edebilirsiniz. Örneğin, bir koyu reverberant odasından parlak bir geçiş, reverberant olmayan dış Sahne geçişin etkisini geliştirir. Bu etkiyi elde etmek için daha yüksek dış Sahne malzemeleri üzerinde içe alma katsayıları ayarlayın.
 

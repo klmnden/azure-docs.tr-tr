@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: cb8ba5169a6ebfbb11ba0acfa9b9f463b7cdf6a1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 7d8325ce04a9fa7853fb622062022a6938375f96
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520817"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47430990"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Örnek düzeyi genel IP (Klasik) genel bakış
 Bir örnek düzeyi genel IP (ILPIP) doğrudan bir sanal makine veya Bulut Hizmetleri rolü örneği yerine, VM veya rol örneğindeki bulunan bir bulut hizmeti atayabileceğiniz genel bir IP adresi ' dir. Bir ILPIP sanal IP (bulut hizmetinize atanan VIP) yer almaz. Bunun yerine, bu doğrudan, VM'deki veya rol örneğine bağlanmak için kullanabileceğiniz bir ek IP adresidir.
@@ -31,10 +31,13 @@ Bir örnek düzeyi genel IP (ILPIP) doğrudan bir sanal makine veya Bulut Hizmet
 
 Şekil 1'de gösterildiği gibi bulut hizmetine tek tek sanal makineleri, normalde VIP kullanılarak erişilir sırasında bir VIP kullanılarak erişilir:&lt;bağlantı noktası numarası&gt;. Belirli bir VM'ye bir ILPIP atayarak, o sanal IP adresi kullanarak doğrudan erişilebilir.
 
-Azure'da bir bulut hizmeti oluşturduğunuzda, karşılık gelen DNS A kayıtlarını otomatik olarak bir tam etki alanı adı (FQDN) üzerinden hizmete erişmesine izin vermek için gerçek VIP kullanmak yerine oluşturulur. ILPIP yerine FQDN DEĞERİNE göre VM veya rol örneğine erişmesine izin vererek, bir ILPIP için aynı işlem gerçekleşir. Örneği için adlı bir bulut hizmeti oluşturursanız *contosoadservice*, adında bir web rolü yapılandırmanız *contosoweb* iki örneği ile Azure aşağıdaki kaydeder A kayıtlarını örnekleri için:
+Azure'da bir bulut hizmeti oluşturduğunuzda, karşılık gelen DNS A kayıtlarını otomatik olarak bir tam etki alanı adı (FQDN) üzerinden hizmete erişmesine izin vermek için gerçek VIP kullanmak yerine oluşturulur. ILPIP yerine FQDN DEĞERİNE göre VM veya rol örneğine erişmesine izin vererek, bir ILPIP için aynı işlem gerçekleşir. Örneği için adlı bir bulut hizmeti oluşturursanız *contosoadservice*, adında bir web rolü yapılandırmanız *contosoweb* iki örneği ile ve .cscfg `domainNameLabel` ayarlanır  *WebPublicIP*, Azure örnekleri için aşağıdaki A kayıtları kayıtları:
 
-* contosoweb\_IN_0.contosoadservice.cloudapp.net
-* contosoweb\_IN_1.contosoadservice.cloudapp.net 
+
+* WebPublicIP.0.contosoadservice.cloudapp.net
+* WebPublicIP.1.contosoadservice.cloudapp.net
+* ...
+
 
 > [!NOTE]
 > Her sanal makine veya rol örneği için yalnızca bir ILPIP atayabilirsiniz. Abonelik başına en fazla 5 ILPIPs kullanabilirsiniz. ILPIPs multi-NIC sanal makineler için desteklenmez.
@@ -152,7 +155,7 @@ Cloud Services rol örneği için bir ILPIP eklemek için aşağıdaki adımlar�
         <AddressAssignments>
           <InstanceAddress roleName="WebRole1">
         <PublicIPs>
-          <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
+          <PublicIP name="MyPublicIP" domainNameLabel="WebPublicIP" />
             </PublicIPs>
           </InstanceAddress>
         </AddressAssignments>
@@ -162,14 +165,22 @@ Cloud Services rol örneği için bir ILPIP eklemek için aşağıdaki adımlar�
 3. Bulut hizmeti için .cscfg dosyasını karşıya yükleme adımları tamamlayarak [bulut hizmetlerini yapılandırma](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) makalesi.
 
 ### <a name="how-to-retrieve-ilpip-information-for-a-cloud-service"></a>Bir bulut hizmeti için ILPIP bilgi alma
-Rol örneği başına ILPIP bilgileri görüntülemek için aşağıdaki PowerShell komutunu çalıştırın ve değerlerini gözlemleyin *Publicıpaddress* ve *PublicIPName*:
+Rol örneği başına ILPIP bilgileri görüntülemek için aşağıdaki PowerShell komutunu çalıştırın ve değerlerini gözlemleyin *Publicıpaddress*, *PublicIPName*, *PublicIPDomainNameLabel* ve *PublicIPFqdns*:
 
 ```powershell
-$roles = Get-AzureRole -ServiceName PaaSFTPService -Slot Production -RoleName WorkerRole1 -InstanceDetails
+Add-AzureAccount
+
+$roles = Get-AzureRole -ServiceName <Cloud Service Name> -Slot Production -RoleName WebRole1 -InstanceDetails
 
 $roles[0].PublicIPAddress
 $roles[1].PublicIPAddress
 ```
+
+Ayrıca `nslookup` alt etki alanını sorgulamak için bir kayıt kullanıcının:
+
+```batch
+nslookup WebPublicIP.0.<Cloud Service Name>.cloudapp.net
+``` 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Anlamak nasıl [IP adresleme](virtual-network-ip-addresses-overview-classic.md) Klasik dağıtım modelinde çalışır.

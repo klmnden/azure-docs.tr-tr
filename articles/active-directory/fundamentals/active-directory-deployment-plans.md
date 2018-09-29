@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
-ms.openlocfilehash: 66e3e37d0f42516c67cfe37c42db3b3914cbb667
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: f5a148cba172b4e1e4490b52afb3b500da3a593c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730556"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434169"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory dağıtım planları
 Azure Active Directory (AD) özelliklerini dağıtma konusunda ayrıntılı bir rehbere mi ihtiyacınız var? Aşağıdaki dağıtım planları yaygın Azure AD özelliklerinin başarıyla kullanıma alınması için gerekli olan iş değeri, planlama noktaları, tasarım ve operasyon yordamlarını anlatmaktadır. 
@@ -27,6 +27,7 @@ Belgeler hakkındaki geri bildirimlerinizi bekliyoruz. Belgeler hakkındaki fiki
 |Senaryo |Açıklama |
 |-|-|
 |[Çoklu oturum açma](https://aka.ms/SSODPDownload)|Çoklu oturum açma, bir kez oturum açarak ve tek bir kullanıcı hesabı kullanarak işinizi yapmak için gerekli tüm uygulamalara ve kaynaklara erişmenize yardımcı olur. Oturum açtıktan sonra Microsoft Office'ten SalesForce ve Box uygulamalarına yeniden kimlik doğrulamasından (parola yazma gibi) geçmeden erişebilirsiniz.|
+|[Workday odaklı gelen kullanıcı sağlama](https://aka.ms/WorkdayDeploymentPlan)|Workday temelli gelen kullanıcı sağlamayı Active Directory, devam eden kimlik yönetimi için bir temel oluşturur ve yetkili kimlik verilere dayanan iş süreçlerini kalitesini artırır. Bu özelliği kullanarak, sorunsuz bir şekilde çalışanları ve bağlı çalışanları kimlik yaşam döngüsü Birleştirici taşıyıcısı Leaver işlemler (örneğin, yeni işe, sonlandırma, aktarım) BT sağlama Eylemler (örneğin, oluşturma, etkinleştir, eşleyen kuralları yapılandırarak yönetebilirsiniz "Devre dışı bırakmak, hesapları silme).|
 |[Erişim Paneli](https://aka.ms/AccessPanelDPDownload)|Kullanıcılarınızın bulmak ve tüm uygulamalara erişmek için basit bir hub'ı sunar. Yeni uygulamalar ve gruplar için erişim isteme imkanını gibi Self Servis özellikler ile daha üretken olmalarını sağlamak veya diğerleri adına bu kaynaklara erişimi yönetin.|
 |[Kullanıcı sağlama](https://aka.ms/UserProvisioningDPDownload)|Azure AD; Dropbox, Salesforce ve ServiceNow gibi bulut (SaaS) uygulamalarında kullanıcı oluşturma, bakım ve kaldırma adımlarını otomatikleştirmenize yardımcı olur.|
 |[Multi-Factor Authentication](https://aka.ms/MFADPDownload)|Azure Multi-Factor Authentication (MFA) Microsoft'un iki adımlı doğrulama çözümüdür. Yönetici onaylı kimlik doğrulama yöntemlerini kullanan Azure MFA, oturum açma sürecini karmaşık hale getirmeden verilerinize ve uygulamalarınıza erişimin güvenli hale getirilmesine yardımcı olur.|

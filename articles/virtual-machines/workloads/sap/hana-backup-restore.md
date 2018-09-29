@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2018
+ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cca9a12b0512ca502d143f4a88c959e1bfc4f90e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 2a72fade57b070ac2ac1aea28cbec92700c3797f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985890"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452556"
 ---
 # <a name="backup-and-restore"></a>Yedekleme ve geri yükleme
 
@@ -68,7 +68,7 @@ Depolama anlık görüntüleri birimlerin üç sınıf hedefleyen gerçekleştir
 - Ayrı bir anlık görüntü/hana/logbackups üzerinden.
 - Bir işletim sistemi bölümü.
 
-En son anlık görüntü betikleri ve belgelerinden almak [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+En son anlık görüntü betikleri ve belgelerinden almak [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Anlık görüntü betik paketi indirme zaman [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts), komut dosyaları için PDF belgeleri betik paketinin bir parçası olarak ayrıca Al. Her betik paketi kendi PDF belgeleri vardır.
 
 ## <a name="storage-snapshot-considerations"></a>Depolama anlık görüntü konuları
 
@@ -114,7 +114,7 @@ Depolama anlık görüntüleri HANA büyük örnekleri ile ayarlamak için aşa�
 1. Betikler ve yapılandırma dosyasından kopyalayın [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) konumunu **hdbsql** SAP HANA yükleme.
 1. Değiştirme *HANABackupDetails.txt* için uygun müşteriyi belirtimleri gerektiğinde dosya.
 
-En son anlık görüntü betikleri ve belgelerinden almak [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+En son anlık görüntü betikleri ve belgelerinden almak [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Anlık görüntü betik paketi indirme zaman [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts), komut dosyaları için PDF belgeleri betik paketinin bir parçası olarak ayrıca Al. Her betik paketi kendi PDF belgeleri vardır.
 
 ### <a name="consideration-for-mcod-scenarios"></a>MCOD senaryoları için önemli noktalar
 Çalıştırıyorsanız bir [MCOD senaryo](https://launchpad.support.sap.com/#/notes/1681092) bir HANA büyük örneği biriminde birden çok SAP HANA örnekleri ile sağlanan her bir SAP HANA örnekleri için ayrı depolama birimi vardır. Self Servis anlık görüntü Otomasyonu geçerli sürümünde her HANA örneği sistemde kimliği (SID) ayrı anlık görüntüleri başlatamazsınız. İşlevi, denetimleri için sunucu yapılandırma dosyasında (Bu makalenin devamındaki bakın) kayıtlı SAP HANA örnekleri sunar ve eşzamanlı bir anlık görüntü birimi kayıtlı tüm örnekleri hacimdeki yürütür.

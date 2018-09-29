@@ -3,7 +3,7 @@ title: Bir Azure Linux VM erişimi sıfırlama | Microsoft Docs
 description: Yönetici kullanıcıları yönetme ve VMAccess uzantısı ve Azure CLI kullanarak Linux vm'lerinde erişimi sıfırlama
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,18 +15,21 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998636"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452063"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Yönetici kullanıcılar, SSH ve onay yönetmek veya VMAccess uzantısı ile Azure CLI kullanarak Linux vm'lerinde diskler onarın
 ## <a name="overview"></a>Genel Bakış
 Linux VM'nizi diskte hatalarını göstermez. Siz şekilde Linux sanal makinenizin kök parolayı sıfırlama veya SSH özel anahtarınızı yanlışlıkla silinmiş. Veri Merkezi gün içinde geri oluştuysa, sürücü vardır ve sunucu konsolunda almak için KVM açın gerekecektir. Azure VMAccess uzantısı, Linux için erişimi sıfırlama veya disk düzeyinde bakım yapmak için konsoluna erişmek izin veren, KVM anahtarı düşünün.
 
 Bu makalede, denetleyin veya bir diski onarmak için Azure VMAccess uzantısı kullanın, kullanıcı erişimi sıfırlama, yönetim kullanıcısı hesapları yönetme veya Azure Resource Manager sanal makine olarak çalıştırırken Linux'ta SSH yapılandırmasını güncelleştirme işlemini göstermektedir. Klasik sanal makineler - yönetmeniz gerekiyorsa bulunan yönergeleri izleyerek [Klasik VM belgeleri](../linux/classic/reset-access-classic.md). 
+ 
+> [!NOTE]
+> AAD oturum açma uzantıyı yükledikten sonra sanal makinenizin parolayı sıfırlamak için VMAccess uzantısını kullanıyorsanız AAD oturum açma, makine için yeniden etkinleştirmek için AAD oturum açma uzantısı yeniden çalıştırmanız gerekecektir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 ### <a name="operating-system"></a>İşletim sistemi

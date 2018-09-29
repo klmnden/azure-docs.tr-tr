@@ -3,7 +3,7 @@ title: Azure VM uzantıları ve özellikleri için Linux | Microsoft Docs
 description: Hangi uzantıların hangi kullanıcılar sağlar veya geliştirmek göre gruplanır, Azure sanal makineler için kullanılabilir olduğunu öğrenin.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 66c3da4f14141bdb5c357dbabfaec5dabf0ab521
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: aefb9142e5954b2e4598c73eb36fa25de99e9584
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971391"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452267"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Sanal makine uzantıları ve Linux için özellikleri
 
@@ -407,7 +407,7 @@ Ayrıca uzantı Azure portalında şu şekilde kaldırabilirsiniz:
 | --- | --- | --- |
 | Linux için özel betik uzantısı |Bir Azure sanal makinesi karşı betikleri çalıştırma |[Linux için özel betik uzantısı](custom-script-linux.md) |
 | VM Erişimi uzantısı |Bir Azure sanal makinesi yeniden erişebilmek |[VM Erişimi uzantısı](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
-| Azure tanılama uzantısı |Azure Tanılama'yı yönetme |[Azure tanılama uzantısı](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Azure Tanılama uzantısı |Azure Tanılama'yı yönetme |[Azure tanılama uzantısı](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM erişimi uzantısı |Kullanıcı ve kimlik bilgilerini yönetme |[Linux için VM erişimi uzantısı](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Sonraki adımlar

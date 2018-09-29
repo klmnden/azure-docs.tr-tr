@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 4af2e570b498e496e80b6aeee2b8aeae23c582cc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952418"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452318"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Seçme ve modelinizi eğitmek için işlem hedefi kullanma
 
@@ -23,7 +23,7 @@ Azure Machine Learning hizmeti ile birçok farklı ortamlarda modelinizi eğiteb
 
 Bir işlem hedefine dağıtıldığında, eğitim betiği veya Konaklara modelinizi bir web hizmeti olarak çalışan bir kaynaktır. Bunlar oluşturulabilir ve Azure Machine Learning SDK'sı veya CLI kullanılarak yönetilebilir. Başka bir işlem tarafından (örneğin, Azure portal veya Azure CLI) oluşturulan işlem hedefleri varsa, Azure Machine Learning hizmeti çalışma alanınıza ekleyerek kullanabilirsiniz.
 
-Yerel çalışmalar makinenize ve ardından GPU veya Azure Batch AI ile uzak veri bilimi sanal makineler gibi diğer ortamlara ve ölçeklendirme ile başlayabilirsiniz. 
+Makinenizde yerel çalışmalar başlayın ve ardından GPU veya Azure Batch AI ile uzak veri bilimi sanal makineler gibi diğer ortamlara ve ölçeklendirin. 
 
 ## <a name="supported-compute-targets"></a>Desteklenen işlem hedefleri
 
@@ -90,6 +90,8 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 # You can choose a specific Python environment by pointing to a Python path 
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
+
+Jupyter eğitim kullanıcı tarafından yönetilen bir ortamda gösteren not defteri için bkz: [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
   
 ### <a name="system-managed-environment"></a>Sistem tarafından yönetilen ortamı
 
@@ -110,6 +112,9 @@ run_config_system_managed.prepare_environment = True
 
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
+
+Jupyter eğitim sistem tarafından yönetilen bir ortamda gösteren not defteri için bkz: [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
+
 ## <a id="dsvm"></a>Veri bilimi sanal makinesi
 
 Yerel makinenize işlem veya GPU kaynakları modeli eğitmek için gerekli olmayabilir. Bu durumda, ölçeğini artırabilir veya ölçek genişletme ek ekleyerek Eğitim işlemini işlem hedeflerini bir veri bilimi sanal makineleri (DSVM) gibi.
@@ -190,6 +195,8 @@ Eğitim hedef olarak bir veri bilimi sanal makinesi (DSVM) yapılandırmak için
     dsvm_compute.delete()
     ```
 
+Jupyter eğitim üzerinde veri bilimi sanal makinesi gösteren not defteri için bkz: [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
+
 ## <a id="batch"></a>Azure Batch AI
 
 Modelinizi eğitmek için uzun sürerse, eğitim bulut bilgi işlem kaynaklarının bir küme dağıtmak için Azure Batch AI'ı kullanabilirsiniz. Batch AI, GPU kaynak etkinleştirmek için de yapılandırılabilir.
@@ -232,14 +239,14 @@ if not found:
     print(compute_target.status.serialize())
 ```
 
-İşlem hedefi olarak varolan bir Batch AI kümesi eklemek için Azure kaynak kimliğini sağlamanız gerekir. Azure portalında kaynak kimliğini almak için ihtiyacınız olacak:
+İşlem hedefi olarak varolan bir Batch AI kümesi eklemek için Azure kaynak kimliğini sağlamanız gerekir Azure portalında kaynak Kimliğini almak için aşağıdaki adımları kullanın:
 1. Arama `Batch AI` altında service **tüm hizmetleri**
 1. Kümenizi ait olduğu çalışma alanının adına tıklayın
 1. Kümeyi seçin
 1. Tıklayarak **özellikleri**
 1. Kopyalama **kimliği**
 
-Aşağıdaki örnek, bir küme çalışma alanınıza eklemek için SDK'sını kullanır. Bu örnekte değiştirin `<name>` işlem için herhangi bir ada sahip. Bu küme adıyla eşleşmesi gerekmez. Değiştirin `<resource-id>` yukarıda ayrıntılı Azure kaynak kimliği:
+Aşağıdaki örnek, bir küme çalışma alanınıza eklemek için SDK'sını kullanır. Bu örnekte değiştirin `<name>` işlem için herhangi bir ada sahip. Adı küme adıyla eşleşmesi gerekmez. Değiştirin `<resource-id>` Azure kaynak kimliği ayrıntılı yukarıda:
 
 ```python
 from azureml.core.compute import BatchAiCompute
@@ -253,7 +260,9 @@ Ayrıca, aşağıdaki Azure CLI komutları kullanarak Batch AI kümesi ve iş du
 - Küme durumunu kontrol edin. Kaç düğümleri kullanarak çalıştırıyor gördüğünüz `az batchai cluster list`.
 - İş durumunu kontrol edin. Kaç tane işin kullanılarak çalıştırdığınız gördüğünüz `az batchai job list`.
 
-Batch AI kümesi oluşturmak için yaklaşık 5 dakika sürer
+Batch AI kümesi oluşturmak için yaklaşık 5 dakika sürer.
+
+Jupyter gösteren bir Batch AI kümesi Eğitim not defteri için bkz: [ https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
 
 ## <a name='aci'></a>Azure Container örneği (ACI)
 
@@ -296,6 +305,8 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 ```
 
 Bir ACI işlem hedefi oluşturmak için birkaç saniyeden birkaç dakika sürebilir.
+
+Jupyter Azure Container Instance üzerinde eğitim gösteren not defteri için bkz: [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
 ## <a id="hdinsight"></a>Bir HDInsight kümesi ekleme 
 
@@ -352,6 +363,8 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
+Jupyter HDInsight üzerinde Spark ile eğitim gösteren not defteri için bkz: [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Görüntüleyebilir ve Azure portalını kullanarak hesaplamayı ayarlayabilirsiniz
 
 Hangi hedef Azure portalından, bir çalışma alanıyla ilişkili işlem görüntüleyebilirsiniz. Listeye almak için aşağıdaki adımları kullanın:
@@ -403,6 +416,7 @@ Hangi hedef Azure portalından, bir çalışma alanıyla ilişkili işlem görü
 Aşağıdaki not defterleri, bu makaledeki kavramları göstermektedir:
 * `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
 * `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
+* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
 * `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
 * `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
 

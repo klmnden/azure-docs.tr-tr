@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: a3274053e772cbdf120be15a385c84d5ae37d610
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b369f169fca903575ea4ae3f2ae04f6cd770e488
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392661"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433659"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hizmet veri yolu AMQP 1.0 ile Java mesaj hizmeti (JMS) API kullanma
 Advanced Message Queuing Protocol (AMQP) 1.0 sağlam, platformlar arası Mesajlaşma uygulamaları oluşturmak için kullanabileceğiniz bir verimli, güvenilir, hat düzeyinde bir Mesajlaşma protokolüdür.
@@ -45,6 +45,8 @@ Aşağıdaki dört JAR dosyaları Apache Qpid JMS AMQP 1.0 dağıtım arşivden 
 * qpid-amqp-1-0-client-[Version].jar
 * qpid-amqp-1-0-Client-jms-[Version].jar
 * qpid-amqp-1-0-Common-[Version].jar
+
+> ! [NOT] JMS JAR adlar ve sürümler değişmiş olabilir. Ayrıntılar için bkz [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
 
 ## <a name="coding-java-applications"></a>Java uygulamalarını kodlama
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java adlandırma ve dizini arabirimi (JNDI)
@@ -121,14 +123,17 @@ Burada **[JNDI\_adı]** ve **[fiziksel\_adı]** aşağıdaki anlamlara sahiptir:
 Yapılandırma bilgilerinin bir hashtable javax.naming.InitialContext sınıf oluşturucusuna geçirerek JNDI ortam yapılandırılır. İki hashtable öğeleri ilk bağlam Üreteç sağlayıcısı URL'si ve sınıf adı gereklidir. Aşağıdaki kod, özellikler dosyası adlı bir özellik dosyası ile JNDI sağlayıcı tabanlı Qpid kullanacak şekilde JNDI ortamı yapılandırma işlemi gösterilmektedir **servicebus.properties**.
 
 ```java
-Hashtable<String, String> env = new Hashtable<String, String>(); 
-env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
-env.put(Context.PROVIDER_URL, "servicebus.properties"); 
-InitialContext context = new InitialContext(env);
+Hashtable<String, String> env = new Hashtable<>();
+env.put("connectionfactory.SBCF", "amqps://[namespace].servicebus.windows.net?amqp.idleTimeout=120000");
+env.put("queue.QUEUE", "queue");
+
+env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInitialContextFactory");
+Context context = new InitialContext(env);
 ``` 
 
 ### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Service Bus kuyruğu kullanarak basit bir JMS uygulaması
 Aşağıdaki örnek program JMS TextMessages kuyruğun JNDI mantıksal adı ile bir Service Bus kuyruğuna gönderir ve iletileri geri alır.
+
 
 ```java
 // SimpleSenderReceiver.java
@@ -152,10 +157,12 @@ public class SimpleSenderReceiver implements MessageListener {
 
     public SimpleSenderReceiver() throws Exception {
         // Configure JNDI environment
-        Hashtable<String, String> env = new Hashtable<String, String>();
-        env.put(Context.INITIAL_CONTEXT_FACTORY, 
-                   "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
-        env.put(Context.PROVIDER_URL, "servicebus.properties");
+        Hashtable<String, String> env = new Hashtable<>();
+        // Specify the name of your namespace. Idle timeout value is set as Service Bus enforces timeout.         
+        env.put("connectionfactory.SBCF", "amqps://[namespace].servicebus.windows.net?amqp.idleTimeout=120000");
+        env.put("queue.QUEUE", "queue");
+
+        env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInitialContextFactory");
         Context context = new InitialContext(env);
 
         // Look up ConnectionFactory and Queue
@@ -243,6 +250,17 @@ Received message with JMSMessageID = ID:7578408152750301483
 Sent message with JMSMessageID = ID:956102171969368961
 Received message with JMSMessageID = ID:956102171969368961
 exit
+```
+
+## <a name="amqp-disposition-and-service-bus-operation-mapping"></a>AMQP değerlendirme ve Service Bus işlemi eşleme
+Nasıl bir Service Bus işlemi için bir AMQP değerlendirme çevirir aşağıda verilmiştir:
+
+```
+ACCEPTED = 1; -> Complete()
+REJECTED = 2; -> DeadLetter()
+RELEASED = 3; (just unlock the message in service bus, will then get redelivered)
+MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
+MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
 ## <a name="cross-platform-messaging-between-jms-and-net"></a>Platformlar arası .NET JMS arasında ileti

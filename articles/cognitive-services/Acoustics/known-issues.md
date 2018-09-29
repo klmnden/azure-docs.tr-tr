@@ -9,14 +9,14 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
-ms.openlocfilehash: b0dd5e0c365c65fc7b29752f7885acb71bdb3df8
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c19b19cab33ae868f11ded0b7ce87dac99269596
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181800"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432009"
 ---
-# <a name="known-issues"></a>Bilinen sorunlar
+# <a name="known-issues"></a>Bilinen Sorunlar
 Tasarımcısı Önizleme için proje akustik kullanırken aşağıdaki bilinen sorunlarla karşılaşabilirsiniz.
 
 ## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>Sahne yeniden adlandırdığınızda akustik parametreleri kaybolur
@@ -27,7 +27,7 @@ Sahne yeniden adlandırırsanız, bu görünüme ait akustik parametreleri yeni 
 
 Bu projeler arasında ortak çalışanlarla paylaşmak daha kolay hale getirmek için göreli bir yol için varsayılan. Geçici çözüm olarak, proje dizinine göreli oldukları yolunu değiştirin.
 
-## <a name="runtime-voxels-are-a-different-size-than-design-time-voxels"></a>Çalışma zamanı voxels tasarım zamanı voxels değerinden farklı boyutta olan
+## <a name="runtime-voxels-are-a-different-size-than-scene-preview-voxels"></a>Çalışma zamanı voxels Sahne Önizleme voxels değerinden farklı boyutta olan
 
 Bunu yaparsanız bir **Calculate** üzerinde **araştırmaları** voxels farklı boyutlarda, sekme ve görünüm voxels sonra aynı Sahne için çalışma zamanında bir hazırlama ve görünüm voxels yapın. Önceden hazırlama gösterilen voxels benzetim kullanılan voxels ' dir. Çalışma zamanında gösterilen voxels araştırma noktaları arasında enterpolasyon için kullanılır. Bu portalları açık olmayan çalışma zamanında açık nerede görüneceğini bir tutarsızlık neden olabilir.
 
@@ -51,5 +51,5 @@ Player ayarları Scripting çalışma zamanı sürümü ayarlandığından emin 
 Sağlayamazsanız doğru kimlik bilgilerini Azure hesabınız için hesabınızı hazırlama istenen düğüm türünü destekler ve Sistem saatiniz doğru olduğunu kullandınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Başlama [Unity projenizde akustik tümleştirme](getting-started.md)
+* [Unity projeniz için akustik tümleştirmesine](getting-started.md) başlayın
 

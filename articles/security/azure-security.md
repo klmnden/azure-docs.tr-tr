@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 81eb23a0955bbc6a5f9dcd95c6874f0c5a8c286c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971015"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434050"
 ---
 # <a name="introduction-to-azure-security"></a>Azure güvenliğine giriş
 ## <a name="overview"></a>Genel Bakış
@@ -100,7 +100,7 @@ Kilitlenmeler, hata veya performans sorunları varsa, nedenini tanılamak için 
 Aracın hızlı bir şekilde güvenlikle ilgili girişler ile esnek sorgu yaklaşım büyük miktarlarda aracılığıyla aramanızı sağlar log Analytics'e adli ve diğer güvenlik analizi, kullanışlı bir aracı olabilir. Ayrıca, şirket içi [güvenlik duvarınızdan ve Ara günlükleri dışarı Azure'a ve Log Analytics kullanarak analiz için kullanılabilir.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
 ### <a name="azure-advisor"></a>Azure Advisor
-[Azure Danışmanı](https://docs.microsoft.com/azure/advisor/) Azure dağıtımlarınızın iyileştirilmesine yardımcı olacak bir kişiselleştirilmiş bir bulut danışmanıdır. Kaynak yapılandırmanızı ve kullanım telemetrinizi çözümler. Ardından geliştirmenize yardımcı olacak çözümler önerir [performans](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [güvenlik](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations), ve [yüksek kullanılabilirlik](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) Fırsatlararanıyorçalışırken,kaynaklarınızın[azaltmaya genel Azure harcamalarınızı](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor, önemli hangi can geliştirmeye genel güvenlik duruşunuzu çözümleri Azure'da dağıtmak için güvenlik önerileri sağlar. Bu öneri tarafından gerçekleştirilen güvenlik analizi çekildiği [Azure Güvenlik Merkezi.](https://docs.microsoft.com/azure/security-center/security-center-intro)
+[Azure Danışmanı](https://docs.microsoft.com/azure/advisor/) Azure dağıtımlarınızın iyileştirilmesine yardımcı olacak bir kişiselleştirilmiş bir bulut danışmanıdır. Kaynak yapılandırmanızı ve kullanım telemetrinizi çözümler. Ardından geliştirmenize yardımcı olacak çözümler önerir [performans](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [güvenlik](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations), ve [yüksek kullanılabilirlik](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) Fırsatlararanıyorçalışırken,kaynaklarınızın[azaltmaya genel Azure harcamalarınızı](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor, genel güvenlik duruşunuzu çözümleri Azure'da dağıtmak için önemli ölçüde iyileştirebilen güvenlik önerileri sağlar. Bu öneri tarafından gerçekleştirilen güvenlik analizi çekildiği [Azure Güvenlik Merkezi.](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro), Azure kaynaklarınızın güvenliğine yönelik artırılmış görünürlük ve denetim yoluyla tehditleri engellemenize, algılamanıza ve yanıtlamanıza yardımcı olur. Aboneliklerinizde, tümleşik güvenlik izleme ve ilke yönetimi sağlar; normal koşullarda gözden kaçabilecek tehditleri algılamaya yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.
@@ -272,7 +272,7 @@ Web saldırılarına karşı korunacak merkezi bir web uygulaması, güvenlik y�
 ### <a name="traffic-manager"></a>Traffic Manager
 Microsoft [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) , farklı veri merkezlerindeki hizmet uç noktaları için kullanıcı trafiğinin dağıtımını denetlemenize olanak tanır. Hizmet uç noktaları traffic Manager tarafından desteklenen Azure Vm'lerinde, Web uygulamaları ve bulut hizmetleri içerir. Traffic Manager’ı harici, Azure dışı uç noktalar için de kullanabilirsiniz. Traffic Manager, istemci isteklerine göre en uygun uç noktaya doğrudan etki alanı adı sistemi (DNS) kullanan bir [trafik yönlendirme yöntemine](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) ve sistem durumu uç nokta.
 
-Traffic Manager trafik yönlendirme yöntemlerini uç nokta sistem durumu olan farklı uygulama gereksinimlerinize göre bir dizi sunar [izleme](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)ve otomatik yük devretme. Traffic Manager, Azure bölgesinin tamamını hata da dahil olmak üzere hata için esnektir.
+Traffic Manager trafik yönlendirme yöntemlerini uç nokta sistem durumu olan farklı uygulama gereksinimlerinize göre bir dizi sunar [izleme](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)ve otomatik yük devretme. Traffic Manager, bir Azure bölgesinin tamamının devre dışı kalması dahil olmak üzere hatalara dayanıklıdır.
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview), uygulamalarınıza yüksek düzeyde kullanılabilirlik ve ağ performansı sağlar. Bu gelen trafiği sağlıklı yük dengeli bir küme içinde tanımlı Hizmetleri örnekleri arasında dağıtan bir katman 4 (TCP, UDP) yük dengeleyicidir. Azure Load Balancer için yapılandırılabilir:
 
@@ -364,7 +364,7 @@ Microsoft birden çok güvenlik uygulamaları ve teknolojileri, ürün ve hizmet
 -   [Tümleşik kimlik yönetimine (karma kimlik)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) iç veri merkezlerinden ve bulut platformunda kimlik doğrulaması ve yetkilendirme için tüm kaynakları tek bir kullanıcı kimliği oluşturma, kullanıcıların erişimini denetiminizde tutmanıza olanak sağlar.
 
 ### <a name="secure-apps-and-data"></a>Güvenli uygulamalar ve veriler
-[Azure Active Directory](https://azure.microsoft.com/services/active-directory/), bir kapsamlı kimlik ve erişim yönetimi bulut çözümü, sitede uygulamalarda ve bulut veri erişimin korunmasına yardımcı olur ve kullanıcıların ve grupların yönetimini basitleştirir. Temel dizin hizmetlerini, Gelişmiş kimlik yönetimini, güvenlik ve uygulama erişim yönetimi, bir araya getirir ve geliştiricilerin uygulamalarında kimlik ilke tabanlı yönetime kolaylaştırır. Azure Active Directory geliştirmek için Azure Active Directory temel, Premium P1 ve Premium P2 sürümleri kullanılarak Ücretli özellikleri ekleyebilirsiniz.
+[Azure Active Directory](https://azure.microsoft.com/services/active-directory/), bir kapsamlı kimlik ve erişim yönetimi bulut çözümü, sitede uygulamalarda ve bulut veri erişimin korunmasına yardımcı olur ve kullanıcıların ve grupların yönetimini basitleştirir. Temel dizin hizmetlerini, Gelişmiş kimlik yönetimini, güvenlik ve uygulama erişim yönetimi, bir araya getirir ve geliştiricilerin uygulamalarında kimlik ilke tabanlı yönetime kolaylaştırır. Azure Active Directory'nizi geliştirmek için Azure Active Directory Temel, Premium P1 ve Premium P2 sürümleriyle ücretli özellikler ekleyebilirsiniz.
 
 | Ücretsiz / ortak özellikleri     | Temel özellikleri    |Premium P1 özellikleri |Premium P2 özellikleri | Azure Active Directory Join – yalnızca Windows 10 ilgili özellikleri|
 | :------------- | :------------- |:------------- |:------------- |:------------- |

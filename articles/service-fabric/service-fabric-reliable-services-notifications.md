@@ -1,6 +1,6 @@
 ---
-title: Güvenilir hizmetler bildirimleri | Microsoft Docs
-description: Service Fabric Reliable Services bildirimler için kavramsal belgeler
+title: Reliable Services bildirimlerini | Microsoft Docs
+description: Service Fabric güvenilir hizmetler bildirimleri için kavramsal belgelerde
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: 4455b259ef2159f9e1ec4991fc533f1843899682
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a13e5d74390b82888f51cfd225c54e29550354e9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207019"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433523"
 ---
-# <a name="reliable-services-notifications"></a>Güvenilir hizmetler bildirimleri
-Bildirimleri ilginizi bir nesneye yapılan değişiklikleri izlemek istemcilerinin izin verir. İki nesne türünün destek bildirimleri: *güvenilir durum Yöneticisi* ve *güvenilir sözlük*.
+# <a name="reliable-services-notifications"></a>Reliable Services bildirimleri
+Bildirimler, ilginizi çeken bir nesneye yapılan değişiklikleri izlemek istemcileri olanak tanır. İki nesne türünün destek bildirimleri: *güvenilir durum Yöneticisi* ve *güvenilir bir sözlük*.
 
-Bildirimleri kullanmak için yaygın nedenler şunlardır:
+Bildirimlerin kullanılmasıyla ilgili yaygın nedenleri şunlardır:
 
-* Yapı ikincil dizinler gibi görünümlerde gerçekleştirilip veya filtrelenmiş görünümleri yinelemenin durumunun bir araya getirilir. Bir örnek, güvenilir sözlükteki tüm anahtarları sıralanmış bir dizindir.
-* Gönderen izleme gibi verileri son bir saatte eklenen kullanıcıların sayısı.
+* Yapı, gerçekleştirilmiş görünümler, ikincil dizinler gibi veya filtrelenmiş yinelemenin durumu görünümlerini toplanır. Örnek, güvenilir bir sözlükteki tüm anahtarların sıralanmış bir dizindir.
+* Gönderen izleme verilerini, son bir saat içinde eklenen kullanıcı sayısı gibi.
 
-Bildirimleri işlemleri uygulama bir parçası olarak tetiklenir. Bu yüzden, olası ve zaman uyumlu olaylar pahalı işlemleri eklememelisiniz kadar hızlı bildirimleri yapılmalıdır.
+Bildirimleri işlemleri uygulayarak bir parçası olarak tetiklenir. Bu nedenle bildirimleri olası ve zaman uyumlu olayları pahalı işlemleri içermemelidir kadar hızlı ele alınmalıdır.
 
 ## <a name="reliable-state-manager-notifications"></a>Güvenilir durum Yöneticisi bildirimleri
-Güvenilir durum Yöneticisi aşağıdaki olaylar için bildirimler sağlar:
+Güvenilir durum Yöneticisi aşağıdaki olaylar için bildirimleri sağlar:
 
 * İşlem
-  * Yürüt
+  * İşleme
 * Durum Yöneticisi
-  * Yeniden derle
-  * Güvenilir bir duruma eklenmesi
-  * Güvenilir durumunun kaldırma
+  * Yeniden derleme
+  * Güvenilir durum ekleme
+  * Güvenilir durum temizleme
 
-Güvenilir durum Yöneticisi geçerli inflight işlemleri izler. Bir bildirim harekete neden olan işlem durumu yalnızca değişikliği kabul edilmek bir işlemdir.
+Güvenilir durum Yöneticisi geçerli hareket halindeki işlemleri izler. Yalnızca bir bildirimine harekete işlem durumu değişikliği işlenmeden bir işlemdir.
 
-Güvenilir durum Yöneticisi güvenilir sözlük ve güvenilir sırası gibi güvenilir durumları koleksiyonu tutar. Güvenilir durum Yöneticisi bu koleksiyon değiştiğinde bildirim ateşlenir: güvenilir durumu eklendiğinde veya kaldırıldığında ya da tüm koleksiyon yeniden oluşturulur.
-Güvenilir durum Yöneticisi koleksiyonu üç durumda yeniden oluşturulur:
+Güvenilir durum Yöneticisi gibi güvenilir bir sözlük ve güvenilir bir sıra güvenilir durumları koleksiyonunu tutar. Güvenilir durum Yöneticisi bu koleksiyonu değiştiğinde bildirim harekete: güvenilir durumu eklendiğinde veya kaldırıldığında ya da tüm koleksiyon yeniden oluşturulur.
+Güvenilir durum Yöneticisi koleksiyonu üç durumlarda yeniden oluşturulur:
 
-* Kurtarma: bir çoğaltma başladığında, önceki durumuna diskten kurtarır. Kurtarma sonunda kullandığı **NotifyStateManagerChangedEventArgs** kurtarılan güvenilir durumları kümesini içeren bir olay tetiklenecek.
-* Tam kopyalama: bir çoğaltma yapılandırma kümesi katılabilmesi için önce oluşturulacak sahiptir. Bazı durumlarda, güvenilir durum yöneticisinin durum boşta ikincil çoğaltmaya uygulanması için birincil çoğaltmadan tam bir kopyasını gerektirir. İkincil çoğaltmadaki güvenilir durum Yöneticisi'nin kullandığı **NotifyStateManagerChangedEventArgs** birincil çoğaltmadan edinilen güvenilir durumları kümesini içeren bir olay tetiklenecek.
-* Geri yükleme: olağanüstü durum kurtarma senaryolarında yinelemenin durumu bir yedekten geri yüklenebilir **RestoreAsync**. Böyle durumlarda, birincil çoğaltmadaki güvenilir durum Yöneticisi kullanan **NotifyStateManagerChangedEventArgs** yedekten geri güvenilir durumları kümesini içeren bir olay tetiklenecek.
+* Kurtarma: bir çoğaltma başladığında, önceki durumuna diskten kurtarır. Kurtarma sonunda kullandığı **NotifyStateManagerChangedEventArgs** kurtarılan güvenilir durumları kümesini içeren bir olay harekete geçirmek için.
+* Tam kopyalama: bir çoğaltma yapılandırma kümesi katılabilmesi için önce oluşturulacak sahiptir. Bazı durumlarda, güvenilir durum Yöneticisi'nin durumu boşta ikincil çoğaltmaya uygulanması için birincil çoğaltmadan tam bir kopyasını gerektirir. İkincil Çoğaltmada güvenilir durum Yöneticisi kullanan **NotifyStateManagerChangedEventArgs** kullanarak birincil çoğaltmadan alınan güvenilir bildiren kümesini içeren bir olay harekete geçirmek için.
+* Geri yükleme: olağanüstü durum kurtarma senaryolarında yinelemenin durumu bir yedekten geri yüklenebilir **RestoreAsync**. Böyle durumlarda birincil çoğaltmadaki güvenilir durum Yöneticisi kullanan **NotifyStateManagerChangedEventArgs** yedekten geri güvenilir bildiren kümesini içeren bir olay harekete geçirmek için.
 
-İşlem bildirimleri ve/veya durum Yöneticisi bildirimleri kaydetmek için ile kaydetmeniz gerekir **TransactionChanged** veya **StateManagerChanged** güvenilir durumu Yöneticisi olayları. Durum bilgisi olan hizmet Oluşturucusu bu olay işleyicileri ile kaydetmek için ortak bir yerdir. Oluşturucu kaydolduğunuzda, kullanım ömrü süresince bir değişiklik nedeniyle herhangi bir bildirim kaçırılması olmaz **IReliableStateManager**.
+İşlem bildirimleri ve/veya durum manager bildirimlerine kaydetmek için ile kaydetmeniz gerekir **TransactionChanged** veya **StateManagerChanged** güvenilir durum Yöneticisi olayları. Oluşturucusu, durum bilgisi olan hizmet, bu olay işleyicileri ile kaydetmek için ortak bir yerdir. Oluşturucu kaydolduğunuzda, kullanım süresi boyunca bir değişiklik nedeniyle herhangi bir bildirim eksik olmaz **Telemetryclient**.
 
 ```csharp
 public MyService(StatefulServiceContext context)
@@ -61,14 +61,14 @@ public MyService(StatefulServiceContext context)
 }
 ```
 
-**TransactionChanged** olay işleyicisi kullanan **NotifyTransactionChangedEventArgs** olay hakkındaki ayrıntıları sağlamak için. Eylem özelliği içerir (örneğin, **NotifyTransactionChangedAction.Commit**) değişikliğin türünü belirtir. Ayrıca, değiştirilen işlem başvuru sağlar TRANSACTION özelliği içerir.
+**TransactionChanged** olay işleyicisi kullanır **NotifyTransactionChangedEventArgs** olay hakkındaki ayrıntıları sağlamak için. Action özelliği içerir (örneğin, **NotifyTransactionChangedAction.Commit**) değişiklik türünü belirtir. Ayrıca, değiştirilen işlem başvuru sağlayan işlem özelliği içerir.
 
 > [!NOTE]
-> Bugün, **TransactionChanged** yalnızca işlem tamamlanırsa olayları ortaya çıkar. Eylem sonra eşittir **NotifyTransactionChangedAction.Commit**. Ancak olayları işlem durumu değişiklikleri diğer türleri için gelecekte, yükseltilmiş. Eylem denetleniyor ve yalnızca beklediğiniz bir ise, olay işleme öneririz.
+> Bugün, **TransactionChanged** işlem yalnızca, olayları ortaya çıkar. Eylemin ardından eşit olduğu **NotifyTransactionChangedAction.Commit**. Ancak gelecekte diğer tür durum değişikliklerini işlem için tetiklenen olayları. Eylemin denetleme ve yalnızca beklediğiniz bir ise, olay işleme öneririz.
 > 
 > 
 
-Aşağıda bir örnek verilmiştir **TransactionChanged** olay işleyicisi.
+Bir örnek aşağıdadır **TransactionChanged** olay işleyicisi.
 
 ```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
@@ -83,21 +83,21 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 }
 ```
 
-**StateManagerChanged** olay işleyicisi kullanan **NotifyStateManagerChangedEventArgs** olay hakkındaki ayrıntıları sağlamak için.
+**StateManagerChanged** olay işleyicisi kullanır **NotifyStateManagerChangedEventArgs** olay hakkındaki ayrıntıları sağlamak için.
 **NotifyStateManagerChangedEventArgs** iki alt sınıfları olmayan: **NotifyStateManagerRebuildEventArgs** ve **NotifyStateManagerSingleEntityChangedEventArgs**.
-Eylem özelliğinde kullanmak **NotifyStateManagerChangedEventArgs** yayınlanamıyor **NotifyStateManagerChangedEventArgs** doğru alt:
+Eylem özelliğinde kullandığınız **NotifyStateManagerChangedEventArgs** dönüştürülecek **NotifyStateManagerChangedEventArgs** doğru alt Sınıflama:
 
 * **NotifyStateManagerChangedAction.Rebuild**: **NotifyStateManagerRebuildEventArgs**
 * **NotifyStateManagerChangedAction.Add** ve **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
 
-Aşağıda bir örnek verilmiştir **StateManagerChanged** bildirim işleyici.
+Bir örnek aşağıdadır **StateManagerChanged** bildirim işleyici.
 
 ```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
     {
-        this.ProcessStataManagerRebuildNotification(e);
+        this.ProcessStateManagerRebuildNotification(e);
 
         return;
     }
@@ -106,17 +106,17 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 }
 ```
 
-## <a name="reliable-dictionary-notifications"></a>Güvenilir sözlük bildirimleri
-Güvenilir sözlük aşağıdaki olaylar için bildirimler sağlar:
+## <a name="reliable-dictionary-notifications"></a>Güvenilir bir sözlük bildirimleri
+Güvenilir bir sözlük aşağıdaki olaylar için bildirimleri sağlar:
 
 * Yeniden oluşturma: çağrılır **ReliableDictionary** durumuna kurtarılan ya da kopyalanmış yerel durumu ya da yedekleme kurtarıldı.
-* Clear: çağrılır durumunu **ReliableDictionary** aracılığıyla temizlenmiş **ClearAsync** yöntemi.
-* Ekleyin: adlı bir öğe için eklendiğinde **ReliableDictionary**.
-* Güncelleştirme: bir öğe olarak adlandırılan **IReliableDictionary** güncelleştirildi.
-* Kaldır: bir öğe adlı **IReliableDictionary** silinmiş olabilir.
+* Temizle: çağrılır durumunu **ReliableDictionary** aracılığıyla temizlenmiş **ClearAsync** yöntemi.
+* Ekleyin: için bir öğe eklendiğinde adlı **ReliableDictionary**.
+* Güncelleştirme: bir öğe olduğunda çağrılır **IReliableDictionary** güncelleştirildi.
+* Kaldır: bir öğe olduğunda çağrılır **IReliableDictionary** silindi.
 
-Güvenilir sözlük bildirimleri almak için ile kaydetmeniz gerekir **DictionaryChanged** olay işleyicisini **IReliableDictionary**. Bu olay işleyicileri ile kaydetmek için bir ortak yerdir **ReliableStateManager.StateManagerChanged** bildirim ekleyin.
-Ne zaman kaydetme **IReliableDictionary** eklenen **IReliableStateManager** herhangi bir bildirim kaçırılması olmaz sağlar.
+Güvenilir bir sözlük bildirimleri almak için kaydetmek gereken **DictionaryChanged** olay işleyicisini **IReliableDictionary**. Bu olay işleyicileri ile kaydetmek için ortak bir konum **ReliableStateManager.StateManagerChanged** bildirimi ekleyin.
+Ne zaman kaydetme **IReliableDictionary** eklenir **Telemetryclient** herhangi bir bildirim eksik olmaz sağlar.
 
 ```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
@@ -136,11 +136,11 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 ```
 
 > [!NOTE]
-> **ProcessStateManagerSingleEntityNotification** örnek yöntemidir, önceki **OnStateManagerChangedHandler** örnek çağrıları.
+> **ProcessStateManagerSingleEntityNotification** örnek yöntemi olduğundan, önceki **OnStateManagerChangedHandler** örneği çağrıları.
 > 
 > 
 
-Önceki kod kümeleri **IReliableNotificationAsyncCallback** , bunların ile arabirim **DictionaryChanged**. Çünkü **NotifyDictionaryRebuildEventArgs** içeren bir **IAsyncEnumerable** arabirimi--, zaman uyumsuz olarak--sıralanması gerekiyor yeniden bildirimleri aracılığıyla harekete **RebuildNotificationAsyncCallback** yerine **OnDictionaryChangedHandler**.
+Önceki kod kümeleri **IReliableNotificationAsyncCallback** , bunların ile arabirim **DictionaryChanged**. Çünkü **NotifyDictionaryRebuildEventArgs** içeren bir **IAsyncEnumerable** arabirimi--zaman uyumsuz olarak--sıralanması gerekir yeniden bildirimleri aracılığıyla tetiklenen  **RebuildNotificationAsyncCallback** yerine **OnDictionaryChangedHandler**.
 
 ```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
@@ -158,12 +158,12 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 ```
 
 > [!NOTE]
-> Önceki kodda, yeniden bildirim işleme bir parçası olarak önce işlenen toplam durum temizlenir. Güvenilir koleksiyonu ile yeni bir durum yeniden olduğundan, tüm önceki bildirimler önemli değildir.
+> Önceki kodda, yeniden derleme bildirim işleme bir parçası olarak ilk işlenen toplam durum temizlenir. Güvenilir koleksiyon ile yeni bir durum yeniden olduğundan, tüm önceki bildirimler ilgisiz.
 > 
 > 
 
-**DictionaryChanged** olay işleyicisi kullanan **NotifyDictionaryChangedEventArgs** olay hakkındaki ayrıntıları sağlamak için.
-**NotifyDictionaryChangedEventArgs** beş alt sınıfların sahiptir. Eylem özelliğini **NotifyDictionaryChangedEventArgs** yayınlanamıyor **NotifyDictionaryChangedEventArgs** doğru alt:
+**DictionaryChanged** olay işleyicisi kullanır **NotifyDictionaryChangedEventArgs** olay hakkındaki ayrıntıları sağlamak için.
+**NotifyDictionaryChangedEventArgs** beş alt sınıfları olmayan. Eylem özelliğini **NotifyDictionaryChangedEventArgs** dönüştürülecek **NotifyDictionaryChangedEventArgs** doğru alt Sınıflama:
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
@@ -203,21 +203,21 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 ```
 
 ## <a name="recommendations"></a>Öneriler
-* *Yapmak* bildirim olayları mümkün olduğunca hızlı tamamlayın.
-* *Sağlamadığı* pahalı işlemleri (örneğin, g/ç işlemleri) zaman uyumlu olaylar bir parçası olarak çalıştırmak.
-* *Yapmak* olay işlemeden önce eylem türünü kontrol edin. Yeni Eylem türleri gelecekte eklenebilir.
+* *Yapmak* bildirim olay mümkün olduğunca hızlı tamamlandı.
+* *Sağlamadığı* pahalı işlemler (örneğin, g/ç işlemleri) zaman uyumlu olaylarının bir parçası olarak yürütün.
+* *Yapmak* eylem türü olay işlemeden önce denetleyin. Yeni Eylem türleri gelecekte eklenebilir.
 
-Göz önünde bulundurmanız gereken bazı şeyler şunlardır:
+Akılda tutulması gereken bazı noktalar şunlardır:
 
-* Bildirimler, bir işlemin yürütülmesini bir parçası olarak tetiklenir. Örneğin, bir geri bildirim geri yükleme işleminin son adımı olarak tetiklenir. Geri bildirim olayı işlenen kadar tamamlanmaz.
-* Bildirimleri uygulanan işlemlerinin bir parçası olarak başlatıldığından istemciler yalnızca yerel olarak kaydedilmiş işlemleri için bildirim bakın. Ve işlemleri yalnızca yerel olarak kaydedilmiş olması garanti (diğer bir deyişle, oturum açmış), olabilir veya gelecekte geri olmayabilir.
-* Yinele yolda uygulanan her işlem için tek bir bildirim tetiklenir. Bu işlem T1 Create(X), Delete(X) ve Create(X) içeriyorsa, o sırada X, silme işlemi için diğeri oluşturma yeniden oluşturulması için bir bildirim elde edersiniz anlamına gelir.
-* Birden çok işlemleri içeren işlemleri için işlemleri, bunlar kullanıcı birincil çoğaltmadan alınan sırayla uygulanır.
-* False ilerleme durumu işlenirken bir parçası olarak, bazı işlemler geri olabilir. Bildirimler, çoğaltma durumunu kararlı bir noktaya geri alma gibi geri alma işlemleri için oluşturulur. Önemli bir fark geri bildirimler, yinelenen anahtarlar olayları toplanır ' dir. Örneğin, T1 işlem geri alınamaz, Delete(X) için tek bir bildirim görürsünüz.
+* Bildirimler, bir işlemin yürütülmesi bir parçası olarak harekete geçirilir. Örneğin, bir geri bildirim, bir geri yükleme işleminin son adımı harekete geçirilir. Geri bildirim olayı işlenene kadar tamamlanmaz.
+* Bildirimleri uygulama işlemlerinin bir parçası olarak başlatıldığından, istemciler yalnızca yerel olarak kaydedilmiş işlemleri için bildirimleri bakın. Ve işlemleri yalnızca yerel olarak kaydedilmiş olması garanti edilir (diğer bir deyişle, günlüğe), olabilir veya gelecekte geri olmayabilir.
+* Yineleme yolu üzerinde uygulanan her işlem için tek bir uyarı tetiklenir. Başka bir deyişle, işlem T1 Create(X) Delete(X) ve Create(X) içeriyorsa, sırasıyla X, biri silme ve yeniden oluşturulması için bir tane oluşturulması için bir bildirim elde edersiniz.
+* Birden çok işlem içeren işlemler için işlem kullanıcıdan birincil çoğaltmadaki alındıkları sırayla uygulanır.
+* İşleme false ilerleme durumu bir parçası olarak, bazı işlemler geri olabilir. Bildirimler, çoğaltma durumunu kararlı bir noktaya geri alınıyor. Bu tür geri alma işlemleri için oluşturulur. Geri bildirimler önemli bir fark, yinelenen anahtarlara sahip olayları toplanır ' dir. Örneğin, T1 işlem geri alınamaz, Delete(X) için tek bir bildirim görürsünüz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Güvenilir Koleksiyonlar](service-fabric-work-with-reliable-collections.md)
-* [Güvenilir hizmetler hızlı başlangıç](service-fabric-reliable-services-quick-start.md)
-* [Güvenilir hizmetler yedekleme ve geri yükleme (olağanüstü durum kurtarma)](service-fabric-reliable-services-backup-restore.md)
+* [Reliable Services hızlı başlangıç](service-fabric-reliable-services-quick-start.md)
+* [Reliable Services yedekleme ve geri yükleme (olağanüstü durum kurtarma)](service-fabric-reliable-services-backup-restore.md)
 * [Güvenilir koleksiyonlar için Geliştirici Başvurusu](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 

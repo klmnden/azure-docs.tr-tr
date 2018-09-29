@@ -15,16 +15,32 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 11d9f5efb452d46e5ca30169861582f6f2bbbd1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3eeaee9bc6320231f10aa85227e2f43756181806
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969402"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433489"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API ile SSH kimlik doğrulaması kullanan bir Linux sanal makinesi oluşturma
 
-Azure sanal makineler'de (VM), konum, donanım boyutu, işletim sistemi görüntüsü ve oturum açma kimlik bilgileri gibi çeşitli parametreleri tarafından tanımlanır. Bu makalede, SSH kimlik doğrulaması kullanan bir Linux sanal makine oluşturmak için REST API kullanma işlemini göstermektedir.
+Diskler gibi çeşitli kaynaklar azure'da bir Linux sanal makinesi (VM) oluşur ve ağ arabirimleri ve konum, boyutu ve işletim sistemi görüntüsü ve kimlik doğrulama ayarları gibi parametreleri tanımlar.
+
+Azure portal, Azure CLI 2. 0'da, birçok Azure SDK'ları, Azure Resource Manager şablonları ve Ansible veya Terraform gibi çok sayıda üçüncü taraf araçları aracılığıyla Linux VM oluşturabilirsiniz. Bu araçlar, sonuçta Linux VM oluşturmak için REST API kullanın.
+
+Bu makalede yönetilen diskler ve SSH kimlik doğrulaması ile Ubuntu 18.04-LTS çalıştıran bir Linux VM oluşturmak için REST API'sini kullanmayı gösterir.
+
+## <a name="before-you-start"></a>Başlamadan önce
+
+Oluşturma ve isteği göndermek için önce ihtiyacınız olacak:
+
+* `{subscription-id}` Aboneliğiniz için
+  * Birden fazla aboneliğiniz varsa, bkz. [birden çok abonelik ile çalışma](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)
+* A `{resourceGroupName}` önceden oluşturduğunuz
+* A [sanal ağ arabirimi](../../virtual-network/virtual-network-network-interface.md) aynı kaynak grubunda
+* SSH anahtar çifti (yapabilecekleriniz [yeni bir tane oluşturmanız](mac-create-ssh-keys.md) tane yoksa)
+
+## <a name="request-basics"></a>İstek temelleri
 
 Oluşturun veya bir sanal makineyi güncelleştirmek için aşağıdakileri kullanın *PUT* işlemi:
 
@@ -32,9 +48,7 @@ Oluşturun veya bir sanal makineyi güncelleştirmek için aşağıdakileri kull
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-## <a name="create-a-request"></a>İstek oluştur
-
-Oluşturulacak *PUT* isteği `{subscription-id}` parametresi gereklidir. Birden fazla aboneliğiniz varsa, bkz. [birden çok abonelik ile çalışma](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). Tanımladığınız bir `{resourceGroupName}` ve `{vmName}` kaynaklarınız için birlikte `api-version` parametresi. Bu makalede `api-version=2017-12-01`.
+Ek olarak `{subscription-id}` ve `{resourceGroupName}` parametreleri belirtmeniz gerekir `{vmName}` (`api-version` isteğe bağlıdır, ancak bu makalede ile test edilmiştir `api-version=2017-12-01`)
 
 Aşağıdaki üst bilgiler gereklidir:
 
@@ -43,7 +57,7 @@ Aşağıdaki üst bilgiler gereklidir:
 | *İçerik türü:*  | Gereklidir. Kümesine `application/json`. |
 | *Yetkilendirme:* | Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
-İstek oluşturma hakkında daha fazla bilgi için bkz. [bir REST API istek/yanıt bileşenleri](/rest/api/azure/#components-of-a-rest-api-requestresponse).
+REST API istekleri ile çalışma hakkında genel bilgi için bkz. [bir REST API istek/yanıt bileşenleri](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
 ## <a name="create-the-request-body"></a>İstek gövdesi oluşturma
 
@@ -58,15 +72,12 @@ Aşağıdaki ortak tanımları, istek gövdesi oluşturmak için kullanılır:
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Sanal makine için işletim sistemi ayarlarını belirtir. |
 | properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Sanal makine ağ arabirimleri belirtir. |
 
-İstek gövdesinde kullanılabilir tanımlar tam bir listesi için bkz. [sanal makineleri oluşturma veya güncelleştirme istek gövdesi tanımlarını](/rest/api/compute/virtualmachines/createorupdate#definitions).
-
-### <a name="example-request-body"></a>Örnek istek gövdesi
-
-Aşağıdaki örnek istek gövdesi, Premium yönetilen diskler kullanan bir Ubuntu LTS 18.04 görüntüsünü tanımlar. SSH ortak anahtarı kimlik doğrulaması kullanılır ve sahip olduğunuz bir var olan sanal ağ arabirim kartı (NIC) VM kullanan [daha önce oluşturduğunuz](../../virtual-network/virtual-network-network-interface.md). SSH ortak anahtarınızı sağlayın *osProfile.linuxConfiguration.ssh.publicKeys.keyData* alan. Gerekirse, [SSH anahtar çifti oluşturma](mac-create-ssh-keys.md).
+Bir örnek istek gövdesi, aşağıda verilmiştir. VM adı belirttiğinizden emin olun `{computerName}` ve `{name}` parametreler, altında oluşturduğunuz ağ arabirimi adı `networkInterfaces`, kullanıcı adınıza `adminUsername` ve `path`ve *genel*bölümü, SSH anahtar çifti ('de, örneğin, bulunan `~/.ssh/id_rsa.pub`) içinde `keyData`. Diğer parametreleri değiştirmek isteyebilirsiniz `location` ve `vmSize`.  
 
 ```json
 {
   "location": "eastus",
+  "name": "{vmName}",
   "properties": {
     "hardwareProfile": {
       "vmSize": "Standard_DS1_v2"
@@ -89,7 +100,7 @@ Aşağıdaki örnek istek gövdesi, Premium yönetilen diskler kullanan bir Ubun
     },
     "osProfile": {
       "adminUsername": "{your-username}",
-      "computerName": "myVM",
+      "computerName": "{vmName}",
       "linuxConfiguration": {
         "ssh": {
           "publicKeys": [
@@ -105,19 +116,24 @@ Aşağıdaki örnek istek gövdesi, Premium yönetilen diskler kullanan bir Ubun
     "networkProfile": {
       "networkInterfaces": [
         {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+          "id": "/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
           "properties": {
             "primary": true
           }
         }
       ]
     }
-  },
-  "name": "myVM"
+  }
 }
 ```
 
-## <a name="responses"></a>Yanıtlar
+İstek gövdesinde kullanılabilir tanımlar tam bir listesi için bkz. [sanal makineleri oluşturma veya güncelleştirme istek gövdesi tanımlarını](/rest/api/compute/virtualmachines/createorupdate#definitions).
+
+## <a name="sending-the-request"></a>İstek gönderiliyor
+
+Bu HTTP isteği gönderilirken tercihinizi istemci kullanabilir. Ayrıca bir [tarayıcı içi araç](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) tıklayarak **deneyin** düğmesi.
+
+### <a name="responses"></a>Yanıtlar
 
 Oluşturulacak veya güncelleştirilecek bir sanal makine işlemi için iki başarılı yanıtlar vardır:
 
@@ -125,10 +141,6 @@ Oluşturulacak veya güncelleştirilecek bir sanal makine işlemi için iki baş
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 TAMAM      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Tamam          |
 | 201 oluşturuldu | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Oluşturulan     |
-
-REST API yanıtları hakkında daha fazla bilgi için bkz: [yanıt iletisini işlemek](/rest/api/azure/#process-the-response-message).
-
-### <a name="example-response"></a>Örnek yanıt
 
 Sıkıştırılmış bir *201 oluşturuldu* bir VM oluşturur, önceki örnek istek gövdesi yanıttan gösteren bir *Vmıd* atanmış olan ve *provisioningState* olan*Oluşturma*:
 
@@ -138,6 +150,8 @@ Sıkıştırılmış bir *201 oluşturuldu* bir VM oluşturur, önceki örnek is
     "provisioningState": "Creating"
 }
 ```
+
+REST API yanıtları hakkında daha fazla bilgi için bkz: [yanıt iletisini işlemek](/rest/api/azure/#process-the-response-message).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

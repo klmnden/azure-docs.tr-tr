@@ -15,12 +15,12 @@ ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: 31e9e6b173a578b09f656850271ed5a8f0f2baa8
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b5d7b71b76eebc0c14fe1403791c3d4b6cefd7f4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391340"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161071"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Log Analytics günlük araması ile toplanan verileri görüntüleme veya çözümleme
 
@@ -85,7 +85,7 @@ Filtrelemek istediğiniz değere sahip bir kayıt için özellik menüsünden **
 
 **Filtre** seçeneğine yalnızca, üzerine geldiğinizde adları mavi renkte görünen özellikler için sahip olursunuz.  Bunlar, arama koşulları için dizini oluşturulmuş *aranabilir* alanlardır.  Gri alanlar yalnızca **Başvuruları göster** seçeneğinin bulunduğu *serbest metin aranabilir* alanlardır.  Bu seçenek, herhangi bir özellikte söz konusu değere sahip kayıtları döndürür.
 
-Kayıt menüsünde **Gruplandırma ölçütü** seçeneğini belirleyerek tek bir özellikteki sonuçları gruplandırabilirsiniz.  Bu işlem, sorgunuza sonuçları bir grafikte görüntüleyen bir [özetleme](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) işleci ekler.  Birden fazla özelliği gruplandırabilirsiniz, ancak sorguyu doğrudan düzenlemeniz gerekir.  **Bilgisayar** özelliğinin yanındaki kayıt menüsünü seçin ve **'Bilgisayara' Göre Gruplandır** seçeneğini belirleyin.  
+Kayıt menüsünde **Gruplandırma ölçütü** seçeneğini belirleyerek tek bir özellikteki sonuçları gruplandırabilirsiniz.  Bu işlem, sorgunuza sonuçları bir grafikte görüntüleyen bir [özetleme](/azure/kusto/query/summarizeoperator) işleci ekler.  Birden fazla özelliği gruplandırabilirsiniz, ancak sorguyu doğrudan düzenlemeniz gerekir.  **Bilgisayar** özelliğinin yanındaki kayıt menüsünü seçin ve **'Bilgisayara' Göre Gruplandır** seçeneğini belirleyin.  
 
 ![Bilgisayara göre gruplandırma](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 
@@ -130,7 +130,7 @@ Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time
 
 ![İşlemci kullanımı](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
 
-Bu, verileri belirli bir sayaç ile sınırlar ancak yine de özellikle kullanışlı olacak bir biçime getirmez.  Verileri bir çizgi grafikte görüntüleyebilirsiniz, ancak öncelikle Computer ve TimeGenerated özelliklerine göre gruplandırmanız gerekir.  Birden çok alan üzerinde gruplandırma yapmak için sorguyu doğrudan değiştirmeniz gerekir, bu nedenle sorguyu aşağıdaki şekilde değiştirin.  Bu, her saat için ortalama değeri hesaplamak üzere **CounterValue** özelliğindeki [ort](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) işlevini kullanır.
+Bu, verileri belirli bir sayaç ile sınırlar ancak yine de özellikle kullanışlı olacak bir biçime getirmez.  Verileri bir çizgi grafikte görüntüleyebilirsiniz, ancak öncelikle Computer ve TimeGenerated özelliklerine göre gruplandırmanız gerekir.  Birden çok alan üzerinde gruplandırma yapmak için sorguyu doğrudan değiştirmeniz gerekir, bu nedenle sorguyu aşağıdaki şekilde değiştirin.  Bu, her saat için ortalama değeri hesaplamak üzere **CounterValue** özelliğindeki [ort](/azure/kusto/query/avg-aggfunction) işlevini kullanır.
 
 ```
 Perf  
@@ -140,7 +140,7 @@ Perf
 
 ![Performans verileri grafiği](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
 
-Veriler uygun şekilde gruplandırıldığına göre [işleme](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) işlecini ekleyerek bunları görsel bir grafikte görüntüleyebilirsiniz.  
+Veriler uygun şekilde gruplandırıldığına göre [işleme](/azure/kusto/query/renderoperator) işlecini ekleyerek bunları görsel bir grafikte görüntüleyebilirsiniz.  
 
 ```
 Perf  

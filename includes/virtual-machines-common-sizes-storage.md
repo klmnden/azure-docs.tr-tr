@@ -8,18 +8,21 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: e8d12320eea1d0fa2dad7fffb8d29ae8b53cee14
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 961f82cd4970abfdd11a30b2847a14f8ff1880b0
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369145"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454420"
 ---
 Depolama en iyi duruma getirilmiş VM boyutları, yüksek disk aktarım hızı ve g/ç sunar ve büyük veri, SQL ve NoSQL veritabanları için idealdir. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar. 
 
 Ls serisi, [Intel® Xeon İşlemci E5 v3 ailesi](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html) ile 32’ye kadar vCPU kullanım olanağı sunar. Ls serisi, G/GS serisi ile aynı CPU performansı sunar ve her vCPU başına 8 GiB bellek içerir.  Ls serisi VM'ler, düşük gecikme süreli, yüksek aktarım hızı ve yerel diskte geniş depolama alanı gerektiren uygulamalar için idealdir. 
 
 Kullanım örnekleri, veri ambarlama, Cassandra, MongoDB, Cloudera ve Redis gibi NoSQL veritabanları ve büyük işlem veritabanları arasında.
+
+> [!NOTE]
+> Ls serisi VM makine dayanıklı bir veri diski kullanımıyla sonuçlanıyor yerine ekli geçici disk kullanımı için optimize edilmiştir. Geçici diskin IOPS ve yüksek aktarım hızı sağlar Ls serisi, tek bir VM bir arıza olması durumunda kalıcılığı sağlamak için birden çok VM arasında veri çoğaltmak Apache Cassandra ve MongoDB gibi NoSQL depoları için idealdir. Ls serisi, kalıcı veri diskleri tarafından ulaşılabilir IOPS artırmak için yerel bir önbellek oluşturulmasını desteklemiyor.
 
 ## <a name="ls-series"></a>Ls serisi
 

@@ -1,33 +1,41 @@
 ---
 title: Azure blob depolamaya - Azure Logic Apps bağlanma | Microsoft Docs
 description: Oluşturma ve Azure Logic Apps ile Azure Depolama'daki blobları yönetme
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 05/21/2018
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 49d08135dee4568d1a9d65ec2d22d17ee3bda2ea
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: d8658740772ed4a11fdfd70a0c925ac1b597dd69
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "35294688"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452029"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Oluşturma ve Azure Logic Apps ile Azure blob Depolama'daki blobları yönetme
 
 Bu makalede nasıl erişebilir ve Azure Blob Depolama Bağlayıcısı ile bir mantıksal uygulama içinde Azure depolama hesabınızdaki BLOB olarak depolanan dosyalar yönetme gösterilmektedir. Böylece, görevler ve dosyalarınızı yönetmek için iş akışlarını otomatik hale getiren mantıksal uygulamalar oluşturabilirsiniz. Örneğin, oluşturma, alma, güncelleştirme ve depolama hesabınızda dosyaları silme mantıksal uygulamalar oluşturabilirsiniz.
 
-Bir Azure web sitesinde güncelleştirilir bir araç olduğunu varsayalım. mantıksal uygulamanızın tetikleyici olarak davranır. Bu olay meydana geldiğinde mantıksal uygulamanızda bir eylem, blob depolama kapsayıcısında bazı dosyasını güncelleştirin, mantıksal uygulama olabilir. 
+Bir Azure Web sitesinde güncelleştirilir bir araç olduğunu varsayalım. mantıksal uygulamanızın tetikleyici olarak davranır. Bu olay meydana geldiğinde mantıksal uygulamanızda bir eylem, blob depolama kapsayıcısında bazı dosyasını güncelleştirin, mantıksal uygulama olabilir. 
 
-Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+> [!NOTE]
+> Logic Apps, doğrudan güvenlik duvarları üzerinden Azure depolama hesaplarınızı bağlama desteklemiyor. Bu depolama hesaplarından erişmeye, burada iki seçenekten birini kullanın: 
+>
+> * Oluşturma bir [tümleştirme hizmeti ortamı](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), hangi Azure sanal ağdaki kaynaklara bağlanabilir. 
+> 
+> * API Management'ı zaten kullanıyorsanız, bu senaryo için bu hizmeti kullanabilirsiniz. Daha fazla bilgi için bkz. [basit Kurumsal tümleştirme mimarisi](http://aka.ms/aisarch).
+
+Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Bağlayıcısı özel teknik bilgiler için bkz. <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob Depolama Bağlayıcısı başvurusu</a>.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+* Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
 * Bir [Azure depolama hesabı ve depolama kapsayıcısı](../storage/blobs/storage-quickstart-blobs-portal.md)
 
@@ -94,7 +102,7 @@ Azure Logic apps'te bir [eylem](../logic-apps/logic-apps-overview.md#logic-app-c
   
       ![Klasör seçin](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
-   2. Blob üzerinde tabanlı istediğiniz dosyayı bulup **kimliği** sayı. Bunu bulabilirsiniz **kimliği** blobun meta verilerinde daha önce açıklanan blob depolama tetikleyicisi tarafından döndürülen sayı.
+   2. Blob üzerinde tabanlı istediğiniz dosyayı bulup **kimliği** sayı. Bunu bulabilirsiniz **kimliği** blobun meta verilerinde daha önce açıklandığı gibi blob depolama tetikleyicisi tarafından döndürülen sayı.
 
 5. Tasarımcı araç çubuğunda, işiniz bittiğinde seçin **Kaydet**.
 Mantıksal uygulamanızı test etmek için seçili klasör bir blob içerdiğinden emin olun.

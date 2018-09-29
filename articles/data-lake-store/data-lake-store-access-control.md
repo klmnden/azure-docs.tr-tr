@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 335c3fe4e27ce6025ad889cc7958a32223dc85f8
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629942"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432632"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 erişim denetimi
 
@@ -109,11 +109,6 @@ Süper kullanıcı Data Lake depolama Gen1 hesaptaki tüm kullanıcılar arasın
 * Herhangi bir dosya veya klasörün sahibi olan kullanıcıyı ya da grubu değiştirebilir.
 
 Bir parçası olan tüm kullanıcılar **sahipleri** rol bir Data Lake depolama Gen1 hesap için de otomatik olarak süper kullanıcı.
-
-Süper kullanıcı izinlerine sahip özel bir rol tabanlı erişim denetimi (RBAC) rolü oluşturmak isterseniz şu izinleri vermeniz gerekir:
-- Microsoft.DataLakeStore/accounts/Superuser/action
-- Microsoft.Authorization/roleAssignments/write
-
 
 ### <a name="the-owning-user"></a>Sahip olan kullanıcı
 

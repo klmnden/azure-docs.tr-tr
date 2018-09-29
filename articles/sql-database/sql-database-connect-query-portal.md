@@ -3,19 +3,22 @@ title: "Azure portalı: Sorgu Düzenleyicisi'ni kullanarak Azure SQL Veritabanı
 description: SQL Sorgu Düzenleyicisi'ni kullanarak Azure portalında SQL Veritabanına bağlanmayı öğrenin. Ardından, verileri sorgulamak ve düzenlemek için Transact-SQL (T-SQL) deyimleri çalıştırın.
 keywords: sql veritabanına bağlanma,azure portalı, portal, sorgu düzenleyicisi
 services: sql-database
-author: ayoolubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 01/10/2018
+author: ayoolubeko
 ms.author: ayolubek
-ms.openlocfilehash: 4dca277326ec89d0c7ab512e9d107ce68cefb2ca
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 01/10/2018
+ms.openlocfilehash: 6990ae0eb05af630efb8683397907200bf6d94ed
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050859"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063396"
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure portalı: SQL Sorgu düzenleyicisini kullanarak bağlanma ve veri sorgulama
 

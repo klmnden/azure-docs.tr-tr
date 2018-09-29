@@ -3,19 +3,18 @@ title: Limitler ve yapılandırma - Azure Logic Apps | Microsoft Docs
 description: Hizmet sınırlamaları ve Azure Logic Apps için yapılandırma değerleri
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 08/10/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 49b8efe6b5d56c3edaf8b311ff3c6667a8952536
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.topic: article
+ms.date: 09/26/2018
+ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056170"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452470"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -76,7 +75,7 @@ Varsayılan sınır 7 gün ve 90 gün arasında değiştirmek için aşağıdaki
 
 Mantıksal uygulama devre dışı bıraktığınızda, hiçbir yeni çalıştırmaları örneği oluşturulur. Tüm süren ve bunlar, tamamlanması uzun sürebilir bitene kadar çalıştırmalar devam eder.
 
-Mantıksal uygulama sildiğinizde, hiçbir yeni çalıştırmaları örneği oluşturulur. Tüm ilerleme ve çalıştırmaları bekleyen iptal edilir. Çalıştırmaları binlerce varsa, iptal tamamlamak için önemli zaman alabilir.
+Mantıksal uygulamayı sildiğinizde yeni çalıştırma başlatılmaz. Devam eden ve bekleme durumunda olan tüm çalıştırmalar iptal edilir. Binlerce çalıştırma varsa iptal işleminin tamamlanması zaman alabilir.
 
 <a name="looping-debatching-limits"></a>
 
@@ -305,8 +304,13 @@ Bir bölgede tüm logic apps, aynı IP adresi aralıklarını kullanın. Logic a
 Çağrıları desteklemek için [Bağlayıcılar](../connectors/apis-list.md) içerirler bu giden IP adresleri için güvenlik duvarı yapılandırmalarınızı ayarlama yapma, logic apps bulunduğu bölgelerine bağlı.
 
 > [!IMPORTANT]
->
 > Var olan yapılandırmaları varsa, lütfen güncelleştirmeniz **olabildiğince çabuk 1 Eylül 2018'den önce** içerir ve logic apps bulunduğu bölge için bu listedeki IP adresleriyle eşleşen. 
+> 
+> Logic Apps, doğrudan güvenlik duvarları üzerinden Azure depolama hesaplarınızı bağlama desteklemiyor. Bu depolama hesaplarından erişmeye, burada iki seçenekten birini kullanın: 
+>
+> * Oluşturma bir [tümleştirme hizmeti ortamı](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), hangi Azure sanal ağdaki kaynaklara bağlanabilir. 
+> 
+> * API Management'ı zaten kullanıyorsanız, bu senaryo için bu hizmeti kullanabilirsiniz. Daha fazla bilgi için bkz. [basit Kurumsal tümleştirme mimarisi](http://aka.ms/aisarch).
 
 | Logic Apps bölgesi | Giden IP | 
 |-------------------|-------------|  

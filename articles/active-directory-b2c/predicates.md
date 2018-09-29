@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 58ae0541b1b95f280cdd30327059d62ff26978ab
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d00bbddc6523f75b3208a41296b5b94f9f06a5ed
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381649"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432180"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Koşullar ve PredicateValidations
 
@@ -356,7 +356,7 @@ Azure AD B2C hata iletisi görüntülendiğinde öğeleri nasıl düzenlendiği 
 
 ```XML
 <Predicates>
-  <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1905 and today.">
+  <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
     <Parameters>
       <Parameter Id="Minimum">1980-01-01</Parameter>
       <Parameter Id="Maximum">Today</Parameter>

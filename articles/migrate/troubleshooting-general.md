@@ -4,14 +4,14 @@ description: Azure geçişi hizmeti ve sorun giderme ipuçları için sık karş
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/28/2018
 ms.author: raynew
-ms.openlocfilehash: ca0931810fd78ce4cc684ad307efeb866cee3353
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165306"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433506"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -92,9 +92,11 @@ Azure geçişi toplayıcısı Powerclı indirir ve gerecinde yükler. Powerclı 
 
 ### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Hata UnhandledException Dahili hata oluştu: System.IO.FileNotFoundException
 
-Bu, 1.0.9.5'ten önceki Toplayıcı sürümlerinde görülen bir sorundur. Toplayıcı sürümü 1.0.9.2 veya 1.0.8.59 gibi GA öncesi bir sürüm kullanıyorsanız bu sorunla karşılaşırsınız. [Ayrıntılı yanıt için burada verilen forum bağlantısını](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate) izleyin.
+Bu sorun, VMware powerclı'yı yükleme ile ilgili bir sorun nedeniyle oluşabilir. İzleyin sorunu çözmek için aşağıdaki adımları:
 
-[Sorunu düzeltmek için Toplayıcınızı yükseltin](https://aka.ms/migrate/col/checkforupdates).
+1. Toplayıcı gerecini en son sürümüne bağımlı değilse [en son sürüme Toplayıcınızı yükseltin](https://aka.ms/migrate/col/checkforupdates) ve sorunun çözülüp çözülmediğini denetleyin.
+2. En son Toplayıcı sürümü zaten varsa, el ile yükleme [VMware powerclı'yı 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) ve sorunun çözülüp çözülmediğini denetleyin.
+3. Yukarıdaki değil sorunu çözün, C:\Program Files\ProfilerService klasöre gidin ve VMware.dll kaldırın ve VimService65.dll dosyaları klasöründe sunmak ve Windows hizmetlerini Yönet 'Azure geçişi Toplayıcısı' hizmeti yeniden başlatın (açık ' Çalıştır ' ve türü 'services.msc' Windows Hizmet Yöneticisi'ni açmak için).
 
 ### <a name="error-unabletoconnecttoserver"></a>Hata UnableToConnectToServer
 

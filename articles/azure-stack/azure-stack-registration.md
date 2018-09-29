@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364610"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452539"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -94,6 +94,19 @@ Azure Stack dağıtımınıza olabilir *bağlı* veya *bağlantısı kesildi*.
  - **Bağlantısı kesildi**  
  Bağlantısı kesilmiş olan Azure dağıtım seçeneği, dağıtma ve Azure Stack internet bağlantısı olmadan kullanın. Ancak, bağlantısı kesilmiş bir dağıtım ile bir AD FS kimlik deposunu ve kapasite tabanlı faturalandırma modeli için sınırlı olursunuz.
     - [Bağlantısı kesilmiş bir Azure Stack kullanarak kaydolmanız **kapasite** faturalandırma modeli ](#register-disconnected-with-capacity-billing)
+
+### <a name="determine-a-unique-registration-name-to-use"></a>Kullanmak için benzersiz kayıt adını belirleme 
+Azure Stack Azure ile kaydettiğinizde, benzersiz kayıt adı sağlamanız gerekir. Azure Stack aboneliğinizi bir Azure kaydı ile ilişkilendirmek için kolay bir yolu, Azure Stack kullanmaktır **bulut kimliği**. 
+
+> [!NOTE]
+> Azure Stack kayıtlarını kapasite tabanlı faturalandırma modeli kullanarak benzersiz bir ad yıllık ilgili aboneliklerin süresi dolduktan sonra yeniden kaydederken değiştirmeniz gerekir.
+
+Azure Stack dağıtımınıza bulut kimliği belirlemek için bir bilgisayarda yönetici ayrıcalıklı uç noktasına erişebildiğinden daha çalıştırırken aşağıdaki komutlar, PowerShell'i açın ve kaydı **Cloudıd** değeri: 
+
+```powershell
+Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
+Run: get-azurestackstampinformation 
+```
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Kullandıkça Öde faturalandırma ile bağlı kaydetme
 
@@ -257,7 +270,7 @@ Ardından, Azure'da Register-AzsEnvironment sırasında oluşturulan kayıt kayn
 Etkinleştirme anahtarı almak için aşağıdaki PowerShell cmdlet'lerini çalıştırın:  
 
   ```Powershell
-  $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
+  $RegistrationResourceName = "AzureStack-<unique-registration-name>"
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
   ```
@@ -351,7 +364,7 @@ Kaynak oluşturmak için kullanılan kayıt belirtecinizi kullanabilirsiniz:
 Veya, kayıt adı kullanabilirsiniz:
 
   ```Powershell
-  $registrationName = "AzureStack-<Cloud ID of Azure Stack Environment>"
+  $registrationName = "AzureStack-<unique-registration-name>"
   Unregister-AzsEnvironment -RegistrationName $registrationName
   ```
 

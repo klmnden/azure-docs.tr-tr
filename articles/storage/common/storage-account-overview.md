@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 7b2d51f356538724d567654c0de3decbf19c838c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0b2bf8cdb1af85e5ddbd3b18dd6dfa47bcb835b4
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222106"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432894"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
@@ -39,7 +39,7 @@ Aşağıdaki tabloda, depolama hesabı türleri ve yeteneklerini açıklar:
 
 <sup>1</sup>Azure Resource Manager dağıtım modelini kullanarak önerilir. Depolama hesapları Klasik dağıtım modeli kullanılarak yine de bazı yerlerde oluşturulabilir ve mevcut Klasik hesapları desteklemeye devam eder. Daha fazla bilgi için [Azure Resource Manager ve klasik dağıtım: dağıtım modellerini ve kaynaklarınızın durumunu anlama](../../azure-resource-manager/resource-manager-deployment-model.md).
 
-<sup>2</sup>şifreleme bekleyen veriler için depolama hizmeti şifrelemesi (SSE) kullanarak tüm depolama hesaplarıdır. Daha fazla bilgi için [bekleyen veriler için Azure depolama hizmeti şifrelemesi](storage-service-encryption.md).
+<sup>2</sup>tüm depolama hesapları, bekleyen veriler için depolama hizmeti şifrelemesi (SSE) kullanılarak şifrelenir. Daha fazla bilgi için [bekleyen veriler için Azure depolama hizmeti şifrelemesi](storage-service-encryption.md).
 
 <sup>3</sup>arşiv katmanı depolama hesap düzeyinde yalnızca tek bir blob düzeyinde kullanılabilir değildir. Yalnızca blok blobları ve ekleme blobları arşivlenen. Daha fazla bilgi için [Azure Blob Depolama: sık erişimli, seyrek erişimli ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
 

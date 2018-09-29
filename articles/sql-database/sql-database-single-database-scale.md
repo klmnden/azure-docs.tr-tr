@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 5cde4dcbbaaeb56a539faec9b2888ac22f6dbaea
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.date: 09/28/2018
+ms.openlocfilehash: 2c4f772bbf4f0a5bb6eb2323eefa906fba0e5653
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182323"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451418"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL veritabanı'nda ölçek tek veritabanı kaynakları
 
@@ -35,7 +35,7 @@ Bu makalede, Azure SQL veritabanı'nda işlem ve depolama kaynaklarını tek bir
 
 ## <a name="vcore-based-purchasing-model-change-compute-resources"></a>Sanal çekirdek tabanlı satın alma modeli: değişiklik bilgi işlem kaynakları
 
-Başlangıçta çekirdek sayısını seçtikten sonra, tek bir veritabanının ölçeğini artırıp dinamik olarak gerçek deneyime kullanımına dayalı ölçeklendirebilirsiniz [Azure portalında](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL] ((https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](/rest/api/sql/databases/update). 
+Başlangıçta çekirdek sayısını seçtikten sonra, tek bir veritabanının ölçeğini artırıp dinamik olarak gerçek deneyime kullanımına dayalı ölçeklendirebilirsiniz [Azure portalında](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](/rest/api/sql/databases/update). 
 
 Hizmet değiştiriliyor katmanının ve/veya işlem bir veritabanının boyut yeni işlem boyutu özgün veritabanının bir kopyasını oluşturur ve ardından bağlantıları çoğaltmaya geçirir. Bu işlem sırasında veri kaybı olmaz, ancak çoğaltmaya geçişin gerçekleştiği kısa süre zarfında veritabanıyla bağlantılar devre dışı bırakılır, bu nedenle uçuştaki bazı işlemler geri alınabilir. Anahtar üzerinden süreyi değişir, ancak genel olarak 4 saniyenin altında 30 saniyeden daha kısa zaman %99 ise. Varsa büyük işlem şu bağlantıları uçuşta devre dışı bırakıldı, anahtar üzerinden süreyi daha uzun olabilir. 
 
@@ -53,7 +53,7 @@ Tüm ölçek artırma işleminin süresi hem veritabanı boyutuna hem de değiş
 ## <a name="dtu-based-purchasing-model-change-storage-size"></a>DTU tabanlı satın alma modeli: depolama boyutunu değiştirme
 
 - Belirli miktarda bir ek maliyet olmadan depolama tek veritabanı DTU ücretini içerir. Dahil edilen miktarın üzerinde ek depolama alanı 1 TB'kurmak 250 GB'lık artışlarla ve 1 TB ötesinde 256 GB'lık artışlarla maksimum boyut sınırına kadar ek bir maliyet sağlanabilir. Dahil edilen depolama alanı miktarları ve en büyük boyutu sınırlar için bkz: [tek veritabanı: depolama boyutlarına ve bilgi işlem boyutlarına](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Azure portalını kullanarak en büyük boyutunu artırarak tek bir veritabanı için ek depolama alanı sağlanabilir [Transact-SQL] ((https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](/rest/api/sql/databases/update).
+- Azure portalını kullanarak en büyük boyutunu artırarak tek bir veritabanı için ek depolama alanı sağlanabilir [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [ REST API](/rest/api/sql/databases/update).
 - Ek depolama alanı için tek bir veritabanının hizmet katmanı ek depolama alanı birim fiyatı ile çarpılan ek depolama alanı miktarı fiyatıdır. Ek depolama alanının fiyatı hakkında daha fazla bilgi için bkz: [SQL veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -61,7 +61,7 @@ Tüm ölçek artırma işleminin süresi hem veritabanı boyutuna hem de değiş
 
 ## <a name="dtu-based-purchasing-model-change-compute-resources-dtus"></a>DTU tabanlı satın alma modeli: değişiklik bilgi işlem kaynakları (Dtu)
 
-Başlangıçta bir hizmet katmanı, işlem boyutu ve depolama alanı miktarı seçtikten sonra tek bir veritabanının ölçeğini artırıp Azure portalını kullanarak gerçek deneyime göre dinamik olarak bağlı ölçekleme yapabilirsiniz [Transact-SQL] ((https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](/rest/api/sql/databases/update). 
+Başlangıçta bir hizmet katmanı, işlem boyutu ve depolama alanı miktarı seçtikten sonra tek bir veritabanının ölçeğini artırıp Azure portalını kullanarak gerçek deneyime göre dinamik olarak bağlı ölçekleme yapabilirsiniz [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](/rest/api/sql/databases/update). 
 
 Aşağıdaki video gösterildiği hizmet dinamik olarak değiştirme katmanı ve tek bir veritabanı için kullanılabilir Dtu'lar artırmak için boyutu işlem.
 

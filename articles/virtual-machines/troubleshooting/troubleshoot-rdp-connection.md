@@ -4,7 +4,7 @@ description: Windows sanal makinenize Uzak Masaüstü'nü kullanarak azure'daki 
 keywords: Uzak Masaüstü hatası, Uzak Masaüstü bağlantısı hata, VM'ye bağlanamıyor Uzak Masaüstü sorunlarını giderme
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: d08f5f5a553c0f7459aa8eed3b4e7658d0e6a4a9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: b73cdc7e55a60fbefc294a54f70daa9b2a11ced1
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414348"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452471"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Bir Azure sanal makinesine Uzak Masaüstü bağlantılarında sorun giderme
 Uzak Masaüstü Protokolü (RDP) bağlantı Windows tabanlı Azure sanal makinenize (VM), sanal Makinenizin erişilemiyor bırakarak çeşitli nedenlerden dolayı başarısız olabilir. Sorun, VM, ağ bağlantısı veya ana bilgisayarınızda uzak masaüstü istemcisini Uzak Masaüstü hizmetiyle olabilir. Bu makalede, RDP bağlantı sorunlarını gidermek için en sık kullanılan yöntemlerden bazıları size yol gösterir. 

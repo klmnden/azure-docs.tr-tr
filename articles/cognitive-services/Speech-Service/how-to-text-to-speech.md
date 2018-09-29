@@ -9,18 +9,18 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/08/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 776b8496ea3f46287e2eeec7c150b8d60ca3e553
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5822c313cf0fb5848726cf85c46cda2a3a408264
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964113"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434628"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>"Metin okuma" konuşma hizmeti kullanın
 
 Konuşma hizmeti, basit bir HTTP isteği aracılığıyla metin okuma işlevselliği sağlar. `POST` Uygun uç noktaya ve hizmet konuşulan metnin ses dosyası döndürür (`.wav`) içeren oluşturulan konuşma. Bunu beğeni gibi uygulamanızın daha sonra bu ses kullanabilirsiniz.
 
-Metin okuma (ASCII veya UTF8) düz metin olabilir veya bir istek gövdesi gönderinin [SSML'yi](speech-synthesis-markup.md) belge. Düz metin istekleri ile bir varsayılan ses konuşulan. Çoğu durumda, bir SSML'yi gövdesi kullanmak istiyorsunuz. HTTP isteği içermelidir bir [yetkilendirme](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) belirteci. 
+Metin okuma (ASCII veya UTF8) düz metin olabilir veya bir istek gövdesi gönderinin [SSML'yi](speech-synthesis-markup.md) belge. Düz metin istekleri ile bir varsayılan ses konuşulan. Çoğu durumda, bir SSML'yi gövdesi kullanmak istiyorsunuz. HTTP isteği içermelidir bir [yetkilendirme](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) belirteci.
 
 Bölgesel metin okuma uç noktaları burada gösterilir. Bir aboneliğiniz için uygun kullanın.
 
@@ -38,11 +38,11 @@ Bir ses belirtmek için kullanın `<voice>` [SSML'yi](speech-synthesis-markup.md
 </speak>
 ```
 
-Bkz: [seslerle metin okuma](supported-languages.md#text-to-speech) kullanılabilir seslerini ve adlarının listesi.
+Bkz: [seslerle metin okuma](language-support.md#text-to-speech) kullanılabilir seslerini ve adlarının listesi.
 
 ## <a name="make-a-request"></a>İstekte bulunma
 
-Bir metin okuma HTTP isteği, istek gövdesinde söylenir POST modunda metin ile yapılır. HTTP isteği gövdesinin uzunluğunu en fazla 1024 karakter olabilir. İstek şu olmalıdır: 
+Bir metin okuma HTTP isteği, istek gövdesinde söylenir POST modunda metin ile yapılır. HTTP isteği gövdesinin uzunluğunu en fazla 1024 karakter olabilir. İstek şu olmalıdır:
 
 Üst bilgi|Değerler|Yorumlar
 -|-|-

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: acd5c1e1ae4aefa94ca4d1f6ef510ab1b028c3dd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d4ce2dc67b0d9229ac2605ab317594ea345c19b2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164905"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434084"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX ve Azure Machine Learning: oluşturma ve birlikte çalışabilen yapay ZEKA modelleri dağıtma
 
@@ -68,7 +68,7 @@ Azure Machine Learning hizmeti ile dağıtma, yönetme ve ONNX modellerinizle iz
 
 ### <a name="install-and-configure-the-onnx-runtime"></a>Yükleme ve yapılandırma ONNX çalışma zamanı
 
-ONNX çalışma zamanı ONNX modelleri için yüksek performanslı çıkarımı altyapısıdır. Python API'si ile birlikte gelir ve CPU ve GPU üzerinde donanım hızlandırmasını sağlar. Şu anda ONNX 1.2 modellerini destekler ve Ubuntu 16.04 Linux üzerinde çalışır.
+ONNX çalışma zamanı ONNX modelleri için yüksek performanslı çıkarımı altyapısıdır. Python API'si ile birlikte gelir ve CPU ve GPU üzerinde donanım hızlandırmasını sağlar. Şu anda ONNX 1.2 modellerini destekler ve Ubuntu 16.04 Linux üzerinde çalışır. Her ikisi de [CPU](https://pypi.org/project/onnxruntime) ve [GPU](https://pypi.org/project/onnxruntime-gpu) paketlerin kullanılabilir [PyPi.org](https://pypi.org).
 
 ONNX çalışma zamanı yüklemek için kullanın:
 ```python
@@ -173,13 +173,14 @@ ONNX model dağıtmak için bir örnek aşağıda verilmiştir:
    Dosya `myenv.yml` görüntü için gereken bağımlılıklar açıklanmaktadır. Bkz. Bu [öğretici](tutorial-deploy-models-with-aml.md#create-environment-file) yönelik bu örnek dosyası gibi bir ortam dosyası oluşturmak yönergeler:
 
    ```
-   name: myenv
-   channels:
-     - defaults
-   dependencies:
-     - pip:
-       - onnxruntime
-       - azureml-core
+   from azureml.core.conda_dependencies import CondaDependencies 
+
+   myenv = CondaDependencies()
+   myenv.add_pip_package("azureml-core")
+   myenv.add_pip_package("onnxruntime")
+
+   with open("myenv.yml","w") as f:
+    f.write(myenv.serialize_to_string())
    ```
 
 4. ONNX modeliniz için Azure Machine Learning ile dağıtın:

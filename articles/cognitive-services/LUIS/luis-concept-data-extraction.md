@@ -10,26 +10,26 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 717d02947c4ea74d5805749157d6a691888be72c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39d36ee0c46d3e6954c3264f37f3f575130186b9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031363"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434492"
 ---
 # <a name="data-extraction"></a>Veri ayıklama
-LUIS, bir kullanıcının doğal dil konuşma bilgi almak için sağlar. Bilgiler bir program, uygulama veya sohbet Robotu eyleme kullanılabilmesi için bir şekilde ayıklanır. Aşağıdaki bölümlerde, hangi verilerin hedefleri ve JSON örneklerini varlıklarla döndürülür öğrenin. 
+LUIS, bir kullanıcının doğal dil konuşma bilgi almak için sağlar. Bilgiler bir program, uygulama veya sohbet Robotu eyleme kullanılabilmesi için bir şekilde ayıklanır. Aşağıdaki bölümlerde, hangi verilerin hedefleri ve JSON örneklerini varlıklarla döndürülür öğrenin.
 
-Tam metin eşleşmesi olmadığından uygulamalarınızdaki verileri ayıklamak için makine öğrenilen verilerdir. Makine öğrendiniz, veri ayıklama [varlıkları](luis-concept-entity-types.md) parçası olması gerekiyor [döngüsü yazma](luis-concept-app-iteration.md) beklediğiniz verileri aldığınız emin olana kadar. 
+Tam metin eşleşmesi olmadığından uygulamalarınızdaki verileri ayıklamak için makine öğrenilen verilerdir. Makine öğrendiniz, veri ayıklama [varlıkları](luis-concept-entity-types.md) parçası olması gerekiyor [döngüsü yazma](luis-concept-app-iteration.md) beklediğiniz verileri aldığınız emin olana kadar.
 
 ## <a name="data-location-and-key-usage"></a>Veri konum ve anahtar kullanımı
-LUIS, yayımlanan verilerden sağlar [uç nokta](luis-glossary.md#endpoint). **HTTPS isteğini** hazırlık veya üretim ortamları gibi bazı isteğe bağlı yapılandırmalar yanı sıra utterance (POST veya GET) içerir. 
+LUIS, yayımlanan verilerden sağlar [uç nokta](luis-glossary.md#endpoint). **HTTPS isteğini** hazırlık veya üretim ortamları gibi bazı isteğe bağlı yapılandırmalar yanı sıra utterance (POST veya GET) içerir.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
 `appID` Kullanılabilir **ayarları** sayfası URL'SİNİN bir parçası yanı sıra, LUIS uygulaması (sonra `/apps/`) ne zaman düzenlemekte olduğunuz bu LUIS uygulaması. `subscription-key` Uygulamanızı sorgulamak için kullanılan uç noktası anahtarı. LUIS öğreniyorsanız sırada ücretsiz geliştirme/başlangıç anahtarınızı kullanabilirsiniz, ancak uç noktası anahtarı destekleyen bir anahtarı değiştirmek önemli olan, [LUIS kullanım beklenen](luis-boundaries.md#key-limits). `timezoneOffset` Dakika birimidir.
 
-**HTTPS yanıtı** LUIS belirleyebilir hedefi ve varlık bilgilerini herhangi birinin geçerli yayımlanan model tabanlı hazırlık veya üretim uç noktası içerir. Uç nokta URL'si bulundu [LUIS](luis-reference-regions.md) Web sitesi, **Yönet** üzerinde bölümünde **anahtarları ve uç noktaları** sayfası. 
+**HTTPS yanıtı** LUIS belirleyebilir hedefi ve varlık bilgilerini herhangi birinin geçerli yayımlanan model tabanlı hazırlık veya üretim uç noktası içerir. Uç nokta URL'si bulundu [LUIS](luis-reference-regions.md) Web sitesi, **Yönet** üzerinde bölümünde **anahtarları ve uç noktaları** sayfası.
 
 ## <a name="data-from-intents"></a>Intents verileri
 Üst birincil verilerdir Puanlama **hedefi adı**. Kullanarak `MyStore` [hızlı](luis-quickstart-intents-only.md), uç nokta yanıt:
@@ -104,7 +104,7 @@ Intents en yüksek öncelikten en düşük puan için sıralanır.
   "entities": []
 }
 ```
-    
+
 |Domain|Veri nesnesi|Veri Türü|Veri Konumu|Değer|
 |--|--|--|--|--|
 |Altyapı Hizmetleri|Amaç|Dize|ıntents [0] .intent|"<b>Yardımcı programları</b>. ShowNext"|
@@ -113,9 +113,9 @@ Intents en yüksek öncelikten en düşük puan için sıralanır.
 
 
 ## <a name="data-from-entities"></a>Veri varlıkları
-Çoğu sohbet robotları ve uygulamaların birden çok hedefi adı gerekir. Bu ek, isteğe bağlı veri varlıkları utterance içinde bulunan gelir. Her varlık türü eşleşme ile ilgili farklı bilgileri döndürür. 
+Çoğu sohbet robotları ve uygulamaların birden çok hedefi adı gerekir. Bu ek, isteğe bağlı veri varlıkları utterance içinde bulunan gelir. Her varlık türü eşleşme ile ilgili farklı bilgileri döndürür.
 
-Bir tek sözcük veya tümcecik bir utterance içinde birden fazla varlık eşleşebilir. Bu durumda, eşleşen her varlık kendi puanıyla döndürülür. 
+Bir tek sözcük veya tümcecik bir utterance içinde birden fazla varlık eşleşebilir. Bu durumda, eşleşen her varlık kendi puanıyla döndürülür.
 
 Tüm varlıklar döndürülür **varlıkları** uç noktasından yanıt bir dizi:
 
@@ -141,13 +141,13 @@ Tüm varlıklar döndürülür **varlıkları** uç noktasından yanıt bir dizi
 ```
 
 ## <a name="tokenized-entity-returned"></a>parçalanmış varlık döndürdü
-Birkaç [kültürler](luis-supported-languages.md#tokenization) ile varlık nesnesi döndürür `entity` değer [simgeleştirilmiş](luis-glossary.md#token). LUIS ile varlık nesnesi içinde döndürülen endIndex ve startIndex yeni, parçalanmış değerine sırada, ham varlık program aracılığıyla ayıklamak özgün sorguya ancak bunun yerine eşlemeyin. 
+Birkaç [kültürler](luis-language-support.md#tokenization) ile varlık nesnesi döndürür `entity` değer [simgeleştirilmiş](luis-glossary.md#token). LUIS ile varlık nesnesi içinde döndürülen endIndex ve startIndex yeni, parçalanmış değerine sırada, ham varlık program aracılığıyla ayıklamak özgün sorguya ancak bunun yerine eşlemeyin. 
 
 Örneğin, Almanca, sözcük içinde `das Bauernbrot` içine simgeleştirilmiş `das bauern brot`. Parçalanmış değeri `das bauern brot`, döndürülür ve özgün değeri, program aracılığıyla startIndex ve özgün sorgunun, ayırabilir endIndex belirlenebilir `das Bauernbrot`.
 
 ## <a name="simple-entity-data"></a>Basit bir varlığın verilerinin
 
-A [varlığın](luis-concept-entity-types.md) bir makine öğrenilen değerdir. Bir sözcük veya tümcecik olabilir. 
+A [varlığın](luis-concept-entity-types.md) bir makine öğrenilen değerdir. Bir sözcük veya tümcecik olabilir.
 
 `Bob Jones wants 3 meatball pho`
 
@@ -173,13 +173,13 @@ Uç noktadan döndürülen veriler, varlık adı, utterance bulunan metni, bulun
 
 ## <a name="hierarchical-entity-data"></a>Hiyerarşik bir varlığın verilerinin
 
-[Hiyerarşik](luis-concept-entity-types.md) varlıkları makine hakkında bilgi edindiniz ve bir sözcük veya tümcecik ekleyebilirsiniz. Alt öğeleri bağlam tarafından tanımlanır. İle tam metin eşleşmesi için bir üst-alt ilişkisi arıyorsanız, kullanan bir [listesi](#list-entity-data) varlık. 
+[Hiyerarşik](luis-concept-entity-types.md) varlıkları makine hakkında bilgi edindiniz ve bir sözcük veya tümcecik ekleyebilirsiniz. Alt öğeleri bağlam tarafından tanımlanır. İle tam metin eşleşmesi için bir üst-alt ilişkisi arıyorsanız, kullanan bir [listesi](#list-entity-data) varlık.
 
 `book 2 tickets to paris`
 
-Önceki utterance içinde `paris` etiketli bir `Location::ToLocation` alt `Location` hiyerarşik varlık. 
+Önceki utterance içinde `paris` etiketli bir `Location::ToLocation` alt `Location` hiyerarşik varlık.
 
-Uç noktadan döndürülen veriler, varlık adı ve alt adı utterance bulunan metni, bulunan metin ve puan konumunu içerir: 
+Uç noktadan döndürülen veriler, varlık adı ve alt adı utterance bulunan metni, bulunan metin ve puan konumunu içerir:
 
 ```JSON
 "entities": [
@@ -259,9 +259,9 @@ Bileşik varlıkları döndürülür bir `compositeEntities` dizisi ve bileşik 
 
 ## <a name="list-entity-data"></a>Varlık verilerini listesi
 
-A [listesi](luis-concept-entity-types.md) varlık değil makine-öğrendiniz. Tam metin bir eşleşmedir. Liste öğeleri için eş anlamlı sözcükler birlikte listedeki öğeleri temsil eder. LUIS, herhangi bir listede bir öğe için herhangi bir eşleşme yanıtta bir varlık olarak işaretler. Birden fazla listesinde bir eş anlamlı olabilir. 
+A [listesi](luis-concept-entity-types.md) varlık değil makine-öğrendiniz. Tam metin bir eşleşmedir. Liste öğeleri için eş anlamlı sözcükler birlikte listedeki öğeleri temsil eder. LUIS, herhangi bir listede bir öğe için herhangi bir eşleşme yanıtta bir varlık olarak işaretler. Birden fazla listesinde bir eş anlamlı olabilir.
 
-Adlı bir listesi uygulamanın olduğu varsayalım `Cities`, şehir adları havaalanı (tac Sea), havaalanı kodu (SEA), posta kodu (98101) ve telefon alan kodunu (206) bulunduğu şehir de dahil olmak üzere çeşitleri için izin verme. 
+Adlı bir listesi uygulamanın olduğu varsayalım `Cities`, şehir adları havaalanı (tac Sea), havaalanı kodu (SEA), posta kodu (98101) ve telefon alan kodunu (206) bulunduğu şehir de dahil olmak üzere çeşitleri için izin verme.
 
 |Liste öğesi|Öğe eş anlamlı sözcükler|
 |---|---|
@@ -270,7 +270,7 @@ Adlı bir listesi uygulamanın olduğu varsayalım `Cities`, şehir adları hava
 
 `book 2 tickets to paris`
 
-Önceki utterance, sözcük içinde `paris` paris öğesine bir parçası olarak eşleştirilir `Cities` varlık listesi. Liste varlığı hem normalleştirilmiş öğenin adı, hem de öğe eş anlamlılar eşleşir. 
+Önceki utterance, sözcük içinde `paris` paris öğesine bir parçası olarak eşleştirilir `Cities` varlık listesi. Liste varlığı hem normalleştirilmiş öğenin adı, hem de öğe eş anlamlılar eşleşir.
 
 ```JSON
 "entities": [
@@ -390,7 +390,7 @@ Paris için bir eşanlamlı kullanarak başka bir örnek utterance:
       }
     }
   ]
-``` 
+```
 
 ## <a name="regular-expression-entity-data"></a>Normal ifade varlık verilerini
 [Normal ifade](luis-concept-entity-types.md) varlıkları bir varlık oluşturduğunuzda sağladığınız ifade bir normal ifade eşleştirmesi üzerinde temel saptandığında. Kullanırken `kb[0-9]{6}` normal ifade varlık, aşağıdaki JSON yanıtı ile döndürülen bir normal ifade varlıkları sorgu için bir örnek utterance tanımıdır `When was kb123456 published?`:
@@ -424,19 +424,19 @@ Paris için bir eşanlamlı kullanarak başka bir örnek utterance:
 ```
 
 ## <a name="extracting-names"></a>Ayıklanan adları
-Bir ad, harf ve sözcükler neredeyse her bir birleşimi olabilir çünkü bir utterance adları alınıyor zordur. Ne tür adı, ayıklıyorsanız bağlı olarak, birkaç seçeneğiniz vardır. Bu kurallar, ancak daha fazla yönergeleri değildir. 
+Bir ad, harf ve sözcükler neredeyse her bir birleşimi olabilir çünkü bir utterance adları alınıyor zordur. Ne tür adı, ayıklıyorsanız bağlı olarak, birkaç seçeneğiniz vardır. Bu kurallar, ancak daha fazla yönergeleri değildir.
 
 ### <a name="names-of-people"></a>Kişilerin adları
-Kişi adı, dil ve kültür bağlı olarak bazı küçük biçimi olabilir. Hiyerarşik bir varlık ile ilk ve son adları alt öğe olarak veya tek bir varlığın adı ve Soyadı rolleriyle kullanın. Hiçbiri dahil olmak üzere tüm hedefleri arasında farklı kısımlarını farklı uzunluktaki konuşma ve konuşma utterance içinde adı ve Soyadı kullanan örnekler vermeniz hedefi sağlayın. [Gözden geçirme](luis-how-to-review-endoint-utt.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası. 
+Kişi adı, dil ve kültür bağlı olarak bazı küçük biçimi olabilir. Hiyerarşik bir varlık ile ilk ve son adları alt öğe olarak veya tek bir varlığın adı ve Soyadı rolleriyle kullanın. Hiçbiri dahil olmak üzere tüm hedefleri arasında farklı kısımlarını farklı uzunluktaki konuşma ve konuşma utterance içinde adı ve Soyadı kullanan örnekler vermeniz hedefi sağlayın. [Gözden geçirme](luis-how-to-review-endoint-utt.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
 
 ### <a name="names-of-places"></a>Basamak adları
-Konum adlarını ayarlayın ve şehir, ilçeler, durumları, bölgeler ve ülke gibi bilinen. Uygulamanızı bilinen birtakım konumları kullanıyorsa, bir liste varlığı göz önünde bulundurun. Adları yerleştirmek bulmanız gerekiyorsa, basit bir varlık oluşturun ve çeşitli örnekler sağlar. Yer adlarına hangi yerde adları görünümlü uygulamanızda güçlendirmek için ifade listesi ekleyin. [Gözden geçirme](luis-how-to-review-endoint-utt.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası. 
+Konum adlarını ayarlayın ve şehir, ilçeler, durumları, bölgeler ve ülke gibi bilinen. Uygulamanızı bilinen birtakım konumları kullanıyorsa, bir liste varlığı göz önünde bulundurun. Adları yerleştirmek bulmanız gerekiyorsa, basit bir varlık oluşturun ve çeşitli örnekler sağlar. Yer adlarına hangi yerde adları görünümlü uygulamanızda güçlendirmek için ifade listesi ekleyin. [Gözden geçirme](luis-how-to-review-endoint-utt.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
 
 ### <a name="new-and-emerging-names"></a>Yeni ve geliştirilmekte olan adları
-Bazı uygulamalar, ürünleri veya şirketler gibi yeni ve geliştirilmekte olan adlarını bulmak gerekir. Bu veri ayıklama en zor türüdür. Basit bir varlık ile başlamalı ve bir ifade listesi ekleyin. [Gözden geçirme](luis-how-to-review-endoint-utt.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası. 
+Bazı uygulamalar, ürünleri veya şirketler gibi yeni ve geliştirilmekte olan adlarını bulmak gerekir. Bu veri ayıklama en zor türüdür. Basit bir varlık ile başlamalı ve bir ifade listesi ekleyin. [Gözden geçirme](luis-how-to-review-endoint-utt.md) doğru şekilde tahmin değil herhangi bir adı etiketlemek için düzenli olarak konuşma uç noktası.
 
 ## <a name="pattern-roles-data"></a>Desen rolleri veri
-Roller, varlık bağlamsal fark vardır. 
+Roller, varlık bağlamsal fark vardır.
 
 ```JSON
 {
@@ -497,7 +497,7 @@ Roller, varlık bağlamsal fark vardır.
 ```
 
 ## <a name="patternany-entity-data"></a>Varlık verilerini pattern.Any
-Pattern.Any varlıklardır değişken uzunluklu varlıklar şablon konuşma kullanılan bir [deseni](luis-concept-patterns.md). 
+Pattern.Any varlıklardır değişken uzunluklu varlıklar şablon konuşma kullanılan bir [deseni](luis-concept-patterns.md).
 
 ```JSON
 {
@@ -606,7 +606,7 @@ LUIS utterance içinde bulunan tüm varlıkları döndürür. Sonuç olarak, soh
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-LUIS uç nokta farklı varlıklarda aynı verileri bulabilir: 
+LUIS uç nokta farklı varlıklarda aynı verileri bulabilir:
 
 ```JSON
 {

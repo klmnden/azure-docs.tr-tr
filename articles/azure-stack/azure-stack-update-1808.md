@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f1541a0523ce0178ad3616a956d5188ef7df0ded
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7278f784316fdbd7170bb69b9414911b8f5b3823
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395721"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452692"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
 
@@ -204,6 +204,17 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 
 ### <a name="compute"></a>İşlem
+
+- <!-- 3090289 – IS, ASDK --> Güncelleştirme 1808 uyguladıktan sonra yönetilen disklere sahip VM'ler dağıtırken aşağıdaki sorunlarla karşılaşabilirsiniz:
+
+   1. Aboneliği, yönetilen diskler ile VM dağıtma 1808 güncelleştirmeden önce oluşturulduysa, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
+      1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
+      2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
+   2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin:
+      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4465859).
+      2. Bağlantısındaki [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
+
+
 - <!-- 2869209 – IS, ASDK --> Kullanırken [ **Ekle AzsPlatformImage** cmdlet'i](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), kullanmalısınız **- OsUri** parametre olarak depolama hesabı URI'si disk nereye yüklenir. Yerel yol diskin kullanırsanız, cmdlet şu hatayla başarısız olur: *işlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu*. 
 
 - <!--  2966665 – IS, ASDK --> Premium boyutuna SSD veri diskleri ekleme, yönetilen disk sanal makineler (DS, DSv2, Fs, Fs_V2) bir hatayla başarısız oluyor: *'vmname' hata sanal makinenin diskleri güncelleştirilemedi: İstenen işlem gerçekleştirilemiyor depolama hesabı türü ' Premium_LRS'VM boyutu için desteklenmeyen ' Standard_DS/Ds_V2/FS/Fs_v2)*

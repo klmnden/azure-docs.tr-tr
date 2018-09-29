@@ -1,6 +1,6 @@
 ---
-title: Azure Storage kullanarak PaaS uygulamalarının güvenliğini sağlama | Microsoft Docs
-description: " Azure Storage güvenliği hakkında bilgi edinme PaaS web ve mobil uygulamaların güvenliğini sağlamaya yönelik en iyi uygulamalar. "
+title: Azure depolama kullanarak PaaS uygulamalarının güvenliğini sağlama | Microsoft Docs
+description: Azure depolama güvenliği hakkında PaaS web ve mobil uygulamalarınızın güvenliğini sağlamak için en iyi adımları öğrenin.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,96 +12,75 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2018
+ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ffc04973a003c65f52f3387292f11fede65edce3
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295304"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451876"
 ---
-# <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>PaaS web ve mobil uygulamaları Azure Storage kullanarak güvenli hale getirme
+# <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>PaaS web ve mobil uygulamalarının Azure depolama kullanarak güvenliğini sağlamaya yönelik en iyi yöntemler
+Bu makalede, Azure depolama güvenlik en iyi uygulamaları hizmet olarak platform (PaaS) web ve mobil uygulamalarınızın güvenliğini sağlamak için koleksiyonu ele alır. Bu en iyi Azure ile deneyimimizi ve sizin gibi müşteri deneyimleri türetilmiştir.
 
-Bu makalede, PaaS web ve mobil uygulamaların güvenliğini sağlamak için Azure Storage en iyi güvenlik yöntemleri topluluğu tartışın. Bu en iyi uygulamaları Azure ile deneyimi bizim ve kendiniz gibi müşterilerin deneyimleri türetilir.
+Azure depolama yollarla dağıtılacağı ve kullanılacağı mümkün kılar şirket kolayca ulaşılabilir. Azure depolama ile yüksek düzeyde ölçeklenebilirlik ve kullanılabilirlik görece az çabayla ulaşabilirsiniz. Yalnızca temel Azure depolama, Windows ve Linux Azure sanal makineleri için ayrıca büyük dağıtılmış uygulamaları destekleyebilir.
 
-[Azure Storage Güvenlik Kılavuzu'nu](../storage/common/storage-security-guide.md) Azure Storage ve güvenlik hakkında ayrıntılı bilgi için mükemmel bir kaynaktır.  Bu makalede yüksek düzeyde güvenlik kılavuzu ve daha fazla bilgi için diğer kaynakları yanı sıra Güvenlik Kılavuzu'nu bağlantılar bulunan kavramların bazıları giderir.
+Azure depolama şu dört hizmeti sunar: Blob Depolama, tablo depolama, kuyruk depolama ve dosya depolama. Daha fazla bilgi için bkz. [Microsoft Azure Storage'a giriş](../storage/storage-introduction.md).
 
-## <a name="azure-storage"></a>Azure Storage
+[Azure depolama Güvenlik Kılavuzu](../storage/common/storage-security-guide.md) Azure depolama ve güvenlikle ilgili ayrıntılı bilgi için harika bir kaynaktır. Bu en iyi yöntemler makalesi yüksek düzeyde bazı güvenlik kılavuzu ve daha fazla bilgi için diğer kaynakları yanı sıra güvenlik kılavuzu bağlantıları bulunan kavramlar yöneliktir.
 
-Azure dağıtma ve depolama şekillerde kullanma olanaklı kılar içi kolayca ulaşılabilir. Azure storage ile ölçeklenebilirlik ve kullanılabilirlik nispeten az çaba ile yüksek düzeyde ulaşabilirsiniz. Yalnızca Azure depolama foundation, Windows ve Linux Azure sanal makineler için de büyük dağıtılmış uygulamaları destekleyebilir.
+Bu makalede aşağıdaki en iyi uygulamalar ele alır:
 
-Azure Storage şu dört hizmeti sunar: Blob Storage, Table Storage, Kuyruk depolama ve File Storage. Daha fazla bilgi için bkz: [Microsoft Azure Storage'a giriş](../storage/storage-introduction.md).
+- Paylaşılan erişim imzaları (SAS)
+- Rol tabanlı erişim denetimi (RBAC)
+- Yüksek değerli veriler için istemci tarafı şifreleme
+- Depolama Hizmeti Şifrelemesi
 
-## <a name="best-practices"></a>En iyi uygulamalar
 
-Bu makalede aşağıdaki en iyi yöntemleri ele alır:
+## <a name="use-a-shared-access-signature-instead-of-a-storage-account-key"></a>Paylaşılan erişim imzası bir depolama hesabı anahtarı yerine kullanın.
+Erişim denetimi büyük/küçük harf önemlidir. Yardımcı olması için bir depolama hesabı oluşturduğunuzda erişimi denetlemek için Azure depolama, Azure iki adet 512 bit depolama hesabı anahtarları (SAKs) oluşturur. Anahtar yedeklilik düzeyini rutin anahtar döndürme sırasında hizmet kesintilerinden kaçınmak mümkün kılar. 
 
-- Erişim Koruması:
-   - Paylaşılan Erişim İmzaları (SAS)
-   - Rol Tabanlı Erişim Denetimi (RBAC)
+Depolama erişim anahtarlarını yüksek öncelikli gizlidir ve yalnızca depolama erişim denetimi için sorumlu için erişilebilir olmalıdır. Yanlış kişiler bu anahtarları erişin, bunlar depolama tam denetime sahiptir ve değiştirin, silin veya depolama dosyaları ekleyin. Bu, kötü amaçlı yazılım ve diğer kuruluş veya müşterilerinizin tehlikeye atabilir içerik türlerini içerir.
 
-- Depolama şifrelemesi:
-   - Yüksek değerli veri için istemci tarafı şifrelemesi
-   - Depolama Hizmeti Şifrelemesi
+Yine depolamadaki nesnelere erişim sağlamak için bir yol gerekir. Daha ayrıntılı erişim sağlamak için paylaşılan erişim imzası (SAS) yararlanabilirsiniz. SAS depolama alanındaki belirli nesneleri önceden tanımlı bir zaman aralığı için ve belirli izinleri paylaşmak mümkün kılar. Paylaşılan erişim imzası tanımlamanıza olanak sağlar:
 
-## <a name="access-protection"></a>Erişimi Koruması
+- SAS başlangıç ve sona erme saati de dahil olmak üzere, geçerli aralığı.
+- SAS'den izinler. Örneğin, bir blob SAS kullanıcı okuma izni ve bu bloba yazma izinleri, ancak silme izinleri yok.
+- İsteğe bağlı bir IP adresi veya IP adresleri, Azure depolama SAS kabul eder. Örneğin, kuruluşunuza ait bir IP adresi aralığı belirtebilirsiniz. Bu, SAS için başka bir ölçü güvenlik sağlar.
+- Protokol üzerinden Azure depolama SAS kabul eder. Bu isteğe bağlı bir parametre, HTTPS kullanan istemciler için erişimi kısıtlamak için kullanabilirsiniz.
 
-### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>Bir depolama hesabı anahtarı yerine paylaşılan erişim imzası kullanın
+SAS depolama hesap anahtarlarınızı hemen vermeden paylaşmak istediğiniz şekilde içeriği paylaşmanıza olanak tanır. Her zaman uygulamanızda SAS kullanarak depolama hesap anahtarlarınızı tehlikeye atmadan depolama kaynaklarınızı paylaşmanın güvenli bir yoludur.
 
-Genellikle Windows Server veya Linux sanal makineleri çalıştıran bir Iaas çözümündeki dosyaları açığa çıkması ve erişim denetimi düzenekleri kullanarak değiştirme tehditlerinden korunur. Windows üzerinde kullanacağınız [erişim denetimi listeleri (ACL)](../virtual-network/virtual-networks-acl.md) ve büyük olasılıkla kullandığınız Linux üzerinde [chmod](https://en.wikipedia.org/wiki/Chmod). Esas olarak, tam olarak kendi veri merkezinizde bir sunucudaki dosyalarının bugün koruma varsa yapmayı tercih budur.
+Paylaşılan erişim imzası hakkında daha fazla bilgi için bkz: [paylaşılan erişim imzaları kullanma](../storage/common/storage-dotnet-shared-access-signature-part-1.md). 
 
-PaaS farklıdır. Microsoft Azure'da dosyalarını depolamak için en yaygın yollarından biri kullanmaktır [Azure Blob Depolama](../storage/storage-dotnet-how-to-use-blobs.md). Bir Blob Depolama ve diğer dosya depolama arasında dosya g/ç ve dosya g/ç ile gelen koruma yöntemleri farktır.
+## <a name="use-role-based-access-control"></a>Rol tabanlı erişim denetimi kullanma
+Erişimi yönetmek için başka bir yolu [rol tabanlı erişim denetimi](../role-based-access-control/overview.md) (RBAC). RBAC, çalışanlar gereksinim duydukları tam izinleri vererek üzerinde odaklanmak ile bilinmesi gerekenler ve en az ayrıcalık güvenlik ilkelerine bağlı. Çok fazla İznim saldırganların bir hesap üzerinden kullanıma sunabilirsiniz. Çok az izinleri anlamına gelir çalışanlar işlerini verimli bir şekilde alınamıyor. RBAC, Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermeye yardımcı olur. Bu, veri erişimi için güvenlik ilkelerini zorlamak istediğinizde kuruluşlar için zorunludur.
 
-Erişim denetimi önemlidir. Yardımcı olması için Azure storage, sistem erişimi denetleme iki 512 bit depolama hesabı anahtarları (SAKs) ne zaman oluşturur, [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md). Anahtar artıklık düzeyini rutin anahtar döndürme sırasında hizmet kesme önlemek mümkün hale getirir.
+Azure'da yerleşik RBAC rolleri, kullanıcılara ayrıcalıkları atamak için kullanabilirsiniz. Örneğin, depolama hesabı Katılımcısı, depolama hesabı ve klasik depolama hesaplarını yönetmek için Klasik depolama hesabı Katılımcısı rolü yönetmek için gereken bulut operatörleri için kullanın. Sanal ağ veya depolama hesabı bağlı sanal makineleri yönetmek için gereken bulut operatörleri için bunları sanal makine Katılımcısı rolüne ekleyebilirsiniz.
 
-Depolama erişim tuşlarını yüksek öncelikli gizli olan ve yalnızca depolama erişim denetimi için sorumlu için erişilebilir olmalıdır. Yanlış kişilerin bu anahtara erişim kazanmak depolama tam denetime sahiptir ve değiştirmek, silmek veya dosyaları depolama alanına ekleyin. Bu, kötü amaçlı yazılım ve diğer kuruluşunuzun veya müşterilerinize tehlikeye atabilir içerik türlerini içerir.
-
-Hala depolama nesnelerine erişim sağlamak için bir yönteme ihtiyacınız vardır. Daha ayrıntılı erişim sağlamak için özelliklerden yararlanabilirsiniz [paylaşılan erişim imzası](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). SAS depolama belirli nesneleri paylaşımı ön tanımlı bir zaman aralığı için ve özel izinleri mümkün hale getirir. Paylaşılan erişim imzası tanımlamanıza olanak sağlar:
-
-- SAS başlangıç saati ve sona erme saati dahil geçerli aralık.
-- SAS tarafından verilen izinler. Örneğin, bir blob SAS kullanıcı okuma izni ve o blob yazma izinleri, ancak izinleri silmemeniz.
-- İsteğe bağlı bir IP adresi veya IP adresleri, Azure Storage SAS kabul eder. Örneğin, kuruluşunuza ait bir IP adresi aralığı belirtebilirsiniz. Bu, SA'ları için başka bir ölçüye güvenlik sağlar.
-- Protokol üzerinden Azure Storage SAS kabul eder. Bu isteğe bağlı parametre HTTPS kullanan istemciler için erişimi kısıtlamak için kullanabilirsiniz.
-
-SAS içerik uzakta depolama hesabı tuşlarınızı vermeden paylaşmak istediğiniz şekilde paylaşmanıza olanak tanır. Her zaman, uygulamanızda SAS kullanarak, depolama hesabı anahtarlarını ödün vermeden depolama kaynaklarınıza paylaşmak için güvenli bir yoludur.
-
-Daha fazla bilgi için bkz: [paylaşılan erişim imzaları kullanma](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS). Olası riskleri ve bu riskleri azaltmak için öneriler hakkında daha fazla bilgi için bkz: [en iyi yöntemler SAS kullanırken](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
-
-### <a name="use-role-based-access-control"></a>Rol tabanlı erişim denetimi kullanma
-
-Daha önce hesabı depolama hesabı anahtarınızı sokmadan diğer istemcilere depolama hesabındaki nesnelere sınırlı erişim vermek için paylaşılan erişim imzası (SAS) kullanma açıklanmaktadır. Bazen, depolama hesabınız karşı belirli bir işlemle ilişkili riskleri SAS avantajlarından daha ağır basar. Bazen diğer yollarla erişimi yönetmek üzere basittir.
-
-Erişimi yönetmek için başka bir yolu kullanmaktır [Azure rol tabanlı erişim denetimi](../role-based-access-control/overview.md) (RBAC). RBAC, çalışanlar gereksinim duydukları tam izinleri veriyorsanız, odaklanmasına ile bilme gereğini ve en az ayrıcalık güvenlik ilkelerine göre. Çok fazla izinler saldırganlar bir hesaba getirebilir. Çok az izinleri anlamına gelir çalışanlar verimli bir şekilde işlerini alınamıyor. RBAC, Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermeye yardımcı olur. Bu, veri erişimi için güvenlik ilkelerini zorlamak istiyorsanız kuruluşlar için zorunludur.
-
-Azure ayrıcalıkları kullanıcılara atamak için yerleşik RBAC rollerinde yararlanabilirsiniz. Depolama hesabı katkıda bulunan depolama hesapları ve klasik depolama hesaplarını yönetmek için Klasik depolama hesabı katkıda bulunan rolü yönetmek için gereken bulut işleçlerini kullanmayı düşünün. Bulut operatörleri, gereksinim VM'ler ancak bağlı sanal ağ veya depolama hesabı değil yönetmek için sanal makine Katılımcısı rolüne eklemeyi düşünün.
-
-Veri erişim denetimi RBAC gibi özellikler yararlanarak zorlamaz kuruluşlar kendi kullanıcıları için gerekenden daha fazla ayrıcalık vermiş. Bazı kullanıcılar ilk başta olmamalıdır verilere erişime izin vererek bu verilerin güvenliğinin aşılmasına neden olabilir.
+Veri erişim denetimi, RBAC gibi özellikleri kullanarak zorlama kuruluşların kullanıcıları için gerekenden daha fazla ayrıcalık vermiş. Bazı kullanıcılar ilk başta yaratmazlar verilere erişime izin vererek bu veri güvenliğinin aşılmasına yol açabilir.
 
 RBAC bakın hakkında daha fazla bilgi için:
 
-- [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md)
-- [Azure rol tabanlı erişim denetimi için yerleşik roller](../role-based-access-control/built-in-roles.md)
-- [Azure depolama Güvenlik Kılavuzu](../storage/common/storage-security-guide.md) depolama hesabınızı RBAC ile güvenli konusunda ayrıntılı bilgi için
+- [RBAC ve Azure portalı kullanarak erişimi yönetme](../role-based-access-control/role-assignments-portal.md)
+- [Azure kaynakları için yerleşik roller](../role-based-access-control/built-in-roles.md)
+- [Azure Depolama güvenlik kılavuzu](../storage/common/storage-security-guide.md) 
 
-## <a name="storage-encryption"></a>Depolama şifrelemesi
+## <a name="use-client-side-encryption-for-high-value-data"></a>Yüksek değerli veriler için istemci tarafı şifreleme kullan
+İstemci tarafı şifreleme, program aracılığıyla Azure Storage'a yüklemeden önce Aktarımdaki verileri şifrelemek ve verilerin alınması, program aracılığıyla şifresini çözmek sağlar. Bu Aktarımdaki verileri şifreleme sağlar ancak aynı zamanda bekleyen verilerin şifrelenmesi sağlar. İstemci tarafı şifreleme, veri şifreleme için en güvenli yöntemdir, ancak uygulamanızı programlı değişiklik ve anahtar yönetimi işlemlerini yerleştirdiniz gerektirir.
 
-### <a name="use-client-side-encryption-for-high-value-data"></a>İstemci tarafı şifreleme yüksek değerli verileri için kullanın
+İstemci tarafı şifreleme şifreleme anahtarlarınızı tek denetime sahip olmanızı sağlar. Oluşturabilir ve kendi şifreleme anahtarlarınızı yönetme. Burada Azure depolama istemci kitaplığı (anahtar şifreleme anahtarı (KEK) kullanılarak şifrelenir) sonra kaydırılan bir içerik şifreleme anahtarı (CEK) oluşturur bir zarf teknik kullanır. KEK anahtar bir tanımlayıcıyla tanımlanır ve asimetrik anahtar çifti veya bir simetrik anahtar ve yerel olarak yönetilebilir veya depolanan [Azure anahtar kasası](../key-vault/key-vault-whatis.md).
 
-İstemci tarafı şifreleme program aracılığıyla Azure Storage'a yüklemeden önce Aktarımdaki verileri şifrelemek ve verilerin depolama alanından alınırken program aracılığıyla şifresini çözmek etkinleştirir.  Bu Aktarımdaki verileri şifreleme sağlar ancak aynı zamanda kalan verileri şifrelemesini sağlar.  İstemci tarafı şifreleme, veri şifreleme için en güvenli yöntemdir, ancak uygulamanıza programlı değişiklikleri yapın ve anahtar yönetimi işlemleri yerleştirdiniz gerektirir.
+İstemci tarafı şifreleme, Java ve .NET depolama istemci kitaplıkları ile oluşturulmuştur. Bkz: [istemci tarafı şifreleme ve Microsoft Azure depolama için Azure anahtar kasası](../storage/storage-client-side-encryption.md) istemci uygulamalar içinde verilerin şifrelenmesi, oluşturma ve kendi şifreleme anahtarlarınızı yönetme hakkında bilgi.
 
-İstemci tarafı şifreleme şifreleme anahtarlarınızı üzerinde tek denetim sahibi sağlar.  Oluştur ve kendi şifreleme anahtarlarınızı yönetin.  İstemci tarafı şifreleme yere Azure storage istemci kitaplığı (anahtar şifreleme anahtarı (KEK) kullanılarak şifrelenir) sonra kaydırılan bir içerik şifreleme anahtarı (CEK) oluşturur bir zarf teknik kullanır. KEK anahtar bir tanımlayıcıyla tanımlanır ve asimetrik anahtar çifti ya da bir simetrik anahtar olması ve yerel olarak yönetilebilir veya depolanan [Azure anahtar kasası](../key-vault/key-vault-whatis.md).
-
-İstemci tarafı şifreleme, Java ve .NET depolama istemcisi kitaplıklarını olarak oluşturulmuştur.  Bkz: [istemci tarafı şifreleme ve Microsoft Azure depolama için Azure anahtar kasası](../storage/storage-client-side-encryption.md) istemci uygulamalar içinde verilerin şifrelenmesi ve oluşturma ve kendi şifreleme anahtarlarınızı yönetme hakkında bilgi için.
-
-### <a name="storage-service-encryption"></a>Depolama Hizmeti Şifrelemesi
-
-Zaman [depolama hizmeti şifrelemesi](../storage/storage-service-encryption.md) dosya depolama etkin için verileri otomatik olarak AES 256 şifreleme kullanılarak şifrelenir. Microsoft, tüm şifreleme, şifre çözme ve anahtar yönetimi işler. Bu özellik LRS ve GRS artıklık türleri için kullanılabilir.
+## <a name="enable-storage-service-encryption-for-data-at-rest"></a>Bekleyen veriler için depolama hizmeti Şifrelemesi'ni etkinleştir
+Zaman [depolama hizmeti şifrelemesi](../storage/storage-service-encryption.md) etkin dosya depolama için veriler otomatik olarak AES-256 şifreleme kullanılarak şifrelenir. Microsoft, tüm şifreleme, şifre çözme ve anahtar yönetimini işler. Bu özellik, LRS ve GRS yedeklilik türleri için kullanılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede bir koleksiyonuna PaaS web ve mobil uygulamaların güvenliğini sağlamak için Azure Storage en iyi güvenlik uygulamalarını kullanıma sunuldu. PaaS dağıtımları güvenliğini sağlama hakkında daha fazla bilgi için bkz:
+Bu makalede, PaaS web ve mobil uygulamalarınızın güvenliğini sağlamak için Azure depolama güvenlik en iyi yöntemler koleksiyonu kullanıma sunuldu. PaaS dağıtımlarının güvenliğini sağlama hakkında daha fazla bilgi için bkz:
 
 - [PaaS dağıtımlarının güvenliğini sağlama](security-paas-deployments.md)
-- [PaaS web ve mobil uygulamaları Azure App Services kullanarak güvenli hale getirme](security-paas-applications-using-app-services.md)
-- [Azure PaaS veritabanlarında güvenliğini sağlama](security-paas-applications-using-sql.md)
+- [PaaS web ve Azure App Services'ı kullanarak mobil uygulamalarının güvenliğini sağlama](security-paas-applications-using-app-services.md)
+- [Azure PaaS veritabanlarının güvenliğini sağlama](security-paas-applications-using-sql.md)

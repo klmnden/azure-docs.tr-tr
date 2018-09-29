@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: d896cb01c7dc2cd4ed028db418f838809c7ce25c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b9808233e08e545c31e171afe104173dccc6abed
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987008"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434934"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Resource Manager şablonu kullanarak bir Windows sanal makine ölçek kümesi için Azure İzleyici ölçüm için konuk işletim sistemi ölçümleri depolamak Gönder
 
@@ -83,7 +83,7 @@ Kaynaklar bölümünde sanal makine ölçek kümesi tanımı bulun ve "kimlik" b
 
 İçinde **extensionprofile öğesine**, gösterildiği gibi yeni bir uzantı şablonuna ekleme **VMSS WAD uzantısı bölümüne**.  Bu bölümde yayılan ölçümleri Azure İzleyici tarafından kabul edilen sağlar yönetilen hizmet kimliği (MSI) uzantısıdır. **Adı** herhangi bir ad alanı içerebilir. 
 
-MSI uzantısı altına aşağıdaki kodu de yapılandırma ve tanılama uzantısı bir uzantı kaynak olarak bir sanal makine ölçek kümesi kaynak ekler. Gerektiği gibi performans sayaçlarını Ekle/Kaldır çekinmeyin. 
+MSI uzantısı altındaki koddan de yapılandırma ve tanılama uzantısı bir uzantı kaynak olarak bir sanal makine ölçek kümesi kaynak ekler. Gerektiği gibi performans sayaçlarını Ekle/Kaldır çekinmeyin. 
 
 ```json
           "extensionProfile": { 

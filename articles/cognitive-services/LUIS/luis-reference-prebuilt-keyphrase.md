@@ -10,15 +10,15 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: diberry
-ms.openlocfilehash: 4141c5aea93b308a7149b91001fbf1c88d629d79
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4133b7c7c3fabbe92a3208c567d7b4c6c2c27283
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037992"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434407"
 ---
 # <a name="keyphrase-entity"></a>keyPhrase varlığı
-anahtar cümlesi, anahtar ifadeleri çeşitli bir utterance ayıklar. Uygulamaya anahtar cümlesi içeren örnek Konuşma ekleme gerekmez. anahtar cümlesi varlık içerisinde desteklendiği [çok kültür](luis-supported-languages.md#languages-supported) parçası olarak [metin analizi](../text-analytics/overview.md) özellikleri. 
+anahtar cümlesi, anahtar ifadeleri çeşitli bir utterance ayıklar. Uygulamaya anahtar cümlesi içeren örnek Konuşma ekleme gerekmez. anahtar cümlesi varlık içerisinde desteklendiği [çok kültür](luis-language-support.md#languages-supported) parçası olarak [metin analizi](../text-analytics/overview.md) özellikleri. 
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Önceden oluşturulmuş bir anahtar cümlesi varlık için çözümleme
 Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.keyPhrase** varlık.
@@ -49,4 +49,4 @@ Aşağıdaki örnek, çözünürlüğünü gösterir **builtin.keyPhrase** varl�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hakkında bilgi edinin [yüzdesi](luis-reference-prebuilt-percentage.md), [numarası](luis-reference-prebuilt-number.md), ve [yaş](luis-reference-prebuilt-age.md) varlıklar. 
+Hakkında bilgi edinin [yüzdesi](luis-reference-prebuilt-percentage.md), [numarası](luis-reference-prebuilt-number.md), ve [yaş](luis-reference-prebuilt-age.md) varlıklar.

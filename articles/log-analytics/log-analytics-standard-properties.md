@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 7282734b3524d7dfa80c54d074aac2268e38c5ab
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: bcc5f23c163a391639d916b8a50c2c05d228ee91
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419398"
+ms.locfileid: "47432095"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Log Analytics kayıtları standart özellikler
 Verileri [Log Analytics](../log-analytics/log-analytics-queries.md) kümesi her bir özellik kümesi olan bir özel veri türü ile kayıt olarak depolanır. Birçok veri türleri, birden çok türlerinde ortak olan standart özellikleri olacaktır. Bu makalede, bu özellikleri açıklar ve nasıl bunları sorgularında kullanabileceğiniz örnekler sağlar.
@@ -53,8 +53,8 @@ search *
 | summarize count() by Type 
 ```
 
-## <a name="resourceid"></a>_ResourceId
-**_ResourceId** özelliği, kaydı ile ilişkili kaynak için benzersiz bir tanımlayıcı tutar. Bu, sorgunuzu kayıtlarına yalnızca belirli bir kaynaktan kapsam veya ilgili verileri birden çok tabloda katılmak için kullanılacak bir standart özelliği sağlar.
+## <a name="resourceid"></a>\_ResourceId
+**\_ResourceId** özelliği kaydı ile ilişkili kaynak için benzersiz bir tanımlayıcı içerir. Bu, sorgunuzu kayıtlarına yalnızca belirli bir kaynaktan kapsam veya ilgili verileri birden çok tabloda katılmak için kullanılacak bir standart özelliği sağlar.
 
 Değerini, Azure kaynakları için **_ResourceId** olduğu [Azure kaynak kimliği URL](../azure-resource-manager/resource-group-template-functions-resource.md). Şu anda Azure kaynaklarına sınırlı bir özelliğidir, ancak şirket içi bilgisayarlar gibi Azure dışındaki kaynaklar için genişletilir.
 

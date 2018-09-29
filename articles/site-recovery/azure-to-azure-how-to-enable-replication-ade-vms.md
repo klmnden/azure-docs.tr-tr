@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: 828e75a61b7f5d6d747b13069d25503b43b65222
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d276098c951cb26a97906e6ac7e23c0ab2e4d137
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311937"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432588"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Azure disk şifrelemesi (ADE) etkinleştirilmiş sanal makineleri başka bir Azure bölgesine çoğaltma
 
@@ -122,6 +122,15 @@ Site Recovery tarafından kullanılan varsayılan hedef ayarlarını değiştire
 >İlk çoğaltma sırasında durum, ilerleme durumu yenilemek için biraz zaman alabilir. Tıklayın **Yenile** düğme, son durumu almak için.
 >
 
-# <a name="next-steps"></a>Sonraki adımlar
+## <a name="update-target-vm-encryption-settings"></a>Hedef VM şifreleme ayarlarını güncelleştirme
+İçinde senaryolar, hedef VM şifreleme ayarlarını güncelleştirmeniz gerekir.
+  - Site recovery çoğaltma sanal makinesi üzerinde etkin ve daha sonraki bir tarihte Azure Disk şifrelemesi (ADE) kaynak VM üzerinde etkin
+  - Site recovery çoğaltma sanal makinesi üzerinde etkin ve daha sonraki bir tarihte disk şifreleme anahtarı ve/veya kaynak VM üzerinde anahtar şifreleme anahtarı değiştirildi
+
+Kullanabileceğiniz [betik](#copy-ade-keys-to-dr-region-using-powerShell-script) şifreleme anahtarları için hedef bölgede kopyalayın ve ardından hedef şifreleme ayarları güncelleştirmek için **kurtarma Hizmetleri kasası -> çoğaltılan öğe -> Özellikler -> işlem ve ağ.**
+
+![Güncelleştirme ade ayarları](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
+
+## <a name="next-steps"></a>Sonraki adımlar
 
 [Daha fazla bilgi edinin](site-recovery-test-failover-to-azure.md) yük devretme testi çalıştırma hakkında.

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b731b280b3e97076014f609571766a07a3dde1ea
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ce2ad3e699b930f801ad47083d6cfcf6a7937a5c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159899"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433455"
 ---
 # <a name="string-claims-transformations"></a>Dize talep dönüşümleri
 
@@ -156,7 +156,7 @@ Tek bir dize talep diğerine eşit olup olmadığını belirler. Değerine sahip
 | ---- | ----------------------- | --------- | ----- |
 | Inputclaim | inputClaim1 | dize | İlk talep karşılaştırılacak olan türü. |
 | Inputclaim | inputClaim2 | dize | İkinci talep karşılaştırılacak olan türü. |
-| InputParameter | İşleci | dize | Olası değerler: `Equal` veya `Not Equal`. |
+| InputParameter | İşleci | dize | Olası değerler: `EQUAL` veya `NOT EQUAL`. |
 | InputParameter | IgnoreCase | boole | Bu karşılaştırma karşılaştırılan dizelerin durumunu yoksay olup olmadığını belirtir. |
 | outputClaim | outputClaim | boole | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. |
 
@@ -196,7 +196,7 @@ Bir talep değerinin giriş parametresi değerine eşit olup olmadığını beli
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
 | Inputclaim | inputClaim1 | dize | Karşılaştırılacak olduğu talebin türü. |
-| InputParameter | İşleci | dize | Olası değerler: `Equal` veya `Not Equal`. |
+| InputParameter | İşleci | dize | Olası değerler: `EQUAL` veya `NOT EQUAL`. |
 | InputParameter | compareTo | dize | dize karşılaştırması, değerlerden biri: sıra, Ordinalıgnorecase. |
 | InputParameter | IgnoreCase | boole | Bu karşılaştırma karşılaştırılan dizelerin durumunu yoksay olup olmadığını belirtir. |
 | outputClaim | outputClaim | boole | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. |
@@ -235,11 +235,11 @@ Rastgele sayı oluşturucusunu kullanarak rastgele bir dize oluşturur. Rasgele 
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| InputParameter | randomGeneratorType | dize | Oluşturulacak, rastgele bir değer belirtir `GUID` (genel benzersiz Tanımlayıcı) veya `integer` (sayı). |
+| InputParameter | randomGeneratorType | dize | Oluşturulacak, rastgele bir değer belirtir `GUID` (genel benzersiz Tanımlayıcı) veya `INTEGER` (sayı). |
 | InputParameter | stringFormat | dize | [İsteğe bağlı] Rastgele bir değeri biçimi. |
 | InputParameter | Base64 | boole | [İsteğe bağlı] Rastgele bir değeri, base64 dönüştürün. Dize biçimi uygulanırsa, değerin dize biçimi sonra base64 kodlanmış. |
-| InputParameter | maximumNumber | int | [İsteğe bağlı] İçin `Integer` yalnızca randomGeneratorType. Maximute belirtin. |
-| InputParameter | Çekirdek  | int | [İsteğe bağlı] İçin `Integer` yalnızca randomGeneratorType. Çekirdek için rastgele bir değer belirtin. Not: aynı çekirdek aynı rastgele sayı dizisi üretir. |
+| InputParameter | maximumNumber | int | [İsteğe bağlı] İçin `INTEGER` yalnızca randomGeneratorType. Maximute belirtin. |
+| InputParameter | Çekirdek  | int | [İsteğe bağlı] İçin `INTEGER` yalnızca randomGeneratorType. Çekirdek için rastgele bir değer belirtin. Not: aynı çekirdek aynı rastgele sayı dizisi üretir. |
 | outputClaim | outputClaim | dize | Bu dönüşüm talep sonra üretilecek ClaimTypes çağrılmış. Rastgele bir değer. |
 
 Aşağıdaki örnek, genel olarak benzersiz bir kimliği oluşturur. Başka bir talep dönüştürme rastgele UPN (kullanıcı asıl adı) oluşturmak için kullanılır.
@@ -266,7 +266,7 @@ Aşağıdaki örnek, 0 ile 1000 arasında rastgele bir tamsayı değeri oluştur
 ```XML
 <ClaimsTransformation Id="SetRandomNumber" TransformationMethod="CreateRandomString">
   <InputParameters>
-    <InputParameter Id="randomGeneratorType" DataType="string" Value="integer" />
+    <InputParameter Id="randomGeneratorType" DataType="string" Value="INTEGER" />
     <InputParameter Id="maximumNumber" DataType="int" Value="1000" />
     <InputParameter Id="stringFormat" DataType="string" Value="OTP_{0}" />
     <InputParameter Id="base64" DataType="boolean" Value="false" />

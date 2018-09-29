@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0e31f311c123fa8ace523cfde21ebdf2f707fce5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1af54e3b0237d1d62ae7fb47939e7786fa1219b8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303885"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434679"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama
 Kimlik doğrulaması için [parola karması eşitleme](how-to-connect-password-hash-synchronization.md) özelliğine ve tek ormanlı bir topolojiye sahipseniz Azure AD Connect **Hızlı Ayarları** kullanılır. **Hızlı Ayarlar** varsayılan seçenek olup yaygın olarak dağıtılan senaryo için kullanılır. Şirket içi dizininizi buluta genişletmek için yalnızca birkaç tıklama yapmanız yeterli.
@@ -46,7 +46,7 @@ Bu adımların nasıl gerçekleştirildiğini [videolar](#videos) bölümünden 
    Bu sayfayı görüyorsanız **Eklenmedi** ve **Doğrulanmadı** olarak işaretlenen tüm etki alanlarını gözden geçirin. Kullandığınız etki alanlarının Azure AD'de doğrulanmış olduğundan emin olun. Etki alanlarınızı doğruladıktan sonra Yenile simgesine tıklayın.
 8. Yapılandırma için hazır ekranında **Yükle**'ye tıklayın.
    * İsteğe bağlı olarak, Yapılandırma için hazır sayfasında **Start the synchronization process as soon as configuration completes (Yapılandırma tamamlanınca eşitlemeyi başlat)** onay kutusunun işaretini kaldırabilirsiniz. Başka yapılandırmalar (örneğin, [filtreleme](how-to-connect-sync-configure-filtering.md)) gerçekleştirmek istiyorsanız bu onay kutusunun işaretini kaldırmanız gerekir. Bu seçeneğin işaretini kaldırırsanız sihirbaz eşitlemeyi yapılandırır ancak zamanlayıcıyı devre dışı bırakır. [Yükleme sihirbazını yeniden çalıştırarak](how-to-connect-installation-wizard.md) elle etkinleştirmediğiniz sürece çalışmaz.
-   * **Yapılandırma tamamlandıktan hemen sonra eşitleme işlemini başlat** onay kutusunu etkin bırakmak, hemen tüm kullanıcıları, grupları ve kişileri Azure AD’ye tam eşitleme işlemini tetikler. 
+   * **Yapılandırma tamamlandıktan hemen sonra eşitleme işlemini başlat** onay kutusunu etkin bırakmak, hemen tüm kullanıcıları, grupları ve kişileri Azure AD’ye tam eşitleme işlemini tetikler.
    * Şirket içi Active Directory'nizde Exchange varsa [**Exchange Karma dağıtımını**](https://technet.microsoft.com/library/jj200581.aspx) da etkinleştirebilirsiniz. Aynı anda hem bulutta ve hem de şirket içinde Exchange posta kutunuzun olmasını istiyorsanız bu seçeneği etkinleştirin.
      ![Azure AD Connect yapılandırma için hazır](./media/how-to-connect-install-express/readytoconfigure.png)
 9. Yükleme tamamlandığında **Çıkış**'a tıklayın.

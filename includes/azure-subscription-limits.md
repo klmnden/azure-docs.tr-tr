@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: c6ef868d80e628f9120acc0775179e89ccd03674
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: fdb05f48478d22eea90c3a2c0264e9c4c8640eb0
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979383"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454359"
 ---
 | Kaynak | Varsayılan Sınır | Üst Sınır |
 | --- | --- | --- |
 | Vcpu başına [abonelik](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10,000 |
 | Abonelik başına [ortak yönetici](../articles/billing-add-change-azure-subscription-administrator.md) sayısı |200 |200 |
-| [Depolama hesapları](../articles/storage/common/storage-quickstart-create-account.md) her Abonelikteki bölge başına<sup>2</sup> |200 |250 |
+| [Depolama hesapları](../articles/storage/common/storage-create-storage-account.md) abonelik başına <sup>2</sup> |100 |100 |
 | Abonelik başına [bulut hizmeti](../articles/cloud-services/cloud-services-choose-me.md) sayısı |20 |200 |
 | [Yerel ağlar](http://msdn.microsoft.com/library/jj157100.aspx) abonelik başına |10 |500 |
 | Abonelik başına bir SQL veritabanı sunucuları |6 |200 |
@@ -31,5 +31,5 @@ ms.locfileid: "45979383"
 
 <sup>1</sup>çok küçük örnek sayısı bir vCPU kısmi bir CPU çekirdeği kullanarak rağmen vCPU sınırına doğru olarak.
 
-<sup>2</sup>depolama hesabı sınırı hem standart hem de Premium depolama hesapları içerir. Belirli bir bölgede 200'den fazla depolama hesabı gerekiyorsa, bir istekte aracılığıyla [Azure Destek](https://azure.microsoft.com/support/faq/). Azure depolama ekibi, işinizin durumunu inceler ve 250 depolama hesapları için belirli bir bölgeye kadar onaylayabilir. 
+<sup>2</sup>depolama hesabı sınırı hem standart hem de Premium depolama hesapları içerir. 
 

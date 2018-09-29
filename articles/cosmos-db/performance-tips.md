@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 47896b681c2ba43d4ca41682ec51e0dfd167c9d5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a805294ecb416d18f3ce13981d26a7d25cd5a204
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700965"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432860"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB ile .NET için performans ipuçları
 
@@ -42,7 +42,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
    * Doğrudan modu
 
-     TCP ve HTTPS protokolleri üzerinden bağlantı doğrudan modu destekler. Şu anda doğrudan yalnızca Windows platform .NET Standard 2.0 desteklenmektedir. Doğrudan modunu kullanırken, kullanılabilir iki protokol seçenek vardır:
+     TCP ve HTTPS protokolleri üzerinden bağlantı doğrudan modu destekler. Şu anda doğrudan .NET Standard 2.0 desteklenmektedir. Doğrudan modunu kullanırken, kullanılabilir iki protokol seçenek vardır:
 
     * TCP
     * HTTPS

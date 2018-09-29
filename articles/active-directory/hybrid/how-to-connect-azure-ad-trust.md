@@ -17,12 +17,12 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: 4eeb716e4eeae8dc560f9588c6c3ce252daf741e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5ac69c53a6b6c1e4695b88e5806f8e883cd52c66
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314667"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432067"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Azure AD ile Azure AD Connect kullanarak AD FS güvenini yönetme
 
@@ -41,7 +41,7 @@ Azure AD Connect yönetir **yalnızca** Azure AD güveni ile ilişkili ayarlar. 
 | Ayar | Açıklama |
 | :--- | :--- |
 | Belirteç imzalama sertifikası | Azure AD Connect, sıfırlama ve Azure AD ile güveni yeniden kullanılabilir. Azure AD Connect, AD FS belirteç imzalama sertifikaları, tek seferlik bir anlık geçiş yapar ve Azure AD etki alanı Federasyon ayarlarını güncelleştirir.|
-| Belirteç imzalama algoritması | Microsoft, SHA-256'yı imzalama algoritması belirteci olarak kullanılmasını önerir. Azure AD Connect, belirteç imzalama algoritması değerine SHA-256'dan daha az güvenli ayarlanmışsa algılayabilir. Bu işlem, sonraki olası yapılandırma işleminde SHA-256 ayarı güncelleştirir. |
+| Belirteç imzalama algoritması | Microsoft, SHA-256'yı imzalama algoritması belirteci olarak kullanılmasını önerir. Azure AD Connect, belirteç imzalama algoritması değerine SHA-256'dan daha az güvenli ayarlanmışsa algılayabilir. Bu işlem, sonraki olası yapılandırma işleminde SHA-256 ayarı güncelleştirir. Yeni belirteç imzalama sertifikası kullanılacak diğer bağlı olan taraf güveni güncelleştirilmesi gerekir. |
 | Azure AD güven tanımlayıcısı | Azure AD Connect, Azure AD güveni için doğru tanımlayıcı değerini ayarlar. AD FS tanımlayıcı değerini kullanarak bir Azure AD güvenini benzersiz olarak tanımlar. |
 | Azure AD uç noktaları | Azure AD Connect, Azure AD güveni için yapılandırılmış uç noktalar her zaman dayanıklılık ve performans için en son önerilen değerleri uygun olduğunu emin olur. |
 | Verme dönüştürme kuralları | Sayılar, Azure AD'de Federasyon ayarı özelliklerinden en iyi performans için gerekli bir talep kuralları vardır. Azure AD Connect, Azure AD güveni her zaman doğru ortaklık önerilen talep kuralları kümesi ile yapılandırılmış emin olur. |

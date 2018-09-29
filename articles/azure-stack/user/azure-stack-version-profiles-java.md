@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: b5a876ea8b5cc70ee0ca0dcac8628c12dc2b009b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414533"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452522"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Java'da Azure Stack ile API Sürüm profillerini kullanma
 
@@ -63,7 +63,7 @@ Java SDK'sını yüklemek için aşağıdaki adımları kullanın:
 
 1.  Git'i yüklemek için resmi yönergeleri izleyin. Yönergeler için [Git'i yükledikten Başlarken -](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  Yüklemek için resmi yönergeleri [Java SDK'sı](http://zulu.org/download/)) ve [Maven](https://maven.apache.org/). Java Developer Kit 8 sürümünü doğru sürümüdür. Doğru Apache Maven sürümüdür 3.0 veya üstü. JAVA_HOME ortam değişkenini Java Development Kit yükleme konumuna hızlı başlangıcı tamamlamak için ayarlamanız gerekir. Daha fazla bilgi için [Java ve Maven ile ilk işlevinizi oluşturma](../../azure-functions/functions-create-first-java-maven.md).
+2.  Yüklemek için resmi yönergeleri [Java SDK'sı](http://zulu.org/download/) ve [Maven](https://maven.apache.org/). Java Developer Kit 8 sürümünü doğru sürümüdür. Doğru Apache Maven sürümüdür 3.0 veya üstü. JAVA_HOME ortam değişkenini Java Development Kit yükleme konumuna hızlı başlangıcı tamamlamak için ayarlamanız gerekir. Daha fazla bilgi için [Java ve Maven ile ilk işlevinizi oluşturma](../../azure-functions/functions-create-first-java-maven.md).
 
 3.  Doğru bağımlılık paketlerini yüklemek için Java uygulamanızı Pom.xml dosyasını açın. Bir bağımlılık, aşağıdaki kodda gösterildiği gibi ekleyin:
 
@@ -89,7 +89,7 @@ Java SDK'sını yüklemek için aşağıdaki adımları kullanın:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure .NET SDK'sı, Azure Stack ile kullanmak için aşağıdaki değerleri girin ve ardından ortam değişkenleriyle değerleri ayarlayın. Ortam değişkenlerini ayarlamak için tablonun işletim sisteminiz için aşağıdaki yönergelere bakın.
+Azure Java SDK'sı, Azure Stack ile kullanmak için aşağıdaki değerleri girin ve ardından ortam değişkenleriyle değerleri ayarlayın. Ortam değişkenlerini ayarlamak için tablonun işletim sisteminiz için aşağıdaki yönergelere bakın.
 
 | Değer                     | Ortam değişkenleri | Açıklama                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -128,7 +128,9 @@ Aşağıdaki konuları göz önünde bulundurun:
 
 - **ResourceManagerUrl** olan Azure Stack geliştirme Seti'ni (ASDK): https://management.local.azurestack.external/
 
-- **ResourceManagerUrl** tümleşik sistemlerindeki: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` gerekli meta verilerini almak için: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+- **ResourceManagerUrl** tümleşik sisteminde: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+
+Gerekli meta verilerini almak için: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 
 Örnek JSON dosyası:
 
@@ -149,9 +151,7 @@ Aşağıdaki konuları göz önünde bulundurun:
 
 1.  **com.microsoft.Azure.Profile\_2018\_03\_01\_karma**: son profil Azure Stack için yerleşik. En Azure Stack ile uyumlu 1808 damgada olduğu sürece veya diğer hizmetler için bu profili kullanın.
 
-2.  **com.microsoft.Azure.Profile\_2017\_03\_09\_profili**: 1808 yapı düşük bir damga kullanıyorsanız, bu profili kullanın.
-
-3.  **com.microsoft.Azure**: tüm hizmetleri en son sürümlerine oluşan profili. Tüm hizmetler en son sürümlerini kullanın.
+2.  **com.microsoft.Azure**: tüm hizmetleri en son sürümlerine oluşan profili. Tüm hizmetler en son sürümlerini kullanın.
 
 Azure Stack ve API profilleri hakkında daha fazla bilgi için bkz. [API özeti profilleri](../user/azure-stack-version-profiles.md#summary-of-api-profiles).
 
@@ -231,14 +231,14 @@ HttpResponse response = httpClient.execute(getRequest);
 
 2.  Bir Azure hizmet sorumlusu oluşturma ve aboneliğe erişmek için bir rol atayın. Bir hizmet sorumlusu oluşturma hakkında yönergeler için bkz: [bir sertifika ile hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](../azure-stack-create-service-principals.md).
 
-3.  Aşağıdaki gerekli değerleri alın:
+3.  Aşağıdaki gerekli ortam değişken değerleri alın:
     
-   1.  Kiracı Kimliği
-   2.  İstemci Kimliği
-   3.  İstemci Gizli Anahtarı
-   4.  Abonelik Kimliği
-   5.  Resource Manager uç noktası
-   6.  Kaynak konumu
+   1.  KİRACI
+   2.  CLIENT_ID
+   3.  CLIENT_SECRET
+   4.  SUBSCRIPTION_ID
+   5.  ARM_ENDPOINT
+   6.  RESOURCE_LOCATION
 
 4.  Komut istemi kullanarak oluşturduğunuz hizmet Sorumlusundan alınan bilgileri kullanarak, aşağıdaki ortam değişkenlerini ayarlayın:
     
@@ -273,10 +273,8 @@ HttpResponse response = httpClient.execute(getRequest);
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-7.  Pom.xml dosyasında Azure Stack için 2018-03-01-karma profili kullanmak için aşağıdaki bağımlılığı ekleyin. Bu bağımlılık, bu profil ile ilişkili aşağıdaki işlem, ağ, depolama, KeyVault ve uygulama hizmetleri kaynak sağlayıcı için modülleri yükler.
-    
-   Hedef Azure son profilini kullanabilirsiniz dikkat edin:
-        
+6.  Pom.xml dosyasında Azure Stack için 2018-03-01-karma profili kullanmak için aşağıdaki bağımlılığı ekleyin. Bu bağımlılık, bu profil ile ilişkili aşağıdaki işlem, ağ, depolama, KeyVault ve uygulama hizmetleri kaynak sağlayıcı için modülleri yükler.
+      
    ```xml
    <dependency>
    <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: d75a91ea0925ef0860b8e6dee310156bef21a1ba
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: e9c09d31af1b6ea214ae2d0fc6fd7399c07fd8c0
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056830"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434560"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların farklı türde açıklanır. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla. 
@@ -71,7 +71,7 @@ Yetkilendirme, yenilemek için **Durdur** işinizi > Data Lake Store çıkışı
 | Database | Burada, çıkış göndermek veritabanının adı. |
 | Sunucu adı | SQL veritabanı sunucu adı. |
 | Kullanıcı adı | Veritabanına yazma erişimi olan kullanıcı. |
-| Parola | İçin databas.e bağlanmak için parola |
+| Parola | Veritabanına bağlanmak için parola |
 | Tablo | Çıkış yazıldığı tablo adı. Tablo adı büyük/küçük harfe duyarlıdır ve bu tablonun şeması alanları ve bunların türlerini, iş çıktısı tarafından oluşturulan sayısı tam olarak eşleşmesi gerekir. |
 
 > [!NOTE]

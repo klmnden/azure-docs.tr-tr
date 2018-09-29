@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cfc190d862c161783c2dd5fc7f03b7bb1ae6bed9
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 924da8c92bad1c5345d5d1833723a0c4e8ad7d29
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381633"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432673"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection talep dönüşümleri
 
@@ -54,7 +54,7 @@ Aşağıdaki talep dönüştürme ekler **e-posta** için ClaimType **otherMails
 - Giriş talepleri:
     - **koleksiyon**: ["someone@outlook.com"]
     - **öğe**: "admin@contoso.com"
-- Çıkış talep: admin@contoso.com
+- Çıkış talep: 
     - **koleksiyon**: ["someone@outlook.com","admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
@@ -89,7 +89,7 @@ Kullanım bu talep dönüştürmeyi için yeni veya mevcut bir stringCollection 
     - **koleksiyon**: ["someone@outlook.com"]
 - Giriş parametreleri 
     - **öğe**: "admin@contoso.com"
-- Çıkış talep: admin@contoso.com
+- Çıkış talep:
     - **koleksiyon**: ["someone@outlook.com","admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: include file
-ms.openlocfilehash: e54813896eee8a58ae456f14f76151318ac1b9fc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7ab67e878e7cf08fe983ab172731209328b1a474
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38766975"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454474"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure'da sanal makineler için kullanılabilirlik ve bölgeler
 Azure, dünyanın dört bir yanındaki birden fazla veri merkezinde çalışmaktadır. Bu veri merkezleri, coğrafi bölgeler halinde gruplandırılarak uygulamalarınızı oluşturacağınız yeri seçme esnekliği tanır. Sanal makinelerinizin (VM’ler) Azure’da nasıl ve hangi konumda çalıştığının yanı sıra performans, kullanılabilirlik ve yedekliliği artırmak için kullanabileceğiniz seçeneklerin de anlaşılması önemlidir. Bu makalede, Azure’un kullanılabilirlik ve yedeklilik özelliklerine genel bakış sunulmaktadır.
@@ -24,7 +24,7 @@ Azure, dünyanın dört bir yanındaki birden fazla veri merkezinde çalışmakt
 ## <a name="special-azure-regions"></a>Özel Azure bölgeleri
 Azure, uyumluluk veya hukuk gereksinimlerine uygulamalarınızı oluştururken kullanmak isteyebileceğiniz bazı özel bölgeleri sahiptir. Bu özel bölgeleri şunlardır:
 
-* **ABD Virginia** ve **ABD Iowa**
+* **US Gov Virginia** ve **US Gov Iowa**
   * ABD kamu kuruluşları ve iş ortaklarına yönelik olarak ABD’de bulunan ve denetlenen kişilerce çalıştırılan fiziksel ve mantıksal ağdan yalıtılmış Azure örneği. [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) ve [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA) gibi ek uyumluluk sertifikaları içerir. [Azure Kamu](https://azure.microsoft.com/features/gov/) hakkında daha fazla bilgi alın.
 * **Çin Doğu** ve **Çin Kuzey**
   * Bu bölgeler, Microsoft ile 21Vianet arasında, Microsoft’un veri merkezlerini doğrudan yönetmediği benzersiz ortaklık ile kullanıma sunulmaktadır. [Çin’de Microsoft Azure](http://www.windowsazure.cn/) hakkında daha fazla bilgi alın.
@@ -102,8 +102,12 @@ Hata etki alanı, ortak bir güç kaynağı ve ağ anahtarını paylaşan, şirk
 ### <a name="update-domains"></a>Güncelleme etki alanları
 Güncelleme etki alanı, bakımdan geçirilebilen ya da aynı anda yeniden başlatılabilen bir temel alınan donanım mantıksal grubudur. Bir kullanılabilirlik kümesinde VM’ler oluşturduğunuzda, Azure platformu VM’lerinizi bu güncelleme etki alanlarına otomatik olarak dağıtır. Bu yaklaşım, Azure platformu periyodik bakımdan geçirilirken uygulamanızın en az bir örneğinin her zaman çalışır durumda kalmasını sağlar. Yeniden başlatılmakta olan güncelleme etki alanlarının sırası, planlanan bakım sırasında sıralı olarak uygulanmayabilir, ancak aynı anda yalnızca bir güncelleme etki alanı yeniden başlatılır.
 
+![Kullanılabilirlik kümeleri](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+
 ### <a name="managed-disk-fault-domains"></a>Yönetilen disk hata etki alanları
 [Azure Yönetilen Diskler](../articles/virtual-machines/windows/faq-for-disks.md)’i kullanan sanal makineler, yönetilen kullanılabilirlik kümesi kullanılırken yönetilen disk hata etki alanları ile hizalanır. Bu hizalama, bir VM'ye bağlı tüm yönetilen disklerin, aynı yönetilen disk hata etki alanı içinde olmasını sağlar. Yönetilen bir kullanılabilirlik kümesinde yalnızca, yönetilen disklere sahip VM’ler oluşturulabilir. Yönetilen disk hata etki alanlarının sayısı bölgeye göre farklılık gösterir (bölge başına iki ya da üç yönetilen disk hata etki alanı). Daha fazla bilgi edinebilirsiniz bunlar hakkında yönetilen disk hata etki alanları için [Linux Vm'leri](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) veya [Windows Vm'leri](../articles/virtual-machines/windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+
+![Yönetilen kullanılabilirlik kümesi](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 ## <a name="availability-zones"></a>Kullanılabilirlik alanları
 

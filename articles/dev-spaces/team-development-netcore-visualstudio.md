@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: 97b052833946b373e2333491c4b516b3a088130b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2a04b80e728ecf0af39cb46041a005a86ea1abec
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158475"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406116"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces ile Ekip Geliştirmesi
 
@@ -163,6 +163,23 @@ Azure Dev Spaces’ın bu yerleşik özelliği, her bir geliştiricinin alanlar�
 
 Şimdi de http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io gibi bir şekilde olması için "scott.s." kısmını URL’ye ekleyin ve tarayıcıyı yenileyin. `mywebapi` projenizde ayarladığınız kesme noktasının isabet edilmesi gerekir. Devam etmek için F5’e tıkladığınızda tarayıcınızda yeni "Hello from webfrontend and mywebapi now says something new." iletisini artık görmeniz gerekir. Bunun nedeni, `mywebapi` hizmetindeki güncelleştirilmiş kodunuza giden yolun `default/scott` alanında çalışmasıdır.
 
-[!INCLUDE [](includes/well-done.md)]
+### <a name="well-done"></a>Bravo!
+Başlangıç kılavuzunu tamamladınız! Şunları öğrendiniz:
 
-[!INCLUDE [](includes/clean-up.md)]
+> [!div class="checklist"]
+> * Azure’da yönetilen bir Kubernetes ile Azure Dev Spaces’ı ayarlayın.
+> * Kapsayıcılarda yinelemeli kod geliştirin.
+> * İki ayrı hizmeti bağımsız olarak geliştirin ve Kubernetes’in DNS hizmet bulma yöntemini kullanarak başka bir hizmete çağrı yapın.
+> * Kodunuzu bir ekip ortamında verimli bir şekilde geliştirip test edin.
+
+Artık Azure Dev Spaces'i öğrendiğinize göre, [Dev Space'inizi bir takım üyesiyle paylaşın](how-to/share-dev-spaces.md) ve onların birlikte işbirliği yapmasının ne kadar kolay olduğunu görmelerine yardımcı olun.
+
+## <a name="clean-up"></a>Temizleme
+Geliştirme alanları ve içinde çalışan hizmetler dahil olmak üzere bir kümedeki Azure Dev Spaces örneğini tamamen silmek için `az aks remove-dev-spaces` komutunu kullanın. Bu eylemin geri alınamayacağını unutmayın. İleride kümeye yeniden Azure Dev Spaces desteği ekleyebilirsiniz ancak sıfırdan başlamış gibi olursunuz. Eski hizmetleriniz ve alanlarınız geri yüklenmez.
+
+Aşağıdaki örnek etkin aboneliğinizdeki Azure Dev Spaces denetleyicilerini listeler ve ardından 'myaks-rg' kaynak grubundaki 'myaks' AKS kümesiyle ilişkilendirilmiş Azure Dev Spaces denetleyicisini siler.
+
+```cmd
+    azds controller list
+    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+```

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8ec0947d041dc0d4f5423a48a443ab2dd86949e2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ee30ee4fa89ce47e8441845b088919b26ce32b31
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782544"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434288"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -90,7 +90,7 @@ Aşağıdaki tabloda, oluşturulan ve Azure AD'de yönetilen kullanıcı hesapla
 
 | Özellik | Gereksinimler |
 | --- | --- |
-| İzin verilen karakter |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+| İzin verilen karakter |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
 | Karakterlere izin verilmez |<ul><li>Unicode karakter.</li><li>Alanları.</li><li> Yalnızca güçlü parolalar</li></ul> |
 | Parola kısıtlamaları |<ul><li>En az 8 karakter ve en fazla 16 karakter.</li><li>Yalnızca güçlü parolalar: üç tanesi dört birini gerektirir:<ul><li>Küçük harf karakterler.</li><li>Büyük harf karakterler.</li><li>Sayılar (0-9).</li><li>Semboller (önceki parola kısıtlamalarını bakın).</li></ul></li></ul> |
 | Parola sona erme süresi |<ul><li>Varsayılan değer: **90** gün.</li><li>Değeri kullanılarak yapılandırılabilir `Set-MsolPasswordPolicy` Azure Active Directory modülü için Windows PowerShell cmdlet'i.</li></ul> |

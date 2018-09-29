@@ -16,7 +16,8 @@ Aşağıdaki tabloda, IOT Hub cihazı sağlama hizmeti kaynakları için geçerl
 
 Aşağıdaki kotalar aşıldığında cihaz sağlama hizmeti istekleri kısıtlar:
 
-| Kısıtlama | Hizmet başına değer |
+| Kısıtlama | Birim başına değer |
 | --- | --- |
-| İşlemler | 100/dk |
-| Cihaz kayıtları | 100/dk |
+| İşlemler | 200/min/hizmet |
+| Cihaz kayıtları | 200/min/hizmet |
+| Cihaz yoklama işlemi | 5/10 sn/cihaz |

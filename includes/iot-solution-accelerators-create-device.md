@@ -5,15 +5,15 @@ services: iot-accelerators
 author: dominicbetts
 ms.service: iot-accelerators
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9196648d7e3d2ea717b1a61cbca959805649ed2f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44754365"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47435121"
 ---
 Bu senaryoda, Contoso için yeni bir telemetri türünü, mevcut ekleme **Soğutucu** cihaz türü.
 
@@ -90,7 +90,9 @@ Bu makaledeki yönergeler, Windows kullanmakta olduğunuz varsayılır. Başka b
 
 ### <a name="download-the-microservices"></a>Mikro hizmetler indirin
 
-İndirip sıkıştırmasını [uzaktan mikro hizmetler izleme](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) yerel makinenizde uygun bir konuma github'dan.
+İndirip sıkıştırmasını [uzaktan mikro hizmetler izleme](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) yerel makinenizde uygun bir konuma github'dan. Bu klasörün adı olduğu varsayılır **Uzaktan izleme-services-dotnet-yöneticili**.
+
+İndirip sıkıştırmasını [cihaz benzetimi mikro hizmet](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) yerel makinenizde uygun bir konuma github'dan. Bu klasörün adı olduğu varsayılır **cihaz-simülasyon-dotnet-master**.
 
 ### <a name="run-the-storage-adapter-microservice"></a>Depolama bağdaştırıcısı mikro hizmet çalıştırma
 
@@ -116,20 +118,14 @@ Bu bölümde, yeni bir ekleme **iç ortam sıcaklığı** varolan telemetri tür
 
     | Kaynak | Hedef |
     | ------ | ----------- |
-    | Services\Data\devicemodels\chiller-01.JSON | C:\temp\devicemodels\chiller-01.JSON |
-    | Services\Data\devicemodels\scripts\chiller-01-State.js | C:\temp\devicemodels\scripts\chiller-01-State.js |
-    | Services\Data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
-    | Services\Data\devicemodels\scripts\FirmwareUpdate-Method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
-    | Services\Data\devicemodels\scripts\EmergencyValveRelease-Method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-Method.js |
-    | Services\Data\devicemodels\scripts\IncreasePressure-Method.js | C:\temp\devicemodels\scripts\IncreasePressure-Method.js |
+    | Services\data\devicemodels\chiller-01.JSON | C:\temp\devicemodels\chiller-01.JSON |
+    | Services\data\devicemodels\scripts\chiller-01-State.js | C:\temp\devicemodels\scripts\chiller-01-State.js |
+    | Services\data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-Method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
+    | Services\data\devicemodels\scripts\EmergencyValveRelease-Method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-Method.js |
+    | Services\data\devicemodels\scripts\IncreasePressure-Method.js | C:\temp\devicemodels\scripts\IncreasePressure-Method.js |
 
 1. Açık **C:\temp\devicemodels\chiller-01.json** dosya.
-
-1. Güncelleştirme **SchemaVersion** gibi değer:
-
-    ```json
-    "SchemaVersion": "1.0.0",
-    ```
 
 1. İçinde **ilk durum** bölümünde, aşağıdaki iki tanımları ekleyin:
 
@@ -419,9 +415,9 @@ Bu bölümde, yerel olarak önceki bölümde oluşturduğunuz cihaz türlerini t
 
 ### <a name="run-the-device-simulation-microservice"></a>Cihaz benzetimi mikro hizmet çalıştırma
 
-Açık **remote-monitoring-services-dotnet-master\device-simulation** Visual Studio Code yeni bir örneğini github'dan indirdiğiniz klasörü. Tıklatın **geri** herhangi düzeltmek için düğmeler çözümlenmemiş bağımlılıklar.
+Açık **cihaz-simülasyon-dotnet-master** Visual Studio Code yeni bir örneğini github'dan indirdiğiniz klasörü. Tıklatın **geri** herhangi düzeltmek için düğmeler çözümlenmemiş bağımlılıklar.
 
-Açık **.vscode/launch.json** dosya ve IOT hub'ı bağlantı dizenizi atama **PCS_IOTHUB_CONNSTRING** ortam değişkeni.
+Açık **.vscode/launch.json** dosya ve IOT hub'ı bağlantı dizenizi atama **PCS_IOTHUB_CONNSTRING** ortam değişkeni. Aynı dosyada ekleyin **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** ortam değişkeni ve Cosmos DB veritabanınıza yönelik bağlantı dizesini atayın.
 
 Açık **WebService/Properties/launchSettings.json** dosya ve IOT hub'ı bağlantı dizenizi atama **PCS_IOTHUB_CONNSTRING** ortam değişkeni.
 
@@ -465,7 +461,7 @@ Postman'ı ayarlamak için:
 
 1. Tıklayın **Dosya > içeri aktarma**. Ardından **dosya seçin**.
 
-1. Gidin **cihaz-simülasyon-dotnet/docs/postman** klasör. Seçin **Azure IOT cihaz benzetimi çözüm accelerator.postman_collection** ve **Azure IOT cihaz benzetimi çözüm accelerator.postman_environment** tıklatıp **açın**.
+1. Gidin **cihaz-simülasyon-dotnet-master/docs/postman** klasör. Seçin **Azure IOT cihaz benzetimi çözüm accelerator.postman_collection** ve **Azure IOT cihaz benzetimi çözüm accelerator.postman_environment** tıklatıp **açın**.
 
 1. Genişletin **Azure IOT cihaz benzetimi Çözüm Hızlandırıcısı** istekleri gönderebilirsiniz.
 

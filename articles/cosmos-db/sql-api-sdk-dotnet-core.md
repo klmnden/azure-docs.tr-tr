@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01857eb28f63eb1f60e8ca84bd6ce5e6c3c67446
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7000fc13a792f4f6def592e78dc759c8cf165881
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392474"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451927"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK SQL API'si için: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -52,6 +52,10 @@ ms.locfileid: "47392474"
 ## <a name="release-notes"></a>Sürüm Notları
 
 Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip [Azure Cosmos DB .NET SDK'sı](sql-api-sdk-dotnet.md).
+
+### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
+
+* Çok bölgeli isteği geçici hatalara karşı daha fazla esneklik eklenmiştir.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 
@@ -200,6 +204,7 @@ Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](http://stackove
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.1.1](#2.1.1) |27 Eylül 2018'den |--- |
 | [2.1.0](#2.1.0) |21 Eylül 2018 |--- |
 | [2.0.0](#2.0.0) |07 Eylül 2018'den |--- |
 | [1.9.1](#1.9.1) |09 Mart 2018 |--- |

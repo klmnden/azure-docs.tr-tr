@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc7ee4e7a6975722458ed12f636cdc8f4777614a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8ca3c0524873e4c7a1326095eb1cc28f63f59a27
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301947"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431942"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect eşitlemesini Azure AD Connect Health ile izleme
 Aşağıdaki belgeler Azure AD Connect Health ile Azure AD Connect’in (Eşitleme) izlenmesine özgüdür.  Azure Connect Health ile AD FS'yi izleme hakkında bilgi almak için bkz. [Azure AD Connect Health'i AD FS ile kullanma](how-to-connect-health-adfs.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](how-to-connect-health-adds.md).
@@ -36,7 +36,7 @@ Bir uyarıyı seçtiğinizde, uyarıyı çözümlemek için uygulayabileceğiniz
 ### <a name="limited-evaluation-of-alerts"></a>Sınırlı Uyarı Değerlendirmesi
 Azure AD Connect, varsayılan yapılandırmayı (örneğin, Öznitelik Filtrelemesi için varsayılan yapılandırma özel bir yapılandırma olarak değiştirildiyse) KULLANMIYORSA Azure AD Connect Health aracısı, Azure AD Connect ile ilgili hata olaylarını karşıya yüklemez.
 
-Bu, uyarıların değerlendirilmesini hizmete göre sınırlar. Azure Portal'da hizmetinizin altında bu koşulu belirten bir başlık görürsünüz.
+Bu, uyarıların değerlendirilmesini hizmete göre sınırlar. Bu koşulu hizmetinizdeki Azure Portal’da gösteren bir başlık görürsünüz.
 
 ![Eşitleme için Azure AD Connect Health](./media/how-to-connect-health-sync/banner.png)
 

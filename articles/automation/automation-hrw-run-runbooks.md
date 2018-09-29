@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f21457a63470b88e93ead97454f996cea38073a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a0b5188605874a04f0341cde1a68487c8a50df84
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103777"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431823"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Bir karma Runbook çalışanı üzerinde runbook'ları çalıştırma
 
@@ -39,7 +39,8 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 
 ## <a name="runbook-permissions"></a>Runbook izinleri
 
-Bir karma Runbook çalışanı üzerinde çalışan runbook'ları genellikle kaynakların Azure dışında eriştikleri beri runbook'ları Azure kaynakları için kimlik doğrulaması için kullanılan yöntemin aynısını kullanamaz. Runbook'un yerel kaynakları için kendi kimlik doğrulamasını ya da sağlayabilir veya tüm runbook'ları için bir kullanıcı bağlam sağlamak için bir farklı çalıştır hesabı belirtebilirsiniz.
+Bir karma Runbook çalışanı üzerinde çalışan runbook'ları genellikle kaynakların Azure dışında eriştikleri beri runbook'ları Azure kaynakları için kimlik doğrulaması için kullanılan yöntemin aynısını kullanamaz. Runbook'un yerel kaynakları için kendi kimlik doğrulamasını ya da sağlayabilir veya kimlik doğrulaması kullanarak yapılandırabilirsiniz [kimliklerini Azure kaynakları için yönetilen](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
+), veya tüm runbook'ları için bir kullanıcı bağlam sağlamak için bir farklı çalıştır hesabı belirtebilirsiniz.
 
 ### <a name="runbook-authentication"></a>Runbook kimlik doğrulaması
 
@@ -74,6 +75,32 @@ Karma çalışanı grubu için bir farklı çalıştır hesabı belirtmek için 
 4. Seçin **tüm ayarlar** ardından **karma çalışanı grubu ayarları**.
 5. Değişiklik **Çalıştır** gelen **varsayılan** için **özel**.
 6. Kimlik bilgisi seçin ve tıklayın **Kaydet**.
+
+### <a name="managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikleri
+
+Karma Runbook çalışanları Azure sanal makineler üzerinde çalışan Azure kaynakları için yönetilen kimlikleri, Azure kaynaklarında kimlik doğrulaması için kullanabilirsiniz. Farklı Çalıştır hesapları kullanarak Azure kaynakları için yönetilen kimlikleri için birçok faydası vardır.
+
+* Run As sertifikasını dışarı aktarma ve karma Runbook çalışanı olarak içeri aktarma gerekmez
+* Farklı Çalıştır hesabı tarafından kullanılan sertifikayı yenilemek gerekmez.
+* Runbook kodunuzda Çalıştır bağlantı nesnesi tanıtıcı gerekmez.
+
+Bir karma Runbook çalışanında Azure kaynakları için yönetilen bir kimlik kullanmak için aşağıdaki adımları tamamlamanız gerekir:
+
+1. Bir Azure VM oluşturma
+2. [Sanal makinenizde Azure kaynakları için yönetilen kimlik Yapılandır](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
+3. [Bir kaynak grubu Kaynak Yöneticisi'nde, VM erişim](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)
+4. [Sanal makinenin sistem tarafından atanan yönetilen kimlik kullanarak bir erişim belirteci alma] (.. / active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
+5. [Windows karma Runbook çalışanı yükleme](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) sanal makinede.
+
+Yukarıdaki adımlar tamamlandıktan sonra kullanabileceğiniz `Connect-AzureRmAccount -Identity` Azure kaynaklarında kimlik doğrulaması için runbook. Bu farklı çalıştır hesabı yararlanın ve farklı çalıştır hesabının sertifika süresi yönetme ihtiyacını azaltır.
+
+```powershell
+# Connect to Azure using the Managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
+Connect-AzureRmAccount -Identity
+
+# Get all VM names from the subscription
+Get-AzureRmVm | Select Name
+```
 
 ### <a name="automation-run-as-account"></a>Otomasyon farklı çalıştır hesabı
 

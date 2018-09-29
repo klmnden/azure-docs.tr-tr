@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 63ea7e384f9bc5713a41f6c5537ec5548810e5d9
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b5b3a96991a2150e553af01e3fda73e04116d7fb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42061738"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452420"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB için Power BI öğretici: Power BI Bağlayıcısı'nı kullanarak verileri Görselleştir
 [PowerBI.com](https://powerbi.microsoft.com/) burada oluşturmak ve paylaşmak için kullanabileceğiniz panolar ve raporlar, siz ve kuruluşunuz için önemli olan verilerle çevrimiçi bir hizmettir.  Power BI Desktop, yazma, çeşitli veri kaynaklarından veri almak, birleştirmek ve veri dönüştürme, güçlü raporlar ve görselleştirmeler oluşturma ve raporları Power BI'da Yayımla sağlayan aracı adanmış bir rapordur.  Power BI Desktop'ın en son sürümüyle artık Azure Cosmos DB bağlayıcısı aracılığıyla Azure Cosmos DB hesabınız için Power BI bağlanabilirsiniz.   
@@ -34,7 +34,7 @@ Bu Power BI öğreticiyi tamamladıktan sonra aşağıdaki soruları yanıtlamak
 > Azure Cosmos DB için Power BI Bağlayıcısı, ayıklama ve veri dönüştürme için Power BI Desktop için bağlanır. Power BI Desktop'ta oluşturulan raporlar için Powerbı.com yayımlayabilirsiniz. Powerbı.com'da doğrudan ayıklama ve Azure Cosmos DB veri dönüştürme gerçekleştirilemiyor. 
 
 > [!NOTE]
-> Power BI Bağlayıcısı ile Azure Cosmos DB'ye bağlanma, şu anda Azure Cosmos DB SQL ve yalnızca MongoDB API'si hesapları için desteklenir. Azure Cosmos DB MongoDB API'sini kullanarak Power BI'a bağlamak için kullanmalısınız [Simba MongoDB ODBC sürücüsü](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
+> Power BI Bağlayıcısı ile Azure Cosmos DB'ye bağlanmanın şu anda, Azure Cosmos DB SQL API ve yalnızca Gremlin API hesapları için desteklenir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Power BI öğreticideki yönergeleri izlemeden önce aşağıdaki kaynaklara erişimi olduğundan emin olun:

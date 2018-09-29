@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 09-05-2018
-ms.openlocfilehash: 75e493f6b2e47bf3323df9e52ad3a933a6efbead
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 065ac0855fc47b23b434287f9f4406bd641f01ae
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058342"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454490"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme
 
@@ -21,20 +21,21 @@ Ayrılmış VM örneği satın alabileceğiniz [Azure portalında](https://porta
 - Kurumsal abonelikler için rezervasyon satın alma işlemleri içinde etkinleştirilmelidir [EA portal](https://ea.azure.com).
 - Bulut çözümü sağlayıcısı (CSP) programı için yalnızca yönetim aracıları veya satış aracılarının rezervasyon satın alabilirsiniz.
 
-## <a name="determine-the-right-vm-size-before-purchase"></a>Satın almadan önce doğru VM boyutunu belirler
+## <a name="determine-the-right-vm-size-before-you-buy"></a>Satın almadan önce doğru VM boyutunu belirler.
 
-Kullanım verileri ölçüm alt kategorisi ve ürün alanlarını premium Depolama'yı kullanma premium depolama VM boyutlarını kullanma VM boyutları arasında ayırt etmek değil, VM belirlemek için bu alanı kullanarak rezervasyon satın alma için boyutu için yanlış açabilir Rezervasyon satın alın ve ayırma indirimler sağlar değil. Rezervasyon satın alma için doğru VM boyutunu belirlemek için aşağıdaki yöntemlerden birini kullanın.
+Kullanım verileri ölçüm alt kategorisi ve ürün alanlarına olmayan Vm'leri premium depolama kullanma VM boyutları arasında ayrım yoktur. Ayırma için kullanılacak VM boyutunu belirlemek için bu alanları kullanmak, boyutu hatalı satın alabilir ve beklediğiniz ayırma indirimi vermeyecektir. Ayırma satın aldığınızda, doğru VM boyutunu belirlemek için aşağıdaki yöntemlerden birini kullanın:
 
-- Kullanım dosyanız veya rezervasyon satın alma için doğru VM boyutunu belirlemek için kullanım API'si Additionalınfo alanına bakın. Bu alanlar bir VM S ve S olmayan sürümleri arasında ayrım yapmaz beri ölçüm alt kategorisi veya ürün alanlarındaki değerleri kullanmayın.
-- Powershell, Azure Resource Manager kullanarak doğru VM boyutunu bilgilerini de alabilirsiniz veya Azure portalında sanal makineden ayrıntıları.
+- Kullanım dosyanız veya doğru VM boyutunu belirlemek için kullanım API'si Additionalınfo alanına bakın. Ölçüm alt kategorisi veya ürün alanlarındaki değerleri kullanmayın. Bu alanlar, bir VM S ve S olmayan sürümleri arasında ayırt yok.
+- PowerShell, Azure Resource Manager kullanarak doğru VM boyutu bilgileri veya Azure portalında sanal makineden ayrıntıları.
 
 Ayrılmış VM örnekleri, bazı özel durumlar ile çoğu VM boyutları için kullanılabilir:
 
-- Klasik VM'ler ve bulut Hizmetleri, ayırma indirimini alma yok.
-- Gizlenen çekirdek VM ayırma indirimler elde etmezsiniz.
-- Aşağıdaki VM serisi ayırma indirimleri seçimlerde: A serisi, Av2 serisi veya G serisi.
-- Vm'leri önizlemede: herhangi bir VM serisi veya Önizleme aşamasında olan boyutu rezervasyon satın alma için kullanılabilir değildir.
-- Bulut: Rezervasyon satın alma Azure ABD kamu, Almanya ve Çin bölgelerinde kullanılamaz.
+- Ayırma indirimi, aşağıdaki sanal makineleri için geçerli değildir:
+  - Klasik VM'ler ve bulut Hizmetleri
+  - Kısıtlanmış vCPU boyutları
+  - VM serisi: A serisi, Av2 serisi veya G serisi
+  - Vm'leri önizlemede: herhangi bir VM serisi veya Önizleme aşamasında olan boyutu
+- Bulut: Rezervasyon satın Azure ABD kamu, Almanya ve Çin bölgelerinde kullanılamaz.
 - Yetersiz kota: tek bir abonelik için kapsamlı bir ayırma vCPU kotası Abonelikteki yeni RI için kullanılabilir olmalıdır. Örneğin, hedef abonelik, kota sınırı 10 vcpu için D serisi varsa, 11 işler için standart_d1 örnekleri için bir ayırma satın alamazsınız. Ayırmalar için kota denetimi, abonelikte dağıtılmış Vm'leri içerir. Örneğin, abonelik için D serisi 10 Vcpu kotası varsa ve dağıtılan iki işler için standart_d1 örneği ise, bu Abonelikteki 10 işler için standart_d1 örnekleri için bir ayırma satın alabilirsiniz. 
 - Kapasite kısıtlamaları: nadir durumlarda, bir bölgede yetersiz kapasite nedeniyle VM boyutlarının alt kümesi için yeni rezervasyon satın Azure sınırlar.
 

@@ -9,26 +9,26 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7e27b5117f5f0ea98916ecfefcbb0dac9323e1d9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a71e867bd23cf64b2ac7fc8cd1c54c55d92ce924
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181771"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431797"
 ---
 # <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-## <a name="what-is-project-acoustics"></a>Proje akustik nedir?
+## <a name="what-is-project-acoustics"></a>Project Acoustics nedir?
 
-Proje akustik Unity eklentisi ses wave davranışı önce çalışma zamanı statik aydınlatma yakındır hesaplayan bir akustik sistemidir. Çalışma zamanı CPU maliyeti düşük olacak şekilde cloud wave fizik tasarım zamanında kaynaklanan ağır yüklerden yapar.  
+Proje akustik Unity eklentisi ses wave davranışı önce çalışma zamanı statik aydınlatma yakındır hesaplayan bir akustik sistemidir. Çalışma zamanı CPU maliyeti düşük olacak şekilde cloud wave kaynaklanan ağır yüklerden fizik hesaplamalar yapar.  
 
 ## <a name="where-can-i-download-the-plugin"></a>Eklenti nereden indirebilirim?
 
-Akustik eklentisi değerlendirmede ilgileniyorsanız kaydetme [burada](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) Tasarımcısı önizlemeye katılmak için.
+Akustik eklentisini değerlendirmek istiyorsanız [buraya](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) tıklayarak Tasarımcı Önizlemesine katılabilirsiniz.
 
 ## <a name="is-azure-used-at-runtime"></a>Azure, çalışma zamanında kullanılır?
 
-Hayır, bulut tümleştirmesi yalnızca tasarım zamanında precompute aşaması sırasında kullanılır.
+Hayır, bulut tümleştirmesi yalnızca precompute aşamasında Sahne kurulumunun bir parçası kullanılır.
  
 ## <a name="what-is-simulation-input"></a>Benzetim giriş nedir? 
 

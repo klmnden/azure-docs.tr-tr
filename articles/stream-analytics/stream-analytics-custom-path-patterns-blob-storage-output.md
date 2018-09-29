@@ -8,18 +8,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6945e31825af46628c0945cdf579382b20bdcd68
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414569"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452573"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Azure Stream Analytics için özel bir tarih/saat yol desenleri blob depolama çıkışı (Önizleme)
 
 Azure Stream Analytics, blob depolama çıkış dosya yolunda özel tarih ve saat biçim tanımlayıcılarının destekler. Özel DateTime yol desenleri, Azure Stream Analytics, Azure HDInsight ve Azure Databricks için aşağı yönde işleme e veri göndermek üzere olanağı sağlayabilir, Hive akışı kuralları ile eşleşen bir çıktı biçimi belirtmenizi sağlar. Özel DateTime yol desenleri, kullanarak kolayca uygulanır `datetime` , biçim belirteci ile birlikte çıkış BLOB yolu ön eki alanındaki anahtar sözcük. Örneğin, `{datetime:yyyy}`.
 
-Bu bağlantı için kullanmak [Azure portalı](https://ms.portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) özel DateTime yol desenleri için blob depolama Çıktı Önizleme sağlayan bir özellik bayrağını değiştirilecek. Bu özellik, ana Portalı'nda kısa süre içinde etkinleştirilecektir.
+Bu bağlantı için kullanmak [Azure portalı](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) özel DateTime yol desenleri için blob depolama Çıktı Önizleme sağlayan bir özellik bayrağını değiştirilecek. Bu özellik, ana Portalı'nda kısa süre içinde etkinleştirilecektir.
 
 ## <a name="supported-tokens"></a>Desteklenen belirteçler
 

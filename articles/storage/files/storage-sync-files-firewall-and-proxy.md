@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: b32f388974f03ece206ae4eaece39f1a242d31e2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 25bec4bdbae5b206d23fa300f139f55f86b8167e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408553"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434390"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
 Azure dosya eşitleme, şirket içi sunucularınızı Azure çok siteli eşitleme ve bulut katmanlaması özellikleri etkinleştirme dosyaları'na bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlanması gerekir. Bir BT yöneticisi Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
@@ -100,7 +100,7 @@ Aşağıdaki tabloda iletişim için gereken etki alanları açıklanmaktadır:
 | **Azure Active Directory** | https://graph.windows.net/ | Azure dosya eşitleme dağıtımı bir parçası olarak, aboneliğin Azure Active Directory'de Hizmet sorumlusu oluşturulur. Bu URL için kullanılır. Bu asıl hakları Azure dosya eşitleme hizmeti için en az bir dizi için temsilci seçme için kullanılır. Azure dosya eşitleme'nin ilk kurulum gerçekleştiren kullanıcı kimliği doğrulanmış bir kullanıcı abonelik sahibi ayrıcalıklara sahip olması gerekir. |
 | **Azure Depolama** | &ast;. core.windows.net | Sunucu bir dosya yüklediğinde, ardından sunucu, veri taşıma daha verimli bir şekilde doğrudan depolama hesabındaki Azure dosya paylaşımına konuşurken gerçekleştirir. Sunucuda yalnızca için hedeflenen dosya paylaşımına erişim veren bir SAS anahtarı var. |
 | **Azure dosya eşitleme** | &ast;.one.microsoft.com | İlk sunucu kayıt sonrasında sunucu bu bölgede Azure dosya eşitleme hizmeti örneği için bölgesel bir URL alır. Sunucu URL'sini doğrudan ve verimli bir şekilde eşitlendiğini işleme örneğiyle iletişim kurmak için kullanabilirsiniz. |
-| **Microsoft PKI** | http://www.microsoft.com/pki/mscorp  http://ocsp.msocsp.com | Azure dosya eşitleme Aracısı yüklendikten sonra PKI URL'si Azure dosya eşitleme hizmeti ile iletişim kurmak için gereken Ara sertifikaları yüklemek için kullanılır. OCSP URL'si bir sertifika durumunu denetlemek için kullanılır. |
+| **Microsoft PKI** | http://www.microsoft.com/pki/mscorp  http://ocsp.msocsp.com | Azure dosya eşitleme Aracısı yüklendikten sonra PKI URL'si Azure dosya paylaşımı ve Azure dosya eşitleme hizmeti ile iletişim kurmak için gereken Ara sertifikaları yüklemek için kullanılır. OCSP URL'si bir sertifika durumunu denetlemek için kullanılır. |
 
 > [!Important]
 > Trafiğe izin verirken &ast;. one.microsoft.com, daha fazlasını eşitleme hizmeti trafiğini sunucudan mümkün. Alt etki alanları altında kullanılabilen pek çok daha fazla Microsoft hizmetleri vardır.

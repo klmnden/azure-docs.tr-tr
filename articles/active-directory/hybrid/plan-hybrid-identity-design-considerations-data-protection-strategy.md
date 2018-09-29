@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 7999dc15fbe1af9d23b47971db03cf6b197f110f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a3cbbf887c4b7df57f2df89dfb8649967d6d9b1b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312112"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434764"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için veri koruma stratejisini tanımlayın
 Bu görevde, tanımladığınız iş gereksinimlerini karşılamak, karma kimlik çözümü için veri koruma stratejisi tanımlarsınız:
@@ -58,8 +58,6 @@ Nasıl sorulara verdiğiniz yanıtlara bağlı olarak [veri koruma gereksinimler
 
 ## <a name="define-content-management-options"></a>İçerik yönetimi seçeneklerini tanımlayın
 
-<a name="one-advantage-of-using-azure-ad-to-manage-a-hybrid-identity-infrastructure-is-that-the-process-is-fully-transparent-from-the-end-users-perspective-the-user-tries-to-access-a-shared-resource-the-resource-requires-authentication-the-user-has-to-send-an-authentication-request-to-azure-ad-in-order-to-obtain-the-token-and-access-the-resource-this-entire-process-happens-in-the-background-without-user-interaction"></a>Karma kimlik altyapısını yönetmek için Azure AD kullanarak bir avantajı işlemi son kullanıcı açısından tamamen saydamdır olmasıdır. Kullanıcı paylaşılan bir kaynağa erişmeyi denediğinde, kaynak kimlik doğrulaması gerektiriyor, kullanıcının belirteç edinme ve kaynağa erişmek için Azure AD kimlik doğrulama isteği gönderilecek. Bu işlemi, kullanıcı etkileşimi olmadan arka planda gerçekleşir. 
-=======
 Karma kimlik altyapısını yönetmek için Azure AD kullanarak bir avantajı işlemi son kullanıcı açısından tamamen saydamdır olmasıdır. Kullanıcı paylaşılan bir kaynağa erişmeyi denediğinde, kaynak kimlik doğrulaması gerektiriyor, kullanıcının belirteç edinme ve kaynağa erişmek için Azure AD kimlik doğrulama isteği gönderilecek. Bu işlemi, kullanıcı etkileşimi olmadan arka planda gerçekleşir. 
 
 Genellikle veri gizliliği ile ilgili önemli olan kuruluşlar, veri sınıflandırması için çözüm gerektirir. Geçerli şirket içi altyapılarını veri sınıflandırması kullanıyorsa, Azure AD ana depoya kullanıcının kimlik için kullanılacak mümkündür. Veri sınıflandırması çağrılır şirket içinde olduğundan emin ortak bir araç [veri sınıflandırma Araç Seti](https://msdn.microsoft.com/library/Hh204743.aspx) Windows Server 2012 R2 için. Bu araç tanımlamasına, sınıflandırmasına ve özel bulutunuzda dosya sunucularındaki verileri korumaya yardımcı olabilir. Kullanmak da mümkündür [otomatik dosya sınıflandırmasını](https://technet.microsoft.com/library/hh831672.aspx) bu görevi gerçekleştirmek için Windows Server 2012'de.

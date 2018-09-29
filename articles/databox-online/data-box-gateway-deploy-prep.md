@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: f4c3cf5329c10cda3691370e946b8397662a8d66
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c21245e05625f65b6b5dcf5f7081f5f5d1abb52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953421"
+ms.locfileid: "47030617"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Öğretici: Azure Data Box Gateway (Önizleme) dağıtımına hazırlanma
 
@@ -59,7 +59,7 @@ Artık Azure portalını ayarlamaya başlayabilirsiniz.
 
 Burada Data Box Gateway kaynağınız, Data Box Gateway cihazınız ve veri merkezi ağı için yapılandırma önkoşullarını bulabilirsiniz.
 
-### <a name="for-the-data-box-gateway-resource"></a>Box Gateway kaynağı için
+### <a name="for-the-data-box-gateway-resource"></a>Data Box Gateway kaynağı için
 
 Başlamadan önce aşağıdakilerden emin olun:
 
@@ -89,7 +89,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 ## <a name="create-a-new-resource"></a>Yeni kaynak oluşturma
 
-Data Box Gateway kaynağının tek örneği birden çok Data Box Gateway sanal cihazını yönetebilir. Aşağıdaki adımları izleyerek yeni bir Data Box Gateway kaynağı oluşturun. 
+Aşağıdaki adımları izleyerek yeni bir Data Box Gateway kaynağı oluşturun. 
 
 Sanal cihazlarınızı yönetmek için bir Data Box Gateway kaynağınız varsa, bu adımı atlayın ve [Etkinleştirme anahtarını alma](#get-the-activation-key) bölümüne gidin.
 
@@ -170,7 +170,7 @@ Data Box Gateway'inize sanal makine sağlamayı öğrenmek için sonraki öğret
 > [!div class="nextstepaction"]
 > [Data Box Gateway'i Hyper-V'de sağlama](./data-box-gateway-deploy-provision-hyperv.md)
 
-VEYA
+OR
 
 > [!div class="nextstepaction"]
 > [Data Box Gateway'i VMware'de sağlama](./data-box-gateway-deploy-provision-vmware.md)

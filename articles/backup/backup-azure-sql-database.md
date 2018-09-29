@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433575"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434254"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>SQL Server veritabanlarını Azure'a yedekleme
 
@@ -823,6 +823,10 @@ Tam yedekleme tetikleyin. Günlük yedeklemeler beklendiği gibi başlayın.
 ### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>SQL Always On kullanılabilirlik birincil çoğaltmaya şirket içi olduğu grupları koruyabilirim
 
 Hayır. Azure Backup, Azure'da çalışan SQL sunucuları korur. Bir kullanılabilirlik grubu (ağ), Azure ve şirket içi makineler arasında yayılır, yalnızca birincil çoğaltma Azure'da çalışıyorsa AG korunabilir. Ayrıca, Azure Backup yalnızca kurtarma Hizmetleri kasasıyla aynı Azure bölgesinde çalışan düğümleri korur.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>SQL Always On kullanılabilirlik hangi Azure bölgeleri arasında yayılır grupları koruyabilirim
+Azure Backup kurtarma Hizmetleri kasası, algılayın ve kurtarma Hizmetleri kasasıyla aynı bölgede olan tüm düğümleri koruyun. Birden fazla Azure bölgesini kapsayan bir SQL her zaman üzerinde kullanılabilirlik grubu varsa, birincil düğüm olan bölgeden yedeklemeyi yapılandırmak gerekir. Azure yedekleme, algılamak ve yedekleme tercihi göre kullanılabilirlik grubundaki tüm veritabanlarını korumak mümkün olacaktır. Yedekleme tercihi karşılanmazsa, yedeklemeler başarısız olur ve hata uyarısı alırsınız.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

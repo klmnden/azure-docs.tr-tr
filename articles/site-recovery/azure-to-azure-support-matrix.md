@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 5cf795b85e295488a04e95dbabcee46134361495
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0e9c5c7ebaaa0a51d723340751e8ea82bfb96b5e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222481"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433676"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -107,6 +107,7 @@ Debian 8 | 9.16 | 3.16.0-4-AMD64 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 4.9.0-0.bpo
 
 **Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
+SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.19 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.93-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.80-default için</br></br>SP3 4.4.73-5-default 4.4.140-94.42-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.18 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.93-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.80-default için</br></br>SP3 4.4.73-5-default 4.4.138-94.39-default için |
 SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.17 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.88-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default 4.4.126-94.22-default için |
 

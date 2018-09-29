@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: aa14563966e028716d8e18c3228f026af983561f
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 56df09f461458071093088159d3b468755b0e4ad
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024118"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434951"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Durumda Dolaşımı etkinleştirme
 Kurumsal durumda dolaşım, tüm kuruluşa bir Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı ile kullanılabilir. Azure AD aboneliğiniz alma hakkında daha fazla bilgi için bkz. [Azure AD'ye ürün sayfası](https://azure.microsoft.com/services/active-directory).
@@ -45,9 +45,9 @@ Bir veya daha fazla veri Kurumsal durumda Dolaşım barındırılan [Azure bölg
 
 Ülke/bölge değeri | kendi veri barındırılan
 ---------------------|-------------------------
-"Fransa" veya "Zambiya" gibi bir EMEA ülke | bir veya Avrupa içinde Azure bölgeleri 
-"ABD" veya "Kanada" gibi bir Kuzey Amerika ülkesi | bir veya daha fazla ABD içindeki Azure bölgeler
-"Avustralya" veya "Yeni Zelanda" gibi bir APAC ülke | bir veya daha fazla Azure bölgeleri içinde Asya
+Fransa veya Zambiya gibi bir EMEA ülke | Bir veya daha fazla Avrupa içinde Azure bölgeleri 
+ABD veya Kanada gibi Kuzey Amerika ülke | bir veya daha fazla ABD içindeki Azure bölgeler
+Avustralya veya Yeni Zelanda'da gibi bir APAC ülke | bir veya daha fazla Azure bölgeleri içinde Asya
 Güney Amerika ve Antarktika bölgeler | ABD içindeki bir veya daha fazla Azure bölgeleri
 
 Ülke/bölge değeri, Azure AD dizin oluşturma işleminin bir parçası olarak ayarlanır ve daha sonra değiştirilemez. Bir bileti, veri depolama konumu ile ilgili daha fazla ayrıntı gerekiyorsa, [Azure Destek](https://azure.microsoft.com/support/options/).

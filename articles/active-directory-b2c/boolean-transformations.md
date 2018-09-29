@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b1e56e9126b1dd93ed790da1526b64c49524149d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c6e9337fb5e336c506fc43e13eeb7fdbfaf636a7
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381658"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432571"
 ---
 # <a name="boolean-claims-transformations"></a>Boole talep dönüştürmeleri
 
@@ -125,7 +125,7 @@ Bir boolean Inputclaim değil işlemi gerçekleştirir ve işlemin sonucu ile ou
 Mantıksal olumsuzlaştırma üzerinde bir talep için talep dönüştürmeyi bu kullanın.
 
 ```XML
-<ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
+<ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
   <OutputClaims>

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 278f21713712e346648553642adf0d072c9f1b98
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fbb57753117f3c60010fe910616b8d0af5178360
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063430"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434832"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure automation'da Azure PowerShell modüllerini güncelleştirme
 
@@ -29,10 +29,13 @@ Modüller düzenli olarak ürün grubu tarafından güncelleştirildiğinden, de
 
 1. Otomasyon hesabınızın modülleri sayfasında adlı bir seçenek yoktur **Azure modüllerini güncelleştirme**. Her zaman etkindir.<br><br> ![Modüller sayfasında seçenek Azure modüllerini güncelleştir](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-2. Tıklayın **Azure modüllerini güncelleştirme**, devam etmek isteyip istemediğinizi soran bir onay bildirimi gösterilir.<br><br> ![Bildirim Azure modüllerini güncelleştir](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+  > [!NOTE]
+  > Bir test emin olmak için Otomasyon hesabı güncelleştirmeniz önerilir, Azure modülleri güncelleştirmeden önce mevcut komut dosyalarınızı Azure modüllerinizi güncelleştirmeden önce beklendiği gibi çalışır.
+  >
+  > **Azure modüllerini güncelleştirme** düğmesi kullanılabilir yalnızca genel bulutta. Mevcut değildir [bağımsız bölgeler](https://azure.microsoft.com/global-infrastructure/). Lütfen bkz [modüllerinizi güncelleştirmesi için alternatif yöntemler](#alternative-ways-to-update-your-modules) bölümü daha fazla bilgi edinin.
 
-   > [!NOTE]
-   > **Azure modüllerini güncelleştirme** düğmesi kullanılabilir yalnızca genel bulutta. Mevcut değildir [bağımsız bölgeler](https://azure.microsoft.com/global-infrastructure/).
+
+2. Tıklayın **Azure modüllerini güncelleştirme**, devam etmek isteyip istemediğinizi soran bir onay bildirimi gösterilir.<br><br> ![Bildirim Azure modüllerini güncelleştir](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
 3. Tıklayın **Evet** ve modül güncelleştirme işlemi başlar. Güncelleştirme işlemi aşağıdaki modüllerini güncelleştirmek için yaklaşık 15-20 dakika alır:
 
@@ -53,6 +56,16 @@ Modüller düzenli olarak ürün grubu tarafından güncelleştirildiğinden, de
 > Yeni bir zamanlanmış iş çalıştırıldığında azure Otomasyonu, Otomasyon hesabınızda en son modüllerini kullanır.  
 
 Bu Azure PowerShell modülleri cmdlet'leri, runbook'ları kullanırsanız, her ay bu güncelleştirme işlemini çalıştırmak için veya bu nedenle en son modülleri sahip olduğunuzdan emin olmak için istiyorsunuz. Azure Otomasyonu kullanır, hizmet sorumlusu süresi doldu veya abonelik düzeyi, modül güncelleştirme artık modülleri güncelleştirirken kimliğini doğrulamak için AzureRunAsConnection bağlantısı başarısız olur.
+
+## <a name="alternative-ways-to-update-your-modules"></a>Modüllerinizi güncelleştirmesi için alternatif yöntemler
+
+Belirtildiği gibi **Azure modüllerini güncelleştirme** düğmesi kullanılamıyorsa bağımsız bulutlarda da, yalnızca Azure genel bulutunda kullanılabilir. Azure PowerShell modülleri PowerShell Galerisi'nden en son sürümünü şu anda bu bulutlara dağıtılan Resource Manager Hizmetleri ile çalışmayabilir Bunun nedeni, budur.
+
+Modülleri güncelleştirme hala yapılabilir içeri aktararak [güncelleştirme AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook Otomasyon hesabınızı ve çalışır.
+
+Kullanım `AzureRmEnvironment` parametresini kullanarak doğru ortamı runbook'una geçirebilirsiniz.  Kabul edilebilir değerler **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, ve **AzureUSGovernmentCloud**. Bu parametre için bir değer geçirmezseniz runbook, Azure ortak bulutuna varsayılacaktır **AzureCloud**.
+
+Belirli bir Azure PowerShell modülü sürüm yerine en son kullanılabilir PowerShell galerisinde kullanmak istiyorsanız, bu sürümleri için isteğe bağlı geçirmek `ModuleVersionOverrides` parametresinin **güncelleştirme AzureModule** runbook. Örnekler için bkz [güncelleştirme AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook. İçinde belirtilmeyen azure PowerShell modüllerini `ModuleVersionOverrides` parametresi ve PowerShell Galerisi'ndeki son modülü sürümleriyle güncelleştirilir. Hiçbir şey gönderilirse `ModuleVersionOverrides` parametresi, tüm modülleri en son modülü PowerShell Galerisi sürümlerinde güncelleştirilir davranışını olduğu **Azure modüllerini güncelleştirme** düğmesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

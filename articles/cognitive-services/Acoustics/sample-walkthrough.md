@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: e0c28645de8c45aaf89afb6b5116aa9a3cb04768
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: eaf7ff9f7f791fd6d04e6b76d256b4987c50cd13
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227512"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434101"
 ---
 # <a name="unity-sample-walkthrough"></a>Unity için izlenecek örnek yol
 Proje akustik örnek bir kılavuz budur. Hangi proje akustik hakkında daha fazla bilgi için kullanıma [proje akustik giriş](what-is-acoustics.md). Önceden varolan bir Unity proje için proje akustik paket ekleme daha fazla yardım almak için kullanın [Başlarken kılavuzunda](getting-started.md).
@@ -29,13 +29,13 @@ Proje akustik örnek bir kılavuz budur. Hangi proje akustik hakkında daha fazl
 İndirme ve içeri aktarma **MicrosoftAcoustics.Sample.unitypackage**. İçeri aktarma işlemi sırasında proje ayarları dahil olmak üzere **Spatializer** ve **Scripting çalışma zamanı sürümü** eklenti kişinin gereksinimlerini karşılamak için güncelleştirildi. Bu tamamlandığında Unity konsolundan bir hata göreceğiniz **AcousticsGeometry.cs** Scripting çalışma zamanı sürümüne değiştirme hakkında **.NET 4.x eşdeğer**. Bu ayarları değiştirme paketini içeri aktarma işleminin bir parçası olarak gerçekleştirilir, ancak etkili olması için Unity yeniden başlatılması gerekiyor. Unity şimdi yeniden başlatın.
 
 ## <a name="running-the-sample"></a>Örneği çalıştırma
-Örnek Tanıtım sahnesi içerir **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Bu Sahne kayan bir küp yürütmeyi bir tek spatialized ses kaynağı yok (adlı **AudioHolder** içinde **hiyerarşi**). Genel gezinti betik yardımcı olmak için CameraHolder nesne alt ana kamera öğesidir. 
+Örnek Tanıtım sahnesi içerir **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Bu görünüm, üç ses kaynağı yok. Varsayılan olarak yalnızca bir ses kaynak yürütülüyor ve diğer iki duraklatılabilir. Bunlar altında bulunan **ses kaynakları** içinde **hiyerarşi**. Genel gezinti betik yardımcı olmak için CameraHolder nesne alt ana kamera öğesidir. 
 
 ![Hiyerarşi görünümü](media/SampleHierarchyView.png)
 
 Sahneye önceden desteklenmiş ve bir ACE dosyası ile ilişkili **MicrosoftAcoustics** içinde prefab **hiyerarşi**. 
 
-Unity editor denetimindeki yürütme düğmesine tıklayarak Sahne nasıl ses için dinleyin. Kullanım W, A, S, D ve fareyi hareket etmek için. Sahne ve akustik olmadan nasıl sesleri karşılaştırmak için farenin sol düğmesine veya birincil denetleyici düğmesine tıklayın. Çeşitli ses kaynakları arasında geçiş yapmak için sağ fare düğmesine veya denetleyicinizde geri düğmesine tıklayın.
+Unity editor denetimindeki yürütme düğmesine tıklayarak Sahne nasıl ses için dinleyin. Masaüstünde kullanın W, A, S, D ve fareyi hareket etmek için. Sahne ve akustik olmadan nasıl sesleri karşılaştırmak için basın **R** katmana metin kırmızıya döner ve diyor kadar düğmesini "Akustik: devre dışı bırakıldı." Daha fazla denetimlerin klavye kısayollarını görmek için basın **F1**. Tüm denetimleri de gerçekleştirmek için bir eylem seçmek için sağ tıklayarak sonra eylemi gerçekleştirmek için sol tıklayarak kendisini adamıştır.
 
 ## <a name="targeting-other-platforms"></a>Diğer platformları hedefleme
 Örnek, Windows Masaüstü, UWP, Windows karma gerçeklik, Android ve Oculus Git üzerinde çalıştırmak için ayarları içerir. Varsayılan olarak, projeyi Windows Masaüstü için yapılandırılır. VR platformunu hedeflemek için player ayarlarına gidin (**Düzenle > Proje Ayarları > Player**), bulma **XR ayarları**ve denetleyin **sanal gerçeklik desteklenen** onay kutusu.

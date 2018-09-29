@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/06/2018
+ms.date: 09/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0a6c9d4ad27eb6dc6b0aba24f32a4a0dfde3c784
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: db2d7fbe395a6d7e332d79183a331b45f7767f51
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163327"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434073"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>SAP HANA altyapısı yapılandırmaları ve işlemleri Azure üzerinde
 Bu belge, Azure altyapı yapılandırma ve işletim dağıtılan Azure yerel sanal makinelerinde (VM'ler) SAP HANA sistemleri için yönergeler sağlar. Belge ayrıca SAP HANA ölçeklendirme M128s VM SKU için yapılandırma bilgilerini içerir. Bu belge aşağıdaki içeriği için standart bir SAP belgelerindeki değiştirin yönelik değildir:
@@ -168,6 +168,8 @@ Daha küçük bir VM ile 3 x P20 oversize birimleri ayarına göre alan önerile
 Farklı önerilen birimler için depolama verimliliğini çalıştırmak istediğiniz iş yükünü sağlayıp sağlamadığını kontrol edin. İş yükü için daha yüksek birimleri gerektiriyorsa **/hana/veri** ve **/hana/günlük**, Azure Premium depolama VHD'leri sayısını artırmanız gerekir. Listelenen çok daha fazla VHD ile bir birimi boyutlandırma, Azure sanal makine türünü sınırları dahilinde IOPS ve g/ç aktarım hızı artar. 
 
 
+
+
 #### <a name="storage-solution-with-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Azure yazma Hızlandırıcı Azure M serisi sanal makineler için depolama çözümü
 Azure yazma Hızlandırıcı M serisi VM'ler için özel olarak kullanıma bir işlevdir. Adını belirten gibi Azure Premium Depolama'ya yönelik yazma işlemlerinin g/ç gecikme işlevselliğini amacı artırmaktır. SAP HANA için yazma Hızlandırıcı karşı kullanılmak üzere beklenen **/hana/günlük** yalnızca birim. Bu nedenle şu ana kadar gösterilen yapılandırmaları değiştirilmesi gerekir. Paketlerdeki arasında ana değişikliktir **/hana/veri** ve **/hana/günlük** karşı Azure yazma Hızlandırıcı kullanmak için **/hana/günlük** yalnızca birim. 
 
@@ -203,7 +205,9 @@ Makalesinde Azure yazma Hızlandırıcı etkinleştirme hakkında daha ayrıntı
 
 Ayrıntıları ve kısıtlamaları Azure yazma Hızlandırıcı için aynı belgelerinde bulunabilir.
 
-
+> [!NOTE]
+> Belirtilen disk yapılandırması önerileri SAP altyapısını sağlayıcıları ifade en düşük gereksinimler hedeflediğiniz. Gerçek müşteri dağıtımları ve iş yükü senaryoları, burada bu önerileri yine de yeterli özellikleri sağlamadı durumlarda karşılaşıldı. Bunlar burada bir müşteri HANA yeniden başlatmadan sonra verileri daha hızlı bir şekilde yeniden yüklenmesi gereken durumlar olabilir veya burada depolama yapılandırmaları gerekli daha yüksek bant yedekleme. Dahil edilen diğer durumlarda **/hana/günlük** burada 5000 IOPS belirli iş yükü için yeterli değil. Bu nedenle bu önerileri bir başlangıç olarak işaret ve uyum Al iş yükü gereksinimlerine göre.
+>  
 
 ### <a name="set-up-azure-virtual-networks"></a>Azure sanal ağları ayarlama
 VPN veya ExpressRoute aracılığıyla azure'a siteden siteye bağlantı varsa, VPN veya ExpressRoute bağlantı hattına sanal ağ geçidi üzerinden bağlı en az bir Azure sanal ağınızın olması gerekir. Basit dağıtımlarda, sanal ağ geçidi, SAP HANA örnekleri de barındıran Azure sanal ağı (VNet) bir alt ağ içinde dağıtılabilir. SAP HANA yüklemek için Azure sanal ağ içindeki iki ek alt ağlar oluşturun. Bir alt ağ, SAP HANA örnekleri çalıştırmak için sanal makineleri barındırır. Diğer alt ağı, sıçrama kutusu veya yönetim Vm'leri SAP HANA Studio, diğer yönetim yazılımı veya uygulama yazılımınızı barındırmak için çalışır.
@@ -359,7 +363,7 @@ Bu Kurulum yordamı yüklediğiniz genişletme yapılandırma gittiğini çalı�
 
 ## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>SAP HANA dinamik katmanlama 2.0 için Azure sanal makineleri
 
-M serisi Azure sanal makineler'de SAP HANA sertifikaları yanı sıra SAP HANA dinamik katmanlama 2.0 ayrıca Microsoft Azure üzerinde desteklenir (SAP HANA dinamik katmanlama belgeleri linsk bkz birazcık daha indiğimde). Ürünü yüklemek veya bu işletim herhangi bir fark olsa da, örneğin, SAP HANA Kokpit içinde bir Azure sanal makinesi aracılığıyla azure'da resmi destek için zorunlu olan birkaç önemli öğe yok. Aşağıdaki önemli noktalara aşağıda açıklanmıştır. Makale boyunca kısaltması "DT 2.0" dinamik katmanlama 2.0 tam adı yerine kullanılacaktır.
+M serisi Azure sanal makineler'de SAP HANA sertifikaları yanı sıra SAP HANA dinamik katmanlama 2.0 ayrıca Microsoft Azure üzerinde desteklenir (SAP HANA dinamik katmanlama belgelerine bağlantılar aşağıya bakın). Ürünü yüklemek veya bu işletim herhangi bir fark olsa da, örneğin, SAP HANA Kokpit içinde bir Azure sanal makinesi aracılığıyla azure'da resmi destek için zorunlu olan birkaç önemli öğe yok. Aşağıdaki önemli noktalara aşağıda açıklanmıştır. Makale boyunca kısaltması "DT 2.0" dinamik katmanlama 2.0 tam adı yerine kullanılacaktır.
 
 SAP HANA dinamik katmanlama 2.0, SAP BW veya S4HANA tarafından desteklenmiyor. Ana kullanım örnekleri şu anda yerel HANA uygulamalardır.
 
@@ -490,4 +494,4 @@ Sıçrama kutusu VM'niz değil, ayrı bir sanal makinede SAProuter yüklediğini
 Ayarlama ve SAProuter aracılığıyla uzak destek bağlantıları hakkında daha fazla bilgi için bkz. [SAP belgelerindeki](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Yerel Azure sanal makineler'de SAP HANA ile yüksek kullanılabilirlik
-SUSE Linux 12 SP1 çalıştırıyorsanız veya daha sonra STONITH cihazlarla Pacemaker küme kurup olur. Cihazlar, HANA sistem çoğaltması ve otomatik yük devretme ile zaman uyumlu çoğaltma kullanan bir SAP HANA yapılandırması ayarlamak için kullanabilirsiniz. Kurulum yordamı hakkında daha fazla bilgi için bkz: [Azure sanal makineleri için SAP HANA yüksek kullanılabilirlik Kılavuzu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+SUSE Linux Enterprise Server SAP uygulamaları 12 SP1 veya üzeri işletim sistemini kullanıyorsanız STONITH cihazlarla Pacemaker kümesi oluşturabilirsiniz. Cihazlar, HANA sistem çoğaltması ve otomatik yük devretme ile zaman uyumlu çoğaltma kullanan bir SAP HANA yapılandırması ayarlamak için kullanabilirsiniz. Kurulum yordamı hakkında daha fazla bilgi için bkz: [Azure sanal makineleri için SAP HANA yüksek kullanılabilirlik Kılavuzu](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

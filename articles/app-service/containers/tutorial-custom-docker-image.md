@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 161207b96deb2f7bd605d845a9207393f9f59c23
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 517926a3c78e9c95a9ecef9ae058c33e47566adb
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444751"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432620"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma
 
@@ -559,4 +559,4 @@ Komut aşağıdaki JSON dizesine benzer, yapılandırma değişikliğinin başar
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Azure'da Docker Python ve PostgreSQL web uygulaması oluşturma](tutorial-docker-python-postgresql-app.md)
+> [Azure'da Docker Python ve PostgreSQL web uygulaması oluşturma](tutorial-python-postgresql-app.md)

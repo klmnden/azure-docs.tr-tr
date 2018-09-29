@@ -3,18 +3,18 @@ title: Language Understanding (LUIS) - Azure Bilişsel Hizmetler | Microsoft Doc
 description: Language Understanding (LUIS), genel anlamı tahmin etmek ve ilgili, ayrıntılı bilgileri çekme amacıyla kullanıcının konuşmasına, doğal dil metnine özel makine öğrenimi zekası uygulayan bulut tabanlı API hizmetidir. LUIS için istemci uygulaması, bir görevi tamamlamak için kullanıcıyla doğal dil kullanarak iletişim kuran konuşma uygulamasıdır. İstemci uygulamalarına örnek olarak sosyal medya uygulamaları, sohbet botları ve konuşma özellikli masaüstü uygulamaları verilebilir.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
 ms.date: 08/15/2018
 ms.author: diberry
-ms.openlocfilehash: aadf80df388a25e07051f6dd0a83cd4da7c2ef83
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a8e9deb7c677d04634b223045adc2d31fa74ba6e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629806"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033048"
 ---
 # <a name="what-is-language-understanding-luis"></a>Language Understanding (LUIS) nedir?
 

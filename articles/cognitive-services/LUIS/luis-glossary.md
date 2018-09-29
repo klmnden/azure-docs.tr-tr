@@ -10,23 +10,23 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 4e14c666401d5e494d924889a8bba957be232c12
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a741cb1c2643e48080018e5c9f4ada7038bce29e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036839"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434815"
 ---
 # <a name="glossary"></a>Sözlük
 LUIS API'si hizmeti ile çalışırken, Language Understanding (LUIS), koşulları sözlüğü açıklar karşılaşabilirsiniz.
 
 ## <a name="active-version"></a>Etkin sürümü
 
-Etkin LUIS sürüm model değişiklikleri alan sürümdür. İçinde [LUIS](luis-reference-regions.md) Web sitesi, etkin bir sürüm değil bir sürüm olarak yapmanız gerekiyorsa, önce o sürümü etkin olarak ayarlanacak. 
+Etkin LUIS sürüm model değişiklikleri alan sürümdür. İçinde [LUIS](luis-reference-regions.md) Web sitesi, etkin bir sürüm değil bir sürüm olarak yapmanız gerekiyorsa, önce o sürümü etkin olarak ayarlanacak.
 
 ## <a name="authoring"></a>Yazma
 
-Yazımı yolunda oluşturma, yönetme ve dağıtma olanağı bir [LUIS uygulaması](#luis-app), ya da [LUIS](luis-reference-regions.md) Web sitesi veya [yazma API'leri](https://aka.ms/luis-authoring-api). 
+Yazımı yolunda oluşturma, yönetme ve dağıtma olanağı bir [LUIS uygulaması](#luis-app), ya da [LUIS](luis-reference-regions.md) Web sitesi veya [yazma API'leri](https://aka.ms/luis-authoring-api).
 
 ## <a name="authoring-key"></a>Anahtar yazma
 
@@ -70,7 +70,7 @@ Aynı [etkin sürümü](#active-version)
 
 ## <a name="domain"></a>Etki alanı
 
-LUIS bağlamında bir **etki alanı** bilgi alanıdır. Etki alanınız, Bilgi Bankası uygulama bölgesine özeldir. Bu, seyahat aracı uygulaması gibi genel bir alan olabilir. Bir seyahat aracı uygulaması belirli alanlara yalnızca belirli coğrafi konumlar, diller ve Hizmetleri gibi şirketinizin bilgi olabilir. 
+LUIS bağlamında bir **etki alanı** bilgi alanıdır. Etki alanınız, Bilgi Bankası uygulama bölgesine özeldir. Bu, seyahat aracı uygulaması gibi genel bir alan olabilir. Bir seyahat aracı uygulaması belirli alanlara yalnızca belirli coğrafi konumlar, diller ve Hizmetleri gibi şirketinizin bilgi olabilir.
 
 ## <a name="endpoint"></a>Uç noktası
 
@@ -90,7 +90,7 @@ LUIS bağlamında bir **etki alanı** bilgi alanıdır. Etki alanınız, Bilgi B
 
 ## <a name="entity"></a>Varlık
 
-[Varlıkları](luis-concept-entity-types.md) önemli sözcüklerdir [konuşma](luis-concept-utterance.md) ilgili bilgileri açıklayan [hedefi](luis-concept-intent.md), ve bazen için gerekli olan. Veri türü LUIS, aslında bir varlıktır. 
+[Varlıkları](luis-concept-entity-types.md) önemli sözcüklerdir [konuşma](luis-concept-utterance.md) ilgili bilgileri açıklayan [hedefi](luis-concept-intent.md), ve bazen için gerekli olan. Veri türü LUIS, aslında bir varlıktır.
 
 ## <a name="f-measure"></a>F ölçümü
 
@@ -114,7 +114,7 @@ Bir [hedefi](luis-concept-intent.md) bir görev veya eylem gerçekleştirmek ist
 
 ## <a name="labeling"></a>Etiketleme
 
-Bir sözcük veya tümcecik bir amaç'ın içinde ilişkilendirme işlemi olduğundan etiketleme [utterance](#utterance) ile bir [varlık](#entity) (veri türü). 
+Bir sözcük veya tümcecik bir amaç'ın içinde ilişkilendirme işlemi olduğundan etiketleme [utterance](#utterance) ile bir [varlık](#entity) (veri türü).
 
 ## <a name="luis-app"></a>LUIS uygulaması
 
@@ -125,26 +125,26 @@ Bir LUIS uygulaması için doğal dil işleme dahil olmak üzere bir eğitilen v
 Her uygulamanın, uygulamayı oluşturan kişi olan bir sahip vardır. Sahibi ekleyebilir [ortak çalışanlar](#collaborator).
 
 ## <a name="pattern"></a>Desenleri
-Önceki deseni özelliği ile değiştirilir [desenleri](luis-concept-patterns.md). Desenler, daha az eğitim örnekleri sağlayarak tahmin doğruluğunu artırmak için kullanın. 
+Önceki deseni özelliği ile değiştirilir [desenleri](luis-concept-patterns.md). Desenler, daha az eğitim örnekleri sağlayarak tahmin doğruluğunu artırmak için kullanın.
 
 ## <a name="phrase-list"></a>İfade listesi
 
-A [tümcecik listesi](luis-concept-feature.md#what-is-a-phrase-list-feature) aynı sınıfa ait benzer şekilde (örneğin, şehirler ya da ürün adlarını) işlenmesi gereken değerleri (sözcük ve tümcecikleri) bir grup içerir. Değiştirilebilir bir listesi, eş anlamlı sözcükler kabul edilir. 
+A [tümcecik listesi](luis-concept-feature.md#what-is-a-phrase-list-feature) aynı sınıfa ait benzer şekilde (örneğin, şehirler ya da ürün adlarını) işlenmesi gereken değerleri (sözcük ve tümcecikleri) bir grup içerir. Değiştirilebilir bir listesi, eş anlamlı sözcükler kabul edilir.
 
 ## <a name="prebuilt-domains"></a>Önceden oluşturulmuş etki alanı
 
-A [önceden oluşturulmuş etki alanı](luis-how-to-use-prebuilt-domains.md) ev Otomasyonu (HomeAutomation) ya da Restoran ayırmalar (RestaurantReservation) gibi belirli bir etki alanı için yapılandırılmış bir LUIS uygulaması. Hedefleri, konuşma ve varlıklar, bu etki alanı için yapılandırılır. 
+A [önceden oluşturulmuş etki alanı](luis-how-to-use-prebuilt-domains.md) ev Otomasyonu (HomeAutomation) ya da Restoran ayırmalar (RestaurantReservation) gibi belirli bir etki alanı için yapılandırılmış bir LUIS uygulaması. Hedefleri, konuşma ve varlıklar, bu etki alanı için yapılandırılır.
 
 ## <a name="prebuilt-entity"></a>Önceden oluşturulmuş varlık
 
-A [önceden oluşturulmuş varlık](luis-prebuilt-entities.md) LUIS, genel türleri sayısı, URL ve e-posta gibi bilgileri sağlayan bir varlıktır. Uygulamanız için önceden oluşturulmuş bir varlık eklemek seçin. 
+A [önceden oluşturulmuş varlık](luis-prebuilt-entities.md) LUIS, genel türleri sayısı, URL ve e-posta gibi bilgileri sağlayan bir varlıktır. Uygulamanız için önceden oluşturulmuş bir varlık eklemek seçin.
 
 ## <a name="precision"></a>Duyarlık
 İçinde [toplu test](luis-interactive-test.md#batch-testing), duyarlık (pozitif Tahmine dayalı olarak da bilinir) olan alınan konuşma arasında ilgili konuşma bölümü.
 
 ## <a name="programmatic-key"></a>Programlı anahtarı
 
-Olarak yeniden adlandırıldı [anahtar yazma](#authoring-key). 
+Olarak yeniden adlandırıldı [anahtar yazma](#authoring-key).
 
 ## <a name="publish"></a>Yayımlama
 
@@ -152,24 +152,24 @@ Bir LUIS yapma anlamına gelir yayımlama [etkin sürüm](#active-version) hazı
 
 ## <a name="quota"></a>Kota
 
-LUIS kotası ise SORUMLULUĞUN [Azure aboneliği katmanı](https://aka.ms/luis-price-tier). Her iki istek / saniye (HTTP durum 429) ve toplam istek (HTTP durum 403) ayda LUIS kota sınırlı olabilir. 
+LUIS kotası ise SORUMLULUĞUN [Azure aboneliği katmanı](https://aka.ms/luis-price-tier). Her iki istek / saniye (HTTP durum 429) ve toplam istek (HTTP durum 403) ayda LUIS kota sınırlı olabilir.
 
 ## <a name="recall"></a>Geri çağırma
-İçinde [toplu test](luis-interactive-test.md#batch-testing), geri çağırma (duyarlılık da bilinir), genelleştirmek LUIS olanağıdır. 
+İçinde [toplu test](luis-interactive-test.md#batch-testing), geri çağırma (duyarlılık da bilinir), genelleştirmek LUIS olanağıdır.
 
 ## <a name="semantic-dictionary"></a>Anlam sözlüğü
 İfade listesi sayfası yanı sıra listesi varlık sayfası üzerinde bir anlam sözlük sağlanır. Anlam sözlük bir kelimelerin geçerli kapsamda önerileri sağlar.
 
 ## <a name="sentiment-analysis"></a>Yaklaşım analizi
-Yaklaşım analizi pozitif veya negatif değerleri tarafından sağlanan bir konuşma sağlayan [metin analizi](https://azure.microsoft.com/services/cognitive-services/text-analytics/). 
+Yaklaşım analizi pozitif veya negatif değerleri tarafından sağlanan bir konuşma sağlayan [metin analizi](https://azure.microsoft.com/services/cognitive-services/text-analytics/).
 
 ## <a name="speech-priming"></a>Konuşma Hazırlama işlemi
 
-Konuşma Hazırlama işlemi aracılığıyla LUIS modelinize primed, konuşma hizmeti sağlar. 
+Konuşma Hazırlama işlemi aracılığıyla LUIS modelinize primed, konuşma hizmeti sağlar.
 
 ## <a name="spelling-correction"></a>Yazım denetimi
 
-Bing yazım denetleyicisi önce tahmin uzunluğu yanlış yazılan sözcükleri düzeltmek etkinleştirin. 
+Bing yazım denetleyicisi önce tahmin uzunluğu yanlış yazılan sözcükleri düzeltmek etkinleştirin.
 
 ## <a name="starter-key"></a>Başlangıç anahtarı
 
@@ -177,7 +177,7 @@ Aynı [programlı anahtarı](#programmatic-key), yazma anahtarı olarak yeniden 
 
 ## <a name="subscription-key"></a>Abonelik anahtarı
 
-Abonelik anahtarı **uç nokta** LUIS hizmeti ile ilişkilendirilen anahtar [Azure'da oluşturduğunuz](luis-how-to-azure-subscription.md). Bu anahtarı değil [anahtar yazma](#programmatic-key). Bir uç noktası anahtarı varsa, tüm uç nokta istekleri yazma anahtarı yerine kullanılmalıdır. Uç nokta URL'SİNİN sonuna içinde geçerli uç nokta anahtarınızı görebilirsiniz [ **anahtarları ve uç noktaları** sayfa](luis-how-to-manage-keys.md) içinde [LUIS](luis-reference-regions.md) Web sitesi. Bu değeri **abonelik anahtarı** ad/değer çifti. 
+Abonelik anahtarı **uç nokta** LUIS hizmeti ile ilişkilendirilen anahtar [Azure'da oluşturduğunuz](luis-how-to-azure-subscription.md). Bu anahtarı değil [anahtar yazma](#programmatic-key). Bir uç noktası anahtarı varsa, tüm uç nokta istekleri yazma anahtarı yerine kullanılmalıdır. Uç nokta URL'SİNİN sonuna içinde geçerli uç nokta anahtarınızı görebilirsiniz [ **anahtarları ve uç noktaları** sayfa](luis-how-to-manage-keys.md) içinde [LUIS](luis-reference-regions.md) Web sitesi. Bu değeri **abonelik anahtarı** ad/değer çifti.
 
 ## <a name="test"></a>Test
 
@@ -185,12 +185,12 @@ Abonelik anahtarı **uç nokta** LUIS hizmeti ile ilişkilendirilen anahtar [Azu
 
 ## <a name="timezoneoffset"></a>Saat dilimi uzaklığı
 
-Uç nokta timezoneOffset içerir. Bu ekleyin veya datetimeV2 kaldırmak istediğiniz dakika sayısıdır önceden oluşturulmuş varlık. Utterance Örneğin, "ne zaman artık sağlıyor?", döndürülen datetimeV2 istemci isteği için geçerli zaman ise. Bir bot veya botunuzun ait kullanıcı ile aynı değil başka bir uygulama, istemci istek geliyorsa, bot ve kullanıcı uzaklığı geçmelidir. 
+Uç nokta timezoneOffset içerir. Bu ekleyin veya datetimeV2 kaldırmak istediğiniz dakika sayısıdır önceden oluşturulmuş varlık. Utterance Örneğin, "ne zaman artık sağlıyor?", döndürülen datetimeV2 istemci isteği için geçerli zaman ise. Bir bot veya botunuzun ait kullanıcı ile aynı değil başka bir uygulama, istemci istek geliyorsa, bot ve kullanıcı uzaklığı geçmelidir.
 
 Bkz: [önceden oluşturulmuş datetimeV2 varlığın saat dilimini değiştirme](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
 ## <a name="token"></a>Belirteç
-Bir belirteç varlık etiketli en küçük birimdir. Simgeleştirme uygulamanın üzerinde temel [kültür](luis-supported-languages.md#tokenization).
+Bir belirteç varlık etiketli en küçük birimdir. Simgeleştirme uygulamanın üzerinde temel [kültür](luis-language-support.md#tokenization).
 
 ## <a name="train"></a>Eğitme
 
@@ -206,7 +206,7 @@ Eğitim olan herhangi bir değişiklik hakkında LUIS eğitiminde işleminin [et
 
 ## <a name="utterance"></a>Utterance
 
-Bir utterance, "Seattle sonraki Salı kitap 2 bilet" gibi doğal dil bir terimdir. Örnek konuşma ıntent'e eklenir. 
+Bir utterance, "Seattle sonraki Salı kitap 2 bilet" gibi doğal dil bir terimdir. Örnek konuşma ıntent'e eklenir.
 
 ## <a name="version"></a>Sürüm
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: patricka
-ms.openlocfilehash: 0a10662e359379356ecc8d82af1b7d6331c41a65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0c49a895a3cd214bb6f9c88b5365cf980c60bf0a
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720064"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451780"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack'te çok kiracılılık
 
@@ -101,7 +101,8 @@ Register-AzSWithMyDirectoryTenant `
 > Azure Stack yöneticinize yeni hizmetlerin veya güncelleştirmelerin gelecekte yüklerse, bu komut dosyasını yeniden çalıştırmanız gerekebilir.
 >
 > Bu betik dizininizdeki Azure Stack uygulamalarının durumunu denetlemek için dilediğiniz zaman yeniden çalıştırın.
-
+> 
+> Yeni bir yönetilen disklerde (1808 güncelleştirmeyle getirilen), VM'ler oluşturma konusunda sorun fark etmiş varsa **Disk kaynak sağlayıcısı** , tekrar çalıştırmak için bu betiği gerektiren eklendi.
 
 ### <a name="activate-the-administrator-and-tenant-portals"></a>Yönetici ve Kiracı portalları etkinleştirme
 Azure AD kullanan dağıtımlar sonra Azure Stack yönetici ve Kiracı portalı etkinleştirmeniz gerekir. Bu etkinleştirme Azure Stack portal ve Azure Resource Manager (onay sayfasında listelenmiştir) doğru tüm kullanıcılar için izinleri dizinin vermenizi toplanmasına onay verir.

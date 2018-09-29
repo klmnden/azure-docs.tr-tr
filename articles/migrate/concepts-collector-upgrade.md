@@ -4,24 +4,24 @@ description: Azure geçiş toplayıcısı adlı Gereci için yükseltme hakkınd
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 09/28/2018
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: b6552714326c51c7e1ed0cbda124b68b7faa159b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 6080096194ec5b11f1d5593fcbb6732d1551667f
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180487"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431401"
 ---
-# <a name="collector-appliance-upgrades"></a>Toplayıcı Gereci yükseltmeleri
+# <a name="collector-update-release-history"></a>Toplayıcı güncelleştirme sürüm geçmişi
 
 Bu makalede, Toplayıcı Gereci için yükseltme bilgileri özetler [Azure geçişi](migrate-overview.md).
 
 Azure geçişi toplayıcısı bir şirket içi vCenter ortam azure'a geçiş işleminden önce değerlendirme amaçları için keşfetmek için hafif bir gereçtir. [Daha fazla bilgi edinin](concepts-collector.md).
 
 
-## <a name="upgrade-versions"></a>Sürüm yükseltme
+## <a name="one-time-discovery-upgrade-versions"></a>Tek seferlik: sürüm yükseltme
 
 ### <a name="version-10914"></a>Sürüm 1.0.9.14
 
@@ -63,6 +63,9 @@ MD5 | 01ccd6bc0281f63f2a672952a2a25363
 SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
 SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
+## <a name="continuous-discovery-upgrade-versions"></a>Sürekli bulma: sürüm yükseltme
+
+Henüz hiç yükseltme sürekli bulma Gereci için kullanılabilir.
 
 ## <a name="run-an-upgrade"></a>Bir yükseltmeyi çalıştırma
 

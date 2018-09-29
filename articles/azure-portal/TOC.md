@@ -1,7 +1,5 @@
 # Genel Bakış
 ## [Azure portal hakkında](../azure-portal-overview.md)
-# Öğreticiler
-## [Azure portal ile DevOps](tutorial-azureportal-devops.md)
 # Kavramlar
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Klavye kısayolları](azure-portal-keyboard-shortcuts.md)

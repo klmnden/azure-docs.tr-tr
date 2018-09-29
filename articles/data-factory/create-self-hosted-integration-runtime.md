@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e22d26850114162c6dbd38797071120d388ac6b0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 379dd0efb0c40cbab6e356f011938d3e6116117e
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162279"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434203"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration Runtime (IR) Azure Data Factory tarafından farklı ağ ortamları veri tümleştirme özellikleri sağlamak için kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -32,7 +32,7 @@ Bu belgenin nasıl oluşturabileceğinizi ve şirket içinde barındırılan IR 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
-2. Şirket içinde barındırılan tümleştirme çalışma zamanını (yerel makine) yükleyip yeniden açın.
+2. [İndirme](https://www.microsoft.com/download/details.aspx?id=39717) ve şirket içinde barındırılan tümleştirme çalışma zamanını (yerel makine) yükleyin.
 3. Kimlik doğrulama anahtarı almak ve şirket içinde barındırılan tümleştirme çalışma zamanı anahtarı ile kaydedin. PowerShell örneği aşağıda verilmiştir:
 
     ```powershell
@@ -95,7 +95,7 @@ Kendinden konak IR ile kopyalama için adımların özeti için üst düzey veri
 9. Azure PowerShell kullanarak kimlik doğrulama anahtarını alın. PowerShell örneği, kimlik doğrulama anahtarı almak için:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. Üzerinde **Integration Runtime (şirket içinde barındırılan) Kaydet** sayfa Microsoft tümleştirme çalışma zamanı yapılandırma makinenizde çalışan Yöneticisi, aşağıdaki adımları uygulayın:
     1. Yapıştırma **kimlik doğrulama anahtarı** metin alanında.

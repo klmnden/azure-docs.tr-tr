@@ -3,7 +3,7 @@ title: Windows için Azure özel betik uzantısı | Microsoft Docs
 description: Özel betik uzantısı'nı kullanarak Windows VM yapılandırma görevlerini otomatikleştirme
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: roiyz
-ms.openlocfilehash: 40f9e8ec394385691f74d021829ca2366f480717
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 1201e7ec232a5bd45351072949dc0b9c19af434f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377658"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452182"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows için özel betik uzantısı
 

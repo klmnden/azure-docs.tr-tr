@@ -1,9 +1,9 @@
 ---
-title: Azure dağıtım sonrası görevleri OpenShift | Microsoft Docs
-description: Bir OpenShift küme dağıtıldıktan sonra ek görevleri için.
+title: Dağıtım sonrası görevleri Azure üzerinde OpenShift | Microsoft Docs
+description: Bir OpenShift kümesi dağıtıldıktan sonra ek görevler için.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
+author: haroldwongms
 manager: najoshi
 editor: ''
 tags: azure-resource-manager
@@ -15,42 +15,42 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bdfd075b9438ee12e940f3ec4fddebf467c93ca8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d400512c2e96e0e24bbf965b2e201adf92ccbb0f
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796168"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434900"
 ---
 # <a name="post-deployment-tasks"></a>Dağıtım sonrası görevler
 
-OpenShift küme dağıttıktan sonra ek öğelere yapılandırabilirsiniz. Bu makalede aşağıdakileri kapsar:
+OpenShift küme dağıtıldıktan sonra ek öğelerini yapılandırabilirsiniz. Bu makalede, aşağıdakileri içerir:
 
 - Azure Active Directory (Azure AD) kullanarak çoklu oturum açmayı yapılandırma
-- Günlük analizi OpenShift izlemek için yapılandırma
-- Ölçümleri ve günlük nasıl yapılandırılır?
+- OpenShift izlemek için log Analytics'i yapılandırma
+- Ölçümler ve günlüğe kaydetme yapılandırma
 
-## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Azure Active Directory kullanarak çoklu oturum açmayı yapılandırın
+## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak çoklu oturum açmayı yapılandırın
 
-Azure Active Directory kimlik doğrulaması için kullanmak için önce bir Azure AD uygulama kaydı oluşturmanız gerekir. Bu işlemi iki adımdan oluşur: uygulama kaydı oluşturma ve izinleri yapılandırma.
+Azure Active Directory kimlik doğrulaması için kullanmak için önce bir Azure AD uygulama kaydı oluşturmanız gerekir. Bu işlem iki adımdan oluşur: uygulama kaydı oluşturma ve izinlerini yapılandırma.
 
-### <a name="create-an-app-registration"></a>Bir uygulama kaydı oluşturun
+### <a name="create-an-app-registration"></a>Bir uygulama kaydı oluşturma
 
-Uygulama kaydı ve izinleri ayarlamak için GUI (portal) oluşturmak için Azure CLI bu adımları kullanın. Uygulama kaydı oluşturmak için aşağıdaki beş parça bilgi gerekir:
+Bu adımlar, uygulama kaydı ve izinler ayarlamak üzere GUI (portal) oluşturmak için Azure CLI'yı kullanın. Uygulama kaydı oluşturmak için şu beş bilgilere ihtiyacınız vardır:
 
-- Görünen ad: uygulama kayıt adı (örneğin, OCPAzureAD)
-- Giriş sayfası: OpenShift konsol URL (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Tanımlayıcı URI: OpenShift Konsolu URL'si (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Yanıt URL'si: genel URL ve uygulama kayıt adı (örneğin, ana https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- Görünen ad: uygulama kaydı adı (örneğin, OCPAzureAD)
+- Giriş sayfası: OpenShift konsol URL'si (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Tanımlayıcı URI'si: OpenShift Konsolu URL'si (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Yanıt URL'si: genel URL ve uygulama kayıt adı (örneğin, ana https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Parola: Güvenli parola (güçlü bir parola kullanın)
 
 Aşağıdaki örnek, önceki bilgileri kullanarak bir uygulama kaydı oluşturur:
 
 ```azurecli
-az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
 ```
 
-Komut başarılı olursa, JSON çıktısını benzer alın:
+Komut başarılı olursa, bir JSON çıkışı benzer alın:
 
 ```json
 {
@@ -65,38 +65,38 @@ Komut başarılı olursa, JSON çıktısını benzer alın:
   "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
   "objectType": "Application",
   "replyUrls": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD"
   ]
 }
 ```
 
-Komut için bir sonraki adımda döndürülen AppID özelliği not edin.
+Sonraki adım için komuttan döndürülen AppID özelliğini not edin.
 
 Azure portalında:
 
 1.  Seçin **Azure Active Directory** > **uygulama kaydı**.
 2.  Uygulama kaydınızı (örneğin, OCPAzureAD) arayın.
-3.  Sonuçlarda uygulama kaydı'nı tıklatın.
-4.  Altında **ayarları**seçin **gerekli izinleri**.
+3.  Sonuçlarda uygulama kaydını tıklayın.
+4.  Altında **ayarları**seçin **gerekli izinler**.
 5.  Altında **gerekli izinler**seçin **Ekle**.
 
   ![Uygulama kaydı](media/openshift-post-deployment/app-registration.png)
 
-6.  Adım 1'i tıklatın: API seçin ve ardından **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Tıklatın **seçin** altındaki.
+6.  1. Adım'a tıklayın: API seçin ve ardından **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Tıklayın **seçin** altındaki.
 
-  ![Uygulama kayıt API seçimi](media/openshift-post-deployment/app-registration-select-api.png)
+  ![Uygulama kaydı API seçimi](media/openshift-post-deployment/app-registration-select-api.png)
 
-7.  Üzerinde Adım 2: İzinleri seçin, **oturum açın ve kullanıcı profilini okuma** altında **izinlere temsilci**ve ardından **seçin**.
+7.  Üzerinde Adım 2: İzinleri seçin, **oturum açın ve kullanıcı profilini okuma** altında **Temsilcili izinler**ve ardından **seçin**.
 
   ![Uygulama kaydı erişim](media/openshift-post-deployment/app-registration-access.png)
 
-8.  Seçin **Bitti**.
+8.  **Done** (Bitti) öğesini seçin.
 
-### <a name="configure-openshift-for-azure-ad-authentication"></a>OpenShift Azure AD kimlik doğrulaması için yapılandırma
+### <a name="configure-openshift-for-azure-ad-authentication"></a>OpenShift Azure AD kimlik doğrulamasını yapılandırma
 
-Azure AD kimlik doğrulama sağlayıcısı olarak kullanmak üzere OpenShift yapılandırmak için tüm ana düğümlerinde /etc/origin/master/master-config.yaml dosya düzenlenmesi gerekir.
+OpenShift bir kimlik doğrulama sağlayıcısı olarak Azure AD'yi kullanacak şekilde yapılandırmak için tüm ana düğümler üzerinde /etc/origin/master/master-config.yaml dosyasının düzenlenmesi gerekir.
 
-Aşağıdaki CLI komutu kullanarak Kiracı Kimliğini bulun:
+Aşağıdaki CLI komutunu kullanarak Kiracı Kimliğini bulun:
 
 ```azurecli
 az account show
@@ -146,9 +146,9 @@ oauthConfig:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Aşağıdaki CLI komutu kullanarak Kiracı Kimliğini bulun: ```az account show```
+Aşağıdaki CLI komutunu kullanarak Kiracı Kimliğini bulun: ```az account show```
 
-Tüm ana düğümlerde OpenShift Yöneticisi hizmetlerini yeniden başlatın:
+Tüm ana düğüm üzerinde OpenShift Yöneticisi hizmetlerini yeniden başlatın:
 
 **OpenShift Origin**
 
@@ -157,26 +157,26 @@ sudo systemctl restart origin-master-api
 sudo systemctl restart origin-master-controllers
 ```
 
-**Birden çok asıl ile OpenShift kapsayıcı Platform (OCP)**
+**Birden çok ana sunucu ile OpenShift kapsayıcı Platformu (OCP)**
 
 ```bash
 sudo systemctl restart atomic-openshift-master-api
 sudo systemctl restart atomic-openshift-master-controllers
 ```
 
-**Tek bir ana OpenShift kapsayıcı platformu**
+**Tek bir ana şablon ile OpenShift kapsayıcı platformu**
 
 ```bash
 sudo systemctl restart atomic-openshift-master
 ```
 
-OpenShift konsolunda, artık kimlik doğrulaması için iki seçenek görürsünüz: htpasswd_auth ve [uygulama kayıt].
+OpenShift konsolunda, artık kimlik doğrulaması için iki seçenek görürsünüz: htpasswd_auth ve [uygulama kaydı].
 
-## <a name="monitor-openshift-with-log-analytics"></a>Günlük analizi ile İzleyici OpenShift
+## <a name="monitor-openshift-with-log-analytics"></a>Log Analytics ile izleme OpenShift
 
-Günlük analizi ile OpenShift izlemek için iki seçenekten birini kullanabilirsiniz: VM konağı veya OMS kapsayıcı OMS Aracısı yükleme. Bu makalede OMS kapsayıcıyı dağıtmak için yönergeler sağlar.
+Log Analytics ile OpenShift izlemek için iki seçenekten birini kullanabilirsiniz: VM konağı veya OMS kapsayıcısı OMS Aracısı yükleme. Bu makalede, OMS kapsayıcısı dağıtmak için yönergeler sağlar.
 
-## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Günlük analizi için bir OpenShift projesi oluşturun ve kullanıcı erişimini ayarlama
+## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Log Analytics için OpenShift proje oluşturma ve kullanıcı erişimini ayarlama
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -186,7 +186,7 @@ oadm policy add-cluster-role-to-user cluster-reader system:serviceaccount:omslog
 oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent
 ```
 
-## <a name="create-a-daemon-set-yaml-file"></a>Bir arka plan programı kümesi yaml dosyası oluşturma
+## <a name="create-a-daemon-set-yaml-file"></a>Arka plan programı kümesi yaml dosyası oluşturma
 
 Ocp adlı bir dosya oluşturun-omsagent.yml:
 
@@ -245,9 +245,9 @@ spec:
 
 ## <a name="create-a-secret-yaml-file"></a>Gizli yaml dosyası oluşturma
 
-Gizli yaml dosyası oluşturmak için iki parça bilgi gerekir: günlük analizi çalışma alanı kimliği ve günlük analizi çalışma alanı paylaşılan anahtarı. 
+Gizli yaml dosyası oluşturmak için iki parça bilgi gerekir: Log Analytics çalışma alanı Kimliğiniz ve Log Analytics çalışma alanı paylaşılan anahtarı. 
 
-Bir örnek ocp-secret.yml dosyası aşağıdaki gibidir: 
+Örnek ocp-secret.yml dosyası aşağıdaki gibidir: 
 
 ```yaml
 apiVersion: v1
@@ -259,7 +259,7 @@ data:
   KEY: key_data
 ```
 
-Günlük analizi çalışma alanı kimliği Değiştir wsid_data Base64 ile kodlanmış Ardından key_data Base64 ile kodlanmış günlük analizi çalışma alanı paylaşılan anahtarı ile değiştirin.
+Log Analytics çalışma alanı kimliği Değiştir wsid_data Base64 ile kodlanmış Ardından key_data Base64 ile kodlanmış Log Analytics çalışma alanı paylaşılan anahtarı ile değiştirin.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'
@@ -268,9 +268,9 @@ echo $wsid_data | base64 | tr -d '\n'
 echo $key_data | base64 | tr -d '\n'
 ```
 
-## <a name="create-the-secret-and-daemon-set"></a>Gizli anahtar ve arka plan programı kümesi oluşturma
+## <a name="create-the-secret-and-daemon-set"></a>Gizli dizi ve arka plan programı kümesi oluşturma
 
-Gizli dosya dağıtın:
+Gizli dizi dosyasını dağıtın:
 
 ```bash
 oc create -f ocp-secret.yml
@@ -282,15 +282,15 @@ OMS Aracısı arka plan programı kümesi dağıtın:
 oc create -f ocp-omsagent.yml
 ```
 
-## <a name="configure-metrics-and-logging"></a>Ölçümleri ve günlük yapılandırın
+## <a name="configure-metrics-and-logging"></a>Ölçümler ve günlüğe kaydetme yapılandırın
 
-OpenShift kapsayıcı Platform için Azure Resource Manager şablonu ölçümlerini etkinleştirme ve günlüğe kaydetme için giriş parametreleri sağlar. OpenShift kapsayıcı Platform Market teklifi ve OpenShift kaynak Resource Manager şablonu yoktur.
+OpenShift kapsayıcı platformu için Azure Resource Manager şablonu ölçümlerini etkinleştirme ve günlüğe kaydetme için giriş parametrelerini sağlar. OpenShift kapsayıcı platformu Market teklifi ve OpenShift Origin Resource Manager şablonu yoktur.
 
-OCP Resource Manager şablonu ve ölçümleri kullanılan ve yükleme sırasında günlük kaydı etkin doğru ya da OCP Market teklifi kullandıysanız, kolayca olabilir, bu olgu sonra etkinleştirin. OpenShift kaynak Resource Manager şablonunu kullanıyorsanız, bazı ön iş gereklidir.
+OCP Market teklifi kullandıysanız, kolayca olabilir ve günlüğe kaydetme, yükleme sırasında etkin olmayan veya OCP Resource Manager şablonunu ve ölçümleri kullandıysanız bu çözümledikten sonra etkinleştirin. OpenShift Origin Resource Manager şablonu kullanıyorsanız, bazı öncesi iş gereklidir.
 
-### <a name="openshift-origin-template-pre-work"></a>OpenShift kaynak şablonu öncesi çalışma
+### <a name="openshift-origin-template-pre-work"></a>OpenShift Origin şablonu ön çalışma
 
-1. SSH bağlantı noktası 2200 kullanarak ilk ana düğümü.
+1. SSH bağlantı noktası 2200'ı kullanarak ilk ana düğüme.
 
    Örnek:
 
@@ -298,7 +298,7 @@ OCP Resource Manager şablonu ve ölçümleri kullanılan ve yükleme sırasınd
    ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
    ```
 
-2. /Etc/ansible/hosts dosyasını düzenleyin ve kimlik sağlayıcısı bölümü (# etkinleştirmek HTPasswdPasswordIdentityProvider) sonra aşağıdaki satırları ekleyin:
+2. /Etc/ansible/hosts dosyasını düzenleyin ve (# etkinleştirme HTPasswdPasswordIdentityProvider) kimlik sağlayıcısı bölümünden sonra aşağıdaki satırları ekleyin:
 
    ```yaml
    # Setup metrics
@@ -320,11 +320,11 @@ OCP Resource Manager şablonu ve ölçümleri kullanılan ve yükleme sırasınd
    openshift_master_logging_public_url=https://kibana.$ROUTING
    ```
 
-3. $ROUTING aynı /etc/ansible/hosts dosyasındaki openshift_master_default_subdomain seçeneği için kullanılan dizesiyle değiştirin.
+3. $ROUTING aynı /etc/ansible/hosts dosyasındaki openshift_master_default_subdomain seçeneği kullanılacak dizeyle değiştirin.
 
-### <a name="azure-cloud-provider-in-use"></a>Azure bulut sağlayıcısı kullanılıyor
+### <a name="azure-cloud-provider-in-use"></a>Azure bulut sağlayıcısı kullanın
 
-İlk ana düğüm (kaynak) veya savunma düğümü (OCP), dağıtım sırasında sağladığınız kimlik bilgilerini kullanarak SSH. Aşağıdaki komutu yürütün:
+İlk ana düğüm (kaynak) veya savunma düğümü (OCP), dağıtım sırasında sağlanan kimlik bilgileri kullanarak SSH. Aşağıdaki komutu yürütün:
 
 ```bash
 ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -336,9 +336,9 @@ ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshi
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-### <a name="azure-cloud-provider-not-in-use"></a>Azure bulut sağlayıcısı kullanılmadığı
+### <a name="azure-cloud-provider-not-in-use"></a>Azure bulut sağlayıcısı kullanımda
 
-İlk ana düğüm (kaynak) veya savunma düğümü (OCP), dağıtım sırasında sağladığınız kimlik bilgilerini kullanarak SSH. Aşağıdaki komutu yürütün:
+İlk ana düğüm (kaynak) veya savunma düğümü (OCP), dağıtım sırasında sağlanan kimlik bilgileri kullanarak SSH. Aşağıdaki komutu yürütün:
 
 ```bash
 ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -350,5 +350,5 @@ ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [OpenShift kapsayıcı Platform ile çalışmaya başlama](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
+- [OpenShift kapsayıcı platformu ile çalışmaya başlama](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
 - [OpenShift Origin kullanmaya başlama](https://docs.openshift.org/latest/getting_started/index.html)

@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544286"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433710"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Otomasyonu farklı çalıştır hesaplarını yönetme
 
 Farklı Çalıştır hesapları Azure Otomasyonu'nda Azure cmdlet'lerini ile Azure kaynaklarını yönetmek için kimlik doğrulaması sağlamak için kullanılır.
 
-Bir farklı çalıştır hesabı oluşturduğunuzda, Azure Active Directory'de yeni bir hizmet sorumlusu kullanıcısı oluşturur ve bu kullanıcıya abonelik düzeyinde katılımcı rolü atar.
+Bir farklı çalıştır hesabı oluşturduğunuzda, Azure Active Directory'de yeni bir hizmet sorumlusu kullanıcısı oluşturur ve bu kullanıcıya abonelik düzeyinde katılımcı rolü atar. Karma Runbook çalışanları Azure sanal makinelerde kullanmak, runbook'lar için kullanabileceğiniz [kimliklerini Azure kaynakları için yönetilen](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) Azure kaynaklarınıza kimlik doğrulaması için farklı çalıştır hesapları yerine.
 
 Farklı Çalıştır hesapları iki tür vardır:
 
