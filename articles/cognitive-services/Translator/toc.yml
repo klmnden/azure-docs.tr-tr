@@ -1,175 +1,182 @@
+items:
 - name: Translator Metin Çevirisi API’si belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Translator Metin Çevirisi API’si nedir?
-      href: translator-info-overview.md
+  - name: Translator Metin Çevirisi API’si nedir?
+    href: translator-info-overview.md
 - name: Hızlı Başlangıçlar
-  expanded: true
   items:
-    - name: 'C#'
-      items:
-        - name: Metin çevirme
-          href: quickstart-csharp-translate.md
-        - name: Metin betiği dönüştürme
-          href: quickstart-csharp-transliterate.md
-        - name: Metinden dili tanımlama
-          href: quickstart-csharp-detect.md
-        - name: Alternatif çeviriler edinme
-          href: quickstart-csharp-dictionary.md
-        - name: Desteklenen dilleri alma
-          href: quickstart-csharp-languages.md
-        - name: Metinlerdeki cümle uzunluklarını alma
-          href: quickstart-csharp-sentences.md
-    - name: Başlayın
-      items:
-        - name: Metin çevirme
-          href: quickstart-go-translate.md
-        - name: Metin betiği dönüştürme
-          href: quickstart-go-transliterate.md
-        - name: Metinden dili tanımlama
-          href: quickstart-go-detect.md
-        - name: Alternatif çeviriler edinme
-          href: quickstart-go-dictionary.md
-        - name: Desteklenen dilleri alma
-          href: quickstart-go-languages.md
-        - name: Metinlerdeki cümle uzunluklarını alma
-          href: quickstart-go-sentences.md
-    - name: Java
-      items:
-        - name: Metin çevirme
-          href: quickstart-java-translate.md
-        - name: Metin betiği dönüştürme
-          href: quickstart-java-transliterate.md
-        - name: Metinden dili tanımlama
-          href: quickstart-java-detect.md
-        - name: Alternatif çeviriler edinme
-          href: quickstart-java-dictionary.md
-        - name: Desteklenen dilleri alma
-          href: quickstart-java-languages.md
-        - name: Metinlerdeki cümle uzunluklarını alma
-          href: quickstart-java-sentences.md
-    - name: Node.js
-      items:
-        - name: Metin çevirme
-          href: quickstart-nodejs-translate.md
-        - name: Metin betiği dönüştürme
-          href: quickstart-nodejs-transliterate.md
-        - name: Metinden dili tanımlama
-          href: quickstart-nodejs-detect.md
-        - name: Alternatif çeviriler edinme
-          href: quickstart-nodejs-dictionary.md
-        - name: Desteklenen dilleri alma
-          href: quickstart-nodejs-languages.md
-        - name: Metinlerdeki cümle uzunluklarını alma
-          href: quickstart-nodejs-sentences.md
-    - name: PHP
-      items:
-        - name: Metin çevirme
-          href: quickstart-php-translate.md
-        - name: Metin betiği dönüştürme
-          href: quickstart-php-transliterate.md
-        - name: Metinden dili tanımlama
-          href: quickstart-php-detect.md
-        - name: Alternatif çeviriler edinme
-          href: quickstart-php-dictionary.md
-        - name: Desteklenen dilleri alma
-          href: quickstart-php-languages.md
-        - name: Metinlerdeki cümle uzunluklarını alma
-          href: quickstart-php-sentences.md
-    - name: Python
-      items:
-        - name: Metin çevirme
-          href: quickstart-python-translate.md
-        - name: Metin betiği dönüştürme
-          href: quickstart-python-transliterate.md
-        - name: Metinden dili tanımlama
-          href: quickstart-python-detect.md
-        - name: Alternatif çeviriler edinme
-          href: quickstart-python-dictionary.md
-        - name: Desteklenen dilleri alma
-          href: quickstart-python-languages.md
-        - name: Metinlerdeki cümle uzunluklarını alma
-          href: quickstart-python-sentences.md
-    - name: Ruby
-      items:
-        - name: Metin çevirme
-          href: quickstart-ruby-translate.md
-        - name: Metin betiği dönüştürme
-          href: quickstart-ruby-transliterate.md
-        - name: Metinden dili tanımlama
-          href: quickstart-ruby-detect.md
-        - name: Alternatif çeviriler edinme
-          href: quickstart-ruby-dictionary.md
-        - name: Desteklenen dilleri alma
-          href: quickstart-ruby-languages.md
-        - name: Metinlerdeki cümle uzunluklarını alma
-          href: quickstart-ruby-sentences.md
+  - name: C#
+    items:
+    - name: Metin çevirme
+      href: quickstart-csharp-translate.md
+    - name: Metin betiği dönüştürme
+      href: quickstart-csharp-transliterate.md
+    - name: Metinden dili tanımlama
+      href: quickstart-csharp-detect.md
+    - name: Alternatif çeviriler edinme
+      href: quickstart-csharp-dictionary.md
+    - name: Desteklenen dilleri alma
+      href: quickstart-csharp-languages.md
+    - name: Metinlerdeki cümle uzunluklarını alma
+      href: quickstart-csharp-sentences.md
+  - name: Başlayın
+    items:
+    - name: Metin çevirme
+      href: quickstart-go-translate.md
+    - name: Metin betiği dönüştürme
+      href: quickstart-go-transliterate.md
+    - name: Metinden dili tanımlama
+      href: quickstart-go-detect.md
+    - name: Alternatif çeviriler edinme
+      href: quickstart-go-dictionary.md
+    - name: Desteklenen dilleri alma
+      href: quickstart-go-languages.md
+    - name: Metinlerdeki cümle uzunluklarını alma
+      href: quickstart-go-sentences.md
+  - name: Java
+    items:
+    - name: Metin çevirme
+      href: quickstart-java-translate.md
+    - name: Metin betiği dönüştürme
+      href: quickstart-java-transliterate.md
+    - name: Metinden dili tanımlama
+      href: quickstart-java-detect.md
+    - name: Alternatif çeviriler edinme
+      href: quickstart-java-dictionary.md
+    - name: Desteklenen dilleri alma
+      href: quickstart-java-languages.md
+    - name: Metinlerdeki cümle uzunluklarını alma
+      href: quickstart-java-sentences.md
+  - name: Node.js
+    items:
+    - name: Metin çevirme
+      href: quickstart-nodejs-translate.md
+    - name: Metin betiği dönüştürme
+      href: quickstart-nodejs-transliterate.md
+    - name: Metinden dili tanımlama
+      href: quickstart-nodejs-detect.md
+    - name: Alternatif çeviriler edinme
+      href: quickstart-nodejs-dictionary.md
+    - name: Desteklenen dilleri alma
+      href: quickstart-nodejs-languages.md
+    - name: Metinlerdeki cümle uzunluklarını alma
+      href: quickstart-nodejs-sentences.md
+  - name: PHP
+    items:
+    - name: Metin çevirme
+      href: quickstart-php-translate.md
+    - name: Metin betiği dönüştürme
+      href: quickstart-php-transliterate.md
+    - name: Metinden dili tanımlama
+      href: quickstart-php-detect.md
+    - name: Alternatif çeviriler edinme
+      href: quickstart-php-dictionary.md
+    - name: Desteklenen dilleri alma
+      href: quickstart-php-languages.md
+    - name: Metinlerdeki cümle uzunluklarını alma
+      href: quickstart-php-sentences.md
+  - name: Python
+    items:
+    - name: Metin çevirme
+      href: quickstart-python-translate.md
+    - name: Metin betiği dönüştürme
+      href: quickstart-python-transliterate.md
+    - name: Metinden dili tanımlama
+      href: quickstart-python-detect.md
+    - name: Alternatif çeviriler edinme
+      href: quickstart-python-dictionary.md
+    - name: Desteklenen dilleri alma
+      href: quickstart-python-languages.md
+    - name: Metinlerdeki cümle uzunluklarını alma
+      href: quickstart-python-sentences.md
+  - name: Ruby
+    items:
+    - name: Metin çevirme
+      href: quickstart-ruby-translate.md
+    - name: Metin betiği dönüştürme
+      href: quickstart-ruby-transliterate.md
+    - name: Metinden dili tanımlama
+      href: quickstart-ruby-detect.md
+    - name: Alternatif çeviriler edinme
+      href: quickstart-ruby-dictionary.md
+    - name: Desteklenen dilleri alma
+      href: quickstart-ruby-languages.md
+    - name: Metinlerdeki cümle uzunluklarını alma
+      href: quickstart-ruby-sentences.md
+  expanded: true
 - name: Öğreticiler
   items:
-    - name: Translator Metin Çevirisi için WPF uygulaması oluşturma
-      href: tutorial-wpf-translation-csharp.md
+  - name: Translator Metin Çevirisi için WPF uygulaması oluşturma
+    href: tutorial-wpf-translation-csharp.md
 - name: Kavramlar
   items:
-    - name: Desteklenen diller
-      href: languages.md
-    - name: Metin çevirisini özelleştirme ve iyileştirme
-      href: customization.md
-    - name: API karakterleri nasıl sayar?
-      href: character-counts.md
+  - name: Metin çevirisini özelleştirme ve iyileştirme
+    href: customization.md
+  - name: API karakterleri nasıl sayar?
+    href: character-counts.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Translator Metin Çevirisi API’sine kaydolma
-      href: translator-text-how-to-signup.md
-    - name: V3 Metin API’sine geçiş
-      href: migrate-to-v3.md
-    - name: Küfür filtresi ekleme
-      href: profanity-filtering.md
-    - name: Sözcük hizalama bilgilerini alma
-      href: word-alignment.md
-    - name: Dinamik sözlük özelliğini kullanma
-      href: dynamic-dictionary.md
+  - name: Translator Metin Çevirisi API’sine kaydolma
+    href: translator-text-how-to-signup.md
+  - name: V3 Metin API’sine geçiş
+    href: migrate-to-v3.md
+  - name: Küfür filtresi ekleme
+    href: profanity-filtering.md
+  - name: Sözcük hizalama bilgilerini alma
+    href: word-alignment.md
+  - name: Dinamik sözlük özelliğini kullanma
+    href: dynamic-dictionary.md
 - name: Başvuru
   items:
-    - name: v3 Translator Metin Çevirisi API’si başvurusu
-      href: reference/v3-0-reference.md
-      items:
-        - name: Diller
-          href: reference/v3-0-languages.md
-        - name: Çevirme
-          href: reference/v3-0-translate.md
-        - name: Karakter Dönüştürme
-          href: reference/v3-0-transliterate.md
-        - name: Algılama
-          href: reference/v3-0-detect.md
-        - name: BreakSentence
-          href: reference/v3-0-break-sentence.md
-        - name: Sözlük Arama
-          href: reference/v3-0-dictionary-lookup.md
-        - name: Sözlük Örnekleri
-          href: reference/v3-0-dictionary-examples.md
-    - name: v2 Translator Metin Çevirisi API’si başvurusu (Kullanım dışı)
-      href: reference/v2-0-reference.md
-      items:
-        - name: Metin dönüştürme
-          href: transform-text.md
-        - name: Collaborative Translation Framework (CTF) raporlamasını kullanma
-          href: ctf-reporting.md
-        - name: En iyi N çeviriyi döndürme
-          href: return-n-best-translations.md
+  - name: v3 Translator Metin Çevirisi API’si başvurusu
+    href: reference/v3-0-reference.md
+    items:
+    - name: Diller
+      href: reference/v3-0-languages.md
+    - name: Çevirme
+      href: reference/v3-0-translate.md
+    - name: Karakter Dönüştürme
+      href: reference/v3-0-transliterate.md
+    - name: Algılama
+      href: reference/v3-0-detect.md
+    - name: BreakSentence
+      href: reference/v3-0-break-sentence.md
+    - name: Sözlük Arama
+      href: reference/v3-0-dictionary-lookup.md
+    - name: Sözlük Örnekleri
+      href: reference/v3-0-dictionary-examples.md
+  - name: v2 Translator Metin Çevirisi API’si başvurusu (Kullanım dışı)
+    href: reference/v2-0-reference.md
+    items:
+    - name: Metin dönüştürme
+      href: transform-text.md
+    - name: Collaborative Translation Framework (CTF) raporlamasını kullanma
+      href: ctf-reporting.md
+    - name: En iyi N çeviriyi döndürme
+      href: return-n-best-translations.md
 - name: Kaynaklar
   items:
-    - name: GitHub’daki kod örnekleri
-      href: 'https://aka.ms/TranslatorGitHub'
-    - name: SSS
-      href: 'https://www.microsoft.com/translator/faq.aspx'
-    - name: Bilgi Bankası
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
-    - name: Bölgesel kullanılabilirlik
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/558796-translator'
+  - name: GitHub’daki kod örnekleri
+    href: https://aka.ms/TranslatorGitHub
+  - name: SSS
+    href: https://www.microsoft.com/translator/faq.aspx
+  - name: Bilgi Bankası
+    href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
+  - name: Dil ve bölge desteği
+    href: language-support.md
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+  - name: Bölgesel kullanılabilirlik
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-translator
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/558796-translator
+ms.openlocfilehash: adea86473e69a1ea346dbf63b6976642d201dcb9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434458"
