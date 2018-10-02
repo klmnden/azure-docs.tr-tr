@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: daeb0c5436d851b6e234c1b97583df526192659e
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842456"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018783"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps için şirket içi veri ağ geçidi yükleme
 
@@ -101,7 +101,7 @@ Diğer hizmetlerle ağ geçidi kullanma hakkında daha fazla bilgi için şu mak
 
 ## <a name="install-data-gateway"></a>Veri ağ geçidi yükleme
 
-1. [Karşıdan yükleme, kaydetme ve yerel bir bilgisayara ağ geçidi yükleyicisini çalıştırın](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Karşıdan yükleme, kaydetme ve yerel bir bilgisayara ağ geçidi yükleyicisini çalıştırın](https://aka.ms/on-premises-data-gateway-installer).
 
 2. Varsayılan yükleme yolu kabul edin veya bilgisayarınızda ağ geçidini yüklemek istediğiniz konumu belirtin.
 
@@ -182,7 +182,7 @@ Ağ geçidinizin konumunu değiştirmek, ağ geçidi yüklemenizi yeni bir bilgi
 
 1. Kişinin bilgisayarınızda **Denetim Masası**Git **programlar ve Özellikler**. Programlar listesinde **şirket içi veri ağ geçidi**ve ardından **kaldırma**.
 
-2. [Şirket içi veri ağ geçidi yeniden](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+2. [Şirket içi veri ağ geçidi yeniden](https://aka.ms/on-premises-data-gateway-installer).
 
 3. Yükleyici açıldıktan sonra aynı iş veya Okul hesabı, daha önce ağ geçidini yüklemek için kullanılan oturum açın.
 

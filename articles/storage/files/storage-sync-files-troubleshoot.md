@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ef70d3d3dd2a806ea978be8e996b7d5ba0fbc96b
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409482"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586368"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -236,7 +236,7 @@ Bu hataları görmek için şunu çalıştırın **FileSyncErrorsReport.ps1** Po
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Eşitleme sırasında bir dosya değiştirildiğinden yeniden eşitlenmesi gerekiyor. | Eylem gerekmiyor. |
 
 #### <a name="handling-unsupported-characters"></a>İşleme desteklenmeyen karakterler
-Varsa **FileSyncErrorsReport.ps1** PowerShell Betiği, desteklenmeyen karakterler nedeniyle hataları gösterir (0x7b hata kodları ve 0x8007007b), kaldırmalı veya ilgili dosyalarından hata karakterde yeniden adlandırın. Çoğu bu karakterlerden biri standart görsel kodlaması olduğundan PowerShell büyük olasılıkla bu karakterler soru işareti ya da boş dikdörtgenler yazdırın. [Değerlendirmeden aracı](storage-sync-files-planning.md#evaluation-tool) desteklenmeyen karakterler tanımlamak için kullanılabilir.
+Varsa **FileSyncErrorsReport.ps1** PowerShell Betiği, desteklenmeyen karakterler nedeniyle hataları gösterir (0x7b hata kodları ve 0x8007007b), kaldırmalı veya hataya karşılık gelen dosya adlarından karakterde yeniden adlandırın. Çoğu bu karakterlerden biri standart görsel kodlaması olduğundan PowerShell büyük olasılıkla bu karakterler soru işareti ya da boş dikdörtgenler yazdırın. [Değerlendirme Aracı](storage-sync-files-planning.md#evaluation-tool) desteklenmeyen karakterler tanımlamak için kullanılabilir.
 
 Aşağıdaki tabloda, Azure dosya eşitleme henüz desteklemediği unicode karakterlerin tümünü içerir.
 

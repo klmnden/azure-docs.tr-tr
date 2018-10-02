@@ -9,16 +9,16 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 068f0a0d9202174faf5d54bebf5cf5f8fae86766
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: def8d8f9fc55aa6491799a134a554a8a7fe2884a
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721016"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017204"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Konuşma cihaz SDK'sı ile çalışmaya başlama
 
-Bu makalede, geliştirme PC ve konuşma cihaz geliştirme seti konuşma cihaz SDK'sını kullanarak konuşma özellikli cihazlar geliştirmek için nasıl yapılandırılacağı açıklanır. Sonra derleme ve cihaz için örnek uygulama dağıtırsınız. 
+Bu makalede, geliştirme PC ve konuşma cihaz geliştirme seti konuşma cihaz SDK'sını kullanarak konuşma özellikli cihazlar geliştirmek için nasıl yapılandırılacağı açıklanır. Ardından, oluşturun ve bir örnek uygulamanın cihaza dağıtın. 
 
 Örnek uygulama için kaynak kodu konuşma cihaz SDK'sı ile dahil edilir. Ayrıca [github'da](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -45,7 +45,7 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
 
 ## <a name="set-up-the-development-kit"></a>Geliştirme Seti ' ayarlayın
 
-1. Dev Seti bir Bilgisayara bağlanın veya mini bir USB kablosu kullanarak bağdaştırıcısı güç. Dev Seti bağlıysa, yeşil power göstergesi üst Pano yanar.
+1. Geliştirme Seti bir Bilgisayara bağlanın veya mini bir USB kablosu kullanarak bağdaştırıcısı güç. Kit bağlıysa, yeşil power göstergesi üst Pano yanar.
 
 1. Geliştirme Seti, ikinci bir mini USB kablosu kullanarak bir bilgisayara bağlanın.
 
@@ -72,7 +72,7 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
    ```
 
     > [!NOTE]
-    > Bu komutlar, Android Studio yüklemesinin bir parçası olduğu adb.exe, Android hata ayıklama köprüsü kullanın. Bu araç C:\Users bulunur\[kullanıcı adı] \AppData\Local\Android\Sdk\platform araçları. Bu dizin çağırmak daha kullanışlı hale getirmek için yola ekleyebilirsiniz `adb`. Aksi takdirde, yüklemenizin adb.exe çağıran her komut için tam yolunu belirtmeniz gerekir `adb`.
+    > Android hata ayıklama köprüsü bu komutları kullanmak `adb.exe`, Android Studio yüklemesinin bir parçası olduğu. Bu araç C:\Users bulunur\[kullanıcı adı] \AppData\Local\Android\Sdk\platform araçları. Bu dizin çağırmak daha kullanışlı hale getirmek için yola ekleyebilirsiniz `adb`. Aksi takdirde, yüklemenizin adb.exe çağıran her komut için tam yolunu belirtmeniz gerekir `adb`.
 
     > [!TIP]
     > Bilgisayarınızın mikrofon ve Geliştirme Seti'nın mikrofonlar ile çalıştığından emin olmak Konuşmacı sessiz. Böylece, yanlışlıkla ses bilgisayardan cihazla tetiklemez.
@@ -110,7 +110,7 @@ ROOBO testleri çalıştırmak ve Geliştirme Seti kurulumunuzu doğrulama, derl
 
 1.  Android Studio'yu başlatın.
 
-1.  Seçin **var olan bir Android Studio projesini Aç**.
+1.  **Var olan Android Studio projesini aç**'ı seçin.
 
     ![Android Studio - mevcut bir projeyi Aç](media/speech-devices-sdk/qsg-5.png)
  

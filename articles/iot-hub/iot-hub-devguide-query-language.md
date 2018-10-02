@@ -2,22 +2,21 @@
 title: Azure IOT Hub sorgu dili anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - açıklama SQL benzeri IOT Hub'ın sorgu dili, IOT hub'dan cihaz/modül ikizler ve işler hakkında bilgi almak için kullanılır.
 author: fsautomata
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4aa4a3b1e617009d88c581966f791569322d967f
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952486"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018444"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Cihaz ve modül ikizleri, işler ve ileti yönlendirme için IOT Hub sorgu dili
 
-IOT hub'ı sağlayan bilgi almak için bir güçlü SQL benzeri dil ilgili [cihaz ikizlerini] [ lnk-twins] ve [işleri][lnk-jobs]ve [ileti yönlendirme][lnk-devguide-messaging-routes]. Bu makalede sunar:
+IOT hub'ı sağlayan bilgi almak için bir güçlü SQL benzeri dil ilgili [cihaz ikizlerini](iot-hub-devguide-device-twins.md) ve [işleri](iot-hub-devguide-jobs.md), ve [ileti yönlendirme](iot-hub-devguide-messages-d2c.md). Bu makalede sunar:
 
 * IOT Hub sorgu dili, önemli özelliklere giriş ve
 * Dil ayrıntılı açıklaması. İleti yönlendirme için sorgu dili hakkında daha fazla bilgi için bkz: [sorguları içinde ileti yönlendirme](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +24,9 @@ IOT hub'ı sağlayan bilgi almak için bir güçlü SQL benzeri dil ilgili [ciha
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-and-module-twin-queries"></a>Cihaz ve modül ikizi sorguları
-[Cihaz ikizlerini] [ lnk-twins] ve etiketler ve Özellikler modül ikizlerini rastgele JSON nesneleri içerebilir. IOT hub'ı tüm ikizi bilgilerini içeren tek bir JSON belgesi olarak sorgu cihaz ikizleri ve modül ikizlerini sağlar.
+
+[Cihaz ikizlerini](iot-hub-devguide-device-twins.md) ve etiketler ve Özellikler modül ikizlerini rastgele JSON nesneleri içerebilir. IOT hub'ı tüm ikizi bilgilerini içeren tek bir JSON belgesi olarak sorgu cihaz ikizleri ve modül ikizlerini sağlar.
+
 Örneğin, IOT hub cihaz ikizlerini aşağıdaki yapıya sahip olduğunuzu varsaymaktadır (modül ikizi olacak yalnızca bir ek Moduleıd ile benzer):
 
 ```json
@@ -80,15 +81,14 @@ IOT hub'ı sağlayan bilgi almak için bir güçlü SQL benzeri dil ilgili [ciha
 
 ### <a name="device-twin-queries"></a>Cihaz çifti sorguları
 
-IOT Hub cihaz ikizlerini adlı bir belge koleksiyonu kullanıma sunar **cihazları**.
-Bu nedenle aşağıdaki sorgu tüm cihaz çiftleri kümesini alır:
+IOT Hub cihaz ikizlerini adlı bir belge koleksiyonu kullanıma sunar **cihazları**. Örneğin, aşağıdaki sorgu tüm cihaz çiftleri kümesini alır:
 
 ```sql
 SELECT * FROM devices
 ```
 
 > [!NOTE]
-> [Azure IOT SDK'ları] [ lnk-hub-sdks] büyük sonuçlarının disk belleği destekler.
+> [Azure IOT SDK'ları](iot-hub-devguide-sdks.md) büyük sonuçlarının disk belleği destekler.
 
 IOT Hub cihaz ikizlerini rastgele koşullarla filtreleme almanıza olanak tanır. Örneğin, nerede ikizlerini aygıt alma için **location.region** etiket ayarlandığında **ABD** aşağıdaki sorguyu kullanın:
 
@@ -97,11 +97,11 @@ SELECT * FROM devices
 WHERE tags.location.region = 'US'
 ```
 
-Boole işleçleri ve aritmetik karşılaştırmalar de desteklenir. Örneğin, cihaz almak için ABD'de bulunan ve yapılandırılmış ikizlerini küçüktür her dakika telemetri göndermek için aşağıdaki sorguyu kullanın:
+Boole işleçleri ve aritmetik karşılaştırmalar de desteklenir. Örneğin, ABD'de bulunan ve yapılandırılmış cihaz ikizlerini küçüktür her dakika telemetri gönderecek şekilde almak için aşağıdaki sorguyu kullanın:
 
 ```sql
 SELECT * FROM devices
-WHERE tags.location.region = 'US'
+  WHERE tags.location.region = 'US'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
@@ -109,25 +109,25 @@ Bir kolaylık olarak da dizi sabitleriyle kullanmak mümkündür **IN** ve **NBU
 
 ```sql
 SELECT * FROM devices
-WHERE properties.reported.connectivity IN ['wired', 'wifi']
+  WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
 Genellikle, belirli bir özellik içeren tüm cihaz çiftlerini tanımlamak gereklidir. IOT hub'ın desteklediği işlevi `is_defined()` bu amaç için. Örneğin, tanımlama alma cihaz ikizlerini için `connectivity` özelliğini aşağıdaki sorguyu kullanın:
 
 ```SQL
 SELECT * FROM devices
-WHERE is_defined(properties.reported.connectivity)
+  WHERE is_defined(properties.reported.connectivity)
 ```
 
-Başvurmak [WHERE yan tümcesi] [ lnk-query-where] filtreleme yetenekleri tam başvuru için bölümü.
+Başvurmak [WHERE yan tümcesi](iot-hub-devguide-query-language.md#where-clause) filtreleme yetenekleri tam başvuru için bölümü.
 
-Gruplandırma ve toplamalar de desteklenir. Örneğin, cihaz sayısını her telemetriyi bulmak için yapılandırma durumu kullanın aşağıdaki sorgu:
+Gruplandırma ve toplamalar de desteklenir. Örneğin, her telemetri yapılandırma durumu cihaz sayısını bulmak için aşağıdaki sorguyu kullanın:
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
     COUNT() AS numberOfDevices
-FROM devices
-GROUP BY properties.reported.telemetryConfig.status
+  FROM devices
+  GROUP BY properties.reported.telemetryConfig.status
 ```
 
 Bu gruplandırma sorgu bir sonuç aşağıdaki örneğe benzer döndürür:
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Modül ikizi sorguları
 
-Modül ikizlerini üzerinde sorgulama cihaz ikizlerini sorgusuna benzer ancak farklı koleksiyon/ad alanı, yani "cihazların" yerine kullanarak sorgu oluşturabilirsiniz
+Modül ikizlerini üzerinde sorgulama için cihaz ikizlerini üzerinde sorgulama benzer, ancak farklı koleksiyon/ad alanı, yani "cihazların" yerine kullanarak device.modules sorgulayabilirsiniz:
 
 ```sql
 SELECT * FROM devices.modules
@@ -171,14 +171,18 @@ Biz devices.modules koleksiyonları ve cihazlar arasında birleşim izin vermez.
 Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
-Bu sorgu tüm modül ikizlerini tarama durumundaki, ancak yalnızca cihazları belirtilen alt kümesi üzerinde döndürür.
+Bu sorgu tüm modül ikizlerini tarama durumundaki, ancak yalnızca cihazları belirtilen alt kümesi üzerinde döndürür:
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules 
+  where properties.reported.status = 'scanning' 
+  and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>C# örneği
-Tarafından sunulan sorgu işlevini [C# hizmeti SDK'sını] [ lnk-hub-sdks] içinde **RegistryManager** sınıfı.
+
+Tarafından sunulan sorgu işlevini [C# hizmeti SDK'sını](iot-hub-devguide-sdks.md) içinde **RegistryManager** sınıfı.
+
 Basit bir sorgu örneği aşağıda verilmiştir:
 
 ```csharp
@@ -198,7 +202,9 @@ while (query.HasMoreResults)
 Birden çok sorgu nesnesi sunan **sonraki** değerleri, sorgu için gerekli seri durumundan çıkarma seçeneğine bağlı olarak. Örneğin, cihaz ikizi veya iş nesneleri veya izdüşümler kullanılırken düz JSON.
 
 ### <a name="nodejs-example"></a>Node.js örnek
-Tarafından sunulan sorgu işlevini [Node.js için Azure IOT hizmeti SDK'sını] [ lnk-hub-sdks] içinde **kayıt defteri** nesne.
+
+Tarafından sunulan sorgu işlevini [Node.js için Azure IOT hizmeti SDK'sını](iot-hub-devguide-sdks.md) içinde **kayıt defteri** nesne.
+
 Basit bir sorgu örneği aşağıda verilmiştir:
 
 ```nodejs
@@ -233,8 +239,7 @@ Birden çok sorgu nesnesi sunan **sonraki** değerleri, sorgu için gerekli seri
 
 ## <a name="get-started-with-jobs-queries"></a>İşleri sorguları kullanmaya başlama
 
-[İşleri] [ lnk-jobs] cihazları kümelerinin işlemleri yürütmek için bir yol sağlar. Her cihaz ikizi bunu olduğu adlı bir koleksiyon bölümünde işlerinin bilgileri içeren **işleri**.
-Mantıksal olarak
+[İşleri](iot-hub-devguide-jobs.md) cihazları kümelerinin işlemleri yürütmek için bir yol sağlar. Her cihaz ikizi bunu olduğu adlı bir koleksiyon bölümünde işlerinin bilgileri içeren **işleri**.
 
 ```json
 {
@@ -276,16 +281,18 @@ Mantıksal olarak
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
 Bu sorgu, cihaza özel durumu (ve muhtemelen doğrudan yöntem yanıt) döndürülen her işin nasıl sağladığını unutmayın.
+
 Tüm nesne özellikleri üzerinde rastgele Boole koşullarıyla filtrelemek mümkündür **devices.jobs** koleksiyonu.
+
 Örneğin, belirli bir cihaz için Eylül 2016'dan sonra oluşturulan tüm tamamlanan cihaz ikizi güncelleştirme işlerini almak için aşağıdaki sorguyu kullanın:
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
     AND devices.jobs.jobType = 'scheduleTwinUpdate'
     AND devices.jobs.status = 'completed'
     AND devices.jobs.createdTimeUtc > '2016-09-01'
@@ -295,10 +302,11 @@ Cihaz başına tek bir iş sonuçlarını da alabilir.
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.jobId = 'myJobId'
+  WHERE devices.jobs.jobId = 'myJobId'
 ```
 
 ### <a name="limitations"></a>Sınırlamalar
+
 Şu anda üzerinde sorgular **devices.jobs** desteklemez:
 
 * Tahminler, bu nedenle yalnızca `SELECT *` mümkündür.
@@ -306,24 +314,28 @@ WHERE devices.jobs.jobId = 'myJobId'
 * Toplamalar, sayısı, ortalama, grup tarafından gerçekleştiriliyor.
 
 ## <a name="basics-of-an-iot-hub-query"></a>Bir IOT Hub sorgu temelleri
+
 Her IOT Hub sorgu seçin ve ile isteğe bağlı bir WHERE yan tümceleri ve GROUP BY yan tümcesi oluşur. Her sorgu, JSON belgelerini, örneğin cihaz çiftleri koleksiyonu üzerinde çalıştırılır. FROM yan tümcesi belge koleksiyonunun üzerinde çalışmalar gösterir (**cihazları** veya **devices.jobs**). Ardından, WHERE yan tümcesinde filtre uygulanır. Bu adımın sonuçları toplama ile gruplandırılır GROUP BY yan tümcesinde belirtildiği gibi. Her bir grup için bir satır oluşturulur SELECT yan tümcesinde belirtildiği gibi.
 
 ```sql
 SELECT <select_list>
-FROM <from_specification>
-[WHERE <filter_condition>]
-[GROUP BY <group_specification>]
+  FROM <from_specification>
+  [WHERE <filter_condition>]
+  [GROUP BY <group_specification>]
 ```
 
 ## <a name="from-clause"></a>FROM yan tümcesi
+
 **< From_specification >'nden** yan tümcesi, yalnızca iki değer varsayabilirsiniz: **CİHAZLARDAN** sorgu cihaz ikizlerini için veya **devices.jobs gelen** sorgu iş cihaz başına ayrıntıları.
+
 
 ## <a name="where-clause"></a>WHERE yan tümcesi
 **Burada < filter_condition >** yan tümcesi, isteğe bağlıdır. Bu JSON FROM koleksiyonda belge bir veya daha fazla koşul sonucu bir parçası olarak dahil edilecek karşılamalıdır belirtir. Herhangi bir JSON belgesi, "sonucu dahil edilmesi için true olarak" belirli koşullar değerlendirmelidir.
 
-İzin verilen koşullar bölümünde açıklanan [ifadeleri ve koşulları][lnk-query-expressions].
+İzin verilen koşullar bölümünde açıklanan [ifadeleri ve koşulları](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## <a name="select-clause"></a>SELECT yan tümcesi
+
 **Seçin < select_list >** zorunludur ve hangi değerleri sorgudan alınan belirtir. Bu JSON yeni JSON nesneleri oluşturmak için kullanılacak değerleri belirtir.
 Filtrelenmiş (ve isteğe bağlı olarak gruplandırılmış) alt FROM koleksiyonunun her öğesi için yansıtma aşaması yeni bir JSON nesnesi oluşturur. Bu nesne, SELECT yan tümcesinde belirtilen değerlerle oluşturulur.
 
@@ -349,7 +361,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attrıbute_name** JSON belgesini FROM koleksiyondaki herhangi bir özelliğini ifade eder. SELECT yan tümceleri bazı örnekler bulunabilir [cihaz çifti sorguları ile çalışmaya başlama] [ lnk-query-getstarted] bölümü.
+**Attrıbute_name** JSON belgesini FROM koleksiyondaki herhangi bir özelliğini ifade eder. SELECT yan tümceleri bazı örnekler bulunabilir [cihaz çifti sorguları ile çalışmaya başlama](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries) bölümü.
 
 Şu anda farklı seçim tümceleri **seçin*** yalnızca cihaz ikizlerini üzerinde toplama sorguları desteklenir.
 
@@ -483,18 +495,5 @@ Yollar koşullarda, aşağıdaki dize işlevleri desteklenir:
 | CONTAINS(x,y) | Döndürür bir Boolean gösteren ikinci ilk dize ifade olup olmadığını içerir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Sorguları kullanarak uygulamalarınızda çalıştırma hakkında bilgi edinmek [Azure IOT SDK'ları][lnk-hub-sdks].
 
-[lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
-[lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#get-started-with-device-twin-queries
-
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-jobs]: iot-hub-devguide-jobs.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
-[lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
+Sorguları kullanarak uygulamalarınızda çalıştırma hakkında bilgi edinmek [Azure IOT SDK'ları](iot-hub-devguide-sdks.md).

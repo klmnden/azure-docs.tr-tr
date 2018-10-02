@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc73be09cec4ef963a496687d112f98e05d98802
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032436"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018528"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -36,7 +36,7 @@ REST isteğinin sorgu dizesinde aşağıdaki parametreleri eklenebilir.
 
 |Parametre adı|Gerekli/isteğe bağlı|Anlamı|
 |-|-|-|
-|`language`|Gerekli|Tanınması için bir dil tanımlayıcısı. Bkz: [desteklenen diller](supported-languages.md#speech-to-text).|
+|`language`|Gerekli|Tanınması için bir dil tanımlayıcısı. Bkz: [desteklenen diller](language-support.md#speech-to-text).|
 |`format`|İsteğe bağlı<br>Varsayılan: `simple`|Sonuç biçimi `simple` veya `detailed`. Basit sonuçlarında `RecognitionStatus`, `DisplayText`, `Offset`ve süresi. Ayrıntılı sonuçları güvenle değerleri ve dört farklı temsilleri ile birden çok aday içerir.|
 |`profanity`|İsteğe bağlı<br>Varsayılan: `masked`|Küfür tanıma sonuçları işlemek nasıl. Olabilir `masked` (küfür yıldız işareti ile değiştirir), `removed` (kaldırır. tüm küfür), veya `raw` (küfür içerir).
 
@@ -195,9 +195,6 @@ Konuşma hizmetin metin okuma API REST uç noktaları verilmiştir. Eşleşen ab
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-> [!NOTE]
-> Özel ses tipi oluşturduysanız, ilişkili özel bir uç noktasını kullanın.
-
 Konuşma hizmeti, Bing konuşma tarafından desteklenen 16Khz çıkış ek olarak 24-KHz ses çıkış destekler. Kullanmak için dört 24-KHz Çıkış biçimleri kullanılabilir `X-Microsoft-OutputFormat` HTTP üst bilgisi, iki 24-KHz sesleri olarak `Jessa24kRUS` ve `Guy24kRUS`.
 
 Yerel Ayar | Dil   | Cinsiyet | Hizmet adı eşleme
@@ -205,7 +202,7 @@ Yerel Ayar | Dil   | Cinsiyet | Hizmet adı eşleme
 tr-TR  | İngilizce (ABD) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)" 
 tr-TR  | İngilizce (ABD) | Erkek   | "Microsoft Server Konuşma metin konuşma ses (en-US, Guy24kRUS)"
 
-Kullanılabilir seslerini tam listesi kullanılabilir [desteklenen diller](supported-languages.md#text-to-speech).
+Kullanılabilir seslerini tam listesi kullanılabilir [desteklenen diller](language-support.md#text-to-speech).
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
@@ -265,7 +262,8 @@ HTTP kodu|Anlamı|Olası neden
 400 |Bozuk İstek |Gerekli parametre eksik, boş veya null. Veya, gerekli veya isteğe bağlı parametresi için geçirilen değer geçersiz. Çok uzun üstbilgi buna yaygın bir sorundur.
 401|Yetkilendirilmemiş |İstek yetkili değil. Abonelik anahtarı veya belirteç geçerli ve doğru bölgesinde olduğundan emin olmak için kontrol edin.
 413|İstek varlığı çok büyük|SSML'yi giriş metni, 1024 karakterden uzun.
-|502|Hatalı Ağ Geçidi    | Ağ veya sunucu tarafı sorun. Geçersiz üst bilgileri de gösterebilir.
+429|Çok Fazla İstek|Kota veya aboneliğiniz için izin isteği sayısını aştınız.
+502|Hatalı Ağ Geçidi | Ağ veya sunucu tarafı sorun. Geçersiz üst bilgileri de gösterebilir.
 
 HTTP durum ise `200 OK`, yanıt gövdesi istenen biçiminde bir ses dosyası içerir. Bu dosya, aktarılan veya bir arabellek veya daha sonra kayıttan yürütmek ya da diğer kullanım için Dosya kaydedildi çalınabilir.
 

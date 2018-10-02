@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 1be7dd9ce537d0999ace01eafa46318e42df9f20
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: adb3127e45166d4743c182cbd21944dd86810596
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732459"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584175"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure dosyaları'na veri almak için Azure içeri/dışarı aktarma hizmetini kullanma
 
@@ -139,7 +139,7 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
     
     - Önceki sırasında oluşturulan günlük dosyalarını karşıya yükleme [1. adım: sürücüleri hazırlamak](#step-1-prepare-the-drives). 
     - Verileri içeri aktarılan depolama hesabını seçin. 
-    - Bırakma konumu, seçilen depolama hesabına, bölgeye göre otomatik olarak doldurulur.
+    - Dropoff konum seçili depolama hesabının bölgeye göre otomatik olarak doldurulur.
    
        ![2. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

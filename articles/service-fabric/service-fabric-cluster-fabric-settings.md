@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: cf8e9dff020e16efe4b37a2bfd66563211be3020
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 69f29eac17ecdf5381a550bc182c547fa0c25278
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055548"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018987"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric küme ayarlarını özelleştirme
 Bu makalede, Service Fabric kümeniz için çeşitli yapı ayarları özelleştirmeyi açıklar. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak. Tek başına kümeler için ClusterConfig.json dosyası güncelleştiriliyor ve kümenizde bir yapılandırma yükseltme gerçekleştirme ayarlarını özelleştirin. 
@@ -352,6 +352,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |ApplicationUpgradeTimeout| Zaman aralığı, Common::TimeSpan::FromSeconds(360) varsayılandır|Dinamik| Saniye cinsinden zaman aralığı belirtin. Uygulama yükseltmesi için zaman aşımı. Zaman aşımı "ActivationTimeout" dağıtıcı başarısız olur daha az ise. |
 |ContainerServiceArguments|Varsayılan bir dize ise "-H 2375 -H npipe: / /"|Statik|Service Fabric (BT) docker Daemon programını yönetir (Win10 gibi windows istemci makinelerinde hariç). Bu yapılandırma, başlatma sırasında docker cinini geçirilmelidir özel bağımsız değişkenlerini belirtmek kullanıcı sağlar. Özel bağımsız değişkenler belirtildiğinde, Service Fabric geçirmeyin hiçbir bağımsız değişkeni Docker altyapısına dışında '--pidfile' bağımsız değişkeni. Bu nedenle kullanıcıların değil belirtmelisiniz '--pidfile' bağımsız değişkeni müşteri bağımsız bir parçası olarak. Ayrıca, özel bağımsız değişkenler docker daemon dinlediği varsayılan adı kanalda Windows üzerinde emin olmanız gerekir (veya UNIX etki alanı yuva Linux'ta) ile iletişim kurabilmesi Service Fabric için.|
 |ContainerServiceLogFileMaxSizeInKb|int, varsayılan 32768 olduğu|Statik|Docker kapsayıcıları tarafından oluşturulan günlük dosyası maksimum dosya boyutu.  Yalnızca Windows.|
+|ContainerImagesToSkip|dize, dikey çizgi karakteriyle ayırarak görüntü adları varsayılan değer ""|Statik|Silinmemesi gereken bir veya daha fazla kapsayıcı görüntülerini adı.  PruneContainerImages parametresiyle birlikte kullanılır.|
 |ContainerServiceLogFileNamePrefix|"sfcontainerlogs" varsayılan bir dize ise|Statik|Docker kapsayıcıları tarafından oluşturulan günlük dosyaları için dosya adı ön eki.  Yalnızca Windows.|
 |ContainerServiceLogFileRetentionCount|Int, varsayılan 10'dur|Statik|Docker kapsayıcıları günlük dosyalarını önce tarafından oluşturulan günlük dosyası sayısı üzerine yazılır.  Yalnızca Windows.|
 |CreateFabricRuntimeTimeout|Zaman aralığı, Common::TimeSpan::FromSeconds(120) varsayılandır|Dinamik| Saniye cinsinden zaman aralığı belirtin. Zaman aşımı değeri FabricCreateRuntime eşitleme çağrısı |
@@ -375,6 +376,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |NTLMAuthenticationPasswordSecret|SecureString, Common::SecureString("") varsayılandır|Statik|NTLM kullanıcılar için parola oluşturmak için kullanılan bir şifrelenmiş sahip olur. NTLMAuthenticationEnabled doğru olması durumunda ayarlanması gerekir. Dağıtıcı doğrulandı. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|Zaman aralığı, Common::TimeSpan::FromMinutes(3) varsayılandır|Dinamik|Saniye cinsinden zaman aralığı belirtin. Ortama özgü ayarlar FileStoreService NTLM yapılandırması için kullanılacak yeni sertifikalar için hangi barındırma düzenli aralıklarla tarar. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|Zaman aralığı, Common::TimeSpan::FromMinutes(4) varsayılandır|Dinamik| Saniye cinsinden zaman aralığı belirtin. Sertifika ortak adları kullanarak NTLM kullanıcıları yapılandırmak için zaman aşımı. NTLM kullanıcılar FileStoreService paylaşımları için gereklidir. |
+|PruneContainerImages|bool, varsayılan FALSE olur.|Dinamik| Kullanılmayan uygulama kapsayıcı görüntüleri düğümünden kaldırın. Service Fabric kümesinden bir ApplicationType silindiğinde, bu uygulama tarafından kullanılan kapsayıcı görüntüleri, Service Fabric tarafından yüklendiği düğümlerinde kaldırılacak. Ayıklama, kümeden kaldırılmalıdır görüntüler için her saat çalışır, böylece en çok bir saat (artı görüntüsü ayıklamak üzere zaman) alabilir.<br>Service Fabric, hiçbir zaman indirin veya bir uygulama için ilgili olmayan görüntüleri kaldırın.  El ile veya başka türlü indirildi ilgisiz görüntüleri açıkça kaldırılması gerekir.<br>Silinmemesi gereken görüntüleri ContainerImagesToSkip parametresi belirtilebilir.| 
 |RegisterCodePackageHostTimeout|Zaman aralığı, Common::TimeSpan::FromSeconds(120) varsayılandır|Dinamik| Saniye cinsinden zaman aralığı belirtin. FabricRegisterCodePackageHost eşitleme çağrısı zaman aşımı değeri. Bu yalnızca çoklu kod paketi uygulama ana FWP gibi için geçerlidir |
 |RequestTimeout|Zaman aralığı, Common::TimeSpan::FromSeconds(30) varsayılandır|Dinamik| Saniye cinsinden zaman aralığı belirtin. Bu, kullanıcının uygulama konağı ile Fabrika kayıt gibi çeşitli barındırma ilgili işlemler için yapı işlemi arasındaki iletişim için zaman aşımı temsil eder; çalışma zamanı kaydı. |
 |RunAsPolicyEnabled| bool, varsayılan FALSE olur.|Statik| Kullanıcı dışındaki yerel kullanıcı olarak kod paketleri çalıştıran etkinleştirir altında hangi yapı işlemi çalışmıyor. Bu ilkeyi etkinleştirmek için doku sistem veya SeAssignPrimaryTokenPrivilege sahip kullanıcı olarak çalıştırılması gerekir. |

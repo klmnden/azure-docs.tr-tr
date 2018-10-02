@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0f2543ff10f19d6f1ccd656855dbb41cf42e6ae2
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307122"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48019004"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil işlevleri başvurusu
 
@@ -82,7 +82,7 @@ Dizeleri ile çalışmak için bu dize işlevleri ve ayrıca bazı kullanabilirs
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Bir alt dizenin başlangıç konumunu döndürür. | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Bir dizenin son a geçişi için başlangıç konumunu döndürür. | 
 | [Değiştir](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Belirtilen dizenin bir alt dizenin yerini ve güncelleştirilmiş dizeyi döndür. | 
-| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Tüm karakterleri ve her karakter ile belirli sınırlayıcı karakter ayıran bir dizi döndürür. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Belirtilen sınırlayıcı karakter özgün dizedeki göre daha büyük bir dizeden virgülle ayrılmış bir alt dizeler, içeren bir dizi döndürür. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Bir dizeyi belirli bir alt dizesi ile başlayıp başlamadığını kontrol edin. | 
 | [alt dize](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Belirtilen konumundan başlayan bir dizeden karakterleri döndürür. | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Küçük harf biçiminde bir dize döndürür. | 
@@ -3016,32 +3016,32 @@ Bu dizinin kalan öğeleri döndürür: `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Ayrılmış bir dize değerinden tüm karakterleri ve her karakter sahip bir dizi döndürür bir *sınırlayıcı*.
+Belirtilen sınırlayıcı bir karakter özgün dizedeki göre virgülle ayrılmış bir alt dizeler, içeren bir dizi döndürür. 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | Parametre | Gerekli | Tür | Açıklama | 
 | --------- | -------- | ---- | ----------- | 
-| <*Metin*> | Evet | Dize | Bölmek için karakter içeren dize |  
-| <*Ayırıcı*> | Evet | Dize | Sonuçta elde edilen dizideki her bir karakter arasında görünür ayırıcı | 
+| <*Metin*> | Evet | Dize | Özgün dizedeki belirtilen sınırlayıcıya göre alt dizelere ayrılacak dize |  
+| <*Sınırlayıcı*> | Evet | Dize | Ayırıcı olarak kullanılacak özgün dizedeki karakter | 
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*ayırıcı*><*char2*><*ayırıcı*>...] | Dizi | Belirtilen dize içindeki tüm öğeler oluşturulan ortaya çıkan dizi |
+| [<*substring1*>, <*substring2*>,...] | Dizi | Virgülle ayırarak orijinal dizeden alt dizeleri içeren bir dizi |
 |||| 
 
 *Örnek* 
 
-Bu örnekte, her karakter, ayırıcı olarak virgül ile ayırarak belirtilen dizenin bir dizi oluşturur:
+Bu örnekte alt dizeler ayırıcı olarak belirtilen karakter göre belirtilen dizenin bir dizi oluşturur: 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-Ve bu sonucu verir: `[a, b, c]`
+Ve sonuç olarak bu dizinin döndürür: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 

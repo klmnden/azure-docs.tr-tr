@@ -8,12 +8,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: eb24aa0471604696de99f4878baef764cfef0a8b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 6cfe587abadf8350fecc497b1af1cea9700f4f28
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408363"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018739"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'ı kullanarak bir HDInsight kümesi Kurumsal güvenlik paketi ile yapılandırma
 
@@ -44,6 +44,10 @@ Azure Active Directory etki alanı Hizmetleri'niz sistem durumunu görüntüleme
 ![Azure Active Directory Domain Services durumu](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
 
 ## <a name="add-managed-identity"></a>Yönetilen kimlik Ekle
+
+Zaten yoksa, kullanıcı tarafından atanan bir yönetilen kimlik oluşturun. Bkz: [Create, liste, delete veya Azure portalını kullanarak bir kullanıcı tarafından atanan yönetilen kimlik rol atama](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) yönergeler için. 
+
+Yönetilen kimlik etki alanı Hizmetleri işlemleri basitleştirmek için kullanılır. Bu kimlik, okuma, oluşturma, değiştirme ve etki alanı Hizmetleri OU'ları ve hizmet ilkeleri oluşturma gibi HDInsight Kurumsal güvenlik paketi için gerekli bir operations silme erişebilir.
 
 Azure AD DS'yi etkinleştirdikten sonra kullanıcı tarafından atanan bir yönetilen kimlik oluşturun ve atayın **HDInsight etki alanı Hizmetleri katkıda bulunan** Azure AD DS erişim denetimine rol.
 

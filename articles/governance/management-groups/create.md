@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/21/2018
 ms.author: rithorn
-ms.openlocfilehash: c2d4317bcbf70a0cebf6ab1915968eeb9ef8b4c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b436336a3484ec27e4b90785d668ba905281f158
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992636"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018613"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Kaynak kuruluşta ve Yönetim için Yönetim grupları oluşturma
 
@@ -48,7 +48,7 @@ Portal, PowerShell veya Azure CLI kullanarak, yönetim grubu oluşturabilirsiniz
 
 ### <a name="create-in-powershell"></a>PowerShell'de oluşturma
 
-PowerShell içinde Ekle AzureRmManagementGroups cmdlet'leri kullanın:
+PowerShell içinde yeni AzureRmManagementGroups cmdlet'leri kullanın:
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroup -GroupName 'Contoso'
@@ -77,7 +77,7 @@ az account management-group create --group-name 'Contoso'
 Yönetim grupları hakkında daha fazla bilgi için bkz:
 
 - [Kaynaklarınızı Azure Yönetim grupları ile düzenleme](overview.md)
-- [Değiştirme, silme veya yönetim gruplarınızı yönetme](manage.md)
+- [Yönetim gruplarınızı değiştirme, silme veya yönetme](manage.md)
 - [Azure Powershell modülünü yükleme](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [REST API Belirtimi gözden geçirin](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
+- [REST API Belirtimini gözden geçirme](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [Azure CLI uzantısını yükleme](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

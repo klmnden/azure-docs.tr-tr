@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 39287e4d90e4f6f42dd1f79d5457853e253bd736
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8b91ae9a4f258e52b032dca1484be70469094c2e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737065"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585739"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 
@@ -107,7 +107,7 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
 
     - Sürücü hazırlık adımında elde ettiğiniz sürücü günlük dosyalarını karşıya yükleyin. Varsa `waimportexport.exe version1` olan kullanıldığında, hazırladığınız her sürücü için bir dosya karşıya yükleyin. 2 MB günlük dosyası boyutunu aşıyor sonra kullanabileceğiniz `<Journal file name>_DriveInfo_<Drive serial ID>.xml` ile günlük dosyası da oluşturmuştur. 
     - Verilerin nerede yer alacağını hedef depolama hesabını seçin. 
-    - Bırakma konumu, seçilen depolama hesabına, bölgeye göre otomatik olarak doldurulur.
+    - Dropoff konum seçili depolama hesabının bölgeye göre otomatik olarak doldurulur.
    
    ![2. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

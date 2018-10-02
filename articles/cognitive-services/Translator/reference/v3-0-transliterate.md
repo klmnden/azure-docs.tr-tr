@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4d156d3cfd0afa463cdc18b73ad05d09e4159dae
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129497"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018630"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator metin çevirisi API'si 3.0: alfabeye
 
@@ -41,7 +41,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td>*Gerekli parametre*.<br/>İstemci tarafından istenen API sürümü. Değer olmalıdır `3.0`.</td>
   </tr>
   <tr>
-    <td>dil</td>
+    <td>language</td>
     <td>*Gerekli parametre*.<br/>Bir komut dosyasından diğerine dönüştürmek için metin dilini belirtir. Olası diller listelenmiştir `transliteration` kapsam alınan hizmet için sorgulama yaparak kendi [desteklenen diller](.\v3-0-languages.md).</td>
   </tr>
   <tr>
@@ -171,7 +171,7 @@ Bu örnekte istek için JSON yükü:
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-Unicode karakter desteği olmayan bir komut satırı penceresinde cUrl kullanıyorsanız aşağıdaki JSON yükü Al ve adlı bir dosyaya kaydedin `request.txt`. Dosyayı kaydettiğinizden emin olun `UTF-8` kodlama.
+Unicode karakter desteği olmayan bir komut satırı penceresinde cURL kullanıyorsanız aşağıdaki JSON yükü Al ve adlı bir dosyaya kaydedin `request.txt`. Dosyayı kaydettiğinizden emin olun `UTF-8` kodlama.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

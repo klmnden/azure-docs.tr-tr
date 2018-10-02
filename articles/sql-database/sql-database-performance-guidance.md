@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 283d27e330b7e1defb34196279693b5b5a7221df
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 09/24/2018
+ms.openlocfilehash: 09238b75680658e9efef3a6a9aaa3c288d3d91a4
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160596"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585858"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL veritabanı'nda performans ayarlama
 
@@ -30,29 +30,18 @@ Size uygun önerisi yok ve performans sorunlarını çözümlenmedi, performans 
 
 İhtiyaçlarınızı karşılamak kaynakları miktarını karar vermeniz gerekir çünkü bunlar el ile yöntemleridir. Aksi takdirde, uygulamanın veya veritabanı kodu yeniden yazın ve değişiklikleri dağıtmak gerekir.
 
-## <a name="increasing-servicce-tier-of-your-database"></a>Veritabanınızın artan servicce katmanı
+## <a name="increasing-service-tier-of-your-database"></a>Veritabanınızın Hizmet katmanını artırma
 
-Azure SQL veritabanı iki satın alma modeli sunar bir [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) arasından seçim. Her hizmet katmanı, SQL veritabanınızı kullanabilirsiniz ve bu hizmet katmanı için tahmin edilebilir performans garantileri kaynakları kesinlikle yalıtır. Bu makalede, uygulamanız için Hizmet katmanını seçmek yardımcı olacak rehberlik sunuyoruz. Ayrıca Azure SQL veritabanı en iyi şekilde yararlanmak için uygulamanızı ayarlama yolları ele alır.
+Azure SQL veritabanı sunar [iki satın alma modeli](sql-database-service-tiers.md), [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) arasından seçim. Her hizmet katmanı, SQL veritabanınızı kullanabilirsiniz ve bu hizmet katmanı için tahmin edilebilir performans garantileri kaynakları kesinlikle yalıtır. Bu makalede, uygulamanız için Hizmet katmanını seçmek yardımcı olacak rehberlik sunuyoruz. Ayrıca Azure SQL veritabanı en iyi şekilde yararlanmak için uygulamanızı ayarlama yolları ele alır. Her hizmet katmanında kendi bölümüne sahiptir [kaynak sınırları](sql-database-resource-limits.md). Daha fazla bilgi için [sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md) ve [DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits-single-databases.md).
 
 > [!NOTE]
 > Bu makalede, Azure SQL veritabanı'nda tek veritabanları için performans yönergeleri odaklanır. Elastik havuzlar için ilgili performans rehberi için bkz [elastik havuzlar için fiyat ve performans konuları](sql-database-elastic-pool-guidance.md). Ancak, bu makaledeki ayarlama önerilerin çoğu bir elastik havuzdaki veritabanları için geçerlidir ve benzer performans avantajı unutmayın.
-> 
-
-* **Temel**: temel hizmet katmanı sunar iyi bir performans öngörülebilirliğini her veritabanı için saat saat içinde. Temel bir veritabanında yeterli kaynakları birden çok eş zamanlı istek sahip olmayan küçük bir veritabanı içinde iyi bir performans desteklemez. Temel hizmet katmanındaki kullanırsınız, tipik kullanım durumları verilmiştir:
-  * **Yalnızca Azure SQL veritabanı ile başlangıç**. Genellikle geliştirme aşamasında olan uygulamaların yüksek-boyutları işlem yoksa. Veritabanı geliştirme veya sınama, düşük fiyat noktasında için ideal bir ortam temel veritabanlarıdır.
-  * **Tek bir kullanıcıyla bir veritabanına sahip**. Tek bir kullanıcı, genellikle bir veritabanı ile ilişkilendiren yüksek tutarlılık ve performans gereksinimlerini uygulamanız yok. Bu uygulamalar, temel hizmet katmanı için adaylardır.
-* **Standart**: Standart hizmet katmanı sunar Gelişmiş performans öngörülebilirliğini ve çalışma grubu ve web uygulamaları gibi birden çok eş zamanlı istek sahip veritabanları için iyi bir performans sağlar. Standart hizmet katmanındaki veritabanına seçtiğinizde, veritabanı uygulamanızın öngörülebilir performans, boyut dakika dakika üzerinden.
-  * **Birden çok eş zamanlı istek veritabanınızı sahip**. Genellikle aynı anda birden fazla kullanıcı hizmet uygulamaları, daha yüksek bilgi işlem boyutlarına gerekir. Örneğin, birden çok eşzamanlı sorguyu destekleyen Orta g/ç trafiği gereksinimleri için en düşük olan çalışma grubu veya web standart hizmet katmanı için iyi adaylar uygulamalardır.
-* **Premium**: Premium Hizmet katmanını tahmin edilebilir performans sağlar ikinci olarak, her bir Premium veya iş açısından kritik veritabanı için ikinci üzerinden. Premium Hizmet katmanını seçtiğinizde, bu veritabanı için en yüksek yük veritabanı uygulamanızı yeniden boyutlandırabilirsiniz. Plan hangi performans farkı küçük sorgular, gecikmeye duyarlı işlemlerinde beklenenden daha uzun sürmesine neden olabilir durumlarda kaldırır. Bu model, en yüksek kaynak gereksinimlerine, performans farkı veya sorgunun gecikme süresi hakkında güçlü ifadelerini yapmaya gerek duyan uygulamalar için geliştirme ve ürün doğrulama döngüsü büyük ölçüde basitleştirebilir. Çoğu Premium Hizmet katmanını kullanım örnekleri, bir veya daha fazla şu özelliklere sahiptir:
-  * **Yüksek yük düzeylerine ulaşan yük**. Önemli miktarda CPU, bellek veya giriş/çıkış (GÇ) işlemlerini tamamlamak için gerektiren bir uygulama bir özel, yüksek işlem boyutu gerektirir. Örneğin, birden fazla CPU çekirdeği uzun bir süre için kullanılacağı bilinen bir veritabanı işlemi Premium hizmet katmanı için bir adaydır.
-  * **Birçok eşzamanlı isteği**. Yüksek trafik hacmine hizmet veren bir Web sitesi sahip olduğunda bazı veritabanı uygulamaları birçok eşzamanlı isteği, örneğin, hizmet. Temel ve standart hizmet katmanları, veritabanı başına eşzamanlı istek sayısını sınırlar. Daha fazla bağlantı gerektiren uygulamalar sayısı gerekli istekleri işlemek için bir uygun rezervasyon boyutu seçmek gerekir.
-  * **Düşük gecikme süresi**. Bazı uygulamalar mümkün olduğunca az zamanda veritabanından bir yanıt garanti gerekir. Belirli bir saklı yordam daha geniş bir müşteri işleminin bir parçası çağrılırsa, bu çağrı geri döndürme en fazla 20 milisaniye cinsinden süre yüzde 99'olan bir gereksinimi olabilir. Bu tür bir uygulama, gerekli bilgi işlem gücüne kullanılabilir olduğundan emin olmak için Premium hizmet katmanından, fayda sağlar.
 
 SQL veritabanınız için gereken hizmet katmanı, her kaynak boyutu için en yüksek yük gereksinimlerine bağlıdır. Bazı uygulamalar, basit bir tek bir kaynak miktarını kullanır, ancak diğer kaynaklar için önemli gereksinimleri vardır.
 
 ### <a name="service-tier-capabilities-and-limits"></a>Hizmet katmanı özellikleri ve sınırları
 
-Yalnızca gereksinim duyduğunuz kapasitesi için ödeme esnekliğine sahip her hizmet katmanında işlem boyutunu ayarlayın. Yapabilecekleriniz [kapasite ayarlama](sql-database-service-tiers-dtu.md), yukarı veya aşağı, iş yükü değiştikçe. Örneğin, arka Okul alışveriş sezonu sırasında veritabanı iş yükünüzü yüksekse, belirlenen süre Temmuz-Eylül veritabanı için işlem boyutu artırabilir. En yüksek dönemi sona erdiğinde azaltabilir. Bulut ortamınıza işletmenizin mevsimsellik iyileştirerek ödeme en aza indirebilirsiniz. Bu model, iyi yazılım ürün yayın döngüleri için de çalışır. Test takımı, test çalıştırmaları ve test tamamladığınızda bu kapasiteye serbest bırakmak sırada kapasite ayırma. Gereksinim ve nadiren kullanıyor olabileceğiniz ayrılmış kaynaklarda harcama kaçının bir kapasite istek modeli kapasitesi için ödeme.
+Yalnızca gereksinim duyduğunuz kapasitesi için ödeme esnekliğine sahip her hizmet katmanında işlem boyutunu ayarlayın. Yapabilecekleriniz [kapasite ayarlama](sql-database-single-database-scale.md), yukarı veya aşağı, iş yükü değiştikçe. Örneğin, arka Okul alışveriş sezonu sırasında veritabanı iş yükünüzü yüksekse, belirlenen süre Temmuz-Eylül veritabanı için işlem boyutu artırabilir. En yüksek dönemi sona erdiğinde azaltabilir. Bulut ortamınıza işletmenizin mevsimsellik iyileştirerek ödeme en aza indirebilirsiniz. Bu model, iyi yazılım ürün yayın döngüleri için de çalışır. Test takımı, test çalıştırmaları ve test tamamladığınızda bu kapasiteye serbest bırakmak sırada kapasite ayırma. Gereksinim ve nadiren kullanıyor olabileceğiniz ayrılmış kaynaklarda harcama kaçının bir kapasite istek modeli kapasitesi için ödeme.
 
 ### <a name="why-service-tiers"></a>Neden katmanları hizmet?
 Her veritabanı iş yükünüzü değişebilir olsa da, amacı hizmet katmanları, çeşitli işlem boyutlarda performans öngörülebilirliğini sağlamaktır. Büyük ölçekli veritabanı kaynak gereksinimleri olan müşterilerin daha ayrılmış bir bilgi işlem ortamda çalışabilir.

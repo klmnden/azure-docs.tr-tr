@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f03e124aab27292ee86fcd8c28ecebb0ba9cbdcf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd8ba47e8fb0d591fab7717117329357b74f907a
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999520"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585977"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics ekleme aramaları ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
 
@@ -84,7 +84,7 @@ Kayıtlı bir aramayı her bir özellik aşağıdaki tabloda açıklanmıştır.
 | sorgu | Çalıştırılacak sorgu. |
 
 > [!NOTE]
-> JSON olarak yorumlanabilecek karakterler içeriyorsa, kaçış karakterleri sorguda kullanmanız gerekebilir.  Örneğin, sorgunuz varsa **türü: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, çözüm dosyasındaki yazılmalıdır **türü: AzureActivity OperationName:\" Microsoft.Compute/virtualMachines/write\"**.
+> JSON olarak yorumlanabilecek karakterler içeriyorsa, kaçış karakterleri sorguda kullanmanız gerekebilir.  Örneğin, sorgunuz varsa **türü: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, çözüm dosyasındaki yazılmalıdır **türü: AzureActivity OperationName:\\" Microsoft.Compute/virtualMachines/write\\"**.
 
 ## <a name="alerts"></a>Uyarılar
 [Azure günlük uyarılarını](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) düzenli aralıklarla belirtilen günlük sorguları çalıştıran Azure uyarı kuralları tarafından oluşturulur.  Sorgu sonuçlarını belirtilen ölçütlerle eşleşen, bir uyarı kaydı oluşturulur ve bir veya daha fazla eylem kullanarak çalıştırılır [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md).  
@@ -250,7 +250,7 @@ Her zamanlama varsa **uyarı** eylem.  Bu, uyarı ve isteğe bağlı olarak bild
 | Öğe adı | Gerekli | Açıklama |
 |:--|:--|:--|
 | Alıcılar | Evet | Virgülle ayrılmış bir uyarı aşağıdaki örnekte olduğu gibi oluşturulduğunda, bildirim göndermek için e-posta adresleri listesi.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Konu | Evet | E-posta konu satırı. |
+| Özne | Evet | E-posta konu satırı. |
 | Ek | Hayır | Ekleri şu anda desteklenmemektedir.  Bu öğe dahil ise, olmalıdır **hiçbiri**. |
 
 

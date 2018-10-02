@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: d4ce2dc67b0d9229ac2605ab317594ea345c19b2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 1350c543990963f8f860d9dd1da5670d3a1e990c
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434084"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585569"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX ve Azure Machine Learning: oluşturma ve birlikte çalışabilen yapay ZEKA modelleri dağıtma
 
@@ -28,7 +28,7 @@ Microsoft ürünlerinden dahil olmak üzere bu hedefleri gerçekleştirmeye yard
 ## <a name="why-choose-onnx"></a>ONNX neden seçmeliyim?
 Birlikte çalışabilirlik ile ONNX alma harika fikirler üretime daha hızlı erişim sağlamak mümkün kılar. ONNX ile kendi tercih edilen framework iş için veri bilimcilerine seçebilirsiniz. Benzer şekilde, geliştiriciler, üretim için modelleri hazırlanıyor daha az zaman harcayın ve Bulut ve uç arasında dağıtın.  
 
-PyTorch, bağlayıcı, Microsoft Bilişsel Araç Seti (CNTK), MXNet ve ML.Net dahil olmak üzere birçok çerçevelerinden ONNX modelleri dışarı aktarabilirsiniz. TensorFlow, Keras, SciKit-öğrenin ve daha fazlası gibi diğer çerçeveler için dönüştürücü yok.
+PyTorch, bağlayıcı, Microsoft Cognitive Toolkit (CNTK), MXNet, ML.Net, TensorFlow, Keras, SciKit-öğrenme ve daha fazlası dahil olmak üzere birçok çerçevelerinden ONNX modelleri oluşturabilirsiniz.
 
 Bir kaynak ekosisteminiz ONNX modelleri hızlandırma ve görselleştirme araçları yoktur. Bir dizi önceden eğitilmiş ONNX modelleri, ayrıca yaygın senaryoları için kullanılabilir.
 
@@ -36,18 +36,17 @@ Bir kaynak ekosisteminiz ONNX modelleri hızlandırma ve görselleştirme araçl
 
 [ ![ONNX akış eğitim, dönüştürücüler ve dağıtım gösteren diyagram](media/concept-onnx/onnx.png) ] (. / media/concept-onnx/onnx.png#lightbox)
 
-## <a name="create-onnx-models-in-azure"></a>Azure'da ONNX modelleri oluşturma
+## <a name="get-onnx-models"></a>ONNX modelleri Al
 
-ONNX modelleri çeşitli yollarla oluşturabilirsiniz:
-+ Azure Machine Learning hizmetinde bir model eğitip ve dönüştürmek için ONNX dışarı (Bu makalenin altındaki örneğe bakın)
+Çeşitli şekillerde ONNX modelleri elde edebilirsiniz:
++ Önceden eğitilmiş ONNX modelden alma [ONNX Model Zoo](https://github.com/onnx/models) (Bu makalenin altındaki örneğe bakın)
++ Özelleştirilmiş ONNX modelden üreten [Azure özel görüntü işleme hizmeti](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
++ Varolan modeli ONNX için başka bir biçimden Dönüştür (Bu makalenin altındaki örneğe bakın) 
++ Azure Machine Learning hizmetinde yeni bir ONNX model eğitip (Bu makalenin altındaki örneğe bakın)
 
-+ Önceden eğitilmiş ONNX modelden alma [ONNX Model Zoo](https://github.com/onnx/models)
+## <a name="saveconvert-your-models-to-onnx"></a>Kaydetme/modellerinize ONNX Dönüştür
 
-+ Özelleştirilmiş ONNX modelden üreten [Azure özel görüntü işleme hizmeti](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/)
-
-## <a name="exportconvert-your-models-to-onnx"></a>Dışarı aktarma/modellerinize ONNX Dönüştür
-
-Ayrıca, mevcut Modellerinizi ONNX için dönüştürebilirsiniz.
+Mevcut modelleri için ONNX dönüştürmek veya eğitim sonunda ONNX kaydedin.
 
 |Model için bir çerçeve|Dönüştürme örnek veya aracı|
 |-----|-------|
@@ -172,10 +171,11 @@ ONNX model dağıtmak için bir örnek aşağıda verilmiştir:
 
    Dosya `myenv.yml` görüntü için gereken bağımlılıklar açıklanmaktadır. Bkz. Bu [öğretici](tutorial-deploy-models-with-aml.md#create-environment-file) yönelik bu örnek dosyası gibi bir ortam dosyası oluşturmak yönergeler:
 
-   ```
+   ```python
    from azureml.core.conda_dependencies import CondaDependencies 
 
    myenv = CondaDependencies()
+   myenv.add_pip_package("numpy")
    myenv.add_pip_package("azureml-core")
    myenv.add_pip_package("onnxruntime")
 
@@ -191,9 +191,13 @@ ONNX model dağıtmak için bir örnek aşağıda verilmiştir:
 
 ## <a name="examples"></a>Örnekler
  
-Aşağıdaki not defterlerini ONNX modelleriyle Azure Machine Learning dağıtma gösterilmektedir: 
-+ `/onnx/onnx-inference-mnist.ipynb`
- 
+Aşağıdaki not defterlerini ONNX modelleri oluşturup bunları Azure Machine Learning ile dağıtmak nasıl ekleyebileceğiniz gösterilmektedir: 
++ `/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb` 
++ `/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb`
++ `/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb`
+
+Aşağıdaki not defterleri, Azure Machine Learning ile var olan ONNX modelleri dağıtma gösterilmektedir: 
++ `/onnx/onnx-inference-mnist.ipynb` 
 + `/onnx/onnx-inference-emotion-recognition.ipynb`
  
 Bu not alın:

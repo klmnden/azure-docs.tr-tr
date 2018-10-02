@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: b1bab65b68c5f37165fbc8414ac4300c924e53b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c30d531876ae7c69c164bc1d73103e493aaaa8fa
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165185"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018324"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Özel ses oluşturma kayıt ses örnekleri
 
@@ -38,7 +38,7 @@ Kayıt mühendisi  |Kayıt teknik yönlerini denetleyen ve kayıt donanım çal�
 Direktörü            |Komut dosyası hazırlar ve ses beceri'nın performans coaches.
 Düzenleyici              |Ses dosyalarını sonlandırır ve karşıya yükleme özel sesli portalına hazırlayabilirsiniz.
 
-Bireysel birden fazla rol doldurabilirsiniz. Bu kılavuz, öncelikle yöneticisi rolü doldurma ve ses beceri hem bir kayıt mühendisi işe varsayar. Kayıtları hale getirmek isterseniz kendiniz, bu makalede kaydı bir mühendislik rolü hakkında bazı bilgiler içerir. Düzenleyici Rol Yöneticisi kaydı mühendisi tarafından gerçekleştirilen şekilde oturum kadar sonra gerek yoktur.
+Bireysel birden fazla rol doldurabilirsiniz. Bu kılavuz, öncelikle yöneticisi rolü doldurma ve ses beceri hem bir kayıt mühendisi işe varsayar. Kayıtları hale getirmek isterseniz kendiniz, bu makalede kaydı bir mühendislik rolü hakkında bazı bilgiler içerir. Düzenleyici Rol Yöneticisi veya kayıt mühendisi tarafından gerçekleştirilen şekilde oturum kadar sonra gerek yoktur.
 
 ## <a name="choose-your-voice-talent"></a>Kendi ses beceri seçin
 

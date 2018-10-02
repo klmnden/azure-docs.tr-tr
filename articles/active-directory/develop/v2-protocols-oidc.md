@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 51c7bacbfa30a74aef89abba133e48c483375032
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c2ff5272fc6cdc4cc18b8d461a8fb7edeee9878
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971459"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017996"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 ve Openıd Connect Protokolü
 
@@ -111,7 +111,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | --- | --- | --- |
 | kiracı |Gerekli |Kullanabileceğiniz `{tenant}` değeri için uygulamada oturum denetimi için istek yolu. İzin verilen değerler `common`, `organizations`, `consumers`ve Kiracı tanımlayıcıları. Daha fazla bilgi için [protokolü temel](active-directory-v2-protocols.md#endpoints). |
 | client_id |Gerekli |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanan. |
-| response_type |Gerekli |İçermelidir `id_token` Openıd Connect oturum açma için. Bu ayrıca diğer içerebilir `response_types` gibi değerleri `code`. |
+| response_type |Gerekli |İçermelidir `id_token` Openıd Connect oturum açma için. Bu ayrıca diğer içerebilir `response_type` gibi değerleri `code`. |
 | redirect_uri |Önerilen |Yeniden yönlendirme URI'si uygulamanızın, burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alındı. Bu URL olarak kodlanmış olması dışında tam olarak yeniden yönlendirme URI'leri Portalı'nda kayıtlı biriyle eşleşmelidir. |
 | scope |Gerekli |Kapsamları boşlukla ayrılmış listesi. Openıd Connect için kapsamı içermesi gerekir `openid`, onay için UI "oturumunuzu açma" izni çevirir. Bu isteği onayı isteyen için diğer kapsamları de içerebilir. |
 | nonce |Gerekli |Sonuç id_token değerini talep olarak dahil edilecek uygulama tarafından oluşturulan isteğinde bulunan bir değer. Uygulamanın belirteç yeniden yürütme saldırıları azaltmak için bu değer doğrulayabilirsiniz. Genellikle istek kaynağı tanımlamak için kullanılan rastgele, benzersiz bir dize değeridir. |

@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5e358992661f7bcf06121a07c1bafca0850316b2
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 259d61125828ee487b74daa525f3635cfa592ce7
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423146"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017713"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Edge aracısı ve Edge hub'ı modül ikizlerini özellikleri
 
@@ -46,6 +46,7 @@ Edge Aracısı modül ikizi adlı `$edgeAgent` ve bir cihaz ve IOT hub'ı çalı
 | systemModules.edgeHub.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bu bildirimi bir dağıtım kullanarak uygulandığında, bu özellik, IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
 | modüller. {Moduleıd} .version | Bu modülün sürümünü temsil eden kullanıcı tanımlı bir dize. | Evet |
 | modules.{moduleId}.type | "Docker" olması gerekir | Evet |
+| modüller. {Moduleıd} .status | {"çalışıyor" \| "durduruldu"} | Evet |
 | modules.{moduleId}.restartPolicy | {"hiçbir zaman" \| "üzerinde başarısız oldu-" \| "üzerinde-sağlıksız" \| "her zaman"} | Evet |
 | modüller. {Moduleıd}.settings.image | Modülü görüntüsü URI. | Evet |
 | modules.{moduleId}.settings.createOptions | Modül container oluşturulması için seçenekleri içeren bir dizeleştirilmiş JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: d59de5beb01da3b23de0a7e177fd1cb1887694fc
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452539"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586062"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -99,7 +99,7 @@ Azure Stack dağıtımınıza olabilir *bağlı* veya *bağlantısı kesildi*.
 Azure Stack Azure ile kaydettiğinizde, benzersiz kayıt adı sağlamanız gerekir. Azure Stack aboneliğinizi bir Azure kaydı ile ilişkilendirmek için kolay bir yolu, Azure Stack kullanmaktır **bulut kimliği**. 
 
 > [!NOTE]
-> Azure Stack kayıtlarını kapasite tabanlı faturalandırma modeli kullanarak benzersiz bir ad yıllık ilgili aboneliklerin süresi dolduktan sonra yeniden kaydederken değiştirmeniz gerekir.
+> Kapasite tabanlı bir faturalandırma modelini kullanarak azure Stack kayıtlarını sürece bu yıllık abonelik süresi dolduktan sonra yeniden kaydederken benzersiz adını değiştirmek gerekir, [süresi dolmuş kayıt silme](azure-stack-registration.md#change-the-subscription-you-use) ve yeniden kaydedin Azure.
 
 Azure Stack dağıtımınıza bulut kimliği belirlemek için bir bilgisayarda yönetici ayrıcalıklı uç noktasına erişebildiğinden daha çalıştırırken aşağıdaki komutlar, PowerShell'i açın ve kaydı **Cloudıd** değeri: 
 
@@ -318,12 +318,12 @@ Güncelleştirebilir veya aşağıdaki durumlarda kaydınızı yenilemeniz gerek
 
 #### <a name="change-the-subscription-you-use"></a>Kullandığınız aboneliği Değiştir
 
-Aboneliğinizi değiştirmek istiyorsanız, kullanırsanız, önce çalıştırmalısınız **Remove-AzsRegistration** cmdlet'ini doğru Azure PowerShell bağlamına oturum açtığınızdan emin olun ve son olarak çalıştırın **AzsRegistration kümesi**  tüm parametreleri değiştirildi:
+Aboneliğinizi değiştirmek istiyorsanız, kullanırsanız, önce çalıştırmalısınız **Remove-AzsRegistration** cmdlet'ini doğru Azure PowerShell bağlamına oturum açtığınızdan emin olun ve son olarak çalıştırın **AzsRegistration kümesi**  değiştirilen dahil olmak üzere herhangi bir parametre ile \<faturalandırma modeli\>:
 
   ```PowerShell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 #### <a name="change-the-billing-model-or-how-to-offer-features"></a>Faturalandırma modeli veya nasıl sunacağınızı özelliklerini değiştirme
@@ -331,7 +331,7 @@ Aboneliğinizi değiştirmek istiyorsanız, kullanırsanız, önce çalıştırm
 Faturalandırma modeli veya nasıl sunacağınızı yüklemenizin özelliklerini değiştirmek istiyorsanız, yeni değerleri ayarlamak için kayıt işlevi çağırabilir. Geçerli kaydı silmeniz gerekmez:
 
   ```PowerShell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 ### <a name="renew-or-change-registration-in-disconnected-environments"></a>Yenileme veya bağlantısı kesilmiş ortamlarda kaydı değiştirme

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: b34e5317a35d694e8521e73b0846da973661d9df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531843"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018724"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Uygulama ağ geçidi sistem durumu izlemeye genel bakış
 
@@ -96,7 +96,7 @@ Aşağıdaki tabloda, bir özel durum araştırması özelliklerini tanımların
 
 Bir uygulama ağ geçidi alt ağı üzerinde ağ güvenlik grubu (NSG) varsa, bağlantı noktası aralıkları 65503 65534 uygulama ağ geçidi alt ağının gelen trafik için açılmalıdır. Bu bağlantı noktaları, arka uç sistem durumu çalışmak üzere API için gereklidir.
 
-Buna ek olarak, giden Internet bağlantısı engellenemez ve AzureLoadBalancer etiketini gelen trafiğe izin verilmesi gerekir.
+Buna ek olarak, giden Internet bağlantısı engellenemez ve AzureLoadBalancer etiketini Yakında gelen trafiğe izin verilmesi gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Uygulama ağ geçidi sistem durumu izleme hakkında daha fazla edindikten sonra yapılandırdığınız bir [özel durum araştırması](application-gateway-create-probe-portal.md) Azure portalında veya [özel durum araştırması](application-gateway-create-probe-ps.md) PowerShell ve Azure Resource Manager kullanarak dağıtım modeli.

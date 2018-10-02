@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 6e9813d989a54dbb1609a58dd502a7493d973faa
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a4587b1292652cd712b0bf389a9963a4f73b1333
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433727"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586385"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process'in çalışması: SQL Server'ı kullanma
 Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak makine öğrenme modeli dağıtma sürecinde size yol-- [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi iş akışı yordamdan sonraki: alma ve verileri, mühendislik işlevlerini, öğrenme süreçlerini kolaylaştırmasına sonra yapı ve model dağıtma keşfedin.
 
 ## <a name="dataset"></a>Veri kümesi tanımı NYC taksi Geçiren
-NYC taksi seyahat verilerini yaklaşık 20 GB sıkıştırılmış CSV dosyalar (sıkıştırmadan ~ 48 GB), her seyahat için ücretli 173 milyondan fazla bireysel gelişlerin ve fares. Her bir seyahat kaydı alma ve bırakma konumu zaman, anonimleştirilmiş hack (sürücü) lisans numarası ve medallion (taksi'nın benzersiz tanımlayıcı) numarasını içerir. Veriler tüm dönüş 2013 yılında kapsar ve aşağıdaki iki veri kümesi için her ay sağlanır:
+NYC taksi seyahat verilerini yaklaşık 20 GB sıkıştırılmış CSV dosyalar (sıkıştırmadan ~ 48 GB), her seyahat için ücretli 173 milyondan fazla bireysel gelişlerin ve fares. Her bir seyahat kaydı alma ve dropoff konumu zaman, anonimleştirilmiş hack (sürücü) lisans numarası ve medallion (taksi'nın benzersiz tanımlayıcı) numarasını içerir. Veriler tüm dönüş 2013 yılında kapsar ve aşağıdaki iki veri kümesi için her ay sağlanır:
 
 1. 'trip_data' CSV Yolcuların, toplama ve dropoff noktaları, seyahat süresini ve seyahat uzunluğu sayısı gibi seyahat ayrıntıları içerir. Birkaç örnek kayıt şunlardır:
    
@@ -220,7 +220,7 @@ Bu örnek, belirli bir süre içinde (veya kapsayan tam yıl, tam veri kümesi) 
     GROUP BY tip_class
 
 #### <a name="exploration-compute-and-compare-trip-distance"></a>İnceleme: İşlem ve seyahat uzaklık karşılaştırın
-Bu örnek dönüştürür alma ve teslim boylam ve enlem SQL coğrafi konum için işaret, SQL Coğrafya noktaları fark kullanarak seyahat uzaklığı hesaplar ve sonuçları karşılaştırma için rastgele oluşturulmuş bir örnek döndürür. Bu örnek yalnızca daha önce veri kalitesi değerlendirme sorgusu kullanarak geçerli koordinat sonuçları sınırlar.
+Bu örnek dönüştürür alma ve dropoff boylam ve enlem SQL coğrafi konum için işaret, SQL Coğrafya noktaları fark kullanarak seyahat uzaklığı hesaplar ve sonuçları karşılaştırma için rastgele oluşturulmuş bir örnek döndürür. Bu örnek yalnızca daha önce veri kalitesi değerlendirme sorgusu kullanarak geçerli koordinat sonuçları sınırlar.
 
     SELECT
     pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)

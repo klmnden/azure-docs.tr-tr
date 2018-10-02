@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 65134d78fb011ae707c0629bef1ebb1a66bd8ec2
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452318"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018511"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Seçme ve modelinizi eğitmek için işlem hedefi kullanma
 
@@ -372,7 +372,7 @@ Hangi hedef Azure portalından, bir çalışma alanıyla ilişkili işlem görü
 1. Ziyaret [Azure portalında](https://portal.azure.com) ve çalışma alanınıza gidin.
 2. Tıklayarak __işlem__ altında bağlantı __uygulamaları__ bölümü.
 
-    ![Görünüm işlem sekmesi](./media/how-to-set-up-training-targets/compute_tab.png)
+    ![Görünüm işlem sekmesi](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
 ### <a name="create-a-compute-target"></a>İşlem hedefi oluşturmak
 
@@ -380,7 +380,7 @@ Hangi hedef Azure portalından, bir çalışma alanıyla ilişkili işlem görü
 
 1. Tıklayın __+__ işlem hedefi eklemek oturum açın.
 
-    ![İşlem ekle ](./media/how-to-set-up-training-targets/add_compute.png)
+    ![İşlem ekle ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
 1. İşlem hedefi için bir ad girin.
 1. İçin eklemek için işlem türünü seçin __eğitim__. 

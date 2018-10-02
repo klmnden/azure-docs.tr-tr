@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: fdb05f48478d22eea90c3a2c0264e9c4c8640eb0
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: f8fa1d31bf1f1cc2f2a08e49429d75b185eba33c
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454359"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586623"
 ---
 | Kaynak | Varsayılan Sınır | Üst Sınır |
 | --- | --- | --- |
@@ -22,7 +22,6 @@ ms.locfileid: "47454359"
 | [Depolama hesapları](../articles/storage/common/storage-create-storage-account.md) abonelik başına <sup>2</sup> |100 |100 |
 | Abonelik başına [bulut hizmeti](../articles/cloud-services/cloud-services-choose-me.md) sayısı |20 |200 |
 | [Yerel ağlar](http://msdn.microsoft.com/library/jj157100.aspx) abonelik başına |10 |500 |
-| Abonelik başına bir SQL veritabanı sunucuları |6 |200 |
 | Abonelik başına DNS sunucuları |9 |100 |
 | Abonelik başına ayrılmış IP'ler |20 |100 |
 | Abonelik başına barındırılan hizmet sertifikaları |199 |199 |

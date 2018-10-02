@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fa2bc2dd59a5c62becc7f5cd4c4c9633dac1a29
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: e5414a7607c036f1d60f58e1eb047da1e54f4db9
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056476"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585349"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure automation'da kimlik bilgisi varlıkları
 
@@ -77,6 +77,9 @@ Aşağıdaki tabloda işlevi Python2 runbook kimlik bilgilerine erişmek için k
 2. Tıklayın **kimlik bilgilerini** açmak için bölümü **kimlik bilgilerini** dikey penceresi.
 3. Tıklayın **kimlik bilgisi Ekle** dikey penceresinin üstünde.
 4. Formu tamamlayıp tıklayın **Oluştur** yeni kimlik bilgilerini kaydetmek için.
+
+> [!NOTE]
+> Azure Otomasyonu kullanmak için çok faktörlü kimlik doğrulaması kullanan kullanıcı hesapları desteklenmez.
 
 ### <a name="to-create-a-new-credential-asset-with-windows-powershell"></a>Windows PowerShell ile yeni bir kimlik bilgisi varlığı oluşturmak için
 

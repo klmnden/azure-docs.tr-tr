@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 5be239fd3c77872a59b37efc6de5fc42aca9bb0c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 2047a9fbbe1bc7d867bb1c300f882e287ab8ad73
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395823"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018919"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 
@@ -82,7 +82,7 @@ Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer dağıtım yönteml
 | HDInsight 3.6 |HDP 2.6 |16.0.4 ubuntu LTS |4 Nisan 2017 | | |Evet |Evet |
 | HDInsight 3.5 <br> (Spark) * |HDP 2.6 |16.0.4 ubuntu LTS |30 Eylül 2016 |13 Mart 2019 |13 Mart 2019 |Evet |Evet |
 
-*Spark küme türleri için yalnızca HDInsight 3.5 desteği genişletildi*
+*&ast; Spark küme türleri için yalnızca HDInsight 3.5 desteği genişletildi*
 
 > [!NOTE]
 > Bir sürümünün süresi doldu için destek sonra onu Microsoft Azure Portalı aracılığıyla kullanılabilir olmayabilir. Ancak, küme sürümleri kullanılabilir kullanarak devam `Version` Windows PowerShell parametresi [New-Azurermhdınsightcluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) komut ve .NET SDK'sı sürüm devre dışı bırakılacağı tarihten kadar.

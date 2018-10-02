@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: 6178c4a55d24bb37aae787129c9a0d390a2e536b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 192af40df3a8bc0545c9c3a86792e7eb8cb31de9
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226235"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586113"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process'in çalışması: SQL veri ambarı kullanma
 Bu öğreticide, derlemeye ve dağıtmaya SQL veri ambarı'nı (SQL DW) kullanarak makine öğrenme modeli aracılığıyla genel kullanıma açık bir veri kümesi için--inceleyeceğiz [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Oluşturulan ikili sınıflandırma modelinde, bir ipucu bir seyahat için ödeme yapılır ve çok sınıflı sınıflandırma ve regresyon modellerini ayrıca dağıtım Ücretli ipucu tutarlarının tahmin açıklanan olup olmadığını tahmin eder.
@@ -28,7 +28,7 @@ Bu öğreticide, derlemeye ve dağıtmaya SQL veri ambarı'nı (SQL DW) kullanar
 Yordamdan sonraki [Team Data Science işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) iş akışı. Bir veri bilimi ortamını ayarlama göstereceğiz SQL DW'ye veri yükleme ve nasıl mühendisi ve verileri araştırmak için SQL DW veya Ipython Notebook kullanma modeline sahiptir. Ardından nasıl oluşturacağınızı ve Azure Machine Learning ile model dağıtma göstereceğiz.
 
 ## <a name="dataset"></a>NYC taksi Gelişlerin veri kümesi
-Yaklaşık 20 GB sıkıştırılmış CSV dosyalar (sıkıştırmadan ~ 48 GB), NYC taksi seyahat verilerini oluşuyorsa, 173 milyondan fazla bireysel gelişlerin ve fares kaydetmek için her bir seyahat Ücretli. Her bir seyahat kaydı alma ve bırakma konumlarını ve süreleri, anonimleştirilmiş hack (sürücü) lisans numarası ve medallion (taksi'nın benzersiz tanımlayıcı) sayısını içerir. Veriler tüm dönüş 2013 yılında kapsar ve aşağıdaki iki veri kümesi için her ay sağlanır:
+Yaklaşık 20 GB sıkıştırılmış CSV dosyalar (sıkıştırmadan ~ 48 GB), NYC taksi seyahat verilerini oluşuyorsa, 173 milyondan fazla bireysel gelişlerin ve fares kaydetmek için her bir seyahat Ücretli. Her bir seyahat kaydı alma ve dropoff konumları ve süreleri, anonimleştirilmiş hack (sürücü) lisans numarası ve medallion (taksi'nın benzersiz tanımlayıcı) sayısını içerir. Veriler tüm dönüş 2013 yılında kapsar ve aşağıdaki iki veri kümesi için her ay sağlanır:
 
 1. **Trip_data.csv** dosyası Yolcuların, toplama ve dropoff noktaları, seyahat süresini ve seyahat uzunluğu sayısı gibi seyahat ayrıntıları içerir. Birkaç örnek kayıt şunlardır:
    
@@ -442,7 +442,7 @@ Bu örnek, belirli bir süre içinde (veya kapsayan tam yıl, tam veri kümesi) 
 | 4 |85765 |
 
 ### <a name="exploration-compute-and-compare-trip-distance"></a>İnceleme: İşlem ve seyahat uzaklık karşılaştırın
-Bu örnek dönüştürür alma ve teslim boylam ve enlem SQL coğrafi konum için işaret, SQL Coğrafya noktaları fark kullanarak seyahat uzaklığı hesaplar ve sonuçları karşılaştırma için rastgele oluşturulmuş bir örnek döndürür. Bu örnek yalnızca daha önce veri kalitesi değerlendirme sorgusu kullanarak geçerli koordinat sonuçları sınırlar.
+Bu örnek dönüştürür alma ve dropoff boylam ve enlem SQL coğrafi konum için işaret, SQL Coğrafya noktaları fark kullanarak seyahat uzaklığı hesaplar ve sonuçları karşılaştırma için rastgele oluşturulmuş bir örnek döndürür. Bu örnek yalnızca daha önce veri kalitesi değerlendirme sorgusu kullanarak geçerli koordinat sonuçları sınırlar.
 
     /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
     SET ANSI_NULLS ON

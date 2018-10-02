@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: bb62f892ec3d171958764d10f4b069bbd536d2ea
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f50714538cdfd1a0bd258a3b78d0885e3c7beed1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223449"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018494"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Şablonları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -188,7 +188,7 @@ Sistem tarafından atanan bir yönetilen kimlik artık gerektiren bir VM'niz var
 
    Sanal makinenizin sistem ve kullanıcı tarafından atanan yönetilen kimlikleri varsa, Kaldır `SystemAssigned` kimlik türü ve canlı `UserAssigned` ile birlikte `userAssignedIdentities` değerleri sözlüğü.
 
-   **API sürümü 2018-06-01 Microsoft.Compute/virtualMachines ve önceki sürümleri**
+   **Microsoft.Compute/virtualMachines API sürümü 2018-06-01**
    
    Varsa, `apiVersion` olduğu `2017-12-01` ve sanal makinenizin sistem ve kullanıcı tarafından atanan yönetilen kimlikleri kaldırmak `SystemAssigned` kimlik türü ve canlı `UserAssigned` ile birlikte `identityIds` kullanıcı tarafından atanan dizisi yönetilen kimlikleri.  
    
@@ -235,7 +235,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure sanal makines
    }
    ```
    
-   **API Sürüm 2017-12-01 Microsoft.Compute/virtualMachines ve önceki sürümleri**
+   **Microsoft.Compute/virtualMachines API Sürüm 2017-12-01**
     
    Varsa, `apiVersion` olduğu `2017-12-01`, kullanıcı tarafından atanan yönetilen kimliklerinizi depolanır `identityIds` dizi ve `<USERASSIGNEDIDENTITYNAME>` değeri depolanan, tanımlı bir değişkende `variables` şablonunuzun bölümü.
     
@@ -316,7 +316,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure sanal makines
        }
     ]
    ```
-   **API Sürüm 2017-12-01 Microsoft.Compute/virtualMachines ve önceki sürümleri**
+   **Microsoft.Compute/virtualMachines API Sürüm 2017-12-01**
    
    ```JSON
    "resources": [
@@ -375,7 +375,7 @@ Artık bir kullanıcı tarafından atanan bir yönetilen kimlik gereken bir VM'n
     }
    ```
    
-   **API sürümü 2018-06-01 Microsoft.Compute/virtualMachines ve önceki sürümleri**
+   **Microsoft.Compute/virtualMachines API sürümü 2018-06-01**
     
    Tek bir kullanıcı tarafından atanan yönetilen kimlik bir sanal makineden kaldırmak için oradan kaldırın `useraAssignedIdentities` sözlüğü.
 

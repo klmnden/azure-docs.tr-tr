@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4bfaed3d908574eff3521cedcef4b117d45e1ca2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c6bc77e5ee1fa5e180b41dca50640dc01fee0691
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220929"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017525"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Azure kaynakları için yönetilen kimlikleri bir şablonu kullanarak bir Azure sanal makine ölçek üzerinde yapılandırma
 
@@ -146,7 +146,7 @@ Artık sistem tarafından atanan bir yönetilen kimlik gereken sanal makine öl�
 
    Varsa, apiVersion `2018-06-01` ve sanal makinenizin sistem ve kullanıcı tarafından atanan yönetilen kimlikleri kaldırmak `SystemAssigned` kimlik türü ve canlı `UserAssigned` Userassignedıdentities sözlük değerlerin yanı sıra.
 
-   **Microsoft.Compute/virtualMachineScaleSets API sürümü 2018-06-01 ve önceki sürümleri**
+   **Microsoft.Compute/virtualMachineScaleSets API sürümü 2018-06-01**
 
    Varsa, apiVersion `2017-12-01` ve sistem ve kullanıcı tarafından atanan yönetilen kimlikleri kaldırmak, sanal makine ölçek kümesi sahip `SystemAssigned` kimlik türü ve canlı `UserAssigned` ile birlikte `identityIds` kullanıcı tarafından atanan yönetilen dizi kimlik. 
    
@@ -279,7 +279,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak sanal makine ölçek k�
     ]
    ```
 
-   **Daha önce Microsoft.Compute/virtualMachines API Sürüm 2017-12-01 eand**
+   **Microsoft.Compute/virtualMachines API Sürüm 2017-12-01**
 
    ```json
    "resources": [

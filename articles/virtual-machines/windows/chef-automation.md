@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 3a6fbc8410dbc5aec4522f0972a29c67527edb23
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: de89756a3f9ef1139e855da16c0343a9919b56cb
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059526"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585383"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Chef ile Azure sanal makine dağıtımını otomatikleştirme
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef, Otomasyon sunmaya yönelik harika bir araçtır ve istenen durum yapılandırmaları.
 
-En son bulut API Sürüm, Chef, sağlama ve yapılandırma durumları tek bir komut ile dağıtım olanağı sağlayan Azure ile sorunsuz tümleştirme sağlar.
+En son bulut API sürümüyle, Chef, sağlama ve yapılandırma durumları tek bir komut ile dağıtım olanağı sağlayan Azure ile sorunsuz tümleştirme sağlar.
 
 Bu makalede, Azure sanal makineleri sağlayın ve rehberlik bir ilke veya "Kılavuzu" oluşturma ve ardından bir Azure sanal makinesi için bu kılavuzu dağıtmak için Chef ortamınızı ayarlayın.
 
@@ -42,7 +42,7 @@ Aşağıdaki diyagramda, üst düzey Chef mimarisi gösterilmektedir.
 
 Chef, üç ana mimari bileşeni vardır: Chef sunucusu, Chef istemci (node) ve Chef iş istasyonu.
 
-Chef sunucusu yönetim noktasıdır ve Chef sunucu için iki seçenek vardır: barındırılan bir çözüm ya da şirket içi bir çözüm. Biz bir barındırılan çözümün kullanacaklardır.
+Chef sunucusu yönetim noktasıdır ve Chef sunucu için iki seçenek vardır: barındırılan bir çözüm ya da şirket içi bir çözüm. Biz bu öğreticide bir barındırılan çözümün kullanacaklardır.
 
 Chef istemci (node) yönettiğiniz sunucularında yer alan aracısıdır.
 
@@ -75,7 +75,7 @@ Kuruluşunuz oluşturulduktan sonra Başlangıç setini indirin.
 ![][4]
 
 > [!NOTE]
-> Anahtarlarınızı sıfırlanacak uyarı istemi alır, sahip olduğumuz olarak henüz yapılandırılmamış olan herhangi bir mevcut altyapı olarak devam etmek için Tamam demektir.
+> Anahtarlarınızı sıfırlanacak uyarı bir istem alırsanız, sahip olduğumuz olarak henüz yapılandırılmamış olan herhangi bir mevcut altyapı olarak devam etmek uygundur.
 > 
 > 
 
@@ -94,7 +94,7 @@ Dizininizi aşağıdaki örnek gibi görünmelidir.
 
 Knife.rb dosya Bıçak yapılandırmanızı içerirken PEM dosyalar kuruluşunuz ve yönetici iletişim özel anahtarı içerir. Knife.rb dosyasını düzenlemeniz gerekir.
 
-Tercih ettiğiniz düzenleyicide dosyayı açıp kaldırarak "cookbook_path" değiştirmek /... / sonraki gösterildiği gibi görünecek şekilde yolu.
+Tercih ettiğiniz düzenleyicide dosyayı açıp kaldırarak "cookbook_path" değiştirmek /... / olarak görünecek şekilde yolu:
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -109,7 +109,7 @@ Knife.rb dosyanız artık aşağıdaki örneğe benzer görünmelidir.
 Bu satırlar Bıçak c:\chef\cookbooks altında tarif kitapları dizine başvurur ve ayrıca Azure işlemleri sırasında bizim Azure yayımlama ayarları dosyasını kullanır sağlayacaktır.
 
 ## <a name="installing-the-chef-development-kit"></a>Chef Geliştirme Seti yükleniyor
-Sonraki [yükleyip](http://downloads.getchef.com/chef-dk/windows) ChefDK (Seti Chef iş istasyonunuzu ayarlamak için Chef geliştirme).
+Ardından, [yükleyip](http://downloads.getchef.com/chef-dk/windows) ChefDK (Seti Chef iş istasyonunuzu ayarlamak için Chef geliştirme).
 
 ![][7]
 
@@ -119,7 +119,9 @@ YOL değişkeninize C:\opscode\chefdk\bin için girişler doğrulayın; C:\opsco
 
 Bunlar yoksa, bu yollar eklediğinizden emin olun!
 
-*YOLUN SIRALAMASI ÖNEM TAŞIMAKTADIR UNUTMAYIN!* Değilse, opscode yolları doğru sırayla sorunları olacaktır.
+> [!NOTE]
+> Yolun sırası önemlidir! Değilse, opscode yolları doğru sırayla sorunları olacaktır. 
+> 
 
 Devam etmeden önce iş istasyonunuzu yeniden başlatın.
 

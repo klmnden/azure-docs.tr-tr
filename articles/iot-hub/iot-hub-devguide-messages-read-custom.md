@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: af0b819c6c60835089c174a1f9f7c3a6215e362c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbd5058be502839f83db484136d1c97bac4a3d79
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956977"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585960"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>CİHAZDAN buluta iletiler için ileti yollarını ve özel uç noktaları kullanma
 
@@ -32,37 +32,30 @@ Tek bir ileti birden çok yönlendirme sorgular, IOT Hub durumu ileti eşleşen 
 
 ## <a name="endpoints-and-routing"></a>Uç noktalar ve yönlendirme
 
-IOT hub'ı varsayılan sahip [yerleşik uç nokta][lnk-built-in]. Hub'ına aboneliğinizde diğer hizmetler arasında bağlantı kurularak iletileri yönlendirmek için özel uç noktaları oluşturabilirsiniz. IOT hub'ı Azure depolama kapsayıcıları, Event Hubs, Service Bus kuyrukları ve Service Bus konu başlıklarını şu anda özel uç noktalar destekler.
+IOT hub'ı varsayılan sahip [yerleşik uç nokta](iot-hub-devguide-messages-read-builtin.md). Hub'ına aboneliğinizde diğer hizmetler arasında bağlantı kurularak iletileri yönlendirmek için özel uç noktaları oluşturabilirsiniz. IOT hub'ı Azure depolama kapsayıcıları, Event Hubs, Service Bus kuyrukları ve Service Bus konu başlıklarını şu anda özel uç noktalar destekler.
 
 Yönlendirme ve özel uç noktaları kullandığınızda, herhangi bir sorgu eşleşmiyorsa iletileri yalnızca yerleşik uç noktasına gönderilir. Yerleşik uç noktasına da özel bir uç noktası için farklı iletileri ulaştırmak üzere, iletileri gönderen bir rota ekleyin **olayları** uç noktası.
 
 > [!NOTE]
-> IOT hub'ı yalnızca verileri Azure depolama kapsayıcıları bloblar için yazma destekler.
+> * IOT hub'ı yalnızca verileri Azure depolama kapsayıcıları bloblar için yazma destekler.
+> * Service Bus kuyrukları ve konuları ile **oturumları** veya **yinelenen algılama** etkin özel uç noktalar desteklenmez.
 
-> [!WARNING]
-> Service Bus kuyrukları ve konuları ile **oturumları** veya **yinelenen algılama** etkin özel uç noktalar desteklenmez.
-
-IOT Hub'ında özel uç noktalar oluşturma hakkında daha fazla bilgi için bkz. [IOT Hub uç noktaları][lnk-devguide-endpoints].
+IOT Hub'ında özel uç noktalar oluşturma hakkında daha fazla bilgi için bkz. [IOT Hub uç noktaları](iot-hub-devguide-endpoints.md).
 
 Özel uç noktalar okuma hakkında daha fazla bilgi için bkz:
 
-* Okuma [Azure depolama kapsayıcıları][lnk-getstarted-storage].
-* Okuma [olay hub'ları][lnk-getstarted-eh].
-* Okuma [Service Bus kuyruklarını][lnk-getstarted-queue].
-* Okuma [Service Bus konu başlıklarını][lnk-getstarted-topic].
+* Okuma [Azure depolama kapsayıcıları](../storage/blobs/storage-blobs-introduction.md).
 
-### <a name="next-steps"></a>Sonraki adımlar
+* Okuma [olay hub'ları](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-* IOT Hub uç noktaları hakkında daha fazla bilgi için bkz: [IOT Hub uç noktaları][lnk-devguide-endpoints].
+* Okuma [Service Bus kuyruklarını](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+
+* Okuma [Service Bus konu başlıklarını](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md).
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* IOT Hub uç noktaları hakkında daha fazla bilgi için bkz: [IOT Hub uç noktaları](iot-hub-devguide-endpoints.md).
+
 * Yönlendirme sorguları tanımlamak için kullandığınız sorgu dili hakkında daha fazla bilgi için bkz. [ileti yönlendirme sorgusu söz dizimi](iot-hub-devguide-routing-query-syntax.md).
-* [Yolları kullanarak işlem IOT Hub CİHAZDAN buluta iletileri] [ lnk-d2c-tutorial] Öğreticisi, yönlendirme sorgular ve özel uç noktalar nasıl kullanılacağını gösterir.
 
-[lnk-built-in]: iot-hub-devguide-messages-read-builtin.md
-[lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md
-[lnk-devguide-query-language]: iot-hub-devguide-query-language.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-d2c-tutorial]: tutorial-routing.md
-[lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
-[lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
-[lnk-getstarted-storage]: ../storage/blobs/storage-blobs-introduction.md
+* [Yolları kullanarak işlem IOT Hub CİHAZDAN buluta iletileri](tutorial-routing.md) Öğreticisi, yönlendirme sorgular ve özel uç noktalar nasıl kullanılacağını gösterir.

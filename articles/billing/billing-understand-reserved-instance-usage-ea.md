@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 09/28/2018
 ms.author: cwatson
-ms.openlocfilehash: 4b418db3c4d9876a739ce94539a6f48402332a86
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a33a360d25930f1468f1c9240be2d0f306d682c7
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394905"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585756"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Kurumsal kayıt için Azure ayırma kullanımını anlama
 
@@ -51,9 +51,11 @@ Enterprise Portal'da Kurumsal kullanım CSV dosyası indirebilirsiniz. CSV dosya
 3. **Ölçüm kimliği** 0 ABD Doları maliyetle ayırma ölçer. Çalışan VM maliyeti, ayrılmış VM örneği tarafından ödenir.
 4. Olan bir vCPU işler için standart_d1 VM ve VM Azure hibrit avantajı dağıtılır. Bu nedenle bu ölçüm, Windows yazılım başka bir ücret kapsar. 1 çekirdek VM için D serisi karşılık gelen bir ölçüm bulmak için bkz: [Azure ayrılmış VM örnekleri Windows yazılım maliyetleri](billing-reserved-instance-windows-software-costs.md).  Azure hibrit avantajı varsa, bu ek ücret uygulanmaz.
 
-## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Kapasite kullanımı SQL veritabanı için ayrılmış
+## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Kapasite kullanımı SQL veritabanı ve Cosmos DB için ayrılmış
 
-İçin aşağıdaki bölümlerde, Doğu ABD bölgesinde ve aşağıdaki tabloda, ayırma bilgileri ayarlanmış bir SQL veritabanı Gen 4 çalıştığını varsayalım:
+Aşağıdaki bölümlerde, kullanım raporu açıklamak için örnek olarak Azure SQL veritabanı kullanın. Azure Cosmos DB için de kullanımını almak için aynı adımları kullanabilirsiniz. 
+
+Bir SQL veritabanı Gen 4 Aşağıdaki tabloda, ayırma bilgileri görünür, Doğu ABD bölgesinde çalıştığını varsayalım:
 
 | Alan | Değer |
 |---| --- |
@@ -62,9 +64,9 @@ Enterprise Portal'da Kurumsal kullanım CSV dosyası indirebilirsiniz. CSV dosya
 |Ürün| SQL veritabanı 4. nesil (2 Çekirdek)|
 |Bölge | eastus |
 
-### <a name="usage-in-csv-file-for-sql-database-reserved-capacity"></a>SQL veritabanı ayrılmış kapasite için CSV dosyası kullanımı
+### <a name="usage-in-csv-file"></a>CSV dosyası kullanımı 
 
-Filtre **ek bilgi** ve yazın, **rezervasyon kimliği**. Aşağıdaki ekran görüntüsünde ayırmaya ilgili alanları gösterir.
+Filtre **ek bilgi** ve yazın, **rezervasyon kimliği**ve gerekli **ölçüm kategorisi** -Azure SQL veritabanı veya Azure Cosmos DB. Aşağıdaki ekran görüntüsünde ayırmaya ilgili alanları gösterir.
 
 ![SQL veritabanı için Kurumsal Anlaşma (EA) csv ayrılmış kapasite](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
 
@@ -84,8 +86,8 @@ Azure ayırma kullanımınızı da Enterprise portal'ın kullanımı Özeti böl
 Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
-- [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md) 
+- [Azure Ayrılmış VM Örnekleri ile Sanal Makinelere ön ödeme yapma](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure SQL Veritabanı ayrılmış kapasitesi ile SQL Veritabanı işlem kaynakları için ön ödeme yapma](../sql-database/sql-database-reserved-capacity.md) 
 - [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
 - [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
@@ -94,3 +96,4 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
 Hala başka sorularınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
+

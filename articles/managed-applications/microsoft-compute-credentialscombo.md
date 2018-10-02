@@ -1,6 +1,6 @@
 ---
 title: Azure CredentialsCombo UI öğesi | Microsoft Docs
-description: Azure portalı için Microsoft.Compute.CredentialsCombo kullanıcı Arabirimi öğesi açıklar.
+description: Azure portalına yönelik Microsoft.Compute.CredentialsCombo UI öğesi açıklar.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -11,34 +11,34 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 183075f7407b0a0ca6ea53871e239ab8c2d89490
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 0412d55fe60524cde404e6a640723d3259e020e1
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098629"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586249"
 ---
-# <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI öğesi
-Windows ve Linux parolalar ve SSH ortak anahtarları için yerleşik doğrulama denetimleriyle grubudur.
+# <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo kullanıcı Arabirimi öğesi
+Windows ve Linux parola ve SSH ortak anahtarları için yerleşik doğrulama denetimleriyle grubudur.
 
-## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
+## <a name="ui-sample"></a>Örnek kullanıcı Arabirimi
 
-Windows, kullanıcıları bakın:
+Windows için bkz:
 
 ![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
 
 Seçili parola ile Linux için kullanıcıları bakın:
 
-![Microsoft.Compute.CredentialsCombo Linux parola](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+![Microsoft.Compute.CredentialsCombo Linux parolası](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
 
 Seçili SSH ortak anahtarı ile Linux için kullanıcıları bakın:
 
 ![Microsoft.Compute.CredentialsCombo Linux anahtarı](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Şema
-Windows için aşağıdaki şema kullanın:
+Windows için aşağıdaki şemayı kullanın:
 
 ```json
 {
@@ -53,8 +53,8 @@ Windows için aşağıdaki şema kullanın:
   },
   "constraints": {
     "required": true,
-    "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
-    "customValidationMessage": "The password must contain at least 8 characters, with at least 1 letter and 1 number."
+    "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
+    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false
@@ -64,7 +64,7 @@ Windows için aşağıdaki şema kullanın:
 }
 ```
 
-İçin **Linux**, aşağıdaki şema kullanın:
+İçin **Linux**, aşağıdaki şemayı kullanın:
 
 ```json
 {
@@ -83,8 +83,8 @@ Windows için aşağıdaki şema kullanın:
   },
   "constraints": {
     "required": true,
-    "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
-    "customValidationMessage": "The password must contain at least 8 characters, with at least 1 letter and 1 number."
+    "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
+    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false,
@@ -96,23 +96,23 @@ Windows için aşağıdaki şema kullanın:
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- `osPlatform` belirtilmeli ve birini kullanabilir **Windows** veya **Linux**.
-- Varsa `constraints.required` ayarlanır **doğru**, sonra da parola veya SSH ortak anahtarı metin kutuları başarıyla doğrulamak için değerlere sahip olmalıdır. Varsayılan değer **doğru**.
-- Varsa `options.hideConfirmation` ayarlanır **doğru**, sonra da kullanıcının parolasını onayladığınız için ikinci metin kutusu gizli. Varsayılan değer **false**.
-- Varsa `options.hidePassword` ayarlanır **doğru**, parola kimlik doğrulaması kullanma seçeneğini gizli sonra. Kullanılabilmesi için yalnızca `osPlatform` olan **Linux**. Varsayılan değer **false**.
-- İzin verilen parolalar ek kısıtlamalar kullanarak uygulanabilir `customPasswordRegex` özelliği. Dizede `customValidationMessage` parola özel doğrulama başarısız olduğunda görüntülenir. Her iki özellik için varsayılan değer **null**.
+- `osPlatform` belirtilmiş olmalı ve aşağıdakilerden biri olması **Windows** veya **Linux**.
+- Varsa `constraints.required` ayarlanır **true**, sonra da parola veya SSH ortak anahtarı metin kutuları başarıyla doğrulamak için değerlere sahip olmalıdır. Varsayılan değer **true**.
+- Varsa `options.hideConfirmation` ayarlanır **true**, sonra kullanıcı parolası onaylama için ikinci metin kutusunda gizlenir. Varsayılan değer **false**.
+- Varsa `options.hidePassword` ayarlanır **true**, sonra da parola kimlik doğrulaması kullanma seçeneğini gizli. Kullanılmadan yalnızca `osPlatform` olduğu **Linux**. Varsayılan değer **false**.
+- Kullanarak izin verilen parola ek kısıtlamalar uygulanabilir `customPasswordRegex` özelliği. Dizede `customValidationMessage` parola özel doğrulama başarısız olduğunda görüntülenir. Her iki özellik için varsayılan değerdir **null**.
 
 ## <a name="sample-output"></a>Örnek çıktı
-Varsa `osPlatform` olan **Windows**, veya `osPlatform` olan **Linux** ve kullanıcı tarafından sağlanan parola yerine bir SSH ortak anahtarı, aşağıdaki çıkış denetimi döndürür:
+Varsa `osPlatform` olan **Windows**, veya `osPlatform` olan **Linux** ve kullanıcı sağlanan parola yerine bir SSH ortak anahtarı, denetimi aşağıdaki çıkışı verir:
 
 ```json
 {
   "authenticationType": "password",
-  "password": "p4ssw0rd",
+  "password": "p4ssw0rddem0",
 }
 ```
 
-Varsa `osPlatform` olan **Linux** ve kullanıcı tarafından sağlanan bir SSH ortak anahtarı, aşağıdaki çıkış denetimi döndürür:
+Varsa `osPlatform` olduğu **Linux** ve kullanıcı sağlanan SSH ortak anahtarı, denetimi aşağıdaki çıktı döndürür:
 
 ```json
 {
@@ -122,5 +122,5 @@ Varsa `osPlatform` olan **Linux** ve kullanıcı tarafından sağlanan bir SSH o
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
-* Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).
+* UI tanımları oluşturma, bir giriş için bkz. [createuidefinition dosyasını kullanmaya başlama](create-uidefinition-overview.md).
+* Ortak Özellikler UI öğelerinin açıklaması için bkz. [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

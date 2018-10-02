@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 10/01/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6c6143cad04178fcafc825d9dae13c1a0620fb93
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 50bd22559c3695ac4161932652eb191084e2b46e
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033456"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017374"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Öğretici: Oluşturma ve Azure bütçelerini yönetin
 
@@ -57,7 +57,7 @@ Bütçe oluşturduktan sonra bunlar geçerli bunlara karşı harcamalarınızı 
 
 ![Maliyet Yönetimi bütçelerini](./media/tutorial-acm-create-budgets/budgets01.png)
 
-İçinde **Oluştur bütçe** penceresinde bir bütçe adı ve bütçe miktarı girin. Ardından, bir aylık, üç aylık, veya yıllık süresi seçin. Ardından, bir bitiş tarihi seçin. Bütçe en az bir maliyet eşiği (% bütçe) ve karşılık gelen e-posta adresi gerektirir. İsteğe bağlı olarak, en fazla beş eşikleri ve tek bir bütçe içinde beş e-posta adresi ekleyebilirsiniz.
+İçinde **Oluştur bütçe** penceresinde bir bütçe adı ve bütçe miktarı girin. Ardından, bir aylık, üç aylık, veya yıllık süresi seçin. Ardından, bir bitiş tarihi seçin. Bütçe en az bir maliyet eşiği (% bütçe) ve karşılık gelen e-posta adresi gerektirir. İsteğe bağlı olarak, en fazla beş eşikleri ve tek bir bütçe içinde beş e-posta adresi ekleyebilirsiniz. Bütçe eşiği karşılandığında, e-posta bildirimleri normal olarak sekiz saatten kısa bir süre içinde alınır.
 
 4.500 için aylık bir bütçe oluşturma örneği aşağıda verilmiştir. %90 bütçenin ulaşıldığında bir e-posta uyarısı oluşturulan.
 

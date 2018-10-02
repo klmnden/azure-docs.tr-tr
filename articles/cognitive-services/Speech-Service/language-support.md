@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 60a6061d6ac0998064897462c0e82db811bdc187
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e8d84d83636bc8bed287d1fa68d36ce1c2ea3d58
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435583"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018562"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Konuşma hizmeti API'sini dil ve bölge desteği
 
@@ -161,8 +161,6 @@ Ses özelleştirme ABD İngilizce (en-US), ana kara Çince (zh-CN) ve İtalyanca
 ## <a name="speech-translation"></a>Konuşma Çevirisi
 
 **Konuşma çevirisi** API, konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için farklı dilleri destekler. Kaynak dili her zaman aşağıdaki konuşma dilini tablodan olmalıdır. Hedef diller Çeviri hedef konuşma veya metin olmasına göre değişir.
-
-REST API'nin dilleri uç nokta kullanarak dillerin listesini program aracılığıyla elde edebilirsiniz. Liste, desteklenen herhangi bir dili veya İngilizce dil adının yanı sıra, her dil kodu sağlar. Yeni bir dil kullanılabilir olduğunda bu liste Microsoft Translator hizmeti tarafından güncelleştirilir.
 
 ### <a name="speech-languages"></a>Konuşma dillerini
 

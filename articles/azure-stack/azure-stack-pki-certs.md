@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8de34e4ac01dea9cf4a0c718883e8cc828be6403
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 61c91f7e1f2ba266be6453bb6e6fb25f3834485e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714630"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585905"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -39,7 +39,7 @@ Aşağıdaki listede, Azure Stack dağıtmak için gerekli sertifika gereksiniml
 - Azure Stack altyapınızı, sertifika yetkilisinin sertifika iptal listesi (CRL) konumuna sertifikada yayımlanan ağ erişimi olması gerekir. Bu CRL bir http uç noktası olmalıdır
 - Sertifikaları döndürürken sertifikaları ya da dağıtım ya da yukarıdaki tüm ortak sertifika yetkilisinden verilen sertifikaları imzalamak için kullanılan aynı iç sertifika yetkilisinden verilen olmalıdır
 - Otomatik olarak imzalanan sertifikaların kullanılması desteklenmiyor
-- Azure Stack dağıtımı ve döndürme yapabilirsiniz veya tüm ad alanları sertifikanın konu adı ve konu alternatif adı (SAN) alanlarını kapsayan tek bir sertifikayı kullanın ya da kullanabilirsiniz, aşağıdaki ad alanlarının her biri için tek tek sertifikaları kullanmak için plan hizmetleri gerektirir. Not: joker gibi gerekli olduğu için uç noktaları kullanarak her iki yaklaşım gerektirir. **KeyVault** ve **KeyVaultInternal**. 
+- Azure Stack dağıtımı ve döndürme yapabilirsiniz veya tüm ad alanları sertifikanın konu adı ve konu alternatif adı (SAN) alanlarını kapsayan tek bir sertifikayı kullanın ya da kullanabilirsiniz, aşağıdaki ad alanlarının her biri için tek tek sertifikaları kullanmak için plan hizmetleri gerektirir. Her iki yaklaşım gibi gerekli olduğu bitiş noktası için joker karakterler kullanarak gerektiren **KeyVault** ve **KeyVaultInternal**. 
 - Sertifika imza algoritması 3DES olması gerekir. Algoritma SHA1, olamaz, daha güçlü olması gerekir. 
 - Ortak ve özel anahtarları Azure Stack yükleme için gerekli olduğu gibi PFX sertifika biçimi olmalıdır. 
 - Sertifika pfx dosyasını bir değer "Dijital imza" ve "KeyEncipherment", "Anahtar kullanımı" alanında olması gerekir.

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 680cea983fb7435bf4492fc295e29f3a234a4323
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1f7a38994cb127d2edb59e9d3befeece99a7feb1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357729"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018701"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS uygulamaları için kullanıcı sağlamayı otomatik nedir?
@@ -129,8 +129,8 @@ Sağlama hizmeti başlatıldığında, şimdiye kadar yapılan ilk eşitleme yap
 1. Tüm kullanıcılar ve Gruplar'ı kaynak sistemden içinde tanımlanan tüm öznitelikleri alınırken sorgu [öznitelik eşlemelerini](customize-application-attributes.md).
 2. Kullanıcıları ve yapılandırılmış kullanarak döndürülen, grupları filtre [atamaları](assign-user-or-group-access-portal.md) veya [öznitelik tabanlı kapsam filtreleri](define-conditional-rules-for-provisioning-user-accounts.md).
 3. Ne zaman atanmış bir kullanıcı bulunamadı veya sağlama için kapsam içinde hizmet belirlenmiş kullanarak eşleşen bir kullanıcı için hedef sistemde sorgular [öznitelikleri eşleşen](customize-application-attributes.md#understanding-attribute-mapping-properties). Örnek: kaynak sistemindeki userPrincipal adı eşleşen bir özniteliktir ve eşler kullanıyorsanız kaynak sistemde userPrincipal adı değerlerle eşleşen kullanıcı adları için hedef sistemde kullanıcı hedef sistemde sonra sağlama hizmeti sorgular.
-4. Eşleşen kullanıcı hedef sistemde bulunamazsa, kaynak sistemden öznitelikleri kullanılarak oluşturulur.
-5. Eşleşen bir kullanıcı bulunamazsa, kaynak sistem tarafından sağlanan öznitelikleri kullanılarak güncelleştirilir.
+4. Eşleşen kullanıcı hedef sistemde bulunamazsa, kaynak sistemden öznitelikleri kullanılarak oluşturulur. Kullanıcı hesabı oluşturulduktan sonra sağlama hizmeti algılar ve kullanıcı gelecekteki tüm işlemleri gerçekleştirmek için kullanılan yeni kullanıcı kimliği hedef sistemin önbelleğe alır.
+5. Eşleşen bir kullanıcı bulunamazsa, kaynak sistem tarafından sağlanan öznitelikleri kullanılarak güncelleştirilir. Kullanıcı hesabı eşleşen sonra sağlama hizmeti algılar ve kullanıcı gelecekteki tüm işlemleri gerçekleştirmek için kullanılan yeni kullanıcı kimliği hedef sistemin önbelleğe alır.
 6. Öznitelik eşlemeleri "başvuru" özniteliği içermiyorsa, hizmet oluşturmak ve başvurulan nesneler bağlamak için hedef sistemde ek güncelleştirmeler yapar. Örneğin, bir kullanıcı bir "Yönetici" özniteliği başka bir kullanıcı hedef sistemde oluşturulan bağlı hedef sistem olabilir.
 7. Filigran sonraki artımlı eşitlemeler için başlangıç noktası sağlar ilk eşitleme sonunda kalıcı hale getirin.
 
@@ -142,8 +142,8 @@ Yalnızca kullanıcılar sağlama, ancak grupları ve bunların üyeleri de sağ
 1. Tüm kullanıcılar ve son Filigran depolanmış beri güncelleştirildi gruplar için kaynak sistemi sorgulayın.
 2. Kullanıcıları ve yapılandırılmış kullanarak döndürülen, grupları filtre [atamaları](assign-user-or-group-access-portal.md) veya [öznitelik tabanlı kapsam filtreleri](define-conditional-rules-for-provisioning-user-accounts.md).
 3. Ne zaman atanmış bir kullanıcı bulunamadı veya sağlama için kapsam içinde hizmet belirlenmiş kullanarak eşleşen bir kullanıcı için hedef sistemde sorgular [öznitelikleri eşleşen](customize-application-attributes.md#understanding-attribute-mapping-properties).
-4. Eşleşen kullanıcı hedef sistemde bulunamazsa, kaynak sistemden öznitelikleri kullanılarak oluşturulur.
-5. Eşleşen bir kullanıcı bulunamazsa, kaynak sistem tarafından sağlanan öznitelikleri kullanılarak güncelleştirilir.
+4. Eşleşen kullanıcı hedef sistemde bulunamazsa, kaynak sistemden öznitelikleri kullanılarak oluşturulur. Kullanıcı hesabı oluşturulduktan sonra sağlama hizmeti algılar ve kullanıcı gelecekteki tüm işlemleri gerçekleştirmek için kullanılan yeni kullanıcı kimliği hedef sistemin önbelleğe alır.
+5. Eşleşen bir kullanıcı bulunamazsa, kaynak sistem tarafından sağlanan öznitelikleri kullanılarak güncelleştirilir. Eşleşen yeni atanmış bir hesabınız varsa, sağlama hizmetine algılar ve kullanıcı gelecekteki tüm işlemleri gerçekleştirmek için kullanılan yeni kullanıcı kimliği hedef sistemin önbelleğe alır.
 6. Öznitelik eşlemeleri "başvuru" özniteliği içermiyorsa, hizmet oluşturmak ve başvurulan nesneler bağlamak için hedef sistemde ek güncelleştirmeler yapar. Örneğin, bir kullanıcı bir "Yönetici" özniteliği başka bir kullanıcı hedef sistemde oluşturulan bağlı hedef sistem olabilir.
 7. Daha önce sağlama kapsamında olan bir kullanıcı (atanmamış dahil) kapsamdan kaldırdıysanız, hizmetin kullanıcı hedef sistemdeki bir güncelleştirme aracılığıyla devre dışı bırakır.
 8. Daha önce sağlama kapsamında olan bir kullanıcı devre dışı ya da geçici olarak silinen kaynak sistemde hizmeti kullanıcı hedef sistemdeki bir güncelleştirme aracılığıyla devre dışı bırakır.
@@ -237,6 +237,31 @@ Senaryo tabanlı otomatik kullanıcı hazırlama sorunlarını giderme konusunda
 
 Bir uygulamaya giden kullanıcı sağlama için bir örnek adım adım dağıtım planlama için [kimlik kullanıcı sağlama için Dağıtım Kılavuzu](https://aka.ms/userprovisioningdeploymentplan).
 
+##<a name="more-frequenty-asked-questions"></a>Daha fazla frequenty sorulan sorular
+
+###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Otomatik kullanıcı iş SaaS uygulamaları ile B2B kullanıcıları Azure AD'de sağlamayı mu?
+
+Evet, SaaS uygulamaları için Azure AD'de hizmet sağlama B2B (veya konuk) kullanıcıları sağlama Azure AD Kullanıcınızı kullanmanız mümkündür.
+
+Ancak, B2B kullanıcıları Azure AD kullanarak SaaS uygulaması için oturum yapmak için SaaS uygulama belirli bir şekilde yapılandırılmış, SAML tabanlı çoklu oturum açma özelliği olması gerekir. SaaS uygulamalarını B2B kullanıcıları oturum açma işlemleri desteklemek için yapılandırma hakkında daha fazla bilgi için bkz. [yapılandırma SaaS uygulamaları için B2B işbirliği]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+
+###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Otomatik kullanıcı SaaS uygulamaları çalışmaya dinamik grupları ile Azure AD'de sağlamayı mu?
+
+Evet. "Eşitleme yalnızca atanan kullanıcılar ve gruplar için" yapılandırıldığında, sağlama hizmetini Azure AD kullanıcı sağlama veya sağlamasını kaldırma üyesi oldukları üzerinde olup olmadığına göre bir SaaS uygulamasında kullanıcılar bir [dinamik grup](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dinamik gruplar, "tüm kullanıcılar ve grupları eşitleme" seçeneği ile de çalışır.
+
+Ancak, dinamik gruplar kullanımını SaaS uygulamaları için Azure AD'den sağlama uçtan uca kullanıcı genel performansını etkileyebilir. Lütfen dinamik gruplar kullanırken, bu uyarılar ve öneriler göz önünde bulundurun:
+
+* Dinamik grup üyeliği değişiklikleri ne kadar hızlı değerlendirebilirsiniz nasıl hızla kullanıcı dinamik bir grup olarak sağlanan veya bir SaaS uygulamasında sağlaması bağlıdır. Dinamik bir grup işleme durumunu denetleme hakkında daha fazla bilgi için bkz: [bir üyelik kuralı için işlem durumunu denetleme](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+
+* Üyelik kaybı bir sağlamayı kaldırma olay sonuçlanacağı dinamik gruplar kullanırken kuralları dikkatli bir şekilde sağlama ve sağlamayı kaldırma göz önünde bulundurun kullanıcıyla dikkate alınmalıdır.
+
+###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Otomatik kullanıcı SaaS uygulamaları çalışmaya iç içe grupları ile Azure AD'de sağlamayı mu?
+
+Hayır. "Eşitleme yalnızca atanan kullanıcılar ve gruplar için" yapılandırıldığında, Azure AD kullanıcı sağlama hizmeti okuyun veya iç içe geçmiş gruplardaki kullanıcıların sağlamak mümkün değil. Yalnızca okuma ve anında açıkça atanan grubun üyesi olan kullanıcılar sağlayın.
+
+Bu bir sınırlamadır "Grup tabanlı atamaları uygulamalar için", aynı zamanda çoklu oturum açma için geçerlidir ve açıklanan [SaaS uygulamalarına erişimi yönetmek için bir grup kullanmanızı](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
+
+Geçici bir çözüm olarak, açıkça atamasını (veya başka türlü [kapsamını](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) sağlanması gereken kullanıcıları içeren gruplar.
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](../saas-apps/tutorial-list.md)

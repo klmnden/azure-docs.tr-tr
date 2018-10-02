@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 4a5ca4879f81533e3617ca9dfe9cdf8afcf2965b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 0782b50662d1d49ec79aebbf7a5f889471f11283
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700180"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018461"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -575,7 +575,7 @@ Varsayılan zaman aralığı 10 saniye olarak ayarlanır. Bu yapılandırma dina
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Kullanılmayan kapsayıcı görüntülerini kaldırmak için çalışma zamanını yapılandırma
 
-Service Fabric kümesini kullanılmayan kapsayıcı görüntülerini düğümden kaldıracak şekilde yapılandırabilirsiniz. Bu yapılandırma, düğümde çok fazla kapsayıcı görüntüsü varsa yeniden disk alanı elde edilmesine imkan tanır. Bu özelliği etkinleştirmek için küme bildirimindeki `Hosting` bölümünü aşağıdaki kod parçacığında gösterildiği gibi güncelleştirin: 
+Service Fabric kümesini kullanılmayan kapsayıcı görüntülerini düğümden kaldıracak şekilde yapılandırabilirsiniz. Bu yapılandırma, düğümde çok fazla kapsayıcı görüntüsü varsa yeniden disk alanı elde edilmesine imkan tanır. Bu özelliği etkinleştirmek için güncelleştirme [barındırma](service-fabric-cluster-fabric-settings.md#hosting) aşağıdaki kod parçacığında gösterildiği gibi küme bildiriminde bölümünde: 
 
 
 ```json
@@ -596,7 +596,7 @@ Service Fabric kümesini kullanılmayan kapsayıcı görüntülerini düğümden
 } 
 ```
 
-Silinmemesi gereken görüntüleri `ContainerImagesToSkip` parametresi altında belirtebilirsiniz. 
+Silinmemesi gereken görüntüleri `ContainerImagesToSkip` parametresi altında belirtebilirsiniz.  
 
 
 ## <a name="configure-container-image-download-time"></a>Kapsayıcı görüntüsü indirme süresini yapılandırma

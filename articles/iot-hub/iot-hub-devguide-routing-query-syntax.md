@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 8e9321e72727c1a3149ff2e78b8cb1248734cb88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3967a1e2317bac76785d534ba04a93de552c1a40
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978514"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018545"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IOT Hub ileti yönlendirme sorgusu söz dizimi
 
-İleti yönlendirme, farklı veri türleri yani yönlendirmek kullanıcıların sağlar, cihazın telemetri iletilerini, cihaz yaşam döngüsü olaylarını ve cihaz ikizi olayları çeşitli uç noktalar ile değiştirin. Sizin için önemli verileri almak için yönlendirme önce bu verileri zengin sorguların de uygulayabilirsiniz. Bu makalede, IOT Hub ileti yönlendirme sorgu dili açıklar ve bazı ortak sorgu kalıpları sağlar 
+İleti yönlendirme, farklı veri türleri yani yönlendirmek kullanıcıların sağlar, cihazın telemetri iletilerini, cihaz yaşam döngüsü olaylarını ve cihaz ikizi olayları çeşitli uç noktalar ile değiştirin. Sizin için önemli verileri almak için yönlendirme önce bu verileri zengin sorguların de uygulayabilirsiniz. Bu makalede, IOT Hub ileti yönlendirme sorgu dili açıklar ve bazı ortak sorgu kalıpları sağlar.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -25,7 +25,7 @@ ms.locfileid: "46978514"
 
 ## <a name="message-routing-query-based-on-message-properties"></a>İleti yönlendirme sorgu ileti özelliklerine bağlı 
 
-IOT hub'ı tanımlayan bir [ortak biçimi](../iot-hub/iot-hub-devguide-messages-construct.md) için tüm cihaz-bulut Mesajlaşma için interoperatbility protokolleri. IOT Hub ileti iletinin aşağıdaki JSON gösterimine varsayar. Sistem özellikleri tüm kullanıcılar için eklenir ve iletisinin içeriği tanımlayın. Kullanıcılar, iletiyi seçerek uygulama özellikleri ekleyebilirsiniz. IOT Hub CİHAZDAN buluta ileti büyük/küçük harfe olmadığından benzersiz özellik adlarını kullanmanızı öneririz. Aynı ada sahip birden çok özellikleri vardır, örneğin, IOT hub'ı yalnızca özelliklerinden gönderir.  
+IOT hub'ı tanımlayan bir [ortak biçimi](iot-hub-devguide-messages-construct.md) için tüm cihaz-bulut Mesajlaşma için interoperatbility protokolleri. IOT Hub ileti iletinin aşağıdaki JSON gösterimine varsayar. Sistem özellikleri tüm kullanıcılar için eklenir ve iletisinin içeriği tanımlayın. Kullanıcılar, iletiyi seçerek uygulama özellikleri ekleyebilirsiniz. IOT Hub CİHAZDAN buluta ileti büyük/küçük harfe olmadığından benzersiz özellik adlarını kullanmanızı öneririz. Aynı ada sahip birden çok özellikleri vardır, örneğin, IOT hub'ı yalnızca özelliklerinden gönderir.  
 
 ```json
 { 
@@ -46,6 +46,7 @@ IOT hub'ı tanımlayan bir [ortak biçimi](../iot-hub/iot-hub-devguide-messages-
   } 
 } 
 ```
+
 ### <a name="system-properties"></a>Sistem özellikleri
 
 Sistem özellikleri içeriği ve iletilerin kaynak tanımlamanıza yardımcı olacaktır. 
@@ -55,9 +56,9 @@ Sistem özellikleri içeriği ve iletilerin kaynak tanımlamanıza yardımcı ol
 | contentType | dize | Kullanıcının, iletinin içerik türünü belirtir. Sorgu ileti gövdesinde izin vermek için bu değer, uygulama/JSON ayarlanmalıdır. |
 | contentEncoding | dize | Kullanıcı iletisi kodlama türünü belirtir. İzin verilen değerler şunlardır: UTF-8, UTF-16, UTF-32 contentType application/JSON değerine ayarlanırsa. |
 | ConnectionDeviceId | dize | Bu değer, IOT Hub tarafından ayarlanır ve iletileri kaynağını tanımlar. Bu, cihazın telemetri iletilerini, cihaz ikizi değişiklik bildirimleri veya cihaz yaşam döngüsü olaylarını olabilir. Bu sorgu çalıştırılamıyor. |
-| iothub-enqueuedtime | dize | Bu değer, IOT Hub tarafından ayarlanır ve gerçek enqueuing iletinin UTC saatini gösterir. Sorgulamak için aşağıdaki komutu kullanın `'enqueuedTime'`. |
+| iothub-enqueuedtime | dize | Bu değer, IOT Hub tarafından ayarlanır ve gerçek enqueuing iletinin UTC saatini gösterir. Sorgulamak için aşağıdaki komutu kullanın `enqueuedTime`. |
 
-Bölümünde anlatıldığı gibi [IOT Hub iletilerini](iot-hub-devguide-messages-construct.md), bir iletiye ek sistem özellikleri vardır. Ek olarak **contentType**, **contentEncoding** ve **enqueuedTime**, **connectionDeviceId** ve  **connectionModuleId** da sorgulanabilir.
+Bölümünde anlatıldığı gibi [IOT Hub iletilerini](iot-hub-devguide-messages-construct.md), bir iletiye ek sistem özellikleri vardır. Ek olarak **contentType**, **contentEncoding**, ve **enqueuedTime**, **connectionDeviceId** ve  **connectionModuleId** da sorgulanabilir.
 
 ### <a name="application-properties"></a>Uygulama özellikleri
 
@@ -65,7 +66,7 @@ Uygulama özellikleri iletiye eklenen kullanıcı tanımlı dizelerdir. Bu alanl
 
 ### <a name="query-expressions"></a>Sorgu ifadeleri
 
-İleti sistemi özellikleri üzerinde bir sorgu ile önek gerekiyor `'$'` simgesi. Uygulama özelliklerini sorgular adlarına ile erişilir ve ön ekine sahip değil `'$'`simgesi. Bir uygulama özelliği adı ile başlıyorsa `'$'`, ardından IOT Hub için Sistem Özellikleri'nde arama yapar ve bulunamadığında ve ardından uygulama özellikleri görünür. Örneğin: 
+İleti sistemi özellikleri üzerinde bir sorgu ile önek gerekiyor `$` simgesi. Uygulama özelliklerini sorgular adlarına ile erişilir ve ön ekine sahip değil `$`simgesi. Bir uygulama özelliği adı ile başlıyorsa `$`, ardından IOT Hub için Sistem Özellikleri'nde arama yapar ve bulunamadığında ve ardından uygulama özellikleri görünür. Örneğin: 
 
 Sistem özelliği contentEncoding üzerinde sorgulama 
 
@@ -73,18 +74,19 @@ Sistem özelliği contentEncoding üzerinde sorgulama
 $contentEncoding = 'UTF-8'
 ```
 
-Uygulama özelliği processingPath üzerinde sorgulama
+Uygulama özelliği processingPath üzerinde sorgulamak için:
+
 ```sql
 processingPath = 'hot'
 ```
 
-Bu sorguları birleştirmek için Boolean ifadeler ve İşlevler kullanabilirsiniz 
+Bu sorguları birleştirmek için Boolean ifadeler ve İşlevler kullanabilirsiniz:
+
 ```sql
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-Desteklenen işleçler tam bir listesi ve İşlevler listelenir [ifade ve koşullar](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language#expressions-and-conditions
-)
+Desteklenen işleçler tam bir listesi ve İşlevler listelenir [ifade ve koşullar](iot-hub-devguide-query-language.md#expressions-and-conditions)
 
 ## <a name="message-routing-query-based-on-message-body"></a>İleti yönlendirme sorgu ileti gövdesinde tabanlı 
 
@@ -146,19 +148,22 @@ deviceClient.sendEvent(message, (err, res) => {
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
 ```
+
 ```sql
 $body.Weather.Temperature = 50 AND $body.Weather.IsEnabled 
 ```
+
 ```sql
 length($body.Weather.Location.State) = 2 
 ```
+
 ```sql
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
 ## <a name="message-routing-query-based-on-device-twin"></a>İleti yönlendirme sorgu üzerinde cihaz ikizini tabanlı 
 
-İleti yönlendirme sayesinde sorgulamak [cihaz İkizi](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) etiketleri ve JSON nesneleri olan özellikleri. Modül ikizi üzerinde sorgulama desteklenmediğini unutmayın. Cihaz İkizi-etiketler ve özellikler bir örnek aşağıda gösterilmiştir.
+İleti yönlendirme sayesinde sorgulamak [cihaz İkizi](iot-hub-devguide-device-twins.md) etiketleri ve JSON nesneleri olan özellikleri. Modül ikizi üzerinde sorgulama desteklenmediğini unutmayın. Cihaz İkizi-etiketler ve özellikler bir örnek aşağıda gösterilmiştir.
 
 ```JSON
 {
@@ -191,19 +196,21 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ### <a name="query-expressions"></a>Sorgu ifadeleri
 
-İleti gövdesi bir sorgu ile önek gerekiyor `$twin`. Sorgu ifadesi, ayrıca bir gövde başvuru, ileti sistemi özellikleri ve ileti uygulama özellikleri başvurusu ikizi etiketi veya Özellik Başvurusu birleştirebilirsiniz. Sorgu büyük küçük harfe duyarlı değil olarak etiketleri ve özellikleri benzersiz adlar kullanmanızı öneririz. Aynı zamanda kullanmadığınızdan `twin`, `$twin`, `body` veya `$body`, özellik adları. Örneğin, tüm geçerli sorgu ifadeleri şunlardır: 
+İleti gövdesi bir sorgu ile önek gerekiyor `$twin`. Sorgu ifadesi, ayrıca bir gövde başvuru, ileti sistemi özellikleri ve ileti uygulama özellikleri başvurusu ikizi etiketi veya Özellik Başvurusu birleştirebilirsiniz. Sorgu büyük küçük harfe duyarlı değil olarak etiketleri ve özellikleri benzersiz adlar kullanmanızı öneririz. Aynı zamanda kullanmadığınızdan `twin`, `$twin`, `body`, veya `$body`, özellik adları. Örneğin, tüm geçerli sorgu ifadeleri şunlardır: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
 ```
+
 ```sql
 $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
 ```
+
 ```sql
 $twin.tags.deploymentLocation.floor = 1 
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Hakkında bilgi edinin [ileti yönlendirme](iot-hub-devguide-messages-d2c.md)
-* Deneyin [ileti yönlendirme Öğreticisi](tutorial-routing.md)
+* Hakkında bilgi edinin [ileti yönlendirme](iot-hub-devguide-messages-d2c.md).
+* Deneyin [ileti yönlendirme öğretici](tutorial-routing.md).

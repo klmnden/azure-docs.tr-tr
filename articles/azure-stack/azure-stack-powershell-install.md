@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 3603ec1aa8fa6f76cb6b7a75fa7df334b4102aec
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f6644d8a2e01242937943f8139059abbd65d1913
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367769"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017408"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack için PowerShell'i yükleme
 
@@ -27,7 +27,7 @@ ms.locfileid: "46367769"
 
 Bulut ile çalışmak için Azure Stack uyumlu PowerShell modülleri yüklemeniz gerekir. Uyumluluk adlı bir özellik üzerinden etkin *API profillerini*.
 
-API profillerini Azure ve Azure Stack arasında sürümü farkları yönetmek için bir yol sağlar. Bir API Sürüm profili belirli API sürümleri ile Azure Resource Manager PowerShell modüllerini kümesidir. Her bulut platformu desteklenen API sürümü profillerini kümesi vardır. Örneğin, Azure Stack gibi belirli tarihli profil sürümü destekleyen **2018-03-01-karma**, ve Azure'ı destekleyen **son** API Sürüm profili. Belirtilen profiliyle Azure Resource Manager PowerShell modülleri, bir profil yükleme sırasında yüklenir.  
+API profillerini Azure ve Azure Stack arasında sürümü farkları yönetmek için bir yol sağlar. Bir API Sürüm profili belirli API sürümleri ile Azure Resource Manager PowerShell modüllerini kümesidir. Her bulut platformu desteklenen API sürümü profillerini kümesi vardır. Örneğin, Azure Stack gibi belirli tarihli profil sürümü destekleyen **2018-03-01-karma**, ve Azure'ı destekleyen **son** API Sürüm profili. Belirtilen profiliyle Azure Resource Manager PowerShell modülleri, bir profil yükleme sırasında yüklenir.
 
 Internet uyumlu PowerShell modülleri bağlı, kısmen bağlantılı veya bağlantısız senaryoları Azure Stack yükleyebilirsiniz. Bu makale, bu senaryolar için Azure Stack için PowerShell yüklemeye yönelik ayrıntılı yönergeleri size.
 
@@ -35,29 +35,26 @@ Internet uyumlu PowerShell modülleri bağlı, kısmen bağlantılı veya bağla
 
 Azure Stack ve PowerShell ile çalışmaya başlamadan önce aşağıdaki önkoşullara sahip olmalıdır:
 
-- **PowerShell sürüm 5.0**  
-Sürümünüzü denetlemek için çalıştırma **$PSVersionTable.PSVersion** ve karşılaştırma **ana** sürümü. PowerShell 5.0 yoksa izleyin [Windows PowerShell'i yükleme](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+- **PowerShell sürüm 5.0** sürümünüzü denetlemek için çalıştırma **$PSVersionTable.PSVersion** ve karşılaştırma **ana** sürümü. PowerShell 5.0 yoksa izleyin [Windows PowerShell'i yükleme](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
 
-  > [!Note]  
+  > [!Note]
   > PowerShell 5.0, Windows makine gerektirir.
 
-- **Yükseltilmiş bir komut istemi PowerShell çalıştırın**  
-  PowerShell'i yönetici ayrıcalıklarıyla çalıştırmanız gerekir.
+- **Yükseltilmiş bir komut istemi PowerShell çalıştırın** PowerShell'i yönetici ayrıcalıklarıyla çalıştırmanız gerekir.
 
-- **PowerShell Galerisi erişim**  
-  Erişmeniz [PowerShell Galerisi](https://www.powershellgallery.com). Galeri, PowerShell içeriği için merkezi depodur. **PowerShellGet** modülü bulma, yükleme, güncelleştirme, modüller, DSC kaynakları, rol işlevleri ve PowerShell Galerisi'nde ve diğer özel betikler gibi PowerShell yapıtları yayımlama için cmdlet'leri içerir Depo. Bağlantısı kesilmiş bir senaryoda PowerShell kullanıyorsanız, Internet'e bir bağlantı olan bir makineden kaynakları almak ve bağlantısı kesilmiş makinenize erişilebilir bir konumda depolanması gerekir.
+- **PowerShell Galerisi erişim** erişmeniz [PowerShell Galerisi](https://www.powershellgallery.com). Galeri, PowerShell içeriği için merkezi depodur. **PowerShellGet** modülü bulma, yükleme, güncelleştirme, modüller, DSC kaynakları, rol işlevleri ve PowerShell Galerisi'nde ve diğer özel betikler gibi PowerShell yapıtları yayımlama için cmdlet'leri içerir Depo. Bağlantısı kesilmiş bir senaryoda PowerShell kullanıyorsanız, Internet'e bir bağlantı olan bir makineden kaynakları almak ve bağlantısı kesilmiş makinenize erişilebilir bir konumda depolanması gerekir.
 
 
 ## <a name="2-validate-the-powershell-gallery-accessibility"></a>2. PowerShell Galerisi erişilebilirlik doğrulama
 
 Bir depo PSGallery kayıtlıysa doğrulayın.
 
-> [!Note]  
-> Bu adım, Internet erişimi gerektirir. 
+> [!Note]
+> Bu adım, Internet erişimi gerektirir.
 
 Yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'leri çalıştırın:
 
-````PowerShell  
+````PowerShell
 Import-Module -Name PowerShellGet -ErrorAction Stop
 Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
@@ -76,11 +73,11 @@ Gerekli sürümü yüklemeden önce önceden yüklenmiş tüm Azure Stack AzureR
 
 1. Mevcut AzureRM PowerShell modülleri kaldırmak için tüm etkin PowerShell oturumlarını kapatmak ve aşağıdaki cmdlet'leri çalıştırın:
 
-  ````PowerShell  
-    Uninstall-Module AzureRM.AzureStackAdmin -Force
-    Uninstall-Module AzureRM.AzureStackStorage -Force
+  ````PowerShell
+    Uninstall-Module -Name AzureRM.AzureStackAdmin -Force
+    Uninstall-Module -Name AzureRM.AzureStackStorage -Force
     Uninstall-Module -Name AzureStack -Force
-    Get-Module Azs.* -ListAvailable | Uninstall-Module -Force
+    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force
   ````
 
 2. İle başlayan tüm klasörleri Sil `Azure` gelen `C:\Program Files\WindowsPowerShell\Modules` ve `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` klasörleri. Bu klasörleri silmek, tüm mevcut PowerShell modüllerini kaldırır.
@@ -93,8 +90,8 @@ Geliştirme iş istasyonunuzda bu modülleri yüklemek için aşağıdaki PowerS
 
   - Azure Stack 1808 veya üzeri.
 
-    ```PowerShell  
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+    ```PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRm.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -103,12 +100,12 @@ Geliştirme iş istasyonunuzda bu modülleri yüklemek için aşağıdaki PowerS
     Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
 
-> [!Note]  
+> [!Note]
 > Azure Powershell'den yükseltmek **2017-03-09-profile** için **2018-03-01-karma**, lütfen [Geçiş Kılavuzu](https://github.com/bganapa/azure-powershell/blob/migration-guide/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
 
   - Azure Stack 1807 veya önceki bir sürümü.
 
-    ```PowerShell  
+    ```PowerShell
     Install-Module -Name AzureRm.BootStrapper
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
     Install-Module -Name AzureStack -RequiredVersion 1.4.0
@@ -116,7 +113,7 @@ Geliştirme iş istasyonunuzda bu modülleri yüklemek için aşağıdaki PowerS
 
   - Azure Stack 1804 veya önceki bir sürümü.
 
-    ```PowerShell  
+    ```PowerShell
     Install-Module -Name AzureRm.BootStrapper
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
     Install-Module -Name AzureStack -RequiredVersion 1.2.11
@@ -124,9 +121,9 @@ Geliştirme iş istasyonunuzda bu modülleri yüklemek için aşağıdaki PowerS
 
 Aşağıdaki komutu çalıştırarak yüklemeyi doğrulayın:
 
-```PowerShell  
-Get-Module "Azure*" -ListAvailable
-Get-Module "Azs*" -ListAvailable
+```PowerShell
+Get-Module -Name "Azure*" -ListAvailable
+Get-Module -Name "Azs*" -ListAvailable
 ```
 
 Yükleme başarılı olursa, AzureRM ve AzureStack modülleri çıktısında görüntülenir.
@@ -139,7 +136,7 @@ Internet bağlantısına sahip bir bilgisayarda oturum açın ve Azure Stack sü
 
   - Azure Stack 1808 veya üzeri.
 
-    ````PowerShell  
+    ````PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -150,10 +147,10 @@ Internet bağlantısına sahip bir bilgisayarda oturum açın ve Azure Stack sü
 
   - Azure Stack 1807 veya önceki bir sürümü.
 
-    > [!Note]  
+    > [!Note]
     1.2.11 yükseltme sürümünü görmek [Geçiş Kılavuzu](https://aka.ms/azspowershellmigration).
 
-    ````PowerShell  
+    ````PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -164,7 +161,7 @@ Internet bağlantısına sahip bir bilgisayarda oturum açın ve Azure Stack sü
 
   - Azure Stack 1804 veya önceki bir sürümü.
 
-    ````PowerShell  
+    ````PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -190,9 +187,9 @@ Internet bağlantısına sahip bir bilgisayarda oturum açın ve Azure Stack sü
 
    Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation  -InstallationPolicy Trusted
 
-   Install-Module AzureRM -Repository $RepoName
+   Install-Module -Name AzureRM -Repository $RepoName
 
-   Install-Module AzureStack -Repository $RepoName 
+   Install-Module -Name AzureStack -Repository $RepoName
    ```
 
 ## <a name="6-configure-powershell-to-use-a-proxy-server"></a>6. PowerShell bir proxy sunucusu kullanacak şekilde yapılandırma
@@ -202,7 +199,7 @@ Internet'e bir proxy sunucusu gerektiren senaryolar önce mevcut proxy sunucusu 
 1. Yükseltilmiş bir PowerShell istemi açın.
 2. Aşağıdaki komutları çalıştırın:
 
-   ```PowerShell  
+   ```PowerShell
    #To use Windows credentials for proxy authentication
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 
@@ -213,6 +210,6 @@ Internet'e bir proxy sunucusu gerektiren senaryolar önce mevcut proxy sunucusu 
 ## <a name="next-steps"></a>Sonraki adımlar
 
  - [Github'dan Azure Stack araçları indirin](azure-stack-powershell-download.md)
- - [Azure Stack kullanıcının PowerShell ortamını yapılandırma](user/azure-stack-powershell-configure-user.md)  
- - [Azure Stack işlecin PowerShell ortamını yapılandırma](azure-stack-powershell-configure-admin.md) 
- - [Azure stack'teki API sürümü profillerini yönetme](user/azure-stack-version-profiles.md)  
+ - [Azure Stack kullanıcının PowerShell ortamını yapılandırma](user/azure-stack-powershell-configure-user.md)
+ - [Azure Stack işlecin PowerShell ortamını yapılandırma](azure-stack-powershell-configure-admin.md)
+ - [Azure stack'teki API sürümü profillerini yönetme](user/azure-stack-version-profiles.md)

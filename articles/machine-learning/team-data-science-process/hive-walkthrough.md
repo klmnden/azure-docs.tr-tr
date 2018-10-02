@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: ff4daf350783e02141a6afea815165ccecfe0116
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 09ca6fdc40aec84bcc7523bae0dee348d00f6d9f
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057069"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586130"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process'in çalışması: kullanımı Azure HDInsight Hadoop kümeleri
 Bu kılavuzda kullandığımız [Team Data Science işlem (TDSP)](overview.md) uçtan uca bir senaryoda. Kullandığımız bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi verileri genel olarak kullanılabilir ve [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) dataset ve aşağı örnek veriler için. İkili ve çok sınıflı sınıflandırma ve regresyon Tahmine dayalı görevler işlemek üzere Azure Machine Learning ile veri modelleri ekleriz. 
@@ -30,9 +30,9 @@ Daha büyük bir veri kümesi ne yapılacağını gösteren bir kılavuz için b
 Ipython notebook, 1 TB veri kümesini kullanan izlenecek yolda gösterilen görevler gerçekleştirmek için de kullanabilirsiniz. Daha fazla bilgi için [Criteo izlenecek bir Hive ODBC bağlantısı kullanarak](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 ## <a name="dataset"></a>NYC taksi Gelişlerin veri kümesi açıklaması
-Yaklaşık 20 GB sıkıştırılmış virgülle ayrılmış değerler (CSV) dosyaları (~ 48 sıkıştırılmamış GB) NYC taksi seyahat verilerdir. 173 milyondan fazla bireysel gelişlerin sahiptir ve her seyahat için ücretli fares içerir. Her bir seyahat kaydı toplama ve bırakma konumu ve zaman, anonim hack (sürücü) lisans numarası ve medallion sayı (benzersiz Tanımlayıcı taksi ait) içerir. Veriler tüm dönüş 2013 yılında kapsar ve aşağıdaki iki veri kümesi için her ay sağlanır:
+Yaklaşık 20 GB sıkıştırılmış virgülle ayrılmış değerler (CSV) dosyaları (~ 48 sıkıştırılmamış GB) NYC taksi seyahat verilerdir. 173 milyondan fazla bireysel gelişlerin sahiptir ve her seyahat için ücretli fares içerir. Her bir seyahat kaydı toplama ve dropoff konumu ve zaman, anonim hack (sürücü) lisans numarası ve medallion sayı (benzersiz Tanımlayıcı taksi ait) içerir. Veriler tüm dönüş 2013 yılında kapsar ve aşağıdaki iki veri kümesi için her ay sağlanır:
 
-- Trip_data CSV dosyaları seyahat ayrıntıları içerir. Bu Yolcuların, toplama ve teslim noktaları, seyahat süresini ve seyahat uzunluğu sayısını içerir. Birkaç örnek kayıt şunlardır:
+- Trip_data CSV dosyaları seyahat ayrıntıları içerir. Bu Yolcuların, toplama ve dropoff noktaları, seyahat süresini ve seyahat uzunluğu sayısını içerir. Birkaç örnek kayıt şunlardır:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -587,7 +587,7 @@ Sorguyu doğrudan aşağıdakilerden oluşturmak için standart Hive işlev uygu
 - yılın haftası
 - Haftanın günü (Pazartesi 1 anlamına gelir ve Pazar 7 anlamına gelir)
 
-Sorgu, toplama ve teslim konumlar arasında doğrudan uzaklık de oluşturur. Bu tür işlevleri tam bir listesi için bkz. [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
+Sorgu, toplama ve dropoff konumlar arasında doğrudan uzaklık de oluşturur. Bu tür işlevleri tam bir listesi için bkz. [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
 
 Sorgu ardından aşağı-veri böylece sorgu sonuçlarını Azure Machine Learning Studio'ya sığabilen örnekleri. Özgün veri kümesinden yalnızca yaklaşık yüzde 1 Studio'ya içeri aktarılır.
 

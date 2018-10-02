@@ -1,6 +1,6 @@
 ---
-title: Güvenilir aktörler durum yönetimi | Microsoft Docs
-description: Nasıl Reliable Actors durumu yönetilen kalıcı ve yüksek kullanılabilirlik için çoğaltılan açıklar.
+title: Reliable Actors durum yönetimi | Microsoft Docs
+description: Nasıl Reliable Actors durum yönetilen kalıcı ve yüksek kullanılabilirlik için çoğaltılır açıklar.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 3cab4d87eacc7bce17da64cda213086c262179a8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d5bc6877aa353ae37ba3ada53ee620a0230357e9
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206207"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585178"
 ---
-# <a name="reliable-actors-state-management"></a>Güvenilir aktörler durum yönetimi
-Güvenilir aktörler mantığı ve durumu sarmalayabilen tek iş parçacıklı nesneleridir. Aktör Reliable Services üzerinde çalıştığından, bunlar durum güvenilir bir şekilde aynı kalıcılığını ve çoğaltma mekanizmalarını kullanarak koruyabilirsiniz. Bu şekilde çöp toplamadan sonra veya kaynak Dengeleme ya da yükseltme nedeniyle kümedeki düğümler arasında taşındıklarında yeniden etkinleştirme sırasında hatadan sonra durumlarına aktörler kaybetmeyin.
+# <a name="reliable-actors-state-management"></a>Reliable Actors durum yönetimi
+Reliable Actors hem mantıksal hem de durum kapsülleyebilir tek iş parçacıklı nesneleridir. Aktörler Reliable Services üzerinde çalıştığından, bunların durumu güvenilir bir şekilde aynı Kalıcılık ve çoğaltma mekanizması kullanarak koruyabilir. Bu şekilde, etkinleştirme veya Çöp toplamadan sonra kaynak Dengeleme veya yükseltme işlemleri nedeniyle, bir kümedeki düğümler arasında geçici olarak taşındıklarında bağlı bir hatadan sonra durumlarını aktörler kaybetmeyin.
 
 ## <a name="state-persistence-and-replication"></a>Durum kalıcılığını ve çoğaltma
-Tüm Reliable Actors kabul *durum bilgisi olan* her aktör örneği için benzersiz bir kimliği eşlendiğinden Bu, aynı aktör kimliği için yinelenen çağrıları aynı aktör örneğini yönlendirilir anlamına gelir. Durum bilgisi olmayan bir sistemde Bunun aksine, istemci çağrılarını her zaman aynı sunucuya yönlendirilecek garanti edilmez. Bu nedenle, aktör Hizmetleri zaman durum bilgisi olan hizmetleridir.
+Tüm Reliable Actors değerlendirilir *durum bilgisi olan* her aktör örneği için benzersiz bir kimliği eşlediğinden Başka bir deyişle, aynı kimliği için yinelenen çağrıları aynı aktör örneğine yönlendirilir. Durum bilgisi olmayan bir sistemde Bunun aksine, istemci çağrıları her zaman aynı sunucuya yönlendirilecek garanti edilmez. Bu nedenle aktör Hizmetleri durum bilgisi olan hizmetler her zaman açıktır.
 
-Aktörler stateful kabul edilen olsa bile, durum güvenilir bir şekilde depolamalısınız anlamına gelmez. Aktör durumunun kalıcı olmasını düzeyini seçebilirsiniz ve çoğaltma kendi veri depolama gereksinimleri dayalı:
+Durum bilgisi olan aktör değerlendirilir olsa da, bu durum güvenilir bir şekilde depolamalısınız anlamına gelmez. Aktör durumu kalıcılığını düzeyini seçebilir ve çoğaltma verilerine dayalı olarak depolama gereksinimlerini:
 
-* **Durum kalıcı**: durum kalıcı için disk ve üç veya daha fazla çoğaltmalar için çoğaltılır. Kalıcı durum en sağlam durumu depolama burada durumu tam küme kesinti devam edebilir seçenektir.
-* **Volatile durumu**: durumu üç veya daha fazla çoğaltmalar için çoğaltılır ve yalnızca bellekte depolanır. Volatile durumunu düğüm hatası ve aktör hatası karşı ve yükseltmeleri ve kaynak Dengeleme sırasında esnekliği sağlar. Ancak, durumu sürdürülmez diske. Tüm çoğaltmaları aynı anda kaybolursa, bu nedenle durumu da kaybolur.
-* **Kalıcı durum yok**: durum çoğaltılan değil veya diske yazılan yalnızca durumunu güvenilir bir şekilde korumak için gerek yoktur aktörler için kullanın.
+* **Kalıcı durum**: durumu kalıcı hale disk ve en az üç kopyaya çoğaltılır. Kalıcı durum en sağlam durum depolama, durumu burada tam küme azaltsa kalıcı yapılabilir seçeneğidir.
+* **Geçici bir durum**: durumu üç veya daha fazla kopyaya çoğaltılır ve yalnızca bellekte tutulur. Geçici bir durum düğüm hatası ve aktör hatası karşı ve yükseltmeleri ve kaynak Dengeleme sırasında esneklik sağlar. Ancak, durumu kalıcı disk. Tüm çoğaltmalar aynı anda kaybolursa, bu nedenle durumu de kaybolur.
+* **Kalıcı durum**: durum çoğaltılan değil veya diske yazılan yalnızca güvenilir bir şekilde durumunu korumak üzere gerekmeyen aktörler için kullanın.
 
-Her Kalıcılık yalnızca farklı düzeyidir *durum sağlayıcısı* ve *çoğaltma* hizmetinizin yapılandırma. Durum desteklemediğini yazılır disk durumu sağlayıcısı--durumu depolar güvenilir bir hizmet bileşeni bağlıdır. Çoğaltma hizmeti kaç çoğaltmaları dağıtıldığından bağlıdır. Güvenilir hizmetleriyle gibi durum sağlayıcısı ve çoğaltma sayısı kolayca el ile ayarlanabilir. Aktör framework bir öznitelik, bir aktör üzerinde kullanılan, varsayılan durumu sağlayıcısı otomatik olarak seçer ve bu üç Kalıcılık ayarlarından birini elde etmek için yineleme sayısı için ayarları otomatik olarak oluşturur sağlar. StatePersistence özniteliği türetilmiş sınıf tarafından devralınır değil, her aktör türü StatePersistence düzeyiyle sağlamanız gerekir.
+Her düzeyde Kalıcılık yalnızca farklı olan *durumu sağlayıcısı* ve *çoğaltma* hizmetinizin yapılandırması. Durumu olup olmadığına yazılır disk durumu sağlayıcısı--durumunu depolayan bir güvenilir hizmet bileşeni bağlıdır. Çoğaltma hizmeti kaç yineleme ile dağıtıldığı bağlıdır. Reliable Services gibi ile hem durumu sağlayıcısı hem de yineleme sayısı kolayca el ile ayarlanabilir. Aktör çerçevesinde bir öznitelik, bir aktör üzerinde kullanılan, varsayılan durumu sağlayıcısı otomatik olarak seçer ve bu üç Kalıcılık ayarlarından birini elde etmek için yineleme sayısı için ayarları otomatik olarak oluşturduğu sağlar. StatePersistence öznitelik türetilmiş sınıf tarafından devralınan değil, her aktör türü StatePersistence düzeyiyle sağlamanız gerekir.
 
 ### <a name="persisted-state"></a>Kalıcı durum
 ```csharp
@@ -48,7 +48,7 @@ class MyActorImpl  extends FabricActor implements MyActor
 {
 }
 ```  
-Bu ayar, verilerin diskte depolar ve otomatik olarak hizmeti yineleme sayısı 3'e ayarlar durumu sağlayıcısı kullanır.
+Bu ayar, verileri diskte depolar ve otomatik olarak hizmet yineleme sayısı 3'e ayarlayan bir durumu sağlayıcısı kullanır.
 
 ### <a name="volatile-state"></a>Volatile durumu
 ```csharp
@@ -63,7 +63,7 @@ class MyActorImpl extends FabricActor implements MyActor
 {
 }
 ```
-Bu ayar bir içindeki bellek-yalnızca durum sağlayıcısı kullanır ve çoğaltma sayısı 3'e ayarlar.
+Bu ayar, bir içindeki bellek-yalnızca durumu sağlayıcısı kullanır ve yineleme sayısı 3'e ayarlar.
 
 ### <a name="no-persisted-state"></a>Kalıcı durum yok
 ```csharp
@@ -78,12 +78,12 @@ class MyActorImpl extends FabricActor implements MyActor
 {
 }
 ```
-Bu ayar bir içindeki bellek-yalnızca durum sağlayıcısı kullanır ve çoğaltma sayısı 1'e ayarlar.
+Bu ayar, bir içindeki bellek-yalnızca durumu sağlayıcısı kullanır ve yineleme sayısı 1'e ayarlar.
 
-### <a name="defaults-and-generated-settings"></a>Varsayılanlar ve oluşturulan ayarları
-Kullanırken `StatePersistence` öznitelik, bir durum sağlayıcısı otomatik olarak seçilir, çalışma zamanında aktör hizmeti başladığında. Çoğaltma sayısı, ancak, derleme zamanında Visual Studio aktör derleme araçları tarafından ayarlanır. Derleme araçları otomatik olarak oluşturacak bir *varsayılan hizmet* ApplicationManifest.xml aktör hizmeti için. Parametreler için oluşturulan **en küçük çoğaltma kümesi boyutu** ve **hedef çoğaltma kümesi boyutu**.
+### <a name="defaults-and-generated-settings"></a>Varsayılan değerleri ve oluşturulan ayarları
+Kullanırken `StatePersistence` öznitelik, bir durum sağlayıcısı otomatik olarak seçilir, çalışma zamanında aktör hizmeti başladığında. Yineleme sayısı, ancak derleme zamanında Visual Studio aktör yapı araçları tarafından ayarlanır. Derleme araçları otomatik olarak oluşturmak bir *varsayılan hizmeti* ApplicationManifest.xml aktör hizmeti için. Parametreler için oluşturulan **en az çoğaltma kümesi boyutu** ve **hedef çoğaltma kümesi boyutu**.
 
-Bu parametreler el ile değiştirebilirsiniz. Ancak her zaman `StatePersistence` özniteliği değiştirildiğinde, varsayılan çoğaltma kümesi boyutu değerlere seçili parametrelerinin `StatePersistence` özniteliği, önceki tüm değerleri geçersiz kılma. Diğer bir deyişle, ServiceManifest.xml içinde ayarlanan değerler *yalnızca* değiştirdiğinizde derleme zamanında geçersiz kılınmış `StatePersistence` öznitelik değeri.
+Bu parametreleri el ile değiştirebilirsiniz. Ancak her zaman `StatePersistence` özniteliği değiştiğinde, seçilen varsayılan çoğaltma kümesi boyutu değerlerine parametrelerinin `StatePersistence` özniteliği, önceki tüm değerleri geçersiz kılma. Diğer bir deyişle, ServiceManifest.xml ayarlanan değerler *yalnızca* değiştirdiğinizde oluşturma zamanında geçersiz kılınan `StatePersistence` öznitelik değeri.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -106,27 +106,27 @@ Bu parametreler el ile değiştirebilirsiniz. Ancak her zaman `StatePersistence`
 ```
 
 ## <a name="state-manager"></a>Durum Yöneticisi
-Kendi durum Yöneticisi her aktör örneği vardır: depoladıktan bir sözlük benzeri veri yapısı anahtar/değer çiftleri. Durum Yöneticisi durum sağlayıcısı çevresinde bir sarmalayıcı ' dir. Bağımsız olarak Kalıcılık ayarı kullanılan verileri depolamak için kullanabilirsiniz. Çalışan bir aktör hizmeti bir volatile (içindeki bellek-yalnızca) durumu ayarı verileri korurken yükseltme aracılığıyla kalıcı durum ayarı için değiştirilebilir garanti sağlamaz. Ancak, çalışan bir hizmetiniz için yineleme sayısı değiştirmek mümkündür.
+Kendi durum Yöneticisi her aktör örneği var: güvenilir bir şekilde depolayan bir sözlüğü benzeri veri yapısı anahtar/değer çiftleri. Durum Yöneticisi durum sağlayıcısı çevresinde bir sarmalayıcı ' dir. Kalıcı ayar ne olursa olsun kullanıldığı verileri depolamak için kullanabilirsiniz. Çalışan bir aktör hizmeti volatile (içindeki bellek-yalnızca) durumu ayarından verileri korurken sıralı yükseltme aracılığıyla bir kalıcı durum ayarı için değiştirilebilir hiçbir garanti sağlamaz. Ancak, çalışan bir hizmet için çoğaltma sayısını değiştirmek mümkündür.
 
-Durum Yöneticisi anahtarları dize olmalıdır. Değerler genel ve herhangi bir türü olabilir özel türleri dahil olmak üzere. Diğer düğümlere ağ üzerinden çoğaltma sırasında iletilebilir ve bağlı olarak bir aktör'ın durum Kalıcılık ayarını diske yazılan çünkü durum Yöneticisi'nde depolanan değerleri veri sözleşmesi seri hale getirilebilir olmalıdır.
+Durum Yöneticisi anahtarları dize olmalıdır. Değerleri geneldir ve herhangi bir tür olabilir özel türler dahil. Durum Yöneticisi'nde depolanan değerleri, diğer düğümlerle ağ üzerinden çoğaltma sırasında iletilebilir ve, bir aktörün durumu Kalıcılık ayarlarına bağlı olarak diske yazılan çünkü veri sözleşme seri hale getirilebilir olması gerekir.
 
-Durum Yöneticisi durum, güvenilir sözlükte bulunan benzer yönetmek için ortak sözlüğü yöntemlerini gösterir.
+Durum Yöneticisi durum, güvenilir bir sözlükte bulunan benzer yönetmek için ortak sözlüğü yöntemleri sunar.
 
-Aktör durumunu yönetme örnekler için okuma [erişimi kaydedin ve Reliable Actors durumu kaldırmak](service-fabric-reliable-actors-access-save-remove-state.md).
+Aktör durumunu yönetme örnekleri için okuma [erişimi kaydedin ve Reliable Actors durum Kaldır](service-fabric-reliable-actors-access-save-remove-state.md).
 
-## <a name="best-practices"></a>En iyi yöntemler
-Bazı önerilen yöntemler ve sorun giderme ipuçları aktör durumunu yönetmek için aşağıda verilmiştir.
+## <a name="best-practices"></a>En iyi uygulamalar
+Bazı önerilen yöntemler ve sorun giderme ipuçları, aktör durumunu yönetmek için aşağıda verilmiştir.
 
-### <a name="make-the-actor-state-as-granular-as-possible"></a>Aktör durumunun olarak ayrıntılı olun
-Bu, performans ve kaynak kullanımını uygulamanız için önemlidir. Tüm yazma / "durumu bir aktör adında" için güncelleştirme olduğunda, "adlandırılmış durumuna" karşılık gelen tüm değer sıralanabilir ve ikincil çoğaltmaları ağ üzerinden gönderilen.  İkincil kopya yerel diske ve birincil çoğaltma Yanıtla geri yazma. Birincil bir ikincil çoğaltmaları çekirdek onayları aldığında, durum yerel diske yazar. Örneğin, değeri 20 üyeleri ve boyutu 1 MB olan bir sınıf olduğunu varsayın. Aşağıdakilerden biri olan sınıf üyeleri yalnızca değiştirilmiş olsa bile tam 1 MB için seri hale getirme ve ağ ve disk yazma maliyetini ödeme yukarı son 1 KB Boyutunda boyut. Değer bir koleksiyon (örneğin, liste, dizi veya sözlük) ise, onun üyeleri birini değiştirirseniz, bile benzer şekilde, maliyet tam koleksiyon için ücret ödersiniz. Aktör sınıfının StateManager gibi bir sözlük arabirimidir. Her zaman bu sözlük üstünde aktör durumunu temsil eden veri yapısı model.
+### <a name="make-the-actor-state-as-granular-as-possible"></a>Aktör durumu mümkün olduğunca ayrıntılı olun
+Bu, performans ve kaynak kullanımı, uygulamanız için önemlidir. Herhangi yazma / "durumu bir aktör adında" için bir güncelleştirme olduğunda, söz konusu "adlı duruma" karşılık gelen tam değeri serileştirilmiş ve ağ üzerinden ikincil çoğaltmalara gönderilen.  İkincil veritabanı yerel diske ve birincil çoğaltma yeniden yanıt yazın. Birincil, ikincil çoğaltmalar çekirdeği onayları aldığında, durumu, yerel bir diske yazar. Örneğin, değeri 20 üyeleri ve Boyut 1 MB olan bir sınıf olduğunu varsayın. Aşağıdakilerden biri olan sınıf üyeleri yalnızca değiştirilmiş olsa bile, 1 KB, 1 MB'ın tamamını için serileştirme ve ağ ve disk yazma maliyetini ödeme'kurmak son boyutu. Değer bir koleksiyon (örneğin, bir liste, dizi veya sözlük) ise bile onun üyeleri birini değiştirin benzer şekilde, maliyet tam koleksiyon için ödeme yaparsınız. Aktör sınıfı StateManager gibi bir sözlük arabirimidir. Her zaman bu sözlük üzerine aktör durumunu temsil eden veri yapısı modelini oluşturması gerekir.
  
-### <a name="correctly-manage-the-actors-life-cycle"></a>Aktör'ın ömrü doğru yönetme
-Aktör hizmeti her bölüm durumda boyutunu yönetmeyle ilgili Temizle ilke olması gerekir. Aktör hizmeti aktörler sabit sayıda ve mümkün olduğunca çok yeniden gerekir. Sürekli yeni aktörler oluşturursanız, kendi çalışma tamamladıktan sonra silmeniz gerekir. Aktör framework var. her aktör hakkında bazı meta verileri depolar. Bir aktör durumunu silinmesi bu aktör hakkındaki meta verileri kaldırmaz. Aktör silmeniz gerekir (bkz [aktörler ve durumlarına silme](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) tüm bilgileri kaldırmak için yaklaşık sistemde depolanmış. Ek bir onay aktör Hizmeti sorgu (bkz [aktörler numaralandırma](service-fabric-reliable-actors-platform.md)) arada bir numara aktörler beklenen aralıkta emin olmak için.
+### <a name="correctly-manage-the-actors-life-cycle"></a>Aktörün yaşam döngüsü yönetemez
+Her bölümde bir aktör hizmetinin durumu boyutunu yönetme hakkında açık ilke olmalıdır. Aktör hizmetinizi sabit sayıda aktörler ve bunları mümkün olduğunca çok yeniden gerekir. Yeni aktör sürekli olarak oluşturursanız, kendi çalışmalarına tamamladıktan sonra silmeniz gerekir. Aktör çerçevesinde var. her aktör hakkında bazı meta verileri depolar. Bir aktör durumunu silme, aktör hakkındaki meta verileri kaldırmaz. Aktör silmeniz gerekir (bkz [aktörleri ve durumlarını silme](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) tüm bilgileri kaldırmak için ilgili bu sistemde depolanır. Ek bir denetim actor hizmetinin sorgu (bkz [aktörler numaralandırma](service-fabric-reliable-actors-enumerate.md)) zaman sayı aktörleri beklenen aralıkta olduğundan emin olmak için.
  
-Şimdiye kadar bir aktör hizmeti veritabanı dosya boyutunu beklenen boyutu artmaktadır görürseniz, yukarıdaki yönergeleri izleyerek emin olun. Bu yönergeleri izleyerek ve hala veritabanı dosya boyutu sorunlarından olan durumunda [bir destek bileti açmanız](service-fabric-support.md) Yardım almak için ürün ekibi ile.
+Şimdiye kadar veritabanı dosya boyutu bir aktör hizmetinin beklenen boyutunun ötesinde genişliyorsa görürseniz, önceki yönergeleri izlediğinizden emin olun. Bu yönergeleri okuduğundan ve hala veritabanı dosya boyutu sorunlarından olan durumunda [bir destek bileti açın](service-fabric-support.md) Yardım almak için ürün ekibi ile.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Reliable Actors içinde depolanan durumu serileştirilmiş, diske yazılan ve yüksek kullanılabilirlik için çoğaltılmış önce. Daha fazla bilgi edinmek [aktör türü seri hale getirme](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+Reliable Actors içinde depolanan durumu serileştirilmiş önce diske yazılan ve yüksek kullanılabilirlik için çoğaltılır. Daha fazla bilgi edinin [aktör türü serileştirme](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-Ardından, daha fazla bilgi edinmek [aktör tanılama ve performans izlemesi](service-fabric-reliable-actors-diagnostics.md).
+Ardından, daha fazla bilgi edinin [aktör tanılama ve performans izleme](service-fabric-reliable-actors-diagnostics.md).

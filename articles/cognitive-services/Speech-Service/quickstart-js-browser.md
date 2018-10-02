@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: b925a382a32f320c5d6906bc3fa23f046d260cb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9ac48bd77087a8dc050ccd1ee8fe63ec5c25a643
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997446"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018393"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Hızlı Başlangıç: Bilişsel hizmetler konuşma SDK'sını kullanarak bir tarayıcıda JavaScript dilinde konuşma tanıma
 
@@ -36,6 +36,8 @@ Uygulama üzerindeki Microsoft Bilişsel hizmetler konuşma SDK bağlıdır ([in
 Yeni, boş bir klasör oluşturun. Örnek bir web sunucusunda barındırmak istemeniz durumunda, web sunucusunun klasöre erişebildiğini doğrulayın.
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Konuşma SDK için JavaScript bu klasöre paketini açın.
+
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Karşıdan yükleme Speech SDK'sı olarak bir [.zip paketi](https://aka.ms/csspeech/jsbrowserpackage) ve yeni oluşturduğunuz klasöre paketinden çıkarın. Bu, başka bir deyişle, açılmış iki dosyada sonuçlanmalıdır `microsoft.cognitiveservices.speech.sdk.bundle.js` ve `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 İkinci gerekiyorsa isteğe bağlıdır ve SDK kodu, hata ayıklama amacıyla kullanılan dosyasıdır.

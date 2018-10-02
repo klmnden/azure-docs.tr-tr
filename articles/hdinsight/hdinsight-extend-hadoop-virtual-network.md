@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/26/2018
-ms.openlocfilehash: 98c62f54e2413bd67600db182c452d0d5965f239
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4cbbfe5c40dd8686cf25ac31aa5db53b2a6415f7
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972190"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018868"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -253,7 +253,7 @@ Zorlamalı tünel bir kullanıcı tanımlı yönlendirme burada tüm trafiğin b
 >
 > Bu bölümde, trafiği denetlemek için ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanmazsanız, yoksayabilirsiniz.
 
-Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, HDInsight ulaşmak için Azure sistem durumu ve Yönetim hizmetlerinden gelen trafiğe izin vermeniz gerekir. İzin verilmiş olmalıdır IP adreslerini bulmak için aşağıdaki adımları kullanın:
+Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, HDInsight ulaşmak için Azure sistem durumu ve Yönetim hizmetlerinden gelen trafiğe izin vermeniz gerekir. Alt ağ içindeki VM'ler arasında trafiği de izin vermeniz gerekir. İzin verilmiş olmalıdır IP adreslerini bulmak için aşağıdaki adımları kullanın:
 
 1. Her zaman aşağıdaki IP adreslerinden gelen trafiğe izin vermeniz gerekir:
 

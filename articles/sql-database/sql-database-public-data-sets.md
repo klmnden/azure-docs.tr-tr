@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6977995fb33d221b48a633076f61d3ee39d6ba40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160426"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586266"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Ortak veri kümelerine test etme ve prototip oluşturma
 
@@ -40,7 +40,7 @@ Prototip ve test depolama ve Analiz Hizmetleri ve çözümleri için kullandığ
 
 | Veri kaynağı | Veriler hakkında | Dosyaları hakkında |
 |---|---|---|
-| [New York taksi verilerini](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Toplama yakalama alanları taksi seyahat kayıtları içerir ve teslim tarihleri/saatleri, toplama ve bırakma konumlarını, seyahat uzaklıkları, listelenen fares, oranı türleri, ödeme tipleri, ve yolcular sürücüsü tarafından bildirilen sayılarını." | Veri kümeleri, aya göre CSV dosyalar sahiptir. |
+| [New York taksi verilerini](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Taksi seyahat kayıtlarını yakalama toplama alanları dahil dropoff tarihleri/saatleri, toplama ve dropoff konumları, seyahat uzaklıkları, listelenen fares, oranı türleri, ödeme türleri ve yolcular sürücüsü tarafından bildirilen sayar." | Veri kümeleri, aya göre CSV dosyalar sahiptir. |
 | [Microsoft Research veri kümeleri - "Araştırma için veri bilimi"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Birden çok veri bilgisayar insan etkileşimi, ses/video, veri araştırma/bilgi alma, Jeo-uzamsal/konum, doğal dil işleme ve robotlara ilişkin/görüntü işleme kapsayan ayarlar. | Çeşitli biçimlerdeki indirme için daraltılmış veri kümesidir. |
 | [Ortak olarak genom veri](http://www.completegenomics.com/public-data/) | "Farklı bir veri kümesinin tamamını İnsan genom genetik bir araştırma geliştirmek üzere... genel kullanım için ücretsiz olarak kullanılabilir" Sağlayıcı, tam Genomiks bir özel açık bir şirkettir. | Veri kümeleri, ayıklama sonra UNIX metin biçimindedir. Analiz Araçları de mevcuttur. |
 | [Açık bilimi verileri bulut veri](https://www.opensciencedatacloud.org/) | "Açık bilimi verileri bulut depolama, paylaşma ve terabayt ve Petabayt ölçekli bilimsel veri kümeleri çözümleme için kaynaklar ile bilimsel community sunuyor."| Çeşitli biçimlerde veri kümeleridir. |

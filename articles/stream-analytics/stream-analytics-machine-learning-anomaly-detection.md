@@ -1,6 +1,6 @@
 ---
 title: Azure Stream Analytics (Önizleme) anomali algılama
-description: Bu makalede Azure akış analizi ve Azure Machine Learning birlikte anormallikleri algılamak için nasıl kullanılacağını açıklar.
+description: Bu makalede, Azure Stream Analytics ve Azure Machine Learning birlikte anomalileri algılamak için nasıl kullanılacağını açıklar.
 services: stream-analytics
 author: dubansal
 ms.author: dubansal
@@ -9,31 +9,31 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 045d7623c3f00ee984dad406247e3197a4ecc45a
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420104"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586180"
 ---
-# <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream Analytics anomali algılama
+# <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream analytics'te anomali algılama
 
 > [!IMPORTANT]
-> Bu işlevselliği Önizleme'de, üretim iş yükleri ile kullanarak öneri değil.
+> Bu işlev kullanım dışı aşamasında olan, ancak yeni işlevleri ile değiştirilecek. Daha fazla bilgi için ziyaret [Azure Stream analytics'te sekiz yeni özellikler](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) blog gönderisi.
 
-**AnomalyDetection** işleci anormallikleri farklı türler olay akış algılamak için kullanılır. Örneğin, boş bellek yavaş bir düşüş uzun bir süre içinde bir bellek sızıntısı göstergesi olabilir veya bir aralık içinde kararlı web hizmeti isteklerinin sayısını önemli ölçüde artırmak veya azaltmak.  
+**Anomalydetectıon** işleci, olay akışları farklı türlerde anomalileri algılamak için kullanılır. Örneğin, yavaş bir düşüş boş bellek uzun bir zaman içinde bir bellek sızıntısının olabilir veya bir aralıktaki kararlı web hizmeti isteklerinin sayısını önemli ölçüde artırmak veya azaltmak.  
 
-AnomalyDetection işleci anormallikleri üç tür algılar: 
+Anomalydetectıon işleci, üç tür anomalileri algılar: 
 
-* **Çift yönlü düzeyi değişiklik**: bir sürekli artırma veya azaltma değerlerin, yukarı ve aşağı düzeyi. Bu değer, ani ve anlık veya kısa süreli değişiklikler dıps farklıdır.  
+* **İki yönlü düzeyi değişiklik**: bir sürekli artırma veya azaltma değerleri, yukarı ve aşağı doğru düzeyde yer. Bu değer, ani ve değişiklikleri anlıktır ve kısa süreli olan dıps farklıdır.  
 
-* **Pozitif eğilimi yavaş**: eğilim yavaş bir artış Zamanla.  
+* **Pozitif eğilim yavaş**: zaman içindeki eğilimi yavaş bir artışı.  
 
-* **Negatif eğilimi yavaş**: yavaş düşüş eğilimi Zamanla.  
+* **Negatif eğilim yavaş**: yavaş bir düşüş eğilimi, zaman içinde.  
 
-AnomalyDetection işleci kullanırken belirtmelisiniz **Limit Duration** yan tümcesi. Bu yan tümce zaman aralığı (ne kadar geri geçerli olay geçmişinden) anormallikleri algılama göz önünde bulundurulması belirtir. Bu işleç isteğe bağlı olarak belirli bir özellik veya koşulu kullanarak eşleşen olaylar için sınırlı olabilir **zaman** yan tümcesi. Bu işleç olayları ayrı ayrı belirtilen anahtarı temel alan ve grupları ayrıca isteğe bağlı olarak işleyebilir **tarafından bölüm** yan tümcesi. Eğitim ve tahmin bağımsız olarak her bölüm için gerçekleşir. 
+Anomalydetectıon işleci kullanırken belirtmelisiniz **Limit Duration** yan tümcesi. Bu yan tümce zaman aralığını (ne kadar geri geçerli olay geçmişinden), anomalileri tespit edilirken dikkate alınacağını belirtir. Bu işleç isteğe bağlı olarak belirli bir özellik ya da koşul kullanarak eşleşen olaylar için sınırlı olabilir **olduğunda** yan tümcesi. Bu işleç, ayrı olarak belirtilen anahtara göre olay gruplarını ayrıca isteğe bağlı olarak işleyebilir **tarafından bölüm** yan tümcesi. Eğitim ve tahmin bağımsız olarak her bölüm için gerçekleşir. 
 
-## <a name="syntax-for-anomalydetection-operator"></a>AnomalyDetection işleci için sözdizimi
+## <a name="syntax-for-anomalydetection-operator"></a>Anomalydetectıon işleci için söz dizimi
 
 `ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
@@ -43,122 +43,122 @@ AnomalyDetection işleci kullanırken belirtmelisiniz **Limit Duration** yan tü
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-* **scalar_expression** -anomali algılama gerçekleştirilen bir skaler ifade. Bu parametre Float eklemek veya bu dönüş tek bir (sayı) değerini Bigint veri türleri için izin verilen değerler. Joker karakter ifadesini **\*** verilmez. Skaler ifade diğer analitik işlevler veya dış işlevler içeremez. 
+* **scalar_expression** -skaler ifade anomali algılama üzerinden gerçekleştirilir. Bu parametre, Float'ı dahil etmek veya bu dönüş tek bir (sayı) değerini Bigint veri türleri için izin verilen değerler. Joker karakter ifadesini **\*** izin verilmiyor. Skaler ifade, diğer analiz işlevleri veya dış işlevler içeremez. 
 
-* **partition_by_clause** - `PARTITION BY <partition key>` yan tümcesi, ayrı bölümler öğrenme ve eğitim böler. Diğer bir deyişle, ayrı bir model değerini kullanılacak `<partition key>` ve bu değer yalnızca olaylarla öğrenme ve bu modelde eğitim için kullanılabilir. Örneğin, aşağıdaki sorgu trenler ve yalnızca aynı algılayıcı başka okumalar karşı okuma yapan:
+* **partition_by_clause** - `PARTITION BY <partition key>` yan tümcesi öğrenme ve eğitim ayrı bölümler arasında böler. Diğer bir deyişle, ayrı bir model değerini kullanılan `<partition key>` ve bu değer yalnızca olaylarla öğrenme ve eğitim Bu modelde için kullanılabilir. Örneğin, aşağıdaki sorgu trenler ve puanları bir başka okumalar yalnızca aynı algılayıcı karşı okuma:
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
-* **limit_duration yan tümcesi** `DURATION(<unit>, <length>)` -zaman aralığı (ne kadar geri geçerli olay geçmişinden) olarak kabul edilmelidir anormallikleri tespit edilirken belirtir. Bkz: [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) desteklenen birimleri ve bunların kısaltmalar ayrıntılı bir açıklaması için. 
+* **limit_duration yan tümcesi** `DURATION(<unit>, <length>)` -anomalileri tespit edilirken, zaman aralığını (ne kadar geri geçerli olay geçmişinden) sayılacağı belirtir. Bkz: [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) desteklenen birimler ve kısaltmalarıyla ayrıntılı bir açıklaması. 
 
-* **when_clause** -anomali algılama hesaplamanın kabul olaylar için bir Boole koşulu belirtir.
+* **when_clause** -anomali algılama hesaplamayı kabul olaylar için bir boolean koşulu belirtir.
 
 ### <a name="return-types"></a>Dönüş türleri
 
-AnomalyDetection işleci, tüm üç puanları çıktı olarak içeren bir kayıt döndürür. Anomali algılayıcılar farklı türleriyle ilişkili özellikleri şunlardır:
+Anomalydetectıon işleci, tüm üç puanları çıktı olarak içeren bir kayıt döndürür. Farklı türde anomali algılayıcıları ile ilişkili özellikler şunlardır:
 
 - BiLevelChangeScore
 - SlowPosTrendScore
 - SlowNegTrendScore
 
-Kaydı dışında değerlerini ayrı ayrı ayıklamak için kullanma **getrecordpropertyvalue'öğesinin** işlevi. Örneğin:
+Bireysel kayıt değerleri ayıklamak için **GetRecordPropertyValue** işlevi. Örneğin:
 
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
-Anomali puanları birini bir eşik kestiği zaman anomali türü algılandı. Eşik herhangi bir kayan noktalı sayı olabilir > = 0. Eşik kolaylığını duyarlılık güvenirlik arasındaki ise. Örneğin, düşük bir Eşikte algılama daha önemli değişiklikler yapmak ve daha yüksek bir eşik algılama daha az hassas ve daha emin olun ancak bazı anormallikleri maske ancak daha fazla uyarılar oluşturur. Kullanılacak tam eşik değeri senaryoya bağlıdır. Üst sınır yoktur ancak önerilen aralık 3,25-5'tir. 
+Bir anomali puanları bir eşiği geçtiğinde anomali türü algılandı. Eşik kayan noktalı bir sayı olabilir. > = 0. Duyarlılık ve güvenle arasında bir denge eşiğin. Örneğin, düşük bir Eşikte, algılama daha hassas değişiklikler yapmak ve daha yüksek bir eşiği algılama daha az hassas ve daha fazla emin olun ancak bazı anomalileri maske ise daha fazla uyarı oluşturur. Kullanılacak tam eşik değeri, senaryoya bağlıdır. Üst sınır yoktur ancak önerilen aralık 3,25-5'tir. 
 
-Örnekte gösterilen 3,25 yalnızca önerilen bir başlangıç noktası değerdir. Değeri kendi veri kümesi üzerinde işlemler çalıştırarak ince ayar ve tolerable eşik ulaşana kadar çıkış değerini inceleyin.
+' % S'değeri örnekte gösterilen 3,25 yalnızca bir önerilen başlangıç noktasıdır. Kendi veri kümesindeki işlemler çalıştırarak değeri ayarlamanıza ve fazla eşiği ulaşana kadar çıkış değeri gözlemleyin.
 
 ## <a name="anomaly-detection-algorithm"></a>Anomali algılama algoritması
 
-* AnomalyDetection işlecini kullanan bir **Denetimsiz öğrenme** yaklaşım burada bunu değil varsayın olayları dağıtımlarında herhangi bir türde. Genel olarak, iki modeli burada bunlardan birini Puanlama için kullanılır ve diğer arka planda eğitildi verilen zaman, paralel olarak saklanır. Anomali algılama modelleri veri geçerli akıştan yerine bir bant dışı mekanizması kullanılarak eğitilmiş olup. Limit Duration parametre içinde kullanıcı tarafından belirtilen pencere boyutu d eğitim için kullanılan veri miktarına bağlıdır. Her model olayları 2B tutarında d dayanan eğitilmiş yukarı sona erer. En iyi sonuçlar için her penceresinde en az 50 olayları olması önerilir. 
+* Anomalydetectıon işleci kullanan bir **Denetimsiz öğrenme** burada bunu değil varsayar olaylar dağıtım herhangi bir türde bir yaklaşım. Genel olarak, iki modeli, herhangi bir zamanda burada bunlardan birinin Puanlama için kullanılır ve diğeri arka planda eğitildi verilen paralel olarak korunur. Anomali algılama modelleri, bant dışı bir mekanizma kullanılarak yerine geçerli akıştan verileri kullanarak eğitilir. Eğitim için kullanılan veri miktarı sınırı süre parametresini içinde kullanıcı tarafından belirtilen pencere boyutu d bağlıdır. Her model, olayları 2B değerinde d temel alınarak geliştirilen yukarı sona erer. En iyi sonuçlar için her penceresinde en az 50 olayda olması önerilir. 
 
-* AnomalyDetection işlecini kullanan **kayan pencere semantiği** modelleri ve puanı olayları eğitmek için. Her olay için anomali değerlendirilir ve bir puan döndürülen anlamına gelir. Puanı bu anomali güven düzeyinin göstergesidir. 
+* Anomalydetectıon işleci kullanır **kayan pencere semantiği** model ve puanlama olayları eğitmek için. Her olay için anomali değerlendirilir ve bir puan döndürülen anlamına gelir. Puan, anomali güvenirlik düzeyini göstergesidir. 
 
-* AnomalyDetection işleci sağlayan bir **Yinelenebilirlik garantisi** her zaman giriş aynı iş çıktısı bakılmaksızın aynı puan başlangıç zamanı üretir. Proje çıktı başlangıç zamanı ilk çıkış olayı iş tarafından üretilen süresini temsil eder. (İş çıktısı daha önce oluşturduysa) geçerli saati, özel bir değer veya son çıkış zamanı kullanıcı tarafından ayarlanır. 
+* Anomalydetectıon işleci sağlayan bir **yinelenebilirliği garantisi** her zaman giriş aynı iş çıktısı bağımsız olarak aynı puanı başlangıç zamanı üretir. İş çıkışı başlangıç zamanı, ilk çıkış olayı iş tarafından üretilen süresini temsil eder. (İşin çıktı daha önce oluşturduysa) geçerli zamanı, özel bir değer veya son çıkış saati için kullanıcı tarafından ayarlanır. 
 
-### <a name="training-the-models"></a>Model eğitimi 
+### <a name="training-the-models"></a>Modellerin eğitimi 
 
-Zaman ilerledikçe, modelleri farklı veriler ile eğitildi. Puanları anlamlı olarak modeller eğitilmiş temel mekanizmasını anlamak için yardımcı olabilir. Burada, **t<sub>0</sub>**  olan **iş çıktısı başlangıç zamanı** ve **d** olan **pencere boyutu** Limit Duration'den parametre. Varsayın içine zaman bölünmüş **atlama boyutu d**, başlayıp `01/01/0001 00:00:00`. Aşağıdaki adımlar, olaylar puan ve modeli eğitmek için kullanılır:
+Zaman ilerledikçe, modelleri, farklı verilerle eğitilir. Puanları anlamlı için bu temel mekanizması olarak modeli eğitilir anlamanıza yardımcı olur. Burada, **t<sub>0</sub>**  olduğu **iş çıkışı başlangıç zamanı** ve **d** olduğu **pencere boyutunu** Limit Duration'den parametre. Varsayar içine zaman bölünmüş **atlama boyutu d**, başlayıp `01/01/0001 00:00:00`. Aşağıdaki adımlar, model ve puanlama olayları eğitmek için kullanılır:
 
-* Bir iş başlatıldığında zaman t başlayan veri okuyan<sub>0</sub> – 2B.  
-* Saati sonraki atlama ulaştığında yeni bir model M1 oluşturulur ve eğitilmiş başlatır.  
-* Saat başka bir atlama ilerler, yeni bir model M2 oluşturulur ve eğitilmiş başlatır.  
-* Zaman t ulaştığında<sub>0</sub>M1 etkin hale ve onun puan yüzdelik başlatır.  
-* Sonraki atlamada aynı anda üç şey olur:  
+* Bir iş başlatıldığında, başlangıç saati t verileri okur<sub>0</sub> – 2B.  
+* Zaman sonraki atlama ulaştığında yeni bir modeli M1 oluşturulur ve eğitim başlatır.  
+* Başka bir atlama tarafından zaman ilerler, yeni bir modeli M2 oluşturulur ve eğitim başlatır.  
+* Zaman t ulaştığında<sub>0</sub>M1 etkin yapılan ve kendi puanı yüzdelik başlatır.  
+* Bir sonraki atlamada aynı anda üç şey olur:  
 
-  * M1 artık gerekli değildir ve atılır.  
-  * Puanlama için kullanıldığı şekilde M2 yeterince eğitilmiş.  
-  * Yeni bir model M3 oluşturulur ve arka planda eğitilmiş başlatır.  
+  * M1 artık gerekli değildir ve göz ardı edilir.  
+  * Puanlama için kullanıldığı şekilde M2 yeterince eğitim.  
+  * Yeni bir modeli M3 oluşturulur ve arka planda eğitilmiş başlatır.  
 
-* Bu döngü her atlama için tekrarlar etkin model atılır burada paralel modeline geçiş ve eğitim üçüncü modeli arka planda başlatın. 
+* Her bir atlama için bu döngü tekrarlanıyordu etkin bir modelle göz ardı edilir olduğunda, paralel modeline geçiş ve arka planda üçüncü modeli başlatın. 
 
-Diagrammatically, adımları aşağıdaki gibi görünür: 
+Diagrammatically, adımları şu şekilde görünür: 
 
 ![Eğitim modelleri](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
 
-|**modeli** | **Eğitim başlangıç zamanı** | **Kendi puan kullanmaya başlama zamanı** |
+|**Model** | **Eğitim başlangıç zamanı** | **Kendi puanı kullanmaya başlama zamanı** |
 |---------|---------|---------|
 |M1     | 11:20   | 11:33   |
 |M2     | 11:30   | 11:40   |
 |M3     | 11:40   | 11:50   |
 
-* Model M1 okuma 11: 13'da iş başlatıldıktan sonra sonraki atlama olduğu 11:20:00, eğitim başlatır. İlk çıkış M1 ' 11:33 eğitim ile veri 13 dakika sonra da oluşturulur. 
+* Model M1 11: 13'te okuma iş başlatıldıktan sonra sonraki atlama olduğu sabah 11:20, eğitim başlatır. İlk çıkış M1 ' sabah 11:33 13 dakikalık veri eğitimlerle sonra oluşturulur. 
 
 * Yeni bir model M2 de eğitim 11: 30'da başlar ancak kendi puan 11:40 ile 10 dakika veri eğitilmiş sonra olan kadar kullanılmayan. 
 
-* M3 M2 olarak aynı düzeni izler. 
+* M3 M2 olarak aynı deseni izler. 
 
-### <a name="scoring-with-the-models"></a>Modelleriyle Puanlama 
+### <a name="scoring-with-the-models"></a>Puanlama modelleri ile 
 
-Machine Learning düzeyinde bir geçmiş penceresinde olaylarla karşılaştırarak anomali algılama algoritması gelen her olay için bir strangeness değer hesaplar. Strangeness hesaplama anomali her tür için farklıdır.  
+Machine Learning düzeyinde anomali algılama algoritması, olayların bir geçmiş penceresinde ile karşılaştırarak gelen her olay için bir strangeness değer hesaplar. Strangeness hesaplama anomali her tür için farklıdır.  
 
-Şimdi ayrıntılı strangeness hesaplama gözden geçirin (Geçmiş windows olayları ile bir dizi var. varsayılmıştır): 
+Ayrıntılı strangeness hesaplama gözden geçirelim (Geçmiş windows olayları içeren bir dizi var olduğunu varsayın): 
 
-1. **Çift yönlü düzey değişikliği:** Geçmiş penceresinde bağlı olarak, normal işletim aralığı [10 yüzdebirlik, 90] hesaplanan alt sınır ve 90'ıncı yüzdelik değer üst sınırı olarak olarak başka bir deyişle, 10 yüzdelik değer. Geçerli olay strangeness değeri olarak hesaplanır:  
+1. **İki yönlü düzey değişikliği:** Geçmiş penceresinde bağlı olarak, normal işlem aralığı [10 yüzdelik dilim, 90. yüzdebirlik] hesaplanan üst sınırı olarak alt sınırı ve 90'ıncı yüzdelik dilim değeri olarak diğer bir deyişle, 10 yüzdelik dilim değeri. İçin geçerli olay strangeness değer olarak hesaplandı:  
 
-   - event_value normal işletim aralıkta yoksa 0  
+   - event_value normal çalışma aralığında ise 0  
    - event_value/90th_percentile, eğer event_value > 90th_percentile  
    - 10th_percentile/event_value event_value ise, < 10th_percentile  
 
-2. **Yavaş pozitif eğilimi:** bir eğilim çizgisi Geçmiş penceresinde olay değerler üzerinden hesaplanır ve satır pozitif bir eğilim işlemi arar. Strangeness değeri olarak hesaplanır:  
+2. **Yavaş pozitif eğilimi:** bir eğilim çizgisi Geçmiş penceresinde olay değerleri üzerinden hesaplanır ve pozitif bir eğilim satır işlemi arar. Strangeness değeri olarak hesaplandı:  
 
    - Eğim pozitifse eğimi  
    - Aksi takdirde 0 
 
-3. **Yavaş negatif eğilimi:** işlemi satır içinde negatif eğilimi arar ve bir eğilim çizgisi Geçmiş penceresinde olay değerler üzerinden hesaplanır. Strangeness değeri olarak hesaplanır: 
+3. **Yavaş negatif eğilimi:** işlemi satır içinde negatif eğilim arar ve bir eğilim çizgisi Geçmiş penceresinde olay değerleri üzerinden hesaplanır. Strangeness değeri olarak hesaplandı: 
 
    - Eğim negatifse eğimi  
    - Aksi takdirde 0  
 
-Gelen olay strangeness değeri hesaplanan sonra martingale değeri strangeness değere göre hesaplanır (bkz [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) martingale değerin nasıl hesaplanır ile ilgili ayrıntılar için). Bu martingale değeri anomali puan döndürülen. Martingale değer yavaş algılayıcısı durumlarıyla değişiklikler sağlam kalmasına izin verir ve yanlış uyarılar azaltan yanıtta garip değerlere artar. Ayrıca, kullanışlı bir özelliği vardır: 
+Gelen olay strangeness değeri Hesaplandı sonra martingale değer strangeness değeri temel alınarak hesaplanır (bkz [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) martingale değerin nasıl hesaplanır ilişkin ayrıntılar için). Bu martingale değer anomali puanı döndürülen. Martingale değeri algılayıcısı ara sıra değişiklikler sağlam kalmasına izin verir ve yanlış uyarıların azaltan yanıt olarak garip değerleri yavaş artar. Ayrıca, kullanışlı bir özellik vardır: 
 
-Olasılık [t tür vardır, M<sub>t</sub> > λ] < 1/λ, burada M<sub>t</sub> anlık t martingale değerdir ve λ gerçek bir değerdir. Örneğin, bir uyarı ise, M<sub>t</sub>> 100 hatalı pozitif sonuç olasılığını olduğundan 1/100'den küçük.  
+Olasılık [t böyle vardır, M<sub>t</sub> > λ] < 1/λ nerede M<sub>t</sub> anlık t martingale değerdir ve λ gerçek bir değerdir. Örneğin, bir uyarı varsa, M<sub>t</sub>> 100 ve hatalı Pozitiflerin olasılığını olan 1/100'den küçük.  
 
-## <a name="guidance-for-using-the-bi-directional-level-change-detector"></a>Çift yönlü düzeyi kullanmaya yönelik kılavuz algılayıcısı değiştirme 
+## <a name="guidance-for-using-the-bi-directional-level-change-detector"></a>İki yönlü düzeyi kullanılarak Kılavuzu algılayıcısı değiştirme 
 
-Çift yönlü düzey değişikliği algılayıcısı güç kesintisi ve kurtarma veya sağladığından saat trafiği, vb. gibi senaryolarda kullanılabilir. Ancak, bir model belirli verilerle eğitildi sonra yeni değer önceki üst sınırından daha yüksektir ve yalnızca, başka bir düzey değişikliği anormal şekilde çalışır (yukarı düzeyini değiştirmek çalışması) veya önceki alt sınırı (aşağı düzey değerinden daha düşük Durum değişikliği). Bu nedenle, bir model, eğitim penceresinde bunları anormal olarak kabul edilmesi veri değerleri yeni düzeyi (yukarı veya aşağı) aralığında görülmemelidir. 
+İki yönlü düzeyi değişiklik algılayıcısı, güç kesintisi ve kurtarma veya yoğun trafik, vb. gibi senaryolarda kullanılabilir. Ancak, bir modeli belirli verilerle eğitilir sonra yeni değeri önceki üst sınırından daha yüksektir ve yalnızca, başka bir düzey değişikliği anormal şekilde çalışır (yukarı düzeyini değiştirmek çalışması) veya önceki alt sınırı (aşağı düzeyi daha düşük Durum değişikliği). Bu nedenle, bir model, eğitim penceresinde anormal olarak kabul edilmesi bunları veri değerleri olan yeni bir düzeyi (yukarı veya aşağı) aralığında açmamalıdır. 
 
-Bu algılayıcısı kullanırken aşağıdaki noktaları bulundurulmalıdır: 
+Aşağıdaki noktaları bu algılayıcısı kullanarak göz önünde bulundurulması: 
 
-1. Zaman serisi aniden gördüğünde artışı veya değerinde bırakın, algıladığı AnomalyDetection işleci. Ancak dönüş normal algılama daha fazla planlama gerektirir. Bir zaman serisinin AnomalyDetection işlecin algılama aralığı en çok uzunluğunun yarısı anomali için ayarlanarak sağlanabilir anomali önce kararlı durumda olduğunda. Bu senaryo varsayar anomali en az süresi önceden tahmin edilebilir ve o zaman çerçevesinde yeterince modeli eğitmek için yeterli olay vardır (en az 50 olayları). 
+1. Zaman serisi aniden gördüğünde artışa veya değerinde bırakın, algıladığı Anomalydetectıon işleci. Ancak dönüş normal algılama daha fazla planlama gerektirir. Zaman serisi en fazla yarı uzunluğu anomali algılama penceresi Anomalydetectıon işleci'nın ayarlayarak gerçekleştirilebilir anomali önce kararlı durumda olduğunda. Bu senaryo varsayar anomali en düşük süresi önceden tahmin edilebilir ve yeterince modeli eğitmek için o zaman çerçevesi içinde yeterli olaylar vardır (en az 50 olaylar). 
 
-   Bu Şekil 1 ve 2 (alt sınırı değişiklik aynı mantığı uygular) bir üst sınır değişikliği kullanarak aşağıda gösterilmektedir. Her iki rakamlar dalga biçimleri anormal bir düzey değişikliği ' dir. Dikey turuncu satırlar atlama sınırlar belirtmek ve atlama boyutu AnomalyDetection işlecinde belirtilen algılama aralığı ile aynıdır. Çizgiler eğitim pencere boyutunu belirtin. Şekil 1'de atlama boyutu hangi anormallik lasts süredir ile aynıdır. Şekil 2'de, anomali sürer sürenin yarısından atlama boyutudur. Puanlama için kullanılan model üzerinde normal veri eğitilmiş çünkü her durumda, Yukarı herhangi bir değişiklik algılandı. Ancak, çift yönlü düzey değişikliği algılayıcısı nasıl çalıştığını bağlı olarak, bu normal değerleri normal dönün puanlar modeli için kullanılan eğitim penceresinden hariç tutmanız gerekir. Şekil 1'de Puanlama modelinin eğitimi normal bazı olaylar içerir, böylece geri dönmek için normal algılanamıyor. Ancak Şekil 2'de eğitim yalnızca normal dönün algılandığında sağlar anormal bölümü içerir. Daha büyük bir şey biraz normal olaylar dahil olmak üzere yukarı sona erer ancak yarısı küçük bir şey de aynı nedenden dolayı çalışır. 
+   Bu Şekil 1 ve 2 (aynı mantığı alt sınırı değişiklik uygulanır) bir üst sınır değişikliği kullanarak aşağıda gösterilmektedir. Her iki şekilde, dalga biçimleri anormal bir düzey değişikliği var. Turuncu dikey çizgileri atlama sınırlar belirtmek ve atlama boyutu Anomalydetectıon işleci belirtilen algılama penceresi ile aynıdır. Yeşil satırlar eğitim penceresinin boyutunu gösterir. Şekil 1'de atlama boyutu hangi anomali bağlanabilmelerini süresi ile aynıdır. Şekil 2'de, anomali sürer yarım saat atlama boyutudur. Modeli Puanlama için kullanılan normal veriler üzerine geliştirilen çünkü her durumda, Yukarı herhangi bir değişiklik algılandı. Ancak, çift yönlü düzeyi değişiklik algılayıcısı nasıl çalıştığını bağlı olarak, bu normal değerler normal dönüş puanlar modeli için kullanılan eğitim penceresinden hariç tutmanız gerekir. Normal dön algılanamıyor bu nedenle Şekil 1'de, bazı normal olaylar Puanlama modeli eğitimi içerir. Ancak Şekil 2'de eğitim yalnızca normal dönüş algılandığını sağlar anormal bölümünü içerir. Daha büyük bir şey biraz normal olaylar da dahil olmak üzere yedekleme sona erecek ise yarısından küçük herhangi bir de aynı nedenden dolayı çalışır. 
 
-   ![Pencere boyutu eşit anomali uzunluğa sahip AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
+   ![Pencere boyutuna eşit anomali uzunluğunda bir AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
 
-   ![AD pencere boyutu ile anomali uzunluğu yarısı eşittir](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
+   ![Pencere boyutu AD'ye anomali uzunluğunun yarısı eşittir](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
 
-2. Burada anomali uzunluğunu tahmin edilemez durumlarda bu algılayıcısı en iyi çaba çalışır. Ancak, eğitim verileri daha dar bir zaman penceresi sınırlar seçme, hangi dönüş normal algılama olasılığı artacaktır. 
+2. Anomali uzunluğunu tahmin edilemez olduğu durumlarda, bu algılayıcısı en iyi çaba çalışır. Ancak, daha dar bir zaman penceresi sınırlar eğitim verileri seçme, hangi dönüş normal algılama olasılığı artacaktır. 
 
-3. Eğitim penceresi zaten bir anomali aynı yüksek değerin içeren olarak aşağıdaki senaryoda, uzun anomali algılanan değil. 
+3. Aşağıdaki senaryoda, eğitim pencere zaten aynı yüksek değerin bir anomali içeren olarak uzun anomali algılanan değil. 
 
-   ![Aynı boyutta ile daha fazla bilgi](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
+   ![Aynı boyutta olan anomalileri](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
 
-## <a name="example-query-to-detect-anomalies"></a>Örnek sorgu anormallikleri algılamak için 
+## <a name="example-query-to-detect-anomalies"></a>Örnek sorgu anomalileri algılamak için 
 
 Aşağıdaki sorgu, bir anomali algılanırsa bir uyarı çıktısını almak için kullanılabilir.
-Giriş akışı Tekdüzen olmadığı durumlarda, toplama adım Tekdüzen zaman serisi dönüştürme yardımcı olabilir. Ortalama örnek kullanır ancak toplama türünü kullanıcı senaryoya bağlıdır. Ayrıca, bir zaman serisinin boşluklar toplama penceresinden daha büyük olduğunda, yok herhangi bir olayı (göredir penceresi semantiği kayan) tetikleyici anormallik algılama zaman serisinde. Sonuç olarak, sonraki olay geldiğinde bütünlüğünü varsayım bozulur. Böyle durumlarda, zaman serisinde boşlukları dolu olması gerekir. Olası bir yaklaşım son olay her atlama penceresinde, aşağıda gösterildiği gibi almaktır.
+Giriş akışı Tekdüzen olmadığı durumlarda, toplama adım Tekdüzen zaman seri içinde dönüştürme yardımcı olabilir. Ortalama örnek kullanır ancak toplama türünü kullanıcı senaryoya bağlıdır. Ayrıca, zaman serisi boşlukları toplama penceresi büyük olduğunda, yok meydana gelen olayları zaman serisinde tetikleyici anomali algılama (göre penceresi semantiği kayan). Sonuç olarak, sonraki olay geldiğinde gerekmemesi varsayımına bozulur. Bu gibi durumlarda, zaman serisi boşlukları doldurulması gerekir. Olası bir yaklaşım son olayın her atlama penceresinde, aşağıda gösterildiği gibi gerçekleşir.
 
 ```sql
     WITH AggregationStep AS 
@@ -224,31 +224,31 @@ Giriş akışı Tekdüzen olmadığı durumlarda, toplama adım Tekdüzen zaman 
 
 ## <a name="performance-guidance"></a>Performans rehberi
 
-* Altı akış birimleri işleri kullanın. 
-* Olayları en az bir saniye birbirinden gönderin.
-* AnomalyDetection işlecini kullanarak bölümlenmemiş bir sorgu, sonuçlar için ortalama hesaplama hakkında 25 ms gecikmeyle ortaya çıkabilir.
-* Hesaplamalar sayısı daha yüksek olduğu gibi bölümlendirilmiş bir sorgu tarafından yaşadı gecikme biraz bölüm sayısı ile değişir. Ancak, gecikme süresini bölümlenmemiş durumda bir karşılaştırılabilir toplam olay sayısı için aynı tüm bölümler hakkındadır.
-* Gerçek zamanlı veri okunurken büyük miktarda veri hızlı bir şekilde alınan neden. Bu veri işleme şu anda yavaştır. Bu tür senaryoların gecikme pencere boyutu veya olay aralığı yerine pencere veri noktası sayısı ile doğrusal olarak artırmak için bulunamadı. Gerçek zamanlı durumlarda gecikme süresini azaltmak için daha küçük bir pencere boyutu kullanmayı düşünün. Alternatif olarak, işinizi geçerli saatten başlayarak göz önünde bulundurun. Gecikme bölümlenmemiş sorguda bazı örnekler: 
-    - Algılama aralığı 60 veri noktalarına 3 MB/sn verimde 10 saniye gecikmeyle sonuçlanabilir. 
-    - 600 veri noktalarda gecikme süresi yaklaşık 80 saniye 0,4 MBps verimi ile ulaşabilirsiniz.
+* Altı akış birimleri için işleri kullanın. 
+* Olayları, birbirinden en az bir saniye gönderirsiniz.
+* Anomalydetectıon işleci kullanarak bölümlenmemiş bir sorgu ortalama yaklaşık 25 ms hesaplama gecikme süresiyle sonuçlar üretebilir.
+* Hesaplamaların sayısını daha yüksek olduğu gibi bölümlenmiş bir sorgu tarafından karşılaşılan gecikme sürelerini bölüm sayısı ile biraz farklılık gösterir. Ancak, gecikme süresi için karşılaştırılabilir olaylarının toplam sayısı bölümlenmemiş durumda aynı tüm bölümler hakkındadır.
+* Gerçek zamanlı verileri okunurken, büyük miktarda veri hızlı bir şekilde alınır. Bu veri işleme şu anda yavaştır. Pencere boyutu veya olay aralığı yerine pencere veri noktası sayısı ile doğrusal olarak artırmak için gecikme süresi gibi senaryolarda bulunamadı. Gerçek zamanlı durumlarda gecikme süresini azaltmak için daha küçük bir pencere boyutu göz önünde bulundurun. Alternatif olarak, geçerli saatten işinizi başlamayı düşünün. Bölümlenmemiş bir sorgu gecikme süreleri birkaç örnek: 
+    - Algılama penceresinde 60 veri noktalarının bir aktarım hızı 3 MB / 10 saniye gecikmeyle sonuçlanabilir. 
+    - 600 veri noktalarını, gecikme süresi yaklaşık 80 saniye aktarım hızı 0,4 MB/sn ile ulaşabilirsiniz.
 
-## <a name="limitations-of-the-anomalydetection-operator"></a>AnomalyDetection işleci sınırlamaları 
+## <a name="limitations-of-the-anomalydetection-operator"></a>Anomalydetectıon işleci sınırlamaları 
 
-* Bu işleç depo ve DIP algılama şu anda desteklemiyor. Ani ve dıps spontaneous veya kısa süreli zaman serisinde değişir. 
+* Bu işleç, depo ve DIP algılama şu anda desteklemiyor. Ani artışlar ve düşüşler spontaneous ya da kısa süreli zaman serisinde değişikliklerdir. 
 
-* Bu işleç mevsimselliğin desenleri şu anda işlemez. Mevsimselliğin desenleri verileri, örneğin farklı web trafiği davranışını hafta sonları sırasında veya değil anormallikleri ancak beklenen bir davranış modelinde olan farklı alışveriş eğilimleri siyah Cuma sırasında yinelenen düzenleri alır. 
+* Bu işleç, şu anda mevsimsellik desenleri işlemez. Mevsimsellik desenleri yinelenen desenlerini, örneğin farklı web trafiği davranışı hafta sonları gibi veya anomalileri ancak beklenen desene davranış olmayan farklı alışveriş eğilimleri kara Cuma sırasında verileri alır. 
 
-* Bu işleç Giriş zaman serisi tekdüzen olmasını bekler. Bir olay akışı dönen üzerinden toplama veya pencere atlamalı Tekdüzen yapılabilir. Olaylar arasındaki boşluk her zaman toplama penceresinden daha küçük olduğu senaryolarda atlayan pencere zaman serisi Tekdüzen yapmak yeterli olur. Boşluk daha büyük olabilir, boşlukları atlamalı pencerenin kullanarak son değeri tekrarlayarak doldurulabilir. 
+* Bu işleç, Giriş zaman serisi tekdüzen olmasını bekliyor. Bir olay akışında bir atlayan üzerinde toplama veya atlamalı pencere Tekdüzen yapılabilir. Olayları arasındaki boşluk her zaman bir toplama penceresi küçük olduğu senaryolarda bir atlayan pencere zaman serisi Tekdüzen yapmanız yeterlidir. Boşluk daha büyük olabilir, boşlukları atlayan bir atlamalı pencere kullanarak son değeri tekrarlayarak doldurulabilir. 
 
 ## <a name="references"></a>Başvurular
 
-* [Anomali algılama – kullanma makine anormal durumları zaman serisi verileri algılamak öğrenme](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
-* [Machine learning API anomali algılama](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
+* [Anomali algılama-zaman serisi verilerinde görülen prosesler algılamak için kullanarak machine learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
+* [Machine learning anomali algılama API'si](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
 * [Zaman serisi anomali algılama](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)

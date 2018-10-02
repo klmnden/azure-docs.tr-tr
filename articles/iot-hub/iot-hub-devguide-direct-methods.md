@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: f2e04c793f5c238716930bcbdcaa090e6a133588
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: f9476d42bbdb9d2a499c08d83eed6696fbbed469
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452605"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586011"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Anlama ve IOT Hub'ından doğrudan metotları çağırma
 
@@ -33,7 +33,7 @@ Başvurmak [bulut buluttan cihaza iletişim Kılavuzu](iot-hub-devguide-c2d-guid
 Doğrudan yöntemler cihazda uygulandı ve sıfır veya daha fazla giriş doğru örnekleyin için yöntemi yükünde gerektirebilir. Hizmet kullanıma yönelik bir URI aracılığıyla bir doğrudan yöntem çağırma (`{iot hub}/twins/{device id}/methods/`). Bir cihaz doğrudan bir cihaza özgü MQTT konu yöntemleri alır (`$iothub/methods/POST/{method name}/`) veya AMQP bağlantıları aracılığıyla ( `IoThub-methodname` ve `IoThub-status` uygulama özellikleri). 
 
 > [!NOTE]
-> Bir cihazda doğrudan yöntem çağırdığınızda, özellik adları ve değerleri yalnızca US-ASCII yazdırılabilir içerebilir dışında aşağıdaki, tüm alfasayısal: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
+> Bir cihazda doğrudan yöntem çağırdığınızda, özellik adları ve değerleri yalnızca US-ASCII yazdırılabilir içerebilir alfasayısal karakterler, aşağıdaki, tüm hariç: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
 Doğrudan yöntemleri zaman uyumludur ve ya da başarılı olması veya zaman aşımı süresinden sonra başarısız (varsayılan: 3600 saniye olarak ayarlanabilir yukarı 30 saniye). Doğrudan yöntemler, cihaz çevrimiçi ve alıcı komutları adıdır ve yalnızca, yapacak bir cihaz istediğiniz etkileşimli senaryolarda yararlıdır. Örneğin, bir ışık telefonda açmak. Bu senaryolarda, bulut hizmeti sonucuna olabildiğince çabuk davranabilir bir anında başarı veya başarısızlık görmek istiyorsunuz. Cihaz yöntemi sonucunda bazı ileti gövdesini döndürebilir, ancak bu yöntem Bunu yapmak gerekli değildir. Üzerinde sıralama garantisi veya yöntem çağrılarının tüm eşzamanlılık semantiği yoktur.

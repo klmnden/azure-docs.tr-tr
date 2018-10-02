@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b4ab55f4bd8bbd66f2edc8c262524169c79d7f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ca1045bcec889e1de47b44a44322579f8b60598f
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975654"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586212"
 ---
 # <a name="what-is-bing-speech"></a>Bing konuşma tanıma nedir?
 
@@ -26,7 +26,7 @@ Bulut tabanlı Microsoft Bing konuşma tanıma API'si, geliştiricilerin uygulam
 - **Metin okuma** API uygulamanızın kullanıcıya çalınabilecek ses akışları metin dönüştürür.
 
 > [!NOTE] 
-> Mayıs 2018'de yeni yayımladık [konuşma hizmeti](../speech-service/overview.md) genel önizlemeye sunuldu. Öneriyoruz [ücretsiz denemenin](../speech-service/get-started.md).
+> Eylül 2018'den yeni beri [konuşma hizmeti](../speech-service/index.yml) sunuldu haline gelmiştir. Öneriyoruz [ücretsiz denemenin](../speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Konuşmadan metne (konuşma tanıma)
 

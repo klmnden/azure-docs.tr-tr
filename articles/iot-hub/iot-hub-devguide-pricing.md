@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Hub fiyatlandırma anlama | Microsoft Docs
-description: Geliştirici Kılavuzu - ölçüm ve de dahil olmak üzere IOT Hub ile works fiyatlandırma örnekler nasıl çalıştığı hakkında bilgi.
+title: Azure IOT Hub fiyatlandırması anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - örnekler ölçüm ve works fiyatlandırma dahil olmak üzere IOT Hub ile nasıl çalıştığı hakkında bilgi.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 672adba0b4b17a25c0c0a1da3596808f767e3fbd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632848"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584107"
 ---
-# <a name="azure-iot-hub-pricing-information"></a>Azure IOT Hub ile fiyatlandırma bilgileri
+# <a name="azure-iot-hub-pricing-information"></a>Azure IOT Hub fiyatlandırma bilgileri
 
-[Azure IOT Hub ile fiyatlandırma] [ lnk-pricing] farklı SKU'ları ve IOT Hub için fiyatlandırma hakkında genel bilgiler sağlar. Bu makale nasıl çeşitli IOT hub'ı işlevler iletileri olarak IOT Hub tarafından ölçülen ek ayrıntılar içerir.
+[Azure IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub) farklı SKU'ları ve IOT hub'ı için fiyatlandırma hakkında genel bilgiler sağlar. Bu makalede, çeşitli IOT hub'ı işlevlerini iletileri olarak IOT Hub tarafından nasıl ölçülür ek ayrıntılı bilgi içerir.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -25,46 +25,42 @@ ms.locfileid: "34632848"
 
 | İşlem | Faturalama bilgileri | 
 | --------- | ------------------- |
-| Kimlik kayıt defteri işlemleri <br/> (oluşturma, alma, liste, Güncelleştir, Sil) | Ücret işlenmedi. |
-| Cihazdan buluta iletiler | IOT Hub'ına, 4 KB öbekler giriş üzerinde başarıyla gönderilen iletileri ücretlendirilirsiniz. Örneğin, 6-KB ileti 2 mesaj doludur. |
-| Bulut-cihaz iletilerini | Başarıyla gönderilen iletileri 4 KB öbekler ücretlendirilen, 6-KB ileti 2 mesaj örneğin doludur. |
-| Dosya yüklemeleri | Azure depolama birimine dosya aktarımı IOT Hub tarafından ölçülen değil. Dosya aktarımı başlatma ve tamamlanma iletilerini 4 KB artımlarla ölçülen messaged gibi ücretlendirilirsiniz. Örneğin, 10 MB'lık dosyası aktarma Azure Storage maliyetinin yanı sıra iki ileti doludur. |
-| Doğrudan yöntemler | Başarılı yöntem isteği 4 KB öbekler ücretlendirilen, boş olmayan gövdeleri yanıtları 4 KB öbekler ek iletiler sizden ücret kesilir. Bağlantısı kesilmiş aygıtları isteklerine 4 KB öbekler iletilerinde olarak ücretlendirilirsiniz. Örneğin, aygıt hiçbir gövde ile bir yanıt sonuçlanan 6-KB gövde yöntemiyle seçili iki ileti. Bir 1 KB aygıttan yanıt gelmesi sonuçlanan 6-KB gövde ile bir yöntem olarak istek için iki ileti artı başka bir ileti yanıtı için ücret kesilir. |
-| Aygıt ve modülü twin okur | Son olarak 512 baytlık öbekleri iletilerinde ücretlendirilirsiniz aygıt ya da modül ve çözüm arka Twin okur. Örneğin, 6-KB twin okuma 12 iletileri doludur. |
-| Cihaz ve modül twin güncelleştirmeleri (etiketleri ve özellikleri) | Twin güncelleştirmeleri cihaz veya modülü ve çözüm arka ucu olarak 512 baytlık öbekleri iletilerinde sizden ücret kesilir. Örneğin, 6-KB twin okuma 12 iletileri doludur. |
-| Aygıt ve modül twin sorguları | Sorgu sonuç boyutunu 512 baytlık parçalar bağlı olarak iletileri olarak ücretlendirilirsiniz. |
-| İş işlemleri <br/> (oluşturma, güncelleştirme, listeleme, silme) | Ücret işlenmedi. |
-| İşlerini aygıt başına işlem | İşlerini işlemleri (örneğin, twin güncelleştirmeleri ve yöntemleri) normal olarak sizden ücret kesilir. Örneğin, 1 KB isteklerini ve yanıtlarını gövdesi boş olan 1000 yöntem çağrılarını sonuçta bir işi 1000 iletileri doludur. |
+| Kimlik kayıt defteri işlemleri <br/> (oluşturma, Al, Listele, güncelleştirme ve silme) | Ücretsizdir. |
+| Cihazdan buluta iletiler | Başarıyla gönderilen iletileri IOT Hub'ına giriş üzerinde 4 KB'lık parçalar halinde ücretlendirilir. Örneğin, 6-KB'lık mesaj, 2 mesaj ücretlendirilir. |
+| Bulut-cihaz iletilerini | Başarıyla gönderilen iletiler 4 KB'lık parçalar halinde ücretlendirilir, örneğin 6 KB'lık bir ileti 2 ileti ücretlendirilir. |
+| Dosya yüklemeleri | IOT Hub tarafından Azure Depolama'ya dosya aktarımı ölçülen değil. Dosya aktarımı başlangıcını ve tamamlanmasını iletiler 4 KB'lık artışlarla tarifeli messaged olarak ücretlendirilir. Örneğin, 10 MB'lık dosya aktarmak, Azure Storage maliyetinin yanı sıra iki ileti ücretlendirilir. |
+| Doğrudan yöntemler | Başarılı yöntemi istekleri, 4 KB'lık parçalar halinde ücretlendirilir, boş olmayan gövdeleri yanıtlarıyla ek iletiler 4 KB'lık parçalar halinde ücretlendirilir. Bağlantısı kesilmiş cihazlar isteklerine uygunsa iletiler 4 KB'lık parçalar halinde ücretlendirilir. Örneğin, bir CİHAZDAN hiçbir gövdesi ile bir yanıt sonuçlanır bir 6-KB gövdesi olan bir yöntemi iki ileti olarak ücretlendirilir. Bir CİHAZDAN bir 1 KB'lık yanıt sonuçlanır bir 6-KB gövdesi bir yöntemle yanı sıra başka bir ileti yanıtı için istek için iki ileti olarak ücretlendirilir. |
+| Cihaz ve modül ikizi okumaları | İkiz cihaz veya modül ve çözüm arka uç, iletileri 512 baytlık parçalar halinde ücretlendirilir okur. Örneğin, 6-KB ikizi okuma 12 iletileri olarak ücretlendirilir. |
+| Cihaz ve modül ikizi güncelleştirmeleri (etiketler ve Özellikler) | Ve çözüm arka ucu cihaz veya modül ikizi güncelleştirmeleri iletileri 512 baytlık parçalar halinde ücretlendirilir. Örneğin, 6-KB ikizi okuma 12 iletileri olarak ücretlendirilir. |
+| Cihaz ve modül ikizi sorguları | Sorguları iletileri 512 baytlık öbekler halinde sonucu boyutuna bağlı olarak ücretlendirilir. |
+| İş işlemleri <br/> (oluşturma, güncelleştirme, listeleme, silme) | Ücretsizdir. |
+| İşleri cihaz başına işlem | İş işlemleri (örneğin, ikizi güncelleştirmeleri ve yöntemleri) normal olarak ücretlendirilir. Örneğin, 1 KB'lık isteklerini ve yanıtlarını gövdesi boş ile 1000 yöntem çağrılarını sonuçta bir işi 1000 iletileri üzerinden ücretlendirilir. |
 
 > [!NOTE]
-> Tüm boyutları yükü boyutu (Protokolü çerçeveleme göz ardı edilir) bayt dikkate hesaplanır. Özellikler ve gövde sahip, iletilerde boyutu Protokolü belirsiz şekilde hesaplanır. Daha fazla bilgi için bkz: [IOT Hub Geliştirici Kılavuzu Mesajlaşma][lnk-message-size].
+> Tüm boyutları (Protokol çerçeveleme göz ardı edilir) bayt yükü boyutu dikkate hesaplanır. Özellikler ve gövdesi olan iletiler için bir protokol belirsiz şekilde boyutu hesaplanır. Daha fazla bilgi için [IOT Hub ileti biçimi](iot-hub-devguide-messages-construct.md).
 
 ## <a name="example-1"></a>Örnek #1
 
-Bir aygıt dakika başına tek bir 1 KB cihaz bulut ileti sonra Azure akış analizi tarafından okunur IOT Hub'ına gönderir. Çözüm arka ucu bir yöntemle (512 baytlık yükü) belirli bir eylemi tetiklemek için 10 dakikada bir aygıtta çağırır. Cihaz 200 bayt sonucunu yöntemiyle yanıt verir.
+Bir cihaz IOT Hub, ardından Azure Stream Analytics tarafından okunur dakika başına tek bir 1 KB'lık CİHAZDAN buluta ileti gönderir. Çözüm arka ucu bir yöntem (512 baytlık yüküyle) belirli bir eylemi tetiklemesine 10 dakikada bir cihazda çağırır. Cihaz yönteminin bir sonuç 200 bayt ile yanıt verir.
 
 Aygıt kullanır:
 
-* Bir ileti * 60 dakika * 24 saat = cihaz bulut iletilerini için günlük 1440 iletileri.
-* İki istek yanıt * 6 kereye saat başına * 24 saat = 288 iletileri için yöntemleri.
+* Bir ileti * = 60 dakika * 24 saat CİHAZDAN buluta iletiler için günde 1440 ileti.
+* İki istek yanıt * 6 kez / saat * 24 saat = 288 iletileri için yöntemleri.
 
-Bu hesaplama 1728 iletileri günde toplamını verir.
+Bu hesaplama, günlük 1728 ileti toplam sağlar.
 
 ## <a name="example-2"></a>Örnek #2
 
-Bir aygıt her saat bir 100 KB cihaz bulut iletisi gönderir. Ayrıca, cihaz çifti dört saatte bir 1 KB yükü ile güncelleştirir. Çözüm arka sona kez günde, 14-KB cihaz çifti okur ve yapılandırmaları değiştirmek için 512 baytlık yükü ile güncelleştirir.
+Bir cihazı, saatte bir 100 KB'lık CİHAZDAN buluta ileti gönderir. Ayrıca, cihaz ikizi dört saatte bir 1 KB'lık yükleriyle güncelleştirir. Çözüm arka son kez, günlük 14-KB cihaz ikizi okumaları ve yapılandırmaları değiştirmek için 512 baytlık yükleriyle güncelleştirir.
 
 Aygıt kullanır:
 
-* 25 (100 KB/4 KB) iletileri * cihaz bulut iletilerini 24 saattir.
-* İki ileti (1 KB/0,5 KB) * altı kat günde cihaz çifti güncelleştirmeleri için.
+* 25 (100 KB/4 KB) iletileri * CİHAZDAN buluta iletiler için 24 saat.
+* İki ileti (1 KB/0,5 KB) * altı kat her gün için cihaz ikizi güncelleştirmeleri.
 
-Bu hesaplama günde 612 iletileri toplamını verir.
+Bu hesaplama, günlük 612 ileti toplam sağlar.
 
-Çözüm arka ucu, 29 iletilerin toplam cihaz çifti okumak için 28 iletileri (14 KB/0,5 KB) yanı sıra, güncelleştirmek için bir ileti tüketir.
+Çözüm arka ucu, cihaz ikizi okumak için 28 iletileri (14 KB/0,5 KB) ek olarak, güncelleştirilecek bir ileti 29 iletilerin toplam tüketir.
 
-Toplam, aygıt ve çözüm arka ucu günde 641 iletileri kullanabilir.
-
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-message-size]: iot-hub-devguide-messages-construct.md
+Toplam günlük 641 ileti cihaz ve çözüm arka ucu kullanır.

@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e9598cb464360e35a86b6fe35d8c965a5e7fb51d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a2a9845f82f1a81f3e187edbbb2deaa2300b3be
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963041"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585926"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Nasıl yapılır: iOS ADAL kullanarak uygulamalar arası SSO'yu etkinleştirin
 
@@ -250,7 +250,7 @@ Cihazda yüklü herhangi bir aracı kullanmak bir uygulama için olanağıdır *
 1. Uygulama kodunuzun çağrıda MS SDK Aracısı modunu etkinleştirin.
 2. Yeni bir yeniden yönlendirme URI'Sİ'kurmak ve hem uygulama hem de uygulama kaydınızı sağlayın.
 3. Bir URL şeması kaydediliyor.
-4. iOS9 desteği: izin Info.plist dosyanıza ekleyin.
+4. Bir izni Info.plist dosyanıza ekleyin.
 
 #### <a name="step-1-enable-broker-mode-in-your-application"></a>1. adım: uygulamanızda Aracısı modu etkinleştir
 
@@ -307,12 +307,16 @@ Destek sertifika tabanlı kimlik doğrulaması ikinci "msauth" uygulamanızda ka
 
 örn: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>4. adım: iOS9: bir yapılandırma parametresi uygulamanıza ekleme
+#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>4. adım: bir yapılandırma parametresi uygulamanıza ekleyin.
 
-ADAL kullanan – canOpenURL: aracı cihaz üzerinde yüklü olup olmadığını denetlemek için. İOS 9 Apple ne uygulama düzenleri sorgulayabilir aşağı kilitli. LSApplicationQueriesSchemes kısmına "msauth" eklemeniz gerekecektir, `info.plist file`.
+ADAL kullanan – canOpenURL: aracı cihaz üzerinde yüklü olup olmadığını denetlemek için. İOS 9, hangi uygulama düzenleri sorgulayabilir aşağı Apple kilitli. LSApplicationQueriesSchemes kısmına "msauth" eklemeniz gerekecektir, `info.plist file`.
 
 ```
-<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>msauth</string>
+    </array>
+
 ```
 
 ### <a name="youve-configured-sso"></a>SSO yapılandırdınız!

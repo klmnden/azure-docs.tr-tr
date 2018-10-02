@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Hub bulut cihaz Mesajlaşma anlama | Microsoft Docs
-description: Geliştirici Kılavuzu - bulut cihaz IOT Hub ile Mesajlaşma kullanma. İleti yaşam döngüsü ve yapılandırma seçenekleri hakkında bilgi içerir.
+title: Azure IOT Hub, bulut-cihaz Mesajlaşma anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - bulut-cihaz IOT Hub ile ileti kullanma. İleti yaşam döngüsü ve yapılandırma seçenekleri hakkında bilgi içerir.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,78 +8,80 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: d3d8df0d1e00fdff4d0e1e93715e1a408116d1e7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f137ea80dc67bb075f34846e5563fb72c72b69a
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632484"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585654"
 ---
-# <a name="send-cloud-to-device-messages-from-iot-hub"></a>IOT Hub'ından bulut cihaza ileti gönderme
+# <a name="send-cloud-to-device-messages-from-iot-hub"></a>IoT Hub’dan buluttan cihaza iletileri gönderme
 
-Çözüm arka ucu cihaz uygulamasının tek yönlü bildirimleri göndermek için bulut aygıtları iletileri IOT hub'ından aygıtınıza gönderin. IOT Hub tarafından desteklenen diğer bulut aygıtları seçenekleri tartışma için bkz [bulut-cihaz iletişimi Kılavuzu][lnk-c2d-guidance].
+Cihaz uygulamasına, çözüm arka ucu tek yönlü bildirimleri göndermek için Cihazınızı IOT hub'ından bulut cihazları iletileri gönderir. IOT Hub tarafından desteklenen diğer bulut-cihaz seçenekleri için bkz [bulut buluttan cihaza iletişim Kılavuzu](iot-hub-devguide-c2d-guidance.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Bir hizmet'e yönelik uç noktası aracılığıyla bulut cihaz göndermek (**/iletileri/devicebound**). Bir aygıt sonra bir cihaza özel uç noktası aracılığıyla iletileri alır (**/devices/ {DeviceID} / iletileri/devicebound**).
+Yönelik hizmet uç noktası aracılığıyla bulut buluttan cihaza iletileri gönderme (**/iletileri/devicebound**). Bir cihaz, ardından cihaza özel uç noktası aracılığıyla iletileri alan (**/devices/ {DeviceID} / iletileri/devicebound**).
 
-IOT hub'ı tek bir cihazı her bulut cihaz ileti hedef ayarlar **için** özelliğine **/devices/ {DeviceID} / iletileri/devicebound**.
+Bulut-cihaz her iletinin tek bir cihaz hedeflemek için IOT hub'ı ayarlar **için** özelliğini **/devices/ {DeviceID} / iletileri/devicebound**.
 
-Her cihaz sıra en çok 50 bulut-cihaz iletilerini tutar. Aynı aygıt sonuçları hata daha fazla ileti göndermeye çalışıyor.
+Her bir cihaz kuyruk en fazla 50 bulut-cihaz iletilerini içerir. Aynı cihaz sonuçları hata için daha fazla ileti gönderilmeye çalışılıyor.
 
-## <a name="the-cloud-to-device-message-lifecycle"></a>Bulut cihaz ileti yaşam döngüsü
+## <a name="the-cloud-to-device-message-lifecycle"></a>Bulut-cihaz ileti yaşam döngüsü
 
-En az bir kere ileti teslimi güvence altına almak için IOT Hub cihaz başına sıralardaki bulut-cihaz iletilerini devam ettirir. Aygıtları gerekir açıkça onaylarsınız *tamamlama* IOT Hub'ın sıradan kaldırmak için. Bu yaklaşım bağlantısı ve aygıt hatalarına karşı dayanıklılık güvence altına alır.
+En az bir kez mesaj teslimatı sağlamak için IOT Hub cihaz başına sıralardaki bulut-cihaz iletilerini devam ettirir. Gereken cihazları açıkça kabul *tamamlama* IOT Hub'ı sıradan çıkarmak için. Bu yaklaşım, bağlantı ve aygıt hatalarına karşı dayanıklılık garanti eder.
 
-Aşağıdaki diyagramda IOT Hub ' bulut cihaza iletinin yaşam döngüsü durumu grafik gösterir.
+Aşağıdaki diyagramda, IOT Hub'ında bulut buluttan cihaza iletinin yaşam döngüsü durumu grafik gösterir.
 
-![Bulut cihaz ileti yaşam döngüsü][img-lifecycle]
+![Bulut-cihaz ileti yaşam döngüsü](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
-IOT Hub hizmeti bir cihaza ileti gönderdiğinde, hizmet ileti durumu ayarlar **sıraya alınan**. Bir aygıtın ne zaman istemektedir *almak* IOT hub'ı bir ileti *kilitleri* ileti (durumu ayarlayarak **görünmez**), diğer iletileri almaya başlamak aygıtta başka bir iş parçacığı sağlar. Bir aygıt iş parçacığı bir ileti işlenmesi tamamlandığında, IOT Hub tarafından bildirir *Tamamlanıyor* ileti. IOT hub'ı sonra ayarlar durumu **tamamlandı**.
+IOT Hub hizmeti bir cihaza ileti gönderdiğinde hizmet ileti durumu ayarlar **sıraya**. Ne zaman bir cihaz isteyen *alma* bir ileti, IOT hub'ı *kilitleri* ileti (durumu ayarlayarak **görünmez**), almaya başlamak cihazda başka iş parçacıklarının sağlar diğer iletiler. Bir cihaz iş parçacığı bir iletisinin işlenmesi tamamlandığında, IOT Hub tarafından bildirir *Tamamlanıyor* ileti. IOT hub'ı daha sonra ayarlar durumu **tamamlandı**.
 
-Bir aygıt de seçebilirsiniz:
+Ayrıca, bir cihaz da tercih edebilirsiniz:
 
-* *Reddetme* IOT Hub'ı ayarlamak için neden olan ileti **kullanılmayan lettered** durumu. MQTT protokolü üzerinden bağlanan aygıtları bulut-cihaz iletilerini reddedemezsiniz.
-* *Abandon* ileti kümesine durumuyla kuyruğa geri koymak için IOT Hub neden olan ileti **sıraya alınan**. MQTT protokolü üzerinden bağlanan aygıtları bulut-cihaz iletilerini iptal edilemez.
+* *Reddetme* IOT Hub'ı ayarlamak için neden olan ileti **kullanılmayan lettered** durumu. Bulut-cihaz iletilerini bağlanan ve MQTT protokolünü cihazları reddedemezsiniz.
 
-Bir iş parçacığı IOT hub'ı bildirmeden bir iletiyi işlemek başarısız olabilir. Bu durumda, ileti otomatik olarak gelen geçiş **görünmez** geri durum **sıraya alınan** sonra durum bir *görünürlük (veya kilidi) zaman aşımı*. Bir dakika zaman aşımı varsayılan değerdir.
+* *İptal* kümesine durumu ile geri kuyrukta ileti yerleştirmek IOT Hub neden olan ileti **sıraya**. Bulut-cihaz iletilerini bağlanan ve MQTT protokolünü cihazları iptal edilemez.
 
-**Maksimum teslimat sayısı** IOT hub'ındaki özelliği belirler en fazla kaç kez bir ileti arasında geçiş **sıraya alınan** ve **görünmez** durumları. Geçişleri sayıdaki sonra IOT hub'ı iletiye durumunu ayarlar **kullanılmayan lettered**. Benzer şekilde, IOT Hub için bir ileti durumunu ayarlar **kullanılmayan lettered** kendi sona erme zamanı sonra (bkz [yaşam süresi][lnk-ttl]).
+Bir iş parçacığı, IOT Hub'ı bildirmeden bir iletiyi işlemek başarısız olabilir. Bu durumda, iletileri otomatik olarak durumundan **görünmez** geri durum **sıraya** sonra durum bir *görünürlük (veya kilit) zaman aşımı*. Bir dakikalık zaman aşımı varsayılan değerdir.
 
-[IOT Hub ile bulut-cihaz iletilerini göndermek nasıl] [ lnk-c2d-tutorial] buluttan bulut-cihaz iletilerini göndermek ve bunları bir aygıtta almak nasıl gösterir.
+**En fazla teslimat sayısı** özelliği IOT Hub'ında en fazla kaç kez bir ileti arasında geçiş belirler **sıraya** ve **görünmez** durumları. Bu geçiş sayısı sonra IOT hub'ı iletiye durumunu ayarlar **kullanılmayan lettered**. Benzer şekilde, IOT Hub ileti durumu ayarlar **kullanılmayan lettered** sona erme zamanı sonra (bkz [yaşam süresi](#message-expiration-time-to-live)).
 
-Genellikle, ileti kaybı uygulama mantığını etkilemez sırada bir aygıt bir bulut cihaz ileti tamamlar. Örneğin, bir işlem olduğunda aygıt iletinin içerik yerel olarak kalıcı veya başarıyla yürütüldü. İleti, ayrıca, kaybı, uygulamanın işlevselliğini etkileyen değil, geçici bilgilerini taşımak. Bazı durumlarda, uzun süre çalışan görevler için şunları yapabilirsiniz:
+[IOT Hub ile bulut-cihaz iletilerini göndermek nasıl](iot-hub-csharp-csharp-c2d.md) buluttan bulut-cihaz iletilerini göndermek ve bunları bir cihazda almak nasıl gösterir.
 
-* Görev tanımı yerel depolama kalıcı sonra bulut cihaz iletisi tamamlayın.
-* Çözüm arka ucu ile bir veya daha fazla cihaz-bulut iletileri görevin ilerlemesini çeşitli aşamalarında bildirin.
+Genellikle, ileti kaybı uygulama mantığı etkilemez, bir cihaz bir bulut-cihaz iletiyi tamamlar. Örneğin, bir işlem olduğunda cihaz iletinin içerik yerel olarak kalıcı veya başarıyla yürütüldü. İleti geçici bilgi kaybı olan, uygulamanın işlevselliğini etkileyebilir değil, ayrıca gerçekleştirmek. Bazı durumlarda, uzun süre çalışan görevler için şunları yapabilirsiniz:
 
-## <a name="message-expiration-time-to-live"></a>İleti kullanım süresi sonu (yaşam süresi)
+* Görev tanımı yerel depolama alanında kalıcı hale sonra bulut buluttan cihaza iletinin tamamlayın.
 
-Her bulut cihaz iletinin sona erme süresi vardır. Bu süre biri tarafından ayarlanır:
+* Bir veya daha fazla cihaz-bulut iletileri ile çözüm arka ucu, görevin ilerleme çeşitli aşamalarında bildirin.
 
-* **ExpiryTimeUtc** hizmet özelliği.
-* IOT Hub'ın varsayılan kullanılarak *yaşam süresi* bir IOT Hub özelliği olarak belirtilmiş.
+## <a name="message-expiration-time-to-live"></a>İleti süre sonu (yaşam süresi)
 
-Bkz: [bulut cihaz yapılandırma seçenekleri][lnk-c2d-configuration].
+Her bulut buluttan cihaza iletinin sona erme süresini vardır. Bu süre biri tarafından ayarlanır:
 
-İleti süresinin sona ermesi yararlanabilir ve önlemek için genel bir bağlantısı kesilmiş aygıtları için ileti gönderme kısa değerler yaşam süresini ayarlamak için yoludur. Bu yaklaşım daha verimli devam ederken aygıt bağlantı durumunu koruma aynı sonucu elde eder. İleti onayları istediğinde, IOT Hub cihazları olan sizi uyarır:
+* **ExpiryTimeUtc** hizmetinde özelliği.
+* IOT Hub'ın varsayılan değeri kullanmanın *yaşam süresi* bir IOT hub'ı özelliği olarak belirtildi.
 
-* İletileri almak kullanabilirsiniz.
+Bkz: [bulut-cihaz yapılandırma seçenekleri](#cloud-to-device-configuration-options).
+
+İleti süre sonu avantajlarından yararlanın ve önlemek için yaygın bir yolu bağlantısı kesilmiş cihazlar için gönderme kısa değerler yaşam süresi ayarlamaktır. Bu yaklaşım daha verimli olmanın yanı sıra cihaz bağlantı durumunun koruma aynı sonucu elde eder. İleti onayları istediğinde, hangi cihazlar IOT hub'ı bildirir:
+
+* İleti almak kullanabilirsiniz.
 * Çevrimiçi olmayan ya da başarısız oldu.
 
 ## <a name="message-feedback"></a>İleti geri bildirim
 
-Bir bulut cihaz ileti gönderirken hizmet ileti son durumu ile ilgili her ileti geri bildirim teslimini isteyebilirler.
+Hizmet, bulut buluttan cihaza ileti gönderme, ileti son durumu hakkında bir ileti başına geri bildirim teslim isteğinde bulunabilirsiniz.
 
 | ACK özelliği | Davranış |
 | ------------ | -------- |
-| **Pozitif** | Bulut cihaz iletisi ulaşırsa **tamamlandı** durumunda, IOT hub'ı bir geri bildirim iletisi oluşturur. |
-| **Negatif** | Bulut cihaz iletisi ulaşırsa **kullanılmayan lettered** durumunda, IOT hub'ı bir geri bildirim iletisi oluşturur. |
-| **tam**     | IOT Hub, her iki durumda da bir geri bildirim iletisi oluşturur. |
+| **Pozitif** | Bulut-cihaz ileti ulaşırsa **tamamlandı** durumunda, IOT hub'ı geri bildirim iletisi oluşturur. |
+| **Negatif** | Bulut-cihaz ileti ulaşırsa **kullanılmayan lettered** durumunda, IOT hub'ı geri bildirim iletisi oluşturur. |
+| **Tam**     | IOT hub'ı, her iki durumda da bir geri bildirim iletisi oluşturmayacaktır. |
 
-Varsa **Ack** olan **tam**ve geri bildirim iletisi almadığınız, geri bildirim iletisi dolduğunu anlamına gelir. Hizmet, özgün iletiye ne bilemezsiniz. Uygulamada, bir hizmet süresi dolmadan önce bu geri bildirim işleyebilir emin olmalısınız. Bir hata oluşursa maksimum süre sonu zamanı hizmet almak için süre bırakır iki gün yeniden çalışıyor.
+Varsa **Ack** olduğu **tam**ve geri bildirim iletisi almaz, geri bildirim iletisi dolduğunu anlamına gelir. Hizmet, özgün iletinin ne olduğunu bilemezsiniz. Uygulamada, bir hizmet süresi dolmadan önce bu geri bildirim işleyebildiğinden emin olmalısınız. Bir hata oluşursa maksimum süre sonu zamanı tekrar hizmet edinebilmek için zamanda bırakan iki gün çalışıyor.
 
-İçinde anlatıldığı gibi [uç noktaları][lnk-endpoints], IOT hub'ı sunan bir hizmet'e yönelik uç noktası aracılığıyla geribildirim (**/messages/servicebound/feedback**) iletileri olarak. Geri bildirim alma semantiğini bulut-cihaz iletilerini ile aynıdır. Mümkün olduğunda, ileti geri bildirim aşağıdaki biçime sahip tek bir iletide toplu hale:
+İçinde anlatıldığı gibi [uç noktaları](iot-hub-devguide-endpoints.md), IOT Hub hizmeti'e yönelik uç noktası aracılığıyla geri bildirim sunar (**/messages/servicebound/feedback**) iletileri. Geri bildirim alma semantiği bulut-cihaz iletilerini ile aynıdır. Mümkün olduğunda, aşağıdaki biçime sahip tek bir ileti, ileti geri bildirim toplu:
 
 | Özellik     | Açıklama |
 | ------------ | ----------- |
@@ -87,20 +89,20 @@ Varsa **Ack** olan **tam**ve geri bildirim iletisi almadığınız, geri bildiri
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
-Gövde bir JSON serileştirilmiş dizisi kayıtları, her biri aşağıdaki özelliklere sahip olan:
+Gövdesi bir JSON ile seri hale getirilmiş kayıtları, aşağıdaki özelliklere sahip her dizisidir:
 
 | Özellik           | Açıklama |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | Ne zaman ileti sonucu olduğunu belirten bir zaman damgası. Örneğin, hub geri bildirim iletisi aldı veya özgün iletinin süresi doldu. |
-| OriginalMessageId  | **MessageID** bu geri bildirim bilgilerini ilgili olduğu bulut cihaz iletisi. |
-| statusCode         | Gerekli dize. IOT Hub tarafından oluşturulan geri bildirim iletileri kullanılır. <br/> 'Başarılı' <br/> 'Süresi' <br/> 'DeliveryCountExceeded' <br/> 'Reddedildi' <br/> 'Temizlendi' |
+| EnqueuedTimeUtc    | İleti sonucunu ne zaman oluştuğunu gösteren zaman damgası. Örneğin, hub'ı geri bildirim iletisini veya özgün iletinin süresi dolmuş. |
+| Originalmessageıd  | **MessageID** bu geri bildirim bilgilerini ilgili olduğu bulut-cihaz ileti. |
+| statusCode         | Zorunlu dize. Geri bildirim iletileri IOT Hub tarafından üretilen kullanılır. <br/> 'Başarılı' şeklindedir <br/> 'Süresi dolmuş' <br/> 'DeliveryCountExceeded' <br/> 'Reddedildi' <br/> 'Temizlendi' |
 | Açıklama        | Dize değerlerini **StatusCode**. |
-| DeviceId           | **DeviceID** hedef cihaz bu aldığımız geri Bildirimlerden biri ilgili olduğu bulut cihaz iletisi. |
-| DeviceGenerationId | **DeviceGenerationId** bu aldığımız geri Bildirimlerden biri ilgili olduğu bulut cihaz iletisinin hedef cihaz. |
+| DeviceId           | **DeviceID** hedef cihazın bu geri bildirim parçası ilgili olduğu bulut-cihaz ileti. |
+| DeviceGenerationId | **DeviceGenerationId** hedef cihazın bu geri bildirim parçası ilgili olduğu bulut-cihaz ileti. |
 
-Hizmet belirtmelisiniz bir **MessageID** kendi geri bildirim özgün iletiyle ilişkilendirmek bulut cihaz ileti.
+Hizmet belirtmelisiniz bir **MessageID** kendi geri bildirim özgün mesajla ilişkilendirebilmesi bulut-cihaz ileti.
 
-Aşağıdaki örnek, bir geri bildirim iletisinin gövdesinde gösterir.
+Aşağıdaki örnek, bir geri bildirim iletisinin gövdesini gösterir.
 
 ```json
 [
@@ -119,32 +121,21 @@ Aşağıdaki örnek, bir geri bildirim iletisinin gövdesinde gösterir.
 ]
 ```
 
-## <a name="cloud-to-device-configuration-options"></a>Bulut cihaz yapılandırma seçenekleri
+## <a name="cloud-to-device-configuration-options"></a>Bulut-cihaz yapılandırma seçenekleri
 
-Her IOT hub'ı bulut cihaz Mesajlaşma için aşağıdaki yapılandırma seçeneklerini gösterir:
+Her IOT hub, bulut-cihaz Mesajlaşma için aşağıdaki yapılandırma seçeneklerini sunar:
 
-| Özellik                  | Açıklama | Aralık ve varsayılan |
+| Özellik                  | Açıklama | Aralığı ve varsayılan |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | Bulut-cihaz iletilerini için varsayılan TTL değeri. | ISO_8601 aralığı kadar 2B (en az 1 dakika). Varsayılan: 1 saat. |
-| maxDeliveryCount          | Maksimum teslimat sayısı her aygıt için bulut cihaz sıralar. | 1 ile 100. Varsayılan: 10. |
-| feedback.ttlAsIso8601     | Hizmet bağlı geri bildirim iletileri için bekletme. | ISO_8601 aralığı kadar 2B (en az 1 dakika). Varsayılan: 1 saat. |
-| feedback.maxDeliveryCount |Geri bildirim kuyruğu en yüksek teslimat sayısı. | 1 ile 100. Varsayılan: 100. |
+| defaultTtlAsIso8601       | Bulut-cihaz iletilerini için varsayılan TTL değeri. | 2B (en az 1 dakika içinde) en fazla ISO_8601 aralığı. Varsayılan: 1 saat. |
+| MaxDeliveryCount          | Bulut-cihaz cihaz başına kuyruklar için en yüksek teslimat sayısı. | 1-100. Varsayılan: 10. |
+| feedback.ttlAsIso8601     | Bağlı hizmet geri bildirim iletileri için elde tutma. | 2B (en az 1 dakika içinde) en fazla ISO_8601 aralığı. Varsayılan: 1 saat. |
+| feedback.maxDeliveryCount |Geri bildirim kuyruğu için en yüksek teslimat sayısı. | 1-100. Varsayılan: 100. |
 
-Bu yapılandırma seçenekleri ayarlama hakkında daha fazla bilgi için bkz: [oluşturma IOT hub'ları][lnk-portal].
+Bu yapılandırma seçenekleri ayarlama hakkında daha fazla bilgi için bkz. [oluşturma IOT hub'ları](iot-hub-create-through-portal.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bulut cihaz iletileri almak için kullanabileceğiniz SDK'ları hakkında bilgi için bkz: [Azure IOT SDK'ları][lnk-sdks].
+Bulut-cihaz iletilerini almak için kullanabileceğiniz SDK'lar hakkında bilgi için bkz. [Azure IOT SDK'ları](iot-hub-devguide-sdks.md).
 
-Bulut-cihaz iletilerini alma çıkışı denemek için bkz: [Gönder bulut cihaz] [ lnk-c2d-tutorial] Öğreticisi.
-
-[img-lifecycle]: ./media/iot-hub-devguide-messages-c2d/lifecycle.png
-
-[lnk-portal]: iot-hub-create-through-portal.md
-[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-[lnk-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-ttl]: #message-expiration-time-to-live
-[lnk-c2d-configuration]: #cloud-to-device-configuration-options
-[lnk-lifecycle]: #message-lifecycle
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+Bulut-cihaz iletilerini alma kullanıma denemek için bkz [Gönder bulut-cihaz](iot-hub-csharp-csharp-c2d.md) öğretici.

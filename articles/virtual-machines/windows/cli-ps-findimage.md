@@ -1,6 +1,6 @@
 ---
-title: Windows VM görüntüleri seçin | Microsoft Docs
-description: Yayımcı, teklif, SKU ve sürümü Market VM görüntüleri belirlemek için Azure PowerShell kullanmayı öğrenin.
+title: Azure'da Windows VM görüntülerini seçme | Microsoft Docs
+description: Yayımcı, teklif, SKU ve sürümü için Market VM görüntülerini belirlemek için Azure PowerShell kullanmayı öğrenin.
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
@@ -13,49 +13,48 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/28/2018
+ms.date: 09/28/2018
 ms.author: danlep
-ms.openlocfilehash: 269d1392e00d02a79a360e3528fdde174563f2cf
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 4fb718eb7247bddd8869b8973479377e3baebdda
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295219"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017187"
 ---
-# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell ile Azure Market'te Windows VM görüntüleri bulma
+# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure Marketi'nde Azure PowerShell ile Windows VM görüntüleri bulma
 
-Bu makalede, Azure Marketi'nde VM görüntüleri bulmak için Azure PowerShell kullanmayı açıklar. Bir VM PowerShell ile programlı olarak oluşturduğunuzda bir Market görüntüsü belirtmek için bu bilgileri kullanın Resource Manager şablonları veya diğer araçlar.
+Bu makalede, sanal makine görüntüleri Azure Market'te bulmak için Azure PowerShell kullanmayı açıklar. Bir VM PowerShell ile programlı olarak oluşturduğunuzda, bir Market görüntüsü belirtmek için bu bilgileri kullanın. Resource Manager şablonları ya da başka araçlar.
 
-Kullanılabilir görüntüleri ve kullanarak teklifler de göz [Azure Marketi](https://azuremarketplace.microsoft.com/) vitrininizi, [Azure portal](https://portal.azure.com), veya [Azure CLI](../linux/cli-ps-findimage.md). 
+Kullanılabilir görüntüleri ve teklifler kullanarak da göz [Azure Marketi](https://azuremarketplace.microsoft.com/) vitrini, [Azure portalında](https://portal.azure.com), veya [Azure CLI](../linux/cli-ps-findimage.md). 
 
-Yüklü ve en son yapılandırıldığından emin olun [Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
+Yüklü ve en son yapılandırılmış olduğundan emin olun [Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
-## <a name="table-of-commonly-used-windows-images"></a>Yaygın olarak kullanılan Windows görüntülerinin tablosu
+## <a name="table-of-commonly-used-windows-images"></a>Yaygın olarak kullanılan Windows görüntüleri tablosu
 | Yayımcı | Sunduğu | Sku |
 |:--- |:--- |:--- |:--- |
-| MicrosoftWindowsServer |WindowsServer |2016 Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer |WindowsServer |Kapsayıcılar ile 2016 Datacenter |
-| MicrosoftWindowsServer |WindowsServer |2016 Nano Server |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
-| MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Enterprise |
-| MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
-| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
+| MicrosoftSQLServer |SQL2017 WS2016 |Enterprise |
+| MicrosoftRServer |RServer WS2016 |Enterprise |
 
 ## <a name="navigate-the-images"></a>Görüntüleri gidin
 
-Görüntüyü bir konumda bulmak için başka bir yolu çalıştırmaktır [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), ve [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) dizisi cmdlet'leri. Bu komutları ile bu değerler belirler:
+Bir konumda bir görüntü bulmak için başka bir yol [Get-Azurermvmımagepublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-Azurermvmımageoffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), ve [Get-Azurermvmımagesku](/powershell/module/azurerm.compute/get-azurermvmimagesku) cmdlet'leri dizisi. Bu komutları ile bu değerleri belirler:
 
 1. Görüntü yayımcılarını listeleyin.
 2. Belirli bir yayımcı varsa yayımcının tekliflerini listeleyin.
 3. Belirli bir teklif varsa SKU’larını listeleyin.
 
-Ardından, seçilen bir SKU için çalıştırın [Get-AzureRMVMImage](/powershell/module/azurerm.compute/get-azurermvmimage) dağıtmak için sürümleri listelemek için.
+Ardından, seçilen SKU için çalıştırın [Get-AzureRMVMImage](/powershell/module/azurerm.compute/get-azurermvmimage) dağıtmak için sürümleri listesi.
 
 İlk olarak aşağıdaki komutlarla yayımcıları listeleyin:
 
@@ -78,7 +77,7 @@ $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-Seçilen SKU adınızı doldurun ve aşağıdaki komutları çalıştırın:
+Seçilen SKU adınızı girin ve aşağıdaki komutları çalıştırın:
 
 ```powershell
 $skuName="<SKU>"
@@ -95,11 +94,12 @@ Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
 ```
 
-Çıktı:
+Kısmi çıkış:
 
 ```
 PublisherName
 -------------
+...
 a10networks
 aiscaler-cache-control-ddos-and-url-rewriting-
 alertlogic
@@ -130,7 +130,7 @@ WindowsServer
 WindowsServerSemiAnnual
 ```
 
-İçin *Windows Server* sunar:
+İçin *WindowsServer* sunar:
 
 ```powershell
 $offerName="WindowsServer"
@@ -154,28 +154,26 @@ Skus
 2016-Datacenter-smalldisk
 2016-Datacenter-with-Containers
 2016-Datacenter-with-RDSH
-2016-Nano-Server
 ```
 
-Sonra *2016 Datacenter* SKU:
+Sonra *2016-Datacenter* SKU:
 
 ```powershell
 $skuName="2016-Datacenter"
 Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-Seçilen yayımcı, teklif, SKU ve sürümü bir URN birleştirebilirsiniz artık (değerleri ayrılmış:). Bu URN ile geçirmek `--image` bir VM ile oluşturduğunuzda parametresi [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet'i. "Son" URN sürüm numarası isteğe bağlı olarak değiştirebilirsiniz unutmayın. Bu her zaman en son sürümünü görüntü sürümüdür. URN ile de kullanabileceğiniz [kümesi AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet'i. 
+Bir URN içinde seçilen yayımcı, teklif, SKU ve sürüm birleştirebilirsiniz artık (virgülle ayrılmış değerler tarafından:). Bu URN ile geçirin `--image` ile bir VM oluşturduğunuzda, parametre [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet'i. "Son" URN sürüm numarasını isteğe bağlı olarak değiştirebilirsiniz unutmayın. Bu her zaman görüntüsünün son sürümünü sürümüdür.
 
-Resource Manager şablonu ile bir VM'yi dağıtmak istiyorsanız, görüntü parametreleri ayrı ayrı olarak ayarlayın `imageReference` özellikleri. Bkz: [şablon başvurusu](/azure/templates/microsoft.compute/virtualmachines).
+Resource Manager şablonu ile bir VM dağıtırsanız, görüntü parametrelerini içinde tek tek ayarlayın `imageReference` özellikleri. Bkz: [şablon başvurusu](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
+### <a name="view-plan-properties"></a>Plan özelliklerini görüntüleme
 
-### <a name="view-plan-properties"></a>Planın özelliklerini görüntüle
+Görüntünün satın alma planı bilgilerini görüntülemek için çalıştırın `Get-AzureRMVMImage` cmdlet'i. Varsa `PurchasePlan` çıktıda özelliği değil `null`, koşulları resimle önce programlamalı dağıtım'ı kabul etmeniz gerekir.  
 
-Görüntünün satın alma planı bilgilerini görüntülemek için Çalıştır `Get-AzureRMVMImage` cmdlet'i. Varsa `PurchasePlan` özelliği çıkışı değil `null`, koşulları resimle programlı dağıtım öncesinde kabul etmeniz gerekir.  
-
-Örneğin, Windows Server 2016 Datacenter görüntüsü ek koşullar, çünkü yok `PurchasePlan` bilgileri `null`:
+Örneğin, Windows Server 2016 Datacenter görüntüsü ek koşullar için sahip `PurchasePlan` bilgileri `null`:
 
 ```powershell
 $version = "2016.127.20170406"
@@ -202,7 +200,7 @@ DataDiskImages   : []
 
 ```
 
-Aşağıdaki Windows 2016 görüntü gösterir veri bilimi sanal makine için - benzer bir komut çalıştıran `PurchasePlan` özellikleri: `name`, `product`, ve `publisher`. (Bazı görüntüleri de bir `promotion code` özelliğini.) Bu görüntü dağıtmak için koşulları kabul edin ve programlı dağıtımı etkinleştirmek için aşağıdaki bölümlere bakın.
+Benzer bir komut için veri bilimi sanal makinesi - Windows 2016 görüntüsü aşağıdaki gösterir çalıştıran `PurchasePlan` özellikleri: `name`, `product`, ve `publisher`. (Bazı görüntüleri de bir `promotion code` özellik.) Bu görüntü dağıtmak için koşullarını kabul edin ve programlamalı dağıtımını etkinleştirmek için aşağıdaki bölümlere bakın.
 
 ```powershell
 Get-AzureRMVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
@@ -234,7 +232,7 @@ DataDiskImages   : []
 
 ### <a name="accept-the-terms"></a>Koşulları kabul et
 
-Lisans koşullarını görüntülemek için kullanın [Get-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/get-azurermmarketplaceterms) cmdlet'i ve satın alma geçişinde planlama parametreleri. Çıkış koşullarını Market görüntüsü için bir bağlantı sağlar ve koşulları önceden kabul olup olmadığını gösterir. Örneğin:
+Lisans koşullarını görüntülemek için kullanın [Get-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/get-azurermmarketplaceterms) cmdlet'i ve geçişinde satın alma planı parametreleri. Çıkış koşullarını Market görüntüsü için bir bağlantı sağlar ve daha önce koşulları kabul olup olmadığını gösterir. Parametre değerlerini tamamen küçük harf kullandığınızdan emin olun. Örneğin:
 
 ```powershell
 Get-AzureRmMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
@@ -254,7 +252,7 @@ Accepted          : False
 Signdate          : 2/23/2018 7:43:00 PM
 ```
 
-Kullanım [kümesi AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) kabul edin veya koşulları reddetmek için cmdlet. Yalnızca görüntü için her abonelik için bir kez koşullarını kabul etmeniz gerekir. Örneğin:
+Kullanım [kümesi AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) cmdlet'i kabul edin veya koşulları reddetmek için. Görüntü için abonelik başına bir kez kabul etmek yeterlidir. Parametre değerlerini tamamen küçük harf kullandığınızdan emin olun. Örneğin:
 
 ```powershell
 
@@ -273,34 +271,50 @@ Plan              : windows2016
 LicenseTextLink   : https://storelegalterms.blob.core.windows.net/legalterms/3E5ED_legalterms_MICROSOFT%253a2DADS%253a24WINDOWS%253a2DDATA%253a2DSCIENCE%253a2DV
                     M%253a24WINDOWS2016%253a24OC5SKMQOXSED66BBSNTF4XRCS4XLOHP7QMPV54DQU7JCBZWYFP35IDPOWTUKXUC7ZAG7W6ZMDD6NHWNKUIVSYBZUTZ245F44SU5AD7Q.txt
 PrivacyPolicyLink : https://www.microsoft.com/EN-US/privacystatement/OnlineServices/Default.aspx
-Signature         : VNMTRJK3MNJ5SROEG2BYDA2YGECU33GXTD3UFPLPC4BAVKAUL3PDYL3KBKBLG4ZCDJZVNSA7KJWTGMDSYDD6KRLV3LV274DLBJSS4GQ
+Signature         : XXXXXXK3MNJ5SROEG2BYDA2YGECU33GXTD3UFPLPC4BAVKAUL3PDYL3KBKBLG4ZCDJZVNSA7KJWTGMDSYDD6KRLV3LV274DLBXXXXXX
 Accepted          : True
 Signdate          : 2/23/2018 7:49:31 PM
 ```
 
-### <a name="deploy-using-purchase-plan-parameters"></a>Satın alma planı parametrelerini kullanarak dağıtma
-Görüntü için koşulları kabul ettikten sonra Abonelikteki bir VM dağıtabilirsiniz. Aşağıdaki kod parçacığında gösterildiği gibi kullanın [kümesi AzureRmVMPlan](/powershell/module/azurerm.compute/set-azurermvmplan) VM nesnesini Market planı bilgilerini ayarlamak için cmdlet. VM ağ ayarları oluşturmak ve dağıtımını tamamlamak bir tam komut dosyası için bkz: [PowerShell komut dosyası örnekleri](powershell-samples.md).
+### <a name="deploy-using-purchase-plan-parameters"></a>Satın alma planı parametreleri kullanarak dağıtma
+
+Görüntü için koşulları kabul ettikten sonra Abonelikteki bir VM dağıtabilirsiniz. Aşağıdaki kod parçacığında gösterildiği gibi kullanın [kümesi AzureRmVMPlan](/powershell/module/azurerm.compute/set-azurermvmplan) cmdlet'i, VM nesnesinin Market plan bilgisini ayarlamak için. VM için ağ ayarları oluşturma ve dağıtımını tamamlamak tam betik için bkz [PowerShell betik örnekleri](powershell-samples.md).
 
 ```powershell
 ...
+
 $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize Standard_D1
 
 # Set the Marketplace plan information
-$vmConfig = Set-AzureRmVMPlan -VM $vmConfig -Publisher "imagePlanPublisher" -Product "imagePlanProduct" -Name "imagePlanName"
+
+$publisherName = "microsoft-ads"
+
+$productName = "windows-data-science-vm"
+
+$planName = "windows2016"
+
+$vmConfig = Set-AzureRmVMPlan -VM $vmConfig -Publisher $publisherName -Product $productName -Name $planName
 
 $cred=Get-Credential
 
 $vmConfig = Set-AzureRmVMOperatingSystem -Windows -VM $vmConfig -ComputerName "myVM" -Credential $cred
 
 # Set the Marketplace image
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName "imagePublisher" -Offer "imageOffer" -Skus "imageSku" -Version "imageVersion"
+
+$offerName = "windows-data-science-vm"
+
+$skuName = "windows2016"
+
+$version = "0.2.02"
+
+$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisherName -Offer $offerName -Skus $skuName -Version $version
 ...
 ```
-Ardından ağ yapılandırma nesneleriyle birlikte VM yapılandırma geçişi `New-AzureRmVM` cmdlet'i.
+Ardından VM yapılandırması için ağ yapılandırma nesneleri ile birlikte geçirdiğiniz `New-AzureRmVM` cmdlet'i.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Hızlı bir şekilde bir sanal makine oluşturmak için `New-AzureRmVM` temel görüntü bilgileri kullanarak, bkz: [PowerShell ile Windows sanal makine oluşturma](quick-create-powershell.md).
+Bir sanal makineyi hızlıca oluşturmak için `New-AzureRmVM` temel görüntü bilgileri kullanarak, bkz: [PowerShell ile bir Windows sanal makinesi oluşturma](quick-create-powershell.md).
 
-Bir PowerShell komut dosyası örneği için bkz: [tam olarak yapılandırılmış bir sanal makine oluşturma](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
+Bir PowerShell Betiği örneği için bkz. [tam olarak yapılandırılmış bir sanal makine oluşturma](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
 
 

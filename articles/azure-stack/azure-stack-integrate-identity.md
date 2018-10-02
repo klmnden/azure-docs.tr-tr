@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 9bbe55e08d7a005d38c5608df39f9285d79eb203
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 5d002ae84334219d636448e8c78a791fa9c230e7
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056540"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586147"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack veri merkezi tümleştirmesi - kimlik
 Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. AD FS dağıtımı da bağlantı kesik moddayken Azure Stack dağıtımı olarak adlandırılır.
@@ -173,9 +173,9 @@ Aşağıdaki yordam için hesap STS olur var olan AD FS dağıtımı, ağ bağla
 1. Yükseltilmiş bir Windows PowerShell oturumu açın ve ortamınız için uygun parametreleri kullanarak aşağıdaki komutu çalıştırın:
 
    ```PowerShell  
-   [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
+    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
+    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
 
-   $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
 2. Meta veri dosyası ayrıcalıklı uç noktası ile iletişim kurabilen bilgisayara kopyalayın.
@@ -240,24 +240,27 @@ El ile komutları çalıştırmak karar verirseniz, aşağıdaki adımları izle
    => issue(claim = c);
    ```
 
-2. Windows Forms tabanlı kimlik doğrulamasını etkinleştirmek için yükseltilmiş bir kullanıcı olarak bir Windows PowerShell oturumu açın ve aşağıdaki komutu çalıştırın:
+2. Bu Windows Forms tabanlı kimlik doğrulaması için doğrulama extranet ve intranet etkinleştirilir. Önce doğrulama, aşağıdaki cmdlet'i çalıştırarak zaten etkin:
 
    ```PowerShell  
-   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
+
+    > [!Note]  
+    > Windows tümleşik kimlik doğrulaması (desteklenen kullanıcı aracısı dizeleri olabilir, AD FS dağıtımı için eski WIA) en son istemcileri desteklemek üzere güncelleştirilmesi gerekebilir. Makalesinde WIA güncelleştirme hakkında daha fazla desteklenen kullanıcı aracısı dizeleri okuma [intranet form tabanlı kimlik doğrulamayı yapılandırma WIA desteklemeyen cihazlar için](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br>Form tabanlı kimlik doğrulama İlkesi etkinleştirme adımları makalesinde belirtilmiştir [kimlik doğrulama ilkelerini yapılandırma](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. Bağlı olan taraf güveni eklemek için AD FS örneğini veya bir grup üyesi üzerinde aşağıdaki Windows PowerShell komutunu çalıştırın. AD FS uç noktasına güncelleştirdiğinizden emin olun ve 1. adımda oluşturduğunuz dosyanın üzerine gelin.
 
    **AD FS 2016 için**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
    ```
 
    **AD FS 2012/2012 R2 için**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
    > [!IMPORTANT]
@@ -270,12 +273,6 @@ El ile komutları çalıştırmak karar verirseniz, aşağıdaki adımları izle
 
    ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
-   ```
-
-5. Azure Stack portalları ve Araçları (Visual Studio) yenileme belirteçleri gerektirir. Bu bağlı olan taraf güveni üzerinde tarafından yapılandırılmış olmalıdır. Yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki komutu çalıştırın:
-
-   ```PowerShell  
-   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
    ```
 
 ## <a name="spn-creation"></a>SPN oluşturma
