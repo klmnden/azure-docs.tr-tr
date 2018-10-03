@@ -1,6 +1,6 @@
 ---
-title: Azure sanal makinesi PowerShell örnekleri | Microsoft Docs
-description: Azure sanal makinesi PowerShell örnekleri
+title: Azure sanal makine PowerShell örnekleri | Microsoft Docs
+description: Azure sanal makine PowerShell örnekleri
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,38 +16,39 @@ ms.workload: infrastructure
 ms.date: 11/30/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 27f926a9a5d30d28e2721ffa52695292f794a501
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 564e8e2968f31b9e2aef8f7eadbf848885037ccb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522440"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040771"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure sanal makine PowerShell örnekleri
 
-Aşağıdaki tabloda, Windows sanal makineler oluşturun ve yönetin PowerShell komut dosyaları örnekleri bağlantılarını içerir.
+Aşağıdaki tabloda, Windows sanal makineler oluşturabilir ve yönetebilirsiniz, PowerShell Betiği örneklerinin bağlantılarını içerir.
 
 | | |
 |---|---|
 |**Sanal makineler oluşturma**||
-| [Hızla bir sanal makine oluşturun](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir kaynak grubu, sanal makineyi ve ilgili tüm kaynakları istemleri az ile oluşturur.|
-| [Tam olarak yapılandırılmış bir sanal makine oluşturun](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir kaynak grubu, sanal makine ve tüm ilgili kaynaklar oluşturur.|
-| [Yüksek oranda kullanılabilir sanal makineler oluşturma](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Birkaç yüksek oranda kullanılabilir sanal makineleri ve yükü dengelenmiş yapılandırma oluşturur.|
-| [Bir VM oluşturma ve yapılandırma komut dosyası çalıştırma](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir sanal makine oluşturur ve IIS yüklemek için Azure özel betik uzantısı kullanır. |
-| [Bir VM oluşturun ve DSC yapılandırması çalıştırın](./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir sanal makine oluşturur ve IIS yüklemek için Azure istenen durum yapılandırması (DSC) uzantısını kullanır. |
-| [Bir VHD yüklemek ve VM'ler oluşturun](./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md) | Yerel bir VHD dosyasını Azure'a yükler, oluşturur ve görüntü VHD'den ve daha sonra bu görüntüden VM oluşturur. |
-| [Yönetilen bir işletim sistemi disk, bir VM oluşturma](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Varolan bir yönetilen Disk işletim sistemi diski olarak ekleyerek bir sanal makine oluşturur. |
-| [Bir anlık görüntüden bir VM oluşturma](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir sanal makine bir anlık görüntüden ilk yönetilen disk anlık görüntüden oluşturarak ve ardından yeni yönetilen işletim sistemi diski olarak diskindeki oluşturur. |
+| [Hızla bir sanal makine oluşturun](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Komut istemlerini en düşük ile bir kaynak grubu, sanal makine ve tüm ilgili kaynakları oluşturur.|
+| [Tam olarak yapılandırılmış bir sanal makine oluşturun](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir kaynak grubu, sanal makine ve tüm ilgili kaynakları oluşturur.|
+| [Yüksek oranda kullanılabilir sanal makineler oluşturun](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Birden çok yüksek oranda kullanılabilir sanal makineler ve yük dengeli küme yapılandırması oluşturur.|
+| [VM oluşturma ve yapılandırma betiğini çalıştırın](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir sanal makine oluşturur ve IIS yüklemek için Azure özel betik uzantısı'nı kullanır. |
+| [Bir VM oluşturun ve çalışma DSC yapılandırması](./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir sanal makine oluşturur ve IIS yüklemek için Azure Desired State Configuration (DSC) uzantısı kullanır. |
+| [Bir VHD'yi karşıya yükleme ve VM oluşturma](./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md) | Yerel bir VHD dosyasını Azure'a yükler, oluşturur ve bir VHD'den görüntü ve daha sonra bu görüntüden bir VM oluşturur. |
+| [Bir yönetilen işletim sistemi diskinden VM oluşturma](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Mevcut bir yönetilen diski işletim sistemi diski olarak ekleyerek sanal makine oluşturur. |
+| [Anlık görüntüden VM oluşturma](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | İlk anlık görüntüden yönetilen disk oluşturma ve sonra yeni yönetilen diski işletim sistemi diski olarak ekleyerek bir anlık görüntüden sanal makine oluşturur. |
 |**Depolamayı yönetme**||
-| [Aynı veya farklı Abonelikteki bir VHD'den yönetilen disketi oluşturma](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Yönetilen bir disk, işletim sistemi diski olarak özel bir VHD veya VHD aynı veya farklı Abonelikteki veri diski olarak veri oluşturur.  |
-| [Bir anlık görüntüden yönetilen bir disk oluşturma](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Yönetilen bir disk anlık görüntüden oluşturur. |
-| [Aynı veya farklı bir abonelik yönetilen diske kopyalama](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | Kopya disk aynı veya farklı bir abonelik için yönetilen ancak üst ile aynı bölgede disk yönetilen. 
-| [Bir anlık görüntü depolama hesabına VHD dışarı aktarma](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Yönetilen bir anlık görüntü VHD farklı bir bölgeye depolama hesabında dışa aktarır. |
-| [Bir VHD'den bir anlık görüntü oluştur](../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Birden çok özdeş yönetilen diskler anlık görüntüden kısa sürede oluşturmak için bir VHD'den anlık görüntü oluşturur.  |
-| [Aynı veya farklı abonelik için anlık görüntü kopyalama](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Aynı veya farklı bir abonelik ancak üst anlık görüntü ile aynı bölgede anlık kopyalar. |
+| [Aynı veya farklı Abonelikteki bir VHD'den yönetilen disk oluşturma](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir veri VHD'SİNDEN veri diski aynı veya farklı Abonelikteki olarak ya da bir işletim sistemi diski olarak özelleştirilmiş bir VHD'den yönetilen disk oluşturur.  |
+| [Anlık görüntüden yönetilen disk oluşturma](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Anlık görüntüden yönetilen disk oluşturur. |
+| [Yönetilen disk aynı veya farklı aboneliğe kopyalama](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | Kopya, yönetilen disk aynı veya farklı aboneliğe ancak üst ile aynı bölgede yönetilen disk. 
+| [Anlık görüntü, bir depolama hesabına VHD dışarı aktarma](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Yönetilen bir anlık görüntü, farklı bölgedeki bir depolama hesabına VHD dışarı aktarır. |
+| [Yönetilen disk VHD'si bir depolama hesabına aktarın](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Yönetilen disk, temel alınan VHD farklı bölgedeki bir depolama hesabına dışarı aktarır. |
+| [Bir VHD'den anlık görüntü oluşturma](../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Birden fazla aynı yönetilen disk anlık görüntüden kısa bir sürede oluşturmak için VHD'den anlık görüntü oluşturur.  |
+| [Anlık görüntüsünü aynı veya farklı aboneliğe kopyalama](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Kopya anlık görüntüsünü aynı veya farklı aboneliğe üst anlık görüntü ile aynı bölgede ancak. |
 |**Sanal makineler güvenli**||
-| [VM ve veri diskleri şifrele](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Azure anahtar kasası, şifreleme anahtarı ve hizmet sorumlusu oluşturur ve ardından VM şifreler. |
+| [VM ve veri diskleri şifreleme](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Bir Azure Key Vault, şifreleme anahtarı ve hizmet sorumlusu oluşturur ve ardından VM şifreler. |
 |**Sanal makineleri izleme**||
-| [Bir VM Operations Management Suite ile izleme](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir sanal makine oluşturur, Operations Management Suite aracısını yükler ve bir OMS çalışma alanında VM kaydeder.  |
+| [Operations Management Suite ile bir VM izleme](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir sanal makine oluşturur Operations Management Suite aracısını yükler ve VM'yi bir OMS çalışma alanına kaydeder.  |
 | | |
 

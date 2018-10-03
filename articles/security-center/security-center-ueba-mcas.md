@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2018
+ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: d6777e187c04ef9a2f03e4ae813476f5a1093156
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2a747bdd8de41283b9cba1e40e2652aa826e9c60
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724220"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044459"
 ---
-# <a name="ueba-for-azure-resources-and-users"></a>Azure kaynaklarını ve kullanıcılar için UEBA 
+# <a name="ueba-for-azure-resources-and-users"></a>Azure kaynakları ve kullanıcıları için UEBA 
 
 Kullanıcı ve varlık davranış çözümlemesinden (UEBA) Azure kaynakları ve kullanıcıları (Azure etkinlik) dayalı uyarılar getirmek için Microsoft Cloud App Security ile Azure Güvenlik Merkezi'nde iş ortağı. Bu uyarılar anomalileri içinde kullanıcı davranışlarını algılayın ve kullanıcı ve varlık davranış analizi ve makine Gelişmiş tehdit algılama, aboneliklerinizi etkinliklerinde hemen çalıştırabilirsiniz (ML) öğrenimi dayanır. Otomatik olarak etkin olduğundan, yeni anomali algılama sonuçlarını hemen hemen algılamalar, aboneliğinizle ilişkili kaynakları ve kullanıcıları arasında çok sayıda davranış anormallikleri hedefleyen sağlayarak sağlar. Ayrıca, bu uyarıları araştırma sürecini hızlandırmak ve devam eden tehditleri içeren yardımcı olmak için Microsoft Cloud App Security algılama altyapısında, zaten var olan verilerden yararlanacak. 
 
@@ -55,8 +55,9 @@ Güvenlik Merkezi, Cloud App Security anomali algılama uyarıları gibi destekl
 
 Bu uyarılar varsayılan olarak etkindir, ancak bunları devre dışı bırakabilirsiniz:
 
-1. Güvenlik Merkezi dikey penceresinden seçin **tehdit algılama**.
-2. Altında **tehdit algılama - tümleştirmeler etkinleştirin**, işaretini kaldırın **izin Microsoft Cloud App verilerimi erişmeye Security**, tıklatıp **Kaydet**.
+1. Güvenlik Merkezi dikey penceresinden seçin **Güvenlik İlkesi**. Değiştirmek istediğiniz abonelik için tıklatın **ayarlarını Düzenle**.
+2.  Tıklayın **tehdit algılama**.
+3. Altında **etkinleştirme tümleştirmeler**, işaretini kaldırın **izin Microsoft bulut uygulama verilerimi erişmek için Güvenlik**, tıklatıp **Kaydet**.
 
    ![Tehdit algılama Uyarısı](./media/security-center-ueba-mcas/security-center-mcas-optout.png)
 

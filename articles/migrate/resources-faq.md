@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: d6677aa741b18bb6dbb6b90c07c5e7bd3f4d5afb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161871"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239226"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -54,7 +54,7 @@ Azure geçişi şu anda Doğu ABD ve Batı Orta ABD geçiş projesi konumları d
 
 Bağlantı ortak eşleme ExpressRoute kullanabilir veya internet üzerinden olabilir.
 
-### <a name="can-i-harden-the-vm-set-up-with-theova-template"></a>Ayarlama VM sağlamlaştırmak. OVA şablon?
+### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Ayarlama VM sağlamlaştırmak. OVA şablon?
 
 Ek bileşenler (örneğin, virüsten koruma) içine eklenebilir. OVA şablonu çalışmak Azure geçişi Gereci için gerekli iletişim ve güvenlik duvarı kuralları olarak bırakılır sürece içindir.   
 

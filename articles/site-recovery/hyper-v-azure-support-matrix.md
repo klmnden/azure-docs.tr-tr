@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/14/2018
+ms.topic: conceptual
+ms.date: 10/02/2018
 ms.author: raynew
-ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 8c943b9ec8114699a7fad487c7d669b58942c019
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056008"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042538"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V'den azure'a çoğaltma için destek matrisi
 
@@ -59,16 +59,16 @@ Konuk işletim sistemi | Tüm konuk işletim sistemi [Azure için desteklenen](h
 
 **Bileşen** | **Hyper-V ile Virtual Machine Manager** | **Hyper-V olmadan Virtual Machine Manager**
 --- | --- | ---
-Konak ağ: NIC ekibi oluşturma | Evet
-Konak ağ: VLAN | Evet
-Konak ağ: IPv4 | Evet
-Konak ağ: IPv6 | Hayır
-Konuk VM ağ: NIC ekibi oluşturma | Hayır
-Konuk VM ağı: IPv4 | Evet
-Konuk VM ağı: IPv6 | Hayır
-Konuk VM ağı: statik IP (Windows) | Evet
-Konuk VM ağı: statik IP (Linux) | Hayır
-Konuk VM ağı: Multi-NIC | Evet
+Konak ağ: NIC ekibi oluşturma | Evet | Evet
+Konak ağ: VLAN | Evet | Evet
+Konak ağ: IPv4 | Evet | Evet
+Konak ağ: IPv6 | Hayır | Hayır
+Konuk VM ağ: NIC ekibi oluşturma | Hayır | Hayır
+Konuk VM ağı: IPv4 | Evet | Evet
+Konuk VM ağı: IPv6 | Hayır | Evet
+Konuk VM ağı: statik IP (Windows) | Evet | Evet
+Konuk VM ağı: statik IP (Linux) | Hayır | Hayır
+Konuk VM ağı: Multi-NIC | Evet | Evet
 
 
 

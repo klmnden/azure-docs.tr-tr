@@ -5,17 +5,16 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 8/9/2018
+ms.date: 08/09/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 5a93cb7b2abbf0eaa25304f61a8a422edf209959
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: bd7f8748dc5260ed6574a1b48632318e9399bca0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091178"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042130"
 ---
-# <a name="integrate-azure-active-directory-with-aks"></a>AKS ile Azure Active Directory Tümleştirme
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 
 Azure Kubernetes Service (AKS), Azure Active Directory (AD) kullanıcı kimlik doğrulaması için kullanmak üzere yapılandırılabilir. Bu yapılandırmada, Azure Active Directory kimlik doğrulama belirtecinizi kullanarak bir AKS kümesine oturum açabilirsiniz. Ayrıca, küme yöneticileri, bir kullanıcı kimliği veya dizin grubu üyeliğine göre Kubernetes rol tabanlı erişim denetimi (RBAC) yapılandırabilirsiniz.
 
@@ -120,13 +119,16 @@ Azure portalından seçin **Azure Active Directory** > **özellikleri** ve Not *
 Kullanım [az grubu oluşturma] [ az-group-create] AKS kümesi için bir kaynak grubu oluşturmak için komutu.
 
 ```azurecli
-az group create --name myAKSCluster --location eastus
+az group create --name myResourceGroup --location eastus
 ```
 
 Küme dağıtmanızı [az aks oluşturma] [ az-aks-create] komutu. Değerleri aşağıdaki örnek komutta Azure AD uygulamaları oluştururken toplanan değerlerle değiştirin.
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-keys --enable-rbac \
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --generate-ssh-keys \
   --aad-server-app-id b1536b67-29ab-4b63-b60f-9444d0c15df1 \
   --aad-server-app-secret wHYomLe2i1mHR2B3/d4sFrooHwADZccKwfoQwK2QHg= \
   --aad-client-app-id 8aaf8bd5-1bdd-4822-99ad-02bfaa63eea7 \
@@ -140,7 +142,7 @@ Bir Azure Active Directory hesabı kullanarak AKS kümesiyle kullanılmadan önc
 İlk olarak, [az aks get-credentials] [ az-aks-get-credentials] komutunu `--admin` yönetici erişimi ile küme oturum açmak için bağımsız değişken.
 
 ```azurecli
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
 Ardından, bir Azure AD hesabı için bir ClusterRoleBinding oluşturmak için aşağıdaki bildirimi kullanın. Azure AD kiracınızdan bir kullanıcı adını güncelleştirin. Bu örnekte, kümenin tüm ad alanları için hesap tam erişim sağlar:
@@ -184,7 +186,7 @@ RBAC ile bir Kubernetes kümesi güvenliğini sağlama konusunda daha fazla bilg
 Ardından, yönetici olmayan kullanan kullanıcı için bağlam çekme [az aks get-credentials] [ az-aks-get-credentials] komutu.
 
 ```azurecli
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Herhangi bir kubectl komutunu çalıştırdıktan sonra Azure ile kimlik doğrulaması istenir. İzleyin ekrandaki yönergeleri.
@@ -195,18 +197,18 @@ $ kubectl get nodes
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BUJHWDGNL to authenticate.
 
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-42032720-0   Ready     agent     1h        v1.9.6
-aks-nodepool1-42032720-1   Ready     agent     1h        v1.9.6
-aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
+aks-nodepool1-79590246-0   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 ```
 
 İşlem tamamlandıktan sonra kimlik doğrulama belirteci önbelleğe alınır. Yalnızca ne zaman belirtecinin süresi doldu veya yeniden oluşturulduğunda Kubernetes yapılandırma dosyasında oturum reprompted.
 
 Başarıyla oturum açtıktan sonra bir yetkilendirme hata iletisini görüyorsanız, bir konuk (farklı bir dizin Federasyon oturum açma kullanıyorsanız, genellikle böyledir) Azure ad'deki olduğu gibi kullanıcı, oturum açan olduğunu denetleyin.
+
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
-
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

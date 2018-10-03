@@ -10,14 +10,18 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: b31ca8f88d1e8d5710c3a6a6cfccbb167fdd762a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126284"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237883"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Tümce ve belirteçlere ayırma
+
+> [!IMPORTANT]
+> Dil analizi önizlemesi, 9 Ağustos 2018 tarihinde kullanımdan. Kullanmanızı öneririz [Azure Machine Learning metin analiz modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) metin işleme ve analiz için.
 
 ## <a name="background-and-motivation"></a>Arka plan ve motivasyon
 
@@ -53,7 +57,8 @@ Sıradaki görev, bu cümleleri belirteçlere ayırmasına sağlamaktır.
 
 Zor bazı durumlar vardır.
 İlk olarak, genellikle (ama her zaman kullanılmaz) noktalama gereken, bölme, içeriğini çevreleyen uzağa.
-İkinci olarak, İngilizce olan *kısaltmalar*, "siz" veya "sadece değil", burada sözcükler alınan sıkıştırılmış ve daha küçük parçalara kısaltılmış gibi. Simgeleştirici karakter dizisi sözcüklere bölmek için hedeftir.
+İkinci olarak, İngilizce olan *kısaltmalar*, "siz" veya "sadece değil", burada sözcükler alınan sıkıştırılmış ve daha küçük parçalara kısaltılmış gibi.
+Simgeleştirici karakter dizisi sözcüklere bölmek için hedeftir.
 
 Yukarıdaki örnek cümleleri şimdi geri dönün.
 Şimdi biz "merkezi dot" koyduğunuz (&middot;) arasındaki her farklı bir belirteç.
@@ -64,7 +69,8 @@ Yukarıdaki örnek cümleleri şimdi geri dönün.
 
 Bulma sözlüğe sözcüklerin nasıl çoğu belirteçleridir unutmayın (örneğin, *önemli*, *Direktörü*).
 Diğerleri yalnızca noktalama işaretlerini oluşur.
-Son olarak, kısaltmalar gibi temsil etmek için daha olağan dışı belirteçleri vardır *ma* için *değil*, iyelik ister *'s*vb. Word işlemek bu simgeleştirme kurmamızı *yaramadı* ve tümcecik *belirtmiyor* daha tutarlı bir şekilde örneği için.
+Son olarak, kısaltmalar gibi temsil etmek için daha olağan dışı belirteçleri vardır *ma* için *değil*, iyelik gibi *'s*.
+Word işlemek bu simgeleştirme kurmamızı *yaramadı* ve tümcecik *belirtmiyor* daha tutarlı bir şekilde.
 
 ## <a name="specification"></a>Belirtimi
 

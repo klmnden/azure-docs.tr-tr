@@ -5,25 +5,23 @@ services: active-directory
 documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 10/01/2018
 ms.author: barbkess
-ms.openlocfilehash: d357a9a7f249127289a256685d9555f777742b68
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c4aa311018603b32e854d3d3423d342350e6520d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357470"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044493"
 ---
-# <a name="how-to-assign-users-and-groups-to-an-application"></a>Kullanıcıları ve grupları bir uygulamaya atama
-
-Kullanıcılarınızın belirli bir uygulama için aşağıdakilerden birini yapmak için önce öncelikle ihtiyacınız **uygulamaya atamanız** erişim vermek:
+# <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Kullanıcıları ve grupları Azure Active Directory'de bir uygulamaya atama
+Bu makalede bir uygulamayı Azure Active Directory (Azure AD) kullanıcıları veya grupları atama gösterilmektedir. Yöneticinin bunları aşağıdakileri yapmak için erişim izni verebilmeniz için önce kullanıcıların önce uygulamaya atanması gerekir:
 
 -   Bir uygulama tarafından erişim **doğrudan uygulama URL'sine giderek** (diğer adıyla SP tarafından başlatılan oturum açma).
 
@@ -33,17 +31,19 @@ Kullanıcılarınızın belirli bir uygulama için aşağıdakilerden birini yap
 
 -   Görünür bir uygulama bkz kendi [Office 365 uygulama başlatıcısında](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="methods-to-assign-applications-with-azure-active-directory"></a>Azure Active Directory ile uygulamaları atamak için yöntemleri 
+## <a name="prerequisties"></a>Prerequisties
+Uygulamaya kullanıcıları ve grupları atamadan önce kullanıcı atamasını gerektirir. Kullanıcı ataması gerekli kılmak için:
 
-Azure Active Directory ile uygulamaları atamak için izleyebileceğiniz 3 yol vardır:
+1. Azure portalı ile bir yönetici hesabıyla oturum açın.
+2. Tıklayarak **tüm hizmetleri** ana menüdeki öğe.
+3. Uygulama için kullandığınız dizine seçin.
+4. Tıklayarak **kurumsal uygulamalar** sekmesi.
+5. Bu dizin ile ilişkili uygulamalar listesinden uygulamayı seçin.
+6. Tıklayın **özellikleri** sekmesi.
+7. Değişiklik **kullanıcı ataması gerekli mi?** Evet Aç/Kapat.
+8. Tıklayın **Kaydet** ekranın üstünde düğme.
 
--   [Yönetici olarak doğrudan uygulamaya kullanıcı atama](#assign-a-user-directly-as-an-administrator)
-
--   [Yönetici olarak bir uygulamaya doğrudan bir grup atayabilir.](#assign-a-group-directly-to-an-application-as-an-administrator)
-
--   [Kullanıcıların kendi uygulamaları bulmak Self Servis uygulama erişimini etkinleştir](#enable-self-service-application-access-to-allow-users-to-find-their-own-applications)
-
-## <a name="assign-a-user-directly-as-an-administrator"></a>Doğrudan yönetici bir kullanıcı atama
+## <a name="assign-users"></a>Kullanıcıları atama
 
 Bir veya daha fazla kullanıcıları uygulamaya doğrudan atamak için aşağıdaki adımları izleyin:
 
@@ -81,7 +81,7 @@ Bir veya daha fazla kullanıcıları uygulamaya doğrudan atamak için aşağıd
 
 Bir kısa süre sonra seçtiğiniz kullanıcıların çözüm Açıklama bölümünde açıklanan yöntemleri kullanarak bu uygulamaları başlatması mümkün.
 
-## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Yönetici olarak bir uygulamaya doğrudan bir grup atayabilir.
+## <a name="assign-groups"></a>Grupları atama
 
 Bir veya daha fazla grup, doğrudan uygulamaya atamak için aşağıdaki adımları izleyin:
 
@@ -119,7 +119,7 @@ Bir veya daha fazla grup, doğrudan uygulamaya atamak için aşağıdaki adımla
 
 Bir kısa süre sonra seçtiğiniz gruplardaki kullanıcıların çözüm Açıklama bölümünde açıklanan yöntemleri kullanarak bu uygulamaları başlatması mümkün. Dinamik gruplar bunlar, bazı ek işleme gecikme olabilir, kullanıcıların bu atanan gruplar içinde görünen bu atamaları.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Kullanıcıların kendi uygulamaları bulmak Self Servis uygulama erişimini etkinleştir
+## <a name="enable-self-service-application-access"></a>Self Servis uygulama erişimini etkinleştir
 
 Self Servis uygulama erişiminin kullanıcıların uygulamaları kendi kendine bulmak harika bir yoludur bu uygulamalara erişimi onaylamak için iş grubuna isteğe bağlı olarak sağlar. Parola çoklu oturum uygulamalar'ın üzerinde sağ için kullanıcılara erişim panelleri üzerinden atanan kimlik bilgilerini yönetmek iş grubuna izin verebilirsiniz.
 

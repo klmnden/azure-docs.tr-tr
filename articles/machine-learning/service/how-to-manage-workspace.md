@@ -1,6 +1,6 @@
 ---
-title: Oluşturma ve Azure Machine Learning çalışma alanları yönetme
-description: Oluşturun, görüntüleyin ve Azure Machine Learning çalışma alanları, Azure portalında silme hakkında bilgi edinin.
+title: Oluşturma ve Azure Machine Learning hizmeti çalışma alanlarını yönetme
+description: Oluşturun, görüntüleyin ve Azure Machine Learning hizmeti çalışma alanları Azure portalında silme hakkında bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d01a2e3ebd46315966c82a43a17ffc5b329b829
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0bb27dccdaf25da818d5d54a8634556a95da737
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954356"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238689"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces"></a>Oluşturma ve Azure Machine Learning çalışma alanları yönetme
+# <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Oluşturma ve Azure Machine Learning hizmeti çalışma alanlarını yönetme
 
-Bu makalede, oluşturun, görüntüleyin, silin ve [ **Azure Machine Learning çalışma alanları** ](concept-azure-machine-learning-architecture.md#workspace) Azure Portalı'nda [Azure Machine Learning hizmeti](overview-what-is-azure-ml.md).  Ayrıca oluşturabilir ve çalışma alanlarını silen [CLI kullanarak](reference-azure-machine-learning-cli.md) veya [Python kodu ile](http://aka.ms/aml-sdk).
+Bu makalede, oluşturun, görüntüleyin, silin ve [ **Azure Machine Learning hizmeti çalışma alanları** ](concept-azure-machine-learning-architecture.md#workspace) Azure Portalı'nda [Azure Machine Learning hizmeti](overview-what-is-azure-ml.md).  Ayrıca oluşturabilir ve çalışma alanlarını silen [CLI kullanarak](reference-azure-machine-learning-cli.md) veya [Python kodu ile](http://aka.ms/aml-sdk).
 
 Bir çalışma alanı oluşturmak için bir Azure aboneliğinizin olması gerekir. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -30,17 +30,17 @@ Bir çalışma alanı oluşturmak için bir Azure aboneliğinizin olması gereki
 
 1. Sol üst köşede Portalı'nın, seçin **tüm hizmetleri**. 
 
-1. İçinde **tüm hizmetleri** filtre alanda, türü **Machine Learning çalışma alanı**.  
+1. İçinde **tüm hizmetleri** filtre alanda, türü **Machine Learning hizmeti çalışma alanında**.  
 
-   ![Azure Machine Learning çalışma alanı arayın](media/how-to-manage-workspace/allservices-search1.png)
+   ![Azure Machine Learning hizmeti çalışma alanında Ara](media/how-to-manage-workspace/allservices-search1.png)
 
-1. Filtre sonuçları'nda **Machine Learning çalışma alanı** çalışma alanlarınızın listesini görüntüleyin. 
+1. Filtre sonuçları'nda **Machine Learning hizmeti çalışma alanında** çalışma alanlarınızın listesini görüntüleyin. 
 
-   ![Azure Machine Learning çalışma alanı arayın](media/how-to-manage-workspace/allservices-search.PNG)
+   ![Azure Machine Learning hizmeti çalışma alanında Ara](media/how-to-manage-workspace/allservices-search.PNG)
 
 1. Çalışma alanı bulunamadı listesinde arayın. Bağlı aboneliği, kaynak grupları ve konumlarını filtreleyebilirsiniz.  
 
-   ![Azure Machine Learning çalışma alanı listesi](media/how-to-manage-workspace/allservices_view_workspace.PNG)
+   ![Azure Machine Learning hizmeti çalışma alanı listesi](media/how-to-manage-workspace/allservices_view_workspace.PNG)
 
 1. Özelliklerini görüntülemek için oluşturduğunuz çalışma alanını seçin.
 

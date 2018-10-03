@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 06af3351f5669f5cd9aeeb9c4cb2168666476b52
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ef902f58f37cd0d09195aa5d1ff03847906ef414
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994641"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238906"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure Hizmetleri için sanal ağ tümleştirmesi
 
@@ -58,12 +58,8 @@ Doğrudan sanal ağa dağıtılan her bir hizmet yönlendirmesi için belirli ge
 Analiz | [Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |
 | Kimlik | [Azure Active Directory etki alanı Hizmetleri](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |
 | Kapsayıcılar | [Azure Kubernetes Service'i (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Container örneği (ACI)](http://www.aka.ms/acivnet)<br/>[Azure Container Service altyapısı](https://github.com/Azure/acs-engine) ile Azure sanal ağ CNI [eklentisi](https://github.com/Azure/acs-engine/tree/master/examples/vnet)||
-| Web | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service Ortamı](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Web uygulamaları](http://www.aka.ms/WebAppsVNet)
-| Barındırılan *| [Azure NetApp dosyaları (biçimde Denetlenmesini)](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure ayrılmış donanım güvenlik modülü](http://www.aka.ms/azurededicatedhsm)
-| | |
+| Web | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service Ortamı](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>
 <br/>
-* Genellikle özel olarak tasarlanmış donanımlar üzerinde çalışan özel hizmetler.
-
 
 
 ## <a name="service-endpoints-for-azure-services"></a>Azure Hizmetleri için hizmet uç noktası

@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 32f93f383ec4044afb0696fcef1705c9ed65d673
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f79fa096484edc34294ea0a69584e12788dba647
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38578926"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043406"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Özel alanları Event Grid şemaya eşleme
 
@@ -43,9 +43,9 @@ Bir özel konu oluşturma sırasında özgün olay alanlarından event grid şem
 
 * `--input-schema` Parametresi şema türünü belirtir. Kullanılabilir seçenekler *cloudeventv01schema*, *customeventschema*, ve *eventgridschema*. Eventgridschema varsayılan değerdir. Özel eşleme şemanızı ve event grid şema arasında oluştururken customeventschema kullanın. CloudEvents şeması olaylar, cloudeventv01schema kullanın.
 
-* `--input-mapping-default-values` Parametresi, Event Grid şemada alanlar için varsayılan değerler belirtir. Varsayılan değerleri ayarlayabileceğiniz *konu*, *eventtype*, ve *dataversion*. Genellikle, bu üç alan birine karşılık gelen bir alan özel şemanızı içermez, bu parametreyi kullanın. Örneğin, bu dataversion ayarlanmış her zaman belirtebilirsiniz **1.0**.
+* `--input-mapping-default-values` Parametresi, Event Grid şemada alanlar için varsayılan değerler belirtir. Varsayılan değerleri ayarlayabileceğiniz `subject`, `eventtype`, ve `dataversion`. Genellikle, bu üç alan birine karşılık gelen bir alan özel şemanızı içermediğinde bu parametreyi kullanın. Örneğin, bu veri sürümü her zaman ayarlanır belirtebilirsiniz **1.0**.
 
-* `--input-mapping-fields` Parametre şemanızı alanları için event grid şema eşler. Değerler boşlukla ayrılmış bir anahtar/değer çiftlerini belirtin. Anahtar adı için event grid alanı adını kullanın. Değeri, alan adı kullanın. Anahtar adları için kullanabileceğiniz *kimliği*, *konu*, *eventtime*, *konu*, *eventtype*ve *dataversion*.
+* `--input-mapping-fields` Parametre şemanızı alanları için event grid şema eşler. Değerler boşlukla ayrılmış bir anahtar/değer çiftlerini belirtin. Anahtar adı için event grid alanı adını kullanın. Değeri, alan adı kullanın. Anahtar adları için kullanabileceğiniz `id`, `topic`, `eventtime`, `subject`, `eventtype`, ve `dataversion`.
 
 Aşağıdaki örnek, bazı eşlenen ile özel bir konu oluşturur ve varsayılan alanları:
 
@@ -58,7 +58,7 @@ az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
   -g myResourceGroup \
-  --input-schema customeventschema
+  --input-schema customeventschema \
   --input-mapping-fields eventType=myEventTypeField \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
@@ -69,13 +69,14 @@ az eventgrid topic create \
 
 Bu bölümdeki örneklerde, olay işleyicisi için bir kuyruk depolama kullanma. Daha fazla bilgi için [Azure kuyruk depolama için özel olayları yönlendirmek](custom-event-to-queue-storage.md).
 
-Aşağıdaki örnek, bir olay Kılavuzu konusu için abone olur ve varsayılan event grid şemayı kullanır:
+Aşağıdaki örnek, bir olay Kılavuzu konusu için abone olur ve event grid şemayı kullanır:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --topic-name demotopic \
   -g myResourceGroup \
   --name eventsub1 \
+  --event-delivery-schema eventgridschema \
   --endpoint-type storagequeue \
   --endpoint <storage-queue-url>
 ```
@@ -100,9 +101,9 @@ az eventgrid event-subscription create \
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name demotopic -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/mapeventfields.json)'")
+event='[ { "myEventTypeField":"Created", "resource":"Users/example/Messages/1000", "resourceData":{"someDataField1":"SomeDataFieldValue"} } ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 Şimdi, kuyruk depolama bakın. İki aboneliğin farklı şemalarda olayları teslim.

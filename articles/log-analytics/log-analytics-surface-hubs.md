@@ -1,6 +1,6 @@
 ---
-title: İzleme Azure günlük analizi ile Surface Hubs | Microsoft Docs
-description: Surface hub'larınız sağlığını izlemek ve nasıl kullanıldıkları anlamak için Surface Hub çözümü kullanın.
+title: Surface hub'ları Azure Log Analytics ile izleme | Microsoft Docs
+description: Surface Hub çözümü, Surface hub durumunu izleyin ve bunların nasıl kullanıldığını anlamak için kullanın.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,78 +14,78 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: dfbcdce293d6d47267892487d0760410665af94a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: b38ce59a80d3fa78449892c8a76ed70b4dc698d3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130779"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041498"
 ---
-# <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface Hubs durumlarını izlemek için günlük analizi ile izleme
+# <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface hub'lar durumlarını izlemek için Log Analytics ile izleme
 
-![Yüzey Hub simgesi](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
+![Surface Hub simgesi](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
 
-Bu makalede, Surface Hub çözüm günlük analizi Microsoft Surface Hub cihazları izlemek için nasıl kullanabileceğinizi açıklar. Günlük analizi yanı sıra bunların nasıl kullanıldığını anlamak, Surface hub'larınız durumunu izlemenize yardımcı olur.
+Bu makalede, Surface Hub çözümü Log Analytics'te Microsoft Surface Hub cihazları izlemek için nasıl kullanabileceğinizi açıklar. Log Analytics'e yanı sıra bunların nasıl kullanıldığını anlamanıza, Surface hub'larınız durumunu izlemenize yardımcı olur.
 
-Her Surface Hub Microsoft izleme aracısı yüklü olan. Kendi veri için günlük analizi Surface Hub'ından gönderebilir Aracısı üzerinden. Günlük dosyaları, Surface hub'ları ve misiniz okuma sonra günlük analizi için gönderilir. Cihaz hesabı içine oturum açamıyor olması durumunda Skype gösterilmiştir günlük analizi Surface Hub panosunda veya çevrimdışı olan sunucuları eşitlemiyor, Takvim sorunları gibi. Pano verileri kullanarak, çalışmıyor veya başka sorunlara sahip olduğunu ve potansiyel olarak algılanan sorunlar için düzeltmeler uygulamak aygıtlar tanımlayabilirsiniz.
+Microsoft Monitoring Agent yüklüyse her Surface Hub sahiptir. Kendi verilerini Log Analytics'e Surface Hub'ından gönderebilirsiniz Aracısı aracılığıyla. Günlük dosyaları, Surface hub'ları ve olan okuma sonra Log Analytics'e gönderilir. Çevrimdışı olan sunucuları eşitlemiyor, takvim gibi özellikler veya cihaz hesabının oturum kaydedemediği Skype gösterilen Surface Hub panosunda bulunan Log Analytics. Pano verileri kullanarak, çalışmıyorsa veya başka sorunlar yaşıyorsanız ve potansiyel olarak algılanan sorunlar için düzeltmeler uygulama cihazları tanımlayabilir.
 
-## <a name="install-and-configure-the-solution"></a>Yükleyin ve yapılandırın
-Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın. Günlük analizi, Surface hub'larınız yönetmek için şunlar gerekir:
+## <a name="install-and-configure-the-solution"></a>Yükleme ve çözüm yapılandırma
+Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın. Log analytics'te, Surface hub'ı yönetmek için şunlar gerekir:
 
-* A [günlük analizi abonelik](https://azure.microsoft.com/pricing/details/log-analytics/) izlemek istediğiniz cihaz sayısı destekleyecek düzeyi. Günlük analizi fiyatlandırma kaç aygıtlar kaydedilir ve ne kadar veri bağlı olarak bu işlemleri değişir. Bu, Surface Hub dağıtımı planlarken dikkate istersiniz.
+* A [Log Analytics aboneliği](https://azure.microsoft.com/pricing/details/log-analytics/) izlemek istediğiniz cihaz sayısını destekleyen düzeyi. Log Analytics fiyatlandırma kaç cihazın kayıtlı ve elinizdeki verilere bağlı olarak bu işlemleri değişir. Bu, Surface Hub sunum planlarken dikkate almasını istersiniz.
 
-Ardından, varolan bir günlük analizi çalışma alanını ekleyin veya yeni bir tane oluşturun. Her iki yöntemi kullanarak altındadır için ayrıntılı yönergeler [günlük Analytics ile çalışmaya başlama](log-analytics-get-started.md). Günlük analizi çalışma alanı yapılandırıldıktan sonra Surface Hub cihazları kaydetmek için iki yolu vardır:
+Ardından, mevcut bir Log Analytics çalışma alanı ekleyin veya yeni bir tane oluşturun. Ayrıntılı yönergeler için her iki yöntemi kullanarak altındadır [Log Analytics ile çalışmaya başlama](log-analytics-get-started.md). Log Analytics çalışma alanı yapılandırıldıktan sonra Surface Hub cihazları kaydetmek için iki yolu vardır:
 
 * Otomatik olarak Intune aracılığıyla
-* El ile **ayarları** , Surface Hub Cihazınızda.
+* El ile **ayarları** Surface Hub Cihazınızda.
 
 ## <a name="set-up-monitoring"></a>İlkenin trafiği çevrimdışı durumdaki barındırılan hizmetlere
-Durumu ve etkinliği yüzeyini günlük analizi kullanarak hub'ınızın izleyebilirsiniz. Surface Hub Intune kullanarak veya kullanarak yerel olarak kaydedebilir **ayarları** Surface hub'ındaki.
+Sistem durumunu ve Log Analytics kullanarak, Surface Hub etkinliğini izleyebilirsiniz. Surface hub'ı kullanarak yerel olarak veya Intune kullanarak kaydedebilirsiniz **ayarları** Surface hub'da.
 
-## <a name="connect-surface-hubs-to-log-analytics-through-intune"></a>Günlük analizi Intune aracılığıyla Surface Hubs bağlanmak
-Surface hub'larınız yönetecek günlük analizi çalışma alanı için çalışma alanı kimliği ve çalışma alanı anahtarı gerekir. Bu çalışma alanı ayarlarından Azure portalında alabilirsiniz.
+## <a name="connect-surface-hubs-to-log-analytics-through-intune"></a>Surface hub'ları Intune üzerinden Log analytics'e bağlanma
+Surface hub'ları yönetecek Log Analytics çalışma alanı için çalışma alanı Kimliğiniz ve çalışma alanı anahtarı gerekir. Bu çalışma alanı ayarları Azure portalından alabilirsiniz.
 
-Intune, bir veya daha fazla aygıtlarınızı uygulanan günlük analizi yapılandırma ayarlarını merkezi olarak yönetmenize olanak sağlayan bir Microsoft ürünüdür. Cihazlarınızı Intune üzerinden yapılandırmak için aşağıdaki adımları izleyin:
+Intune, bir veya daha fazla cihazlarınızı uygulanan Log Analytics yapılandırma ayarlarını merkezi olarak yönetmenize olanak tanıyan bir Microsoft ürünüdür. Cihazlarınızı Intune ile yapılandırmak için aşağıdaki adımları izleyin:
 
 1. Intune'da oturum açın.
 2. Gidin **ayarları** > **bağlı kaynakları**.
-3. Oluşturma veya düzenleme Surface Hub şablona dayalı bir ilke.
-4. İlke OMS (Azure operasyonel Öngörüler) bölümüne gidin ve günlük analizi ekleyin *çalışma alanı kimliği* ve *çalışma alanı anahtarı* ilkesi.
+3. Oluşturabilir ve Surface Hub şablonu temel alan bir ilkeyi düzenleyebilirsiniz.
+4. İlke OMS (Azure operasyonel İçgörüler) bölümüne gidin ve Log Analytics ekleme *çalışma alanı kimliği* ve *çalışma alanı anahtarı* ilkesi.
 5. İlkeyi kaydedin.
-6. İlke aygıtları uygun grubuyla ilişkilendirin.
+6. İlkeyi cihazların uygun grubu ile ilişkilendirin.
 
    ![Intune İlkesi](./media/log-analytics-surface-hubs/intune.png)
 
-Intune, günlük analizi ayarları daha sonra bunları günlük analizi çalışma alanınızda kaydetme hedef gruptaki cihazlar ile eşitlenir.
+Intune, Log Analytics ayarlarını daha sonra bunları Log Analytics çalışma alanınızda kaydetme, hedef gruptaki cihazlar ile eşitler.
 
-## <a name="connect-surface-hubs-to-log-analytics-using-the-settings-app"></a>Surface Hubs ayarları uygulamasını kullanarak günlük Analizi'ne bağlayın
-Surface hub'larınız yönetecek günlük analizi çalışma alanı için çalışma alanı kimliği ve çalışma alanı anahtarı gerekir. Azure portalında günlük analizi çalışma alanı için ayarları olanlardan alabilirsiniz.
+## <a name="connect-surface-hubs-to-log-analytics-using-the-settings-app"></a>Surface hub'ları ayarlar uygulamasını kullanarak Log Analytics'e bağlanma
+Surface hub'ları yönetecek Log Analytics çalışma alanı için çalışma alanı Kimliğiniz ve çalışma alanı anahtarı gerekir. Azure portalında Log Analytics çalışma alanı ayarlarını olanlardan alabilirsiniz.
 
-Ortamınızı yönetmek için Intune kullanmıyorsanız, cihazları el ile kaydedebilirsiniz **ayarları** her Surface Hub üzerinde:
+Ortamınızı yönetmek için Intune kullanmıyorsanız, cihazları el ile kaydedebilirsiniz **ayarları** her Surface hub'da:
 
-1. Surface Hub'açmak **ayarları**.
+1. Surface hub'ınızdan, açık **ayarları**.
 2. İstendiğinde cihaz Yöneticisi kimlik bilgilerini girin.
-3. Tıklatın **bu aygıt**ve altında **izleme**, tıklatın **OMS ayarlarını yapılandır**.
+3. Tıklayın **bu cihaz**ve altında **izleme**, tıklayın **OMS ayarlarını yapılandır**.
 4. Seçin **izlemeyi etkinleştir**.
-5. Günlük analizi OMS Ayarları iletişim kutusunda yazın **çalışma alanı kimliği** ve yazın **çalışma alanı anahtarı**.  
+5. Log Analytics OMS Ayarları iletişim kutusuna **çalışma alanı kimliği** yazın **çalışma alanı anahtarı**.  
    ![Ayarlar](./media/log-analytics-surface-hubs/settings.png)
-6. Tıklatın **Tamam** yapılandırmayı tamamlamak için.
+6. Tıklayın **Tamam** yapılandırmasını tamamlamak için.
 
-Bir onay desteklemediğini yapılandırma cihaza başarıyla uygulandı söyleyen görüntülenir. Olduysa, aracı için günlük analizi başarıyla bağlandı belirten bir ileti görüntülenir. Cihaz sonra günlük burada görüntüleyebilir ve onun üzerinde işlem analizi veri göndermesini başlatır.
+Olup olmadığını yapılandırma cihaza başarıyla uygulandı bildiren bir onay görünür. Bu durumda, aracı başarıyla Log Analytics'e bağlı belirten bir ileti görüntülenir. Cihaz daha sonra burada görüntülemek ve üzerinde işlem Log analytics'e veri gönderen başlatır.
 
-## <a name="monitor-surface-hubs"></a>Surface Hubs İzleyicisi
-Surface hub'larınız izleme günlük analizi diğer kaydedilen cihazların izleme benzer kullanmaktır.
+## <a name="monitor-surface-hubs"></a>İzleyici Surface hub'lar
+Surface hub'ları izleme Log Analytics gibi diğer kaydedilen cihazların izleme kullanmaktır.
 
 1. Azure Portal’da oturum açın.
-2. Günlük analizi çalışma alanına gidin ve seçin **genel bakış**.
+2. Log Analytics çalışma alanınıza gidin ve seçin **genel bakış**.
 2. Surface Hub kutucuğuna tıklayın.
-3. Cihazınızın sistem durumu görüntülenir.
+3. Cihazınızın durumu görüntülenir.
 
-   ![Yüzey Hub Panosu](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
+   ![Surface Hub Panosu](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
-Oluşturabileceğiniz [uyarıları](log-analytics-alerts.md) mevcut veya özel günlük aramaları tabanlı. Günlük analizi Surface hub'larından toplar verileri kullanarak, sorunlar ve aygıtlarınızın tanımlayan koşulları uyarıdaki arayabilirsiniz.
+Oluşturabileceğiniz [uyarılar](log-analytics-alerts.md) mevcut veya özel günlük aramaları göre. Log Analytics, Surface hub'larından toplar. veriler kullanılarak, sorunlar ve cihazlarınız için tanımladığınız koşulların uyarısında için arama yapabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [günlük analizi aramaları oturum](log-analytics-log-searches.md) ayrıntılı Surface Hub verileri görüntülemek için.
-* Oluşturma [uyarıları](log-analytics-alerts.md) Surface hub'larıyla sorunları oluştuğunda sizi bilgilendirmek üzere.
+* Kullanım [Log Analytics'te günlük aramaları](log-analytics-log-searches.md) ayrıntılı Surface Hub verilerini görüntülemek için.
+* Oluşturma [uyarılar](log-analytics-alerts.md) Surface hub'larıyla sorunları ortaya çıktığında bunu size bildirecek.

@@ -2,17 +2,18 @@
 title: Çoğaltma ve VMware Vm'lerini PowerShell kullanarak Azure Site Recovery'de azure'a yük devretme | Microsoft Docs
 description: Çoğaltma ve yük devretme için Azure PowerShell kullanarak Azure Site Recovery, VMware Vm'leri için nasıl ayarlanacağını öğrenin.
 services: site-recovery
-author: bsiva
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
-ms.author: bsiva
-ms.openlocfilehash: a826817b8f2b4ebff8442da1fbee79a95990a9e8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: sutalasi
+ms.openlocfilehash: 070e51b132828e4fdf597d28fc2ad602adf76692
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917821"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042811"
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Çoğaltma ve VMware Vm'lerini PowerShell ile azure'a yük devretme
 
@@ -25,7 +26,7 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 > - Sunucu kaydı kasadaki doğrulayın.
 > - Çoğaltma, çoğaltma ilkesi dahil olmak üzere ayarlayın. VCenter server'ınızı ekleyin ve Vm'leri keşfedin. > - Bir vCenter sunucusu eklemek ve keşfedin 
 > - Çoğaltılan verileri tutmak için depolama hesapları oluşturmanız ve sanal makinelerini çoğaltma.
-> - Bir yük devretme gerçekleştirin. Yük devretme ayarlarını yapılandırma, sanal makineleri çoğaltmak için aşağıdakiler e ayarları gerçekleştirin.
+> - Yük devretme gerçekleştirin. Yük devretme ayarlarını yapılandırma, sanal makineleri çoğaltmak için aşağıdakiler e ayarları gerçekleştirin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

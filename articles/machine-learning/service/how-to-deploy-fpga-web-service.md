@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 09/24/2018
-ms.openlocfilehash: ee67585a523ab96b1442d9eee3e9dfd55a758d32
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/01/2018
+ms.openlocfilehash: df6637f1a52b679ba9ad0a49fb37d4e4b72f35e4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971493"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237832"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Model bir FPGA Azure Machine Learning ile bir web hizmeti olarak dağıtma
 
@@ -24,7 +24,9 @@ Bir model üzerinde bir web hizmeti olarak dağıtabilirsiniz [alan programlanab
 
 - Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-- Bir Azure Machine Learning çalışma alanı ve yüklü Python için Azure Machine Learning SDK'sı. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md) belge.
+- İster gerekir ve FPGA kotasının onaylanması gerekiyor. Erişim istemek için kota istek formunu doldurun: https://aka.ms/aml-real-time-ai
+
+- Bir Azure Machine Learning hizmeti çalışma alanında ve yüklü Python için Azure Machine Learning SDK'sı. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md) belge.
  
   - Çalışma alanınızda yer alması gerekir *Doğu ABD 2* bölge.
 
@@ -47,11 +49,7 @@ Yönergeleri izleyin:
 > [!IMPORTANT]
 > Gecikme süresi ve aktarım hızını iyileştirmek için istemci uç noktası ile aynı Azure bölgesinde olmalıdır.  Şu anda API'leri, Doğu ABD Azure bölgesi oluşturulur.
 
-### <a name="get-the-notebook"></a>Not defterini alma
 
-Kolaylık olması için Bu öğreticide bir Jupyter not defteri kullanılabilir. Çalıştırmak için aşağıdaki yöntemlerden birini kullanın `project-brainwave/project-brainwave-quickstart.ipynb` Not:
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ### <a name="preprocess-image"></a>Görüntü önceden işlenir
 İlk aşamada işlem hattının görüntüleri önişle sağlamaktır.
@@ -66,6 +64,7 @@ in_images = tf.placeholder(tf.string)
 image_tensors = utils.preprocess_array(in_images)
 print(image_tensors.shape)
 ```
+
 ### <a name="add-featurizer"></a>Özelliği Oluşturucu Ekle
 Model başlatın ve bir TensorFlow denetim noktası bir özelliği Oluşturucu kullanılacak ResNet50 quantized sürümünü indirin.
 
@@ -317,3 +316,11 @@ Her iki yöntemi kullanarak sertifikayı kök sertifika kullanmak üzere gRPC ne
 
 > [!IMPORTANT]
 > gRPC güvenilmeyen sertifikaları kabul etmiyor. Güvenilmeyen bir sertifika kullanarak başarısız olacak olan bir `Unavailable` durum kodu. Hata ayrıntılarını içeren `Connection Failed`.
+
+## <a name="sample-notebook"></a>Örnek Not Defteri
+
+Bu makaledeki kavramları içinde gösterilen `project-brainwave/project-brainwave-quickstart.ipynb` dizüstü bilgisayar.
+
+Bu not alın:
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

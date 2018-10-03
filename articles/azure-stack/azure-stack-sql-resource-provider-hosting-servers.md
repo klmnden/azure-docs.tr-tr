@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 8fc24e58af51a249e3305dbe1496c499387be6b1
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 57033de3224b5966b2dfa80dd1cb45fafd83b26b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407918"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238752"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 
 İçinde bir SQL örneğini bir sanal makine'de (VM) barındırabilir [Azure Stack](azure-stack-poc.md), veya bir VM'de SQL kaynak sağlayıcısı örneği bağlanabilir sürece, Azure Stack ortamınıza dışında.
 
 > [!NOTE]
-> SQL veritabanları olması oluşturulması SQL kaynak sağlayıcısı sunucusunda. SQL barındırma sunucuları Faturalanabilir, bir kullanıcı abonelikte oluşturulmalıdır sırada SQL kaynak sağlayıcısı varsayılan sağlayıcı abonelikte oluşturulmalıdır. Kaynak sağlayıcısı sunucunun kullanıcı veritabanını barındırmak için kullanılmamalıdır.
+> SQL veritabanları SQL kaynak sağlayıcısı sunucusunda oluşturulmalıdır. SQL barındırma sunucuları Faturalanabilir, bir kullanıcı abonelikte oluşturulmalıdır sırada SQL kaynak sağlayıcısı varsayılan sağlayıcı abonelikte oluşturulmalıdır. Kaynak sağlayıcısı sunucunun kullanıcı veritabanını barındırmak için kullanılmamalıdır.
 
 ## <a name="overview"></a>Genel Bakış
 

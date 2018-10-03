@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 8f3dddd72ab8858a1e60389417cc0c7630df302f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 29e918733cc72010aa6aa5c0f42d613331eec2a2
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35621662"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044731"
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).
@@ -652,7 +652,7 @@ OriginalUrl.
 
 -   **İlke bölümler:** gelen
 
--   **İlke kapsamları:** ürün, API, işlemi
+-   **İlke kapsamları:** genel, ürün, API, işlemi
 
 ##  <a name="XSLTransform"></a> Bir XSLT kullanarak XML dönüştürme
  `Transform XML using an XSLT` İlke istek veya yanıt gövdesinde XML XSL dönüşümünü uygular.

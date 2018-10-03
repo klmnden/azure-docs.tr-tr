@@ -1,6 +1,6 @@
 ---
 title: Azure IOT Hub Geliştirici Kılavuzu | Microsoft Docs
-description: Azure IOT Hub Geliştirici Kılavuzu uç noktaları, güvenlik, kimlik kayıt defteri, cihaz yönetimi, doğrudan yöntemleri, cihaz çiftlerini, dosya yüklemeleri, işleri, IOT hub'ı sorgu dili tartışmalarını içerir ve mesajlaşma.
+description: Azure IOT Hub Geliştirici kılavuzunun tartışmalar uç noktaları, güvenlik, kimlik kayıt defteri, cihaz yönetimi, doğrudan yöntemler, cihaz çiftleri, dosya yüklemeleri, işleri, IOT Hub sorgu dili içerir ve mesajlaşma.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,70 +8,71 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 1871ae68008f9fe9b3cb201a7b5f205792bc0817
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ecbec614bd0d1b043faf6ad002b05d4acdcc4ab4
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632984"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041756"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IOT Hub Geliştirici Kılavuzu
 
-Azure IOT Hub, milyonlarca cihaza arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen hizmet etkinleştirin ve bir çözüm arka ucu ' dir.
+Azure IOT hub'ı yardımcı olan tam olarak yönetilen bir hizmet, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimi etkinleştirmek ve bir çözüm arka ucu ' dir.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Azure IOT Hub ile sağlar:
 
-* Cihaz başına güvenlik kimlik bilgileri kullanılarak güvenli iletişim ve erişim denetimi.
-* Birden çok cihaz Bulut ve bulut-cihaz hiper ölçekli iletişim seçenekleri.
-* Sorgulanabilir depolama aygıt başına durum bilgilerini ve meta verileri.
-* En popüler diller ve platformlar için cihaz kitaplıklarını ile kolay cihaz bağlantısı.
+* Cihaz başına güvenlik kimlik bilgilerini kullanarak güvenli iletişim ve erişim denetimi.
 
-Bu IOT Hub Geliştirici Kılavuzu, aşağıdaki makaleler içerir:
+* Birden çok cihaz-Bulut ve bulut-cihaz hiper ölçekli iletişim seçenekleri.
 
-* [Cihaz bulut iletişimi Kılavuzu] [ lnk-d2c-guidance] cihaz bulut iletilerini, cihaz çifti'nın bildirilen özellikleri ve karşıya dosya yükleme arasında seçtiğiniz yardımcı olur.
-* [Bulut-cihaz iletişimi Kılavuzu] [ lnk-c2d-guidance] doğrudan yöntemleri, cihaz çifti'nın istenen özellikleri ve bulut-cihaz iletilerini arasında seçtiğiniz yardımcı olur.
-* [Cihaz Bulut ve bulut cihaz IOT Hub ile Mesajlaşma] [ devguide-messaging] IOT hub'ı sunan Mesajlaşma özellikleri (cihaz Bulut ve bulut-cihaz) açıklar.
-  * [IOT Hub cihaz bulut iletilerini göndermek][devguide-messages-d2c].
-  * [Yerleşik uç noktasından cihaz bulut iletilerini okumanızı][devguide-builtin].
-  * [Özel uç noktaları ve yönlendirme kuralları için cihaz bulut iletilerini kullanmak][devguide-custom].
-  * [IOT Hub'ından bulut-cihaz iletilerini göndermek][devguide-messages-c2d].
-  * [Oluşturun ve IOT hub'ı iletileri okumak][devguide-format].
-* [Bir CİHAZDAN dosyaları karşıya yükleme] [ devguide-upload] aygıttan dosyaları karşıya nasıl yükleneceğini açıklar. Makale ayrıca karşıya yükleme işlemi gönderebilirsiniz bildirimleri gibi konular hakkında bilgi içerir.
-* [IOT Hub cihaz kimliklerini yönetmek] [ devguide-identities] hangi bilgilerin açıklar her IOT hub'ın kimlik kayıt defteri depolar. Makale ayrıca erişmek ve değiştirmek nasıl açıklanmaktadır.
-* [IOT Hub'ına erişim denetim] [ devguide-security] hem de IOT hub'ı işlevselliği erişim ve bileşenleri bulut için kullanılan güvenlik modeli açıklanır. Makaleyi belirteçleri ve X.509 sertifikalarını ve erişim izni verebilir izinleri ayrıntılarını kullanma hakkında bilgi içerir.
-* [Durum ve yapılandırmaları eşitlemek için cihaz çiftlerini kullanmak] [ devguide-device-twins] açıklar *cihaz çifti* kavram. Makaleyi da descibes işlevselliği cihaz çiftlerini, bir cihaz, cihaz çifti ile eşitleme gibi açın. Makale bir cihaz çiftine depolanan verileri hakkında bilgiler içerir.
-* [Bir cihazda doğrudan bir yöntem çağırma] [ devguide-directmethods] doğrudan bir yöntem yaşam döngüsü açıklar. Makale, arka uç uygulama cihaza yöntemleri çağırma ve Cihazınızda doğrudan yöntemi işlemek açıklar.
-* [Zamanlama işlerini birden çok aygıta] [ devguide-jobs] işleri birden çok aygıta nasıl zamanlayabilirsiniz açıklar. Makale olarak cihaz çiftine kullanarak bir cihazı güncelleştirme doğrudan bir yöntem yürütülen görevleri gerçekleştiren iş göndermek açıklar. Ayrıca, bir işin durumunu sorgulamak nasıl açıklanır.
-* [Başvuru - iletişim protokolü seçin] [ devguide-protocol] IOT Hub cihaz iletişimi destekler ve açık olması gereken bağlantı noktalarını listeler iletişim protokolleri açıklar.
-* [Başvuru - IOT Hub uç noktaları] [ devguide-endpoints] her IOT hub'ı çalışma zamanı ve yönetim işlemleri için kullanıma sunan çeşitli uç noktaları açıklar. Makalede ayrıca, IOT hub'ınıza ek uç noktaları nasıl oluşturabileceğinizi ve bir alan ağ geçidi, IOT Hub uç noktaları standart senaryolarda bağlantıyı etkinleştirmek için nasıl kullanılacağı açıklanmaktadır.
-* [Başvuru - cihaz çiftlerini, işler ve ileti yönlendirme için IOT hub'ı sorgu dili] [ devguide-query] hub'ınızın cihaz çiftlerini ve işleri hakkında bilgi almak sağlar, IOT hub'ı sorgu dili açıklar.
-* [Başvuru - kotalar ve azaltma] [ devguide-quotas] kota aştığında oluşan IOT Hub hizmeti ve azaltma kotalar özetler.
-* [Başvuru - fiyatlandırma] [ devguide-pricing] farklı SKU'ları ve IOT Hub ve nasıl çeşitli IOT hub'ı işlevler iletileri olarak IOT Hub tarafından ölçülen ile ilgili ayrıntılar için fiyatlandırma hakkında genel bilgiler sağlar.
-* [Başvuru - cihazını ve hizmetini SDK'ları] [ devguide-sdks] IOT hub'ınıza etkileşim cihazını ve hizmetini uygulamaları geliştirmek için Azure IOT SDK'ları listeler. Makaleyi çevrimiçi API belgeleri bağlantılarını içerir.
-* [Başvuru - IOT Hub MQTT Destek] [ devguide-mqtt] MQTT Protokolü IOT hub'ı nasıl desteklediği hakkında ayrıntılı bilgiler sağlar. Makale için Azure IOT SDK'ları yerleşik MQTT protokolü desteği açıklar ve MQTT protokolü kullanarak doğrudan hakkında bilgi sağlar.
-* [Sözlük] [ devguide-glossary] ortak IOT Hub ile ilgili terimlerin bir listesi.
+* Sorgulanabilir depolama alanı başına cihaz durumu bilgilerini ve meta verileri.
 
-[devguide-messaging]: iot-hub-devguide-messaging.md
-[devguide-upload]: iot-hub-devguide-file-upload.md
-[devguide-identities]: iot-hub-devguide-identity-registry.md
-[devguide-security]: iot-hub-devguide-security.md
-[devguide-device-twins]: iot-hub-devguide-device-twins.md
-[devguide-directmethods]: iot-hub-devguide-direct-methods.md
-[devguide-jobs]: iot-hub-devguide-jobs.md
-[devguide-endpoints]: iot-hub-devguide-endpoints.md
-[devguide-quotas]: iot-hub-devguide-quotas-throttling.md
-[devguide-query]: iot-hub-devguide-query-language.md
-[devguide-sdks]: iot-hub-devguide-sdks.md
-[devguide-mqtt]: iot-hub-mqtt-support.md
-[devguide-glossary]: iot-hub-devguide-glossary.md
-[devguide-pricing]: iot-hub-devguide-pricing.md
-[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[devguide-messages-d2c]: iot-hub-devguide-messages-d2c.md
-[devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
-[devguide-custom]: iot-hub-devguide-messages-read-custom.md
-[devguide-messages-c2d]: iot-hub-devguide-messages-c2d.md
-[devguide-format]: iot-hub-devguide-messages-construct.md
-[devguide-protocol]: iot-hub-devguide-protocols.md
+* En popüler diller ve platformlar için cihaz kitaplıkları ile kolay cihaz bağlantısı.
+
+Bu IOT Hub Geliştirici kılavuzunun aşağıdaki makaleleri içerir:
+
+* [CİHAZDAN buluta iletişim Kılavuzu](iot-hub-devguide-d2c-guidance.md) CİHAZDAN buluta iletileri, cihaz ikizinin bildirilen özellikler ve karşıya dosya yükleme arasında seçtiğiniz yardımcı olur.
+
+* [Bulut buluttan cihaza iletişim Kılavuzu](iot-hub-devguide-c2d-guidance.md) doğrudan yöntemler, cihaz ikizinin istenen özellikleri ve bulut-cihaz iletilerini arasında seçtiğiniz yardımcı olur.
+
+* [CİHAZDAN buluta ve bulut cihaz IOT Hub ile ileti](iot-hub-devguide-messaging.md) IOT hub'ı sunan Mesajlaşma özelliklerinin (CİHAZDAN buluta ve bulut-cihaz) açıklar.
+
+  * [IOT Hub'ına CİHAZDAN buluta ileti gönderme](iot-hub-devguide-messages-d2c.md).
+
+  * [CİHAZDAN buluta iletilerini yerleşik uç noktadan okuma](iot-hub-devguide-messages-read-builtin.md).
+
+  * [Özel uç noktalar ve yönlendirme kuralları için CİHAZDAN buluta iletileri kullanın](iot-hub-devguide-messages-read-custom.md).
+
+  * [IOT Hub'ından bulut-cihaz iletilerini göndermek](iot-hub-devguide-messages-c2d.md).
+
+  * [Oluşturun ve IOT Hub iletilerini okumanızı](iot-hub-devguide-messages-construct.md).
+
+* [Bir CİHAZDAN karşıya dosya yükleme](iot-hub-devguide-file-upload.md) dosyaları bir CİHAZDAN nasıl karşıya yükleneceğini açıklar. Makale, bildirimler gibi konular hakkında bilgi karşıya yükleme işlemi gönderebilir de içerir.
+
+* [IOT hub cihaz kimliklerini yönetme](iot-hub-devguide-identity-registry.md)hangi bilgileri açıklayan her IOT hub'ının kimlik kayıt defteri depolar. Makalede ayrıca nasıl erişebilir ve onu değiştirme açıklanır.
+
+* [IOT hub'a erişimi denetleme](iot-hub-devguide-security.md) hem cihazlar IOT hub'ı işlevsellik için erişim verin ve bileşenleri bulut için kullanılan güvenlik modeli açıklanır. Makale belirteçleri ve X.509 sertifikaları ve izinleri size verebilir ayrıntılarını kullanma hakkında bilgi içerir.
+
+* [Durum ve yapılandırmaları eşitlemek için cihaz ikizlerini kullanma](iot-hub-devguide-device-twins.md) açıklar *cihaz ikizi* kavramı. Makale ayrıca descibes işlevi cihaz ikizleri, bir cihaz, cihaz ikizi ile eşitleme gibi kullanıma sunar. Makale, bir cihaz ikizinde depolanan veriler hakkında bilgi içerir.
+
+* [Bir cihazda doğrudan yöntem çağırma](iot-hub-devguide-direct-methods.md) yaşam döngüsünü bir doğrudan yöntem açıklar. Bu makalede, arka uç uygulamanızdan bir cihaz üzerinde yöntem çağırmak ve cihazda doğrudan yöntem işlemek açıklanır.
+
+* [İşleri birden fazla cihazda zamanlama](iot-hub-devguide-jobs.md) nasıl birden fazla cihazda işleri zamanlayabilirsiniz açıklar. Makaleyi güncelleştirme cihaz ikizi'ni kullanarak bir cihazı bir doğrudan yöntem yürütme olarak görevler gerçekleştiren işleri göndermek nasıl açıklar. Ayrıca, bir işin durumunu sorgulamak nasıl açıklar.
+
+* [Başvuru - iletişim protokolü seçme](iot-hub-devguide-protocols.md) IOT Hub için cihaz iletişimi destekler ve açık olması gereken bağlantı noktalarını listeler iletişim protokolleri açıklar.
+
+* [Başvuru - IOT Hub uç noktaları](iot-hub-devguide-endpoints.md) her IOT hub'ı ortaya koyan çalışma zamanı ve yönetim işlemleri için çeşitli uç noktaları açıklar. Makale ayrıca ek uç noktalar IOT hub'ına nasıl oluşturabileceğinizi ve bir alan ağ geçidi standart dışı senaryolarda IOT Hub uç noktalarınızı bağlantıyı etkinleştirmek için nasıl kullanılacağını açıklar.
+
+* [Başvuru - cihaz ikizleri, işler ve ileti yönlendirme için IOT Hub sorgu dili](iot-hub-devguide-query-language.md) hub'ınızın cihaz ikizleri ve işler hakkında bilgi almak sayesinde, IOT Hub sorgu dili açıklar.
+
+* [Başvuru - kotalar ve azaltma](iot-hub-devguide-quotas-throttling.md) kota aştığında oluşan IOT Hub hizmeti ve azaltma kotaları özetler.
+
+* [Başvuru - fiyatlandırma](iot-hub-devguide-pricing.md) farklı SKU'ları ve IOT Hub ve çeşitli IOT hub'ı işlevlerini iletileri olarak IOT Hub tarafından nasıl ölçülür ilgili ayrıntılar için fiyatlandırma hakkında genel bilgiler sağlar.
+
+* [Başvuru - cihaz ve hizmet SDK'ları](iot-hub-devguide-sdks.md) IOT hub'ınıza etkileşim cihaz ve hizmet uygulamaları geliştirmek için Azure IOT SDK'ları listeler. Makale çevrimiçi API belgelerine bağlantılar içerir.
+
+* [Başvuru - IOT hub'ı MQTT desteği](iot-hub-mqtt-support.md) IOT hub'ı ve MQTT protokolünü nasıl desteklediği hakkında ayrıntılı bilgiler sağlar. Makale Azure IOT SDK'ları için yerleşik ve MQTT protokolünü desteğini açıklar ve MQTT protokolünü kullanarak doğrudan hakkında bilgi sağlar.
+
+* [Sözlük](iot-hub-devguide-glossary.md) yaygın IOT Hub ile ilgili terimlerin bir listesi.

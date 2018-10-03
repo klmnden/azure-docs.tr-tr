@@ -22,28 +22,32 @@ items:
   expanded: true
 - name: Öğreticiler
   items:
-  - name: Yüksek oranda kullanılabilir SQL veritabanı oluşturma
-    href: azure-stack-tutorial-sql.md
-  - name: Yüksek oranda kullanılabilir olan MySQL veritabanları oluşturma
-    href: azure-stack-tutorial-mysql.md
-  - name: Azure ve Azure Stack’e uygulama dağıtma
-    href: azure-stack-solution-pipeline.md
-  - name: Hibrit bulut kimliği yapılandırma
-    href: azure-stack-solution-hybrid-identity.md
-  - name: Hibrit bulut bağlantısı yapılandırma
-    href: azure-stack-solution-hybrid-connectivity.md
-  - name: Bir teklife abone olma
-    href: azure-stack-subscribe-services.md
-  - name: Bir şablondan VM oluşturma
-    href: azure-stack-create-vm-template.md
-  - name: Bir edge makine öğrenimi çözümünüzü oluşturun
-    href: azure-stack-solution-machine-learning.md
-  - name: Hazırlanmış veri analizi çözümü oluşturma
-    href: azure-stack-solution-staged-data-analytics.md
-  - name: Azure ile Bulutlar arası ölçeklendirme çözümleri oluşturun
-    href: azure-stack-solution-cloud-burst.md
-  - name: Coğrafi olarak dağıtılmış bir uygulama çözümü oluşturun
-    href: azure-stack-solution-geo-distributed.md
+  - name: Genel görevler
+    items:
+    - name: Bir teklife abone olma
+      href: azure-stack-subscribe-services.md
+    - name: Bir şablondan VM oluşturma
+      href: azure-stack-create-vm-template.md
+    - name: Yüksek oranda kullanılabilir SQL veritabanı oluşturma
+      href: azure-stack-tutorial-sql.md
+    - name: Yüksek oranda kullanılabilir olan MySQL veritabanları oluşturma
+      href: azure-stack-tutorial-mysql.md
+  - name: Hibrit bulut desenleri
+    items:
+    - name: Azure ve Azure Stack’e uygulama dağıtma
+      href: azure-stack-solution-pipeline.md
+    - name: Hibrit bulut kimliği yapılandırma
+      href: azure-stack-solution-hybrid-identity.md
+    - name: Hibrit bulut bağlantısı yapılandırma
+      href: azure-stack-solution-hybrid-connectivity.md
+    - name: Bir edge makine öğrenimi çözümünüzü oluşturun
+      href: azure-stack-solution-machine-learning.md
+    - name: Hazırlanmış veri analizi çözümü oluşturma
+      href: azure-stack-solution-staged-data-analytics.md
+    - name: Azure ile Bulutlar arası ölçeklendirme çözümleri oluşturun
+      href: azure-stack-solution-cloud-burst.md
+    - name: Coğrafi olarak dağıtılmış bir uygulama çözümü oluşturun
+      href: azure-stack-solution-geo-distributed.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: Azure Stack Portal’ı kullanma
@@ -208,9 +212,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Eğitim ve sertifika
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: a67adb5f0b641f5f4eadfeb08c9802214d9f217b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 52dbfaf7b7ea7b6f264dcb9ac3d75aec782c8bff
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405419"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239413"

@@ -2,21 +2,21 @@
 title: Azure Site Recovery - Kurulum ve test edin, Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarma | Microsoft Docs
 description: Azure sanal makineleri için Azure PowerShell kullanarak Azure Site Recovery ile olağanüstü durum kurtarma ayarlamayı öğrenin.
 services: site-recovery
-author: bsiva
-manager: abhemraj
-editor: raynew
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: bsiva
-ms.openlocfilehash: 1bf2fe84f9695993dacb6d197d75c18e5db86c4e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.date: 10/02/2018
+ms.author: sutalasi
+ms.openlocfilehash: 9b7200dab0351b6cd00aef05bf27c5c71a049d76
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433438"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044520"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarmayı ayarlama
+
 
 Kurulum ve test etmek nasıl gördüğünüz bu makalede, Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarma.
 
@@ -159,12 +159,15 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 ## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>Azure sanal makineleri çoğaltmaya başlamak için kasa hazırlama
 
-####<a name="1-create-a-site-recovery-fabric-object-to-represent-the-primarysource-region"></a>1. Primary(source) bölgeyi temsil eden bir Site Recovery doku nesnesi oluşturun
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>Birincil (kaynak) bölgeyi temsil eden bir Site Recovery doku nesnesi oluşturun
 
-Kasadaki doku nesnesi, bir Azure bölgesi temsil eder. Birincil fabric nesnesidir kasaya korunan sanal makinelerle ait Azure bölgesini temsil etmesi için oluşturduğunuz doku nesnesi. Bu makaledeki örnekte Doğu ABD bölgesinde korunan sanal makine var.
+Kasadaki doku nesnesi, bir Azure bölgesi temsil eder. Kasa için korunan sanal makinelerle ait Azure bölgesini temsil etmek için birincil doku nesnesi oluşturulur. Bu makaledeki örnekte Doğu ABD bölgesinde korunan sanal makine var.
 
-> [!NOTE]
-> Azure Site Recovery işlemlerini zaman uyumsuz olarak yürütülür. Bir işlem başlattığınızda, Azure Site Recovery iş gönderilir ve nesne izleme iş döndürülür. Nesne izleme iş (Get-ASRJob) iş için en son durumu almak ve işlemin durumunu izlemek için kullanın.
+- Bölge başına yalnızca bir doku nesnesi oluşturulabilir. 
+- Azure portalında bir VM için Site Recovery çoğaltma daha önce etkinleştirdiyseniz, Site Recovery otomatik olarak bir doku nesnesi oluşturur. Bir bölge için bir doku nesnesi varsa, yeni bir tane oluşturamazsınız.
+
+
+Başlamadan önce Site Recovery işlemlerini zaman uyumsuz olarak yürütülür. Bir işlem başlattığınızda, Azure Site Recovery iş gönderilir ve nesne izleme iş döndürülür. Nesne izleme iş (Get-ASRJob) iş için en son durumu almak ve işlemin durumunu izlemek için kullanın.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -184,7 +187,7 @@ $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-EastUS"
 ```
 Aynı kasaya birden fazla Azure bölgesini sanal makineleri korumalı bir doku nesnesi için her kaynak Azure bölgesini oluşturun.
 
-####<a name="2-create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>2. Kurtarma bölgesi temsil etmek için bir Site Recovery doku nesnesi oluşturun
+### <a name="create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>Kurtarma bölgesi temsil etmek için bir Site Recovery doku nesnesi oluşturun
 
 Kurtarma doku nesnesi, Azure konum kurtarma temsil eder. Sanal makineler için çoğaltılır ve için kurtarma fabric tarafından temsil edilen kurtarma bölgesi (yük devretme durumunda) kurtarıldı. Bu örnekte kullanılan bir Azure bölgesine kurtarma Batı ABD 2 ' dir.
 
@@ -205,7 +208,7 @@ $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-WestUS"
 
 ```
 
-####<a name="3-create-a-site-recovery-protection-container-in-the-primary-fabric"></a>3. Birincil dokusunda bir Site Recovery koruma kapsayıcısı oluşturma
+### <a name="create-a-site-recovery-protection-container-in-the-primary-fabric"></a>Birincil dokusunda bir Site Recovery koruma kapsayıcısı oluşturma
 
 Koruma kapsayıcısı, çoğaltılan öğeler bir yapı içinde gruplamak için kullanılan bir kapsayıcıdır.
 
@@ -223,7 +226,7 @@ Write-Output $TempASRJob.State
 
 $PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 ```
-####<a name="4-create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>4. Kurtarma dokusunda bir Site Recovery koruma kapsayıcısı oluşturma
+### <a name="create-a-site-recovery-protection-container-in-the-recovery-fabric"></a>Kurtarma dokusunda bir Site Recovery koruma kapsayıcısı oluşturma
 
 ```azurepowershell
 #Create a Protection container in the recovery Azure region (within the Recovery fabric)
@@ -242,7 +245,7 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-ASRProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
-####<a name="5-create-a-replication-policy"></a>5. Çoğaltma ilkesi oluşturma
+### <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
 
 ```azurepowershell
 #Create replication policy
@@ -259,7 +262,7 @@ Write-Output $TempASRJob.State
 
 $ReplicationPolicy = Get-ASRPolicy -Name "A2APolicy"
 ```
-####<a name="6-create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>6. Bir koruma kapsayıcısı eşlemesine arasındaki birincil ve kurtarma koruma kapsayıcısı oluşturma
+### <a name="create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container"></a>Bir koruma kapsayıcısı eşlemesine arasındaki birincil ve kurtarma koruma kapsayıcısı oluşturma
 
 Bir koruma kapsayıcısı eşlemesine kurtarma koruma kapsayıcısı ve bir çoğaltma ilkesi ile birincil koruma kapsayıcısı eşlemeleri. Koruma kapsayıcısı çifti arasında sanal makineleri çoğaltmak için kullanacağınız her bir çoğaltma ilkesi için bir eşleme oluşturun.
 
@@ -279,7 +282,7 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
-####<a name="7-create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>7. Koruma kapsayıcısı eşlemesini yeniden çalışma (yük devretme sonrasında çoğaltmayı tersine çevirme) için oluşturma
+### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Koruma kapsayıcısı eşlemesini yeniden çalışma (yük devretme sonrasında çoğaltmayı tersine çevirme) için oluşturma
 
 Bir sanal makineyi geri özgün Azure bölgesindeki için yeniden çalışma başarısız duruma getirmeye hazır olduğunda yük devretme sonrasında. Yeniden çalışma, başarısız başarısız olarak çoğaltılmış sanal makine üzerinde ters olan özgün bölgeye bölge üzerinden. Çoğaltmayı tersine çevirme için özgün bölgesi ve kurtarma bölgesi rollerini geçin. Özgün bölge, yeni kurtarma bölgesi artık hale gelir ve ilk kurtarma bölgesi artık neydi birincil bölgeye olur. Çoğaltmayı tersine çevirme için koruma kapsayıcısı eşlemesini özgün ve kurtarma bölgelerin anahtarlı rolleri temsil eder.
 

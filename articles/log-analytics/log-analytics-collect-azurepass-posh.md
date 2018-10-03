@@ -1,6 +1,6 @@
 ---
-title: Günlük analizi ile Azure PaaS kaynak ölçümleri toplamak | Microsoft Docs
-description: Bekletme ve günlük analizi analizi için PowerShell kullanarak Azure PaaS kaynak ölçümleri koleksiyonunun nasıl etkinleştirileceği öğrenin.
+title: Log Analytics ile Azure PaaS kaynak ölçümleri toplamak | Microsoft Docs
+description: Bekletme ve Log analytics'te analiz için PowerShell kullanarak Azure PaaS kaynak ölçümleri toplamayı etkinleştirmeyi öğrenin.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: b44a6627ab12c8a4ad21e7beded7c5fd2c2e1d39
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: beac96629ef2cc0cbbe8644929e7e0cc7c97a243
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128471"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044357"
 ---
-# <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Günlük analizi ile Azure PaaS kaynak ölçümleri koleksiyonunu yapılandırma
+# <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Log Analytics ile Azure PaaS kaynak ölçümleri koleksiyonunu yapılandırma
 
-Azure SQL ve Web siteleri (Web uygulamaları) gibi bir hizmet (PaaS) kaynaklar olarak Azure platformu performans ölçümleri verilerini yerel olarak günlük analizi yayma. Bu komut dosyası, kullanıcıların belirli bir kaynak grubunun veya aboneliğin tümü arasında dağıtılmış PaaS kaynaklar için günlüğü ölçümlerini etkinleştirmeniz olanak tanır. 
+Azure SQL ve Web sitelerini (Web uygulamaları) gibi bir hizmet (PaaS) kaynak olarak Azure platformu, performans ölçüm verileri Log Analytics için yerel olarak gönderebilir. Bu betik, kullanıcıların belirli bir kaynak grubu ister bütün bir abonelik zaten dağıtılmış PaaS kaynakları için günlüğü ölçümlerini etkinleştirmeniz olanak tanır. 
 
-Bugün, ölçümleri kaynakları Azure portalı üzerinden PaaS için günlüğü etkinleştirmek için bir yolu yoktur. Bu nedenle, bir PowerShell betiğini kullanmanız gerekir. Günlük analizi izleme, yanı sıra bu yerel ölçümleri günlüğe kaydetme özelliğine ölçekte Azure kaynaklarını izlemenize olanak tanır. 
+Bugün, PaaS için Azure portalı üzerinden kaynakları günlüğü ölçümleri etkinleştirmek üzere hiçbir yolu yoktur. Bu nedenle, bir PowerShell Betiği kullanmanız gerekir. Log Analytics, izleme ile birlikte bu yerel ölçümleri günlüğe kaydetme özelliğini uygun ölçekte Azure kaynakları izlemek etkinleştirin. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 Devam etmeden önce bilgisayarınızda yüklü aşağıdaki Azure Resource Manager modüllerini doğrulayın:
@@ -37,52 +37,52 @@ Devam etmeden önce bilgisayarınızda yüklü aşağıdaki Azure Resource Manag
 - AzureRM.profile
 
 >[!NOTE]
->Tüm Azure Resource Manager modüllerini Powershell'den Azure Resource Manager komutları çalıştırdığınızda uyumluluğundan emin olmak için aynı sürüme sahip öneririz.
+>Tüm Azure Resource Manager modüllerini Powershell'den Azure Resource Manager komutları çalıştırdığınızda uyumluluğu sağlamak için aynı sürümde olduğundan öneririz.
 >
-Bilgisayarınıza Azure Resource Manager modüllerini en son sürümünü yüklemek için bkz: [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
+Azure Resource Manager modüllerini en son sürümünü bilgisayarınıza yüklemek için bkz: [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
 
-## <a name="enable-azure-diagnostics"></a>Azure tanılama etkinleştir  
-Azure tanılama PaaS kaynaklar için yapılandırma gerçekleştirilir betik yürüterek **etkinleştir AzureRMDiagnostics.ps1**, kullanılabilir olduğu [PowerShell Galerisi](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  Komut dosyası aşağıdaki senaryoları destekler:
+## <a name="enable-azure-diagnostics"></a>Azure tanılamayı etkinleştirin  
+PaaS kaynakları Azure tanılamayı yapılandırma gerçekleştirilir betik yürüterek **etkinleştir AzureRMDiagnostics.ps1**, kullanılabilir olduğu [PowerShell Galerisi](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  Betik aşağıdaki senaryoları destekler:
   
-* Bir Abonelikteki bir veya daha fazla kaynak gruplarıyla ilgili bir kaynak belirtme  
-* Bir abonelik belirli bir kaynak grubunda ilgili bir kaynak belirtme  
-* Farklı bir çalışma alanına iletmek için bir kaynak yeniden yapılandırın
+* Bir Abonelikteki bir veya daha fazla kaynak grupları ilgili kaynak belirtme  
+* Belirli bir kaynak grubu bir abonelik için ilgili bir kaynak belirtme  
+* Farklı bir çalışma alanına iletmek için bir kaynağı yeniden yapılandırın
 
-Azure tanılama verilerini toplama Ölçümleriyle destekler ve doğrudan günlük analizi için Gönder yalnızca kaynakları desteklenir.  Ayrıntılı bir listesi için gözden [toplamak Azure Hizmeti günlüklerini ve günlük analizi kullanmak için ölçümleri](log-analytics-azure-storage.md) 
+Azure tanılama verilerini toplama Ölçümleriyle destekler ve doğrudan Log Analytics'e gönderme yalnızca kaynakları desteklenir.  Ayrıntılı bir listesi için gözden [toplamak Azure hizmeti günlükleri ve ölçümleri Log analytics'teki kullanım için](log-analytics-azure-storage.md) 
 
-Karşıdan yüklemek ve komut dosyasını çalıştırmak için aşağıdaki adımları gerçekleştirin.
+İndir ve Yürüt komut dosyası için aşağıdaki adımları gerçekleştirin.
 
-1.  Windows başlangıç ekranından yazın **PowerShell** ve PowerShell Arama sonuçlarından sağ tıklatın.  Select menüsünde **yönetici olarak çalıştır**.   
-2. Kaydet **etkinleştir AzureRMDiagnostics.ps1** komut dosyası yerel olarak aşağıdaki komutu çalıştırarak ve komut dosyasını depolamak için bir yol sağlar.    
+1.  Windows başlangıç ekranından yazın **PowerShell** ve PowerShell Arama sonuçlarından sağ tıklayın.  Menüden seçim **yönetici olarak çalıştır**.   
+2. Kaydet **etkinleştir AzureRMDiagnostics.ps1** betiği yerel olarak aşağıdaki komutu çalıştırarak ve komut dosyasını depolamak için bir yol sağlama.    
 
     ```
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
 3. Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırın.   
-4. Aşağıdaki betiği çalıştırın `.\Enable-AzureRmDiagnostics.ps1` aboneliğinizde veya parametresi ile belirli bir kaynaktan veri toplamayı etkinleştirmek için herhangi bir parametre olmadan `-ResourceGroup <myResourceGroup>` belirli bir kaynak grubunda bir kaynak belirtmek için.   
-5. Birden çok değer girerek varsa, uygun aboneliği listeden seçin.<br><br> ![Komut dosyası tarafından döndürülen abonelik seçin](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Aksi durumda, tek bir abonelik kullanılabilir otomatik olarak seçer.
-6. Ardından, komut dosyası bir abonelikte kayıtlı günlük analizi çalışma alanlarının listesini döndürür.  Listeden uygun olanı seçin.<br><br> ![Komut dosyası tarafından döndürülen bir çalışma alanı seçin](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 
-7. Koleksiyondan etkinleştirmek istediğiniz Azure kaynağı seçin. Örneğin, 5 yazarsanız, SQL Azure veritabanları için veri toplama etkinleştirin.<br><br> ![Komut dosyası tarafından döndürülen select kaynak türü](./media/log-analytics-collect-azurepass-posh/script-select-resource.png)<br>
-   Yalnızca Azure tanılama ve doğrudan bir günlük analizi gönderme toplama Ölçümleriyle Destek kaynakları seçebilirsiniz.  Komut dosyası değerini gösterecektir **True** altında **ölçümleri** sütun abonelik ya da belirtilen kaynak grubunun bulduğu kaynaklar listesi için.    
-8. Seçiminizi onaylamanız istenir.  Girin **Y** tüm ölçümleri günlüğe kaydetmeyi etkinleştirmek için seçili Abonelikteki tüm SQL veritabanları, örneğimizde kaynaklar tanımlanan, kapsam için.  
+4. Aşağıdaki betiği çalıştırın `.\Enable-AzureRmDiagnostics.ps1` aboneliğinizdeki veya parametresiyle belirli bir kaynaktan veri toplamayı etkinleştirmek için herhangi bir parametre olmadan `-ResourceGroup <myResourceGroup>` belirli kaynak grubunda bir kaynak belirtmek için.   
+5. Birden fazla doğru değer girerek varsa uygun aboneliği listeden seçin.<br><br> ![Komut dosyası tarafından döndürülen bir abonelik seçin](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Aksi takdirde, tek bir abonelik kullanılabilir otomatik olarak seçer.
+6. Ardından, betiği aboneliğinde kayıtlı bir Log Analytics çalışma alanlarının bir listesini döndürür.  Listeden uygun olanı seçin.<br><br> ![Komut dosyası tarafından döndürülen çalışma alanı seçin](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 
+7. Koleksiyondan etkinleştirmek istediğiniz Azure kaynağını seçin. Örneğin, 5 yazarsanız, SQL Azure veritabanları için veri toplamayı etkinleştirin.<br><br> ![Komut dosyası tarafından döndürülen select kaynak türü](./media/log-analytics-collect-azurepass-posh/script-select-resource.png)<br>
+   Azure Tanılama'yı ve doğrudan Log Analytics'e gönderme ile toplama ölçümleri destekleyen kaynaklar yalnızca seçebilirsiniz.  Komut dosyası değerini gösterir **True** altında **ölçümleri** bulur, abonelik veya belirtilen kaynak grubunda kaynaklar listesi için sütun.    
+8. Seçiminizi onaylayın istenir.  Girin **Y** seçili Abonelikteki tüm SQL veritabanları, örneğimizde kaynaklar tanımlandığı, kapsamı için tüm ölçümleri günlüğe kaydetmeyi etkinleştirmek için.  
 
-Komut dosyası, seçilen ölçütlerle eşleşen her kaynak karşı çalıştırın ve ölçümleri koleksiyonu için bunları etkinleştirin. Bu işlem tamamlandıktan sonra yapılandırma tamamlandıktan belirten bir ileti görürsünüz.  
+Betik seçilen ölçütlerle eşleşen her kaynak karşı çalıştırma ve bunlara yönelik ölçümleri toplamayı etkinleştirin. Tamamlandıktan sonra yapılandırma tamamlandıktan belirten bir ileti görürsünüz.  
 
-Günlük analizi deponuzun Azure PaaS kaynak verileri görmek kısa bir süre içinde tamamlandıktan sonra başlar.  Türünde bir kayıt `AzureMetrics` oluşturulur ve bu kayıtları çözümleme tarafından desteklendiği [Azure SQL analizi](log-analytics-azure-sql.md) ve [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md) yönetim çözümleri.   
+Log Analytics deponuzdaki Azure PaaS kaynak verilerini görmek kısa bir süre içinde tamamlandıktan sonra başlar.  Türünde bir kayıt `AzureMetrics` oluşturulur ve bu kayıtları analiz tarafından desteklenmektedir [Azure SQL Analytics](log-analytics-azure-sql.md) ve [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md) yönetim çözümleri.   
 
-## <a name="update-a-resource-to-send-data-to-another-workspace"></a>Başka bir çalışma alanına veri göndermek için bir kaynak güncelleştirme
-Verileri bir günlük analizi çalışma alanına zaten gönderme bir kaynağa sahip ve daha sonra başka bir çalışma alanı başvurmak için yeniden yapılandırmak karar verirseniz, komut dosyasıyla çalıştırabilirsiniz `-Update` parametresi.  
+## <a name="update-a-resource-to-send-data-to-another-workspace"></a>Başka bir çalışma alanına veri göndermek için kaynak güncelleştirme
+Zaten bir Log Analytics çalışma alanına veri gönderen bir kaynak varsa ve daha sonra başka bir çalışma alanı başvurmak için yeniden yapılandırmaya karar, komut dosyasını çalıştırabilirsiniz `-Update` parametresi.  
 
 **Örnek:** 
 `PS C:\users\<username>\Desktop\temp> .\Enable-AzureRMDiagnostics.ps1 -Update`
 
-İlk yapılandırmasını gerçekleştirmek için komut dosyasını çalıştırdığınızda aynı bilgileri yanıtlamanız istenir.  
+İlk yapılandırmayı gerçekleştiren betiği çalıştırdığınızda, aynı bilgileri yanıtlamanız istenir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümleri toplanan verileri çözümlemek için. 
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
 
-* Kullanım [özel alanlar](log-analytics-custom-fields.md)(olay kayıtlarını tek tek alanlarına ayrıştırılamadı.
+* Kullanım [özel alanlar](log-analytics-custom-fields.md)(olay kayıtları tek tek alanlarına ayrıştırılamadı.
 
-* Gözden geçirme [günlük analizi kullanmak için özel bir pano oluşturun](log-analytics-dashboards.md) günlüğünüzün görselleştirmek nasıl anlamak için kuruluş için anlamlı şekillerde arar.
+* Gözden geçirme [Log Analytics'te kullanım için özel bir pano oluşturma](log-analytics-dashboards.md) günlüğünüzün görselleştirmek nasıl anlamak için kuruluş için anlamlı şekillerde arar.

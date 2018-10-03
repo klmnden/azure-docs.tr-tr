@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 1f7a38994cb127d2edb59e9d3befeece99a7feb1
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 8a84f2f13318dea5c2b99af0b880f2adb1343c8d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018701"
+ms.locfileid: "48042794"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS uygulamaları için kullanıcı sağlamayı otomatik nedir?
@@ -237,29 +237,29 @@ Senaryo tabanlı otomatik kullanıcı hazırlama sorunlarını giderme konusunda
 
 Bir uygulamaya giden kullanıcı sağlama için bir örnek adım adım dağıtım planlama için [kimlik kullanıcı sağlama için Dağıtım Kılavuzu](https://aka.ms/userprovisioningdeploymentplan).
 
-##<a name="more-frequenty-asked-questions"></a>Daha fazla frequenty sorulan sorular
+##<a name="more-frequently-asked-questions"></a>Diğer sık sorulan sorular
 
 ###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Otomatik kullanıcı iş SaaS uygulamaları ile B2B kullanıcıları Azure AD'de sağlamayı mu?
 
 Evet, SaaS uygulamaları için Azure AD'de hizmet sağlama B2B (veya konuk) kullanıcıları sağlama Azure AD Kullanıcınızı kullanmanız mümkündür.
 
-Ancak, B2B kullanıcıları Azure AD kullanarak SaaS uygulaması için oturum yapmak için SaaS uygulama belirli bir şekilde yapılandırılmış, SAML tabanlı çoklu oturum açma özelliği olması gerekir. SaaS uygulamalarını B2B kullanıcıları oturum açma işlemleri desteklemek için yapılandırma hakkında daha fazla bilgi için bkz. [yapılandırma SaaS uygulamaları için B2B işbirliği]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+Ancak, B2B kullanıcıları Azure AD kullanarak SaaS uygulamasında oturum açabilmesi SaaS uygulama belirli bir şekilde yapılandırılmış, SAML tabanlı çoklu oturum açma özelliği olması gerekir. SaaS uygulamalarını B2B kullanıcıları oturum açma işlemleri desteklemek için yapılandırma hakkında daha fazla bilgi için bkz. [yapılandırma SaaS uygulamaları için B2B işbirliği]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
 ###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Otomatik kullanıcı SaaS uygulamaları çalışmaya dinamik grupları ile Azure AD'de sağlamayı mu?
 
-Evet. "Eşitleme yalnızca atanan kullanıcılar ve gruplar için" yapılandırıldığında, sağlama hizmetini Azure AD kullanıcı sağlama veya sağlamasını kaldırma üyesi oldukları üzerinde olup olmadığına göre bir SaaS uygulamasında kullanıcılar bir [dinamik grup](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dinamik gruplar, "tüm kullanıcılar ve grupları eşitleme" seçeneği ile de çalışır.
+Evet. Ne zaman "eşitleme yalnızca atanan kullanıcılar ve gruplar için" yapılandırılmış, sağlama hizmetini Azure AD kullanıcı sağlama kaldırabilir kullanıcılara veya bir SaaS uygulamasında üyesi olduğu olup olmadığı hakkında bir [dinamik grup](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dinamik gruplar, "tüm kullanıcılar ve grupları eşitleme" seçeneği ile de çalışır.
 
 Ancak, dinamik gruplar kullanımını SaaS uygulamaları için Azure AD'den sağlama uçtan uca kullanıcı genel performansını etkileyebilir. Lütfen dinamik gruplar kullanırken, bu uyarılar ve öneriler göz önünde bulundurun:
 
 * Dinamik grup üyeliği değişiklikleri ne kadar hızlı değerlendirebilirsiniz nasıl hızla kullanıcı dinamik bir grup olarak sağlanan veya bir SaaS uygulamasında sağlaması bağlıdır. Dinamik bir grup işleme durumunu denetleme hakkında daha fazla bilgi için bkz: [bir üyelik kuralı için işlem durumunu denetleme](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
 
-* Üyelik kaybı bir sağlamayı kaldırma olay sonuçlanacağı dinamik gruplar kullanırken kuralları dikkatli bir şekilde sağlama ve sağlamayı kaldırma göz önünde bulundurun kullanıcıyla dikkate alınmalıdır.
+* Üyelik kaybı bir sağlamayı kaldırma olay sonuçlanacağı dinamik gruplar kullanırken kuralları dikkatli bir şekilde hazırlama ve sağlamayı göz önünde bulundurun kullanıcıyla dikkate alınmalıdır.
 
 ###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Otomatik kullanıcı SaaS uygulamaları çalışmaya iç içe grupları ile Azure AD'de sağlamayı mu?
 
 Hayır. "Eşitleme yalnızca atanan kullanıcılar ve gruplar için" yapılandırıldığında, Azure AD kullanıcı sağlama hizmeti okuyun veya iç içe geçmiş gruplardaki kullanıcıların sağlamak mümkün değil. Yalnızca okuma ve anında açıkça atanan grubun üyesi olan kullanıcılar sağlayın.
 
-Bu bir sınırlamadır "Grup tabanlı atamaları uygulamalar için", aynı zamanda çoklu oturum açma için geçerlidir ve açıklanan [SaaS uygulamalarına erişimi yönetmek için bir grup kullanmanızı](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
+Bu bir sınırlamadır "Grup tabanlı atamaları uygulamalar için", aynı zamanda çoklu oturum açma etkiler ve açıklanan [SaaS uygulamalarına erişimi yönetmek için bir grup kullanmanızı](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
 
 Geçici bir çözüm olarak, açıkça atamasını (veya başka türlü [kapsamını](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) sağlanması gereken kullanıcıları içeren gruplar.
 

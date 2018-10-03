@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: a987ea8fbfc3d6360a604d0d9f3dbab1b5559444
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 52330d9f999676301e3a92487c0106f2fa59bc76
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452437"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237957"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -103,6 +103,7 @@ Aşağıdaki adımları kullanın [APT](https://wiki.debian.org/Apt) Ubuntu/Debi
 
     | Linux dağıtım | Sürüm |
     | --------------- | ----------- |
+    | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Naneli 18    | `xenial`  |

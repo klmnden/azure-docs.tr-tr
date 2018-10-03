@@ -1,6 +1,6 @@
 ---
-title: OMS günlük analizi Nagios ve Zabbix uyarıları Topla | Microsoft Docs
-description: Nagios ve Zabbix izleme araçları açık kaynaktır. Bunları yanı sıra diğer kaynaklardan uyarıları çözümlemek amacıyla yararlı günlük analizi bu Araçları'ndan uyarıları toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS aracısının yapılandırma açıklar.
+title: Nagios ve Zabbix uyarıları OMS Log Analytics'e toplama | Microsoft Docs
+description: Nagios ve Zabbix izleme araçları açık kaynaklıdır. Diğer kaynaklardan gelen uyarıların yanı sıra bunları analiz etmek için yararlı Log Analytics'e bu Araçları'ndan uyarılar toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS Aracısı'nı yapılandırmak açıklar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 240e56e3e482b81d6336f7d6d2a1f5688953ecd8
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: e668b2e989571d911c967d08d8012b11adaebd4d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131560"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041043"
 ---
-# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Linux için Nagios ve günlük analizi OMS aracısından Zabbix uyarılarını Topla 
-[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan açık kaynak izleme araçları. Uyarıları bu Araçları'ndan günlük analizi ile birlikte çözümlemek için toplayabilirsiniz [diğer kaynaklardan uyarıları](log-analytics-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS aracısının yapılandırma açıklar.
+# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Linux için Nagios ve Zabbix'ten OMS Aracısı'ndan Log analytics'te uyarıları Topla 
+[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan izleme araçları açık kaynak. Uyarıları şu araçlarından Log Analytics'e bunları ile birlikte analiz etmek için Toplayabileceğiniz [diğer kaynaklardan alınan uyarıları](log-analytics-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS Aracısı'nı yapılandırmak açıklar.
  
 ## <a name="prerequisites"></a>Önkoşullar
-Linux için OMS Aracısı Nagios toplama uyarıları sürüm kadar destekler 4.2.x ve sürüm kadar Zabbix 2.x.
+Linux için OMS Aracısı Nagios toplama uyarılardan sürümüne destekler 4.2.x ve Zabbix sürümüne 2.x.
 
 ## <a name="configure-alert-collection"></a>Uyarı koleksiyonunu yapılandırma
 
-### <a name="configuring-nagios-alert-collection"></a>Nagios uyarı koleksiyonunu yapılandırma
+### <a name="configuring-nagios-alert-collection"></a>Nagios uyarı toplamayı yapılandırma
 Uyarılarını toplamak için Nagios sunucusunda aşağıdaki adımları gerçekleştirin.
 
-1. Kullanıcının izni **omsagent** Nagios günlük dosyası okuma erişimi `/var/log/nagios/nagios.log`. Nagios.log dosya varsayılarak grupla sahibi `nagios`, kullanıcı ekleyebilir **omsagent** için **nagios** grubu. 
+1. Kullanıcı vermek **omsagent** Nagios günlük dosyası okuma erişimi `/var/log/nagios/nagios.log`. Nagios.log dosya varsayılarak grubun sahibi olduğu `nagios`, kullanıcı ekleyebilir **omsagent** için **nagios** grubu. 
 
     sudo usermod - a -G nagios omsagent
 
-2.  Konumunda yapılandırma dosyasını değiştirme `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Mevcut ve kullanıma açıklamalı aşağıdaki girdileri çalıştığından emin olun:  
+2.  Yapılandırma dosyası değişiklik `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Aşağıdaki girişler mevcut ve kullanıma açıklamalı olduğundan emin olun:  
 
         <source>  
           type tail  
@@ -51,18 +51,18 @@ Uyarılarını toplamak için Nagios sunucusunda aşağıdaki adımları gerçek
           type filter_nagios_log  
         </filter>  
 
-3. Omsagent arka plan programı yeniden başlatın
+3. Omsagent Daemon programını yeniden başlatın
 
     ```
     sudo sh /opt/microsoft/omsagent/bin/service_control restart
     ```
 
-### <a name="configuring-zabbix-alert-collection"></a>Zabbix uyarı koleksiyonunu yapılandırma
-Zabbix sunucudan uyarılarını toplamak için bir kullanıcı ve parola belirtmeniz gerekir *açık metin*.  Değil ideal olsa da, ilgili uyarıları yakalamak için salt okunur izinlerle Zabbix kullanıcı oluşturmanızı öneririz.
+### <a name="configuring-zabbix-alert-collection"></a>Zabbix uyarı toplamayı yapılandırma
+Zabbix sunucudan uyarılarını toplamak için kullanıcı ve parola belirtmeniz gerekir *düz metin*.  İdeal değildir ancak ilgili uyarılar yakalamak için salt okunur izinlere sahip bir Zabbix kullanıcı oluşturma öneririz.
 
-Nagios sunucuda uyarılarını toplamak için aşağıdaki adımları gerçekleştirin.
+Nagios sunucuda uyarıları toplamak için aşağıdaki adımları gerçekleştirin.
 
-1. Konumunda yapılandırma dosyasını değiştirme `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Mevcut ve kullanıma açıklamalı aşağıdaki girdileri olduğundan emin olun.  Kullanıcı adı ve parola Zabbix ortamınız için değerlerle değiştirin.
+1. Yapılandırma dosyası değişiklik `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Mevcut ve kullanıma açıklamalı aşağıdaki girişler olduğundan emin olun.  Kullanıcı adı ve parola Zabbix ortamınız için değerlerle değiştirin.
 
         <source>
          type zabbix_alerts
@@ -73,49 +73,49 @@ Nagios sunucuda uyarılarını toplamak için aşağıdaki adımları gerçekle�
          zabbix_password zabbix
         </source>
 
-2. Omsagent arka plan programı yeniden başlatın
+2. Omsagent Daemon programını yeniden başlatın
 
     `sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
-## <a name="alert-records"></a>Uyarı kaydeder
-Nagios ve Zabbix uyarı kayıtları almak kullanarak [oturum aramaları](log-analytics-log-searches.md) günlük analizi içinde.
+## <a name="alert-records"></a>Uyarı kayıtları
+Nagios ve Zabbix uyarı kayıtları alabilir kullanarak [günlük aramaları](log-analytics-log-searches.md) Log analytics'te.
 
-### <a name="nagios-alert-records"></a>Nagios uyarı kaydeder
+### <a name="nagios-alert-records"></a>Nagios uyarı kayıtları
 
-Nagios tarafından toplanan kayıtları uyarı bir **türü** , **uyarı** ve **SourceSystem** , **Nagios**.  Aşağıdaki tabloda özellikleri sahiptirler.
+Nagios tarafından toplanan kayıtlarına sahip uyarı bir **türü** , **uyarı** ve **Analytics'teki** , **Nagios**.  Bunlar aşağıdaki tabloda özelliklere sahiptir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
 | Tür |*Uyarı* |
 | SourceSystem |*Nagios* |
-| AlertName |Uyarı adı. |
+| AlertName |Uyarının adı. |
 | AlertDescription | Uyarı açıklaması. |
-| AlertState | Hizmet veya ana bilgisayar durumu.<br><br>Tamam<br>UYARI<br>AYARLAMA<br>AŞAĞI |
-| ana bilgisayar adı | Uyarı oluşturan ana bilgisayar adı. |
+| AlertState | Ana bilgisayar ve hizmet durumu.<br><br>Tamam<br>UYARI<br>AYARLAMA<br>AŞAĞI |
+| ana bilgisayar adı | Uyarıyı oluşturan ana bilgisayar adı. |
 | PriorityNumber | Uyarı öncelik düzeyi. |
-| StateType | Uyarının durumunu türü.<br><br>SOFT - değil yeniden sorun.<br>Sabit - bırakıldı sorunu belirtilen kaç kez yeniden.  |
-| TimeGenerated |Uyarının oluşturulduğu tarih ve saat. |
+| StateType | Uyarı durumu türü.<br><br>YAZILIM - değil yeniden denetlenmesine sorunu.<br>SABİT - olan sorunu belirtilen sayıda yeniden denetlenmesine.  |
+| TimeGenerated |Tarihi ve uyarının oluşturulduğu saat. |
 
 
-### <a name="zabbix-alert-records"></a>Zabbix uyarı kaydeder
-Zabbix tarafından toplanan kayıtları uyarı bir **türü** , **uyarı** ve **SourceSystem** , **Zabbix**.  Aşağıdaki tabloda özellikleri sahiptirler.
+### <a name="zabbix-alert-records"></a>Zabbix uyarı kayıtları
+Zabbix tarafından toplanan kayıtlarına sahip uyarı bir **türü** , **uyarı** ve **Analytics'teki** , **Zabbix**.  Bunlar aşağıdaki tabloda özelliklere sahiptir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
 | Tür |*Uyarı* |
 | SourceSystem |*Zabbix* |
-| AlertName | Uyarı adı. |
+| AlertName | Uyarının adı. |
 | AlertPriority | Uyarının önem derecesi.<br><br>Sınıflandırılmamış<br>bilgi<br>uyarı<br>ortalama<br>Yüksek<br>Olağanüstü durum  |
-| AlertState | Uyarı durumu.<br><br>0 - durumu güncel değil.<br>1 - durumu bilinmiyor.  |
-| AlertTypeNumber | Uyarı birden çok sorun Olay Oluştur olup olmadığını belirtir.<br><br>0 - durumu güncel değil.<br>1 - durumu bilinmiyor.    |
-| Yorumlar | Ek açıklamalar uyarı için. |
-| ana bilgisayar adı | Uyarı oluşturan ana bilgisayar adı. |
-| PriorityNumber | Uyarının önem derecesini belirten değer.<br><br>0 - Sınıflandırılmamış<br>1 - bilgileri<br>2 - uyarı<br>3 - ortalama<br>4 - yüksek<br>5 - olağanüstü durum |
-| TimeGenerated |Uyarının oluşturulduğu tarih ve saat. |
+| AlertState | Uyarı durumu.<br><br>0 - durumunun güncel olup.<br>1 - durum bilinmiyor.  |
+| AlertTypeNumber | Birden çok sorun olayı uyarı oluşturabilen olup olmadığını belirtir.<br><br>0 - durumunun güncel olup.<br>1 - durum bilinmiyor.    |
+| Yorumlar | Uyarı için ek açıklamalar. |
+| ana bilgisayar adı | Uyarıyı oluşturan ana bilgisayar adı. |
+| PriorityNumber | Uyarının önem derecesini belirten değer.<br><br>0 - değil olarak sınıflandırılmış<br>1 - bilgiler<br>2 - uyarı<br>3 - ortalama<br>4 - yüksek<br>5 - olağanüstü durum |
+| TimeGenerated |Tarihi ve uyarının oluşturulduğu saat. |
 | TimeLastModified |Tarih ve saat uyarının durumunu en son değiştirildiği. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [uyarıları](log-analytics-alerts.md) günlük analizi içinde.
-* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümleri toplanan verileri çözümlemek için. 
+* Hakkında bilgi edinin [uyarılar](log-analytics-alerts.md) Log analytics'te.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 362d19c489dfa0eda33036052ac9626414ef0933
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.component: ''
+ms.openlocfilehash: 9a981b80921b8fea60941a994595b19933b61a21
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340745"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042385"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Log Analytics'te Görünüm Tasarımcısı kullanarak özel görünümlerini oluşturma
 Görünüm Tasarımcısı'nda kullanarak [Azure Log Analytics](log-analytics-overview.md), Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, Görünüm Tasarımcısı ve yordamlar oluşturmak ve özel görünümler düzenlemek için genel bir bakış sunar.

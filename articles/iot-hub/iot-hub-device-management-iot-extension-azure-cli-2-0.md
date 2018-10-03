@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: e36b8a680f0dc5bf6b438ab00620d4f2a5b9770c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c5d4299d2d391a25bfab579f5f78da3718afc24c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980602"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043017"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>IOT uzantısı, Azure CLI için Azure IOT Hub cihaz yönetimi için kullanın.
 
@@ -27,8 +27,8 @@ ms.locfileid: "46980602"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Yönetim seçeneği          | Görev                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Yönetim seçeneği          | Görev  |
+|----------------------------|-----------|
 | Doğrudan yöntemler             | Başlatma veya ileti göndermek ya da cihazın yeniden başlatılması durdurma gibi davranacak bir cihaz olun.                                        |
 | Çiftinin istenen özelliklerini    | Bir cihaz için yeşil bir LED ayarlama veya telemetri gönderme aralığı 30 dakika gibi bazı durumların yerleştirin.         |
 | İkiz bildirilen özellikler   | Bir cihaz bildirilen durumunu alın. Örneğin, cihaz LED artık yanıp sönen bildirir.                                    |
@@ -49,17 +49,19 @@ Azure CLI ve IOT uzantısını Azure CLI için çeşitli yönetim seçenekler il
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
-- Öğretici [Cihazınızı ayarlama](iot-hub-raspberry-pi-kit-node-get-started.md) tamamlandı, aşağıdaki gereksinimleri ele alınmaktadır:
+* Bu öğreticiyi tamamlamak [Cihazınızı ayarlama](iot-hub-raspberry-pi-kit-node-get-started.md) aşağıdaki gereksinimleri ele alınmaktadır:
+
   - Etkin bir Azure aboneliği.
   - Azure IOT hub, aboneliğiniz altında.
   - Azure IOT hub'ınıza ileti gönderen bir istemci uygulaması.
 
-- Cihazınız, Bu öğretici sırasında istemci uygulaması ile çalıştığından emin olun.
+* Cihazınız, Bu öğretici sırasında istemci uygulaması ile çalıştığından emin olun.
 
-- [Python 2.7x veya Python 3.x](https://www.python.org/downloads/)
-- Azure CLI. Yüklemeniz gerekiyorsa bkz [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). En az 2.0.24 Azure CLI sürümünüzü olmalıdır veya üzeri. Doğrulamak için `az –version` kullanın. 
-- IOT uzantısını yükleyin. En basit yol `az extension add --name azure-cli-iot-ext` komutunu çalıştırmaktır. [IoT uzantısı benioku](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) dosyası, uzantıyı yüklemenin birkaç yolunu açıklar.
+* [Python 2.7x veya Python 3.x](https://www.python.org/downloads/)
 
+* Azure CLI. Yüklemeniz gerekiyorsa bkz [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). En az 2.0.24 Azure CLI sürümünüzü olmalıdır veya üzeri. Doğrulamak için `az –version` kullanın. 
+
+* IOT uzantısını yükleyin. En basit yol `az extension add --name azure-cli-iot-ext` komutunu çalıştırmaktır. [IoT uzantısı benioku](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) dosyası, uzantıyı yüklemenin birkaç yolunu açıklar.
 
 ## <a name="log-in-to-your-azure-account"></a>Azure hesabınızda oturum açma
 
@@ -72,7 +74,10 @@ az login
 ## <a name="direct-methods"></a>Doğrudan yöntemler
 
 ```bash
-az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
+az iot hub invoke-device-method --device-id <your device id> \
+  --hub-name <your hub name> \
+  --method-name <the method name> \
+  --method-payload <the method payload>
 ```
 
 ## <a name="device-twin-desired-properties"></a>Cihaz çiftinin istenen özelliklerini
@@ -80,7 +85,8 @@ az iot hub invoke-device-method --device-id <your device id> --hub-name <your hu
 İstenen özellik aralığı ayarlamak aşağıdaki komutu çalıştırarak 3000 =:
 
 ```bash
-az iot hub device-twin update -n <your hub name> -d <your device id> --set properties.desired.interval = 3000
+az iot hub device-twin update -n <your hub name> \
+  -d <your device id> --set properties.desired.interval = 3000
 ```
 
 Bu özellik, cihazınızın okuyabilirsiniz.
@@ -106,7 +112,10 @@ az iot hub device-twin show --hub-name <your hub name> --device-id <your device 
 Bir alan rolünü ekleyin aşağıdaki komutu çalıştırarak sıcaklık ve nem cihaza =:
 
 ```bash
-az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
+az iot hub device-twin update \
+  --hub-name <your hub name> \
+  --device-id <your device id> \
+  --set tags = '{"role":"temperature&humidity"}}'
 ```
 
 ## <a name="device-twin-queries"></a>Cihaz çifti sorguları
@@ -114,13 +123,15 @@ az iot hub device-twin update --hub-name <your hub name> --device-id <your devic
 Sorgu rolü bir etikete sahip cihazları aşağıdaki komutu çalıştırarak 'sıcaklık ve nem' =:
 
 ```bash
-az iot hub query --hub-name <your hub name> --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
+az iot hub query --hub-name <your hub name> \
+  --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
 Bir etiketi rolünün olanlar dışında tüm cihazlar sorgu aşağıdaki komutu çalıştırarak 'sıcaklık ve nem' =:
 
 ```bash
-az iot hub query --hub-name <your hub name> --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
+az iot hub query --hub-name <your hub name> \
+  --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ab759d731f8bac674435e48b0f7af67331ce03d2
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 6fcf3087feb7f208ea46d0e08824e965160a61d4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160460"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236459"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure kaynak grafik sorgu dilini anlama
 
@@ -35,7 +35,7 @@ Kaynak Graph'te desteklenen tablosal işleçlerin listesi aşağıda verilmişti
 - [Örnek](/azure/kusto/query/sampleoperator)
 - [örnek farklı](/azure/kusto/query/sampledistinctoperator)
 - [Sıralama ölçütü](/azure/kusto/query/sortoperator)
-- [Özetleme](/azure/kusto/query/summerizeoperator)
+- [Özetleme](/azure/kusto/query/summarizeoperator)
 - [sınav zamanı](/azure/kusto/query/takeoperator)
 - [Sayfanın Üstü](/azure/kusto/query/topoperator)
 - [üst iç içe geçmiş](/azure/kusto/query/topnestedoperator)

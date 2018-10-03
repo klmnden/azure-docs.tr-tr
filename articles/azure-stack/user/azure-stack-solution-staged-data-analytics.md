@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/02/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b704db0b79d056f5c7081d3fed117e1d1f22b336
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978837"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237917"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile hazırlanmış veri analizi çözümü oluşturma 
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Çoklu tesis kuruluşların taleplerini karşılamak üzere hem şirket içi hem de genel bulut ortamları kullanmayı öğrenin. Azure Stack, toplama, işleme, depolama ve özellikle güvenlik, gizlilik, şirket ilkesi ve Mevzuat gereklilikleri konumlar arasında farklılık gösterebilir, yerel ve uzak veri dağıtmak için hızlı, güvenli ve esnek bir çözüm sunar ve Kullanıcılar.
+Çoklu tesis kuruluşların taleplerini karşılamak üzere hem şirket içi hem de genel bulut ortamları kullanmayı öğrenin. Azure Stack toplama, işleme, depolama ve özellikle güvenlik, gizlilik, şirket ilkesi ve Mevzuat gereklilikleri konumlar arasında farklılık gösterebilir, yerel ve uzak veri dağıtmak için hızlı, güvenli ve esnek bir çözüm sunar. ve kullanıcılar.
 
 Bu düzende, müşterilerinizin noktasında koleksiyonu gerekir ve böylece hızlı kararlar hale getirilebilir veri topluyoruz. Genellikle bu veri toplama, Internet erişimi oluşur. Bağlantı kurulduğunda verilere ek Öngörüler elde etmek için bir kaynak kullanımı yoğun çözümlemesi gerekebilir. Genel bulut çok geç veya kullanılabilir olduğunda yine de verileri analiz edebilirsiniz.
 
-Bu öğreticide, bir örnek ortama oluşturacaksınız:
+Bu öğreticide, bir örnek ortamı için derleme:
 
 > [!div class="checklist"]
 > - Ham veri depolama blob'u oluşturun.
@@ -55,7 +55,7 @@ Bazı hazırlık, bu çözümü oluşturmak için gereklidir:
 
 -   [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/)'ni indirip yükleme.
 
--   Bu işlevler tarafından işlenen veri sağlanmadı. Verileri, oluşturulan ve Azure Stack depolama blob kapsayıcısını karşıya yüklemek kullanılabilir olmalıdır.
+-   İşlevler tarafından işlenmek üzere kendi veri sağlamanız gerekir. Verileri, oluşturulan ve Azure Stack depolama blob kapsayıcısını karşıya yüklemek kullanılabilir olmalıdır.
 
 ## <a name="issues-and-considerations"></a>Sorunlar ve Dikkat Edilmesi Gerekenler
 
@@ -123,17 +123,11 @@ Depolama hesabı ve blob kapsayıcısı, makine ve çalışan etkinlik, tesis ve
 
 Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stack işlevi oluşturun.
 
-1.  Üzerine tıklayarak yeni bir işlev oluşturma **işlevleri**, ardından **+ yeni işlev** düğmesi.
+### <a name="create-the-azure-stack-function-app"></a>Azure Stack işlev uygulaması oluşturma
 
-    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image3.png)
-
-2.  Seçin **Zamanlayıcı tetikleyicisi**.
-
-    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image4.png)
-
-3.  Seçin **C\#**  dil ve işlev adı: `upload-to-azure` zamanlamasını ayarlamak `0 0 * * * *`, hangi CRON içinde bir kez bir saat gösterimidir.
-
-    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image5.png)
+1. Oturum [Azure Stack portalı](https://portal.local.azurestack.external).
+2. **Tüm Hizmetler**’i seçin.
+3. Seçin **işlev uygulamaları** içinde **Web + mobil** grubu.
 
 4.  Görüntünün altındaki tabloda belirtilen ayarları kullanarak bir işlev uygulaması oluşturun.
 
@@ -148,7 +142,7 @@ Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stac
     | Tüketim planı | Kaynakların işlev uygulamanıza nasıl ayrılacağını tanımlayan barındırma planı. ' De varsayılan tüketim planı, kaynaklar olarak işlevlerin taleplerine göre dinamik olarak eklenir. Bu sunucusuz barındırmada, yalnızca işlevlerinizin çalıştığı süre için ödeme yaparsınız. |  |
     | Konum | Size en yakın bölge | İşlevleri erişiminizi erişeceği diğer hizmetlere ya da size yakın bir bölge seçin. |
     | **Depolama hesabı** |  |  |
-    | \<Yukarıda oluşturulan depolama hesabı > | İşlev uygulamanız tarafından kullanılan yeni depolama hesabının adı. Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir. Var olan bir hesabı da kullanabilirsiniz. |  |
+    | \<Yukarıda oluşturulan depolama hesabı > | İşlev uygulamanız tarafından kullanılan yeni depolama hesabının adı. Depolama hesabı adları 3 ila 24 karakter uzunluğunda olmalıdır. Ad yalnızca sayılar ve küçük harfler kullanabilirsiniz. Var olan bir hesabı da kullanabilirsiniz. |  |
 
     **Örnek:**
 
@@ -164,13 +158,25 @@ Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stac
 
 ![İşlev uygulaması başarıyla oluşturuldu.](media\azure-stack-solution-staged-data-analytics\image8.png)
 
+### <a name="add-a-function-to-the-azure-stack-function-app"></a>Azure Stack işlev uygulamasına bir işlev Ekle
+
+1.  Üzerine tıklayarak yeni bir işlev oluşturma **işlevleri**, ardından **+ yeni işlev** düğmesi.
+
+    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image3.png)
+
+2.  Seçin **Zamanlayıcı tetikleyicisi**.
+
+    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image4.png)
+
+3.  Seçin **C\#**  dil ve işlev adı: `upload-to-azure` zamanlamasını ayarlamak `0 0 * * * *`, hangi CRON içinde bir kez bir saat gösterimidir.
+
+    ![Alternatif metin](media\azure-stack-solution-staged-data-analytics\image5.png)
+
 ## <a name="create-a-blob-storage-triggered-function"></a>Blob depolama ile tetiklenen bir işlev oluşturma
 
-1.  İşlev uygulaması'nı genişletin ve seçin **+** düğmesinin yanındaki **işlevleri**. Bu işlev uygulamasına ilk işlev ise, seçin **özel işlev**. Böylece işlev şablonlarının tamamı görüntülenir.
+1.  İşlev uygulaması'nı genişletin ve seçin **+** düğmesinin yanındaki **işlevleri**.
 
-  ![Azure portalındaki İşlevler hızlı başlangıç sayfası](media\azure-stack-solution-staged-data-analytics\image9.png)
-
-2.  Arama alanına blob yazın ve ardından Blob Depolama tetikleyici şablonunuz için istediğiniz dili seçin.
+2.  Arama alanına yazın `blob` için istediğiniz dili seçin **Blob tetikleyicisi** şablonu.
 
   ![Blob depolama tetikleyici şablonunu seçin.](media\azure-stack-solution-staged-data-analytics\image10.png)
 

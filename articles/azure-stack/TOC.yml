@@ -7,6 +7,8 @@ items:
     href: azure-stack-poc.md
   - name: Sürüm notları
     items:
+    - name: 1809 güncelleştirme
+      href: azure-stack-update-1809.md
     - name: Son güncelleştirmeler
       href: azure-stack-servicing-policy.md#update-package-release-cadence
     - name: 1808 güncelleştirme
@@ -15,8 +17,6 @@ items:
       href: azure-stack-update-1807.md
     - name: 1805 güncelleştirme
       href: azure-stack-update-1805.md
-    - name: 1804 güncelleştirme
-      href: azure-stack-update-1804.md
 - name: Hızlı Başlangıçlar
   items:
   - name: Azure Stack değerlendirme
@@ -61,7 +61,7 @@ items:
         href: azure-stack-border-connectivity.md
       - name: DNS tümleştirme
         href: azure-stack-integrate-dns.md
-      - name: Güvenlik Duvarı tümleştirmesi
+      - name: Güvenlik duvarı tümleştirmesi
         href: azure-stack-firewall.md
         items:
         - name: Uç noktalarını yayımlama
@@ -382,9 +382,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Eğitim ve sertifika
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 434ca3b33d74e95003daba04614b47b2fcce318a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: be115bf45412a7ca6dd384c40cda458f0fe5320d
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391981"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239464"

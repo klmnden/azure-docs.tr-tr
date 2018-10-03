@@ -4,17 +4,16 @@ description: Oluşturma ve PostgreSQL sanal ağ hizmet uç noktaları ve Azure p
 services: postgresql
 author: mbolz
 ms.author: mbolz
-manager: kfile
-editor: jasonwhowell
-ms.service: postgresql-database
-ms.topic: article
+ms.reviewer: jasonwhowell
+ms.service: postgresql
+ms.topic: conceptual
 ms.date: 08/15/2018
-ms.openlocfilehash: af5df507bd7a825ddfaaa7518691cb5fbec34d47
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 3884b594c903c234ce83c0752f92ddc34b24cd5a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056557"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239328"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak PostgreSQL sanal ağ hizmet uç noktaları ve sanal ağ kuralları için Azure veritabanı yönetme
 Sanal ağ (VNet) Hizmetleri uç noktaları ve kuralları PostgreSQL için Azure veritabanı sunucunuza sanal ağ özel adres alanını genişletin. Sınırlamalar da dahil olmak üzere PostgreSQL sanal ağ hizmet uç noktaları için Azure veritabanı'nın genel bir bakış için bkz. [PostgreSQL sunucusu sanal ağ hizmet uç noktaları için Azure veritabanı](concepts-data-access-and-security-vnet.md). Sanal ağ hizmet uç noktaları, PostgreSQL için Azure veritabanı için desteklenen tüm bölgelerde kullanılabilir.

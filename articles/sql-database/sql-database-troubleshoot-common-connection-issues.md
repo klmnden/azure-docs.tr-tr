@@ -12,12 +12,12 @@ ms.author: daleche
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 276a2d6d717497538a6633a9b0926bb89b9e875c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a34745c5586fa90d3e167bb3be22e93dfa83b7af
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161106"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041739"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Azure SQL veritabanı bağlantı sorunlarını giderme
 Azure SQL veritabanı bağlantısı başarısız olduğunda, aldığınız [hata iletileri](sql-database-develop-error-messages.md). Bu makalede, Azure SQL veritabanı bağlantısı sorunları gidermenize yardımcı olan merkezi bir konudur. Tanıttığı [yaygın nedenleri](#cause) bağlantı sorunları, önerir [sorun giderme aracını](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) kimlik sorun yardımcı olur ve çözmek için sorun giderme adımlarını sağlar [geçici hataları](#troubleshoot-transient-errors) ve [kalıcı veya geçici olmayan hatalar](#troubleshoot-persistent-errors). 
@@ -62,7 +62,7 @@ Azure veritabanı yüklenirken bu hata oluşur. taşınmış (veya yeniden yapı
 
 1. Denetleme [Microsoft Azure hizmet Panosu](https://azure.microsoft.com/status) aşamasında hataları bildirilen uygulama tarafından süre boyunca gerçekleşen bilinen kesintiler için.
 2. Azure SQL veritabanı düzenli aralıklarla yeniden yapılandırma olayları beklediğiniz ve uygulama gibi bir bulut hizmetine bağlanan uygulamaları, uygulama hataları olarak kullanıcılara kavrayış yerine bu hataları işlemek için mantığı yeniden deneyin. Gözden geçirme [geçici hatalar](sql-database-connectivity-issues.md) bölümü ve en iyi yöntemler ve tasarım yönergeleri [SQL veritabanı geliştirmeye genel bakış](sql-database-develop-overview.md) daha fazla bilgi ve genel yeniden deneme stratejileri. Ardından, kod örnekleri görmek [SQL veritabanı ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md) özellikleri için.
-3. Bir veritabanı, kaynak sınırları yaklaştığında, geçici bir bağlantı sorunu olarak görünebilir. Bkz: [kaynak sınırları](sql-database-resource-limits.md).
+3. Bir veritabanı, kaynak sınırları yaklaştığında, geçici bir bağlantı sorunu olarak görünebilir. Bkz: [kaynak sınırları](sql-database-resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached).
 4. Bağlantı sorunları devam ya da uygulamanızın karşılaştığı hata süresi 60 saniye aşarsa veya belirli bir günde birden çok defa geçmelerine hata görürseniz Azure destek isteği seçerek dosya **alma desteği**üzerinde [Azure Destek](https://azure.microsoft.com/support/options) site.
 
 ## <a name="troubleshoot-persistent-errors"></a>Kalıcı hatalarını giderme

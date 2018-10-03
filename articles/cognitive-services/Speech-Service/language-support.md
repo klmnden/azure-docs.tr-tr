@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e8d84d83636bc8bed287d1fa68d36ce1c2ea3d58
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 9a867289cffa17030e397ef170e9055451057410
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018562"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237747"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Konuşma hizmeti API'sini dil ve bölge desteği
 
@@ -31,16 +31,16 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı
  CA-ES | Katalanca (İspanya) | Hayır | Hayır | Hayır
  v-DK | Danca (Danimarka) | Hayır | Hayır | Hayır
  de-DE | Almanca (Almanya) | Evet | Evet | Hayır
- tr-AU | İngilizce (Avustralya) | Evet | Evet | Evet
- CA tr | İngilizce (Kanada) | Evet | Evet | Evet
- en-GB | İngilizce (Birleşik Krallık) | Evet | Evet | Evet
- tr-giriş | English (India) | Hayır | Evet | Evet
- tr NZ | İngilizce (Yeni Zelanda) | Evet | Evet | Evet  
+ tr-AU | İngilizce (Avustralya) | Hayır | Evet | Evet
+ CA tr | İngilizce (Kanada) | Hayır | Evet | Evet
+ en-GB | İngilizce (Birleşik Krallık) | Hayır | Evet | Evet
+ tr-giriş | English (India) | Evet | Evet | Evet
+ tr NZ | İngilizce (Yeni Zelanda) | Hayır | Evet | Evet  
  tr-TR | İngilizce (ABD) | Evet | Evet | Evet
- es-ES | İspanyolca (İspanya) | Evet | Evet | Hayır
- es-MX | İspanyolca (Meksika) | Evet | Evet | Hayır
+ es-ES | İspanyolca (İspanya) | Hayır | Evet | Hayır
+ es-MX | İspanyolca (Meksika) | Hayır | Evet | Hayır
  FI-FI | Fince (Finlandiya) | Hayır | Hayır | Hayır
- fr-CA | Fransızca (Kanada) | Evet | Evet | Hayır
+ fr-CA | Fransızca (Kanada) | Hayır | Evet | Hayır
  fr-FR | Fransızca (Fransa) | Evet | Evet | Hayır
  yüksek giriş | Hintçe (Hindistan) | Hayır | Evet | Hayır
  İt-IT | İtalyanca (İtalya) | Evet | Evet | Hayır
@@ -51,7 +51,7 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı
  pl-PL | Lehçe (Polonya) | Hayır | Hayır | Hayır
  pt-BR | Portekizce (Brezilya) | Hayır | Evet | Hayır
  pt-PT | Portekizce (Portekiz) | Hayır | Evet | Hayır
- ru-RU | Rusça (Rusya) | Hayır | Evet | Hayır
+ ru-RU | Rusça (Rusya) | Evet | Evet | Hayır
  sv-SE | İsveççe (İsveç) | Hayır | Hayır | Hayır
  zh-CN | Çince (Basitleştirilmiş Mandarin) | Evet | Evet | Hayır
  zh-HK | Çince (Mandarin, Geleneksel) | Hayır | Evet | Hayır

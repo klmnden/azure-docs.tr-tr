@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b6708dac548db9e11d1092a6b84083d057401176
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221160"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237679"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -45,7 +45,7 @@ Ardından, SQL veritabanı yüksek kullanılabilirlik mimarisi ile gibi işlenem
  - [Yerleşik otomatik yedeklerinde](sql-database-automated-backups.md) ve [geri yükleme noktası](sql-database-recovery-using-backups.md#point-in-time-restore) son 35 gün içindeki belirli bir noktada tam veritabanını geri yüklemenize olanak sağlar.
  - Yapabilecekleriniz [silinen bir veritabanını geri yükleme](sql-database-recovery-using-backups.md#deleted-database-restore) başlangıçtan silinmiş varsa noktasına **mantıksal sunucu silinmediğini**.
  - [Uzun süreli yedek saklama](sql-database-long-term-retention.md) yedeklemeleri 10 yıla kadar açık kalmasını sağlar.
- - [Coğrafi çoğaltma](sql-database-geo-replication-overview.md) bir veri merkezi ölçek kesinti olması durumunda hızlı bir olağanüstü durum kurtarma işlemi yapmasına olanak sağlar.
+ - [Otomatik Yük devretme grubu](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) uygulamayı otomatik olarak bir veri merkezi ölçek kesinti durumunda kurtarma sağlar.
 
 Her özellik, tahmini kurtarma süresi (ERT) ve son işlemler için olası veri kaybı açısından farklı özelliklere sahiptir. Bu seçenekleri kavradıktan sonra aralarından birini seçebilir ve çoğu senaryoda farklı durumlar için birden fazlasını birlikte kullanabilirsiniz. İş sürekliliği planınızı geliştirirken, uygulamanın kesintiden sonra tamamen kurtarır önce kabul edilebilen maksimum süre anlamanız gerekir. Uygulamanın tamamen kurtarmak için gereken süre, Kurtarma süresi hedefi (RTO) bilinir. Ayrıca uygulama edilebilecek son veri güncelleştirmelerinin (zaman aralığı) maksimum süreyi anlamanız gereken kesintiden sonra kurtarılırken. Zaman dilimi kaybetmeyi göze güncelleştirmeleri, kurtarma noktası hedefi (RPO) bilinir.
 
@@ -54,9 +54,8 @@ Aşağıdaki tabloda, her hizmet katmanı için üç yaygın senaryo için ERT v
 | Özellik | Temel | Standart | Premium  | Genel Amaçlı | İş Açısından Kritik
 | --- | --- | --- | --- |--- |--- |
 | Yedekten belirli bir noktaya geri yükleme |Herhangi bir yedi gün içinde nokta geri yükleme |35 gün içinde herhangi bir geri yükleme noktasına |35 gün içinde herhangi bir geri yükleme noktasına |Yapılandırılan süre (en fazla 35 gün) içinde herhangi bir geri yükleme noktası|Yapılandırılan süre (en fazla 35 gün) içinde herhangi bir geri yükleme noktası|
-| Coğrafi çoğaltmalı yedeklerden coğrafi geri yükleme |ERT < 12 sa, RPO < 1 saat |ERT < 12 sa, RPO < 1 saat |ERT < 12 sa, RPO < 1 saat |ERT < 12 sa, RPO < 1 saat|ERT < 12 sa, RPO < 1 saat|
-| Uzun süreli saklama SQL geri yükleme |ERT < 12 sa, RPO < 1 hft. |ERT < 12 sa, RPO < 1 hft. |ERT < 12 sa, RPO < 1 hft. |ERT < 12 sa, RPO < 1 hft.|ERT < 12 sa, RPO < 1 hft.|
-| Etkin coğrafi çoğaltma |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 s |ERT < 30 sn., RPO < 5 s |ERT < 30 sn., RPO < 5 s|ERT < 30 sn., RPO < 5 s|
+| Coğrafi çoğaltmalı yedeklerden coğrafi geri yükleme |ERT < 12 sa.<br> RPO < 1 saat |ERT < 12 sa.<br>RPO < 1 saat |ERT < 12 sa.<br>RPO < 1 saat |ERT < 12 sa.<br>RPO < 1 saat|ERT < 12 sa.<br>RPO < 1 saat|
+| Otomatik Yük devretme grupları |RTO 1 saat =<br>RPO < 5 sn |RTO 1 saat =<br>RPO < 5 s |RTO 1 saat =<br>RPO < 5 s |RTO 1 saat =<br>RPO < 5 s|RTO 1 saat =<br>RPO < 5 s|
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Sunucunun var olan bir veritabanını kurtarma
 
@@ -73,7 +72,8 @@ Otomatik yedekleri kullanın ve [-belirli bir noktaya geri yükleme](sql-databas
 * Veri değişiklik oranı (bir saat içinde gerçekleştirilen işlem sayısı) düşükse ve bir saatlik değişiklik kaybı kabul edilebilirse.
 * Maliyetler önemliyse.
 
-Daha hızlı veri kurtarmaya ihtiyacınız varsa, [etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md) (aşağıda açıklanmıştır). 35 günden daha uzun bir süre veri kurtarma, kullanmak gerekiyorsa [uzun süreli saklama](sql-database-long-term-retention.md). 
+Daha hızlı veri kurtarmaya ihtiyacınız varsa, [yük devretme grupları](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
+) (aşağıda açıklanmıştır). 35 günden daha uzun bir süre veri kurtarma, kullanmak gerekiyorsa [uzun süreli saklama](sql-database-long-term-retention.md). 
 
 ## <a name="recover-a-database-to-another-region"></a>Bir veritabanını başka bir bölgeye kurtarma
 <!-- Explain this scenario -->
@@ -82,9 +82,7 @@ Daha hızlı veri kurtarmaya ihtiyacınız varsa, [etkin coğrafi çoğaltma](sq
 
 * Seçeneklerden biri, veri merkezi kesintisi sona erdiğinde veritabanınızın çevrimdışı olmasını beklemektir. Bu, veritabanının çevrimdışı olmasının kabul edilebildiği uygulamalar için geçerlidir. Örnek olarak üzerinde sürekli çalışma yapmadığınız bir geliştirme projesi veya ücretsiz deneme sürümü verilebilir. Bir veri merkezinde bir kesinti varsa, böylece veritabanınızı bir süredir ihtiyacınız yoksa bu seçenek yalnızca çalışır, kesinti ne kadar sürebilecek, bilmezsiniz.
 * Bir veritabanını kullanarak herhangi bir Azure bölgesi içinde herhangi bir sunucuda geri yüklemek için başka bir seçenektir [coğrafi olarak yedekli veritabanı yedeklemeleri](sql-database-recovery-using-backups.md#geo-restore) (coğrafi geri yükleme). Coğrafi geri yükleme, coğrafi olarak yedekli bir yedeklemesini, kaynağı olarak kullanır ve veritabanı veya veri merkezinde bir kesinti nedeniyle erişilemez durumda olsa bile bir veritabanını kurtarmak için kullanılabilir.
-* Son olarak, başka bir veri bölgesi (bir yük devretme olarak da bilinir) duruma ve uygulamaları etkin coğrafi çoğaltma kullanıyorsanız, yükseltilen birincil veritabanına bağlanacak şekilde yapılandırmak için bir ikincil hızlı bir şekilde yükseltebilirsiniz. Az miktarda zaman uyumsuz çoğaltma niteliği nedeniyle son işlemler için veri kaybı olabilir. Otomatik Yük devretme grupları kullanarak, olası veri kaybını en aza indirmek için yük devretme İlkesi özelleştirebilirsiniz. Tüm durumlarda kullanıcılar kısa süreli bir kesinti yaşar ve yeniden bağlantı kurmaları gerekir. Veritabanı kurtarma yedeklemelerinden saat sürer ancak yük devretme yalnızca birkaç saniye sürer.
-
-Başka bir bölgeye yük devretmek için kullanabileceğiniz [etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md) seçtiğiniz bölgelerde en fazla dört okunabilir ikincil veritabanı bir veritabanı yapılandırmak için. Bu ikincil veritabanları, birincil veritabanıyla zaman uyumsuz çoğaltma sistemi kullanılarak eşitlenir. 
+* Son olarak, yapılandırdıysanız kesintiden hızla kurtarabilirsiniz bir [otomatik yük devretme grubu](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) veritabanını veya veritabanlarını için. Otomatik veya el ile yük devretme kullanmak için yük devretme İlkesi özelleştirebilirsiniz. Yük devretme kendisi yalnızca birkaç saniye sürer ancak hizmet etkinleştirmek için en az 1 saat sürer. Bu, yük devretme kesinti ölçek tarafından karardır emin olmak gereklidir. Ayrıca, yük devretme zaman uyumsuz çoğaltma niteliği nedeniyle küçük veri kaybına neden olabilir. Ayrıntılar için bu makalenin otomatik yük devretme RTO ve RPO tabloya bakın.   
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -94,12 +92,12 @@ Başka bir bölgeye yük devretmek için kullanabileceğiniz [etkin coğrafi ço
 > Etkin coğrafi çoğaltma ve otomatik yük devretme grupları kullanmak için abonelik sahibi olmanız veya SQL Server'da yönetici izinlerine sahip olmalıdır. Yapılandırma ve Azure'ı kullanmaya üzerinden başarısız portal, PowerShell veya Azure aboneliği izinleri veya SQL Server izinleriyle Transact-SQL kullanarak bir REST API.
 > 
 
-Bu özellik, bir veri merkezi kesintisi yaşanırsa veya uygulama yükseltme sırasında iş kesintiye karşı korumak için kullanılır. Etkinleştirmek için otomatik ve şeffaf yük devretme, düzenleme coğrafi olarak çoğaltılmış veritabanlarınızı kullanarak gruplar halinde [otomatik yük devretme grubu](sql-database-geo-replication-overview.md) SQL veritabanı özelliğidir. Uygulamanız aşağıdaki ölçütleri karşılıyorsa etkin coğrafi çoğaltma ve otomatik yük devretme grupları kullanın:
+Uygulamanız aşağıdaki ölçütleri karşılıyorsa etkin otomatik yük devretme grupları kullanın:
 
 * Görev açısından kritikse.
-* 24 saat veya üzeri kesinti süresine izin vermeyen hizmet düzeyi sözleşmesine (SLA) sahipse.
+* 12 saat veya daha fazla kapalı kalma süresi için izin vermeyen bir hizmet düzeyi sözleşmesi (SLA) sahiptir.
 * Kesinti süresi mali yükümlülük neden olabilir.
-* Veri değişiklik oranı yüksekse ve bir saatlik değişiklik kaybı kabul edilebilir değilse.
+* Veri değişiklik oranı yüksek olan ve 1 saatlik veri kaybı kabul edilebilir değil.
 * Etkin coğrafi çoğaltma ek maliyeti, olası mali yükümlülükten veya ilgili iş kaybından daha düşükse.
 
 Eylem gerçekleştirmeniz ne zaman bunu, kurtarılır ne kadar sürdüğü ve ücretler ne kadar veri kaybını nasıl, uygulamanızda bu iş sürekliliği özelliklerini kullanma şeklinize bağlıdır. Aslında, veritabanı yedeklemeleri ve uygulama gereksinimlerinize bağlı olarak active geografickou replikaci kullanmayı tercih edebilirsiniz. Uygulama tasarımı noktaları hakkında bağımsız veritabanları ve elastik havuzlar için bu iş sürekliliği özelliklerini kullanan bir tartışma için bkz [bulutta olağanüstü durum kurtarma için uygulama tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md) ve [esnek Havuz olağanüstü durum kurtarma stratejileri](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
@@ -136,6 +134,11 @@ Bu iki kurtarma sisteminden herhangi biriyle gerçekleştirilen kurtarma işlemi
 * Uygun giriş bilgilerinin ve ana veritabanı düzeyi izinlerin mevcut olduğunu doğrulama ([kapsanan kullanıcıları](https://msdn.microsoft.com/library/ff929188.aspx) da kullanabilirsiniz)
 * Denetimi uygun şekilde yapılandırma
 * Uyarıları uygun şekilde yapılandırma
+
+> [!NOTE]
+> Bir yük devretme grubu kullanıyorsanız ve okuma-yazma lstener kullanan veritabanına bağlanmak, yeniden yönlendirme yük devretmeden sonra uygulamaya otomatik olarak ve şeffaf bir şekilde gerçekleşir.  
+>
+>
 
 ## <a name="upgrade-an-application-with-minimal-downtime"></a>Bir uygulamayı en az kesinti süresiyle yükseltme
 Bazen bir uygulama bir uygulamanın yükseltme gibi planlı bakım nedeniyle çevrimdışına alınmalıdır. [Uygulama yükseltmelerini yönetme](sql-database-manage-application-rolling-upgrade.md) etkin coğrafi çoğaltma, yükseltme sırasında kapalı kalma süresini en aza indirmek ve bir sorun yaşanırsa kurtarma yolu sağlama amacıyla bulut uygulamanızın sıralı yükseltmelerini etkinleştirmek için nasıl kullanılacağını açıklar. 

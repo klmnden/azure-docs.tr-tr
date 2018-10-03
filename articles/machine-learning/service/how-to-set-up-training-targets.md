@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 65134d78fb011ae707c0629bef1ebb1a66bd8ec2
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 99d85c769b876baa360628bfc20ad5b1563a0a3f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018511"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237339"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Seçme ve modelinizi eğitmek için işlem hedefi kullanma
 
@@ -27,7 +27,7 @@ Makinenizde yerel çalışmalar başlayın ve ardından GPU veya Azure Batch AI 
 
 ## <a name="supported-compute-targets"></a>Desteklenen işlem hedefleri
 
-Azure Machine Learning, aşağıdaki işlem hedeflerini destekler:
+Azure Machine Learning hizmeti, aşağıdaki işlem hedeflerini destekler:
 
 |Hedef işlem| GPU hızlandırma | Otomatik hiper parametre ayarı | Otomatik model seçimi | İşlem hatlarında kullanılabilir|
 |----|:----:|:----:|:----:|:----:|
@@ -41,8 +41,8 @@ __[Azure Container Instances'a (ACI)](#aci)__  modelleri eğitmek için de kulla
 İşlem hedefler arasında önemli farkları vardır:
 * __GPU hızlandırma__: GPU'ları Azure Batch AI ve veri bilimi sanal makinesi ile kullanılabilir. Donanım, sürücüler ve yüklenen çerçeveleri bağlı olarak, yerel bilgisayarınızda bir GPU erişimi olabilir.
 * __Hiper parametre ayarı otomatik__: Azure Machine Learning, Hiper parametre otomatik iyileştirme modeliniz için en iyi hiperparametreleri bulmanıza yardımcı olur.
-* __Model seçimi otomatik__: Azure Machine Learning akıllı bir şekilde önerilir seçimi algoritması ve hiper parametre bir modeli oluştururken. Otomatik model seçimi farklı birleşimleri el ile çalışılırken daha hızlı, yüksek kaliteli modeline yakınsama yardımcı olur. Daha fazla bilgi için [Öğreticisi: otomatik olarak bir Azure Machine Learning otomatik sınıflandırma modeli eğitme](tutorial-auto-train-models.md) belge.
-* __İşlem hatları__: Azure Machine Learning, eğitim ve dağıtım işlem hattı içine gibi farklı görevler birleştirmenize olanak tanır. İşlem hatları paralel veya sıralı olması ve güvenilir Otomasyon için bir mekanizma sağlar. Daha fazla bilgi için [machine learning işlem hatlarını Azure Machine Learning hizmeti ile derleme](concept-ml-pipelines.md) belge.
+* __Model seçimi otomatik__: Azure Machine Learning hizmeti akıllı bir şekilde önerilir seçimi algoritması ve hiper parametre bir modeli oluştururken. Otomatik model seçimi farklı birleşimleri el ile çalışılırken daha hızlı, yüksek kaliteli modeline yakınsama yardımcı olur. Daha fazla bilgi için [Öğreticisi: otomatik olarak bir Azure Machine Learning otomatik sınıflandırma modeli eğitme](tutorial-auto-train-models.md) belge.
+* __İşlem hatları__: Azure Machine Learning hizmeti, eğitim ve dağıtım işlem hattı içine gibi farklı görevler birleştirmenize olanak sağlar. İşlem hatları paralel veya sıralı olması ve güvenilir Otomasyon için bir mekanizma sağlar. Daha fazla bilgi için [machine learning işlem hatlarını Azure Machine Learning hizmeti ile derleme](concept-ml-pipelines.md) belge.
 
 İşlem hedeflerini oluşturmak için Azure Machine Learning SDK'sı, Azure CLI veya Azure Portalı'nı kullanabilirsiniz. Var olan işlem hedefleri (iliştiriliyor) ekleyerek de kullanabilirsiniz çalışma alanınıza bunları.
 

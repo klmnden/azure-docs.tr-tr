@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d5b01566f672309837f738e185820a0f13eda1c1
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e4e793ac5735f7f3b07d285dea027a8f603b7964
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382263"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237914"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -62,10 +62,7 @@ Bulut uç noktasına bir eşitleme grubunun bir parçası olan bir Azure dosya p
 > Azure dosya eşitleme değişiklikleri Azure dosya paylaşımına doğrudan destekler. Ancak, Azure dosya paylaşımı üzerindeki değişiklikleri öncelikle bir Azure dosya eşitleme değişiklik algılama iş tarafından bulunmaları gerekir. Bir değişiklik algılama işi bulut uç noktası için 24 saatte bir kere başlatılır. Ayrıca, REST protokolü üzerinden bir Azure dosya paylaşımı için yapılan değişiklikler son değiştirilme zamanı SMB güncelleştirmez ve bir değişiklik eşitleme tarafından görülmez. Daha fazla bilgi için [Azure sık sorulan sorular dosyaları](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Bulut katmanlaması 
-Bulut katmanlaması isteğe bağlı bir özelliktir Azure dosya eşitleme'nin, sık kullanılan veya erişilen dosyaları daha fazla Azure dosyaları'na boyutu 64 KiB katmanlı. Bir dosya katmanlı, Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyasını yerel olarak bir işaretçi veya yeniden ayrıştırma noktası ile değiştirir. Yeniden ayrıştırma noktası, Azure dosyaları'nda bir dosyaya bir URL temsil eder. Katmanlanmış bir dosyanın, üçüncü taraf uygulamalarının katmanlı dosyalar belirleyebilmeniz NTFS ayarlanmış "Çevrimdışı" özniteliğine sahip. Bir kullanıcı bir katmanlı dosya açıldığında, Azure dosya eşitleme kullanıcının dosya sisteminde yerel olarak depolanmaz bilmenize gerek olmadan Azure dosyaları dosya verileri sorunsuz bir şekilde çeker. Bu işlev hiyerarşik Depolama Yönetimi (HSM) de denir.
-
-> [!Important]  
-> Bulut katmanlaması desteklenmiyor Windows sistemi birimlerinde sunucu uç noktaları için.
+Bulut katmanlaması olduğundan, sık erişilen dosyaları önbelleğe alınır yerel sunucuda tüm dosyaları Azure İlkesi ayarlarına göre dosyaları katmanlı sırasında Azure dosya eşitleme'nin isteğe bağlı bir özelliktir. Daha fazla bilgi için [anlama bulut Katmanlandırma](storage-sync-cloud-tiering.md).
 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure dosya eşitleme sistem gereksinimleri ve birlikte çalışabilirlik 
 Bu bölümde, Azure dosya eşitleme Aracısı sistem gereksinimleri ve Windows Server özelliklerini ve rollerini ve üçüncü taraf çözümlerle birlikte çalışabilirlik kapsar.

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
-ms.component: na
-ms.openlocfilehash: b7a7e2787128c74cd7d016c01b751d15628fb4b2
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.component: ''
+ms.openlocfilehash: cc7dccd52bf5d3af383f807a5edfcb9c1088c5bf
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182000"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237102"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
@@ -251,7 +251,7 @@ AzureDiagnostics
 ```
 
 > [!NOTE]
-> - Bu uyarıyı ayarlamanın öncesi gereksinimdir izlenen yönetilen örneği olduğunu çözümü etkin ResourceUsageStats günlük akış.
+> - Bu uyarıyı ayarlamanın ön gereksinim izlenen yönetilen örneği çözümü etkin ResourceUsageStats günlük akış sahip olur.
 > - Bu sorgu, bir uyarı kuralı koşul yönetilen örneği'nde var olduğunu belirten sorgudan gelen sonuçlar (> 0 sonuç) varsa bir uyarı ateşlenmesine kurulu olmasını gerektirir. Çıkış depolama yüzdesi tüketim yönetilen örneği ' dir.
 
 ## <a name="next-steps"></a>Sonraki adımlar

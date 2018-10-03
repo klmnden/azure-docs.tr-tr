@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 931e0f2c6be51c78187413d638259237f98bd9b0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: f9a9f3d04a3ee7a2917e04c378af135601f3eaac
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063362"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042063"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL veritabanı'nda otomatik ayarlama
 
@@ -66,12 +66,12 @@ Otomatik ayarlama works genel bir bakış ve tipik kullanım senaryoları için 
 
 Azure SQL veritabanı'nda kullanılabilir otomatik ayarlama seçeneklerini şunlardır:
  1. **CREATE INDEX** -İş yükünüzün performansını artırabilir, dizinler oluşturan ve sorguların performansını iyileştirildiğini otomatik olarak doğrular dizinleri tanımlar.
- 2. **DROP INDEX** -yedekli ve yinelenen dizinleri benzersiz ve uzun süre kullanılmamış dizinleri hariç olmak üzere günlük olarak tanımlar. (> 90 gün). Bu seçenek bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu olmadığını unutmayın.
+ 2. **DROP INDEX** -yedekli ve yinelenen dizinleri benzersiz ve uzun süre kullanılmamış dizinleri hariç olmak üzere günlük olarak tanımlar. (> 90 gün). Lütfen şu anda seçeneği bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu olmadığını unutmayın.
  3. **SON iyi planı ZORLA** -önceki iyi planı yavaştır ve azaltılmış planı yerine bilinen son iyi planı kullanan sorgular yürütme planını kullanarak SQL sorguları tanımlar.
 
 Otomatik ayarlama tanımlayan **CREATE INDEX**, **DROP INDEX**, ve **ZORLA son iyi planı** veritabanınızın performansı iyileştirebilir ve bunları gösterir önerileri [Azure portalında](sql-database-advisor-portal.md)ve bunları üzerinden kullanıma sunan [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) ve [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
-Ya da portalı kullanarak ayar önerileri el ile uygulayabilirsiniz veya otomatik olarak çalışabilen uygulamak için ayar önerileri ayarlama sağlayabilirsiniz. Sistem otonom olarak izin vererek avantajları olduğundan otomatik olarak doğrular böyle bir durumda olduğunu iş yükü performansına olumlu kazanç veya aksi halde bir gerileme, bunu otomatik olarak geri dönecek algılandığında ayar önerileri uygulayın öneri ayarlama. Sıklıkla yürütülen değil önerilerinde tarafından etkilenen sorgular olması durumunda, en fazla 72 doğrulama aşamasını alabileceğine dikkat edin. Tasarım saat. El ile ayarlama uyguladığınızı durumunda öneriler, otomatik performans doğrulama ve ters mekanizmaları kullanılamaz.
+Ya da portalı kullanarak ayar önerileri el ile uygulayabilirsiniz veya otomatik olarak çalışabilen uygulamak için ayar önerileri ayarlama sağlayabilirsiniz. Sistem otonom olarak izin vererek avantajları olduğundan otomatik olarak doğrular böyle bir durumda olduğunu iş yükü performansına olumlu kazanç veya aksi halde bir gerileme, bunu otomatik olarak geri dönecek algılandığında ayar önerileri uygulayın öneri ayarlama. Sıklıkla yürütülen değil önerilerinde tarafından etkilenen sorgular olması durumunda, en fazla 72 doğrulama aşamasını alabileceğine Lütfen dikkat edin. Tasarım saat. El ile ayarlama uyguladığınızı durumunda öneriler, otomatik performans doğrulama ve ters mekanizmaları kullanılamaz.
 
 Otomatik ayarlama seçeneklerini bağımsız olarak etkinleştirilebilir veya veritabanı başına devre dışı veya bunlar mantıksal sunucularda yapılandırılabilir ve sunucudan ayarları devralıyor her bir veritabanına uygulanır. Mantıksal sunucu otomatik ayarlama ayarları için Azure Varsayılanları devralabilir. Şu anda Azure Varsayılanları ayarlandığında FORCE_LAST_GOOD_PLAN etkin CREATE_INDEX etkin ve DROP_INDEX devre dışı bırakıldı.
 

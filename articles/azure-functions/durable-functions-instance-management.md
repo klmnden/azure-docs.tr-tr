@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 70ea13c1badf79c86bed53a34d9036706dbbac6a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c3292651de7fba5a8f442f54f92d25fa6a97fe1a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378165"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238706"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) örneklerini yönetme
 
@@ -60,6 +60,19 @@ module.exports = function (context, input) {
 
     context.done(null);
 };
+```
+Yukarıdaki kod function.json dosyasında bir çıkış bağlaması adıyla "Başlangıç" ve türü olarak "orchestrationClient" olarak tanımladığınız varsayar. Bağlama tanımlanmamışsa, dayanıklı işlevi örneği oluşturulmayacak.
+
+Dayanıklı işlevin çağrılmasına function.json aşağıda açıklandığı gibi düzenleme istemcisi için bir bağlama olması için değiştirilmesi gerekir
+
+```js
+{
+    "bindings": [{
+        "name":"starter",
+        "type":"orchestrationClient",
+        "direction":"out"
+    }]
+}
 ```
 
 > [!NOTE]

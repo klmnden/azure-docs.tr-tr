@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 03d692ddfd6f41fd559e9b921f0214a9cd2ada22
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 20469e127c8e04f4c6418fe28c49b63fc3b363d8
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225234"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239209"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>IOT Edge üzerinde modelleri dağıtmaya hazırlanma
 
@@ -43,7 +43,7 @@ Cihazınızı kaydedemedik ve IOT çalışma zamanı yükleme konusunda bilgi al
 
 ## <a name="register-the-model"></a>Modeli kaydedin
 
-Azure IOT Edge modülleri, kapsayıcı görüntüleri üzerinde temel alır. Modelinizi IOT Edge cihazına dağıtmak için bir Docker görüntüsü oluşturma ve modelinizi bir Azure Machine Learning çalışma alanına kaydetmek için aşağıdaki adımları kullanın. 
+Azure IOT Edge modülleri, kapsayıcı görüntüleri üzerinde temel alır. Modelinizi IOT Edge cihazına dağıtmak için bir Azure Machine Learning hizmeti çalışma alanında, modelinize kaydetmek ve bir Docker görüntüsü oluşturmak için aşağıdaki adımları kullanın. 
 
 > [!IMPORTANT]
 > Bu durumda, Azure Machine Learning çalışma alanınızda zaten kaydedilebilir, modeli eğitmek için kullanılan, 3. adımına geçin.
@@ -122,7 +122,7 @@ Azure IOT, kapsayıcı kayıt defterine docker görüntüleri depolayan Azure Ma
 
 1. [Azure Portal](https://portal.azure.com/signin/index)’da oturum açın.
 
-1. Azure Machine Learning çalışma alanınıza gidin ve seçin __genel bakış__. Kapsayıcı kayıt defteri ayarları'na gidin, seçin __kayıt defteri__ bağlantı.
+1. Azure Machine Learning hizmeti çalışma alanınıza gidin ve seçin __genel bakış__. Kapsayıcı kayıt defteri ayarları'na gidin, seçin __kayıt defteri__ bağlantı.
 
     ![Bir kapsayıcı kayıt defteri girdisinin görüntüsü](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
 

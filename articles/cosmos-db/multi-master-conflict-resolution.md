@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5feefdb8fe6204bc8ef42a5e65bf1e30354e0cf9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 39fd393e78a2b66749c6aa34a758b185b38effdf
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393936"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041196"
 ---
 # <a name="multi-master-conflict-resolution-in-azure-cosmos-db"></a>Azure Cosmos DB'de çok yöneticili çakışma çözümü 
 
@@ -157,7 +157,7 @@ Yordamı, dört parametrelere sahiptir:
 
 * **conflictingDocuments:** incomingDocument kimlik sütunu veya diğer benzersiz dizin alanları ile çakışan veritabanındaki tüm belgelerin işlenmiş sürüm koleksiyonunu belirtir. Bu belgeler için incomingDocument karşılaştırıldığında farklı "yazılımlar" değerine sahip olacaktır.
 
-Kullanıcı tanımlı yordamın, Cosmos DB bölüm anahtarı tam erişimi olduğundan ve çakışmaları çözümlemek için tüm depolama işlemleri gerçekleştirebilir. Kullanıcı tanımlı yordamın çakışma sürümü kaydetmek değil, sistem çakışma kaldıracağız ve existingDocument kaydedilmiş kalır. Kullanıcı tanımlı yordamın başarısız olursa veya yok, Azure Cosmos DB tüm çakışma halinde burada da gösterildiği gibi zaman uyumsuz olarak işleyebileceğiniz akış salt okunur çakışmaları ekler [zaman uyumsuz Çakışma çözümlemesi modu](). 
+Kullanıcı tanımlı yordamın, Cosmos DB bölüm anahtarı tam erişimi olduğundan ve çakışmaları çözümlemek için tüm depolama işlemleri gerçekleştirebilir. Kullanıcı tanımlı yordamın çakışma sürümü kaydetmek değil, sistem çakışma kaldıracağız ve existingDocument kaydedilmiş kalır. Kullanıcı tanımlı yordamın başarısız olursa veya yok, Azure Cosmos DB tüm çakışma halinde burada da gösterildiği gibi zaman uyumsuz olarak işleyebileceğiniz akış salt okunur çakışmaları ekler [zaman uyumsuz Çakışma çözümlemesi modu](#custom--asynchronous). 
 
 ### <a name="custom--asynchronous"></a>Özel – zaman uyumsuz  
 

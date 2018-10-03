@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: b2efdf0b1a8abe91589f56ecbb6dc01f7606f305
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 37ce2347aadbe1a863201a3ac474444fd25f8212
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158996"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044646"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli kullanarak elastik havuzlar için kaynak sınırları 
 
@@ -131,7 +131,7 @@ Aşağıdaki tabloda, havuza alınmış veritabanları için özellikleri tanım
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için.
-- Bkz: [genel bakış Azure SQL veritabanı kaynak limitleri](sql-database-resource-limits.md) sunucu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
+- Bkz: [kaynak bakış sınırlayan bir mantıksal sunucuda](sql-database-resource-limits-logical-server.md) sunucusu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
 - Genel Azure sınırları hakkında daha fazla bilgi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
 - Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz: [Dtu'lar ve Edtu'lar](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - Tempdb boyutu sınırları hakkında daha fazla bilgi için bkz: https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

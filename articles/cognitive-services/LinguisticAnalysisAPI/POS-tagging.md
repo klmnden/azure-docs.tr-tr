@@ -9,19 +9,23 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
-ms.openlocfilehash: 636b8bc4ef41674d1e9ca12111aecee05870f381
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124577"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238541"
 ---
 # <a name="part-of-speech-tagging"></a>Konuşma bölümü etiketleme
+
+> [!IMPORTANT]
+> Dil analizi önizlemesi, 9 Ağustos 2018 tarihinde kullanımdan. Kullanmanızı öneririz [Azure Machine Learning metin analiz modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) metin işleme ve analiz için.
 
 ## <a name="background-and-motivation"></a>Arka plan ve motivasyon
 
 Bir metni tümce ve belirteçlere ayırmaktır ayrılmış sonra sonraki adımı, analiz kategori veya konuşma bölümü her bir sözcüğün belirlemektir.
-Kategorileri gibi bunlar *isim* (genellikle, kişiler, yerler, noktalar, fikirleri gösteren, vb.) ve *fiil* (Eylemler, genellikle temsil eden değişiklikleri durumu, vs. -Konuşma bölümü bazı sözcükler için belirsiz değildir (örneğin, *quagmire* gerçekten yalnızca bir isimdir), ancak birçok diğerleri için bunu ayırt etmek zordur.
+Kategorileri gibi bunlar *isim* (genellikle, kişiler, yerler, noktalar, fikirleri gösteren, vb.) ve *fiil* (Eylemler, genellikle temsil eden değişiklikleri durumu, vs. -Konuşma bölümü bazı sözcükler için belirsiz değildir (örneğin, *quagmire* yalnızca bir isimdir), ancak birçok diğerleri için bunu ayırt etmek zordur.
 *Tablo* bir sit olduğu bir yerde (veya sayı 2B düzeni) olabilir, ancak aynı zamanda bir tartışma "Tablo" olabilir.
 
 ## <a name="list-of-part-of-speech-tags"></a>Konuşma bölümü etiketlerin listesi
@@ -45,7 +49,7 @@ Kategorileri gibi bunlar *isim* (genellikle, kişiler, yerler, noktalar, fikirle
 | GİRİŞ | preposition veya birlikte bağımlı alt oluşturma| bağlı olup olmadığını da iç |
 | JJ | sıfat veya sayısal, sıralı | dokuzuncu oldukça execrable multimodal |
 | JJR | sıfat karşılaştırma | daha hızlı bir şekilde daha iyi |
-| JJS | sıfat superlative | en iyi hızlı, ucuz | 
+| JJS | sıfat superlative | en iyi hızlı, ucuz |
 | LS | liste öğesi işaretçisi | (a) (b) 1 2 A B A. b |
 | MD | kalıcı yardımcı | nerede depolandığının |
 | NN | isim, ortak, tekil veya yığın | Patates para ayakkabı |

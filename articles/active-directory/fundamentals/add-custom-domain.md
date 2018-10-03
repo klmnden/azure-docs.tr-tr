@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: dc28263fca5c6854ffad12678b472804f074addd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c4529948a0a1b165945de78de97cc2470c6b431e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035751"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237560"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Nasıl yapılır: Azure Active Directory portalı kullanarak özel etki alanı adınızı ekleme
 Her yeni Azure AD kiracısı bir ilk etki alanı adı ile gelir *domainname*. onmicrosoft.com. Değiştirme veya silme ilk etki alanı adı, ancak kuruluşunuzun adları listesine ekleyebilirsiniz. Özel etki alanı adları ekleme yardımcı olur, kullanıcılarınızın tanıdığı gibi kullanıcı adları oluşturmak için *alain@contoso.com*.
@@ -92,7 +92,8 @@ Azure AD'ye özel etki alanı adınızı ekledikten sonra için etki alanı kay�
 
     Kayıt şirketi sitenin kaydı güncelleştiremiyorsanız girdisi ekleyin ve doğru olduğundan emin olun için doğru izinlere sahip biri ile giriş paylaşmanız gerekir.
 
-- **Etki alanı adı zaten başka bir dizindeki kullanımda olmadığından emin olun.** Bir etki alanı adı, yalnızca etki alanı adınızı şu anda başka bir dizinde doğrulanırsa, bu da yeni bir dizinde doğrulanamadığına anlamına gelen bir dizinde doğrulanabilir. Bu çoğaltma sorunu gidermek için etki alanı adı eski dizinden silmeniz gerekir. Etki alanı adlarını silme hakkında daha fazla bilgi için bkz. [özel etki alanı adlarını yönetme](../users-groups-roles/domains-manage.md). 
+- **Etki alanı adı zaten başka bir dizindeki kullanımda olmadığından emin olun.** Bir etki alanı adı, yalnızca etki alanı adınızı şu anda başka bir dizinde doğrulanırsa, bu da yeni bir dizinde doğrulanamadığına anlamına gelen bir dizinde doğrulanabilir. Bu çoğaltma sorunu gidermek için etki alanı adı eski dizinden silmeniz gerekir. Etki alanı adlarını silme hakkında daha fazla bilgi için bkz. [özel etki alanı adlarını yönetme](../users-groups-roles/domains-manage.md).
+    - Self servis kayıt aracılığıyla PowerBI hizmetini etkinleştirmiş ve kuruluşunuz için yönetilmeyen bir kiracı oluşturmuş kullanıcılarınız varsa, BT yöneticisi bu kiracıyı devralma aracılığıyla yönetebilir veya PowerShell’de zorla devralma seçeneğiyle etki alanını ekleyebilirsiniz. Yöneticinin etki alanını devralması hakkında daha fazla bilgi için bkz: [Azure Active Directory'de yönetici olarak yönetilmeyen bir dizini devralma](../users-groups-roles/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

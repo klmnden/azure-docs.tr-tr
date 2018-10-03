@@ -10,14 +10,18 @@ ms.component: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
-ms.openlocfilehash: c8d380a23c1bbfca8258ef533453050c72a3abd0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ROBOTS: NOINDEX
+ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129633"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239311"
 ---
 # <a name="analyze-method"></a>Analiz yöntemi
+
+> [!IMPORTANT]
+> Dil analizi önizlemesi, 9 Ağustos 2018 tarihinde kullanımdan. Kullanmanızı öneririz [Azure Machine Learning metin analiz modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) metin işleme ve analiz için.
 
 **Analiz** REST API, verilen doğal dil giriş analiz etmek için kullanılır.
 Yalnızca bulma ilgili [tümce ve belirteçlere ayırmaktır](Sentences-and-Tokens.md) içinde giriş, bulma [konuşma bölümü etiketleri](POS-tagging.md), veya bulma [constitutency ağaç](Constituency-Parsing.md).
@@ -150,7 +154,7 @@ Ayrıştırma ağaçlarını, parantez içine alınmış biçimde temsil edilir.
   "analyzerIds": [
     "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "22A6B758-420F-4745-8A3C-46835A67C0D2" ],
-  "text": "Hi, Tom! How are you today?" 
+  "text": "Hi, Tom! How are you today?"
 }
 ```
 
@@ -158,13 +162,12 @@ Yanıt: JSON
 ```json
 [
   {
-    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04", 
+    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "result": [ ["NNP",",","NNP","."], ["WRB","VBP","PRP","NN","."] ]
   },
   {
-    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2", 
+    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2",
     "result":["(TOP (S (NNP Hi) (, ,) (NNP Tom) (. !)))","(TOP (SBARQ (WHADVP (WRB How)) (SQ (VP (VBP are)) (NP (PRP you)) (NN today) (. ?))))"]
   }
 ]
 ```
-

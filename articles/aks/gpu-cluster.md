@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 7fb60f3c440b4804ad8c5e6c013ecfa454358833
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 231d7b875a7163aaa532be4a6477ca4e2eb67286
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716126"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043671"
 ---
 # <a name="using-gpus-on-aks"></a>AKS üzerinde GPU kullanma
 
@@ -63,7 +63,7 @@ aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
 aks-nodepool1-22139053-2   Ready     agent     10h       v1.9.6
 ```
 
-GPU'ları zamanlanabilir onaylamak için düğümlerinden biri açıklanmaktadır. Bu, altında bulunabilir `Capacity` bölümü. Örneğin, `alpha.kubernetes.io/nvidia-gpu:  1`.
+GPU'ları zamanlanabilir onaylamak için düğümlerinden biri açıklanmaktadır. Bu, altında bulunabilir `Capacity` bölümü. Örneğin, `nvidia.com/gpu:  1`. GPU'ları görmüyorsanız başvurun **sorun giderme** bölümüne bakın.
 
 ```
 $ kubectl describe node aks-nodepool1-22139053-0
@@ -96,12 +96,12 @@ Addresses:
   InternalIP:  10.240.0.4
   Hostname:    aks-nodepool1-22139053-0
 Capacity:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57691688Ki
  pods:                            110
 Allocatable:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57589288Ki
  pods:                            110
@@ -135,7 +135,7 @@ Events:         <none>
 
 GPU'ları gerçekten de çalıştığınız göstermek için uygun kaynak isteğiyle iş yükü zamanlama bir GPU etkin. Bu örnekte çalışacak bir [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) karşı iş [MNIST dataset](http://yann.lecun.com/exdb/mnist/).
 
-Kaynak sınırı aşağıdaki iş bildirimi içeren `alpha.kubernetes.io/nvidia-gpu: 1`. Uygun CUDA kitaplıkları ve hata ayıklama araçları düğümdeki kullanıma sunulacaktır `/usr/local/nvidia` ve aşağıda görüldüğü gibi uygun birim belirtimi kullanılarak pod uygulamasına bağlı olması gerekir.
+Kaynak sınırı aşağıdaki iş bildirimi içeren `nvidia.com/gpu: 1`. 
 
 Bildirim kopyalayın ve Farklı Kaydet **tf mnıst demo.yaml örnekleri**.
 ```
@@ -158,15 +158,8 @@ spec:
         imagePullPolicy: IfNotPresent
         resources:
           limits:
-            alpha.kubernetes.io/nvidia-gpu: 1
-        volumeMounts:
-        - name: nvidia
-          mountPath: /usr/local/nvidia
+           nvidia.com/gpu: 1
       restartPolicy: OnFailure
-      volumes:
-        - name: nvidia
-          hostPath:
-            path: /usr/local/nvidia
 ```
 
 Kullanım [kubectl uygulamak] [ kubectl-apply] işi çalıştırmak için komutu. Bu komut, bildirim dosyasını ayrıştırır ve tanımlanmış Kubernetes nesnelerini oluşturur.

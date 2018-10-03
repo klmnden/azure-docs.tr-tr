@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: d276098c951cb26a97906e6ac7e23c0ab2e4d137
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 5d1beb124bbb857d13aecad7bf0cef493d42dac5
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432588"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043286"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Azure disk şifrelemesi (ADE) etkinleştirilmiş sanal makineleri başka bir Azure bölgesine çoğaltma
 
@@ -127,7 +127,7 @@ Site Recovery tarafından kullanılan varsayılan hedef ayarlarını değiştire
   - Site recovery çoğaltma sanal makinesi üzerinde etkin ve daha sonraki bir tarihte Azure Disk şifrelemesi (ADE) kaynak VM üzerinde etkin
   - Site recovery çoğaltma sanal makinesi üzerinde etkin ve daha sonraki bir tarihte disk şifreleme anahtarı ve/veya kaynak VM üzerinde anahtar şifreleme anahtarı değiştirildi
 
-Kullanabileceğiniz [betik](#copy-ade-keys-to-dr-region-using-powerShell-script) şifreleme anahtarları için hedef bölgede kopyalayın ve ardından hedef şifreleme ayarları güncelleştirmek için **kurtarma Hizmetleri kasası -> çoğaltılan öğe -> Özellikler -> işlem ve ağ.**
+Kullanabileceğiniz [betik](#copy-ade-keys-to-dr-region-using-powershell-script) şifreleme anahtarları için hedef bölgede kopyalayın ve ardından hedef şifreleme ayarları güncelleştirmek için **kurtarma Hizmetleri kasası -> çoğaltılan öğe -> Özellikler -> işlem ve ağ.**
 
 ![Güncelleştirme ade ayarları](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 

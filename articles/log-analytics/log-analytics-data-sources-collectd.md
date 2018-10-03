@@ -1,6 +1,6 @@
 ---
-title: OMS günlük analizi CollectD veri toplamak | Microsoft Docs
-description: CollectD düzenli aralıklarla veri uygulamaları ve sistem düzeyi bilgileri toplayan bir açık kaynak Linux arka plan programı kullanılır.  Bu makalede, günlük analizi CollectD gelen veri toplama hakkında bilgi sağlar.
+title: OMS Log analytics'te, toplanan verileri toplamanızı | Microsoft Docs
+description: Toplanan, uygulamalar ve sistem düzeyindeki bilgileri düzenli aralıklarla verileri toplar bir açık kaynak Linux daemon ' dir.  Bu makale, Log analytics'te, toplanan veri toplanmasına hakkında bilgi sağlar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 59b6f8b82d0f714d4526147b42f68e14bf0aa2bd
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: eb053ef8fc66ff9d71a9576b71eb4edfcd688638
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127705"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041299"
 ---
-# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Veri günlük analizi Linux aracıları CollectD Topla
-[CollectD](https://collectd.org/) uygulamaları ve sistem düzeyi bilgileri düzenli aralıklarla performans ölçümleri toplayan bir açık kaynak Linux arka plan programı kullanılır. Örnek uygulamalar, Java sanal makine (JVM), MySQL Server ve Nginx içerir. Bu makalede günlük analizi CollectD gelen performans verileri toplama hakkında bilgi sağlar.
+# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Log Analytics Linux aracıda toplanan verileri toplamak
+[Toplanan](https://collectd.org/) olduğu bir açık kaynak Linux daemon, düzenli aralıklarla uygulama ve sistem düzeyindeki bilgileri performans ölçümleri toplar. Örnek uygulamalar, Java sanal makinesi (JVM), MySQL sunucusu ve Ngınx içerir. Bu makale, Log analytics'te, toplanan performans veri toplanmasına hakkında bilgi sağlar.
 
-Kullanılabilen eklentileri tam listesi bulunabilir [tablo, eklenti](https://collectd.org/wiki/index.php/Table_of_Plugins).
+Kullanılabilen eklentileri tam bir listesi şu yolda bulunabilir: [tablo, eklentileri](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
-![CollectD genel bakış](media/log-analytics-data-sources-collectd/overview.png)
+![Toplanan genel bakış](media/log-analytics-data-sources-collectd/overview.png)
 
-Aşağıdaki CollectD yapılandırma OMS Aracısı Linux için OMS aracısının rota CollectD verilere Linux için dahil edilir.
+Aşağıdaki toplanan yapılandırma OMS Aracısı Linux için OMS Aracısı toplanan verileri yönlendirmek için Linux için eklenmiştir.
 
     LoadPlugin write_http
 
@@ -41,7 +41,7 @@ Aşağıdaki CollectD yapılandırma OMS Aracısı Linux için OMS aracısının
          </Node>
     </Plugin>
 
-Ayrıca, bunun yerine aşağıdaki yapılandırma 5.5 kullanmadan önce bir collectD sürümleri kullanıyorsanız.
+Buna ek olarak, toplanan bir sürümünü kullanıyorsanız önce 5.5, bunun yerine aşağıdaki yapılandırmayı kullanın.
 
     LoadPlugin write_http
 
@@ -52,12 +52,12 @@ Ayrıca, bunun yerine aşağıdaki yapılandırma 5.5 kullanmadan önce bir coll
        </URL>
     </Plugin>
 
-Varsayılan CollectD yapılandırmasını kullanan`write_http` performans ölçüm verilerini 26000 bağlantı noktası üzerinden Linux için OMS Aracısı'na göndermek için eklenti. 
+Varsayılan toplanan yapılandırması kullanır`write_http` eklentisini performans ölçüm verilerini 26000 bağlantı noktası üzerinden Linux için OMS Aracısı'na gönderin. 
 
 > [!NOTE]
 > Gerekirse, bu bağlantı noktası özel tanımlı bir bağlantı noktası için yapılandırılabilir.
 
-Linux için OMS aracısının de CollectD ölçümünün 26000 numaralı bağlantı noktasında dinler ve bunları OMS şema ölçümlere dönüştürür. Linux yapılandırması için OMS aracısının aşağıdadır `collectd.conf`.
+Linux için OMS Aracısı da toplanan ölçümler için 26000 numaralı bağlantı noktasında dinler ve bunları OMS şema ölçümlerini dönüştürür. Yapılandırma Linux için OMS Aracısı verilmiştir `collectd.conf`.
 
     <source>
       type http
@@ -70,58 +70,58 @@ Linux için OMS aracısının de CollectD ölçümünün 26000 numaralı bağlan
     </filter>
 
 
-## <a name="versions-supported"></a>Desteklenen sürümleri
-- Günlük analizi, şu anda CollectD sürüm 4.8 destekler ve üstü.
-- Yukarıdaki veya Linux v1.1.0-217 için OMS aracısının CollectD ölçüm koleksiyonu için gereklidir.
+## <a name="versions-supported"></a>Desteklenen sürümler
+- Log Analytics toplanan sürüm 4.8 destekler ve üstü.
+- Toplanan ölçüm koleksiyonu için OMS Aracısı Linux v1.1.0-217 veya üzeri gereklidir.
 
 
 ## <a name="configuration"></a>Yapılandırma
-Günlük analizi CollectD veri koleksiyonunu yapılandırmak için temel adımlar verilmiştir.
+Log Analytics toplanan verileri toplamayı yapılandırmak için temel adımlar verilmiştir.
 
-1. OMS Aracısı write_http eklentisi kullanarak Linux veri göndermesini CollectD yapılandırın.  
-2. CollectD veri uygun bağlantı noktasında dinlemek Linux için OMS Aracısı yapılandırın.
-3. CollectD ve Linux için OMS aracısı yeniden başlatın.
+1. Toplanan verileri write_http eklentisini kullanarak Linux için OMS Aracısı göndermek için yapılandırın.  
+2. Toplanan verileri uygun bağlantı noktasında dinlemek Linux için OMS Aracısı'nı yapılandırın.
+3. Toplanan ve Linux için OMS aracısını yeniden başlatın.
 
-### <a name="configure-collectd-to-forward-data"></a>Veri iletmek için CollectD yapılandırın 
+### <a name="configure-collectd-to-forward-data"></a>Toplanan veri iletmek için yapılandırma 
 
-1. Linux için OMS aracısının rota CollectD verilere `oms.conf` CollectD'ın yapılandırma dizinine eklenmesi gerekir. Bu dosya hedef makinenizi Linux distro üzerinde bağlıdır.
+1. Linux için OMS Aracısı toplanan verileri yönlendirmek için `oms.conf` toplanan'ın yapılandırma dizine eklenmesi gerekir. Bu dosya hedef üzerinde makinenizin Linux distro bağlıdır.
 
-    CollectD yapılandırma dizininize /etc/collectd.d/ içinde yer alıyorsa:
+    Toplanan yapılandırma dizininize /etc/collectd.d/ içinde yer alıyorsa:
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
 
-    CollectD yapılandırma dizininize /etc/collectd/collectd.conf.d/ içinde yer alıyorsa:
+    Toplanan yapılandırma dizininize /etc/collectd/collectd.conf.d/ içinde yer alıyorsa:
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
 
     >[!NOTE]
-    >5.5 önce CollectD sürümleri için etiketleri değiştirmek zorunda kalacaksınız `oms.conf` yukarıda gösterildiği gibi.
+    >Toplanan sürümleri 5.5 önce etiketleri değiştirmek zorunda kalacaksınız `oms.conf` yukarıda da gösterildiği gibi.
     >
 
-2. Collectd.conf istenen Workspace'in omsagent yapılandırma dizinine kopyalayın.
+2. Collectd.conf istenen çalışma alanınızın omsagent yapılandırma dizinine kopyalayın.
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
         sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
 
-3. Linux için CollectD ve OMS aracısı aşağıdaki komutlarla yeniden başlatın.
+3. Linux için toplanan ve OMS aracısını aşağıdaki komutlarla yeniden başlatın.
 
-    sudo hizmet collectd yeniden sudo /opt/microsoft/omsagent/bin/service_control yeniden başlatma
+    sudo hizmeti toplanan yeniden sudo /opt/microsoft/omsagent/bin/service_control yeniden başlatma
 
-## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Günlük analizi şema dönüştürme CollectD ölçümleri
-Bilinen bir model zaten Linux için OMS aracısı tarafından toplanan altyapı Ölçümler ve yeni ölçümler arasında aşağıdaki şema eşleme CollectD tarafından toplanan korumak için kullanılır:
+## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Log Analytics şema dönüştürme için toplanan ölçümleri
+Zaten Linux için OMS aracısı tarafından toplanan altyapı Ölçümler ve yeni ölçümler arasında tanıdık bir model tarafından toplanan aşağıdaki şema eşleme toplanan korumak için kullanılır:
 
-| CollectD ölçüm alan | Günlük analizi alan |
+| Toplanan ölçüm alan | Log Analytics alan |
 |:--|:--|
 | konak | Bilgisayar |
-| eklentisi | None |
-| plugin_instance | Örnek Adı<br>Varsa **plugin_instance** olan *null* sonra InstanceName = "*_Total*" |
+| Eklentisi | None |
+| plugin_instance | Örnek Adı<br>Varsa **plugin_instance** olduğu *null* ardından InstanceName = "*_Total*" |
 | type | ObjectName |
-| type_instance | CounterName<br>Varsa **type_instance** olan *null* sonra CounterName =**boş** |
+| type_instance | CounterName<br>Varsa **type_instance** olduğu *null* ardından CounterName =**boş** |
 | dsnames] | CounterName |
 | dstypes | None |
-| değerler] | CounterValue |
+| değerler] | Ort |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümleri toplanan verileri çözümlemek için. 
-* Kullanım [özel alanlar](log-analytics-custom-fields.md) tek tek alanlarına syslog kayıtları verilerden ayrıştırılamadı.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
+* Kullanım [özel alanlar](log-analytics-custom-fields.md) syslog kayıtları verilerinden ayrı ayrı alanlara ayrıştırılamıyor.
 

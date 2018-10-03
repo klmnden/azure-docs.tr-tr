@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 9e00e9c3f90d668458d692db88570dac7e8df5a3
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.component: ''
+ms.openlocfilehash: 80749fedde17a9567aa13e1e72677dfdd027ca36
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359084"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043269"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log analytics'te kapsayıcı izleme çözümü
 
@@ -595,7 +595,7 @@ Her Pano görsel bir temsilini topladığınız verileri çalıştırma bir aram
 
 İçinde **kapsayıcı durumu** alanında, üst kısımdaki alana, aşağıda gösterildiği gibi tıklayın.
 
-![kapsayıcı durumu](./media/log-analytics-containers/containers-status.png)
+![Kapsayıcı durumu](./media/log-analytics-containers/containers-status.png)
 
 Günlük araması açılır ve kapsayıcılarınızı durumuyla ilgili bilgileri görüntüler.
 
@@ -609,7 +609,7 @@ Log Analytics, bir kapsayıcı olarak işaretler **başarısız** ise sıfır ol
 
 ### <a name="to-find-failed-containers"></a>Başarısız olan kapsayıcılar bulmak için
 1. Tıklayın **kapsayıcı durumu** alan.  
-   ![kapsayıcı durumu](./media/log-analytics-containers/containers-status.png)
+   ![Kapsayıcı durumu](./media/log-analytics-containers/containers-status.png)
 2. Günlük araması açılır ve kapsayıcılarınızı, aşağıdakine benzer durumunu görüntüler.  
    ![kapsayıcı durumu](./media/log-analytics-containers/containers-log-search.png)
 3. Ardından, ek bilgileri görüntülemek için başarısız olan kapsayıcılar'ın toplu değere tıklayın. Genişletin **daha fazla Göster** görüntüsü kimliği görüntülemek için  

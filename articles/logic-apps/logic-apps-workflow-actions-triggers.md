@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093627"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044782"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic apps'te iş akışı tanımlama dili tetikleyicisi ve eylem türleri başvurusu
 
@@ -62,7 +62,7 @@ Bazı isteğe bağlıdır, ancak bu üst düzey öğeleri Tetikleyiciler vardır
 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
-| <*koşullar ile dizi*> | Dizi | Bir veya daha fazla bilgi içeren bir dizi [koşullar](#trigger-conditions) iş akışı çalıştırılıp çalıştırılmayacağını belirleyen | 
+| <*koşullar ile dizi*> | Dizi | Bir veya daha fazla bilgi içeren bir dizi [koşullar](#trigger-conditions) iş akışı çalıştırılıp çalıştırılmayacağını belirleyen. Tetikleyiciler için kullanılabilir. | 
 | <*çalışma zamanı yapılandırma seçenekleri*> | JSON nesnesi | Ayarlayarak tetikleyici çalışma zamanı davranışı değiştirebilirsiniz `runtimeConfiguration` özellikleri. Daha fazla bilgi için [çalışma zamanı yapılandırma ayarlarını](#runtime-config-options). | 
 | <*splitOn ifadesi*> | Dize | Bir dizi döndürür tetikleyiciler, bir ifade belirtebilirsiniz, [ayırır veya *debatches* ](#split-on-debatch) işleme için birden çok iş akışı örneği içinde öğeleri dizisi. | 
 | <*işlem seçeneği*> | Dize | Ayarlayarak varsayılan davranışı değiştirebilirsiniz `operationOptions` özelliği. Daha fazla bilgi için [işlem seçenekleri](#operation-options). | 
@@ -657,7 +657,7 @@ Bu tetikleyiciyi belirtir: gelen bir istek tetikleyicisi çağırmak için HTTP 
 
 ## <a name="trigger-conditions"></a>Tetikleyici koşulları
 
-Herhangi bir tetikleyici için iş akışının çalıştırılması gerekip gerekmediğini belirleyen koşulları için bir veya daha fazla ifadeler içeren bir dizi içerebilir. Eklenecek `conditions` özelliği mantıksal uygulamanız için kod görünümü Düzenleyicisi'nde mantıksal uygulamanızı açın.
+Bir tetikleyici ve yalnızca tetikleyici, iş akışının çalıştırılması gerekip gerekmediğini belirleyen koşulları için bir veya daha fazla ifadeler içeren bir dizi içerebilir. Eklenecek `conditions` mantıksal uygulamanızın tetikleyici özelliğini mantıksal uygulamanızı kod görünümü Düzenleyicisi'nde açın.
 
 Örneğin, bir tetikleyici yalnızca bir Web sitesi bir iç sunucu hatası durum kodunu tetikleyicinin başvurarak döndürdüğünde harekete belirtebilirsiniz `conditions` özelliği:
 
@@ -1340,7 +1340,7 @@ Bu eylem, bir koşul veya filtre temel başka bir dizideki öğelerden bir dizi 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
 | <*Dizi*> | Dizi | Dizi veya kaynak öğeleri sağlayan bir ifade. Bir ifade belirtirseniz, bu ifade çift tırnak içine alın. |
-| <*koşul veya filtre*> | Dize | Kaynak dizideki öğeleri filtreleme için kullanılan koşul <p>**Not**: hiçbir değer koşulu karşılayan, boş bir dizi eylem oluşturur. |
+| <*koşul veya filtre*> | Dize | Kaynak dizideki öğeleri filtreleme için kullanılan koşul <p>**Not**: hiçbir değer koşulu karşılayan sonra boş bir dizi eylem oluşturur. |
 |||| 
 
 *Örnek*
@@ -2318,7 +2318,7 @@ Tetikleyiciler ve Eylemler ile varsayılan davranışı değiştirebilirsiniz `o
 
 ### <a name="change-trigger-concurrency"></a>Değişiklik tetikleyici eşzamanlılık
 
-Varsayılan olarak, mantıksal uygulama örneği aynı anda aynı anda veya paralel kadar çalıştırma [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Bu nedenle, daha önce etkin bir mantıksal uygulama örneği çalıştırma tamamlanmadan önce her bir tetikleyici örneği tetikler. Bu sınır, arka uç sistemlerine alma isteklerinin sayısı denetim yardımcı olur. 
+Varsayılan olarak, mantıksal uygulama örneği aynı anda aynı anda veya paralel kadar çalıştırma [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Bu nedenle, yukarıdaki mantıksal uygulama örneği çalıştırma tamamlanmadan önce her bir tetikleyici örneği tetikler. Bu sınır, arka uç sistemlerine alma isteklerinin sayısı denetim yardımcı olur. 
 
 Ekler veya güncelleştirir Tasarımcısı aracılığıyla Eş zamanlılık ayarı değiştirmek için varsayılan sınırı değiştirmek için kod görünümü Düzenleyicisi veya Logic Apps Tasarımcısı'nda kullanabileceğiniz `runtimeConfiguration.concurrency.runs` özelliği temel tetikleyici tanımı ve bunun tersi de geçerlidir. Bu özellik paralel olarak çalıştırılabilir mantıksal uygulama örneği sayısını denetler. 
 
@@ -2385,7 +2385,7 @@ Eş zamanlı çalıştırma 10 yinelemelere sınırlayan bir örnek aşağıda v
 
 #### <a name="edit-in-logic-apps-designer"></a>Logic Apps Tasarımcısı'nda Düzenle
 
-1. İçinde **her** eylemin sağ üst köşesindeki üç nokta (...) düğmesini seçin ve ardından **ayarları**.
+1. İçinde **her** eylem, sağ üst köşedeki üç nokta (...) düğmesini seçin ve ardından **ayarları**.
 
 2. Altında **eşzamanlılık denetimi**ayarlayın **Varsayılanı geçersiz kıl** için **üzerinde**. 
 
@@ -2399,7 +2399,7 @@ Varsayılan olarak, mantıksal uygulama örneği aynı anda aynı anda veya para
 
 Bekleyebileceği çalıştırmalarının sayısı da sahip bir [varsayılan sınır](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), değiştirebilirsiniz. Ancak, mantıksal uygulamanızı bekleme çalıştırmaları sınırına ulaştıktan sonra Logic Apps altyapısı yeni çalışmaları artık kabul eder. İstek ve Web kancası Tetikleyicileri 429 hataları döndürür ve yoklama denemeleri atlanıyor yinelenen Tetikleyiciler başlatın.
 
-Bekleyen çalıştırmaları varsayılan sınırı değiştirmek için temel alınan tetikleyicisi tanımı, ekleyin ve ayarlama `runtimeConfiguration.concurency.maximumWaitingRuns` arasında bir değer özelliğini `0` ve `100`. 
+Bekleyen çalıştırmaları varsayılan sınırı değiştirmek için temel tetikleyicisi tanımı, ekleme `runtimeConfiguration.concurency.maximumWaitingRuns` özelliği arasında bir değer ile `0` ve `100`. 
 
 ```json
 "<trigger-name>": {

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory'de şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma | Microsoft Docs
+title: Azure Data Factory'de şirket içinde barındırılan tümleştirme çalışma zamanı oluştur | Microsoft Docs
 description: Veri fabrikaları özel ağdaki veri depoları erişmeye izin veren Azure Data factory'de şirket içinde barındırılan tümleştirme çalışma zamanı oluşturmayı öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -12,275 +12,269 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 379dd0efb0c40cbab6e356f011938d3e6116117e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8ae97869f51b4ab92b820bb05f1484d986095736
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434203"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042578"
 ---
-# <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
-Integration Runtime (IR) Azure Data Factory tarafından farklı ağ ortamları veri tümleştirme özellikleri sağlamak için kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
+# <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
+Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
 
-Şirket içinde barındırılan tümleştirme çalışma zamanı arasında bir bulut veri kopyalama etkinlikleri çalıştırabilen depoları ve özel ağ ve karşı dönüştürme etkinliklerini dağıtma bir veri deposunda işlem kaynaklarını bir şirket içi veya Azure sanal ağ. Şirket içinde barındırılan tümleştirme çalışma zamanı gereksinimleri bir şirket içi makine ya da bir özel ağ içindeki bir sanal makineye yükleyin.  
+Şirket içinde barındırılan Integration runtime bulut veri deposu ve özel ağdaki veri deposu arasında kopyalama etkinlikleri çalıştırabilirsiniz ve dönüştürme etkinliklerini şirket içi ağ ya da bir Azure sanal ağı bilgi işlem kaynaklarının karşı gönderebilecek. Bir şirket içi makinede veya özel ağ içindeki bir sanal makine (VM) bir şirket içinde barındırılan tümleştirme çalışma zamanı yüklemesi gerekir.  
 
-Bu belgenin nasıl oluşturabileceğinizi ve şirket içinde barındırılan IR yapılandırma tanıtır.
+Bu belgede nasıl oluşturabileceğinizi ve şirket içinde barındırılan IR yapılandırma açıklanmaktadır.
 
-## <a name="high-level-steps-to-install-self-hosted-ir"></a>Kendinden konak IR yüklemek için üst düzey adımları
-1. Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma. Kendinden konak IR oluşturmak için ADF kullanıcı Arabirimi kullanabilirsiniz. PowerShell örneği aşağıda verilmiştir:
+## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>Şirket içinde barındırılan IR yüklemek için üst düzey adımları
+1. Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma. Bu görev için Azure Data Factory kullanıcı Arabirimi kullanabilirsiniz. PowerShell örneği aşağıda verilmiştir:
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
-2. [İndirme](https://www.microsoft.com/download/details.aspx?id=39717) ve şirket içinde barındırılan tümleştirme çalışma zamanını (yerel makine) yükleyin.
+  
+2. [İndirme](https://www.microsoft.com/download/details.aspx?id=39717) ve şirket içinde barındırılan tümleştirme çalışma zamanı yerel bir makineye yükleyin.
+
 3. Kimlik doğrulama anahtarı almak ve şirket içinde barındırılan tümleştirme çalışma zamanı anahtarı ile kaydedin. PowerShell örneği aşağıda verilmiştir:
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
-## <a name="setting-up-self-hosted-ir-on-azure-vm-using-azure-resource-manager-template-automation"></a>Azure Resource Manager şablonu (Otomasyonu) kullanarak Azure sanal makinesinde kendinden konak IR ayarlama
-Bir Azure VM kullanarak şirket içinde barındırılan IR Kurulumu otomatik hale getirebilirsiniz [bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Bu, (2 veya daha yüksek düğüm sayısı ayarladığınız sürece) yüksek Avalaibility ve ölçeklenebilirlik özelliğiyle Azure VNet içinde tam olarak işlevsel bir şirket içinde barındırılan IR sağlamak için kolay bir yol sağlar.
+## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Bir Azure Resource Manager şablonu (Otomasyonu) kullanarak bir Azure sanal makinesinde kendinden konak IR ayarlama
+Bir Azure sanal makinesinde şirket içinde barındırılan IR Kurulumu kullanarak otomatikleştirebilirsiniz [bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Bu şablon, (2 veya daha yüksek düğüm sayısı ayarladığınız sürece) tam olarak çalışmasını sağlamak için kolay bir yol IR yüksek kullanılabilirlik ve ölçeklenebilirlik özelliklerine sahip Azure sanal ağı içinde şirket içinde barındırılan sağlar.
 
 ## <a name="command-flow-and-data-flow"></a>Komut akışını ve veri akışı
-Şirket içi ile bulut arasında veri taşıma, etkinlik verileri şirket içi veri kaynağından buluta geçme veya tam tersi aktarmak için bir şirket içinde barındırılan tümleştirme çalışma zamanı kullanır.
+Ne zaman şirket içi arasında veri taşıma ve bir şirket içi veri kaynağından buluta ve veri aktarımı için bir şirket içinde barındırılan tümleştirme çalışma zamanı bulut etkinliği kullanır.
 
-Kendinden konak IR ile kopyalama için adımların özeti için üst düzey veri akışı şu şekildedir:
+Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey veri akışı şu şekildedir:
 
 ![Yüksek düzey genel bakış](media\create-self-hosted-integration-runtime\high-level-overview.png)
 
-1. Veri geliştirici bir şirket içinde barındırılan tümleştirme çalışma zamanı içinde bir PowerShell cmdlet'i kullanılarak bir Azure data factory oluşturur. Şu anda, Azure portalı, bu özelliği desteklemez.
-2. Veri geliştirici bir şirket içi veri deposu için bağlı hizmet, veri depolarında bağlanmak için kullanması gereken şirket içinde barındırılan tümleştirme çalışma zamanı örneğini belirterek oluşturur. Bağlı hizmet oluşturma işleminin bir parçası olarak, veri geliştiricisi ' kimlik bilgisi Yöneticisi ' uygulamayı kullanır (şu anda desteklenmiyor) kimlik doğrulama türleri ve kimlik bilgilerini ayarlamak için. Kimlik bilgileri Yöneticisi uygulaması iletişim kutusu, bağlantı ve kimlik bilgilerini kaydetmek için şirket içinde barındırılan tümleştirme çalışma zamanı'nı test etmek için veri deposuyla iletişim kurar.
-   - Şirket içinde barındırılan Integration runtime düğümü, Windows Data Protection uygulama programlama arabirimi (DPAPI) kullanarak kimlik bilgilerini şifreler ve yerel olarak kaydeder. Yüksek kullanılabilirlik için birden çok düğüm ayarlarsanız, kimlik bilgilerini diğer düğümler arasında daha fazla eşitlenir. Her düğüm DPAPI kullanarak şifreler ve yerel olarak depolar. Kimlik bilgisi eşitlemesi veri geliştiriciye karşı saydamdır ve şirket içinde barındırılan IR tarafından ele alınır    
-   - Data Factory hizmeti için yönetim işleri zamanlama ve şirket içinde barındırılan tümleştirme çalışma zamanı ile iletişim kurar **denetim kanalı** bir paylaşılan Azure service bus kuyruğu kullanan. Bir etkinliği işinin çalıştırılması gerektiğinde, Data Factory istekle birlikte tüm kimlik bilgilerini (kimlik bilgileri zaten şirket içinde barındırılan tümleştirme çalışma zamanını depolanmaz durumda) kuyruğa alır. Şirket içinde barındırılan tümleştirme çalışma zamanı, işi kuyruğa yoklama sonra başlatıyor.
-   - Şirket içinde barındırılan tümleştirme çalışma zamanı verileri bulut depolamaya veya tam tersi veri işlem hattında kopyalama etkinliği nasıl yapılandırıldığına bağlı olarak bir şirket içi depolama alanından kopyalar. Bu adım için şirket içinde barındırılan tümleştirme çalışma zamanı doğrudan Azure Blob Depolama gibi bulut tabanlı depolama hizmetlerinde güvenli (HTTPS) kanal üzerinden iletişim kurar.
+1. Veri Geliştirici PowerShell cmdlet'ini kullanarak bir şirket içinde barındırılan tümleştirme çalışma zamanı içinde bir Azure data factory oluşturur. Şu anda, Azure portalı, bu özelliği desteklemez.
+2. Veri geliştirici bir şirket içi veri deposu için bağlı hizmet, veri depolarında bağlanmak için kullanması gereken şirket içinde barındırılan tümleştirme çalışma zamanı örneğini belirterek oluşturur. Bağlı hizmet oluşturma işleminin bir parçası olarak, veri geliştiricisi (şu anda desteklenmiyor) kimlik bilgileri Yöneticisi uygulama kimlik doğrulama türleri ve kimlik bilgilerini ayarlamak için kullanır. Kimlik bilgileri Yöneticisi uygulaması, bağlantı ve kimlik bilgilerini kaydetmek için şirket içinde barındırılan tümleştirme çalışma zamanı'nı test etmek için veri deposuyla iletişim kurar.
+3. Şirket içinde barındırılan Integration runtime düğümü, Windows Data Protection uygulama programlama arabirimi (DPAPI) kullanarak kimlik bilgilerini şifreler ve kimlik bilgilerini yerel olarak kaydeder. Yüksek kullanılabilirlik için birden çok düğüm ayarlarsanız, kimlik bilgilerini diğer düğümler arasında daha fazla eşitlenir. Her düğümü DPAPI kullanarak kimlik bilgilerini şifreler ve bunları yerel olarak depolar. Kimlik bilgisi eşitlemesi veri geliştiriciler için saydamdır ve şirket içinde barındırılan IR tarafından ele alınır    
+4. Data Factory hizmetinin zamanlama ve işleri yönetimi için şirket içinde barındırılan tümleştirme çalışma zamanı ile iletişim kuran bir *denetim kanalı* paylaşılan bir Azure Service Bus kuyruğu kullanan. Bir etkinliği işinin çalıştırılması gerektiğinde, Data Factory istekle birlikte tüm kimlik bilgilerini (kimlik bilgileri zaten şirket içinde barındırılan tümleştirme çalışma zamanını depolanmaz durumda) kuyruğa alır. Şirket içinde barındırılan tümleştirme çalışma zamanı işi kuyruğa yoklama sonra başlatıyor.
+5. Şirket içinde barındırılan tümleştirme çalışma zamanı verileri bulut depolamaya veya tam tersi veri işlem hattında kopyalama etkinliği nasıl yapılandırıldığına bağlı olarak bir şirket içi depolama alanından kopyalar. Bu adım için şirket içinde barındırılan tümleştirme çalışma zamanı doğrudan Azure Blob Depolama gibi bulut tabanlı depolama hizmetleriyle güvenli (HTTPS) bir kanal üzerinden iletişim kurar.
 
-## <a name="considerations-for-using-self-hosted-ir"></a>Kendinden konak IR kullanma konuları
+## <a name="considerations-for-using-a-self-hosted-ir"></a>Şirket içinde barındırılan IR kullanma konuları
 
-- Tek şirket içinde barındırılan tümleştirme çalışma zamanının birden çok şirket içi veri kaynakları için kullanılabilir. A **tek şirket içinde barındırılan tümleştirme çalışma zamanı için** aynı Azure Active Directory kiracısı içinde başka bir data factory ile paylaşılabilir. Daha fazla ayrıntı için [şirket içinde barındırılan tümleştirme çalışma zamanı paylaşımı](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
-- Sahip olduğunuz **şirket içinde barındırılan tümleştirme çalışma zamanı yalnızca bir örneğini** tek bir makinede yüklü. Şirket içi veri kaynaklarına erişmesi gereken iki veri fabrikaları sahip varsayalım, şirket içinde barındırılan tümleştirme çalışma zamanı iki şirket içi bilgisayarlara yüklemeniz gerekir. Diğer bir deyişle, şirket içinde barındırılan tümleştirme çalışma zamanı için belirli bir veri fabrikası bağlıdır
-- **Şirket içinde barındırılan tümleştirme çalışma zamanı veri kaynağı ile aynı makinede olması gerekmez**. Ancak, şirket içinde barındırılan tümleştirme çalışma zamanı daha yakın veri kaynağına veri kaynağına bağlanmak şirket içinde barındırılan tümleştirme çalışma zamanı için süreyi azaltır. Şirket içinde barındırılan tümleştirme çalışma zamanı olandan farklı bir makinede ana şirket içi veri kaynağına yüklemenizi öneririz. Şirket içinde barındırılan tümleştirme çalışma zamanı ve veri kaynağını farklı makinelerde olduğunda, şirket içinde barındırılan tümleştirme çalışma zamanı veri kaynağı ile kaynaklar için rekabet edemez.
-- Sahip olduğunuz **farklı makinelerde aynı şirket içi veri kaynağına bağlanan birden çok şirket içinde barındırılan tümleştirme çalışma zamanları**. Örneğin, iki veri fabrikaları hizmet veren iki şirket içinde barındırılan tümleştirme çalışma zamanı olabilir ancak aynı şirket içi veri kaynağı ile veri fabrikaları hem kayıtlı.
-- Bilgisayar işlevi gören üzerinde yüklü bir ağ geçidi zaten varsa bir **Power BI** senaryo, yükleme bir **Azure Data Factory için ayrı şirket içinde barındırılan tümleştirme çalışma zamanı** başka bir makine üzerinde.
-- Şirket içinde barındırılan tümleştirme çalışma zamanı, Azure sanal ağ içindeki veri tümleştirmesini desteklemek için kullanılmalıdır.
-- Veri kaynağı (bir güvenlik duvarının arkasında olan) bir şirket içi veri kaynağı olarak davran kullanırken bile **ExpressRoute**. Şirket içinde barındırılan tümleştirme çalışma zamanı hizmeti ve veri kaynağı arasında bağlantı kurmak için kullanın.
-- Üzerinde bulutta veri depolama alanı olsa bile, şirket içinde barındırılan tümleştirme çalışma zamanı kullanmalısınız bir **Azure Iaas sanal makine**.
-- Görevleri hangi FIPS uyumlu üzerinde şifreleme etkin bir Windows Server'da yüklü bir şirket içinde barındırılan tümleştirme çalışma zamanı başarısız olabilir. Bu sorunu geçici olarak çözmek için sunucudaki FIPS uyumlu şifrelemeyi devre dışı bırakın. FIPS uyumlu şifrelemeyi devre dışı bırakmak için 1 (0 (devre dışı) olarak etkin) olan aşağıdaki kayıt defteri değerini Değiştir: `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
+- Tek şirket içinde barındırılan tümleştirme çalışma zamanının birden çok şirket içi veri kaynakları için kullanılabilir. Tek şirket içinde barındırılan tümleştirme çalışma zamanı, aynı Azure Active Directory kiracısı içinde başka bir data factory ile paylaşılabilir. Daha fazla bilgi için [şirket içinde barındırılan tümleştirme çalışma zamanı paylaşımı](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
+- Tek bir makinede yüklü bir şirket içinde barındırılan tümleştirme çalışma zamanı yalnızca bir örneği olabilir. İki veri fabrikaları varsa erişmek için gereken şirket içi veri kaynakları, şirket içinde barındırılan tümleştirme çalışma zamanının iki şirket içi bilgisayarlara yüklemeniz gerekir. Diğer bir deyişle, şirket içinde barındırılan tümleştirme çalışma zamanı için belirli bir veri fabrikası bağlıdır.
+- Şirket içinde barındırılan tümleştirme çalışma zamanı veri kaynağı ile aynı makinede olması gerekmez. Ancak, şirket içinde barındırılan tümleştirme çalışma zamanı sahip daha yakın veri kaynağına veri kaynağına bağlanmak şirket içinde barındırılan tümleştirme çalışma zamanı için süreyi azaltır. Şirket içinde barındırılan tümleştirme çalışma zamanı olandan farklı bir makinede ana şirket içi veri kaynağına yüklemenizi öneririz. Şirket içinde barındırılan tümleştirme çalışma zamanı ve veri kaynağını farklı makinelerde olduğunda, şirket içinde barındırılan tümleştirme çalışma zamanı veri kaynağı ile kaynaklar için rekabet edemez.
+- Aynı şirket içi veri kaynağına bağlanan farklı makinelerde birden çok şirket içinde barındırılan tümleştirme çalışma zamanları olabilir. Örneğin, iki veri fabrikaları hizmet iki şirket içinde barındırılan tümleştirme çalışma zamanları olabilir, ancak aynı şirket içi veri kaynağı ile veri fabrikaları hem kayıtlı.
+- Ayrı şirket içinde barındırılan tümleştirme çalışma zamanı, bir Power BI senaryo sunmak için bilgisayarınızda yüklü bir ağ geçidi zaten varsa, Azure Data Factory için başka bir makineye yükleyin.
+- Şirket içinde barındırılan tümleştirme çalışma zamanı, bir Azure sanal ağ içindeki veri tümleştirmesini desteklemek için kullanılmalıdır.
+- Veri kaynağınızı bile Azure Expressroute'u kullanırken, bir güvenlik duvarının arkasındaysa şirket içi veri kaynağı olarak değerlendirin. Şirket içinde barındırılan tümleştirme çalışma zamanı hizmeti ve veri kaynağı arasında bağlantı kurmak için kullanın.
+- Buluttaki bir Azure Iaas sanal makinesinde veri deposu olsa bile, şirket içinde barındırılan tümleştirme çalışma zamanı kullanmanız gerekir.
+- Görevler, hangi FIPS uyumlu üzerinde şifreleme etkin bir Windows sunucusu üzerinde yüklü bir şirket içinde barındırılan tümleştirme çalışma zamanında başarısız olabilir. Bu sorunu çözmek için sunucudaki FIPS uyumlu şifrelemeyi devre dışı bırakın. FIPS uyumlu şifrelemeyi devre dışı bırakmak için 1 (0 (devre dışı) olarak etkin) olan aşağıdaki kayıt defteri değerini Değiştir: `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Desteklenen **işletim sistemi** sürümleridir Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. Şirket içinde barındırılan tümleştirme çalışma zamanını yüklemesini bir **etki alanı denetleyicisi desteklenmiyor**.
-- **.NET framework 4.6.1 veya üzerini** gereklidir. Windows 7 makinesinde şirket içinde barındırılan tümleştirme çalışma zamanı'nı yüklüyorsanız, .NET Framework 4.6.1 yükleyin veya üzeri. Bkz: [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) Ayrıntılar için.
-- Önerilen **yapılandırma** şirket içinde barındırılan tümleştirme çalışma zamanı için en az 2 GHz, 4 çekirdek, 8 GB RAM ve 80 GB disk makinedir.
-- Konak makine hazırda bekleme, şirket içinde barındırılan tümleştirme çalışma zamanı veri isteklere yanıt vermez. Bu nedenle, şirket içinde barındırılan Integration runtime'ı yüklemeden önce bilgisayarda uygun bir güç planı yapılandırın. Makine hazırda bekleme için yapılandırılmışsa, şirket içinde barındırılan tümleştirme çalışma zamanı yükleme isteyen bir ileti alırsınız.
+- Desteklenen işletim sistemi sürümleri, Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016 ' dir. Şirket içinde barındırılan tümleştirme çalışma zamanı bir etki alanı denetleyicisindeki yükleme desteklenmez.
+- .NET framework 4.6.1 veya üstü gereklidir. Windows 7 makinesinde şirket içinde barındırılan tümleştirme çalışma zamanı'nı yüklüyorsanız, .NET Framework 4.6.1 yükleyin veya üzeri. Bkz: [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) Ayrıntılar için.
+- Şirket içinde barındırılan tümleştirme çalışma zamanı makine için önerilen yapılandırma, en az 2 GHz, dört çekirdek, 8 GB RAM ve 80 GB disk içindir.
+- Konak makine hazırda bekleme, şirket içinde barındırılan tümleştirme çalışma zamanı veri isteklere yanıt vermez. Şirket içinde barındırılan Integration runtime'ı yüklemeden önce bilgisayarda uygun bir güç planı yapılandırın. Makine hazırda bekleme için yapılandırılmışsa, şirket içinde barındırılan tümleştirme çalışma zamanı yükleme isteyen bir ileti alırsınız.
 - Makinede yüklemek ve şirket içinde barındırılan tümleştirme çalışma zamanı başarıyla yapılandırmak için bir yönetici olması gerekir.
-- Kopyalama etkinliği çalıştırma üzerinde belirli bir sıklıkta gerçekleşecek şekilde makinesinde kaynak kullanımı (CPU, bellek), ayrıca en yüksek ve boş kalma sürelerinde ile aynı deseni izler. Kaynak Kullanımı Yoğun taşınan veri miktarı da bağlıdır. Birden çok kopyası işleri devam ederken, kaynak kullanımı yoğun zamanlarda Yukarı Git bakın.
+- Kopyalama etkinliği çalıştırma üzerinde belirli bir sıklıkta gerçekleşir. Kaynak Kullanımı (CPU, bellek) makine üzerinde yoğun ve boş kalma sürelerinde ile aynı deseni izler. Kaynak Kullanımı Yoğun taşınan veri miktarı da bağlıdır. Birden çok kopyası işleri devam ederken, kaynak kullanımı yoğun zamanlarda Yukarı Git bakın.
 
 ## <a name="installation-best-practices"></a>Yükleme için en iyi yöntemler
-Şirket içinde barındırılan tümleştirme çalışma zamanı, bir MSI Kurulumu paketinden indirerek yüklenebilir [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Bkz: [şirket içi ile bulut arasında veri taşıma makale](tutorial-hybrid-copy-powershell.md) adım adım yönergeler için.
+Şirket içinde barındırılan tümleştirme çalışma zamanının bir MSI Kurulumu paketinden indirerek yükleyebilirsiniz [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Bkz: [şirket içi ile bulut arasında veri taşıma makale](tutorial-hybrid-copy-powershell.md) adım adım yönergeler için.
 
-- Makine olmayan hazırda bekletme güç planı için şirket içinde barındırılan Integration runtime konak makinedeki yapılandırın. Konak makine hazırda bekleme, şirket içinde barındırılan tümleştirme çalışma zamanı çevrimdışı olarak bırakır.
+- Makine olmayan hazırda bekletme güç planı için şirket içinde barındırılan Integration runtime konak makinedeki yapılandırın. Konak makine hazırda bekleme, şirket içinde barındırılan tümleştirme çalışma zamanı çevrimdışı olur.
 - Düzenli olarak şirket içinde barındırılan tümleştirme çalışma zamanı ile ilişkili kimlik bilgilerini yedekle.
 
-## <a name="install-and-register-self-hosted-ir-from-download-center"></a>Yükleme ve İndirme Merkezi'nden kaydetmek şirket içinde barındırılan IR
+## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Yükleme ve İndirme Merkezi'nden kendinden konak IR kaydetme
 
-1. Gidin [Microsoft Integration Runtime indirme sayfası](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Tıklayın **indirme**, uygun sürümünü seçin (**32-bit** vs. **64-bit**), tıklatıp **sonraki**.
-3. Çalıştırma **MSI** doğrudan veya sabit disk ve çalışma kaydedin.
-4. Üzerinde **Hoş Geldiniz** sayfasında, bir **dil** tıklayın **sonraki**.
-5. **Kabul** tıklayın ve son kullanıcı lisans sözleşmesi **sonraki**.
-6. Seçin **klasör** şirket içinde barındırılan tümleştirme çalışma zamanını yükleme tıklatıp **sonraki**.
+1. Git [Microsoft tümleştirme çalışma zamanı indirme sayfası](https://www.microsoft.com/download/details.aspx?id=39717).
+2. Seçin **indirme**, uygun sürümünü seçin (**32-bit** veya **64-bit**) seçip **sonraki**.
+3. MSI dosyası, doğrudan çalıştırmak veya sabit disk sürücünüze kaydedin ve çalıştırın.
+4. Üzerinde **Hoş Geldiniz** sayfasında, bir dil seçip **sonraki**.
+5. Microsoft Yazılımı Lisans koşullarını kabul edin ve seçin **sonraki**.
+6. Seçin **klasör** şirket içinde barındırılan tümleştirme çalışma zamanını yükleyin ve **sonraki**.
 7. Üzerinde **yüklenmeye hazır** sayfasında **yükleme**.
 8. Tıklayın **son** yüklemeyi tamamlamak için.
-9. Azure PowerShell kullanarak kimlik doğrulama anahtarını alın. PowerShell örneği, kimlik doğrulama anahtarı almak için:
+9. Azure PowerShell kullanarak kimlik doğrulama anahtarını alın. Kimlik doğrulama anahtarı almak için bir PowerShell örneği aşağıda verilmiştir:
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. Üzerinde **Integration Runtime (şirket içinde barındırılan) Kaydet** sayfa Microsoft tümleştirme çalışma zamanı yapılandırma makinenizde çalışan Yöneticisi, aşağıdaki adımları uygulayın:
-    1. Yapıştırma **kimlik doğrulama anahtarı** metin alanında.
-    2. İsteğe bağlı olarak, tıklayın **Show kimlik doğrulama anahtarı** anahtar metnini görmek için.
-    3. Tıklayın **kaydetme**.
+
+    a. Kimlik doğrulama anahtarı metin alanına yapıştırın.
+
+    b. İsteğe bağlı olarak **Show kimlik doğrulama anahtarı** anahtar metnini görmek için.
+
+    c. **Kaydol**’u seçin.
 
 
 ## <a name="high-availability-and-scalability"></a>Yüksek kullanılabilirlik ve ölçeklenebilirlik
-Şirket içinde barındırılan tümleştirme çalışma zamanının birden çok şirket içi makinelere ilişkilendirilebilir. Bu makineler, düğüm olarak adlandırılır. Şirket içinde barındırılan tümleştirme çalışma zamanı ile ilişkili en fazla dört düğümünüz olabilir. Mantıksal bir ağ geçidi için birden çok düğüm (yüklü ağ geçidi ile şirket içi makineler) sahip avantajları şunlardır:
-1. BT'nin tek, büyük veri çözümü veya Bulut veri tümleştirme en fazla 4 düğüm süreklilikle sağlama, Azure Data Factory ile bir hata noktası artık, bu nedenle şirket içinde barındırılan Integration Runtime'nın yüksek kullanılabilirlik.
-2. Geliştirilmiş performans ve aktarım hızını şirket içi ve bulut arasında veri taşıma sırasında veri depoları. Daha fazla bilgi edinin [performans karşılaştırmalar](copy-activity-performance.md).
+Şirket içinde barındırılan tümleştirme çalışma zamanının birden çok şirket içi makine ile ilişkili olabilir. Bu makineler, düğüm olarak adlandırılır. Bir şirket içinde barındırılan tümleştirme çalışma zamanı ile ilişkili en fazla dört düğümünüz olabilir. Mantıksal bir ağ geçidi için birden çok düğüm (yüklü bir ağ geçidi ile şirket içi makineler) sahip avantajları şunlardır:
+* BT'nin tek, büyük veri çözümü veya Bulut veri tümleştirme en fazla dört düğüm ile sürekliliğini sağlama, Azure Data Factory ile bir hata noktası artık kullanıcının bu nedenle şirket içinde barındırılan tümleştirme çalışma zamanı yüksek kullanılabilirlik.
+* Geliştirilmiş performans ve aktarım hızını şirket içi ve bulut arasında veri taşıma sırasında veri depoları. Daha fazla bilgi edinin [performans karşılaştırmalar](copy-activity-performance.md).
 
-Şirket içinde barındırılan tümleştirme çalışma zamanı yazılımı yükleyerek birden çok düğüm ilişkilendirebilirsiniz [İndirme Merkezinden](https://www.microsoft.com/download/details.aspx?id=39717) ve alınan kimlik doğrulaması anahtarlarını biri tarafından kaydetme Bölümünde anlatıldığı gibi AzureRmDataFactoryV2IntegrationRuntimeKey yeni cmdlet [Öğreticisi](tutorial-hybrid-copy-powershell.md)
-
-> [!NOTE]
-> Yeni ilişkilendirme her düğüm için şirket içinde barındırılan tümleştirme çalışma zamanı Oluştur gerekmez. Şirket içinde barındırılan tümleştirme çalışma zamanı başka bir makineye yükleyin ve aynı kimlik doğrulama anahtarı kullanarak kaydedin. 
+Şirket içinde barındırılan tümleştirme çalışma zamanı yazılımı yükleyerek birden çok düğüm ilişkilendirebilirsiniz [İndirme Merkezi](https://www.microsoft.com/download/details.aspx?id=39717). Ardından, kimlik doğrulaması anahtarlarını birini kullanarak elde ettiğiniz Kaydet **yeni AzureRmDataFactoryV2IntegrationRuntimeKey** açıklandığı cmdlet'i [öğretici](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
-> İçin başka bir düğüm eklemeden önce **yüksek kullanılabilirlik ve ölçeklenebilirlik**, olun **'Uzaktan erişim için intranet'** seçenektir **etkin** 1 düğümünde (Microsoft Integration Runtime Yapılandırma Yöneticisi -> Ayarlar -> Uzak intranet erişimi). 
+> Her düğüm ilişkilendirme için yeni şirket içinde barındırılan tümleştirme çalışma zamanı oluşturmanız gerekmez. Şirket içinde barındırılan tümleştirme çalışma zamanı başka bir makineye yükleyin ve aynı kimlik doğrulama anahtarı kullanarak kaydedin. 
+
+> [!NOTE]
+> Yüksek kullanılabilirlik ve ölçeklenebilirlik için başka bir düğüm eklemeden önce emin **uzaktan erişim için intranet** seçeneği etkin olduğunda ilk düğümü (**Microsoft Integration Runtime Yapılandırma Yöneticisi**  >  **Ayarları** > **uzaktan erişim için intranet**). 
 
 ### <a name="scale-considerations"></a>Ölçek konuları
 
 #### <a name="scale-out"></a>Ölçeği genişletme
 
-Zaman **kendinden konak IR kullanılabilir bellek düşük** ve **CPU kullanımının yüksek olduğu**, yeni bir düğüm ekleme, makineler arasında yük ölçeğinizi yardımcı. Etkinlikler zaman aşımı nedeniyle başarısız olan veya çevrimdışı olmasına IR düğümü şirket içinde barındırılan, bir düğüm için ağ geçidi eklerseniz yardımcı olur.
+Kendinden konak IR üzerinde kullanılabilir bellek düşükse ve CPU kullanımı yüksek olduğunda, yeni bir düğüm ekleme yük ölçeğinizi makinelerde yardımcı olur. Ağ geçidini bir düğüm ekleme, çünkü bunlar zaman aşımına uğruyor etkinlikleri başarısız oluyorsa ya da şirket içinde barındırılan IR düğümü çevrimdışı olduğu için yardımcı olur.
 
 #### <a name="scale-up"></a>Ölçeği artırma
 
-Kullanılabilir bellek ve CPU iyi kullanılmaz, ancak eşzamanlı iş yürütme sınırına ulaştı, bir düğümde çalıştırılabilen eşzamanlı iş sayısını artırarak ölçeği. Kendinden konak IR aşırı yüklendiği etkinlikler zaman aşımına uğruyor. zaman ölçeği isteyebilirsiniz. Aşağıdaki görüntüde gösterildiği gibi bir düğüm için kapasite üst sınırı artırabilirsiniz.  
+Kullanılabilir bellek ve CPU iyi kullanılmaz, ancak / eşzamanlı iş yürütme sınırına ulaştı, bir düğümde çalıştırılabilen eşzamanlı iş sayısını artırarak ölçeği. Kendinden konak IR aşırı yüklendiği etkinlikler zaman aşımına uğruyor. zaman ölçeği isteyebilirsiniz. Aşağıdaki görüntüde gösterildiği gibi bir düğüm için kapasite üst sınırı artırabilirsiniz:  
 
-![](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![Bir düğümde çalıştırılabilen eşzamanlı iş artırma](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>TLS/SSL sertifikası gereksinimleri
 
 Çalışma zamanı düğümleri tümleştirme arasındaki iletişimin güvenliğini sağlamak için kullanılan TLS/SSL sertifika için gereksinimler şunlardır:
 
-- Sertifika genel olarak güvenilir X509 olmalıdır v3 sertifikası. Ortak (üçüncü taraf) sertifika yetkilisi (CA) tarafından verilen sertifikaların kullanmanızı öneririz.
+- Sertifika genel olarak güvenilir X509 olmalıdır v3 sertifikası. Genel (ortak) tarafından verilen sertifikaların kullanmanızı öneririz sertifika yetkilisi (CA).
 - Her Integration runtime düğümü, bu sertifikaya güvenmeleri gerekir.
-- SAN sertifika konu diğer adları yalnızca son maddenin kullanılacak ve diğer tüm mevcut sınırlama nedeniyle yoksayılacak önerilmez. Örneğin bir SAN sertifikası, SAN olan sahip **node1.domain.contoso.com** ve **node2.domain.contoso.com**, yalnızca bu sertifika, FQDN: makinede kullanabilirsiniz **node2.domain.contoso.com**.
-- SSL sertifikaları için Windows Server 2012 R2 tarafından desteklenen herhangi bir anahtar boyutu destekler.
-- CNG kullanarak sertifika anahtarlar desteklenmez.  
+- Konu alternatif adı (SAN) sertifikaları yalnızca son SAN öğeyi kullanılacak ve diğer tüm geçerli sınırlamalar nedeniyle yoksayılacak çünkü önerilmemektedir. Örneğin, bir SAN sertifika ayarlanmış SAN'lar vardır **node1.domain.contoso.com** ve **node2.domain.contoso.com**, bu sertifika yalnızca FQDN değeri olan bir makinede kullanabilirsiniz  **node2.domain.contoso.com**.
+- Sertifikayı SSL sertifikaları için Windows Server 2012 R2 tarafından desteklenen herhangi bir anahtar boyutu destekler.
+- CNG anahtarları kullanan sertifikaları desteklenmez.  
 
-## <a name="sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories"></a>Şirket içinde barındırılan tümleştirme çalışma zamanı (IR) ile birden çok veri fabrikaları paylaşma
+## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Şirket içinde barındırılan tümleştirme çalışma zamanının birden çok veri fabrikaları ile paylaşma
 
-Bir veri fabrikasında Kurulumu zaten olabilir var olan şirket içinde barındırılan tümleştirme çalışma zamanı altyapısını yeniden kullanabilirsiniz. Bu sayede oluşturmak bir **bağlı şirket içinde barındırılan tümleştirme çalışma zamanı** içinde farklı bir veri fabrikası zaten varolan bir başvuru tarafından (paylaşılan) Self şirket içinde barındırılan IR'de.
+Bir veri fabrikasında zaten ayarladığınız var olan şirket içinde barındırılan tümleştirme çalışma zamanı altyapısını yeniden kullanabilirsiniz. Bu sayede oluşturmak bir *bağlı şirket içinde barındırılan tümleştirme çalışma zamanı* IR (paylaşılan) var olan bir başvuru tarafından Fabrika farklı bir verileri şirket içinde barındırılan.
 
-#### <a name="terminologies"></a>**Terimler**
+### <a name="terminology"></a>Terminoloji
 
-- **IR paylaşılan** – özgün şirket içinde barındırılan IR, bir fiziksel altyapı üzerinde çalışıyor.  
-- **IR bağlı** – başka bir paylaşılan IR başvuran IR Bu mantıksal bir IR ve başka bir şirket içinde barındırılan IR (paylaşılan) altyapısını kullanır.
+- **IR paylaşılan**: özgün şirket içinde barındırılan bir fiziksel altyapısı üzerinde çalışan IR.  
+- **IR bağlı**: başvuran başka bir IR paylaşılan IR Bu mantıksal bir IR ve başka bir şirket içinde barındırılan IR (paylaşılan) altyapısını kullanır.
 
-#### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Bağlı şirket içinde barındırılan IR oluşturmak için yüksek düzey adımları
+### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Bağlantılı bir şirket içinde barındırılan IR oluşturmaya yönelik üst düzey adımları
 
-Paylaşılacak şirket içinde barındırılan IR,
+1. Paylaşılacak şirket içinde barındırılan IR, data factory, bağlantılı IR oluşturmak istediğiniz izni 
 
-1. Bağlantılı IR oluşturmak istediğiniz Data factory'ye izin ver 
+   ![Paylaşım sekmesinde izin verme düğmesi](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
-   ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![İzinler atama seçimleri](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
 
-   ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+2. Paylaşılması için kendinden konak IR kaynak Kimliğini not alın.
 
-2. Not **kaynak kimliği** paylaşılması için şirket içinde barındırılan IR.
+   ![Kaynak kodu konumu](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
 
-   ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+3. İzinleri verilmiş olan veri fabrikasında (bağlı) yeni bir şirket içinde barındırılan IR oluşturma ve kaynak kimliği girin.
 
-İzinleri verilmiş olan Data Factory içinde
+   ![Bir bağlı şirket içinde barındırılan tümleştirme çalışma zamanı oluşturmak için düğme](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
 
-3. (Bağlı) yeni bir şirket içinde barındırılan IR oluşturma ve yukarıdaki girin **kaynak kimliği**
+   ![Adı ve kaynak kimliği için kutuları](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
 
-   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
-
-   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
-
-#### <a name="monitoring"></a>İzleme 
+### <a name="monitoring"></a>İzleme 
 
 - **Paylaşılan IR**
 
-  ![](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![Bir paylaşılan tümleştirme çalışma zamanı bulma seçimleri](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
 
-  ![](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![İzleme için sekmesinde](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
 
 - **Bağlantılı IR**
 
-  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![Bir bağlı tümleştirme çalışma zamanı bulma seçimleri](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
 
-  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![İzleme için sekmesinde](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
 
-#### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Şirket içinde barındırılan IR paylaşımı bilinen sınırlamalar
+### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Şirket içinde barındırılan IR paylaşımı bilinen sınırlamalar
 
-1. Tek şirket içinde barındırılan IR altında oluşturulabilecek bağlı IR varsayılan sayısıdır **20**. Daha sonra daha ihtiyacınız varsa desteğe başvurun. 
+* Data factory, bağlı bir IR oluşturulacağı olmalıdır bir [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Varsayılan olarak, Azure portalında veri fabrikaları oluşturulan veya örtük olarak oluşturulmuş bir MSI PowerShell cmdlet'leri vardır. Ancak bir veri fabrikası, bir Azure Resource Manager şablonu veya SDK oluşturulduğunda **kimlik** özelliği ayarlanmalıdır açıkça Azure Resource Manager içeren bir MSI veri fabrikası oluşturduğundan emin olmak için. 
 
-2. Bağlantılı IR olduğu oluşturulacak veri fabrikasının MSI olmalıdır ([yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Varsayılan olarak, Azure portalında veri fabrikaları oluşturulan veya PowerShell cmdlet'lerini MSI örtük olarak oluşturulmuş olur. Bir Azure noktaları Kaynak Yöneticisi şablonu veya SDK kullanarak data factory oluşturdunuz, ancak bazı durumlarda "**kimlik**" **özelliği ayarlanmalıdır** açıkça Azure noktaları Kaynak Yöneticisi'ni bir veri fabrikası oluşturur emin olmak için bir MSI içeren. 
+* Bu özelliği destekleyen Azure Data Factory .NET SDK sürümüdür 1.1.0 veya üzeri.
 
-3. Şirket içinde barındırılan IR sürümü eşit veya 3.8.xxxx.xx'dan büyük olmalıdır. Lütfen [son sürümünü indirin](https://www.microsoft.com/download/details.aspx?id=39717) şirket içinde barındırılan IR
+* Bu özelliği destekleyen Azure PowerShell sürümü 6.6.0 olan veya üzeri (AzureRM.DataFactoryV2, 0.5.7 veya üzeri).
 
-4. Bağlantılı IR olduğu oluşturulacak veri fabrikasının MSI olmalıdır ([yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Varsayılan olarak, Azure portal veya PowerShell cmdlet'lerini oluşturulan veri fabrikaları MSI olacaktır ([yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
-  örtük olarak oluşturulan, Bununla birlikte, Azure Resource Manager şablonu veya SDK'sı ile oluşturulan veri fabrikaları gerektirir "**kimlik**" bir MSI emin olmak için ayarlanacak özelliği oluşturulur.
+* İzin vermek için kullanıcının sahip rolü veya paylaşılan IR bulunduğu data factory'de devralınan sahip rolü olmalıdır. 
 
-5. ADF .net SDK, bu özelliği destekleyen sürümüdür > 1.1.0 =
-
-6. Bu özelliği destekleyen Azure PowerShell sürümüdür > 6.6.0 = (AzureRM.DataFactoryV2 > 0.5.7 =)
-
-7. Kullanıcı izinleri vermeniz gerekir "**sahibi**" rolü veya devralınan "**sahibi**" paylaşılan IR bulunduğu Data factory'de rol. 
-
-8. Active Directory için  **[Konuk kullanıcılar](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)**, (arama anahtar sözcüğü kullanarak tüm veri Fabrikalarını Listeleme) arama işlevleri kullanıcı arabiriminde [çalışmıyor](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Ancak Konuk kullanıcı olduğu sürece "**sahibi**"Veri fabrikası, IR arama işlevlerinde olmadan doğrudan yönetilen hizmet kimliği ile IR gerekiyor, paylaşılan veri fabrikasının yazarak paylaşabilirler"**Atama Pemission**"metin kutusuna tıklayıp"**Ekle**"ADF arabiriminde. 
+* Active Directory için [Konuk kullanıcılar](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), (tüm veri fabrikalarını arama anahtar sözcüğü kullanarak listeleme) arama işlevleri kullanıcı arabiriminde [çalışmıyor](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Ancak Konuk kullanıcı, data factory'nin sahibi olduğu sürece, IR arama işlevlerinde olmadan doğrudan, paylaşılan IR ile gereken veri fabrikasının MSI yazarak paylaşabilirler **atama izni** metin kutusu ve seçme **Ekle** Azure Data Factory kullanıcı arabiriminde. 
 
   > [!NOTE]
-  > Bu özellik yalnızca Azure Data Factory sürüm 2 kullanılabilir 
+  > Bu özellik yalnızca Azure Data Factory V2'de kullanılabilir. 
 
-## <a name="system-tray-icons-notifications"></a>Sistem Tepsisi Simgeleri / bildirimleri
+## <a name="notification-area-icons-and-notifications"></a>Bildirim alanı simgesini ve bildirimler
 
-İmleç sistem tepsisi simgesi/bildirim iletisi taşırsanız, şirket içinde barındırılan tümleştirme çalışma zamanı durumu hakkındaki ayrıntıları bulabilirsiniz.
+Simge veya bildirim alanında bir ileti üzerinden imlecinizi taşırsanız, şirket içinde barındırılan tümleştirme çalışma zamanı durumu hakkındaki ayrıntıları bulabilirsiniz.
 
-![Sistem tepsisi bildirimi](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![Bildirim alanında bildirim](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>Bağlantı noktaları ve güvenlik duvarı
-Göz önünde bulundurmanız gereken iki güvenlik duvarı vardır: **Kurumsal güvenlik duvarınız** kuruluşun merkezi yönlendirici üzerinde çalışan ve **Windows Güvenlik Duvarı** yerel makinede bir arka plan olarak yapılandırılmış olduğu Şirket içinde barındırılan tümleştirme çalışma zamanı yüklenir.
+Dikkate alınması gereken iki güvenlik duvarı vardır: *Kurumsal güvenlik duvarınız* kuruluşun merkezi yönlendirici üzerinde çalışan ve *Windows Güvenlik Duvarı* yerel makinede bir arka plan olarak yapılandırılmış olduğu Şirket içinde barındırılan tümleştirme çalışma zamanı yüklenir.
 
 ![Güvenlik duvarı](media\create-self-hosted-integration-runtime\firewall.png)
 
-Konumunda **Kurumsal güvenlik duvarınız** düzeyi, aşağıdaki etki alanları ve giden bağlantı noktalarını yapılandırmanız:
+Konumunda *Kurumsal güvenlik duvarınız* düzeyi, aşağıdaki etki alanları ve giden bağlantı noktalarını yapılandırmak gerekir:
 
 Etki alanı adları | Bağlantı Noktaları | Açıklama
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443 | Veri taşıma Hizmeti'nde arka ucu ile iletişim kurmak için kullanılır
-*. core.windows.net | 443 | Azure Blob (yapılandırılmışsa) kullanarak hazırlanmış kopya için kullanılan
-*.frontend.clouddatahub.net | 443 | Veri taşıma Hizmeti'nde arka ucu ile iletişim kurmak için kullanılır
+*.servicebus.windows.net | 443 | Arka uç veri taşıma hizmeti ile iletişim için kullanılır
+*. core.windows.net | 443 | Hazırlanmış kopya (yapılandırılmışsa) Azure Blob Depolama alanı üzerinden kullanılan
+*.frontend.clouddatahub.net | 443 | Arka uç veri taşıma hizmeti ile iletişim için kullanılır
 download.microsoft.com | 443 | Güncelleştirmeleri yüklemek için kullanılan
 
-Adresindeki **Windows Güvenlik Duvarı** düzeyi (makine düzeyi), şu giden bağlantı noktaları normalde etkinleştirilir. Etki alanları ve bağlantı noktalarını uygun şekilde üzerinde şirket içinde barındırılan yapılandırabilirsiniz, tümleştirme çalışma zamanı makine.
+Adresindeki *Windows Güvenlik Duvarı* düzeyi (makine düzeyi), şu giden bağlantı noktaları normalde etkinleştirilir. Varsa etki alanları ve bağlantı noktalarını uygun şekilde yapılandırabilirsiniz, şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde.
 
 > [!NOTE]
-> Kaynağınız üzerinde temel / havuzlarını sahip olabileceğiniz beyaz liste ek etki alanları ve giden bağlantı noktaları, Kurumsal/Windows Güvenlik Duvarı'nda.
+> Kaynak ve havuz üzerinde bağlı olarak, beyaz liste ek etki alanları ve kurumsal güvenlik duvarınız veya Windows Güvenlik Duvarı giden bağlantı noktaları olabilir.
 >
-> Bazı bulut veritabanları için (örneğin: Azure SQL veritabanı, Azure Data Lake, vb.), beyaz liste IP adresini güvenlik duvarı yapılandırmalarını şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde gerekebilir.
+> Bulut için bazı veritabanları (örneğin, Azure SQL veritabanı ve Azure Data Lake), şirket içinde barındırılan tümleştirme çalışma zamanı, güvenlik duvarı yapılandırması makinelerde beyaz liste IP adreslerini gerekebilir.
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Verileri bir kaynaktan havuza kopyalama
 Güvenlik duvarı kuralları düzgün bir şekilde şirket güvenlik duvarı, şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde, Windows Güvenlik Duvarı etkinleştirilir ve kendi veri deposu emin olun. Bu kurallar etkinleştirme, her iki kaynağına bağlanmak ve başarıyla havuz şirket içinde barındırılan tümleştirme çalışma zamanı sağlar. Kopyalama işleminin katılan her veri deposunun kurallarını etkinleştirin.
 
-Örneğin, kopyalama için bir **şirket içi verileri depolamak için bir Azure SQL veritabanı havuz veya bir Azure SQL veri ambarı havuzu**, aşağıdaki adımları uygulayın:
+Örneğin, bir şirket içi veri deposundan bir Azure SQL veritabanı havuz veya bir Azure SQL veri ambarı havuzu kopyalamak için aşağıdaki adımları uygulayın:
 
-- Gidene izin ver **TCP** bağlantı noktasında iletişime **1433** Windows Güvenlik Duvarı hem de kurumsal bir güvenlik duvarı için.
-- İzin verilen IP adreslerinin listesi için şirket içinde barındırılan tümleştirme çalışma zamanı makinenin IP adresini eklemek için Azure SQL sunucusunun güvenlik duvarı ayarlarını yapılandırın.
+1. Windows Güvenlik Duvarı hem kurumsal güvenlik duvarının 1433 numaralı bağlantı noktasında giden TCP iletişimine izin verin.
+2. İzin verilen IP adreslerinin listesi için şirket içinde barındırılan tümleştirme çalışma zamanı makinenin IP adresini eklemek için Azure SQL veritabanı güvenlik duvarı ayarlarını yapılandırın.
 
 > [!NOTE]
-> Şirket içinde barındırılan tümleştirme çalışma zamanı, güvenlik duvarınızı giden bağlantı noktası 1433 izin vermediği durumlarda, Azure SQL doğrudan erişemez. Bu durumda, kullanabilir [hazırlanmış kopya](copy-activity-performance.md) SQL Azure veritabanına / SQL Azure DW. Bu senaryoda, veri taşıma işlemi için yalnızca HTTPS (443 numaralı bağlantı noktası) gerekir.
+> Güvenlik duvarınızı giden bağlantı noktası 1433 izin vermediği durumlarda, şirket içinde barındırılan tümleştirme çalışma zamanının Azure SQL veritabanı doğrudan erişemez. Bu durumda, kullanabileceğiniz bir [kopyalama aşamalı](copy-activity-performance.md) Azure SQL veritabanı ve Azure SQL veri ambarı. Bu senaryoda, veri taşıma işlemi için yalnızca HTTPS (443 numaralı bağlantı noktası) gerekir.
 
 
 ## <a name="proxy-server-considerations"></a>Proxy server konuları
-Kurumsal ağ ortamınızı, internet'e bir proxy sunucusu kullanıyorsa, uygun proxy ayarlarını kullanmak için şirket içinde barındırılan tümleştirme çalışma zamanı yapılandırın. Proxy ilk kayıt aşamasında ayarlayabilirsiniz.
+Kurumsal ağ ortamınızı, internet'e bir proxy sunucusu kullanıyorsa, şirket içinde barındırılan tümleştirme çalışma zamanının uygun proxy ayarlarını kullanmak için yapılandırın. Proxy ilk kayıt aşamasında ayarlayabilirsiniz.
 
 ![Ara sunucusunu belirtin](media\create-self-hosted-integration-runtime\specify-proxy.png)
 
-Şirket içinde barındırılan Integration runtime, bulut hizmetine bağlanmak için proxy sunucusunu kullanır. İlk kurulum sırasında Değiştir bağlantısına tıklayın. Proxy ayarı iletişim kutusunu görürsünüz.
+Şirket içinde barındırılan tümleştirme çalışma zamanı, bulut hizmetine bağlanmak için proxy sunucusunu kullanır. Seçin **değiştir bağlantısını** ilk kurulum sırasında. Proxy ayarı iletişim kutusunu görürsünüz.
 
 ![Küme proxy](media\create-self-hosted-integration-runtime\set-http-proxy.png)
 
 Üç yapılandırma seçeneği vardır:
 
-- **Proxy kullanmayın**: şirket içinde barındırılan tümleştirme çalışma zamanı açıkça kullanmayan her Proxy'yi bulut hizmetlerine bağlanmak için.
-- **Sistem Ara sunucu kullanmak**: barındırılan tümleştirme çalışma zamanı kullanan proxy ayarı diahost.exe.config ve diawp.exe.config yapılandırılır. Proxy diahost.exe.config ve diawp.exe.config yapılandırılmışsa, şirket içinde barındırılan tümleştirme çalışma zamanı Ara sunucu üzerinden geçmeden doğrudan bulut hizmetine bağlanır.
-- **Özel ara sunucu kullanmak**: HTTP proxy diahost.exe.config ve diawp.exe.config yapılandırmaları kullanmak yerine şirket içinde barındırılan tümleştirme çalışma zamanı, kullanılacak ayarı yapılandırın. Adres ve bağlantı noktası gereklidir. Kullanıcı adı ve parola, proxy kimlik doğrulama ayarlarına bağlı olarak isteğe bağlıdır. Tüm ayarları şirket içinde barındırılan tümleştirme çalışma zamanını Windows DPAPI ile şifrelenen ve makinede yerel olarak depolanır.
+- **Proxy kullanmayın**: şirket içinde barındırılan tümleştirme çalışma zamanının açıkça her Proxy'yi bulut hizmetlerine bağlanmak için kullanmaz.
+- **Sistem Ara sunucu kullanmak**: şirket içinde barındırılan tümleştirme çalışma zamanı yapılandırılmış diahost.exe.config ve diawp.exe.config ayarının proxy kullanır. Proxy diahost.exe.config ve diawp.exe.config yapılandırılmışsa, şirket içinde barındırılan tümleştirme çalışma zamanı bir ara sunucu olmadan doğrudan bulut hizmetine bağlanır.
+- **Özel ara sunucu kullanmak**: HTTP proxy diahost.exe.config ve diawp.exe.config yapılandırmaları kullanmak yerine şirket içinde barındırılan tümleştirme çalışma zamanı için kullanılacak ayarı yapılandırın. **Adresi** ve **bağlantı noktası** gereklidir. **Kullanıcı adı** ve **parola** , proxy kimlik doğrulama ayarlarına bağlı olarak isteğe bağlıdır. Tüm ayarları şirket içinde barındırılan tümleştirme çalışma zamanını Windows DPAPI ile şifrelenen ve makinede yerel olarak depolanır.
 
 Integration runtime konak hizmeti, güncelleştirilen proxy ayarlarını kaydettikten sonra otomatik olarak başlatır.
 
 Ara sunucu ayarlarını görüntüleme veya güncelleştirme istiyorsanız, şirket içinde barındırılan tümleştirme çalışma zamanı başarıyla, kaydedildikten sonra Integration Runtime Yapılandırma Yöneticisi'ni kullanın.
 
-1. Başlatma **Microsoft Integration Runtime Yapılandırma Yöneticisi**.
-   - **Ayarlar** sekmesine geçin.
-   - Tıklayın **değişiklik** bağlantısını **HTTP Proxy** başlatmak için bölüm **Set HTTP Proxy** iletişim.
-   - Tıkladıktan sonra **sonraki** düğmesi, proxy ayarını kaydedin ve Integration Runtime konak hizmeti yeniden başlatmak için izninizi isteyen bir uyarı iletişim kutusu görürsünüz.
+1. Açık **Microsoft Integration Runtime Yapılandırma Yöneticisi**.
+2. **Ayarlar** sekmesine geçin.
+3. Seçin **değişiklik** bağlantısını **HTTP Proxy** açmak için bölüm **Set HTTP Proxy** iletişim kutusu.
+4. **İleri**’yi seçin. Daha sonra proxy ayarı kaydetmek izninizi isteyen bir uyarı görürsünüz ve Integration runtime konak hizmeti yeniden başlatın.
 
 Görüntüleyebilir ve Configuration Manager aracını kullanarak HTTP Ara sunucusunu güncelleştirin.
 
 ![Görünümü Ara](media\create-self-hosted-integration-runtime\view-proxy.png)
 
 > [!NOTE]
-> NTLM kimlik doğrulaması ile bir proxy sunucusu ayarlayın, Integration runtime konak hizmeti etki alanı hesabı altında çalışır. Daha sonra etki alanı hesabı için parolayı değiştirirseniz, hizmeti için yapılandırma ayarlarını güncelleştirme ve buna göre yeniden unutmayın. Bu gereksinimi nedeniyle parolanızı sık güncelleştirme gerektirmez proxy sunucusuna erişmek için bir özel etki alanı hesabı kullanmanızı öneririz.
+> NTLM kimlik doğrulaması ile bir proxy sunucusu ayarlayın, Integration runtime konak hizmeti etki alanı hesabı altında çalışır. Daha sonra etki alanı hesabı için parolayı değiştirirseniz, hizmetin yapılandırma ayarlarını güncelleştirmek ve buna göre yeniden unutmayın. Bu gereksinim nedeniyle, parolanızı sık güncelleştirme gerektirmez proxy sunucusuna erişmek için bir özel etki alanı hesabı kullanmanızı öneririz.
 
 ### <a name="configure-proxy-server-settings"></a>Ara sunucu ayarlarını yapılandırma
 
-Seçerseniz **sistem Ara sunucu kullanmak** HTTP proxy ayarı, şirket içinde barındırılan tümleştirme çalışma zamanı proxy diahost.exe.config ve diawp.exe.config ayarını kullanır. Proxy diahost.exe.config ve diawp.exe.config belirtilirse, şirket içinde barındırılan tümleştirme çalışma zamanı Ara sunucu üzerinden geçmeden doğrudan bulut hizmetine bağlanır. Aşağıdaki yordam diahost.exe.config dosyayı güncelleştirmek için yönergeler sağlar.
+Seçerseniz **sistem Ara sunucu kullanmak** HTTP proxy ayarı, şirket içinde barındırılan tümleştirme çalışma zamanı proxy diahost.exe.config ve diawp.exe.config ayarını kullanır. Proxy diahost.exe.config ve diawp.exe.config belirtilirse, şirket içinde barındırılan tümleştirme çalışma zamanı Ara sunucu üzerinden geçmeden doğrudan bulut hizmetine bağlanır. Aşağıdaki yordam diahost.exe.config dosyayı güncelleştirmek için yönergeler sağlar:
 
 1. Dosya Gezgini'nde, özgün dosyasını yedeklemek için C:\Program Files\Microsoft tümleştirme Runtime\3.0\Shared\diahost.exe.config güvenli bir kopyasını oluşturun.
-2. Yönetici olarak çalıştırdığınızdan Notepad.exe başlatın ve "C:\Program Files\Microsoft tümleştirme Runtime\3.0\Shared\diahost.exe.config. metin dosyasını açın Aşağıdaki kodda gösterildiği gibi varsayılan etiket için system.net bulun:
+2. Yönetici olarak çalıştırarak Notepad.exe açın ve C:\Program Files\Microsoft tümleştirme Runtime\3.0\Shared\diahost.exe.config metin dosyasını açın. Aşağıdaki kodda gösterildiği gibi varsayılan etiket için system.net bulun:
 
     ```xml
     <system.net>
@@ -297,45 +291,49 @@ Seçerseniz **sistem Ara sunucu kullanmak** HTTP proxy ayarı, şirket içinde b
     </system.net>
     ```
 
-    Ek özellikler scriptLocation gibi gerekli ayarları belirlemek için proxy etiketin içinde izin verilir. Bkz: [proxy öğesi (ağ ayarları)](https://msdn.microsoft.com/library/sa91de1e.aspx) söz dizimi.
+    Ek özellikler gibi gerekli ayarları belirlemek için proxy etiketin içinde verilir `scriptLocation`. Bkz: [proxy öğesi (ağ ayarları)](https://msdn.microsoft.com/library/sa91de1e.aspx) söz dizimi.
 
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
     ```
-3. Özgün konumuna yapılandırma dosyasını kaydedin ve ardından değişiklikleri toplar şirket içinde barındırılan Integration Runtime konak hizmeti yeniden başlatın. Hizmeti yeniden başlatmayı: Denetim Masası'ndan ya da hizmetler uygulamasını kullanın **Integration Runtime Yapılandırma Yöneticisi** > tıklayın **Hizmeti Durdur** düğmesine ve ardından tıklayın **Başlat Hizmet**. Hizmet başlatılmazsa, bir XML etiket sözdizimi yanlış düzenlendiğinde uygulama yapılandırma dosyasına eklendi olasıdır.
+3. Yapılandırma dosyası, özgün konuma kaydedin. Ardından, şirket içinde barındırılan tümleştirme çalışma zamanı değişiklikleri toplar konak hizmeti yeniden başlatın. 
+
+   Hizmeti yeniden başlatmak için Denetim Masası'ndaki Hizmetler uygulamasını kullanın. Veya Integration Runtime Yapılandırma Yöneticisi'nden **Hizmeti Durdur** düğmesini ve ardından **Hizmeti'ni Başlat**. 
+   
+   Hizmet başlatılmazsa, bir XML etiket sözdizimi yanlış düzenlendiğinde uygulama yapılandırma dosyasında eklendiğini olasıdır.
 
 > [!IMPORTANT]
 > Diahost.exe.config hem diawp.exe.config güncelleştirileceğini unutmayın.
 
-Bu noktaları ek olarak, ayrıca Microsoft Azure, şirketinizin izin verilenler listesinde olduğundan emin olmak gerekir. Geçerli Microsoft Azure IP adreslerinin listesi indirilebileceğini [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+Microsoft Azure, şirketinizin izin verilenler listesinde olduğundan emin olmanız gerekir. Geçerli Microsoft Azure IP adreslerinden listesini indirebilirsiniz [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Olası Belirtiler güvenlik duvarınızdan ve Ara sunucu ilgili sorunlar
-Aşağıdaki ayarlara benzer hatalarla karşılaşırsanız, kendi kimliğini doğrulamak için şirket içinde barındırılan tümleştirme çalışma zamanı, Data Factory bağlanmasını engelleyen güvenlik duvarı veya Ara sunucunun yanlış yapılandırması nedeniyle olasıdır. Güvenlik duvarınızı emin olmak için önceki bölüme bakın ve proxy sunucusu düzgün yapılandırılmış.
+Aşağıdaki ayarlara benzer hatalarla karşılaşırsanız, kendi kimliğini doğrulamak için şirket içinde barındırılan tümleştirme çalışma zamanının Data Factory bağlanmasını engelleyen güvenlik duvarı veya Ara sunucunun yanlış yapılandırması nedeniyle olasıdır. Güvenlik Duvarı ve proxy sunucunuzun düzgün şekilde yapılandırıldığından emin olmak için önceki bölüme bakın.
 
-1. Şirket içinde barındırılan tümleştirme çalışma zamanını kaydetmek çalıştığınızda şu hatayı alıyorsunuz: "Bu Integration Runtime düğümü kaydedemedi! Kimlik doğrulama anahtarının geçerli olduğunu ve tümleştirme konak hizmeti bu makinede çalıştığını onaylayın. "
-   - Tümleştirme çalışma zamanı Yapılandırma Yöneticisi'ni açın, durum olarak gördüğünüz "**bağlantısı kesilmiş**"veya"**bağlanma**". Windows olay günlükleri, "Olay Görüntüleyicisi" görüntülerken > "Uygulama ve hizmet günlükleri" > "Microsoft Integration Runtime", şu hata gibi hata iletilerine bakın:
+* Şirket içinde barındırılan tümleştirme çalışma zamanını kaydetmek çalıştığınızda şu hatayı alıyorsunuz: "Bu Integration Runtime düğümü kaydedemedi! Kimlik doğrulama anahtarının geçerli olduğunu ve tümleştirme hizmeti konak Hizmeti'nin bu makinede çalıştığını onaylayın."
+* Tümleştirme çalışma zamanı Yapılandırma Yöneticisi'ni açın, durumunu görmeniz **bağlantısı kesilmiş** veya **bağlanma**. Ne zaman görüntülemekte olduğunuz Windows olay günlükleri, altında **Olay Görüntüleyicisi'ni** > **uygulama ve hizmet günlükleri** > **Microsoft Integration Runtime**, Bunun gibi hata iletileri görürsünüz:
 
     ```
     Unable to connect to the remote server
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="enable-remote-access-from-intranet"></a>Intranet'ten uzaktan erişimi etkinleştirin  
-Kullandığınız durumda **PowerShell** veya **kimlik bilgileri Yöneticisi uygulamasının** şirket içinde barındırılan tümleştirme çalışma zamanı, ardından yüklendiği dışındaki başka bir makineden (ağ) kimlik bilgilerini şifrelemek için gerektirecek **'Intranet'ten uzaktan erişim'** etkinleştirilmesi için seçeneği. Çalıştırırsanız **PowerShell** veya **kimlik bilgileri Yöneticisi uygulamasının** şirket içinde barındırılan tümleştirme çalışma zamanının yüklü olduğu, ardından aynı makinede kimlik bilgisi şifrelenemedi **' uzaktan erişim intranet '** etkin değil.
+### <a name="enabling-remote-access-from-an-intranet"></a>Bir Intranet'ten uzaktan erişimi etkinleştirme  
+Şirket içinde barındırılan tümleştirme çalışma zamanının yüklendiği dışındaki başka bir makineden (ağ) kimlik bilgilerini şifrelemek için PowerShell veya kimlik bilgileri Yöneticisi uygulaması kullanıyorsanız etkinleştirebilirsiniz **Intranet'tenuzaktanerişim**seçeneği. PowerShell veya aynı makinede kimlik bilgilerini şifrelemek için kimlik bilgileri Yöneticisi uygulaması, şirket içinde barındırılan tümleştirme çalışma zamanının yüklü olduğu çalıştırırsanız, etkinleştiremezsiniz **Intranet'ten uzaktan erişim**.
 
-Intranet'ten uzak erişim olmalıdır **etkin** için başka bir düğüm eklemeden önce **yüksek kullanılabilirlik ve ölçeklenebilirlik**.  
+Etkinleştirmeniz gereken **Intranet'ten uzaktan erişim** yüksek kullanılabilirlik ve ölçeklenebilirlik için başka bir düğüm eklemeden önce.  
 
-Şirket içinde barındırılan tümleştirme çalışma zamanı kurulumu sırasında (ve sonraki sürümlerde v 3.3.xxxx.x), varsayılan olarak, şirket içinde barındırılan tümleştirme çalışma zamanı yükleme devre dışı bırakır. **'Intranet'ten uzaktan erişim'** şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde.
+Şirket içinde barındırılan tümleştirme çalışma zamanı kurulumu sırasında (daha sonra sürüm 3.3.xxxx.x), varsayılan olarak, şirket içinde barındırılan tümleştirme çalışma zamanı yükleme devre dışı bırakır. **Intranet'ten uzaktan erişim** şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde.
 
-Bir üçüncü taraf güvenlik duvarı kullanıyorsanız, bağlantı noktası 8060 (veya kullanıcı tarafından yapılandırılmış bağlantı noktası) el ile açabilirsiniz. Şirket içinde barındırılan tümleştirme çalışma zamanı Kurulum sırasında güvenlik duvarı sorunu çalıştırırsanız, güvenlik duvarını yapılandırma olmadan şirket içinde barındırılan tümleştirme çalışma zamanı yüklemek için aşağıdaki komutu kullanarak deneyebilirsiniz.
+Bir üçüncü taraf güvenlik duvarı kullanıyorsanız, bağlantı noktası 8060 (veya kullanıcı tarafından yapılandırılan bağlantı noktası) el ile açabilirsiniz. Şirket içinde barındırılan tümleştirme çalışma zamanını oluşturan ayarlanırken bir güvenlik duvarı sorun yaşıyorsanız, güvenlik duvarını yapılandırma olmadan şirket içinde barındırılan tümleştirme çalışma zamanı yüklemek için aşağıdaki komutu kullanarak deneyin:
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
 > [!NOTE]
-> **Kimlik bilgileri Yöneticisi uygulamasının** henüz ADFv2 kimlik bilgilerini şifrelemek için kullanılabilir değil. Daha sonra bu destek ekleyeceğiz.  
+> Kimlik bilgileri Yöneticisi uygulaması henüz Azure Data Factory V2 kimlik bilgilerini şifrelemek için kullanılabilir değil.  
 
-Şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde 8060 bağlantı noktası açık değil kullanmayı tercih ederseniz kullanarak dışında mekanizmaları kullanma ** kimlik bilgilerini ayarlama ** veri deposu kimlik bilgilerini yapılandırmak için uygulama. Örneğin, New-AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell cmdlet'ini kullanabilirsiniz. Bkz. nasıl veri kimlik bilgilerini depolama kimlik bilgilerini ayarlama ve güvenlik bölümü ayarlanabilir.
+Şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde 8060 bağlantı noktası açık değil seçerseniz, veri deposu kimlik bilgilerini yapılandırmak için kimlik bilgilerini ayarlama uygulama dışında mekanizmaları kullanın. Örneğin, kullanabileceğiniz **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet'i.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

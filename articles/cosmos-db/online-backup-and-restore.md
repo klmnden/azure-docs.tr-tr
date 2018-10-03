@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: a2c52844e09daf42418b4e548f7185e31dcf4ae9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 77f22201b897703f6e74a5a3626a2ccc04a814f4
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053542"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043235"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Otomatik çevrimiçi yedekleme ve geri yükleme işlemi Azure Cosmos DB
 Azure Cosmos DB, tüm verilerinizin yedeklerini düzenli aralıklarla otomatik olarak alır. Otomatik yedeklemeler, performans veya veritabanı işlemlerinizi kullanılabilirliğini etkilemeden alınır. Tüm yedeklemeler ayrı olarak başka bir depolama hizmetinde depolanır ve bu yedekleri bölgesel felaketlere karşı dayanıklılık için genel olarak çoğaltılır. Cosmos DB kapsayıcınız kaza ve daha sonra veri kurtarma veya bir olağanüstü durum kurtarma çözümü gerektiğinde otomatik yedekleme senaryoları için tasarlanmıştır.  
@@ -53,11 +53,15 @@ Kendi anlık görüntüleri tutmak istiyorsanız, SQL API'si için JSON seçene�
 > Geri yükleme tam veritabanı hesap düzeyinde olur, "Veritabanı düzeyinde kapsayıcı bir dizi için Aktarım sağlama –" Lütfen unutmayın. Ayrıca Destek ekibine 8 saat içinde kapsayıcınızı yanlışlıkla silinmiş ulaşmak için emin olmanız gerekir. 8 saat içinde Destek ekibine başvurun yoksa varsa veri geri yüklenemez. 
 
 
+
 ## <a name="restoring-a-database-from-an-online-backup"></a>Bir veritabanı çevrimiçi bir yedekten geri yükleme
 
 Veritabanı veya kapsayıcı kaza ile silerseniz, şunları yapabilirsiniz [bir destek bileti](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) veya [Azure destek çağrısı](https://azure.microsoft.com/support/options/) veri otomatik en son yedeklemeden geri yüklemek için. Azure desteği yalnızca standart, geliştirici gibi seçili planları için kullanılabilir, destek, temel plan ile kullanılamaz. Farklı destek planları hakkında bilgi edinmek için [Azure destek planları](https://azure.microsoft.com/support/plans/) sayfası. 
 
 Veritabanınızı (burada bir kapsayıcı içindeki belgeler silinir çalışmaları içerir) veri bozulma sorunu nedeniyle geri yüklemek gerekirse bkz [veri bozulması işleme](#handling-data-corruption) bozuk veriler önlemek için ek adımlar atmanız gereken şekilde Mevcut yedeklemeler üzerine yazmasını. Belirli bir anlık görüntüye geri yüklenmesi, yedekleme için Cosmos DB, verileri bu anlık görüntü için yedekleme döngüsü boyunca kullanılabilir olduğunu gerektirir.
+
+> [!NOTE]
+> Koleksiyonları veya veritabanlarını geri yüklemek için yalnızca bir müşteri isteklerini sonra geri yüklenebilir. Hemen verileri geri yükledikten sonra kapsayıcı veya veritabanı silme, müşterinin responsbility sağlar. Geri yüklenen veritabanı veya koleksiyon silme, geri yüklenen koleksiyonu veya veritabanı oranını maliyetle neden olur. Böylece, hemen silmek çok önemlidir. 
 
 ## <a name="handling-data-corruption"></a>Veri bozulması işleme
 

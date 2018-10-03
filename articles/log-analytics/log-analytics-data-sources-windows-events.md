@@ -1,6 +1,6 @@
 ---
-title: Toplamak ve Azure günlük analizi, Windows olay günlüklerini analiz edin | Microsoft Docs
-description: Windows olay günlüklerini günlük analizi tarafından kullanılan en yaygın veri kaynaklarının biridir.  Bu makalede Windows olay günlüklerini koleksiyonunu ve Ayrıntılar için günlük analizi çalışma alanında oluşturdukları kayıtlarının nasıl yapılandırılacağı açıklanmaktadır.
+title: Toplama ve Azure Log analytics'te Windows olay günlüklerini çözümleme | Microsoft Docs
+description: Windows olay günlüklerini Log Analytics tarafından kullanılan en yaygın veri kaynaklarının biridir.  Bu makale koleksiyonu Windows olay günlükleri ve Log Analytics çalışma alanında oluşturdukları kayıtları ayrıntılarını nasıl yapılandırılacağını açıklar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,68 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 8183258ddde335b09293c72368ad3bf58a69334a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 4e21c011f54382466bf614dc01fb9d51b514d998
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129362"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044255"
 ---
-# <a name="windows-event-log-data-sources-in-log-analytics"></a>Windows olay günlüğü veri kaynaklarında, günlük analizi
-Windows olay günlüklerini en yaygın biri olan [veri kaynakları](log-analytics-data-sources.md) birçok uygulama Windows olay günlüğüne yazma beri Windows aracıları kullanarak veri toplama için.  İzlemeniz gereken uygulamaları tarafından oluşturulan herhangi bir özel günlük belirtmeye ek sistem ve uygulama gibi standart günlüklerindeki olayları toplayabilir.
+# <a name="windows-event-log-data-sources-in-log-analytics"></a>Log analytics'te Windows olay günlüğü veri kaynakları
+Windows olay günlükleri, en sık kullanılan bir [veri kaynakları](log-analytics-data-sources.md) birçok uygulama Windows olay günlüğüne yazma beri Windows aracılarını kullanarak veri toplama için.  İzlemeniz gereken uygulamaları tarafından oluşturulan tüm özel günlükleri belirtmenin yanı sıra sistem ve uygulama gibi standart günlüklerinden olayları toplayabilir.
 
 ![Windows olayları](media/log-analytics-data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Yapılandırma Windows olay günlükleri
 Windows olay günlüklerini yapılandırma [günlük analizi ayarları veri menüde](log-analytics-data-sources.md#configuring-data-sources).
 
-Günlük analizi ayarlarında belirtilen Windows olay günlüklerini yalnızca olayları toplar.  Bir olay günlüğü günlük adını yazıp'yi tıklatarak ekleyebilirsiniz **+**.  Her bir günlükteki yalnızca seçilen önem derecelerine sahip olayları toplanır.  Toplamak istediğiniz belirli günlük için önem derecelerine denetleyin.  Filtre olayları için herhangi bir ek ölçüt sağlayamaz.
+Log Analytics'e yalnızca ayarlarında belirttiğiniz Windows olay günlükleri olayları toplar.  Bir olay günlüğü, günlük adını yazarak ve tıklayarak ekleyebilirsiniz **+**.  Her günlük için yalnızca seçilen önem dereceleri olayları toplanır.  Toplamak istediğiniz belirli bir günlük için önem derecelerini işaretleyin.  Olayları Filtrele için herhangi bir ek ölçüt sağlayamaz.
 
-Bir olay günlüğü adı yazarken, günlük analizi ortak olay günlüğü adlarının öneriler sağlar. Eklemek istediğiniz günlük listede görünmüyorsa, günlüğünün tam adı yazarak hala ekleyebilirsiniz. Olay Görüntüleyicisi'ni kullanarak günlük tam adını bulabilirsiniz. Olay Görüntüleyicisi'nde açın *özellikleri* sayfasında günlüğü ve dizeden kopyalama *tam adı* alan.
+Bir olay günlüğü adı yazarken, Log Analytics ortak olay günlüğü adlarının önerileri sağlar. Eklemek istediğiniz günlük listede görünmüyorsa, günlüğün tam adını yazarak yine de ekleyebilirsiniz. Günlük tam adı, Olay Görüntüleyicisi'ni kullanarak bulabilirsiniz. Olay Görüntüleyicisi'nde açın *özellikleri* dizeden kopyalayın ve sayfa için günlüğe *tam adı* alan.
 
-![Windows olayları yapılandırın](media/log-analytics-data-sources-windows-events/configure.png)
+![Windows olayları Yapılandır](media/log-analytics-data-sources-windows-events/configure.png)
 
 ## <a name="data-collection"></a>Veri toplama
-Günlük analizi seçili önem izlenen bir olay günlüğündeki olay oluşturuldu olarak eşleşen her olay toplar.  Aracı onun yerine üzerinden topladığı her olay günlüğüne kaydeder.  Aracı bir süre için çevrimdışı olursa, aracıyı çevrimdışıyken olayları oluşturulmuş olsalar bile sonra günlük analizi olayları son devre dışı kaldığı toplar.  Bu olayları olay günlüğünü aracı çevrimdışı durumdayken üzerine yazmaya uncollected olaylarla sarmalar durumunda değil toplanacak potansiyeli vardır.
+Log Analytics, olay oluşturulurken, seçilen bir önem derecesi izlenen bir olay günlüğünden eşleşen her olay toplar.  Aracı, onun yerine toplar, her olay günlüğüne kaydeder.  Aracıyı bir süre için çevrimdışı olursa, bu olayları aracının çevrimdışı durumdayken oluşturulmuş olsalar bile sonra Log Analytics olayları son devre dışı kaldığı toplar.  Bu olayları olay günlüğüne aracının çevrimdışı durumdayken üzerine yazılmasını uncollected olaylarla sarmalar, toplanmayan olasılığı yoktur.
 
 >[!NOTE]
->Günlük analizi kaynağından SQL Server tarafından oluşturulan denetim olaylarını toplama olmayan *MSSQLSERVER* anahtar sözcükleri - içeren olay kimliği 18453 *Klasik* veya *denetim başarı* ve anahtar sözcüğü *0xa0000000000000*.
+>Log Analytics, kaynak SQL Server tarafından oluşturulan denetim olaylarının toplamak değil *MSSQLSERVER* anahtar sözcükleri - içeren, olay kimliği 18453 *Klasik* veya *denetim başarı* ve anahtar sözcüğü *0xa0000000000000*.
 >
 
-## <a name="windows-event-records-properties"></a>Windows olay kayıtlarını özellikleri
-Windows olay kayıtlarını sahip bir tür **olay** ve aşağıdaki tabloda özelliklere sahiptir:
+## <a name="windows-event-records-properties"></a>Windows olay kayıtları özellikleri
+Windows olay kayıtlarını bir türü sahip **olay** ve aşağıdaki tabloda gösterilen özelliklere sahiptir:
 
 | Özellik | Açıklama |
 |:--- |:--- |
 | Bilgisayar |Olay toplandığı bilgisayarın adı. |
-| EventCategory |Olay kategorisi. |
+| EventCategory |Olayın kategorisi. |
 | EventData |Tüm olay verileri ham biçiminde. |
-| Olay Kimliği |Olay sayısı. |
-| EventLevel |Önem derecesi sayısal form durumda. |
-| EventLevelName |Metin biçiminde olayın önem derecesi. |
-| Olay günlüğü |Olay toplandığı olay günlüğü adı. |
-| ParameterXml |Olay parametre değerleri XML biçiminde. |
-| ManagementGroupName |System Center Operations Manager aracıları için yönetim grubu adı.  Diğer aracıları için bu değer AOI -:<workspace ID> |
+| EventID |Olay sayısı. |
+| eventLevel |Sayısal biçimde olayın önem derecesi. |
+| EventLevelName |Metin biçiminde etkinliğin önem derecesi. |
+| Olay günlüğü |Olay toplanan olay günlüğü adı. |
+| ParameterXml |XML biçiminde olay parametre değerleri. |
+| ManagementGroupName |System Center Operations Manager aracıları için yönetim grubunun adı.  Diğer aracılar için bu değer AOI -:<workspace ID> |
 | RenderedDescription |Parametre değerleri ile olay açıklaması |
-| Kaynak |Olay kaynağı. |
-| SourceSystem |Olay toplandığı aracı türü. <br> OpsManager – Windows aracı, ya da doğrudan bağlanın veya Operations Manager yönetilen <br> Linux – tüm Linux aracıları  <br> AzureStorage – Azure tanılama |
-| TimeGenerated |Tarih ve saat Windows olay oluşturuldu. |
-| UserName |Olayın günlüğe hesabının kullanıcı adı. |
+| Kaynak |Olayın kaynağı. |
+| SourceSystem |Olay toplandığı aracı türü. <br> OpsManager – Windows Aracısı, doğrudan bağlanın veya Operations Manager yönetilen <br> Linux – tüm Linux aracıları  <br> AzureStorage – Azure tanılama |
+| TimeGenerated |Tarih ve saat içinde Windows olay oluşturuldu. |
+| UserName |Olayın günlüğe hesabın kullanıcı adı. |
 
-## <a name="log-searches-with-windows-events"></a>Windows olay günlüğü aramalar
-Aşağıdaki tabloda, Windows olay kayıtlarını almak günlük arama farklı örnekleri sağlar.
+## <a name="log-searches-with-windows-events"></a>Günlük aramaları Windows olayları
+Aşağıdaki tabloda, Windows olay kayıtları almak günlük aramaları farklı örnekler sağlar.
 
 | Sorgu | Açıklama |
 |:---|:---|
 | Olay |Tüm Windows olayları. |
-| Olay &#124; burada EventLevelName "error" == |Tüm Windows olayları hata önem derecesi. |
-| Olay &#124; kaynak tarafından count() özetler |Kaynak olayların Windows sayısı. |
-| Olay &#124; burada EventLevelName "error" == &#124; kaynak tarafından count() özetler |Sayısı, Windows hata olayları kaynağa göre. |
+| Olay &#124; burada EventLevelName "error" == |Tüm Windows olayları ile hata önem derecesi. |
+| Olay &#124; kaynağına göre Count() işlevi özetleme |Kaynak olayların sayısı, Windows. |
+| Olay &#124; burada EventLevelName "error" == &#124; kaynağına göre Count() işlevi özetleme |Kaynak tarafından sayısı, Windows hata olayları. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Diğer toplamak için günlük analizi yapılandırma [veri kaynakları](log-analytics-data-sources.md) çözümleme için.
-* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümleri toplanan verileri çözümlemek için.  
-* Kullanım [özel alanlar](log-analytics-custom-fields.md) olay kayıtlarını tek tek alanlarına ayrıştırılamıyor.
-* Yapılandırma [performans sayaçları koleksiyonunu](log-analytics-data-sources-performance-counters.md) Windows aracılardan gelen.
+* Diğer toplamak için log Analytics'i yapılandırma [veri kaynakları](log-analytics-data-sources.md) analiz.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
+* Kullanım [özel alanlar](log-analytics-custom-fields.md) olay kayıtları tek tek alanlarına ayrıştırılamıyor.
+* Yapılandırma [performans sayaçlarını toplamayı](log-analytics-data-sources-performance-counters.md) Windows aracılarınızdan.

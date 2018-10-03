@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: a79c09df7d5fec5884a6810b82b7c174042a4c93
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f6067a6270010aaf57a404f66b8a99cbafa525ca
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054572"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041707"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Nasıl çalıştığını: Azure multi-Factor Authentication
 
@@ -57,8 +57,7 @@ Azure mfa'yı içerir veya oluşturabileceğiniz daha sonra tüm kullanıcılar�
 
 * Burada kullanıcı, kendi kimlik doğrulama yöntemlerini erişimi olmadığı veya düzgün çalışmayan olduğundan oturum açamaz senaryoları işlemek için destek ekibinize eğitin.
    * Koşullu erişim ilkeleri için Azure MFA hizmetini kullanarak, destek ekibinize, MFA gerektirme ilkesinden hariç tutulan bir gruba kullanıcı ekleyebilirsiniz.
-   * Destek personeli, iki aşamalı doğrulama kimlik doğrulaması yapmalarına izin vermek Azure MFA sunucusu kullanıcı için geçici bir kerelik geçiş etkinleştirebilirsiniz. Geçiş geçicidir ve belirtilen sayıda saniye geçtikten sonra süresi dolar.
-   * Azure MFA hizmeti için koşullu erişim ilkelerini kullanarak destek ekibinize, MFA gerektirme ilkesinden hariç tutulan bir gruba kullanıcı ekleyebilirsiniz.
+   * Destek personeli, iki aşamalı doğrulama kimlik doğrulaması yapmalarına izin vermek Azure MFA sunucusu kullanıcı için geçici bir kerelik geçiş etkinleştirebilirsiniz. Geçiş geçicidir ve belirtilen sayıda saniye geçtikten sonra süresi dolar.   
 * Güvenilen IP'ler veya adlandırılmış konumlar iki aşamalı doğrulama istekleri en aza indirmek için bir yol kullanmayı düşünün. Bu özellik, yönetilen ya da Federasyon Kiracı yöneticileri, kuruluşlarının intraneti gibi bir güvenilen ağa konumdan oturum açan kullanıcılar için iki aşamalı doğrulamayı atlayabilirsiniz.
 * Dağıtma [Azure AD kimlik koruması](../active-directory-identityprotection.md) ve risk etkinliklere göre iki aşamalı doğrulamayı tetikler.
 

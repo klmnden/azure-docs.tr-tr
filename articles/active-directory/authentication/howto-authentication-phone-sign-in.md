@@ -1,5 +1,5 @@
 ---
-title: Parolasız bir Azure AD oturum açma Microsoft Authenticator uygulamasını (genel Önizleme)
+title: Parola olmadan Azure AD oturum açma Microsoft Authenticator uygulamasını (genel Önizleme)
 description: Microsoft Authenticator uygulamasını olmadan parolanızı (genel Önizleme) kullanarak Azure AD için oturum açın
 services: active-directory
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: d348978924b4123944e019ef1a309633ee72b516
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: af5fe7c00b2dedd6b3447cd0919bdce3ac38ae5d
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048362"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237016"
 ---
-# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Parolasız telefonla oturum açma ile Microsoft Authenticator uygulamasını (genel Önizleme)
+# <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Parola olmadan telefonla oturum açma ile Microsoft Authenticator uygulamasını (genel Önizleme)
 
 Microsoft Authenticator uygulamasını herhangi bir Azure AD hesabı için parola kullanmadan oturum açmak için kullanılabilir. Teknolojinin benzer [Windows iş için Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator, bir cihaza bağlanır ve bir biyometrik veya PIN kodu kullanan bir kullanıcı kimlik bilgisi etkinleştirmek için anahtar tabanlı kimlik doğrulaması kullanır.
 
@@ -45,7 +45,7 @@ Bir yönetici, genel Önizleme için önce bu kiracıda kimlik bilgileri kullan�
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Telefonla oturum açma son Kullanıcılarım hizmetini nasıl?
 
-Genel Önizleme için oluşturmak veya bu yeni kimlik bilgilerini kullanmak için kullanıcıların zorlamak için hiçbir yolu yoktur. Son kullanıcı yalnızca parolasız oturum açma sonra kendi Kiracı yönetici olarak etkin ve kullanıcı telefonla oturum açma etkinleştirmek için Microsoft Authenticator uygulamasının güncelleştirilmiş karşılaşır.
+Genel Önizleme için oluşturmak veya bu yeni kimlik bilgilerini kullanmak için kullanıcıların zorlamak için hiçbir yolu yoktur. Son kullanıcı yalnızca parola olmadan oturum açma sonra kendi Kiracı yönetici olarak etkin ve kullanıcı telefonla oturum açma etkinleştirmek için Microsoft Authenticator uygulamasının güncelleştirilmiş karşılaşır.
 
 > [!NOTE]
 > Yani bu özellik uygulamada bir kiracı için ilke etkinleştirildiğinde, kullanıcılar bu akış hemen karşılaşabileceğinizi olasılığı 2017 Mart itibaren kaldırıldı. Farkında olması ve kullanıcılarınızın bu değişikliğe hazırlanmak.
@@ -61,11 +61,11 @@ Kullanıcı, anında iletme bildirimleri Microsoft Authenticator uygulamasını 
 
 ### <a name="ad-fs-integration"></a>AD FS tümleştirmesi
 
-Bir kullanıcı Microsoft Authenticator parolasız kimlik bilgisi etkin olduğundan, bu kullanıcı için kimlik doğrulaması her zaman bir onay bildirimi göndermeyi varsayılan olacaktır. Bu mantık için ADFS oturum açma doğrulama için ek bir adım kullanıcıya sorulmadan "Bunun yerine parolanızı kullanın."'ye yönlendirilmesini karma kiracısındaki kullanıcılar engeller. Bu işlem, ayrıca tüm şirket içi koşullu erişim ilkeleri ve geçişli kimlik doğrulaması akışları atlayacaktır. Bu işlem bir login_hint ise belirtilen bir kullanıcı AD FS için otomatik olarak iletilir ve parolasız kimlik bilgilerini kullanma seçeneğini atlama istisnadır.
+Bir kullanıcı Microsoft Authenticator parola olmadan kimlik bilgisi etkin olduğundan, bu kullanıcı için kimlik doğrulaması her zaman bir onay bildirimi göndermeyi varsayılan olacaktır. Bu mantık için ADFS oturum açma doğrulama için ek bir adım kullanıcıya sorulmadan "Bunun yerine parolanızı kullanın."'ye yönlendirilmesini karma kiracısındaki kullanıcılar engeller. Bu işlem, ayrıca tüm şirket içi koşullu erişim ilkeleri ve geçişli kimlik doğrulaması akışları atlayacaktır. Bu işlem bir login_hint ise belirtilen bir kullanıcı AD FS için otomatik olarak iletilir ve parola olmadan kimlik bilgilerini kullanma seçeneğini atlama istisnadır.
 
 ### <a name="azure-mfa-server"></a>Azure MFA sunucusu
 
-Bir kuruluşun şirket içi Azure MFA sunucusu ile MFA için etkinleştirilen son kullanıcılar yine de oluşturabilir ve oturum açma tek parolasız telefon kimlik bilgilerini kullanın. Bu değişiklik, kullanıcı kimlik bilgileriyle Microsoft Authenticator'ın birden çok yükleme (5 +) yükseltmek çalışırsa, bir hataya neden olabilir.  
+Bir kuruluşun şirket içi Azure MFA sunucusu ile MFA için etkinleştirilen son kullanıcılar yine de oluşturabilir ve oturum açma tek bir parola olmadan telefon kimlik bilgilerini kullanın. Bu değişiklik, kullanıcı kimlik bilgileriyle Microsoft Authenticator'ın birden çok yükleme (5 +) yükseltmek çalışırsa, bir hataya neden olabilir.  
 
 ### <a name="device-registration"></a>Cihaz kaydı
 

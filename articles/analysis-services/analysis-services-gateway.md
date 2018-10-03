@@ -1,5 +1,5 @@
 ---
-title: Şirket içi veri ağ geçidi | Microsoft Docs
+title: Şirket içi veri ağ geçidi
 description: Azure Analysis Services sunucunuzu şirket içi veri kaynaklarına bağlanır, bir şirket içi ağ geçidi gereklidir.
 author: minewiskan
 manager: kfile
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9ed2614969952eab90dfec572d9b61071981c4bf
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 3b731d44348c506f09f0d30d6d42b9cbdc623936
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391632"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041944"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Azure şirket içi veri ağ geçidi ile şirket içi veri kaynaklarına bağlanma
 Şirket içi veri ağ geçidi, şirket içi veri kaynakları ile bulutta, Azure Analysis Services sunucuları arasında güvenli veri aktarımı sağlar bir köprü görevi görür. Aynı bölgede birden fazla Azure Analysis Services sunucuları ile çalışma ek olarak, ağ geçidinin en son sürümünü de Azure Logic Apps, Power BI, Power Apps ve Microsoft Flow ile çalışır. Tek bir ağ geçidi ile aynı abonelik ve aynı bölgede birden çok hizmet ilişkilendirebilirsiniz. 
@@ -172,8 +172,6 @@ Günlük dosyaları, sorun giderme sırasında önemli bir kaynak olduğundan.
 #### <a name="configuration-logs"></a>Yapılandırma günlükleri
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
-
-
 
 
 #### <a name="event-logs"></a>Olay günlükleri

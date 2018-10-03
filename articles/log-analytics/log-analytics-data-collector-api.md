@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 3c4c2d8f49fbddc4875d7a4abf5d7629bc8f942e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.component: ''
+ms.openlocfilehash: a04ca0c405cb61079f496b637a8ebd348112e676
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060367"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042232"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API'sini (genel Önizleme) ile Log Analytics veri Gönder
 Bu makalede REST API istemcisinden Log Analytics'e veri göndermek için HTTP veri toplayıcı API'sini kullanmayı gösterir.  Bu betik ya da uygulama tarafından toplanan verileri biçimlendirme, bir isteğe ekleyin ve bu istek Log Analytics tarafından yetkilendirilmiş olması açıklar.  PowerShell, C# ve Python için örnek verilmiştir.

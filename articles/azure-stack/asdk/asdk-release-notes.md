@@ -12,87 +12,60 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2018
-git ms.author: sethm
+ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: e157211109825f3edaa910250e083ecb80faf941
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: d322fe378e7f662c233e9572dfc79dcd961137bd
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586334"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237815"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack Geliştirme Seti sürüm notları  
 Bu makalede, geliştirmeleri, düzeltmeler ve Azure Stack geliştirme Seti'ni'de bilinen sorunlar hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Abone olarak ASDK yenilikler ile güncel kalın [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [akış](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## <a name="build-11808097"></a>Derleme 1.1808.0.97
+## <a name="build-11809xxx"></a>1.1809.x.xx oluşturun
 
 ### <a name="new-features"></a>Yeni Özellikler
 Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içerir.  
 
-- <!-- 2682594   | ASDK  -->   **Tüm Azure Stack ortamlarında artık Eşgüdümlü Evrensel Saat (UTC) saat dilimi biçimini kullanın.**  Tüm veri günlük ve UTC biçiminde artık ilgili bilgileri görüntüler. 
+- <!--  2712869   | IS  ASDK -->  **Azure Stack syslog istemcisi (Genel kullanım)** bu istemci denetimler, uyarılar ve Azure Stack altyapısının bir syslog sunucusu veya güvenlik bilgileri ve Olay yönetimi (SIEM) yazılım ilgili güvenlik günlükleri iletilmesini sağlar. Azure Stack için dış. Syslog istemci artık syslog sunucunun dinlediği bağlantı noktasını destekler.
 
-- <!-- 2437250  | IS  ASDK --> **Yönetilen diskleri desteklenir.** Azure Stack sanal makineler ve sanal makine ölçek kümeleri artık yönetilen diskler kullanabilirsiniz. Daha fazla bilgi için [Azure Stack yönetilen diskler: farklılıklar ve dikkat edilmesi gerekenler](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
- 
-- <!-- 2563799  | IS  ASDK -->  **Azure İzleyici**. Azure'da Azure İzleyici gibi Azure Stack'te Azure İzleyici, temel düzeyde altyapı ölçümlerini ve günlüklerini çoğu hizmetleri sağlar. Daha fazla bilgi için [Azure Stack'te Azure İzleyici](/azure/azure-stack/user/azure-stack-metrics-azure-data).
+Bu sürümle birlikte, syslog istemci genel olarak kullanılabilir ve üretim ortamlarında kullanılabilir.
 
-- <!-- ASDK --> **Sanal makine ölçek kümeleri için galeri öğeleri yerleşik artık**.  Sanal makine ölçek kümesi galeri öğeleri artık bunları yüklemeye gerek kalmadan kullanıcı ve Yönetici portalı içinde kullanılabilir hale getirilir. 
-
-- <!-- IS, ASDK --> **Sanal makine ölçek kümesi ölçeklendirme**.  Portala kullanabileceğiniz [bir sanal makine ölçek kümesi ölçeği](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
-
-- <!-- 2489570 | IS ASDK--> **Özel IPSec/IKE İlkesi yapılandırmalarını desteği** için [Azure Stack hizmetinde VPN ağ geçitlerinin](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
-
-- <!-- | IS ASDK--> **Kubernetes Market öğesi**. Şimdi kullanarak Kubernetes kümelerini dağıtmayı [Kubernetes Market öğesi](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Kullanıcılar, Kubernetes öğeyi seçin ve Azure Stack'e bir Kubernetes kümesi dağıtmak için bazı parametreleri doldurun. Şablonları amacı, kullanıcıların Kurulum geliştirme/test Kubernetes dağıtımları birkaç adımda basit olmasını sağlamaktır.
-
-- <!-- | IS ASDK--> **Blok zinciri şablonları**. Artık yürütebilir [Ethereum consortium dağıtımları](/azure/azure-stack/azure-stack-ethereum) Azure Stack'te. Üç yeni şablonlarında bulabilirsiniz [Azure Stack hızlı başlangıç şablonlarından](https://github.com/Azure/AzureStack-QuickStart-Templates). Bunlar dağıtma ve Azure ve Ethereum minimum bilgi ile çok üye consortium Ethereum ağ yapılandırma izin verin. Şablonları amacı, kullanıcıların Kurulum geliştirme/test Blockchain dağıtımları birkaç adımda basit olmasını sağlamaktır.
-
-- <!-- | IS ASDK--> **API Sürüm profili 2017-03-09-profile 2018-03-01-karma güncelleştirildi**. API profillerini Azure kaynak sağlayıcısı ve Azure REST uç noktaları için API sürümü belirtin. Profilleri hakkında daha fazla bilgi için bkz. [yönetme API sürümü profillerini Azure Stack'te](/azure/azure-stack/user/azure-stack-version-profiles).
-
+Daha fazla bilgi için [Azure Stack syslog iletmeyi](../azure-stack-integrate-security.md).
 
 ### <a name="fixed-issues"></a>Düzeltilen sorunlar
-- <!-- IS ASDK--> Bir kullanılabilirlik kümesi Portal'da bulunan ve bir hata etki alanı ve 1 güncelleştirme etki alanına sahip kümesinde sonuçlandı oluşturmaya yönelik bir sorunu düzelttik.
 
-- <!-- IS ASDK --> Sanal makine ölçek kümeleri ölçeklendirme ayarları Portalı'nda kullanıma sunulmuştur.  
+- <!-- 2702741 -  IS ASDK --> Dinamik Ayırma kullanılarak dağıtılan hangi genel IP'ler, yöntemi değildi neden olan sorun düzeltildi durdurun-serbest verildiği sonra korunması garanti. Bunlar artık korunur.
 
-- <!-- 2494144- IS, ASDK --> Bazı F serisi sanal makine boyutları, dağıtım için bir VM boyutu seçerken görünmesini engelleyen sorunu artık çözülmüştür. 
-
-- <!-- IS, ASDK --> Sanal makineler ve en iyi duruma getirilmiş daha fazlasını oluştururken performans geliştirmeleri temel alınan depolama kullanın.
+- <!-- 3078022 - IS ASDK --> Bir VM 1808 önce durdu-serbest olduysa, 1808 güncelleştirmeden sonra yeniden tahsis bulunamadı.  Bu sorun 1809 içinde düzeltilmiştir. Bu düzeltmeyle 1809 içinde başlatılamadı ve bu durumda örnek başlatılabilir. Düzeltme aynı zamanda bu sorunu yeniden oluşmasını engeller.
 
 - **Çeşitli düzeltmeleri** performans, kararlılık, güvenlik ve Azure Stack tarafından kullanılan işletim sistemi
 
 
 ### <a name="changes"></a>Değişiklikler
+
 - <!-- 1697698  | IS, ASDK --> *Hızlı Başlangıç öğreticileri* Kullanıcı Portalı Panosu şimdi bağlantıda ilgili makaleleri çevrimiçi Azure Stack belgeleri.
 
 - <!-- 2515955   | IS ,ASDK--> *Tüm hizmetler* değiştirir *diğer hizmetler* Azure Stack yönetici ve Kullanıcı Portalı'nda. Artık *tüm hizmetleri* Azure portallarında yaptığınız gibi Azure Stack portallarında gezinmek için alternatif olarak.
 
-- <!-- TBD | IS, ASDK --> *+ Kaynak Oluştur* değiştirir *+ yeni* Azure Stack yönetici ve Kullanıcı Portalı'nda.  Artık *+ kaynak Oluştur* Azure portallarında yaptığınız gibi Azure Stack portallarında gezinmek için alternatif olarak. 
-
-- <!--  TBD – IS, ASDK --> *Temel A* sanal makine boyutları için devre dışı [sanal makine ölçek kümeleri oluşturma](.\.\azure-stack-compute-add-scalesets.md) (VMSS) portal üzerinden. Bu boyut ile bir VMSS oluşturmak için PowerShell ya da bir şablon kullanın. 
+- <!--  TBD – IS, ASDK --> *Temel A* sanal makine boyutları için devre dışı [sanal makine ölçek kümeleri oluşturma](../azure-stack-compute-add-scalesets.md) (VMSS) portal üzerinden. Bu boyut ile bir VMSS oluşturmak için PowerShell ya da bir şablon kullanın. 
 
 ### <a name="known-issues"></a>Bilinen sorunlar
 
 #### <a name="portal"></a>Portal  
-- <!-- 2967387 – IS, ASDK --> Azure Stack yönetici veya kullanıcı portalı oturum açmak için kullandığınız hesap görüntüler olarak **tanımlanmayan kullanıcı**. Hesap ya da sahip olmadığında bu oluşur bir *ilk* veya *son* adı belirtilmedi. Bu sorunu geçici olarak çözmek için ilk veya son sağlamak için kullanıcı hesabı düzenleyin. Oturumu kapatın ve sonra portalda yeniden oturum gerekir. 
 
--  <!--  2873083 - IS ASDK --> Bir sanal makine ölçek oluşturmak için portalı kullandığınızda ayarlayın (VMSS) *örnek boyutu* açılan olmayan yük doğru bir şekilde Internet Explorer kullandığınızda. Bu sorunu çözmek için bir VMSS oluşturmak için portalı kullanırken başka bir tarayıcı kullanın.  
+- <!-- 1697698  | IS, ASDK --> *Hızlı Başlangıç öğreticileri* Kullanıcı Portalı Panosu şimdi bağlantıda ilgili makaleleri çevrimiçi Azure Stack belgeleri.
 
-- <!-- TBD  ASDK --> Tüm Azure Stack dağıtımlar için varsayılan saat dilimini şimdi Eşgüdümlü Evrensel Saat (UTC) ayarlayın. Bu otomatik olarak UTC'ye varsayılan olarak yükleme sırasında döner ancak Azure Stack, yükleme sırasında bir saat dilimi seçebilirsiniz.
+- <!-- 2515955   | IS ,ASDK--> *Tüm hizmetler* değiştirir *diğer hizmetler* Azure Stack yönetici ve Kullanıcı Portalı'nda. Artık *tüm hizmetleri* Azure portallarında yaptığınız gibi Azure Stack portallarında gezinmek için alternatif olarak.
 
-- <!-- 2931230 – IS  ASDK --> Kullanıcı aboneliği plan kaldırdığınızda bile, bir kullanıcı abonelikte eklenti planı eklendiği planları silinemiyor. Eklenti planı başvuru abonelikleri de silinene kadar plan kalır. 
-
-- <!--2760466 – IS  ASDK --> Bu sürümünü çalıştıran yeni bir Azure Stack ortamına yüklediğinizde, uyarıyı gösterir *etkinleştirme gerekli* görüntülenmeyebilir. [Etkinleştirme](.\.\azure-stack-registration.md) Market dağıtım kullanabilmeniz için gereklidir. 
-
-- <!-- TBD - IS ASDK --> İki Yönetim abonelik türlerini [1804 sürümü ile sunulan](.\.\azure-stack-update-1804.md#new-features) kullanılmamalıdır. Abonelik türleridir **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türleri **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türlerini 1804 sürümünden başlayarak yeni Azure Stack ortamlarında görülebilir ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir **varsayılan sağlayıcı aboneliği** türü.
-
-- <!-- TBD -  IS ASDK --> Kullanıcı abonelikleri sonuçlarında yalnız bırakılmış kaynakları siliniyor. Geçici bir çözüm olarak kullanıcı kaynaklar veya kaynak grubunun tamamını silin ve sonra kullanıcı abonelikleri silin.
-
-- <!-- TBD -  IS ASDK --> Azure Stack portalı kullanarak aboneliğinize izinleri görüntüleyemezsiniz. Geçici bir çözüm olarak, izinleri doğrulamak için PowerShell kullanın.
-
-
+- <!--  TBD – IS, ASDK --> *Temel A* sanal makine boyutları için devre dışı [sanal makine ölçek kümeleri oluşturma](../azure-stack-compute-add-scalesets.md) (VMSS) portal üzerinden. Bu boyut ile bir VMSS oluşturmak için PowerShell ya da bir şablon kullanın.
 
 #### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
+
 - <!-- 1264761 - IS ASDK -->  Uyarıları görebilirsiniz *sistem durumu denetleyicisi* aşağıdaki ayrıntıları olan bir bileşeni:  
 
    Uyarı #1:

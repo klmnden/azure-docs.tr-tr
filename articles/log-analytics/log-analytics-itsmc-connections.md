@@ -1,6 +1,6 @@
 ---
-title: BT Hizmet Yönetimi Bağlayıcısı bağlantılarla Azure günlük analizi desteklenen | Microsoft Docs
-description: Bu makale, merkezi olarak izlemek ve ITSM iş öğelerini yönetmek için OMS günlük analizi, BT Hizmet Yönetimi Bağlayıcısı (ITSMC) ile ITSM ürünler/hizmetler bağlanma hakkında bilgi sağlar.
+title: Azure Log Analytics'te bağlantılar BT Hizmet Yönetimi Bağlayıcısı ile desteklenen | Microsoft Docs
+description: Bu makalede, ITSM ürünler/hizmetler merkezi olarak izlemeye ve ITSM çalışma öğelerini yönetmek için OMS Log analytics'te BT Hizmet Yönetimi Bağlayıcısı (ITSMC) ile bağlanma hakkında bilgi sağlar.
 documentationcenter: ''
 author: jyothirmaisuri
 manager: riyazp
@@ -13,38 +13,38 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: na
-ms.openlocfilehash: 661107779b74b6e21dec01aecf6d545ec2b7a702
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 50ab09d39fc0c224a97b6cf0c758c55026ac8ce7
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131761"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042853"
 ---
-# <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler ile BT Hizmet Yönetimi Bağlayıcısı Bağlan
-Bu makalede, iş öğelerini merkezi olarak yönetmek için günlük analizi içinde ITSM Ürün/hizmet ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantı yapılandırma hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](log-analytics-itsmc-overview.md).
+# <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler BT Hizmet Yönetimi Bağlayıcısı ile bağlanma
+Bu makalede, iş öğeleri merkezi olarak yönetmek için Log Analytics'te ITSM ürününüz/hizmetiniz ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantıyı yapılandırmak hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](log-analytics-itsmc-overview.md).
 
-Aşağıdaki ITSM ürünler/hizmetler desteklenir. Ürünü için ITSMC ürün bağlanma hakkında ayrıntılı bilgileri görüntülemek için seçin.
+Aşağıdaki ITSM ürünler/hizmetler desteklenir. Ürün için ITSMC bağlanma hakkında ayrıntılı bilgi görüntülemek için bir ürün seçin.
 
-- [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [System Center Hizmet Yöneticisi](#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-azure)
 - [Provance](#connect-provance-to-it-service-management-connector-in-azure)
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-azure)
 
 > [!NOTE]
 
-> ITSM bağlayıcı yalnızca bulut tabanlı ServiceNow örneklerine bağlanabilir. Şirket içi ServiceNow örneği şu anda desteklenmemektedir.
+> ITSM Bağlayıcısı, yalnızca bulut tabanlı ServiceNow örneklerine bağlanabilirsiniz. Şirket içi ServiceNow örneği şu anda desteklenmemektedir.
 
-## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>System Center Service Manager BT hizmetine bağlanmak Azure Yönetimi Bağlayıcısı
+## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>System Center Service Manager BT hizmetine bağlanmak azure'da Yönetimi Bağlayıcısı
 
-Aşağıdaki bölümlerde Azure ITSMC System Center Service Manager ürününüzü bağlanmak nasıl kullanılacağı hakkındaki ayrıntıları belirtin.
+Aşağıdaki bölümler, System Center Service Manager ürün azure'da ITSMC bağlanma hakkında ayrıntılı bilgi sağlar.
 
 ### <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdaki önkoşulların karşılandığından emin olun:
 
-- Yüklü ITSMC. Daha fazla bilgi: [BT Hizmet Yönetimi Bağlayıcısı çözümünü ekleme](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Service Manager Web uygulaması (Web uygulaması) dağıtılır ve yapılandırılır. Web uygulaması hakkında bilgi [burada](#create-and-deploy-service-manager-web-app-service).
+- ITSMC yüklü. Daha fazla bilgi: [BT Hizmet Yönetimi bağlayıcı çözümü ekleme](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- (Web uygulaması) Service Manager Web uygulaması dağıtılıp yapılandırıldıktan. Web uygulaması hakkında bilgi [burada](#create-and-deploy-service-manager-web-app-service).
 - Karma bağlantı oluşturulur ve yapılandırılır. Daha fazla bilgi: [karma bağlantı yapılandırma](#configure-the-hybrid-connection).
 - Service Manager sürümleri desteklenir: 2012 R2 veya 2016.
 - Kullanıcı rolü: [gelişmiş işleç](https://technet.microsoft.com/library/ff461054.aspx).
@@ -55,13 +55,13 @@ System Center Service Manager Örneğiniz için ITSMC bağlanmak için aşağıd
 
 1. Azure portalında Git **tüm kaynakları** ve Ara **ServiceDesk(YourWorkspaceName)**
 
-2.  Altında **çalışma veri kaynakları** tıklatın **ITSM bağlantıları**.
+2.  Altında **çalışma alanı veri kaynakları** tıklayın **ITSM bağlantıları**.
 
     ![Yeni bağlantı](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
-3. Sağ bölmede üstündeki **Ekle**.
+3. Sağ bölmenin en üstünde tıklayın **Ekle**.
 
-4. Aşağıdaki tabloda açıklandığı gibi bilgileri sağlayın ve tıklayın **Tamam** bağlantı oluşturmak için.
+4. Aşağıdaki tabloda açıklandığı gibi bilgileri belirtin ve tıklayın **Tamam** bağlantı oluşturmak için.
 
 > [!NOTE]
 
@@ -69,101 +69,101 @@ System Center Service Manager Örneğiniz için ITSMC bağlanmak için aşağıd
 
 | **Alan** | **Açıklama** |
 | --- | --- |
-| **Bağlantı Adı**   | ITSMC ile bağlanmak istediğiniz System Center Service Manager örneği için bir ad yazın.  Bu örnekte iş öğelerini yapılandırma / ayrıntılı günlük analizi görünümü olduğunda, bu adı daha sonra kullanırsınız. |
+| **Bağlantı Adı**   | ITSMC ile bağlanmak istediğiniz System Center Service Manager örneği için bir ad yazın.  Bu örnekte iş öğelerini yapılandırma / ayrıntılı log analytics'e görüntülemek, bu adı daha sonra kullanın. |
 | **İş ortağı türü**   | Seçin **System Center Service Manager**. |
 | **Sunucu URL'si**   | Service Manager Web uygulamasının URL'sini yazın. Service Manager Web uygulaması hakkında daha fazla bilgiyi [burada](#create-and-deploy-service-manager-web-app-service).
-| **İstemci kimliği**   | Web uygulaması kimlik doğrulamasını (otomatik komut dosyası kullanarak) oluşturulan istemci kimliği yazın. Otomatik komut dosyası hakkında daha fazla bilgiyi [burada.](log-analytics-itsmc-service-manager-script.md)|
-| **İstemci parolası**   | İstemci parolası yazın bu kimliği için oluşturulan   |
-| **Veri Eşitleme kapsamı**   | ITSMC eşitlemek istediğiniz Service Manager iş öğelerini seçin.  Bu iş öğeleri günlük analizi aktarılır. **Seçenekler:** olaylar, değişiklik istekleri.|
-| **Eşitleme veri** | Verileri istediğiniz beri geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
-| **ITSM çözümde yeni yapılandırma öğesi oluşturma** | Yapılandırma öğeleri ITSM ürün oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, OMS etkilenen CI desteklenen ITSM sistem içinde yapılandırma öğeleri (Cı'ler var olmayan) durumunda oluşturur. **Varsayılan**: devre dışı. |
+| **İstemci kimliği**   | Web uygulaması kimlik doğrulaması için (otomatik komut dosyası kullanarak) oluşturulan istemci kimliği yazın. Otomatik komut dosyası hakkında daha fazla bilgiyi [burada.](log-analytics-itsmc-service-manager-script.md)|
+| **İstemci gizli anahtarı**   | İstemci gizli anahtarını girin. Bu kimlik için oluşturulan   |
+| **Veri Eşitleme kapsamı**   | ITSMC eşitlemek istediğiniz Service Manager iş öğelerini seçin.  Bu iş öğeleri, Log Analytics'e aktarılır. **Seçenekler:** olaylar, değişiklik istekleri.|
+| **Veri Eşitleme** | Verilerden istediğiniz geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
+| **ITSM çözümüne yeni yapılandırma öğesi oluşturma** | ITSM ürününde yapılandırma öğelerini oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, OMS etkilenen CIS desteklenen ITSM sistemi içinde yapılandırma öğeleri (durumunda, mevcut olmayan CIS) oluşturur. **Varsayılan**: devre dışı. |
 
 ![Service manager bağlantısı](./media/log-analytics-itsmc/service-manager-connection.png)
 
-**Başarıyla bağlanıldı ve eşitlenen**:
+**Başarıyla bağlandı ve eşitlenmiş**:
 
-- Seçili iş öğelerini Hizmet Yöneticisi'nden Azure aktarılır **günlük analizi.** Bu bir özetini görüntüleyebilirsiniz BT Hizmet Yönetimi Bağlayıcısı kutucuğu iş öğeleri.
+- Seçili iş öğelerini Service Manager'dan Azure'a aktarılır **Log Analytics.** Bu bir özetini görüntüleyebilirsiniz BT Hizmet Yönetimi Bağlayıcısı kutucuğa iş öğeleri.
 
-- Günlük analizi uyarıları veya günlük kayıtları veya Azure Uyarıları'nda bu Service Manager örneğinin olaylar oluşturabilirsiniz.
+- Olaylar, Log Analytics uyarılarını veya günlük kayıtları veya bu Service Manager örneğindeki Azure uyarıları oluşturabilirsiniz.
 
 
 Daha fazla bilgi edinin: [Azure uyarıları oluşturma ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
-### <a name="create-and-deploy-service-manager-web-app-service"></a>Oluşturma ve Service Manager web uygulama hizmeti dağıtma
+### <a name="create-and-deploy-service-manager-web-app-service"></a>Service Manager web uygulaması hizmeti oluşturma ve dağıtma
 
-ITSMC Azure ile şirket içi Hizmet Yöneticisi'ni bağlanmak için Microsoft Github'da Service Manager Web uygulaması oluşturmuştur.
+Şirket içi Service Manager ile azure'da ITSMC bağlanmak için Microsoft GitHub üzerinde bir Service Manager Web uygulaması oluşturdu.
 
-Service Manager için ITSM Web uygulamasını kurup ayarlamak için aşağıdakileri yapın:
+Service Manager için ITSM Web uygulamasını ayarlama için aşağıdakileri yapın:
 
-- **Web uygulaması dağıtma** – Web uygulaması dağıtma, özelliklerini ayarlamak ve Azure AD ile kimlik doğrulaması. Web uygulaması kullanarak dağıtabilirsiniz [betik otomatik](log-analytics-itsmc-service-manager-script.md) Microsoft, sağlamıştır.
-- **Karma bağlantı yapılandırma** - [bu bağlantıyı yapılandırmak](#configure-the-hybrid-connection), el ile.
+- **Web uygulaması dağıtma** – Web uygulaması dağıtma, özelliklerini ayarlayın ve Azure AD kimlik doğrulaması. Kullanarak web uygulaması dağıtabilirsiniz [betik otomatik](log-analytics-itsmc-service-manager-script.md) Microsoft, sağlamıştır.
+- **Karma bağlantıyı yapılandırın** - [bu bağlantıyı yapılandırmak](#configure-the-hybrid-connection), el ile.
 
 #### <a name="deploy-the-web-app"></a>Web uygulaması dağıtma
-Otomatik kullanmak [betik](log-analytics-itsmc-service-manager-script.md) Web uygulamasını dağıtmak için özelliklerini ayarlamak ve Azure AD ile kimlik doğrulaması.
+Otomatik kullanma [betik](log-analytics-itsmc-service-manager-script.md) Web uygulamasına dağıtmak için özellikleri ayarlayın ve Azure AD kimlik doğrulaması.
 
-Aşağıdaki gerekli ayrıntıları sağlayarak komut dosyasını çalıştırın:
+Aşağıdaki gerekli ayrıntıları sağlayarak betiği çalıştırın:
 
 - Azure Abonelik Ayrıntıları
 - Kaynak grubu adı
 - Konum
-- Service Manager sunucu ayrıntıları (sunucu adı, etki alanı, kullanıcı adı ve parola)
+- Service Manager sunucusu ayrıntıları (sunucu adı, etki alanı, kullanıcı adı ve parola)
 - Web uygulamanız için site adı öneki
 - ServiceBus Namespace.
 
-Komut dosyası (benzersiz hale getirmek amacıyla birkaç ek dizeleri birlikte) belirtilen adı kullanarak Web uygulaması oluşturur. Bunu oluşturan **Web uygulaması URL'si**, **istemci kimliği** ve **gizli**.
+Betik (benzersiz hale getirmek amacıyla birkaç ek dize ile birlikte) belirtilen adı kullanarak Web uygulaması oluşturur. Ürettiği **Web uygulaması URL'si**, **istemci kimliği** ve **gizli**.
 
 Bir bağlantı ile ITSMC oluşturduğunuzda değerleri kaydetmek, bunları kullanın.
 
 **Web uygulaması yükleme denetimi**
 
-1. Git **Azure portal** > **kaynakları**.
+1. Git **Azure portalında** > **kaynakları**.
 2. Web uygulaması seçin, **ayarları** > **uygulama ayarları**.
-3. Komut dosyası aracılığıyla uygulama dağıtımı sırasındaki sağlanan Service Manager örneğiyle ilgili bilgiler onaylayın.
+3. Komut dosyası aracılığıyla uygulama dağıtımı sırasındaki sağlanan Service Manager örneğinin hakkında bilgiyi onaylamanız istenir.
 
-### <a name="configure-the-hybrid-connection"></a>Karma bağlantıyı yapılandırın
+### <a name="configure-the-hybrid-connection"></a>Karma bağlantı yapılandırma
 
-Azure'da ITSMC ile Service Manager örneğine bağlar karma bağlantıyı yapılandırmak için aşağıdaki yordamı kullanın.
+Service Manager örneğinin azure'da ITSMC bağlanan karma bağlantıyı yapılandırmak için aşağıdaki yordamı kullanın.
 
 1. Service Manager Web uygulamasının altında Bul **Azure kaynaklarını**.
-2. Tıklatın **ayarları** > **ağ**.
-3. Altında **karma bağlantılar**, tıklatın **karma bağlantı uç noktalarınızı yapılandırın**.
+2. Tıklayın **ayarları** > **ağ**.
+3. Altında **karma bağlantılar**, tıklayın **karma bağlantı uç noktalarınızı yapılandırın**.
 
-    ![Karma bağlantının ağ](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
-4. İçinde **karma bağlantılar** dikey penceresinde tıklatın **karma Bağlantı Ekle**.
+    ![Karma bağlantı ağ](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
+4. İçinde **karma bağlantılar** dikey penceresinde tıklayın **karma Bağlantı Ekle**.
 
-    ![Karma Bağlantısı Ekle](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
+    ![Karma Bağlantı Ekle](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
 
-5. İçinde **eklemek karma bağlantılar** dikey penceresinde tıklatın **oluştur yeni karma bağlantı**.
+5. İçinde **karma bağlantılar ekleme** dikey penceresinde tıklayın **oluştur yeni karma bağlantı**.
 
     ![Yeni Karma bağlantı](./media/log-analytics-itsmc/itsmc-create-new-hybrid-connection.png)
 
 6. Aşağıdaki değerleri yazın:
 
-    - **Uç nokta adı**: yeni bir karma bağlantı için bir ad belirtin.
-    -  **Uç noktası ana bilgisayar**: Service Manager yönetim sunucusunun FQDN'si.
+    - **Uç nokta adı**: Yeni Karma bağlantı için bir ad belirtin.
+    -  **Uç nokta konak**: Service Manager yönetim sunucusu FQDN'si.
     - **Uç nokta bağlantı noktası**: 5724 yazın
-    - **Servicebus ad alanı**: varolan bir servicebus ad kullanın veya yeni bir tane oluşturun.
+    - **Servicebus ad alanı**: var olan bir Service Bus ad alanı kullanabilir veya yeni bir tane oluşturun.
     - **Konum**: konumu seçin.
-    -  **Ad**:, oluşturuyorsanız servicebus için bir ad belirtin.
+    -  **Ad**: oluşturmakta olduğunuz servicebus için bir ad belirtin.
 
     ![Karma bağlantı değerleri](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
-6. Tıklatın **Tamam** kapatmak için **karma bağlantı oluşturmak** dikey penceresinde ve karma bağlantı oluşturma Başlat.
+6. Tıklayın **Tamam** kapatmak için **karma bağlantı oluşturma** dikey penceresinde ve karma bağlantı oluşturmaya başlayabilirsiniz.
 
-    Karma bağlantısı oluşturulduktan sonra dikey altında görüntülenir.
+    Karma bağlantı oluşturulduktan sonra bu dikey pencerenin altında görüntülenir.
 
-7. Karma bağlantısı oluşturulduktan sonra bağlantıyı seçin ve'ı tıklatın **Ekle seçili karma bağlantı**.
+7. Karma bağlantı oluşturulduktan sonra bağlantıyı seçin ve tıklayın **seçili karma bağlantıyı Ekle**.
 
     ![Yeni Karma bağlantı](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
 
-#### <a name="configure-the-listener-setup"></a>Dinleyici Kurulumu Yapılandır
+#### <a name="configure-the-listener-setup"></a>Dinleyici Kurulumu yapılandırın
 
-Karma bağlantının dinleyicisi Kur yapılandırmak için aşağıdaki yordamı kullanın.
+Karma bağlantı dinleyicisi Kurulumu yapılandırmak için aşağıdaki yordamı kullanın.
 
-1. İçinde **karma bağlantılar** dikey penceresinde tıklatın **Bağlantı Yöneticisi'ni indirin** ve System Center Service Manager örneğinin çalıştığı makineye yükleyin.
+1. İçinde **karma bağlantılar** dikey penceresinde tıklayın **bağlantı yöneticisini indirin** ve System Center Service Manager örneğinin çalıştığı makineye yükleyin.
 
     Yükleme tamamlandıktan sonra **karma Bağlantı Yöneticisi kullanıcı Arabirimi** seçeneği altında kullanılabilir **Başlat** menüsü.
 
-2. Tıklatın **karma Bağlantı Yöneticisi kullanıcı Arabirimi** , Azure kimlik bilgileriniz istenir.
+2. Tıklayın **karma Bağlantı Yöneticisi kullanıcı Arabirimi** , sizden Azure kimlik bilgileriniz istenir.
 
 3. Azure kimlik bilgilerinizle oturum açma ve karma bağlantı oluşturulduğu aboneliğinizi seçin.
 
@@ -171,49 +171,49 @@ Karma bağlantının dinleyicisi Kur yapılandırmak için aşağıdaki yordamı
 
 Karma bağlantı başarıyla bağlandı.
 
-![başarılı karma bağlantı](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
+![başarılı bir karma bağlantı](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
-> Sonra karma bağlantısı oluşturulduğunda, doğrulayın ve dağıtılan Service Manager Web uygulaması ziyaret ederek bağlantıyı sınayın. Azure'da ITSMC bağlanmaya çalışmadan önce bağlantı başarılı olduğundan emin olun.
+> Sonra karma bağlantısı oluşturulur, doğrulayın ve dağıtılan Service Manager Web uygulamasını ziyaret ederek bağlantıyı test edin. Azure'da ITSMC bağlanmaya çalışmadan önce bağlantının başarılı olduğundan emin olun.
 
-Aşağıdaki örnek görüntü başarılı bir bağlantı ayrıntılarını gösterir:
+Aşağıdaki örnek resimde, başarılı bir bağlantı ayrıntılarını gösterir:
 
 ![Karma bağlantı testi](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 
-## <a name="connect-servicenow-to-it-service-management-connector-in-azure"></a>ServiceNow BT hizmetine bağlanmak Azure Yönetimi Bağlayıcısı
+## <a name="connect-servicenow-to-it-service-management-connector-in-azure"></a>Servicenow'ı bağlama için BT Hizmet Yönetimi Bağlayıcısı Azure
 
-Aşağıdaki bölümler, azure'da ITSMC ServiceNow ürününüzü bağlanmak nasıl kullanılacağı hakkındaki ayrıntıları sağlar.
+Aşağıdaki bölümler, azure'da ITSMC ServiceNow ürün bağlanma hakkında ayrıntılı bilgi sağlar.
 
 ### <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki önkoşulların karşılandığından emin olun:
-- Yüklü ITSMC. Daha fazla bilgi: [BT Hizmet Yönetimi Bağlayıcısı çözümünü ekleme](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow desteklenen sürümler: Kingston, Cakarta, Istanbul, Helsinki, Geneva.
+- ITSMC yüklü. Daha fazla bilgi: [BT Hizmet Yönetimi bağlayıcı çözümü ekleme](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Servicenow'ı desteklenen sürümler: Kingston, Cakarta, Istanbul, Helsinki, Cenevre.
 
-**ServiceNow yöneticileri kendi ServiceNow örneği şunları yapması gerekir**:
-- İstemci kimliği ve ServiceNow ürün için istemci parolası oluşturur. İstemci kimliği ve parolası oluşturma hakkında daha fazla bilgi için aşağıdaki bilgileri gerektiği gibi bakın:
+**ServiceNow yöneticileri kendi ServiceNow örneği aşağıdakileri yapması gerekir**:
+- İstemci Kimliğini ve istemci gizli anahtarı için ServiceNow ürün oluşturur. İstemci Kimliğini ve gizli anahtarı oluşturma hakkında daha fazla bilgi için aşağıdaki bilgileri gerektiği gibi bakın:
 
     - [OAuth Kingston için ayarlama](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-    - [OAuth Cakarta için ayarlama](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Cakarta için OAuth ayarlama](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth Istanbul için ayarlama](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [OAuth Helsinki için ayarlama](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-    - [OAuth Geneva için ayarlama](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Geneva için OAuth ayarlama](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- Microsoft OMS tümleştirme (ServiceNow uygulama) için kullanıcı uygulamasını yükleyin. [Daha fazla bilgi edinin](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
-- Yüklenen kullanıcı uygulaması için tümleştirme kullanıcı rolü oluşturun. Tümleştirme kullanıcı rolü oluşturma konusunda bilgiler [burada](#create-integration-user-role-in-servicenow-app).
+- Microsoft OMS tümleştirmesi (ServiceNow uygulama) için kullanıcı uygulamayı yükleyin. [Daha fazla bilgi edinin](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+- Kullanıcı uygulamasının yüklü olduğu için tümleştirme kullanıcı rolü oluşturun. Tümleştirme kullanıcı rolü oluşturma hakkında bilgi [burada](#create-integration-user-role-in-servicenow-app).
 
 ### <a name="connection-procedure"></a>**Bağlantı yordamı**
-ServiceNow bağlantı oluşturmak için aşağıdaki yordamı kullanın:
+ServiceNow bağlantısı oluşturmak için aşağıdaki yordamı kullanın:
 
 
 1. Azure portalında Git **tüm kaynakları** ve Ara **ServiceDesk(YourWorkspaceName)**
 
-2.  Altında **çalışma veri kaynakları** tıklatın **ITSM bağlantıları**.
+2.  Altında **çalışma alanı veri kaynakları** tıklayın **ITSM bağlantıları**.
     ![Yeni bağlantı](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
-3. Sağ bölmede üstündeki **Ekle**.
+3. Sağ bölmenin en üstünde tıklayın **Ekle**.
 
-4. Aşağıdaki tabloda açıklandığı gibi bilgileri sağlayın ve tıklayın **Tamam** bağlantı oluşturmak için.
+4. Aşağıdaki tabloda açıklandığı gibi bilgileri belirtin ve tıklayın **Tamam** bağlantı oluşturmak için.
 
 
 > [!NOTE]
@@ -221,45 +221,45 @@ ServiceNow bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 
 | **Alan** | **Açıklama** |
 | --- | --- |
-| **Bağlantı Adı**   | ITSMC ile bağlanmak istediğiniz ServiceNow örneği için bir ad yazın.  İş öğeleri bu ITSM yapılandırma / ayrıntılı günlük analizi görünümü, OMS içinde daha sonra bu adı kullanın. |
+| **Bağlantı Adı**   | ITSMC ile bağlanmak istediğiniz ServiceNow örneği için bir ad yazın.  İçinde bu ITSM iş öğelerini yapılandırma / ayrıntılı log analytics'e görüntülemek, OMS'de daha sonra bu adı kullanın. |
 | **İş ortağı türü**   | Seçin **ServiceNow**. |
-| **Kullanıcı Adı**   | ServiceNow uygulama ITSMC bağlantıyı desteklemek için oluşturduğunuz tümleştirme kullanıcı adı yazın. Daha fazla bilgi: [oluşturma ServiceNow uygulama kullanıcı rolü](#create-integration-user-role-in-servicenow-app).|
-| **Parola**   | Bu kullanıcı adıyla ilişkili parolayı yazın. **Not**: kullanıcı adı ve parola yalnızca kimlik doğrulama belirteçleri oluşturmak için kullanılır ve herhangi bir yere ITSMC hizmet içinde depolanmaz.  |
-| **Sunucu URL'si**   | ServiceNow örneğinin ITSMC için bağlamak istediğiniz URL'yi yazın. |
-| **İstemci kimliği**   | Daha önce oluşturulan OAuth2 kimlik doğrulamasında kullanmak istediğiniz istemci kimliği yazın.  İstemci kimliği ve parolası oluşturma hakkında daha fazla bilgi: [OAuth Kurulumu](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
-| **İstemci parolası**   | İstemci parolası yazın bu kimliği için oluşturulan   |
-| **Veri Eşitleme kapsamı**   | ITSMC aracılığıyla Azure günlük analizi için eşitlemek istediğiniz ServiceNow iş öğelerini seçin.  Seçilen değerleri günlük analizi alınır.   **Seçenekler:** olaylar ve değişiklik istekleri.|
-| **Eşitleme veri** | Verileri istediğiniz beri geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
-| **ITSM çözümde yeni yapılandırma öğesi oluşturma** | Yapılandırma öğeleri ITSM ürün oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, ITSMC etkilenen CI desteklenen ITSM sistem içinde yapılandırma öğeleri (Cı'ler var olmayan) durumunda oluşturur. **Varsayılan**: devre dışı. |
+| **Kullanıcı Adı**   | ServiceNow uygulama ITSMC bağlantıyı desteklemek için oluşturduğunuz tümleştirme kullanıcı adını yazın. Daha fazla bilgi: [oluşturma ServiceNow uygulama kullanıcı rolü](#create-integration-user-role-in-servicenow-app).|
+| **Parola**   | Bu kullanıcı adıyla ilişkili parolayı yazın. **Not**: kullanıcı adı ve parola yalnızca kimlik doğrulama belirteçleri oluşturmak için kullanılır ve her yerde ITSMC hizmet içinde depolanmaz.  |
+| **Sunucu URL'si**   | ITSMC için bağlanmak istediğiniz ServiceNow örneğinin URL'sini yazın. |
+| **İstemci kimliği**   | Daha önce oluşturulan OAuth2 kimlik doğrulamasında kullanmak istediğiniz istemci kimliği yazın.  İstemci kimliği ve gizli anahtarı oluşturma hakkında daha fazla bilgi: [OAuth Kurulumu](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+| **İstemci gizli anahtarı**   | İstemci gizli anahtarını girin. Bu kimlik için oluşturulan   |
+| **Veri Eşitleme kapsamı**   | Azure Log analytics'e ITSMC aracılığıyla eşitlemek istediğiniz ServiceNow çalışma öğelerini seçin.  Seçilen değerleri log analytics'e aktarılır.   **Seçenekler:** olaylar ve değişiklik istekleri.|
+| **Veri Eşitleme** | Verilerden istediğiniz geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
+| **ITSM çözümüne yeni yapılandırma öğesi oluşturma** | ITSM ürününde yapılandırma öğelerini oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, ITSMC etkilenen CIS desteklenen ITSM sistemi içinde yapılandırma öğeleri (durumunda, mevcut olmayan CIS) oluşturur. **Varsayılan**: devre dışı. |
 
-![ServiceNow bağlantı](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
+![ServiceNow bağlantısı](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
 
-**Başarıyla bağlanıldı ve eşitlenen**:
+**Başarıyla bağlandı ve eşitlenmiş**:
 
-- ServiceNow örneğinin Seçili iş öğelerinden Azure'a aktarılır **günlük analizi.** Bu bir özetini görüntüleyebilirsiniz BT Hizmet Yönetimi Bağlayıcısı kutucuğu iş öğeleri.
+- ServiceNow örneğinin Seçili iş öğeleri, Azure'a aktarılır **Log Analytics.** Bu bir özetini görüntüleyebilirsiniz BT Hizmet Yönetimi Bağlayıcısı kutucuğa iş öğeleri.
 
-- Günlük analizi uyarıları veya günlük kayıtları veya bu ServiceNow örneği Azure uyarıları olaylar oluşturabilirsiniz.
+- Olaylar, Log Analytics uyarılarını veya günlük kayıtları veya bu ServiceNow örneğinin Azure uyarıları oluşturabilirsiniz.
 
 Daha fazla bilgi edinin: [Azure uyarıları oluşturma ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
-### <a name="create-integration-user-role-in-servicenow-app"></a>ServiceNow uygulamada tümleştirme kullanıcı rolü oluşturun
+### <a name="create-integration-user-role-in-servicenow-app"></a>ServiceNow uygulaması tümleştirme kullanıcı rolü oluşturun
 
 Aşağıdaki yordam kullanıcı:
 
-1.  Ziyaret [ServiceNow deposunu](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) yükleyip **ServiceNow ve Microsoft OMS tümleştirme için kullanıcı uygulaması** ServiceNow örneğinin içine.
-2.  Yükleme tamamlandıktan sonra sol gezinti çubuğunda ServiceNow örneğinin, arama ve select Microsoft OMS Tümleştirici ziyaret edin.  
-3.  Tıklatın **yükleme Yapılacaklar listesi**.
+1.  Ziyaret [ServiceNow deposu](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) yükleyip **servicenow'ı ve Microsoft OMS tümleştirmesi için kullanıcı uygulaması** ServiceNow örneğinizin içinde.
+2.  Yüklemeden sonra sol gezinti çubuğunda ServiceNow örneğinin, arama ve seçme Microsoft OMS entegratörü ziyaret edin.  
+3.  Tıklayın **yükleme Yapılacaklar listesi**.
 
-    Durum görüntülenir **tamamlanmadı** oluşturulacak kullanıcı rolü henüz ise.
+    Durum olarak görüntülenen **tamamlanmadı** oluşturulacak kullanıcı rolünün henüz ise.
 
-4.  Metin kutularındaki yanına **tümleştirme kullanıcı oluşturma**, ITSMC Azure içinde bağlanıp kullanıcının kullanıcı adı girin.
+4.  Metin kutularındaki yanındaki **tümleştirme kullanıcı oluşturma**, azure'da ITSMC bağlanıp kullanıcı kullanıcı adını girin.
 5.  Bu kullanıcı için parola girin ve tıklayın **Tamam**.  
 
 >[!NOTE]
 
-> Azure'da ServiceNow bağlantı kurmak için bu kimlik bilgileri kullanın.
+> Azure'da ServiceNow bağlantı kurmak için bu kimlik bilgilerini kullanın.
 
-Yeni oluşturulan kullanıcı atanmış varsayılan rolleriyle görüntülenir.
+Yeni oluşturulan kullanıcı atanmış varsayılan rolleri ile görüntülenir.
 
 **Varsayılan rol**:
 - personalize_choices
@@ -269,19 +269,19 @@ Yeni oluşturulan kullanıcı atanmış varsayılan rolleriyle görüntülenir.
 -   template_editor
 -   view_changer
 
-Kullanıcı başarıyla oluşturduktan sonra durumu **denetleyin yükleme Yapılacaklar listesi** oluşturulan uygulama için kullanıcı rolü ayrıntılarını listeleme tamamlandı olarak taşır.
+Kullanıcı başarıyla oluşturulduktan sonra durumunu **denetleyin yükleme Yapılacaklar listesi** uygulama için oluşturulan kullanıcı rolünün ayrıntılarını listeleme tamamlandı olarak taşır.
 
 > [!NOTE]
 
-> ITSM bağlayıcı olayları ServiceNow örnek üzerinde yüklü modülleri olmadan ServiceNow gönderin. ServiceNow örneğinizi EventManagement modülünü kullanıyorsanız ve olayları veya uyarı Bağlayıcısı'nı kullanarak ServiceNow içinde oluşturmak istediğiniz aşağıdaki rolleri tümleştirme kullanıcıya ekleyin:
+> ITSM Bağlayıcısı ServiceNow Örneğinizde yüklü modüllerin olmadan ServiceNow olayları gönderebilirsiniz. ServiceNow Örneğinizde EventManagement modülünü kullanıyorsanız ve olayları veya uyarıları bağlayıcı kullanarak ServiceNow içinde oluşturmak istediğiniz aşağıdaki rolleri için tümleştirme kullanıcısının ekleyin:
 
 >    - evt_mgmt_integration
 >    - evt_mgmt_operator  
 
 
-## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Provance BT hizmetine bağlanmak Azure Yönetimi Bağlayıcısı
+## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Provance bağlanmak için BT Hizmet Yönetimi Bağlayıcısı Azure
 
-Aşağıdaki bölümler, azure'da ITSMC Provance ürününüzü bağlanmak nasıl kullanılacağı hakkındaki ayrıntıları sağlar.
+Aşağıdaki bölümler, Provance ürününüzü azure'da ITSMC bağlanma hakkında ayrıntılı bilgi sağlar.
 
 
 ### <a name="prerequisites"></a>Önkoşullar
@@ -289,8 +289,8 @@ Aşağıdaki bölümler, azure'da ITSMC Provance ürününüzü bağlanmak nası
 Aşağıdaki önkoşulların karşılandığından emin olun:
 
 
-- Yüklü ITSMC. Daha fazla bilgi: [BT Hizmet Yönetimi Bağlayıcısı çözümünü ekleme](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Azure AD ile - provance uygulama kaydedileceğini ve istemci kimliği kullanımına sunulur. Ayrıntılı bilgi için bkz: [active directory kimlik doğrulamasını yapılandırmak nasıl](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- ITSMC yüklü. Daha fazla bilgi: [BT Hizmet Yönetimi bağlayıcı çözümü ekleme](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Azure AD ile - provance uygulama kaydedilmelidir ve istemci kimliği kullanımına sunulur. Ayrıntılı bilgi için bkz. [active directory kimlik doğrulamasını yapılandırma](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - Kullanıcı rolü: yönetici.
 
@@ -300,12 +300,12 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 
 1. Azure portalında Git **tüm kaynakları** ve Ara **ServiceDesk(YourWorkspaceName)**
 
-2.  Altında **çalışma veri kaynakları** tıklatın **ITSM bağlantıları**.
+2.  Altında **çalışma alanı veri kaynakları** tıklayın **ITSM bağlantıları**.
     ![Yeni bağlantı](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
-3. Sağ bölmede üstündeki **Ekle**.
+3. Sağ bölmenin en üstünde tıklayın **Ekle**.
 
-4. Aşağıdaki tabloda açıklandığı gibi bilgileri sağlayın ve tıklayın **Tamam** bağlantı oluşturmak için.
+4. Aşağıdaki tabloda açıklandığı gibi bilgileri belirtin ve tıklayın **Tamam** bağlantı oluşturmak için.
 
 > [!NOTE]
 
@@ -313,36 +313,36 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 
 | **Alan** | **Açıklama** |
 | --- | --- |
-| **Bağlantı Adı**   | ITSMC ile bağlanmak istediğiniz Provance örneği için bir ad yazın.  İş öğeleri bu ITSM yapılandırma / ayrıntılı günlük analizi görünümü olduğunda, bu adı daha sonra kullanırsınız. |
+| **Bağlantı Adı**   | ITSMC ile bağlanmak istediğiniz Provance örneği için bir ad yazın.  İçinde bu ITSM iş öğelerini yapılandırma / ayrıntılı log analytics'e görüntülemek, bu adı daha sonra kullanın. |
 | **İş ortağı türü**   | Seçin **Provance**. |
-| **Kullanıcı Adı**   | İçin ITSMC bağlanabilmesi için kullanıcı adını yazın.    |
-| **Parola**   | Bu kullanıcı adıyla ilişkili parolayı yazın. **Not:** kullanıcı adı ve parola yalnızca kimlik doğrulama belirteçleri oluşturmak için kullanılır ve herhangi bir yere ITSMC hizmet içinde depolanmaz. _|
-| **Sunucu URL'si**   | Provance Örneğiniz için ITSMC bağlamak istediğiniz URL'yi yazın. |
-| **İstemci kimliği**   | Provance örneğinde oluşturulan bu bağlantısının kimlik doğrulaması için istemci kimliği yazın.  İstemci kimliği hakkında daha fazla bilgi [active directory kimlik doğrulamasını yapılandırmak nasıl](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
-| **Veri Eşitleme kapsamı**   | ITSMC aracılığıyla Azure günlük analizi için eşitlemek istediğiniz Provance iş öğelerini seçin.  Bu iş öğeleri günlük analizi aktarılır.   **Seçenekler:** olaylar, değişiklik istekleri.|
-| **Eşitleme veri** | Verileri istediğiniz beri geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
-| **ITSM çözümde yeni yapılandırma öğesi oluşturma** | Yapılandırma öğeleri ITSM ürün oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, ITSMC etkilenen CI desteklenen ITSM sistem içinde yapılandırma öğeleri (Cı'ler var olmayan) durumunda oluşturur. **Varsayılan**: devre dışı.|
+| **Kullanıcı Adı**   | İçin ITSMC bağlanan kullanıcı adını yazın.    |
+| **Parola**   | Bu kullanıcı adıyla ilişkili parolayı yazın. **Not:** kullanıcı adı ve parola yalnızca kimlik doğrulama belirteçleri oluşturmak için kullanılır ve her yerde ITSMC hizmet içinde depolanmaz. _|
+| **Sunucu URL'si**   | ITSMC için bağlanmak istediğiniz Provance örneğinizin URL'sini yazın. |
+| **İstemci kimliği**   | Provance Örneğinizde oluşturulan Bu bağlantı kimliğini doğrulamak için istemci kimliği yazın.  İstemci kimliği, daha fazla bilgi bkz [active directory kimlik doğrulamasını yapılandırma](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **Veri Eşitleme kapsamı**   | Azure Log analytics'e ITSMC aracılığıyla eşitlemek istediğiniz Provance çalışma öğelerini seçin.  Bu iş öğeleri, log analytics'e aktarılır.   **Seçenekler:** olaylar, değişiklik istekleri.|
+| **Veri Eşitleme** | Verilerden istediğiniz geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
+| **ITSM çözümüne yeni yapılandırma öğesi oluşturma** | ITSM ürününde yapılandırma öğelerini oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, ITSMC etkilenen CIS desteklenen ITSM sistemi içinde yapılandırma öğeleri (durumunda, mevcut olmayan CIS) oluşturur. **Varsayılan**: devre dışı.|
 
 ![Provance bağlantı](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
 
-**Başarıyla bağlanıldı ve eşitlenen**:
+**Başarıyla bağlandı ve eşitlenmiş**:
 
-- Seçili iş öğelerini bu Provance örneğinden Azure'a aktarılır **günlük analizi.** Bu bir özetini görüntüleyebilirsiniz BT Hizmet Yönetimi Bağlayıcısı kutucuğu iş öğeleri.
+- Seçili iş öğelerini bu Provance örneğinden Azure'a aktarılır **Log Analytics.** Bu bir özetini görüntüleyebilirsiniz BT Hizmet Yönetimi Bağlayıcısı kutucuğa iş öğeleri.
 
-- Günlük analizi uyarıları veya günlük kayıtları veya Azure Uyarıları'nda bu Provance örnek olaylar oluşturabilirsiniz.
+- Olaylar, Log Analytics uyarılarını veya günlük kayıtları veya bu Provance örnekte Azure uyarıları oluşturabilirsiniz.
 
 Daha fazla bilgi edinin: [Azure uyarıları oluşturma ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
-## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Cherwell BT hizmetine bağlanmak Azure Yönetimi Bağlayıcısı
+## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Cherwell bağlanmak için BT Hizmet Yönetimi Bağlayıcısı Azure
 
-Aşağıdaki bölümler, azure'da ITSMC Cherwell ürününüzü bağlanmak nasıl kullanılacağı hakkındaki ayrıntıları sağlar.
+Aşağıdaki bölümler ITSMC azure'da Cherwell ürününüzü bağlanma hakkında ayrıntılı bilgi sağlar.
 
 ### <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdaki önkoşulların karşılandığından emin olun:
 
-- Yüklü ITSMC. Daha fazla bilgi: [BT Hizmet Yönetimi Bağlayıcısı çözümünü ekleme](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Oluşturulan istemci kimliği. Daha fazla bilgi: [Cherwell için istemci kodu oluştur](#generate-client-id-for-cherwell).
+- ITSMC yüklü. Daha fazla bilgi: [BT Hizmet Yönetimi bağlayıcı çözümü ekleme](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Oluşturulan istemci kimliği. Daha fazla bilgi: [istemci kimliği oluşturmak için Cherwell](#generate-client-id-for-cherwell).
 - Kullanıcı rolü: yönetici.
 
 ### <a name="connection-procedure"></a>Bağlantı yordamı
@@ -351,12 +351,12 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 
 1. Azure portalında Git **tüm kaynakları** ve Ara **ServiceDesk(YourWorkspaceName)**
 
-2.  Altında **çalışma veri kaynakları** tıklatın **ITSM bağlantıları**.
+2.  Altında **çalışma alanı veri kaynakları** tıklayın **ITSM bağlantıları**.
     ![Yeni bağlantı](./media/log-analytics-itsmc/add-new-itsm-connection.png)
 
-3. Sağ bölmede üstündeki **Ekle**.
+3. Sağ bölmenin en üstünde tıklayın **Ekle**.
 
-4. Aşağıdaki tabloda açıklandığı gibi bilgileri sağlayın ve tıklayın **Tamam** bağlantı oluşturmak için.
+4. Aşağıdaki tabloda açıklandığı gibi bilgileri belirtin ve tıklayın **Tamam** bağlantı oluşturmak için.
 
 > [!NOTE]
 
@@ -364,37 +364,37 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 
 | **Alan** | **Açıklama** |
 | --- | --- |
-| **Bağlantı Adı**   | İçin ITSMC bağlanmak istediğiniz Cherwell örneği için bir ad yazın.  İş öğeleri bu ITSM yapılandırma / ayrıntılı günlük analizi görünümü olduğunda, bu adı daha sonra kullanırsınız. |
+| **Bağlantı Adı**   | ITSMC için bağlanmak istediğiniz Cherwell örneği için bir ad yazın.  İçinde bu ITSM iş öğelerini yapılandırma / ayrıntılı log analytics'e görüntülemek, bu adı daha sonra kullanın. |
 | **İş ortağı türü**   | Seçin **Cherwell.** |
-| **Kullanıcı Adı**   | ITSMC için bağlanabilir Cherwell kullanıcı adını yazın. |
-| **Parola**   | Bu kullanıcı adıyla ilişkili parolayı yazın. **Not:** kullanıcı adı ve parola yalnızca kimlik doğrulama belirteçleri oluşturmak için kullanılır ve herhangi bir yere ITSMC hizmet içinde depolanmaz.|
-| **Sunucu URL'si**   | Cherwell Örneğiniz için ITSMC bağlamak istediğiniz URL'yi yazın. |
-| **İstemci kimliği**   | Cherwell örneğinde oluşturulan bu bağlantısının kimlik doğrulaması için istemci kimliği yazın.   |
-| **Veri Eşitleme kapsamı**   | ITSMC eşitlemek istediğiniz Cherwell iş öğelerini seçin.  Bu iş öğeleri günlük analizi aktarılır.   **Seçenekler:** olaylar, değişiklik istekleri. |
-| **Eşitleme veri** | Verileri istediğiniz beri geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
-| **ITSM çözümde yeni yapılandırma öğesi oluşturma** | Yapılandırma öğeleri ITSM ürün oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, ITSMC etkilenen CI desteklenen ITSM sistem içinde yapılandırma öğeleri (Cı'ler var olmayan) durumunda oluşturur. **Varsayılan**: devre dışı. |
+| **Kullanıcı Adı**   | İçin ITSMC bağlanabilen Cherwell kullanıcı adını yazın. |
+| **Parola**   | Bu kullanıcı adıyla ilişkili parolayı yazın. **Not:** kullanıcı adı ve parola yalnızca kimlik doğrulama belirteçleri oluşturmak için kullanılır ve her yerde ITSMC hizmet içinde depolanmaz.|
+| **Sunucu URL'si**   | ITSMC için bağlanmak istediğiniz Cherwell örneğinizin URL'sini yazın. |
+| **İstemci kimliği**   | Cherwell Örneğinizde oluşturulan Bu bağlantı kimliğini doğrulamak için istemci kimliği yazın.   |
+| **Veri Eşitleme kapsamı**   | ITSMC eşitlemek istediğiniz Cherwell çalışma öğelerini seçin.  Bu iş öğeleri, log analytics'e aktarılır.   **Seçenekler:** olaylar, değişiklik istekleri. |
+| **Veri Eşitleme** | Verilerden istediğiniz geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
+| **ITSM çözümüne yeni yapılandırma öğesi oluşturma** | ITSM ürününde yapılandırma öğelerini oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, ITSMC etkilenen CIS desteklenen ITSM sistemi içinde yapılandırma öğeleri (durumunda, mevcut olmayan CIS) oluşturur. **Varsayılan**: devre dışı. |
 
 
 ![Provance bağlantı](./media/log-analytics-itsmc/itsm-connections-cherwell-latest.png)
 
-**Başarıyla bağlanıldı ve eşitlenen**:
+**Başarıyla bağlandı ve eşitlenmiş**:
 
-- Seçili iş öğelerini bu Cherwell örneğinden Azure'a aktarılır **günlük analizi.** Bu bir özetini görüntüleyebilirsiniz BT Hizmet Yönetimi Bağlayıcısı kutucuğu iş öğeleri.
+- Seçili iş öğelerini bu Cherwell örneğinden Azure'a aktarılır **Log Analytics.** Bu bir özetini görüntüleyebilirsiniz BT Hizmet Yönetimi Bağlayıcısı kutucuğa iş öğeleri.
 
-- Günlük analizi uyarıları veya günlük kayıtları veya Azure Uyarıları'nda bu Cherwell örnek olaylar oluşturabilirsiniz.
+- Olaylar, Log Analytics uyarılarını veya günlük kayıtları veya bu Cherwell örnekte Azure uyarıları oluşturabilirsiniz.
 
 Daha fazla bilgi edinin: [Azure uyarıları oluşturma ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
-### <a name="generate-client-id-for-cherwell"></a>İstemci kimliği için Cherwell oluşturun.
+### <a name="generate-client-id-for-cherwell"></a>Cherwell için istemci kodu oluşturma
 
-Cherwell için istemci kimliği/anahtar oluşturmak için aşağıdaki yordamı kullanın:
+Cherwell için istemci kimliği/anahtarı oluşturmak için aşağıdaki yordamı kullanın:
 
-1. Cherwell Örneğiniz için yönetici olarak oturum açın
-2. Tıklatın **güvenlik** > **Düzenle REST API İstemci Ayarları**.
+1. Cherwell Örneğinize yönetici olarak oturum açın
+2. Tıklayın **güvenlik** > **Düzenle REST API İstemci Ayarları**.
 3. Seçin **oluştur yeni istemci** > **gizli**.
 
     ![Cherwell kullanıcı kimliği](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
- - [Azure uyarıları ITSM iş öğeleri oluşturma](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [Azure uyarılarından ITSM iş öğeleri oluşturma](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 7f55b762bda5ff0c7bbedf414b18465656496cbb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: ''
+ms.openlocfilehash: 6aaf9b42677064b31c56be96775692c75812e145
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984594"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044629"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve REST API ile Log analytics'teki uyarı kurallarını yönet
 Log Analytics uyarı REST API oluşturma ve Uyarıları Operations Management Suite (OMS) yönetmenize olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve birkaç örnek ayrıntılarını sağlar.
@@ -329,7 +329,7 @@ E-posta bildirimleri, bir veya daha fazla alıcıya e-posta gönderin.  Bunlar a
 | Özellik | Açıklama |
 |:--- |:--- |
 | Alıcılar |E-posta adresleri listesi. |
-| Konu |E-posta konusu. |
+| Özne |E-posta konusu. |
 | Ek |Bu her zaman "None." değerine sahip şekilde ekleri şu anda, desteklenmez |
 
 Örnek yanıt bir eşik ile bir e-posta bildirim eylemi için aşağıda verilmiştir.  

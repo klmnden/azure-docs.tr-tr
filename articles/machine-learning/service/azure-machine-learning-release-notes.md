@@ -7,23 +7,83 @@ ms.component: core
 ms.topic: reference
 author: hning86
 ms.author: haining
+ms.reviewer: j-martens
 ms.date: 03/28/2018
-ROBOTS: NOINDEX
-ms.openlocfilehash: 08be059cb30c8a7ec4ad24fc4f73f4b569883483
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: be12a9ef0d6b520c741f95903d43f81727bc3b9b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970626"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238019"
 ---
-# <a name="release-notes-in-azure-machine-learning-sept-2017---jun-2018"></a>Azure Machine learning'de Eylül 2017 - Haziran 2018 sürüm notları
+# <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin. 
 
-Bu makalede, Azure Machine Learning, geçmiş sunumlar hakkında bilgi edinin. 
+## <a name="2018-10-01"></a>2018-10-01
+
+### <a name="azure-machine-learning-sdk-for-python-v0165"></a>Azure Machine SDK için Python v0.1.65 Learning
+[Sürüm 0.1.65](https://pypi.org/project/azureml-sdk/0.1.65) yeni özellikler, daha fazla belge, hata düzeltmeleri ve daha fazlasını içeren [örnek not defterleri](https://aka.ms/aml-notebooks).
+
+Bkz: [bilinen sorunların listesi](resource-known-issues.md) bilinen hataların ve geçici çözümleri hakkında bilgi edinmek için.
+
+#### <a name="breaking-changes"></a>Yeni değişiklikler
+ * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services dönüş sözlük, daha önce listesi döndürdü. Bkz: [azureml.core.Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API belgeleri.
+
+ * Machine Learning otomatik normalleştirilmiş Ortalama kare hata birincil ölçümleri kaldırıldı.
 
 
-## <a name="2018-05-sprint-5"></a>2018-05 (sprint 5)
+#### <a name="hyperdrive"></a>HyperDrive
+ * Bayes çeşitli HyperDrive hata düzeltmeleri, ölçümleri çağrıları için performans geliştirmeleri alın. 
+ * Tensorflow 1.10 1.9 sürümüne yükseltme 
+ * Docker görüntü iyileştirmesi hazırlıksız başlatma için. 
+ * Rapor doğru durum hatasıyla çıkarsanız bile kod artık diğer 0'dan iş güçlendirin. 
+ * Öznitelik doğrulamada SDK RunConfig. 
+ * Çalıştırma HyperDrive nesnesi iptal normal çalışmaya benzer destekler: herhangi bir parametre geçirin gerek yoktur. 
+ * Dağıtılmış çalıştırır ve HyperDrive çalıştırmalar için aşağı açılan değerleri durumunu korumak için pencere öğesi geliştirmeleri. 
+ * Parametre sunucusu için sabit, TensorBoard ve diğer günlük dosyalarını destekler. 
+ * Hizmet tarafı Intel(r) MPI desteği. 
+ * Hata düzeltmesi, için parametre ayarlama için düzeltme çalışma BatchAI doğrulama sırasında dağıtılmış. 
+ * Bağlam Yöneticisi artık birincil tanıtır. 
+
+#### <a name="azure-portal-experience"></a>Azure portal deneyimi
+ * Çalıştırma ayrıntıları log_table() ve log_row() desteklenir. 
+ * Otomatik olarak grafikler tabloları ve satırları için 1,2 veya 3 sayısal sütunlara ve isteğe bağlı bir kategorik sütun oluşturun.
+
+#### <a name="automated-machine-learning"></a>Otomatik makine öğrenimi
+ * Geliştirilmiş hata işleme ve belgeler 
+ * Çalıştırma özelliği alımı performans sorunlarını düzelttik. 
+ * Sabit çalışma sorunu devam edin. 
+ * Ensembling yineleme sorunlar düzeltildi.
+ * MAC OS sabit eğitim asılı hata.
+ * Aşağı örnekleme makrosu ortalama çekme isteği/ROC eğrisi özel doğrulama senaryosunda.
+ * Ek dizin mantıksal kaldırıldı.
+ * Filtre get_output API ' kaldırıldı.
+
+#### <a name="pipelines"></a>İşlem hatları
+ * Bir yöntem bir işlem hattı yürütme ilk çalıştırma gerek kalmadan doğrudan yayımlamak için Pipeline.publish() eklendi.   
+ * Bir işlem hattı getirilecek PipelineRun.get_pipeline_runs() yöntemi, yayımlanan bir ardışık düzen tarafından oluşturulan çalışan eklendi.
+
+#### <a name="project-brainwave"></a>Project Brainwave
+ * Yeni AI modelleri FPGA üzerinde kullanılabilir güncelleştirilmiş destek.
+
+### <a name="azure-machine-learning-data-prep-sdk-v020"></a>Azure Machine Learning veri hazırlama SDK v0.2.0
+[Sürüm 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) özellikler ve hata düzeltmeleri içerir:
+
+**Yeni Özellikler:** 
+ * Bir sık erişimli kodlaması için destek
+ * Quantile dönüştürme için destek
+   
+**Hata düzeltildi:**
+ * Herhangi bir hortum sürümü ile çalışır hortum sürümünüzü düşürme gerekmez.
+ * Değer için tüm değerleri, yalnızca ilk üç sayar.
+
+## <a name="2018-09-public-preview-refresh"></a>2018-09 (genel Önizleme yenileme)
+
+Bir yeni, tamamen Azure Machine Learning sürümü yenilendi: Bu sürüm hakkında daha fazla bilgi: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+
+## <a name="older-notes-sept-2017---jun-2018"></a>Eski Notlar: Eylül 2017 - Haziran 2018
+### <a name="2018-05-sprint-5"></a>2018-05 (sprint 5)
 
 Azure Machine Learning bu sürümle birlikte, şunları yapabilirsiniz:
 + Özellik kazandırın görüntüleri ResNet 50 quantized bir sürümü ile bu özellikler, temel bir sınıflandırıcı eğitmek ve [modelin bir FPGA azure'da dağıtmak](../service/how-to-deploy-fpga-web-service.md) Ultra düşük gecikme süresi çıkarım için.
@@ -33,7 +93,7 @@ Azure Machine Learning bu sürümle birlikte, şunları yapabilirsiniz:
   + [Metin analizi](../desktop-workbench/how-to-build-deploy-text-classification-models.md)
   + [Tahmin etme](../desktop-workbench/how-to-build-deploy-forecast-models.md)
 
-## <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
+### <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
 **Sürüm numarası**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümünüzü bulmak](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
@@ -50,7 +110,7 @@ Aşağıdaki güncelleştirmelerin çoğu, doğrudan geri bildirim sonuçların�
 
 Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı güncelleştirmeleri listesi aşağıda verilmiştir.
 
-### <a name="workbench-ui"></a>Workbench kullanıcı Arabirimi
+#### <a name="workbench-ui"></a>Workbench kullanıcı Arabirimi
 - Özelleştirilebilir çalıştırma geçmişi raporları
   - Çalıştırma geçmişi raporlar için geliştirilmiş grafik yapılandırması
     - Kullanılan giriş noktaları değiştirilebilir
@@ -68,14 +128,14 @@ Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı günc
 
 - Kenar çubuğunda dosyalarının listesi için performans geliştirmeleri
 
-### <a name="data-preparation"></a>Veri hazırlama 
+#### <a name="data-preparation"></a>Veri hazırlama 
 - Azure Machine Learning Workbench, bilinen bir sütunun adını kullanarak bir sütun için arama yapabilmesi olanak sağlıyor.
 
 
-### <a name="experimentation"></a>Deneme
+#### <a name="experimentation"></a>Deneme
 - Azure Machine Learning Workbench, betiklerinizi yerel olarak kendi python veya pyspark'tan ortamında çalışan artık desteklemektedir. Bu özellik için kullanıcı oluşturur ve kendi uzak sanal ortamda yönetir ve Azure Machine Learning Workbench, hedefte betiklerini çalıştırmak için kullanın. Lütfen bkz [Azure Machine Learning deneme hizmeti yapılandırma](../desktop-workbench/experimentation-service-configuration.md) 
 
-### <a name="model-management"></a>Model Yönetimi
+#### <a name="model-management"></a>Model Yönetimi
 - Dağıtılmış kapsayıcıları özelleştirmek için destek: apt-get- vb. kullanarak dış kitaplıkları yüklenmesini sağlayarak kapsayıcı görüntüsünü özelleştirme sağlar. Artık, kolayca yüklenebilir kitaplıklara sınırlı değildir. Bkz: [belgeleri](../desktop-workbench/model-management-custom-container.md) daha fazla bilgi için.
   - Kullanım `--docker-file myDockerStepsFilename` bildirimi, görüntü veya hizmet oluşturma komutları bayrağı ve dosya adı.
   - Temel görüntü Ubuntu ve değiştirilemez olduğunu unutmayın.
@@ -87,7 +147,7 @@ Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı günc
 
 
 
-## <a name="2018-01-sprint-3"></a>2018-01 (sprint 3) 
+### <a name="2018-01-sprint-3"></a>2018-01 (sprint 3) 
 **Sürüm numarası**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümünüzü bulmak](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Bu sprint'te geliştirmeleri ve güncelleştirmeler şunlardır: Bu güncelleştirmelerin çoğu kullanıcı geri bildirim doğrudan sonucu yapılır. 
@@ -97,19 +157,19 @@ Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı günc
 
 - Güncelleştirmeleri kimlik doğrulaması yığınına zorlar başlangıçta oturum açma ve hesap seçimi
 
-### <a name="workbench"></a>Workbench
+#### <a name="workbench"></a>Workbench
 - Program Ekle/Kaldır'ndan uygulamanın yükleme/kaldırma yeteneği
 - Güncelleştirmeleri kimlik doğrulaması yığınına zorlar başlangıç oturum açma ve hesap seçimi
 - Windows üzerinde geliştirilmiş çoklu oturum açma (SSO) deneyimi
 - Farklı kimlik bilgileri ile birden çok kiracıya ait olan kullanıcıların artık Workbench oturum açabilir olacaktır
 
-### <a name="ui"></a>KULLANICI ARABİRİMİ
+#### <a name="ui"></a>KULLANICI ARABİRİMİ
 - Genel iyileştirmeler ve hata düzeltmeleri
 
-### <a name="notebooks"></a>Not Defterleri
+#### <a name="notebooks"></a>Not Defterleri
 - Genel iyileştirmeler ve hata düzeltmeleri
 
-### <a name="data-preparation"></a>Veri hazırlama 
+#### <a name="data-preparation"></a>Veri hazırlama 
 - Örnek tarafından dönüştürmeler gerçekleştirilirken geliştirilmiş otomatik-önerileri
 - Gelişmiş algoritma için desen sıklığı denetçisi
 - Örnek tarafından dönüştürmeler gerçekleştirilirken örnek veriler ve geri bildirim gönderme özelliğine ![türetilen sütun dönüştürme hakkında geri bildirim bağlantısı Gönder görüntüsü](media/azure-machine-learning-release-notes/SendFeedbackFromDeriveColumn.png)
@@ -118,11 +178,11 @@ Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı günc
 - Zaman serisi denetleyici için veri uygulanamaz kapatmak için sabit bağlantı kurma sorunu 
 - Sabit veri hazırlığı HDI yürütülmek için yanıt vermemesine saat
 
-### <a name="model-management-cli-updates"></a>Model Yönetimi CLI güncelleştirmeleri 
+#### <a name="model-management-cli-updates"></a>Model Yönetimi CLI güncelleştirmeleri 
   - Aboneliğin sahipliğini, artık kaynak sağlamak için gereklidir. Katkıda bulunan erişimi kaynak grubuna dağıtım ortamı ayarlamak yeterli olacaktır.
   - Etkin yerel ortamı Kurulumu ücretsiz abonelikler 
 
-## <a name="2017-12-sprint-2-qfe"></a>2017-12 (sprint 2 QFE) 
+### <a name="2017-12-sprint-2-qfe"></a>2017-12 (sprint 2 QFE) 
 **Sürüm numarası**: 0.1.1711.15323 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümünüzü bulmak](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Alt sürüm QFE (hızlı düzeltme Mühendisliği) yayın budur. Birkaç telemetri sorunları ele alır ve ürün ekibine ürün nasıl kullanılmakta olduğunu daha iyi anlamak için yardımcı olur. Bilgi Bankası ürün deneyimini geliştirmek, gelecekteki çalışmalarını uygulamasına gidebilirsiniz. 
@@ -132,7 +192,7 @@ Ayrıca, iki önemli güncelleştirme vardır:
 - Zaman serisi denetçisi veri hazırlama paketinde görüntülenmesini engelleyen veri hazırlığı, bir hata düzeltildi.
 - Komut satırı aracı artık Machine Learning işlem ACS kümeleri sağlamak için bir Azure aboneliğine sahip olmanız gerekir. 
 
-## <a name="2017-12-sprint-2"></a>2017-12 (sprint 2)
+### <a name="2017-12-sprint-2"></a>2017-12 (sprint 2)
 **Sürüm numarası**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümünüzü bulmak](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Azure Machine Learning üçüncü güncelleştirmeye Hoş Geldiniz. Bu güncelleştirme, workbench uygulaması, komut satırı arabirimi (CLI) ve arka uç Hizmetleri geliştirmeleri içerir. Gülümsemeleri göndermek için çok teşekkür ederiz ve frowns. Aşağıdaki güncelleştirmelerin çoğu, doğrudan geri bildirim sonuçlarını yapılır. 
@@ -147,21 +207,21 @@ Azure Machine Learning üçüncü güncelleştirmeye Hoş Geldiniz. Bu güncelle
 
 **Güncelleştirmeleri ayrıntılı** her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı güncelleştirmeleri listesi aşağıda verilmiştir.
 
-### <a name="installer"></a>Yükleyici
+#### <a name="installer"></a>Yükleyici
 - Yükleyici, kendi kendini güncelleştirme, hata düzeltmeleri ve yeni özellikleri, kullanıcı yeniden yüklemek zorunda desteklenebilir olabilir
 
-### <a name="workbench-authentication"></a>Workbench kimlik doğrulaması
+#### <a name="workbench-authentication"></a>Workbench kimlik doğrulaması
 - Birden çok kimlik doğrulama sistemi düzeltir. Lütfen oturum açma sorunları yaşamaya varsa bize bildirin.
 - Daha kolay hale getirmek UI değişiklikleri Proxy Manager ayarları bulunamıyor.
 
-### <a name="workbench"></a>Workbench
+#### <a name="workbench"></a>Workbench
 - Salt okunur dosya görünümü artık açık mavi arka plana sahip
 - Taşınan Düzenle düğmesine sağ daha bulunabilir olmasını sağlayın.
 - ham metin biçiminde, "dsource", "dprep" ve "ipynb" dosya biçimleri artık işlenebilecek
 - Workbench, betikleri düzenlemek ve yalnızca (örneğin, dizüstü bilgisayarlar, veri kaynakları, veri hazırlık paketlerini) bir zengin düzenleme deneyimi olan dosya türlerini düzenlemek için Workbench'i kullanabilmeniz için dış IDE kullanarak doğru kullanıcılara yol gösteren yeni bir düzenleme deneyimi artık sahiptir.
 - Çalışma alanları ve kullanıcının erişimi olan projeler listesi yüklenirken artık önemli ölçüde daha hızlıdır
 
-### <a name="data-preparation"></a>Veri hazırlama 
+#### <a name="data-preparation"></a>Veri hazırlama 
 - Bir desen sıklığı sütundaki dize desenlerini görüntülemek için denetçisi. Ayrıca, bu desenleri kullanarak verilerinize de filtreleyebilirsiniz. Bu, bir görünüm benzer değer sayıları Inspector'ı gösterir. Desen sıklığını benzersiz veri sayısı yerine verilerin benzersiz desenleri sayılarını gösterir farktır. Ayrıca, içinde veya belirli bir düzene sığıp tüm satırları filtreleyebilirsiniz.
 
 ![Ürün sayısı deseni sıklığı denetçisinin görüntüsü](media/azure-machine-learning-release-notes/pattern-inspector-product-number.png)
@@ -182,7 +242,7 @@ Azure Machine Learning üçüncü güncelleştirmeye Hoş Geldiniz. Bu güncelle
 - Birden çok sütun için tarih dönüştürülmesiyle sorun düzeltildi
 - Gelişmiş mod çıktı sütunu adına kullanıcı değiştirdiyseniz, sorun düzeltildi kullanıcı çıktı sütunu bir sütun örneği tarafından türetilen kaynağı olarak seçebilirsiniz.
 
-### <a name="job-execution"></a>İş yürütme
+#### <a name="job-execution"></a>İş yürütme
 Şimdi, oluşturma ve SSH anahtar tabanlı kimlik doğrulaması aşağıdaki adımları kullanarak remotedocker veya küme türü işlem hedefi erişebilirsiniz:
 - CLI aşağıdaki komutu kullanarak bir işlem hedefine ekleyin
 
@@ -198,13 +258,13 @@ Azure Machine Learning üçüncü güncelleştirmeye Hoş Geldiniz. Bu güncelle
 
 İşlem hedefleri oluşturma hakkında daha fazla bilgi için bkz. [Azure Machine Learning deneme hizmeti yapılandırma](../desktop-workbench/experimentation-service-configuration.md)
 
-### <a name="visual-studio-tools-for-ai"></a>AI için Visual Studio Araçları
+#### <a name="visual-studio-tools-for-ai"></a>AI için Visual Studio Araçları
 - İçin destek eklendi [yapay ZEKA için Visual Studio Araçları](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
 
-### <a name="command-line-interface-cli"></a>Komut Satırı Arabirimi (CLI)
+#### <a name="command-line-interface-cli"></a>Komut Satırı Arabirimi (CLI)
 - Eklenen `az ml datasource create` komut, komut satırından bir veri kaynağı dosyası oluşturmaya olanak sağlar
 
-### <a name="model-management-and-operationalization"></a>Model yönetimi ve kullanıma hazır hale getirme
+#### <a name="model-management-and-operationalization"></a>Model yönetimi ve kullanıma hazır hale getirme
 - [Tüm AML kapsayıcıları (ek bir adım gerekli değildir) kullanıma hazır hale getirdiniz Azure IOT Edge cihazlarında ile uyumludur](http://aka.ms/aml-iot-edge-blog) 
 - Hata iletilerinin o16n CLI geliştirmeleri
 - Model yönetim portalındaki UX hata düzeltmeleri  
@@ -216,27 +276,27 @@ Azure Machine Learning üçüncü güncelleştirmeye Hoş Geldiniz. Bu güncelle
 
 ![portalında modeline genel bakış](media/azure-machine-learning-release-notes/model-overview-portal.jpg)
 
-### <a name="mmlspark"></a>MMLSpark
+#### <a name="mmlspark"></a>MMLSpark
 - Derin öğrenme ile spark'ta [GPU desteği](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - Resource Manager şablonlarını kolay kaynak dağıtımının desteği
 - SparklyR ekosistemi için destek
 - [AZTK tümleştirme](https://github.com/Azure/aztk/wiki/Spark-on-Azure-for-Python-Users#optional-set-up-mmlspark)
 
-### <a name="sample-projects"></a>Örnek Proje
+#### <a name="sample-projects"></a>Örnek Proje
 - [Iris](https://github.com/Azure/MachineLearningSamples-Iris) ve [MMLSpark](https://github.com/Azure/mmlspark) örnekleri yeni Azure ML SDK'sı sürüm ile güncelleştirildi
 
-### <a name="breaking-changes"></a>Hataya neden olan değişiklikler
+#### <a name="breaking-changes"></a>Yeni değişiklikler
 - Yükseltilen `--type` anahtarının `az ml computetarget attach` için bir alt. 
 
     - `az ml computetarget attach --type remotedocker` Şimdi `az ml computetarget attach remotedocker`
     - `az ml computetarget attach --type cluster` Şimdi `az ml computetarget attach cluster`
 
-## <a name="2017-11-sprint-1"></a>2017-11 (sprint 1) 
+### <a name="2017-11-sprint-1"></a>2017-11 (sprint 1) 
 **Sürüm numarası**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümünüzü bulmak](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Bu sürümde, güvenlik, kararlılık ve sürdürülebilirliği workbench uygulaması, CLI ve arka uç Hizmetleri katmanı geliştirmeler yaptık. Ve frowns çok gülümsemeler gönderdiğiniz için teşekkür ederiz. Çoğu güncelleştirmeleri doğrudan geri bildirim sonuçlarını yapılır. Bunları devam ettirmeye kararlıyız!
 
-### <a name="notable-new-features"></a>Önemli yeni özellikler
+#### <a name="notable-new-features"></a>Önemli yeni özellikler
 - Azure ML, artık iki yeni Azure bölgelerinde: **Batı Avrupa** ve **Güneydoğu Asya**. Önceki bölgeleri katılmaları **Doğu ABD 2**, **Batı Orta ABD**, ve **Avustralya Doğu**, toplam sayısı getirme dağıtılan bölgeleri için beş.
 - Okuma ve düzenleme Python kaynak kodu daha kolay hale getirmek için Workbench uygulamasında Python kodu, sözdizimi vurgulamalı etkinleştirdik. 
 - Şimdi, doğrudan bir dosyadan yerine tüm projeye en sevdiğiniz IDE de başlatabilirsiniz.  Workbench'te bir dosyanın açılmasını ve "Düzenle"'yi tıklatarak IDE'nizi (şu anda VS Code ve PyCharm desteklenir) geçerli dosya ve proje başlatır.  Ayrıca Workbench metin düzenleyicide dosyayı düzenlemek için Düzenle düğmesini yanındaki oka tıklayabilirsiniz.  Düzenleme, yanlışlıkla yapılan değişiklikleri engelleyerek tıklayana kadar dosyaları salt okunurdur.
@@ -245,22 +305,22 @@ Bu sürümde, güvenlik, kararlılık ve sürdürülebilirliği workbench uygula
 - Daha fazla ilgili sürüm notlarını edinin ve güncelleştirme istemleri, geçerli uygulama sürümü temel bir sürüme özgü uygulama giriş etkinleştirdik.
 - Şimdi yerel kullanıcı adında boşluk varsa, bu uygulamayı başarılı bir şekilde yüklenebilir. 
 
-### <a name="detailed-updates"></a>Ayrıntılı güncelleştirmeleri
+#### <a name="detailed-updates"></a>Ayrıntılı güncelleştirmeleri
 Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı güncelleştirmeleri listesi aşağıdadır.
 
-#### <a name="installer"></a>Yükleyici
+##### <a name="installer"></a>Yükleyici
 - Uygulama yükleyici artık uygulama eski bir sürümü tarafından oluşturulmuş yükleme dizini temizler.
 - MacOS High Sierra % 100 takılı yükleyici müşteri adaylarını bir hatayı düzelttik.
 - Artık kullanıcı yüklemesi başarısız olursa, yükleyici günlüklerini gözden geçirmek için yükleyici dizin doğrudan bağlantı yoktur.
 - Artık kullanıcı adında boşluk olan kullanıcılar için çalışır yükleyin.
 
-#### <a name="workbench-authentication"></a>Workbench kimlik doğrulaması
+##### <a name="workbench-authentication"></a>Workbench kimlik doğrulaması
 - Ara Sunucu Yöneticisi'nde kimlik doğrulaması için destek.
 - Kullanıcı bir güvenlik duvarının arkasındaysa, artık oturum açma başarılı olur. 
 - Kullanıcının deneme hesapları birden çok Azure bölgesinde olup olmadığını ve tek bir bölge kullanılamaz durumda uygulamaya artık askıda kalır.
 - Kimlik doğrulaması tamamlanmadı ve kimlik doğrulama iletişim kutusuna hala görünür olduğunda, uygulama artık yerel önbellekten çalışma yüklemeye çalışır.
 
-#### <a name="workbench-app"></a>Workbench uygulaması
+##### <a name="workbench-app"></a>Workbench uygulaması
 - Python kodu söz dizimi vurgulama, metin düzenleyici ile etkinleştirilir.
 - Düzenle düğmesi metin düzenleyicisinde, dosyayı düzenlemek için ya da bir IDE sağlar (VS Code ve PyCharm desteklenir) veya yerleşik bir metin düzenleyicisinde.
 - Metin düzenleyici, varsayılan olarak salt okunur modda olduğundan. 
@@ -279,7 +339,7 @@ Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı günc
 - Deneme hesabı adı uygulama başlık çubuğu, uygulama adı "Azure Machine Learning Workbench" önceki görünür.
 - Algılanan uygulama sürümünde artık temel bir sürüme özgü uygulama giriş sayfası görüntülenir.
 
-#### <a name="data-preparation"></a>Veri hazırlama 
+##### <a name="data-preparation"></a>Veri hazırlama 
 - Dış web sitesi artık olası güvenlik sorunlarını önlemek için harita denetçisini ' yüklenebilir.
 - Histogram ve değer sayısı denetçiler Logaritmik ölçek grafını Göster seçeneği sunuyor.
 - Veri Kalitesi çubuğu ne zaman bir hesaplama devam ediyor, şimdi "hesaplama" durumunu göstermek için farklı bir renkle gösterilir.
@@ -301,7 +361,7 @@ Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı günc
 - Ölçümü görünümünü örnekleme stratejisi güncelleştirmeleri artık dikkate alır.
 - Uzak işler artık örnekleme düzgün çalışır.
 
-#### <a name="job-execution"></a>İş yürütme
+##### <a name="job-execution"></a>İş yürütme
 - Bağımsız değişken artık çalıştırma geçmişi kaydına dahil edilir.
 - İşleri de başlatıldı CLI artık çalıştırma geçmişi iş panelinde otomatik olarak gösterilir.
 - Proje paneli, artık Azure AD kiracısına eklenen Konuk kullanıcılar tarafından oluşturulan işleri gösterir.
@@ -319,14 +379,14 @@ Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı günc
 - MMLSpark artık konu kodlama dönüştürme (kodlama kafes) tıbbi belgeleri içerir.
 - `matplotlib` sürüm 2.1.0 Şimdi sevk edilen çıkış-hazır Workbench ile ' dir.
 
-#### <a name="jupyter-notebook"></a>Jupyter Notebook
+##### <a name="jupyter-notebook"></a>Jupyter Notebook
 - Not defteri adı arama artık not defterlerini Görünümü'nde düzgün çalışır.
 - Şimdi bir not defteri not defterlerini görüntüleme silebilirsiniz.
 - Yeni Sihirli `%upload_artifact` çalıştırma geçmişi veri deposuna not defteri yürütme ortamında üretilen dosyaları karşıya yükleme için eklenir.
 - Çekirdek hataları artık daha kolay hata ayıklama için Not Defteri iş durumu içinde takip edilir.
 - Kullanıcı uygulama oturumunu açtığında Jupyter sunucusu artık düzgün bir şekilde kapanıyorsa öyle kapanır.
 
-#### <a name="azure-portal"></a>Azure portal
+##### <a name="azure-portal"></a>Azure portal
 - Deneme hesabı ve Model Yönetimi hesabı artık oluşturulabilir iki yeni Azure bölgelerinde: Batı Avrupa ve Güneydoğu Asya.
 - Aboneliği için oluşturulan ilk hesaptır, model Yönetimi hesabı geliştirme ve test planı yalnızca kullanıma sunuldu. 
 - Azure portalında Yardım bağlantısı için doğru belgeler sayfası işaret edecek şekilde güncelleştirilir.
@@ -334,13 +394,13 @@ Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı günc
 - Appınsights ve otomatik ölçeklendirme ayarları dahil olmak üzere ayrıntılarını, web hizmeti ayrıntıları sayfasına eklenir.
 - Model Yönetimi sayfası, tarayıcıda üçüncü taraf tanımlama bilgilerini devre dışı bırakılsa dahi artık işler. 
 
-#### <a name="operationalization"></a>Kullanıma hazır hale getirme
+##### <a name="operationalization"></a>Kullanıma hazır hale getirme
 - Adında "puan" Web hizmetiyle artık başarısız olur.
 - Kullanıcı, artık yalnızca bir Azure kaynak grubu veya abonelik katkıda bulunan erişimi olan bir dağıtım ortamı oluşturabilirsiniz. Aboneliğin tümü sahip erişimi artık gerekli değildir.
 - Kullanıma hazır hale getirme artık CLI sekmesinde Otomatik Tamamlama Linux'ta ölçeklenebilme.
 - Görüntü oluşturma hizmeti, artık Azure IOT Hizmetleri/cihazlar için yapı görüntüleri destekler.
 
-#### <a name="sample-projects"></a>Örnek Proje
+##### <a name="sample-projects"></a>Örnek Proje
 - [_Süsen sınıflandırması_ ](../desktop-workbench/tutorial-classifying-iris-part-1.md) örnek proje:
     - `iris_pyspark.py` olarak yeniden adlandırıldı `iris_spark.py`.
     - `iris_score.py` olarak yeniden adlandırıldı `score_iris.py`.
@@ -353,20 +413,20 @@ Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı günc
 - Yeni örnek proje [ _CNTK kullanarak görüntü sınıflandırması_](../desktop-workbench/scenario-image-classification-using-cntk.md).
 
 
-## <a name="2017-10-sprint-0"></a>2017-10 (sprint 0) 
+### <a name="2017-10-sprint-0"></a>2017-10 (sprint 0) 
 **Sürüm numarası**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümünüzü bulmak](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 İlk bizim genel Önizleme'de Microsoft Ignite 2017 konferansına izleyerek Azure Machine Learning Workbench, ilk güncelleştirme Hoş Geldiniz. Ana güncelleştirmeler bu sürümde, güvenilirlik ve sabitleme giderir.  Biz giderilen kritik sorunlar bazıları şunlardır:
 
-### <a name="new-features"></a>Yeni Özellikler
+#### <a name="new-features"></a>Yeni Özellikler
 - macOS High Sierra artık desteklenmektedir
 
-### <a name="bug-fixes"></a>Hata düzeltmeleri
-#### <a name="workbench-experience"></a>Workbench deneyimi
+#### <a name="bug-fixes"></a>Hata düzeltmeleri
+##### <a name="workbench-experience"></a>Workbench deneyimi
 - Sürükle ve bırak Workbench dosyasına Workbench çökmesine neden olur.
 - Terminal penceresinde bir IDE Workbench tanımıyor için yapılandırılan VS code'da _az ml_ komutları.
 
-#### <a name="workbench-authentication"></a>Workbench kimlik doğrulaması
+##### <a name="workbench-authentication"></a>Workbench kimlik doğrulaması
 Bir rapor çeşitli oturum açma ve kimlik doğrulama sorunları geliştirmek için güncelleştirme sayısı yaptık.
 - Özellikle Internet bağlantısı kararlı olmadığında pencerelerinin yukarı, kimlik doğrulama penceresi tutar.
 - Kimlik doğrulama belirteci süre sonu etrafında sorunları güvenilirlik düzeyi artırıldı.
@@ -374,27 +434,27 @@ Bir rapor çeşitli oturum açma ve kimlik doğrulama sorunları geliştirmek i�
 - Workbench ana pencere yine de "kimlik doğrulaması" ileti kimlik doğrulama işlemi tamamlandığında ve zaten kapatıldı açılır iletişim kutusu görüntüler.
 - Internet bağlantısı yoksa bu kimlik doğrulaması iletişim kutusu ile boş bir ekran açılır.
 
-#### <a name="data-preparation"></a>Veri hazırlama 
+##### <a name="data-preparation"></a>Veri hazırlama 
 - Belirli bir değere filtrelenir, hataları ve eksik değerleri de filtreleniyor.
 - Bir örnekleme stratejisi değiştirilmesi, sonraki mevcut birleştirme işlemleri kaldırır.
 - Eksik değerini değiştirerek dönüştürme NaN dikkate almaz.
 - Null değer karşılaştığında tarih tür çıkarımı, özel durum oluşturur.
 
-#### <a name="job-execution"></a>İş yürütme
+##### <a name="job-execution"></a>İş yürütme
 - Boyut sınırını aştığı için proje klasörü karşıya yüklemek iş yürütme başarısız olduğunda hiçbir hata iletisini Temizle yoktur.
 - Kullanıcının Python betiğini çalışma dizini değişirse, çıktı klasörüne yazılmış olan dosyalar izlenmez. 
 - Geçerli projeye ait olandan farklı bir etkin Azure aboneliği ise, iş gönderme bir 403 hatası oluşur.
 - Docker mevcut olmadığında, kullanıcı bir yürütme hedefi Docker kullanmaya çalışırsa Temizle hata iletisi döndürülür.
 - .runconfig dosyası kaydedilmiyor otomatik olarak kullanıcı tıkladığında _çalıştırma_ düğmesi.
 
-#### <a name="jupyter-notebook"></a>Jupyter Notebook
+##### <a name="jupyter-notebook"></a>Jupyter Notebook
 - Kullanıcı belirli bir oturum açma türleri ile kullanıyorsa, Not Defteri sunucusu başlatılamıyor.
 - Not Defteri sunucusu hata iletilerini kullanıcıya görünür günlüklerinde yüzey değil.
 
-#### <a name="azure-portal"></a>Azure portal
+##### <a name="azure-portal"></a>Azure portal
 - Azure portal'ın koyu tema seçilmesi, bir siyah kutu olarak görüntülemek, Model Yönetimi dikey penceresinde neden olur.
 
-#### <a name="operationalization"></a>Kullanıma hazır hale getirme
+##### <a name="operationalization"></a>Kullanıma hazır hale getirme
 - Bir web hizmetini güncelleştirmek için bir bildirim yeniden rastgele bir ad ile oluşturulan yeni bir Docker görüntüsü neden olur.
 - Web hizmeti günlükleri Kubernetes küme alınamıyor.
 - Yanıltıcı bir hata iletisi, kullanıcı bir Model Yönetimi hesabı veya bir ML işlem hesabı oluşturma girişiminde bulunduğunda yazdırılır ve izin sorunları karşılaşır.

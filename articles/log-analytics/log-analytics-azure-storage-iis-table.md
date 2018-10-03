@@ -1,6 +1,6 @@
 ---
-title: Azure günlük analizi olayları için IIS ve tablo depolama için BLOB storage kullanma | Microsoft Docs
-description: Günlük analizi tablo depolama için tanılama yazma Azure Hizmetleri için günlükleri veya blob depolamaya yazılabilir IIS günlüklerini okuyabilir.
+title: Azure Log Analytics olayları için IIS ve tablo depolama için BLOB Depolama kullanma | Microsoft Docs
+description: Log Analytics, tablo depolama için tanılama yazma Azure Hizmetleri için günlükleri veya BLOB depolamaya yazılan IIS günlüklerini okuyabilir.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,77 +14,77 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 8f923cc081ea652c8e32d4109225044c70c8767d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 9f4aae578606e14711deaac87e232bad0158bfe9
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128750"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041501"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Günlük analizi olan olaylar için IIS ve Azure tablo depolaması için Azure blob storage kullanma
+# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Log Analytics ile olayları için IIS ve Azure tablo depolama için Azure blob depolama kullanma
 
-Günlük analizi tablo depolama için tanılama yazma aşağıdaki hizmetler için günlükleri veya blob depolamaya yazılabilir IIS günlüklerini okuyabilirsiniz:
+Log Analytics için tanılama tablo depolamaya yazma aşağıdaki hizmetleri günlükleri veya BLOB depolamaya yazılan IIS günlükler okuyabilirsiniz:
 
 * Service Fabric kümeleri (Önizleme)
 * Virtual Machines
 * Web/çalışan rolleri
 
-Azure tanılama günlük analizi bu kaynakları için veri toplayabilmek için önce etkinleştirilmesi gerekir.
+Azure tanılama log Analytics bu kaynaklar için veri toplayabilmek için önce etkinleştirilmesi gerekir.
 
-Tanılama etkinleştirildikten sonra Azure portalını kullanabilir veya PowerShell günlükleri toplamak için günlük analizi yapılandırın.
+Tanılama etkinleştirildikten sonra PowerShell, Log Analytics, günlükleri toplamak için yapılandırma ya da Azure portalını kullanabilirsiniz.
 
-Azure tanılama çalışan rolü, web rolü ya da sanal makine Azure'da çalışan Tanılama verileri toplayacak şekilde sağlayan Azure uzantısıdır. Veriler bir Azure depolama hesabında depolanır ve günlük analizi tarafından toplanabilir.
+Azure Tanılama, bir çalışan rolü, web rolü veya sanal makine Azure'da çalışan Tanılama verileri toplamanızı sağlayan Azure bir uzantısıdır. Veriler bir Azure depolama hesabında depolanır ve Log Analytics tarafından toplanabilir.
 
-Günlük analizi'nın bu Azure tanılama günlükleri toplamak günlükleri şu konumlarda olması gerekir:
+Log Analytics'ın bu Azure tanılama günlükleri toplamak günlükleri şu konumlarda olmalıdır:
 
 | Günlük türü | Kaynak Türü | Konum |
 | --- | --- | --- |
-| IIS günlükleri |Virtual Machines <br> Web rolleri <br> Çalışan rolleri |wad IIS logfiles (Blob Depolama) |
+| IIS günlükleri |Virtual Machines <br> Web rolleri <br> Çalışan rolleri |wad-IIS-logfiles (Blob Depolama) |
 | Syslog |Virtual Machines |LinuxsyslogVer2v0 (Tablo depolama) |
-| Service Fabric çalışma olayları |Service Fabric düğümler |WADServiceFabricSystemEventTable |
-| Service Fabric güvenilir aktör olayları |Service Fabric düğümler |WADServiceFabricReliableActorEventTable |
-| Service Fabric güvenilir hizmeti olayları |Service Fabric düğümler |WADServiceFabricReliableServiceEventTable |
-| Windows Olay günlükleri |Service Fabric düğümler <br> Virtual Machines <br> Web rolleri <br> Çalışan rolleri |WADWindowsEventLogsTable (Tablo depolama) |
-| Windows ETW günlükleri |Service Fabric düğümler <br> Virtual Machines <br> Web rolleri <br> Çalışan rolleri |WADETWEventTable (Tablo depolama) |
+| Service Fabric çalışma olayları |Service Fabric düğümleri |WADServiceFabricSystemEventTable |
+| Service Fabric güvenilir aktör olayları |Service Fabric düğümleri |WADServiceFabricReliableActorEventTable |
+| Service Fabric Reliable Services olayları |Service Fabric düğümleri |WADServiceFabricReliableServiceEventTable |
+| Windows Olay günlükleri |Service Fabric düğümleri <br> Virtual Machines <br> Web rolleri <br> Çalışan rolleri |WADWindowsEventLogsTable (Tablo depolama) |
+| Windows ETW günlükleri |Service Fabric düğümleri <br> Virtual Machines <br> Web rolleri <br> Çalışan rolleri |WADETWEventTable (Tablo depolama) |
 
 > [!NOTE]
-> Azure Web siteleri IIS günlükleri şu anda desteklenmemektedir.
+> IIS günlüklerini Azure Web siteleri şu anda desteklenmemektedir.
 >
 >
 
-Sanal makineler için yükleme seçeneğiniz [günlük analizi aracı](log-analytics-azure-vm-extension.md) ek Öngörüler etkinleştirmek için sanal makinenize içine. IIS günlüklerini ve olay günlüklerini analiz edebilirsiniz olmaya ek olarak, izleme yapılandırma değişikliği, SQL değerlendirmesi ve güncelleştirme değerlendirme dahil olmak üzere ek analiz gerçekleştirebilir.
+Sanal makineler için yükleme seçeneğiniz [Log Analytics aracısını](log-analytics-azure-vm-extension.md) ek Öngörüler etkinleştirmek için sanal makine. IIS günlükleri ve olay günlüklerini analiz etme olanağına olmasının yanı sıra yapılandırma değişiklik izleme SQL değerlendirmesi ve güncelleştirme değerlendirmesi de dahil olmak üzere ek analiz gerçekleştirebilirsiniz.
 
-## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Bir sanal makinede Azure tanılamayı etkinleştirin koleksiyonu olay günlüğünü ve IIS günlüğü için
-Bir sanal makinede Microsoft Azure Portalı'nı kullanarak olay günlüğünü ve IIS günlük toplama için Azure Tanılama'yı etkinleştirmek için aşağıdaki yordamı kullanın.
+## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Azure Tanılama'da bir sanal makine etkinleştirme koleksiyon olay günlüğü ve IIS günlüğü için
+Azure Tanılama'da bir sanal makine için Microsoft Azure portalını kullanarak olay günlüğü ve IIS günlük koleksiyonu etkinleştirmek için aşağıdaki yordamı kullanın.
 
-### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Bir sanal makinede Azure portal ile Azure tanılama etkinleştirmek için
-1. Bir sanal makine oluşturduğunuzda VM aracısı yükleyin. Sanal makine zaten varsa, VM Aracısı zaten yüklü olduğunu doğrulayın.
+### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Azure portalıyla bir sanal makinede Azure tanılamayı etkinleştirme
+1. Bir sanal makine oluşturduğunuzda, VM aracısını yükleyin. Sanal makine zaten varsa, VM Aracısı zaten yüklü olduğunu doğrulayın.
 
-   * Azure portalında sanal makineye gidin **isteğe bağlı yapılandırma**, ardından **tanılama** ve **durum** için **üzerinde** .
+   * Azure portalında sanal makineye gidin **isteğe bağlı yapılandırma**, ardından **tanılama** ayarlayıp **durumu** için **üzerinde** .
 
-     Tamamlandığında, VM yüklü ve çalışan Azure tanılama uzantısına sahiptir. Tanılama verilerinin toplanması için bu uzantıyı sorumludur.
-2. İzlemeyi etkinleştirmek ve olay günlüğü var olan bir VM yapılandırın. Tanılama VM düzeyinde etkinleştirebilirsiniz. Tanılamayı etkinleştirin ve olay günlüğünü yapılandırmak için aşağıdaki adımları gerçekleştirin:
+     Tamamlandıktan sonra VM yüklü ve çalışır Azure tanılama uzantısına sahiptir. Bu uzantı, tanılama verilerinin toplanması için sorumludur.
+2. İzlemeyi etkinleştirmek ve olay günlüğünü var olan bir VM yapılandırın. VM düzeyinde tanılamayı etkinleştirebilirsiniz. Tanılamayı etkinleştirin ve sonra olay günlüğünü yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
    1. VM’yi seçin.
-   2. Tıklatın **izleme**.
-   3. Tıklatın **tanılama**.
-   4. Ayarlama **durum** için **ON**.
+   2. Tıklayın **izleme**.
+   3. Tıklayın **tanılama**.
+   4. Ayarlama **durumu** için **ON**.
    5. Toplamak istediğiniz her Tanılama Günlüğü'nü seçin.
-   6. **Tamam**’a tıklayın.
+   6. **Tamam** düğmesine tıklayın.
 
-## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Web rolü IIS günlüğü ve olay toplama için Azure tanılama etkinleştir
-Başvurmak [nasıl için tanılamayı etkinleştir bir bulut hizmetinde](../cloud-services/cloud-services-dotnet-diagnostics.md) Azure tanılama etkinleştirme genel adımlar için. Aşağıdaki yönergelerde bu bilgileri kullanın ve günlük analizi ile kullanılmak üzere özelleştirin.
+## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>IIS günlük ve olay koleksiyonu için bir Web rolünde Azure tanılamayı etkinleştirin
+Başvurmak [nasıl için tanılamayı etkinleştir bir bulut hizmetinde](../cloud-services/cloud-services-dotnet-diagnostics.md) için Azure Tanılama'yı etkinleştirme hakkında daha genel adımları. Aşağıdaki yönergeler, bu bilgileri kullanın ve Log Analytics ile kullanılmak üzere özelleştirin.
 
-Azure Tanılama ile etkin:
+Azure tanılaması etkin:
 
-* IIS günlüklerini scheduledTransferPeriod aktarımı aralıklarla günlük verileri varsayılan olarak depolanır.
-* Windows olay günlüklerini varsayılan olarak aktarılmaz.
+* IIS günlükler scheduledTransferPeriod aktarım aralığı günlük verileri varsayılan olarak depolanır.
+* Windows olay günlükleri, varsayılan olarak aktarılmaz.
 
-### <a name="to-enable-diagnostics"></a>Tanılama etkinleştirmek için
-Windows olay günlüklerini etkinleştirmek ya da scheduledTransferPeriod değiştirmek için XML yapılandırma dosyası (diagnostics.wadcfg) kullanarak Azure tanılama gösterildiği gibi yapılandırmak [4. adım: Tanılama yapılandırma dosyanızı oluşturun ve uzantısını yükle](../cloud-services/cloud-services-dotnet-diagnostics.md)
+### <a name="to-enable-diagnostics"></a>Tanılamayı etkinleştirme
+Windows olay günlüklerini etkinleştirmek veya scheduledTransferPeriod değiştirmek için gösterildiği gibi XML yapılandırma dosyası (diagnostics.wadcfg) kullanarak Azure tanılama yapılandırma [4. adım: Tanılama yapılandırma dosyanızı oluşturun ve uzantıyı yükleme](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
-Aşağıdaki örnek yapılandırma dosyası, uygulama ve sistem günlüklerini IIS günlüklerini ve tüm olayları toplar:
+Aşağıdaki örnek yapılandırma dosyası, uygulama ve sistem günlüklerinden IIS günlükler ve tüm olayları toplar:
 
 ```
     <?xml version="1.0" encoding="utf-8" ?>
@@ -116,49 +116,49 @@ ConfigurationSettings aşağıdaki örnekteki gibi bir depolama hesabı belirtti
     </ConfigurationSettings>
 ```
 
-**AccountName** ve **AccountKey** değerleri depolama hesabı panosundaki erişim anahtarlarını Yönet altında Azure portalında bulundu. Bağlantı dizesi için Protokolü olmalıdır **https**.
+**AccountName** ve **AccountKey** değerleri, Azure portalında depolama hesabı Panosu, erişim tuşlarını Yönet altında bulunur. Protokolü için bağlantı dizesi olmalıdır **https**.
 
-Güncelleştirilmiş tanılama yapılandırması bulut hizmetinize uygulanır ve Azure depolama için tanılama yazıyor sonra daha sonra günlük analizi yapılandırmaya hazırsınız demektir.
+Bulut hizmetinize güncelleştirilen Tanılama yapılandırmasını uygulanır ve Azure depolama için tanılama yazıyor sonra ardından Log Analytics yapılandırmaya hazır olursunuz.
 
-## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Azure depolama biriminden günlükleri toplamak için Azure portalını kullanma
-Aşağıdaki Azure Hizmetleri için günlükleri toplamak için günlük analizi yapılandırmak için Azure portalını kullanabilirsiniz:
+## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Azure Depolama'dan günlükleri toplamak için Azure portalını kullanma
+Aşağıdaki Azure Hizmetleri için günlükleri toplamak için Log Analytics'i yapılandırmak için Azure portalını kullanabilirsiniz:
 
 * Service Fabric kümeleri
 * Virtual Machines
 * Web/çalışan rolleri
 
-Azure portalında günlük analizi çalışma alanına gidin ve aşağıdaki görevleri gerçekleştirin:
+Azure portalında Log Analytics çalışma alanınıza gidin ve aşağıdaki görevleri gerçekleştirin:
 
-1. Tıklatın *depolama hesapları günlükleri*
-2. Tıklatın *Ekle* görevi
-3. Tanılama günlükleri içeren depolama hesabı seçin
+1. Tıklayın *depolama hesabı günlükleri*
+2. Tıklayın *Ekle* görevi
+3. Tanılama günlükleri içeren depolama hesabını seçin
    * Bu hesap, Klasik depolama hesabı veya bir Azure Resource Manager depolama hesabı olabilir.
 4. Günlüklerini toplamak istediğiniz veri türünü seçin
-   * IIS günlüklerini seçimlerdir; Olayları; Syslog (Linux); ETW günlükleri; Hizmeti yapı olayları
-5. Kaynak için değer veri türüne göre otomatik olarak doldurulur ve değiştirilemez
-6. Yapılandırmayı kaydetmek için Tamam'ı tıklatın
+   * Seçenekler, IIS günlükleri şunlardır; Olayları; Syslog (Linux); ETW günlükleri Service Fabric olayları
+5. Kaynak değeri veri türüne göre otomatik olarak doldurulur ve değiştirilemez
+6. Yapılandırmayı kaydetmek için Tamam'a tıklayın
 
-Ek depolama hesapları ve toplamak için günlük analizi istediğiniz veri türleri için 2-6 adımlarını yineleyin.
+Ek depolama hesapları ve Log Analytics, toplamak istediğiniz veri türleri için 2-6 adımlarını yineleyin.
 
-Yaklaşık 30 dakika içinde günlük analizi depolama hesabında verileri görmek kullanabilirsiniz. Yalnızca yapılandırma uygulandıktan sonra depolama alanına yazılır veri görürsünüz. Günlük analizi depolama hesabından önceden mevcut verileri okuyamadı.
+Yaklaşık 30 dakika içerisinde Log analytics'te depolama hesabına ait verileri görebildiğine olursunuz. Yalnızca yapılandırma uygulandıktan sonra depolama alanına yazılan verileri görürsünüz. Log Analytics depolama hesabından önceden var olan verilere okumaz.
 
 > [!NOTE]
-> Portal kaynağı depolama hesabında yok veya yeni veriler yazılır doğrulamaz.
+> Portal, kaynak depolama hesabında mevcut veya yeni veriler yazılır doğrulamaz.
 >
 >
 
-## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>Bir sanal makinede Azure tanılamayı etkinleştirin koleksiyonu PowerShell kullanarak olay günlüğünü ve IIS günlüğü için
-İçindeki adımları kullanın [Azure tanılama dizini oluşturmak için günlük analizi yapılandırma](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) tablo depolama alanına yazılır Azure tanılama okuma için PowerShell kullanma.
+## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>Azure Tanılama'da bir sanal makine etkinleştirme PowerShell kullanarak koleksiyon olay günlüğü ve IIS günlüğü için
+İçindeki adımları kullanın [Azure tanılama dizin için Log Analytics'i yapılandırma](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) tablo Depolama'ya yazılan Azure tanılama verilerini okumak üzere PowerShell kullanma.
 
-Azure PowerShell kullanarak Azure depolama alanına yazılır olayları daha kesin olarak belirtebilirsiniz.
-Daha fazla bilgi için bkz: [etkinleştirme tanılama Azure Virtual Machines'de](../virtual-machines-dotnet-diagnostics.md).
+Azure PowerShell kullanarak Azure Depolama'ya yazılan olayları daha kesin olarak belirtebilirsiniz.
+Daha fazla bilgi için [Azure sanal Makineler'de tanılamayı etkinleştirme](../virtual-machines-dotnet-diagnostics.md).
 
-Etkinleştirme ve aşağıdaki PowerShell Betiği kullanılarak Azure tanılama güncelleştirin.
-Bu komut dosyasını bir özel günlük kaydı yapılandırmasıyla de kullanabilirsiniz.
+Etkinleştirebilir ve aşağıdaki PowerShell betiğini kullanarak Azure tanılama güncelleştirin.
+Bu betik bir özel günlük kaydı yapılandırmasıyla de kullanabilirsiniz.
 Depolama hesabı, hizmet adı ve sanal makine adı ayarlamak için komut dosyasını değiştirin.
-Komut dosyası Klasik sanal makineleri için cmdlet'leri kullanır.
+Betik cmdlet'leri için Klasik sanal makineleri kullanır.
 
-Aşağıdaki betik örneğinde gözden geçirin, kopyalayın, gerektiği şekilde değiştirin, örnek bir PowerShell komut dosyası olarak kaydetmek ve sonra komut dosyasını çalıştırın.
+Aşağıdaki kod örneği gözden geçirin, kopyalayın, gerektiği gibi değiştirin, örnek bir PowerShell komut dosyası kaydedin ve ardından komut dosyasını çalıştırın.
 
 ```
     #Connect to Azure
@@ -193,6 +193,6 @@ Aşağıdaki betik örneğinde gözden geçirin, kopyalayın, gerektiği şekild
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Günlük ve Azure Hizmetleri için ölçümleri toplamak](log-analytics-azure-storage.md) desteklenen Azure Hizmetleri.
-* [Çözümlerle](log-analytics-add-solutions.md) verileri bir anlayış sağlamak için.
-* [Arama sorguları kullanmak](log-analytics-log-searches.md) verileri çözümlemek için.
+* [Günlükleri ve Azure Hizmetleri için ölçümleri toplamak](log-analytics-azure-storage.md) desteklenen Azure Hizmetleri.
+* [Çözümlerle](log-analytics-add-solutions.md) veri Öngörüler sağlar.
+* [Arama sorguları kullanılır](log-analytics-log-searches.md) verileri çözümlemek için.

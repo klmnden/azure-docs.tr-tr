@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 10/5/2018
 ms.author: rkarlin
-ms.openlocfilehash: 313697d73d1e269691f1af4f021545049a907d66
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d0455e549745e743e7a8c0f65cb56a1e16dfb131
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127100"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044085"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde veri toplamayı
 Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve Azure harici bilgisayarları güvenlik açıklarını ve tehditleri izlemek için veri toplar. Veriler, makineden güvenlikle ilgili çeşitli yapılandırmaları ve olay günlüklerini okuyup verileri analiz için çalışma alanınıza kopyalayan Microsoft Monitoring Agent kullanılarak toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri) çalışan işlemler, makine adı, IP adresleri ve kullanıcı oturum. Microsoft Monitoring Agent, ayrıca kilitlenme bilgi dökümü dosyalarını çalışma alanınıza kopyalar.
@@ -62,8 +62,8 @@ Microsoft Monitoring Agent için otomatik sağlamayı etkinleştirmek üzere:
 > - Önceden var olan bir yükleme sağlama konusunda yönergeler için bkz. [önceden var olan bir aracı yüklemesi durumlarda otomatik sağlama](#preexisting).
 > - El ile sağlama ile ilgili yönergeler için bkz: [Microsoft Monitoring Agent uzantısını el ile yükleme](#manualagent).
 > - Otomatik sağlama kapatma hakkında yönergeler için bkz: [otomatik sağlamayı etkinleştirmek](#offprovisioning).
+> - Yönergeler için PowerShell kullanarak yerleşik güvenlik Merkezi'ne nasıl görürüm [ekleme PowerShell kullanarak Azure Güvenlik Merkezi'nin otomatik hale getirmek](security-center-powershell-onboarding.md).
 >
-
 
 ## <a name="workspace-configuration"></a>Çalışma alanı yapılandırması
 Güvenlik Merkezi tarafından toplanan veriler, Log Analytics çalışma Alanlarınızda depolanır.  Azure Güvenlik Merkezi tarafından oluşturulan çalışma alanlarında veya kendi oluşturduğunuz mevcut bir çalışma depolanan vm'lerden toplanan verileri seçebilirsiniz. 
@@ -147,12 +147,17 @@ Tüm aboneliklerinizdeki tüm çalışma alanları, verilerinizin depolanacağı
 
 
 ## <a name="data-collection-tier"></a>Veri koleksiyonu katmanı
-Güvenlik Merkezi, araştırma, Denetim ve tehdit algılama için yeterli olayları korurken olayların hacmine azaltabilir. Aracı tarafından toplanacak olayların dört kümelerinden çalışma alanları ve abonelikler için ilke filtreleme sağ seçebilirsiniz.
+Azure Güvenlik Merkezi'nde veri koleksiyonunu katmanı seçerek yalnızca Log Analytics çalışma alanınızda, güvenlik olaylarının depolama etkiler. Microsoft Monitoring Agent hala toplamak ve Log Analytics çalışma alanınızda (varsa) depolamak seçtiğiniz hangi güvenlik olayları katmanı bağımsız olarak Azure Güvenlik Merkezi'nin tehdit algılamaları için gereken güvenlik olayları analiz edin. Çalışma alanınızda güvenlik olayları depolamak seçme araştırma, arama ve çalışma alanınızda bu olayların denetimini etkinleştirir. 
+> [!NOTE]
+> Log Analytics'te veri depolama, veri depolama için ek ücret, daha fazla ayrıntı için fiyatlandırma sayfasına bakın.
+>
+Çalışma alanınızda depolanmış Abonelikleriniz ve çalışma alanlarından olayların dört kümesi için ilke filtreleme hakkı seçebilirsiniz: 
 
-- **Tüm olaylar** – toplanan tüm olayları emin olmak isteyen müşteriler için. Bu varsayılan değerdir.
-- **Ortak** – tam denetim kaydı sağlar ve müşterilerin çoğu karşılayan bir dizi olay budur.
+- **Hiçbiri** – güvenlik olay depolama devre dışı bırakın. Bu varsayılan ayardır.
 - **En az** – olayları olay birimi en aza indirmek isteyen müşteriler için daha küçük bir dizi.
-- **Hiçbiri** – güvenlik ve App Locker Günlükleri güvenlik olay toplama devre dışı bırakın. Bu seçeneği müşteriler, yalnızca Windows Güvenlik duvarı günlükleri ve proaktif değerlendirmeleri kötü amaçlı yazılımdan koruma, temel ve güncelleştirme gibi güvenlik panolarına sahip.
+- **Ortak** – tam denetim kaydı sağlar ve müşterilerin çoğu karşılayan bir dizi olay budur.
+- **Tüm olaylar** – tüm olayları emin olmak isteyen müşterilerin depolanır.
+
 
 > [!NOTE]
 > Bu güvenlik olayları kümeleri yalnızca Güvenlik Merkezi'nin standart katmanında kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
@@ -261,7 +266,7 @@ Güvenlik Merkezi, Vm'lerinizden güvenlik verilerini toplamak ve öneriler ve u
   > [!NOTE]
   > Bölüm **olay ve performans verileri toplama** isteğe bağlıdır.
   >
-6. Uzantıyı dağıtmak için PowerShell kullanma: aşağıdaki PowerShell örneğini kullanın:
+6. Uzantıyı dağıtmak için PowerShell kullanmak için aşağıdaki PowerShell örneği kullanın:
     1.  Git **Log Analytics** tıklayın **Gelişmiş ayarlar**.
     
         ![Log Analytics'i ayarlama][11]
@@ -289,8 +294,8 @@ Güvenlik Merkezi, Vm'lerinizden güvenlik verilerini toplamak ve öneriler ve u
         
              Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
-
-
+> [!NOTE]
+> Yönergeler için PowerShell kullanarak yerleşik güvenlik Merkezi'ne nasıl görürüm [ekleme PowerShell kullanarak Azure Güvenlik Merkezi'nin otomatik hale getirmek](security-center-powershell-onboarding.md).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

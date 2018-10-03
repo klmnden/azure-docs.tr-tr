@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ee03d8dc8dba08994715ace940875980c4f21bb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998948"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041552"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight Kurumsal güvenlik paketi kullanma
 
@@ -26,26 +26,20 @@ HDInsight, yönetilen bir şekilde Active Directory--bir popüler kimlik sağlay
 
 Sağlanan, etki alanına katılmış HDInsight sanal makinelerin (VM'ler) var. Bunu, HDInsight üzerinde çalışan tüm hizmetler (Ambari, Hive sunucusu, Ranger, Spark thrift sunucusu ve diğerleri) kimliği doğrulanan kullanıcı için sorunsuz bir şekilde çalışır. Yöneticiler, daha sonra kümedeki kaynaklar için rol tabanlı erişim denetimi sağlamak için Apache Ranger'ı kullanarak güçlü yetkilendirme ilkeleri oluşturabilirsiniz.
 
-
 ## <a name="integrate-hdinsight-with-active-directory"></a>HDInsight’ı Active Directory ile tümleştirin
 
 Açık kaynaklı Hadoop üzerinde Kerberos kimlik doğrulaması ve güvenlik için kullanır. Bu nedenle, HDInsight küme düğümleri Kurumsal güvenlik paketi (ESP) ile Azure AD DS tarafından yönetilen bir etki alanına katılır. Kerberos güvenlik küme üzerindeki Hadoop bileşenleri için yapılandırılır. 
 
-Her bir Hadoop bileşeni için bir hizmet sorumlusunu otomatik olarak oluşturulur. Asıl karşılık gelen bir makine etki alanına katılan her makine için de oluşturulur. Bu hizmet depolamak ve ilkeleri makine için bu ilkeleri yerleştirildiği etki alanı denetleyicisi (Azure AD DS) içinde bir kuruluş birimine (OU) sağlamalısınız. 
+Aşağıdaki öğeleri otomatik olarak oluşturulur:
+- Her bir Hadoop bileşeni için bir hizmet sorumlusu 
+- etki alanına katılan her makine için bir makine sorumlusu
+- bir kuruluş birimi (Bu hizmet ve makine ilkelerini depolamak için OU) her küme için 
 
 Özetlemek gerekirse, bir ortam ile ayarlamanız gerekir:
 
 - Bir Active Directory (Azure AD DS tarafından yönetilen) etki alanı.
 - Azure AD DS'de etkinleştirilmiş LDAP (LDAPS) güvenli hale getirin.
 - Ayrı sanal ağlar tercih ederseniz Azure AD DS sanal ağ için uygun ağ bağlantısı HDInsight sanal ağdan. HDInsight'ın sanal ağ içindeki bir VM görebilmesi için sanal ağ eşlemesi üzerinden Azure AD DS olması gerekir. Aynı sanal ağda HDInsight ve Azure AD DS dağıtılmışsa, bağlantı otomatik olarak sağlanır ve başka bir eylem gerekmez.
-- Bir OU [Azure AD DS'de oluşturulan](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
-- İzinleri olan bir hizmet hesabı:
-    - Hizmet sorumluları oluşturma.
-    - Makine etki alanına ve makine sorumluları oluşturma.
-
-Aşağıdaki ekran görüntüsünde, contoso.com oluşturulan bir OU gösterir. Ayrıca bazı hizmet sorumluları ve makine sorumluları gösterir.
-
-![ESP ile HDInsight kümeleri için kuruluş birimi](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>Farklı bir etki alanı denetleyicileri kurun
 HDInsight, küme Kerberos iletişimi için kullandığı ana etki alanı denetleyicisi şu anda yalnızca Azure AD DS destekler. Ancak böyle bir kurulum HDInsight erişim için Azure AD DS'yi etkinleştirmek için müşteri adayları sürece diğer karmaşık Active Directory ayarları mümkündür.

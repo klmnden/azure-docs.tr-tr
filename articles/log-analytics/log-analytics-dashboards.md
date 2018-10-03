@@ -1,6 +1,6 @@
 ---
-title: Azure günlük analizi özel bir pano oluşturun | Microsoft Docs
-description: Bu kılavuz, günlük analizi panolar tüm kaydedilmiş günlük işlemlerinizin nasıl görselleştirebilirsiniz anlamanıza ortamınızı görüntülemek için tek bir mercek vermiş yardımcı olur.
+title: Azure Log Analytics'te özel bir pano oluşturun | Microsoft Docs
+description: Bu kılavuz, Log Analytics panoları tüm kayıtlı günlük aramalarınızı nasıl görselleştirebilirsiniz anlamanıza ortamınızı görüntülemek için tek bir mercek sunarak yardımcı olur.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,78 +14,78 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 7b17b23d30b15fe71dcf031ac67f0c54fc3cfe3e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: bf5b37bfa2cb103ef8151203359041fa4bd10f0b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129321"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043339"
 ---
-# <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Günlük analizi kullanmak için özel bir pano oluşturun
+# <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Log Analytics'te kullanım için özel bir pano oluşturma
 
-Bu kılavuz, günlük analizi panolar tüm kaydedilmiş günlük işlemlerinizin nasıl görselleştirebilirsiniz anlamanıza ortamınızı görüntülemek için tek bir mercek vermiş yardımcı olur.
+Bu kılavuz, Log Analytics panoları tüm kayıtlı günlük aramalarınızı nasıl görselleştirebilirsiniz anlamanıza ortamınızı görüntülemek için tek bir mercek sunarak yardımcı olur.
 
 >[!NOTE]
-> Var olan artık düzenleyebilirsiniz **My Pano**. Bu özellik kullanım dışı sürecinde olur.
+> Artık mevcut düzenleyebilirsiniz **Panom'u**. Bu özellik, kullanım dışı aşamasında kullanılabilir.
 
 ![Örnek Pano](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 
-OMS portalında oluşturduğunuz özel panolar de OMS mobil uygulamada kullanılabilir. Aşağıdaki sayfalarda uygulamalar hakkında daha fazla bilgi için bkz.
+OMS portalında oluşturduğunuz özel panolar da OMS mobil uygulamada kullanılabilir. Uygulamalar hakkında daha fazla bilgi için aşağıdaki sayfalara bakın.
 
-* [OMS mobil uygulamanızdan Microsoft Store](http://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
-* [Apple iTunes mobil uygulamadan OMS](https://itunes.apple.com/app/microsoft-operations-management/id1042424859?mt=8)
+* [OMS mobil uygulamasını Microsoft Store](http://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+* [OMS mobil uygulamasını Apple iTunes](https://itunes.apple.com/app/microsoft-operations-management/id1042424859?mt=8)
 
 ![Mobil Pano](./media/log-analytics-dashboards/oms-search-mobile.png)
 
 ## <a name="how-do-i-create-my-dashboard"></a>Benim Panom nasıl oluşturulur?
-Başlamak için OMS Genel Bakış sayfasına gidin. Göreceğiniz **My Pano** döşeme sol tarafta. Panonuza detaya gitmek için tıklatın.
+Başlamak için OMS Genel Bakış sayfasına gidin. Göreceğiniz **Panom'u** kutucuğuna soldaki. Panonuzu detaya gitmek için tıklayın.
 
 ![Genel Bakış](./media/log-analytics-dashboards/oms-dashboards-overview.png)
 
 ## <a name="adding-a-tile"></a>Bir kutucuk ekleme
-Uygulamasındaki panolar, kutucuk tarafından kaydedilmiş günlük işlemlerinizin güç sağlar. OMS hemen başlayabilmesi için kaydedilmiş günlük aramalar, önceden yapılan çoğu ile birlikte gelir. Başlamak nasıl anahat aşağıdaki adımları kullanın.
+Panoları, kutucukları kayıtlı günlük aramalarınızı tarafından desteklenir. OMS hemen başlayabileceğiniz kayıtlı günlük aramalarınızı önceden yapılan çoğu ile birlikte gelir. Başlamak nasıl anahat aşağıdaki adımları kullanın.
 
-My Pano görünümünde tıklamanız yeterlidir **Özelleştir** girmek için özelleştirme moduna.
+Panom'u Görünümü'nde tıklamanız yeterlidir **Özelleştir** girmek için modu özelleştirin.
 
 ![Resimsel](./media/log-analytics-dashboards/oms-dashboards-pictorial01.png)
 
- Sayfanın sağ tarafında açılır paneli tüm çalışma alanınızı 's kaydedilmiş günlük aramaları gösterir. Bir kutucuk kaydedilmiş günlük arama görselleştirmek için kaydedilmiş bir aramayı üzerine gelin ve ardından **artı** simgesi.
+ Sayfanın sağ tarafta açılır paneli, tüm kayıtlı günlük aramalarınızı çalışma alanınızın gösterir. Bir kutucuk olarak kaydedilmiş günlük aramasını görselleştirme için kayıtlı bir aramayı gelin ve ardından **artı** simgesi.
 
 ![Kutucuk 1 Ekle](./media/log-analytics-dashboards/oms-dashboards-pictorial02.png)
 
-Tıkladığınızda **artı** simge, yeni bir kutucuk My Pano görünümünde görüntülenir.
+Tıkladığınızda **artı** sembol, My Pano Görünümü'nde yeni bir kutucuk görünür.
 
-![Kutucuk 2 Ekle](./media/log-analytics-dashboards/oms-dashboards-pictorial03.png)
+![2 kutucuk Ekle](./media/log-analytics-dashboards/oms-dashboards-pictorial03.png)
 
-## <a name="edit-a-tile"></a>Bir kutucuk Düzenle
-My Pano görünümünde tıklamanız yeterlidir **Özelleştir** girmek için özelleştirme moduna. Düzenlemek istediğiniz kutucuğa tıklayın. Düzenlemek için sağ panelde değişiklikleri ve Seçenekler seçim verir:
+## <a name="edit-a-tile"></a>Kutucukları düzenleme
+Panom'u Görünümü'nde tıklamanız yeterlidir **Özelleştir** girmek için modu özelleştirin. Düzenlemek istediğiniz kutucuğa tıklayın. Düzenlemek için sağ panelde değişiklikleri ve seçim seçenekleri sağlar:
 
-![Döşeme Düzenle](./media/log-analytics-dashboards/oms-dashboards-pictorial04.png)
+![Kutucukları düzenleme](./media/log-analytics-dashboards/oms-dashboards-pictorial04.png)
 
-![Döşeme Düzenle](./media/log-analytics-dashboards/oms-dashboards-pictorial05.png)
+![Kutucukları düzenleme](./media/log-analytics-dashboards/oms-dashboards-pictorial05.png)
 
 ### <a name="tile-visualizations"></a>Döşeme görselleştirmeleri
-Aralarından seçim yapabileceğiniz döşeme görselleştirmeleri üç tür vardır:
+Döşeme görselleştirmeleri aralarından seçim yapabileceğiniz üç tür vardır:
 
-| grafik türü | Ne yapar |
+| grafik türü | Ne işe yarar |
 | --- | --- |
-| ![Çubuk grafiği](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Günlük arama sonuçları bir alana göre veya toplar, kaydedilmiş günlük aramanın sonuçları bir zaman çizelgesi olarak bir çubuk grafik veya bağlı olarak bir alana göre sonuçlarının bir listesini görüntüler. |
-| ![ölçüm](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Toplam günlük arama sonucu isabet döşeme içinde bir sayı olarak görüntüler. Ölçüm döşeme Eşiğe ulaşıldığında döşeme vurgular bir eşiği ayarlamanıza olanak sağlar. |
-| ![satır](./media/log-analytics-dashboards/oms-dashboards-line.png) |Bir zaman çizelgesi, kaydedilmiş günlük arama sonucu isabet değerleri içeren bir çizgi grafiği görüntüler. |
+| ![Çubuk grafik](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Günlük arama veya bir alana göre sonuçları toplar, kaydedilmiş log search'ün sonuçları belirli bir zaman çizelgesi çubuk grafik veya bağlı olarak bir alana göre sonuçları listesi olarak görüntüler. |
+| ![ölçüm](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Toplam günlük arama sonucu isabet sayısı bir döşeme içindeki bir sayı olarak görüntüler. Ölçüm kutucukları Eşiğe ulaşıldığında, kutucuğu vurgular bir eşiği ayarlamanıza olanak sağlar. |
+| ![satır](./media/log-analytics-dashboards/oms-dashboards-line.png) |Bir zaman çizelgesi, kayıtlı günlük arama sonucu isabet değerleriyle bir çizgi grafik görüntüler. |
 
 ### <a name="threshold"></a>Eşik
-Ölçüm görselleştirme kullanarak bir kutucuğu bir eşik oluşturabilirsiniz. Bir eşik değeri kutucuğu oluşturmak için seçin. Değerin üzerinde veya seçilen eşiğin altında sonra eşik değerini ayarlayın döşeme vurgulamak seçin.
+Ölçüm görselleştirmeyi kullanarak kutucuk üzerinde bir eşiği oluşturabilirsiniz. Kutucuğa bir eşik değeri oluşturulacağını seçin. Değerin üzerinde veya seçilen eşiğin altında ve ardından eşik değerini ayarlayın kutucuğu vurgulamak bu seçeneği seçin.
 
 ## <a name="organizing-the-dashboard"></a>Pano düzenleme
-Panonuz düzenlemek için My Pano görünümüne gidin ve **Özelleştir** girmek için özelleştirme moduna. Taşıma ve taşıyın kutucuğunuzun olmasını istediğiniz istediğiniz kutucuğu sürükleyip bırakın.
+Panonuzda düzenlemek için Panom'u görünümüne gidin ve **Özelleştir** girmek için modu özelleştirin. Taşıma ve taşımak kutucuğunuzu olmasını istediğiniz istediğiniz kutucuğu sürükleyip bırakın.
 
 ![Pano düzenleme](./media/log-analytics-dashboards/oms-dashboards-organize.png)
 
-## <a name="remove-a-tile"></a>Bir kutucuğunu kaldırma
-Bir kutucuk kaldırmak için My Pano görünümüne gidin ve **Özelleştir** girmek için özelleştirme moduna. Kaldırın ve sonra Sağdaki panelde seçmek istediğiniz kutucuğu seçin **kaldırmak döşeme**.
+## <a name="remove-a-tile"></a>Bir kutucuğu Kaldır
+Bir kutucuğu kaldırmak için Panom'u görünümüne gidin ve **Özelleştir** girmek için modu özelleştirin. Kaldırın ve ardından Sağdaki panelde istediğiniz kutucuğu seçin **Kaldır kutucuğu**.
 
-![Bir kutucuğunu kaldırma](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
+![Bir kutucuğu Kaldır](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Oluşturma [uyarıları](log-analytics-alerts.md) bildirim oluşturmak ve sorunları düzeltmek için günlük analizi içinde.
+* Oluşturma [uyarılar](log-analytics-alerts.md) Log analytics'te bildirimleri oluşturmak için ve sorunları düzeltin.

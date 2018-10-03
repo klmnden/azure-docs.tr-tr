@@ -9,18 +9,18 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3011fa85dbac2135f4d9113c6b76a8b667ee4013
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952146"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237985"
 ---
 # <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Mimari ve kavramları: Azure Machine Learning hizmeti nasıl çalışır? 
 
 Bu belgede, Azure Machine Learning hizmeti kavramları ve mimarisi açıklanmaktadır. Aşağıdaki diyagramda, hizmet ana bileşenleri gösteren ve hizmeti kullanırken genel iş akışı gösterilmektedir: 
 
-[![Azure Machine Learning mimarisi ve iş akışı](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Azure Machine Learning hizmeti mimarisi ve iş akışı](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 İş akışı genellikle aşağıdaki adımları izleyin:
 
@@ -41,7 +41,7 @@ Bu belgede, Azure Machine Learning hizmeti kavramları ve mimarisi açıklanmakt
 
 ## <a name="workspace"></a>Çalışma alanı
 
-Çalışma alanı, Azure Machine Learning hizmeti için en üst düzey kaynaktır. Azure Machine Learning kullanarak oluşturduğunuz tüm yapıları ile çalışma için merkezi bir yerdir.
+Çalışma alanı, Azure Machine Learning hizmeti için en üst düzey kaynaktır. Azure Machine Learning hizmeti kullanırken oluşturduğunuz tüm yapıları ile çalışma için merkezi bir yerdir.
 
 Çalışma alanı, modeli eğitmek için kullanılan işlem hedefleri listesini tutar. Ayrıca, günlükler, ölçümler, çıkış ve komut dosyalarınızın anlık görüntüsünü de dahil olmak üzere, bir eğitim çalıştırmalarının geçmişini tutar. Bu bilgiler, hangi eğitim çalıştırmanın en iyi modeli belirlemek için kullanılır.
 
@@ -71,15 +71,15 @@ Aşağıdaki diyagramda, çalışma alanının bir taksonomi şöyledir:
 
 En basit haliyle bir girdi alır ve çıktıyı üretir kod parçasını modelidir. Makine öğrenme modeli oluşturma, bir algoritma seçme, verilerle sağlama ve ayarlama hiperparametreleri içerir. Eğitim eğitim işlemi sırasında model öğrendikleriniz yalıtan eğitilen bir modelin üreten yinelemeli bir işlemdir.
 
-Bir model, Azure Machine learning'de bir çalıştırma tarafından oluşturulur. Azure Machine Learning dışında eğitilmiş bir modeli de kullanabilirsiniz. Bir model, bir Azure Machine Learning çalışma alanı altında kaydedilebilir.
+Bir model, Azure Machine learning'de bir çalıştırma tarafından oluşturulur. Azure Machine Learning dışında eğitilmiş bir modeli de kullanabilirsiniz. Bir model, bir Azure Machine Learning hizmeti çalışma alanı altında kaydedilebilir.
 
-Azure Machine Learning framework belirsiz ' dir. Scikit gibi bir modeli oluştururken herhangi bir popüler machine learning çerçeveyi kullanabilirsiniz-xgboost, PyTorch, TensorFlow, Chainer ve CNTK öğrenin.
+Azure Machine Learning hizmeti framework belirsiz ' dir. Scikit gibi bir modeli oluştururken herhangi bir popüler machine learning çerçeveyi kullanabilirsiniz-xgboost, PyTorch, TensorFlow, Chainer ve CNTK öğrenin.
 
-Modeli ilişkin bir örnek için bkz [hızlı başlangıç: bir machine learning çalışma alanı oluşturma](quickstart-get-started.md) belge.
+Modeli ilişkin bir örnek için bkz [hızlı başlangıç: bir machine learning hizmeti çalışma alanını oluşturma](quickstart-get-started.md) belge.
 
 ### <a name="model-registry"></a>Model kayıt defteri
 
-Model kayıt defteri, Azure Machine Learning çalışma alanınızdaki tüm modelleri izler. 
+Model kayıt defteri, Azure Machine Learning hizmeti çalışma alanınızdaki tüm modelleri izler. 
 
 Modelleri, ada ve sürüme göre tanımlanır. Mevcut bir aynı ada sahip bir model her kaydettirdiğinizde, kayıt defteri yeni bir sürüm olduğunu varsayar. Sürümü artırılır ve yeni model adı altında kayıtlı.
 

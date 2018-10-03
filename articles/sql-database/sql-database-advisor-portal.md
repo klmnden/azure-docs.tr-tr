@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d06d29fb43ea8d8971c3f013c1e66406a30798d3
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 738e78e608dbd819f24125799a1e8d48859f1aa0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064269"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043688"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Bulma ve performans önerilerini uygulama
 
@@ -105,7 +105,7 @@ Azure SQL veritabanı önerileri otomatik olarak uygulamak için ayarlayabilirsi
     ![Önerilen dizinleri](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Lütfen unutmayın **DROP_INDEX** seçeneği şu anda bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu değildir ve bu gibi durumlarda etkinleştirilmemelidir.
+> Lütfen unutmayın **DROP_INDEX** seçeneği şu anda bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu değil. 
 >
 
 İstediğiniz yapılandırma seçtikten sonra Uygula'yı tıklatın.

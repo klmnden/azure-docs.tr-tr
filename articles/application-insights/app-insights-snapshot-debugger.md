@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: d4c27c8297fb5a2ad13a245279a206d00fc4f8b1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 887e3361f5cb472d7a105558684d156826f89eab
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144134"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237256"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET uygulamalarında özel durumlarda anlık görüntü hata ayıklama
 
@@ -191,9 +191,12 @@ Anlık görüntü koleksiyonu için kullanılabilir:
 
 ## <a name="grant-permissions"></a>İzinleri verme
 
-Azure aboneliği sahiplerine anlık görüntüleri inceleyebilirsiniz. Diğer kullanıcıların bir sahibe izin verilmelidir.
+Anlık görüntüleri erişim, rol tabanlı erişim denetimi (RBAC) tarafından korunur. Bir anlık görüntü incelemek için önce gerekli rol için bir abonelik sahibi tarafından eklenmelidir.
 
-İzin vermek için Ata `Application Insights Snapshot Debugger` rol kullanıcılara anlık görüntülerini inceler. Bu rol, bireysel kullanıcılar veya gruplar için Application Insights kaynağı hedef abonelik sahipleri tarafından veya kendi kaynak grubuna veya aboneliğe atanabilir.
+> [!NOTE]
+> Otomatik olarak sahipleri ve katkıda bulunanların bu role sahip değilsiniz. Bunlar anlık görüntüleri görüntülemek istiyorsanız, kendilerini rolüne eklemelisiniz.
+
+Abonelik sahipleri Ata `Application Insights Snapshot Debugger` rol kullanıcılara anlık görüntülerini inceler. Bu rol, bireysel kullanıcılar veya gruplar için Application Insights kaynağı hedef abonelik sahipleri tarafından veya kendi kaynak grubuna veya aboneliğe atanabilir.
 
 1. Azure portalında Application Insights kaynağına gidin.
 1. Tıklayın **erişim denetimi (IAM)**.

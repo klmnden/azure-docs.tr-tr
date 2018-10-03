@@ -1,6 +1,6 @@
 ---
-title: Azure günlük analizi Aracısı yönetme | Microsoft Docs
-description: Bu makalede, Microsoft İzleme Aracısı (bir makinede dağıtılan MMA) yaşam döngüsü sırasında genellikle gerçekleştirecek farklı yönetim görevleri açıklar.
+title: Azure Log Analytics Aracısı'nı yönetme | Microsoft Docs
+description: Bu makalede, Microsoft Monitoring Agent (bir makinede dağıtılan MMA) yaşam döngüsü boyunca genellikle gerçekleştirecek farklı yönetim görevleri açıklanır.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 908418dffaffc25be320bd0008edf03493aa4e55
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: e00ccc4d55da805538801a0a8f3ee5502d871fab
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128801"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042317"
 ---
-# <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Yönetme ve Windows ve Linux için günlük analizi aracı Bakımı
+# <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows ve Linux için Log Analytics aracısını korumak ve yönetme
 
-Günlük analizi için Windows veya Linux Aracısı'nın ilk dağıtımdan sonra aracıyı yeniden yapılandırın veya kendi ömrü sona erme aşamasında ulaştıysa bilgisayardan kaldırmanız gerekebilir.  Bu bakım görevleri, el ile veya işlem hatası ve giderler azaltır Otomasyon aracılığıyla kolayca yönetebilirsiniz.
+Log Analytics için Windows veya Linux Aracısı'nın ilk dağıtımdan sonra aracıyı yeniden yapılandırın veya yaşam döngüsü emeklilik aşamasında ulaştıysa bilgisayardan kaldırmanız gerekebilir.  Bu bakım görevleri el ile veya işlem hatası hem giderlerini azaltan ve Otomasyon aracılığıyla kolayca yönetebilirsiniz.
 
-## <a name="adding-or-removing-a-workspace"></a>Ekleme veya bir çalışma alanı kaldırma 
+## <a name="adding-or-removing-a-workspace"></a>Ekleyerek veya kaldırarak bir çalışma alanı 
 
 ### <a name="windows-agent"></a>Windows Aracısı
 
-#### <a name="update-settings-from-control-panel"></a>Denetim Masası'ndan güncelleştirme ayarları
+#### <a name="update-settings-from-control-panel"></a>Denetim Masası'ndan ayarlarını güncelleştirme
 
-1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açma.
+1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açın.
 2. **Denetim Masası**'nı açın.
-3. Seçin **Microsoft İzleme Aracısı** ve ardından **Azure günlük analizi (OMS)** sekmesi.
-4. Bir çalışma alanı kaldırılırsa, onu seçin ve ardından **kaldırmak**. Raporlama durdurmak için aracı istediğiniz herhangi bir çalışma için bu adımı yineleyin.
-5. Bir çalışma alanı ekleme tıklatmak **Ekle** ve **günlük analizi çalışma alanı Ekle** iletişim kutusu, Yapıştır çalışma alanı kimliği ve çalışma alanı anahtarı (birincil anahtar). Günlük analizi çalışma alanı Azure kamu bulutta bilgisayarın raporlama, Azure ABD devlet kurumları Azure bulut aşağı açılan listeden seçin. 
+3. Seçin **Microsoft Monitoring Agent** ve ardından **Azure Log Analytics (OMS)** sekmesi.
+4. Bir çalışma alanı kaldırılıyor, onu seçin ve ardından **Kaldır**. Aracı için raporlamayı sonlandırmak istediğiniz herhangi bir çalışma için bu adımı yineleyin.
+5. Bir çalışma alanı ekleme, tıklayın **Ekle** ve **bir Log Analytics çalışma alanı Ekle** iletişim kutusu, yapıştırma çalışma alanı kimliği ve çalışma alanı anahtarı (birincil anahtar). Bilgisayarın Azure kamu bulutundaki bir Log Analytics çalışma alanına raporlaması gerekiyorsa, Azure ABD devlet kurumları Azure bulut aşağı açılan listeden seçin. 
 6. Değişikliklerinizi kaydetmek için **Tamam**’a tıklayın.
 
-#### <a name="remove-a-workspace-using-powershell"></a>PowerShell kullanarak bir çalışma alanı Kaldır 
+#### <a name="remove-a-workspace-using-powershell"></a>PowerShell kullanarak bir çalışma alanını Kaldır 
 
 ```PowerShell
 $workspaceId = "<Your workspace Id>"
@@ -58,7 +58,7 @@ $mma.AddCloudWorkspace($workspaceId, $workspaceKey)
 $mma.ReloadConfiguration()
 ```
 
-#### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>ABD PowerShell kullanarak devlet kurumları için Azure'da bir çalışma alanı Ekle 
+#### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>PowerShell kullanarak ABD için Azure'a bir çalışma alanı ekleyin 
 
 ```PowerShell
 $workspaceId = "<Your workspace Id>"
@@ -69,13 +69,13 @@ $mma.ReloadConfiguration()
 ```
 
 >[!NOTE]
->Komut satırı veya komut dosyasını önceden yüklemek veya aracısını yapılandırmak için kullandığınız varsa `EnableAzureOperationalInsights` tarafından değiştirildi `AddCloudWorkspace` ve `RemoveCloudWorkspace`.
+>Komut satırından veya betik önceden yükleyin veya aracıyı yapılandırmak için kullandığınız, `EnableAzureOperationalInsights` tarafından değiştirildi `AddCloudWorkspace` ve `RemoveCloudWorkspace`.
 >
 
 ### <a name="linux-agent"></a>Linux Aracısı
-Aşağıdaki adımlarda, farklı bir çalışma alanıyla kaydetme veya bir çalışma alanı yapılandırmasını kaldırmak istediğiniz karar verirseniz Linux Aracısı'nı yeniden yapılandırma gösterilmektedir.  
+Aşağıdaki adımları, farklı bir çalışma alanı ile kaydolun veya bir çalışma alanı yapılandırmasını kaldırmak istediğiniz karar verirseniz, Linux Aracısı yapılandırılacağını göstermektedir.  
 
-1.  Bir çalışma alanına kayıtlı doğrulamak için aşağıdaki komutu çalıştırın.
+1.  Bir çalışma alanına kaydedilir doğrulamak için aşağıdaki komutu çalıştırın.
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
 
@@ -83,14 +83,14 @@ Aşağıdaki adımlarda, farklı bir çalışma alanıyla kaydetme veya bir çal
 
     `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
 
-    Durum ayrıca gösterdiğine dikkat aracıyı çalıştıran, aksi halde aracı yeniden yapılandırmak için aşağıdaki adımları başarıyla tamamlanmayacak önemlidir.  
+    Durumu da gösterilir, aracıyı çalıştıran, aksi takdirde aracıyı yeniden yapılandırmak için aşağıdaki adımları başarıyla tamamlanmayacaktır önemlidir.  
 
-2. Bir çalışma alanıyla zaten kayıtlı değilse, kayıtlı çalışma alanı aşağıdaki komutu çalıştırarak kaldırın.  Aksi takdirde, kayıtlı değilse, sonraki adıma geçebilirsiniz.
+2. Bir çalışma alanıyla zaten kayıtlı değilse, aşağıdaki komutu çalıştırarak kayıtlı çalışma alanını kaldırın.  Aksi takdirde, kayıtlı değilse, sonraki adıma geçin.
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
     
-3. Farklı bir çalışma alanıyla kaydetmek için komutu çalıştırın. `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]` 
-4. Değişikliklerinizi etkileyen sürdü doğrulamak için komutu çalıştırın.
+3. Farklı bir çalışma alanı ile kaydetmek için komutu çalıştırın. `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]` 
+4. Değişikliklerinizi etkileyen Süren doğrulamak için komutu çalıştırın.
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
 
@@ -98,23 +98,23 @@ Aşağıdaki adımlarda, farklı bir çalışma alanıyla kaydetme veya bir çal
 
     `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
 
-Aracı hizmeti sırayla değişikliklerin etkili olması yeniden başlatılması gerekmez.
+Aracı hizmeti değişikliklerin etkili olması yeniden başlatılması gerekmez.
 
 ## <a name="update-proxy-settings"></a>Proxy ayarlarını güncelleştirme 
-Hizmet bir proxy sunucu üzerinden iletişim kurmak için aracıyı yapılandırmak için veya [OMS ağ geçidi](log-analytics-oms-gateway.md) dağıtıldıktan sonra aşağıdaki yöntemlerden birini bu görevi tamamlamak için kullanın.
+Hizmet bir ara sunucu üzerinden iletişim kurmak için aracıyı yapılandırmak için veya [OMS ağ geçidi](log-analytics-oms-gateway.md) dağıtımdan sonra aşağıdaki yöntemlerden birini bu görevi tamamlamak için kullanın.
 
 ### <a name="windows-agent"></a>Windows Aracısı
 
-#### <a name="update-settings-using-control-panel"></a>Denetim Masası'nı kullanarak güncelleştirme ayarları
+#### <a name="update-settings-using-control-panel"></a>Denetim Masası'nı kullanarak ayarlarını güncelleştirme
 
-1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açma.
+1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açın.
 2. **Denetim Masası**'nı açın.
-3. Seçin **Microsoft İzleme Aracısı** ve ardından **Proxy ayarlarını** sekmesi.
-4. Tıklatın **bir proxy sunucu kullanacak** URL'sini sağlayın ve bağlantı noktası proxy sunucusu veya ağ geçidi sayısı. Proxy sunucusu veya OMS Ağ Geçidi kimlik doğrulaması gerektiriyorsa, kullanıcı adı ve parola kimlik doğrulaması ve ardından yazın **Tamam**. 
+3. Seçin **Microsoft Monitoring Agent** ve ardından **Proxy ayarlarını** sekmesi.
+4. Tıklayın **proxy sunucusu kullan** URL'sini sağlayın ve bağlantı noktası proxy sunucusu veya ağ geçidi sayısı. Proxy sunucusu veya OMS Ağ Geçidi kimlik doğrulaması gerektiriyorsa, kullanıcı adı ve parola kimlik doğrulaması ve ardından yazın **Tamam**. 
 
-#### <a name="update-settings-using-powershell"></a>PowerShell kullanarak güncelleştirme ayarları 
+#### <a name="update-settings-using-powershell"></a>PowerShell kullanarak ayarlarını güncelleştirme 
 
-Aşağıdaki örnek PowerShell kodu kopyalayıp, ortamınıza özgü bilgilerle güncelleştirmek ve bir PS1 dosya adı uzantısıyla kaydedin.  Günlük analizi hizmetine doğrudan bağlanan her bilgisayarda komut dosyasını çalıştırın.
+Aşağıdaki örnek PowerShell kodu kopyalayın, ortamınıza özgü bilgilerle güncelleştirin ve bir PS1 dosya adı uzantısıyla kaydedin.  Doğrudan Log Analytics hizmetine bağlanan her bilgisayarda betiği çalıştırın.
 
 ```PowerShell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))
@@ -141,7 +141,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Linux Aracısı
-Bir proxy sunucusu veya günlük analizi için OMS ağ geçidi üzerinden iletişim kurmak Linux bilgisayarlarınızı ihtiyacınız varsa aşağıdaki adımları gerçekleştirin.  Proxy yapılandırması değeri `[protocol://][user:password@]proxyhost[:port]` sözdizimine sahiptir.  *proxyhost* özelliği, ara sunucunun tam etki adı alanı veya IP adresini kabul eder.
+Azure'da Linux bilgisayarlarını bir proxy sunucusu veya Log analytics'e OMS ağ geçidi üzerinden iletişim kurması gerekiyorsa aşağıdaki adımları gerçekleştirin.  Proxy yapılandırması değeri `[protocol://][user:password@]proxyhost[:port]` sözdizimine sahiptir.  *proxyhost* özelliği, ara sunucunun tam etki adı alanı veya IP adresini kabul eder.
 
 1. Aşağıdaki komutları çalıştırıp değerleri kendi ayarlarınıza göre değiştirerek `/etc/opt/microsoft/omsagent/proxy.conf` dosyasını düzenleyin.
 
@@ -158,23 +158,23 @@ Bir proxy sunucusu veya günlük analizi için OMS ağ geçidi üzerinden ileti�
     ``` 
 
 ## <a name="uninstall-agent"></a>Aracıyı kaldır
-Komut satırı veya Kurulum Sihirbazı'nı kullanarak Windows veya Linux aracısını kaldırmak için aşağıdaki yordamlardan birini kullanın.
+Komut satırı veya Kurulum Sihirbazı'nı kullanarak Windows veya Linux aracısını kaldırmak için aşağıdaki prosedürlerden birini kullanın.
 
 ### <a name="windows-agent"></a>Windows Aracısı
 
 #### <a name="uninstall-from-control-panel"></a>Denetim Masası'ndan kaldırma
-1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açma.  
-2. İçinde **Denetim Masası**, tıklatın **programlar ve Özellikler**.
-3. İçinde **programlar ve Özellikler**, tıklatın **Microsoft İzleme Aracısı**, tıklatın **kaldırma**ve ardından **Evet**.
+1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açın.  
+2. İçinde **Denetim Masası**, tıklayın **programlar ve Özellikler**.
+3. İçinde **programlar ve Özellikler**, tıklayın **Microsoft Monitoring Agent**, tıklayın **kaldırma**ve ardından **Evet**.
 
 >[!NOTE]
->Aracı Kurulum Sihirbazı'nı çift tıklatarak da çalıştırılabilir **MMASetup -<platform>.exe**, Azure portalında bir çalışma alanından indirme için kullanılabilir olduğu.
+>Aracı Kurulum Sihirbazı'nı çift tıklatılarak da çalıştırılabilir **MMASetup -<platform>.exe**, Azure portalında bir çalışma alanından indirilebilir olduğu.
 
-#### <a name="uninstall-from-the-command-line"></a>Komut satırından kaldırma
-Aracı için indirilen dosya ile IExpress oluşturulan müstakil yükleme paketidir.  Destekleyici dosyaları ve aracısı için Kurulum programını pakette yer alan ve düzgün bir şekilde aşağıdaki örnekte gösterilen komut satırını kullanarak kaldırmak için ayıklanacak gerekir. 
+#### <a name="uninstall-from-the-command-line"></a>Komut satırından kaldırın
+Aracı için indirilen dosyayı, IExpress ile oluşturulan kendi içinde yükleme paketidir.  Destekleyici dosyaları ve aracı için Kurulum programı, pakette yer alan ve doğru bir şekilde aşağıdaki örnekte gösterilen komut satırını kullanarak kaldırmak için ayıklanacak gerekir. 
 
-1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açma.  
-2. Aracı yükleme dosyalarını çalıştırmak yükseltilmiş komut isteminden ayıklamak için `extract MMASetup-<platform>.exe` ve bu dosyaları ayıklamak yol için ister.  Bağımsız değişkenler geçirerek yolunu alternatif olarak, belirtebilirsiniz `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`.  IExpress tarafından desteklenen komut satırı swtiches hakkında daha fazla bilgi için bkz: [IExpress komut satırı anahtarları](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) ve örnek gereksinimlerinize uyacak şekilde güncelleştirin.
+1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açın.  
+2. Çalıştırma yükseltilmiş komut isteminden aracı yükleme dosyalarını ayıklamak için `extract MMASetup-<platform>.exe` ve bu dosyaları ayıklamak yol, ister.  Alternatif olarak, bağımsız değişkenleri geçirme olan yolu belirtebilirsiniz `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`.  IExpress tarafından desteklenen komut satırı swtiches hakkında daha fazla bilgi için bkz. [IExpress için komut satırı anahtarları](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) ve sonra örneği gereksinimlerinize uyacak şekilde güncelleştirin.
 3. İsteminde `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Linux Aracısı
@@ -182,29 +182,29 @@ Aracıyı kaldırmak için Linux bilgisayarında aşağıdaki komutu çalıştı
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
-## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Bir Operations Manager yönetim grubuna bildirmeye Aracısı'nı yapılandırma
+## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Bir aracıyı Operations Manager yönetim grubuna raporlama yapacak yapılandırın
 
 ### <a name="windows-agent"></a>Windows Aracısı
-OMS aracısı için bir System Center Operations Manager yönetim grubuna raporlamak için Windows yapılandırmak için aşağıdaki adımları gerçekleştirin. 
+OMS aracısı için bir System Center Operations Manager yönetim grubuna rapor için Windows yapılandırmak için aşağıdaki adımları gerçekleştirin. 
 
-1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açma.
+1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açın.
 2. **Denetim Masası**'nı açın. 
-3. Tıklatın **Microsoft İzleme Aracısı** ve ardından **Operations Manager** sekmesi.
-4. Operations Manager sunucularınızın Active Directory ile tümleştirme varsa, tıklatın **yönetim grubu atamalarını AD DS'den otomatik olarak güncelleştir**.
-5. Tıklatın **Ekle** açmak için **bir yönetim grubu Ekle** iletişim kutusu.
+3. Tıklayın **Microsoft Monitoring Agent** ve ardından **Operations Manager** sekmesi.
+4. Active Directory ile tümleştirme Operations Manager sunucularınız varsa tıklayın **yönetim grubu atamalarını AD DS'den otomatik olarak güncelleştir**.
+5. Tıklayın **Ekle** açmak için **Yönetim Grubu Ekle** iletişim kutusu.
 6. İçinde **yönetim grubu adı** alanında, yönetim grubunuzun adını yazın.
 7. İçinde **birincil yönetim sunucusu** alanında, birincil yönetim sunucusunun bilgisayar adını yazın.
-8. İçinde **yönetim sunucusu bağlantı noktası** alan, TCP bağlantı noktası numarasını yazın.
-9. Altında **aracı eylem hesabı**, yerel sistem hesabı veya bir yerel etki alanı hesabı seçin.
-10. Tıklatın **Tamam** kapatmak için **bir yönetim grubu Ekle** iletişim kutusunu ve ardından **Tamam** kapatmak için **Microsoft Monitoring Agent özellikleri** iletişim kutusu.
+8. İçinde **yönetim sunucusu bağlantı noktası** alanında, TCP bağlantı noktası numarasını yazın.
+9. Altında **aracı eylem hesabı**, yerel sistem hesabını veya bir yerel etki alanı hesabı seçin.
+10. Tıklayın **Tamam** kapatmak için **Yönetim Grubu Ekle** iletişim kutusunu ve ardından **Tamam** kapatmak için **Microsoft Monitoring Agent özellikleri** iletişim kutusu.
 
 ### <a name="linux-agent"></a>Linux Aracısı
-System Center Operations Manager yönetim grubu için rapor Linux için OMS aracısının yapılandırmak için aşağıdaki adımları gerçekleştirin. 
+Bir System Center Operations Manager yönetim grubuna rapor için Linux için OMS Aracısı'nı yapılandırmak için aşağıdaki adımları gerçekleştirin. 
 
-1. Dosyayı düzenleyin. `/etc/opt/omi/conf/omiserver.conf`
-2. Satır başlayarak emin `httpsport=` bağlantı noktası 1270 tanımlar. Örneğin: `httpsport=1270`
+1. Dosyayı Düzenle `/etc/opt/omi/conf/omiserver.conf`
+2. İle satır başına emin `httpsport=` bağlantı noktası 1270 tanımlar. Örneğin: `httpsport=1270`
 3. OMI sunucuyu yeniden başlatın: `sudo /opt/omi/bin/service_control restart`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Gözden geçirme [Linux Aracısı'nı sorun giderme](log-analytics-agent-linux-support.md) yükleme veya aracı yönetme sırasında sorunlarla karşılaşırsanız.  
+Gözden geçirme [Linux Aracısı sorunlarını giderme](log-analytics-agent-linux-support.md) yükleme veya aracıyı yönetme sorunlarla karşılaşırsanız.  

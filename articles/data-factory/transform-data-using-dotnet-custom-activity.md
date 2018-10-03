@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/01/2018
 ms.author: douglasl
-ms.openlocfilehash: f4a88c5495fc3297699110d8a12a22ff7d6c2bbb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: fa13b6509052438a0f59c4610f250d0b88b41f2b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144363"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043088"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,7 +105,7 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özel
 | linkedServiceName     | Azure Batch için bağlı hizmeti. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.  | Evet      |
 | command               | Yürütülecek özel uygulama komutu. Uygulama zaten Azure Batch havuzu düğüm üzerinde kullanılabilir haldeyse, folderPath ve resourceLinkedService atlanabilir. Örneğin, komut olarak belirtebilirsiniz `cmd /c dir`, yerel olarak desteklendiği Windows Batch havuzu düğümü tarafından. | Evet      |
 | resourceLinkedService | Özel uygulama depolandığı depolama hesabı için Azure depolama bağlı hizmeti | Hayır       |
-| folderPath            | Özel uygulama ve tüm bağımlılıklarını klasörünün yolu | Hayır       |
+| folderPath            | Özel uygulama ve tüm bağımlılıklarını klasörünün yolu<br/><br/>Hiyerarşik klasör yapısı altında alt klasörlerinde - diğer bir deyişle, depolanan bağımlılıkları varsa *folderPath* -klasör yapısı şu anda Azure Batch'e dosyaları kopyalarken düzleştirilir. Diğer bir deyişle, tüm dosyaları hiçbir alt klasör tek bir klasöre kopyalanır. Bu davranışa geçici bir çözüm için dosyalar sıkıştırılıyor, sıkıştırılmış dosya kopyalamayı ve ardından, istenen konumu özel kodla sıkıştırması açılırken göz önünde bulundurun. | Hayır       |
 | referenceObjects      | Mevcut bağlı hizmetleri ve veri kümeleri dizisi. Data Factory kaynaklarını özel kodunuz başvurabilmeniz başvurulan bağlı hizmetleri ve veri kümeleri JSON biçimindeki özel uygulamaya geçirilir | Hayır       |
 | ExtendedProperties    | Özel kodunuz ek özellikler başvurabilir, böylece JSON biçimindeki özel uygulamaya geçirilen kullanıcı tanımlı Özellikler | Hayır       |
 

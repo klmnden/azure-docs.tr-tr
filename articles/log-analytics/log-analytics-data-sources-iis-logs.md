@@ -1,6 +1,6 @@
 ---
-title: IIS günlüklerini Azure günlük analizi | Microsoft Docs
-description: Internet Information Services (IIS), günlük dosyalarında günlük analizi tarafından toplanan kullanıcı etkinliği depolar.  Bu makalede, IIS günlüklerini koleksiyonunu ve Ayrıntılar için günlük analizi çalışma alanında oluşturdukları kayıtlarının nasıl yapılandırılacağı açıklanmaktadır.
+title: IIS günlüklerini Azure Log Analytics'te | Microsoft Docs
+description: Internet Information Services (IIS) kullanıcı etkinliği Log Analytics tarafından toplanan günlük dosyalarını depolar.  Bu makalede, IIS günlükler koleksiyonunu ve ayrıntıları Log Analytics çalışma alanında oluşturdukları kayıtlarının nasıl yapılandırılacağı açıklanır.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,71 +14,71 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: bwren
-ms.comopnent: na
-ms.openlocfilehash: 65320e7d3cc97a3d53fd1a00fbbeab5559c02fce
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.comopnent: ''
+ms.openlocfilehash: 7b44c0712c4d88ec0bbb7a94f574c2a12faf3550
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133138"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040685"
 ---
-# <a name="iis-logs-in-log-analytics"></a>IIS günlük analizi günlüğe kaydeder
-Internet Information Services (IIS), günlük dosyalarında günlük analizi tarafından toplanan kullanıcı etkinliği depolar.  
+# <a name="iis-logs-in-log-analytics"></a>Log Analytics'te IIS günlükleri
+Internet Information Services (IIS) kullanıcı etkinliği Log Analytics tarafından toplanan günlük dosyalarını depolar.  
 
 ![IIS günlükleri](media/log-analytics-data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>IIS yapılandırma günlükleri
-Günlük analizi girişleri gerekir böylece IIS tarafından oluşturulan günlük dosyalarını toplar [IIS için günlüğe kaydetmeyi yapılandırmak](https://technet.microsoft.com/library/hh831775.aspx).
+Log Analytics, girdileri gerekir, böylece IIS tarafından oluşturulan günlük dosyalarını toplar [IIS için günlüğe kaydetmeyi yapılandırma](https://technet.microsoft.com/library/hh831775.aspx).
 
-Günlük analizi, yalnızca IIS günlük dosyalarına W3C biçiminde depolanan destekler ve özel alanlar veya Gelişmiş IIS günlüğü desteklemez.  
-Günlük analizi Günlükleri NCSA veya IIS yerel biçiminde toplamaz.
+Log Analytics, yalnızca depolanan W3C biçiminde IIS günlük dosyalarını destekler ve özel alanlar veya Gelişmiş IIS günlüğü desteklemez.  
+Log Analytics, Günlükleri NCSA veya IIS yerel biçiminde toplamaz.
 
-Günlük analizi IIS günlüklerini yapılandırma [günlük analizi ayarları veri menüde](log-analytics-data-sources.md#configuring-data-sources).  Olduğundan herhangi bir yapılandırma gerekli seçerek dışında **toplamak W3C biçimi IIS günlük dosyaları**.
+IIS günlükleri Log Analytics'ten yapılandırmak [günlük analizi ayarları veri menüde](log-analytics-data-sources.md#configuring-data-sources).  Yapılandırma gerekli seçerek dışındaki yoktur **toplamak W3C biçiminde IIS dosya günlükleri**.
 
 
 ## <a name="data-collection"></a>Veri toplama
-Günlük analizi günlük her kapatıldığında ve yeni bir tane oluşturulur her Aracıdan IIS günlüğü girişlerini toplar. Bu sıklık tarafından denetlenen **günlük dosyası aktarma zamanlaması** varsayılan olarak günde bir kez olan IIS sitesi ayarlama. Örneğin, ayarları ise **saatlik**, sonra da günlük analizi günlük her saat toplar.  Ayar ise **günlük**, sonra da günlük analizi günlük 24 saatte bir toplar.
+Log Analytics günlük her kapatıldığında ve yeni bir tane oluşturulur her Aracıdan IIS günlük girişi toplar. Bu sıklığı tarafından denetlenir **günlük dosyası aktarma zamanlaması** varsayılan olarak günde bir kez olan IIS sitesi ayarlama. Örneğin, ayarları ise **saatlik**, sonra Log Analytics günlük her saat toplar.  Ayar **günlük**, ardından Log Analytics günlük 24 saatte bir toplar.
 
 
-## <a name="iis-log-record-properties"></a>IIS günlük kaydı Özellikler
-IIS günlük kayıtlarını sahip bir tür **W3CIISLog** ve aşağıdaki tabloda özelliklere sahiptir:
+## <a name="iis-log-record-properties"></a>IIS günlük kaydı özellikleri
+IIS günlük kayıtları sahip bir tür **w3cııslog** ve aşağıdaki tabloda gösterilen özelliklere sahiptir:
 
 | Özellik | Açıklama |
 |:--- |:--- |
 | Bilgisayar |Olay toplandığı bilgisayarın adı. |
 | CIP |İstemci IP adresi. |
 | csMethod |GET veya POST gibi istek yöntemi. |
-| csReferer |Kullanıcının geçerli siteye bir bağlantı takip sitesi. |
+| csReferer |Kullanıcının geçerli siteye bağlantıdan takip sitesi. |
 | csUserAgent |İstemci tarayıcısı türü. |
 | csUserName |Sunucuya erişen kimliği doğrulanmış kullanıcının adı. Anonim kullanıcılar bir tire işaretiyle gösterilir. |
-| csUriStem |Hedef bir web sayfası gibi isteği. |
-| csUriQuery |Sorgu, varsa istemcinin gerçekleştirmeye çalıştığı olduğunu. |
-| ManagementGroupName |Operations Manager aracıları için yönetim grubu adı.  Diğer aracılar için AOI - budur\<çalışma alanı kimliği\> |
-| RemoteIPCountry |İstemcinin IP adresi ülke. |
-| RemoteIPLatitude |İstemci IP adresi enlem. |
-| RemoteIPLongitude |İstemci IP adresi boylam. |
+| csUriStem |İsteği gibi bir web sayfası hedefi. |
+| csUriQuery |Sorgu, varsa istemcinin gerçekleştirmeye çalıştığı. |
+| ManagementGroupName |Operations Manager aracıları için yönetim grubunun adı.  Diğer aracılar için AOI - budur\<çalışma alanı kimliği\> |
+| RemoteIPCountry |İstemci IP adresini ülke. |
+| RemoteIPLatitude |İstemci IP adresi bulunduğu enlem. |
+| RemoteIPLongitude |İstemci IP adresi bulunduğu boylam. |
 | scStatus |HTTP durum kodu. |
-| scSubStatus |Alt durum hata kodu. |
+| scSubStatus |Alt hata kodu. |
 | scWin32Status |Windows durum kodu. |
 | SIP |Web sunucusunun IP adresi. |
 | SourceSystem |OpsMgr |
-| Spor |İstemci sunucusundaki bağlantı noktasına bağlı. |
+| Spor |' % S'sunucusuna bağlı istemci bağlantı noktası. |
 | sSiteName |IIS site adı. |
-| TimeGenerated |Tarih ve saat girişi günlüğe kaydedildi. |
-| TimeTaken |Süreyi milisaniye cinsinden isteği işleyemiyor. |
+| TimeGenerated |Tarih ve saat giriş günlüğe kaydedildi. |
+| timeTaken |Süreyi milisaniye cinsinden İstek işlenemedi. |
 
-## <a name="log-searches-with-iis-logs"></a>IIS günlükleri ile günlük aramalar
-Aşağıdaki tabloda IIS günlük kayıtlarını almak günlük sorguları farklı örnekler sağlar.
+## <a name="log-searches-with-iis-logs"></a>IIS günlükleri ile günlük aramaları
+Aşağıdaki tabloda IIS günlük kayıtları almak günlük sorguları farklı örnekler sağlar.
 
 | Sorgu | Açıklama |
 |:--- |:--- |
-| W3CIISLog |Tüm IIS günlük kaydı. |
-| W3CIISLog &#124; burada scStatus 500 == |Tüm IIS günlük kayıtları dönüş durumu 500 ile. |
-| W3CIISLog &#124; tarafından CIP count() özetler |Count, IIS girişleri istemci IP adresi ile oturum açın. |
-| W3CIISLog &#124; burada csHost "www.contoso.com" == &#124; csUriStem tarafından count() özetler |Count, IIS URL girdilerinin konak www.contoso.com için oturum açın. |
-| W3CIISLog &#124; sum(csBytes) bilgisayar tarafından özetlemek &#124; 500000 alın |Her IIS bilgisayar tarafından alınan toplam bayt sayısı. |
+| W3cııslog |Tüm IIS günlük kaydı. |
+| W3cııslog &#124; burada scStatus 500 == |Tüm IIS günlük kayıtları 500 dönüş durumu. |
+| W3cııslog &#124; Count() işlevi tarafından CIP özetleme |İstemci IP adresine göre sayısı, IIS günlük girdilerinin. |
+| W3cııslog &#124; burada csHost "www.contoso.com" == &#124; Count() işlevi tarafından csUriStem özetleme |URL'ye göre girişlerinde konak www.contoso.com oturum sayısı, IIS. |
+| W3cııslog &#124; sum(csBytes) bilgisayara göre özetlemek &#124; 500000 Al |Her IIS bilgisayarına göre alınan toplam bayt sayısı. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Diğer toplamak için günlük analizi yapılandırma [veri kaynakları](log-analytics-data-sources.md) çözümleme için.
-* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümleri toplanan verileri çözümlemek için.
-* Günlük analizi proaktif olarak, IIS günlüklerine bulunan önemli koşullar konusunda sizi bilgilendirmek için uyarıları yapılandırın.
+* Diğer toplamak için log Analytics'i yapılandırma [veri kaynakları](log-analytics-data-sources.md) analiz.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
+* Log analytics'te, IIS günlükleri bulunan önemli koşulları proaktif olarak bildirmek için uyarıları yapılandırın.

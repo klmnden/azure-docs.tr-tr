@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d5bc6877aa353ae37ba3ada53ee620a0230357e9
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585178"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041177"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors durum yönetimi
 Reliable Actors hem mantıksal hem de durum kapsülleyebilir tek iş parçacıklı nesneleridir. Aktörler Reliable Services üzerinde çalıştığından, bunların durumu güvenilir bir şekilde aynı Kalıcılık ve çoğaltma mekanizması kullanarak koruyabilir. Bu şekilde, etkinleştirme veya Çöp toplamadan sonra kaynak Dengeleme veya yükseltme işlemleri nedeniyle, bir kümedeki düğümler arasında geçici olarak taşındıklarında bağlı bir hatadan sonra durumlarını aktörler kaybetmeyin.
@@ -121,7 +121,7 @@ Bazı önerilen yöntemler ve sorun giderme ipuçları, aktör durumunu yönetme
 Bu, performans ve kaynak kullanımı, uygulamanız için önemlidir. Herhangi yazma / "durumu bir aktör adında" için bir güncelleştirme olduğunda, söz konusu "adlı duruma" karşılık gelen tam değeri serileştirilmiş ve ağ üzerinden ikincil çoğaltmalara gönderilen.  İkincil veritabanı yerel diske ve birincil çoğaltma yeniden yanıt yazın. Birincil, ikincil çoğaltmalar çekirdeği onayları aldığında, durumu, yerel bir diske yazar. Örneğin, değeri 20 üyeleri ve Boyut 1 MB olan bir sınıf olduğunu varsayın. Aşağıdakilerden biri olan sınıf üyeleri yalnızca değiştirilmiş olsa bile, 1 KB, 1 MB'ın tamamını için serileştirme ve ağ ve disk yazma maliyetini ödeme'kurmak son boyutu. Değer bir koleksiyon (örneğin, bir liste, dizi veya sözlük) ise bile onun üyeleri birini değiştirin benzer şekilde, maliyet tam koleksiyon için ödeme yaparsınız. Aktör sınıfı StateManager gibi bir sözlük arabirimidir. Her zaman bu sözlük üzerine aktör durumunu temsil eden veri yapısı modelini oluşturması gerekir.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Aktörün yaşam döngüsü yönetemez
-Her bölümde bir aktör hizmetinin durumu boyutunu yönetme hakkında açık ilke olmalıdır. Aktör hizmetinizi sabit sayıda aktörler ve bunları mümkün olduğunca çok yeniden gerekir. Yeni aktör sürekli olarak oluşturursanız, kendi çalışmalarına tamamladıktan sonra silmeniz gerekir. Aktör çerçevesinde var. her aktör hakkında bazı meta verileri depolar. Bir aktör durumunu silme, aktör hakkındaki meta verileri kaldırmaz. Aktör silmeniz gerekir (bkz [aktörleri ve durumlarını silme](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) tüm bilgileri kaldırmak için ilgili bu sistemde depolanır. Ek bir denetim actor hizmetinin sorgu (bkz [aktörler numaralandırma](service-fabric-reliable-actors-enumerate.md)) zaman sayı aktörleri beklenen aralıkta olduğundan emin olmak için.
+Her bölümde bir aktör hizmetinin durumu boyutunu yönetme hakkında açık ilke olmalıdır. Aktör hizmetinizi sabit sayıda aktörler ve mümkün olduğunca bunları yeniden gerekir. Yeni aktör sürekli olarak oluşturursanız, kendi çalışmalarına tamamladıktan sonra silmeniz gerekir. Aktör çerçevesinde var. her aktör hakkında bazı meta verileri depolar. Bir aktör durumunu silme, aktör hakkındaki meta verileri kaldırmaz. Aktör silmeniz gerekir (bkz [aktörleri ve durumlarını silme](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) tüm bilgileri kaldırmak için ilgili bu sistemde depolanır. Ek bir denetim actor hizmetinin sorgu (bkz [aktörler numaralandırma](service-fabric-reliable-actors-enumerate.md)) zaman aktörler sayısı beklenen aralıkta olduğundan emin olmak için.
  
 Şimdiye kadar veritabanı dosya boyutu bir aktör hizmetinin beklenen boyutunun ötesinde genişliyorsa görürseniz, önceki yönergeleri izlediğinizden emin olun. Bu yönergeleri okuduğundan ve hala veritabanı dosya boyutu sorunlarından olan durumunda [bir destek bileti açın](service-fabric-support.md) Yardım almak için ürün ekibi ile.
 

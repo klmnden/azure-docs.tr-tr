@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 43fd52dd04e679b9756c07e8c6e260323469026a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c1ef71ea2ec551335c3681760c181624334c3229
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126211"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043210"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Şema güncelleştirmeleri Azure Logic Apps için - 1 Haziran 2016
 
@@ -33,23 +33,23 @@ Logic apps, 1 Haziran 2016 şeması, 1 Ağustos 2015 preview şema yükseltmek i
 
 Grup eylemleri birlikte ya da birbirlerine içinde iç içe eylemleri izin kapsamları, bu şema içerir. Örneğin, bir koşul başka bir koşul içerebilir. Daha fazla bilgi edinin [kapsam söz dizimi](../logic-apps/logic-apps-loops-and-scopes.md), veya bu temel kapsam örnek gözden geçirin:
 
-```
+```json
 {
-    "actions": {
-        "My_Scope": {
-            "type": "scope",
-            "actions": {                
-                "Http": {
-                    "inputs": {
-                        "method": "GET",
-                        "uri": "http://www.bing.com"
-                    },
-                    "runAfter": {},
-                    "type": "Http"
-                }
+   "actions": {
+      "Scope": {
+         "type": "Scope",
+         "actions": {                
+            "Http": {
+               "inputs": {
+                   "method": "GET",
+                   "uri": "http://www.bing.com"
+               },
+               "runAfter": {},
+               "type": "Http"
             }
-        }
-    }
+         }
+      }
+   }
 }
 ```
 
@@ -57,29 +57,29 @@ Grup eylemleri birlikte ya da birbirlerine içinde iç içe eylemleri izin kapsa
 
 ## <a name="conditions-and-loops-changes"></a>Koşullar ve döngüler değişiklikleri
 
-Önceki şemada, tek bir eylemle ilişkili parametreler sürümleri, koşullar ve döngüler yoktu. Koşullar ve döngüler artık eylem türleri olarak görünmesi için bu sınırlama, bu şema kaldırıncaya. Daha fazla bilgi edinin [döngüler ve kapsamları](../logic-apps/logic-apps-loops-and-scopes.md), veya bu temel örnekte koşul eylemi için gözden geçirin:
+Önceki şemada, tek bir eylemle ilişkili parametreler sürümleri, koşullar ve döngüler yoktu. Koşullar ve döngüler artık eylem türleri olarak kullanılabilir olacak şekilde bu sınırlama, bu şema kaldırıncaya. Daha fazla bilgi edinin [döngüler ve kapsamları](../logic-apps/logic-apps-loops-and-scopes.md), [koşullar](../logic-apps/logic-apps-control-flow-conditional-statement.md), veya bir koşul eylemi gösteren bu temel örnekte gözden geçirin:
 
-```
+```json
 {
-    "If_trigger_is_some-trigger": {
-        "type": "If",
-        "expression": "@equals(triggerBody(), 'some-trigger')",
-        "runAfter": { },
-        "actions": {
-            "Http_2": {
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://www.bing.com"
-                },
-                "runAfter": {},
-                "type": "Http"
-            }
-        },
-        "else": 
-        {
-            "if_trigger_is_another-trigger": "..."
-        }      
-    }
+   "Condition - If trigger is some trigger": {
+      "type": "If",
+      "expression": "@equals(triggerBody(), '<trigger-name>')",
+      "runAfter": {},
+      "actions": {
+         "Http_2": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.bing.com"
+            },
+            "runAfter": {},
+            "type": "Http"
+         }
+      },
+      "else": 
+      {
+         "Condition - If trigger is another trigger": {}
+      }  
+   }
 }
 ```
 
@@ -87,16 +87,14 @@ Grup eylemleri birlikte ya da birbirlerine içinde iç içe eylemleri izin kapsa
 
 ## <a name="runafter-property"></a>'runAfter' özelliği
 
-`runAfter` Özelliğini değiştirir `dependsOn`, önceki eylem durumu eylemler için çalışma sırasını belirttiğinizde daha fazla duyarlık temelinde sağlanması.
+`runAfter` Özelliğini değiştirir `dependsOn`, önceki eylem durumu eylemler için çalışma sırasını belirttiğinizde daha fazla duyarlık temelinde sağlanması. `dependsOn` Özelliği belirtilen "eylemi çalıştıran ve başarılı oldu", temel alan olup olmadığını başarısız oldu, önceki eylem başarılı olup olmadığını veya atlandı as - istediğiniz eylemi çalıştırmak için bir kez sayısını değil. `runAfter` Özelliği, tüm eylem belirten bir nesne olarak esneklik adlarının nesne çalıştığı sağlar. Bu özellik ayrıca bir dizi tetikleyici olarak kabul edilir durumları tanımlar. Örneğin, eylemi başarılı olur ve ayrıca sonraki eylem B başarılı veya başarısız sonra çalıştırılacak eylem istiyorsanız, bu ayarlayın `runAfter` özelliği:
 
-`dependsOn` Özelliği "eylemi çalıştırılmadan ile başarılı oldu" eşanlamlı, önceki eylem başarılı olup şirket tabanlı bir eylemi çalıştırmak istediğiniz kaç kez başarısız oldu veya atlandı en önemli. `runAfter` Özelliği nesne sonra çalıştığı tüm eylem adları belirten bir nesne olarak bu esneklik sağlar. Bu özellik ayrıca bir dizi tetikleyici olarak kabul edilir durumları tanımlar. Ayrıca sonraki adım B başarılı veya başarısız bir adım başarılı olur ve sonra çalıştırmak istediyseniz, örneğin, bu işlevi `runAfter` özelliği:
-
-```
+```json
 {
-    "...",
-    "runAfter": {
-        "A": ["Succeeded"],
-        "B": ["Succeeded", "Failed"]
+   // Other parts in action definition
+   "runAfter": {
+      "A": ["Succeeded"],
+      "B": ["Succeeded", "Failed"]
     }
 }
 ```
@@ -109,10 +107,12 @@ Yükseltilecek [en son şema](https://schema.management.azure.com/schemas/2016-0
 
 2. Git **genel bakış**. Mantıksal uygulama araç çubuğunda **Şemayı Güncelleştir**.
    
-    ![Şemayı Güncelleştir'i seçin][1]
+   ![Şemayı Güncelleştir'i seçin][1]
    
-    Yükseltilmiş tanım, kopyalama ve gerekirse, bir kaynak tanımı yapıştırın döndürülür. 
-    Ancak biz **önemle tavsiye** seçtiğiniz **Kaydet** hiçbir bağlantı başvurusunda yükseltilmiş mantıksal uygulamayı geçerli olduğundan emin olmak için.
+   Yükseltilmiş tanım, kopyalama ve gerekirse, bir kaynak tanımı yapıştırın döndürülür. 
+
+   > [!IMPORTANT]
+   > *Emin* seçtiğiniz **Kaydet** için hiçbir bağlantı başvurusunda yükseltilmiş mantıksal uygulamayı geçerli kalır.
 
 3. Yükseltme dikey penceresi araç çubuğunda seçin **Kaydet**.
 
@@ -125,17 +125,17 @@ Yükseltilecek [en son şema](https://schema.management.azure.com/schemas/2016-0
 
 6. *İsteğe bağlı* araç çubuğunda, yeni şema sürümü ile önceki mantıksal uygulamanızı üzerine yazmayı tercih **kopya**yanındaki **Şemayı Güncelleştir**. Bu adım, yalnızca aynı kaynak kimliği veya mantıksal uygulamanızın tetikleyici URL'si isteğinde bulunmak istiyorsanız gereklidir.
 
-### <a name="upgrade-tool-notes"></a>Aracı yükseltme notları
+## <a name="upgrade-tool-notes"></a>Aracı yükseltme notları
 
-#### <a name="mapping-conditions"></a>Eşleme koşulları
+### <a name="mapping-conditions"></a>Eşleme koşulları
 
-Yükseltilen tanımında, true ve false dal eylemleri kapsamı olarak gruplamak en iyi araç haline getirir. Özellikle, Tasarımcı desenini `@equals(actions('a').status, 'Skipped')` olarak görünmesi gereken bir `else` eylem. Ancak, aracı tanınmayan desenleri algılarsa, araç hem true hem de false dal için ayrı koşulları oluşturabilirsiniz. Gerekirse yükselttikten sonra Eylemler eşleyebilirsiniz.
+Yükseltilen tanımında, true ve false dal eylemleri kapsamı olarak gruplamak en iyi araç haline getirir. Özellikle, Tasarımcı desenini `@equals(actions('a').status, 'Skipped')` olarak görünür bir `else` eylem. Ancak, aracı tanınmayan desenleri algılarsa, araç hem true hem de false dal için ayrı koşulları oluşturabilirsiniz. Gerekirse yükselttikten sonra Eylemler eşleyebilirsiniz.
 
 #### <a name="foreach-loop-with-condition"></a>Koşul ile 'foreach' döngüsü
 
-Yeni şemayı desenini çoğaltmak için filtreleme eylemini kullanabilirsiniz bir `foreach` her öğesi, bir koşul ile döngüsü ancak yükseltme yaptığınızda bu değişikliği otomatik olarak gerçekleştirilmesi. Yalnızca koşulla eşleşen öğelerin bir dizisi döndürme için foreach döngüsü önce Filtre koşulu olur ve bu diziyi foreach eyleme geçirilir. Bir örnek için bkz. [döngüler ve kapsamları](../logic-apps/logic-apps-loops-and-scopes.md).
+Yeni şemayı kullanan deseni çoğaltmak için filtreleme eylemini kullanabilirsiniz bir **her** öğe başına bir koşul ile döngüsü. Ancak, yükseltme yaptığınızda değişiklik otomatik olarak gerçekleşir. Öncesinde görünen filtre koşulu olur **her** yalnızca koşulla eşleşen öğelerin bir dizisi döndürme ve bu diziye geçirme döngüsü **her** eylem. Bir örnek için bkz. [döngüler ve kapsamları](../logic-apps/logic-apps-loops-and-scopes.md).
 
-#### <a name="resource-tags"></a>Kaynak etiketleri
+### <a name="resource-tags"></a>Kaynak etiketleri
 
 Yükseltmeden sonra yükseltilen iş akışını sıfırlamak gerekir böylece kaynak etiketleri kaldırılır.
 
@@ -157,20 +157,20 @@ Uzun bir diziye aşağı öğeleri, daha küçük bir kümesini filtrelemek içi
 
 Eylemler artık adlı ek bir özellik olan `trackedProperties`, eşdüzeye olduğu `runAfter` ve `type` özellikleri. Bu nesne, belirli bir eylem girişleri veya iş akışının bir parçası yayınlanan Azure tanılama telemetrisi dahil etmek istediğiniz çıkışları belirtir. Örneğin:
 
-```
-{                
-    "Http": {
-        "inputs": {
-            "method": "GET",
-            "uri": "http://www.bing.com"
-        },
-        "runAfter": {},
-        "type": "Http",
-        "trackedProperties": {
-            "responseCode": "@action().outputs.statusCode",
-            "uri": "@action().inputs.uri"
-        }
-    }
+``` json
+{
+   "Http": {
+      "inputs": {
+         "method": "GET",
+         "uri": "http://www.bing.com"
+      },
+      "runAfter": {},
+      "type": "Http",
+      "trackedProperties": {
+         "responseCode": "@action().outputs.statusCode",
+         "uri": "@action().inputs.uri"
+      }
+   }
 }
 ```
 

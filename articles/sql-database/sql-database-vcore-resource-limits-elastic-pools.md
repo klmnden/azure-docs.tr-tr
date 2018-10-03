@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 3c85398f140ccd61202c066f4394fa54358e0a1e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 7459ae5153434887ade74f841a2239c76a7caef9
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161582"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043722"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları elastik havuzlar için satın alma
 
@@ -151,5 +151,5 @@ Aşağıdaki tabloda, havuza alınmış veritabanları için özellikleri tanım
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için.
-- Bkz: [genel bakış Azure SQL veritabanı kaynak limitleri](sql-database-resource-limits.md) sunucu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
+- Bkz: [kaynak bakış sınırlayan bir mantıksal sunucuda](sql-database-resource-limits-logical-server.md) sunucusu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
 - Genel Azure sınırları hakkında daha fazla bilgi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).

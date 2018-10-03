@@ -9,16 +9,16 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 675dae022376fc62292f3b079bd735939b9199c2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f68d5d7faf3555918b9f9a6add7754c8ae23d0a8
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220304"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239243"
 ---
 # <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için bir geliştirme ortamı yapılandırma
 
-Geliştirme ortamınızı Azure Machine Learning hizmeti ile çalışacak şekilde yapılandırmayı öğrenin. Ortamınızı bir Azure Machine Learning çalışma alanı ile ilişkilendiren bir yapılandırma dosyasının nasıl oluşturulacağını öğreneceksiniz. Ayrıca aşağıdaki geliştirme ortamlarını yapılandırmak öğreneceksiniz:
+Geliştirme ortamınızı Azure Machine Learning hizmeti ile çalışacak şekilde yapılandırmayı öğrenin. Ortamınızı bir Azure Machine Learning hizmeti çalışma alanı ile ilişkilendiren bir yapılandırma dosyasının nasıl oluşturulacağını öğreneceksiniz. Ayrıca aşağıdaki geliştirme ortamlarını yapılandırmak öğreneceksiniz:
 
 * Kendi bilgisayarınıza Jupyter Not Defterleri
 * Visual Studio Code
@@ -35,6 +35,9 @@ Continuum Anaconda kullanmak için önerilen yaklaşımdır [sanal conda ortamla
 
  * Visual Studio Code ortamınıza [Python uzantısı](https://code.visualstudio.com/docs/python/python-tutorial).
 
+> [!NOTE]
+> Bu belgede kullanılan Kabuk komutları, Linux ve macOS üzerinde bash ile birlikte test edilir. Ayrıca, komutlar Windows cmd.exe'de ile test edilmez.
+
 ## <a name="create-workspace-configuration-file"></a>Çalışma alanı yapılandırma dosyası oluşturma
 
 Çalışma alanı yapılandırma dosyası, Azure Machine Learning hizmeti çalışma alanı ile iletişim kurmak için SDK'sı tarafından kullanılır.  Bu dosya almanın iki yolu vardır:
@@ -49,7 +52,8 @@ Continuum Anaconda kullanmak için önerilen yaklaşımdır [sanal conda ortamla
         ![Azure portal](./media/how-to-configure-environment/configure.png) 
     
     1. Dosyayı bu Python kodu oluşturun. Betikleri veya çalışma alanına başvuru not defterlerini aynı dizinde kodu çalıştırın:
-        ```
+
+        ```python
         from azureml.core import Workspace
 
         subscription_id ='<subscription-id>'

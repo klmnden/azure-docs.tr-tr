@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bbf94d53b24c4087e7212d56bd51131034e39212
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222463"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043003"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Öngörüler sayesinde Azure SQL veritabanı performans sorunlarını giderme
 
@@ -73,7 +73,7 @@ Tanılama Günlüğü performans ve kaynak tüketimi yüzdeleri etkilenen sorgu 
 
 Kullanılabilir oturum sınırları ulaştıysanız, veritabanında yapılan oturum açma sayısını azaltarak uygulamalarınızı en iyi duruma getirebilirsiniz. Oturumlarının veritabanına uygulamalarınızdan azaltmak yapamıyorsanız, artan veritabanı fiyatlandırma katmanı göz önünde bulundurun. Bölme ve veritabanınızı daha dengeli bir iş yükü dağıtımı için birden çok veritabanı içine taşıyın.
 
-Oturum sınırları çözümleme hakkında daha fazla öneri için bkz. [ile SQL veritabanı en fazla oturum açma bilgileri sınırlarını başa çıkma](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Kullanılabilir kaynak sınırları, abonelik katman için öğrenmek için bkz: [SQL veritabanı kaynak limitleri](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
+Oturum sınırları çözümleme hakkında daha fazla öneri için bkz. [ile SQL veritabanı en fazla oturum açma bilgileri sınırlarını başa çıkma](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Bkz: [kaynak bakış sınırlayan bir mantıksal sunucuda](sql-database-resource-limits-logical-server.md) sunucusu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
 
 ## <a name="workload-increase"></a>İş yükü artışı
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158573"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236593"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Azure Machine Learning hizmetinin en son sürüme geçirme 
 
@@ -52,7 +52,7 @@ Daha fazla bilgi edinin [bu sürümdeki değişiklikler](overview-what-happened-
 
 İşlem kaynakları, deneme hesapları, model yönetim hesapları ve machine learning gibi ortamları üzerinden Azure Machine Learning hizmetinin en son sürüme geçirilemez. Bkz: [zaman çizelgesi](overview-what-happened-to-workbench.md#timeline) üzerinde ne kadar süreyle varlıklarınızı çalışmaya devam eder.
 
-En son sürüm ile bir Azure Machine Learning çalışma alanı içinde oluşturmaya başlama [Azure portalında](quickstart-get-started.md). Portal'ın çalışma Pano yalnızca Edge, Chrome ve Firefox tarayıcılarda desteklenir.
+En son sürüm ile bir Azure Machine Learning hizmeti çalışma alanında oluşturmaya başlama [Azure portalında](quickstart-get-started.md). Portal'ın çalışma Pano yalnızca Edge, Chrome ve Firefox tarayıcılarda desteklenir.
 
 Bu yeni çalışma alanı, üst düzey hizmet kaynak ve Azure Machine Learning hizmetinin en son özelliklerin tümünü kullanmanıza olanak tanır. Bu konu hakkında daha fazla bilgi edinin [çalışma ve mimari](concept-azure-machine-learning-architecture.md).
 

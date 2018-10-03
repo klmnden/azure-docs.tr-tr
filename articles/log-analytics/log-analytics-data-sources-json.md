@@ -1,6 +1,6 @@
 ---
-title: OMS günlük analizi özel JSON verileri toplama | Microsoft Docs
-description: Özel JSON veri kaynakları için Linux OMS Aracısı'nı kullanarak günlük analizi içine toplanabilir.  Bu özel veri kaynaklarının basit betik dosyalarını curl veya FluentD'ın 300 + eklentileri gibi JSON döndürüyor olabilir. Bu makalede, bu veri koleksiyonu için gerekli yapılandırmayı açıklar.
+title: Özel JSON verilerini OMS Log Analytics'e toplama | Microsoft Docs
+description: Özel JSON veri kaynakları, Linux için OMS Aracısı'nı kullanarak Log Analytics'e halinde toplanabilir.  Bu özel veri kaynaklarının curl veya FluentD'ın 300'ü aşkın eklentileri gibi JSON döndüren basit betik dosyalarını olabilir. Bu makalede, bu veri toplama için gerekli yapılandırmayı açıklar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: d3c8807b7624e68ff55557922f97d51e24fc2c19
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 9725a3df04ef28fc3a076c3c6ca6663e36b186a8
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131812"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040277"
 ---
-# <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Günlük analizi Linux için OMS aracısının özel JSON veri kaynaklarıyla toplama
-Özel JSON veri kaynakları için Linux OMS Aracısı'nı kullanarak günlük analizi içine toplanabilir.  Bu özel veri kaynaklarının JSON gibi döndüren basit betik dosyalarını olabilir [curl](https://curl.haxx.se/) veya biri [FluentD'ın 300 + eklentileri](http://www.fluentd.org/plugins/all). Bu makalede, bu veri koleksiyonu için gerekli yapılandırmayı açıklar.
+# <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Log analytics'te Linux için OMS Aracısı özel JSON veri kaynaklarıyla toplama
+Özel JSON veri kaynakları, Linux için OMS Aracısı'nı kullanarak Log Analytics'e halinde toplanabilir.  Bu özel veri kaynakları gibi JSON döndüren basit betik dosyalarını olabilir [curl](https://curl.haxx.se/) veya biri [FluentD'ın 300'ü aşkın eklentileri](http://www.fluentd.org/plugins/all). Bu makalede, bu veri toplama için gerekli yapılandırmayı açıklar.
 
 > [!NOTE]
-> Linux v1.1.0 için OMS aracısının-217 + özel JSON verileri için gerekli
+> V1.1.0 Linux için OMS Aracısı-217 + özel JSON verileri için gerekli
 
 ## <a name="configuration"></a>Yapılandırma
 
-### <a name="configure-input-plugin"></a>Giriş eklentisi yapılandırma
+### <a name="configure-input-plugin"></a>Giriş eklentisini yapılandırma
 
-Günlük analizi JSON verileri toplamak için ekleme `oms.api.` giriş eklentisi FluentD etiketinde başlangıcı.
+Log analytics'te JSON verileri toplamak için ekleme `oms.api.` bir giriş eklentisi FluentD etiketinde başlatma.
 
-Örneğin, aşağıdaki ayrı yapılandırma dosyası `exec-json.conf` içinde `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Bu FluentD eklentisi kullanır `exec` her 30 saniyede bir curl komutunu çalıştırmak için.  Bu komutun çıktısı, JSON çıkış eklenti tarafından toplanır.
+Örneğin, ayrı bir yapılandırma dosyası verilmiştir `exec-json.conf` içinde `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Bu FluentD eklentisi `exec` her 30 saniyede bir curl komutu çalıştırın.  Bu komutun çıktısı, JSON çıkış eklenti tarafından toplanır.
 
 ```
 <source>
@@ -58,12 +58,12 @@ Günlük analizi JSON verileri toplamak için ekleme `oms.api.` giriş eklentisi
   retry_wait 30s
 </match>
 ```
-Yapılandırma dosyası altında eklenen `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` aşağıdaki komutla değiştirilen sahipliğini olmasını gerektirir.
+Yapılandırma dosyası altında eklenen `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` aşağıdaki komutla değiştirilen sahipliğine sahip olmasını gerektirir.
 
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
 
-### <a name="configure-output-plugin"></a>Çıktı eklentisi yapılandırma 
-Ana yapılandırmasında aşağıdaki çıktı eklentisi yapılandırma eklemek `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` ya da ayrı yapılandırma dosyası yerleştirilen gibi `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
+### <a name="configure-output-plugin"></a>Çıkış eklentisini yapılandırma 
+Ana yapılandırma aşağıdaki çıktı eklentisi yapılandırma eklemek `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` veya ayrı bir yapılandırma dosyası yerleştirilmiş olarak `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
 
 ```
 <match oms.api.**>
@@ -80,19 +80,19 @@ Ana yapılandırmasında aşağıdaki çıktı eklentisi yapılandırma eklemek 
 </match>
 ```
 
-### <a name="restart-oms-agent-for-linux"></a>Linux için OMS aracıyı yeniden başlatın
-OMS aracısı aşağıdaki komutla Linux hizmeti yeniden başlatın.
+### <a name="restart-oms-agent-for-linux"></a>Linux için OMS aracısını yeniden başlatın
+Aşağıdaki komutla hizmeti Linux için OMS aracısını yeniden başlatın.
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Çıktı
-Verileri bir kayıt türü ile günlük analizi toplanacağını `<FLUENTD_TAG>_CL`.
+Bir kayıt türü ile Log Analytics'te veri toplanacağını `<FLUENTD_TAG>_CL`.
 
-Örneğin, özel etiket `tag oms.api.tomcat` kayıt türüne sahip günlük analytics'te `tomcat_CL`.  Aşağıdaki günlük arama ile bu türdeki tüm kayıtları alınamadı.
+Örneğin, özel etiket `tag oms.api.tomcat` kayıt türü ile Log analytics'te `tomcat_CL`.  Bu tür aşağıdaki günlük araması ile tüm kayıtlar alabilir.
 
     Type=tomcat_CL
 
-İç içe JSON veri kaynakları desteklenir, ancak dizini üst alanı dışına temel. Örneğin, aşağıdaki JSON verilerini bir günlük analizi aramadan döndürülen `tag_s : "[{ "a":"1", "b":"2" }]`.
+İç içe JSON veri kaynakları için desteklenir, ancak bu dizine alınmış üst alanın dışına temel. Örneğin, aşağıdaki JSON verilerini bir Log Analytics arama olarak döndürüldüğü `tag_s : "[{ "a":"1", "b":"2" }]`.
 
 ```
 {
@@ -105,5 +105,5 @@ Verileri bir kayıt türü ile günlük analizi toplanacağını `<FLUENTD_TAG>_
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümleri toplanan verileri çözümlemek için. 
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
  
