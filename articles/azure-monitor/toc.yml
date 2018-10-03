@@ -21,12 +21,6 @@ items:
       href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
     - name: Mobil uygulama
       href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
-  - name: Uyarılar
-    items:
-    - name: Ölçüm koşuluyla ilgili uyarı (klasik)
-      href: ../monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal.md?toc=/azure/azure-monitor/toc.json
-    - name: Abonelik etkinliğiyle ilgili uyarı
-      href: ../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md?toc=/azure/azure-monitor/toc.json
   - name: Sanal makineler
     items:
     - name: Toplama - Azure VM’leri
@@ -38,25 +32,25 @@ items:
   expanded: true
 - name: Öğreticiler
   items:
-  - name: 1 - Verileri çözümleme
+  - name: Log Analytics’te verileri analiz etme
     href: ../log-analytics/log-analytics-tutorial-viewdata.md?toc=/azure/azure-monitor/toc.json
-  - name: 2 - Verileri görselleştirme
+  - name: Log Analytics’te verileri görselleştirme
     href: ../log-analytics/log-analytics-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
-  - name: 3 - Verileri arşivleme
+  - name: Platform ölçüm ve günlük verilerini arşivleme
     href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
-  - name: 4 - Günlük verileriyle uyarı oluşturma
+  - name: Günlük verileriyle uyarı oluşturma
     href: ../log-analytics/log-analytics-tutorial-response.md?toc=/azure/azure-monitor/toc.json
-  - name: 5 - Performans ve zamanlamaya göre otomatik ölçeklendirme
+  - name: Performans ve zamanlamaya göre otomatik ölçeklendirme
     href: ../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md?toc=/azure/azure-monitor/toc.json
-  - name: 6 - Çalışma zamanı özel durumlarını belirleme
+  - name: Uygulama çalışma zamanı özel durumlarını belirleme
     href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
-  - name: 7 - Performans sorunlarını belirleme
+  - name: Uygulama performansı sorunlarını belirleme
     href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
-  - name: 8 - Uygulama durumuyla ilgili uyarılar
+  - name: Uygulama durumuyla ilgili uyarılar gönderme
     href: ../application-insights/app-insights-tutorial-alert.md?toc=/azure/azure-monitor/toc.json
-  - name: 9 - Kullanıcıları anlama
+  - name: Uygulama kullanıcılarını anlama
     href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
-  - name: 10 - Özel panolar oluşturma
+  - name: Özel panolar oluşturma
     href: ../application-insights/app-insights-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
 - name: Örnekler
   items:
@@ -189,27 +183,32 @@ items:
         href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
       - name: Hizmet sağlayıcılarına yönelik tasarım
         href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
+  - name: Veri toplama
+    items:
     - name: Aracıları yükleme ve yapılandırma
       items:
       - name: Aracı karşılaştırması
         href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
-      - name: Windows aracıları
-        href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
-      - name: Windows için VM Uzantısı
-        href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-      - name: Linux için VM Uzantısı
-        href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-      - name: Hibrit ortamları izleme
-        href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
-      - name: Operations Manager
-        href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
-      - name: OMS Ağ Geçidi
-        href: ../log-analytics/log-analytics-oms-gateway.md?toc=/azure/azure-monitor/toc.json
-      - name: Aracı yönetimi
-        href: ../log-analytics/log-analytics-agent-manage.md?toc=/azure/azure-monitor/toc.json
-      - name: Azure Tanılama uzantısı
-        href: ../monitoring-and-diagnostics/azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+      - name: Günlük deposu aracıları
         items:
+        - name: Windows aracıları
+          href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
+        - name: Windows için VM Uzantısı
+          href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+        - name: Linux için VM Uzantısı
+          href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+        - name: Hibrit ortamları izleme
+          href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
+        - name: Operations Manager
+          href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
+        - name: OMS Ağ Geçidi
+          href: ../log-analytics/log-analytics-oms-gateway.md?toc=/azure/azure-monitor/toc.json
+        - name: Aracı yönetimi
+          href: ../log-analytics/log-analytics-agent-manage.md?toc=/azure/azure-monitor/toc.json
+      - name: Azure Tanılama uzantısı
+        items:
+        - name: Genel Bakış
+          href: ../monitoring-and-diagnostics/azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: Azure Depolama’ya gönderme
           href: ../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=/azure/azure-monitor/toc.json
         - name: Application Insights’a gönderme
@@ -222,17 +221,13 @@ items:
           href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
         - name: JSON Satır tanılama günlükleri biçimine hazırlanma
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
-        - name: Ölçüm deposu için özel ölçümler REST API'si
-          href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
-        - name: Ölçüm deposu için konuk işletim sistemi Linux VM (Telegraf)
-          href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json
-        - name: Ölçüm deposu için konuk işletim sistemi VM
+        - name: Ölçüm deposu için konuk VM
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json
-        - name: Ölçüm deposu için konuk işletim sistemi VM ölçek kümesi
+        - name: Ölçüm deposu için konuk VM ölçüm kümesi
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vmss.md?toc=/azure/azure-monitor/toc.json
-        - name: Ölçüm deposu için konuk işletim sistemi klasik VM
+        - name: Ölçüm deposu için klasik konuk VM
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json
-        - name: Ölçüm deposu için konuk işletim sistemi bulut hizmeti
+        - name: Ölçüm deposu için konuk bulut hizmeti
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json
       - name: Sorun giderme
         items:
@@ -240,8 +235,29 @@ items:
           href: ../log-analytics/log-analytics-azure-vmext-troubleshoot.md?toc=/azure/azure-monitor/toc.json
         - name: Sorun Giderme Günlükleri Linux Aracısı
           href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
-  - name: Veri toplama
-    items:
+    - name: Aracı veri kaynakları
+      href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: Windows olayları
+        href: ../log-analytics/log-analytics-data-sources-windows-events.md?toc=/azure/azure-monitor/toc.json
+      - name: Özel JSON verileri
+        href: ../log-analytics/log-analytics-data-sources-json.md?toc=/azure/azure-monitor/toc.json
+      - name: Toplanan performans verileri
+        href: ../log-analytics/log-analytics-data-sources-collectd.md?toc=/azure/azure-monitor/toc.json
+      - name: Nagios ve Zabbix uyarıları
+        href: ../log-analytics/log-analytics-data-sources-alerts-nagios-zabbix.md?toc=/azure/azure-monitor/toc.json
+      - name: Syslog
+        href: ../log-analytics/log-analytics-data-sources-syslog.md?toc=/azure/azure-monitor/toc.json
+      - name: Performans sayaçları
+        href: ../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json
+      - name: Linux uygulama performansı
+        href: ../log-analytics/log-analytics-data-sources-linux-applications.md?toc=/azure/azure-monitor/toc.json
+      - name: IIS günlükleri
+        href: ../log-analytics/log-analytics-data-sources-iis-logs.md?toc=/azure/azure-monitor/toc.json
+      - name: Özel günlükler
+        href: ../log-analytics/log-analytics-data-sources-custom-logs.md?toc=/azure/azure-monitor/toc.json
+      - name: Özel alanlar
+        href: ../log-analytics/log-analytics-custom-fields.md?toc=/azure/azure-monitor/toc.json
     - name: Uygulamaları yapılandırma
       items:
       - name: Azure uygulamaları
@@ -372,29 +388,6 @@ items:
           href: ../application-insights/app-insights-java-troubleshoot.md?toc=/azure/azure-monitor/toc.json
         - name: Kullanım analizi
           href: ../application-insights/app-insights-usage-troubleshoot.md?toc=/azure/azure-monitor/toc.json
-    - name: Aracı veri kaynakları
-      href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
-      items:
-      - name: Windows olayları
-        href: ../log-analytics/log-analytics-data-sources-windows-events.md?toc=/azure/azure-monitor/toc.json
-      - name: Özel JSON verileri
-        href: ../log-analytics/log-analytics-data-sources-json.md?toc=/azure/azure-monitor/toc.json
-      - name: Toplanan performans verileri
-        href: ../log-analytics/log-analytics-data-sources-collectd.md?toc=/azure/azure-monitor/toc.json
-      - name: Nagios ve Zabbix uyarıları
-        href: ../log-analytics/log-analytics-data-sources-alerts-nagios-zabbix.md?toc=/azure/azure-monitor/toc.json
-      - name: Syslog
-        href: ../log-analytics/log-analytics-data-sources-syslog.md?toc=/azure/azure-monitor/toc.json
-      - name: Performans sayaçları
-        href: ../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json
-      - name: Linux uygulama performansı
-        href: ../log-analytics/log-analytics-data-sources-linux-applications.md?toc=/azure/azure-monitor/toc.json
-      - name: IIS günlükleri
-        href: ../log-analytics/log-analytics-data-sources-iis-logs.md?toc=/azure/azure-monitor/toc.json
-      - name: Özel günlükler
-        href: ../log-analytics/log-analytics-data-sources-custom-logs.md?toc=/azure/azure-monitor/toc.json
-      - name: Özel alanlar
-        href: ../log-analytics/log-analytics-custom-fields.md?toc=/azure/azure-monitor/toc.json
     - name: Azure kaynakları
       items:
       - name: Azure etkinlik günlükleri
@@ -411,14 +404,18 @@ items:
         href: ../log-analytics/log-analytics-collect-azurepass-posh.md?toc=/azure/azure-monitor/toc.json
       - name: Özel veri kaynaklarını ilişkilendirme
         href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
-    - name: Log Analytics'te özel veri toplama
+    - name: Özel verileri toplama
       items:
-      - name: Veri toplayıcı API'si
+      - name: Ölçüm deposu Veri Toplayıcı API’si
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
-      - name: Veri Toplayıcı API'si İşlem Hattı örneği
+      - name: Ölçüm deposu Veri Toplayıcı API'si İşlem Hattı örneği
         href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
       - name: Uygulama verileri
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
+      - name: Ölçüm deposu REST API
+        href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
+      - name: Ölçüm deposu için konuk işletim sistemi Linux VM (Telegraf)
+        href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json
     - name: System Center
       items:
       - name: Configuration Manager
@@ -506,6 +503,8 @@ items:
       items:
       - name: Kapsayıcılar için Azure İzleyici
         items:
+        - name: Genel Bakış
+          href: ../monitoring/monitoring-container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Katılma
           href: ../monitoring/monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Çözümleme
@@ -546,6 +545,8 @@ items:
       items:
       - name: VM'ler için Azure İzleyici
         items:
+        - name: Genel Bakış
+          href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
         - name: Bilinen sorunlar
           href: ../monitoring/monitoring-vminsights-known-issues.md?toc=/azure/azure-monitor/toc.json
         - name: SSS
@@ -620,13 +621,13 @@ items:
       - name: Uygulamalar
         href: ../application-insights/app-insights-dashboards.md?toc=/azure/azure-monitor/toc.json
     - name: Power BI
-      href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
       items:
       - name: Günlük verilerini dışarı aktarma
         href: ../log-analytics/log-analytics-powerbi.md?toc=/azure/azure-monitor/toc.json
       - name: Uygulama verilerini dışarı aktarma
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
-      - name: Grafana’ya ölçüm gönderme
+    - name: Grafana’ya ölçüm gönderme
+      href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
   - name: Verileri çözümleme
     items:
     - name: Ölçüm Gezgini’nde ölçüm grafikleri oluşturma
@@ -976,9 +977,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kod örnekleri
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 01539d32b6fb4fc0dd750dd970a4f502684c34fa
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: ecb930a1dc50b1a613533068846be2d7cfaeb748
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419356"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018902"

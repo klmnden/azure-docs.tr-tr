@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/18/2018
+ms.date: 9/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d031059f9811cedb703fec4920e00fd1b2e3f877
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6b369c8209e62ff3c98b3fdf78378b403b0a0d2d
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045366"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017662"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure yönetim gruplarıyla düzenleme
 
@@ -62,19 +62,30 @@ Diğer tüm yönetim grupları ve abonelikler hiyerarşide en üstte yer alan bu
   - Bir aboneliğe erişimi olan herkes bu aboneliğin hiyerarşide bulunduğu bağlamı görebilir.  
   - Kök yönetim grubuna hiç kimsenin varsayılan erişimi yoktur. Erişim kazanmak için yalnızca Dizin Genel Yöneticileri kendi rollerini yükseltebilir.  Erişim kazandıktan sonra, dizin yöneticileri yönetecek kullanıcılara herhangi bir RBAC rolü atayabilir.  
 
-> [!NOTE]
-> Dizininiz 25/06/2018'den önce yönetim gruplarını kullanmaya başladıysa, dizininiz hiyerarşideki tüm aboneliklerle ayarlanmamış olabilir. Yönetim grubu takımı, Temmuz/Ağustos 2018 içinde o tarihten önce Genel Önizlemede olan yönetim gruplarını kullanmaya başlamış her bir dizini geriye dönük olarak güncelleştirmektedir. Dizinlerdeki tüm abonelikler, önceki kök yönetim grubu altında alt öğe yapılacaktır.
->
-> Geriye dönük süreç hakkında sorularınız olursa iletişim: managementgroups@microsoft.com  
-  
-## <a name="initial-setup-of-management-groups"></a>Yönetim gruplarının ilk ayarı
-
-Herhangi bir kullanıcı yönetim gruplarını kullanmaya başladığında gerçekleştirilen bir ilk ayar işlemi vardır. İlk adım, dizinde kök yönetim grubunun oluşturulmasıdır. Bu grup oluşturulduktan sonra dizinde mevcut olan tüm abonelikler, kök yönetim grubunun alt öğesi yapılır. Bu işlemin yapılmasının nedeni, bir dizin içinde yalnızca bir yönetim grubu hiyerarşisi olmasını sağlamaktır. Dizin içinde tek hiyerarşi olması, yönetim müşterilerinin dizindeki diğer müşteriler tarafından atlanamayacak genel erişim ve ilkeler uygulamasına olanak tanır. Kökte atanan herhangi bir şey, dizinde tek hiyerarşi olduğunda dizin içindeki tüm yönetim gruplarına, aboneliklere, kaynak gruplarına ve kaynaklara uygulanır.
-
 > [!IMPORTANT]
 > Kök yönetim grubu grubunda yapılan herhangi bir kullanıcı erişimi ataması veya ilke ataması, **dizin içindeki tüm kaynaklara uygulanır**.
 > Bu nedenle, tüm müşterilerin bu kapsamda tanımlanmış öğelere sahip olma gereksinimini değerlendirmesi gerekir.
 > Kullanıcı erişimi ve ilke atamaları yalnızca bu kapsamda "Sahip Olunması Zorunlu" olmalıdır.  
+
+## <a name="initial-setup-of-management-groups"></a>Yönetim gruplarının ilk ayarı
+
+Herhangi bir kullanıcı yönetim gruplarını kullanmaya başladığında gerçekleştirilen bir ilk ayar işlemi vardır. İlk adım, dizinde kök yönetim grubunun oluşturulmasıdır. Bu grup oluşturulduktan sonra dizinde mevcut olan tüm abonelikler, kök yönetim grubunun alt öğesi yapılır. Bu işlemin yapılmasının nedeni, bir dizin içinde yalnızca bir yönetim grubu hiyerarşisi olmasını sağlamaktır. Dizin içinde tek hiyerarşi olması, yönetim müşterilerinin dizindeki diğer müşteriler tarafından atlanamayacak genel erişim ve ilkeler uygulamasına olanak tanır. Kökte atanan herhangi bir şey, dizinde tek hiyerarşi olduğunda dizin içindeki tüm yönetim gruplarına, aboneliklere, kaynak gruplarına ve kaynaklara uygulanır.
+
+## <a name="trouble-seeing-all-subscriptions"></a>Tüm abonelikler görüntülenirken oluşan sorun
+
+25 Haziran 2018 tarihinden önce, önizlemenin ilk aşamasında yönetim gruplarını kullanmaya başlayan bazı dizinler, tüm aboneliklerin hiyerarşiye zorlanmamasıyla ilgili bir hatayla karşılaşabiliyordu.  Bunun nedeni, abonelikleri hiyerarşiye zorlamaya yönelik işlemlerin dizindeki kök yönetim grubunda bir rol veya ilke ataması yapıldıktan sonra uygulanmasıydı.
+
+### <a name="how-to-resolve-the-issue"></a>Sorunu çözme
+
+Bu sorunu çözmek için kendi kendine yapılabilen iki seçenek vardır.
+
+1. Kök yönetim grubundan tüm Rol ve İlke atamalarını kaldırma
+    1. Kök yönetim grubundan bir ilke ve rol atamasını kaldırdığınızda, bir sonraki gece döngüsünde hizmet tüm abonelikleri hiyerarşiye geriye dönük olarak doldurur.  Bu denetim, tüm kiracı aboneliklerine yanlışlıkla erişim verilmediğinden ve ilke ataması yapılmadığından emin olmak için yapılır.
+    1. Hizmetlerinizi etkilemeden bu işlemi yapmanın en iyi yolu, rolü veya ilke atamasını Kök yönetim grubunun bir alt düzeyine uygulamaktır. Daha sonra tüm atamaları kök kapsamından çıkarabilirsiniz.
+1. Geriye dönük doldurma işlemini başlatmak için doğrudan API’yi çağırın
+    1. Dizindeki yetkili herhangi bir müşteri *TenantBackfillStatusRequest* veya *StartTenantBackfillRequest* API’lerini çağırabilir. StartTenantBackfillRequest API’si çağrıldığında tüm abonelikleri hiyerarşiye taşımanın ilk kurulum işlemini başlatır. Ayrıca bu işlem, tüm yeni abonelikleri kök yönetim grubunun alt öğesi olmaya zorlama işlemini de başlatır. Bu işlem, kökteki tüm ilkelerin veya erişim atamalarının tüm aboneliklere uygulanabileceğini onayladığınızda kök düzeyinde herhangi bir aboneliği değiştirmeden yapılabilir.
+
+Bu geriye dönük doldurma işlemi hakkında sorularınız varsa lütfen adresten bize ulaşın: managementgroups@microsoft.com  
   
 ## <a name="management-group-access"></a>Yönetim grubu erişimi
 

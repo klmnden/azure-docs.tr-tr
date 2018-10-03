@@ -58,7 +58,7 @@
 ### [Azure PowerShell’i kullanma](data-lake-store-performance-tuning-powershell.md)
 ### [HDInsight üzerinde Spark kullanma](data-lake-store-performance-tuning-spark.md)
 ### [HDInsight üzerinde Hive kullanma](data-lake-store-performance-tuning-hive.md)
-### [HDInsight üzerinde kullanma](data-lake-store-performance-tuning-mapreduce.md)
+### [HDInsight üzerinde MapReduce kullanma](data-lake-store-performance-tuning-mapreduce.md)
 ### [HDInsight üzerinde Storm kullanma](data-lake-store-performance-tuning-storm.md)
 
 ## Azure Hizmetleri ile tümleştirme

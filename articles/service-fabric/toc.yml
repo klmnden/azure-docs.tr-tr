@@ -195,12 +195,6 @@ items:
         href: service-fabric-dnsservice.md
       - name: Ters proxy
         href: service-fabric-reverseproxy.md
-      - name: Ters proxy’yi ayarlama ve yapılandırma
-        href: service-fabric-reverseproxy-setup.md
-      - name: Güvenli iletişim için ters proxy ayarlarını yapılandırma
-        href: service-fabric-reverseproxy-configure-secure-communication.md
-      - name: Ters proxy tanılama
-        href: service-fabric-reverse-proxy-diagnostics.md
       - name: ASP.NET Çekirdeği
         href: service-fabric-reliable-services-communication-aspnetcore.md
     - name: Uygulama yaşam döngüsü
@@ -554,6 +548,12 @@ items:
         href: service-fabric-set-up-continuous-integration.md
       - name: Jenkins kullanarak Linux uygulamalarınızı dağıtma
         href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+  - name: Ters proxy’yi kurma ve yapılandırma
+    items:
+    - name: Ters proxy’yi ayarlama ve yapılandırma
+      href: service-fabric-reverseproxy-setup.md
+    - name: Güvenli iletişim için ters proxy ayarlarını yapılandırma
+      href: service-fabric-reverseproxy-configure-secure-communication.md
   - name: Küme oluşturma ve yönetme
     items:
     - name: Azure’da kümeler
@@ -658,6 +658,8 @@ items:
         href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
       - name: Sistem durumu raporlarını görüntüleme
         href: service-fabric-view-entities-aggregated-health.md
+    - name: Ters proxy olaylarını tanılama
+      href: service-fabric-reverse-proxy-diagnostics.md
     - name: Yerel kümenizde sorun giderme
       href: service-fabric-troubleshoot-local-cluster-setup.md
     - name: Yaygın senaryoları tanılama
@@ -757,9 +759,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 7bd6ee339aa1eafbf260e9df4925f50cba49bdf8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fc85458db829f66ad90d846aec7148fa58a3bbc0
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406066"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018885"
