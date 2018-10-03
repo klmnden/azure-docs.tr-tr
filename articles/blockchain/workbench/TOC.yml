@@ -1,0 +1,77 @@
+items:
+- name: Azure Blockchain Workbench (genel önizleme)
+  href: index.yml
+- name: Genel Bakış
+  items:
+  - name: Azure Blockchain Workbench Hakkında
+    href: overview.md
+  expanded: true
+- name: Kavramlar
+  items:
+  - name: Mimari
+    href: architecture.md
+  - name: Tümleştirme desenleri
+    href: integration-patterns.md
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Workbench’i dağıtma
+    href: deploy.md
+  - name: Blok zinciri uygulaması oluşturma
+    href: create-app.md
+  - name: Workbench kullanıcılarını yönetme
+    href: manage-users.md
+  - name: Blok zinciri uygulamasını kullanma
+    href: use.md
+  - name: Workbench API’sini kullanma
+    href: use-api.md
+  - name: Sorun giderme uygulamaları
+    href: troubleshooting.md
+  - name: Workbench verilerini kullanma
+    items:
+    - name: Veritabanı güvenlik duvarını yapılandırma
+      href: database-firewall.md
+    - name: Veritabanı ayrıntılarını edinme
+      href: getdb-details.md
+    - name: Excel’de veri kullanma
+      href: data-excel.md
+    - name: Power BI’da veri kullanma
+      href: data-powerbi.md
+    - name: SQL Management Studio'da veri kullanma
+      href: data-sql-management-studio.md
+  expanded: true
+- name: Başvuru
+  items:
+  - name: Yapılandırma
+    href: configuration.md
+  - name: Veritabanı görünümleri
+    href: database-views.md
+  - name: Mesajlaşma API’si
+    href: messages-overview.md
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
+- name: Kaynaklar
+  items:
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/blockchain/
+  - name: Kod örnekleri
+    href: https://github.com/Azure-Samples/blockchain
+  - name: Topluluk
+    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
+  - name: Forum
+    href: https://aka.ms/workbenchforum
+  - name: Ürün geri bildirimi
+    href: https://aka.ms/blockchainuservoice
+- name: Çözüm şablonları
+  items:
+  - name: Ethereum Yetki Kanıtı Konsorsiyumu
+    href: ../templates/ethereum-poa-deployment.md
+  - name: Ethereum Çalışma Kanıtı Konsorsiyumu
+    href: ../templates/ethereum-deployment.md
+  - name: Hyperledger Yapı Konsorsiyumu
+    href: ../templates/hyperledger-fabric-single-member-blockchain.md
+ms.openlocfilehash: de9b0906450f3ba26ebfac6699c07d93039db6a7
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239811"
