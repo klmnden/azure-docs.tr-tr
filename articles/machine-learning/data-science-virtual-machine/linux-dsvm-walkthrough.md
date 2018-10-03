@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c125f503166e3f63599dbd09acf42c69fab8d2ce
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116172"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044663"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>İle bir Linux veri bilimi sanal makinesi Azure üzerinde veri bilimi
 Bu izlenecek yol, Linux veri bilimi sanal makinesi ile çeşitli genel veri bilimi görevlerini gerçekleştirmek nasıl gösterir. Linux veri bilimi sanal makinesi (DSVM) veri analizi ve makine öğrenimi için yaygın olarak kullanılan araçları koleksiyonu ile önceden yüklenmiş olan Azure üzerinde kullanılabilir bir sanal makine görüntüsüdür. Anahtar yazılım bileşenleri içinde listelenen [Linux veri bilimi sanal makinesi sağlama](linux-dsvm-intro.md) konu. VM görüntüsü, yüklemek ve araçların her biri ayrı ayrı yapılandırmak zorunda kalmadan, dakikalar içinde veri bilimi yapmaya başlayın kolaylaştırır. Kolayca VM'yi, gerekirse ölçeği ve kullanımda olmadığında durdurun. Bu nedenle bu kaynak, esnek ve maliyet açısından verimli içindir.
@@ -483,7 +483,7 @@ Başlamak için Squirrel SQL uygulamaları Menüsü'nden başlatın. Sürücüy�
 * Sağ **PostgreSQL** seçip **değiştirme sürücü**.
 * Seçin **yolu'ekstra sınıf**, ardından **ekleme**.
 * Girin ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** için **dosya adı** ve
-* Seçin **açık**.
+* **Aç**'ı seçin.
 * Liste sürücüleri seçin ve ardından **org.postgresql.Driver** içinde **sınıf adı**seçip **Tamam**.
 
 Yerel sunucusuyla bağlantıyı ayarlamak için:
@@ -493,7 +493,7 @@ Yerel sunucusuyla bağlantıyı ayarlamak için:
 * Adlandırın *istenmeyen posta veritabanı*, seçin **PostgreSQL** içinde **sürücü** açılır.
 * URL'sini ayarlamak *jdbc:postgresql://localhost/spam*.
 * Girin, *kullanıcıadı* ve *parola*.
-* **Tamam**’a tıklayın.
+* **Tamam** düğmesine tıklayın.
 * Açmak için **bağlantı** penceresinde çift ***istenmeyen posta veritabanı*** diğer adı.
 * **Bağlan**’ı seçin.
 
@@ -544,6 +544,6 @@ Ve sqlcmd ile sorgulama:
 Squirrel SQL ile de sorgulayabilir. İçinde bulunan Microsoft MSSQL Server JDBC sürücüsü kullanarak PostgreSQL için benzer adımları ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure veri bilimi işlemi oluşturan görevler rehberlik konuları genel bakış için bkz. [Team Data Science Process](http://aka.ms/datascienceprocess).
+Azure veri bilimi işlemi oluşturan görevler rehberlik konuları genel bakış için bkz. [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
 
 Team Data Science Process belirli senaryolar için adımları gösteren diğer uçtan uca izlenecek yollar açıklaması için bkz: [Team Data Science Process Kılavuzu](../team-data-science-process/walkthroughs.md). İzlenecek yollar, ayrıca bir iş akışı veya işlem hattı akıllı bir uygulama oluşturmak için bulut ve şirket içi araçları ve Hizmetleri birleştirme işlemini göstermektedir.

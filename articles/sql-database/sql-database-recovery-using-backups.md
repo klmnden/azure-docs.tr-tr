@@ -11,26 +11,28 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 4c9edd60ffa1cd9ed5d95b37592fa49f44117818
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/01/2018
+ms.openlocfilehash: 31a423714154537cfc8d801b972869035aa61035
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161344"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042215"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
-SQL veritabanı kullanarak veritabanı kurtarma için bu seçenekleri sağlar [otomatik veritabanı yedeklemelerini](sql-database-automated-backups.md) ve [uzun süreli saklama kapsamındaki yedekleri](sql-database-long-term-retention.md). Veritabanı yedeklemesini geri yükleyebilirsiniz:
+Varsayılan olarak, SQL veritabanı yedeklemelerini coğrafi olarak çoğaltılmış bir blob depolama (RA-GRS) depolanır. Veritabanı kurtarma kullanmak için aşağıdaki seçenekler kullanılabilir [otomatik veritabanı yedeklemelerini](sql-database-automated-backups.md):
 
-* Saklama dönemi içinde zaman içinde belirli bir noktaya kurtarılan aynı mantıksal sunucu üzerinde yeni bir veritabanı. 
-* Silinen bir veritabanını silme süresine, kurtarılır aynı mantıksal sunucu üzerinde bir veritabanı.
-* Noktasına en son günlük yedeklemeler blob coğrafi olarak yedekli depolama (RA-GRS), kurtarılır herhangi bir bölgedeki herhangi bir mantıksal sunucuda yeni bir veritabanı.
+* Saklama dönemi içinde zaman içinde belirli bir noktaya kurtarılan aynı mantıksal sunucu üzerinde yeni bir veritabanı oluşturun. 
+* Silinen bir veritabanını silme süresine, kurtarılır aynı mantıksal sunucu üzerinde bir veritabanı oluşturun.
+* En son yedeklemelerin noktasına kurtarılır herhangi bir bölgedeki herhangi bir mantıksal sunucuda yeni bir veritabanı oluşturun.
+
+Yapılandırdıysanız [yedekleme uzun süreli saklama](sql-database-long-term-retention.md) herhangi bir bölgedeki herhangi bir mantıksal sunucuda herhangi bir LTR yedekten yeni bir veritabanı oluşturabilirsiniz.  
 
 > [!IMPORTANT]
 > Varolan bir veritabanını geri yükleme sırasında üzerine yazılamıyor.
 >
 
-Geri yüklenen veritabanı aşağıdaki koşullarda bir ek depolama alanı maliyeti doğurur: 
+Standart veya Premium Hizmet katmanını kullanırken, geri yüklenen veritabanı aşağıdaki koşullarda bir ek depolama alanı maliyeti doğurur: 
 - Veritabanı boyutu 500 GB'den daha büyük ise, P11 – P15 S4-S12 veya P1 – P6 geri yükleyin.
 - Veritabanı boyutu 250 GB'tan büyük ise, P1 – P6 S4-S12 için geri yükleme.
 

@@ -10,20 +10,18 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 436ff9d318dc311efe27352a8b2ac91cfb5be618
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 91db32b7056a0cf211e6293a891d58e0239ca499
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221341"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237594"
 ---
-#<a name="load-and-read-data-with-azure-machine-learning"></a>Yükleme ve Azure Machine Learning ile veri okuma
+# <a name="load-and-read-data-with-azure-machine-learning"></a>Yükleme ve Azure Machine Learning ile veri okuma
 
 Kullanım [Azure Machine Learning veri hazırlığı SDK'sı](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) giriş verisi farklı türler yüklenemedi. 
 
-Verilerinizi yüklemek için iki yaklaşım vardır:
-+ Veri dosyası türünü ve parametrelerini belirtin
-+ Bir dosya türünü otomatik olarak algılamak için SDK'sı akıllı okuma işlevini kullanın
+Verilerinizi yüklemek için verileri dosya türünü ve parametrelerini belirtin
 
 ## <a name="use-text-line-data"></a>Metin satırı verileri kullanma 
 Verileri yüklemek için en kolay yollarından biri, metin satırı okuma sağlamaktır.
@@ -352,7 +350,3 @@ dataflow.to_pandas_dataframe().head()
 |2|1011878|100 mil Pazar|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. ana Sokak Çiftçilerden Pazar|http://thetownofsixmile.wordpress.com/ |106 S. ana Sokak|Altı mil|||
 |4|1010691|10 Steet topluluk Çiftçilerden Pazar|http://agrimissouri.com/mo-grown/grodetail.php... |10 Sokak ve Poplar|Lamar|Barton|
-
-## <a name="use-smart-reading"></a>"Akıllı okuma" kullanın
-
-Bir dosya türünü otomatik olarak algılamak için SDK'sı akıllı okuma işlevini kullanabilirsiniz.

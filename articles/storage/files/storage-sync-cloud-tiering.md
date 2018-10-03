@@ -1,0 +1,108 @@
+---
+title: Understanding Azure dosya eşitleme bulut Katmanlaması | Microsoft Docs
+description: Azure dosya eşitleme'nin özellikleri hakkında bilgi bulut Katmanlandırma öğrenin
+services: storage
+author: sikoo
+ms.service: storage
+ms.topic: article
+ms.date: 09/21/2018
+ms.author: sikoo
+ms.component: files
+ms.openlocfilehash: a11e0a1c20617f3065d5b3f8cf59d67cf7aa0179
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48243465"
+---
+# <a name="cloud-tiering-overview"></a>Bulut katmanlama genel bakış
+Bulut katmanlaması olduğundan, sık erişilen dosyaları önbelleğe alınır yerel sunucuda tüm dosyaları Azure İlkesi ayarlarına göre dosyaları katmanlı sırasında Azure dosya eşitleme'nin isteğe bağlı bir özelliktir. Bir dosya katmanlı, Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyasını yerel olarak bir işaretçi veya yeniden ayrıştırma noktası ile değiştirir. Yeniden ayrıştırma noktası, Azure dosyaları'nda bir dosyaya bir URL temsil eder. Katmanlanmış bir dosyanın, hem "Çevrimdışı" özniteliği hem de üçüncü taraf uygulamaların katmanlı dosyaları güvenli bir şekilde belirleyebilmek NTFS FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS özniteliği vardır.
+ 
+Bir kullanıcı bir katmanlı dosya açıldığında, Azure dosya eşitleme kullanıcının dosyayı gerçekten Azure'da depolanan bilmenize gerek olmadan Azure dosyaları dosya verileri sorunsuz bir şekilde çeker. 
+ 
+ > [!Important]  
+    > Önemli: Bulut katmanlaması desteklenmiyor Windows sistemi birimlerinde sunucu uç noktaları için ve yalnızca 64 KiB boyutu büyüktür dosyalara Azure dosyaları'na katmanlı.
+    
+Azure dosya eşitleme katmanlama ve tür küçük dosyaları geri çağırma performans yükü tasarruf daha ağır basar gibi 64 KiB küçük katmanlama dosyalarını desteklemez.
+
+## <a name="cloud-tiering-faq"></a>Bulut Katmanlaması SSS
+
+<a id="afs-cloud-tiering"></a>
+### <a name="how-does-cloud-tiering-work"></a>Nasıl katmanlama çalışır?
+Azure dosya eşitleme sistemi filtresi, ad alanınızın "ısı Haritası" her sunucu uç noktasında oluşturur. Zaman içinde (okuma ve yazma işlemleri) erişir izler ve ardından, sıklığı ve erişim eden temel alınarak, ısı bir atar her dosyaya puanlamak. Şekilleri bilgiler ve bir süre için erişilemeyen bir dosya seyrek erişimli olarak değerlendirilir, ancak kısa bir süre önce açıldı sık erişilen bir dosya sık erişimli, kabul edilir. Bir sunucuda dosya birimi ayarladığınız birimi boş alan eşiği aştığında, boş alan yüzdesi karşılanana kadar ilgilendiği dosyaları Azure dosyaları katmanı.
+
+<a id="afs-volume-free-space"></a>
+### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Birim boş alanı katmanlama İlkesi nasıl çalışır?
+Birim boş alanı sunucu uç noktası bulunduğu birimde ayırmak istediğiniz boş alan miktarıdır. Örneğin, bu alana uymayan kalan dosyalarla birlikte en son erişilen dosyaların Azure'a katmanlı, birim boş alanı %20 bir sunucu uç noktası olan bir birim üzerinde ayarlanır, Yukarı 80 oranında birim alanı tarafından kullanılıyor. Birim boş alanı birim düzeyinde yerine tek tek dizinleri veya eşitleme grubu düzeyinde uygulanır. 
+
+<a id="volume-free-space-fastdr"></a>
+### <a name="how-does-the-volume-free-space-tiering-policy-work-with-regards-to-new-server-endpoints"></a>Birim boş alanı katmanlama ilkesini, yeni sunucu uç noktaları bakımından nasıl çalışır?
+Sunucu uç noktası yeni sağlanır ve bir Azure dosya paylaşımına bağlı sunucu önce ad alanı çeker ve birim boş alanı eşiğini İsabetleri kadar ardından gerçek dosyaları çeker. Bu işlem de hızlı bir olağanüstü durum kurtarma veya hızlı ad alanı geri yükleme denir.
+
+<a id="afs-effective-vfs"></a>
+### <a name="how-is-volume-free-space-interpreted-when-i-have-multiple-server-endpoints-on-a-volume"></a>Birden çok sunucu uç noktaları bir birimde olduğunda birim boş alanı nasıl yorumlanacağını?
+Bir birimde birden fazla sunucu uç noktası olduğunda, geçerli toplu boş alan eşik o birimdeki tüm sunucu uç noktası üzerinden belirtilen en büyük birim boş alanı olur. Kullanım düzenlerini göre ait oldukları hangi sunucu uç noktası bağımsız olarak dosya katmanlanmış olmaz. Bir birimde, bitiş noktası 1 ve Endpoint2, iki sunucu uç noktaları varsa, örneğin, burada bitiş noktası 1 birim boş alanı eşik % 25 varsa ve Endpoint2 birimi boş alan eşiği % 50, her iki sunucu uç noktaları için birim boş alan eşik % 50 olacaktır. 
+
+<a id="volume-free-space-guidelines"></a>
+### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Uygun birim boş alanı miktarını nasıl belirlerim?
+Yerel tutmak veri miktarı bazı faktörler tarafından belirlenir: bant genişliğiniz, kümenizin erişim düzeni ve bütçenizi. Düşük bant genişlikli bağlantı varsa, verilerinizin daha fazla kullanıcılarınız için en az bir gecikme var. olmak yerel tutmak isteyebilirsiniz. Aksi takdirde, bu değişim sıklığı oranı belirli bir süre boyunca temel alabilir. Yaklaşık 1 TB veri kümesi değişikliklerinizi %10 bilmiyorsanız veya 100 GB yerel tutmak isteyebileceğiniz sonra her ay etkin olarak erişilen Örneğin, bu nedenle, sık dosyaları geri çağırma değil. Toplu 2 TB'dir sonra %5 tutmak isteyeceksiniz (veya 100 GB), kalan anlamına gelir % 95, birim boş alan yüzdesi yereldir. Ancak, daha yüksek değişim sıklığı – süreleri için hesap için bir arabellek eklediğiniz diğer bir deyişle, daha düşük bir birim boş alan yüzdesi ile başlayan ve daha sonra gerekirse ayarlama öneririz. 
+
+Daha fazla veri yerel tutarak Azure'dan daha az dosya çekilmesine daha düşük kullanım maliyetleri anlamına gelir, ancak kendi maliyetlerine şirket içi depolama, daha büyük bir miktarını korumak gerektirir. Azure dosya eşitleme dağıtılan örneğini oluşturduktan sonra birim boş alanı ayarlarınızı kullanımınız için uygun olup olmadığını kabaca ölçmek için depolama hesabınızın çıkış göz atabilirsiniz. Yalnızca, Azure dosya eşitleme bulut uç noktası (diğer bir deyişle, eşitleme paylaşımı) içeren depolama hesabını varsayılarak ve çok sayıda dosya buluttan geri yüklenir ve yerel önbelleğinizi artırmayı denemelisiniz yüksek çıkış anlamına gelir.
+
+<a id="is-my-file-tiered"></a>
+### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>Bir dosya katmanlanmış olup olmadığını nasıl anlayabilirim?
+Azure dosya paylaşımınıza dosya katmanlanmış olup olmadığını denetlemek için birkaç yolu vardır:
+    
+   *  **Dosyanın dosya özniteliklerini denetleyin.**
+     Bir dosyaya sağ tıklayın, Git **ayrıntıları**, ardından ekranı aşağı kaydırarak **öznitelikleri** özelliği. Katmanlanmış bir dosya kümesi öznitelikleri şunlardır:     
+        
+        | Öznitelik harf | Öznitelik | Tanım |
+        |:----------------:|-----------|------------|
+        | A | Arşiv | Yedekleme yazılımı ile dosya yedeklenmeli gösterir. Bu öznitelik her zaman, dosyanın veya katmanlı tam olarak diskte depolanan bağımsız olarak ayarlanır. |
+        | P | Seyrek dosya | Dosyası seyrek dosya olduğunu gösterir. Dosyanın disk akışında çoğunlukla boş olduğunda seyrek dosya NTFS sunan dosyasının verimli kullanım için özel bir türdür. Bir dosya katmanlı tamamen veya kısmen geri olmadığından azure dosya eşitleme seyrek dosyaları kullanır. Tam olarak katmanlı bir dosyada dosya akışı bulutta depolanır. Bir geri çekilen kısmen dosyasında, bu dosya zaten disk üzerinde parçasıdır. Tam olarak bir dosya ise, diske geri, Azure dosya eşitleme, bir seyrek dosyasından normal bir dosyaya dönüştürür. |
+        | L | Yeniden ayrıştırma noktası | Dosyayı yeniden ayrıştırma noktası olduğunu gösterir. Bir dosya sistemi Filtresi tarafından kullanılmak üzere özel bir işaretçi bir ayrıştırma noktasıdır. Azure dosya eşitleme yeniden ayrıştırma noktalarını Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyanın depolandığı konumun bulut tanımlamak için kullanır. Bu, sorunsuz erişim destekler. Kullanıcılar Azure dosya eşitleme kullanılmakta olduğunu bilmek ihtiyacınız olmaz veya dosyanın Azure dosya paylaşımınızdaki erişim elde etmek. Bir dosyanın tam olarak çağrılır, Azure dosya eşitleme yeniden ayrıştırma noktası dosyasından kaldırır. |
+        | O | Çevrimdışı | Dosyanın içeriğini hepsinde veya diske depolanmış değil gösterir. Azure dosya eşitleme, bir dosyanın tam olarak çağrılır, bu öznitelik kaldırır. |
+
+        ![Ayrıntılar sekmesi seçili bir dosya için özellikleri iletişim kutusu](media/storage-files-faq/azure-file-sync-file-attributes.png)
+        
+        Bir klasördeki tüm dosyaları için öznitelikleri ekleyerek gördüğünüz **öznitelikleri** dosya Gezgini'nde tablo görüntülenmesini alanı. Bunu yapmak için üzerinde var olan bir sütuna sağ tıklayın (örneğin, **boyutu**) seçeneğini **daha fazla**ve ardından **öznitelikleri** aşağı açılan listeden.
+        
+   * **Kullanım `fsutil` bir dosyayı yeniden ayrıştırma noktalarında denetlemek için.**
+       Önceki seçeneği açıklandığı gibi bir katmanlı dosya her zaman bir yeniden ayrıştırma noktası kümesi vardır. Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) için özel bir işaretçi bir yeniden ayrıştırma işaretçisidir. Bir dosya, yükseltilmiş bir komut istemi veya PowerShell penceresinde bir yeniden ayrıştırma noktası olup olmadığını denetlemek için çalıştırın `fsutil` yardımcı programı:
+    
+        ```PowerShell
+        fsutil reparsepoint query <your-file-name>
+        ```
+
+        Dosyayı yeniden ayrıştırma noktası varsa, neleri bekleyebileceğiniz **yeniden ayrıştırma etiket değeri: 0x8000001e**. Bu onaltılık değer Azure dosya eşitleme tarafından sahip olunan yeniden ayrıştırma noktası değerdir. Çıktı, Azure dosya paylaşımınızı onedrive'daki dosyanızda yolunu temsil ettiği yeniden ayrıştırma verilerini de içerir.
+
+        > [!WARNING]  
+        > `fsutil reparsepoint` Yardımcı programı komut ayrıca bir yeniden ayrıştırma noktası silme özelliğine sahiptir. Azure dosya eşitleme mühendislik ekibi isteyen sürece bu komutu yürütmek değil. Bu komutu çalıştırmak, veri kaybına neden. 
+
+<a id="afs-recall-file"></a>
+
+### <a name="a-file-i-want-to-use-has-been-tiered-how-can-i-recall-the-file-to-disk-to-use-it-locally"></a>Kullanmak istediğiniz bir dosya katmanlı. Yerel olarak kullanabilmek için diskten dosyasına nasıl geri çağırma?
+Bir dosyayı diske geri çekmek için en kolay yolu, dosya açmaktır. Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyanın Azure dosya paylaşımınızı sizin herhangi bir çalışma yapmadan sorunsuz bir şekilde indirir. Kısmen olabilir dosya türleri için okuma, bir dosyayı açmayı multimedya veya .zip dosyası gibi tüm dosya indirilmedi.
+
+Bir dosya çağrılmaya zorlamak için PowerShell de kullanabilirsiniz. Bu seçenek, bir klasördeki tüm dosyaları gibi birden çok dosyayı aynı anda geri çekmek istiyorsanız yararlı olabilir. Azure dosya eşitleme'nın yüklendiği sunucu düğümü için bir PowerShell oturumu açın ve sonra aşağıdaki PowerShell komutlarını çalıştırın:
+    
+    ```PowerShell
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+    Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
+    ```
+
+<a id="sizeondisk-versus-size"></a>
+### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Neden olmayan *disk boyutu* özelliği için bir dosya eşleşmesi *boyutu* Azure dosya eşitleme kullandıktan sonra özellik? 
+Windows dosya Gezgini'nde, bir dosyanın boyutunu göstermek için iki özellik sunar: **boyutu** ve **disk boyutu**. Bu özellikler, farenizin anlamları farklılık gösterir. **Boyutu** dosyasının tam boyutunu temsil eder. **Disk boyutu** diskte depolanan dosya akışı boyutunu temsil eder. Bu özelliklerin değerleri için çeşitli nedenlerle, sıkıştırma gibi farklı, yinelenen verileri kaldırma kullanın veya Bulut katmanlaması Azure dosya eşitleme ile. Bir dosya, bir Azure dosya paylaşımına katmanlı, Azure dosya paylaşımınızı ve diskteki dosya akışı depolandığı için disk boyutu sıfır olur. Bir dosya kısmen katmanlı (veya kısmen yükümlülüğümüz) olmasını da mümkündür. Kısmen katmanlı dosyasında, dosyanın disk üzerinde parçasıdır. Dosyaları kısmen multimedya oynatıcıları gibi uygulamalar tarafından okunur veya yardımcı programlarını zip olduğunda bu durum oluşabilir. 
+
+<a id="afs-force-tiering"></a>
+### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Bir dosya veya dizin katmanlanmış nasıl zorlarım?
+Bulut katmanlama özelliği etkinleştirilmişse, bu bulut katmanları dosyaları otomatik olarak katmanlama son erişimini ve bulut uç noktada belirtilen birim boş alanı yüzde elde etmek için bir kez değiştirin. Bazı durumlarda, yine de el ile bir dosya katmanı zorlamak isteyebilirsiniz. Bu uzun bir süredir yeniden kullanmayı düşünmüyorsanız büyük bir dosya kaydetmeniz halinde kullanışlı olabilir ve diğer dosyalar ve klasörler için kullanılacak toplu artık boş alan istediğiniz. Aşağıdaki PowerShell komutlarını kullanarak katmanlama zorlayabilirsiniz:
+
+    ```PowerShell
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+    Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
+    ```
+
+## <a name="next-steps"></a>Sonraki Adımlar
+* [Bir Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md)
