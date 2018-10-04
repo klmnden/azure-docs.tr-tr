@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 0e16ec765ae3cbef8a941f43a149428ffdf5bd8d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a82472ccd5524e7cbe3d92070a6d2b583d8eb4d5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181806"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249307"
 ---
 # <a name="bake-acoustics"></a>Akustik hazırlama
 
@@ -199,15 +199,19 @@ Bu basit görünebilir, ancak birçok etkilerinin akustik benzetim vardır:
 1. Bu sayfasını getirmek için kullanılan hazırlama için sekmesinde düğme.
 2. Kısa bir açıklamasını bu sayfada yapmanız gerekenler.
 3. Azure hesabınız oluşturulduktan sonra Azure kimlik bilgilerinizi girmek için alanlar. Daha fazla bilgi için [bir Azure Batch hesabı oluşturma](create-azure-account.md).
-4. Azure batch işlem düğümü türü hesaplama için kullanılacak. Düğüm türü, Azure veri merkezi konumu tarafından desteklenmesi gerekir. Emin değilim, tutulacaksa **işler için standart_f8**.
-5. Bu hesaplama için kullanmak için düğüm sayısı. Buraya girdiğiniz numara, Azure Batch çekirdek ayırma ile sınırlıdır ve hazırlama tamamlanma süresi etkiler. Varsayılan ayırma yalnızca iki 8 çekirdek düğümleri veya bir 16 çekirdek düğümü sağlar, ancak genişletilebilir. Çekirdek ayırma kısıtlamaları hakkında daha fazla bilgi için bkz. [bir Azure Batch hesabı oluşturma](create-azure-account.md).
-6. Sahneniz hesaplanır olarak için yoklama sayısı **araştırmaları** sekmesi. Yoklama sayısını bulutta çalıştırılması gereken simülasyonlar sayısını belirler. Araştırmalar sayısından daha fazla düğüm belirtemezsiniz.
-7. İşinizi bulutta çalıştırmak için için beklenen süre miktarı. Bu düğümü başlangıç süresini içermez. İş çalışmaya başladıktan sonra sonuçlar ulaşırsınız önce hakkında ne kadar süreyle olmalıdır budur. Bu yalnızca bir tahmin olduğunu unutmayın.
-8. Simülasyonlar çalıştırılması için gereken bilgi işlem zamanı toplam miktarı. Toplam süre Azure'da kullanılacak düğümü işlem budur. Bkz: [Estimating hazırlama maliyet](#Estimating-bake-cost) aşağıda bu değeri kullanma hakkında daha fazla bilgi için.
-9. Bu ileti, iş tamamlandığında hazırlama sonuçlarını kaydedileceği bildirir.
-10. (Yalnızca Gelişmiş kullanım) Bir hazırlama hakkında unutmak çok Unity zorlamak için gereksinim duyduğunuz herhangi bir nedenle gönderilmesi durumunda (örneğin başka bir makineyi kullanmayı sonuçları yüklenir), tıklayın **Temizle durumu** gönderilen işiyle ilgili unutmak çok düğmesi. Bu sonuç dosyası, hazır olduğunuzda anlamına gelir, olur **değil** indirebilir, ve **bu işi iptal ediliyor dosyasındakiyle aynı olmaması**. İşi çalışıyorsa, bulutta çalışmaya devam eder.
-11. Buluta hazırlama göndermek için hazırlama düğmesine tıklayın. Bir iş çalışırken bu gösterir **işi iptal et** yerine.
-12. Bu alan hazırlama durumunu gösterir. Tamamlandığında, göstermelidir **yüklenen**.
+4. Akustik araç takımı için docker görüntü etiketi.
+5. Aboneliklerinizi yönetin, kullanımını izlemek ve faturalandırma bilgileri vb. görüntülemek için Azure portalını başlatın. 
+6. Azure batch işlem düğümü türü hesaplama için kullanılacak. Düğüm türü, Azure veri merkezi konumu tarafından desteklenmesi gerekir. Emin değilim, tutulacaksa **Standard_F8s_v2**.
+7. Bu hesaplama için kullanmak için düğüm sayısı. Buraya girdiğiniz numara, Azure Batch çekirdek ayırma ile sınırlıdır ve hazırlama tamamlanma süresi etkiler. Varsayılan ayırma yalnızca iki 8 çekirdek düğümleri veya bir 16 çekirdek düğümü sağlar, ancak genişletilebilir. Çekirdek ayırma kısıtlamaları hakkında daha fazla bilgi için bkz. [bir Azure Batch hesabı oluşturma](create-azure-account.md).
+8. Kullanılacak işlem havuzunuzu yapılandırmak için bu onay kutusunu seçin [düşük öncelikli düğümler](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Düşük öncelikli işlem düğümleri çok daha düşük bir maliyet vardır ancak bunlar her zaman kullanılabilir olmayabilir veya hiçbir zaman etkisiz hale getirilebilir.
+9. Sahneniz hesaplanır olarak için yoklama sayısı **araştırmaları** sekmesi. Yoklama sayısını bulutta çalıştırılması gereken simülasyonlar sayısını belirler. Araştırmalar sayısından daha fazla düğüm belirtemezsiniz.
+10. İşinizi bulutta çalıştırmak için için beklenen süre miktarı. Bu düğümü başlangıç süresini içermez. İş çalışmaya başladıktan sonra sonuçlar ulaşırsınız önce hakkında ne kadar süreyle olmalıdır budur. Bu yalnızca bir tahmin olduğunu unutmayın.
+11. Simülasyonlar çalıştırılması için gereken bilgi işlem zamanı toplam miktarı. Toplam süre Azure'da kullanılacak düğümü işlem budur. Bkz: [Estimating hazırlama maliyet](#Estimating-bake-cost) aşağıda bu değeri kullanma hakkında daha fazla bilgi için.
+12. Bu ileti, iş tamamlandığında hazırlama sonuçlarını kaydedileceği bildirir.
+13. (Yalnızca Gelişmiş kullanım) Bir hazırlama hakkında unutmak çok Unity zorlamak için gereksinim duyduğunuz herhangi bir nedenle gönderilmesi durumunda (örneğin başka bir makineyi kullanmayı sonuçları yüklenir), tıklayın **Temizle durumu** gönderilen işiyle ilgili unutmak çok düğmesi. Bu sonuç dosyası, hazır olduğunuzda anlamına gelir, olur **değil** indirebilir, ve **bu işi iptal ediliyor dosyasındakiyle aynı olmaması**. İşi çalışıyorsa, bulutta çalışmaya devam eder.
+14. Buluta hazırlama göndermek için hazırlama düğmesine tıklayın. Bir iş çalışırken bu gösterir **işi iptal et** yerine.
+15. Yerel makine üzerinde akustik benzetim işlemek için hazırlar. Bkz: [yerel hazırlama](#Local-bake) daha fazla bilgi için.  
+16. Bu alan hazırlama durumunu gösterir. Tamamlandığında, göstermelidir **yüklenen**.
 
 Her zaman etkin işler, işlem havuzlarını ve depolama alanı ile ilgili eksiksiz bilgi alabileceğiniz [Azure portalı](https://portal.azure.com).
 
@@ -217,13 +221,34 @@ Bir hazırlama başladıktan sonra Unity kapatabilirsiniz. Bir bulut hazırlama,
 
 Azure kimlik bilgileri yerel makinenize güvenli bir şekilde depolanır ve Unity editor'ınızdaki ile ilişkili. Bunlar, yalnızca Azure güvenli bir bağlantı kurmak için kullanılır.
 
-### <a name="Estimating-bake-cost"></a> Hazırlama maliyet tahmini
+### <a name="Estimating-bake-cost"></a> Azure hazırlama maliyet tahmini
 
-Ne verilen hazırlama maliyetini tahmin etmek için gösterilen değer ele **işlem maliyeti tahmini**bir süresi olan ve birden çok kez tarafından saatlik maliyet yerel para **VM düğüm türü** seçtiniz. Düğümleri duruma getirmek için gereken ve çalışan düğümü zaman sonucu dahil edilmez. Örneğin, **işler için standart_f8** düğüm türünüz için olan 0,75 $/ SA maliyeti ve işlem tahmini maliyeti 3 saat 57 dakika, işi çalıştırmak için tahmini maliyeti $0,75 * ~ 4 saat olacak = ~ $3.00. Gerçek maliyet büyük olasılıkla çalışmaya düğümleri almak için ek süreyi nedeniyle biraz daha yüksek olacaktır. Maliyeti saatlik düğümü bulabilirsiniz [Azure Batch fiyatlandırması](https://azure.microsoft.com/pricing/details/virtual-machines/linux) sayfası ("select işlem için iyileştirilmiş" veya "yüksek performanslı işlem" kategorisi için).
+Ne verilen hazırlama maliyetini tahmin etmek için gösterilen değer ele **işlem maliyeti tahmini**bir süresi olan ve birden çok kez tarafından saatlik maliyet yerel para **VM düğüm türü** seçtiniz. Düğümleri duruma getirmek için gereken ve çalışan düğümü zaman sonucu dahil edilmez. Örneğin, **Standard_F8s_v2** düğüm türünüz için olan 0.40 $/ SA maliyeti ve işlem tahmini maliyeti 3 saat 57 dakika, işi çalıştırmak için tahmini maliyeti $0.40 * ~ 4 saat olacak = ~ 1,60$. Gerçek maliyet büyük olasılıkla çalışmaya düğümleri almak için ek süreyi nedeniyle biraz daha yüksek olacaktır. Maliyeti saatlik düğümü bulabilirsiniz [Azure Batch fiyatlandırması](https://azure.microsoft.com/pricing/details/virtual-machines/linux) sayfası ("select işlem için iyileştirilmiş" veya "yüksek performanslı işlem" kategorisi için).
 
 ### <a name="reviewing-the-bake-results"></a>Hazırlama sonuçlarını gözden geçirme
 
 Hazırlama işlemi tamamlandıktan sonra çalışma zamanı eklentisi çalıştırarak voxels ve araştırma noktaları beklenen konumlarına olduğunu kontrol edin. Daha fazla bilgi yer [tasarım işlemine genel bakış için akustik](design-process.md).
+
+## <a name="Local-bake"></a>Yerel bir hazırlama
+Yerel bir hazırlama akustik simülasyonu Azure Batch işlem kümesine boşaltma yerine kendi yerel bilgisayarda çalıştırır. Bu, bir Azure aboneliği ancak akustik benzetimi işlem bakımından yoğun ve simülasyon yapılandırma Sahne boyutuna bağlı olarak uzun zaman alabilir Not gerek kalmadan akustik ile denemek için iyi bir seçenek olabilir ve ham işleme makine bilgi işlem gücü.
+
+### <a name="minimum-hardware-requirements"></a>En düşük donanım gereksinimleri
+en az 8 çekirdek ve 32 GB RAM veya üzerinin 64 bit Intel işlemci.
+
+Örneğin, 8 çekirdek makineye sahip Intel Xeon E5-1660 @ 3 GHz ve 32 GB bellek-
+* 100 araştırmaları ile küçük Sahne yaklaşık 2 saat kaba bir hazırlama ve ince çözümleme hazırlama için yaklaşık 32 saat sürer.
+* Daha büyük Sahne 1000 araştırmaları ile en fazla yaklaşık 20 saat kaba bir çözüm için ve bir ayrıntılı çözümleme hazırlama için ~ 21 gün sürebilir.
+
+### <a name="setup-docker"></a>Docker Kurulumu
+Yükleme ve Docker benzetim işleyen bilgisayarda yapılandırma-
+1. Yükleme [Docker araç takımı](https://www.docker.com/products/docker-desktop).
+2. Docker ayarları başlatın, "Gelişmiş" seçeneğine gidin ve kaynakları aşağıda gösterildiği gibi yapılandırın. ![Docker kaynakları](media/DockerSettings.png)
+3. "Sürücüleri paylaşılan" seçeneğine gidin ve işleme için kullanılan sürücü için paylaşımı etkinleştirin.![DockerDriveSharing](media/DockerSharedDrives.png)
+
+### <a name="run-local-bake"></a>Yerel çalışma hazırlama
+1. Hazırlama sekmesinde "Hazırlama yerel Hazırlama" düğmesine tıklayın ve girdi dosyalarını ve yürütme komut dosyalarının kaydedileceği klasörü seçin. Ardından hazırlama en düşük donanım gereksinimlerini karşıladığından ve bu makineye klasörüne kopyalayarak Docker yüklü olduğu sürece herhangi bir makinede çalıştırabilirsiniz.
+2. Proje akustik Docker görüntüsünü simülasyon işlemi için gerekli araç takımıyla getirmek ve benzetimi Başlat "runlocalbake.bat" komut dosyasını kullanarak simülasyon başlatın. 
+3. Benzetim tamamlandıktan sonra elde edilen .ace dosyasını geri Unity projeniz bir Araştırmalarla sekmede belirtilen konuma kopyalayın. Hedef dosya adı için dosya uzantısı ".bytes" ekleyerek Unity'nın gereksinimlerine uyan emin olun. Ayrıntılı günlükler simülasyonu için "AcousticsLog.txt" dosyasında depolanır. Herhangi bir sorunla karşılaşırsanız çalıştırırsanız, tanı koymaya yardımcı olmak için bu dosyayı paylaşın.
 
 ## <a name="Data-Files"></a>Veri dosyaları
 

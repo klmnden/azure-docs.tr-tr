@@ -2,30 +2,29 @@
 title: Azure IOT Hub ve Event Grid | Microsoft Docs
 description: IOT Hub'ında gerçekleşen Eylemler göre süreçlerini tetiklemek için Azure Event grid'i kullanın.
 author: kgremban
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 3c12e98137f44ac094adaae282b5d56d30061e60
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 14bdbb5d629cb5a3fccd6f874e30ded0648e0124
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719860"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249477"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Tetikleyici eylemlere Event Grid kullanarak IOT Hub olaylarına tepki verme
 
 Olay bildirimleri diğer hizmetlere gönderin ve aşağı akış süreçlerini tetiklemek, azure IOT hub'ı Azure Event Grid ile tümleşir. İş uygulamalarınızı önemli olaylara güvenilir, ölçeklenebilir ve güvenli bir şekilde tepki verebilir böylece IOT Hub olaylarını dinlemek için yapılandırın. Örneğin, bir veritabanını güncelleştirmek, bilet oluşturma ve IOT hub'ınıza her yeni bir IOT cihazı kaydedildiğinde bir e-posta bildirimi göndermeye gibi birden fazla eylem gerçekleştirmek için bir uygulama oluşturun. 
 
-[Azure Event Grid] [ lnk-eg-overview] Yayımla kullanan bir tam olarak yönetilen olay yönlendirme hizmetidir-abonelik modeli. Olay kılavuzu gibi Azure Hizmetleri için yerleşik desteği vardır [Azure işlevleri](../azure-functions/functions-overview.md) ve [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)ve olay uyarıları için Web kancalarını kullanan Azure dışı hizmetleri sunabilirsiniz. Event Grid tarafından olay işleyicileri tam bir listesi için bkz. [Azure Event grid'e giriş][lnk-eg-overview]. 
+[Azure Event Grid](../event-grid/overview.md) Yayımla kullanan bir tam olarak yönetilen olay yönlendirme hizmetidir-abonelik modeli. Olay kılavuzu gibi Azure Hizmetleri için yerleşik desteği vardır [Azure işlevleri](../azure-functions/functions-overview.md) ve [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)ve olay uyarıları için Web kancalarını kullanan Azure dışı hizmetleri sunabilirsiniz. Event Grid tarafından olay işleyicileri tam bir listesi için bkz. [Azure Event grid'e giriş](../event-grid/overview.md). 
 
 ![Azure Event Grid mimarisi](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
 ## <a name="regional-availability"></a>Bölgesel kullanılabilirlik
 
-Event Grid tümleştirmesi, Event Grid desteklendiği bölgede bulunan IOT hub'ları için kullanılabilir. En son bölgelerin listesi için bkz. [Azure Event grid'e giriş][lnk-eg-overview]. 
+Event Grid tümleştirmesi, Event Grid desteklendiği bölgede bulunan IOT hub'ları için kullanılabilir. En son bölgelerin listesi için bkz. [Azure Event grid'e giriş](../event-grid/overview.md). 
 
 ## <a name="event-types"></a>Olay türleri
 
@@ -132,23 +131,23 @@ devices/{deviceId}
 ```
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Bağlı cihaz ve cihaz sınırlamaları olayları bağlantısı kesildi
 
-Bağlı cihaz ve cihaz bağlantısı etkinlikleri almak için cihazınız için D2C veya C2D bağlantısı açmalısınız. Cihazınızı MQTT protokolünü kullanıyorsanız, IOT Hub bağlantısını açmak C2D tutar. İçin AMQP çağırarak C2D bağlantıyı açabilirsiniz [alma zaman uyumsuz API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). Telemetri gönderiyorsanız D2C bağlantı açıktır. Cihaz bağlantı titremeyi, yani cihazın kurulup kesildiğinde sık, her tek bağlantı göndermezler durum ancak anlık görüntüyle alınan dakikada bağlantı durumuna yayımlar. Kesinti bittikten hemen sonra IOT hub'ı kesinti olması durumunda, cihaz bağlantı durumu yayımlarız. Cihaz bu kesinti sırasında kesilirse, cihaz bağlantısı kesilmiş olay 10 dakika içinde yayımlanır.
+Bağlı cihaz ve cihaz bağlantısı etkinlikleri almak için cihazınız için D2C veya C2D bağlantısı açmalısınız. Cihazınızı MQTT protokolünü kullanıyorsanız, IOT Hub bağlantısını açmak C2D tutar. İçin AMQP çağırarak C2D bağlantıyı açabilirsiniz [alma zaman uyumsuz API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
+
+Telemetri gönderiyorsanız D2C bağlantı açıktır. Cihaz bağlantı titremeyi, yani cihazın kurulup kesildiğinde sık, her tek bağlantı göndermezler durum ancak anlık görüntüyle alınan dakikada bağlantı durumuna yayımlar. Kesinti bittikten hemen sonra IOT hub'ı kesinti olması durumunda, cihaz bağlantı durumu yayımlarız. Cihaz bu kesinti sırasında kesilirse, cihaz bağlantısı kesilmiş olay 10 dakika içinde yayımlanır.
 
 ## <a name="tips-for-consuming-events"></a>Olayları için ipuçları
 
 IOT Hub olaylarını işlemek uygulamalar bu önerilen uygulamaları izlemelisiniz:
 
 * Olayları belirli bir kaynaktan olduğunu varsayar değil önemlidir birden çok abonelik aynı olay işleyicisi, rota olayları için yapılandırılabilir. Her zaman beklediğiniz IOT hub'dan geldiğinden emin olmak için mesajı konusuna bakın. 
+
 * Aldığınız tüm olayların beklediğiniz türleri olduğunu varsaymayın. EventType iletiyi işlemeyi önce her zaman denetleyin.
+
 * İletiler sıralamaya veya farklı bir gecikmeden sonra geldiğinde. Etag alanı bilgilerinizi nesneler hakkında güncel olup olmadığını anlamak için kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [IOT Hub olaylarını öğreticisini deneyin](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* [Cihazla bağlantılı ve bağlantısız olayları nasıl sıralayacağınızı öğrenin](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
-* [Event Grid hakkında daha fazla bilgi edinin][lnk-eg-overview]
-* [IOT Hub olaylarını yönlendirme iletileri arasındaki farkları karşılaştırın][lnk-eg-compare]
-
-<!-- Links -->
-[lnk-eg-overview]: ../event-grid/overview.md
-[lnk-eg-compare]: iot-hub-event-grid-routing-comparison.md
+* [Cihazla bağlantılı ve bağlantısız olayları nasıl sıralayacağınızı öğrenin](iot-hub-how-to-order-connection-state-events.md)
+* [Event Grid hakkında daha fazla bilgi edinin](../event-grid/overview.md)
+* [IOT Hub olaylarını yönlendirme iletileri arasındaki farkları karşılaştırın](iot-hub-event-grid-routing-comparison.md)

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171444"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248390"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>İletişim kutuları bir konuşma Öğrenici modelde günlüğe kaydetme hakkında
 
@@ -76,7 +76,7 @@ Artık iki eylem var.
 
 Başka bir örnek iletişim ekleyin:
 
-1. Yeni Eylem ve ardından yeni Train iletişim tıklayın.
+1. Train iletişim kutuları ve ardından yeni Train iletişim tıklayın.
 2. 'Seattle hava durumu nedir?' yazın. Varlık olarak etiketlenmiş Seattle dikkat edin.
 5. Puan Eylemler 
 6. 'Hava durumu $city, büyük olasılıkla güneşli ' seçin.
@@ -86,7 +86,7 @@ Başka bir örnek iletişim ekleyin:
 Şimdi Biz bu bot kullanıcılara dağıttığınızdan düşünün.
 
 1. Günlük iletişim kutuları'a tıklayın.
-2. Yeni bir sohbet oturumu tıklayın.
+2. Yeni günlük iletişim tıklayın.
     - Kullanıcı kullanıcı arabiriminin sol taraftaki web Sohbeti denetimi olarak deneyimleyeceği gibi bu bot sunar. Sağ taraftaki boşluk alan yoksayabilirsiniz.
 3. 'Hello' yazın.
 4. Bot yanıt: "hangi city?"
@@ -97,10 +97,10 @@ Başka bir örnek iletişim ekleyin:
 
 Yeni bir oturum başlayalım:
 
-2. Yeni bir sohbet oturumu tıklayın.
+2. Yeni günlük iletişim tıklayın.
 3. 'Boston için tahmin' türü.
 4. Bot yanıt: "hangi city?"
-2. Öğretim Bitti'ye tıklayın.
+2. Yapılan test tıklayın.
 
 Şimdi ikinci iletişim düzeltmeleri olalım:
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: 3242f683fd6190209e3395bd8410dd1b2cd36960
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: bc322857a459f9417ed7c89a6e4df7ce5c41c3f0
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043361"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246490"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Yük Dengeleme (Önizleme) salt okunur sorgu iş yükleri için salt okunur çoğaltmalar kullanın
 
@@ -75,7 +75,11 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 > [!NOTE]
 > Belirli bir zamanda tek AlwaysON çoğaltmalarının salt okunur oturumları tarafından erişilebilir.
 
-## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Enable ve disable okuma Azure PowerShell kullanarak ölçeklendirme
+## <a name="enable-and-disable-read-scale-out"></a>Enable ve disable okuma ölçeği genişletme
+
+Okuma ölçeği genişletme, varsayılan olarak etkindir [yönetilen örneği](sql-database-managed-instance.md) iş açısından kritik tier(Preview). İçinde açıkça etkinleştirilmelidir [veritabanı mantıksal sunucusuna yerleştirilen](sql-database-logical-servers.md) Premium ve iş açısından kritik katmanları. Okuma ölçeği genişletme devre dışı bırakma ve etkinleştirme yöntemlerini burada açıklanmıştır. 
+
+### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Enable ve disable okuma Azure PowerShell kullanarak ölçeklendirme
 
 Azure PowerShell'de okuma ölçeği genişletilmiş yönetmek, aralık 2016 gerektirir Azure PowerShell sürümü veya daha yeni. En yeni PowerShell sürümüyle bkz [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -99,7 +103,7 @@ Okuma ölçeği genişletme ile yeni bir veritabanı oluşturmak için (açılı
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-## <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Azure SQL veritabanı REST API'sini kullanarak okuma genişleme devre dışı bırakma ve etkinleştirme
+### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Azure SQL veritabanı REST API'sini kullanarak okuma genişleme devre dışı bırakma ve etkinleştirme
 
 Okuma etkin ölçeklendirme ile veritabanı oluşturma veya etkinleştirmek veya mevcut bir veritabanı için okuma genişleme devre dışı bırakmak için oluşturma veya karşılık gelen veritabanı varlığı ile güncelleştirme `readScale` özelliğini `Enabled` veya `Disabled` olarak örnek aşağıda İstek.
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 446268f28e7c87196023636889f03be2da92ecfd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967651"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269403"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici günlüklerinden sorgulama
 VM'ler için Azure İzleyici, performansı ve bağlantı ölçümler, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Azure İzleyici'de Log Analytics veri deposuna iletir.  Bu veriler için kullanılabilir [arama](../log-analytics/log-analytics-log-searches.md) Log analytics'te. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
@@ -39,7 +39,7 @@ Bağlantı ölçümü, yeni bir Log Analytics - VMConnection tabloya yazılır. 
 
 Bu tablolarındaki kayıtlara bağımlılık aracısı tarafından bildirilen verilerden oluşturulur. Tüm kayıtların bir dakikalık zaman aralığında gözlemi temsil eder. TimeGenerated özelliği zaman aralığını başlangıcını gösterir. Her kayıt, diğer bir deyişle ilgili varlığı tanımlayan bilgiler, bağlantı veya bağlantı noktası yanı sıra söz konusu varlıkla ilişkili ölçümleri içerir. Şu anda, TCP IPv4 kullanarak oluşan ağ etkinliği bildirilir.
 
-Maliyetini ve karmaşıklığını yönetmek için tek bir fiziksel ağ bağlantıları bağlantısı kayıtlarını göstermez. Birden fazla fiziksel ağ bağlantıları, ardından ilgili tablodaki yansıtılır mantıksal bir bağlantı içinde gruplandırılır.  Yani kayıt içinde *VMConnection* mantıksal bir gruplandırmasını ve uyulması gereken değil ayrı ayrı fiziksel bağlantılar tablosunu temsil eder. Aşağıdaki öznitelikler için aynı değeri belirli bir dakikalık bir zaman aralığı boyunca, paylaşımı fiziksel ağ bağlantısı toplu tek bir mantıksal kayıt içine *VMConnection*. 
+Maliyetini ve karmaşıklığını yönetmek için tek bir fiziksel ağ bağlantıları bağlantısı kayıtlarını göstermez. Birden fazla fiziksel ağ bağlantıları, ardından ilgili tablodaki yansıtılır mantıksal bir bağlantı içinde gruplandırılır.  Yani kayıt içinde *VMConnection* mantıksal bir gruplandırmasını ve uyulması gereken değil ayrı ayrı fiziksel bağlantılar tablosunu temsil eder. Aşağıdaki öznitelikler için aynı değeri belirli bir dakikalık aralık sırasında paylaşımı fiziksel ağ bağlantısı tek bir mantıksal kayıt içine toplanan *VMConnection*. 
 
 | Özellik | Açıklama |
 |:--|:--|
@@ -69,9 +69,9 @@ Bağlantı sayısı ölçümü yanı sıra alınıp verilen bir mantıksal bağl
 |BytesSent |Raporlama zaman penceresi boyunca gönderilen bayt sayısı |
 |BytesReceived |Raporlama zaman penceresi boyunca alınan bayt sayısı |
 |Yanıtlar |Raporlama zaman penceresi boyunca gözlemlenen yanıtlarının sayısı. 
-|ResponseTimeMax |Raporlama zaman penceresi boyunca gözlemlenen en büyük yanıt süresi (milisaniye).  Değer, boş bir özelliktir.|
-|ResponseTimeMin |Raporlama zaman penceresi boyunca gözlemlenen en küçük yanıt süresi (milisaniye).  Değer, boş bir özelliktir.|
-|ResponseTimeSum |Tüm yanıt süreleri toplamı gözlemlenen Raporlama zaman penceresi boyunca (milisaniye).  Değer, özellik boştur|
+|ResponseTimeMax |Raporlama zaman penceresi boyunca gözlemlenen en büyük yanıt süresi (milisaniye). Değer, boş bir özelliktir.|
+|ResponseTimeMin |Raporlama zaman penceresi boyunca gözlemlenen en küçük yanıt süresi (milisaniye). Değer, boş bir özelliktir.|
+|ResponseTimeSum |Tüm yanıt süreleri toplamı gözlemlenen Raporlama zaman penceresi boyunca (milisaniye). Değer, boş bir özelliktir.|
 
 Yanıt süresi üçüncü bildirilen veri türü, - ne kadar süreyle çağıran işlenmesi ve uzak uç tarafından yanıt için bir bağlantı üzerinden gönderilen bir istek için bekleniyor harcama. Bildirilen yanıt süresi, temel alınan uygulama protokolü doğru yanıt süresinin bir tahmindir. İlk olarak bir fiziksel ağ bağlantısının kaynak ve hedef sonu arasındaki veri akışını göre buluşsal yöntemler kullanılarak hesaplanır. Kavramsal olarak, bu son bayt bir isteği gönderen çıkışında ve yanıtın son baytını geri geldiğinde saat arasındaki farktır. Bu iki zaman damgaları, belirli bir fiziksel bağlantı istek ve yanıt olaylarına ayırmak için kullanılır. Aralarındaki fark, tek bir istek yanıt süresini temsil eder. 
 
@@ -93,8 +93,8 @@ Kolaylık olması için bir bağlantı uzak bitiş IP adresi RemoteIp özelliği
 | Özellik | Açıklama |
 |:--|:--|
 |RemoteCountry |RemoteIp barındırma ülke adı.  Örneğin, *Amerika Birleşik Devletleri* |
-|RemoteLatitude |Coğrafi konum enlem.  Örneğin, *47.68* |
-|RemoteLongitude |Coğrafi konum boylam.  Örneğin, *-122.12* |
+|RemoteLatitude |Coğrafi konum enlem. Örneğin, *47.68* |
+|RemoteLongitude |Coğrafi konum boylam. Örneğin, *-122.12* |
 
 #### <a name="malicious-ip"></a>Kötü amaçlı IP
 Her RemoteIp özelliğinde *VMConnection* tablo bilinen kötü amaçlı etkinliği ile bir dizi IP'ler karşı denetlenir. Aşağıdaki özellikler RemoteIp kötü amaçlı olarak tanımlanması durumunda doldurulur (IP kötü amaçlı olarak kabul edilmez, boş oldukları) kaydın aşağıdaki özellikleri:
@@ -102,16 +102,16 @@ Her RemoteIp özelliğinde *VMConnection* tablo bilinen kötü amaçlı etkinli�
 | Özellik | Açıklama |
 |:--|:--|
 |MaliciousIp |Uzak IP adresi |
-|IndicatorThreadType | |
-|Açıklama | |
-|TLPLevel | |
-|Güven | |
-|Severity | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|Isactive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |Algılanan tehdit göstergesidir şu değerlerden birini *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *kötü amaçlı yazılım*, *kimlik avı*, *Proxy*, *PUA*, *İzleme*.   |
+|Açıklama |Gözlemlenen tehdit açıklaması. |
+|TLPLevel |Trafik ışığı Protokolü (TLP) düzeyi tanımlanmış değerlerden biridir *beyaz*, *yeşil*, *Amber*, *kırmızı*. |
+|Güven |Değerler *0-100*. |
+|Severity |Değerler *0 – 5*burada *5* en ciddi ve *0* hiç önemli değil. Varsayılan değer *3*.  |
+|FirstReportedDateTime |İlk kez sağlayıcısı göstergesi bildirdi. |
+|LastReportedDateTime |Son zaman göstergesi tarafından Interflow görüldü. |
+|Isactive |Göstergeleri ile devre dışı gösteren *True* veya *False* değeri. |
+|ReportReferenceLink |Belirli bir observable için ilgili raporları bağlar. |
+|AdditionalInformation |Uygunsa, gözlemlenen tehdit hakkında ek bilgi sağlar. |
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL kayıtları
 Kayıt türü ile *ServiceMapComputer_CL* Envanter verileri için bağımlılık Aracısı'nı sunucularıyla sahip. Bu kayıtlar aşağıdaki tabloda özelliklere sahiptir:
@@ -166,34 +166,34 @@ Kayıt türü ile *ServiceMapProcess_CL* Envanter verileri TCP bağlantılı iş
 ## <a name="sample-log-searches"></a>Örnek günlük aramaları
 
 ### <a name="list-all-known-machines"></a>Bilinen tüm makinelerin listesi
-ServiceMapComputer_CL | Özetleme arg_max(TimeGenerated, *) ResourceId tarafından
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Tüm yönetilen bilgisayarların fiziksel bellek kapasitesi listeleyin.
-ServiceMapComputer_CL | Özetleme arg_max(TimeGenerated, *) ResourceId tarafından | Proje PhysicalMemory_d, ComputerName_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Liste bilgisayar adı, DNS, IP ve işletim sistemi.
-ServiceMapComputer_CL | Özetleme arg_max(TimeGenerated, *) ResourceId tarafından | Proje ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Komut satırında "sql" ile tüm işlemler bulun
-ServiceMapProcess_CL | Burada CommandLine_s contains_cs "sql" | Özetleme arg_max(TimeGenerated, *) ResourceId tarafından
+`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Bir makine (en son kayıt) kaynak adına göre bulma
-(ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" araması | Özetleme arg_max(TimeGenerated, *) ResourceId tarafından
+`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>(En son kayıt) bir makine IP adresine göre Bul
-(ServiceMapComputer_CL) "10.229.243.232" araması | Özetleme arg_max(TimeGenerated, *) ResourceId tarafından
+`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Belirtilen bir makinedeki tüm bilinen işlemlere listesi
-ServiceMapProcess_CL | Burada MachineResourceName_s "m-559dbcd8-3130-454d-8d1d-f624e57961bc" == | Özetleme arg_max(TimeGenerated, *) ResourceId tarafından
+`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-computers-running-sql"></a>SQL çalıştıran tüm bilgisayarları listeleyin
-ServiceMapComputer_CL | Burada ResourceName_s içinde (((ServiceMapProcess_CL) arama "\*sql\*" | farklı MachineResourceName_s)) | ayrı ComputerName_s
+`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Curl my veri merkezinde tüm benzersiz ürün sürümlerini listeleme
-ServiceMapProcess_CL | Burada ExecutableName_s "curl" == | ayrı ProductVersion_s
+`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>CentOS çalıştıran tüm bilgisayarların bir bilgisayar grubu oluşturun
-ServiceMapComputer_CL | Burada OperatingSystemFullName_s contains_cs "CentOS" | ayrı ComputerName_s
+`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Bir gruptaki makinelerin giden bağlantılar özetleme
 ```

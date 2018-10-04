@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: glenga
-ms.openlocfilehash: a601ea42549abad84d6cab5c429cf94147776436
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d4a0d53c3438be9ea4e0229e4a456ed6f5960996
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978633"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249069"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure işlevleri çalışma zamanı sürümleri genel bakış
 
@@ -98,7 +98,7 @@ VS Code için de kullanıcı ayarını güncelleştirmek ihtiyacınız `azureFun
 
 ### <a name="changing-version-of-apps-in-azure"></a>Azure'da uygulama sürümünü değiştirme
 
-Yayımlanan uygulama sürümleri, uygulama ayarı aracılığıyla ayarlanır `FUNCTIONS_RUNTIME_VERSION`.  Bu ayar `~2` v2 uygulamaları için ve `~1` v1 uygulamaları için.  Ayrıca bu işlevlerin kodunu değiştirmeden yayımladığınız mevcut işlevleri olan bir uygulama çalışma zamanı sürümünü değiştirmek için kesinlikle önerilmez.  Yeni bir işlev uygulaması oluşturma ve uygun sürüme ayarlamak, değişiklikleri test etmek ve ardından devre dışı bırakın veya önceki uygulamayı silmek için önerilen yoldur bakın.
+Yayımlanan uygulama sürümleri, uygulama ayarı aracılığıyla ayarlanır `FUNCTIONS_EXTENSION_VERSION`.  Bu ayar `~2` v2 uygulamaları için ve `~1` v1 uygulamaları için.  Ayrıca bu işlevlerin kodunu değiştirmeden yayımladığınız mevcut işlevleri olan bir uygulama çalışma zamanı sürümünü değiştirmek için kesinlikle önerilmez.  Yeni bir işlev uygulaması oluşturma ve uygun sürüme ayarlamak, değişiklikleri test etmek ve ardından devre dışı bırakın veya önceki uygulamayı silmek için önerilen yoldur bakın.
 
 ## <a name="bindings"></a>Bağlamalar 
 

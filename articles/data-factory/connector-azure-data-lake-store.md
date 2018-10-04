@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: d500bc9c910858341d7fdacb4d85bffc8be215e1
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 932ddf5f377556e815205b7ad34a735815317ac0
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338771"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249052"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake depolama Gen1 gelen veya veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Azure Data Lake Store için herhangi bir desteklenen kaynak veri deposundan veri
 
 Özellikle, bu Azure Data Lake Store bağlayıcı'yı destekler:
 
-- Dosyalar kopyalanıyor kullanarak **hizmet sorumlusu** veya **yönetilen hizmet kimliği (MSI)** kimlik doğrulaması.
+- Dosyalar kopyalanıyor kullanarak **hizmet sorumlusu** veya **kimliklerini Azure kaynakları için yönetilen** kimlik doğrulaması.
 - Dosyaları olarak kopyalama- ya da ayrıştırma/oluşturma dosyalarıyla [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md).
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ Azure Data Lake Store bağlı hizmeti için aşağıdaki özellikler desteklenir
 Aşağıdaki bölümlerde daha fazla özellik ve farklı kimlik doğrulama türleri için JSON örneklerini sırasıyla bakın:
 
 - [Hizmet sorumlusu kimlik doğrulaması kullanma](#using-service-principal-authentication)
-- [Yönetilen hizmet kimlik doğrulaması kullanma](#using-managed-service-identity-authentication)
+- [Azure kaynakları ile kimlik doğrulaması için yönetilen kimliklerle](#using-managed-service-identity-authentication)
 
 ### <a name="using-service-principal-authentication"></a>Hizmet sorumlusu kimlik doğrulaması kullanma
 
@@ -114,11 +114,11 @@ Aşağıdaki özellikler desteklenir:
 }
 ```
 
-### <a name="using-managed-service-identity-authentication"></a>Yönetilen hizmet kimlik doğrulaması kullanma
+### <a name="managed-identity"></a> Azure kaynakları ile kimlik doğrulaması için yönetilen kimliklerle
 
-Veri Fabrikası ile ilişkilendirilebilen bir [yönetilen hizmet kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği doğrudan kendi hizmet sorumlusunu kullanmaya benzer Data Lake Store kimlik doğrulaması için de kullanabilirsiniz. Belirlenen Bu fabrika verilerine erişmek ve bunları kopyalamak, Data Lake Store / izin verir.
+Veri Fabrikası ile ilişkilendirilebilen bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği doğrudan kendi hizmet sorumlusunu kullanmaya benzer Data Lake Store kimlik doğrulaması için de kullanabilirsiniz. Belirlenen Bu fabrika verilerine erişmek ve bunları kopyalamak, Data Lake Store / izin verir.
 
-Yönetilen hizmet kimliği (MSI) kimlik doğrulaması kullanmak için:
+Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak için:
 
 1. [Veri Fabrikası hizmet kimliği almak](data-factory-service-identity.md#retrieve-service-identity) "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak.
 2. Hizmet kimlik Data Lake Store için hizmet sorumlusu aşağıdaki notlar için yaptığınız şekilde erişim.

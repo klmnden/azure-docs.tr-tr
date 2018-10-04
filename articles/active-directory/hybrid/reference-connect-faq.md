@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1fb19c7b74d059d83cc5a51a158dcc6ba9bede23
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3cb44779f376dca1844f42f346ed0fa3bfaa93cf
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312224"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269454"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect SSS
 
@@ -47,7 +47,7 @@ Hayır, birden çok bağlayıcı aynı AD etki alanı için desteklenmiyor.
 **Azure AD Connect veritabanını yerel veritabanı uzak bir SQL Server örneğine taşırım miyim?**   
 Evet, aşağıdaki adımlar bunu nasıl genel rehberlik sağlar. Şu anda daha ayrıntılı bir belge üzerinde çalışıyoruz.
 1. LocalDB ADSync veritabanını yedekleyin.
-Bunu yapmanın en kolay yolu, Azure AD Connect ile aynı makinede yüklü SQL Server Management Studio kullanmaktır. Bağlanma *(localdb)\.\ADSync*ve ardından ad eşitleme veritabanını yedekleyin.
+Bunu yapmanın en kolay yolu, Azure AD Connect ile aynı makinede yüklü SQL Server Management Studio kullanmaktır. Bağlanma *(LocalDb). \ADSync*ve ardından ad eşitleme veritabanını yedekleyin.
 
 2. Ad eşitleme veritabanını uzak SQL Server örneğine geri yükleyin.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 1be2d67d8a1ee51c4883ae1f50b80ad3a9691c2d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2291b2429e6c5c25e051c8f3eca30e1cc3f64611
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981976"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247338"
 ---
 # <a name="prepay-for-azure-cosmos-db-resources-with-reserved-capacity"></a>Azure Cosmos DB kaynaklarını için ön ödeme ile ayrılmış kapasite
 
@@ -32,11 +32,11 @@ Azure Cosmos DB ayrılmış kapasite satın alabilirsiniz [Azure portalında](ht
 
 Rezervasyon boyutu toplam mevcut veya yakında-için--dağıtılması Azure Cosmos DB kaynaklar (örneğin, veritabanları ya da kapsayıcıları - koleksiyonlar, tablolar, grafikler) kullanılan aktarım hızı miktarına bağlı olmalıdır. Aşağıdaki yollarla gerekli aktarım hızını belirleyebilirsiniz:
 
-* Gidin [Azure portalı](https://portal.azure.com), Azure Cosmos DB hesabınızı bulun, ölçümler dikey penceresini açın ve ortalama aktarım hızı/sn ayrıntılarını alma **aktarım hızı** 3-6 aylık bir sürede sekmesi. Bu boyut ayrılmış kapasite birimleri satın alırken sağlar.
+* Geçmiş verileri arasında Azure Cosmos DB hesapları, site veritabanları ve koleksiyonlar için sağlanan aktarım tüm bölgelerde alın. Örneğin, günlük kullanım deyimden indirerek günlük ortalama sağlanan aktarım hızı değerlendirilmesi için `https://account.azure.com`
 
-Alternatif olarak, bir Kurumsal Anlaşma (EA) yoksa, kullanım dosyanız indirebilir ve başvurduğu **hizmet türü** değerini **ek bilgi** Azure Cosmos DB almak için kullanım dosyasının işleme ayrıntıları.
+* Alternatif olarak, bir Kurumsal Anlaşma (EA) yoksa, kullanım dosyanız indirebilir ve başvurduğu **hizmet türü** değerini **ek bilgi** Azure Cosmos DB almak için kullanım dosyasının işleme ayrıntıları.
 
-Ayrıca tüm iş yükleri için ortalama aktarım hızı, Azure Cosmos DB hesaplarında sonraki bir veya üç yıl boyunca çalışmasını tahmin ve bu miktar için ayırma kullanın toplamak.
+* Ayrıca tüm iş yükleri için ortalama aktarım hızı, Azure Cosmos DB hesaplarında sonraki bir veya üç yıl boyunca çalışmasını tahmin ve bu miktar için ayırma kullanın toplamak.
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Azure Cosmos DB ayrılmış kapasite satın alın
 

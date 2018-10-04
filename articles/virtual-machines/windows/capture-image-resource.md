@@ -1,6 +1,6 @@
 ---
-title: Yönetilen bir görüntü oluşturma | Microsoft Docs
-description: Genelleştirilmiş bir VM veya VHD yönetilen bir görüntüsünü oluşturma. Görüntüleri yönetilen diskler kullanan birden çok VM oluşturmak için kullanılabilir.
+title: Azure'da yönetilen bir görüntü oluşturma | Microsoft Docs
+description: Azure'da yönetilen genelleştirilmiş bir sanal makine veya VHD görüntüsü oluşturun. Görüntüler, yönetilen diskler kullanan birden çok VM oluşturmak için kullanılabilir.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,66 +13,85 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 4445787fd559c6d0a6dfc891910cb9a139a6907e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ac5ad9d0067205411c56562264aed81f8a5751bc
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31602578"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267462"
 ---
-# <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Yönetilen bir genelleştirilmiş bir VM görüntüsü oluşturma
+# <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure'da bir genelleştirilmiş VM'nin yönetilen görüntüsünü oluşturma
 
-Yönetilen görüntü kaynağı olarak yönetilen bir disk veya yönetilmeyen bir disk depolama hesabında depolanan genelleştirilmiş bir VM oluşturulabilir. Görüntü sonra birden çok VM oluşturmak için kullanılabilir. 
+Yönetilen bir görüntü kaynağı genelleştirilmiş sanal makineden bir yönetilen diskin veya depolama hesabındaki yönetilmeyen disk olarak depolanan (VM) oluşturulabilir. Görüntü daha sonra birden çok VM oluşturmak için kullanılabilir. 
 
-## <a name="generalize-the-windows-vm-using-sysprep"></a>Sysprep kullanarak Windows VM generalize
+## <a name="generalize-the-windows-vm-using-sysprep"></a>Sysprep kullanarak Windows VM'sini genelleştirme
 
-Sysprep tüm kişisel hesap bilgilerinize, başka şeylerin kaldırır ve bir görüntü olarak kullanılacak makine hazırlar. Sysprep hakkında daha fazla ayrıntı için bkz: [kullanım Sysprep nasıl: Giriş](http://technet.microsoft.com/library/bb457073.aspx).
+Sysprep tüm kişisel hesap ve güvenlik bilgilerinizi kaldırır ve ardından bir görüntü olarak kullanılacak makinenin hazırlar. Sysprep hakkında daha fazla bilgi için bkz: [Sysprep genel bakış](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Makinede çalışan sunucu rollerini Sysprep tarafından desteklendiğinden emin olun. Daha fazla bilgi için bkz: [sunucu rolleri için Sysprep desteği](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Makinede çalışan sunucu rollerini Sysprep tarafından desteklendiğinden emin olun. Daha fazla bilgi için [sunucu rolleri için Sysprep Destek](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [!IMPORTANT]
-> Bir VM kabul sysprep çalıştırdıktan sonra *genelleştirilmiş* ve yeniden başlatılamıyor. Bir VM genelleme işlemi ters çevrilebilir değil. VM özgün çalışmasını tutmak gerekiyorsa, almanız gereken bir [VM kopyasını](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) ve kopyayı genelleştirin. 
+> Bir VM'de Sysprep çalıştırdıktan sonra o sanal makine olarak kabul edilir *genelleştirilmiş* ve yeniden başlatılamıyor. VM’yi genelleştirme işlemi geri döndürülemez. Özgün VM çalışmıyor tutmak için ihtiyacınız varsa oluşturmalısınız bir [VM kopyasını](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) ve kendi kopyalama generalize. 
 >
-> Sysprep, VHD Azure'a ilk kez karşıya yüklemeden önce çalıştırıyorsanız olduğundan emin olun [VM'nizi hazırlanmış](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Sysprep çalıştırılmadan önce.  
+> Sanal sabit disk (VHD) Azure'a ilk kez yüklemeden önce Sysprep çalıştırmayı planlıyorsanız, olduğundan emin olun [sanal makinenizin hazır](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 
 > 
 
-1. Windows sanal makinede oturum açın.
-2. Bir yönetici olarak komut istemi penceresi açın. Dizinine değiştirin **%windir%\system32\sysprep**ve ardından çalıştırın `sysprep.exe`.
-3. İçinde **Sistem Hazırlama aracı** iletişim kutusunda **girin sistem Out-of-Box deneyimi (OOBE)**, emin olun **Generalize** onay kutusu seçilidir.
-4. İçinde **kapatma seçenekleri**seçin **kapatma**.
-5. **Tamam**’a tıklayın.
+Windows VM'nizi genelleştirmek için şu adımları izleyin:
+
+1. Windows VM için oturum açın.
+   
+2. Yönetici olarak bir komut istemi penceresi açın. % Windir%\system32\sysprep için dizini değiştirin ve ardından çalıştırın `sysprep.exe`.
+   
+3. İçinde **sistem hazırlığı aracı** iletişim kutusunda **girin sistem kullanıma hazır deneyimi (OOBE)** seçip **Generalize** onay kutusu.
+   
+4. İçin **kapatma seçenekleri**seçin **kapatma**.
+   
+5. **Tamam**’ı seçin.
    
     ![Sysprep Başlat](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Sysprep tamamlandığında, sanal makineyi kapatır. VM yeniden başlatmayın.
+
+6. Sysprep tamamlandığında, VM'yi kapatır. VM yeniden başlatmayın.
 
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Portalda yönetilen bir görüntü oluşturma 
 
-1. Açık [portal](https://portal.azure.com).
-2. Soldaki menüde sanal makineleri tıklayın ve ardından VM listeden seçin.
-3. Sayfa üst menüsünde VM için tıklatın **yakalama**.
-3. İçinde **adı**, görüntü için kullanmak istediğiniz adı yazın.
-4. İçinde **kaynak grubu** ya da seçin **Yeni Oluştur** ve bir ad yazın veya seçin **var olanı kullan** ve aşağı açılan listeden kullanmak için bir kaynak grubu seçin.
-5. Kaynak VM görüntü alındıktan sonra oluşturulan, select silmek istiyorsanız **görüntüsünü oluşturduktan sonra bu sanal makine otomatik olarak Sil**.
-6. İşiniz bittiğinde **Oluştur**’a tıklayın.
-16. Görüntü oluşturulduktan sonra bunu olarak görür bir **görüntü** kaynak kaynak grubundaki kaynaklar listesinde.
+1. [Azure portalı](https://portal.azure.com) açın.
+
+2. Soldaki menüde **sanal makineler** ve ardından listeden VM'yi seçin.
+
+3. İçinde **sanal makine** üst menüsünde, VM için sayfayı seçin **yakalama**.
+
+   **Görüntüsü oluştur** sayfası görüntülenir.
+
+4. İçin **adı**, önceden doldurulmuş adını kabul edin veya görüntüsü için kullanmak istediğiniz bir ad girin.
+
+5. İçin **kaynak grubu**, yi **Yeni Oluştur** ve bir ad girin veya seçin **var olanı kullan** ve açılır listeden kullanılacak bir kaynak grubu seçin.
+
+6. Görüntü alındıktan sonra oluşturulan, select, kaynak VM silmek istiyorsanız **görüntüyü oluşturduktan sonra bu sanal makineyi otomatik olarak Sil**.
+
+7. Görüntü birinde kullanma olanağı istiyorsanız [kullanılabilirlik alanı](../../availability-zones/az-overview.md)seçin **üzerinde** için **bölge dayanıklılığı**.
+
+8. Seçin **Oluştur** görüntüyü oluşturmak için.
+
+9. Görüntü oluşturulduktan sonra olarak bulabilirsiniz bir **görüntü** kaynak kaynak grubundaki kaynaklar listesinde.
 
 
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>Powershell kullanarak bir VM görüntüsü oluşturma
 
-Doğrudan sanal makineden bir görüntü oluşturma görüntünün işletim sistemi diski ve veri diskleri gibi VM ile ilişkili tüm diskleri içeren sağlar. Bu örnek yönetilen disklerde kullanan bir sanal makineden bir yönetilen görüntüsü oluşturulacağını gösterir.
+Doğrudan VM'den görüntü oluşturma, görüntü işletim sistemi diski ve veri diskleri dahil olmak üzere VM ile ilişkili tüm diskleri içerdiğinden sağlar. Bu örnekte, yönetilen diskleri kullanan bir VM'den yönetilen bir görüntü oluşturma işlemi gösterilmektedir.
 
 
-Başlamadan önce AzureRM.Compute PowerShell modülü en son sürümüne sahip olduğunuzdan emin olun. Bu makale Modül sürümü 5.7.0 AzureRM gerektirir veya sonraki bir sürümü. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+Başlamadan önce sürüm 5.7.0 olmalıdır AzureRM.Compute PowerShell modülünün en son sürüm olduğundan emin olun veya üzeri. Sürümü bulmak için çalıştırın `Get-Module -ListAvailable AzureRM.Compute` PowerShell'de. Yükseltmeniz gerekirse bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, çalıştırma `Connect-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
 
 
 > [!NOTE]
-> Görüntünüzü bölge dayanıklı depolamasında istiyorsanız destekleyen bir bölgede oluşturmanıza gerek [kullanılabilirlik bölgeleri](../../availability-zones/az-overview.md) ve dahil `-ZoneResilient` görüntü yapılandırmasında parametre.
+> Görüntünüzü bölgesel olarak yedekli depolamada depolamak istiyorsanız, desteklediği bir bölgede oluşturmanız gerekir [kullanılabilirlik](../../availability-zones/az-overview.md) ve `-ZoneResilient` görüntü yapılandırması parametresinde (`New-AzureRmImageConfig` komutu).
 
+Bir VM görüntüsü oluşturmak için aşağıdaki adımları izleyin:
 
 1. Bazı değişkenler oluşturun.
 
@@ -88,31 +107,32 @@ Başlamadan önce AzureRM.Compute PowerShell modülü en son sürümüne sahip o
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
-3. Sanal makine durumunu ayarlamak **Genelleştirmiş**. 
+3. Sanal makinenin durumunu **Genelleştirmiş**. 
    
     ```azurepowershell-interactive
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
-4. Sanal makine Al. 
+4. Sanal makineyi alın. 
 
     ```azurepowershell-interactive
     $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
     ```
 
-5. Görüntü yapılandırmasını oluşturun.
+5. Görüntü yapılandırması oluşturun.
 
     ```azurepowershell-interactive
-    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.ID 
+    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
     ```
-6. Görüntü oluşturma.
+6. Görüntü oluşturun.
 
     ```azurepowershell-interactive
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
-## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>PowerShell kullanarak yönetilen bir diskten görüntü oluşturma
 
-İşletim sistemi diski olarak yönetilen disk kimliği belirterek, yalnızca işletim sistemi diski görüntüsünü oluşturmak istiyorsanız, bir görüntü oluşturabilirsiniz.
+## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>PowerShell kullanarak bir yönetilen diskten görüntü oluşturma
+
+Yalnızca işletim sistemi disk görüntüsü oluşturmak istiyorsanız, işletim sistemi diski olarak yönetilen diskin Kimliğini belirtin:
 
     
 1. Bazı değişkenler oluşturun. 
@@ -125,35 +145,35 @@ Başlamadan önce AzureRM.Compute PowerShell modülü en son sürümüne sahip o
     $imageName = "myImage"
     ```
 
-2. VM Al
+2. VM Al.
 
    ```azurepowershell-interactive
    $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
    ```
 
-3. Yönetilen disk Kimliğini alın.
+3. Yönetilen diskin Kimliğini alın.
 
     ```azurepowershell-interactive
     $diskID = $vm.StorageProfile.OsDisk.ManagedDisk.Id
     ```
    
-3. Görüntü yapılandırmasını oluşturun.
+3. Görüntü yapılandırması oluşturun.
 
     ```azurepowershell-interactive
     $imageConfig = New-AzureRmImageConfig -Location $location
     $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
     ```
     
-4. Görüntü oluşturma.
+4. Görüntü oluşturun.
 
     ```azurepowershell-interactive
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
-## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Powershell kullanarak bir anlık görüntüden görüntü oluşturma
+## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Powershell kullanarak anlık görüntüden bir görüntü oluşturma
 
-Genelleştirilmiş bir VM'nin bir anlık görüntüden yönetilen bir görüntü oluşturabilirsiniz.
+Aşağıdaki adımları izleyerek, genelleştirilmiş bir sanal makinenin bir anlık görüntüden yönetilen bir görüntü oluşturabilirsiniz:
 
     
 1. Bazı değişkenler oluşturun. 
@@ -171,34 +191,34 @@ Genelleştirilmiş bir VM'nin bir anlık görüntüden yönetilen bir görüntü
    $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
    
-3. Görüntü yapılandırmasını oluşturun.
+3. Görüntü yapılandırması oluşturun.
 
     ```azurepowershell-interactive
     $imageConfig = New-AzureRmImageConfig -Location $location
     $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
     ```
-4. Görüntü oluşturma.
+4. Görüntü oluşturun.
 
     ```azurepowershell-interactive
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
-## <a name="create-image-from-a-vhd-in-a-storage-account"></a>Bir depolama hesabındaki bir VHD'den Görüntü Oluştur
+## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>Bir depolama hesabında bir VHD'den Görüntü Oluştur
 
-Bir depolama hesabında genelleştirilmiş bir işletim sistemi VHD'den yönetilen bir görüntü oluşturun. VHD biçimi https:// depolama hesabındaki URI'sini gereksinim*mystorageaccount*.blob.core.windows.net/*kapsayıcı*/*vhd_filename.vhd*. Bu örnekte, kullanıyoruz VHD bulunduğu *mystorageaccount* adlı bir kapsayıcıda *vhdcontainer* ve VHD dosya adı *osdisk.vhd*.
+Genelleştirilmiş bir işletim sistemi VHD'si bir depolama hesabı, yönetilen bir görüntü oluşturun. Şu biçimde olduğundan depolama hesabında VHD URI'sini gerekir: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer* /  *vhdfilename.vhd*. Bu örnekte, VHD'nin bulunduğu *mystorageaccount*, adlı bir kapsayıcı içinde *vhdcontainer*, ve VHD dosya adı *vhdfilename.vhd*.
 
 
-1.  İlk olarak, ortak parametreleri ayarlayın:
+1.  Bazı değişkenler oluşturun.
 
     ```azurepowershell-interactive
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "EastUS"
     $imageName = "myImage"
-    $osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd"
+    $osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/vhdfilename.vhd"
     ```
-2. Step\deallocate VM.
+2. Durdur/VM'yi serbest bırakın.
 
     ```azurepowershell-interactive
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
@@ -209,7 +229,7 @@ Bir depolama hesabında genelleştirilmiş bir işletim sistemi VHD'den yönetil
     ```azurepowershell-interactive
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
     ```
-4.  Genelleştirilmiş OS VHD kullanarak görüntü oluşturma.
+4.  Görüntünün genelleştirilmiş işletim sistemi VHD'niz kullanarak oluşturun.
 
     ```azurepowershell-interactive
     $imageConfig = New-AzureRmImageConfig -Location $location
@@ -219,5 +239,5 @@ Bir depolama hesabında genelleştirilmiş bir işletim sistemi VHD'den yönetil
 
     
 ## <a name="next-steps"></a>Sonraki adımlar
-- Artık [bir VM genelleştirilmiş yönetilen görüntüden oluşturma](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+- [Yönetilen bir görüntüden VM oluşturma](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 10/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8b09170c31691be34cea577eb82c8cce3402be96
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e1d116b96abab89f08546d3c2d5d7bff3234ecbc
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294677"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249239"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlı, şablonları Azure kaynakları dağıtılırken iç içe kullanma
 
@@ -49,7 +49,7 @@ Başka bir şablona bağlamak için ekleme bir **dağıtımları** ana şablon k
 ]
 ```
 
-Dağıtım kaynağı için sağladığınız özellikleri dış bir şablona bağlama veya iç içe bir ana şablon satır içi şablonunda göre değişir.
+Dağıtım kaynağı için sağladığınız özellikleri, dış bir şablona bağlama veya iç içe bir ana şablon satır içi şablonunda göre değişir.
 
 Hem bağlantılı hem de iç içe şablonlar için yalnızca kullanabilirsiniz [artımlı](deployment-modes.md) dağıtım modu.
 
@@ -121,7 +121,9 @@ Sağlamaları gerekmez `contentVersion` şablonu veya parametreler özellik. Bir
 
 ### <a name="external-template-and-inline-parameters"></a>Dış şablon ve satır içi parametreleri
 
-Veya, parametre satır içi sağlayabilirsiniz. Bir değer, bağlı şablonun ana şablonu geçirmek için kullanın **parametreleri**.
+Veya, parametre satır içi sağlayabilirsiniz. Satır içi parametre hem de bir bağlantı için bir parametre dosyası kullanamazsınız. Dağıtım bir hata ile başarısız olduğunda her ikisi de `parametersLink` ve `parameters` belirtilir.
+
+Bir değer, bağlı şablonun ana şablonu geçirmek için kullanın **parametreleri**.
 
 ```json
 "resources": [

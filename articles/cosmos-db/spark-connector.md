@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 4fa28e2d3f5d94d7ab47ec3b1e1e3240e5c770de
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043000"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269420"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Azure Cosmos DB Bağlayıcısı için Apache Spark'ı kullanarak büyük veri analizi hızlandırın
  
@@ -179,7 +179,7 @@ Spark çalışan düğümlerine ve Azure Cosmos DB veri düğümleri (bölümler
 
 4. Twitter akışındaki örnek içeriğini ayıklayın ve config.py dosyasını açın. MasterKey, konak, Databaseıd, CollectionId ve preferredLocations değerlerini güncelleştirin.  
 
-5. Git `http://apps.twitter.com/`ve Twitter uygulama akışındaki kaydedin. Uygulamanız için bir ad seçtikten sonra birlikte sağlanacak bir **tüketici anahtarı, tüketici gizli, erişim belirteci ve erişim belirteci gizli**. Bu değerleri kopyalayın ve sağlamak için config.py dosyasını güncelleştirmeniz Twitter uygulama programlı erişim için Twitter akışı.   
+5. Git `http://apps.twitter.com/`ve Twitter uygulama akışındaki kaydedin. Uygulamanız için bir ad seçtikten sonra birlikte sağlanacak bir **tüketici anahtarı, tüketici gizli, erişim belirteci ve erişim belirteci gizli**. Bu değerleri kopyalayın ve Twitter uygulama programlı erişim için Twitter akışı sağlamak üzere config.py dosyasını güncelleştirin.   
 
 6. Config.py dosyasını kaydedin. Bir komut istemi açın ve aşağıdaki komutu kullanarak Python uygulamasını çalıştırın:
 

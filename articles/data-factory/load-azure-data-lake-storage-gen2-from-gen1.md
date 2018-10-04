@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: jingwang
-ms.openlocfilehash: a160c47e12db3c4ef9cefc5cd70293468ddf8234
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008744"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249341"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>2. nesil için Azure Data Lake depolama Gen1 veri kopyalama (Önizleme) Azure Data Factory ile
 
@@ -80,7 +80,7 @@ Bu makalede Data Factory-veri kopyalama aracını veri kopyalamak için nasıl k
    3. **İleri**’yi seçin.
    
    > [!IMPORTANT]
-   > Bu kılavuzda, kullandığınız bir _yönetilen hizmet kimliği_ , Data Lake depolama Gen1e kimliğini doğrulamak için. MSI izleyerek Azure Data Lake depolama Gen1 uygun izinleri vermek mutlaka [bu yönergeleri](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > Bu izlenecek yolda, Data Lake depolama Gen1e kimlik doğrulaması için Azure kaynakları için yönetilen bir kimlik kullanın. MSI izleyerek Azure Data Lake depolama Gen1 uygun izinleri vermek mutlaka [bu yönergeleri](connector-azure-data-lake-store.md#managed-identity).
    
    ![Azure Data Lake depolama Gen1 hesabını belirtin](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
    

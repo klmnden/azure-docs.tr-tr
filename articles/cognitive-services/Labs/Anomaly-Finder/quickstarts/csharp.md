@@ -1,6 +1,6 @@
 ---
-title: Anomali Bulucu API C# ile - Microsoft Bilişsel hizmetler kullanma | Microsoft Docs
-description: C# ve Anomali Bulucu API Bilişsel Hizmetleri'ni kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
+title: Anomali Bulucu API ile C# - Microsoft Bilişsel Hizmetleri kullanma | Microsoft Docs
+description: C# ve Anomali Bulucu API Bilişsel hizmetler kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,22 +9,24 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 867ce4d0262c94de8da0dadeb8de71c28a8295d5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3ae3d85e8e37fbf896405948f9bc7042bcdaca7b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353333"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246457"
 ---
 # <a name="use-the-anomaly-finder-api-with-c"></a>Anomali Bulucu API C# ile kullanma
 
-Bu makalede bilgiler sağlanmaktadır ve hızlı bir şekilde yardımcı olmak için kod örnekleri Anomali Bulucu API C# ile anomali sonucu zaman serisi veri alma görevi gerçekleştirmek için kullanmaya başlayın.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Bu makalede bilgiler sağlanmaktadır ve kod örnekleri, hızlı bir şekilde yardımcı olması için Anomali Bulucu API ile C# kullanarak zaman serisi verilerini anomali sonucunu almaya ilişkin bir görevi tamamlamak için çalışmaya başlayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-c"></a>C# kullanarak Anomali Bulucu API'si ile anomali noktalarını alma
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-c"></a>Anomali noktaları Anomali Bulucu kullanarak C# API'sini kullanmaya başlama
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
@@ -33,14 +35,14 @@ Bu makalede bilgiler sağlanmaktadır ve hızlı bir şekilde yardımcı olmak i
 Zaman serisi veri noktaları örneği aşağıdaki gibidir.
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-c-example"></a>Verileri çözümlemek ve anomali noktaları C# örnek alma
+### <a name="analyze-data-and-get-anomaly-points-c-example"></a>Verileri analiz ve anomali noktaları C# örneği alın
 
 Örneği kullanarak adımlar aşağıdaki gibidir.
 
 1. Visual Studio'da yeni bir konsol çözümü oluşturun.
 2. Program.cs aşağıdaki kodla değiştirin ve System.Net.Http başvuru ekleyin.
-3. Değiştir `[YOUR_SUBSCRIPTION_KEY]` değeri geçerli bir abonelik anahtarınızı ile.
-4. Değiştir `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` veri noktaları.
+3. Değiştirin `[YOUR_SUBSCRIPTION_KEY]` değeri geçerli bir abonelik.
+4. Değiştirin `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` , veri noktalarıyla.
 
 ```csharp
 using System;
@@ -119,10 +121,10 @@ namespace Console
 
 ### <a name="example-response"></a>Örnek yanıt
 
-Başarılı yanıt JSON döndürülür. Örnek yanıt aşağıdaki gibidir.
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek yanıt aşağıdaki gibidir.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [C# uygulama](../tutorials/csharp-tutorial.md)
+> [C# uygulaması](../tutorials/csharp-tutorial.md)

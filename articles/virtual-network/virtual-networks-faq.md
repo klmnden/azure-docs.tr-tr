@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2291136cf50439b7845c3a344be3218277257b34
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999877"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269488"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -230,7 +230,7 @@ VNet eşlemesi (veya sanal ağ eşlemesi) sanal ağları bağlamanıza olanak sa
 Evet. Küresel VNet eşlemesi, farklı bölgelerdeki sanal ağları eşlemenize olanak sağlar. Küresel VNet eşlemesi Azure tüm ortak bölgelerde kullanılabilir. Ulusal bulutlara genel Azure bölgelerinden genel eş olamaz. Genel eşleme Ulusal bulutlarda şu anda kullanılamıyor.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>My sanal ağlar farklı Azure Active Directory Kiracı içindeki aboneliklere ait sanal ağ eşlemesi etkinleştirebilirim?
-Farklı Azure Active Directory kiracıları için aboneliklerinizi ait şu anda bu (yerel veya genel olup olmadığını) VNet eşlemesini oluşturmak mümkün değildir.
+Evet. Farklı Azure Active Directory kiracıları için aboneliklerinizi aitse (yerel veya genel olup olmadığını) VNet eşlemesini oluşturmak mümkündür. PowerShell veya CLI bunu yapabilirsiniz. Portal henüz desteklenmiyor.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Eşleme bağlantısını konusu Ağımda *başlatılan* durum, neden bağlanamıyorum?
 Eşleme bağlantınızda bir başlatılan durumda ise, bu yalnızca bir bağlantı oluşturduğunuz anlamına gelir. Çift yönlü bağlantı kurmak için oluşturulması gerekir bir başarıyla bağlantı. Örneğin, eş VNet A ile VNet b için bir bağlantı Sanalağa için sanalağb eşlenir ve Sanalağb Sanalağa için oluşturulması gerekir. Her iki bağlantı oluşturuluyor durumuna değiştirecek *bağlandı.*

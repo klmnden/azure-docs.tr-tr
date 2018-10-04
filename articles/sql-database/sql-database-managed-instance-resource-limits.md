@@ -11,22 +11,55 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 10/02/2018
-ms.openlocfilehash: f2b1a8e18917c1c045c715bd3424d0bbfc0cdc67
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.date: 10/03/2018
+ms.openlocfilehash: 6ae9b3f71cb5328c7f4a7ee8e43ec0aff8b5fcec
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045402"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267793"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bakış
 
-Bu makale, Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bir bakış sağlar ve varsayılan abonelik sınırlarını artırmak için isteği oluşturma bilgilerini sağlar. 
+Bu makale, Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bir bakış sağlar ve varsayılan bölgesel abonelik limitleri artırmak için isteği oluşturma bilgilerini sağlar. 
 
 > [!NOTE]
-> Tek tek aboneliğe özgü olmayan diğer yönetilen örnek sınırlamalar için bkz. [sanal çekirdek tabanlı satın alma modeli](sql-database-managed-instance.md#vcore-based-purchasing-model) ve [yönetilen örneğe hizmet katmanları](sql-database-managed-instance.md#managed-instance-service-tiers).
+> Diğer yönetilen örnek sınırlamalar için bkz. [sanal çekirdek tabanlı satın alma modeli](sql-database-managed-instance.md#vcore-based-purchasing-model) ve [yönetilen örneğe hizmet katmanları](sql-database-managed-instance.md#managed-instance-service-tiers).
 
-## <a name="default-subscription-level-limits-per-region"></a>Bölge başına varsayılan abonelik düzeyinde sınırlar
+## <a name="instance-level-resource-limits"></a>Örnek düzeyinde kaynak sınırları
+
+Yönetilen örnek, özelliklerine ve temel alınan altyapı ve mimari bağlıdır kaynak sınırları vardır. Sınırları donanım oluşturma ve hizmet katmanına bağlıdır.
+
+### <a name="hardware-generation-characteristics"></a>Donanım oluşturma özellikleri
+
+Azure SQL veritabanı yönetilen örneği, iki donanım oluşturma (4. nesil ve 5. nesil) üzerinde dağıtılabilir. Donanım Nesilleri aşağıdaki tabloda açıklanan farklı özelliklere sahiptir:
+
+|   | **4. nesil** | **5. nesil** |
+| --- | --- | --- |
+| Donanım | Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri, bağlı SSD sanal çekirdek = 1 PP (fiziksel çekirdek) | Intel E5-2673 v4 (Broadwell) 2.3 GHz işlemcileri, hızlı eNVM SSD, sanal çekirdek = 1 LP (hiper iş parçacığı) |
+| İşlem | 8, 16, 24 sanal çekirdek | 8, 16, 24, 32, 40, 64, 80 sanal çekirdekler |
+| Bellek | Sanal çekirdek başına 7 GB | Sanal çekirdek başına 5.5 GB |
+| En fazla depolama alanı (iş açısından kritik) | 1TB | 1TB, 2TB çekirdek sayısına bağlı olarak 4TB |
+
+### <a name="service-tier-characteristics"></a>Hizmet katmanı özellikleri
+
+Yönetilen örnek, iki hizmet katmanıyla - genel amaçlı ve iş açısından kritik (genel Önizleme) sahiptir. Bu katmanlar, aşağıdaki tabloda açıklandığı gibi farklı özellikleri sunar:
+
+| **Özellik** | **Genel amaçlı** | **İş açısından kritik (Önizleme)** |
+| --- | --- | --- |
+| Sanal çekirdek sayısı\* | 4. nesil: 8, 16, 24<br/>5. nesil: 8, 16, 24, 32, 40, 64, 80 | 4. nesil: 8, 16, 24, 32 <br/> 5. nesil: 8, 16, 24, 32, 40, 64, 80 |
+| Bellek | 4. nesil: 56GB - 156GB<br/>5. nesil: 44GB - 440GB<br/>\*Orantılı sanal çekirdek sayısı | 4. nesil: 56GB - 156GB <br/> 5. nesil: 44GB - 440GB<br/>\*Orantılı sanal çekirdek sayısı |
+| En büyük depolama boyutu | 8 TB | Gen 4: 1 TB <br/> 5. nesil: <br/>-1 TB 8, 16 sanal çekirdek<br/>-24 sanal çekirdek 2 TB<br/>-32, 40, 64 4 TB 80 sanal çekirdekler |
+| Veritabanı başına maks. depolama | Örnek başına en fazla depolama boyutu tarafından belirlenir. | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
+| En fazla örnek başına veritabanı sayısı | 100 | 100 |
+| Örnek başına en fazla veritabanı dosyaları | En fazla 280 | Sınırsız |
+| En fazla depolama IOPS bekleniyor | Veri dosyası başına 500-7500 IOPS ([veri dosya boyutuna mı bağımlı](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)). | Temel alınan SSD hızınıza bağlıdır. |
+
+## <a name="supported-regions"></a>Desteklenen bölgeler
+
+Yalnızca yönetilen Instanced oluşturulabilir [desteklenen bölgeler](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database). Şu anda desteklenmeyen bir bölgede bir yönetilen örnek oluşturmak istiyorsanız, aşağıdakileri yapabilirsiniz [Azure portalı üzerinden destek isteği Gönder](#obtaining-a-larger-quota-for-sql-managed-instance).
+
+## <a name="supported-subscription-types"></a>Desteklenen abonelik türleri
 
 Yönetilen örnek, şu anda dağıtım abonelikleri yalnızca aşağıdaki türlerini destekler:
 
@@ -35,17 +68,16 @@ Yönetilen örnek, şu anda dağıtım abonelikleri yalnızca aşağıdaki türl
 - [Bulut hizmeti sağlayıcısı (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 
 > [!NOTE]
-> Bu sınırlama yalnızca bazı abonelik türleri için destek geçicidir.
+> Bu sınırlama geçicidir. Yeni Abonelik türleriyle gelecekte etkinleştirilecektir.
 
-Yönetilen örneği iki Azure bölgesi başına abonelik düzeyinde sınırlar varsayılan yok. Farklı bir abonelik türlerini farklı bölgesel sınırlara sahiptir. Bu sınırlar, sorun türü ile aboneliğin Azure portalında özel destek isteği oluşturarak artırılabilir **kota**:
+## <a name="regional-resource-limitations"></a>Bölgesel bir kaynak sınırlamaları
 
-- **Alt ağı sınırına**: yönetilen örnekleri dağıtıldığı alt ağ sayısı
-- **Örnek sayısı sınırı**: bölge başına örnek sayısı
+Kaynak bölge başına sınırlı sayıda desteklenen abonelik türlerini içerebilir. Yönetilen örnek, bir abonelik türü türüne bağlı olarak Azure bölgesi başına iki varsayılan sınırlara sahiptir:
 
-> [!IMPORTANT]
-> Dağıtımlarınızı planlarken (nedeniyle ek artıklık için) bir iş kritik (BC) örneği genellikle bir genel amaçlı (GP) örneği daha fazla kapasite x 4 tükettiğini göz önünde bulundurun. Böylece, hesaplamalarınızda 1 GP örneği için = 1 örnek birim ve 1 BC örneği = 4 örneği birimi. Varsayılan limitleri karşı tüketimini analiz kolaylaştırmak için yönetilen örnekler dağıtıldığı bölgede tüm alt ağlar arasındaki örneği birimleri özetlemek ve abonelik türünüz için örneği birim sınırlarıyla sonuçlarını karşılaştırın.
+- **Alt ağı sınırına**: tek bir bölgede yönetilen örnekleri dağıtıldığı alt ağların sayısı.
+- **Örnek sayısı sınırı**: tek bir bölgede dağıtılan örnekleri sayısı.
 
-## <a name="default-limits-by-subscription-type"></a>Varsayılan abonelik türüne göre sınırları
+Aşağıdaki tabloda desteklenen abonelikler için varsayılan bölgesel sınırlar gösterilmektedir:
 
 |Abonelik türü| Yönetilen örnek alt sınırı | En fazla örnek sayısı |GP sayısı üst sınırı yönetilen örnekleri *|BC sayısı üst sınırı yönetilen örnekleri *|
 | :---| :--- | :--- |:--- |:--- |
@@ -53,11 +85,16 @@ Yönetilen örneği iki Azure bölgesi başına abonelik düzeyinde sınırlar v
 |CSP |1 *|4 *|4 *|1 *|
 |EA|3 **|12 **|12 **|3 **|
 
-\* "Örnek units" bir bölgedeki toplam sayısı 4 hiçbir zaman aşıyor. böylece ya da 1 BC veya bir alt ağda 4 GP örnekleri dağıtabilirsiniz.
+\* "Örnek units" alt toplam sayısı 4 hiçbir zaman aşıyor. böylece ya da 1 BC veya bir alt ağda 4 GP örnekleri dağıtabilirsiniz.
 
 ** Başka bir hizmet katmanındaki hiçbir örneği varsa Maksimum sayıda örnek bir hizmet katmanında uygulanır. GP ve BC örnekleri aynı alt ağ içinde karışık planladığınız durumlarda aşağıdaki bölümde izin verilen birleşimleri için referans olarak kullanın. Basit bir kural olarak 3 alt toplam sayısını aşamaz ve 12 örneği birimlerin toplam sayısını aşamaz.
 
-## <a name="deployment-options-for-gp-and-bc-deployments-within-the-same-subnet"></a>Aynı alt ağ içinde GP ve BC dağıtımları için dağıtım seçenekleri
+Bu sınırlar, özel oluşturarak artırılabilir [Azure portalında bir destek isteği](#obtaining-a-larger-quota-for-sql-managed-instance) geçerli bölgede daha fazla yönetilen örnek gerekiyorsa. Alternatif olarak, destek istekleri göndermeden yeni yönetilen örnekler başka bir Azure bölgesinde oluşturabilirsiniz.
+
+> [!IMPORTANT]
+> Dağıtımlarınızı planlarken (nedeniyle ek artıklık için) bir iş kritik (BC) örneği genellikle bir genel amaçlı (GP) örneği daha fazla kapasite x 4 tükettiğini göz önünde bulundurun. Böylece, hesaplamalarınızda 1 GP örneği için = 1 örnek birim ve 1 BC örneği = 4 örneği birimi. Varsayılan limitleri karşı tüketimini analiz kolaylaştırmak için yönetilen örnekler dağıtıldığı bölgede tüm alt ağlar arasındaki örneği birimleri özetlemek ve abonelik türünüz için örneği birim sınırlarıyla sonuçlarını karşılaştırın.
+
+### <a name="deployment-options-for-gp-and-bc-deployments-within-the-same-subnet"></a>Aynı alt ağ içinde GP ve BC dağıtımları için dağıtım seçenekleri
 
 Aşağıdaki örnek, boş olmayan alt ağlar ile dağıtım durumları kapsar ve hizmet katmanları, GP ve BC karma.
 
@@ -71,7 +108,7 @@ Aşağıdaki örnek, boş olmayan alt ağlar ile dağıtım durumları kapsar ve
 |3|1BC, 0 GP|0 BC, en fazla 4 GP|BC 1, 0 GP|
 |3|0 BC, en fazla 4 GP|BC 1, 0 GP|1BC, 0 GP|
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>SQL yönetilen örneği için daha büyük bir kota edinme
+### <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>SQL yönetilen örneği için daha büyük bir kota edinme
 
 Daha büyük bir kota alma işlemi başlatmak için:
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric kümesi yükseltme | Microsoft Docs
-description: Service Fabric kod ve/veya küme güncelleştirme modunda, sertifikaları, uygulama bağlantı noktaları, işletim sistemi yamalarını yapılması ekleme yükseltme ayarı dahil olmak üzere bir Service Fabric kümesi çalıştıran yapılandırma yükseltin ve benzeri. Yükseltme gerçekleştirildiğinde beklentilerinizin ne?
+title: Bir Azure Service Fabric kümesini yükseltme | Microsoft Docs
+description: Service Fabric kodu ve/veya küme güncelleştirme modunda, sertifikaları, uygulama bağlantı noktaları, işletim sistemi düzeltme ekleri, yapılması ekleme yükseltme ayarı dahil olmak üzere, bir Service Fabric kümesi çalıştıran yapılandırma yükseltin ve benzeri. Yükseltmeleri gerçekleştirildiğinde ne yönde?
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -14,66 +14,66 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/10/2017
 ms.author: aljo
-ms.openlocfilehash: 3e5ef2cbc9d7bec82cadc0c7663de52636938505
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2fd62f8709bddfd981f4b1358c97d0acbaf7f12d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207708"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269115"
 ---
-# <a name="upgrade-an-azure-service-fabric-cluster"></a>Azure Service Fabric kümesi yükseltme
+# <a name="upgrade-an-azure-service-fabric-cluster"></a>Bir Azure Service Fabric kümesini yükseltme
 > [!div class="op_single_selector"]
-> * [Azure küme](service-fabric-cluster-upgrade.md)
+> * [Azure kümesine](service-fabric-cluster-upgrade.md)
 > * [Tek başına küme](service-fabric-cluster-upgrade-windows-server.md)
 > 
 > 
 
-Tüm modern, tasarlama upgradability için uzun vadeli başarı ürününüzün ulaşmak için anahtar sistemidir. Azure Service Fabric kümesi sahip, ancak kısmen Microsoft tarafından yönetilen bir kaynaktır. Bu makalede, otomatik olarak yönetilir ve ne kendiniz yapılandırabileceğiniz anlatılmaktadır.
+Herhangi bir modern sistemi için upgradability yönelik uzun vadeli ürününüzün başarısını ulaşmak için anahtardır. Bir Azure Service Fabric kümesine sahip, ancak kısmen Microsoft tarafından yönetilen bir kaynaktır. Bu makalede, otomatik olarak yönetilir ve sizin yapılandırabileceğiniz ayarlar açıklanır.
 
-## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Kümenizde çalışan yapı sürümünü denetleme
-Kümenizin Microsoft tarafından yayımlanan veya kümenizin üzerinde olmasını istediğiniz desteklenen fabric sürümü seçebileceğiniz gibi otomatik fabric yükseltmelerinin alacak şekilde ayarlayabilirsiniz.
+## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Kümenizde çalışan yapı sürümü denetleme
+Kümenizi otomatik yapı yükseltmeleri kümeniz üzerinde olmasını istediğiniz bir desteklenen yapı sürümü seçebilirsiniz veya Microsoft tarafından yayımlanır yayımlanmaz almak için ayarlayabilirsiniz.
 
-Portalda "upgrademode öğesinin" Küme yapılandırma ayarı veya canlı bir küme oluşturma veya sonraki bir sürümü, aynı anda Resource Manager kullanarak bunu 
+Portalı "upgradeMode" Küme yapılandırması ayarlama veya canlı bir küme oluşturma veya daha sonra anında Resource Manager kullanarak bunu 
 
 > [!NOTE]
-> Desteklenen fabric sürümü her zaman çalışması kümenizi sakladığınızdan emin olun. Gibi ve size yeni bir service fabric sürümü sunmaktan olduğunda, önceki sürümü en az 60 gün o tarihten sonra destek sonu için işaretlenir. Yeni sürümler duyurulur [service fabric ekip blogunda](https://blogs.msdn.microsoft.com/azureservicefabric/). Yeni sürüm, daha sonra seçmek kullanılabilir. 
+> Kümenizi desteklenen yapı sürümü her zaman çalışır durumda tutmak emin olun. Gibi ve biz service fabric yeni bir sürümünü duyurmaktan zaman önceki sürümü en az 60 gün o tarihten sonra destek sonu için işaretlenir. Yeni yayınlar duyurulan [üzerinde service fabric ekibi blogu](https://blogs.msdn.microsoft.com/azureservicefabric/). Yeni sürüm daha sonra seçmek kullanılabilir. 
 > 
 > 
 
-14 gün önce kümenizi çalıştığından, yayın süre sonu, sistem durumu uyarısı kümenizi koyan bir sistem durumu olayı oluşturulur. Desteklenen doku sürümüne yükseltilene dek küme bir uyarı durumunda kalır.
+14 gün önce kümenizin çalıştığı, yayın sonu bir uyarı sistem durumu, kümenizin yerleştiren bir sistem durumu olayı oluşturulur. Desteklenen yapı sürümüne yükseltene kadar küme bir uyarı durumunda kalır.
 
 ### <a name="setting-the-upgrade-mode-via-portal"></a>Portal aracılığıyla yükseltme modunu ayarlama
-Küme oluştururken küme otomatik veya el ile ayarlayabilirsiniz.
+Kümeyi oluştururken, kümeyi otomatik veya el ile ayarlayabilirsiniz.
 
 ![Create_Manualmode][Create_Manualmode]
 
-Yönetme deneyimi kullanarak otomatik veya el ile bir kümede dinamik olduğunda, küme ayarlayabilirsiniz. 
+Küme yönetme deneyimini kullanarak otomatik veya el ile dinamik bir kümeye olduğunda, şirket için ayarlayabilirsiniz. 
 
-#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Portal aracılığıyla el ile modu olarak ayarlanmış bir küme üzerinde yeni bir sürüme yükseltme.
-Yeni bir sürüme yükseltmek için yapmanız gereken tek şey aşağı açılır listeden kullanılabilir sürümü seçin ve kaydedin. Fabric yükseltmesi otomatik olarak koparılan. Küme sistem durumu ilkeleri (düğüm durumu ve sistem bileşimini kümede çalışan tüm uygulamaların) yükseltme sırasında bağlı.
+#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Portal aracılığıyla el ile modu olarak ayarlanmış bir kümede yeni bir sürüme yükseltiliyor.
+Yeni bir sürüme yükseltmek için gerçekleştirmeniz gereken şey kullanılabilir sürüm açılan listeden seçin ve kaydedin. Fabric yükseltmesi otomatik olarak başlatıldı. Küme sistem durumu ilkeleri (düğüm durumu ve sistem kümede çalıştırılan tüm uygulamalar) yükseltme sırasında bağlı.
 
-Küme sistem durumu ilkeleri karşılanmazsa, yükseltme geri alınır. Daha fazla bilgi için bu belgenin aşağı bu özel durumu ilkeler ayarlama. 
+Küme sistem durumu ilkeleri karşılanmazsa, yükseltmeyi geri alınır. Daha fazla bilgi için bu belgede aşağı bu özel sistem durumu ilkeleri ayarlama. 
 
-Geri alma sonuçlandı sorunları düzelttikten sonra önce de aynı adımları izleyerek yükseltme yeniden başlatma gerekir.
+Geri almaya sonuçlandı. sorunları düzelttikten sonra önceki adımları izleyerek yükseltmeyi yeniden başlatmak gerekir.
 
 ![Manage_Automaticmode][Manage_Automaticmode]
 
 ### <a name="setting-the-upgrade-mode-via-a-resource-manager-template"></a>Resource Manager şablonu aracılığıyla yükseltme modunu ayarlama
-"Upgrademode öğesinin" yapılandırma Microsoft.ServiceFabric/clusters kaynak tanımına ekleyin ve aşağıda gösterildiği gibi desteklenen doku sürümlerinden birini "clusterCodeVersion" koymak ve şablonu dağıtmak. "Elle" veya "Otomatik" "upgrademode öğesinin" için geçerli değerler:
+"UpgradeMode" yapılandırma Microsoft.ServiceFabric/clusters kaynak tanımına ekleyin ve aşağıda gösterildiği gibi desteklenen yapı sürümleri "clusterCodeVersion" ayarlayın ve ardından şablonu dağıtmanız. "Elle" veya "Otomatik" "upgradeMode" için geçerli değerler:
 
 ![ARMUpgradeMode][ARMUpgradeMode]
 
-#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Resource Manager şablonu aracılığıyla el ile modu olarak ayarlanmış bir küme üzerinde yeni bir sürüme yükseltme.
-Küme el ile modunda olduğunda yeni bir sürüme yükseltmek için "clusterCodeVersion" desteklenen bir sürüm olarak değiştirin ve onu dağıtın. Şablon dağıtımı, Fabric yükseltmesi kicks başlayacağı zamana otomatik olarak. Küme sistem durumu ilkeleri (düğüm durumu ve sistem bileşimini kümede çalışan tüm uygulamaların) yükseltme sırasında bağlı.
+#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Resource Manager şablonu aracılığıyla el ile modu olarak ayarlanmış bir kümede yeni bir sürüme yükseltiliyor.
+Küme el ile modunda olduğunda yeni bir sürüme yükseltmek için "clusterCodeVersion"'ı desteklenen bir sürüm olarak değiştirin ve dağıtın. Şablon dağıtımı, doku yükseltmenin kicks başlatıldı otomatik olarak. Küme sistem durumu ilkeleri (düğüm durumu ve sistem kümede çalıştırılan tüm uygulamalar) yükseltme sırasında bağlı.
 
-Küme sistem durumu ilkeleri karşılanmazsa, yükseltme geri alınır. Daha fazla bilgi için bu belgenin aşağı bu özel durumu ilkeler ayarlama. 
+Küme sistem durumu ilkeleri karşılanmazsa, yükseltmeyi geri alınır. Daha fazla bilgi için bu belgede aşağı bu özel sistem durumu ilkeleri ayarlama. 
 
-Geri alma sonuçlandı sorunları düzelttikten sonra önce de aynı adımları izleyerek yükseltme yeniden başlatma gerekir.
+Geri almaya sonuçlandı. sorunları düzelttikten sonra önceki adımları izleyerek yükseltmeyi yeniden başlatmak gerekir.
 
-### <a name="get-list-of-all-available-version-for-all-environments-for-a-given-subscription"></a>Belirli bir aboneliğe için tüm ortamlar için tüm kullanılabilir sürüm listesini al
-Aşağıdaki komutu çalıştırın ve bunun benzer bir çıktı almalısınız.
+### <a name="get-list-of-all-available-version-for-all-environments-for-a-given-subscription"></a>Belirli bir aboneliği için tüm ortamlar için kullanılabilir tüm sürüm'ın listesini alın
+Aşağıdaki komutu çalıştırın ve buna benzer bir çıktı almalısınız.
 
-"supportExpiryUtc" söyler, zaman belirli bir yayın doluyor veya süresi dolmuş. En son sürüm geçerli bir tarih yok - değerine sahip "9999-12-31T23:59:59.9999999", yalnızca başka bir deyişle, sona erme tarihi henüz ayarlanmadı.
+"supportExpiryUtc" söyler, zaman belirli bir sürüm süresi doluyor veya süresi dolmuş. En son sürüm geçerli bir tarih yok - değeri olan "9999-12-31T23:59:59.9999999", yalnızca başka bir deyişle, sona erme tarihi öğesi henüz ayarlanmamış.
 
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
@@ -119,102 +119,102 @@ Output:
 
 ```
 
-## <a name="fabric-upgrade-behavior-when-the-cluster-upgrade-mode-is-automatic"></a>Küme yükseltme modu otomatik olduğunda doku yükseltme davranışı
-Microsoft Azure bir kümede çalışan yapılandırma ve fabric kod tutar. Biz gerektiği ölçüde temeline göre yazılım otomatik izlenen yükseltme gerçekleştirin. Bu yükseltme, kod, yapılandırma veya her ikisi de olabilir. Uygulamanız herhangi bir etkisi veya bu yükseltme nedeniyle en az etki yükselmesine emin olmak için aşağıdaki aşamalarında yükseltmeleri biz gerçekleştirin:
+## <a name="fabric-upgrade-behavior-when-the-cluster-upgrade-mode-is-automatic"></a>' % S'küme yükseltme modu otomatik olduğunda fabric yükseltme davranışı
+Microsoft, bir Azure kümesinde çalışır yapılandırma ve yapı kodu tutar. Gerektiğinde bir temelinde otomatik yükselten yazılım gerçekleştiririz. Bu yükseltme, kod, yapılandırma veya her ikisi de olabilir. Uygulamanızı hiçbir etkisi veya bu yükseltme işlemleri nedeniyle en az etki alternatife emin olmak için yükseltmeleri aşağıdaki aşamalar gerçekleştiririz:
 
-### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>1. Aşama: Tüm küme sistem durumu ilkeleri kullanarak yükseltme gerçekleştirilir
-Bu aşamasında, aynı anda tek bir yükseltme etki alanı yükseltme devam ve kümedeki çalışmakta olan uygulamalar herhangi kesinti olmadan çalışmaya devam eder. Küme sistem durumu ilkeleri (düğüm durumu ve sistem bileşimini kümede çalışan tüm uygulamaların) yükseltme sırasında bağlı.
+### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>1. Aşama: Tüm küme sistem durumu ilkeleri kullanarak bir yükseltme gerçekleştirilmeden
+Bu aşamasında, yükseltmeleri bir yükseltme etki alanı, aynı anda devam etmek ve kümede çalışan uygulamalar kapalı kalma süresi çalışmaya devam eder. Küme sistem durumu ilkeleri (düğüm durumu ve sistem kümede çalıştırılan tüm uygulamalar) yükseltme sırasında bağlı.
 
-Küme sistem durumu ilkeleri karşılanmazsa, yükseltme geri alınır. Ardından aboneliğin sahibi için bir e-posta gönderilir. E-posta, aşağıdaki bilgileri içerir:
+Küme sistem durumu ilkeleri karşılanmazsa, yükseltmeyi geri alınır. Daha sonra bir e-posta, aboneliğin sahibine gönderilir. E-posta, aşağıdaki bilgileri içerir:
 
-* Bildirim biz küme yükseltmeyi geri alma gerekiyordu.
+* Bildirim, bir küme yükseltmesi geri almak vardı.
 * Varsa önerilen düzeltici eylemler.
-* Gün (biz Aşama 2 yürütme kadar n) sayısı.
+* Gün (biz 2. Aşama yürütene kadar n) sayısı.
 
-Herhangi bir yükseltmesinin altyapı nedenlerden dolayı başarısız olduysa aynı yükseltme birkaç kez daha yürütülecek deneyin. E-posta gönderilip gönderilmediğini tarihinden itibaren n gün sonra Aşama 2'ye geçin.
+Herhangi bir yükseltmeyi altyapı nedenlerle başarısız olduysa yönelik aynı yükseltmeyi birkaç kez daha yürütün. deneyin. 2. Aşama ilerlemeden n gün sonra tarihten itibaren e-posta gönderildi.
 
-Küme sistem durumu ilkeleri karşılanıyorsa, yükseltme başarılı olarak kabul ve tam olarak işaretlenmiş. Bu aşamada bu ilk yükseltme veya herhangi bir yükseltme tekrar bölümlerini sırasında meydana gelebilir. Hiçbir e-posta onayı başarılı bir çalışma yoktur. Bu, çok fazla e-postaların bir e-postayı--bir özel durum normal olarak görülmelidir gönderilmesini önlemek için yapılır. Uygulama kullanılabilirliği etkilemeden başarılı olması için Küme yükseltme çoğunu bekliyoruz.
+Küme sistem durumu ilkeleri karşılanırsa yükseltme başarılı olarak kabul ve tam olarak işaretlenmiş. Bu aşamada bu ilk yükseltme veya herhangi bir yükseltme tekrar bölümlerini sırasında ortaya çıkabilir. Başarılı çalıştırma hiç e-posta onayı yoktur. Bu, çok fazla e-postalar bir e-postayı--özel durum normal olarak başlatmasında gösterilmelidir gönderilmesini önlemek için yapılır. Çoğu uygulama, kullanılabilirliği etkilemeden başarılı olması için Küme yükseltme bekliyoruz.
 
-### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>2. Aşama: Yalnızca varsayılan sistem durumu ilkeleri kullanarak yükseltme gerçekleştirilir
-Sistem durumu ilkeleri bu aşamasında, yükseltme, başında sağlıklı uygulama sayısını yükseltme işlemi boyunca aynı kalır şekilde ayarlanır. 1. aşaması, olduğu gibi aynı anda tek bir yükseltme etki alanı Aşama 2 Yükseltme devam ve kümedeki çalışmakta olan uygulamalar herhangi kesinti olmadan çalışmaya devam eder. Küme sistem durumu ilkeleri (düğüm durumu ve sistem bileşimini kümede çalışan tüm uygulamaların) yükseltme süresince bağlı.
+### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>2. Aşama: Yalnızca varsayılan sistem durumu ilkeleri kullanarak bir yükseltme gerçekleştirilmeden
+Sistem durumu ilkeleri bu aşamada, yükseltme başında sağlıklı uygulama sayısını yükseltme işlemi boyunca aynı kalır şekilde ayarlanır. 1. Aşama, olduğu gibi 2. Aşama yükseltmeleri bir yükseltme etki alanı aynı anda devam etmek ve kümede çalışan uygulamalar kapalı kalma süresi çalışmaya devam eder. Küme sistem durumu ilkeleri (düğüm durumu ve sistem kümede çalıştırılan tüm uygulamalar) yükseltme süresince bağlı.
 
-Küme sistem durumu ilkeleri yürürlükte karşılanmazsa, yükseltme geri alınır. Ardından aboneliğin sahibi için bir e-posta gönderilir. E-posta, aşağıdaki bilgileri içerir:
+Küme sistem durumu ilkeleri etkili karşılanmazsa, yükseltmeyi geri alınır. Daha sonra bir e-posta, aboneliğin sahibine gönderilir. E-posta, aşağıdaki bilgileri içerir:
 
-* Bildirim biz küme yükseltmeyi geri alma gerekiyordu.
+* Bildirim, bir küme yükseltmesi geri almak vardı.
 * Varsa önerilen düzeltici eylemler.
-* Gün (biz aşama 3 yürütme kadar n) sayısı.
+* Gün (biz 3.Aşama yürütene kadar n) sayısı.
 
-Herhangi bir yükseltmesinin altyapı nedenlerden dolayı başarısız olduysa aynı yükseltme birkaç kez daha yürütülecek deneyin. Birkaç gün n gün hazır olduğunuzda önce anımsatıcı e-posta gönderilir. E-posta gönderilip gönderilmediğini tarihinden itibaren n gün sonra aşama 3'e geçin. Aşama 2'de biz gönderdiğiniz e-postaları ciddi alınması ve düzeltici eylemler alınması gerekir.
+Herhangi bir yükseltmeyi altyapı nedenlerle başarısız olduysa yönelik aynı yükseltmeyi birkaç kez daha yürütün. deneyin. Birkaç yedekleme n gün önce gün bir anımsatıcı e-posta gönderilir. 3. Aşama ilerlemeden n gün sonra tarihten itibaren e-posta gönderildi. 2. Aşama gönderdiğimiz e-postaları ciddi atılmalıdır ve düzeltici eylemler atılmalıdır.
 
-Küme sistem durumu ilkeleri karşılanıyorsa, yükseltme başarılı olarak kabul ve tam olarak işaretlenmiş. Bu aşamada bu ilk yükseltme veya herhangi bir yükseltme tekrar bölümlerini sırasında meydana gelebilir. Hiçbir e-posta onayı başarılı bir çalışma yoktur.
+Küme sistem durumu ilkeleri karşılanırsa yükseltme başarılı olarak kabul ve tam olarak işaretlenmiş. Bu aşamada bu ilk yükseltme veya herhangi bir yükseltme tekrar bölümlerini sırasında ortaya çıkabilir. Başarılı çalıştırma hiç e-posta onayı yoktur.
 
-### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>3. Aşama: Agresif sistem durumu ilkeleri kullanarak yükseltme gerçekleştirilir
-Bu sistem durumu ilkeleri bu aşamasında, uygulamaların durumunu yerine yükseltme tamamlanmasından sağlamıştır. Bu aşamada çok az sayıda Küme yükseltme sonlanır. Kümeniz için bu aşamada alırsa, uygulamanızın bozulur ve/veya kullanılabilirlik kaybına olduğunu şansı yoktur.
+### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>3. Aşama: Agresif bir sistem durumu ilkeleri kullanarak bir yükseltme gerçekleştirilmeden
+Bu sistem durumu ilkeleri bu aşamada, uygulamaların durumunu yerine yükseltme doğru olarak. Bu aşamada çok az sayıda Küme yükseltme edersiniz. Bu aşama için kümenizin alır, / kötüleşir veya kullanılabilirlik kaybetmek uygulamanızı olasılığı yoktur.
 
-Diğer iki aşamaya benzeyen, aşama 3 yükseltmeler bir yükseltme etki alanı aynı anda devam edin.
+3. Aşama yükseltmeleri benzer şekilde, diğer iki aşaması, bir yükseltme etki alanı aynı anda geçin.
 
-Küme sistem durumu ilkeleri karşılanmazsa, yükseltme geri alınır. Herhangi bir yükseltmesinin altyapı nedenlerden dolayı başarısız olduysa aynı yükseltme birkaç kez daha yürütülecek deneyin. Böylece, destek ve/veya yükseltmeler almayacaksınız bundan sonra küme, sabitlenir.
+Küme sistem durumu ilkeleri karşılanmazsa, yükseltmeyi geri alınır. Herhangi bir yükseltmeyi altyapı nedenlerle başarısız olduysa yönelik aynı yükseltmeyi birkaç kez daha yürütün. deneyin. Destek ve/veya yükseltmeler artık alabileceklerdir bundan sonra küme, sabitlenir.
 
-Bu bilgileri içeren bir e-posta abonelik sahibi eylemlerden birlikte gönderilir. Aşama 3 başarısız olduğu bir duruma getirmek için tüm kümeleri bekliyoruz değil.
+Abonelik sahibi, düzeltici eylemlerle birlikte bu bilgileri içeren bir e-posta gönderilir. 3. Aşama başarısız olduğu bir duruma getirmek için tüm kümeleri beklemiyoruz.
 
-Küme sistem durumu ilkeleri karşılanıyorsa, yükseltme başarılı olarak kabul ve tam olarak işaretlenmiş. Bu aşamada bu ilk yükseltme veya herhangi bir yükseltme tekrar bölümlerini sırasında meydana gelebilir. Hiçbir e-posta onayı başarılı bir çalışma yoktur.
+Küme sistem durumu ilkeleri karşılanırsa yükseltme başarılı olarak kabul ve tam olarak işaretlenmiş. Bu aşamada bu ilk yükseltme veya herhangi bir yükseltme tekrar bölümlerini sırasında ortaya çıkabilir. Başarılı çalıştırma hiç e-posta onayı yoktur.
 
 ## <a name="cluster-configurations-that-you-control"></a>Denetim küme yapılandırmaları
-Kümesi becerisine ek yükseltme modu, canlı bir küme üzerinde değiştirebileceğiniz yapılandırmalar şunlardır.
+Yükseltme modu kümesi özelliğine ek olarak, canlı bir küme üzerinde değişiklik yapabileceğiniz yapılandırmalar şunlardır.
 
 ### <a name="certificates"></a>Sertifikalar
-Yeni ekleyebilir veya sertifikaları Portalı aracılığıyla istemci ve küme için kolayca silebilirsiniz. Başvurmak [ayrıntılı yönergeler için bu belgenin](service-fabric-cluster-security-update-certs-azure.md)
+Yeni Ekle veya portal aracılığıyla istemci ve küme için sertifikaları kolayca silin. Başvurmak [ayrıntılı yönergeler için bu belgenin](service-fabric-cluster-security-update-certs-azure.md)
 
-![Azure portalında sertifika parmak izlerini gösteren ekran görüntüsü.][CertificateUpgrade]
+![Azure Portalı'nda sertifika parmak izleri gösteren ekran görüntüsü.][CertificateUpgrade]
 
 ### <a name="application-ports"></a>Uygulama bağlantı noktaları
-Düğüm türü ile ilişkili yük dengeleyici kaynak özelliklerini değiştirerek uygulama bağlantı noktalarını değiştirebilirsiniz. Resource Manager PowerShell doğrudan kullanabilirsiniz veya Portalı'nı kullanabilirsiniz.
+Uygulama bağlantı noktaları, düğüm türü ile ilişkili olan yük dengeleyici kaynak özelliklerini değiştirerek değiştirebilirsiniz. Resource Manager PowerShell doğrudan kullanabilir veya portalı kullanabilirsiniz.
 
-Bir düğüm türü tüm sanal makineleri yeni bir bağlantı noktasını açmak için aşağıdakileri yapın:
+Bir düğüm türündeki tüm sanal makineler yeni bir bağlantı noktası açmak için aşağıdakileri yapın:
 
-1. Yeni bir yoklama uygun yük dengeleyiciye ekleyin.
+1. Yeni bir araştırma uygun yük dengeleyiciye ekleyin.
    
-    Portalı kullanarak kümenizi dağıttıysanız, yük dengeleyici "LB-adının kaynak grubu-nodetypename adlı" adlı her düğüm türü için bir tane. Yük Dengeleyici adları yalnızca bir kaynak grubunda benzersiz olduğundan, bunlar için belirli bir kaynak grubu altında arama en iyisidir.
+    Portalı kullanarak kümenize dağıtılan, yük Dengeleyiciler "LB-adının kaynak grubu-nodetypename adlı" adlı bir her düğüm türü. Yük Dengeleyici adları yalnızca bir kaynak grubu içinde benzersiz olduğundan, bunlar için belirli bir kaynak grubu altında arama en iyisidir.
    
-    ![Bir yük dengeleyiciye Portalı'nda bir araştırma ekleme gösteren ekran görüntüsü.][AddingProbes]
-2. Yeni bir kural yük dengeleyiciye ekleyin.
+    ![Portalda bir yük dengeleyiciye bir araştırma ekleme gösteren ekran görüntüsü.][AddingProbes]
+2. Yük dengeleyiciye yeni bir kural ekleyin.
    
     Yeni bir kural, önceki adımda oluşturduğunuz araştırmayı kullanarak aynı yük dengeleyiciye ekleyin.
    
-    ![Bir yük dengeleyiciye portalında yeni bir kural ekleme.][AddingLBRules]
+    ![Portalda bir yük dengeleyiciye yeni bir kural ekleme.][AddingLBRules]
 
 ### <a name="placement-properties"></a>Yerleşim özellikleri
-Her düğüm türleri için uygulamalarınızda kullanmak istediğiniz özel yerleşim özellikleri ekleyebilirsiniz. NodeType açıkça eklemeden kullanabileceğiniz varsayılan bir özelliktir.
+Her düğüm türü, uygulamalarınızda kullanmak istediğiniz özel yerleşim özellikleri ekleyebilirsiniz. NodeType açıkça eklemeden kullanabileceğiniz varsayılan bir özelliktir.
 
 > [!NOTE]
-> Kısıtlamalarından, düğüm özellikleri ve bunları tanımlamak nasıl kullanımı hakkında daha fazla bilgi için "Yerleştirme kısıtlamaları ve düğüm özelliklerini" Service Fabric kümesi Kaynak Yöneticisi belgede bölüm üzerinde başvurmak [açıklayan bilgisayarınızı küme](service-fabric-cluster-resource-manager-cluster-description.md).
+> Yerleştirme kısıtlamaları, düğüm özellikleri ve bunları tanımlama hakkında daha fazla bilgi için "Yerleştirme kısıtlamaları ve düğüm özelliklerinde" Service Fabric Küme Kaynak Yöneticisi belgenin bölüm üzerinde başvurmak [açıklayan bilgisayarınızı küme](service-fabric-cluster-resource-manager-cluster-description.md).
 > 
 > 
 
 ### <a name="capacity-metrics"></a>Kapasite ölçümleri
-Her düğüm türü için yükü raporlamak üzere uygulamalarınızda kullanmak istediğiniz özel kapasite ölçümleri ekleyebilirsiniz. Üzerindeki yükü raporlamak için kapasite ölçümlerini kullanımı hakkında daha fazla bilgi için Service Fabric kümesi Resource Manager belgelerine bakın [açıklayan bilgisayarınızı küme](service-fabric-cluster-resource-manager-cluster-description.md) ve [ölçümleri ve yük](service-fabric-cluster-resource-manager-metrics.md).
+Her düğüm türü için yükü raporlamak üzere uygulamalarınızda kullanmak istediğiniz özel kapasite ölçümleri ekleyebilirsiniz. Yükü raporlamak için kapasite ölçümlerini kullanımı hakkında ayrıntılı bilgi için üzerinde Service Fabric Küme Kaynak Yöneticisi belgelerine bakın. [açıklayan bilgisayarınızı küme](service-fabric-cluster-resource-manager-cluster-description.md) ve [ölçümleri ve yük](service-fabric-cluster-resource-manager-metrics.md).
 
-### <a name="fabric-upgrade-settings---health-polices"></a>Fabric yükseltme ayarları - sistem durumu ilkeleri
-Fabric yükseltmesi için özel sistem durumu ilkeleri belirtebilirsiniz. Otomatik fabric yükseltmelerinin kümenizi ayarladıysanız, bu ilkeler otomatik fabric yükseltmelerinin aşaması-1 olarak uygulanan.
-Yükseltmeler kümeniz için el ile doku ayarladıysanız, bu ilkeler kümenizdeki fabric yükseltmesi kapalı kazandırın sisteme tetikleme yeni bir sürüm seçin her zaman uygulanan. İlkeleri geçersiz varsayılan değerler kullanılır.
+### <a name="fabric-upgrade-settings---health-polices"></a>Yapı yükseltme ayarları - sistem durumu ilkeleri
+Fabric yükseltmesi için özel sistem durumu ilkeleri belirtebilirsiniz. Otomatik yapı yükseltmeleri kümenizi ayarlarsanız bu ilkeleri otomatik yapı yükseltmeleri aşaması-1 olarak uygulanan.
+Kümeniz için el ile yapı yükseltmeleri ayarladıysanız, bu ilkeler, kümenizdeki fabric yükseltmesi hız kazandırın sisteme tetikleme yeni bir sürüm seçmek her zaman uygulanan. İlkeleri geçersiz kılmaz içeriyorsa, varsayılan değerleri kullanılır.
 
-Özel sistem durumu ilkeleri belirtin veya Gelişmiş Ayarları Yükselt'i seçerek "fabric yükseltmesi" dikey geçerli ayarları gözden geçirin. Aşağıdaki resimde nasıl konusunda gözden geçirin. 
+Özel sistem durumu ilkeleri belirtebilir veya Gelişmiş Yükseltme Ayarları'nı seçerek "fabric yükseltmesi" dikey penceresinin altındaki geçerli ayarları gözden geçirin. Aşağıdaki resme nasıl gözden geçirin. 
 
-![Özel sistem durumu ilkeleri yönetme][HealthPolices]
+![Özel durum ilkelerini yönetme][HealthPolices]
 
-### <a name="customize-fabric-settings-for-your-cluster"></a>Yapı ayarları kümeniz için özelleştirme
-Başvurmak [hizmet doku küme yapı ayarları](service-fabric-cluster-fabric-settings.md) ne ve bunları nasıl özelleştirebilirsiniz.
+### <a name="customize-fabric-settings-for-your-cluster"></a>Kümeniz için yapı ayarları özelleştirme
+Başvurmak [service fabric kümesi yapı ayarları](service-fabric-cluster-fabric-settings.md) ne ve bunları nasıl özelleştirebilirsiniz.
 
-### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>İşletim sistemi yamalarını kümeyi olun VM'ler
-Başvurmak [düzeltme eki Orchestration uygulama](service-fabric-patch-orchestration-application.md) hangi dağıtılabilir kümenizdeki düzeltme eklerini her zaman kullanılabilir hizmetler tutma bir orchestrated şekilde, Windows Update sitesinden yükleyin. 
+### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>Kümeyi oluşturan vm'lerde işletim sistemi düzeltme ekleri
+Başvurmak [düzeltme düzenleme uygulaması](service-fabric-patch-orchestration-application.md) kümenizdeki her zaman kullanılabilen hizmetler tutma düzenlenmiş bir biçimde Windows Update'ten düzeltme eklerini yüklemeyi dağıtılabilecek. 
 
-### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>İşletim sistemi yükseltmeleri kümeyi olun VM'ler
-İşletim sistemi görüntüsü kümenin sanal makinelerde yükseltmeniz gerekir, aynı anda bir VM yapmalısınız. Sorumlu olduğunuz bu yükseltmeyi--var. şu anda bu Otomasyon.
+### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Kümeyi oluşturan vm'lerde işletim sistemi yükseltmeleri
+İşletim sistemi görüntüsü kümenin sanal makinelerde yükseltmeniz gerekir, aynı anda bir VM yapmalısınız. Sorumlu olduğunuz için bu yükseltme--şu anda bu Otomasyon olmadığından.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bazı özelleştirmeyi öğrenin [hizmet doku küme yapı ayarları](service-fabric-cluster-fabric-settings.md)
-* Bilgi edinmek için nasıl [kümenizi ölçeğini](service-fabric-cluster-scale-up-down.md)
-* Hakkında bilgi edinin [uygulama yükseltme](service-fabric-application-upgrade.md)
+* Bazı özelleştirmeyi öğrenin [service fabric kümesi yapı ayarları](service-fabric-cluster-fabric-settings.md)
+* Bilgi edinmek için nasıl [kümenizin ölçeğini daraltma ve genişletme](service-fabric-cluster-scale-up-down.md)
+* Hakkında bilgi edinin [uygulama yükseltmeleri](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

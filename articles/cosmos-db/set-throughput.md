@@ -7,28 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/02/2018
 ms.author: andrl
-ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 2f6720e39856366e4bca387effdc2a0624d85826
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734480"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248003"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Azure Cosmos DB kapsayıcıları ve veritabanı için aktarım hızı alma ve ayarlama
 
-Azure portalını kullanarak veya istemci SDK'ları kullanarak, bir Azure Cosmos DB kapsayıcısı veya bir dizi kapsayıcıları için aktarım hızı ayarlayabilirsiniz. 
-
-**Bir kapsayıcının aktarım hızını sağlama:** kapsayıcıları kümesi için aktarım hızı sağladığınızda, sağlanan aktarım hızı tüm kapsayıcıların paylaşın. Tek tek kapsayıcılar için sağlama aktarım hızı, belirli bir kapsayıcı için aktarım hızının ayırma garanti eder. Olarak RU/sn tek tek kapsayıcı düzeyinde atarken kapsayıcıları oluşturulabilir *sabit* veya *sınırsız*. Sabit boyutlu kapsayıcıların üst sınırı 10 GB ve 10.000 RU/sn aktarım hızıdır. Sınırsız bir kapsayıcı oluşturmak için en düşük aktarım hızı, 1.000 RU/sn belirtmeniz gerekir ve bir [bölüm anahtarı](partition-data.md). Verilerinizi birden çok bölümler arasında bölünmesi gerekebilir olduğundan, yüksek bir kardinalite (100 milyonlarca ayrı değer) sahip bir bölüm anahtarı seçmek gereklidir. Birçok farklı değerlere sahip bir bölüm anahtarı'nı seçerek, kapsayıcı/tablo/grafik ve isteklerini aynı şekilde Azure Cosmos DB tarafından ölçeklendirilebilir emin olun. 
-
-**Bir kapsayıcı veya bir veritabanı kümesinin sağlama aktarım hızı:** sağlama aktarım hızı bir veritabanı için aktarım hızı o veritabanına ait tüm kapsayıcıları arasında paylaşmanızı sağlar. Bir Azure Cosmos DB veritabanında, kapsayıcılar, adanmış aktarım hızı yanı sıra aktarım hızını paylaşır kapsayıcıları kümesi olabilir. Bu kümeye ait olan kapsayıcıları RU/sn kapsayıcıları kümesi atarken değerlendirilir *sınırsız* kapsayıcılar ve bölüm anahtarı belirtmeniz gerekir.
-
-Sağlanan aktarım hızına göre Azure Cosmos DB büyüdükçe, kapsayıcılar ve Gruplama/rebalances verilerinizi bölümler arasında barındırmak için fiziksel bölümlere ayırır. Kapsayıcı ve veritabanı düzeyi aktarım hızı sağlama ayrı teklifleri ve ya da bunların arasında geçiş gerektiren geçirme kaynaktan hedef veri. Yeni bir veritabanı veya yeni bir koleksiyon oluşturun ve ardından verileri kullanarak geçirmek için anlamına gelir [toplu Yürütücü Kitaplığı](bulk-executor-overview.md) veya [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). Aşağıdaki görüntüde, farklı düzeylerde sağlama aktarım hızı gösterilmiştir:
-
-![İstek birimleri için ayrı kapsayıcıları ve kapsayıcıları kümesi sağlama](./media/request-units/provisioning_set_containers.png)
-
-Sonraki bölümlerde, aktarım hızı, Azure Cosmos DB hesabı için farklı düzeylerde yapılandırmak için gereken adımları öğreneceksiniz. 
+Azure portalını kullanarak veya istemci SDK'ları kullanarak, bir Azure Cosmos DB kapsayıcısı veya bir dizi kapsayıcıları için aktarım hızı ayarlayabilirsiniz. Bu makalede bir Azure Cosmos DB hesabı için farklı ayrıntı düzeyi, aktarım hızı yapılandırmak için gereken adımları açıklar.
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Azure portalını kullanarak hazırlama aktarım hızı
 

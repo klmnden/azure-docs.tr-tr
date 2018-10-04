@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b80543b199d4b766c1a8800d2dff4cf5ed81f8cc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 72a9d476b5e5dfc55c6a28dff7e09a20faab332c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181779"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246999"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Proje akustik ile çalışmaya başlama
 Bu Hızlı Başlangıç Kılavuzu, nasıl içinde Unity projenizde eklenti tümleştirme, hazırlama, Sahne ve akustik ses kaynakları için geçerlidir gösterilmektedir. Bu hızlı başlangıçta ilk oluşturmanız gerekecek bir [Azure batch hesabı](create-azure-account.md). Bu kılavuz, Unity bazı bilindiğini varsayar.
@@ -93,9 +93,9 @@ Bir ses kaynağı oluşturun. Bildiren AudioSource'nın denetçisi panelinin alt
 ![Ses kaynağından](media/AudioSource.png)
 
 ## <a name="apply-post-bake-design"></a>Hazırlama sonrası Tasarım Uygula
-Betiği ekleyebilirsiniz **AcousticsSourceCustomization** ses kaynağına tıklayarak ek kaynak tasarım parametreleri etkinleştirmek için sahnedeki **Bileşen Ekle** seçip **betikleri > Akustik kaynak özelleştirme**:
+Betiği ekleyebilirsiniz **AcousticsDesign** ses kaynağına tıklayarak ek kaynak tasarım parametreleri etkinleştirmek için sahnedeki **Bileşen Ekle** seçip **betikleri > akustik Tasarım**:
 
-![Kaynak özelleştirme](media/SourceCustomization.png)
+![Kaynak özelleştirme](media/AcousticsDesign.png)
 
 Ayrıca parametre yok üzerinde **Microsoft akustik Mixer**. Hazırlama sonrası tasarımı hakkında daha fazla bilgi için bkz. [tasarım parametreleri](design-process.md).
 

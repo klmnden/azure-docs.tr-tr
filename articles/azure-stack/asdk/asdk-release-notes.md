@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: d322fe378e7f662c233e9572dfc79dcd961137bd
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 72c28f8d4f8d867d16c374e3dd659d845010813e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237815"
+ms.locfileid: "48249103"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack Geliştirme Seti sürüm notları  
 Bu makalede, geliştirmeleri, düzeltmeler ve Azure Stack geliştirme Seti'ni'de bilinen sorunlar hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Abone olarak ASDK yenilikler ile güncel kalın [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [akış](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## <a name="build-11809xxx"></a>1.1809.x.xx oluşturun
+## <a name="build-11808097"></a>Derleme 1.1808.0.97
 
 ### <a name="new-features"></a>Yeni Özellikler
 Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içerir.  
@@ -86,6 +86,8 @@ Daha fazla bilgi için [Azure Stack syslog iletmeyi](../azure-stack-integrate-se
 
 
 #### <a name="compute"></a>İşlem  
+
+- <!-- 3099544 – IS, ASDK --> Azure Stack portalını kullanarak bir yeni sanal makine (VM) oluşturun ve VM boyutu seçin, ABD Doları/ay sütun içeren görüntülenir bir **kullanılamıyor** ileti. Bu sütun görünmemelidir; VM görüntüleme fiyatlandırma sütunu Azure Stack'te desteklenmiyor.
 
 - <!-- 3090289 – IS, ASDK --> Güncelleştirme 1808 uyguladıktan sonra yönetilen disklere sahip VM'ler dağıtırken aşağıdaki sorunlarla karşılaşabilirsiniz:
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 99e9edf0bb31ec0eab96e22e866d9602a26c2693
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 64cd440947c95de92ea156c14e4c524ecdc8e76c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47179927"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268825"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Oturum açma Azure Active Directory hesaplarını Azure Active Directory B2C'de yerleşik bir ilke ayarlama
 
@@ -32,7 +32,7 @@ Belirli kullanıcılar için oturum açma etkinleştirmek için Azure AD kurulu�
 >`Contoso.com` Kuruluş için kullanılan Azure AD kiracısı ve `fabrikamb2c.onmicrosoft.com` aşağıdaki yönergeler, Azure AD B2C kiracısı olarak kullanılır.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Kuruluş Azure içeren dizine kullandığınızdan emin olun tıklayarak AD Kiracı (contoso.com) **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+2. Üst menüde dizin ve abonelik filtresi tıklattıktan sonra Azure AD B2C kiracınızı içeren dizine seçerek Azure AD B2C kiracınızı (fabrikamb2c.onmicrosoft.com) içeren dizine kullandığınızdan emin olun.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **uygulama kayıtları**.
 4. **Yeni uygulama kaydı**’nı seçin.
 5. Uygulamanız için bir ad girin. Örneğin, `Azure AD B2C App`.

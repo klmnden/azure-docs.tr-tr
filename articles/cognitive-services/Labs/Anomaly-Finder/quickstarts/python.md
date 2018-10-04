@@ -1,6 +1,6 @@
 ---
-title: Python - Microsoft Bilişsel hizmetler Anomali Bulucu API kullanma | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Anomali Bulucu Bilişsel hizmetler Python ile kullanmaya başlayın.
+title: Anomali Bulucu API Python - Microsoft Bilişsel hizmetler ile kullanma | Microsoft Docs
+description: Anomali Bulucu, Bilişsel hizmetler, Python kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,35 +9,37 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: c14916b0644edab613b298d6e71f8bbb9a6bb804
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c9fd96bf4a9bdc9dfe5baf52aa742e19d5436708
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353309"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247360"
 ---
 # <a name="use-the-anomaly-finder-api-with-python"></a>Anomali Bulucu API Python ile kullanma
 
-Bu makalede bilgiler sağlanmaktadır ve hızla yardımcı olmak için kod örnekleri Anomali Bulucu API ile Python anomali sonucu için zaman serisi veri alma görevi gerçekleştirmek için kullanmaya başlayın.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Bu makalede bilgiler sağlanmaktadır ve kod örnekleri, hızlı bir şekilde yardımcı olması için anomali sonuç için zaman serisi verilerini alma görevi gerçekleştirmek için Python ile Anomali Bulucu API'yi kullanarak kullanmaya başlayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-python"></a>Python kullanarak Anomali Bulucu API'si ile anomali noktalarını alma 
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-python"></a>Anomali noktaları Anomali Bulucu kullanarak Python API'sini kullanmaya başlama 
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Zaman serisi veri örneği
+### <a name="example-of-time-series-data"></a>Zaman serisi verilerini örneği
 
 Zaman serisi veri noktaları örneği aşağıdaki gibidir.
 
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-python-example"></a>Verileri çözümlemek ve anomali noktaları Python örnek alma
+### <a name="analyze-data-and-get-anomaly-points-python-example"></a>Verileri analiz ve anomali noktaları Python örnek alın
 
-Python3 yükledikten sonra detect.py adlı bir python yürütülebilir dosyası oluşturun emin olun. Detect.PY içinde aşağıdaki kodu içermelidir. Kod çalıştırmadan önce değiştirmek unutmayın `[YOUR_SUBSCRIPTION_KEY]` değeri geçerli bir abonelik anahtarınızı ile.
-Değiştir `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` veri noktaları.
+Python3 yükledikten sonra detect.py adlı bir python yürütülebilir bir dosya oluşturun emin olun. Detect.PY içinde aşağıdaki kodu içermesi gerekir. Kodu yürütmeden önce değiştirmeyi unutmayın `[YOUR_SUBSCRIPTION_KEY]` değeri geçerli bir abonelik.
+Değiştirin `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` , veri noktalarıyla.
 
 ```python
 import requests
@@ -65,7 +67,7 @@ print(result)
 
 ### <a name="example-response"></a>Örnek yanıt
 
-Başarılı yanıt JSON döndürülür. Örnek yanıt aşağıdaki gibidir.
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek yanıt aşağıdaki gibidir.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar

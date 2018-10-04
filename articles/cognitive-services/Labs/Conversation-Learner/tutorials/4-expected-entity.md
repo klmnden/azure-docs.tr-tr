@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a43c52143f936eaefd4383714b1c67b6b74d34e8
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378678"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268030"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Eylemler "varlık bekleniyor" özelliğini kullanma
 
@@ -63,9 +63,10 @@ Bir eylemin "varlık bekleniyor" alanı $entity ve ardından İleri kullanıcı 
 2. Yanıtta 'Adınız ne?' yazın.
 3. Beklenen varlıklarda $name girin. Kaydet’e tıklayın.
     - Bu değer, bu soruyu sormak ve kullanıcı yanıtı algılanan herhangi bir varlık yok, robot kullanıcının yanıtın tamamını varlıktır varsayacaktır anlamına gelir.
+    - Varlık disqualifying bir varlık olarak otomatik olarak eklenir. 
 2. Eylemler ve ardından yeni bir eylem ikinci bir eylem oluşturmak için tıklayın.
 3. Yanıtta 'Hello $name' yazın.
-    - Varlık, gerekli bir varlık olarak otomatik olarak eklendiğini unutmayın. 
+    - Varlık, gerekli bir varlık olarak otomatik olarak eklenir.
 4. Kaydet’e tıklayın.
 
 Artık iki eylem var.
@@ -111,7 +112,7 @@ Aşağıdaki örneklerde, "beklenen varlık" buluşsal tetikler, ancak hatalı. 
 2. 'Hello' girin.
 3. Yanıtta, için 'adınız ne', 'I frank olarak adlandırılan ' girin.
     - Deyimin tamamını vurgulanır. Bu durum, buluşsal yöntem harekete ve tüm yanıt adı entity seçili istatistiksel modeli bir ad bulamadı çünkü.
-2. Bunu düzeltmek için vurgulanan deyimini tıklayın ardından üzerinde kırmızı x simgesini tıklatın. 
+2. Düzeltmek için vurgulanan deyimini tıklayın ve ardından kırmızı çöp kutusu simgesine. 
 3. Frank seçmek için tıklayın ve ardından adına tıklayın.
 2. Puan Eylemler
 3. 'Hello $name' seçin.

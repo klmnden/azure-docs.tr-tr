@@ -12,19 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
-ms.author: daseidma;bwren
-ms.openlocfilehash: 30a03fd5df9d4119e61698cfe1e5fc612e2cfd3f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.date: 10/03/2018
+ms.author: magoedte
+ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297835"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269267"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure'da hizmet eşlemesi çözümünü kullanma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz gibi sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine sistemleri olarak. Bir aracı yüklemesini dışında hiçbir yapılandırma tüm TCP bağlantılı mimarisi arasında bağlantı noktaları gerekli ve hizmet eşlemesi sunucuları, işlemler, gelen ve giden bağlantı gecikmesi arasındaki bağlantıları gösterir.
 
 Bu makalede, ekleme ve hizmet eşlemesi kullanarak ayrıntılarını açıklar. Hizmet eşlemesi ve aracı ekleme işlemi yapılandırma hakkında daha fazla bilgi için bkz: [yapılandırma hizmet eşlemesi çözümünü azure'da]( monitoring-service-map-configure.md).
+
+>[!NOTE]
+>Hizmet eşlemesi zaten dağıttıysanız, artık Ayrıca, maps Azure İzleyici'de VM'ler için VM durumunu ve performansını izlemek için ek özellikler içeren görüntüleyebilirsiniz. Daha fazla bilgi için bkz. [Vm'lere genel bakış için Azure İzleyici](monitoring-vminsights-overview.md).
+
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
@@ -230,6 +234,7 @@ Bağlı ITSM çözümünüzde öğesi'ni açmak için **iş öğesini görüntü
 
 Günlük aramasında öğenin ayrıntılarını görüntülemek için tıklayın **günlük aramasında Göster**.
 Log analytics'te iki yeni tablolar bağlantı ölçümü yazılır 
+
 ## <a name="change-tracking-integration"></a>İzleme tümleştirme değiştirme
 Her iki çözüm de etkin ve Log Analytics çalışma alanınızda yapılandırılan değişiklik izleme ile hizmet eşlemesi tümleştirme otomatik olarak gerçekleşir.
 
@@ -359,16 +364,16 @@ Her RemoteIp özelliğinde *VMConnection* tablo bilinen kötü amaçlı etkinli�
 | Özellik | Açıklama |
 |:--|:--|
 |MaliciousIp |Uzak IP adresi |
-|IndicatorThreadType | |
-|Açıklama | |
-|TLPLevel | |
-|Güven | |
-|Severity | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|Isactive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |Algılanan tehdit göstergesidir şu değerlerden birini *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *kötü amaçlı yazılım*, *kimlik avı*, *Proxy*, *PUA*, *İzleme*.   |
+|Açıklama |Gözlemlenen tehdit açıklaması. |
+|TLPLevel |Trafik ışığı Protokolü (TLP) düzeyi tanımlanmış değerlerden biridir *beyaz*, *yeşil*, *Amber*, *kırmızı*. |
+|Güven |Değerler *0-100*. |
+|Severity |Değerler *0 – 5*burada *5* en ciddi ve *0* hiç önemli değil. Varsayılan değer *3*.  |
+|FirstReportedDateTime |İlk kez sağlayıcısı göstergesi bildirdi. |
+|LastReportedDateTime |Son zaman göstergesi tarafından Interflow görüldü. |
+|Isactive |Göstergeleri ile devre dışı gösteren *True* veya *False* değeri. |
+|ReportReferenceLink |Belirli bir observable için ilgili raporları bağlar. |
+|AdditionalInformation |Uygunsa, gözlemlenen tehdit hakkında ek bilgi sağlar. |
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL kayıtları
 Kayıt türü ile *ServiceMapComputer_CL* Envanter verileri için hizmet eşlemesi Aracısı sunucularıyla sahip. Bu kayıtlar aşağıdaki tabloda özelliklere sahiptir:

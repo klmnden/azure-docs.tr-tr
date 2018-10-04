@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e3e3ff05836cb49d46a25ef3fa55d40a0bd134f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184881"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247763"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Öğretici: Azure Active Directory My ödül noktaları üst alt/üst ekibi ile tümleştirme
 
@@ -50,7 +50,8 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
+Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Ödül noktaları üst alt/üst Ekibim galeri ekleme
 2. Yapılandırma ve test Azure AD çoklu oturum açma
@@ -112,7 +113,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
 
     > [!NOTE]
-    > Oturum açma URL değeri, gerçek değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [My ödül noktaları üst alt/üst takım istemci Destek ekibine](mailto:myawardpoints@biworldwide.com) bu değeri alınamıyor.
+    > Erişmenizi sağlayacak `<SAMLENTITYID>` Bu öğreticide sonraki adımlarda değeri.
 
 4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
@@ -122,7 +123,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/myawardpoints-tutorial/tutorial_general_400.png)
 
-6. Çoklu oturum açmayı yapılandırma **ödül noktaları üst alt/üst Ekibim** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [ödül noktaları üst alt/üst Ekibim Destek ekibine](mailto:myawardpoints@biworldwide.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+6. İçinde **My ödül noktaları üst alt/üst Team yapılandırma** bölümünden **yapılandırma ödül noktaları üst alt/üst Ekibim** oturum açmayı Yapılandır penceresini açın. SAML varlık kimliği kopyalayın **hızlı başvuru** bölüm ve oturum açma URL'si yerine, SAML varlık kimliği değeriyle ekleme `<SAMLENTITYID>` içinde **My ödül noktaları üst alt/üst takım etki alanı ve URL'ler** Azure portalında bölümü.
+
+7. Çoklu oturum açmayı yapılandırma **ödül noktaları üst alt/üst Ekibim** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [ödül noktaları üst alt/üst Ekibim Destek ekibine](mailto:myawardpoints@biworldwide.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

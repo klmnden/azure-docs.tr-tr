@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 9c06a028df098874a1ec12d83a362e01a5f4a711
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: dfb1e218218a44aafd318acb53750c875bdf1263
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161905"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247728"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 
@@ -56,7 +56,7 @@ Premium modelde, Azure SQL veritabanı, işlem ve depolama tek düğümde tümle
 
 SQL Server veritabanı altyapısı işlem ve mdf/ldf dosyaları temel alınan aynı düğümde yerel olarak bağlı SSD depolamasında iş yükünüz için düşük gecikme süresi sağlayan yerleştirilir. Yüksek kullanılabilirlik, standart kullanılarak gerçekleştirilir [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Her müşterinin iş yükü ve verilerin kopyalarını içeren üç bir ikincil işlemleri için erişilebilir olan bir birincil veritabanı ile veritabanı düğümden oluşan bir kümede veritabanıdır. Birincil düğümden ikincil düğümlerine değişiklikleri herhangi bir nedenle birincil düğüm kilitlenmesi durumunda, veriler ikincil çoğaltmalarda kullanılabilir olmasını sağlamak için sürekli iter. Yük devretme SQL Server veritabanı altyapısı tarafından gerçekleştirilir: bir ikincil çoğaltma birincil düğüm haline gelir ve yeterli düğümleri sağlamak için yeni bir ikincil çoğaltma oluşturulur. İş yükü, yeni birincil düğüme otomatik olarak yönlendirilir.
 
-Ayrıca, iş açısından kritik küme, birincil İş yükünüzün performansını engellememelidir salt okunur sorguları (örneğin, raporları) çalıştırmak için kullanılan yerleşik salt okunur düğümü sağlar. 
+Ayrıca, iş açısından kritik küme yerleşiktir [okuma ölçeği genişletme](sql-database-read-scale-out.md) sağlayan ücretsiz, yetenek ücret performans engellememelidir salt okunur sorguları (örneğin, raporları) çalıştırmak için kullanılan yerleşik salt okunur düğüm Birincil iş yükünü.
 
 ## <a name="zone-redundant-configuration-preview"></a>Bölge yedekli yapılandırma (Önizleme)
 
@@ -70,15 +70,6 @@ Bölge yedekli çekirdek kümesi, aralarındaki bazı uzaklığı ile farklı ve
 Bölge yedekli sürümü, yüksek kullanılabilirlik mimarisi ile Aşağıdaki diyagramda gösterilmiştir:
  
 ![yüksek kullanılabilirlik mimarisi bölgesel olarak yedekli](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
-
-## <a name="read-scale-out"></a>Okuma ölçeği genişletme
-Açıklandığı gibi Premium ve iş açısından kritik hizmet katmanlarına yüksek kullanılabilirlik hem tek bir bölge ve bölge yedekli yapılandırmaları için çekirdek-ayarlar ve Always On teknoloji yararlanın. AlwaysOn avantajlarını çoğaltmaların her zaman işlemsel olarak tutarlı bir durumda olduğundan biridir. Aynı işlem boyutu birincil olarak çoğaltma içerdiğinden, Uygulama Bakımı hiçbir ek salt okunur iş yükleri için bu ek kapasite yararlanabilirsiniz maliyeti (okuma ölçeği genişletme). Bu şekilde salt okunur sorguların ana okuma-yazma iş yükünden yalıtılmış ve performansını etkilemez. Ölçeklendirme özelliği yönelik Okuma içeren mantıksal uygulamalar için analytics gibi salt okunur iş yüklerinin ayrılmış ve bu nedenle bu ek kapasite için birincil bağlanmadan yararlanabiliriz. 
-
-Belirli bir veritabanıyla okuma ölçek genişletme özelliğini kullanmak için açıkça veritabanını oluştururken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri veya Azure Resource Manager REST API aracılığıyla [veritabanları - oluşturma veya güncelleştirme](/rest/api/sql/databases/createorupdate) yöntemi.
-
-Bir veritabanı için okuma ölçeği genişletme etkinleştirildikten sonra o veritabanına bağlanan uygulamalar okuma-yazma çoğaltmaya veya salt okunur bir çoğaltmaya göre veritabanının yönlendirilirsiniz `ApplicationIntent` uygulamanın yapılandırılmış özelliği bağlantı dizesi. Hakkında bilgi için `ApplicationIntent` özelliğine bakın [belirterek uygulama amacı](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
-
-Okuma ölçeği genişletme devre dışı bırakıldı veya bir desteklenmeyen hizmet katmanında ReadScale özelliğini ayarlamanız, okuma / yazma kopyasına, bağımsız olarak tüm bağlantıları yönlendirilmiş `ApplicationIntent` özelliği.
 
 ## <a name="conclusion"></a>Sonuç
 Azure SQL veritabanı Azure platformu ile derin şekilde tümleşiktir ve Service Fabric üzerinde yüksek oranda hata algılama ve kurtarma, veri koruma için Azure depolama BLOB'ları ve kullanılabilirlik için daha yüksek hata toleransı için bağlıdır. Azure SQL veritabanı, aynı zamanda, çoğaltma ve yük devretme için SQL Server ürün Always On kullanılabilirlik grubu teknolojisini tam olarak yararlanır. Bu teknolojiler birleşimi uygulamaların tam olarak bir karma depolama modelinin avantajlarından ve En zorlu SLA desteği sağlar. 

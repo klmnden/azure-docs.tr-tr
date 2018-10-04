@@ -4,7 +4,7 @@ description: Bu makalede, Azure VM'ler, ortak Internet Hizmetleri ile iletişim 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: jpconnock
 editor: ''
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 58ae89a6b9d7b9e3858358d290e3ecb197e0ac2b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036999"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249137"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantıları
 
@@ -67,7 +67,7 @@ Yük dengeli sanal Makineyi bir giden akış oluşturduğunda, Azure genel yük 
 
 Kısa ömürlü bağlantı noktaları yük dengeleyicinin genel IP adresi ön uç, tek tek akış sanal makine tarafından oluşturulan ayırt etmek için kullanılır. Dinamik olarak SNAT kullanan [kısa ömürlü bağlantı noktaları önceden ayrılmış](#preallocatedports) giden akışlar oluşturduğunuzda. Bu bağlamda SNAT için kullanılan kısa ömürlü bağlantı noktaları SNAT bağlantı noktaları denir.
 
-Bölümünde anlatıldığı gibi SNAT bağlantı noktaları önceden ayrılmış [anlama SNAT ve PAT](#snat) bölümü. Bunlar tükenmiş olabilir sınırlı bir kaynak hedeflenmiştir. Nasıl olduğunu anlama açısından önemlidir [tüketilen](#pat). Bu tüketimi için tasarımı ve gerektiği şekilde etkisini anlamak için gözden [yönetme SNAT tükenmesi](#snatexhaust).
+SNAT bağlantı noktaları önceden açıklandığı ayrılan [anlama SNAT ve PAT](#snat) bölümü. Bunlar tükenmiş olabilir sınırlı bir kaynak hedeflenmiştir. Nasıl olduğunu anlama açısından önemlidir [tüketilen](#pat). Bu tüketimi için tasarımı ve gerektiği şekilde etkisini anlamak için gözden [yönetme SNAT tükenmesi](#snatexhaust).
 
 Zaman [birden çok genel IP adresi yük dengeleyici temel ile ilişkili](load-balancer-multivip-overview.md), bu genel IP adresleri olan bir [giden akışlar için aday](#multivipsnat), ve bir rastgele seçili.  
 
@@ -75,7 +75,7 @@ Temel yük dengeleyici giden bağlantı durumunu izlemek için kullanabileceğin
 
 ### <a name="defaultsnat"></a>Senaryo 3: Tek başına VM örnek düzeyinde ortak IP adresi olmadan
 
-Bu senaryoda, VM'ye bir genel yük dengeleyici havuzu (ve bir iç Load Balancer standart havuz parçası olmayan) bir parçası değil ve kendisine atanmış bir ILPIP adresi yok. Azure, VM'ye giden bir akış oluşturduğunda, özel kaynak IP adresini bir genel kaynak IP adresine giden akış çevirir. Giden Bu akış için kullanılan genel IP adresini yapılandırılabilir değildir ve bu aboneliğe ait genel IP kaynağı limite karşı sayılmaz.
+Bu senaryoda, VM'ye bir genel yük dengeleyici havuzu (ve bir iç Load Balancer standart havuz parçası olmayan) bir parçası değil ve kendisine atanmış bir ILPIP adresi yok. Azure, VM'ye giden bir akış oluşturduğunda, özel kaynak IP adresini bir genel kaynak IP adresine giden akış çevirir. Giden Bu akış için kullanılan genel IP adresini yapılandırılabilir değildir ve bu aboneliğe ait genel IP kaynağı limite karşı sayılmaz. Bu genel IP adresi, size ait değilse ve ayrılmış olamaz. VM veya kullanılabilirlik kümesi veya VMSS dağıtmanız durumunda, bu genel IP adresi serbest bırakılacak ve yeni bir genel IP adresi isteniyor. Bu senaryo için IP adreslerini beyaz listeye ekleme özelliğini kullanmayın. Bunun yerine, diğer iki senaryolardan biri, burada açıkça giden senaryo ve giden bağlantı için kullanılacak genel IP adresi bildirdiğiniz kullanın.
 
 >[!IMPORTANT] 
 >Bu senaryo ayrıca olduğunda geçerlidir __yalnızca__ bir iç temel yük dengeleyici olarak eklenir. Senaryo 3 __kullanılamıyor__ iç bir Standard Load Balancer bir VM'ye bağlı olduğunda.  Açıkça oluşturmalısınız [Senaryo 1](#ilpip) veya [Senaryo 2](#lb) iç bir Standard Load Balancer'ı kullanmanın yanı sıra.

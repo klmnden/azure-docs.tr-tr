@@ -1,6 +1,6 @@
 ---
-title: PHP - Microsoft Bilişsel hizmetler Anomali Bulucu API kullanma | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Anomali Bulucu PHP Bilişsel hizmetler ile birlikte kullanmaya başlayın.
+title: Anomali Bulucu API PHP - Microsoft Bilişsel hizmetler ile kullanma | Microsoft Docs
+description: Anomali Bulucu, Bilişsel hizmetler, PHP kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,32 +9,34 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f81c99b77f931b5b259633fa8fcd0bf3e358e281
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f5f055be584aa9c6afb66ff651fd3c01851afd76
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353327"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246404"
 ---
-# <a name="use-the-anomaly-finder-api-with-php"></a>PHP ile Anomali Bulucu API kullanın
+# <a name="use-the-anomaly-finder-api-with-php"></a>Anomali Bulucu API PHP ile kullanma
 
-Bu makalede bilgiler sağlanmaktadır ve hızla yardımcı olmak için kod örnekleri Anomali Bulucu API ile PHP anomali sonucu için zaman serisi veri alma görevi gerçekleştirmek için kullanmaya başlayın.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Bu makalede bilgiler sağlanmaktadır ve kod örnekleri, hızlı bir şekilde yardımcı olması için anomali sonuç için zaman serisi verilerini alma görevi gerçekleştirmek için PHP ile Anomali Bulucu API'yi kullanarak kullanmaya başlayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-php"></a>PHP kullanarak Anomali Bulucu API'si ile anomali noktalarını alma
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-php"></a>Anomali noktaları PHP kullanarak Anomali Bulucu API'sini kullanmaya başlama
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Zaman serisi veri örneği
-Zaman serisi veri örneği aşağıdaki gibidir.
+### <a name="example-of-time-series-data"></a>Zaman serisi verilerini örneği
+Zaman serisi verilerini örneği aşağıdaki gibidir.
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-php-example"></a>Verileri çözümlemek ve PHP örnek anomali noktaları Al
-1. Değiştir `[YOUR_SUBSCRIPTION_KEY]` değeri geçerli bir abonelik anahtarınızı ile.
-2. Değiştir `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` örnek veya kendi veri noktaları.
-3. Yürütme ve yanıt denetleyin.
+### <a name="analyze-data-and-get-anomaly-points-php-example"></a>Verileri analiz etmek ve örnek PHP anomali puan Al
+1. `[YOUR_SUBSCRIPTION_KEY]` değerini geçerli abonelik anahtarınızla değiştirin.
+2. Değiştirin `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` örnek veya kendi veri noktaları.
+3. Yürütme ve yanıtı kontrol edin.
 
 ```PHP
 <?php
@@ -74,7 +76,7 @@ catch (HttpException $ex)
 
 ### <a name="example-response"></a>Örnek yanıt
 
-Başarılı yanıt JSON döndürülür. Örnek yanıt aşağıdaki gibidir.
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek yanıt aşağıdaki gibidir.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar

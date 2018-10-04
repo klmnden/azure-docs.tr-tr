@@ -7,37 +7,37 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 10/02/2018
 ms.author: rimman
-ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 23a3e629e12e2a4d417757c9fef5db804bb72c9e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286774"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248763"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>İstek birimi olarak Azure Cosmos DB'de
+# <a name="throughput-and-request-units-in-azure-cosmos-db"></a>Azure Cosmos DB'de aktarım hızı ve istek birimleri
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Microsoft Global olarak dağıtılmış çok modelli veritabanıdır. Azure Cosmos DB ile sanal makineleri kiralayabilirler, yazılım dağıtma veya veritabanlarını izleme gerekmez. Azure Cosmos DB tarafından işletilen ve sürekli olarak birinci sınıf kullanılabilirlik, performans ve veri koruması sağlamak için Microsoft en iyi mühendisleri tarafından izlenen. Gibi tercih ettiğiniz API'lerini kullanarak verilerinize erişebilirsiniz [SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), ve [tablo](table-introduction.md) API ve graph aracılığıyla [Gremlin API](graph-introduction.md). Tüm API'leri tüm yerel olarak desteklenir. 
+Azure Cosmos DB kaynaklarını sağlanan aktarım hızı ve depolama göre faturalandırılır. Azure Cosmos DB aktarım hızı açısından ifade edilir **istek birimi (RU/sn) saniyede**. Azure Cosmos DB, farklı işlem var çeşitli API'ler destekler, basit arasında değişen okur ve karmaşık graf sorgularını yazar. Her isteği istek birimlerini isteğe hizmet vermek için gerekli hesaplama miktarını kullanır. Bir işlem için istek birimi belirleyici sayısıdır. Yanıt üst bilgisini kullanarak kullanılan herhangi bir işlem Azure Cosmos DB'de istek birimleri sayısını takip edebilirsiniz. Tahmin edilebilir performans sağlamak için aktarım hızı birimi 100 RU/saniye ayırmanız gerekir. Azure Cosmos DB kullanarak üretilen iş hacmi gereksinimlerinizi tahmin edebilirsiniz [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner).
 
-Azure Cosmos DB'nin para birimi *istek birimi (RU)*. İstek birimleri ile okuma/yazma kapasiteler veya sağlama CPU, bellek ve IOPS ayırmak gerekmez. Azure Cosmos DB, farklı işlem var çeşitli API'ler destekler, basit arasında değişen okur ve karmaşık graf sorgularını yazar. Tüm istekleri eşit olduğundan, istekleri normalleştirilmiş isteğe hizmet vermek için gerekli olan hesaplamayı miktarına göre istek birimi miktarı atanır. Bir işlem için istek birimi belirleyici sayısıdır. Azure Cosmos DB'de herhangi bir işlem aracılığıyla bir yanıt üstbilgisi tarafından kullanılan istek birimleri sayısını takip edebilirsiniz. 
+Azure Cosmos DB'de aktarım hızını iki ayrıntı düzeylerinde sağlayabilirsiniz: 
 
-Tahmin edilebilir performans sağlamak için aktarım hızı birimi 100 RU/saniye saklı tutarız. Yapabilecekleriniz [aktarım hızınızı ihtiyaçlarınızı tahmin etmenize](request-units.md#estimating-throughput-needs) Azure Cosmos DB kullanarak [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner).
+1. **Azure Cosmos DB kapsayıcısı:** yalnızca bu belirli kapsayıcı için ayrılmış bir kapsayıcı için sağlanan aktarım hızı. Olarak kapsayıcı düzeyinde Throughput(RU/s) atarken kapsayıcıları oluşturulabilir **sabit** veya **sınırsız**. 
 
-![Aktarım hızı hesaplayıcı][5]
+  Sabit boyutlu kapsayıcıların en yüksek aktarım hızı sınırı 10.000 RU/s ve 10 GB depolama sınırı vardır. Sınırsız bir kapsayıcı oluşturmak için en düşük aktarım hızı, 1.000 RU/sn belirtmeniz gerekir ve bir [bölüm anahtarı](partition-data.md). Verilerinizi birden çok bölümde bölünebilir olduğundan, yüksek bir kardinalite (100 milyonlarca ayrı değer) sahip bir bölüm anahtarı seçin gerekir. Birçok farklı değerlere sahip bir bölüm anahtarı'nı seçerek, Azure Cosmos DB koleksiyonu, tablo ve graf isteklerine birörnek ölçeği sağlar. 
 
-Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlamak mümkün olacaktır:
+2. **Azure Cosmos DB veritabanı:** bu veritabanındaki tüm kapsayıcılar arasında paylaşılan bir veritabanı için sağlanan aktarım hızı. Aktarım hızı ve veritabanı düzeyinde sağlanırken açıkça belirli kapsayıcılarını dışlayın ve bunun yerine kapsayıcı düzeyinde kapsayıcıların verimliliğini sağlamak seçebilirsiniz. Veritabanı düzeyinde aktarım hızını bölüm anahtarıyla oluşturulacak tüm koleksiyonlar gerektirir. Her bir koleksiyon olduğundan aktarım hızı ve veritabanı düzeyinde atarken bu veritabanına ait kapsayıcıları bir bölüm anahtarı ile oluşturulması gereken bir **sınırsız** kapsayıcı.  
 
-* İstek birimleri ve Azure Cosmos DB'de istek ücretler nelerdir?
-* İstek birimi kapasiteyi kapsayıcıların bir kapsayıcı veya Azure Cosmos DB'de nasıl belirtebilirim?
-* My uygulamanın istek birimi gereken nasıl tahmin ederim?
-* Bir kapsayıcı veya Azure Cosmos DB kapsayıcıları kümesi için istek birimi kapasite aşarsam ne olur?
+Sağlanan aktarım hızına göre Azure Cosmos DB büyüdükçe, kapsayıcılar ve Gruplama verilerinizi bölümler arasında barındırmak için fiziksel bölümlere ayırır. Aşağıdaki görüntüde, farklı düzeylerde sağlama aktarım hızı gösterilmiştir:
 
-Azure Cosmos DB çok modelli bir veritabanı olduğundan, bu makalede tüm veri modelleri ve Azure Cosmos DB API'leri için geçerli olduğuna dikkat edin önemlidir. Bu makalede, genel terimleri kullanılmıştır *kapsayıcı* genel bir koleksiyon veya graph başvurmak için ve *öğesi* tablo, belge, düğümü veya varlık için genel olarak başvurmak için.
+  ![İstek birimleri için ayrı kapsayıcıları ve kapsayıcıları kümesi sağlama](./media/request-units/provisioning_set_containers.png)
+
+> [!NOTE] 
+> Aktarım hızı kapsayıcı düzeyi ve veritabanı düzeyinde sağlama olan ayrı teklifleri ve ya da bunların arasında geçiş gerektiren veri kaynaktan hedefe geçişi. Yeni bir veritabanı veya yeni bir koleksiyon oluşturun ve ardından verileri kullanarak geçirmek için anlamına gelir [toplu Yürütücü Kitaplığı](bulk-executor-overview.md) veya [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ## <a name="request-units-and-request-charges"></a>İstek birimleri ve istek ücretleri
 
-Azure Cosmos DB, hızlı, uygulamanızın aktarım hızı gereksinimlerini karşılamak için kaynaklarını ayırma tarafından öngörülebilir performans sunar. Uygulama yük ve erişim desenleri zamanla değişir. Azure Cosmos DB, kolayca artırın veya ayrılmış aktarım hızını uygulamanızda kullanılabilen miktarını azaltmak yardımcı olabilir.
+Azure Cosmos DB, uygulamanızın aktarım hızı ihtiyaçlarını karşılamak için gerekli kaynakları ayırarak hızlı ve tahmin edilebilir performans sunar. Uygulama yükü ve erişim düzenleri zaman içinde değişir. Azure Cosmos DB, uygulamanızın kullanabileceği ayrılmış aktarım hızı miktarını kolayca artırmanıza veya azaltmanıza yardımcı olabilir.
 
 Azure Cosmos DB ile ayrılmış aktarım hızı, işleme saniye başına istek birimi cinsinden belirtilir. İstek birimleri aktarım hızı para birimi olarak düşünebilirsiniz. Uygulamanızın saniyelik aralıklarla kullanılabilir olmasını garanti edilen istek birimi sayısı saklı tutarız. Azure Cosmos DB, bir belge yazma dahil olmak üzere her bir işlemde bir sorgu gerçekleştirmek ve bir belge güncelleştiriliyor, CPU, bellek ve IOPS kullanır. Diğer bir deyişle, her işlem, istek birimleri cinsinden ifade edilen bir istek ücret doğurur. İstek birimi ücreti ve uygulamanızın aktarım hızı gereksinimleri etkileyen faktörler anladığınızda, uygulamanızı maliyeti etkili bir şekilde olabildiğince olarak çalıştırabilirsiniz. 
 
@@ -57,7 +57,7 @@ Veritabanınızın birden fazla bölgeye çoğaltma, Azure Cosmos DB istek birim
 * **Betik kullanımı**. Sorgularla olduğu gibi istek birimleri gerçekleştirilmekte olan işlemlerin kapsamına bağlı saklı yordamları ve Tetikleyicileri kullanma. Uygulamanızı geliştirirken, her işlem istek birim kapasitesi nasıl kullandığı daha iyi anlamak için istek ücret üstbilgisi inceleyin.
 
 ## <a name="estimating-throughput-needs"></a>Aktarım hızı gereksinimlerini tahmin etme
-Bir istek birimi isteği işleme maliyeti normalleştirilmiş bir ölçüdür. Bir tek istek birimi (kendi bağlantısı veya kodu), 10 benzersiz özellik değerlerini (Sistem özellikleri hariç) oluşan tek bir 1 KB'lik öğe okumak için gerekli işlem kapasitesi temsil eder. (Ekle) oluşturma isteği değiştirin veya aynı silmek öğe hizmetinden daha fazla işleme kullanır ve böylelikle daha fazla istek birimleri gerektirir. 
+Bir istek birimi isteği işleme maliyeti normalleştirilmiş bir ölçüdür. Bir tek istek birimi okumak için gerekli işlem kapasitesi temsil eder (aracılığıyla kendi bağlantı veya kimliği) 10 benzersiz özellik değerlerini (Sistem özellikleri hariç) oluşan tek bir 1 KB'lik öğe. (Ekle) oluşturma isteği değiştirin veya aynı silmek öğe hizmetinden daha fazla işleme kullanır ve böylelikle daha fazla istek birimleri gerektirir. 
 
 > [!NOTE]
 > Temel 1 istek birimin bir 1 KB'lik öğe için basit bir kendi bağlantısını GET ya da öğenin kimliği karşılık gelir.
@@ -74,7 +74,6 @@ Bir istek birimi isteği işleme maliyeti normalleştirilmiş bir ölçüdür. B
 | 4 KB | 500 | 500 | (500 * 1.3) + (500 * 7) 4,150 RU/sn =
 | 64 KB | 500 | 100 | (500 * 10) + (100 * 48) = 9,800 RU/s
 | 64 KB | 500 | 500 | (500 * 10) + (500 * 48) 29,000 RU/sn =
-
 
 ### <a name="use-the-request-unit-calculator"></a>İstek birimi hesaplayıcıyı kullanın
 Aktarım hızı tahminleri ayarlamanıza yardımcı olmak için web tabanlı kullanabileceğiniz [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner). Hesaplayıcı tahmininize istek birimi gereksinimleri dahil olmak üzere, normal işlemleri için yardımcı olabilir:
@@ -237,4 +236,5 @@ Bu durumda, bir ortalama aktarım hızı gereksinimi 1,275 RU/saniye bekler. Yuv
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 13cf5861bf39cdd9c192586979b95192a31e9399
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3d52ca0c7022e08655ece8775b5855f3ae985aca
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978684"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247461"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>İleti Yönlendirme ve Event Grid için IOT Hub'ı karşılaştırma
 
@@ -22,6 +22,7 @@ Azure IOT Hub, bağlı cihazlarınızdan veri akışını ve bu verileri iş uyg
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 * **[IOT Hub ileti yönlendirme](iot-hub-devguide-messages-d2c.md)**: hizmet uç noktaları Azure depolama kapsayıcıları, Event Hubs, Service Bus kuyrukları ve Service Bus konuları gibi cihaz bulut iletilerini yönlendirmek kullanıcılar bu IOT hub'ı özelliği sağlar. Yönlendirme, bir sorgulama uç noktalar için yönlendirme önce verileri filtreleme yeteneği sağlar. Cihazın telemetri verilerine ek olarak da gönderebilirsiniz [olmayan telemetri olayları](iot-hub-devguide-messages-d2c.md#non-telemetry-events) eylemleri tetiklemek için kullanılabilir. 
+
 * **Event Grid ile IOT hub'ı tümleştirme**: Azure Event Grid; Yayımla kullanan bir tam olarak yönetilen olay yönlendirme hizmetini-abonelik modeli. IOT Hub ve Event Grid için birlikte çalışır [IOT Hub olaylarını Azure ve Azure olmayan hizmetlerle tümleştirme](iot-hub-event-grid.md), neredeyse gerçek zamanlı olarak. 
 
 ## <a name="similarities-and-differences"></a>Benzerlikleri ve farkları
@@ -31,10 +32,10 @@ Azure IOT Hub, bağlı cihazlarınızdan veri akışını ve bu verileri iş uyg
 | Özellik | IOT Hub ileti yönlendirme | Event Grid ile IOT hub'ı tümleştirme |
 | ------- | --------------- | ---------- |
 | **Cihaz iletileri** | Evet, ileti yönlendirme telemetri verileri için kullanılabilir. | Hayır, Event Grid telemetri IOT Hub olaylarını yalnızca kullanılabilir. |
-| **Olay türü** | Evet, ileti yönlendirme ikizi değişiklikleri ve cihaz yaşam döngüsü olaylarını bildirebilirsiniz. | Evet, Event Grid cihazları oluşturulan, silindi, bağlanır ve IOT Hub'ından bağlı olduğunda bildirebilirsiniz |
+| **Olay türü** | Evet, ileti yönlendirme ikizi değişiklikleri ve cihaz yaşam döngüsü olaylarını bildirebilirsiniz. | Evet, Event Grid cihazları oluşturulan, silindi, bağlı ve IOT Hub'ından bağlantısı kesildi rapor edebilirsiniz |
 | **Sıralama** | Evet, olayların sırası korunur.  | Hayır, olayların sırası garanti edilmez. | 
 | **En büyük ileti boyutu** | 256 KB, CİHAZDAN buluta | 64 KB |
-| **Filtreleme** | Zengin filtreleme ileti uygulama özelliklerini, ileti sistemi özelliklerini, ileti gövdesi, cihaz ikizi etiketleri ve cihaz özellikleri çifti. Örnekler için bkz [ileti yönlendirme sorgusu söz dizimi](iot-hub-devguide-routing-query-syntax.md). | Filtreleme soneki/depolama alanı gibi hiyerarşik Hizmetleri için iyi düşünülerek öneki cihaz kimlikleri temel. |
+| **Filtreleme** | Zengin ileti uygulama özellikleri üzerinde filtreleme, ileti sistemi özelliklerini, ileti gövdesi, cihaz ikizi etiketleri ve cihaz özellikleri çifti. Örnekler için bkz [ileti yönlendirme sorgusu söz dizimi](iot-hub-devguide-routing-query-syntax.md). | Filtreleme soneki/depolama alanı gibi hiyerarşik Hizmetleri için iyi düşünülerek öneki cihaz kimlikleri temel. |
 | **Uç noktaları** | <ul><li>Event Hubs</li> <li>Azure Blob Depolama</li> <li>Service Bus kuyruğu</li> <li>Hizmet Veri Yolu konuları</li></ul><br>Ücretli IOT hub'ı SKU'lar (S1, S2 ve S3), 10 özel uç noktalar ile sınırlıdır. IOT hub'ı 100 yollar oluşturulabilir. | <ul><li>Azure İşlevleri</li> <li>Azure Otomasyonu</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Depolama Blobu</li> <li>Özel Konu Başlıkları</li> <li>Web kancaları aracılığıyla üçüncü taraf hizmetleri</li></ul><br>Uç noktaları en güncel listesi için bkz. [Event Grid olay işleyicileri](../event-grid/overview.md#event-handlers). |
 | **Maliyet** | İleti yönlendirme için ayrı bir ücret yoktur. Yalnızca IOT hub'ıyla telemetri girişi ücretlendirilir. Örneğin, üç farklı Uç noktalara yönlendirilmesi ileti varsa, tek bir ileti için faturalandırılırsınız. | IOT Hub'ından ücret ödemenize gerek yoktur. Event Grid aylık ilk 100.000 işlem ücretsiz olarak sağlar ve ardından $0.60 bundan sonra milyon işlem başına. |
 

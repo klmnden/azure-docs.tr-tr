@@ -5,15 +5,15 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 2e2db54f4c356a754144e17b11cf25fdf3f12d9f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1490e60f3c6537a661fc1e76907b502a586547c9
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994012"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248899"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları
 Bu makalede, günlük uyarı ayrıntıları, bir içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](monitoring-overview-unified-alerts.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
@@ -106,7 +106,7 @@ Artık olarak adlandırılan bir günlük uyarı kuralı sahibiz varsayar *Conto
 - 1: saat 15 Contoso günlüğü uyarısı göre Azure uyarıları ne zaman yürütülmesi'te, günlük arama sonucunu 2 kayıtları sağlanan; Eşiği aşan ve tetikleyerek hemen sonra uyarı tetikleme [eylem grubu](monitoring-action-groups.md) ilişkili.
 - Artık 1:20 PM Contoso günlüğü uyarısı Azure uyarı tarafından ne zaman yürütülmesi sırasında bir sonraki yinelemede, günlük arama sonucunu tekrar 0 kaydı sağlanan; eşiğini ve uyarı tetikleme değil dolayısıyla aşağıda.
 
-Ancak, yukarıda listelenen durumda da, 13: 15'te - Azure uyarıları 1: 10'da görüldüğü temel sorunların kalıcı olduğunu ve net yeni hatalar olup olmadığını belirleyemiyor. kullanıcı tarafından sağlanan sorgu hesaba önceki kayıt - katılarak olarak Azure uyarılarına emin olabilirsiniz. Bu nedenle dikkatli kenarındaki hata için Contoso günlüğü uyarısı yeniden saat 13: 15'te tetiklenir aracılığıyla yapılandırılan [eylem grubu](monitoring-action-groups.md). Artık saat 13:20, kayıt görülen - Azure uyarıları emin olamaz'te kayıtları nedenini çözümlendikten; Bu nedenle Contoso günlük uyarı çözümlendi olarak Azure uyarı Pano ve/veya göz uyarının çözümleme belirten gönderilen bildirimleri değişmemiş olur.
+Ancak, yukarıda listelenen durumda da, 13: 15'te - Azure uyarıları 1: 10'da görüldüğü temel sorunların kalıcı olduğunu ve net yeni hatalar olup olmadığını belirleyemiyor. kullanıcı tarafından sağlanan sorgu hesaba önceki kayıt - katılarak olarak Azure uyarılarına emin olamaz. Bu nedenle dikkatli kenarındaki hata için Contoso günlüğü uyarısı yeniden saat 13: 15'te tetiklenir aracılığıyla yapılandırılan [eylem grubu](monitoring-action-groups.md). Artık saat 13:20, kayıt görülen - Azure uyarıları emin olamaz'te kayıtları nedenini çözümlendikten; Bu nedenle Contoso günlük uyarı çözümlendi olarak Azure uyarı Pano ve/veya göz uyarının çözümleme belirten gönderilen bildirimleri değişmemiş olur.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Fiyatlandırma ve faturalama günlük uyarıları

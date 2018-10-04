@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: 73bc8b6954470d11d6369bc733bb7c6f794ce892
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577141"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249596"
 ---
 # <a name="azure-data-factory-faq"></a>Azure veri fabrikası ile ilgili SSS
 Bu makalede Azure Data Factory hakkında sık sorulan soruların yanıtlarını sağlar.  
@@ -83,7 +83,7 @@ PowerShell, SDK veya Visual izleme araçları tarayıcı kullanıcı arabirimi a
 -   Yönetilen örnek (mı)
 -   Elastik havuz
 -   Azure Resource Manager sanal ağı (VNet) gelecekte – kullanım dışı bırakılacak Klasik VNet üzerinde desteği bu sayesinde, Azure-SSIS Integration Runtime (IR) için Azure SQL DB sanal ağ hizmet uç noktaları/mı ile yapılandırılmış bir sanal ağa ekleme/Birleştir / Şirket içinde veri erişimi için bkz: https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
--   Destek üstünde, SSISDB için - bağlanmak için SQL kimlik doğrulaması Azure Active Directory (AAD) kimlik doğrulaması için bu, ADF yönetilen hizmet kimliği (MSI) ile AAD kimlik doğrulama kullanmanıza olanak tanır
+-   Azure Active Directory (AAD) kimlik doğrulaması üzerinde SSISDB - kullandığınız bu sayede bağlanmak için SQL kimlik doğrulaması için destek, ADF ile AAD kimlik doğrulaması kimlik Azure kaynakları için yönetilen
 -   Azure hibrit Avantajı'nı (AHB) seçeneğinden önemli maliyet tasarrufları kazanmak için kendi şirket içi SQL Server lisansınızı getirmek için destek
 -   Enterprise Edition'ın Azure-SSIS sağlayan IR için destek, Gelişmiş premium özellikler, 3. taraf ekosisteminin yanı sıra ek bileşenleri ve uzantıları yüklemek için bkz özel kurulum kullanın: https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 
 -   Birinci sınıf SSIS paketi yürütme etkinlikleri ADF işlem hatları çağırma/tetikleyici ve bunları SSMS zamanlama sağlayan ADF içinde ssıs'nin derin tümleştirme bakın: https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/ 

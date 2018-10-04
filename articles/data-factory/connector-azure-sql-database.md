@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 003fb667177bbf7f532946d34a06da757646ade3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c513ef76174507f1ea78b265b1882266b8473737
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578591"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248950"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı'ndan ya da veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -33,7 +33,7 @@ Azure SQL veritabanı ya da tüm desteklenen havuz veri deposuna veri kopyalayab
 
 Özellikle, bu Azure SQL Veritabanı Bağlayıcısı, bu işlevler destekler:
 
-- Bir hizmet sorumlusu veya yönetilen hizmet kimliği (MSI) ile SQL kimlik doğrulaması ve Azure Active Directory (Azure AD) uygulama belirteci kimlik doğrulamasını kullanarak verileri kopyalama.
+- SQL kimlik doğrulaması ve Azure Active Directory (Azure AD) uygulama belirteci kimlik doğrulamasını Azure kaynakları için bir hizmet sorumlusu veya yönetilen kimliklerle kullanarak verileri kopyalayın.
 - Bir kaynak olarak bir SQL sorgusu veya saklı yordamı kullanarak veri alın.
 - Bir havuz olarak verileri hedef tabloya veya kopyalama sırasında özel mantığı olan bir saklı yordam çağırma.
 
@@ -64,7 +64,7 @@ Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örn
 
 - [SQL kimlik doğrulaması](#sql-authentication)
 - [Azure AD uygulama belirteci kimlik doğrulamasını: hizmet sorumlusu](#service-principal-authentication)
-- [Azure AD uygulama belirteci kimlik doğrulamasını: Yönetilen hizmet kimliği](#managed-service-identity-authentication)
+- [Azure AD uygulama belirteci kimlik doğrulamasını: kimlikler Azure kaynakları için yönetilen](#managed-service-identity-authentication)
 
 >[!TIP]
 >Hata olarak "UserErrorFailedToConnectToSqlServer" hata koduyla isabet ve gibi ileti "veritabanı için oturum sınırı xxx ve üst sınırına ulaşıldı.", ekleme `Pooling=false` bağlantı dizesi ve yeniden deneyin.
@@ -146,9 +146,9 @@ Bir hizmet sorumlusu tabanlı Azure AD uygulama belirteci kimlik doğrulamasın�
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Yönetilen hizmet kimliği kimlik doğrulaması
+### <a name="managed-identities-for-azure-resources-authentication"></a>Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik
 
-Veri Fabrikası ile ilişkilendirilmiş bir [yönetilen hizmet kimliği](data-factory-service-identity.md) , belirli veri üretecini temsil eder. Bu hizmet kimliği, Azure SQL veritabanı kimlik doğrulaması için kullanabilirsiniz. Belirtilen Üreteç erişebilir ve veri kopyalama ya da veritabanı sunucunuza bu kimliği kullanarak.
+Veri Fabrikası ile ilişkilendirilmiş bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md) , belirli veri üretecini temsil eder. Bu hizmet kimliği, Azure SQL veritabanı kimlik doğrulaması için kullanabilirsiniz. Belirtilen Üreteç erişebilir ve veri kopyalama ya da veritabanı sunucunuza bu kimliği kullanarak.
 
 MSI tabanlı Azure AD uygulama belirteci kimlik doğrulamasını kullanmak için aşağıdaki adımları izleyin:
 

@@ -1,6 +1,6 @@
 ---
-title: Java ile - Microsoft Bilişsel hizmetler Anomali Bulucu API kullanma | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için get bilgileri ve kod örnekleri, Java ve Anomali algılama Bilişsel Hizmetleri'ni kullanarak kullanmaya başlayın.
+title: Anomali Bulucu API - Microsoft Bilişsel hizmetler Java ile kullanma | Microsoft Docs
+description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get, Java ve Anomali algılama Bilişsel hizmetler kullanarak başlayın.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,41 +9,43 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: kefre
-ms.openlocfilehash: 8152c23e6c5332d243d851be56bab1e4085dbe5a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84997b5d50f879fd4be286a3ca362e70f90c9202
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353345"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249200"
 ---
-# <a name="use-the-anomaly-finder-api-with-java"></a>Java ile Anomali Bulucu API kullanma
+# <a name="use-the-anomaly-finder-api-with-java"></a>Anomali Bulucu API Java ile kullanma
 
-Bu makalede bilgiler sağlanmaktadır ve hızlı bir şekilde yardımcı olmak için kod örnekleri için zaman serisi veri anomali algılama sonucu alma görevi gerçekleştirmek için Java ile Anomali algılama API kullanarak çalışmaya başlayın.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Bu makalede bilgiler sağlanmaktadır ve kod örnekleri, hızlı bir şekilde yardımcı olması için anomali algılama sonucu için zaman serisi verilerini alma görevi gerçekleştirmek için Java ile Anomali algılama API'sini kullanarak kullanmaya başlayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-the-anomaly-detection-api-using-java"></a>Anomali algılama Java kullanarak API anomali noktalarını alma
+## <a name="getting-anomaly-points-with-the-anomaly-detection-api-using-java"></a>Anomali algılama API'sini kullanarak Java anomali noktalarını alma
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Zaman serisi veri örneği
+### <a name="example-of-time-series-data"></a>Zaman serisi verilerini örneği
 
 Zaman serisi veri noktaları örneği aşağıdaki gibidir.
 
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-java-example"></a>Verileri çözümlemek ve Java örnek anomali noktaları Al
+### <a name="analyze-data-and-get-anomaly-points-java-example"></a>Verileri analiz etmek ve Java örnek anomali puan Al
 
 Örneği çalıştırmak için aşağıdaki adımları gerçekleştirin:
 1. Yeni bir komut satırı uygulaması oluşturun.
-2. Ana sınıf aşağıdaki kod ile değiştirin (herhangi bir tutmak `package` deyimleri).
-3. Değiştir `[YOUR_SUBSCRIPTION_KEY]` değeri geçerli bir abonelik anahtarınızı ile.
-4. Değiştir `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` örnek veya kendi veri noktaları.
-5. Bu genel kitaplıklar Maven depoya indirin `lib` projenizdeki dizin:
+2. Main sınıfını aşağıdaki kod ile değiştirin (tüm `package` deyimlerini tutun).
+3. `[YOUR_SUBSCRIPTION_KEY]` değerini geçerli abonelik anahtarınızla değiştirin.
+4. Değiştirin `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` örnek veya kendi veri noktaları.
+5. Bu genel kitaplıklar için Maven deposundan indirme `lib` projenizdeki dizin:
    * `org.apache.httpcomponents:httpclient:4.5.2`
-6. 'Ana' çalıştırın.
+6. 'Main' komutunu çalıştırın.
 
 ```java
 
@@ -113,7 +115,7 @@ public class Main {
 
 ### <a name="example-response"></a>Örnek yanıt
 
-Başarılı yanıt JSON döndürülür. Örnek yanıt aşağıdaki gibidir.
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek yanıt aşağıdaki gibidir.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf57acdcbcfa792a6c5ab62c6e8ec0589d625df7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4fd2f28f52c45a0ec3128302b02ad5ba498c982b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994604"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247780"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı sunucusu kavramları
 Bu makalede, MariaDB sunucuları için Azure veritabanı ile çalışmaya yönelik kurallar ve dikkat edilecek noktalar sunulmaktadır.
@@ -44,7 +44,7 @@ Aşağıdaki öğeleri veritabanınıza güvenli erişim sağlayın.
 | **Protokol** | Hizmet, MySQL tarafından kullanılan bir ileti tabanlı iletişim kuralı destekler. |
 | **TCP/IP** | Protokol, TCP/IP üzerinde ve UNIX etki alanı Yuva üzerinden desteklenir. |
 | **Güvenlik duvarı** | Hangi bilgisayarların izinli olduğunu belirtmenize kadar verilerinizi korumak için bir güvenlik duvarı kuralı tüm erişim veritabanı sunucunuza engeller. Bkz: [MariaDB sunucu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md). |
-| **SSL** | Hizmet, uygulamalarınız ve veritabanı sunucunuz arasında zorunlu SSL bağlantılarını destekler.  <!--See [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).--> |
+| **SSL** | Hizmet, uygulamalarınız ve veritabanı sunucunuz arasında zorunlu SSL bağlantılarını destekler. Bkz: [güvenli bir şekilde MariaDB için Azure veritabanı'na bağlanmak üzere uygulamanızda SSL yapılandırma bağlantısı](./howto-configure-ssl.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Bir sunucuya nasıl yönetebilirim?
 MariaDB sunucuları için Azure veritabanı, Azure portalında veya Azure CLI kullanarak yönetebilirsiniz.
@@ -52,4 +52,5 @@ MariaDB sunucuları için Azure veritabanı, Azure portalında veya Azure CLI ku
 ## <a name="next-steps"></a>Sonraki adımlar
 - Hizmetine genel bakış için bkz. [MariaDB genel bakış için Azure veritabanı](./overview.md)
 - Kotalar ve sınırlamalar temel alarak belirli bir kaynak hakkında bilgi için **hizmet katmanı**, bkz: [hizmet katmanları](./concepts-pricing-tiers.md)
+
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->

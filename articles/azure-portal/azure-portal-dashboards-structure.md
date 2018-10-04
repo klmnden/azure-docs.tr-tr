@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: cwatson
-ms.openlocfilehash: 405e0d5184880a00c07de55bd968210fa28e45fc
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 76f4a52b702a609d7181b9c6c0f2ce600d8a6aac
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393086"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267996"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure panolarının yapısı
 Bu belgede örnek olarak aşağıdaki Panoyu kullanarak bir Azure panosunu yapısını anlatılmaktadır:
@@ -326,7 +326,7 @@ __Bölümleri__ nesne birkaç olduğu özelliğin adı, her parça için bir öz
 Her ayrı bölümü nesnesinin bir __konumu__, ve __meta verileri__.
 
 ### <a name="the-position-object"></a>Konum nesnesi
-__Konumu__ özelliği bir parçası olarak ifade edilen için boyut ve konum bilgileri içeren __x__, __y__, __rowSpan__ve __colSpan__. Kılavuz birimleri cinsinden değerlerdir. Bu kılavuz birimleri, Pano, burada gösterildiği gibi Özelleştir modunda olduğunda görünür. İki Kılavuz birim genişliğini sağlamak için bir kutucuk istiyorsanız konumu obejct şöyle sonra bir yükseklikte bir kılavuz biriminin yanı sıra, bir konum üst köşe panosunun sol:
+__Konumu__ özelliği bir parçası olarak ifade edilen için boyut ve konum bilgileri içeren __x__, __y__, __rowSpan__ve __colSpan__. Kılavuz birimleri cinsinden değerlerdir. Bu kılavuz birimleri, Pano, burada gösterildiği gibi Özelleştir modunda olduğunda görünür. İki Kılavuz birim genişliğini sağlamak için bir kutucuk istiyorsanız konum nesnesi şöyle sonra bir yükseklikte bir kılavuz biriminin yanı sıra, bir konum üst köşe panosunun sol:
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
@@ -338,7 +338,7 @@ Her parça bir metadata özelliğine sahip, bir nesne olarak adlandırılan tek 
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Göstermek için kullanılan ölçümlerini izleme
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Metin veya bağlantılar, listeler için temel biçimlendirmeye sahip görüntü ile göstermek için kullanılan vb.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Başka türde bir video html etiketinde çalışır video YouTube'da ve Channel9 videoları göstermek için kullanılır.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Başka türde bir video HTML etiketinde çalışır video YouTube'da ve Channel9 videoları göstermek için kullanılır.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Bir Azure sanal makinesinin durumu ve adını göstermek için kullanılır.
 
 Her bölüm kendi yapılandırma türündedir. Olası yapılandırma özelliklerini adlı __girişleri__, __ayarları__, ve __varlık__. 

@@ -11,13 +11,13 @@ author: giladmit
 ms.author: giladm
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/10/2018
-ms.openlocfilehash: 8ba07b22d247cb9263890a747bd166d63af27e3b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 02/10/2018
+ms.openlocfilehash: bf6757e4a31cf072a5d7395223df588be7ec49c2
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395756"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248491"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bir denetim günlüğüne yazar izler. Ayrıca denetleme:

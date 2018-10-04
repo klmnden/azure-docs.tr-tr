@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 8f1c16aba3a3c082091707e33d3341e6eb6dc31e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/02/2018
+ms.openlocfilehash: 99914fd1fbfb2647f54c8257145132db2c7bf045
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158728"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249120"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL veritabanı'nı modelleri ve kaynakları satın alma 
 
@@ -26,7 +26,7 @@ Azure SQL veritabanı, performans ve maliyet ihtiyaçlarınıza uygun veritaban�
  - [Yönetilen örnekler](sql-database-managed-instance.md) Azure SQL veritabanı yalnızca teklifte [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
-> [Hiper ölçekli veritabanları (Önizleme)](sql-database-hyperscale.md) yalnızca bir mantıksal sunucuyla veya yönetilen örneği içinde tek veritabanları için sanal çekirdek tabanlı satın alma modeli vardır. 
+> [Hiper ölçekli veritabanları (Önizleme)](sql-database-hyperscale.md) satın alma modeli sanal çekirdek kullanarak yalnızca tek veritabanları için genel ön izleme aşamasındalar. 
 
 Aşağıdaki tablo ve grafik karşılaştırın ve bu iki satın alma modeli.
 

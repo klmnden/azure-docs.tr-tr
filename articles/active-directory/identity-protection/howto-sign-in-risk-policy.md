@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: bae71c55bdea838d0ef5e0ae3acbac3e98a92fa0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4b48ffb450459891118d5f526bbc73c4a2577ddd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055073"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268842"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Nasıl yapılır: oturum açma riski ilkesi yapılandırma
 
@@ -79,7 +79,7 @@ Riskli oturum açma işlemleri için mfa'yı gerekli istiyorsanız, şunları ya
 
 1. Etkinleştirme [çok faktörlü kimlik doğrulaması kayıt ilkesi](#multi-factor-authentication-registration-policy) etkilenen kullanıcılar için.
 
-2. Etkilenen kullanıcıların bir MFA kayıt gerçekleştirmek için riskli olmayan bir oturumda oturum gerektirir.
+2. Etkilenen kullanıcıların bir MFA kayıt gerçekleştirmek için riskli olmayan bir oturum için oturum açmanız gerekir.
 
 Bu adımları bir riskli oturum açma için multi-Factor authentication gerekiyor sağlar.
 

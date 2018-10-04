@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 10/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e0578572de53fefddb88e163520d2bf5f580012
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 578d078550daaae54c63bf91da1fa5590bb8fdf6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434322"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249154"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Dize işlevleri için Azure Resource Manager şablonları
 
@@ -1680,15 +1680,15 @@ Belirtilen karakter konumunda başlar ve belirtilen sayıda karakteri içeren bi
 |:--- |:--- |:--- |:--- |
 | stringToParse |Evet |dize |Alt dizenin ayıklanacağı özgün dize. |
 | startIndex |Hayır |int |Sıfır tabanlı başlangıç karakteri konumu alt dize. |
-| Uzunluğu |Hayır |int |Alt dizenin karakter sayısı. Dize içindeki bir konuma başvurmalıdır. |
+| Uzunluğu |Hayır |int |Alt dizenin karakter sayısı. Dize içindeki bir konuma başvurmalıdır. Sıfır olmalıdır veya büyük. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Alt dize.
+Alt dize. Veya uzunluğu sıfır ise boş bir dize.
 
 ### <a name="remarks"></a>Açıklamalar
 
-Alt dizeyi dizenin sonunu aşan bir işlev başarısız olur. Aşağıdaki örnek, "dizin ve uzunluk parametreleri dize içindeki bir konuma başvurmalıdır. şu hatayla başarısız oluyor Dizin parametresi: '0', uzunluk parametresi: '11', dize parametresinin uzunluğu: '10'. ".
+İşlevi, alt dizeyi dizenin sonunu aşan veya uzunluğu küçük olduğunda sıfır başarısız olur. Aşağıdaki örnek, "dizin ve uzunluk parametreleri dize içindeki bir konuma başvurmalıdır. şu hatayla başarısız oluyor Dizin parametresi: '0', uzunluk parametresi: '11', dize parametresinin uzunluğu: '10'. ".
 
 ```json
 "parameters": {

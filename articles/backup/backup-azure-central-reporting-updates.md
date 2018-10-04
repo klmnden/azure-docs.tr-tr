@@ -1,6 +1,6 @@
 ---
-title: Azure yedekleme merkezi raporlama içerik paketi güncelleştiriliyor
-description: Azure Backup içerik Paketi'ne Power bı'da güncelleştirmeleri hakkında bilgi
+title: Azure Backup merkezi raporlama içerik paketini güncelleştir
+description: Azure Backup içerik güncelleştirmeleri hakkında bilgi, Power BI'da paketi
 services: backup
 documentationcenter: ''
 author: adigan
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: adigan;
-ms.openlocfilehash: 07774234849d96b9a44678b68ca7b13b6b4830f9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 73a5e8126ebe6223d790a5b58db7bd5d04b5350f
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266075"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267340"
 ---
-# <a name="updating-azure-backup-central-reporting-content-pack"></a>Azure yedekleme merkezi raporlama içerik paketi güncelleştiriliyor 
+# <a name="update-the-azure-backup-central-reporting-content-pack"></a>Azure Backup merkezi raporlama içerik paketini güncelleştir 
 
-[Azure Backup içerik paketi](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) yedekleme hakkında daha fazla rapor merkezi olarak görüntülemek için kullanılabilir. İçerik Paketi, daha fazla özellik eklemek için düzenli olarak güncelleştirilir ve için hata düzeltmeleri. Bu makalede, içerik güncelleştirme ve zaman içinde yapılan güncelleştirmeler gecikme paketi, güncelleştirmek için adımlarda size yol gösterir.
+[Azure Backup içerik paketi](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) merkezi yedekleme hakkında daha fazla raporları görüntülemek için kullanılabilir. İçerik Paketi, daha fazla özellik ekleyin ve hataları düzeltmek için düzenli olarak güncelleştirilir. Bu makalede içerik paketini güncelleştir anlatır. Bu ayrıca, güncelleştirme ertele ve zaman içinde yapılan güncelleştirmeleri görmek anlatır.
 
-## <a name="how-to-get-updates-to-the-content-pack"></a>İçerik paketine güncelleştirmeleri alma
+## <a name="get-updates-to-the-content-pack"></a>İçerik paketine güncelleştirmeleri alın
 
-### <a name="to-get-the-updated-content-pack"></a>Güncelleştirilmiş içerik paketini almak için
-Herhangi bir değişiklik için yapmadıysanız kopyanızı İçerik Paketi otomatik olarak güncelleştirilecektir. İçerik Paketi değiştirildi durumda Power BI bildirim ve aynı hakkında bir e-posta bildirimi alırsınız. Size kolaylık sağlamak göre güncelleştirilmiş içerik paketini alabilir seçebilirsiniz. 
+### <a name="get-the-updated-content-pack"></a>Güncelleştirilmiş içerik paketini alabilir
+İçerik Paketi kopyanızın için herhangi bir değişiklik oluşturmadıysanız, otomatik olarak güncelleştirir. İçerik Paketi değiştiğinde, Power BI ve bir e-posta bildirimi, bir bildirim alırsınız. Dilediğiniz şekilde güncelleştirilmiş içerik paketini almak seçebilirsiniz. 
 
-### <a name="to-delay-the-update"></a>Güncelleştirme gecikme
-İçerik paketine içeri aktarmak için en iyi uygulamadır bir [özel çalışma alanı](https://youtu.be/26zyOtyHPJM?t=1m57s). Artık raporları düzenleme özelliği var.
-İçerik Paketi değiştirilirse, yukarıda belirtildiği gibi Power BI içinde bir bildirim görürsünüz. İçerik paketini daha sonra almak seçebilirsiniz. 
+### <a name="postpone-the-update"></a>Güncelleştirme ertele
+İçerik paketine içeri aktarmak için en iyi uygulamadır bir [özel çalışma alanı](https://youtu.be/26zyOtyHPJM?t=1m57s). Raporlar artık düzenleyebilirsiniz.
+İçerik paketini değiştirirse, daha önce belirtildiği gibi Power bı'da bir bildirim görürsünüz. İçerik paketini daha sonra almak seçebilirsiniz. 
 
-## <a name="coming-soon"></a>Çok Yakında
+## <a name="coming-soon"></a>Çok yakında
    
-Azure Backup içerik paketi MAB ve Azure VM yedekleme için geçerli destek ek olarak SQL Iaas VM yedekleme ve SC DPM daha fazla iş yüklerini desteklemek için güncelleştiriliyor. Bu, kısa süre içinde görüntüleyebilir ve veri merkezi bir yerde tüm yedekleme verilerini analiz etmek anlamına gelir. [Raporlar da özelleştirilebilir](https://youtu.be/26zyOtyHPJM) kuruluşunuzun gereksinimlerine uyacak şekilde.
+Azure Backup içerik Paketi'ne, daha fazla iş yüklerini desteklemek için güncelleştirildi. İş yükleri, Iaas VM yedekleme ve System Center Data Protection Manager için Azure SQL veritabanı içerir. Bu destek, Azure backup ve Azure VM yedeklemeleri için geçerli destek ekler. Bu destek, görüntüleyin ve çözümleyin, yedekleme verilerinizi tek bir merkezi konumda anlamına gelir. [Raporlar ayrıca özelleştirilebilir](https://youtu.be/26zyOtyHPJM) kuruluşunuzun gereksinimlerine uyacak şekilde.
 
-Raporlar daha sonra iş yüklerinde daha anlamlı olacak şekilde, Azure Backup içerik Paketi'ne ile önceden yapılandırılmış raporları kümesi olarak değiştiriliyor. Kısaca raporlar yaklaşan kümesine buradan kullanılabilir:
+Azure Backup içerik Paketi'ne ile gelen önceden yapılandırılmış raporları değiştiriyorsunuz. Değişiklikleri raporları iş yüklerinde daha anlamlı yapın. Kısaca raporlar yaklaşan kümesinde burada bulunur.
 
 ### <a name="summary"></a>Özet
    
@@ -57,7 +57,7 @@ Raporlar daha sonra iş yüklerinde daha anlamlı olacak şekilde, Azure Backup 
 ![Depolama](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Storage.png)
 
 ### <a name="backup-items"></a>Yedekleme öğeleri
-![BackupItems](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
+![Yedekleme öğeleri](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
 
 ### <a name="alerts"></a>Uyarılar
 
@@ -68,7 +68,7 @@ Raporlar daha sonra iş yüklerinde daha anlamlı olacak şekilde, Azure Backup 
 ![İşler](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
     
 
-## <a name="next-steps"></a>Sonraki Adımlar:
+## <a name="next-steps"></a>Sonraki adımlar
 
-* [Kuruluşunuza arasında rapor paylaşma](https://youtu.be/26zyOtyHPJM)
+* [Kuruluşunuz genelinde rapor paylaşma](https://youtu.be/26zyOtyHPJM)
 * [Azure Backup ile ilgili SSS](backup-azure-backup-faq.md)

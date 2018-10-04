@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 8f594be67c4677fae00cb01598d3899e30dae1e8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b6bb04d9cec690198de663189dacd41fcbe960eb
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433233"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248613"
 ---
 # <a name="design-process-overview"></a>Tasarım işlemine genel bakış
 Proje akustik iş akışı, tüm üç aşamada tasarım amacınızla ifade edebilirsiniz: önceden hazırlama Sahne Kurulum, ses kaynak yerleştirme ve sonrası hazırlama tasarım. Tasarımcı denetime nasıl Sahne sesleri korurken Yankı birimler yerleştirme ile ilişkili daha az biçimlendirme işlemi gerektirir.
@@ -45,18 +45,30 @@ Ses DSP sağladığı **Microsoft Acoustics** Unity spatializer eklentisinin Uni
 
 ![Uzaklık Zayıflama](media/distanceattenuation.png)
 
+Akustik player konum etrafındaki ortalanmış bir "benzetimi bölge" kutusu hesaplama gerçekleştirir. Bir ses kaynak Player'dan bu simülasyon bölge dışında bulunan uzak ise yalnızca geometri kutusundaki occluders kapsamına player olduğunda epey iyi çalışan (örneğin, kapatma neden) ses yayılmasını etkiler. Ancak, durumlarda player boş bir alanı ancak occluders uzak ses kaynak sesi unrealistically disoccluded haline. Bizim önerilen çözüm Böyle durumlarda ses zayıflama 0 yaklaşık 45 m, kutusunun Player'a yatay uzaklığını varsayılan olarak olduğundan emin olun olabilir.
+
 ### <a name="tuning-scene-parameters"></a>Sahne parametrelerini ayarlama
 Kanal Şerit Unity'nın tüm kaynakları için parametrelerini ayarlamak için tıklayın **ses Mixer**ve parametreleri ayarlamasına **akustik Mixer** efekt.
 
 ![Mixer özelleştirme](media/MixerParameters.png)
 
 ### <a name="tuning-source-parameters"></a>Kaynak parametrelerini ayarlama
-İliştirme **AcousticsSourceCustomization** betik bir kaynak için bu kaynak için ayar parametreleri sağlar. Komut dosyası eklemek için tıklatın **Bileşen Ekle** alt kısmındaki **denetçisi** gidin ve panel **betikleri > akustik kaynak özelleştirme**. Betik, üç parametrelere sahiptir:
+İliştirme **AcousticsDesign** betik bir kaynak için bu kaynak için ayar parametreleri sağlar. Komut dosyası eklemek için tıklatın **Bileşen Ekle** alt kısmındaki **denetçisi** gidin ve panel **betikleri > akustik tasarım**. Betik altı denetimlerine sahiptir:
 
-![Kaynak özelleştirme](media/SourceCustomization.png)
+![AcousticsDesign](media/AcousticsDesign.png)
 
-* **Yankı Power ayarlamak** -DB'de Yankı power ayarlar. Negatif değerler ses daha kuru yaparken pozitif değerlere ses daha reverberant olun.
+* **Kapatma faktörü** -çarpanı akustik sistem tarafından hesaplanan kapatma dB düzeyinde uygulanır. Bu çarpan 1'den büyükse, kapatma exaggerated değerleri 1'den küçük kapatma etkisini daha hafif olun ve kapatma 0 değerini devre dışı bırakır.
+* **İletim (dB)** -geometri iletim kaynaklanan zayıflama (veritabanında) ayarlayın. Bu kaydırıcı iletimini devre dışı bırakmak için en düşük düzeyine ayarlayın. Akustik Sahne geometri (portaling) geçici olarak gelen olarak ilk kuru ses spatializes. İletim satırı görüş yönde spatialized ek bir kuru varış sağlar. Uzaklık zayıflama eğrinin kaynağı için de geçerli olduğunu unutmayın.
+* **Wetness Ayarla (dB)** -Yankı güç, dB, kaynaktan daha fazla mesafe göre ayarlar. Negatif değerler ses daha kuru yaparken pozitif değerlere ses daha reverberant olun. Eğri Düzenleyicisi ' getirmek için eğri denetim (yeşil bir çizgi) tıklayın. Eğriyi noktaları eklemek için sol tıklatma ve istediğiniz işlev oluşturmak için bu noktaları sürükleyerek değiştirin. X ekseni kaynak uzaklığı ve y ekseni DB'de Yankı ayarlama. Bkz. Bu [Unity el ile](https://docs.unity3d.com/Manual/EditingCurves.html) eğrilerini düzenleme hakkında daha fazla bilgi. Eğriyi geri varsayılana sıfırlamak için sağ tıklayın **Wetness ayarlamak** seçip **sıfırlama**.
 * **Zaman ölçeğini decay** -çarpanı decay saatini ayarlar. Örneğin, hazırlama sonucu 750 milisaniye decay süresini belirtir, ancak bu değeri 1,5 olarak ayarlanır, kaynak decay uygulanırken 1,125 milisaniyedir.
 * **Akustik etkinleştirme** -bu kaynak için akustik uygulanıp uygulanmayacağını denetler. İşaretlenmediğinde, kaynak HRTFs ile ancak akustik anlamsızdır, kapatma ve düzeyi ve decay zamanı gibi dinamik reverberation parametreleri olmadan anlamına gelir, spatialized. Reverberation yine de bir sabit düzeyi ve decay saat ile uygulanır.
+* **Outdoorness ayarlama** -kaynak üzerinde reverberation nasıl "dışarıda" ses bir ek ayarlama akustik sistemin tahmini. Bu ayarı 1 bir kaynağı her zaman tamamen dışarıda ses yapar, ayar çalışırken, -1'e bir kaynak içeride ses bulabilmesini sağlar.
 
-Farklı kaynaklar estetik veya oyun bazı efektler elde etmek farklı ayarlar gerektirebilir. İletişim bir olası bir örnektir. İletişim genellikle oyun için anlaşılır olması gerekiyor ancak İnsan kulak daha konuşma, reverberation attuned. Bunun için aşağı yönde Yankı power ayarlayarak iletişim olmayan-diegetic yapmadan hesap.
+Farklı kaynaklar estetik veya oyun bazı efektler elde etmek farklı ayarlar gerektirebilir. İletişim bir olası bir örnektir. İletişim genellikle oyun için anlaşılır olması gerekiyor ancak İnsan kulak daha konuşma, reverberation attuned. Bu iletişim olmayan-diegetic taşıyarak yapmadan hesap **Wetness ayarlamak** aşağı yönde, ayarlama **Algısal uzaklık Warp** bazı ekleme,aşağıdaaçıklananparametresi**İletim** duvarları yayılan ve/veya azaltma kuru bazı ses boost için **kapatma faktörü** portallar aracılığıyla ulaşması daha fazla ses 1.
+
+İliştirme **AcousticsDesignExperimental** betik bir kaynak için bu kaynak için ek Deneysel ayarlama parametrelerini sağlar. Komut dosyası eklemek için tıklatın **Bileşen Ekle** alt kısmındaki **denetçisi** gidin ve panel **betikleri > akustik tasarım Deneysel**. Şu anda Deneysel bir denetimdir:
+
+![AcousticsDesignExperimental](media/AcousticsDesignExperimental.png)
+
+* **Algısal uzaklık Warp** -üstel kuru ıslak oranını hesaplamak için kullanılan uzaklık çarpıtma uygulayın. Akustik sistem alanı boyunca düzgün uzaklığı ile değişir ve Algısal uzaklık ipuçlarını sağlama ıslak düzeylerine hesaplar. Daha fazla mesafe ilgili reverberation düzeyleri artırarak Bu etkiyi 1 exaggerate değerleri çarpıtma, yapmayı ses "uzak", 1'den az yapma sesi yapmanın daha hafif uzaklık tabanlı reverberation değişiklik değerleri çarpıtma sırasında "var."
+

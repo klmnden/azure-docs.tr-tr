@@ -9,16 +9,25 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: d4910eb3dfacb46efe3f85aea3a441bdaaeb1392
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 02cee5a3e088c919ec94aee6f46ef6f428b9bb48
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236421"
+ms.locfileid: "48249426"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bilinen sorunlar ve sorun giderme Azure Machine Learning hizmeti
  
 Bu makalede, bulma ve hataları düzeltin veya Azure Machine Learning hizmeti kullanılırken karşılaşılan hatalar yardımcı olur. 
+
+## <a name="sdk-installation-issues"></a>SDK yükleme sorunları
+
+**Hata iletisi: 'PyYAML' kaldırılamıyor** 
+
+PyYAML bir distutils yüklü projesidir. Bu nedenle, biz durumunda kısmi bir kaldırma için hangi dosyaların ait doğru bir şekilde belirlenemiyor. Bu hatayı yoksayma sırasında SDK'sı yüklemeye devam etmek için kullanın:
+```Python 
+pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
+```
 
 ## <a name="image-building-failure"></a>Görüntü oluşturma hatası
 
@@ -45,7 +54,7 @@ Databricks ve Azure Machine Learning sorunları.
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
    ```
 
-## <a name="gather-diagnostics-information"></a>Tanılama bilgilerini toplama
+## <a name="diagnostic-logs"></a>Tanılama günlükleri
 Bazen Yardım isteme, tanılama bilgilerini sağlarsanız, yararlı olabilir. Günlük dosyaları burada Canlı aşağıda verilmiştir:
 
 ## <a name="resource-quotas"></a>Kaynak kotaları

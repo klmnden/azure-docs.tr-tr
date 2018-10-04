@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3e4b4e904fd4615458e8d873baa1bf30588fe81d
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036550"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249443"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Nasıl yapılır: Azure erişim denetimi Hizmeti'nden geçiş
 
@@ -117,6 +117,9 @@ Erişim denetimi bileşenleri kullanımdan zamanlamasını şu şekildedir:
 - **2 Nisan 2018**: Klasik Azure portalı tamamen devre dışı bırakılan, erişim denetimi ad alanı yönetim herhangi bir URL kullanılabilir artık anlamına gelir. Bu noktada, devre dışı bırakmak veya etkinleştirmek, silemez veya erişim denetimi ad alanlarınıza listeleme. Erişim denetimi Yönetim Portalı ve tam olarak işlevsel konumunda bulunan ancak olacaktır `https://\<namespace\>.accesscontrol.windows.net`. Erişim denetimi tüm diğer bileşenleri normal şekilde çalışmaya devam eder.
 - **7 Kasım 2018'den**: tüm erişim denetimi bileşenleri kalıcı olarak kapat. Bu, erişim denetimi Yönetim Portalı, yönetim hizmeti, STS'ye ve belirteç dönüştürme kuralı altyapısı içerir. Bu noktada, erişim denetimi için gönderilen tüm istekler (konumundaki \<ad alanı\>. accesscontrol.windows.net) başarısız. Var olan tüm uygulamaları ve Hizmetleri için diğer teknolojiler de bu süreden önce geçirdiğiniz.
 
+> [!NOTE]
+> Bir ilke bir süre için bir belirteç istediniz olmayan ad alanlarını devre dışı bırakır. Erken Eylül 2018'den itibaren bu süre şu anda 14 günlük etkin olmama süresi, ancak bu, gelecek haftalarda yapılmadığında 7 gün için kısaltılacak. Şu anda devre dışı bırakılmış bir erişim denetimi ad alanları varsa [ACS PowerShell'i indirip yükleyin](#download-and-install-acs-powershell) namespace (s) yeniden etkinleştirebilirsiniz.
+
 ## <a name="migration-strategies"></a>Geçiş stratejileri
 
 Aşağıdaki bölümlerde, diğer Microsoft teknolojileri için erişim denetiminden geçirmek için üst düzey önerileri açıklanmaktadır.
@@ -195,7 +198,7 @@ Yüksek bir düzeyde *Azure Active Directory büyük olasılıkla en iyi seçene
 | Facebook, Google, Yahoo hesabı | Desteklenen | Vermemektedir desteklenmiyor |
 | **Protokoller ve SDK uyumluluk** | | |
 | WIF | Desteklenen | Desteklenir, ancak sınırlı yönergeleri şurada bulabilirsiniz: |
-| WS-Federasyon | Desteklenen | Desteklenen |
+| WS-Federation | Desteklenen | Desteklenen |
 | OAuth 2.0 | Taslak 13 desteği | RFC 6749, çoğu modern belirtimi için destek |
 | WS-Güven | Desteklenen | Desteklenmiyor |
 | **Belirteç biçimleri** | | |
@@ -246,7 +249,7 @@ Aşağıdaki tabloda, Azure AD B2C'de kullanılabilir olanlara web uygulamaları
 | Facebook, Google, Yahoo hesabı | Desteklenen | Facebook ve Google, Yahoo Openıd Connect Federasyon özel ilkeler kullanarak desteklenen desteklen |
 | **Protokoller ve SDK uyumluluk** | | |
 | Windows Identity Foundation (WIF) | Desteklenen | Desteklenmiyor |
-| WS-Federasyon | Desteklenen | Desteklenmiyor |
+| WS-Federation | Desteklenen | Desteklenmiyor |
 | OAuth 2.0 | Taslak 13 desteği | RFC 6749, çoğu modern belirtimi için destek |
 | WS-Güven | Desteklenen | Desteklenmiyor |
 | **Belirteç biçimleri** | | |
@@ -347,6 +350,10 @@ Bu durumlarda, başka bir bulut kimlik doğrulama hizmeti, web uygulamanızı ge
 | ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) ACS'ye benzer iki çözümler sunar. PingOne ACS olarak aynı özelliklerin çoğunu destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunan benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS emeklilik Kılavuzu](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla bilgi. |
 
 Bizim AIM Auth0 Ping Identity ile çalışırken, tüm erişim denetimi müşterilerin erişim denetiminden taşımak için gerekli çalışma miktarını azaltan bir geçiş yolu, uygulamalar ve hizmetler için sahip olduğundan emin olmaktır.
+
+#### <a name="passthrough-authentication"></a>Geçişli kimlik doğrulamasını
+
+Rastgele belirteç dönüştürme ile geçişli kimlik doğrulaması için ACS için eşdeğer Microsoft teknoloji yoktur. Müşterilerinizin gerekenler olan Auth0 en yakın yaklaşık çözüm sağlayan bir olabilir.
 
 ## <a name="questions-concerns-and-feedback"></a>Soru ve endişeleriniz geri bildirim
 

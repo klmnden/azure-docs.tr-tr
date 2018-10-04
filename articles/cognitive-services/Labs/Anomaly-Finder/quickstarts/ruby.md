@@ -9,14 +9,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 6eb559f8971583afe9619fb41fe331bd3013bb69
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ef85b82adf3b177678cc8175a7fb2d0eb44323fa
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41987992"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246868"
 ---
 # <a name="use-the-anomaly-finder-api-with-ruby"></a>Anomali Bulucu API ile Ruby kullanma
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Bu makalede bilgiler sağlanmaktadır ve kod örnekleri, hızlı bir şekilde yardımcı olması için anomali algılama sonucu zaman serisi verilerini alma görevi ile Ruby Anomali Bulucu API'sini kullanarak kullanmaya başlayın.
 
@@ -38,7 +40,7 @@ Zaman serisi veri noktaları örneği aşağıdaki gibidir,
 
 1. Yükleme [rest istemcisi](https://github.com/rest-client/rest-client) 'rest-istemci yükleme gem' çalıştırarak.
 2. Aşağıdaki kod .rb dosya olarak kaydedin.
-3. Değiştirin `[YOUR_SUBSCRIPTION_KEY]` değeri geçerli bir abonelik.
+3. `[YOUR_SUBSCRIPTION_KEY]` değerini geçerli abonelik anahtarınızla değiştirin.
 4. Değiştirin `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` örnek veya kendi veri noktaları.
 5. Yürütme ve yanıtı kontrol edin.
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: 31a423714154537cfc8d801b972869035aa61035
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: bdd3f5c5304cec0a562945ffaf412771e15b6031
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042215"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248270"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 Varsayılan olarak, SQL veritabanı yedeklemelerini coğrafi olarak çoğaltılmış bir blob depolama (RA-GRS) depolanır. Veritabanı kurtarma kullanmak için aşağıdaki seçenekler kullanılabilir [otomatik veritabanı yedeklemelerini](sql-database-automated-backups.md):
@@ -92,6 +92,9 @@ Azure portalını kullanarak bir noktaya kurtarmak için veritabanı sayfasını
 ## <a name="deleted-database-restore"></a>Silinen veritabanını geri yükleme
 Silinen bir veritabanını Azure portalını kullanarak aynı mantıksal sunucu üzerinde silme süresine, silinen veritabanını geri yükleyebilirsiniz [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), veya [REST (createMode = geri yükle)](https://msdn.microsoft.com/library/azure/mt163685.aspx). Bekletme kullanarak sırasında zaman içinde önceki bir noktaya silinen veritabanını geri yükleyebilirsiniz [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
+> [!Note]
+> Silinen bir veritabanını geri yükleme, yönetilen örneği'nde kullanılamaz.
+
 > [!TIP]
 > Silinen bir veritabanını geri yükleme işlemini gösteren bir örnek PowerShell Betiği için bkz: [PowerShell kullanarak bir SQL veritabanını geri](scripts/sql-database-restore-database-powershell.md).
 >
@@ -111,6 +114,9 @@ Sırasında silinen bir veritabanını kurtarmak için kendi [DTU tabanlı model
 
 ## <a name="geo-restore"></a>Coğrafi Geri Yükleme
 Bir SQL veritabanı herhangi bir sunucuda herhangi bir Azure bölgesinde en son coğrafi olarak çoğaltılmış tam ve fark yedeklerden geri yükleyebilirsiniz. Coğrafi geri yükleme, coğrafi olarak yedekli bir yedeklemesini, kaynağı olarak kullanır ve veritabanı veya veri merkezinde bir kesinti nedeniyle erişilemez durumda olsa bile bir veritabanını kurtarmak için kullanılabilir. 
+
+> [!Note]
+> Coğrafi geri yükleme, yönetilen örneği'nde kullanılamaz.
 
 Coğrafi geri yükleme veritabanı barındırıldığı bölgedeki bir olay nedeniyle veritabanınız kullanılamıyor varsayılan kurtarma seçeneğini andır. Büyük ölçekli olay kullanılamazlık veritabanı uygulamanızın bir bölge sonucu, veritabanını coğrafi çoğaltmalı yedeklerden başka bir bölgede bir sunucuya geri yükleyebilirsiniz. Değişiklik yedeği zaman alınır ve Azure için coğrafi olarak çoğaltılmış olduğunda arasında bir gecikme blob farklı bir bölgede. Bu gecikme, bir saat, bu nedenle, bir olağanüstü durum oluşursa, olabilir yukarı bir saatlik veri kaybı için en fazla olabilir. Aşağıdaki çizimde, başka bir bölgede kullanılabilir son yedekleme veritabanından veritabanı geri yükleme gösterilmektedir.
 

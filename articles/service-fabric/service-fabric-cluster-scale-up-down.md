@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: d820898b1a0cc26d6832be9d302c74306fa4882f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d9ac3334d790c1844993c7d95bc24ce6690bed19
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42062127"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248509"
 ---
 # <a name="read-before-you-scale"></a>Ölçeği önce okuyun
 Uygulama iş yükünüz kasıtlı planlama gerektirir, neredeyse her zaman bir üretim ortamında tamamlamak için bir saatten daha uzun sürer ve iş yükü ve iş bağlamını anlamak ihtiyacınız kaynağına işlem kaynaklarını ölçeklendirme; Bu etkinlik önce hiçbir zaman yaptıysanız, aslında, okuma ve anlama başlattığınız önerilir [Service Fabric kümesi kapasite planlaması konuları](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity), bu belgenin geri kalanında devam etmeden önce. Bu istenmeyen LiveSite sorunlarını önlemek için önerilir ve ayrıca bir üretim dışı ortamda karşı gerçekleştirmeye karar işlemleri başarıyla test önerilir. Herhangi bir zamanda yapabilecekleriniz [üretim sorunlarını bildirmek veya Azure için Ücretli destek isteği](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure). Mühendislerin yeterli bağlama sahip bu işlemleri gerçekleştirmek için ayrılan, bu makalede ölçeklendirme işlemleri açıklanmaktadır, ancak karar verin ve işlemleri, kullanım örneği için uygun olduğunu anlamak; hangi kaynakları ölçeklendirme (CPU, depolama, bellek) gibi hangi yönü (yatay veya dikey olarak) ölçeklendirmek için ve hangi işlemleri (kaynak şablonu dağıtımı, Portal, PowerShell/CLI) gerçekleştirin.
@@ -33,7 +33,7 @@ Sanal makine ölçek kümeleri, dağıtmak ve sanal makine koleksiyonunu bir kü
 > 
 
 ## <a name="choose-the-node-typevirtual-machine-scale-set-to-scale"></a>Düğüm türü/sanal makine ölçek kümesi ölçeği seçin
-Şu anda, portalı kullanarak sanal makine ölçek kümeleri için otomatik ölçeklendirme kurallarını belirtin, bize bu nedenle düğüm türlerini listelemek ve bunlara otomatik ölçeklendirme kurallarını eklemek için Azure PowerShell (1.0 +) kullanmak mümkün değildir.
+Şu anda, portalı kullanarak bir Service Fabric kümesi oluşturma, bize bu nedenle düğüm türlerini listelemek ve bunlara otomatik ölçeklendirme kurallarını eklemek için Azure PowerShell (1.0 +) kullanmak için sanal makine ölçek kümeleri için otomatik ölçeklendirme kurallarını belirtmek mümkün değildir.
 
 Kümeyi oluşturan sanal makine ölçek kümesi listesini almak için aşağıdaki cmdlet'leri çalıştırın:
 

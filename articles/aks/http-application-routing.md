@@ -8,16 +8,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 8934852fe3d95d0a96af0283c30bba4b3bdb411b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: fa9c9416a8a1f80a62a21e5d9041e750b1debb98
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345888"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269386"
 ---
 # <a name="http-application-routing"></a>HTTP uygulaması yönlendirme
 
-HTTP uygulama yönlendirme çözümü, Azure Kubernetes Service (AKS) kümenize dağıtılan uygulamalara erişmek kolaylaştırır. Çözümün etkin olduğunda, bir giriş denetleyicisine AKS kümenizin yapılandırır. Çözüm, ayrıca dağıtılan uygulamalar gibi uygulama uç noktaları için genel anlamda erişilebilen DNS adları oluşturur.
+HTTP uygulama yönlendirme çözümü, Azure Kubernetes Service (AKS) kümenize dağıtılan uygulamalara erişmek kolaylaştırır. Çözümün etkin olduğunda, bir giriş denetleyicisine AKS kümenizin yapılandırır. Çözüm, ayrıca dağıtılan uygulamalar gibi uygulama uç noktaları için ortak olarak erişilebilen DNS adları oluşturur.
 
 Eklenti etkinleştirildiğinde, aboneliğinizde bir DNS bölgesi oluşturur. DNS maliyet hakkında daha fazla bilgi için bkz: [DNS fiyatlandırma][dns-pricing].
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2c50ba1abfe3681a39b39bf52f127efd9d518aef
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4365f12992c96ca45ff6b97b0f59202f1eeb4483
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041877"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268978"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Alt düzey cihazları katılmış karma Azure Active Directory sorun giderme 
 
@@ -39,23 +39,18 @@ Bu makalede, sahibi olduğunuzu varsayar [yapılandırılmış hibrit Azure Acti
 
 - Cihaz tabanlı koşullu erişim
 
-- [Kurumsal Dolaşım ayarları](../active-directory-windows-enterprise-state-roaming-overview.md)
-
-- [İş İçin Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) 
-
-
-
-
 
 Bu makalede, sorun giderme rehberi olası sorunların nasıl giderileceğini üzerinde ile sunulmaktadır.  
 
 **Bilmeniz gerekenler:** 
 
-- Kullanıcı başına cihaz sayısı, aygıt odaklı. Örneğin, varsa *jdoe* ve *jharnett* oturum açma ayrı bir kayıt (DeviceID) bir cihaza oluşturulur bunlardan her biri için **kullanıcı** bilgileri sekmesi.  
+- Şu anda kullanıcı başına cihaz sayısı, alt düzey hibrit Azure AD'ye katılmış cihazlar için de geçerlidir. 
+
+- Aynı fiziksel cihaza ne zaman birden çok etki alanı kullanıcıları alt düzey hibrit Azure AD'ye katılmış cihazların oturum birden çok kez Azure AD'de görünür.  Örneğin, varsa *jdoe* ve *jharnett* oturum açma ayrı bir kayıt (DeviceID) bir cihaza oluşturulur bunlardan her biri için **kullanıcı** bilgileri sekmesi. 
+
+- Ayrıca birden çok girişi bir cihazda kullanıcı bilgileri sekmesi için işletim sistemi veya bir el ile yeniden kayıt yüklenmesinden dolayı alabilirsiniz.
 
 - İlk kayıt / cihazların birleştirme girişimi oturum açma veya kilit gerçekleştirmek / kilidini açmak için yapılandırılır. Zamanlayıcı görevi tarafından tetiklenen 5 dakika gecikme olabilir. 
-
-- Bir işletim sistemi veya bir el ile yeniden kayıt yüklenmesinden dolayı bir cihazda kullanıcı bilgileri sekmesi için birden çok girişi elde edebilirsiniz. 
 
 - Emin [KB4284842](https://support.microsoft.com/help/4284842) Windows 7 SP1 veya Windows Server 2008 R2 SP1 durumunda yüklenir. Bu güncelleştirme, parolayı değiştirdikten sonra korumalı anahtarları gelecekteki kimlik doğrulama hataları nedeniyle müşterinin erişim kaybını engeller.
 
@@ -65,24 +60,39 @@ Bu makalede, sorun giderme rehberi olası sorunların nasıl giderileceğini üz
 
 1. Hibrit Azure AD'ye katılım gerçekleştirilen bir kullanıcı hesabıyla oturum açın.
 
-2. Komut istemini yönetici olarak açın. 
+2. Komut istemini açın 
 
 3. Türü `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
-Bu komut, birleşim durumu hakkında daha fazla ayrıntı sağlayan bir iletişim kutusu görüntüler.
+Bu komut, birleşim durumu hakkında ayrıntılar sağlayan bir iletişim kutusu görüntüler.
 
 ![Windows için çalışma alanına katılma](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
 
 
 ## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>2. adım: ' % s'hibrit Azure AD'ye katılma durumu değerlendirme 
 
-Hibrit Azure AD'ye katılma başarılı olmadıysa, iletişim kutusu, oluşan sorunla ilgili ayrıntıları sağlar.
+Cihaz hibrit Azure AD'ye katılmış başarısız olduysa, "Birleştirme" düğmesine tıklayarak hibrit Azure AD'ye katılma yapmak deneyebilirsiniz. Hibrit Azure AD'ye katılım yapmak için deneme başarısız olursa, hata hakkındaki ayrıntılar gösterilir.
+
 
 **En yaygın sorunlar şunlardır:**
 
-- Yanlış yapılandırılmış AD FS veya Azure AD
+- AD FS veya Azure AD yanlış yapılandırılmış veya ağ sorunları
 
     ![Windows için çalışma alanına katılma](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    
+    - Azure AD veya AD FS ile sessizce kimlik doğrulaması Autoworkplace.exe silemiyor. Bu, eksik neden olmuş olabilir veya AD FS (için Federasyon etki alanları) veya eksik veya yanlış yapılandırılmış Azure AD sorunsuz çoklu oturum açma (için yönetilen etki alanları) veya ağ sorunları yanlış yapılandırılmış. 
+    
+     - Çok faktörlü kimlik doğrulaması (MFA) kullanıcı için etkin/yapılandırılan ve AD FS sunucusunda WIAORMUTLIAUTHN yapılandırılmamış olabilir. 
+     
+     - Bu giriş bölgesi bulma (HRD) sayfasını engelleyen kullanıcı etkileşimi için bekleyen başka bir olasılıktır **autoworkplace.exe** sessiz bir belirteç isteyen öğesinden.
+     
+     - AD FS ve Azure AD URL'leri IE'nin Intranet istemci üzerinde eksik olduğundan emin olabilir.
+     
+     - Ağ bağlantı sorunları engelliyor **autoworkplace.exe** AD FS veya Azure AD URL'leri ulaşmasını. 
+     
+     - **Autoworkplace.exe** gerektirir istemcinin doğrudan görebilmesi istemciden orgnanization'ın şirket içi AD etki alanı denetleyicisi, hibrit Azure AD'ye katılma başarılı yalnızca kuruluşunuzun intranet istemci bağlandığında anlamına gelir. .
+     
+     - Azure AD sorunsuz çoklu oturum açma, kuruluşunuzun kullandığı `https://autologon.microsoftazuread-sso.com` veya `https://aadg.windows.net.nsatc.net` cihazın IE intranet ayarlarını, mevcut olmayan ve **izin vermek için durum çubuğu komut dosyası aracılığıyla güncelleştirmeleri** Intranet bölgesi için etkin değil.
 
 - Bir etki alanı kullanıcısı olarak imzalı değil
 
@@ -92,9 +102,7 @@ Hibrit Azure AD'ye katılma başarılı olmadıysa, iletişim kutusu, oluşan so
     
     - Oturum açmış olan kullanıcının etki alanı kullanıcısı (örneğin, yerel bir kullanıcı) değil. Alt düzey cihazlar karma Azure AD join, yalnızca etki alanı kullanıcıları için desteklenir.
     
-    - Azure AD veya AD FS ile sessizce kimlik doğrulaması Autoworkplace.exe silemiyor. Bu bir dışarı ilişkili ağ bağlantısıyla ilgili sorunlar için Azure AD URL'leri kaynaklanabilir. Ayrıca, çok faktörlü kimlik doğrulaması (MFA) kullanıcı için etkin/yapılandırılan ve WIAORMUTLIAUTHN federasyon sunucusunda yapılandırılmamış olabilir. Bu giriş bölgesi bulma (HRD) sayfasını engelleyen kullanıcı etkileşimi için bekleyen başka bir olasılıktır **autoworkplace.exe** sessiz bir belirteç isteyen öğesinden.
-    
-    - Azure AD sorunsuz çoklu oturum açma, kuruluşunuzun kullandığı `https://autologon.microsoftazuread-sso.com` veya `https://aadg.windows.net.nsatc.net` cihazın IE intranet ayarlarını, mevcut olmayan ve **izin vermek için durum çubuğu komut dosyası aracılığıyla güncelleştirmeleri** Intranet bölgesi için etkin değil.
+    - İstemci, bir etki alanı denetleyicisine bağlanmak kuramıyor.    
 
 - Bir kotasına ulaşıldı
 
@@ -114,9 +122,11 @@ Altında olay günlüğüne durum bilgileri bulabilirsiniz: **uygulamaları ve H
 
 - Hizmet yapılandırma sorunları: 
 
-  - Federasyon sunucusunu desteklemek üzere yapılandırılmış **WIAORMULTIAUTHN**. 
+  - AD FS sunucusuna desteklemek üzere yapılandırılmamış **WIAORMULTIAUTHN**. 
 
   - Doğrulanmış etki alanı adınızı Azure AD'ye işaret eden hizmet bağlantı noktası nesne bilgisayarınızın ormanda vardır 
+  
+  - Veya etki alanınızda yönetilen ardından sorunsuz çoklu oturum açma yapılandırılmamış veya çalışma.
 
   - Bir kullanıcı cihaz sınırına ulaştı. 
 

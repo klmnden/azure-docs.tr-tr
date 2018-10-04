@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 526c50fa4d261a30738c3f24d537fe5e0d765f6d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951313"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248338"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Etkinlik günlüğü Uyarıları yönetme  
 
@@ -25,7 +25,7 @@ Bu uyarılar Azure kaynakları için bir Azure Resource Manager şablonu kullan�
 > [!IMPORTANT]
 > Hizmet durumu bildirimi ile ilgili uyarılar, etkinlik günlüğü uyarısı oluşturma arabirimi üzerinden oluşturulamaz. Daha fazla hakkında oluşturma ve hizmet durumu bildirimlerini kullanarak bilgi edinmek için [hizmet durumu bildirimlerini etkinlik günlük uyarılarını alırsınız](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="manage-alert-rules-for-activity-log-using-azure-portal"></a>Azure portalını kullanarak Etkinlik günlüğü uyarı kurallarını yönet
+## <a name="azure-portal"></a>Azure portal
 
 > [!NOTE]
 
@@ -36,7 +36,7 @@ Bu uyarılar Azure kaynakları için bir Azure Resource Manager şablonu kullan�
 - "Herhangi" koşulu veya uyarı yapılandırmasında JSON iç içe geçmiş koşullar yoktur (temel olarak, yalnızca bir tümü, başka hiçbir tümü/herhangi kullanılabilir).
 - Kategori "Yönetici" olduğunda olmadığı. Yukarıdaki ölçütlerden en az bir uyarıyı belirtmeniz gerekir. Etkinlik günlüğünde her bir olay oluşturulduğunda etkinleştiren bir uyarı oluşturabilirsiniz.
 
-### <a name="create-an-alert-rule-for-an-activity-log-using-azure-portal"></a>Azure portalını kullanarak bir etkinlik günlüğü uyarı kuralı oluşturma
+### <a name="create-with-azure-portal"></a>Azure portalı ile oluşturma
 
 Aşağıdaki yordamı kullanın:
 
@@ -102,7 +102,7 @@ Alternatif olarak, bir basit benzerleme, uyarı kuralları oluşturulabilir, etk
  ![ Etkinlik günlüğü uyarısı Ekle](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
     
 
-### <a name="view-and-manage-activity-log-alert-rules-in-azure-portal"></a>Görüntüleme ve etkinlik günlüğü uyarı kuralları, Azure portalında yönetme
+### <a name="view-and-manage-in-azure-portal"></a>Görüntüleyin ve Azure Portal'da yönetin
 
 1. Azure portalından tıklayın **İzleyici** > **uyarılar** tıklatıp **kuralları yönetmek** , pencerenin sol üst köşesindeki.
 
@@ -127,7 +127,7 @@ Alternatif olarak, bir basit benzerleme, uyarı kuralları oluşturulabilir, etk
 4.  Devre dışı bırakma, etkinleştirme veya kural silme. Kural 2. adımda açıklandığı seçtikten sonra pencerenin üst kısmındaki uygun seçeneği belirleyin.
 
 
-## <a name="manage-alert-rules-for-activity-log-using-azure-resource-template"></a>Azure kaynak şablonu kullanarak Etkinlik günlüğü uyarı kurallarını yönet
+## <a name="azure-resource-template"></a>Azure kaynak şablonu
 Resource Manager şablonu kullanarak bir etkinlik günlüğü uyarısı oluşturmak için kaynak türü oluştur `microsoft.insights/activityLogAlerts`. Daha sonra tüm ilgili özellikleri doldurun. Bir etkinlik günlüğü uyarısı oluşturan bir şablonu aşağıda verilmiştir.
 
 ```json
@@ -200,21 +200,23 @@ Yukarıdaki örnek json (örneğin) sampleActivityLogAlert.json amacıyla bu kı
 > [!NOTE]
 > Bu 5 dakika kadar sürebilir etkin hale gelmek için yeni bir etkinlik günlük uyarı kuralı
 
-## <a name="manage-alert-rules-for-activity-log-using-powershell-cli-or-api"></a>PowerShell, CLI veya API kullanarak Etkinlik günlüğü uyarı kurallarını yönet
+## <a name="rest-api"></a>REST API 
 [Azure İzleyici - etkinlik günlüğü uyarıları API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) REST API ve Azure Resource Manager REST API'si ile tamamen uyumlu. Bu nedenle Azure CLI yanı sıra, Resource Manager cmdlet'ini kullanarak Powershell kullanılabilir.
 
+## <a name="powershell"></a>PowerShell
 Kaynak şablonu (sampleActivityLogAlert.json) daha önce gösterilen örnek için Azure Resource Manager PowerShell cmdlet'i aracılığıyla kullanımı aşağıda gösterilen [kaynak şablon bölümü](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 Burada görüntülerle sampleActivityLogAlert.parameters.json uyarı kuralı oluşturmak için gereken parametreleri için sağlanan değerlere sahiptir.
 
+## <a name="cli"></a>CLI
 Azure Resource Manager kaynak şablonu (sampleActivityLogAlert.json) daha önce gösterilen örnek için Azure CLI komutu aracılığıyla kullanımı aşağıda gösterilen [kaynak şablon bölümü](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
 ```
-Burada görüntülerle sampleActivityLogAlert.parameters.json uyarı kuralı oluşturmak için gereken parametreleri için sağlanan değerlere sahiptir.
+*SampleActivityLogAlert.parameters.json* dosyası uyarı kuralı oluşturmak için gereken parametreleri için sağlanan değerlere sahiptir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

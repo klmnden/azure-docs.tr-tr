@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 54bb6056c41126aecada265eb0e079bc7c281be8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d5f5b66dee88a993347b6c1672fd9526ece09dc4
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865942"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269528"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management erişim kısıtlama ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -216,7 +216,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
 |IP Filtresi|Kök öğe.|Evet|  
-|adresi|Filtre uygulamak tek bir IP adresini belirtir.|En az bir `address` veya `address-range` öğesi gereklidir.|  
+|Adresi|Filtre uygulamak tek bir IP adresini belirtir.|En az bir `address` veya `address-range` öğesi gereklidir.|  
 |adres aralığı adresinden ="" için "address" =|Filtre uygulamak bir dizi IP adresini belirtir.|En az bir `address` veya `address-range` öğesi gereklidir.|  
   
 ### <a name="attributes"></a>Öznitelikler  
@@ -268,7 +268,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
-|Kota|Kök öğe.|Evet|  
+|kota|Kök öğe.|Evet|  
 |api|Bir veya daha fazla API çağrısı kotasını ürün içinde dayatmak için bu öğeleri ekleyin. Ürün ve API çağrısı kotalar bağımsız olarak uygulanır. API olabilir yoluyla başvurulan `name` veya `id`. Her iki öznitelik sağlanırsa, `id` kullanılacak ve `name` göz ardı edilir.|Hayır|  
 |işlem|Bir veya daha fazla API işlemlerini çağrı kota koymak için bu öğeleri ekleyin. Ürün, API ve işleme çağrı kotalar bağımsız olarak uygulanır. İşlem olabilir ya da aracılığıyla başvurulan `name` veya `id`. Her iki öznitelik sağlanırsa, `id` kullanılacak ve `name` göz ardı edilir.|Hayır|  
   
@@ -277,7 +277,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
 |ad|API veya kota geçerli olduğu için işlem adıdır.|Evet|Yok|  
-|bant genişliği|Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
+|Bant genişliği|Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
 |çağrı|Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
 |yenileme dönemi|Kota sonra sıfırlayan saniye cinsinden süre.|Evet|Yok|  
   
@@ -288,7 +288,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 -   **İlke kapsamları:** ürün  
   
 ##  <a name="SetUsageQuotaByKey"></a> Anahtara göre kullanım kotası ayarla  
- `quota-by-key` Yenilenebilir veya ömrü çağrı birim ve/veya bant genişliği kota anahtarı başına temelinde ilkeleri uygular. Anahtar, rastgele bir dize olabilir ve genellikle bir ilke ifadesi kullanılarak sağlanır. Hangi istekler kota hesaplamanıza dahil sayılması belirtmek için isteğe bağlı increment koşul eklenebilir.  
+ `quota-by-key` Yenilenebilir veya ömrü çağrı birim ve/veya bant genişliği kota anahtarı başına temelinde ilkeleri uygular. Anahtar, rastgele bir dize olabilir ve genellikle bir ilke ifadesi kullanılarak sağlanır. Hangi istekler kota hesaplamanıza dahil sayılması belirtmek için isteğe bağlı increment koşul eklenebilir. Bu ilke tetiklenir çağıranın alır bir `403 Forbidden` yanıt durum kodu.
   
  Daha fazla bilgi ve işbu politikaya ilişkin örnekler için bkz. [Gelişmiş istek azaltma ile Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
@@ -329,13 +329,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
-|Kota|Kök öğe.|Evet|  
+|kota|Kök öğe.|Evet|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
-|bant genişliği|Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
+|Bant genişliği|Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
 |çağrı|Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
 |Tamamlayıcı anahtarı|Kota ilkesinde kullanmak üzere anahtarı.|Evet|Yok|  
 |Koşul artırma|İstek kota hesaplamanıza dahil sayılan olmadığını belirten bir Boole ifadesi (`true`)|Hayır|Yok|  
@@ -508,7 +508,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |gerekli-sona erme-saati|Boole değeri. Belirteç süre sonu talebi gerekip gerekmediğini belirtir.|Hayır|true|
 |gerekli düzeni|Belirteç adı şeması, örneğin "Bearer". Bu öznitelik ayarlandığında, yetkilendirme üst bilgisi değeri, belirtilen şema varsa ilkeyi sağlayacaktır.|Hayır|Yok|
 |gerekli imzalı-belirteçleri|Boole değeri. Bir belirteç imzalanmasını gerekli olup olmadığını belirtir.|Hayır|true|  
-|ayırıcı|Dize. Ayırıcı belirtir (örneğin ","), bir dizi birden çok değerli bir talep ayıklanması için kullanılacak.|Hayır|Yok| 
+|Ayırıcı|dize. Ayırıcı belirtir (örneğin ","), bir dizi birden çok değerli bir talep ayıklanması için kullanılacak.|Hayır|Yok| 
 |url|Kimliği yapılandırma uç nokta URL'si nerede Open ID yapılandırma meta verilerini elde edilebilir gelen açın. Yanıt özellikleri için URL'de tanımlandığı gibi uygun:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Azure Active Directory için şu URL'yi kullanın: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` dizin Kiracı adınızın, örneğin değiştirerek `contoso.onmicrosoft.com`.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  

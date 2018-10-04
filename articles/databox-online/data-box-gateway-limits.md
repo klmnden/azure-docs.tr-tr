@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: edb4995b626055be830a7accb74d99f1db3ef8d0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 946c045407b150a923d0067776bf80cbfab54c67
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962228"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268047"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure veri kutusu ağ geçidi sınırları (Önizleme)
 
@@ -28,12 +28,12 @@ ms.locfileid: "46962228"
 Limitler, dağıtmanıza ve Microsoft Azure veri kutusu ağ geçidi çözümünüz olarak düşünün. 
 
 > [!IMPORTANT] 
-> Veri kutusu ağ geçidi Önizleme aşamasındadır. Gözden geçirme [Önizleme kullanım koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) bu çözümü dağıtmadan önce. 
+> Data Box Gateway, Önizleme aşamasındadır. Bu çözümü dağıtmadan önce [önizleme için kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
 
 
 ## <a name="data-box-gateway-service-limits"></a>Veri kutusu Gateway hizmet limitleri
 
-- Bu sürümde, hizmet yalnızca ABD, AB ve Asya Pasifik belirli bölgelerde kullanılabilir durumdadır. Daha fazla bilgi için Git [bölge kullanılabilirliği](#data-box-gateway-overview#region-availability). Depolama hesabı bölgeye cihazın dağıtıldığı fiziksel olarak yakın olmalıdır (hizmet coğrafi bölgesinden farklı olabilir).
+- Bu sürümde, hizmet yalnızca ABD, AB ve Asya Pasifik belirli bölgelerde kullanılabilir durumdadır. Daha fazla bilgi için [bölge kullanılabilirliği](#data-box-gateway-overview#region-availability)’ne gidin. Depolama hesabı bölgeye cihazın dağıtıldığı fiziksel olarak yakın olmalıdır (hizmet coğrafi bölgesinden farklı olabilir).
 - Farklı bir abonelik veya kaynak grubu için bir veri kutusu ağ geçidi kaynağı taşıma desteklenmiyor. Daha fazla ayrıntı için [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="data-box-gateway-device-limits"></a>Veri kutusu ağ geçidi cihaz sınırları
@@ -44,7 +44,7 @@ Veri kutusu ağ geçidi cihazı için sınırlar aşağıdaki tabloda açıklanm
 |---|---|
 |Hayır. cihaz başına dosyaları |100 milyon <br> Sınır ~ her 2 TB disk alanı ile en fazla 100 milyon sınırında 25 milyon dosya |
 |Hayır. cihaz başına paylaşılma sayısı |24 |
-|Bir paylaşıma yazılan en büyük dosya boyutu|5 TB |
+|Bir paylaşıma yazılan en büyük dosya boyutu|2 TB sanal cihaz için en büyük dosya boyutu 500 GB'dir. <br> En çok 5 TB ulaşana kadar önceki oranını veri disk boyutu ile maksimum dosya boyutu artar. |
 
 ## <a name="azure-storage-limits"></a>Azure depolama sınırları
 
@@ -53,7 +53,7 @@ Bu bölümde, Azure dosyaları, Azure blok BLOB'ları ve veri kutusu ağ geçidi
 Azure depolama hizmet sınırları ve adlandırma paylaşımları, kapsayıcılar ve dosyalar için en iyi yöntemler üzerinde en son bilgiler için bkz:
 
 - [Adlandırma ve kapsayıcıları başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Adlandırma ve paylaşımları başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Paylaşımları adlandırma ve onlara başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Blok blobları ve sayfa blob kuralları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
@@ -89,4 +89,4 @@ Azure nesnelerin yazılabilir boyutları aşağıda verilmiştir. Yüklenen tüm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure veri kutusu ağ geçidi dağıtmaya hazırlanma](data-box-gateway-deploy-prep.md)
+- [Azure Data Box Gateway'i dağıtmaya hazırlanma](data-box-gateway-deploy-prep.md)

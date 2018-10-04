@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 230a4df2c43e8d5e6ae1a5a7e8188cf207461022
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 11b6766533da65f55430d55bd8aa0b7067783e0c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47058020"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267479"
 ---
 # <a name="how-to-close-active-risk-events"></a>Nasıl yapılır: etkin risk olaylarını kapatın.
 
@@ -51,7 +51,7 @@ Yapılandırarak [kullanıcı risk koşullu erişim ilkesi](howto-user-risk-poli
 
 ![Parola sıfırlama](./media/howto-close-active-risk-events/13.png)
 
-Bir parola sıfırlama ilgili kullanıcının tüm etkin risk olayları kapatır ve kimlik güvenli bir duruma geri getirir. Kullanıcı riski İlkesi kullanarak, çünkü bu yöntem otomatik active risk olayı kapatmak için tercih edilen yöntemdir. Artık gerekli etkilenen kullanıcı ve Yardım Masası veya bir yönetici etkileşimi yoktur.
+Bir parola sıfırlama ilgili kullanıcının tüm etkin risk olayları kapatır ve kimlik güvenli bir duruma geri getirir. Kullanıcı riski İlkesi kullanarak, çünkü bu yöntem otomatik active risk olayı kapatmak için tercih edilen yöntemdir. Etkilenen kullanıcı ve Yardım Masası veya bir yönetici arasında gerekli bir etkileşim yoktur.
 
 Ancak, bir kullanıcı riski İlkesi kullanarak her zaman geçerli değildir. Bu, örneğin, için geçerlidir:
 

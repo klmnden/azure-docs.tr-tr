@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 46e12378812788d147c903046b50a93c13119f2f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 79bb3042af6a42b4a8c33e9a19c80d117c3216e7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444597"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248865"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure Blob depolamadan/depolamaya veri kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ Herhangi bir desteklenen kaynak veri deposundan Blob Depolama'ya veri kopyalayab
 Özellikle, bu Blob Depolama Bağlayıcısı destekler:
 
 - Gelen genel amaçlı Azure depolama hesapları ve sık/seyrek erişimli blob depolama ve BLOB'ları kopyalanıyor. 
-- Hesap anahtarı, hizmet paylaşılan erişim imzası, hizmet sorumlusu veya yönetilen hizmet kimlik doğrulamaları'ı kullanarak BLOB'ları kopyalanıyor.
+- Azure kaynaklarında kimlik doğrulamaları için hesap anahtarı, hizmet paylaşılan erişim imzası, asıl veya yönetilen hizmet kimliği kullanarak BLOB'ları kopyalanıyor.
 - Blok kopyalama bloblarından eklemek ya da blok blobları, sayfa blobları ve yalnızca veriler kopyalanıyor. Azure Premium depolama, sayfa blobları tarafından yedeklenir olduğundan havuz olarak desteklenmiyor.
 - Veya ayrıştırma veya oluşturma gibi blobları kopyalama blobları ile [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md).
 
@@ -47,7 +47,7 @@ Azure Blob Bağlayıcısı aşağıdaki kimlik doğrulama türlerini desteklemek
 - [Hesap anahtarı kimlik doğrulaması](#account-key-authentication)
 - [Paylaşılan erişim imzası kimlik doğrulaması](#shared-access-signature-authentication)
 - [Hizmet sorumlusu kimlik doğrulaması](#service-principal-authentication)
-- [Yönetilen hizmet kimlik doğrulaması](#managed-service-identity-authentication)
+- [Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik](#managed-service-identity-authentication)
 
 >[!NOTE]
 >Hdınsights, Azure Machine Learning ve Azure SQL veri ambarı PolyBase yükleme yalnızca Azure Blob Depolama hesabı anahtar kimlik doğrulamasını destekler.
@@ -191,13 +191,13 @@ Bu özellikler bir Azure Blob Depolama bağlı hizmeti için desteklenir:
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Yönetilen hizmet kimlik doğrulaması
+### <a name="managed-identity"></a> Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik
 
-Veri Fabrikası ile ilişkilendirilebilen bir [yönetilen hizmet kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği, Blob Depolama kimlik doğrulama kendi hizmet sorumlusunu kullanmaya benzer doğrudan kullanabilirsiniz. Bu belirlenen / için Blob depolamanızın erişim ve kopyalama veri fabrikasına sağlar.
+Veri Fabrikası ile ilişkilendirilebilen bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği, Blob Depolama kimlik doğrulama kendi hizmet sorumlusunu kullanmaya benzer doğrudan kullanabilirsiniz. Bu belirlenen / için Blob depolamanızın erişim ve kopyalama veri fabrikasına sağlar.
 
 Azure depolama MSI kimlik doğrulaması için genel olarak, başvurmak [erişim için Azure depolama, Azure Active Directory'yi kullanarak kimlik doğrulaması](../storage/common/storage-auth-aad.md).
 
-Yönetilen hizmet kimliği (MSI) kimlik doğrulamasını kullanmak için bu adımları izleyin:
+Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak için bu adımları izleyin:
 
 1. [Veri Fabrikası hizmet kimliği almak](data-factory-service-identity.md#retrieve-service-identity) "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak.
 
@@ -214,8 +214,8 @@ Bu özellikler bir Azure Blob Depolama bağlı hizmeti için desteklenir:
 | serviceEndpoint | Azure Blob Depolama Hizmeti uç noktası ile desenini belirtin `https://<accountName>.blob.core.windows.net/`. |Evet |
 | connectVia | [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel bir ağdaysa) Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
->[!NOTE]
->Yönetilen hizmet kimlik doğrulaması, yalnızca "AzureBlobStorage" türü bağlantılı hizmet tarafından desteklenir, ancak değil önceki "AzureStorage" bağlantılı hizmet türü. 
+> [!NOTE]
+> Kimlik doğrulaması yalnızca "AzureBlobStorage" tarafından desteklenen Azure kaynakları için yönetilen kimlikleri bağlantılı hizmet türü ancak değil önceki "AzureStorage" bağlantılı hizmet türü. 
 
 **Örnek:**
 

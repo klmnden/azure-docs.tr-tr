@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: b56a75074af239f60b82edbe1d074c6384c4aef1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ee34d99c78eb090514385de16cd77d04ddca4e4
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982996"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267707"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Log Analytics sorguları kullanmaya başlama
 
@@ -190,7 +190,7 @@ SecurityEvent
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Özetlenmektedir: toplam satır gruplarını
-Kullanım **özetlemek** kayıt gruplarını göre bir veya daha fazla sütun belirleyin ve toplamalar uygulayabilirsiniz. En yaygın işletim sistemi kullanmak **özetlemek** olduğu *sayısı*, her grupta sonuç sayısını döndürür.
+Kullanım **özetlemek** kayıt gruplarını göre bir veya daha fazla sütun belirleyin ve toplamalar uygulayabilirsiniz. En yaygın kullanımı **özetlemek** olduğu *sayısı*, her grupta sonuç sayısını döndürür.
 
 Aşağıdaki sorgu tüm incelemeleri *Perf* son bir saat kayıtlardan göre gruplar *ObjectName*ve her gruptaki kayıtları sayar: 
 ```Kusto

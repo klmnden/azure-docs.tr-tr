@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 0a30cce92de4b96b7dc0d29ce12f409df3e895df
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d176c33a37b26b1e13d5b9beb7ac68d335cc7862
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721889"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249205"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Konuşmayı metne dönüştürme hakkında sık sorulan sorular
 
@@ -57,6 +57,12 @@ Taban çizgisi ve portaldaki özelleştirilmiş modelleri dağıtabilir ve bunla
 **A**: mevcut bir model güncelleştirilemiyor. Bir çözüm olarak eski veri kümesinin yeni veri kümesi ile birleştirebilir ve readapt.
 
 Eski veri kümesinin ve yeni veri kümesi, tek bir .zip dosyası (için akustik verilerini) veya bir .txt dosyasında (dil veri için) birleştirilmelidir. Yeni ve güncelleştirilmiş model uyarlama tamamlandığında, yeni bir uç noktası almak için dağıtılması gerekiyor
+
+**Temel yeni bir sürümü kullanılabilir olduğunda s: dağıtımım otomatik olarak güncelleştirilir mi?**
+
+**A**: dağıtımları otomatik olarak güncelleştirilmeyecek. 
+
+Uyarlanmış ve temel V1.0 modeliyle dağıtılan, o dağıtım olduğu gibi kalır. Müşteriler decommision dağıtılan model taban daha yeni sürümünü kullanarak yeniden uyum ve yeniden dağıtın.
 
 **S: ihtiyacım olursa ne yapabilirim daha yüksek Eş zamanlılık Portalı'nda sunulan daha my dağıtılan modeli için?** 
 

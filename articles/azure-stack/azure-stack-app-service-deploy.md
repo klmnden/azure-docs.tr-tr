@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 69b025a06abb24bfa3b8ff6b692a2559b3947681
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f584213a65b9f2408d4ca2a06108cf18222376d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995287"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268808"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack'e bir App Service kaynak sağlayıcısı ekleme
 
@@ -97,7 +97,7 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 8. Dosya paylaşımınızın bilgilerini girin ve ardından **sonraki**. Dosya Paylaşımı adresi, tam etki alanı adı (FQDN) veya dosya sunucunuzun IP adresini kullanmanız gerekir. Örneğin, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, veya \\\10.0.0.1\websites.
 
    >[!NOTE]
-   >Yükleyici, devam etmeden önce dosya paylaşımını bağlantısını test etmek çalışır. Ancak, bir sanal ağınız dağıtıyorsanız, bu bağlantı testi başarısız olabilir. Size bir uyarı ve bir komut istemi devam etmek için verilir. Fileshare bilgilerin doğru olduğundan, dağıtımın devam edin.
+   >Yükleyici, devam etmeden önce dosya paylaşımına bağlantısını test etmek çalışır. Ancak, bir sanal ağınız dağıtıyorsanız, bu bağlantı testi başarısız olabilir. Size bir uyarı ve bir komut istemi devam etmek için verilir. Dosya Paylaşımı bilgilerin doğru olduğundan, dağıtımın devam edin.
 
    ![Uygulama hizmeti yükleyicisi][7]
 

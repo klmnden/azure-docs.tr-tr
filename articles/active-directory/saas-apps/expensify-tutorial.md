@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 10/02/2018
 ms.author: jeedes
-ms.openlocfilehash: d53877dbcc25edad14714633bfa11a0c3cbbf76e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c9ee0af3cbf2c1aa7b24d2f4cf5fba9d664bc087
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433267"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Öğretici: Azure Active Directory Expensify ile tümleştirme
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Expensify yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir Expensify çoklu oturum açma etkin
 
 > [!NOTE]
@@ -56,25 +56,26 @@ Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu 
 1. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-expensify-from-the-gallery"></a>Galeriden Expensify ekleme
+
 Azure AD'de Expensify tümleştirmesini yapılandırmak için Expensify Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Expensify eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
-    ![Azure Active Directory düğmesi][1]
+    ![image](./media/expensify-tutorial/selectazuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![image](./media/expensify-tutorial/a_select_app.png)
     
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![image](./media/expensify-tutorial/a_new_app.png)
 
-1. Arama kutusuna **Expensify**seçin **Expensify** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Expensify**seçin **Expensify** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde expensify](./media/expensify-tutorial/tutorial_expensify_addfromgallery.png)
+     ![image](./media/expensify-tutorial/a_add_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
@@ -98,84 +99,75 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve E
 
 **Azure AD çoklu oturum açma ile Expensify yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında, üzerinde **Expensify** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Expensify** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![image](./media/expensify-tutorial/b1_b2_select_sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/expensify-tutorial/tutorial_expensify_samlbase.png)
+2. Tıklayın **değişiklik çoklu oturum açma modunu** seçmek için ekranın en üstünde **SAML** modu.
 
-1. Üzerinde **Expensify etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+      ![image](./media/expensify-tutorial/b1_b2_saml_ssso.png)
 
-    ![Etki alanı ve URL'ler tek oturum açma bilgileri expensify](./media/expensify-tutorial/tutorial_expensify_url.png)
+3. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    a. İçinde **oturum açma URL'si** metin olarak URL'yi yazın: `https://www.expensify.com/authentication/saml/login`
+    ![image](./media/expensify-tutorial/b1_b2_saml_sso.png)
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://www.<companyname>.expensify.com`
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **temel SAML yapılandırma** iletişim.
+
+    ![image](./media/expensify-tutorial/b1-domains_and_urlsedit.png)
+
+5. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL yazın: `https://www.expensify.com/authentication/saml/login`
+
+    b. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.<companyname>.expensify.com`
+
+    ![image](./media/expensify-tutorial/b1-domains_and_urls.png)
 
     > [!NOTE] 
-    > Değiştirin `<companyname>` tanımlayıcı URL'si ile şirketinizin etki alanı bölümü. Örnek olarak bkz `https://contoso.expensify.com` yukarıda. İlgili kişi [Expensify istemci Destek ekibine](mailto:help@expensify.com) bu değeri alınamıyor.
+    > Değiştirin <companyname> tanımlayıcı URL'si ile şirketinizin etki alanı bölümü. Örnek olarak bkz `https://contoso.expensify.com` yukarıda. Expensify etki alanınızın adını gelen gösterildiği gibi budur **ayarlar > etki alanı denetim**.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+    ![Etki alanı bilgilerini expensify](./media/expensify-tutorial/tutorial_expensify_domain.png)
 
-    ![Sertifika indirme bağlantısı](./media/expensify-tutorial/tutorial_expensify_certificate.png) 
+6. Üzerinde **yukarı çoklu oturum açma SAML ile Ayarla** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** olarak başına uygun sertifikayı indirmek için gereksinim ve bilgisayarınıza kaydedin.
 
-1. Tıklayın **Kaydet** düğmesi.
+    ![image](./media/expensify-tutorial/certificatebase64.png)
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/expensify-tutorial/tutorial_general_400.png)
-
-1. İçinde Expensify SSO'yu etkinleştirmek için önce etkinleştirmeniz gerekir **etki alanı denetim** uygulama. Listelenen adımları uygulama etki alanı denetim etkinleştirebilirsiniz [burada](http://help.expensify.com/domain-control). Çalışmak için ek destek, [Expensify istemci Destek ekibine](mailto:help@expensify.com). Etki alanı denetim etkin olduktan sonra aşağıdaki adımları izleyin:
+7. İçinde Expensify SSO'yu etkinleştirmek için önce etkinleştirmeniz gerekir **etki alanı denetim** uygulama. Listelenen adımları uygulama etki alanı denetim etkinleştirebilirsiniz [burada](http://help.expensify.com/domain-control). Çalışmak için ek destek, [Expensify istemci Destek ekibine](mailto:help@expensify.com). Etki alanı denetim etkin olduktan sonra aşağıdaki adımları izleyin:
    
     ![Çoklu oturum açmayı yapılandırın](./media/expensify-tutorial/tutorial_expensify_51.png)
     
     a. Expensify uygulamanız için oturum açın.
     
-    b. Üst araç çubuğunda tıklatın **yönetici**.
+    b. Sol bölmede bulunan tıklayın **ayarları** gidin **SAML**.
     
-    c. Sol bölmede bulunan tıklayın **etki alanı**.
+    c. İki durumlu **SAML oturum açma** olarak seçeneğini **etkin**.
     
-    d. Doğrulanmış etki alanı adınıza tıklayın.
-    
-    e. Sol bölmede bulunan tıklayın **SAML**ve ardından **etkin**.
-    
-    f. İndirilen Federasyon meta verileri Azure AD'den Not Defteri'nde açın, içeriği kopyalayın ve ardından yapıştırın **kimlik sağlayıcısı meta verileri** metin.
+    d. İndirilen Federasyon meta verileri Azure AD'den Not Defteri'nde açın, içeriği kopyalayın ve ardından yapıştırın **kimlik sağlayıcısı meta verileri** metin.
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    ![image](./media/expensify-tutorial/d_users_and_groups.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/expensify-tutorial/create_aaduser_01.png)
+    ![image](./media/expensify-tutorial/d_adduser.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/expensify-tutorial/create_aaduser_02.png)
+    ![image](./media/expensify-tutorial/d_userproperties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/expensify-tutorial/create_aaduser_03.png)
+    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/expensify-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
-
-    d. **Oluştur**’a tıklayın.
+    d. **Oluştur**’u seçin.
  
 ### <a name="create-an-expensify-test-user"></a>Bir Expensify test kullanıcısı oluşturma
 
@@ -185,31 +177,25 @@ Bu bölümde, Britta Simon Expensify içinde adlı bir kullanıcı oluşturun. �
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için Expensify erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
 
-**Britta Simon Expensify için atamak için aşağıdaki adımları gerçekleştirin:**
+    ![image](./media/expensify-tutorial/d_all_applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **Expensify**.
 
-    ![Kullanıcı Ata][201] 
+    ![image](./media/expensify-tutorial/d_all_proapplications.png)
 
-1. Uygulamalar listesinde **Expensify**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Uygulamalar listesinde Expensify bağlantı](./media/expensify-tutorial/tutorial_expensify_app.png)  
+    ![image](./media/expensify-tutorial/d_leftpaneusers.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Seçin **Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![image](./media/expensify-tutorial/d_assign_user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Atama Ekle bölmesi][203]
-
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+5. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -223,17 +209,6 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
-<!--Image references-->
 
-[1]: ./media/expensify-tutorial/tutorial_general_01.png
-[2]: ./media/expensify-tutorial/tutorial_general_02.png
-[3]: ./media/expensify-tutorial/tutorial_general_03.png
-[4]: ./media/expensify-tutorial/tutorial_general_04.png
 
-[100]: ./media/expensify-tutorial/tutorial_general_100.png
-
-[200]: ./media/expensify-tutorial/tutorial_general_200.png
-[201]: ./media/expensify-tutorial/tutorial_general_201.png
-[202]: ./media/expensify-tutorial/tutorial_general_202.png
-[203]: ./media/expensify-tutorial/tutorial_general_203.png
 

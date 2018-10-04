@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 9/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bfe815b9664e499f7ae458dfc42b88199e0ecb4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 75b5fd2f586a9122aa1248ba88d7ceab59b13215
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037941"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269301"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SQL API'si için Azure Cosmos DB Python SDK: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.locfileid: "47037941"
 
 <tr><td>**SDK'sını indirin**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**API belgeleri**</td><td>[Python API başvuru belgeleri](https://docs.microsoft.com/python/api/azure-cosmos)</td></tr>
+<tr><td>**API belgeleri**</td><td>[Python API başvuru belgeleri](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
 
 <tr><td>**SDK yükleme yönergeleri**</td><td>[Python SDK'sını yükleme yönergeleri](https://github.com/Azure/azure-cosmos-python)</td></tr>
 

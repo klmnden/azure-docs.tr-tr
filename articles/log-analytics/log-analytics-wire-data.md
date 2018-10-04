@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/03/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 109d4eda7d7ad05b4d6138228be23b48076090ca
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.component: na
+ms.openlocfilehash: 9ee388e8d33d293240e70ccf79ec8d3c445dffd1
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237373"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269166"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics'te Wire Data 2.0 (Önizleme) çözümü
 
@@ -30,8 +30,8 @@ Sinyal verileri OMS aracısı tarafından, ortamınızda Operations Manager tara
 
 Wire Data çözümü, OMS aracısına ek olarak BT altyapınızdaki bilgisayarlara yüklediğiniz Microsoft Uyumluluk Aracılarını da kullanır. Bağımlılık Aracıları [OSI modelinde](https://en.wikipedia.org/wiki/OSI_model) 2-3 ağ düzeyleri için bilgisayarlarınıza ve bilgisayarlarınızdan gönderilen ağ verilerini, ayrıca kullanılan çeşitli protokollerle bağlantı noktalarını izler. Ardından aracılar kullanılarak veriler Log Analytics'e gönderilir.  
 
-> [!NOTE]
-> Wire Data çözümünün önceki sürümünü yeni çalışma alanlarına ekleyemezsiniz. Özgün Wire Data çözümünü daha önce etkinleştirdiyseniz, bunu kullanmaya devam edebilirsiniz. Öte yandan, Wire Data 2.0'ı kullanmak için önce özgün sürümü kaldırmanız gerekir.
+>[!NOTE]
+>Hizmet eşlemesi zaten dağıtmış olan veya hizmet eşlemesi dikkate veya [VM'ler için Azure İzleyici](../monitoring/monitoring-vminsights-overview.md), yeni bir bağlantı ölçümleri veri toplamak ve iletilen verilerle karşılaştırılabilir bilgi sağlayan bir Log Analytics deposunda kümesi yok.
 
 Varsayılan olarak, Log Analytics Windows ve Linux'ın yerleşik sayaçlarıyla belirttiğiniz diğer performans sayaçlarından gelen CPU, bellek, disk ve ağ performansına ilişkin verileri günlüğe kaydeder. Her aracı için, alt ağlar ve bilgisayar tarafından kullanılmakta olan uygulama düzeyi protokoller de dahil olmak üzere, ağ ve diğer verileri toplama işlemi gerçek zamanlı olarak yapılır.  Wire Data, alttaki TCP aktarım katmanında değil uygulama düzeyindeki ağ verilerine bakar.  Çözüm tek tek ACK'lere ve SYN'lere bakmaz.  Karşılıklı anlaşma tamamlandıktan sonra, bu canlı bir bağlantı olarak kabul edilir ve Bağlandı olarak işaretlenir. Söz konusu bağlantı, her iki taraf da yuvanın açık olduğunu ve verilerin ileri ve geri geçiş yapabildiğini kabul ettiği sürece canlı kalır.  İki taraftan biri bağlantıyı kapatınca Bağlantı Kesildi olarak işaretlenir.  Bu nedenle, yalnızca başarıyla tamamlanan paketlerin bant genişliğini sayar; yeniden göndermeleri veya başarısız paketleri raporlamaz.
 
@@ -200,6 +200,9 @@ Aşağıdaki bölümlerde Bağımlılık Aracısı için desteklenen işletim si
 1. Etkinlik Günlüğü Analizi çözümünü [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview)'ten veya [Çözüm Galerisi'nden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md) başlığı altında açıklanan işlemi kullanarak etkinleştirin.
 2. Veri almak istediğiniz her bilgisayara Bağımlılık Aracısı'nı yükleyin. Bağımlılık Aracısı en yakındaki komşularla bağlantıları izleyebildiğinden her bilgisayarda bir aracıya ihtiyacınız olmayabilir.
 
+> [!NOTE]
+> Wire Data çözümünün önceki sürümünü yeni çalışma alanlarına ekleyemezsiniz. Özgün Wire Data çözümünü daha önce etkinleştirdiyseniz, bunu kullanmaya devam edebilirsiniz. Öte yandan, Wire Data 2.0'ı kullanmak için önce özgün sürümü kaldırmanız gerekir.
+> 
 ### <a name="install-the-dependency-agent-on-windows"></a>Windows'da Bağımlılık Aracısı'nı yükleme
 
 Aracıyı yüklemek veya kaldırmak için yönetici ayrıcalıkları gereklidir.
@@ -268,7 +271,7 @@ Bağımlılık Aracısı'nı bir kerede birçok sunucuya kolayca dağıtmak içi
 
 ```PowerShell
 
-Invoke-WebRequest 'https://aka.ms/dependencyagentwindows' -OutFile InstallDependencyAgent-Windows.exe
+Invoke-WebRequest &quot;https://aka.ms/dependencyagentwindows&quot; -OutFile InstallDependencyAgent-Windows.exe
 
 .\InstallDependencyAgent-Windows.exe /S
 
@@ -291,7 +294,7 @@ Bağımlılık Aracısı'nı Desired State Configuration yoluyla dağıtmak içi
 ```
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
-$DAPackageLocalPath = 'C:\InstallDependencyAgent-Windows.exe'
+$DAPackageLocalPath = &quot;C:\InstallDependencyAgent-Windows.exe&quot;
 
 
 
@@ -305,11 +308,11 @@ Node $NodeName
 
     {
 
-        Uri = 'https://aka.ms/dependencyagentwindows'
+        Uri = &quot;https://aka.ms/dependencyagentwindows&quot;
 
         DestinationPath = $DAPackageLocalPath
 
-        DependsOn = '[Package]OI'
+        DependsOn = &quot;[Package]OI&quot;
 
     }
 
@@ -317,21 +320,21 @@ Node $NodeName
 
     {
 
-        Ensure='Present'
+        Ensure=&quot;Present&quot;
 
-        Name = 'Dependency Agent'
+        Name = &quot;Dependency Agent&quot;
 
         Path = $DAPackageLocalPath
 
         Arguments = '/S'
 
-        ProductId = ''
+        ProductId = &quot;&quot;
 
-        InstalledCheckRegKey = 'HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent'
+        InstalledCheckRegKey = &quot;HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent&quot;
 
-        InstalledCheckRegValueName = 'DisplayName'
+        InstalledCheckRegValueName = &quot;DisplayName&quot;
 
-        InstalledCheckRegValueData = 'Dependency Agent'
+        InstalledCheckRegValueData = &quot;Dependency Agent&quot;
 
     }
 

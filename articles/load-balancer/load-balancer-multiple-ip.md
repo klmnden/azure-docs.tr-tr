@@ -1,10 +1,10 @@
 ---
-title: Azure içinde birden fazla IP yapılandırması dengelemesini | Microsoft Docs
-description: Birincil ve ikincil IP yapılandırmaları yükdengeleme
+title: Azure'da birden fazla IP yapılandırması dengelemeyi | Microsoft Docs
+description: Birincil ve ikincil IP yapılandırmaları arasında yük dengelemeyi.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jpconnock
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
 ms.service: load-balancer
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3b7971fec0aa0c354476073b01699f516f9439cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 73f19293fc9dd0f68752e7b38a12a826b8f52b0c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637387"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248577"
 ---
-# <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Birden çok IP yapılandırmalarını Azure portalını kullanarak yük dengelemenin
+# <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Birden fazla IP yapılandırması üzerinde Azure portalını kullanarak yük dengelemenin
 
 > [!div class="op_single_selector"]
 > * [Portal](load-balancer-multiple-ip.md)
@@ -29,170 +29,170 @@ ms.locfileid: "34637387"
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
 
-Bu makalede, bir ikincil ağ arabirimi denetleyicisinde (NIC) birden çok IP adresleriyle Azure yük dengeleyici kullanmayı göstermek için yapacağız. Aşağıdaki diyagramda Senaryomuzda gösterilmektedir:
+Bu makalede, bir ikincil ağ arabirimi denetleyicisi (NIC) üzerinde birden çok IP adresi ile Azure Load Balancer'ı kullanma göstermek için ekleyeceğiz. Bizim senaryomuz Aşağıdaki diyagramda gösterilmiştir:
 
 ![Yük dengeleyici senaryosu](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
-Senaryomuzda biz aşağıdaki yapılandırma kullanıyorsanız:
+Senaryomuzdaki ise aşağıdaki yapılandırmayı kullanıyoruz:
 
-- İki sanal Windows çalışan sanal makineleri (VM'ler).
-- Her VM birincil ve ikincil bir NIC'e sahip.
-- Her ikincil NIC iki IP yapılandırmaları vardır.
-- Her VM iki Web sitesi barındırır: contoso.com ve fabrikam.com.
+- İki Windows çalıştıran sanal makinelerin (VM'ler).
+- Her VM birincil ve ikincil bir NIC'ye sahiptir.
+- Her ikincil NIC iki IP yapılandırmasına sahip değil.
+- İki Web sitelerini barındıran her VM: contoso.com ve fabrikam.com.
 - Her Web sitesi ikincil NIC üzerinde bir IP yapılandırmasına bağlıdır
-- Azure yük dengeleyici iki ön uç IP adresi, her Web sitesi için bir tane göstermek için kullanılır. Ön uç adreslerini her Web sitesi için ilgili IP yapılandırması için trafiği dağıtmak için kullanılır.
-- Aynı bağlantı noktası, ön uç IP adresleri ve arka uç havuzu IP adresleri için kullanılır.
+- Azure Load Balancer iki ön uç IP adresi, her Web sitesi için bir tane oluşturmak için kullanılır. Ön uç adreslerini her Web sitesi için ilgili IP yapılandırması trafiği dağıtmak için kullanılır.
+- Aynı bağlantı noktasını, ön uç IP adresleri ve IP adresleri arka uç havuzu için kullanılır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Senaryo Örneğimizde, bir kaynak grubu sahibi olduğunuzu varsayar **contosofabrikam** , aşağıdaki gibi yapılandırılmış:
+Senaryo örneğimiz, adlı bir kaynak grubu sahibi olduğunuzu varsayar **contosofabrikam** yapılandırılmış gibi:
 
-- Adlı bir sanal ağ kaynak grubu içeren **myVNet**.
-- **MyVNet** ağ içerir adlı iki VM **VM1** ve **VM2**.
-- VM1 ve VM2 olan adlandırılmış kümesi kullanılabilirlik **myAvailset**. 
+- Kaynak grubu adında bir sanal ağ içeren **myVNet**.
+- **MyVNet** adlı iki sanal ağı içerir **VM1** ve **VM2**.
+- VM1 ve VM2 olan aynı kullanılabilirlik kümesinde adlandırılmış **myAvailset**. 
 - VM1 ve VM2 sahip adlı birincil NIC **VM1NIC1** ve **VM2NIC1**sırasıyla. 
-- VM1 ve VM2 sahip adlı ikincil bir NIC **VM1NIC2** ve **VM2NIC2**sırasıyla.
+- VM1 ve VM2 sahip adlı bir ikincil NIC **VM1NIC2** ve **VM2NIC2**sırasıyla.
 
-Birden çok NIC VM'ler oluşturma hakkında daha fazla bilgi için bkz: [PowerShell kullanarak birden çok NIC ile VM oluşturma](../virtual-machines/windows/multiple-nics.md).
+Birden çok NIC ile VM oluşturma hakkında daha fazla bilgi için bkz. [PowerShell kullanarak birden çok NIC ile VM oluşturma](../virtual-machines/windows/multiple-nics.md).
 
-## <a name="perform-load-balancing-on-multiple-ip-configurations"></a>Yük Dengeleme birden çok IP yapılandırmalarını gerçekleştirme
+## <a name="perform-load-balancing-on-multiple-ip-configurations"></a>Birden çok IP yapılandırmalarında Yük Dengelemesi gerçekleştirme
 
 Bu makalede açıklanan senaryo elde etmek için aşağıdaki adımları tamamlayın.
 
-### <a name="step-1-configure-the-secondary-nics"></a>1. adım: ikincil NIC'ler yapılandırma
+### <a name="step-1-configure-the-secondary-nics"></a>1. adım: ikincil ağ arabirimlerine yapılandırma
 
-Sanal ağınızdaki her VM için ikincil NIC IP yapılandırmasını ekleyin:  
+Sanal ağınızda bulunan her VM için ikincil NIC IP yapılandırmasını ekleyin:  
 
-1. Azure portalına göz atın: http://portal.azure.com. Azure hesabınızla oturum açın.
+1. Azure portalına gidin: http://portal.azure.com. Azure hesabınızla oturum açın.
 
-2. Ekranın üst sol seçin **kaynak grubu** simgesi. Ardından, VM'lerin bulunduğu kaynak grubunu seçin (örneğin, **contosofabrikam**). **Kaynak grupları** bölmesinde tüm kaynakları ve NIC VM'ler için görüntüler.
+2. Ekranın üst sol seçin **kaynak grubu** simgesi. Ardından, Vm'lerinizin yerleştirildiği kaynak grubunu seçin (örneğin, **contosofabrikam**). **Kaynak grupları** bölmesi tüm kaynakları ve NIC VM'ler için görüntüler.
 
-3. Her VM ikincil NIC IP yapılandırmasını ekleyin:
+3. Her VM için ikincil NIC IP yapılandırmasını ekleyin:
 
-    1. Yapılandırmak istediğiniz ikincil NIC seçin.
+    1. Yapılandırmak istediğiniz ikincil NIC'ı seçin.
     
-    2. Seçin **IP yapılandırmaları**. Üstüne yakın sonraki bölmesinde seçin **Ekle**.
+    2. Seçin **IP yapılandırmaları**. Sayfanın en üstüne, sonraki bölmesinde seçin **Ekle**.
 
-    3. Altında **eklemek IP yapılandırmaları**, ikinci bir IP yapılandırması NIC'ye ekleyin: 
+    3. Altında **ekleme IP yapılandırmaları**, ikinci bir IP yapılandırması için NIC ekleyin: 
 
-        1. İkincil IP yapılandırması için bir ad girin. (Örneğin, IP yapılandırması VM1 ve VM2 için ad **VM1NIC2 ipconfig2** ve **VM2NIC2 ipconfig2**sırasıyla.)
+        1. İkincil IP yapılandırması için bir ad girin. (Örneğin, VM1 ve VM2 için IP Yapılandırması adı **VM1NIC2 ipconfig2** ve **VM2NIC2 ipconfig2**sırasıyla.)
 
         2. İçin **özel IP adresi**, **ayırma** ayarını seçin **statik**.
 
         3. **Tamam**’ı seçin.
 
-İkincil NIC tamamlandıktan sonra ikinci IP yapılandırması onu altında görüntülenen **IP yapılandırmaları** verilen NIC için ayarları
+İkincil NIC tamamlandıktan sonra ikinci IP Yapılandırması altında gösterilir **IP yapılandırmaları** verilen NIC için ayarları
 
 ### <a name="step-2-create-the-load-balancer"></a>2. Adım: Yük dengeleyiciyi oluşturun
 
-Yük Dengeleyici yapılandırması için oluşturun:
+Load balancer'ınız için yapılandırmayı oluşturun:
 
-1. Azure portalına göz atın: http://portal.azure.com. Azure hesabınızla oturum açın.
+1. Azure portalına gidin: http://portal.azure.com. Azure hesabınızla oturum açın.
 
-2. Ekranın üst sol seçin **kaynak oluşturma** > **ağ** > **yük dengeleyici**. Ardından, **oluşturma**.
+2. Ekranın üst sol seçin **kaynak Oluştur** > **ağ** > **yük dengeleyici**. Ardından, **Oluştur**.
 
-3. Altında **oluşturma yük dengeleyici**, yük dengeleyici için bir ad yazın. Bu senaryoda, biz adı kullandığınızdan **mylb**.
+3. Altında **yük dengeleyici Oluştur**, load balancer'ınız için bir ad yazın. Bu senaryoda, ad kullanıyoruz **mylb**.
 
-4. Altında **genel IP adresi**, adlı yeni bir genel IP oluşturun **PublicIP1**.
+4. Altında **genel IP adresi**, adlı yeni bir genel IP oluşturma **PublicIP1**.
 
-5. Altında **kaynak grubu**, Vm'leriniz için varolan bir kaynak grubu seçin (örneğin, **contosofabrikam**). Yük Dengeleyici ile dağıtın ve ardından konumu seçin **Tamam**.
+5. Altında **kaynak grubu**, sanal makineleriniz için mevcut kaynak grubunu seçin (örneğin, **contosofabrikam**). Load balancer'ı dağıtın ve ardından konumunu seçin **Tamam**.
 
-Yük Dengeleyici dağıtmayı başlatır. Dağıtım başarılı bir şekilde tamamlanması birkaç dakika sürebilir. Dağıtım tamamlandıktan sonra Yük Dengeleyici bir kaynak, kaynak grubu olarak görüntülenir.
+Yük Dengeleyici dağıtımı başlar. Dağıtım başarıyla tamamlanması birkaç dakika sürebilir. Dağıtım tamamlandıktan sonra Yük Dengeleyici kaynak grubunuzda bir kaynak olarak görüntülenir.
 
 ### <a name="step-3-configure-the-front-end-ip-pool"></a>3. adım: ön uç IP havuzu yapılandırma
 
-Her Web sitesi için (contoso.com ve fabrikam.com), ön uç IP havuzu yük dengeleyicide yapılandırın:
+Her Web sitesi için (contoso.com ve fabrikam.com), ön uç IP havuzu, yük dengeleyicide yapılandırın:
 
-1. Portalı'nda seçin **daha fazla hizmet**. Filtre kutusuna **genel IP adresi** ve ardından **ortak IP adresleri**. Üstüne yakın sonraki bölmesinde seçin **Ekle**.
+1. Portalında **diğer hizmetler**. Filtre kutusuna **genel IP adresi** seçip **genel IP adresleri**. Sayfanın en üstüne, sonraki bölmesinde seçin **Ekle**.
 
-2. İki ortak IP adreslerini yapılandırın (**PublicIP1** ve **PublicIP2**) (contoso.com ve fabrikam.com) her iki Web siteleri için:
+2. İki ortak IP adreslerini yapılandırın (**PublicIP1** ve **PublicIP2**) her iki Web siteleri (contoso.com ve fabrikam.com) için:
 
-    1. Ön uç IP adresi için bir ad yazın.
+    1. Ön uç IP adresiniz için bir ad yazın.
 
-    2. İçin **kaynak grubu**, Vm'leriniz için varolan bir kaynak grubu seçin (örneğin, **contosofabrikam**).
+    2. İçin **kaynak grubu**, sanal makineleriniz için mevcut kaynak grubunu seçin (örneğin, **contosofabrikam**).
 
-    3. İçin **konumu**, VM'ler aynı konumu seçin.
+    3. İçin **konumu**, Vm'leri olarak aynı konumu seçin.
 
     4. **Tamam**’ı seçin.
 
-    Genel IP adresleri oluşturulduktan sonra altında görüntülendikleri **genel IP** adresleri.
+    Genel IP adreslerini oluşturulduktan sonra bunların altında görüntülenen **genel IP** adresleri.
 
-3. <a name="step3-3"></a>Portalı'nda seçin **daha fazla hizmet**. Filtre kutusuna **yük dengeleyici** ve ardından **yük dengeleyici**. 
+3. <a name="step3-3"></a>Portalında **diğer hizmetler**. Filtre kutusuna **yük dengeleyici** seçip **Load Balancer**. 
 
-4. Yük Dengeleyici seçin (**mylb**) ön uç IP havuzuna eklemek istediğiniz.
+4. Yük Dengeleyiciyi seçin (**mylb**) ön uç IP havuzu için eklemek istediğiniz.
 
-5. Altında **ayarları**seçin **ön uç IP yapılandırmasını**. Üstüne yakın sonraki bölmesinde seçin **Ekle**.
+5. Altında **ayarları**seçin **ön uç IP yapılandırması**. Sayfanın en üstüne, sonraki bölmesinde seçin **Ekle**.
 
-6. Ön uç IP adresi için bir ad yazın (örneğin, **contosofe** veya **fabrikamfe**).
+6. Ön uç IP adresiniz için bir ad yazın (örneğin, **contosofe** veya **fabrikamfe**).
 
-7. <a name="step3-7"></a>Seçin **IP adresi**. Altında **seçin genel IP adresi**, ön uç IP adresi seçin (**PublicIP1** veya **PublicIP2**).
+7. <a name="step3-7"></a>Seçin **IP adresi**. Altında **seçin genel IP adresi**, uygulamanızın ön uç IP adresi seçin (**PublicIP1** veya **PublicIP2**).
 
-8. İkinci ön uç IP adresi tekrarlayarak oluşturma <a href="#step3-3">3. adım</a> aracılığıyla <a href="#step3-7">adım 7</a> bu bölümdeki.
+8. Tekrarlayarak ikinci ön uç IP adresi oluşturma <a href="#step3-3">3. adım</a> aracılığıyla <a href="#step3-7">7. adım</a> bu bölümdeki.
 
-Ön uç havuzu yapılandırıldıktan sonra IP adresleri, yük dengeleyici altında görüntülenen **ön uç IP yapılandırmasını** ayarlar. 
+IP adreslerini ön uç havuzu yapılandırdıktan sonra load balancer'ınız altında görüntülenen **ön uç IP yapılandırması** ayarları. 
     
-### <a name="step-4-configure-the-back-end-pool"></a>Adım 4: arka uç havuzunu yapılandırma
+### <a name="step-4-configure-the-back-end-pool"></a>4. adım: arka uç havuzunu yapılandırma
 
-Her Web sitesi için (contoso.com ve fabrikam.com), arka uç adres havuzu, yük dengeleyicide yapılandırın:
+Her Web sitesi için (contoso.com ve fabrikam.com), yük dengeleyicinizin arka uç adres havuzu yapılandırın:
         
-1. Portalı'nda seçin **daha fazla hizmet**. Filtre kutusuna **yük dengeleyici** ve ardından **yük dengeleyici**.
+1. Portalında **diğer hizmetler**. Filtre kutusuna **yük dengeleyici** seçip **Load Balancer**.
 
-2. Yük Dengeleyici seçin (**mylb**) arka uç havuzuna eklemek istediğiniz.
+2. Yük Dengeleyiciyi seçin (**mylb**) arka uç havuzuna eklemek istediğiniz.
 
-3. Altında **ayarları**seçin **arka uç havuzları**. Arka uç havuzu için bir ad yazın (örneğin, **contosopool** veya **fabrikampool**). Üstüne yakın sonraki bölmesinde seçin **Ekle**. 
+3. Altında **ayarları**seçin **arka uç havuzları**. Arka uç havuzunuz için bir ad yazın (örneğin, **contosopool** veya **fabrikampool**). Sayfanın en üstüne, sonraki bölmesinde seçin **Ekle**. 
 
 4. İçin **ilişkili**seçin **kullanılabilirlik kümesi**.
 
 5. İçin **kullanılabilirlik kümesi**seçin **myAvailset**.
 
-6. Her iki VM için hedef ağ IP yapılandırmaları ekleyin: 
+6. Hedef ağ IP yapılandırmaları için iki VM'nin de ekleyin: 
 
     ![Yük Dengeleyici için arka uç havuzlarını yapılandırın.](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
     
-    1. İçin **hedef sanal makine**, arka uç havuzuna eklemek istediğiniz VM seçin (örneğin, **VM1** veya **VM2**).
+    1. İçin **hedef sanal makine**, arka uç havuzuna eklemek istediğiniz VM'yi seçin (örneğin, **VM1** veya **VM2**).
 
-    2. İçin **ağ IP yapılandırması**, önceki adımda seçtiğiniz VM için ikincil NIC IP yapılandırmasını seçin (örneğin, **VM1NIC2 ipconfig2** veya **VM2NIC2 ipconfig2** ).
+    2. İçin **ağ IP yapılandırması**, önceki adımda seçtiğiniz VM ikincil NIC IP yapılandırmasını seçin (örneğin, **VM1NIC2 ipconfig2** veya **VM2NIC2 ipconfig2** ).
 
 7. **Tamam**’ı seçin.
 
-Arka uç havuzu yapılandırıldıktan sonra adresler, yük dengeleyici altında görüntülenen **arka uç havuzu** ayarlar.
+Arka uç havuzu yapılandırdıktan sonra adresleri load balancer'ınız altında görüntülenen **arka uç havuzu** ayarları.
 
-### <a name="step-5-configure-the-health-probe"></a>5. adım: sistem durumu araştırmasını yapılandırma
+### <a name="step-5-configure-the-health-probe"></a>5. adım: durum araştırmasını yapılandırma
 
-Yük Dengeleyici için bir sistem durumu araştırma yapılandırın:
+Load balancer'ınız için bir durum araştırması yapılandırın:
 
-1. Portalı'nda seçin **daha fazla hizmet**. Filtre kutusuna **yük dengeleyici** ve ardından **yük dengeleyici**.
+1. Portalında **diğer hizmetler**. Filtre kutusuna **yük dengeleyici** seçip **Load Balancer**.
 
-2. Yük Dengeleyici seçin (**mylb**) sistem durumu araştırma eklemek istediğiniz.
+2. Yük Dengeleyiciyi seçin (**mylb**) sistem durumu araştırması için eklemek istediğiniz.
 
-3. Altında **ayarları**seçin **durumu araştırması**. Üstüne yakın sonraki bölmesinde seçin **Ekle**. 
+3. Altında **ayarları**seçin **durum araştırması**. Sayfanın en üstüne, sonraki bölmesinde seçin **Ekle**. 
 
-4. Sistem durumu araştırması için bir ad yazın (örneğin, **HTTP**). **Tamam**’ı seçin.
+4. Durum araştırması için bir ad yazın (örneğin, **HTTP**). **Tamam**’ı seçin.
 
-### <a name="step-6-configure-load-balancing-rules"></a>6. adım: Yük Dengeleme kuralları yapılandırma
+### <a name="step-6-configure-load-balancing-rules"></a>6. adım: Yük Dengeleme kurallarını yapılandırma
 
 Her Web sitesi için (contoso.com ve fabrikam.com), Yük Dengeleme kuralları yapılandırın:
     
-1. <a name="step6-1"></a>Altında **ayarları**seçin **Yük Dengeleme kuralları**. Üstüne yakın sonraki bölmesinde seçin **Ekle**. 
+1. <a name="step6-1"></a>Altında **ayarları**seçin **Yük Dengeleme kuralları**. Sayfanın en üstüne, sonraki bölmesinde seçin **Ekle**. 
 
-2. İçin **adı**, Yük Dengeleme kuralı için bir ad yazın (örneğin, **HTTPc** contoso.com, veya **HTTPf** fabrikam.com için).
+2. İçin **adı**, Yük Dengeleme kuralı için bir ad yazın (örneğin, **HTTPc** contoso.com için veya **HTTPf** fabrikam.com için).
 
 3. İçin **ön uç IP adresi**, daha önce oluşturduğunuz ön uç IP adresi seçin (örneğin, **contosofe** veya **fabrikamfe**).
 
 4. İçin **bağlantı noktası** ve **arka uç bağlantı noktası**, varsayılan değer tutmak **80**.
 
-5. İçin **kayan IP (doğrudan sunucu dönüşü)** seçin **etkin**.
+5. İçin **kayan IP (doğrudan sunucu dönüşü)** seçin **devre dışı bırakılmış**.
 
 6. <a name="step6-6"></a>Seçin **Tamam**.
 
-7. İkinci yük dengeleyici kuralı tekrarlayarak oluşturmak <a href="#step6-1">1. adım</a> aracılığıyla <a href="#step6-6">adım 6</a> bu bölümdeki.
+7. Tekrarlayarak ikinci yük dengeleyici kuralı oluşturma <a href="#step6-1">1. adım</a> aracılığıyla <a href="#step6-6">6. adım</a> bu bölümdeki.
 
-Kuralları yapılandırıldıktan sonra Yük Dengeleyici altında görüntülenen **Yük Dengeleme kuralları** ayarlar.
+Kuralları yapılandırıldıktan sonra load balancer'ınız altında görüntülenen **Yük Dengeleme kuralları** ayarları.
 
-### <a name="step-7-configure-dns-records"></a>7. adım: DNS kayıtlarını Yapılandır
+### <a name="step-7-configure-dns-records"></a>7. adım: DNS kayıtlarını yapılandırın.
 
-Son adım olarak, DNS kaynak kayıtları, yük dengeleyici için ilgili ön uç IP adreslerine işaret edecek şekilde yapılandırın. Azure DNS'de etki alanlarınızı barındırabilir. Azure DNS yük dengeleyici ile kullanma hakkında daha fazla bilgi için bkz: [kullanarak Azure DNS diğer Azure hizmetleriyle](../dns/dns-for-azure-services.md).
+Son adım olarak, DNS kaynak kayıtlarını load balancer'ınız için ilgili ön uç IP adreslerine işaret edecek şekilde yapılandırın. Azure DNS etki alanlarınızı barındırabilirsiniz. Load Balancer ile Azure DNS kullanma hakkında daha fazla bilgi için bkz. [kullanarak Azure DNS diğer Azure hizmetleriyle](../dns/dns-for-azure-services.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Yük Dengeleme Azure hizmetlerinde birleştirme hakkında daha fazla bilgi edinin [Azure'da Yük Dengeleme hizmetlerini kullanarak](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Farklı türde günlüklerini yönetmek ve yük dengeleyici sorunlarını gidermek için nasıl kullanabileceğinizi öğrenin [analytics Azure yük dengeleyici için oturum](../load-balancer/load-balancer-monitor-log.md).
+- Yük Dengeleme hizmetlerini Azure kapsamında birleştirme hakkında daha fazla bilgi [Azure'da Yük Dengeleme hizmetlerini kullanarak](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- Günlükleri farklı türde yönetmek ve yük dengeleyicide sorunlarını gidermek için nasıl kullanacağınızı öğrenin [Azure Load Balancer için Log analytics](../load-balancer/load-balancer-monitor-log.md).

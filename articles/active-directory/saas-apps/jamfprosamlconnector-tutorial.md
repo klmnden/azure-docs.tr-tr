@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 10/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 94b8b935728110cd5dd07b2066e8320274e3b082
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d28e28a2c4f8144da16c4838f07c9b8bb5ce67f0
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428426"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Öğretici: Azure Active Directory Jamf Pro ile tümleştirme
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Jamf Pro ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Jamf Pro çoklu oturum açma abonelik etkin.
 
 > [!NOTE]
@@ -50,31 +50,34 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 - Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
+
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
+Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Jamf Pro galeri ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-jamf-pro-from-the-gallery"></a>Jamf Pro galeri ekleme
+
 Azure AD'de Jamf Pro tümleştirmesini yapılandırmak için Jamf Pro Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Jamf Pro Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
-    ![Azure Active Directory düğmesi][1]
+    ![image](./media/jamfprosamlconnector-tutorial/selectazuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![image](./media/jamfprosamlconnector-tutorial/a_select_app.png)
     
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![image](./media/jamfprosamlconnector-tutorial/a_new_app.png)
 
-1. Arama kutusuna **Jamf Pro**seçin **Jamf Pro** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Jamf Pro**seçin **Jamf Pro** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Jamf Pro'da sonuçları listesi](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_addfromgallery.png)
+     ![image](./media/jamfprosamlconnector-tutorial/a_add_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
@@ -85,10 +88,10 @@ Tek iş için oturum açma için Azure AD ne karşılık gelen kullanıcı Jamf 
 Yapılandırma ve Azure AD çoklu oturum açma Jamf Pro ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Jamf Pro test kullanıcısı oluşturma](#create-a-jamf-pro-test-user)**  - Jamf Pro'da kullanıcı Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Jamf Pro test kullanıcısı oluşturma](#create-a-jamf-pro-test-user)**  - Jamf Pro'da kullanıcı Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -96,50 +99,62 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
 
 **Azure AD çoklu oturum açma Jamf Pro ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında, üzerinde **Jamf Pro** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Jamf Pro** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![image](./media/jamfprosamlconnector-tutorial/b1_b2_select_sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_samlbase.png)
+2. Tıklayın **değişiklik çoklu oturum açma modunu** seçmek için ekranın en üstünde **SAML** modu.
 
-1. Üzerinde **Jamf Pro etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+      ![image](./media/jamfprosamlconnector-tutorial/b1_b2_saml_ssso.png)
 
-    ![Jamf Pro etki alanı ve URL'ler tek oturum açma bilgileri](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_url.png)
+3. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    a. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.jamfcloud.com/saml/metadata`
+    ![image](./media/jamfprosamlconnector-tutorial/b1_b2_saml_sso.png)
 
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.jamfcloud.com/saml/SSO`
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **temel SAML yapılandırma** iletişim.
 
-1. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+    ![image](./media/jamfprosamlconnector-tutorial/b1-domains_and_urlsedit.png)
 
-    ![Jamf Pro etki alanı ve URL'ler tek oturum açma bilgileri](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_url1.png)
+5. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.jamfcloud.com`
-     
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.jamfcloud.com/saml/metadata`.
+
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.jamfcloud.com/saml/SSO`.
+
+    ![image](./media/jamfprosamlconnector-tutorial//b2-domains_and_urls.png)
+
+    c. Tıklayın **ek URL'lerini ayarlayın**.
+
+    d. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.jamfcloud.com`.
+
+    ![image](./media/jamfprosamlconnector-tutorial//b4-domains_and_urls.png)
+
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Gerçek tanımlayıcı değerini alırsınız **çoklu oturum açma** bölümünde Jamf Pro portal, öğreticinin ilerleyen bölümlerinde açıklanmıştır. Gerçek ayıklayabilir **alt etki alanı** değer tanımlayıcısı değeri ve kullanan **alt etki alanı** bilgileri oturum açma URL'si ve yanıt URL'si.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
 
-    ![Sertifika indirme bağlantısı](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_certificate.png) 
+    ![image](./media/jamfprosamlconnector-tutorial/C2_certificate.png)
 
-1. Tıklayın **Kaydet** düğmesi.
+7. Jamf Pro içinde yapılandırmasını otomatik hale getirmenizi yüklemeniz gerekir **My Apps güvenli oturum açma tarayıcı uzantısı** tıklayarak **uzantıyı yükleme**.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/jamfprosamlconnector-tutorial/tutorial_general_400.png)
-    
-1. Farklı bir web tarayıcı penceresinde Jamf Pro şirket sitenize yönetici olarak oturum.
+    ![image](./media/jamfprosamlconnector-tutorial/install_extension.png)
+ 
+8. Uzantı tarayıcıya ekledikten sonra tıklayarak **Jamf Pro Kurulum** Jamf Pro uygulamaya yönlendirir. Burada, Jamf Pro ile oturum açmak için yönetici kimlik bilgilerini sağlayın. Tarayıcı uzantısı otomatik olarak sizin için uygulamayı yapılandırma ve adımları 9-12 otomatikleştirin.
 
-1. Tıklayarak **ayarlar simgesine** sayfanın sağ üst köşesindeki öğesinden.
+    ![image](./media/jamfprosamlconnector-tutorial/d1_saml.png)
+
+9. Jamf Pro el ile ayarlamak istiyorsanız, yeni bir web tarayıcı penceresi ve günlük Jamf Pro şirketinizin sitesi yönetici olarak oturum açın ve aşağıdaki adımları gerçekleştirin:
+
+10. Tıklayarak **ayarlar simgesine** sayfanın sağ üst köşesindeki öğesinden.
 
     ![Jamf Pro yapılandırması](./media/jamfprosamlconnector-tutorial/configure1.png)
 
-1. Tıklayarak **tekli oturum**.
+11. Tıklayarak **tekli oturum**.
 
     ![Jamf Pro yapılandırması](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-1. Üzerinde **çoklu oturum açma** sayfasında aşağıdaki adımları gerçekleştirin:
+12. Üzerinde **çoklu oturum açma** sayfasında aşağıdaki adımları gerçekleştirin:
 
     ![Jamf Pro tek](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
 
@@ -152,8 +167,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
     d. Seçin **e-posta** için **kullanıcı eşlemesi: JAMF PRO**. Jamf Pro aşağıdaki yollarla IDP tarafından gönderilen SAML öznitelikleri eşler: kullanıcılar ve gruplar. Bir kullanıcının erişmeye çalıştığında Jamf Pro, varsayılan Jamf Pro tarafından kimlik sağlayıcısından kullanıcıyla ilgili bilgileri alır ve Jamf Pro kullanıcı hesaplarına yönelik eşleşir. Jamf Pro'da gelen kullanıcı hesabı yoksa, grup adıyla eşleşen gerçekleşir.
 
     e. Değer yapıştırın `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` içinde **grubu ÖZNİTELİK adı** metin.
- 
-1. En fazla aynı sayfayı aşağı üzerinde **kimlik SAĞLAYICISI** altında **çoklu oturum açma** bölümünde ve aşağıdaki adımları gerçekleştirin:
+
+13. En fazla aynı sayfayı aşağı üzerinde **kimlik SAĞLAYICISI** altında **çoklu oturum açma** bölümünde ve aşağıdaki adımları gerçekleştirin:
 
     ![Jamf Pro yapılandırması](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -170,38 +185,31 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
 
     e. **Kaydet**’e tıklayın.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    ![image](./media/jamfprosamlconnector-tutorial/d_users_and_groups.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/jamfprosamlconnector-tutorial/create_aaduser_01.png)
+    ![image](./media/jamfprosamlconnector-tutorial/d_adduser.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/jamfprosamlconnector-tutorial/create_aaduser_02.png)
+    ![image](./media/jamfprosamlconnector-tutorial/d_userproperties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/jamfprosamlconnector-tutorial/create_aaduser_03.png)
+    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+    d. **Oluştur**’u seçin.
 
-    ![Kullanıcı iletişim kutusu](./media/jamfprosamlconnector-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
-
-    d. **Oluştur**’a tıklayın.
- 
 ### <a name="create-a-jamf-pro-test-user"></a>Jamf Pro test kullanıcısı oluşturma
 
 Jamf Pro oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunlar Jamf Pro ile sağlanması gerekir. Jamf Pro söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
@@ -210,30 +218,30 @@ Jamf Pro oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunla
 
 1. Jamf Pro şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-1. Tıklayarak **ayarlar simgesine** sayfanın sağ üst köşesindeki öğesinden.
+2. Tıklayarak **ayarlar simgesine** sayfanın sağ üst köşesindeki öğesinden.
 
     ![Çalışan Ekle](./media/jamfprosamlconnector-tutorial/configure1.png)
 
-1. Tıklayarak **Jamf Pro kullanıcı hesaplarını ve grupları**.
+3. Tıklayarak **Jamf Pro kullanıcı hesaplarını ve grupları**.
 
     ![Çalışan Ekle](./media/jamfprosamlconnector-tutorial/user1.png)
 
-1. **Yeni**’ye tıklayın.
+4. **Yeni**’ye tıklayın.
 
     ![Çalışan Ekle](./media/jamfprosamlconnector-tutorial/user2.png)
 
-1. Seçin **standart hesabı oluşturma**.
+5. Seçin **standart hesabı oluşturma**.
 
     ![Çalışan Ekle](./media/jamfprosamlconnector-tutorial/user3.png)
 
-1. Üzerinde **yeni hesabı** dailog, aşağıdaki adımları gerçekleştirin:
+6. Üzerinde **yeni hesabı** dailog, aşağıdaki adımları gerçekleştirin:
 
     ![Çalışan Ekle](./media/jamfprosamlconnector-tutorial/user4.png)
 
     a. İçinde **kullanıcıadı** metin BrittaSimon tam adını yazın.
 
     b. Kuruluşunuz için göre uygun seçenekleri belirleyin **erişim düzeyi**, **ayrıcalık**ve **erişim durumu**.
-    
+
     c. İçinde **tam adı** metin Britta Simon tam adını yazın.
 
     d. İçinde **e-posta adresi** metin Britta Simon hesabı e-posta adresini yazın.
@@ -248,55 +256,34 @@ Jamf Pro oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunla
 
 Bu bölümde, Jamf Pro için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Jamf Pro**.
 
-**Jamf Pro Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+    ![image](./media/jamfprosamlconnector-tutorial/d_all_applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **Jamf Pro**.
 
-    ![Kullanıcı Ata][201] 
+    ![image](./media/jamfprosamlconnector-tutorial/d_all_proapplications.png)
 
-1. Uygulamalar listesinde **Jamf Pro**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Uygulamalar listesinde Jamf Pro bağlantı](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_app.png)  
+    ![image](./media/jamfprosamlconnector-tutorial/d_leftpaneusers.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Seçin **Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![image](./media/jamfprosamlconnector-tutorial/d_assign_user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Atama Ekle bölmesi][203]
+5. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim panelinde Jamf Pro kutucuğa tıkladığınızda, otomatik olarak Jamf Pro uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/jamfprosamlconnector-tutorial/tutorial_general_01.png
-[2]: ./media/jamfprosamlconnector-tutorial/tutorial_general_02.png
-[3]: ./media/jamfprosamlconnector-tutorial/tutorial_general_03.png
-[4]: ./media/jamfprosamlconnector-tutorial/tutorial_general_04.png
-
-[100]: ./media/jamfprosamlconnector-tutorial/tutorial_general_100.png
-
-[200]: ./media/jamfprosamlconnector-tutorial/tutorial_general_200.png
-[201]: ./media/jamfprosamlconnector-tutorial/tutorial_general_201.png
-[202]: ./media/jamfprosamlconnector-tutorial/tutorial_general_202.png
-[203]: ./media/jamfprosamlconnector-tutorial/tutorial_general_203.png
-

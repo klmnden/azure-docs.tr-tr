@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 92db6442352242d5c7f25d39442d208d6007621b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 561244efd653294694cc16a1115962473e9a7cec
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984356"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249041"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Fiyatlandırma katmanları MariaDB için Azure veritabanı
 
@@ -21,7 +21,7 @@ ms.locfileid: "46984356"
 
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
-| İşlem oluşturma | <!--Gen 4,--> 5. nesil |<!--Gen 4,-->5. nesil |<!--Gen 4,--> 5. nesil |
+| İşlem oluşturma | 5. Nesil |5. Nesil | 5. Nesil |
 | Sanal çekirdekler | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Sanal çekirdek başına bellek | 2 GB | 5 GB | 10 GB |
 | Depolama boyutu | 5 GB ila 1 TB | 5 GB ile 4 TB | 5 GB ile 4 TB |
@@ -40,40 +40,7 @@ Oluşturduktan sonra bir sunucu, sanal çekirdek ve fiyatlandırma katmanını (
 
 ## <a name="compute-generations-and-vcores"></a>İşlem Nesilleri ve sanal çekirdekler
 
-İşlem kaynakları, temel alınan donanım mantıksal CPU'yu temsil eden sanal çekirdekler sağlanır.<!--Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors.--> 5 mantıksal CPU'lar Intel E5-2673 v4 nesil (Broadwell) 2.3 GHz işlemcileri.
-
-<!--
-| **Azure region** | **Gen 5** |
-|:---|:----------:|:--------------------:|
-| Central US | X | X |
-| East US | X | X |
-| East US 2 | X | X |
-| North Central US | X | X |
-| South Central US | X | X |
-| West US | X | X |
-| West US 2 |  | X |
-| Canada Central | X | X |
-| Canada East | X | X |
-| Brazil South | X | X |
-| North Europe | X | X |
-| West Europe |  | X |
-| France Central |  | X |
-| UK West |  | X |
-| UK South |  | X |
-| East Asia | X | X |
-| Southeast Asia | X | X |
-| Australia East |  | X |
-| Australia Central |  | X |
-| Australia Central 2 |  | X |
-| Australia Southeast |  | X |
-| Central India | X | X |
-| West India | X | X |
-| South India |  | X |
-| Japan East | X | X |
-| Japan West | X | X |
-| Korea Central |  | X |
-| Korea South |  | X |
--->
+İşlem kaynakları, temel alınan donanım mantıksal CPU'yu temsil eden sanal çekirdekler sağlanır. 5 mantıksal CPU'lar Intel E5-2673 v4 nesil (Broadwell) 2.3 GHz işlemcileri.
 
 ## <a name="storage"></a>Depolama
 
@@ -97,7 +64,9 @@ Boş depolama alanı miktarı az 5 GB veya sağlanan depolama alanı, %5 ulaşt�
 
 Hizmet sunucusunu salt okunur hale getirmek çalışır, ancak tüm yeni yazma işlemi talepleri engellenir ve mevcut etkin işlemler yürütülmeye devam eder. Sunucu salt okunur ayarlandığında, tüm sonraki yazma işlemleri ve işlem başarısız kaydeder. Okuma sorguları kesintisiz olarak çalışmaya devam eder. Sağlanan depolama artırdıktan sonra sunucu yeniden yazma işlemleri kabul etmeye hazır olacaktır.
 
-Salt okunur duruma girmesini önlemek için sunucu depolama alanınızın eşiği yaklaşırken bildiren bir uyarı ayarlamanızı öneririz. <!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+Salt okunur duruma girmesini önlemek için sunucu depolama alanınızın eşiği yaklaşırken bildiren bir uyarı ayarlamanızı öneririz. 
+
+<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
 
 ## <a name="backup"></a>Backup
 
@@ -105,9 +74,11 @@ Hizmet, sunucunuzun yedeklemeleri otomatik olarak alır. Yedeklemeler için en d
 
 ## <a name="scale-resources"></a>Kaynakları ölçeklendirme
 
-Sunucunuzu oluşturduğunuzda, sanal çekirdekler, bağımsız olarak değiştirebilirsiniz <!--the hardware generation,--> fiyatlandırma katmanını (temel gelen ve giden hariç), depolama ve yedekleme bekletme süresi miktarı. Bir sunucu oluşturulduktan sonra yedekleme depolama türünü değiştiremezsiniz. Sanal çekirdek sayısı, yukarı veya aşağı ölçeklendirilebilir. Yedekleme bekletme süresi yukarı veya aşağı 7'den 35 gün öncesine ölçeklendirilebilir. Depolama boyutu yalnızca artırılabilir. Kaynakları ölçeklendirme portal veya Azure CLI aracılığıyla yapılabilir. <!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
+Sunucunuzu oluşturduğunuzda, sanal çekirdekler, fiyatlandırma katmanını bağımsız olarak değiştirebilirsiniz (Basic gelen ve giden hariç), depolama ve yedekleme bekletme süresi miktarı. Bir sunucu oluşturulduktan sonra yedekleme depolama türünü değiştiremezsiniz. Sanal çekirdek sayısı, yukarı veya aşağı ölçeklendirilebilir. Yedekleme bekletme süresi yukarı veya aşağı 7'den 35 gün öncesine ölçeklendirilebilir. Depolama boyutu yalnızca artırılabilir. Kaynakları ölçeklendirme portal veya Azure CLI aracılığıyla yapılabilir. 
 
-Sanal çekirdek sayısı değiştirdiğinizde <!--the hardware generation,--> veya fiyatlandırma katmanı, orijinal server'ın bir kopyasını yeni işlem ayırma ile oluşturulur. Yeni Sunucu çalışır duruma geldikten sonra bağlantıları yeni sunucuya etkinleştirildi. Sistem, yeni sunucuya geçer şu sırasında yeni bağlantı kurulabilir ve kesinleşmemiş tüm işlemler geri alınır. Bu pencere değişir, ancak çoğu durumda, bir dakikadan az olacaktır.
+<!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
+
+Sanal çekirdekler veya fiyatlandırma katmanını değiştirdiğinizde, özgün sunucunun bir kopyasını yeni işlem ayırma ile oluşturulur. Yeni Sunucu çalışır duruma geldikten sonra bağlantıları yeni sunucuya etkinleştirildi. Sistem, yeni sunucuya geçer şu sırasında yeni bağlantı kurulabilir ve kesinleşmemiş tüm işlemler geri alınır. Bu pencere değişir, ancak çoğu durumda, bir dakikadan az olacaktır.
 
 Depolamayı ölçeklendirme ve yedekleme Bekletme dönemi değiştirmeyi true çevrimiçi işlemlerdir. Kapalı kalma süresi ve uygulamanızı etkilenmez. Sağlanan depolama alanı boyutu ile IOPS ölçeklendirme gibi depolama alanının ölçeğini tarafından kullanılabilir IOPS sunucunuza artırabilirsiniz.
 

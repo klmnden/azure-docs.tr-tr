@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa5eeaad6ec98bb7ce725e1bf4c977cb2d5398a6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 52dd9d0ab5a22b702ad7d55d91b860d57e81f607
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448620"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267775"
 ---
 # <a name="manage-analysis-services"></a>Analysis Services'ı yönetme
 Azure'da bir Analysis Services sunucusuna oluşturduktan sonra hemen veya süre yol gerçekleştirmeniz gereken bazı yönetim görevleri olabilir. Örneğin, kimlerin sunucunuzdaki modelleri erişmek veya sunucunuzun sistem durumunu izleyin, yenileme veri işleme çalıştırın. Bazı yönetim görevlerini yalnızca diğer SQL Server Management Studio (SSMS), Azure portalında gerçekleştirilebilir ve bazı görevler de gerçekleştirilebilir.
 
-## <a name="azure-portal"></a>Azure portalına
+## <a name="azure-portal"></a>Azure portal
 [Azure portalında](http://portal.azure.com/) Burada, oluşturma ve sunucuları silin, sunucu kaynaklarını izleyebilir, boyutunu değiştirmek, ve sunucularınıza kimlerin erişebildiğini yönetmek.  Bazı sorunlar yaşıyorsanız, bir destek isteği gönderebilirsiniz.
 
 ![Azure'da sunucu adını alma](./media/analysis-services-manage/aas-manage-portal.png)
@@ -46,7 +46,7 @@ Azure Analysis Services sunucunuza bağlanma sırasında tüm yeni özelliklere 
     > Kimlik doğrulama türü, **Active Directory - MFA desteğiyle Evrensel**, önerilir.
 
     > [!NOTE]
-    > Bir Microsoft Account, Live ID, Yanoo, Gmail, vb. oturum imzalarsanız parola alanını boş bırakın. Bağlan'a tıkladıktan sonra bir parola istenir.
+    > Bir Microsoft Account, Live ID, Yahoo, Gmail, vb. oturum imzalarsanız parola alanını boş bırakın. Bağlan'a tıkladıktan sonra bir parola istenir.
 
     **Windows kimlik doğrulaması** Windows etki alanı\kullanıcı adı ve parola bilgileriniz kullanılacak.
 

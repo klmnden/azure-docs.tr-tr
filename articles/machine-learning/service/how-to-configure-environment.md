@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: f68d5d7faf3555918b9f9a6add7754c8ae23d0a8
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 73cc346e882acab1c2c00cc49738a388927d3ccf
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239243"
+ms.locfileid: "48248253"
 ---
 # <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için bir geliştirme ortamı yapılandırma
 
@@ -117,6 +117,11 @@ Azure Machine Learning hizmeti ile Azure not defterleri kullanma örneği için 
      ```shell
     pip install --upgrade azureml-sdk[notebooks,automl]
     ```
+
+    > [!NOTE]
+    > Bir ileti alırsanız, `PyYAML` olamaz kaldırılmış, aşağıdaki komutu kullanın:
+    > 
+    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
 
     Uygulamanın, SDK'yı yüklemek için birkaç dakika sürebilir.
 

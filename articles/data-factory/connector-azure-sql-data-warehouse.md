@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: ef1bd613943543f78d358064f4abefc6fa31b63e
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 77b6149f175723ccf19db660ed500fb8897080e8
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842344"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249630"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -33,7 +33,7 @@ Azure SQL veri ambarı ' veri her desteklenen havuz veri deposuna kopyalayabilir
 
 Özellikle, bu Azure SQL veri ambarı Bağlayıcısı, bu işlevler destekler:
 
-- Bir hizmet sorumlusu veya yönetilen hizmet kimliği (MSI) ile SQL kimlik doğrulaması ve Azure Active Directory (Azure AD) uygulama belirteci kimlik doğrulamasını kullanarak verileri kopyalama.
+- SQL kimlik doğrulaması ve Azure Active Directory (Azure AD) uygulama belirteci kimlik doğrulamasını Azure kaynakları için bir hizmet sorumlusu veya yönetilen kimliklerle kullanarak verileri kopyalayın.
 - Bir kaynak olarak bir SQL sorgusu veya saklı yordamı kullanarak veri alın.
 - Bir havuz olarak, PolyBase ya da bir toplu kullanarak yük veriler ekleyin. Daha iyi bir kopyalama performansı için Polybase'i öneririz.
 
@@ -70,7 +70,7 @@ Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örn
 
 - [SQL kimlik doğrulaması](#sql-authentication)
 - Azure AD uygulama belirteci kimlik doğrulamasını: [hizmet sorumlusu](#service-principal-authentication)
-- Azure AD uygulama belirteci kimlik doğrulamasını: [yönetilen hizmet kimliği](#managed-service-identity-authentication)
+- Azure AD uygulama belirteci kimlik doğrulamasını: [kimliklerini Azure kaynakları için yönetilen](#managed-service-identity-authentication)
 
 >[!TIP]
 >Hata olarak "UserErrorFailedToConnectToSqlServer" hata koduyla isabet ve gibi ileti "veritabanı için oturum sınırı xxx ve üst sınırına ulaşıldı.", ekleme `Pooling=false` bağlantı dizesi ve yeniden deneyin.
@@ -152,9 +152,9 @@ Hizmet sorumlusu tabanlı Azure AD uygulama belirteci kimlik doğrulamasını ku
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Yönetilen hizmet kimliği kimlik doğrulaması
+### <a name="managed-identities-for-azure-resources-authentication"></a>Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik
 
-Veri Fabrikası ile ilişkilendirilmiş bir [yönetilen hizmet kimliği](data-factory-service-identity.md) , belirli üretecini temsil eder. Bu hizmet kimliği, Azure SQL veri ambarı kimlik doğrulaması için kullanabilirsiniz. Belirtilen Üreteç erişebilir ve bu kimlik kullanarak veri kopyalama ya da verilerinize ambarı.
+Veri Fabrikası ile ilişkilendirilmiş bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md) , belirli üretecini temsil eder. Bu hizmet kimliği, Azure SQL veri ambarı kimlik doğrulaması için kullanabilirsiniz. Belirtilen Üreteç erişebilir ve bu kimlik kullanarak veri kopyalama ya da verilerinize ambarı.
 
 > [!IMPORTANT]
 > PolyBase MSI kimlik doğrulaması için şu anda desteklenmediğini unutmayın.

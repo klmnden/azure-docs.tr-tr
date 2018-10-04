@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 797f97b9c1548484d72f518ae1d2c56633b7b5b3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ab5f6d10e4f9edc4d899e976291482bb3a795c07
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126777"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248933"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager yönlendirme yöntemleri
 
@@ -105,7 +105,7 @@ Bir profili devre dışı coğrafi yönlendirme için yapılandırıldığında,
 - Dünya – herhangi bir bölge
 - Bölgesel gruplandırma – örneğin Afrika, Orta Doğu, Avustralya/Pasifik vs. 
 - Örneğin, İrlanda, ülke/bölge – Peru, Hong Kong ÖİB vs. 
-- Eyalet/il – örneğin California ABD, Avustralya-Queensland, Kanada Alberta vb. (Not: Bu ayrıntı düzeyi yalnızca durum için desteklenen / il Avustralya, Kanada, Birleşik Krallık ve ABD).
+- Eyalet/il – örneğin California ABD, Avustralya-Queensland, Kanada Alberta vb. (Not: Bu ayrıntı düzeyi yalnızca durum için desteklenen / il Avustralya, Kanada ve ABD'deki).
 
 Bir bölge veya bölge kümesinin bir uç noktasına atandığında, tüm istekler bu bölgelerden yönlendirilmiş yalnızca bu uç noktaya. Traffic Manager, gelen bir kullanıcı sorgulama: genellikle bu kullanıcı adına sorgu yapmadan yerel DNS Çözümleyicisi IP adresi olan bölgeyi belirlemek için DNS sorgusu kaynak IP adresini kullanır.  
 

@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 58ccc328281bb70e00294ccef054232108212ccc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 930e561c1777ccfcb8046c824853ebb12367cee5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997667"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248109"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Sunucu güvenlik duvarı kuralları MariaDB için Azure veritabanı
 Güvenlik duvarları, hangi bilgisayarların izinli olduğunu belirtmenize kadar veritabanı sunucunuza tüm erişimi engeller. Güvenlik Duvarı her isteğin kaynak IP adresi tabanlı sunucu erişim verir.
@@ -46,7 +46,9 @@ MariaDB için Azure veritabanı sunucunuza bağlanmak Azure uygulamalarından iz
 ![Portalda Azure hizmetlerine erişime izin ver'ı yapılandırma](./media/concepts-firewall-rules/allow-azure-services.png)
 
 ## <a name="programmatically-managing-firewall-rules"></a>Güvenlik duvarı kurallarını programlı bir şekilde yönetme
-Azure portalına ek olarak Azure CLI kullanarak güvenlik duvarı kurallarını programlı bir şekilde yönetilebilir. <!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
+Azure portalına ek olarak Azure CLI kullanarak güvenlik duvarı kurallarını programlı bir şekilde yönetilebilir. 
+
+<!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
 
 ## <a name="troubleshooting-the-database-firewall"></a>Veritabanı güvenlik duvarı sorunlarını giderme
 Microsoft Azure veritabanına erişimi MariaDB server hizmeti için beklendiği gibi davranmadığında aşağıdaki noktaları göz önünde bulundurun:

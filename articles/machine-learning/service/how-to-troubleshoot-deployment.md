@@ -9,14 +9,14 @@ ms.author: haining
 author: hning86
 ms.reviewer: jmartens
 ms.date: 10/01/2018
-ms.openlocfilehash: 5c5468619533e66ddaac352dea8bdcbc9616b10d
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 92db115ed826b756e11b572a5a62f0f82d4535a7
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243377"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269198"
 ---
-# <a name="troubleshoot-your-azure-machine-learning-service-deployments"></a>Azure Machine Learning hizmeti dağıtımlarınızla ilgili sorunları giderme
+# <a name="troubleshooting-azure-machine-learning-service-deployments"></a>Azure Machine Learning hizmet dağıtımıyla ilgili sorunları giderme
 
 Bu makalede, Azure Machine Learning hizmeti ile ortak Docker dağıtım hatalarını çözmek veya geçici olarak çözmek öğreneceksiniz.
 
@@ -41,9 +41,7 @@ Bu işlem hakkında daha fazla bilgi [Model Yönetimi](concept-model-management-
 
 Herhangi bir sorun çalıştırırsanız, yapılacak ilk şey dağıtım görevi bölmektir (önceki açıklanmıştır) sorunu ayırt etmek için tek tek adımlara. 
 
-Bu kullanıyorsanız özellikle yararlı olur `Webservice.deploy` API veya `Webservice.deploy_from_model` olduğundan, bu işlevler, tek bir eyleme yukarıda sözü edilen adımları gruplamak API. Genellikle bu API'leri oldukça kullanışlıdır, ancak sorun giderme adımları kesilecek şekilde yardımcı olur. 
-
-Dağıtım bozucu adımlar olduğunda kullanılacak işlevler şunlardır:
+Bu kullanıyorsanız özellikle yararlı olur `Webservice.deploy` API veya `Webservice.deploy_from_model` olduğundan, bu işlevler, tek bir eyleme yukarıda sözü edilen adımları gruplamak API. Genellikle bu API'leri oldukça kullanışlıdır, ancak bunları değiştirerek sorun giderme adımları kesilecek şekilde anlaması aşağıda API çağrıları.
 
 1. Modeli kaydedin. Bazı örnek kodlar aşağıda verilmiştir:
 
@@ -64,7 +62,7 @@ Dağıtım bozucu adımlar olduğunda kullanılacak işlevler şunlardır:
                                                       conda_file="myenv.yml")
 
     # create the image
-    image = Image.create(name='myimg', models=[model], image_config=img_cfg, workspace=ws)
+    image = Image.create(name='myimg', models=[model], image_config=image_config, workspace=ws)
 
     # wait for image creation to finish
     image.wait_for_creation(show_output=True)
@@ -74,9 +72,9 @@ Dağıtım bozucu adımlar olduğunda kullanılacak işlevler şunlardır:
 
     ```python
     # configure an ACI-based deployment
-    aciconfig = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
+    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
 
-    aci_service = Webservice.deploy_from_image(deployment_config=aciconfig, 
+    aci_service = Webservice.deploy_from_image(deployment_config=aci_config, 
                                                image=image, 
                                                name='mysvc', 
                                                workspace=ws)
@@ -86,7 +84,7 @@ Dağıtım bozucu adımlar olduğunda kullanılacak işlevler şunlardır:
 Tek tek görevler dağıtım işlemine aşağı kıran sonra en yaygın hataların bazıları göz atabilirsiniz.
 
 ## <a name="image-building-fails"></a>Görüntü oluşturma başarısız
-Sistem, Docker görüntüsünü derleyin kaydedemediği `image.wait_for_creation` çağrı bazı hata iletileri ile başarısız olur. Görüntü oluşturma günlüğü hatasıyla ilgili daha fazla ayrıntı bulabilirsiniz. Azure blob Depolama'nızda depolanan bir günlük dosyasına işaret eden bir SAS URL'si günlük URI'dir. Yalnızca kopyalama ve yapıştırma URI ve bir tarayıcı penceresi içinde indirin ve günlüğünü görüntüleyin.
+Sistem, Docker görüntüsünü derleyin kaydedemediği `image.wait_for_creation()` çağrı bazı ipuçları sunduğu bazı hata iletileri ile başarısız olur. Görüntü oluşturma günlüğü hataları ile ilgili daha fazla ayrıntı bulabilirsiniz. Aşağıda bazı örnek kodlar görüntü derleme günlük URI'si bulma göstermez.
 
 ```python
 # if you already have the image object handy
@@ -99,14 +97,16 @@ print(ws.images()['myimg'].image_build_log_uri)
 for name, img in ws.images().items()
     print (img.name, img.version, img.image_build_log_uri)
 ```
+Görüntü günlük URI'si, Azure blob Depolama'nızda depolanan bir günlük dosyasına işaret eden bir SAS URL'si ' dir. Yalnızca kopyalama ve yapıştırma URI ve bir tarayıcı penceresi içinde indirin ve günlük dosyasını görüntüleyin.
+
 
 ## <a name="service-launch-fails"></a>Hizmet başlatma başarısız
-Görüntü başarıyla oluşturulduktan sonra sistem ACI veya AKS Dağıtım yapılandırmanıza bağlı olarak bir kapsayıcı başlatma girişiminde bulunur. ACI dağıtım, bir basit tek kapsayıcı dağıtımı olduğundan ilk denemek için her zaman önerilir. Bu şekilde tüm AKS özgü sorunu çıkarabilirsiniz.
+Görüntü başarıyla oluşturulduktan sonra sistem ACI veya AKS Dağıtım yapılandırmanıza bağlı olarak bir kapsayıcı başlatma girişiminde bulunur. Genellikle, daha basit bir tek kapsayıcı dağıtımı olduğundan ACI dağıtım ilk olarak, denemeniz önerilir. Bu şekilde tüm AKS özgü sorunu çıkarabilirsiniz.
 
 Kapsayıcı başlatma artırma işleminin bir parçası olarak `init()` işlevi Puanlama komut dosyanızdaki sistem tarafından çağrılır. İçinde yakalanmamış istisnalar varsa `init()` görebileceğiniz işlev **CrashLoopBackOff** hata hata iletisi. Sorun gidermenize yardımcı olacak birkaç ipucu aşağıda verilmiştir.
 
 ### <a name="inspect-the-docker-log"></a>Docker günlüğünü inceleyin
-Görüntünün başarıyla oluşturulmuş, ancak görüntüyü bir kapsayıcı olarak dağıtırken hatalarla hata iletisinde Docker günlüğünü bulabilirsiniz.
+Hizmet nesnesinden ayrıntılı Docker altyapısı günlük iletilerini yazdırabilirsiniz.
 
 ```python
 # if you already have the service object handy
@@ -128,16 +128,23 @@ print(image.image_location)
 
 Görüntü konumu bu biçimdedir: `<acr-name>.azurecr.io/<image-name>:<version-number>`, gibi `myworkpaceacr.azurecr.io/myimage:3`. 
 
-Komut satırı penceresini ve görüntünün depolandığı çalışma alanı ile ilişkili ACR (Azure Container Registry) oturum açmak için komutlar şu tür artık gidin.
+Şimdi komut satırı pencerenize gidin. Azure-cli yüklü varsa, görüntünün depolandığı çalışma alanı ile ilişkili ACR (Azure Container Registry) oturum açmak için aşağıdaki komutları yazabilirsiniz. 
 
 ```sh
-# note the acr_name is just the domain name WITHOUT the ".azurecr.io" postfix
+# log on to Azure first if you haven't done so before
+$ az login
+
+# make sure you set the right subscription in case you have access to multiple subscriptions
+$ az account set -s <subscription_name_or_id>
+
+# now let's log in to the workspace ACR
+# note the acr-name is the domain name WITHOUT the ".azurecr.io" postfix
 # e.g.: az acr login -n myworkpaceacr
 $ az acr login -n <acr-name>
 ```
-Yüklü azure CLI yoksa, ayrıca kullanabileceğiniz `docker login` ACR oturum komutu. Kullanıcı adını ve parolasını ACR Azure Portalı'ndan almak yeterlidir.
+Azure-cli yüklü yoksa, kullanabileceğiniz `docker login` ACR oturum komutu. Ancak kullanıcı adını ve parolayı ACR, Azure portalından ilk alınması gerekir.
 
-Şimdi Docker görüntüsünü çekme ve yerel olarak bir kapsayıcı başlatın ve sonra hata ayıklama için bir bash oturumu başlatabilirsiniz.
+ACR oturum açtıktan sonra Docker görüntüsünü çekme ve yerel olarak bir kapsayıcı başlatabilir ve ardından kullanarak hata ayıklama için bir bash oturumu başlatmak `docker run` komutu:
 
 ```sh
 # note the image_id is <acr-name>.azurecr.io/<image-name>:<version-number>
@@ -165,7 +172,7 @@ Komut dosyalarınızı değiştirmek için bir metin düzenleyicisi gerektiği d
 # update package index
 apt-get update
 
-# install text editor of your choice
+# install a text editor of your choice
 apt-get install vim
 apt-get install nano
 apt-get install emacs
@@ -184,18 +191,18 @@ $ docker run -p 8000:5001 <image_id>
 ```
 
 ## <a name="function-fails-getmodelpath"></a>İşlevi başarısız: get_model_path()
-Genellikle, `init()` Puanlama betiği işlevinde `Model.get_model_path()` işlevi, bir model dosyası veya dosya bir klasörü kapsayıcıda bulmak için çağrılır. Model dosya veya klasörün bulunamazsa genellikle bir başarısızlık kaynağıdır, budur. Çalıştırmak için bu hata ayıklama için en kolay yolu olan Python kodu kapsayıcı Kabuğu'nda aşağıdaki:
+Genellikle, `init()` Puanlama betiği işlevinde `Model.get_model_path()` işlevi, bir model dosyası veya bir model dosya klasörü kapsayıcıda bulmak için çağrılır. Model dosya veya klasörün bulunamazsa genellikle bir başarısızlık kaynağıdır, budur. Çalıştırmak için bu hata ayıklama için en kolay yolu olan Python kodu kapsayıcı Kabuğu'nda aşağıdaki:
 
 ```python
 from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-Bu yerel yolu Puanlama betiğinizi model dosyası veya klasörü bulmak bekliyor yazdırır. Ardından, dosya veya klasörün aslında burada olması beklenmektedir olup olmadığını doğrulayabilirsiniz.
+Bu yerel yolu yazdırır (göreli `/var/azureml-app`) burada Puanlama betiğinizi bekliyor model dosyası veya klasörü bulmak için kapsayıcıda. Ardından, dosya veya klasörün aslında burada olması beklenmektedir olup olmadığını doğrulayabilirsiniz.
 
 
 ## <a name="function-fails-runinputdata"></a>İşlevi başarısız: run(input_data)
-Hizmet başarıyla dağıtıldıktan ve puanlama uç noktası veri göndermek çöküyor, hata deyiminde yakalama ekleyebilirsiniz, `run(input_data)` hata iletisini bölme konumu için işlevi. Örneğin:
+Hizmet başarıyla dağıtıldı, ancak Puanlama uç noktası veri göndermek çöküyor deyiminde yakalama hata ekleyebilirsiniz, `run(input_data)` ayrıntılı hata iletisi yerine döndürür, böylece işlev. Örneğin:
 
 ```python
 def run(input_data):
@@ -209,6 +216,8 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
+**Not**: hata iletilerini döndüren `run(input_data)` sadece hata ayıklama için çağrısı yapılmalıdır. Güvenlik nedeniyle bir üretim ortamında Bunun iyi bir fikir olmayabilir.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

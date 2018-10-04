@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 205a1e399eadd268ffaa390a7ebb4397fda9feff
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 34647c218bd5fd2eec775599a4d2f10373dbd2fd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444662"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268285"
 ---
-# <a name="setup-dpdk-in-a-linux-virtual-machine"></a>Bir Linux sanal makinesinde DPDK Kurulumu
+# <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Bir Linux sanal makinesinde DPDK ayarlayın
 
-Veri düzlemi Geliştirme Seti (DPDK) Azure üzerinde bir Hızlı Kullanıcı alanı paket işleme çerçevesi sanal makinenin çekirdek ağ yığınını atlayan yoğun performans gerektiren uygulamalar için sunar.
+Azure'da veri düzlemi Geliştirme Seti (DPDK) performans bakımından yoğun uygulamalar için daha hızlı bir kullanıcı alanı paket işleme çerçevesi sağlar. Bu çerçeve, sanal makinenin çekirdek ağ yığınını atlar.
 
-Tipik paket Çekirdek Ağ yığını kullanarak işleme temelli kesme ' dir. Gelen paketleri, ağ arabirimini alır her zaman çekirdek alanı paket ve bağlam anahtardan kullanıcı alanına işlemek için bir çekirdek kesme yoktur. DPDK içerik geçişini ve yoklama modu sürücüler için hızlı paket işleme kullanan bir kullanıcı alanı uygulaması yerine yöntemi temelli kesme ortadan kaldırır.
+Çekirdek Ağ yığını kullanması tipik paket işlemede, kesme temelli işlemidir. Ağ arabirimine gelen paketleri aldığında, bir çekirdek kesme çekirdek alanından, paket ve bağlamı, kullanıcı alanı alanıma geçiş yap işlem yoktur. DPDK içerik geçişini ve kesme temelli yöntemi yerine bir kullanıcı alanı uygulaması kullanan modu sürücüleri hızlı paket işleme için yoklama ortadan kaldırır.
 
-Alt düzey donanım, mantıksal çekirdekler, bellek yönetimi gibi kaynakları ve ağ arabirim kartları için modu sürücüleri yoklamak için erişim sağlayan kullanıcı alanı kitaplıkları kümesinin DPDK oluşur.
+Alt düzey kaynaklarına erişim sağlama kullanıcı alanı kitaplıklar kümesi DPDK oluşur. Bu kaynaklar, donanım, mantıksal çekirdekler, bellek yönetimi ve ağ arabirim kartları için yoklama modu sürücüleri içerebilir.
 
-DPDK birden çok işletim sistemi dağıtımlarını destekleyen Azure sanal makinelerinde çalıştırabilirsiniz. DPDK, bir sanal yönlendirici, güvenlik duvarı, VPN, yük dengeleyici, sistem gereksinimleri paket çekirdek ve hizmet reddi () gibi ağ sanal Gereçleri (NVA) biçiminde sanallaştırma uygulamaları sürüş ağ işlevi içinde bir ana performans ayrıştırması yapılandırmayı sağlar. DDoS) uygulamaları.
+DPDK birden çok işletim sistemi dağıtımlarını destekleyen Azure sanal makinelerinde çalıştırabilirsiniz. DPDK ağ işlevi sanallaştırma uygulamalarına yönlendiren, ana performans ayrım sağlar. Bu uygulamalar, ağ sanal Gereçleri (Nva) biçiminde sanal yönlendiriciler, güvenlik duvarları, VPN'ler, yük Dengeleyiciler, sistem gereksinimleri paket çekirdek ve hizmet reddi (DDoS) uygulamaları gibi alabilir.
 
 ## <a name="benefit"></a>Avantaj
 
-**Daha yüksek Saniyedeki (PPS)**: kullanıcı alanı paketlerin alma denetimi ve çekirdek atlama bağlam ortadan kaldırarak döngüsü sayısını azaltır ve Azure Linux sanal makineler'de saniye başına işlenen paketleri oranını artırır.
+**Daha yüksek Saniyedeki (PPS)**: Kullanıcı alanında paketlerinin alma denetimi ve çekirdek atlama azaltır döngü sayısı bağlam anahtarları ortadan kaldırarak. Ayrıca, Azure Linux sanal makineler'de saniye başına işlenen paket oranını artırır.
 
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
@@ -50,7 +50,7 @@ Azure Galerisi aşağıdaki dağıtımlar desteklenir:
 
 **Özel çekirdek desteği**
 
-Başvurmak [Azure olarak ayarlanmış bir Linux çekirdek oluşturmaya yönelik düzeltme ekleri](https://github.com/microsoft/azure-linux-kernel) listede olmayan herhangi bir Linux çekirdek sürümünü veya daha fazla bilgi için başvurun [ azuredpdk@microsoft.com ](mailto:azuredpdk@microsoft.com). 
+Listede olmayan tüm Linux çekirdek sürümü için bkz: [Azure olarak ayarlanmış bir Linux çekirdek oluşturmaya yönelik düzeltme ekleri](https://github.com/microsoft/azure-linux-kernel). Daha fazla bilgi için de başvurabilirsiniz [ azuredpdk@microsoft.com ](mailto:azuredpdk@microsoft.com). 
 
 ## <a name="region-support"></a>Bölge desteği
 
@@ -105,17 +105,17 @@ zypper \
   --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
 ```
 
-## <a name="setup-virtual-machine-environment-once"></a>(Bir kez) sanal makine ortamı Kurulumu
+## <a name="set-up-the-virtual-machine-environment-once"></a>(Bir kez) sanal makine ortamı ayarlama
 
 1. [En son DPDK indirme](https://core.dpdk.org/download). Azure için 18.02 veya üzeri bir sürüm gereklidir.
-2. Varsayılan yapılandırma ile derlediğinizden `make config T=x86_64-native-linuxapp-gcc`.
+2. Varsayılan yapılandırma ile derleme `make config T=x86_64-native-linuxapp-gcc`.
 3. Mellanox PMDs ile oluşturulan yapılandırmasını etkinleştir `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
 4. Derleme `make`.
 5. İle yükleme `make install DESTDIR=<output folder>`.
 
-# <a name="configure-runtime-environment"></a>Çalışma zamanı ortamı yapılandırma
+## <a name="configure-the-runtime-environment"></a>Çalışma zamanı ortamı yapılandırma
 
-Sistem yeniden başlatıldıktan sonra aşağıdaki komutları bir kez çalıştırın:
+Yeniden başlattıktan sonra aşağıdaki komutları bir kez çalıştırın:
 
 1. Hugepages
 
@@ -128,27 +128,29 @@ Sistem yeniden başlatıldıktan sonra aşağıdaki komutları bir kez çalışt
 
    *  İle bağlama için bir dizin oluşturma `mkdir /mnt/huge`.
    *  Bağlama hugepages ile `mount -t hugetlbfs nodev /mnt/huge`.
-   *  Onay hugepages ile ayrılmıştır `grep Huge /proc/meminfo`.
+   *  Hugepages ile ayrılmıştır işaretleyin `grep Huge /proc/meminfo`.
 
      > [!NOTE]
-     > Bir yolu takip ederek önyükleme ayrılmış büyük sayfalar grub dosya değiştirin [yönergeleri](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) DPDK için. Sayfanın alt kısmında yönergedir. Bir Azure Linux sanal makinesinde çalışan, yeniden başlatmalar arasında hugepages ayırmak için bunun yerine, /etc/config/grub.d altındaki dosyaları değiştirin.
+     > Bir yolu takip ederek önyükleme ayrılmış hugepages grub dosya değiştirin [yönergeleri](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) DPDK için. Sayfanın altındaki yönergeleri verilmiştir. Bir Azure Linux sanal makinesi kullanırken, dosyaları altındaki değiştirme **/etc/config/grub.d** bunun yerine, yeniden başlatmalar arasında hugepages ayırmak için.
 
 2. MAC ve IP adresleri: kullanım `ifconfig –a` MAC ve IP adresi ağ arabirimlerinin görüntüleyebilirsiniz. *VF* ağ arabirimi ve *NETVSC* ağ arabirimine sahip olmalı, ancak aynı MAC adresini *NETVSC* ağ arabirimi bir IP adresi vardır. VF arabirimleri NETVSC arabirimleri bağımlı arabirimleri olarak çalışıyor.
 
 3. PCI adresleri
 
-   * Kullanılmak üzere hangi PCI adresi öğrenmek *VF* ile `ethtool -i <vf interface name>`.
-   * Bu testpmd değil yanlışlıkla konuşturabilirsiniz VF PCI aygıtı sağlamak *eth0*, *eth0* etkin ağ hızlandırdı. DPDK uygulama yönetim ağ arabirimi üzerinden yanlışlıkla sürdü ve SSH bağlantınızı kaybına neden olur, seri konsol DPDK uygulama KILL veya durdurmak veya sanal makineyi başlatmak için kullanın.
+   * Kullanma `ethtool -i <vf interface name>` kullanılmak üzere hangi PCI adresini bulmak için *VF*.
+   * Varsa *eth0* accelerated networking etkin bu testpmd değil yanlışlıkla için VF PCI cihaz üzerinde dikkate aldığınızdan emin olun *eth0*. DPDK uygulama yanlışlıkla yönetim ağ arabirimi üzerinden alır ve SSH bağlantınızı kaybetmenize neden olur, seri konsol DPDK uygulamayı durdurmak için kullanın. Seri konsol, sanal makineyi başlatmak veya durdurmak için de kullanabilirsiniz.
 
 4. Yük *ibuverbs* ile her başlatmada `modprobe -a ib_uverbs`. Yalnızca SLES 15 için aynı zamanda yük *mlx4_ib* ile `modprobe -a mlx4_ib`.
 
 ## <a name="failsafe-pmd"></a>Hatasız PMD
 
-Azure'da kullanıma sunulan PMD hatasız üzerinden DPDK uygulamaları çalıştırmanız gerekir. Uygulamayı doğrudan VF PMD üzerinde çalışıyorsa, değil alırsınız **tüm** bazı paketler yapay arabirimi üzerinden görünür olduğundan, VM'ye giden paketler. Ana bilgisayarın bakımda olduğu zaman VF iptal edilir olsa bile DPDK modunda çalışacak şekilde uygulama için hedeflenen tüm paketlerin alır ve ayrıca uygulama sağlar PMD garanti hatasız üzerinde çalışmaya devam edecek. Hatasız PMD hakkında daha fazla bilgi için başvurmak [emniyet yoklama modu sürücüsü kitaplığı](http://doc.dpdk.org/guides/nics/fail_safe.html).
+Azure'da kullanıma sunulan PMD hatasız üzerinden DPDK uygulamaları çalıştırmanız gerekir. Uygulamayı doğrudan VF PMD üzerinde çalışıyorsa, almaz **tüm** yapay arabirimi üzerinde bazı paketler görünmesini olduğundan VM gidecek paketler. 
+
+DPDK uygulama hatasız PMD çalıştırırsanız, uygulama için hedeflenen tüm paketleri alır garanti eder. Ana bilgisayarın bakımda olduğu zaman VF iptal edilir olsa da uygulama DPDK modunda çalışmaya devam eder emin olur. Hatasız PMD hakkında daha fazla bilgi için bkz: [emniyet yoklama modu sürücüsü kitaplığı](http://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## <a name="run-testpmd"></a>Testpmd çalıştırın
 
-Kullanım `sudo` önce *testpmd* kök modunda çalıştırmak için komutu.
+Testpmd kök modunda çalıştırmak için kullanın `sudo` önce *testpmd* komutu.
 
 ### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Temel: Sağlamlık onay, hatasız bağdaştırıcısı başlatma
 
@@ -171,12 +173,12 @@ Kullanım `sudo` önce *testpmd* kök modunda çalıştırmak için komutu.
    -- -i
    ```
 
-   2'den fazla NIC ile çalışıyorsa `--vdev` bağımsız değişkeni, bu deseni izler: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
+   İkiden fazla NIC ile testpmd çalıştırıyorsanız `--vdev` bağımsız değişkeni, bu deseni izler: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
 
 3.  Başlatıldıktan sonra Çalıştır `show port info all` bağlantı noktası bilgileri denetlenecek. Net_failsafe bir veya iki DPDK bağlantı noktalarını görmeniz gerekir (değil *net_mlx4*).
 4.  Kullanım `start <port> /stop <port>` trafiği başlatmak için.
 
-Yukarıdaki komutları Başlat *testpmd* etkileşimli modda hangi önerilir, bazı testpmd komutları deneyin.
+Yukarıdaki komutları Başlat *testpmd* etkileşimli modda testpmd komutları denediğiniz için önerilir.
 
 ### <a name="basic-single-sendersingle-receiver"></a>Temel: Tek gönderen/tek alıcısı
 
@@ -188,7 +190,7 @@ Aşağıdaki komutları düzenli aralıklarla paket başına ikinci istatistikle
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -203,7 +205,7 @@ Aşağıdaki komutları düzenli aralıklarla paket başına ikinci istatistikle
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -212,7 +214,7 @@ Aşağıdaki komutları düzenli aralıklarla paket başına ikinci istatistikle
      --stats-period <display interval in seconds>
    ```
 
-Yukarıdaki komutları bir sanal makine üzerinde çalışırken, değiştirme *IP_SRC_ADDR* ve *IP_DST_ADDR* içinde `app/test-pmd/txonly.c` derlemeden önce sanal makinelerin gerçek IP adresini eşleştirmek için. Aksi takdirde, alıcı ulaşmadan önce paketler bırakılır.
+Yukarıdaki komutları bir sanal makine üzerinde çalıştırırken, değiştirme *IP_SRC_ADDR* ve *IP_DST_ADDR* içinde `app/test-pmd/txonly.c` derlemeden önce sanal makinelerin gerçek IP adresini eşleştirmek için. Aksi takdirde, alıcı ulaşmadan önce paketler bırakılır.
 
 ### <a name="advanced-single-sendersingle-forwarder"></a>Gelişmiş: Tek gönderen/tek ileticisi
 Aşağıdaki komutları düzenli aralıklarla paket başına ikinci istatistikleri yazdırın:
@@ -223,7 +225,7 @@ Aşağıdaki komutları düzenli aralıklarla paket başına ikinci istatistikle
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -248,7 +250,7 @@ Aşağıdaki komutları düzenli aralıklarla paket başına ikinci istatistikle
      --stats-period <display interval in seconds>
     ```
 
-Yukarıdaki komutları bir sanal makine üzerinde çalışırken, değiştirme *IP_SRC_ADDR* ve *IP_DST_ADDR* içinde `app/test-pmd/txonly.c` derlemeden önce sanal makinelerin gerçek IP adresini eşleştirmek için. Aksi takdirde, iletici ulaşmadan önce paketler bırakılır. Bir üçüncü makine iletilen trafiği almak için sahip mümkün olmayacaktır *testpmd* bazı kod değişiklikleri yapmanızı sürece, iletici Katman 3 adreslerini değiştirmek değil.
+Yukarıdaki komutları bir sanal makine üzerinde çalıştırırken, değiştirme *IP_SRC_ADDR* ve *IP_DST_ADDR* içinde `app/test-pmd/txonly.c` derlemeden önce sanal makinelerin gerçek IP adresini eşleştirmek için. Aksi takdirde, iletici ulaşmadan önce paketler bırakılır. Bir üçüncü makine iletilen trafiği almak için sahip mümkün olmayacaktır *testpmd* bazı kod değişiklikleri yapmanızı sürece, iletici Katman 3 adreslerini değiştirmek değil.
 
 ## <a name="references"></a>Başvurular
 

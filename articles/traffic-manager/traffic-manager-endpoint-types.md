@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: e0c2ad2385b5c8a54b4d8a743cc4f081e5ff6703
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 06965c43408e943922048804099f8f28d69c8540
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127304"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248294"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager uç noktaları
 Microsoft Azure Traffic Manager, farklı veri merkezlerinde çalışan uygulama dağıtımları için ağ trafiğini nasıl dağıtıldığını denetlemenize olanak sağlar. Trafik Yöneticisi'nde ' de her uygulama dağıtımı 'endpoint' olarak yapılandırın. Traffic Manager DNS isteği aldığında, DNS yanıtında döndürmek için kullanılabilir uç nokta seçer. Traffic manager, geçerli uç nokta durumu ve trafik yönlendirme yöntemi seçimi alır. Daha fazla bilgi için [Traffic Manager nasıl çalışır](traffic-manager-how-it-works.md).
@@ -37,8 +37,9 @@ Aşağıdaki bölümlerde her uç nokta türü daha derinlemesine açıklanmakta
 
 Azure uç noktaları, Azure tabanlı Hizmetleri Traffic Manager'da için kullanılır. Aşağıdaki Azure kaynak türleri desteklenir:
 
-* 'Klasik' Iaas Vm'leri ve PaaS bulut Hizmetleri.
+* PaaS bulut Hizmetleri.
 * Web Apps
+* Web uygulaması yuvaları
 * PublicIPAddress kaynaklarını (hangi bağlanabilir Vm'lere doğrudan ya da Azure Load Balancer üzerinden). Publicıpaddress bir Traffic Manager profilinde kullanılmak üzere atanmış bir DNS adı olmalıdır.
 
 PublicIPAddress kaynaklarını Azure Resource Manager kaynaklarıdır. Klasik dağıtım modelinde bulunmaz. Bu nedenle yalnızca desteklenen Traffic Manager'ın Azure Resource Manager deneyimleri değildirler. Bir uç nokta türleri, Resource Manager ve klasik dağıtım modeli desteklenir.

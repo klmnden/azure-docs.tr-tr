@@ -1,6 +1,6 @@
 ---
-title: CURL - Microsoft Bilişsel hizmetler Anomali Bulucu API kullanma | Microsoft Docs
-description: Get bilgilerini hızla yardımcı olmak için cURL ve Anomali Bulucu API Bilişsel Hizmetleri'ni kullanarak Başlarken.
+title: Anomali Bulucu API cURL - Microsoft Bilişsel hizmetler ile kullanma | Microsoft Docs
+description: Hızlı bir şekilde yardımcı olmak için bilgi alın, Bilişsel Hizmetler'e cURL ve Anomali Bulucu API'sini kullanmaya başlama.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,39 +9,41 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 3c1d791b8c0478715b4ffa93cd7dfa43f9be4586
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 31049e24687192b1ea1030a7180299f57bc76771
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353315"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246339"
 ---
-# <a name="use-the-anomaly-finder-api-with-curl"></a>CURL ile Anomali Bulucu API kullanın
+# <a name="use-the-anomaly-finder-api-with-curl"></a>Anomali Bulucu API ile cURL kullanın.
 
-Bu makalede bilgiler sağlar ve hızla yardımcı olmak için kod örnekleri Anomali Bulucu API ile cURL anomali sonucu zaman serisi veri alma görevi gerçekleştirmek için kullanmaya başlayın.
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
+Bu makalede bilgiler sağlanmaktadır ve kod örnekleri, hızlı bir şekilde yardımcı olmak için zaman serisi verilerini anomali sonucu alma görevi gerçekleştirmek için cURL ile Anomali Bulucu API'yi kullanarak kullanmaya başlayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-the-anomaly-finder-api-using-curl"></a>Anomali noktaları Anomali Bulucu cURL kullanarak API ile Başlarken 
+## <a name="getting-anomaly-points-with-the-anomaly-finder-api-using-curl"></a>Anomali Bulucu cURL kullanarak API anomali noktalarını alma 
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Zaman serisi veri örneği
+### <a name="example-of-time-series-data"></a>Zaman serisi verilerini örneği
 
 Zaman serisi veri noktaları örneği aşağıdaki gibidir.
 
 [!INCLUDE [Request](../includes/request.md)]
 
-### <a name="analyze-data-and-get-anomaly-points-curl-example"></a>Verileri çözümlemek ve anomali noktaları cURL örnek alma
+### <a name="analyze-data-and-get-anomaly-points-curl-example"></a>Verileri analiz ve anomali noktaları cURL örnek alın
 
 Örneği kullanarak adımlar aşağıdaki gibidir.
 
-1. Değiştir `[YOUR_SUBSCRIPTION_KEY]` değeri geçerli bir abonelik anahtarınızı ile.
-2. Değiştir `[YOUR_REGION]` elde burada abonelik anahtarlarınızı konumu kullanmak üzere.
-3. Değiştir `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` örnek veya kendi veri noktaları.
-4. Yürütme ve yanıt denetleyin.
+1. `[YOUR_SUBSCRIPTION_KEY]` değerini geçerli abonelik anahtarınızla değiştirin.
+2. Değiştirin `[YOUR_REGION]` abonelik anahtarlarınızın aldığınız yere konumu kullanmak üzere.
+3. Değiştirin `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` örnek veya kendi veri noktaları.
+4. Yürütme ve yanıtı kontrol edin.
 
 ```cURL
 
@@ -53,7 +55,7 @@ curl -v -X POST "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/ano
 ```
 
 ### <a name="example-response"></a>Örnek yanıt
-Başarılı yanıt JSON döndürülür. Örnek yanıt aşağıdaki gibidir: [!INCLUDE [Response](../includes/response.md)]
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek yanıt aşağıdaki gibidir: [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

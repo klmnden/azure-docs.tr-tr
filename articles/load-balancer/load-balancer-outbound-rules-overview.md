@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/3/2018
 ms.author: kumud
-ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 50b567b298406b936a11ad5a8737ce4b1e21c0c7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163027"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248733"
 ---
 # <a name="load-balancer-outbound-rules"></a>Yük Dengeleyici giden kuralları
 
@@ -180,10 +180,10 @@ Genel bir Standard Load Balancer tanımlamak, VM'ler arka uç havuzuna yerleşti
 
 #### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>Giden NAT için iç Load Balancer standart senaryoları
 
-Genel bir Standard Load Balancer ayrıca yapılandırılana dek iç bir Standard Load Balancer kullanırken, giden NAT kullanılamıyor. Kullanarak bunu değiştirebilirsiniz ve standart bir iç yük dengeleyici arkasındaki VM'ler için giden bağlantı oluşturmak için giden kuralı.
+Giden bağlantı açıkça bildirilen kadar iç bir Standard Load Balancer kullanırken, giden NAT kullanılamaz. Bu adımlarla iç standart yük dengeleyici arkasındaki VM'ler için giden bağlantı oluşturmak için bir giden kuralı kullanarak giden bağlantıyı tanımlayabilirsiniz:
 
 1. Genel bir Standard Load Balancer oluşturun.
-2. Arka uç havuzu oluşturabilir ve Vm'leri genel Load Balancer arka uç havuzu halinde yerleştirin.
+2. Arka uç havuzu oluşturabilir ve Vm'leri iç Load Balancer yanı sıra genel Load Balancer arka uç havuzu yerleştirin.
 3. Bu VM'ler için giden NAT programlamak için genel yük dengeleyici üzerindeki bir giden kuralı yapılandırın.
 
 #### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Genel bir Standard Load Balancer ile giden NAT için hem TCP ve UDP protokolleri etkinleştir

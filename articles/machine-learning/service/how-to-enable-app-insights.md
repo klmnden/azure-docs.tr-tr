@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 8fbddd7bca8750317490c35473730ff11f07374c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 812c9911486174b1ed3be5373486e992e4037425
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243417"
+ms.locfileid: "48248543"
 ---
 # <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Azure Machine Learning Modellerinizi üretimde Application Insights ile izleme
 
@@ -49,7 +49,7 @@ Etkinleştirebilir ve Azure portalında Application ınsights'ı devre dışı b
 
 4. İçinde **Gelişmiş ayarlar** seçin **etkinleştirme Application Insights tanılama**.
 
-   [![Düzen](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png)#lightbox)
+   [![Düzenle](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Seçin **güncelleştirme** değişiklikleri uygulamak için ekranın alt kısmındaki. 
 

@@ -1,21 +1,21 @@
 ---
 title: Dil desteği - metin analizi API'si
 titleSuffix: Azure Cognitive Services
-description: "Doğal metin analizi API'si tarafından desteklenen dillerin listesi. Bu makalede her işlem için desteklenen dilleri açıklar: yaklaşım analizi, anahtar ifade ayıklama ve dil algılama."
+description: "Doğal metin analizi API'si tarafından desteklenen dillerin listesi. Bu makalede her işlem için desteklenen dilleri açıklar: yaklaşım analizi, anahtar ifade ayıklama, dil algılama ve varlık tanıma."
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
 ms.technology: text-analytics
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: e9f466ac6bce98a6a9f2d79a443c9602ca40bb26
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a94c2af4d3e0d0d0c466f7cb7d58ec35351ebc3e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435578"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247746"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Metin analizi API'si için dil ve bölge desteği
 
@@ -25,15 +25,15 @@ Bu makalede her işlem için desteklenen dilleri açıklar: yaklaşım analizi, 
 
 Metin analizi API'si, en fazla 120 farklı dillerde algılayabilir. Dil algılama dilinin "betik" döndürür. Örneğin, tümcecik "I sahip bir köpek" döndürür `en` yerine `en-US`. Dil algılama yeteneği döndürdüğü Çince, yalnızca özel bir durum olduğu `zh_CHS` veya `zh_CHT` sağlanan metin verilen betiği belirleyebilirseniz. Burada belirli bir betik tanımlanamıyor Çince belge durumlarda, yalnızca döndüreceği `zh`.
 
-## <a name="sentiment-analysis-key-phrase-extraction-and-entity-linking"></a>Yaklaşım analizi, anahtar ifade ayıklama ve varlık bağlama
+## <a name="sentiment-analysis-key-phrase-extraction-and-entity-recognition"></a>Yaklaşım analizi, anahtar ifade ayıklama ve varlık tanıma
 
-Yaklaşım analizi, anahtar ifade ayıklama ve varlık bağlama, desteklenen dillerin listesini Çözümleyicileri ek diller dil kurallarına uyum sağlamak için daraltılmış daha Seçici.
+Yaklaşım analizi, anahtar ifade ayıklama ve varlık tanıma, desteklenen dillerin listesini Çözümleyicileri ek diller dil kurallarına uyum sağlamak için daraltılmış daha Seçici.
 
 ## <a name="language-list-and-status"></a>Dil listesini ve durumu
 
 Dil desteği başlangıçta Mezun genel kullanıma (GA) durumuna birbirinden ve metin analizi hizmetinin genel Önizleme aşamasında kullanıma sunulma. Önizleme aşamasında için genel kullanıma sunulan metin analizi API'si geçişi sırasında bile kalmasına diller için mümkündür.
 
-| Dil    | Dil kodu | Yaklaşım | Anahtar ifadeler | Varlık Bağlama |   Notlar  |
+| Dil    | Dil kodu | Yaklaşım | Anahtar ifadeler | Varlık tanıma |   Notlar  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Danca      | `da`          | ✔ \*     | ✔           |             |     |
 | Hollanda dili       | `nl`          | ✔ \*     | ✔          |             |     |
@@ -52,7 +52,7 @@ Dil desteği başlangıçta Mezun genel kullanıma (GA) durumuna birbirinden ve 
 | Rusça     | `ru`          | ✔ \*     | ✔           |             |     |
 | İspanyolca     | `es`          | ✔        | ✔           |     |     |
 | İsveç dili     | `sv`          | ✔ \*     | ✔           |             |     |
-| Türkçe     | `tr`          | ✔ \*     |             |             |     |
+| Türkçe     | `tr`          | ✔ \*     |             |             |  |
 
 \* dil desteği Önizleme gösterir
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046388"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268538"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Olağanüstü durum kurtarma hizmeti Yedekleme kullanarak uygulayın ve Azure API Yönetimi'nde geri yükleme
 
@@ -74,7 +74,7 @@ Kaynakları Azure Resource Manager kullanarak bunu görevlerin tümü, Azure aş
 
 7. Tıklayın **Temsilcili izinler** için yeni eklenen uygulamanın kutuyu **Azure Hizmet Yönetimi (Önizleme) erişim**.
 8. Tuşuna **seçin**.
-9. Tıklayın **Verme izinleri**.
+9. Tıklayın **izinleri verin**.
 
 ### <a name="configuring-your-app"></a>Uygulamanızı yapılandırma
 
@@ -204,7 +204,7 @@ Geri yükleme tamamlamak için en az 30 dakika sürebileceğini uzun süren bir 
 > **Değişiklikleri** yapılan işlemi devam ediyor (örneğin, API, ilkeleri, Geliştirici Portalı görünümünü) hizmeti yapılandırmasını geri yükleme sırasında **yazılabiliyordu**.
 
 > [!NOTE]
-> Yedekleme ve geri yükleme işlemleri de Powershell ile gerçekleştirilmesi *yedekleme-AzureRmApiManagement* ve *geri yükleme-AzureRmApiManagement* komutları sırasıyla.
+> Yedekleme ve geri yükleme işlemleri de PowerShell ile gerçekleştirilmesi *yedekleme-AzureRmApiManagement* ve *geri yükleme-AzureRmApiManagement* komutları sırasıyla.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
