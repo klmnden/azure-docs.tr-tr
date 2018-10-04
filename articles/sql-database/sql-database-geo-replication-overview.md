@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: e3296430cd58c8ba33f7cc9acd4cded2925b5be9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: bd224317ba777939a1db4edeb7cb5df728fc434c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166291"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249018"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Genel Bakış: Etkin coğrafi çoğaltma ve otomatik yük devretme grupları
 
@@ -90,6 +90,10 @@ Etkin coğrafi çoğaltma özelliğini aşağıdaki temel özellikleri sağlar:
 ## <a name="auto-failover-group-capabilities"></a>Otomatik Yük devretme grubu özellikleri
 
 Otomatik Yük devretme grupları özelliği, grubu düzeyi çoğaltma ve otomatik yük devretme destekleyerek etkin coğrafi çoğaltma, güçlü bir Özet sağlar. Ayrıca, ek bir dinleyici uç noktalarının sağlayarak SQL bağlantı dizesi yük devretmeden sonra değiştirmek için yeterlilikte kaldırır. 
+
+> [!NOTE]
+> Otomatik Yük devretme, yönetilen örneği'nde kullanılamaz.
+>  
 
 * **Yük devretme grubu**: bir veya daha çok yük devretme grupları, farklı bölgelerde (birincil ve ikincil sunucular) iki sunucu arasında oluşturulabilir. Her grup, tüm veya bazı birincil veritabanı birincil bölgede kesinti nedeniyle kullanılamıyor, bir birim olarak kurtarılan bir veya birden çok veritabanı içerebilir.  
 * **Birincil sunucu**: yük devretme grubunda birincil veritabanlarını barındıran bir sunucu.
