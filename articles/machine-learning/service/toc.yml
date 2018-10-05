@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Azure Machine Learning nedir?
+  - name: Azure Machine Learning hizmeti nedir?
     href: overview-what-is-azure-ml.md
   - name: Workbench'e ne oldu?
     href: overview-what-happened-to-workbench.md
@@ -12,8 +12,10 @@ items:
   expanded: true
 - name: Hızlı Başlangıçlar
   items:
-  - name: başlarken
+  - name: Kullanmaya başlayın - Portal
     href: quickstart-get-started.md
+  - name: Kullanmaya başlama - Python
+    href: quickstart-create-workspace-with-python.md
 - name: Öğreticiler
   items:
   - name: 'Modelleri eğitme: 1. Bölüm'
@@ -42,8 +44,12 @@ items:
       href: how-to-choose-a-dev-environment.md
     - name: Ortamı yapılandırma
       href: how-to-configure-environment.md
-  - name: Eğitim ortamlarını ayarlama
-    href: how-to-set-up-training-targets.md
+    - name: VS Code Tools for AI
+      items:
+      - name: başlarken
+        href: how-to-vscode-tools.md
+      - name: Eğitme ve dağıtma
+        href: how-to-vscode-train-deploy.md
   - name: Verileri hazırlama
     href: how-to-data-prep.md
     items:
@@ -53,19 +59,23 @@ items:
       href: how-to-transform-data.md
     - name: Veri yazma
       href: how-to-write-data.md
-  - name: Eğitme ve ayarlama
+  - name: Verilere erişme
+    href: how-to-access-data.md
+  - name: Modelleri eğitme
     items:
-    - name: Verilere erişme
-      href: how-to-access-data.md
-    - name: ML modellerini eğitme
+    - name: Eğitim ortamlarını ayarlama
+      href: how-to-set-up-training-targets.md
+    - name: Tahmin araçları oluşturma
       href: how-to-train-ml-models.md
       items:
-      - name: PyTorch modellerini eğitme
+      - name: PyTorch
         href: how-to-train-pytorch.md
-      - name: TensorFlow modellerini eğitme
+      - name: TensorFlow
         href: how-to-train-tensorflow.md
     - name: ONNX modellerini eğitme ve dağıtma
       href: how-to-build-deploy-onnx.md
+  - name: Modelleri ayarlama
+    items:
     - name: Hiperparametreleri ayarlama
       href: how-to-tune-hyperparameters.md
     - name: Denemeleri ve ölçümleri izleme
@@ -77,21 +87,28 @@ items:
       href: how-to-configure-auto-train.md
     - name: Uzak işlem hedeflerini kullanma
       href: how-to-auto-train-remote.md
-  - name: Dağıtma ve izleme
+  - name: Modelleri dağıtma
     items:
     - name: Modellerin dağıtılacağı yerler
       href: how-to-deploy-and-where.md
-      items:
-      - name: ACI'ye dağıtma
-        href: how-to-deploy-to-aci.md
-      - name: AKS’ye dağıtma
-        href: how-to-deploy-to-aks.md
-      - name: FPGA'lara dağıtma
-        href: how-to-deploy-fpga-web-service.md
-      - name: IoT Edge'e dağıtma
-        href: how-to-deploy-to-iot.md
+    - name: ACI'ye dağıtma
+      href: how-to-deploy-to-aci.md
+    - name: AKS’ye dağıtma
+      href: how-to-deploy-to-aks.md
+    - name: FPGA'lara dağıtma
+      href: how-to-deploy-fpga-web-service.md
+    - name: IoT Edge'e dağıtma
+      href: how-to-deploy-to-iot.md
+    - name: Sorun giderme
+      href: how-to-troubleshoot-deployment.md
+    - name: SSL ile güvenli
+      href: how-to-secure-web-service.md
+  - name: Modelleri izleme
+    items:
     - name: Üretim verilerini toplama
       href: how-to-enable-data-collection.md
+    - name: Application Insights ile izleme
+      href: how-to-enable-app-insights.md
   - name: Kaynak kotalarını yönetme
     href: how-to-manage-quotas.md
   - name: Verileri dışarı aktarma ve silme
@@ -104,8 +121,6 @@ items:
     href: reference-azure-machine-learning-cli.md
 - name: Kaynaklar
   items:
-  - name: R geliştirici kılavuzu
-    href: ../r-developers-guide.md
   - name: Azure yol haritası
     href: https://azure.microsoft.com/roadmap/
   - name: Fiyatlandırma
@@ -114,6 +129,8 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Hesap verilerini dışarı aktarma veya silme
     href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
+  - name: Sürüm notları
+    href: azure-machine-learning-release-notes.md
   - name: Bilinen sorunlar
     href: resource-known-issues.md
   - name: Destek alın
@@ -314,17 +331,13 @@ items:
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: Metin sınıflandırma modellerini derleme ve dağıtma
           href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md
-    - name: Eski sürüm notları
-      href: azure-machine-learning-release-notes.md
     - name: SSS
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Eski Sorunlar
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-    - name: Destek
-      href: support-for-aml-services.md
-ms.openlocfilehash: 0e069ce7bb04a4aef2e631488ec807a1539c32e5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb5ffe0b261d1c233765175170b5697050b58d20
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162160"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248828"
